@@ -9,8 +9,8 @@ CREATE TABLE /*_*/echo_subscription (
 	sub_enabled tinyint(1) unsigned not null default 1
 ) /*$wgDBTableOptions*/;
 
-CREATE UNIQUE INDEX /*i*/user_subscriptions ON /*i*/echo_subscription (sub_user,sub_event_type,sub_page_namespace,sub_page_title,sub_notify_type,sub_enabled);
-CREATE INDEX /*i*/page_subscriptions ON /*i*/echo_subscription (sub_page_namespace,sub_page_title,sub_event_type,sub_user);
+CREATE UNIQUE INDEX /*i*/user_subscriptions ON /*_*/echo_subscription (sub_user,sub_event_type,sub_page_namespace,sub_page_title,sub_notify_type,sub_enabled);
+CREATE INDEX /*i*/page_subscriptions ON /*_*/echo_subscription (sub_page_namespace,sub_page_title,sub_event_type,sub_user);
 
 CREATE TABLE /*_*/echo_event (
 	event_id int unsigned not null primary key auto_increment,
