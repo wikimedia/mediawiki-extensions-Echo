@@ -13,7 +13,7 @@ abstract class EchoNotificationFormatter {
 	/**
 	 * Creates an instance of the given class with the given parameters.
 	 *
-	 * @param $parameters Associative array of parameters
+	 * @param $parameters array Associative array of parameters
 	 */
 	public function __construct( $parameters ) {
 		$this->parameters = $parameters;
@@ -56,7 +56,7 @@ abstract class EchoNotificationFormatter {
 
 	/**
 	 * Create an EchoNotificationFormatter from the supplied parameters.
-	 * @param $parameters Associative array.
+	 * @param $parameters array Associative array.
 	 * Select the class of formatter to use with the 'type' or 'class' field.
 	 * For other parameters, see the appropriate class' constructor.
 	 * @return EchoNotificationFormatter object.
@@ -82,7 +82,7 @@ abstract class EchoNotificationFormatter {
 	/**
 	 * Returns a link to a title, or the title itself.
 	 * @param $title Title object
-	 * @return Text suitable for output format
+	 * @return string Text suitable for output format
 	 */
 	protected function formatTitle( $title ) {
 		return $title->getPrefixedText();
@@ -92,7 +92,7 @@ abstract class EchoNotificationFormatter {
 	 * Returns a user link in the appropriate format.
 	 *
 	 * @param $user User object.
-	 * @return Text suitable for output format.
+	 * @return string Text suitable for output format.
 	 */
 	protected function formatUser( $user ) {
 		if ( $this->outputFormat === 'html' ) {

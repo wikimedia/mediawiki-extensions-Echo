@@ -34,6 +34,12 @@ class ApiEchoNotifications extends ApiQueryBase {
 		$result->addValue( 'query', $this->getModuleName(), $r );
 	}
 
+	/**
+	 * @param $user User to get notifications for
+	 * @param $unread Boolean: True to get only unread notifications.
+	 * @param $format false to not format any notifications, or an output format name.
+	 * @return array
+	 */
 	public function getNotifications( $user, $unread = false, $format = false ) {
 		$dbr = wfGetDB( DB_SLAVE );
 

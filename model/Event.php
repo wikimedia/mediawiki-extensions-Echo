@@ -10,6 +10,10 @@ class EchoEvent {
 	protected $type = null;
 	protected $variant = null;
 	protected $agent = null;
+
+	/**
+	 * @var Title
+	 */
 	protected $title = null;
 	protected $extra = null;
 	protected $timestamp = null;
@@ -223,6 +227,9 @@ class EchoEvent {
 		return $this->agent;
 	}
 
+	/**
+	 * @return Title
+	 */
 	public function getTitle() {
 		return $this->title;
 	}

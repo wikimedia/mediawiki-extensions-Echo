@@ -5,7 +5,7 @@ class EchoNotificationController {
 	 * Retrieves number of unread notifications that a user has.
 	 *
 	 * @param $user User object to check notifications for
-	 * @param $cached Whether or not to return cached results.
+	 * @param $cached Set to false to bypass the cache.
 	 * @return Integer: Number of unread notifications.
 	 */
 	public static function getNotificationCount( $user, $cached = true ) {
@@ -98,7 +98,8 @@ class EchoNotificationController {
 	 *
 	 * @param $event The EchoEvent to do a notification for.
 	 * @param $user The User object to notify.
-	 * @param $type The type of notification to process.
+	 * @param $type The type of notification to process, as a string.
+	 * @throws MWException
 	 */
 	public static function doNotification( $event, $user, $type ) {
 		global $wgEchoNotifiers;

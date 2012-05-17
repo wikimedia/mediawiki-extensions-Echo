@@ -15,7 +15,7 @@ class EchoSubscription {
 	 *
 	 * @param $user User object for the user whose subscription we're talking about.
 	 * @param $event String identifier for the event type of interest
-	 * @param $title Optional: Title of interest for events, if applicable.
+	 * @param $title Title|null Optional Title of interest for events, if applicable.
 	 */
 	public function __construct( $user, $event, $title = null) {
 		if( !($user instanceof User || $user instanceof StubObject) ) {
@@ -146,6 +146,9 @@ class EchoSubscription {
 
 	## ACCESSORS
 
+	/**
+	 * @return User
+	 */
 	public function getUser() {
 		return $this->user;
 	}
@@ -154,6 +157,9 @@ class EchoSubscription {
 		return $this->event;
 	}
 
+	/**
+	 * @return Title
+	 */
 	public function getTitle() {
 		return $this->title;
 	}
@@ -163,6 +169,10 @@ class EchoSubscription {
 		return $this->notificationTypes;
 	}
 
+	/**
+	 * @param $type
+	 * @return bool
+	 */
 	public function isNotificationEnabled($type) {
 		$types = $this->getNotificationTypes();
 
