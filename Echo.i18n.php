@@ -26,6 +26,35 @@ $messages['en'] = array(
 	// Notification
 	'notification-edit-talk-page' => '$2 edited your talk page $3',
 	'notification-edit' => '$2 edited $3 $4',
+
+	'notification-edit-email-subject' => '{{SITENAME}} notification: $3 has been edited by $2',
+	'notification-edit-email-body' => 'Hello $5,
+This is a notification to let you know that $2 has edited the {{SITENAME}} page $3.
+
+You can see the changes that $2 made by following this link:
+<$4>
+
+You are receiving this message because you have subscribed to email updates for changes to this page.
+
+Thanks for using {{SITENAME}}
+The {{SITENAME}} notification system',
+	'notification-edit-talk-page-email-subject' => 'Your {{SITENAME}} talk page has been edited by $2',
+	'notification-edit-talk-page-email-body' => 'Hello $4,
+This is a notification to let you know that $2 has edited your talk page on {{SITENAME}}.
+
+On {{SITENAME}}, your talk page is where other users can leave you messages.
+
+You can see the changes that $2 made at this link:
+<$3>
+
+Thanks for using {{SITENAME}}
+The {{SITENAME}} notification system',
+
+	// Email notification
+	'echo-email-subject-default' => 'New notification at {{SITENAME}}',
+	'echo-email-body-default' => 'You have a new notification at {{SITENAME}}:
+
+$1',
 );
 
 /**
@@ -50,6 +79,18 @@ $messages['qqq'] = array(
 	'echo-anon' => 'Error message shown to users who try to visit Special:Notifications as an anon.',
 
 	// Notification
-	'notification-edit-talk-page' => 'Format for displaying notifications of a user talk page being edited',
-	'notification-edit' => 'Format for displaying notifications of a page being edited (generally from a watchlist)',
+	'notification-edit-talk-page' => 'Format for displaying notifications of a user talk page being edited
+* $1 is the username of the person who edited, plain text.
+* $2 is the username of the person who edited, formatted.
+* $3 is a diff link, formatted.',
+	'notification-edit' => 'Format for displaying notifications of a page being edited (generally from a watchlist)
+* $1 is the username of the person who edited, plain text.
+* $2 is the username of the person who edited, formatted.
+* $3 is the page that was edited, formatted.
+* $4 is a diff link, possibly formatted.',
+
+	// Email notification
+	'echo-email-subject-default' => 'Default subject for Echo email notifications',
+	'echo-email-body-default' => 'Default message content for Echo email notifications.
+* $1 is a plain text description of the notification.',
 );
