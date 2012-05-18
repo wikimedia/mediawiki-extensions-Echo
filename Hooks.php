@@ -10,6 +10,8 @@ class EchoHooks {
 
 		$updater->modifyField( 'echo_event', 'event_agent',
 			"$dir/db_patches/patch-event_agent-split.sql", true );
+		$updater->modifyField( 'echo_event', 'event_variant',
+			"$dir/db_patches/patch-event_variant_nullability.sql", true );
 		return true;
 	}
 

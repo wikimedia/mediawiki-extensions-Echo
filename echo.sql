@@ -16,7 +16,7 @@ CREATE TABLE /*_*/echo_event (
 	event_id int unsigned not null primary key auto_increment,
 	event_timestamp binary(14) not null,
 	event_type varchar(64) binary not null,
-	event_variant varchar(64) binary not null,
+	event_variant varchar(64) binary null,
 	event_agent_id int unsigned null, -- The user who triggered it, if any
 	event_agent_ip varchar(255) binary null, -- IP address who triggered it, if any
 	event_page_namespace int unsigned null,
