@@ -20,6 +20,7 @@ $messages['en'] = array(
 	'echo-no-title' => '[No Title]',
 
 	// Special:Notifications
+	'notifications' => 'Notifications',
 	'echo-specialpage' => 'My notifications',
 	'echo-anon' => 'To receive notifications, [[Special:Userlogin/signup|create an account]].',
 
@@ -46,6 +47,7 @@ $messages['qqq'] = array(
 	if the notification has no specified page title.',
 
 	// Special:Notifications
+	'notifications' => 'This message is the page title of the special page [[Special:Notifications]].',
 	'echo-specialpage' => 'Special page title for Special:Notifications',
 	'echo-anon' => 'Error message shown to users who try to visit Special:Notifications as an anon.',
 
