@@ -56,6 +56,10 @@ The {{SITENAME}} notification system',
 	'echo-email-body-default' => 'You have a new notification at {{SITENAME}}:
 
 $1',
+
+	// Notifications overlay
+	'echo-link-new' => '$1 new notifications',
+	'echo-link-none' => 'My notifications',
 );
 
 /**
@@ -90,6 +94,11 @@ $messages['qqq'] = array(
 * $2 is the username of the person who edited, formatted.
 * $3 is the page that was edited, formatted.
 * $4 is a diff link, possibly formatted.',
+
+	// Notifications overlay
+	'echo-link-new' => 'Shown in "personal links" when a user has unread notifications.
+* $1 is number of unread notifications',
+	'echo-link-none' => 'Shown in "personal links" when a user has no unread notifications.',
 
 	// Email notification
 	'echo-email-subject-default' => 'Default subject for Echo email notifications',

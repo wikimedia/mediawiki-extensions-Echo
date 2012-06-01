@@ -87,4 +87,36 @@ class EchoHooks {
 
 		return true;
 	}
+
+	static function beforePageDisplay( $out, $skin ) {
+		global $wgUser;
+		if ( !$wgUser->isAnon() ) {
+			$out->addModules( array('ext.echo.overlay') );
+		}
+		return true;
+	}
+
+	static function onPersonalUrls( &$personal_urls, &$title ) {
+		global $wgUser, $wgLang, $wgOut;
+
+		if ( $wgUser->isAnon() ) {
+			return true;
+		}
+
+		$notificationCount = EchoNotificationController::getNotificationCount( $wgUser );
+
+		$msg = wfMessage( $notificationCount == 0 ? 'echo-link-none' : 'echo-link-new' );
+		$url = SpecialPage::getTitleFor( 'Notifications' )->getLocalURL();
+
+		$notificationsLink = array(
+			'href' => $url,
+			'text' => $msg->params($wgLang->formatNum( $notificationCount ) )->text(),
+			'active' => $notificationCount > 0,
+		);
+
+		$insertUrls = array( 'notifications' => $notificationsLink );
+		$personal_urls = wfArrayInsertAfter( $personal_urls, $insertUrls, 'watchlist' );
+
+		return true;
+	}
 }

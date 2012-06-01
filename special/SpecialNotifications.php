@@ -38,12 +38,17 @@ class SpecialNotifications extends SpecialPage {
 		$html = '';
 		foreach( $res as $row ) {
 			$event = EchoEvent::loadFromRow( $row );
+			$class = 'mw-echo-notification';
 
 			$ts = $wgLang->timeanddate( $event->getTimestamp() );
 			$formatted =  "<span class='mw-echo-timestamp'>$ts</span> ";
 			$formatted .= EchoNotificationController::formatNotification( $event, $wgUser, 'html' );
 
-			$html .= "\t<li class='mw-echo-notification'>$formatted</li>\n";
+			if ( $row->notification_read_timestamp === null ) {
+				$class .= ' mw-echo-unread';
+			}
+
+			$html .= "\t<li class='$class'>$formatted</li>\n";
 		}
 
 		$html = "<ul>\n$html\n</ul>\n";

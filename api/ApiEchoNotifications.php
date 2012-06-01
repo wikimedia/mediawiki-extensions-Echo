@@ -8,6 +8,11 @@ class ApiEchoNotifications extends ApiQueryBase {
 	public function execute() {
 		global $wgUser;
 		$params = $this->extractRequestParams();
+
+		if ( count($params['markread']) ) {
+			EchoNotificationController::markRead( $wgUser, $params['markread'] );
+		}
+
 		$result = $this->getResult();
 		$prop = $params['prop'];
 
@@ -21,8 +26,8 @@ class ApiEchoNotifications extends ApiQueryBase {
 			$r['count'] = EchoNotificationController::getNotificationCount($wgUser);
 		}
 
-		if ( count($params['markread']) ) {
-			EchoNotificationController::markRead( $wgUser, $params['markread'] );
+		if ( in_array('index', $prop) ) {
+			$r['index'] = array_keys( $r );
 		}
 
 		$result->setIndexedTagName( $r, 'notification' );
@@ -114,6 +119,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 				ApiBase::PARAM_TYPE => array(
 						'list',
 						'count',
+						'index',
 					),
 				ApiBase::PARAM_DFLT => 'list',
 			),
@@ -127,11 +133,17 @@ class ApiEchoNotifications extends ApiQueryBase {
 						'html',
 					),
 			),
+			'index' => false,
 		);
 	}
 
 	public function getParamDescription() {
 		return array(
+			'prop' => 'Details to request.',
+			'markread' => 'A list of notification IDs to mark as read',
+			'unread' => 'Request only unread notifications',
+			'format' => 'If specified, notifications will be returned formatted this way.',
+			'index' => 'If specified, a list of notification IDs, in order, will be returned.',
 		);
 	}
 

@@ -2,3 +2,7 @@
 	color: gray;
 	font-size: smaller;
 }
+
+.mw-echo-unread {
+	background-color: #f9f9ff;
+}

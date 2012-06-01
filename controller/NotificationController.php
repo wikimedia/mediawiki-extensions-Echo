@@ -13,7 +13,7 @@ class EchoNotificationController {
 
 		$memcKey = wfMemcKey( 'echo-notification-count', $user->getId() );
 
-		if ( $wgMemc->get($memcKey) !== false && $cached ) {
+		if ( $cached && $wgMemc->get($memcKey) !== false ) {
 			return $wgMemc->get($memcKey);
 		}
 

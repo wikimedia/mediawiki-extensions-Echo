@@ -70,13 +70,27 @@ $wgSpecialPages['Notifications'] = 'SpecialNotifications';
 // Housekeeping hooks
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'EchoHooks::getSchemaUpdates';
 $wgHooks['GetPreferences'][] = 'EchoHooks::getPreferences';
+$wgHooks['PersonalUrls'][] = 'EchoHooks::onPersonalUrls';
+$wgHooks['BeforePageDisplay'][] = 'EchoHooks::beforePageDisplay';
+
+$echoResourceTemplate = array(
+	'localBasePath' => "$dir/modules",
+	'remoteExtPath' => 'Echo/modules',
+	'group' => 'ext.echo',
+);
 
 $wgResourceModules += array(
-	'ext.echo.special' => array(
-		'localBasePath' => "$dir/modules",
-		'remoteExtPath' => 'Echo/modules',
-		'group' => 'ext.echo',
-		'styles' => 'ext.echo.special.css',
+	'ext.echo.base' => $echoResourceTemplate + array(
+		'styles' => 'base/ext.echo.base.css',
+	),
+	'ext.echo.overlay' => $echoResourceTemplate + array(
+		'scripts' => 'overlay/ext.echo.overlay.js',
+		'styles' => 'overlay/ext.echo.overlay.css',
+		'dependencies' => array('ext.echo.base', 'mediawiki.api'),
+		'messages' => array('echo-link-new', 'echo-link-none'),
+	),
+	'ext.echo.special' => $echoResourceTemplate + array(
+		'dependencies' => array('ext.echo.base'),
 	),
 );
 

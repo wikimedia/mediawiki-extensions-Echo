@@ -1,0 +1,20 @@
+.mw-echo-overlay {
+	position: absolute;
+	top: 2em;
+	right: 5em;
+	border: 1px solid #A7D7F9;
+	background-color: #fff;
+	min-width: 20em;
+	min-height: 2em;
+	padding: 1em;
+}
+
+.mw-echo-overlay ul {
+	margin-left: 0;
+}
+
+.mw-echo-overlay li {
+	border-bottom: 1px solid #A7D7F9;
+	font-size: 0.8em !important;
+	display: block;
+}
