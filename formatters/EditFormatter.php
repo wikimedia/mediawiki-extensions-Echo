@@ -1,9 +1,7 @@
 <?php
 
 class EchoEditFormatter extends EchoBasicFormatter {
-	protected function processParam( $event, $param, $message ) {
-		parent::processParam( $event, $param, $message );
-
+	protected function processParam( $event, $param, $message, $user ) {
 		if ( $param === 'difflink' ) {
 			$eventData = $event->getExtra();
 			if ( !isset($eventData['revid']) ) {
@@ -32,11 +30,13 @@ class EchoEditFormatter extends EchoBasicFormatter {
 				);
 				$message->rawParams($link);
 			} else {
-				$link = Linker::linkUrl( $title,
+				$link = $title->getFullURL(
 					array( 'oldid' => $revid, 'diff' => 'prev' ) );
 
 				$message->params($link);
 			}
+		} else {
+			parent::processParam( $event, $param, $message, $user );
 		}
 	}
 }

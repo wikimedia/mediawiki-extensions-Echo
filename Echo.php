@@ -101,6 +101,7 @@ $wgHooks['ArticleSaveComplete'][] = 'EchoHooks::onArticleSaved';
 $wgEchoDefaultNotificationTypes = array(
 	'all' => array(
 		'notify' => true,
+		'email' => true,
 	),
 );
 
@@ -113,11 +114,15 @@ $wgEchoNotificationFormatters = array(
 	'edit-user-talk' => array(
 		'type' => 'edit',
 		'message-key' => 'notification-edit-talk-page',
-		'message-params' => array('agent', 'difflink'),
+		'message-params' => array('agent', 'difflink', 'user'),
+		'email-subject-message' => 'notification-edit-talk-page-email-subject',
+		'email-body-message' => 'notification-edit-talk-page-email-body',
 	),
 	'edit' => array(
 		'type' => 'edit',
 		'message-key' => 'notification-edit',
-		'message-params' => array('agent', 'title', 'difflink'),
+		'message-params' => array('agent', 'title', 'difflink', 'user'),
+		'email-subject-message' => 'notification-edit-email-subject',
+		'email-body-message' => 'notification-edit-email-body',
 	),
 );

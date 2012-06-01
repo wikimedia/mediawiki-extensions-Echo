@@ -5,7 +5,7 @@ abstract class EchoNotificationFormatter {
 		'basic' => 'EchoBasicFormatter',
 		'edit' => 'EchoEditFormatter',
 	);
-	protected $validOutputFormats = array('text', 'html');
+	protected $validOutputFormats = array('text', 'html', 'email');
 	protected $outputFormat = 'text';
 
 	/**
@@ -13,7 +13,9 @@ abstract class EchoNotificationFormatter {
 	 *
 	 * @param $parameters Associative array of parameters
 	 */
-	public abstract function __construct( $parameters );
+	public function __construct( $parameters ) {
+		$this->parameters = $parameters;
+	}
 
 	/**
 	 * Shows a notification in human-readable format.
