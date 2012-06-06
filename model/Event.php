@@ -18,10 +18,26 @@ class EchoEvent {
 	 * You should not call the constructor.
 	 * Instead use one of the factory functions:
 	 * EchoEvent::create		To create a new event
-	 * EchoEvent::loadFromRow	To load an event from a row object
-	 * EchoEvent::loadFromID	To load an event from the database given its ID
+	 * EchoEvent::newFromRow	To create an event object from a row object
+	 * EchoEvent::newFromID		To create an event object from the database given its ID
 	 */
 	protected function __construct() {
+	}
+
+	## Save just as the ID
+	function __sleep() {
+		if ( ! $this->id ) {
+			throw new MWException("Unable to serialize an uninitialized EchoEvent");
+		}
+		return array('id');
+	}
+
+	function __wakeup() {
+		$this->loadFromID( $this->id );
+	}
+
+	function __toString() {
+		return "EchoEvent(id={$this->id}; type={$this->type})";
 	}
 
 	/**
@@ -117,42 +133,36 @@ class EchoEvent {
 	}
 
 	/**
-	 * Loads an EchoEvent from a row object
+	 * Loads data from the provided $row into this object.
 	 *
 	 * @param $row Database row object from echo_event
-	 * @return EchoEvent object.
 	 */
-	public static function loadFromRow($row) {
-		$obj = new EchoEvent;
-
-		$obj->id = $row->event_id;
-		$obj->timestamp = $row->event_timestamp;
-		$obj->type = $row->event_type;
-		$obj->variant = $row->event_variant;
-		$obj->extra = $row->event_extra ? unserialize($row->event_extra) : null;
+	public function loadFromRow($row) {
+		$this->id = $row->event_id;
+		$this->timestamp = $row->event_timestamp;
+		$this->type = $row->event_type;
+		$this->variant = $row->event_variant;
+		$this->extra = $row->event_extra ? unserialize($row->event_extra) : null;
 
 		if ( $row->event_agent_id ) {
-			$obj->agent = User::newFromID( $row->event_agent_id );
+			$this->agent = User::newFromID( $row->event_agent_id );
 		} elseif ( $row->event_agent_ip ) {
-			$obj->agent = User::newFromName( $row->event_agent_ip, false );
+			$this->agent = User::newFromName( $row->event_agent_ip, false );
 		}
 
 		if ( $row->event_page_title !== null ) {
-			$obj->title = Title::makeTitleSafe(
+			$this->title = Title::makeTitleSafe(
 				$row->event_page_namespace,
 				$row->event_page_title
 			);
 		}
-
-		return $obj;
 	}
 
 	/**
-	 * Loads an EchoEvent from the database by ID
-	 *
-	 * @return EchoEvent object
+	 * Loads data from the database into this object, given the event ID.
+	 * @param $id Event ID
 	 */
-	public static function loadFromID( $id ) {
+	public function loadFromID($id) {
 		$dbr = wfGetDB( DB_SLAVE );
 
 		$row = $dbr->selectRow( 'echo_event', '*', array('event_id' => $id), __METHOD__ );
@@ -161,7 +171,31 @@ class EchoEvent {
 			throw new MWException( "No EchoEvent found with ID: $id");
 		}
 
-		return self::loadFromRow( $row );
+		$this->loadFromRow( $row );
+	}
+
+	/**
+	 * Creates an EchoEvent from a row object
+	 *
+	 * @param $row Database row object from echo_event
+	 * @return EchoEvent object.
+	 */
+	public static function newFromRow($row) {
+		$obj = new EchoEvent();
+		$obj->loadFromRow( $row );
+		return $obj;
+	}
+
+	/**
+	 * Creates an EchoEvent from the database by ID
+	 *
+	 * @param $id Event ID
+	 * @return EchoEvent object
+	 */
+	public static function newFromID( $id ) {
+		$obj = new EchoEvent();
+		$obj->loadFromID( $id );
+		return $obj;
 	}
 
 	## Accessors

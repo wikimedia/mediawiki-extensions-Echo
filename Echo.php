@@ -59,6 +59,10 @@ $wgAutoloadClasses['EchoEditFormatter'] = "$dir/formatters/EditFormatter.php";
 $wgAutoloadClasses['EchoNotifier'] = "$dir/Notifier.php";
 $wgAutoloadClasses['EchoNotificationController'] = "$dir/controller/NotificationController.php";
 
+// Job queue
+$wgAutoloadClasses['EchoNotificationJob'] = "$dir/jobs/NotificationJob.php";
+$wgJobClasses['EchoNotificationJob'] = 'EchoNotificationJob';
+
 // API
 $wgAutoloadClasses['ApiEchoNotifications'] = "$dir/api/ApiEchoNotifications.php";
 $wgAPIMetaModules['notifications'] = 'ApiEchoNotifications';

@@ -37,7 +37,7 @@ class SpecialNotifications extends SpecialPage {
 
 		$html = '';
 		foreach( $res as $row ) {
-			$event = EchoEvent::loadFromRow( $row );
+			$event = EchoEvent::newFromRow( $row );
 			$class = 'mw-echo-notification';
 
 			$ts = $wgLang->timeanddate( $event->getTimestamp() );

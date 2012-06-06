@@ -65,10 +65,18 @@ class EchoNotificationController {
 	/**
 	 * Processes notifications for a newly-created EchoEvent
 	 * 
-	 * @todo Port to Job Queue
 	 * @param $event EchoEvent to do notifications for
+	 * @param $defer Defer to job queue
 	 */
-	public static function notify( $event ) {
+	public static function notify( $event, $defer = true ) {
+		if ( $defer ) {
+			$title = $event->getTitle() ? $event->getTitle() : Title::newMainPage();
+
+			$job = new EchoNotificationJob( $title, array('event' => $event) );
+			$job->insert();
+			return;
+		}
+
 		$subscriptions = self::getSubscriptionsForEvent( $event );
 
 		foreach( $subscriptions as $subscription ) {

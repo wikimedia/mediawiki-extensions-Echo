@@ -62,7 +62,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 		);
 
 		foreach( $res as $row ) {
-			$event = EchoEvent::loadFromRow( $row );
+			$event = EchoEvent::newFromRow( $row );
 
 			$thisEvent = array(
 				'type' => $event->getType(),
