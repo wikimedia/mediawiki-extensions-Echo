@@ -9,6 +9,11 @@
 			var $overlay = $('<div></div>')
 				.addClass('mw-echo-overlay');
 
+			$overlay.append(
+				$('<big/>')
+					.text(mw.msg('echo-overlay-title'))
+			);
+
 			var Api = new mw.Api();
 
 			Api.get( {
@@ -34,6 +39,24 @@
 							$li.addClass('mw-echo-unread');
 						}
 					});
+
+					if ( ! $ul.find('li').length ) {
+						$ul
+							.before(
+								$('div')
+								.text(mw.msg('echo-none'))
+							)
+							.remove();
+					}
+
+					$overlay.append(
+						$('<div/>')
+							.addClass('mw-echo-overlay-link')
+							.append($('<a/>')
+								.attr('href', $('#pt-notifications a').attr('href'))
+								.text( mw.msg('echo-overlay-link') )
+							)
+					);
 
 					callback($overlay);
 

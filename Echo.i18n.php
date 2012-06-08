@@ -23,6 +23,7 @@ $messages['en'] = array(
 	'notifications' => 'Notifications',
 	'echo-specialpage' => 'My notifications',
 	'echo-anon' => 'To receive notifications, [[Special:Userlogin/signup|create an account]].',
+	'echo-none' => 'You have not received any notifications lately!',
 
 	// Notification
 	'notification-edit-talk-page' => '$2 edited your talk page $3',
@@ -60,6 +61,8 @@ $1',
 	// Notifications overlay
 	'echo-link-new' => '$1 new notifications',
 	'echo-link-none' => 'My notifications',
+	'echo-overlay-link' => 'All notifications…',
+	'echo-overlay-title' => 'My notifications',
 );
 
 /**
@@ -83,6 +86,7 @@ $messages['qqq'] = array(
 	'notifications' => 'This message is the page title of the special page [[Special:Notifications]].',
 	'echo-specialpage' => 'Special page title for Special:Notifications',
 	'echo-anon' => 'Error message shown to users who try to visit Special:Notifications as an anon.',
+	'echo-none' => 'Message shown to users who have no notifications. Also shown in the overlay.',
 
 	// Notification
 	'notification-edit-talk-page' => 'Format for displaying notifications of a user talk page being edited
@@ -99,6 +103,8 @@ $messages['qqq'] = array(
 	'echo-link-new' => 'Shown in "personal links" when a user has unread notifications.
 * $1 is number of unread notifications',
 	'echo-link-none' => 'Shown in "personal links" when a user has no unread notifications.',
+	'echo-overlay-link' => 'Link to "all notifications" at the bottom of the overlay',
+	'echo-overlay-title' => 'Title at the top of the notifications overlay',
 
 	// Email notification
 	'echo-email-subject-default' => 'Default subject for Echo email notifications',

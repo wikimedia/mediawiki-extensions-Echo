@@ -35,6 +35,11 @@ class SpecialNotifications extends SpecialPage {
 			)
 		);
 
+		if ( ! $res->numRows() ) {
+			$wgOut->addWikiMsg('echo-none');
+			return;
+		}
+
 		$html = '';
 		foreach( $res as $row ) {
 			$event = EchoEvent::newFromRow( $row );

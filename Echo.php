@@ -91,7 +91,13 @@ $wgResourceModules += array(
 		'scripts' => 'overlay/ext.echo.overlay.js',
 		'styles' => 'overlay/ext.echo.overlay.css',
 		'dependencies' => array('ext.echo.base', 'mediawiki.api'),
-		'messages' => array('echo-link-new', 'echo-link-none'),
+		'messages' => array(
+			'echo-link-new',
+			'echo-link-none',
+			'echo-overlay-title',
+			'echo-overlay-link',
+			'echo-none',
+		),
 	),
 	'ext.echo.special' => $echoResourceTemplate + array(
 		'dependencies' => array('ext.echo.base'),
