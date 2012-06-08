@@ -104,6 +104,7 @@ $wgDefaultUserOptions['echo-notify-watchlist'] = true;
  * internally.
  */
 $wgHooks['EchoGetDefaultNotifiedUsers'] = array('EchoHooks::getDefaultNotifiedUsers');
+$wgHooks['EchoGetNotificationTypes'] = array('EchoHooks::getNotificationTypes');
 
 // Hook appropriate events
 $wgHooks['WatchArticleComplete'][] = 'EchoHooks::onWatch';
