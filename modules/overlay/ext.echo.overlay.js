@@ -10,7 +10,8 @@
 				.addClass('mw-echo-overlay');
 
 			$overlay.append(
-				$('<big/>')
+				$('<div/>')
+					.addClass('mw-echo-overlay-title')
 					.text(mw.msg('echo-overlay-title'))
 			);
 
@@ -41,12 +42,11 @@
 					});
 
 					if ( ! $ul.find('li').length ) {
-						$ul
-							.before(
-								$('div')
+						$ul.remove();
+						$overlay.append(
+							$('<div></div>')
 								.text(mw.msg('echo-none'))
-							)
-							.remove();
+						);
 					}
 
 					$overlay.append(

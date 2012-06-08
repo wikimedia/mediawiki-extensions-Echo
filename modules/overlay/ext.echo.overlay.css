@@ -18,3 +18,13 @@
 	font-size: 0.8em !important;
 	display: block;
 }
+
+.mw-echo-overlay-title {
+	border-bottom: 1px solid #A7D7F9;
+	font-size: larger;
+}
+
+.mw-echo-overlay-link {
+	font-size: 0.8em !important;
+}
+
