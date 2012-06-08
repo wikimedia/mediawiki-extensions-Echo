@@ -85,6 +85,8 @@ class EchoNotificationController {
 
 			$notifyTypes = array_keys( array_filter($notifyTypes) );
 
+			wfRunHooks( 'EchoGetNotificationTypes', array( $subscription, $event, &$notifyTypes ) );
+
 			foreach( $notifyTypes as $type ) {
 				self::doNotification( $event, $user, $type );
 			}

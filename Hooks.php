@@ -34,6 +34,36 @@ class EchoHooks {
 		return true;
 	}
 
+	public static function getNotificationTypes( $subscription, $event, &$notifyTypes ) {
+		$type = $event->getType();
+		$user = $subscription->getUser();
+
+		// Figure out when to disallow email notifications
+		if ( $type == 'edit' ) {
+			if ( ! $user->getOption('enotifwatchlistpages') ) {
+				$notifyTypes = array_diff( $notifyTypes, 'email' );
+			} else {
+
+			}
+		} elseif ( $type == 'edit-user-talk' ) {
+			if ( ! $user->getOption('enotifusertalkpages') ) {
+				$notifyTypes = array_diff( $notifyTypes, 'email' );
+			}
+		}
+
+		if ( ! $user->getOption('enotifminoredits') ) {
+			$extra = $event->getExtra();
+			if ( $extra['revid'] ) {
+				$rev = Revision::newFromID($extra['revid']);
+
+				if ( $rev->isMinor() ) {
+					$notifyTypes = array_diff( $notifyTypes, 'email' );
+				}
+			}
+		}
+		return true;
+	}
+
 	public static function getPreferences( $user, &$preferences ) {
 		$preferences['echo-notify-watchlist'] = array(
 			'type' => 'toggle',
