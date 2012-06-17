@@ -98,6 +98,33 @@ $messages['qqq'] = array(
 	'echo-overlay-title' => 'Title at the top of the notifications overlay',
 );
 
+/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
+ * @author Wizardist
+ */
+$messages['be-tarask'] = array(
+	'echo-desc' => 'Інфраструктура абвестак новага пакаленьня для MediaWiki',
+	'prefs-echo' => 'Абвесткі',
+	'echo-pref-notify-watchlist' => 'Падпісацца на абвесткі пра рэдагаваньні старонак, за якімі я назіраю.',
+	'echo-no-agent' => '[Ніхто]',
+	'echo-no-title' => '[Без загалоўку]',
+	'notifications' => 'Абвесткі',
+	'echo-specialpage' => 'Мае абвесткі',
+	'echo-anon' => 'Для атрыманьня абвестак [[Special:Userlogin/signup|стварыце рахунак]].',
+	'echo-none' => 'За апошні час вы не атрымлівалі абвестак!',
+	'notification-edit-talk-page' => '$2 {{GENDER:$1|напісаў|напісала}} на вашую старонку гутарак $3',
+	'notification-edit' => '$2 {{GENDER:$1|адрэдагаваў|адрэдагавала}} «$3» $4',
+	'notification-edit-email-subject' => 'Абвестка ад {{GRAMMAR:родны|{{SITENAME}}}}: $2 адрэдагаваў «$3»',
+	'notification-edit-email-body' => 'Вітаем, $5! Паведамляем, што $2 рэдагаваў старонку {{GRAMMAR:родны|{{SITENAME}}}} «$3».
+
+Вы можаце пабачыць унесеныя ўдзельнікам $2 зьмены па наступнай спасылцы:
+<$4>
+
+Вы атрымалі гэтую абвестку, таму што падпісаныя на абвесткі электроннай поштай пра зьмены на гэтай старонцы.
+
+Дзякуем за выкарыстаньне {{GRAMMAR:родны|{{SITENAME}}}}.
+Сыстэма абвестак {{GRAMMAR:родны|{{SITENAME}}}}.',
+);
+
 /** German (Deutsch)
  * @author Kghbln
  */
@@ -176,6 +203,240 @@ Sie können die Änderungen von $2 ansehen, sofern Sie auf den folgenden Link kl
 
 Vielen Dank, dass Sie {{SITENAME}} nutzen.
 Das {{SITENAME}}-Benachrichtigungssytem',
+);
+
+/** Spanish (español)
+ * @author Armando-Martin
+ */
+$messages['es'] = array(
+	'echo-desc' => 'Infraestructura de última generación para notificaciones de MediaWiki',
+	'prefs-echo' => 'Notificaciones',
+	'echo-pref-notify-watchlist' => 'Suscribirme para editar notificaciones cuando agregue páginas a mi lista de vigilancia.',
+	'echo-no-agent' => '[Nadie]',
+	'echo-no-title' => '[Sin título]',
+	'notifications' => 'Notificaciones',
+	'echo-specialpage' => 'Mis notificaciones',
+	'echo-anon' => 'Para recibir notificaciones, [[Special:Userlogin/signup|crea una cuenta]].',
+	'echo-none' => '¡No has recibido notificaciones últimamente!',
+	'notification-edit-talk-page' => '$2 ha editado tu página de discusión $3',
+	'notification-edit' => '$2 ha editado $3 $4',
+	'notification-edit-email-subject' => 'Notificación de {{SITENAME}}: $3 ha sido editado por $2',
+	'notification-edit-email-body' => 'Hola  $5 ,
+
+Esto es una notificación para hacerte saber que  $2  ha editado la página $3 de {{SITENAME}}.
+
+Puedes ver los cambios que  $2 ha hecho siguiendo este enlace:
+
+<$4>
+
+Estás recibiendo este mensaje porque estás suscrito a las actualizaciones por correo electrónico de los cambios de esta página.
+
+Gracias por usar {{SITENAME}}
+El sistema de notificaciones de {{SITENAME}}',
+	'notification-edit-talk-page-email-subject' => 'Tu página de discusión en {{SITENAME}} ha sido editada por $2',
+	'notification-edit-talk-page-email-body' => 'Hola  $4,
+
+Esto es una notificación para hacerte saber que  $2  ha editado tu página de discusión en {{SITENAME}}.
+
+En {{SITENAME}}, tu página de discusión es donde otros usuarios te pueden dejar mensajes.
+
+Puedes ver los cambios que  $2  en este enlace:
+<$3>
+
+Gracias por usar {{SITENAME}}
+El sistema de notificaciones de {{SITENAME}}',
+	'echo-email-subject-default' => 'Nueva notificación en {{SITENAME}}',
+	'echo-email-body-default' => 'Tienes una nueva notificación en {{SITENAME}}:
+
+$1',
+	'echo-link-new' => '$1 nuevas notificaciones',
+	'echo-link-none' => 'Mis notificaciones',
+	'echo-overlay-link' => 'Todas las notificaciones...',
+	'echo-overlay-title' => 'Mis notificaciones',
+);
+
+/** French (français)
+ * @author DavidL
+ */
+$messages['fr'] = array(
+	'echo-desc' => 'Infrastructure de notification de prochaine génération pour MediaWiki',
+	'prefs-echo' => 'Notifications',
+	'echo-pref-notify-watchlist' => "M'inscrire pour modifier les notifications quand j'ajoute des pages à ma liste de suivi.",
+	'echo-no-agent' => '[Personne]',
+	'echo-no-title' => '[Sans titre]',
+	'notifications' => 'Notifications',
+	'echo-specialpage' => 'Mes notifications',
+	'echo-anon' => 'Pour recevoir des notifications, [[Special:Userlogin/signup|créez un compte]].',
+	'echo-none' => "Vous n'avez reçu aucune notification dernièrement !",
+	'notification-edit-talk-page' => '$2 a modifié votre page de discussion $3',
+	'notification-edit' => '$2 a modifié $3 $4',
+	'notification-edit-email-subject' => 'Notification de {{SITENAME}} : $3 a été modifié par $2',
+	'notification-edit-email-body' => "Bonjour  $5,
+Ceci est une notification pour vous informer que $2 a modifié la page $3 de {{SITENAME}}.
+
+Vous pouvez voir les changements faits par $2 en suivant ce lien :
+$4
+
+Vous recevez ce message parce que vous avez souscrit aux mises à jour par courriel des modifications apportées à cette page.
+
+Merci d'utiliser {{SITENAME}}
+Le système de notification de {{SITENAME}}",
+	'notification-edit-talk-page-email-subject' => 'Votre page de discussion de {{SITENAME}} a été modifée par $2',
+	'notification-edit-talk-page-email-body' => "Bonjour  $4,
+
+Ceci est une notification pour vous informer que $2 a modifié votre page de discussion sur {{SITENAME}}.
+
+Sur {{SITENAME}}, votre page de discussion est là où les autres utilisateurs peuvent vous laisser des messages.
+
+Vous pouvez voir les changements que $2 a fait en suivant ce lien:
+$3
+
+Merci d'utiliser {{SITENAME}}
+Le système de notification de {{SITENAME}}",
+	'echo-email-subject-default' => 'Nouvelle notification sur {{SITENAME}}',
+	'echo-email-body-default' => 'Vous avez une nouvelle notification sur {{SITENAME}} :
+
+$1',
+	'echo-link-new' => '$1 nouvelles notifications',
+	'echo-link-none' => 'Mes notifications',
+	'echo-overlay-link' => 'Toutes les notifications…',
+	'echo-overlay-title' => 'Mes notifications',
+);
+
+/** Galician (Galego)
+ * @author Toliño
+ */
+$messages['gl'] = array(
+	'echo-desc' => 'A nova xeración da infraestrutura de notificación de MediaWiki',
+	'prefs-echo' => 'Notificacións',
+	'echo-pref-notify-watchlist' => 'Subscribirme para editar as notificación cando engada páxinas á miña lista de vixilancia.',
+	'echo-no-agent' => '[Ninguén]',
+	'echo-no-title' => '[Sen título]',
+	'notifications' => 'Notificacións',
+	'echo-specialpage' => 'As miñas notificacións',
+	'echo-anon' => 'Para recibir notificacións, [[Special:Userlogin/signup|cree unha conta]].',
+	'echo-none' => 'Non recibiu notificación ningunha ultimamente!',
+	'notification-edit-talk-page' => '$2 editou a súa páxina de conversa $3',
+	'notification-edit' => '$2 editou $3 $4',
+	'notification-edit-email-subject' => 'Notificación de {{SITENAME}}: $2 editou "$3"',
+	'notification-edit-email-body' => 'Boas $5:
+Esta é unha notificación para facerlle saber que $2 editou a páxina "$3" de {{SITENAME}}.
+
+Pode ollar os cambios que realizou $2 seguindo esta ligazón:
+<$4>
+
+Recibiu esta mensaxe porque activou a subscrición ás actualizacións por correo electrónico sobre os cambios nesta páxina.
+
+Grazas por usar {{SITENAME}}
+O sistema de notificación de {{SITENAME}}',
+	'notification-edit-talk-page-email-subject' => '$2 editou a súa páxina de conversa de {{SITENAME}}',
+	'notification-edit-talk-page-email-body' => 'Boas $4:
+Esta é unha notificación para facerlle saber que $2 editou a súa páxina de conversa de {{SITENAME}}.
+
+En {{SITENAME}}, a súa páxina de conversa é o lugar no que os demais usuarios poden deixarlle mensaxes.
+
+Pode ollar os cambios que realizou $2 seguindo esta ligazón:
+<$3>
+
+Grazas por usar {{SITENAME}}
+O sistema de notificación de {{SITENAME}}',
+	'echo-email-subject-default' => 'Nova notificación en {{SITENAME}}',
+	'echo-email-body-default' => 'Ten unha nova notificación en {{SITENAME}}:
+
+$1',
+	'echo-link-new' => '$1 novas notificacións',
+	'echo-link-none' => 'As miñas notificacións',
+	'echo-overlay-link' => 'Todas as notificacións…',
+	'echo-overlay-title' => 'As miñas notificacións',
+);
+
+/** Luxembourgish (Lëtzebuergesch)
+ * @author Robby
+ */
+$messages['lb'] = array(
+	'echo-desc' => 'Nächst Generatioun vun Notifikatiouns-System fir MediaWiki',
+	'prefs-echo' => 'Notifikatiounen',
+	'echo-no-agent' => '[Keen]',
+	'echo-no-title' => '[Keen Titel]',
+	'notifications' => 'Notifikatiounen',
+	'echo-specialpage' => 'Meng Notifikatiounen',
+	'echo-anon' => 'Fir Notifikatiounen ze kréien, [[Special:Userlogin/signup|maacht e Benotzerkont op]].',
+	'echo-none' => 'Dir hutt keng Notifikatioune mat Verspéidung kritt!',
+	'notification-edit-talk-page' => '$2 huet Är Diskussiounssäit $3 geännert',
+	'notification-edit' => '$2 huet $3 $4 geännert',
+	'notification-edit-talk-page-email-subject' => 'Är {{SITENAME}} Diskussiounssäit gouf vum $2 geännert',
+	'echo-email-subject-default' => 'Nei Notifikatioun op {{SITENAME}}',
+	'echo-email-body-default' => 'Dir hutt eng nei Notifikatioun op {{SITENAME}}:
+
+$1',
+	'echo-link-new' => '$1 nei Notifikatiounen',
+	'echo-link-none' => 'Meng Notifikatiounen',
+	'echo-overlay-link' => 'All Notifikatiounen...',
+	'echo-overlay-title' => 'Meng Notifikatiounen',
+);
+
+/** Macedonian (македонски)
+ * @author Bjankuloski06
+ */
+$messages['mk'] = array(
+	'echo-desc' => 'Нова инфраструктура за известувања на МедијаВики',
+	'prefs-echo' => 'Известувања',
+	'echo-pref-notify-watchlist' => 'Претплати ме за измена на известувањата кога додавам страници во мојот список на набљудувања.',
+	'echo-no-agent' => '[Никој]',
+	'echo-no-title' => '[Без наслов]',
+	'notifications' => 'Известувања',
+	'echo-specialpage' => 'Мои известувања',
+	'echo-anon' => 'За да добивате известувања, [[Special:Userlogin/signup|направете сметка]].',
+	'echo-none' => 'Во последно време немате примено ниедно известување!',
+	'notification-edit-talk-page' => '$2 ја измени вашата страница за разговор $3',
+	'notification-edit' => '$2 ја измени страницата $3 $4',
+	'notification-edit-email-subject' => 'Известување од {{SITENAME}}: $2 ја измени страницата $3',
+	'notification-edit-email-body' => 'Здраво $5,
+Ве известуваме дека $2 ја измени страницата $3 на {{SITENAME}}.
+
+Измените што ги направи $2 можете да ги погледате на следнава врска:
+<$4>
+
+Соопштениево го добивате бидејќе сте пријавени на известувања по е-пошта во врска со измени на оваа страница.
+
+Ви благодариме што сте корисник на {{SITENAME}}
+Известителниот систем на {{SITENAME}}',
+	'notification-edit-talk-page-email-subject' => '$2 ја измени вашата страница ра разговор на {{SITENAME}}',
+	'notification-edit-talk-page-email-body' => 'Здраво $4,
+Ве известуваме дека $2 ја измени вашата страница за разговор на {{SITENAME}}.
+
+Страниците за разговор на {{SITENAME}} служат за оставање пораки на други корисници.
+
+Измените што ги направи $2 можете да ги погледате на следнава врска:
+<$3>
+
+
+Ви благодариме што сте корисник на {{SITENAME}}
+Известителниот систем на {{SITENAME}}',
+	'echo-email-subject-default' => 'Ново известување на {{SITENAME}}',
+	'echo-email-body-default' => 'Имате ново известување на {{SITENAME}}:
+
+$1',
+	'echo-link-new' => '$1 нови известувања',
+	'echo-link-none' => 'Мои известувања',
+	'echo-overlay-link' => 'Сите известувања',
+	'echo-overlay-title' => 'Мои известувања',
+);
+
+/** Dutch (Nederlands)
+ * @author SPQRobin
+ */
+$messages['nl'] = array(
+	'echo-no-agent' => '[Niemand]',
+	'echo-no-title' => '[Geen titel]',
+);
+
+/** Polish (polski)
+ * @author BeginaFelicysym
+ */
+$messages['pl'] = array(
+	'echo-no-agent' => '[Nikt]',
+	'echo-no-title' => '[Bez tytułu]',
 );
 
 /** Tagalog (Tagalog)
