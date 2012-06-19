@@ -303,7 +303,7 @@ $1',
 	'echo-overlay-title' => 'Mes notifications',
 );
 
-/** Galician (Galego)
+/** Galician (galego)
  * @author Toliño
  */
 $messages['gl'] = array(
@@ -364,6 +364,7 @@ $messages['lb'] = array(
 	'echo-none' => 'Dir hutt keng Notifikatioune mat Verspéidung kritt!',
 	'notification-edit-talk-page' => '$2 huet Är Diskussiounssäit $3 geännert',
 	'notification-edit' => '$2 huet $3 $4 geännert',
+	'notification-edit-email-subject' => '{{SITENAME}}-Notifikatioun: $3 gouf vum $2 geännert',
 	'notification-edit-talk-page-email-subject' => 'Är {{SITENAME}} Diskussiounssäit gouf vum $2 geännert',
 	'echo-email-subject-default' => 'Nei Notifikatioun op {{SITENAME}}',
 	'echo-email-body-default' => 'Dir hutt eng nei Notifikatioun op {{SITENAME}}:
@@ -425,10 +426,53 @@ $1',
 
 /** Dutch (Nederlands)
  * @author SPQRobin
+ * @author Siebrand
  */
 $messages['nl'] = array(
+	'echo-desc' => 'Meldingeninfrastructuur voor MediaWiki',
+	'prefs-echo' => 'Meldingen',
+	'echo-pref-notify-watchlist' => "Mijn abonneren op meldingen over bewerkingen als ik pagina's aan mijn volglijst toevoeg.",
 	'echo-no-agent' => '[Niemand]',
 	'echo-no-title' => '[Geen titel]',
+	'notifications' => 'Meldingen',
+	'echo-specialpage' => 'Mijn meldingen',
+	'echo-anon' => '[[Special:Userlogin/signup|Maak een gebruiker aan]] als u meldingen wilt ontvangen.',
+	'echo-none' => 'U hebt de laatste tijd geen meldingen ontvangen!',
+	'notification-edit-talk-page' => '$2 heeft uw overlegpagina bewerkt $3',
+	'notification-edit' => '$2 heeft $3 bewerkt $4',
+	'notification-edit-email-subject' => 'Melding van {{SITENAME}}: $3 is bewerkt door $2',
+	'notification-edit-email-body' => 'Hallo $5,
+
+Dit is een melding om u te laten weten dat $2 de pagina $3 op {{SITENAME}} heeft bewerkt.
+
+U kunt de wijzigingen die $2 heeft gemaakt bekijken via de volgende verwijzing:
+<$4>
+
+U ontvangt dit bericht omdat u bent geabonneerd op meldingen via e-mail voor deze pagina.
+
+Dank u wel voor het gebruiken van {{SITENAME}}
+Het meldingensysteem van {{SITENAME}}',
+	'notification-edit-talk-page-email-subject' => 'Uw overlegpagina op {{SITENAME}} is bewerkt door $2',
+	'notification-edit-talk-page-email-body' => 'Hallo $4,
+
+Dit is een melding om u te laten weten dat $2 uw overlegpagina op {{SITENAME}} heeft bewerkt.
+This is a notification to let you know that $2 has edited your talk page on {{SITENAME}}.
+
+Uw overlegpagina is de plaats op {{SITENAME}} waar andere gebruikers berichten voor u achter kunnen laten.
+
+U kunt de wijzigingen die $2 heeft gemaakt bekijken via de volgende verwijzing:
+<$3>
+
+Dank u wel voor het gebruiken van {{SITENAME}}
+Het meldingensysteem van {{SITENAME}}',
+	'echo-email-subject-default' => 'Nieuwe melding op {{SITENAME}}',
+	'echo-email-body-default' => 'U hebt een nieuwe melding op {{SITENAME}}:
+
+$1',
+	'echo-link-new' => '{{PLURAL:$1|1 nieuwe melding|$1 nieuwe meldingen}}',
+	'echo-link-none' => 'Mijn meldingen',
+	'echo-overlay-link' => 'Alle meldingen…',
+	'echo-overlay-title' => 'Mijn meldingen',
 );
 
 /** Polish (polski)
