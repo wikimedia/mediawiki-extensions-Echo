@@ -350,6 +350,53 @@ $1',
 	'echo-overlay-title' => 'As miñas notificacións',
 );
 
+/** Interlingua (interlingua)
+ * @author McDutchie
+ */
+$messages['ia'] = array(
+	'echo-desc' => 'Un nove infrastructura de notification pro MediaWiki',
+	'prefs-echo' => 'Notificationes',
+	'echo-pref-notify-watchlist' => 'Subscriber me pro modificar notificationes quando io adde paginas a mi observatorio.',
+	'echo-no-agent' => '[Nemo]',
+	'echo-no-title' => '[Sin titulo]',
+	'notifications' => 'Notificationes',
+	'echo-specialpage' => 'Mi notificationes',
+	'echo-anon' => 'Pro reciper notificationes, [[Special:Userlogin/signup|crea un conto]].',
+	'echo-none' => 'Tu non ha recipite notificationes recentemente.',
+	'notification-edit-talk-page' => '$2 modificava tu pagina de discussion $3',
+	'notification-edit' => '$2 modificava $3 $4',
+	'notification-edit-email-subject' => 'Notification de {{SITENAME}} : $3 ha essite modificate per $2',
+	'notification-edit-email-body' => 'Salute $5,
+Isto es un notification pro informar te que $2 ha modificate le pagina $3 de {{SITENAME}}.
+
+Tu pote vider le cambiamentos que $2 faceva per sequer iste ligamine:
+<$4>
+
+Tu ha recipite iste message perque tu te ha subscribite a actualisationes per e-mail pro cambiamentos de iste pagina.
+
+Gratias pro usar {{SITENAME}}
+Le systema de notification de {{SITENAME}}',
+	'notification-edit-talk-page-email-subject' => 'Tu pagina de discussion in {{SITENAME}} ha essite modificate per $2',
+	'notification-edit-talk-page-email-body' => 'Salute $4,
+Isto es un notification pro informar te que $2 ha modificate tu pagina de discussion in {{SITENAME}}.
+
+In {{SITENAME}}, tu pagina de discussion es ubi altere usatores pote lassar te messages.
+
+Tu pote vider le cambiamentos que $2 faceva per sequer iste ligamine:
+<$3>
+
+Gratias pro usar {{SITENAME}}
+Le systema de notification de {{SITENAME}}',
+	'echo-email-subject-default' => 'Nove notification in {{SITENAME}}',
+	'echo-email-body-default' => 'Tu ha un nove notification in {{SITENAME}}:
+
+$1',
+	'echo-link-new' => '$1 nove notificationes',
+	'echo-link-none' => 'Mi notificationes',
+	'echo-overlay-link' => 'Tote le notificationes…',
+	'echo-overlay-title' => 'Mi notificationes',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
  */
