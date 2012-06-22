@@ -350,6 +350,33 @@ $1',
 	'echo-overlay-title' => 'As miñas notificacións',
 );
 
+/** Upper Sorbian (Hornjoserbsce)
+ * @author Michawiki
+ */
+$messages['hsb'] = array(
+	'echo-desc' => 'Zdźělenska infrastruktura přichodneje generacije za MediaWiki',
+	'prefs-echo' => 'Zdźělenki',
+	'echo-pref-notify-watchlist' => 'Abonować, zo by zdźělenki wobdźěłał, hdyž strony swojim wobkedźbowankach přidawam.',
+	'echo-no-agent' => '[Nichtó]',
+	'echo-no-title' => '[Žadyn titul]',
+	'notifications' => 'Zdźělenki',
+	'echo-specialpage' => 'Moje zdźělenki',
+	'echo-anon' => 'Zo by zdźělenki dóstał, dyrbiš [[Special:Userlogin/signup|konto załožić]].',
+	'echo-none' => 'W poslednim času njejsy žane zdźělenki dóstał!',
+	'notification-edit-talk-page' => '$2 je twoju diskusijnu stronu $3 wobdźěłał',
+	'notification-edit' => '$2 je $3 $4 wobdźěłał',
+	'notification-edit-email-subject' => 'Zdźělenka z {{GRAMMAR:genitiw|{{SITENAME}}}}: $3 je so wot $2 wobdźěłał',
+	'notification-edit-talk-page-email-subject' => 'Twoja diskusijna strona na {{GRAMMAR:lokatiw|{{SITENAME}}}} je so wot $2 wobdźěłała',
+	'echo-email-subject-default' => 'Nowa zdźělenka na {{GRAMMAR:lokatiw|{{SITENAME}}}}',
+	'echo-email-body-default' => 'Maš nowu zdźělenku na {{GRAMMAR:lokatiw|{{SITENAME}}}}:
+
+$1',
+	'echo-link-new' => '$1 {{PLURAL:$1|nowa zdźělenka|nowej zdźělence|nowe zdźělenki|nowych zdźělenkow}}',
+	'echo-link-none' => 'Moje zdźělenki',
+	'echo-overlay-link' => 'Wšě zdźělenki...',
+	'echo-overlay-title' => 'Moje zdźělenki',
+);
+
 /** Interlingua (interlingua)
  * @author McDutchie
  */
