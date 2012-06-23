@@ -350,7 +350,7 @@ $1',
 	'echo-overlay-title' => 'As miñas notificacións',
 );
 
-/** Upper Sorbian (Hornjoserbsce)
+/** Upper Sorbian (hornjoserbsce)
  * @author Michawiki
  */
 $messages['hsb'] = array(
