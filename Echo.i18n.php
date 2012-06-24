@@ -59,7 +59,7 @@ The {{SITENAME}} notification system',
 $1',
 
 	// Notifications overlay
-	'echo-link-new' => '$1 new notifications',
+	'echo-link-new' => '$1 new {{PLURAL:$1|notification|notifications}}',
 	'echo-link-none' => 'My notifications',
 	'echo-overlay-link' => 'All notifications…',
 	'echo-overlay-title' => 'My notifications',
