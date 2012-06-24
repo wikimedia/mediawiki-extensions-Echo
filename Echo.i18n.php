@@ -125,6 +125,14 @@ $messages['be-tarask'] = array(
 Сыстэма абвестак {{GRAMMAR:родны|{{SITENAME}}}}.',
 );
 
+/** Breton (brezhoneg)
+ * @author Fulup
+ */
+$messages['br'] = array(
+	'echo-no-agent' => '[Den]',
+	'echo-no-title' => '[Diditl]',
+);
+
 /** German (Deutsch)
  * @author Kghbln
  */
@@ -366,7 +374,28 @@ $messages['hsb'] = array(
 	'notification-edit-talk-page' => '$2 je twoju diskusijnu stronu $3 wobdźěłał',
 	'notification-edit' => '$2 je $3 $4 wobdźěłał',
 	'notification-edit-email-subject' => 'Zdźělenka z {{GRAMMAR:genitiw|{{SITENAME}}}}: $3 je so wot $2 wobdźěłał',
+	'notification-edit-email-body' => 'Witaj $5,
+
+to je zdźělenka, kotraž će informuje, zo $2 je stronu $3 na {{GRAMMAR:lokatiw|{{SITENAME}}}} wobdźěłał.
+
+Móžeš změny, kotrež $2 přewjedźe, přez slědowacy wotkaz widźeć:
+<$4>
+
+Přijimaš tutu zdźělenku, dokelž sy e-mejlowe aktualizacije wo změnach na tutej stronje abonował.
+
+Dźakujemy so, zo {{GRAMMAR:akuzatiw|{{SITENAME}}}} wužiwaš.
+Zdźělenski system {{GRAMMAR:genitiw|{{SITENAME}}}}',
 	'notification-edit-talk-page-email-subject' => 'Twoja diskusijna strona na {{GRAMMAR:lokatiw|{{SITENAME}}}} je so wot $2 wobdźěłała',
+	'notification-edit-talk-page-email-body' => 'Witaj $4,
+to je zdźělenka, kotraž će informuje, zo $2 je twoju diskusijnu stronu na {{GRAMMAR:lokatiw|{{SITENAME}}}} wobdźěłał.
+
+Twoja duskusijna strona je na {{GRAMMAR:lokatiw|{{SITENAME}}}}  te městno, hdźež wužiwarjo móža ći powěsće zawostajić.
+
+Změny, kotrež $2 přewjedźe, móžeš přez slědowacy wotkaz widźeć:
+<$3>
+
+Dźakujemy so, zo {{GRAMMAR:akuzatiw|{{SITENAME}}}} wužiwaš.
+Zdźělenski system {{GRAMMAR:genitiw|{{SITENAME}}}}',
 	'echo-email-subject-default' => 'Nowa zdźělenka na {{GRAMMAR:lokatiw|{{SITENAME}}}}',
 	'echo-email-body-default' => 'Maš nowu zdźělenku na {{GRAMMAR:lokatiw|{{SITENAME}}}}:
 
