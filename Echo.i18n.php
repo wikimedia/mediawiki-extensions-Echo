@@ -98,7 +98,7 @@ $messages['qqq'] = array(
 	'echo-overlay-title' => 'Title at the top of the notifications overlay',
 );
 
-/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
  * @author Wizardist
  */
 $messages['be-tarask'] = array(
@@ -123,6 +123,10 @@ $messages['be-tarask'] = array(
 
 Дзякуем за выкарыстаньне {{GRAMMAR:родны|{{SITENAME}}}}.
 Сыстэма абвестак {{GRAMMAR:родны|{{SITENAME}}}}.',
+	'echo-email-subject-default' => 'Новая абвестка ад {{GRAMMAR:родны|{{SITENAME}}}}',
+	'echo-link-none' => 'Мае абвесткі',
+	'echo-overlay-link' => 'Усе абвесткі…',
+	'echo-overlay-title' => 'Мае абвесткі',
 );
 
 /** Breton (brezhoneg)
