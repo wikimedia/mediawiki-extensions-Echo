@@ -124,6 +124,10 @@ $messages['be-tarask'] = array(
 Дзякуем за выкарыстаньне {{GRAMMAR:родны|{{SITENAME}}}}.
 Сыстэма абвестак {{GRAMMAR:родны|{{SITENAME}}}}.',
 	'echo-email-subject-default' => 'Новая абвестка ад {{GRAMMAR:родны|{{SITENAME}}}}',
+	'echo-email-body-default' => 'Для вас ёсьць новая абвестка ў {{GRAMMAR:месны|{{SITENAME}}}}:
+
+$1',
+	'echo-link-new' => '$1 {{PLURAL:$1|новая абвестка|новыя абвесткі|новых абвестак}}',
 	'echo-link-none' => 'Мае абвесткі',
 	'echo-overlay-link' => 'Усе абвесткі…',
 	'echo-overlay-title' => 'Мае абвесткі',
