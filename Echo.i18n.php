@@ -26,8 +26,8 @@ $messages['en'] = array(
 	'echo-none' => 'You have not received any notifications lately!',
 
 	// Notification
-	'notification-edit-talk-page' => '$2 edited your talk page $3',
-	'notification-edit' => '$2 edited $3 $4',
+	'notification-edit-talk-page' => '$2 {{GENDER:$1|edited}} your talk page $3',
+	'notification-edit' => '$2 {{GENDER:$1|edited}} $3 $4',
 
 	'notification-edit-email-subject' => '{{SITENAME}} notification: $3 has been edited by $2',
 	'notification-edit-email-body' => 'Hello $5,
