@@ -65,7 +65,9 @@ $1',
 	'echo-overlay-title' => 'My notifications',
 );
 
-/** Message documentation (Message documentation) */
+/** Message documentation (Message documentation)
+ * @author Amire80
+ */
 $messages['qqq'] = array(
 	'echo-desc' => '{{desc}}',
 	'prefs-echo' => 'Name of preferences section for Echo notifications.',
@@ -80,11 +82,11 @@ $messages['qqq'] = array(
 	'echo-anon' => 'Error message shown to users who try to visit Special:Notifications as an anon.',
 	'echo-none' => 'Message shown to users who have no notifications. Also shown in the overlay.',
 	'notification-edit-talk-page' => 'Format for displaying notifications of a user talk page being edited
-* $1 is the username of the person who edited, plain text.
+* $1 is the username of the person who edited, plain text. Can be used for GENDER.
 * $2 is the username of the person who edited, formatted.
 * $3 is a diff link, formatted.',
 	'notification-edit' => 'Format for displaying notifications of a page being edited (generally from a watchlist)
-* $1 is the username of the person who edited, plain text.
+* $1 is the username of the person who edited, plain text. Can be used for GENDER.
 * $2 is the username of the person who edited, formatted.
 * $3 is the page that was edited, formatted.
 * $4 is a diff link, possibly formatted.',
@@ -184,7 +186,7 @@ Das {{SITENAME}}-Benachrichtigungssytem',
 	'echo-email-body-default' => 'Es gibt eine neue Benachrichtigung auf {{SITENAME}}:
 
 $1',
-	'echo-link-new' => '$1 neue Benachrichtigungen',
+	'echo-link-new' => '$1 neue {{PLURAL:$1|Benachrichtigung|Benachrichtigungen}}',
 	'echo-link-none' => 'Meine Benachrichtigungen',
 	'echo-overlay-link' => 'Alle Benachrichtigungen …',
 	'echo-overlay-title' => 'Meine Benachrichtigungen',
@@ -265,7 +267,7 @@ El sistema de notificaciones de {{SITENAME}}',
 	'echo-email-body-default' => 'Tienes una nueva notificación en {{SITENAME}}:
 
 $1',
-	'echo-link-new' => '$1 nuevas notificaciones',
+	'echo-link-new' => '$1 {{PLURAL:$1|notificación nueva|notificaciones nuevas}}',
 	'echo-link-none' => 'Mis notificaciones',
 	'echo-overlay-link' => 'Todas las notificaciones...',
 	'echo-overlay-title' => 'Mis notificaciones',
@@ -273,6 +275,7 @@ $1',
 
 /** French (français)
  * @author DavidL
+ * @author Tititou36
  */
 $messages['fr'] = array(
 	'echo-desc' => 'Infrastructure de notification de prochaine génération pour MediaWiki',
@@ -313,7 +316,7 @@ Le système de notification de {{SITENAME}}",
 	'echo-email-body-default' => 'Vous avez une nouvelle notification sur {{SITENAME}} :
 
 $1',
-	'echo-link-new' => '$1 nouvelles notifications',
+	'echo-link-new' => '$1 {{PLURAL:$1|nouvelle notification|nouvelles notifications}}',
 	'echo-link-none' => 'Mes notifications',
 	'echo-overlay-link' => 'Toutes les notifications…',
 	'echo-overlay-title' => 'Mes notifications',
@@ -360,10 +363,27 @@ O sistema de notificación de {{SITENAME}}',
 	'echo-email-body-default' => 'Ten unha nova notificación en {{SITENAME}}:
 
 $1',
-	'echo-link-new' => '$1 novas notificacións',
+	'echo-link-new' => '$1 {{PLURAL:$1|nova notificación|novas notificacións}}',
 	'echo-link-none' => 'As miñas notificacións',
 	'echo-overlay-link' => 'Todas as notificacións…',
 	'echo-overlay-title' => 'As miñas notificacións',
+);
+
+/** Hebrew (עברית)
+ * @author Amire80
+ */
+$messages['he'] = array(
+	'echo-desc' => 'הדור הבא של תשתית ההודעות של מדיה־ויקי',
+	'prefs-echo' => 'הודעות',
+	'echo-pref-notify-watchlist' => 'לרשום אותי להודעות על עריכה כאשר אני מוסיף דפים לרשימת המעקב שלי.',
+	'echo-no-agent' => '[לא צוין]',
+	'echo-no-title' => '[ללא כותרת]',
+	'notifications' => 'הודעות',
+	'echo-specialpage' => 'ההודעות שלי',
+	'echo-anon' => 'כדי לקבל הודעות, [[Special:Userlogin/signup|יש ליצור חשבון]].',
+	'echo-none' => 'לא קיבלת הודעות לאחרונה!',
+	'notification-edit-talk-page' => '$2 {{GENDER:$1|ערך|ערכה}} את דף השיחה שלך $3',
+	'notification-edit' => '$2 {{GENDER:$1|ערך|ערכה}} את הדף $3 $4',
 );
 
 /** Upper Sorbian (hornjoserbsce)
@@ -529,7 +549,7 @@ $messages['mk'] = array(
 	'echo-email-body-default' => 'Имате ново известување на {{SITENAME}}:
 
 $1',
-	'echo-link-new' => '$1 нови известувања',
+	'echo-link-new' => '$1 {{PLURAL:$1|ново известување|нови известувања}}',
 	'echo-link-none' => 'Мои известувања',
 	'echo-overlay-link' => 'Сите известувања',
 	'echo-overlay-title' => 'Мои известувања',
