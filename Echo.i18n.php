@@ -475,7 +475,7 @@ Le systema de notification de {{SITENAME}}',
 	'echo-email-body-default' => 'Tu ha un nove notification in {{SITENAME}}:
 
 $1',
-	'echo-link-new' => '$1 nove notificationes',
+	'echo-link-new' => '$1 nove {{PLURAL:$1|notification|notificationes}}',
 	'echo-link-none' => 'Mi notificationes',
 	'echo-overlay-link' => 'Tote le notificationes…',
 	'echo-overlay-title' => 'Mi notificationes',
