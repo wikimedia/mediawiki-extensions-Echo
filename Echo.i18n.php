@@ -655,7 +655,7 @@ Ang sistema ng pagpapabatid ng {{SITENAME}}',
 	'echo-email-body-default' => 'Mayroon kang isang bagong pagpapabatid doon sa {{SITENAME}}:
 
 $1',
-	'echo-link-new' => '$1 bagong mga pagpapabatid',
+	'echo-link-new' => '$1 bagong {{PLURAL:$1|pagpapabatid|mga pagpapabatid}}',
 	'echo-link-none' => 'Mga pagpapabatid ko',
 	'echo-overlay-link' => 'Lahat ng mga pagpapabatid...',
 	'echo-overlay-title' => 'Mga pagpapabatid ko',
