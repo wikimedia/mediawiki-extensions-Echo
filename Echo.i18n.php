@@ -507,6 +507,13 @@ $1',
 	'echo-overlay-title' => 'Meng Notifikatiounen',
 );
 
+/** Lithuanian (lietuvių)
+ * @author Eitvys200
+ */
+$messages['lt'] = array(
+	'prefs-echo' => 'Pranešimai',
+);
+
 /** Macedonian (македонски)
  * @author Bjankuloski06
  */
