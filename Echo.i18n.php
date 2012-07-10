@@ -481,6 +481,53 @@ $1',
 	'echo-overlay-title' => 'Mi notificationes',
 );
 
+/** Italian (italiano)
+ * @author Beta16
+ */
+$messages['it'] = array(
+	'echo-desc' => 'Infrastruttura di nuova generazione per le notifiche su MediaWiki',
+	'prefs-echo' => 'Notifiche',
+	'echo-pref-notify-watchlist' => 'Modifica le mie notifiche quando aggiungo pagine ai miei osservati speciali.',
+	'echo-no-agent' => '[Nessuno]',
+	'echo-no-title' => '[Nessun titolo]',
+	'notifications' => 'Notifiche',
+	'echo-specialpage' => 'Mie notifiche',
+	'echo-anon' => 'Per ricevere le notifiche, [[Special:Userlogin/signup|crea un account]].',
+	'echo-none' => 'Non hai ricevuto notifiche ultimamente!',
+	'notification-edit-talk-page' => '$2 ha modificato la tua pagina di discussione $3',
+	'notification-edit' => '$2 ha modificato $3 $4',
+	'notification-edit-email-subject' => 'Notifica di {{SITENAME}}:  $3 è stata modificata da $2',
+	'notification-edit-email-body' => 'Ciao $5,
+Questa è una notifica per farti sapere che $2 ha modificato la pagina di {{SITENAME}} $3.
+
+Puoi vedere le modifiche che $2 ha fatto seguendo questo collegamento:
+<$4>
+
+Stai ricevendo questo messaggio perché hai sottoscritto gli aggiornamenti tramite email per le modifiche a questa pagina.
+
+Grazie per usare {{SITENAME}}
+Il sistema di notifica di {{SITENAME}}',
+	'notification-edit-talk-page-email-subject' => 'La pagina di discussione su {{SITENAME}} è stata modificata da $2',
+	'notification-edit-talk-page-email-body' => 'Ciao $4,
+Questa è una notifica per farti sapere che $2 ha modificato la tua pagina di discussione su {{SITENAME}}.
+
+Su {{SITENAME}}, la pagina di discussione è dove altri utenti possono lasciarti messaggi.
+
+Puoi vedere le modifiche che $2 ha fatto seguendo questo collegamento:
+<$3>
+
+Grazie per usare {{SITENAME}}
+Il sistema di notifica di {{SITENAME}}',
+	'echo-email-subject-default' => 'Nuova notifica su {{SITENAME}}',
+	'echo-email-body-default' => 'Hai una nuova notifica su {{SITENAME}}:
+
+$1',
+	'echo-link-new' => '$1 {{PLURAL:$1|nuova notifica|nuove notifiche}}',
+	'echo-link-none' => 'mie notifiche',
+	'echo-overlay-link' => 'Tutte le notifiche...',
+	'echo-overlay-title' => 'Mie notifiche',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
  */
@@ -501,7 +548,7 @@ $messages['lb'] = array(
 	'echo-email-body-default' => 'Dir hutt eng nei Notifikatioun op {{SITENAME}}:
 
 $1',
-	'echo-link-new' => '$1 nei Notifikatiounen',
+	'echo-link-new' => '$1 nei {{PLURAL:$1|Notifikatioun|Notifikatiounen}}',
 	'echo-link-none' => 'Meng Notifikatiounen',
 	'echo-overlay-link' => 'All Notifikatiounen...',
 	'echo-overlay-title' => 'Meng Notifikatiounen',
