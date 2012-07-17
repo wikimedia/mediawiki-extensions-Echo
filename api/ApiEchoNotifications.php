@@ -57,7 +57,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 				'LIMIT' => 50,
 			),
 			array(
-				'echo_event' => array('left join', 'notification_event=event_id'),
+				'echo_event' => array('LEFT JOIN', 'notification_event=event_id'),
 			)
 		);
 
