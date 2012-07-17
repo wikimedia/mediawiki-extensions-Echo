@@ -41,13 +41,13 @@ class EchoHooks {
 		// Figure out when to disallow email notifications
 		if ( $type == 'edit' ) {
 			if ( ! $user->getOption('enotifwatchlistpages') ) {
-				$notifyTypes = array_diff( $notifyTypes, 'email' );
+				$notifyTypes = array_diff( $notifyTypes, array('email') );
 			} else {
 
 			}
 		} elseif ( $type == 'edit-user-talk' ) {
 			if ( ! $user->getOption('enotifusertalkpages') ) {
-				$notifyTypes = array_diff( $notifyTypes, 'email' );
+				$notifyTypes = array_diff( $notifyTypes, array('email') );
 			}
 		}
 
@@ -57,7 +57,7 @@ class EchoHooks {
 				$rev = Revision::newFromID($extra['revid']);
 
 				if ( $rev->isMinor() ) {
-					$notifyTypes = array_diff( $notifyTypes, 'email' );
+					$notifyTypes = array_diff( $notifyTypes, array('email') );
 				}
 			}
 		}
