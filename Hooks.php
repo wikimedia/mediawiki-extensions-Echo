@@ -149,4 +149,8 @@ class EchoHooks {
 
 		return true;
 	}
+
+	static function abortEmailNotification() {
+		return false;
+	}
 }
