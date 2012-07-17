@@ -42,8 +42,6 @@ class EchoHooks {
 		if ( $type == 'edit' ) {
 			if ( ! $user->getOption('enotifwatchlistpages') ) {
 				$notifyTypes = array_diff( $notifyTypes, array('email') );
-			} else {
-
 			}
 		} elseif ( $type == 'edit-user-talk' ) {
 			if ( ! $user->getOption('enotifusertalkpages') ) {

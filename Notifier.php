@@ -10,6 +10,7 @@ class EchoNotifier {
 	 */
 	public static function notifyWithNotification( $user, $event ) {
 		EchoNotification::create( array( 'user' => $user, 'event' => $event) );
+		EchoNotificationController::resetNotificationCount( $user );
 	}
 
 	/**
