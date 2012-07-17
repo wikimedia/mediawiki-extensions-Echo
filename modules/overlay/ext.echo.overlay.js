@@ -116,7 +116,7 @@
 		} );
 
 		$('body').click( function(e) {
-			if ( ! $(e.target).is('#pt-notifications *') ) {
+			if ( ! $(e.target).is('.mw-echo-overlay,.mw-echo-overlay *') ) {
 				$('.mw-echo-overlay').fadeOut( 'fast',
 					function() { $(this).remove(); }
 				);
