@@ -45,7 +45,7 @@ class SpecialNotifications extends SpecialPage {
 			$event = EchoEvent::newFromRow( $row );
 			$class = 'mw-echo-notification';
 
-			$ts = $wgLang->timeanddate( $event->getTimestamp() );
+			$ts = $wgLang->prettyTimestamp( $event->getTimestamp() );
 			$formatted =  "<span class='mw-echo-timestamp'>$ts</span> ";
 			$formatted .= EchoNotificationController::formatNotification( $event, $wgUser, 'html' );
 

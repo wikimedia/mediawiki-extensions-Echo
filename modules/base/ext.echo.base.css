@@ -6,3 +6,7 @@
 .mw-echo-unread {
 	background-color: #f9f9ff;
 }
+
+div.mw-echo-timestamp {
+	text-align: right;
+}

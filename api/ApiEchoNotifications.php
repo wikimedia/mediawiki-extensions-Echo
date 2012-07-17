@@ -64,11 +64,13 @@ class ApiEchoNotifications extends ApiQueryBase {
 		foreach( $res as $row ) {
 			$event = EchoEvent::newFromRow( $row );
 
+			global $wgLang;
 			$thisEvent = array(
 				'type' => $event->getType(),
 				'timestamp' => array(
 					'unix' => wfTimestamp( TS_UNIX, $event->getTimestamp() ),
-					'mw' => $event->getTimestamp(),
+					'mw' => wfTimestamp( TS_MW, $event->getTimestamp() ),
+					'pretty' => $wgLang->prettyTimestamp( $event->getTimestamp() ),
 				),
 			);
 
