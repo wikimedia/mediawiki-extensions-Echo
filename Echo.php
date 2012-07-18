@@ -121,6 +121,9 @@ $wgHooks['WatchArticleComplete'][] = 'EchoHooks::onWatch';
 $wgHooks['UnwatchArticleComplete'][] = 'EchoHooks::onUnwatch';
 $wgHooks['ArticleSaveComplete'][] = 'EchoHooks::onArticleSaved';
 
+// Disable ordinary email notifications
+$wgHooks['AbortEmailNotification'][] = 'EchoHooks::abortEmailNotification';
+
 // Configuration
 
 $wgEchoDefaultNotificationTypes = array(
