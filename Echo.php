@@ -141,6 +141,7 @@ $wgHooks['WatchArticleComplete'][] = 'EchoHooks::onWatch';
 $wgHooks['UnwatchArticleComplete'][] = 'EchoHooks::onUnwatch';
 $wgHooks['ArticleSaveComplete'][] = 'EchoHooks::onArticleSaved';
 $wgHooks['AddNewAccount'][] = 'EchoHooks::onAccountCreated';
+$wgHooks['ArticleRollbackComplete'][] = 'EchoHooks::onRollbackComplete';
 
 // Disable ordinary email notifications
 $wgHooks['AbortEmailNotification'][] = 'EchoHooks::abortEmailNotification';
@@ -156,6 +157,10 @@ $wgEchoDefaultNotificationTypes = array( // Welcome events do not use subscripti
 		'notify' => true,
 		'email' => true,
 	),
+	'reverted' => array(
+		'notify' => true,
+		'email' => false,
+	)
 );
 
 $wgEchoNotifiers = array(
@@ -168,27 +173,29 @@ $wgEchoEnabledEvents = array(
 	'add-comment',
 	'add-talkpage-topic',
 	'welcome',
+	'reverted',
 );
 
+// Definitions of the notifications built into Echo
 $wgEchoNotificationFormatters = array(
 	'edit-user-talk' => array(
 		'type' => 'edit',
 		'title-message' => 'notification-edit-talk-page',
-		'title-params' => array( 'agent', 'difflink', 'user' ),
+		'title-params' => array( 'agent', 'difflink', 'user', 'summary' ),
 		'email-subject-message' => 'notification-edit-talk-page-email-subject',
 		'email-subject-params' => array( 'agent' ),
 		'email-body-message' => 'notification-edit-talk-page-email-body',
-		'email-body-params' => array( 'agent', 'difflink', 'user' ),
+		'email-body-params' => array( 'agent', 'difflink', 'user', 'summary' ),
 		'icon' => 'chat',
 	),
 	'edit' => array(
 		'type' => 'edit',
 		'title-message' => 'notification-edit',
-		'title-params' => array( 'agent', 'title', 'difflink', 'user' ),
+		'title-params' => array( 'agent', 'title', 'difflink', 'user', 'summary' ),
 		'email-subject-message' => 'notification-edit-email-subject',
 		'email-subject-params' => array( 'agent', 'title' ),
 		'email-body-message' => 'notification-edit-email-body',
-		'email-body-params' => array( 'agent', 'title', 'difflink', 'user' ),
+		'email-body-params' => array( 'agent', 'title', 'difflink', 'user', 'summary' ),
 		'icon' => 'w',
 	),
 	'add-comment' => array(
@@ -216,5 +223,15 @@ $wgEchoNotificationFormatters = array(
 		'content-message' => 'notification-new-user-content',
 		'content-params' => array( 'agent' ),
 		'icon' => 'w',
+	),
+	'reverted' => array(
+		'type' => 'edit',
+		'title-message' => 'notification-reverted',
+		'title-params' => array( 'agent', 'title', 'difflink', 'summary', 'number' ),
+		'email-subject-message' => 'notification-reverted-email-subject',
+		'email-subject-params' => array( 'agent', 'title', 'summary' ),
+		'email-body-message' => 'notification-reverted-email-body',
+		'email-body-params' => array( 'agent', 'title', 'difflink', 'user', 'summary' ),
+		'icon' => 'revert',
 	)
 );

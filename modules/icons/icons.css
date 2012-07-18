@@ -21,3 +21,8 @@
 	/* @embed */
 	background-image: url(W.png);
 }
+
+.mw-echo-icon-revert {
+	/* @embed */
+	background-image: url(revert.png);
+}

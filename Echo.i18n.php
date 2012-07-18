@@ -18,6 +18,7 @@ $messages['en'] = array(
 	// Errors
 	'echo-no-agent' => '[Nobody]',
 	'echo-no-title' => '[No page]',
+	'echo-error-no-formatter' => 'No formatting defined for notification',
 
 	// Special:Notifications
 	'notifications' => 'Notifications',
@@ -26,8 +27,8 @@ $messages['en'] = array(
 	'echo-none' => 'You have not received any notifications lately.',
 
 	// Notification
-	'notification-edit' => '$2 {{GENDER:$1|edited}} [[$3]] $4',
-	'notification-edit-talk-page' => '$2 {{GENDER:$1|edited}} [[User talk:$4|your talk page]] $3',
+	'notification-edit' => '$2 {{GENDER:$1|edited}} [[$3]] $4: "$5"',
+	'notification-edit-talk-page' => '$2 {{GENDER:$1|edited}} [[User talk:$4|your talk page]] $3: "$5"',
 	'notification-add-comment' => '$2 {{GENDER:$1|commented}} on "[[$4|$3]]" on the "$5" talk page',
 	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|posted}} a new topic "$3" on [[$4]]',
 	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|sent}} you a message: "[[$4#$3|$3]]"',
@@ -36,10 +37,12 @@ $messages['en'] = array(
 	'notification-new-user' => 'Welcome to {{SITENAME}}, $1!',
 	'notification-new-user-content' => 'Hi $1, and welcome to {{SITENAME}}.<br />
 Please remember to sign any comments on talk pages with 4 tildes (~~~~).',
-
+	'notification-reverted' => '$2 {{GENDER:$1|reverted}} your {{PLURAL:$6|1=edit|edits}} on [[$3]] $4: "$5"',
 	'notification-edit-email-subject' => '{{SITENAME}} notification: $3 has been edited by $2',
 	'notification-edit-email-body' => 'Hello $5,
 This is a notification to let you know that $2 has edited the {{SITENAME}} page $3.
+
+$2 summarized their changes with this comment: $6
 
 You can see the changes that $2 made by following this link:
 <$4>
@@ -48,17 +51,35 @@ You are receiving this message because you have subscribed to email updates for 
 
 Thanks for using {{SITENAME}}
 The {{SITENAME}} notification system',
+
 	'notification-edit-talk-page-email-subject' => 'Your {{SITENAME}} talk page has been edited by $2',
 	'notification-edit-talk-page-email-body' => 'Hello $4,
 This is a notification to let you know that $2 has edited your talk page on {{SITENAME}}.
 
 On {{SITENAME}}, your talk page is where other users can leave you messages.
 
+$2 used the following summary to describe their change: $5
+
 You can see the changes that $2 made at this link:
 <$3>
 
 Thanks for using {{SITENAME}}
 The {{SITENAME}} notification system',
+
+	'notification-reverted-email-subject' => '{{SITENAME}} notification: $2 has reverted your edit on $3: $4',
+	'notification-reverted-email-body' => 'Hello $5,
+This is a notification to let you know that $2 has reverted your edits on the {{SITENAME}} page $3.
+
+$2 used the following summary to describe their change: $6
+
+You can see the change that $2 made to revert your edits by following this link:
+<$4>
+
+You are receiving this message because you have subscribed to email alerts
+when your changes are reverted.
+
+Thanks for using {{SITENAME}}
+The {{SITENAME}} notification system.',
 
 	// Email notification
 	'echo-email-subject-default' => 'New notification at {{SITENAME}}',
@@ -89,6 +110,7 @@ $messages['qqq'] = array(
 	if the notification has no specified user.',
 	'echo-no-title' => 'Shown in place of a page title in a notification
 	if the notification has no specified page title.',
+	'echo-error-no-formatter' => "Error message displayed when no formatting has been defined for a notification. In other words, the extension doesn't know how to properly display the notification.",
 	'notifications' => 'This message is the page title of the special page [[Special:Notifications]].',
 	'echo-specialpage' => 'Special page title for Special:Notifications',
 	'echo-anon' => 'Error message shown to users who try to visit Special:Notifications as an anon.',
@@ -97,12 +119,14 @@ $messages['qqq'] = array(
 * $1 is the username of the person who edited, plain text. Can be used for GENDER.
 * $2 is the username of the person who edited, HTML formatted as the link to the user\'s page.
 * $3 is the page that was edited, as plain text.
-* $4 is a diff link, possibly formatted as an HTML link with the text "(diff)".',
+* $4 is a diff link, possibly formatted as an HTML link with the text "(diff)".
+* $5 is the edit summary.',
 	'notification-edit-talk-page' => 'Format for displaying notifications of a user talk page being edited
 * $1 is the username of the person who edited, plain text. Can be used for GENDER.
 * $2 is the username of the person who edited, HTML formatted as the link to the user\'s page.
 * $3 is a diff link, formatted as an HTML link with the text "(diff)".
-* $4 is the current user\'s name, used in the link to their talk page.',
+* $4 is the current user\'s name, used in the link to their talk page.
+* $5 is the edit summary.',
 	'notification-add-comment' => 'Format for displaying notifications of a comment being added to an existing discussion. Parameters:
 * $1 is the username of the person who edited, plain text. Can be used for GENDER,
 * $2 is the username of the person who edited,
@@ -137,13 +161,22 @@ $messages['qqq'] = array(
 * $2 is a username
 * $3 is a page title
 * $4 is a link to a change
-* $5 is the e-mail recipient's username.",
+* $5 is the e-mail recipient's username.
+* $6 is the edit summary.",
 	'notification-edit-talk-page-email-subject' => 'E-mail subject. Parameters:
 * $2 is a username.',
 	'notification-edit-talk-page-email-body' => "E-mail notification. Parameters:
 * $2 is a username
 * $3 link to a change
-* $4 is the e-mail recipient's username.",
+* $4 is the e-mail recipient's username.
+* $5 is the edit summary.",
+	'notification-reverted' => "Format for displaying notifications of a user's edit being reverted.
+* $1 is the username of the person who reverted, plain text. Can be used for GENDER.
+* $2 is the username of the person who reverted, formatted.
+* $3 is the page that was reverted, formatted.
+* $4 is a diff link to the ''revert'', possibly formatted.
+* $5 is the edit summary used to revert.
+* $6 is the number of edits that were reverted. NOTE: This will only be set to 1 or 2, with 2 actually meaning 'an unknown number greater than 0'.",
 	'echo-email-subject-default' => 'Default subject for Echo email notifications',
 	'echo-email-body-default' => 'Default message content for Echo email notifications.
 * $1 is a plain text description of the notification.',

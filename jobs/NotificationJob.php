@@ -8,5 +8,6 @@ class EchoNotificationJob extends Job {
 
 	function run() {
 		EchoNotificationController::notify( $this->event, false );
+		return true;
 	}
 }

@@ -62,6 +62,16 @@ class EchoHooks {
 			case 'welcome':
 				$users[$event->getAgent()->getId()] = $event->getAgent();
 				break;
+			case 'reverted':
+				$extra = $event->getExtra();
+
+				if ( !$extra || !isset( $extra['reverted-user-id'] ) ) {
+					break;
+				}
+				$victimID = $extra['reverted-user-id'];
+				$victim = User::newFromId( $victimID );
+				$users[$victim->getId()] = $victim;
+				break;
 		}
 
 		return true;
@@ -174,20 +184,41 @@ class EchoHooks {
 	 * @return bool true in all cases
 	 */
 	public static function onArticleSaved( &$article, &$user, $text, $summary, $minoredit, $watchthis, $sectionanchor, &$flags, $revision, &$status ) {
-		if ( !$revision ) {
-			return true;
-		}
+		if ( $revision ) {
+			EchoEvent::create( array(
+				'type' => 'edit',
+				'title' => $article->getTitle(),
+				'extra' => array( 'revid' => $revision->getID() ),
+				'agent' => $user,
+			) );
 
-		EchoEvent::create( array(
-			'type' => 'edit',
-			'title' => $article->getTitle(),
-			'extra' => array( 'revid' => $revision->getID() ),
-			'agent' => $user,
-		) );
+			if ( $article->getTitle()->isTalkPage() ) {
+				EchoDiscussionParser::generateEventsForRevision( $revision );
+			}
 
-
-		if ( $article->getTitle()->isTalkPage() ) {
-			EchoDiscussionParser::generateEventsForRevision( $revision );
+			// Handle the case of someone undoing an edit, either through the
+			// 'undo' link in the article history or via the API.
+			global $wgRequest;
+			$undidRevId = $wgRequest->getVal( 'wpUndidRevision' );
+			if ( $undidRevId ) {
+				$undidRevision = Revision::newFromId( $undidRevId );
+				if ( $undidRevision ) {
+					$victimId = $undidRevision->getUser();
+					if ( $victimId ) { // No notifications for anonymous users
+						EchoEvent::create( array(
+							'type' => 'reverted',
+							'title' => $article->getTitle(),
+							'extra' => array(
+								'revid' => $revision->getId(),
+								'reverted-user-id' => $victimId,
+								'reverted-revision-id' => $undidRevId,
+								'method' => 'undo',
+							),
+							'agent' => $user,
+						) );
+					}
+				}
+			}
 		}
 
 		return true;
@@ -290,5 +321,25 @@ class EchoHooks {
 
 	static function abortNewtalkNotification( $article ) {
 		return false;
+	}
+
+	static function onRollbackComplete( $page, $agent, $newRevision, $oldRevision ) {
+		$victimId = $oldRevision->getUser();
+
+		if ( $victimId ) { // No notifications for anonymous users
+			EchoEvent::create( array(
+				'type' => 'reverted',
+				'title' => $page->getTitle(),
+				'extra' => array(
+					'revid' => $page->getRevision()->getId(),
+					'reverted-user-id' => $victimId,
+					'reverted-revision-id' => $oldRevision->getId(),
+					'method' => 'rollback',
+				),
+				'agent' => $agent,
+			) );
+		}
+
+		return true;
 	}
 }
