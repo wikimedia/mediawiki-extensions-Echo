@@ -4,13 +4,13 @@ class EchoEditFormatter extends EchoBasicFormatter {
 	protected function processParam( $event, $param, $message, $user ) {
 		if ( $param === 'difflink' ) {
 			$eventData = $event->getExtra();
-			if ( !isset($eventData['revid']) ) {
+			if ( !isset( $eventData['revid'] ) ) {
 				$message->params('');
 				return;
 			}
 
 			if ( !$event->getTitle() ) {
-				$message->params(wfMsg('echo-no-title'));
+				$message->params( wfMessage( 'echo-no-title' )->text() );
 			}
 
 			$revid = $eventData['revid'];
@@ -19,7 +19,7 @@ class EchoEditFormatter extends EchoBasicFormatter {
 			if ( $this->outputFormat === 'html' ) {
 				$link = Linker::link(
 					$title,
-					'('.wfMessage('diff')->text().')',
+					'(' . wfMessage( 'diff' )->escaped() . ')',
 					array(
 						'class' => 'mw-echo-diff',
 					),
@@ -28,12 +28,12 @@ class EchoEditFormatter extends EchoBasicFormatter {
 						'diff' => 'prev',
 					)
 				);
-				$message->rawParams($link);
+				$message->rawParams( $link );
 			} else {
 				$link = $title->getFullURL(
 					array( 'oldid' => $revid, 'diff' => 'prev' ) );
 
-				$message->params($link);
+				$message->params( $link );
 			}
 		} else {
 			parent::processParam( $event, $param, $message, $user );

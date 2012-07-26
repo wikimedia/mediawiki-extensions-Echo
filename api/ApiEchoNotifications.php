@@ -6,24 +6,24 @@ class ApiEchoNotifications extends ApiQueryBase {
 	}
 
 	public function execute() {
-		global $wgUser;
 		$params = $this->extractRequestParams();
+		$user = $this->getUser();
 
 		if ( count($params['markread']) ) {
-			EchoNotificationController::markRead( $wgUser, $params['markread'] );
+			EchoNotificationController::markRead( $user, $params['markread'] );
 		}
 
 		$result = $this->getResult();
 		$prop = $params['prop'];
 
 		if ( in_array('list', $prop) ) {
-			$r = $this->getNotifications( $wgUser, $params['unread'], $params['format'] );
+			$r = $this->getNotifications( $user, $params['unread'], $params['format'] );
 		} else {
 			$r = array();
 		}
 
 		if ( in_array('count', $prop) ) {
-			$r['count'] = EchoNotificationController::getNotificationCount($wgUser);
+			$r['count'] = EchoNotificationController::getNotificationCount($user);
 		}
 
 		if ( in_array('index', $prop) ) {
@@ -64,13 +64,12 @@ class ApiEchoNotifications extends ApiQueryBase {
 		foreach( $res as $row ) {
 			$event = EchoEvent::newFromRow( $row );
 
-			global $wgLang;
 			$thisEvent = array(
 				'type' => $event->getType(),
 				'timestamp' => array(
 					'unix' => wfTimestamp( TS_UNIX, $event->getTimestamp() ),
 					'mw' => wfTimestamp( TS_MW, $event->getTimestamp() ),
-					'pretty' => $wgLang->prettyTimestamp( $event->getTimestamp() ),
+					'pretty' => $this->getLanguage()->prettyTimestamp( $event->getTimestamp() ),
 				),
 			);
 
@@ -103,9 +102,8 @@ class ApiEchoNotifications extends ApiQueryBase {
 			}
 
 			if ( $format ) {
-				global $wgUser;
 				$thisEvent['*'] = EchoNotificationController::formatNotification(
-						$event, $wgUser, $format );
+						$event, $this->getUser(), $format );
 			}
 
 			$output[$event->getID()] = $thisEvent;

@@ -5,16 +5,15 @@ class SpecialNotifications extends SpecialPage {
 		parent::__construct('Notifications');
 	}
 
-	public function execute($par) {
-		global $wgUser, $wgOut, $wgLang;
-
+	public function execute( $par ) {
 		$this->setHeaders();
 
-		$wgOut->setPageTitle( wfMsg( 'echo-specialpage' ) );
-		$wgOut->addModules( array('ext.echo.special') );
+		$out = $this->getOutput();
+		$out->setPageTitle( $this->msg( 'echo-specialpage' )->text() );
+		$out->addModules( array( 'ext.echo.special' ) );
 
-		if ( $wgUser->isAnon() ) {
-			$wgOut->addWikiMsg( 'echo-anon' );
+		if ( $this->getUser()->isAnon() ) {
+			$out->addWikiMsg( 'echo-anon' );
 			return;
 		}
 
@@ -23,7 +22,7 @@ class SpecialNotifications extends SpecialPage {
 			array( 'echo_notification', 'echo_event' ),
 			'*',
 			array(
-				'notification_user' => $wgUser->getID(),
+				'notification_user' => $this->getUser()->getID(),
 			),
 			__METHOD__,
 			array(
@@ -35,8 +34,8 @@ class SpecialNotifications extends SpecialPage {
 			)
 		);
 
-		if ( ! $res->numRows() ) {
-			$wgOut->addWikiMsg('echo-none');
+		if ( !$res->numRows() ) {
+			$out->addWikiMsg( 'echo-none' );
 			return;
 		}
 
@@ -45,9 +44,9 @@ class SpecialNotifications extends SpecialPage {
 			$event = EchoEvent::newFromRow( $row );
 			$class = 'mw-echo-notification';
 
-			$ts = $wgLang->prettyTimestamp( $event->getTimestamp() );
+			$ts = $this->getLanguage()->prettyTimestamp( $event->getTimestamp() );
 			$formatted =  "<span class='mw-echo-timestamp'>$ts</span> ";
-			$formatted .= EchoNotificationController::formatNotification( $event, $wgUser, 'html' );
+			$formatted .= EchoNotificationController::formatNotification( $event, $this->getUser(), 'html' );
 
 			if ( $row->notification_read_timestamp === null ) {
 				$class .= ' mw-echo-unread';
@@ -58,6 +57,6 @@ class SpecialNotifications extends SpecialPage {
 
 		$html = "<ul>\n$html\n</ul>\n";
 
-		$wgOut->addHTML( $html );
+		$out->addHTML( $html );
 	}
 }
