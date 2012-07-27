@@ -54,10 +54,12 @@ $wgAutoloadClasses['EchoNotification'] = "$dir/model/Notification.php";
 $wgAutoloadClasses['EchoNotificationFormatter'] = "$dir/formatters/NotificationFormatter.php";
 $wgAutoloadClasses['EchoBasicFormatter'] = "$dir/formatters/BasicFormatter.php";
 $wgAutoloadClasses['EchoEditFormatter'] = "$dir/formatters/EditFormatter.php";
+$wgAutoloadClasses['EchoCommentFormatter'] = "$dir/formatters/CommentFormatter.php";
 
 // Internal stuff
 $wgAutoloadClasses['EchoNotifier'] = "$dir/Notifier.php";
 $wgAutoloadClasses['EchoNotificationController'] = "$dir/controller/NotificationController.php";
+$wgAutoloadClasses['EchoDiscussionParser'] = "$dir/includes/DiscussionParser.php";
 
 // Job queue
 $wgAutoloadClasses['EchoNotificationJob'] = "$dir/jobs/NotificationJob.php";
@@ -161,5 +163,15 @@ $wgEchoNotificationFormatters = array(
 		'message-params' => array('agent', 'title', 'difflink', 'user'),
 		'email-subject-message' => 'notification-edit-email-subject',
 		'email-body-message' => 'notification-edit-email-body',
+	),
+	'add-comment' => array(
+		'type' => 'comment',
+		'message-key' => 'notification-add-comment',
+		'message-params' => array( 'agent', 'subject', 'title' ),
+	),
+	'add-talkpage-topic' => array(
+		'type' => 'comment',
+		'message-key' => 'notification-add-talkpage-topic',
+		'message-params' => array( 'agent', 'subject', 'title' ),
 	),
 );

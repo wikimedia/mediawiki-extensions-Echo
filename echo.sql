@@ -21,7 +21,7 @@ CREATE TABLE /*_*/echo_event (
 	event_agent_ip varchar(255) binary null, -- IP address who triggered it, if any
 	event_page_namespace int unsigned null,
 	event_page_title varchar(255) binary null,
-	event_extra TINYBLOB NULL
+	event_extra BLOB NULL
 ) /*$wgDBTableOptions*/;
 
 CREATE INDEX /*i*/type_page ON /*_*/echo_event (event_type,event_page_namespace,event_page_title,event_timestamp);
