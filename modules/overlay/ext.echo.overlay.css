@@ -28,3 +28,6 @@
 	font-size: 0.8em !important;
 }
 
+#pt-notifications .mw-badge {
+	margin-left: 3px;
+}

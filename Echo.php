@@ -98,10 +98,11 @@ $wgResourceModules += array(
 			'ext.echo.base',
 			'mediawiki.api',
 			'mediawiki.jqueryMsg',
+			'jquery.badge',
 		),
 		'messages' => array(
 			'echo-link-new',
-			'echo-link-none',
+			'echo-link',
 			'echo-overlay-title',
 			'echo-overlay-link',
 			'echo-none',

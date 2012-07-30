@@ -2,13 +2,9 @@
 	$( function() {
 		mw.echo.overlay = {
 			'updateCount' : function(newCount) {
-				var newText;
-				if ( newCount > 0 ) {
-					newText = mw.msg('echo-link-new', newCount);
-				} else {
-					newText = mw.msg('echo-link-none');
-				}
-				$('#pt-notifications a').text(newText);
+				$('#pt-notifications a')
+					.text( mw.msg('echo-link') )
+					.badge( newCount, { 'type' : 'inline' } );
 
 				mw.echo.overlay.notification_count = newCount;
 				
@@ -18,6 +14,7 @@
 		};
 
 		mw.echo.overlay.notification_count = mw.echo.overlay.configuration['notification-count'];
+		mw.echo.overlay.updateCount( mw.echo.overlay.notification_count );
 
 		var $link = $('#pt-notifications');
 		if ( ! $link.length ) {

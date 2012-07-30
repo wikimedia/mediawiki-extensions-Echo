@@ -60,7 +60,7 @@ $1',
 
 	// Notifications overlay
 	'echo-link-new' => '$1 new {{PLURAL:$1|notification|notifications}}',
-	'echo-link-none' => 'My notifications',
+	'echo-link' => 'My notifications',
 	'echo-overlay-link' => 'All notifications…',
 	'echo-overlay-title' => 'My notifications',
 );
@@ -95,7 +95,7 @@ $messages['qqq'] = array(
 * $1 is a plain text description of the notification.',
 	'echo-link-new' => 'Shown in "personal links" when a user has unread notifications.
 * $1 is number of unread notifications',
-	'echo-link-none' => 'Shown in "personal links" when a user has no unread notifications.',
+	'echo-link' => 'Shown in "personal links" when a user has JS. New notifications are indicated with a badge.',
 	'echo-overlay-link' => 'Link to "all notifications" at the bottom of the overlay',
 	'echo-overlay-title' => 'Title at the top of the notifications overlay',
 );
@@ -130,7 +130,7 @@ $messages['be-tarask'] = array(
 
 $1',
 	'echo-link-new' => '$1 {{PLURAL:$1|новая абвестка|новыя абвесткі|новых абвестак}}',
-	'echo-link-none' => 'Мае абвесткі',
+	'echo-link' => 'Мае абвесткі',
 	'echo-overlay-link' => 'Усе абвесткі…',
 	'echo-overlay-title' => 'Мае абвесткі',
 );
@@ -187,7 +187,7 @@ Das {{SITENAME}}-Benachrichtigungssytem',
 
 $1',
 	'echo-link-new' => '$1 neue {{PLURAL:$1|Benachrichtigung|Benachrichtigungen}}',
-	'echo-link-none' => 'Meine Benachrichtigungen',
+	'echo-link' => 'Meine Benachrichtigungen',
 	'echo-overlay-link' => 'Alle Benachrichtigungen …',
 	'echo-overlay-title' => 'Meine Benachrichtigungen',
 );
@@ -268,7 +268,7 @@ El sistema de notificaciones de {{SITENAME}}',
 
 $1',
 	'echo-link-new' => '$1 {{PLURAL:$1|notificación nueva|notificaciones nuevas}}',
-	'echo-link-none' => 'Mis notificaciones',
+	'echo-link' => 'Mis notificaciones',
 	'echo-overlay-link' => 'Todas las notificaciones...',
 	'echo-overlay-title' => 'Mis notificaciones',
 );
@@ -317,7 +317,7 @@ Le système de notification de {{SITENAME}}",
 
 $1',
 	'echo-link-new' => '$1 {{PLURAL:$1|nouvelle notification|nouvelles notifications}}',
-	'echo-link-none' => 'Mes notifications',
+	'echo-link' => 'Mes notifications',
 	'echo-overlay-link' => 'Toutes les notifications…',
 	'echo-overlay-title' => 'Mes notifications',
 );
@@ -364,7 +364,7 @@ O sistema de notificación de {{SITENAME}}',
 
 $1',
 	'echo-link-new' => '$1 {{PLURAL:$1|nova notificación|novas notificacións}}',
-	'echo-link-none' => 'As miñas notificacións',
+	'echo-link' => 'As miñas notificacións',
 	'echo-overlay-link' => 'Todas as notificacións…',
 	'echo-overlay-title' => 'As miñas notificacións',
 );
@@ -429,7 +429,7 @@ Zdźělenski system {{GRAMMAR:genitiw|{{SITENAME}}}}',
 
 $1',
 	'echo-link-new' => '$1 {{PLURAL:$1|nowa zdźělenka|nowej zdźělence|nowe zdźělenki|nowych zdźělenkow}}',
-	'echo-link-none' => 'Moje zdźělenki',
+	'echo-link' => 'Moje zdźělenki',
 	'echo-overlay-link' => 'Wšě zdźělenki...',
 	'echo-overlay-title' => 'Moje zdźělenki',
 );
@@ -476,7 +476,7 @@ Le systema de notification de {{SITENAME}}',
 
 $1',
 	'echo-link-new' => '$1 nove {{PLURAL:$1|notification|notificationes}}',
-	'echo-link-none' => 'Mi notificationes',
+	'echo-link' => 'Mi notificationes',
 	'echo-overlay-link' => 'Tote le notificationes…',
 	'echo-overlay-title' => 'Mi notificationes',
 );
@@ -523,7 +523,7 @@ Il sistema di notifica di {{SITENAME}}',
 
 $1',
 	'echo-link-new' => '$1 {{PLURAL:$1|nuova notifica|nuove notifiche}}',
-	'echo-link-none' => 'mie notifiche',
+	'echo-link' => 'mie notifiche',
 	'echo-overlay-link' => 'Tutte le notifiche...',
 	'echo-overlay-title' => 'Mie notifiche',
 );
@@ -549,7 +549,7 @@ $messages['lb'] = array(
 
 $1',
 	'echo-link-new' => '$1 nei {{PLURAL:$1|Notifikatioun|Notifikatiounen}}',
-	'echo-link-none' => 'Meng Notifikatiounen',
+	'echo-link' => 'Meng Notifikatiounen',
 	'echo-overlay-link' => 'All Notifikatiounen...',
 	'echo-overlay-title' => 'Meng Notifikatiounen',
 );
@@ -604,7 +604,7 @@ $messages['mk'] = array(
 
 $1',
 	'echo-link-new' => '$1 {{PLURAL:$1|ново известување|нови известувања}}',
-	'echo-link-none' => 'Мои известувања',
+	'echo-link' => 'Мои известувања',
 	'echo-overlay-link' => 'Сите известувања',
 	'echo-overlay-title' => 'Мои известувања',
 );
@@ -655,7 +655,7 @@ Het meldingensysteem van {{SITENAME}}',
 
 $1',
 	'echo-link-new' => '{{PLURAL:$1|1 nieuwe melding|$1 nieuwe meldingen}}',
-	'echo-link-none' => 'Mijn meldingen',
+	'echo-link' => 'Mijn meldingen',
 	'echo-overlay-link' => 'Alle meldingen…',
 	'echo-overlay-title' => 'Mijn meldingen',
 );
@@ -710,7 +710,7 @@ Ang sistema ng pagpapabatid ng {{SITENAME}}',
 
 $1',
 	'echo-link-new' => '$1 bagong {{PLURAL:$1|pagpapabatid|mga pagpapabatid}}',
-	'echo-link-none' => 'Mga pagpapabatid ko',
+	'echo-link' => 'Mga pagpapabatid ko',
 	'echo-overlay-link' => 'Lahat ng mga pagpapabatid...',
 	'echo-overlay-title' => 'Mga pagpapabatid ko',
 );
