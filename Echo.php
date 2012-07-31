@@ -142,6 +142,8 @@ $wgHooks['ArticleSaveComplete'][] = 'EchoHooks::onArticleSaved';
 
 // Disable ordinary email notifications
 $wgHooks['AbortEmailNotification'][] = 'EchoHooks::abortEmailNotification';
+// Disable the yellow bar of death
+$wgHooks['ArticleEditUpdateNewTalk'][] = 'EchoHooks::abortNewtalkNotification';
 
 // Configuration
 

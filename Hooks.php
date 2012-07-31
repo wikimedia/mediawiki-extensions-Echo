@@ -179,4 +179,8 @@ class EchoHooks {
 		$dir = dirname( __FILE__ ) . '/tests';
 		$files[] = "$dir/DiscussionParserTest.php";
 	}
+
+	static function abortNewtalkNotification( $article ) {
+		return false;
+	}
 }
