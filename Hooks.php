@@ -133,7 +133,7 @@ class EchoHooks {
 
 		$notificationCount = EchoNotificationController::getNotificationCount( $wgUser );
 
-		$msg = wfMessage( $notificationCount == 0 ? 'echo-link-none' : 'echo-link-new' );
+		$msg = wfMessage( $notificationCount == 0 ? 'echo-link' : 'echo-link-new' );
 		$url = SpecialPage::getTitleFor( 'Notifications' )->getLocalURL();
 
 		$notificationsLink = array(
