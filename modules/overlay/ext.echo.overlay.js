@@ -1,5 +1,24 @@
 ( function($,mw) {
 	$( function() {
+		mw.echo.overlay = {
+			'updateCount' : function(newCount) {
+				var newText;
+				if ( newCount > 0 ) {
+					newText = mw.msg('echo-link-new', newCount);
+				} else {
+					newText = mw.msg('echo-link-none');
+				}
+				$('#pt-notifications a').text(newText);
+
+				mw.echo.overlay.notification_count = newCount;
+				
+				console.log('Updated new notification count to '+newCount);
+			},
+			'configuration' : wgEchoOverlayConfiguration
+		};
+
+		mw.echo.overlay.notification_count = mw.echo.overlay.configuration['notification-count'];
+
 		var $link = $('#pt-notifications');
 		if ( ! $link.length ) {
 			return;
@@ -74,13 +93,7 @@
 						'ok' : function(result) {
 							var count = result.query.notifications.count;
 
-							var newText;
-							if ( count > 0 ) {
-								newText = mw.msg('echo-link-new', count);
-							} else {
-								newText = mw.msg('echo-link-none');
-							}
-							$('#pt-notifications a').text(newText);
+							mw.echo.overlay.updateCount(count);
 						}
 					});
 				},

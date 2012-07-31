@@ -76,6 +76,7 @@ $wgHooks['LoadExtensionSchemaUpdates'][] = 'EchoHooks::getSchemaUpdates';
 $wgHooks['GetPreferences'][] = 'EchoHooks::getPreferences';
 $wgHooks['PersonalUrls'][] = 'EchoHooks::onPersonalUrls';
 $wgHooks['BeforePageDisplay'][] = 'EchoHooks::beforePageDisplay';
+$wgHooks['MakeGlobalVariablesScript'][] = 'EchoHooks::makeGlobalVariablesScript';
 
 $echoResourceTemplate = array(
 	'localBasePath' => "$dir/modules",
@@ -86,11 +87,18 @@ $echoResourceTemplate = array(
 $wgResourceModules += array(
 	'ext.echo.base' => $echoResourceTemplate + array(
 		'styles' => 'base/ext.echo.base.css',
+		'scripts' => 'base/ext.echo.base.js',
 	),
 	'ext.echo.overlay' => $echoResourceTemplate + array(
-		'scripts' => 'overlay/ext.echo.overlay.js',
+		'scripts' => array(
+			'overlay/ext.echo.overlay.js',
+		),
 		'styles' => 'overlay/ext.echo.overlay.css',
-		'dependencies' => array('ext.echo.base', 'mediawiki.api'),
+		'dependencies' => array(
+			'ext.echo.base',
+			'mediawiki.api',
+			'mediawiki.jqueryMsg',
+		),
 		'messages' => array(
 			'echo-link-new',
 			'echo-link-none',

@@ -151,4 +151,17 @@ class EchoHooks {
 	static function abortEmailNotification() {
 		return false;
 	}
+
+	public static function makeGlobalVariablesScript( &$vars, $outputPage ) {
+		$user = $outputPage->getUser();
+
+		if ( ! $user->isAnon() ) {
+			$vars['wgEchoOverlayConfiguration'] = array(
+				'timestamp' => wfTimestamp( TS_UNIX, wfTimestampNow() ),
+				'notification-count' => EchoNotificationController::getNotificationCount( $user ),
+			);
+		}
+
+		return true;
+	}
 }
