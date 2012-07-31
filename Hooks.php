@@ -68,7 +68,7 @@ class EchoHooks {
 
 		if ( ! $user->getOption('enotifminoredits') ) {
 			$extra = $event->getExtra();
-			if ( $extra['revid'] ) {
+			if ( !empty($extra['revid']) ) {
 				$rev = Revision::newFromID($extra['revid']);
 
 				if ( $rev->isMinor() ) {
@@ -173,5 +173,10 @@ class EchoHooks {
 		}
 
 		return true;
+	}
+
+	static function getUnitTests( &$files ) {
+		$dir = dirname( __FILE__ ) . '/tests';
+		$files[] = "$dir/DiscussionParserTest.php";
 	}
 }

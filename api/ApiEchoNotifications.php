@@ -64,12 +64,18 @@ class ApiEchoNotifications extends ApiQueryBase {
 		foreach( $res as $row ) {
 			$event = EchoEvent::newFromRow( $row );
 
+			if ( MWInit::methodExists( 'Language', 'prettyTimestamp' ) ) {
+				$ts = $this->getLanguage()->prettyTimestamp( $event->getTimestamp() );
+			} else {
+				$ts = $this->getLanguage()->timeanddate( $event->getTimestamp(), true );
+			}
+
 			$thisEvent = array(
 				'type' => $event->getType(),
 				'timestamp' => array(
 					'unix' => wfTimestamp( TS_UNIX, $event->getTimestamp() ),
 					'mw' => wfTimestamp( TS_MW, $event->getTimestamp() ),
-					'pretty' => $this->getLanguage()->prettyTimestamp( $event->getTimestamp() ),
+					'pretty' => $ts,
 				),
 			);
 

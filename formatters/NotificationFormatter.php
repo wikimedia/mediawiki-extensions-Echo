@@ -8,6 +8,7 @@ abstract class EchoNotificationFormatter {
 	);
 	protected $validOutputFormats = array('text', 'html', 'email');
 	protected $outputFormat = 'text';
+	protected $requiredParameters = array();
 
 	/**
 	 * Creates an instance of the given class with the given parameters.
@@ -16,6 +17,17 @@ abstract class EchoNotificationFormatter {
 	 */
 	public function __construct( $parameters ) {
 		$this->parameters = $parameters;
+
+		$missingParameters =
+			array_diff( $this->requiredParameters, array_keys( $parameters ) );
+
+		if ( count( $missingParameters ) ) {
+			throw new MWException(
+				"Missing required parameters for ".
+				get_class( $this ).":".
+				implode( " ", $missingParameters )
+			);
+		}
 	}
 
 	/**
@@ -73,11 +85,7 @@ abstract class EchoNotificationFormatter {
 	 * @return Text suitable for output format
 	 */
 	protected function formatTitle( $title ) {
-		if ( $this->outputFormat === 'html' ) {
-			return Linker::link( $title );
-		} else {
-			return $title;
-		}
+		return $title->getPrefixedText();
 	}
 
 	/**
@@ -92,5 +100,26 @@ abstract class EchoNotificationFormatter {
 		} else {
 			return $user->getName();
 		}
+	}
+
+	/**
+	 * Formats a timestamp (in a human-readable format if supported by
+	 *  MediaWiki)
+	 *
+	 * @param $ts Timestamp in some format compatible with wfTimestamp()
+	 * @param $user User to format for. false to detect
+	 * @return type description
+	 */
+	protected function formatTimestamp( $ts, $user ) {
+		$languageCode = $user->getOption( 'language' );
+		$language = Language::factory( $languageCode );
+
+		if ( MWInit::methodExists( 'Language', 'prettyTimestamp' ) ) {
+			$ts = $language->prettyTimestamp( $ts );
+		} else {
+			$ts = $language->userTimeAndDate( $ts, $user );
+		}
+
+		return Xml::element( 'span', array( 'class' => 'mw-echo-timestamp' ), $ts );
 	}
 }

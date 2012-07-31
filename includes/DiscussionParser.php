@@ -125,7 +125,7 @@ abstract class EchoDiscussionParser {
 		$prevRevision = $revision->getPrevious();
 
 		$changes = self::getMachineReadableDiff( $prevRevision->getText(), $revision->getText() );
-		$output = self::interpretDiff( $changes, $user );
+		$output = self::interpretDiff( $changes, $user->getName() );
 
 		self::$revisionInterpretationCache[$revision->getID()] = $output;
 		return $output;
@@ -137,6 +137,7 @@ abstract class EchoDiscussionParser {
 	 *
 	 * @todo Expand recognisable actions.
 	 * @param $changes Output of EchoEvent::getMachineReadableDiff
+	 * @param $user User name
 	 * @return Array of associative arrays.
 	 * Each entry represents an action, which is classified in the 'action' field.
 	 * All types contain a 'content' field except 'unknown'
@@ -173,6 +174,7 @@ abstract class EchoDiscussionParser {
 				// Unknown action; skip
 				continue;
 			}
+
 			if ( $change['action'] == 'add' ) {
 				$content = trim( $change['content'] );
 				$startSection = preg_match( "/\A" . self::$headerRegex.'/um', $content );
@@ -245,12 +247,12 @@ abstract class EchoDiscussionParser {
 	 * @return Content of the section, as a string.
 	 */
 	static function getFullSection( $lines, $offset ) {
-		$content = $lines[$offset];
+		$content = $lines[$offset - 1];
 		$headerRegex = '/' . self::$headerRegex . '/um';
 
 		// Expand backwards...
-		$continue = ! preg_match( $headerRegex, $lines[$offset] );
-		$i = $offset;
+		$continue = ! preg_match( $headerRegex, $lines[$offset - 1] );
+		$i = $offset - 1;
 		while ( $continue && $i > 0 ) {
 			--$i;
 			$line = $lines[$i];
@@ -263,7 +265,7 @@ abstract class EchoDiscussionParser {
 		// And then forwards...
 
 		$continue = true;
-		$i = $offset;
+		$i = $offset - 1;
 		while ( $continue && $i < count($lines) - 1 ) {
 			++$i;
 			$line = $lines[$i];
@@ -311,6 +313,55 @@ abstract class EchoDiscussionParser {
 	}
 
 	/**
+	 * Strips out a signature if possible.
+	 *
+	 * @param $text The wikitext to strip
+	 * @return String
+	 */
+	static function stripSignature( $text ) {
+		$timestampPos = self::getTimestampPosition( $text );
+
+		if ( $timestampPos === false ) {
+			return $text;
+		}
+
+		$output = self::getUserFromLine( $text, $timestampPos );
+
+		if ( $output === false ) {
+			return substr( $text, 0, $timestampPos );
+		}
+
+		// Strip off signature with HTML truncation method.
+		// This way tags which are opened will be closed.
+		global $wgContLang;
+		$truncated_text = $wgContLang->truncateHtml( $text, $output[0], '' );
+
+		return $truncated_text;
+	}
+
+	/**
+	 * Strips unnecessary indentation and so on from comments
+	 *
+	 * @param $text The text to strip from
+	 * @return Stripped wikitext
+	 */
+	static function stripIndents( $text ) {
+		// First strip all indentation from the beginning of lines
+		$text = preg_replace( '/^\s*\:+/m', '', $text );
+
+		// Now if there is only one list item, strip that too
+		$listRegex = '/^\s*(?:[\:#*]\s*)*[#*]/m';
+		$matches = array();
+		if ( preg_match_all( $listRegex, $text, &$matches ) ) {
+			if ( count($matches) == 1 ) {
+				$text = preg_replace( $listRegex, '', $text );
+			}
+		}
+
+		return $text;
+	}
+
+	/**
 	 * Strips out a section header
 	 * @param $text The text to strip out the section header from.
 	 * @return String: The same text, with the section header stripped out.
@@ -330,6 +381,32 @@ abstract class EchoDiscussionParser {
 	 * @return boolean: true or false.
 	 */
 	static function isSignedComment( $text, $user = false ) {
+		$timestampPos = self::getTimestampPosition( $text );
+
+		if ( $timestampPos === false ) {
+			return false;
+		}
+
+		$userData = self::getUserFromLine( $text, $timestampPos );
+
+		if ( $userData === false ) {
+			return false;
+		} elseif ( $user === false ) {
+			return true;
+		}
+
+		list( $signaturePos, $foundUser ) = $userData;
+
+		return User::getCanonicalName( $foundUser, false ) === User::getCanonicalName( $user, false );
+	}
+
+	/**
+	 * Finds the start position, if any, of the timestamp on a line
+	 *
+	 * @param $line The line to search for a signature on
+	 * @return Integer position
+	 */
+	static function getTimestampPosition( $line ) {
 		$timestampRegex = self::getTimestampRegex();
 		$endOfLine = self::getLineEndingRegex();
 		$tsMatches = array();
@@ -342,17 +419,7 @@ abstract class EchoDiscussionParser {
 			return false;
 		}
 
-		$userData = self::getUserFromLine( $line, $tsMatches[0][0] );
-
-		if ( $userData === false ) {
-			return false;
-		} elseif ( $user === false ) {
-			return true;
-		}
-
-		list( $signaturePos, $foundUser ) = $userData;
-
-		return User::getCanonicalName( $foundUser, false ) === User::getCanonicalName( $user, false );
+		return $tsMatches[0][0];
 	}
 
 	/**
@@ -442,6 +509,7 @@ abstract class EchoDiscussionParser {
 					$changes[$change_run]['action'] = 'change';
 					$changes[$change_run]['old_content'] = $changes[$change_run]['content'];
 					$changes[$change_run]['new_content'] = $added_line;
+					--$sub_lines;
 					unset( $changes[$change_run]['content'] );
 				} elseif ( $change_run !== false && $changes[$change_run]['action'] == 'change' && $sub_lines > 0 ) {
 					--$sub_lines;

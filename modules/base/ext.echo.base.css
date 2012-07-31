@@ -1,12 +1,33 @@
 .mw-echo-timestamp {
 	color: gray;
-	font-size: smaller;
+	font-size: 8px;
 }
 
 .mw-echo-unread {
-	background-color: #f9f9ff;
+	background-image: url(unread.png);
+	background-repeat: repeat-y;
+	background-position: top left;
 }
 
 div.mw-echo-timestamp {
 	text-align: right;
+}
+
+.mw-echo-title {
+	font-size: 13px;
+	font-weight: bold;
+	line-height: 12px;
+}
+
+.mw-echo-content {
+	font-size: 11px;
+}
+
+.mw-echo-notification {
+	clear: both;
+	display: block;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	color: #252525;
+	height: 42px;
 }
