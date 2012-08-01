@@ -63,6 +63,15 @@ class EchoEvent {
 			throw new MWException( "'type' parameter is mandatory" );
 		}
 
+		global $wgEchoEnabledEvents;
+
+		if (
+			$wgEchoEnabledEvents !== false &&
+			! in_array( $info['type'], $wgEchoEnabledEvents )
+		) {
+			return false;
+		}
+
 		$obj->id = false;
 		$obj->timestamp = wfTimestampNow();
 

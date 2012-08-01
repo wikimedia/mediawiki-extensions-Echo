@@ -68,6 +68,8 @@ $1',
 	'echo-link' => 'My notifications',
 	'echo-overlay-link' => 'All notifications…',
 	'echo-overlay-title' => 'My notifications',
+
+	'echo-error-no-formatter' => 'Error: Unable to find notification formatter for event type "$1".',
 );
 
 /** Message documentation (Message documentation)
@@ -115,6 +117,8 @@ $4 is the page on which the discussion was added, plain text.',
 	'echo-link' => 'Shown in "personal links" when a user has JS. New notifications are indicated with a badge.',
 	'echo-overlay-link' => 'Link to "all notifications" at the bottom of the overlay',
 	'echo-overlay-title' => 'Title at the top of the notifications overlay',
+	'echo-error-no-formatter' => 'Internal error condition shown when a notification cannot be formatted.
+$1 is the type of notification (e.g. "add-talkpage-section").',
 );
 
 /** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)

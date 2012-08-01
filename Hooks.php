@@ -98,6 +98,11 @@ class EchoHooks {
 	 * @return true in all cases
 	 */
 	public static function getPreferences( $user, &$preferences ) {
+		global $wgEchoEnabledEvents;
+		if ( $wgEchoEnabledEvents !== false && ! in_array( 'edit', $wgEchoEnabledEvents ) ) {
+			return true;
+		}
+
 		$preferences['echo-notify-watchlist'] = array(
 			'type' => 'toggle',
 			'label-message' => 'echo-pref-notify-watchlist',
@@ -114,6 +119,11 @@ class EchoHooks {
 	 * @return true in all cases
 	 */
 	public static function onWatch( $user, $article ) {
+		global $wgEchoEnabledEvents;
+		if ( $wgEchoEnabledEvents !== false && ! in_array( 'edit', $wgEchoEnabledEvents ) ) {
+			return true;
+		}
+
 		if ( ! $user->getOption('echo-notify-watchlist') ) {
 			return true;
 		}
@@ -132,6 +142,11 @@ class EchoHooks {
 	 * @return true in all cases
 	 */
 	public static function onUnwatch( $user, $article ) {
+		global $wgEchoEnabledEvents;
+		if ( $wgEchoEnabledEvents !== false && ! in_array( 'edit', $wgEchoEnabledEvents ) ) {
+			return true;
+		}
+
 		$subscription = new EchoSubscription( $user, 'edit', $article->getTitle() );
 		$subscription->disableNotification('notify');
 		$subscription->save();
