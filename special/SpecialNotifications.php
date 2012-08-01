@@ -45,7 +45,7 @@ class SpecialNotifications extends SpecialPage {
 			$event = EchoEvent::newFromRow( $row );
 			$class = 'mw-echo-notification';
 
-			$formatted = EchoNotificationController::formatNotification( $event, $user(), 'html' );
+			$formatted = EchoNotificationController::formatNotification( $event, $user, 'html' );
 
 			if ( $row->notification_read_timestamp === null ) {
 				$class .= ' mw-echo-unread';

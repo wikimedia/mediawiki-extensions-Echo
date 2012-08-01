@@ -186,6 +186,7 @@ class EchoNotificationController {
 			return $notifier->format($event, $user, $type);
 		}
 
-		// throw new MWException( "Unable to find notification formatter for event " . $event->getType() );
+		return Xml::tags( 'span', array( 'class' => 'error' ),
+			wfMessage( 'echo-error-no-formatter', $event->getType() )->escaped() );
 	}
 }

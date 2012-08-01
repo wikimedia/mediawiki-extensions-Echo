@@ -159,6 +159,12 @@ $wgEchoNotifiers = array(
 	'email' => array('EchoNotifier', 'notifyWithEmail'),
 );
 
+$wgEchoEnabledEvents = array(
+	'edit-user-talk',
+	'add-comment',
+	'add-talkpage-topic',
+);
+
 $wgEchoNotificationFormatters = array(
 	'edit-user-talk' => array(
 		'type' => 'edit',
