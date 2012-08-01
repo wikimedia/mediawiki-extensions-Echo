@@ -30,7 +30,7 @@ $messages['en'] = array(
 	'notification-edit-talk-page' => '$2 {{GENDER:$1|edited}} [[User talk:$4|your talk page]] $3',
 	'notification-add-comment' => '$2 {{GENDER:$1|commented}} on "[[$4|$3]]" on the "$5" talk page',
 	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|posted}} a new topic "$3" on [[$4]]',
-	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|posted}} a message on your talk page: "[[$4#$3|$3]]"',
+	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|sent}} you a message: "[[$4#$3|$3]]"',
 	'notification-add-comment-yours' => '$2 {{GENDER:$1|commented}} on "[[$4#$3|$3]]" on your talk page',
 	'notification-talkpage-content' => '$1', ## Do not translate unless you deliberately want to change behaviour
 
