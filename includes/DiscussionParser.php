@@ -15,7 +15,7 @@ abstract class EchoDiscussionParser {
 	static function generateEventsForRevision( $revision ) {
 		$interpretation = self::getChangeInterpretationForRevision( $revision );
 		$createdEvents = false;
-		$title = $revision->getTitle();
+		$title = Title::newFromID( $revision->getPage() );
 
 		$userID = $revision->getUser();
 		$userName = $revision->getUserText();
@@ -122,7 +122,7 @@ abstract class EchoDiscussionParser {
 		$userID = $revision->getUser();
 		$userName = $revision->getUserText();
 		$user = $userID != 0 ? User::newFromId( $userID ) : User::newFromName( $userName, false );
-		$prevRevision = $revision->getPrevious();
+		$prevRevision = Revision::newFromId( $revision->getParentId() );
 
 		$changes = self::getMachineReadableDiff( $prevRevision->getText(), $revision->getText() );
 		$output = self::interpretDiff( $changes, $user->getName() );
