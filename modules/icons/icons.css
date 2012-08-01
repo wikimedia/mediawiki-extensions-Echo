@@ -12,3 +12,13 @@
 	/* @embed */
 	background-image: url(placeholder.png);
 }
+
+.mw-echo-icon-chat {
+	/* @embed */
+	background-image: url(chat.png);
+}
+
+.mw-echo-icon-w {
+	/* @embed */
+	background-image: url(W.png);
+}
