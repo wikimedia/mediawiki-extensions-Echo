@@ -9,6 +9,7 @@
 	padding: 15px;
 	padding-left: 0;
 	color: #252525;
+	z-index: 10;
 
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
@@ -58,4 +59,8 @@
 
 #pt-notifications .mw-badge {
 	margin-left: 3px;
+}
+
+.mw-echo-overlay-none {
+	margin-left: 20px;
 }

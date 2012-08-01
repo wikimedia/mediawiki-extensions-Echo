@@ -30,6 +30,8 @@ class EchoHooks {
 	 */
 	public static function getDefaultNotifiedUsers( $event, &$users ) {
 		switch( $event->getType() ) {
+			// Everyone deserves to know when something happens
+			//  on their user talk page
 			case 'edit-user-talk':
 				if ( !$event->getTitle() || !$event->getTitle()->getNamespace() == NS_USER_TALK ) {
 					break;
@@ -37,13 +39,13 @@ class EchoHooks {
 
 				$username = $event->getTitle()->getText();
 				$user = User::newFromName( $username );
-				if ($user->getId()) {
-					$user = User::newFromName($username);
+				if ( $user && $user->getId() ) {
 					$users[$user->getId()] = $user;
 				}
 			break;
 			case 'add-comment':
 			case 'add-talkpage-topic':
+				// Handled by EchoDiscussionParser
 				$extraData = $event->getExtra();
 
 				if ( !isset( $extraData['revid'] ) || !$extraData['revid'] ) {
@@ -212,6 +214,7 @@ class EchoHooks {
 	 */
 	static function onPersonalUrls( &$personal_urls, &$title ) {
 		global $wgUser, $wgLang, $wgOut;
+		// Add a "My notifications" item to personal URLs
 
 		if ( $wgUser->isAnon() ) {
 			return true;
@@ -245,6 +248,8 @@ class EchoHooks {
 
 	public static function makeGlobalVariablesScript( &$vars, $outputPage ) {
 		$user = $outputPage->getUser();
+
+		// Provide info for the Overlay
 
 		if ( ! $user->isAnon() ) {
 			$vars['wgEchoOverlayConfiguration'] = array(

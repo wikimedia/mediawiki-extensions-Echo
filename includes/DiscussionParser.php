@@ -55,11 +55,11 @@ abstract class EchoDiscussionParser {
 		}
 
 		if ( !$createdEvents && $title->getNamespace() == NS_USER_TALK ) {
-			$user = User::newFromName( $revision->getText() );
-			if ( $user && $user->getID() ) {
+			$notifyUser = User::newFromName( $title->getText() );
+			if ( $notifyUser && $notifyUser->getID() ) {
 				$event = EchoEvent::create( array(
 					'type' => 'edit-user-talk',
-					'title' => $article->getTitle(),
+					'title' => $title,
 					'extra' => array('revid' => $revision->getID()),
 					'agent' => $user,
 				) );
@@ -289,7 +289,7 @@ abstract class EchoDiscussionParser {
 		$text = trim($text);
 
 		$matches = array();
-		preg_match_all( '/'.self::$headerRegex.'/um', $text, &$matches );
+		preg_match_all( '/'.self::$headerRegex.'/um', $text, $matches );
 
 		return count( $matches[0] );
 	}
@@ -305,7 +305,7 @@ abstract class EchoDiscussionParser {
 
 		$matches = array();
 
-		if ( !preg_match( '/'.self::$headerRegex.'/um', $text, &$matches ) ) {
+		if ( !preg_match( '/'.self::$headerRegex.'/um', $text, $matches ) ) {
 			return false;
 		}
 
@@ -352,7 +352,7 @@ abstract class EchoDiscussionParser {
 		// Now if there is only one list item, strip that too
 		$listRegex = '/^\s*(?:[\:#*]\s*)*[#*]/m';
 		$matches = array();
-		if ( preg_match_all( $listRegex, $text, &$matches ) ) {
+		if ( preg_match_all( $listRegex, $text, $matches ) ) {
 			if ( count($matches) == 1 ) {
 				$text = preg_replace( $listRegex, '', $text );
 			}
@@ -707,7 +707,7 @@ abstract class EchoDiscussionParser {
 		if ( ! preg_match(
 			'/^[^\|\]\#]+/u',
 			$userPart,
-			&$userMatches
+			$userMatches
 		) ) {
 			// user link is invalid
 			// print "I\tUser link invalid\t$userPart\n";
@@ -774,7 +774,7 @@ abstract class EchoDiscussionParser {
 		$output = $exemplarTimestamp;
 		$tzRegex = '/\s*\(\w+\)\s*$/';
 		$tzMatches = array();
-		preg_match( $tzRegex, $output, &$tzMatches );
+		preg_match( $tzRegex, $output, $tzMatches );
 		$output = preg_replace( $tzRegex, '', $output );
 		$output = preg_quote( $output, '/' );
 		$output = preg_replace( '/[^\d\W]+/u', '[^\d\W]+', $output );

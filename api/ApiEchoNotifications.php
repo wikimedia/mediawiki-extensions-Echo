@@ -17,7 +17,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 		$prop = $params['prop'];
 
 		if ( in_array('list', $prop) ) {
-			$r = $this->getNotifications( $user, $params['unread'], $params['format'] );
+			$r = $this->getNotifications( $user, $params['unread'], $params['format'], $params['limit'] );
 		} else {
 			$r = array();
 		}
@@ -38,9 +38,10 @@ class ApiEchoNotifications extends ApiQueryBase {
 	 * @param $user User to get notifications for
 	 * @param $unread Boolean: True to get only unread notifications.
 	 * @param $format false to not format any notifications, or an output format name.
+	 * @param $limit The maximum number of notifications to return.
 	 * @return array
 	 */
-	public function getNotifications( $user, $unread = false, $format = false ) {
+	public function getNotifications( $user, $unread = false, $format = false, $limit = 20 ) {
 		$dbr = wfGetDB( DB_SLAVE );
 
 		$output = array();
@@ -60,7 +61,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 			__METHOD__,
 			array(
 				'ORDER BY' => 'notification_timestamp DESC',
-				'LIMIT' => 50,
+				'LIMIT' => $limit,
 			),
 			array(
 				'echo_event' => array('LEFT JOIN', 'notification_event=event_id'),
@@ -145,6 +146,12 @@ class ApiEchoNotifications extends ApiQueryBase {
 						'html',
 					),
 			),
+			'limit' => array(
+				ApiBase::PARAM_TYPE => 'integer',
+				ApiBase::PARAM_DFLT => 20,
+				ApiBase::PARAM_MAX => 50,
+				ApiBase::PARAM_MIN => 1,
+			),
 			'index' => false,
 		);
 	}
@@ -156,6 +163,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 			'unread' => 'Request only unread notifications',
 			'format' => 'If specified, notifications will be returned formatted this way.',
 			'index' => 'If specified, a list of notification IDs, in order, will be returned.',
+			'limit' => 'The maximum number of notifications to return.'
 		);
 	}
 
