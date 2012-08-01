@@ -26,12 +26,12 @@ $messages['en'] = array(
 	'echo-none' => 'You have not received any notifications lately!',
 
 	// Notification
-	'notification-edit-talk-page' => '$2 {{GENDER:$1|edited}} your talk page $3',
 	'notification-edit' => '$2 {{GENDER:$1|edited}} [[$3]] $4',
-	'notification-add-comment' => '$2 {{GENDER:$1|posted}} a comment to the discussion "[[$4|$3]]" on [[$4]]',
+	'notification-edit-talk-page' => '$2 {{GENDER:$1|edited}} [[User talk:$4|your talk page]] $3',
+	'notification-add-comment' => '$2 {{GENDER:$1|commented}} on "[[$4|$3]]" on the "$5" talk page',
 	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|posted}} a new topic "$3" on [[$4]]',
-	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|sent}} you a message: [[$4#$3|$3]]',
-	'notification-add-comment-yours' => '$2 {{GENDER:$1|posted}} a new message to the discussion "$3" on [[$4|your talk page]]',
+	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|posted}} a message on your talk page: "[[$4#$3|$3]]"',
+	'notification-add-comment-yours' => '$2 {{GENDER:$1|commented}} on "[[$4#$3|$3]]" on your talk page',
 	'notification-talkpage-content' => '$1', ## Do not translate unless you deliberately want to change behaviour
 
 	'notification-edit-email-subject' => '{{SITENAME}} notification: $3 has been edited by $2',
