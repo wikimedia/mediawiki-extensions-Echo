@@ -12,7 +12,8 @@ class SpecialNotifications extends SpecialPage {
 		$out->setPageTitle( $this->msg( 'echo-specialpage' )->text() );
 		$out->addModules( array( 'ext.echo.special' ) );
 
-		if ( $this->getUser()->isAnon() ) {
+		$user = $this->getUser();
+		if ( $user->isAnon() ) {
 			$out->addWikiMsg( 'echo-anon' );
 			return;
 		}
@@ -22,7 +23,7 @@ class SpecialNotifications extends SpecialPage {
 			array( 'echo_notification', 'echo_event' ),
 			'*',
 			array(
-				'notification_user' => $this->getUser()->getID(),
+				'notification_user' => $user->getID(),
 			),
 			__METHOD__,
 			array(
@@ -44,7 +45,7 @@ class SpecialNotifications extends SpecialPage {
 			$event = EchoEvent::newFromRow( $row );
 			$class = 'mw-echo-notification';
 
-			$formatted = EchoNotificationController::formatNotification( $event, $this->getUser(), 'html' );
+			$formatted = EchoNotificationController::formatNotification( $event, $user(), 'html' );
 
 			if ( $row->notification_read_timestamp === null ) {
 				$class .= ' mw-echo-unread';
