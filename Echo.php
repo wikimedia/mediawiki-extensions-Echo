@@ -54,10 +54,12 @@ $wgAutoloadClasses['EchoNotification'] = "$dir/model/Notification.php";
 $wgAutoloadClasses['EchoNotificationFormatter'] = "$dir/formatters/NotificationFormatter.php";
 $wgAutoloadClasses['EchoBasicFormatter'] = "$dir/formatters/BasicFormatter.php";
 $wgAutoloadClasses['EchoEditFormatter'] = "$dir/formatters/EditFormatter.php";
+$wgAutoloadClasses['EchoCommentFormatter'] = "$dir/formatters/CommentFormatter.php";
 
 // Internal stuff
 $wgAutoloadClasses['EchoNotifier'] = "$dir/Notifier.php";
 $wgAutoloadClasses['EchoNotificationController'] = "$dir/controller/NotificationController.php";
+$wgAutoloadClasses['EchoDiscussionParser'] = "$dir/includes/DiscussionParser.php";
 
 // Job queue
 $wgAutoloadClasses['EchoNotificationJob'] = "$dir/jobs/NotificationJob.php";
@@ -77,6 +79,7 @@ $wgHooks['GetPreferences'][] = 'EchoHooks::getPreferences';
 $wgHooks['PersonalUrls'][] = 'EchoHooks::onPersonalUrls';
 $wgHooks['BeforePageDisplay'][] = 'EchoHooks::beforePageDisplay';
 $wgHooks['MakeGlobalVariablesScript'][] = 'EchoHooks::makeGlobalVariablesScript';
+$wgHooks['UnitTestsList'][] = 'EchoHooks::getUnitTests';
 
 $echoResourceTemplate = array(
 	'localBasePath' => "$dir/modules",
@@ -99,6 +102,7 @@ $wgResourceModules += array(
 			'mediawiki.api',
 			'mediawiki.jqueryMsg',
 			'jquery.badge',
+			'ext.echo.icons',
 		),
 		'messages' => array(
 			'echo-link-new',
@@ -109,7 +113,13 @@ $wgResourceModules += array(
 		),
 	),
 	'ext.echo.special' => $echoResourceTemplate + array(
-		'dependencies' => array('ext.echo.base'),
+		'dependencies' => array(
+			'ext.echo.base',
+			'ext.echo.icons',
+		),
+	),
+	'ext.echo.icons' => $echoResourceTemplate + array(
+		'styles' => 'icons/icons.css',
 	),
 );
 
@@ -150,16 +160,36 @@ $wgEchoNotifiers = array(
 $wgEchoNotificationFormatters = array(
 	'edit-user-talk' => array(
 		'type' => 'edit',
-		'message-key' => 'notification-edit-talk-page',
-		'message-params' => array('agent', 'difflink', 'user'),
+		'title-message' => 'notification-edit-talk-page',
+		'title-params' => array('agent', 'difflink', 'user'),
 		'email-subject-message' => 'notification-edit-talk-page-email-subject',
 		'email-body-message' => 'notification-edit-talk-page-email-body',
+		'icon' => 'placeholder',
 	),
 	'edit' => array(
 		'type' => 'edit',
-		'message-key' => 'notification-edit',
-		'message-params' => array('agent', 'title', 'difflink', 'user'),
+		'title-message' => 'notification-edit',
+		'title-params' => array('agent', 'title', 'difflink', 'user'),
 		'email-subject-message' => 'notification-edit-email-subject',
 		'email-body-message' => 'notification-edit-email-body',
+		'icon' => 'placeholder',
+	),
+	'add-comment' => array(
+		'type' => 'comment',
+		'title-message' => 'notification-add-comment',
+		'title-message-yours' => 'notification-add-comment-yours',
+		'title-params' => array( 'agent', 'subject', 'title' ),
+		'content-message' => 'notification-talkpage-content',
+		'content-params' => array('commentText'),
+		'icon' => 'placeholder',
+	),
+	'add-talkpage-topic' => array(
+		'type' => 'comment',
+		'title-message' => 'notification-add-talkpage-topic',
+		'title-message-yours' => 'notification-add-talkpage-topic-yours',
+		'title-params' => array( 'agent', 'subject', 'title' ),
+		'content-message' => 'notification-talkpage-content',
+		'content-params' => array('commentText'),
+		'icon' => 'placeholder',
 	),
 );

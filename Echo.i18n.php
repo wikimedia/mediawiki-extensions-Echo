@@ -27,7 +27,12 @@ $messages['en'] = array(
 
 	// Notification
 	'notification-edit-talk-page' => '$2 {{GENDER:$1|edited}} your talk page $3',
-	'notification-edit' => '$2 {{GENDER:$1|edited}} $3 $4',
+	'notification-edit' => '$2 {{GENDER:$1|edited}} [[$3]] $4',
+	'notification-add-comment' => '$2 {{GENDER:$1|posted}} a comment to the discussion "[[$4|$3]]" on [[$4]]',
+	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|posted}} a new topic "$3" on [[$4]]',
+	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|sent}} you a message: [[$4#$3|$3]]',
+	'notification-add-comment-yours' => '$2 {{GENDER:$1|posted}} a new message to the discussion "$3" on [[$4|your talk page]]',
+	'notification-talkpage-content' => '$1', ## Do not translate unless you deliberately want to change behaviour
 
 	'notification-edit-email-subject' => '{{SITENAME}} notification: $3 has been edited by $2',
 	'notification-edit-email-body' => 'Hello $5,
@@ -85,11 +90,23 @@ $messages['qqq'] = array(
 * $1 is the username of the person who edited, plain text. Can be used for GENDER.
 * $2 is the username of the person who edited, formatted.
 * $3 is a diff link, formatted.',
+	'notification-talkpage-content' => 'Message shown as the "content" of a talkpage-related action.
+* $1 is the content of the talk page post.',
 	'notification-edit' => 'Format for displaying notifications of a page being edited (generally from a watchlist)
 * $1 is the username of the person who edited, plain text. Can be used for GENDER.
 * $2 is the username of the person who edited, formatted.
-* $3 is the page that was edited, formatted.
+* $3 is the page that was edited, as plain text.
 * $4 is a diff link, possibly formatted.',
+	'notification-add-comment' => 'Format for displaying notifications of a comment being added to an existing discussion.
+$1 is the username of the person who edited, plain text. Can be used for GENDER.
+$2 is the username of the person who edited.
+$3 is the section title of the discussion.
+$4 is the page on which the discussion exists, plain text.',
+	'notification-add-talkpage-topic' => 'Format for displaying notifications of a new discussion being added
+$1 is the username of the person who edited, plain text. Can be used for GENDER.
+$2 is the username of the person who edited, formatted.
+$3 is the section title of the discussion.
+$4 is the page on which the discussion was added, plain text.',
 	'echo-email-subject-default' => 'Default subject for Echo email notifications',
 	'echo-email-body-default' => 'Default message content for Echo email notifications.
 * $1 is a plain text description of the notification.',

@@ -50,11 +50,6 @@
 							.data('id', id)
 							.addClass('mw-echo-notification')
 							.append(data['*'])
-							.append(
-								$('<div></div>')
-									.text(data.timestamp.pretty)
-									.addClass('mw-echo-timestamp')
-							)
 							.appendTo($ul);
 
 						if (! data.read ) {

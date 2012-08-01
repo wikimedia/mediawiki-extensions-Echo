@@ -44,15 +44,14 @@ class SpecialNotifications extends SpecialPage {
 			$event = EchoEvent::newFromRow( $row );
 			$class = 'mw-echo-notification';
 
-			$ts = $this->getLanguage()->prettyTimestamp( $event->getTimestamp() );
-			$formatted =  "<span class='mw-echo-timestamp'>$ts</span> ";
-			$formatted .= EchoNotificationController::formatNotification( $event, $this->getUser(), 'html' );
+			$formatted = EchoNotificationController::formatNotification( $event, $this->getUser(), 'html' );
 
 			if ( $row->notification_read_timestamp === null ) {
 				$class .= ' mw-echo-unread';
 			}
 
-			$html .= "\t<li class='$class'>$formatted</li>\n";
+			$eventType = $event->getType();
+			$html .= "\t<li class=\"$class\" data-notification-type=\"$eventType\">$formatted</li>\n";
 		}
 
 		$html = "<ul>\n$html\n</ul>\n";

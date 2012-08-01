@@ -1,0 +1,14 @@
+.mw-echo-icon {
+	width: 42px;
+	height: 42px;
+	float: left;
+	margin-right: 5px;
+	background-repeat: no-repeat;
+	background-position: center left;
+	margin-bottom: 10px;
+}
+
+.mw-echo-icon-placeholder {
+	/* @embed */
+	background-image: url(placeholder.png);
+}

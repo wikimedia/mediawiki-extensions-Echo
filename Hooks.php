@@ -12,6 +12,8 @@ class EchoHooks {
 			"$dir/db_patches/patch-event_agent-split.sql", true );
 		$updater->modifyField( 'echo_event', 'event_variant',
 			"$dir/db_patches/patch-event_variant_nullability.sql", true );
+		$updater->modifyField( 'echo_event', 'event_extra',
+			"$dir/db_patches/patch-event_extra-size.sql", true );
 		return true;
 	}
 
@@ -28,6 +30,21 @@ class EchoHooks {
 					$user = User::newFromName($username);
 					$users[$user->getId()] = $user;
 				}
+			break;
+			case 'add-comment':
+			case 'add-talkpage-topic':
+				$extraData = $event->getExtra();
+
+				if ( !isset( $extraData['revid'] ) || !$extraData['revid'] ) {
+					break;
+				}
+
+				$revision = Revision::newFromId( $extraData['revid'] );
+
+				$users = array_merge(
+					$users,
+					EchoDiscussionParser::getNotifiedUsersForComment($revision)
+				);
 			break;
 		}
 
@@ -51,7 +68,7 @@ class EchoHooks {
 
 		if ( ! $user->getOption('enotifminoredits') ) {
 			$extra = $event->getExtra();
-			if ( $extra['revid'] ) {
+			if ( !empty($extra['revid']) ) {
 				$rev = Revision::newFromID($extra['revid']);
 
 				if ( $rev->isMinor() ) {
@@ -90,27 +107,20 @@ class EchoHooks {
 	}
 
 	public static function onArticleSaved( &$article, &$user, $text, $summary, $minoredit, $watchthis, $sectionanchor, &$flags, $revision, &$status ) {	
-		if ( $revision ) {
-			$event = EchoEvent::create( array(
-				'type' => 'edit',
-				'title' => $article->getTitle(),
-				'extra' => array('revid' => $revision->getID()),
-				'agent' => $user,
-			) );
+		if ( !$revision ) {
+			return true;
+		}
 
-			$possibleUser = $article->getTitle()->getText();
+		$event = EchoEvent::create( array(
+			'type' => 'edit',
+			'title' => $article->getTitle(),
+			'extra' => array('revid' => $revision->getID()),
+			'agent' => $user,
+		) );
 
-			if (
-				$article->getTitle()->getNamespace() === NS_USER_TALK &&
-				User::newFromName($possibleUser)->getID()
-			) {
-				$event = EchoEvent::create( array(
-					'type' => 'edit-user-talk',
-					'title' => $article->getTitle(),
-					'extra' => array('revid' => $revision->getID()),
-					'agent' => $user,
-				) );
-			}
+
+		if ( $article->getTitle()->isTalkPage() ) {
+			EchoDiscussionParser::generateEventsForRevision( $revision );
 		}
 
 		return true;
@@ -163,5 +173,10 @@ class EchoHooks {
 		}
 
 		return true;
+	}
+
+	static function getUnitTests( &$files ) {
+		$dir = dirname( __FILE__ ) . '/tests';
+		$files[] = "$dir/DiscussionParserTest.php";
 	}
 }

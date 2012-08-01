@@ -3,15 +3,70 @@
 class EchoBasicFormatter extends EchoNotificationFormatter {
 	protected $messageKey = false;
 	protected $messageParams = false;
+	protected $requiredParameters = array(
+		'title-message',
+		'title-params',
+	);
+
+	protected $title, $content, $email, $icon;
 
 	public function __construct( $params ) {
 		parent::__construct($params);
-		if ( !isset($params['message-key']) || !isset($params['message-params']) ) {
-			throw new MWException("message-key and message-params parameters are required for an EchoBasicFormatter");
+
+		$this->title = array();
+		$this->title['message'] = $params['title-message'];
+		$this->title['params'] = $params['title-params'];
+
+		if ( isset( $params['content-message'] ) ) {
+			$this->content = array();
+			$this->content['message'] = $params['content-message'];
+
+			if ( isset( $params['content-params'] ) ) {
+				$this->content['params'] = $params['content-params'];
+			} else {
+				$this->content['params'] = array();
+			}
 		}
 
-		$this->messageKey = $params['message-key'];
-		$this->messageParams = $params['message-params'];
+		$this->email = array();
+		if ( isset( $params['email-subject-message'] ) ) {
+			$this->email['subject'] = array();
+			$this->email['subject']['message'] = $params['email-subject-message'];
+
+			if ( isset( $params['email-subject-params'] ) ) {
+				$this->email['subject']['params'] = $params['email-subject-params'];
+			} else {
+				$this->email['subject']['params'] = array();
+			}
+		} else {
+			$this->email = array(
+				'subject' => array(
+					'message' => 'echo-email-subject-default',
+					'params' => array(),
+				),
+				'body' => array(
+					'message' => 'echo-email-body-default',
+					'params' => array(
+						'text-notification',
+					),
+				),
+			);
+		}
+
+		if ( isset( $params['email-body-message'] ) ) {
+			$this->email['body'] = array();
+			$this->email['body']['message'] = $params['email-body-message'];
+
+			if ( isset( $params['email-body-params'] ) ) {
+				$this->email['body']['params'] = $params['email-subject-params'];
+			} else {
+				$this->email['body']['params'] = array( 'text-notification' );
+			}
+		}
+
+		if ( isset( $params['icon'] ) ) {
+			$this->icon = $params['icon'];
+		}
 	}
 
 	public function format( $event, $user, $type ) {
@@ -21,53 +76,60 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			return $this->formatEmail( $event, $user, $type );
 		}
 
-		$message = wfMessage( $this->messageKey );
-		$this->processParams( $event, $message, $user );
-
-		if ( $this->outputFormat === 'html' ) {
-			return $message->parse();
-		} else {
-			return $message->text();
+		if ( $this->outputFormat === 'text' ) {
+			return $this->formatNotificationTitle( $event, $user )->text();
 		}
+
+		// Assume html
+		$title = $this->formatNotificationTitle( $event, $user )->parse();
+		$output = Xml::tags( 'div', array( 'class' => 'mw-echo-title' ), $title ) . "\n";
+		if ( !is_null( $this->content ) ) {
+			$content = $this->formatContent( $event, $user );
+			$content .= ' ' . $this->formatTimestamp( $event->getTimestamp(), $user );
+			$output .= Xml::tags( 'div', array( 'class' => 'mw-echo-content' ), $content ) . "\n";
+		}
+
+		if ( ! is_null( $this->icon ) ) {
+			$output = Xml::tags( 'div',
+				array( 'class' => "mw-echo-icon mw-echo-icon-{$this->icon}" ),
+				'&nbsp;'
+			) . $output;
+		}
+
+		return $output;
+	}
+
+	protected function formatNotificationTitle( $event, $user ) {
+		return $this->formatFragment( $this->title, $event, $user );
+	}
+
+	protected function formatContent( $event, $user ) {
+		if ( is_null( $this->content ) ) {
+			return '';
+		}
+
+		return $this->formatFragment( $this->content, $event, $user )->parse();
+	}
+
+	protected function formatFragment( $details, $event, $user ) {
+		$message = wfMessage( $details['message'] )
+				->inLanguage( $user->getOption('language') );
+
+		$this->processParams( $details['params'], $event, $message, $user );
+
+		return $message;
 	}
 
 	protected function formatEmail( $event, $user, $type ) {
-		$params = $this->parameters;
-		$language = $user->getOption('language');
+		$subject = $this->formatFragment( $this->email['subject'], $event, $user );
 
-		if ( isset($params['email-subject-message']) ) {
-			$subjectMsg = wfMessage( $params['email-subject-message'] )
-				->inLanguage($language);
-			$this->processParams( $event, $subjectMsg, $user );
-			$subject = $subjectMsg
-				->text();
-		} else {
-			$subject = wfMessage('echo-email-subject-default')
-					->inLanguage($language)
-					->text();
-		}
-
-		if ( isset( $params['email-body-message']) ) {
-			$bodyMsg = wfMessage( $params['email-body-message'] )
-					->inLanguage($language);
-			$this->processParams( $event, $bodyMsg, $user );
-			$body = $bodyMsg
-				->text();
-		} else {
-			$this->setOutputFormat('text');
-			$textNotification = $this->format( $event, $user, $type );
-			$this->setOutputFormat('email');
-			$body = wfMessage('echo-email-body-default')
-				->inLanguage($language)
-				->params($textNotification)
-				->text();
-		}
+		$body = $this->formatFragment( $this->email['body'], $event, $user );
 
 		return array( 'subject' => $subject, 'body' => $body );
 	}
 
-	protected function processParams( $event, $message, $user ) {
-		foreach( $this->messageParams as $param ) {
+	protected function processParams( $params, $event, $message, $user ) {
+		foreach( $params as $param ) {
 			$this->processParam( $event, $param, $message, $user );
 		}
 	}
@@ -88,8 +150,16 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			if ( ! $event->getTitle() ) {
 				$message->params( wfMessage( 'echo-no-title' )->text() );
 			} else {
-				$message->rawParams( $this->formatTitle( $event->getTitle() ) );
+				$message->params( $this->formatTitle( $event->getTitle() ) );
 			}
+		} elseif ( $param == 'text-notification' ) {
+			$oldOutputFormat = $this->outputFormat;
+			$this->setOutputFormat('text');
+			// $type is ignored in this class
+			$textNotification = $this->format( $event, $user, '' );
+			$this->setOutputFormat( $oldOutputFormat );
+
+			$message->params( $textNotification );
 		} else {
 			throw new MWException( "Unrecognised parameter $param" );
 		}
