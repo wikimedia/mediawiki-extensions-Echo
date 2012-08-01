@@ -50,7 +50,7 @@ class SpecialNotifications extends SpecialPage {
 				$class .= ' mw-echo-unread';
 			}
 
-			$eventType = $event->getType();
+			$eventType = htmlspecialchars( $event->getType() );
 			$html .= "\t<li class=\"$class\" data-notification-type=\"$eventType\">$formatted</li>\n";
 		}
 
