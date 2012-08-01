@@ -10,13 +10,13 @@
 				
 				console.log('Updated new notification count to '+newCount);
 			},
-			'configuration' : wgEchoOverlayConfiguration
+			'configuration' : mw.config.get('wgEchoOverlayConfiguration')
 		};
 
 		mw.echo.overlay.notification_count = mw.echo.overlay.configuration['notification-count'];
 		mw.echo.overlay.updateCount( mw.echo.overlay.notification_count );
 
-		var $link = $('#pt-notifications');
+		var $link = $('#pt-notifications a');
 		if ( ! $link.length ) {
 			return;
 		}
@@ -68,9 +68,9 @@
 					$overlay.append(
 						$('<div/>')
 							.addClass('mw-echo-overlay-link')
-							.append($('<a/>')
-								.attr('href', $('#pt-notifications a').attr('href'))
-								.text( mw.msg('echo-overlay-link') )
+							.append( $link
+								.clone()
+								.text( mw.msg( 'echo-overlay-link' ) )
 							)
 					);
 
@@ -90,15 +90,19 @@
 					});
 				},
 				'err' : function() {
-					window.location.href = $('#pt-notifications a').attr('href');
+					window.location.href = $link.attr('href');
 				}
 			} );
 		}
 
 		$link.click( function(e) {
 			e.preventDefault();
-
-			if ($(e.target).is('.mw-echo-overlay,.mw-echo-overlay *') ) {
+			var $target = $(e.target);
+			// If the user clicked on the overlay or any child,
+			//  ignore the click
+			if ( $target.hasClass('mw-echo-overlay') ||
+				$target.is('mw-echo-overlay *')
+			) {
 				return;
 			}
 
