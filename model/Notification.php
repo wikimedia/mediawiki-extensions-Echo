@@ -1,10 +1,11 @@
 <?php
 
 class EchoNotification {
+	protected $id = false;
 	protected $user = false;
 	protected $event = false;
 	protected $timestamp = false;
-	protected $readTimestamp = false;
+	protected $readTimestamp = null;
 
 	/**
 	 * Do not use this constructor.
@@ -24,9 +25,7 @@ class EchoNotification {
 		$obj = new EchoNotification;
 		static $validFields = array( 'event', 'user' );
 
-		$obj->id = false;
 		$obj->timestamp = wfTimestampNow();
-		$obj->readTimestamp = null;
 
 		foreach( $validFields as $field ) {
 			if ( isset($info[$field]) ) {
@@ -61,7 +60,7 @@ class EchoNotification {
 			'notification_event' => $this->event->getId(),
 			'notification_user' => $this->user->getId(),
 			'notification_timestamp' => $dbw->timestamp( $this->timestamp ),
-			'notification_read_timestamp' => null,
+			'notification_read_timestamp' => $this->readTimestamp,
 		);
 
 		$dbw->insert( 'echo_notification', $row, __METHOD__ );

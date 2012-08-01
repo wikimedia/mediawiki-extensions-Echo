@@ -14,7 +14,7 @@ class EchoSubscription {
 	 * a user to an event (on a page if applicable).
 	 *
 	 * @param $user User object for the user whose subscription we're talking about.
-	 * @param $event String identifier for the event type of interest
+	 * @param $event String identifier for the event type of interest. Max length is 63 chars.
 	 * @param $title Title|null Optional Title of interest for events, if applicable.
 	 */
 	public function __construct( $user, $event, $title = null) {
@@ -26,7 +26,7 @@ class EchoSubscription {
 			throw new MWException("Invalid Title parameter");
 		}
 
-		if (!$event || is_object($event) || strlen($event) > 63 ) {
+		if ( !$event || !is_string($event) || strlen($event) > 63 ) {
 			throw new MWException("Invalid event parameter");
 		}
 

@@ -59,7 +59,7 @@ class EchoEvent {
 		$obj = new EchoEvent;
 		static $validFields = array( 'type', 'variant', 'agent', 'title', 'extra' );
 
-		if ( empty($info['type']) ) {
+		if ( empty( $info['type'] ) ) {
 			throw new MWException( "'type' parameter is mandatory" );
 		}
 

@@ -23,7 +23,8 @@ class EchoNotificationController {
 				'notification_user' => $user->getId(),
 				'notification_read_timestamp' => null,
 			),
-			__METHOD__);
+			__METHOD__
+		);
 
 		$wgMemc->set($memcKey, $count, 86400);
 

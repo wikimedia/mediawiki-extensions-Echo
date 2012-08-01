@@ -1,29 +1,19 @@
 ( function($,mw) {
-	$( function() {
-		mw.echo.overlay = {
-			'updateCount' : function(newCount) {
-				$('#pt-notifications a')
-					.text( mw.msg('echo-link') )
-					.badge( newCount, { 'type' : 'inline' } );
+	mw.echo.overlay = {
+		'updateCount' : function(newCount) {
+			$('#pt-notifications a')
+				.text( mw.msg('echo-link') )
+				.badge( newCount, { 'type' : 'inline' } );
 
-				mw.echo.overlay.notification_count = newCount;
-				
-				console.log('Updated new notification count to '+newCount);
-			},
-			'configuration' : mw.config.get('wgEchoOverlayConfiguration')
-		};
+			mw.echo.overlay.notification_count = newCount;
+		},
 
-		mw.echo.overlay.notification_count = mw.echo.overlay.configuration['notification-count'];
-		mw.echo.overlay.updateCount( mw.echo.overlay.notification_count );
+		'configuration' : mw.config.get('wgEchoOverlayConfiguration'),
 
-		var $link = $('#pt-notifications a');
-		if ( ! $link.length ) {
-			return;
-		}
-
-		function buildOverlay(callback) {
+		'buildOverlay' : function(callback) {
 			var $overlay = $('<div></div>')
 				.addClass('mw-echo-overlay');
+			var $link = $('#pt-notifications a');
 
 			$overlay.append(
 				$('<div/>')
@@ -44,7 +34,7 @@
 					var $ul = $('<ul></ul>').appendTo($overlay);
 
 					$.each( notifications.index, function(index, id) {
-						data = notifications[id];
+						var data = notifications[id];
 						var $li = $('<li></li>')
 							.data('details', data)
 							.data('id', id)
@@ -61,6 +51,7 @@
 						$ul.remove();
 						$overlay.append(
 							$('<div></div>')
+								.addClass( 'mw-echo-overlay-none' )
 								.text(mw.msg('echo-none'))
 						);
 					}
@@ -94,6 +85,17 @@
 				}
 			} );
 		}
+	};
+
+	mw.echo.overlay.notification_count = mw.echo.overlay.configuration['notification-count'];
+
+	$( function() {
+		mw.echo.overlay.updateCount( mw.echo.overlay.notification_count );
+
+		var $link = $('#pt-notifications a');
+		if ( ! $link.length ) {
+			return;
+		}
 
 		$link.click( function(e) {
 			e.preventDefault();
@@ -115,7 +117,7 @@
 				return;
 			}
 			
-			$overlay = buildOverlay(
+			$overlay = mw.echo.overlay.buildOverlay(
 				function($overlay) {
 					$overlay
 						.hide()
