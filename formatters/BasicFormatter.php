@@ -87,6 +87,9 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			$content = $this->formatContent( $event, $user );
 			$content .= ' ' . $this->formatTimestamp( $event->getTimestamp(), $user );
 			$output .= Xml::tags( 'div', array( 'class' => 'mw-echo-content' ), $content ) . "\n";
+		} else {
+			$content = $this->formatTimestamp( $event->getTimestamp(), $user );
+			$output .= Xml::tags( 'div', array( 'class' => 'mw-echo-content' ), $content ) . "\n";
 		}
 
 		if ( ! is_null( $this->icon ) ) {
