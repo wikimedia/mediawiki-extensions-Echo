@@ -243,7 +243,8 @@ class EchoHooks {
 	 * @return true in all cases
 	 */
 	static function abortEmailNotification() {
-		return false;
+		global $wgEchoDisableStandardEmail;
+		return ! $wgEchoDisableStandardEmail;
 	}
 
 	public static function makeGlobalVariablesScript( &$vars, $outputPage ) {

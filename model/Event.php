@@ -175,12 +175,14 @@ class EchoEvent {
 	 * Loads data from the database into this object, given the event ID.
 	 * @param $id Event ID
 	 */
-	public function loadFromID($id) {
-		$dbr = wfGetDB( DB_SLAVE );
+	public function loadFromID( $id, $fromMaster = false ) {
+		$db = wfGetDB( $fromMaster ? DB_MASTER : DB_SLAVE );
 
-		$row = $dbr->selectRow( 'echo_event', '*', array('event_id' => $id), __METHOD__ );
+		$row = $db->selectRow( 'echo_event', '*', array('event_id' => $id), __METHOD__ );
 
-		if ( ! $row ) {
+		if ( ! $row && !$fromMaster ) {
+			$this->loadFromID( $id, true );
+		} elseif ( ! $row ) {
 			throw new MWException( "No EchoEvent found with ID: $id");
 		}
 

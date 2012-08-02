@@ -147,6 +147,8 @@ $wgHooks['ArticleEditUpdateNewTalk'][] = 'EchoHooks::abortNewtalkNotification';
 
 // Configuration
 
+$wgEchoDisableStandardEmail = true;
+
 $wgEchoDefaultNotificationTypes = array(
 	'all' => array(
 		'notify' => true,
