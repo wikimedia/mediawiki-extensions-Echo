@@ -121,9 +121,9 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	}
 
 	protected function formatEmail( $event, $user, $type ) {
-		$subject = $this->formatFragment( $this->email['subject'], $event, $user );
+		$subject = $this->formatFragment( $this->email['subject'], $event, $user )->text();
 
-		$body = $this->formatFragment( $this->email['body'], $event, $user );
+		$body = $this->formatFragment( $this->email['body'], $event, $user )->text();
 
 		return array( 'subject' => $subject, 'body' => $body );
 	}
