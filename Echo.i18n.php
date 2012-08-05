@@ -22,8 +22,8 @@ $messages['en'] = array(
 	// Special:Notifications
 	'notifications' => 'Notifications',
 	'echo-specialpage' => 'My notifications',
-	'echo-anon' => 'To receive notifications, [[Special:Userlogin/signup|create an account]].',
-	'echo-none' => 'You have not received any notifications lately!',
+	'echo-anon' => 'To receive notifications, [[Special:Userlogin/signup|create an account]] or [[Special:UserLogin|log in]].',
+	'echo-none' => 'You have not received any notifications lately.',
 
 	// Notification
 	'notification-edit' => '$2 {{GENDER:$1|edited}} [[$3]] $4',
