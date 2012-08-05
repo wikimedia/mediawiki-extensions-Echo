@@ -98,11 +98,12 @@ $messages['qqq'] = array(
 * $1 is the username of the person who edited, plain text. Can be used for GENDER.
 * $2 is the username of the person who edited, formatted.
 * $3 is a diff link, formatted.',
-	'notification-add-comment' => 'Format for displaying notifications of a comment being added to an existing discussion.
-$1 is the username of the person who edited, plain text. Can be used for GENDER.
-$2 is the username of the person who edited.
-$3 is the section title of the discussion.
-$4 is the page on which the discussion exists, plain text.',
+	'notification-add-comment' => 'Format for displaying notifications of a comment being added to an existing discussion. Parameters:
+* $1 is the username of the person who edited, plain text. Can be used for GENDER,
+* $2 is the username of the person who edited,
+* $3 is the section title of the discussion,
+* $4 is a link to a page and section,
+* $5 is the page on which the discussion exists, plain text.',
 	'notification-add-talkpage-topic' => 'Format for displaying notifications of a new discussion being added
 $1 is the username of the person who edited, plain text. Can be used for GENDER.
 $2 is the username of the person who edited, formatted.
@@ -201,10 +202,10 @@ $messages['de'] = array(
 	'echo-none' => 'Du hast in letzter Zeit keine Benachrichtigungen erhalten.',
 	'notification-edit' => '$2 {{GENDER:$1|bearbeitete}} [[$3]] $4',
 	'notification-edit-talk-page' => '$2 {{GENDER:$1|bearbeitete}} [[User talk:$4|deine Benutzerseite]] $3',
-	'notification-add-comment' => '$2 {{GENDER:$1|kommentierte}} auf „[[$4|$3]]“ auf der Diskussionsseite „$5“',
+	'notification-add-comment' => '$2 {{GENDER:$1|kommentierte}} „[[$4|$3]]“ auf der Diskussionsseite „$5“',
 	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|startete}} das neue Thema  „$3“ zu [[$4]]',
 	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|sandte}} dir eine Nachricht: [[$4#$3|$3]]',
-	'notification-add-comment-yours' => '$2 {{GENDER:$1|kommentierte}} auf „[[$4#$3|$3]]“ auf deiner Diskussionsseite',
+	'notification-add-comment-yours' => '$2 {{GENDER:$1|kommentierte}} „[[$4#$3|$3]]“ auf deiner Diskussionsseite',
 	'notification-edit-email-subject' => '{{SITENAME}}-Benachrichtigung: $3 wurde von $2 bearbeitet',
 	'notification-edit-email-body' => 'Hallo $5,
 
@@ -244,9 +245,9 @@ $1',
  */
 $messages['de-formal'] = array(
 	'echo-none' => 'Sie haben in letzter Zeit keine Benachrichtigungen erhalten.',
-	'notification-edit-talk-page' => '$2 bearbeitete Ihre Benutzerseite $3',
+	'notification-edit-talk-page' => '$2 {{GENDER:$1|bearbeitete}} [[User talk:$4|Ihre Benutzerseite]] $3',
 	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|sandte}} Ihnen eine Nachricht: [[$4#$3|$3]]',
-	'notification-add-comment-yours' => '$2 {{GENDER:$1|hinterließ}} eine neue Nachricht zur Diskussion „$3“ auf [[$4|Ihrer Diskussionsseite]]',
+	'notification-add-comment-yours' => '$2 {{GENDER:$1|kommentierte}} „[[$4#$3|$3]]“ auf Ihrer Diskussionsseite',
 	'notification-edit-email-body' => 'Hallo $5,
 
 dies ist eine Benachrichtigung, um Ihnen mitzuteilen, dass $2 die Seite $3 auf {{SITENAME}} bearbeitet hat.
@@ -272,6 +273,13 @@ Vielen Dank, dass Sie {{SITENAME}} nutzen.
 Das {{SITENAME}}-Benachrichtigungssytem',
 );
 
+/** Zazaki (Zazaki)
+ * @author Erdemaslancan
+ */
+$messages['diq'] = array(
+	'echo-overlay-link' => 'Tebliği pêro...',
+);
+
 /** Spanish (español)
  * @author Armando-Martin
  */
@@ -286,7 +294,7 @@ $messages['es'] = array(
 	'echo-anon' => 'Para recibir notificaciones, [[Special:Userlogin/signup|crea una cuenta]].',
 	'echo-none' => '¡No has recibido notificaciones últimamente!',
 	'notification-edit' => '$2 ha editado [[$3]] $4',
-	'notification-edit-talk-page' => '$2 ha editado tu página de discusión $3',
+	'notification-edit-talk-page' => '$2 {{GENDER:$1|ha editado}} [[User talk:$4|tu página de discusión]] $3',
 	'notification-edit-email-subject' => 'Notificación de {{SITENAME}}: $3 ha sido editado por $2',
 	'notification-edit-email-body' => 'Hola  $5 ,
 
@@ -324,6 +332,7 @@ $1',
 
 /** French (français)
  * @author DavidL
+ * @author IAlex
  * @author Jean-Frédéric
  * @author Tititou36
  */
@@ -337,12 +346,12 @@ $messages['fr'] = array(
 	'echo-specialpage' => 'Mes notifications',
 	'echo-anon' => 'Pour recevoir des notifications, [[Special:Userlogin/signup|créez un compte]].',
 	'echo-none' => "Vous n'avez reçu aucune notification dernièrement !",
-	'notification-edit' => '$2 a modifié [[$3]] $4',
-	'notification-edit-talk-page' => '$2 a modifié votre page de discussion $3',
-	'notification-add-comment' => '$2 a posté un commentaire à la discussion "[[$4|$3]]" on [[$4]]',
-	'notification-add-talkpage-topic' => '$2 a ouvert un nouveau sujet "$3" sur [[$4]]',
-	'notification-add-talkpage-topic-yours' => '$2 vous a laissé un message : [[$4#$3|$3]]',
-	'notification-add-comment-yours' => '$2 a laissé un nouveau message à la discussion "$3" sur [[$4|votre page de discussion]]',
+	'notification-edit' => '$2 {{GENDER:$1|a modifié}} [[$3]] $4',
+	'notification-edit-talk-page' => '$2 a {{GENDER:$1|modifié}} [[User talk:$4|votre page de discussion]] $3',
+	'notification-add-comment' => '$2 {{GENDER:$1|a posté}} un commentaire à la discussion « [[$4|$3]] » sur $5',
+	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|a ouvert}} un nouveau sujet « $3 » sur [[$4]]',
+	'notification-add-talkpage-topic-yours' => '$2 vous {{GENDER:$1|a laissé}} un message : [[$4#$3|$3]]',
+	'notification-add-comment-yours' => '$2 {{GENDER:$1|a posté}} un commentaire sur « [[$4#$3|$3]] » sur votre page de discussion',
 	'notification-edit-email-subject' => 'Notification de {{SITENAME}} : $3 a été modifié par $2',
 	'notification-edit-email-body' => "Bonjour  $5,
 Ceci est une notification pour vous informer que $2 a modifié la page $3 de {{SITENAME}}.
@@ -442,6 +451,11 @@ $messages['he'] = array(
 	'echo-none' => 'לא קיבלת הודעות לאחרונה!',
 	'notification-edit' => '$2 {{GENDER:$1|ערך|ערכה}} את הדף [[$3]] $4',
 	'notification-edit-talk-page' => '$2 {{GENDER:$1|ערך|ערכה}} את דף השיחה שלך $3',
+	'notification-add-comment' => '$2 {{GENDER:$1|הגיב|הגיבה}} על "[[$4|$3]]" בדף השיחה "$5"',
+	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|יצר|יצרה}} את הנושא החדש "$3" בדף [[$4]]',
+	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|שלח|שלחה}} לך הודעה: "[[$4#$3|$3]]"',
+	'notification-add-comment-yours' => '$2 {{GENDER:$1|הגיב|הגיבה}} על "[[$4#$3|$3]]" בדף השיחה שלך',
+	'notification-edit-email-subject' => 'הודעה מאתר {{SITENAME}}: הדף $3 נערך על־ידי $2',
 	'notification-edit-talk-page-email-subject' => 'דף השיחה שלך באתר {{SITENAME}} נערך עלֹ־ידי $2',
 	'echo-email-subject-default' => 'הודעה חדשה באתר {{SITENAME}}',
 	'echo-email-body-default' => 'יש לך הודעה חדשה באתר {{SITENAME}}:
@@ -693,11 +707,11 @@ $messages['mk'] = array(
 	'echo-anon' => 'За да добивате известувања, [[Special:Userlogin/signup|направете сметка]].',
 	'echo-none' => 'Во последно време немате примено ниедно известување!',
 	'notification-edit' => '$2 {{GENDER:$1|ја измени}} страницата [[$3]] $4',
-	'notification-edit-talk-page' => '$2 ја измени вашата страница за разговор $3',
-	'notification-add-comment' => '$2 {{GENDER:$1|напиша}} коментар на дискусијата „[[$4|$3]]“ за [[$4]]',
+	'notification-edit-talk-page' => '$2 ја {{GENDER:$1|измени}} [[User talk:$4|вашата страница за разговор]] $3',
+	'notification-add-comment' => '$2 {{GENDER:$1|коментираше}} на „[[$4|$3]]“ на страницата за разговор „$5“',
 	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|напиша}} нова тема „$3“ за [[$4]]',
 	'notification-add-talkpage-topic-yours' => '$2 ви {{GENDER:$1|испрати}} порака: [[$4#$3|$3]]',
-	'notification-add-comment-yours' => '$2 {{GENDER:$1|напиша}} нова порака на дискусијата „$3“ на [[$4|вашата страница за разговор]]',
+	'notification-add-comment-yours' => '$2 {{GENDER:$1|коментираше}} на „[[$4#$3|$3]]“ на вашата страница за разговор',
 	'notification-edit-email-subject' => 'Известување од {{SITENAME}}: $2 ја измени страницата $3',
 	'notification-edit-email-body' => 'Здраво $5,
 Ве известуваме дека $2 ја измени страницата $3 на {{SITENAME}}.
