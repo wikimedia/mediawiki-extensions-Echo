@@ -73,6 +73,7 @@ $1',
 /** Message documentation (Message documentation)
  * @author Amire80
  * @author Kghbln
+ * @author Nike
  * @author Raymond
  * @author Siebrand
  */
@@ -92,12 +93,13 @@ $messages['qqq'] = array(
 	'notification-edit' => 'Format for displaying notifications of a page being edited (generally from a watchlist)
 * $1 is the username of the person who edited, plain text. Can be used for GENDER.
 * $2 is the username of the person who edited, formatted.
-* [[$3]] is the page that was edited, as plain text.
+* $3 is the page that was edited, as plain text.
 * $4 is a diff link, possibly formatted.',
-	'notification-edit-talk-page' => 'Format for displaying notifications of a user talk page being edited
+	'notification-edit-talk-page' => "Format for displaying notifications of a user talk page being edited
 * $1 is the username of the person who edited, plain text. Can be used for GENDER.
 * $2 is the username of the person who edited, formatted.
-* $3 is a diff link, formatted.',
+* $3 is a diff link, formatted.
+* $4 is the current user's name, used in the link to their talk page.",
 	'notification-add-comment' => 'Format for displaying notifications of a comment being added to an existing discussion. Parameters:
 * $1 is the username of the person who edited, plain text. Can be used for GENDER,
 * $2 is the username of the person who edited,
@@ -105,10 +107,10 @@ $messages['qqq'] = array(
 * $4 is a link to a page and section,
 * $5 is the page on which the discussion exists, plain text.',
 	'notification-add-talkpage-topic' => 'Format for displaying notifications of a new discussion being added
-$1 is the username of the person who edited, plain text. Can be used for GENDER.
-$2 is the username of the person who edited, formatted.
-$3 is the section title of the discussion.
-$4 is the page on which the discussion was added, plain text.',
+* $1 is the username of the person who edited, plain text. Can be used for GENDER.
+* $2 is the username of the person who edited, formatted.
+* $3 is the section title of the discussion.
+* $4 is the page on which the discussion was added, plain text.',
 	'notification-add-talkpage-topic-yours' => 'Parameters:
 * $1 is a username used for GENDER
 * $2 is a linked username
@@ -198,7 +200,7 @@ $messages['de'] = array(
 	'echo-no-title' => '[Kein Titel]',
 	'notifications' => 'Benachrichtigungen',
 	'echo-specialpage' => 'Meine Benachrichtigungen',
-	'echo-anon' => 'Um Benachrichtigungen erhalten zu können, muss man ein [[Special:Userlogin/signup|Benutzerkonto anlegen]].',
+	'echo-anon' => 'Um Benachrichtigungen erhalten zu können, muss man ein [[Special:Userlogin/signup|Benutzerkonto anlegen]] oder sich [[Special:UserLogin|anmelden]].',
 	'echo-none' => 'Du hast in letzter Zeit keine Benachrichtigungen erhalten.',
 	'notification-edit' => '$2 {{GENDER:$1|bearbeitete}} [[$3]] $4',
 	'notification-edit-talk-page' => '$2 {{GENDER:$1|bearbeitete}} [[User talk:$4|deine Benutzerseite]] $3',
@@ -291,7 +293,7 @@ $messages['es'] = array(
 	'echo-no-title' => '[Sin título]',
 	'notifications' => 'Notificaciones',
 	'echo-specialpage' => 'Mis notificaciones',
-	'echo-anon' => 'Para recibir notificaciones, [[Special:Userlogin/signup|crea una cuenta]].',
+	'echo-anon' => 'Para recibir notificaciones, [[Special:Userlogin/signup|crea una cuenta]] o [[Special:UserLogin|inicia sesión]].',
 	'echo-none' => '¡No has recibido notificaciones últimamente!',
 	'notification-edit' => '$2 ha editado [[$3]] $4',
 	'notification-edit-talk-page' => '$2 {{GENDER:$1|ha editado}} [[User talk:$4|tu página de discusión]] $3',
@@ -330,6 +332,28 @@ $1',
 	'echo-overlay-title' => 'Mis notificaciones',
 );
 
+/** Finnish (suomi)
+ * @author Nike
+ */
+$messages['fi'] = array(
+	'echo-desc' => 'Seuraavan sukupolven ilmoitusjärjestelmä',
+	'prefs-echo' => 'Ilmoitukset',
+	'echo-no-agent' => '[Ei kukaan]',
+	'echo-no-title' => '[Ei sivua]',
+	'notifications' => 'Ilmoitukset',
+	'echo-specialpage' => 'Ilmoitukset',
+	'echo-anon' => 'Vain [[Special:Userlogin/signup|rekisteröityneet käyttäjät]] saavat ilmoituksia.',
+	'echo-none' => 'Ei uusia ilmoituksia viime aikoina.',
+	'notification-edit' => '$2 {{GENDER:$1|muokkasi}} sivua [[$3]] $4',
+	'notification-edit-talk-page' => '$2 {{GENDER:$1|muokkasi}} [[User talk:$4|keskustelusivuasi]] $3',
+	'notification-add-comment' => '$2 {{GENDER:$1|kommentoi}} keskustelua [[$4|$3]] sivusta $5',
+	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|aloitti}} keskustelun $3 sivusta [[$4]]',
+	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|lähetti}} sinulle viestin: [[$4#$3|$3]]',
+	'echo-link' => 'Ilmoitukset',
+	'echo-overlay-link' => 'Kaikki ilmoitukset…',
+	'echo-overlay-title' => 'Ilmoitukset',
+);
+
 /** French (français)
  * @author DavidL
  * @author IAlex
@@ -344,7 +368,7 @@ $messages['fr'] = array(
 	'echo-no-title' => '[Sans titre]',
 	'notifications' => 'Notifications',
 	'echo-specialpage' => 'Mes notifications',
-	'echo-anon' => 'Pour recevoir des notifications, [[Special:Userlogin/signup|créez un compte]].',
+	'echo-anon' => 'Pour recevoir des notifications, [[Special:Userlogin/signup|créez un compte]] ou [[Special:UserLogin|connectez-vous]].',
 	'echo-none' => "Vous n'avez reçu aucune notification dernièrement !",
 	'notification-edit' => '$2 {{GENDER:$1|a modifié}} [[$3]] $4',
 	'notification-edit-talk-page' => '$2 a {{GENDER:$1|modifié}} [[User talk:$4|votre page de discussion]] $3',
@@ -396,7 +420,7 @@ $messages['gl'] = array(
 	'echo-no-title' => '[Sen título]',
 	'notifications' => 'Notificacións',
 	'echo-specialpage' => 'As miñas notificacións',
-	'echo-anon' => 'Para recibir notificacións, [[Special:Userlogin/signup|cree unha conta]].',
+	'echo-anon' => 'Para recibir notificacións, [[Special:Userlogin/signup|cree unha conta]] ou [[Special:UserLogin|acceda ao sistema]].',
 	'echo-none' => 'Non recibiu notificación ningunha ultimamente!',
 	'notification-edit' => '$2 {{GENDER:$1|editou}} "[[$3]]" $4',
 	'notification-edit-talk-page' => '$2 {{GENDER:$1|editou}} [[User talk:$4|a súa páxina de conversa]] $3',
@@ -447,7 +471,7 @@ $messages['he'] = array(
 	'echo-no-title' => '[ללא כותרת]',
 	'notifications' => 'הודעות',
 	'echo-specialpage' => 'ההודעות שלי',
-	'echo-anon' => 'כדי לקבל הודעות, [[Special:Userlogin/signup|יש ליצור חשבון]].',
+	'echo-anon' => 'כדי לקבל הודעות, [[Special:Userlogin/signup|יש ליצור חשבון]] או [[Special:UserLogin|להיכנס]].',
 	'echo-none' => 'לא קיבלת הודעות לאחרונה!',
 	'notification-edit' => '$2 {{GENDER:$1|ערך|ערכה}} את הדף [[$3]] $4',
 	'notification-edit-talk-page' => '$2 {{GENDER:$1|ערך|ערכה}} את דף השיחה שלך $3',
@@ -478,7 +502,7 @@ $messages['hsb'] = array(
 	'echo-no-title' => '[Žadyn titul]',
 	'notifications' => 'Zdźělenki',
 	'echo-specialpage' => 'Moje zdźělenki',
-	'echo-anon' => 'Zo by zdźělenki dóstał, dyrbiš [[Special:Userlogin/signup|konto załožić]].',
+	'echo-anon' => 'Zo by zdźělenki dóstał, dyrbiš [[Special:Userlogin/signup|konto załožić]] abo [[Special:UserLogin|so přizjewić]].',
 	'echo-none' => 'W poslednim času njejsy žane zdźělenki dóstał!',
 	'notification-edit' => '$2 je [[$3]] $4 {{GENDER:$1|wobdźěłał|wobdźěłała}}',
 	'notification-edit-talk-page' => '$2 jo [[User talk:$4|twoju diskusijnu stronu]] {{GENDER:$1|wobdźěłał|wobdźěłała}} $3',
@@ -532,8 +556,12 @@ $messages['ia'] = array(
 	'echo-specialpage' => 'Mi notificationes',
 	'echo-anon' => 'Pro reciper notificationes, [[Special:Userlogin/signup|crea un conto]].',
 	'echo-none' => 'Tu non ha recipite notificationes recentemente.',
-	'notification-edit' => '$2 modificava [[$3]] $4',
-	'notification-edit-talk-page' => '$2 modificava tu pagina de discussion $3',
+	'notification-edit' => '$2 {{GENDER:$1|modificava}} [[$3]] $4',
+	'notification-edit-talk-page' => '$2 {{GENDER:$1|modificava}} [[User talk:$4|tu pagina de discussion]] $3',
+	'notification-add-comment' => '$2 {{GENDER:$1|commentava}} "[[$4|$3]]" in le pagina de discussion "$5"',
+	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|publicava}} un nove topico "$3" sur [[$4]]',
+	'notification-add-talkpage-topic-yours' => '$2 te {{GENDER:$1|inviava}} un message: "[[$4#$3|$3]]"',
+	'notification-add-comment-yours' => '$2 {{GENDER:$1|commentava}} "[[$4#$3|$3]]" in tu pagina de discussion',
 	'notification-edit-email-subject' => 'Notification de {{SITENAME}} : $3 ha essite modificate per $2',
 	'notification-edit-email-body' => 'Salute $5,
 Isto es un notification pro informar te que $2 ha modificate le pagina $3 de {{SITENAME}}.
@@ -579,8 +607,12 @@ $messages['it'] = array(
 	'echo-specialpage' => 'Mie notifiche',
 	'echo-anon' => 'Per ricevere le notifiche, [[Special:Userlogin/signup|crea un account]].',
 	'echo-none' => 'Non hai ricevuto notifiche ultimamente!',
-	'notification-edit' => '$2 ha modificato [[$3]] $4',
-	'notification-edit-talk-page' => '$2 ha modificato la tua pagina di discussione $3',
+	'notification-edit' => '$2 {{GENDER:$1|ha modificato}} [[$3]] $4',
+	'notification-edit-talk-page' => '$2 {{GENDER:$1|ha modificato}} la tua [[User talk:$4|pagina di discussione]] $3',
+	'notification-add-comment' => '$2 {{GENDER:$1|ha commentato}} riguardo a "[[$4|$3]]" nella pagina di discussione di "$5"',
+	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|ha inserito}} un nuovo argomento "$3" su [[$4]]',
+	'notification-add-talkpage-topic-yours' => '$2 ti {{GENDER:$1|ha inviato}} un messaggio: "[[$4#$3|$3]]"',
+	'notification-add-comment-yours' => '$2 {{GENDER:$1|ha commentato}} riguardo a "[[$4#$3|$3]]" nella tua pagina di discussione',
 	'notification-edit-email-subject' => 'Notifica di {{SITENAME}}:  $3 è stata modificata da $2',
 	'notification-edit-email-body' => 'Ciao $5,
 Questa è una notifica per farti sapere che $2 ha modificato la pagina di {{SITENAME}} $3.
@@ -672,8 +704,8 @@ $messages['lb'] = array(
 	'echo-specialpage' => 'Meng Notifikatiounen',
 	'echo-anon' => 'Fir Notifikatiounen ze kréien, [[Special:Userlogin/signup|maacht e Benotzerkont op]].',
 	'echo-none' => 'Dir hutt keng Notifikatioune mat Verspéidung kritt!',
-	'notification-edit' => '$2 huet [[$3]] $4 geännert',
-	'notification-edit-talk-page' => '$2 huet Är Diskussiounssäit $3 geännert',
+	'notification-edit' => '$2 {{GENDER:$1|huet}} [[$3]] $4 geännert',
+	'notification-edit-talk-page' => '$2 {{GENDER:$1|huet}} [[User talk:$4|Är Diskussiounssäit]] $3 geännert',
 	'notification-edit-email-subject' => '{{SITENAME}}-Notifikatioun: $3 gouf vum $2 geännert',
 	'notification-edit-talk-page-email-subject' => 'Är {{SITENAME}} Diskussiounssäit gouf vum $2 geännert',
 	'echo-email-subject-default' => 'Nei Notifikatioun op {{SITENAME}}',
@@ -704,7 +736,7 @@ $messages['mk'] = array(
 	'echo-no-title' => '[Без наслов]',
 	'notifications' => 'Известувања',
 	'echo-specialpage' => 'Мои известувања',
-	'echo-anon' => 'За да добивате известувања, [[Special:Userlogin/signup|направете сметка]].',
+	'echo-anon' => 'За да добивате известувања, [[Special:Userlogin/signup|направете сметка]] или [[Special:UserLogin|најавете се]].',
 	'echo-none' => 'Во последно време немате примено ниедно известување!',
 	'notification-edit' => '$2 {{GENDER:$1|ја измени}} страницата [[$3]] $4',
 	'notification-edit-talk-page' => '$2 ја {{GENDER:$1|измени}} [[User talk:$4|вашата страница за разговор]] $3',
@@ -757,7 +789,7 @@ $messages['nl'] = array(
 	'echo-no-title' => '[Geen titel]',
 	'notifications' => 'Meldingen',
 	'echo-specialpage' => 'Mijn meldingen',
-	'echo-anon' => '[[Special:Userlogin/signup|Maak een gebruiker aan]] als u meldingen wilt ontvangen.',
+	'echo-anon' => '[[Special:Userlogin/signup|Maak een gebruiker aan]] of [[Special:UserLogin|meld u aan]] als u meldingen wilt ontvangen.',
 	'echo-none' => 'U hebt de laatste tijd geen meldingen ontvangen!',
 	'notification-edit' => '$2 {{GENDER:$1|heeft}} [[$3]] bewerkt $4',
 	'notification-edit-talk-page' => '$2 {{GENDER:$1|heeft}} [[User talk:$4|uw overlegpagina]] bewerkt $3',
@@ -867,7 +899,7 @@ $messages['tl'] = array(
 	'echo-no-title' => '[Walang Pamagat]',
 	'notifications' => 'Mga pagpapabatid',
 	'echo-specialpage' => 'Mga pagpapabatid ko',
-	'echo-anon' => 'Upang makatanggap ng mga pagpapabatid, [[Special:Userlogin/signup|lumikha ng isang akawnt]].',
+	'echo-anon' => 'Upang makatanggap ng mga pagpapabatid, [[Special:Userlogin/signup|lumikha ng isang akawnt]] o [[Special:UserLogin|lumagdang papasok]].',
 	'echo-none' => 'Hindi ka nakakatanggap ng anumang mga pagpapabatid nitong mga uling panahon!',
 	'notification-edit' => '{{GENDER:$1|Binago}} ni $2 ang [[$3]] $4',
 	'notification-edit-talk-page' => '{{GENDER:$1|Binago}} ni $2 ang [[User talk:$4|pahina mo ng usapan]] na $3',
