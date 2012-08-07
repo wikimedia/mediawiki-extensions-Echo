@@ -265,6 +265,7 @@ class EchoHooks {
 	static function getUnitTests( &$files ) {
 		$dir = dirname( __FILE__ ) . '/tests';
 		$files[] = "$dir/DiscussionParserTest.php";
+		return true;
 	}
 
 	static function abortNewtalkNotification( $article ) {
