@@ -645,6 +645,57 @@ $1',
 	'echo-overlay-title' => 'Mie notifiche',
 );
 
+/** Korean (한국어)
+ * @author 아라
+ */
+$messages['ko'] = array(
+	'echo-desc' => '미디어위키를 위한 차세대 알림 인프라',
+	'prefs-echo' => '알림',
+	'echo-pref-notify-watchlist' => '내 주시문서 목록에 문서를 추가할 때 알림 편집을 구독합니다.',
+	'echo-no-agent' => '[알 수 없는 사용자]',
+	'echo-no-title' => '[제목 없음]',
+	'notifications' => '알림',
+	'echo-specialpage' => '내 알림',
+	'echo-anon' => '알림을 받으려면 [[Special:Userlogin/signup|계정을 만들거나]] [[Special:UserLogin|로그인하세요]].',
+	'echo-none' => '최근에 알림을 받지 않았습니다.',
+	'notification-edit' => '$2 사용자가 [[$3]] 문서를 {{GENDER:$1|편집했습니다}} $4',
+	'notification-edit-talk-page' => '$2 사용자가 [[User talk:$4|당신의 토론 문서]] 문서를 {{GENDER:$1|편집했습니다}} $3',
+	'notification-add-comment' => '$2 사용자가 "$5" 토론 문서의 "[[$4|$3]]"에 {{GENDER:$1|덧글을 남겼습니다}}',
+	'notification-add-talkpage-topic' => '$2 사용자가 [[$4]]에 "$3" 새 주제를 {{GENDER:$1|게시했습니다}}',
+	'notification-add-talkpage-topic-yours' => '$2 사용자가 메시지를 {{GENDER:$1|보냈습니다}}: "[[$4#$3|$3]]"',
+	'notification-add-comment-yours' => '$2 사용자가 당신의 토론 문서의 "[[$4#$3|$3]]"에 {{GENDER:$1|덧글을 남겼습니다}}',
+	'notification-edit-email-subject' => '{{SITENAME}} 알림: $3 문서를 $2에 의해 편집함',
+	'notification-edit-email-body' => '$5 안녕하세요.
+$2 사용자가 {{SITENAME}} $3 문서를 편집했음을 알립니다.
+
+이 링크를 통해 $2 사용자에 의한 바뀜을 볼 수 있습니다:
+<$4>
+
+이 문서의 바뀜에 대해 이메일 업데이트에 구독했기 때문에 이 메시지를 보내드립니다.
+
+{{SITENAME}}(을)를 사용해 주셔서 감사합니다
+{{SITENAME}} 알림 시스템',
+	'notification-edit-talk-page-email-subject' => '당신의 {{SITENAME}} 토론 문서를 $2에 의해 편집함',
+	'notification-edit-talk-page-email-body' => '$4 안녕하세요.
+$2 사용자가 {{SITENAME}}에 당신의 토론 문서를 편집했음을 알립니다.
+
+{{SITENAME}}에서 당신의 토론 문서는 다른 사용자가 메시지를 남길 수 있는 곳입니다.
+
+이 링크에서 $2 사용자에 의한 바뀜을 볼 수 있습니다:
+<$3>
+
+{{SITENAME}}(을)를 사용해 주셔서 감사합니다
+{{SITENAME}} 알림 시스템',
+	'echo-email-subject-default' => '{{SITENAME}}에서 새 알림',
+	'echo-email-body-default' => '{{SITENAME}}에서 새 알림이 있습니다:
+
+$1',
+	'echo-link-new' => '새 {{PLURAL:$1|알림}} $1개',
+	'echo-link' => '내 알림',
+	'echo-overlay-link' => '모든 알림…',
+	'echo-overlay-title' => '내 알림',
+);
+
 /** Colognian (Ripoarisch)
  * @author Purodha
  */
