@@ -156,10 +156,14 @@ $messages['be-tarask'] = array(
 	'echo-no-title' => '[Без загалоўку]',
 	'notifications' => 'Абвесткі',
 	'echo-specialpage' => 'Мае абвесткі',
-	'echo-anon' => 'Для атрыманьня абвестак [[Special:Userlogin/signup|стварыце рахунак]].',
+	'echo-anon' => 'Для атрыманьня абвестак [[Special:Userlogin/signup|стварыце рахунак]] або [[Special:UserLogin|увайдзіце]].',
 	'echo-none' => 'За апошні час вы не атрымлівалі абвестак!',
 	'notification-edit' => '$2 {{GENDER:$1|адрэдагаваў|адрэдагавала}} «[[$3]]» $4',
-	'notification-edit-talk-page' => '$2 {{GENDER:$1|напісаў|напісала}} на вашую старонку гутарак $3',
+	'notification-edit-talk-page' => '$2 {{GENDER:$1|напісаў|напісала}} на [[User talk:$4|вашую старонку гутарак]] $3',
+	'notification-add-comment' => '$2 {{GENDER:$1|пакінуў|пакінула}} камэнтар у тэме «[[$4|$3]]» на старонцы абмеркаваньня «$5»',
+	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|стварыў|стварыла}} новую тэму «$3» у [[$4]]',
+	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|даслаў|даслала}} вам паведамленьне: «[[$4#$3|$3]]»',
+	'notification-add-comment-yours' => '$2 {{GENDER:$1|пакінуў|пакінула}} камэнтар у тэме «[[$4#$3|$3]]» вашай старонкі гутарак',
 	'notification-edit-email-subject' => 'Абвестка ад {{GRAMMAR:родны|{{SITENAME}}}}: $2 адрэдагаваў «$3»',
 	'notification-edit-email-body' => 'Вітаем, $5! Паведамляем, што $2 рэдагаваў старонку {{GRAMMAR:родны|{{SITENAME}}}} «$3».
 
@@ -170,6 +174,7 @@ $messages['be-tarask'] = array(
 
 Дзякуем за выкарыстаньне {{GRAMMAR:родны|{{SITENAME}}}}.
 Сыстэма абвестак {{GRAMMAR:родны|{{SITENAME}}}}.',
+	'notification-edit-talk-page-email-subject' => '$2 {{GENDER:$2|адрэдагаваў|адрэдагавала}} вашую старонку гутарак у {{GRAMMAR:месны|{{SITENAME}}}}',
 	'echo-email-subject-default' => 'Новая абвестка ад {{GRAMMAR:родны|{{SITENAME}}}}',
 	'echo-email-body-default' => 'Для вас ёсьць новая абвестка ў {{GRAMMAR:месны|{{SITENAME}}}}:
 
@@ -186,6 +191,17 @@ $1',
 $messages['br'] = array(
 	'echo-no-agent' => '[Den]',
 	'echo-no-title' => '[Diditl]',
+);
+
+/** Czech (česky)
+ * @author Chmee2
+ */
+$messages['cs'] = array(
+	'prefs-echo' => 'Upozornění',
+	'echo-no-agent' => '[Nikdo]',
+	'echo-no-title' => '[Bez názvu]',
+	'notifications' => 'Upozornění',
+	'echo-specialpage' => 'Moje upozornění',
 );
 
 /** German (Deutsch)
@@ -282,6 +298,13 @@ $messages['diq'] = array(
 	'echo-overlay-link' => 'Tebliği pêro...',
 );
 
+/** Greek (Ελληνικά)
+ * @author Glavkos
+ */
+$messages['el'] = array(
+	'prefs-echo' => 'Ειδοποιήσεις',
+);
+
 /** Spanish (español)
  * @author Armando-Martin
  */
@@ -334,6 +357,17 @@ $1',
 	'echo-link' => 'Mis notificaciones',
 	'echo-overlay-link' => 'Todas las notificaciones...',
 	'echo-overlay-title' => 'Mis notificaciones',
+);
+
+/** Persian (فارسی)
+ * @author Mjbmr
+ */
+$messages['fa'] = array(
+	'echo-no-agent' => '[هیچ کس]',
+	'echo-no-title' => '[بدون عنوان]',
+	'echo-email-body-default' => 'شما در {{SITENAME}} اعلان جدید دارید:
+
+$1',
 );
 
 /** Finnish (suomi)
@@ -466,6 +500,7 @@ $1',
 
 /** Hebrew (עברית)
  * @author Amire80
+ * @author Inkbug
  */
 $messages['he'] = array(
 	'echo-desc' => 'הדור הבא של תשתית ההודעות של מדיה־ויקי',
@@ -478,13 +513,33 @@ $messages['he'] = array(
 	'echo-anon' => 'כדי לקבל הודעות, [[Special:Userlogin/signup|יש ליצור חשבון]] או [[Special:UserLogin|להיכנס]].',
 	'echo-none' => 'לא קיבלת הודעות לאחרונה!',
 	'notification-edit' => '$2 {{GENDER:$1|ערך|ערכה}} את הדף [[$3]] $4',
-	'notification-edit-talk-page' => '$2 {{GENDER:$1|ערך|ערכה}} את דף השיחה שלך $3',
+	'notification-edit-talk-page' => '$2 {{GENDER:$1|ערך|ערכה}} את [[User talk:$4|דף השיחה שלך]] $3',
 	'notification-add-comment' => '$2 {{GENDER:$1|הגיב|הגיבה}} על "[[$4|$3]]" בדף השיחה "$5"',
 	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|יצר|יצרה}} את הנושא החדש "$3" בדף [[$4]]',
 	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|שלח|שלחה}} לך הודעה: "[[$4#$3|$3]]"',
 	'notification-add-comment-yours' => '$2 {{GENDER:$1|הגיב|הגיבה}} על "[[$4#$3|$3]]" בדף השיחה שלך',
 	'notification-edit-email-subject' => 'הודעה מאתר {{SITENAME}}: הדף $3 נערך על־ידי $2',
+	'notification-edit-email-body' => 'שלום $5,
+זוהי הודעה כדי לידע אותך ש$2 {{GENDER:$2|ערך|ערכה}} את עמוד ה{{SITENAME}} "$3".
+
+אפשר לראות את השינויים ש$2 {{GENDER:$2|עשה|עשתה}} בקישור זה:
+<$4>
+
+קיבלת הודעה זו בגלל שנרשמת לקבל עידכונים באימייל על שינויים בדף זה.
+
+תודה שהשתמשת ב{{SITENAME}}
+מערכת ההודעות של{{SITENAME}}',
 	'notification-edit-talk-page-email-subject' => 'דף השיחה שלך באתר {{SITENAME}} נערך עלֹ־ידי $2',
+	'notification-edit-talk-page-email-body' => 'שלום $4,
+זוהי הודעה כדי לידע אותך ש$2 {{GENDER:$2|ערך|ערכה}} את דף השיחה שלך ב{{SITENAME}}.
+
+ב{{SITENAME}}, דף השיחה שלך הינו מקום בו משתמשים אחרים יכולים להשאיר לך הודעות.
+
+אפשר לראות את השינויים ש$2 {{GENDER:$2|עשה|עשתה}} בקישור זה:
+<$3>
+
+תודה שהשתמשת ב{{SITENAME}}
+מערכת ההודעות של{{SITENAME}}',
 	'echo-email-subject-default' => 'הודעה חדשה באתר {{SITENAME}}',
 	'echo-email-body-default' => 'יש לך הודעה חדשה באתר {{SITENAME}}:
 
@@ -600,6 +655,7 @@ $1',
 
 /** Italian (italiano)
  * @author Beta16
+ * @author Darth Kule
  */
 $messages['it'] = array(
 	'echo-desc' => 'Infrastruttura di nuova generazione per le notifiche su MediaWiki',
@@ -609,7 +665,7 @@ $messages['it'] = array(
 	'echo-no-title' => '[Nessun titolo]',
 	'notifications' => 'Notifiche',
 	'echo-specialpage' => 'Mie notifiche',
-	'echo-anon' => 'Per ricevere le notifiche, [[Special:Userlogin/signup|crea un account]].',
+	'echo-anon' => "Per ricevere le notifiche, [[Special:Userlogin/signup|crea un account]] o [[Special:UserLogin|effettua l'accesso]].",
 	'echo-none' => 'Non hai ricevuto notifiche ultimamente!',
 	'notification-edit' => '$2 {{GENDER:$1|ha modificato}} [[$3]] $4',
 	'notification-edit-talk-page' => '$2 {{GENDER:$1|ha modificato}} la tua [[User talk:$4|pagina di discussione]] $3',
@@ -647,6 +703,14 @@ $1',
 	'echo-link' => 'mie notifiche',
 	'echo-overlay-link' => 'Tutte le notifiche...',
 	'echo-overlay-title' => 'Mie notifiche',
+);
+
+/** Georgian (ქართული)
+ * @author David1010
+ */
+$messages['ka'] = array(
+	'echo-no-agent' => '[არავინ]',
+	'echo-no-title' => '[უსათაურო]',
 );
 
 /** Korean (한국어)
@@ -889,10 +953,52 @@ $1',
 
 /** Polish (polski)
  * @author BeginaFelicysym
+ * @author Przemub
  */
 $messages['pl'] = array(
+	'echo-desc' => 'Powiadomienie o infrastrukturze nowej generacji dla MediaWiki',
+	'prefs-echo' => 'Powiadomienia',
 	'echo-no-agent' => '[Nikt]',
 	'echo-no-title' => '[Bez tytułu]',
+	'notifications' => 'Powiadomienia',
+	'echo-specialpage' => 'Moje powiadomień',
+	'echo-anon' => 'Aby otrzymywać powiadomienia [[Special:Userlogin/signup|utwórz konto]] lub [[Special:UserLogin|zaloguj się]].',
+	'echo-none' => 'Ostatnio nie otrzymano żadnych powiadomień.',
+	'notification-edit' => '$2 {{GENDER:$1|edytował|edytowała}} [[$3]] $4',
+	'notification-edit-talk-page' => '$2 {{GENDER:$1|edytował|edytowała}} [[User talk:$4|twoją stronę dyskusji]] $3',
+	'notification-add-comment' => '$2 {{GENDER:$1|skomentował|skomentowała}} "[[$4|$3]]" na "$5" stronie dyskusji',
+	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|wysłał|wysłała}} Ci wiadomość: "[[$4#$3|$3]]"',
+	'notification-edit-email-subject' => 'Wiadomość {{SITENAME}}: $3 było edytowane przez $2',
+	'notification-edit-talk-page-email-subject' => 'Twoja strona dyskusji na {{SITENAME}} została zmieniona przez $2',
+	'notification-edit-talk-page-email-body' => 'Witaj $4,
+To jest powiadomienie ze strony {{SITENAME}}. $2 edytował Twoją stronę dyskusji, czyli miejsce, gdzie inni użytkownicy mogą zostawiać Ci wiadomości.
+
+Możesz zobaczyć zmiany dzięki temu linkowi:
+<$3>
+
+Dziękujemy za używanie {{SITENAME}}
+System powiadomień {{SITENAME}}',
+	'echo-email-subject-default' => 'Nowe powiadomienie na {{SITENAME}}',
+	'echo-email-body-default' => 'Masz nowe powiadomienie na {{SITENAME}}:
+
+$1',
+	'echo-link-new' => '$1 {{PLURAL:$1|nowe powiadomienie|nowe powiadomienia|nowych powiadomień}}',
+	'echo-link' => 'Moje powiadomienia',
+	'echo-overlay-link' => 'Wszystkie powiadomienia...',
+	'echo-overlay-title' => 'Moje powiadomienia',
+);
+
+/** Romanian (română)
+ * @author Stelistcristi
+ */
+$messages['ro'] = array(
+	'prefs-echo' => 'Notificări',
+	'echo-no-title' => '[Niciun titlu]',
+	'notifications' => 'Notificări',
+	'echo-specialpage' => 'Notificările mele',
+	'echo-link' => 'Notificările mele',
+	'echo-overlay-link' => 'Toate notificările...',
+	'echo-overlay-title' => 'Notificările mele',
 );
 
 /** Russian (русский)
@@ -911,6 +1017,27 @@ $messages['ru'] = array(
 	'notification-edit' => '$2 отредактировал [[$3]] $4',
 	'notification-edit-talk-page' => '$2 отредактировал вашу страницу обсуждения $3',
 	'notification-edit-email-subject' => 'Уведомление {{SITENAME}}: $3 отредактировал $2',
+);
+
+/** Sinhala (සිංහල)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['si'] = array(
+	'prefs-echo' => 'නිවේදන',
+	'notifications' => 'නිවේදන',
+	'echo-specialpage' => 'මගේ නිවේදන',
+	'echo-link' => 'මගේ නිවේදන',
+	'echo-overlay-link' => 'සියලුම නිවේදන...',
+	'echo-overlay-title' => 'මගේ නිවේදන',
+);
+
+/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
+ * @author Михајло Анђелковић
+ */
+$messages['sr-ec'] = array(
+	'echo-link' => 'Моје нотификације',
+	'echo-overlay-link' => 'Све нотификације…',
+	'echo-overlay-title' => 'Моје нотификације',
 );
 
 /** Swedish (svenska)
@@ -992,5 +1119,21 @@ $1',
 	'echo-link' => 'Mga pagpapabatid ko',
 	'echo-overlay-link' => 'Lahat ng mga pagpapabatid...',
 	'echo-overlay-title' => 'Mga pagpapabatid ko',
+);
+
+/** Traditional Chinese (‪中文（繁體）‬)
+ * @author Simon Shek
+ */
+$messages['zh-hant'] = array(
+	'echo-no-agent' => '[無人]',
+	'echo-no-title' => '[無標題]',
+	'notification-edit-talk-page-email-subject' => '你在{{SITENAME}}上的討論頁已被$2編輯。',
+	'echo-email-body-default' => '你在{{SITENAME}}有一項新訊息：
+
+$1',
+	'echo-link-new' => '$1項新{{PLURAL:$1|訊息|訊息}}',
+	'echo-link' => '我的訊息',
+	'echo-overlay-link' => '所有訊息...',
+	'echo-overlay-title' => '我的訊息',
 );
 
