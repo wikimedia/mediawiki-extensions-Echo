@@ -195,6 +195,7 @@ $messages['br'] = array(
 
 /** Czech (česky)
  * @author Chmee2
+ * @author Jkjk
  */
 $messages['cs'] = array(
 	'prefs-echo' => 'Upozornění',
@@ -202,6 +203,7 @@ $messages['cs'] = array(
 	'echo-no-title' => '[Bez názvu]',
 	'notifications' => 'Upozornění',
 	'echo-specialpage' => 'Moje upozornění',
+	'notification-edit-talk-page-email-subject' => 'Vaše diskuzní stránka na {{SITENAME}} byla změněna uživatelem $2',
 );
 
 /** German (Deutsch)
@@ -303,6 +305,13 @@ $messages['diq'] = array(
  */
 $messages['el'] = array(
 	'prefs-echo' => 'Ειδοποιήσεις',
+	'echo-no-agent' => '[Κανένας]',
+	'echo-no-title' => '[Χωρίς Τίτλο]',
+	'notifications' => 'Ειδοποιήσεις',
+	'echo-specialpage' => 'Οι ειδοποιήσεις μου',
+	'echo-link' => 'Οι ειδοποιήσεις μου',
+	'echo-overlay-link' => 'Όλες οι ειδοποιήσεις...',
+	'echo-overlay-title' => 'Οι ειδοποιήσεις μου',
 );
 
 /** Spanish (español)
@@ -359,15 +368,31 @@ $1',
 	'echo-overlay-title' => 'Mis notificaciones',
 );
 
+/** Estonian (eesti)
+ * @author Avjoska
+ * @author Pikne
+ */
+$messages['et'] = array(
+	'echo-no-agent' => '[Eikeegi]',
+	'echo-specialpage' => 'Minu märkused',
+	'echo-link' => 'Märkused',
+	'echo-overlay-link' => 'Kõik märkused...',
+	'echo-overlay-title' => 'Minu märkused',
+);
+
 /** Persian (فارسی)
  * @author Mjbmr
  */
 $messages['fa'] = array(
+	'prefs-echo' => 'اعلامیه‌ها',
 	'echo-no-agent' => '[هیچ کس]',
 	'echo-no-title' => '[بدون عنوان]',
 	'echo-email-body-default' => 'شما در {{SITENAME}} اعلان جدید دارید:
 
 $1',
+	'echo-link' => 'اعلامیه‌های من',
+	'echo-overlay-link' => 'همهٔ اعلامیه‌ها...',
+	'echo-overlay-title' => 'اعلامیه‌های من',
 );
 
 /** Finnish (suomi)
@@ -705,6 +730,24 @@ $1',
 	'echo-overlay-title' => 'Mie notifiche',
 );
 
+/** Japanese (日本語)
+ * @author Shirayuki
+ */
+$messages['ja'] = array(
+	'echo-desc' => 'MediaWiki 用の、次世代の通知インフラストラクチャー',
+	'prefs-echo' => '通知',
+	'notifications' => '通知',
+	'echo-specialpage' => '自分の通知',
+	'echo-email-subject-default' => '{{SITENAME}}での新しい通知',
+	'echo-email-body-default' => '{{SITENAME}}で新しい通知があります:
+
+$1',
+	'echo-link-new' => '$1 {{PLURAL:$1|件の新しい通知}}',
+	'echo-link' => '自分の通知',
+	'echo-overlay-link' => 'すべての通知…',
+	'echo-overlay-title' => '自分の通知',
+);
+
 /** Georgian (ქართული)
  * @author David1010
  */
@@ -896,6 +939,61 @@ $1',
 	'echo-overlay-title' => 'Мои известувања',
 );
 
+/** Malay (Bahasa Melayu)
+ * @author Anakmalaysia
+ */
+$messages['ms'] = array(
+	'echo-desc' => 'Prasarana pemberitahuan generasi baru untuk MediaWiki',
+	'prefs-echo' => 'Pemberitahuan',
+	'echo-pref-notify-watchlist' => 'Langganlah saya untuk menyunting pemberitahuan setiap kali saya menambahkan halaman ke dalam senarai pantau saya.',
+	'echo-no-agent' => '[Tiada Sesiapa]',
+	'echo-no-title' => '[Tiada Tajuk]',
+	'notifications' => 'Pemberitahuan',
+	'echo-specialpage' => 'Pemberitahuan saya',
+	'echo-anon' => 'Untuk menerima pemberitahuan, sila [[Special:Userlogin/signup|buka akaun]] atau [[Special:UserLogin|log masuk]].',
+	'echo-none' => 'Anda tidak menerima sebarang pemberitahuan akhir-akhir ini.',
+	'notification-edit' => '$2 {{GENDER:$1|menyunting}} [[$3]] $4',
+	'notification-edit-talk-page' => '$2 {{GENDER:$1|menyunting}} [[User talk:$4|halaman perbincangan anda]] $3',
+	'notification-add-comment' => '$2 {{GENDER:$1|mengulas}} tentang "[[$4|$3]]" pada halaman perbincangan "$5"',
+	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|membuka}} topik baru "$3" di [[$4]]',
+	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|menghantar}} pesanan kepada anda: "[[$4#$3|$3]]"',
+	'notification-add-comment-yours' => '$2 {{GENDER:$1|mengulas}} tentang "[[$4#$3|$3]]" pada halaman perbincangan anda',
+	'notification-edit-email-subject' => 'Pemberitahuan {{SITENAME}}: $3 telah disunting oleh $2',
+	'notification-edit-email-body' => '$5,
+
+Sila maklum bahawa $2 telah menyunting halaman $3 di {{SITENAME}}.
+
+Anda boleh melihat suntingan yang dibuat oleh $2 dengan mengikuti pautan ini:
+<$4>
+
+Anda menerima pesanan ini kerana anda telah melanggan untuk menerima kemas kini perubahan pada halaman ini melalui e-mel.
+
+Terima kasih kerana menggunakan {{SITENAME}}
+
+Sistem pemberitahuan {{SITENAME}}',
+	'notification-edit-talk-page-email-subject' => 'Halaman perbincangan anda di {{SITENAME}} telah disunting oleh $2',
+	'notification-edit-talk-page-email-body' => '$4,
+
+Sila maklum bahawa $2 telah menyunting halaman perbincangan anda di {{SITENAME}}.
+
+Di {{SITENAME}}, halaman perbincangan anda adalah di mana pengguna lain boleh meninggalkan pesanan kepada anda.
+
+Anda boleh melihat suntingan yang dibuat oleh $2 dengan mengikuti pautan ini:
+<$3>
+
+Terima kasih kerana menggunakan {{SITENAME}}
+
+Sistem pemberitahuan {{SITENAME}}',
+	'echo-email-subject-default' => 'Pemberitahuan baru di {{SITENAME}}',
+	'echo-email-body-default' => 'Anda menerima pemberitahuan baru di {{SITENAME}}:
+
+$1',
+	'echo-link-new' => '$1 pemberitahuan baru',
+	'echo-link' => 'Pemberitahuan saya',
+	'echo-overlay-link' => 'Semua pemberitahuan…',
+	'echo-overlay-title' => 'Pemberitahuan saya',
+);
+
 /** Dutch (Nederlands)
  * @author SPQRobin
  * @author Siebrand
@@ -1032,12 +1130,13 @@ $messages['si'] = array(
 );
 
 /** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
+ * @author Rancher
  * @author Михајло Анђелковић
  */
 $messages['sr-ec'] = array(
-	'echo-link' => 'Моје нотификације',
-	'echo-overlay-link' => 'Све нотификације…',
-	'echo-overlay-title' => 'Моје нотификације',
+	'echo-link' => 'Моја обавештења',
+	'echo-overlay-link' => 'Сва обавештења…',
+	'echo-overlay-title' => 'Моја обавештења',
 );
 
 /** Swedish (svenska)
@@ -1068,6 +1167,23 @@ $1',
 	'echo-link' => 'Mina meddelanden',
 	'echo-overlay-link' => 'Alla meddelanden',
 	'echo-overlay-title' => 'Mina meddelanden',
+);
+
+/** Tamil (தமிழ்)
+ * @author Karthi.dr
+ */
+$messages['ta'] = array(
+	'prefs-echo' => 'அறிவிப்புகள்',
+	'notifications' => 'அறிவிப்புகள்',
+	'echo-specialpage' => 'என் அறிவிப்புகள்',
+	'notification-edit-talk-page-email-subject' => 'உங்கள் {{SITENAME}} பேச்சுப் பக்கம் $2 என்ற பயனரால் தொகுக்கப்பட்டுள்ளது.',
+	'echo-email-subject-default' => '{{SITENAME}}இல்  புதிய அறிவிப்புகள்',
+	'echo-email-body-default' => '{{SITENAME}} இல் உங்களுக்கு ஒரு புதிய அறிவிப்பு உள்ளது:
+
+$1',
+	'echo-link' => 'என் அறிவிப்புகள்',
+	'echo-overlay-link' => 'எல்லா அறிவிப்புகள்....',
+	'echo-overlay-title' => 'என் அறிவிப்புகள்',
 );
 
 /** Tagalog (Tagalog)
