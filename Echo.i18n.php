@@ -1050,6 +1050,7 @@ $1',
 );
 
 /** Polish (polski)
+ * @author Ankry
  * @author BeginaFelicysym
  * @author Przemub
  */
@@ -1059,14 +1060,14 @@ $messages['pl'] = array(
 	'echo-no-agent' => '[Nikt]',
 	'echo-no-title' => '[Bez tytułu]',
 	'notifications' => 'Powiadomienia',
-	'echo-specialpage' => 'Moje powiadomień',
+	'echo-specialpage' => 'Moje powiadomienia',
 	'echo-anon' => 'Aby otrzymywać powiadomienia [[Special:Userlogin/signup|utwórz konto]] lub [[Special:UserLogin|zaloguj się]].',
 	'echo-none' => 'Ostatnio nie otrzymano żadnych powiadomień.',
 	'notification-edit' => '$2 {{GENDER:$1|edytował|edytowała}} [[$3]] $4',
 	'notification-edit-talk-page' => '$2 {{GENDER:$1|edytował|edytowała}} [[User talk:$4|twoją stronę dyskusji]] $3',
-	'notification-add-comment' => '$2 {{GENDER:$1|skomentował|skomentowała}} "[[$4|$3]]" na "$5" stronie dyskusji',
+	'notification-add-comment' => '$2 {{GENDER:$1|skomentował|skomentowała}} „[[$4|$3]]” na stronie dyskusji „$5”',
 	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|wysłał|wysłała}} Ci wiadomość: "[[$4#$3|$3]]"',
-	'notification-edit-email-subject' => 'Wiadomość {{SITENAME}}: $3 było edytowane przez $2',
+	'notification-edit-email-subject' => 'Wiadomość {{SITENAME}}: strona $3 była edytowane przez $2',
 	'notification-edit-talk-page-email-subject' => 'Twoja strona dyskusji na {{SITENAME}} została zmieniona przez $2',
 	'notification-edit-talk-page-email-body' => 'Witaj $4,
 To jest powiadomienie ze strony {{SITENAME}}. $2 edytował Twoją stronę dyskusji, czyli miejsce, gdzie inni użytkownicy mogą zostawiać Ci wiadomości.
