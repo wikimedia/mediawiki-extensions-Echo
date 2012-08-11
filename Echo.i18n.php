@@ -145,6 +145,26 @@ $messages['qqq'] = array(
 	'echo-overlay-title' => 'Title at the top of the notifications overlay',
 );
 
+/** Afrikaans (Afrikaans)
+ * @author Naudefj
+ */
+$messages['af'] = array(
+	'echo-no-agent' => '[Niemand]',
+	'echo-no-title' => '[Geen titel]',
+	'notifications' => 'Kennisgewings',
+	'echo-specialpage' => 'My kennisgewings',
+);
+
+/** Arabic (العربية)
+ * @author Meno25
+ */
+$messages['ar'] = array(
+	'notifications' => 'إخطارات',
+	'echo-specialpage' => 'إخطاراتي',
+	'echo-link' => 'إخطاراتي',
+	'echo-overlay-title' => 'إخطاراتي',
+);
+
 /** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
  * @author Wizardist
  */
@@ -198,12 +218,48 @@ $messages['br'] = array(
  * @author Jkjk
  */
 $messages['cs'] = array(
+	'echo-desc' => 'Systém pro upozorňování nové generace pro MediaWiki',
 	'prefs-echo' => 'Upozornění',
 	'echo-no-agent' => '[Nikdo]',
 	'echo-no-title' => '[Bez názvu]',
 	'notifications' => 'Upozornění',
 	'echo-specialpage' => 'Moje upozornění',
+	'echo-anon' => 'Pro zobrazování upozornění je nutné [[Special:Userlogin/signup|vytvořit si účet]] nebo [[Special:UserLogin|se přihlásit]].',
+	'echo-none' => 'Žádné upozornění zatím neobdrženo.',
+	'notification-edit' => '$2 {{GENDER:$1|editoval|editovala}} [[$3]] $4',
+	'notification-edit-talk-page' => '$2 {{GENDER:$1|editoval|editovala}} [[User talk:$4|Vaší diskuzní stránku]] $3',
+	'notification-add-comment' => '$2 {{GENDER:$1|diskutoval|diskutovala}} [[$4|$3]] na diskuzní stránce $5',
+	'notification-edit-email-body' => 'Dobrý den $5,
+
+Toto je upozornění na to, že $2 editoval {{SITENAME}} stránku $3.
+
+Změny, které $2 udělal, si můžete prohlédnout v následujícím odkazu: 
+<$4>
+
+Tuto zprávu dostáváte proto, protože jste se přihlásil k e-mailovým upozorněním o změnách této stránky.
+
+Děkujeme za použití {{SITENAME}}
+Systém upozorňování {{SITENAME}}',
 	'notification-edit-talk-page-email-subject' => 'Vaše diskuzní stránka na {{SITENAME}} byla změněna uživatelem $2',
+	'notification-edit-talk-page-email-body' => 'Dobrý den $4,
+
+Toto je upozornění na to, že $2 editoval Vaší diskuzní stránku na {{SITENAME}}. 
+
+Je možné mu odpovědět na Vaší diskuzní stránce na {{SITENAME}}. 
+
+Změny, které $2 udělal, si můžete prohlédnout v následujícím odkazu: 
+<$3>
+
+Děkujeme za použití {{SITENAME}}
+Systém upozorňování {{SITENAME}}',
+	'echo-email-subject-default' => 'Nové upozornění na {{SITENAME}}',
+	'echo-email-body-default' => 'Máte nové upozornění na {{SITENAME}}:
+
+$1',
+	'echo-link-new' => '$1 {{PLURAL:$1|nové upozornění|nová upozornění|nových upozornění}}',
+	'echo-link' => 'Moje upozornění',
+	'echo-overlay-link' => 'Všechna upozornění...',
+	'echo-overlay-title' => 'Moje upozornění',
 );
 
 /** German (Deutsch)
@@ -1067,8 +1123,8 @@ $messages['pl'] = array(
 	'notification-edit-talk-page' => '$2 {{GENDER:$1|edytował|edytowała}} [[User talk:$4|twoją stronę dyskusji]] $3',
 	'notification-add-comment' => '$2 {{GENDER:$1|skomentował|skomentowała}} „[[$4|$3]]” na stronie dyskusji „$5”',
 	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|wysłał|wysłała}} Ci wiadomość: "[[$4#$3|$3]]"',
-	'notification-edit-email-subject' => 'Wiadomość {{SITENAME}}: strona $3 była edytowane przez $2',
-	'notification-edit-talk-page-email-subject' => 'Twoja strona dyskusji na {{SITENAME}} została zmieniona przez $2',
+	'notification-edit-email-subject' => 'Wiadomość {{GRAMMAR:D.lp|{{SITENAME}}}}: strona $3 była edytowane przez $2',
+	'notification-edit-talk-page-email-subject' => 'Twoja strona dyskusji na {{GRAMMAR:MS.lp|{{SITENAME}}}} została zmieniona przez $2',
 	'notification-edit-talk-page-email-body' => 'Witaj $4,
 To jest powiadomienie ze strony {{SITENAME}}. $2 edytował Twoją stronę dyskusji, czyli miejsce, gdzie inni użytkownicy mogą zostawiać Ci wiadomości.
 
@@ -1172,6 +1228,7 @@ $1',
 
 /** Tamil (தமிழ்)
  * @author Karthi.dr
+ * @author Shanmugamp7
  */
 $messages['ta'] = array(
 	'prefs-echo' => 'அறிவிப்புகள்',
@@ -1182,6 +1239,7 @@ $messages['ta'] = array(
 	'echo-email-body-default' => '{{SITENAME}} இல் உங்களுக்கு ஒரு புதிய அறிவிப்பு உள்ளது:
 
 $1',
+	'echo-link-new' => '$1 புதிய {{PLURAL:$1|notification|அறிவிக்கைகள்}}',
 	'echo-link' => 'என் அறிவிப்புகள்',
 	'echo-overlay-link' => 'எல்லா அறிவிப்புகள்....',
 	'echo-overlay-title' => 'என் அறிவிப்புகள்',
@@ -1236,6 +1294,16 @@ $1',
 	'echo-link' => 'Mga pagpapabatid ko',
 	'echo-overlay-link' => 'Lahat ng mga pagpapabatid...',
 	'echo-overlay-title' => 'Mga pagpapabatid ko',
+);
+
+/** Simplified Chinese (‪中文（简体）‬)
+ * @author Anakmalaysia
+ */
+$messages['zh-hans'] = array(
+	'echo-no-agent' => '[无人]',
+	'echo-no-title' => '[无标题]',
+	'notifications' => '通知',
+	'echo-specialpage' => '我的通知',
 );
 
 /** Traditional Chinese (‪中文（繁體）‬)
