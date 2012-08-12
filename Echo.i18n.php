@@ -195,6 +195,16 @@ $messages['be-tarask'] = array(
 Дзякуем за выкарыстаньне {{GRAMMAR:родны|{{SITENAME}}}}.
 Сыстэма абвестак {{GRAMMAR:родны|{{SITENAME}}}}.',
 	'notification-edit-talk-page-email-subject' => '$2 {{GENDER:$2|адрэдагаваў|адрэдагавала}} вашую старонку гутарак у {{GRAMMAR:месны|{{SITENAME}}}}',
+	'notification-edit-talk-page-email-body' => 'Вітаем, $4.
+Паведамляем вам, што {{GENDER:$2|рэдагаваў|рэдагавала}} вашую старонку гутарак у {{GRAMMAR:месны|{{SITENAME}}}}.
+
+Старонка гутарак — месца, дзе іншыя ўдзельнікі могуць пакідаць вам паведамленьні.
+
+Вы можаце праглядзець унесеныя {{GENDER:$2|ўдзельнікам|ўдзельніцай}} $2 зьмены па гэтай спасылцы:
+<$3>
+
+Дзякуем за выкарыстаньне {{GRAMMAR:родны|{{SITENAME}}}},
+Сыстэма абвестак {{GRAMMAR:родны|{{SITENAME}}}}',
 	'echo-email-subject-default' => 'Новая абвестка ад {{GRAMMAR:родны|{{SITENAME}}}}',
 	'echo-email-body-default' => 'Для вас ёсьць новая абвестка ў {{GRAMMAR:месны|{{SITENAME}}}}:
 
@@ -1179,8 +1189,12 @@ $messages['ru'] = array(
  */
 $messages['si'] = array(
 	'prefs-echo' => 'නිවේදන',
+	'echo-no-agent' => '[කිසිවෙකු නැත]',
+	'echo-no-title' => '[මාතෘකාවක් නොමැත]',
 	'notifications' => 'නිවේදන',
 	'echo-specialpage' => 'මගේ නිවේදන',
+	'notification-edit' => '$2 {{GENDER:$1|සංස්කරණය කරා}} [[$3]] $4',
+	'echo-email-subject-default' => '{{SITENAME}} හී නව නිවේදනයක්',
 	'echo-link' => 'මගේ නිවේදන',
 	'echo-overlay-link' => 'සියලුම නිවේදන...',
 	'echo-overlay-title' => 'මගේ නිවේදන',
@@ -1234,6 +1248,17 @@ $messages['ta'] = array(
 	'prefs-echo' => 'அறிவிப்புகள்',
 	'notifications' => 'அறிவிப்புகள்',
 	'echo-specialpage' => 'என் அறிவிப்புகள்',
+	'notification-edit-email-body' => 'வணக்கம் $5,
+
+$2 என்ற பயனரால் {{SITENAME}} பக்கம் $3 மாற்றப்பட்டது.
+
+இந்த இணைப்பின் மூலம் நீங்கள் ஏற்படுத்தப்பட்ட மாற்றங்களைக் காணலாம்:
+<$4>
+
+பக்க மாற்றல் மின்னஞ்சல் அறிவிப்புகளுக்கு நீங்கள் விருப்பம் தெரிவித்ததால் இச் செய்தியை நீங்கள் பெறுகிறீர்கள்.
+
+{{SITENAME}} ஐப் பயன்படுத்துவதற்கு நன்றி!
+{{SITENAME}} அறிவித்தல் அமைப்பு',
 	'notification-edit-talk-page-email-subject' => 'உங்கள் {{SITENAME}} பேச்சுப் பக்கம் $2 என்ற பயனரால் தொகுக்கப்பட்டுள்ளது.',
 	'echo-email-subject-default' => '{{SITENAME}}இல்  புதிய அறிவிப்புகள்',
 	'echo-email-body-default' => '{{SITENAME}} இல் உங்களுக்கு ஒரு புதிய அறிவிப்பு உள்ளது:
@@ -1298,12 +1323,54 @@ $1',
 
 /** Simplified Chinese (‪中文（简体）‬)
  * @author Anakmalaysia
+ * @author Liangent
  */
 $messages['zh-hans'] = array(
+	'echo-desc' => 'MediaWiki的下一代通知架构',
+	'prefs-echo' => '通知',
+	'echo-pref-notify-watchlist' => '当我向监视列表添加页面时也为我订阅编辑通知。',
 	'echo-no-agent' => '[无人]',
 	'echo-no-title' => '[无标题]',
 	'notifications' => '通知',
 	'echo-specialpage' => '我的通知',
+	'echo-anon' => '要接收通知，请[[Special:Userlogin/signup|创建帐号]]或[[Special:UserLogin|登录]]。',
+	'echo-none' => '您最近没有收到任何通知。',
+	'notification-edit' => '$2{{GENDER:$1|编辑了}}[[$3]] $4',
+	'notification-edit-talk-page' => '$2{{GENDER:$1|编辑了}}[[User talk:$4|您的对话页]] $3',
+	'notification-add-comment' => '$2在“$5”讨论页上{{GENDER:$1|评论了}}“[[$4|$3]]”',
+	'notification-add-talkpage-topic' => '$2在[[$4]]上{{GENDER:$1|发表了}}一个新主题“$3”',
+	'notification-add-talkpage-topic-yours' => '$2给您{{GENDER:$1|发送了}}新消息：“[[$4#$3|$3]]”',
+	'notification-add-comment-yours' => '$2在您的对话页上上{{GENDER:$1|评论了}}“[[$4#$3|$3]]”',
+	'notification-edit-email-subject' => '{{SITENAME}}通知：$3已被$2编辑',
+	'notification-edit-email-body' => '您好 $5，
+这个通知为了让您了解$2编辑了{{SITENAME}}页面$3。
+
+您可以在这个链接查看$2作出的更改：
+<$4>
+
+您收到这个消息是因为您订阅了这个页面变更的电子邮件更新。
+
+感谢您使用{{SITENAME}}
+{{SITENAME}}通知系统',
+	'notification-edit-talk-page-email-subject' => '您的{{SITENAME}}对话页已被$2编辑',
+	'notification-edit-talk-page-email-body' => '您好 $4，
+这个通知为了让您了解$2编辑了{{SITENAME}}上您的对话页。
+
+在{{SITENAME}}，您的对话页是其他用户可以给您留言的地方。
+
+您可以在这个链接查看$2作出的更改：
+<$3>
+
+感谢您使用{{SITENAME}}
+{{SITENAME}}通知系统',
+	'echo-email-subject-default' => '{{SITENAME}}上的新通知',
+	'echo-email-body-default' => '您在{{SITENAME}}上有新通知：
+
+$1',
+	'echo-link-new' => '$1条新通知',
+	'echo-link' => '我的通知',
+	'echo-overlay-link' => '全部通知...',
+	'echo-overlay-title' => '我的通知',
 );
 
 /** Traditional Chinese (‪中文（繁體）‬)
