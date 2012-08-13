@@ -122,9 +122,15 @@ abstract class EchoDiscussionParser {
 		$userID = $revision->getUser();
 		$userName = $revision->getUserText();
 		$user = $userID != 0 ? User::newFromId( $userID ) : User::newFromName( $userName, false );
-		$prevRevision = Revision::newFromId( $revision->getParentId() );
+		$prevText = '';
+		if ( $revision->getParentId() ) {
+			$prevRevision = Revision::newFromId( $revision->getParentId() );
+			if ( $prevRevision ) {
+				$prevText = $prevRevision->getText();
+			}
+		}
 
-		$changes = self::getMachineReadableDiff( $prevRevision->getText(), $revision->getText() );
+		$changes = self::getMachineReadableDiff( $prevText, $revision->getText() );
 		$output = self::interpretDiff( $changes, $user->getName() );
 
 		self::$revisionInterpretationCache[$revision->getID()] = $output;
