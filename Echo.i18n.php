@@ -223,9 +223,17 @@ $messages['br'] = array(
 	'echo-no-title' => '[Diditl]',
 );
 
+/** Catalan (català)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['ca'] = array(
+	'notifications' => 'Notificacions',
+);
+
 /** Czech (česky)
  * @author Chmee2
  * @author Jkjk
+ * @author Mormegil
  */
 $messages['cs'] = array(
 	'echo-desc' => 'Systém pro upozorňování nové generace pro MediaWiki',
@@ -250,7 +258,7 @@ Tuto zprávu dostáváte proto, protože jste se přihlásil k e-mailovým upozo
 
 Děkujeme za použití {{SITENAME}}
 Systém upozorňování {{SITENAME}}',
-	'notification-edit-talk-page-email-subject' => 'Vaše diskuzní stránka na {{SITENAME}} byla změněna uživatelem $2',
+	'notification-edit-talk-page-email-subject' => 'Vaše diskuse na {{grammar:6sg|{{SITENAME}}}} byla změněna uživatelem $2',
 	'notification-edit-talk-page-email-body' => 'Dobrý den $4,
 
 Toto je upozornění na to, že $2 editoval Vaší diskuzní stránku na {{SITENAME}}. 
@@ -378,6 +386,20 @@ $messages['el'] = array(
 	'echo-link' => 'Οι ειδοποιήσεις μου',
 	'echo-overlay-link' => 'Όλες οι ειδοποιήσεις...',
 	'echo-overlay-title' => 'Οι ειδοποιήσεις μου',
+);
+
+/** Esperanto (Esperanto)
+ * @author Yekrats
+ */
+$messages['eo'] = array(
+	'echo-no-title' => '[Sen Titolo]',
+	'echo-email-body-default' => 'Vi havas novan noton ĉe {{SITENAME}}:
+
+$1',
+	'echo-link-new' => '$1 {{PLURAL:$1|nova noto|novaj notoj}}',
+	'echo-link' => 'Miaj notoj',
+	'echo-overlay-link' => 'Ĉiuj notoj...',
+	'echo-overlay-title' => 'Miaj notoj',
 );
 
 /** Spanish (español)
@@ -693,6 +715,18 @@ $1',
 	'echo-overlay-title' => 'Moje zdźělenki',
 );
 
+/** Hungarian (magyar)
+ * @author Dj
+ */
+$messages['hu'] = array(
+	'prefs-echo' => 'Értesítések',
+	'notifications' => 'Értesítések',
+	'echo-specialpage' => 'Értesítéseim',
+	'echo-link' => 'Értesítéseim',
+	'echo-overlay-link' => 'Összes értesítés…',
+	'echo-overlay-title' => 'Értesítéseim',
+);
+
 /** Interlingua (interlingua)
  * @author McDutchie
  */
@@ -1005,6 +1039,24 @@ $1',
 	'echo-overlay-title' => 'Мои известувања',
 );
 
+/** Malayalam (മലയാളം)
+ * @author Praveenp
+ */
+$messages['ml'] = array(
+	'echo-no-agent' => '[ആരുമില്ല]',
+	'echo-no-title' => '[തലക്കെട്ടില്ല]',
+	'notifications' => 'അറിയിപ്പുകൾ',
+	'echo-specialpage' => 'എനിക്കുള്ള അറിയിപ്പുകൾ',
+	'echo-email-subject-default' => '{{SITENAME}} സംരംഭത്തിൽ അറിയിപ്പുണ്ട്',
+	'echo-email-body-default' => '{{SITENAME}} സംരംഭത്തിൽ താങ്കൾക്ക് ഒരു അറിയിപ്പുണ്ട്:
+
+$1',
+	'echo-link-new' => 'പുതിയ {{PLURAL:$1|അറിയിപ്പ്|$1 അറിയിപ്പുകൾ}}',
+	'echo-link' => 'എനിക്കുള്ള അറിയിപ്പുകൾ',
+	'echo-overlay-link' => 'എല്ലാ അറിയിപ്പുകളും...',
+	'echo-overlay-title' => 'എനിക്കുള്ള അറിയിപ്പുകൾ',
+);
+
 /** Malay (Bahasa Melayu)
  * @author Anakmalaysia
  */
@@ -1205,6 +1257,16 @@ $messages['si'] = array(
  * @author Михајло Анђелковић
  */
 $messages['sr-ec'] = array(
+	'prefs-echo' => 'Обавештења',
+	'echo-no-agent' => '[Нико]',
+	'echo-no-title' => '[Без наслова]',
+	'notifications' => 'Обавештења',
+	'echo-specialpage' => 'Моја обавештења',
+	'echo-none' => 'У последње време нисте примили ниједно обавештење.',
+	'notification-edit' => '$2 {{GENDER:$1|је изменио|је изменила|је изменио}} [[$3]] $4',
+	'notification-edit-talk-page' => '$2 {{GENDER:$1|је изменио|је изменила|је изменио}} [[User talk:$4|вашу страницу за разговор]] $3',
+	'notification-add-comment' => '$2 {{GENDER:$1|је прокоментарисао|је прокоментарисала|је прокоментарисао}} „[[$4|$3]]“ на страници за разговор „$5“',
+	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|је поставио|је поставила|је поставио}} нову тему „$3“ на [[$4]]',
 	'echo-link' => 'Моја обавештења',
 	'echo-overlay-link' => 'Сва обавештења…',
 	'echo-overlay-title' => 'Моја обавештења',
@@ -1212,6 +1274,7 @@ $messages['sr-ec'] = array(
 
 /** Swedish (svenska)
  * @author Ainali
+ * @author WikiPhoenix
  */
 $messages['sv'] = array(
 	'echo-desc' => 'Nästa generations meddelandeinfrastruktur för MediaWiki',
@@ -1226,8 +1289,9 @@ $messages['sv'] = array(
 	'notification-edit' => '$2 {{GENDER:$1|redigerade}} [[$3]] $4',
 	'notification-edit-talk-page' => '$2 {{GENDER:$1|redigerade}} [[User talk:$4|din diskussionssida]] $3',
 	'notification-add-comment' => '$2 {{GENDER:$1|kommenterade}} "[[$4|$3]]" på diskussionssidan för "$5"',
+	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|postade}} ett nytt ämne "$3" på [[$4]]',
 	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|skickade}} ett meddelande till dig: "[[$4#$3|$3]]"',
-	'notification-add-comment-yours' => '$2 {{GENDER:$1|kommenterade}} "[[$4|$3]]" på din diskussionssida',
+	'notification-add-comment-yours' => '$2 {{GENDER:$1|kommenterade}} på "[[$4#$3|$3]]" på din diskussionssida',
 	'notification-edit-email-subject' => '{{SITENAME}} meddelande: $3 har redigerats av $2',
 	'notification-edit-talk-page-email-subject' => 'Din {{SITENAME}} diskussionssida har redigerats av $2',
 	'echo-email-subject-default' => 'Nytt meddelande på {{SITENAME}}',
