@@ -560,6 +560,30 @@ $1',
 	'echo-overlay-title' => 'Mes notifications',
 );
 
+/** Franco-Provençal (arpetan)
+ * @author ChrisPtDe
+ */
+$messages['frp'] = array(
+	'prefs-echo' => 'Notificacions',
+	'echo-no-agent' => '[Nion]',
+	'echo-no-title' => '[Sen titro]',
+	'notifications' => 'Notificacions',
+	'echo-specialpage' => 'Mes notificacions',
+	'notification-edit' => '$2 at {{GENDER:$1|changiê}} [[$3]] $4',
+	'notification-edit-talk-page' => '$2 at {{GENDER:$1|changiê}} [[User talk:$4|voutra pâge de discussion]] $3',
+	'notification-add-talkpage-topic-yours' => '$2 vos at {{GENDER:$1|mandâ}} un mèssâjo : « [[$4#$3|$3]] »',
+	'notification-edit-email-subject' => 'Notificacion de {{SITENAME}} : $3 est étâ changiê per $2',
+	'notification-edit-talk-page-email-subject' => 'Voutra pâge de discussion de {{SITENAME}} est étâye changiêye per $2',
+	'echo-email-subject-default' => 'Novèla notificacion dessus {{SITENAME}}',
+	'echo-email-body-default' => 'Vos avéd na novèla notificacion dessus {{SITENAME}} :
+
+$1',
+	'echo-link-new' => '$1 {{PLURAL:$1|novèla notificacion|novèles notificacions}}',
+	'echo-link' => 'Mes notificacions',
+	'echo-overlay-link' => 'Totes les notificacions...',
+	'echo-overlay-title' => 'Mes notificacions',
+);
+
 /** Galician (galego)
  * @author Toliño
  */
@@ -1218,6 +1242,20 @@ $messages['ro'] = array(
 	'echo-overlay-title' => 'Notificările mele',
 );
 
+/** tarandíne (tarandíne)
+ * @author Joetaras
+ */
+$messages['roa-tara'] = array(
+	'prefs-echo' => 'Notificaziune',
+	'echo-no-agent' => '[Nisciune]',
+	'echo-no-title' => '[Nisciune titole]',
+	'notifications' => 'Notificaziune',
+	'echo-specialpage' => 'Notificaziune mie',
+	'notification-edit' => '$2 {{GENDER:$1|cangiate}} [[$3]] $4',
+	'echo-link' => 'Notificaziune mie',
+	'echo-overlay-link' => 'Tutte le notificaziune ...',
+);
+
 /** Russian (русский)
  * @author DCamer
  */
@@ -1307,11 +1345,14 @@ $1',
 /** Tamil (தமிழ்)
  * @author Karthi.dr
  * @author Shanmugamp7
+ * @author மதனாஹரன்
  */
 $messages['ta'] = array(
 	'prefs-echo' => 'அறிவிப்புகள்',
+	'echo-no-title' => '[தலைப்பு இல்லை]',
 	'notifications' => 'அறிவிப்புகள்',
 	'echo-specialpage' => 'என் அறிவிப்புகள்',
+	'echo-anon' => 'அறிவிப்புகளைப் பெறுவதற்கு [[Special:Userlogin/signup|ஒரு கணக்கை உருவாக்குங்கள்]] அல்லது [[Special:UserLogin|உள்நுழையுங்கள்]].',
 	'notification-edit-email-body' => 'வணக்கம் $5,
 
 $2 என்ற பயனரால் {{SITENAME}} பக்கம் $3 மாற்றப்பட்டது.
