@@ -872,12 +872,46 @@ $1',
 	'echo-overlay-title' => '自分の通知',
 );
 
+/** Javanese (Basa Jawa)
+ * @author NoiX180
+ */
+$messages['jv'] = array(
+	'prefs-echo' => 'Wara-wara',
+	'echo-no-agent' => '[Dudu sapa-sapa]',
+	'echo-no-title' => '[Ora ana judhul]',
+	'notifications' => 'Wara-wara',
+	'echo-specialpage' => 'Wara-wara kula',
+	'echo-anon' => 'Kanggo nampa wara-wara [[Special:Userlogin/signup|gawé akun]] utawa [[Special:UserLogin|mlebu log]].',
+	'echo-none' => 'Sampéyan durung nampa wara-wara apa-apa.',
+	'notification-edit' => '$2 {{GENDER:$1|nyunting}} [[$3]] $4',
+	'notification-edit-talk-page' => '$2 {{GENDER:$1|nyunting}} [[User talk:$4|kaca guneman Sampéyan]] $3',
+	'notification-add-comment' => '$2 {{GENDER:$1|nanggepi}} nèng "[[$4|$3]]" nèng kaca guneman "$5"',
+	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|ngirim}} topik anyar "$3" nèng [[$4]]',
+	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|ngirimi}} Sampéyan layang: "[[$4#$3|$3]]"',
+	'notification-add-comment-yours' => '$2 {{GENDER:$1|nanggepi}} nèng "[[$4#$3|$3]]" nèng kaca guneman Sampéyan',
+	'notification-edit-email-subject' => '{{SITENAME}} wara-wara: $3 disunting déning $2',
+	'echo-email-subject-default' => 'Wara-wara anyar nèng {{SITENAME}}',
+	'echo-email-body-default' => 'Sampéyan nduwé wara-wara anyar nèng {{SITENAME}}:
+
+$1',
+	'echo-link-new' => '$1 {{PLURAL:$1|wara-wara|wara-wara}} anyar',
+	'echo-link' => 'Wara-wara kula',
+	'echo-overlay-link' => 'Kabèh wara-wara...',
+	'echo-overlay-title' => 'Wara-wara kula',
+);
+
 /** Georgian (ქართული)
  * @author David1010
  */
 $messages['ka'] = array(
+	'prefs-echo' => 'შეტყობინებები',
 	'echo-no-agent' => '[არავინ]',
 	'echo-no-title' => '[უსათაურო]',
+	'notifications' => 'შეტყობინებები',
+	'echo-specialpage' => 'ჩემი შეტყობინებები',
+	'echo-link' => 'ჩემი შეტყობინებები',
+	'echo-overlay-link' => 'ყველა შეტყობინება…',
+	'echo-overlay-title' => 'ჩემი შეტყობინებები',
 );
 
 /** Korean (한국어)
@@ -1136,6 +1170,37 @@ $1',
 	'echo-overlay-title' => 'Pemberitahuan saya',
 );
 
+/** Maltese (Malti)
+ * @author Chrisportelli
+ */
+$messages['mt'] = array(
+	'echo-desc' => "Infrastruttura ta' ġenerazzjoni ġdida għan-notifiki fuq MediaWiki",
+	'prefs-echo' => 'Notifiki',
+	'echo-pref-notify-watchlist' => "Immodifika l-modifiki tiegħi meta nżid paġni fil-lista ta' osservazzjonijiet tiegħi.",
+	'echo-no-agent' => '[Ħadd]',
+	'echo-no-title' => '[L-ebda titlu]',
+	'notifications' => 'Notifiki',
+	'echo-specialpage' => 'Notifiki tiegħi',
+	'echo-anon' => 'Sabiex tirċievi notifiki, [[Special:Userlogin/signup|oħloq kont]] jew [[Special:UserLogin|illoggja]].',
+	'echo-none' => 'Riċentament ma rċevejtx l-ebda notifika.',
+	'notification-edit' => '$2 {{GENDER:$1|immodifika|immodifikat}} [[$3]] $4',
+	'notification-edit-talk-page' => "$2 {{GENDER:$1|immodifika|immodifikat}} il-[[User talk:$4|paġna ta' diskussjoni tiegħek]] $3",
+	'notification-add-comment' => '$2 {{GENDER:$1|ikkummenta|ikkummentat}} fuq "[[$4|$3]]" fil-paġna ta\' diskussjoni ta\' "$5"',
+	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|daħħal|daħħlet}} suġġett ġdid "$3" fuq [[$4]]',
+	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|bagħtlek|bagħtitlek}} messaġġ: "[[$4#$3|$3]]"',
+	'notification-add-comment-yours' => '$2 {{GENDER:$1|ikkummenta|ikkummentat}} fuq "[[$4#$3|$3]]" fil-paġna ta\' diskussjoni tiegħek',
+	'notification-edit-email-subject' => "Notifika ta' {{SITENAME}}: $3 ġiet modifikata minn $2",
+	'notification-edit-talk-page-email-subject' => "Il-paġna ta' diskussjoni tiegħek fuq {{SITENAME}} ġiet modifikata minn $2",
+	'echo-email-subject-default' => 'Notifika ġdida fuq {{SITENAME}}',
+	'echo-email-body-default' => 'Għandek notifika ġdida fuq {{SITENAME}}:
+
+$1',
+	'echo-link-new' => '{{PLURAL:$1|notifika ġdida|$1 notifiki ġodda}}',
+	'echo-link' => 'Notifiki tiegħi',
+	'echo-overlay-link' => 'Notifiki kollha…',
+	'echo-overlay-title' => 'Notifiki tiegħi',
+);
+
 /** Dutch (Nederlands)
  * @author SPQRobin
  * @author Siebrand
@@ -1252,12 +1317,16 @@ $messages['roa-tara'] = array(
 	'notifications' => 'Notificaziune',
 	'echo-specialpage' => 'Notificaziune mie',
 	'notification-edit' => '$2 {{GENDER:$1|cangiate}} [[$3]] $4',
+	'echo-email-body-default' => "Tu è 'na notifica nove sus a {{SITENAME}}:
+
+$1",
 	'echo-link' => 'Notificaziune mie',
 	'echo-overlay-link' => 'Tutte le notificaziune ...',
 );
 
 /** Russian (русский)
  * @author DCamer
+ * @author David1010
  */
 $messages['ru'] = array(
 	'echo-desc' => 'Следующего поколения уведомлений для MediaWiki',
@@ -1272,6 +1341,10 @@ $messages['ru'] = array(
 	'notification-edit' => '$2 отредактировал [[$3]] $4',
 	'notification-edit-talk-page' => '$2 отредактировал вашу страницу обсуждения $3',
 	'notification-edit-email-subject' => 'Уведомление {{SITENAME}}: $3 отредактировал $2',
+	'echo-email-subject-default' => 'Новые уведомления на {{SITENAME}}',
+	'echo-link' => 'Мои уведомления',
+	'echo-overlay-link' => 'Все уведомления...',
+	'echo-overlay-title' => 'Мои уведомления',
 );
 
 /** Sinhala (සිංහල)
