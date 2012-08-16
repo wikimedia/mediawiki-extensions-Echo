@@ -876,7 +876,9 @@ $1',
  * @author NoiX180
  */
 $messages['jv'] = array(
+	'echo-desc' => 'Infrastruktur wara-wara gènèrasi ngarep kanggo MediaWiki',
 	'prefs-echo' => 'Wara-wara',
+	'echo-pref-notify-watchlist' => 'Langganan kanggo nyunting wara-wara nalika Kula nambahaké kaca nèng daptar pangawasan kula.',
 	'echo-no-agent' => '[Dudu sapa-sapa]',
 	'echo-no-title' => '[Ora ana judhul]',
 	'notifications' => 'Wara-wara',
@@ -890,6 +892,7 @@ $messages['jv'] = array(
 	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|ngirimi}} Sampéyan layang: "[[$4#$3|$3]]"',
 	'notification-add-comment-yours' => '$2 {{GENDER:$1|nanggepi}} nèng "[[$4#$3|$3]]" nèng kaca guneman Sampéyan',
 	'notification-edit-email-subject' => '{{SITENAME}} wara-wara: $3 disunting déning $2',
+	'notification-edit-talk-page-email-subject' => 'Kaca guneman {{SITENAME}} Sampéyan wis diowah déning $2',
 	'echo-email-subject-default' => 'Wara-wara anyar nèng {{SITENAME}}',
 	'echo-email-body-default' => 'Sampéyan nduwé wara-wara anyar nèng {{SITENAME}}:
 
@@ -1190,7 +1193,27 @@ $messages['mt'] = array(
 	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|bagħtlek|bagħtitlek}} messaġġ: "[[$4#$3|$3]]"',
 	'notification-add-comment-yours' => '$2 {{GENDER:$1|ikkummenta|ikkummentat}} fuq "[[$4#$3|$3]]" fil-paġna ta\' diskussjoni tiegħek',
 	'notification-edit-email-subject' => "Notifika ta' {{SITENAME}}: $3 ġiet modifikata minn $2",
+	'notification-edit-email-body' => "Insellimlek $1,
+Din hija notifika sabiex ngħarrfuk li $2 immodifika l-paġna $3 fuq {{SITENAME}}.
+
+Tista' tara t-tibdil li $2 għamel billi ssegwi din il-ħolqa:
+<$4>
+
+Inti qiegħed tirċievi dan il-messaġġ minħabba li abbonajt għall-aġġornamenti permezz tal-posta elettronika għat-tibdil li jsir fuq din il-paġna.
+
+Grazzi talli qiegħed tuża {{SITENAME}}
+Is-sistema ta' notifika ta' {{SITENAME}}",
 	'notification-edit-talk-page-email-subject' => "Il-paġna ta' diskussjoni tiegħek fuq {{SITENAME}} ġiet modifikata minn $2",
+	'notification-edit-talk-page-email-body' => "Insellimlek $4,
+Din hija notifika sabiex ngħarrfuk li $2 immodifika l-paġna ta' diskussjoni tiegħek fuq {{SITENAME}}.
+
+Fuq {{SITENAME}}, il-paġna ta' diskussjoni huwa dak il-post fejn utenti oħra jistgħu jħallulek messaġġi.
+
+Tista' tara t-tibdil li $2 għamel billi ssegwi din il-ħolqa:
+<$3>
+
+Grazzi talli qiegħed tuża {{SITENAME}}
+Is-sistema ta' notifika ta' {{SITENAME}}",
 	'echo-email-subject-default' => 'Notifika ġdida fuq {{SITENAME}}',
 	'echo-email-body-default' => 'Għandek notifika ġdida fuq {{SITENAME}}:
 
@@ -1327,6 +1350,7 @@ $1",
 /** Russian (русский)
  * @author DCamer
  * @author David1010
+ * @author Kalan
  */
 $messages['ru'] = array(
 	'echo-desc' => 'Следующего поколения уведомлений для MediaWiki',
@@ -1336,10 +1360,14 @@ $messages['ru'] = array(
 	'echo-no-title' => '[Нет название]',
 	'notifications' => 'Уведомления',
 	'echo-specialpage' => 'Мои уведомления',
-	'echo-anon' => 'Чтобы получать уведомления, [[Special:Userlogin/signup|создайте учетную запись]].',
+	'echo-anon' => 'Чтобы получать уведомления, [[Special:Userlogin/signup|создайте учетную запись]] или [[Special:Userlogin|представьтесь]].',
 	'echo-none' => 'Вы не получали уведомлений!',
-	'notification-edit' => '$2 отредактировал [[$3]] $4',
-	'notification-edit-talk-page' => '$2 отредактировал вашу страницу обсуждения $3',
+	'notification-edit' => '$2 {{GENDER:$1|отредактировал|отредактировала}} [[$3]] $4',
+	'notification-edit-talk-page' => '$2 {{GENDER:$1|отредактировал|отредактировала}} [[User talk:$4|вашу страницу обсуждения]] $3',
+	'notification-add-comment' => '$2 {{GENDER:$1|прокомментировал|прокомментировала}} тему «[[$4|$3]]» на странице «$5»',
+	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|добавил|добавила}} тему «$3» на странице «[[$4]]»',
+	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|отправил|отправила}} вам сообщение: «[[$4#$3|$3]]»',
+	'notification-add-comment-yours' => '$2 {{GENDER:$1|прокомментировал|прокомментировала}} тему «[[$4#$3|$3]]» на вашей странице обсуждения',
 	'notification-edit-email-subject' => 'Уведомление {{SITENAME}}: $3 отредактировал $2',
 	'echo-email-subject-default' => 'Новые уведомления на {{SITENAME}}',
 	'echo-link' => 'Мои уведомления',
