@@ -1287,6 +1287,7 @@ $1',
 $messages['pl'] = array(
 	'echo-desc' => 'Powiadomienie o infrastrukturze nowej generacji dla MediaWiki',
 	'prefs-echo' => 'Powiadomienia',
+	'echo-pref-notify-watchlist' => 'Wpisz mnie na listę powiadomień o edycji gdy dodaję strony do śledzonych.',
 	'echo-no-agent' => '[Nikt]',
 	'echo-no-title' => '[Bez tytułu]',
 	'notifications' => 'Powiadomienia',
@@ -1296,8 +1297,20 @@ $messages['pl'] = array(
 	'notification-edit' => '$2 {{GENDER:$1|edytował|edytowała}} [[$3]] $4',
 	'notification-edit-talk-page' => '$2 {{GENDER:$1|edytował|edytowała}} [[User talk:$4|twoją stronę dyskusji]] $3',
 	'notification-add-comment' => '$2 {{GENDER:$1|skomentował|skomentowała}} „[[$4|$3]]” na stronie dyskusji „$5”',
+	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|otworzył|otworzyła}} nowy temat "$3" na [[$4]]',
 	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|wysłał|wysłała}} Ci wiadomość: "[[$4#$3|$3]]"',
+	'notification-add-comment-yours' => '$2 {{GENDER:$1|dodał|dodała}} komentarz do "[[$4#$3|$3]]" na twojej stronie dyskusji',
 	'notification-edit-email-subject' => 'Wiadomość {{GRAMMAR:D.lp|{{SITENAME}}}}: strona $3 była edytowane przez $2',
+	'notification-edit-email-body' => 'Witaj $5,
+Jest to powiadomienie, że $2 zmienił stronę $3 witryny {{SITENAME}}.
+
+Możesz przejrzeć wykonane poprawki $2 przechodząc przez łącze:
+<$4>
+
+Otrzymujsz tą wiadomość ponieważ subskrybujesz powiadomienia pocztą elektroniczną o zmianach na tej stronie.
+
+Dziękujemy za korzystanie z {{SITENAME}}
+System powiadomień {{SITENAME}}',
 	'notification-edit-talk-page-email-subject' => 'Twoja strona dyskusji na {{GRAMMAR:MS.lp|{{SITENAME}}}} została zmieniona przez $2',
 	'notification-edit-talk-page-email-body' => 'Witaj $4,
 To jest powiadomienie ze strony {{SITENAME}}. $2 edytował Twoją stronę dyskusji, czyli miejsce, gdzie inni użytkownicy mogą zostawiać Ci wiadomości.
@@ -1315,6 +1328,37 @@ $1',
 	'echo-link' => 'Moje powiadomienia',
 	'echo-overlay-link' => 'Wszystkie powiadomienia...',
 	'echo-overlay-title' => 'Moje powiadomienia',
+);
+
+/** Piedmontese (Piemontèis)
+ * @author Dragonòt
+ */
+$messages['pms'] = array(
+	'echo-desc' => 'Anfrastrutura ëd notìfica ëd neuva generassion për MediaWiki',
+	'prefs-echo' => 'Notìfiche',
+	'echo-pref-notify-watchlist' => "Sotscrivme për modifiché le notìfiche quand che mi i gionto pagine a lòn ch'im ten sot euj.",
+	'echo-no-agent' => '[Gnun]',
+	'echo-no-title' => '[Gnun Tìtoj]',
+	'notifications' => 'Notìfiche',
+	'echo-specialpage' => 'Mie notìfiche',
+	'echo-anon' => 'Për arseive notìfiche, [[Special:Userlogin/signup|crea un cont]] o [[Special:UserLogin|intra]].',
+	'echo-none' => "It l'has pa arseivù gnun-e notìfiche ultimament.",
+	'notification-edit' => "$2 {{GENDER:$1|a l'ha modificà}} [[$3]] $4",
+	'notification-edit-talk-page' => "$2 {{GENDER:$1|a l'ha modificà}} [[User talk:$4|toa pagina ëd discussion]] $3",
+	'notification-add-comment' => '$2 {{GENDER:$1|a l\'ha comentà}} a propòsit ëd  "[[$4|$3]]" dzora a la pagina ëd discussion ëd "$5"',
+	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|a l\'ha mandà}} un argoment neuv "$3" dzora a [[$4]]',
+	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|a l\'ha manda}}te un mëssagi: "[[$4#$3|$3]]"',
+	'notification-add-comment-yours' => '$2 {{GENDER:$1|a l\'ha comentà}} a propòsit ëd "[[$4#$3|$3]]" dzora a toa pagina ëd discussion',
+	'notification-edit-email-subject' => "Notìfica ëd {{SITENAME}}: $3 a l'é stàita mdificà da $2",
+	'notification-edit-talk-page-email-subject' => "Toa pagina ëd discussion ëd {{SITENAME}} a l'é staita mdificà da $2",
+	'echo-email-subject-default' => 'Notìfiche neuve a {{SITENAME}}',
+	'echo-email-body-default' => "It l'has na notìfica neuva a {{SITENAME}}:
+
+$1",
+	'echo-link-new' => '$1 {{PLURAL:$1|notifìca neuva|notifìche neuve}}',
+	'echo-link' => 'Mie notìfiche',
+	'echo-overlay-link' => 'Tute le notìfiche...',
+	'echo-overlay-title' => 'Mie notìfiche',
 );
 
 /** Romanian (română)
@@ -1525,6 +1569,18 @@ $1',
 	'echo-link' => 'Mga pagpapabatid ko',
 	'echo-overlay-link' => 'Lahat ng mga pagpapabatid...',
 	'echo-overlay-title' => 'Mga pagpapabatid ko',
+);
+
+/** Urdu (اردو)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['ur'] = array(
+	'prefs-echo' => 'اطلاعات',
+	'notifications' => 'اطلاعات',
+	'echo-specialpage' => 'میری اطلاعات',
+	'echo-link' => 'میری اطلاعات',
+	'echo-overlay-link' => 'سب اطلاعات...',
+	'echo-overlay-title' => 'میری اطلاعات',
 );
 
 /** Simplified Chinese (‪中文（简体）‬)
