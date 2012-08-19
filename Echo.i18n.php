@@ -217,10 +217,15 @@ $1',
 
 /** Breton (brezhoneg)
  * @author Fulup
+ * @author Y-M D
  */
 $messages['br'] = array(
 	'echo-no-agent' => '[Den]',
 	'echo-no-title' => '[Diditl]',
+	'notification-edit' => '$2 {{GENDER:$1|en deus kemmet}} [[$3]] $4',
+	'notification-edit-talk-page' => '$2 en deus {{GENDER:$1|kemmet}} [[User talk:$4|ho pajenn kaozeadenn]] $3',
+	'notification-add-talkpage-topic' => '$2 a zo {{GENDER:$1|kroget}} gant un tem nevez "$3" war [[$4]]',
+	'notification-add-talkpage-topic-yours' => '$2 en deus {{GENDER:$1|kaset}} deoc\'h ur gemennadenn : "[[$4#$3|$3]]"',
 );
 
 /** Catalan (català)
@@ -371,7 +376,14 @@ Das {{SITENAME}}-Benachrichtigungssytem',
  * @author Erdemaslancan
  */
 $messages['diq'] = array(
+	'prefs-echo' => 'Tebliği',
+	'echo-no-title' => '[Sername Çınyo]',
+	'notifications' => 'Tebliği',
+	'echo-specialpage' => 'Tebliğê me',
+	'notification-edit' => '$2 {{GENDER:$1|vurna}} [[$3]] $4',
+	'echo-link' => 'Tebliğê me',
 	'echo-overlay-link' => 'Tebliği pêro...',
+	'echo-overlay-title' => 'Tebliğê me',
 );
 
 /** Greek (Ελληνικά)
