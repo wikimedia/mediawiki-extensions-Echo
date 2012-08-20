@@ -1595,6 +1595,57 @@ $messages['ur'] = array(
 	'echo-overlay-title' => 'میری اطلاعات',
 );
 
+/** Vietnamese (Tiếng Việt)
+ * @author Minh Nguyen
+ */
+$messages['vi'] = array(
+	'echo-desc' => 'Cơ sở hạ tầng thông báo thế hệ mới của MediaWiki',
+	'prefs-echo' => 'Thông báo',
+	'echo-pref-notify-watchlist' => 'Đăng ký các thông báo về sửa đổi khi nào tôi thêm trang vào danh sách theo dõi.',
+	'echo-no-agent' => '[Không ai]',
+	'echo-no-title' => '[Không tên]',
+	'notifications' => 'Thông báo',
+	'echo-specialpage' => 'Thông báo cho tôi',
+	'echo-anon' => 'Để nhận thông báo, hãy [[Special:Userlogin/signup|mở tài khoản]] hoặc [[Special:UserLogin|đăng nhập]].',
+	'echo-none' => 'Lâu nay bạn không nhận thông báo nào.',
+	'notification-edit' => '{{GENDER:$1}}$2 đã sửa đổi [[$3]] $4',
+	'notification-edit-talk-page' => '{{GENDER:$1}}$2 đã sửa đổi [[User talk:$4|trang thảo luận của bạn]] $3',
+	'notification-add-comment' => '{{GENDER:$1}}$2 đã bình luận về “[[$4|$3]]” tại trang thảo luận “$5”',
+	'notification-add-talkpage-topic' => '{{GENDER:$1}}$2 đã đăng chủ đề mới “$3” tại [[$4]]',
+	'notification-add-talkpage-topic-yours' => '{{GENDER:$1}}$2 đã nhắn tin mới cho bạn: “[[$4#$3|$3]]”',
+	'notification-add-comment-yours' => '{{GENDER:$1}}$2 đã bình luận về “[[$4#$3|$3]]” tại trang thảo luận của bạn',
+	'notification-edit-email-subject' => 'Thông báo từ {{SITENAME}}: $3 đã được sửa bởi $2',
+	'notification-edit-email-body' => 'Xin chào $5,
+Xin thông báo với bạn rằng $2 đã sửa đổi trang $3 tại {{SITENAME}}.
+
+Bạn có thể xem các thay đổi của $2 bằng cách theo dõi liên kết này:
+<$4>
+
+Bạn nhận được thư điện tử này vì bạn đã đăng ký theo dõi các thay đổi tại trang này.
+
+Cám ơn bạn sử dụng {{SITENAME}},
+Hệ thống thông báo {{SITENAME}}',
+	'notification-edit-talk-page-email-subject' => 'Trang thảo luận của bạn tại {{SITENAME}} đã được sửa bởi $2',
+	'notification-edit-talk-page-email-body' => 'Xin chào $4,
+Xin thông báo với bạn rằng $2 đã sửa đổi trang thảo luận của bạn tại {{SITENAME}}.
+
+Tại {{SITENAME}}, trang thảo luận của bạn là nơi để những người dùng khác nhắn tin cho bạn.
+
+Bạn có thể xem các thay đổi của $2 bằng cách theo dõi liên kết này:
+<$3>
+
+Cám ơn bạn sử dụng {{SITENAME}},
+Hệ thống thông báo {{SITENAME}}',
+	'echo-email-subject-default' => 'Thông báo mới tại {{SITENAME}}',
+	'echo-email-body-default' => 'Bạn có thông báo mới tại {{SITENAME}}:
+
+$1',
+	'echo-link-new' => '$1 thông báo mới',
+	'echo-link' => 'Thông báo cho tôi',
+	'echo-overlay-link' => 'Tất cả các thông báo…',
+	'echo-overlay-title' => 'Thông báo cho tôi',
+);
+
 /** Simplified Chinese (‪中文（简体）‬)
  * @author Anakmalaysia
  * @author Liangent
