@@ -1374,11 +1374,12 @@ $1",
 );
 
 /** Romanian (română)
+ * @author Minisarm
  * @author Stelistcristi
  */
 $messages['ro'] = array(
 	'prefs-echo' => 'Notificări',
-	'echo-no-title' => '[Niciun titlu]',
+	'echo-no-title' => '[Fără titlu]',
 	'notifications' => 'Notificări',
 	'echo-specialpage' => 'Notificările mele',
 	'echo-link' => 'Notificările mele',
