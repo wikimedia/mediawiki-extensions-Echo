@@ -1343,26 +1343,27 @@ $1',
 );
 
 /** Piedmontese (Piemontèis)
+ * @author Borichèt
  * @author Dragonòt
  */
 $messages['pms'] = array(
 	'echo-desc' => 'Anfrastrutura ëd notìfica ëd neuva generassion për MediaWiki',
 	'prefs-echo' => 'Notìfiche',
-	'echo-pref-notify-watchlist' => "Sotscrivme për modifiché le notìfiche quand che mi i gionto pagine a lòn ch'im ten sot euj.",
+	'echo-pref-notify-watchlist' => "Anscrivme për modifiché le notìfiche quand che mi i gionto dle pàgine a lòn ch'im ten-o sot-euj.",
 	'echo-no-agent' => '[Gnun]',
 	'echo-no-title' => '[Gnun Tìtoj]',
 	'notifications' => 'Notìfiche',
 	'echo-specialpage' => 'Mie notìfiche',
-	'echo-anon' => 'Për arseive notìfiche, [[Special:Userlogin/signup|crea un cont]] o [[Special:UserLogin|intra]].',
+	'echo-anon' => "Për arseive dle notìfiche, [[Special:Userlogin/signup|ch'a crea un cont]] o [[Special:UserLogin|ch'a intra ant ël sistema]].",
 	'echo-none' => "It l'has pa arseivù gnun-e notìfiche ultimament.",
 	'notification-edit' => "$2 {{GENDER:$1|a l'ha modificà}} [[$3]] $4",
-	'notification-edit-talk-page' => "$2 {{GENDER:$1|a l'ha modificà}} [[User talk:$4|toa pagina ëd discussion]] $3",
-	'notification-add-comment' => '$2 {{GENDER:$1|a l\'ha comentà}} a propòsit ëd  "[[$4|$3]]" dzora a la pagina ëd discussion ëd "$5"',
-	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|a l\'ha mandà}} un argoment neuv "$3" dzora a [[$4]]',
+	'notification-edit-talk-page' => "$2 {{GENDER:$1|a l'ha modificà}} [[User talk:$4|soa pàgina ëd ciaciarade]] $3",
+	'notification-add-comment' => "$2 {{GENDER:$1|a l'ha comentà}} a propòsit ëd  «[[$4|$3]]» dzora a la pàgina ëd discussion ëd «$5»",
+	'notification-add-talkpage-topic' => "$2 {{GENDER:$1|a l'ha publicà}} n'argoment neuv «$3» dzora a [[$4]]",
 	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|a l\'ha manda}}te un mëssagi: "[[$4#$3|$3]]"',
-	'notification-add-comment-yours' => '$2 {{GENDER:$1|a l\'ha comentà}} a propòsit ëd "[[$4#$3|$3]]" dzora a toa pagina ëd discussion',
-	'notification-edit-email-subject' => "Notìfica ëd {{SITENAME}}: $3 a l'é stàita mdificà da $2",
-	'notification-edit-talk-page-email-subject' => "Toa pagina ëd discussion ëd {{SITENAME}} a l'é staita mdificà da $2",
+	'notification-add-comment-yours' => "$2 {{GENDER:$1|a l'ha comentà}} a propòsit ëd «[[$4#$3|$3]]» dzora a soa pàgina ëd ciaciarade",
+	'notification-edit-email-subject' => "Notìfica ëd {{SITENAME}}: $3 a l'é stàita modificà da $2",
+	'notification-edit-talk-page-email-subject' => "Soa pàgina ëd ciaciarade ëd {{SITENAME}} a l'é stàita modificà da $2",
 	'echo-email-subject-default' => 'Notìfiche neuve a {{SITENAME}}',
 	'echo-email-body-default' => "It l'has na notìfica neuva a {{SITENAME}}:
 
