@@ -1363,7 +1363,30 @@ $messages['pms'] = array(
 	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|a l\'ha manda}}te un mëssagi: "[[$4#$3|$3]]"',
 	'notification-add-comment-yours' => "$2 {{GENDER:$1|a l'ha comentà}} a propòsit ëd «[[$4#$3|$3]]» dzora a soa pàgina ëd ciaciarade",
 	'notification-edit-email-subject' => "Notìfica ëd {{SITENAME}}: $3 a l'é stàita modificà da $2",
+	'notification-edit-email-body' => "
+Cerea $5,
+Sta-sì a l'é na notìfica për fete savèj che $2 a l'ha modificà la pagina $3 ëd {{SITENAME}}.
+
+It peule vëdde ij cambi che $2 a l'ha fait andasend dré a sto colegament:
+<$4>
+
+It të stas arseivend sto mëssagi përchè it l'has sotscrivù ij corel ëd modìfica për cambi a sta pagina.
+
+Mersì për dovré {{SITENAME}}
+Ël sistem ëd notìfica ëd {{SITENAME}}",
 	'notification-edit-talk-page-email-subject' => "Soa pàgina ëd ciaciarade ëd {{SITENAME}} a l'é stàita modificà da $2",
+	'notification-edit-talk-page-email-body' => "Cerea $4,
+Sta-sì a l'é na notìfica për fete savèj che $2 a l'ha modificà toa pagina ëd discussion dzora a {{SITENAME}}.
+
+Dzora a {{SITENAME}}, toa pagina ëd discussion a l'é anté autr utent a peulo lassete dij mëssagi.
+
+It peule vëdde ij cambi che $2 a l'ha fait a sto colegament:
+<$3>
+
+It të stas arseivend sto mëssagi përchè it l'has sotscrivù ij corel ëd modìfica për cambi a sta pagina.
+
+Mersì për dovré {{SITENAME}}
+Ël sistem ëd notìfica ëd {{SITENAME}}",
 	'echo-email-subject-default' => 'Notìfiche neuve a {{SITENAME}}',
 	'echo-email-body-default' => "It l'has na notìfica neuva a {{SITENAME}}:
 
