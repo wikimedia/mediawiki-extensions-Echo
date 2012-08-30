@@ -2,7 +2,7 @@
 
 class SpecialNotifications extends SpecialPage {
 	public function __construct() {
-		parent::__construct('Notifications');
+		parent::__construct( 'Notifications' );
 	}
 
 	public function execute( $par ) {
@@ -31,7 +31,7 @@ class SpecialNotifications extends SpecialPage {
 				'LIMIT' => 50,
 			),
 			array(
-				'echo_event' => array('left join', 'notification_event=event_id'),
+				'echo_event' => array( 'left join', 'notification_event=event_id' ),
 			)
 		);
 

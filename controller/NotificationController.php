@@ -13,8 +13,8 @@ class EchoNotificationController {
 
 		$memcKey = wfMemcKey( 'echo-notification-count', $user->getId() );
 
-		if ( $cached && $wgMemc->get($memcKey) !== false ) {
-			return $wgMemc->get($memcKey);
+		if ( $cached && $wgMemc->get( $memcKey ) !== false ) {
+			return $wgMemc->get( $memcKey );
 		}
 
 		$dbr = wfGetDB( DB_SLAVE );
@@ -26,7 +26,7 @@ class EchoNotificationController {
 			__METHOD__
 		);
 
-		$wgMemc->set($memcKey, $count, 86400);
+		$wgMemc->set( $memcKey, $count, 86400 );
 
 		return $count;
 	}
@@ -51,7 +51,7 @@ class EchoNotificationController {
 			__METHOD__
 		);
 
-		self::resetNotificationCount($user);
+		self::resetNotificationCount( $user );
 	}
 
 	/**
@@ -73,7 +73,7 @@ class EchoNotificationController {
 		if ( $defer ) {
 			$title = $event->getTitle() ? $event->getTitle() : Title::newMainPage();
 
-			$job = new EchoNotificationJob( $title, array('event' => $event) );
+			$job = new EchoNotificationJob( $title, array( 'event' => $event ) );
 			$job->insert();
 			return;
 		}
@@ -84,7 +84,7 @@ class EchoNotificationController {
 			$user = $subscription->getUser();
 			$notifyTypes = $subscription->getNotificationTypes();
 
-			$notifyTypes = array_keys( array_filter($notifyTypes) );
+			$notifyTypes = array_keys( array_filter( $notifyTypes ) );
 
 			wfRunHooks( 'EchoGetNotificationTypes', array( $subscription, $event, &$notifyTypes ) );
 
@@ -105,7 +105,7 @@ class EchoNotificationController {
 	public static function doNotification( $event, $user, $type ) {
 		global $wgEchoNotifiers;
 
-		if ( ! isset($wgEchoNotifiers[$type]) ) {
+		if ( ! isset( $wgEchoNotifiers[$type] ) ) {
 			throw new MWException( "Invalid notification type $type" );
 		}
 
@@ -128,7 +128,7 @@ class EchoNotificationController {
 			$conds['sub_page_title'] = $event->getTitle()->getDBkey();
 		}
 
-		$res = $dbr->select('echo_subscription', '*', $conds, __METHOD__,
+		$res = $dbr->select( 'echo_subscription', '*', $conds, __METHOD__,
 			array( 'order by' => 'sub_user asc' ) );
 
 		$subscriptions = array();
@@ -145,14 +145,14 @@ class EchoNotificationController {
 			$lastUser = $row->sub_user;
 		}
 
-		if ( count($rowCollection) ) {
+		if ( count( $rowCollection ) ) {
 			$subscriptions[$lastUser] = EchoSubscription::newFromRows( $rowCollection );
 		}
 
 		$users = array();
 		wfRunHooks( 'EchoGetDefaultNotifiedUsers', array( $event, &$users ) );
 		foreach( $users as $u ) {
-			if ( !isset($subscriptions[$u->getId()]) ) {
+			if ( !isset( $subscriptions[$u->getId()] ) ) {
 				$subscriptions[$u->getId()] = new EchoSubscription( $u, $event->getType(), $event->getTitle() );
 			}
 		}
@@ -179,12 +179,12 @@ class EchoNotificationController {
 
 		$eventType = $event->getType();
 
-		if ( isset($wgEchoNotificationFormatters[$eventType]) ) {
+		if ( isset( $wgEchoNotificationFormatters[$eventType] ) ) {
 			$params = $wgEchoNotificationFormatters[$eventType];
-			$notifier = EchoNotificationFormatter::factory($params);
+			$notifier = EchoNotificationFormatter::factory( $params );
 			$notifier->setOutputFormat( $format );
 
-			return $notifier->format($event, $user, $type);
+			return $notifier->format( $event, $user, $type );
 		}
 
 		return Xml::tags( 'span', array( 'class' => 'error' ),

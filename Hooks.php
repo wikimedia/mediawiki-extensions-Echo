@@ -56,7 +56,7 @@ class EchoHooks {
 
 				$users = array_merge(
 					$users,
-					EchoDiscussionParser::getNotifiedUsersForComment($revision)
+					EchoDiscussionParser::getNotifiedUsersForComment( $revision )
 				);
 			break;
 		}
@@ -70,22 +70,22 @@ class EchoHooks {
 
 		// Figure out when to disallow email notifications
 		if ( $type == 'edit' ) {
-			if ( ! $user->getOption('enotifwatchlistpages') ) {
-				$notifyTypes = array_diff( $notifyTypes, array('email') );
+			if ( ! $user->getOption( 'enotifwatchlistpages' ) ) {
+				$notifyTypes = array_diff( $notifyTypes, array( 'email' ) );
 			}
 		} elseif ( $type == 'edit-user-talk' ) {
-			if ( ! $user->getOption('enotifusertalkpages') ) {
-				$notifyTypes = array_diff( $notifyTypes, array('email') );
+			if ( ! $user->getOption( 'enotifusertalkpages' ) ) {
+				$notifyTypes = array_diff( $notifyTypes, array( 'email' ) );
 			}
 		}
 
-		if ( ! $user->getOption('enotifminoredits') ) {
+		if ( ! $user->getOption( 'enotifminoredits' ) ) {
 			$extra = $event->getExtra();
-			if ( !empty($extra['revid']) ) {
-				$rev = Revision::newFromID($extra['revid']);
+			if ( !empty( $extra['revid'] ) ) {
+				$rev = Revision::newFromID( $extra['revid'] );
 
 				if ( $rev->isMinor() ) {
-					$notifyTypes = array_diff( $notifyTypes, array('email') );
+					$notifyTypes = array_diff( $notifyTypes, array( 'email' ) );
 				}
 			}
 		}
@@ -126,12 +126,12 @@ class EchoHooks {
 			return true;
 		}
 
-		if ( ! $user->getOption('echo-notify-watchlist') ) {
+		if ( ! $user->getOption( 'echo-notify-watchlist' ) ) {
 			return true;
 		}
 
 		$subscription = new EchoSubscription( $user, 'edit', $article->getTitle() );
-		$subscription->enableNotification('notify');
+		$subscription->enableNotification( 'notify' );
 		$subscription->save();
 		return true;
 	}
@@ -150,7 +150,7 @@ class EchoHooks {
 		}
 
 		$subscription = new EchoSubscription( $user, 'edit', $article->getTitle() );
-		$subscription->disableNotification('notify');
+		$subscription->disableNotification( 'notify' );
 		$subscription->save();
 		return true;
 	}
@@ -178,7 +178,7 @@ class EchoHooks {
 		$event = EchoEvent::create( array(
 			'type' => 'edit',
 			'title' => $article->getTitle(),
-			'extra' => array('revid' => $revision->getID()),
+			'extra' => array( 'revid' => $revision->getID() ),
 			'agent' => $user,
 		) );
 
@@ -200,7 +200,7 @@ class EchoHooks {
 	static function beforePageDisplay( $out, $skin ) {
 		global $wgUser;
 		if ( !$wgUser->isAnon() ) {
-			$out->addModules( array('ext.echo.overlay') );
+			$out->addModules( array( 'ext.echo.overlay' ) );
 		}
 		return true;
 	}
@@ -227,7 +227,7 @@ class EchoHooks {
 
 		$notificationsLink = array(
 			'href' => $url,
-			'text' => $msg->params($wgLang->formatNum( $notificationCount ) )->text(),
+			'text' => $msg->params( $wgLang->formatNum( $notificationCount ) )->text(),
 			'active' => $notificationCount > 0,
 		);
 

@@ -5,7 +5,7 @@ class EchoEditFormatter extends EchoBasicFormatter {
 		if ( $param === 'difflink' ) {
 			$eventData = $event->getExtra();
 			if ( !isset( $eventData['revid'] ) ) {
-				$message->params('');
+				$message->params( '' );
 				return;
 			}
 

@@ -132,8 +132,8 @@ $wgDefaultUserOptions['echo-notify-watchlist'] = true;
  * their own user talk page being edited. In fact, that is what it is used for
  * internally.
  */
-$wgHooks['EchoGetDefaultNotifiedUsers'] = array('EchoHooks::getDefaultNotifiedUsers');
-$wgHooks['EchoGetNotificationTypes'] = array('EchoHooks::getNotificationTypes');
+$wgHooks['EchoGetDefaultNotifiedUsers'] = array( 'EchoHooks::getDefaultNotifiedUsers' );
+$wgHooks['EchoGetNotificationTypes'] = array( 'EchoHooks::getNotificationTypes' );
 
 // Hook appropriate events
 $wgHooks['WatchArticleComplete'][] = 'EchoHooks::onWatch';
@@ -157,8 +157,8 @@ $wgEchoDefaultNotificationTypes = array(
 );
 
 $wgEchoNotifiers = array(
-	'notify' => array('EchoNotifier', 'notifyWithNotification'),
-	'email' => array('EchoNotifier', 'notifyWithEmail'),
+	'notify' => array( 'EchoNotifier', 'notifyWithNotification' ),
+	'email' => array( 'EchoNotifier', 'notifyWithEmail' ),
 );
 
 $wgEchoEnabledEvents = array(
@@ -171,7 +171,7 @@ $wgEchoNotificationFormatters = array(
 	'edit-user-talk' => array(
 		'type' => 'edit',
 		'title-message' => 'notification-edit-talk-page',
-		'title-params' => array('agent', 'difflink', 'user'),
+		'title-params' => array( 'agent', 'difflink', 'user' ),
 		'email-subject-message' => 'notification-edit-talk-page-email-subject',
 		'email-body-message' => 'notification-edit-talk-page-email-body',
 		'icon' => 'chat',
@@ -190,7 +190,7 @@ $wgEchoNotificationFormatters = array(
 		'title-message-yours' => 'notification-add-comment-yours',
 		'title-params' => array( 'agent', 'subject', 'title', 'content-page' ),
 		'content-message' => 'notification-talkpage-content',
-		'content-params' => array('commentText'),
+		'content-params' => array( 'commentText' ),
 		'icon' => 'chat',
 	),
 	'add-talkpage-topic' => array(
@@ -199,7 +199,7 @@ $wgEchoNotificationFormatters = array(
 		'title-message-yours' => 'notification-add-talkpage-topic-yours',
 		'title-params' => array( 'agent', 'subject', 'title', 'content-page' ),
 		'content-message' => 'notification-talkpage-content',
-		'content-params' => array('commentText'),
+		'content-params' => array( 'commentText' ),
 		'icon' => 'chat',
 	),
 );

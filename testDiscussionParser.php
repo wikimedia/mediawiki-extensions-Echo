@@ -37,7 +37,7 @@ class TestDiscussionParser extends Maintenance {
 		$pages = $data['query']['pages'];
 
 		foreach( $pages as $page ) {
-			if ( count($page['revisions']) != 1 ) {
+			if ( count( $page['revisions'] ) != 1 ) {
 				continue;
 			}
 
@@ -67,18 +67,18 @@ class TestDiscussionParser extends Maintenance {
 			if ( count( $pageData['revisions'] ) == 2 ) {
 				$revision1 = $pageData['revisions'][0];
 				$revision2 = $pageData['revisions'][1];
-				$oldText = trim($revision2['*']) . "\n";
-				$newText = trim($revision1['*']) . "\n";
+				$oldText = trim( $revision2['*'] ) . "\n";
+				$newText = trim( $revision1['*'] ) . "\n";
 			} elseif ( count( $pageData['revisions'] ) == 1 ) {
 				$revision1 = $pageData['revisions'][0];
-				$newText = trim($revision1['*']) . "\n";
+				$newText = trim( $revision1['*'] ) . "\n";
 				$oldText = '';
 			}
 
 			$user = $pageData['revisions'][0]['user'];
 
 			print "http://en.wikipedia.org/w/index.php?diff=prev&oldid=$revid\n";
-			EchoDiscussionParser::getInterestedUsers($oldText, $newText, $user);
+			EchoDiscussionParser::getInterestedUsers( $oldText, $newText, $user );
 		}
 	}
 }

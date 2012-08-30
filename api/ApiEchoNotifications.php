@@ -9,24 +9,24 @@ class ApiEchoNotifications extends ApiQueryBase {
 		$params = $this->extractRequestParams();
 		$user = $this->getUser();
 
-		if ( count($params['markread']) ) {
+		if ( count( $params['markread'] ) ) {
 			EchoNotificationController::markRead( $user, $params['markread'] );
 		}
 
 		$result = $this->getResult();
 		$prop = $params['prop'];
 
-		if ( in_array('list', $prop) ) {
+		if ( in_array( 'list', $prop ) ) {
 			$r = $this->getNotifications( $user, $params['unread'], $params['format'], $params['limit'] );
 		} else {
 			$r = array();
 		}
 
-		if ( in_array('count', $prop) ) {
-			$r['count'] = EchoNotificationController::getNotificationCount($user);
+		if ( in_array( 'count', $prop ) ) {
+			$r['count'] = EchoNotificationController::getNotificationCount( $user );
 		}
 
-		if ( in_array('index', $prop) ) {
+		if ( in_array( 'index', $prop ) ) {
 			$r['index'] = array_keys( $r );
 		}
 
@@ -64,7 +64,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 				'LIMIT' => $limit,
 			),
 			array(
-				'echo_event' => array('LEFT JOIN', 'notification_event=event_id'),
+				'echo_event' => array( 'LEFT JOIN', 'notification_event=event_id' ),
 			)
 		);
 
