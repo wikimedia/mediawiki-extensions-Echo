@@ -6,7 +6,7 @@ abstract class EchoNotificationFormatter {
 		'edit' => 'EchoEditFormatter',
 		'comment' => 'EchoCommentFormatter',
 	);
-	protected $validOutputFormats = array('text', 'html', 'email');
+	protected $validOutputFormats = array( 'text', 'html', 'email' );
 	protected $outputFormat = 'text';
 	protected $requiredParameters = array();
 
@@ -63,16 +63,16 @@ abstract class EchoNotificationFormatter {
 	 */
 	public static function factory( $parameters ) {
 		$class = null;
-		if ( isset($parameters['type']) ) {
+		if ( isset( $parameters['type'] ) ) {
 			$type = $parameters['type'];
-			if ( isset(self::$formatterClasses[$type]) ) {
+			if ( isset( self::$formatterClasses[$type] ) ) {
 				$class = self::$formatterClasses[$type];
 			}
-		} elseif ( isset($parameters['class']) ) {
+		} elseif ( isset( $parameters['class'] ) ) {
 			$class = $parameters['class'];
 		}
 
-		if ( ! $class || !class_exists($class) ) {
+		if ( ! $class || !class_exists( $class ) ) {
 			throw new MWException( "No valid class ($class) or type ($type) specified for ".__METHOD__);
 		}
 

@@ -60,7 +60,7 @@ abstract class EchoDiscussionParser {
 				$event = EchoEvent::create( array(
 					'type' => 'edit-user-talk',
 					'title' => $title,
-					'extra' => array('revid' => $revision->getID()),
+					'extra' => array( 'revid' => $revision->getID() ),
 					'agent' => $user,
 				) );
 			}
@@ -272,7 +272,7 @@ abstract class EchoDiscussionParser {
 
 		$continue = true;
 		$i = $offset - 1;
-		while ( $continue && $i < count($lines) - 1 ) {
+		while ( $continue && $i < count( $lines ) - 1 ) {
 			++$i;
 			$line = $lines[$i];
 			if ( preg_match( $headerRegex, $line ) ) {
@@ -292,7 +292,7 @@ abstract class EchoDiscussionParser {
 	 * @return Number of section headers found.
 	 */
 	static function getSectionCount( $text ) {
-		$text = trim($text);
+		$text = trim( $text );
 
 		$matches = array();
 		preg_match_all( '/'.self::$headerRegex.'/um', $text, $matches );
@@ -307,7 +307,7 @@ abstract class EchoDiscussionParser {
 	 * @return The title of the section, as a string.
 	 */
 	static function extractHeader( $text ) {
-		$text = trim($text);
+		$text = trim( $text );
 
 		$matches = array();
 
@@ -359,7 +359,7 @@ abstract class EchoDiscussionParser {
 		$listRegex = '/^\s*(?:[\:#*]\s*)*[#*]/m';
 		$matches = array();
 		if ( preg_match_all( $listRegex, $text, $matches ) ) {
-			if ( count($matches) == 1 ) {
+			if ( count( $matches ) == 1 ) {
 				$text = preg_replace( $listRegex, '', $text );
 			}
 		}
@@ -445,12 +445,12 @@ abstract class EchoDiscussionParser {
 	 * * 'left_pos' and 'right_pos' (in lines) of the change.
 	 */
 	static function getMachineReadableDiff( $oldText, $newText ) {
-		$oldText = trim($oldText)."\n";
-		$newText = trim($newText)."\n";
+		$oldText = trim( $oldText )."\n";
+		$newText = trim( $newText )."\n";
 		$diff = wfDiff( $oldText, $newText, '-u -w' );
 
-		$old_lines = explode("\n", $oldText);
-		$new_lines = explode("\n", $newText);
+		$old_lines = explode( "\n", $oldText );
+		$new_lines = explode( "\n", $newText );
 
 		// First break down the diff into additions and subtractions
 		$diff_lines = explode( "\n", $diff );
@@ -463,7 +463,7 @@ abstract class EchoDiscussionParser {
 		for( $i = 0; $i < count( $diff_lines ); ++$i ) {
 			$line = $diff_lines[$i];
 
-			if ( strlen($line) == 0 ) {
+			if ( strlen( $line ) == 0 ) {
 				continue;
 			}
 
@@ -473,7 +473,7 @@ abstract class EchoDiscussionParser {
 				++$left_pos;
 				++$right_pos;
 			} elseif ( $line_type == '@' ) {
-				list($at, $lhs_pos, $rhs_pos, $at) = explode( ' ', $line );
+				list( $at, $lhs_pos, $rhs_pos, $at ) = explode( ' ', $line );
 				$lhs_pos = substr( $lhs_pos, 1 );
 				$rhs_pos = substr( $rhs_pos, 1 );
 				list( $left_pos ) = explode( ',', $lhs_pos );
@@ -498,7 +498,7 @@ abstract class EchoDiscussionParser {
 						'right-pos' => $right_pos,
 						'content' => $subtracted_line,
 					);
-					$change_run = count($changes)-1;
+					$change_run = count( $changes )-1;
 				}
 
 				// Consistency check
@@ -527,7 +527,7 @@ abstract class EchoDiscussionParser {
 						'right-pos' => $right_pos,
 						'content' => $added_line,
 					);
-					$change_run = count($changes)-1;
+					$change_run = count( $changes )-1;
 				}
 
 				// Consistency check
@@ -539,8 +539,8 @@ abstract class EchoDiscussionParser {
 		}
 
 		$changes['_info'] = array(
-			'lhs-length' => count($old_lines),
-			'rhs-length' => count($new_lines),
+			'lhs-length' => count( $old_lines ),
+			'rhs-length' => count( $new_lines ),
 			'lhs' => $old_lines,
 			'rhs' => $new_lines,
 		);
@@ -615,7 +615,7 @@ abstract class EchoDiscussionParser {
 		$possiblePrefixes = array( // Later entries have a higher precedence
 			'[[' . $wgContLang->getNsText( NS_USER ) . ':',
 			'[[' . $wgContLang->getNsText( NS_USER_TALK ) . ':',
-			'[[' . SpecialPage::getTitleFor('Contributions')->getPrefixedText() . '/',
+			'[[' . SpecialPage::getTitleFor( 'Contributions' )->getPrefixedText() . '/',
 		);
 
 		foreach( $possiblePrefixes as $prefix ) {
@@ -707,7 +707,7 @@ abstract class EchoDiscussionParser {
 	 * @return type description
 	 */
 	static function extractUserFromLink( $text, $prefix, $offset = 0 ) {
-		$userPart = substr( $text, strlen($prefix) + $offset );
+		$userPart = substr( $text, strlen( $prefix ) + $offset );
 
 		$userMatches = array();
 		if ( ! preg_match(
@@ -724,8 +724,8 @@ abstract class EchoDiscussionParser {
 		$user = $userMatches[0];
 
 		if (
-			! User::isIP($user) &&
-			User::getCanonicalName($user) === false
+			! User::isIP( $user ) &&
+			User::getCanonicalName( $user ) === false
 		) {
 			// Not a real username
 			// print "E\tInvalid username\n";
@@ -744,10 +744,10 @@ abstract class EchoDiscussionParser {
 	static function getLineEndingRegex() {
 		$ignoredEndings = array(
 			'\s*',
-			preg_quote('}'),
-			preg_quote('{'),
+			preg_quote( '}' ),
+			preg_quote( '{' ),
 			'\<[^\>]+\>',
-			preg_quote('{{').'[^}]+'.preg_quote('}}'),
+			preg_quote( '{{' ).'[^}]+'.preg_quote( '}}' ),
 		);
 
 		$regex = '(?:' . implode( '|', $ignoredEndings ) . ')*';
@@ -768,7 +768,7 @@ abstract class EchoDiscussionParser {
 
 		// Step 1: Get an exemplar timestamp
 		$title = Title::newMainPage();
-		$user = User::newFromName('Test');
+		$user = User::newFromName( 'Test' );
 		$options = new ParserOptions;
 
 		global $wgParser;
@@ -786,7 +786,7 @@ abstract class EchoDiscussionParser {
 		$output = preg_replace( '/[^\d\W]+/u', '[^\d\W]+', $output );
 		$output = preg_replace( '/\d+/u', '\d+', $output );
 
-		$output .= preg_quote($tzMatches[0]);
+		$output .= preg_quote( $tzMatches[0] );
 
 		if ( ! preg_match( "/$output/u", $exemplarTimestamp ) ) {
 			throw new MWException( "Timestamp regex does not match exemplar" );

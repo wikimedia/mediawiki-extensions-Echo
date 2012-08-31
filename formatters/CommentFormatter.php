@@ -51,7 +51,7 @@ class EchoCommentFormatter extends EchoEditFormatter {
 				$content = EchoDiscussionParser::stripHeader( $content );
 				$content = EchoDiscussionParser::stripSignature( $content );
 				$content = EchoDiscussionParser::stripIndents( $content );
-				$content = trim($content);
+				$content = trim( $content );
 				$content = $wgLang->truncate( $content, 200 );
 
 				$message->params( $content );

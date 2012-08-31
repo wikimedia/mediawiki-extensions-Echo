@@ -33,6 +33,6 @@ class EchoNotifier {
 		$subject = $email['subject'];
 		$body = $email['body'];
 
-		UserMailer::send($address, $adminAddress, $subject, $body );
+		UserMailer::send( $address, $adminAddress, $subject, $body );
 	}
 }

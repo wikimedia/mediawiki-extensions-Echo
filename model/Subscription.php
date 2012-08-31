@@ -18,16 +18,16 @@ class EchoSubscription {
 	 * @param $title Title|null Optional Title of interest for events, if applicable.
 	 */
 	public function __construct( $user, $event, $title = null) {
-		if( !($user instanceof User || $user instanceof StubObject) ) {
-			throw new MWException("Invalid user parameter");
+		if( !( $user instanceof User || $user instanceof StubObject ) ) {
+			throw new MWException( "Invalid user parameter" );
 		}
 
 		if ( $title && !$title instanceof Title ) {
-			throw new MWException("Invalid Title parameter");
+			throw new MWException( "Invalid Title parameter" );
 		}
 
-		if ( !$event || !is_string($event) || strlen($event) > 63 ) {
-			throw new MWException("Invalid event parameter");
+		if ( !$event || !is_string( $event ) || strlen( $event ) > 63 ) {
+			throw new MWException( "Invalid event parameter" );
 		}
 
 		$this->user = $user;
@@ -97,8 +97,8 @@ class EchoSubscription {
 		$event = $firstRow->sub_event_type;
 
 		if (
-			!is_null($firstRow->sub_page_namespace) &&
-			!is_null($firstRow->sub_page_title)
+			!is_null( $firstRow->sub_page_namespace ) &&
+			!is_null( $firstRow->sub_page_title )
 		) {
 			$title = Title::makeTitleSafe(
 				$firstRow->sub_page_namespace,
@@ -110,7 +110,7 @@ class EchoSubscription {
 
 		$obj = new EchoSubscription( $user, $event, $title );
 
-		$obj->loadFromRows($rows);
+		$obj->loadFromRows( $rows );
 
 		return $obj;
 	}
@@ -173,19 +173,19 @@ class EchoSubscription {
 	 * @param $type
 	 * @return bool
 	 */
-	public function isNotificationEnabled($type) {
+	public function isNotificationEnabled( $type ) {
 		$types = $this->getNotificationTypes();
 
-		return !empty($types[$type]);
+		return !empty( $types[$type] );
 	}
 
-	public function enableNotification($type) {
+	public function enableNotification( $type ) {
 		$this->load();
 		$this->notificationTypes[$type] = true;
 		$this->dirty = true;
 	}
 
-	public function disableNotification($type) {
+	public function disableNotification( $type ) {
 		$this->load();
 		$this->notificationTypes[$type] = false;
 		$this->dirty = true;
@@ -203,7 +203,7 @@ class EchoSubscription {
 		$dbw->delete( 'echo_subscription', $conds, __METHOD__ );
 
 		global $wgEchoDefaultNotificationTypes;
-		if ( isset($wgEchoDefaultNotificationTypes[$this->event]) ) {
+		if ( isset( $wgEchoDefaultNotificationTypes[$this->event] ) ) {
 			$defaultState = array_merge(
 				$wgEchoDefaultNotificationTypes['all'],
 				$wgEchoDefaultNotificationTypes[$this->event]
@@ -214,11 +214,11 @@ class EchoSubscription {
 
 		$rows = array();
 		$allDefault = count( array_diff(
-			array_keys(array_filter($this->getNotificationTypes())),
-			array_keys(array_filter($defaultState))
+			array_keys( array_filter( $this->getNotificationTypes() ) ),
+			array_keys( array_filter( $defaultState ) )
 		) ) === 0;
 		foreach( $this->getNotificationTypes() as $type => $state ) {
-			if ( !isset($defaultState[$type]) || $state != $defaultState[$type] || $allDefault ) {
+			if ( !isset( $defaultState[$type] ) || $state != $defaultState[$type] || $allDefault ) {
 				$rows[] = $conds + array(
 					'sub_enabled' => $state,
 					'sub_notify_type' => $type,
@@ -226,7 +226,7 @@ class EchoSubscription {
 			}
 		}
 
-		if ( count($rows) ) {
+		if ( count( $rows ) ) {
 			$dbw->insert( 'echo_subscription', $rows, __METHOD__ );
 		}
 

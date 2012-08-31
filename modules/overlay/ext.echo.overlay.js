@@ -1,24 +1,24 @@
-( function($,mw) {
+( function( $,mw ) {
 	mw.echo.overlay = {
-		'updateCount' : function(newCount) {
-			$('#pt-notifications a')
-				.text( mw.msg('echo-link') )
+		'updateCount' : function( newCount ) {
+			$( '#pt-notifications a' )
+				.text( mw.msg( 'echo-link' ) )
 				.badge( newCount, { 'type' : 'inline' } );
 
 			mw.echo.overlay.notification_count = newCount;
 		},
 
-		'configuration' : mw.config.get('wgEchoOverlayConfiguration'),
+		'configuration' : mw.config.get( 'wgEchoOverlayConfiguration' ),
 
-		'buildOverlay' : function(callback) {
-			var $overlay = $('<div></div>')
-				.addClass('mw-echo-overlay');
-			var $link = $('#pt-notifications a');
+		'buildOverlay' : function( callback ) {
+			var $overlay = $( '<div></div>' )
+				.addClass( 'mw-echo-overlay' );
+			var $link = $( '#pt-notifications a' );
 
 			$overlay.append(
-				$('<div/>')
-					.addClass('mw-echo-overlay-title')
-					.text(mw.msg('echo-overlay-title'))
+				$( '<div/>' )
+					.addClass( 'mw-echo-overlay-title' )
+					.text( mw.msg( 'echo-overlay-title' ) )
 			);
 
 			var Api = new mw.Api();
@@ -29,59 +29,59 @@
 				'notformat' : 'html',
 				'notprop' : 'index|list'
 			}, {
-				'ok' : function(result) {
+				'ok' : function( result ) {
 					var notifications = result.query.notifications;
-					var $ul = $('<ul></ul>').appendTo($overlay);
+					var $ul = $( '<ul></ul>' ).appendTo( $overlay );
 
-					$.each( notifications.index, function(index, id) {
+					$.each( notifications.index, function( index, id ) {
 						var data = notifications[id];
-						var $li = $('<li></li>')
-							.data('details', data)
-							.data('id', id)
-							.addClass('mw-echo-notification')
-							.append(data['*'])
-							.appendTo($ul);
+						var $li = $( '<li></li>' )
+							.data( 'details', data )
+							.data( 'id', id )
+							.addClass( 'mw-echo-notification' )
+							.append( data['*'] )
+							.appendTo( $ul );
 
-						if (! data.read ) {
-							$li.addClass('mw-echo-unread');
+						if ( ! data.read ) {
+							$li.addClass( 'mw-echo-unread' );
 						}
-					});
+					} );
 
-					if ( ! $ul.find('li').length ) {
+					if ( ! $ul.find( 'li' ).length ) {
 						$ul.remove();
 						$overlay.append(
-							$('<div></div>')
+							$( '<div></div>' )
 								.addClass( 'mw-echo-overlay-none' )
-								.text(mw.msg('echo-none'))
+								.text( mw.msg( 'echo-none' ) )
 						);
 					}
 
 					$overlay.append(
-						$('<div/>')
-							.addClass('mw-echo-overlay-link')
+						$( '<div/>' )
+							.addClass( 'mw-echo-overlay-link' )
 							.append( $link
 								.clone()
 								.text( mw.msg( 'echo-overlay-link' ) )
 							)
 					);
 
-					callback($overlay);
+					callback( $overlay );
 
-					Api.get({
+					Api.get( {
 						'action' : 'query',
 						'meta' : 'notifications',
-						'notmarkread' : notifications.index.join('|'),
+						'notmarkread' : notifications.index.join( '|' ),
 						'notprop' : 'count'
 					}, {
-						'ok' : function(result) {
+						'ok' : function( result ) {
 							var count = result.query.notifications.count;
 
-							mw.echo.overlay.updateCount(count);
+							mw.echo.overlay.updateCount( count );
 						}
-					});
+					} );
 				},
 				'err' : function() {
-					window.location.href = $link.attr('href');
+					window.location.href = $link.attr( 'href' );
 				}
 			} );
 		}
@@ -92,23 +92,23 @@
 	$( function() {
 		mw.echo.overlay.updateCount( mw.echo.overlay.notification_count );
 
-		var $link = $('#pt-notifications a');
+		var $link = $( '#pt-notifications a' );
 		if ( ! $link.length ) {
 			return;
 		}
 
-		$link.click( function(e) {
+		$link.click( function( e ) {
 			e.preventDefault();
-			var $target = $(e.target);
+			var $target = $( e.target );
 			// If the user clicked on the overlay or any child,
 			//  ignore the click
-			if ( $target.hasClass('mw-echo-overlay') ||
-				$target.is('mw-echo-overlay *')
+			if ( $target.hasClass( 'mw-echo-overlay' ) ||
+				$target.is( 'mw-echo-overlay *' )
 			) {
 				return;
 			}
 
-			var $overlay = $('.mw-echo-overlay');
+			var $overlay = $( '.mw-echo-overlay' );
 
 			if ( $overlay.length ) {
 				$overlay.fadeOut( 'fast',
@@ -118,20 +118,20 @@
 			}
 			
 			$overlay = mw.echo.overlay.buildOverlay(
-				function($overlay) {
+				function( $overlay ) {
 					$overlay
 						.hide()
-						.appendTo($('body'))
-						.slideDown('fast');
+						.appendTo( $( 'body' ) )
+						.slideDown( 'fast' );
 				} );
 		} );
 
-		$('body').click( function(e) {
-			if ( ! $(e.target).is('.mw-echo-overlay,.mw-echo-overlay *') ) {
-				$('.mw-echo-overlay').fadeOut( 'fast',
-					function() { $(this).remove(); }
+		$( 'body' ).click( function( e ) {
+			if ( ! $( e.target ).is( '.mw-echo-overlay,.mw-echo-overlay *' ) ) {
+				$( '.mw-echo-overlay' ).fadeOut( 'fast',
+					function() { $( this ).remove(); }
 				);
 			}
-		});
-	});
-})( jQuery, mediaWiki );
+		} );
+	} );
+} )( jQuery, mediaWiki );

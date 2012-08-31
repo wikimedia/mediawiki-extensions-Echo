@@ -16,17 +16,17 @@ class EchoConvertWatchlists extends Maintenance {
 		$continue = true;
 
 		// Do it one user at a time
-		while ($continue) {
+		while ( $continue ) {
 			$uRes = $dbr->select( 'user',
 				'*',
-				array( 'user_id > ' . $dbr->addQuotes($uid) ),
+				array( 'user_id > ' . $dbr->addQuotes( $uid ) ),
 				__METHOD__,
-				array( 'LIMIT' => 500)
+				array( 'LIMIT' => 500 )
 			);
 
 			foreach( $uRes as $uRow ) {
 				$user = User::newFromRow( $uRow );
-				$wlRes = $dbr->select('watchlist',
+				$wlRes = $dbr->select( 'watchlist',
 					array( 'wl_namespace', 'wl_title'),
 					array( 'wl_user' => $uRow->user_id ),
 					__METHOD__
@@ -34,8 +34,8 @@ class EchoConvertWatchlists extends Maintenance {
 
 				foreach( $wlRes as $wlRow ) {
 					$title = Title::makeTitleSafe( $wlRow->wl_namespace, $wlRow->wl_title );
-					$subscription = new EchoSubscription($user, 'edit', $title);
-					$subscription->enableNotification('notify');
+					$subscription = new EchoSubscription( $user, 'edit', $title );
+					$subscription->enableNotification( 'notify' );
 					$subscription->save();
 				}
 			}

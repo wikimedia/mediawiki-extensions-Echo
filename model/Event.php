@@ -31,9 +31,9 @@ class EchoEvent {
 	## Save just as the ID
 	function __sleep() {
 		if ( ! $this->id ) {
-			throw new MWException("Unable to serialize an uninitialized EchoEvent");
+			throw new MWException( "Unable to serialize an uninitialized EchoEvent" );
 		}
-		return array('id');
+		return array( 'id' );
 	}
 
 	function __wakeup() {
@@ -76,7 +76,7 @@ class EchoEvent {
 		$obj->timestamp = wfTimestampNow();
 
 		foreach( $validFields as $field ) {
-			if ( isset($info[$field]) ) {
+			if ( isset( $info[$field] ) ) {
 				$obj->$field = $info[$field];
 			}
 		}
@@ -86,8 +86,8 @@ class EchoEvent {
 		}
 
 		if ( $obj->agent && !
-			($obj->agent instanceof User ||
-			$obj->agent instanceof StubObject)
+			( $obj->agent instanceof User ||
+			$obj->agent instanceof StubObject )
 		) {
 			throw new MWException( "Invalid user parameter" );
 		}
@@ -117,12 +117,12 @@ class EchoEvent {
 			'event_variant' => $this->variant,
 		);
 
-		if ( is_array($this->extra) || is_object($this->extra) ) {
-			$row['event_extra'] = serialize($this->extra);
-		} elseif (is_null($this->extra) ) {
+		if ( is_array( $this->extra ) || is_object( $this->extra ) ) {
+			$row['event_extra'] = serialize( $this->extra );
+		} elseif ( is_null( $this->extra ) ) {
 			$row['event_extra'] = null;
 		} else {
-			$row['event_extra'] = serialize( array($this->extra) );
+			$row['event_extra'] = serialize( array( $this->extra ) );
 		}
 
 		if ( $this->agent ) {
@@ -150,12 +150,12 @@ class EchoEvent {
 	 *
 	 * @param $row Database row object from echo_event
 	 */
-	public function loadFromRow($row) {
+	public function loadFromRow( $row ) {
 		$this->id = $row->event_id;
 		$this->timestamp = $row->event_timestamp;
 		$this->type = $row->event_type;
 		$this->variant = $row->event_variant;
-		$this->extra = $row->event_extra ? unserialize($row->event_extra) : null;
+		$this->extra = $row->event_extra ? unserialize( $row->event_extra ) : null;
 
 		if ( $row->event_agent_id ) {
 			$this->agent = User::newFromID( $row->event_agent_id );
@@ -178,7 +178,7 @@ class EchoEvent {
 	public function loadFromID( $id, $fromMaster = false ) {
 		$db = wfGetDB( $fromMaster ? DB_MASTER : DB_SLAVE );
 
-		$row = $db->selectRow( 'echo_event', '*', array('event_id' => $id), __METHOD__ );
+		$row = $db->selectRow( 'echo_event', '*', array( 'event_id' => $id ), __METHOD__ );
 
 		if ( ! $row && !$fromMaster ) {
 			$this->loadFromID( $id, true );
@@ -195,7 +195,7 @@ class EchoEvent {
 	 * @param $row Database row object from echo_event
 	 * @return EchoEvent object.
 	 */
-	public static function newFromRow($row) {
+	public static function newFromRow( $row ) {
 		$obj = new EchoEvent();
 		$obj->loadFromRow( $row );
 		return $obj;

@@ -309,7 +309,7 @@ TEXT
 
 	public static function getExemplarTimestamp() {
 		$title = Title::newMainPage();
-		$user = User::newFromName('Test');
+		$user = User::newFromName( 'Test' );
 		$options = new ParserOptions;
 
 		global $wgParser;

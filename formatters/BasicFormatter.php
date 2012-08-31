@@ -11,7 +11,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	protected $title, $content, $email, $icon;
 
 	public function __construct( $params ) {
-		parent::__construct($params);
+		parent::__construct( $params );
 
 		$this->title = array();
 		$this->title['message'] = $params['title-message'];
@@ -116,7 +116,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 
 	protected function formatFragment( $details, $event, $user ) {
 		$message = wfMessage( $details['message'] )
-				->inLanguage( $user->getOption('language') );
+				->inLanguage( $user->getOption( 'language' ) );
 
 		$this->processParams( $details['params'], $event, $message, $user );
 
@@ -145,7 +145,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			} else {
 				$agent = $event->getAgent();
 				$message->params( $agent->getName() );
-				$message->rawParams( $this->formatUser($agent) );
+				$message->rawParams( $this->formatUser( $agent ) );
 			}
 		} elseif ( $param === 'user' ) {
 			$message->params( $user->getName() );
@@ -157,7 +157,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			}
 		} elseif ( $param == 'text-notification' ) {
 			$oldOutputFormat = $this->outputFormat;
-			$this->setOutputFormat('text');
+			$this->setOutputFormat( 'text' );
 			// $type is ignored in this class
 			$textNotification = $this->format( $event, $user, '' );
 			$this->setOutputFormat( $oldOutputFormat );
