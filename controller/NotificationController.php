@@ -26,7 +26,7 @@ class EchoNotificationController {
 			__METHOD__
 		);
 
-		$wgMemc->set($memcKey, $count, 86400);
+		$wgMemc->set( $memcKey, $count, 86400 );
 
 		return $count;
 	}
@@ -61,6 +61,7 @@ class EchoNotificationController {
 	 */
 	public static function resetNotificationCount( $user ) {
 		self::getNotificationCount( $user, false );
+		$user->invalidateCache();
 	}
 
 	/**
