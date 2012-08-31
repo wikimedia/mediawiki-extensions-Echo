@@ -33,6 +33,9 @@ $messages['en'] = array(
 	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|sent}} you a message: "[[$4#$3|$3]]"',
 	'notification-add-comment-yours' => '$2 {{GENDER:$1|commented}} on "[[$4#$3|$3]]" on your talk page',
 	'notification-talkpage-content' => '$1', ## Do not translate unless you deliberately want to change behaviour
+	'notification-new-user' => 'Welcome to {{SITENAME}}, $1!',
+	'notification-new-user-content' => 'Hi $1, and welcome to {{SITENAME}}.<br />
+Please remember to sign any comments on talk pages with 4 tildes (~~~~).',
 
 	'notification-edit-email-subject' => '{{SITENAME}} notification: $3 has been edited by $2',
 	'notification-edit-email-body' => 'Hello $5,
@@ -121,6 +124,8 @@ $messages['qqq'] = array(
 * $2 Linked Username;
 * $3 Discussion name;
 * $4 link to user talk page.',
+	'notification-new-user' => 'Title for the welcome notification. $1 is the name of the new user.',
+	'notification-new-user-content' => 'The content shown to users on their welcome notification. $1 is the name of the new user.',
 	'notification-edit-email-subject' => 'E-mail subject. Parameters:
 * $2 is a username
 * $3 is a page title',

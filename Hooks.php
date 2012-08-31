@@ -59,6 +59,9 @@ class EchoHooks {
 					EchoDiscussionParser::getNotifiedUsersForComment( $revision )
 				);
 				break;
+			case 'welcome':
+				$users[$event->getAgent()->getId()] = $event->getAgent();
+				break;
 		}
 
 		return true;
@@ -186,6 +189,21 @@ class EchoHooks {
 		if ( $article->getTitle()->isTalkPage() ) {
 			EchoDiscussionParser::generateEventsForRevision( $revision );
 		}
+
+		return true;
+	}
+
+	/**
+	 * Handler for AddNewAccount hook.
+	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/AddNewAccount
+	 * @param $user User object that was created.
+	 * @param $byEmail bool True when account was created "by email".
+	 */
+	public static function onAccountCreated( $user, $byEmail ) {
+		$event = EchoEvent::create( array(
+			'type' => 'welcome',
+			'agent' => $user,
+		) );
 
 		return true;
 	}
