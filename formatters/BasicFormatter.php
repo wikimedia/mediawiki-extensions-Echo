@@ -92,7 +92,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			$output .= Xml::tags( 'div', array( 'class' => 'mw-echo-content' ), $content ) . "\n";
 		}
 
-		if ( ! is_null( $this->icon ) ) {
+		if ( !is_null( $this->icon ) ) {
 			$output = Xml::tags( 'div',
 				array( 'class' => "mw-echo-icon mw-echo-icon-{$this->icon}" ),
 				'&nbsp;'
@@ -116,7 +116,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 
 	protected function formatFragment( $details, $event, $user ) {
 		$message = wfMessage( $details['message'] )
-				->inLanguage( $user->getOption( 'language' ) );
+			->inLanguage( $user->getOption( 'language' ) );
 
 		$this->processParams( $details['params'], $event, $message, $user );
 
@@ -132,7 +132,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	}
 
 	protected function processParams( $params, $event, $message, $user ) {
-		foreach( $params as $param ) {
+		foreach ( $params as $param ) {
 			$this->processParam( $event, $param, $message, $user );
 		}
 	}
@@ -140,7 +140,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	protected function processParam( $event, $param, $message, $user ) {
 		if ( $param === 'agent' ) {
 			// Actually converts to two parameters for gender support
-			if ( ! $event->getAgent() ) {
+			if ( !$event->getAgent() ) {
 				$message->params( '', wfMessage( 'echo-no-agent' )->text() );
 			} else {
 				$agent = $event->getAgent();
@@ -150,7 +150,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 		} elseif ( $param === 'user' ) {
 			$message->params( $user->getName() );
 		} elseif ( $param === 'title' ) {
-			if ( ! $event->getTitle() ) {
+			if ( !$event->getTitle() ) {
 				$message->params( wfMessage( 'echo-no-title' )->text() );
 			} else {
 				$message->params( $this->formatTitle( $event->getTitle() ) );

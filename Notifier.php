@@ -9,7 +9,7 @@ class EchoNotifier {
 	 * @param $event The EchoEvent to notify about.
 	 */
 	public static function notifyWithNotification( $user, $event ) {
-		EchoNotification::create( array( 'user' => $user, 'event' => $event) );
+		EchoNotification::create( array( 'user' => $user, 'event' => $event ) );
 		EchoNotificationController::resetNotificationCount( $user );
 	}
 
@@ -20,7 +20,7 @@ class EchoNotifier {
 	 * @param $event The EchoEvent to notify about.
 	 */
 	public static function notifyWithEmail( $user, $event ) {
-		if ( ! $user->isEmailConfirmed() ) {
+		if ( !$user->isEmailConfirmed() ) {
 			// No valid email address
 			return false;
 		}

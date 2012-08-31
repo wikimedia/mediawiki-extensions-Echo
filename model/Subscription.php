@@ -17,8 +17,8 @@ class EchoSubscription {
 	 * @param $event String identifier for the event type of interest. Max length is 63 chars.
 	 * @param $title Title|null Optional Title of interest for events, if applicable.
 	 */
-	public function __construct( $user, $event, $title = null) {
-		if( !( $user instanceof User || $user instanceof StubObject ) ) {
+	public function __construct( $user, $event, $title = null ) {
+		if ( !( $user instanceof User || $user instanceof StubObject ) ) {
 			throw new MWException( "Invalid user parameter" );
 		}
 
@@ -54,7 +54,7 @@ class EchoSubscription {
 			);
 		}
 
-		foreach( $rows as $row ) {
+		foreach ( $rows as $row ) {
 			if ( $this->title ) {
 				$correctNS = $this->title->getNamespace();
 				$correctTitle = $this->title->getDBkey();
@@ -117,9 +117,9 @@ class EchoSubscription {
 
 	protected function getConds() {
 		$conds = array(
-				'sub_user' => $this->user->getId(),
-				'sub_event_type' => $this->event,
-			);
+			'sub_user' => $this->user->getId(),
+			'sub_event_type' => $this->event,
+		);
 
 		if ( $this->title ) {
 			$conds['sub_page_namespace'] = $this->title->getNamespace();
@@ -192,7 +192,7 @@ class EchoSubscription {
 	}
 
 	public function save() {
-		if ( ! $this->dirty ) {
+		if ( !$this->dirty ) {
 			return;
 		}
 
@@ -209,7 +209,7 @@ class EchoSubscription {
 				$wgEchoDefaultNotificationTypes[$this->event]
 			);
 		} else {
-			$defaultState =	$wgEchoDefaultNotificationTypes['all'];
+			$defaultState = $wgEchoDefaultNotificationTypes['all'];
 		}
 
 		$rows = array();
@@ -217,7 +217,7 @@ class EchoSubscription {
 			array_keys( array_filter( $this->getNotificationTypes() ) ),
 			array_keys( array_filter( $defaultState ) )
 		) ) === 0;
-		foreach( $this->getNotificationTypes() as $type => $state ) {
+		foreach ( $this->getNotificationTypes() as $type => $state ) {
 			if ( !isset( $defaultState[$type] ) || $state != $defaultState[$type] || $allDefault ) {
 				$rows[] = $conds + array(
 					'sub_enabled' => $state,

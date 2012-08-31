@@ -24,15 +24,15 @@ class EchoConvertWatchlists extends Maintenance {
 				array( 'LIMIT' => 500 )
 			);
 
-			foreach( $uRes as $uRow ) {
+			foreach ( $uRes as $uRow ) {
 				$user = User::newFromRow( $uRow );
 				$wlRes = $dbr->select( 'watchlist',
-					array( 'wl_namespace', 'wl_title'),
+					array( 'wl_namespace', 'wl_title' ),
 					array( 'wl_user' => $uRow->user_id ),
 					__METHOD__
 				);
 
-				foreach( $wlRes as $wlRow ) {
+				foreach ( $wlRes as $wlRow ) {
 					$title = Title::makeTitleSafe( $wlRow->wl_namespace, $wlRow->wl_title );
 					$subscription = new EchoSubscription( $user, 'edit', $title );
 					$subscription->enableNotification( 'notify' );

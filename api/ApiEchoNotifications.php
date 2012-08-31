@@ -68,7 +68,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 			)
 		);
 
-		foreach( $res as $row ) {
+		foreach ( $res as $row ) {
 			$event = EchoEvent::newFromRow( $row );
 
 			if ( MWInit::methodExists( 'Language', 'prettyTimestamp' ) ) {
@@ -116,7 +116,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 
 			if ( $format ) {
 				$thisEvent['*'] = EchoNotificationController::formatNotification(
-						$event, $this->getUser(), $format );
+					$event, $this->getUser(), $format );
 			}
 
 			$output[$event->getID()] = $thisEvent;
@@ -130,10 +130,10 @@ class ApiEchoNotifications extends ApiQueryBase {
 			'prop' => array(
 				ApiBase::PARAM_ISMULTI => true,
 				ApiBase::PARAM_TYPE => array(
-						'list',
-						'count',
-						'index',
-					),
+					'list',
+					'count',
+					'index',
+				),
 				ApiBase::PARAM_DFLT => 'list',
 			),
 			'markread' => array(
@@ -142,9 +142,9 @@ class ApiEchoNotifications extends ApiQueryBase {
 			'unread' => false,
 			'format' => array(
 				ApiBase::PARAM_TYPE => array(
-						'text',
-						'html',
-					),
+					'text',
+					'html',
+				),
 			),
 			'limit' => array(
 				ApiBase::PARAM_TYPE => 'integer',

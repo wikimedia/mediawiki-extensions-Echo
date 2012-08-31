@@ -21,7 +21,7 @@ abstract class EchoDiscussionParser {
 		$userName = $revision->getUserText();
 		$user = $userID != 0 ? User::newFromId( $userID ) : User::newFromName( $userName, false );
 
-		foreach( $interpretation as $action ) {
+		foreach ( $interpretation as $action ) {
 			if ( $action['type'] == 'add-comment' ) {
 				$fullSection = $action['full-section'];
 				$header = self::extractHeader( $fullSection );
@@ -78,12 +78,12 @@ abstract class EchoDiscussionParser {
 		$interpretation = self::getChangeInterpretationForRevision( $revision );
 		$users = array();
 
-		foreach( $interpretation as $action ) {
+		foreach ( $interpretation as $action ) {
 			if ( $action['type'] == 'add-comment' ) {
 				$fullSection = $action['full-section'];
 				$interestedUsers = array_keys( self::extractSignatures( $fullSection ) );
 
-				foreach( $interestedUsers as $userName ) {
+				foreach ( $interestedUsers as $userName ) {
 					$user = User::newFromName( $userName );
 
 					// Deliberately ignoring anonymous users
@@ -171,19 +171,19 @@ abstract class EchoDiscussionParser {
 		// One extra item in $changes for _info
 		$actions = array();
 
-		foreach( $changes as $index => $change ) {
+		foreach ( $changes as $index => $change ) {
 			if ( !is_numeric( $index ) ) {
 				continue;
 			}
 
-			if ( ! $change['action'] ) {
+			if ( !$change['action'] ) {
 				// Unknown action; skip
 				continue;
 			}
 
 			if ( $change['action'] == 'add' ) {
 				$content = trim( $change['content'] );
-				$startSection = preg_match( "/\A" . self::$headerRegex.'/um', $content );
+				$startSection = preg_match( "/\A" . self::$headerRegex . '/um', $content );
 				$sectionCount = self::getSectionCount( $content );
 				$signedUsers = array_keys( self::extractSignatures( $content ) );
 
@@ -257,7 +257,7 @@ abstract class EchoDiscussionParser {
 		$headerRegex = '/' . self::$headerRegex . '/um';
 
 		// Expand backwards...
-		$continue = ! preg_match( $headerRegex, $lines[$offset - 1] );
+		$continue = !preg_match( $headerRegex, $lines[$offset - 1] );
 		$i = $offset - 1;
 		while ( $continue && $i > 0 ) {
 			--$i;
@@ -295,7 +295,7 @@ abstract class EchoDiscussionParser {
 		$text = trim( $text );
 
 		$matches = array();
-		preg_match_all( '/'.self::$headerRegex.'/um', $text, $matches );
+		preg_match_all( '/' . self::$headerRegex . '/um', $text, $matches );
 
 		return count( $matches[0] );
 	}
@@ -311,7 +311,7 @@ abstract class EchoDiscussionParser {
 
 		$matches = array();
 
-		if ( !preg_match( '/'.self::$headerRegex.'/um', $text, $matches ) ) {
+		if ( !preg_match( '/' . self::$headerRegex . '/um', $text, $matches ) ) {
 			return false;
 		}
 
@@ -373,7 +373,7 @@ abstract class EchoDiscussionParser {
 	 * @return String: The same text, with the section header stripped out.
 	 */
 	static function stripHeader( $text ) {
-		$text = preg_replace( '/'.self::$headerRegex.'/um', '', $text );
+		$text = preg_replace( '/' . self::$headerRegex . '/um', '', $text );
 
 		return $text;
 	}
@@ -416,11 +416,11 @@ abstract class EchoDiscussionParser {
 		$timestampRegex = self::getTimestampRegex();
 		$endOfLine = self::getLineEndingRegex();
 		$tsMatches = array();
-		if ( ! preg_match(
-				"/$timestampRegex$endOfLine/mu",
-				$line,
-				$tsMatches,
-				PREG_OFFSET_CAPTURE
+		if ( !preg_match(
+			"/$timestampRegex$endOfLine/mu",
+			$line,
+			$tsMatches,
+			PREG_OFFSET_CAPTURE
 		) ) {
 			return false;
 		}
@@ -445,8 +445,8 @@ abstract class EchoDiscussionParser {
 	 * * 'left_pos' and 'right_pos' (in lines) of the change.
 	 */
 	static function getMachineReadableDiff( $oldText, $newText ) {
-		$oldText = trim( $oldText )."\n";
-		$newText = trim( $newText )."\n";
+		$oldText = trim( $oldText ) . "\n";
+		$newText = trim( $newText ) . "\n";
 		$diff = wfDiff( $oldText, $newText, '-u -w' );
 
 		$old_lines = explode( "\n", $oldText );
@@ -460,7 +460,7 @@ abstract class EchoDiscussionParser {
 		$change_run = false;
 		$sub_lines = 0;
 
-		for( $i = 0; $i < count( $diff_lines ); ++$i ) {
+		for ( $i = 0; $i < count( $diff_lines ); ++$i ) {
 			$line = $diff_lines[$i];
 
 			if ( strlen( $line ) == 0 ) {
@@ -498,11 +498,11 @@ abstract class EchoDiscussionParser {
 						'right-pos' => $right_pos,
 						'content' => $subtracted_line,
 					);
-					$change_run = count( $changes )-1;
+					$change_run = count( $changes ) - 1;
 				}
 
 				// Consistency check
-				if ( $old_lines[$left_pos-1] != $subtracted_line ) {
+				if ( $old_lines[$left_pos - 1] != $subtracted_line ) {
 					throw new MWException( "Left offset consistency error.\nOffset: $right_pos\nExpected: {$old_lines[$left_pos-1]}\nActual: $subtracted_line" );
 				}
 				++$left_pos;
@@ -527,11 +527,11 @@ abstract class EchoDiscussionParser {
 						'right-pos' => $right_pos,
 						'content' => $added_line,
 					);
-					$change_run = count( $changes )-1;
+					$change_run = count( $changes ) - 1;
 				}
 
 				// Consistency check
-				if ( $new_lines[$right_pos-1] != $added_line ) {
+				if ( $new_lines[$right_pos - 1] != $added_line ) {
 					throw new MWException( "Right offset consistency error.\nOffset: $right_pos\nExpected: {$new_lines[$right_pos-1]}\nActual: $added_line\n" );
 				}
 				++$right_pos;
@@ -566,14 +566,14 @@ abstract class EchoDiscussionParser {
 
 		$lineNumber = 0;
 
-		foreach( $lines as $line ) {
+		foreach ( $lines as $line ) {
 			++$lineNumber;
 			$tsMatches = array();
-			if ( ! preg_match(
-					"/$timestampRegex$endOfLine/mu",
-					$line,
-					$tsMatches,
-					PREG_OFFSET_CAPTURE
+			if ( !preg_match(
+				"/$timestampRegex$endOfLine/mu",
+				$line,
+				$tsMatches,
+				PREG_OFFSET_CAPTURE
 			) ) {
 				// Ignore lines that don't finish with a timestamp
 				// print "I\tNo timestamp\n";
@@ -618,7 +618,7 @@ abstract class EchoDiscussionParser {
 			'[[' . SpecialPage::getTitleFor( 'Contributions' )->getPrefixedText() . '/',
 		);
 
-		foreach( $possiblePrefixes as $prefix ) {
+		foreach ( $possiblePrefixes as $prefix ) {
 			if ( strpos( $prefix, '_' ) !== false ) {
 				$possiblePrefixes[] = str_replace( '_', ' ', $prefix );
 			}
@@ -628,7 +628,7 @@ abstract class EchoDiscussionParser {
 		$winningPos = false;
 
 		// Look for the leftmost link to the rightmost user
-		foreach( $possiblePrefixes as $prefix ) {
+		foreach ( $possiblePrefixes as $prefix ) {
 			$output = self::getLinkFromLine( $line, $prefix );
 
 			if ( $output === false ) {
@@ -710,7 +710,7 @@ abstract class EchoDiscussionParser {
 		$userPart = substr( $text, strlen( $prefix ) + $offset );
 
 		$userMatches = array();
-		if ( ! preg_match(
+		if ( !preg_match(
 			'/^[^\|\]\#]+/u',
 			$userPart,
 			$userMatches
@@ -724,7 +724,7 @@ abstract class EchoDiscussionParser {
 		$user = $userMatches[0];
 
 		if (
-			! User::isIP( $user ) &&
+			!User::isIP( $user ) &&
 			User::getCanonicalName( $user ) === false
 		) {
 			// Not a real username
@@ -738,7 +738,7 @@ abstract class EchoDiscussionParser {
 	/**
 	 * Gets a regular expression fragmentmatching characters that
 	 * can appear in a line after the signature.
-	 * 
+	 *
 	 * @return String regular expression fragment.
 	 */
 	static function getLineEndingRegex() {
@@ -747,7 +747,7 @@ abstract class EchoDiscussionParser {
 			preg_quote( '}' ),
 			preg_quote( '{' ),
 			'\<[^\>]+\>',
-			preg_quote( '{{' ).'[^}]+'.preg_quote( '}}' ),
+			preg_quote( '{{' ) . '[^}]+' . preg_quote( '}}' ),
 		);
 
 		$regex = '(?:' . implode( '|', $ignoredEndings ) . ')*';
@@ -758,7 +758,7 @@ abstract class EchoDiscussionParser {
 	/**
 	 * Gets a regular expression that will match this wiki's
 	 * timestamps as given by ~~~~.
-	 * 
+	 *
 	 * @return String regular expression fragment.
 	 */
 	static function getTimestampRegex() {
@@ -788,7 +788,7 @@ abstract class EchoDiscussionParser {
 
 		$output .= preg_quote( $tzMatches[0] );
 
-		if ( ! preg_match( "/$output/u", $exemplarTimestamp ) ) {
+		if ( !preg_match( "/$output/u", $exemplarTimestamp ) ) {
 			throw new MWException( "Timestamp regex does not match exemplar" );
 		}
 

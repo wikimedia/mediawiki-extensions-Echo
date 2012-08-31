@@ -27,7 +27,7 @@ class EchoNotification {
 
 		$obj->timestamp = wfTimestampNow();
 
-		foreach( $validFields as $field ) {
+		foreach ( $validFields as $field ) {
 			if ( isset( $info[$field] ) ) {
 				$obj->$field = $info[$field];
 			} else {
@@ -35,10 +35,10 @@ class EchoNotification {
 			}
 		}
 
-		if ( 	! $obj->user instanceof User &&
-			! $obj->user instanceof StubObject
+		if ( !$obj->user instanceof User &&
+			!$obj->user instanceof StubObject
 		) {
-			throw new MWException( "Invalid user parameter: ".get_class( $obj->user ) );
+			throw new MWException( "Invalid user parameter: " . get_class( $obj->user ) );
 		}
 
 		if ( !$obj->event instanceof EchoEvent ) {

@@ -1,3 +1,3 @@
-( function( $, mw ) {
+(function ($, mw) {
 	mw.echo = {};
-} )( jQuery, mediaWiki );
+})(jQuery, mediaWiki);

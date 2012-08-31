@@ -43,7 +43,7 @@ class EchoNotificationController {
 		$eventIDs = array_filter( (array)$eventIDs, 'is_numeric' );
 
 		$dbw->update( 'echo_notification',
-			array( 'notification_read_timestamp' => $dbw->timestamp(wfTimestampNow()) ),
+			array( 'notification_read_timestamp' => $dbw->timestamp( wfTimestampNow() ) ),
 			array(
 				'notification_user' => $user->getId(),
 				'notification_event' => $eventIDs,
@@ -66,7 +66,7 @@ class EchoNotificationController {
 
 	/**
 	 * Processes notifications for a newly-created EchoEvent
-	 * 
+	 *
 	 * @param $event EchoEvent to do notifications for
 	 * @param $defer Defer to job queue
 	 */
@@ -81,7 +81,7 @@ class EchoNotificationController {
 
 		$subscriptions = self::getSubscriptionsForEvent( $event );
 
-		foreach( $subscriptions as $subscription ) {
+		foreach ( $subscriptions as $subscription ) {
 			$user = $subscription->getUser();
 			$notifyTypes = $subscription->getNotificationTypes();
 
@@ -89,7 +89,7 @@ class EchoNotificationController {
 
 			wfRunHooks( 'EchoGetNotificationTypes', array( $subscription, $event, &$notifyTypes ) );
 
-			foreach( $notifyTypes as $type ) {
+			foreach ( $notifyTypes as $type ) {
 				self::doNotification( $event, $user, $type );
 			}
 		}
@@ -106,7 +106,7 @@ class EchoNotificationController {
 	public static function doNotification( $event, $user, $type ) {
 		global $wgEchoNotifiers;
 
-		if ( ! isset( $wgEchoNotifiers[$type] ) ) {
+		if ( !isset( $wgEchoNotifiers[$type] ) ) {
 			throw new MWException( "Invalid notification type $type" );
 		}
 
@@ -115,7 +115,7 @@ class EchoNotificationController {
 
 	/**
 	 * Retrieves an array of EchoSubscription objects applicable to an EchoEvent.
-	 * 
+	 *
 	 * @param $event EchoEvent to retrieve EchoSubscriptions for.
 	 * @return Array of EchoSubscription objects.
 	 */
@@ -136,7 +136,7 @@ class EchoNotificationController {
 		$rowCollection = array();
 		$lastUser = null;
 
-		foreach( $res as $row ) {
+		foreach ( $res as $row ) {
 			if ( $lastUser && $row->sub_user != $lastUser ) {
 				$subscriptions[$lastUser] = EchoSubscription::newFromRows( $rowCollection );
 				$rowCollection = array();
@@ -152,7 +152,7 @@ class EchoNotificationController {
 
 		$users = array();
 		wfRunHooks( 'EchoGetDefaultNotifiedUsers', array( $event, &$users ) );
-		foreach( $users as $u ) {
+		foreach ( $users as $u ) {
 			if ( !isset( $subscriptions[$u->getId()] ) ) {
 				$subscriptions[$u->getId()] = new EchoSubscription( $u, $event->getType(), $event->getTitle() );
 			}
@@ -160,7 +160,7 @@ class EchoNotificationController {
 
 		// Don't notify the person who made the edit, that's a bit silly.
 		if ( $event->getAgent() ) {
-			unset( $subscriptions[$event->getAgent()->getId()]);
+			unset( $subscriptions[$event->getAgent()->getId()] );
 		}
 
 		return $subscriptions;

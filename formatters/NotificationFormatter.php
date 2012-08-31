@@ -23,9 +23,9 @@ abstract class EchoNotificationFormatter {
 
 		if ( count( $missingParameters ) ) {
 			throw new MWException(
-				"Missing required parameters for ".
-				get_class( $this ).":".
-				implode( " ", $missingParameters )
+				"Missing required parameters for " .
+					get_class( $this ) . ":" .
+					implode( " ", $missingParameters )
 			);
 		}
 	}
@@ -47,7 +47,7 @@ abstract class EchoNotificationFormatter {
 	 * @param $format A valid output format (by default, 'text' and 'html' are allowed)
 	 */
 	public function setOutputFormat( $format ) {
-		if ( ! in_array( $format, $this->validOutputFormats, true ) ) {
+		if ( !in_array( $format, $this->validOutputFormats, true ) ) {
 			throw new MWException( "Invalid output format $format" );
 		}
 
@@ -72,8 +72,8 @@ abstract class EchoNotificationFormatter {
 			$class = $parameters['class'];
 		}
 
-		if ( ! $class || !class_exists( $class ) ) {
-			throw new MWException( "No valid class ($class) or type ($type) specified for ".__METHOD__);
+		if ( !$class || !class_exists( $class ) ) {
+			throw new MWException( "No valid class ($class) or type ($type) specified for " . __METHOD__ );
 		}
 
 		return new $class( $parameters );

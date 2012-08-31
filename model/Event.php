@@ -21,16 +21,16 @@ class EchoEvent {
 	/**
 	 * You should not call the constructor.
 	 * Instead use one of the factory functions:
-	 * EchoEvent::create		To create a new event
-	 * EchoEvent::newFromRow	To create an event object from a row object
-	 * EchoEvent::newFromID		To create an event object from the database given its ID
+	 * EchoEvent::create        To create a new event
+	 * EchoEvent::newFromRow    To create an event object from a row object
+	 * EchoEvent::newFromID     To create an event object from the database given its ID
 	 */
 	protected function __construct() {
 	}
 
 	## Save just as the ID
 	function __sleep() {
-		if ( ! $this->id ) {
+		if ( !$this->id ) {
 			throw new MWException( "Unable to serialize an uninitialized EchoEvent" );
 		}
 		return array( 'id' );
@@ -67,7 +67,7 @@ class EchoEvent {
 
 		if (
 			$wgEchoEnabledEvents !== false &&
-			! in_array( $info['type'], $wgEchoEnabledEvents )
+			!in_array( $info['type'], $wgEchoEnabledEvents )
 		) {
 			return false;
 		}
@@ -75,18 +75,18 @@ class EchoEvent {
 		$obj->id = false;
 		$obj->timestamp = wfTimestampNow();
 
-		foreach( $validFields as $field ) {
+		foreach ( $validFields as $field ) {
 			if ( isset( $info[$field] ) ) {
 				$obj->$field = $info[$field];
 			}
 		}
 
-		if ( $obj->title && ! $obj->title instanceof Title ) {
+		if ( $obj->title && !$obj->title instanceof Title ) {
 			throw new MWException( "Invalid title parameter" );
 		}
 
 		if ( $obj->agent && !
-			( $obj->agent instanceof User ||
+		( $obj->agent instanceof User ||
 			$obj->agent instanceof StubObject )
 		) {
 			throw new MWException( "Invalid user parameter" );
@@ -140,7 +140,7 @@ class EchoEvent {
 
 		$dbw->insert( 'echo_event', $row, __METHOD__ );
 
-		if ( ! $this->id ) {
+		if ( !$this->id ) {
 			$this->id = $dbw->insertId();
 		}
 	}
@@ -180,10 +180,10 @@ class EchoEvent {
 
 		$row = $db->selectRow( 'echo_event', '*', array( 'event_id' => $id ), __METHOD__ );
 
-		if ( ! $row && !$fromMaster ) {
+		if ( !$row && !$fromMaster ) {
 			$this->loadFromID( $id, true );
-		} elseif ( ! $row ) {
-			throw new MWException( "No EchoEvent found with ID: $id");
+		} elseif ( !$row ) {
+			throw new MWException( "No EchoEvent found with ID: $id" );
 		}
 
 		$this->loadFromRow( $row );

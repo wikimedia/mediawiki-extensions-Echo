@@ -7,7 +7,7 @@ class EchoHooks {
 	 * @return true in all cases
 	 */
 	public static function getSchemaUpdates( $updater ) {
-		$dir = dirname(__FILE__);
+		$dir = __DIR__;
 		$baseSQLFile = "$dir/echo.sql";
 		$updater->addExtensionTable( 'echo_subscription', $baseSQLFile );
 		$updater->addExtensionTable( 'echo_event', $baseSQLFile );
@@ -29,7 +29,7 @@ class EchoHooks {
 	 * @return true in all cases
 	 */
 	public static function getDefaultNotifiedUsers( $event, &$users ) {
-		switch( $event->getType() ) {
+		switch ( $event->getType() ) {
 			// Everyone deserves to know when something happens
 			//  on their user talk page
 			case 'edit-user-talk':
@@ -42,7 +42,7 @@ class EchoHooks {
 				if ( $user && $user->getId() ) {
 					$users[$user->getId()] = $user;
 				}
-			break;
+				break;
 			case 'add-comment':
 			case 'add-talkpage-topic':
 				// Handled by EchoDiscussionParser
@@ -58,7 +58,7 @@ class EchoHooks {
 					$users,
 					EchoDiscussionParser::getNotifiedUsersForComment( $revision )
 				);
-			break;
+				break;
 		}
 
 		return true;
@@ -70,16 +70,16 @@ class EchoHooks {
 
 		// Figure out when to disallow email notifications
 		if ( $type == 'edit' ) {
-			if ( ! $user->getOption( 'enotifwatchlistpages' ) ) {
+			if ( !$user->getOption( 'enotifwatchlistpages' ) ) {
 				$notifyTypes = array_diff( $notifyTypes, array( 'email' ) );
 			}
 		} elseif ( $type == 'edit-user-talk' ) {
-			if ( ! $user->getOption( 'enotifusertalkpages' ) ) {
+			if ( !$user->getOption( 'enotifusertalkpages' ) ) {
 				$notifyTypes = array_diff( $notifyTypes, array( 'email' ) );
 			}
 		}
 
-		if ( ! $user->getOption( 'enotifminoredits' ) ) {
+		if ( !$user->getOption( 'enotifminoredits' ) ) {
 			$extra = $event->getExtra();
 			if ( !empty( $extra['revid'] ) ) {
 				$rev = Revision::newFromID( $extra['revid'] );
@@ -101,7 +101,7 @@ class EchoHooks {
 	 */
 	public static function getPreferences( $user, &$preferences ) {
 		global $wgEchoEnabledEvents;
-		if ( $wgEchoEnabledEvents !== false && ! in_array( 'edit', $wgEchoEnabledEvents ) ) {
+		if ( $wgEchoEnabledEvents !== false && !in_array( 'edit', $wgEchoEnabledEvents ) ) {
 			return true;
 		}
 
@@ -122,11 +122,11 @@ class EchoHooks {
 	 */
 	public static function onWatch( $user, $article ) {
 		global $wgEchoEnabledEvents;
-		if ( $wgEchoEnabledEvents !== false && ! in_array( 'edit', $wgEchoEnabledEvents ) ) {
+		if ( $wgEchoEnabledEvents !== false && !in_array( 'edit', $wgEchoEnabledEvents ) ) {
 			return true;
 		}
 
-		if ( ! $user->getOption( 'echo-notify-watchlist' ) ) {
+		if ( !$user->getOption( 'echo-notify-watchlist' ) ) {
 			return true;
 		}
 
@@ -145,7 +145,7 @@ class EchoHooks {
 	 */
 	public static function onUnwatch( $user, $article ) {
 		global $wgEchoEnabledEvents;
-		if ( $wgEchoEnabledEvents !== false && ! in_array( 'edit', $wgEchoEnabledEvents ) ) {
+		if ( $wgEchoEnabledEvents !== false && !in_array( 'edit', $wgEchoEnabledEvents ) ) {
 			return true;
 		}
 
@@ -170,7 +170,7 @@ class EchoHooks {
 	 * @param $status Status
 	 * @return true in all cases
 	 */
-	public static function onArticleSaved( &$article, &$user, $text, $summary, $minoredit, $watchthis, $sectionanchor, &$flags, $revision, &$status ) {	
+	public static function onArticleSaved( &$article, &$user, $text, $summary, $minoredit, $watchthis, $sectionanchor, &$flags, $revision, &$status ) {
 		if ( !$revision ) {
 			return true;
 		}
@@ -244,7 +244,7 @@ class EchoHooks {
 	 */
 	static function abortEmailNotification() {
 		global $wgEchoDisableStandardEmail;
-		return ! $wgEchoDisableStandardEmail;
+		return !$wgEchoDisableStandardEmail;
 	}
 
 	public static function makeGlobalVariablesScript( &$vars, $outputPage ) {
@@ -252,7 +252,7 @@ class EchoHooks {
 
 		// Provide info for the Overlay
 
-		if ( ! $user->isAnon() ) {
+		if ( !$user->isAnon() ) {
 			$vars['wgEchoOverlayConfiguration'] = array(
 				'timestamp' => wfTimestamp( TS_UNIX, wfTimestampNow() ),
 				'notification-count' => EchoNotificationController::getNotificationCount( $user ),

@@ -12,7 +12,7 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 		$exemplarTimestamp = self::getExemplarTimestamp();
 		$timestampRegex = EchoDiscussionParser::getTimestampRegex();
 
-		$match = preg_match( '/'.$timestampRegex.'/u', $exemplarTimestamp );
+		$match = preg_match( '/' . $timestampRegex . '/u', $exemplarTimestamp );
 		$this->assertEquals( 1, $match );
 	}
 
@@ -21,7 +21,7 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 	 * FIXME some of the app logic is in the test...
 	 */
 	public function testSigningDetection( $line, $expectedUser ) {
-		if ( ! EchoDiscussionParser::isSignedComment( $line ) ) {
+		if ( !EchoDiscussionParser::isSignedComment( $line ) ) {
 			$this->assertEquals( $expectedUser, false );
 			return;
 		}

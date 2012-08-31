@@ -15,7 +15,7 @@ class TestDiscussionParser extends Maintenance {
 	public function execute() {
 		$apiURL = 'http://en.wikipedia.org/w/api.php';
 
-		$revisions = explode( ',', $this->getArg(0) );
+		$revisions = explode( ',', $this->getArg( 0 ) );
 
 		// Retrieve original revisions and their predecessors
 		$requestData = array(
@@ -36,7 +36,7 @@ class TestDiscussionParser extends Maintenance {
 
 		$pages = $data['query']['pages'];
 
-		foreach( $pages as $page ) {
+		foreach ( $pages as $page ) {
 			if ( count( $page['revisions'] ) != 1 ) {
 				continue;
 			}

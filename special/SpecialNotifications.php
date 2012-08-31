@@ -41,7 +41,7 @@ class SpecialNotifications extends SpecialPage {
 		}
 
 		$html = '';
-		foreach( $res as $row ) {
+		foreach ( $res as $row ) {
 			$event = EchoEvent::newFromRow( $row );
 			$class = 'mw-echo-notification';
 
