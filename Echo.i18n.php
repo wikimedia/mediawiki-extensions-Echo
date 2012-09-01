@@ -106,11 +106,11 @@ $messages['qqq'] = array(
 * $3 is the section title of the discussion,
 * $4 is a link to a page and section,
 * $5 is the page on which the discussion exists, plain text.',
-	'notification-add-talkpage-topic' => 'Format for displaying notifications of a new discussion being added
+	'notification-add-talkpage-topic' => "Format for displaying notifications of a new discussion being added
 * $1 is the username of the person who edited, plain text. Can be used for GENDER.
-* $2 is the username of the person who edited, HTML formatted as the link to the user\'s page.
+* $2 is the username of the person who edited, HTML formatted as the link to the user's page.
 * $3 is the section title of the discussion.
-* $4 is the page on which the discussion was added, plain text.',
+* $4 is the page on which the discussion was added, plain text.",
 	'notification-add-talkpage-topic-yours' => 'Parameters:
 * $1 is a username used for GENDER
 * $2 is a linked username
@@ -1501,7 +1501,7 @@ $messages['sv'] = array(
 	'echo-no-title' => '[Ingen titel]',
 	'notifications' => 'Meddelanden',
 	'echo-specialpage' => 'Mina meddelanden',
-	'echo-anon' => 'För att ta emot meddelanden, [[Special:Userlogin/signup|skapa ett konto]].',
+	'echo-anon' => 'För att ta emot meddelanden, [[Special:Userlogin/signup|skapa ett konto]] eller [[Special:UserLogin|logga in]].',
 	'echo-none' => 'Du har inte fått några meddelanden på sistone!',
 	'notification-edit' => '$2 {{GENDER:$1|redigerade}} [[$3]] $4',
 	'notification-edit-talk-page' => '$2 {{GENDER:$1|redigerade}} [[User talk:$4|din diskussionssida]] $3',
