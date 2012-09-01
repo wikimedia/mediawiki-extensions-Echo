@@ -92,14 +92,14 @@ $messages['qqq'] = array(
 	'echo-none' => 'Message shown to users who have no notifications. Also shown in the overlay.',
 	'notification-edit' => 'Format for displaying notifications of a page being edited (generally from a watchlist)
 * $1 is the username of the person who edited, plain text. Can be used for GENDER.
-* $2 is the username of the person who edited, formatted.
+* $2 is the username of the person who edited, HTML formatted as the link to the user\'s page.
 * $3 is the page that was edited, as plain text.
-* $4 is a diff link, possibly formatted.',
-	'notification-edit-talk-page' => "Format for displaying notifications of a user talk page being edited
+* $4 is a diff link, possibly formatted as an HTML link with the text "(diff)".',
+	'notification-edit-talk-page' => 'Format for displaying notifications of a user talk page being edited
 * $1 is the username of the person who edited, plain text. Can be used for GENDER.
-* $2 is the username of the person who edited, formatted.
-* $3 is a diff link, formatted.
-* $4 is the current user's name, used in the link to their talk page.",
+* $2 is the username of the person who edited, HTML formatted as the link to the user\'s page.
+* $3 is a diff link, formatted as an HTML link with the text "(diff)".
+* $4 is the current user\'s name, used in the link to their talk page.',
 	'notification-add-comment' => 'Format for displaying notifications of a comment being added to an existing discussion. Parameters:
 * $1 is the username of the person who edited, plain text. Can be used for GENDER,
 * $2 is the username of the person who edited,
@@ -108,7 +108,7 @@ $messages['qqq'] = array(
 * $5 is the page on which the discussion exists, plain text.',
 	'notification-add-talkpage-topic' => 'Format for displaying notifications of a new discussion being added
 * $1 is the username of the person who edited, plain text. Can be used for GENDER.
-* $2 is the username of the person who edited, formatted.
+* $2 is the username of the person who edited, HTML formatted as the link to the user\'s page.
 * $3 is the section title of the discussion.
 * $4 is the page on which the discussion was added, plain text.',
 	'notification-add-talkpage-topic-yours' => 'Parameters:
