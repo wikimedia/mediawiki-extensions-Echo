@@ -6,8 +6,7 @@
 	background-color: #fff;
 	width: 450px;
 	min-height: 2em;
-	padding: 15px;
-	padding-left: 0;
+	padding: 15px 15px 15px 0;
 	color: #252525;
 	z-index: 10;
 
@@ -52,9 +51,7 @@
 
 .mw-echo-overlay .mw-echo-unread {
 	/* @embed */
-	background-image: url(unread.png);
-	background-repeat: repeat-y;
-	background-position: top left;
+	background: url(unread.png) repeat-y top left;
 }
 
 #pt-notifications .mw-badge {

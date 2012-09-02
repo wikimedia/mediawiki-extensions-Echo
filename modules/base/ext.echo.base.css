@@ -4,9 +4,7 @@
 }
 
 .mw-echo-unread {
-	background-image: url(unread.png);
-	background-repeat: repeat-y;
-	background-position: top left;
+	background: url(unread.png) repeat-y top left;
 }
 
 div.mw-echo-timestamp {

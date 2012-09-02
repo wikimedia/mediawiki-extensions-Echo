@@ -37,8 +37,8 @@ class ApiEchoNotifications extends ApiQueryBase {
 	/**
 	 * @param $user User to get notifications for
 	 * @param $unread Boolean: True to get only unread notifications.
-	 * @param $format false to not format any notifications, or an output format name.
-	 * @param $limit The maximum number of notifications to return.
+	 * @param $format bool false to not format any notifications, or an output format name.
+	 * @param $limit int The maximum number of notifications to return.
 	 * @return array
 	 */
 	public function getNotifications( $user, $unread = false, $format = false, $limit = 20 ) {
@@ -77,11 +77,15 @@ class ApiEchoNotifications extends ApiQueryBase {
 				$ts = $this->getLanguage()->timeanddate( $event->getTimestamp(), true );
 			}
 
+			$timestamp = new MWTimestamp( $event->getTimestamp() );
+			$timestampUnix = $timestamp->getTimestamp( TS_UNIX );
+			$timestampMw = $timestamp->getTimestamp( TS_MW );
+
 			$thisEvent = array(
 				'type' => $event->getType(),
 				'timestamp' => array(
-					'unix' => wfTimestamp( TS_UNIX, $event->getTimestamp() ),
-					'mw' => wfTimestamp( TS_MW, $event->getTimestamp() ),
+					'unix' => $timestampUnix,
+					'mw' => $timestampMw,
 					'pretty' => $ts,
 				),
 			);

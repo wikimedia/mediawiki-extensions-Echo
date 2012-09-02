@@ -5,8 +5,8 @@ class EchoNotifier {
 	/**
 	 * Record an EchoNotification for an EchoEvent.
 	 *
-	 * @param $user The User to notify.
-	 * @param $event The EchoEvent to notify about.
+	 * @param $user User to notify.
+	 * @param $event EchoEvent to notify about.
 	 */
 	public static function notifyWithNotification( $user, $event ) {
 		EchoNotification::create( array( 'user' => $user, 'event' => $event ) );
@@ -16,8 +16,9 @@ class EchoNotifier {
 	/**
 	 * Send a Notification to a user by email
 	 *
-	 * @param $user The User to notify.
-	 * @param $event The EchoEvent to notify about.
+	 * @param $user User to notify.
+	 * @param $event EchoEvent to notify about.
+	 * @return bool
 	 */
 	public static function notifyWithEmail( $user, $event ) {
 		if ( !$user->isEmailConfirmed() ) {
@@ -34,5 +35,7 @@ class EchoNotifier {
 		$body = $email['body'];
 
 		UserMailer::send( $address, $adminAddress, $subject, $body );
+
+		return true;
 	}
 }

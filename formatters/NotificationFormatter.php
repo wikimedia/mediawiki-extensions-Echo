@@ -14,6 +14,7 @@ abstract class EchoNotificationFormatter {
 	 * Creates an instance of the given class with the given parameters.
 	 *
 	 * @param $parameters array Associative array of parameters
+	 * @throws MWException
 	 */
 	public function __construct( $parameters ) {
 		$this->parameters = $parameters;
@@ -33,9 +34,9 @@ abstract class EchoNotificationFormatter {
 	/**
 	 * Shows a notification in human-readable format.
 	 *
-	 * @param $event The event being notified about.
-	 * @param $user The user being notified.
-	 * @param $type The notification type (e.g. notify, email)
+	 * @param $event EchoEvent being notified about.
+	 * @param $user User being notified.
+	 * @param $type string The notification type (e.g. notify, email)
 	 * @return Mixed; depends on output format
 	 * @see EchoNotificationFormatter::setOutputFormat
 	 */
@@ -44,7 +45,8 @@ abstract class EchoNotificationFormatter {
 	/**
 	 * Set the output format that the notification will be displayed in.
 	 *
-	 * @param $format A valid output format (by default, 'text' and 'html' are allowed)
+	 * @param $format string A valid output format (by default, 'text' and 'html' are allowed)
+	 * @throws MWException
 	 */
 	public function setOutputFormat( $format ) {
 		if ( !in_array( $format, $this->validOutputFormats, true ) ) {
@@ -59,6 +61,7 @@ abstract class EchoNotificationFormatter {
 	 * @param $parameters array Associative array.
 	 * Select the class of formatter to use with the 'type' or 'class' field.
 	 * For other parameters, see the appropriate class' constructor.
+	 * @throws MWException
 	 * @return EchoNotificationFormatter object.
 	 */
 	public static function factory( $parameters ) {
@@ -108,7 +111,7 @@ abstract class EchoNotificationFormatter {
 	 *
 	 * @param $ts Timestamp in some format compatible with wfTimestamp()
 	 * @param $user User to format for. false to detect
-	 * @return type description
+	 * @return string Type description
 	 */
 	protected function formatTimestamp( $ts, $user ) {
 		$languageCode = $user->getOption( 'language' );

@@ -16,6 +16,7 @@ class EchoSubscription {
 	 * @param $user User object for the user whose subscription we're talking about.
 	 * @param $event String identifier for the event type of interest. Max length is 63 chars.
 	 * @param $title Title|null Optional Title of interest for events, if applicable.
+	 * @throws MWException
 	 */
 	public function __construct( $user, $event, $title = null ) {
 		if ( !( $user instanceof User || $user instanceof StubObject ) ) {
@@ -43,6 +44,7 @@ class EchoSubscription {
 	 * the rows are not matched to this object's setup.
 	 *
 	 * @param $rows Array of row objects from echo_subscription table.
+	 * @throws MWException
 	 */
 	public function loadFromRows( $rows ) {
 		global $wgEchoDefaultNotificationTypes;
@@ -89,6 +91,7 @@ class EchoSubscription {
 	 * (their user/event/title must match)
 	 *
 	 * @param $rows Array of row objects from echo_subscription table.
+	 * @return EchoSubscription
 	 */
 	public static function newFromRows( $rows ) {
 		$firstRow = $rows[0];

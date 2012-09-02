@@ -69,9 +69,13 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 		}
 	}
 
+	/**
+	 * @param $event EchoEvent
+	 * @param $user User
+	 * @param $type string
+	 * @return array|string
+	 */
 	public function format( $event, $user, $type ) {
-		$messageParams = array();
-
 		if ( $this->outputFormat === 'email' ) {
 			return $this->formatEmail( $event, $user, $type );
 		}
@@ -137,7 +141,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 		}
 	}
 
-	protected function processParam( $event, $param, $message, $user ) {
+	protected function processParam( EchoEvent $event, $param, $message, $user ) {
 		if ( $param === 'agent' ) {
 			// Actually converts to two parameters for gender support
 			if ( !$event->getAgent() ) {

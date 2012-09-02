@@ -9,6 +9,9 @@ class EchoEvent {
 	protected $id = null;
 	protected $type = null;
 	protected $variant = null;
+	/**
+	 * @var User
+	 */
 	protected $agent = null;
 
 	/**
@@ -46,14 +49,15 @@ class EchoEvent {
 
 	/**
 	 * Creates an EchoEvent object
-	 * @param $info Named arguments:
+	 * @param $info array Named arguments:
 	 * type (required): The event type;
 	 * variant: A variant of the type;
 	 * agent: The user who caused the event;
 	 * title: The page on which the event was triggered;
 	 * extra: Event-specific extra information (e.g. post content)
 	 *
-	 * @return The created EchoEvent.
+	 * @throws MWException
+	 * @return EchoEvent
 	 */
 	public static function create( $info = array() ) {
 		$obj = new EchoEvent;
@@ -173,7 +177,9 @@ class EchoEvent {
 
 	/**
 	 * Loads data from the database into this object, given the event ID.
-	 * @param $id Event ID
+	 * @param $id int Event ID
+	 * @param $fromMaster bool
+	 * @throws MWException
 	 */
 	public function loadFromID( $id, $fromMaster = false ) {
 		$db = wfGetDB( $fromMaster ? DB_MASTER : DB_SLAVE );
@@ -204,8 +210,8 @@ class EchoEvent {
 	/**
 	 * Creates an EchoEvent from the database by ID
 	 *
-	 * @param $id Event ID
-	 * @return EchoEvent object
+	 * @param $id int Event ID
+	 * @return EchoEvent
 	 */
 	public static function newFromID( $id ) {
 		$obj = new EchoEvent();

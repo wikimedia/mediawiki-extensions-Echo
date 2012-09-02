@@ -57,7 +57,7 @@ abstract class EchoDiscussionParser {
 		if ( !$createdEvents && $title->getNamespace() == NS_USER_TALK ) {
 			$notifyUser = User::newFromName( $title->getText() );
 			if ( $notifyUser && $notifyUser->getID() ) {
-				$event = EchoEvent::create( array(
+				EchoEvent::create( array(
 					'type' => 'edit-user-talk',
 					'title' => $title,
 					'extra' => array( 'revid' => $revision->getID() ),
@@ -142,7 +142,7 @@ abstract class EchoDiscussionParser {
 	 * in terms of discussion page actions
 	 *
 	 * @todo Expand recognisable actions.
-	 * @param $changes Output of EchoEvent::getMachineReadableDiff
+	 * @param $changes array Output of EchoEvent::getMachineReadableDiff
 	 * @param $user User name
 	 * @return Array of associative arrays.
 	 * Each entry represents an action, which is classified in the 'action' field.
@@ -249,8 +249,8 @@ abstract class EchoDiscussionParser {
 	 * Finds the section that a given line is in.
 	 *
 	 * @param $lines Array of lines in the page.
-	 * @param $offset The line to find the full section for.
-	 * @return Content of the section, as a string.
+	 * @param $offset int The line to find the full section for.
+	 * @return string Content of the section.
 	 */
 	static function getFullSection( $lines, $offset ) {
 		$content = $lines[$offset - 1];
@@ -288,8 +288,8 @@ abstract class EchoDiscussionParser {
 	/**
 	 * Gets the number of section headers in a string.
 	 *
-	 * @param $text The text, as a string.
-	 * @return Number of section headers found.
+	 * @param $text string The text.
+	 * @return int Number of section headers found.
 	 */
 	static function getSectionCount( $text ) {
 		$text = trim( $text );
@@ -303,8 +303,8 @@ abstract class EchoDiscussionParser {
 	/**
 	 * Gets the title of a section
 	 *
-	 * @param $text The text of the section, as a string.
-	 * @return The title of the section, as a string.
+	 * @param $text string The text of the section.
+	 * @return string The title of the section.
 	 */
 	static function extractHeader( $text ) {
 		$text = trim( $text );
@@ -321,8 +321,8 @@ abstract class EchoDiscussionParser {
 	/**
 	 * Strips out a signature if possible.
 	 *
-	 * @param $text The wikitext to strip
-	 * @return String
+	 * @param $text string The wikitext to strip
+	 * @return string
 	 */
 	static function stripSignature( $text ) {
 		$timestampPos = self::getTimestampPosition( $text );
@@ -348,8 +348,8 @@ abstract class EchoDiscussionParser {
 	/**
 	 * Strips unnecessary indentation and so on from comments
 	 *
-	 * @param $text The text to strip from
-	 * @return Stripped wikitext
+	 * @param $text string The text to strip from
+	 * @return string Stripped wikitext
 	 */
 	static function stripIndents( $text ) {
 		// First strip all indentation from the beginning of lines
@@ -369,8 +369,8 @@ abstract class EchoDiscussionParser {
 
 	/**
 	 * Strips out a section header
-	 * @param $text The text to strip out the section header from.
-	 * @return String: The same text, with the section header stripped out.
+	 * @param $text string The text to strip out the section header from.
+	 * @return string: The same text, with the section header stripped out.
 	 */
 	static function stripHeader( $text ) {
 		$text = preg_replace( '/' . self::$headerRegex . '/um', '', $text );
@@ -381,10 +381,10 @@ abstract class EchoDiscussionParser {
 	/**
 	 * Determines whether the input is a signed comment.
 	 *
-	 * @param $text The text to check.
-	 * @param $user If set, will only return true if the comment is
+	 * @param $text string The text to check.
+	 * @param $user User|bool If set, will only return true if the comment is
 	 *  signed by this user.
-	 * @return boolean: true or false.
+	 * @return bool: true or false.
 	 */
 	static function isSignedComment( $text, $user = false ) {
 		$timestampPos = self::getTimestampPosition( $text );
@@ -409,8 +409,8 @@ abstract class EchoDiscussionParser {
 	/**
 	 * Finds the start position, if any, of the timestamp on a line
 	 *
-	 * @param $line The line to search for a signature on
-	 * @return Integer position
+	 * @param $line string The line to search for a signature on
+	 * @return int|bool Integer position
 	 */
 	static function getTimestampPosition( $line ) {
 		$timestampRegex = self::getTimestampRegex();
@@ -432,8 +432,9 @@ abstract class EchoDiscussionParser {
 	 * Finds differences between $oldText and $newText
 	 * and returns the result in a machine-readable format.
 	 *
-	 * @param $oldText The "left hand side" of the diff.
-	 * @param $newText The "right hand side" of the diff.
+	 * @param $oldText string The "left hand side" of the diff.
+	 * @param $newText string The "right hand side" of the diff.
+	 * @throws MWException
 	 * @return Array of changes.
 	 * Each change consists of:
 	 * * An 'action', one of:
@@ -551,13 +552,11 @@ abstract class EchoDiscussionParser {
 	/**
 	 * Finds and extracts signatures in $text
 	 *
-	 * @param $text The text in which to look for signed comments.
-	 * @return Associative array. The key is the username, the value
+	 * @param $text string The text in which to look for signed comments.
+	 * @return array. Associative array, the key is the username, the value
 	 *  is the last signature that was found.
 	 */
 	static function extractSignatures( $text ) {
-		global $wgContLang;
-
 		$lines = explode( "\n", $text );
 		$timestampRegex = self::getTimestampRegex();
 		$endOfLine = self::getLineEndingRegex();
@@ -604,9 +603,9 @@ abstract class EchoDiscussionParser {
 	 * From a line in a wiki page, determine which user, if any,
 	 *  has signed it.
 	 *
-	 * @param $line The line, as a string.
-	 * @param $timestampPos The offset of the start of the timestamp.
-	 * @return false for none, Array for success.
+	 * @param $line string The line.
+	 * @param $timestampPos int The offset of the start of the timestamp.
+	 * @return bool|array false for none, Array for success.
 	 * - First element is the position of the signature.
 	 * - Second element is the normalised user name.
 	 */
@@ -666,9 +665,10 @@ abstract class EchoDiscussionParser {
 	/**
 	 * Find the last link beginning with a given prefix on a line.
 	 *
-	 * @param $line The line to search, as a string.
-	 * @param $linkPrefix The prefix to search for.
-	 * @return false for failure, array for success.
+	 * @param $line string The line to search.
+	 * @param $linkPrefix string The prefix to search for.
+	 * @param $failureOffset bool
+	 * @return bool false for failure, array for success.
 	 * - First element is the string offset of the link.
 	 * - Second element is the user the link refers to.
 	 */
@@ -701,10 +701,10 @@ abstract class EchoDiscussionParser {
 	/**
 	 * Given text including a link, gives the user that that link refers to
 	 *
-	 * @param $text The text to extract from.
-	 * @param $prefix The link prefix that was used to find the link.
-	 * @param $offset Optionally, the offset of the start of the link.
-	 * @return type description
+	 * @param $text string The text to extract from.
+	 * @param $prefix string The link prefix that was used to find the link.
+	 * @param $offset int Optionally, the offset of the start of the link.
+	 * @return bool|string Type description
 	 */
 	static function extractUserFromLink( $text, $prefix, $offset = 0 ) {
 		$userPart = substr( $text, strlen( $prefix ) + $offset );
@@ -759,6 +759,7 @@ abstract class EchoDiscussionParser {
 	 * Gets a regular expression that will match this wiki's
 	 * timestamps as given by ~~~~.
 	 *
+	 * @throws MWException
 	 * @return String regular expression fragment.
 	 */
 	static function getTimestampRegex() {

@@ -15,11 +15,12 @@ class EchoNotification {
 
 	/**
 	 * Creates an EchoNotification object
-	 * @param $info Named arguments:
+	 * @param $info array Named arguments:
 	 * event: (required) The EchoEvent being notified about.
 	 * user: (required) The User being notified.
 	 *
-	 * @return The created EchoNotification.
+	 * @throws MWException
+	 * @return EchoNotification
 	 */
 	public static function create( $info = array() ) {
 		$obj = new EchoNotification;

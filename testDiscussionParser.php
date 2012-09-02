@@ -62,6 +62,8 @@ class TestDiscussionParser extends Maintenance {
 
 			$newData = unserialize( $newData );
 
+			$oldText = '';
+			$newText = '';
 			$allData = $newData['query']['pages'];
 			$pageData = array_shift( $allData );
 			if ( count( $pageData['revisions'] ) == 2 ) {

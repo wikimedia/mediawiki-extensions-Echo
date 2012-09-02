@@ -5,7 +5,7 @@ class EchoNotificationController {
 	 * Retrieves number of unread notifications that a user has.
 	 *
 	 * @param $user User object to check notifications for
-	 * @param $cached Set to false to bypass the cache.
+	 * @param $cached bool Set to false to bypass the cache.
 	 * @return Integer: Number of unread notifications.
 	 */
 	public static function getNotificationCount( $user, $cached = true ) {
@@ -68,7 +68,7 @@ class EchoNotificationController {
 	 * Processes notifications for a newly-created EchoEvent
 	 *
 	 * @param $event EchoEvent to do notifications for
-	 * @param $defer Defer to job queue
+	 * @param $defer bool Defer to job queue
 	 */
 	public static function notify( $event, $defer = true ) {
 		if ( $defer ) {
@@ -98,9 +98,9 @@ class EchoNotificationController {
 	/**
 	 * Processes a single notification for an EchoEvent
 	 *
-	 * @param $event The EchoEvent to do a notification for.
-	 * @param $user The User object to notify.
-	 * @param $type The type of notification to process, as a string.
+	 * @param $event EchoEvent to do a notification for.
+	 * @param $user User object to notify.
+	 * @param $type string The type of notification to process.
 	 * @throws MWException
 	 */
 	public static function doNotification( $event, $user, $type ) {
@@ -170,10 +170,10 @@ class EchoNotificationController {
 	 * Formats a notification
 	 *
 	 * @param $event EchoEvent that the notification is for.
-	 * @param $user The User to format the notification for.
-	 * @param $format The format to show the notification in: text or html
-	 * @param $type The type of notification being distributed (e.g. email, notify)
-	 * @return type description
+	 * @param $user User to format the notification for.
+	 * @param $format string The format to show the notification in: text or html
+	 * @param $type string The type of notification being distributed (e.g. email, notify)
+	 * @return string type description
 	 */
 	public static function formatNotification( $event, $user, $format = 'text', $type = 'notify' ) {
 		global $wgEchoNotificationFormatters;
