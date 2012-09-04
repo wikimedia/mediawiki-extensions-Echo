@@ -310,6 +310,9 @@ $messages['de'] = array(
 	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|startete}} das neue Thema  „$3“ zu [[$4]]',
 	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|sandte}} dir eine Nachricht: [[$4#$3|$3]]',
 	'notification-add-comment-yours' => '$2 {{GENDER:$1|kommentierte}} „[[$4#$3|$3]]“ auf deiner Diskussionsseite',
+	'notification-new-user' => 'Willkommen bei {{SITENAME}}, $1!',
+	'notification-new-user-content' => 'Hallo $1, und willkommen bei {{SITENAME}}.<br />
+Bitte vergiss nicht alle Beiträge auf Diskussionsseiten mit 4 Tilden (~~~~) zu signieren.',
 	'notification-edit-email-subject' => '{{SITENAME}}-Benachrichtigung: $3 wurde von $2 bearbeitet',
 	'notification-edit-email-body' => 'Hallo $5,
 
@@ -352,6 +355,8 @@ $messages['de-formal'] = array(
 	'notification-edit-talk-page' => '$2 {{GENDER:$1|bearbeitete}} [[User talk:$4|Ihre Benutzerseite]] $3',
 	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|sandte}} Ihnen eine Nachricht: [[$4#$3|$3]]',
 	'notification-add-comment-yours' => '$2 {{GENDER:$1|kommentierte}} „[[$4#$3|$3]]“ auf Ihrer Diskussionsseite',
+	'notification-new-user-content' => 'Hallo $1, und willkommen bei {{SITENAME}}.<br />
+Bitte vergessen Sie nicht alle Beiträge auf Diskussionsseiten mit 4 Tilden (~~~~) zu signieren.',
 	'notification-edit-email-body' => 'Hallo $5,
 
 dies ist eine Benachrichtigung, um Ihnen mitzuteilen, dass $2 die Seite $3 auf {{SITENAME}} bearbeitet hat.
