@@ -139,6 +139,7 @@ $wgHooks['EchoGetNotificationTypes'] = array( 'EchoHooks::getNotificationTypes' 
 $wgHooks['WatchArticleComplete'][] = 'EchoHooks::onWatch';
 $wgHooks['UnwatchArticleComplete'][] = 'EchoHooks::onUnwatch';
 $wgHooks['ArticleSaveComplete'][] = 'EchoHooks::onArticleSaved';
+$wgHooks['AddNewAccount'][] = 'EchoHooks::onAccountCreated';
 
 // Disable ordinary email notifications
 $wgHooks['AbortEmailNotification'][] = 'EchoHooks::abortEmailNotification';
@@ -149,7 +150,7 @@ $wgHooks['ArticleEditUpdateNewTalk'][] = 'EchoHooks::abortNewtalkNotification';
 
 $wgEchoDisableStandardEmail = true;
 
-$wgEchoDefaultNotificationTypes = array(
+$wgEchoDefaultNotificationTypes = array( // Welcome events do not use subscription, and will only trigger notify, not email.
 	'all' => array(
 		'notify' => true,
 		'email' => true,
@@ -165,6 +166,7 @@ $wgEchoEnabledEvents = array(
 	'edit-user-talk',
 	'add-comment',
 	'add-talkpage-topic',
+	'welcome',
 );
 
 $wgEchoNotificationFormatters = array(
@@ -202,4 +204,12 @@ $wgEchoNotificationFormatters = array(
 		'content-params' => array( 'commentText' ),
 		'icon' => 'chat',
 	),
+	'welcome' => array(
+		'type' => 'welcome',
+		'title-message' => 'notification-new-user',
+		'title-params' => array( 'agent' ),
+		'content-message' => 'notification-new-user-content',
+		'content-params' => array( 'agent' ),
+		'icon' => 'w',
+	)
 );

@@ -5,6 +5,7 @@ abstract class EchoNotificationFormatter {
 		'basic' => 'EchoBasicFormatter',
 		'edit' => 'EchoEditFormatter',
 		'comment' => 'EchoCommentFormatter',
+		'welcome' => 'EchoBasicFormatter',
 	);
 	protected $validOutputFormats = array( 'text', 'html', 'email' );
 	protected $outputFormat = 'text';
