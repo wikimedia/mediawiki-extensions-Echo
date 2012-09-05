@@ -443,6 +443,9 @@ $messages['es'] = array(
 	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|ha publicado}} un nuevo tema "$3" en [[$4]]',
 	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|te ha enviado}} un mensaje: "[[$4#$3|$3]]"',
 	'notification-add-comment-yours' => '$2 {{GENDER:$1|ha comentado}} sobre "[[$4#$3|$3]]" en tu página de discusión',
+	'notification-new-user' => '¡Bienvenido a {{SITENAME}}, $1!',
+	'notification-new-user-content' => 'Hola $1 y bienvenido a {{SITENAME}}.<br />
+Recuerda firmar cualquier comentario en las páginas de discusión con 4 tildes (~ ~ ~ ~).',
 	'notification-edit-email-subject' => 'Notificación de {{SITENAME}}: $3 ha sido editado por $2',
 	'notification-edit-email-body' => 'Hola  $5 ,
 
@@ -625,6 +628,9 @@ $messages['gl'] = array(
 	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|publicou}} unha nova mensaxe, "$3", en "[[$4]]"',
 	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|envioulle}} unha mensaxe: "[[$4#$3|$3]]"',
 	'notification-add-comment-yours' => '$2 {{GENDER:$1|comentou}} en "[[$4#$3|$3]]" na súa páxina de conversa',
+	'notification-new-user' => 'Dámoslle a benvida a {{SITENAME}}, $1!',
+	'notification-new-user-content' => 'Boas $1. Dámoslle a benvida a {{SITENAME}}.<br />
+Lembre asinar calquera comentario que deixe nas páxinas de conversa con 4 tiles (~~~~).',
 	'notification-edit-email-subject' => 'Notificación de {{SITENAME}}: $2 editou "$3"',
 	'notification-edit-email-body' => 'Boas $5:
 Esta é unha notificación para facerlle saber que $2 editou a páxina "$3" de {{SITENAME}}.
@@ -728,6 +734,9 @@ $messages['hsb'] = array(
 	'notification-add-talkpage-topic' => '$2 je nowu temu "$3" na [[$4]] {{GENDER:$1|započał|započała}}',
 	'notification-add-talkpage-topic-yours' => '$2 je ći powěsć {{GENDER:$1|pósłał|pósłała}}: [[$4#$3|$3]]',
 	'notification-add-comment-yours' => '$2 je "[[$4#$3|$3]]" na twojej diskusijnej stronje {{GENDER:$1|komentował|komentowała}}',
+	'notification-new-user' => 'Witaj do {{GRAMMAR:genitiw|{{SITENAME}}}}, $1!',
+	'notification-new-user-content' => 'Halo $1, a witaj do {{GRAMMAR:genitiw|{{SITENAME}}}}.<br />
+Prošu njezabudź komentary na diskusijnych stronach z 4 tildami (~~~~) podpisać .',
 	'notification-edit-email-subject' => 'Zdźělenka z {{GRAMMAR:genitiw|{{SITENAME}}}}: $3 je so wot $2 wobdźěłał',
 	'notification-edit-email-body' => 'Witaj $5,
 
@@ -844,6 +853,9 @@ $messages['it'] = array(
 	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|ha inserito}} un nuovo argomento "$3" su [[$4]]',
 	'notification-add-talkpage-topic-yours' => '$2 ti {{GENDER:$1|ha inviato}} un messaggio: "[[$4#$3|$3]]"',
 	'notification-add-comment-yours' => '$2 {{GENDER:$1|ha commentato}} riguardo a "[[$4#$3|$3]]" nella tua pagina di discussione',
+	'notification-new-user' => 'Benvenuto su {{SITENAME}}, $1!',
+	'notification-new-user-content' => 'Ciao $1 e benvenuto su {{SITENAME}}.<br />
+Ricordati di firmare i commenti nelle pagine di discussione con quattro tildi (~~~~).',
 	'notification-edit-email-subject' => 'Notifica di {{SITENAME}}:  $3 è stata modificata da $2',
 	'notification-edit-email-body' => 'Ciao $5,
 Questa è una notifica per farti sapere che $2 ha modificato la pagina di {{SITENAME}} $3.
@@ -884,6 +896,7 @@ $messages['ja'] = array(
 	'prefs-echo' => '通知',
 	'notifications' => '通知',
 	'echo-specialpage' => '自分の通知',
+	'notification-new-user' => '$1さん、{{SITENAME}}にようこそ!',
 	'echo-email-subject-default' => '{{SITENAME}}での新しい通知',
 	'echo-email-body-default' => '{{SITENAME}}で新しい通知があります:
 
@@ -958,6 +971,9 @@ $messages['ko'] = array(
 	'notification-add-talkpage-topic' => '$2 사용자가 [[$4]]에 "$3" 새 주제를 {{GENDER:$1|게시했습니다}}',
 	'notification-add-talkpage-topic-yours' => '$2 사용자가 메시지를 {{GENDER:$1|보냈습니다}}: "[[$4#$3|$3]]"',
 	'notification-add-comment-yours' => '$2 사용자가 당신의 토론 문서의 "[[$4#$3|$3]]"에 {{GENDER:$1|덧글을 남겼습니다}}',
+	'notification-new-user' => '$1, {{SITENAME}}에 온 것을 환영합니다!',
+	'notification-new-user-content' => '$1 안녕하세요, {{SITENAME}}에 온 것을 환영합니다.<br />
+토론 문서에서 글을 쓴 후에는 물결표 4개(~~~~)를 넣어 서명하는 것을 기억하세요.',
 	'notification-edit-email-subject' => '{{SITENAME}} 알림: $3 문서를 $2에 의해 편집함',
 	'notification-edit-email-body' => '$5 안녕하세요.
 $2 사용자가 {{SITENAME}} $3 문서를 편집했음을 알립니다.
@@ -1089,6 +1105,9 @@ $messages['mk'] = array(
 	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|напиша}} нова тема „$3“ за [[$4]]',
 	'notification-add-talkpage-topic-yours' => '$2 ви {{GENDER:$1|испрати}} порака: [[$4#$3|$3]]',
 	'notification-add-comment-yours' => '$2 {{GENDER:$1|коментираше}} на „[[$4#$3|$3]]“ на вашата страница за разговор',
+	'notification-new-user' => 'Добредојдовте на {{SITENAME}}, $1!',
+	'notification-new-user-content' => 'Здраво $1, и добредојдовте на {{SITENAME}}.<br />
+НЕ заборавајте да си ги потпишувате коментарите на страниците за разговор со 4 тилди (~~~~).',
 	'notification-edit-email-subject' => 'Известување од {{SITENAME}}: $2 ја измени страницата $3',
 	'notification-edit-email-body' => 'Здраво $5,
 Ве известуваме дека $2 ја измени страницата $3 на {{SITENAME}}.
@@ -1372,6 +1391,9 @@ $messages['pms'] = array(
 	'notification-add-talkpage-topic' => "$2 {{GENDER:$1|a l'ha publicà}} n'argoment neuv «$3» dzora a [[$4]]",
 	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|a l\'ha manda}}te un mëssagi: "[[$4#$3|$3]]"',
 	'notification-add-comment-yours' => "$2 {{GENDER:$1|a l'ha comentà}} a propòsit ëd «[[$4#$3|$3]]» dzora a soa pàgina ëd ciaciarade",
+	'notification-new-user' => 'Bin-ëvnù a {{SITENAME}}, $1!',
+	'notification-new-user-content' => 'Cerea $1, e bin-ëvnù {{SITENAME}}.<br />
+Për piasì arcòrda ëd firmé minca coment an sle pagine ëd discussion con 4 tilde (~~~~).',
 	'notification-edit-email-subject' => "Notìfica ëd {{SITENAME}}: $3 a l'é stàita modificà da $2",
 	'notification-edit-email-body' => "Cerea $5,
 costa a l'é na notìfica për feje savèj che $2 a l'ha modificà la pàgina $3 ëd {{SITENAME}}.
@@ -1566,6 +1588,7 @@ $1',
 
 /** Tagalog (Tagalog)
  * @author AnakngAraw
+ * @author TheSleepyhollow02
  */
 $messages['tl'] = array(
 	'echo-desc' => 'Pangkasunod na salinlahing imprastruktura ng pagpapabatid para sa MediaWiki',
@@ -1583,6 +1606,9 @@ $messages['tl'] = array(
 	'notification-add-talkpage-topic' => '{{GENDER:$1|Nagpaskil}} si $2 ng isang bagong paksa na "$3" na nasa ibabaw ng [[$4]]',
 	'notification-add-talkpage-topic-yours' => '{{GENDER:$1|Nagpasa}} sa iyo si $2 ng isang mensahe: [[$4#$3|$3]]',
 	'notification-add-comment-yours' => '{{GENDER:$1|Pinuna}} ni $2 ang hinggil sa "[[$4#$3|$3]]" na nasa ibabaw ng iyong pahina ng usapan',
+	'notification-new-user' => 'Maligayang Pagdating sa {{SITENAME}}, $1!',
+	'notification-new-user-content' => 'Hi $1, at maligayang pagdating sa {{SITENAME}}.<br />
+Manyaring tandaan na lumagda ng kahit na anong komento sa mga pahina ng usapan na may 4 na bantas (~~~~).',
 	'notification-edit-email-subject' => 'Pagpapabatid ng {{SITENAME}} : Binago ni $2 ang $3',
 	'notification-edit-email-body' => 'Kumusta ka $5,
 Isa itong pagpapabatid upang ipaalam sa iyo na binago ni $2 ang pahinang $3 ng {{SITENAME}}.
@@ -1646,6 +1672,9 @@ $messages['vi'] = array(
 	'notification-add-talkpage-topic' => '{{GENDER:$1}}$2 đã đăng chủ đề mới “$3” tại [[$4]]',
 	'notification-add-talkpage-topic-yours' => '{{GENDER:$1}}$2 đã nhắn tin mới cho bạn: “[[$4#$3|$3]]”',
 	'notification-add-comment-yours' => '{{GENDER:$1}}$2 đã bình luận về “[[$4#$3|$3]]” tại trang thảo luận của bạn',
+	'notification-new-user' => 'Chào mừng $1 đã đến với {{SITENAME}}!',
+	'notification-new-user-content' => 'Chào mừng $1 đã đến với {{SITENAME}}.<br />
+Hãy nhớ ký tên vào các lời bình luận tại trang thảo luận bằng 4 dấu ngã (~~~~).',
 	'notification-edit-email-subject' => 'Thông báo từ {{SITENAME}}: $3 đã được sửa bởi $2',
 	'notification-edit-email-body' => 'Xin chào $5,
 Xin thông báo với bạn rằng $2 đã sửa đổi trang $3 tại {{SITENAME}}.
