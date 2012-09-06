@@ -1341,6 +1341,9 @@ $messages['pl'] = array(
 	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|otworzył|otworzyła}} nowy temat "$3" na [[$4]]',
 	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|wysłał|wysłała}} Ci wiadomość: "[[$4#$3|$3]]"',
 	'notification-add-comment-yours' => '$2 {{GENDER:$1|dodał|dodała}} komentarz do "[[$4#$3|$3]]" na twojej stronie dyskusji',
+	'notification-new-user' => 'Witaj na stronach {{SITENAME}}, $1!',
+	'notification-new-user-content' => 'Cześć $1 i witaj na stronach {{SITENAME}}.<br />
+Nie zapomnij podpisywać komentarzy na stronach dyskusji czterema tyldami (~~~~).',
 	'notification-edit-email-subject' => 'Wiadomość {{GRAMMAR:D.lp|{{SITENAME}}}}: strona $3 była edytowane przez $2',
 	'notification-edit-email-body' => 'Witaj $5,
 Jest to powiadomienie, że $2 zmienił stronę $3 witryny {{SITENAME}}.
@@ -1391,9 +1394,9 @@ $messages['pms'] = array(
 	'notification-add-talkpage-topic' => "$2 {{GENDER:$1|a l'ha publicà}} n'argoment neuv «$3» dzora a [[$4]]",
 	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|a l\'ha manda}}te un mëssagi: "[[$4#$3|$3]]"',
 	'notification-add-comment-yours' => "$2 {{GENDER:$1|a l'ha comentà}} a propòsit ëd «[[$4#$3|$3]]» dzora a soa pàgina ëd ciaciarade",
-	'notification-new-user' => 'Bin-ëvnù a {{SITENAME}}, $1!',
-	'notification-new-user-content' => 'Cerea $1, e bin-ëvnù {{SITENAME}}.<br />
-Për piasì arcòrda ëd firmé minca coment an sle pagine ëd discussion con 4 tilde (~~~~).',
+	'notification-new-user' => 'Bin-ëvnù an {{SITENAME}}, $1!',
+	'notification-new-user-content' => "Cerea $1, e bin-ëvnù an {{SITENAME}}.<br />
+Për piasì, ch'as visa ëd firmé tut coment an sle pàgine ëd discussion con 4 tilde (~~~~).",
 	'notification-edit-email-subject' => "Notìfica ëd {{SITENAME}}: $3 a l'é stàita modificà da $2",
 	'notification-edit-email-body' => "Cerea $5,
 costa a l'é na notìfica për feje savèj che $2 a l'ha modificà la pàgina $3 ëd {{SITENAME}}.
