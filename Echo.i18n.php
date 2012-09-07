@@ -1285,6 +1285,9 @@ $messages['nl'] = array(
 	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|heeft}} een nieuw onderwerp "$3" geplaatst op [[$4]]',
 	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|heeft}} u een bericht gezonden: "[[$4#$3|$3]]"',
 	'notification-add-comment-yours' => '$2 {{GENDER:$1|heeft}} gereageerd op "[[$4#$3|$3]]" op uw overlegpagina',
+	'notification-new-user' => 'Welkom op {{SITENAME}}, $1!',
+	'notification-new-user-content' => "Hallo $1 en welkom op {{SITENAME}}.<br />
+Vergeet niet om opmerkingen over overlegpagina's te ondertekenen met 4 tildes (~~~~).",
 	'notification-edit-email-subject' => 'Melding van {{SITENAME}}: $3 is bewerkt door $2',
 	'notification-edit-email-body' => 'Hallo $5,
 
