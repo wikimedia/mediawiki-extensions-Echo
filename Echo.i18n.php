@@ -552,6 +552,9 @@ $messages['fr'] = array(
 	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|a ouvert}} un nouveau sujet « $3 » sur [[$4]]',
 	'notification-add-talkpage-topic-yours' => '$2 vous {{GENDER:$1|a laissé}} un message : [[$4#$3|$3]]',
 	'notification-add-comment-yours' => '$2 {{GENDER:$1|a posté}} un commentaire sur « [[$4#$3|$3]] » sur votre page de discussion',
+	'notification-new-user' => 'Bienvenue sur {{SITENAME}}, $1 !',
+	'notification-new-user-content' => "Bonjour $1 et bienvenue sur {{SITENAME}}.<br />
+N'oubliez pas de signer vos commentaires sur les pages de discussions avec 4 tildes (~ ~ ~ ~).",
 	'notification-edit-email-subject' => 'Notification de {{SITENAME}} : $3 a été modifié par $2',
 	'notification-edit-email-body' => "Bonjour  $5,
 Ceci est une notification pour vous informer que $2 a modifié la page $3 de {{SITENAME}}.
