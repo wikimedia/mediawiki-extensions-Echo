@@ -1181,6 +1181,9 @@ $messages['ms'] = array(
 	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|membuka}} topik baru "$3" di [[$4]]',
 	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|menghantar}} pesanan kepada anda: "[[$4#$3|$3]]"',
 	'notification-add-comment-yours' => '$2 {{GENDER:$1|mengulas}} tentang "[[$4#$3|$3]]" pada halaman perbincangan anda',
+	'notification-new-user' => 'Selamat datang ke {{SITENAME}}, $1!',
+	'notification-new-user-content' => 'Selamat sejahtera diucapkan kepada $1, dan selamat datang ke {{SITENAME}}.<br />
+Jangan lupa untuk menandatangani sebarang komen pada halaman perbincangan dengan serentet 4 tanda tilde (~~~~).',
 	'notification-edit-email-subject' => 'Pemberitahuan {{SITENAME}}: $3 telah disunting oleh $2',
 	'notification-edit-email-body' => '$5,
 
