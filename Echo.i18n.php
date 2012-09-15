@@ -1553,6 +1553,7 @@ $messages['sv'] = array(
 	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|postade}} ett nytt ämne "$3" på [[$4]]',
 	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|skickade}} ett meddelande till dig: "[[$4#$3|$3]]"',
 	'notification-add-comment-yours' => '$2 {{GENDER:$1|kommenterade}} på "[[$4#$3|$3]]" på din diskussionssida',
+	'notification-new-user' => 'Välkommen till {{SITENAME}},  $1!',
 	'notification-edit-email-subject' => '{{SITENAME}} meddelande: $3 har redigerats av $2',
 	'notification-edit-talk-page-email-subject' => 'Din {{SITENAME}} diskussionssida har redigerats av $2',
 	'echo-email-subject-default' => 'Nytt meddelande på {{SITENAME}}',
