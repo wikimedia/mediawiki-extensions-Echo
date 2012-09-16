@@ -176,7 +176,9 @@ $wgEchoNotificationFormatters = array(
 		'title-message' => 'notification-edit-talk-page',
 		'title-params' => array( 'agent', 'difflink', 'user' ),
 		'email-subject-message' => 'notification-edit-talk-page-email-subject',
+		'email-subject-params' => array( 'agent' ),
 		'email-body-message' => 'notification-edit-talk-page-email-body',
+		'email-body-params' => array( 'agent', 'difflink', 'user' ),
 		'icon' => 'chat',
 	),
 	'edit' => array(
@@ -184,7 +186,9 @@ $wgEchoNotificationFormatters = array(
 		'title-message' => 'notification-edit',
 		'title-params' => array( 'agent', 'title', 'difflink', 'user' ),
 		'email-subject-message' => 'notification-edit-email-subject',
+		'email-subject-params' => array( 'agent', 'title' ),
 		'email-body-message' => 'notification-edit-email-body',
+		'email-body-params' => array( 'agent', 'title', 'difflink', 'user' ),
 		'icon' => 'w',
 	),
 	'add-comment' => array(
