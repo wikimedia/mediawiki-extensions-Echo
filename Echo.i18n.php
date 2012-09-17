@@ -686,6 +686,9 @@ $messages['he'] = array(
 	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|יצר|יצרה}} את הנושא החדש "$3" בדף [[$4]]',
 	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|שלח|שלחה}} לך הודעה: "[[$4#$3|$3]]"',
 	'notification-add-comment-yours' => '$2 {{GENDER:$1|הגיב|הגיבה}} על "[[$4#$3|$3]]" בדף השיחה שלך',
+	'notification-new-user' => 'ברוך בואך ל{{GRAMMAR:תחילית|{{SITENAME}}}}, $1!',
+	'notification-new-user-content' => 'שלום $1 וברוך בואך ל{{GRAMMAR:תחילית|{{SUTENAME}}}}.<br />
+נא לזכור לחתום על כל דפי השיחה ב־4 טילדות (~~~~).',
 	'notification-edit-email-subject' => 'הודעה מאתר {{SITENAME}}: הדף $3 נערך על־ידי $2',
 	'notification-edit-email-body' => 'שלום $5,
 זוהי הודעה כדי לידע אותך ש$2 {{GENDER:$2|ערך|ערכה}} את עמוד ה{{SITENAME}} "$3".
