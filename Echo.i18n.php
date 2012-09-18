@@ -189,6 +189,9 @@ $messages['be-tarask'] = array(
 	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|стварыў|стварыла}} новую тэму «$3» у [[$4]]',
 	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|даслаў|даслала}} вам паведамленьне: «[[$4#$3|$3]]»',
 	'notification-add-comment-yours' => '$2 {{GENDER:$1|пакінуў|пакінула}} камэнтар у тэме «[[$4#$3|$3]]» вашай старонкі гутарак',
+	'notification-new-user' => 'Вітаем у {{GRAMMAR:месны|{{SITENAME}}}}, $1!',
+	'notification-new-user-content' => 'Вітаем у {{GRAMMAR:месны|{{SITENAME}}}}, $1.<br />
+Будзьце ласкавыя падпісваць свае камэнтары на старонках абмеркаваньняў чатырма тыльдамі (~~~~).',
 	'notification-edit-email-subject' => 'Абвестка ад {{GRAMMAR:родны|{{SITENAME}}}}: $2 адрэдагаваў «$3»',
 	'notification-edit-email-body' => 'Вітаем, $5! Паведамляем, што $2 рэдагаваў старонку {{GRAMMAR:родны|{{SITENAME}}}} «$3».
 
