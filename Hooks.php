@@ -167,8 +167,8 @@ class EchoHooks {
 	 * @param $summary string Edit summary
 	 * @param $minoredit bool Minor edit or not
 	 * @param $watchthis bool Watch this article?
-	 * @param $sectionanchor Section that was edited
-	 * @param $flags Edit flags
+	 * @param $sectionanchor string Section that was edited
+	 * @param $flags int Edit flags
 	 * @param $revision Revision that was created
 	 * @param $status Status
 	 * @return bool true in all cases
@@ -198,9 +198,10 @@ class EchoHooks {
 	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/AddNewAccount
 	 * @param $user User object that was created.
 	 * @param $byEmail bool True when account was created "by email".
+	 * @return bool
 	 */
 	public static function onAccountCreated( $user, $byEmail ) {
-		$event = EchoEvent::create( array(
+		EchoEvent::create( array(
 			'type' => 'welcome',
 			'agent' => $user,
 		) );

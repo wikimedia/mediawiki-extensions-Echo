@@ -1,3 +1,5 @@
-(function ($, mw) {
+( function ( $, mw ) {
+	'use strict';
+
 	mw.echo = {};
-})(jQuery, mediaWiki);
+} )( jQuery, mediaWiki );

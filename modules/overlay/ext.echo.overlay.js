@@ -1,4 +1,6 @@
-( function( $,mw ) {
+( function( $, mw ) {
+	'use strict';
+
 	mw.echo.overlay = {
 		'updateCount' : function( newCount ) {
 			$( '#pt-notifications a' )
@@ -11,9 +13,8 @@
 		'configuration' : mw.config.get( 'wgEchoOverlayConfiguration' ),
 
 		'buildOverlay' : function( callback ) {
-			var $overlay = $( '<div></div>' )
-				.addClass( 'mw-echo-overlay' );
-			var $link = $( '#pt-notifications a' );
+			var $overlay = $( '<div></div>' ).addClass( 'mw-echo-overlay' ),
+				$link = $( '#pt-notifications a' );
 
 			$overlay.append(
 				$( '<div/>' )
@@ -30,17 +31,17 @@
 				'notprop' : 'index|list'
 			}, {
 				'ok' : function( result ) {
-					var notifications = result.query.notifications;
-					var $ul = $( '<ul></ul>' ).appendTo( $overlay );
+					var notifications = result.query.notifications,
+						$ul = $( '<ul></ul>' ).appendTo( $overlay );
 
 					$.each( notifications.index, function( index, id ) {
-						var data = notifications[id];
-						var $li = $( '<li></li>' )
-							.data( 'details', data )
-							.data( 'id', id )
-							.addClass( 'mw-echo-notification' )
-							.append( data['*'] )
-							.appendTo( $ul );
+						var data = notifications[id],
+							$li = $( '<li></li>' )
+								.data( 'details', data )
+								.data( 'id', id )
+								.addClass( 'mw-echo-notification' )
+								.append( data['*'] )
+								.appendTo( $ul );
 
 						if ( ! data.read ) {
 							$li.addClass( 'mw-echo-unread' );

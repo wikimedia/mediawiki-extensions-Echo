@@ -1,6 +1,13 @@
 <?php
 
 class EchoEditFormatter extends EchoBasicFormatter {
+
+	/**
+	 * @param EchoEvent $event
+	 * @param $param
+	 * @param $message Message
+	 * @param $user User
+	 */
 	protected function processParam( EchoEvent $event, $param, $message, $user ) {
 		if ( $param === 'difflink' ) {
 			$eventData = $event->getExtra();

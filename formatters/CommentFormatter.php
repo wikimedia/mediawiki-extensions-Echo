@@ -34,6 +34,12 @@ class EchoCommentFormatter extends EchoEditFormatter {
 		return parent::formatFragment( $details, $event, $user );
 	}
 
+	/**
+	 * @param EchoEvent $event
+	 * @param $param
+	 * @param Message $message
+	 * @param User $user
+	 */
 	protected function processParam( $event, $param, $message, $user ) {
 		$extra = $event->getExtra();
 		if ( $param === 'subject' ) {
@@ -43,6 +49,9 @@ class EchoCommentFormatter extends EchoEditFormatter {
 				$message->params( '' );
 			}
 		} elseif ( $param === 'commentText' ) {
+			/**
+			 * @var $wgLang Language
+			 */
 			global $wgLang; // Message::language is protected :(
 
 			if ( isset( $extra['content'] ) && $extra['content'] ) {

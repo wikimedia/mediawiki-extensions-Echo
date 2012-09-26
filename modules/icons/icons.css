@@ -3,8 +3,7 @@
 	height: 42px;
 	float: left;
 	margin-right: 5px;
-	background-repeat: no-repeat;
-	background-position: center left;
+	background: no-repeat center left;
 	margin-bottom: 10px;
 }
 
