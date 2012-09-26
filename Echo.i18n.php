@@ -1546,6 +1546,23 @@ $messages['sr-ec'] = array(
 	'echo-overlay-title' => 'Моја обавештења',
 );
 
+/** Serbian (Latin script) (srpski (latinica)‎) */
+$messages['sr-el'] = array(
+	'prefs-echo' => 'Obaveštenja',
+	'echo-no-agent' => '[Niko]',
+	'echo-no-title' => '[Bez naslova]',
+	'notifications' => 'Obaveštenja',
+	'echo-specialpage' => 'Moja obaveštenja',
+	'echo-none' => 'U poslednje vreme niste primili nijedno obaveštenje.',
+	'notification-edit' => '$2 {{GENDER:$1|je izmenio|je izmenila|je izmenio}} [[$3]] $4',
+	'notification-edit-talk-page' => '$2 {{GENDER:$1|je izmenio|je izmenila|je izmenio}} [[User talk:$4|vašu stranicu za razgovor]] $3',
+	'notification-add-comment' => '$2 {{GENDER:$1|je prokomentarisao|je prokomentarisala|je prokomentarisao}} „[[$4|$3]]“ na stranici za razgovor „$5“',
+	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|je postavio|je postavila|je postavio}} novu temu „$3“ na [[$4]]',
+	'echo-link' => 'Moja obaveštenja',
+	'echo-overlay-link' => 'Sva obaveštenja…',
+	'echo-overlay-title' => 'Moja obaveštenja',
+);
+
 /** Swedish (svenska)
  * @author Ainali
  * @author WikiPhoenix
@@ -1785,13 +1802,48 @@ $1',
 	'echo-overlay-title' => '我的通知',
 );
 
-/** Traditional Chinese (‪中文（繁體）‬)
+/** Traditional Chinese (中文（繁體）‎)
  * @author Simon Shek
  */
 $messages['zh-hant'] = array(
+	'echo-desc' => 'MediaWiki的下一代通知架構',
+	'prefs-echo' => '通知',
+	'echo-pref-notify-watchlist' => '當我向監視列表添加頁面時也為我訂閱編輯通知。',
 	'echo-no-agent' => '[無人]',
 	'echo-no-title' => '[無標題]',
+	'notifications' => '通知',
+	'echo-specialpage' => '我的通知',
+	'echo-anon' => '要接收通知，請[[Special:Userlogin/signup|創建帳號]]或[[Special:UserLogin|登錄]]。',
+	'echo-none' => '您最近沒有收到任何通知。',
+	'notification-edit' => '$2{{GENDER:$1|編輯了}}[[$3]] $4',
+	'notification-edit-talk-page' => '$2{{GENDER:$1|編輯了}}[[User talk:$4|您的對話頁]] $3',
+	'notification-add-comment' => '$2在“$5”討論頁上{{GENDER:$1|評論了}}“[[$4|$3]]”',
+	'notification-add-talkpage-topic' => '$2在[[$4]]上{{GENDER:$1|發表了}}一個新主題“$3”',
+	'notification-add-talkpage-topic-yours' => '$2給您{{GENDER:$1|發送了}}新消息：“[[$4#$3|$3]]”',
+	'notification-add-comment-yours' => '$2在您的對話頁上上{{GENDER:$1|評論了}}“[[$4#$3|$3]]”',
+	'notification-edit-email-subject' => '{{SITENAME}}通知：$3已被$2編輯',
+	'notification-edit-email-body' => '您好 $5，
+這個通知為了讓您了解$2編輯了{{SITENAME}}頁面$3。
+
+您可以在這個鏈接查看$2作出的更改：
+<$4>
+
+您收到這個消息是因為您訂閱了這個頁面變更的電子郵件更新。
+
+感謝您使用{{SITENAME}}
+{{SITENAME}}通知系統',
 	'notification-edit-talk-page-email-subject' => '你在{{SITENAME}}上的討論頁已被$2編輯。',
+	'notification-edit-talk-page-email-body' => '您好 $4，
+這個通知為了讓您了解$2編輯了{{SITENAME}}上您的對話頁。
+
+在{{SITENAME}}，您的對話頁是其他用戶可以給您留言的地方。
+
+您可以在這個鏈接查看$2作出的更改：
+<$3>
+
+感謝您使用{{SITENAME}}
+{{SITENAME}}通知系統',
+	'echo-email-subject-default' => '{{SITENAME}}上的新通知',
 	'echo-email-body-default' => '你在{{SITENAME}}有一項新訊息：
 
 $1',
