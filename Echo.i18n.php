@@ -1083,6 +1083,7 @@ $messages['lb'] = array(
 	'echo-none' => 'Dir hutt keng Notifikatioune mat Verspéidung kritt!',
 	'notification-edit' => '$2 {{GENDER:$1|huet}} [[$3]] $4 geännert',
 	'notification-edit-talk-page' => '$2 {{GENDER:$1|huet}} [[User talk:$4|Är Diskussiounssäit]] $3 geännert',
+	'notification-new-user' => 'Wëllkomm op {{SITENAME}}, $1!',
 	'notification-edit-email-subject' => '{{SITENAME}}-Notifikatioun: $3 gouf vum $2 geännert',
 	'notification-edit-talk-page-email-subject' => 'Är {{SITENAME}} Diskussiounssäit gouf vum $2 geännert',
 	'echo-email-subject-default' => 'Nei Notifikatioun op {{SITENAME}}',
