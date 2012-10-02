@@ -170,7 +170,7 @@ $messages['ar'] = array(
 	'echo-overlay-title' => 'إخطاراتي',
 );
 
-/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
  * @author Wizardist
  */
 $messages['be-tarask'] = array(
@@ -350,7 +350,7 @@ $1',
 	'echo-overlay-title' => 'Meine Benachrichtigungen',
 );
 
-/** German (formal address) (‪Deutsch (Sie-Form)‬)
+/** German (formal address) (Deutsch (Sie-Form)‎)
  * @author Kghbln
  */
 $messages['de-formal'] = array(
@@ -1527,7 +1527,7 @@ $messages['si'] = array(
 	'echo-overlay-title' => 'මගේ නිවේදන',
 );
 
-/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (српски (ћирилица)‎)
  * @author Rancher
  * @author Михајло Анђелковић
  */
@@ -1751,7 +1751,7 @@ $1',
 	'echo-overlay-title' => 'Thông báo cho tôi',
 );
 
-/** Simplified Chinese (‪中文（简体）‬)
+/** Simplified Chinese (中文（简体）‎)
  * @author Anakmalaysia
  * @author Liangent
  */
