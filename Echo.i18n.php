@@ -905,7 +905,11 @@ $messages['ja'] = array(
 	'prefs-echo' => '通知',
 	'notifications' => '通知',
 	'echo-specialpage' => '自分の通知',
+	'notification-edit' => '$2 が [[$3]] $4 を{{GENDER:$1|編集しました}}',
+	'notification-edit-talk-page' => '$2 が[[User talk:$4|あなたのトークページ]]を{{GENDER:$1|編集しました}}',
+	'notification-add-comment' => '$2 がトークページ「$5」の「[[$4|$3]]」に{{GENDER:$1|コメントしました}}',
 	'notification-new-user' => '$1さん、{{SITENAME}}にようこそ!',
+	'notification-edit-talk-page-email-subject' => '{{SITENAME}}のあなたのトークページを $2 が編集しました',
 	'echo-email-subject-default' => '{{SITENAME}}での新しい通知',
 	'echo-email-body-default' => '{{SITENAME}}で新しい通知があります:
 
