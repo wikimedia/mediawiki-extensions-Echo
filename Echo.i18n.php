@@ -298,11 +298,11 @@ $1',
  * @author Metalhead64
  */
 $messages['de'] = array(
-	'echo-desc' => 'Ermöglicht MediaWiki eine modernere Benachrichtigungsinfrastruktur',
+	'echo-desc' => 'Benachrichtigungssystem',
 	'prefs-echo' => 'Benachrichtigungen',
 	'echo-pref-notify-watchlist' => 'Das Bearbeiten der Einstellungen zu Benachrichtigungen ermöglichen, wenn ich Seiten zu meiner Beobachtungsliste hinzufüge.',
 	'echo-no-agent' => '[Niemand]',
-	'echo-no-title' => '[Kein Titel]',
+	'echo-no-title' => '[Keine Seite]',
 	'notifications' => 'Benachrichtigungen',
 	'echo-specialpage' => 'Meine Benachrichtigungen',
 	'echo-anon' => 'Um Benachrichtigungen erhalten zu können, muss man ein [[Special:Userlogin/signup|Benutzerkonto anlegen]] oder sich [[Special:UserLogin|anmelden]].',
@@ -847,11 +847,11 @@ $1',
  * @author Darth Kule
  */
 $messages['it'] = array(
-	'echo-desc' => 'Infrastruttura di nuova generazione per le notifiche su MediaWiki',
+	'echo-desc' => 'Sistema per le notifiche',
 	'prefs-echo' => 'Notifiche',
 	'echo-pref-notify-watchlist' => 'Modifica le mie notifiche quando aggiungo pagine ai miei osservati speciali.',
 	'echo-no-agent' => '[Nessuno]',
-	'echo-no-title' => '[Nessun titolo]',
+	'echo-no-title' => '[Nessuna pagina]',
 	'notifications' => 'Notifiche',
 	'echo-specialpage' => 'Mie notifiche',
 	'echo-anon' => "Per ricevere le notifiche, [[Special:Userlogin/signup|crea un account]] o [[Special:UserLogin|effettua l'accesso]].",
@@ -1462,7 +1462,7 @@ $1",
  */
 $messages['ro'] = array(
 	'prefs-echo' => 'Notificări',
-	'echo-no-title' => '[Fără titlu]',
+	'echo-no-title' => '[Nicio pagină]',
 	'notifications' => 'Notificări',
 	'echo-specialpage' => 'Notificările mele',
 	'echo-link' => 'Notificările mele',
