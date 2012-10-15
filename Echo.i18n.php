@@ -17,7 +17,7 @@ $messages['en'] = array(
 
 	// Errors
 	'echo-no-agent' => '[Nobody]',
-	'echo-no-title' => '[No Title]',
+	'echo-no-title' => '[No page]',
 
 	// Special:Notifications
 	'notifications' => 'Notifications',
