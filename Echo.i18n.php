@@ -9,7 +9,7 @@ $messages = array();
  * @author Andrew Garrett
  */
 $messages['en'] = array(
-	'echo-desc' => 'Next-generation notification infrastructure for MediaWiki',
+	'echo-desc' => 'Notifications system',
 
 	// Preferences
 	'prefs-echo' => 'Notifications',
