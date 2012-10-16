@@ -431,11 +431,11 @@ $1',
  * @author Armando-Martin
  */
 $messages['es'] = array(
-	'echo-desc' => 'Infraestructura de última generación para notificaciones de MediaWiki',
+	'echo-desc' => 'Sistema de notificaciones',
 	'prefs-echo' => 'Notificaciones',
 	'echo-pref-notify-watchlist' => 'Suscribirme para editar notificaciones cuando agregue páginas a mi lista de vigilancia.',
 	'echo-no-agent' => '[Nadie]',
-	'echo-no-title' => '[Sin título]',
+	'echo-no-title' => '[No hay ninguna página]',
 	'notifications' => 'Notificaciones',
 	'echo-specialpage' => 'Mis notificaciones',
 	'echo-anon' => 'Para recibir notificaciones, [[Special:Userlogin/signup|crea una cuenta]] o [[Special:UserLogin|inicia sesión]].',
@@ -512,10 +512,11 @@ $1',
 );
 
 /** Finnish (suomi)
+ * @author Crt
  * @author Nike
  */
 $messages['fi'] = array(
-	'echo-desc' => 'Seuraavan sukupolven ilmoitusjärjestelmä',
+	'echo-desc' => 'Ilmoitusjärjestelmä',
 	'prefs-echo' => 'Ilmoitukset',
 	'echo-no-agent' => '[Ei kukaan]',
 	'echo-no-title' => '[Ei sivua]',
@@ -619,11 +620,11 @@ $1',
  * @author Toliño
  */
 $messages['gl'] = array(
-	'echo-desc' => 'A nova xeración da infraestrutura de notificación de MediaWiki',
+	'echo-desc' => 'Sistema de notificación',
 	'prefs-echo' => 'Notificacións',
 	'echo-pref-notify-watchlist' => 'Subscribirme para editar as notificación cando engada páxinas á miña lista de vixilancia.',
 	'echo-no-agent' => '[Ninguén]',
-	'echo-no-title' => '[Sen título]',
+	'echo-no-title' => '[Ningunha páxina]',
 	'notifications' => 'Notificacións',
 	'echo-specialpage' => 'As miñas notificacións',
 	'echo-anon' => 'Para recibir notificacións, [[Special:Userlogin/signup|cree unha conta]] ou [[Special:UserLogin|acceda ao sistema]].',
@@ -1111,11 +1112,11 @@ $messages['lt'] = array(
  * @author Bjankuloski06
  */
 $messages['mk'] = array(
-	'echo-desc' => 'Нова инфраструктура за известувања на МедијаВики',
+	'echo-desc' => 'Известителен систем',
 	'prefs-echo' => 'Известувања',
 	'echo-pref-notify-watchlist' => 'Претплати ме за измена на известувањата кога додавам страници во мојот список на набљудувања.',
 	'echo-no-agent' => '[Никој]',
-	'echo-no-title' => '[Без наслов]',
+	'echo-no-title' => '[Нема страница]',
 	'notifications' => 'Известувања',
 	'echo-specialpage' => 'Мои известувања',
 	'echo-anon' => 'За да добивате известувања, [[Special:Userlogin/signup|направете сметка]] или [[Special:UserLogin|најавете се]].',
