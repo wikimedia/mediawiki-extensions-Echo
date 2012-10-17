@@ -174,11 +174,11 @@ $messages['ar'] = array(
  * @author Wizardist
  */
 $messages['be-tarask'] = array(
-	'echo-desc' => 'Інфраструктура абвестак новага пакаленьня для MediaWiki',
+	'echo-desc' => 'Сыстэма апавяшчэньняў',
 	'prefs-echo' => 'Абвесткі',
 	'echo-pref-notify-watchlist' => 'Падпісацца на абвесткі пра рэдагаваньні старонак, за якімі я назіраю.',
 	'echo-no-agent' => '[Ніхто]',
-	'echo-no-title' => '[Без загалоўку]',
+	'echo-no-title' => '[Няма старонкі]',
 	'notifications' => 'Абвесткі',
 	'echo-specialpage' => 'Мае абвесткі',
 	'echo-anon' => 'Для атрыманьня абвестак [[Special:Userlogin/signup|стварыце рахунак]] або [[Special:UserLogin|увайдзіце]].',
@@ -970,11 +970,11 @@ $messages['ka'] = array(
  * @author 아라
  */
 $messages['ko'] = array(
-	'echo-desc' => '미디어위키를 위한 차세대 알림 인프라',
+	'echo-desc' => '알림 시스템',
 	'prefs-echo' => '알림',
 	'echo-pref-notify-watchlist' => '내 주시문서 목록에 문서를 추가할 때 알림 편집을 구독합니다.',
 	'echo-no-agent' => '[알 수 없는 사용자]',
-	'echo-no-title' => '[제목 없음]',
+	'echo-no-title' => '[문서 없음]',
 	'notifications' => '알림',
 	'echo-specialpage' => '내 알림',
 	'echo-anon' => '알림을 받으려면 [[Special:Userlogin/signup|계정을 만들거나]] [[Special:UserLogin|로그인하세요]].',
