@@ -729,11 +729,11 @@ $1',
  * @author Michawiki
  */
 $messages['hsb'] = array(
-	'echo-desc' => 'Zdźělenska infrastruktura přichodneje generacije za MediaWiki',
+	'echo-desc' => 'Zdźělenski system',
 	'prefs-echo' => 'Zdźělenki',
 	'echo-pref-notify-watchlist' => 'Abonować, zo by zdźělenki wobdźěłał, hdyž strony swojim wobkedźbowankach přidawam.',
 	'echo-no-agent' => '[Nichtó]',
-	'echo-no-title' => '[Žadyn titul]',
+	'echo-no-title' => '[Žana strona]',
 	'notifications' => 'Zdźělenki',
 	'echo-specialpage' => 'Moje zdźělenki',
 	'echo-anon' => 'Zo by zdźělenki dóstał, dyrbiš [[Special:Userlogin/signup|konto załožić]] abo [[Special:UserLogin|so přizjewić]].',
@@ -902,7 +902,7 @@ $1',
  * @author Shirayuki
  */
 $messages['ja'] = array(
-	'echo-desc' => 'MediaWiki 用の、次世代の通知インフラストラクチャー',
+	'echo-desc' => '通知システム',
 	'prefs-echo' => '通知',
 	'notifications' => '通知',
 	'echo-specialpage' => '自分の通知',
@@ -1078,10 +1078,10 @@ $1',
  * @author Robby
  */
 $messages['lb'] = array(
-	'echo-desc' => 'Nächst Generatioun vun Notifikatiouns-System fir MediaWiki',
+	'echo-desc' => 'Notifikatiouns-System',
 	'prefs-echo' => 'Notifikatiounen',
 	'echo-no-agent' => '[Keen]',
-	'echo-no-title' => '[Keen Titel]',
+	'echo-no-title' => '[Keen Säit]',
 	'notifications' => 'Notifikatiounen',
 	'echo-specialpage' => 'Meng Notifikatiounen',
 	'echo-anon' => 'Fir Notifikatiounen ze kréien, [[Special:Userlogin/signup|maacht e Benotzerkont op]] oder [[Special:UserLogin|loggt Iech an]]',
