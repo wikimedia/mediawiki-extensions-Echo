@@ -1024,11 +1024,11 @@ $1',
  * @author Purodha
  */
 $messages['ksh'] = array(
-	'echo-desc' => 'E neu Süßtehm för Medeilonge em_MeedijaWikki.',
+	'echo-desc' => 'Süßtehm för Medeilonge',
 	'prefs-echo' => 'Meddeilonge',
 	'echo-pref-notify-watchlist' => 'Lohß mech Meddeilonge maache, wann esch Sigge op ming Oppaßlėß donn.',
 	'echo-no-agent' => '[Keine]',
-	'echo-no-title' => '[Kein Övveschreff]',
+	'echo-no-title' => '[Kein Sigg]',
 	'notifications' => 'Meddeilonge',
 	'echo-specialpage' => 'Ming Meddeilonge',
 	'echo-anon' => 'Do moß Desch [[Special:Userlogin/signup|aanmälde]] udder [[Special:UserLogin|enlogge]], öm Medeilonge krijje ze künne.',
@@ -1042,7 +1042,7 @@ $messages['ksh'] = array(
 	'notification-new-user' => '$1, welkumme op {{GENDER:Dative|{{SITENAME}}}}!',
 	'notification-new-user-content' => 'Jooden Daach $1, welkumme op {{GENDER:Dative|{{SITENAME}}}}.<br />
 Bes esu jood un donn Ding Beidrääsch op Klaafsigge met vier Tilde (~~~~) „ongerschriive“.',
-	'notification-edit-email-subject' => 'Medeilong {{GRAMMAR:genitive vun|{{ucfirst:{{SITENAME}}}}}}: „$3“ wood {{GENDER:$1|vum|vum|vumm Metmaacher|vun dä|vum}} $2 jeändert.',
+	'notification-edit-email-subject' => 'Medeilong {{GRAMMAR:genitive vun|{{ucfirst:{{SITENAME}}}}}}: „$3“ wood {{GENDER:$2|vum|vum|vumm Metmaacher|vun dä|vum}} $2 jeändert.',
 	'notification-edit-email-body' => 'Daach $5,
 dat heh es en Medeilong, öm Desch weßße ze lohße, dat {{GENDER:$2|dä|dat|dä Metmaacher|de|dat}} $2 di Sigg „$3“ jeändert hät.
 
@@ -1053,7 +1053,7 @@ Do kriß dat jeschrevve, weil De Desch enjeschrevve häs, dat De bei Änderonge 
 
 Mer bedanke ons för et Metmaache op {{GRAMMAR:dative|{{ucfirst:{{SITENAME}}}}}}.
 Et Süßtehm vör Medeilong {{GRAMMAR:genive|{{ucfirst:{{SITENAME}}}}}}',
-	'notification-edit-talk-page-email-subject' => 'Ding Klaafsigg {{GRAMMAR:dative en|{{ucfirst:{{SITENAME}}}}}} wood {{GENDER:$1|vum|vum|vum_Metmaacher|vun dä|vum}} $2 jeändert.',
+	'notification-edit-talk-page-email-subject' => 'Ding Klaafsigg {{GRAMMAR:dative en|{{ucfirst:{{SITENAME}}}}}} wood {{GENDER:$2|vum|vum|vum_Metmaacher|vun dä|vum}} $2 jeändert.',
 	'notification-edit-talk-page-email-body' => 'Daach $4,
 Dat heh es en Medeilong, öm Desch weßße ze lohße, dat Ding Klaafsigg op {{GRAMMAR:dative|{{ucfirst:{{SITENAME}}}}}} {{GENDER:$2|vum|vum|vum_Metmaacher|vun dä|vum}} $2 jeändert woode es.
 
@@ -1295,11 +1295,11 @@ $1',
  * @author Siebrand
  */
 $messages['nl'] = array(
-	'echo-desc' => 'Meldingeninfrastructuur voor MediaWiki',
+	'echo-desc' => 'Meldingensysteem',
 	'prefs-echo' => 'Meldingen',
 	'echo-pref-notify-watchlist' => "Mijn abonneren op meldingen over bewerkingen als ik pagina's aan mijn volglijst toevoeg.",
 	'echo-no-agent' => '[Niemand]',
-	'echo-no-title' => '[Geen titel]',
+	'echo-no-title' => '[Geen pagina]',
 	'notifications' => 'Meldingen',
 	'echo-specialpage' => 'Mijn meldingen',
 	'echo-anon' => '[[Special:Userlogin/signup|Maak een gebruiker aan]] of [[Special:UserLogin|meld u aan]] als u meldingen wilt ontvangen.',
