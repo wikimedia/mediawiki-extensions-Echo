@@ -132,8 +132,8 @@ $wgDefaultUserOptions['echo-notify-watchlist'] = true;
  * their own user talk page being edited. In fact, that is what it is used for
  * internally.
  */
-$wgHooks['EchoGetDefaultNotifiedUsers'] = array( 'EchoHooks::getDefaultNotifiedUsers' );
-$wgHooks['EchoGetNotificationTypes'] = array( 'EchoHooks::getNotificationTypes' );
+$wgHooks['EchoGetDefaultNotifiedUsers'][] = 'EchoHooks::getDefaultNotifiedUsers';
+$wgHooks['EchoGetNotificationTypes'][] = 'EchoHooks::getNotificationTypes';
 
 // Hook appropriate events
 $wgHooks['WatchArticleComplete'][] = 'EchoHooks::onWatch';
