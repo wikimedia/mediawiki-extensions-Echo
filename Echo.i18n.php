@@ -124,6 +124,10 @@ $messages['qqq'] = array(
 * $2 Linked Username;
 * $3 Discussion name;
 * $4 link to user talk page.',
+	'notification-talkpage-content' => 'Message shown as the "content" of a talkpage-related action.
+* $1 is the content of the talk page post.
+
+{{optional}}',
 	'notification-new-user' => 'Title for the welcome notification. $1 is the name of the new user.',
 	'notification-new-user-content' => 'The content shown to users on their welcome notification. $1 is the name of the new user.',
 	'notification-edit-email-subject' => 'E-mail subject. Parameters:
@@ -155,7 +159,7 @@ $messages['qqq'] = array(
  */
 $messages['af'] = array(
 	'echo-no-agent' => '[Niemand]',
-	'echo-no-title' => '[Geen titel]',
+	'echo-no-title' => '[Geen titel]', # Fuzzy
 	'notifications' => 'Kennisgewings',
 	'echo-specialpage' => 'My kennisgewings',
 );
@@ -229,7 +233,7 @@ $1',
  */
 $messages['br'] = array(
 	'echo-no-agent' => '[Den]',
-	'echo-no-title' => '[Diditl]',
+	'echo-no-title' => '[Diditl]', # Fuzzy
 	'notification-edit' => '$2 {{GENDER:$1|en deus kemmet}} [[$3]] $4',
 	'notification-edit-talk-page' => '$2 en deus {{GENDER:$1|kemmet}} [[User talk:$4|ho pajenn kaozeadenn]] $3',
 	'notification-add-talkpage-topic' => '$2 a zo {{GENDER:$1|kroget}} gant un tem nevez "$3" war [[$4]]',
@@ -249,10 +253,10 @@ $messages['ca'] = array(
  * @author Mormegil
  */
 $messages['cs'] = array(
-	'echo-desc' => 'Systém pro upozorňování nové generace pro MediaWiki',
+	'echo-desc' => 'Systém pro upozorňování nové generace pro MediaWiki', # Fuzzy
 	'prefs-echo' => 'Upozornění',
 	'echo-no-agent' => '[Nikdo]',
-	'echo-no-title' => '[Bez názvu]',
+	'echo-no-title' => '[Bez názvu]', # Fuzzy
 	'notifications' => 'Upozornění',
 	'echo-specialpage' => 'Moje upozornění',
 	'echo-anon' => 'Pro zobrazování upozornění je nutné [[Special:Userlogin/signup|vytvořit si účet]] nebo [[Special:UserLogin|se přihlásit]].',
@@ -313,6 +317,7 @@ $messages['de'] = array(
 	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|startete}} das neue Thema  „$3“ zu [[$4]]',
 	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|sandte}} dir eine Nachricht: [[$4#$3|$3]]',
 	'notification-add-comment-yours' => '$2 {{GENDER:$1|kommentierte}} „[[$4#$3|$3]]“ auf deiner Diskussionsseite',
+	'notification-talkpage-content' => '$1',
 	'notification-new-user' => 'Willkommen bei {{SITENAME}}, $1!',
 	'notification-new-user-content' => 'Hallo $1, und willkommen bei {{SITENAME}}.<br />
 Bitte vergiss nicht alle Beiträge auf Diskussionsseiten mit 4 Tilden (~~~~) zu signieren.',
@@ -387,10 +392,11 @@ Das {{SITENAME}}-Benachrichtigungssytem',
 
 /** Zazaki (Zazaki)
  * @author Erdemaslancan
+ * @author Mirzali
  */
 $messages['diq'] = array(
 	'prefs-echo' => 'Tebliği',
-	'echo-no-title' => '[Sername Çınyo]',
+	'echo-no-title' => '[Pele Çıniya]',
 	'notifications' => 'Tebliği',
 	'echo-specialpage' => 'Tebliğê me',
 	'notification-edit' => '$2 {{GENDER:$1|vurna}} [[$3]] $4',
@@ -405,7 +411,7 @@ $messages['diq'] = array(
 $messages['el'] = array(
 	'prefs-echo' => 'Ειδοποιήσεις',
 	'echo-no-agent' => '[Κανένας]',
-	'echo-no-title' => '[Χωρίς Τίτλο]',
+	'echo-no-title' => '[Χωρίς Τίτλο]', # Fuzzy
 	'notifications' => 'Ειδοποιήσεις',
 	'echo-specialpage' => 'Οι ειδοποιήσεις μου',
 	'echo-link' => 'Οι ειδοποιήσεις μου',
@@ -417,7 +423,7 @@ $messages['el'] = array(
  * @author Yekrats
  */
 $messages['eo'] = array(
-	'echo-no-title' => '[Sen Titolo]',
+	'echo-no-title' => '[Sen Titolo]', # Fuzzy
 	'echo-email-body-default' => 'Vi havas novan noton ĉe {{SITENAME}}:
 
 $1',
@@ -502,7 +508,7 @@ $messages['et'] = array(
 $messages['fa'] = array(
 	'prefs-echo' => 'اعلامیه‌ها',
 	'echo-no-agent' => '[هیچ کس]',
-	'echo-no-title' => '[بدون عنوان]',
+	'echo-no-title' => '[بدون عنوان]', # Fuzzy
 	'echo-email-body-default' => 'شما در {{SITENAME}} اعلان جدید دارید:
 
 $1',
@@ -522,7 +528,7 @@ $messages['fi'] = array(
 	'echo-no-title' => '[Ei sivua]',
 	'notifications' => 'Ilmoitukset',
 	'echo-specialpage' => 'Ilmoitukset',
-	'echo-anon' => 'Vain [[Special:Userlogin/signup|rekisteröityneet käyttäjät]] saavat ilmoituksia.',
+	'echo-anon' => 'Vain [[Special:Userlogin/signup|rekisteröityneet käyttäjät]] saavat ilmoituksia.', # Fuzzy
 	'echo-none' => 'Ei uusia ilmoituksia viime aikoina.',
 	'notification-edit' => '$2 {{GENDER:$1|muokkasi}} sivua [[$3]] $4',
 	'notification-edit-talk-page' => '$2 {{GENDER:$1|muokkasi}} [[User talk:$4|keskustelusivuasi]] $3',
@@ -541,11 +547,11 @@ $messages['fi'] = array(
  * @author Tititou36
  */
 $messages['fr'] = array(
-	'echo-desc' => 'Infrastructure de notification de prochaine génération pour MediaWiki',
+	'echo-desc' => 'Infrastructure de notification de prochaine génération pour MediaWiki', # Fuzzy
 	'prefs-echo' => 'Notifications',
 	'echo-pref-notify-watchlist' => "M'inscrire pour modifier les notifications quand j'ajoute des pages à ma liste de suivi.",
 	'echo-no-agent' => '[Personne]',
-	'echo-no-title' => '[Sans titre]',
+	'echo-no-title' => '[Sans titre]', # Fuzzy
 	'notifications' => 'Notifications',
 	'echo-specialpage' => 'Mes notifications',
 	'echo-anon' => 'Pour recevoir des notifications, [[Special:Userlogin/signup|créez un compte]] ou [[Special:UserLogin|connectez-vous]].',
@@ -598,7 +604,7 @@ $1',
 $messages['frp'] = array(
 	'prefs-echo' => 'Notificacions',
 	'echo-no-agent' => '[Nion]',
-	'echo-no-title' => '[Sen titro]',
+	'echo-no-title' => '[Sen titro]', # Fuzzy
 	'notifications' => 'Notificacions',
 	'echo-specialpage' => 'Mes notificacions',
 	'notification-edit' => '$2 at {{GENDER:$1|changiê}} [[$3]] $4',
@@ -675,11 +681,11 @@ $1',
  * @author Inkbug
  */
 $messages['he'] = array(
-	'echo-desc' => 'הדור הבא של תשתית ההודעות של מדיה־ויקי',
+	'echo-desc' => 'הדור הבא של תשתית ההודעות של מדיה־ויקי', # Fuzzy
 	'prefs-echo' => 'הודעות',
 	'echo-pref-notify-watchlist' => 'לרשום אותי להודעות על עריכה כאשר אני מוסיף דפים לרשימת המעקב שלי.',
 	'echo-no-agent' => '[לא צוין]',
-	'echo-no-title' => '[ללא כותרת]',
+	'echo-no-title' => '[ללא כותרת]', # Fuzzy
 	'notifications' => 'הודעות',
 	'echo-specialpage' => 'ההודעות שלי',
 	'echo-anon' => 'כדי לקבל הודעות, [[Special:Userlogin/signup|יש ליצור חשבון]] או [[Special:UserLogin|להיכנס]].',
@@ -744,6 +750,7 @@ $messages['hsb'] = array(
 	'notification-add-talkpage-topic' => '$2 je nowu temu "$3" na [[$4]] {{GENDER:$1|započał|započała}}',
 	'notification-add-talkpage-topic-yours' => '$2 je ći powěsć {{GENDER:$1|pósłał|pósłała}}: [[$4#$3|$3]]',
 	'notification-add-comment-yours' => '$2 je "[[$4#$3|$3]]" na twojej diskusijnej stronje {{GENDER:$1|komentował|komentowała}}',
+	'notification-talkpage-content' => '$1',
 	'notification-new-user' => 'Witaj do {{GRAMMAR:genitiw|{{SITENAME}}}}, $1!',
 	'notification-new-user-content' => 'Halo $1, a witaj do {{GRAMMAR:genitiw|{{SITENAME}}}}.<br />
 Prošu njezabudź komentary na diskusijnych stronach z 4 tildami (~~~~) podpisać .',
@@ -796,11 +803,11 @@ $messages['hu'] = array(
  * @author McDutchie
  */
 $messages['ia'] = array(
-	'echo-desc' => 'Un nove infrastructura de notification pro MediaWiki',
+	'echo-desc' => 'Un nove infrastructura de notification pro MediaWiki', # Fuzzy
 	'prefs-echo' => 'Notificationes',
 	'echo-pref-notify-watchlist' => 'Subscriber me pro modificar notificationes quando io adde paginas a mi observatorio.',
 	'echo-no-agent' => '[Nemo]',
-	'echo-no-title' => '[Sin titulo]',
+	'echo-no-title' => '[Sin titulo]', # Fuzzy
 	'notifications' => 'Notificationes',
 	'echo-specialpage' => 'Mi notificationes',
 	'echo-anon' => 'Pro reciper notificationes, [[Special:Userlogin/signup|crea un conto]] o [[Special:UserLogin|aperi session]].',
@@ -907,7 +914,7 @@ $messages['ja'] = array(
 	'notifications' => '通知',
 	'echo-specialpage' => '自分の通知',
 	'notification-edit' => '$2 が [[$3]] $4 を{{GENDER:$1|編集しました}}',
-	'notification-edit-talk-page' => '$2 が[[User talk:$4|あなたのトークページ]]を{{GENDER:$1|編集しました}}',
+	'notification-edit-talk-page' => '$2 が[[User talk:$4|あなたのトークページ]]を{{GENDER:$1|編集しました}}', # Fuzzy
 	'notification-add-comment' => '$2 がトークページ「$5」の「[[$4|$3]]」に{{GENDER:$1|コメントしました}}',
 	'notification-new-user' => '$1さん、{{SITENAME}}にようこそ!',
 	'notification-edit-talk-page-email-subject' => '{{SITENAME}}のあなたのトークページを $2 が編集しました',
@@ -925,11 +932,11 @@ $1',
  * @author NoiX180
  */
 $messages['jv'] = array(
-	'echo-desc' => 'Infrastruktur wara-wara gènèrasi ngarep kanggo MediaWiki',
+	'echo-desc' => 'Infrastruktur wara-wara gènèrasi ngarep kanggo MediaWiki', # Fuzzy
 	'prefs-echo' => 'Wara-wara',
 	'echo-pref-notify-watchlist' => 'Langganan kanggo nyunting wara-wara nalika Kula nambahaké kaca nèng daptar pangawasan kula.',
 	'echo-no-agent' => '[Dudu sapa-sapa]',
-	'echo-no-title' => '[Ora ana judhul]',
+	'echo-no-title' => '[Ora ana judhul]', # Fuzzy
 	'notifications' => 'Wara-wara',
 	'echo-specialpage' => 'Wara-wara kula',
 	'echo-anon' => 'Kanggo nampa wara-wara [[Special:Userlogin/signup|gawé akun]] utawa [[Special:UserLogin|mlebu log]].',
@@ -958,7 +965,7 @@ $1',
 $messages['ka'] = array(
 	'prefs-echo' => 'შეტყობინებები',
 	'echo-no-agent' => '[არავინ]',
-	'echo-no-title' => '[უსათაურო]',
+	'echo-no-title' => '[უსათაურო]', # Fuzzy
 	'notifications' => 'შეტყობინებები',
 	'echo-specialpage' => 'ჩემი შეტყობინებები',
 	'echo-link' => 'ჩემი შეტყობინებები',
@@ -1127,6 +1134,7 @@ $messages['mk'] = array(
 	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|напиша}} нова тема „$3“ за [[$4]]',
 	'notification-add-talkpage-topic-yours' => '$2 ви {{GENDER:$1|испрати}} порака: [[$4#$3|$3]]',
 	'notification-add-comment-yours' => '$2 {{GENDER:$1|коментираше}} на „[[$4#$3|$3]]“ на вашата страница за разговор',
+	'notification-talkpage-content' => '$1',
 	'notification-new-user' => 'Добредојдовте на {{SITENAME}}, $1!',
 	'notification-new-user-content' => 'Здраво $1, и добредојдовте на {{SITENAME}}.<br />
 НЕ заборавајте да си ги потпишувате коментарите на страниците за разговор со 4 тилди (~~~~).',
@@ -1168,7 +1176,7 @@ $1',
  */
 $messages['ml'] = array(
 	'echo-no-agent' => '[ആരുമില്ല]',
-	'echo-no-title' => '[തലക്കെട്ടില്ല]',
+	'echo-no-title' => '[തലക്കെട്ടില്ല]', # Fuzzy
 	'notifications' => 'അറിയിപ്പുകൾ',
 	'echo-specialpage' => 'എനിക്കുള്ള അറിയിപ്പുകൾ',
 	'echo-email-subject-default' => '{{SITENAME}} സംരംഭത്തിൽ അറിയിപ്പുണ്ട്',
@@ -1185,11 +1193,11 @@ $1',
  * @author Anakmalaysia
  */
 $messages['ms'] = array(
-	'echo-desc' => 'Prasarana pemberitahuan generasi baru untuk MediaWiki',
+	'echo-desc' => 'Sistem pemberitahuan',
 	'prefs-echo' => 'Pemberitahuan',
 	'echo-pref-notify-watchlist' => 'Langganlah saya untuk menyunting pemberitahuan setiap kali saya menambahkan halaman ke dalam senarai pantau saya.',
 	'echo-no-agent' => '[Tiada Sesiapa]',
-	'echo-no-title' => '[Tiada Tajuk]',
+	'echo-no-title' => '[Tiada halaman]',
 	'notifications' => 'Pemberitahuan',
 	'echo-specialpage' => 'Pemberitahuan saya',
 	'echo-anon' => 'Untuk menerima pemberitahuan, sila [[Special:Userlogin/signup|buka akaun]] atau [[Special:UserLogin|log masuk]].',
@@ -1243,11 +1251,11 @@ $1',
  * @author Chrisportelli
  */
 $messages['mt'] = array(
-	'echo-desc' => "Infrastruttura ta' ġenerazzjoni ġdida għan-notifiki fuq MediaWiki",
+	'echo-desc' => "Infrastruttura ta' ġenerazzjoni ġdida għan-notifiki fuq MediaWiki", # Fuzzy
 	'prefs-echo' => 'Notifiki',
 	'echo-pref-notify-watchlist' => "Immodifika l-modifiki tiegħi meta nżid paġni fil-lista ta' osservazzjonijiet tiegħi.",
 	'echo-no-agent' => '[Ħadd]',
-	'echo-no-title' => '[L-ebda titlu]',
+	'echo-no-title' => '[L-ebda titlu]', # Fuzzy
 	'notifications' => 'Notifiki',
 	'echo-specialpage' => 'Notifiki tiegħi',
 	'echo-anon' => 'Sabiex tirċievi notifiki, [[Special:Userlogin/signup|oħloq kont]] jew [[Special:UserLogin|illoggja]].',
@@ -1268,7 +1276,7 @@ Tista' tara t-tibdil li $2 għamel billi ssegwi din il-ħolqa:
 Inti qiegħed tirċievi dan il-messaġġ minħabba li abbonajt għall-aġġornamenti permezz tal-posta elettronika għat-tibdil li jsir fuq din il-paġna.
 
 Grazzi talli qiegħed tuża {{SITENAME}}
-Is-sistema ta' notifika ta' {{SITENAME}}",
+Is-sistema ta' notifika ta' {{SITENAME}}", # Fuzzy
 	'notification-edit-talk-page-email-subject' => "Il-paġna ta' diskussjoni tiegħek fuq {{SITENAME}} ġiet modifikata minn $2",
 	'notification-edit-talk-page-email-body' => "Insellimlek $4,
 Din hija notifika sabiex ngħarrfuk li $2 immodifika l-paġna ta' diskussjoni tiegħek fuq {{SITENAME}}.
@@ -1354,11 +1362,11 @@ $1',
  * @author Przemub
  */
 $messages['pl'] = array(
-	'echo-desc' => 'Powiadomienie o infrastrukturze nowej generacji dla MediaWiki',
+	'echo-desc' => 'Powiadomienie o infrastrukturze nowej generacji dla MediaWiki', # Fuzzy
 	'prefs-echo' => 'Powiadomienia',
 	'echo-pref-notify-watchlist' => 'Wpisz mnie na listę powiadomień o edycji gdy dodaję strony do śledzonych.',
 	'echo-no-agent' => '[Nikt]',
-	'echo-no-title' => '[Bez tytułu]',
+	'echo-no-title' => '[Bez tytułu]', # Fuzzy
 	'notifications' => 'Powiadomienia',
 	'echo-specialpage' => 'Moje powiadomienia',
 	'echo-anon' => 'Aby otrzymywać powiadomienia [[Special:Userlogin/signup|utwórz konto]] lub [[Special:UserLogin|zaloguj się]].',
@@ -1407,11 +1415,11 @@ $1',
  * @author Dragonòt
  */
 $messages['pms'] = array(
-	'echo-desc' => 'Anfrastrutura ëd notìfica ëd neuva generassion për MediaWiki',
+	'echo-desc' => 'Anfrastrutura ëd notìfica ëd neuva generassion për MediaWiki', # Fuzzy
 	'prefs-echo' => 'Notìfiche',
 	'echo-pref-notify-watchlist' => "Anscrivme për modifiché le notìfiche quand che mi i gionto dle pàgine a lòn ch'im ten-o sot-euj.",
 	'echo-no-agent' => '[Gnun]',
-	'echo-no-title' => '[Gnun Tìtoj]',
+	'echo-no-title' => '[Gnun Tìtoj]', # Fuzzy
 	'notifications' => 'Notìfiche',
 	'echo-specialpage' => 'Mie notìfiche',
 	'echo-anon' => "Për arseive dle notìfiche, [[Special:Userlogin/signup|ch'a crea un cont]] o [[Special:UserLogin|ch'a intra ant ël sistema]].",
@@ -1477,7 +1485,7 @@ $messages['ro'] = array(
 $messages['roa-tara'] = array(
 	'prefs-echo' => 'Notificaziune',
 	'echo-no-agent' => '[Nisciune]',
-	'echo-no-title' => '[Nisciune titole]',
+	'echo-no-title' => '[Nisciune titole]', # Fuzzy
 	'notifications' => 'Notificaziune',
 	'echo-specialpage' => 'Notificaziune mie',
 	'notification-edit' => '$2 {{GENDER:$1|cangiate}} [[$3]] $4',
@@ -1494,14 +1502,14 @@ $1",
  * @author Kalan
  */
 $messages['ru'] = array(
-	'echo-desc' => 'Следующего поколения уведомлений для MediaWiki',
+	'echo-desc' => 'Следующего поколения уведомлений для MediaWiki', # Fuzzy
 	'prefs-echo' => 'Уведомления',
 	'echo-pref-notify-watchlist' => 'Подписать меня на уведомления при добавлении страниц в мой список наблюдения.',
 	'echo-no-agent' => '[Никто]',
-	'echo-no-title' => '[Нет название]',
+	'echo-no-title' => '[Нет название]', # Fuzzy
 	'notifications' => 'Уведомления',
 	'echo-specialpage' => 'Мои уведомления',
-	'echo-anon' => 'Чтобы получать уведомления, [[Special:Userlogin/signup|создайте учетную запись]] или [[Special:Userlogin|представьтесь]].',
+	'echo-anon' => 'Чтобы получать уведомления, [[Special:Userlogin/signup|создайте учетную запись]] или [[Special:Userlogin|представьтесь]].', # Fuzzy
 	'echo-none' => 'Вы не получали уведомлений!',
 	'notification-edit' => '$2 {{GENDER:$1|отредактировал|отредактировала}} [[$3]] $4',
 	'notification-edit-talk-page' => '$2 {{GENDER:$1|отредактировал|отредактировала}} [[User talk:$4|вашу страницу обсуждения]] $3',
@@ -1522,7 +1530,7 @@ $messages['ru'] = array(
 $messages['si'] = array(
 	'prefs-echo' => 'නිවේදන',
 	'echo-no-agent' => '[කිසිවෙකු නැත]',
-	'echo-no-title' => '[මාතෘකාවක් නොමැත]',
+	'echo-no-title' => '[මාතෘකාවක් නොමැත]', # Fuzzy
 	'notifications' => 'නිවේදන',
 	'echo-specialpage' => 'මගේ නිවේදන',
 	'notification-edit' => '$2 {{GENDER:$1|සංස්කරණය කරා}} [[$3]] $4',
@@ -1539,7 +1547,7 @@ $messages['si'] = array(
 $messages['sr-ec'] = array(
 	'prefs-echo' => 'Обавештења',
 	'echo-no-agent' => '[Нико]',
-	'echo-no-title' => '[Без наслова]',
+	'echo-no-title' => '[Без наслова]', # Fuzzy
 	'notifications' => 'Обавештења',
 	'echo-specialpage' => 'Моја обавештења',
 	'echo-none' => 'У последње време нисте примили ниједно обавештење.',
@@ -1552,11 +1560,12 @@ $messages['sr-ec'] = array(
 	'echo-overlay-title' => 'Моја обавештења',
 );
 
-/** Serbian (Latin script) (srpski (latinica)‎) */
+/** Serbian (Latin script) (srpski (latinica)‎)
+ */
 $messages['sr-el'] = array(
 	'prefs-echo' => 'Obaveštenja',
 	'echo-no-agent' => '[Niko]',
-	'echo-no-title' => '[Bez naslova]',
+	'echo-no-title' => '[Bez naslova]', # Fuzzy
 	'notifications' => 'Obaveštenja',
 	'echo-specialpage' => 'Moja obaveštenja',
 	'echo-none' => 'U poslednje vreme niste primili nijedno obaveštenje.',
@@ -1574,11 +1583,11 @@ $messages['sr-el'] = array(
  * @author WikiPhoenix
  */
 $messages['sv'] = array(
-	'echo-desc' => 'Nästa generations meddelandeinfrastruktur för MediaWiki',
+	'echo-desc' => 'Nästa generations meddelandeinfrastruktur för MediaWiki', # Fuzzy
 	'prefs-echo' => 'Meddelanden',
 	'echo-pref-notify-watchlist' => 'Prenumerera på redigeringsmeddelanden när jag lägger till sidor i min bevakningslista.',
 	'echo-no-agent' => '[Ingen]',
-	'echo-no-title' => '[Ingen titel]',
+	'echo-no-title' => '[Ingen titel]', # Fuzzy
 	'notifications' => 'Meddelanden',
 	'echo-specialpage' => 'Mina meddelanden',
 	'echo-anon' => 'För att ta emot meddelanden, [[Special:Userlogin/signup|skapa ett konto]] eller [[Special:UserLogin|logga in]].',
@@ -1609,7 +1618,7 @@ $1',
  */
 $messages['ta'] = array(
 	'prefs-echo' => 'அறிவிப்புகள்',
-	'echo-no-title' => '[தலைப்பு இல்லை]',
+	'echo-no-title' => '[தலைப்பு இல்லை]', # Fuzzy
 	'notifications' => 'அறிவிப்புகள்',
 	'echo-specialpage' => 'என் அறிவிப்புகள்',
 	'echo-anon' => 'அறிவிப்புகளைப் பெறுவதற்கு [[Special:Userlogin/signup|ஒரு கணக்கை உருவாக்குங்கள்]] அல்லது [[Special:UserLogin|உள்நுழையுங்கள்]].',
@@ -1640,11 +1649,11 @@ $1',
  * @author TheSleepyhollow02
  */
 $messages['tl'] = array(
-	'echo-desc' => 'Pangkasunod na salinlahing imprastruktura ng pagpapabatid para sa MediaWiki',
+	'echo-desc' => 'Pangkasunod na salinlahing imprastruktura ng pagpapabatid para sa MediaWiki', # Fuzzy
 	'prefs-echo' => 'Mga pagpapabatid',
 	'echo-pref-notify-watchlist' => 'Pasipian ako na mapatnugutan ang mga pagpapabatid kapag nagdaragdag ako ng mga pahina sa bantayan ko.',
 	'echo-no-agent' => '[Walang Sinuman]',
-	'echo-no-title' => '[Walang Pamagat]',
+	'echo-no-title' => '[Walang Pamagat]', # Fuzzy
 	'notifications' => 'Mga pagpapabatid',
 	'echo-specialpage' => 'Mga pagpapabatid ko',
 	'echo-anon' => 'Upang makatanggap ng mga pagpapabatid, [[Special:Userlogin/signup|lumikha ng isang akawnt]] o [[Special:UserLogin|lumagdang papasok]].',
@@ -1655,6 +1664,7 @@ $messages['tl'] = array(
 	'notification-add-talkpage-topic' => '{{GENDER:$1|Nagpaskil}} si $2 ng isang bagong paksa na "$3" na nasa ibabaw ng [[$4]]',
 	'notification-add-talkpage-topic-yours' => '{{GENDER:$1|Nagpasa}} sa iyo si $2 ng isang mensahe: [[$4#$3|$3]]',
 	'notification-add-comment-yours' => '{{GENDER:$1|Pinuna}} ni $2 ang hinggil sa "[[$4#$3|$3]]" na nasa ibabaw ng iyong pahina ng usapan',
+	'notification-talkpage-content' => '$1',
 	'notification-new-user' => 'Maligayang Pagdating sa {{SITENAME}}, $1!',
 	'notification-new-user-content' => 'Hi $1, at maligayang pagdating sa {{SITENAME}}.<br />
 Manyaring tandaan na lumagda ng kahit na anong komento sa mga pahina ng usapan na may 4 na bantas (~~~~).',
@@ -1706,11 +1716,11 @@ $messages['ur'] = array(
  * @author Minh Nguyen
  */
 $messages['vi'] = array(
-	'echo-desc' => 'Cơ sở hạ tầng thông báo thế hệ mới của MediaWiki',
+	'echo-desc' => 'Cơ sở hạ tầng thông báo thế hệ mới của MediaWiki', # Fuzzy
 	'prefs-echo' => 'Thông báo',
 	'echo-pref-notify-watchlist' => 'Đăng ký các thông báo về sửa đổi khi nào tôi thêm trang vào danh sách theo dõi.',
 	'echo-no-agent' => '[Không ai]',
-	'echo-no-title' => '[Không tên]',
+	'echo-no-title' => '[Không tên]', # Fuzzy
 	'notifications' => 'Thông báo',
 	'echo-specialpage' => 'Thông báo cho tôi',
 	'echo-anon' => 'Để nhận thông báo, hãy [[Special:Userlogin/signup|mở tài khoản]] hoặc [[Special:UserLogin|đăng nhập]].',
@@ -1731,7 +1741,7 @@ Xin thông báo với bạn rằng $2 đã sửa đổi trang $3 tại {{SITENAM
 Bạn có thể xem các thay đổi của $2 bằng cách theo dõi liên kết này:
 <$4>
 
-Bạn nhận được thư điện tử này vì bạn đã đăng ký theo dõi các thay đổi tại trang này.
+Bạn nhận được thư điện tử này vì bạn đã xin theo dõi các thay đổi tại trang này.
 
 Cám ơn bạn sử dụng {{SITENAME}},
 Hệ thống thông báo {{SITENAME}}',
@@ -1761,11 +1771,11 @@ $1',
  * @author Liangent
  */
 $messages['zh-hans'] = array(
-	'echo-desc' => 'MediaWiki的下一代通知架构',
+	'echo-desc' => 'MediaWiki的下一代通知架构', # Fuzzy
 	'prefs-echo' => '通知',
 	'echo-pref-notify-watchlist' => '当我向监视列表添加页面时也为我订阅编辑通知。',
 	'echo-no-agent' => '[无人]',
-	'echo-no-title' => '[无标题]',
+	'echo-no-title' => '[无标题]', # Fuzzy
 	'notifications' => '通知',
 	'echo-specialpage' => '我的通知',
 	'echo-anon' => '要接收通知，请[[Special:Userlogin/signup|创建帐号]]或[[Special:UserLogin|登录]]。',
@@ -1812,11 +1822,11 @@ $1',
  * @author Simon Shek
  */
 $messages['zh-hant'] = array(
-	'echo-desc' => 'MediaWiki的下一代通知架構',
+	'echo-desc' => 'MediaWiki的下一代通知架構', # Fuzzy
 	'prefs-echo' => '通知',
 	'echo-pref-notify-watchlist' => '當我向監視列表添加頁面時也為我訂閱編輯通知。',
 	'echo-no-agent' => '[無人]',
-	'echo-no-title' => '[無標題]',
+	'echo-no-title' => '[無標題]', # Fuzzy
 	'notifications' => '通知',
 	'echo-specialpage' => '我的通知',
 	'echo-anon' => '要接收通知，請[[Special:Userlogin/signup|創建帳號]]或[[Special:UserLogin|登錄]]。',
@@ -1858,4 +1868,3 @@ $1',
 	'echo-overlay-link' => '所有訊息...',
 	'echo-overlay-title' => '我的訊息',
 );
-
