@@ -681,11 +681,11 @@ $1',
  * @author Inkbug
  */
 $messages['he'] = array(
-	'echo-desc' => 'הדור הבא של תשתית ההודעות של מדיה־ויקי', # Fuzzy
+	'echo-desc' => 'מערכת הודעות',
 	'prefs-echo' => 'הודעות',
 	'echo-pref-notify-watchlist' => 'לרשום אותי להודעות על עריכה כאשר אני מוסיף דפים לרשימת המעקב שלי.',
 	'echo-no-agent' => '[לא צוין]',
-	'echo-no-title' => '[ללא כותרת]', # Fuzzy
+	'echo-no-title' => '[ללא דף]',
 	'notifications' => 'הודעות',
 	'echo-specialpage' => 'ההודעות שלי',
 	'echo-anon' => 'כדי לקבל הודעות, [[Special:Userlogin/signup|יש ליצור חשבון]] או [[Special:UserLogin|להיכנס]].',
@@ -750,7 +750,6 @@ $messages['hsb'] = array(
 	'notification-add-talkpage-topic' => '$2 je nowu temu "$3" na [[$4]] {{GENDER:$1|započał|započała}}',
 	'notification-add-talkpage-topic-yours' => '$2 je ći powěsć {{GENDER:$1|pósłał|pósłała}}: [[$4#$3|$3]]',
 	'notification-add-comment-yours' => '$2 je "[[$4#$3|$3]]" na twojej diskusijnej stronje {{GENDER:$1|komentował|komentowała}}',
-	'notification-talkpage-content' => '$1',
 	'notification-new-user' => 'Witaj do {{GRAMMAR:genitiw|{{SITENAME}}}}, $1!',
 	'notification-new-user-content' => 'Halo $1, a witaj do {{GRAMMAR:genitiw|{{SITENAME}}}}.<br />
 Prošu njezabudź komentary na diskusijnych stronach z 4 tildami (~~~~) podpisać .',
@@ -1134,7 +1133,6 @@ $messages['mk'] = array(
 	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|напиша}} нова тема „$3“ за [[$4]]',
 	'notification-add-talkpage-topic-yours' => '$2 ви {{GENDER:$1|испрати}} порака: [[$4#$3|$3]]',
 	'notification-add-comment-yours' => '$2 {{GENDER:$1|коментираше}} на „[[$4#$3|$3]]“ на вашата страница за разговор',
-	'notification-talkpage-content' => '$1',
 	'notification-new-user' => 'Добредојдовте на {{SITENAME}}, $1!',
 	'notification-new-user-content' => 'Здраво $1, и добредојдовте на {{SITENAME}}.<br />
 НЕ заборавајте да си ги потпишувате коментарите на страниците за разговор со 4 тилди (~~~~).',
