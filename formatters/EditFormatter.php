@@ -8,7 +8,7 @@ class EchoEditFormatter extends EchoBasicFormatter {
 	 * @param $message Message
 	 * @param $user User
 	 */
-	protected function processParam( EchoEvent $event, $param, $message, $user ) {
+	protected function processParam( $event, $param, $message, $user ) {
 		if ( $param === 'difflink' ) {
 			$eventData = $event->getExtra();
 			if ( !isset( $eventData['revid'] ) ) {

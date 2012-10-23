@@ -148,7 +148,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	 * @param $user User
 	 * @throws MWException
 	 */
-	protected function processParam( EchoEvent $event, $param, $message, $user ) {
+	protected function processParam( $event, $param, $message, $user ) {
 		if ( $param === 'agent' ) {
 			// Actually converts to two parameters for gender support
 			if ( !$event->getAgent() ) {
