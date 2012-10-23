@@ -44,6 +44,7 @@ $wgExtensionCredits['specialpage'][] = array(
 
 $dir = dirname( __FILE__ ) . '/';
 $wgExtensionMessagesFiles['Echo'] = $dir . 'Echo.i18n.php';
+$wgExtensionMessagesFiles['EchoAliases'] = $dir . 'Echo.alias.php';
 
 $wgAutoloadClasses['EchoHooks'] = "$dir/Hooks.php";
 $wgAutoloadClasses['EchoSubscription'] = "$dir/model/Subscription.php";
