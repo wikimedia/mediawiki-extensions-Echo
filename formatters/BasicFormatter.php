@@ -58,7 +58,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			$this->email['body']['message'] = $params['email-body-message'];
 
 			if ( isset( $params['email-body-params'] ) ) {
-				$this->email['body']['params'] = $params['email-subject-params'];
+				$this->email['body']['params'] = $params['email-body-params'];
 			} else {
 				$this->email['body']['params'] = array( 'text-notification' );
 			}
