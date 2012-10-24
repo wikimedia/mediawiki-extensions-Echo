@@ -21,7 +21,7 @@ class EchoCommentFormatter extends EchoEditFormatter {
 		}
 	}
 
-	protected function formatFragment( $details, $event, User $user ) {
+	protected function formatFragment( $details, $event, $user ) {
 		$userTalkPage = $user->getUserPage()->getTalkPage();
 
 		if (
