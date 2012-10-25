@@ -151,6 +151,8 @@ $wgHooks['ArticleEditUpdateNewTalk'][] = 'EchoHooks::abortNewtalkNotification';
 // Configuration
 
 $wgEchoDisableStandardEmail = true;
+// The organization address, the value should be defined in LocalSettings.php
+$wgEchoEmailFooterAddress = '';
 
 $wgEchoDefaultNotificationTypes = array( // Welcome events do not use subscription, and will only trigger notify, not email.
 	'all' => array(
@@ -185,7 +187,7 @@ $wgEchoNotificationFormatters = array(
 		'email-subject-message' => 'notification-edit-talk-page-email-subject',
 		'email-subject-params' => array( 'agent' ),
 		'email-body-message' => 'notification-edit-talk-page-email-body',
-		'email-body-params' => array( 'agent', 'difflink', 'user', 'summary' ),
+		'email-body-params' => array( 'agent', 'difflink', 'user', 'summary', 'email-footer' ),
 		'icon' => 'chat',
 	),
 	'edit' => array(
@@ -195,7 +197,7 @@ $wgEchoNotificationFormatters = array(
 		'email-subject-message' => 'notification-edit-email-subject',
 		'email-subject-params' => array( 'agent', 'title' ),
 		'email-body-message' => 'notification-edit-email-body',
-		'email-body-params' => array( 'agent', 'title', 'difflink', 'user', 'summary' ),
+		'email-body-params' => array( 'agent', 'title', 'difflink', 'user', 'summary', 'email-footer' ),
 		'icon' => 'w',
 	),
 	'add-comment' => array(
@@ -231,7 +233,7 @@ $wgEchoNotificationFormatters = array(
 		'email-subject-message' => 'notification-reverted-email-subject',
 		'email-subject-params' => array( 'agent', 'title', 'summary' ),
 		'email-body-message' => 'notification-reverted-email-body',
-		'email-body-params' => array( 'agent', 'title', 'difflink', 'user', 'summary' ),
+		'email-body-params' => array( 'agent', 'title', 'difflink', 'user', 'summary', 'email-footer' ),
 		'icon' => 'revert',
 	)
 );

@@ -49,11 +49,10 @@ You can see the changes that $2 made by following this link:
 
 You are receiving this message because you have subscribed to email updates for changes to this page.
 
-Thanks for using {{SITENAME}}
-The {{SITENAME}} notification system',
-
+$7',
 	'notification-edit-talk-page-email-subject' => 'Your {{SITENAME}} talk page has been edited by $2',
 	'notification-edit-talk-page-email-body' => 'Hello $4,
+
 This is a notification to let you know that $2 has edited your talk page on {{SITENAME}}.
 
 On {{SITENAME}}, your talk page is where other users can leave you messages.
@@ -63,8 +62,7 @@ $2 used the following summary to describe their change: $5
 You can see the changes that $2 made at this link:
 <$3>
 
-Thanks for using {{SITENAME}}
-The {{SITENAME}} notification system',
+$6',
 
 	'notification-reverted-email-subject' => '{{SITENAME}} notification: $2 has reverted your edit on $3: $4',
 	'notification-reverted-email-body' => 'Hello $5,
@@ -78,15 +76,22 @@ You can see the change that $2 made to revert your edits by following this link:
 You are receiving this message because you have subscribed to email alerts
 when your changes are reverted.
 
-Thanks for using {{SITENAME}}
-The {{SITENAME}} notification system.',
+$7',
 
 	// Email notification
 	'echo-email-subject-default' => 'New notification at {{SITENAME}}',
 	'echo-email-body-default' => 'You have a new notification at {{SITENAME}}:
 
 $1',
+	'echo-email-footer-default' => 'Thank you!
 
+The {{SITENAME}} Team
+
+To change your e-mail preferences or unsubscribe, visit:
+
+{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
+
+$1',
 	// Notifications overlay
 	'echo-link-new' => '$1 new {{PLURAL:$1|notification|notifications}}',
 	'echo-link' => 'Notifications',
@@ -171,14 +176,16 @@ $messages['qqq'] = array(
 * $3 is a page title
 * $4 is a link to a change
 * $5 is the e-mail recipient's username.
-* $6 is the edit summary.", # Fuzzy
+* $6 is the edit summary.
+* $7 is the email footer, {{msg|echo-email-footer-default}}", # Fuzzy
 	'notification-edit-talk-page-email-subject' => 'E-mail subject. Parameters:
 * $2 is a username.',
 	'notification-edit-talk-page-email-body' => "E-mail notification. Parameters:
 * $2 is a username
 * $3 link to a change
 * $4 is the e-mail recipient's username.
-* $5 is the edit summary.",
+* $5 is the edit summary.
+* $6 is the email footer, {{msg|echo-email-footer-default}}",
 	'notification-reverted-email-subject' => 'E-mail subject. Parameters:
 *$2 is a username
 *$3 is a page title
@@ -188,10 +195,13 @@ $messages['qqq'] = array(
 * $3 is the page title
 * $4 is the link to the change
 * $5 is the e-mail recipient's username
-* $6 is the edit summary",
+* $6 is the edit summary
+* $7 is the email footer, {{msg|echo-email-footer-default}}",
 	'echo-email-subject-default' => 'Default subject for Echo email notifications',
 	'echo-email-body-default' => 'Default message content for Echo email notifications.
 * $1 is a plain text description of the notification.',
+	'echo-email-footer-default' => 'Default footer content for Echo email notifications.  Parameters:
+* $1 is the address of the organization that sent the e-mail',
 	'echo-link-new' => 'Shown in "personal links" when a user has unread notifications.
 * $1 is number of unread notifications',
 	'echo-link' => 'Shown in "personal links" when a user has JS. New notifications are indicated with a badge.', # Fuzzy
