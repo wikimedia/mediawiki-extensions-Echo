@@ -72,7 +72,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 			$event = EchoEvent::newFromRow( $row );
 
 			if ( MWInit::methodExists( 'Language', 'prettyTimestamp' ) ) {
-				$ts = $this->getLanguage()->prettyTimestamp( $event->getTimestamp() );
+				$ts = $this->getLanguage()->prettyTimestamp( $event->getTimestamp(), false, $user );
 			} else {
 				$ts = $this->getLanguage()->timeanddate( $event->getTimestamp(), true );
 			}

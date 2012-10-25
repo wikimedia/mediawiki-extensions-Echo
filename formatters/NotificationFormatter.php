@@ -119,7 +119,7 @@ abstract class EchoNotificationFormatter {
 		$language = Language::factory( $languageCode );
 
 		if ( MWInit::methodExists( 'Language', 'prettyTimestamp' ) ) {
-			$ts = $language->prettyTimestamp( $ts );
+			$ts = $language->prettyTimestamp( $ts, false, $user );
 		} else {
 			$ts = $language->userTimeAndDate( $ts, $user );
 		}
