@@ -43,7 +43,7 @@ class EchoHooks {
 	public static function getDefaultNotifiedUsers( $event, &$users ) {
 		switch ( $event->getType() ) {
 			// Everyone deserves to know when something happens
-			//  on their user talk page
+			// on their user talk page
 			case 'edit-user-talk':
 				if ( !$event->getTitle() || !$event->getTitle()->getNamespace() == NS_USER_TALK ) {
 					break;
@@ -65,11 +65,9 @@ class EchoHooks {
 				}
 
 				$revision = Revision::newFromId( $extraData['revid'] );
-
-				$users = array_merge(
-					$users,
-					EchoDiscussionParser::getNotifiedUsersForComment( $revision )
-				);
+				if ( $revision ) {
+					$users += EchoDiscussionParser::getNotifiedUsersForComment( $revision );
+				}
 				break;
 			case 'welcome':
 				$users[$event->getAgent()->getId()] = $event->getAgent();
@@ -143,6 +141,10 @@ class EchoHooks {
 				if ( $updated ) {
 					$event->updateExtra( $extra );
 				}
+				break;
+			case 'mention':
+				$extraData = $event->getExtra();
+				$users += $extraData['mentioned-users'];
 				break;
 		}
 

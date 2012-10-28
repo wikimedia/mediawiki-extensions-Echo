@@ -77,6 +77,12 @@ class EchoCommentFormatter extends EchoEditFormatter {
 			} else {
 				$message->params( '' );
 			}
+		} elseif ( $param === 'subject-link' ) {
+			$prop = array();
+			if ( isset( $extra['section-title'] ) && $extra['section-title'] ) {
+				$prop['fragment'] = $extra['section-title'];
+			}
+			$this->setTitleLink( $event, $message, $prop );
 		} else {
 			parent::processParam( $event, $param, $message, $user );
 		}

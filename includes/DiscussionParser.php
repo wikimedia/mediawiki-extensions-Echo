@@ -35,11 +35,10 @@ abstract class EchoDiscussionParser {
 
 		foreach ( $interpretation as $action ) {
 			// These two event types are disabled temporarily, there is no need to process them
-			/*
 			if ( $action['type'] == 'add-comment' ) {
 				$fullSection = $action['full-section'];
 				$header = self::extractHeader( $fullSection );
-
+				/*
 				EchoEvent::create( array(
 					'type' => 'add-comment',
 					'title' => $title,
@@ -50,10 +49,14 @@ abstract class EchoDiscussionParser {
 					),
 					'agent' => $user,
 				) );
-				$createdEvents = true;
+				*/
+				self::generateMentionEvents( $header, $action['content'], $revision, $user );
+
+				//$createdEvents = true;
 			} elseif ( $action['type'] == 'new-section-with-comment' ) {
 				$content = $action['content'];
 				$header = self::extractHeader( $content );
+				/*
 				EchoEvent::create( array(
 					'type' => 'add-talkpage-topic',
 					'title' => $title,
@@ -64,9 +67,11 @@ abstract class EchoDiscussionParser {
 					),
 					'agent' => $user,
 				) );
-				$createdEvents = true;
+				*/
+				self::generateMentionEvents( $header, $content, $revision, $user );
+
+				//$createdEvents = true;
 			}
-			*/
 		}
 
 		if ( !$createdEvents && $title->getNamespace() == NS_USER_TALK ) {
@@ -80,6 +85,84 @@ abstract class EchoDiscussionParser {
 				) );
 			}
 		}
+	}
+
+	/**
+	 * For an action taken on a talk page, notify users whose user pages
+	 * are linked.
+	 * @param $header The subject line for the discussion.
+	 * @param $content The content of the post, as a wikitext string.
+	 * @param $revision Revision object.
+	 * @param $agent The user who made the comment.
+	 */
+	public static function generateMentionEvents( $header, $content, $revision, $agent ) {
+		$title = $revision->getTitle();
+		if ( !$title ) {
+			return;
+		}
+
+		$output = self::parseNonEditWikitext( $content, new Article( $title ) );
+		$links = $output->getLinks();
+		$mentionedUsers = array();
+
+		foreach ( $links[NS_USER] as $dbk => $page_id ) {
+			$user = User::newFromName( $dbk );
+			// we should not add user to 'mention' notification list if
+			// 1. the user name is not valid
+			// 2. the user mentions themselves
+			// 3. the user is the owner of the talk page
+			if (
+				!$user || $user->getId() == $revision->getUser() ||
+				( $title->getNamespace() === NS_USER_TALK && $title->getDBkey() === $dbk )
+			) {
+				continue;
+			}
+			$mentionedUsers[$user->getId()] = $user;
+		}
+
+		if ( !$mentionedUsers ) {
+			return;
+		}
+
+		EchoEvent::create( array(
+			'type' => 'mention',
+			'title' => $title,
+			'extra' => array(
+				'content' => $content,
+				'section-title' => $header,
+				'revid' => $revision->getId(),
+				'mentioned-users' => $mentionedUsers,
+			),
+			'agent' => $agent,
+		) );
+	}
+
+	/**
+	 * It's like Article::prepareTextForEdit,
+	 *  but not for editing (old wikitext usually)
+	 * Stolen from AbuseFilterVariableHolder
+	 *
+	 * @param $wikitext String
+	 * @param $article Article
+	 *
+	 * @return object
+	 */
+	static function parseNonEditWikitext( $wikitext, $article ) {
+		static $cache = array();
+
+		$cacheKey = md5( $wikitext ) . ':' . $article->getTitle()->getPrefixedText();
+
+		if ( isset( $cache[$cacheKey] ) ) {
+			return $cache[$cacheKey];
+		}
+
+		global $wgParser;
+		$options = new ParserOptions;
+		$options->setTidy( true );
+		$output = $wgParser->parse( $wikitext, $article->getTitle(), $options );
+		$cache[$cacheKey] = $output;
+
+		return $output;
 	}
 
 	/**
