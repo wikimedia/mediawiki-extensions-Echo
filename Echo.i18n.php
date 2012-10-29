@@ -546,11 +546,11 @@ $messages['fi'] = array(
  * @author Tititou36
  */
 $messages['fr'] = array(
-	'echo-desc' => 'Infrastructure de notification de prochaine génération pour MediaWiki', # Fuzzy
+	'echo-desc' => 'Système de notifications',
 	'prefs-echo' => 'Notifications',
 	'echo-pref-notify-watchlist' => "M'inscrire pour modifier les notifications quand j'ajoute des pages à ma liste de suivi.",
 	'echo-no-agent' => '[Personne]',
-	'echo-no-title' => '[Sans titre]', # Fuzzy
+	'echo-no-title' => '[Aucune page]',
 	'notifications' => 'Notifications',
 	'echo-specialpage' => 'Mes notifications',
 	'echo-anon' => 'Pour recevoir des notifications, [[Special:Userlogin/signup|créez un compte]] ou [[Special:UserLogin|connectez-vous]].',
