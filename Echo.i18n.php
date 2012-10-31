@@ -1714,11 +1714,11 @@ $messages['ur'] = array(
  * @author Minh Nguyen
  */
 $messages['vi'] = array(
-	'echo-desc' => 'Cơ sở hạ tầng thông báo thế hệ mới của MediaWiki', # Fuzzy
+	'echo-desc' => 'Hệ thống thông báo',
 	'prefs-echo' => 'Thông báo',
 	'echo-pref-notify-watchlist' => 'Đăng ký các thông báo về sửa đổi khi nào tôi thêm trang vào danh sách theo dõi.',
 	'echo-no-agent' => '[Không ai]',
-	'echo-no-title' => '[Không tên]', # Fuzzy
+	'echo-no-title' => '[Không có trang]',
 	'notifications' => 'Thông báo',
 	'echo-specialpage' => 'Thông báo cho tôi',
 	'echo-anon' => 'Để nhận thông báo, hãy [[Special:Userlogin/signup|mở tài khoản]] hoặc [[Special:UserLogin|đăng nhập]].',
