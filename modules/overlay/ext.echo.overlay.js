@@ -22,6 +22,8 @@
 					.text( mw.msg( 'echo-overlay-title' ) )
 			);
 
+			$overlay.css( 'max-height', $( window ).height() * 0.75 );
+
 			var Api = new mw.Api();
 
 			Api.get( {
