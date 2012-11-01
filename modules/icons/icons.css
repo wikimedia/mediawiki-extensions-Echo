@@ -26,3 +26,28 @@
 	/* @embed */
 	background-image: url(revert.png);
 }
+
+.mw-echo-icon-checkmark {
+	/* @embed */
+	background-image: url(tick.png);
+}
+
+.mw-echo-icon-trash {
+	/* @embed */
+	background-image: url(trash.png);
+}
+
+.mw-echo-icon-gift {
+	/* @embed */
+	background-image: url(gift.png);
+}
+
+.mw-echo-icon-heart {
+	/* @embed */
+	background-image: url(heart.png);
+}
+
+.mw-echo-icon-people {
+	/* @embed */
+	background-image: url(people.png);
+}
