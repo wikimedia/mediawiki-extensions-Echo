@@ -184,8 +184,13 @@ class EchoNotificationController {
 
 		$eventType = $event->getType();
 
-		// allow extensions to define their own notification formatter
-		wfRunHooks( 'BeforeFormatEchoNotification', array( &$wgEchoNotificationFormatters ) );
+		static $runHook = true;
+		// this hook should only be executed once to gather valid formatter
+		if ( $runHook ) {
+			// allow extensions to define their own notification formatter
+			wfRunHooks( 'BeforeFormatEchoNotification', array( &$wgEchoNotificationFormatters ) );
+			$runHook = false;
+		}
 		if ( isset( $wgEchoNotificationFormatters[$eventType] ) ) {
 			$params = $wgEchoNotificationFormatters[$eventType];
 			$notifier = EchoNotificationFormatter::factory( $params );

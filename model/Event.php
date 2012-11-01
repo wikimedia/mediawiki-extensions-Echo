@@ -69,8 +69,13 @@ class EchoEvent {
 
 		global $wgEchoEnabledEvents;
 
-		// allow extensions to define their own event
-		wfRunHooks( 'BeforeCreateEchoEvent', array( &$wgEchoEnabledEvents ) );
+		static $runHook = true;
+		// this hook should only be executed once to gather valid echo events
+		if ( $runHook ) {
+			// allow extensions to define their own event
+			wfRunHooks( 'BeforeCreateEchoEvent', array( &$wgEchoEnabledEvents ) );
+			$runHook = false;
+		}
 		if (
 			$wgEchoEnabledEvents !== false &&
 			!in_array( $info['type'], $wgEchoEnabledEvents )
