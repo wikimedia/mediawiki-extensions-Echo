@@ -124,8 +124,6 @@ $wgResourceModules += array(
 	),
 );
 
-$wgDefaultUserOptions['echo-notify-watchlist'] = true;
-
 /**
  * This Echo hook can be used to define users who are by default interested in
  * certain events.
@@ -137,8 +135,6 @@ $wgHooks['EchoGetDefaultNotifiedUsers'][] = 'EchoHooks::getDefaultNotifiedUsers'
 $wgHooks['EchoGetNotificationTypes'][] = 'EchoHooks::getNotificationTypes';
 
 // Hook appropriate events
-$wgHooks['WatchArticleComplete'][] = 'EchoHooks::onWatch';
-$wgHooks['UnwatchArticleComplete'][] = 'EchoHooks::onUnwatch';
 $wgHooks['ArticleSaveComplete'][] = 'EchoHooks::onArticleSaved';
 $wgHooks['AddNewAccount'][] = 'EchoHooks::onAccountCreated';
 $wgHooks['ArticleRollbackComplete'][] = 'EchoHooks::onRollbackComplete';
@@ -146,9 +142,12 @@ $wgHooks['ArticleRollbackComplete'][] = 'EchoHooks::onRollbackComplete';
 // Disable ordinary email notifications
 $wgHooks['AbortEmailNotification'][] = 'EchoHooks::abortEmailNotification';
 // Disable the yellow bar of death
-$wgHooks['ArticleEditUpdateNewTalk'][] = 'EchoHooks::abortNewtalkNotification';
+$wgHooks['ArticleEditUpdateNewTalk'][] = 'EchoHooks::abortNewTalkNotification';
 
 // Configuration
+
+// Enable notifications for all logged in users by default
+$wgDefaultUserOptions['echo-notify-link'] = 'true';
 
 $wgEchoDisableStandardEmail = true;
 
@@ -174,6 +173,9 @@ $wgEchoNotifiers = array(
 	'email' => array( 'EchoNotifier', 'notifyWithEmail' ),
 );
 
+// Event types that should have notifications enabled.
+// The list here only includes event types handled by Echo itself. Other
+// extensions can add to this list through the BeforeCreateEchoEvent hook.
 $wgEchoEnabledEvents = array(
 	'edit-user-talk',
 	'add-comment',

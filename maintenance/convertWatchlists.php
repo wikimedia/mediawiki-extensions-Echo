@@ -1,4 +1,6 @@
 <?php
+// This file is deprecated since Echo is currently not being used for any
+// watchlist-related functionality.
 
 require_once ( getenv( 'MW_INSTALL_PATH' ) !== false
 	? getenv( 'MW_INSTALL_PATH' ) . '/maintenance/Maintenance.php'

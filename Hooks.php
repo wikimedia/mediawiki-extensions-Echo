@@ -112,57 +112,11 @@ class EchoHooks {
 	 */
 	public static function getPreferences( $user, &$preferences ) {
 		global $wgEchoEnabledEvents;
-		if ( $wgEchoEnabledEvents !== false && !in_array( 'edit', $wgEchoEnabledEvents ) ) {
-			return true;
-		}
-
-		$preferences['echo-notify-watchlist'] = array(
+		$preferences['echo-notify-link'] = array(
 			'type' => 'toggle',
-			'label-message' => 'echo-pref-notify-watchlist',
-			'section' => 'echo',
+			'label-message' => 'echo-pref-notify-link',
+			'section' => 'echo/displaynotifications',
 		);
-		return true;
-	}
-
-	/**
-	 * Handler for WatchArticleComplete hook
-	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/WatchArticleComplete
-	 * @param $user User who watched the Article
-	 * @param $article Article that was watched.
-	 * @return bool true in all cases
-	 */
-	public static function onWatch( $user, $article ) {
-		global $wgEchoEnabledEvents;
-		if ( $wgEchoEnabledEvents !== false && !in_array( 'edit', $wgEchoEnabledEvents ) ) {
-			return true;
-		}
-
-		if ( !$user->getOption( 'echo-notify-watchlist' ) ) {
-			return true;
-		}
-
-		$subscription = new EchoSubscription( $user, 'edit', $article->getTitle() );
-		$subscription->enableNotification( 'notify' );
-		$subscription->save();
-		return true;
-	}
-
-	/**
-	 * Handler for UnwatchArticleComplete hook
-	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/UnwatchArticleComplete
-	 * @param $user User who unwatched the Article
-	 * @param $article Article that was unwatched.
-	 * @return bool true in all cases
-	 */
-	public static function onUnwatch( $user, $article ) {
-		global $wgEchoEnabledEvents;
-		if ( $wgEchoEnabledEvents !== false && !in_array( 'edit', $wgEchoEnabledEvents ) ) {
-			return true;
-		}
-
-		$subscription = new EchoSubscription( $user, 'edit', $article->getTitle() );
-		$subscription->disableNotification( 'notify' );
-		$subscription->save();
 		return true;
 	}
 
@@ -248,8 +202,9 @@ class EchoHooks {
 	 * @return bool true in all cases
 	 */
 	static function beforePageDisplay( $out, $skin ) {
-		global $wgUser;
-		if ( !$wgUser->isAnon() ) {
+		$user = $out->getUser();
+		if ( $user->isLoggedIn() && $user->getOption( 'echo-notify-link' ) ) {
+			// Load the module for the Notifications flyout
 			$out->addModules( array( 'ext.echo.overlay' ) );
 		}
 		return true;
@@ -257,6 +212,7 @@ class EchoHooks {
 
 	/**
 	 * Handler for PersonalUrls hook.
+	 * Add a "Notifications" item to the user toolbar ('personal URLs').
 	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/PersonalUrls
 	 * @param &$personal_urls Array of URLs to append to.
 	 * @param &$title Title of page being visited.
@@ -265,8 +221,7 @@ class EchoHooks {
 	static function onPersonalUrls( &$personal_urls, &$title ) {
 		global $wgUser;
 		// Add a "My notifications" item to personal URLs
-
-		if ( $wgUser->isAnon() ) {
+		if ( $wgUser->isAnon() || !$wgUser->getOption( 'echo-notify-link' ) ) {
 			return true;
 		}
 
@@ -297,6 +252,13 @@ class EchoHooks {
 		return !$wgEchoDisableStandardEmail;
 	}
 
+	/**
+	 * Handler for MakeGlobalVariablesScript hook.
+	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/MakeGlobalVariablesScript
+	 * @param &$vars Variables to be added into the output
+	 * @param $outputPage OutputPage instance calling the hook
+	 * @return bool true in all cases
+	 */
 	public static function makeGlobalVariablesScript( &$vars, OutputPage $outputPage ) {
 		$user = $outputPage->getUser();
 
@@ -313,16 +275,46 @@ class EchoHooks {
 		return true;
 	}
 
+	/**
+	 * Handler for UnitTestsList hook.
+	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/UnitTestsList
+	 * @param &$files Array of unit test files
+	 * @return bool true in all cases
+	 */
 	static function getUnitTests( &$files ) {
 		$dir = dirname( __FILE__ ) . '/tests';
 		$files[] = "$dir/DiscussionParserTest.php";
 		return true;
 	}
 
-	static function abortNewtalkNotification( $article ) {
-		return false;
+	/**
+	 * Handler for ArticleEditUpdateNewTalk hook.
+	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/ArticleEditUpdateNewTalk
+	 * @param $article The article object of the talk page being updated
+	 * @return bool
+	 */
+	static function abortNewTalkNotification( $article ) {
+		global $wgEchoEnabledEvents;
+		// If the user has the notifications flyout turned on and is receiving
+		// notifications for talk page messages, disable the yellow-bar-style notice.
+		if ( $article->getContext()->getUser()->getOption( 'echo-notify-link' )
+			&& in_array( 'edit-user-talk', $wgEchoEnabledEvents ) )
+		{
+			return false;
+		} else {
+			return true;
+		}
 	}
 
+	/**
+	 * Handler for ArticleRollbackComplete hook.
+	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/ArticleRollbackComplete
+	 * @param $page The article that was edited
+	 * @param $agent The user who did the rollback
+	 * @param $newRevision The revision the page was reverted back to
+	 * @param $oldRevision The revision of the top edit that was reverted
+	 * @return bool true in all cases
+	 */
 	static function onRollbackComplete( $page, $agent, $newRevision, $oldRevision ) {
 		$victimId = $oldRevision->getUser();
 

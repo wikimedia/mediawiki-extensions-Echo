@@ -13,7 +13,10 @@ $messages['en'] = array(
 
 	// Preferences
 	'prefs-echo' => 'Notifications',
-	'echo-pref-notify-watchlist' => 'Subscribe me to edit notifications when I add pages to my watchlist.',
+	'prefs-displaynotifications' => 'Display options',
+	'prefs-subscriptions' => 'Subscriptions',
+	'echo-pref-notify-link' => 'Show a link to your notifications at the top of every page',
+	'echo-pref-notify-watchlist' => 'Subscribe me to edit notifications when I add pages to my watchlist',
 
 	// Errors
 	'echo-no-agent' => '[Nobody]',
@@ -111,9 +114,15 @@ $1',
  */
 $messages['qqq'] = array(
 	'echo-desc' => '{{desc}}',
+
+	// Preferences
 	'prefs-echo' => 'Name of preferences section for Echo notifications.',
-	'echo-pref-notify-watchlist' => 'Name of a preference which causes
+	'prefs-displaynotifications' => 'Header for the section of preferences that deals with how notifications are displayed',
+	'prefs-subscriptions' => 'Header for the section of preferences that deals with notificaiton subscriptions',
+	'echo-pref-notify-link' => "Label for a preference which enables a 'Notifications' link in the header and associated fly-out panel",
+	'echo-pref-notify-watchlist' => 'Label for a preference which causes
 	any changes to your watchlist to be replicated in Echo subscriptions',
+
 	'echo-no-agent' => 'Shown in place of a username in a notification
 	if the notification has no specified user.',
 	'echo-no-title' => 'Shown in place of a page title in a notification
@@ -196,14 +205,10 @@ $messages['qqq'] = array(
 * $3 is the page title
 * $4 is the link to the change
 * $5 is the e-mail recipient's username
-<<<<<<< HEAD
 * $6 is the edit summary
 * $7 is the email footer, {{msg|echo-email-footer-default}}",
-=======
-* $6 is the edit summary",
 	'echo-notification-count' => 'The new notification count next to notification link, for example: 99+
 * $1 is the count',
->>>>>>> (bug 41866) Fix invalid notification in the flyout and page
 	'echo-email-subject-default' => 'Default subject for Echo email notifications',
 	'echo-email-body-default' => 'Default message content for Echo email notifications.
 * $1 is a plain text description of the notification.',
