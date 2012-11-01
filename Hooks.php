@@ -184,6 +184,7 @@ class EchoHooks {
 	 * @return bool true in all cases
 	 */
 	public static function onArticleSaved( &$article, &$user, $text, $summary, $minoredit, $watchthis, $sectionanchor, &$flags, $revision, &$status ) {
+		global $wgEchoEnabledEvents;
 		if ( $revision ) {
 			EchoEvent::create( array(
 				'type' => 'edit',
@@ -198,29 +199,30 @@ class EchoHooks {
 
 			// Handle the case of someone undoing an edit, either through the
 			// 'undo' link in the article history or via the API.
-			global $wgRequest;
-			$undidRevId = $wgRequest->getVal( 'wpUndidRevision' );
-			if ( $undidRevId ) {
-				$undidRevision = Revision::newFromId( $undidRevId );
-				if ( $undidRevision ) {
-					$victimId = $undidRevision->getUser();
-					if ( $victimId ) { // No notifications for anonymous users
-						EchoEvent::create( array(
-							'type' => 'reverted',
-							'title' => $article->getTitle(),
-							'extra' => array(
-								'revid' => $revision->getId(),
-								'reverted-user-id' => $victimId,
-								'reverted-revision-id' => $undidRevId,
-								'method' => 'undo',
-							),
-							'agent' => $user,
-						) );
+			if ( in_array( 'reverted', $wgEchoEnabledEvents ) ) {
+				$undidRevId = $user->getRequest()->getVal( 'wpUndidRevision' );
+				if ( $undidRevId ) {
+					$undidRevision = Revision::newFromId( $undidRevId );
+					if ( $undidRevision ) {
+						$victimId = $undidRevision->getUser();
+						if ( $victimId ) { // No notifications for anonymous users
+							EchoEvent::create( array(
+								'type' => 'reverted',
+								'title' => $article->getTitle(),
+								'extra' => array(
+									'revid' => $revision->getId(),
+									'reverted-user-id' => $victimId,
+									'reverted-revision-id' => $undidRevId,
+									'method' => 'undo',
+								),
+								'agent' => $user,
+							) );
+						}
 					}
 				}
 			}
-		}
 
+		}
 		return true;
 	}
 
