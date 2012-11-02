@@ -36,10 +36,13 @@ class EchoEditFormatter extends EchoBasicFormatter {
 					)
 				);
 				$message->rawParams( $link );
+			} elseif ( $this->outputFormat === 'email' ) {
+				$link = $title->getCanonicalURL(
+					array( 'oldid' => $revid, 'diff' => 'prev' ) );
+				$message->params( $link );
 			} else {
 				$link = $title->getFullURL(
 					array( 'oldid' => $revid, 'diff' => 'prev' ) );
-
 				$message->params( $link );
 			}
 		} elseif ( $param === 'summary' ) {
