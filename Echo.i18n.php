@@ -1535,8 +1535,8 @@ $messages['nl'] = array(
 	'echo-specialpage' => 'Mijn meldingen',
 	'echo-anon' => '[[Special:Userlogin/signup|Maak een gebruiker aan]] of [[Special:UserLogin|meld u aan]] als u meldingen wilt ontvangen.',
 	'echo-none' => 'U hebt de laatste tijd geen meldingen ontvangen!',
-	'notification-edit' => '$2 {{GENDER:$1|heeft}} [[$3]] bewerkt $4',
-	'notification-edit-talk-page' => '$2 {{GENDER:$1|heeft}} [[User talk:$4|uw overlegpagina]] bewerkt $3',
+	'notification-edit' => '$2 {{GENDER:$1|heeft}} [[$3]] bewerkt $4: "$5"',
+	'notification-edit-talk-page' => '$2 {{GENDER:$1|heeft}} [[User talk:$4|uw overlegpagina]] bewerkt $3: "$5"',
 	'notification-add-comment' => '$2 {{GENDER:$1|heeft}} gereageerd op "[[$4|$3]]" op de overlegpagina "$5"',
 	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|heeft}} een nieuw onderwerp "$3" geplaatst op [[$4]]',
 	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|heeft}} u een bericht gezonden: "[[$4#$3|$3]]"',
@@ -1544,6 +1544,7 @@ $messages['nl'] = array(
 	'notification-new-user' => 'Welkom op {{SITENAME}}, $1!',
 	'notification-new-user-content' => "Hallo $1 en welkom op {{SITENAME}}.<br />
 Vergeet niet om opmerkingen over overlegpagina's te ondertekenen met 4 tildes (~~~~).",
+	'notification-reverted' => '$2 {{GENDER:$1|heeft}} uw {{PLURAL:$6|1=bewerking|bewerkingen}} teruggedraaid op [[$3]] $4: "$5"',
 	'notification-edit-email-subject' => 'Melding van {{SITENAME}}: $3 is bewerkt door $2',
 	'notification-edit-email-body' => 'Hallo $5,
 
@@ -1555,7 +1556,7 @@ U kunt de wijzigingen die $2 heeft gemaakt bekijken via de volgende verwijzing:
 U ontvangt dit bericht omdat u bent geabonneerd op meldingen via e-mail voor deze pagina.
 
 Dank u wel voor het gebruiken van {{SITENAME}}
-Het meldingensysteem van {{SITENAME}}',
+Het meldingensysteem van {{SITENAME}}', # Fuzzy
 	'notification-edit-talk-page-email-subject' => 'Uw overlegpagina op {{SITENAME}} is bewerkt door $2',
 	'notification-edit-talk-page-email-body' => 'Hallo $4,
 
@@ -1568,7 +1569,7 @@ U kunt de wijzigingen die $2 heeft gemaakt bekijken via de volgende verwijzing:
 <$3>
 
 Dank u wel voor het gebruiken van {{SITENAME}}
-Het meldingensysteem van {{SITENAME}}',
+Het meldingensysteem van {{SITENAME}}', # Fuzzy
 	'echo-email-subject-default' => 'Nieuwe melding op {{SITENAME}}',
 	'echo-email-body-default' => 'U hebt een nieuwe melding op {{SITENAME}}:
 
