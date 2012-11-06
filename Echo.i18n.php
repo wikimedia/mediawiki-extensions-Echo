@@ -194,7 +194,7 @@ $messages['qqq'] = array(
 * $1 is a plain text description of the notification.',
 	'echo-link-new' => 'Shown in "personal links" when a user has unread notifications.
 * $1 is number of unread notifications',
-	'echo-link' => 'Shown in "personal links" when a user has JS. New notifications are indicated with a badge.',
+	'echo-link' => 'Shown in "personal links" when a user has JS. New notifications are indicated with a badge.', # Fuzzy
 	'echo-overlay-link' => 'Link to "all notifications" at the bottom of the overlay',
 	'echo-overlay-title' => 'Title at the top of the notifications overlay',
 );
@@ -413,7 +413,7 @@ Das {{SITENAME}}-Benachrichtigungssystem.',
 
 $1',
 	'echo-link-new' => '$1 neue {{PLURAL:$1|Benachrichtigung|Benachrichtigungen}}',
-	'echo-link' => 'Meine Benachrichtigungen',
+	'echo-link' => 'Benachrichtigungen',
 	'echo-overlay-link' => 'Alle Benachrichtigungen …',
 	'echo-overlay-title' => 'Meine Benachrichtigungen',
 );
@@ -478,7 +478,7 @@ $messages['el'] = array(
 	'echo-no-title' => '[Χωρίς σελίδα]',
 	'notifications' => 'Ειδοποιήσεις',
 	'echo-specialpage' => 'Οι ειδοποιήσεις μου',
-	'echo-link' => 'Οι ειδοποιήσεις μου',
+	'echo-link' => 'Οι ειδοποιήσεις μου', # Fuzzy
 	'echo-overlay-link' => 'Όλες οι ειδοποιήσεις...',
 	'echo-overlay-title' => 'Οι ειδοποιήσεις μου',
 );
@@ -557,7 +557,7 @@ El sistema de notificaciones de {{SITENAME}}',
 
 $1',
 	'echo-link-new' => '$1 {{PLURAL:$1|notificación nueva|notificaciones nuevas}}',
-	'echo-link' => 'Mis notificaciones',
+	'echo-link' => 'Mis notificaciones', # Fuzzy
 	'echo-overlay-link' => 'Todas las notificaciones...',
 	'echo-overlay-title' => 'Mis notificaciones',
 );
@@ -607,7 +607,7 @@ $messages['fi'] = array(
 	'notification-add-comment' => '$2 {{GENDER:$1|kommentoi}} keskustelua [[$4|$3]] sivusta $5',
 	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|aloitti}} keskustelun $3 sivusta [[$4]]',
 	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|lähetti}} sinulle viestin: [[$4#$3|$3]]',
-	'echo-link' => 'Ilmoitukset',
+	'echo-link' => 'Ilmoitukset', # Fuzzy
 	'echo-overlay-link' => 'Kaikki ilmoitukset…',
 	'echo-overlay-title' => 'Ilmoitukset',
 );
@@ -615,6 +615,7 @@ $messages['fi'] = array(
 /** French (français)
  * @author Crochet.david
  * @author DavidL
+ * @author Gomoko
  * @author Hello71
  * @author IAlex
  * @author Jean-Frédéric
@@ -687,7 +688,7 @@ Le système de notification de {{SITENAME}}",
 
 $1',
 	'echo-link-new' => '$1 {{PLURAL:$1|nouvelle notification|nouvelles notifications}}',
-	'echo-link' => 'Mes notifications',
+	'echo-link' => 'Notifications',
 	'echo-overlay-link' => 'Toutes les notifications…',
 	'echo-overlay-title' => 'Mes notifications',
 );
@@ -786,7 +787,7 @@ O sistema de notificación de {{SITENAME}}.',
 
 $1',
 	'echo-link-new' => '$1 {{PLURAL:$1|nova notificación|novas notificacións}}',
-	'echo-link' => 'As miñas notificacións',
+	'echo-link' => 'As miñas notificacións', # Fuzzy
 	'echo-overlay-link' => 'Todas as notificacións…',
 	'echo-overlay-title' => 'As miñas notificacións',
 );
@@ -831,22 +832,36 @@ $2 {{GENDER:$2|סיכם|סיכמה}} את העריכה עם ההערה הבעא�
 מערכת ההודעות של{{SITENAME}}',
 	'notification-edit-talk-page-email-subject' => 'דף השיחה שלך באתר {{SITENAME}} נערך עלֹ־ידי $2',
 	'notification-edit-talk-page-email-body' => 'שלום $4,
-זוהי הודעה כדי לידע אותך ש$2 {{GENDER:$2|ערך|ערכה}} את דף השיחה שלך ב{{SITENAME}}.
+רצינו לספר לך ש{{GRAMMAR|תחילית|$2}} {{GENDER:$2|ערך|ערכה}} את דף השיחה שלך באתר {{SITENAME}}.
 
-ב{{SITENAME}}, דף השיחה שלך הינו מקום בו משתמשים אחרים יכולים להשאיר לך הודעות.
+ב{{SITENAME}}, דף השיחה שלך הוא מקום שמשתמשים אחרים יכולים להשאיר בו הודעות בשבילך.
 
-אפשר לראות את השינויים ש$2 {{GENDER:$2|עשה|עשתה}} בקישור זה:
+$2 {{GENDER:$2|כתב|כתבה}} את התקציר הבא כדי לתאר את השינוי {{GENDER:$2|שעשה|שעשתה}}: $5
+
+אפשר לראות את השינויים ש{{GRAMMAR|תחילית|$2}} {{GENDER:$2|עשה|עשתה}} בקישור זה:
 <$3>
 
-תודה שהשתמשת ב{{SITENAME}}
-מערכת ההודעות של{{SITENAME}}', # Fuzzy
-	'notification-reverted-email-subject' => 'הודעת {{SITENAME}}: $2 {{GENDER:$1|שחזרה|שחזרה}} את עריכתך בדף $3: $4', # Fuzzy
+תודה שהשתמשת באתר {{SITENAME}}
+מערכת ההודעות של {{SITENAME}}',
+	'notification-reverted-email-subject' => 'הודעת {{SITENAME}}: $2 {{GENDER:$2|שחזר|שחזרה}} את עריכתך בדף $3: $4',
+	'notification-reverted-email-body' => 'שלום $5,
+רצינו להודיע לך ש{{GRAMMAR:תחילית|$2}} {{GENDER:$2|ערך|ערכה}} את העמוד $3 באתר {{SITENAME}}.
+
+$2 {{GENDER:$2|סיכם|סיכמה}} את העריכה עם ההערה הבאה: $6
+
+אפשר לראות את השינויים ש{{GRAMMAR:תחילית|$2}} {{GENDER:$2|עשה|עשתה}} בקישור הבא:
+<$4>
+
+קיבלת הודעה זו בגלל שנרשמת לקבל עדכונים בדואר אלקארוני על שינויים בדף זה.
+
+תודה שהשתמשת באתר {{SITENAME}}
+מערכת ההודעות של {{SITENAME}}',
 	'echo-email-subject-default' => 'הודעה חדשה באתר {{SITENAME}}',
 	'echo-email-body-default' => 'יש לך הודעה חדשה באתר {{SITENAME}}:
 
 $1',
 	'echo-link-new' => '{{PLURAL:$1|הודעה אחת חדשה|$1 הודעות חדשות}}',
-	'echo-link' => 'ההודעות שלי',
+	'echo-link' => 'ההודעות שלי', # Fuzzy
 	'echo-overlay-link' => 'על ההודעות...',
 	'echo-overlay-title' => 'ההודעות שלי',
 );
@@ -921,7 +936,7 @@ Zdźělenski system {{GRAMMAR:genitiw|{{SITENAME}}}}',
 
 $1',
 	'echo-link-new' => '$1 {{PLURAL:$1|nowa zdźělenka|nowej zdźělence|nowe zdźělenki|nowych zdźělenkow}}',
-	'echo-link' => 'Moje zdźělenki',
+	'echo-link' => 'Moje zdźělenki', # Fuzzy
 	'echo-overlay-link' => 'Wšě zdźělenki...',
 	'echo-overlay-title' => 'Moje zdźělenki',
 );
@@ -984,7 +999,7 @@ Le systema de notification de {{SITENAME}}', # Fuzzy
 
 $1',
 	'echo-link-new' => '$1 nove {{PLURAL:$1|notification|notificationes}}',
-	'echo-link' => 'Mi notificationes',
+	'echo-link' => 'Mi notificationes', # Fuzzy
 	'echo-overlay-link' => 'Tote le notificationes…',
 	'echo-overlay-title' => 'Mi notificationes',
 );
@@ -1058,7 +1073,7 @@ Il sistema di notifica di {{SITENAME}}',
 
 $1',
 	'echo-link-new' => '$1 {{PLURAL:$1|nuova notifica|nuove notifiche}}',
-	'echo-link' => 'mie notifiche',
+	'echo-link' => 'notifiche',
 	'echo-overlay-link' => 'Tutte le notifiche...',
 	'echo-overlay-title' => 'Mie notifiche',
 );
@@ -1087,7 +1102,7 @@ $messages['ja'] = array(
 
 $1',
 	'echo-link-new' => '$1 {{PLURAL:$1|件の新しい通知}}',
-	'echo-link' => '自分の通知',
+	'echo-link' => '通知',
 	'echo-overlay-link' => 'すべての通知…',
 	'echo-overlay-title' => '自分の通知',
 );
@@ -1206,7 +1221,7 @@ $2 사용자가 다음 요약으로 바뀜을 설명했습니다: $6
 
 $1',
 	'echo-link-new' => '새 {{PLURAL:$1|알림}} $1개',
-	'echo-link' => '내 알림',
+	'echo-link' => '내 알림', # Fuzzy
 	'echo-overlay-link' => '모든 알림…',
 	'echo-overlay-title' => '내 알림',
 );
@@ -1287,7 +1302,7 @@ $messages['lb'] = array(
 
 $1',
 	'echo-link-new' => '$1 nei {{PLURAL:$1|Notifikatioun|Notifikatiounen}}',
-	'echo-link' => 'Meng Notifikatiounen',
+	'echo-link' => 'Meng Notifikatiounen', # Fuzzy
 	'echo-overlay-link' => 'All Notifikatiounen...',
 	'echo-overlay-title' => 'Meng Notifikatiounen',
 );
@@ -1368,7 +1383,7 @@ $2 ги опиша промените што ги направи со следн
 
 $1',
 	'echo-link-new' => '$1 {{PLURAL:$1|ново известување|нови известувања}}',
-	'echo-link' => 'Мои известувања',
+	'echo-link' => 'Известувања',
 	'echo-overlay-link' => 'Сите известувања',
 	'echo-overlay-title' => 'Мои известувања',
 );
@@ -1465,7 +1480,7 @@ Sistem pemberitahuan {{SITENAME}}.',
 
 $1',
 	'echo-link-new' => '$1 pemberitahuan baru',
-	'echo-link' => 'Pemberitahuan saya',
+	'echo-link' => 'Pemberitahuan saya', # Fuzzy
 	'echo-overlay-link' => 'Semua pemberitahuan…',
 	'echo-overlay-title' => 'Pemberitahuan saya',
 );
@@ -1575,7 +1590,7 @@ Het meldingensysteem van {{SITENAME}}', # Fuzzy
 
 $1',
 	'echo-link-new' => '{{PLURAL:$1|1 nieuwe melding|$1 nieuwe meldingen}}',
-	'echo-link' => 'Mijn meldingen',
+	'echo-link' => 'Mijn meldingen', # Fuzzy
 	'echo-overlay-link' => 'Alle meldingen…',
 	'echo-overlay-title' => 'Mijn meldingen',
 );
@@ -1835,7 +1850,7 @@ Kom ihåg att underteckna kommentarer på diskussionssidor med 4 tilde (~~~~).',
 
 $1',
 	'echo-link-new' => '$1 {{PLURAL:$1|nytt meddelande|nya meddelanden}}',
-	'echo-link' => 'Mina meddelanden',
+	'echo-link' => 'Mina meddelanden', # Fuzzy
 	'echo-overlay-link' => 'Alla meddelanden',
 	'echo-overlay-title' => 'Mina meddelanden',
 );
@@ -2008,7 +2023,7 @@ Hệ thống thông báo {{SITENAME}}',
 
 $1',
 	'echo-link-new' => '$1 thông báo mới',
-	'echo-link' => 'Thông báo cho tôi',
+	'echo-link' => 'Thông báo cho tôi', # Fuzzy
 	'echo-overlay-link' => 'Tất cả các thông báo…',
 	'echo-overlay-title' => 'Thông báo cho tôi',
 );
