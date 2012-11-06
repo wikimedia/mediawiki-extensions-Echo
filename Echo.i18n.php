@@ -89,7 +89,7 @@ $1',
 
 	// Notifications overlay
 	'echo-link-new' => '$1 new {{PLURAL:$1|notification|notifications}}',
-	'echo-link' => 'My notifications',
+	'echo-link' => 'Notifications',
 	'echo-overlay-link' => 'All notifications…',
 	'echo-overlay-title' => 'My notifications',
 );
