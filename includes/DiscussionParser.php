@@ -809,4 +809,43 @@ abstract class EchoDiscussionParser {
 
 		return $output;
 	}
+
+	/**
+	 * This function returns plain text snippet, it also removes html tag,
+	 * template from text content
+	 * @param $text string
+	 * @param $length int default 150
+	 * @return string
+	 */
+	static function getTextSnippet( $text, $length = 150 ) {
+		global $wgLang;
+
+		$text = strip_tags( $text );
+		$attempt = 0;
+
+		// 10 attempts at most, the logic here is to find the first }} and
+		// find the matching {{ for that }}
+		while ( $attempt < 10 ) {
+			$closeCurPos = strpos( $text, '}}' );
+
+			if ( $closeCurPos === false ) {
+				break;
+			}
+			$tempStr = substr( $text, 0, $closeCurPos + 2 );
+
+			$openCurPos = strrpos( $tempStr,  '{{' );
+			if ( $openCurPos === false ) {
+				$text = substr_replace( $text, '', $closeCurPos, 2 );
+			} else {
+				$text = substr_replace( $text, '', $openCurPos, $closeCurPos - $openCurPos + 2 );
+			}
+			$attempt++;
+		}
+
+		$text = trim( strip_tags( htmlspecialchars_decode( MessageCache::singleton()->parse( $text )->getText() ) ) );
+		// strip out non-useful data for snippet
+		$text = str_replace( array( '{', '}' ), '', $text );
+
+		return $wgLang->truncate( $text, $length );
+	}
 }
