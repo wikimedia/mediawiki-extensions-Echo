@@ -1546,6 +1546,7 @@ $messages['nl'] = array(
 	'echo-pref-notify-watchlist' => "Mijn abonneren op meldingen over bewerkingen als ik pagina's aan mijn volglijst toevoeg.",
 	'echo-no-agent' => '[Niemand]',
 	'echo-no-title' => '[Geen pagina]',
+	'echo-error-no-formatter' => 'Er is geen opmaak ingesteld voor de melding',
 	'notifications' => 'Meldingen',
 	'echo-specialpage' => 'Mijn meldingen',
 	'echo-anon' => '[[Special:Userlogin/signup|Maak een gebruiker aan]] of [[Special:UserLogin|meld u aan]] als u meldingen wilt ontvangen.',
@@ -1565,13 +1566,15 @@ Vergeet niet om opmerkingen over overlegpagina's te ondertekenen met 4 tildes (~
 
 Dit is een melding om u te laten weten dat $2 de pagina $3 op {{SITENAME}} heeft bewerkt.
 
+$2 heeft {{GENDER:$2|zijn|haar}} wijzigingen als volgt samengevat: $6
+
 U kunt de wijzigingen die $2 heeft gemaakt bekijken via de volgende verwijzing:
 <$4>
 
 U ontvangt dit bericht omdat u bent geabonneerd op meldingen via e-mail voor deze pagina.
 
 Dank u wel voor het gebruiken van {{SITENAME}}
-Het meldingensysteem van {{SITENAME}}', # Fuzzy
+Het meldingensysteem van {{SITENAME}}',
 	'notification-edit-talk-page-email-subject' => 'Uw overlegpagina op {{SITENAME}} is bewerkt door $2',
 	'notification-edit-talk-page-email-body' => 'Hallo $4,
 
@@ -1580,17 +1583,20 @@ This is a notification to let you know that $2 has edited your talk page on {{SI
 
 Uw overlegpagina is de plaats op {{SITENAME}} waar andere gebruikers berichten voor u achter kunnen laten.
 
+$2 heeft {{GENDER:$2|zijn|haar}} wijzigingen als volgt samengevat: $5
+
 U kunt de wijzigingen die $2 heeft gemaakt bekijken via de volgende verwijzing:
 <$3>
 
 Dank u wel voor het gebruiken van {{SITENAME}}
-Het meldingensysteem van {{SITENAME}}', # Fuzzy
+Het meldingensysteem van {{SITENAME}}',
+	'notification-reverted-email-subject' => 'Melding van {{SITENAME}}: $2 is uw bewerking aan $3 teruggedraaid: $4',
 	'echo-email-subject-default' => 'Nieuwe melding op {{SITENAME}}',
 	'echo-email-body-default' => 'U hebt een nieuwe melding op {{SITENAME}}:
 
 $1',
 	'echo-link-new' => '{{PLURAL:$1|1 nieuwe melding|$1 nieuwe meldingen}}',
-	'echo-link' => 'Mijn meldingen', # Fuzzy
+	'echo-link' => 'Meldingen',
 	'echo-overlay-link' => 'Alle meldingen…',
 	'echo-overlay-title' => 'Mijn meldingen',
 );
