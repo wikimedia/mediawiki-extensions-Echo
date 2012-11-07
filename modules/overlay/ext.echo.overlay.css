@@ -39,6 +39,7 @@
 }
 
 .mw-echo-overlay-link {
+	clear: left;
 	margin-left: 20px;
 }
 
