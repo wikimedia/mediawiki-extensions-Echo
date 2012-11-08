@@ -787,7 +787,7 @@ O sistema de notificación de {{SITENAME}}.',
 
 $1',
 	'echo-link-new' => '$1 {{PLURAL:$1|nova notificación|novas notificacións}}',
-	'echo-link' => 'As miñas notificacións', # Fuzzy
+	'echo-link' => 'Notificacións',
 	'echo-overlay-link' => 'Todas as notificacións…',
 	'echo-overlay-title' => 'As miñas notificacións',
 );
