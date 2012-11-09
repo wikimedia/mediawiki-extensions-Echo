@@ -10,6 +10,15 @@ $specialPageAliases = array();
 
 /** English (English) */
 $specialPageAliases['en'] = array(
-	'Notifications' => array( 'Notifications' )
+	'Notifications' => array( 'Notifications' ),
 );
 
+/** Macedonian (македонски) */
+$specialPageAliases['mk'] = array(
+	'Notifications' => array( 'Известувања' ),
+);
+
+/** Simplified Chinese (中文（简体）‎) */
+$specialPageAliases['zh-hans'] = array(
+	'Notifications' => array( '通知' ),
+);
