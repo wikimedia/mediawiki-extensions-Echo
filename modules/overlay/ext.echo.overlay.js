@@ -3,9 +3,15 @@
 
 	mw.echo.overlay = {
 		'updateCount' : function( newCount ) {
+			// Accomodate '10' or '100+'. Numbers need to be
+			// passed as numbers for correct behavior of '0'.
+			if ( !isNaN( newCount ) ) {
+				newCount = Number( newCount );
+			}
+
 			$( '#pt-notifications a' )
 				.text( mw.msg( 'echo-link' ) )
-				.badge( newCount, { 'type' : 'inline' } );
+				.badge( newCount, true );
 
 			mw.echo.overlay.notification_count = newCount;
 		},
@@ -14,7 +20,8 @@
 
 		'buildOverlay' : function( callback ) {
 			var $overlay = $( '<div></div>' ).addClass( 'mw-echo-overlay' ),
-				$link = $( '#pt-notifications a' );
+				$link = $( '#pt-notifications a' ),
+				count = 0;
 
 			$overlay.append(
 				$( '<div/>' )
@@ -77,9 +84,10 @@
 						'notprop' : 'count'
 					}, {
 						'ok' : function( result ) {
-							var count = result.query.notifications.count;
-
-							mw.echo.overlay.updateCount( count );
+							if ( result.query.notifications.count !== undefined ) {
+								count = result.query.notifications.count;
+								mw.echo.overlay.updateCount( count );
+							}
 						}
 					} );
 				},
