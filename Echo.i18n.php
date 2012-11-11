@@ -795,6 +795,7 @@ $1',
 /** Hebrew (עברית)
  * @author Amire80
  * @author Inkbug
+ * @author חיים
  */
 $messages['he'] = array(
 	'echo-desc' => 'מערכת הודעות',
@@ -861,7 +862,7 @@ $2 {{GENDER:$2|סיכם|סיכמה}} את העריכה עם ההערה הבאה:
 
 $1',
 	'echo-link-new' => '{{PLURAL:$1|הודעה אחת חדשה|$1 הודעות חדשות}}',
-	'echo-link' => 'ההודעות שלי', # Fuzzy
+	'echo-link' => 'התראות',
 	'echo-overlay-link' => 'על ההודעות...',
 	'echo-overlay-title' => 'ההודעות שלי',
 );
@@ -1302,7 +1303,7 @@ $messages['lb'] = array(
 
 $1',
 	'echo-link-new' => '$1 nei {{PLURAL:$1|Notifikatioun|Notifikatiounen}}',
-	'echo-link' => 'Meng Notifikatiounen', # Fuzzy
+	'echo-link' => 'Notifikatiounen',
 	'echo-overlay-link' => 'All Notifikatiounen...',
 	'echo-overlay-title' => 'Meng Notifikatiounen',
 );
@@ -1537,6 +1538,7 @@ $1',
 );
 
 /** Dutch (Nederlands)
+ * @author Rcdeboer
  * @author SPQRobin
  * @author Siebrand
  */
@@ -1579,7 +1581,6 @@ Het meldingensysteem van {{SITENAME}}',
 	'notification-edit-talk-page-email-body' => 'Hallo $4,
 
 Dit is een melding om u te laten weten dat $2 uw overlegpagina op {{SITENAME}} heeft bewerkt.
-This is a notification to let you know that $2 has edited your talk page on {{SITENAME}}.
 
 Uw overlegpagina is de plaats op {{SITENAME}} waar andere gebruikers berichten voor u achter kunnen laten.
 
