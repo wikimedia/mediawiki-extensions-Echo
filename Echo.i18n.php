@@ -499,6 +499,7 @@ $1',
 
 /** Spanish (español)
  * @author Armando-Martin
+ * @author Ralgis
  * @author Vivaelcelta
  */
 $messages['es'] = array(
@@ -552,12 +553,25 @@ Puedes ver los cambios que $2 en este enlace:
 Gracias por usar {{SITENAME}}
 El sistema de notificaciones de {{SITENAME}}',
 	'notification-reverted-email-subject' => 'Notificación de {{SITENAME}}: $2 ha revertido su edición en $3: $4',
+	'notification-reverted-email-body' => 'Hola, $5:
+Esta es una notificación para hacerte saber que $2 ha revertido tus ediciones en la página {{SITENAME}} $3.
+
+$2 usó el siguiente resumen para describir su cambio: $6
+
+Puedes ver el cambio que $2 hizo para revertir tus ediciones siguiente este enlace:
+<$4>
+
+Estás recibiendo este mensaje porque te has suscrito a las alertas por correo electrónico
+cuando tus cambios sean revertidos.
+
+Gracias por usar {{SITENAME}}
+El sistema de notificación de {{SITENAME}}.',
 	'echo-email-subject-default' => 'Nueva notificación en {{SITENAME}}',
 	'echo-email-body-default' => 'Tienes una nueva notificación en {{SITENAME}}:
 
 $1',
 	'echo-link-new' => '$1 {{PLURAL:$1|notificación nueva|notificaciones nuevas}}',
-	'echo-link' => 'Mis notificaciones', # Fuzzy
+	'echo-link' => 'Notificaciones',
 	'echo-overlay-link' => 'Todas las notificaciones...',
 	'echo-overlay-title' => 'Mis notificaciones',
 );
