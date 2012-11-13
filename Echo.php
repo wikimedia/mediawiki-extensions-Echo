@@ -151,8 +151,12 @@ $wgHooks['ArticleEditUpdateNewTalk'][] = 'EchoHooks::abortNewtalkNotification';
 // Configuration
 
 $wgEchoDisableStandardEmail = true;
+
 // The organization address, the value should be defined in LocalSettings.php
 $wgEchoEmailFooterAddress = '';
+
+// The max notification count showed in badge
+$wgEchoMaxNotificationCount = 99;
 
 $wgEchoDefaultNotificationTypes = array( // Welcome events do not use subscription, and will only trigger notify, not email.
 	'all' => array(

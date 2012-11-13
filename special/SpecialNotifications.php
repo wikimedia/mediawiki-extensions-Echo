@@ -24,6 +24,7 @@ class SpecialNotifications extends SpecialPage {
 			'*',
 			array(
 				'notification_user' => $user->getID(),
+				'event_type' => EchoEvent::gatherValidEchoEvents(),
 			),
 			__METHOD__,
 			array(

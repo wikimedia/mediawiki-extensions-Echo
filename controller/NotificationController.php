@@ -18,15 +18,62 @@ class EchoNotificationController {
 		}
 
 		$dbr = wfGetDB( DB_SLAVE );
-		$count = $dbr->selectField( 'echo_notification', 'count(*)',
+		$res = $dbr->selectRow(
+			array( 'echo_notification', 'echo_event' ),
+			array( 'num' => 'COUNT(notification_event)' ),
 			array(
 				'notification_user' => $user->getId(),
 				'notification_read_timestamp' => null,
+				'event_type' => EchoEvent::gatherValidEchoEvents(),
 			),
-			__METHOD__
+			__METHOD__,
+			array(),
+			array(
+				'echo_event' => array( 'LEFT JOIN', 'notification_event=event_id' ),
+			)
 		);
 
+		if ( $res ) {
+			$count = $res->num;
+		} else {
+			$count = 0;
+		}
+
 		$wgMemc->set( $memcKey, $count, 86400 );
+
+		return $count;
+	}
+
+	/**
+	 * Retrieves formatted number of unread notifications that a user has.
+	 *
+	 * @param $user User object to check notifications for
+	 * @param $cached bool Set to false to bypass the cache.
+	 * @return String: Number of unread notifications.
+	 */
+	public static function getFormattedNotificationCount( $user, $cached = true ) {
+		return self::formatNotificationCount(
+				self::getNotificationCount( $user, $cached )
+			);
+	}
+
+	/**
+	 * Format the notification count with Language::formatNum().  In addition, for large count,
+	 * return abbreviated version, e.g. 99+
+	 * @param $count int
+	 * @return string - formatted number
+	 */
+	public static function formatNotificationCount( $count ) {
+		global $wgLang, $wgEchoMaxNotificationCount;
+
+		if ( $count > $wgEchoMaxNotificationCount ) {
+			$count = wfMessage(
+				'echo-notification-count',
+				$wgLang->formatNum( $wgEchoMaxNotificationCount )
+			)->escaped();
+		} else {
+			$count = $wgLang->formatNum( $count );
+		}
 
 		return $count;
 	}
@@ -77,6 +124,12 @@ class EchoNotificationController {
 			$job = new EchoNotificationJob( $title, array( 'event' => $event ) );
 			$job->insert();
 			return;
+		}
+
+		// Check if the event object still has an enabled type.  The check is necessary because an extension could
+		// get turned off and we may still have un-processed event type in the queue
+		if ( !$event->isEnabledEvent() ) {
+			return false;
 		}
 
 		if ( $event->getType() == 'welcome' ) { // Welcome events should only be sent to the new user, no need for subscriptions.

@@ -77,6 +77,7 @@ You are receiving this message because you have subscribed to email alerts
 when your changes are reverted.
 
 $7',
+	'echo-notification-count' => '$1+',
 
 	// Email notification
 	'echo-email-subject-default' => 'New notification at {{SITENAME}}',
@@ -195,8 +196,14 @@ $messages['qqq'] = array(
 * $3 is the page title
 * $4 is the link to the change
 * $5 is the e-mail recipient's username
+<<<<<<< HEAD
 * $6 is the edit summary
 * $7 is the email footer, {{msg|echo-email-footer-default}}",
+=======
+* $6 is the edit summary",
+	'echo-notification-count' => 'The new notification count next to notification link, for example: 99+
+* $1 is the count',
+>>>>>>> (bug 41866) Fix invalid notification in the flyout and page
 	'echo-email-subject-default' => 'Default subject for Echo email notifications',
 	'echo-email-body-default' => 'Default message content for Echo email notifications.
 * $1 is a plain text description of the notification.',

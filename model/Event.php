@@ -67,19 +67,7 @@ class EchoEvent {
 			throw new MWException( "'type' parameter is mandatory" );
 		}
 
-		global $wgEchoEnabledEvents;
-
-		static $runHook = true;
-		// this hook should only be executed once to gather valid echo events
-		if ( $runHook ) {
-			// allow extensions to define their own event
-			wfRunHooks( 'BeforeCreateEchoEvent', array( &$wgEchoEnabledEvents ) );
-			$runHook = false;
-		}
-		if (
-			$wgEchoEnabledEvents !== false &&
-			!in_array( $info['type'], $wgEchoEnabledEvents )
-		) {
+		if ( !in_array( $info['type'], self::gatherValidEchoEvents() ) ) {
 			return false;
 		}
 
@@ -107,6 +95,35 @@ class EchoEvent {
 		EchoNotificationController::notify( $obj );
 
 		return $obj;
+	}
+
+	/**
+	 * Get a list of enabled Echo events, allow extensions to create their own events
+	 */
+	public static function gatherValidEchoEvents() {
+		global $wgEchoEnabledEvents;
+
+		static $runHook = true;
+		// this hook should only be executed once to gather valid echo events
+		if ( $runHook ) {
+			// allow extensions to define their own event
+			wfRunHooks( 'BeforeCreateEchoEvent', array( &$wgEchoEnabledEvents ) );
+			$runHook = false;
+		}
+
+		return $wgEchoEnabledEvents;
+	}
+
+	/**
+	 * Check whether the echo event is an enabled event
+	 * @return bool
+	 */
+	public function isEnabledEvent() {
+		if ( in_array( $this->getType(), self::gatherValidEchoEvents() ) ) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	/**

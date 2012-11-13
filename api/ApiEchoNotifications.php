@@ -23,7 +23,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 		}
 
 		if ( in_array( 'count', $prop ) ) {
-			$r['count'] = EchoNotificationController::getNotificationCount( $user );
+			$r['count'] = EchoNotificationController::getFormattedNotificationCount( $user );
 		}
 
 		if ( in_array( 'index', $prop ) ) {
@@ -48,6 +48,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 
 		$conds = array(
 			'notification_user' => $user->getID(),
+			'event_type' => EchoEvent::gatherValidEchoEvents(),
 		);
 
 		if ( $unread ) {

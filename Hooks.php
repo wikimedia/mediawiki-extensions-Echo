@@ -263,7 +263,7 @@ class EchoHooks {
 	 * @return bool true in all cases
 	 */
 	static function onPersonalUrls( &$personal_urls, &$title ) {
-		global $wgUser, $wgLang;
+		global $wgUser;
 		// Add a "My notifications" item to personal URLs
 
 		if ( $wgUser->isAnon() ) {
@@ -277,7 +277,7 @@ class EchoHooks {
 
 		$notificationsLink = array(
 			'href' => $url,
-			'text' => $msg->params( $wgLang->formatNum( $notificationCount ) )->text(),
+			'text' => $msg->params( EchoNotificationController::formatNotificationCount( $notificationCount ) )->text(),
 			'active' => $notificationCount > 0,
 		);
 
@@ -306,7 +306,7 @@ class EchoHooks {
 		if ( ! $user->isAnon() ) {
 			$vars['wgEchoOverlayConfiguration'] = array(
 				'timestamp' => $timestamp->getTimestamp( TS_UNIX ),
-				'notification-count' => EchoNotificationController::getNotificationCount( $user ),
+				'notification-count' => EchoNotificationController::getFormattedNotificationCount( $user ),
 			);
 		}
 
