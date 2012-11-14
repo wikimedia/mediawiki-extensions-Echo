@@ -252,7 +252,7 @@ class EchoEvent {
 	}
 
 	/**
-	 * @return Title
+	 * @return Title|null
 	 */
 	public function getTitle() {
 		return $this->title;

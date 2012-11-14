@@ -21,11 +21,17 @@ class EchoCommentFormatter extends EchoEditFormatter {
 		}
 	}
 
+	/**
+	 * @param $details
+	 * @param $event EchoEvent
+	 * @param $user User
+	 * @return Message
+	 */
 	protected function formatFragment( $details, $event, $user ) {
 		$userTalkPage = $user->getUserPage()->getTalkPage();
 
-		if (
-			$event->getTitle()->equals( $userTalkPage ) &&
+		$title = $event->getTitle();
+		if ( $title && $title->equals( $userTalkPage ) &&
 			isset( $details['message-yours'] )
 		) {
 			$details['message'] = $details['message-yours'];
