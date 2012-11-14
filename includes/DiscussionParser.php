@@ -54,7 +54,7 @@ abstract class EchoDiscussionParser {
 			}
 		}
 
-		if ( !$createdEvents && $title->getNamespace() == NS_USER_TALK ) {
+		if ( !$createdEvents && $title && $title->getNamespace() == NS_USER_TALK ) {
 			$notifyUser = User::newFromName( $title->getText() );
 			if ( $notifyUser && $notifyUser->getID() ) {
 				EchoEvent::create( array(
