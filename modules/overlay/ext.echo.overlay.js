@@ -66,14 +66,17 @@
 						);
 					}
 
-					$overlay.append(
-						$( '<div/>' )
-							.addClass( 'mw-echo-overlay-link' )
-							.append( $link
-								.clone()
-								.text( mw.msg( 'echo-overlay-link' ) )
-							)
-					);
+					// only show 'All notifications...' link if there is notification
+					if ( notifications.index.length > 0 ) {
+						$overlay.append(
+							$( '<div/>' )
+								.addClass( 'mw-echo-overlay-link' )
+								.append( $link
+									.clone()
+									.text( mw.msg( 'echo-overlay-link' ) )
+								)
+						);
+					}
 
 					callback( $overlay );
 
