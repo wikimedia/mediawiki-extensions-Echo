@@ -15,7 +15,19 @@ abstract class EchoDiscussionParser {
 	static function generateEventsForRevision( $revision ) {
 		$interpretation = self::getChangeInterpretationForRevision( $revision );
 		$createdEvents = false;
-		$title = Title::newFromID( $revision->getPage() );
+
+		// use slave database if there is a previous revision
+		if ( $revision->getPrevious() ) {
+			$title = Title::newFromID( $revision->getPage() );
+		// use master database for new page
+		} else {
+			$title = Title::newFromID( $revision->getPage(), Title::GAID_FOR_UPDATE );
+		}
+
+		// not a valid title
+		if ( !$title ) {
+			return;
+		}
 
 		$userID = $revision->getUser();
 		$userName = $revision->getUserText();
