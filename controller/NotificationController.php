@@ -161,7 +161,7 @@ class EchoNotificationController {
 	 *
 	 * @param $event EchoEvent to do a notification for.
 	 * @param $user User object to notify.
-	 * @param $type string The type of notification to process.
+	 * @param $type string The type of notification delivery to process, e.g. 'email'.
 	 * @throws MWException
 	 */
 	public static function doNotification( $event, $user, $type ) {

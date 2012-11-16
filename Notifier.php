@@ -25,32 +25,34 @@ class EchoNotifier {
 			// No valid email address
 			return false;
 		}
-
-		global $wgEchoEnableEmailBatch, $wgEchoEventDetails, $wgPasswordSender, $wgPasswordSenderName;
-
-		// batched email notification
-		if ( $wgEchoEnableEmailBatch && $user->getOption( 'echo-email-frequency' ) > 0 ) {
-			// default priority is 10
-			$priority = 10;
-			if ( isset( $wgEchoEventDetails[$event->getType()]['priority'] ) ) {
-				$priority = $wgEchoEventDetails[$event->getType()]['priority'];
+		// See if the user wants to receive emails for this type of event
+		if ( $user->getOption( 'echo-email-notifications' . $event->getType() ) ) {
+			global $wgEchoEnableEmailBatch, $wgEchoEventDetails, $wgPasswordSender, $wgPasswordSenderName;
+	
+			// batched email notification
+			if ( $wgEchoEnableEmailBatch && $user->getOption( 'echo-email-frequency' ) > 0 ) {
+				// default priority is 10
+				$priority = 10;
+				if ( isset( $wgEchoEventDetails[$event->getType()]['priority'] ) ) {
+					$priority = $wgEchoEventDetails[$event->getType()]['priority'];
+				}
+				MWEchoEmailBatch::addToQueue( $user->getId(), $event->getId(), $priority );
+				return true;
 			}
-			MWEchoEmailBatch::addToQueue( $user->getId(), $event->getId(), $priority );
-			return true;
+			// no email notification
+			if ( $user->getOption( 'echo-email-frequency' ) < 0 ) {
+				return false;
+			}
+	
+			// instant email notification
+			$adminAddress = new MailAddress( $wgPasswordSender, $wgPasswordSenderName );
+			$address = new MailAddress( $user );
+			$email = EchoNotificationController::formatNotification( $event, $user, 'email' );
+			$subject = $email['subject'];
+			$body = $email['body'];
+	
+			UserMailer::send( $address, $adminAddress, $subject, $body );
 		}
-		// no email notification
-		if ( $user->getOption( 'echo-email-frequency' ) < 0 ) {
-			return false;
-		}
-
-		// instant email notification
-		$adminAddress = new MailAddress( $wgPasswordSender, $wgPasswordSenderName );
-		$address = new MailAddress( $user );
-		$email = EchoNotificationController::formatNotification( $event, $user, 'email' );
-		$subject = $email['subject'];
-		$body = $email['body'];
-
-		UserMailer::send( $address, $adminAddress, $subject, $body );
 
 		return true;
 	}
