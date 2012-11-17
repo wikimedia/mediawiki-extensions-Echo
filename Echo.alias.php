@@ -13,6 +13,11 @@ $specialPageAliases['en'] = array(
 	'Notifications' => array( 'Notifications' ),
 );
 
+/** Italian (italiano) */
+$specialPageAliases['it'] = array(
+	'Notifications' => array( 'Notifiche' ),
+);
+
 /** Macedonian (македонски) */
 $specialPageAliases['mk'] = array(
 	'Notifications' => array( 'Известувања' ),
