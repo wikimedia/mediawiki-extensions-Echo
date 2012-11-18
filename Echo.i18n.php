@@ -1552,6 +1552,7 @@ $1',
 );
 
 /** Dutch (Nederlands)
+ * @author Kippenvlees1
  * @author Rcdeboer
  * @author SPQRobin
  * @author Siebrand
@@ -1559,14 +1560,14 @@ $1',
 $messages['nl'] = array(
 	'echo-desc' => 'Meldingensysteem',
 	'prefs-echo' => 'Meldingen',
-	'echo-pref-notify-watchlist' => "Mijn abonneren op meldingen over bewerkingen als ik pagina's aan mijn volglijst toevoeg.",
+	'echo-pref-notify-watchlist' => "Mij abonneren op meldingen bewerken als ik pagina's aan mijn volglijst toevoeg.",
 	'echo-no-agent' => '[Niemand]',
 	'echo-no-title' => '[Geen pagina]',
 	'echo-error-no-formatter' => 'Er is geen opmaak ingesteld voor de melding',
 	'notifications' => 'Meldingen',
 	'echo-specialpage' => 'Mijn meldingen',
 	'echo-anon' => '[[Special:Userlogin/signup|Maak een gebruiker aan]] of [[Special:UserLogin|meld u aan]] als u meldingen wilt ontvangen.',
-	'echo-none' => 'U hebt de laatste tijd geen meldingen ontvangen!',
+	'echo-none' => 'U hebt de laatste tijd geen meldingen ontvangen.',
 	'notification-edit' => '$2 {{GENDER:$1|heeft}} [[$3]] bewerkt $4: "$5"',
 	'notification-edit-talk-page' => '$2 {{GENDER:$1|heeft}} [[User talk:$4|uw overlegpagina]] bewerkt $3: "$5"',
 	'notification-add-comment' => '$2 {{GENDER:$1|heeft}} gereageerd op "[[$4|$3]]" op de overlegpagina "$5"',
@@ -1605,7 +1606,20 @@ U kunt de wijzigingen die $2 heeft gemaakt bekijken via de volgende verwijzing:
 
 Dank u wel voor het gebruiken van {{SITENAME}}
 Het meldingensysteem van {{SITENAME}}',
-	'notification-reverted-email-subject' => 'Melding van {{SITENAME}}: $2 is uw bewerking aan $3 teruggedraaid: $4',
+	'notification-reverted-email-subject' => 'Melding van {{SITENAME}}: $2 heeft uw bewerking aan $3 teruggedraaid: $4',
+	'notification-reverted-email-body' => 'Hallo $5,
+
+Dit is een melding om u te laten weten dat $2 uw bewerking op $3 op {{SITENAME}} heeft teruggedraaid.
+
+$2 heeft {{GENDER:$2|zijn|haar}} wijziging als volgt samengevat: $6
+
+U kunt de verandering die $2 heeft gemaakt door de terugdraaiing bekijken via de volgende verwijzing:
+<$4>
+
+U ontvangt dit bericht omdat u zich heeft geabonneerd op e-mailnotificaties wanneer uw bewerkingen worden teruggedraaid.
+
+Bedankt voor het gebruiken van {{SITENAME}},
+Het meldingensysteem van {{SITENAME}}.',
 	'echo-email-subject-default' => 'Nieuwe melding op {{SITENAME}}',
 	'echo-email-body-default' => 'U hebt een nieuwe melding op {{SITENAME}}:
 
