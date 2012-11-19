@@ -298,16 +298,16 @@ $messages['ca'] = array(
  * @author Mormegil
  */
 $messages['cs'] = array(
-	'echo-desc' => 'Systém pro upozorňování nové generace pro MediaWiki', # Fuzzy
+	'echo-desc' => 'Notifikační systém',
 	'prefs-echo' => 'Upozornění',
 	'echo-no-agent' => '[Nikdo]',
-	'echo-no-title' => '[Bez názvu]', # Fuzzy
+	'echo-no-title' => '[Žádná stránka]',
 	'notifications' => 'Upozornění',
 	'echo-specialpage' => 'Moje upozornění',
 	'echo-anon' => 'Pro zobrazování upozornění je nutné [[Special:Userlogin/signup|vytvořit si účet]] nebo [[Special:UserLogin|se přihlásit]].',
 	'echo-none' => 'Žádné upozornění zatím neobdrženo.',
-	'notification-edit' => '$2 {{GENDER:$1|editoval|editovala}} [[$3]] $4',
-	'notification-edit-talk-page' => '$2 {{GENDER:$1|editoval|editovala}} [[User talk:$4|Vaší diskuzní stránku]] $3',
+	'notification-edit' => '$2 {{GENDER:$1|editoval|editovala}} [[$3]] $4', # Fuzzy
+	'notification-edit-talk-page' => '$2 {{GENDER:$1|editoval|editovala}} [[User talk:$4|Vaší diskuzní stránku]] $3', # Fuzzy
 	'notification-add-comment' => '$2 {{GENDER:$1|diskutoval|diskutovala}} [[$4|$3]] na diskuzní stránce $5',
 	'notification-edit-email-body' => 'Dobrý den $5,
 
@@ -319,7 +319,7 @@ Změny, které $2 udělal, si můžete prohlédnout v následujícím odkazu:
 Tuto zprávu dostáváte proto, protože jste se přihlásil k e-mailovým upozorněním o změnách této stránky.
 
 Děkujeme za použití {{SITENAME}}
-Systém upozorňování {{SITENAME}}',
+Systém upozorňování {{SITENAME}}', # Fuzzy
 	'notification-edit-talk-page-email-subject' => 'Vaše diskuse na {{grammar:6sg|{{SITENAME}}}} byla změněna uživatelem $2',
 	'notification-edit-talk-page-email-body' => 'Dobrý den $4,
 
@@ -331,13 +331,13 @@ Změny, které $2 udělal, si můžete prohlédnout v následujícím odkazu:
 <$3>
 
 Děkujeme za použití {{SITENAME}}
-Systém upozorňování {{SITENAME}}',
+Systém upozorňování {{SITENAME}}', # Fuzzy
 	'echo-email-subject-default' => 'Nové upozornění na {{SITENAME}}',
 	'echo-email-body-default' => 'Máte nové upozornění na {{SITENAME}}:
 
 $1',
 	'echo-link-new' => '$1 {{PLURAL:$1|nové upozornění|nová upozornění|nových upozornění}}',
-	'echo-link' => 'Moje upozornění',
+	'echo-link' => 'Moje upozornění', # Fuzzy
 	'echo-overlay-link' => 'Všechna upozornění...',
 	'echo-overlay-title' => 'Moje upozornění',
 );
