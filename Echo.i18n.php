@@ -462,8 +462,8 @@ $messages['diq'] = array(
 	'echo-no-title' => '[Pele Çıniya]',
 	'notifications' => 'Tebliği',
 	'echo-specialpage' => 'Tebliğê me',
-	'notification-edit' => '$2 {{GENDER:$1|vurna}} [[$3]] $4',
-	'echo-link' => 'Tebliğê me',
+	'notification-edit' => '$2\'i [[$3]] {{GENDER:$1|vurnê}} $4: "$5"',
+	'echo-link' => 'Tebliği',
 	'echo-overlay-link' => 'Tebliği pêro...',
 	'echo-overlay-title' => 'Tebliğê me',
 );
