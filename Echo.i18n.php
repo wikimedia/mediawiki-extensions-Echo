@@ -1560,7 +1560,7 @@ $1',
 $messages['nl'] = array(
 	'echo-desc' => 'Meldingensysteem',
 	'prefs-echo' => 'Meldingen',
-	'echo-pref-notify-watchlist' => "Mij abonneren op meldingen bewerken als ik pagina's aan mijn volglijst toevoeg.",
+	'echo-pref-notify-watchlist' => "Mij abonneren op meldingen over bewerken als ik pagina's aan mijn volglijst toevoeg.",
 	'echo-no-agent' => '[Niemand]',
 	'echo-no-title' => '[Geen pagina]',
 	'echo-error-no-formatter' => 'Er is geen opmaak ingesteld voor de melding',
@@ -1594,21 +1594,19 @@ Dank u wel voor het gebruiken van {{SITENAME}}
 Het meldingensysteem van {{SITENAME}}',
 	'notification-edit-talk-page-email-subject' => 'Uw overlegpagina op {{SITENAME}} is bewerkt door $2',
 	'notification-edit-talk-page-email-body' => 'Hallo $4,
+U ontvangt deze melding omdat $2 uw overlegpagina op {{SITENAME}} heeft bewerkt.
 
-Dit is een melding om u te laten weten dat $2 uw overlegpagina op {{SITENAME}} heeft bewerkt.
-
-Uw overlegpagina is de plaats op {{SITENAME}} waar andere gebruikers berichten voor u achter kunnen laten.
+Uw overlegpagina is de plaats op {{SITENAME}} waar andere gebruikers berichten voor u kunnen achterlaten.
 
 $2 heeft {{GENDER:$2|zijn|haar}} wijzigingen als volgt samengevat: $5
 
-U kunt de wijzigingen die $2 heeft gemaakt bekijken via de volgende verwijzing:
+Bekijk de wijzigingen die $2 heeft gemaakt:
 <$3>
 
 Dank u wel voor het gebruiken van {{SITENAME}}
 Het meldingensysteem van {{SITENAME}}',
 	'notification-reverted-email-subject' => 'Melding van {{SITENAME}}: $2 heeft uw bewerking aan $3 teruggedraaid: $4',
 	'notification-reverted-email-body' => 'Hallo $5,
-
 Dit is een melding om u te laten weten dat $2 uw bewerking op $3 op {{SITENAME}} heeft teruggedraaid.
 
 $2 heeft {{GENDER:$2|zijn|haar}} wijziging als volgt samengevat: $6
