@@ -18,9 +18,19 @@ $specialPageAliases['it'] = array(
 	'Notifications' => array( 'Notifiche' ),
 );
 
+/** Korean (한국어) */
+$specialPageAliases['ko'] = array(
+	'Notifications' => array( '알림' ),
+);
+
 /** Macedonian (македонски) */
 $specialPageAliases['mk'] = array(
 	'Notifications' => array( 'Известувања' ),
+);
+
+/** Sicilian (sicilianu) */
+$specialPageAliases['scn'] = array(
+	'Notifications' => array( 'Notifiche' ),
 );
 
 /** Simplified Chinese (中文（简体）‎) */
