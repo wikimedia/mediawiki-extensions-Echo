@@ -70,9 +70,11 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	}
 
 	/**
-	 * @param $event EchoEvent
-	 * @param $user User
-	 * @param $type string
+	 * Formats a notification
+	 *
+	 * @param $event EchoEvent that the notification is for.
+	 * @param $user User to format the notification for.
+	 * @param $type string The type of notification being distributed (e.g. email, notify)
 	 * @return array|string
 	 */
 	public function format( $event, $user, $type ) {
@@ -84,9 +86,13 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			return $this->formatNotificationTitle( $event, $user )->text();
 		}
 
-		// Assume html
+		// Assume html as the format for the notification
+
+		// Build the notification title
 		$title = $this->formatNotificationTitle( $event, $user )->parse();
 		$output = Xml::tags( 'div', array( 'class' => 'mw-echo-title' ), $title ) . "\n";
+
+		// Build the notification content
 		if ( !is_null( $this->content ) ) {
 			$content = $this->formatContent( $event, $user );
 			$content .= ' ' . $this->formatTimestamp( $event->getTimestamp(), $user );
@@ -96,6 +102,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			$output .= Xml::tags( 'div', array( 'class' => 'mw-echo-content' ), $content ) . "\n";
 		}
 
+		// Add the notification icon
 		if ( !is_null( $this->icon ) ) {
 			$output = Xml::tags( 'div',
 				array( 'class' => "mw-echo-icon mw-echo-icon-{$this->icon}" ),
