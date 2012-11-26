@@ -62,12 +62,10 @@ class EchoCommentFormatter extends EchoEditFormatter {
 
 			if ( isset( $extra['content'] ) && $extra['content'] ) {
 				$content = $extra['content'];
-
 				$content = EchoDiscussionParser::stripHeader( $content );
 				$content = EchoDiscussionParser::stripSignature( $content );
 				$content = EchoDiscussionParser::stripIndents( $content );
-				$content = trim( $content );
-				$content = $wgLang->truncate( $content, 200 );
+				$content = EchoDiscussionParser::getTextSnippet( $content, 200 );
 
 				$message->params( $content );
 			} else {
