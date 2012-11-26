@@ -1524,7 +1524,7 @@ Sistem pemberitahuan {{SITENAME}}.',
 
 $1',
 	'echo-link-new' => '$1 pemberitahuan baru',
-	'echo-link' => 'Pemberitahuan saya', # Fuzzy
+	'echo-link' => 'Pemberitahuan',
 	'echo-overlay-link' => 'Semua pemberitahuan…',
 	'echo-overlay-title' => 'Pemberitahuan saya',
 );

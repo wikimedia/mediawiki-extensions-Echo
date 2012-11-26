@@ -28,6 +28,11 @@ $specialPageAliases['mk'] = array(
 	'Notifications' => array( 'Известувања' ),
 );
 
+/** Punjabi (ਪੰਜਾਬੀ) */
+$specialPageAliases['pa'] = array(
+	'Notifications' => array( 'ਇਤਲਾਹਾਂ' ),
+);
+
 /** Sicilian (sicilianu) */
 $specialPageAliases['scn'] = array(
 	'Notifications' => array( 'Notifiche' ),
