@@ -13,6 +13,11 @@ $specialPageAliases['en'] = array(
 	'Notifications' => array( 'Notifications' ),
 );
 
+/** Finnish (suomi) */
+$specialPageAliases['fi'] = array(
+	'Notifications' => array( 'Ilmoitukset' ),
+);
+
 /** Italian (italiano) */
 $specialPageAliases['it'] = array(
 	'Notifications' => array( 'Notifiche' ),
