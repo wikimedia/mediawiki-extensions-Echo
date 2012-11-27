@@ -10,6 +10,7 @@ class EchoHooks {
 		$dir = __DIR__;
 		$baseSQLFile = "$dir/echo.sql";
 		$updater->addExtensionTable( 'echo_subscription', $baseSQLFile );
+		$updater->addExtensionTable( 'echo_email_batch', "$dir/db_patches/echo_email_batch.sql" );
 
 		$updater->modifyField( 'echo_event', 'event_agent',
 			"$dir/db_patches/patch-event_agent-split.sql", true );
