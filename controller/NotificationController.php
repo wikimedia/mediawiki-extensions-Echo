@@ -175,9 +175,10 @@ class EchoNotificationController {
 	 *
 	 * @param $event EchoEvent that the notification is for.
 	 * @param $user User to format the notification for.
-	 * @param $format string The format to show the notification in: text or html
+	 * @param $format string The format to show the notification in: text, html, or email
 	 * @param $type string The type of notification being distributed (e.g. email, notify)
-	 * @return string type description
+	 * @return string|array The formatted notification, or an array of subject
+	 *     and body (for emails), or an error message
 	 */
 	public static function formatNotification( $event, $user, $format = 'text', $type = 'notify' ) {
 		global $wgEchoNotificationFormatters;

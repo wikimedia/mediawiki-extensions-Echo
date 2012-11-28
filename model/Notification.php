@@ -52,7 +52,7 @@ class EchoNotification {
 	}
 
 	/**
-	 * Adds this new object to the database.
+	 * Adds this new notification object to the database.
 	 */
 	protected function insert() {
 		$dbw = wfGetDB( DB_MASTER );
