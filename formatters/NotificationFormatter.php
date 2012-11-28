@@ -1,5 +1,11 @@
 <?php
-
+/**
+ * Abstract class for constructing a notification message
+ *
+ * This class includes only the most generic formatting functionality as it may
+ * be extended by notification formatters for other extensions with unique
+ * content or requirements.
+ */
 abstract class EchoNotificationFormatter {
 	static $formatterClasses = array(
 		'basic' => 'EchoBasicFormatter',
@@ -9,6 +15,7 @@ abstract class EchoNotificationFormatter {
 	);
 	protected $validOutputFormats = array( 'text', 'html', 'email' );
 	protected $outputFormat = 'text';
+	protected $parameters = array();
 	protected $requiredParameters = array();
 
 	/**
@@ -124,6 +131,33 @@ abstract class EchoNotificationFormatter {
 			$ts = $language->userTimeAndDate( $ts, $user );
 		}
 
-		return Xml::element( 'span', array( 'class' => 'mw-echo-timestamp' ), $ts );
+		if ( $this->outputFormat === 'html' ) {
+			return Xml::element( 'div', array( 'class' => 'mw-echo-timestamp' ), $ts );
+		} else {
+			return $ts;
+		}
+	}
+
+	/**
+	 * Formats an edit summary
+	 *
+	 * @param $event EchoEvent that the notification is for.
+	 * @param $user User to format the notification for.
+	 * @return string The edit summary (or empty string)
+	 */
+	protected function formatSummary( $event, $user ) {
+		$eventData = $event->getExtra();
+		if ( !isset( $eventData['revid'] ) ) {
+			return '';
+		}
+		$revision = Revision::newFromId( $eventData['revid'] );
+		if ( $revision ) {
+			$summary = $revision->getComment( Revision::FOR_THIS_USER, $user );
+			if ( $this->outputFormat === 'html' ) {
+				$summary = Xml::tags( 'div', array( 'class' => 'mw-echo-summary' ), htmlspecialchars( $summary ) );
+			}
+			return $summary;
+		}
+		return '';
 	}
 }

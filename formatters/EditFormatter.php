@@ -26,7 +26,7 @@ class EchoEditFormatter extends EchoBasicFormatter {
 			if ( $this->outputFormat === 'html' ) {
 				$link = Linker::link(
 					$title,
-					wfMessage( 'parentheses', wfMessage( 'diff' )->text() )->escaped(),
+					wfMessage( 'parentheses', wfMessage( 'showdiff' )->text() )->escaped(),
 					array(
 						'class' => 'mw-echo-diff',
 					),

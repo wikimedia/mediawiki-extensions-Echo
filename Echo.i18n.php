@@ -31,7 +31,7 @@ $messages['en'] = array(
 
 	// Notification
 	'notification-edit' => '$2 {{GENDER:$1|edited}} [[$3]] $4: "$5"',
-	'notification-edit-talk-page' => '$2 {{GENDER:$1|edited}} [[User talk:$4|your talk page]] $3: "$5"',
+	'notification-edit-talk-page' => '$2 {{GENDER:$1|edited}} [[User talk:$3|your talk page]]. $4',
 	'notification-add-comment' => '$2 {{GENDER:$1|commented}} on "[[$4|$3]]" on the "$5" talk page',
 	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|posted}} a new topic "$3" on [[$4]]',
 	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|sent}} you a message: "[[$4#$3|$3]]"',
@@ -140,8 +140,7 @@ $messages['qqq'] = array(
 * $1 is the username of the person who edited, plain text. Can be used for GENDER.
 * $2 is the username of the person who edited, HTML formatted as the link to the user\'s page.
 * $3 is a diff link, formatted as an HTML link with the text "(diff)".
-* $4 is the current user\'s name, used in the link to their talk page.
-* $5 is the edit summary.',
+* $4 is the current user\'s name, used in the link to their talk page.',
 	'notification-add-comment' => 'Format for displaying notifications of a comment being added to an existing discussion. Parameters:
 * $1 is the username of the person who edited, plain text. Can be used for GENDER,
 * $2 is the username of the person who edited,

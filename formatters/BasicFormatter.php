@@ -7,6 +7,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 		'title-message',
 		'title-params',
 	);
+	protected $validPayloadComponents = array( 'summary', 'snippet', 'welcome' );
 
 	protected $title, $content, $email, $icon;
 
@@ -16,16 +17,10 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 		$this->title = array();
 		$this->title['message'] = $params['title-message'];
 		$this->title['params'] = $params['title-params'];
-
-		if ( isset( $params['content-message'] ) ) {
-			$this->content = array();
-			$this->content['message'] = $params['content-message'];
-
-			if ( isset( $params['content-params'] ) ) {
-				$this->content['params'] = $params['content-params'];
-			} else {
-				$this->content['params'] = array();
-			}
+		$this->payload = array();
+		
+		if ( isset( $params['payload'] ) ) {
+			$this->payload = $params['payload'];
 		}
 
 		$this->email = array();
@@ -94,14 +89,32 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 		$output = Xml::tags( 'div', array( 'class' => 'mw-echo-title' ), $title ) . "\n";
 
 		// Build the notification content
-		if ( !is_null( $this->content ) ) {
-			$content = $this->formatContent( $event, $user );
-			$content .= ' ' . $this->formatTimestamp( $event->getTimestamp(), $user );
-			$output .= Xml::tags( 'div', array( 'class' => 'mw-echo-content' ), $content ) . "\n";
-		} else {
-			$content = $this->formatTimestamp( $event->getTimestamp(), $user );
-			$output .= Xml::tags( 'div', array( 'class' => 'mw-echo-content' ), $content ) . "\n";
+		$content = '';
+		foreach ( $this->payload as $payloadComponent ) {
+			if ( in_array( $payloadComponent, $this->validPayloadComponents ) ) {
+				switch ( $payloadComponent ) {
+					case 'summary':
+						$content .= $this->formatSummary( $event, $user );
+						break;
+					case 'snippet':
+						// TODO: build this
+						break;
+					case 'welcome':
+						$details = array(
+							'message' => 'notification-new-user-content',
+							'params' => array( 'agent' )
+						);
+						$content .= $this->formatFragment( $details, $event, $user )->parse();
+						break;
+				}
+			} else {
+				throw new MWException( "Unrecognised payload component $payloadComponent" );
+			}
 		}
+		$output .= Xml::tags( 'div', array( 'class' => 'mw-echo-content' ), $content ) . "\n";
+
+		// Add timestamp
+		$output .= $this->formatTimestamp( $event->getTimestamp(), $user );
 
 		// Add the notification icon
 		if ( !is_null( $this->icon ) ) {
@@ -118,23 +131,6 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 		return $this->formatFragment( $this->title, $event, $user );
 	}
 
-	protected function formatContent( $event, $user ) {
-		if ( is_null( $this->content ) ) {
-			return '';
-		}
-
-		return $this->formatFragment( $this->content, $event, $user )->parse();
-	}
-
-	protected function formatFragment( $details, $event, $user ) {
-		$message = wfMessage( $details['message'] )
-			->inLanguage( $user->getOption( 'language' ) );
-
-		$this->processParams( $details['params'], $event, $message, $user );
-
-		return $message;
-	}
-
 	protected function formatEmail( $event, $user, $type ) {
 		$subject = $this->formatFragment( $this->email['subject'], $event, $user )->text();
 
@@ -143,6 +139,30 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 		return array( 'subject' => $subject, 'body' => $body );
 	}
 
+	/**
+	 * Creates a notification fragment based on a message and parameters
+	 *
+	 * @param $details array An i18n message and parameters to pass to the message
+	 * @param $event EchoEvent that the notification is for.
+	 * @param $user User to format the notification for.
+	 * @return string
+	 */
+	protected function formatFragment( $details, $event, $user ) {
+		$message = wfMessage( $details['message'] );
+
+		$this->processParams( $details['params'], $event, $message, $user );
+
+		return $message;
+	}
+
+	/**
+	 * Convert the parameters into real values and pass them into the message
+	 *
+	 * @param $params array
+	 * @param $event EchoEvent
+	 * @param $message Message
+	 * @param $user User
+	 */
 	protected function processParams( $params, $event, $message, $user ) {
 		foreach ( $params as $param ) {
 			$this->processParam( $event, $param, $message, $user );
@@ -150,6 +170,8 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	}
 
 	/**
+	 * Helper function for processParams()
+	 *
 	 * @param $event EchoEvent
 	 * @param $param
 	 * @param $message Message
