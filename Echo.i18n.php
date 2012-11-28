@@ -605,6 +605,7 @@ $1',
 
 /** Finnish (suomi)
  * @author Crt
+ * @author Nedergard
  * @author Nike
  */
 $messages['fi'] = array(
@@ -614,14 +615,14 @@ $messages['fi'] = array(
 	'echo-no-title' => '[Ei sivua]',
 	'notifications' => 'Ilmoitukset',
 	'echo-specialpage' => 'Ilmoitukset',
-	'echo-anon' => 'Vain [[Special:Userlogin/signup|rekisteröityneet käyttäjät]] saavat ilmoituksia.', # Fuzzy
+	'echo-anon' => 'Jos haluat saada ilmoituksia, [[Special:Userlogin/signup|luo käyttäjätunnus]] tai [[Special:UserLogin|kirjaudu sisään]].',
 	'echo-none' => 'Ei uusia ilmoituksia viime aikoina.',
 	'notification-edit' => '$2 {{GENDER:$1|muokkasi}} sivua [[$3]] $4: $5',
 	'notification-edit-talk-page' => '$2 {{GENDER:$1|muokkasi}} [[User talk:$4|keskustelusivuasi]] $3: $5',
 	'notification-add-comment' => '$2 {{GENDER:$1|kommentoi}} keskustelua [[$4|$3]] sivusta $5',
 	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|aloitti}} keskustelun $3 sivusta [[$4]]',
 	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|lähetti}} sinulle viestin: [[$4#$3|$3]]',
-	'echo-link' => 'Ilmoitukset', # Fuzzy
+	'echo-link' => 'Ilmoitukset',
 	'echo-overlay-link' => 'Kaikki ilmoitukset…',
 	'echo-overlay-title' => 'Ilmoitukset',
 );
