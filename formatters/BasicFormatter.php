@@ -67,6 +67,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 		if ( isset( $params['icon'] ) ) {
 			$this->icon = $params['icon'];
 		}
+
 	}
 
 	/**
@@ -173,7 +174,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			} else {
 				$message->params( $this->formatTitle( $event->getTitle() ) );
 			}
-		} elseif ( $param == 'text-notification' ) {
+		} elseif ( $param === 'text-notification' ) {
 			$oldOutputFormat = $this->outputFormat;
 			$this->setOutputFormat( 'text' );
 			// $type is ignored in this class
@@ -181,6 +182,14 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			$this->setOutputFormat( $oldOutputFormat );
 
 			$message->params( $textNotification );
+		} elseif ( $param === 'email-footer' ) {
+			global $wgEchoEmailFooterAddress;
+			$message->params(
+				wfMessage( 'echo-email-footer-default' )
+				->inLanguage( $user->getOption( 'language' ) )
+				->params( $wgEchoEmailFooterAddress )
+				->text()
+			);
 		} else {
 			throw new MWException( "Unrecognised parameter $param" );
 		}
