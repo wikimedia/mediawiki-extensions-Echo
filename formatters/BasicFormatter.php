@@ -148,7 +148,8 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	 * @return string
 	 */
 	protected function formatFragment( $details, $event, $user ) {
-		$message = wfMessage( $details['message'] );
+		$message = wfMessage( $details['message'] )
+			->inLanguage( $user->getOption( 'language' ) );
 
 		$this->processParams( $details['params'], $event, $message, $user );
 
