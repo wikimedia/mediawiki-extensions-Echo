@@ -84,17 +84,27 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 
 		// Assume html as the format for the notification
 
+		$output = '';
+
+		// Add the notification icon
+		if ( !is_null( $this->icon ) ) {
+			$output .= Xml::tags( 'div',
+				array( 'class' => "mw-echo-icon mw-echo-icon-{$this->icon}" ),
+				'&nbsp;'
+			);
+		}
+
 		// Build the notification title
 		$title = $this->formatNotificationTitle( $event, $user )->parse();
-		$output = Xml::tags( 'div', array( 'class' => 'mw-echo-title' ), $title ) . "\n";
+		$content = Xml::tags( 'div', array( 'class' => 'mw-echo-title' ), $title ) . "\n";
 
-		// Build the notification content
-		$content = '';
+		// Build the notification payload
+		$payload = '';
 		foreach ( $this->payload as $payloadComponent ) {
 			if ( in_array( $payloadComponent, $this->validPayloadComponents ) ) {
 				switch ( $payloadComponent ) {
 					case 'summary':
-						$content .= $this->formatSummary( $event, $user );
+						$payload .= $this->formatSummary( $event, $user );
 						break;
 					case 'snippet':
 						// TODO: build this
@@ -104,25 +114,22 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 							'message' => 'notification-new-user-content',
 							'params' => array( 'agent' )
 						);
-						$content .= $this->formatFragment( $details, $event, $user )->parse();
+						$payload .= $this->formatFragment( $details, $event, $user )->parse();
 						break;
 				}
 			} else {
 				throw new MWException( "Unrecognised payload component $payloadComponent" );
 			}
 		}
-		$output .= Xml::tags( 'div', array( 'class' => 'mw-echo-content' ), $content ) . "\n";
+
+		if ( $payload !== '' ) {
+			$content .= Xml::tags( 'div', array( 'class' => 'mw-echo-payload' ), $payload ) . "\n";
+		}
 
 		// Add timestamp
-		$output .= $this->formatTimestamp( $event->getTimestamp(), $user );
-
-		// Add the notification icon
-		if ( !is_null( $this->icon ) ) {
-			$output = Xml::tags( 'div',
-				array( 'class' => "mw-echo-icon mw-echo-icon-{$this->icon}" ),
-				'&nbsp;'
-			) . $output;
-		}
+		$content .= $this->formatTimestamp( $event->getTimestamp(), $user );
+		
+		$output .= Xml::tags( 'div', array( 'class' => 'mw-echo-content' ), $content ) . "\n";
 
 		return $output;
 	}

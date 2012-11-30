@@ -7,7 +7,7 @@
 	width: 450px;
 	min-height: 2em;
 	padding: 15px 0 15px 0;
-	color: #252525;
+	color: #6D6D6D;
 	z-index: 10;
 	overflow: auto;
 	box-shadow: 0px 3px 8px rgba(50, 50, 50, 0.35);
@@ -24,10 +24,9 @@
 
 .mw-echo-overlay-title {
 	/*border-bottom: 1px solid #A7D7F9;*/
-	font-size: 15px;
-	font-weight: bold;
-	padding: 0 15px 10px 15px;
-	border-bottom: 1px solid silver;
+	font-size: 13px;
+	padding: 0 15px 10px 60px;
+	border-bottom: 1px solid #DDDDDD;
 }
 
 .mw-echo-overlay-link a {
@@ -37,7 +36,7 @@
 
 .mw-echo-overlay-link {
 	clear: left;
-	margin-left: 20px;
+	margin: 15px 15px 15px 20px;
 }
 
 #pt-notifications .mw-badge {
@@ -45,7 +44,7 @@
 }
 
 .mw-echo-overlay .mw-echo-notification {
-	border-bottom: 1px solid silver;
+	border-bottom: 1px solid #DDDDDD;
 }
 
 .mw-echo-overlay .mw-echo-unread {
