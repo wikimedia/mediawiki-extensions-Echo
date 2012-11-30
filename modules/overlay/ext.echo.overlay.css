@@ -1,23 +1,20 @@
 .mw-echo-overlay {
 	position: absolute;
-	top: 2em;
-	right: 5em;
-	border: 1px solid #A7D7F9;
+	top: 2.6em;
+	right: 0;
+	border: 1px solid silver;
 	background-color: #fff;
 	width: 450px;
 	min-height: 2em;
-	padding: 15px 15px 15px 0;
+	padding: 15px 0 15px 0;
 	color: #252525;
 	z-index: 10;
 	overflow: auto;
-
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	border-radius: 5px;
+	box-shadow: 0px 3px 8px rgba(50, 50, 50, 0.35);
 }
 
 .mw-echo-overlay ul {
-	margin-left: 0;
+	margin: 0;
 }
 
 .mw-echo-overlay li {
@@ -29,8 +26,8 @@
 	/*border-bottom: 1px solid #A7D7F9;*/
 	font-size: 15px;
 	font-weight: bold;
-	margin-bottom: 20px;
-	margin-left: 20px;
+	padding: 0 15px 10px 15px;
+	border-bottom: 1px solid silver;
 }
 
 .mw-echo-overlay-link a {
@@ -48,12 +45,11 @@
 }
 
 .mw-echo-overlay .mw-echo-notification {
-	padding-left: 20px;
+	border-bottom: 1px solid silver;
 }
 
 .mw-echo-overlay .mw-echo-unread {
-	/* @embed */
-	background: url(unread.png) repeat-y top left;
+	background-color: #f1f1f1;
 }
 
 #pt-notifications .mw-badge {

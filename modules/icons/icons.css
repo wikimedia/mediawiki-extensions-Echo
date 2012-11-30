@@ -1,53 +1,40 @@
 .mw-echo-icon {
-	width: 42px;
-	height: 42px;
+	width: 30px;
+	height: 30px;
 	float: left;
-	margin-right: 5px;
+	margin-right: 8px;
 	background: no-repeat center left;
-	margin-bottom: 10px;
-}
-
-.mw-echo-icon-placeholder {
-	/* @embed */
-	background-image: url(placeholder.png);
 }
 
 .mw-echo-icon-chat {
 	/* @embed */
-	background-image: url(chat.png);
+	background-image: url(Talk.png);
 }
-
+.mw-echo-icon-linked {
+	/* @embed */
+	background-image: url(CrossReferenced.png);
+}
+.mw-echo-icon-featured {
+	/* @embed */
+	background-image: url(Featured.png);
+}
+.mw-echo-icon-reviewed {
+	/* @embed */
+	background-image: url(Reviewed.png);
+}
+.mw-echo-icon-tagged {
+	/* @embed */
+	background-image: url(ReviewedWithTags.png);
+}
 .mw-echo-icon-w {
 	/* @embed */
 	background-image: url(W.png);
 }
-
 .mw-echo-icon-revert {
 	/* @embed */
-	background-image: url(revert.png);
+	background-image: url(Revert.png);
 }
-
 .mw-echo-icon-checkmark {
 	/* @embed */
-	background-image: url(tick.png);
-}
-
-.mw-echo-icon-trash {
-	/* @embed */
-	background-image: url(trash.png);
-}
-
-.mw-echo-icon-gift {
-	/* @embed */
-	background-image: url(gift.png);
-}
-
-.mw-echo-icon-heart {
-	/* @embed */
-	background-image: url(heart.png);
-}
-
-.mw-echo-icon-people {
-	/* @embed */
-	background-image: url(people.png);
+	background-image: url(Reviewed.png);
 }

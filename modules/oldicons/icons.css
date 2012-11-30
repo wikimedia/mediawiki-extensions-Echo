@@ -1,0 +1,52 @@
+.mw-echo-icon {
+	width: 42px;
+	height: 42px;
+	float: left;
+	margin-right: 5px;
+	background: no-repeat center left;
+}
+
+.mw-echo-icon-placeholder {
+	/* @embed */
+	background-image: url(placeholder.png);
+}
+
+.mw-echo-icon-chat {
+	/* @embed */
+	background-image: url(chat.png);
+}
+
+.mw-echo-icon-w {
+	/* @embed */
+	background-image: url(W.png);
+}
+
+.mw-echo-icon-revert {
+	/* @embed */
+	background-image: url(revert.png);
+}
+
+.mw-echo-icon-checkmark {
+	/* @embed */
+	background-image: url(tick.png);
+}
+
+.mw-echo-icon-trash {
+	/* @embed */
+	background-image: url(trash.png);
+}
+
+.mw-echo-icon-gift {
+	/* @embed */
+	background-image: url(gift.png);
+}
+
+.mw-echo-icon-heart {
+	/* @embed */
+	background-image: url(heart.png);
+}
+
+.mw-echo-icon-people {
+	/* @embed */
+	background-image: url(people.png);
+}

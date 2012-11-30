@@ -3,17 +3,13 @@
 	font-size: 9px;
 }
 
-.mw-echo-unread {
-	background: url(unread.png) repeat-y top left;
-}
-
 div.mw-echo-timestamp {
 	text-align: right;
 }
 
 .mw-echo-title {
 	font-size: 13px;
-	font-weight: bold;
+	font-weight: normal;
 	line-height: 12px;
 }
 
@@ -24,8 +20,10 @@ div.mw-echo-timestamp {
 .mw-echo-notification {
 	clear: both;
 	display: block;
-	margin-top: 10px;
-	margin-bottom: 10px;
 	color: #252525;
-	overflow: none;
+	padding: 15px 15px 10px 15px;
+	margin: 0;
+	/* Force container to expand to height of floated contents */
+	overflow: hidden;
+	zoom: 1;
 }
