@@ -28,6 +28,11 @@ $specialPageAliases['ko'] = array(
 	'Notifications' => array( '알림' ),
 );
 
+/** Cornish (kernowek) */
+$specialPageAliases['kw'] = array(
+	'Notifications' => array( 'Argemynow' ),
+);
+
 /** Macedonian (македонски) */
 $specialPageAliases['mk'] = array(
 	'Notifications' => array( 'Известувања' ),

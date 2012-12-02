@@ -185,7 +185,7 @@ $messages['qqq'] = array(
 * $3 link to a change
 * $4 is the e-mail recipient's username.
 * $5 is the edit summary.
-* $6 is the email footer, {{msg|echo-email-footer-default}}",
+* $6 is the email footer, {{msg|echo-email-footer-default}}", # Fuzzy
 	'notification-reverted-email-subject' => 'E-mail subject. Parameters:
 *$2 is a username
 *$3 is a page title
@@ -389,8 +389,7 @@ Du kannst die Änderungen von $2 ansehen, sofern du auf den folgenden Link klick
 
 Du erhältst diese Nachricht, da du E-Mail-Benachrichtigungen zu Änderungen an der Seite $3 abonniert hast.
 
-Vielen Dank, dass du {{SITENAME}} nutzt.
-Das {{SITENAME}}-Benachrichtigungssystem',
+$7',
 	'notification-edit-talk-page-email-subject' => 'Deine {{SITENAME}}-Diskussionsseite wurde von $2 bearbeitet',
 	'notification-edit-talk-page-email-body' => 'Hallo $4,
 
@@ -403,8 +402,7 @@ $2 benutzte die folgende Zusammenfassung, um die Änderungen zu beschreiben: $5
 Du kannst die Änderungen von $2 ansehen, sofern du auf den folgenden Link klickst:
 <$3>
 
-Vielen Dank, dass du {{SITENAME}} nutzt.
-Das {{SITENAME}}-Benachrichtigungssystem',
+$6',
 	'notification-reverted-email-subject' => 'Benachrichtigung von {{SITENAME}}: $2 machte deine Bearbeitung von $3 rückgängig: $4',
 	'notification-reverted-email-body' => 'Hallo $5,
 dies ist eine Benachrichtigung, um dir mitzuteilen, dass $2 deine Bearbeitungen der Seite „$3“ auf {{SITENAME}} rückgängig gemacht hat.
@@ -416,10 +414,18 @@ Du kannst die Änderungen einsehen, die $2 vorgenommen hat, um deine Bearbeitung
 
 Du erhältst diese Nachricht, da du E-Mail-Benachrichtigungen zu rückgängig gemachten Bearbeitungen abonniert hast.
 
-Vielen Dank, dass du {{SITENAME}} nutzt.
-Das {{SITENAME}}-Benachrichtigungssystem.',
+$7',
 	'echo-email-subject-default' => 'Neue Benachrichtigung auf {{SITENAME}}',
 	'echo-email-body-default' => 'Es gibt eine neue Benachrichtigung auf {{SITENAME}}:
+
+$1',
+	'echo-email-footer-default' => 'Vielen Dank!
+
+Das {{SITENAME}}-Team
+
+Um deine E-Mail-Einstellungen zu ändern oder Benachrichtigungen zu deaktivieren, besuche bitte:
+
+{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
 
 $1',
 	'echo-link-new' => '$1 neue {{PLURAL:$1|Benachrichtigung|Benachrichtigungen}}',
@@ -536,18 +542,16 @@ Recuerda firmar cualquier comentario en las páginas de discusión con 4 tildes 
 	'notification-edit-email-subject' => 'Notificación de {{SITENAME}}: $3 ha sido editado por $2',
 	'notification-edit-email-body' => 'Hola  $5 ,
 
-Esto es una notificación para hacerte saber que  $2  ha editado la página $3 de {{SITENAME}}.
+Esto es una notificación para hacerte saber que $2 ha editado la página $3 de {{SITENAME}}.
 
 $2 ha resumido sus cambios con este comentario: $6
 
 Puedes ver los cambios que  $2 ha hecho siguiendo este enlace:
-
 <$4>
 
 Estás recibiendo este mensaje porque estás suscrito a las actualizaciones por correo electrónico de los cambios de esta página.
 
-Gracias por usar {{SITENAME}}
-El sistema de notificaciones de {{SITENAME}}',
+$7',
 	'notification-edit-talk-page-email-subject' => 'Tu página de discusión en {{SITENAME}} ha sido editada por $2',
 	'notification-edit-talk-page-email-body' => 'Hola $4,
 
@@ -560,11 +564,10 @@ $2 ha empleado el siguiente resumen para describir su cambio: $5
 Puedes ver los cambios que $2 en este enlace:
 <$3>
 
-Gracias por usar {{SITENAME}}
-El sistema de notificaciones de {{SITENAME}}',
+$6',
 	'notification-reverted-email-subject' => 'Notificación de {{SITENAME}}: $2 ha revertido su edición en $3: $4',
 	'notification-reverted-email-body' => 'Hola, $5:
-Esta es una notificación para hacerte saber que $2 ha revertido tus ediciones en la página {{SITENAME}} $3.
+Esta es una notificación para hacerte saber que $2 ha revertido tus ediciones en la página $3 {{SITENAME}}.
 
 $2 usó el siguiente resumen para describir su cambio: $6
 
@@ -574,10 +577,18 @@ Puedes ver el cambio que $2 hizo para revertir tus ediciones siguiente este enla
 Estás recibiendo este mensaje porque te has suscrito a las alertas por correo electrónico
 cuando tus cambios sean revertidos.
 
-Gracias por usar {{SITENAME}}
-El sistema de notificación de {{SITENAME}}.',
+$7',
 	'echo-email-subject-default' => 'Nueva notificación en {{SITENAME}}',
 	'echo-email-body-default' => 'Tienes una nueva notificación en {{SITENAME}}:
+
+$1',
+	'echo-email-footer-default' => '¡Gracias!
+
+El Equipo de {{SITENAME}}
+
+Para cambiar tus preferencias de correo electrónico o cancelar la subscrición, visita:
+
+{{canonicalurl:{{#special:Preferencias}}#mw-prefsection-echo}}
 
 $1',
 	'echo-link-new' => '$1 {{PLURAL:$1|notificación nueva|notificaciones nuevas}}',
@@ -768,7 +779,7 @@ $messages['gl'] = array(
 Lembre asinar calquera comentario que deixe nas páxinas de conversa con 4 tiles (~~~~).',
 	'notification-reverted' => '$2 {{GENDER:$1|reverteu}} a {{PLURAL:$6|1=súa edición|súas edicións}} en "[[$3]]" $4: "$5"',
 	'notification-edit-email-subject' => 'Notificación de {{SITENAME}}: $2 editou "$3"',
-	'notification-edit-email-body' => 'Boas $5:
+	'notification-edit-email-body' => 'Boas, $5:
 Esta é unha notificación para facerlle saber que $2 editou a páxina "$3" de {{SITENAME}}.
 
 $2 resumiu os seus cambios con este comentario: $6
@@ -778,10 +789,9 @@ Pode ollar os cambios que realizou $2 seguindo esta ligazón:
 
 Recibiu esta mensaxe porque activou a subscrición ás actualizacións por correo electrónico sobre os cambios nesta páxina.
 
-Grazas por usar {{SITENAME}}
-O sistema de notificación de {{SITENAME}}',
+$7',
 	'notification-edit-talk-page-email-subject' => '$2 editou a súa páxina de conversa de {{SITENAME}}',
-	'notification-edit-talk-page-email-body' => 'Boas $4:
+	'notification-edit-talk-page-email-body' => 'Boas, $4:
 Esta é unha notificación para facerlle saber que $2 editou a súa páxina de conversa de {{SITENAME}}.
 
 En {{SITENAME}}, a súa páxina de conversa é o lugar no que os demais usuarios poden deixarlle mensaxes.
@@ -791,10 +801,9 @@ $2 utilizou o seguinte resumo para describir o seu cambio: $5
 Pode ollar os cambios que realizou $2 seguindo esta ligazón:
 <$3>
 
-Grazas por usar {{SITENAME}}
-O sistema de notificación de {{SITENAME}}',
+$6',
 	'notification-reverted-email-subject' => 'Notificación de {{SITENAME}}: $2 reverteu a súa edición en "$3": $4',
-	'notification-reverted-email-body' => 'Boas $5:
+	'notification-reverted-email-body' => 'Boas, $5:
 Esta é unha notificación para facerlle saber que $2 reverteu as súas edicións na páxina "$3" de {{SITENAME}}.
 
 $2 utilizou o seguinte resumo para describir o seu cambio: $6
@@ -805,10 +814,18 @@ Pode ollar o cambio que realizou $2 para reverter as súas edicións seguindo es
 Recibiu esta mensaxe porque activou a subscrición ás actualizacións por correo electrónico
 sobre reversións dos seus cambios.
 
-Grazas por usar {{SITENAME}}
-O sistema de notificación de {{SITENAME}}.',
+$7',
 	'echo-email-subject-default' => 'Nova notificación en {{SITENAME}}',
 	'echo-email-body-default' => 'Ten unha nova notificación en {{SITENAME}}:
+
+$1',
+	'echo-email-footer-default' => 'Grazas!
+
+O equipo de {{SITENAME}}
+
+Para cambiar as preferencias do correo ou cancelar a subscrición, visite:
+
+{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
 
 $1',
 	'echo-link-new' => '$1 {{PLURAL:$1|nova notificación|novas notificacións}}',
@@ -928,10 +945,10 @@ Móžeš změny, kotrež $2 přewjedźe, přez slědowacy wotkaz widźeć:
 
 Přijimaš tutu zdźělenku, dokelž sy e-mejlowe aktualizacije wo změnach na tutej stronje abonował.
 
-Dźakujemy so, zo {{GRAMMAR:akuzatiw|{{SITENAME}}}} wužiwaš.
-Zdźělenski system {{GRAMMAR:genitiw|{{SITENAME}}}}',
+$7',
 	'notification-edit-talk-page-email-subject' => 'Twoja diskusijna strona na {{GRAMMAR:lokatiw|{{SITENAME}}}} je so wot $2 wobdźěłała',
 	'notification-edit-talk-page-email-body' => 'Witaj $4,
+
 to je zdźělenka, kotraž će informuje, zo $2 je twoju diskusijnu stronu na {{GRAMMAR:lokatiw|{{SITENAME}}}} wobdźěłał.
 
 Twoja duskusijna strona je na {{GRAMMAR:lokatiw|{{SITENAME}}}}  te městno, hdźež wužiwarjo móža ći powěsće zawostajić.
@@ -941,8 +958,7 @@ $2 je slědowace zjeće wužił, zo by swoju změnu wopisał: $5
 Změny, kotrež $2 přewjedźe, móžeš přez slědowacy wotkaz widźeć:
 <$3>
 
-Dźakujemy so, zo {{GRAMMAR:akuzatiw|{{SITENAME}}}} wužiwaš.
-Zdźělenski system {{GRAMMAR:genitiw|{{SITENAME}}}}',
+$6',
 	'notification-reverted-email-subject' => 'Zdźělenje přez {{GRAMMAR:akuzatiw|{{SITENAME}}}}: $2 je wašu změny na $3 anulował: $4',
 	'notification-reverted-email-body' => 'Witaj $5,
 
@@ -955,14 +971,22 @@ Móžeš změny, kotrež $2 přewjedźe, zo by twoje změny anulował, přez sl�
 
 Přijimaš tutu zdźělenku, dokelž sy e-mejlowe zdźělenki wo anulowanych změnach abonował.
 
-Dźakujemy so, zo {{GRAMMAR:akuzatiw|{{SITENAME}}}} wužiwaš.
-Zdźělenski system {{GRAMMAR:genitiw|{{SITENAME}}}}',
+$7',
 	'echo-email-subject-default' => 'Nowa zdźělenka na {{GRAMMAR:lokatiw|{{SITENAME}}}}',
 	'echo-email-body-default' => 'Maš nowu zdźělenku na {{GRAMMAR:lokatiw|{{SITENAME}}}}:
 
 $1',
+	'echo-email-footer-default' => 'Wulki dźak!
+
+Team {{GRAMMAR:genitiw|{{SITENAME}}}}
+
+Zo by swoje e-mejlow nastajenja změnić abo wotskazać, wopytaj prošu:
+
+{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
+
+$1',
 	'echo-link-new' => '$1 {{PLURAL:$1|nowa zdźělenka|nowej zdźělence|nowe zdźělenki|nowych zdźělenkow}}',
-	'echo-link' => 'Moje zdźělenki', # Fuzzy
+	'echo-link' => 'Zdźělenki',
 	'echo-overlay-link' => 'Wšě zdźělenki...',
 	'echo-overlay-title' => 'Moje zdźělenki',
 );
@@ -1213,8 +1237,7 @@ $2 사용자가 이 덧글로 바뀜을 요약했습니다: $6
 
 이 문서의 바뀜에 대해 이메일 업데이트에 구독했기 때문에 이 메시지를 보내드립니다.
 
-{{SITENAME}}(을)를 사용해 주셔서 감사합니다
-{{SITENAME}} 알림 시스템',
+$7',
 	'notification-edit-talk-page-email-subject' => '당신의 {{SITENAME}} 토론 문서를 $2에 의해 편집함',
 	'notification-edit-talk-page-email-body' => '$4 안녕하세요.
 $2 사용자가 {{SITENAME}}에 당신의 토론 문서를 편집했음을 알립니다.
@@ -1226,8 +1249,7 @@ $2 사용자가 다음 요약으로 바뀜을 설명했습니다: $5
 이 링크에서 $2 사용자에 의한 바뀜을 볼 수 있습니다:
 <$3>
 
-{{SITENAME}}(을)를 사용해 주셔서 감사합니다
-{{SITENAME}} 알림 시스템',
+$6',
 	'notification-reverted-email-subject' => '{{SITENAME}} 알림: $2 사용자가 $3에 대한 당신의 편집을 되돌렸습니다: $4',
 	'notification-reverted-email-body' => '$5 안녕하세요.
 $2 사용자가 {{SITENAME}} $3 문서에 당신의 편집을 되돌렸음을 알립니다.
@@ -1238,16 +1260,22 @@ $2 사용자가 다음 요약으로 바뀜을 설명했습니다: $6
 <$4>
 
 당신이 편집한 문서를 되돌릴 때 이메일 업데이트에 구독했기 때문에
-이 메시지를 보내드립니다.
-
-{{SITENAME}}(을)를 사용해 주셔서 감사합니다
-{{SITENAME}} 알림 시스템',
+이 메시지를 보내드립니다.', # Fuzzy
 	'echo-email-subject-default' => '{{SITENAME}}에서 새 알림',
 	'echo-email-body-default' => '{{SITENAME}}에서 새 알림이 있습니다:
 
 $1',
+	'echo-email-footer-default' => '감사합니다!
+
+{{SITENAME}} 팀
+
+이메일 환경 설정을 바꾸거나 구독 취소하려면 다음을 방문하세요:
+
+{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
+
+$1',
 	'echo-link-new' => '새 {{PLURAL:$1|알림}} $1개',
-	'echo-link' => '내 알림', # Fuzzy
+	'echo-link' => '알림',
 	'echo-overlay-link' => '모든 알림…',
 	'echo-overlay-title' => '내 알림',
 );
@@ -1375,8 +1403,7 @@ $2 ги опиша промените што ги направи со следн
 
 Соопштениево го добивате бидејќе сте пријавени на известувања по е-пошта во врска со измени на оваа страница.
 
-Ви благодариме што сте корисник на {{SITENAME}}
-Известителниот систем на {{SITENAME}}',
+$7',
 	'notification-edit-talk-page-email-subject' => '$2 ја измени вашата страница ра разговор на {{SITENAME}}',
 	'notification-edit-talk-page-email-body' => 'Здраво $4,
 Ве известуваме дека $2 ја измени вашата страница за разговор на {{SITENAME}}.
@@ -1388,9 +1415,7 @@ $2 го даде следниов опис на измените што ги н�
 Измените што ги направи $2 можете да ги погледате на следнава врска:
 <$3>
 
-
-Ви благодариме што сте корисник на {{SITENAME}}
-Известителниот систем на {{SITENAME}}',
+$6',
 	'notification-reverted-email-subject' => 'Известување од {{SITENAME}}: $2 ја врати вашата измена на $3: $4',
 	'notification-reverted-email-body' => 'Здраво $5,
 Ве известуваме дека $2 ја ги врати вашите измени на страницата $3 на {{SITENAME}}.
@@ -1400,12 +1425,19 @@ $2 ги опиша промените што ги направи со следн
 Измените што ги направи $2 можете да ги погледате на следнава врска:
 <$4>
 
-Соопштениево го добивате бидејќе сте пријавени на известувања по е-пошта во врска со измени на оваа страница.
-
-Ви благодариме што сте корисник на {{SITENAME}}
-Известителниот систем на {{SITENAME}}',
+Соопштениево го добивате бидејќе сте пријавени на известувања по е-пошта кога ќе биде вратено некое ваше уредување на оваа страница.
+$7',
 	'echo-email-subject-default' => 'Ново известување на {{SITENAME}}',
 	'echo-email-body-default' => 'Имате ново известување на {{SITENAME}}:
+
+$1',
+	'echo-email-footer-default' => 'Ви благодариме!
+
+Екипата на {{SITENAME}}
+
+За да ги измените поставките за е-пошта или да се откажете од известувањата, појдете на:
+
+{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
 
 $1',
 	'echo-link-new' => '$1 {{PLURAL:$1|ново известување|нови известувања}}',
@@ -1499,7 +1531,7 @@ Anda menerima pesanan ini kerana anda telah melanggan untuk menerima kemas kini 
 
 Terima kasih kerana menggunakan {{SITENAME}}
 
-Sistem pemberitahuan {{SITENAME}}',
+Sistem pemberitahuan {{SITENAME}}', # Fuzzy
 	'notification-edit-talk-page-email-subject' => 'Halaman perbincangan anda di {{SITENAME}} telah disunting oleh $2',
 	'notification-edit-talk-page-email-body' => '$4,
 
@@ -1514,7 +1546,7 @@ Anda boleh melihat suntingan yang dibuat oleh $2 dengan mengikuti pautan ini:
 
 Terima kasih kerana menggunakan {{SITENAME}}
 
-Sistem pemberitahuan {{SITENAME}}',
+Sistem pemberitahuan {{SITENAME}}', # Fuzzy
 	'notification-reverted-email-subject' => 'Pemberitahuan {{SITENAME}}: $2 telah membalikkan suntingan anda di $3: $4',
 	'notification-reverted-email-body' => '$5,
 
@@ -1529,7 +1561,7 @@ Anda menerima pesanan ini kerana anda telah melanggan peringatan e-mel apabila s
 
 Terima kasih kerana menggunakan {{SITENAME}}
 
-Sistem pemberitahuan {{SITENAME}}.',
+Sistem pemberitahuan {{SITENAME}}.', # Fuzzy
 	'echo-email-subject-default' => 'Pemberitahuan baru di {{SITENAME}}',
 	'echo-email-body-default' => 'Anda menerima pemberitahuan baru di {{SITENAME}}:
 
@@ -1630,8 +1662,7 @@ U kunt de wijzigingen die $2 heeft gemaakt bekijken via de volgende verwijzing:
 
 U ontvangt dit bericht omdat u bent geabonneerd op meldingen via e-mail voor deze pagina.
 
-Dank u wel voor het gebruiken van {{SITENAME}}
-Het meldingensysteem van {{SITENAME}}',
+$7',
 	'notification-edit-talk-page-email-subject' => 'Uw overlegpagina op {{SITENAME}} is bewerkt door $2',
 	'notification-edit-talk-page-email-body' => 'Hallo $4,
 U ontvangt deze melding omdat $2 uw overlegpagina op {{SITENAME}} heeft bewerkt.
@@ -1643,8 +1674,7 @@ $2 heeft {{GENDER:$2|zijn|haar}} wijzigingen als volgt samengevat: $5
 Bekijk de wijzigingen die $2 heeft gemaakt:
 <$3>
 
-Dank u wel voor het gebruiken van {{SITENAME}}
-Het meldingensysteem van {{SITENAME}}',
+$7', # Fuzzy
 	'notification-reverted-email-subject' => 'Melding van {{SITENAME}}: $2 heeft uw bewerking aan $3 teruggedraaid: $4',
 	'notification-reverted-email-body' => 'Hallo $5,
 Dit is een melding om u te laten weten dat $2 uw bewerking op $3 op {{SITENAME}} heeft teruggedraaid.
@@ -1656,10 +1686,18 @@ U kunt de verandering die $2 heeft gemaakt door de terugdraaiing bekijken via de
 
 U ontvangt dit bericht omdat u zich heeft geabonneerd op e-mailnotificaties wanneer uw bewerkingen worden teruggedraaid.
 
-Bedankt voor het gebruiken van {{SITENAME}},
-Het meldingensysteem van {{SITENAME}}.',
+$7',
 	'echo-email-subject-default' => 'Nieuwe melding op {{SITENAME}}',
 	'echo-email-body-default' => 'U hebt een nieuwe melding op {{SITENAME}}:
+
+$1',
+	'echo-email-footer-default' => 'Dank u wel!
+
+Het team van {{SITENAME}}
+
+Volg de volgende verwijzing om uw e-mailvoorkeuren te wijzigen of om u uit te schrijven:
+
+{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
 
 $1',
 	'echo-link-new' => '{{PLURAL:$1|1 nieuwe melding|$1 nieuwe meldingen}}',
@@ -2063,8 +2101,7 @@ Bạn có thể xem các thay đổi của $2 bằng cách theo dõi liên kết
 
 Bạn nhận được thư điện tử này vì bạn đã xin theo dõi các thay đổi tại trang này.
 
-Cám ơn bạn sử dụng {{SITENAME}},
-Hệ thống thông báo {{SITENAME}}',
+$7',
 	'notification-edit-talk-page-email-subject' => 'Trang thảo luận của bạn tại {{SITENAME}} đã được sửa bởi $2',
 	'notification-edit-talk-page-email-body' => 'Xin chào $4,
 Xin thông báo với bạn rằng $2 đã sửa đổi trang thảo luận của bạn tại {{SITENAME}}.
@@ -2076,8 +2113,7 @@ $2 tóm lược các thay đổi của họ như thế này: $5
 Bạn có thể xem các thay đổi của $2 bằng cách theo dõi liên kết này:
 <$3>
 
-Cám ơn bạn sử dụng {{SITENAME}},
-Hệ thống thông báo {{SITENAME}}',
+$6',
 	'notification-reverted-email-subject' => 'Thông báo từ {{SITENAME}}: $2 đã lùi lại sửa đổi của bạn tại $3: $4',
 	'notification-reverted-email-body' => 'Xin chào $5,
 Xin thông báo với bạn rằng $2 đã lùi lại các sửa đổi tại trang $3 tại {{SITENAME}}.
@@ -2089,14 +2125,20 @@ Bạn có thể xem thay đổi lùi sửa của $2 bằng cách theo dõi liên
 
 Bạn nhận được thư điện tử này vì bạn đã xin theo dõi các vụ lùi sửa thay đổi của bạn.
 
-Cám ơn bạn sử dụng {{SITENAME}},
-Hệ thống thông báo {{SITENAME}}',
+$7',
 	'echo-email-subject-default' => 'Thông báo mới tại {{SITENAME}}',
 	'echo-email-body-default' => 'Bạn có thông báo mới tại {{SITENAME}}:
 
 $1',
+	'echo-email-footer-default' => 'Cám ơn bạn sử dụng {{SITENAME}}!
+
+Để cấu hình hoặc tắt các thông báo qua thư điện tử, hãy ghé vào:
+
+{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
+
+$1',
 	'echo-link-new' => '$1 thông báo mới',
-	'echo-link' => 'Thông báo cho tôi', # Fuzzy
+	'echo-link' => 'Thông báo',
 	'echo-overlay-link' => 'Tất cả các thông báo…',
 	'echo-overlay-title' => 'Thông báo cho tôi',
 );
