@@ -114,15 +114,12 @@ $1',
  */
 $messages['qqq'] = array(
 	'echo-desc' => '{{desc}}',
-
-	// Preferences
 	'prefs-echo' => 'Name of preferences section for Echo notifications.',
 	'prefs-displaynotifications' => 'Header for the section of preferences that deals with how notifications are displayed',
 	'prefs-subscriptions' => 'Header for the section of preferences that deals with notificaiton subscriptions',
 	'echo-pref-notify-link' => "Label for a preference which enables a 'Notifications' link in the header and associated fly-out panel",
 	'echo-pref-notify-watchlist' => 'Label for a preference which causes
 	any changes to your watchlist to be replicated in Echo subscriptions',
-
 	'echo-no-agent' => 'Shown in place of a username in a notification
 	if the notification has no specified user.',
 	'echo-no-title' => 'Shown in place of a page title in a notification
@@ -691,20 +688,19 @@ $messages['fr'] = array(
 N'oubliez pas de signer vos commentaires sur les pages de discussions avec 4 tildes (~ ~ ~ ~).",
 	'notification-reverted' => '$2 {{GENDER:$1|a annulé}} {{PLURAL:$6|votre modification|vos modifications}} sur [[$3]] $4: "$5"',
 	'notification-edit-email-subject' => 'Notification de {{SITENAME}} : $3 a été modifié par $2',
-	'notification-edit-email-body' => "Bonjour $5,
+	'notification-edit-email-body' => 'Bonjour $5,
 Ceci est une notification pour vous informer que $2 a modifié la page $3 de {{SITENAME}}.
 
-$2 a résumé ses changements avec ce commentaire: $6
+$2 a résumé ses modifications avec ce commentaire: $6
 
 Vous pouvez voir les changements faits par $2 en suivant ce lien:
 <$4>
 
 Vous recevez ce message parce que vous avez souscrit aux mises à jour par courriel des modifications apportées à cette page.
 
-Merci d'utiliser {{SITENAME}}
-Le système de notification de {{SITENAME}}",
+$7',
 	'notification-edit-talk-page-email-subject' => 'Votre page de discussion de {{SITENAME}} a été modifée par $2',
-	'notification-edit-talk-page-email-body' => "Bonjour $4,
+	'notification-edit-talk-page-email-body' => 'Bonjour $4,
 
 Ceci est une notification pour vous informer que $2 a modifié votre page de discussion sur {{SITENAME}}.
 
@@ -713,12 +709,11 @@ Sur {{SITENAME}}, votre page de discussion est là où les autres utilisateurs p
 $2 a utilisé ce commentaire pour décrire son changement: $5
 
 Vous pouvez voir les changements que $2 a fait en suivant ce lien:
-$3
+<$3>
 
-Merci d'utiliser {{SITENAME}}
-Le système de notification de {{SITENAME}}",
+$6',
 	'notification-reverted-email-subject' => 'Notification de {{SITENAME}}: $2 a annulé votre modification sur $3: $4',
-	'notification-reverted-email-body' => "Bonjour $5,
+	'notification-reverted-email-body' => 'Bonjour $5,
 
 Ceci est une notification pour vous informer que $2 a annulé vos modifications sur page $3 de {{SITENAME}}
 
@@ -729,12 +724,20 @@ Vous pouvez voir les changements faits par $2 pour annulé vos modifications en 
 
 Vous recevez ce message parce que vous avez souscrit aux mises à jour par courriel quand vos modifications sont annulé.
 
-Merci d'utiliser {{SITENAME}}
-Le système de notification de {{SITENAME}}",
+$7',
 	'echo-email-subject-default' => 'Nouvelle notification sur {{SITENAME}}',
 	'echo-email-body-default' => 'Vous avez une nouvelle notification sur {{SITENAME}} :
 
 $1',
+	'echo-email-footer-default' => "Merci!
+
+L'équipe de {{SITENAME}}
+
+Pour modifier vos préférences de courriel ou pour vous désinscrire, allez sur:
+
+{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
+
+$1",
 	'echo-link-new' => '$1 {{PLURAL:$1|nouvelle notification|nouvelles notifications}}',
 	'echo-link' => 'Notifications',
 	'echo-overlay-link' => 'Toutes les notifications…',
@@ -1102,8 +1105,7 @@ Puoi vedere le modifiche che $2 ha fatto seguendo questo collegamento:
 
 Stai ricevendo questo messaggio perché hai sottoscritto gli aggiornamenti tramite email per le modifiche a questa pagina.
 
-Grazie per usare {{SITENAME}}
-Il sistema di notifica di {{SITENAME}}',
+$7',
 	'notification-edit-talk-page-email-subject' => 'La pagina di discussione su {{SITENAME}} è stata modificata da $2',
 	'notification-edit-talk-page-email-body' => 'Ciao $4,
 Questa è una notifica per farti sapere che $2 ha modificato la tua pagina di discussione su {{SITENAME}}.
@@ -1115,8 +1117,7 @@ $2 ha commentato le sue modifiche con questo oggetto: $5
 Puoi vedere le modifiche che $2 ha fatto seguendo questo collegamento:
 <$3>
 
-Grazie per usare {{SITENAME}}
-Il sistema di notifica di {{SITENAME}}',
+$6',
 	'notification-reverted-email-subject' => 'Notifica di {{SITENAME}}: $2 ha annullato le tue modifiche su $3: $4',
 	'notification-reverted-email-body' => 'Ciao $5,
 Questa è una notifica per farti sapere che $2 ha annullato le tue modifiche alla pagina di {{SITENAME}} $3.
@@ -1128,12 +1129,20 @@ Puoi vedere le modifiche che $2 ha fatto seguendo questo collegamento:
 
 Stai ricevendo questo messaggio perché hai sottoscritto gli aggiornamenti tramite email per le modifiche a questa pagina.
 
-Grazie per usare {{SITENAME}}
-Il sistema di notifica di {{SITENAME}}',
+$7',
 	'echo-email-subject-default' => 'Nuova notifica su {{SITENAME}}',
 	'echo-email-body-default' => 'Hai una nuova notifica su {{SITENAME}}:
 
 $1',
+	'echo-email-footer-default' => "Grazie!
+
+Il team di {{SITENAME}}
+
+Per modificare le preferenze delle email o annullare l'iscrizione, visita:
+
+{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
+
+$1",
 	'echo-link-new' => '$1 {{PLURAL:$1|nuova notifica|nuove notifiche}}',
 	'echo-link' => 'notifiche',
 	'echo-overlay-link' => 'Tutte le notifiche...',
@@ -1272,7 +1281,9 @@ $2 사용자가 다음 요약으로 바뀜을 설명했습니다: $6
 <$4>
 
 당신이 편집한 문서를 되돌릴 때 이메일 업데이트에 구독했기 때문에
-이 메시지를 보내드립니다.', # Fuzzy
+이 메시지를 보내드립니다.
+
+$7',
 	'echo-email-subject-default' => '{{SITENAME}}에서 새 알림',
 	'echo-email-body-default' => '{{SITENAME}}에서 새 알림이 있습니다:
 
@@ -1686,7 +1697,7 @@ $2 heeft {{GENDER:$2|zijn|haar}} wijzigingen als volgt samengevat: $5
 Bekijk de wijzigingen die $2 heeft gemaakt:
 <$3>
 
-$7', # Fuzzy
+$6',
 	'notification-reverted-email-subject' => 'Melding van {{SITENAME}}: $2 heeft uw bewerking aan $3 teruggedraaid: $4',
 	'notification-reverted-email-body' => 'Hallo $5,
 Dit is een melding om u te laten weten dat $2 uw bewerking op $3 op {{SITENAME}} heeft teruggedraaid.
