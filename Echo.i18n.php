@@ -107,6 +107,7 @@ $1',
  * @author Amire80
  * @author Kghbln
  * @author Krenair
+ * @author Minh Nguyen
  * @author Nike
  * @author Raymond
  * @author Shirayuki
@@ -116,7 +117,7 @@ $messages['qqq'] = array(
 	'echo-desc' => '{{desc}}',
 	'prefs-echo' => 'Name of preferences section for Echo notifications.',
 	'prefs-displaynotifications' => 'Header for the section of preferences that deals with how notifications are displayed',
-	'prefs-subscriptions' => 'Header for the section of preferences that deals with notificaiton subscriptions',
+	'prefs-subscriptions' => 'Header for the section of preferences that deals with notification subscriptions',
 	'echo-pref-notify-link' => "Label for a preference which enables a 'Notifications' link in the header and associated fly-out panel",
 	'echo-pref-notify-watchlist' => 'Label for a preference which causes
 	any changes to your watchlist to be replicated in Echo subscriptions',
@@ -204,7 +205,8 @@ $messages['qqq'] = array(
 * $5 is the e-mail recipient's username
 * $6 is the edit summary
 * $7 is the email footer, {{msg|echo-email-footer-default}}",
-	'echo-notification-count' => 'The new notification count next to notification link, for example: 99+
+	'echo-notification-count' => '{{optional}}
+The new notification count next to notification link, for example: 99+
 * $1 is the count',
 	'echo-email-subject-default' => 'Default subject for Echo email notifications',
 	'echo-email-body-default' => 'Default message content for Echo email notifications.
@@ -368,6 +370,9 @@ $1',
 $messages['de'] = array(
 	'echo-desc' => 'Benachrichtigungssystem',
 	'prefs-echo' => 'Benachrichtigungen',
+	'prefs-displaynotifications' => 'Anzeigeoptionen',
+	'prefs-subscriptions' => 'Abonnements',
+	'echo-pref-notify-link' => 'Einen Link zu den Benachrichtigungen zu Beginn jeder Seite anzeigen',
 	'echo-pref-notify-watchlist' => 'Das Bearbeiten der Einstellungen zu Benachrichtigungen ermöglichen, wenn ich Seiten zu meiner Beobachtungsliste hinzufüge.',
 	'echo-no-agent' => '[Niemand]',
 	'echo-no-title' => '[Keine Seite]',
@@ -530,6 +535,9 @@ $1',
 $messages['es'] = array(
 	'echo-desc' => 'Sistema de notificaciones',
 	'prefs-echo' => 'Notificaciones',
+	'prefs-displaynotifications' => 'Opciones de visualización',
+	'prefs-subscriptions' => 'Suscripciones',
+	'echo-pref-notify-link' => 'Mostrar un enlace a tus notificaciones en la parte superior de cada página',
 	'echo-pref-notify-watchlist' => 'Suscribirme para editar notificaciones cuando agregue páginas a mi lista de vigilancia.',
 	'echo-no-agent' => '[Nadie]',
 	'echo-no-title' => '[No hay ninguna página]',
@@ -669,6 +677,9 @@ $messages['fi'] = array(
 $messages['fr'] = array(
 	'echo-desc' => 'Système de notifications',
 	'prefs-echo' => 'Notifications',
+	'prefs-displaynotifications' => "Options d'affichage",
+	'prefs-subscriptions' => 'Abonnements',
+	'echo-pref-notify-link' => 'Afficher un lien vers vos notifications en haut de chaque page',
 	'echo-pref-notify-watchlist' => "M'inscrire pour modifier les notifications quand j'ajoute des pages à ma liste de suivi.",
 	'echo-no-agent' => '[Personne]',
 	'echo-no-title' => '[Aucune page]',
@@ -775,6 +786,9 @@ $1',
 $messages['gl'] = array(
 	'echo-desc' => 'Sistema de notificación',
 	'prefs-echo' => 'Notificacións',
+	'prefs-displaynotifications' => 'Opcións de visualización',
+	'prefs-subscriptions' => 'Subscricións',
+	'echo-pref-notify-link' => 'Mostrar unha ligazón cara ás súas notificacións na parte superior das páxinas',
 	'echo-pref-notify-watchlist' => 'Subscribirme para editar as notificación cando engada páxinas á miña lista de vixilancia.',
 	'echo-no-agent' => '[Ninguén]',
 	'echo-no-title' => '[Ningunha páxina]',
@@ -857,6 +871,9 @@ $1',
 $messages['he'] = array(
 	'echo-desc' => 'מערכת הודעות',
 	'prefs-echo' => 'הודעות',
+	'prefs-displaynotifications' => 'אפשרויות תצוגה',
+	'prefs-subscriptions' => 'מינויים',
+	'echo-pref-notify-link' => 'הצגת קישור להתרעות שלך בראש כל דף',
 	'echo-pref-notify-watchlist' => 'לרשום אותי להודעות על עריכה כאשר אני מוסיף דפים לרשימת המעקב שלי.',
 	'echo-no-agent' => '[לא צוין]',
 	'echo-no-title' => '[ללא דף]',
@@ -887,7 +904,9 @@ $2 {{GENDER:$2|סיכם|סיכמה}} את העריכה עם ההערה הבעא�
 קיבלת הודעה זו בגלל שנרשמת לקבל עידכונים באימייל על שינויים בדף זה.
 
 תודה שהשתמשת ב{{SITENAME}}
-מערכת ההודעות של{{SITENAME}}',
+מערכת ההודעות של{{SITENAME}}
+
+$7',
 	'notification-edit-talk-page-email-subject' => 'דף השיחה שלך באתר {{SITENAME}} נערך עלֹ־ידי $2',
 	'notification-edit-talk-page-email-body' => 'שלום $4,
 רצינו לספר לך ש{{GRAMMAR|תחילית|$2}} {{GENDER:$2|ערך|ערכה}} את דף השיחה שלך באתר {{SITENAME}}.
@@ -899,8 +918,7 @@ $2 {{GENDER:$2|כתב|כתבה}} את התקציר הבא כדי לתאר את �
 אפשר לראות את השינויים ש{{GRAMMAR|תחילית|$2}} {{GENDER:$2|עשה|עשתה}} בקישור זה:
 <$3>
 
-תודה שהשתמשת באתר {{SITENAME}}
-מערכת ההודעות של {{SITENAME}}',
+$6',
 	'notification-reverted-email-subject' => 'הודעת {{SITENAME}}: $2 {{GENDER:$2|שחזר|שחזרה}} את עריכתך בדף $3: $4',
 	'notification-reverted-email-body' => 'שלום $5,
 רצינו להודיע לך ש{{GRAMMAR:תחילית|$2}} {{GENDER:$2|ערך|ערכה}} את העמוד $3 באתר {{SITENAME}}.
@@ -912,10 +930,18 @@ $2 {{GENDER:$2|סיכם|סיכמה}} את העריכה עם ההערה הבאה:
 
 קיבלת הודעה זו בגלל שנרשמת לקבל עדכונים בדואר אלקארוני על שינויים בדף זה.
 
-תודה שהשתמשת באתר {{SITENAME}}
-מערכת ההודעות של {{SITENAME}}',
+$7',
 	'echo-email-subject-default' => 'הודעה חדשה באתר {{SITENAME}}',
 	'echo-email-body-default' => 'יש לך הודעה חדשה באתר {{SITENAME}}:
+
+$1',
+	'echo-email-footer-default' => 'תודה!
+
+צוות {{SITENAME}}
+
+אפשר לשנות את העדפות הדוא"ל שלך בדף הבא:
+
+{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
 
 $1',
 	'echo-link-new' => '{{PLURAL:$1|הודעה אחת חדשה|$1 הודעות חדשות}}',
@@ -1076,6 +1102,9 @@ $1',
 $messages['it'] = array(
 	'echo-desc' => 'Sistema per le notifiche',
 	'prefs-echo' => 'Notifiche',
+	'prefs-displaynotifications' => 'Opzioni di visualizzazione',
+	'prefs-subscriptions' => 'Iscrizioni',
+	'echo-pref-notify-link' => 'Mostra un collegamento alle tue notifiche nella parte superiore di ogni pagina',
 	'echo-pref-notify-watchlist' => 'Modifica le mie notifiche quando aggiungo pagine ai miei osservati speciali.',
 	'echo-no-agent' => '[Nessuno]',
 	'echo-no-title' => '[Nessuna pagina]',
@@ -1155,6 +1184,8 @@ $1",
 $messages['ja'] = array(
 	'echo-desc' => '通知システム',
 	'prefs-echo' => '通知',
+	'prefs-displaynotifications' => '表示の設定',
+	'echo-pref-notify-link' => '各ページの上部に通知へのリンクを表示',
 	'echo-error-no-formatter' => '通知の書式が定義されていません',
 	'notifications' => '通知',
 	'echo-specialpage' => '自分の通知',
@@ -1397,6 +1428,9 @@ $messages['lt'] = array(
 $messages['mk'] = array(
 	'echo-desc' => 'Известителен систем',
 	'prefs-echo' => 'Известувања',
+	'prefs-displaynotifications' => 'Нагодувања на приказот',
+	'prefs-subscriptions' => 'Претплати',
+	'echo-pref-notify-link' => 'Прикажувај врска за моите известувања најгоре на секоја страница',
 	'echo-pref-notify-watchlist' => 'Претплати ме за измена на известувањата кога додавам страници во мојот список на набљудувања.',
 	'echo-no-agent' => '[Никој]',
 	'echo-no-title' => '[Нема страница]',
@@ -1655,6 +1689,7 @@ $1',
 $messages['nl'] = array(
 	'echo-desc' => 'Meldingensysteem',
 	'prefs-echo' => 'Meldingen',
+	'prefs-subscriptions' => 'Abonnementen',
 	'echo-pref-notify-watchlist' => "Mij abonneren op meldingen over bewerken als ik pagina's aan mijn volglijst toevoeg.",
 	'echo-no-agent' => '[Niemand]',
 	'echo-no-title' => '[Geen pagina]',
@@ -2095,6 +2130,9 @@ $messages['ur'] = array(
 $messages['vi'] = array(
 	'echo-desc' => 'Hệ thống thông báo',
 	'prefs-echo' => 'Thông báo',
+	'prefs-displaynotifications' => 'Tùy chọn hiển thị',
+	'prefs-subscriptions' => 'Các đăng ký',
+	'echo-pref-notify-link' => 'Hiện nút mở hộp thông điệp ở đầu các trang',
 	'echo-pref-notify-watchlist' => 'Đăng ký các thông báo về sửa đổi khi nào tôi thêm trang vào danh sách theo dõi.',
 	'echo-no-agent' => '[Không ai]',
 	'echo-no-title' => '[Không có trang]',
