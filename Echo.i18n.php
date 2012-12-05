@@ -140,7 +140,7 @@ $messages['qqq'] = array(
 * $1 is the username of the person who edited, plain text. Can be used for GENDER.
 * $2 is the username of the person who edited, HTML formatted as the link to the user\'s page.
 * $3 is a diff link, formatted as an HTML link with the text "(diff)".
-* $4 is the current user\'s name, used in the link to their talk page.',
+* $4 is the current user\'s name, used in the link to their talk page.', # Fuzzy
 	'notification-add-comment' => 'Format for displaying notifications of a comment being added to an existing discussion. Parameters:
 * $1 is the username of the person who edited, plain text. Can be used for GENDER,
 * $2 is the username of the person who edited,
@@ -381,7 +381,7 @@ $messages['de'] = array(
 	'echo-anon' => 'Um Benachrichtigungen erhalten zu können, muss man ein [[Special:Userlogin/signup|Benutzerkonto anlegen]] oder sich [[Special:UserLogin|anmelden]].',
 	'echo-none' => 'Du hast in letzter Zeit keine Benachrichtigungen erhalten.',
 	'notification-edit' => '$2 {{GENDER:$1|bearbeitete}} [[$3]] $4: „$5“',
-	'notification-edit-talk-page' => '$2 {{GENDER:$1|bearbeitete}} [[User talk:$4|deine Benutzerseite]] $3: „$5“',
+	'notification-edit-talk-page' => '$2 {{GENDER:$1|bearbeitete}} [[User talk:$4|deine Benutzerseite]] $3: „$5“', # Fuzzy
 	'notification-add-comment' => '$2 {{GENDER:$1|kommentierte}} „[[$4|$3]]“ auf der Diskussionsseite „$5“',
 	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|startete}} das neue Thema  „$3“ zu [[$4]]',
 	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|sandte}} dir eine Nachricht: [[$4#$3|$3]]',
@@ -546,7 +546,7 @@ $messages['es'] = array(
 	'echo-anon' => 'Para recibir notificaciones, [[Special:Userlogin/signup|crea una cuenta]] o [[Special:UserLogin|inicia sesión]].',
 	'echo-none' => '¡No has recibido notificaciones últimamente!',
 	'notification-edit' => '$2 {{GENDER:$1|ha editado}} [[$3]] $4: "$5"',
-	'notification-edit-talk-page' => '$2 {{GENDER:$1|ha editado}} [[User talk:$4|tu página de discusión]] $3: "$5"',
+	'notification-edit-talk-page' => '$2 {{GENDER:$1|ha editado}} [[User talk:$4|tu página de discusión]] $3: "$5"', # Fuzzy
 	'notification-add-comment' => '$2 {{GENDER:$1|ha comentado}} sobre "[[$4|$3]]" en la página de discusión "$5"',
 	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|ha publicado}} un nuevo tema "$3" en [[$4]]',
 	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|te ha enviado}} un mensaje: "[[$4#$3|$3]]"',
@@ -655,7 +655,7 @@ $messages['fi'] = array(
 	'echo-anon' => 'Jos haluat saada ilmoituksia, [[Special:Userlogin/signup|luo käyttäjätunnus]] tai [[Special:UserLogin|kirjaudu sisään]].',
 	'echo-none' => 'Ei uusia ilmoituksia viime aikoina.',
 	'notification-edit' => '$2 {{GENDER:$1|muokkasi}} sivua [[$3]] $4: $5',
-	'notification-edit-talk-page' => '$2 {{GENDER:$1|muokkasi}} [[User talk:$4|keskustelusivuasi]] $3: $5',
+	'notification-edit-talk-page' => '$2 {{GENDER:$1|muokkasi}} [[User talk:$4|keskustelusivuasi]] $3: $5', # Fuzzy
 	'notification-add-comment' => '$2 {{GENDER:$1|kommentoi}} keskustelua [[$4|$3]] sivusta $5',
 	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|aloitti}} keskustelun $3 sivusta [[$4]]',
 	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|lähetti}} sinulle viestin: [[$4#$3|$3]]',
@@ -688,7 +688,7 @@ $messages['fr'] = array(
 	'echo-anon' => 'Pour recevoir des notifications, [[Special:Userlogin/signup|créez un compte]] ou [[Special:UserLogin|connectez-vous]].',
 	'echo-none' => "Vous n'avez reçu aucune notification dernièrement !",
 	'notification-edit' => '$2 {{GENDER:$1|a modifié}} [[$3]] $4: "$5"',
-	'notification-edit-talk-page' => '$2 a {{GENDER:$1|modifié}} [[User talk:$4|votre page de discussion]] $3 : « $5 »',
+	'notification-edit-talk-page' => '$2 a {{GENDER:$1|modifié}} [[User talk:$4|votre page de discussion]] $3 : « $5 »', # Fuzzy
 	'notification-add-comment' => '$2 {{GENDER:$1|a posté}} un commentaire à la discussion « [[$4|$3]] » sur $5',
 	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|a ouvert}} un nouveau sujet « $3 » sur [[$4]]',
 	'notification-add-talkpage-topic-yours' => '$2 vous {{GENDER:$1|a laissé}} un message : [[$4#$3|$3]]',
@@ -797,7 +797,7 @@ $messages['gl'] = array(
 	'echo-anon' => 'Para recibir notificacións, [[Special:Userlogin/signup|cree unha conta]] ou [[Special:UserLogin|acceda ao sistema]].',
 	'echo-none' => 'Non recibiu notificación ningunha ultimamente!',
 	'notification-edit' => '$2 {{GENDER:$1|editou}} "[[$3]]" $4: "$5"',
-	'notification-edit-talk-page' => '$2 {{GENDER:$1|editou}} [[User talk:$4|a súa páxina de conversa]] $3: "$5"',
+	'notification-edit-talk-page' => '$2 {{GENDER:$1|editou}} [[User talk:$4|a súa páxina de conversa]] $3: "$5"', # Fuzzy
 	'notification-add-comment' => '$2 {{GENDER:$1|comentou}} en "[[$4|$3]]" na páxina de conversa "$5"',
 	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|publicou}} unha nova mensaxe, "$3", en "[[$4]]"',
 	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|envioulle}} unha mensaxe: "[[$4#$3|$3]]"',
@@ -882,7 +882,7 @@ $messages['he'] = array(
 	'echo-anon' => 'כדי לקבל הודעות, [[Special:Userlogin/signup|יש ליצור חשבון]] או [[Special:UserLogin|להיכנס]].',
 	'echo-none' => 'לא קיבלת הודעות לאחרונה!',
 	'notification-edit' => '$2 {{GENDER:$1|ערך|ערכה}} את הדף [[$3]] $4: "$5"',
-	'notification-edit-talk-page' => '$2 {{GENDER:$1|ערך|ערכה}} את [[User talk:$4|דף השיחה שלך]] $3: $5',
+	'notification-edit-talk-page' => '$2 {{GENDER:$1|ערך|ערכה}} את [[User talk:$4|דף השיחה שלך]] $3: $5', # Fuzzy
 	'notification-add-comment' => '$2 {{GENDER:$1|הגיב|הגיבה}} על "[[$4|$3]]" בדף השיחה "$5"',
 	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|יצר|יצרה}} את הנושא החדש "$3" בדף [[$4]]',
 	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|שלח|שלחה}} לך הודעה: "[[$4#$3|$3]]"',
@@ -964,7 +964,7 @@ $messages['hsb'] = array(
 	'echo-anon' => 'Zo by zdźělenki dóstał, dyrbiš [[Special:Userlogin/signup|konto załožić]] abo [[Special:UserLogin|so přizjewić]].',
 	'echo-none' => 'W poslednim času njejsy žane zdźělenki dóstał!',
 	'notification-edit' => '$2 je [[$3]] $4: "$5" {{GENDER:$1|wobdźěłał|wobdźěłała}}',
-	'notification-edit-talk-page' => '$2 jo [[User talk:$4|twoju diskusijnu stronu]] {{GENDER:$1|wobdźěłał|wobdźěłała}} $3: "$5"',
+	'notification-edit-talk-page' => '$2 jo [[User talk:$4|twoju diskusijnu stronu]] {{GENDER:$1|wobdźěłał|wobdźěłała}} $3: "$5"', # Fuzzy
 	'notification-add-comment' => '$2 je "[[$4|$3]]" na diskusijnej stronje "$5" {{GENDER:$1|komentował|komentowała}}',
 	'notification-add-talkpage-topic' => '$2 je nowu temu "$3" na [[$4]] {{GENDER:$1|započał|započała}}',
 	'notification-add-talkpage-topic-yours' => '$2 je ći powěsć {{GENDER:$1|pósłał|pósłała}}: [[$4#$3|$3]]',
@@ -1113,7 +1113,7 @@ $messages['it'] = array(
 	'echo-anon' => "Per ricevere le notifiche, [[Special:Userlogin/signup|crea un account]] o [[Special:UserLogin|effettua l'accesso]].",
 	'echo-none' => 'Non hai ricevuto notifiche ultimamente!',
 	'notification-edit' => '$2 {{GENDER:$1|ha modificato}} [[$3]] $4: "$5"',
-	'notification-edit-talk-page' => '$2 {{GENDER:$1|ha modificato}} la tua [[User talk:$4|pagina di discussione]] $3: "$5"',
+	'notification-edit-talk-page' => '$2 {{GENDER:$1|ha modificato}} la tua [[User talk:$4|pagina di discussione]] $3: "$5"', # Fuzzy
 	'notification-add-comment' => '$2 {{GENDER:$1|ha commentato}} riguardo a "[[$4|$3]]" nella pagina di discussione di "$5"',
 	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|ha inserito}} un nuovo argomento "$3" su [[$4]]',
 	'notification-add-talkpage-topic-yours' => '$2 ti {{GENDER:$1|ha inviato}} un messaggio: "[[$4#$3|$3]]"',
@@ -1189,7 +1189,7 @@ $messages['ja'] = array(
 	'notifications' => '通知',
 	'echo-specialpage' => '自分の通知',
 	'notification-edit' => '$2 が [[$3]] $4 を{{GENDER:$1|編集しました}}:「$5」',
-	'notification-edit-talk-page' => '$2 が[[User talk:$4|あなたのトークページ]]を{{GENDER:$1|編集しました}} $3:「$5」',
+	'notification-edit-talk-page' => '$2 が[[User talk:$4|あなたのトークページ]]を{{GENDER:$1|編集しました}} $3:「$5」', # Fuzzy
 	'notification-add-comment' => '$2 がトークページ「$5」の「[[$4|$3]]」に{{GENDER:$1|コメントしました}}',
 	'notification-add-talkpage-topic-yours' => '$2 があなたにメッセージを{{GENDER:$1|送信しました}}:「[[$4#$3|$3]]」',
 	'notification-add-comment-yours' => '$2 があなたのトークページの「[[$4#$3|$3]]」に{{GENDER:$1|コメントしました}}',
@@ -1268,7 +1268,7 @@ $messages['ko'] = array(
 	'echo-anon' => '알림을 받으려면 [[Special:Userlogin/signup|계정을 만들거나]] [[Special:UserLogin|로그인하세요]].',
 	'echo-none' => '최근에 알림을 받지 않았습니다.',
 	'notification-edit' => '$2 사용자가 [[$3]] 문서를 {{GENDER:$1|편집했습니다}} $4: "$5"',
-	'notification-edit-talk-page' => '$2 사용자가 [[User talk:$4|당신의 토론 문서]] 문서를 {{GENDER:$1|편집했습니다}} $3: "$5"',
+	'notification-edit-talk-page' => '$2 사용자가 [[User talk:$4|당신의 토론 문서]] 문서를 {{GENDER:$1|편집했습니다}} $3: "$5"', # Fuzzy
 	'notification-add-comment' => '$2 사용자가 "$5" 토론 문서의 "[[$4|$3]]"에 {{GENDER:$1|덧글을 남겼습니다}}',
 	'notification-add-talkpage-topic' => '$2 사용자가 [[$4]]에 "$3" 새 주제를 {{GENDER:$1|게시했습니다}}',
 	'notification-add-talkpage-topic-yours' => '$2 사용자가 메시지를 {{GENDER:$1|보냈습니다}}: "[[$4#$3|$3]]"',
@@ -1439,7 +1439,7 @@ $messages['mk'] = array(
 	'echo-anon' => 'За да добивате известувања, [[Special:Userlogin/signup|направете сметка]] или [[Special:UserLogin|најавете се]].',
 	'echo-none' => 'Во последно време немате примено ниедно известување!',
 	'notification-edit' => '$2 {{GENDER:$1|ја измени}} страницата [[$3]] $4: „$5“',
-	'notification-edit-talk-page' => '$2 ја {{GENDER:$1|измени}} [[User talk:$4|вашата страница за разговор]] $3: „$5“',
+	'notification-edit-talk-page' => '$2 ја {{GENDER:$1|измени}} [[User talk:$3|вашата страница за разговор]]. $4',
 	'notification-add-comment' => '$2 {{GENDER:$1|коментираше}} на „[[$4|$3]]“ на страницата за разговор „$5“',
 	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|напиша}} нова тема „$3“ за [[$4]]',
 	'notification-add-talkpage-topic-yours' => '$2 ви {{GENDER:$1|испрати}} порака: [[$4#$3|$3]]',
@@ -1698,7 +1698,7 @@ $messages['nl'] = array(
 	'echo-anon' => '[[Special:Userlogin/signup|Maak een gebruiker aan]] of [[Special:UserLogin|meld u aan]] als u meldingen wilt ontvangen.',
 	'echo-none' => 'U hebt de laatste tijd geen meldingen ontvangen.',
 	'notification-edit' => '$2 {{GENDER:$1|heeft}} [[$3]] bewerkt $4: "$5"',
-	'notification-edit-talk-page' => '$2 {{GENDER:$1|heeft}} [[User talk:$4|uw overlegpagina]] bewerkt $3: "$5"',
+	'notification-edit-talk-page' => '$2 {{GENDER:$1|heeft}} [[User talk:$4|uw overlegpagina]] bewerkt $3: "$5"', # Fuzzy
 	'notification-add-comment' => '$2 {{GENDER:$1|heeft}} gereageerd op "[[$4|$3]]" op de overlegpagina "$5"',
 	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|heeft}} een nieuw onderwerp "$3" geplaatst op [[$4]]',
 	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|heeft}} u een bericht gezonden: "[[$4#$3|$3]]"',
@@ -2111,6 +2111,19 @@ $1',
 	'echo-overlay-title' => 'Mga pagpapabatid ko',
 );
 
+/** Ukrainian (українська)
+ * @author Base
+ */
+$messages['uk'] = array(
+	'echo-desc' => 'Система сповіщень',
+	'prefs-echo' => 'Сповіщення',
+	'prefs-displaynotifications' => 'Опції відображення',
+	'prefs-subscriptions' => 'Підписки',
+	'echo-pref-notify-link' => 'Показувати посилання на Ваші сповіщення у верхній частині кожної сторінки',
+	'echo-no-agent' => '[Ніхто]',
+	'echo-no-title' => '[Нема сторінки]',
+);
+
 /** Urdu (اردو)
  * @author පසිඳු කාවින්ද
  */
@@ -2141,7 +2154,7 @@ $messages['vi'] = array(
 	'echo-anon' => 'Để nhận thông báo, hãy [[Special:Userlogin/signup|mở tài khoản]] hoặc [[Special:UserLogin|đăng nhập]].',
 	'echo-none' => 'Lâu nay bạn không nhận thông báo nào.',
 	'notification-edit' => '{{GENDER:$1}}$2 đã sửa đổi [[$3]] $4: “$5”',
-	'notification-edit-talk-page' => '{{GENDER:$1}}$2 đã sửa đổi [[User talk:$4|trang thảo luận của bạn]] $3: “$5”',
+	'notification-edit-talk-page' => '{{GENDER:$1}}$2 đã sửa đổi [[User talk:$4|trang thảo luận của bạn]] $3: “$5”', # Fuzzy
 	'notification-add-comment' => '{{GENDER:$1}}$2 đã bình luận về “[[$4|$3]]” tại trang thảo luận “$5”',
 	'notification-add-talkpage-topic' => '{{GENDER:$1}}$2 đã đăng chủ đề mới “$3” tại [[$4]]',
 	'notification-add-talkpage-topic-yours' => '{{GENDER:$1}}$2 đã nhắn tin mới cho bạn: “[[$4#$3|$3]]”',
