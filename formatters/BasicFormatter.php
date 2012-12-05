@@ -87,12 +87,13 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 		$output = '';
 
 		// Add the notification icon
-		if ( !is_null( $this->icon ) ) {
-			$output .= Xml::tags( 'div',
-				array( 'class' => "mw-echo-icon mw-echo-icon-{$this->icon}" ),
-				'&nbsp;'
-			);
+		if ( !$this->icon ) {
+			$this->icon = 'placeholder';
 		}
+		$output = Xml::tags( 'div',
+			array( 'class' => "mw-echo-icon mw-echo-icon-{$this->icon}" ),
+			'&nbsp;'
+		) . $output;
 
 		// Build the notification title
 		$title = $this->formatNotificationTitle( $event, $user )->parse();

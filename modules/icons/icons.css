@@ -6,6 +6,14 @@
 	background: no-repeat center left;
 }
 
+.mw-echo-icon-placeholder {
+	/* @embed */
+	background-image: url(Generic.png);
+}
+.mw-echo-icon-trash {
+	/* @embed */
+	background-image: url(Deletion.png);
+}
 .mw-echo-icon-chat {
 	/* @embed */
 	background-image: url(Talk.png);
