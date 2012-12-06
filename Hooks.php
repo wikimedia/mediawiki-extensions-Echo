@@ -294,10 +294,10 @@ class EchoHooks {
 	 * @return bool
 	 */
 	static function abortNewTalkNotification( $article ) {
-		global $wgEchoEnabledEvents;
+		global $wgEchoEnabledEvents, $wgUser;
 		// If the user has the notifications flyout turned on and is receiving
 		// notifications for talk page messages, disable the yellow-bar-style notice.
-		if ( $article->getContext()->getUser()->getOption( 'echo-notify-link' )
+		if ( $wgUser->getOption( 'echo-notify-link' )
 			&& in_array( 'edit-user-talk', $wgEchoEnabledEvents ) )
 		{
 			return false;
