@@ -6,42 +6,56 @@ class ApiEchoNotifications extends ApiQueryBase {
 	}
 
 	public function execute() {
-		$params = $this->extractRequestParams();
 		$user = $this->getUser();
+		if ( $user->isAnon() ) {
+			$this->dieUsage( 'Login is required', 'login-required' );
+		}
 
+		$params = $this->extractRequestParams();
 		if ( count( $params['markread'] ) ) {
 			EchoNotificationController::markRead( $user, $params['markread'] );
 		}
 
-		$result = $this->getResult();
 		$prop = $params['prop'];
 
+		$result = array();
 		if ( in_array( 'list', $prop ) ) {
-			$r = $this->getNotifications( $user, $params['unread'], $params['format'], $params['limit'] );
-		} else {
-			$r = array();
+			$result['list'] = self::getNotifications( $user, $params['unread'], $params['format'], $params['limit'] + 1, $params['timestamp'], $params['offset'] );
+
+			// check if there is more elements than we request
+			if ( count( $result['list'] ) > $params['limit'] ) {
+				array_pop( $result['list'] );
+				$result['more'] = '1';
+			} else {
+				$result['more'] = '0';
+			}
 		}
 
 		if ( in_array( 'count', $prop ) ) {
-			$r['count'] = EchoNotificationController::getFormattedNotificationCount( $user );
+			$result['count'] = EchoNotificationController::getFormattedNotificationCount( $user );
 		}
 
 		if ( in_array( 'index', $prop ) ) {
-			$r['index'] = array_keys( $r );
+			$result['index'] = array_keys( $result['list'] );
 		}
 
-		$result->setIndexedTagName( $r, 'notification' );
-		$result->addValue( 'query', $this->getModuleName(), $r );
+		$this->getResult()->setIndexedTagName( $result, 'notification' );
+		$this->getResult()->addValue( 'query', $this->getModuleName(), $result );
 	}
 
 	/**
-	 * @param $user User to get notifications for
-	 * @param $unread Boolean: True to get only unread notifications.
-	 * @param $format bool false to not format any notifications, or an output format name.
-	 * @param $limit int The maximum number of notifications to return.
+	 * Get a list of notifications based on the passed parameters
+	 *
+	 * @param $user User the user to get notifications for
+	 * @param $unread Boolean true to get only unread notifications
+	 * @param $format string/bool false to not format any notifications, string to a specific output format
+	 * @param $limit int The maximum number of notifications to return
+	 * @param $timestamp int The timestamp to start from
+	 * @param $offset int The notification event id to start from
 	 * @return array
 	 */
-	public function getNotifications( $user, $unread = false, $format = false, $limit = 20 ) {
+	public static function getNotifications( $user, $unread = false, $format = false, $limit = 20, $timestamp = 0, $offset = 0 ) {
+		$lang = RequestContext::getMain()->getLanguage();
 		$dbr = wfGetDB( DB_SLAVE );
 
 		$output = array();
@@ -55,13 +69,21 @@ class ApiEchoNotifications extends ApiQueryBase {
 			$conds['notification_read_timestamp'] = null;
 		}
 
+		// start points are specified
+		if ( $timestamp && $offset ) {
+			$conds[] = 'notification_timestamp <= ' . $dbr->addQuotes( $dbr->timestamp( $timestamp ) );
+			$conds[] = 'notification_event < ' . intval( $offset );
+		}
+
 		$res = $dbr->select(
 			array( 'echo_notification', 'echo_event' ),
 			'*',
 			$conds,
 			__METHOD__,
 			array(
-				'ORDER BY' => 'notification_timestamp DESC',
+				// Todo: check if key ( user, timestamp ) is sufficient, if not,
+				// we need to replace it with ( user, timestamp, event )
+				'ORDER BY' => 'notification_timestamp DESC, notification_event DESC',
 				'LIMIT' => $limit,
 			),
 			array(
@@ -72,22 +94,57 @@ class ApiEchoNotifications extends ApiQueryBase {
 		foreach ( $res as $row ) {
 			$event = EchoEvent::newFromRow( $row );
 
+			// Use $row->notification_timestamp instead of $event->getTimestamp() for display
+			// since we do the ordering based on notification_timestamp, otherwise, there will
+			// be a confusing ordering issue in some rare cases
 			if ( MWInit::methodExists( 'Language', 'prettyTimestamp' ) ) {
-				$ts = $this->getLanguage()->prettyTimestamp( $event->getTimestamp(), false, $user );
+				$ts = $lang->prettyTimestamp( $row->notification_timestamp, false, $user );
 			} else {
-				$ts = $this->getLanguage()->timeanddate( $event->getTimestamp(), true );
+				$ts = $lang->timeanddate( $row->notification_timestamp, true );
 			}
 
-			$timestamp = new MWTimestamp( $event->getTimestamp() );
+			$timestamp = new MWTimestamp( $row->notification_timestamp );
 			$timestampUnix = $timestamp->getTimestamp( TS_UNIX );
 			$timestampMw = $timestamp->getTimestamp( TS_MW );
 
+			// start creating date section header
+			$today = wfTimestamp( TS_MW );
+			$yesterday = wfTimestamp( TS_MW, wfTimestamp( TS_UNIX, $today ) - 24 * 3600 );
+
+			if ( substr( $today, 4, 4 ) === substr( $timestampMw, 4, 4 ) ) {
+				$date = wfMessage( 'echo-date-today' )->escaped();
+			} elseif ( substr( $yesterday, 4, 4 ) === substr( $timestampMw, 4, 4 ) ) {
+				$date = wfMessage( 'echo-date-yesterday' )->escaped();
+			} else {
+				$month = array(
+					'01' => 'january-gen',
+					'02' => 'february-gen',
+					'03' => 'march-gen',
+					'04' => 'april-gen',
+					'05' => 'may-gen',
+					'06' => 'june-gen',
+					'07' => 'july-gen',
+					'08' => 'august-gen',
+					'09' => 'september-gen',
+					'10' => 'october-gen',
+					'11' => 'november-gen',
+					'12' => 'december-gen'
+				);
+
+				$headerMonth = wfMessage( $month[substr( $timestampMw, 4, 2 )] )->text();
+				$headerDate  = substr( $timestampMw, 6, 2 );
+				$date = wfMessage( 'echo-date-header' )->params( $headerMonth )->numParams( $headerDate )->escaped();
+			}
+			// end creating date section header
+
 			$thisEvent = array(
+				'id' => $event->getId(),
 				'type' => $event->getType(),
 				'timestamp' => array(
 					'unix' => $timestampUnix,
 					'mw' => $timestampMw,
 					'pretty' => $ts,
+					'date' => $date
 				),
 			);
 
@@ -121,7 +178,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 
 			if ( $format ) {
 				$thisEvent['*'] = EchoNotificationController::formatNotification(
-					$event, $this->getUser(), $format );
+					$event, $user, $format );
 			}
 
 			$output[$event->getID()] = $thisEvent;
@@ -158,6 +215,12 @@ class ApiEchoNotifications extends ApiQueryBase {
 				ApiBase::PARAM_MIN => 1,
 			),
 			'index' => false,
+			'offset' => array(
+				ApiBase::PARAM_TYPE => 'integer',
+			),
+			'timestamp' => array(
+				ApiBase::PARAM_TYPE => 'integer',
+			),
 		);
 	}
 
@@ -168,7 +231,9 @@ class ApiEchoNotifications extends ApiQueryBase {
 			'unread' => 'Request only unread notifications',
 			'format' => 'If specified, notifications will be returned formatted this way.',
 			'index' => 'If specified, a list of notification IDs, in order, will be returned.',
-			'limit' => 'The maximum number of notifications to return.'
+			'limit' => 'The maximum number of notifications to return.',
+			'offset' => 'Notification event id to start from (requires timestamp param to be passed as well)',
+			'timestamp' => 'Timestamp to start from',
 		);
 	}
 

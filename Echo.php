@@ -114,9 +114,18 @@ $wgResourceModules += array(
 		),
 	),
 	'ext.echo.special' => $echoResourceTemplate + array(
+		'scripts' => array(
+			'special/ext.echo.special.js',
+		),
+		'styles' => 'special/ext.echo.special.css',
 		'dependencies' => array(
 			'ext.echo.base',
+			'mediawiki.api',
+			'mediawiki.jqueryMsg',
 			'ext.echo.icons',
+		),
+		'messages' => array(
+			'echo-load-more-error',
 		),
 	),
 	'ext.echo.icons' => $echoResourceTemplate + array(

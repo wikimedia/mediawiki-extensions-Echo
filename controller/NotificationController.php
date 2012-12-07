@@ -11,6 +11,10 @@ class EchoNotificationController {
 	public static function getNotificationCount( $user, $cached = true ) {
 		global $wgMemc;
 
+		if ( $user->isAnon() ) {
+			return 0;
+		}
+
 		$memcKey = wfMemcKey( 'echo-notification-count', $user->getId() );
 
 		if ( $cached && $wgMemc->get( $memcKey ) !== false ) {
