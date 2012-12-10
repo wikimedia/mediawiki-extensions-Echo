@@ -6,7 +6,7 @@
 	background-color: #fff;
 	width: 450px;
 	min-height: 2em;
-	padding: 15px 0 15px 0;
+	padding: 15px 0 0 0;
 	color: #6D6D6D;
 	z-index: 10;
 	overflow: auto;
@@ -29,14 +29,31 @@
 	border-bottom: 1px solid #DDDDDD;
 }
 
-.mw-echo-overlay-link a {
-	font-size: 0.8em !important;
-	color: #3366bb !important;
-}
-
 .mw-echo-overlay-link {
 	clear: left;
-	margin: 15px 15px 15px 20px;
+	float: left;
+	margin: 15px 15px 15px 60px;
+	padding: 0px 0px 0px 18px;
+	width: 160px;
+	min-height: 14px;
+	font-size: 0.8em;
+	/* @embed */
+	background-image: url(../icons/NotificationsPage.png);
+	background-repeat: no-repeat;
+	background-position: 0 0;
+}
+
+.mw-echo-overlay-pref-link {
+	float: left;
+	width: 150px;
+	min-height: 14px;
+	font-size: 0.8em;
+	margin: 15px 0;
+	padding-left: 18px;
+	/* @embed */
+	background-image: url(../icons/Settings.png);
+	background-repeat: no-repeat;
+	background-position: 0 0;
 }
 
 #pt-notifications .mw-badge {
@@ -45,10 +62,12 @@
 
 .mw-echo-overlay .mw-echo-notification {
 	border-bottom: 1px solid #DDDDDD;
+	filter: alpha(opacity=50);
+	opacity: 0.5;
 }
-
 .mw-echo-overlay .mw-echo-unread {
-	background-color: #f1f1f1;
+	filter: alpha(opacity=100);
+	opacity: 1.0;
 }
 
 #pt-notifications .mw-badge {

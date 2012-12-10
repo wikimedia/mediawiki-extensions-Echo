@@ -40,7 +40,7 @@ $messages['en'] = array(
 	'notification-new-user' => 'Welcome to {{SITENAME}}, $1!',
 	'notification-new-user-content' => 'Hi $1, and welcome to {{SITENAME}}.<br />
 Please remember to sign any comments on talk pages with 4 tildes (~~~~).',
-	'notification-reverted' => '$2 {{GENDER:$1|reverted}} your {{PLURAL:$6|1=edit|edits}} on [[$3]] $4: "$5"',
+	'notification-reverted' => '$2 {{GENDER:$1|reverted}} your {{PLURAL:$5|1=edit|edits}} on [[$3]] $4',
 	'notification-edit-email-subject' => '{{SITENAME}} notification: $3 has been edited by $2',
 	'notification-edit-email-body' => 'Hello $5,
 This is a notification to let you know that $2 has edited the {{SITENAME}} page $3.
@@ -99,7 +99,7 @@ $1',
 	// Notifications overlay
 	'echo-link-new' => '$1 new {{PLURAL:$1|notification|notifications}}',
 	'echo-link' => 'Notifications',
-	'echo-overlay-link' => 'All notifications…',
+	'echo-overlay-link' => 'All notifications',
 	'echo-overlay-title' => 'My notifications',
 
 	// Special page
@@ -179,8 +179,7 @@ $messages['qqq'] = array(
 * $2 is the username of the person who reverted, formatted.
 * $3 is the page that was reverted, formatted.
 * $4 is a diff link to the ''revert'', possibly formatted.
-* $5 is the edit summary used to revert.
-* $6 is the number of edits that were reverted. NOTE: This will only be set to 1 or 2, with 2 actually meaning 'an unknown number greater than 0'.",
+* $5 is the number of edits that were reverted. NOTE: This will only be set to 1 or 2, with 2 actually meaning 'an unknown number greater than 0'.",
 	'notification-edit-email-subject' => 'E-mail subject. Parameters:
 * $2 is a username
 * $3 is a page title',

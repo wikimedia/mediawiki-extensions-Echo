@@ -2,6 +2,9 @@
 	'use strict';
 
 	mw.echo.overlay = {
+
+		'notificationLimit' : 8,
+
 		'updateCount' : function( newCount ) {
 			// Accomodate '10' or '100+'. Numbers need to be
 			// passed as numbers for correct behavior of '0'.
@@ -21,6 +24,7 @@
 		'buildOverlay' : function( callback ) {
 			var $overlay = $( '<div></div>' ).addClass( 'mw-echo-overlay' ),
 				$link = $( '#pt-notifications a' ),
+				$prefLink = $( '#pt-preferences a' ),
 				count = 0;
 
 			$overlay.append(
@@ -37,11 +41,12 @@
 				'action' : 'query',
 				'meta' : 'notifications',
 				'notformat' : 'html',
+				'notlimit' : mw.echo.overlay.notificationLimit,
 				'notprop' : 'index|list'
 			}, {
 				'ok' : function( result ) {
 					var notifications = result.query.notifications,
-						$ul = $( '<ul></ul>' ).appendTo( $overlay );
+						$ul = $( '<ul class="mw-echo-notifications"></ul>' ).appendTo( $overlay );
 
 					$.each( notifications.index, function( index, id ) {
 						var data = notifications['list'][id];
@@ -77,6 +82,16 @@
 								)
 						);
 					}
+
+					// add link to notification preferences
+					$overlay.append(
+						$( '<div/>' )
+							.addClass( 'mw-echo-overlay-pref-link' )
+							.append( $prefLink
+								.clone()
+								.attr( 'href', $prefLink.attr( 'href' ) + '#mw-prefsection-echo' )
+							)
+					);
 
 					callback( $overlay );
 

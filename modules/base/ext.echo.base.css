@@ -1,11 +1,7 @@
-.mw-echo-unread {
-}
-
 .mw-echo-title {
 	font-size: 13px;
 	font-weight: normal;
 }
-
 .mw-echo-content {
 	font-size: 11px;
 	overflow: hidden;
@@ -14,10 +10,13 @@
 	margin-top: 0.5em;
 }
 .mw-echo-timestamp {
-	color: #C9C9C9;
+	color: #A5A5A5;
 	margin-top: 0.5em;
+	font-size: 11px;
 }
-
+.mw-echo-notifications {
+	background-color: #EEEEEE;
+}
 .mw-echo-notification {
 	clear: both;
 	display: block;
@@ -25,6 +24,8 @@
 	line-height: 90%;
 	padding: 15px 15px 10px 15px;
 	margin: 0;
+	background-color: white;
+	position: relative;
 	/* Force container to expand to height of floated contents */
 	overflow: hidden;
 	zoom: 1;
