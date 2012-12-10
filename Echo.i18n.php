@@ -2141,6 +2141,21 @@ $messages['uk'] = array(
 	'echo-pref-notify-link' => 'Показувати посилання на Ваші сповіщення у верхній частині кожної сторінки',
 	'echo-no-agent' => '[Ніхто]',
 	'echo-no-title' => '[Нема сторінки]',
+	'notifications' => 'Сповіщення',
+	'echo-specialpage' => 'Мої сповіщення',
+	'echo-anon' => 'Для отримання сповіщень, [[Special:Userlogin/signup|створіть обліковий запис]] або [[Special:UserLogin|увійдіть]].',
+	'echo-none' => 'Ви не отримували сповіщень за останній час.',
+	'notification-edit' => '$2 {{GENDER:$1|відредагував|відредагувала}} [[$3]] $4: «$5»',
+	'notification-edit-talk-page' => '$2 {{GENDER:$1|відредагував|відредагувала}} [[User talk:$3|Вашу сторінку обговорення]]. $4',
+	'notification-add-comment' => '$2 {{GENDER:$1|прокоментував|прокоментувала}} тему «[[$4|$3]]» на сторінці «$5»',
+	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|додав|додала}} тему «$3» на сторінці «[[$4]]»',
+	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|надіслав|надіслала}} Вам повідомлення: «[[$4#$3|$3]]»',
+	'notification-add-comment-yours' => '$2 {{GENDER:$1|прокоментував|прокоментувала}} тему «[[$4#$3|$3]]» на Вашій сторінці обговорення',
+	'notification-new-user' => 'Ласкаво просимо до {{GRAMMAR:accusative|{{SITENAME}}}}, $1!',
+	'echo-link-new' => '$1 {{PLURAL:$1|нове сповіщення|нові сповіщення|нових сповіщень}}',
+	'echo-link' => 'Сповіщення',
+	'echo-overlay-link' => 'Усі сповіщення…',
+	'echo-overlay-title' => 'Мої сповіщення',
 );
 
 /** Urdu (اردو)
