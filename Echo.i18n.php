@@ -179,7 +179,7 @@ $messages['qqq'] = array(
 * $2 is the username of the person who reverted, formatted.
 * $3 is the page that was reverted, formatted.
 * $4 is a diff link to the ''revert'', possibly formatted.
-* $5 is the number of edits that were reverted. NOTE: This will only be set to 1 or 2, with 2 actually meaning 'an unknown number greater than 0'.",
+* $5 is the number of edits that were reverted. NOTE: This will only be set to 1 or 2, with 2 actually meaning 'an unknown number greater than 0'.", # Fuzzy
 	'notification-edit-email-subject' => 'E-mail subject. Parameters:
 * $2 is a username
 * $3 is a page title',
@@ -220,12 +220,12 @@ The new notification count next to notification link, for example: 99+
 	'echo-link-new' => 'Shown in "personal links" when a user has unread notifications.
 * $1 is number of unread notifications',
 	'echo-link' => 'Shown in "personal links" when a user has JS. New notifications are indicated with a badge.', # Fuzzy
-	'echo-overlay-link' => 'Link to "all notifications" at the bottom of the overlay',
+	'echo-overlay-link' => 'Link to "all notifications" at the bottom of the overlay', # Fuzzy
 	'echo-overlay-title' => 'Title at the top of the notifications overlay',
-	'echo-date-today' => 'The header text for today\'s notification section',
-	'echo-date-yesterday' => 'The header text for yesterday\'s notification section',
+	'echo-date-today' => "The header text for today's notification section",
+	'echo-date-yesterday' => "The header text for yesterday's notification section",
 	'echo-date-header' => 'The header text for each notification section which is grouped by date
-* $1 is the month, it could be {{january-gen}}, {{february-gen}}, {{march-gen}}, {{april-gen}}, {{may-gen}}, {{june-gen}}, {{july-gen}}, {{august-gen}}, {{september-gen}}, {{october-gen}}, {{november-gen}}, {{december-gen}}
+* $1 is the month, it could be {{msg-mw|january-gen}}, {{msg-mw|february-gen}}, {{msg-mw|march-gen}}, {{msg-mw|april-gen}}, {{msg-mw|may-gen}}, {{msg-mw|june-gen}}, {{msg-mw|july-gen}}, {{msg-mw|august-gen}}, {{msg-mw|september-gen}}, {{msg-mw|october-gen}}, {{msg-mw|november-gen}}, {{msg-mw|december-gen}}
 * $2 is the date of a month, eg 21',
 	'echo-load-more-error' => 'Error message for errors in loading more notifications',
 );
@@ -299,7 +299,7 @@ $messages['be-tarask'] = array(
 $1',
 	'echo-link-new' => '$1 {{PLURAL:$1|новая абвестка|новыя абвесткі|новых абвестак}}',
 	'echo-link' => 'Мае абвесткі', # Fuzzy
-	'echo-overlay-link' => 'Усе абвесткі…',
+	'echo-overlay-link' => 'Усе абвесткі…', # Fuzzy
 	'echo-overlay-title' => 'Мае абвесткі',
 );
 
@@ -369,7 +369,7 @@ Systém upozorňování {{SITENAME}}', # Fuzzy
 $1',
 	'echo-link-new' => '$1 {{PLURAL:$1|nové upozornění|nová upozornění|nových upozornění}}',
 	'echo-link' => 'Moje upozornění', # Fuzzy
-	'echo-overlay-link' => 'Všechna upozornění...',
+	'echo-overlay-link' => 'Všechna upozornění...', # Fuzzy
 	'echo-overlay-title' => 'Moje upozornění',
 );
 
@@ -400,7 +400,7 @@ $messages['de'] = array(
 	'notification-new-user' => 'Willkommen bei {{SITENAME}}, $1!',
 	'notification-new-user-content' => 'Hallo $1, und willkommen bei {{SITENAME}}.<br />
 Bitte vergiss nicht alle Beiträge auf Diskussionsseiten mit 4 Tilden (~~~~) zu signieren.',
-	'notification-reverted' => '$2 {{GENDER:$1|machte}} deine {{PLURAL:$6|1=Bearbeitung|Bearbeitungen}} von [[$3]] rückgängig $4: „$5“',
+	'notification-reverted' => '$2 {{GENDER:$1|machte}} deine {{PLURAL:$6|1=Bearbeitung|Bearbeitungen}} von [[$3]] rückgängig $4: „$5“', # Fuzzy
 	'notification-edit-email-subject' => '{{SITENAME}}-Benachrichtigung: $3 wurde von $2 bearbeitet',
 	'notification-edit-email-body' => 'Hallo $5,
 
@@ -454,8 +454,11 @@ Um deine E-Mail-Einstellungen zu ändern oder Benachrichtigungen zu deaktivieren
 $1',
 	'echo-link-new' => '$1 neue {{PLURAL:$1|Benachrichtigung|Benachrichtigungen}}',
 	'echo-link' => 'Benachrichtigungen',
-	'echo-overlay-link' => 'Alle Benachrichtigungen …',
+	'echo-overlay-link' => 'Alle Benachrichtigungen …', # Fuzzy
 	'echo-overlay-title' => 'Meine Benachrichtigungen',
+	'echo-date-today' => 'Heute',
+	'echo-date-yesterday' => 'Gestern',
+	'echo-load-more-error' => 'Beim Abrufen mehrerer Ergebnisse ist ein Fehler aufgetreten.',
 );
 
 /** German (formal address) (Deutsch (Sie-Form)‎)
@@ -565,7 +568,7 @@ $messages['es'] = array(
 	'notification-new-user' => '¡Bienvenido a {{SITENAME}}, $1!',
 	'notification-new-user-content' => 'Hola $1 y bienvenido a {{SITENAME}}.<br />
 Recuerda firmar cualquier comentario en las páginas de discusión con 4 tildes (~ ~ ~ ~).',
-	'notification-reverted' => '$2 {{GENDER:$1|ha revertido}} {{PLURAL:$6|1=su edición|sus ediciones}} en "[[$3]]" $4: "$5"',
+	'notification-reverted' => '$2 {{GENDER:$1|ha revertido}} {{PLURAL:$6|1=su edición|sus ediciones}} en "[[$3]]" $4: "$5"', # Fuzzy
 	'notification-edit-email-subject' => 'Notificación de {{SITENAME}}: $3 ha sido editado por $2',
 	'notification-edit-email-body' => 'Hola  $5 ,
 
@@ -620,7 +623,7 @@ Para cambiar tus preferencias de correo electrónico o cancelar la subscrición,
 $1',
 	'echo-link-new' => '$1 {{PLURAL:$1|notificación nueva|notificaciones nuevas}}',
 	'echo-link' => 'Notificaciones',
-	'echo-overlay-link' => 'Todas las notificaciones...',
+	'echo-overlay-link' => 'Todas las notificaciones...', # Fuzzy
 	'echo-overlay-title' => 'Mis notificaciones',
 );
 
@@ -675,7 +678,7 @@ $messages['fi'] = array(
 	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|aloitti}} keskustelun $3 sivusta [[$4]]',
 	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|lähetti}} sinulle viestin: [[$4#$3|$3]]',
 	'echo-link' => 'Ilmoitukset',
-	'echo-overlay-link' => 'Kaikki ilmoitukset…',
+	'echo-overlay-link' => 'Kaikki ilmoitukset…', # Fuzzy
 	'echo-overlay-title' => 'Ilmoitukset',
 );
 
@@ -711,7 +714,7 @@ $messages['fr'] = array(
 	'notification-new-user' => 'Bienvenue sur {{SITENAME}}, $1 !',
 	'notification-new-user-content' => "Bonjour $1 et bienvenue sur {{SITENAME}}.<br />
 N'oubliez pas de signer vos commentaires sur les pages de discussions avec 4 tildes (~ ~ ~ ~).",
-	'notification-reverted' => '$2 {{GENDER:$1|a annulé}} {{PLURAL:$6|votre modification|vos modifications}} sur [[$3]] $4: "$5"',
+	'notification-reverted' => '$2 {{GENDER:$1|a annulé}} {{PLURAL:$6|votre modification|vos modifications}} sur [[$3]] $4: "$5"', # Fuzzy
 	'notification-edit-email-subject' => 'Notification de {{SITENAME}} : $3 a été modifié par $2',
 	'notification-edit-email-body' => 'Bonjour $5,
 Ceci est une notification pour vous informer que $2 a modifié la page $3 de {{SITENAME}}.
@@ -765,8 +768,11 @@ Pour modifier vos préférences de courriel ou pour vous désinscrire, allez sur
 $1",
 	'echo-link-new' => '$1 {{PLURAL:$1|nouvelle notification|nouvelles notifications}}',
 	'echo-link' => 'Notifications',
-	'echo-overlay-link' => 'Toutes les notifications…',
+	'echo-overlay-link' => 'Toutes les notifications…', # Fuzzy
 	'echo-overlay-title' => 'Mes notifications',
+	'echo-date-today' => "Aujourd'hui",
+	'echo-date-yesterday' => 'Hier',
+	'echo-load-more-error' => "Un erreur s'est produite en analysant davantage de résultats.",
 );
 
 /** Franco-Provençal (arpetan)
@@ -789,7 +795,7 @@ $messages['frp'] = array(
 $1',
 	'echo-link-new' => '$1 {{PLURAL:$1|novèla notificacion|novèles notificacions}}',
 	'echo-link' => 'Mes notificacions', # Fuzzy
-	'echo-overlay-link' => 'Totes les notificacions...',
+	'echo-overlay-link' => 'Totes les notificacions...', # Fuzzy
 	'echo-overlay-title' => 'Mes notificacions',
 );
 
@@ -820,7 +826,7 @@ $messages['gl'] = array(
 	'notification-new-user' => 'Dámoslle a benvida a {{SITENAME}}, $1!',
 	'notification-new-user-content' => 'Boas $1. Dámoslle a benvida a {{SITENAME}}.<br />
 Lembre asinar calquera comentario que deixe nas páxinas de conversa con 4 tiles (~~~~).',
-	'notification-reverted' => '$2 {{GENDER:$1|reverteu}} a {{PLURAL:$6|1=súa edición|súas edicións}} en "[[$3]]" $4: "$5"',
+	'notification-reverted' => '$2 {{GENDER:$1|reverteu}} a {{PLURAL:$6|1=súa edición|súas edicións}} en "[[$3]]" $4: "$5"', # Fuzzy
 	'notification-edit-email-subject' => 'Notificación de {{SITENAME}}: $2 editou "$3"',
 	'notification-edit-email-body' => 'Boas, $5:
 Esta é unha notificación para facerlle saber que $2 editou a páxina "$3" de {{SITENAME}}.
@@ -873,7 +879,7 @@ Para cambiar as preferencias do correo ou cancelar a subscrición, visite:
 $1',
 	'echo-link-new' => '$1 {{PLURAL:$1|nova notificación|novas notificacións}}',
 	'echo-link' => 'Notificacións',
-	'echo-overlay-link' => 'Todas as notificacións…',
+	'echo-overlay-link' => 'Todas as notificacións…', # Fuzzy
 	'echo-overlay-title' => 'As miñas notificacións',
 );
 
@@ -905,7 +911,7 @@ $messages['he'] = array(
 	'notification-new-user' => 'ברוך בואך ל{{GRAMMAR:תחילית|{{SITENAME}}}}, $1!',
 	'notification-new-user-content' => 'שלום $1 וברוך בואך ל{{GRAMMAR:תחילית|{{SUTENAME}}}}.<br />
 נא לזכור לחתום על כל דפי השיחה ב־4 טילדות (~~~~).',
-	'notification-reverted' => '$2 {{GENDER:$1|שחזרה|שחזרה}} את {{PLURAL:$6|עריכתך|עריכותיך}} בדף [[$3]] $4: "$5"',
+	'notification-reverted' => '$2 {{GENDER:$1|שחזרה|שחזרה}} את {{PLURAL:$6|עריכתך|עריכותיך}} בדף [[$3]] $4: "$5"', # Fuzzy
 	'notification-edit-email-subject' => 'הודעה מאתר {{SITENAME}}: הדף $3 נערך על־ידי $2',
 	'notification-edit-email-body' => 'שלום $5,
 זוהי הודעה כדי לידע אותך ש$2 {{GENDER:$2|ערך|ערכה}} את עמוד ה{{SITENAME}} "$3".
@@ -960,7 +966,7 @@ $1',
 $1',
 	'echo-link-new' => '{{PLURAL:$1|הודעה אחת חדשה|$1 הודעות חדשות}}',
 	'echo-link' => 'התראות',
-	'echo-overlay-link' => 'על ההודעות...',
+	'echo-overlay-link' => 'על ההודעות...', # Fuzzy
 	'echo-overlay-title' => 'ההודעות שלי',
 );
 
@@ -990,7 +996,7 @@ $messages['hsb'] = array(
 	'notification-new-user' => 'Witaj do {{GRAMMAR:genitiw|{{SITENAME}}}}, $1!',
 	'notification-new-user-content' => 'Halo $1, a witaj do {{GRAMMAR:genitiw|{{SITENAME}}}}.<br />
 Prošu njezabudź komentary na diskusijnych stronach z 4 tildami (~~~~) podpisać .',
-	'notification-reverted' => '$2 je {{PLURAL:$6|1=změnu|změny}} na [[$3]] $4 {{GENDER:$1|anulował|anulowała}}: "$5"',
+	'notification-reverted' => '$2 je {{PLURAL:$6|1=změnu|změny}} na [[$3]] $4 {{GENDER:$1|anulował|anulowała}}: "$5"', # Fuzzy
 	'notification-edit-email-subject' => 'Zdźělenka z {{GRAMMAR:genitiw|{{SITENAME}}}}: $3 je so wot $2 wobdźěłał',
 	'notification-edit-email-body' => 'Witaj $5,
 
@@ -1045,8 +1051,11 @@ Zo by swoje e-mejlow nastajenja změnić abo wotskazać, wopytaj prošu:
 $1',
 	'echo-link-new' => '$1 {{PLURAL:$1|nowa zdźělenka|nowej zdźělence|nowe zdźělenki|nowych zdźělenkow}}',
 	'echo-link' => 'Zdźělenki',
-	'echo-overlay-link' => 'Wšě zdźělenki...',
+	'echo-overlay-link' => 'Wšě zdźělenki...', # Fuzzy
 	'echo-overlay-title' => 'Moje zdźělenki',
+	'echo-date-today' => 'Dźensa',
+	'echo-date-yesterday' => 'Wčera',
+	'echo-load-more-error' => 'Při wobstarowanju dalšich wuslědkow je zmylk wustupił.',
 );
 
 /** Hungarian (magyar)
@@ -1108,7 +1117,7 @@ Le systema de notification de {{SITENAME}}', # Fuzzy
 $1',
 	'echo-link-new' => '$1 nove {{PLURAL:$1|notification|notificationes}}',
 	'echo-link' => 'Mi notificationes', # Fuzzy
-	'echo-overlay-link' => 'Tote le notificationes…',
+	'echo-overlay-link' => 'Tote le notificationes…', # Fuzzy
 	'echo-overlay-title' => 'Mi notificationes',
 );
 
@@ -1139,7 +1148,7 @@ $messages['it'] = array(
 	'notification-new-user' => 'Benvenuto su {{SITENAME}}, $1!',
 	'notification-new-user-content' => 'Ciao $1 e benvenuto su {{SITENAME}}.<br />
 Ricordati di firmare i commenti nelle pagine di discussione con quattro tildi (~~~~).',
-	'notification-reverted' => '$2 {{GENDER:$1|ha annullato}} {{PLURAL:$6|1=la tua modifica|le tue modifiche}} su [[$3]] $4: "$5"',
+	'notification-reverted' => '$2 {{GENDER:$1|ha annullato}} {{PLURAL:$6|1=la tua modifica|le tue modifiche}} su [[$3]] $4: "$5"', # Fuzzy
 	'notification-edit-email-subject' => 'Notifica di {{SITENAME}}: $3 è stata modificata da $2',
 	'notification-edit-email-body' => 'Ciao $5,
 Questa è una notifica per farti sapere che $2 ha modificato la pagina di {{SITENAME}} $3.
@@ -1191,8 +1200,10 @@ Per modificare le preferenze delle email o annullare l'iscrizione, visita:
 $1",
 	'echo-link-new' => '$1 {{PLURAL:$1|nuova notifica|nuove notifiche}}',
 	'echo-link' => 'notifiche',
-	'echo-overlay-link' => 'Tutte le notifiche...',
+	'echo-overlay-link' => 'Tutte le notifiche...', # Fuzzy
 	'echo-overlay-title' => 'Mie notifiche',
+	'echo-date-today' => 'Oggi',
+	'echo-date-yesterday' => 'Ieri',
 );
 
 /** Japanese (日本語)
@@ -1213,7 +1224,7 @@ $messages['ja'] = array(
 	'notification-add-talkpage-topic-yours' => '$2 があなたにメッセージを{{GENDER:$1|送信しました}}:「[[$4#$3|$3]]」',
 	'notification-add-comment-yours' => '$2 があなたのトークページの「[[$4#$3|$3]]」に{{GENDER:$1|コメントしました}}',
 	'notification-new-user' => '$1さん、{{SITENAME}}にようこそ!',
-	'notification-reverted' => '$2 が [[$3]] のあなたの{{PLURAL:$6|編集}}を{{GENDER:$1|取り消しました}} $4:「$5」',
+	'notification-reverted' => '$2 が [[$3]] のあなたの{{PLURAL:$6|編集}}を{{GENDER:$1|取り消しました}} $4:「$5」', # Fuzzy
 	'notification-edit-email-subject' => '{{SITENAME}}からの通知: $3 を $2 が編集しました',
 	'notification-edit-talk-page-email-subject' => '{{SITENAME}}のあなたのトークページを $2 が編集しました',
 	'notification-reverted-email-subject' => '{{SITENAME}} からの通知: $3 でのあなたの編集を $2 が取り消しました: $4',
@@ -1223,8 +1234,12 @@ $messages['ja'] = array(
 $1',
 	'echo-link-new' => '$1 {{PLURAL:$1|件の新しい通知}}',
 	'echo-link' => '通知',
-	'echo-overlay-link' => 'すべての通知…',
+	'echo-overlay-link' => 'すべての通知…', # Fuzzy
 	'echo-overlay-title' => '自分の通知',
+	'echo-date-today' => '今日',
+	'echo-date-yesterday' => '昨日',
+	'echo-date-header' => '$1$2日',
+	'echo-load-more-error' => '結果の続きを取得する際にエラーが発生しました。',
 );
 
 /** Javanese (Basa Jawa)
@@ -1254,7 +1269,7 @@ $messages['jv'] = array(
 $1',
 	'echo-link-new' => '$1 {{PLURAL:$1|wara-wara|wara-wara}} anyar',
 	'echo-link' => 'Wara-wara kula', # Fuzzy
-	'echo-overlay-link' => 'Kabèh wara-wara...',
+	'echo-overlay-link' => 'Kabèh wara-wara...', # Fuzzy
 	'echo-overlay-title' => 'Wara-wara kula',
 );
 
@@ -1298,7 +1313,7 @@ $messages['ko'] = array(
 	'notification-new-user' => '$1, {{SITENAME}}에 온 것을 환영합니다!',
 	'notification-new-user-content' => '$1 안녕하세요, {{SITENAME}}에 온 것을 환영합니다.<br />
 토론 문서에서 글을 쓴 후에는 물결표 4개(~~~~)를 넣어 서명하는 것을 기억하세요.',
-	'notification-reverted' => '$2 사용자가 [[$3]]에 대한 당신의 {{PLURAL:$6|1=편집|편집}}을 {{GENDER:$1|되돌렸습니다}} $4: "$5"',
+	'notification-reverted' => '$2 사용자가 [[$3]]에 대한 당신의 {{PLURAL:$6|1=편집|편집}}을 {{GENDER:$1|되돌렸습니다}} $4: "$5"', # Fuzzy
 	'notification-edit-email-subject' => '{{SITENAME}} 알림: $3 문서를 $2에 의해 편집함',
 	'notification-edit-email-body' => '$5 안녕하세요.
 $2 사용자가 {{SITENAME}} $3 문서를 편집했음을 알립니다.
@@ -1351,8 +1366,11 @@ $1',
 $1',
 	'echo-link-new' => '새 {{PLURAL:$1|알림}} $1개',
 	'echo-link' => '알림',
-	'echo-overlay-link' => '모든 알림…',
+	'echo-overlay-link' => '모든 알림…', # Fuzzy
 	'echo-overlay-title' => '내 알림',
+	'echo-date-today' => '오늘',
+	'echo-date-yesterday' => '어제',
+	'echo-load-more-error' => '더 많은 결과를 가져오는 동안 오류가 발생했습니다.',
 );
 
 /** Colognian (Ripoarisch)
@@ -1405,7 +1423,7 @@ Et Süßtehm vör Medeilong {{GRAMMAR:genive|{{ucfirst:{{SITENAME}}}}}}', # Fuzz
 $1',
 	'echo-link-new' => '{{PLURAL:$1|Ein neue Medeilong|$1 neue Medeilonge|Kein neue Medeilong}}',
 	'echo-link' => 'Ming Medeilonge', # Fuzzy
-	'echo-overlay-link' => 'Alle Medeilonge{{int:ellipsis}}',
+	'echo-overlay-link' => 'Alle Medeilonge{{int:ellipsis}}', # Fuzzy
 	'echo-overlay-title' => 'Ming Medeilonge',
 );
 
@@ -1432,7 +1450,7 @@ $messages['lb'] = array(
 $1',
 	'echo-link-new' => '$1 nei {{PLURAL:$1|Notifikatioun|Notifikatiounen}}',
 	'echo-link' => 'Notifikatiounen',
-	'echo-overlay-link' => 'All Notifikatiounen...',
+	'echo-overlay-link' => 'All Notifikatiounen...', # Fuzzy
 	'echo-overlay-title' => 'Meng Notifikatiounen',
 );
 
@@ -1469,7 +1487,7 @@ $messages['mk'] = array(
 	'notification-new-user' => 'Добредојдовте на {{SITENAME}}, $1!',
 	'notification-new-user-content' => 'Здраво $1, и добредојдовте на {{SITENAME}}.<br />
 НЕ заборавајте да си ги потпишувате коментарите на страниците за разговор со 4 тилди (~~~~).',
-	'notification-reverted' => '$2 {{GENDER:$1|ја врати}} {{PLURAL:$6|1=вашата измена|вашите измени}} на [[$3]] $4: „$5“',
+	'notification-reverted' => '$2 {{GENDER:$1|ја врати}} {{PLURAL:$6|1=вашата измена|вашите измени}} на [[$3]] $4: „$5“', # Fuzzy
 	'notification-edit-email-subject' => 'Известување од {{SITENAME}}: $2 ја измени страницата $3',
 	'notification-edit-email-body' => 'Здраво $5,
 Ве известуваме дека $2 ја измени страницата $3 на {{SITENAME}}.
@@ -1520,7 +1538,7 @@ $1',
 $1',
 	'echo-link-new' => '$1 {{PLURAL:$1|ново известување|нови известувања}}',
 	'echo-link' => 'Известувања',
-	'echo-overlay-link' => 'Сите известувања',
+	'echo-overlay-link' => 'Сите известувања', # Fuzzy
 	'echo-overlay-title' => 'Мои известувања',
 );
 
@@ -1547,7 +1565,7 @@ $messages['ml'] = array(
 	'notification-new-user' => '{{SITENAME}} സംരംഭത്തിലേയ്ക്ക് സ്വാഗതം, $1!',
 	'notification-new-user-content' => 'നമസ്കാരം $1, {{SITENAME}} സംരംഭത്തിലേയ്ക്ക് സ്വാഗതം.<br />
 സംവാദം താളുകളിലെ ഏതൊരു കുറിപ്പിനും 4 റ്റിൽഡേകൾ (~~~~) ഉപയോഗിച്ച് ഒപ്പിടാൻ ഓർക്കുമല്ലോ.',
-	'notification-reverted' => '[[$3]] എന്ന താളിലെ താങ്കളുടെ {{PLURAL:$6|1=edit|തിരുത്തലുകൾ}} $2 {{GENDER:$1|മുൻപ്രാപനം ചെയ്തിരിക്കുന്നു}} $4: "$5"',
+	'notification-reverted' => '[[$3]] എന്ന താളിലെ താങ്കളുടെ {{PLURAL:$6|1=edit|തിരുത്തലുകൾ}} $2 {{GENDER:$1|മുൻപ്രാപനം ചെയ്തിരിക്കുന്നു}} $4: "$5"', # Fuzzy
 	'notification-edit-email-subject' => '{{SITENAME}} അറിയിപ്പുകൾ: $3 എന്ന താൾ $2 തിരുത്തിയിരിക്കുന്നു',
 	'notification-edit-email-body' => 'നമസ്കാരം $5,
 {{SITENAME}} താളായ $3, $2 തിരുത്തിയിരിക്കുന്നു എന്ന് താങ്കളെ അറിയിക്കാനുള്ള അറിയിപ്പാണ് ഇത്.
@@ -1567,7 +1585,7 @@ $2 വരുത്തിയ മാറ്റങ്ങൾ ഇനിക്കൊട
 $1',
 	'echo-link-new' => 'പുതിയ {{PLURAL:$1|അറിയിപ്പ്|$1 അറിയിപ്പുകൾ}}',
 	'echo-link' => 'എനിക്കുള്ള അറിയിപ്പുകൾ', # Fuzzy
-	'echo-overlay-link' => 'എല്ലാ അറിയിപ്പുകളും...',
+	'echo-overlay-link' => 'എല്ലാ അറിയിപ്പുകളും...', # Fuzzy
 	'echo-overlay-title' => 'എനിക്കുള്ള അറിയിപ്പുകൾ',
 );
 
@@ -1597,7 +1615,7 @@ $messages['ms'] = array(
 	'notification-new-user' => 'Selamat datang ke {{SITENAME}}, $1!',
 	'notification-new-user-content' => 'Selamat sejahtera diucapkan kepada $1, dan selamat datang ke {{SITENAME}}.<br />
 Jangan lupa untuk menandatangani sebarang komen pada halaman perbincangan dengan serentet 4 tanda tilde (~~~~).',
-	'notification-reverted' => '$2 {{GENDER:$1|membalikkan}} {{PLURAL:$6|1=suntingan|suntingan-suntingan}} anda di [[$3]] $4: "$5"',
+	'notification-reverted' => '$2 {{GENDER:$1|membalikkan}} {{PLURAL:$6|1=suntingan|suntingan-suntingan}} anda di [[$3]] $4: "$5"', # Fuzzy
 	'notification-edit-email-subject' => 'Pemberitahuan {{SITENAME}}: $3 telah disunting oleh $2',
 	'notification-edit-email-body' => 'Selamat sejahtera $5,
 
@@ -1652,7 +1670,7 @@ Untuk mengubah keutamaan e-mel anda atau berhenti melanggan, kunjungi:
 $1',
 	'echo-link-new' => '$1 pemberitahuan baru',
 	'echo-link' => 'Pemberitahuan',
-	'echo-overlay-link' => 'Semua pemberitahuan…',
+	'echo-overlay-link' => 'Semua pemberitahuan…', # Fuzzy
 	'echo-overlay-title' => 'Pemberitahuan saya',
 );
 
@@ -1703,7 +1721,7 @@ Is-sistema ta' notifika ta' {{SITENAME}}", # Fuzzy
 $1',
 	'echo-link-new' => '{{PLURAL:$1|notifika ġdida|$1 notifiki ġodda}}',
 	'echo-link' => 'Notifiki tiegħi', # Fuzzy
-	'echo-overlay-link' => 'Notifiki kollha…',
+	'echo-overlay-link' => 'Notifiki kollha…', # Fuzzy
 	'echo-overlay-title' => 'Notifiki tiegħi',
 );
 
@@ -1736,7 +1754,7 @@ $messages['nl'] = array(
 	'notification-new-user' => 'Welkom op {{SITENAME}}, $1!',
 	'notification-new-user-content' => "Hallo $1 en welkom op {{SITENAME}}.<br />
 Vergeet niet om opmerkingen over overlegpagina's te ondertekenen met 4 tildes (~~~~).",
-	'notification-reverted' => '$2 {{GENDER:$1|heeft}} uw {{PLURAL:$6|1=bewerking|bewerkingen}} teruggedraaid op [[$3]] $4: "$5"',
+	'notification-reverted' => '$2 {{GENDER:$1|heeft}} uw {{PLURAL:$6|1=bewerking|bewerkingen}} teruggedraaid op [[$3]] $4: "$5"', # Fuzzy
 	'notification-edit-email-subject' => 'Melding van {{SITENAME}}: $3 is bewerkt door $2',
 	'notification-edit-email-body' => 'Hallo $5,
 
@@ -1789,18 +1807,20 @@ Volg de volgende verwijzing om uw e-mailvoorkeuren te wijzigen of om u uit te sc
 $1',
 	'echo-link-new' => '{{PLURAL:$1|1 nieuwe melding|$1 nieuwe meldingen}}',
 	'echo-link' => 'Meldingen',
-	'echo-overlay-link' => 'Alle meldingen…',
+	'echo-overlay-link' => 'Alle meldingen…', # Fuzzy
 	'echo-overlay-title' => 'Mijn meldingen',
 );
 
 /** Polish (polski)
  * @author Ankry
  * @author BeginaFelicysym
+ * @author Odie2
  * @author Przemub
  */
 $messages['pl'] = array(
 	'echo-desc' => 'Powiadomienie o infrastrukturze nowej generacji dla MediaWiki', # Fuzzy
 	'prefs-echo' => 'Powiadomienia',
+	'prefs-subscriptions' => 'Subskrybcje',
 	'echo-pref-notify-watchlist' => 'Wpisz mnie na listę powiadomień o edycji gdy dodaję strony do śledzonych.',
 	'echo-no-agent' => '[Nikt]',
 	'echo-no-title' => '[Bez tytułu]', # Fuzzy
@@ -1837,14 +1857,19 @@ Możesz zobaczyć zmiany dzięki temu linkowi:
 
 Dziękujemy za używanie {{SITENAME}}
 System powiadomień {{SITENAME}}', # Fuzzy
+	'echo-notification-count' => '$1+',
 	'echo-email-subject-default' => 'Nowe powiadomienie na {{SITENAME}}',
 	'echo-email-body-default' => 'Masz nowe powiadomienie na {{SITENAME}}:
 
 $1',
 	'echo-link-new' => '$1 {{PLURAL:$1|nowe powiadomienie|nowe powiadomienia|nowych powiadomień}}',
 	'echo-link' => 'Moje powiadomienia', # Fuzzy
-	'echo-overlay-link' => 'Wszystkie powiadomienia...',
+	'echo-overlay-link' => 'Wszystkie powiadomienia...', # Fuzzy
 	'echo-overlay-title' => 'Moje powiadomienia',
+	'echo-date-today' => 'Dzisiaj',
+	'echo-date-yesterday' => 'Wczoraj',
+	'echo-date-header' => '$1 $2',
+	'echo-load-more-error' => 'Wystąpił błąd przy pobieraniu kolejnych wyników.',
 );
 
 /** Piedmontese (Piemontèis)
@@ -1898,7 +1923,7 @@ Mersì ëd dovré {{SITENAME}}
 $1",
 	'echo-link-new' => '$1 {{PLURAL:$1|notifìca neuva|notifìche neuve}}',
 	'echo-link' => 'Mie notìfiche', # Fuzzy
-	'echo-overlay-link' => 'Tute le notìfiche...',
+	'echo-overlay-link' => 'Tute le notìfiche...', # Fuzzy
 	'echo-overlay-title' => 'Mie notìfiche',
 );
 
@@ -1957,7 +1982,7 @@ $messages['ru'] = array(
 	'notification-edit-email-subject' => 'Уведомление {{SITENAME}}: $3 отредактировал $2',
 	'echo-email-subject-default' => 'Новые уведомления на {{SITENAME}}',
 	'echo-link' => 'Мои уведомления', # Fuzzy
-	'echo-overlay-link' => 'Все уведомления...',
+	'echo-overlay-link' => 'Все уведомления...', # Fuzzy
 	'echo-overlay-title' => 'Мои уведомления',
 );
 
@@ -1993,7 +2018,7 @@ $messages['sr-ec'] = array(
 	'notification-add-comment' => '$2 {{GENDER:$1|је прокоментарисао|је прокоментарисала|је прокоментарисао}} „[[$4|$3]]“ на страници за разговор „$5“',
 	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|је поставио|је поставила|је поставио}} нову тему „$3“ на [[$4]]',
 	'echo-link' => 'Моја обавештења', # Fuzzy
-	'echo-overlay-link' => 'Сва обавештења…',
+	'echo-overlay-link' => 'Сва обавештења…', # Fuzzy
 	'echo-overlay-title' => 'Моја обавештења',
 );
 
@@ -2011,7 +2036,7 @@ $messages['sr-el'] = array(
 	'notification-add-comment' => '$2 {{GENDER:$1|je prokomentarisao|je prokomentarisala|je prokomentarisao}} „[[$4|$3]]“ na stranici za razgovor „$5“',
 	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|je postavio|je postavila|je postavio}} novu temu „$3“ na [[$4]]',
 	'echo-link' => 'Moja obaveštenja', # Fuzzy
-	'echo-overlay-link' => 'Sva obaveštenja…',
+	'echo-overlay-link' => 'Sva obaveštenja…', # Fuzzy
 	'echo-overlay-title' => 'Moja obaveštenja',
 );
 
@@ -2039,7 +2064,7 @@ $messages['sv'] = array(
 	'notification-new-user' => 'Välkommen till {{SITENAME}},  $1!',
 	'notification-new-user-content' => 'Hej $1, och välkommen till {{SITENAME}}.<br />
 Kom ihåg att underteckna kommentarer på diskussionssidor med 4 tilde (~~~~).',
-	'notification-reverted' => '$2 {{GENDER:$1|återställde}} {{PLURAL:$6|1=din redigering|dina redigeringar}} på [[$3]] $4: "$5"',
+	'notification-reverted' => '$2 {{GENDER:$1|återställde}} {{PLURAL:$6|1=din redigering|dina redigeringar}} på [[$3]] $4: "$5"', # Fuzzy
 	'notification-edit-email-subject' => '{{SITENAME}} meddelande: $3 har redigerats av $2',
 	'notification-edit-talk-page-email-subject' => 'Din {{SITENAME}} diskussionssida har redigerats av $2',
 	'notification-reverted-email-subject' => '{{SITENAME}}notifikation: $2 har återställt redigeringen på $3: $4',
@@ -2049,7 +2074,7 @@ Kom ihåg att underteckna kommentarer på diskussionssidor med 4 tilde (~~~~).',
 $1',
 	'echo-link-new' => '$1 {{PLURAL:$1|nytt meddelande|nya meddelanden}}',
 	'echo-link' => 'Mina meddelanden', # Fuzzy
-	'echo-overlay-link' => 'Alla meddelanden',
+	'echo-overlay-link' => 'Alla meddelanden', # Fuzzy
 	'echo-overlay-title' => 'Mina meddelanden',
 );
 
@@ -2137,7 +2162,7 @@ Ang sistema ng pagpapabatid ng {{SITENAME}}', # Fuzzy
 $1',
 	'echo-link-new' => '$1 bagong {{PLURAL:$1|pagpapabatid|mga pagpapabatid}}',
 	'echo-link' => 'Mga pagpapabatid ko', # Fuzzy
-	'echo-overlay-link' => 'Lahat ng mga pagpapabatid...',
+	'echo-overlay-link' => 'Lahat ng mga pagpapabatid...', # Fuzzy
 	'echo-overlay-title' => 'Mga pagpapabatid ko',
 );
 
@@ -2165,7 +2190,7 @@ $messages['uk'] = array(
 	'notification-new-user' => 'Ласкаво просимо до {{GRAMMAR:accusative|{{SITENAME}}}}, $1!',
 	'echo-link-new' => '$1 {{PLURAL:$1|нове сповіщення|нові сповіщення|нових сповіщень}}',
 	'echo-link' => 'Сповіщення',
-	'echo-overlay-link' => 'Усі сповіщення…',
+	'echo-overlay-link' => 'Усі сповіщення…', # Fuzzy
 	'echo-overlay-title' => 'Мої сповіщення',
 );
 
@@ -2207,7 +2232,7 @@ $messages['vi'] = array(
 	'notification-new-user' => 'Chào mừng $1 đã đến với {{SITENAME}}!',
 	'notification-new-user-content' => 'Chào mừng $1 đã đến với {{SITENAME}}.<br />
 Hãy nhớ ký tên vào các lời bình luận tại trang thảo luận bằng 4 dấu ngã (~~~~).',
-	'notification-reverted' => '{{GENDER:$1}} $2 đã lùi lại {{PLURAL:$6|1=sửa đổi|các sửa đổi}} của bạn tại [[$3]] $4: “$5”',
+	'notification-reverted' => '{{GENDER:$1}} $2 đã lùi lại {{PLURAL:$6|1=sửa đổi|các sửa đổi}} của bạn tại [[$3]] $4: “$5”', # Fuzzy
 	'notification-edit-email-subject' => 'Thông báo từ {{SITENAME}}: $3 đã được sửa bởi $2',
 	'notification-edit-email-body' => 'Xin chào $5,
 Xin thông báo với bạn rằng $2 đã sửa đổi trang $3 tại {{SITENAME}}.
@@ -2257,8 +2282,11 @@ $1',
 $1',
 	'echo-link-new' => '$1 thông báo mới',
 	'echo-link' => 'Thông báo',
-	'echo-overlay-link' => 'Tất cả các thông báo…',
+	'echo-overlay-link' => 'Tất cả các thông báo…', # Fuzzy
 	'echo-overlay-title' => 'Thông báo cho tôi',
+	'echo-date-today' => 'Hôm nay',
+	'echo-date-yesterday' => 'Hôm qua',
+	'echo-load-more-error' => 'Lỗi đã xảy ra khi lấy thêm kết quả.',
 );
 
 /** Simplified Chinese (中文（简体）‎)
@@ -2309,7 +2337,7 @@ $messages['zh-hans'] = array(
 $1',
 	'echo-link-new' => '$1条新通知',
 	'echo-link' => '我的通知', # Fuzzy
-	'echo-overlay-link' => '全部通知...',
+	'echo-overlay-link' => '全部通知...', # Fuzzy
 	'echo-overlay-title' => '我的通知',
 );
 
@@ -2360,6 +2388,6 @@ $messages['zh-hant'] = array(
 $1',
 	'echo-link-new' => '$1項新{{PLURAL:$1|訊息|訊息}}',
 	'echo-link' => '我的訊息', # Fuzzy
-	'echo-overlay-link' => '所有訊息...',
+	'echo-overlay-link' => '所有訊息...', # Fuzzy
 	'echo-overlay-title' => '我的訊息',
 );
