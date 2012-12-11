@@ -101,6 +101,12 @@ $1',
 	'echo-link' => 'Notifications',
 	'echo-overlay-link' => 'All notifications…',
 	'echo-overlay-title' => 'My notifications',
+
+	// Special page
+	'echo-date-today' => 'Today',
+	'echo-date-yesterday' => 'Yesterday',
+	'echo-date-header' => '$1 $2',
+	'echo-load-more-error' => 'An error occurred while fetching more results.',
 );
 
 /** Message documentation (Message documentation)
@@ -217,6 +223,12 @@ The new notification count next to notification link, for example: 99+
 	'echo-link' => 'Shown in "personal links" when a user has JS. New notifications are indicated with a badge.', # Fuzzy
 	'echo-overlay-link' => 'Link to "all notifications" at the bottom of the overlay',
 	'echo-overlay-title' => 'Title at the top of the notifications overlay',
+	'echo-date-today' => 'The header text for today\'s notification section',
+	'echo-date-yesterday' => 'The header text for yesterday\'s notification section',
+	'echo-date-header' => 'The header text for each notification section which is grouped by date
+* $1 is the month, it could be {{january-gen}}, {{february-gen}}, {{march-gen}}, {{april-gen}}, {{may-gen}}, {{june-gen}}, {{july-gen}}, {{august-gen}}, {{september-gen}}, {{october-gen}}, {{november-gen}}, {{december-gen}}
+* $2 is the date of a month, eg 21',
+	'echo-load-more-error' => 'Error message for errors in loading more notifications',
 );
 
 /** Afrikaans (Afrikaans)

@@ -44,15 +44,15 @@
 						$ul = $( '<ul></ul>' ).appendTo( $overlay );
 
 					$.each( notifications.index, function( index, id ) {
-						var data = notifications[id],
-							$li = $( '<li></li>' )
+						var data = notifications['list'][id];
+						var $li = $( '<li></li>' )
 								.data( 'details', data )
 								.data( 'id', id )
 								.addClass( 'mw-echo-notification' )
 								.append( data['*'] )
 								.appendTo( $ul );
 
-						if ( ! data.read ) {
+						if ( !data.read ) {
 							$li.addClass( 'mw-echo-unread' );
 						}
 					} );
