@@ -23,6 +23,8 @@ class SpecialNotifications extends SpecialPage {
 			return;
 		}
 
+		EchoNotificationController::resetNotificationCount( $user );
+
 		// The timestamp and offset to pull current set of data from, this
 		// would be used for browsers with javascript disabled
 		$timestamp = $offset = 0;
