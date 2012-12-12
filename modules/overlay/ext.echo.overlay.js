@@ -12,9 +12,16 @@
 				newCount = Number( newCount );
 			}
 
-			$( '#pt-notifications a' )
-				.text( mw.msg( 'echo-link' ) )
-				.badge( newCount, true );
+			if ( mw.echo.overlay.configuration['notifications-link-full'] ) {
+				$( '#pt-notifications a' )
+					.text( mw.msg( 'echo-link' ) )
+					.badge( newCount, true, true );
+			} else {
+				$( '#pt-notifications a' )
+					.text( '' )
+					.badge( newCount, true, true );
+				$( '#pt-notifications .mw-badge' ).css( 'margin-left', '-5px' );
+			}
 
 			mw.echo.overlay.notification_count = newCount;
 		},

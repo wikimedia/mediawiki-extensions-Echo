@@ -163,6 +163,10 @@ $wgEchoDisableStandardEmail = true;
 // Whether to turn on email batch function
 $wgEchoEnableEmailBatch = true;
 
+// Show a 'Notifications' link with badge in the user toolbar at the top of the page.
+// Otherwise, only show a badge next to the username.
+$wgEchoShowFullNotificationsLink = false;
+
 // The organization address, the value should be defined in LocalSettings.php
 $wgEchoEmailFooterAddress = '';
 

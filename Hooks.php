@@ -220,26 +220,30 @@ class EchoHooks {
 	 * @return bool true in all cases
 	 */
 	static function onPersonalUrls( &$personal_urls, &$title ) {
-		global $wgUser;
-		// Add a "My notifications" item to personal URLs
+		global $wgUser, $wgEchoShowFullNotificationsLink;
 		if ( $wgUser->isAnon() || !$wgUser->getOption( 'echo-notify-link' ) ) {
 			return true;
 		}
 
 		$notificationCount = EchoNotificationController::getNotificationCount( $wgUser );
-
-		$msg = wfMessage( $notificationCount == 0 ? 'echo-link' : 'echo-link-new' );
+		if ( $wgEchoShowFullNotificationsLink ) {
+			// Add a "Notifications" item to personal URLs
+			$msg = wfMessage( $notificationCount == 0 ? 'echo-link' : 'echo-link-new' );
+			$text = $msg->params( EchoNotificationController::formatNotificationCount( $notificationCount ) )->text();
+		} else {
+			// Just add a number
+			$text = wfMessage( 'parentheses', $notificationCount )->plain();
+		}
 		$url = SpecialPage::getTitleFor( 'Notifications' )->getLocalURL();
 
 		$notificationsLink = array(
 			'href' => $url,
-			'text' => $msg->params( EchoNotificationController::formatNotificationCount( $notificationCount ) )->text(),
-			'active' => $notificationCount > 0,
+			'text' => $text,
+			'active' => ( $url == $title->getLocalUrl() ),
 		);
 
 		$insertUrls = array( 'notifications' => $notificationsLink );
-		$personal_urls = wfArrayInsertAfter( $personal_urls, $insertUrls, 'watchlist' );
-
+		$personal_urls = wfArrayInsertAfter( $personal_urls, $insertUrls, 'userpage' );
 		return true;
 	}
 
@@ -261,6 +265,7 @@ class EchoHooks {
 	 * @return bool true in all cases
 	 */
 	public static function makeGlobalVariablesScript( &$vars, OutputPage $outputPage ) {
+		global $wgEchoShowFullNotificationsLink;
 		$user = $outputPage->getUser();
 
 		// Provide info for the Overlay
@@ -268,6 +273,7 @@ class EchoHooks {
 		$timestamp = new MWTimestamp( wfTimestampNow() );
 		if ( ! $user->isAnon() ) {
 			$vars['wgEchoOverlayConfiguration'] = array(
+				'notifications-link-full' => $wgEchoShowFullNotificationsLink,
 				'timestamp' => $timestamp->getTimestamp( TS_UNIX ),
 				'notification-count' => EchoNotificationController::getFormattedNotificationCount( $user ),
 			);
