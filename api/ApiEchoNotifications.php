@@ -168,10 +168,6 @@ class ApiEchoNotifications extends ApiQueryBase {
 				);
 			}
 
-			if ( $event->getExtra() ) {
-				$thisEvent['extra'] = $event->getExtra();
-			}
-
 			if ( $row->notification_read_timestamp ) {
 				$thisEvent['read'] = $row->notification_read_timestamp;
 			}
