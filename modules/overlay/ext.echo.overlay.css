@@ -62,6 +62,7 @@
 
 .mw-echo-overlay .mw-echo-notification {
 	border-bottom: 1px solid #DDDDDD;
+	padding: 15px 15px 10px 15px;
 	filter: alpha(opacity=50);
 	opacity: 0.5;
 }

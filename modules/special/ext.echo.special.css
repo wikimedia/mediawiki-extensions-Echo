@@ -3,10 +3,31 @@
 	font-size: 15px;
 }
 
-.mw-echo-preference {
-	text-align: right;
+#mw-echo-pref-link {
+	line-height: 1.2em;
+	font-size: 0.5em;
+	margin: 0 15px;
+	min-height: 14px;
+	padding-left: 18px;
+	/* @embed */
+	background-image: url(../icons/Settings.png);
+	background-repeat: no-repeat;
+	background-position: 0 0;
 }
 
 .mw-echo-date-section {
 	font-weight: 800;
+	font-size: 1.1em;
+	text-transform: uppercase;
+	border-bottom: 8px solid #EAEAEA;
+	margin: 20px 0 5px 45px;
+}
+
+ul#mw-echo-special-container {
+	list-style: none;
+	margin: 30px 0 0 0;
+	max-width: 600px;
+}
+.mw-echo-notification {
+	padding: 15px 0 10px 0;
 }

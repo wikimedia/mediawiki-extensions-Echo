@@ -21,6 +21,10 @@
 			_this.timestamp = mw.config.get( 'wgEchoStartTimestamp' );
 			_this.offset = mw.config.get( 'wgEchoStartOffset' );
 			_this.header = mw.config.get( 'wgEchoDateHeader' );
+			
+			$( '#mw-echo-pref-link' )
+				.css( 'display', 'inline-block' )
+				.appendTo( $( '#firstHeading' ) );
 		},
 
 		/**

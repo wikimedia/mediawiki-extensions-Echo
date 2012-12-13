@@ -44,7 +44,7 @@ class SpecialNotifications extends SpecialPage {
 			wfMessage( 'preferences' )->text()
 		);
 
-		$html = Html::rawElement( 'div', array( 'class' => 'mw-echo-preference' ), $preferenceLink );
+		$html = Html::rawElement( 'div', array( 'id' => 'mw-echo-pref-link' ), $preferenceLink );
 
 		$notif = ApiEchoNotifications::getNotifications( $user, false, 'html', self::$displayNum + 1, $timestamp, $offset );
 
@@ -67,11 +67,12 @@ class SpecialNotifications extends SpecialPage {
 
 		// The date header title for each section
 		$dateHeader = '';
+		$notices = '';
 		foreach ( $notif as $row ) {
 			// Output the date header if it has not been displayed
 			if ( $dateHeader !== $row['timestamp']['date'] ) {
 				$dateHeader = $row['timestamp']['date'];
-				$html.= Html::element( 'li', array( 'class' => 'mw-echo-date-section' ), $dateHeader );
+				$notices .= Html::element( 'li', array( 'class' => 'mw-echo-date-section' ), $dateHeader );
 			}
 
 			$class = 'mw-echo-notification';
@@ -80,10 +81,10 @@ class SpecialNotifications extends SpecialPage {
 			}
 			$nextTimestamp = $row['timestamp']['unix'];
 			$nextOffset = $row['id'];
-			$html .= Html::rawElement( 'li', array( 'class' => $class, 'data-notification-type' => $row['type'] ), $row['*'] );
+			$notices .= Html::rawElement( 'li', array( 'class' => $class, 'data-notification-type' => $row['type'] ), $row['*'] );
 		}
 
-		$html = Html::rawElement( 'ul', array( 'id' => 'mw-echo-special-container' ), $html );
+		$html .= Html::rawElement( 'ul', array( 'id' => 'mw-echo-special-container' ), $notices );
 
 		// Build the more link
 		if ( $more ) {
