@@ -214,7 +214,7 @@ $messages['qqq'] = array(
 * $4 is a link to a change
 * $5 is the e-mail recipient's username.
 * $6 is the edit summary.
-* $7 is the e-mail footer, {{msg|echo-email-footer-default}}", # Fuzzy
+* $7 is the e-mail footer, {{msg|echo-email-footer-default}}",
 	'notification-edit-talk-page-email-subject' => 'E-mail subject. Parameters:
 * $2 is a username.',
 	'notification-edit-talk-page-email-body' => "E-mail notification. Parameters:
@@ -222,20 +222,20 @@ $messages['qqq'] = array(
 * $3 is a link to a change
 * $4 is the e-mail recipient's username.
 * $5 is the edit summary.
-* $6 is the e-mail footer, {{msg|echo-email-footer-default}}", # Fuzzy
+* $6 is the e-mail footer, {{msg|echo-email-footer-default}}",
 	'notification-edit-talk-page-email-batch-body' => 'E-mail notification for talk page edit
 * $2 is a username',
 	'notification-reverted-email-subject' => 'E-mail subject. Parameters:
 *$2 is a username
 *$3 is a page title
-*$4 is the edit summary',
+*$4 is the edit summary', # Fuzzy
 	'notification-reverted-email-body' => "E-mail notification. Parameters:
 * $2 is the username
 * $3 is the page title
 * $4 is the link to the change
 * $5 is the e-mail recipient's username
 * $6 is the edit summary
-* $7 is the email footer, {{msg|echo-email-footer-default}}",
+* $7 is the email footer, {{msg|echo-email-footer-default}}", # Fuzzy
 	'echo-notification-count' => '{{optional}}
 The new notification count next to notification link, for example: 99+
 * $1 is the count',
@@ -468,7 +468,7 @@ Du kannst die Änderungen von $2 ansehen, sofern du auf den folgenden Link klick
 
 Du erhältst diese Nachricht, da du E-Mail-Benachrichtigungen zu Änderungen an der Seite $3 abonniert hast.
 
-$7',
+$7', # Fuzzy
 	'notification-edit-talk-page-email-subject' => 'Deine {{SITENAME}}-Diskussionsseite wurde von $2 bearbeitet',
 	'notification-edit-talk-page-email-body' => 'Hallo $4,
 
@@ -481,8 +481,8 @@ $2 benutzte die folgende Zusammenfassung, um die Änderungen zu beschreiben: $5
 Du kannst die Änderungen von $2 ansehen, sofern du auf den folgenden Link klickst:
 <$3>
 
-$6',
-	'notification-reverted-email-subject' => 'Benachrichtigung von {{SITENAME}}: $2 machte deine Bearbeitung von $3 rückgängig: $4',
+$6', # Fuzzy
+	'notification-reverted-email-subject' => 'Benachrichtigung von {{SITENAME}}: $2 machte deine Bearbeitung von $3 rückgängig: $4', # Fuzzy
 	'notification-reverted-email-body' => 'Hallo $5,
 dies ist eine Benachrichtigung, um dir mitzuteilen, dass $2 deine Bearbeitungen der Seite „$3“ auf {{SITENAME}} rückgängig gemacht hat.
 
@@ -493,7 +493,7 @@ Du kannst die Änderungen einsehen, die $2 vorgenommen hat, um deine Bearbeitung
 
 Du erhältst diese Nachricht, da du E-Mail-Benachrichtigungen zu rückgängig gemachten Bearbeitungen abonniert hast.
 
-$7',
+$7', # Fuzzy
 	'echo-email-subject-default' => 'Neue Benachrichtigung auf {{SITENAME}}',
 	'echo-email-body-default' => 'Es gibt eine neue Benachrichtigung auf {{SITENAME}}:
 
@@ -636,7 +636,7 @@ Puedes ver los cambios que  $2 ha hecho siguiendo este enlace:
 
 Estás recibiendo este mensaje porque estás suscrito a las actualizaciones por correo electrónico de los cambios de esta página.
 
-$7',
+$7', # Fuzzy
 	'notification-edit-talk-page-email-subject' => 'Tu página de discusión en {{SITENAME}} ha sido editada por $2',
 	'notification-edit-talk-page-email-body' => 'Hola $4,
 
@@ -649,8 +649,8 @@ $2 ha empleado el siguiente resumen para describir su cambio: $5
 Puedes ver los cambios que $2 en este enlace:
 <$3>
 
-$6',
-	'notification-reverted-email-subject' => 'Notificación de {{SITENAME}}: $2 ha revertido su edición en $3: $4',
+$6', # Fuzzy
+	'notification-reverted-email-subject' => 'Notificación de {{SITENAME}}: $2 ha revertido su edición en $3: $4', # Fuzzy
 	'notification-reverted-email-body' => 'Hola, $5:
 Esta es una notificación para hacerte saber que $2 ha revertido tus ediciones en la página $3 {{SITENAME}}.
 
@@ -662,7 +662,7 @@ Puedes ver el cambio que $2 hizo para revertir tus ediciones siguiente este enla
 Estás recibiendo este mensaje porque te has suscrito a las alertas por correo electrónico
 cuando tus cambios sean revertidos.
 
-$7',
+$7', # Fuzzy
 	'echo-email-subject-default' => 'Nueva notificación en {{SITENAME}}',
 	'echo-email-body-default' => 'Tienes una nueva notificación en {{SITENAME}}:
 
@@ -781,7 +781,7 @@ Vous pouvez voir les changements faits par $2 en suivant ce lien:
 
 Vous recevez ce message parce que vous avez souscrit aux mises à jour par courriel des modifications apportées à cette page.
 
-$7',
+$7', # Fuzzy
 	'notification-edit-talk-page-email-subject' => 'Votre page de discussion de {{SITENAME}} a été modifée par $2',
 	'notification-edit-talk-page-email-body' => 'Bonjour $4,
 
@@ -794,8 +794,8 @@ $2 a utilisé ce commentaire pour décrire son changement: $5
 Vous pouvez voir les changements que $2 a fait en suivant ce lien:
 <$3>
 
-$6',
-	'notification-reverted-email-subject' => 'Notification de {{SITENAME}}: $2 a annulé votre modification sur $3: $4',
+$6', # Fuzzy
+	'notification-reverted-email-subject' => 'Notification de {{SITENAME}}: $2 a annulé votre modification sur $3: $4', # Fuzzy
 	'notification-reverted-email-body' => 'Bonjour $5,
 
 Ceci est une notification pour vous informer que $2 a annulé vos modifications sur page $3 de {{SITENAME}}
@@ -807,7 +807,7 @@ Vous pouvez voir les changements faits par $2 pour annulé vos modifications en 
 
 Vous recevez ce message parce que vous avez souscrit aux mises à jour par courriel quand vos modifications sont annulé.
 
-$7',
+$7', # Fuzzy
 	'echo-email-subject-default' => 'Nouvelle notification sur {{SITENAME}}',
 	'echo-email-body-default' => 'Vous avez une nouvelle notification sur {{SITENAME}} :
 
@@ -893,7 +893,7 @@ Pode ollar os cambios que realizou $2 seguindo esta ligazón:
 
 Recibiu esta mensaxe porque activou a subscrición ás actualizacións por correo electrónico sobre os cambios nesta páxina.
 
-$7',
+$7', # Fuzzy
 	'notification-edit-talk-page-email-subject' => '$2 editou a súa páxina de conversa de {{SITENAME}}',
 	'notification-edit-talk-page-email-body' => 'Boas, $4:
 Esta é unha notificación para facerlle saber que $2 editou a súa páxina de conversa de {{SITENAME}}.
@@ -905,8 +905,8 @@ $2 utilizou o seguinte resumo para describir o seu cambio: $5
 Pode ollar os cambios que realizou $2 seguindo esta ligazón:
 <$3>
 
-$6',
-	'notification-reverted-email-subject' => 'Notificación de {{SITENAME}}: $2 reverteu a súa edición en "$3": $4',
+$6', # Fuzzy
+	'notification-reverted-email-subject' => 'Notificación de {{SITENAME}}: $2 reverteu a súa edición en "$3": $4', # Fuzzy
 	'notification-reverted-email-body' => 'Boas, $5:
 Esta é unha notificación para facerlle saber que $2 reverteu as súas edicións na páxina "$3" de {{SITENAME}}.
 
@@ -918,7 +918,7 @@ Pode ollar o cambio que realizou $2 para reverter as súas edicións seguindo es
 Recibiu esta mensaxe porque activou a subscrición ás actualizacións por correo electrónico
 sobre reversións dos seus cambios.
 
-$7',
+$7', # Fuzzy
 	'echo-email-subject-default' => 'Nova notificación en {{SITENAME}}',
 	'echo-email-body-default' => 'Ten unha nova notificación en {{SITENAME}}:
 
@@ -984,7 +984,7 @@ $2 {{GENDER:$2|סיכם|סיכמה}} את העריכה עם ההערה הבעא�
 תודה שהשתמשת ב{{SITENAME}}
 מערכת ההודעות של{{SITENAME}}
 
-$7',
+$7', # Fuzzy
 	'notification-edit-talk-page-email-subject' => 'דף השיחה שלך באתר {{SITENAME}} נערך עלֹ־ידי $2',
 	'notification-edit-talk-page-email-body' => 'שלום $4,
 רצינו לספר לך ש{{GRAMMAR|תחילית|$2}} {{GENDER:$2|ערך|ערכה}} את דף השיחה שלך באתר {{SITENAME}}.
@@ -996,8 +996,8 @@ $2 {{GENDER:$2|כתב|כתבה}} את התקציר הבא כדי לתאר את �
 אפשר לראות את השינויים ש{{GRAMMAR|תחילית|$2}} {{GENDER:$2|עשה|עשתה}} בקישור זה:
 <$3>
 
-$6',
-	'notification-reverted-email-subject' => 'הודעת {{SITENAME}}: $2 {{GENDER:$2|שחזר|שחזרה}} את עריכתך בדף $3: $4',
+$6', # Fuzzy
+	'notification-reverted-email-subject' => 'הודעת {{SITENAME}}: $2 {{GENDER:$2|שחזר|שחזרה}} את עריכתך בדף $3: $4', # Fuzzy
 	'notification-reverted-email-body' => 'שלום $5,
 רצינו להודיע לך ש{{GRAMMAR:תחילית|$2}} {{GENDER:$2|ערך|ערכה}} את העמוד $3 באתר {{SITENAME}}.
 
@@ -1008,7 +1008,7 @@ $2 {{GENDER:$2|סיכם|סיכמה}} את העריכה עם ההערה הבאה:
 
 קיבלת הודעה זו בגלל שנרשמת לקבל עדכונים בדואר אלקארוני על שינויים בדף זה.
 
-$7',
+$7', # Fuzzy
 	'echo-email-subject-default' => 'הודעה חדשה באתר {{SITENAME}}',
 	'echo-email-body-default' => 'יש לך הודעה חדשה באתר {{SITENAME}}:
 
@@ -1070,7 +1070,7 @@ Móžeš změny, kotrež $2 přewjedźe, přez slědowacy wotkaz widźeć:
 
 Přijimaš tutu zdźělenku, dokelž sy e-mejlowe aktualizacije wo změnach na tutej stronje abonował.
 
-$7',
+$7', # Fuzzy
 	'notification-edit-talk-page-email-subject' => 'Twoja diskusijna strona na {{GRAMMAR:lokatiw|{{SITENAME}}}} je so wot $2 wobdźěłała',
 	'notification-edit-talk-page-email-body' => 'Witaj $4,
 
@@ -1083,8 +1083,8 @@ $2 je slědowace zjeće wužił, zo by swoju změnu wopisał: $5
 Změny, kotrež $2 přewjedźe, móžeš přez slědowacy wotkaz widźeć:
 <$3>
 
-$6',
-	'notification-reverted-email-subject' => 'Zdźělenje přez {{GRAMMAR:akuzatiw|{{SITENAME}}}}: $2 je wašu změny na $3 anulował: $4',
+$6', # Fuzzy
+	'notification-reverted-email-subject' => 'Zdźělenje přez {{GRAMMAR:akuzatiw|{{SITENAME}}}}: $2 je wašu změny na $3 anulował: $4', # Fuzzy
 	'notification-reverted-email-body' => 'Witaj $5,
 
 to je zdźělenka, kotraž će informuje, zo $2 je twoje změny  na stronje $3 w {{GRAMMAR:lokatiw|{{SITENAME}}}} anulował.
@@ -1096,7 +1096,7 @@ Móžeš změny, kotrež $2 přewjedźe, zo by twoje změny anulował, přez sl�
 
 Přijimaš tutu zdźělenku, dokelž sy e-mejlowe zdźělenki wo anulowanych změnach abonował.
 
-$7',
+$7', # Fuzzy
 	'echo-email-subject-default' => 'Nowa zdźělenka na {{GRAMMAR:lokatiw|{{SITENAME}}}}',
 	'echo-email-body-default' => 'Maš nowu zdźělenku na {{GRAMMAR:lokatiw|{{SITENAME}}}}:
 
@@ -1221,7 +1221,7 @@ Puoi vedere le modifiche che $2 ha fatto seguendo questo collegamento:
 
 Stai ricevendo questo messaggio perché hai sottoscritto gli aggiornamenti tramite email per le modifiche a questa pagina.
 
-$7',
+$7', # Fuzzy
 	'notification-edit-talk-page-email-subject' => 'La pagina di discussione su {{SITENAME}} è stata modificata da $2',
 	'notification-edit-talk-page-email-body' => 'Ciao $4,
 Questa è una notifica per farti sapere che $2 ha modificato la tua pagina di discussione su {{SITENAME}}.
@@ -1233,8 +1233,8 @@ $2 ha commentato le sue modifiche con questo oggetto: $5
 Puoi vedere le modifiche che $2 ha fatto seguendo questo collegamento:
 <$3>
 
-$6',
-	'notification-reverted-email-subject' => 'Notifica di {{SITENAME}}: $2 ha annullato le tue modifiche su $3: $4',
+$6', # Fuzzy
+	'notification-reverted-email-subject' => 'Notifica di {{SITENAME}}: $2 ha annullato le tue modifiche su $3: $4', # Fuzzy
 	'notification-reverted-email-body' => 'Ciao $5,
 Questa è una notifica per farti sapere che $2 ha annullato le tue modifiche alla pagina di {{SITENAME}} $3.
 
@@ -1245,7 +1245,7 @@ Puoi vedere le modifiche che $2 ha fatto seguendo questo collegamento:
 
 Stai ricevendo questo messaggio perché hai sottoscritto gli aggiornamenti tramite email per le modifiche a questa pagina.
 
-$7',
+$7', # Fuzzy
 	'echo-email-subject-default' => 'Nuova notifica su {{SITENAME}}',
 	'echo-email-body-default' => 'Hai una nuova notifica su {{SITENAME}}:
 
@@ -1289,7 +1289,7 @@ $messages['ja'] = array(
 	'notification-reverted' => '$2 が [[$3]] のあなたの{{PLURAL:$5|編集|複数の編集}}を{{GENDER:$1|取り消しました}} $4',
 	'notification-edit-email-subject' => '{{SITENAME}}からの通知: $3 を $2 が編集しました',
 	'notification-edit-talk-page-email-subject' => '{{SITENAME}}のあなたのトークページを $2 が編集しました',
-	'notification-reverted-email-subject' => '{{SITENAME}} からの通知: $3 でのあなたの編集を $2 が取り消しました: $4',
+	'notification-reverted-email-subject' => '{{SITENAME}} からの通知: $3 でのあなたの編集を $2 が取り消しました: $4', # Fuzzy
 	'echo-email-subject-default' => '{{SITENAME}}での新しい通知',
 	'echo-email-body-default' => '{{SITENAME}}で新しい通知があります:
 
@@ -1387,7 +1387,7 @@ $2 사용자가 이 덧글로 바뀜을 요약했습니다: $6
 
 이 문서의 바뀜에 대해 이메일 업데이트에 구독했기 때문에 이 메시지를 보내드립니다.
 
-$7',
+$7', # Fuzzy
 	'notification-edit-talk-page-email-subject' => '당신의 {{SITENAME}} 토론 문서를 $2에 의해 편집함',
 	'notification-edit-talk-page-email-body' => '$4 안녕하세요.
 $2 사용자가 {{SITENAME}}에 당신의 토론 문서를 편집했음을 알립니다.
@@ -1399,8 +1399,8 @@ $2 사용자가 다음 요약으로 바뀜을 설명했습니다: $5
 이 링크에서 $2 사용자에 의한 바뀜을 볼 수 있습니다:
 <$3>
 
-$6',
-	'notification-reverted-email-subject' => '{{SITENAME}} 알림: $2 사용자가 $3에 대한 당신의 편집을 되돌렸습니다: $4',
+$6', # Fuzzy
+	'notification-reverted-email-subject' => '{{SITENAME}} 알림: $2 사용자가 $3에 대한 당신의 편집을 되돌렸습니다: $4', # Fuzzy
 	'notification-reverted-email-body' => '$5 안녕하세요.
 $2 사용자가 {{SITENAME}} $3 문서에 당신의 편집을 되돌렸음을 알립니다.
 
@@ -1412,7 +1412,7 @@ $2 사용자가 다음 요약으로 바뀜을 설명했습니다: $6
 당신이 편집한 문서를 되돌릴 때 이메일 업데이트에 구독했기 때문에
 이 메시지를 보내드립니다.
 
-$7',
+$7', # Fuzzy
 	'echo-email-subject-default' => '{{SITENAME}}에서 새 알림',
 	'echo-email-body-default' => '{{SITENAME}}에서 새 알림이 있습니다:
 
@@ -1561,7 +1561,7 @@ $2 ги опиша промените што ги направи со следн
 
 Соопштениево го добивате бидејќе сте пријавени на известувања по е-пошта во врска со измени на оваа страница.
 
-$7',
+$7', # Fuzzy
 	'notification-edit-talk-page-email-subject' => '$2 ја измени вашата страница ра разговор на {{SITENAME}}',
 	'notification-edit-talk-page-email-body' => 'Здраво $4,
 Ве известуваме дека $2 ја измени вашата страница за разговор на {{SITENAME}}.
@@ -1573,8 +1573,8 @@ $2 го даде следниов опис на измените што ги н�
 Измените што ги направи $2 можете да ги погледате на следнава врска:
 <$3>
 
-$6',
-	'notification-reverted-email-subject' => 'Известување од {{SITENAME}}: $2 ја врати вашата измена на $3: $4',
+$6', # Fuzzy
+	'notification-reverted-email-subject' => 'Известување од {{SITENAME}}: $2 ја врати вашата измена на $3: $4', # Fuzzy
 	'notification-reverted-email-body' => 'Здраво $5,
 Ве известуваме дека $2 ја ги врати вашите измени на страницата $3 на {{SITENAME}}.
 
@@ -1584,7 +1584,7 @@ $2 ги опиша промените што ги направи со следн
 <$4>
 
 Соопштениево го добивате бидејќе сте пријавени на известувања по е-пошта кога ќе биде вратено некое ваше уредување на оваа страница.
-$7',
+$7', # Fuzzy
 	'echo-email-subject-default' => 'Ново известување на {{SITENAME}}',
 	'echo-email-body-default' => 'Имате ново известување на {{SITENAME}}:
 
@@ -1642,7 +1642,7 @@ $2 വരുത്തിയ മാറ്റങ്ങൾ ഇനിക്കൊട
 
 ഈ താളിനെക്കുറിച്ചുള്ള ഇമെയിൽ പുതിയവിവരങ്ങൾക്ക് താങ്കൾ വരിചേർന്നിട്ടുള്ളതിനാലാണ് താങ്കൾക്ക് ഈ സന്ദേശം ലഭിക്കുന്നത്.
 
-$7',
+$7', # Fuzzy
 	'notification-edit-talk-page-email-subject' => 'താങ്കളുടെ {{SITENAME}} സംവാദത്താൾ $2 തിരുത്തിയിരിക്കുന്നു',
 	'echo-email-subject-default' => '{{SITENAME}} സംരംഭത്തിൽ അറിയിപ്പുണ്ട്',
 	'echo-email-body-default' => '{{SITENAME}} സംരംഭത്തിൽ താങ്കൾക്ക് ഒരു അറിയിപ്പുണ്ട്:
@@ -1680,7 +1680,7 @@ $messages['ms'] = array(
 	'notification-new-user' => 'Selamat datang ke {{SITENAME}}, $1!',
 	'notification-new-user-content' => 'Selamat sejahtera diucapkan kepada $1, dan selamat datang ke {{SITENAME}}.<br />
 Jangan lupa untuk menandatangani sebarang komen pada halaman perbincangan dengan serentet 4 tanda tilde (~~~~).',
-	'notification-reverted' => '$2 {{GENDER:$1|membalikkan}} {{PLURAL:$6|1=suntingan|suntingan-suntingan}} anda di [[$3]] $4: "$5"', # Fuzzy
+	'notification-reverted' => '!$2 {{GENDER:$1|membalikkan}} {{PLURAL:$5|1=suntingan|suntingan-suntingan}} anda di [[$3]] $4',
 	'notification-edit-email-subject' => 'Pemberitahuan {{SITENAME}}: $3 telah disunting oleh $2',
 	'notification-edit-email-body' => 'Selamat sejahtera $5,
 
@@ -1693,7 +1693,7 @@ Anda boleh melihat suntingan yang dibuat oleh $2 dengan mengikuti pautan ini:
 
 Anda menerima pesanan ini kerana anda telah melanggan untuk menerima kemas kini perubahan pada halaman ini melalui e-mel.
 
-$7',
+$7', # Fuzzy
 	'notification-edit-talk-page-email-subject' => 'Halaman perbincangan anda di {{SITENAME}} telah disunting oleh $2',
 	'notification-edit-talk-page-email-body' => '$4,
 
@@ -1706,8 +1706,8 @@ $2 memerikan pengubahannya dengan ringkasan yang berikut: $5
 Anda boleh melihat suntingan yang dibuat oleh $2 dengan mengikuti pautan ini:
 <$3>
 
-$6',
-	'notification-reverted-email-subject' => 'Pemberitahuan {{SITENAME}}: $2 telah membalikkan suntingan anda di $3: $4',
+$6', # Fuzzy
+	'notification-reverted-email-subject' => 'Pemberitahuan {{SITENAME}}: $2 telah membalikkan suntingan anda di $3: $4', # Fuzzy
 	'notification-reverted-email-body' => '$5,
 
 Sila ambil maklum bahawa $2 telah membalikkan suntingan anda di halaman $3 di {{SITENAME}}.
@@ -1719,7 +1719,7 @@ Anda boleh melihat perubahan yang dibuat oleh $2 untuk membalikkan hasil sunting
 
 Anda menerima pesanan ini kerana anda telah melanggan peringatan e-mel apabila suntingan anda dibalikkan.
 
-$7',
+$7', # Fuzzy
 	'echo-email-subject-default' => 'Pemberitahuan baru di {{SITENAME}}',
 	'echo-email-body-default' => 'Anda menerima pemberitahuan baru di {{SITENAME}}:
 
@@ -1735,8 +1735,11 @@ Untuk mengubah keutamaan e-mel anda atau berhenti melanggan, kunjungi:
 $1',
 	'echo-link-new' => '$1 pemberitahuan baru',
 	'echo-link' => 'Pemberitahuan',
-	'echo-overlay-link' => 'Semua pemberitahuan…', # Fuzzy
+	'echo-overlay-link' => 'Semua pemberitahuan',
 	'echo-overlay-title' => 'Pemberitahuan saya',
+	'echo-date-today' => 'Hari ini',
+	'echo-date-yesterday' => 'Semalam',
+	'echo-load-more-error' => 'Ralat berlaku ketika mengambil lebih banyak hasil.',
 );
 
 /** Maltese (Malti)
@@ -1827,7 +1830,7 @@ Dit is een melding om u te laten weten dat $2 de pagina $3 op {{SITENAME}} heeft
 
 $2 heeft {{GENDER:$2|zijn|haar}} wijzigingen als volgt samengevat: $6
 
-U kunt de wijzigingen die $2 heeft gemaakt bekijken via de volgende verwijzing:
+U kunt de wijzigingen die {{GENDER:$2|hij|zij}} heeft gemaakt bekijken via de volgende verwijzing:
 <$4>
 
 U ontvangt dit bericht omdat u bent geabonneerd op meldingen via e-mail voor deze pagina.
@@ -1844,19 +1847,21 @@ $2 heeft {{GENDER:$2|zijn|haar}} wijzigingen als volgt samengevat: $5
 Bekijk de wijzigingen die $2 heeft gemaakt:
 <$3>
 
-$6',
-	'notification-reverted-email-subject' => 'Melding van {{SITENAME}}: $2 heeft uw bewerking aan $3 teruggedraaid: $4',
+$6', # Fuzzy
+	'notification-edit-talk-page-email-batch-body' => '$2 {{GENDER:$2|heeft}} een bericht achtergelaten op uw overlegpagina',
+	'notification-reverted-email-subject' => 'Melding van {{SITENAME}}: {{GENDER:$2|$2}} heeft uw bewerking aan $3 teruggedraaid: $4',
 	'notification-reverted-email-body' => 'Hallo $5,
-Dit is een melding om u te laten weten dat $2 uw bewerking op $3 op {{SITENAME}} heeft teruggedraaid.
+Dit is een melding om u te laten weten dat {{GENDER:$2|$2}} uw bewerking op $3 op {{SITENAME}} heeft teruggedraaid.
 
 $2 heeft {{GENDER:$2|zijn|haar}} wijziging als volgt samengevat: $6
 
-U kunt de verandering die $2 heeft gemaakt door de terugdraaiing bekijken via de volgende verwijzing:
+U kunt de verandering die {{GENDER:$2|hij|zij}} heeft gemaakt door de terugdraaiing bekijken via de volgende verwijzing:
 <$4>
 
 U ontvangt dit bericht omdat u zich heeft geabonneerd op e-mailnotificaties wanneer uw bewerkingen worden teruggedraaid.
 
 $7',
+	'notification-reverted-email-batch-body' => 'Uw bewerking aan $3 is teruggedraaid door $2',
 	'echo-email-subject-default' => 'Nieuwe melding op {{SITENAME}}',
 	'echo-email-body-default' => 'U hebt een nieuwe melding op {{SITENAME}}:
 
@@ -2135,7 +2140,7 @@ Kom ihåg att underteckna kommentarer på diskussionssidor med 4 tilde (~~~~).',
 	'notification-reverted' => '$2 {{GENDER:$1|återställde}} {{PLURAL:$6|1=din redigering|dina redigeringar}} på [[$3]] $4: "$5"', # Fuzzy
 	'notification-edit-email-subject' => '{{SITENAME}} meddelande: $3 har redigerats av $2',
 	'notification-edit-talk-page-email-subject' => 'Din {{SITENAME}} diskussionssida har redigerats av $2',
-	'notification-reverted-email-subject' => '{{SITENAME}}notifikation: $2 har återställt redigeringen på $3: $4',
+	'notification-reverted-email-subject' => '{{SITENAME}}notifikation: $2 har återställt redigeringen på $3: $4', # Fuzzy
 	'echo-email-subject-default' => 'Nytt meddelande på {{SITENAME}}',
 	'echo-email-body-default' => 'Du har ett nytt meddelande på {{SITENAME}}:
 
@@ -2312,7 +2317,7 @@ Bạn có thể xem các thay đổi của $2 bằng cách theo dõi liên kết
 
 Bạn nhận được thư điện tử này vì bạn đã xin theo dõi các thay đổi tại trang này.
 
-$7',
+$7', # Fuzzy
 	'notification-edit-talk-page-email-subject' => 'Trang thảo luận của bạn tại {{SITENAME}} đã được sửa bởi $2',
 	'notification-edit-talk-page-email-body' => 'Xin chào $4,
 Xin thông báo với bạn rằng $2 đã sửa đổi trang thảo luận của bạn tại {{SITENAME}}.
@@ -2324,8 +2329,8 @@ $2 tóm lược các thay đổi của họ như thế này: $5
 Bạn có thể xem các thay đổi của $2 bằng cách theo dõi liên kết này:
 <$3>
 
-$6',
-	'notification-reverted-email-subject' => 'Thông báo từ {{SITENAME}}: $2 đã lùi lại sửa đổi của bạn tại $3: $4',
+$6', # Fuzzy
+	'notification-reverted-email-subject' => 'Thông báo từ {{SITENAME}}: $2 đã lùi lại sửa đổi của bạn tại $3: $4', # Fuzzy
 	'notification-reverted-email-body' => 'Xin chào $5,
 Xin thông báo với bạn rằng $2 đã lùi lại các sửa đổi tại trang $3 tại {{SITENAME}}.
 
@@ -2336,7 +2341,7 @@ Bạn có thể xem thay đổi lùi sửa của $2 bằng cách theo dõi liên
 
 Bạn nhận được thư điện tử này vì bạn đã xin theo dõi các vụ lùi sửa thay đổi của bạn.
 
-$7',
+$7', # Fuzzy
 	'echo-email-subject-default' => 'Thông báo mới tại {{SITENAME}}',
 	'echo-email-body-default' => 'Bạn có thông báo mới tại {{SITENAME}}:
 
