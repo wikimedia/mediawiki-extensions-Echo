@@ -57,6 +57,25 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			} else {
 				$this->email['body']['params'] = array( 'text-notification' );
 			}
+		} else {
+			$this->email['body'] = array(
+				'message' => 'echo-email-body-default',
+				'params' => array(
+					'text-notification',
+				),
+			);
+		}
+
+		$this->email['batch-body'] = array();
+		if ( isset( $params['email-body-batch-message'] ) ) {
+			$this->email['batch-body']['message'] = $params['email-body-batch-message'];
+			if ( isset( $params['email-body-batch-params'] ) ) {
+				$this->email['batch-body']['params'] = $params['email-body-batch-params'];
+			} else {
+				$this->email['batch-body']['params'] = array();
+			}
+		} else {
+			$this->email['batch-body'] = $this->email['body'];
 		}
 
 		if ( isset( $params['icon'] ) ) {
@@ -144,7 +163,9 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 
 		$body = $this->formatFragment( $this->email['body'], $event, $user )->text();
 
-		return array( 'subject' => $subject, 'body' => $body );
+		$batchBody = $this->formatFragment( $this->email['batch-body'], $event, $user )->text();
+
+		return array( 'subject' => $subject, 'body' => $body, 'batch-body' => $batchBody );
 	}
 
 	/**

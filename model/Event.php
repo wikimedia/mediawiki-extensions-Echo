@@ -101,13 +101,20 @@ class EchoEvent {
 	 * Get a list of enabled Echo events, allow extensions to create their own events
 	 */
 	public static function gatherValidEchoEvents() {
-		global $wgEchoEnabledEvents;
+		global $wgEchoEnabledEvents, $wgEchoEventDetails;
 
 		static $runHook = true;
 		// this hook should only be executed once to gather valid echo events
 		if ( $runHook ) {
 			// allow extensions to define their own event
-			wfRunHooks( 'BeforeCreateEchoEvent', array( &$wgEchoEnabledEvents ) );
+			wfRunHooks( 'BeforeCreateEchoEvent', array( &$wgEchoEnabledEvents, &$wgEchoEventDetails ) );
+
+			foreach ( $wgEchoEventDetails as $event => $detail ) {
+				if ( isset( $detail['priority'] ) && $detail['priority'] < 1 && $detail['priority'] > 10 ) {
+					throw new MWException( "$event: Valid event priority is ranging from 1 to 10" );
+				}
+			}
+
 			$runHook = false;
 		}
 

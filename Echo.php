@@ -50,6 +50,7 @@ $wgAutoloadClasses['EchoHooks'] = "$dir/Hooks.php";
 $wgAutoloadClasses['EchoSubscription'] = "$dir/model/Subscription.php";
 $wgAutoloadClasses['EchoEvent'] = "$dir/model/Event.php";
 $wgAutoloadClasses['EchoNotification'] = "$dir/model/Notification.php";
+$wgAutoloadClasses['MWEchoEmailBatch'] = "$dir/includes/EmailBatch.php";
 
 // Formatters
 $wgAutoloadClasses['EchoNotificationFormatter'] = "$dir/formatters/NotificationFormatter.php";
@@ -159,6 +160,8 @@ $wgHooks['ArticleEditUpdateNewTalk'][] = 'EchoHooks::abortNewTalkNotification';
 $wgDefaultUserOptions['echo-notify-link'] = 'true';
 
 $wgEchoDisableStandardEmail = true;
+// Whether to turn on email batch function
+$wgEchoEnableEmailBatch = true;
 
 // The organization address, the value should be defined in LocalSettings.php
 $wgEchoEmailFooterAddress = '';
@@ -187,10 +190,25 @@ $wgEchoNotifiers = array(
 // extensions can add to this list through the BeforeCreateEchoEvent hook.
 $wgEchoEnabledEvents = array(
 	'edit-user-talk',
-	'add-comment',
-	'add-talkpage-topic',
+	//'add-comment',
+	//'add-talkpage-topic',
 	'welcome',
 	'reverted',
+);
+
+// This array stores the category and priority for enabled events
+// if an event is not specified, it means the event belongs to the
+// 'other' category with priority 10, which is the lowest,
+// priority is ranging from 1 to 10
+$wgEchoEventDetails = array(
+	'edit-user-talk' => array(
+		'category' => 'edit-user-talk',
+		'priority' => 1
+	),
+	'reverted' => array(
+		'category' => 'edit-revert',
+		'priority' => 9
+	),
 );
 
 // Definitions of the notifications built into Echo
@@ -204,6 +222,8 @@ $wgEchoNotificationFormatters = array(
 		'email-subject-params' => array( 'agent' ),
 		'email-body-message' => 'notification-edit-talk-page-email-body',
 		'email-body-params' => array( 'agent', 'difflink', 'user', 'summary', 'email-footer' ),
+		'email-body-batch-message' => 'notification-edit-talk-page-email-batch-body',
+		'email-body-batch-params' => array( 'agent', 'difflink', 'summary' ),
 		'icon' => 'chat',
 	),
 	'edit' => array(
@@ -214,6 +234,8 @@ $wgEchoNotificationFormatters = array(
 		'email-subject-params' => array( 'agent', 'title' ),
 		'email-body-message' => 'notification-edit-email-body',
 		'email-body-params' => array( 'agent', 'title', 'difflink', 'user', 'summary', 'email-footer' ),
+		'email-body-batch-message' => 'notification-edit-email-batch-body',
+		'email-body-batch-params' => array( 'agent', 'title', 'difflink', 'summary' ),
 		'icon' => 'w',
 	),
 	'add-comment' => array(
@@ -248,6 +270,8 @@ $wgEchoNotificationFormatters = array(
 		'email-subject-params' => array( 'agent', 'title', 'summary' ),
 		'email-body-message' => 'notification-reverted-email-body',
 		'email-body-params' => array( 'agent', 'title', 'difflink', 'user', 'summary', 'email-footer' ),
+		'email-body-batch-message' => 'notification-reverted-email-batch-body',
+		'email-body-batch-params' => array( 'agent', 'title', 'difflink', 'summary' ),
 		'icon' => 'revert',
 	)
 );

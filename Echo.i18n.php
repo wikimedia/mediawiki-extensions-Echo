@@ -43,46 +43,46 @@ Please remember to sign any comments on talk pages with 4 tildes (~~~~).',
 	'notification-reverted' => '$2 {{GENDER:$1|reverted}} your {{PLURAL:$5|1=edit|edits}} on [[$3]] $4',
 	'notification-edit-email-subject' => '{{SITENAME}} notification: $3 has been edited by $2',
 	'notification-edit-email-body' => 'Hello $5,
-This is a notification to let you know that $2 has edited the {{SITENAME}} page $3.
+This is a notification to let you know that $2 {{GENDER:$2|has edited}} the {{SITENAME}} page $3.
 
-$2 summarized their changes with this comment: $6
+$2 {{GENDER:$2|summarized}} {{GENDER:$2|his|her|their}} change with this comment: $6
 
-You can see the changes that $2 made by following this link:
+You can see the change that $2 {{GENDER:$2|made}} by following this link:
 <$4>
 
-You are receiving this message because you have subscribed to email updates for changes to this page.
+You are receiving this message because you have subscribed to e-mail updates for changes to this page.
 
 $7',
 	'notification-edit-talk-page-email-subject' => 'Your {{SITENAME}} talk page has been edited by $2',
 	'notification-edit-talk-page-email-body' => 'Hello $4,
-
-This is a notification to let you know that $2 has edited your talk page on {{SITENAME}}.
+This is a notification to let you know that $2 {{GENDER:$2|has edited}} your talk page on {{SITENAME}}.
 
 On {{SITENAME}}, your talk page is where other users can leave you messages.
 
-$2 used the following summary to describe their change: $5
+$2 {{GENDER:$2|used}} the following summary to describe {{GENDER:$2|his|her|their}} change: $5
 
-You can see the changes that $2 made at this link:
+You can see the change that $2 {{GENDER:$2|made}} at this link:
 <$3>
 
 $6',
-
-	'notification-reverted-email-subject' => '{{SITENAME}} notification: $2 has reverted your edit on $3: $4',
+	'notification-edit-talk-page-email-batch-body' => '$2 {{GENDER:$2|posted}} on your talk page',
+	'notification-reverted-email-subject' => '{{SITENAME}} notification: $2 {{GENDER:$2|has reverted}} your edit on $3: $4',
 	'notification-reverted-email-body' => 'Hello $5,
-This is a notification to let you know that $2 has reverted your edits on the {{SITENAME}} page $3.
+This is a notification to let you know that $2 {{GENDER:$2|has reverted}} your edits on the {{SITENAME}} page $3.
 
-$2 used the following summary to describe their change: $6
+$2 {{GENDER:$2|used}} the following summary to describe {{GENDER:$2|his|her|their}} change: $6
 
-You can see the change that $2 made to revert your edits by following this link:
+You can see the change that $2 {{GENDER:$2|made}} to revert your edits by following this link:
 <$4>
 
-You are receiving this message because you have subscribed to email alerts
+You are receiving this message because you have subscribed to e-mail alerts
 when your changes are reverted.
 
 $7',
 	'echo-notification-count' => '$1+',
 
-	// Email notification
+	'notification-reverted-email-batch-body' => 'Your edit to $3 was reverted by $2',
+	// E-mail notification
 	'echo-email-subject-default' => 'New notification at {{SITENAME}}',
 	'echo-email-body-default' => 'You have a new notification at {{SITENAME}}:
 
@@ -107,6 +107,31 @@ $1',
 	'echo-date-yesterday' => 'Yesterday',
 	'echo-date-header' => '$1 $2',
 	'echo-load-more-error' => 'An error occurred while fetching more results.',
+
+	// E-mail batch
+	'echo-email-batch-separator' => '________________________________________________', # only translate this message to other languages if you have to change it
+	'echo-email-batch-bullet' => '•', # only translate this message to other languages if you have to change it
+	'echo-email-batch-subject-daily' => 'You have $1 {{PLURAL:$2|notification|notifications}} today',
+	'echo-email-batch-subject-weekly' => 'You have $1 {{PLURAL:$2|notification|notifications}} this week',
+	'echo-email-batch-body-daily' => '$1,
+
+You have $2 {{PLURAL:$3|notification|notifications}} on {{SITENAME}} today.  View them here:
+{{canonicalurl:{{#special:Notifications}}}}
+
+$4
+
+$5',
+	'echo-email-batch-body-weekly' => '$1,
+
+You have $2 {{PLURAL:$3|notification|notifications}} on {{SITENAME}} this week.  View them here:
+{{canonicalurl:{{#special:Notifications}}}}
+
+$4
+
+$5',
+	'echo-email-batch-category-header-edit-user-talk' => '$1 Talk page {{PLURAL:$1|message|messages}}',
+	'echo-email-batch-category-header-edit-revert' => '$1 Edit {{PLURAL:$1|revert|reverts}}',
+	'echo-email-batch-category-header-other' => '$1 {{PLURAL:$1|Other|Others}}',
 );
 
 /** Message documentation (Message documentation)
@@ -189,15 +214,17 @@ $messages['qqq'] = array(
 * $4 is a link to a change
 * $5 is the e-mail recipient's username.
 * $6 is the edit summary.
-* $7 is the email footer, {{msg|echo-email-footer-default}}", # Fuzzy
+* $7 is the e-mail footer, {{msg|echo-email-footer-default}}", # Fuzzy
 	'notification-edit-talk-page-email-subject' => 'E-mail subject. Parameters:
 * $2 is a username.',
 	'notification-edit-talk-page-email-body' => "E-mail notification. Parameters:
 * $2 is a username
-* $3 link to a change
+* $3 is a link to a change
 * $4 is the e-mail recipient's username.
 * $5 is the edit summary.
-* $6 is the email footer, {{msg|echo-email-footer-default}}", # Fuzzy
+* $6 is the e-mail footer, {{msg|echo-email-footer-default}}", # Fuzzy
+	'notification-edit-talk-page-email-batch-body' => 'E-mail notification for talk page edit
+* $2 is a username',
 	'notification-reverted-email-subject' => 'E-mail subject. Parameters:
 *$2 is a username
 *$3 is a page title
@@ -212,10 +239,13 @@ $messages['qqq'] = array(
 	'echo-notification-count' => '{{optional}}
 The new notification count next to notification link, for example: 99+
 * $1 is the count',
-	'echo-email-subject-default' => 'Default subject for Echo email notifications',
-	'echo-email-body-default' => 'Default message content for Echo email notifications.
+	'notification-reverted-email-batch-body' => 'E-mail notification for page revert. Parameters:
+* $2 is a username
+* $3 is a page title',
+	'echo-email-subject-default' => 'Default subject for Echo e-mail notifications',
+	'echo-email-body-default' => 'Default message content for Echo e-mail notifications.
 * $1 is a plain text description of the notification.',
-	'echo-email-footer-default' => 'Default footer content for Echo email notifications.  Parameters:
+	'echo-email-footer-default' => 'Default footer content for Echo e-mail notifications.  Parameters:
 * $1 is the address of the organization that sent the e-mail',
 	'echo-link-new' => 'Shown in "personal links" when a user has unread notifications.
 * $1 is number of unread notifications',
@@ -228,6 +258,31 @@ The new notification count next to notification link, for example: 99+
 * $1 is the month, it could be {{msg-mw|january-gen}}, {{msg-mw|february-gen}}, {{msg-mw|march-gen}}, {{msg-mw|april-gen}}, {{msg-mw|may-gen}}, {{msg-mw|june-gen}}, {{msg-mw|july-gen}}, {{msg-mw|august-gen}}, {{msg-mw|september-gen}}, {{msg-mw|october-gen}}, {{msg-mw|november-gen}}, {{msg-mw|december-gen}}
 * $2 is the date of a month, eg 21',
 	'echo-load-more-error' => 'Error message for errors in loading more notifications',
+	'echo-email-batch-separator' => 'Email batch content separator',
+	'echo-email-batch-subject-daily' => 'Daily e-mail batch subject.
+* $1 could be a numeric count or {{echo-notification-count}}
+* $2 is a numeric count, this is used for plural support',
+	'echo-email-batch-subject-weekly' => 'Weekly e-mail batch subject.
+* $1 could be a numeric count or {{echo-notification-count}}
+* $2 is a numeric count, this is used for plural support',
+	'echo-email-batch-body-daily' => 'Daily e-mail batch body. Parameters:
+* $1 is a username
+* $2 could be a numeric count or {{echo-notification-count}}
+* $3 is a numeric count, this is used for plural support
+* $4 is the e-mail batch content separated by {{echo-email-batch-separator}}
+* $5 is the e-mail footer, {{msg|echo-email-footer-default}}',
+	'echo-email-batch-body-weekly' => 'Weekly e-mail batch body. Parameters:
+* $1 is a username
+* $2 could be a numeric count or {{echo-notification-count}}
+* $3 is a numeric count, this is used for plural support
+* $4 is the e-mail batch content separated by {{echo-email-batch-separator}}
+* $5 is the e-mail footer, {{msg|echo-email-footer-default}}',
+	'echo-email-batch-category-header-edit-user-talk' => 'E-mail batch section title for edit-user-talk category
+* $1 is the numeric count',
+	'echo-email-batch-category-header-edit-revert' => 'E-mail batch section title for edit-revert category
+* $1 is the numeric count',
+	'echo-email-batch-category-header-other' => 'E-mail batch section title for events with category not specified
+* $1 is the numeric count',
 );
 
 /** Afrikaans (Afrikaans)
