@@ -46,33 +46,33 @@ $dir = dirname( __FILE__ ) . '/';
 $wgExtensionMessagesFiles['Echo'] = $dir . 'Echo.i18n.php';
 $wgExtensionMessagesFiles['EchoAliases'] = $dir . 'Echo.alias.php';
 
-$wgAutoloadClasses['EchoHooks'] = "$dir/Hooks.php";
-$wgAutoloadClasses['EchoSubscription'] = "$dir/model/Subscription.php";
-$wgAutoloadClasses['EchoEvent'] = "$dir/model/Event.php";
-$wgAutoloadClasses['EchoNotification'] = "$dir/model/Notification.php";
-$wgAutoloadClasses['MWEchoEmailBatch'] = "$dir/includes/EmailBatch.php";
+$wgAutoloadClasses['EchoHooks'] = $dir . 'Hooks.php';
+$wgAutoloadClasses['EchoSubscription'] = $dir . 'model/Subscription.php';
+$wgAutoloadClasses['EchoEvent'] = $dir . 'model/Event.php';
+$wgAutoloadClasses['EchoNotification'] = $dir . 'model/Notification.php';
+$wgAutoloadClasses['MWEchoEmailBatch'] = $dir . 'includes/EmailBatch.php';
 
 // Formatters
-$wgAutoloadClasses['EchoNotificationFormatter'] = "$dir/formatters/NotificationFormatter.php";
-$wgAutoloadClasses['EchoBasicFormatter'] = "$dir/formatters/BasicFormatter.php";
-$wgAutoloadClasses['EchoEditFormatter'] = "$dir/formatters/EditFormatter.php";
-$wgAutoloadClasses['EchoCommentFormatter'] = "$dir/formatters/CommentFormatter.php";
+$wgAutoloadClasses['EchoNotificationFormatter'] = $dir . 'formatters/NotificationFormatter.php';
+$wgAutoloadClasses['EchoBasicFormatter'] = $dir . 'formatters/BasicFormatter.php';
+$wgAutoloadClasses['EchoEditFormatter'] = $dir . 'formatters/EditFormatter.php';
+$wgAutoloadClasses['EchoCommentFormatter'] = $dir . 'formatters/CommentFormatter.php';
 
 // Internal stuff
-$wgAutoloadClasses['EchoNotifier'] = "$dir/Notifier.php";
-$wgAutoloadClasses['EchoNotificationController'] = "$dir/controller/NotificationController.php";
-$wgAutoloadClasses['EchoDiscussionParser'] = "$dir/includes/DiscussionParser.php";
+$wgAutoloadClasses['EchoNotifier'] = $dir . 'Notifier.php';
+$wgAutoloadClasses['EchoNotificationController'] = $dir . 'controller/NotificationController.php';
+$wgAutoloadClasses['EchoDiscussionParser'] = $dir . 'includes/DiscussionParser.php';
 
 // Job queue
-$wgAutoloadClasses['EchoNotificationJob'] = "$dir/jobs/NotificationJob.php";
+$wgAutoloadClasses['EchoNotificationJob'] = $dir . 'jobs/NotificationJob.php';
 $wgJobClasses['EchoNotificationJob'] = 'EchoNotificationJob';
 
 // API
-$wgAutoloadClasses['ApiEchoNotifications'] = "$dir/api/ApiEchoNotifications.php";
+$wgAutoloadClasses['ApiEchoNotifications'] =  $dir . 'api/ApiEchoNotifications.php';
 $wgAPIMetaModules['notifications'] = 'ApiEchoNotifications';
 
 // Special page
-$wgAutoloadClasses['SpecialNotifications'] = "$dir/special/SpecialNotifications.php";
+$wgAutoloadClasses['SpecialNotifications'] = $dir . 'special/SpecialNotifications.php';
 $wgSpecialPages['Notifications'] = 'SpecialNotifications';
 
 // Housekeeping hooks
@@ -84,7 +84,7 @@ $wgHooks['MakeGlobalVariablesScript'][] = 'EchoHooks::makeGlobalVariablesScript'
 $wgHooks['UnitTestsList'][] = 'EchoHooks::getUnitTests';
 
 $echoResourceTemplate = array(
-	'localBasePath' => "$dir/modules",
+	'localBasePath' => $dir . 'modules',
 	'remoteExtPath' => 'Echo/modules',
 	'group' => 'ext.echo',
 );
