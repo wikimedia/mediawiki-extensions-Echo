@@ -151,11 +151,21 @@ $5',
  * @author Siebrand
  */
 $messages['qqq'] = array(
-	'echo-desc' => '{{desc}}',
+	'echo-desc' => '{{desc|name=Echo|url=http://www.mediawiki.org/wiki/Extension:Echo}}',
 	'prefs-echo' => 'Name of preferences section for Echo notifications.',
 	'prefs-displaynotifications' => 'Header for the section of preferences that deals with how notifications are displayed',
-	'prefs-emailsubscriptions' => 'Header for the section of preferences that deals with which notifications the user receives emails for',
-	'prefs-emailfrequency' => 'Header for the section of preferences that deals with how often notification emails are sent out',
+	'prefs-emailsubscriptions' => 'Header for the section of preferences that deals with which notifications the user receives emails for
+* {{msg-mw|Echo-pref-email-edit-user-talk}}
+* {{msg-mw|Echo-pref-email-reverted}}
+"Page Triage" messages:
+* {{msg-mw|Echo-pref-email-pagetriage-mark-as-reviewed}}
+* {{msg-mw|Echo-pref-email-pagetriage-add-maintenance-tag}}
+* {{msg-mw|Echo-pref-email-pagetriage-add-deletion-tag}}',
+	'prefs-emailfrequency' => 'Header for the section of preferences that deals with how often notification emails are sent out
+* {{msg-mw|Echo-pref-email-frequency-never}}
+* {{msg-mw|Echo-pref-email-frequency-immediately}}
+* {{msg-mw|Echo-pref-email-frequency-daily}}
+* {{msg-mw|Echo-pref-email-frequency-weekly}}',
 	'echo-pref-email-edit-user-talk' => "Option for getting emails when someone posts on the user's talk page. This is the conclusion of the sentence begun by the header: {{msg-mw|prefs-emailsubscriptions}}.",
 	'echo-pref-email-reverted' => "Option for getting emails when someone reverts the user's edit. This is the conclusion of the sentence begun by the header: {{msg-mw|prefs-emailsubscriptions}}.",
 	'echo-pref-email-frequency-never' => "Option for users who don't want to receive any email notifications",
@@ -166,7 +176,7 @@ $messages['qqq'] = array(
 	'echo-no-agent' => 'Shown in place of a username in a notification
 	if the notification has no specified user.',
 	'echo-no-title' => 'Shown in place of a page title in a notification
-	if the notification has no specified page title.',
+	if the notification has no specified page title.', # Fuzzy
 	'echo-error-no-formatter' => "Error message displayed when no formatting has been defined for a notification. In other words, the extension doesn't know how to properly display the notification.",
 	'notifications' => 'This message is the page title of the special page [[Special:Notifications]].',
 	'echo-specialpage' => 'Special page title for Special:Notifications',
@@ -265,28 +275,31 @@ The new notification count next to notification link, for example: 99+
 	'echo-overlay-title' => 'Title at the top of the notifications overlay',
 	'echo-date-today' => "The header text for today's notification section",
 	'echo-date-yesterday' => "The header text for yesterday's notification section",
-	'echo-date-header' => 'The header text for each notification section which is grouped by date
+	'echo-date-header' => '{{optional}}
+The header text for each notification section which is grouped by date
 * $1 is the month, it could be {{msg-mw|january-gen}}, {{msg-mw|february-gen}}, {{msg-mw|march-gen}}, {{msg-mw|april-gen}}, {{msg-mw|may-gen}}, {{msg-mw|june-gen}}, {{msg-mw|july-gen}}, {{msg-mw|august-gen}}, {{msg-mw|september-gen}}, {{msg-mw|october-gen}}, {{msg-mw|november-gen}}, {{msg-mw|december-gen}}
 * $2 is the date of a month, eg 21',
 	'echo-load-more-error' => 'Error message for errors in loading more notifications',
-	'echo-email-batch-separator' => 'Email batch content separator',
+	'echo-email-batch-separator' => '{{optional}}
+Email batch content separator',
+	'echo-email-batch-bullet' => '{{optional}}',
 	'echo-email-batch-subject-daily' => 'Daily e-mail batch subject.
-* $1 could be a numeric count or {{echo-notification-count}}
+* $1 could be a numeric count or "$1+" ({{msg-mw|echo-notification-count}})
 * $2 is a numeric count, this is used for plural support',
 	'echo-email-batch-subject-weekly' => 'Weekly e-mail batch subject.
-* $1 could be a numeric count or {{echo-notification-count}}
+* $1 could be a numeric count or "$1+" ({{msg-mw|echo-notification-count}})
 * $2 is a numeric count, this is used for plural support',
 	'echo-email-batch-body-daily' => 'Daily e-mail batch body. Parameters:
 * $1 is a username
-* $2 could be a numeric count or {{echo-notification-count}}
+* $2 could be a numeric count or "$1+" ({{msg-mw|echo-notification-count}})
 * $3 is a numeric count, this is used for plural support
-* $4 is the e-mail batch content separated by {{echo-email-batch-separator}}
+* $4 is the e-mail batch content separated by "-------..." ({{msg-mw|echo-email-batch-separator}})
 * $5 is the e-mail footer, {{msg|echo-email-footer-default}}',
 	'echo-email-batch-body-weekly' => 'Weekly e-mail batch body. Parameters:
 * $1 is a username
-* $2 could be a numeric count or {{echo-notification-count}}
+* $2 could be a numeric count or "$1+" ({{msg-mw|echo-notification-count}})
 * $3 is a numeric count, this is used for plural support
-* $4 is the e-mail batch content separated by {{echo-email-batch-separator}}
+* $4 is the e-mail batch content separated by "--------..." ({{msg-mw|echo-email-batch-separator}})
 * $5 is the e-mail footer, {{msg|echo-email-footer-default}}',
 	'echo-email-batch-category-header-edit-user-talk' => 'E-mail batch section title for edit-user-talk category
 * $1 is the numeric count',
@@ -317,12 +330,12 @@ $messages['ar'] = array(
 );
 
 /** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
+ * @author Base
  * @author Wizardist
  */
 $messages['be-tarask'] = array(
 	'echo-desc' => 'Сыстэма апавяшчэньняў',
 	'prefs-echo' => 'Абвесткі',
-	'echo-pref-notify-watchlist' => 'Падпісацца на абвесткі пра рэдагаваньні старонак, за якімі я назіраю.',
 	'echo-no-agent' => '[Ніхто]',
 	'echo-no-title' => '[Няма старонкі]',
 	'notifications' => 'Абвесткі',
@@ -365,7 +378,7 @@ $messages['be-tarask'] = array(
 $1',
 	'echo-link-new' => '$1 {{PLURAL:$1|новая абвестка|новыя абвесткі|новых абвестак}}',
 	'echo-link' => 'Мае абвесткі', # Fuzzy
-	'echo-overlay-link' => 'Усе абвесткі…', # Fuzzy
+	'echo-overlay-link' => 'Усе абвесткі',
 	'echo-overlay-title' => 'Мае абвесткі',
 );
 
@@ -447,9 +460,15 @@ $messages['de'] = array(
 	'echo-desc' => 'Benachrichtigungssystem',
 	'prefs-echo' => 'Benachrichtigungen',
 	'prefs-displaynotifications' => 'Anzeigeoptionen',
-	'prefs-subscriptions' => 'Abonnements',
-	'echo-pref-notify-link' => 'Einen Link zu den Benachrichtigungen zu Beginn jeder Seite anzeigen',
-	'echo-pref-notify-watchlist' => 'Das Bearbeiten der Einstellungen zu Benachrichtigungen ermöglichen, wenn ich Seiten zu meiner Beobachtungsliste hinzufüge.',
+	'prefs-emailsubscriptions' => 'Benachrichtige mich per E-Mail, wenn jemand',
+	'prefs-emailfrequency' => 'Wie oft ich Benachrichtigungen per E-Mail erhalte',
+	'echo-pref-email-edit-user-talk' => 'Nachrichten auf meiner Diskussionsseite hinterlässt',
+	'echo-pref-email-reverted' => 'meine Bearbeitung rückgängig macht',
+	'echo-pref-email-frequency-never' => 'Sende mir keine E-Mail-Benachrichtigungen',
+	'echo-pref-email-frequency-immediately' => 'Individuelle Benachrichtigungen, wie sie eingehen',
+	'echo-pref-email-frequency-daily' => 'Tägliche Zusammenfassung von Benachrichtigungen',
+	'echo-pref-email-frequency-weekly' => 'Wöchentliche Zusammenfassung von Benachrichtigungen',
+	'echo-pref-notify-hide-link' => 'Den Link und das Symbol für Benachrichtigungen in meiner Werkzeugleiste verstecken',
 	'echo-no-agent' => '[Niemand]',
 	'echo-no-title' => '[Keine Seite]',
 	'echo-error-no-formatter' => 'Keine Formatierung zur Benachrichtigung definiert',
@@ -470,41 +489,43 @@ Bitte vergiss nicht alle Beiträge auf Diskussionsseiten mit 4 Tilden (~~~~) zu 
 	'notification-edit-email-subject' => '{{SITENAME}}-Benachrichtigung: $3 wurde von $2 bearbeitet',
 	'notification-edit-email-body' => 'Hallo $5,
 
-dies ist eine Benachrichtigung, um dir mitzuteilen, dass $2 die Seite $3 auf {{SITENAME}} bearbeitet hat.
+dies ist eine Benachrichtigung, um dir mitzuteilen, dass $2 die Seite $3 auf {{SITENAME}} {{GENDER:$2|bearbeitet}} hat.
 
-$2 fasste die Bearbeitungen mit diesem Kommentar zusammen: $6
+$2 {{GENDER:$2|fasste}} {{GENDER:$2|die}} Bearbeitung mit diesem Kommentar zusammen: $6
 
-Du kannst die Änderungen von $2 ansehen, sofern du auf den folgenden Link klickst:
+Du kannst {{GENDER:$2|die}} Änderung von $2 ansehen, sofern du auf den folgenden Link klickst:
 <$4>
 
 Du erhältst diese Nachricht, da du E-Mail-Benachrichtigungen zu Änderungen an der Seite $3 abonniert hast.
 
-$7', # Fuzzy
+$7',
 	'notification-edit-talk-page-email-subject' => 'Deine {{SITENAME}}-Diskussionsseite wurde von $2 bearbeitet',
 	'notification-edit-talk-page-email-body' => 'Hallo $4,
 
-dies ist eine Benachrichtigung, um dir mitzuteilen, dass $2 deine Diskussionsseite auf {{SITENAME}} bearbeitet hat.
+dies ist eine Benachrichtigung, um dir mitzuteilen, dass $2 deine Diskussionsseite auf {{SITENAME}} {{GENDER:$2|bearbeitet}} hat.
 
 Die Diskussionsseite ist auf {{SITENAME}} die Stelle, an der dir andere Benutzer eine Nachricht hinterlassen können.
 
-$2 benutzte die folgende Zusammenfassung, um die Änderungen zu beschreiben: $5
+$2 {{GENDER:$2|benutzte}} die folgende Zusammenfassung, um {{GENDER:$2|die}} Änderung zu beschreiben: $5
 
-Du kannst die Änderungen von $2 ansehen, sofern du auf den folgenden Link klickst:
+Du kannst die Änderung von $2 {{GENDER:$2|ansehen}}, sofern du auf den folgenden Link klickst:
 <$3>
 
-$6', # Fuzzy
-	'notification-reverted-email-subject' => 'Benachrichtigung von {{SITENAME}}: $2 machte deine Bearbeitung von $3 rückgängig: $4', # Fuzzy
+$6',
+	'notification-edit-talk-page-email-batch-body' => '$2 {{GENDER:$2|hinterließ}} eine Nachricht auf deiner Diskussionsseite',
+	'notification-reverted-email-subject' => 'Benachrichtigung von {{SITENAME}}: $2 {{GENDER:$2|machte}} deine Bearbeitung von $3 rückgängig: $4',
 	'notification-reverted-email-body' => 'Hallo $5,
-dies ist eine Benachrichtigung, um dir mitzuteilen, dass $2 deine Bearbeitungen der Seite „$3“ auf {{SITENAME}} rückgängig gemacht hat.
+dies ist eine Benachrichtigung, um dir mitzuteilen, dass $2 deine Bearbeitungen der Seite „$3“ auf {{SITENAME}} {{GENDER:$2|rückgängig}} gemacht hat.
 
-$2 benutzte die folgende Zusammenfassung, um die Änderungen zu beschreiben: $6
+$2 {{GENDER:$2|benutzte}} die folgende Zusammenfassung, um {{GENDER:$2|die}} Änderung zu beschreiben: $6
 
-Du kannst die Änderungen einsehen, die $2 vorgenommen hat, um deine Bearbeitungen rückgängig zu machen, indem du auf den folgenden Link klickst:
+Du kannst die Änderung einsehen, {{GENDER:$2|die}} $2 vorgenommen hat, um deine Bearbeitungen rückgängig zu machen, indem du auf den folgenden Link klickst:
 <$4>
 
 Du erhältst diese Nachricht, da du E-Mail-Benachrichtigungen zu rückgängig gemachten Bearbeitungen abonniert hast.
 
-$7', # Fuzzy
+$7',
+	'notification-reverted-email-batch-body' => 'Deine Bearbeitung an $3 wurde von $2 rückgängig gemacht',
 	'echo-email-subject-default' => 'Neue Benachrichtigung auf {{SITENAME}}',
 	'echo-email-body-default' => 'Es gibt eine neue Benachrichtigung auf {{SITENAME}}:
 
@@ -525,6 +546,27 @@ $1',
 	'echo-date-today' => 'Heute',
 	'echo-date-yesterday' => 'Gestern',
 	'echo-load-more-error' => 'Beim Abrufen mehrerer Ergebnisse ist ein Fehler aufgetreten.',
+	'echo-email-batch-subject-daily' => 'Du hast heute {{PLURAL:$2|eine Benachrichtigung|$1 Benachrichtigungen}}',
+	'echo-email-batch-subject-weekly' => 'Du hast diese Woche {{PLURAL:$2|eine Benachrichtigung|$1 Benachrichtigungen}}',
+	'echo-email-batch-body-daily' => '$1,
+
+du hast heute {{PLURAL:$3|eine Benachrichtigung|$2 Benachrichtigungen}} auf {{SITENAME}}. Sehe sie hier ein:
+{{canonicalurl:{{#special:Notifications}}}}
+
+$4
+
+$5',
+	'echo-email-batch-body-weekly' => '$1,
+
+du hast diese Woche {{PLURAL:$3|eine Benachrichtigung|$2 Benachrichtigungen}} auf {{SITENAME}}. Sehe sie hier ein:
+{{canonicalurl:{{#special:Notifications}}}}
+
+$4
+
+$5',
+	'echo-email-batch-category-header-edit-user-talk' => '{{PLURAL:$1|Eine Diskussionsseitennachricht|$1 Diskussionsseitennachrichten}}',
+	'echo-email-batch-category-header-edit-revert' => '{{PLURAL:$1|Eine Zurücksetzung|$1 Zurücksetzungen}}',
+	'echo-email-batch-category-header-other' => '{{PLURAL:$1|Eine andere|$1 andere}}',
 );
 
 /** German (formal address) (Deutsch (Sie-Form)‎)
@@ -615,9 +657,6 @@ $messages['es'] = array(
 	'echo-desc' => 'Sistema de notificaciones',
 	'prefs-echo' => 'Notificaciones',
 	'prefs-displaynotifications' => 'Opciones de visualización',
-	'prefs-subscriptions' => 'Suscripciones',
-	'echo-pref-notify-link' => 'Mostrar un enlace a tus notificaciones en la parte superior de cada página',
-	'echo-pref-notify-watchlist' => 'Suscribirme para editar notificaciones cuando agregue páginas a mi lista de vigilancia.',
 	'echo-no-agent' => '[Nadie]',
 	'echo-no-title' => '[No hay ninguna página]',
 	'echo-error-no-formatter' => 'Sin formato definido para notificaciones',
@@ -729,9 +768,6 @@ $messages['fi'] = array(
 	'echo-desc' => 'Ilmoitusjärjestelmä',
 	'prefs-echo' => 'Ilmoitukset',
 	'prefs-displaynotifications' => 'Näyttöasetukset',
-	'prefs-subscriptions' => 'Tilaukset',
-	'echo-pref-notify-link' => 'Näytä linkki ilmoituksiin joka sivun ylälaidassa',
-	'echo-pref-notify-watchlist' => 'Tilaa muutosilmoitukset sivuille, jotka lisään tarkkailulistalle',
 	'echo-no-agent' => '[Ei kukaan]',
 	'echo-no-title' => '[Ei sivua]',
 	'notifications' => 'Ilmoitukset',
@@ -744,8 +780,11 @@ $messages['fi'] = array(
 	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|aloitti}} keskustelun $3 sivusta [[$4]]',
 	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|lähetti}} sinulle viestin: [[$4#$3|$3]]',
 	'echo-link' => 'Ilmoitukset',
-	'echo-overlay-link' => 'Kaikki ilmoitukset…', # Fuzzy
+	'echo-overlay-link' => 'Kaikki ilmoitukset',
 	'echo-overlay-title' => 'Ilmoitukset',
+	'echo-date-today' => 'Tänään',
+	'echo-date-yesterday' => 'Eilen',
+	'echo-email-batch-category-header-other' => '$1 {{PLURAL:$1|muu|muuta}}',
 );
 
 /** French (français)
@@ -761,9 +800,6 @@ $messages['fr'] = array(
 	'echo-desc' => 'Système de notifications',
 	'prefs-echo' => 'Notifications',
 	'prefs-displaynotifications' => "Options d'affichage",
-	'prefs-subscriptions' => 'Abonnements',
-	'echo-pref-notify-link' => 'Afficher un lien vers vos notifications en haut de chaque page',
-	'echo-pref-notify-watchlist' => "M'inscrire pour modifier les notifications quand j'ajoute des pages à ma liste de suivi.",
 	'echo-no-agent' => '[Personne]',
 	'echo-no-title' => '[Aucune page]',
 	'echo-error-no-formatter' => 'Aucune mise en forme définies pour la notification',
@@ -873,9 +909,6 @@ $messages['gl'] = array(
 	'echo-desc' => 'Sistema de notificación',
 	'prefs-echo' => 'Notificacións',
 	'prefs-displaynotifications' => 'Opcións de visualización',
-	'prefs-subscriptions' => 'Subscricións',
-	'echo-pref-notify-link' => 'Mostrar unha ligazón cara ás súas notificacións na parte superior das páxinas',
-	'echo-pref-notify-watchlist' => 'Subscribirme para editar as notificación cando engada páxinas á miña lista de vixilancia.',
 	'echo-no-agent' => '[Ninguén]',
 	'echo-no-title' => '[Ningunha páxina]',
 	'echo-error-no-formatter' => 'Non se definiu formato ningún para a notificación',
@@ -961,9 +994,6 @@ $messages['he'] = array(
 	'echo-desc' => 'מערכת הודעות',
 	'prefs-echo' => 'הודעות',
 	'prefs-displaynotifications' => 'אפשרויות תצוגה',
-	'prefs-subscriptions' => 'מינויים',
-	'echo-pref-notify-link' => 'הצגת קישור להתרעות שלך בראש כל דף',
-	'echo-pref-notify-watchlist' => 'לרשום אותי להודעות על עריכה כאשר אני מוסיף דפים לרשימת המעקב שלי.',
 	'echo-no-agent' => '[לא צוין]',
 	'echo-no-title' => '[ללא דף]',
 	'echo-error-no-formatter' => 'לא הוגדת עיצוב להודעות',
@@ -1049,9 +1079,6 @@ $messages['hsb'] = array(
 	'echo-desc' => 'Zdźělenski system',
 	'prefs-echo' => 'Zdźělenki',
 	'prefs-displaynotifications' => 'Zwobraznjenske opcije',
-	'prefs-subscriptions' => 'Abonementy',
-	'echo-pref-notify-link' => 'Wotkaz k twojim zdźělenjam horjeka na kóždej stronje pokazać',
-	'echo-pref-notify-watchlist' => 'Abonować, zo by zdźělenki wobdźěłał, hdyž strony swojim wobkedźbowankach přidawam.',
 	'echo-no-agent' => '[Nichtó]',
 	'echo-no-title' => '[Žana strona]',
 	'echo-error-no-formatter' => 'Za zdźělenje njeje so formatowanje definowało',
@@ -1148,7 +1175,6 @@ $messages['hu'] = array(
 $messages['ia'] = array(
 	'echo-desc' => 'Systema de notificationes',
 	'prefs-echo' => 'Notificationes',
-	'echo-pref-notify-watchlist' => 'Subscriber me pro modificar notificationes quando io adde paginas a mi observatorio.',
 	'echo-no-agent' => '[Nemo]',
 	'echo-no-title' => '[Sin titulo]', # Fuzzy
 	'notifications' => 'Notificationes',
@@ -1201,9 +1227,14 @@ $messages['it'] = array(
 	'echo-desc' => 'Sistema per le notifiche',
 	'prefs-echo' => 'Notifiche',
 	'prefs-displaynotifications' => 'Opzioni di visualizzazione',
-	'prefs-subscriptions' => 'Iscrizioni',
-	'echo-pref-notify-link' => 'Mostra un collegamento alle tue notifiche nella parte superiore di ogni pagina',
-	'echo-pref-notify-watchlist' => 'Modifica le mie notifiche quando aggiungo pagine ai miei osservati speciali.',
+	'prefs-emailsubscriptions' => 'Notificami via e-mail quando qualcuno',
+	'prefs-emailfrequency' => 'Quanto spesso ricevo le notifiche via e-mail',
+	'echo-pref-email-edit-user-talk' => 'scrive sulla mia pagina di discussione',
+	'echo-pref-email-reverted' => 'annulla una mia modifica',
+	'echo-pref-email-frequency-never' => 'Non inviarmi alcuna notifica via e-mail',
+	'echo-pref-email-frequency-immediately' => 'Notifiche individuali come arrivano',
+	'echo-pref-email-frequency-daily' => 'Un riepilogo giornaliero delle notifiche',
+	'echo-pref-email-frequency-weekly' => 'Un riepilogo settimanale delle notifiche',
 	'echo-no-agent' => '[Nessuno]',
 	'echo-no-title' => '[Nessuna pagina]',
 	'echo-error-no-formatter' => 'Nessuna formattazione definita per le notifiche',
@@ -1245,7 +1276,8 @@ Puoi vedere le modifiche che $2 ha fatto seguendo questo collegamento:
 <$3>
 
 $6', # Fuzzy
-	'notification-reverted-email-subject' => 'Notifica di {{SITENAME}}: $2 ha annullato le tue modifiche su $3: $4', # Fuzzy
+	'notification-edit-talk-page-email-batch-body' => '$2 {{GENDER:$2|ha postato}} sulla tua pagina di discussione',
+	'notification-reverted-email-subject' => 'Notifica di {{SITENAME}}: $2 {{GENDER:$2|ha annullato}} le tue modifiche su $3: $4',
 	'notification-reverted-email-body' => 'Ciao $5,
 Questa è una notifica per farti sapere che $2 ha annullato le tue modifiche alla pagina di {{SITENAME}} $3.
 
@@ -1257,6 +1289,7 @@ Puoi vedere le modifiche che $2 ha fatto seguendo questo collegamento:
 Stai ricevendo questo messaggio perché hai sottoscritto gli aggiornamenti tramite email per le modifiche a questa pagina.
 
 $7', # Fuzzy
+	'notification-reverted-email-batch-body' => 'La tua modifica a $3 è stata annullata da $2',
 	'echo-email-subject-default' => 'Nuova notifica su {{SITENAME}}',
 	'echo-email-body-default' => 'Hai una nuova notifica su {{SITENAME}}:
 
@@ -1277,6 +1310,11 @@ $1",
 	'echo-date-today' => 'Oggi',
 	'echo-date-yesterday' => 'Ieri',
 	'echo-load-more-error' => 'Si è verificato un errore nel recupero di ulteriori risultati.',
+	'echo-email-batch-subject-daily' => 'Hai $1 {{PLURAL:$2|notifica|notifiche}} oggi',
+	'echo-email-batch-subject-weekly' => 'Hai $1 {{PLURAL:$2|notifica|notifiche}} questa settimana',
+	'echo-email-batch-category-header-edit-user-talk' => '$1 {{PLURAL:$1|messaggio|messaggi}} nella tua pagina di discussione',
+	'echo-email-batch-category-header-edit-revert' => '$1 {{PLURAL:$1|modifica annullata|modifiche annullate}}',
+	'echo-email-batch-category-header-other' => '$1 {{PLURAL:$1|altra|altre}}',
 );
 
 /** Japanese (日本語)
@@ -1286,7 +1324,12 @@ $messages['ja'] = array(
 	'echo-desc' => '通知システム',
 	'prefs-echo' => '通知',
 	'prefs-displaynotifications' => '表示の設定',
-	'echo-pref-notify-link' => '各ページの上部に通知へのリンクを表示',
+	'prefs-emailsubscriptions' => '以下の場合に通知メールを受け取る',
+	'prefs-emailfrequency' => 'メールで通知を受け取る頻度',
+	'echo-pref-email-edit-user-talk' => '自分のトークページに誰かが投稿したとき',
+	'echo-pref-email-reverted' => '自分の編集を誰かが差し戻したとき',
+	'echo-pref-email-frequency-never' => '通知メールを何も受け取らない',
+	'echo-pref-notify-hide-link' => '通知のリンクとバッジをツールバーに表示しない',
 	'echo-error-no-formatter' => '通知の書式が定義されていません',
 	'notifications' => '通知',
 	'echo-specialpage' => '自分の通知',
@@ -1294,13 +1337,18 @@ $messages['ja'] = array(
 	'notification-edit' => '$2 が [[$3]] $4 を{{GENDER:$1|編集しました}}:「$5」',
 	'notification-edit-talk-page' => '$2 が[[User talk:$3|あなたのトークページ]]を{{GENDER:$1|編集しました}}。$4',
 	'notification-add-comment' => '$2 がトークページ「$5」の「[[$4|$3]]」に{{GENDER:$1|コメントしました}}',
+	'notification-add-talkpage-topic' => '$2 が [[$4]] に新しい話題「$3」を{{GENDER:$1|投稿しました}}',
 	'notification-add-talkpage-topic-yours' => '$2 があなたにメッセージを{{GENDER:$1|送信しました}}:「[[$4#$3|$3]]」',
 	'notification-add-comment-yours' => '$2 があなたのトークページの「[[$4#$3|$3]]」に{{GENDER:$1|コメントしました}}',
 	'notification-new-user' => '$1さん、{{SITENAME}}にようこそ!',
-	'notification-reverted' => '$2 が [[$3]] のあなたの{{PLURAL:$5|編集|複数の編集}}を{{GENDER:$1|取り消しました}} $4',
+	'notification-new-user-content' => 'こんにちは、$1さん。{{SITENAME}}へようこそ。<br />
+トークページヘのコメントには 4 つのチルダ (~~~~) を付けて署名してください。',
+	'notification-reverted' => '$2 が [[$3]] のあなたの{{PLURAL:$5|編集|複数の編集}}を{{GENDER:$1|差し戻しました}} $4',
 	'notification-edit-email-subject' => '{{SITENAME}}からの通知: $3 を $2 が編集しました',
 	'notification-edit-talk-page-email-subject' => '{{SITENAME}}のあなたのトークページを $2 が編集しました',
-	'notification-reverted-email-subject' => '{{SITENAME}} からの通知: $3 でのあなたの編集を $2 が取り消しました: $4', # Fuzzy
+	'notification-edit-talk-page-email-batch-body' => '$2 があなたのトークページに{{GENDER:$2|投稿しました}}',
+	'notification-reverted-email-subject' => '{{SITENAME}} からの通知: $3 でのあなたの編集を $2 が{{GENDER:$2|差し戻しました}}: $4',
+	'notification-reverted-email-batch-body' => '$3 でのあなたの編集を $2 が差し戻しました',
 	'echo-email-subject-default' => '{{SITENAME}}での新しい通知',
 	'echo-email-body-default' => '{{SITENAME}}で新しい通知があります:
 
@@ -1313,6 +1361,10 @@ $1',
 	'echo-date-yesterday' => '昨日',
 	'echo-date-header' => '$1$2日',
 	'echo-load-more-error' => '結果の続きを取得する際にエラーが発生しました。',
+	'echo-email-batch-separator' => '________________________________________________',
+	'echo-email-batch-category-header-edit-user-talk' => 'トークページヘのメッセージ $1 {{PLURAL:$1|件}}',
+	'echo-email-batch-category-header-edit-revert' => '編集の差し戻し $1 {{PLURAL:$1|件}}',
+	'echo-email-batch-category-header-other' => 'その他 $1 {{PLURAL:$1|件}}',
 );
 
 /** Javanese (Basa Jawa)
@@ -1321,7 +1373,6 @@ $1',
 $messages['jv'] = array(
 	'echo-desc' => 'Infrastruktur wara-wara gènèrasi ngarep kanggo MediaWiki', # Fuzzy
 	'prefs-echo' => 'Wara-wara',
-	'echo-pref-notify-watchlist' => 'Langganan kanggo nyunting wara-wara nalika Kula nambahaké kaca nèng daptar pangawasan kula.',
 	'echo-no-agent' => '[Dudu sapa-sapa]',
 	'echo-no-title' => '[Ora ana judhul]', # Fuzzy
 	'notifications' => 'Wara-wara',
@@ -1367,9 +1418,6 @@ $messages['ko'] = array(
 	'echo-desc' => '알림 시스템',
 	'prefs-echo' => '알림',
 	'prefs-displaynotifications' => '보이기 설정',
-	'prefs-subscriptions' => '구독',
-	'echo-pref-notify-link' => '모든 문서의 위에 알림 링크 보기',
-	'echo-pref-notify-watchlist' => '내 주시문서 목록에 문서를 추가할 때 알림 편집을 구독합니다.',
 	'echo-no-agent' => '[알 수 없는 사용자]',
 	'echo-no-title' => '[문서 없음]',
 	'echo-error-no-formatter' => '알림에 대해 정의한 형식이 없습니다',
@@ -1452,7 +1500,6 @@ $1',
 $messages['ksh'] = array(
 	'echo-desc' => 'Süßtehm för Medeilonge',
 	'prefs-echo' => 'Meddeilonge',
-	'echo-pref-notify-watchlist' => 'Lohß mech Meddeilonge maache, wann esch Sigge op ming Oppaßlėß donn.',
 	'echo-no-agent' => '[Keine]',
 	'echo-no-title' => '[Kein Sigg]',
 	'notifications' => 'Meddeilonge',
@@ -1541,9 +1588,6 @@ $messages['mk'] = array(
 	'echo-desc' => 'Известителен систем',
 	'prefs-echo' => 'Известувања',
 	'prefs-displaynotifications' => 'Нагодувања на приказот',
-	'prefs-subscriptions' => 'Претплати',
-	'echo-pref-notify-link' => 'Прикажувај врска за моите известувања најгоре на секоја страница',
-	'echo-pref-notify-watchlist' => 'Претплати ме за измена на известувањата кога додавам страници во мојот список на набљудувања.',
 	'echo-no-agent' => '[Никој]',
 	'echo-no-title' => '[Нема страница]',
 	'echo-error-no-formatter' => 'Нема зададено форматирање за ова известување',
@@ -1563,39 +1607,41 @@ $messages['mk'] = array(
 	'notification-reverted' => '$2 {{PLURAL:$5|1=ја|ги}} {{GENDER:$1|врати}} {{PLURAL:$5|1=врати вашата измена|врати вашите измени}} на [[$3]] $4',
 	'notification-edit-email-subject' => 'Известување од {{SITENAME}}: $2 ја измени страницата $3',
 	'notification-edit-email-body' => 'Здраво $5,
-Ве известуваме дека $2 ја измени страницата $3 на {{SITENAME}}.
+Ве известуваме дека $2 {{GENDER:$2|ја измени}} страницата $3 на {{SITENAME}}.
 
-$2 ги опиша промените што ги направи со следниов коментар: $6
+$2  {{GENDER:$2|ги опиша}} {{GENDER:$2|неговите|нејзините|неговите}} промени со следниов коментар: $6
 
-Измените што ги направи $2 можете да ги погледате на следнава врска:
+Измената што {{GENDER:$2|ја направи}} $2 можете да ги погледате на следнава врска:
 <$4>
 
 Соопштениево го добивате бидејќе сте пријавени на известувања по е-пошта во врска со измени на оваа страница.
 
-$7', # Fuzzy
+$7',
 	'notification-edit-talk-page-email-subject' => '$2 ја измени вашата страница ра разговор на {{SITENAME}}',
 	'notification-edit-talk-page-email-body' => 'Здраво $4,
-Ве известуваме дека $2 ја измени вашата страница за разговор на {{SITENAME}}.
+Ве известуваме дека $2 {{GENDER:$2|ја измени}} вашата страница за разговор на {{SITENAME}}.
 
 Страниците за разговор на {{SITENAME}} служат за оставање пораки на други корисници.
 
-$2 го даде следниов опис на измените што ги направи: $5
+$2 {{GENDER:$2|го даде}} следниов опис на {{GENDER:$2|неговите|нејзините|неговите}} change измени: $5
 
-Измените што ги направи $2 можете да ги погледате на следнава врска:
+Измените што {{GENDER:$2|ги направи}} $2 можете да ги погледате на следнава врска:
 <$3>
 
-$6', # Fuzzy
-	'notification-reverted-email-subject' => 'Известување од {{SITENAME}}: $2 ја врати вашата измена на $3: $4', # Fuzzy
+$6',
+	'notification-edit-talk-page-email-batch-body' => '$2 {{GENDER:$2|објави}} на вашата страница за разговор',
+	'notification-reverted-email-subject' => 'Известување од {{SITENAME}}: $2 {{GENDER:$2|ја врати}} вашата измена на $3: $4',
 	'notification-reverted-email-body' => 'Здраво $5,
-Ве известуваме дека $2 ја ги врати вашите измени на страницата $3 на {{SITENAME}}.
+Ве известуваме дека $2 ја {{GENDER:$2|ги врати}} вашите измени на страницата $3 на {{SITENAME}}.
 
-$2 ги опиша промените што ги направи со следниов коментар: $6
+$2 {{GENDER:$2|ги опиша}} {{GENDER:$2|неговите|нејзините|неговите}} промени со следниов коментар: $6
 
-Измените што ги направи $2 можете да ги погледате на следнава врска:
+Измените што {{GENDER:$2|ги направи}} $2 можете да ги погледате на следнава врска:
 <$4>
 
 Соопштениево го добивате бидејќе сте пријавени на известувања по е-пошта кога ќе биде вратено некое ваше уредување на оваа страница.
-$7', # Fuzzy
+$7',
+	'notification-reverted-email-batch-body' => '$2 врати ваше уредување на $3',
 	'echo-email-subject-default' => 'Ново известување на {{SITENAME}}',
 	'echo-email-body-default' => 'Имате ново известување на {{SITENAME}}:
 
@@ -1616,6 +1662,27 @@ $1',
 	'echo-date-today' => 'Денес',
 	'echo-date-yesterday' => 'Вчера',
 	'echo-load-more-error' => 'Се појави грешка при обидот да добијам повеќе резултати.',
+	'echo-email-batch-subject-daily' => 'За денес имате $1 {{PLURAL:$2|известување|известувања}}',
+	'echo-email-batch-subject-weekly' => 'За неделава $1 {{PLURAL:$2|известување|известувања}} за неделава',
+	'echo-email-batch-body-daily' => '$1,
+
+За денес имате $2 {{PLURAL:$3|известување|известувања}} на {{SITENAME}}. Погледајте ги тука:
+{{canonicalurl:{{#special:Notifications}}}}
+
+$4
+
+$5',
+	'echo-email-batch-body-weekly' => '$1,
+
+За неделава имате $2 {{PLURAL:$3|известување|известувања}} на {{SITENAME}}. Погледајте ги тука:
+{{canonicalurl:{{#special:Notifications}}}}
+
+$4
+
+$5',
+	'echo-email-batch-category-header-edit-user-talk' => '$1 {{PLURAL:$1|порака|пораки}} на страницата за разговор',
+	'echo-email-batch-category-header-edit-revert' => '$1 {{PLURAL:$1|враќање|враќања}} на уреденото',
+	'echo-email-batch-category-header-other' => '$1 {{PLURAL:$1|останато|останати}}',
 );
 
 /** Malayalam (മലയാളം)
@@ -1624,7 +1691,6 @@ $1',
 $messages['ml'] = array(
 	'echo-desc' => 'അറിയിപ്പ് വ്യവസ്ഥ',
 	'prefs-echo' => 'അറിയിപ്പുകൾ',
-	'echo-pref-notify-watchlist' => 'താളുകൾ ഞാൻ ശ്രദ്ധിക്കുന്നവയുടെ പട്ടികയിലേയ്ക്ക് ചേർക്കുന്ന മുറയ്ക്ക് എന്ന് തിരുത്തലുകളുടെ അറിയിപ്പുകളുടെ വരിക്കാരൻ/വരിക്കാരിയാക്കുക.',
 	'echo-no-agent' => '[ആരുമില്ല]',
 	'echo-no-title' => '[താൾ ഇല്ല]',
 	'echo-error-no-formatter' => 'അറിയിപ്പിനായി യാതൊരു രൂപവും നിർവ്വചിച്ചിട്ടില്ല',
@@ -1672,9 +1738,15 @@ $messages['ms'] = array(
 	'echo-desc' => 'Sistem pemberitahuan',
 	'prefs-echo' => 'Pemberitahuan',
 	'prefs-displaynotifications' => 'Pilihan paparan',
-	'prefs-subscriptions' => 'Langganan',
-	'echo-pref-notify-link' => 'Paparkan pautan kepada pemberitahuan anda di atas setiap halaman',
-	'echo-pref-notify-watchlist' => 'Langganlah saya untuk menyunting pemberitahuan setiap kali saya menambahkan halaman ke dalam senarai pantau saya.',
+	'prefs-emailsubscriptions' => 'Beritahu saya melalui e-mel apabila seseorang',
+	'prefs-emailfrequency' => 'Berapa kerap saya menerima pemberitahuan melalui e-mel',
+	'echo-pref-email-edit-user-talk' => 'Mengepos di halaman perbualan saya',
+	'echo-pref-email-reverted' => 'Membalikkan suntingan saya',
+	'echo-pref-email-frequency-never' => 'Jangan hantar sebarang pemberitahuan e-mel kepada saya',
+	'echo-pref-email-frequency-immediately' => 'Pemberitahuan satu persatu',
+	'echo-pref-email-frequency-daily' => 'Ringkasan pemberitahuan harian',
+	'echo-pref-email-frequency-weekly' => 'Ringkasan pemberitahuan mingguan',
+	'echo-pref-notify-hide-link' => 'Sorokkan pautan dan lencana untuk pemberitahuan di dalam palang alatan saya',
 	'echo-no-agent' => '[Tiada Sesiapa]',
 	'echo-no-title' => '[Tiada halaman]',
 	'echo-error-no-formatter' => 'Tiada pemformatan yang ditetapkan untuk pemberitahuan',
@@ -1695,42 +1767,44 @@ Jangan lupa untuk menandatangani sebarang komen pada halaman perbincangan dengan
 	'notification-edit-email-subject' => 'Pemberitahuan {{SITENAME}}: $3 telah disunting oleh $2',
 	'notification-edit-email-body' => 'Selamat sejahtera $5,
 
-Sila ambil maklum bahawa $2 telah menyunting halaman $3 di {{SITENAME}}.
+Sila ambil maklum bahawa $2 telah {{GENDER:$2|menyunting}} halaman $3 di {{SITENAME}}.
 
-$2 merumuskan pengubahannya dengan ulasan yang berikut: $6
+$2 {{GENDER:$2|merumuskan}} suntingan{{GENDER:$2|nya}} dengan ulasan yang berikut: $6
 
-Anda boleh melihat suntingan yang dibuat oleh $2 dengan mengikuti pautan ini:
+Anda boleh melihat suntingan yang {{GENDER:$2|dibuat}} oleh $2 dengan mengikuti pautan ini:
 <$4>
 
 Anda menerima pesanan ini kerana anda telah melanggan untuk menerima kemas kini perubahan pada halaman ini melalui e-mel.
 
-$7', # Fuzzy
+$7',
 	'notification-edit-talk-page-email-subject' => 'Halaman perbincangan anda di {{SITENAME}} telah disunting oleh $2',
 	'notification-edit-talk-page-email-body' => '$4,
 
-Sila ambil maklum bahawa $2 telah menyunting halaman perbincangan anda di {{SITENAME}}.
+Sila ambil maklum bahawa $2 telah {{GENDER:$2|menyunting}} halaman perbualan anda di {{SITENAME}}.
 
-Di {{SITENAME}}, halaman perbincangan anda adalah di mana pengguna lain boleh meninggalkan pesanan kepada anda.
+Di {{SITENAME}}, halaman perbualan anda adalah di mana pengguna lain boleh meninggalkan pesanan kepada anda.
 
-$2 memerikan pengubahannya dengan ringkasan yang berikut: $5
+$2 {{GENDER:$2|merumuskan}} suntingan{{GENDER:$2|nya}} dengan ringkasan yang berikut: $5
 
-Anda boleh melihat suntingan yang dibuat oleh $2 dengan mengikuti pautan ini:
+Anda boleh melihat suntingan yang {{GENDER:$2|dibuat}}} oleh $2 dengan mengikuti pautan ini:
 <$3>
 
 $6', # Fuzzy
+	'notification-edit-talk-page-email-batch-body' => '$2 {{GENDER:$2|mengepos}} pada halaman perbualan anda',
 	'notification-reverted-email-subject' => 'Pemberitahuan {{SITENAME}}: $2 telah membalikkan suntingan anda di $3: $4', # Fuzzy
 	'notification-reverted-email-body' => '$5,
 
-Sila ambil maklum bahawa $2 telah membalikkan suntingan anda di halaman $3 di {{SITENAME}}.
+Sila ambil maklum bahawa $2 telah {{GENDER:$2|membalikkan}} suntingan anda di halaman $3 di {{SITENAME}}.
 
-$2 menjelaskan pengubahannya dengan ringkasan yang berikut: $6
+$2 {{GENDER:$2|menjelaskan}} pengubahan{{GENDER:$2|nya}} dengan ringkasan yang berikut: $6
 
-Anda boleh melihat perubahan yang dibuat oleh $2 untuk membalikkan hasil suntingan anda dengan mengikuti pautan ini:
+Anda boleh melihat perubahan yang {{GENDER:$2|dibuat}} oleh $2 untuk membalikkan hasil suntingan anda dengan mengikuti pautan ini:
 <$4>
 
 Anda menerima pesanan ini kerana anda telah melanggan peringatan e-mel apabila suntingan anda dibalikkan.
 
-$7', # Fuzzy
+$7',
+	'notification-reverted-email-batch-body' => 'Suntingan anda di $3 dibalikkan oleh $2',
 	'echo-email-subject-default' => 'Pemberitahuan baru di {{SITENAME}}',
 	'echo-email-body-default' => 'Anda menerima pemberitahuan baru di {{SITENAME}}:
 
@@ -1751,6 +1825,27 @@ $1',
 	'echo-date-today' => 'Hari ini',
 	'echo-date-yesterday' => 'Semalam',
 	'echo-load-more-error' => 'Ralat berlaku ketika mengambil lebih banyak hasil.',
+	'echo-email-batch-subject-daily' => 'Anda ada $1 {{PLURAL:$2|pemberitahuan}} hari ini',
+	'echo-email-batch-subject-weekly' => 'Anda ada $1 {{PLURAL:$2|pemberitahuan}} minggu ini',
+	'echo-email-batch-body-daily' => '$1,
+
+Anda ada $2 {{PLURAL:$3|pemberitahuan}} di {{SITENAME}} hari ini. Sila baca di sini:
+{{canonicalurl:{{#special:Notifications}}}}
+
+$4
+
+$5',
+	'echo-email-batch-body-weekly' => '$1,
+
+Anda ada $2 {{PLURAL:$3|pemberitahuan}} di {{SITENAME}} minggu ini. Sila baca di sini:
+{{canonicalurl:{{#special:Notifications}}}}
+
+$4
+
+$5',
+	'echo-email-batch-category-header-edit-user-talk' => '$1 pesanan di halaman perbualan',
+	'echo-email-batch-category-header-edit-revert' => '$1 suntingan dibalikkan',
+	'echo-email-batch-category-header-other' => '$1 yang lain',
 );
 
 /** Maltese (Malti)
@@ -1759,7 +1854,6 @@ $1',
 $messages['mt'] = array(
 	'echo-desc' => "Infrastruttura ta' ġenerazzjoni ġdida għan-notifiki fuq MediaWiki", # Fuzzy
 	'prefs-echo' => 'Notifiki',
-	'echo-pref-notify-watchlist' => "Immodifika l-modifiki tiegħi meta nżid paġni fil-lista ta' osservazzjonijiet tiegħi.",
 	'echo-no-agent' => '[Ħadd]',
 	'echo-no-title' => '[L-ebda titlu]', # Fuzzy
 	'notifications' => 'Notifiki',
@@ -1814,9 +1908,6 @@ $messages['nl'] = array(
 	'echo-desc' => 'Meldingensysteem',
 	'prefs-echo' => 'Meldingen',
 	'prefs-displaynotifications' => 'Weergaveopties',
-	'prefs-subscriptions' => 'Abonnementen',
-	'echo-pref-notify-link' => 'Bovenaan iedere pagina een verwijzing weergeven naar uw meldingen',
-	'echo-pref-notify-watchlist' => "Mij abonneren op meldingen over bewerken als ik pagina's aan mijn volglijst toevoeg.",
 	'echo-no-agent' => '[Niemand]',
 	'echo-no-title' => '[Geen pagina]',
 	'echo-error-no-formatter' => 'Er is geen opmaak ingesteld voor de melding',
@@ -1858,7 +1949,7 @@ $2 heeft {{GENDER:$2|zijn|haar}} wijzigingen als volgt samengevat: $5
 Bekijk de wijzigingen die $2 heeft gemaakt:
 <$3>
 
-$6', # Fuzzy
+$6',
 	'notification-edit-talk-page-email-batch-body' => '$2 {{GENDER:$2|heeft}} een bericht achtergelaten op uw overlegpagina',
 	'notification-reverted-email-subject' => 'Melding van {{SITENAME}}: {{GENDER:$2|$2}} heeft uw bewerking aan $3 teruggedraaid: $4',
 	'notification-reverted-email-body' => 'Hallo $5,
@@ -1893,10 +1984,30 @@ $1',
 	'echo-date-today' => 'Vandaag',
 	'echo-date-yesterday' => 'Gisteren',
 	'echo-load-more-error' => 'Er is een fout opgetreden tijdens het ophalen van meer resultaten.',
+	'echo-email-batch-subject-daily' => 'U hebt vandaag {{PLURAL:$2|0=geen meldingen|één melding|$1 meldingen}}',
+	'echo-email-batch-subject-weekly' => 'U hebt deze week {{PLURAL:$2|0=geen meldingen|één melding|$1 meldingen}}',
+	'echo-email-batch-body-daily' => '$1,
+U hebt vandaag {{PLURAL:$3|0=geen meldingen|één melding|$2 meldingen}} op {{SITENAME}}. Hier kunt u uw meldingen bekijken:
+{{canonicalurl:{{#special:Notifications}}}}
+
+$4
+
+$5',
+	'echo-email-batch-body-weekly' => '$1,
+U hebt deze week {{PLURAL:$3|0=geen meldingen|één melding|$2 meldingen}} op {{SITENAME}}. Hier kunt u uw meldingen bekijken:
+{{canonicalurl:{{#special:Notifications}}}}
+
+$4
+
+$5',
+	'echo-email-batch-category-header-edit-user-talk' => '{{PLURAL:$1|één bericht op uw overlegpagina|$1 berichten op uw overlegpagina}}',
+	'echo-email-batch-category-header-edit-revert' => '{{PLURAL:$1|één teruggedraaide bewerking|$1  teruggedraaide bewerkingen}}',
+	'echo-email-batch-category-header-other' => '{{PLURAL:$1|één andere|$1 anderen}}',
 );
 
 /** Polish (polski)
  * @author Ankry
+ * @author Base
  * @author BeginaFelicysym
  * @author Odie2
  * @author Przemub
@@ -1904,8 +2015,6 @@ $1',
 $messages['pl'] = array(
 	'echo-desc' => 'Powiadomienie o infrastrukturze nowej generacji dla MediaWiki', # Fuzzy
 	'prefs-echo' => 'Powiadomienia',
-	'prefs-subscriptions' => 'Subskrybcje',
-	'echo-pref-notify-watchlist' => 'Wpisz mnie na listę powiadomień o edycji gdy dodaję strony do śledzonych.',
 	'echo-no-agent' => '[Nikt]',
 	'echo-no-title' => '[Bez tytułu]', # Fuzzy
 	'notifications' => 'Powiadomienia',
@@ -1948,7 +2057,7 @@ System powiadomień {{SITENAME}}', # Fuzzy
 $1',
 	'echo-link-new' => '$1 {{PLURAL:$1|nowe powiadomienie|nowe powiadomienia|nowych powiadomień}}',
 	'echo-link' => 'Moje powiadomienia', # Fuzzy
-	'echo-overlay-link' => 'Wszystkie powiadomienia...', # Fuzzy
+	'echo-overlay-link' => 'Wszystkie powiadomienia',
 	'echo-overlay-title' => 'Moje powiadomienia',
 	'echo-date-today' => 'Dzisiaj',
 	'echo-date-yesterday' => 'Wczoraj',
@@ -1963,7 +2072,6 @@ $1',
 $messages['pms'] = array(
 	'echo-desc' => 'Anfrastrutura ëd notìfica ëd neuva generassion për MediaWiki', # Fuzzy
 	'prefs-echo' => 'Notìfiche',
-	'echo-pref-notify-watchlist' => "Anscrivme për modifiché le notìfiche quand che mi i gionto dle pàgine a lòn ch'im ten-o sot-euj.",
 	'echo-no-agent' => '[Gnun]',
 	'echo-no-title' => '[Gnun Tìtoj]', # Fuzzy
 	'notifications' => 'Notìfiche',
@@ -2043,6 +2151,7 @@ $1",
 );
 
 /** Russian (русский)
+ * @author Base
  * @author DCamer
  * @author David1010
  * @author Kalan
@@ -2050,7 +2159,6 @@ $1",
 $messages['ru'] = array(
 	'echo-desc' => 'Следующего поколения уведомлений для MediaWiki', # Fuzzy
 	'prefs-echo' => 'Уведомления',
-	'echo-pref-notify-watchlist' => 'Подписать меня на уведомления при добавлении страниц в мой список наблюдения.',
 	'echo-no-agent' => '[Никто]',
 	'echo-no-title' => '[Нет название]', # Fuzzy
 	'notifications' => 'Уведомления',
@@ -2066,7 +2174,7 @@ $messages['ru'] = array(
 	'notification-edit-email-subject' => 'Уведомление {{SITENAME}}: $3 отредактировал $2',
 	'echo-email-subject-default' => 'Новые уведомления на {{SITENAME}}',
 	'echo-link' => 'Мои уведомления', # Fuzzy
-	'echo-overlay-link' => 'Все уведомления...', # Fuzzy
+	'echo-overlay-link' => 'Все уведомления',
 	'echo-overlay-title' => 'Мои уведомления',
 );
 
@@ -2131,7 +2239,6 @@ $messages['sr-el'] = array(
 $messages['sv'] = array(
 	'echo-desc' => 'Notifikationssystem',
 	'prefs-echo' => 'Meddelanden',
-	'echo-pref-notify-watchlist' => 'Prenumerera på redigeringsmeddelanden när jag lägger till sidor i min bevakningslista.',
 	'echo-no-agent' => '[Ingen]',
 	'echo-no-title' => '[Ingen sida]',
 	'echo-error-no-formatter' => 'Ingen formatering definierad för notifikation',
@@ -2202,7 +2309,6 @@ $1',
 $messages['tl'] = array(
 	'echo-desc' => 'Pangkasunod na salinlahing imprastruktura ng pagpapabatid para sa MediaWiki', # Fuzzy
 	'prefs-echo' => 'Mga pagpapabatid',
-	'echo-pref-notify-watchlist' => 'Pasipian ako na mapatnugutan ang mga pagpapabatid kapag nagdaragdag ako ng mga pahina sa bantayan ko.',
 	'echo-no-agent' => '[Walang Sinuman]',
 	'echo-no-title' => '[Walang Pamagat]', # Fuzzy
 	'notifications' => 'Mga pagpapabatid',
@@ -2257,10 +2363,18 @@ $messages['uk'] = array(
 	'echo-desc' => 'Система сповіщень',
 	'prefs-echo' => 'Сповіщення',
 	'prefs-displaynotifications' => 'Опції відображення',
-	'prefs-subscriptions' => 'Підписки',
-	'echo-pref-notify-link' => 'Показувати посилання на Ваші сповіщення у верхній частині кожної сторінки',
+	'prefs-emailsubscriptions' => 'Сповіщати мене через електронну пошту, коли хтось',
+	'prefs-emailfrequency' => 'Як часто я отримуватиму сповіщення електронною поштою',
+	'echo-pref-email-edit-user-talk' => 'напише на моїй сторінці обговорення',
+	'echo-pref-email-reverted' => 'відкотить моє редагування',
+	'echo-pref-email-frequency-never' => 'Не надсилати мені жодних сповіщень електронною поштою',
+	'echo-pref-email-frequency-immediately' => 'Сповіщати про кожну подію одразу',
+	'echo-pref-email-frequency-daily' => 'Щоденна збірка сповіщень',
+	'echo-pref-email-frequency-weekly' => 'Щомісячна збірка сповіщень',
+	'echo-pref-notify-hide-link' => 'Приховати посилання та значок сповіщень на моїй панелі інструментів',
 	'echo-no-agent' => '[Ніхто]',
 	'echo-no-title' => '[Нема сторінки]',
+	'echo-error-no-formatter' => 'Не визначено формату сповіщень',
 	'notifications' => 'Сповіщення',
 	'echo-specialpage' => 'Мої сповіщення',
 	'echo-anon' => 'Для отримання сповіщень, [[Special:Userlogin/signup|створіть обліковий запис]] або [[Special:UserLogin|увійдіть]].',
@@ -2272,10 +2386,14 @@ $messages['uk'] = array(
 	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|надіслав|надіслала}} Вам повідомлення: «[[$4#$3|$3]]»',
 	'notification-add-comment-yours' => '$2 {{GENDER:$1|прокоментував|прокоментувала}} тему «[[$4#$3|$3]]» на Вашій сторінці обговорення',
 	'notification-new-user' => 'Ласкаво просимо до {{GRAMMAR:accusative|{{SITENAME}}}}, $1!',
+	'notification-new-user-content' => 'Привіт, і ласкаво просимо до проекту {{SITENAME}}.<br />
+Будь ласка, не забувайте підписувати усі коментарі на сторінках обговорень за допомогою 4 тильд (~~~~).', # Fuzzy
 	'echo-link-new' => '$1 {{PLURAL:$1|нове сповіщення|нові сповіщення|нових сповіщень}}',
 	'echo-link' => 'Сповіщення',
-	'echo-overlay-link' => 'Усі сповіщення…', # Fuzzy
+	'echo-overlay-link' => 'Усі сповіщення',
 	'echo-overlay-title' => 'Мої сповіщення',
+	'echo-date-today' => 'Сьогодні',
+	'echo-date-yesterday' => 'Вчора',
 );
 
 /** Urdu (اردو)
@@ -2297,9 +2415,15 @@ $messages['vi'] = array(
 	'echo-desc' => 'Hệ thống thông báo',
 	'prefs-echo' => 'Thông báo',
 	'prefs-displaynotifications' => 'Tùy chọn hiển thị',
-	'prefs-subscriptions' => 'Các đăng ký',
-	'echo-pref-notify-link' => 'Hiện nút mở hộp thông điệp ở đầu các trang',
-	'echo-pref-notify-watchlist' => 'Đăng ký các thông báo về sửa đổi khi nào tôi thêm trang vào danh sách theo dõi.',
+	'prefs-emailsubscriptions' => 'Báo cho tôi qua thư điện tử khi ai đó',
+	'prefs-emailfrequency' => 'Mức thường xuyên gửi thông báo qua thư điện tử',
+	'echo-pref-email-edit-user-talk' => 'Nhắn tin vào trang thảo luận của tôi',
+	'echo-pref-email-reverted' => 'Lùi sửa đổi của tôi',
+	'echo-pref-email-frequency-never' => 'Không gửi cho tôi bất kỳ thông báo qua thư điện tử',
+	'echo-pref-email-frequency-immediately' => 'Gửi các thông báo từng cái một vào đúng lúc xảy ra',
+	'echo-pref-email-frequency-daily' => 'Tóm lược các thông báo hàng ngày',
+	'echo-pref-email-frequency-weekly' => 'Tóm lược các thông báo hàng tuần',
+	'echo-pref-notify-hide-link' => 'Ẩn liên kết và dấu hiệu thông báo khỏi thanh công cụ',
 	'echo-no-agent' => '[Không ai]',
 	'echo-no-title' => '[Không có trang]',
 	'echo-error-no-formatter' => 'Thông báo không có định rõ định dạng',
@@ -2316,7 +2440,7 @@ $messages['vi'] = array(
 	'notification-new-user' => 'Chào mừng $1 đã đến với {{SITENAME}}!',
 	'notification-new-user-content' => 'Chào mừng $1 đã đến với {{SITENAME}}.<br />
 Hãy nhớ ký tên vào các lời bình luận tại trang thảo luận bằng 4 dấu ngã (~~~~).',
-	'notification-reverted' => '{{GENDER:$1}} $2 đã lùi lại {{PLURAL:$6|1=sửa đổi|các sửa đổi}} của bạn tại [[$3]] $4: “$5”', # Fuzzy
+	'notification-reverted' => '{{GENDER:$1}} $2 đã lùi lại {{PLURAL:$5|1=sửa đổi|các sửa đổi}} của bạn tại [[$3]] $4',
 	'notification-edit-email-subject' => 'Thông báo từ {{SITENAME}}: $3 đã được sửa bởi $2',
 	'notification-edit-email-body' => 'Xin chào $5,
 Xin thông báo với bạn rằng $2 đã sửa đổi trang $3 tại {{SITENAME}}.
@@ -2328,7 +2452,7 @@ Bạn có thể xem các thay đổi của $2 bằng cách theo dõi liên kết
 
 Bạn nhận được thư điện tử này vì bạn đã xin theo dõi các thay đổi tại trang này.
 
-$7', # Fuzzy
+$7',
 	'notification-edit-talk-page-email-subject' => 'Trang thảo luận của bạn tại {{SITENAME}} đã được sửa bởi $2',
 	'notification-edit-talk-page-email-body' => 'Xin chào $4,
 Xin thông báo với bạn rằng $2 đã sửa đổi trang thảo luận của bạn tại {{SITENAME}}.
@@ -2340,8 +2464,9 @@ $2 tóm lược các thay đổi của họ như thế này: $5
 Bạn có thể xem các thay đổi của $2 bằng cách theo dõi liên kết này:
 <$3>
 
-$6', # Fuzzy
-	'notification-reverted-email-subject' => 'Thông báo từ {{SITENAME}}: $2 đã lùi lại sửa đổi của bạn tại $3: $4', # Fuzzy
+$6',
+	'notification-edit-talk-page-email-batch-body' => '$2 đã nhắn tin vào trang thảo luận của bạn',
+	'notification-reverted-email-subject' => 'Thông báo từ {{SITENAME}}: $2 đã lùi lại sửa đổi của bạn tại $3: $4',
 	'notification-reverted-email-body' => 'Xin chào $5,
 Xin thông báo với bạn rằng $2 đã lùi lại các sửa đổi tại trang $3 tại {{SITENAME}}.
 
@@ -2352,7 +2477,8 @@ Bạn có thể xem thay đổi lùi sửa của $2 bằng cách theo dõi liên
 
 Bạn nhận được thư điện tử này vì bạn đã xin theo dõi các vụ lùi sửa thay đổi của bạn.
 
-$7', # Fuzzy
+$7',
+	'notification-reverted-email-batch-body' => '$2 đã lùi sửa đổi của bạn tại $3',
 	'echo-email-subject-default' => 'Thông báo mới tại {{SITENAME}}',
 	'echo-email-body-default' => 'Bạn có thông báo mới tại {{SITENAME}}:
 
@@ -2366,11 +2492,32 @@ $1',
 $1',
 	'echo-link-new' => '$1 thông báo mới',
 	'echo-link' => 'Thông báo',
-	'echo-overlay-link' => 'Tất cả các thông báo…', # Fuzzy
+	'echo-overlay-link' => 'Tất cả các thông báo',
 	'echo-overlay-title' => 'Thông báo cho tôi',
 	'echo-date-today' => 'Hôm nay',
 	'echo-date-yesterday' => 'Hôm qua',
 	'echo-load-more-error' => 'Lỗi đã xảy ra khi lấy thêm kết quả.',
+	'echo-email-batch-subject-daily' => 'Bạn có {{PLURAL:$2|một tin nhắn|$1 tin nhắn}} hôm nay',
+	'echo-email-batch-subject-weekly' => 'Bạn có {{PLURAL:$2|thông báo|$1 thông báo}} tuần này',
+	'echo-email-batch-body-daily' => 'Xin chào $1,
+
+Bạn có {{PLURAL:$3|một thông báo|$2 thông báo}} tại {{SITENAME}} hôm nay. Hãy xem chúng tại đây:
+{{canonicalurl:{{#special:Notifications}}}}
+
+$4
+
+$5',
+	'echo-email-batch-body-weekly' => 'Xin chào $1,
+
+Bạn có {{PLURAL:$3|một thông báo|$2 thông báo}} tại {{SITENAME}} tuần này. Hãy xem chúng tại đây:
+{{canonicalurl:{{#special:Notifications}}}}
+
+$4
+
+$5',
+	'echo-email-batch-category-header-edit-user-talk' => '$1 tin nhắn',
+	'echo-email-batch-category-header-edit-revert' => '$1 sửa đổi bị lùi lại',
+	'echo-email-batch-category-header-other' => '$1 khác',
 );
 
 /** Simplified Chinese (中文（简体）‎)
@@ -2380,7 +2527,6 @@ $1',
 $messages['zh-hans'] = array(
 	'echo-desc' => 'MediaWiki的下一代通知架构', # Fuzzy
 	'prefs-echo' => '通知',
-	'echo-pref-notify-watchlist' => '当我向监视列表添加页面时也为我订阅编辑通知。',
 	'echo-no-agent' => '[无人]',
 	'echo-no-title' => '[无标题]', # Fuzzy
 	'notifications' => '通知',
@@ -2431,7 +2577,6 @@ $1',
 $messages['zh-hant'] = array(
 	'echo-desc' => 'MediaWiki的下一代通知架構', # Fuzzy
 	'prefs-echo' => '通知',
-	'echo-pref-notify-watchlist' => '當我向監視列表添加頁面時也為我訂閱編輯通知。',
 	'echo-no-agent' => '[無人]',
 	'echo-no-title' => '[無標題]', # Fuzzy
 	'notifications' => '通知',
