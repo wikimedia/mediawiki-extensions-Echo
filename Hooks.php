@@ -317,7 +317,11 @@ class EchoHooks {
 		);
 
 		$insertUrls = array( 'notifications' => $notificationsLink );
-		$personal_urls = wfArrayInsertAfter( $personal_urls, $insertUrls, 'userpage' );
+		if ( $wgEchoShowFullNotificationsLink ) {
+			$personal_urls = wfArrayInsertAfter( $personal_urls, $insertUrls, 'mytalk' );
+		} else {
+			$personal_urls = wfArrayInsertAfter( $personal_urls, $insertUrls, 'userpage' );
+		}
 		return true;
 	}
 
