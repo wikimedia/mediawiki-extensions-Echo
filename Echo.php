@@ -181,7 +181,7 @@ $wgEchoDefaultNotificationTypes = array( // Welcome events do not use subscripti
 	),
 	'reverted' => array(
 		'notify' => true,
-		'email' => false,
+		'email' => true,
 	)
 );
 
@@ -224,6 +224,8 @@ $wgEchoEventDetails = array(
 foreach ( $wgEchoEnabledEvents as $wgEchoEnabledEvent ) {
 	$wgDefaultUserOptions['echo-email-notifications' . $wgEchoEnabledEvent] = true;
 }
+// unset default email for reverts (changes it to opt-in)
+$wgDefaultUserOptions['echo-email-notificationsreverted'] = false;
 
 // Definitions of the notification event types built into Echo
 $wgEchoNotificationFormatters = array(
