@@ -116,23 +116,30 @@ class EchoHooks {
 	 * @return bool true in all cases
 	 */
 	public static function getPreferences( $user, &$preferences ) {
-		global $wgEchoDefaultNotificationTypes, $wgAuth;
+		global $wgEchoDefaultNotificationTypes, $wgAuth, $wgEchoEnableEmailBatch;
 
 		// Show email frequency options
 		$never = wfMessage( 'echo-pref-email-frequency-never' )->plain();
 		$immediately = wfMessage( 'echo-pref-email-frequency-immediately' )->plain();
-		$daily = wfMessage( 'echo-pref-email-frequency-daily' )->plain();
-		$weekly = wfMessage( 'echo-pref-email-frequency-weekly' )->plain();
+		$freqOptions = array(
+			$never => self::EMAIL_NEVER,
+			$immediately => self::EMAIL_IMMEDIATELY,
+		);
+		// Only show digest options if email batch is enabled
+		if ( $wgEchoEnableEmailBatch ) {
+			$daily = wfMessage( 'echo-pref-email-frequency-daily' )->plain();
+			$weekly = wfMessage( 'echo-pref-email-frequency-weekly' )->plain();
+			$freqOptions += array(
+				$daily => self::EMAIL_DAILY_DIGEST,
+				$weekly => self::EMAIL_WEEKLY_DIGEST
+			);
+		}
+
 		$preferences['echo-email-frequency'] = array(
 			'type' => 'select',
 			//'label-message' => 'echo-pref-email-frequency',
 			'section' => 'echo/emailfrequency',
-			'options' => array(
-				$never => self::EMAIL_NEVER,
-				$immediately => self::EMAIL_IMMEDIATELY,
-				$daily => self::EMAIL_DAILY_DIGEST,
-				$weekly => self::EMAIL_WEEKLY_DIGEST,
-			)
+			'options' => $freqOptions
 		);
 
 		// Show email subscription options
