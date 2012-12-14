@@ -52,7 +52,7 @@
 				'notprop' : 'index|list'
 			}, {
 				'ok' : function( result ) {
-					var notifications = result.query.notifications,
+					var notifications = result.query.notifications, unread = [],
 						$ul = $( '<ul class="mw-echo-notifications"></ul>' ).appendTo( $overlay );
 
 					$.each( notifications.index, function( index, id ) {
@@ -66,6 +66,7 @@
 
 						if ( !data.read ) {
 							$li.addClass( 'mw-echo-unread' );
+							unread.push( id );
 						}
 					} );
 
@@ -102,19 +103,22 @@
 
 					callback( $overlay );
 
-					Api.get( {
-						'action' : 'query',
-						'meta' : 'notifications',
-						'notmarkread' : notifications.index.join( '|' ),
-						'notprop' : 'count'
-					}, {
-						'ok' : function( result ) {
-							if ( result.query.notifications.count !== undefined ) {
-								count = result.query.notifications.count;
-								mw.echo.overlay.updateCount( count );
+					// only need to mark as read if there is unread item
+					if ( unread.length > 0 ) {
+						Api.get( {
+							'action' : 'query',
+							'meta' : 'notifications',
+							'notmarkread' : unread.join( '|' ),
+							'notprop' : 'count'
+						}, {
+							'ok' : function( result ) {
+								if ( result.query.notifications.count !== undefined ) {
+									count = result.query.notifications.count;
+									mw.echo.overlay.updateCount( count );
+								}
 							}
-						}
-					} );
+						} );
+					}
 				},
 				'err' : function() {
 					window.location.href = $link.attr( 'href' );
