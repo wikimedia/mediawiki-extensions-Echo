@@ -1,6 +1,10 @@
 <?php
 
 class EchoHooks {
+	const EMAIL_NEVER = -1; // Never send email notifications
+	const EMAIL_IMMEDIATELY = 0; // Send email notificaitons immediately as they come in
+	const EMAIL_DAILY_DIGEST = 1; // Send daily email digests
+	const EMAIL_WEEKLY_DIGEST = 7; // Send weekly email digests
 
 	/**
 	 * @param $updater DatabaseUpdater object
@@ -112,10 +116,79 @@ class EchoHooks {
 	 * @return bool true in all cases
 	 */
 	public static function getPreferences( $user, &$preferences ) {
-		global $wgEchoEnabledEvents;
-		$preferences['echo-notify-link'] = array(
+		global $wgEchoDefaultNotificationTypes, $wgAuth;
+
+		// Show email frequency options
+		$never = wfMessage( 'echo-pref-email-frequency-never' )->plain();
+		$immediately = wfMessage( 'echo-pref-email-frequency-immediately' )->plain();
+		$daily = wfMessage( 'echo-pref-email-frequency-daily' )->plain();
+		$weekly = wfMessage( 'echo-pref-email-frequency-weekly' )->plain();
+		$preferences['echo-email-frequency'] = array(
+			'type' => 'select',
+			//'label-message' => 'echo-pref-email-frequency',
+			'section' => 'echo/emailfrequency',
+			'options' => array(
+				$never => self::EMAIL_NEVER,
+				$immediately => self::EMAIL_IMMEDIATELY,
+				$daily => self::EMAIL_DAILY_DIGEST,
+				$weekly => self::EMAIL_WEEKLY_DIGEST,
+			)
+		);
+
+		// Show email subscription options
+		$emailOptions = array();
+		foreach ( EchoEvent::gatherValidEchoEvents() as $enabledEvent ) {
+			// Welcome notifications don't have subscriptions
+			if ( $enabledEvent === 'welcome' ) {
+				continue;
+			}
+			// Make sure email notifications are possible for this event
+			if ( isset( $wgEchoDefaultNotificationTypes[$enabledEvent] ) ) {
+				if ( !$wgEchoDefaultNotificationTypes[$enabledEvent]['email'] ) {
+					continue;
+				}
+			} elseif ( !$wgEchoDefaultNotificationTypes['all']['email'] ) {
+				continue;
+			}
+			$eventMessage = wfMessage( 'echo-pref-email-' . $enabledEvent )->plain();
+			$emailOptions["$eventMessage"] = $enabledEvent;
+		}
+		$preferences['echo-email-notifications'] = array(
+			'type' => 'multiselect',
+			'section' => 'echo/emailsubscriptions',
+			'options' => $emailOptions,
+		);
+
+		// Display information about the user's currently set email address
+		$prefsTitle = SpecialPage::getTitleFor( 'Preferences', false, 'mw-prefsection-echo' );
+		$link = Linker::link(
+			SpecialPage::getTitleFor( 'ChangeEmail' ),
+			wfMessage( $user->getEmail() ? 'prefs-changeemail' : 'prefs-setemail' )->escaped(),
+			array(),
+			array( 'returnto' => $prefsTitle->getFullText() )
+		);
+		$emailAddress = $user->getEmail() ? htmlspecialchars( $user->getEmail() ) : '';
+		if ( $wgAuth->allowPropChange( 'emailaddress' ) ) {
+			if ( $emailAddress === '' ) {
+				$emailAddress .= $link;
+			} else {
+				$emailAddress .= wfMessage( 'word-separator' )->escaped()
+					. wfMessage( 'parentheses' )->rawParams( $link )->escaped();
+			}
+		}
+		$emailContent = wfMessage( 'youremail' )->escaped()
+			. wfMessage( 'word-separator' )->escaped() . $emailAddress;
+		$preferences['echo-emailaddress'] = array(
+			'type' => 'info',
+			'raw' => true,
+			'default' => $emailContent,
+			'section' => 'echo/emailsubscriptions'
+		);
+
+		// Show fly-out display prefs
+		$preferences['echo-notify-hide-link'] = array(
 			'type' => 'toggle',
-			'label-message' => 'echo-pref-notify-link',
+			'label-message' => 'echo-pref-notify-hide-link',
 			'section' => 'echo/displaynotifications',
 		);
 		return true;
@@ -204,7 +277,7 @@ class EchoHooks {
 	 */
 	static function beforePageDisplay( $out, $skin ) {
 		$user = $out->getUser();
-		if ( $user->isLoggedIn() && $user->getOption( 'echo-notify-link' ) ) {
+		if ( $user->isLoggedIn() && !$user->getOption( 'echo-notify-hide-link' ) ) {
 			// Load the module for the Notifications flyout
 			$out->addModules( array( 'ext.echo.overlay' ) );
 		}
@@ -221,7 +294,8 @@ class EchoHooks {
 	 */
 	static function onPersonalUrls( &$personal_urls, &$title ) {
 		global $wgUser, $wgEchoShowFullNotificationsLink;
-		if ( $wgUser->isAnon() || !$wgUser->getOption( 'echo-notify-link' ) ) {
+		// Add a "My notifications" item to personal URLs
+		if ( $wgUser->isAnon() || $wgUser->getOption( 'echo-notify-hide-link' ) ) {
 			return true;
 		}
 
@@ -253,8 +327,13 @@ class EchoHooks {
 	 * @return bool true in all cases
 	 */
 	static function abortEmailNotification() {
-		global $wgEchoDisableStandardEmail;
-		return !$wgEchoDisableStandardEmail;
+		global $wgEchoEnabledEvents, $wgEnotifUserTalk;
+		if ( in_array( 'edit-user-talk', $wgEchoEnabledEvents ) ) {
+			// Disable the standard email notification for talk page messages
+			$wgEnotifUserTalk = false;
+		}
+		// Don't abort watchlist email notifications
+		return true;
 	}
 
 	/**
@@ -297,14 +376,14 @@ class EchoHooks {
 	/**
 	 * Handler for ArticleEditUpdateNewTalk hook.
 	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/ArticleEditUpdateNewTalk
-	 * @param $article The article object of the talk page being updated
+	 * @param $page The WikiPage object of the talk page being updated
 	 * @return bool
 	 */
-	static function abortNewTalkNotification( $article ) {
-		global $wgEchoEnabledEvents, $wgUser;
+	static function abortNewTalkNotification( $page ) {
+		global $wgUser, $wgEchoEnabledEvents;
 		// If the user has the notifications flyout turned on and is receiving
 		// notifications for talk page messages, disable the yellow-bar-style notice.
-		if ( $wgUser->getOption( 'echo-notify-link' )
+		if ( !$wgUser->getOption( 'echo-notify-hide-link' )
 			&& in_array( 'edit-user-talk', $wgEchoEnabledEvents ) )
 		{
 			return false;

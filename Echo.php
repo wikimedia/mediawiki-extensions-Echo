@@ -167,6 +167,9 @@ $wgEchoEnableEmailBatch = true;
 // Otherwise, only show a badge next to the username.
 $wgEchoShowFullNotificationsLink = true;
 
+// By default, send emails for each notification as they come in
+$wgDefaultUserOptions['echo-email-frequency'] = EchoHooks::EMAIL_IMMEDIATELY;
+
 // The organization address, the value should be defined in LocalSettings.php
 $wgEchoEmailFooterAddress = '';
 
@@ -184,8 +187,11 @@ $wgEchoDefaultNotificationTypes = array( // Welcome events do not use subscripti
 	)
 );
 
+// Definitions of the different types of notification delivery that are possible.
+// Each definition consists of a class name and a function name.
+// See also: EchoNotificationController class.
 $wgEchoNotifiers = array(
-	'notify' => array( 'EchoNotifier', 'notifyWithNotification' ),
+	'notify' => array( 'EchoNotifier', 'notifyWithNotification' ), // web-based notification
 	'email' => array( 'EchoNotifier', 'notifyWithEmail' ),
 );
 
@@ -193,11 +199,12 @@ $wgEchoNotifiers = array(
 // The list here only includes event types handled by Echo itself. Other
 // extensions can add to this list through the BeforeCreateEchoEvent hook.
 $wgEchoEnabledEvents = array(
-	'edit-user-talk',
-	//'add-comment',
-	//'add-talkpage-topic',
-	'welcome',
-	'reverted',
+	'welcome', // A user created an account
+	'edit-user-talk', // User talk page is edited
+	'reverted', // An edit is undone or rolled-back
+	// These aren't ready yet, specifically they have no means of subscription
+#	'add-comment', // A signed comment is added to an existing section
+#	'add-talkpage-topic', // A new section is added to a talk page
 );
 
 // This array stores the category and priority for enabled events
@@ -215,7 +222,12 @@ $wgEchoEventDetails = array(
 	),
 );
 
-// Definitions of the notifications built into Echo
+// Set all of the events to email by default (won't affect events that don't email)
+foreach ( $wgEchoEnabledEvents as $wgEchoEnabledEvent ) {
+	$wgDefaultUserOptions['echo-email-notifications' . $wgEchoEnabledEvent] = true;
+}
+
+// Definitions of the notification event types built into Echo
 $wgEchoNotificationFormatters = array(
 	'edit-user-talk' => array(
 		'type' => 'edit',

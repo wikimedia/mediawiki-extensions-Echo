@@ -14,9 +14,15 @@ $messages['en'] = array(
 	// Preferences
 	'prefs-echo' => 'Notifications',
 	'prefs-displaynotifications' => 'Display options',
-	'prefs-subscriptions' => 'Subscriptions',
-	'echo-pref-notify-link' => 'Show a link to your notifications at the top of every page',
-	'echo-pref-notify-watchlist' => 'Subscribe me to edit notifications when I add pages to my watchlist',
+	'prefs-emailsubscriptions' => 'Notify me by e-mail when someone',
+	'prefs-emailfrequency' => 'How often I receive notifications by e-mail',
+	'echo-pref-email-edit-user-talk' => 'Posts on my talk page',
+	'echo-pref-email-reverted' => 'Reverts my edit',
+	'echo-pref-email-frequency-never' => 'Do not send me any e-mail notifications',
+	'echo-pref-email-frequency-immediately' => 'Individual notifications as they come in',
+	'echo-pref-email-frequency-daily' => 'A daily summary of notifications',
+	'echo-pref-email-frequency-weekly' => 'A weekly summary of notifications',
+	'echo-pref-notify-hide-link' => 'Hide the link and badge for notifications in my toolbar',
 
 	// Errors
 	'echo-no-agent' => '[Nobody]',
@@ -148,10 +154,15 @@ $messages['qqq'] = array(
 	'echo-desc' => '{{desc}}',
 	'prefs-echo' => 'Name of preferences section for Echo notifications.',
 	'prefs-displaynotifications' => 'Header for the section of preferences that deals with how notifications are displayed',
-	'prefs-subscriptions' => 'Header for the section of preferences that deals with notification subscriptions',
-	'echo-pref-notify-link' => "Label for a preference which enables a 'Notifications' link in the header and associated fly-out panel",
-	'echo-pref-notify-watchlist' => 'Label for a preference which causes
-	any changes to your watchlist to be replicated in Echo subscriptions',
+	'prefs-emailsubscriptions' => 'Header for the section of preferences that deals with which notifications the user receives emails for',
+	'prefs-emailfrequency' => 'Header for the section of preferences that deals with how often notification emails are sent out',
+	'echo-pref-email-edit-user-talk' => "Option for getting emails when someone posts on the user's talk page. This is the conclusion of the sentence begun by the header: {{msg-mw|prefs-emailsubscriptions}}.",
+	'echo-pref-email-reverted' => "Option for getting emails when someone reverts the user's edit. This is the conclusion of the sentence begun by the header: {{msg-mw|prefs-emailsubscriptions}}.",
+	'echo-pref-email-frequency-never' => "Option for users who don't want to receive any email notifications",
+	'echo-pref-email-frequency-immediately' => 'Option for users who want to receive email for each notification as it occurs',
+	'echo-pref-email-frequency-daily' => 'Option for users who want to receive a daily digest of email notifications',
+	'echo-pref-email-frequency-weekly' => 'Option for users who want to receive a weekly digest of email notifications',
+	'echo-pref-notify-hide-link' => "Label for a preference which disables the 'Notifications' link in the header and associated fly-out panel",
 	'echo-no-agent' => 'Shown in place of a username in a notification
 	if the notification has no specified user.',
 	'echo-no-title' => 'Shown in place of a page title in a notification
