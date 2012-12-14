@@ -35,10 +35,8 @@ EOT;
 $wgExtensionCredits['specialpage'][] = array(
 	'path' => __FILE__,
 	'name' => 'Echo',
-	'url' => 'http://www.mediawiki.org/wiki/Echo_(Notifications)',
-	'author' => array(
-		'Andrew Garrett',
-	),
+	'url' => 'https://www.mediawiki.org/wiki/Extension:Echo',
+	'author' => array( 'Andrew Garrett', 'Ryan Kaldari', 'Benny Situ', 'Luke Welling' ),
 	'descriptionmsg' => 'echo-desc',
 );
 
