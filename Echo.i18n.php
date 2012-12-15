@@ -657,6 +657,15 @@ $messages['es'] = array(
 	'echo-desc' => 'Sistema de notificaciones',
 	'prefs-echo' => 'Notificaciones',
 	'prefs-displaynotifications' => 'Opciones de visualización',
+	'prefs-emailsubscriptions' => 'Notificarme por correo electrónico cuando alguien',
+	'prefs-emailfrequency' => '¿Con qué frecuencia recibo notificaciones por correo electrónico?',
+	'echo-pref-email-edit-user-talk' => 'Mensajes en mi página de discusión',
+	'echo-pref-email-reverted' => 'Revierte mi edición',
+	'echo-pref-email-frequency-never' => 'No me envíes notificaciones por correo electrónico',
+	'echo-pref-email-frequency-immediately' => 'Enviarme las notificaciones individuales en cuanto lleguen',
+	'echo-pref-email-frequency-daily' => 'Un resumen diario de notificaciones',
+	'echo-pref-email-frequency-weekly' => 'Un resumen semanal de las notificaciones',
+	'echo-pref-notify-hide-link' => 'Ocultar el enlace y la insignia para las notificaciones en mi barra de herramientas',
 	'echo-no-agent' => '[Nadie]',
 	'echo-no-title' => '[No hay ninguna página]',
 	'echo-error-no-formatter' => 'Sin formato definido para notificaciones',
@@ -673,7 +682,7 @@ $messages['es'] = array(
 	'notification-new-user' => '¡Bienvenido a {{SITENAME}}, $1!',
 	'notification-new-user-content' => 'Hola $1 y bienvenido a {{SITENAME}}.<br />
 Recuerda firmar cualquier comentario en las páginas de discusión con 4 tildes (~ ~ ~ ~).',
-	'notification-reverted' => '$2 {{GENDER:$1|ha revertido}} {{PLURAL:$6|1=su edición|sus ediciones}} en "[[$3]]" $4: "$5"', # Fuzzy
+	'notification-reverted' => '$2 {{GENDER:$1|ha revertido}} {{PLURAL:$5|1=tu edición|tus ediciones}} en [[$3]] $4',
 	'notification-edit-email-subject' => 'Notificación de {{SITENAME}}: $3 ha sido editado por $2',
 	'notification-edit-email-body' => 'Hola  $5 ,
 
@@ -681,12 +690,12 @@ Esto es una notificación para hacerte saber que $2 ha editado la página $3 de 
 
 $2 ha resumido sus cambios con este comentario: $6
 
-Puedes ver los cambios que  $2 ha hecho siguiendo este enlace:
+Puedes ver los cambios que $2 ha hecho siguiendo este enlace:
 <$4>
 
 Estás recibiendo este mensaje porque estás suscrito a las actualizaciones por correo electrónico de los cambios de esta página.
 
-$7', # Fuzzy
+$7',
 	'notification-edit-talk-page-email-subject' => 'Tu página de discusión en {{SITENAME}} ha sido editada por $2',
 	'notification-edit-talk-page-email-body' => 'Hola $4,
 
@@ -694,17 +703,18 @@ Esto es una notificación para hacerte saber que $2 ha editado tu página de dis
 
 En {{SITENAME}}, tu página de discusión es donde otros usuarios te pueden dejar mensajes.
 
-$2 ha empleado el siguiente resumen para describir su cambio: $5
+$2 ha empleado el siguiente resumen para describir sus cambios: $5
 
-Puedes ver los cambios que $2 en este enlace:
+Puedes ver los cambios que $2 ha realizado en este enlace:
 <$3>
 
-$6', # Fuzzy
-	'notification-reverted-email-subject' => 'Notificación de {{SITENAME}}: $2 ha revertido su edición en $3: $4', # Fuzzy
+$6',
+	'notification-edit-talk-page-email-batch-body' => '$2 {{GENDER:$2|ha publicado}} en tu página de discusión',
+	'notification-reverted-email-subject' => 'Notificación de {{SITENAME}}: $2 ha revertido tu edición en $3: $4',
 	'notification-reverted-email-body' => 'Hola, $5:
-Esta es una notificación para hacerte saber que $2 ha revertido tus ediciones en la página $3 {{SITENAME}}.
+Esta es una notificación para hacerte saber que $2 ha revertido tus ediciones en la página $3 de {{SITENAME}}.
 
-$2 usó el siguiente resumen para describir su cambio: $6
+$2 usó el siguiente resumen para describir sus cambios: $6
 
 Puedes ver el cambio que $2 hizo para revertir tus ediciones siguiente este enlace:
 <$4>
@@ -712,7 +722,8 @@ Puedes ver el cambio que $2 hizo para revertir tus ediciones siguiente este enla
 Estás recibiendo este mensaje porque te has suscrito a las alertas por correo electrónico
 cuando tus cambios sean revertidos.
 
-$7', # Fuzzy
+$7',
+	'notification-reverted-email-batch-body' => 'Tu edición en $3 fue revertida por $2',
 	'echo-email-subject-default' => 'Nueva notificación en {{SITENAME}}',
 	'echo-email-body-default' => 'Tienes una nueva notificación en {{SITENAME}}:
 
@@ -728,8 +739,32 @@ Para cambiar tus preferencias de correo electrónico o cancelar la subscrición,
 $1',
 	'echo-link-new' => '$1 {{PLURAL:$1|notificación nueva|notificaciones nuevas}}',
 	'echo-link' => 'Notificaciones',
-	'echo-overlay-link' => 'Todas las notificaciones...', # Fuzzy
+	'echo-overlay-link' => 'Todas las notificaciones',
 	'echo-overlay-title' => 'Mis notificaciones',
+	'echo-date-today' => 'Hoy',
+	'echo-date-yesterday' => 'Ayer',
+	'echo-load-more-error' => 'Se ha producido un error al intentar obtener más resultados.',
+	'echo-email-batch-subject-daily' => 'Hoy tienes $1 {{PLURAL:$2|notificación|notificaciones}}',
+	'echo-email-batch-subject-weekly' => 'Esta semana tienes $1 {{PLURAL:$2|notificación|notificaciones}}',
+	'echo-email-batch-body-daily' => '$1,
+
+Hoy tienes $2 {{PLURAL:$3|notificación|notificaciones}} en {{SITENAME}}. Verlas aquí:
+{canonicalurl: {{#special:Notifications}}}
+
+$4
+
+$5',
+	'echo-email-batch-body-weekly' => '$1,
+
+Esta semana tienes $2 {{PLURAL:$3|notificación|notificaciones}} en {{SITENAME}}. Verlas aquí:
+{canonicalurl: {{#special:Notifications}}}
+
+$4
+
+$5',
+	'echo-email-batch-category-header-edit-user-talk' => '$1 {{PLURAL:$1|mensaje|mensajes}} en la página de discusión',
+	'echo-email-batch-category-header-edit-revert' => 'Editar $1 {{PLURAL:$1|edición revertida|ediciones revertidas}}',
+	'echo-email-batch-category-header-other' => '$1 {{PLURAL:$1|Otro|Otros}}',
 );
 
 /** Estonian (eesti)
@@ -1553,6 +1588,7 @@ $1',
 $messages['lb'] = array(
 	'echo-desc' => 'Notifikatiouns-System',
 	'prefs-echo' => 'Notifikatiounen',
+	'prefs-displaynotifications' => 'Optioune vum Affichage',
 	'echo-no-agent' => '[Keen]',
 	'echo-no-title' => '[Keen Säit]',
 	'notifications' => 'Notifikatiounen',
@@ -1570,8 +1606,10 @@ $messages['lb'] = array(
 $1',
 	'echo-link-new' => '$1 nei {{PLURAL:$1|Notifikatioun|Notifikatiounen}}',
 	'echo-link' => 'Notifikatiounen',
-	'echo-overlay-link' => 'All Notifikatiounen...', # Fuzzy
+	'echo-overlay-link' => 'All Notifikatiounen',
 	'echo-overlay-title' => 'Meng Notifikatiounen',
+	'echo-date-today' => 'Haut',
+	'echo-date-yesterday' => 'Gëschter',
 );
 
 /** Lithuanian (lietuvių)
@@ -1588,6 +1626,15 @@ $messages['mk'] = array(
 	'echo-desc' => 'Известителен систем',
 	'prefs-echo' => 'Известувања',
 	'prefs-displaynotifications' => 'Нагодувања на приказот',
+	'prefs-emailsubscriptions' => 'Извешти ме на е-пошта кога некој ќе',
+	'prefs-emailfrequency' => 'Колку често да примате известувања на е-пошта',
+	'echo-pref-email-edit-user-talk' => 'Објави на мојата страница за разговор',
+	'echo-pref-email-reverted' => 'Врати мое уредување',
+	'echo-pref-email-frequency-never' => 'Не ми праќај известувања на е-пошта',
+	'echo-pref-email-frequency-immediately' => 'Поединечни известувања, едно по едно',
+	'echo-pref-email-frequency-daily' => 'Дневен преглед на известувањата',
+	'echo-pref-email-frequency-weekly' => 'Неделен преглед на известувањата',
+	'echo-pref-notify-hide-link' => 'Скриј ја врската и значката за известувања во алатникот',
 	'echo-no-agent' => '[Никој]',
 	'echo-no-title' => '[Нема страница]',
 	'echo-error-no-formatter' => 'Нема зададено форматирање за ова известување',
