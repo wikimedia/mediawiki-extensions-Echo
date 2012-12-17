@@ -33,7 +33,7 @@ $messages['en'] = array(
 	'notifications' => 'Notifications',
 	'echo-specialpage' => 'My notifications',
 	'echo-anon' => 'To receive notifications, [[Special:Userlogin/signup|create an account]] or [[Special:UserLogin|log in]].',
-	'echo-none' => 'You have not received any notifications lately.',
+	'echo-none' => 'You have no notifications.',
 
 	// Notification
 	'notification-edit' => '$2 {{GENDER:$1|edited}} [[$3]] $4: "$5"',
@@ -107,6 +107,7 @@ $1',
 	'echo-link' => 'Notifications',
 	'echo-overlay-link' => 'All notifications',
 	'echo-overlay-title' => 'My notifications',
+	'echo-overlay-title-overflow' => 'My notifications (showing $1 of $2 unread)',
 
 	// Special page
 	'echo-date-today' => 'Today',
@@ -273,6 +274,7 @@ The new notification count next to notification link, for example: 99+
 	'echo-link' => 'Shown in "personal links" when a user has JS. New notifications are indicated with a badge.', # Fuzzy
 	'echo-overlay-link' => 'Link to "all notifications" at the bottom of the overlay', # Fuzzy
 	'echo-overlay-title' => 'Title at the top of the notifications overlay',
+	'echo-overlay-title-overflow' => 'Title at the top of the notifications overlay when there are additional unread notifications that are not being shown. $1 is the number of unread notifications being shown. $2 is the total number of unread notifications that exist.',
 	'echo-date-today' => "The header text for today's notification section",
 	'echo-date-yesterday' => "The header text for yesterday's notification section",
 	'echo-date-header' => '{{optional}}
