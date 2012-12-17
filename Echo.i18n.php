@@ -835,6 +835,15 @@ $messages['fr'] = array(
 	'echo-desc' => 'Système de notifications',
 	'prefs-echo' => 'Notifications',
 	'prefs-displaynotifications' => "Options d'affichage",
+	'prefs-emailsubscriptions' => "M'avertir par courriel quand quelqu'un",
+	'prefs-emailfrequency' => 'À quelle fréquence je recevrai les notifications par courriel',
+	'echo-pref-email-edit-user-talk' => 'Messages sur ma page de discussion',
+	'echo-pref-email-reverted' => 'Annuler ma modification',
+	'echo-pref-email-frequency-never' => "Ne pas m'envoyer de notification par courriel",
+	'echo-pref-email-frequency-immediately' => "Notifications individuelles au fil de l'eau",
+	'echo-pref-email-frequency-daily' => 'Un sommaire quotidien des notifications',
+	'echo-pref-email-frequency-weekly' => 'Un sommaire hebdomadaire des notifications',
+	'echo-pref-notify-hide-link' => "Masquer le lien et l'insigne pour les notifications dans ma barre d'outils",
 	'echo-no-agent' => '[Personne]',
 	'echo-no-title' => '[Aucune page]',
 	'echo-error-no-formatter' => 'Aucune mise en forme définies pour la notification',
@@ -851,45 +860,45 @@ $messages['fr'] = array(
 	'notification-new-user' => 'Bienvenue sur {{SITENAME}}, $1 !',
 	'notification-new-user-content' => "Bonjour $1 et bienvenue sur {{SITENAME}}.<br />
 N'oubliez pas de signer vos commentaires sur les pages de discussions avec 4 tildes (~ ~ ~ ~).",
-	'notification-reverted' => '$2 {{GENDER:$1|a annulé}} {{PLURAL:$6|votre modification|vos modifications}} sur [[$3]] $4: "$5"', # Fuzzy
+	'notification-reverted' => '$2 {{GENDER:$1|a annulé}} {{PLURAL:$5|1=votre modification|vos modifications}} sur [[$3]] $4',
 	'notification-edit-email-subject' => 'Notification de {{SITENAME}} : $3 a été modifié par $2',
 	'notification-edit-email-body' => 'Bonjour $5,
-Ceci est une notification pour vous informer que $2 a modifié la page $3 de {{SITENAME}}.
+Ceci est une notification pour vous informer que $2 {{GENDER:$2|a modifié}} la page $3 de {{SITENAME}}.
 
-$2 a résumé ses modifications avec ce commentaire: $6
+$2 {{GENDER:$2|a résumé}} {{GENDER:$2|sa|sa|leur}} modification avec ce commentaire: $6
 
-Vous pouvez voir les changements faits par $2 en suivant ce lien:
+Vous pouvez voir les changements {{GENDER:$2|faits}} par $2 en suivant ce lien:
 <$4>
 
 Vous recevez ce message parce que vous avez souscrit aux mises à jour par courriel des modifications apportées à cette page.
 
-$7', # Fuzzy
+$7',
 	'notification-edit-talk-page-email-subject' => 'Votre page de discussion de {{SITENAME}} a été modifée par $2',
 	'notification-edit-talk-page-email-body' => 'Bonjour $4,
-
-Ceci est une notification pour vous informer que $2 a modifié votre page de discussion sur {{SITENAME}}.
+Ceci est une notification pour vous informer que $2 {{GENDER:$2|a modifié}} votre page de discussion sur {{SITENAME}}.
 
 Sur {{SITENAME}}, votre page de discussion est là où les autres utilisateurs peuvent vous laisser des messages.
 
-$2 a utilisé ce commentaire pour décrire son changement: $5
+$2 {{GENDER:$2|a utilisé}} ce commentaire pour décrire {{GENDER:$2|son|son|leur}} changement: $5
 
-Vous pouvez voir les changements que $2 a fait en suivant ce lien:
+Vous pouvez voir les changements que $2 {{GENDER:$2|a fait}} en suivant ce lien:
 <$3>
 
-$6', # Fuzzy
-	'notification-reverted-email-subject' => 'Notification de {{SITENAME}}: $2 a annulé votre modification sur $3: $4', # Fuzzy
+$6',
+	'notification-edit-talk-page-email-batch-body' => '$2 {{GENDER:$2|a fait une publication}} sur votre page de discussion',
+	'notification-reverted-email-subject' => 'Notification de {{SITENAME}}: $2 {{GENDER:$2|a annulé}} votre modification sur $3: $4',
 	'notification-reverted-email-body' => 'Bonjour $5,
+Ceci est une notification pour vous informer que $2 {{GENDER:$2|a annulé}} vos modifications sur page $3 de {{SITENAME}}
 
-Ceci est une notification pour vous informer que $2 a annulé vos modifications sur page $3 de {{SITENAME}}
+$2 {{GENDER:$2|a résumé}} {{GENDER:$2|son|son|leur}} changement avec ce commentaire: $6
 
-$2 a résumé ses changements avec ce commentaire: $6
-
-Vous pouvez voir les changements faits par $2 pour annulé vos modifications en suivant ce lien:
+Vous pouvez voir la modification {{GENDER:$2|faite}} par $2 pour annuler vos modifications en suivant ce lien:
 <$4>
 
-Vous recevez ce message parce que vous avez souscrit aux mises à jour par courriel quand vos modifications sont annulé.
+Vous recevez ce message parce que vous avez souscrit aux mises à jour par courriel quand vos modifications sont annulées.
 
-$7', # Fuzzy
+$7',
+	'notification-reverted-email-batch-body' => 'Votre modification sur $3 a été annulée par $2',
 	'echo-email-subject-default' => 'Nouvelle notification sur {{SITENAME}}',
 	'echo-email-body-default' => 'Vous avez une nouvelle notification sur {{SITENAME}} :
 
@@ -905,11 +914,32 @@ Pour modifier vos préférences de courriel ou pour vous désinscrire, allez sur
 $1",
 	'echo-link-new' => '$1 {{PLURAL:$1|nouvelle notification|nouvelles notifications}}',
 	'echo-link' => 'Notifications',
-	'echo-overlay-link' => 'Toutes les notifications…', # Fuzzy
+	'echo-overlay-link' => 'Toutes les notifications',
 	'echo-overlay-title' => 'Mes notifications',
 	'echo-date-today' => "Aujourd'hui",
 	'echo-date-yesterday' => 'Hier',
 	'echo-load-more-error' => "Un erreur s'est produite en analysant davantage de résultats.",
+	'echo-email-batch-subject-daily' => "Vous avez $1 {{PLURAL:$2|notification|notifications}} aujourd'hui",
+	'echo-email-batch-subject-weekly' => 'Vous avez $1 {{PLURAL:$2|notification|notifications}} cette semaine',
+	'echo-email-batch-body-daily' => "$1,
+
+Vous avez $2 {{PLURAL:$3|notification|notifications}} sur {{SITENAME}} aujourd'hui. Regardez-les ici:
+{{canonicalurl:{{#special:Notifications}}}}
+
+$4
+
+$5",
+	'echo-email-batch-body-weekly' => '$1,
+
+Vous avez $2 {{PLURAL:$3|notification|notifications}} sur {{SITENAME}} cette semaine. Regardez-les ici:
+{{canonicalurl:{{#special:Notifications}}}}
+
+$4
+
+$5',
+	'echo-email-batch-category-header-edit-user-talk' => '$1 {{PLURAL:$1|message|messages}} de page de discussion',
+	'echo-email-batch-category-header-edit-revert' => '$1 {{PLURAL:$1|modification annulée|modifications annulées}}',
+	'echo-email-batch-category-header-other' => '$1 {{PLURAL:$1|Autre|Autres}}',
 );
 
 /** Franco-Provençal (arpetan)
@@ -944,6 +974,7 @@ $messages['gl'] = array(
 	'echo-desc' => 'Sistema de notificación',
 	'prefs-echo' => 'Notificacións',
 	'prefs-displaynotifications' => 'Opcións de visualización',
+	'prefs-emailsubscriptions' => 'Notificádeme cando alguén',
 	'echo-no-agent' => '[Ninguén]',
 	'echo-no-title' => '[Ningunha páxina]',
 	'echo-error-no-formatter' => 'Non se definiu formato ningún para a notificación',
@@ -1130,7 +1161,7 @@ $messages['hsb'] = array(
 	'notification-new-user' => 'Witaj do {{GRAMMAR:genitiw|{{SITENAME}}}}, $1!',
 	'notification-new-user-content' => 'Halo $1, a witaj do {{GRAMMAR:genitiw|{{SITENAME}}}}.<br />
 Prošu njezabudź komentary na diskusijnych stronach z 4 tildami (~~~~) podpisać .',
-	'notification-reverted' => '$2 je {{PLURAL:$6|1=změnu|změny}} na [[$3]] $4 {{GENDER:$1|anulował|anulowała}}: "$5"', # Fuzzy
+	'notification-reverted' => '$2 je {{PLURAL:$5|1=změnu|změnje|změny}} na [[$3]] $4 {{GENDER:$1|anulował|anulowała}}',
 	'notification-edit-email-subject' => 'Zdźělenka z {{GRAMMAR:genitiw|{{SITENAME}}}}: $3 je so wot $2 wobdźěłał',
 	'notification-edit-email-body' => 'Witaj $5,
 
@@ -1833,12 +1864,12 @@ Di {{SITENAME}}, halaman perbualan anda adalah di mana pengguna lain boleh menin
 
 $2 {{GENDER:$2|merumuskan}} suntingan{{GENDER:$2|nya}} dengan ringkasan yang berikut: $5
 
-Anda boleh melihat suntingan yang {{GENDER:$2|dibuat}}} oleh $2 dengan mengikuti pautan ini:
+Anda boleh melihat suntingan yang {{GENDER:$2|dibuat}} oleh $2 dengan mengikuti pautan ini:
 <$3>
 
-$6', # Fuzzy
+$6',
 	'notification-edit-talk-page-email-batch-body' => '$2 {{GENDER:$2|mengepos}} pada halaman perbualan anda',
-	'notification-reverted-email-subject' => 'Pemberitahuan {{SITENAME}}: $2 telah membalikkan suntingan anda di $3: $4', # Fuzzy
+	'notification-reverted-email-subject' => 'Pemberitahuan {{SITENAME}}: $2 telah {{GENDER:$2|membalikkan}} suntingan anda di $3: $4',
 	'notification-reverted-email-body' => '$5,
 
 Sila ambil maklum bahawa $2 telah {{GENDER:$2|membalikkan}} suntingan anda di halaman $3 di {{SITENAME}}.
@@ -2173,6 +2204,14 @@ $1",
 	'echo-link' => 'Mie notìfiche', # Fuzzy
 	'echo-overlay-link' => 'Tute le notìfiche...', # Fuzzy
 	'echo-overlay-title' => 'Mie notìfiche',
+);
+
+/** Pashto (پښتو)
+ * @author Ahmed-Najib-Biabani-Ibrahimkhel
+ */
+$messages['ps'] = array(
+	'echo-date-today' => 'نن',
+	'echo-date-yesterday' => 'پرون',
 );
 
 /** Romanian (română)
