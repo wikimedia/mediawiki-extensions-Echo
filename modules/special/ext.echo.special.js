@@ -6,6 +6,8 @@
 		'timestamp': 0,
 		'offset': 0,
 		'header': '',
+		'processing': false,
+		'moreData': '0',
 
 		/**
 		 * initialize the property in special notification page
@@ -15,7 +17,10 @@
 			$( '#mw-echo-more' ).click(
 				function( e ) {
 					e.preventDefault();
-					_this.loadMore();
+					if ( !_this.processing ) {
+						_this.processing = true;
+						_this.loadMore();
+					}
 				}
 			);
 			_this.timestamp = mw.config.get( 'wgEchoStartTimestamp' );
@@ -31,7 +36,7 @@
 		 * function for loading more notification records
 		 */
 		'loadMore': function() {
-			var api = new mw.Api(), notifications, data, container, $li, _this = this;
+			var api = new mw.Api(), notifications, data, container, $li, _this = this, unread = [];
 
 			api.get(
 				{
@@ -46,7 +51,8 @@
 				{
 					'ok' : function( result ) {
 						container = $( '#mw-echo-special-container' );
-						notifications = result.query.notifications,
+						notifications = result.query.notifications;
+						unread = [];
 
 						$.each( notifications.index, function( index, id ) {
 							data = notifications['list'][id];
@@ -65,6 +71,7 @@
 
 							if ( !data.read ) {
 								$li.addClass( 'mw-echo-unread' );
+								unread.push( id );
 							}
 
 							// update the timestamp and offset to get data from
@@ -73,16 +80,58 @@
 							_this.offset = data.id;
 						} );
 
-						if ( notifications.more == '0' && $( '#mw-echo-more' ).length ) {
-							$( '#mw-echo-more' ).hide();
+						_this.moreData = notifications.more;
+						if ( unread.length > 0 ) {
+							_this.markAsRead( unread );
+						} else {
+							_this.onSuccess();
 						}
 					},
 					'err' : function() {
-						// Todo: Show detail error message based on error code
-						$( '#mw-echo-more' ).text( mw.msg( 'echo-load-more-error' ) );
+						_this.onError();
 					}
 				}
 			);
+		},
+
+		/**
+		 * Mark notifications as read
+		 */
+		'markAsRead': function( unread ) {
+			var api = new mw.Api(), _this = this;
+
+			api.get( {
+				'action' : 'query',
+				'meta' : 'notifications',
+				'notmarkread' : unread.join( '|' ),
+				'notprop' : 'count'
+			}, {
+				'ok' : function( result ) {
+					// update the badge if the link is enabled
+					if ( typeof result.query.notifications.count !== 'undefined'
+						&& $( '#pt-notifications').length && typeof mw.echo.overlay === 'object'
+					) {
+						mw.echo.overlay.updateCount( result.query.notifications.count );
+					}
+					_this.onSuccess();
+				},
+				'err': function() {
+					_this.onError();
+				}
+			} );
+		},
+
+		'onSuccess': function() {
+			if ( this.moreData == '0' ) {
+				$( '#mw-echo-more' ).hide();
+			}
+			this.processing = false;
+		},
+
+		'onError': function() {
+			// Todo: Show detail error message based on error code
+			$( '#mw-echo-more' ).text( mw.msg( 'echo-load-more-error' ) );
+			this.processing = false;
 		}
 	};
 
