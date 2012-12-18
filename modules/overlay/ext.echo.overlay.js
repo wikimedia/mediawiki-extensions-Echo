@@ -34,12 +34,6 @@
 				$prefLink = $( '#pt-preferences a' ),
 				count = 0;
 
-			$overlay.append(
-				$( '<div/>' )
-					.addClass( 'mw-echo-overlay-title' )
-					.text( mw.msg( 'echo-overlay-title' ) )
-			);
-
 			$overlay.css( 'max-height', $( window ).height() * 0.75 );
 
 			var Api = new mw.Api();
@@ -49,11 +43,14 @@
 				'meta' : 'notifications',
 				'notformat' : 'html',
 				'notlimit' : mw.echo.overlay.notificationLimit,
-				'notprop' : 'index|list'
+				'notprop' : 'index|list|count'
 			}, {
 				'ok' : function( result ) {
-					var notifications = result.query.notifications, unread = [],
-						$ul = $( '<ul class="mw-echo-notifications"></ul>' ).appendTo( $overlay );
+					var notifications = result.query.notifications,
+						unread = [],
+						unreadTotalCount = result.query.notifications.count,
+						$title = $( '<div class="mw-echo-overlay-title"></div>' ),
+						$ul = $( '<ul class="mw-echo-notifications"></ul>' );
 
 					$.each( notifications.index, function( index, id ) {
 						var data = notifications['list'][id];
@@ -70,20 +67,26 @@
 						}
 					} );
 
-					if ( ! $ul.find( 'li' ).length ) {
-						$ul.remove();
-						$overlay.append(
-							$( '<div></div>' )
-								.addClass( 'mw-echo-overlay-none' )
-								.text( mw.msg( 'echo-none' ) )
-						);
+					if ( notifications.index.length > 0 ) {
+						if ( unreadTotalCount > unread.length ) {
+							$title.text( mw.msg( 'echo-overlay-title-overflow', unread.length, unreadTotalCount ) );
+						} else {
+							$title.text( mw.msg( 'echo-overlay-title' ) );
+						}
+					} else {
+						$title.text( mw.msg( 'echo-none' ) );
+					}
+					$title.appendTo( $overlay );
+
+					if ( $ul.find( 'li' ).length ) {
+						$ul.appendTo( $overlay );
 					}
 
 					// only show 'All notifications...' link if there is notification
 					if ( notifications.index.length > 0 ) {
 						$overlay.append(
 							$( '<div/>' )
-								.addClass( 'mw-echo-overlay-link' )
+								.attr( 'id', 'mw-echo-overlay-link' )
 								.append( $link
 									.clone()
 									.text( mw.msg( 'echo-overlay-link' ) )
@@ -94,7 +97,7 @@
 					// add link to notification preferences
 					$overlay.append(
 						$( '<div/>' )
-							.addClass( 'mw-echo-overlay-pref-link' )
+							.attr( 'id', 'mw-echo-overlay-pref-link' )
 							.append( $prefLink
 								.clone()
 								.attr( 'href', $prefLink.attr( 'href' ) + '#mw-prefsection-echo' )
@@ -161,8 +164,17 @@
 				function( $overlay ) {
 					$overlay
 						.hide()
-						.appendTo( $( 'body' ) )
-						.slideDown( 'fast' );
+						.appendTo( $( 'body' ) );
+					// Figure out which footer link is first and pad it appropriately
+					// (Sometimes the 'All notifications' link doesn't exist)
+					if ( $( '#mw-echo-overlay-link' ).length ) {
+						$( '#mw-echo-overlay-link' )
+							.addClass( 'mw-echo-overlay-first-footer-link' );
+					} else {
+						$( '#mw-echo-overlay-pref-link' )
+							.addClass( 'mw-echo-overlay-first-footer-link' );
+					}
+					$overlay.slideDown( 'fast' );
 				} );
 		} );
 

@@ -108,6 +108,7 @@ $wgResourceModules += array(
 			'echo-link-new',
 			'echo-link',
 			'echo-overlay-title',
+			'echo-overlay-title-overflow',
 			'echo-overlay-link',
 			'echo-none',
 		),
