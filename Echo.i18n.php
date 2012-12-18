@@ -37,7 +37,7 @@ $messages['en'] = array(
 
 	// Notification
 	'notification-edit' => '$2 {{GENDER:$1|edited}} [[$3]] $4: "$5"',
-	'notification-edit-talk-page' => '$2 {{GENDER:$1|edited}} [[User talk:$3|your talk page]]. $4',
+	'notification-edit-talk-page' => '$2 {{GENDER:$1|posted}} on your [[User talk:$3|talk page]].',
 	'notification-add-comment' => '$2 {{GENDER:$1|commented}} on "[[$4|$3]]" on the "$5" talk page',
 	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|posted}} a new topic "$3" on [[$4]]',
 	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|sent}} you a message: "[[$4#$3|$3]]"',
@@ -46,7 +46,7 @@ $messages['en'] = array(
 	'notification-new-user' => 'Welcome to {{SITENAME}}, $1!',
 	'notification-new-user-content' => 'Hi $1, and welcome to {{SITENAME}}.<br />
 Please remember to sign any comments on talk pages with 4 tildes (~~~~).',
-	'notification-reverted' => '$2 {{GENDER:$1|reverted}} your {{PLURAL:$5|1=edit|edits}} on [[$3]] $4',
+	'notification-reverted' => 'Your edit on [[$3]] has been {{GENDER:$1|reverted}} by $2 $4',
 	'notification-edit-email-subject' => '{{SITENAME}} notification: $3 has been edited by $2',
 	'notification-edit-email-body' => 'Hello $5,
 This is a notification to let you know that $2 {{GENDER:$2|has edited}} the {{SITENAME}} page $3.
@@ -59,46 +59,37 @@ You can see the change that $2 {{GENDER:$2|made}} by following this link:
 You are receiving this message because you have subscribed to e-mail updates for changes to this page.
 
 $7',
-	'notification-edit-talk-page-email-subject' => 'Your {{SITENAME}} talk page has been edited by $2',
-	'notification-edit-talk-page-email-body' => 'Hello $4,
-This is a notification to let you know that $2 {{GENDER:$2|has edited}} your talk page on {{SITENAME}}.
+	'notification-edit-talk-page-email-subject' => 'You have a new talkpage message',
+	'notification-edit-talk-page-email-body' => '{{SITENAME}} user $2 {{GENDER:$2|posted}} on your talk page:
 
-On {{SITENAME}}, your talk page is where other users can leave you messages.
+$4
 
-$2 {{GENDER:$2|used}} the following summary to describe {{GENDER:$2|his|her|their}} change: $5
+View more:
 
-You can see the change that $2 {{GENDER:$2|made}} at this link:
-<$3>
+$3
 
-$6',
+$5',
 	'notification-edit-talk-page-email-batch-body' => '$2 {{GENDER:$2|posted}} on your talk page',
-	'notification-reverted-email-subject' => '{{SITENAME}} notification: $2 {{GENDER:$2|has reverted}} your edit on $3: $4',
-	'notification-reverted-email-body' => 'Hello $5,
-This is a notification to let you know that $2 {{GENDER:$2|has reverted}} your edits on the {{SITENAME}} page $3.
+	'notification-reverted-email-subject' => 'Your edit on $3 was {{GENDER:$2|reverted}} by $2',
+	'notification-reverted-email-body' => 'Your edit on $3 has been {{GENDER:$2|has reverted}} by $2.
 
-$2 {{GENDER:$2|used}} the following summary to describe {{GENDER:$2|his|her|their}} change: $6
+$6
 
-You can see the change that $2 {{GENDER:$2|made}} to revert your edits by following this link:
-<$4>
+View more:
 
-You are receiving this message because you have subscribed to e-mail alerts
-when your changes are reverted.
+$4
 
 $7',
+	'notification-reverted-email-batch-body' => 'Your edit on $3 was reverted by $2',
 	'echo-notification-count' => '$1+',
-
-	'notification-reverted-email-batch-body' => 'Your edit to $3 was reverted by $2',
 	// E-mail notification
 	'echo-email-subject-default' => 'New notification at {{SITENAME}}',
 	'echo-email-body-default' => 'You have a new notification at {{SITENAME}}:
 
 $1',
-	'echo-email-footer-default' => 'Thank you!
+	'echo-email-footer-default' => '$2
 
-The {{SITENAME}} Team
-
-To change your e-mail preferences or unsubscribe, visit:
-
+To control which e-mails we send you, visit:
 {{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
 
 $1',
@@ -191,8 +182,7 @@ $messages['qqq'] = array(
 	'notification-edit-talk-page' => 'Format for displaying notifications of a user talk page being edited
 * $1 is the username of the person who edited, plain text. Can be used for GENDER.
 * $2 is the username of the person who edited, HTML formatted as the link to the user\'s page.
-* $3 is a diff link, formatted as an HTML link with the text "(diff)".
-* $4 is the current user\'s name, used in the link to their talk page.',
+* $3 is the current user\'s name, used in the link to their talk page.',
 	'notification-add-comment' => 'Format for displaying notifications of a comment being added to an existing discussion. Parameters:
 * $1 is the username of the person who edited, plain text. Can be used for GENDER,
 * $2 is the username of the person who edited,
@@ -236,20 +226,17 @@ $messages['qqq'] = array(
 * $5 is the e-mail recipient's username.
 * $6 is the edit summary.
 * $7 is the e-mail footer, {{msg|echo-email-footer-default}}",
-	'notification-edit-talk-page-email-subject' => 'E-mail subject. Parameters:
-* $2 is a username.',
+	'notification-edit-talk-page-email-subject' => 'E-mail subject.',
 	'notification-edit-talk-page-email-body' => "E-mail notification. Parameters:
 * $2 is a username
 * $3 is a link to a change
-* $4 is the e-mail recipient's username.
-* $5 is the edit summary.
-* $6 is the e-mail footer, {{msg|echo-email-footer-default}}",
+* $4 is the edit summary.
+* $5 is the e-mail footer, {{msg|echo-email-footer-default}}",
 	'notification-edit-talk-page-email-batch-body' => 'E-mail notification for talk page edit
 * $2 is a username',
 	'notification-reverted-email-subject' => 'E-mail subject. Parameters:
 *$2 is a username
-*$3 is a page title
-*$4 is the edit summary', # Fuzzy
+*$3 is a page title', # Fuzzy
 	'notification-reverted-email-body' => "E-mail notification. Parameters:
 * $2 is the username
 * $3 is the page title
@@ -267,7 +254,8 @@ The new notification count next to notification link, for example: 99+
 	'echo-email-body-default' => 'Default message content for Echo e-mail notifications.
 * $1 is a plain text description of the notification.',
 	'echo-email-footer-default' => 'Default footer content for Echo e-mail notifications.  Parameters:
-* $1 is the address of the organization that sent the e-mail',
+* $1 is the address of the organization that sent the e-mail
+* $2 is {{echo-email-batch-separator}}',
 	'echo-link-new' => 'Shown in "personal links" when a user has unread notifications.
 * $1 is number of unread notifications',
 	'echo-link' => 'Shown in "personal links" when a user has JS. New notifications are indicated with a badge.', # Fuzzy
