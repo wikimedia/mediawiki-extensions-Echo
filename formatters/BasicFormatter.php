@@ -161,9 +161,9 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	protected function formatEmail( $event, $user, $type ) {
 		$subject = $this->formatFragment( $this->email['subject'], $event, $user )->text();
 
-		$body = $this->formatFragment( $this->email['body'], $event, $user )->text();
+		$body = preg_replace( "/\n{3,}/", "\n\n", $this->formatFragment( $this->email['body'], $event, $user )->text() );
 
-		$batchBody = $this->formatFragment( $this->email['batch-body'], $event, $user )->text();
+		$batchBody = preg_replace( "/\n{3,}/", "\n\n", $this->formatFragment( $this->email['batch-body'], $event, $user )->text() );
 
 		return array( 'subject' => $subject, 'body' => $body, 'batch-body' => $batchBody );
 	}
@@ -239,7 +239,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			$message->params(
 				wfMessage( 'echo-email-footer-default' )
 				->inLanguage( $user->getOption( 'language' ) )
-				->params( $wgEchoEmailFooterAddress )
+				->params( $wgEchoEmailFooterAddress, wfMessage( 'echo-email-batch-separator' )->text() )
 				->text()
 			);
 		} else {

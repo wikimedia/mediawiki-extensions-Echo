@@ -15,36 +15,17 @@ class EchoEditFormatter extends EchoBasicFormatter {
 				$message->params( '' );
 				return;
 			}
-
-			if ( !$event->getTitle() ) {
-				$message->params( wfMessage( 'echo-no-title' )->text() );
-			}
-
-			$revid = $eventData['revid'];
-			$title = $event->getTitle();
-
-			if ( $this->outputFormat === 'html' ) {
-				$link = Linker::link(
-					$title,
-					wfMessage( 'parentheses', wfMessage( 'showdiff' )->text() )->escaped(),
-					array(
-						'class' => 'mw-echo-diff',
-					),
-					array(
-						'oldid' => $revid,
-						'diff' => 'prev',
-					)
-				);
-				$message->rawParams( $link );
-			} elseif ( $this->outputFormat === 'email' ) {
-				$link = $title->getCanonicalURL(
-					array( 'oldid' => $revid, 'diff' => 'prev' ) );
-				$message->params( $link );
-			} else {
-				$link = $title->getFullURL(
-					array( 'oldid' => $revid, 'diff' => 'prev' ) );
-				$message->params( $link );
-			}
+			$props = array(
+				'class' => 'mw-echo-diff',
+				'linkText' => wfMessage( 'parentheses', wfMessage( 'showdiff' )->text() )->escaped(),
+				'param' => array(
+					'oldid' => $eventData['revid'],
+					'diff' => 'prev',
+				)
+			);
+			$this->formatLink( $event, $message, $props );
+		} elseif ( $param === 'titlelink' ) {
+			$this->formatLink( $event, $message );
 		} elseif ( $param === 'summary' ) {
 			$eventData = $event->getExtra();
 			if ( !isset( $eventData['revid'] ) ) {
@@ -70,6 +51,45 @@ class EchoEditFormatter extends EchoBasicFormatter {
 			}
 		} else {
 			parent::processParam( $event, $param, $message, $user );
+		}
+	}
+
+	/**
+	 * Generate links based on output format and passed properties
+	 * $event EchoEvent
+	 * $message Message
+	 * $props array
+	 */
+	private function formatLink( $event, $message, $props = array() ) {
+		if ( !$event->getTitle() ) {
+			$message->params( wfMessage( 'echo-no-title' )->text() );
+			return;
+		}
+
+		$title = $event->getTitle();
+
+		$param = array();
+		if ( isset( $props['param'] ) ) {
+			$param = (array)$props['param'];
+		}
+
+		if ( $this->outputFormat === 'html' ) {
+			$class = array();
+			if ( isset( $props['class'] ) ) {
+				$class['class'] = $props['class'];
+			}
+
+			if ( isset( $props['linkText'] ) ) {
+				$linkText = $props['linkText'];
+			} else {
+				$linkText = htmlspecialchars( $title->getPrefixedText() );
+			}
+
+			$message->rawParams( Linker::link( $title, $linkText, $class, $param ) );
+		} elseif ( $this->outputFormat === 'email' ) {
+			$message->params( $title->getCanonicalURL( $param ) );
+		} else {
+			$message->params( $title->getFullURL( $param ) );
 		}
 	}
 }
