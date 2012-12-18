@@ -140,6 +140,7 @@ abstract class EchoNotificationFormatter {
 
 	/**
 	 * Formats an edit summary
+	 * TODO: implement parsed option for notifications archive page (where we can use all the html)
 	 *
 	 * @param $event EchoEvent that the notification is for.
 	 * @param $user User to format the notification for.
@@ -153,11 +154,17 @@ abstract class EchoNotificationFormatter {
 		$revision = Revision::newFromId( $eventData['revid'] );
 		if ( $revision ) {
 			$summary = $revision->getComment( Revision::FOR_THIS_USER, $user );
+			$summary = FeedItem::stripComment( $summary );
+			$summary = trim( htmlspecialchars( $summary ) );
 			if ( $this->outputFormat === 'html' ) {
-				$summary = Xml::tags( 'div', array( 'class' => 'mw-echo-summary' ), htmlspecialchars( $summary ) );
+				// Convert header titles to proper HTML
+				$summary = preg_replace( "/\/\*\s(.*)\s\*\//", "→<span class='autocomment'>\$1:</span>", $summary );
+				$summary = Xml::tags( 'span', array( 'class' => 'comment' ), $summary );
+				$summary = Xml::tags( 'div', array( 'class' => 'mw-echo-summary' ), $summary );
 			}
 			return $summary;
 		}
 		return '';
 	}
+
 }
