@@ -333,11 +333,12 @@ class EchoHooks {
 	}
 
 	/**
-	 * Handler for AbortEmailNotification hook.
+	 * Handler for AbortEmailNotification and UpdateUserMailerFormattedPageStatus hook.
 	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/AbortEmailNotification
+	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/UpdateUserMailerFormattedPageStatus
 	 * @return bool true in all cases
 	 */
-	static function abortEmailNotification() {
+	static function disableStandUserTalkEnotif() {
 		global $wgEchoEnabledEvents, $wgEnotifUserTalk;
 		if ( in_array( 'edit-user-talk', $wgEchoEnabledEvents ) ) {
 			// Disable the standard email notification for talk page messages

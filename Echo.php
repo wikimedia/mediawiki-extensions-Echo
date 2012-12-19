@@ -148,8 +148,9 @@ $wgHooks['ArticleSaveComplete'][] = 'EchoHooks::onArticleSaved';
 $wgHooks['AddNewAccount'][] = 'EchoHooks::onAccountCreated';
 $wgHooks['ArticleRollbackComplete'][] = 'EchoHooks::onRollbackComplete';
 
-// Disable ordinary email notifications
-$wgHooks['AbortEmailNotification'][] = 'EchoHooks::abortEmailNotification';
+// Disable ordinary user talk page email notifications
+$wgHooks['AbortEmailNotification'][] = 'EchoHooks::disableStandUserTalkEnotif';
+$wgHooks['UpdateUserMailerFormattedPageStatus'][] = 'EchoHooks::disableStandUserTalkEnotif';
 // Disable the yellow bar of death
 $wgHooks['ArticleEditUpdateNewTalk'][] = 'EchoHooks::abortNewTalkNotification';
 
