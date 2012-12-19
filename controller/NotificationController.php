@@ -6,9 +6,10 @@ class EchoNotificationController {
 	 *
 	 * @param $user User object to check notifications for
 	 * @param $cached bool Set to false to bypass the cache.
+	 * @param $dbSource string use master or slave database to pull count
 	 * @return Integer: Number of unread notifications.
 	 */
-	public static function getNotificationCount( $user, $cached = true ) {
+	public static function getNotificationCount( $user, $cached = true, $dbSource = DB_SLAVE ) {
 		global $wgMemc;
 
 		if ( $user->isAnon() ) {
@@ -21,8 +22,13 @@ class EchoNotificationController {
 			return $wgMemc->get( $memcKey );
 		}
 
-		$dbr = wfGetDB( DB_SLAVE );
-		$res = $dbr->selectRow(
+		// double check
+		if ( !in_array( $dbSource, array( DB_SLAVE, DB_MASTER ) ) ) {
+			$dbSource = DB_SLAVE;
+		}
+
+		$db = wfGetDB( $dbSource );
+		$res = $db->selectRow(
 			array( 'echo_notification', 'echo_event' ),
 			array( 'num' => 'COUNT(notification_event)' ),
 			array(
@@ -53,11 +59,12 @@ class EchoNotificationController {
 	 *
 	 * @param $user User object to check notifications for
 	 * @param $cached bool Set to false to bypass the cache.
+	 * @param $dbSource string use master or slave database to pull count
 	 * @return String: Number of unread notifications.
 	 */
-	public static function getFormattedNotificationCount( $user, $cached = true ) {
+	public static function getFormattedNotificationCount( $user, $cached = true, $dbSource = DB_SLAVE ) {
 		return self::formatNotificationCount(
-				self::getNotificationCount( $user, $cached )
+				self::getNotificationCount( $user, $cached, $dbSource )
 			);
 	}
 
@@ -102,17 +109,17 @@ class EchoNotificationController {
 			__METHOD__
 		);
 
-		self::resetNotificationCount( $user );
+		self::resetNotificationCount( $user, DB_MASTER );
 	}
 
 	/**
 	 * Recalculates the number of notifications that a user has.
 	 *
 	 * @param $user User object
+	 * @param $dbSource string use master or slave database to pull count
 	 */
-	public static function resetNotificationCount( $user ) {
-		self::getNotificationCount( $user, false );
-		$user->invalidateCache();
+	public static function resetNotificationCount( $user, $dbSource = DB_SLAVE ) {
+		self::getNotificationCount( $user, false, $dbSource );
 	}
 
 	/**
