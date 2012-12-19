@@ -954,15 +954,23 @@ $messages['gl'] = array(
 	'prefs-echo' => 'Notificacións',
 	'prefs-displaynotifications' => 'Opcións de visualización',
 	'prefs-emailsubscriptions' => 'Notificádeme cando alguén',
+	'prefs-emailfrequency' => 'Con que frecuencia quere recibir notificacións por correo electrónico?',
+	'echo-pref-email-edit-user-talk' => 'Deixe unha mensaxe na miña conversa',
+	'echo-pref-email-reverted' => 'Reverta unha edición miña',
+	'echo-pref-email-frequency-never' => 'Non me enviedes ningunha notificación por correo electrónico',
+	'echo-pref-email-frequency-immediately' => 'Notificacións individuais en canto cheguen',
+	'echo-pref-email-frequency-daily' => 'Un resumo diario das notificacións',
+	'echo-pref-email-frequency-weekly' => 'Un resumo semanal das notificacións',
+	'echo-pref-notify-hide-link' => 'Agochar a ligazón e a insignia das notificacións na miña barra de ferramentas',
 	'echo-no-agent' => '[Ninguén]',
 	'echo-no-title' => '[Ningunha páxina]',
 	'echo-error-no-formatter' => 'Non se definiu formato ningún para a notificación',
 	'notifications' => 'Notificacións',
 	'echo-specialpage' => 'As miñas notificacións',
 	'echo-anon' => 'Para recibir notificacións, [[Special:Userlogin/signup|cree unha conta]] ou [[Special:UserLogin|acceda ao sistema]].',
-	'echo-none' => 'Non recibiu notificación ningunha ultimamente!', # Fuzzy
+	'echo-none' => 'Non ten ningunha notificación.',
 	'notification-edit' => '$2 {{GENDER:$1|editou}} "[[$3]]" $4: "$5"',
-	'notification-edit-talk-page' => '$2 {{GENDER:$1|editou}} [[User talk:$3|a súa páxina de conversa]]. $4', # Fuzzy
+	'notification-edit-talk-page' => '$2 {{GENDER:$1|deixou}} unha mensaxe na súa [[User talk:$3|páxina de conversa]].',
 	'notification-add-comment' => '$2 {{GENDER:$1|comentou}} en "[[$4|$3]]" na páxina de conversa "$5"',
 	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|publicou}} unha nova mensaxe, "$3", en "[[$4]]"',
 	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|envioulle}} unha mensaxe: "[[$4#$3|$3]]"',
@@ -970,64 +978,61 @@ $messages['gl'] = array(
 	'notification-new-user' => 'Dámoslle a benvida a {{SITENAME}}, $1!',
 	'notification-new-user-content' => 'Boas $1. Dámoslle a benvida a {{SITENAME}}.<br />
 Lembre asinar calquera comentario que deixe nas páxinas de conversa con 4 tiles (~~~~).',
-	'notification-reverted' => '$2 {{GENDER:$1|reverteu}} a {{PLURAL:$5|1=súa edición|súas edicións}} en "[[$3]]" $4', # Fuzzy
+	'notification-reverted' => '$2 {{GENDER:$1|reverteu}} a súa edición en "[[$3]]" $4',
 	'notification-edit-email-subject' => 'Notificación de {{SITENAME}}: $2 editou "$3"',
 	'notification-edit-email-body' => 'Boas, $5:
-Esta é unha notificación para facerlle saber que $2 editou a páxina "$3" de {{SITENAME}}.
+Esta é unha notificación para facerlle saber que $2 {{GENDER:$2|editou}} a páxina "$3" de {{SITENAME}}.
 
-$2 resumiu os seus cambios con este comentario: $6
+$2 {{GENDER:$2|resumiu}} os seus cambios con este comentario: $6
 
-Pode ollar os cambios que realizou $2 seguindo esta ligazón:
+Pode ollar os cambios que {{GENDER:$2|realizou}} $2 seguindo esta ligazón:
 <$4>
 
 Recibiu esta mensaxe porque activou a subscrición ás actualizacións por correo electrónico sobre os cambios nesta páxina.
 
-$7', # Fuzzy
-	'notification-edit-talk-page-email-subject' => '$2 editou a súa páxina de conversa de {{SITENAME}}', # Fuzzy
-	'notification-edit-talk-page-email-body' => 'Boas, $4:
-Esta é unha notificación para facerlle saber que $2 editou a súa páxina de conversa de {{SITENAME}}.
+$7',
+	'notification-edit-talk-page-email-subject' => 'Ten unha nova mensaxe na súa páxina de conversa',
+	'notification-edit-talk-page-email-body' => '{{GENDER:$2|O usuario|A usuaria}} $2 deixou unha mensaxe na súa páxina de conversa:
 
-En {{SITENAME}}, a súa páxina de conversa é o lugar no que os demais usuarios poden deixarlle mensaxes.
+$4
 
-$2 utilizou o seguinte resumo para describir o seu cambio: $5
+Ollar máis:
 
-Pode ollar os cambios que realizou $2 seguindo esta ligazón:
-<$3>
+$3
 
-$6', # Fuzzy
-	'notification-reverted-email-subject' => 'Notificación de {{SITENAME}}: $2 reverteu a súa edición en "$3": $4', # Fuzzy
-	'notification-reverted-email-body' => 'Boas, $5:
-Esta é unha notificación para facerlle saber que $2 reverteu as súas edicións na páxina "$3" de {{SITENAME}}.
+$5',
+	'notification-edit-talk-page-email-batch-body' => '$2 {{GENDER:$2|deixou}} unha mensaxe na súa páxina de conversa',
+	'notification-reverted-email-subject' => '$2 {{GENDER:$2|reverteu}} a súa edición en "$3"',
+	'notification-reverted-email-body' => '$2 {{GENDER:$2|reverteu}} a súa edición en "$3".
 
-$2 utilizou o seguinte resumo para describir o seu cambio: $6
+$6
 
-Pode ollar o cambio que realizou $2 para reverter as súas edicións seguindo esta ligazón:
-<$4>
+Ollar máis:
 
-Recibiu esta mensaxe porque activou a subscrición ás actualizacións por correo electrónico
-sobre reversións dos seus cambios.
+$4
 
-$7', # Fuzzy
+$7',
+	'notification-reverted-email-batch-body' => '$2 reverteu a súa edición en "$3"',
 	'echo-email-subject-default' => 'Nova notificación en {{SITENAME}}',
 	'echo-email-body-default' => 'Ten unha nova notificación en {{SITENAME}}:
 
 $1',
-	'echo-email-footer-default' => 'Grazas!
+	'echo-email-footer-default' => '$2
 
-O equipo de {{SITENAME}}
-
-Para cambiar as preferencias do correo ou cancelar a subscrición, visite:
-
+Para controlar os correos electrónicos que lle enviamos, visite:
 {{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
 
-$1', # Fuzzy
+$1',
 	'echo-link-new' => '$1 {{PLURAL:$1|nova notificación|novas notificacións}}',
 	'echo-link' => 'Notificacións',
 	'echo-overlay-link' => 'Todas as notificacións',
 	'echo-overlay-title' => 'As miñas notificacións',
+	'echo-overlay-title-overflow' => 'As miñas notificacións (mostrando $1 de $2 sen ler)',
 	'echo-date-today' => 'Hoxe',
 	'echo-date-yesterday' => 'Onte',
 	'echo-load-more-error' => 'Houbo un erro ao procurar máis resultados.',
+	'echo-email-batch-subject-daily' => 'Hoxe ten $1 {{PLURAL:$2|notificación|notificacións}}',
+	'echo-email-batch-subject-weekly' => 'Esta semana ten $1 {{PLURAL:$2|notificación|notificacións}}',
 );
 
 /** Hebrew (עברית)
@@ -1515,38 +1520,56 @@ $3
 $5',
 	'notification-edit-talk-page-email-batch-body' => '$2 사용자가 당신의 토론 문서에 {{GENDER:$2|게시했습니다}}',
 	'notification-reverted-email-subject' => '$3에 대한 당신의 편집을 $2 사용자가 {{GENDER:$2|되돌렸습니다}}',
-	'notification-reverted-email-body' => '$5 안녕하세요.
-$2 사용자가 {{SITENAME}} $3 문서에 당신의 편집을 되돌렸음을 알립니다.
+	'notification-reverted-email-body' => '$3에 대한 당신의 편집을 $2 사용자가 {{GENDER:$2|되돌렸습니다}}.
 
-$2 사용자가 다음 요약으로 바뀜을 설명했습니다: $6
+$6
 
-이 링크를 통해 당신의 편집을 되돌린 $2 사용자에 의한 바뀜을 볼 수 있습니다:
-<$4>
+더 보기:
 
-당신이 편집한 문서를 되돌릴 때 이메일 업데이트에 구독했기 때문에
-이 메시지를 보내드립니다.
+$4
 
-$7', # Fuzzy
+$7',
+	'notification-reverted-email-batch-body' => '$3에 대한 당신의 편집을 $2 사용자가 되돌렸습니다',
 	'echo-email-subject-default' => '{{SITENAME}}에서 새 알림',
 	'echo-email-body-default' => '{{SITENAME}}에서 새 알림이 있습니다:
 
 $1',
-	'echo-email-footer-default' => '감사합니다!
+	'echo-email-footer-default' => '$2
 
-{{SITENAME}} 팀
-
-이메일 환경 설정을 바꾸거나 구독 취소하려면 다음을 방문하세요:
+보내는 이메일을 관리하려면 다음을 방문하세요:
 
 {{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
 
-$1', # Fuzzy
+$1',
 	'echo-link-new' => '새 {{PLURAL:$1|알림}} $1개',
 	'echo-link' => '알림',
-	'echo-overlay-link' => '모든 알림…', # Fuzzy
+	'echo-overlay-link' => '모든 알림',
 	'echo-overlay-title' => '내 알림',
+	'echo-overlay-title-overflow' => '내 알림 (읽지 않은 알림 $2개 중 $1개 보는 중)',
 	'echo-date-today' => '오늘',
 	'echo-date-yesterday' => '어제',
 	'echo-load-more-error' => '더 많은 결과를 가져오는 동안 오류가 발생했습니다.',
+	'echo-email-batch-subject-daily' => '오늘 {{PLURAL:$2|알림}} $1개가 있습니다',
+	'echo-email-batch-subject-weekly' => '이번 주 {{PLURAL:$2|알림}} $1개가 있습니다',
+	'echo-email-batch-body-daily' => '$1,
+
+오늘 {{SITENAME}}에 {{PLURAL:$3|알림}} $2개가 있습니다. 여기서 볼 수 있습니다:
+{{canonicalurl:{{#special:Notifications}}}}
+
+$4
+
+$5',
+	'echo-email-batch-body-weekly' => '$1,
+
+이번 주 {{SITENAME}}에 {{PLURAL:$3|알림}} $2개가 있습니다. 여기서 볼 수 있습니다:
+{{canonicalurl:{{#special:Notifications}}}}
+
+$4
+
+$5',
+	'echo-email-batch-category-header-edit-user-talk' => '토론 문서 {{PLURAL:$1|메시지}} $1개',
+	'echo-email-batch-category-header-edit-revert' => '편집 {{PLURAL:$1|되돌리기}} $1개',
+	'echo-email-batch-category-header-other' => '{{PLURAL:$1|다른}} $1개',
 );
 
 /** Colognian (Ripoarisch)
@@ -1815,9 +1838,9 @@ $messages['ms'] = array(
 	'notifications' => 'Pemberitahuan',
 	'echo-specialpage' => 'Pemberitahuan saya',
 	'echo-anon' => 'Untuk menerima pemberitahuan, sila [[Special:Userlogin/signup|buka akaun]] atau [[Special:UserLogin|log masuk]].',
-	'echo-none' => 'Anda tidak menerima sebarang pemberitahuan akhir-akhir ini.', # Fuzzy
+	'echo-none' => 'Tiada pemberitahuan untuk anda.',
 	'notification-edit' => '$2 {{GENDER:$1|menyunting}} [[$3]] $4: "$5"',
-	'notification-edit-talk-page' => '$2 {{GENDER:$1|menyunting}} [[User talk:$3|halaman perbincangan anda]]. $4', # Fuzzy
+	'notification-edit-talk-page' => '$2 {{GENDER:$1|mengepos}} di [[User talk:$3|halaman perbualan anda]].',
 	'notification-add-comment' => '$2 {{GENDER:$1|mengulas}} tentang "[[$4|$3]]" pada halaman perbincangan "$5"',
 	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|membuka}} topik baru "$3" di [[$4]]',
 	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|menghantar}} pesanan kepada anda: "[[$4#$3|$3]]"',
@@ -1825,7 +1848,7 @@ $messages['ms'] = array(
 	'notification-new-user' => 'Selamat datang ke {{SITENAME}}, $1!',
 	'notification-new-user-content' => 'Selamat sejahtera diucapkan kepada $1, dan selamat datang ke {{SITENAME}}.<br />
 Jangan lupa untuk menandatangani sebarang komen pada halaman perbincangan dengan serentet 4 tanda tilde (~~~~).',
-	'notification-reverted' => '!$2 {{GENDER:$1|membalikkan}} {{PLURAL:$5|1=suntingan|suntingan-suntingan}} anda di [[$3]] $4', # Fuzzy
+	'notification-reverted' => 'Suntingan anda di [[$3]] telah {{GENDER:$1|dibalikkan}} oleh $2 $4',
 	'notification-edit-email-subject' => 'Pemberitahuan {{SITENAME}}: $3 telah disunting oleh $2',
 	'notification-edit-email-body' => 'Selamat sejahtera $5,
 
@@ -1839,51 +1862,43 @@ Anda boleh melihat suntingan yang {{GENDER:$2|dibuat}} oleh $2 dengan mengikuti 
 Anda menerima pesanan ini kerana anda telah melanggan untuk menerima kemas kini perubahan pada halaman ini melalui e-mel.
 
 $7',
-	'notification-edit-talk-page-email-subject' => 'Halaman perbincangan anda di {{SITENAME}} telah disunting oleh $2', # Fuzzy
-	'notification-edit-talk-page-email-body' => '$4,
+	'notification-edit-talk-page-email-subject' => 'Anda mendapat pesanan baru di halaman perbualan',
+	'notification-edit-talk-page-email-body' => 'Pengguna {{SITENAME}}, $2 telah {{GENDER:$2|mengeposkan}} sesuatu di halaman perbincangan anda:
 
-Sila ambil maklum bahawa $2 telah {{GENDER:$2|menyunting}} halaman perbualan anda di {{SITENAME}}.
+$4
 
-Di {{SITENAME}}, halaman perbualan anda adalah di mana pengguna lain boleh meninggalkan pesanan kepada anda.
+Baca selanjutnya:
 
-$2 {{GENDER:$2|merumuskan}} suntingan{{GENDER:$2|nya}} dengan ringkasan yang berikut: $5
+$3
 
-Anda boleh melihat suntingan yang {{GENDER:$2|dibuat}} oleh $2 dengan mengikuti pautan ini:
-<$3>
-
-$6', # Fuzzy
+$5',
 	'notification-edit-talk-page-email-batch-body' => '$2 {{GENDER:$2|mengepos}} pada halaman perbualan anda',
-	'notification-reverted-email-subject' => 'Pemberitahuan {{SITENAME}}: $2 telah {{GENDER:$2|membalikkan}} suntingan anda di $3: $4', # Fuzzy
-	'notification-reverted-email-body' => '$5,
+	'notification-reverted-email-subject' => 'Suntingan anda di $3 telah {{GENDER:$2|dibalikkan}} oleh $2',
+	'notification-reverted-email-body' => 'Suntingan anda di $3 telah {{GENDER:$2|dibalikkan}} oleh $2.
 
-Sila ambil maklum bahawa $2 telah {{GENDER:$2|membalikkan}} suntingan anda di halaman $3 di {{SITENAME}}.
+$6
 
-$2 {{GENDER:$2|menjelaskan}} pengubahan{{GENDER:$2|nya}} dengan ringkasan yang berikut: $6
+Baca selanjutnya:
 
-Anda boleh melihat perubahan yang {{GENDER:$2|dibuat}} oleh $2 untuk membalikkan hasil suntingan anda dengan mengikuti pautan ini:
-<$4>
+$4
 
-Anda menerima pesanan ini kerana anda telah melanggan peringatan e-mel apabila suntingan anda dibalikkan.
-
-$7', # Fuzzy
-	'notification-reverted-email-batch-body' => 'Suntingan anda di $3 dibalikkan oleh $2', # Fuzzy
+$7',
+	'notification-reverted-email-batch-body' => 'Suntingan anda di $3 telah dibalikkan oleh $2',
 	'echo-email-subject-default' => 'Pemberitahuan baru di {{SITENAME}}',
 	'echo-email-body-default' => 'Anda menerima pemberitahuan baru di {{SITENAME}}:
 
 $1',
-	'echo-email-footer-default' => 'Terima kasih!
+	'echo-email-footer-default' => '$2
 
-Pasukan {{SITENAME}}
-
-Untuk mengubah keutamaan e-mel anda atau berhenti melanggan, kunjungi:
-
+Untuk mengubah pesanan-pesanan e-mel yang anda hendak kami hantar, kunjungi:
 {{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
 
-$1', # Fuzzy
+$1',
 	'echo-link-new' => '$1 pemberitahuan baru',
 	'echo-link' => 'Pemberitahuan',
 	'echo-overlay-link' => 'Semua pemberitahuan',
 	'echo-overlay-title' => 'Pemberitahuan saya',
+	'echo-overlay-title-overflow' => 'Pemberitahuan untuk saya (memaparkan $1 daripada $2 pesanan belum dibaca)',
 	'echo-date-today' => 'Hari ini',
 	'echo-date-yesterday' => 'Semalam',
 	'echo-load-more-error' => 'Ralat berlaku ketika mengambil lebih banyak hasil.',
@@ -1985,9 +2000,9 @@ $messages['nl'] = array(
 	'notifications' => 'Meldingen',
 	'echo-specialpage' => 'Mijn meldingen',
 	'echo-anon' => '[[Special:Userlogin/signup|Maak een gebruiker aan]] of [[Special:UserLogin|meld u aan]] als u meldingen wilt ontvangen.',
-	'echo-none' => 'U hebt de laatste tijd geen meldingen ontvangen.', # Fuzzy
+	'echo-none' => 'U hebt geen meldingen.',
 	'notification-edit' => '$2 {{GENDER:$1|heeft}} [[$3]] bewerkt $4: "$5"',
-	'notification-edit-talk-page' => '$2 {{GENDER:$1|heeft}} [[User talk:$3|uw overlegpagina]] bewerkt. $4', # Fuzzy
+	'notification-edit-talk-page' => '$2 heeft een bericht {{GENDER:$1|achtergelaten}} op uw [[User talk:$3|overlegpagina]].',
 	'notification-add-comment' => '$2 {{GENDER:$1|heeft}} gereageerd op "[[$4|$3]]" op de overlegpagina "$5"',
 	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|heeft}} een nieuw onderwerp "$3" geplaatst op [[$4]]',
 	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|heeft}} u een bericht gezonden: "[[$4#$3|$3]]"',
@@ -1995,7 +2010,7 @@ $messages['nl'] = array(
 	'notification-new-user' => 'Welkom op {{SITENAME}}, $1!',
 	'notification-new-user-content' => "Hallo $1 en welkom op {{SITENAME}}.<br />
 Vergeet niet om opmerkingen over overlegpagina's te ondertekenen met 4 tildes (~~~~).",
-	'notification-reverted' => '$2 {{GENDER:$1|heeft}} uw {{PLURAL:$5|bewerking|bewerkingen}} teruggedraaid op [[$3]] $4', # Fuzzy
+	'notification-reverted' => 'Uw {{PLURAL:$5|bewerking|bewerkingen}} aan [[$3]] {{PLURAL:$5|is|zijn}} {{GENDER:$1|teruggedraaid}} door $2 $4', # Fuzzy
 	'notification-edit-email-subject' => 'Melding van {{SITENAME}}: $3 is bewerkt door $2',
 	'notification-edit-email-body' => 'Hallo $5,
 
@@ -2009,49 +2024,43 @@ U kunt de wijzigingen die {{GENDER:$2|hij|zij}} heeft gemaakt bekijken via de vo
 U ontvangt dit bericht omdat u bent geabonneerd op meldingen via e-mail voor deze pagina.
 
 $7',
-	'notification-edit-talk-page-email-subject' => 'Uw overlegpagina op {{SITENAME}} is bewerkt door $2', # Fuzzy
-	'notification-edit-talk-page-email-body' => 'Hallo $4,
-U ontvangt deze melding omdat $2 uw overlegpagina op {{SITENAME}} heeft bewerkt.
+	'notification-edit-talk-page-email-subject' => 'U hebt een nieuw bericht op uw overlegpagina',
+	'notification-edit-talk-page-email-body' => '$2 heeft een bericht {{GENDER:$2|achtergelaten}} op uw overlegpagina op {{SITENAME}}
 
-Uw overlegpagina is de plaats op {{SITENAME}} waar andere gebruikers berichten voor u kunnen achterlaten.
+$4
 
-$2 heeft {{GENDER:$2|zijn|haar}} wijzigingen als volgt samengevat: $5
+Meer lezen:
 
-Bekijk de wijzigingen die $2 heeft gemaakt:
-<$3>
+$3
 
-$6', # Fuzzy
+$5',
 	'notification-edit-talk-page-email-batch-body' => '$2 {{GENDER:$2|heeft}} een bericht achtergelaten op uw overlegpagina',
-	'notification-reverted-email-subject' => 'Melding van {{SITENAME}}: {{GENDER:$2|$2}} heeft uw bewerking aan $3 teruggedraaid: $4', # Fuzzy
-	'notification-reverted-email-body' => 'Hallo $5,
-Dit is een melding om u te laten weten dat {{GENDER:$2|$2}} uw bewerking op $3 op {{SITENAME}} heeft teruggedraaid.
+	'notification-reverted-email-subject' => 'Uw bewerking aan $3 is {{GENDER:$2|teruggedraaid}} door $2',
+	'notification-reverted-email-body' => 'Uw bewerking aan $3 is {{GENDER:$2|teruggedraaid}} door $2.
 
-$2 heeft {{GENDER:$2|zijn|haar}} wijziging als volgt samengevat: $6
+$6
 
-U kunt de verandering die {{GENDER:$2|hij|zij}} heeft gemaakt door de terugdraaiing bekijken via de volgende verwijzing:
-<$4>
+Meer lezen:
 
-U ontvangt dit bericht omdat u zich heeft geabonneerd op e-mailnotificaties wanneer uw bewerkingen worden teruggedraaid.
+$4
 
-$7', # Fuzzy
-	'notification-reverted-email-batch-body' => 'Uw bewerking aan $3 is teruggedraaid door $2', # Fuzzy
+$7',
+	'notification-reverted-email-batch-body' => 'Uw bewerking aan $3 is {{GENDER:$2|teruggedraaid}} door $2',
 	'echo-email-subject-default' => 'Nieuwe melding op {{SITENAME}}',
 	'echo-email-body-default' => 'U hebt een nieuwe melding op {{SITENAME}}:
 
 $1',
-	'echo-email-footer-default' => 'Dank u wel!
-
-Het team van {{SITENAME}}
+	'echo-email-footer-default' => '$2
 
 Volg de volgende verwijzing om uw e-mailvoorkeuren te wijzigen of om u uit te schrijven:
-
 {{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
 
-$1', # Fuzzy
+$1',
 	'echo-link-new' => '{{PLURAL:$1|1 nieuwe melding|$1 nieuwe meldingen}}',
 	'echo-link' => 'Meldingen',
 	'echo-overlay-link' => 'Alle meldingen',
 	'echo-overlay-title' => 'Mijn meldingen',
+	'echo-overlay-title-overflow' => 'Meldingen ($1 van $2 ongelezen)',
 	'echo-date-today' => 'Vandaag',
 	'echo-date-yesterday' => 'Gisteren',
 	'echo-load-more-error' => 'Er is een fout opgetreden tijdens het ophalen van meer resultaten.',
