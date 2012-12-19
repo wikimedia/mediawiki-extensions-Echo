@@ -124,7 +124,8 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			if ( in_array( $payloadComponent, $this->validPayloadComponents ) ) {
 				switch ( $payloadComponent ) {
 					case 'summary':
-						$payload .= $this->formatSummary( $event, $user );
+						// TODO: set 3rd param to true if we aren't in the overlay
+						$payload .= $this->formatSummary( $event, $user, false );
 						break;
 					case 'snippet':
 						// TODO: build this

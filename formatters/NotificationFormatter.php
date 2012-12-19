@@ -144,9 +144,10 @@ abstract class EchoNotificationFormatter {
 	 *
 	 * @param $event EchoEvent that the notification is for.
 	 * @param $user User to format the notification for.
+	 * @param $parse boolean If true, parse the summary. If fasle, strip wikitext.
 	 * @return string The edit summary (or empty string)
 	 */
-	protected function formatSummary( $event, $user ) {
+	protected function formatSummary( $event, $user, $parse = false ) {
 		$eventData = $event->getExtra();
 		if ( !isset( $eventData['revid'] ) ) {
 			return '';
@@ -154,14 +155,21 @@ abstract class EchoNotificationFormatter {
 		$revision = Revision::newFromId( $eventData['revid'] );
 		if ( $revision ) {
 			$summary = $revision->getComment( Revision::FOR_THIS_USER, $user );
-			$summary = FeedItem::stripComment( $summary );
-			$summary = trim( htmlspecialchars( $summary ) );
+
 			if ( $this->outputFormat === 'html' ) {
-				// Convert header titles to proper HTML
-				$summary = preg_replace( "/\/\*\s(.*)\s\*\//", "→<span class='autocomment'>\$1:</span>", $summary );
+				if ( $parse ) {
+					$summary = Linker::formatComment( $summary, $revision->getTitle() );
+				} else {
+					$summary = FeedItem::stripComment( $summary );
+					$summary = trim( htmlspecialchars( $summary ) );
+					// Convert header titles to proper HTML
+					// TODO: make this more i18n friendly
+					$summary = preg_replace( "/\/\*\s(.*)\s\*\/\s(.*)/", "<span dir='auto'><span class='autocomment'>\$1:</span> \$2</span>", $summary );
+				}
 				$summary = Xml::tags( 'span', array( 'class' => 'comment' ), $summary );
 				$summary = Xml::tags( 'div', array( 'class' => 'mw-echo-summary' ), $summary );
 			}
+
 			return $summary;
 		}
 		return '';
