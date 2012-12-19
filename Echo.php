@@ -179,10 +179,6 @@ $wgEchoDefaultNotificationTypes = array( // Welcome events do not use subscripti
 	'all' => array(
 		'notify' => true,
 		'email' => true,
-	),
-	'reverted' => array(
-		'notify' => true,
-		'email' => true,
 	)
 );
 

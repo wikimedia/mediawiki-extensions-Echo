@@ -157,6 +157,11 @@ class EchoHooks {
 			} elseif ( !$wgEchoDefaultNotificationTypes['all']['email'] ) {
 				continue;
 			}
+			// If we're creating our own preference for email notification on user
+			// talk page edit, remove the existing preference from the User profile tab.
+			if ( $enabledEvent === 'edit-user-talk' ) {
+				unset( $preferences['enotifusertalkpages'] );
+			}
 			$eventMessage = wfMessage( 'echo-pref-email-' . $enabledEvent )->plain();
 			$emailOptions["$eventMessage"] = $enabledEvent;
 		}
