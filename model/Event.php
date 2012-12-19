@@ -92,7 +92,10 @@ class EchoEvent {
 		}
 
 		$obj->insert();
-		EchoNotificationController::notify( $obj );
+
+		global $wgEchoUseJobQueue;
+
+		EchoNotificationController::notify( $obj, $wgEchoUseJobQueue  );
 
 		return $obj;
 	}

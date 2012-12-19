@@ -166,6 +166,12 @@ $wgEchoEnableEmailBatch = true;
 // Otherwise, only show a badge next to the username.
 $wgEchoShowFullNotificationsLink = true;
 
+// Whether to use job queue to process web and email notifications, bypass the queue for now
+// since it's taking more than an hour to run in mediawiki.org, this is not acceptable for the
+// purpose of testing notification.
+// Todo - Abstract this into classes like: JobQueueNone, JobQueueMySQL, JobQueueRedis
+$wgEchoUseJobQueue = false;
+
 // By default, send emails for each notification as they come in
 $wgDefaultUserOptions['echo-email-frequency'] = EchoHooks::EMAIL_IMMEDIATELY;
 
