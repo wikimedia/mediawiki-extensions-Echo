@@ -248,7 +248,7 @@ class MWEchoEmailBatch {
 		// global email footer
 		$footer = wfMessage( 'echo-email-footer-default' )
 				->inLanguage( $this->mUser->getOption( 'language' ) )
-				->params( $wgEchoEmailFooterAddress )
+				->params( $wgEchoEmailFooterAddress, '' )
 				->text();
 
 		// @Todo - replace them with the CONSTANT in 33810 once it is merged 
