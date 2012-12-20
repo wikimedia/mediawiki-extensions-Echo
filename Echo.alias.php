@@ -53,6 +53,11 @@ $specialPageAliases['scn'] = array(
 	'Notifications' => array( 'Notifiche' ),
 );
 
+/** Vietnamese (Tiếng Việt) */
+$specialPageAliases['vi'] = array(
+	'Notifications' => array( 'Thông_báo' ),
+);
+
 /** Simplified Chinese (中文（简体）‎) */
 $specialPageAliases['zh-hans'] = array(
 	'Notifications' => array( '通知' ),
