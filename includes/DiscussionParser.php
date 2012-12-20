@@ -34,6 +34,8 @@ abstract class EchoDiscussionParser {
 		$user = $userID != 0 ? User::newFromId( $userID ) : User::newFromName( $userName, false );
 
 		foreach ( $interpretation as $action ) {
+			// These two event types are disabled temporarily, there is no need to process them
+			/*
 			if ( $action['type'] == 'add-comment' ) {
 				$fullSection = $action['full-section'];
 				$header = self::extractHeader( $fullSection );
@@ -64,6 +66,7 @@ abstract class EchoDiscussionParser {
 				) );
 				$createdEvents = true;
 			}
+			*/
 		}
 
 		if ( !$createdEvents && $title->getNamespace() == NS_USER_TALK ) {
