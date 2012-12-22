@@ -607,16 +607,21 @@ $messages['diq'] = array(
 /** Greek (Ελληνικά)
  * @author Aitolos
  * @author Glavkos
+ * @author ZaDiak
  */
 $messages['el'] = array(
+	'echo-desc' => 'Σύστημα ειδοποιήσεων',
 	'prefs-echo' => 'Ειδοποιήσεις',
+	'prefs-displaynotifications' => 'Επιλογές εμφάνισης',
 	'echo-no-agent' => '[Κανένας]',
 	'echo-no-title' => '[Χωρίς σελίδα]',
 	'notifications' => 'Ειδοποιήσεις',
 	'echo-specialpage' => 'Οι ειδοποιήσεις μου',
 	'echo-link' => 'Οι ειδοποιήσεις μου', # Fuzzy
-	'echo-overlay-link' => 'Όλες οι ειδοποιήσεις...',
+	'echo-overlay-link' => 'Όλες οι ειδοποιήσεις...', # Fuzzy
 	'echo-overlay-title' => 'Οι ειδοποιήσεις μου',
+	'echo-date-today' => 'Σήμερα',
+	'echo-date-yesterday' => 'Χθες',
 );
 
 /** Esperanto (Esperanto)
@@ -759,9 +764,11 @@ $5',
 $messages['et'] = array(
 	'echo-no-agent' => '[Eikeegi]',
 	'echo-specialpage' => 'Minu märkused',
-	'echo-link' => 'Märkused',
-	'echo-overlay-link' => 'Kõik märkused...',
+	'echo-link' => 'Märkused', # Fuzzy
+	'echo-overlay-link' => 'Kõik märkused...', # Fuzzy
 	'echo-overlay-title' => 'Minu märkused',
+	'echo-date-today' => 'Täna',
+	'echo-date-yesterday' => 'Eile',
 );
 
 /** Persian (فارسی)
@@ -769,14 +776,17 @@ $messages['et'] = array(
  */
 $messages['fa'] = array(
 	'prefs-echo' => 'اعلامیه‌ها',
+	'prefs-displaynotifications' => 'گزینه‌های نمایش',
 	'echo-no-agent' => '[هیچ کس]',
 	'echo-no-title' => '[بدون عنوان]', # Fuzzy
 	'echo-email-body-default' => 'شما در {{SITENAME}} اعلان جدید دارید:
 
 $1',
-	'echo-link' => 'اعلامیه‌های من',
-	'echo-overlay-link' => 'همهٔ اعلامیه‌ها...',
+	'echo-link' => 'اعلامیه‌های من', # Fuzzy
+	'echo-overlay-link' => 'همهٔ اعلامیه‌ها...', # Fuzzy
 	'echo-overlay-title' => 'اعلامیه‌های من',
+	'echo-date-today' => 'امروز',
+	'echo-date-yesterday' => 'دیروز',
 );
 
 /** Finnish (suomi)
@@ -1297,6 +1307,15 @@ $1',
 	'echo-overlay-title' => 'Mi notificationes',
 );
 
+/** Indonesian (Bahasa Indonesia)
+ * @author Farras
+ */
+$messages['id'] = array(
+	'echo-desc' => 'Sistem notifikasi',
+	'prefs-echo' => 'Notifikasi',
+	'notification-new-user' => 'Selamat datang di {{SITENAME}}, $1!',
+);
+
 /** Italian (italiano)
  * @author Beta16
  * @author Darth Kule
@@ -1491,11 +1510,13 @@ $1',
  * @author David1010
  */
 $messages['ka'] = array(
+	'echo-desc' => 'შეტყობინებების სისტემა',
 	'prefs-echo' => 'შეტყობინებები',
 	'echo-no-agent' => '[არავინ]',
 	'echo-no-title' => '[არ არის გვერდი]',
 	'notifications' => 'შეტყობინებები',
 	'echo-specialpage' => 'ჩემი შეტყობინებები',
+	'notification-new-user' => 'კეთილი იყოს თქვენი მობრძანება საიტზე {{SITENAME}}, $1!',
 	'echo-link' => 'შეტყობინებები',
 	'echo-overlay-link' => 'შეტყობინება',
 	'echo-overlay-title' => 'ჩემი შეტყობინებები',
@@ -1670,17 +1691,21 @@ $messages['lb'] = array(
 	'echo-desc' => 'Notifikatiouns-System',
 	'prefs-echo' => 'Notifikatiounen',
 	'prefs-displaynotifications' => 'Optioune vum Affichage',
+	'echo-pref-email-reverted' => 'Meng Ännerung zrécksetzen',
+	'echo-pref-email-frequency-daily' => 'All Dag e Resumé vun den Notifikatiounen',
+	'echo-pref-email-frequency-weekly' => 'All Woch e Resumé vun den Notifikatiounen',
 	'echo-no-agent' => '[Keen]',
 	'echo-no-title' => '[Keen Säit]',
 	'notifications' => 'Notifikatiounen',
 	'echo-specialpage' => 'Meng Notifikatiounen',
 	'echo-anon' => 'Fir Notifikatiounen ze kréien, [[Special:Userlogin/signup|maacht e Benotzerkont op]] oder [[Special:UserLogin|loggt Iech an]]',
-	'echo-none' => 'Dir hutt keng Notifikatioune mat Verspéidung kritt!', # Fuzzy
+	'echo-none' => 'Dir hutt keng Notifikatiounen.',
 	'notification-edit' => '$2 {{GENDER:$1|huet}} [[$3]] $4: "$5" geännert',
 	'notification-edit-talk-page' => '$2 {{GENDER:$1|huet}} [[User talk:$3|Är Diskussiounssäit]]. $4', # Fuzzy
 	'notification-new-user' => 'Wëllkomm op {{SITENAME}}, $1!',
 	'notification-edit-email-subject' => '{{SITENAME}}-Notifikatioun: $3 gouf vum $2 geännert',
 	'notification-edit-talk-page-email-subject' => 'Är {{SITENAME}} Diskussiounssäit gouf vum $2 geännert', # Fuzzy
+	'notification-reverted-email-batch-body' => 'Är Ännerung op $3 gouf vum $2 zréckgesat',
 	'echo-email-subject-default' => 'Nei Notifikatioun op {{SITENAME}}',
 	'echo-email-body-default' => 'Dir hutt eng nei Notifikatioun op {{SITENAME}}:
 
@@ -1691,6 +1716,7 @@ $1',
 	'echo-overlay-title' => 'Meng Notifikatiounen',
 	'echo-date-today' => 'Haut',
 	'echo-date-yesterday' => 'Gëschter',
+	'echo-email-batch-category-header-edit-user-talk' => 'Diskussiounssäit $1 {{PLURAL:$1|Message|Messagen}}',
 );
 
 /** Lithuanian (lietuvių)
@@ -2246,17 +2272,31 @@ $messages['ps'] = array(
 );
 
 /** Romanian (română)
+ * @author Firilacroco
  * @author Minisarm
  * @author Stelistcristi
  */
 $messages['ro'] = array(
+	'echo-desc' => 'Sistem de notificări',
 	'prefs-echo' => 'Notificări',
+	'prefs-displaynotifications' => 'Opțiuni de afișare',
+	'echo-pref-email-edit-user-talk' => 'Mesaje pe pagina mea de discuții',
+	'echo-pref-email-reverted' => 'Anulează modificarea mea',
+	'echo-no-agent' => '[Nimeni]',
 	'echo-no-title' => '[Nicio pagină]',
 	'notifications' => 'Notificări',
 	'echo-specialpage' => 'Notificările mele',
-	'echo-link' => 'Notificările mele',
-	'echo-overlay-link' => 'Toate notificările...',
+	'echo-none' => 'Nu aveți nicio notificare.',
+	'notification-edit' => '$2 {{GENDER:$1|a modificat}} [[$3]] $4: „$5”',
+	'notification-edit-talk-page' => '$2 {{GENDER:$1|a publicat}} pe [[User talk:$3|pagina dumneavoastră de discuții]].',
+	'notification-add-comment' => '$2 {{GENDER:$1|a comentat}} subiectul „[[$4|$3]]” pe pagina de discuții „$5”',
+	'notification-new-user' => 'Bine ați venit pe {{SITENAME}}, $1!',
+	'echo-link' => 'Notificările mele', # Fuzzy
+	'echo-overlay-link' => 'Toate notificările...', # Fuzzy
 	'echo-overlay-title' => 'Notificările mele',
+	'echo-date-today' => 'Astăzi',
+	'echo-date-yesterday' => 'Ieri',
+	'echo-load-more-error' => 'A intervenit o eroare la obținerea mai multor rezultate.',
 );
 
 /** tarandíne (tarandíne)
@@ -2308,15 +2348,18 @@ $messages['ru'] = array(
  * @author පසිඳු කාවින්ද
  */
 $messages['si'] = array(
+	'echo-desc' => 'නිවේදන පද්ධතිය',
 	'prefs-echo' => 'නිවේදන',
+	'prefs-displaynotifications' => 'විකල්ප පෙන්වන්න',
 	'echo-no-agent' => '[කිසිවෙකු නැත]',
 	'echo-no-title' => '[මාතෘකාවක් නොමැත]', # Fuzzy
 	'notifications' => 'නිවේදන',
 	'echo-specialpage' => 'මගේ නිවේදන',
-	'notification-edit' => '$2 {{GENDER:$1|සංස්කරණය කරා}} [[$3]] $4',
+	'echo-none' => 'ඔබට නිවේදන කිසිවක් නොමැත.',
+	'notification-edit' => '$2 {{GENDER:$1|සංස්කරණය කරා}} [[$3]] $4', # Fuzzy
 	'echo-email-subject-default' => '{{SITENAME}} හී නව නිවේදනයක්',
-	'echo-link' => 'මගේ නිවේදන',
-	'echo-overlay-link' => 'සියලුම නිවේදන...',
+	'echo-link' => 'මගේ නිවේදන', # Fuzzy
+	'echo-overlay-link' => 'සියලුම නිවේදන...', # Fuzzy
 	'echo-overlay-title' => 'මගේ නිවේදන',
 );
 
@@ -2660,22 +2703,38 @@ $5',
 /** Simplified Chinese (中文（简体）‎)
  * @author Anakmalaysia
  * @author Liangent
+ * @author Shirayuki
  */
 $messages['zh-hans'] = array(
-	'echo-desc' => 'MediaWiki的下一代通知架构', # Fuzzy
+	'echo-desc' => '通知系统',
 	'prefs-echo' => '通知',
+	'prefs-displaynotifications' => '显示选项',
+	'prefs-emailsubscriptions' => '在以下情况使用电子邮件通知我',
+	'prefs-emailfrequency' => '我通过电子邮件接收通知的频率',
+	'echo-pref-email-edit-user-talk' => '我的讨论页的话题',
+	'echo-pref-email-reverted' => '对我的编辑的撤销',
+	'echo-pref-email-frequency-never' => '不要给我发送任何电子邮件通知',
+	'echo-pref-email-frequency-immediately' => '允许的个别通知',
+	'echo-pref-email-frequency-daily' => '每日通知摘要',
+	'echo-pref-email-frequency-weekly' => '每周通知摘要',
+	'echo-pref-notify-hide-link' => '在我的工具栏中隐藏通知的链接和徽章',
 	'echo-no-agent' => '[无人]',
-	'echo-no-title' => '[无标题]', # Fuzzy
+	'echo-no-title' => '[无页面]',
+	'echo-error-no-formatter' => '通知没有定义格式',
 	'notifications' => '通知',
 	'echo-specialpage' => '我的通知',
 	'echo-anon' => '要接收通知，请[[Special:Userlogin/signup|创建帐号]]或[[Special:UserLogin|登录]]。',
-	'echo-none' => '您最近没有收到任何通知。',
-	'notification-edit' => '$2{{GENDER:$1|编辑了}}[[$3]] $4', # Fuzzy
-	'notification-edit-talk-page' => '$2{{GENDER:$1|编辑了}}[[User talk:$3|您的对话页]]. $4',
+	'echo-none' => '您没有任何通知。',
+	'notification-edit' => '$2{{GENDER:$1|编辑了}}[[$3]]$4：“$5”', # Fuzzy
+	'notification-edit-talk-page' => '$2在[[User talk:$3|您的对话页]]{{GENDER:$1|发表了话题}}。',
 	'notification-add-comment' => '$2在“$5”讨论页上{{GENDER:$1|评论了}}“[[$4|$3]]”',
 	'notification-add-talkpage-topic' => '$2在[[$4]]上{{GENDER:$1|发表了}}一个新主题“$3”',
 	'notification-add-talkpage-topic-yours' => '$2给您{{GENDER:$1|发送了}}新消息：“[[$4#$3|$3]]”',
 	'notification-add-comment-yours' => '$2在您的对话页上上{{GENDER:$1|评论了}}“[[$4#$3|$3]]”',
+	'notification-new-user' => '欢迎来到{{SITENAME}}，$1！',
+	'notification-new-user-content' => '您好 $1，欢迎来到{{SITENAME}}。<br />
+请记得为讨论页上的任何讨论使用4个波浪线（~~~~）签名。',
+	'notification-reverted' => '您在[[$3]]上的编辑已被$2{{GENDER:$1|撤销}} $4',
 	'notification-edit-email-subject' => '{{SITENAME}}通知：$3已被$2编辑',
 	'notification-edit-email-body' => '您好 $5，
 这个通知为了让您了解$2编辑了{{SITENAME}}页面$3。
@@ -2687,7 +2746,7 @@ $messages['zh-hans'] = array(
 
 感谢您使用{{SITENAME}}
 {{SITENAME}}通知系统', # Fuzzy
-	'notification-edit-talk-page-email-subject' => '您的{{SITENAME}}对话页已被$2编辑',
+	'notification-edit-talk-page-email-subject' => '您的{{SITENAME}}对话页已被$2编辑', # Fuzzy
 	'notification-edit-talk-page-email-body' => '您好 $4，
 这个通知为了让您了解$2编辑了{{SITENAME}}上您的对话页。
 
@@ -2703,12 +2762,15 @@ $messages['zh-hans'] = array(
 
 $1',
 	'echo-link-new' => '$1条新通知',
-	'echo-link' => '我的通知', # Fuzzy
-	'echo-overlay-link' => '全部通知...', # Fuzzy
+	'echo-link' => '通知',
+	'echo-overlay-link' => '全部通知',
 	'echo-overlay-title' => '我的通知',
+	'echo-date-today' => '今天',
+	'echo-date-yesterday' => '昨天',
 );
 
 /** Traditional Chinese (中文（繁體）‎)
+ * @author Shirayuki
  * @author Simon Shek
  */
 $messages['zh-hant'] = array(
@@ -2719,9 +2781,9 @@ $messages['zh-hant'] = array(
 	'notifications' => '通知',
 	'echo-specialpage' => '我的通知',
 	'echo-anon' => '要接收通知，請[[Special:Userlogin/signup|創建帳號]]或[[Special:UserLogin|登錄]]。',
-	'echo-none' => '您最近沒有收到任何通知。',
+	'echo-none' => '您最近沒有收到任何通知。', # Fuzzy
 	'notification-edit' => '$2{{GENDER:$1|編輯了}}[[$3]] $4', # Fuzzy
-	'notification-edit-talk-page' => '$2{{GENDER:$1|編輯了}}[[User talk:$3|您的對話頁]]. $4',
+	'notification-edit-talk-page' => '$2{{GENDER:$1|編輯了}}[[User talk:$3|您的對話頁]]. $4', # Fuzzy
 	'notification-add-comment' => '$2在“$5”討論頁上{{GENDER:$1|評論了}}“[[$4|$3]]”',
 	'notification-add-talkpage-topic' => '$2在[[$4]]上{{GENDER:$1|發表了}}一個新主題“$3”',
 	'notification-add-talkpage-topic-yours' => '$2給您{{GENDER:$1|發送了}}新消息：“[[$4#$3|$3]]”',
@@ -2737,7 +2799,7 @@ $messages['zh-hant'] = array(
 
 感謝您使用{{SITENAME}}
 {{SITENAME}}通知系統', # Fuzzy
-	'notification-edit-talk-page-email-subject' => '你在{{SITENAME}}上的討論頁已被$2編輯。',
+	'notification-edit-talk-page-email-subject' => '你在{{SITENAME}}上的討論頁已被$2編輯。', # Fuzzy
 	'notification-edit-talk-page-email-body' => '您好 $4，
 這個通知為了讓您了解$2編輯了{{SITENAME}}上您的對話頁。
 
@@ -2756,4 +2818,6 @@ $1',
 	'echo-link' => '我的訊息', # Fuzzy
 	'echo-overlay-link' => '所有訊息...', # Fuzzy
 	'echo-overlay-title' => '我的訊息',
+	'echo-date-today' => '今天',
+	'echo-date-yesterday' => '昨天',
 );
