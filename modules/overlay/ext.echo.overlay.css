@@ -6,7 +6,7 @@
 	background-color: #fff;
 	width: 450px;
 	min-height: 2em;
-	padding: 15px 0 0 0;
+	padding: 0;
 	color: #6D6D6D;
 	z-index: 60;
 	overflow: auto;
@@ -25,23 +25,26 @@
 .mw-echo-overlay-title {
 	/*border-bottom: 1px solid #A7D7F9;*/
 	font-size: 13px;
-	padding: 0 15px 10px 60px;
+	padding: 15px 15px 15px 60px;
 	border-bottom: 1px solid #DDDDDD;
 	font-weight: bold;
+}
+
+#mw-echo-overlay-footer {
+	padding: 0px 0px 0px 48px;
 }
 
 #mw-echo-overlay-link {
 	clear: left;
 	float: left;
-	padding: 0px 0px 0px 18px;
-	margin-top: 15px;
-	width: 160px;
+	padding: 15px 0px 15px 30px;
+	width: 150px;
 	min-height: 14px;
 	font-size: 0.8em;
 	/* @embed */
 	background-image: url(../icons/NotificationsPage.png);
 	background-repeat: no-repeat;
-	background-position: 0 0;
+	background-position: 12px 15px;
 }
 
 #mw-echo-overlay-pref-link {
@@ -49,15 +52,12 @@
 	width: 150px;
 	min-height: 14px;
 	font-size: 0.8em;
-	margin-top: 15px;
-	padding-left: 18px;
+	padding: 15px 0 15px 30px;
+	border-left: 1px solid #DDDDDD;
 	/* @embed */
 	background-image: url(../icons/Settings.png);
 	background-repeat: no-repeat;
-	background-position: 0 0;
-}
-.mw-echo-overlay-first-footer-link {
-	margin: 15px 15px 15px 60px;
+	background-position: 12px 15px;
 }
 
 #pt-notifications .mw-badge {

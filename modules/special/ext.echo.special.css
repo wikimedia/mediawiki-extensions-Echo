@@ -1,6 +1,23 @@
+/* Core CSS overrides */
+
+span.comment {
+	font-style: normal;
+}
+span.autocomment {
+	font-style: italic;
+}
+h1#firstHeading {
+	max-width: 555px;
+	margin-left: 45px;
+}
+
+/* Echo specific CSS */
+
 #mw-echo-more {
 	text-align: center;
-	font-size: 15px;
+	font-size: 13px;
+	max-width: 600px;
+	margin-left: 45px;
 }
 
 #mw-echo-pref-link {

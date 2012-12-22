@@ -84,9 +84,12 @@
 						$ul.appendTo( $overlay );
 					}
 
+					var $overlayFooter = $( '<div/>' )
+						.attr( 'id', 'mw-echo-overlay-footer' );
+
 					// only show 'All notifications...' link if there is notification
 					if ( notifications.index.length > 0 ) {
-						$overlay.append(
+						$overlayFooter.append(
 							$( '<div/>' )
 								.attr( 'id', 'mw-echo-overlay-link' )
 								.append( $link
@@ -97,7 +100,7 @@
 					}
 
 					// add link to notification preferences
-					$overlay.append(
+					$overlayFooter.append(
 						$( '<div/>' )
 							.attr( 'id', 'mw-echo-overlay-pref-link' )
 							.append( $prefLink
@@ -105,6 +108,8 @@
 								.attr( 'href', $prefLink.attr( 'href' ) + '#mw-prefsection-echo' )
 							)
 					);
+
+					$overlay.append( $overlayFooter );
 
 					callback( $overlay );
 

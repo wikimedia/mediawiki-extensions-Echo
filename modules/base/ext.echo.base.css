@@ -4,7 +4,7 @@
 	font-weight: normal;
 }
 .mw-echo-content {
-	font-size: 11px;
+	font-size: 13px;
 	overflow: hidden;
 }
 .mw-echo-payload {
@@ -12,8 +12,8 @@
 }
 .mw-echo-timestamp {
 	color: #A5A5A5;
-	margin-top: 0.5em;
-	font-size: 11px;
+	margin-top: 0.1em;
+	font-size: 9px;
 }
 .mw-echo-notifications {
 	background-color: #EEEEEE;
