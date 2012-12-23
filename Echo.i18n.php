@@ -46,7 +46,7 @@ $messages['en'] = array(
 	'notification-new-user' => 'Welcome to {{SITENAME}}, $1!',
 	'notification-new-user-content' => 'Hi $1, and welcome to {{SITENAME}}.<br />
 Please remember to sign any comments on talk pages with 4 tildes (~~~~).',
-	'notification-reverted' => 'Your edit on [[$3]] has been {{GENDER:$1|reverted}} by $2 $4',
+	'notification-reverted' => 'Your {{PLURAL:$5|edit on [[$3]] has|edits on [[$3]] have}} been {{GENDER:$1|reverted}} by $2 $4',
 	'notification-edit-email-subject' => '{{SITENAME}} notification: $3 has been edited by $2',
 	'notification-edit-email-body' => 'Hello $5,
 This is a notification to let you know that $2 {{GENDER:$2|has edited}} the {{SITENAME}} page $3.
