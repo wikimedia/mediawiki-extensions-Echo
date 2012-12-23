@@ -216,7 +216,7 @@ $messages['qqq'] = array(
 * $2 is the username of the person who reverted, formatted.
 * $3 is the page that was reverted, formatted.
 * $4 is a diff link to the ''revert'', possibly formatted.
-* $5 is the number of edits that were reverted. NOTE: This will only be set to 1 or 2, with 2 actually meaning 'an unknown number greater than 0'.", # Fuzzy
+* $5 is the number of edits that were reverted. NOTE: This will only be set to 1 or 2, with 2 actually meaning 'an unknown number greater than 0'.",
 	'notification-edit-email-subject' => 'E-mail subject. Parameters:
 * $2 is a username
 * $3 is a page title',
@@ -444,6 +444,25 @@ $1',
 	'echo-overlay-title' => 'Moje upozornění',
 );
 
+/** Danish (dansk)
+ * @author Tjernobyl
+ */
+$messages['da'] = array(
+	'prefs-echo' => 'Meddelelser',
+	'prefs-emailsubscriptions' => 'Giv mig besked via e-mail, når en person',
+	'echo-no-agent' => '[Ingen]',
+	'echo-no-title' => '[Ingen side]',
+	'notifications' => 'Meddelelser',
+	'echo-specialpage' => 'Mine meddelelser',
+	'notification-edit-email-subject' => '{{SITENAME}}-meddelelse: $3 er blevet redigeret af $2',
+	'echo-link' => 'Meddelelser',
+	'echo-overlay-link' => 'Alle meddelelser',
+	'echo-overlay-title' => 'Mine meddelelser',
+	'echo-overlay-title-overflow' => 'Mine meddelelser (viser $1 af $2 ulæste)',
+	'echo-date-today' => 'I dag',
+	'echo-date-yesterday' => 'I går',
+);
+
 /** German (Deutsch)
  * @author Kghbln
  * @author Metalhead64
@@ -477,7 +496,7 @@ $messages['de'] = array(
 	'notification-new-user' => 'Willkommen bei {{SITENAME}}, $1!',
 	'notification-new-user-content' => 'Hallo $1, und willkommen bei {{SITENAME}}.<br />
 Bitte vergiss nicht alle Beiträge auf Diskussionsseiten mit 4 Tilden (~~~~) zu signieren.',
-	'notification-reverted' => 'Deine Bearbeitung der Seite [[$3]] wurde von $2 {{GENDER:$1|rückgängig}} gemacht $4',
+	'notification-reverted' => 'Deine {{PLURAL:$5|Bearbeitung der Seite [[$3]] wurde|Bearbeitungen der Seite [[$3]] wurden}} von $2 {{GENDER:$1|rückgängig}} gemacht $4',
 	'notification-edit-email-subject' => '{{SITENAME}}-Benachrichtigung: $3 wurde von $2 bearbeitet',
 	'notification-edit-email-body' => 'Hallo $5,
 
@@ -628,14 +647,28 @@ $messages['el'] = array(
  * @author Yekrats
  */
 $messages['eo'] = array(
-	'echo-no-title' => '[Sen Titolo]', # Fuzzy
+	'echo-no-agent' => '[Neniu]',
+	'echo-no-title' => '[Sen Paĝo]',
+	'notification-edit' => '$2 {{GENDER:$1|redaktis}} [[$3]] $4: "$5"',
+	'notification-edit-talk-page' => '$2 {{GENDER:$1|afiŝis}} en via [[User talk:$3|diskuto-pago]].',
+	'notification-add-comment' => '$2 {{GENDER:$1|komentis}} en "[[$4|$3]]" en la diskuto-paĝo "$5"',
+	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|afiŝis}} novan temon "$3" je [[$4]]',
+	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|sendis}} al vi mesaĝon: "[[$4#$3|$3]]"',
+	'notification-add-comment-yours' => '$2 {{GENDER:$1|komentis}} en "[[$4|$3]]" en via diskuto-paĝo "$5"', # Fuzzy
+	'notification-new-user' => 'Bonvenon al {{SITENAME}}, $1!',
+	'notification-edit-talk-page-email-batch-body' => '$2 {{GENDER:$2|afiŝis}} en via diskuto-paĝo',
 	'echo-email-body-default' => 'Vi havas novan noton ĉe {{SITENAME}}:
 
 $1',
 	'echo-link-new' => '$1 {{PLURAL:$1|nova noto|novaj notoj}}',
-	'echo-link' => 'Miaj notoj',
-	'echo-overlay-link' => 'Ĉiuj notoj...',
+	'echo-link' => 'Miaj notoj', # Fuzzy
+	'echo-overlay-link' => 'Ĉiuj notoj...', # Fuzzy
 	'echo-overlay-title' => 'Miaj notoj',
+	'echo-date-today' => 'Hodiaŭ',
+	'echo-date-yesterday' => 'Hieraŭ',
+	'echo-email-batch-category-header-edit-user-talk' => '$1 Diskuto-paĝo {{PLURAL:$1|mesaĝo|mesaĝoj}}',
+	'echo-email-batch-category-header-edit-revert' => '$1 {{PLURAL:$1|malfaro de redakto|malfaroj de redaktoj}}',
+	'echo-email-batch-category-header-other' => '{{PLURAL:$1|Alia|$1 Aliaj}}',
 );
 
 /** Spanish (español)
@@ -762,6 +795,9 @@ $5',
  * @author Pikne
  */
 $messages['et'] = array(
+	'prefs-emailsubscriptions' => 'Mulle saadetakse e-kiri, kui keegi',
+	'echo-pref-email-edit-user-talk' => 'Postitab mu aruteluleheküljele',
+	'echo-pref-email-reverted' => 'Tühistab mu muudatuse',
 	'echo-no-agent' => '[Eikeegi]',
 	'echo-specialpage' => 'Minu märkused',
 	'echo-link' => 'Märkused', # Fuzzy
@@ -855,7 +891,7 @@ $messages['fr'] = array(
 	'notification-new-user' => 'Bienvenue sur {{SITENAME}}, $1 !',
 	'notification-new-user-content' => "Bonjour $1 et bienvenue sur {{SITENAME}}.<br />
 N'oubliez pas de signer vos commentaires sur les pages de discussions avec 4 tildes (~ ~ ~ ~).",
-	'notification-reverted' => 'Votre modification sur [[$3]] {{GENDER:$1|a annulée}} par $2 $4',
+	'notification-reverted' => 'Votre modification sur [[$3]] {{GENDER:$1|a annulée}} par $2 $4', # Fuzzy
 	'notification-edit-email-subject' => 'Notification de {{SITENAME}} : $3 a été modifié par $2',
 	'notification-edit-email-body' => 'Bonjour $5,
 Ceci est une notification pour vous informer que $2 {{GENDER:$2|a modifié}} la page $3 de {{SITENAME}}.
@@ -988,7 +1024,7 @@ $messages['gl'] = array(
 	'notification-new-user' => 'Dámoslle a benvida a {{SITENAME}}, $1!',
 	'notification-new-user-content' => 'Boas $1. Dámoslle a benvida a {{SITENAME}}.<br />
 Lembre asinar calquera comentario que deixe nas páxinas de conversa con 4 tiles (~~~~).',
-	'notification-reverted' => '$2 {{GENDER:$1|reverteu}} a súa edición en "[[$3]]" $4',
+	'notification-reverted' => '$2 {{GENDER:$1|reverteu}} a súa edición en "[[$3]]" $4', # Fuzzy
 	'notification-edit-email-subject' => 'Notificación de {{SITENAME}}: $2 editou "$3"',
 	'notification-edit-email-body' => 'Boas, $5:
 Esta é unha notificación para facerlle saber que $2 {{GENDER:$2|editou}} a páxina "$3" de {{SITENAME}}.
@@ -1098,7 +1134,7 @@ $messages['he'] = array(
 	'notification-new-user' => 'ברוך בואך ל{{GRAMMAR:תחילית|{{SITENAME}}}}, $1!',
 	'notification-new-user-content' => 'שלום $1 וברוך בואך ל{{GRAMMAR:תחילית|{{SUTENAME}}}}.<br />
 נא לזכור לחתום על כל דפי השיחה ב־4 טילדות (~~~~).',
-	'notification-reverted' => '$2 {{GENDER:$1|שחזרה|שחזרה}} את עריכתך בדף [[$3]] $4',
+	'notification-reverted' => '$2 {{GENDER:$1|שחזרה|שחזרה}} את עריכתך בדף [[$3]] $4', # Fuzzy
 	'notification-edit-email-subject' => 'הודעה מאתר {{SITENAME}}: הדף $3 נערך על־ידי $2',
 	'notification-edit-email-body' => 'שלום $5,
 זוהי הודעה כדי לידע אותך ש$2 {{GENDER:$2|ערך|ערכה}} את עמוד ה{{SITENAME}} "$3".
@@ -1183,7 +1219,7 @@ $messages['hsb'] = array(
 	'notification-new-user' => 'Witaj do {{GRAMMAR:genitiw|{{SITENAME}}}}, $1!',
 	'notification-new-user-content' => 'Halo $1, a witaj do {{GRAMMAR:genitiw|{{SITENAME}}}}.<br />
 Prošu njezabudź komentary na diskusijnych stronach z 4 tildami (~~~~) podpisać .',
-	'notification-reverted' => 'Twoja změna na [[$3]]  je so wot $2 {{GENDER:$1|anulował|anulowała}} $4',
+	'notification-reverted' => 'Twoja změna na [[$3]]  je so wot $2 {{GENDER:$1|anulował|anulowała}} $4', # Fuzzy
 	'notification-edit-email-subject' => 'Zdźělenka z {{GRAMMAR:genitiw|{{SITENAME}}}}: $3 je so wot $2 wobdźěłał',
 	'notification-edit-email-body' => 'Witaj $5,
 
@@ -1309,11 +1345,20 @@ $1',
 
 /** Indonesian (Bahasa Indonesia)
  * @author Farras
+ * @author පසිඳු කාවින්ද
  */
 $messages['id'] = array(
 	'echo-desc' => 'Sistem notifikasi',
 	'prefs-echo' => 'Notifikasi',
+	'notifications' => 'Notifikasi',
 	'notification-new-user' => 'Selamat datang di {{SITENAME}}, $1!',
+);
+
+/** Icelandic (íslenska)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['is'] = array(
+	'echo-link' => 'Tilkynningar',
 );
 
 /** Italian (italiano)
@@ -1348,7 +1393,7 @@ $messages['it'] = array(
 	'notification-new-user' => 'Benvenuto su {{SITENAME}}, $1!',
 	'notification-new-user-content' => 'Ciao $1 e benvenuto su {{SITENAME}}.<br />
 Ricordati di firmare i commenti nelle pagine di discussione con quattro tildi (~~~~).',
-	'notification-reverted' => 'La tua modifica su [[$3]] è stata {{GENDER:$1|annullata}} da $2 $4',
+	'notification-reverted' => 'La tua modifica su [[$3]] è stata {{GENDER:$1|annullata}} da $2 $4', # Fuzzy
 	'notification-edit-email-subject' => 'Notifica di {{SITENAME}}: $3 è stata modificata da $2',
 	'notification-edit-email-body' => 'Ciao $5,
 Questa è una notifica per farti sapere che $2 {{GENDER:$2|ha modificato}} la pagina di {{SITENAME}} $3.
@@ -1451,7 +1496,7 @@ $messages['ja'] = array(
 	'notification-new-user' => '$1さん、{{SITENAME}}にようこそ!',
 	'notification-new-user-content' => 'こんにちは、$1さん。{{SITENAME}}へようこそ。<br />
 トークページヘのコメントには 4 つのチルダ (~~~~) を付けて署名してください。',
-	'notification-reverted' => '[[$3]] でのあなたの編集を $2 が{{GENDER:$1|差し戻しました}} $4',
+	'notification-reverted' => '[[$3]] でのあなたの編集を $2 が{{GENDER:$1|差し戻しました}} $4', # Fuzzy
 	'notification-edit-email-subject' => '{{SITENAME}}からの通知: $3 を $2 が編集しました',
 	'notification-edit-talk-page-email-subject' => 'トークページに新着メッセージがあります',
 	'notification-edit-talk-page-email-batch-body' => '$2 があなたのトークページに{{GENDER:$2|投稿しました}}',
@@ -1554,7 +1599,7 @@ $messages['ko'] = array(
 	'notification-new-user' => '$1, {{SITENAME}}에 온 것을 환영합니다!',
 	'notification-new-user-content' => '$1 안녕하세요, {{SITENAME}}에 온 것을 환영합니다.<br />
 토론 문서에서 글을 쓴 후에는 물결표 4개(~~~~)를 넣어 서명하는 것을 기억하세요.',
-	'notification-reverted' => '[[$3]]에 대한 당신의 편집을 $2 사용자가 {{GENDER:$1|되돌렸습니다}} $4',
+	'notification-reverted' => '[[$3]]에 대한 당신의 편집을 $2 사용자가 {{GENDER:$1|되돌렸습니다}} $4', # Fuzzy
 	'notification-edit-email-subject' => '{{SITENAME}} 알림: $3 문서를 $2에 의해 편집함',
 	'notification-edit-email-body' => '$5 안녕하세요.
 $2 사용자가 {{SITENAME}} $3 문서를 {{GENDER:$2|편집했음}}을 알립니다.
@@ -1724,6 +1769,9 @@ $1',
  */
 $messages['lt'] = array(
 	'prefs-echo' => 'Pranešimai',
+	'echo-no-agent' => '[Niekas]',
+	'echo-date-today' => 'Šiandien',
+	'echo-date-yesterday' => 'Vakar',
 );
 
 /** Macedonian (македонски)
@@ -1758,7 +1806,7 @@ $messages['mk'] = array(
 	'notification-new-user' => 'Добредојдовте на {{SITENAME}}, $1!',
 	'notification-new-user-content' => 'Здраво $1, и добредојдовте на {{SITENAME}}.<br />
 НЕ заборавајте да си ги потпишувате коментарите на страниците за разговор со 4 тилди (~~~~).',
-	'notification-reverted' => '$2 {{GENDER:$1|го врати}} вашето уредување на [[$3]] $4',
+	'notification-reverted' => '$2 {{GENDER:$1|го врати}} вашето уредување на [[$3]] $4', # Fuzzy
 	'notification-edit-email-subject' => 'Известување од {{SITENAME}}: $2 ја измени страницата $3',
 	'notification-edit-email-body' => 'Здраво $5,
 Ве известуваме дека $2 {{GENDER:$2|ја измени}} страницата $3 на {{SITENAME}}.
@@ -1912,7 +1960,7 @@ $messages['ms'] = array(
 	'notification-new-user' => 'Selamat datang ke {{SITENAME}}, $1!',
 	'notification-new-user-content' => 'Selamat sejahtera diucapkan kepada $1, dan selamat datang ke {{SITENAME}}.<br />
 Jangan lupa untuk menandatangani sebarang komen pada halaman perbincangan dengan serentet 4 tanda tilde (~~~~).',
-	'notification-reverted' => 'Suntingan anda di [[$3]] telah {{GENDER:$1|dibalikkan}} oleh $2 $4',
+	'notification-reverted' => 'Suntingan anda di [[$3]] telah {{GENDER:$1|dibalikkan}} oleh $2 $4', # Fuzzy
 	'notification-edit-email-subject' => 'Pemberitahuan {{SITENAME}}: $3 telah disunting oleh $2',
 	'notification-edit-email-body' => 'Selamat sejahtera $5,
 
@@ -1993,32 +2041,36 @@ $5',
  * @author Chrisportelli
  */
 $messages['mt'] = array(
-	'echo-desc' => "Infrastruttura ta' ġenerazzjoni ġdida għan-notifiki fuq MediaWiki", # Fuzzy
+	'echo-desc' => 'Sistema għan-notifiki',
 	'prefs-echo' => 'Notifiki',
+	'prefs-emailfrequency' => 'Kemm huma spissi n-notifiki li nirċievi',
 	'echo-no-agent' => '[Ħadd]',
-	'echo-no-title' => '[L-ebda titlu]', # Fuzzy
+	'echo-no-title' => '[L-ebda paġna]',
 	'notifications' => 'Notifiki',
 	'echo-specialpage' => 'Notifiki tiegħi',
 	'echo-anon' => 'Sabiex tirċievi notifiki, [[Special:Userlogin/signup|oħloq kont]] jew [[Special:UserLogin|illoggja]].',
-	'echo-none' => 'Riċentament ma rċevejtx l-ebda notifika.',
+	'echo-none' => "M'għandek l-ebda notifiki",
 	'notification-edit' => '$2 {{GENDER:$1|immodifika|immodifikat}} [[$3]] $4', # Fuzzy
-	'notification-edit-talk-page' => "$2 {{GENDER:$1|immodifika|immodifikat}} il-[[User talk:$3|paġna ta' diskussjoni tiegħek]]. $4",
+	'notification-edit-talk-page' => "$2 {{GENDER:$1|immodifika|immodifikat}} il-[[User talk:$3|paġna ta' diskussjoni tiegħek]]. $4", # Fuzzy
 	'notification-add-comment' => '$2 {{GENDER:$1|ikkummenta|ikkummentat}} fuq "[[$4|$3]]" fil-paġna ta\' diskussjoni ta\' "$5"',
 	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|daħħal|daħħlet}} suġġett ġdid "$3" fuq [[$4]]',
 	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|bagħtlek|bagħtitlek}} messaġġ: "[[$4#$3|$3]]"',
 	'notification-add-comment-yours' => '$2 {{GENDER:$1|ikkummenta|ikkummentat}} fuq "[[$4#$3|$3]]" fil-paġna ta\' diskussjoni tiegħek',
+	'notification-new-user' => 'Merħba fuq {{SITENAME}}, $1!',
+	'notification-reverted' => 'Il-{{PLURAL:$5|modifika|modifiki}} tiegħek fuq [[$3]] {{PLURAL:$5|ġiet|ġew}} {{GENDER:$1|imħassra}} minn $2 $4',
 	'notification-edit-email-subject' => "Notifika ta' {{SITENAME}}: $3 ġiet modifikata minn $2",
 	'notification-edit-email-body' => "Insellimlek $1,
-Din hija notifika sabiex ngħarrfuk li $2 immodifika l-paġna $3 fuq {{SITENAME}}.
+Din hija notifika sabiex ngħarrfuk li $2 {{GENDER:$2|immodifika}} l-paġna $3 fuq {{SITENAME}}.
 
-Tista' tara t-tibdil li $2 għamel billi ssegwi din il-ħolqa:
+$2 ikkummenta l-modifiki {{GENDER:$2|tiegħu}} b'din it-taqsira: $6
+
+Tista' tara l-bidla li $2 {{GENDER:$2|għamel}} billi ssegwi din il-ħolqa:
 <$4>
 
 Inti qiegħed tirċievi dan il-messaġġ minħabba li abbonajt għall-aġġornamenti permezz tal-posta elettronika għat-tibdil li jsir fuq din il-paġna.
 
-Grazzi talli qiegħed tuża {{SITENAME}}
-Is-sistema ta' notifika ta' {{SITENAME}}", # Fuzzy
-	'notification-edit-talk-page-email-subject' => "Il-paġna ta' diskussjoni tiegħek fuq {{SITENAME}} ġiet modifikata minn $2",
+$7", # Fuzzy
+	'notification-edit-talk-page-email-subject' => "Għandek messaġġ ġdid fil-paġna ta' diskussjoni",
 	'notification-edit-talk-page-email-body' => "Insellimlek $4,
 Din hija notifika sabiex ngħarrfuk li $2 immodifika l-paġna ta' diskussjoni tiegħek fuq {{SITENAME}}.
 
@@ -2361,6 +2413,8 @@ $messages['si'] = array(
 	'echo-link' => 'මගේ නිවේදන', # Fuzzy
 	'echo-overlay-link' => 'සියලුම නිවේදන...', # Fuzzy
 	'echo-overlay-title' => 'මගේ නිවේදන',
+	'echo-date-today' => 'අද',
+	'echo-date-yesterday' => 'පෙරදින',
 );
 
 /** Serbian (Cyrillic script) (српски (ћирилица)‎)
@@ -2408,6 +2462,7 @@ $messages['sr-el'] = array(
 $messages['sv'] = array(
 	'echo-desc' => 'Notifikationssystem',
 	'prefs-echo' => 'Meddelanden',
+	'prefs-displaynotifications' => 'Visningsalternativ',
 	'prefs-emailsubscriptions' => 'Meddela mig via e-post när någon',
 	'prefs-emailfrequency' => 'Hur ofta jag får aviseringar via e-post',
 	'echo-pref-email-edit-user-talk' => 'Inlägg på min diskussionssida',
@@ -2432,11 +2487,12 @@ $messages['sv'] = array(
 	'notification-new-user' => 'Välkommen till {{SITENAME}},  $1!',
 	'notification-new-user-content' => 'Hej $1, och välkommen till {{SITENAME}}.<br />
 Kom ihåg att underteckna kommentarer på diskussionssidor med 4 tilde (~~~~).',
-	'notification-reverted' => 'Din redigering på [[$3]] har {{GENDER:$1|återställts}} av $2 $4',
+	'notification-reverted' => 'Din redigering på [[$3]] har {{GENDER:$1|återställts}} av $2 $4', # Fuzzy
 	'notification-edit-email-subject' => '{{SITENAME}} meddelande: $3 har redigerats av $2',
 	'notification-edit-talk-page-email-subject' => 'Du har ett nytt meddelande på diskussionssidan',
 	'notification-edit-talk-page-email-batch-body' => '$2 {{GENDER:$2|postade}} på din diskussionssida',
 	'notification-reverted-email-subject' => 'Din redigering på $3 har {{GENDER:$2|återställts}} av $2',
+	'notification-reverted-email-batch-body' => 'Din redigering på $3 återställdes av $2',
 	'echo-email-subject-default' => 'Nytt meddelande på {{SITENAME}}',
 	'echo-email-body-default' => 'Du har ett nytt meddelande på {{SITENAME}}:
 
@@ -2451,6 +2507,7 @@ $1',
 	'echo-load-more-error' => 'Ett fel uppstod när fler resultat skulle hämtas.',
 	'echo-email-batch-subject-daily' => 'Du har $1 {{PLURAL:$2|meddelande|meddelanden}} idag',
 	'echo-email-batch-subject-weekly' => 'Du har $1 {{PLURAL:$2|meddelande|meddelanden}} denna vecka',
+	'echo-email-batch-category-header-edit-user-talk' => '$1 {{PLURAL:$1|meddelande|meddelanden}} på diskussionssidan',
 );
 
 /** Tamil (தமிழ்)
@@ -2624,7 +2681,7 @@ $messages['vi'] = array(
 	'notification-new-user' => 'Chào mừng $1 đã đến với {{SITENAME}}!',
 	'notification-new-user-content' => 'Chào mừng $1 đã đến với {{SITENAME}}.<br />
 Hãy nhớ ký tên vào các lời bình luận tại trang thảo luận bằng 4 dấu ngã (~~~~).',
-	'notification-reverted' => '{{GENDER:$1}}$2 đã lùi lại sửa đổi của bạn tại [[$3]] $4',
+	'notification-reverted' => '{{GENDER:$1}}$2 đã lùi lại sửa đổi của bạn tại [[$3]] $4', # Fuzzy
 	'notification-edit-email-subject' => 'Thông báo từ {{SITENAME}}: $3 đã được sửa bởi $2',
 	'notification-edit-email-body' => 'Xin chào $5,
 Xin thông báo với bạn rằng $2 đã sửa đổi trang $3 tại {{SITENAME}}.
@@ -2734,7 +2791,7 @@ $messages['zh-hans'] = array(
 	'notification-new-user' => '欢迎来到{{SITENAME}}，$1！',
 	'notification-new-user-content' => '您好 $1，欢迎来到{{SITENAME}}。<br />
 请记得为讨论页上的任何讨论使用4个波浪线（~~~~）签名。',
-	'notification-reverted' => '您在[[$3]]上的编辑已被$2{{GENDER:$1|撤销}} $4',
+	'notification-reverted' => '您在[[$3]]上的编辑已被$2{{GENDER:$1|撤销}} $4', # Fuzzy
 	'notification-edit-email-subject' => '{{SITENAME}}通知：$3已被$2编辑',
 	'notification-edit-email-body' => '您好 $5，
 这个通知为了让您了解$2编辑了{{SITENAME}}页面$3。
