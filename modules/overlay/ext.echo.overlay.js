@@ -50,7 +50,8 @@
 						unread = [],
 						unreadTotalCount = result.query.notifications.count,
 						$title = $( '<div class="mw-echo-overlay-title"></div>' ),
-						$ul = $( '<ul class="mw-echo-notifications"></ul>' );
+						$ul = $( '<ul class="mw-echo-notifications"></ul>' ),
+						titleText = '';
 
 					$.each( notifications.index, function( index, id ) {
 						var data = notifications['list'][id];
@@ -69,13 +70,14 @@
 
 					if ( notifications.index.length > 0 ) {
 						if ( unreadTotalCount > unread.length ) {
-							$title.text( mw.msg( 'echo-overlay-title-overflow', unread.length, unreadTotalCount ) );
+							titleText = mw.msg( 'echo-overlay-title-overflow', unread.length, unreadTotalCount );
 						} else {
-							$title.text( mw.msg( 'echo-overlay-title' ) );
+							titleText =  mw.msg( 'echo-overlay-title' );
 						}
 					} else {
-						$title.text( mw.msg( 'echo-none' ) );
+						titleText = mw.msg( 'echo-none' );
 					}
+					$title.html( $( '<a/>' ).attr( 'href', mw.util.wikiGetlink( 'Special:Notifications' ) ).text( titleText ) );
 					$title.appendTo( $overlay );
 
 					if ( $ul.find( 'li' ).length ) {
