@@ -919,7 +919,7 @@ $messages['et'] = array(
 	'notification-add-comment-yours' => '$2 {{GENDER:$1|kommenteeris}} sinu aruteluleheküljel teemat "[[$4#$3|$3]]"',
 	'notification-new-user' => 'Tere tulemast saidile {{SITENAME}}, $1!',
 	'notification-edit-talk-page-email-subject' => 'Sul on uus arutelulehekülje sõnum',
-	'notification-edit-talk-page-email-body' => '{{SITENAME}} kasutaja $2 {{GENDER:$2|postitas}} sinu arutelulehele:
+	'notification-edit-talk-page-email-body' => '{{GRAMMAR:genitive|{{SITENAME}}}} kasutaja $2 postitas sinu arutelulehele:
 
 $4
 
@@ -968,22 +968,100 @@ $messages['fi'] = array(
 	'prefs-displaynotifications' => 'Näyttöasetukset',
 	'prefs-emailsubscriptions' => 'Ilmoita minulle sähköpostilla, kun joku',
 	'prefs-emailfrequency' => 'Kuinka usein saan sähköposti-ilmoituksia',
+	'echo-pref-email-edit-user-talk' => 'Kirjoittaa keskustelusivulleni',
+	'echo-pref-email-reverted' => 'Kumoaa muokkaukseni',
+	'echo-pref-email-frequency-never' => 'Älä lähetä minulle sähköposti-ilmoituksia',
+	'echo-pref-email-frequency-immediately' => 'Yksittäisiä ilmoituksia niiden tullessa',
+	'echo-pref-email-frequency-daily' => 'Päivittäinen yhteenveto ilmoituksista',
+	'echo-pref-email-frequency-weekly' => 'Viikottainen yhteenveto ilmoituksista',
+	'echo-pref-notify-hide-link' => 'Piilota linkki ja merkki työkalupalkkini ilmoituksissa',
 	'echo-no-agent' => '[Ei kukaan]',
 	'echo-no-title' => '[Ei sivua]',
+	'echo-error-no-formatter' => 'Ilmoitukselle ei ole määritetty muotoilua',
 	'notifications' => 'Ilmoitukset',
 	'echo-specialpage' => 'Ilmoitukset',
 	'echo-anon' => 'Jos haluat saada ilmoituksia, [[Special:Userlogin/signup|luo käyttäjätunnus]] tai [[Special:UserLogin|kirjaudu sisään]].',
 	'echo-none' => 'Ei uusia ilmoituksia.',
 	'notification-edit' => '$2 {{GENDER:$1|muokkasi}} sivua [[$3]] $4: $5',
-	'notification-edit-talk-page' => '$2 {{GENDER:$1|muokkasi}} [[User talk:$3|keskustelusivuasi]]. $4', # Fuzzy
+	'notification-edit-talk-page' => '$2 {{GENDER:$1|kirjoitti}} [[User talk:$3|keskustelusivullesi]].',
 	'notification-add-comment' => '$2 {{GENDER:$1|kommentoi}} keskustelua [[$4|$3]] sivusta $5',
 	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|aloitti}} keskustelun $3 sivusta [[$4]]',
 	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|lähetti}} sinulle viestin: [[$4#$3|$3]]',
+	'notification-add-comment-yours' => '$2 {{GENDER:$1|kommentoi}} keskustelua "[[$4#$3|$3]]" keskustelusivullasi',
+	'notification-new-user' => 'Tervetuloa sivustolle {{SITENAME}}, $1!',
+	'notification-new-user-content' => 'Hei $1, ja tervetuloa sivustolle {{SITENAME}}.<br />
+Muista allekirjoittaa kommenttisi keskustelusivuilla neljällä tildellä (~~~~).',
+	'notification-reverted' => '$2 kumosi muokkauksesi sivuun [[$3]] $4', # Fuzzy
+	'notification-edit-email-subject' => '{{SITENAME}}-ilmoitus: $2 muokkasi sivua $3',
+	'notification-edit-email-body' => 'Hei $5,
+tämä on ilmoitus sinulle siitä, että $2 on muokannut sivuston {{SITENAME}} sivua $3.
+
+$2 tiivisti muutoksensa tähän kommenttiin: $6
+
+Voit nähdä muutoksen, jonka $2 teki, seuraamalla tätä linkkiä:
+<$4>
+
+Sait tämän viestin, sillä olet tilannut sähköposti-ilmoitukset muutoksista tähän sivuun.
+
+$7',
+	'notification-edit-talk-page-email-subject' => 'Sinulle on uusi keskustelusivuviesti',
+	'notification-edit-talk-page-email-body' => '{{SITENAME}}-käyttäjä $2 kirjoitti keskustelusivullesi:
+
+$4
+
+Katso lisää:
+
+$3
+
+$5',
+	'notification-edit-talk-page-email-batch-body' => '$2 kirjoitti keskustelusivullesi',
+	'notification-reverted-email-subject' => '$2 kumosi muokkauksesi sivuun $3',
+	'notification-reverted-email-body' => '$2 kumosi muokkauksesi sivuun $3.
+
+$6
+
+Katso lisää:
+
+$4
+
+$7',
+	'notification-reverted-email-batch-body' => '$2 kumosi muokkauksesi sivuun $3',
+	'echo-email-subject-default' => 'Uusi ilmoitus sivustolla {{SITENAME}}',
+	'echo-email-body-default' => 'Sinulle on uusi ilmoitus sivustolla {{SITENAME}}:
+
+$1',
+	'echo-email-footer-default' => '$2
+
+Hallitaksesi sitä, mitä sähköposteja lähetämme sinulle, käy sivulla:
+{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
+
+$1',
+	'echo-link-new' => '$1 {{PLURAL:$1|uusi ilmoitus|uutta ilmoitusta}}',
 	'echo-link' => 'Ilmoitukset',
 	'echo-overlay-link' => 'Kaikki ilmoitukset',
 	'echo-overlay-title' => 'Ilmoitukset',
+	'echo-overlay-title-overflow' => 'Ilmoitukseni (näytetään $1/$2 lukematonta)',
 	'echo-date-today' => 'Tänään',
 	'echo-date-yesterday' => 'Eilen',
+	'echo-load-more-error' => 'Virhe haettaessa lisää tuloksia.',
+	'echo-email-batch-subject-daily' => 'Sinulle on $1 {{PLURAL:$2|ilmoitus|ilmoitusta}} tänään',
+	'echo-email-batch-subject-weekly' => 'Sinulle on $1 {{PLURAL:$2|ilmoitus|ilmoitusta}} tällä viikolla',
+	'echo-email-batch-body-daily' => '$1,
+
+Sinulle on $2 {{PLURAL:$3|ilmoitus|ilmoitusta}} sivustolla {{SITENAME}} tänään. Katso ne täällä:
+
+$4
+
+$5',
+	'echo-email-batch-body-weekly' => '$1,
+
+Sinulle on $2 {{PLURAL:$3|ilmoitus|ilmoitusta}} sivustolla {{SITENAME}} tällä viikolla. Katso ne täällä:
+
+$4
+
+$5',
+	'echo-email-batch-category-header-edit-user-talk' => '$1 {{PLURAL:$1|viesti|viestiä}} keskustelusivulla',
+	'echo-email-batch-category-header-edit-revert' => '$1 {{PLURAL:$1|muokkaus|muokkausta}} kumottu',
 	'echo-email-batch-category-header-other' => '$1 {{PLURAL:$1|muu|muuta}}',
 );
 
@@ -1158,7 +1236,7 @@ $messages['gl'] = array(
 	'notification-new-user' => 'Dámoslle a benvida a {{SITENAME}}, $1!',
 	'notification-new-user-content' => 'Boas $1. Dámoslle a benvida a {{SITENAME}}.<br />
 Lembre asinar calquera comentario que deixe nas páxinas de conversa con 4 tiles (~~~~).',
-	'notification-reverted' => '$2 {{GENDER:$1|reverteu}} a súa edición en "[[$3]]" $4', # Fuzzy
+	'notification-reverted' => '$2 {{GENDER:$1|reverteu}} {{PLURAL:$5|a súa edición|as súas edicións}} en "[[$3]]" $4',
 	'notification-edit-email-subject' => 'Notificación de {{SITENAME}}: $2 editou "$3"',
 	'notification-edit-email-body' => 'Boas, $5:
 Esta é unha notificación para facerlle saber que $2 {{GENDER:$2|editou}} a páxina "$3" de {{SITENAME}}.
@@ -1425,6 +1503,8 @@ $messages['hu'] = array(
 	'echo-link' => 'Értesítések',
 	'echo-overlay-link' => 'Összes értesítés…', # Fuzzy
 	'echo-overlay-title' => 'Értesítéseim',
+	'echo-date-today' => 'Ma',
+	'echo-date-yesterday' => 'Tegnap',
 );
 
 /** Interlingua (interlingua)
@@ -2576,17 +2656,22 @@ $1',
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
+	'echo-desc' => 'Sisteme de notifiche',
 	'prefs-echo' => 'Notificaziune',
+	'prefs-displaynotifications' => 'Opziune de visualizzazzione',
 	'echo-no-agent' => '[Nisciune]',
-	'echo-no-title' => '[Nisciune titole]', # Fuzzy
+	'echo-no-title' => '[Nisciuna vôsce]',
 	'notifications' => 'Notificaziune',
 	'echo-specialpage' => 'Notificaziune mie',
-	'notification-edit' => '$2 {{GENDER:$1|cangiate}} [[$3]] $4',
+	'notification-edit' => '$2 {{GENDER:$1|cangiate}} [[$3]] $4: "$5"',
+	'notification-edit-talk-page-email-subject' => "Tu è 'nu messàgge nuève sus 'a pàgene de le 'ngazzaminde",
 	'echo-email-body-default' => "Tu è 'na notifica nove sus a {{SITENAME}}:
 
 $1",
-	'echo-link' => 'Notificaziune mie',
-	'echo-overlay-link' => 'Tutte le notificaziune ...',
+	'echo-link' => 'Notificaziune',
+	'echo-overlay-link' => 'Tutte le notificaziune',
+	'echo-email-batch-category-header-edit-revert' => "$1 Cange l'{{PLURAL:$1|annullamende|annullaminde}}",
+	'echo-email-batch-category-header-other' => '$1 {{PLURAL:$1|Otre}}',
 );
 
 /** Russian (русский)
@@ -2648,10 +2733,56 @@ $3
 
 $5',
 	'notification-edit-talk-page-email-batch-body' => '$2 {{GENDER:$2|оставил|оставила}} сообщение на вашей странице обсуждения',
+	'notification-reverted-email-subject' => 'Ваша правка на $3 была отменена $2',
+	'notification-reverted-email-body' => 'Ваша правка на $3 была отменена $2.
+
+$6
+
+Узнать больше:
+
+$4
+
+$7',
+	'notification-reverted-email-batch-body' => 'Ваша правка на $3 была отменена $2',
 	'echo-email-subject-default' => 'Новые уведомления на {{SITENAME}}',
+	'echo-email-body-default' => 'Вы имеете новое уведомление в проекте {{SITENAME}}:
+
+$1',
+	'echo-email-footer-default' => '$2
+
+Для управления отправкой вам электронных сообщений посетите:
+{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
+
+$1',
+	'echo-link-new' => '$1 {{PLURAL:$1|новое уведомление|новых уведомлений}}',
 	'echo-link' => 'Уведомления',
 	'echo-overlay-link' => 'Все уведомления',
 	'echo-overlay-title' => 'Мои уведомления',
+	'echo-overlay-title-overflow' => 'Мои уведомления (показаны $1 из $2 непрочитанных)',
+	'echo-date-today' => 'Сегодня',
+	'echo-date-yesterday' => 'Вчера',
+	'echo-load-more-error' => 'Произошла ошибка при получении дополнительных результатов.',
+	'echo-email-batch-subject-daily' => 'Вы получили $1 {{PLURAL:$2|уведомление|уведомления|уведомлений}} сегодня',
+	'echo-email-batch-subject-weekly' => 'Вы получили $1 {{PLURAL:$2|уведомление|уведомления|уведомлений}} на этой неделе',
+	'echo-email-batch-body-daily' => '$1,
+
+Вы получили $2 {{PLURAL:$3|уведомление|уведомления|уведомлений}} в проекте {{SITENAME}} сегодня. Увидеть их можно здесь:
+{{canonicalurl:{{#special:Notifications}}}}
+
+$4
+
+$5',
+	'echo-email-batch-body-weekly' => '$1,
+
+Вы получили $2 {{PLURAL:$3|уведомление|уведомления|уведомлений}} в проекте {{SITENAME}} на этой неделе. Увидеть их можно здесь:
+{{canonicalurl:{{#special:Notifications}}}}
+
+$4
+
+$5',
+	'echo-email-batch-category-header-edit-user-talk' => '$1 {{PLURAL:$1|сообщение|сообщений}} на странице обсуждения',
+	'echo-email-batch-category-header-edit-revert' => '$1 {{PLURAL:$1|отмена|отмен}} правок',
+	'echo-email-batch-category-header-other' => '$1 прочего', # Fuzzy
 );
 
 /** Sinhala (සිංහල)
@@ -2797,10 +2928,12 @@ $1',
  */
 $messages['ta'] = array(
 	'prefs-echo' => 'அறிவிப்புகள்',
+	'echo-pref-email-frequency-daily' => 'தினமும் அறிவித்தல்களின் சுருக்கம்',
 	'echo-no-title' => '[தலைப்பு இல்லை]', # Fuzzy
 	'notifications' => 'அறிவிப்புகள்',
 	'echo-specialpage' => 'என் அறிவிப்புகள்',
 	'echo-anon' => 'அறிவிப்புகளைப் பெறுவதற்கு [[Special:Userlogin/signup|ஒரு கணக்கை உருவாக்குங்கள்]] அல்லது [[Special:UserLogin|உள்நுழையுங்கள்]].',
+	'notification-edit' => '$2 {{GENDER:$1|தொகுத்துள்ளார்}} [[$3]] $4: "$5"',
 	'notification-edit-email-body' => 'வணக்கம் $5,
 
 $2 என்ற பயனரால் {{SITENAME}} பக்கம் $3 மாற்றப்பட்டது.
@@ -2877,6 +3010,16 @@ $1',
 	'echo-link' => 'Mga pagpapabatid ko', # Fuzzy
 	'echo-overlay-link' => 'Lahat ng mga pagpapabatid...', # Fuzzy
 	'echo-overlay-title' => 'Mga pagpapabatid ko',
+);
+
+/** Turkish (Türkçe)
+ * @author Emperyan
+ */
+$messages['tr'] = array(
+	'echo-desc' => 'Bildirim sistemi',
+	'prefs-echo' => 'Bildirimler',
+	'prefs-displaynotifications' => 'Görüntüleme seçenekleri',
+	'echo-none' => 'Bildiriminiz bulunmamakta.',
 );
 
 /** Ukrainian (українська)
