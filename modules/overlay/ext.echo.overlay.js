@@ -34,7 +34,7 @@
 				$prefLink = $( '#pt-preferences a' ),
 				count = 0;
 
-			$overlay.css( 'max-height', $( window ).height() * 0.75 );
+			/*global window */ $overlay.css( 'max-height', $( window ).height() * 0.75 );
 
 			var Api = new mw.Api();
 
@@ -53,7 +53,7 @@
 						$ul = $( '<ul class="mw-echo-notifications"></ul>' );
 
 					$.each( notifications.index, function( index, id ) {
-						var data = notifications['list'][id];
+						var data = notifications.list[id];
 						var $li = $( '<li></li>' )
 								.data( 'details', data )
 								.data( 'id', id )
@@ -124,7 +124,7 @@
 					}
 				},
 				'err' : function() {
-					window.location.href = $link.attr( 'href' );
+					/*global window */ window.location.href = $link.attr( 'href' );
 				}
 			} );
 		}

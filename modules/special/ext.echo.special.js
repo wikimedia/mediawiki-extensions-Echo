@@ -55,7 +55,7 @@
 						unread = [];
 
 						$.each( notifications.index, function( index, id ) {
-							data = notifications['list'][id];
+							data = notifications.list[id];
 
 							if ( _this.header !== data.timestamp.date ) {
 								_this.header = data.timestamp.date;
@@ -108,8 +108,8 @@
 			}, {
 				'ok' : function( result ) {
 					// update the badge if the link is enabled
-					if ( typeof result.query.notifications.count !== 'undefined'
-						&& $( '#pt-notifications').length && typeof mw.echo.overlay === 'object'
+					if ( typeof result.query.notifications.count !== 'undefined' &&
+						$( '#pt-notifications').length && typeof mw.echo.overlay === 'object'
 					) {
 						mw.echo.overlay.updateCount( result.query.notifications.count );
 					}
