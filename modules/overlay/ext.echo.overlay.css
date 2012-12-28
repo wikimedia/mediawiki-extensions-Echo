@@ -9,12 +9,12 @@
 	padding: 0;
 	color: #6D6D6D;
 	z-index: 60;
-	overflow: auto;
 	box-shadow: 0px 3px 8px rgba(50, 50, 50, 0.35);
 }
 
 .mw-echo-overlay ul {
 	margin: 0;
+	overflow: auto;
 }
 
 .mw-echo-overlay li {
@@ -32,6 +32,7 @@
 
 #mw-echo-overlay-footer {
 	padding: 0px 0px 0px 48px;
+	border-top: 1px solid #DDDDDD;
 }
 
 #mw-echo-overlay-link {
@@ -70,6 +71,11 @@
 	filter: alpha(opacity=50);
 	opacity: 0.5;
 }
+
+.mw-echo-overlay .mw-echo-notification:last-child {
+	border-bottom: none;
+}
+
 .mw-echo-overlay .mw-echo-unread {
 	filter: alpha(opacity=100);
 	opacity: 1.0;
