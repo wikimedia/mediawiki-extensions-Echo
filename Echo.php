@@ -245,18 +245,6 @@ $wgEchoNotificationFormatters = array(
 		'email-body-batch-params' => array( 'agent', 'difflink', 'summary' ),
 		'icon' => 'chat',
 	),
-	'edit' => array(
-		'type' => 'edit',
-		'title-message' => 'notification-edit',
-		'title-params' => array( 'agent', 'title', 'difflink', 'user', 'summary' ),
-		'email-subject-message' => 'notification-edit-email-subject',
-		'email-subject-params' => array( 'agent', 'title' ),
-		'email-body-message' => 'notification-edit-email-body',
-		'email-body-params' => array( 'agent', 'title', 'difflink', 'user', 'summary', 'email-footer' ),
-		'email-body-batch-message' => 'notification-edit-email-batch-body',
-		'email-body-batch-params' => array( 'agent', 'title', 'difflink', 'summary' ),
-		'icon' => 'w',
-	),
 	'add-comment' => array(
 		'type' => 'comment',
 		'title-message' => 'notification-add-comment',

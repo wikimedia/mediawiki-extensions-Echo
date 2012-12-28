@@ -41,7 +41,7 @@
 			Api.get( {
 				'action' : 'query',
 				'meta' : 'notifications',
-				'notformat' : 'html',
+				'notformat' : 'html-light',
 				'notlimit' : mw.echo.overlay.notificationLimit,
 				'notprop' : 'index|list|count'
 			}, {
