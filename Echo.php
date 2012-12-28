@@ -286,11 +286,11 @@ $wgEchoNotificationFormatters = array(
 		'title-params' => array( 'agent', 'title', 'difflink', 'number' ),
 		'payload' => array( 'summary' ),
 		'email-subject-message' => 'notification-reverted-email-subject',
-		'email-subject-params' => array( 'agent', 'title', 'summary' ),
+		'email-subject-params' => array( 'agent', 'title', 'number' ),
 		'email-body-message' => 'notification-reverted-email-body',
-		'email-body-params' => array( 'agent', 'title', 'difflink', 'user', 'summary', 'email-footer' ),
+		'email-body-params' => array( 'agent', 'title', 'difflink', 'user', 'summary', 'email-footer', 'number' ),
 		'email-body-batch-message' => 'notification-reverted-email-batch-body',
-		'email-body-batch-params' => array( 'agent', 'title', 'difflink', 'summary' ),
+		'email-body-batch-params' => array( 'agent', 'title', 'number' ),
 		'icon' => 'revert',
 	)
 );

@@ -71,8 +71,8 @@ $3
 
 $5',
 	'notification-edit-talk-page-email-batch-body' => '$2 {{GENDER:$2|posted}} on your talk page',
-	'notification-reverted-email-subject' => 'Your edit on $3 was {{GENDER:$2|reverted}} by $2',
-	'notification-reverted-email-body' => 'Your edit on $3 has been {{GENDER:$2|has reverted}} by $2.
+	'notification-reverted-email-subject' => 'Your {{PLURAL:$4|edit on $3 was|edits on $3 were}} {{GENDER:$2|reverted}} by $2',
+	'notification-reverted-email-body' => 'Your {{PLURAL:$8|edit on $3 has been|edits on $3 have been}} {{GENDER:$2|reverted}} by $2.
 
 $6
 
@@ -81,7 +81,7 @@ View more:
 $4
 
 $7',
-	'notification-reverted-email-batch-body' => 'Your edit on $3 was reverted by $2',
+	'notification-reverted-email-batch-body' => 'Your {{PLURAL:$4|edit on $3 was|edits on $3 were}} {{GENDER:$2|reverted}} by $2',
 	'echo-notification-count' => '$1+',
 	// E-mail notification
 	'echo-email-subject-default' => 'New notification at {{SITENAME}}',
@@ -237,18 +237,21 @@ $messages['qqq'] = array(
 	'notification-edit-talk-page-email-batch-body' => 'E-mail notification for talk page edit
 * $2 is a username',
 	'notification-reverted-email-subject' => 'E-mail subject. Parameters:
-*$2 is a username
-*$3 is a page title',
+* $2 is a username
+* $3 is a page title
+* $4 is the number of revert',
 	'notification-reverted-email-body' => "E-mail notification. Parameters:
 * $2 is the username
 * $3 is the page title
 * $4 is the link to the change
 * $5 is the e-mail recipient's username
 * $6 is the edit summary
-* $7 is the email footer, {{msg|echo-email-footer-default}}",
+* $7 is the email footer, {{msg|echo-email-footer-default}}
+* $8 is the number of revert",
 	'notification-reverted-email-batch-body' => 'E-mail notification for page revert. Parameters:
 * $2 is a username
-* $3 is a page title',
+* $3 is a page title
+* $4 is the number of revert',
 	'echo-notification-count' => '{{optional}}
 The new notification count next to notification link, for example: 99+
 * $1 is the count',
