@@ -2610,8 +2610,19 @@ $5",
  * @author Ahmed-Najib-Biabani-Ibrahimkhel
  */
 $messages['ps'] = array(
+	'prefs-echo' => 'يادګيرنې',
+	'notifications' => 'يادګيرنې',
+	'echo-specialpage' => 'زما يادګيرنې',
+	'echo-none' => 'تاسې هېڅ يادګيرنې نه لرۍ.',
+	'notification-add-talkpage-topic-yours' => '$2 تاسې ته يو پيغام {{GENDER:$1|لېږلی}}: "[[$4#$3|$3]]"',
+	'notification-new-user' => '$1 {{SITENAME}} ته ښه راغلې!',
+	'echo-link-new' => '$1 نوې {{PLURAL:$1|يادګيرنه|يادګيرنې}}',
+	'echo-link' => 'يادګيرنې',
+	'echo-overlay-link' => 'ټولې يادګيرنې',
+	'echo-overlay-title' => 'زما يادګيرنې',
 	'echo-date-today' => 'نن',
 	'echo-date-yesterday' => 'پرون',
+	'echo-email-batch-category-header-edit-user-talk' => '$1 خبرو اترو مخ {{PLURAL:$1|پيغام|پيغامونه}}',
 );
 
 /** Romanian (română)
@@ -2804,7 +2815,20 @@ $messages['si'] = array(
 	'notification-edit' => '$2 {{GENDER:$1|සංස්කරණය කරා}} [[$3]] $4: "$5"',
 	'notification-new-user' => '{{SITENAME}} වෙත පිළිගනිමු, $1!',
 	'notification-edit-talk-page-email-subject' => 'ඔබ හට නව කතාබහ පිටු පණිවුඩයක් ඇත',
+	'notification-edit-talk-page-email-body' => '{{SITENAME}} පරිශීලක $2 ඔබේ කතාබහ පිටුවේ {{GENDER:$2|හසුනක් දමා ඇත}}:
+
+$4
+
+තවත් නරඹන්න:
+
+$3
+
+$5',
+	'notification-edit-talk-page-email-batch-body' => '$2 ඔබේ කතාබහ පිටුවේ {{GENDER:$2|හසුනක් දමා ඇත}}',
 	'echo-email-subject-default' => '{{SITENAME}} හී නව නිවේදනයක්',
+	'echo-email-body-default' => 'ඔබට {{SITENAME}} හීදී නව නිවේදනයක් ඇත:
+
+$1',
 	'echo-link-new' => 'නව {{PLURAL:$1|නිවේදන|නිවේදන}} $1', # Fuzzy
 	'echo-link' => 'මගේ නිවේදන', # Fuzzy
 	'echo-overlay-link' => 'සියලුම නිවේදන...', # Fuzzy
