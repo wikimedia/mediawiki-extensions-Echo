@@ -31,6 +31,7 @@ $messages['en'] = array(
 
 	// Special:Notifications
 	'notifications' => 'Notifications',
+	'tooltip-pt-notifications' => 'Your notifications',
 	'echo-specialpage' => 'My notifications',
 	'echo-anon' => 'To receive notifications, [[Special:Userlogin/signup|create an account]] or [[Special:UserLogin|log in]].',
 	'echo-none' => 'You have no notifications.',
@@ -170,6 +171,7 @@ $messages['qqq'] = array(
 	'echo-no-title' => 'Shown in place of a page title in a notification if the notification has no specified page title.',
 	'echo-error-no-formatter' => "Error message displayed when no formatting has been defined for a notification. In other words, the extension doesn't know how to properly display the notification.",
 	'notifications' => 'This message is the page title of the special page [[Special:Notifications]].',
+	'tooltip-pt-notifications' => 'This is used for the title (mouseover text) of the notifications user tool.',
 	'echo-specialpage' => 'Special page title for Special:Notifications',
 	'echo-anon' => 'Error message shown to users who try to visit Special:Notifications as an anon.',
 	'echo-none' => 'Message shown to users who have no notifications. Also shown in the overlay.',
