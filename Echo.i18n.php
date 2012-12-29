@@ -277,11 +277,17 @@ The header text for each notification section which is grouped by date
 Email batch content separator',
 	'echo-email-batch-bullet' => '{{optional}}',
 	'echo-email-batch-subject-daily' => 'Daily e-mail batch subject.
-* $1 could be a numeric count or "$1+" ({{msg-mw|echo-notification-count}})
-* $2 is a numeric count, this is used for plural support',
+* $1 could be a numeric count or "10+". See also: {{msg-mw|echo-notification-count|optional message|notext=1}}.
+* $2 is a numeric count, this is used for plural support
+See also:
+* {{msg-mw|Echo-email-batch-subject-daily}}
+* {{msg-mw|Echo-email-batch-subject-weekly}}',
 	'echo-email-batch-subject-weekly' => 'Weekly e-mail batch subject.
-* $1 could be a numeric count or "$1+" ({{msg-mw|echo-notification-count}})
-* $2 is a numeric count, this is used for plural support',
+* $1 could be a numeric count or "10+". See also: {{msg-mw|echo-notification-count|optional message|notext=1}}
+* $2 is a numeric count, this is used for plural support
+See also:
+* {{msg-mw|Echo-email-batch-subject-daily}}
+* {{msg-mw|Echo-email-batch-subject-weekly}}',
 	'echo-email-batch-body-daily' => 'Daily e-mail batch body. Parameters:
 * $1 is a username
 * $2 could be a numeric count or "$1+" ({{msg-mw|echo-notification-count}})
@@ -554,11 +560,12 @@ $1',
 );
 
 /** Danish (dansk)
+ * @author Christian List
  * @author Tjernobyl
  */
 $messages['da'] = array(
 	'prefs-echo' => 'Meddelelser',
-	'prefs-emailsubscriptions' => 'Giv mig besked via e-mail, når en person',
+	'prefs-emailsubscriptions' => 'Giv mig besked via e-mail, når nogen',
 	'echo-no-agent' => '[Ingen]',
 	'echo-no-title' => '[Ingen side]',
 	'notifications' => 'Meddelelser',
@@ -593,6 +600,7 @@ $messages['de'] = array(
 	'echo-no-title' => '[Keine Seite]',
 	'echo-error-no-formatter' => 'Keine Formatierung zur Benachrichtigung definiert',
 	'notifications' => 'Benachrichtigungen',
+	'tooltip-pt-notifications' => 'Deine Benachrichtigungen',
 	'echo-specialpage' => 'Meine Benachrichtigungen',
 	'echo-anon' => 'Um Benachrichtigungen erhalten zu können, muss man ein [[Special:Userlogin/signup|Benutzerkonto anlegen]] oder sich [[Special:UserLogin|anmelden]].',
 	'echo-none' => 'Du hast keine Benachrichtigungen.',
@@ -741,10 +749,22 @@ $messages['el'] = array(
 	'echo-desc' => 'Σύστημα ειδοποιήσεων',
 	'prefs-echo' => 'Ειδοποιήσεις',
 	'prefs-displaynotifications' => 'Επιλογές εμφάνισης',
+	'prefs-emailsubscriptions' => 'Να ειδοποιούμαι μέσω ηλεκτρονικού ταχυδρομείου όταν κάποιος',
+	'prefs-emailfrequency' => 'Πόσο συχνά λαμβάνω ειδοποιήσεις μέσω ηλεκτρονικού ταχυδρομείου',
+	'echo-pref-email-edit-user-talk' => 'Δημοσιεύσεις στη σελίδα συζήτησής μου',
+	'echo-pref-email-reverted' => 'Αναστρέφει την επεξεργασία μου',
+	'echo-pref-email-frequency-never' => 'Μην μου στέλνετε ειδοποιήσεις μέσω ηλεκτρονικού ταχυδρομείου',
 	'echo-no-agent' => '[Κανένας]',
 	'echo-no-title' => '[Χωρίς σελίδα]',
 	'notifications' => 'Ειδοποιήσεις',
+	'tooltip-pt-notifications' => 'Οι ειδοποιήσεις σας',
 	'echo-specialpage' => 'Οι ειδοποιήσεις μου',
+	'echo-anon' => 'Για να λαμβάνετε ειδοποιήσεις, [[Special:Userlogin/signup|δημιουργήστε ένα λογαριασμό]] ή [[Special:UserLogin|συνδεθείτε]].',
+	'echo-none' => 'Δεν έχετε ειδοποιήσεις.',
+	'notification-new-user' => 'Καλώς ήρθατε στο {{SITENAME}}, $1!',
+	'notification-edit-talk-page-email-subject' => 'Έχετε ένα νέο μήνυμα στη σελίδα συζήτησής σας',
+	'notification-reverted-email-batch-body' => 'Η επεξεργασία σας στο $3 ανεστράφη από $2',
+	'echo-email-subject-default' => 'Νέα ειδοποίηση στο {{SITENAME}}',
 	'echo-link' => 'Οι ειδοποιήσεις μου', # Fuzzy
 	'echo-overlay-link' => 'Όλες οι ειδοποιήσεις...', # Fuzzy
 	'echo-overlay-title' => 'Οι ειδοποιήσεις μου',
@@ -1226,6 +1246,7 @@ $messages['gl'] = array(
 	'echo-no-title' => '[Ningunha páxina]',
 	'echo-error-no-formatter' => 'Non se definiu formato ningún para a notificación',
 	'notifications' => 'Notificacións',
+	'tooltip-pt-notifications' => 'As súas notificacións',
 	'echo-specialpage' => 'As miñas notificacións',
 	'echo-anon' => 'Para recibir notificacións, [[Special:Userlogin/signup|cree unha conta]] ou [[Special:UserLogin|acceda ao sistema]].',
 	'echo-none' => 'Non ten ningunha notificación.',
@@ -1499,14 +1520,44 @@ $1', # Fuzzy
  * @author Dj
  */
 $messages['hu'] = array(
+	'echo-desc' => 'Értesítési rendszer',
 	'prefs-echo' => 'Értesítések',
+	'prefs-displaynotifications' => 'Megjelenítési beállítások',
+	'prefs-emailsubscriptions' => 'Értesíts e-mailen, ha valaki',
+	'prefs-emailfrequency' => 'Milyen gyakran kapok értesítést e-mailen',
+	'echo-pref-email-edit-user-talk' => 'üzenet küld a vitalapomon',
+	'echo-pref-email-reverted' => 'visszavonja a szerkesztésem',
+	'echo-pref-email-frequency-never' => 'Egyáltalán ne küldjön e-mail értesítést',
+	'echo-pref-email-frequency-immediately' => 'egyéni értesítést, ahogy az esemény  bekövetkezik',
+	'echo-pref-email-frequency-daily' => 'értesítések napi összefoglalója',
+	'echo-pref-email-frequency-weekly' => 'értesítések heti összefoglalója',
+	'echo-no-agent' => '[Senki]',
+	'echo-no-title' => '[Nincs lap]',
+	'echo-error-no-formatter' => 'Nincs értesítési formatálás definiálva',
 	'notifications' => 'Értesítések',
 	'echo-specialpage' => 'Értesítéseim',
+	'echo-anon' => 'Értesítések fogadásához [[Special:Userlogin/signup|hozz létre egy fiókot]] vagy [[Special:UserLogin|jelentkezzen be]].',
+	'echo-none' => 'Nincsenek értesítések.',
+	'notification-edit' => '$2 {{GENDER:$1|szerkesztette}} [[$3]] $4: "$5"',
+	'notification-edit-talk-page' => '$2 {{GENDER:$1|üzenetet küldött}} a [[User talk:$3|vitalapodon]].',
+	'notification-add-comment' => '$2 {{GENDER:$1|megjegyzést küldött}} a "[[$4|$3]]" témában "$5" vitalapján',
+	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|létrehozott}} egy új témát ("$3") a [[$4]] lapon',
+	'notification-add-talkpage-topic-yours' => '$2 űj üzenetet {{GENDER:$1|küldött}}: "[[$4#$3|$3]]"',
+	'notification-add-comment-yours' => '$2 {{GENDER:$1|hozzászólt}} a "[[$4#$3|$3]]" témához a vitalapodon',
+	'notification-new-user' => 'Üdvözlet a {{SITENAME}} oldalon, $1!',
+	'notification-edit-talk-page-email-subject' => 'Új vitalap üzeneted van',
+	'notification-reverted-email-batch-body' => '$2 visszavonta $3 oldalon végzett szeresztésedet',
+	'echo-link-new' => '$1 új értesítés',
 	'echo-link' => 'Értesítések',
 	'echo-overlay-link' => 'Összes értesítés…', # Fuzzy
 	'echo-overlay-title' => 'Értesítéseim',
+	'echo-overlay-title-overflow' => 'Értesüléseim ($2 olvasatlanból $1 megjelenítve)',
 	'echo-date-today' => 'Ma',
 	'echo-date-yesterday' => 'Tegnap',
+	'echo-load-more-error' => 'Hiba történt a további eredmények lekérdezése során.',
+	'echo-email-batch-category-header-edit-user-talk' => '{{PLURAL:$1|Egy|$1}} vitalap üzenet',
+	'echo-email-batch-category-header-edit-revert' => '{{PLURAL:$1|Egy|$1}} szerkesztés visszavonás',
+	'echo-email-batch-category-header-other' => '{{PLURAL:$1|Egy|$1}} egyéb',
 );
 
 /** Interlingua (interlingua)
@@ -1588,6 +1639,7 @@ $messages['is'] = array(
 /** Italian (italiano)
  * @author Beta16
  * @author Darth Kule
+ * @author Raoli
  */
 $messages['it'] = array(
 	'echo-desc' => 'Sistema per le notifiche',
@@ -1601,6 +1653,7 @@ $messages['it'] = array(
 	'echo-pref-email-frequency-immediately' => 'Notifiche individuali come arrivano',
 	'echo-pref-email-frequency-daily' => 'Un riepilogo giornaliero delle notifiche',
 	'echo-pref-email-frequency-weekly' => 'Un riepilogo settimanale delle notifiche',
+	'echo-pref-notify-hide-link' => "Nascondi il link e l'icona di notifica nella mia barra degli strumenti",
 	'echo-no-agent' => '[Nessuno]',
 	'echo-no-title' => '[Nessuna pagina]',
 	'echo-error-no-formatter' => 'Nessuna formattazione definita per le notifiche',
@@ -1708,6 +1761,7 @@ $messages['ja'] = array(
 	'echo-pref-notify-hide-link' => '通知のリンクとバッジをツールバーに表示しない',
 	'echo-error-no-formatter' => '通知の書式が定義されていません',
 	'notifications' => '通知',
+	'tooltip-pt-notifications' => '自分の通知',
 	'echo-specialpage' => '自分の通知',
 	'echo-anon' => '通知を受け取るには、[[Special:Userlogin/signup|アカウント作成]]または[[Special:UserLogin|ログイン]]をしてください。',
 	'echo-none' => '通知はありません。',
@@ -1811,6 +1865,7 @@ $messages['ko'] = array(
 	'echo-no-title' => '[문서 없음]',
 	'echo-error-no-formatter' => '알림에 대해 정의한 형식이 없습니다',
 	'notifications' => '알림',
+	'tooltip-pt-notifications' => '내 알림',
 	'echo-specialpage' => '내 알림',
 	'echo-anon' => '알림을 받으려면 [[Special:Userlogin/signup|계정을 만들거나]] [[Special:UserLogin|로그인하세요]].',
 	'echo-none' => '알림이 없습니다.',
@@ -1823,7 +1878,7 @@ $messages['ko'] = array(
 	'notification-new-user' => '$1, {{SITENAME}}에 온 것을 환영합니다!',
 	'notification-new-user-content' => '$1 안녕하세요, {{SITENAME}}에 온 것을 환영합니다.<br />
 토론 문서에서 글을 쓴 후에는 물결표 4개(~~~~)를 넣어 서명하는 것을 기억하세요.',
-	'notification-reverted' => '[[$3]]에 대한 당신의 편집을 $2 사용자가 {{GENDER:$1|되돌렸습니다}} $4', # Fuzzy
+	'notification-reverted' => '{{PLURAL:$5|[[$3]]에 대한 당신의 편집}}을 $2 사용자가 {{GENDER:$1|되돌렸습니다}} $4',
 	'notification-edit-email-subject' => '{{SITENAME}} 알림: $3 문서를 $2에 의해 편집함',
 	'notification-edit-email-body' => '$5 안녕하세요.
 $2 사용자가 {{SITENAME}} $3 문서를 {{GENDER:$2|편집했음}}을 알립니다.
@@ -2018,6 +2073,7 @@ $messages['mk'] = array(
 	'echo-no-title' => '[Нема страница]',
 	'echo-error-no-formatter' => 'Нема зададено форматирање за ова известување',
 	'notifications' => 'Известувања',
+	'tooltip-pt-notifications' => 'Вашите известувања',
 	'echo-specialpage' => 'Мои известувања',
 	'echo-anon' => 'За да добивате известувања, [[Special:Userlogin/signup|направете сметка]] или [[Special:UserLogin|најавете се]].',
 	'echo-none' => 'Немате известувања.',
@@ -2520,6 +2576,7 @@ $messages['pms'] = array(
 	'echo-no-title' => '[Gnun-e pagine]',
 	'echo-error-no-formatter' => 'Pa gnun-e formatassion definìe për notìfiche',
 	'notifications' => 'Notìfiche',
+	'tooltip-pt-notifications' => 'Toe notìfiche',
 	'echo-specialpage' => 'Mie notìfiche',
 	'echo-anon' => "Për arseive dle notìfiche, [[Special:Userlogin/signup|ch'a crea un cont]] o [[Special:UserLogin|ch'a intra ant ël sistema]].",
 	'echo-none' => "It l'has pa gnun-e notìfiche.",
@@ -2692,6 +2749,7 @@ $1",
  * @author DCamer
  * @author David1010
  * @author KPu3uC B Poccuu
+ * @author Kaganer
  * @author Kalan
  */
 $messages['ru'] = array(
@@ -2711,10 +2769,11 @@ $messages['ru'] = array(
 	'echo-no-title' => '[Нет страницы]',
 	'echo-error-no-formatter' => 'Форматирование не определено для уведомления',
 	'notifications' => 'Уведомления',
+	'tooltip-pt-notifications' => 'Ваши уведомления',
 	'echo-specialpage' => 'Мои уведомления',
 	'echo-anon' => 'Чтобы получать уведомления, [[Special:Userlogin/signup|создайте учётную запись]] или [[Special:UserLogin|представьтесь]].',
 	'echo-none' => 'Вы не получали уведомлений.',
-	'notification-edit' => '$2 {{GENDER:$1|отредактировал|отредактировала}} [[$3]] $4', # Fuzzy
+	'notification-edit' => '$2 {{GENDER:$1|отредактировал|отредактировала}} [[$3]] $4: «$5»',
 	'notification-edit-talk-page' => '$2 {{GENDER:$1|отредактировал|отредактировала}} [[User talk:$3|вашу страницу обсуждения]]. $4', # Fuzzy
 	'notification-add-comment' => '$2 {{GENDER:$1|прокомментировал|прокомментировала}} тему «[[$4|$3]]» на странице «$5»',
 	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|добавил|добавила}} тему «$3» на странице «[[$4]]»',
@@ -2807,12 +2866,16 @@ $messages['si'] = array(
 	'prefs-displaynotifications' => 'විකල්ප පෙන්වන්න',
 	'echo-pref-email-edit-user-talk' => 'මගේ කතාබහ පිටුවේ හසුන්',
 	'echo-pref-email-reverted' => 'මගේ සංස්කරණය ප්‍රතිවර්තනය',
+	'echo-pref-email-frequency-never' => 'මට විද්‍යුත්-තැපැල් නිවේදන කිසිවක් එවන්න එපා',
+	'echo-pref-email-frequency-immediately' => 'තනි තනි නිවේදන ඒවා එන විට',
 	'echo-pref-email-frequency-daily' => 'නිවේදනවල දෛනික සාරාංශයක්',
 	'echo-pref-email-frequency-weekly' => 'නිවේදනවල සතිපතා සාරාංශයක්',
 	'echo-no-agent' => '[කිසිවෙකු නැත]',
 	'echo-no-title' => '[පිටුවක් නොමැත]',
+	'echo-error-no-formatter' => 'නිවේදනය සඳහා කිසිදු ආකෘතියක් දක්වා නොමැත',
 	'notifications' => 'නිවේදන',
 	'echo-specialpage' => 'මගේ නිවේදන',
+	'echo-anon' => 'නිවේදන ලබා ගැනීම සඳහා, [[Special:Userlogin/signup|ගිණුමක් තනන්න]] හෝ [[Special:UserLogin|ප්‍රවිෂ්ට වන්න]].',
 	'echo-none' => 'ඔබට නිවේදන කිසිවක් නොමැත.',
 	'notification-edit' => '$2 {{GENDER:$1|සංස්කරණය කරා}} [[$3]] $4: "$5"',
 	'notification-new-user' => '{{SITENAME}} වෙත පිළිගනිමු, $1!',
@@ -2832,12 +2895,15 @@ $5',
 
 $1',
 	'echo-link-new' => 'නව {{PLURAL:$1|නිවේදන|නිවේදන}} $1', # Fuzzy
-	'echo-link' => 'මගේ නිවේදන', # Fuzzy
-	'echo-overlay-link' => 'සියලුම නිවේදන...', # Fuzzy
+	'echo-link' => 'නිවේදන',
+	'echo-overlay-link' => 'සියලුම නිවේදන',
 	'echo-overlay-title' => 'මගේ නිවේදන',
 	'echo-overlay-title-overflow' => 'මගේ නිවේදන (නොකියවූ ඒවා $1 න් $2 පෙන්වමින්)',
 	'echo-date-today' => 'අද',
 	'echo-date-yesterday' => 'පෙරදින',
+	'echo-load-more-error' => 'තවත් ප්‍රතිඑල පමුනුවිමේදී දෝෂයක් හට ගැනුණි.',
+	'echo-email-batch-subject-daily' => 'ඔබට අද {{PLURAL:$2|නිවේදන}} $1 ඇත',
+	'echo-email-batch-subject-weekly' => 'ඔබට මෙම සතියේ {{PLURAL:$2|නිවේදන}} $1 ඇත',
 	'echo-email-batch-category-header-edit-user-talk' => 'කතාබහ පිටු {{PLURAL:$1|පණිවුඩ|පණිවුඩ}} $1', # Fuzzy
 	'echo-email-batch-category-header-edit-revert' => 'සංස්කරණ {{PLURAL:$1|ප්‍රතිවර්තන|ප්‍රතිවර්තන}} $1', # Fuzzy
 	'echo-email-batch-category-header-other' => '{{PLURAL:$1|වෙනත්|වෙනත්}} $1', # Fuzzy
@@ -3050,6 +3116,7 @@ $messages['tr'] = array(
 
 /** Ukrainian (українська)
  * @author Base
+ * @author Steve.rusyn
  * @author Ата
  */
 $messages['uk'] = array(
@@ -3069,6 +3136,7 @@ $messages['uk'] = array(
 	'echo-no-title' => '[Нема сторінки]',
 	'echo-error-no-formatter' => 'Не визначено формату сповіщень',
 	'notifications' => 'Сповіщення',
+	'tooltip-pt-notifications' => 'Ваші сповіщення',
 	'echo-specialpage' => 'Мої сповіщення',
 	'echo-anon' => 'Для отримання сповіщень, [[Special:Userlogin/signup|створіть обліковий запис]] або [[Special:UserLogin|увійдіть]].',
 	'echo-none' => 'У Вас немає сповіщень.',
@@ -3278,6 +3346,7 @@ $5',
 
 /** Simplified Chinese (中文（简体）‎)
  * @author Anakmalaysia
+ * @author Dimension
  * @author Liangent
  * @author Shirayuki
  */
@@ -3301,7 +3370,7 @@ $messages['zh-hans'] = array(
 	'echo-specialpage' => '我的通知',
 	'echo-anon' => '要接收通知，请[[Special:Userlogin/signup|创建帐号]]或[[Special:UserLogin|登录]]。',
 	'echo-none' => '您没有任何通知。',
-	'notification-edit' => '$2{{GENDER:$1|编辑了}}[[$3]]$4：“$5”', # Fuzzy
+	'notification-edit' => '$2{{GENDER:$1|编辑了}}[[$3]]$4："$5"',
 	'notification-edit-talk-page' => '$2在[[User talk:$3|您的对话页]]{{GENDER:$1|发表了话题}}。',
 	'notification-add-comment' => '$2在“$5”讨论页上{{GENDER:$1|评论了}}“[[$4|$3]]”',
 	'notification-add-talkpage-topic' => '$2在[[$4]]上{{GENDER:$1|发表了}}一个新主题“$3”',
@@ -3333,6 +3402,16 @@ $messages['zh-hans'] = array(
 
 感谢您使用{{SITENAME}}
 {{SITENAME}}通知系统', # Fuzzy
+	'notification-edit-talk-page-email-batch-body' => '$2在你的讨论页上{{GENDER:$2|留言了}}',
+	'notification-reverted-email-subject' => '你在$3上的编辑被$2{{GENDER:$2|撤消了}}',
+	'notification-reverted-email-body' => '你在$3上的编辑被$2{{GENDER:$2|撤消了}}。
+$6
+
+查看更多:
+
+$4
+
+$7',
 	'echo-email-subject-default' => '{{SITENAME}}上的新通知',
 	'echo-email-body-default' => '您在{{SITENAME}}上有新通知：
 
@@ -3343,6 +3422,8 @@ $1',
 	'echo-overlay-title' => '我的通知',
 	'echo-date-today' => '今天',
 	'echo-date-yesterday' => '昨天',
+	'echo-load-more-error' => '获取更多的结果时出错。',
+	'echo-email-batch-category-header-edit-user-talk' => '$1对话页$1条信息',
 );
 
 /** Traditional Chinese (中文（繁體）‎)
