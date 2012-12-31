@@ -116,7 +116,7 @@ class EchoHooks {
 	 * @return bool true in all cases
 	 */
 	public static function getPreferences( $user, &$preferences ) {
-		global $wgEchoDefaultNotificationTypes, $wgAuth, $wgEchoEnableEmailBatch;
+		global $wgEchoDefaultNotificationTypes, $wgAuth, $wgEchoEnableEmailBatch, $wgEchoEventDetails;
 
 		// Show email frequency options
 		$never = wfMessage( 'echo-pref-email-frequency-never' )->plain();
@@ -144,7 +144,21 @@ class EchoHooks {
 
 		// Show email subscription options
 		$emailOptions = array();
+
+		// Bug 43446 - Sort events by priority
+		$eventsAndPriorities = array();
+
 		foreach ( EchoEvent::gatherValidEchoEvents() as $enabledEvent ) {
+			if ( isset( $wgEchoEventDetails[$enabledEvent] ) ) {
+				$eventsAndPriorities[$enabledEvent] = $wgEchoEventDetails[$enabledEvent]['priority'];
+			} else {
+				$eventsAndPriorities[$enabledEvent] = 10;
+			}
+		}
+
+		asort( $eventsAndPriorities );
+
+		foreach ( array_keys( $eventsAndPriorities ) as $enabledEvent ) {
 			// Welcome notifications don't have subscriptions
 			if ( $enabledEvent === 'welcome' ) {
 				continue;
