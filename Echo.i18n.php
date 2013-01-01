@@ -776,6 +776,8 @@ $messages['el'] = array(
 	'echo-pref-email-edit-user-talk' => 'Δημοσιεύσεις στη σελίδα συζήτησής μου',
 	'echo-pref-email-reverted' => 'Αναστρέφει την επεξεργασία μου',
 	'echo-pref-email-frequency-never' => 'Μην μου στέλνετε ειδοποιήσεις μέσω ηλεκτρονικού ταχυδρομείου',
+	'echo-pref-email-frequency-daily' => 'Μια ημερήσια σύνοψη ειδοποιήσεων',
+	'echo-pref-email-frequency-weekly' => 'Μια εβδομαδιαία σύνοψη ειδοποιήσεων',
 	'echo-no-agent' => '[Κανένας]',
 	'echo-no-title' => '[Χωρίς σελίδα]',
 	'notifications' => 'Ειδοποιήσεις',
@@ -783,8 +785,18 @@ $messages['el'] = array(
 	'echo-specialpage' => 'Οι ειδοποιήσεις μου',
 	'echo-anon' => 'Για να λαμβάνετε ειδοποιήσεις, [[Special:Userlogin/signup|δημιουργήστε ένα λογαριασμό]] ή [[Special:UserLogin|συνδεθείτε]].',
 	'echo-none' => 'Δεν έχετε ειδοποιήσεις.',
+	'notification-edit' => '$2 {{GENDER:$1|επεξεργάστηκε}} [[$3]] $4: "$5"',
 	'notification-new-user' => 'Καλώς ήρθατε στο {{SITENAME}}, $1!',
 	'notification-edit-talk-page-email-subject' => 'Έχετε ένα νέο μήνυμα στη σελίδα συζήτησής σας',
+	'notification-edit-talk-page-email-body' => '{{SITENAME}} ο χρήστης $2 {{GENDER:$2|δημοσίευσε}} στη σελίδα συζήτησής σου:
+
+$4
+
+Δείτε περισσότερα:
+
+$3
+
+$5',
 	'notification-reverted-email-batch-body' => 'Η επεξεργασία σας στο $3 ανεστράφη από $2', # Fuzzy
 	'echo-email-subject-default' => 'Νέα ειδοποίηση στο {{SITENAME}}',
 	'echo-link' => 'Οι ειδοποιήσεις μου', # Fuzzy
@@ -1738,6 +1750,7 @@ $messages['is'] = array(
  * @author Beta16
  * @author Darth Kule
  * @author Raoli
+ * @author Vituzzu
  */
 $messages['it'] = array(
 	'echo-desc' => 'Sistema per le notifiche',
@@ -1756,6 +1769,7 @@ $messages['it'] = array(
 	'echo-no-title' => '[Nessuna pagina]',
 	'echo-error-no-formatter' => 'Nessuna formattazione definita per le notifiche',
 	'notifications' => 'Notifiche',
+	'tooltip-pt-notifications' => 'Tutte le notifiche',
 	'echo-specialpage' => 'Mie notifiche',
 	'echo-anon' => "Per ricevere le notifiche, [[Special:Userlogin/signup|crea un account]] o [[Special:UserLogin|effettua l'accesso]].",
 	'echo-none' => 'Non hai notifiche.',
@@ -1792,16 +1806,16 @@ $3
 
 $5",
 	'notification-edit-talk-page-email-batch-body' => '$2 {{GENDER:$2|ha postato}} sulla tua pagina di discussione',
-	'notification-reverted-email-subject' => 'Le tue modifiche su $3 sono state {{GENDER:$2|annullate}} da $2', # Fuzzy
-	'notification-reverted-email-body' => 'La tua modifica su $3 {{GENDER:$2|è stata annullata}} da $2.
+	'notification-reverted-email-subject' => '{{PLURAL:$4|La tua modifica|Le tue modifiche}} alla pagina $3 {{PLURAL:$4|è stata annullata|sono state annullate}} da $2',
+	'notification-reverted-email-body' => '{{PLURAL:$8|La tua modifica alla pagina  $3  è stata ripristinata|Le tue modifiche alla pagina $3  sono state ripristinate}} da  $2 .
 
 $6
 
-Vedi anche:
+Mostra di più:
 
 $4
 
-$7', # Fuzzy
+$7',
 	'notification-reverted-email-batch-body' => 'La tua modifica su $3 è stata annullata da $2', # Fuzzy
 	'echo-email-subject-default' => 'Nuova notifica su {{SITENAME}}',
 	'echo-email-body-default' => 'Hai una nuova notifica su {{SITENAME}}:
@@ -2064,9 +2078,9 @@ $messages['ksh'] = array(
 	'notifications' => 'Meddeilonge',
 	'echo-specialpage' => 'Ming Meddeilonge',
 	'echo-anon' => 'Do moß Desch [[Special:Userlogin/signup|aanmälde]] udder [[Special:UserLogin|enlogge]], öm Medeilonge krijje ze künne.',
-	'echo-none' => 'Ende läzde Zigg häß De kein Medeilonge krääje.',
+	'echo-none' => 'Ende läzde Zigg häß De kein Medeilonge krääje.', # Fuzzy
 	'notification-edit' => '{{GENDER:$1|Dä|Dat|Dä Metmaacher|De|Dat}} $2 hät jät op dä Sigg „[[$3]]“ jeändert: $4', # Fuzzy
-	'notification-edit-talk-page' => '{{GENDER:$1|Dä|Dat|Dä Metmaacher|De|Dat}} $2 hät jät op [[User talk:$3|Ding Klaafsigg]] jeschrevve. $4',
+	'notification-edit-talk-page' => '{{GENDER:$1|Dä|Dat|Dä Metmaacher|De|Dat}} $2 hät jät op [[User talk:$3|Ding Klaafsigg]] jeschrevve.',
 	'notification-add-comment' => '{{GENDER:$1|Dä|Dat|Dä Metmaacher|De|Dat}} $2 hät jät op [[$4|$3]] op dä Klaafsigg „$5“ jeschrevve',
 	'notification-add-talkpage-topic' => '{{GENDER:$1|Dä|Dat|Dä Metmaacher|De|Dat}} $2 häd dä neue Jeschpräächsfäddem „$3“ op di Sigg  [[$4]] jeschrevves',
 	'notification-add-talkpage-topic-yours' => '{{GENDER:$1|Dä|Dat|Dä Metmaacher|De|Dat}} $2 hät Der en neue Nohreesch jeschrevves: [[$4#$3|$3]]',
@@ -2085,7 +2099,7 @@ Do kriß dat jeschrevve, weil De Desch enjeschrevve häs, dat De bei Änderonge 
 
 Mer bedanke ons för et Metmaache op {{GRAMMAR:dative|{{ucfirst:{{SITENAME}}}}}}.
 Et Süßtehm vör Medeilong {{GRAMMAR:genive|{{ucfirst:{{SITENAME}}}}}}', # Fuzzy
-	'notification-edit-talk-page-email-subject' => 'Ding Klaafsigg {{GRAMMAR:dative en|{{ucfirst:{{SITENAME}}}}}} wood {{GENDER:$2|vum|vum|vum_Metmaacher|vun dä|vum}} $2 jeändert.',
+	'notification-edit-talk-page-email-subject' => 'Ding Klaafsigg {{GRAMMAR:dative en|{{ucfirst:{{SITENAME}}}}}} wood {{GENDER:$2|vum|vum|vum_Metmaacher|vun dä|vum}} $2 jeändert.', # Fuzzy
 	'notification-edit-talk-page-email-body' => 'Daach $4,
 Dat heh es en Medeilong, öm Desch weßße ze lohße, dat Ding Klaafsigg op {{GRAMMAR:dative|{{ucfirst:{{SITENAME}}}}}} {{GENDER:$2|vum|vum|vum_Metmaacher|vun dä|vum}} $2 jeändert woode es.
 
@@ -2104,6 +2118,8 @@ $1',
 	'echo-link' => 'Ming Medeilonge', # Fuzzy
 	'echo-overlay-link' => 'Alle Medeilonge{{int:ellipsis}}', # Fuzzy
 	'echo-overlay-title' => 'Ming Medeilonge',
+	'echo-date-today' => 'Hück',
+	'echo-date-yesterday' => 'Jäßtere',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
@@ -2784,8 +2800,8 @@ $3
 
 $5",
 	'notification-edit-talk-page-email-batch-body' => "$2 a l'ha {{GENDER:$2|scrivù}} dzora toa pagina ëd discussion",
-	'notification-reverted-email-subject' => "Toa modìfica dzora $3 a l'é staita {{GENDER:$2|anulà}} da $2", # Fuzzy
-	'notification-reverted-email-body' => "Toa modìfica dzora $3 a l'é stàita {{GENDER:$2|anulà}} da $2.
+	'notification-reverted-email-subject' => "{{PLURAL:$4|Toa modìfica dzora $3 a l'é staita|Toe modìfice dzora $3 a son staite}} {{GENDER:$2|anulà}} da $2",
+	'notification-reverted-email-body' => "{{PLURAL:$8|Toa modìfica dzora $3 a l'é stàita|Toe modìfiche dzora $3 a son stàite}} {{GENDER:$2|anulà}} da $2.
 
 $6
 
@@ -2793,8 +2809,8 @@ Mosta ëd pi:
 
 $4
 
-$7", # Fuzzy
-	'notification-reverted-email-batch-body' => "Toa modìfica dzora $3 a l'é stàita anulà da $2", # Fuzzy
+$7",
+	'notification-reverted-email-batch-body' => "{{PLURAL:$4|Toa modìfica dzora $3 a l'é staita|Toe modìfice dzora $3 a son staite}} {{GENDER:$2|anulà}} da $2",
 	'echo-email-subject-default' => 'Notìfiche neuve a {{SITENAME}}',
 	'echo-email-body-default' => "It l'has na notìfica neuva a {{SITENAME}}:
 
