@@ -34,15 +34,11 @@ class SpecialNotifications extends SpecialPage {
 		}
 
 		// Preferences link
-		$preferenceLink = Html::element(
-			'a',
-			array(
-				'href' => SpecialPage::getTitleFor( 'Preferences' )->getLinkURL() . '#mw-prefsection-echo'
-			),
-			wfMessage( 'preferences' )->text()
-		);
-
-		$html = Html::rawElement( 'div', array( 'id' => 'mw-echo-pref-link' ), $preferenceLink );
+		$html = Html::rawElement( 'a', array(
+			'href' => SpecialPage::getTitleFor( 'Preferences' )->getLinkURL() . '#mw-prefsection-echo',
+			'id' => 'mw-echo-pref-link',
+			'title' => wfMessage( 'preferences' )->text()
+		) );
 
 		$notif = ApiEchoNotifications::getNotifications( $user, false, 'html', self::$displayNum + 1, $timestamp, $offset );
 

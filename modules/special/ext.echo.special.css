@@ -21,15 +21,18 @@ h1#firstHeading {
 }
 
 #mw-echo-pref-link {
-	line-height: 1.2em;
-	font-size: 0.5em;
 	margin: 0 15px;
-	min-height: 14px;
-	padding-left: 18px;
+	height: 25px;
+	width: 25px;
+	vertical-align: middle;
 	/* @embed */
-	background-image: url(../icons/Settings.png);
+	background-image: url(Preferences.png);
 	background-repeat: no-repeat;
 	background-position: 0 0;
+}
+#mw-echo-pref-link:hover {
+	/* @embed */
+	background-image: url(PreferencesHover.png);
 }
 
 .mw-echo-date-section {
