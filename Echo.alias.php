@@ -43,6 +43,11 @@ $specialPageAliases['mk'] = array(
 	'Notifications' => array( 'Известувања' ),
 );
 
+/** Dutch (Nederlands) */
+$specialPageAliases['nl'] = array(
+	'Notifications' => array( 'Meldingen' ),
+);
+
 /** Punjabi (ਪੰਜਾਬੀ) */
 $specialPageAliases['pa'] = array(
 	'Notifications' => array( 'ਇਤਲਾਹਾਂ' ),
