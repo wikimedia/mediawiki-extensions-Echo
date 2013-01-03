@@ -1,9 +1,8 @@
+/*global window:false */
 ( function( $, mw ) {
 	'use strict';
 
 	mw.echo.overlay = {
-
-		'notificationLimit' : 8,
 
 		'updateCount' : function( newCount ) {
 			// Accomodate '10' or '100+'. Numbers need to be
@@ -34,12 +33,18 @@
 				$prefLink = $( '#pt-preferences a' ),
 				count = 0;
 			var Api = new mw.Api();
+			// Set notification limit based on height of the window
+			var notificationLimit = Math.floor( ( $( window ).height() - 134 ) / 85 );
+
+			if ( notificationLimit < 1 ) {
+				notificationLimit = 1;
+			}
 
 			Api.get( {
 				'action' : 'query',
 				'meta' : 'notifications',
 				'notformat' : 'flyout',
-				'notlimit' : mw.echo.overlay.notificationLimit,
+				'notlimit' : notificationLimit,
 				'notprop' : 'index|list|count'
 			}, {
 				'ok' : function( result ) {
@@ -50,7 +55,7 @@
 						$ul = $( '<ul class="mw-echo-notifications"></ul>' ),
 						titleText = '';
 
-					/*global window */ $ul.css( 'max-height', $( window ).height() * 0.75 );
+					$ul.css( 'max-height', notificationLimit * 85 + 'px' );
 					$.each( notifications.index, function( index, id ) {
 						var data = notifications.list[id];
 						var $li = $( '<li></li>' )
@@ -129,7 +134,7 @@
 					}
 				},
 				'err' : function() {
-					/*global window */ window.location.href = $link.attr( 'href' );
+					window.location.href = $link.attr( 'href' );
 				}
 			} );
 		}
