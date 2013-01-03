@@ -37,7 +37,6 @@ $messages['en'] = array(
 	'echo-none' => 'You have no notifications.',
 
 	// Notification
-	'notification-edit' => '$2 {{GENDER:$1|edited}} [[$3]] $4: "$5"',
 	'notification-edit-talk-page' => '$2 {{GENDER:$1|posted}} on your [[User talk:$3|talk page]].',
 	'notification-article-linked' => '$4 {{PLURAL:$5|was|were}} {{GENDER:$1|linked}} by $2 from this page: [[$3]]',
 	'notification-add-comment' => '$2 {{GENDER:$1|commented}} on "[[$4|$3]]" on the "$5" talk page',
@@ -48,19 +47,7 @@ $messages['en'] = array(
 	'notification-new-user' => 'Welcome to {{SITENAME}}, $1!',
 	'notification-new-user-content' => 'Hi $1, and welcome to {{SITENAME}}.<br />
 Please remember to sign any comments on talk pages with 4 tildes (~~~~).',
-	'notification-reverted' => 'Your {{PLURAL:$5|edit on [[$3]] has|edits on [[$3]] have}} been {{GENDER:$1|reverted}} by $2 $4',
-	'notification-edit-email-subject' => '{{SITENAME}} notification: $3 has been edited by $2',
-	'notification-edit-email-body' => 'Hello $5,
-This is a notification to let you know that $2 {{GENDER:$2|has edited}} the {{SITENAME}} page $3.
-
-$2 {{GENDER:$2|summarized}} {{GENDER:$2|his|her|their}} change with this comment: $6
-
-You can see the change that $2 {{GENDER:$2|made}} by following this link:
-<$4>
-
-You are receiving this message because you have subscribed to e-mail updates for changes to this page.
-
-$7',
+	'notification-reverted' => 'Your {{PLURAL:$5|edit on $3 has|edits on $3 have}} been {{GENDER:$1|reverted}} by $2 $4',
 	'notification-edit-talk-page-email-subject' => 'You have a new talkpage message',
 	'notification-edit-talk-page-email-body' => '{{SITENAME}} user $2 {{GENDER:$2|posted}} on your talk page:
 
@@ -186,12 +173,6 @@ $messages['qqq'] = array(
 	'echo-specialpage' => 'Special page title for Special:Notifications',
 	'echo-anon' => 'Error message shown to users who try to visit Special:Notifications as an anon.',
 	'echo-none' => 'Message shown to users who have no notifications. Also shown in the overlay.',
-	'notification-edit' => 'Format for displaying notifications of a page being edited (generally from a watchlist)
-* $1 is the username of the person who edited, plain text. Can be used for GENDER.
-* $2 is the username of the person who edited, HTML formatted as the link to the user\'s page.
-* $3 is the page that was edited, as plain text.
-* $4 is a diff link, possibly formatted as an HTML link with the text "(diff)".
-* $5 is the edit summary.',
 	'notification-edit-talk-page' => "Format for displaying notifications of a user talk page being edited
 * $1 is the username of the person who edited, plain text. Can be used for GENDER.
 * $2 is the username of the person who edited, HTML formatted as the link to the user's page.
@@ -234,17 +215,7 @@ $messages['qqq'] = array(
 * $2 is the username of the person who reverted, formatted.
 * $3 is the page that was reverted, formatted.
 * $4 is a diff link to the ''revert'', possibly formatted.
-* $5 is the number of edits that were reverted. NOTE: This will only be set to 1 or 2, with 2 actually meaning 'an unknown number greater than 0'.",
-	'notification-edit-email-subject' => 'E-mail subject. Parameters:
-* $2 is a username
-* $3 is a page title',
-	'notification-edit-email-body' => "E-mail notification. Parameters:
-* $2 is a username
-* $3 is a page title
-* $4 is a link to a change
-* $5 is the e-mail recipient's username.
-* $6 is the edit summary.
-* $7 is the e-mail footer, {{msg|echo-email-footer-default}}",
+* $5 is the number of edits that were reverted. NOTE: This will only be set to 1 or 2, with 2 actually meaning 'an unknown number greater than 0'.", # Fuzzy
 	'notification-edit-talk-page-email-subject' => 'E-mail subject.',
 	'notification-edit-talk-page-email-body' => 'E-mail notification. Parameters:
 * $2 is a username

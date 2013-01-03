@@ -13,7 +13,7 @@ abstract class EchoNotificationFormatter {
 		'comment' => 'EchoCommentFormatter',
 		'welcome' => 'EchoBasicFormatter',
 	);
-	protected $validOutputFormats = array( 'text', 'html', 'email' );
+	protected $validOutputFormats = array( 'text', 'html-light', 'html', 'email' );
 	protected $outputFormat = 'text';
 	protected $parameters = array();
 	protected $requiredParameters = array();
@@ -96,7 +96,11 @@ abstract class EchoNotificationFormatter {
 	 * @return string Text suitable for output format
 	 */
 	protected function formatTitle( $title ) {
-		return $title->getPrefixedText();
+		if ( $this->outputFormat === 'html' ) {
+			return '[[' . $title->getPrefixedText() . ']]';
+		} else {
+			return $title->getPrefixedText();
+		}
 	}
 
 	/**
@@ -131,7 +135,7 @@ abstract class EchoNotificationFormatter {
 			$ts = $language->userTimeAndDate( $ts, $user );
 		}
 
-		if ( $this->outputFormat === 'html' ) {
+		if ( $this->outputFormat === 'html' || $this->outputFormat === 'html-light' ) {
 			return Xml::element( 'div', array( 'class' => 'mw-echo-timestamp' ), $ts );
 		} else {
 			return $ts;
@@ -147,7 +151,7 @@ abstract class EchoNotificationFormatter {
 	 * @param $parse boolean If true, parse the summary. If fasle, strip wikitext.
 	 * @return string The edit summary (or empty string)
 	 */
-	protected function formatSummary( $event, $user, $parse = false ) {
+	protected function formatSummary( $event, $user ) {
 		$eventData = $event->getExtra();
 		if ( !isset( $eventData['revid'] ) ) {
 			return '';
@@ -156,15 +160,24 @@ abstract class EchoNotificationFormatter {
 		if ( $revision ) {
 			$summary = $revision->getComment( Revision::FOR_THIS_USER, $user );
 
-			if ( $this->outputFormat === 'html' ) {
-				if ( $parse ) {
+			if ( $this->outputFormat === 'html' || $this->outputFormat === 'html-light' ) {
+				if ( $this->outputFormat === 'html' ) {
+					// Parse the edit summary
 					$summary = Linker::formatComment( $summary, $revision->getTitle() );
 				} else {
+					// Strip wikitext from the edit summary and manually convert autocomments
 					$summary = FeedItem::stripComment( $summary );
 					$summary = trim( htmlspecialchars( $summary ) );
-					// Convert header titles to proper HTML
-					// TODO: make this more i18n friendly
-					$summary = preg_replace( "/\/\*\s(.*)\s\*\/\s(.*)/", "<span dir='auto'><span class='autocomment'>\$1:</span> \$2</span>", $summary );
+					// Convert section titles to proper HTML
+					preg_match( "!(.*)/\*\s*(.*?)\s*\*/(.*)!", $summary, $matches );
+					if ( $matches ) {
+						$section = $matches[2];
+						if ( $matches[3] ) {
+							// Add a colon after the section name
+							$section .= wfMessage( 'colon-separator' )->inContentLanguage()->escaped();
+						}
+						$summary = $matches[1] . "<span class='autocomment'>" . $section . "</span>" . $matches[3];
+					}
 				}
 				$summary = Xml::tags( 'span', array( 'class' => 'comment' ), $summary );
 				$summary = Xml::tags( 'div', array( 'class' => 'mw-echo-summary' ), $summary );
