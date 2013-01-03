@@ -17,6 +17,7 @@ $messages['en'] = array(
 	'prefs-emailsubscriptions' => 'Notify me by e-mail when someone',
 	'prefs-emailfrequency' => 'How often I receive notifications by e-mail',
 	'echo-pref-email-edit-user-talk' => 'Posts on my talk page',
+	'echo-pref-email-article-linked' => 'Creates a link to an article I created',
 	'echo-pref-email-reverted' => 'Reverts my edit',
 	'echo-pref-email-frequency-never' => 'Do not send me any e-mail notifications',
 	'echo-pref-email-frequency-immediately' => 'Individual notifications as they come in',
@@ -158,6 +159,7 @@ $messages['qqq'] = array(
 * {{msg-mw|Echo-pref-email-frequency-daily}}
 * {{msg-mw|Echo-pref-email-frequency-weekly}}',
 	'echo-pref-email-edit-user-talk' => "Option for getting emails when someone posts on the user's talk page. This is the conclusion of the sentence begun by the header: {{msg-mw|prefs-emailsubscriptions}}.",
+	'echo-pref-email-article-linked' => "Option for getting emails when someone creates a link to a page created by the user. This is the conclusion of the sentence begun by the header: {{msg-mw|prefs-emailsubscriptions}}.",
 	'echo-pref-email-reverted' => "Option for getting emails when someone reverts the user's edit. This is the conclusion of the sentence begun by the header: {{msg-mw|prefs-emailsubscriptions}}.",
 	'echo-pref-email-frequency-never' => "Option for users who don't want to receive any email notifications",
 	'echo-pref-email-frequency-immediately' => 'Option for users who want to receive email for each notification as it occurs',
