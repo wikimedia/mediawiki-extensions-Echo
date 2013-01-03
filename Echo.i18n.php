@@ -46,8 +46,7 @@ $messages['en'] = array(
 	'notification-add-comment-yours' => '$2 {{GENDER:$1|commented}} on "[[$4#$3|$3]]" on your talk page',
 	'notification-talkpage-content' => '$1', ## Do not translate unless you deliberately want to change behaviour
 	'notification-new-user' => 'Welcome to {{SITENAME}}, $1!',
-	'notification-new-user-content' => 'Hi $1, and welcome to {{SITENAME}}.<br />
-Please remember to sign any comments on talk pages with 4 tildes (~~~~).',
+	'notification-new-user-content' => 'Please remember to sign any comments on talk pages with 4 tildes (~~~~).',
 	'notification-reverted' => 'Your {{PLURAL:$5|edit on $3 has|edits on $3 have}} been {{GENDER:$1|reverted}} by $2 $4',
 	'notification-edit-talk-page-email-subject' => 'You have a new talkpage message',
 	'notification-edit-talk-page-email-body' => '{{SITENAME}} user $2 {{GENDER:$2|posted}} on your talk page:
