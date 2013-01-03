@@ -39,6 +39,7 @@ $messages['en'] = array(
 	// Notification
 	'notification-edit' => '$2 {{GENDER:$1|edited}} [[$3]] $4: "$5"',
 	'notification-edit-talk-page' => '$2 {{GENDER:$1|posted}} on your [[User talk:$3|talk page]].',
+	'notification-article-linked' => '$4 {{PLURAL:$5|was|were}} {{GENDER:$1|linked}} by $2 from this page: [[$3]]',
 	'notification-add-comment' => '$2 {{GENDER:$1|commented}} on "[[$4|$3]]" on the "$5" talk page',
 	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|posted}} a new topic "$3" on [[$4]]',
 	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|sent}} you a message: "[[$4#$3|$3]]"',
@@ -71,6 +72,15 @@ $3
 
 $5',
 	'notification-edit-talk-page-email-batch-body' => '$2 {{GENDER:$2|posted}} on your talk page',
+	'notification-article-linked-email-subject' => '{{PLURAL:$2|A page|Pages}} you started {{PLURAL:$2|was|were}} cross referenced on {{SITENAME}}',
+	'notification-article-linked-email-body' => '$5 {{PLURAL:$6|was|were}} {{GENDER:$1|linked}} by {{SITENAME}} user $1, from this page: $3
+
+View more:
+
+$4
+
+$7',
+	'notification-article-linked-email-batch-body' => '$3 {{PLURAL:$4|was|were}} {{GENDER:$1|linked}} by $1',
 	'notification-reverted-email-subject' => 'Your {{PLURAL:$4|edit on $3 was|edits on $3 were}} {{GENDER:$2|reverted}} by $2',
 	'notification-reverted-email-body' => 'Your {{PLURAL:$8|edit on $3 has been|edits on $3 have been}} {{GENDER:$2|reverted}} by $2.
 
@@ -128,9 +138,10 @@ You have $2 {{PLURAL:$3|notification|notifications}} on {{SITENAME}} this week. 
 $4
 
 $5',
-	'echo-email-batch-category-header-edit-user-talk' => '$1 Talk page {{PLURAL:$1|message|messages}}',
-	'echo-email-batch-category-header-edit-revert' => '$1 Edit {{PLURAL:$1|revert|reverts}}',
-	'echo-email-batch-category-header-other' => '$1 {{PLURAL:$1|Other|Others}}',
+	'echo-email-batch-category-header-edit-user-talk' => '$1 talk page {{PLURAL:$1|message|messages}}',
+	'echo-email-batch-category-header-edit-revert' => '$1 edit {{PLURAL:$1|revert|reverts}}',
+	'echo-email-batch-category-header-cross-reference' => '$1 {{PLURAL:$1|cross reference|cross references}}',
+	'echo-email-batch-category-header-other' => '$1 {{PLURAL:$1|other|others}}',
 );
 
 /** Message documentation (Message documentation)
@@ -185,6 +196,12 @@ $messages['qqq'] = array(
 * $1 is the username of the person who edited, plain text. Can be used for GENDER.
 * $2 is the username of the person who edited, HTML formatted as the link to the user's page.
 * $3 is the current user's name, used in the link to their talk page.",
+	'notification-article-linked' => 'Format for displaying notifications of articles being linked
+* $1 is the username of the person who linked the page, plain text.  Can be used for GENDER.
+* $2 is the username of the person who linked the page, HTML formatted as the link to the user\'s page.
+* $3 is the page to which new links are added
+* $4 is comma separated list of pages being linked
+* $5 is the number of pages being linked',
 	'notification-add-comment' => 'Format for displaying notifications of a comment being added to an existing discussion. Parameters:
 * $1 is the username of the person who edited, plain text. Can be used for GENDER,
 * $2 is the username of the person who edited,
@@ -236,6 +253,21 @@ $messages['qqq'] = array(
 * $5 is the e-mail footer, {{msg|echo-email-footer-default}}',
 	'notification-edit-talk-page-email-batch-body' => 'E-mail notification for talk page edit
 * $2 is a username',
+	'notification-article-linked-email-subject' => 'E-mail subject. Parameters:
+* $1 is a comma separated list of pages being linked.
+* $2 is the number of pages being linked.',
+	'notification-article-linked-email-body' => 'E-mail notification. Parameters:
+* $1 is the username of the person who linked the page, plain text.  Can be used for GENDER.
+* $2 is the username of the person who linked the page, HTML formatted.
+* $3 is the page to which new links are added.
+* $4 is the link to the page with new links added.
+* $5 is a comma separated list of pages being linked.
+* $6 is the number of pages being linked.
+* $7 is the e-mail footer, {{msg|echo-email-footer-default}}.',
+	'notification-article-linked-email-batch-body' => 'E-mail notification for page being linked. Parameters:
+* $1 is the username of the person who linked the page, plain text.  Can be used for GENDER
+* $3 is a comma separated list of pages being linked.
+* $4 is the number of pages being linked.',
 	'notification-reverted-email-subject' => 'E-mail subject. Parameters:
 * $2 is a username
 * $3 is a page title
@@ -306,6 +338,8 @@ See also:
 	'echo-email-batch-category-header-edit-user-talk' => 'E-mail batch section title for edit-user-talk category
 * $1 is the numeric count',
 	'echo-email-batch-category-header-edit-revert' => 'E-mail batch section title for edit-revert category
+* $1 is the numeric count',
+	'echo-email-batch-category-header-cross-reference' => 'E-mail batch section title for cross-reference category
 * $1 is the numeric count',
 	'echo-email-batch-category-header-other' => 'E-mail batch section title for events with category not specified
 * $1 is the numeric count',

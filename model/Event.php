@@ -155,13 +155,7 @@ class EchoEvent {
 			'event_variant' => $this->variant,
 		);
 
-		if ( is_array( $this->extra ) || is_object( $this->extra ) ) {
-			$row['event_extra'] = serialize( $this->extra );
-		} elseif ( is_null( $this->extra ) ) {
-			$row['event_extra'] = null;
-		} else {
-			$row['event_extra'] = serialize( array( $this->extra ) );
-		}
+		$row['event_extra'] = $this->serializeExtra();
 
 		if ( $this->agent ) {
 			if ( $this->agent->isAnon() ) {
@@ -251,6 +245,39 @@ class EchoEvent {
 		$obj = new EchoEvent();
 		$obj->loadFromID( $id );
 		return $obj;
+	}
+
+	/**
+	 * Update extra data
+	 */
+	public function updateExtra( $extra ) {
+		$dbw = wfGetDB( DB_MASTER );
+
+		$this->extra = $extra;
+		if ( $this->id && $this->extra ) {
+			$dbw->update(
+				'echo_event',
+				array( 'event_extra' => $this->serializeExtra() ),
+				array( 'event_id' => $this->id ),
+				__METHOD__
+			);
+		}
+	}
+
+	/**
+	 * Serialize the extra data for event
+	 * @return string
+	 */
+	protected function serializeExtra() {
+		if ( is_array( $this->extra ) || is_object( $this->extra ) ) {
+			$extra = serialize( $this->extra );
+		} elseif ( is_null( $this->extra ) ) {
+			$extra = null;
+		} else {
+			$extra = serialize( array( $this->extra ) );
+		}
+
+		return $extra;
 	}
 
 	## Accessors

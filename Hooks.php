@@ -75,6 +75,59 @@ class EchoHooks {
 				$victim = User::newFromId( $victimID );
 				$users[$victim->getId()] = $victim;
 				break;
+			case 'article-linked':
+				$extra = $event->getExtra();
+				$agent = $event->getAgent();
+
+				if ( !$event->getTitle() || !isset( $extra['new-links'] )
+					|| !is_array( $extra['new-links'] ) || !$agent
+				) {
+					break;
+				}
+
+				global $wgEchoUseJobQueue;
+				$count = 0;
+				$agentId = $agent->getID();
+				$dbr = wfGetDB( DB_SLAVE );
+
+				foreach( $extra['new-links'] as $page ) {
+					$count++;
+					// processing a lot of links on a normal web request is expensive, we should cap
+					// this till we have job queue enabled
+					if ( !$wgEchoUseJobQueue && $count > 100 ) {
+						break;
+					}
+					$title = Title::newFromText( $page['pl_title'], $page['pl_namespace'] );
+					if ( !$title ) {
+						continue;
+					}
+					$res = $dbr->selectRow(
+						array( 'revision' ),
+						array( 'rev_user' ),
+						array( 'rev_page' => $title->getArticleID() ),
+						__METHOD__,
+						array( 'LIMIT' => 1, 'ORDER BY' => 'rev_timestamp, rev_id' )
+					);
+					// No notification if agents link their own articles
+					if ( $res && $res->rev_user && $agentId != $res->rev_user ) {
+						// Map each linked page to a corresponding author
+						if ( !isset( $extra['notif-list'][$res->rev_user] ) ) {
+							$extra['notif-list'][$res->rev_user] = array();
+						}
+						if ( isset( $users[$res->rev_user] ) ) {
+							$user = $users[$res->rev_user];
+						} else {
+							$user = User::newFromId( $res->rev_user );
+						}
+
+						if ( $user ) {
+							$users[$user->getID()] = $user;
+							$extra['notif-list'][$res->rev_user][] = $page;
+						}
+					}
+				}
+				$event->updateExtra( $extra );
+				break;
 		}
 
 		return true;
@@ -289,6 +342,34 @@ class EchoHooks {
 		EchoEvent::create( array(
 			'type' => 'welcome',
 			'agent' => $user,
+		) );
+
+		return true;
+	}
+
+	/**
+	 * Handler for LinksUpdateAfterInsert hook.
+	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/LinksUpdateAfterInsert
+	 * @param $linksUpdate LinksUpdate
+	 * @param $table string
+	 * @param $insertions array
+	 * @return bool
+	 */
+	public static function onLinksUpdateAfterInsert( $linksUpdate, $table, $insertions ) {
+		// Handle only inserts to pagelinks table
+		if ( $table !== 'pagelinks' || !$insertions ) {
+			return true;
+		}
+
+		global $wgUser;
+		EchoEvent::create( array(
+			'type' => 'article-linked',
+			'title' => $linksUpdate->mTitle,
+			'agent' => $wgUser,
+			'extra' => array(
+				'new-links' => $insertions,
+				'notif-list' => array()
+			)
 		) );
 
 		return true;

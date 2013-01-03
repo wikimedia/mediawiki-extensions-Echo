@@ -55,6 +55,7 @@ $wgAutoloadClasses['EchoNotificationFormatter'] = $dir . 'formatters/Notificatio
 $wgAutoloadClasses['EchoBasicFormatter'] = $dir . 'formatters/BasicFormatter.php';
 $wgAutoloadClasses['EchoEditFormatter'] = $dir . 'formatters/EditFormatter.php';
 $wgAutoloadClasses['EchoCommentFormatter'] = $dir . 'formatters/CommentFormatter.php';
+$wgAutoloadClasses['MWEchoArticleLinkedFormatter'] = $dir . 'formatters/ArticleLinkedFormatter.php';
 
 // Internal stuff
 $wgAutoloadClasses['EchoNotifier'] = $dir . 'Notifier.php';
@@ -153,6 +154,7 @@ $wgHooks['AbortEmailNotification'][] = 'EchoHooks::disableStandUserTalkEnotif';
 $wgHooks['UpdateUserMailerFormattedPageStatus'][] = 'EchoHooks::disableStandUserTalkEnotif';
 // Disable the yellow bar of death
 $wgHooks['ArticleEditUpdateNewTalk'][] = 'EchoHooks::abortNewTalkNotification';
+$wgHooks['LinksUpdateAfterInsert'][] = 'EchoHooks::onLinksUpdateAfterInsert';
 
 // Configuration
 
@@ -204,6 +206,7 @@ $wgEchoEnabledEvents = array(
 	'welcome', // A user created an account
 	'edit-user-talk', // User talk page is edited
 	'reverted', // An edit is undone or rolled-back
+	'article-linked', // A page a user created is linked from another page
 	// These aren't ready yet, specifically they have no means of subscription
 #	'add-comment', // A signed comment is added to an existing section
 #	'add-talkpage-topic', // A new section is added to a talk page
@@ -221,6 +224,10 @@ $wgEchoEventDetails = array(
 	'reverted' => array(
 		'category' => 'edit-revert',
 		'priority' => 9
+	),
+	'article-linked' => array(
+		'category' => 'cross-reference',
+		'priority' => 5
 	),
 );
 
@@ -292,5 +299,18 @@ $wgEchoNotificationFormatters = array(
 		'email-body-batch-message' => 'notification-reverted-email-batch-body',
 		'email-body-batch-params' => array( 'agent', 'title', 'number' ),
 		'icon' => 'revert',
-	)
+	),
+	'article-linked' => array(
+		'class' => 'MWEchoArticleLinkedFormatter',
+		'title-message' => 'notification-article-linked',
+		'title-params' => array( 'agent', 'title',  'title-linked-wiki-format' ),
+		'payload' => array( 'summary' ),
+		'email-subject-message' => 'notification-article-linked-email-subject',
+		'email-subject-params' => array( 'title-linked' ),
+		'email-body-message' => 'notification-article-linked-email-body',
+		'email-body-params' => array( 'agent', 'title', 'titlelink', 'title-linked', 'email-footer' ),
+		'email-body-batch-message' => 'notification-article-linked-email-batch-body',
+		'email-body-batch-params' => array( 'agent', 'title-linked' ),
+		'icon' => 'linked',
+	),
 );
