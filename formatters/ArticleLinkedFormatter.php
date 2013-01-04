@@ -19,9 +19,9 @@ class MWEchoArticleLinkedFormatter extends EchoEditFormatter {
 			case 'title-linked':
 			// wikitext format of the title of the page that gets linked in other page
 			case 'title-linked-wiki-format':
-				$list = array();
-				if ( isset( $extra['notif-list'][$user->getID()] ) ) {
+				if ( isset( $extra['notif-list'][$user->getID()] ) && $extra['notif-list'][$user->getID()] ) {
 					global $wgLang;
+					$list = array();
 
 					foreach ( $extra['notif-list'][$user->getID()] as $page ) {
 						$title = Title::makeTitle( $page['pl_namespace'], $page['pl_title'] );

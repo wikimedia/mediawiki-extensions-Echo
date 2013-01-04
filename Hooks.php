@@ -89,7 +89,11 @@ class EchoHooks {
 				$count = 0;
 				$agentId = $agent->getID();
 				$dbr = wfGetDB( DB_SLAVE );
+				$updated = false;
 
+				// @Todo: Title::newFromText() would trigger individual query for each title, this is not
+				// efficient if there are a lot of new links, since we only need the page_id, this can be done
+				// by one big query
 				foreach( $extra['new-links'] as $page ) {
 					$count++;
 					// processing a lot of links on a normal web request is expensive, we should cap
@@ -98,7 +102,7 @@ class EchoHooks {
 						break;
 					}
 					$title = Title::newFromText( $page['pl_title'], $page['pl_namespace'] );
-					if ( !$title ) {
+					if ( !$title || $title->getArticleID() <= 0 ) {
 						continue;
 					}
 					$res = $dbr->selectRow(
@@ -123,10 +127,13 @@ class EchoHooks {
 						if ( $user ) {
 							$users[$user->getID()] = $user;
 							$extra['notif-list'][$res->rev_user][] = $page;
+							$updated = true;
 						}
 					}
 				}
-				$event->updateExtra( $extra );
+				if ( $updated ) {
+					$event->updateExtra( $extra );
+				}
 				break;
 		}
 
