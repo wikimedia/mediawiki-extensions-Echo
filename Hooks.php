@@ -356,8 +356,20 @@ class EchoHooks {
 	 * @return bool
 	 */
 	public static function onLinksUpdateAfterInsert( $linksUpdate, $table, $insertions ) {
-		// Handle only inserts to pagelinks table
-		if ( $table !== 'pagelinks' || !$insertions ) {
+		// Handle only inserts to pagelinks table and main namespace articles
+		if ( $table !== 'pagelinks' || $linksUpdate->mTitle->getNamespace() != NS_MAIN ) {
+			return true;
+		}
+
+		// only main namespace articles only
+		foreach ( $insertions as $key => $page ) {
+			if ( $page['pl_namespace'] != NS_MAIN ) {
+				unset( $insertions[$key] );
+			}
+		}
+
+		// exists if there is no new link
+		if ( !$insertions ) {
 			return true;
 		}
 
