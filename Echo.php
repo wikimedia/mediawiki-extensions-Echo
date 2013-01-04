@@ -127,6 +127,7 @@ $wgResourceModules += array(
 		),
 		'messages' => array(
 			'echo-load-more-error',
+			'echo-more-info',
 		),
 	),
 	'ext.echo.icons' => $echoResourceTemplate + array(
@@ -168,6 +169,9 @@ $wgEchoEnableEmailBatch = true;
 // Show a 'Notifications' link with badge in the user toolbar at the top of the page.
 // Otherwise, only show a badge next to the username.
 $wgEchoShowFullNotificationsLink = false;
+
+// URL for more information about the Echo notification system
+$wgEchoHelpPage = '//www.mediawiki.org/wiki/Special:MyLanguage/Help:Extension:Echo';
 
 // Whether to use job queue to process web and email notifications, bypass the queue for now
 // since it's taking more than an hour to run in mediawiki.org, this is not acceptable for the

@@ -21,10 +21,11 @@ h1#firstHeading {
 }
 
 #mw-echo-pref-link {
-	margin: 0 15px;
-	height: 25px;
-	width: 25px;
-	vertical-align: middle;
+	margin: 5px 3px;
+	height: 18px;
+	width: 18px;
+	display: block;
+	float: right;
 	/* @embed */
 	background-image: url(Preferences.png);
 	background-repeat: no-repeat;
@@ -33,6 +34,21 @@ h1#firstHeading {
 #mw-echo-pref-link:hover {
 	/* @embed */
 	background-image: url(PreferencesHover.png);
+}
+#mw-echo-moreinfo-link {
+	margin: 5px 3px;
+	height: 18px;
+	width: 18px;
+	display: block;
+	float: right;
+	/* @embed */
+	background-image: url(MoreInfo.png);
+	background-repeat: no-repeat;
+	background-position: 0 0;
+}
+#mw-echo-moreinfo-link:hover {
+	/* @embed */
+	background-image: url(MoreInfoHover.png);
 }
 
 .mw-echo-date-section {

@@ -26,9 +26,15 @@
 			_this.timestamp = mw.config.get( 'wgEchoStartTimestamp' );
 			_this.offset = mw.config.get( 'wgEchoStartOffset' );
 			_this.header = mw.config.get( 'wgEchoDateHeader' );
-			
+
+			$( '<a/>' )
+				.attr( 'href', mw.config.get( 'wgEchoHelpPage' ) )
+				.attr( 'title', mw.msg( 'echo-more-info' ) )
+				.attr( 'id', 'mw-echo-moreinfo-link' )
+				.prop( 'target', '_blank' )
+				.appendTo( $( '#firstHeading' ) );
+
 			$( '#mw-echo-pref-link' )
-				.css( 'display', 'inline-block' )
 				.appendTo( $( '#firstHeading' ) );
 		},
 

@@ -475,7 +475,7 @@ class EchoHooks {
 	 * @return bool true in all cases
 	 */
 	public static function makeGlobalVariablesScript( &$vars, OutputPage $outputPage ) {
-		global $wgEchoShowFullNotificationsLink;
+		global $wgEchoShowFullNotificationsLink, $wgEchoHelpPage;
 		$user = $outputPage->getUser();
 
 		// Provide info for the Overlay
@@ -487,6 +487,7 @@ class EchoHooks {
 				'timestamp' => $timestamp->getTimestamp( TS_UNIX ),
 				'notification-count' => EchoNotificationController::getFormattedNotificationCount( $user ),
 			);
+			$vars['wgEchoHelpPage'] = $wgEchoHelpPage;
 		}
 
 		return true;
