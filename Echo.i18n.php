@@ -38,47 +38,50 @@ $messages['en'] = array(
 	'echo-none' => 'You have no notifications.',
 
 	// Notification
-	'notification-edit-talk-page' => '$2 {{GENDER:$1|posted}} on your [[User talk:$3|talk page]].',
-	'notification-article-linked' => '$4 {{PLURAL:$5|was|were}} {{GENDER:$1|linked}} by $2 from this page: [[$3]]',
-	'notification-add-comment' => '$2 {{GENDER:$1|commented}} on "[[$4|$3]]" on the "$5" talk page',
-	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|posted}} a new topic "$3" on [[$4]]',
-	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|sent}} you a message: "[[$4#$3|$3]]"',
-	'notification-add-comment-yours' => '$2 {{GENDER:$1|commented}} on "[[$4#$3|$3]]" on your talk page',
+	'notification-edit-talk-page2' => '[[User:$1|$1]] {{GENDER:$1|posted}} on your [[User talk:$2|talk page]].',
+	'notification-edit-talk-page-flyout2' => '$1 {{GENDER:$1|posted}} on your [[User talk:$2|talk page]].',
+	'notification-article-linked2' => '$3 {{PLURAL:$4|was|were}} {{GENDER:$1|linked}} by [[User:$1|$1]] from this page: [[$2]]',
+	'notification-article-linked-flyout2' => '$3 {{PLURAL:$4|was|were}} {{GENDER:$1|linked}} by $1 from this page: [[$2]]',
+	'notification-add-comment2' => '[[User:$1|$1]] {{GENDER:$1|commented}} on "[[$3|$2]]" on the "$4" talk page',
+	'notification-add-talkpage-topic2' => '[[User:$1|$1]] {{GENDER:$1|posted}} a new topic "$2" on [[$3]]',
+	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]] {{GENDER:$1|sent}} you a message: "[[$3#$2|$2]]"',
+	'notification-add-comment-yours2' => '[[User:$1|$1]] {{GENDER:$1|commented}} on "[[$3#$2|$2]]" on your talk page',
 	'notification-talkpage-content' => '$1', ## Do not translate unless you deliberately want to change behaviour
 	'notification-new-user' => 'Welcome to {{SITENAME}}, $1!',
 	'notification-new-user-content' => 'Please remember to sign any comments on talk pages with 4 tildes (~~~~).',
-	'notification-reverted' => 'Your {{PLURAL:$5|edit on $3 has|edits on $3 have}} been {{GENDER:$1|reverted}} by $2 $4',
-	'notification-edit-talk-page-email-subject' => 'You have a new talkpage message',
-	'notification-edit-talk-page-email-body' => '{{SITENAME}} user $2 {{GENDER:$2|posted}} on your talk page:
+	'notification-reverted2' => 'Your {{PLURAL:$4|edit on [[$2]] has|edits on [[$2]] have}} been {{GENDER:$1|reverted}} by [[User:$1|$1]] $3',
+	'notification-reverted-flyout2' => 'Your {{PLURAL:$4|edit on $2 has|edits on $2 have}} been {{GENDER:$1|reverted}} by $1 $3',
+	'notification-edit-talk-page-email-subject2' => 'You have a new talkpage message',
+	'notification-edit-talk-page-email-body2' => '{{SITENAME}} user $1 {{GENDER:$1|posted}} on your talk page:
 
-$4
+$3
+
+View more:
+
+$2
+
+$4',
+	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|posted}} on your talk page',
+	'notification-article-linked-email-subject2' => '{{PLURAL:$2|A page|Pages}} you started {{PLURAL:$2|was|were}} cross referenced on {{SITENAME}}',
+	'notification-article-linked-email-body2' => '$4 {{PLURAL:$5|was|were}} {{GENDER:$1|linked}} by {{SITENAME}} user $1, from this page: $2
 
 View more:
 
 $3
 
-$5',
-	'notification-edit-talk-page-email-batch-body' => '$2 {{GENDER:$2|posted}} on your talk page',
-	'notification-article-linked-email-subject' => '{{PLURAL:$2|A page|Pages}} you started {{PLURAL:$2|was|were}} cross referenced on {{SITENAME}}',
-	'notification-article-linked-email-body' => '$5 {{PLURAL:$6|was|were}} {{GENDER:$1|linked}} by {{SITENAME}} user $1, from this page: $3
+$6',
+	'notification-article-linked-email-batch-body2' => '$2 {{PLURAL:$3|was|were}} {{GENDER:$1|linked}} by $1',
+	'notification-reverted-email-subject2' => 'Your {{PLURAL:$3|edit on $2 was|edits on $2 were}} {{GENDER:$1|reverted}} by $1',
+	'notification-reverted-email-body2' => 'Your {{PLURAL:$7|edit on $2 has been|edits on $2 have been}} {{GENDER:$1|reverted}} by $1.
+
+$5
 
 View more:
 
-$4
+$3
 
-$7',
-	'notification-article-linked-email-batch-body' => '$3 {{PLURAL:$4|was|were}} {{GENDER:$1|linked}} by $1',
-	'notification-reverted-email-subject' => 'Your {{PLURAL:$4|edit on $3 was|edits on $3 were}} {{GENDER:$2|reverted}} by $2',
-	'notification-reverted-email-body' => 'Your {{PLURAL:$8|edit on $3 has been|edits on $3 have been}} {{GENDER:$2|reverted}} by $2.
-
-$6
-
-View more:
-
-$4
-
-$7',
-	'notification-reverted-email-batch-body' => 'Your {{PLURAL:$4|edit on $3 was|edits on $3 were}} {{GENDER:$2|reverted}} by $2',
+$6',
+	'notification-reverted-email-batch-body2' => 'Your {{PLURAL:$3|edit on $2 was|edits on $2 were}} {{GENDER:$1|reverted}} by $1',
 	'echo-notification-count' => '$1+',
 	// E-mail notification
 	'echo-email-subject-default' => 'New notification at {{SITENAME}}',
@@ -180,88 +183,93 @@ See also:
 	'echo-specialpage' => 'Special page title for Special:Notifications',
 	'echo-anon' => 'Error message shown to users who try to visit Special:Notifications as an anon.',
 	'echo-none' => 'Message shown to users who have no notifications. Also shown in the overlay.',
-	'notification-edit-talk-page' => "Format for displaying notifications of a user talk page being edited
+	'notification-edit-talk-page2' => "Format for displaying notifications of a user talk page being edited
 * $1 is the username of the person who edited, plain text. Can be used for GENDER.
-* $2 is the username of the person who edited, HTML formatted as the link to the user's page.
-* $3 is the current user's name, used in the link to their talk page.",
-	'notification-article-linked' => "Format for displaying notifications of articles being linked
-* $1 is the username of the person who linked the page, plain text.  Can be used for GENDER.
-* $2 is the username of the person who linked the page, HTML formatted as the link to the user's page.
-* $3 is the page to which new links are added
-* $4 is comma separated list of pages being linked
-* $5 is the number of pages being linked",
-	'notification-add-comment' => 'Format for displaying notifications of a comment being added to an existing discussion. Parameters:
-* $1 is the username of the person who edited, plain text. Can be used for GENDER,
-* $2 is the username of the person who edited,
-* $3 is the section title of the discussion,
-* $4 is a link to a page and section,
-* $5 is the page on which the discussion exists, plain text.',
-	'notification-add-talkpage-topic' => "Format for displaying notifications of a new discussion being added
+* $2 is the current user's name, used in the link to their talk page.",
+	'notification-edit-talk-page-flyout2' => "Flyout-specific format for displaying notifications of a user talk page being edited
 * $1 is the username of the person who edited, plain text. Can be used for GENDER.
-* $2 is the username of the person who edited, HTML formatted as the link to the user's page.
-* $3 is the section title of the discussion.
-* $4 is the page on which the discussion was added, plain text.",
-	'notification-add-talkpage-topic-yours' => 'Parameters:
-* $1 is a username used for GENDER
-* $2 is a linked username
-* $3 is a page section
-* $4 is a page title.',
-	'notification-add-comment-yours' => 'Parameters:
-* $1 Username used for GENDER;
-* $2 Linked Username;
-* $3 Discussion name;
-* $4 link to user talk page.',
+* $2 is the current user's name, used in the link to their talk page.",
+	'notification-article-linked2' => "Format for displaying notifications of articles being linked
+* $1 is the username of the person who linked the page, plain text. Can be used for GENDER.
+* $2 is the page to which new links are added
+* $3 is comma separated list of pages being linked
+* $4 is the number of pages being linked",
+	'notification-article-linked-flyout2' => "Flyout-specific format for displaying notifications of articles being linked
+* $1 is the username of the person who linked the page, plain text. Can be used for GENDER.
+* $2 is the page to which new links are added
+* $3 is comma separated list of pages being linked
+* $4 is the number of pages being linked",
+	'notification-add-comment2' => 'Format for displaying notifications of a comment being added to an existing discussion. Parameters:
+* $1 is the username of the person who edited, plain text. Can be used for GENDER.
+* $2 is the section title of the discussion,
+* $3 is a link to a page and section,
+* $4 is the page on which the discussion exists, plain text.',
+	'notification-add-talkpage-topic2' => "Format for displaying notifications of a new discussion being added
+* $1 is the username of the person who edited, plain text. Can be used for GENDER.
+* $2 is the section title of the discussion.
+* $3 is the page on which the discussion was added, plain text.",
+	'notification-add-talkpage-topic-yours2' => 'Parameters:
+* $1 is a username, plain text. Can be used for GENDER.
+* $2 is a page section
+* $3 is a page title.',
+	'notification-add-comment-yours2' => 'Parameters:
+* $1 is a username, plain text. Can be used for GENDER.
+* $2 Discussion name;
+* $3 link to user talk page.',
 	'notification-talkpage-content' => 'Message shown as the "content" of a talkpage-related action.
 * $1 is the content of the talk page post.
 
 {{optional}}',
 	'notification-new-user' => 'Title for the welcome notification. $1 is the name of the new user.',
 	'notification-new-user-content' => 'The content shown to users on their welcome notification.',
-	'notification-reverted' => "Format for displaying notifications of a user's edit being reverted.
+	'notification-reverted2' => "Format for displaying notifications of a user's edit being reverted.
 * $1 is the username of the person who reverted, plain text. Can be used for GENDER.
-* $2 is the username of the person who reverted, formatted.
-* $3 is the page that was reverted, formatted.
-* $4 is a diff link to the ''revert'', possibly formatted.
-* $5 is the number of edits that were reverted. NOTE: This will only be set to 1 or 2, with 2 actually meaning 'an unknown number greater than 0'.",
-	'notification-edit-talk-page-email-subject' => 'E-mail subject.',
-	'notification-edit-talk-page-email-body' => 'E-mail notification. Parameters:
-* $2 is a username
-* $3 is a link to a change
-* $4 is the edit summary.
-* $5 is the e-mail footer, {{msg|echo-email-footer-default}}',
-	'notification-edit-talk-page-email-batch-body' => 'E-mail notification for talk page edit
-* $2 is a username',
-	'notification-article-linked-email-subject' => 'E-mail subject. Parameters:
+* $2 is the page that was reverted, formatted.
+* $3 is a diff link to the ''revert'', possibly formatted.
+* $4 is the number of edits that were reverted. NOTE: This will only be set to 1 or 2, with 2 actually meaning 'an unknown number greater than 0'.",
+	'notification-reverted-flyout2' => "Flyout-specific format for displaying notifications of a user's edit being reverted.
+* $1 is the username of the person who reverted, plain text. Can be used for GENDER.
+* $2 is the page that was reverted, formatted.
+* $3 is a diff link to the ''revert'', possibly formatted.
+* $4 is the number of edits that were reverted. NOTE: This will only be set to 1 or 2, with 2 actually meaning 'an unknown number greater than 0'.",
+	'notification-edit-talk-page-email-subject2' => 'E-mail subject.',
+	'notification-edit-talk-page-email-body2' => 'E-mail notification. Parameters:
+* $1 is a username
+* $2 is a link to a change
+* $3 is the edit summary.
+* $4 is the e-mail footer, {{msg|echo-email-footer-default}}',
+	'notification-edit-talk-page-email-batch-body2' => 'E-mail notification for talk page edit
+* $1 is a username',
+	'notification-article-linked-email-subject2' => 'E-mail subject. Parameters:
 * $1 is a comma separated list of pages being linked.
 * $2 is the number of pages being linked.',
-	'notification-article-linked-email-body' => 'E-mail notification. Parameters:
+	'notification-article-linked-email-body2' => 'E-mail notification. Parameters:
 * $1 is the username of the person who linked the page, plain text.  Can be used for GENDER.
-* $2 is the username of the person who linked the page, HTML formatted.
-* $3 is the page to which new links are added.
-* $4 is the link to the page with new links added.
-* $5 is a comma separated list of pages being linked.
-* $6 is the number of pages being linked.
-* $7 is the e-mail footer, {{msg|echo-email-footer-default}}.',
-	'notification-article-linked-email-batch-body' => 'E-mail notification for page being linked. Parameters:
-* $1 is the username of the person who linked the page, plain text.  Can be used for GENDER
-* $3 is a comma separated list of pages being linked.
-* $4 is the number of pages being linked.',
-	'notification-reverted-email-subject' => 'E-mail subject. Parameters:
-* $2 is a username
-* $3 is a page title
-* $4 is the number of revert',
-	'notification-reverted-email-body' => "E-mail notification. Parameters:
-* $2 is the username
-* $3 is the page title
-* $4 is the link to the change
-* $5 is the e-mail recipient's username
-* $6 is the edit summary
-* $7 is the email footer, {{msg|echo-email-footer-default}}
-* $8 is the number of revert",
-	'notification-reverted-email-batch-body' => 'E-mail notification for page revert. Parameters:
-* $2 is a username
-* $3 is a page title
-* $4 is the number of revert',
+* $2 is the page to which new links are added.
+* $3 is the link to the page with new links added.
+* $4 is a comma separated list of pages being linked.
+* $5 is the number of pages being linked.
+* $6 is the e-mail footer, {{msg|echo-email-footer-default}}.',
+	'notification-article-linked-email-batch-body2' => 'E-mail notification for page being linked. Parameters:
+* $1 is the username of the person who linked the page, plain text. Can be used for GENDER.
+* $2 is a comma separated list of pages being linked.
+* $3 is the number of pages being linked.',
+	'notification-reverted-email-subject2' => 'E-mail subject. Parameters:
+* $1 is a username
+* $2 is a page title
+* $3 is the number of revert',
+	'notification-reverted-email-body2' => "E-mail notification. Parameters:
+* $1 is the username
+* $2 is the page title
+* $3 is the link to the change
+* $4 is the e-mail recipient's username
+* $5 is the edit summary
+* $6 is the email footer, {{msg|echo-email-footer-default}}
+* $7 is the number of revert",
+	'notification-reverted-email-batch-body2' => 'E-mail notification for page revert. Parameters:
+* $1 is a username
+* $2 is a page title
+* $3 is the number of revert',
 	'echo-notification-count' => '{{optional}}
 The new notification count next to notification link, for example: 99+
 * $1 is the count',

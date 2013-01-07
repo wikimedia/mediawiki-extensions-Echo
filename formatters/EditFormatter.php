@@ -73,7 +73,7 @@ class EchoEditFormatter extends EchoBasicFormatter {
 			$param = (array)$props['param'];
 		}
 
-		if ( $this->outputFormat === 'html' || $this->outputFormat === 'html-light' ) {
+		if ( $this->outputFormat === 'html' || $this->outputFormat === 'flyout' ) {
 			$class = array();
 			if ( isset( $props['class'] ) ) {
 				$class['class'] = $props['class'];
