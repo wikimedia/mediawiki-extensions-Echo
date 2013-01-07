@@ -363,19 +363,19 @@ class EchoHooks {
 	 * @return bool
 	 */
 	public static function onLinksUpdateAfterInsert( $linksUpdate, $table, $insertions ) {
-		// Handle only inserts to pagelinks table and main namespace articles
-		if ( $table !== 'pagelinks' || $linksUpdate->mTitle->getNamespace() != NS_MAIN ) {
+		// Handle only inserts to pagelinks table for content namespace pages
+		if ( $table !== 'pagelinks' || !MWNamespace::isContent( $linksUpdate->mTitle->getNamespace() ) ) {
 			return true;
 		}
 
-		// only main namespace articles only
+		// only create notifications for links to content namespace pages
 		foreach ( $insertions as $key => $page ) {
-			if ( $page['pl_namespace'] != NS_MAIN ) {
+			if ( !MWNamespace::isContent( $page['pl_namespace'] ) ) {
 				unset( $insertions[$key] );
 			}
 		}
 
-		// exists if there is no new link
+		// exits if there is no new link
 		if ( !$insertions ) {
 			return true;
 		}
