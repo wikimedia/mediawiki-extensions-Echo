@@ -746,7 +746,7 @@ $messages['el'] = array(
 	'echo-none' => 'Δεν έχετε ειδοποιήσεις.',
 	'notification-new-user' => 'Καλώς ήρθατε στο {{SITENAME}}, $1!',
 	'notification-edit-talk-page-email-subject' => 'Έχετε νέο μήνυμα στη σελίδα συζήτησής σας',
-	'notification-edit-talk-page-email-body' => '{{SITENAME}} ο χρήστης $2 {{GENDER:$2|δημοσίευσε}} στη σελίδα συζήτησής σου:
+	'notification-edit-talk-page-email-body' => '{{GENDER:$2|Ο χρήστης|Η χρήστρια}} $2 του ιστοχώρου {{SITENAME}} δημοσίευσε στη σελίδα συζήτησής σας:
 
 $4
 
@@ -1422,17 +1422,18 @@ $1', # Fuzzy
 
 /** Hindi (हिन्दी)
  * @author Ansumang
+ * @author Siddhartha Ghai
  */
 $messages['hi'] = array(
 	'echo-no-agent' => '[कोई नहीं]',
 	'echo-no-title' => '[कोई पृष्ठ नहीं]',
-	'notifications' => 'सूचना',
-	'tooltip-pt-notifications' => 'आपका सूचना',
-	'echo-specialpage' => 'मेरी सूचना',
-	'echo-link' => 'सूचना',
-	'echo-overlay-link' => 'सारे सूचना',
-	'echo-overlay-title' => 'मेरी सूचना',
-	'echo-date-today' => 'आज़',
+	'notifications' => 'सूचनाएँ',
+	'tooltip-pt-notifications' => 'आपकी सूचनाएँ',
+	'echo-specialpage' => 'मेरी सूचनाएँ',
+	'echo-link' => 'सूचनाएँ',
+	'echo-overlay-link' => 'सभी सूचनाएँ',
+	'echo-overlay-title' => 'मेरी सूचनाएँ',
+	'echo-date-today' => 'आज',
 	'echo-date-yesterday' => 'कल',
 );
 
@@ -3423,10 +3424,10 @@ $messages['zh-hant'] = array(
 	'echo-pref-email-edit-user-talk' => '討論頁留言',
 	'echo-pref-email-article-linked' => '於其他頁面加入一條連結到我創建的頁面',
 	'echo-pref-email-reverted' => '回退我的編輯',
-	'echo-pref-email-frequency-never' => '不要向我發送電郵通知',
-	'echo-pref-email-frequency-immediately' => '發出個別通知',
-	'echo-pref-email-frequency-daily' => '每日以摘要形式通知',
-	'echo-pref-email-frequency-weekly' => '每周以摘要形式通知',
+	'echo-pref-email-frequency-never' => '不要向我發送任何電郵通知',
+	'echo-pref-email-frequency-immediately' => '允許個別通知',
+	'echo-pref-email-frequency-daily' => '每日通知摘要',
+	'echo-pref-email-frequency-weekly' => '每周通知摘要',
 	'echo-pref-notify-hide-link' => '在我的工具列中隱藏通知連結及標示',
 	'echo-no-agent' => '[無人]',
 	'echo-no-title' => '[無頁面]',
@@ -3437,20 +3438,20 @@ $messages['zh-hant'] = array(
 	'echo-anon' => '要接收通知，請[[Special:Userlogin/signup|創建帳號]]或[[Special:UserLogin|登錄]]。',
 	'echo-none' => '您沒有任何通知。',
 	'notification-edit-talk-page' => '$2{{GENDER:$1|編輯了}}[[User talk:$3|您的對話頁]]。',
-	'notification-article-linked' => '$4{{PLURAL:$5|被|被}}$2{{GENDER:$1|連結}}到此頁面: [[$3]]',
+	'notification-article-linked' => '$4{{PLURAL:$5|被|被}}$2{{GENDER:$1|連結}}到此頁面：[[$3]]',
 	'notification-add-comment' => '$2在“$5”討論頁上{{GENDER:$1|評論了}}“[[$4|$3]]”',
 	'notification-add-talkpage-topic' => '$2在[[$4]]上{{GENDER:$1|發表了}}一個新主題“$3”',
 	'notification-add-talkpage-topic-yours' => '$2給您{{GENDER:$1|發送了}}新消息：“[[$4#$3|$3]]”',
 	'notification-add-comment-yours' => '$2在您的對話頁上上{{GENDER:$1|評論了}}“[[$4#$3|$3]]”',
 	'notification-new-user' => '歡迎來到{{SITENAME}}，$1！',
 	'notification-new-user-content' => '請記得為討論頁上的任何留言用四個波浪線（~~~~）簽名。',
-	'notification-reverted' => '你{{PLURAL:$5|在|在}}$3的編輯已經被$2{{GENDER:$1|回退}} $4',
+	'notification-reverted' => '你{{PLURAL:$5|在|在}}$3的編輯已經被$2{{GENDER:$1|回退}}$4',
 	'notification-edit-talk-page-email-subject' => '你有一個新的用戶討論頁留言',
 	'notification-edit-talk-page-email-body' => '{{SITENAME}}用戶$2{{GENDER:$2|編輯了}}你的用戶討論頁：
 
 $4
 
-了解更多
+詳情如下：
 
 $3
 
