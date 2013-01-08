@@ -201,7 +201,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 			'format' => array(
 				ApiBase::PARAM_TYPE => array(
 					'text',
-					'html-light',
+					'flyout',
 					'html',
 				),
 			),

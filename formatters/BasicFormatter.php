@@ -9,12 +9,20 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	);
 	protected $validPayloadComponents = array( 'summary', 'snippet', 'welcome' );
 
-	protected $title, $content, $email, $icon;
+	protected $title, $flyoutTitle, $content, $email, $icon;
 
 	public function __construct( $params ) {
 		parent::__construct( $params );
 
 		$this->title = array();
+		$this->flyoutTitle = array();
+		if ( isset( $params['flyout-message'] ) && isset( $params['flyout-params'] ) ) {
+			$this->flyoutTitle['message'] = $params['flyout-message'];
+			$this->flyoutTitle['params'] = $params['flyout-params'];
+		} else {
+			$this->flyoutTitle['message'] = $params['title-message'];
+			$this->flyoutTitle['params'] = $params['title-params'];
+		}
 		$this->title['message'] = $params['title-message'];
 		$this->title['params'] = $params['title-params'];
 		$this->payload = array();
@@ -155,7 +163,11 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	}
 
 	protected function formatNotificationTitle( $event, $user ) {
-		return $this->formatFragment( $this->title, $event, $user );
+		if ( $this->outputFormat === 'flyout' ) {
+			return $this->formatFragment( $this->flyoutTitle, $event, $user );
+		} else {
+			return $this->formatFragment( $this->title, $event, $user );
+		}
 	}
 
 	protected function formatEmail( $event, $user, $type ) {
@@ -216,7 +228,6 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			} else {
 				$agent = $event->getAgent();
 				$message->params( $agent->getName() );
-				$message->rawParams( $this->formatUser( $agent ) );
 			}
 		} elseif ( $param === 'user' ) {
 			$message->params( $user->getName() );
