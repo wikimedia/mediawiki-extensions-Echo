@@ -363,19 +363,26 @@ class EchoHooks {
 	 * @return bool
 	 */
 	public static function onLinksUpdateAfterInsert( $linksUpdate, $table, $insertions ) {
+	 	// Confirm: if $linksUpdate->mRecursive is false, that means $linkUpdate->mTitle is
+	 	// transcluding other page, and this link update is resulting from the other page
+	 	// link update
+		if ( !$linksUpdate->mRecursive ) {
+			return true;
+		}
+
 		// Handle only inserts to pagelinks table for content namespace pages
 		if ( $table !== 'pagelinks' || !MWNamespace::isContent( $linksUpdate->mTitle->getNamespace() ) ) {
 			return true;
 		}
 
-		// only create notifications for links to content namespace pages
+		// Only create notifications for links to content namespace pages
 		foreach ( $insertions as $key => $page ) {
 			if ( !MWNamespace::isContent( $page['pl_namespace'] ) ) {
 				unset( $insertions[$key] );
 			}
 		}
 
-		// exits if there is no new link
+		// Exits if there is no new link
 		if ( !$insertions ) {
 			return true;
 		}
