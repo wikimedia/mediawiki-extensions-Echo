@@ -174,7 +174,7 @@
 				function( $overlay ) {
 					$overlay
 						.hide()
-						.appendTo( $( 'body' ) );
+						.appendTo( $( '#pt-notifications' ) );
 					// Figure out which footer link is first and pad it appropriately
 					// (Sometimes the 'All notifications' link doesn't exist)
 					if ( $( '#mw-echo-overlay-link' ).length ) {
@@ -184,13 +184,16 @@
 						$( '#mw-echo-overlay-pref-link' )
 							.addClass( 'mw-echo-overlay-first-footer-link' );
 					}
-					$overlay.slideDown( 'fast' );
+					// Create the pokey (aka chevron)
+					$( '.mw-echo-overlay' ).before( $( '<div/>' ).addClass( 'mw-echo-overlay-pokey' ) );
+					// Show the notifications overlay
+					$overlay.show();
 				} );
 		} );
 
 		$( 'body' ).click( function( e ) {
-			if ( ! $( e.target ).is( '.mw-echo-overlay,.mw-echo-overlay *' ) ) {
-				$( '.mw-echo-overlay' ).fadeOut( 'fast',
+			if ( ! $( e.target ).is( '.mw-echo-overlay, .mw-echo-overlay *, .mw-echo-overlay-pokey' ) ) {
+				$( '.mw-echo-overlay, .mw-echo-overlay-pokey' ).fadeOut( 'fast',
 					function() { $( this ).remove(); }
 				);
 			}
