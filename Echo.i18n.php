@@ -245,7 +245,10 @@ See also:
 * $1 is the content of the talk page post.
 
 {{optional}}',
-	'notification-new-user' => 'Title for the welcome notification. $1 is the name of the new user.',
+	'notification-new-user' => 'Title for the welcome notification. Parameters:
+* $1 - the name of the new user
+See also:
+* {{msg-mw|Guidedtour-tour-gettingstarted-start-title}}',
 	'notification-new-user-content' => 'The content shown to users on their welcome notification.',
 	'notification-reverted2' => "Format for displaying notifications of a user's edit being reverted.
 * $1 is the username of the person who reverted, plain text. Can be used for GENDER.
@@ -1638,7 +1641,7 @@ $messages['ja'] = array(
 	'notification-add-talkpage-topic2' => '[[User:$1|$1]] が [[$3]] に新しい話題「$2」を{{GENDER:$1|投稿しました}}',
 	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]] があなたにメッセージを{{GENDER:$1|送信しました}}:「[[$3#$2|$2]]」',
 	'notification-add-comment-yours2' => '[[User:$1|$1]] があなたのトークページの「[[$3#$2|$2]]」に{{GENDER:$1|コメントしました}}',
-	'notification-new-user' => '$1さん、{{SITENAME}}にようこそ!',
+	'notification-new-user' => '$1さん、{{SITENAME}}へようこそ!',
 	'notification-new-user-content' => 'トークページヘのコメントには 4 つのチルダ (~~~~) を付けて署名してください。',
 	'notification-reverted2' => '{{PLURAL:$4|[[$2]] でのあなたの編集}}を [[User:$1|$1]] が{{GENDER:$1|差し戻しました}} $3',
 	'notification-reverted-flyout2' => '{{PLURAL:$4|$2 でのあなたの編集}}を $1 が{{GENDER:$1|差し戻しました}} $3',
@@ -1765,8 +1768,49 @@ $messages['ko'] = array(
 	'echo-anon' => '알림을 받으려면 [[Special:Userlogin/signup|계정을 만들거나]] [[Special:UserLogin|로그인하세요]].',
 	'echo-none' => '알림이 없습니다.',
 	'echo-more-info' => '자세한 정보',
+	'notification-edit-talk-page2' => '[[User:$1|$1]] 사용자가 내 [[User talk:$2|토론 문서]]에 {{GENDER:$1|게시했습니다}}.',
+	'notification-edit-talk-page-flyout2' => '$1 사용자가 내 [[User talk:$2|토론 문서]]에 {{GENDER:$1|게시했습니다}}.',
+	'notification-article-linked2' => '$3 문서를 이 문서에서 [[User:$1|$1]] 사용자가 {{GENDER:$1|링크}}{{PLURAL:$4|했습니다}}: [[$2]]',
+	'notification-article-linked-flyout2' => '$3 문서를 이 문서에서 $1 사용자가 {{GENDER:$1|링크}}{{PLURAL:$4|했습니다}}: [[$2]]',
+	'notification-add-comment2' => '[[User:$1|$1]] 사용자가 "$4" 토론 문서의 "[[$3|$2]]"에 {{GENDER:$1|덧글을 남겼습니다}}',
+	'notification-add-talkpage-topic2' => '[[User:$1|$1]] 사용자가 [[$3]]의 "$2" 새 주제를 {{GENDER:$1|게시했습니다}}',
+	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]] 사용자가 내게 메시지를 {{GENDER:$1|보냈습니다}}: "[[$3#$2|$2]]"',
+	'notification-add-comment-yours2' => '[[User:$1|$1]] 사용자가 내 토론 문서의 "[[$3#$2|$2]]"에 {{GENDER:$1|덧글을 남겼습니다}}',
 	'notification-new-user' => '$1, {{SITENAME}}에 온 것을 환영합니다!',
 	'notification-new-user-content' => '토론 문서에서 글을 쓴 후에는 물결표 4개(~~~~)를 넣어 서명하는 것을 기억하세요.',
+	'notification-reverted2' => '{{PLURAL:$4|[[$2]]에 대한 내 편집}}을 [[User:$1|$1]] 사용자가 {{GENDER:$1|되돌렸습니다}} $3',
+	'notification-reverted-flyout2' => '{{PLURAL:$4|$2에 대한 내 편집}}을 $1 사용자가 {{GENDER:$1|되돌렸습니다}} $3',
+	'notification-edit-talk-page-email-subject2' => '새 토론 문서 메시지가 있습니다',
+	'notification-edit-talk-page-email-body2' => '{{SITENAME}} $1 사용자가 내 토론 문서에 {{GENDER:$1|게시했습니다}}:
+
+$3
+
+더 보기:
+
+$2
+
+$4',
+	'notification-edit-talk-page-email-batch-body2' => '$1 사용자가 내 토론 문서에 {{GENDER:$1|게시했습니다}}',
+	'notification-article-linked-email-subject2' => '{{SITENAME}}에서 작성한 {{PLURAL:$2|문서}}가 교차 참조{{PLURAL:$2|했습니다}}',
+	'notification-article-linked-email-body2' => '$4 문서를 이 문서에서 {{SITENAME}} $1 사용자가 {{GENDER:$1|링크}}{{PLURAL:$5|했습니다}}: $2
+
+더 보기:
+
+$3
+
+$6',
+	'notification-article-linked-email-batch-body2' => '$2 문서를 $1 사용자가 {{GENDER:$1|링크}}{{PLURAL:$3|했습니다}}',
+	'notification-reverted-email-subject2' => '{{PLURAL:$3|$2에 대한 내 편집}}을 $1 사용자가 {{GENDER:$1|되돌렸습니다}}',
+	'notification-reverted-email-body2' => '{{PLURAL:$7|$2에 대한 내 편집}}을 $1 사용자가 {{GENDER:$1|되돌렸습니다}}.
+
+$5
+
+더 보기:
+
+$3
+
+$6',
+	'notification-reverted-email-batch-body2' => '{{PLURAL:$3|$2에 대한 내 편집}}을 $1 사용자가 {{GENDER:$1|되돌렸습니다}}',
 	'echo-email-subject-default' => '{{SITENAME}}에서 새 알림',
 	'echo-email-body-default' => '{{SITENAME}}에서 새 알림이 있습니다:
 
