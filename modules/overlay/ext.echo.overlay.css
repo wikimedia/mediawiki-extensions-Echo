@@ -1,7 +1,7 @@
 .mw-echo-overlay {
 	position: absolute;
 	top: 2.6em;
-	right: 0;
+	left: -200px;
 	border: 1px solid silver;
 	background-color: #fff;
 	width: 450px;
@@ -11,15 +11,38 @@
 	z-index: 60;
 	box-shadow: 0px 3px 8px rgba(50, 50, 50, 0.35);
 }
+.mw-echo-overlay-pokey {
+	/* @embed */
+	background-image: url('PokeyNorth.png');
+	background-repeat: no-repeat;
+	width: 21px;
+	height: 11px;
+	position: absolute;
+	z-index: 61;
+	top: 21px;
+	left: -9px;
+}
 
-.mw-echo-overlay ul {
+#p-personal .mw-echo-overlay ul {
 	margin: 0;
+	padding: 0;
 	overflow: auto;
 }
 
-.mw-echo-overlay li {
-	/*	border-bottom: 1px solid #A7D7F9;*/
+#p-personal .mw-echo-overlay li.mw-echo-notification {
 	display: block;
+	float: none;
+	border-bottom: 1px solid #DDDDDD;
+	padding: 15px 15px 10px 15px;
+	margin: 0;
+	white-space: normal;
+	font-size: 13px;
+	line-height: 16px;
+	filter: alpha(opacity=50);
+	opacity: 0.5;
+}
+#p-personal .mw-echo-overlay li.mw-echo-notification:last-child {
+	border-bottom: none;
 }
 
 .mw-echo-overlay-title {
@@ -41,7 +64,7 @@
 	padding: 15px 0px 15px 30px;
 	width: 150px;
 	min-height: 14px;
-	font-size: 0.8em;
+	font-size: 13px;
 	/* @embed */
 	background-image: url(../icons/NotificationsPage.png);
 	background-repeat: no-repeat;
@@ -52,7 +75,7 @@
 	float: left;
 	width: 150px;
 	min-height: 14px;
-	font-size: 0.8em;
+	font-size: 13px;
 	padding: 15px 0 15px 30px;
 	border-left: 1px solid #DDDDDD;
 	/* @embed */
@@ -61,19 +84,12 @@
 	background-position: 12px 15px;
 }
 
+#pt-notifications {
+	position: relative;
+}
+
 #pt-notifications .mw-badge {
 	margin-left: 3px;
-}
-
-.mw-echo-overlay .mw-echo-notification {
-	border-bottom: 1px solid #DDDDDD;
-	padding: 15px 15px 10px 15px;
-	filter: alpha(opacity=50);
-	opacity: 0.5;
-}
-
-.mw-echo-overlay .mw-echo-notification:last-child {
-	border-bottom: none;
 }
 
 .mw-echo-overlay .mw-echo-unread {
