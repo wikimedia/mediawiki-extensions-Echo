@@ -267,7 +267,7 @@ See also:
 * $1 is a username
 * $2 is a link to a change
 * $3 is the edit summary.
-* $4 is the e-mail footer, {{msg|echo-email-footer-default}}',
+* $4 is the e-mail footer, {{msg-mw|echo-email-footer-default}}',
 	'notification-edit-talk-page-email-batch-body2' => 'E-mail notification for talk page edit
 * $1 is a username',
 	'notification-article-linked-email-subject2' => 'E-mail subject. Parameters:
@@ -284,7 +284,7 @@ See also:
 * $3 is the link to the page with new links added.
 * $4 is a comma separated list of pages being linked.
 * $5 is the number of pages being linked.
-* $6 is the e-mail footer, {{msg|echo-email-footer-default}}.
+* $6 is the e-mail footer, {{msg-mw|echo-email-footer-default}}.
 See also:
 * {{msg-mw|Notification-article-linked2}}
 * {{msg-mw|Notification-article-linked-flyout2}}
@@ -310,7 +310,7 @@ See also:
 * $3 is the link to the change
 * $4 is the e-mail recipient's username
 * $5 is the edit summary
-* $6 is the email footer, {{msg|echo-email-footer-default}}
+* $6 is the email footer, {{msg-mw|echo-email-footer-default}}
 * $7 is the number of revert
 {{Related|Notification-reverted}}",
 	'notification-reverted-email-batch-body2' => 'E-mail notification for page revert. Parameters:
@@ -837,6 +837,7 @@ $1',
 
 /** Spanish (español)
  * @author Armando-Martin
+ * @author Invadinado
  * @author Ralgis
  * @author TheBITLINK
  * @author Vivaelcelta
@@ -862,6 +863,7 @@ $messages['es'] = array(
 	'echo-specialpage' => 'Mis notificaciones',
 	'echo-anon' => 'Para recibir notificaciones, [[Special:Userlogin/signup|crea una cuenta]] o [[Special:UserLogin|inicia sesión]].',
 	'echo-none' => 'No tienes notificaciones',
+	'echo-more-info' => 'Más información',
 	'notification-new-user' => '¡Bienvenido a {{SITENAME}}, $1!',
 	'notification-new-user-content' => 'Recuerda firmar cualquier comentario en las páginas de discusión con 4 tildes (~ ~ ~ ~).',
 	'echo-email-subject-default' => 'Nueva notificación en {{SITENAME}}',
@@ -2193,7 +2195,7 @@ $messages['nl'] = array(
 	'prefs-echo' => 'Meldingen',
 	'prefs-displaynotifications' => 'Weergaveopties',
 	'prefs-emailsubscriptions' => 'Stuur mij een e-mail als iemand',
-	'prefs-emailfrequency' => 'Hoe vaak ik melding via e-mail wil ontvangen', # Fuzzy
+	'prefs-emailfrequency' => 'Wanneer wilt u melding via e-mail ontvangen?',
 	'echo-pref-email-edit-user-talk' => 'Een bericht op mijn overlegpagina plaatst',
 	'echo-pref-email-article-linked' => 'Koppeling maakt naar een pagina die ik heb aangemaakt',
 	'echo-pref-email-reverted' => 'Een bewerking van mij terugdraait',
@@ -2412,8 +2414,50 @@ $messages['pms'] = array(
 	'echo-specialpage' => 'Mie notìfiche',
 	'echo-anon' => "Për arseive dle notìfiche, [[Special:Userlogin/signup|ch'a crea un cont]] o [[Special:UserLogin|ch'a intra ant ël sistema]].",
 	'echo-none' => "A l'ha gnun-e notìfiche.",
+	'echo-more-info' => 'Pi anformassion',
+	'notification-edit-talk-page2' => "[[User:$1|$1]] {{GENDER:$1|a l'ha mandà}} dzor toa [[User talk:$2|pagina ëd discussion]].",
+	'notification-edit-talk-page-flyout2' => "$1 {{GENDER:$1|a l'ha mandà}} dzora soa [[User talk:$2|pàgina ëd ciaciarade]].",
+	'notification-article-linked2' => "$3 {{PLURAL:$4|a l'era|a j'ero}} {{GENDER:$1|colegà}} da [[User:$1|$1]] da sta pagina: [[$2]]",
+	'notification-article-linked-flyout2' => "$3 {{PLURAL:$4|a l'era|a j'ero}} {{GENDER:$1|colegà}} da $1 da sta pagina: [[$2]]",
+	'notification-add-comment2' => '[[User:$1|$1]] {{GENDER:$1|a l\'ha comentà}} dzor "[[$3|$2]]" dzor la pagina ëd discussion "$4"',
+	'notification-add-talkpage-topic2' => '[[User:$1|$1]] {{GENDER:$1|a l\'ha mandà}} n\'argoment neuv "$2" dzor [[$3]]',
+	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]] {{GENDER:$1|a l\'ha manda}}te un mëssagi: "[[$3#$2|$2]]"',
+	'notification-add-comment-yours2' => '[[User:$1|$1]] {{GENDER:$1|a l\'ha comentà}} dzor "[[$3#$2|$2]]" dzor toa pagina ëd discussion',
 	'notification-new-user' => 'Bin-ëvnù an {{SITENAME}}, $1!',
 	'notification-new-user-content' => "Për piasì, ch'as visa ëd firmé tut coment an sle pàgine ëd discussion con 4 tilde (~~~~).",
+	'notification-reverted2' => "Toa {{PLURAL:$4|modìfica dzor [[$2]] a l'é stàita|modìfiche dzor [[$2]] a son stàite}} {{GENDER:$1|ripristinà}} da [[User:$1|$1]] $3",
+	'notification-reverted-flyout2' => "Toa {{PLURAL:$4|modìfica dzor $2 a l'é stàita|modìfiche dzor $2 a son stàite}} {{GENDER:$1|ripristinà}} da $1 $3",
+	'notification-edit-talk-page-email-subject2' => "A l'ha un mëssagi neuv an soa pàgina ëd ciaciarade",
+	'notification-edit-talk-page-email-body2' => "{{SITENAME}} utent $1 {{GENDER:$1|a l'ha mandà}} dzor toa pagina ëd discussion:
+
+$3
+
+Vëdde ëd pi:
+
+$2
+
+$4",
+	'notification-edit-talk-page-email-batch-body2' => "$1 {{GENDER:$1|a l'ha mandà}} dzor toa pagina ëd discussion",
+	'notification-article-linked-email-subject2' => "{{PLURAL:$2|Na pagina|Dle pagine}} ch'it l'has ancaminà {{PLURAL:$2|a l'é stàita|a son stàite}} referensià crosià dzor {{SITENAME}}",
+	'notification-article-linked-email-body2' => "$4 {{PLURAL:$5|a l'é stàit|a son stàite}} {{GENDER:$1|colegà}} da {{SITENAME}} utent $1, da sta pagina: $2
+
+Vëdde ëd pi:
+
+$3
+
+$6",
+	'notification-article-linked-email-batch-body2' => "$2 {{PLURAL:$3|a l'é stàit|a son stàit}} {{GENDER:$1|colegà}} da $1",
+	'notification-reverted-email-subject2' => "{{PLURAL:$3|Toa modìfica dzor $2 a l'é stàit|Toe modìfiche dzor $2 a son stàite}} {{GENDER:$1|ripristinà}} da $1",
+	'notification-reverted-email-body2' => "{{PLURAL:$7|Toa modìfica dzor $2 a l'é stàita|Toe modìfiche dzor $2 a son stàite}} {{GENDER:$1|ripristinà}} da $1.
+
+$5
+
+Vëdde ëd pi:
+
+$3
+
+$6",
+	'notification-reverted-email-batch-body2' => "{{PLURAL:$3|Toa modìfica dzor $2 a l'é stàit|Toe modìfiche dzor $2 a son stàite}} {{GENDER:$1|ripristinà}} da $1",
 	'echo-email-subject-default' => 'Notìfiche neuve a {{SITENAME}}',
 	'echo-email-body-default' => "It l'has na notìfica neuva a {{SITENAME}}:
 
