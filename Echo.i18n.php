@@ -147,7 +147,8 @@ $5',
  */
 $messages['qqq'] = array(
 	'echo-desc' => '{{desc|name=Echo|url=http://www.mediawiki.org/wiki/Extension:Echo}}',
-	'prefs-echo' => 'Name of preferences section for Echo notifications.',
+	'prefs-echo' => 'Name of preferences section for Echo notifications.
+{{Identical|Notification}}',
 	'prefs-displaynotifications' => 'Header for the section of preferences that deals with how notifications are displayed',
 	'prefs-emailsubscriptions' => 'Header for the section of preferences that deals with which notifications the user receives emails for
 * {{msg-mw|Echo-pref-email-edit-user-talk}}
@@ -179,7 +180,8 @@ See also:
 	if the notification has no specified user.',
 	'echo-no-title' => 'Shown in place of a page title in a notification if the notification has no specified page title.',
 	'echo-error-no-formatter' => "Error message displayed when no formatting has been defined for a notification. In other words, the extension doesn't know how to properly display the notification.",
-	'notifications' => 'This message is the page title of the special page [[Special:Notifications]].',
+	'notifications' => 'This message is the page title of the special page [[Special:Notifications]].
+{{Identical|Notification}}',
 	'tooltip-pt-notifications' => 'This is used for the title (mouseover text) of the notifications user tool.',
 	'echo-specialpage' => 'Special page title for Special:Notifications',
 	'echo-anon' => 'Error message shown to users who try to visit Special:Notifications as an anon.',
@@ -329,7 +331,8 @@ The new notification count next to notification link, for example: 99+
 * $2 is "-------..." ({{msg-mw|echo-email-batch-separator}})',
 	'echo-link-new' => 'Shown in "personal links" when a user has unread notifications.
 * $1 is number of unread notifications',
-	'echo-link' => 'Shown in "personal links" when a user has JS. New notifications are indicated with a badge.',
+	'echo-link' => 'Shown in "personal links" when a user has JS. New notifications are indicated with a badge.
+{{Identical|Notification}}',
 	'echo-overlay-link' => 'Link to "all notifications" at the bottom of the overlay',
 	'echo-overlay-title' => 'Title at the top of the notifications overlay',
 	'echo-overlay-title-overflow' => 'Title at the top of the notifications overlay when there are additional unread notifications that are not being shown. Parameters:
@@ -360,7 +363,7 @@ See also:
 * $2 could be a numeric count or "10+". See also: {{msg-mw|echo-notification-count|optional message|notext=1}}.
 * $3 is a numeric count, this is used for plural support
 * $4 is the e-mail batch content separated by "-------..." ({{msg-mw|echo-email-batch-separator}})
-* $5 is the e-mail footer, {{msg|echo-email-footer-default}}
+* $5 is the e-mail footer, {{msg-mw|echo-email-footer-default}}
 See also:
 * {{msg-mw|Echo-email-batch-body-weekly}}',
 	'echo-email-batch-body-weekly' => 'Weekly e-mail batch body. Parameters:
@@ -368,7 +371,7 @@ See also:
 * $2 could be a numeric count or "10+". See also: {{msg-mw|echo-notification-count|optional message|notext=1}}.
 * $3 is a numeric count, this is used for plural support
 * $4 is the e-mail batch content separated by "--------..." ({{msg-mw|echo-email-batch-separator}})
-* $5 is the e-mail footer, {{msg|echo-email-footer-default}}
+* $5 is the e-mail footer, {{msg-mw|echo-email-footer-default}}
 See also:
 * {{msg-mw|Echo-email-batch-body-daily}}',
 	'echo-email-batch-category-header-edit-user-talk' => 'E-mail batch section title for edit-user-talk category
@@ -527,23 +530,44 @@ $messages['be-tarask'] = array(
 	'notification-edit-talk-page2' => '[[User:$1|$1]] {{GENDER:$1|напісаў|напісала}} на вашую [[User talk:$2|старонку гутарак]].',
 	'notification-edit-talk-page-flyout2' => '$1 {{GENDER:$1|напісаў|напісала}} на вашую [[User talk:$2|старонку гутарак]].',
 	'notification-article-linked2' => '[[User:$1|$1]] {{GENDER:$1|спаслаўся|спаслалася}} на {{PLURAL:$4|старонку|старонкі}} $3 з гэтай старонкі: [[$2]]',
+	'notification-article-linked-flyout2' => '$1 {{GENDER:$1|спаслаўся|спаслалася}} на {{PLURAL:$4|старонку «$3»|старонкі $3}} з гэтай старонкі: [[$2]]',
+	'notification-add-comment2' => '[[User:$1|$1]] {{GENDER:$1|пакінуў|пакінула}} камэнтар у тэме «[[$3|$2]]» на старонцы абмеркаваньня «$4»',
+	'notification-add-talkpage-topic2' => '[[User:$1|$1]] {{GENDER:$1|стварыў|стварыла}} новую тэму «$2» у [[$3]]',
+	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]] {{GENDER:$1|даслаў|даслала}} вам паведамленьне: «[[$3#$2|$2]]»',
+	'notification-add-comment-yours2' => '[[User:$1|$1]] {{GENDER:$1|пакінуў|пакінула}} камэнтар у тэме «[[$3#$2|$2]]» на вашай старонцы гутарак',
 	'notification-new-user' => 'Вітаем у {{GRAMMAR:месны|{{SITENAME}}}}, $1!',
 	'notification-new-user-content' => 'Будзьце ласкавыя падпісваць свае камэнтары на старонках абмеркаваньняў чатырма тыльдамі (~~~~).',
+	'notification-reverted2' => '[[User:$1|$1]] {{GENDER:$1|скасаваў|скасавала}} {{PLURAL:$4|вашую праўку|вашыя праўкі}} на старонцы [[$2]] $3',
+	'notification-reverted-flyout2' => '$1 {{GENDER:$1|скасаваў|скасавала}} {{PLURAL:$4|вашую праўку|вашыя праўкі}} на старонцы $2 $3',
 	'notification-edit-talk-page-email-subject2' => 'Вы маеце новае паведамленьне на старонцы гутарак',
+	'notification-edit-talk-page-email-body2' => '{{GENDER:$1|Удзельнік|Удзельніца}} {{GRAMMAR:родны|{{SITENAME}}}} {{GENDER:$1|напісаў|напісала}} вам на старонку гутарак:
+
+$3
+
+Падрабязьней:
+
+$2
+
+$4',
+	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|напісаў|напісала}} вам на старонку гутарак',
+	'notification-article-linked-email-subject2' => 'На {{PLURAL:$2|старонку, створаную|старонкі, створаныя}} вамі ў {{GRAMMAR:месны|{{SITENAME}}}}, зрабілі спасылку',
 	'echo-email-subject-default' => 'Новая абвестка ад {{GRAMMAR:родны|{{SITENAME}}}}',
 	'echo-email-body-default' => 'Для вас ёсьць новая абвестка ў {{GRAMMAR:месны|{{SITENAME}}}}:
 
 $1',
 	'echo-link-new' => '$1 {{PLURAL:$1|новая абвестка|новыя абвесткі|новых абвестак}}',
-	'echo-link' => 'Мае абвесткі', # Fuzzy
+	'echo-link' => 'Абвесткі',
 	'echo-overlay-link' => 'Усе абвесткі',
 	'echo-overlay-title' => 'Мае абвесткі',
 	'echo-overlay-title-overflow' => 'Мае абвесткі (паказаныя $1 з $2)',
 	'echo-date-today' => 'Сёньня',
 	'echo-date-yesterday' => 'Учора',
+	'echo-date-header' => '$2 $1',
 	'echo-load-more-error' => 'Узьнікла памылка ў час атрыманьня дадатковых вынікаў.',
 	'echo-email-batch-subject-daily' => 'Сёньня вы атрымалі $1 {{PLURAL:$2|абвестку|абвесткі|абвестак}}',
 	'echo-email-batch-subject-weekly' => 'На гэтым тыдні вы атрымалі $1 {{PLURAL:$2|абвестку|абвесткі|абвестак}}',
+	'echo-email-batch-category-header-edit-user-talk' => '$1 {{PLURAL:$1|паведамленьне|паведамленьні|паведамленьняў}} на старонцы абмеркаваньняў',
+	'echo-email-batch-category-header-edit-revert' => '$1 {{PLURAL:$1|скасаваньне|скасаваньні|скасаваньняў}} правак',
 	'echo-email-batch-category-header-other' => '$1 {{PLURAL:$1|іншая|іншыя|іншых}}',
 );
 
@@ -2889,6 +2913,7 @@ $messages['ug-arab'] = array(
 
 /** Ukrainian (українська)
  * @author Base
+ * @author Olvin
  * @author Steve.rusyn
  * @author Ата
  */
@@ -2914,7 +2939,7 @@ $messages['uk'] = array(
 	'echo-anon' => 'Для отримання сповіщень, [[Special:Userlogin/signup|створіть обліковий запис]] або [[Special:UserLogin|увійдіть]].',
 	'echo-none' => 'У Вас немає сповіщень.',
 	'notification-new-user' => 'Ласкаво просимо до {{GRAMMAR:accusative|{{SITENAME}}}}, $1!',
-	'notification-new-user-content' => 'Будь ласка, не забувайте підписувати усі коментарі на сторінках обговорень з допомогою 4 тильд (~~~~).',
+	'notification-new-user-content' => 'Будь ласка, не забувайте підписувати всі коментарі на сторінках обговорень чотирма тильдами (~~~~).',
 	'echo-email-subject-default' => 'Нові сповіщення на {{SITENAME}}',
 	'echo-email-body-default' => 'У Вас є нове сповіщення на {{SITENAME}}:
 
