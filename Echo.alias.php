@@ -28,6 +28,11 @@ $specialPageAliases['it'] = array(
 	'Notifications' => array( 'Notifiche' ),
 );
 
+/** Japanese (日本語) */
+$specialPageAliases['ja'] = array(
+	'Notifications' => array( '通知' ),
+);
+
 /** Korean (한국어) */
 $specialPageAliases['ko'] = array(
 	'Notifications' => array( '알림' ),

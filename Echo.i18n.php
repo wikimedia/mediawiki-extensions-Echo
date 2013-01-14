@@ -412,12 +412,13 @@ $messages['af'] = array(
 
 /** Arabic (العربية)
  * @author Meno25
+ * @author Mido
  * @author Zanatos
  */
 $messages['ar'] = array(
 	'notifications' => 'إخطارات',
 	'echo-specialpage' => 'إخطاراتي',
-	'echo-link' => 'الإخطارات',
+	'echo-link' => 'إخطاراتي',
 	'echo-overlay-title' => 'إخطاراتي',
 );
 
@@ -1354,7 +1355,7 @@ $messages['he'] = array(
 	'prefs-echo' => 'הודעות',
 	'prefs-displaynotifications' => 'אפשרויות תצוגה',
 	'prefs-emailsubscriptions' => 'להודיע לי בדואר אלקטרוני כשמישהו',
-	'prefs-emailfrequency' => 'באיזו תדירות לקבל הודעות בדואר אלקטרוני', # Fuzzy
+	'prefs-emailfrequency' => 'באיזו תדירות ברצונך לקבל הודעות בדואר אלקטרוני?',
 	'echo-pref-email-edit-user-talk' => 'שולח הודעה לדף השיחה שלי',
 	'echo-pref-email-article-linked' => 'יצירת קישור לדף שיצרתי',
 	'echo-pref-email-reverted' => 'משחזר עריכה שלי',
@@ -1371,8 +1372,11 @@ $messages['he'] = array(
 	'echo-specialpage' => 'ההודעות שלי',
 	'echo-anon' => 'כדי לקבל הודעות, [[Special:Userlogin/signup|יש ליצור חשבון]] או [[Special:UserLogin|להיכנס]].',
 	'echo-none' => 'אין לך הודעות',
+	'echo-more-info' => 'מידע נוסף',
+	'notification-edit-talk-page2' => '[[User:$1|$1]] {{GENDER:$1|כתב|כתבה}} ב[[User talk:$2|הדף השיחה]] שלך.',
 	'notification-new-user' => 'ברוך בואך ל{{GRAMMAR:תחילית|{{SITENAME}}}}, $1!',
 	'notification-new-user-content' => 'נא לזכור לחתום על כל דפי השיחה ב־4 טילדות (~~~~).',
+	'notification-edit-talk-page-email-subject2' => 'יש לך הודעה חדשה בדף השיחה',
 	'echo-email-subject-default' => 'הודעה חדשה באתר {{SITENAME}}',
 	'echo-email-body-default' => 'יש לך הודעה חדשה באתר {{SITENAME}}:
 
@@ -1393,6 +1397,8 @@ $1', # Fuzzy
 	'echo-date-today' => 'היום',
 	'echo-date-yesterday' => 'אתמול',
 	'echo-load-more-error' => 'אירעה שגיאה בעת אחזור תוצאות נוספות.',
+	'echo-email-batch-subject-daily' => 'יש לך {{PLURAL:$2|הודעה אחת|$1 הודעה}} היום',
+	'echo-email-batch-subject-weekly' => 'יש לך {{PLURAL:$2|הודעה אחת|$1 הודעה}} השבוע',
 );
 
 /** Hindi (हिन्दी)
