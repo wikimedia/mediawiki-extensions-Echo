@@ -203,59 +203,11 @@ class EchoHooks {
 				$weekly => self::EMAIL_WEEKLY_DIGEST
 			);
 		}
-
 		$preferences['echo-email-frequency'] = array(
 			'type' => 'select',
 			//'label-message' => 'echo-pref-email-frequency',
 			'section' => 'echo/emailfrequency',
 			'options' => $freqOptions
-		);
-
-		// Show email subscription options
-		$emailOptions = array();
-
-		// Bug 43446 - Sort events by priority
-		$eventsAndPriorities = array();
-
-		foreach ( EchoEvent::gatherValidEchoEvents() as $enabledEvent ) {
-			if ( isset( $wgEchoEventDetails[$enabledEvent] ) ) {
-				$eventsAndPriorities[$enabledEvent] = $wgEchoEventDetails[$enabledEvent]['priority'];
-			} else {
-				$eventsAndPriorities[$enabledEvent] = 10;
-			}
-		}
-
-		asort( $eventsAndPriorities );
-
-		foreach ( array_keys( $eventsAndPriorities ) as $enabledEvent ) {
-			// Welcome notifications don't have subscriptions
-			if ( $enabledEvent === 'welcome' ) {
-				continue;
-			}
-			// Make sure the user is eligible to recieve this type of notification
-			if ( !EchoNotificationController::getNotificationEligibility( $user, $enabledEvent ) ) {
-				continue;
-			}
-			// Make sure email notifications are possible for this event
-			if ( isset( $wgEchoDefaultNotificationTypes[$enabledEvent] ) ) {
-				if ( !$wgEchoDefaultNotificationTypes[$enabledEvent]['email'] ) {
-					continue;
-				}
-			} elseif ( !$wgEchoDefaultNotificationTypes['all']['email'] ) {
-				continue;
-			}
-			// If we're creating our own preference for email notification on user
-			// talk page edit, remove the existing preference from the User profile tab.
-			if ( $enabledEvent === 'edit-user-talk' ) {
-				unset( $preferences['enotifusertalkpages'] );
-			}
-			$eventMessage = wfMessage( 'echo-pref-email-' . $enabledEvent )->plain();
-			$emailOptions["$eventMessage"] = $enabledEvent;
-		}
-		$preferences['echo-email-notifications'] = array(
-			'type' => 'multiselect',
-			'section' => 'echo/emailsubscriptions',
-			'options' => $emailOptions,
 		);
 
 		// Display information about the user's currently set email address
@@ -281,8 +233,59 @@ class EchoHooks {
 			'type' => 'info',
 			'raw' => true,
 			'default' => $emailContent,
-			'section' => 'echo/emailsubscriptions'
+			'section' => 'echo/emailfrequency'
 		);
+
+		// Sort events by priority
+		$eventsAndPriorities = array();
+		foreach ( EchoEvent::gatherValidEchoEvents() as $enabledEvent ) {
+			if ( isset( $wgEchoEventDetails[$enabledEvent]['priority'] ) ) {
+				$eventsAndPriorities[$enabledEvent] = $wgEchoEventDetails[$enabledEvent]['priority'];
+			} else {
+				$eventsAndPriorities[$enabledEvent] = 10;
+			}
+		}
+		asort( $eventsAndPriorities );
+		$eventsAndPriorities = array_keys( $eventsAndPriorities );
+
+		// Show subscription options
+		$oldPrefs['email']['edit-user-talk'] = 'enotifusertalkpages';
+		$subTypes = array( 'web', 'email' );
+		foreach ( $subTypes as $subType ) {
+			$options = array();
+			foreach ( $eventsAndPriorities as $enabledEvent ) {
+				if ( isset( $wgEchoEventDetails[$enabledEvent]['nodismiss'] )
+					&& in_array( $subType, $wgEchoEventDetails[$enabledEvent]['nodismiss'] ) )
+				{
+					continue;
+				}
+				// Make sure notifications of this subtype are possible for this event
+				if ( isset( $wgEchoDefaultNotificationTypes[$enabledEvent] ) ) {
+					if ( !$wgEchoDefaultNotificationTypes[$enabledEvent][$subType] ) {
+						continue;
+					}
+				// Make sure this subtype is an available notification type
+				} elseif ( !$wgEchoDefaultNotificationTypes['all'][$subType] ) {
+					continue;
+				}
+				// Make sure the user is eligible to recieve this type of notification
+				if ( !EchoNotificationController::getNotificationEligibility( $user, $enabledEvent ) ) {
+					continue;
+				}
+				$eventMessage = wfMessage( 'echo-pref-subscription-' . $enabledEvent )->plain();
+				$options[$eventMessage] = $enabledEvent;
+				// overwrite other preferences, if necessary
+				if ( isset( $oldPrefs[$subType][$enabledEvent] ) ) {
+					unset( $preferences[$oldPrefs[$subType][$enabledEvent]] );
+				}
+			}
+			$preferences['echo-' . $subType . '-notifications'] = array(
+				'type' => 'multiselect',
+				'label-message' => 'echo-pref-' . $subType,
+				'section' => 'echo/echosubscriptions',
+				'options' => $options,
+			);
+		}
 
 		// Show fly-out display prefs
 		$preferences['echo-notify-hide-link'] = array(

@@ -14,21 +14,32 @@ $messages['en'] = array(
 	// Preferences
 	'prefs-echo' => 'Notifications',
 	'prefs-displaynotifications' => 'Display options',
-	'prefs-emailsubscriptions' => 'Notify me by e-mail when someone',
 	'prefs-emailfrequency' => 'When would you like to receive e-mail notifications?',
-	'echo-pref-email-edit-user-talk' => 'Posts on my talk page',
-	'echo-pref-email-article-linked' => 'Creates a link to a page I created',
-	'echo-pref-email-reverted' => 'Reverts my edit',
+	'prefs-echosubscriptions' => 'Notify me when someone…',
+	'echo-pref-web' => 'Web',
+	'echo-pref-email' => 'Email',
+	'echo-pref-subscription-edit-user-talk' => 'Posts on my talk page',
+	'echo-pref-subscription-article-linked' => 'Creates a link to a page I created',
+	'echo-pref-subscription-reverted' => 'Reverts my edit',
 	'echo-pref-email-frequency-never' => 'Do not send me any e-mail notifications',
 	'echo-pref-email-frequency-immediately' => 'Individual notifications as they come in',
 	'echo-pref-email-frequency-daily' => 'A daily summary of notifications',
 	'echo-pref-email-frequency-weekly' => 'A weekly summary of notifications',
 	'echo-pref-notify-hide-link' => 'Hide the link and badge for notifications in my toolbar',
 
+	// Dismiss interface
+	'echo-dismiss-button' => 'Dismiss',
+	'echo-dismiss-message' => 'Turn off all <b>$1</b> notifications',
+	'echo-dismiss-title-edit-user-talk' => 'Talk Page Post',
+	'echo-dismiss-title-article-linked' => 'Article Linked',
+	'echo-dismiss-title-reverted' => 'Edit Reverted',
+
 	// Errors
 	'echo-no-agent' => '[Nobody]',
 	'echo-no-title' => '[No page]',
 	'echo-error-no-formatter' => 'No formatting defined for notification',
+	'echo-error-preference' => '<b>Error:</b> Could not set $1.',
+	'echo-error-token' => "<b>Error</b> '''Error''' {{SITENAME}} $1.",
 
 	// Special:Notifications
 	'notifications' => 'Notifications',
@@ -150,22 +161,20 @@ $messages['qqq'] = array(
 	'prefs-echo' => 'Name of preferences section for Echo notifications.
 {{Identical|Notification}}',
 	'prefs-displaynotifications' => 'Header for the section of preferences that deals with how notifications are displayed',
-	'prefs-emailsubscriptions' => 'Header for the section of preferences that deals with which notifications the user receives emails for
-* {{msg-mw|Echo-pref-email-edit-user-talk}}
-* {{msg-mw|Echo-pref-email-article-linked}}
-* {{msg-mw|Echo-pref-email-reverted}}
-"Page Triage" messages:
-* {{msg-mw|Echo-pref-email-pagetriage-mark-as-reviewed}}
-* {{msg-mw|Echo-pref-email-pagetriage-add-maintenance-tag}}
-* {{msg-mw|Echo-pref-email-pagetriage-add-deletion-tag}}',
+	'prefs-echosubscriptions' => 'Header for the section of preferences that deals with which notifications the user receives
+* {{msg-mw|Echo-pref-subscription-edit-user-talk}}
+* {{msg-mw|Echo-pref-subscription-article-linked}}
+* {{msg-mw|Echo-pref-subscription-reverted}}',
+	'echo-pref-web' => 'Label for list of notifications which are delivered on the web. In other words, on the wiki itself rather by email or another method.',
+	'echo-pref-email' => 'Label for list of notifications which are delivered via email.',
 	'prefs-emailfrequency' => 'Header for the section of preferences that deals with how often notification emails are sent out
 * {{msg-mw|Echo-pref-email-frequency-never}}
 * {{msg-mw|Echo-pref-email-frequency-immediately}}
 * {{msg-mw|Echo-pref-email-frequency-daily}}
 * {{msg-mw|Echo-pref-email-frequency-weekly}}',
-	'echo-pref-email-edit-user-talk' => "Option for getting emails when someone posts on the user's talk page. This is the conclusion of the sentence begun by the header: {{msg-mw|prefs-emailsubscriptions}}.",
-	'echo-pref-email-article-linked' => 'Option for getting emails when someone creates a link to a page created by the user. This is the conclusion of the sentence begun by the header: {{msg-mw|prefs-emailsubscriptions}}.',
-	'echo-pref-email-reverted' => "Option for getting emails when someone reverts the user's edit. This is the conclusion of the sentence begun by the header: {{msg-mw|prefs-emailsubscriptions}}.",
+	'echo-pref-subscription-edit-user-talk' => "Option for getting notifications when someone posts on the user's talk page. This is the conclusion of the sentence begun by the header: {{msg-mw|prefs-echosubscriptions}}.",
+	'echo-pref-subscription-article-linked' => 'Option for getting notifications when someone creates a link to a page created by the user. This is the conclusion of the sentence begun by the header: {{msg-mw|prefs-echosubscriptions}}.',
+	'echo-pref-subscription-reverted' => "Option for getting notifications when someone reverts the user's edit. This is the conclusion of the sentence begun by the header: {{msg-mw|prefs-echosubscriptions}}.",
 	'echo-pref-email-frequency-never' => "Option for users who don't want to receive any email notifications
 
 See also:
@@ -176,10 +185,17 @@ See also:
 	'echo-pref-email-frequency-daily' => 'Option for users who want to receive a daily digest of email notifications',
 	'echo-pref-email-frequency-weekly' => 'Option for users who want to receive a weekly digest of email notifications',
 	'echo-pref-notify-hide-link' => "Label for a preference which disables the 'Notifications' link in the header and associated fly-out panel",
+	// Dismiss interface
+	'echo-dismiss-button' => 'Text for the button that dismisses a notification type. Keep this short.',
+	'echo-dismiss-message' => 'Message asking the user if they want to turn off all notifications of a certain type. $1 is the name of the type.',
+	// Errors
 	'echo-no-agent' => 'Shown in place of a username in a notification
 	if the notification has no specified user.',
 	'echo-no-title' => 'Shown in place of a page title in a notification if the notification has no specified page title.',
 	'echo-error-no-formatter' => "Error message displayed when no formatting has been defined for a notification. In other words, the extension doesn't know how to properly display the notification.",
+	'echo-error-preference' => 'Error message displayed when request to set user preference fails',
+	'echo-error-token' => 'Error message displayed when request to get user token fails',
+	// Special:Notifications
 	'notifications' => 'This message is the page title of the special page [[Special:Notifications]].
 {{Identical|Notification}}',
 	'tooltip-pt-notifications' => 'This is used for the title (mouseover text) of the notifications user tool.',

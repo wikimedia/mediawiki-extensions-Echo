@@ -101,6 +101,8 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	 * @return array|string
 	 */
 	public function format( $event, $user, $type ) {
+		global $wgEchoEventDetails;
+
 		if ( $this->outputFormat === 'email' ) {
 			return $this->formatEmail( $event, $user, $type );
 		}
@@ -121,6 +123,13 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			array( 'class' => "mw-echo-icon mw-echo-icon-{$this->icon}" ),
 			'&nbsp;'
 		) . $output;
+
+		// Add the hidden dismiss interface if the notification is dismissable
+		if ( !isset( $wgEchoEventDetails[$event->type]['nodismiss'] )
+			|| !in_array( 'web', $wgEchoEventDetails[$event->type]['nodismiss'] ) )
+		{
+			$output .= $this->formatDismissInterface( $event, $user );
+		}
 
 		// Build the notification title
 		$title = $this->formatNotificationTitle( $event, $user )->parse();
@@ -160,6 +169,18 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 		$output .= Xml::tags( 'div', array( 'class' => 'mw-echo-content' ), $content ) . "\n";
 
 		return $output;
+	}
+
+	protected function formatDismissInterface( $event, $user ) {
+		$dismissTitle = wfMessage( 'echo-dismiss-title-' . $event->type )
+			->inLanguage( $user->getOption( 'language' ) )
+			->escaped();
+		$dismiss = wfMessage( 'echo-dismiss-message', $dismissTitle )
+			->inLanguage( $user->getOption( 'language' ) )
+			->text();
+		$dismiss = Xml::tags( 'div', array( 'class' => 'mw-echo-dismiss-message' ), $dismiss ) . "\n";
+		$dismiss = Xml::tags( 'div', array( 'class' => 'mw-echo-dismiss', 'style' => 'display:none;' ), $dismiss ) . "\n";
+		return $dismiss;
 	}
 
 	protected function formatNotificationTitle( $event, $user ) {

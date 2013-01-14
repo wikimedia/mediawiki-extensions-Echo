@@ -11,7 +11,7 @@ abstract class EchoNotificationFormatter {
 		'basic' => 'EchoBasicFormatter',
 		'edit' => 'EchoEditFormatter',
 		'comment' => 'EchoCommentFormatter',
-		'welcome' => 'EchoBasicFormatter',
+		'system' => 'EchoBasicFormatter',
 	);
 	protected $validOutputFormats = array( 'text', 'flyout', 'html', 'email' );
 	protected $outputFormat = 'text';

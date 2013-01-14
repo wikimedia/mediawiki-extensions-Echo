@@ -6,8 +6,8 @@
  * A user's subscriptions determine what Notifications they receive.
  */
 class EchoEvent {
+	public $type = null;
 	protected $id = null;
-	protected $type = null;
 	protected $variant = null;
 	/**
 	 * @var User
