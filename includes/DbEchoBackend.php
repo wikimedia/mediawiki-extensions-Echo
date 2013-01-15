@@ -20,13 +20,28 @@ class MWDbEchoBackend extends MWEchoBackend {
 	 * @param $row array
 	 */
 	public function createNotification( $row ) {
+		$this->dbw->begin( __METHOD__ );
+		// reset the base if this notification has a display hash
+		if ( $row['notification_bundle_display_hash'] ) {
+			$this->dbw->update(
+				'echo_notification',
+				array( 'notification_bundle_base' => 0 ),
+				array(
+					'notification_user' => $row['notification_user'],
+					'notification_bundle_display_hash' => $row['notification_bundle_display_hash'],
+					'notification_bundle_base' => 1
+				),
+				__METHOD__
+			);
+		}
+
 		$row['notification_timestamp'] = $this->dbw->timestamp( $row['notification_timestamp'] );
 		$this->dbw->insert( 'echo_notification', $row, __METHOD__ );
+		$this->dbw->commit( __METHOD__ );
 	}
 
 	/**
 	 * @param $user User the user to get notifications for
-	 * @param $unread bool true to get only unread notifications
 	 * @param $limit int The maximum number of notifications to return
 	 * @param $timestamp int The timestamp to start from
 	 * @param $offset int The notification event id to start from
@@ -34,23 +49,20 @@ class MWDbEchoBackend extends MWEchoBackend {
 	 *    email, etc.)
 	 * @return array
 	 */
-	public function loadNotifications( $user, $unread, $limit, $timestamp, $offset, $outputFormat = 'web' ) {
-
+	public function loadNotifications( $user, $limit, $timestamp, $offset, $outputFormat = 'web' ) {
 		$eventTypesToLoad = $this->getUserEnabledEvents( $user, $outputFormat );
 		if ( !$eventTypesToLoad ) {
 			return array();
 		}
 
+		// Look for notifications with base = 1
 		$conds = array(
 			'notification_user' => $user->getID(),
 			'event_type' => $eventTypesToLoad,
+			'notification_bundle_base' => 1
 		);
 
-		if ( $unread ) {
-			$conds['notification_read_timestamp'] = null;
-		}
-
-		// start points are specified
+		// Start points are specified
 		if ( $timestamp && $offset ) {
 			$conds[] = 'notification_timestamp <= ' . $this->dbr->addQuotes( $this->dbr->timestamp( $timestamp ) );
 			$conds[] = 'notification_event < ' . intval( $offset );
@@ -62,8 +74,6 @@ class MWDbEchoBackend extends MWEchoBackend {
 			$conds,
 			__METHOD__,
 			array(
-				// Todo: check if key ( user, timestamp ) is sufficient, if not,
-				// we need to replace it with ( user, timestamp, event )
 				'ORDER BY' => 'notification_timestamp DESC, notification_event DESC',
 				'LIMIT' => $limit,
 			),
@@ -76,13 +86,64 @@ class MWDbEchoBackend extends MWEchoBackend {
 	}
 
 	/**
+	 * @param $user User
+	 * @param $bundleHash string the bundle hash
+	 * @return ResultWrapper|bool
+	 */
+	public function getRawBundleData( $user, $bundleHash ) {
+		// We only display 99+ if the number is over 100, we can do limit 250, this should be sufficient
+		// to return 99 distinct group iterators, avoid select count( distinct ) for the folliwng:
+		// 1. it will not scale for large volume data
+		// 2. notification may have random grouping iterator
+		// 2. agent may be anonymous, can't do distinct over two columens: event_agent_id and event_agent_ip
+		$res = $this->dbr->select(
+			array( 'echo_notification', 'echo_event' ),
+			array(
+				'event_agent_id',
+				'event_agent_ip',
+				'event_extra',
+				'event_page_namespace',
+				'event_page_title'
+			),
+			array(
+				'notification_event=event_id',
+				'notification_user' => $user->getId(),
+				'notification_bundle_base' => 0,
+				'notification_bundle_display_hash' => $bundleHash
+			),
+			__METHOD__,
+			array( 'ORDER BY' => 'notification_timestamp DESC', 'LIMIT' => 250 )
+		);
+
+		return $res;
+	}
+
+	/**
+	 * Get the last bundle stat - read_timestamp & bundle_display_hash
+	 * @param $user User
+	 * @param $bundleHash string The hash used to identify a set of bundle-able events
+	 * @return ResultWrapper|bool
+	 */
+	public function getLastBundleStat( $user, $bundleHash ) {
+		$res = $this->dbr->selectRow(
+			array( 'echo_notification' ),
+			array( 'notification_read_timestamp', 'notification_bundle_display_hash' ),
+			array(
+				'notification_user' => $user->getId(),
+				'notification_bundle_hash' => $bundleHash
+			),
+			__METHOD__,
+			array( 'ORDER BY' => 'notification_timestamp DESC', 'LIMIT' => 1 )
+		);
+		return $res;
+	}
+
+	/**
 	 * @param $row array
 	 * @return int
 	 */
 	public function createEvent( $row ) {
 		$id = $this->dbw->nextSequenceValue( 'echo_event_id' );
-
-		$row['event_timestamp'] = $this->dbw->timestamp( $row['event_timestamp'] );
 
 		$this->dbw->insert( 'echo_event', $row, __METHOD__ );
 
@@ -126,30 +187,6 @@ class MWDbEchoBackend extends MWEchoBackend {
 	}
 
 	/**
-	 * @param $conds array
-	 * @param $rows array
-	 */
-	public function createSubscription( $conds, $rows ) {
-		$this->dbw->begin();
-		$this->dbw->delete( 'echo_subscription', $conds, __METHOD__ );
-
-		if ( count( $rows ) ) {
-			$this->dbw->insert( 'echo_subscription', $rows, __METHOD__ );
-		}
-
-		$this->dbw->commit();
-	}
-
-	/**
-	 * @param $conds array
-	 * @return ResultWrapper
-	 */
-	public function loadSubscription( $conds ) {
-		$res = $this->dbr->select( 'echo_subscription', '*', $conds, __METHOD__, array( 'order by' => 'sub_user asc' ) );
-		return $res;
-	}
-
-	/**
 	 * @param $user User
 	 * @param $eventIDs array
 	 */
@@ -171,7 +208,7 @@ class MWDbEchoBackend extends MWEchoBackend {
 	/**
 	 * @param $user User object to check notifications for
 	 * @param $dbSource string use master or slave storage to pull count
-	 * @return ResultWrapper|bool
+	 * @return int
 	 */
 	public function getNotificationCount( $user, $dbSource ) {
 		// double check
@@ -185,23 +222,25 @@ class MWDbEchoBackend extends MWEchoBackend {
 			return false;
 		}
 
+		global $wgEchoMaxNotificationCount;
+
 		$db = wfGetDB( $dbSource );
-		$res = $db->selectRow(
+		$res = $db->select(
 			array( 'echo_notification', 'echo_event' ),
-			array( 'num' => 'COUNT(notification_event)' ),
+			array( 'notification_event' ),
 			array(
 				'notification_user' => $user->getId(),
+				'notification_bundle_base' => 1,
 				'notification_read_timestamp' => null,
 				'event_type' => $eventTypesToLoad,
 			),
 			__METHOD__,
-			array(),
+			array( 'LIMIT' => $wgEchoMaxNotificationCount + 1 ),
 			array(
 				'echo_event' => array( 'LEFT JOIN', 'notification_event=event_id' ),
 			)
 		);
-
-		return $res;
+		return $db->numRows( $res );
 	}
 
 }

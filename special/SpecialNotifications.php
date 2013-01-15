@@ -41,7 +41,7 @@ class SpecialNotifications extends SpecialPage {
 		) );
 
 		// Pull the notifications
-		$notif = ApiEchoNotifications::getNotifications( $user, false, 'html', self::$displayNum + 1, $timestamp, $offset );
+		$notif = ApiEchoNotifications::getNotifications( $user, 'html', self::$displayNum + 1, $timestamp, $offset );
 
 		// If there are no notifications, display a message saying so
 		if ( !$notif ) {

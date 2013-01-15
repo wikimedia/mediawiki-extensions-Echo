@@ -72,12 +72,44 @@ class EchoHooks {
 		$updater->addExtensionTable( 'echo_subscription', $baseSQLFile );
 		$updater->addExtensionTable( 'echo_email_batch', "$dir/db_patches/echo_email_batch.sql" );
 
-		$updater->modifyField( 'echo_event', 'event_agent',
-			"$dir/db_patches/patch-event_agent-split.sql", true );
-		$updater->modifyField( 'echo_event', 'event_variant',
-			"$dir/db_patches/patch-event_variant_nullability.sql", true );
-		$updater->modifyField( 'echo_event', 'event_extra',
-			"$dir/db_patches/patch-event_extra-size.sql", true );
+		$updater->modifyExtensionField( 'echo_event', 'event_agent', "$dir/db_patches/patch-event_agent-split.sql" );
+		$updater->modifyExtensionField( 'echo_event', 'event_variant', "$dir/db_patches/patch-event_variant_nullability.sql" );
+		$updater->modifyExtensionField( 'echo_event', 'event_extra', "$dir/db_patches/patch-event_extra-size.sql" );
+		$updater->modifyExtensionField( 'echo_event', 'event_agent_ip', "$dir/db_patches/patch-event_agent_ip-size.sql" );
+
+		$updater->addExtensionField( 'echo_notification', 'notification_bundle_base',
+			"$dir/db_patches/patch-notification-bundling-field.sql" );
+		$updater->addExtensionIndex( 'echo_event', 'event_type', "$dir/db_patches/patch-alter-type_page-index.sql" );
+		return true;
+	}
+
+	/**
+	 * Handler for EchoGetBundleRule hook, which defines the bundle rule for each notification
+	 * @param $event EchoEvent
+	 * @param $bundleString string Determines how the notification should be bundled, for example,
+	 * talk page notification is bundled based on namespace and title, the bundle string would be
+	 * 'edit-user-talk-' + namespace + title, email digest/email bundling would use this hash as
+	 * a key to identify bundle-able event.  For web bundling, we bundle further based on user's
+	 * visit to the overlay, we would generate a display hash based on the hash of $bundleString
+	 *
+	 */
+	public static function onEchoGetBundleRules( $event, &$bundleString ) {
+		switch ( $event->getType() ) {
+			case 'edit-user-talk':
+				$bundleString = 'edit-user-talk';
+				if ( $event->getTitle() ) {
+					$bundleString .= '-' . $event->getTitle()->getNamespace()
+								. '-' . $event->getTitle()->getDBkey();
+				}
+			break;
+			case 'page-linked':
+				$bundleString = 'page-linked';
+				if ( $event->getTitle() ) {
+					$bundleString .= '-' . $event->getTitle()->getNamespace()
+								. '-' . $event->getTitle()->getDBkey();
+				}
+			break;
+		}
 		return true;
 	}
 
@@ -129,64 +161,30 @@ class EchoHooks {
 				$victim = User::newFromId( $victimID );
 				$users[$victim->getId()] = $victim;
 				break;
-			case 'article-linked':
-				$extra = $event->getExtra();
+			case 'page-linked':
 				$agent = $event->getAgent();
+				$title = $event->getTitle();
 
-				if ( !$event->getTitle() || !isset( $extra['new-links'] )
-					|| !is_array( $extra['new-links'] ) || !$agent
-				) {
+				if ( !$title || $title->getArticleID() <= 0 || !$agent ) {
 					break;
 				}
 
-				global $wgEchoUseJobQueue;
-				$count = 0;
-				$agentId = $agent->getID();
 				$dbr = wfGetDB( DB_SLAVE );
-				$updated = false;
 
-				// @Todo: Title::newFromText() would trigger individual query for each title, this is not
-				// efficient if there are a lot of new links, since we only need the page_id, this can be done
-				// by one big query
-				foreach( $extra['new-links'] as $page ) {
-					$count++;
-					// processing a lot of links on a normal web request is expensive, we should cap
-					// this till we have job queue enabled
-					if ( !$wgEchoUseJobQueue && $count > 100 ) {
-						break;
+				$res = $dbr->selectRow(
+					array( 'revision' ),
+					array( 'rev_user' ),
+					array( 'rev_page' => $title->getArticleID() ),
+					__METHOD__,
+					array( 'LIMIT' => 1, 'ORDER BY' => 'rev_timestamp, rev_id' )
+				);
+				// No notification if agents link their own articles
+				if ( $res && $res->rev_user && $agent->getID() != $res->rev_user ) {
+					// Map each linked page to a corresponding author
+					$user = User::newFromId( $res->rev_user );
+					if ( $user ) {
+						$users[$user->getID()] = $user;
 					}
-					$title = Title::newFromText( $page['pl_title'], $page['pl_namespace'] );
-					if ( !$title || $title->getArticleID() <= 0 ) {
-						continue;
-					}
-					$res = $dbr->selectRow(
-						array( 'revision' ),
-						array( 'rev_user' ),
-						array( 'rev_page' => $title->getArticleID() ),
-						__METHOD__,
-						array( 'LIMIT' => 1, 'ORDER BY' => 'rev_timestamp, rev_id' )
-					);
-					// No notification if agents link their own articles
-					if ( $res && $res->rev_user && $agentId != $res->rev_user ) {
-						// Map each linked page to a corresponding author
-						if ( !isset( $extra['notif-list'][$res->rev_user] ) ) {
-							$extra['notif-list'][$res->rev_user] = array();
-						}
-						if ( isset( $users[$res->rev_user] ) ) {
-							$user = $users[$res->rev_user];
-						} else {
-							$user = User::newFromId( $res->rev_user );
-						}
-
-						if ( $user ) {
-							$users[$user->getID()] = $user;
-							$extra['notif-list'][$res->rev_user][] = $page;
-							$updated = true;
-						}
-					}
-				}
-				if ( $updated ) {
-					$event->updateExtra( $extra );
 				}
 				break;
 			case 'mention':
@@ -210,14 +208,16 @@ class EchoHooks {
 	}
 
 	/**
-	 * @param $subscription EchoSubscription
+	 * Handler for EchoGetNotificationTypes hook, Adjust the notify types (e.g. web, email) which
+	 * are applicable to this event and user based on various user options. In other words, allow
+	 * certain non-echo user options to override the echo notification options.
+	 * @param $user User
 	 * @param $event EchoEvent
 	 * @param $notifyTypes
 	 * @return bool
 	 */
-	public static function getNotificationTypes( $subscription, $event, &$notifyTypes ) {
+	public static function getNotificationTypes( $user, $event, &$notifyTypes ) {
 		$type = $event->getType();
-		$user = $subscription->getUser();
 
 		// Figure out when to disallow email notifications
 		if ( $type == 'edit' ) {
@@ -505,27 +505,32 @@ class EchoHooks {
 			return true;
 		}
 
+		global $wgUser;
+
+		// link notification is boundless as you can include infinite number of links in a page
+		// db insert is expensive, limit it to a reasonable amount, we can increase this limit
+		// once the storage is on Redis
+		$max = 10;
 		// Only create notifications for links to content namespace pages
+		// @Todo - use one big insert instead of individual insert inside foreach loop
 		foreach ( $insertions as $key => $page ) {
-			if ( !MWNamespace::isContent( $page['pl_namespace'] ) ) {
-				unset( $insertions[$key] );
+			if ( MWNamespace::isContent( $page['pl_namespace'] ) ) {
+				$title = Title::makeTitle( $page['pl_namespace'], $page['pl_title'] );
+				EchoEvent::create( array(
+					'type' => 'page-linked',
+					'title' => $title,
+					'agent' => $wgUser,
+					'extra' => array(
+						'link-from-namespace' => $linksUpdate->mTitle->getNamespace(),
+						'link-from-title' => $linksUpdate->mTitle->getDBkey(),
+					)
+				) );
+				$max--;
+			}
+			if ( $max < 0 ) {
+				break;
 			}
 		}
-
-		// Exits if there is no new link
-		if ( !$insertions ) {
-			return true;
-		}
-
-		EchoEvent::create( array(
-			'type' => 'article-linked',
-			'title' => $linksUpdate->mTitle,
-			'agent' => $wgUser,
-			'extra' => array(
-				'new-links' => $insertions,
-				'notif-list' => array()
-			)
-		) );
 
 		return true;
 	}
@@ -568,7 +573,7 @@ class EchoHooks {
 			$text = $msg->params( EchoNotificationController::formatNotificationCount( $notificationCount ) )->text();
 		} else {
 			// Just add a number
-			$text = wfMessage( 'parentheses', $notificationCount )->plain();
+			$text = wfMessage( 'parentheses', EchoNotificationController::formatNotificationCount( $notificationCount ) )->plain();
 		}
 		$url = SpecialPage::getTitleFor( 'Notifications' )->getLocalURL();
 

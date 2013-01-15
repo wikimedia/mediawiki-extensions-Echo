@@ -35,7 +35,7 @@ $messages['en'] = array(
 
 	// Category titles
 	'echo-category-title-edit-user-talk' => 'Talk page post',
-	'echo-category-title-article-linked' => 'Page linked',
+	'echo-category-title-page-linked' => 'Page linked',
 	'echo-category-title-reverted' => 'Edit reverted',
 	'echo-category-title-mention' => 'Mention',
 	'echo-category-title-other' => 'Other',
@@ -60,8 +60,8 @@ $messages['en'] = array(
 	'echo-quotation-marks' => '"$1"',
 	'notification-edit-talk-page2' => '[[User:$1|$1]] {{GENDER:$1|posted}} on your [[User talk:$2|talk page]].',
 	'notification-edit-talk-page-flyout2' => '$1 {{GENDER:$1|posted}} on your [[User talk:$2|talk page]].',
-	'notification-article-linked2' => '$3 {{PLURAL:$4|was|were}} {{GENDER:$1|linked}} by [[User:$1|$1]] from this page: [[$2]]',
-	'notification-article-linked-flyout2' => '$3 {{PLURAL:$4|was|were}} {{GENDER:$1|linked}} by $1 from this page: [[$2]]',
+	'notification-page-linked' => '[[$2|$2]] was {{GENDER:$1|linked}} from [[$3|$3]]: [[Special:WhatLinksHere/$2|See all links to this page]]',
+	'notification-page-linked-flyout' => '$2 was {{GENDER:$1|linked}} from $3: [[Special:WhatLinksHere/$2|See all links to this page]]',
 	'notification-add-comment2' => '[[User:$1|$1]] {{GENDER:$1|commented}} on "[[$3|$2]]" on the "$4" talk page',
 	'notification-add-talkpage-topic2' => '[[User:$1|$1]] {{GENDER:$1|posted}} a new topic "$2" on [[$3]]',
 	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]] {{GENDER:$1|sent}} you a message: "[[$3#$2|$2]]"',
@@ -87,15 +87,15 @@ $2
 
 $4',
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|posted}} on your talk page',
-	'notification-article-linked-email-subject2' => '{{PLURAL:$2|A page|Pages}} you started {{PLURAL:$2|was|were}} linked on {{SITENAME}}',
-	'notification-article-linked-email-body2' => '$4 {{PLURAL:$5|was|were}} {{GENDER:$1|linked}} by {{SITENAME}} user $1, from this page: $2
+	'notification-page-linked-email-subject' => 'A page you started was linked on {{SITENAME}}',
+	'notification-page-linked-email-body' => '$2 was {{GENDER:$1|linked}} from $4
 
-View more:
+See all links to this page:
 
-$3
+{{canonicalurl:{{#special:WhatLinksHere/$2}}}}
 
-$6',
-	'notification-article-linked-email-batch-body2' => '$2 {{PLURAL:$3|was|were}} {{GENDER:$1|linked}} by $1',
+$3',
+	'notification-page-linked-email-batch-body' => '$2 was {{GENDER:$1|linked}} from $3',
 	'notification-reverted-email-subject2' => 'Your {{PLURAL:$3|edit on $2 was|edits on $2 were}} {{GENDER:$1|reverted}} by $1',
 	'notification-reverted-email-body2' => 'Your {{PLURAL:$7|edit on $2 has been|edits on $2 have been}} {{GENDER:$1|reverted}} by $1.
 
@@ -151,6 +151,10 @@ $1',
 	'echo-date-yesterday' => 'Yesterday',
 	'echo-date-header' => '$1 $2',
 	'echo-load-more-error' => 'An error occurred while fetching more results.',
+
+	// Bundle
+	'notification-edit-talk-page-bundle' => '$1 and $3 {{PLURAL:$4|other|others}} {{GENDER:$1|posted}} on your [[User talk:$2|talk page]].',
+	'notification-page-linked-bundle' => '$2 was {{GENDER:$1|linked}} from $3 and $4 other {{PLURAL:$5|page|pages}}. [[Special:WhatLinksHere/$2|See all links to this page]]',
 
 	// Email batch
 	'echo-email-batch-separator' => '________________________________________________', # only translate this message to other languages if you have to change it
@@ -245,20 +249,16 @@ See also:
 	'echo-dismiss-message' => 'Message asking the user if they want to turn off all notifications of a certain type. Parameters:
 * $1 - the name of the type; one of the following:
 ** {{msg-mw|Echo-category-title-edit-user-talk}}
-** {{msg-mw|Echo-category-title-article-linked}}
+** {{msg-mw|Echo-category-title-page-linked}}
 ** {{msg-mw|Echo-category-title-reverted}}
 ** {{msg-mw|Echo-category-title-mention}}
 ** {{msg-mw|Echo-category-title-other}}
 ** {{msg-mw|Echo-category-title-system}}',
 	'echo-dismiss-prefs-message' => 'Used in Dismiss interface.',
 	'echo-category-title-edit-user-talk' => 'This is a short title for notification category. Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}} and <code>$2</code> in {{msg-mw|Echo-email-batch-category-header}}.',
-	'echo-category-title-article-linked' => 'This is a short title for notification category. Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}} and <code>$2</code> in {{msg-mw|Echo-email-batch-category-header}}.',
-	'echo-category-title-reverted' => 'This is a short title for notification category.
-
-Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}} and as <code>$2</code> in {{msg-mw|Echo-email-batch-category-header}}.',
-	'echo-category-title-mention' => 'This is a short title for notification category.
-
-Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}} and as <code>$2</code> in {{msg-mw|Echo-email-batch-category-header}}.',
+	'echo-category-title-page-linked' => 'This is a short title for notification category. Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}} and <code>$2</code> in {{msg-mw|Echo-email-batch-category-header}}.',
+	'echo-category-title-reverted' => 'This is a short title for notification category. Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}} and <code>$2</code> in {{msg-mw|Echo-email-batch-category-header}}.',
+	'echo-category-title-mention' => 'This is a short title for notification category. Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}} and <code>$2</code> in {{msg-mw|Echo-email-batch-category-header}}.',
 	'echo-category-title-other' => 'This is a short title for notification category.
 
 Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}} and <code>$2</code> in {{msg-mw|Echo-email-batch-category-header}}.
@@ -292,26 +292,24 @@ See also:
 See also:
 * {{msg-mw|Notification-edit-talk-page2}}
 * {{msg-mw|Notification-add-talkpage-topic2}}",
-	'notification-article-linked2' => 'Format for displaying notifications of articles being linked
+	'notification-page-linked' => 'Format for displaying notifications of articles being linked
 * $1 is the username of the person who linked the page, plain text. Can be used for GENDER.
-* $2 is the page to which new links are added
-* $3 is comma separated list of pages being linked
-* $4 is the number of pages being linked
+* $2 is the page being linked
+* $3 is the page linked from
 See also:
-* {{msg-mw|Notification-article-linked-flyout2}}
-* {{msg-mw|Notification-article-linked-email-batch-body2}}
-* {{msg-mw|Notification-article-linked-email-subject2}}
-* {{msg-mw|Notification-article-linked-email-body2}}',
-	'notification-article-linked-flyout2' => 'Flyout-specific format for displaying notifications of articles being linked
+* {{msg-mw|Notification-page-linked-flyout}}
+* {{msg-mw|Notification-page-linked-email-batch-body}}
+* {{msg-mw|Notification-page-linked-email-subject}}
+* {{msg-mw|Notification-page-linked-email-body}}',
+	'notification-page-linked-flyout' => 'Flyout-specific format for displaying notifications of articles being linked
 * $1 is the username of the person who linked the page, plain text. Can be used for GENDER.
-* $2 is the page to which new links are added
-* $3 is comma separated list of pages being linked
-* $4 is the number of pages being linked
+* $2 is the page being linked
+* $3 is the page linked from
 See also:
-* {{msg-mw|Notification-article-linked2}}
-* {{msg-mw|Notification-article-linked-email-batch-body2}}
-* {{msg-mw|Notification-article-linked-email-subject2}}
-* {{msg-mw|Notification-article-linked-email-body2}}',
+* {{msg-mw|Notification-page-linked}}
+* {{msg-mw|Notification-page-linked-email-batch-body}}
+* {{msg-mw|Notification-page-linked-email-subject}}
+* {{msg-mw|Notification-page-linked-email-body}}',
 	'notification-add-comment2' => 'Format for displaying notifications of a comment being added to an existing discussion. Parameters:
 * $1 is the username of the person who edited, plain text. Can be used for GENDER.
 * $2 is the section title of the discussion,
@@ -385,35 +383,31 @@ See also:
 * $4 is the e-mail footer, {{msg-mw|echo-email-footer-default}}',
 	'notification-edit-talk-page-email-batch-body2' => 'E-mail notification for talk page edit
 * $1 is a username',
-	'notification-article-linked-email-subject2' => 'E-mail subject. Parameters:
-* $1 is a comma separated list of pages being linked.
-* $2 is the number of pages being linked.
+	'notification-page-linked-email-subject' => 'E-mail subject.
 See also:
-* {{msg-mw|Notification-article-linked2}}
-* {{msg-mw|Notification-article-linked-flyout2}}
-* {{msg-mw|Notification-article-linked-email-batch-body2}}
-* {{msg-mw|Notification-article-linked-email-body2}}',
-	'notification-article-linked-email-body2' => 'E-mail notification. Parameters:
+* {{msg-mw|Notification-page-linked}}
+* {{msg-mw|Notification-page-linked-flyout}}
+* {{msg-mw|Notification-page-linked-email-batch-body}}
+* {{msg-mw|Notification-page-linked-email-body}}',
+	'notification-page-linked-email-body' => 'E-mail notification. Parameters:
 * $1 is the username of the person who linked the page, plain text.  Can be used for GENDER.
-* $2 is the page to which new links are added.
-* $3 is the link to the page with new links added.
-* $4 is a comma separated list of pages being linked.
-* $5 is the number of pages being linked.
-* $6 is the e-mail footer, {{msg-mw|echo-email-footer-default}}.
+* $2 is the page being linked.
+* $3 is the e-mail footer, {{msg-mw|echo-email-footer-default}}.
+* $4 is the page linked from
 See also:
-* {{msg-mw|Notification-article-linked2}}
-* {{msg-mw|Notification-article-linked-flyout2}}
-* {{msg-mw|Notification-article-linked-email-batch-body2}}
-* {{msg-mw|Notification-article-linked-email-subject2}}',
-	'notification-article-linked-email-batch-body2' => 'E-mail notification for page being linked. Parameters:
+* {{msg-mw|Notification-page-linked}}
+* {{msg-mw|Notification-page-linked-flyout}}
+* {{msg-mw|Notification-page-linked-email-batch-body}}
+* {{msg-mw|Notification-page-linked-email-subject}}',
+	'notification-page-linked-email-batch-body' => 'E-mail notification for page being linked. Parameters:
 * $1 is the username of the person who linked the page, plain text. Can be used for GENDER.
-* $2 is a comma separated list of pages being linked.
-* $3 is the number of pages being linked.
+* $2 is the page being linked.
+* $3 is the page linked from
 See also:
-* {{msg-mw|Notification-article-linked2}}
-* {{msg-mw|Notification-article-linked-flyout2}}
-* {{msg-mw|Notification-article-linked-email-subject2}}
-* {{msg-mw|Notification-article-linked-email-body2}}',
+* {{msg-mw|Notification-page-linked}}
+* {{msg-mw|Notification-page-linked-flyout}}
+* {{msg-mw|Notification-page-linked-email-subject}}
+* {{msg-mw|Notification-page-linked-email-body}}',
 	'notification-reverted-email-subject2' => 'E-mail subject. Parameters:
 * $1 is a username
 * $2 is a page title
@@ -509,6 +503,7 @@ See also:
 * $5 is the e-mail footer, {{msg-mw|echo-email-footer-default}}
 See also:
 * {{msg-mw|Echo-email-batch-body-daily}}',
+
 	'echo-email-batch-category-header' => 'E-mail digest section title. Parameters:
 * $1 - the numeric count
 * $2 - the name of the type; one of the following:
@@ -518,6 +513,19 @@ See also:
 ** {{msg-mw|Echo-category-title-mention}}
 ** {{msg-mw|Echo-category-title-other}}
 ** {{msg-mw|Echo-category-title-system}}',
+
+	// Bundle
+	'notification-edit-talk-page-bundle' => 'Bundled message for edit-user-talk notification.  Parameters:
+* $1 is the username who performs the action, which can be used for gender support
+* $2 is the username
+* $3 is the count of other action performers, could be number or {{msg:-mew|echo-notification-count}}, eg, 7 others or 99+ others
+* $4 is a number used for plural support',
+	'notification-page-linked-bundle' => 'Bundled message for page-linked notification.  Parameters:
+* $1 is the username who performs the action, which can be used for gender support
+* $2 is the page title
+* $3 is the page linked from
+* $4 is the count of other action performers, could be number or {{msg:-mew|echo-notification-count}}, eg, 7 others or 99+ others
+* $5 is a number used for plural support',
 );
 
 /** Afrikaans (Afrikaans)

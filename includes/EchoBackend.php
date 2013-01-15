@@ -64,13 +64,28 @@ abstract class MWEchoBackend {
 	/**
 	 * Load notifications based on the parameters
 	 * @param $user User the user to get notifications for
-	 * @param $unread bool true to get only unread notifications
 	 * @param $limit int The maximum number of notifications to return
 	 * @param $timestamp int The timestamp to start from
 	 * @param $offset int The notification event id to start from
 	 * @return array
 	 */
-	abstract public function loadNotifications( $user, $unread, $limit, $timestamp, $offset );
+	abstract public function loadNotifications( $user, $limit, $timestamp, $offset );
+
+	/**
+	 * Get the bundle data for user/hash
+	 * @param $user User
+	 * @param $bundleHash string The hash used to identify a set of bundle-able events
+	 * @return ResultWrapper|bool
+	 */
+	abstract public function getRawBundleData( $user, $bundleHash );
+
+	/**
+	 * Get the last bundle stat - read_timestamp & bundle_display_hash
+	 * @param $user User
+	 * @param $bundleHash string The hash used to identify a set of bundle-able events
+	 * @return ResultWrapper|bool
+	 */
+	abstract public function getLastBundleStat( $user, $bundleHash );
 
 	/**
 	 * Create an Echo event
@@ -91,20 +106,6 @@ abstract class MWEchoBackend {
 	 * @param $event EchoEvent
 	 */
 	abstract public function updateEventExtra( $event );
-
-	/**
-	 * Create an Echo subscription
-	 * @param $conds array
-	 * @param $rows array
-	 */
-	abstract public function createSubscription( $conds, $rows );
-
-	/**
-	 * Load an Echo subscription
-	 * @param $conds array
-	 * @return ResultWrapper
-	 */
-	abstract public function loadSubscription( $conds );
 
 	/**
 	 * Mark notifications as read for a user

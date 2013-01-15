@@ -238,16 +238,7 @@ abstract class MWEchoEmailBatch {
 		$adminAddress = new MailAddress( $wgPasswordSender, $wgPasswordSenderName );
 		$address = new MailAddress( $this->mUser );
 
-		$params = array(
-			'to' => $address,
-			'from' => $adminAddress,
-			'subj' => $subject,
-			'body' => $body,
-			// no replyto
-			'replyto' => ''
-		);
-		$job = new EmaillingJob( null, $params );
-		JobQueueGroup::singleton()->push( $job );
+		UserMailer::send( $address, $adminAddress, $subject, $body );
 	}
 
 	/**

@@ -39,8 +39,6 @@ class EchoNotification {
 		$obj = new EchoNotification();
 		static $validFields = array( 'event', 'user' );
 
-		$obj->timestamp = wfTimestampNow();
-
 		foreach ( $validFields as $field ) {
 			if ( isset( $info[$field] ) ) {
 				$obj->$field = $info[$field];
@@ -57,6 +55,13 @@ class EchoNotification {
 			throw new MWException( 'Invalid event parameter, expected: EchoEvent object' );
 		}
 
+		// Notification timestamp should be the same as event timestamp
+		$obj->timestamp = $obj->event->getTimestamp();
+		// Safe fallback
+		if ( !$obj->timestamp ) {
+			$obj->timestamp = wfTimestampNow();
+		}
+
 		$obj->insert();
 
 		return $obj;
@@ -66,14 +71,37 @@ class EchoNotification {
 	 * Adds this new notification object to the backend storage.
 	 */
 	protected function insert() {
-		global $wgEchoBackend;
+		global $wgEchoBackend, $wgEchoNotifications;
 
 		$row = array(
 			'notification_event' => $this->event->getId(),
 			'notification_user' => $this->user->getId(),
 			'notification_timestamp' => $this->timestamp,
 			'notification_read_timestamp' => $this->readTimestamp,
+			'notification_bundle_hash' => '',
+			'notification_bundle_display_hash' => ''
 		);
+
+		// Get the bundle key for this event if web bundling is enabled
+		$bundleKey = '';
+		if ( !empty( $wgEchoNotifications[$this->event->getType()]['bundle']['web'] ) ) {
+			wfRunHooks( 'EchoGetBundleRules', array( $this->event, &$bundleKey ) );
+		}
+		if ( $bundleKey ) {
+			$hash = md5( $bundleKey );
+			$row['notification_bundle_hash'] = $hash;
+
+			$lastStat = $wgEchoBackend->getLastBundleStat( $this->user, $hash );
+
+			// Use a new display hash if:
+			// 1. there was no last bundle notification
+			// 2. last bundle notification with the same hash was read
+			if ( $lastStat && !$lastStat->notification_read_timestamp ) {
+				$row['notification_bundle_display_hash'] = $lastStat->notification_bundle_display_hash;
+			} else {
+				$row['notification_bundle_display_hash'] = md5( $bundleKey . '-display-hash-' . wfTimestampNow() );
+			}
+		}
 
 		$wgEchoBackend->createNotification( $row );
 	}

@@ -13,13 +13,22 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 		'title-params',
 	);
 
-	protected $title, $flyoutTitle, $content, $email, $icon;
+	protected $title, $flyoutTitle, $bundleTitle, $content, $email, $icon;
+
+	/**
+	 * Data for constructing bundle message, data in this array
+	 * should be used in function processParams()
+	 * @var array
+	 */
+	protected $bundleData = array (
+		'use-bundle' => false
+	);
 
 	public function __construct( $params ) {
 		parent::__construct( $params );
 
-		$this->title = array();
-		$this->flyoutTitle = array();
+		$this->title = $this->flyoutTitle = $this->bundleTitle = array();
+
 		if ( isset( $params['flyout-message'] ) && isset( $params['flyout-params'] ) ) {
 			$this->flyoutTitle['message'] = $params['flyout-message'];
 			$this->flyoutTitle['params'] = $params['flyout-params'];
@@ -27,6 +36,16 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			$this->flyoutTitle['message'] = $params['title-message'];
 			$this->flyoutTitle['params'] = $params['title-params'];
 		}
+
+		if ( isset( $params['bundle-message'] ) ) {
+			$this->bundleTitle['message'] = $params['bundle-message'];
+			if ( isset( $params['bundle-params'] ) ) {
+				$this->bundleTitle['params'] = $params['bundle-params'];
+			} else {
+				$this->bundleTitle['params'] = array();
+			}
+		}
+
 		$this->title['message'] = $params['title-message'];
 		$this->title['params'] = $params['title-params'];
 		$this->payload = array();
@@ -108,6 +127,12 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	 */
 	public function format( $event, $user, $type ) {
 		global $wgEchoNotificationCategories;
+
+		// Use the bundle message if use-bundle is true and there is a bundle message
+		$this->generateBundleData( $event, $user );
+		if ( $this->bundleData['use-bundle'] && isset( $this->bundleTitle['message'] ) ) {
+			$this->title = $this->flyoutTitle = $this->bundleTitle;
+		}
 
 		if ( $this->outputFormat === 'email' ) {
 			return $this->formatEmail( $event, $user, $type );
@@ -291,6 +316,80 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	}
 
 	/**
+	 * Get raw bundle data for an event so it can be manipulated
+	 * @param $event EchoEvent
+	 * @param $user User
+	 * @return ResultWrapper|bool
+	 */
+	protected function getRawBundleData( $event, $user ) {
+		global $wgEchoBackend;
+
+		// We should keep bundling for events as long as it has bundle
+		// hash event for bundle-turned-off events as well, this is
+		// mainly for historical data
+		if ( !$event->getBundleHash() ) {
+			return false;
+		}
+
+		return $wgEchoBackend->getRawBundleData( $user, $event->getBundleHash() );
+	}
+
+	/**
+	 * Construct the bundle data for an event, by default, the group iterator
+	 * is agent, eg, by user A and x others. custom formatter can overwrite
+	 * this function to use a differnt group iterator such as title, namespace
+	 * @param $event EchoEvent
+	 * @param $user User
+	 */
+	protected function generateBundleData( $event, $user ) {
+		global $wgEchoMaxNotificationCount;
+
+		$data = $this->getRawBundleData( $event, $user );
+
+		if ( !$data ) {
+			return;
+		}
+
+		$agents = array();
+		$agent = $event->getAgent();
+		if ( $agent ) {
+			if ( $agent->isAnon() ) {
+				$agents[$agent->getName()] = $agent->getName();
+			} else {
+				$agents[$agent->getId()] = $agent->getId();
+			}
+		} else {
+			throw new MWException( "Agent is required for bundling notification!" );
+		}
+
+		// Initialize with 1 for the agent of current event
+		$count = 1;
+		foreach ( $data as $row ) {
+			$key = $row->event_agent_id ? 'event_agent_id' : 'event_agent_ip';
+			if ( !isset( $agents[$row->$key] ) ) {
+				$agents[$row->$key] = $row->$key;
+				$count++;
+			}
+
+			if ( $count > $wgEchoMaxNotificationCount + 1 ) {
+				break;
+			}
+		}
+
+		$this->bundleData['agent-other-count'] = $count - 1;
+		if ( $count > 1 ) {
+			$this->bundleData['use-bundle'] = true;
+		}
+	}
+
+	/**
+	 * @return array
+	 */
+	public function getBundleData() {
+		return $this->bundleData;
+	}
+
+	/**
 	 * Convert the parameters into real values and pass them into the message
 	 *
 	 * @param $params array
@@ -320,6 +419,23 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			} else {
 				$message->params( $event->getAgent()->getName() );
 			}
+		// example: {7} others, {99+} others
+		} elseif ( $param === 'agent-other-display') {
+			global $wgEchoMaxNotificationCount;
+
+			if ( $this->bundleData['agent-other-count'] > $wgEchoMaxNotificationCount ) {
+				$message->params(
+					wfMessage( 'echo-notification-count' )
+					->inLanguage( $user->getOption( 'language' ) )
+					->params( $wgEchoMaxNotificationCount )
+					->text()
+				);
+			} else {
+				$message->params( $this->bundleData['agent-other-count'] );
+			}
+		// the number used for plural support
+		} elseif ( $param === 'agent-other-count') {
+			$message->params( $this->bundleData['agent-other-count'] );
 		} elseif ( $param === 'user' ) {
 			$message->params( $user->getName() );
 		} elseif ( $param === 'title' ) {

@@ -20,7 +20,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 
 		$result = array();
 		if ( in_array( 'list', $prop ) ) {
-			$result['list'] = self::getNotifications( $user, $params['unread'], $params['format'], $params['limit'] + 1, $params['timestamp'], $params['offset'] );
+			$result['list'] = self::getNotifications( $user, $params['format'], $params['limit'] + 1, $params['timestamp'], $params['offset'] );
 
 			// check if there is more elements than we request
 			if ( count( $result['list'] ) > $params['limit'] ) {
@@ -47,23 +47,25 @@ class ApiEchoNotifications extends ApiQueryBase {
 	 * Get a list of notifications based on the passed parameters
 	 *
 	 * @param $user User the user to get notifications for
-	 * @param $unread Boolean true to get only unread notifications
-	 * @param $format string|bool false to not format any notifications, string to a specific output format
+	 * @param $format string/bool false to not format any notifications, string to a specific output format
 	 * @param $limit int The maximum number of notifications to return
 	 * @param $timestamp int The timestamp to start from
 	 * @param $offset int The notification event id to start from
 	 * @return array
 	 */
-	public static function getNotifications( $user, $unread = false, $format = false, $limit = 20, $timestamp = 0, $offset = 0 ) {
+	public static function getNotifications( $user, $format = false, $limit = 20, $timestamp = 0, $offset = 0 ) {
 		global $wgEchoBackend;
 
 		$output = array();
 
 		// TODO: Make 'web' based on a new API param?
-		$res = $wgEchoBackend->loadNotifications( $user, $unread, $limit, $timestamp, $offset, 'web' );
+		$res = $wgEchoBackend->loadNotifications( $user, $limit, $timestamp, $offset, 'web' );
 
 		foreach ( $res as $row ) {
 			$event = EchoEvent::newFromRow( $row );
+			if ( $row->notification_bundle_base && $row->notification_bundle_display_hash ) {
+				$event->setBundleHash( $row->notification_bundle_display_hash );
+			}
 
 			$timestamp = new MWTimestamp( $row->notification_timestamp );
 			$timestampUnix = $timestamp->getTimestamp( TS_UNIX );
@@ -159,7 +161,6 @@ class ApiEchoNotifications extends ApiQueryBase {
 			'markread' => array(
 				ApiBase::PARAM_ISMULTI => true,
 			),
-			'unread' => false,
 			'format' => array(
 				ApiBase::PARAM_TYPE => array(
 					'text',
@@ -187,7 +188,6 @@ class ApiEchoNotifications extends ApiQueryBase {
 		return array(
 			'prop' => 'Details to request.',
 			'markread' => 'A list of notification IDs to mark as read',
-			'unread' => 'Request only unread notifications',
 			'format' => 'If specified, notifications will be returned formatted this way.',
 			'index' => 'If specified, a list of notification IDs, in order, will be returned.',
 			'limit' => 'The maximum number of notifications to return.',

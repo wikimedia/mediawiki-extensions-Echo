@@ -45,7 +45,6 @@ $wgExtensionMessagesFiles['Echo'] = $dir . 'Echo.i18n.php';
 $wgExtensionMessagesFiles['EchoAliases'] = $dir . 'Echo.alias.php';
 
 $wgAutoloadClasses['EchoHooks'] = $dir . 'Hooks.php';
-$wgAutoloadClasses['EchoSubscription'] = $dir . 'model/Subscription.php';
 $wgAutoloadClasses['EchoEvent'] = $dir . 'model/Event.php';
 $wgAutoloadClasses['EchoNotification'] = $dir . 'model/Notification.php';
 $wgAutoloadClasses['MWEchoEmailBatch'] = $dir . 'includes/EmailBatch.php';
@@ -56,8 +55,8 @@ $wgAutoloadClasses['EchoNotificationFormatter'] = $dir . 'formatters/Notificatio
 $wgAutoloadClasses['EchoBasicFormatter'] = $dir . 'formatters/BasicFormatter.php';
 $wgAutoloadClasses['EchoEditFormatter'] = $dir . 'formatters/EditFormatter.php';
 $wgAutoloadClasses['EchoCommentFormatter'] = $dir . 'formatters/CommentFormatter.php';
-$wgAutoloadClasses['EchoArticleLinkedFormatter'] = $dir . 'formatters/ArticleLinkedFormatter.php';
 $wgAutoloadClasses['EchoUserRightsFormatter'] = $dir . 'formatters/UserRightsFormatter.php';
+$wgAutoloadClasses['EchoPageLinkFormatter'] = $dir . 'formatters/PageLinkFormatter.php';
 
 // Internal stuff
 $wgAutoloadClasses['EchoNotifier'] = $dir . 'Notifier.php';
@@ -165,6 +164,7 @@ $wgResourceModules += array(
  */
 $wgHooks['EchoGetDefaultNotifiedUsers'][] = 'EchoHooks::getDefaultNotifiedUsers';
 $wgHooks['EchoGetNotificationTypes'][] = 'EchoHooks::getNotificationTypes';
+$wgHooks['EchoGetBundleRules'][] = 'EchoHooks::onEchoGetBundleRules';
 
 // Hook appropriate events
 $wgHooks['ArticleSaveComplete'][] = 'EchoHooks::onArticleSaved';
@@ -209,6 +209,7 @@ $wgEchoUseJobQueue = false;
 $wgEchoEmailFooterAddress = '';
 
 // The max notification count showed in badge
+// The max number showed in bundled message, eg, <user> and 99+ others <action>
 $wgEchoMaxNotificationCount = 99;
 
 // Define which output formats are available for each notification category
@@ -278,9 +279,12 @@ $wgEchoNotifications = array(
 	'edit-user-talk' => array(
 		'category' => 'edit-user-talk',
 		'group' => 'interactive',
+		'bundle' => array( 'web' => true, 'email' => false ),
 		'formatter-class' => 'EchoEditFormatter',
 		'title-message' => 'notification-edit-talk-page2',
 		'title-params' => array( 'agent', 'user' ),
+		'bundle-message' => 'notification-edit-talk-page-bundle',
+		'bundle-params' => array( 'agent', 'user', 'agent-other-display', 'agent-other-count' ),
 		'payload' => array( 'summary' ),
 		'flyout-message' => 'notification-edit-talk-page-flyout2',
 		'flyout-params' => array( 'agent', 'user' ),
@@ -308,21 +312,24 @@ $wgEchoNotifications = array(
 		'email-body-batch-params' => array( 'agent', 'title', 'number' ),
 		'icon' => 'revert',
 	),
-	'article-linked' => array(
+	'page-linked' => array(
 		'category' => 'article-linked',
 		'group' => 'positive',
-		'formatter-class' => 'EchoArticleLinkedFormatter',
-		'title-message' => 'notification-article-linked2',
-		'title-params' => array( 'agent', 'title',  'title-linked' ),
+		'bundle' => array( 'web' => true, 'email' => false ),
+		'formatter-class' => 'EchoPageLinkFormatter',
+		'title-message' => 'notification-page-linked',
+		'title-params' => array( 'agent', 'title', 'link-from-page' ),
+		'bundle-message' => 'notification-page-linked-bundle',
+		'bundle-params' => array( 'agent', 'title', 'link-from-page', 'link-from-page-other-display', 'link-from-page-other-count' ),
 		'payload' => array( 'summary' ),
-		'flyout-message' => 'notification-article-linked-flyout2',
-		'flyout-params' => array( 'agent', 'title',  'title-linked' ),
-		'email-subject-message' => 'notification-article-linked-email-subject2',
-		'email-subject-params' => array( 'title-linked' ),
-		'email-body-message' => 'notification-article-linked-email-body2',
-		'email-body-params' => array( 'agent', 'title', 'titlelink', 'title-linked', 'email-footer' ),
-		'email-body-batch-message' => 'notification-article-linked-email-batch-body2',
-		'email-body-batch-params' => array( 'agent', 'title-linked' ),
+		'flyout-message' => 'notification-page-linked-flyout',
+		'flyout-params' => array( 'agent', 'title', 'link-from-page' ),
+		'email-subject-message' => 'notification-page-linked-email-subject',
+		'email-subject-params' => array(),
+		'email-body-message' => 'notification-page-linked-email-body',
+		'email-body-params' => array( 'agent', 'title', 'email-footer', 'link-from-page' ),
+		'email-body-batch-message' => 'notification-page-linked-email-batch-body',
+		'email-body-batch-params' => array( 'agent', 'title', 'link-from-page' ),
 		'icon' => 'linked',
 	),
 	'mention' => array(
@@ -375,6 +382,7 @@ foreach ( $wgEchoNotificationCategories as $category => $categoryData ) {
 		$wgDefaultUserOptions["echo-subscriptions-{$notifierType}-{$category}"] = true;
 	}
 }
+
 // unset default email for reverted, article-linked (change them to opt-in)
 $wgDefaultUserOptions['echo-subscriptions-email-reverted'] = false;
 $wgDefaultUserOptions['echo-subscriptions-email-article-linked'] = false;

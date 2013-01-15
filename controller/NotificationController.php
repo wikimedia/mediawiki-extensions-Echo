@@ -2,7 +2,8 @@
 
 class EchoNotificationController {
 	/**
-	 * Retrieves number of unread notifications that a user has.
+	 * Retrieves number of unread notifications that a user has, would return
+	 * $wgEchoMaxNotificationCount + 1 at most
 	 *
 	 * @param $user User object to check notifications for
 	 * @param $cached bool Set to false to bypass the cache.
@@ -10,25 +11,19 @@ class EchoNotificationController {
 	 * @return Integer: Number of unread notifications.
 	 */
 	public static function getNotificationCount( $user, $cached = true, $dbSource = DB_SLAVE ) {
-		global $wgMemc, $wgEchoBackend;
+		global $wgMemc, $wgEchoBackend, $wgEchoConfig;
 
 		if ( $user->isAnon() ) {
 			return 0;
 		}
 
-		$memcKey = wfMemcKey( 'echo-notification-count', $user->getId() );
+		$memcKey = wfMemcKey( 'echo-notification-count', $user->getId(), $wgEchoConfig['version'] );
 
 		if ( $cached && $wgMemc->get( $memcKey ) !== false ) {
 			return $wgMemc->get( $memcKey );
 		}
 
-		$res = $wgEchoBackend->getNotificationCount( $user, $dbSource );
-
-		if ( $res ) {
-			$count = $res->num;
-		} else {
-			$count = 0;
-		}
+		$count = $wgEchoBackend->getNotificationCount( $user, $dbSource );
 
 		$wgMemc->set( $memcKey, $count, 86400 );
 
@@ -198,24 +193,27 @@ class EchoNotificationController {
 			return;
 		}
 
-		if ( $event->getType() == 'welcome' ) { // Welcome events should only be sent to the new user, no need for subscriptions.
+		// Only send web notification for welcome event
+		if ( $event->getType() == 'welcome' ) {
 			self::doNotification( $event, $event->getAgent(), 'web' );
 		} else {
-			$subscriptions = self::getSubscriptionsForEvent( $event );
+			// Get the notification types for this event, eg, web/email
+			global $wgEchoDefaultNotificationTypes;
+			$notifyTypes = $wgEchoDefaultNotificationTypes['all'];
+			if ( isset( $wgEchoDefaultNotificationTypes[$event->getType()] ) ) {
+				$notifyTypes = array_merge( $notifyTypes, $wgEchoDefaultNotificationTypes[$event->getType()] );
+			}
+			$notifyTypes = array_keys( array_filter( $notifyTypes ) );
 
-			foreach ( $subscriptions as $subscription ) {
-				$user = $subscription->getUser();
+			$users = self::getUsersToNotifyForEvent( $event );
 
+			foreach ( $users as $user ) {
 				// Notification should not be sent to anonymous user
 				if ( $user->isAnon() ) {
 					continue;
 				}
 
-				$notifyTypes = $subscription->getNotificationTypes();
-
-				$notifyTypes = array_keys( array_filter( $notifyTypes ) );
-
-				wfRunHooks( 'EchoGetNotificationTypes', array( $subscription, $event, &$notifyTypes ) );
+				wfRunHooks( 'EchoGetNotificationTypes', array( $user, $event, &$notifyTypes ) );
 
 				foreach ( $notifyTypes as $type ) {
 					self::doNotification( $event, $user, $type );
@@ -243,56 +241,26 @@ class EchoNotificationController {
 	}
 
 	/**
-	 * Retrieves an array of EchoSubscription objects applicable to an EchoEvent.
+	 * Retrieves an array of User objects to be notified for an EchoEvent.
 	 *
-	 * @param $event EchoEvent to retrieve EchoSubscriptions for.
-	 * @return Array of EchoSubscription objects.
+	 * @param $event EchoEvent to retrieve users to be notified for.
+	 * @return Array of User objects
 	 */
-	protected static function getSubscriptionsForEvent( $event ) {
-		global $wgEchoBackend;
-
-		$conds = array( 'sub_event_type' => $event->getType() );
-
-		if ( $event->getTitle() ) {
-			$conds['sub_page_namespace'] = $event->getTitle()->getNamespace();
-			$conds['sub_page_title'] = $event->getTitle()->getDBkey();
-		}
-
-		$res = $wgEchoBackend->loadSubscription( $conds );
-
-		$subscriptions = array();
-		$rowCollection = array();
-		$lastUser = null;
-
-		foreach ( $res as $row ) {
-			if ( $lastUser && $row->sub_user != $lastUser ) {
-				$subscriptions[$lastUser] = EchoSubscription::newFromRows( $rowCollection );
-				$rowCollection = array();
-			}
-
-			$rowCollection[] = $row;
-			$lastUser = $row->sub_user;
-		}
-
-		if ( count( $rowCollection ) ) {
-			$subscriptions[$lastUser] = EchoSubscription::newFromRows( $rowCollection );
-		}
-
-		$users = array();
+	protected static function getUsersToNotifyForEvent( $event ) {
+		$users = $notifyList = array();
 		wfRunHooks( 'EchoGetDefaultNotifiedUsers', array( $event, &$users ) );
-		foreach ( $users as $u ) {
-			if ( !isset( $subscriptions[$u->getId()] ) ) {
-				$subscriptions[$u->getId()] = new EchoSubscription( $u, $event->getType(), $event->getTitle() );
-			}
+		// Make sure there is no duplicated users
+		foreach ( $users as $user ) {
+			$notifyList[$user->getId()] = $user;
 		}
 
-		// Don't notify the person who made the edit unless the event extra says to do so, that's a bit silly.
+		// Don't notify the person who made the edit unless the event extra says to do so
 		$extra = $event->getExtra();
 		if ( ( !isset( $extra['notifyAgent'] ) || !$extra['notifyAgent'] ) && $event->getAgent() ) {
-			unset( $subscriptions[$event->getAgent()->getId()] );
+			unset( $notifyList[$event->getAgent()->getId()] );
 		}
 
-		return $subscriptions;
+		return $notifyList;
 	}
 
 	/**

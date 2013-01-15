@@ -3,7 +3,6 @@
 /**
  * Immutable class to represent an event.
  * In Echo nomenclature, an event is a single occurrence.
- * A user's subscriptions determine what Notifications they receive.
  */
 class EchoEvent {
 	protected $type = null;
@@ -19,7 +18,19 @@ class EchoEvent {
 	 */
 	protected $title = null;
 	protected $extra = null;
+
+	/**
+	 * Notification timestamp
+	 * @var string
+	 */
 	protected $timestamp = null;
+
+	/**
+	 * A hash used to bundle a set of events, events that can be
+	 * grouped for a user has the same bundle hash
+	 * @var string
+	 */
+	protected $bundleHash;
 
 	/**
 	 * You should not call the constructor.
@@ -28,15 +39,14 @@ class EchoEvent {
 	 * EchoEvent::newFromRow    To create an event object from a row object
 	 * EchoEvent::newFromID     To create an event object from the database given its ID
 	 */
-	protected function __construct() {
-	}
+	protected function __construct() {}
 
-	## Save just as the ID
+	## Save the id and timestamp
 	function __sleep() {
 		if ( !$this->id ) {
 			throw new MWException( "Unable to serialize an uninitialized EchoEvent" );
 		}
-		return array( 'id' );
+		return array( 'id', 'timestamp' );
 	}
 
 	function __wakeup() {
@@ -127,7 +137,6 @@ class EchoEvent {
 
 		$row = array(
 			'event_id' => $this->id,
-			'event_timestamp' => $this->timestamp,
 			'event_type' => $this->type,
 			'event_variant' => $this->variant,
 		);
@@ -157,8 +166,17 @@ class EchoEvent {
 	 */
 	public function loadFromRow( $row ) {
 		$this->id = $row->event_id;
-		$this->timestamp = $row->event_timestamp;
 		$this->type = $row->event_type;
+
+		// If the object is loaded from __sleep(), timestamp should be already set
+		if ( !$this->timestamp ) {
+			if ( isset( $row->notification_timestamp ) ) {
+				$this->timestamp = $row->notification_timestamp;
+			} else {
+				$this->timestamp = wfTimestampNow();
+			}
+		}
+
 		$this->variant = $row->event_variant;
 		$this->extra = $row->event_extra ? unserialize( $row->event_extra ) : null;
 
@@ -317,5 +335,19 @@ class EchoEvent {
 	 */
 	public function getCategory() {
 		return EchoNotificationController::getNotificationCategory( $this->type );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getBundleHash() {
+		return $this->bundleHash;
+	}
+
+	/**
+	 * @param $hash string
+	 */
+	public function setBundleHash( $hash ) {
+		$this->bundleHash = $hash;
 	}
 }

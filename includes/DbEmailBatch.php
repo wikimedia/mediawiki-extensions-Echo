@@ -89,55 +89,6 @@ class MWDbEchoEmailBatch extends MWEchoEmailBatch {
 	}
 
 	/**
-	 * Send the batch email
-	 */
-	public function sendEmail() {
-		global $wgPasswordSender, $wgPasswordSenderName, $wgEchoEmailFooterAddress;
-
-		// global email footer
-		$footer = wfMessage( 'echo-email-footer-default' )
-				->inLanguage( $this->mUser->getOption( 'language' ) )
-				->params( $wgEchoEmailFooterAddress, '' )
-				->text();
-
-		// @Todo - replace them with the CONSTANT in 33810 once it is merged
-		if ( $this->mUser->getOption( 'echo-email-frequency' ) == 7 ) {
-			$frequency = 'weekly';
-		} else {
-			$frequency = 'daily';
-		}
-
-		// email subject
-		if ( $this->count > self::$displaySize ) {
-			$count = wfMessage( 'echo-notification-count' )->params( self::$displaySize )->text();
-		} else {
-			$count = $this->count;
-		}
-		$subject = wfMessage( 'echo-email-batch-subject-' . $frequency )->params( $count, $this->count )->text();
-		$body = wfMessage( 'echo-email-batch-body-' . $frequency )->params(
-				$this->mUser->getName(),
-				$count,
-				$this->count,
-				$this->listToText(),
-				$footer
-			)->text();
-
-		$adminAddress = new MailAddress( $wgPasswordSender, $wgPasswordSenderName );
-		$address = new MailAddress( $this->mUser );
-
-		$params = array(
-			'to' => $address,
-			'from' => $adminAddress,
-			'subj' => $subject,
-			'body' => $body,
-			// no replyto
-			'replyto' => ''
-		);
-		$job = new EmaillingJob( null, $params );
-		JobQueueGroup::singleton()->push( $job );
-	}
-
-	/**
 	 * Insert notification event into email queue
 	 * @param $userId int
 	 * @param $eventId int
