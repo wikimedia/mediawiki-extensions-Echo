@@ -1601,8 +1601,30 @@ $messages['it'] = array(
 	'echo-anon' => "Per ricevere le notifiche, [[Special:Userlogin/signup|crea un account]] o [[Special:UserLogin|effettua l'accesso]].",
 	'echo-none' => 'Non hai notifiche.',
 	'echo-more-info' => 'Altre informazioni',
+	'notification-edit-talk-page2' => '[[User:$1|$1]] {{GENDER:$1|ha postato}} sulla tua [[User talk:$2|pagina di discussione]].',
+	'notification-edit-talk-page-flyout2' => '$1 {{GENDER:$1|ha postato}} sulla tua [[User talk:$2|pagina di discussione]].',
+	'notification-article-linked2' => '$3 {{PLURAL:$4|è stata collegata|sono state collegate}} {{GENDER:$1|da}} [[User:$1|$1]] in questa pagina: [[$2]]',
+	'notification-article-linked-flyout2' => '$3 {{PLURAL:$4|è stata collegata|sono state collegate}} {{GENDER:$1|da}} $1 in questa pagina: [[$2]]',
+	'notification-add-comment2' => '[[User:$1|$1]] {{GENDER:$1|ha lasciato un commento}} riguardo a "[[$3|$2]]" nella pagina di discussione di "$4"',
+	'notification-add-talkpage-topic2' => '[[User:$1|$1]] {{GENDER:$1|ha postato}} un nuovo argomento "$2" su [[$3]]',
+	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]] ti {{GENDER:$1|ha inviato}} un messaggio: "[[$3#$2|$2]]"',
+	'notification-add-comment-yours2' => '[[User:$1|$1]] {{GENDER:$1|ha lasciato un commento}} riguardo a "[[$3#$2|$2]]" nella tua pagina di discussione',
 	'notification-new-user' => 'Benvenuto su {{SITENAME}}, $1!',
 	'notification-new-user-content' => 'Ricordati di firmare i commenti nelle pagine di discussione con quattro tildi (~~~~).',
+	'notification-reverted2' => '{{PLURAL:$4|La tua modifica|Le tue modifiche}} su [[$2]] {{PLURAL:$4|è stata annullata|sono state annullate}} {{GENDER:$1|da}} [[User:$1|$1]] $3',
+	'notification-reverted-flyout2' => '{{PLURAL:$4|La tua modifica|Le tue modifiche}} su $2 {{PLURAL:$4|è stata annullata|sono state annullate}} {{GENDER:$1|da}} $1 $3',
+	'notification-edit-talk-page-email-subject2' => 'Hai un nuovo messaggio nella pagina di discussione',
+	'notification-edit-talk-page-email-body2' => "L'utente di {{SITENAME}} $1 {{GENDER:$2|ha postato}} sulla tua pagina di discussione:
+
+$3
+
+Vedi anche:
+
+$2
+
+$4",
+	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|ha postato}} sulla tua pagina di discussione',
+	'notification-reverted-email-batch-body2' => '{{PLURAL:$3|1=La tua modifica|Le tue modifiche}} su $2 {{PLURAL:$3|è stata annullata|sono state annullate}} {{GENDER:$1|da}} $1',
 	'echo-email-subject-default' => 'Nuova notifica su {{SITENAME}}',
 	'echo-email-body-default' => 'Hai una nuova notifica su {{SITENAME}}:
 
@@ -2072,13 +2094,26 @@ $5',
 $messages['ml'] = array(
 	'echo-desc' => 'അറിയിപ്പ് വ്യവസ്ഥ',
 	'prefs-echo' => 'അറിയിപ്പുകൾ',
+	'prefs-displaynotifications' => 'പ്രദർശന ഐച്ഛികങ്ങൾ',
+	'prefs-emailsubscriptions' => 'ആരെങ്കിലും ഈ പ്രവൃത്തികൾ ചെയ്യുമ്പോൾ എന്നെ ഇമെയിൽ വഴി അറിയിക്കുക',
+	'prefs-emailfrequency' => 'താങ്കൾക്ക് എപ്പോഴൊക്കെയാണ് ഇമെയിൽ അറിയിപ്പുകൾ ലഭിക്കേണ്ടത്?',
+	'echo-pref-email-edit-user-talk' => 'എന്റെ സംവാദത്താളിലെ കുറിപ്പുകളിടപ്പെടുമ്പോൾ',
+	'echo-pref-email-article-linked' => 'ഞാൻ സൃഷ്ടിച്ച താളിലേയ്ക്ക് ഒരു കണ്ണി സൃഷ്ടിക്കപ്പെടുമ്പോൾ',
+	'echo-pref-email-reverted' => 'എന്റെ തിരുത്ത് മുൻപ്രാപനം ചെയ്യപ്പെട്ടാൽ',
+	'echo-pref-email-frequency-never' => 'എനിക്ക് ഇമെയിൽ അറിയിപ്പുകൾ വേണ്ട',
+	'echo-pref-email-frequency-immediately' => 'ഓരോ വേളയിലും വ്യത്യസ്ത അറിയിപ്പുകൾ',
+	'echo-pref-email-frequency-daily' => 'ഒരു ദിവസത്തെ അറിയിപ്പുകളുടെ അവലോകനം',
+	'echo-pref-email-frequency-weekly' => 'ഒരു ആഴ്ചയിലെ അറിയിപ്പുകളുടെ അവലോകനം',
 	'echo-no-agent' => '[ആരുമില്ല]',
 	'echo-no-title' => '[താൾ ഇല്ല]',
 	'echo-error-no-formatter' => 'അറിയിപ്പിനായി യാതൊരു രൂപവും നിർവ്വചിച്ചിട്ടില്ല',
 	'notifications' => 'അറിയിപ്പുകൾ',
+	'tooltip-pt-notifications' => 'താങ്കൾക്കുള്ള അറിയിപ്പുകൾ',
 	'echo-specialpage' => 'എനിക്കുള്ള അറിയിപ്പുകൾ',
 	'echo-anon' => 'അറിയിപ്പുകൾ ലഭിക്കാനായി, [[Special:Userlogin/signup|അംഗത്വമെടുക്കയോ]] [[Special:UserLogin|പ്രവേശിക്കുകയോ]] ചെയ്യേണ്ടതാണ്.',
 	'echo-none' => 'താങ്കൾക്ക് മുമ്പ് അറിയിപ്പുകളൊന്നും ലഭിച്ചിരുന്നില്ല.', # Fuzzy
+	'echo-more-info' => 'കൂടുതൽ വിവരങ്ങൾ',
+	'notification-edit-talk-page2' => '[[User:$1|$1]] താങ്കളുടെ on your [[User talk:$2|സംവാദത്താളിൽ]] {{GENDER:$1|കുറിപ്പിട്ടു}} .',
 	'notification-new-user' => '{{SITENAME}} സംരംഭത്തിലേയ്ക്ക് സ്വാഗതം, $1!',
 	'notification-new-user-content' => 'സംവാദം താളുകളിലെ ഏതൊരു കുറിപ്പിനും 4 റ്റിൽഡേകൾ (~~~~) ഉപയോഗിച്ച് ഒപ്പിടാൻ ഓർക്കുമല്ലോ.',
 	'echo-email-subject-default' => '{{SITENAME}} സംരംഭത്തിൽ അറിയിപ്പുണ്ട്',
