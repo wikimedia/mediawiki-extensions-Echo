@@ -140,17 +140,15 @@ class EchoEvent {
 	 * Inserts the object into the database.
 	 */
 	protected function insert() {
-		$dbw = wfGetDB( DB_MASTER );
+		global $wgEchoBackend;
 
 		if ( $this->id ) {
 			throw new MWException( "Attempt to insert() an existing event" );
 		}
 
-		$this->id = $dbw->nextSequenceValue( 'echo_event_id' );
-
 		$row = array(
 			'event_id' => $this->id,
-			'event_timestamp' => $dbw->timestamp( $this->timestamp ),
+			'event_timestamp' => $this->timestamp,
 			'event_type' => $this->type,
 			'event_variant' => $this->variant,
 		);
@@ -170,11 +168,7 @@ class EchoEvent {
 			$row['event_page_title'] = $this->title->getDBkey();
 		}
 
-		$dbw->insert( 'echo_event', $row, __METHOD__ );
-
-		if ( !$this->id ) {
-			$this->id = $dbw->insertId();
-		}
+		$this->id = $wgEchoBackend->createEvent( $row );
 	}
 
 	/**
@@ -207,20 +201,11 @@ class EchoEvent {
 	 * Loads data from the database into this object, given the event ID.
 	 * @param $id int Event ID
 	 * @param $fromMaster bool
-	 * @throws MWException
 	 */
 	public function loadFromID( $id, $fromMaster = false ) {
-		$db = wfGetDB( $fromMaster ? DB_MASTER : DB_SLAVE );
+		global $wgEchoBackend;
 
-		$row = $db->selectRow( 'echo_event', '*', array( 'event_id' => $id ), __METHOD__ );
-
-		if ( !$row && !$fromMaster ) {
-			$this->loadFromID( $id, true );
-		} elseif ( !$row ) {
-			throw new MWException( "No EchoEvent found with ID: $id" );
-		}
-
-		$this->loadFromRow( $row );
+		$this->loadFromRow( $wgEchoBackend->loadEvent( $id, $fromMaster ) );
 	}
 
 	/**
@@ -251,16 +236,11 @@ class EchoEvent {
 	 * Update extra data
 	 */
 	public function updateExtra( $extra ) {
-		$dbw = wfGetDB( DB_MASTER );
+		global $wgEchoBackend;
 
 		$this->extra = $extra;
 		if ( $this->id && $this->extra ) {
-			$dbw->update(
-				'echo_event',
-				array( 'event_extra' => $this->serializeExtra() ),
-				array( 'event_id' => $this->id ),
-				__METHOD__
-			);
+			$wgEchoBackend->updateEventExtra( $this );
 		}
 	}
 
@@ -268,7 +248,7 @@ class EchoEvent {
 	 * Serialize the extra data for event
 	 * @return string
 	 */
-	protected function serializeExtra() {
+	public function serializeExtra() {
 		if ( is_array( $this->extra ) || is_object( $this->extra ) ) {
 			$extra = serialize( $this->extra );
 		} elseif ( is_null( $this->extra ) ) {

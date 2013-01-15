@@ -7,6 +7,15 @@ class EchoHooks {
 	const EMAIL_WEEKLY_DIGEST = 7; // Send weekly email digests
 
 	/**
+	 * Initialize Echo extension with necessary data, this function is invoked
+	 * from $wgExtensionFunctions
+	 */
+	public static function initEchoExtension() {
+		global $wgEchoBackend, $wgEchoBackendName;
+		$wgEchoBackend = MWEchoBackend::factory( $wgEchoBackendName );
+	}
+
+	/**
 	 * @param $updater DatabaseUpdater object
 	 * @return bool true in all cases
 	 */

@@ -55,42 +55,13 @@ class ApiEchoNotifications extends ApiQueryBase {
 	 * @return array
 	 */
 	public static function getNotifications( $user, $unread = false, $format = false, $limit = 20, $timestamp = 0, $offset = 0 ) {
-		global $wgEchoEventDetails;
+		global $wgEchoBackend;
+
 		$lang = RequestContext::getMain()->getLanguage();
-		$dbr = wfGetDB( DB_SLAVE );
 
 		$output = array();
 
-		$conds = array(
-			'notification_user' => $user->getID(),
-			'event_type' => EchoEvent::gatherValidEchoEvents(),
-		);
-
-		if ( $unread ) {
-			$conds['notification_read_timestamp'] = null;
-		}
-
-		// start points are specified
-		if ( $timestamp && $offset ) {
-			$conds[] = 'notification_timestamp <= ' . $dbr->addQuotes( $dbr->timestamp( $timestamp ) );
-			$conds[] = 'notification_event < ' . intval( $offset );
-		}
-
-		$res = $dbr->select(
-			array( 'echo_notification', 'echo_event' ),
-			'*',
-			$conds,
-			__METHOD__,
-			array(
-				// Todo: check if key ( user, timestamp ) is sufficient, if not,
-				// we need to replace it with ( user, timestamp, event )
-				'ORDER BY' => 'notification_timestamp DESC, notification_event DESC',
-				'LIMIT' => $limit,
-			),
-			array(
-				'echo_event' => array( 'LEFT JOIN', 'notification_event=event_id' ),
-			)
-		);
+		$res = $wgEchoBackend->loadNotifications( $user, $unread, $limit = 20, $timestamp = 0, $offset = 0 );
 
 		foreach ( $res as $row ) {
 			// Make sure the user is eligible to recieve this type of notification

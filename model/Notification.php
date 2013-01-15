@@ -52,18 +52,18 @@ class EchoNotification {
 	}
 
 	/**
-	 * Adds this new notification object to the database.
+	 * Adds this new notification object to the backend storage.
 	 */
 	protected function insert() {
-		$dbw = wfGetDB( DB_MASTER );
+		global $wgEchoBackend;
 
 		$row = array(
 			'notification_event' => $this->event->getId(),
 			'notification_user' => $this->user->getId(),
-			'notification_timestamp' => $dbw->timestamp( $this->timestamp ),
+			'notification_timestamp' => $this->timestamp,
 			'notification_read_timestamp' => $this->readTimestamp,
 		);
 
-		$dbw->insert( 'echo_notification', $row, __METHOD__ );
+		$wgEchoBackend->createNotification( $row );
 	}
 }

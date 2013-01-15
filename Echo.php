@@ -49,6 +49,7 @@ $wgAutoloadClasses['EchoSubscription'] = $dir . 'model/Subscription.php';
 $wgAutoloadClasses['EchoEvent'] = $dir . 'model/Event.php';
 $wgAutoloadClasses['EchoNotification'] = $dir . 'model/Notification.php';
 $wgAutoloadClasses['MWEchoEmailBatch'] = $dir . 'includes/EmailBatch.php';
+$wgAutoloadClasses['MWDbEchoEmailBatch'] = $dir . 'includes/DbEmailBatch.php';
 
 // Formatters
 $wgAutoloadClasses['EchoNotificationFormatter'] = $dir . 'formatters/NotificationFormatter.php';
@@ -75,6 +76,10 @@ $wgAutoloadClasses['SpecialNotifications'] = $dir . 'special/SpecialNotification
 $wgSpecialPages['Notifications'] = 'SpecialNotifications';
 $wgSpecialPageGroups['Notifications'] = 'users';
 
+// Backend support
+$wgAutoloadClasses['MWEchoBackend'] = $dir . 'includes/EchoBackend.php';
+$wgAutoloadClasses['MWDbEchoBackend'] = $dir . 'includes/DbEchoBackend.php';
+
 // Housekeeping hooks
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'EchoHooks::getSchemaUpdates';
 $wgHooks['GetPreferences'][] = 'EchoHooks::getPreferences';
@@ -82,6 +87,9 @@ $wgHooks['PersonalUrls'][] = 'EchoHooks::onPersonalUrls';
 $wgHooks['BeforePageDisplay'][] = 'EchoHooks::beforePageDisplay';
 $wgHooks['MakeGlobalVariablesScript'][] = 'EchoHooks::makeGlobalVariablesScript';
 $wgHooks['UnitTestsList'][] = 'EchoHooks::getUnitTests';
+
+// Extension initialization
+$wgExtensionFunctions[] = 'EchoHooks::initEchoExtension';
 
 $echoResourceTemplate = array(
 	'localBasePath' => $dir . 'modules',
@@ -159,6 +167,12 @@ $wgHooks['ArticleEditUpdateNewTalk'][] = 'EchoHooks::abortNewTalkNotification';
 $wgHooks['LinksUpdateAfterInsert'][] = 'EchoHooks::onLinksUpdateAfterInsert';
 
 // Configuration
+
+// The name of the backend to use for Echo, eg, Db, Redis, Zeromq
+$wgEchoBackendName = 'Db';
+
+// The backend object
+$wgEchoBackend = null;
 
 // Whether to turn on email batch function
 $wgEchoEnableEmailBatch = true;

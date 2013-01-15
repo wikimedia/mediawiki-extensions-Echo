@@ -10,7 +10,7 @@ class EchoNotificationController {
 	 * @return Integer: Number of unread notifications.
 	 */
 	public static function getNotificationCount( $user, $cached = true, $dbSource = DB_SLAVE ) {
-		global $wgMemc;
+		global $wgMemc, $wgEchoBackend;
 
 		if ( $user->isAnon() ) {
 			return 0;
@@ -22,26 +22,7 @@ class EchoNotificationController {
 			return $wgMemc->get( $memcKey );
 		}
 
-		// double check
-		if ( !in_array( $dbSource, array( DB_SLAVE, DB_MASTER ) ) ) {
-			$dbSource = DB_SLAVE;
-		}
-
-		$db = wfGetDB( $dbSource );
-		$res = $db->selectRow(
-			array( 'echo_notification', 'echo_event' ),
-			array( 'num' => 'COUNT(notification_event)' ),
-			array(
-				'notification_user' => $user->getId(),
-				'notification_read_timestamp' => null,
-				'event_type' => EchoEvent::gatherValidEchoEvents(),
-			),
-			__METHOD__,
-			array(),
-			array(
-				'echo_event' => array( 'LEFT JOIN', 'notification_event=event_id' ),
-			)
-		);
+		$res = $wgEchoBackend->getNotificationCount( $user, $dbSource );
 
 		if ( $res ) {
 			$count = $res->num;
@@ -116,19 +97,13 @@ class EchoNotificationController {
 	 * @param $eventIDs Array of event IDs to mark read
 	 */
 	public static function markRead( $user, $eventIDs ) {
-		$dbw = wfGetDB( DB_MASTER );
+		global $wgEchoBackend;
 
 		$eventIDs = array_filter( (array)$eventIDs, 'is_numeric' );
-
-		$dbw->update( 'echo_notification',
-			array( 'notification_read_timestamp' => $dbw->timestamp( wfTimestampNow() ) ),
-			array(
-				'notification_user' => $user->getId(),
-				'notification_event' => $eventIDs,
-			),
-			__METHOD__
-		);
-
+		if ( !$eventIDs ) {
+			return;
+		}
+		$wgEchoBackend->markRead( $user, $eventIDs );
 		self::resetNotificationCount( $user, DB_MASTER );
 	}
 
@@ -208,7 +183,7 @@ class EchoNotificationController {
 	 * @return Array of EchoSubscription objects.
 	 */
 	protected static function getSubscriptionsForEvent( $event ) {
-		$dbr = wfGetDB( DB_SLAVE );
+		global $wgEchoBackend;
 
 		$conds = array( 'sub_event_type' => $event->getType() );
 
@@ -217,8 +192,7 @@ class EchoNotificationController {
 			$conds['sub_page_title'] = $event->getTitle()->getDBkey();
 		}
 
-		$res = $dbr->select( 'echo_subscription', '*', $conds, __METHOD__,
-			array( 'order by' => 'sub_user asc' ) );
+		$res = $wgEchoBackend->loadSubscription( $conds );
 
 		$subscriptions = array();
 		$rowCollection = array();
