@@ -159,10 +159,6 @@ $wgHooks['LinksUpdateAfterInsert'][] = 'EchoHooks::onLinksUpdateAfterInsert';
 
 // Configuration
 
-// Enable notifications for all logged in users by default
-$wgDefaultUserOptions['echo-notify-link'] = 'true';
-
-$wgEchoDisableStandardEmail = true;
 // Whether to turn on email batch function
 $wgEchoEnableEmailBatch = true;
 
@@ -178,9 +174,6 @@ $wgEchoHelpPage = '//www.mediawiki.org/wiki/Special:MyLanguage/Help:Extension:Ec
 // purpose of testing notification.
 // Todo - Abstract this into classes like: JobQueueNone, JobQueueMySQL, JobQueueRedis
 $wgEchoUseJobQueue = false;
-
-// By default, send emails for each notification as they come in
-$wgDefaultUserOptions['echo-email-frequency'] = EchoHooks::EMAIL_IMMEDIATELY;
 
 // The organization address, the value should be defined in LocalSettings.php
 $wgEchoEmailFooterAddress = '';
@@ -237,14 +230,6 @@ $wgEchoEventDetails = array(
 		'priority' => 5
 	),
 );
-
-// Set all of the events to email by default (won't affect events that don't email)
-foreach ( $wgEchoEnabledEvents as $wgEchoEnabledEvent ) {
-	$wgDefaultUserOptions['echo-email-notifications' . $wgEchoEnabledEvent] = true;
-}
-// unset default email for reverted, article-linked (change them to opt-in)
-$wgDefaultUserOptions['echo-email-notificationsreverted'] = false;
-$wgDefaultUserOptions['echo-email-notificationsarticle-linked'] = false;
 
 // Definitions of the notification event types built into Echo
 $wgEchoNotificationFormatters = array(
@@ -316,3 +301,17 @@ $wgEchoNotificationFormatters = array(
 		'icon' => 'linked',
 	),
 );
+
+// Enable notifications for all logged in users by default
+$wgDefaultUserOptions['echo-notify-link'] = 'true';
+
+// By default, send emails for each notification as they come in
+$wgDefaultUserOptions['echo-email-frequency'] = EchoHooks::EMAIL_IMMEDIATELY;
+
+// Set all of the events to email by default (won't affect events that don't email)
+foreach ( $wgEchoEnabledEvents as $wgEchoEnabledEvent ) {
+	$wgDefaultUserOptions['echo-email-notifications' . $wgEchoEnabledEvent] = true;
+}
+// unset default email for reverted, article-linked (change them to opt-in)
+$wgDefaultUserOptions['echo-email-notificationsreverted'] = false;
+$wgDefaultUserOptions['echo-email-notificationsarticle-linked'] = false;
