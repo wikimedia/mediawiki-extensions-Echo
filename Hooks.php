@@ -300,7 +300,7 @@ class EchoHooks {
 	 * @return bool true in all cases
 	 */
 	public static function onArticleSaved( &$article, &$user, $text, $summary, $minoredit, $watchthis, $sectionanchor, &$flags, $revision, &$status ) {
-		global $wgEchoEnabledEvents;
+		global $wgEchoEnabledEvents, $wgRequest;
 		if ( $revision ) {
 			EchoEvent::create( array(
 				'type' => 'edit',
@@ -316,7 +316,7 @@ class EchoHooks {
 			// Handle the case of someone undoing an edit, either through the
 			// 'undo' link in the article history or via the API.
 			if ( in_array( 'reverted', $wgEchoEnabledEvents ) ) {
-				$undidRevId = $user->getRequest()->getVal( 'wpUndidRevision' );
+				$undidRevId = $wgRequest->getVal( 'wpUndidRevision' );
 				if ( $undidRevId ) {
 					$undidRevision = Revision::newFromId( $undidRevId );
 					if ( $undidRevision ) {
