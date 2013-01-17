@@ -367,15 +367,14 @@ class EchoHooks {
 	 * @return bool
 	 */
 	public static function onLinksUpdateAfterInsert( $linksUpdate, $table, $insertions ) {
-	 	// Confirm: if $linksUpdate->mRecursive is false, that means $linkUpdate->mTitle is
-	 	// transcluding other page, and this link update is resulting from the other page
-	 	// link update
-		if ( !$linksUpdate->mRecursive ) {
-			return true;
-		}
-
-		// Handle only inserts to pagelinks table for content namespace pages
-		if ( $table !== 'pagelinks' || !MWNamespace::isContent( $linksUpdate->mTitle->getNamespace() ) ) {
+		// Handle only
+		// 1. inserts to pagelinks table && 
+		// 2. content namespace pages &&
+		// 3. non-transcluding pages &&
+		// 4. non-redirect pages
+		if ( $table !== 'pagelinks' || !MWNamespace::isContent( $linksUpdate->mTitle->getNamespace() )
+			|| !$linksUpdate->mRecursive || $linksUpdate->mTitle->isRedirect() )
+		{
 			return true;
 		}
 
