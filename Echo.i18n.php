@@ -1624,6 +1624,13 @@ $2
 
 $4",
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|ha postato}} sulla tua pagina di discussione',
+	'notification-article-linked-email-body2' => "$4 {{PLURAL:$5|è stata collegata|sono state collegate}} {{GENDER:$1|dall'utente}} $1 di {{SITENAME}}, in questa pagina: $2
+
+Dettagli:
+
+$3
+
+$6",
 	'notification-reverted-email-subject2' => '{{PLURAL:$3|La tua modifica|Le tue modifiche}} su $2 {{PLURAL:$3|è stata annullata|sono state annullate}} {{GENDER:$1|da}} $1',
 	'notification-reverted-email-body2' => '{{PLURAL:$7|La tua modifica|Le tue modifiche}} alla pagina $2 {{PLURAL:$7|è stata annullata|sono state annullate}} da $1.
 

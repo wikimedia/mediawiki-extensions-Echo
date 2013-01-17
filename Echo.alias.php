@@ -13,6 +13,11 @@ $specialPageAliases['en'] = array(
 	'Notifications' => array( 'Notifications' ),
 );
 
+/** German (Deutsch) */
+$specialPageAliases['de'] = array(
+	'Notifications' => array( 'Benachrichtigungen' ),
+);
+
 /** Zazaki (Zazaki) */
 $specialPageAliases['diq'] = array(
 	'Notifications' => array( 'Tebliği' ),
