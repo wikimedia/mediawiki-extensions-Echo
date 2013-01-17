@@ -55,6 +55,26 @@ class EchoNotificationController {
 	}
 
 	/**
+	 * See if a user is eligible to recieve a certain type of notification
+	 * (based on user groups, not user preferences)
+	 *
+	 * @param $user User object
+	 * @param $notificationType string A notification type defined in $wgEchoEventDetails
+	 * @return boolean
+	 */
+	public static function getNotificationEligibility( $user, $notificationType ) {
+		global $wgEchoEventDetails;
+		$usersGroups = $user->getGroups();
+		if ( isset( $wgEchoEventDetails[$notificationType]['usergroups'] ) ) {
+			$allowedGroups = $wgEchoEventDetails[$notificationType]['usergroups'];
+			if ( !array_intersect( $usersGroups, $allowedGroups ) ) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	/**
 	 * Retrieves formatted number of unread notifications that a user has.
 	 *
 	 * @param $user User object to check notifications for

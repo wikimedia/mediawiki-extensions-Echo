@@ -216,10 +216,13 @@ $wgEchoEnabledEvents = array(
 #	'add-talkpage-topic', // A new section is added to a talk page
 );
 
-// This array stores the category and priority for enabled events
-// if an event is not specified, it means the event belongs to the
+// This array stores the configuration info for enabled events.
+// Possible parameters include category, priority, and usergroups.
+// If an event is not specified, it means the event belongs to the
 // 'other' category with priority 10, which is the lowest,
-// priority is ranging from 1 to 10
+// priority is ranging from 1 to 10.
+// The usergroups param specifies an array of usergroups eligible to recieve the
+// notification type. If no usergroups parameter exists, all groups are eligible.
 $wgEchoEventDetails = array(
 	'edit-user-talk' => array(
 		'category' => 'edit-user-talk',

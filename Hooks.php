@@ -223,6 +223,10 @@ class EchoHooks {
 			if ( $enabledEvent === 'welcome' ) {
 				continue;
 			}
+			// Make sure the user is eligible to recieve this type of notification
+			if ( !EchoNotificationController::getNotificationEligibility( $user, $enabledEvent ) ) {
+				continue;
+			}
 			// Make sure email notifications are possible for this event
 			if ( isset( $wgEchoDefaultNotificationTypes[$enabledEvent] ) ) {
 				if ( !$wgEchoDefaultNotificationTypes[$enabledEvent]['email'] ) {

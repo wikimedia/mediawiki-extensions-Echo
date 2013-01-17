@@ -55,6 +55,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 	 * @return array
 	 */
 	public static function getNotifications( $user, $unread = false, $format = false, $limit = 20, $timestamp = 0, $offset = 0 ) {
+		global $wgEchoEventDetails;
 		$lang = RequestContext::getMain()->getLanguage();
 		$dbr = wfGetDB( DB_SLAVE );
 
@@ -92,6 +93,11 @@ class ApiEchoNotifications extends ApiQueryBase {
 		);
 
 		foreach ( $res as $row ) {
+			// Make sure the user is eligible to recieve this type of notification
+			if ( !EchoNotificationController::getNotificationEligibility( $user, $row->event_type ) ) {
+				continue;
+			}
+
 			$event = EchoEvent::newFromRow( $row );
 
 			// Use $row->notification_timestamp instead of $event->getTimestamp() for display
