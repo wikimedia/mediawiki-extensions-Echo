@@ -3166,42 +3166,98 @@ $5',
  * @author Dimension
  * @author Liangent
  * @author Shirayuki
+ * @author Yfdyh000
  */
 $messages['zh-hans'] = array(
 	'echo-desc' => '通知系统',
 	'prefs-echo' => '通知',
 	'prefs-displaynotifications' => '显示选项',
 	'prefs-emailsubscriptions' => '在以下情况使用电子邮件通知我',
-	'prefs-emailfrequency' => '我通过电子邮件接收通知的频率', # Fuzzy
-	'echo-pref-email-edit-user-talk' => '我的讨论页的话题',
-	'echo-pref-email-reverted' => '对我的编辑的撤销',
+	'prefs-emailfrequency' => '何时您想收到电子邮件通知？',
+	'echo-pref-email-edit-user-talk' => '在我讨论页的留言',
+	'echo-pref-email-article-linked' => '于其他页面加入了一条链接到我创建的页面的链接',
+	'echo-pref-email-reverted' => '对我的编辑的回退',
 	'echo-pref-email-frequency-never' => '不要给我发送任何电子邮件通知',
 	'echo-pref-email-frequency-immediately' => '允许的个别通知',
 	'echo-pref-email-frequency-daily' => '每日通知摘要',
 	'echo-pref-email-frequency-weekly' => '每周通知摘要',
-	'echo-pref-notify-hide-link' => '在我的工具栏中隐藏通知的链接和徽章',
+	'echo-pref-notify-hide-link' => '在我的工具栏中隐藏通知的链接和标志',
 	'echo-no-agent' => '[无人]',
 	'echo-no-title' => '[无页面]',
-	'echo-error-no-formatter' => '通知没有定义格式',
+	'echo-error-no-formatter' => '没有定义通知的格式',
 	'notifications' => '通知',
 	'tooltip-pt-notifications' => '您的通知',
 	'echo-specialpage' => '我的通知',
 	'echo-anon' => '要接收通知，请[[Special:Userlogin/signup|创建帐号]]或[[Special:UserLogin|登录]]。',
 	'echo-none' => '您没有任何通知。',
+	'echo-more-info' => '更多信息',
+	'notification-edit-talk-page2' => '[[User:$1|$1]]在您的[[User talk:$2|讨论页]]留言。',
+	'notification-edit-talk-page-flyout2' => '$1在您的[[User talk:$2|讨论页]]留言。',
+	'notification-article-linked2' => '[[User:$1|$1]]{{PLURAL:$4|创建了|创建了}}一个到$3的链接，在页面：[[$2]]',
+	'notification-article-linked-flyout2' => '$1{{PLURAL:$4|创建了|创建了}}一个到$3的链接，在页面：[[$2]]',
 	'notification-new-user' => '欢迎来到{{SITENAME}}，$1！',
 	'notification-new-user-content' => '请记得为讨论页上的任何讨论使用4个波浪线（~~~~）签名。',
+	'notification-edit-talk-page-email-body2' => '{{SITENAME}} 用户 $1 在您的讨论页{{GENDER:$1|留言}}：
+
+$3
+
+查看更多：
+
+$2
+
+$4',
+	'notification-edit-talk-page-email-batch-body2' => '$1 在您的讨论页{{GENDER:$1|留言}}',
+	'notification-reverted-email-subject2' => '您{{PLURAL:$3|在$2的编辑|在$2的编辑}}已被$1回退',
+	'notification-reverted-email-body2' => '您{{PLURAL:$7|在$2的编辑已被|在$2的编辑已被}}$1回退。
+
+$5
+
+查看更多：
+
+$3
+
+$6',
+	'notification-reverted-email-batch-body2' => '您{{PLURAL:$3|在$2的编辑|在$2的编辑}}已被$1回退',
 	'echo-email-subject-default' => '{{SITENAME}}上的新通知',
 	'echo-email-body-default' => '您在{{SITENAME}}上有新通知：
+
+$1',
+	'echo-email-footer-default' => '$2
+
+要调控发送给您的电子邮件，请访问
+{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
 
 $1',
 	'echo-link-new' => '$1条新通知',
 	'echo-link' => '通知',
 	'echo-overlay-link' => '全部通知',
 	'echo-overlay-title' => '我的通知',
+	'echo-overlay-title-overflow' => '我的通知（显示 $2 / $1 条未读）',
 	'echo-date-today' => '今天',
 	'echo-date-yesterday' => '昨天',
 	'echo-load-more-error' => '获取更多的结果时出错。',
+	'echo-email-batch-subject-daily' => '您今天有 $1 条通知', # Fuzzy
+	'echo-email-batch-subject-weekly' => '您本周有 $1 条通知', # Fuzzy
+	'echo-email-batch-body-daily' => '$1,
+
+您今天有 $2 条通知 于 {{SITENAME}}。查看它们在：
+{{canonicalurl:{{#special:Notifications}}}}
+
+$4
+
+$5', # Fuzzy
+	'echo-email-batch-body-weekly' => '$1,
+
+您本周有 $2 条通知于 {{SITENAME}}。查看它们在：
+{{canonicalurl:{{#special:Notifications}}}}
+
+$4
+
+$5', # Fuzzy
 	'echo-email-batch-category-header-edit-user-talk' => '$1对话页$1条信息',
+	'echo-email-batch-category-header-edit-revert' => '$1个编辑被{{PLURAL:$1|回退|回退}}',
+	'echo-email-batch-category-header-cross-reference' => '$1个交叉引用',
+	'echo-email-batch-category-header-other' => '$1个杂项',
 );
 
 /** Traditional Chinese (中文（繁體）‎)
