@@ -779,6 +779,7 @@ $5',
  * @author Kghbln
  */
 $messages['de-formal'] = array(
+	'prefs-emailsubscriptions' => 'Benachrichtigen Sie mich per E-Mail, wenn jemand',
 	'prefs-emailfrequency' => 'Wann möchten Sie E-Mail-Benachrichtigungen erhalten?',
 	'echo-none' => 'Sie haben in letzter Zeit keine Benachrichtigungen erhalten.', # Fuzzy
 	'notification-new-user-content' => 'Bitte vergessen Sie nicht alle Beiträge auf Diskussionsseiten mit 4 Tilden (~~~~) zu signieren.',
