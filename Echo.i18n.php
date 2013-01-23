@@ -3208,6 +3208,15 @@ $2
 
 $4',
 	'notification-edit-talk-page-email-batch-body2' => '$1 在您的讨论页{{GENDER:$1|留言}}',
+	'notification-article-linked-email-subject2' => '您在{{SITENAME}}上创建的{{PLURAL:$2|一个页面|页面}}被交叉引用',
+	'notification-article-linked-email-body2' => '$4已被链接由{{SITENAME}}用户$1，来自页面：$2
+
+查看更多
+
+$3
+
+$6', # Fuzzy
+	'notification-article-linked-email-batch-body2' => '$2被链接由$1', # Fuzzy
 	'notification-reverted-email-subject2' => '您{{PLURAL:$3|在$2的编辑|在$2的编辑}}已被$1回退',
 	'notification-reverted-email-body2' => '您{{PLURAL:$7|在$2的编辑已被|在$2的编辑已被}}$1回退。
 
