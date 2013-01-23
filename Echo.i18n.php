@@ -63,7 +63,7 @@ $2
 
 $4',
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|posted}} on your talk page',
-	'notification-article-linked-email-subject2' => '{{PLURAL:$2|A page|Pages}} you started {{PLURAL:$2|was|were}} cross referenced on {{SITENAME}}',
+	'notification-article-linked-email-subject2' => '{{PLURAL:$2|A page|Pages}} you started {{PLURAL:$2|was|were}} linked on {{SITENAME}}',
 	'notification-article-linked-email-body2' => '$4 {{PLURAL:$5|was|were}} {{GENDER:$1|linked}} by {{SITENAME}} user $1, from this page: $2
 
 View more:
