@@ -552,6 +552,15 @@ $2
 $4',
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|напісаў|напісала}} вам на старонку гутарак',
 	'notification-article-linked-email-subject2' => 'На {{PLURAL:$2|старонку, створаную|старонкі, створаныя}} вамі ў {{GRAMMAR:месны|{{SITENAME}}}}, зрабілі спасылку',
+	'notification-article-linked-email-body2' => '$1, {{GENDER:$1|удзельнік|удзельніца}} {{GRAMMAR:родны|{{SITENAME}}}}, {{GENDER:$1|спаслаўся|спаслалася}} на {{PLURAL:$5|старонку «$4»|старонкі $4}} з бачыны «$2».
+
+Даведацца болей:
+
+$3
+
+$6',
+	'notification-article-linked-email-batch-body2' => '$1 {{GENDER:$1|спаслаўся|спаслалася}} на {{PLURAL:$3|«$2»|$2}}.',
+	'notification-reverted-email-subject2' => '$1 {{GENDER:$1|скасаваў|скасавала}} {{PLURAL:$3|вашую праўку|вашыя праўкі}} ў «$2»',
 	'echo-email-subject-default' => 'Новая абвестка ад {{GRAMMAR:родны|{{SITENAME}}}}',
 	'echo-email-body-default' => 'Для вас ёсьць новая абвестка ў {{GRAMMAR:месны|{{SITENAME}}}}:
 
@@ -713,7 +722,7 @@ $2
 
 $4',
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|hinterließ}} eine Nachricht auf deiner Diskussionsseite',
-	'notification-article-linked-email-subject2' => '{{PLURAL:$2|Eine Seite|$2 Seiten}}, die du auf {{SITENAME}} angelegt hast, {{PLURAL:$2|wurde|wurden}} mit einem Querverweis versehen.',
+	'notification-article-linked-email-subject2' => '{{PLURAL:$2|Eine Seite|$2 Seiten}}, die du auf {{SITENAME}} angelegt hast, {{PLURAL:$2|wurde|wurden}} verlinkt.',
 	'notification-article-linked-email-body2' => '{{PLURAL:$5|Die Seite $4 wurde|Die Seiten $4 wurden}} {{GENDER:$1|vom {{SITENAME}}-Benutzer|von der {{SITENAME}}-Benutzerin}} $1 von der Seite $2 verlinkt.
 
 Mehr:
@@ -1284,7 +1293,7 @@ $2
 
 $4',
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|deixou}} unha mensaxe na súa páxina de conversa',
-	'notification-article-linked-email-subject2' => '{{PLURAL:$2|Unha páxina|Varias páxinas}} que comezou {{PLURAL:$2|ten|teñen}} agora algunha referencia cruzada en {{SITENAME}}',
+	'notification-article-linked-email-subject2' => '{{PLURAL:$2|Unha páxina|Varias páxinas}} que comezou {{PLURAL:$2|foi ligada|foron ligadas}} en {{SITENAME}}',
 	'notification-article-linked-email-body2' => '{{GENDER:$1|O editor|A editora}} $1 ligou {{PLURAL:$5|a páxina|as páxinas}} $4 desde estoutra páxina: $2
 
 Ollar máis:
@@ -2656,8 +2665,8 @@ $messages['roa-tara'] = array(
 	'echo-no-title' => '[Nisciuna vôsce]',
 	'notifications' => 'Notificaziune',
 	'echo-specialpage' => 'Notificaziune mie',
-	'notification-edit' => '$2 {{GENDER:$1|cangiate}} [[$3]] $4: "$5"',
-	'notification-edit-talk-page-email-subject' => "Tu è 'nu messàgge nuève sus 'a pàgene de le 'ngazzaminde",
+	'echo-more-info' => "Cchiù 'mbormaziune",
+	'notification-new-user' => "Bovègne jndr'à {{SITENAME}}, $1!",
 	'echo-email-body-default' => "Tu è 'na notifica nove sus a {{SITENAME}}:
 
 $1",
@@ -3208,7 +3217,7 @@ $2
 
 $4',
 	'notification-edit-talk-page-email-batch-body2' => '$1 在您的讨论页{{GENDER:$1|留言}}',
-	'notification-article-linked-email-subject2' => '您在{{SITENAME}}上创建的{{PLURAL:$2|一个页面|页面}}被交叉引用',
+	'notification-article-linked-email-subject2' => '您在{{SITENAME}}上创建的{{PLURAL:$2|一个页面|页面}}被交叉引用', # Fuzzy
 	'notification-article-linked-email-body2' => '$4已被链接由{{SITENAME}}用户$1，来自页面：$2
 
 查看更多
