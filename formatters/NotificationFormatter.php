@@ -108,14 +108,9 @@ abstract class EchoNotificationFormatter {
 	 * @return string Type description
 	 */
 	protected function formatTimestamp( $ts, $user ) {
-		$languageCode = $user->getOption( 'language' );
-		$language = Language::factory( $languageCode );
 
-		if ( MWInit::methodExists( 'Language', 'prettyTimestamp' ) ) {
-			$ts = $language->prettyTimestamp( $ts, false, $user );
-		} else {
-			$ts = $language->userTimeAndDate( $ts, $user );
-		}
+		$timestamp = new MWTimestamp( $ts );
+		$ts = $timestamp->getHumanTimestamp();
 
 		if ( $this->outputFormat === 'html' || $this->outputFormat === 'flyout' ) {
 			return Xml::element( 'div', array( 'class' => 'mw-echo-timestamp' ), $ts );
