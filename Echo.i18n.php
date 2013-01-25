@@ -1737,7 +1737,7 @@ $2
 
 $4',
 	'notification-edit-talk-page-email-batch-body2' => '$1 があなたのトークページに{{GENDER:$1|投稿しました}}',
-	'notification-article-linked-email-subject2' => 'あなたが作成した{{PLURAL:$2|ページ}}が{{SITENAME}}で相互参照{{PLURAL:$2|されました}}',
+	'notification-article-linked-email-subject2' => 'あなたが作成した{{PLURAL:$2|ページ}}が{{SITENAME}}でリンク{{PLURAL:$2|されました}}',
 	'notification-article-linked-email-body2' => '$4 {{PLURAL:$5|が}}{{SITENAME}}の利用者 $1 によって{{GENDER:$1|リンクされました}}。リンク元ページ: $2
 
 詳細情報:
@@ -2053,7 +2053,7 @@ $2
 
 $4',
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|објави}} на вашата страница за разговор',
-	'notification-article-linked-email-subject2' => 'На {{SITENAME}} {{PLURAL:$2|беше наведена|беа наведени}} {{PLURAL:$2|страница што вие ја започнавте|страници што вие ги започнавте}}.',
+	'notification-article-linked-email-subject2' => 'На {{SITENAME}} {{PLURAL:$2|беше наведена како врска|беа наведени како врски}} {{PLURAL:$2|страница што вие ја започнавте|страници што вие ги започнавте}}.',
 	'notification-article-linked-email-body2' => 'Корисникот $1 на {{SITENAME}} {{PLURAL:$5|ја стави врската $4 што води|ги стави врските $4 што водат}} {{GENDER:$1|од}} оваа страница: $2
 
 Погледајте повеќе:
@@ -2689,7 +2689,7 @@ $messages['ru'] = array(
 	'prefs-echo' => 'Уведомления',
 	'prefs-displaynotifications' => 'Настройки отображения',
 	'prefs-emailsubscriptions' => 'Сообщите мне по электронной почте, когда кто-то',
-	'prefs-emailfrequency' => 'Желаемая частота получения уведомлений по электронной почте', # Fuzzy
+	'prefs-emailfrequency' => 'Когда бы вы хотели получать уведомление по электронной почте?',
 	'echo-pref-email-edit-user-talk' => 'Пишет на моей странице обсуждения',
 	'echo-pref-email-article-linked' => 'Ссылается на созданную мной страницу',
 	'echo-pref-email-reverted' => 'Отменяет мои правки',
