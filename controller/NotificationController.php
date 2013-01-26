@@ -246,8 +246,9 @@ class EchoNotificationController {
 			}
 		}
 
-		// Don't notify the person who made the edit, that's a bit silly.
-		if ( $event->getAgent() ) {
+		// Don't notify the person who made the edit unless the event extra says to do so, that's a bit silly.
+		$extra = $event->getExtra();
+		if ( ( !isset( $extra['notifyAgent'] ) || !$extra['notifyAgent'] ) && $event->getAgent() ) {
 			unset( $subscriptions[$event->getAgent()->getId()] );
 		}
 
