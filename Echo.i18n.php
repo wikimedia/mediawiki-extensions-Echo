@@ -588,10 +588,6 @@ $1',
 $messages['br'] = array(
 	'echo-no-agent' => '[Den]',
 	'echo-no-title' => '[Diditl]', # Fuzzy
-	'notification-edit' => '$2 {{GENDER:$1|en deus kemmet}} [[$3]] $4', # Fuzzy
-	'notification-edit-talk-page' => '$2 en deus {{GENDER:$1|kemmet}} [[User talk:$3|ho pajenn kaozeadenn]]. $4',
-	'notification-add-talkpage-topic' => '$2 a zo {{GENDER:$1|kroget}} gant un tem nevez "$3" war [[$4]]',
-	'notification-add-talkpage-topic-yours' => '$2 en deus {{GENDER:$1|kaset}} deoc\'h ur gemennadenn : "[[$4#$3|$3]]"',
 );
 
 /** Catalan (català)
@@ -803,9 +799,8 @@ $messages['diq'] = array(
 	'echo-no-title' => '[Pele Çıniya]',
 	'notifications' => 'Tebliği',
 	'echo-specialpage' => 'Tebliğê me',
-	'notification-edit' => '$2\'i [[$3]] {{GENDER:$1|vurnê}} $4: "$5"',
 	'echo-link' => 'Tebliği',
-	'echo-overlay-link' => 'Tebliği pêro...',
+	'echo-overlay-link' => 'Tebliği pêro...', # Fuzzy
 	'echo-overlay-title' => 'Tebliğê me',
 );
 
@@ -848,14 +843,7 @@ $messages['el'] = array(
 $messages['eo'] = array(
 	'echo-no-agent' => '[Neniu]',
 	'echo-no-title' => '[Sen Paĝo]',
-	'notification-edit' => '$2 {{GENDER:$1|redaktis}} [[$3]] $4: "$5"',
-	'notification-edit-talk-page' => '$2 {{GENDER:$1|afiŝis}} en via [[User talk:$3|diskuto-pago]].',
-	'notification-add-comment' => '$2 {{GENDER:$1|komentis}} en "[[$4|$3]]" en la diskuto-paĝo "$5"',
-	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|afiŝis}} novan temon "$3" je [[$4]]',
-	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|sendis}} al vi mesaĝon: "[[$4#$3|$3]]"',
-	'notification-add-comment-yours' => '$2 {{GENDER:$1|komentis}} en "[[$4|$3]]" en via diskuto-paĝo "$5"', # Fuzzy
 	'notification-new-user' => 'Bonvenon al {{SITENAME}}, $1!',
-	'notification-edit-talk-page-email-batch-body' => '$2 {{GENDER:$2|afiŝis}} en via diskuto-paĝo',
 	'echo-email-body-default' => 'Vi havas novan noton ĉe {{SITENAME}}:
 
 $1',
@@ -957,24 +945,7 @@ $messages['et'] = array(
 	'notifications' => 'Teavitused',
 	'echo-specialpage' => 'Minu märkused',
 	'echo-anon' => 'Et teavitusi saada, [[Special:Userlogin/signup|loo konto]] või [[Special:UserLogin|logi sisse]].',
-	'notification-edit' => '$2 {{GENDER:$1|redigeeris}} lehekülge [[$3]] $4: "$5"',
-	'notification-edit-talk-page' => '$2 {{GENDER:$1|postitas}} sinu [[User talk:$3|aruteluleheküljele]].',
-	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|postitas}} leheküljele [[$4]] uue teema "$3"',
-	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|saatis}} sulle sõnumi: "[[$4#$3|$3]]"',
-	'notification-add-comment-yours' => '$2 {{GENDER:$1|kommenteeris}} sinu aruteluleheküljel teemat "[[$4#$3|$3]]"',
 	'notification-new-user' => 'Tere tulemast saidile {{SITENAME}}, $1!',
-	'notification-edit-talk-page-email-subject' => 'Sul on uus arutelulehekülje sõnum',
-	'notification-edit-talk-page-email-body' => '{{GRAMMAR:genitive|{{SITENAME}}}} kasutaja $2 postitas sinu arutelulehele:
-
-$4
-
-Vaata lisaks:
-
-$3
-
-$5',
-	'notification-reverted-email-subject' => '$2 tühistas sinu muudatuse leheküljel $3', # Fuzzy
-	'notification-reverted-email-batch-body' => '$2 tühistas sinu muudatuse leheküljel $3', # Fuzzy
 	'echo-link-new' => '$1 {{PLURAL:$1|uus teavitus|uut teavitust}}',
 	'echo-link' => 'Teavitused',
 	'echo-overlay-link' => 'Kõik teavitused',
@@ -1123,7 +1094,7 @@ $2
 
 $4",
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|a publié}} sur votre page de discussion',
-	'notification-article-linked-email-subject2' => '{{PLURAL:$2|Une page|$2 pages}} que vous avez démarrée{{PLURAL:$2| a été référencée|s ont été référencées}} sur {{SITENAME}}',
+	'notification-article-linked-email-subject2' => '{{PLURAL:$2|Une page|$2 pages}} que vous avez démarrée{{PLURAL:$2| a été référencée|s ont été référencées}} sur {{SITENAME}}', # Fuzzy
 	'notification-article-linked-email-body2' => "$4 {{PLURAL:$5|a été liée|ont été liées}} {{GENDER:$1|}} par l'utilisateur $1 de {{SITENAME}}, depuis cette page: $2
 
 En savoir plus:
@@ -1471,7 +1442,7 @@ $messages['hu'] = array(
 	'prefs-echo' => 'Értesítések',
 	'prefs-displaynotifications' => 'Megjelenítési beállítások',
 	'prefs-emailsubscriptions' => 'Értesíts e-mailen, ha valaki',
-	'prefs-emailfrequency' => 'Milyen gyakran kapok értesítést e-mailen',
+	'prefs-emailfrequency' => 'Milyen gyakran kapok értesítést e-mailen', # Fuzzy
 	'echo-pref-email-edit-user-talk' => 'üzenet küld a vitalapomon',
 	'echo-pref-email-reverted' => 'visszavonja a szerkesztésem',
 	'echo-pref-email-frequency-never' => 'Egyáltalán ne küldjön e-mail értesítést',
@@ -1485,14 +1456,7 @@ $messages['hu'] = array(
 	'echo-specialpage' => 'Értesítéseim',
 	'echo-anon' => 'Értesítések fogadásához [[Special:Userlogin/signup|hozz létre egy fiókot]] vagy [[Special:UserLogin|jelentkezzen be]].',
 	'echo-none' => 'Nincsenek értesítések.',
-	'notification-edit-talk-page' => '$2 {{GENDER:$1|üzenetet küldött}} a [[User talk:$3|vitalapodon]].',
-	'notification-add-comment' => '$2 {{GENDER:$1|megjegyzést küldött}} a "[[$4|$3]]" témában "$5" vitalapján',
-	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|létrehozott}} egy új témát ("$3") a [[$4]] lapon',
-	'notification-add-talkpage-topic-yours' => '$2 űj üzenetet {{GENDER:$1|küldött}}: "[[$4#$3|$3]]"',
-	'notification-add-comment-yours' => '$2 {{GENDER:$1|hozzászólt}} a "[[$4#$3|$3]]" témához a vitalapodon',
 	'notification-new-user' => 'Üdvözlet a {{SITENAME}} oldalon, $1!',
-	'notification-edit-talk-page-email-subject' => 'Új vitalap üzeneted van',
-	'notification-reverted-email-batch-body' => '$2 visszavonta $3 oldalon végzett szeresztésedet', # Fuzzy
 	'echo-link-new' => '$1 új értesítés',
 	'echo-link' => 'Értesítések',
 	'echo-overlay-link' => 'Összes értesítés…', # Fuzzy
@@ -1517,35 +1481,7 @@ $messages['ia'] = array(
 	'notifications' => 'Notificationes',
 	'echo-specialpage' => 'Mi notificationes',
 	'echo-anon' => 'Pro reciper notificationes, [[Special:Userlogin/signup|crea un conto]] o [[Special:UserLogin|aperi session]].',
-	'echo-none' => 'Tu non ha recipite notificationes recentemente.',
-	'notification-edit' => '$2 {{GENDER:$1|modificava}} [[$3]] $4', # Fuzzy
-	'notification-edit-talk-page' => '$2 {{GENDER:$1|modificava}} [[User talk:$3|tu pagina de discussion]]. $4',
-	'notification-add-comment' => '$2 {{GENDER:$1|commentava}} "[[$4|$3]]" in le pagina de discussion "$5"',
-	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|publicava}} un nove topico "$3" sur [[$4]]',
-	'notification-add-talkpage-topic-yours' => '$2 te {{GENDER:$1|inviava}} un message: "[[$4#$3|$3]]"',
-	'notification-add-comment-yours' => '$2 {{GENDER:$1|commentava}} "[[$4#$3|$3]]" in tu pagina de discussion',
-	'notification-edit-email-subject' => 'Notification de {{SITENAME}} : $3 ha essite modificate per $2',
-	'notification-edit-email-body' => 'Salute $5,
-Isto es un notification pro informar te que $2 ha modificate le pagina $3 de {{SITENAME}}.
-
-Tu pote vider le cambiamentos que $2 faceva per sequer iste ligamine:
-<$4>
-
-Tu ha recipite iste message perque tu te ha subscribite a actualisationes per e-mail pro cambiamentos de iste pagina.
-
-Gratias pro usar {{SITENAME}}
-Le systema de notification de {{SITENAME}}', # Fuzzy
-	'notification-edit-talk-page-email-subject' => 'Tu pagina de discussion in {{SITENAME}} ha essite modificate per $2',
-	'notification-edit-talk-page-email-body' => 'Salute $4,
-Isto es un notification pro informar te que $2 ha modificate tu pagina de discussion in {{SITENAME}}.
-
-In {{SITENAME}}, tu pagina de discussion es ubi altere usatores pote lassar te messages.
-
-Tu pote vider le cambiamentos que $2 faceva per sequer iste ligamine:
-<$3>
-
-Gratias pro usar {{SITENAME}}
-Le systema de notification de {{SITENAME}}', # Fuzzy
+	'echo-none' => 'Tu non ha recipite notificationes recentemente.', # Fuzzy
 	'echo-email-subject-default' => 'Nove notification in {{SITENAME}}',
 	'echo-email-body-default' => 'Tu ha un nove notification in {{SITENAME}}:
 
@@ -1788,15 +1724,7 @@ $messages['jv'] = array(
 	'notifications' => 'Wara-wara',
 	'echo-specialpage' => 'Wara-wara kula',
 	'echo-anon' => 'Kanggo nampa wara-wara [[Special:Userlogin/signup|gawé akun]] utawa [[Special:UserLogin|mlebu log]].',
-	'echo-none' => 'Sampéyan durung nampa wara-wara apa-apa.',
-	'notification-edit' => '$2 {{GENDER:$1|nyunting}} [[$3]] $4', # Fuzzy
-	'notification-edit-talk-page' => '$2 {{GENDER:$1|nyunting}} [[User talk:$3|kaca guneman Sampéyan]]. $4',
-	'notification-add-comment' => '$2 {{GENDER:$1|nanggepi}} nèng "[[$4|$3]]" nèng kaca guneman "$5"',
-	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|ngirim}} topik anyar "$3" nèng [[$4]]',
-	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|ngirimi}} Sampéyan layang: "[[$4#$3|$3]]"',
-	'notification-add-comment-yours' => '$2 {{GENDER:$1|nanggepi}} nèng "[[$4#$3|$3]]" nèng kaca guneman Sampéyan',
-	'notification-edit-email-subject' => '{{SITENAME}} wara-wara: $3 disunting déning $2',
-	'notification-edit-talk-page-email-subject' => 'Kaca guneman {{SITENAME}} Sampéyan wis diowah déning $2',
+	'echo-none' => 'Sampéyan durung nampa wara-wara apa-apa.', # Fuzzy
 	'echo-email-subject-default' => 'Wara-wara anyar nèng {{SITENAME}}',
 	'echo-email-body-default' => 'Sampéyan nduwé wara-wara anyar nèng {{SITENAME}}:
 
@@ -1872,7 +1800,7 @@ $2
 
 $4',
 	'notification-edit-talk-page-email-batch-body2' => '$1 사용자가 내 토론 문서에 {{GENDER:$1|게시했습니다}}',
-	'notification-article-linked-email-subject2' => '{{SITENAME}}에서 작성한 {{PLURAL:$2|문서}}가 교차 참조{{PLURAL:$2|했습니다}}',
+	'notification-article-linked-email-subject2' => '{{SITENAME}}에서 작성한 {{PLURAL:$2|문서}}가 교차 참조{{PLURAL:$2|했습니다}}', # Fuzzy
 	'notification-article-linked-email-body2' => '$4 문서를 이 문서에서 {{SITENAME}} $1 사용자가 {{GENDER:$1|링크}}{{PLURAL:$5|했습니다}}: $2
 
 더 보기:
@@ -1977,10 +1905,7 @@ $messages['lb'] = array(
 	'echo-specialpage' => 'Meng Notifikatiounen',
 	'echo-anon' => 'Fir Notifikatiounen ze kréien, [[Special:Userlogin/signup|maacht e Benotzerkont op]] oder [[Special:UserLogin|loggt Iech an]]',
 	'echo-none' => 'Dir hutt keng Notifikatiounen.',
-	'notification-edit-talk-page' => '$2 {{GENDER:$1|huet}} op Är [[User talk:$3|Diskussiounssäit]] geschriwwen.',
 	'notification-new-user' => 'Wëllkomm op {{SITENAME}}, $1!',
-	'notification-edit-talk-page-email-subject' => 'Dir hutt en neie Message op enger Diskussiounssäit',
-	'notification-reverted-email-batch-body' => 'Är Ännerung op $3 gouf vum $2 zréckgesat', # Fuzzy
 	'echo-email-subject-default' => 'Nei Notifikatioun op {{SITENAME}}',
 	'echo-email-body-default' => 'Dir hutt eng nei Notifikatioun op {{SITENAME}}:
 
@@ -2228,44 +2153,14 @@ $5',
 $messages['mt'] = array(
 	'echo-desc' => 'Sistema għan-notifiki',
 	'prefs-echo' => 'Notifiki',
-	'prefs-emailfrequency' => 'Kemm huma spissi n-notifiki li nirċievi',
+	'prefs-emailfrequency' => 'Kemm huma spissi n-notifiki li nirċievi', # Fuzzy
 	'echo-no-agent' => '[Ħadd]',
 	'echo-no-title' => '[L-ebda paġna]',
 	'notifications' => 'Notifiki',
 	'echo-specialpage' => 'Notifiki tiegħi',
 	'echo-anon' => 'Sabiex tirċievi notifiki, [[Special:Userlogin/signup|oħloq kont]] jew [[Special:UserLogin|illoggja]].',
 	'echo-none' => "M'għandek l-ebda notifiki",
-	'notification-edit' => '$2 {{GENDER:$1|immodifika|immodifikat}} [[$3]] $4', # Fuzzy
-	'notification-edit-talk-page' => "$2 {{GENDER:$1|immodifika|immodifikat}} il-[[User talk:$3|paġna ta' diskussjoni tiegħek]]. $4", # Fuzzy
-	'notification-add-comment' => '$2 {{GENDER:$1|ikkummenta|ikkummentat}} fuq "[[$4|$3]]" fil-paġna ta\' diskussjoni ta\' "$5"',
-	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|daħħal|daħħlet}} suġġett ġdid "$3" fuq [[$4]]',
-	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|bagħtlek|bagħtitlek}} messaġġ: "[[$4#$3|$3]]"',
-	'notification-add-comment-yours' => '$2 {{GENDER:$1|ikkummenta|ikkummentat}} fuq "[[$4#$3|$3]]" fil-paġna ta\' diskussjoni tiegħek',
 	'notification-new-user' => 'Merħba fuq {{SITENAME}}, $1!',
-	'notification-reverted' => 'Il-{{PLURAL:$5|modifika|modifiki}} tiegħek fuq [[$3]] {{PLURAL:$5|ġiet|ġew}} {{GENDER:$1|imħassra}} minn $2 $4',
-	'notification-edit-email-subject' => "Notifika ta' {{SITENAME}}: $3 ġiet modifikata minn $2",
-	'notification-edit-email-body' => "Insellimlek $1,
-Din hija notifika sabiex ngħarrfuk li $2 {{GENDER:$2|immodifika}} l-paġna $3 fuq {{SITENAME}}.
-
-$2 ikkummenta l-modifiki {{GENDER:$2|tiegħu}} b'din it-taqsira: $6
-
-Tista' tara l-bidla li $2 {{GENDER:$2|għamel}} billi ssegwi din il-ħolqa:
-<$4>
-
-Inti qiegħed tirċievi dan il-messaġġ minħabba li abbonajt għall-aġġornamenti permezz tal-posta elettronika għat-tibdil li jsir fuq din il-paġna.
-
-$7", # Fuzzy
-	'notification-edit-talk-page-email-subject' => "Għandek messaġġ ġdid fil-paġna ta' diskussjoni",
-	'notification-edit-talk-page-email-body' => "Insellimlek $4,
-Din hija notifika sabiex ngħarrfuk li $2 immodifika l-paġna ta' diskussjoni tiegħek fuq {{SITENAME}}.
-
-Fuq {{SITENAME}}, il-paġna ta' diskussjoni huwa dak il-post fejn utenti oħra jistgħu jħallulek messaġġi.
-
-Tista' tara t-tibdil li $2 għamel billi ssegwi din il-ħolqa:
-<$3>
-
-Grazzi talli qiegħed tuża {{SITENAME}}
-Is-sistema ta' notifika ta' {{SITENAME}}", # Fuzzy
 	'echo-email-subject-default' => 'Notifika ġdida fuq {{SITENAME}}',
 	'echo-email-body-default' => 'Għandek notifika ġdida fuq {{SITENAME}}:
 
@@ -2304,8 +2199,38 @@ $messages['nl'] = array(
 	'echo-specialpage' => 'Mijn meldingen',
 	'echo-anon' => '[[Special:Userlogin/signup|Maak een gebruiker aan]] of [[Special:UserLogin|meld u aan]] als u meldingen wilt ontvangen.',
 	'echo-none' => 'U hebt geen meldingen.',
+	'echo-more-info' => 'Meer info',
+	'notification-edit-talk-page2' => '[[User:$1|$1]] {{GENDER:$1|heeft een bericht geplaatst}} op uw [[User talk:$2|overlegpagina]].',
+	'notification-edit-talk-page-flyout2' => '$1 {{GENDER:$1|heeft een bericht geplaatst}} op uw [[User talk:$2|overlegpagina]].',
+	'notification-article-linked2' => '$3 {{PLURAL:$4|is|zijn}} {{GENDER:$1|gekoppeld}} door [[User:$1|$1]] vanaf deze pagina: [[$2]]',
+	'notification-article-linked-flyout2' => '$3 {{PLURAL:$4|is|zijn}} {{GENDER:$1|linked}} door $1 vanaf deze pagina: [[$2]]',
+	'notification-add-comment2' => '[[User:$1|$1]] {{GENDER:$1|heeft gereageerd}} op "[[$3|$2]]" op de overlegpagina "$4"',
+	'notification-add-talkpage-topic2' => '[[User:$1|$1]] {{GENDER:$1|heeft}} een nieuw onderwerp "$2" geplaatst op [[$3]]',
+	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]] {{GENDER:$1|heeft}} u een bericht gezonden: "[[$3#$2|$2]]"',
+	'notification-add-comment-yours2' => '[[User:$1|$1]] {{GENDER:$1|heeft gereageerd}} op "[[$3#$2|$2]]" op uw overlegpagina',
 	'notification-new-user' => 'Welkom op {{SITENAME}}, $1!',
 	'notification-new-user-content' => "Vergeet niet om opmerkingen over overlegpagina's te ondertekenen met 4 tildes (~~~~).",
+	'notification-reverted2' => 'Uw {{PLURAL:$4|bewerking op [[$2]] is|bewerkingen op [[$2]] zijn}} {{GENDER:$1|teruggedraaid}} [[User:$1|$1]] $3',
+	'notification-reverted-flyout2' => 'Uw {{PLURAL:$4|bewerking op $2 is|bewerkingen op $2 zijn}} {{GENDER:$1|teruggedraaid}} door $1 $3',
+	'notification-edit-talk-page-email-subject2' => 'U hebt een nieuw bericht op uw overlegpagina',
+	'notification-edit-talk-page-email-body2' => 'Gebruiker $1 van {{SITENAME}} {{GENDER:$1|heeft}} een bericht op uw overlegpagina geplaatst:
+
+$3
+
+Meer bekijken:
+
+$2
+
+$4',
+	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|heeft}} een bericht achtergelaten op uw overlegpagina',
+	'notification-article-linked-email-subject2' => "{{PLURAL:$2|Een pagina|Pagina's}} die u hebt aangemaakt {{PLURAL:$2|is|zijn}} gekoppeld op {{SITENAME}}",
+	'notification-article-linked-email-body2' => '$4 {{PLURAL:$5|is|zijn}} {{GENDER:$1|gekoppeld}} door gebruiker $1 van {{SITENAME}}, vanaf deze pagina: $2
+
+Meer bekijken:
+
+$3
+
+$6',
 	'echo-email-subject-default' => 'Nieuwe melding op {{SITENAME}}',
 	'echo-email-body-default' => 'U hebt een nieuwe melding op {{SITENAME}}:
 
@@ -2351,32 +2276,6 @@ $5',
 $messages['nl-informal'] = array(
 	'tooltip-pt-notifications' => 'Jouw meldingen',
 	'echo-none' => 'Je hebt geen meldingen.',
-	'notification-edit-talk-page' => '$2 heeft een bericht {{GENDER:$1|achtergelaten}} op je [[User talk:$3|overlegpagina]].',
-	'notification-add-talkpage-topic-yours' => '$2 {{GENDER:$1|heeft}} je een bericht gezonden: "[[$4#$3|$3]]"',
-	'notification-add-comment-yours' => '$2 {{GENDER:$1|heeft}} gereageerd op "[[$4#$3|$3]]" op je overlegpagina',
-	'notification-reverted' => 'Je {{PLURAL:$5|bewerking|bewerkingen}} aan [[$3]] {{PLURAL:$5|is|zijn}} {{GENDER:$1|teruggedraaid}} door $2 $4', # Fuzzy
-	'notification-edit-talk-page-email-subject' => 'Je hebt een nieuw bericht op je overlegpagina',
-	'notification-edit-talk-page-email-body' => '$2 heeft een bericht {{GENDER:$2|achtergelaten}} op je overlegpagina op {{SITENAME}}
-
-$4
-
-Meer lezen:
-
-$3
-
-$5',
-	'notification-edit-talk-page-email-batch-body' => '$2 {{GENDER:$2|heeft}} een bericht achtergelaten op je overlegpagina',
-	'notification-reverted-email-subject' => 'Je bewerking{{PLURAL:$4| aan $3 is|en aan $3 zijn}} {{GENDER:$2|teruggedraaid}} door $2',
-	'notification-reverted-email-body' => 'Je bewerking{{PLURAL:$8| aan $3 is|en aan $3 zijn}} {{GENDER:$2|teruggedraaid}} door $2.
-
-$6
-
-Meer lezen:
-
-$4
-
-$7',
-	'notification-reverted-email-batch-body' => 'Je bewerking{{PLURAL:$4| aan $3 is|en aan $3 zijn}} {{GENDER:$2|teruggedraaid}} door $2',
 	'echo-email-body-default' => 'Je hebt een nieuwe melding op {{SITENAME}}:
 
 $1',
@@ -2530,7 +2429,7 @@ $2
 
 $4",
 	'notification-edit-talk-page-email-batch-body2' => "$1 {{GENDER:$1|a l'ha mandà}} dzor toa pagina ëd discussion",
-	'notification-article-linked-email-subject2' => "{{PLURAL:$2|Na pagina|Dle pagine}} ch'it l'has ancaminà {{PLURAL:$2|a l'é stàita|a son stàite}} referensià crosià dzor {{SITENAME}}",
+	'notification-article-linked-email-subject2' => "{{PLURAL:$2|Na pagina|Dle pagine}} ch'it l'has ancaminà {{PLURAL:$2|a l'é stàita|a son stàite}} referensià crosià dzor {{SITENAME}}", # Fuzzy
 	'notification-article-linked-email-body2' => "$4 {{PLURAL:$5|a l'é stàit|a son stàite}} {{GENDER:$1|colegà}} da {{SITENAME}} utent $1, da sta pagina: $2
 
 Vëdde ëd pi:
@@ -2600,7 +2499,6 @@ $messages['ps'] = array(
 	'notifications' => 'يادګيرنې',
 	'echo-specialpage' => 'زما يادګيرنې',
 	'echo-none' => 'تاسې هېڅ يادګيرنې نه لرۍ.',
-	'notification-add-talkpage-topic-yours' => '$2 تاسې ته يو پيغام {{GENDER:$1|لېږلی}}: "[[$4#$3|$3]]"',
 	'notification-new-user' => '$1 {{SITENAME}} ته ښه راغلې!',
 	'echo-link-new' => '$1 نوې {{PLURAL:$1|يادګيرنه|يادګيرنې}}',
 	'echo-link' => 'يادګيرنې',
@@ -2633,11 +2531,7 @@ $messages['ro'] = array(
 	'echo-specialpage' => 'Notificările mele',
 	'echo-anon' => 'Pentru a primi notificări, [[Special:Userlogin/signup|creați-vă un cont]] sau [[Special:UserLogin|autentificați-vă]].',
 	'echo-none' => 'Nu aveți nicio notificare.',
-	'notification-edit-talk-page' => '$2 {{GENDER:$1|a publicat}} pe [[User talk:$3|pagina dumneavoastră de discuții]].',
-	'notification-add-comment' => '$2 {{GENDER:$1|a comentat}} subiectul „[[$4|$3]]” pe pagina de discuții „$5”',
 	'notification-new-user' => 'Bine ați venit pe {{SITENAME}}, $1!',
-	'notification-edit-talk-page-email-subject' => 'Aveți un mesaj nou pe pagina de discuții',
-	'notification-edit-talk-page-email-batch-body' => '$2 {{GENDER:$2|a postat}} pe pagina dumneavoastră de discuții',
 	'echo-email-subject-default' => 'Notificare nouă la {{SITENAME}}',
 	'echo-email-body-default' => 'Aveți o notificare nouă la {{SITENAME}}:
 
@@ -2774,17 +2668,6 @@ $messages['si'] = array(
 	'echo-anon' => 'නිවේදන ලබා ගැනීම සඳහා, [[Special:Userlogin/signup|ගිණුමක් තනන්න]] හෝ [[Special:UserLogin|ප්‍රවිෂ්ට වන්න]].',
 	'echo-none' => 'ඔබට නිවේදන කිසිවක් නොමැත.',
 	'notification-new-user' => '{{SITENAME}} වෙත පිළිගනිමු, $1!',
-	'notification-edit-talk-page-email-subject' => 'ඔබ හට නව කතාබහ පිටු පණිවුඩයක් ඇත',
-	'notification-edit-talk-page-email-body' => '{{SITENAME}} පරිශීලක $2 ඔබේ කතාබහ පිටුවේ {{GENDER:$2|හසුනක් දමා ඇත}}:
-
-$4
-
-තවත් නරඹන්න:
-
-$3
-
-$5',
-	'notification-edit-talk-page-email-batch-body' => '$2 ඔබේ කතාබහ පිටුවේ {{GENDER:$2|හසුනක් දමා ඇත}}',
 	'echo-email-subject-default' => '{{SITENAME}} හී නව නිවේදනයක්',
 	'echo-email-body-default' => 'ඔබට {{SITENAME}} හීදී නව නිවේදනයක් ඇත:
 
@@ -2822,9 +2705,6 @@ $messages['sr-ec'] = array(
 	'tooltip-pt-notifications' => 'Ваша обавештења',
 	'echo-specialpage' => 'Моја обавештења',
 	'echo-none' => 'У последње време нисте примили ниједно обавештење.', # Fuzzy
-	'notification-edit-talk-page' => '$2 {{GENDER:$1|је изменио|је изменила|је изменио}} [[User talk:$3|вашу страницу за разговор]]. $4', # Fuzzy
-	'notification-add-comment' => '$2 {{GENDER:$1|је прокоментарисао|је прокоментарисала|је прокоментарисао}} „[[$4|$3]]“ на страници за разговор „$5“',
-	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|је поставио|је поставила|је поставио}} нову тему „$3“ на [[$4]]',
 	'echo-link' => 'Моја обавештења', # Fuzzy
 	'echo-overlay-link' => 'Сва обавештења…', # Fuzzy
 	'echo-overlay-title' => 'Моја обавештења',
@@ -2841,11 +2721,7 @@ $messages['sr-el'] = array(
 	'echo-no-title' => '[Bez naslova]', # Fuzzy
 	'notifications' => 'Obaveštenja',
 	'echo-specialpage' => 'Moja obaveštenja',
-	'echo-none' => 'U poslednje vreme niste primili nijedno obaveštenje.',
-	'notification-edit' => '$2 {{GENDER:$1|je izmenio|je izmenila|je izmenio}} [[$3]] $4', # Fuzzy
-	'notification-edit-talk-page' => '$2 {{GENDER:$1|je izmenio|je izmenila|je izmenio}} [[User talk:$3|vašu stranicu za razgovor]]. $4',
-	'notification-add-comment' => '$2 {{GENDER:$1|je prokomentarisao|je prokomentarisala|je prokomentarisao}} „[[$4|$3]]“ na stranici za razgovor „$5“',
-	'notification-add-talkpage-topic' => '$2 {{GENDER:$1|je postavio|je postavila|je postavio}} novu temu „$3“ na [[$4]]',
+	'echo-none' => 'U poslednje vreme niste primili nijedno obaveštenje.', # Fuzzy
 	'echo-link' => 'Moja obaveštenja', # Fuzzy
 	'echo-overlay-link' => 'Sva obaveštenja…', # Fuzzy
 	'echo-overlay-title' => 'Moja obaveštenja',
@@ -2907,19 +2783,6 @@ $messages['ta'] = array(
 	'notifications' => 'அறிவிப்புகள்',
 	'echo-specialpage' => 'என் அறிவிப்புகள்',
 	'echo-anon' => 'அறிவிப்புகளைப் பெறுவதற்கு [[Special:Userlogin/signup|ஒரு கணக்கை உருவாக்குங்கள்]] அல்லது [[Special:UserLogin|உள்நுழையுங்கள்]].',
-	'notification-edit' => '$2 {{GENDER:$1|தொகுத்துள்ளார்}} [[$3]] $4: "$5"',
-	'notification-edit-email-body' => 'வணக்கம் $5,
-
-$2 என்ற பயனரால் {{SITENAME}} பக்கம் $3 மாற்றப்பட்டது.
-
-இந்த இணைப்பின் மூலம் நீங்கள் ஏற்படுத்தப்பட்ட மாற்றங்களைக் காணலாம்:
-<$4>
-
-பக்க மாற்றல் மின்னஞ்சல் அறிவிப்புகளுக்கு நீங்கள் விருப்பம் தெரிவித்ததால் இச் செய்தியை நீங்கள் பெறுகிறீர்கள்.
-
-{{SITENAME}} ஐப் பயன்படுத்துவதற்கு நன்றி!
-{{SITENAME}} அறிவித்தல் அமைப்பு', # Fuzzy
-	'notification-edit-talk-page-email-subject' => 'உங்கள் {{SITENAME}} பேச்சுப் பக்கம் $2 என்ற பயனரால் தொகுக்கப்பட்டுள்ளது.', # Fuzzy
 	'echo-email-subject-default' => '{{SITENAME}}இல்  புதிய அறிவிப்புகள்',
 	'echo-email-body-default' => '{{SITENAME}} இல் உங்களுக்கு ஒரு புதிய அறிவிப்பு உள்ளது:
 
@@ -3055,8 +2918,8 @@ $messages['ur'] = array(
 	'prefs-echo' => 'اطلاعات',
 	'notifications' => 'اطلاعات',
 	'echo-specialpage' => 'میری اطلاعات',
-	'echo-link' => 'میری اطلاعات',
-	'echo-overlay-link' => 'سب اطلاعات...',
+	'echo-link' => 'میری اطلاعات', # Fuzzy
+	'echo-overlay-link' => 'سب اطلاعات...', # Fuzzy
 	'echo-overlay-title' => 'میری اطلاعات',
 );
 
@@ -3109,7 +2972,7 @@ $2
 
 $4',
 	'notification-edit-talk-page-email-batch-body2' => '$1 đã nhắn tin vào trang thảo luận của bạn',
-	'notification-article-linked-email-subject2' => '{{PLURAL:$2|Một|Một số}} tham khảo chéo đến trang do bạn bắt đầu đã được bổ sung tại {{SITENAME}}',
+	'notification-article-linked-email-subject2' => '{{PLURAL:$2|Một|Một số}} tham khảo chéo đến trang do bạn bắt đầu đã được bổ sung tại {{SITENAME}}', # Fuzzy
 	'notification-article-linked-email-body2' => 'Người dùng $1 tại {{SITENAME}} đã đặt {{PLURAL:$5|liên kết|các liên kết}} đến $4 từ trang này: $2
 
 Xem thêm:

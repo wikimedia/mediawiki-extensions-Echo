@@ -53,6 +53,11 @@ $specialPageAliases['mk'] = array(
 	'Notifications' => array( 'Известувања' ),
 );
 
+/** Malayalam (മലയാളം) */
+$specialPageAliases['ml'] = array(
+	'Notifications' => array( 'അറിയിപ്പുകൾ' ),
+);
+
 /** Dutch (Nederlands) */
 $specialPageAliases['nl'] = array(
 	'Notifications' => array( 'Meldingen' ),
