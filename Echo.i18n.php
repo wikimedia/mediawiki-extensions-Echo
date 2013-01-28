@@ -1746,9 +1746,13 @@ $messages['ka'] = array(
 	'notifications' => 'შეტყობინებები',
 	'echo-specialpage' => 'ჩემი შეტყობინებები',
 	'notification-new-user' => 'კეთილი იყოს თქვენი მობრძანება საიტზე {{SITENAME}}, $1!',
+	'echo-notification-count' => '$1+',
 	'echo-link' => 'შეტყობინებები',
 	'echo-overlay-link' => 'შეტყობინება',
 	'echo-overlay-title' => 'ჩემი შეტყობინებები',
+	'echo-date-header' => '$1 $2',
+	'echo-email-batch-separator' => '________________________________________________',
+	'echo-email-batch-bullet' => '•',
 );
 
 /** Korean (한국어)
@@ -2231,6 +2235,18 @@ Meer bekijken:
 $3
 
 $6',
+	'notification-article-linked-email-batch-body2' => '$2 {{PLURAL:$3|is|zijn}} {{GENDER:$1|gekoppeld}} $1',
+	'notification-reverted-email-subject2' => 'Uw {{PLURAL:$3|bewerking op $2 is|bewerkingen op $2 zijn}} {{GENDER:$1|teruggedraaid}} door $1',
+	'notification-reverted-email-body2' => 'Uw {{PLURAL:$7|bewerking op $2 is|bewerkingen op $2 zijn}} {{GENDER:$1|teruggedraaid}} door $1.
+
+$5
+
+Meer bekijken:
+
+$3
+
+$6',
+	'notification-reverted-email-batch-body2' => 'Uw {{PLURAL:$3|bewerking op $2 is|bewerkingen op $2 zijn}} {{GENDER:$1|teruggedraaid}} door $1',
 	'echo-email-subject-default' => 'Nieuwe melding op {{SITENAME}}',
 	'echo-email-body-default' => 'U hebt een nieuwe melding op {{SITENAME}}:
 
@@ -2267,6 +2283,7 @@ $4
 $5',
 	'echo-email-batch-category-header-edit-user-talk' => '{{PLURAL:$1|één bericht op uw overlegpagina|$1 berichten op uw overlegpagina}}',
 	'echo-email-batch-category-header-edit-revert' => '{{PLURAL:$1|één teruggedraaide bewerking|$1  teruggedraaide bewerkingen}}',
+	'echo-email-batch-category-header-cross-reference' => '$1 kruisverwijzing{{PLURAL:$1||en}}',
 	'echo-email-batch-category-header-other' => '{{PLURAL:$1|één andere|$1 anderen}}',
 );
 
