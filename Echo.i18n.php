@@ -1094,7 +1094,7 @@ $2
 
 $4",
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|a publié}} sur votre page de discussion',
-	'notification-article-linked-email-subject2' => '{{PLURAL:$2|Une page|$2 pages}} que vous avez démarrée{{PLURAL:$2| a été référencée|s ont été référencées}} sur {{SITENAME}}', # Fuzzy
+	'notification-article-linked-email-subject2' => '{{PLURAL:$2|Une page|$2 pages}} que vous avez démarrée{{PLURAL:$2| a été liée|s ont été liées}} sur {{SITENAME}}',
 	'notification-article-linked-email-body2' => "$4 {{PLURAL:$5|a été liée|ont été liées}} {{GENDER:$1|}} par l'utilisateur $1 de {{SITENAME}}, depuis cette page: $2
 
 En savoir plus:

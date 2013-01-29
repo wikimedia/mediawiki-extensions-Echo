@@ -23,6 +23,11 @@ $specialPageAliases['diq'] = array(
 	'Notifications' => array( 'Tebliği' ),
 );
 
+/** Persian (فارسی) */
+$specialPageAliases['fa'] = array(
+	'Notifications' => array( 'آگهی‌ها' ),
+);
+
 /** Finnish (suomi) */
 $specialPageAliases['fi'] = array(
 	'Notifications' => array( 'Ilmoitukset' ),
