@@ -561,8 +561,24 @@ $3
 $6',
 	'notification-article-linked-email-batch-body2' => '$1 {{GENDER:$1|спаслаўся|спаслалася}} на {{PLURAL:$3|«$2»|$2}}.',
 	'notification-reverted-email-subject2' => '$1 {{GENDER:$1|скасаваў|скасавала}} {{PLURAL:$3|вашую праўку|вашыя праўкі}} ў «$2»',
+	'notification-reverted-email-body2' => '$1 {{GENDER:$1|скасаваў|скасавала}} {{PLURAL:$7|вашую праўку|вашыя праўкі}} ў «$2».
+
+$5
+
+Падрабязьней:
+
+$3
+
+$6',
+	'notification-reverted-email-batch-body2' => '$1 {{GENDER:$1|скасаваў|скасавала}} {{PLURAL:$3|вашую праўку|вашыя праўкі}} ў «$2»',
 	'echo-email-subject-default' => 'Новая абвестка ад {{GRAMMAR:родны|{{SITENAME}}}}',
 	'echo-email-body-default' => 'Для вас ёсьць новая абвестка ў {{GRAMMAR:месны|{{SITENAME}}}}:
+
+$1',
+	'echo-email-footer-default' => '$2
+
+Каб выбраць, якія лісты мы будзем дасылаць вам, наведайце:
+{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
 
 $1',
 	'echo-link-new' => '$1 {{PLURAL:$1|новая абвестка|новыя абвесткі|новых абвестак}}',
@@ -576,8 +592,25 @@ $1',
 	'echo-load-more-error' => 'Узьнікла памылка ў час атрыманьня дадатковых вынікаў.',
 	'echo-email-batch-subject-daily' => 'Сёньня вы атрымалі $1 {{PLURAL:$2|абвестку|абвесткі|абвестак}}',
 	'echo-email-batch-subject-weekly' => 'На гэтым тыдні вы атрымалі $1 {{PLURAL:$2|абвестку|абвесткі|абвестак}}',
+	'echo-email-batch-body-daily' => '$1,
+
+Сёньня ў {{GRAMMAR:месны|{{SITENAME}}}} для вас маецца $2 {{PLURAL:$3|апавяшчэньне|апавяшчэньні|апавяшчэньняў}}. Праверыць іх можна тут:
+{{canonicalurl:{{#special:Notifications}}}}
+
+$4
+
+$5',
+	'echo-email-batch-body-weekly' => '$1,
+
+На гэтым тыдні ў {{GRAMMAR:месны|{{SITENAME}}}} вы маеце $2 {{PLURAL:$3|апавяшчэньне|апавяшчэньні|апавяшчэньняў}}. Праверыць іх можна тут:
+{{canonicalurl:{{#special:Notifications}}}}
+
+$4
+
+$5',
 	'echo-email-batch-category-header-edit-user-talk' => '$1 {{PLURAL:$1|паведамленьне|паведамленьні|паведамленьняў}} на старонцы абмеркаваньняў',
 	'echo-email-batch-category-header-edit-revert' => '$1 {{PLURAL:$1|скасаваньне|скасаваньні|скасаваньняў}} правак',
+	'echo-email-batch-category-header-cross-reference' => '$1 {{PLURAL:$1|скрыжаваная спасылка|скрыжаваныя спасылкі|скрыжаваных спасылак}}',
 	'echo-email-batch-category-header-other' => '$1 {{PLURAL:$1|іншая|іншыя|іншых}}',
 );
 
