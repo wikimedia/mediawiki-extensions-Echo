@@ -73,6 +73,7 @@ $wgAPIMetaModules['notifications'] = 'ApiEchoNotifications';
 // Special page
 $wgAutoloadClasses['SpecialNotifications'] = $dir . 'special/SpecialNotifications.php';
 $wgSpecialPages['Notifications'] = 'SpecialNotifications';
+$wgSpecialPageGroups['Notifications'] = 'users';
 
 // Housekeeping hooks
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'EchoHooks::getSchemaUpdates';
