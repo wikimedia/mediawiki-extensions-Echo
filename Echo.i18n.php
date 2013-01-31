@@ -624,10 +624,34 @@ $messages['br'] = array(
 );
 
 /** Catalan (català)
+ * @author Pitort
  * @author පසිඳු කාවින්ද
  */
 $messages['ca'] = array(
+	'echo-desc' => 'Sistema de notificacions',
+	'prefs-echo' => 'Notificacions',
+	'prefs-displaynotifications' => 'Opcions de visualització',
+	'prefs-emailsubscriptions' => "Avisa'm per e-mail quan algú",
 	'notifications' => 'Notificacions',
+	'tooltip-pt-notifications' => 'Les vostres modificacions',
+	'echo-specialpage' => 'Les meves notificacions',
+	'echo-none' => 'No heu rebut cap notificació',
+	'echo-more-info' => 'Més informació',
+	'echo-email-subject-default' => 'Notificació de nou a {{SITENAME}}',
+	'echo-email-body-default' => 'Teniu una nova notificació a {{SITENAME}}:
+
+$1',
+	'echo-link-new' => '$1 {{PLURAL:$1|nova notificació|noves notificacions}}',
+	'echo-link' => 'Notificacions',
+	'echo-overlay-link' => 'Totes les notificacions',
+	'echo-overlay-title' => 'Les meves notificacions',
+	'echo-overlay-title-overflow' => 'Les meves notificacions (mostrant $1 de $2 no llegides)',
+	'echo-date-today' => 'Avui',
+	'echo-date-yesterday' => 'Ahir',
+	'echo-load-more-error' => "S'ha produït un error en obtenir més resultats.",
+	'echo-email-batch-subject-daily' => "Teniu $1 {{PLURAL:$2|notificació|notificacions}} d'avui",
+	'echo-email-batch-subject-weekly' => "Teniu $1 {{PLURAL:$2|notificació|notificacions}} d'aquesta setmana",
+	'echo-email-batch-category-header-edit-user-talk' => '$1 pàgina de discussió {{PLURAL:$1|missatge|missatges}}',
 );
 
 /** Czech (česky)
