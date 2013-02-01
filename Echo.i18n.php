@@ -2629,10 +2629,12 @@ $messages['roa-tara'] = array(
 	'echo-desc' => 'Sisteme de notifiche',
 	'prefs-echo' => 'Notificaziune',
 	'prefs-displaynotifications' => 'Opziune de visualizzazzione',
+	'echo-pref-email-reverted' => "Annulle 'u cangiamende mie",
 	'echo-no-agent' => '[Nisciune]',
 	'echo-no-title' => '[Nisciuna vôsce]',
 	'notifications' => 'Notificaziune',
 	'echo-specialpage' => 'Notificaziune mie',
+	'echo-none' => 'Non ge tìne notifiche.',
 	'echo-more-info' => "Cchiù 'mbormaziune",
 	'notification-new-user' => "Bovègne jndr'à {{SITENAME}}, $1!",
 	'echo-email-body-default' => "Tu è 'na notifica nove sus a {{SITENAME}}:
@@ -2640,6 +2642,8 @@ $messages['roa-tara'] = array(
 $1",
 	'echo-link' => 'Notificaziune',
 	'echo-overlay-link' => 'Tutte le notificaziune',
+	'echo-date-today' => 'Osce',
+	'echo-date-yesterday' => 'Ajere',
 	'echo-email-batch-category-header-edit-revert' => "$1 Cange l'{{PLURAL:$1|annullamende|annullaminde}}",
 	'echo-email-batch-category-header-other' => '$1 {{PLURAL:$1|Otre}}',
 );
