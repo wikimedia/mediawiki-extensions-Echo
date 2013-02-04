@@ -3118,6 +3118,7 @@ $5',
  * @author Liangent
  * @author Shirayuki
  * @author Yfdyh000
+ * @author 乌拉跨氪
  */
 $messages['zh-hans'] = array(
 	'echo-desc' => '通知系统',
@@ -3146,8 +3147,15 @@ $messages['zh-hans'] = array(
 	'notification-edit-talk-page-flyout2' => '$1在您的[[User talk:$2|讨论页]]留言。',
 	'notification-article-linked2' => '[[User:$1|$1]]{{PLURAL:$4|创建了|创建了}}一个到$3的链接，在页面：[[$2]]',
 	'notification-article-linked-flyout2' => '$1{{PLURAL:$4|创建了|创建了}}一个到$3的链接，在页面：[[$2]]',
+	'notification-add-comment2' => '[[User:$1|$1]]在“$4”的讨论页中{{GENDER:$1|谈论了}}“[[$3|$2]]”',
+	'notification-add-talkpage-topic2' => '[[User:$1|$1]]在[[$3]]上发起了一个新的话题“$2”',
+	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]]给您发来一则消息：“[[$3#$2|$2]]”',
+	'notification-add-comment-yours2' => '[[User:$1|$1]]在您的讨论页上{{GENDER:$1|谈论了}}“[[$3#$2|$2]]”',
 	'notification-new-user' => '欢迎来到{{SITENAME}}，$1！',
 	'notification-new-user-content' => '请记得为讨论页上的任何讨论使用4个波浪线（~~~~）签名。',
+	'notification-reverted2' => '您在[[$2]]上的编辑已被[[User:$1|$1]]回退 $3', # Fuzzy
+	'notification-reverted-flyout2' => '您在$2的编辑已被$1{{GENDER:$1|回退}} $3', # Fuzzy
+	'notification-edit-talk-page-email-subject2' => '您有一条新的讨论页消息',
 	'notification-edit-talk-page-email-body2' => '{{SITENAME}} 用户 $1 在您的讨论页{{GENDER:$1|留言}}：
 
 $3
@@ -3158,7 +3166,7 @@ $2
 
 $4',
 	'notification-edit-talk-page-email-batch-body2' => '$1 在您的讨论页{{GENDER:$1|留言}}',
-	'notification-article-linked-email-subject2' => '您在{{SITENAME}}上创建的{{PLURAL:$2|一个页面|页面}}被交叉引用', # Fuzzy
+	'notification-article-linked-email-subject2' => '您在{{SITENAME}}上创建的{{PLURAL:$2|一个页面|页面}}被连接',
 	'notification-article-linked-email-body2' => '$4已被链接由{{SITENAME}}用户$1，来自页面：$2
 
 查看更多
@@ -3196,19 +3204,19 @@ $1',
 	'echo-date-today' => '今天',
 	'echo-date-yesterday' => '昨天',
 	'echo-load-more-error' => '获取更多的结果时出错。',
-	'echo-email-batch-subject-daily' => '您今天有 $1 条通知', # Fuzzy
-	'echo-email-batch-subject-weekly' => '您本周有 $1 条通知', # Fuzzy
-	'echo-email-batch-body-daily' => '$1,
+	'echo-email-batch-subject-daily' => '您今天有$1条通知', # Fuzzy
+	'echo-email-batch-subject-weekly' => '您本周有$1条通知', # Fuzzy
+	'echo-email-batch-body-daily' => '$1：
 
-您今天有 $2 条通知 于 {{SITENAME}}。查看它们在：
+今天您在{{SITENAME}}有 $2 条通知。查看它们：
 {{canonicalurl:{{#special:Notifications}}}}
 
 $4
 
 $5', # Fuzzy
-	'echo-email-batch-body-weekly' => '$1,
+	'echo-email-batch-body-weekly' => '$1：
 
-您本周有 $2 条通知于 {{SITENAME}}。查看它们在：
+本周您在{{SITENAME}}有 $2 条通知。查看它们：
 {{canonicalurl:{{#special:Notifications}}}}
 
 $4
