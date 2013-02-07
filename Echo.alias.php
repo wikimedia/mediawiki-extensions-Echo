@@ -33,6 +33,11 @@ $specialPageAliases['fi'] = array(
 	'Notifications' => array( 'Ilmoitukset' ),
 );
 
+/** Indonesian (Bahasa Indonesia) */
+$specialPageAliases['id'] = array(
+	'Notifications' => array( 'Notifikasi' ),
+);
+
 /** Italian (italiano) */
 $specialPageAliases['it'] = array(
 	'Notifications' => array( 'Notifiche' ),
