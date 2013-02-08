@@ -2164,6 +2164,7 @@ $messages['ms'] = array(
 	'echo-specialpage' => 'Pemberitahuan saya',
 	'echo-anon' => 'Untuk menerima pemberitahuan, sila [[Special:Userlogin/signup|buka akaun]] atau [[Special:UserLogin|log masuk]].',
 	'echo-none' => 'Tiada pemberitahuan untuk anda.',
+	'echo-more-info' => 'Maklumat lanjut',
 	'notification-new-user' => 'Selamat datang ke {{SITENAME}}, $1!',
 	'notification-new-user-content' => 'Jangan lupa untuk menandatangani sebarang komen pada halaman perbincangan dengan serentet 4 tanda tilde (~~~~).',
 	'echo-email-subject-default' => 'Pemberitahuan baru di {{SITENAME}}',
