@@ -40,13 +40,8 @@ class processEchoEmailBatch extends Maintenance {
 
 		while ( $count === $this->batchSize ) {
 			$count = 0;
-			$res = $this->dbr->select(
-				array( 'echo_email_batch' ),
-				array( 'eeb_user_id' ),
-				array( 'eeb_user_id > ' . $startUserId  ),
-				__METHOD__,
-				array( 'ORDER BY' => 'eeb_user_id', 'LIMIT' => $this->batchSize )
-			);
+
+			$res = MWEchoEmailBatch::getUsersToNotify( $startUserId, $this->batchSize );
 
 			$updated = false;
 			foreach ( $res as $row ) {

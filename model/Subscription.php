@@ -139,11 +139,10 @@ class EchoSubscription {
 		if ( $this->loaded ) {
 			return;
 		}
-		$dbr = wfGetDB( DB_SLAVE );
+		global $wgEchoBackend;
 
 		$conds = $this->getConds();
-		$res = $dbr->select( 'echo_subscription', '*', $conds, __METHOD__ );
-
+		$res = $wgEchoBackend->loadSubscription( $conds );
 		$this->loadFromRows( $res );
 	}
 
@@ -201,11 +200,7 @@ class EchoSubscription {
 
 		$conds = $this->getConds();
 
-		$dbw = wfGetDB( DB_MASTER );
-		$dbw->begin();
-		$dbw->delete( 'echo_subscription', $conds, __METHOD__ );
-
-		global $wgEchoDefaultNotificationTypes;
+		global $wgEchoDefaultNotificationTypes, $wgEchoBackend;
 		if ( isset( $wgEchoDefaultNotificationTypes[$this->event] ) ) {
 			$defaultState = array_merge(
 				$wgEchoDefaultNotificationTypes['all'],
@@ -229,10 +224,6 @@ class EchoSubscription {
 			}
 		}
 
-		if ( count( $rows ) ) {
-			$dbw->insert( 'echo_subscription', $rows, __METHOD__ );
-		}
-
-		$dbw->commit();
+		$wgEchoBackend->createSubscription( $conds, $rows );
 	}
 }

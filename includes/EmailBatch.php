@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Handles email batch for a user
+ * Handles email batch for a user for database storage
  */
-class MWEchoEmailBatch {
+abstract class MWEchoEmailBatch {
 
 	// the user to be notified
 	protected $mUser;
@@ -38,13 +38,15 @@ class MWEchoEmailBatch {
 	 * @return MWEchoEmailBatch/false
 	 */
 	public static function newFromUserId( $userId ) {
+		$batchClassName = self::getEmailBatchCalss();
+
 		$user = User::newFromId( intval( $userId ) );
 
 		$userEmailSetting = intval( $user->getOption( 'echo-email-frequency' ) );
 
 		// clear all existing events if user decides not to receive emails
 		if ( $userEmailSetting == -1 ) {
-			$emailBatch = new MWEchoEmailBatch( $user );
+			$emailBatch = new $batchClassName( $user );
 			$emailBatch->clearProcessedEvent();
 			return false;
 		}
@@ -63,7 +65,24 @@ class MWEchoEmailBatch {
 			}
 		}
 
-		return new MWEchoEmailBatch( $user );
+		return new $batchClassName( $user );
+	}
+
+	/**
+	 * Get the name of the email batch class
+	 * @return string
+	 * @throws MWException
+	 */
+	private static function getEmailBatchCalss() {
+		global $wgEchoBackendName;
+
+		$className = 'MW' . $wgEchoBackendName . 'EchoEmailBatch';
+
+		if ( !class_exists( $className ) ) {
+			throw new MWException( "$wgEchoBackendName email batch is not supported!" );
+		}
+
+		return $className;
 	}
 
 	/**
@@ -105,22 +124,7 @@ class MWEchoEmailBatch {
 	 *
 	 * @return bool true if event exists false otherwise
 	 */
-	protected function setLastEvent() {
-		$dbr = wfGetDB( DB_SLAVE );
-		$res = $dbr->selectField(
-			array( 'echo_email_batch' ),
-			array( 'MAX( eeb_event_id )' ),
-			array( 'eeb_user_id' => $this->mUser->getId() ),
-			__METHOD__
-		);
-
-		if ( $res ) {
-			$this->lastEvent = $res;
-			return true;
-		} else {
-			return false;
-		}
-	}
+	abstract protected function setLastEvent();
 
 	/**
 	 * Update the user's last batch timestamp after a successful batch
@@ -135,39 +139,7 @@ class MWEchoEmailBatch {
 	 * Get the events queued for the current user
 	 * @return array
 	 */
-	protected function getEvents() {
-		$events = array();
-
-		$validEvents = EchoEvent::gatherValidEchoEvents();
-
-		if ( $validEvents ) {
-			$dbr = wfGetDB( DB_SLAVE );
-
-			$conds = array(
-				'eeb_user_id' => $this->mUser->getId(),
-				'event_id = eeb_event_id',
-				'event_type' => $validEvents
-			);
-
-			if ( $this->lastEvent ) {
-				$conds[] = 'eeb_event_id <= ' . intval( $this->lastEvent );
-			}
-
-			$res = $dbr->select(
-				array( 'echo_email_batch', 'echo_event' ),
-				array( '*' ),
-				$conds,
-				__METHOD__,
-				array( 'ORDER BY' => 'eeb_event_priority, eeb_event_id', 'LIMIT' => self::$displaySize + 1 )
-			);
-
-			foreach( $res as $row ) {
-				$events[$row->eeb_id] = $row;
-			}
-		}
-
-		return $events;
-	}
+	abstract protected function getEvents();
 
 	/**
 	 * Add individual event template to the big email content
@@ -222,22 +194,7 @@ class MWEchoEmailBatch {
 	/**
 	 * Clear "processed" events in the queue, processed could be: email sent, invalid, users do not want to receive emails
 	 */
-	public function clearProcessedEvent() {
-		$conds = array( 'eeb_user_id' => $this->mUser->getId() );
-
-		// there is a processed cutoff point
-		if ( $this->lastEvent ) {
-			$conds[] = 'eeb_event_id <= ' . intval( $this->lastEvent );
-		}
-
-		$dbw = wfGetDB( DB_MASTER );
-		$dbw->delete(
-			'echo_email_batch',
-			$conds,
-			__METHOD__,
-			array()
-		);
-	}
+	abstract public function clearProcessedEvent();
 
 	/**
 	 * Send the batch email
@@ -295,20 +252,27 @@ class MWEchoEmailBatch {
 	 * @param $priority int
 	 */
 	public static function addToQueue( $userId, $eventId, $priority ) {
-		if ( !$userId || !$eventId ) {
-			return;
+		$batchClassName = self::getEmailBatchCalss();
+
+		if ( !method_exists( $batchClassName, 'actuallyAddToQueue' ) ) {
+			throw new MWException( "$batchClassName must implement method actuallyAddToQueue()" );
 		}
 
-		$dbw = wfGetDB( DB_MASTER );
-		$dbw->insert(
-			'echo_email_batch',
-			array(
-				'eeb_user_id' => $userId,
-				'eeb_event_id' => $eventId,
-				'eeb_event_priority' => $priority
-			),
-			__METHOD__,
-			array( 'IGNORE' )
-		);
+		$batchClassName::actuallyAddToQueue( $userId, $eventId, $priority );
+	}
+
+	/**
+	 * Get a list of users to be notified for the batch
+	 * @param $startUserId int
+	 * @param $batchSize int
+	 */
+	public static function getUsersToNotify( $startUserId, $batchSize ) {
+		$batchClassName = self::getEmailBatchCalss();
+
+		if ( !method_exists( $batchClassName, 'actuallyGetUsersToNotify' ) ) {
+			throw new MWException( "$batchClassName must implement method actuallyGetUsersToNotify()" );
+		}
+
+		return $batchClassName::actuallyGetUsersToNotify( $startUserId, $batchSize );
 	}
 }
