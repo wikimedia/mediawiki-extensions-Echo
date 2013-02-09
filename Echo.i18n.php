@@ -3116,6 +3116,7 @@ $5',
 /** Simplified Chinese (中文（简体）‎)
  * @author Anakmalaysia
  * @author Dimension
+ * @author Hydra
  * @author Liangent
  * @author Shirayuki
  * @author Yfdyh000
@@ -3205,24 +3206,24 @@ $1',
 	'echo-date-today' => '今天',
 	'echo-date-yesterday' => '昨天',
 	'echo-load-more-error' => '获取更多的结果时出错。',
-	'echo-email-batch-subject-daily' => '您今天有$1条通知', # Fuzzy
-	'echo-email-batch-subject-weekly' => '您本周有$1条通知', # Fuzzy
+	'echo-email-batch-subject-daily' => '您今天有$1{{PLURAL:$2|条通知|条通知}}',
+	'echo-email-batch-subject-weekly' => '您本周有$1{{PLURAL:$2|条通知|条通知}}',
 	'echo-email-batch-body-daily' => '$1：
 
-今天您在{{SITENAME}}有 $2 条通知。查看它们：
+今天您在{{SITENAME}}有 $2 {{PLURAL:$3|条通知|条通知}}。查看它们：
 {{canonicalurl:{{#special:Notifications}}}}
 
 $4
 
-$5', # Fuzzy
+$5',
 	'echo-email-batch-body-weekly' => '$1：
 
-本周您在{{SITENAME}}有 $2 条通知。查看它们：
+本周您在{{SITENAME}}有 $2 {{PLURAL:$3|条通知|条通知}}。查看它们：
 {{canonicalurl:{{#special:Notifications}}}}
 
 $4
 
-$5', # Fuzzy
+$5',
 	'echo-email-batch-category-header-edit-user-talk' => '$1对话页$1条信息',
 	'echo-email-batch-category-header-edit-revert' => '$1个编辑被{{PLURAL:$1|回退|回退}}',
 	'echo-email-batch-category-header-cross-reference' => '$1个交叉引用',
