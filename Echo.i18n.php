@@ -621,6 +621,16 @@ $5',
 $messages['br'] = array(
 	'echo-no-agent' => '[Den]',
 	'echo-no-title' => '[Diditl]', # Fuzzy
+	'echo-link-new' => '$1 {{PLURAL:$1|kemenn|kemenn}} nevez', # Fuzzy
+	'echo-link' => 'Kemennoù',
+	'echo-overlay-link' => 'An holl gemennoù',
+	'echo-overlay-title' => "Ma c'hemennoù",
+	'echo-overlay-title-overflow' => "Va c'hemennoù (o tiskouez $1 diwar $2 nann-lennet)",
+	'echo-date-today' => 'Hiziv',
+	'echo-date-yesterday' => "Dec'h",
+	'echo-email-batch-subject-daily' => '$1 kemenn{{PLURAL:$2||}} nevez hiziv', # Fuzzy
+	'echo-email-batch-subject-weekly' => '$1 kemenn{{PLURAL:$2||}} nevez ar sizhun-mañ', # Fuzzy
+	'echo-email-batch-category-header-other' => '$1 {{PLURAL:$1|all|all}}', # Fuzzy
 );
 
 /** Catalan (català)
@@ -1358,6 +1368,7 @@ $1',
 	'echo-overlay-title-overflow' => 'As miñas notificacións (mostrando $1 de $2 sen ler)',
 	'echo-date-today' => 'Hoxe',
 	'echo-date-yesterday' => 'Onte',
+	'echo-date-header' => '$2 de $1',
 	'echo-load-more-error' => 'Houbo un erro ao procurar máis resultados.',
 	'echo-email-batch-subject-daily' => 'Hoxe ten $1 {{PLURAL:$2|notificación|notificacións}}',
 	'echo-email-batch-subject-weekly' => 'Esta semana ten $1 {{PLURAL:$2|notificación|notificacións}}',
@@ -1412,31 +1423,48 @@ $messages['he'] = array(
 	'echo-none' => 'אין לך הודעות',
 	'echo-more-info' => 'מידע נוסף',
 	'notification-edit-talk-page2' => '[[User:$1|$1]] {{GENDER:$1|כתב|כתבה}} ב[[User talk:$2|הדף השיחה]] שלך.',
+	'notification-edit-talk-page-flyout2' => '$1 {{GENDER:$1|כתב|כתבה}} ב[[User talk:$2|דף השיחה שלך]].',
+	'notification-article-linked2' => '[[User:$1|$1]] {{GENDER:$1|קישר|קישרה}} אל {{PLURAL:$4|הדף|הדפים}} $3 מהדף [[$2]]',
+	'notification-article-linked-flyout2' => '$1 {{GENDER:$1|קישר|קישרה}} אל {{PLURAL:$4|הדף|הדפים}} $3 מהדף [[$2]]',
 	'notification-new-user' => 'ברוך בואך ל{{GRAMMAR:תחילית|{{SITENAME}}}}, $1!',
 	'notification-new-user-content' => 'נא לזכור לחתום על כל דפי השיחה ב־4 טילדות (~~~~).',
 	'notification-edit-talk-page-email-subject2' => 'יש לך הודעה חדשה בדף השיחה',
+	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|כתב|כתבה}} הדף השיחה שלך',
+	'notification-article-linked-email-subject2' => 'מישהו קישר אל {{PLURAL:$2|דף|דפים}} שהתחלת באתר {{SITENAME}}',
+	'echo-notification-count' => 'יותר מ־$1',
 	'echo-email-subject-default' => 'הודעה חדשה באתר {{SITENAME}}',
 	'echo-email-body-default' => 'יש לך הודעה חדשה באתר {{SITENAME}}:
 
 $1',
-	'echo-email-footer-default' => 'תודה!
-
-צוות {{SITENAME}}
+	'echo-email-footer-default' => '$2
 
 אפשר לשנות את העדפות הדוא"ל שלך בדף הבא:
-
 {{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
 
-$1', # Fuzzy
+$1',
 	'echo-link-new' => '{{PLURAL:$1|הודעה אחת חדשה|$1 הודעות חדשות}}',
 	'echo-link' => 'התראות',
 	'echo-overlay-link' => 'כל ההודעות',
 	'echo-overlay-title' => 'ההודעות שלי',
+	'echo-overlay-title-overflow' => 'ההודעות שלי (מוצגות $1 מתוך $2 שלא נקראו)',
 	'echo-date-today' => 'היום',
 	'echo-date-yesterday' => 'אתמול',
 	'echo-load-more-error' => 'אירעה שגיאה בעת אחזור תוצאות נוספות.',
 	'echo-email-batch-subject-daily' => 'יש לך {{PLURAL:$2|הודעה אחת|$1 הודעה}} היום',
 	'echo-email-batch-subject-weekly' => 'יש לך {{PLURAL:$2|הודעה אחת|$1 הודעה}} השבוע',
+	'echo-email-batch-body-daily' => '$1,
+
+יש לך {{PLURAL:$3|הודעה אחת|$2 הודעות}} באתר {{SITENAME}} היום. אפשר לראות אותן כאן:
+
+{{canonicalurl:{{#special:Notifications}}}}
+
+$4
+
+$5',
+	'echo-email-batch-category-header-edit-user-talk' => '{{PLURAL:$1|הודעה אחת|$1 הודעות}} בדף השיחה',
+	'echo-email-batch-category-header-edit-revert' => '{{PLURAL:$1|שחזור אחד של עריכה|$1 שחזורים של עריכות}}',
+	'echo-email-batch-category-header-cross-reference' => '{{PLURAL:$1|הפניה אחת|$1 הפניות}}',
+	'echo-email-batch-category-header-other' => '{{PLURAL:$1|אחד אחר|$1 אחרים}}',
 );
 
 /** Hindi (हिन्दी)
@@ -1688,6 +1716,7 @@ $5',
 
 /** Japanese (日本語)
  * @author Shirayuki
+ * @author Whym
  */
 $messages['ja'] = array(
 	'echo-desc' => '通知システム',
@@ -1699,7 +1728,12 @@ $messages['ja'] = array(
 	'echo-pref-email-article-linked' => '自分が作成したページへのリンクを誰かが作成したとき',
 	'echo-pref-email-reverted' => '自分の編集を誰かが差し戻したとき',
 	'echo-pref-email-frequency-never' => '通知メールを何も受け取らない',
+	'echo-pref-email-frequency-immediately' => '個別の通知が来るたび',
+	'echo-pref-email-frequency-daily' => '通知を1日ごとに要約',
+	'echo-pref-email-frequency-weekly' => '通知を1週間ごとに要約',
 	'echo-pref-notify-hide-link' => '通知のリンクとバッジをツールバーに表示しない',
+	'echo-no-agent' => '[送信者なし]',
+	'echo-no-title' => '[ページなし]',
 	'echo-error-no-formatter' => '通知の書式が定義されていません',
 	'notifications' => '通知',
 	'tooltip-pt-notifications' => '自分の通知',
@@ -1754,6 +1788,12 @@ $6',
 	'echo-email-body-default' => '{{SITENAME}}で新しい通知があります:
 
 $1',
+	'echo-email-footer-default' => '$2
+
+下記の場所で、どのメールが送信されてもよいかを制御することができます。
+{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
+
+$1',
 	'echo-link-new' => '$1 {{PLURAL:$1|件の新しい通知}}',
 	'echo-link' => '通知',
 	'echo-overlay-link' => 'すべての通知',
@@ -1764,6 +1804,24 @@ $1',
 	'echo-date-header' => '$1$2日',
 	'echo-load-more-error' => '結果の続きを取得する際にエラーが発生しました。',
 	'echo-email-batch-separator' => '________________________________________________',
+	'echo-email-batch-subject-daily' => 'この1日で $1 件の{{PLURAL:$2|通知}}が届いています',
+	'echo-email-batch-subject-weekly' => 'この1週間で $1 件の{{PLURAL:$2|通知}}が届いています',
+	'echo-email-batch-body-daily' => '$1 さん、
+
+{{SITENAME}}上で今日、$2 件の{{PLURAL:$3|通知}}が届きました。下記の場所でご覧いただけます。
+{{canonicalurl:{{#special:Notifications}}}}
+
+$4
+
+$5',
+	'echo-email-batch-body-weekly' => '$1 さん、
+
+{{SITENAME}}上でこの1週間のあいだに、$2 件の{{PLURAL:$3|通知}}が届きました。下記の場所でご覧いただけます。
+{{canonicalurl:{{#special:Notifications}}}}
+
+$4
+
+$5',
 	'echo-email-batch-category-header-edit-user-talk' => 'トークページヘのメッセージ $1 {{PLURAL:$1|件}}',
 	'echo-email-batch-category-header-edit-revert' => '編集の差し戻し $1 {{PLURAL:$1|件}}',
 	'echo-email-batch-category-header-cross-reference' => '相互参照 $1 {{PLURAL:$1|件}}',
