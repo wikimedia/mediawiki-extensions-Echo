@@ -1426,11 +1426,45 @@ $messages['he'] = array(
 	'notification-edit-talk-page-flyout2' => '$1 {{GENDER:$1|כתב|כתבה}} ב[[User talk:$2|דף השיחה שלך]].',
 	'notification-article-linked2' => '[[User:$1|$1]] {{GENDER:$1|קישר|קישרה}} אל {{PLURAL:$4|הדף|הדפים}} $3 מהדף [[$2]]',
 	'notification-article-linked-flyout2' => '$1 {{GENDER:$1|קישר|קישרה}} אל {{PLURAL:$4|הדף|הדפים}} $3 מהדף [[$2]]',
+	'notification-add-comment2' => '[[User:$1|$1]] {{GENDER:$1|העיר|העירה}} על הנושא "[[$3|$2]]" בדף השיחה של "$4"',
+	'notification-add-talkpage-topic2' => '[[User:$1|$1]] {{GENDER:$1|והוסיף|הוסיפה}} את נושא החדש "$2" לדף [[$3]]',
+	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]] {{GENDER:$1|שלח|שלחה}} לך הודעה: "[[$3#$2|$2]]"',
+	'notification-add-comment-yours2' => '[[User:$1|$1]] {{GENDER:$1|העיר|העירה}} על הנושא "[[$3#$2|$2]]" בדף השיחה שלך',
 	'notification-new-user' => 'ברוך בואך ל{{GRAMMAR:תחילית|{{SITENAME}}}}, $1!',
 	'notification-new-user-content' => 'נא לזכור לחתום על כל דפי השיחה ב־4 טילדות (~~~~).',
+	'notification-reverted2' => '[[User:$1|$1]] {{GENDER:$1|שחזר|שחזרה}} {{PLURAL:$4|עריכה שלך|עריכות שלך}} בדף [[$2]] $3',
+	'notification-reverted-flyout2' => '$1 {{GENDER:$1|שחזר|שחזרה}} {{PLURAL:$4|עריכה שלך|עריכות שלך}} בדף $2 $3',
 	'notification-edit-talk-page-email-subject2' => 'יש לך הודעה חדשה בדף השיחה',
+	'notification-edit-talk-page-email-body2' => '{{GENDER:$1|משתמש|משתמשת}} {{SITENAME}} $1 {{GENDER:$1|כתב|כתבה}} בדף השיחה שלך:
+
+$3
+
+מידע נוסף:
+
+$2
+
+$4',
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|כתב|כתבה}} הדף השיחה שלך',
 	'notification-article-linked-email-subject2' => 'מישהו קישר אל {{PLURAL:$2|דף|דפים}} שהתחלת באתר {{SITENAME}}',
+	'notification-article-linked-email-body2' => '{{GENDER:$1|משתמש|משתמשת}} {{SITENAME}} $1 {{GENDER:$1|קישר|קישרה}} אל {{PLURAL:$5|הדף|הדפים}} $4 מהדף $2
+
+מידע נוסף:
+
+$3
+
+$6',
+	'notification-article-linked-email-batch-body2' => '$1 {{GENDER:$1|קישר|קישרה}} אל {{PLURAL:$3|הדף|הדפים}} $2',
+	'notification-reverted-email-subject2' => '$1 {{GENDER:$1|שחזר|שחזרה}} {{PLURAL:$3|עריכה שלך|עריכות שלך}} בדף $2',
+	'notification-reverted-email-body2' => '$1 {{GENDER:$1|שחזר|שחזרה}} {{PLURAL:$7|עריכה שלך|עריכות שלך}} בדף $2.
+
+$5
+
+מידע נוסף:
+
+$3
+
+$6',
+	'notification-reverted-email-batch-body2' => '$1 {{GENDER:$1|שחזר|שחזרה}} {{PLURAL:$3|עריכה שלך|עריכות שלך}} בדף $2',
 	'echo-notification-count' => 'יותר מ־$1',
 	'echo-email-subject-default' => 'הודעה חדשה באתר {{SITENAME}}',
 	'echo-email-body-default' => 'יש לך הודעה חדשה באתר {{SITENAME}}:
@@ -1456,6 +1490,14 @@ $1',
 
 יש לך {{PLURAL:$3|הודעה אחת|$2 הודעות}} באתר {{SITENAME}} היום. אפשר לראות אותן כאן:
 
+{{canonicalurl:{{#special:Notifications}}}}
+
+$4
+
+$5',
+	'echo-email-batch-body-weekly' => '$1,
+
+קיבלת $2 {{PLURAL:$3|הודעה|הודעות}} באתר {{SITENAME}} השבוע. אפשר לראות אותן כאן:
 {{canonicalurl:{{#special:Notifications}}}}
 
 $4
@@ -2696,6 +2738,7 @@ $messages['roa-tara'] = array(
 	'echo-none' => 'Non ge tìne notifiche.',
 	'echo-more-info' => "Cchiù 'mbormaziune",
 	'notification-new-user' => "Bovègne jndr'à {{SITENAME}}, $1!",
+	'notification-edit-talk-page-email-subject2' => "Tu è 'nu messàgge nuève sus 'a pàgene de le 'ngazzaminde",
 	'echo-email-body-default' => "Tu è 'na notifica nove sus a {{SITENAME}}:
 
 $1",
@@ -3213,8 +3256,8 @@ $messages['zh-hans'] = array(
 	'notification-add-comment-yours2' => '[[User:$1|$1]]在您的讨论页上{{GENDER:$1|谈论了}}“[[$3#$2|$2]]”',
 	'notification-new-user' => '欢迎来到{{SITENAME}}，$1！',
 	'notification-new-user-content' => '请记得为讨论页上的任何讨论使用4个波浪线（~~~~）签名。',
-	'notification-reverted2' => '您在[[$2]]上的编辑已被[[User:$1|$1]]回退 $3', # Fuzzy
-	'notification-reverted-flyout2' => '您在$2的编辑已被$1{{GENDER:$1|回退}} $3', # Fuzzy
+	'notification-reverted2' => '您在[[$2]]上的 $4 次编辑已被[[User:$1|$1]]{{GENDER:$1|撤销}}$3',
+	'notification-reverted-flyout2' => '您在{{PLURAL:$4|$2的编辑}}已被$1{{GENDER:$1|回退}} $3',
 	'notification-edit-talk-page-email-subject2' => '您有一条新的讨论页消息',
 	'notification-edit-talk-page-email-body2' => '{{SITENAME}} 用户 $1 在您的讨论页{{GENDER:$1|留言}}：
 
@@ -3227,14 +3270,14 @@ $2
 $4',
 	'notification-edit-talk-page-email-batch-body2' => '$1 在您的讨论页{{GENDER:$1|留言}}',
 	'notification-article-linked-email-subject2' => '您在{{SITENAME}}上创建的{{PLURAL:$2|一个页面|页面}}被连接',
-	'notification-article-linked-email-body2' => '$4已被链接由{{SITENAME}}用户$1，来自页面：$2
+	'notification-article-linked-email-body2' => '$4{{PLURAL:$5|已被}}{{SITENAME}}用户$1{{GENDER:$1|链接}}，链接来自页面：$2
 
-查看更多
+查看更多：
 
 $3
 
-$6', # Fuzzy
-	'notification-article-linked-email-batch-body2' => '$2被链接由$1', # Fuzzy
+$6',
+	'notification-article-linked-email-batch-body2' => '$2{{PLURAL:$3|已被}}$1链接',
 	'notification-reverted-email-subject2' => '您{{PLURAL:$3|在$2的编辑|在$2的编辑}}已被$1回退',
 	'notification-reverted-email-body2' => '您{{PLURAL:$7|在$2的编辑已被|在$2的编辑已被}}$1回退。
 
