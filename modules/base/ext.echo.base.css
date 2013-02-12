@@ -25,9 +25,34 @@
 	color: #6D6D6D;
 	line-height: 90%;
 	margin: 0;
+	min-height: 40px;
 	background-color: white;
 	position: relative;
 	/* Force container to expand to height of floated contents */
 	overflow: hidden;
 	zoom: 1;
+}
+.mw-echo-close-box {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	width: 23px;
+	height: 23px;
+	z-index: 3;
+	/* @embed */
+	background-image: url(DismissOnRowHover.png);
+	background-repeat: no-repeat;
+}
+.mw-echo-close-box:hover {
+	/* @embed */
+	background-image: url(DismissOnHover.png);
+}
+.mw-echo-dismiss {
+	padding-left: 45px;
+	background-color: #EDEDEE;
+	position: absolute;
+	top: 0;
+	z-index: 1;
+}
+.mw-echo-dismiss-message {
 }

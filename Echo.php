@@ -101,6 +101,15 @@ $wgResourceModules += array(
 	'ext.echo.base' => $echoResourceTemplate + array(
 		'styles' => 'base/ext.echo.base.css',
 		'scripts' => 'base/ext.echo.base.js',
+		'dependencies' => array(
+			'jquery.ui.button',
+		),
+		'messages' => array(
+			'cancel',
+			'echo-dismiss-button',
+			'echo-error-preference',
+			'echo-error-token',
+		),
 	),
 	'ext.echo.overlay' => $echoResourceTemplate + array(
 		'scripts' => array(
@@ -196,9 +205,9 @@ $wgEchoEmailFooterAddress = '';
 // The max notification count showed in badge
 $wgEchoMaxNotificationCount = 99;
 
-$wgEchoDefaultNotificationTypes = array( // Welcome events do not use subscription, and will only trigger notify, not email.
+$wgEchoDefaultNotificationTypes = array(
 	'all' => array(
-		'notify' => true,
+		'web' => true,
 		'email' => true,
 	)
 );
@@ -207,7 +216,7 @@ $wgEchoDefaultNotificationTypes = array( // Welcome events do not use subscripti
 // Each definition consists of a class name and a function name.
 // See also: EchoNotificationController class.
 $wgEchoNotifiers = array(
-	'notify' => array( 'EchoNotifier', 'notifyWithNotification' ), // web-based notification
+	'web' => array( 'EchoNotifier', 'notifyWithNotification' ), // web-based notification
 	'email' => array( 'EchoNotifier', 'notifyWithEmail' ),
 );
 
@@ -232,9 +241,13 @@ $wgEchoEnabledEvents = array(
 // The usergroups param specifies an array of usergroups eligible to recieve the
 // notification type. If no usergroups parameter exists, all groups are eligible.
 $wgEchoEventDetails = array(
+	'welcome' => array(
+		'nodismiss' => array( 'web', 'email' ),
+	),
 	'edit-user-talk' => array(
 		'category' => 'edit-user-talk',
-		'priority' => 1
+		'priority' => 1,
+		'nodismiss' => array( 'web' ),
 	),
 	'reverted' => array(
 		'category' => 'edit-revert',
@@ -248,6 +261,13 @@ $wgEchoEventDetails = array(
 
 // Definitions of the notification event types built into Echo
 $wgEchoNotificationFormatters = array(
+	'welcome' => array(
+		'type' => 'system',
+		'title-message' => 'notification-new-user',
+		'title-params' => array( 'agent' ),
+		'payload' => array( 'welcome' ),
+		'icon' => 'w',
+	),
 	'edit-user-talk' => array(
 		'type' => 'edit',
 		'title-message' => 'notification-edit-talk-page2',
@@ -277,13 +297,6 @@ $wgEchoNotificationFormatters = array(
 		'title-params' => array( 'agent', 'subject', 'title', 'content-page' ),
 		'payload' => array( 'snippet' ),
 		'icon' => 'chat',
-	),
-	'welcome' => array(
-		'type' => 'welcome',
-		'title-message' => 'notification-new-user',
-		'title-params' => array( 'agent' ),
-		'payload' => array( 'welcome' ),
-		'icon' => 'w',
 	),
 	'reverted' => array(
 		'type' => 'edit',
@@ -323,9 +336,10 @@ $wgDefaultUserOptions['echo-notify-link'] = 'true';
 // By default, send emails for each notification as they come in
 $wgDefaultUserOptions['echo-email-frequency'] = EchoHooks::EMAIL_IMMEDIATELY;
 
-// Set all of the events to email by default (won't affect events that don't email)
+// Set all of the events to notify by web and email by default (won't affect events that don't email)
 foreach ( $wgEchoEnabledEvents as $wgEchoEnabledEvent ) {
 	$wgDefaultUserOptions['echo-email-notifications' . $wgEchoEnabledEvent] = true;
+	$wgDefaultUserOptions['echo-web-notifications' . $wgEchoEnabledEvent] = true;
 }
 // unset default email for reverted, article-linked (change them to opt-in)
 $wgDefaultUserOptions['echo-email-notificationsreverted'] = false;

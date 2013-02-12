@@ -8,9 +8,152 @@
 		'header': '',
 		'processing': false,
 		'moreData': '0',
+		'optionsToken': '',
 
 		/**
-		 * initialize the property in special notification page
+		 * Show the dismiss interface (Dismiss and Cancel buttons).
+		 */
+		'showDismissOption': function( closeBox ) {
+			var $notification = $( closeBox ).parent();
+			$( closeBox ).hide();
+			$notification.data( 'dismiss', true );
+			$notification.find( '.mw-echo-dismiss' ).show();
+		},
+
+		/**
+		 * Handle clicking the Dismiss button.
+		 * First we have to retrieve the options token.
+		 */
+		'dismiss': function( notification ) {
+			var eventType,
+				_this = this,
+				$notification = $( notification );
+			var tokenRequest = {
+				'action': 'tokens',
+				'type' : 'options',
+				'format': 'json'
+			};
+			if ( this.optionsToken ) {
+				this.finishDismiss( notification );
+			} else {
+				$.ajax( {
+					type: 'get',
+					url: mw.util.wikiScript( 'api' ),
+					data: tokenRequest,
+					dataType: 'json',
+					success: function( data ) {
+						if ( typeof data.tokens.optionstoken === 'undefined' ) {
+							alert( mw.msg( 'echo-error-token' ) );
+						} else {
+							_this.optionsToken = data.tokens.optionstoken;
+							_this.finishDismiss( notification );
+						}
+						/*
+						// TODO: Use something like this for the flyout to immediately
+						// hide the notifications without reloading the page. We reload
+						// the page in the archive interface since we're also dealing
+						// with date headers.
+						eventType = $notification.attr( 'data-notification-type' );
+						$( 'li[data-notification-type="' + eventType + '"]' ).hide();
+						*/
+					},
+					error: function() {
+						alert( mw.msg( 'echo-error-token' ) );
+					}
+				} );
+			}
+		},
+
+		/**
+		 * Change the user's preferences related to this notification type and
+		 * reload the page.
+		 */
+		'finishDismiss': function( notification ) {
+			var _this = this,
+				$notification = $( notification ),
+				eventType = $notification.attr( 'data-notification-type' ),
+				change = 'echo-web-notifications' + eventType + '=0',
+				prefRequest = {
+					'action': 'options',
+					'change': change,
+					'token': this.optionsToken,
+					'format': 'json'
+				};
+			$.ajax( {
+				type: 'post',
+				url: mw.util.wikiScript( 'api' ),
+				data: prefRequest,
+				dataType: 'json',
+				success: function( data ) {
+					window.location.reload();
+				},
+				error: function() {
+					alert( mw.msg( 'echo-error-preference' ) );
+				}
+			} );
+		},
+
+		'setUpDismissability' : function( notification ) {
+			var $dismissButton,
+				$cancelButton,
+				_this = this,
+				$notification = $( notification );
+
+			// Add dismiss box
+			var $closebox = $( '<div/>' )
+				.addClass( 'mw-echo-close-box' )
+				.css( 'display', 'none' )
+				.click( function() {
+					_this.showDismissOption( this );
+				} );
+			$notification.append( $closebox );
+
+			// Add dismiss and cancel buttons
+			$dismissButton = $( '<button/>' )
+				.text( mw.msg( 'echo-dismiss-button' ) )
+				.addClass( 'mw-echo-dismiss-button' )
+				.addClass( 'ui-button-blue' )
+				.button( {
+					icons: { primary: "ui-icon-closethick" }
+				} )
+				.click( function () {
+					_this.dismiss( $notification );
+				} );
+			$cancelButton = $( '<button/>' )
+				.text( mw.msg( 'cancel' ) )
+				.addClass( 'mw-echo-cancel-button' )
+				.addClass( 'ui-button-red' )
+				.button()
+				.click( function () {
+					$notification.data( 'dismiss', false );
+					$notification.find( '.mw-echo-dismiss' ).hide();
+					$closebox.show();
+				} );
+			$notification.find( '.mw-echo-dismiss' )
+				.height( $notification.height() )
+				.width( $notification.width() - 45 )
+				.css( 'padding-top', $notification.css( 'padding-top' ) )
+				.css( 'padding-bottom', $notification.css( 'padding-bottom' ) )
+				.append( $dismissButton )
+				.append( $cancelButton );
+
+			// Make each notification hot for dismissability
+			$notification.hover(
+				function() {
+					if ( !$( this ).data( 'dismiss' ) ) {
+						$( this ).find( '.mw-echo-close-box' ).show();
+					}
+				},
+				function() {
+					if ( !$( this ).data( 'dismiss' ) ) {
+						$( this ).find( '.mw-echo-close-box' ).hide();
+					}
+				}
+			);
+		},
+
+		/**
+		 * Initialize the property in special notification page.
 		 */
 		'initialize': function() {
 			var _this = this;
@@ -27,6 +170,14 @@
 			_this.offset = mw.config.get( 'wgEchoStartOffset' );
 			_this.header = mw.config.get( 'wgEchoDateHeader' );
 
+			// Set up each individual notification with a close box and dismiss
+			// interface if it is dismissable.
+			$( '.mw-echo-notification' ).each( function() {
+				if ( $( this ).find( '.mw-echo-dismiss' ).length ) {
+					_this.setUpDismissability( this );
+				}
+			} );
+
 			$( '<a/>' )
 				.attr( 'href', mw.config.get( 'wgEchoHelpPage' ) )
 				.attr( 'title', mw.msg( 'echo-more-info' ) )
@@ -39,7 +190,7 @@
 		},
 
 		/**
-		 * function for loading more notification records
+		 * Load more notification records.
 		 */
 		'loadMore': function() {
 			var api = new mw.Api(), notifications, data, container, $li, _this = this, unread = [];
@@ -72,12 +223,17 @@
 								.data( 'details', data )
 								.data( 'id', id )
 								.addClass( 'mw-echo-notification' )
+								.attr( 'data-notification-type', data.type )
 								.append( data['*'] )
 								.appendTo( container );
 
 							if ( !data.read ) {
 								$li.addClass( 'mw-echo-unread' );
 								unread.push( id );
+							}
+
+							if ( $li.find( '.mw-echo-dismiss' ).length ) {
+								_this.setUpDismissability( $li );
 							}
 
 							// update the timestamp and offset to get data from
@@ -101,7 +257,7 @@
 		},
 
 		/**
-		 * Mark notifications as read
+		 * Mark notifications as read.
 		 */
 		'markAsRead': function( unread ) {
 			var api = new mw.Api(), _this = this;

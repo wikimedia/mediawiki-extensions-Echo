@@ -3,7 +3,8 @@
 // @todo Fill in
 class EchoNotifier {
 	/**
-	 * Record an EchoNotification for an EchoEvent.
+	 * Record an EchoNotification for an EchoEvent
+	 * Currently used for web-based notifications.
 	 *
 	 * @param $user User to notify.
 	 * @param $event EchoEvent to notify about.

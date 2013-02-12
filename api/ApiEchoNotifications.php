@@ -61,14 +61,10 @@ class ApiEchoNotifications extends ApiQueryBase {
 
 		$output = array();
 
-		$res = $wgEchoBackend->loadNotifications( $user, $unread, $limit = 20, $timestamp = 0, $offset = 0 );
+		// TODO: Make 'web' based on a new API param?
+		$res = $wgEchoBackend->loadNotifications( $user, $unread, $limit, $timestamp, $offset, 'web' );
 
 		foreach ( $res as $row ) {
-			// Make sure the user is eligible to recieve this type of notification
-			if ( !EchoNotificationController::getNotificationEligibility( $user, $row->event_type ) ) {
-				continue;
-			}
-
 			$event = EchoEvent::newFromRow( $row );
 
 			// Use $row->notification_timestamp instead of $event->getTimestamp() for display

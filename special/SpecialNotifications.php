@@ -40,8 +40,10 @@ class SpecialNotifications extends SpecialPage {
 			'title' => wfMessage( 'preferences' )->text()
 		) );
 
+		// Pull the notifications
 		$notif = ApiEchoNotifications::getNotifications( $user, false, 'html', self::$displayNum + 1, $timestamp, $offset );
 
+		// If there are no notifications, display a message saying so
 		if ( !$notif ) {
 			$out->addHTML( $html );
 			$out->addWikiMsg( 'echo-none' );
@@ -59,7 +61,7 @@ class SpecialNotifications extends SpecialPage {
 			$more = false;
 		}
 
-		// The date header title for each section
+		// Add the notifications to the page (interspersed with date headers)
 		$dateHeader = '';
 		$notices = '';
 		$unread = array();
@@ -79,7 +81,6 @@ class SpecialNotifications extends SpecialPage {
 			$nextOffset = $row['id'];
 			$notices .= Html::rawElement( 'li', array( 'class' => $class, 'data-notification-type' => $row['type'] ), $row['*'] );
 		}
-
 		$html .= Html::rawElement( 'ul', array( 'id' => 'mw-echo-special-container' ), $notices );
 
 		// Build the more link

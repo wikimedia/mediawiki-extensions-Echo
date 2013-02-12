@@ -30,12 +30,29 @@ class MWDbEchoBackend extends MWEchoBackend {
 	 * @param $limit int The maximum number of notifications to return
 	 * @param $timestamp int The timestamp to start from
 	 * @param $offset int The notification event id to start from
+	 * @param $outputFormat string The output format of the notifications (web,
+	 *    email, etc.)
 	 * @return array
 	 */
-	public function loadNotifications( $user, $unread, $limit, $timestamp, $offset ) {
+	public function loadNotifications( $user, $unread, $limit, $timestamp, $offset, $outputFormat = 'web' ) {
+
+		$eventTypesToLoad = EchoEvent::gatherValidEchoEvents();
+		foreach ( $eventTypesToLoad as $key => $eventType ) {
+			// Make sure the user is eligible to recieve this type of notification
+			if ( !EchoNotificationController::getNotificationEligibility( $user, $eventType ) ) {
+				unset( $eventTypesToLoad[$key] );
+			}
+			if ( !$user->getOption( 'echo-' . $outputFormat . '-notifications' . $eventType ) ) {
+				unset( $eventTypesToLoad[$key] );
+			}
+		}
+		if ( !$eventTypesToLoad ) {
+			return array();
+		}
+
 		$conds = array(
 			'notification_user' => $user->getID(),
-			'event_type' => EchoEvent::gatherValidEchoEvents(),
+			'event_type' => $eventTypesToLoad,
 		);
 
 		if ( $unread ) {
