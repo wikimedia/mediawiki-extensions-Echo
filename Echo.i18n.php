@@ -17,7 +17,7 @@ $messages['en'] = array(
 	'prefs-emailfrequency' => 'When would you like to receive e-mail notifications?',
 	'prefs-echosubscriptions' => 'Notify me when someone…',
 	'echo-pref-web' => 'Web',
-	'echo-pref-email' => 'Email',
+	'echo-pref-email' => 'E-mail',
 	'echo-pref-subscription-edit-user-talk' => 'Posts on my talk page',
 	'echo-pref-subscription-article-linked' => 'Creates a link to a page I created',
 	'echo-pref-subscription-reverted' => 'Reverts my edit',
@@ -30,9 +30,9 @@ $messages['en'] = array(
 	// Dismiss interface
 	'echo-dismiss-button' => 'Dismiss',
 	'echo-dismiss-message' => 'Turn off all <b>$1</b> notifications',
-	'echo-dismiss-title-edit-user-talk' => 'Talk Page Post',
-	'echo-dismiss-title-article-linked' => 'Article Linked',
-	'echo-dismiss-title-reverted' => 'Edit Reverted',
+	'echo-dismiss-title-edit-user-talk' => 'Talk page post',
+	'echo-dismiss-title-article-linked' => 'Page linked',
+	'echo-dismiss-title-reverted' => 'Edit reverted',
 
 	// Errors
 	'echo-no-agent' => '[Nobody]',
