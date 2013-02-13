@@ -29,7 +29,7 @@ $messages['en'] = array(
 
 	// Dismiss interface
 	'echo-dismiss-button' => 'Dismiss',
-	'echo-dismiss-message' => 'Turn off all <b>$1</b> notifications',
+	'echo-dismiss-message' => 'Turn off all $1 notifications',
 	'echo-dismiss-title-edit-user-talk' => 'Talk page post',
 	'echo-dismiss-title-article-linked' => 'Page linked',
 	'echo-dismiss-title-reverted' => 'Edit reverted',
@@ -38,8 +38,8 @@ $messages['en'] = array(
 	'echo-no-agent' => '[Nobody]',
 	'echo-no-title' => '[No page]',
 	'echo-error-no-formatter' => 'No formatting defined for notification',
-	'echo-error-preference' => '<b>Error:</b> Could not set $1.',
-	'echo-error-token' => "<b>Error</b> '''Error''' {{SITENAME}} $1.",
+	'echo-error-preference' => 'Error: Could not set user preference',
+	'echo-error-token' => 'Error: Could not retrieve user token',
 
 	// Special:Notifications
 	'notifications' => 'Notifications',

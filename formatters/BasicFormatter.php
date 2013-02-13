@@ -168,6 +168,11 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 		
 		$output .= Xml::tags( 'div', array( 'class' => 'mw-echo-content' ), $content ) . "\n";
 
+		// The state div is used to visually indicate read or unread status. This is
+		// handled in a separate element than the notification element so that things
+		// like the close box won't inherit the greyed out opacity (which can't be reset).
+		$output = Xml::tags( 'div', array( 'class' => 'mw-echo-state' ), $output ) . "\n";
+
 		return $output;
 	}
 

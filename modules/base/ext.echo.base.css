@@ -52,7 +52,6 @@
 	background-color: #EDEDEE;
 	position: absolute;
 	top: 0;
+	left: 0;
 	z-index: 1;
-}
-.mw-echo-dismiss-message {
 }

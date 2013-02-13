@@ -61,6 +61,7 @@
 						var $li = $( '<li></li>' )
 								.data( 'details', data )
 								.data( 'id', id )
+								.attr( 'data-notification-type', data.type )
 								.addClass( 'mw-echo-notification' )
 								.append( data['*'] )
 								.appendTo( $ul );
@@ -68,6 +69,12 @@
 						if ( !data.read ) {
 							$li.addClass( 'mw-echo-unread' );
 							unread.push( id );
+						}
+
+						// Set up each individual notification with a close box and dismiss
+						// interface if it is dismissable.
+						if ( $li.find( '.mw-echo-dismiss' ).length ) {
+							mw.echo.setUpDismissability( $li );
 						}
 					} );
 
