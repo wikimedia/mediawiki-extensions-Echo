@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Handles email batch for a user for database storage
+ * Handle user email batch ( daily/ weekly )
  */
 abstract class MWEchoEmailBatch {
 

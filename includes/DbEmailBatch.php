@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Handles email batch for a user for database storage
+ * Handle user email batch ( daily/weekly ) for database storage
  */
 class MWDbEchoEmailBatch extends MWEchoEmailBatch {
 
@@ -165,7 +165,7 @@ class MWDbEchoEmailBatch extends MWEchoEmailBatch {
 	 * @param $batchSize int
 	 */
 	public static function actuallyGetUsersToNotify( $startUserId, $batchSize ) {
-		$dbr = wfGetDB( DB_MASTER );
+		$dbr = wfGetDB( DB_SLAVE );
 		$res = $dbr->select(
 			array( 'echo_email_batch' ),
 			array( 'eeb_user_id' ),
