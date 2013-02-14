@@ -97,7 +97,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	 *
 	 * @param $event EchoEvent that the notification is for.
 	 * @param $user User to format the notification for.
-	 * @param $type string The type of notification being distributed (e.g. email, notify)
+	 * @param $type string The type of notification being distributed (e.g. email, web)
 	 * @return array|string
 	 */
 	public function format( $event, $user, $type ) {
