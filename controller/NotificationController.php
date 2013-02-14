@@ -139,7 +139,7 @@ class EchoNotificationController {
 		}
 
 		if ( $event->getType() == 'welcome' ) { // Welcome events should only be sent to the new user, no need for subscriptions.
-			self::doNotification( $event, $event->getAgent(), 'notify' );
+			self::doNotification( $event, $event->getAgent(), 'web' );
 		} else {
 			$subscriptions = self::getSubscriptionsForEvent( $event );
 
@@ -235,11 +235,11 @@ class EchoNotificationController {
 	 * @param $event EchoEvent that the notification is for.
 	 * @param $user User to format the notification for.
 	 * @param $format string The format to show the notification in: text, html, or email
-	 * @param $type string The type of notification being distributed (e.g. email, notify)
+	 * @param $type string The type of notification being distributed (e.g. email, web)
 	 * @return string|array The formatted notification, or an array of subject
 	 *     and body (for emails), or an error message
 	 */
-	public static function formatNotification( $event, $user, $format = 'text', $type = 'notify' ) {
+	public static function formatNotification( $event, $user, $format = 'text', $type = 'web' ) {
 		global $wgEchoNotificationFormatters;
 
 		$eventType = $event->getType();
