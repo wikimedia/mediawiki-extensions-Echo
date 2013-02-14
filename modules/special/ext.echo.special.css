@@ -65,5 +65,13 @@ ul#mw-echo-special-container {
 	max-width: 600px;
 }
 .mw-echo-notification {
-	padding: 15px 0 10px 0;
+	padding: 15px 35px 10px 0;
+}
+#mw-echo-special-container .mw-echo-notification .mw-echo-state {
+	filter: alpha(opacity=50);
+	opacity: 0.5;
+}
+#mw-echo-special-container .mw-echo-notification.mw-echo-unread .mw-echo-state {
+	filter: alpha(opacity=100);
+	opacity: 1.0;
 }
