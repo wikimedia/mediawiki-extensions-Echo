@@ -769,15 +769,15 @@ $messages['de'] = array(
 	'echo-pref-email-frequency-weekly' => 'Wöchentliche Benachrichtigung zu den Ereignissen',
 	'echo-pref-notify-hide-link' => 'Den Link sowie das Symbol für Benachrichtigungen nicht in meiner Benutzerleiste anzeigen',
 	'echo-dismiss-button' => 'Ausblenden',
-	'echo-dismiss-message' => 'Alle „<b>$1</b>“-Benachrichtigungen abschalten',
+	'echo-dismiss-message' => 'Alle „$1“-Benachrichtigungen abschalten',
 	'echo-dismiss-title-edit-user-talk' => 'Diskussionsseitennachricht',
 	'echo-dismiss-title-article-linked' => 'Seite verlinkt',
 	'echo-dismiss-title-reverted' => 'Bearbeitung rückgängig gemacht',
 	'echo-no-agent' => '[Niemand]',
 	'echo-no-title' => '[Keine Seite]',
 	'echo-error-no-formatter' => 'Keine Formatierung zur Benachrichtigung definiert',
-	'echo-error-preference' => '<b>Fehler:</b> „$1“ konnte nicht festgelegt werden.',
-	'echo-error-token' => "<b>Fehler</b> '''Fehler''' {{SITENAME}} $1.",
+	'echo-error-preference' => '<b>Fehler:</b> „$1“ konnte nicht festgelegt werden.', # Fuzzy
+	'echo-error-token' => "<b>Fehler</b> '''Fehler''' {{SITENAME}} $1.", # Fuzzy
 	'notifications' => 'Benachrichtigungen',
 	'tooltip-pt-notifications' => 'Deine Benachrichtigungen',
 	'echo-specialpage' => 'Meine Benachrichtigungen',
@@ -980,7 +980,7 @@ $messages['es'] = array(
 	'echo-no-agent' => '[Nadie]',
 	'echo-no-title' => '[No hay ninguna página]',
 	'echo-error-no-formatter' => 'Sin formato definido para notificaciones',
-	'echo-error-preference' => '<b>Error:</b> No se pudo establecer $1.',
+	'echo-error-preference' => '<b>Error:</b> No se pudo establecer $1.', # Fuzzy
 	'notifications' => 'Notificaciones',
 	'tooltip-pt-notifications' => 'Notificaciones',
 	'echo-specialpage' => 'Mis notificaciones',
@@ -1165,15 +1165,15 @@ $messages['fr'] = array(
 	'echo-pref-email-frequency-weekly' => 'Un sommaire hebdomadaire des notifications',
 	'echo-pref-notify-hide-link' => "Masquer le lien et l'insigne pour les notifications dans ma barre d'outils",
 	'echo-dismiss-button' => 'Rejeter',
-	'echo-dismiss-message' => 'Désactiver toutes les <b>$1</b> notifications',
+	'echo-dismiss-message' => 'Désactiver toutes les $1 notifications',
 	'echo-dismiss-title-edit-user-talk' => 'Message de la page de discussion',
 	'echo-dismiss-title-article-linked' => 'Article lié',
 	'echo-dismiss-title-reverted' => 'Modification annulée',
 	'echo-no-agent' => '[Personne]',
 	'echo-no-title' => '[Aucune page]',
 	'echo-error-no-formatter' => 'Aucune mise en forme définies pour la notification',
-	'echo-error-preference' => '<b>Erreur:</b> Impossible de définir $1.',
-	'echo-error-token' => "<b>Erreur</b> '''Erreur''' $1 sur {{SITENAME}}.",
+	'echo-error-preference' => '<b>Erreur:</b> Impossible de définir $1.', # Fuzzy
+	'echo-error-token' => "<b>Erreur</b> '''Erreur''' $1 sur {{SITENAME}}.", # Fuzzy
 	'notifications' => 'Notifications',
 	'tooltip-pt-notifications' => 'Vos notifications',
 	'echo-specialpage' => 'Mes notifications',
@@ -1332,6 +1332,10 @@ $messages['gl'] = array(
 	'prefs-echo' => 'Notificacións',
 	'prefs-displaynotifications' => 'Opcións de visualización',
 	'prefs-emailfrequency' => 'Quere recibir notificacións por correo electrónico?',
+	'prefs-echosubscriptions' => 'Notificádeme cando alguén…',
+	'echo-pref-web' => 'Web',
+	'echo-pref-email' => 'Correo electrónico',
+	'echo-pref-subscription-edit-user-talk' => 'Deixe unha mensaxe na miña conversa',
 	'echo-pref-subscription-article-linked' => 'Cree unha ligazón cara a unha páxina que eu creei',
 	'echo-pref-subscription-reverted' => 'Reverta unha edición miña',
 	'echo-pref-email-frequency-never' => 'Non me enviedes ningunha notificación por correo electrónico',
@@ -1339,9 +1343,16 @@ $messages['gl'] = array(
 	'echo-pref-email-frequency-daily' => 'Un resumo diario das notificacións',
 	'echo-pref-email-frequency-weekly' => 'Un resumo semanal das notificacións',
 	'echo-pref-notify-hide-link' => 'Agochar a ligazón e a insignia das notificacións na miña barra de ferramentas',
+	'echo-dismiss-button' => 'Agochar',
+	'echo-dismiss-message' => 'Desactivar todas as notificacións de $1',
+	'echo-dismiss-title-edit-user-talk' => 'Mensaxe na páxina de conversa',
+	'echo-dismiss-title-article-linked' => 'Páxina ligada',
+	'echo-dismiss-title-reverted' => 'Edición revertida',
 	'echo-no-agent' => '[Ninguén]',
 	'echo-no-title' => '[Ningunha páxina]',
 	'echo-error-no-formatter' => 'Non se definiu formato ningún para a notificación',
+	'echo-error-preference' => '<b>Erro:</b> Non se puido establecer $1.', # Fuzzy
+	'echo-error-token' => "<b>Erro:</b> '''Erro''' $1 en {{SITENAME}}.", # Fuzzy
 	'notifications' => 'Notificacións',
 	'tooltip-pt-notifications' => 'As súas notificacións',
 	'echo-specialpage' => 'As miñas notificacións',
@@ -1868,7 +1879,7 @@ $6',
 $1',
 	'echo-email-footer-default' => '$2
 
-下記の場所で、どのメールが送信されてもよいかを制御することができます。
+どのメールを受け取るかを制御するにはこちら:
 {{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
 
 $1',
@@ -1894,7 +1905,7 @@ $4
 $5',
 	'echo-email-batch-body-weekly' => '$1 さん、
 
-{{SITENAME}}上でこの1週間のあいだに、$2 件の{{PLURAL:$3|通知}}が届きました。下記の場所でご覧いただけます。
+{{SITENAME}}上でこの1週間に、$2 件の{{PLURAL:$3|通知}}が届きました。下記の場所でご覧いただけます。
 {{canonicalurl:{{#special:Notifications}}}}
 
 $4
@@ -1955,19 +1966,28 @@ $messages['ko'] = array(
 	'echo-desc' => '알림 시스템',
 	'prefs-echo' => '알림',
 	'prefs-displaynotifications' => '보이기 설정',
-	'prefs-emailsubscriptions' => '다른 사용자가 이메일을 통해 알림',
 	'prefs-emailfrequency' => '언제 이메일 알림을 받겠습니까?',
-	'echo-pref-email-edit-user-talk' => '내 토론 문서에 대한 게시물',
-	'echo-pref-email-article-linked' => '내가 만든 문서에 링크를 만들었습니다',
-	'echo-pref-email-reverted' => '내 편집을 되돌리기',
+	'prefs-echosubscriptions' => '다른 사용자가 수행할 때 알림…',
+	'echo-pref-web' => '웹',
+	'echo-pref-email' => '이메일',
+	'echo-pref-subscription-edit-user-talk' => '내 토론 문서에 대한 게시물',
+	'echo-pref-subscription-article-linked' => '내가 만든 문서에 링크를 만들기',
+	'echo-pref-subscription-reverted' => '내 편집을 되돌리기',
 	'echo-pref-email-frequency-never' => '내게 어떠한 이메일 알림을 보내지 않기',
 	'echo-pref-email-frequency-immediately' => '모두한테 오는 개별 알림',
 	'echo-pref-email-frequency-daily' => '알림의 일별 요약',
 	'echo-pref-email-frequency-weekly' => '알림의 주간 요약',
 	'echo-pref-notify-hide-link' => '툴바에 알림에 대한 링크와 배지 숨기기',
+	'echo-dismiss-button' => '기각',
+	'echo-dismiss-message' => '모든 $1 알림 끄기',
+	'echo-dismiss-title-edit-user-talk' => '토론 문서 게시물',
+	'echo-dismiss-title-article-linked' => '문서를 링크함',
+	'echo-dismiss-title-reverted' => '편집을 되돌림',
 	'echo-no-agent' => '[알 수 없는 사용자]',
 	'echo-no-title' => '[문서 없음]',
 	'echo-error-no-formatter' => '알림에 대해 정의한 형식이 없습니다',
+	'echo-error-preference' => '<b>오류:</b> $1(을)를 설정할 수 없습니다.', # Fuzzy
+	'echo-error-token' => "<b>오류</b> '''오류''' {{SITENAME}} $1.", # Fuzzy
 	'notifications' => '알림',
 	'tooltip-pt-notifications' => '내 알림',
 	'echo-specialpage' => '내 알림',
@@ -1997,7 +2017,7 @@ $2
 
 $4',
 	'notification-edit-talk-page-email-batch-body2' => '$1 사용자가 내 토론 문서에 {{GENDER:$1|게시했습니다}}',
-	'notification-article-linked-email-subject2' => '{{SITENAME}}에서 작성한 {{PLURAL:$2|문서}}가 교차 참조{{PLURAL:$2|했습니다}}', # Fuzzy
+	'notification-article-linked-email-subject2' => '{{SITENAME}}에서 작성한 {{PLURAL:$2|문서}}를 링크{{PLURAL:$2|했습니다}}',
 	'notification-article-linked-email-body2' => '$4 문서를 이 문서에서 {{SITENAME}} $1 사용자가 {{GENDER:$1|링크}}{{PLURAL:$5|했습니다}}: $2
 
 더 보기:
@@ -2133,19 +2153,28 @@ $messages['mk'] = array(
 	'echo-desc' => 'Известителен систем',
 	'prefs-echo' => 'Известувања',
 	'prefs-displaynotifications' => 'Нагодувања на приказот',
-	'prefs-emailsubscriptions' => 'Извешти ме на е-пошта кога некој ќе',
 	'prefs-emailfrequency' => 'Кога би сакале да примате известувања на е-пошта?',
-	'echo-pref-email-edit-user-talk' => 'Објави на мојата страница за разговор',
-	'echo-pref-email-article-linked' => 'Става врска до страница што ја имам создадено',
-	'echo-pref-email-reverted' => 'Врати мое уредување',
+	'prefs-echosubscriptions' => 'Извести ме кога некој…',
+	'echo-pref-web' => 'На вики',
+	'echo-pref-email' => 'Е-пошта',
+	'echo-pref-subscription-edit-user-talk' => 'Објави на мојата страница за разговор',
+	'echo-pref-subscription-article-linked' => 'Става врска до страница што ја имам создадено',
+	'echo-pref-subscription-reverted' => 'Врати мое уредување',
 	'echo-pref-email-frequency-never' => 'Не ми праќај известувања на е-пошта',
 	'echo-pref-email-frequency-immediately' => 'Поединечни известувања, едно по едно',
 	'echo-pref-email-frequency-daily' => 'Дневен преглед на известувањата',
 	'echo-pref-email-frequency-weekly' => 'Неделен преглед на известувањата',
 	'echo-pref-notify-hide-link' => 'Скриј ја врската и значката за известувања во алатникот',
+	'echo-dismiss-button' => 'Тргни',
+	'echo-dismiss-message' => 'Исклучи ги сите $1 известувања',
+	'echo-dismiss-title-edit-user-talk' => 'Објава на страницата за разговор',
+	'echo-dismiss-title-article-linked' => 'Страницата е сврзана',
+	'echo-dismiss-title-reverted' => 'Уредувањето е вратено',
 	'echo-no-agent' => '[Никој]',
 	'echo-no-title' => '[Нема страница]',
 	'echo-error-no-formatter' => 'Нема зададено форматирање за ова известување',
+	'echo-error-preference' => '<b>Грешка:</b> Не можам да зададам $1.', # Fuzzy
+	'echo-error-token' => "<b>Грешка</b> '''Грешка''' {{SITENAME}} $1.", # Fuzzy
 	'notifications' => 'Известувања',
 	'tooltip-pt-notifications' => 'Вашите известувања',
 	'echo-specialpage' => 'Мои известувања',
@@ -3146,19 +3175,28 @@ $messages['vi'] = array(
 	'echo-desc' => 'Hệ thống thông báo',
 	'prefs-echo' => 'Thông báo',
 	'prefs-displaynotifications' => 'Tùy chọn hiển thị',
-	'prefs-emailsubscriptions' => 'Báo cho tôi qua thư điện tử khi ai đó',
 	'prefs-emailfrequency' => 'Khi nào bạn muốn nhận thông báo qua thư điện tử?',
-	'echo-pref-email-edit-user-talk' => 'Nhắn tin vào trang thảo luận của tôi',
-	'echo-pref-email-article-linked' => 'Đặt liên kết đến một trang do tôi tạo ra',
-	'echo-pref-email-reverted' => 'Lùi sửa đổi của tôi',
+	'prefs-echosubscriptions' => 'Báo cho tôi khi nào người ta…',
+	'echo-pref-web' => 'Web',
+	'echo-pref-email' => 'Thư điện tử',
+	'echo-pref-subscription-edit-user-talk' => 'Nhắn tin vào trang thảo luận của tôi',
+	'echo-pref-subscription-article-linked' => 'Đặt liên kết đến một trang do tôi tạo ra',
+	'echo-pref-subscription-reverted' => 'Lùi sửa đổi của tôi',
 	'echo-pref-email-frequency-never' => 'Không gửi cho tôi bất kỳ thông báo qua thư điện tử',
 	'echo-pref-email-frequency-immediately' => 'Gửi các thông báo từng cái một vào đúng lúc xảy ra',
 	'echo-pref-email-frequency-daily' => 'Tóm lược các thông báo hàng ngày',
 	'echo-pref-email-frequency-weekly' => 'Tóm lược các thông báo hàng tuần',
 	'echo-pref-notify-hide-link' => 'Ẩn liên kết và dấu hiệu thông báo khỏi thanh công cụ',
+	'echo-dismiss-button' => 'Tắt',
+	'echo-dismiss-message' => 'Tắt mọi thông báo $1',
+	'echo-dismiss-title-edit-user-talk' => 'Lời tin nhắn',
+	'echo-dismiss-title-article-linked' => 'Trang được liên kết',
+	'echo-dismiss-title-reverted' => 'Sửa đổi bị lùi lại',
 	'echo-no-agent' => '[Không ai]',
 	'echo-no-title' => '[Không có trang]',
 	'echo-error-no-formatter' => 'Thông báo không có định rõ định dạng',
+	'echo-error-preference' => '<b>Lỗi:</b> Không thể đặt $1.', # Fuzzy
+	'echo-error-token' => '<b>Lỗi {{SITENAME}}:</b> $1.', # Fuzzy
 	'notifications' => 'Thông báo',
 	'tooltip-pt-notifications' => 'Các thông báo cho bạn',
 	'echo-specialpage' => 'Thông báo cho tôi',
@@ -3188,7 +3226,7 @@ $2
 
 $4',
 	'notification-edit-talk-page-email-batch-body2' => '$1 đã nhắn tin vào trang thảo luận của bạn',
-	'notification-article-linked-email-subject2' => '{{PLURAL:$2|Một|Một số}} tham khảo chéo đến trang do bạn bắt đầu đã được bổ sung tại {{SITENAME}}', # Fuzzy
+	'notification-article-linked-email-subject2' => '{{PLURAL:$2|Một|Một số}} trang do bạn bắt đầu đã được liên kết tại {{SITENAME}}',
 	'notification-article-linked-email-body2' => 'Người dùng $1 tại {{SITENAME}} đã đặt {{PLURAL:$5|liên kết|các liên kết}} đến $4 từ trang này: $2
 
 Xem thêm:
@@ -3225,6 +3263,7 @@ $1',
 	'echo-overlay-title-overflow' => 'Tin nhắn cho tôi (đang xem $1 trên $2 chưa đọc)',
 	'echo-date-today' => 'Hôm nay',
 	'echo-date-yesterday' => 'Hôm qua',
+	'echo-date-header' => '$2 $1',
 	'echo-load-more-error' => 'Lỗi đã xảy ra khi lấy thêm kết quả.',
 	'echo-email-batch-subject-daily' => 'Bạn có {{PLURAL:$2|một tin nhắn|$1 tin nhắn}} hôm nay',
 	'echo-email-batch-subject-weekly' => 'Bạn có {{PLURAL:$2|thông báo|$1 thông báo}} tuần này',
