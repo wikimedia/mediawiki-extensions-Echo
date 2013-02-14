@@ -32,6 +32,26 @@ abstract class MWEchoBackend {
 	}
 
 	/**
+	 * Get the enabled events for a user, which excludes user-dismissed events
+	 * from the general enabled events
+	 * @return array
+	 */
+	protected function getUserEnabledEvents( $user, $outputFormat ) {
+		$eventTypesToLoad = EchoEvent::gatherValidEchoEvents();
+		foreach ( $eventTypesToLoad as $key => $eventType ) {
+			// Make sure the user is eligible to recieve this type of notification
+			if ( !EchoNotificationController::getNotificationEligibility( $user, $eventType ) ) {
+				unset( $eventTypesToLoad[$key] );
+			}
+			if ( !$user->getOption( 'echo-' . $outputFormat . '-notifications' . $eventType ) ) {
+				unset( $eventTypesToLoad[$key] );
+			}
+		}
+
+		return $eventTypesToLoad;
+	}
+
+	/**
 	 * Create a new notification
 	 * @param $row array
 	 */

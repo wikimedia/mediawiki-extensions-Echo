@@ -36,16 +36,7 @@ class MWDbEchoBackend extends MWEchoBackend {
 	 */
 	public function loadNotifications( $user, $unread, $limit, $timestamp, $offset, $outputFormat = 'web' ) {
 
-		$eventTypesToLoad = EchoEvent::gatherValidEchoEvents();
-		foreach ( $eventTypesToLoad as $key => $eventType ) {
-			// Make sure the user is eligible to recieve this type of notification
-			if ( !EchoNotificationController::getNotificationEligibility( $user, $eventType ) ) {
-				unset( $eventTypesToLoad[$key] );
-			}
-			if ( !$user->getOption( 'echo-' . $outputFormat . '-notifications' . $eventType ) ) {
-				unset( $eventTypesToLoad[$key] );
-			}
-		}
+		$eventTypesToLoad = $this->getUserEnabledEvents( $user, $outputFormat );
 		if ( !$eventTypesToLoad ) {
 			return array();
 		}
@@ -188,6 +179,12 @@ class MWDbEchoBackend extends MWEchoBackend {
 			$dbSource = DB_SLAVE;
 		}
 
+		$eventTypesToLoad = $this->getUserEnabledEvents( $user, 'web' );
+
+		if ( !$eventTypesToLoad ) {
+			return false;
+		}
+
 		$db = wfGetDB( $dbSource );
 		$res = $db->selectRow(
 			array( 'echo_notification', 'echo_event' ),
@@ -195,7 +192,7 @@ class MWDbEchoBackend extends MWEchoBackend {
 			array(
 				'notification_user' => $user->getId(),
 				'notification_read_timestamp' => null,
-				'event_type' => EchoEvent::gatherValidEchoEvents(),
+				'event_type' => $eventTypesToLoad,
 			),
 			__METHOD__,
 			array(),
