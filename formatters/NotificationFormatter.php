@@ -7,12 +7,6 @@
  * content or requirements.
  */
 abstract class EchoNotificationFormatter {
-	static $formatterClasses = array(
-		'basic' => 'EchoBasicFormatter',
-		'edit' => 'EchoEditFormatter',
-		'comment' => 'EchoCommentFormatter',
-		'system' => 'EchoBasicFormatter',
-	);
 	protected $validOutputFormats = array( 'text', 'flyout', 'html', 'email' );
 	protected $outputFormat = 'text';
 	protected $parameters = array();
@@ -67,24 +61,20 @@ abstract class EchoNotificationFormatter {
 	/**
 	 * Create an EchoNotificationFormatter from the supplied parameters.
 	 * @param $parameters array Associative array.
-	 * Select the class of formatter to use with the 'type' or 'class' field.
+	 * Select the class of formatter to use with the 'class' field.
 	 * For other parameters, see the appropriate class' constructor.
 	 * @throws MWException
 	 * @return EchoNotificationFormatter object.
 	 */
 	public static function factory( $parameters ) {
 		$class = null;
-		if ( isset( $parameters['type'] ) ) {
-			$type = $parameters['type'];
-			if ( isset( self::$formatterClasses[$type] ) ) {
-				$class = self::$formatterClasses[$type];
-			}
-		} elseif ( isset( $parameters['class'] ) ) {
-			$class = $parameters['class'];
+		if ( isset( $parameters['formatter-class'] ) ) {
+			$class = $parameters['formatter-class'];
 		}
 
+		// Default to basic formatter
 		if ( !$class || !class_exists( $class ) ) {
-			throw new MWException( "No valid class ($class) or type ($type) specified for " . __METHOD__ );
+			$class = 'EchoBasicFormatter';
 		}
 
 		return new $class( $parameters );
