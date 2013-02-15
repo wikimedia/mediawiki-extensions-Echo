@@ -5,6 +5,8 @@
 
 		'optionsToken': '',
 
+		'dismissOutputFormats': ['web', 'email'],
+
 		/**
 		 * Change the user's preferences related to this notification type and
 		 * reload the page.
@@ -13,10 +15,19 @@
 			var _this = this,
 				$notification = $( notification ),
 				eventType = $notification.attr( 'data-notification-type' ),
-				change = 'echo-web-notifications' + eventType + '=0',
-				prefRequest = {
+				prefName = '',
+				prefs = [],
+				prefRequest = {};
+			$.each( mw.echo.dismissOutputFormats, function( index, format ) {
+				// Make sure output format pref exists for this event type
+				prefName = 'echo-' + format + '-notifications' + eventType;
+				if ( mw.user.options.exists( prefName ) ) {
+					prefs.push( prefName + '=0' );
+				}
+			} );
+			prefRequest = {
 					'action': 'options',
-					'change': change,
+					'change': prefs.join( '|' ),
 					'token': mw.echo.optionsToken,
 					'format': 'json'
 				};
