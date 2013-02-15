@@ -171,7 +171,8 @@ $messages['qqq'] = array(
 * {{msg-mw|Echo-pref-subscription-article-linked}}
 * {{msg-mw|Echo-pref-subscription-reverted}}',
 	'echo-pref-web' => 'Label for list of notifications which are delivered on the web. In other words, on the wiki itself rather by email or another method.',
-	'echo-pref-email' => 'Label for list of notifications which are delivered via email.',
+	'echo-pref-email' => 'Label for list of notifications which are delivered via email.
+{{Identical|E-mail}}',
 	'echo-pref-subscription-edit-user-talk' => "Option for getting notifications when someone posts on the user's talk page. This is the conclusion of the sentence begun by the header: {{msg-mw|prefs-echosubscriptions}}.",
 	'echo-pref-subscription-article-linked' => 'Option for getting notifications when someone creates a link to a page created by the user. This is the conclusion of the sentence begun by the header: {{msg-mw|prefs-echosubscriptions}}.',
 	'echo-pref-subscription-reverted' => "Option for getting notifications when someone reverts the user's edit. This is the conclusion of the sentence begun by the header: {{msg-mw|prefs-echosubscriptions}}.",
@@ -776,8 +777,8 @@ $messages['de'] = array(
 	'echo-no-agent' => '[Niemand]',
 	'echo-no-title' => '[Keine Seite]',
 	'echo-error-no-formatter' => 'Keine Formatierung zur Benachrichtigung definiert',
-	'echo-error-preference' => '<b>Fehler:</b> „$1“ konnte nicht festgelegt werden.', # Fuzzy
-	'echo-error-token' => "<b>Fehler</b> '''Fehler''' {{SITENAME}} $1.", # Fuzzy
+	'echo-error-preference' => 'Fehler: Benutzereinstellung konnte nicht festgelegt werden.',
+	'echo-error-token' => 'Fehler: Benutzertoken konnte nicht abgerufen werden',
 	'notifications' => 'Benachrichtigungen',
 	'tooltip-pt-notifications' => 'Deine Benachrichtigungen',
 	'echo-specialpage' => 'Meine Benachrichtigungen',
@@ -1172,8 +1173,8 @@ $messages['fr'] = array(
 	'echo-no-agent' => '[Personne]',
 	'echo-no-title' => '[Aucune page]',
 	'echo-error-no-formatter' => 'Aucune mise en forme définies pour la notification',
-	'echo-error-preference' => '<b>Erreur:</b> Impossible de définir $1.', # Fuzzy
-	'echo-error-token' => "<b>Erreur</b> '''Erreur''' $1 sur {{SITENAME}}.", # Fuzzy
+	'echo-error-preference' => 'Erreur: Impossible de définir la préférence utilisateur',
+	'echo-error-token' => 'Erreur: Impossible de récupérer le jeton de l’utilisateur',
 	'notifications' => 'Notifications',
 	'tooltip-pt-notifications' => 'Vos notifications',
 	'echo-specialpage' => 'Mes notifications',
@@ -1351,8 +1352,8 @@ $messages['gl'] = array(
 	'echo-no-agent' => '[Ninguén]',
 	'echo-no-title' => '[Ningunha páxina]',
 	'echo-error-no-formatter' => 'Non se definiu formato ningún para a notificación',
-	'echo-error-preference' => '<b>Erro:</b> Non se puido establecer $1.', # Fuzzy
-	'echo-error-token' => "<b>Erro:</b> '''Erro''' $1 en {{SITENAME}}.", # Fuzzy
+	'echo-error-preference' => 'Erro: Non se puido establecer a preferencia de usuario',
+	'echo-error-token' => 'Erro: Non se puido recuperar o pase de usuario',
 	'notifications' => 'Notificacións',
 	'tooltip-pt-notifications' => 'As súas notificacións',
 	'echo-specialpage' => 'As miñas notificacións',
@@ -1814,6 +1815,8 @@ $messages['ja'] = array(
 	'prefs-echo' => '通知',
 	'prefs-displaynotifications' => '表示の設定',
 	'prefs-emailfrequency' => 'メールで通知を受け取る頻度',
+	'echo-pref-web' => 'ウェブ',
+	'echo-pref-email' => 'メール',
 	'echo-pref-subscription-article-linked' => '自分が作成したページへのリンクを誰かが作成したとき',
 	'echo-pref-subscription-reverted' => '自分の編集を誰かが差し戻したとき',
 	'echo-pref-email-frequency-never' => '通知メールを何も受け取らない',
@@ -1821,9 +1824,12 @@ $messages['ja'] = array(
 	'echo-pref-email-frequency-daily' => '通知を1日ごとに要約',
 	'echo-pref-email-frequency-weekly' => '通知を1週間ごとに要約',
 	'echo-pref-notify-hide-link' => '通知のリンクとバッジをツールバーに表示しない',
+	'echo-dismiss-message' => '$1での通知をすべて止める',
 	'echo-no-agent' => '[送信者なし]',
 	'echo-no-title' => '[ページなし]',
 	'echo-error-no-formatter' => '通知の書式が定義されていません',
+	'echo-error-preference' => 'エラー: 個人設定を変更できませんでした',
+	'echo-error-token' => 'エラー: 利用者トークンを取得できませんでした',
 	'notifications' => '通知',
 	'tooltip-pt-notifications' => '自分の通知',
 	'echo-specialpage' => '自分の通知',
@@ -1945,15 +1951,26 @@ $1',
 $messages['ka'] = array(
 	'echo-desc' => 'შეტყობინებების სისტემა',
 	'prefs-echo' => 'შეტყობინებები',
+	'prefs-displaynotifications' => 'გამოსახვის პარამეტრები',
+	'prefs-echosubscriptions' => 'შემატყობინეთ როცა ვინმე…',
+	'echo-pref-web' => 'ქსელი',
+	'echo-pref-email' => 'ელ. ფოსტა',
+	'echo-pref-subscription-edit-user-talk' => 'დაწერს ჩემი განხილვის გვერდზე',
+	'echo-pref-subscription-article-linked' => 'გააკეთებს ბმულს ჩემ მიერ შექმნილ გვერდზე',
+	'echo-pref-subscription-reverted' => 'გააუქმებს ჩემ რედაქტირებას',
 	'echo-no-agent' => '[არავინ]',
 	'echo-no-title' => '[არ არის გვერდი]',
 	'notifications' => 'შეტყობინებები',
+	'tooltip-pt-notifications' => 'თქვენი შეტყობინებები',
 	'echo-specialpage' => 'ჩემი შეტყობინებები',
+	'echo-more-info' => 'დეტალურად',
 	'notification-new-user' => 'კეთილი იყოს თქვენი მობრძანება საიტზე {{SITENAME}}, $1!',
 	'echo-notification-count' => '$1+',
 	'echo-link' => 'შეტყობინებები',
 	'echo-overlay-link' => 'შეტყობინება',
 	'echo-overlay-title' => 'ჩემი შეტყობინებები',
+	'echo-date-today' => 'დღეს',
+	'echo-date-yesterday' => 'გუშინ',
 	'echo-date-header' => '$1 $2',
 	'echo-email-batch-separator' => '________________________________________________',
 	'echo-email-batch-bullet' => '•',
@@ -2173,8 +2190,8 @@ $messages['mk'] = array(
 	'echo-no-agent' => '[Никој]',
 	'echo-no-title' => '[Нема страница]',
 	'echo-error-no-formatter' => 'Нема зададено форматирање за ова известување',
-	'echo-error-preference' => '<b>Грешка:</b> Не можам да зададам $1.', # Fuzzy
-	'echo-error-token' => "<b>Грешка</b> '''Грешка''' {{SITENAME}} $1.", # Fuzzy
+	'echo-error-preference' => 'Грешка: Не можам да го зададам нагодувањето',
+	'echo-error-token' => 'Грешка: Не можев да го добијам корисничкиот жетон',
 	'notifications' => 'Известувања',
 	'tooltip-pt-notifications' => 'Вашите известувања',
 	'echo-specialpage' => 'Мои известувања',
@@ -2313,7 +2330,11 @@ $messages['ms'] = array(
 	'echo-desc' => 'Sistem pemberitahuan',
 	'prefs-echo' => 'Pemberitahuan',
 	'prefs-displaynotifications' => 'Pilihan paparan',
-	'prefs-emailfrequency' => 'Berapa kerap saya menerima pemberitahuan melalui e-mel', # Fuzzy
+	'prefs-emailfrequency' => 'Bilakah ingin anda menerima pemberitahuan melalui e-mel?',
+	'prefs-echosubscriptions' => 'Beritahu saya apabila seseorang…',
+	'echo-pref-web' => 'Web',
+	'echo-pref-email' => 'E-mel',
+	'echo-pref-subscription-edit-user-talk' => 'Mengepos di halaman perbualan saya',
 	'echo-pref-subscription-article-linked' => 'Mewujudkan pautan kepada halaman yang saya cipta',
 	'echo-pref-subscription-reverted' => 'Membalikkan suntingan saya',
 	'echo-pref-email-frequency-never' => 'Jangan hantar sebarang pemberitahuan e-mel kepada saya',
@@ -2321,17 +2342,65 @@ $messages['ms'] = array(
 	'echo-pref-email-frequency-daily' => 'Ringkasan pemberitahuan harian',
 	'echo-pref-email-frequency-weekly' => 'Ringkasan pemberitahuan mingguan',
 	'echo-pref-notify-hide-link' => 'Sorokkan pautan dan lencana untuk pemberitahuan di dalam palang alatan saya',
+	'echo-dismiss-button' => 'Singkir',
+	'echo-dismiss-message' => 'Matikan semua pemberitahuan $1',
+	'echo-dismiss-title-edit-user-talk' => 'Pos halaman perbualan',
+	'echo-dismiss-title-article-linked' => 'Halaman telah dipautkan',
+	'echo-dismiss-title-reverted' => 'Suntingan dibalikkan',
 	'echo-no-agent' => '[Tiada Sesiapa]',
 	'echo-no-title' => '[Tiada halaman]',
 	'echo-error-no-formatter' => 'Tiada pemformatan yang ditetapkan untuk pemberitahuan',
+	'echo-error-preference' => 'Ralat: Keutamaan pengguna tidak boleh ditetapkan',
+	'echo-error-token' => 'Ralat: Token pengguna tidak dapat diambil',
 	'notifications' => 'Pemberitahuan',
 	'tooltip-pt-notifications' => 'Pemberitahuan anda',
 	'echo-specialpage' => 'Pemberitahuan saya',
 	'echo-anon' => 'Untuk menerima pemberitahuan, sila [[Special:Userlogin/signup|buka akaun]] atau [[Special:UserLogin|log masuk]].',
 	'echo-none' => 'Tiada pemberitahuan untuk anda.',
 	'echo-more-info' => 'Maklumat lanjut',
+	'notification-edit-talk-page2' => '[[User:$1|$1]] telah mengepos di [[User talk:$2|halaman perbualan]] anda.',
+	'notification-edit-talk-page-flyout2' => '$1 telah mengepos di [[User talk:$2|halaman perbualan]] anda.',
+	'notification-article-linked2' => '$3 {{PLURAL:$4|telah}} {{GENDER:$1|dipautkan}} oleh [[User:$1|$1]] dari halaman ini: [[$2]]',
+	'notification-article-linked-flyout2' => '$3 {{PLURAL:$4|telah}} {{GENDER:$1|dipautkan}} oleh $1 dari halaman ini: [[$2]]',
+	'notification-add-comment2' => '[[User:$1|$1]] telah {{GENDER:$1|mengulas}} tentang "[[$3|$2]]" di halaman perbualan "$4"',
+	'notification-add-talkpage-topic2' => '[[User:$1|$1]] telah mengepos topik baru, "$2", di [[$3]]',
+	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]] telah {{GENDER:$1|mengirim}} pesanan kepada anda: "[[$3#$2|$2]]"',
+	'notification-add-comment-yours2' => '[[User:$1|$1]] telah {{GENDER:$1|mengulas}} tentang "[[$3#$2|$2]]" di halaman perbualan anda',
 	'notification-new-user' => 'Selamat datang ke {{SITENAME}}, $1!',
 	'notification-new-user-content' => 'Jangan lupa untuk menandatangani sebarang komen pada halaman perbincangan dengan serentet 4 tanda tilde (~~~~).',
+	'notification-reverted2' => '{{PLURAL:$4|Suntingan|Suntingan-suntingan}} anda di [[$2]] telah {{GENDER:$1|dibalikkan}} oleh [[User:$1|$1]] $3',
+	'notification-reverted-flyout2' => '{{PLURAL:$4|Suntingan|Suntingan-suntingan}} anda di $2 telah {{GENDER:$1|dibalikkan}} oleh $1 $3',
+	'notification-edit-talk-page-email-subject2' => 'Anda mendapat pesanan baru di halaman perbualan',
+	'notification-edit-talk-page-email-body2' => 'Pengguna {{SITENAME}}, $1 telah {{GENDER:$1|mengepos}} di halaman perbualan anda:
+
+$3
+
+Baca selanjutnya:
+
+$2
+
+$4',
+	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|mengepos}} pada halaman perbualan anda',
+	'notification-article-linked-email-subject2' => '{{PLURAL:$2|Satu halaman|Halaman-halaman}} yang anda buka telah dipautkan di {{SITENAME}}',
+	'notification-article-linked-email-body2' => '$4 {{PLURAL:$5|telah}} {{GENDER:$1|dipautkan}} oleh pengguna {{SITENAME}}, $1, dari halaman ini: $2
+
+Baca selanjutnya:
+
+$3
+
+$6',
+	'notification-article-linked-email-batch-body2' => '$2 {{PLURAL:$3|telah}} {{GENDER:$1|dipautkan}} oleh $1',
+	'notification-reverted-email-subject2' => '{{PLURAL:$3|Suntingan|Suntingan-suntingan}} anda di $2 telah dibalikkan oleh $1',
+	'notification-reverted-email-body2' => '{{PLURAL:$7|Suntingan|Suntingan-suntingan}} anda di $2 telah {{GENDER:$1|dibalikkan}} oleh $1.
+
+$5
+
+Baca selanjutnya:
+
+$3
+
+$6',
+	'notification-reverted-email-batch-body2' => '{{PLURAL:$3|Suntingan|Suntingan-suntingan}} anda di $2 telah dibalikkan oleh $1',
 	'echo-email-subject-default' => 'Pemberitahuan baru di {{SITENAME}}',
 	'echo-email-body-default' => 'Anda menerima pemberitahuan baru di {{SITENAME}}:
 
@@ -2980,23 +3049,66 @@ $messages['sv'] = array(
 	'echo-desc' => 'Notifikationssystem',
 	'prefs-echo' => 'Meddelanden',
 	'prefs-displaynotifications' => 'Visningsalternativ',
-	'prefs-emailsubscriptions' => 'Meddela mig via e-post när någon',
-	'prefs-emailfrequency' => 'Hur ofta jag får aviseringar via e-post', # Fuzzy
-	'echo-pref-email-edit-user-talk' => 'Inlägg på min diskussionssida',
-	'echo-pref-email-reverted' => 'Återställer min redigering',
+	'prefs-emailfrequency' => 'När vill du få e-postmeddelanden?',
+	'prefs-echosubscriptions' => 'Meddela mig när någon...',
+	'echo-pref-web' => 'Webb',
+	'echo-pref-email' => 'E-post',
+	'echo-pref-subscription-edit-user-talk' => 'Inlägg på min diskussionssida',
+	'echo-pref-subscription-article-linked' => 'Skapar en länk till en sida som jag skapade',
+	'echo-pref-subscription-reverted' => 'Återställer min redigering',
 	'echo-pref-email-frequency-never' => 'Skicka mig inte några aviseringar via e-postmeddelanden',
 	'echo-pref-email-frequency-immediately' => 'Enskilda meddelanden när de kommer',
 	'echo-pref-email-frequency-daily' => 'En daglig sammanfattning av aviseringar',
 	'echo-pref-email-frequency-weekly' => 'En veckosammanfattning av aviseringar',
+	'echo-pref-notify-hide-link' => 'Dölj länken och märket för meddelanden i min verktygslist',
+	'echo-dismiss-button' => 'Avfärda',
+	'echo-dismiss-message' => 'Stäng av alla $1 notifieringar',
+	'echo-dismiss-title-edit-user-talk' => 'Diskussionssideinlägg',
+	'echo-dismiss-title-article-linked' => 'Sida länkad',
+	'echo-dismiss-title-reverted' => 'Redigering återställd',
 	'echo-no-agent' => '[Ingen]',
 	'echo-no-title' => '[Ingen sida]',
 	'echo-error-no-formatter' => 'Ingen formatering definierad för notifikation',
+	'echo-error-preference' => 'Fel: Kunde inte sätta användarens val',
+	'echo-error-token' => 'Fel: Det gick inte att hämta användar-token',
 	'notifications' => 'Meddelanden',
+	'tooltip-pt-notifications' => 'Dina notifieringar',
 	'echo-specialpage' => 'Mina meddelanden',
 	'echo-anon' => 'För att ta emot meddelanden, [[Special:Userlogin/signup|skapa ett konto]] eller [[Special:UserLogin|logga in]].',
 	'echo-none' => 'Du har inga meddelanden.',
+	'echo-more-info' => 'Mer information',
+	'notification-edit-talk-page2' => '[[User:$1|$1]] {{GENDER:$1|postade}} på din [[User talk:$2|diskussionssida]].',
+	'notification-edit-talk-page-flyout2' => '$1 {{GENDER:$1|postade}} på din [[User talk:$2|diskussionssida]].',
+	'notification-article-linked2' => '$3 {{PLURAL:$4|blev|blev}} {{GENDER:$1|länkad}} av [[User:$1|$1]] från denna sida: [[$2]]', # Fuzzy
+	'notification-article-linked-flyout2' => '$3 {{PLURAL:$4|blev}} {{GENDER:$1|länkad}} av $1 från denna sida: [[$2]]',
+	'notification-add-comment2' => '[[User:$1|$1]] {{GENDER:$1|kommenterade}} "[[$3|$2]]" på diskussionssidan för "$4"',
+	'notification-add-talkpage-topic2' => '[[User:$1|$1]] {{GENDER:$1|postade}} ett nytt ämne "$2" på [[$3]]',
+	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]] {{GENDER:$1|skickade}} ett meddelande till dig: "[[$3#$2|$2]]"',
+	'notification-add-comment-yours2' => '[[User:$1|$1]] {{GENDER:$1|kommenterade}} "[[$3#$2|$2]]" på din diskussionssida',
 	'notification-new-user' => 'Välkommen till {{SITENAME}},  $1!',
 	'notification-new-user-content' => 'Kom ihåg att underteckna kommentarer på diskussionssidor med 4 tilde (~~~~).',
+	'notification-reverted2' => '{{PLURAL:$4|Din redigering|Dina redigeringar}} på [[$2]] har {{GENDER:$1|återställts}} av [[User:$1|$1]] $3',
+	'notification-reverted-flyout2' => '{{PLURAL:$4|Din redigering|Dina redigeringar}} på [[$2]] har {{GENDER:$1|återställts}} av $1 $3', # Fuzzy
+	'notification-edit-talk-page-email-subject2' => 'Du har ett nytt meddelande på diskussionssidan',
+	'notification-edit-talk-page-email-body2' => '{{SITENAME}} användare $1 {{GENDER:$1|postade}} på din diskussionssida:
+
+$3
+
+Se mer:
+
+$2
+
+$4',
+	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|postade}} på din diskussionssida',
+	'notification-article-linked-email-subject2' => '{{PLURAL:$2|En sida|Sidor}} du skapade {{PLURAL:$2|blev}} länkade på {{SITENAME}}',
+	'notification-article-linked-email-body2' => '$4 {{PLURAL:$5|blev}} {{GENDER:$1|länkade}} av {{SITENAME}}-användare $1, från denna sida: $2 
+
+Se mer:
+
+$3
+
+$6',
+	'notification-article-linked-email-batch-body2' => '$2 {{PLURAL:$3|blev}} {{GENDER:$1|länkad}} av $1',
 	'echo-email-subject-default' => 'Nytt meddelande på {{SITENAME}}',
 	'echo-email-body-default' => 'Du har ett nytt meddelande på {{SITENAME}}:
 
