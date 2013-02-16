@@ -55,7 +55,7 @@
 						$ul = $( '<ul class="mw-echo-notifications"></ul>' ),
 						titleText = '';
 
-					$ul.css( 'max-height', notificationLimit * 85 + 'px' );
+					$ul.css( 'max-height', notificationLimit * 95 + 'px' );
 					$.each( notifications.index, function( index, id ) {
 						var data = notifications.list[id];
 						var $li = $( '<li></li>' )

@@ -209,11 +209,12 @@ $wgEchoEmailFooterAddress = '';
 // The max notification count showed in badge
 $wgEchoMaxNotificationCount = 99;
 
+// Define which output formats are available for each notification category
 $wgEchoDefaultNotificationTypes = array(
 	'all' => array(
 		'web' => true,
 		'email' => true,
-	)
+	),
 );
 
 // Definitions of the different types of notification delivery that are possible.
@@ -224,65 +225,58 @@ $wgEchoNotifiers = array(
 	'email' => array( 'EchoNotifier', 'notifyWithEmail' ),
 );
 
-// Event types that should have notifications enabled.
-// The list here only includes event types handled by Echo itself. Other
-// extensions can add to this list through the BeforeCreateEchoEvent hook.
-$wgEchoEnabledEvents = array(
-	'welcome', // A user created an account
-	'edit-user-talk', // User talk page is edited
-	'reverted', // An edit is undone or rolled-back
-	'article-linked', // A page a user created is linked from another page
-	'mention', // Username is mentioned with a link on a talk page (other than the mentioned user)
-	// These aren't ready yet, specifically they have no means of subscription
-#	'add-comment', // A signed comment is added to an existing section
-#	'add-talkpage-topic', // A new section is added to a talk page
-);
-
-// This array stores the configuration info for enabled events.
-// Possible parameters include category, priority, and usergroups.
-// If an event is not specified, it means the event belongs to the
-// 'other' category with priority 10, which is the lowest,
-// priority is ranging from 1 to 10.
+// Define the categories that notifications can belong to. Categories can be
+// assigned the following parameters: priority, nodismiss, and usergroups. All
+// parameters are optional.
+// If a notifications type doesn't have a category parameter, it is
+// automatically assigned to the 'other' category which is lowest priority and
+// has no preferences or dismissibility.
+// The priority parameter controls the order in which notifications are
+// displayed in preferences and batch emails. Priority ranges from 1 to 10. If
+// the priority is not specified, it defaults to 10, which is the lowest.
 // The usergroups param specifies an array of usergroups eligible to recieve the
-// notification type. If no usergroups parameter exists, all groups are eligible.
-$wgEchoEventDetails = array(
-	'welcome' => array(
-		'nodismiss' => array( 'web', 'email' ),
-		'group' => 'positive',
+// notifications in the category. If no usergroups parameter is specified, all
+// groups are eligible.
+// The nodismiss parameter disables the dismissability of notifications in the
+// category. It can either be set to an array of output formats (see
+// $wgEchoNotifiers) or an array containing 'all'.
+$wgEchoNotificationCategories = array(
+	'system' => array(
+		'priority' => 9,
+		'no-dismiss' => array( 'all' ),
+	),
+	'other' => array(
+		'no-dismiss' => array( 'all' ),
 	),
 	'edit-user-talk' => array(
-		'category' => 'edit-user-talk',
 		'priority' => 1,
-		'nodismiss' => array( 'web' ),
-		'group' => 'interactive',
+		'no-dismiss' => array( 'web' ),
 	),
 	'reverted' => array(
-		'category' => 'edit-revert',
 		'priority' => 9,
-		'group' => 'negative',
 	),
 	'article-linked' => array(
-		'category' => 'cross-reference',
 		'priority' => 5,
-		'group' => 'positive',
 	),
 	'mention' => array(
-		'category' => 'mention',
 		'priority' => 4,
-		'group' => 'interactive',
 	),
 );
 
 // Definitions of the notification event types built into Echo.
 // If formatter-class isn't specified, defaults to EchoBasicFormatter.
-$wgEchoNotificationFormatters = array(
+$wgEchoNotifications = array(
 	'welcome' => array(
+		'category' => 'system',
+		'group' => 'positive',
 		'title-message' => 'notification-new-user',
 		'title-params' => array( 'agent' ),
 		'payload' => array( 'welcome' ),
 		'icon' => 'w',
 	),
 	'edit-user-talk' => array(
+		'category' => 'edit-user-talk',
+		'group' => 'interactive',
 		'formatter-class' => 'EchoEditFormatter',
 		'title-message' => 'notification-edit-talk-page2',
 		'title-params' => array( 'agent', 'user' ),
@@ -296,23 +290,9 @@ $wgEchoNotificationFormatters = array(
 		'email-body-batch-params' => array( 'agent', 'difflink', 'summary' ),
 		'icon' => 'chat',
 	),
-	'add-comment' => array(
-		'formatter-class' => 'EchoCommentFormatter',
-		'title-message' => 'notification-add-comment2',
-		'title-message-yours' => 'notification-add-comment-yours2',
-		'title-params' => array( 'agent', 'subject', 'title', 'content-page' ),
-		'payload' => array( 'snippet' ),
-		'icon' => 'chat',
-	),
-	'add-talkpage-topic' => array(
-		'formatter-class' => 'EchoCommentFormatter',
-		'title-message' => 'notification-add-talkpage-topic2',
-		'title-message-yours' => 'notification-add-talkpage-topic-yours2',
-		'title-params' => array( 'agent', 'subject', 'title', 'content-page' ),
-		'payload' => array( 'snippet' ),
-		'icon' => 'chat',
-	),
 	'reverted' => array(
+		'category' => 'reverted',
+		'group' => 'negative',
 		'formatter-class' => 'EchoEditFormatter',
 		'title-message' => 'notification-reverted2',
 		'title-params' => array( 'agent', 'title', 'difflink', 'number' ),
@@ -328,6 +308,8 @@ $wgEchoNotificationFormatters = array(
 		'icon' => 'revert',
 	),
 	'article-linked' => array(
+		'category' => 'article-linked',
+		'group' => 'positive',
 		'formatter-class' => 'EchoArticleLinkedFormatter',
 		'title-message' => 'notification-article-linked2',
 		'title-params' => array( 'agent', 'title',  'title-linked' ),
@@ -343,6 +325,8 @@ $wgEchoNotificationFormatters = array(
 		'icon' => 'linked',
 	),
 	'mention' => array(
+		'category' => 'mention',
+		'group' => 'interactive',
 		'formatter-class' => 'EchoCommentFormatter',
 		'title-message' => 'notification-mention',
 		'title-params' => array( 'agent', 'subject', 'title' ),
@@ -368,15 +352,16 @@ $wgDefaultUserOptions['echo-notify-link'] = 'true';
 $wgDefaultUserOptions['echo-email-frequency'] = EchoHooks::EMAIL_IMMEDIATELY;
 
 // Set all of the events to notify by web and email by default (won't affect events that don't email)
-foreach ( $wgEchoEnabledEvents as $wgEchoEnabledEvent ) {
-	$wgDefaultUserOptions['echo-email-notifications' . $wgEchoEnabledEvent] = true;
-	$wgDefaultUserOptions['echo-web-notifications' . $wgEchoEnabledEvent] = true;
+foreach ( $wgEchoNotifications as $notification => $notificationData ) {
+	foreach ( $wgEchoNotifiers as $notifierType => $notifierData ) {
+		$wgDefaultUserOptions["echo-subscriptions-{$notifierType}-{$notification}"] = true;
+	}
 }
 // unset default email for reverted, article-linked (change them to opt-in)
-$wgDefaultUserOptions['echo-email-notificationsreverted'] = false;
-$wgDefaultUserOptions['echo-email-notificationsarticle-linked'] = false;
+$wgDefaultUserOptions['echo-subscriptions-email-reverted'] = false;
+$wgDefaultUserOptions['echo-subscriptions-email-article-linked'] = false;
 
-// Echo Configuration
+// Echo Configuration for EventLogging
 $wgEchoConfig = array(
 	'version' => '1.0',
 	'eventlogging' => array (

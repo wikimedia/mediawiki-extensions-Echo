@@ -11,7 +11,12 @@ class EchoHooks {
 	 * from $wgExtensionFunctions
 	 */
 	public static function initEchoExtension() {
-		global $wgEchoBackend, $wgEchoBackendName;
+		global $wgEchoBackend, $wgEchoBackendName, $wgEchoNotifications,
+			$wgEchoNotificationCategories;
+
+		// allow extensions to define their own event
+		wfRunHooks( 'BeforeCreateEchoEvent', array( &$wgEchoNotifications, &$wgEchoNotificationCategories ) );
+
 		$wgEchoBackend = MWEchoBackend::factory( $wgEchoBackendName );
 	}
 
@@ -230,7 +235,8 @@ class EchoHooks {
 	 * @return bool true in all cases
 	 */
 	public static function getPreferences( $user, &$preferences ) {
-		global $wgEchoDefaultNotificationTypes, $wgAuth, $wgEchoEnableEmailBatch, $wgEchoEventDetails;
+		global $wgEchoDefaultNotificationTypes, $wgAuth, $wgEchoEnableEmailBatch,
+			$wgEchoNotifiers, $wgEchoNotificationCategories;
 
 		// Show email frequency options
 		$never = wfMessage( 'echo-pref-email-frequency-never' )->plain();
@@ -281,62 +287,74 @@ class EchoHooks {
 			'section' => 'echo/emailfrequency'
 		);
 
-		// Sort events by priority
-		$eventsAndPriorities = array();
-		foreach ( EchoEvent::gatherValidEchoEvents() as $enabledEvent ) {
-			if ( isset( $wgEchoEventDetails[$enabledEvent]['priority'] ) ) {
-				$eventsAndPriorities[$enabledEvent] = $wgEchoEventDetails[$enabledEvent]['priority'];
-			} else {
-				$eventsAndPriorities[$enabledEvent] = 10;
+		// Sort notification categories by priority
+		$categoriesAndPriorities = array();
+		foreach ( $wgEchoNotificationCategories as $category => $categoryData ) {
+			// See if the category is not dismissable at all. Must do strict
+			// comparison to true since no-dismiss can also be an array
+			if ( isset( $categoryData['no-dismiss'] ) && in_array( 'all' , $categoryData['no-dismiss'] ) ) {
+				continue;
+			}
+			// See if user is eligible to recieve this notification (per user group restrictions)
+			if ( EchoNotificationController::getCategoryEligibility( $user, $category ) ) {
+				$categoriesAndPriorities[$category] = EchoNotificationController::getCategoryPriority( $category );
 			}
 		}
-		asort( $eventsAndPriorities );
-		$eventsAndPriorities = array_keys( $eventsAndPriorities );
+		asort( $categoriesAndPriorities );
+		$validSortedCategories = array_keys( $categoriesAndPriorities );
 
 		// Show subscription options
+
+		// $oldPrefs are prefs that we are replacing
 		$oldPrefs['email']['edit-user-talk'] = 'enotifusertalkpages';
-		$subTypes = array( 'web', 'email' );
-		foreach ( $subTypes as $subType ) {
-			$options = array();
-			foreach ( $eventsAndPriorities as $enabledEvent ) {
-				if ( isset( $wgEchoEventDetails[$enabledEvent]['nodismiss'] )
-					&& in_array( $subType, $wgEchoEventDetails[$enabledEvent]['nodismiss'] ) )
-				{
-					continue;
-				}
-				// Make sure notifications of this subtype are possible for this event
-				if ( isset( $wgEchoDefaultNotificationTypes[$enabledEvent] ) ) {
-					if ( !$wgEchoDefaultNotificationTypes[$enabledEvent][$subType] ) {
-						continue;
-					}
-				// Make sure this subtype is an available notification type
-				} elseif ( !$wgEchoDefaultNotificationTypes['all'][$subType] ) {
-					continue;
-				}
-				// Make sure the user is eligible to recieve this type of notification
-				if ( !EchoNotificationController::getNotificationEligibility( $user, $enabledEvent ) ) {
-					continue;
-				}
-				$eventMessage = wfMessage( 'echo-pref-subscription-' . $enabledEvent )->plain();
-				$options[$eventMessage] = $enabledEvent;
-				// overwrite other preferences, if necessary
-				if ( isset( $oldPrefs[$subType][$enabledEvent] ) ) {
-					unset( $preferences[$oldPrefs[$subType][$enabledEvent]] );
-				}
-			}
-			$preferences['echo-' . $subType . '-notifications'] = array(
-				'type' => 'multiselect',
-				'label-message' => 'echo-pref-' . $subType,
-				'section' => 'echo/echosubscriptions',
-				'options' => $options,
-			);
+
+		// Build the columns (output formats)
+		$columns = array();
+		foreach ( $wgEchoNotifiers as $notifierType => $notifierData ) {
+			$formatMessage = wfMessage( 'echo-pref-' . $notifierType )->plain();
+			$columns[$formatMessage] = $notifierType;
 		}
 
-		// Show fly-out display prefs
-		$preferences['echo-notify-hide-link'] = array(
-			'type' => 'toggle',
-			'label-message' => 'echo-pref-notify-hide-link',
-			'section' => 'echo/displaynotifications',
+		// Build the rows (notification categories)
+		$rows = array();
+		foreach ( $validSortedCategories as $category ) {
+			$categoryMessage = wfMessage( 'echo-pref-subscription-' . $category )->plain();
+			$rows[$categoryMessage] = $category;
+		}
+
+		// Figure out the individual exceptions in the matrix and make them disabled
+		$removeOptions = array();
+		foreach ( $wgEchoNotifiers as $notifierType => $notifierData ) {
+			foreach ( $validSortedCategories as $category ) {
+				// See if this output format is non-dismissable
+				if ( isset( $wgEchoNotificationCategories[$category]['no-dismiss'] )
+					&& in_array( $notifierType, $wgEchoNotificationCategories[$category]['no-dismiss'] ) )
+				{
+					$removeOptions[] = "$notifierType-$category";
+				}
+
+				// Make sure this output format is possible for this notification category
+				if ( isset( $wgEchoDefaultNotificationTypes[$category] ) ) {
+					if ( !$wgEchoDefaultNotificationTypes[$category][$notifierType] ) {
+						$removeOptions[] = "$notifierType-$category";
+					}
+				} elseif ( !$wgEchoDefaultNotificationTypes['all'][$notifierType] ) {
+					$removeOptions[] = "$notifierType-$category";
+				}
+
+				// Unset redundant prefs while we're cycling through the matrix
+				if ( isset( $oldPrefs[$notifierType][$category] ) ) {
+					unset( $preferences[$oldPrefs[$notifierType][$category]] );
+				}
+			}
+		}
+
+		$preferences['echo-subscriptions'] = array(
+			'class' => 'HTMLCheckMatrix',
+			'section' => 'echo/echosubscriptions',
+			'rows' => $rows,
+			'columns' => $columns,
+			'remove-options' => $removeOptions,
 		);
 		return true;
 	}
@@ -357,7 +375,7 @@ class EchoHooks {
 	 * @return bool true in all cases
 	 */
 	public static function onArticleSaved( &$article, &$user, $text, $summary, $minoredit, $watchthis, $sectionanchor, &$flags, $revision, &$status ) {
-		global $wgEchoEnabledEvents, $wgRequest;
+		global $wgEchoNotifications, $wgRequest;
 		if ( $revision ) {
 			EchoEvent::create( array(
 				'type' => 'edit',
@@ -372,7 +390,7 @@ class EchoHooks {
 
 			// Handle the case of someone undoing an edit, either through the
 			// 'undo' link in the article history or via the API.
-			if ( in_array( 'reverted', $wgEchoEnabledEvents ) ) {
+			if ( isset( $wgEchoNotifications['reverted'] ) ) {
 				$undidRevId = $wgRequest->getVal( 'wpUndidRevision' );
 				if ( $undidRevId ) {
 					$undidRevision = Revision::newFromId( $undidRevId );
@@ -525,8 +543,8 @@ class EchoHooks {
 	 * @return bool true in all cases
 	 */
 	static function disableStandUserTalkEnotif() {
-		global $wgEchoEnabledEvents, $wgEnotifUserTalk;
-		if ( in_array( 'edit-user-talk', $wgEchoEnabledEvents ) ) {
+		global $wgEchoNotifications, $wgEnotifUserTalk;
+		if ( isset( $wgEchoNotifications['edit-user-talk'] ) ) {
 			// Disable the standard email notification for talk page messages
 			$wgEnotifUserTalk = false;
 		}
@@ -579,11 +597,11 @@ class EchoHooks {
 	 * @return bool
 	 */
 	static function abortNewTalkNotification( $page ) {
-		global $wgUser, $wgEchoEnabledEvents;
+		global $wgUser, $wgEchoNotifications;
 		// If the user has the notifications flyout turned on and is receiving
 		// notifications for talk page messages, disable the yellow-bar-style notice.
 		if ( !$wgUser->getOption( 'echo-notify-hide-link' )
-			&& in_array( 'edit-user-talk', $wgEchoEnabledEvents ) )
+			&& isset( $wgEchoNotifications['edit-user-talk'] ) )
 		{
 			return false;
 		} else {

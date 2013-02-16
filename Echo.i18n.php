@@ -31,9 +31,11 @@ $messages['en'] = array(
 	// Dismiss interface
 	'echo-dismiss-button' => 'Dismiss',
 	'echo-dismiss-message' => 'Turn off all $1 notifications',
+	'echo-dismiss-prefs-message' => 'You can turn these back on in Preferences',
 	'echo-dismiss-title-edit-user-talk' => 'Talk page post',
 	'echo-dismiss-title-article-linked' => 'Page linked',
 	'echo-dismiss-title-reverted' => 'Edit reverted',
+	'echo-dismiss-title-mention' => 'Mention',
 
 	// Errors
 	'echo-no-agent' => '[Nobody]',
@@ -155,10 +157,11 @@ $4
 
 $5',
 	'echo-email-batch-category-header-edit-user-talk' => '$1 talk page {{PLURAL:$1|message|messages}}',
-	'echo-email-batch-category-header-edit-revert' => '$1 edit {{PLURAL:$1|revert|reverts}}',
-	'echo-email-batch-category-header-cross-reference' => '$1 {{PLURAL:$1|cross reference|cross references}}',
+	'echo-email-batch-category-header-reverted' => '$1 {{PLURAL:$1|edit|edits}} reverted',
+	'echo-email-batch-category-header-article-linked' => '$1 {{PLURAL:$1|page|pages}} linked',
 	'echo-email-batch-category-header-mention' => '$1 {{PLURAL:$1|mention|mentions}}',
-	'echo-email-batch-category-header-other' => '$1 {{PLURAL:$1|other|others}}',
+	'echo-email-batch-category-header-other' => '$1 uncategorized {{PLURAL:$1|notification|notifications}}',
+	'echo-email-batch-category-header-system' => '$1 system {{PLURAL:$1|notification|notifications}}',
 );
 
 /** Message documentation (Message documentation)
@@ -456,20 +459,20 @@ See also:
 	'echo-email-batch-category-header-edit-user-talk' => 'E-mail batch section title for edit-user-talk category
 * $1 is the numeric count
 See also:
-* {{msg-mw|Echo-email-batch-category-header-edit-revert}}
-* {{msg-mw|Echo-email-batch-category-header-cross-reference}}
+* {{msg-mw|Echo-email-batch-category-header-reverted}}
+* {{msg-mw|Echo-email-batch-category-header-article-linked}}
 * {{msg-mw|Echo-email-batch-category-header-other}}',
-	'echo-email-batch-category-header-edit-revert' => 'E-mail batch section title for edit-revert category
+	'echo-email-batch-category-header-reverted' => 'E-mail batch section title for reverted category
 * $1 is the numeric count
 See also:
 * {{msg-mw|Echo-email-batch-category-header-edit-user-talk}}
-* {{msg-mw|Echo-email-batch-category-header-cross-reference}}
+* {{msg-mw|Echo-email-batch-category-header-article-linked}}
 * {{msg-mw|Echo-email-batch-category-header-other}}',
-	'echo-email-batch-category-header-cross-reference' => 'E-mail batch section title for cross-reference category
+	'echo-email-batch-category-header-article-linked' => 'E-mail batch section title for article-linked category
 * $1 is the numeric count
 See also:
 * {{msg-mw|Echo-email-batch-category-header-edit-user-talk}}
-* {{msg-mw|Echo-email-batch-category-header-edit-revert}}
+* {{msg-mw|Echo-email-batch-category-header-reverted}}
 * {{msg-mw|Echo-email-batch-category-header-other}}',
 	'echo-email-batch-category-header-mention' => 'E-mail batch section title for mention category
 * $1 is the numeric count',
@@ -477,8 +480,15 @@ See also:
 * $1 is the numeric count
 See also:
 * {{msg-mw|Echo-email-batch-category-header-edit-user-talk}}
-* {{msg-mw|Echo-email-batch-category-header-edit-revert}}
-* {{msg-mw|Echo-email-batch-category-header-cross-reference}}',
+* {{msg-mw|Echo-email-batch-category-header-reverted}}
+* {{msg-mw|Echo-email-batch-category-header-article-linked}}',
+	'echo-email-batch-category-header-system' => 'E-mail batch section title for system events category (events without user agents)
+* $1 is the numeric count
+See also:
+* {{msg-mw|Echo-email-batch-category-header-edit-user-talk}}
+* {{msg-mw|Echo-email-batch-category-header-reverted}}
+* {{msg-mw|Echo-email-batch-category-header-article-linked}}
+* {{msg-mw|Echo-email-batch-category-header-other}}',
 );
 
 /** Afrikaans (Afrikaans)

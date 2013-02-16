@@ -101,7 +101,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	 * @return array|string
 	 */
 	public function format( $event, $user, $type ) {
-		global $wgEchoEventDetails;
+		global $wgEchoNotificationCategories;
 
 		if ( $this->outputFormat === 'email' ) {
 			return $this->formatEmail( $event, $user, $type );
@@ -125,9 +125,13 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 		) . $output;
 
 		// Add the hidden dismiss interface if the notification is dismissable
-		if ( !isset( $wgEchoEventDetails[$event->type]['nodismiss'] )
-			|| !in_array( 'web', $wgEchoEventDetails[$event->type]['nodismiss'] ) )
-		{
+		$category = EchoNotificationController::getNotificationCategory( $event->type );
+		if ( isset( $wgEchoNotificationCategories[$category]['no-dismiss'] ) ) {
+			$noDismiss = $wgEchoNotificationCategories[$category]['no-dismiss'];
+		} else {
+			$noDismiss = array();
+		}
+		if ( !in_array( 'web', $noDismiss ) && !in_array( 'all' , $noDismiss ) ) {
 			$output .= $this->formatDismissInterface( $event, $user );
 		}
 
@@ -185,10 +189,14 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 		$dismissTitle = wfMessage( 'echo-dismiss-title-' . $event->type )
 			->inLanguage( $user->getOption( 'language' ) )
 			->escaped();
-		$dismiss = wfMessage( 'echo-dismiss-message', $dismissTitle )
+		$dismissMessage = wfMessage( 'echo-dismiss-message', $dismissTitle )
 			->inLanguage( $user->getOption( 'language' ) )
 			->text();
-		$dismiss = Xml::tags( 'div', array( 'class' => 'mw-echo-dismiss-message' ), $dismiss ) . "\n";
+		$dismiss = Xml::tags( 'div', array( 'class' => 'mw-echo-dismiss-message' ), $dismissMessage ) . "\n";
+		$prefsMessage = wfMessage( 'echo-dismiss-prefs-message' )
+			->inLanguage( $user->getOption( 'language' ) )
+			->text();
+		$dismiss .= Xml::tags( 'div', array( 'class' => 'mw-echo-prefs-dismiss-message' ), $prefsMessage ) . "\n";
 		$dismiss = Xml::tags( 'div', array( 'class' => 'mw-echo-dismiss', 'style' => 'display:none;' ), $dismiss ) . "\n";
 		return $dismiss;
 	}

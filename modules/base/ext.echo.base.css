@@ -25,7 +25,7 @@
 	color: #6D6D6D;
 	line-height: 90%;
 	margin: 0;
-	min-height: 40px;
+	min-height: 60px;
 	background-color: white;
 	position: relative;
 	/* Force container to expand to height of floated contents */
@@ -48,10 +48,18 @@
 	background-image: url(DismissOnHover.png);
 }
 .mw-echo-dismiss {
-	padding-left: 45px;
+	padding: 10px 40px 5px 60px;
 	background-color: #EDEDEE;
 	position: absolute;
 	top: 0;
 	left: 0;
 	z-index: 1;
+}
+.mw-echo-prefs-dismiss-message {
+	font-size: 10px;
+	line-height: 14px;
+}
+.mw-echo-cancel-link {
+	margin-left: 1em;
+	cursor: pointer;
 }

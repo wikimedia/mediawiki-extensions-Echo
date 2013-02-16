@@ -40,19 +40,78 @@ class EchoNotificationController {
 	 * (based on user groups, not user preferences)
 	 *
 	 * @param $user User object
-	 * @param $notificationType string A notification type defined in $wgEchoEventDetails
+	 * @param $notificationType string A notification type defined in $wgEchoNotifications
 	 * @return boolean
 	 */
 	public static function getNotificationEligibility( $user, $notificationType ) {
-		global $wgEchoEventDetails;
+		$category = EchoNotificationController::getNotificationCategory( $notificationType );
+		return EchoNotificationController::getCategoryEligibility( $user, $category );
+	}
+
+	/**
+	 * See if a user is eligible to recieve a certain type of notification
+	 * (based on user groups, not user preferences)
+	 *
+	 * @param $user User object
+	 * @param $category string A notification category defined in $wgEchoNotificationCategories
+	 * @return boolean
+	 */
+	public static function getCategoryEligibility( $user, $category ) {
+		global $wgEchoNotificationCategories;
 		$usersGroups = $user->getGroups();
-		if ( isset( $wgEchoEventDetails[$notificationType]['usergroups'] ) ) {
-			$allowedGroups = $wgEchoEventDetails[$notificationType]['usergroups'];
+		if ( isset( $wgEchoNotificationCategories[$category]['usergroups'] ) ) {
+			$allowedGroups = $wgEchoNotificationCategories[$category]['usergroups'];
 			if ( !array_intersect( $usersGroups, $allowedGroups ) ) {
 				return false;
 			}
 		}
 		return true;
+	}
+
+	/**
+	 * Get the priority for a specific notification type
+	 *
+	 * @param $notificationType string A notification type defined in $wgEchoNotifications
+	 * @return integer From 1 to 10 (10 is default)
+	 */
+	public static function getNotificationPriority( $notificationType ) {
+		$category = $this->getNotificationCategory( $notificationType );
+		return EchoNotificationController::getCategoryPriority( $category );
+	}
+
+	/**
+	 * Get the priority for a notification category
+	 *
+	 * @param $category string A notification category defined in $wgEchoNotificationCategories
+	 * @return integer From 1 to 10 (10 is default)
+	 */
+	public static function getCategoryPriority( $category ) {
+		global $wgEchoNotificationCategories;
+		if ( isset( $wgEchoNotificationCategories[$category]['priority'] ) ) {
+			$priority = $wgEchoNotificationCategories[$category]['priority'];
+			if ( $priority >= 1 && $priority <= 10 ) {
+				return $priority;
+			}
+		}
+		return 10;
+	}
+
+	/**
+	 * Get the notification category for a notification type
+	 *
+	 * @param $notificationType string A notification type defined in $wgEchoNotifications
+	 * @return String The name of the notification category or 'other' if no
+	 *     category is explicitly assigned.
+	 */
+	public static function getNotificationCategory( $notificationType ) {
+		global $wgEchoNotifications, $wgEchoNotificationCategories;
+		if ( isset( $wgEchoNotifications[$notificationType]['category'] ) ) {
+			$category = $wgEchoNotifications[$notificationType]['category'];
+			if ( isset( $wgEchoNotificationCategories[$category] ) ) {
+				return $category;
+			}
+		}
+		return 'other';
 	}
 
 	/**
@@ -240,19 +299,12 @@ class EchoNotificationController {
 	 *     and body (for emails), or an error message
 	 */
 	public static function formatNotification( $event, $user, $format = 'text', $type = 'web' ) {
-		global $wgEchoNotificationFormatters;
+		global $wgEchoNotifications;
 
 		$eventType = $event->getType();
 
-		static $runHook = true;
-		// this hook should only be executed once to gather valid formatter
-		if ( $runHook ) {
-			// allow extensions to define their own notification formatter
-			wfRunHooks( 'BeforeFormatEchoNotification', array( &$wgEchoNotificationFormatters ) );
-			$runHook = false;
-		}
-		if ( isset( $wgEchoNotificationFormatters[$eventType] ) ) {
-			$params = $wgEchoNotificationFormatters[$eventType];
+		if ( isset( $wgEchoNotifications[$eventType] ) ) {
+			$params = $wgEchoNotifications[$eventType];
 			$notifier = EchoNotificationFormatter::factory( $params );
 			$notifier->setOutputFormat( $format );
 

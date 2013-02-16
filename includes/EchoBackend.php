@@ -39,18 +39,19 @@ abstract class MWEchoBackend {
 	 * @return array
 	 */
 	protected function getUserEnabledEvents( $user, $outputFormat ) {
-		$eventTypesToLoad = EchoEvent::gatherValidEchoEvents();
-		foreach ( $eventTypesToLoad as $key => $eventType ) {
+		global $wgEchoNotifications;
+		$eventTypesToLoad = $wgEchoNotifications;
+		foreach ( $eventTypesToLoad as $eventType => $eventData ) {
 			// Make sure the user is eligible to recieve this type of notification
 			if ( !EchoNotificationController::getNotificationEligibility( $user, $eventType ) ) {
-				unset( $eventTypesToLoad[$key] );
+				unset( $eventTypesToLoad[$eventType] );
 			}
-			if ( !$user->getOption( 'echo-' . $outputFormat . '-notifications' . $eventType ) ) {
-				unset( $eventTypesToLoad[$key] );
+			if ( !$user->getOption( 'echo-subscriptions-' . $outputFormat . '-' . $eventType ) ) {
+				unset( $eventTypesToLoad[$eventType] );
 			}
 		}
 
-		return $eventTypesToLoad;
+		return array_keys( $eventTypesToLoad );
 	}
 
 	/**

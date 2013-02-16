@@ -95,15 +95,11 @@
 			var $notification = $( closeBox ).parent();
 			$( closeBox ).hide();
 			$notification.data( 'dismiss', true );
+			$notification.height( $notification.find( '.mw-echo-dismiss' ).height() - 10 );
 			$notification.find( '.mw-echo-dismiss' )
 				// Make sure the dismiss interface exactly covers the notification
-				.height( $notification.height() )
 				// Icon adds 45px to the notification
 				.width( $notification.width() - 45 )
-				.css( 'padding-top', $notification.css( 'padding-top' ) )
-				.css( 'padding-bottom', $notification.css( 'padding-bottom' ) )
-				.css( 'padding-right', $notification.css( 'padding-right' ) )
-				.css( 'padding-left', parseInt( $notification.css( 'padding-left' ) ) + 45 )
 				.show();
 			// Temprorarily ungrey-out read notifications
 			if ( !$notification.hasClass( 'mw-echo-unread' ) ) {
@@ -138,14 +134,13 @@
 				.click( function () {
 					_this.setOptionsToken( _this.dismiss, $notification );
 				} );
-			$cancelButton = $( '<button/>' )
+			$cancelButton = $( '<a/>' )
 				.text( mw.msg( 'cancel' ) )
-				.addClass( 'mw-echo-cancel-button' )
-				.addClass( 'ui-button-red' )
-				.button()
+				.addClass( 'mw-echo-cancel-link' )
 				.click( function () {
 					$notification.data( 'dismiss', false );
 					$notification.find( '.mw-echo-dismiss' ).hide();
+					$notification.css( 'height', 'auto' );
 					$closebox.show();
 					// Restore greyed-out state for read notifications
 					if ( !$notification.hasClass( 'mw-echo-unread' ) ) {

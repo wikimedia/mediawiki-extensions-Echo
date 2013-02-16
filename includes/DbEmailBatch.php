@@ -33,9 +33,11 @@ class MWDbEchoEmailBatch extends MWEchoEmailBatch {
 	 * @return array
 	 */
 	protected function getEvents() {
+		global $wgEchoNotifications;
+
 		$events = array();
 
-		$validEvents = EchoEvent::gatherValidEchoEvents();
+		$validEvents = array_keys( $wgEchoNotifications );
 
 		if ( $validEvents ) {
 			$dbr = wfGetDB( DB_SLAVE );

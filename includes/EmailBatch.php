@@ -145,13 +145,8 @@ abstract class MWEchoEmailBatch {
 	 * Add individual event template to the big email content
 	 */
 	protected function appendContent( $event ) {
-		global $wgEchoEventDetails;
-
 		// get the category for this event
-		$category = 'other';
-		if ( isset( $wgEchoEventDetails[$event->getType()]['category'] ) ) {
-			$category = $wgEchoEventDetails[$event->getType()]['category'];
-		}
+		$category = EchoNotificationController::getNotificationCategory( $event->getType() );
 
 		$email = EchoNotificationController::formatNotification( $event, $this->mUser, 'email' );
 		if ( !isset( $this->content[$category] ) ) {

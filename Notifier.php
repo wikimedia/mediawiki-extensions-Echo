@@ -10,18 +10,23 @@ class EchoNotifier {
 	 * @param $event EchoEvent to notify about.
 	 */
 	public static function notifyWithNotification( $user, $event ) {
-		global $wgEchoConfig, $wgEchoEventDetails;
+		global $wgEchoConfig, $wgEchoNotifications;
 
-		$notif = EchoNotification::create( array( 'user' => $user, 'event' => $event ) );
+		EchoNotification::create( array( 'user' => $user, 'event' => $event ) );
 
 		// Attempt event logging if Echo schema is enabled
 		if ( $wgEchoConfig['eventlogging']['Echo']['enabled'] ) {
-			$event  = $notif->getEvent();
-			$sender = $event->getAgent();
-			$user   = $notif->getUser();
+			$agent = $event->getAgent();
+			// Typically an event should always have an agent, but agent could be
+			// null if the data is corrupted
+			if ( $agent ) {
+				$sender = $agent->isAnon() ? $agent->getName() : $agent->getId();
+			} else {
+				$sender = 0;
+			}
 
-			if ( isset( $wgEchoEventDetails[$event->getType()]['group'] ) ) {
-				$group = $wgEchoEventDetails[$event->getType()]['group'];
+			if ( isset( $wgEchoNotifications[$event->getType()]['group'] ) ) {
+				$group = $wgEchoNotifications[$event->getType()]['group'];
 			} else {
 				$group = 'neutral';
 			}
@@ -31,7 +36,7 @@ class EchoNotifier {
 				'eventId' => $event->getId(),
 				'notificationType' => $event->getType(),
 				'notificationGroup' => $group,
-				'sender' => (string)( $sender->isAnon() ? $sender->getName() : $sender->getId() ),
+				'sender' => (string)$sender,
 				'recipientUserId' => $user->getId(),
 				'recipientEditCount' => (int)$user->getEditCount()
 			);
@@ -54,16 +59,12 @@ class EchoNotifier {
 			return false;
 		}
 		// See if the user wants to receive emails for this type of event
-		if ( $user->getOption( 'echo-email-notifications' . $event->getType() ) ) {
-			global $wgEchoEnableEmailBatch, $wgEchoEventDetails, $wgPasswordSender, $wgPasswordSenderName;
+		if ( $user->getOption( 'echo-subscriptions-email-' . $event->getType() ) ) {
+			global $wgEchoEnableEmailBatch, $wgPasswordSender, $wgPasswordSenderName;
 	
 			// batched email notification
 			if ( $wgEchoEnableEmailBatch && $user->getOption( 'echo-email-frequency' ) > 0 ) {
-				// default priority is 10
-				$priority = 10;
-				if ( isset( $wgEchoEventDetails[$event->getType()]['priority'] ) ) {
-					$priority = $wgEchoEventDetails[$event->getType()]['priority'];
-				}
+				$priority = EchoNotificationController::getNotificationPriority( $event->getType() );
 				MWEchoEmailBatch::addToQueue( $user->getId(), $event->getId(), $priority );
 				return true;
 			}
