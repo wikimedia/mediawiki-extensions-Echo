@@ -187,7 +187,23 @@ See also:
 	'echo-pref-email-frequency-weekly' => 'Option for users who want to receive a weekly digest of email notifications',
 	'echo-pref-notify-hide-link' => "Label for a preference which disables the 'Notifications' link in the header and associated fly-out panel",
 	'echo-dismiss-button' => 'Text for the button that dismisses a notification type. Keep this short.',
-	'echo-dismiss-message' => 'Message asking the user if they want to turn off all notifications of a certain type. $1 is the name of the type.',
+	'echo-dismiss-message' => 'Message asking the user if they want to turn off all notifications of a certain type. Parameters:
+* $1 - the name of the type; one of the following:
+** {{msg-mw|Echo-dismiss-title-welcome}}
+** {{msg-mw|Echo-dismiss-title-edit-user-talk}}
+** {{msg-mw|Echo-dismiss-title-reverted}}
+** {{msg-mw|Echo-dismiss-title-article-linked}}
+** {{msg-mw|Echo-dismiss-title-add-comment}} (not ready yet)
+** {{msg-mw|Echo-dismiss-title-add-talkpage-topic}} (not ready yet)',
+	'echo-dismiss-title-edit-user-talk' => 'Used as the name of notification type.
+
+Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}}.',
+	'echo-dismiss-title-article-linked' => 'Used as the name of notification type.
+
+Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}}.',
+	'echo-dismiss-title-reverted' => 'Used as the name of notification type.
+
+Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}}.',
 	'echo-no-agent' => 'Shown in place of a username in a notification
 	if the notification has no specified user.',
 	'echo-no-title' => 'Shown in place of a page title in a notification if the notification has no specified page title.',
@@ -1825,6 +1841,9 @@ $messages['ja'] = array(
 	'echo-pref-email-frequency-weekly' => '通知を1週間ごとに要約',
 	'echo-pref-notify-hide-link' => '通知のリンクとバッジをツールバーに表示しない',
 	'echo-dismiss-message' => '$1での通知をすべて止める',
+	'echo-dismiss-title-edit-user-talk' => 'トークページヘの投稿',
+	'echo-dismiss-title-article-linked' => 'ページヘのリンク',
+	'echo-dismiss-title-reverted' => '編集の差し戻し',
 	'echo-no-agent' => '[送信者なし]',
 	'echo-no-title' => '[ページなし]',
 	'echo-error-no-formatter' => '通知の書式が定義されていません',
@@ -3079,7 +3098,7 @@ $messages['sv'] = array(
 	'echo-more-info' => 'Mer information',
 	'notification-edit-talk-page2' => '[[User:$1|$1]] {{GENDER:$1|postade}} på din [[User talk:$2|diskussionssida]].',
 	'notification-edit-talk-page-flyout2' => '$1 {{GENDER:$1|postade}} på din [[User talk:$2|diskussionssida]].',
-	'notification-article-linked2' => '$3 {{PLURAL:$4|blev|blev}} {{GENDER:$1|länkad}} av [[User:$1|$1]] från denna sida: [[$2]]', # Fuzzy
+	'notification-article-linked2' => '$3 {{PLURAL:$4|blev}} {{GENDER:$1|länkad}} av [[User:$1|$1]] från denna sida: [[$2]]', # Fuzzy
 	'notification-article-linked-flyout2' => '$3 {{PLURAL:$4|blev}} {{GENDER:$1|länkad}} av $1 från denna sida: [[$2]]',
 	'notification-add-comment2' => '[[User:$1|$1]] {{GENDER:$1|kommenterade}} "[[$3|$2]]" på diskussionssidan för "$4"',
 	'notification-add-talkpage-topic2' => '[[User:$1|$1]] {{GENDER:$1|postade}} ett nytt ämne "$2" på [[$3]]',
@@ -3088,7 +3107,7 @@ $messages['sv'] = array(
 	'notification-new-user' => 'Välkommen till {{SITENAME}},  $1!',
 	'notification-new-user-content' => 'Kom ihåg att underteckna kommentarer på diskussionssidor med 4 tilde (~~~~).',
 	'notification-reverted2' => '{{PLURAL:$4|Din redigering|Dina redigeringar}} på [[$2]] har {{GENDER:$1|återställts}} av [[User:$1|$1]] $3',
-	'notification-reverted-flyout2' => '{{PLURAL:$4|Din redigering|Dina redigeringar}} på [[$2]] har {{GENDER:$1|återställts}} av $1 $3', # Fuzzy
+	'notification-reverted-flyout2' => '{{PLURAL:$4|Din redigering|Dina redigeringar}} på $2 har {{GENDER:$1|återställts}} av $1 $3', # Fuzzy
 	'notification-edit-talk-page-email-subject2' => 'Du har ett nytt meddelande på diskussionssidan',
 	'notification-edit-talk-page-email-body2' => '{{SITENAME}} användare $1 {{GENDER:$1|postade}} på din diskussionssida:
 
@@ -3109,6 +3128,7 @@ $3
 
 $6',
 	'notification-article-linked-email-batch-body2' => '$2 {{PLURAL:$3|blev}} {{GENDER:$1|länkad}} av $1',
+	'notification-reverted-email-subject2' => '{{PLURAL:$3|Din redigering|Dina redigeringar}} på $2 blev {{GENDER:$1|återställda}} av $1',
 	'echo-email-subject-default' => 'Nytt meddelande på {{SITENAME}}',
 	'echo-email-body-default' => 'Du har ett nytt meddelande på {{SITENAME}}:
 
