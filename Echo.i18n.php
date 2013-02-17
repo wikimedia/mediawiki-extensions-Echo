@@ -189,12 +189,9 @@ See also:
 	'echo-dismiss-button' => 'Text for the button that dismisses a notification type. Keep this short.',
 	'echo-dismiss-message' => 'Message asking the user if they want to turn off all notifications of a certain type. Parameters:
 * $1 - the name of the type; one of the following:
-** {{msg-mw|Echo-dismiss-title-welcome}}
 ** {{msg-mw|Echo-dismiss-title-edit-user-talk}}
 ** {{msg-mw|Echo-dismiss-title-reverted}}
-** {{msg-mw|Echo-dismiss-title-article-linked}}
-** {{msg-mw|Echo-dismiss-title-add-comment}} (not ready yet)
-** {{msg-mw|Echo-dismiss-title-add-talkpage-topic}} (not ready yet)',
+** {{msg-mw|Echo-dismiss-title-article-linked}}',
 	'echo-dismiss-title-edit-user-talk' => 'Used as the name of notification type.
 
 Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}}.',
@@ -1576,10 +1573,15 @@ $5',
 );
 
 /** Hindi (हिन्दी)
+ * @author Akash.bhargude
  * @author Ansumang
  * @author Siddhartha Ghai
  */
 $messages['hi'] = array(
+	'prefs-echo' => 'मला  म़ारा',
+	'prefs-displaynotifications' => 'Display options',
+	'prefs-emailfrequency' => 'When would you like to receive e-mail notifications?',
+	'prefs-echosubscriptions' => 'Notify me when someone…',
 	'echo-no-agent' => '[कोई नहीं]',
 	'echo-no-title' => '[कोई पृष्ठ नहीं]',
 	'notifications' => 'सूचनाएँ',
@@ -1831,8 +1833,10 @@ $messages['ja'] = array(
 	'prefs-echo' => '通知',
 	'prefs-displaynotifications' => '表示の設定',
 	'prefs-emailfrequency' => 'メールで通知を受け取る頻度',
+	'prefs-echosubscriptions' => '以下の場合に通知を受け取る',
 	'echo-pref-web' => 'ウェブ',
 	'echo-pref-email' => 'メール',
+	'echo-pref-subscription-edit-user-talk' => '自分のトークページに誰かが投稿したとき',
 	'echo-pref-subscription-article-linked' => '自分が作成したページへのリンクを誰かが作成したとき',
 	'echo-pref-subscription-reverted' => '自分の編集を誰かが差し戻したとき',
 	'echo-pref-email-frequency-never' => '通知メールを何も受け取らない',
@@ -1840,7 +1844,7 @@ $messages['ja'] = array(
 	'echo-pref-email-frequency-daily' => '通知を1日ごとに要約',
 	'echo-pref-email-frequency-weekly' => '通知を1週間ごとに要約',
 	'echo-pref-notify-hide-link' => '通知のリンクとバッジをツールバーに表示しない',
-	'echo-dismiss-message' => '$1での通知をすべて止める',
+	'echo-dismiss-message' => '$1についての通知をすべて止める',
 	'echo-dismiss-title-edit-user-talk' => 'トークページヘの投稿',
 	'echo-dismiss-title-article-linked' => 'ページヘのリンク',
 	'echo-dismiss-title-reverted' => '編集の差し戻し',
@@ -2003,7 +2007,7 @@ $messages['ko'] = array(
 	'prefs-echo' => '알림',
 	'prefs-displaynotifications' => '보이기 설정',
 	'prefs-emailfrequency' => '언제 이메일 알림을 받겠습니까?',
-	'prefs-echosubscriptions' => '다른 사용자가 수행할 때 알림…',
+	'prefs-echosubscriptions' => '다음 경우에 알림…',
 	'echo-pref-web' => '웹',
 	'echo-pref-email' => '이메일',
 	'echo-pref-subscription-edit-user-talk' => '내 토론 문서에 대한 게시물',
@@ -2022,8 +2026,8 @@ $messages['ko'] = array(
 	'echo-no-agent' => '[알 수 없는 사용자]',
 	'echo-no-title' => '[문서 없음]',
 	'echo-error-no-formatter' => '알림에 대해 정의한 형식이 없습니다',
-	'echo-error-preference' => '<b>오류:</b> $1(을)를 설정할 수 없습니다.', # Fuzzy
-	'echo-error-token' => "<b>오류</b> '''오류''' {{SITENAME}} $1.", # Fuzzy
+	'echo-error-preference' => '오류: 사용자 환경 설정을 설정할 수 없습니다',
+	'echo-error-token' => '오류: 사용자 토큰을 얻을 수 없습니다',
 	'notifications' => '알림',
 	'tooltip-pt-notifications' => '내 알림',
 	'echo-specialpage' => '내 알림',
@@ -2496,19 +2500,28 @@ $messages['nl'] = array(
 	'echo-desc' => 'Meldingensysteem',
 	'prefs-echo' => 'Meldingen',
 	'prefs-displaynotifications' => 'Weergaveopties',
-	'prefs-emailsubscriptions' => 'Stuur mij een e-mail als iemand',
 	'prefs-emailfrequency' => 'Wanneer wilt u melding via e-mail ontvangen?',
-	'echo-pref-email-edit-user-talk' => 'Een bericht op mijn overlegpagina plaatst',
-	'echo-pref-email-article-linked' => 'Koppeling maakt naar een pagina die ik heb aangemaakt',
-	'echo-pref-email-reverted' => 'Een bewerking van mij terugdraait',
+	'prefs-echosubscriptions' => 'Stuur mij een melding wanneer iemand...',
+	'echo-pref-web' => 'Web',
+	'echo-pref-email' => 'E-mail',
+	'echo-pref-subscription-edit-user-talk' => 'Berichten op mijn overlegpagina',
+	'echo-pref-subscription-article-linked' => 'Koppeling maakt naar een pagina die ik heb aangemaakt',
+	'echo-pref-subscription-reverted' => 'Een bewerking van mij terugdraait',
 	'echo-pref-email-frequency-never' => 'Stuur mij geen meldingen via e-mail',
 	'echo-pref-email-frequency-immediately' => 'Individuele meldingen als ze binnenkomen',
 	'echo-pref-email-frequency-daily' => 'Een dagelijkse samenvatting van meldingen',
 	'echo-pref-email-frequency-weekly' => 'Een wekelijkse samenvatting van meldingen',
 	'echo-pref-notify-hide-link' => 'Verberg de koppeling en badge voor meldingen in mijn werkbalk',
+	'echo-dismiss-button' => 'Sluiten',
+	'echo-dismiss-message' => 'Alle meldingen uitschakelen over $1',
+	'echo-dismiss-title-edit-user-talk' => 'berichten op mijn overlegpagina',
+	'echo-dismiss-title-article-linked' => "gekoppelde pagina's",
+	'echo-dismiss-title-reverted' => 'teruggedraaide bewerkingen',
 	'echo-no-agent' => '[Niemand]',
 	'echo-no-title' => '[Geen pagina]',
 	'echo-error-no-formatter' => 'Er is geen opmaak ingesteld voor de melding',
+	'echo-error-preference' => 'Fout: de gebruikersinstelling kon niet ingesteld worden',
+	'echo-error-token' => 'Fout: het gebruikerstoken kon niet opgehaald worden',
 	'notifications' => 'Meldingen',
 	'tooltip-pt-notifications' => 'Uw meldingen',
 	'echo-specialpage' => 'Mijn meldingen',
@@ -3427,6 +3440,7 @@ $5',
  * @author Hydra
  * @author Liangent
  * @author Shirayuki
+ * @author Xiaomingyan
  * @author Yfdyh000
  * @author 乌拉跨氪
  */
@@ -3464,7 +3478,7 @@ $messages['zh-hans'] = array(
 	'notification-reverted2' => '您在[[$2]]上的 $4 次编辑已被[[User:$1|$1]]{{GENDER:$1|撤销}}$3',
 	'notification-reverted-flyout2' => '您在{{PLURAL:$4|$2的编辑}}已被$1{{GENDER:$1|回退}} $3',
 	'notification-edit-talk-page-email-subject2' => '您有一条新的讨论页消息',
-	'notification-edit-talk-page-email-body2' => '{{SITENAME}} 用户 $1 在您的讨论页{{GENDER:$1|留言}}：
+	'notification-edit-talk-page-email-body2' => '{{SITENAME}}用户$1在你的讨论页面{{GENDER:$1|留言了}}：
 
 $3
 
@@ -3473,7 +3487,7 @@ $3
 $2
 
 $4',
-	'notification-edit-talk-page-email-batch-body2' => '$1 在您的讨论页{{GENDER:$1|留言}}',
+	'notification-edit-talk-page-email-batch-body2' => '$1在你的讨论页面{{GENDER:$1|留言了}}',
 	'notification-article-linked-email-subject2' => '您在{{SITENAME}}上创建的{{PLURAL:$2|一个页面|页面}}被连接',
 	'notification-article-linked-email-body2' => '$4{{PLURAL:$5|已被}}{{SITENAME}}用户$1{{GENDER:$1|链接}}，链接来自页面：$2
 
@@ -3500,8 +3514,7 @@ $6',
 $1',
 	'echo-email-footer-default' => '$2
 
-要调控发送给您的电子邮件，请访问
-{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
+管理你想要接收的电子邮件的种类，请访问：{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
 
 $1',
 	'echo-link-new' => '$1条新通知',
