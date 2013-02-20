@@ -173,9 +173,13 @@ $messages['qqq'] = array(
 	'echo-pref-web' => 'Label for list of notifications which are delivered on the web. In other words, on the wiki itself rather by email or another method.',
 	'echo-pref-email' => 'Label for list of notifications which are delivered via email.
 {{Identical|E-mail}}',
-	'echo-pref-subscription-edit-user-talk' => "Option for getting notifications when someone posts on the user's talk page. This is the conclusion of the sentence begun by the header: {{msg-mw|prefs-echosubscriptions}}.",
+	'echo-pref-subscription-edit-user-talk' => "Option for getting notifications when someone posts on the user's talk page.
+
+This is the conclusion of the sentence begun by the header: {{msg-mw|Prefs-echosubscriptions}}.",
 	'echo-pref-subscription-article-linked' => 'Option for getting notifications when someone creates a link to a page created by the user. This is the conclusion of the sentence begun by the header: {{msg-mw|prefs-echosubscriptions}}.',
-	'echo-pref-subscription-reverted' => "Option for getting notifications when someone reverts the user's edit. This is the conclusion of the sentence begun by the header: {{msg-mw|prefs-echosubscriptions}}.",
+	'echo-pref-subscription-reverted' => "Option for getting notifications when someone reverts the user's edit.
+
+This is the conclusion of the sentence begun by the header: {{msg-mw|Prefs-echosubscriptions}}.",
 	'echo-pref-email-frequency-never' => "Option for users who don't want to receive any email notifications
 
 See also:
