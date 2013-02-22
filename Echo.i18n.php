@@ -644,6 +644,25 @@ $5',
 	'echo-email-batch-category-header-other' => '$1 {{PLURAL:$1|іншая|іншыя|іншых}}',
 );
 
+/** Bulgarian (български)
+ * @author DCLXVI
+ */
+$messages['bg'] = array(
+	'prefs-echo' => 'Известия',
+	'echo-pref-web' => 'Уеб',
+	'echo-pref-email' => 'Е-поща',
+	'notifications' => 'Известия',
+	'echo-specialpage' => 'Моите известия',
+	'echo-more-info' => 'Повече информация',
+	'echo-link' => 'Известия',
+	'echo-overlay-link' => 'Всички известия',
+	'echo-overlay-title' => 'Моите известия',
+	'echo-overlay-title-overflow' => 'Моите известия (показване на $1 от $2 непрочетени)',
+	'echo-date-today' => 'Днес',
+	'echo-date-yesterday' => 'Вчера',
+	'echo-load-more-error' => 'Възникна грешка при извличане на още резултати.',
+);
+
 /** Breton (brezhoneg)
  * @author Fohanno
  * @author Fulup
