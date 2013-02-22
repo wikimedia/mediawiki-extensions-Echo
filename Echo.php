@@ -56,7 +56,7 @@ $wgAutoloadClasses['EchoNotificationFormatter'] = $dir . 'formatters/Notificatio
 $wgAutoloadClasses['EchoBasicFormatter'] = $dir . 'formatters/BasicFormatter.php';
 $wgAutoloadClasses['EchoEditFormatter'] = $dir . 'formatters/EditFormatter.php';
 $wgAutoloadClasses['EchoCommentFormatter'] = $dir . 'formatters/CommentFormatter.php';
-$wgAutoloadClasses['MWEchoArticleLinkedFormatter'] = $dir . 'formatters/ArticleLinkedFormatter.php';
+$wgAutoloadClasses['EchoArticleLinkedFormatter'] = $dir . 'formatters/ArticleLinkedFormatter.php';
 
 // Internal stuff
 $wgAutoloadClasses['EchoNotifier'] = $dir . 'Notifier.php';
@@ -259,17 +259,17 @@ $wgEchoEventDetails = array(
 	),
 );
 
-// Definitions of the notification event types built into Echo
+// Definitions of the notification event types built into Echo.
+// If formatter-class isn't specified, defaults to EchoBasicFormatter.
 $wgEchoNotificationFormatters = array(
 	'welcome' => array(
-		'type' => 'system',
 		'title-message' => 'notification-new-user',
 		'title-params' => array( 'agent' ),
 		'payload' => array( 'welcome' ),
 		'icon' => 'w',
 	),
 	'edit-user-talk' => array(
-		'type' => 'edit',
+		'formatter-class' => 'EchoEditFormatter',
 		'title-message' => 'notification-edit-talk-page2',
 		'title-params' => array( 'agent', 'user' ),
 		'payload' => array( 'summary' ),
@@ -283,7 +283,7 @@ $wgEchoNotificationFormatters = array(
 		'icon' => 'chat',
 	),
 	'add-comment' => array(
-		'type' => 'comment',
+		'formatter-class' => 'EchoCommentFormatter',
 		'title-message' => 'notification-add-comment2',
 		'title-message-yours' => 'notification-add-comment-yours2',
 		'title-params' => array( 'agent', 'subject', 'title', 'content-page' ),
@@ -291,7 +291,7 @@ $wgEchoNotificationFormatters = array(
 		'icon' => 'chat',
 	),
 	'add-talkpage-topic' => array(
-		'type' => 'comment',
+		'formatter-class' => 'EchoCommentFormatter',
 		'title-message' => 'notification-add-talkpage-topic2',
 		'title-message-yours' => 'notification-add-talkpage-topic-yours2',
 		'title-params' => array( 'agent', 'subject', 'title', 'content-page' ),
@@ -299,7 +299,7 @@ $wgEchoNotificationFormatters = array(
 		'icon' => 'chat',
 	),
 	'reverted' => array(
-		'type' => 'edit',
+		'formatter-class' => 'EchoEditFormatter',
 		'title-message' => 'notification-reverted2',
 		'title-params' => array( 'agent', 'title', 'difflink', 'number' ),
 		'payload' => array( 'summary' ),
@@ -314,7 +314,7 @@ $wgEchoNotificationFormatters = array(
 		'icon' => 'revert',
 	),
 	'article-linked' => array(
-		'class' => 'MWEchoArticleLinkedFormatter',
+		'formatter-class' => 'EchoArticleLinkedFormatter',
 		'title-message' => 'notification-article-linked2',
 		'title-params' => array( 'agent', 'title',  'title-linked' ),
 		'payload' => array( 'summary' ),

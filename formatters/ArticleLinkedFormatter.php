@@ -3,7 +3,7 @@
 /**
  * Formatter for 'article-linked' notifications
  */
-class MWEchoArticleLinkedFormatter extends EchoEditFormatter {
+class EchoArticleLinkedFormatter extends EchoEditFormatter {
 
 	/**
 	 * @param $event EchoEvent
