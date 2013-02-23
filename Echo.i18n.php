@@ -652,6 +652,7 @@ $messages['bg'] = array(
 	'echo-pref-web' => 'Уеб',
 	'echo-pref-email' => 'Е-поща',
 	'notifications' => 'Известия',
+	'tooltip-pt-notifications' => 'Вашите известия',
 	'echo-specialpage' => 'Моите известия',
 	'echo-more-info' => 'Повече информация',
 	'echo-link' => 'Известия',
