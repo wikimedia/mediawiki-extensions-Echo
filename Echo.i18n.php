@@ -272,10 +272,6 @@ See also:
 * $4 is the page on which the discussion exists, plain text.
 See also:
 * {{msg-mw|Notification-add-comment-yours2}}',
-	'notification-mention' => 'Format for displaying notifications of a comment including a link to another user\'s user page. Parameters:
-* $1 is the username of the person who edited, plain text. Can be used for GENDER
-* $2 is the section title of the discussion
-* $3 is a link to a page and section.',
 	'notification-add-talkpage-topic2' => 'Format for displaying notifications of a new discussion being added
 * $1 is the username of the person who edited, plain text. Can be used for GENDER.
 * $2 is the section title of the discussion.
@@ -293,6 +289,10 @@ See also:
 * $3 link to user talk page.
 See also:
 * {{msg-mw|Notification-add-comment2}}',
+	'notification-mention' => "Format for displaying notifications of a comment including a link to another user's user page. Parameters:
+* $1 is the username of the person who edited, plain text. Can be used for GENDER
+* $2 is the section title of the discussion
+* $3 is a link to a page and section.",
 	'notification-talkpage-content' => 'Message shown as the "content" of a talkpage-related action.
 * $1 is the content of the talk page post.
 
@@ -845,6 +845,7 @@ $messages['de'] = array(
 	'echo-pref-subscription-edit-user-talk' => 'Nachrichten auf meiner Diskussionsseite hinterlässt',
 	'echo-pref-subscription-article-linked' => 'Verlinkungen zu einer von mir erstellten Seite vornimmt',
 	'echo-pref-subscription-reverted' => 'Bearbeitungen von mir rückgängig macht',
+	'echo-pref-subscription-mention' => 'auf meine Benutzerseite verlinkt',
 	'echo-pref-email-frequency-never' => 'Keine Benachrichtigungen',
 	'echo-pref-email-frequency-immediately' => 'Individuelle Benachrichtigung zu jedem Ereignis',
 	'echo-pref-email-frequency-daily' => 'Tägliche Benachrichtigung zu den Ereignissen',
@@ -874,6 +875,8 @@ $messages['de'] = array(
 	'notification-add-talkpage-topic2' => '[[User:$1|$1]] {{GENDER:$1|startete}} das neue Thema „$2“ auf [[$3]]',
 	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]] hat dir eine Nachricht {{GENDER:$1|gesandt}}: „[[$3#$2|$2]]“',
 	'notification-add-comment-yours2' => '[[User:$1|$1]] {{GENDER:$1|kommentierte}} auf „[[$3#$2|$2]]“ auf deiner Diskussionsseite',
+	'notification-mention' => '[[User:$1|$1]] {{GENDER:$1|erwähnte}} dich auf „[[$3#$2|$3]]“.',
+	'notification-mention-flyout' => '$1 {{GENDER:$1|erwähnte}} dich auf „[[$3#$2|$3]]“.',
 	'notification-new-user' => 'Willkommen bei {{SITENAME}}, $1!',
 	'notification-new-user-content' => 'Bitte vergiss nicht alle Beiträge auf Diskussionsseiten mit 4 Tilden (~~~~) zu signieren.',
 	'notification-reverted2' => 'Deine {{PLURAL:$4|Bearbeitung an der Seite [[$2]] wurde|Bearbeitungen an der Seite [[$2]] wurden}} von [[User:$1|$1]] {{GENDER:$1|rückgängig}} gemacht. $3',
@@ -909,6 +912,17 @@ $3
 
 $6',
 	'notification-reverted-email-batch-body2' => 'Deine {{PLURAL:$3|Bearbeitung an der Seite $2 wurde|Bearbeitungen an der Seite $2 wurden}} von $1 {{GENDER:$1|rückgängig}} gemacht',
+	'notification-mention-email-subject' => '$1 {{GENDER:$1|erwähnte}} dich auf {{SITENAME}}',
+	'notification-mention-email-body' => '{{GENDER:$1|Der {{SITENAME}}-Benutzer|Die {{SITENAME}}-Benutzerin}} $1 hat dich auf der Seite „$2“ erwähnt.
+
+$3
+
+Mehr:
+
+$4
+
+$5',
+	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|erwähnte}} dich auf „$2“',
 	'echo-email-subject-default' => 'Neue Benachrichtigung auf {{SITENAME}}',
 	'echo-email-body-default' => 'Es gibt eine neue Benachrichtigung auf {{SITENAME}}:
 
@@ -948,6 +962,7 @@ $5',
 	'echo-email-batch-category-header-edit-user-talk' => '{{PLURAL:$1|Eine Diskussionsseitennachricht|$1 Diskussionsseitennachrichten}}',
 	'echo-email-batch-category-header-edit-revert' => '{{PLURAL:$1|Eine Zurücksetzung|$1 Zurücksetzungen}}',
 	'echo-email-batch-category-header-cross-reference' => '{{PLURAL:$1|Ein Querverweis|$1 Querverweise}}',
+	'echo-email-batch-category-header-mention' => '{{PLURAL:$1|Eine Erwähnung|$1 Erwähnungen}}',
 	'echo-email-batch-category-header-other' => '{{PLURAL:$1|Eine andere|$1 andere}}',
 );
 
@@ -1241,6 +1256,7 @@ $messages['fr'] = array(
 	'echo-pref-subscription-edit-user-talk' => 'Messages sur ma page de discussion',
 	'echo-pref-subscription-article-linked' => "Crée un lien vers une page que j'ai créée",
 	'echo-pref-subscription-reverted' => 'Annuler ma modification',
+	'echo-pref-subscription-mention' => 'Liens vers ma page utilisateur',
 	'echo-pref-email-frequency-never' => "Ne pas m'envoyer de notification par courriel",
 	'echo-pref-email-frequency-immediately' => "Notifications individuelles au fil de l'eau",
 	'echo-pref-email-frequency-daily' => 'Un sommaire quotidien des notifications',
@@ -1270,6 +1286,8 @@ $messages['fr'] = array(
 	'notification-add-talkpage-topic2' => '[[User:$1|$1]] {{GENDER:$1|a publié}} un nouveau sujet "$2" sur [[$3]]',
 	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]] vous {{GENDER:$1|a envoyé}} un message: "[[$3#$2|$2]]"',
 	'notification-add-comment-yours2' => '[[User:$1|$1]] {{GENDER:$1|a fait un commentaire}} sur "[[$3#$2|$2]]" sur votre page de discussion',
+	'notification-mention' => '[[User:$1|$1]] vous {{GENDER:$1|a mentionné}} sur [[$3#$2|$3]].',
+	'notification-mention-flyout' => '$1 vous {{GENDER:$1|a mentionné}} sur [[$3#$2|$3]].',
 	'notification-new-user' => 'Bienvenue sur {{SITENAME}}, $1 !',
 	'notification-new-user-content' => "N'oubliez pas de signer vos commentaires sur les pages de discussion avec 4 tildes (~~~~).",
 	'notification-reverted2' => '{{PLURAL:$4|Votre modification sur [[$2]] a|Vos modifications sur [[$2]] ont}} été {{GENDER:$1|annulée}}{{PLURAL:$4||s}} par [[User:$1|$1]] $3',
@@ -1305,6 +1323,17 @@ $3
 
 $6',
 	'notification-reverted-email-batch-body2' => '{{PLURAL:$3|Votre modification sur $2 a été annulée|Vos modifications sur $2 ont été annulées}} {{GENDER:$1|}} par $1',
+	'notification-mention-email-subject' => '$1 vous {{GENDER:$1|a mentionné}} sur {{SITENAME}}',
+	'notification-mention-email-body' => 'L’utilisateur $1 de {{SITENAME}} vous {{GENDER:$1|a mentionné}} sur $2.
+
+$3
+
+En savoir plus:
+
+$4
+
+$5',
+	'notification-mention-email-batch-body' => '$1 vous {{GENDER:$1|a mentionné}} sur $2',
 	'echo-email-subject-default' => 'Nouvelle notification sur {{SITENAME}}',
 	'echo-email-body-default' => 'Vous avez une nouvelle notification sur {{SITENAME}} :
 
@@ -1344,6 +1373,7 @@ $5',
 	'echo-email-batch-category-header-edit-user-talk' => '$1 {{PLURAL:$1|message|messages}} de page de discussion',
 	'echo-email-batch-category-header-edit-revert' => '$1 {{PLURAL:$1|modification annulée|modifications annulées}}',
 	'echo-email-batch-category-header-cross-reference' => '$1 {{PLURAL:$1|référence croisée|références croisées}}',
+	'echo-email-batch-category-header-mention' => '$1 {{PLURAL:$1|mention|mentions}}',
 	'echo-email-batch-category-header-other' => '$1 {{PLURAL:$1|Autre|Autres}}',
 );
 
@@ -1420,6 +1450,7 @@ $messages['gl'] = array(
 	'echo-pref-subscription-edit-user-talk' => 'Deixe unha mensaxe na miña conversa',
 	'echo-pref-subscription-article-linked' => 'Cree unha ligazón cara a unha páxina que eu creei',
 	'echo-pref-subscription-reverted' => 'Reverta unha edición miña',
+	'echo-pref-subscription-mention' => 'Inclúa unha ligazón cara á miña páxina de usuario',
 	'echo-pref-email-frequency-never' => 'Non me enviedes ningunha notificación por correo electrónico',
 	'echo-pref-email-frequency-immediately' => 'Notificacións individuais en canto cheguen',
 	'echo-pref-email-frequency-daily' => 'Un resumo diario das notificacións',
@@ -1449,6 +1480,8 @@ $messages['gl'] = array(
 	'notification-add-talkpage-topic2' => '[[User:$1|$1]] {{GENDER:$1|comezou}} o fío de conversa "$2" en "[[$3]]"',
 	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]] {{GENDER:$1|envioulle}} unha mensaxe: "[[$3#$2|$2]]"',
 	'notification-add-comment-yours2' => '[[User:$1|$1]] {{GENDER:$1|comentou}} en "[[$3#$2|$2]]" na páxina de conversa',
+	'notification-mention' => '[[User:$1|$1]] {{GENDER:$1|fíxolle}} unha mención en "[[$3#$2|$3]]".',
+	'notification-mention-flyout' => '$1 {{GENDER:$1|fíxolle}} unha mención en "[[$3#$2|$3]]".',
 	'notification-new-user' => 'Dámoslle a benvida a {{SITENAME}}, $1!',
 	'notification-new-user-content' => 'Lembre asinar calquera comentario que deixe nas páxinas de conversa con 4 tiles (~~~~).',
 	'notification-reverted2' => '[[User:$1|$1]] {{GENDER:$1|reverteu}} {{PLURAL:$4|a súa edición|as súas edicións}} en "[[$2]]" $3',
@@ -1484,6 +1517,17 @@ $3
 
 $6',
 	'notification-reverted-email-batch-body2' => '$1 {{GENDER:$1|reverteu}} {{PLURAL:$3|a súa edición|as súas edicións}} en "$2"',
+	'notification-mention-email-subject' => '$1 {{GENDER:$1|fíxolle}} unha mención en {{SITENAME}}',
+	'notification-mention-email-body' => '{{GENDER:$1|O editor|A editora}} $1 fíxolle unha mención en $2:
+
+$3
+
+Ollar máis:
+
+$4
+
+$5',
+	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|fíxolle}} unha mención en $2',
 	'echo-email-subject-default' => 'Nova notificación en {{SITENAME}}',
 	'echo-email-body-default' => 'Ten unha nova notificación en {{SITENAME}}:
 
@@ -1524,6 +1568,7 @@ $5',
 	'echo-email-batch-category-header-edit-user-talk' => '$1 {{PLURAL:$1|mensaxe|mensaxes}} na páxina de conversa',
 	'echo-email-batch-category-header-edit-revert' => '$1 {{PLURAL:$1|reversión|reversións}}',
 	'echo-email-batch-category-header-cross-reference' => '$1 {{PLURAL:$1|referencia cruzada|referencias cruzadas}}',
+	'echo-email-batch-category-header-mention' => '$1 {{PLURAL:$1|mención|mencións}}',
 	'echo-email-batch-category-header-other' => '$1 {{PLURAL:$1|máis}}',
 );
 
