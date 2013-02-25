@@ -21,6 +21,7 @@ $messages['en'] = array(
 	'echo-pref-subscription-edit-user-talk' => 'Posts on my talk page',
 	'echo-pref-subscription-article-linked' => 'Creates a link to a page I created',
 	'echo-pref-subscription-reverted' => 'Reverts my edit',
+	'echo-pref-subscription-mention' => 'Links to my user page',
 	'echo-pref-email-frequency-never' => 'Do not send me any e-mail notifications',
 	'echo-pref-email-frequency-immediately' => 'Individual notifications as they come in',
 	'echo-pref-email-frequency-daily' => 'A daily summary of notifications',
@@ -58,6 +59,8 @@ $messages['en'] = array(
 	'notification-add-talkpage-topic2' => '[[User:$1|$1]] {{GENDER:$1|posted}} a new topic "$2" on [[$3]]',
 	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]] {{GENDER:$1|sent}} you a message: "[[$3#$2|$2]]"',
 	'notification-add-comment-yours2' => '[[User:$1|$1]] {{GENDER:$1|commented}} on "[[$3#$2|$2]]" on your talk page',
+	'notification-mention' => '[[User:$1|$1]] {{GENDER:$1|mentioned}} you on [[$3#$2|$3]].',
+	'notification-mention-flyout' => '$1 {{GENDER:$1|mentioned}} you on [[$3#$2|$3]].',
 	'notification-talkpage-content' => '$1', ## Do not translate unless you deliberately want to change behaviour
 	'notification-new-user' => 'Welcome to {{SITENAME}}, $1!',
 	'notification-new-user-content' => 'Please remember to sign any comments on talk pages with 4 tildes (~~~~).',
@@ -94,6 +97,17 @@ $3
 
 $6',
 	'notification-reverted-email-batch-body2' => 'Your {{PLURAL:$3|edit on $2 was|edits on $2 were}} {{GENDER:$1|reverted}} by $1',
+	'notification-mention-email-subject' => '$1 {{GENDER:$1|mentioned}} you on {{SITENAME}}',
+	'notification-mention-email-body' => '{{SITENAME}} user $1 {{GENDER:$1|mentioned}} you on $2.
+
+$3
+
+View more:
+
+$4
+
+$5',
+	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|mentioned}} you on $2',
 	'echo-notification-count' => '$1+',
 	// E-mail notification
 	'echo-email-subject-default' => 'New notification at {{SITENAME}}',
@@ -143,6 +157,7 @@ $5',
 	'echo-email-batch-category-header-edit-user-talk' => '$1 talk page {{PLURAL:$1|message|messages}}',
 	'echo-email-batch-category-header-edit-revert' => '$1 edit {{PLURAL:$1|revert|reverts}}',
 	'echo-email-batch-category-header-cross-reference' => '$1 {{PLURAL:$1|cross reference|cross references}}',
+	'echo-email-batch-category-header-mention' => '$1 {{PLURAL:$1|mention|mentions}}',
 	'echo-email-batch-category-header-other' => '$1 {{PLURAL:$1|other|others}}',
 );
 
@@ -257,6 +272,10 @@ See also:
 * $4 is the page on which the discussion exists, plain text.
 See also:
 * {{msg-mw|Notification-add-comment-yours2}}',
+	'notification-mention' => 'Format for displaying notifications of a comment including a link to another user\'s user page. Parameters:
+* $1 is the username of the person who edited, plain text. Can be used for GENDER
+* $2 is the section title of the discussion
+* $3 is a link to a page and section.',
 	'notification-add-talkpage-topic2' => 'Format for displaying notifications of a new discussion being added
 * $1 is the username of the person who edited, plain text. Can be used for GENDER.
 * $2 is the section title of the discussion.
@@ -351,6 +370,17 @@ See also:
 * $2 is a page title
 * $3 is the number of revert
 {{Related|Notification-reverted}}',
+	'notification-mention-email-subject' => 'E-mail subject. Parameters:
+* $1 is a username',
+	'notification-mention-email-body' => 'E-mail notification. Parameters:
+* $1 is a username, plaintext.  Can be used for gender support
+* $2 is talk page title
+* $3 is the edit summary
+* $4 is the link to the talk page section title
+* $5 is the email footer',
+	'notification-mention-email-batch-body' => 'E-mail notification batch body.  Parameters:
+* $1 is a username, plaintext.  Can be used for gender support
+* $2 is talk page title',
 	'echo-notification-count' => '{{optional}}
 The new notification count next to notification link, for example: 99+
 * $1 is the count',
@@ -423,6 +453,8 @@ See also:
 * {{msg-mw|Echo-email-batch-category-header-edit-user-talk}}
 * {{msg-mw|Echo-email-batch-category-header-edit-revert}}
 * {{msg-mw|Echo-email-batch-category-header-other}}',
+	'echo-email-batch-category-header-mention' => 'E-mail batch section title for mention category
+* $1 is the numeric count',
 	'echo-email-batch-category-header-other' => 'E-mail batch section title for events with category not specified
 * $1 is the numeric count
 See also:

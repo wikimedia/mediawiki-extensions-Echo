@@ -228,6 +228,7 @@ $wgEchoEnabledEvents = array(
 	'edit-user-talk', // User talk page is edited
 	'reverted', // An edit is undone or rolled-back
 	'article-linked', // A page a user created is linked from another page
+	'mention', // Username is mentioned with a link on a talk page (other than the mentioned user)
 	// These aren't ready yet, specifically they have no means of subscription
 #	'add-comment', // A signed comment is added to an existing section
 #	'add-talkpage-topic', // A new section is added to a talk page
@@ -251,11 +252,15 @@ $wgEchoEventDetails = array(
 	),
 	'reverted' => array(
 		'category' => 'edit-revert',
-		'priority' => 9
+		'priority' => 9,
 	),
 	'article-linked' => array(
 		'category' => 'cross-reference',
-		'priority' => 5
+		'priority' => 5,
+	),
+	'mention' => array(
+		'category' => 'mention',
+		'priority' => 4,
 	),
 );
 
@@ -328,6 +333,22 @@ $wgEchoNotificationFormatters = array(
 		'email-body-batch-params' => array( 'agent', 'title-linked' ),
 		'icon' => 'linked',
 	),
+	'mention' => array(
+		'type' => 'comment',
+		'title-message' => 'notification-mention',
+		'title-params' => array( 'agent', 'subject', 'title' ),
+		'flyout-message' => 'notification-mention-flyout',
+		'flyout-params' => array( 'agent', 'subject',  'title' ),
+		'email-subject-message' => 'notification-mention-email-subject',
+		'email-subject-params' => array( 'agent' ),
+		'email-body-message' => 'notification-mention-email-body',
+		'email-body-params' => array( 'agent', 'title', 'summary', 'subject-link', 'email-footer' ),
+		'email-body-batch-message' => 'notification-mention-email-batch-body',
+		'email-body-batch-params' => array( 'agent', 'title' ),
+		'content-message' => 'notification-talkpage-content',
+		'content-params' => array( 'commentText' ),
+		'icon' => 'chat',
+	)
 );
 
 // Enable notifications for all logged in users by default
