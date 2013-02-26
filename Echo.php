@@ -337,6 +337,7 @@ $wgEchoNotificationFormatters = array(
 		'formatter-class' => 'EchoCommentFormatter',
 		'title-message' => 'notification-mention',
 		'title-params' => array( 'agent', 'subject', 'title' ),
+		'payload' => array( 'summary' ),
 		'flyout-message' => 'notification-mention-flyout',
 		'flyout-params' => array( 'agent', 'subject',  'title' ),
 		'email-subject-message' => 'notification-mention-email-subject',
