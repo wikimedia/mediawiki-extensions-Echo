@@ -2143,6 +2143,7 @@ $messages['ko'] = array(
 	'echo-pref-subscription-edit-user-talk' => '내 토론 문서에 대한 게시물',
 	'echo-pref-subscription-article-linked' => '내가 만든 문서에 링크를 만들기',
 	'echo-pref-subscription-reverted' => '내 편집을 되돌리기',
+	'echo-pref-subscription-mention' => '내 사용자 문서로 링크',
 	'echo-pref-email-frequency-never' => '내게 어떠한 이메일 알림을 보내지 않기',
 	'echo-pref-email-frequency-immediately' => '모두한테 오는 개별 알림',
 	'echo-pref-email-frequency-daily' => '알림의 일별 요약',
@@ -2172,6 +2173,8 @@ $messages['ko'] = array(
 	'notification-add-talkpage-topic2' => '[[User:$1|$1]] 사용자가 [[$3]]의 "$2" 새 주제를 {{GENDER:$1|게시했습니다}}',
 	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]] 사용자가 내게 메시지를 {{GENDER:$1|보냈습니다}}: "[[$3#$2|$2]]"',
 	'notification-add-comment-yours2' => '[[User:$1|$1]] 사용자가 내 토론 문서의 "[[$3#$2|$2]]"에 {{GENDER:$1|덧글을 남겼습니다}}',
+	'notification-mention' => '[[User:$1|$1]] 사용자가 [[$3#$2|$3]]에 당신을 {{GENTER:$1|언급했습니다}}.',
+	'notification-mention-flyout' => '$1 사용자가 [[$3#$2|$3]]에 당신을 {{GENDER:$1|언급했습니다}}.',
 	'notification-new-user' => '$1, {{SITENAME}}에 온 것을 환영합니다!',
 	'notification-new-user-content' => '토론 문서에서 글을 쓴 후에는 물결표 4개(~~~~)를 넣어 서명하는 것을 기억하세요.',
 	'notification-reverted2' => '{{PLURAL:$4|[[$2]]에 대한 내 편집}}을 [[User:$1|$1]] 사용자가 {{GENDER:$1|되돌렸습니다}} $3',
@@ -2207,6 +2210,17 @@ $3
 
 $6',
 	'notification-reverted-email-batch-body2' => '{{PLURAL:$3|$2에 대한 내 편집}}을 $1 사용자가 {{GENDER:$1|되돌렸습니다}}',
+	'notification-mention-email-subject' => '$1 사용자가 {{SITENAME}}에 당신을 {{GENDER:$1|언급했습니다}}',
+	'notification-mention-email-body' => '{{SITENAME}} $1 사용자가 $2에 당신을 {{GENDER:$1|언급했습니다}}.
+
+$3
+
+더 보기:
+
+$4
+
+$5',
+	'notification-mention-email-batch-body' => '$1 사용자가 $2에 당신을 {{GENDER:$1|언급했습니다}}',
 	'echo-email-subject-default' => '{{SITENAME}}에서 새 알림',
 	'echo-email-body-default' => '{{SITENAME}}에서 새 알림이 있습니다:
 
@@ -2247,6 +2261,7 @@ $5',
 	'echo-email-batch-category-header-edit-user-talk' => '토론 문서 {{PLURAL:$1|메시지}} $1개',
 	'echo-email-batch-category-header-edit-revert' => '편집 {{PLURAL:$1|되돌리기}} $1개',
 	'echo-email-batch-category-header-cross-reference' => '{{PLURAL:$1|교차 참조}} $1개',
+	'echo-email-batch-category-header-mention' => '{{PLURAL:$1|언급}} $1번',
 	'echo-email-batch-category-header-other' => '{{PLURAL:$1|다른}} $1개',
 );
 
@@ -2330,6 +2345,7 @@ $messages['mk'] = array(
 	'echo-pref-subscription-edit-user-talk' => 'Објави на мојата страница за разговор',
 	'echo-pref-subscription-article-linked' => 'Става врска до страница што ја имам создадено',
 	'echo-pref-subscription-reverted' => 'Врати мое уредување',
+	'echo-pref-subscription-mention' => 'Води до мојата корисничка страница',
 	'echo-pref-email-frequency-never' => 'Не ми праќај известувања на е-пошта',
 	'echo-pref-email-frequency-immediately' => 'Поединечни известувања, едно по едно',
 	'echo-pref-email-frequency-daily' => 'Дневен преглед на известувањата',
@@ -2359,6 +2375,8 @@ $messages['mk'] = array(
 	'notification-add-talkpage-topic2' => '[[User:$1|$1]] {{GENDER:$1|ја објави}} новата тема „$2“ на [[$3]]',
 	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]] {{GENDER:$1|ви испрати}} порака: „[[$3#$2|$2]]“',
 	'notification-add-comment-yours2' => '[[User:$1|$1]] {{GENDER:$1|коментираше}} на „[[$3#$2|$2]]“ на вашата страница за разговор',
+	'notification-mention' => '[[User:$1|$1]] {{GENDER:$1|ве спомна}} на „[[$3#$2|$3]]“.',
+	'notification-mention-flyout' => '$1 {{GENDER:$1|ве спомна}} на „[[$3#$2|$3]]“.',
 	'notification-new-user' => 'Добредојдовте на {{SITENAME}}, $1!',
 	'notification-new-user-content' => 'НЕ заборавајте да си ги потпишувате коментарите на страниците за разговор со 4 тилди (~~~~).',
 	'notification-reverted2' => '[[User:$1|$1]] {{PLURAL:$4|го|ги}} {{GENDER:$1|врати}} {{PLURAL:$4|вашето уредување на [[$2]]|вашите уредувања на [[$2]]}} $3',
@@ -2394,6 +2412,17 @@ $3
 
 $6',
 	'notification-reverted-email-batch-body2' => '$1 {{PLURAL:$3|го|ги}} {{GENDER:$1|врати}} {{PLURAL:$3|вашето уредување на $2|вашите уредувања на $2}}',
+	'notification-mention-email-subject' => '$1 {{GENDER:$1|ве спомна}} на {{SITENAME}}',
+	'notification-mention-email-body' => 'Корисникот $1 {{GENDER:$1|mentioned}} од {{SITENAME}} ве спомна на „$2“.
+
+$3
+
+Погледајте повеќе:
+
+$4
+
+$5',
+	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|ве спомна}} на „$2“',
 	'echo-email-subject-default' => 'Ново известување на {{SITENAME}}',
 	'echo-email-body-default' => 'Имате ново известување на {{SITENAME}}:
 
@@ -2433,6 +2462,7 @@ $5',
 	'echo-email-batch-category-header-edit-user-talk' => '$1 {{PLURAL:$1|порака|пораки}} на страницата за разговор',
 	'echo-email-batch-category-header-edit-revert' => '$1 {{PLURAL:$1|враќање|враќања}} на уреденото',
 	'echo-email-batch-category-header-cross-reference' => '$1 {{PLURAL:$1|наведена врска|наведени врски}}',
+	'echo-email-batch-category-header-mention' => '$1 {{PLURAL:$1|спомнување|спомнувања}}',
 	'echo-email-batch-category-header-other' => '$1 {{PLURAL:$1|останато|останати}}',
 );
 
@@ -2637,6 +2667,7 @@ $messages['nl'] = array(
 	'echo-pref-subscription-edit-user-talk' => 'Berichten op mijn overlegpagina',
 	'echo-pref-subscription-article-linked' => 'Koppeling maakt naar een pagina die ik heb aangemaakt',
 	'echo-pref-subscription-reverted' => 'Een bewerking van mij terugdraait',
+	'echo-pref-subscription-mention' => 'Koppeling toevoegt naar mijn gebruikerspagina',
 	'echo-pref-email-frequency-never' => 'Stuur mij geen meldingen via e-mail',
 	'echo-pref-email-frequency-immediately' => 'Individuele meldingen als ze binnenkomen',
 	'echo-pref-email-frequency-daily' => 'Een dagelijkse samenvatting van meldingen',
@@ -2666,6 +2697,8 @@ $messages['nl'] = array(
 	'notification-add-talkpage-topic2' => '[[User:$1|$1]] {{GENDER:$1|heeft}} een nieuw onderwerp "$2" geplaatst op [[$3]]',
 	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]] {{GENDER:$1|heeft}} u een bericht gezonden: "[[$3#$2|$2]]"',
 	'notification-add-comment-yours2' => '[[User:$1|$1]] {{GENDER:$1|heeft gereageerd}} op "[[$3#$2|$2]]" op uw overlegpagina',
+	'notification-mention' => '[[User:$1|$1]] {{GENDER:$1|heeft}} u genoemd op [[$3#$2|$3]].',
+	'notification-mention-flyout' => '$1 {{GENDER:$1|heeft}} u genoemd op [[$3#$2|$3]].',
 	'notification-new-user' => 'Welkom op {{SITENAME}}, $1!',
 	'notification-new-user-content' => "Vergeet niet om opmerkingen over overlegpagina's te ondertekenen met 4 tildes (~~~~).",
 	'notification-reverted2' => 'Uw {{PLURAL:$4|bewerking op [[$2]] is|bewerkingen op [[$2]] zijn}} {{GENDER:$1|teruggedraaid}} [[User:$1|$1]] $3',
@@ -2701,6 +2734,17 @@ $3
 
 $6',
 	'notification-reverted-email-batch-body2' => 'Uw {{PLURAL:$3|bewerking op $2 is|bewerkingen op $2 zijn}} {{GENDER:$1|teruggedraaid}} door $1',
+	'notification-mention-email-subject' => '$1 {{GENDER:$1|heeft}} u genoemd op {{SITENAME}}',
+	'notification-mention-email-body' => '$1 van {{SITENAME}} {{GENDER:$1|heeft}} u genoemd op $2.
+
+$3
+
+Meer bekijken:
+
+$4
+
+$5',
+	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|heeft}} u genoemd op $2',
 	'echo-email-subject-default' => 'Nieuwe melding op {{SITENAME}}',
 	'echo-email-body-default' => 'U hebt een nieuwe melding op {{SITENAME}}:
 
@@ -2738,6 +2782,7 @@ $5',
 	'echo-email-batch-category-header-edit-user-talk' => '{{PLURAL:$1|één bericht op uw overlegpagina|$1 berichten op uw overlegpagina}}',
 	'echo-email-batch-category-header-edit-revert' => '{{PLURAL:$1|één teruggedraaide bewerking|$1  teruggedraaide bewerkingen}}',
 	'echo-email-batch-category-header-cross-reference' => '$1 kruisverwijzing{{PLURAL:$1||en}}',
+	'echo-email-batch-category-header-mention' => '{{PLURAL:$1|Eén|$1}} keer genoemd',
 	'echo-email-batch-category-header-other' => '{{PLURAL:$1|één andere|$1 anderen}}',
 );
 
@@ -3457,6 +3502,7 @@ $messages['vi'] = array(
 	'echo-pref-subscription-edit-user-talk' => 'Nhắn tin vào trang thảo luận của tôi',
 	'echo-pref-subscription-article-linked' => 'Đặt liên kết đến một trang do tôi tạo ra',
 	'echo-pref-subscription-reverted' => 'Lùi sửa đổi của tôi',
+	'echo-pref-subscription-mention' => 'Các liên kết đến trang cá nhân của tôi',
 	'echo-pref-email-frequency-never' => 'Không gửi cho tôi bất kỳ thông báo qua thư điện tử',
 	'echo-pref-email-frequency-immediately' => 'Gửi các thông báo từng cái một vào đúng lúc xảy ra',
 	'echo-pref-email-frequency-daily' => 'Tóm lược các thông báo hàng ngày',
@@ -3486,6 +3532,8 @@ $messages['vi'] = array(
 	'notification-add-talkpage-topic2' => '[[User:$1|$1]] đã bắt đầu cuộc thảo luận mới về “$2” tại [[$3]]',
 	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]] đã nhắn tin cho bạn: “[[$3#$2|$2]]”',
 	'notification-add-comment-yours2' => '[[User:$1|$1]] đã bình luận về “[[$3#$2|$2]]” tại trang thảo luận của bạn',
+	'notification-mention' => '[[User:$1|$1]] đã nói đến bạn tại [[$3#$2|$3]].',
+	'notification-mention-flyout' => '$1 đã nói đến bạn tại [[$3#$2|$3]].',
 	'notification-new-user' => 'Chào mừng $1 đã đến với {{SITENAME}}!',
 	'notification-new-user-content' => 'Hãy nhớ ký tên vào các lời bình luận tại trang thảo luận bằng 4 dấu ngã (~~~~).',
 	'notification-reverted2' => '[[User:$1|$1]] đã lùi lại {{PLURAL:$4|sửa đổi|các sửa đổi}} của bạn tại [[$2]] $3',
@@ -3521,6 +3569,17 @@ $3
 
 $6',
 	'notification-reverted-email-batch-body2' => '$1 đã lùi lại {{PLURAL:$3|sửa đổi|các sửa đổi}} của bạn tại $2',
+	'notification-mention-email-subject' => '$1 đã nói đến bạn tại {{SITENAME}}',
+	'notification-mention-email-body' => 'Người dùng $1 tại {{SITENAME}} đã nói đến bạn tại $2.
+
+$3
+
+Xem thêm:
+
+$4
+
+$5',
+	'notification-mention-email-batch-body' => '$1 đã nói đến bạn tại $2',
 	'echo-email-subject-default' => 'Thông báo mới tại {{SITENAME}}',
 	'echo-email-body-default' => 'Bạn có thông báo mới tại {{SITENAME}}:
 
@@ -3561,6 +3620,7 @@ $5',
 	'echo-email-batch-category-header-edit-user-talk' => '$1 tin nhắn',
 	'echo-email-batch-category-header-edit-revert' => '$1 sửa đổi bị lùi lại',
 	'echo-email-batch-category-header-cross-reference' => '$1 tham khảo chéo',
+	'echo-email-batch-category-header-mention' => '$1 lời nói đến',
 	'echo-email-batch-category-header-other' => '$1 khác',
 );
 
