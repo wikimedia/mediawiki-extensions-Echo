@@ -87,7 +87,7 @@
 					} else {
 						titleText = mw.msg( 'echo-none' );
 					}
-					$title.html( $( '<a/>' ).attr( 'href', mw.util.wikiGetlink( 'Special:Notifications' ) ).text( titleText ) );
+					$title.text( titleText );
 					$title.appendTo( $overlay );
 
 					if ( $ul.find( 'li' ).length ) {
