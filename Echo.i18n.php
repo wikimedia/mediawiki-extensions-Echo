@@ -185,8 +185,23 @@ $messages['qqq'] = array(
 * {{msg-mw|Echo-pref-subscription-edit-user-talk}}
 * {{msg-mw|Echo-pref-subscription-article-linked}}
 * {{msg-mw|Echo-pref-subscription-reverted}}',
-	'echo-pref-web' => 'Label for list of notifications which are delivered on the web. In other words, on the wiki itself rather by email or another method.',
+	'echo-pref-web' => 'Label for list of notifications which are delivered on the web. In other words, on the wiki itself rather by {{msg-mw|Echo-pref-email}} or another method.
+
+This message is followed by the following checkbox-labels:
+* {{msg-mw|Echo-pref-subscription-edit-user-talk}}
+* {{msg-mw|Echo-pref-subscription-article-linked}}
+* {{msg-mw|Echo-pref-subscription-reverted}}
+* {{msg-mw|Echo-pref-subscription-mention}}',
 	'echo-pref-email' => 'Label for list of notifications which are delivered via email.
+
+See also:
+* {{msg-mw|Echo-pref-web}}
+
+This message is followed by the following checkbox-labels:
+* {{msg-mw|Echo-pref-subscription-edit-user-talk}}
+* {{msg-mw|Echo-pref-subscription-article-linked}}
+* {{msg-mw|Echo-pref-subscription-reverted}}
+* {{msg-mw|Echo-pref-subscription-mention}}
 {{Identical|E-mail}}',
 	'echo-pref-subscription-edit-user-talk' => "Option for getting notifications when someone posts on the user's talk page.
 
@@ -845,7 +860,7 @@ $messages['de'] = array(
 	'echo-pref-subscription-edit-user-talk' => 'Nachrichten auf meiner Diskussionsseite hinterlässt',
 	'echo-pref-subscription-article-linked' => 'Verlinkungen zu einer von mir erstellten Seite vornimmt',
 	'echo-pref-subscription-reverted' => 'Bearbeitungen von mir rückgängig macht',
-	'echo-pref-subscription-mention' => 'auf meine Benutzerseite verlinkt',
+	'echo-pref-subscription-mention' => 'mich erwähnt',
 	'echo-pref-email-frequency-never' => 'Keine Benachrichtigungen',
 	'echo-pref-email-frequency-immediately' => 'Individuelle Benachrichtigung zu jedem Ereignis',
 	'echo-pref-email-frequency-daily' => 'Tägliche Benachrichtigung zu den Ereignissen',
@@ -1256,7 +1271,7 @@ $messages['fr'] = array(
 	'echo-pref-subscription-edit-user-talk' => 'Messages sur ma page de discussion',
 	'echo-pref-subscription-article-linked' => "Crée un lien vers une page que j'ai créée",
 	'echo-pref-subscription-reverted' => 'Annuler ma modification',
-	'echo-pref-subscription-mention' => 'Liens vers ma page utilisateur',
+	'echo-pref-subscription-mention' => 'Liens vers ma page utilisateur', # Fuzzy
 	'echo-pref-email-frequency-never' => "Ne pas m'envoyer de notification par courriel",
 	'echo-pref-email-frequency-immediately' => "Notifications individuelles au fil de l'eau",
 	'echo-pref-email-frequency-daily' => 'Un sommaire quotidien des notifications',
@@ -1450,7 +1465,7 @@ $messages['gl'] = array(
 	'echo-pref-subscription-edit-user-talk' => 'Deixe unha mensaxe na miña conversa',
 	'echo-pref-subscription-article-linked' => 'Cree unha ligazón cara a unha páxina que eu creei',
 	'echo-pref-subscription-reverted' => 'Reverta unha edición miña',
-	'echo-pref-subscription-mention' => 'Inclúa unha ligazón cara á miña páxina de usuario',
+	'echo-pref-subscription-mention' => 'Inclúa unha ligazón cara á miña páxina de usuario', # Fuzzy
 	'echo-pref-email-frequency-never' => 'Non me enviedes ningunha notificación por correo electrónico',
 	'echo-pref-email-frequency-immediately' => 'Notificacións individuais en canto cheguen',
 	'echo-pref-email-frequency-daily' => 'Un resumo diario das notificacións',
@@ -1840,6 +1855,7 @@ $messages['is'] = array(
 /** Italian (italiano)
  * @author Beta16
  * @author Darth Kule
+ * @author Eleonora negri
  * @author Raoli
  * @author Vituzzu
  */
@@ -1880,6 +1896,7 @@ $messages['it'] = array(
 	'notification-add-talkpage-topic2' => '[[User:$1|$1]] {{GENDER:$1|ha postato}} un nuovo argomento "$2" su [[$3]]',
 	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]] ti {{GENDER:$1|ha inviato}} un messaggio: "[[$3#$2|$2]]"',
 	'notification-add-comment-yours2' => '[[User:$1|$1]] {{GENDER:$1|ha lasciato un commento}} riguardo a "[[$3#$2|$2]]" nella tua pagina di discussione',
+	'notification-mention-flyout' => '$1 {{GENDER:$1|menzionato}} tu su [[ $3 # $2 | $3 ]].', # Fuzzy
 	'notification-new-user' => 'Benvenuto su {{SITENAME}}, $1!',
 	'notification-new-user-content' => 'Ricordati di firmare i commenti nelle pagine di discussione con quattro tildi (~~~~).',
 	'notification-reverted2' => '{{PLURAL:$4|La tua modifica|Le tue modifiche}} su [[$2]] {{PLURAL:$4|è stata annullata|sono state annullate}} {{GENDER:$1|da}} [[User:$1|$1]] $3',
@@ -1969,6 +1986,7 @@ $messages['ja'] = array(
 	'echo-pref-subscription-edit-user-talk' => '自分のトークページに誰かが投稿したとき',
 	'echo-pref-subscription-article-linked' => '自分が作成したページへのリンクを誰かが作成したとき',
 	'echo-pref-subscription-reverted' => '自分の編集を誰かが差し戻したとき',
+	'echo-pref-subscription-mention' => '自分に誰かが言及したとき',
 	'echo-pref-email-frequency-never' => '通知メールを何も受け取らない',
 	'echo-pref-email-frequency-immediately' => '個別の通知が来るたび',
 	'echo-pref-email-frequency-daily' => '通知を1日ごとに要約',
@@ -1997,6 +2015,8 @@ $messages['ja'] = array(
 	'notification-add-talkpage-topic2' => '[[User:$1|$1]] が [[$3]] に新しい話題「$2」を{{GENDER:$1|投稿しました}}',
 	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]] があなたにメッセージを{{GENDER:$1|送信しました}}:「[[$3#$2|$2]]」',
 	'notification-add-comment-yours2' => '[[User:$1|$1]] があなたのトークページの「[[$3#$2|$2]]」に{{GENDER:$1|コメントしました}}',
+	'notification-mention' => '[[User:$1|$1]] が [[$3#$2|$3]] であなたに{{GENDER:$1|言及しました}}。',
+	'notification-mention-flyout' => '$1 が [[$3#$2|$3]] であなたに{{GENDER:$1|言及しました}}。',
 	'notification-new-user' => '$1さん、{{SITENAME}}へようこそ!',
 	'notification-new-user-content' => 'トークページヘのコメントには 4 つのチルダ (~~~~) を付けて署名してください。',
 	'notification-reverted2' => '{{PLURAL:$4|[[$2]] でのあなたの編集}}を [[User:$1|$1]] が{{GENDER:$1|差し戻しました}} $3',
@@ -2032,6 +2052,17 @@ $3
 
 $6',
 	'notification-reverted-email-batch-body2' => '{{PLURAL:$3|$2 でのあなたの編集}}を $1 が{{GENDER:$1|差し戻しました}}',
+	'notification-mention-email-subject' => '$1 が{{SITENAME}}であなたに{{GENDER:$1|言及しました}}',
+	'notification-mention-email-body' => '{{SITENAME}}の利用者 $1 が $2 であなたに{{GENDER:$1|言及しました}}。
+
+$3
+
+詳細はこちら:
+
+$4
+
+$5',
+	'notification-mention-email-batch-body' => '$1 が $2 であなたに{{GENDER:$1|言及しました}}',
 	'echo-email-subject-default' => '{{SITENAME}}での新しい通知',
 	'echo-email-body-default' => '{{SITENAME}}で新しい通知があります:
 
@@ -2073,6 +2104,7 @@ $5',
 	'echo-email-batch-category-header-edit-user-talk' => 'トークページヘのメッセージ $1 {{PLURAL:$1|件}}',
 	'echo-email-batch-category-header-edit-revert' => '編集の差し戻し $1 {{PLURAL:$1|件}}',
 	'echo-email-batch-category-header-cross-reference' => '相互参照 $1 {{PLURAL:$1|件}}',
+	'echo-email-batch-category-header-mention' => '言及 $1 {{PLURAL:$1|件}}',
 	'echo-email-batch-category-header-other' => 'その他 $1 {{PLURAL:$1|件}}',
 );
 
@@ -2143,7 +2175,7 @@ $messages['ko'] = array(
 	'echo-pref-subscription-edit-user-talk' => '내 토론 문서에 대한 게시물',
 	'echo-pref-subscription-article-linked' => '내가 만든 문서에 링크를 만들기',
 	'echo-pref-subscription-reverted' => '내 편집을 되돌리기',
-	'echo-pref-subscription-mention' => '내 사용자 문서로 링크',
+	'echo-pref-subscription-mention' => '내 사용자 문서로 링크', # Fuzzy
 	'echo-pref-email-frequency-never' => '내게 어떠한 이메일 알림을 보내지 않기',
 	'echo-pref-email-frequency-immediately' => '모두한테 오는 개별 알림',
 	'echo-pref-email-frequency-daily' => '알림의 일별 요약',
@@ -2345,7 +2377,7 @@ $messages['mk'] = array(
 	'echo-pref-subscription-edit-user-talk' => 'Објави на мојата страница за разговор',
 	'echo-pref-subscription-article-linked' => 'Става врска до страница што ја имам создадено',
 	'echo-pref-subscription-reverted' => 'Врати мое уредување',
-	'echo-pref-subscription-mention' => 'Води до мојата корисничка страница',
+	'echo-pref-subscription-mention' => 'Води до мојата корисничка страница', # Fuzzy
 	'echo-pref-email-frequency-never' => 'Не ми праќај известувања на е-пошта',
 	'echo-pref-email-frequency-immediately' => 'Поединечни известувања, едно по едно',
 	'echo-pref-email-frequency-daily' => 'Дневен преглед на известувањата',
@@ -2667,7 +2699,7 @@ $messages['nl'] = array(
 	'echo-pref-subscription-edit-user-talk' => 'Berichten op mijn overlegpagina',
 	'echo-pref-subscription-article-linked' => 'Koppeling maakt naar een pagina die ik heb aangemaakt',
 	'echo-pref-subscription-reverted' => 'Een bewerking van mij terugdraait',
-	'echo-pref-subscription-mention' => 'Koppeling toevoegt naar mijn gebruikerspagina',
+	'echo-pref-subscription-mention' => 'Koppeling toevoegt naar mijn gebruikerspagina', # Fuzzy
 	'echo-pref-email-frequency-never' => 'Stuur mij geen meldingen via e-mail',
 	'echo-pref-email-frequency-immediately' => 'Individuele meldingen als ze binnenkomen',
 	'echo-pref-email-frequency-daily' => 'Een dagelijkse samenvatting van meldingen',
@@ -3502,7 +3534,7 @@ $messages['vi'] = array(
 	'echo-pref-subscription-edit-user-talk' => 'Nhắn tin vào trang thảo luận của tôi',
 	'echo-pref-subscription-article-linked' => 'Đặt liên kết đến một trang do tôi tạo ra',
 	'echo-pref-subscription-reverted' => 'Lùi sửa đổi của tôi',
-	'echo-pref-subscription-mention' => 'Các liên kết đến trang cá nhân của tôi',
+	'echo-pref-subscription-mention' => 'Các liên kết đến trang cá nhân của tôi', # Fuzzy
 	'echo-pref-email-frequency-never' => 'Không gửi cho tôi bất kỳ thông báo qua thư điện tử',
 	'echo-pref-email-frequency-immediately' => 'Gửi các thông báo từng cái một vào đúng lúc xảy ra',
 	'echo-pref-email-frequency-daily' => 'Tóm lược các thông báo hàng ngày',
@@ -3758,11 +3790,9 @@ $messages['zh-hant'] = array(
 	'echo-desc' => '通知系統',
 	'prefs-echo' => '通知',
 	'prefs-displaynotifications' => '顯示選項',
-	'prefs-emailsubscriptions' => '以電郵通知我，如果其他人...',
-	'prefs-emailfrequency' => '以電郵接收通知的頻率', # Fuzzy
-	'echo-pref-email-edit-user-talk' => '討論頁留言',
-	'echo-pref-email-article-linked' => '於其他頁面加入一條連結到我創建的頁面',
-	'echo-pref-email-reverted' => '回退我的編輯',
+	'prefs-emailfrequency' => '何時您想收到電郵通知？',
+	'echo-pref-subscription-article-linked' => '於其他頁面加入一條連結到我創建的頁面',
+	'echo-pref-subscription-reverted' => '回退我的編輯',
 	'echo-pref-email-frequency-never' => '不要向我發送任何電郵通知',
 	'echo-pref-email-frequency-immediately' => '允許個別通知',
 	'echo-pref-email-frequency-daily' => '每日通知摘要',
