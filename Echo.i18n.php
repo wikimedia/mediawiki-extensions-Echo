@@ -14,15 +14,15 @@ $messages['en'] = array(
 	// Preferences
 	'prefs-echo' => 'Notifications',
 	'prefs-displaynotifications' => 'Display options',
-	'prefs-emailfrequency' => 'When would you like to receive e-mail notifications?',
+	'prefs-emailfrequency' => 'When would you like to receive email notifications?',
 	'prefs-echosubscriptions' => 'Notify me when someone…',
 	'echo-pref-web' => 'Web',
-	'echo-pref-email' => 'E-mail',
+	'echo-pref-email' => 'Email',
 	'echo-pref-subscription-edit-user-talk' => 'Posts on my talk page',
 	'echo-pref-subscription-article-linked' => 'Creates a link to a page I created',
 	'echo-pref-subscription-reverted' => 'Reverts my edit',
 	'echo-pref-subscription-mention' => 'Mentions me',
-	'echo-pref-email-frequency-never' => 'Do not send me any e-mail notifications',
+	'echo-pref-email-frequency-never' => 'Do not send me any email notifications',
 	'echo-pref-email-frequency-immediately' => 'Individual notifications as they come in',
 	'echo-pref-email-frequency-daily' => 'A daily summary of notifications',
 	'echo-pref-email-frequency-weekly' => 'A weekly summary of notifications',
@@ -109,14 +109,14 @@ $4
 $5',
 	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|mentioned}} you on $2',
 	'echo-notification-count' => '$1+',
-	// E-mail notification
+	// Email notification
 	'echo-email-subject-default' => 'New notification at {{SITENAME}}',
 	'echo-email-body-default' => 'You have a new notification at {{SITENAME}}:
 
 $1',
 	'echo-email-footer-default' => '$2
 
-To control which e-mails we send you, visit:
+To control which emails we send you, visit:
 {{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
 
 $1',
@@ -133,7 +133,7 @@ $1',
 	'echo-date-header' => '$1 $2',
 	'echo-load-more-error' => 'An error occurred while fetching more results.',
 
-	// E-mail batch
+	// Email batch
 	'echo-email-batch-separator' => '________________________________________________', # only translate this message to other languages if you have to change it
 	'echo-email-batch-bullet' => '•', # only translate this message to other languages if you have to change it
 	'echo-email-batch-subject-daily' => 'You have $1 {{PLURAL:$2|notification|notifications}} today',
