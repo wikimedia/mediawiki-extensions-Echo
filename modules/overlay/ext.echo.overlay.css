@@ -106,8 +106,8 @@
 	margin-left: 3px;
 }
 
-#pt-notifications .mw-badge {
-	margin-left: 3px;
+#pt-notifications a.mw-echo-short-link .mw-badge {
+	margin-left: -5px;
 }
 
 .mw-echo-overlay-none {

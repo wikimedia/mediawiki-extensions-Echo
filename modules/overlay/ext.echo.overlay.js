@@ -17,9 +17,9 @@
 					.badge( newCount, true, true );
 			} else {
 				$( '#pt-notifications > a' )
+					.addClass( 'mw-echo-short-link' )
 					.text( '' )
 					.badge( newCount, true, true );
-				$( '#pt-notifications .mw-badge' ).css( 'margin-left', '-6px' );
 			}
 
 			mw.echo.overlay.notification_count = newCount;
