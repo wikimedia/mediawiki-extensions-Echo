@@ -180,7 +180,10 @@ $wgHooks['LinksUpdateAfterInsert'][] = 'EchoHooks::onLinksUpdateAfterInsert';
 // The name of the backend to use for Echo, eg, Db, Redis, Zeromq
 $wgEchoBackendName = 'Db';
 
-// The backend object
+/**
+ * The backend object
+ * @var MWEchoBackend
+ */
 $wgEchoBackend = null;
 
 // Whether to turn on email batch function

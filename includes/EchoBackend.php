@@ -34,6 +34,8 @@ abstract class MWEchoBackend {
 	/**
 	 * Get the enabled events for a user, which excludes user-dismissed events
 	 * from the general enabled events
+	 * @param $user User
+	 * @param $outputFormat string
 	 * @return array
 	 */
 	protected function getUserEnabledEvents( $user, $outputFormat ) {

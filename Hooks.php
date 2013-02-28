@@ -151,6 +151,12 @@ class EchoHooks {
 		return true;
 	}
 
+	/**
+	 * @param $subscription EchoSubscription
+	 * @param $event EchoEvent
+	 * @param $notifyTypes
+	 * @return bool
+	 */
 	public static function getNotificationTypes( $subscription, $event, &$notifyTypes ) {
 		$type = $event->getType();
 		$user = $subscription->getUser();
@@ -494,7 +500,7 @@ class EchoHooks {
 	/**
 	 * Handler for MakeGlobalVariablesScript hook.
 	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/MakeGlobalVariablesScript
-	 * @param &$vars Variables to be added into the output
+	 * @param &$vars array Variables to be added into the output
 	 * @param $outputPage OutputPage instance calling the hook
 	 * @return bool true in all cases
 	 */
@@ -532,7 +538,7 @@ class EchoHooks {
 	/**
 	 * Handler for ArticleEditUpdateNewTalk hook.
 	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/ArticleEditUpdateNewTalk
-	 * @param $page The WikiPage object of the talk page being updated
+	 * @param $page WikiPage The WikiPage object of the talk page being updated
 	 * @return bool
 	 */
 	static function abortNewTalkNotification( $page ) {
@@ -551,10 +557,10 @@ class EchoHooks {
 	/**
 	 * Handler for ArticleRollbackComplete hook.
 	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/ArticleRollbackComplete
-	 * @param $page The article that was edited
-	 * @param $agent The user who did the rollback
-	 * @param $newRevision The revision the page was reverted back to
-	 * @param $oldRevision The revision of the top edit that was reverted
+	 * @param $page WikiPage The article that was edited
+	 * @param $agent User The user who did the rollback
+	 * @param $newRevision Revision The revision the page was reverted back to
+	 * @param $oldRevision Revision The revision of the top edit that was reverted
 	 * @return bool true in all cases
 	 */
 	static function onRollbackComplete( $page, $agent, $newRevision, $oldRevision ) {

@@ -53,5 +53,4 @@ class EchoEditFormatter extends EchoBasicFormatter {
 			parent::processParam( $event, $param, $message, $user );
 		}
 	}
-
 }

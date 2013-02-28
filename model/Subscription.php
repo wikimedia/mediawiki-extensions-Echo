@@ -1,8 +1,17 @@
 <?php
 
 class EchoSubscription {
+	/**
+	 * @var $user User
+	 */
 	private $user = null;
+	/**
+	 * @var $event EchoEvent
+	 */
 	private $event = null;
+	/**
+	 * @var $title Title
+	 */
 	private $title = null;
 	private $notificationTypes = null;
 	private $dirty = false;

@@ -93,7 +93,7 @@ abstract class EchoNotificationFormatter {
 	 * Formats a timestamp (in a human-readable format if supported by
 	 *  MediaWiki)
 	 *
-	 * @param $ts Timestamp in some format compatible with wfTimestamp()
+	 * @param $ts string Timestamp in some format compatible with wfTimestamp()
 	 * @param $user User to format for. false to detect
 	 * @return string Type description
 	 */
@@ -115,7 +115,6 @@ abstract class EchoNotificationFormatter {
 	 *
 	 * @param $event EchoEvent that the notification is for.
 	 * @param $user User to format the notification for.
-	 * @param $parse boolean If true, parse the summary. If fasle, strip wikitext.
 	 * @return string The edit summary (or empty string)
 	 */
 	protected function formatSummary( $event, $user ) {

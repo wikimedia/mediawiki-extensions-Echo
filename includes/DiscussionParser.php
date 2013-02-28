@@ -90,10 +90,10 @@ abstract class EchoDiscussionParser {
 	/**
 	 * For an action taken on a talk page, notify users whose user pages
 	 * are linked.
-	 * @param $header The subject line for the discussion.
-	 * @param $content The content of the post, as a wikitext string.
+	 * @param $header string The subject line for the discussion.
+	 * @param $content string The content of the post, as a wikitext string.
 	 * @param $revision Revision object.
-	 * @param $agent The user who made the comment.
+	 * @param $agent User The user who made the comment.
 	 */
 	public static function generateMentionEvents( $header, $content, $revision, $agent ) {
 		$title = $revision->getTitle();

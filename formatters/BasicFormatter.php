@@ -26,7 +26,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 		$this->title['message'] = $params['title-message'];
 		$this->title['params'] = $params['title-params'];
 		$this->payload = array();
-		
+
 		if ( isset( $params['payload'] ) ) {
 			$this->payload = $params['payload'];
 		}
@@ -165,7 +165,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 
 		// Add timestamp
 		$content .= $this->formatTimestamp( $event->getTimestamp(), $user );
-		
+
 		$output .= Xml::tags( 'div', array( 'class' => 'mw-echo-content' ), $content ) . "\n";
 
 		// The state div is used to visually indicate read or unread status. This is
@@ -176,6 +176,11 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 		return $output;
 	}
 
+	/**
+	 * @param $event EchoEvent
+	 * @param $user User
+	 * @return string
+	 */
 	protected function formatDismissInterface( $event, $user ) {
 		$dismissTitle = wfMessage( 'echo-dismiss-title-' . $event->type )
 			->inLanguage( $user->getOption( 'language' ) )
@@ -188,6 +193,11 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 		return $dismiss;
 	}
 
+	/**
+	 * @param $event EchoEvent
+	 * @param $user User
+	 * @return string
+	 */
 	protected function formatNotificationTitle( $event, $user ) {
 		if ( $this->outputFormat === 'flyout' ) {
 			return $this->formatFragment( $this->flyoutTitle, $event, $user );
@@ -196,6 +206,12 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 		}
 	}
 
+	/**
+	 * @param $event EchoEvent
+	 * @param $user User
+	 * @param $type
+	 * @return string
+	 */
 	protected function formatEmail( $event, $user, $type ) {
 		$subject = $this->formatFragment( $this->email['subject'], $event, $user )->text();
 

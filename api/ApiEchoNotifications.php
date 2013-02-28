@@ -48,7 +48,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 	 *
 	 * @param $user User the user to get notifications for
 	 * @param $unread Boolean true to get only unread notifications
-	 * @param $format string/bool false to not format any notifications, string to a specific output format
+	 * @param $format string|bool false to not format any notifications, string to a specific output format
 	 * @param $limit int The maximum number of notifications to return
 	 * @param $timestamp int The timestamp to start from
 	 * @param $offset int The notification event id to start from
