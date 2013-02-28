@@ -55,11 +55,6 @@ class EchoCommentFormatter extends EchoEditFormatter {
 				$message->params( '' );
 			}
 		} elseif ( $param === 'commentText' ) {
-			/**
-			 * @var $wgLang Language
-			 */
-			global $wgLang; // Message::language is protected :(
-
 			if ( isset( $extra['content'] ) && $extra['content'] ) {
 				$content = $extra['content'];
 				$content = EchoDiscussionParser::stripHeader( $content );
