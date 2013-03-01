@@ -54,42 +54,4 @@ class EchoEditFormatter extends EchoBasicFormatter {
 		}
 	}
 
-	/**
-	 * Generate links based on output format and passed properties
-	 * $event EchoEvent
-	 * $message Message
-	 * $props array
-	 */
-	private function formatLink( $event, $message, $props = array() ) {
-		if ( !$event->getTitle() ) {
-			$message->params( wfMessage( 'echo-no-title' )->text() );
-			return;
-		}
-
-		$title = $event->getTitle();
-
-		$param = array();
-		if ( isset( $props['param'] ) ) {
-			$param = (array)$props['param'];
-		}
-
-		if ( $this->outputFormat === 'html' || $this->outputFormat === 'flyout' ) {
-			$class = array();
-			if ( isset( $props['class'] ) ) {
-				$class['class'] = $props['class'];
-			}
-
-			if ( isset( $props['linkText'] ) ) {
-				$linkText = $props['linkText'];
-			} else {
-				$linkText = htmlspecialchars( $title->getPrefixedText() );
-			}
-
-			$message->rawParams( Linker::link( $title, $linkText, $class, $param ) );
-		} elseif ( $this->outputFormat === 'email' ) {
-			$message->params( $title->getCanonicalURL( $param ) );
-		} else {
-			$message->params( $title->getFullURL( $param ) );
-		}
-	}
 }
