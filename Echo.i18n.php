@@ -222,7 +222,8 @@ See also:
 	'echo-pref-email-frequency-daily' => 'Option for users who want to receive a daily digest of email notifications',
 	'echo-pref-email-frequency-weekly' => 'Option for users who want to receive a weekly digest of email notifications',
 	'echo-pref-notify-hide-link' => "Label for a preference which disables the 'Notifications' link in the header and associated fly-out panel",
-	'echo-dismiss-button' => 'Text for the button that dismisses a notification type. Keep this short.',
+	'echo-dismiss-button' => 'Text for the button that dismisses a notification type. Keep this short.
+{{Identical|Dismiss}}',
 	'echo-dismiss-message' => 'Message asking the user if they want to turn off all notifications of a certain type. Parameters:
 * $1 - the name of the type; one of the following:
 ** {{msg-mw|Echo-dismiss-title-edit-user-talk}}
@@ -2004,6 +2005,7 @@ $5',
 );
 
 /** Japanese (日本語)
+ * @author Fryed-peach
  * @author Shirayuki
  * @author Whym
  */
@@ -2024,6 +2026,7 @@ $messages['ja'] = array(
 	'echo-pref-email-frequency-daily' => '通知を1日ごとに要約',
 	'echo-pref-email-frequency-weekly' => '通知を1週間ごとに要約',
 	'echo-pref-notify-hide-link' => '通知のリンクとバッジをツールバーに表示しない',
+	'echo-dismiss-button' => '非表示',
 	'echo-dismiss-message' => '$1についての通知をすべて止める',
 	'echo-dismiss-title-edit-user-talk' => 'トークページヘの投稿',
 	'echo-dismiss-title-article-linked' => 'ページヘのリンク',
