@@ -132,10 +132,10 @@ class EchoNotificationController {
 			return;
 		}
 
-		// Check if the event object still has an enabled type.  The check is necessary because an extension could
-		// get turned off and we may still have un-processed event type in the queue
+		// Check if the event object has valid event type.  Events with invalid
+		// event types left in the job queue should not be processed
 		if ( !$event->isEnabledEvent() ) {
-			return false;
+			return;
 		}
 
 		if ( $event->getType() == 'welcome' ) { // Welcome events should only be sent to the new user, no need for subscriptions.
