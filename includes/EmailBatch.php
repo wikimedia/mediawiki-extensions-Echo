@@ -100,7 +100,7 @@ abstract class MWEchoEmailBatch {
 		$events = $this->getEvents();
 
 		if ( $events ) {
-			foreach( $events as $batchId => $row ) {
+			foreach( $events as $row ) {
 				$this->count++;
 				if ( $this->count > self::$displaySize ) {
 					break;
