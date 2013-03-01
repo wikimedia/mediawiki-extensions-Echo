@@ -66,4 +66,20 @@ class EchoNotification {
 
 		$wgEchoBackend->createNotification( $row );
 	}
+
+	/**
+	 * Getter method
+	 * @return EchoEvent The event for this notification
+	 */
+	public function getEvent() {
+		return $this->event;
+	}
+
+	/**
+	 * Getter method
+	 * @return User The recipient of this notification
+	 */
+	public function getUser() {
+		return $this->user;
+	}
 }

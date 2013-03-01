@@ -16,6 +16,43 @@ class EchoHooks {
 	}
 
 	/**
+	 * Handler for ResourceLoaderRegisterModules hook
+	 */
+	public static function onResourceLoaderRegisterModules( ResourceLoader &$resourceLoader ) {
+		global $wgResourceModules, $wgEchoConfig;
+
+		$eventLogEnabled = function_exists( 'efLogServerSideEvent' );
+
+		foreach ( $wgEchoConfig['eventlogging'] as $schema => $property ) {
+			if ( $eventLogEnabled && $property['enabled'] ) {
+				$wgResourceModules[ 'schema.' . $schema ] = array(
+					'class'  => 'ResourceLoaderSchemaModule',
+					'schema' => $schema,
+					'revision' => $property['revision'],
+				);
+				$wgResourceModules['ext.echo.base']['dependencies'][] = 'schema.' . $schema;
+			} else {
+				$wgEchoConfig['eventlogging'][$schema]['enabled'] = false;
+			}
+		}
+
+		return true;
+	}
+
+	/**
+	 * Attempt to log the event
+	 * @param $schema string
+	 * @param $data array
+	 */
+	public static function logEvent( $schema, $data ) {
+		global $wgEchoConfig;
+
+		if ( !empty( $wgEchoConfig['eventlogging'][$schema]['enabled'] ) ) {
+			efLogServerSideEvent( $schema, $wgEchoConfig['eventlogging'][$schema]['revision'], $data );
+		}
+	}
+
+	/**
 	 * @param $updater DatabaseUpdater object
 	 * @return bool true in all cases
 	 */

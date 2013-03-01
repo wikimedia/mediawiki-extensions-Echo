@@ -10,7 +10,34 @@ class EchoNotifier {
 	 * @param $event EchoEvent to notify about.
 	 */
 	public static function notifyWithNotification( $user, $event ) {
-		EchoNotification::create( array( 'user' => $user, 'event' => $event ) );
+		global $wgEchoConfig, $wgEchoEventDetails;
+
+		$notif = EchoNotification::create( array( 'user' => $user, 'event' => $event ) );
+
+		// Attempt event logging if Echo schema is enabled
+		if ( $wgEchoConfig['eventlogging']['Echo']['enabled'] ) {
+			$event  = $notif->getEvent();
+			$sender = $event->getAgent();
+			$user   = $notif->getUser();
+
+			if ( isset( $wgEchoEventDetails[$event->getType()]['group'] ) ) {
+				$group = $wgEchoEventDetails[$event->getType()]['group'];
+			} else {
+				$group = 'neutral';
+			}
+
+			$data = array (
+				'version' => $wgEchoConfig['version'],
+				'eventId' => $event->getId(),
+				'notificationType' => $event->getType(),
+				'notificationGroup' => $group,
+				'sender' => (string)( $sender->isAnon() ? $sender->getName() : $sender->getId() ),
+				'recipientUserId' => $user->getId(),
+				'recipientEditCount' => (int)$user->getEditCount()
+			);
+			EchoHooks::logEvent( 'Echo', $data );
+		}
+
 		EchoNotificationController::resetNotificationCount( $user, DB_MASTER );
 	}
 

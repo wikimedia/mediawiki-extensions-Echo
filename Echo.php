@@ -87,6 +87,7 @@ $wgHooks['PersonalUrls'][] = 'EchoHooks::onPersonalUrls';
 $wgHooks['BeforePageDisplay'][] = 'EchoHooks::beforePageDisplay';
 $wgHooks['MakeGlobalVariablesScript'][] = 'EchoHooks::makeGlobalVariablesScript';
 $wgHooks['UnitTestsList'][] = 'EchoHooks::getUnitTests';
+$wgHooks['ResourceLoaderRegisterModules'][] = 'EchoHooks::onResourceLoaderRegisterModules';
 
 // Extension initialization
 $wgExtensionFunctions[] = 'EchoHooks::initEchoExtension';
@@ -244,23 +245,28 @@ $wgEchoEnabledEvents = array(
 $wgEchoEventDetails = array(
 	'welcome' => array(
 		'nodismiss' => array( 'web', 'email' ),
+		'group' => 'positive',
 	),
 	'edit-user-talk' => array(
 		'category' => 'edit-user-talk',
 		'priority' => 1,
 		'nodismiss' => array( 'web' ),
+		'group' => 'interactive',
 	),
 	'reverted' => array(
 		'category' => 'edit-revert',
 		'priority' => 9,
+		'group' => 'negative',
 	),
 	'article-linked' => array(
 		'category' => 'cross-reference',
 		'priority' => 5,
+		'group' => 'positive',
 	),
 	'mention' => array(
 		'category' => 'mention',
 		'priority' => 4,
+		'group' => 'interactive',
 	),
 );
 
@@ -366,3 +372,14 @@ foreach ( $wgEchoEnabledEvents as $wgEchoEnabledEvent ) {
 // unset default email for reverted, article-linked (change them to opt-in)
 $wgDefaultUserOptions['echo-email-notificationsreverted'] = false;
 $wgDefaultUserOptions['echo-email-notificationsarticle-linked'] = false;
+
+// Echo Configuration
+$wgEchoConfig = array(
+	'version' => '1.0',
+	'eventlogging' => array (
+		'Echo' => array (
+			'enabled' => true,
+			'revision' => 5285750
+		)
+	)
+);
