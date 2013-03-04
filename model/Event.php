@@ -6,7 +6,7 @@
  * A user's subscriptions determine what Notifications they receive.
  */
 class EchoEvent {
-	public $type = null;
+	protected $type = null;
 	protected $id = null;
 	protected $variant = null;
 	/**
@@ -240,26 +240,44 @@ class EchoEvent {
 	}
 
 	## Accessors
+	/**
+	 * @return int
+	 */
 	public function getId() {
 		return $this->id;
 	}
 
+	/**
+	 * @return string
+	 */
 	public function getTimestamp() {
 		return $this->timestamp;
 	}
 
+	/**
+	 * @return string
+	 */
 	public function getType() {
 		return $this->type;
 	}
 
+	/**
+	 * @return string
+	 */
 	public function getVariant() {
 		return $this->variant;
 	}
 
+	/**
+	 * @return array|null
+	 */
 	public function getExtra() {
 		return $this->extra;
 	}
 
+	/**
+	 * @return User
+	 */
 	public function getAgent() {
 		return $this->agent;
 	}
