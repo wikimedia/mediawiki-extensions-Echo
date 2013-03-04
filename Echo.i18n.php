@@ -1901,6 +1901,8 @@ $messages['it'] = array(
 	'echo-no-agent' => '[Nessuno]',
 	'echo-no-title' => '[Nessuna pagina]',
 	'echo-error-no-formatter' => 'Nessuna formattazione definita per le notifiche',
+	'echo-error-preference' => "Errore: impossibile impostare le preferenze dell'utente",
+	'echo-error-token' => 'Errore: impossibile recuperare token utente',
 	'notifications' => 'Notifiche',
 	'tooltip-pt-notifications' => 'Tutte le notifiche',
 	'echo-specialpage' => 'Mie notifiche',
@@ -1932,6 +1934,7 @@ $2
 
 $4",
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|ha postato}} sulla tua pagina di discussione',
+	'notification-article-linked-email-subject2' => '{{PLURAL:$2|Una pagina|Alcune pagine}} che hai iniziato {{PLURAL:$2|è stata collegata|sono state collegate}} su {{SITENAME}}',
 	'notification-article-linked-email-body2' => "$4 {{PLURAL:$5|è stata collegata|sono state collegate}} {{GENDER:$1|dall'utente}} $1 di {{SITENAME}}, in questa pagina: $2
 
 Dettagli:
