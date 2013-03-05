@@ -164,7 +164,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 		}
 
 		// Add timestamp
-		$content .= $this->formatTimestamp( $event->getTimestamp(), $user );
+		$content .= $this->formatTimestamp( $event->getTimestamp() );
 
 		$output .= Xml::tags( 'div', array( 'class' => 'mw-echo-content' ), $content ) . "\n";
 

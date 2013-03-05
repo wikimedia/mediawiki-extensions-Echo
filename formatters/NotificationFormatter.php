@@ -1,30 +1,47 @@
 <?php
+
 /**
- * Abstract class for constructing a notification message
- *
- * This class includes only the most generic formatting functionality as it may
- * be extended by notification formatters for other extensions with unique
- * content or requirements.
+ * Abstract class for constructing a notification message, this class includes
+ * only the most generic formatting functionality as it may be extended by
+ * notification formatters for other extensions with unique content or
+ * requirements.
  */
 abstract class EchoNotificationFormatter {
+
+	/**
+	 * List of valid output format
+	 * @var array
+	 */
 	protected $validOutputFormats = array( 'text', 'flyout', 'html', 'email' );
+
+	/**
+	 * Current output format, default is 'text'
+	 * @var string
+	 */
 	protected $outputFormat = 'text';
-	protected $parameters = array();
+
+	/**
+	 * List of parameters for constructing messages
+	 * @var array
+	 */
+	protected $parameters;
+
+	/**
+	 * List of parameters that must exist in $this->$parameters
+	 */
 	protected $requiredParameters = array();
 
 	/**
 	 * Creates an instance of the given class with the given parameters.
-	 *
 	 * @param $parameters array Associative array of parameters
 	 * @throws MWException
 	 */
-	public function __construct( $parameters ) {
+	public function __construct( array $parameters ) {
 		$this->parameters = $parameters;
 
-		$missingParameters =
-			array_diff( $this->requiredParameters, array_keys( $parameters ) );
+		$missingParameters = array_diff( $this->requiredParameters, array_keys( $parameters ) );
 
-		if ( count( $missingParameters ) ) {
+		if ( $missingParameters ) {
 			throw new MWException(
 				"Missing required parameters for " .
 					get_class( $this ) . ":" .
@@ -35,7 +52,6 @@ abstract class EchoNotificationFormatter {
 
 	/**
 	 * Shows a notification in human-readable format.
-	 *
 	 * @param $event EchoEvent being notified about.
 	 * @param $user User being notified.
 	 * @param $type string The notification type (e.g. notify, email)
@@ -46,7 +62,6 @@ abstract class EchoNotificationFormatter {
 
 	/**
 	 * Set the output format that the notification will be displayed in.
-	 *
 	 * @param $format string A valid output format (by default, 'text', 'html', and 'email' are allowed)
 	 * @throws MWException
 	 */
@@ -91,14 +106,11 @@ abstract class EchoNotificationFormatter {
 
 	/**
 	 * Formats a timestamp (in a human-readable format if supported by
-	 *  MediaWiki)
-	 *
+	 * MediaWiki)
 	 * @param $ts string Timestamp in some format compatible with wfTimestamp()
-	 * @param $user User to format for. false to detect
 	 * @return string Type description
 	 */
-	protected function formatTimestamp( $ts, $user ) {
-
+	protected function formatTimestamp( $ts ) {
 		$timestamp = new MWTimestamp( $ts );
 		$ts = $timestamp->getHumanTimestamp();
 
@@ -112,7 +124,6 @@ abstract class EchoNotificationFormatter {
 	/**
 	 * Formats an edit summary
 	 * TODO: implement parsed option for notifications archive page (where we can use all the html)
-	 *
 	 * @param $event EchoEvent that the notification is for.
 	 * @param $user User to format the notification for.
 	 * @return string The edit summary (or empty string)
