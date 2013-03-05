@@ -19,7 +19,7 @@
 				$( '#pt-notifications > a' )
 					.text( '' )
 					.badge( newCount, true, true );
-				$( '#pt-notifications .mw-badge' ).css( 'margin-left', '-5px' );
+				$( '#pt-notifications .mw-badge' ).css( 'margin-left', '-6px' );
 			}
 
 			mw.echo.overlay.notification_count = newCount;

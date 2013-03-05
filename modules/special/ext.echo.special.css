@@ -67,6 +67,16 @@ ul#mw-echo-special-container {
 .mw-echo-notification {
 	padding: 15px 35px 10px 0;
 }
+#mw-echo-special-container .mw-echo-notification {
+	background-color: #F0F0F0;
+}
+#mw-echo-special-container .mw-echo-notification:hover {
+	background-color: #F8F8F8;
+}
+#mw-echo-special-container .mw-echo-notification.mw-echo-unread,
+#mw-echo-special-container .mw-echo-notification.mw-echo-unread:hover {
+	background-color: white;
+}
 #mw-echo-special-container .mw-echo-notification .mw-echo-state {
 	filter: alpha(opacity=50);
 	opacity: 0.5;

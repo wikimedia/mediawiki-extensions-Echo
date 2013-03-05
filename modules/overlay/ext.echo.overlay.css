@@ -30,6 +30,7 @@
 }
 
 #p-personal .mw-echo-overlay li.mw-echo-notification {
+	background-color: #F0F0F0;
 	display: block;
 	float: none;
 	border-bottom: 1px solid #DDDDDD;
@@ -38,6 +39,13 @@
 	white-space: normal;
 	font-size: 13px;
 	line-height: 16px;
+}
+#p-personal .mw-echo-overlay li.mw-echo-notification:hover {
+	background-color: #F8F8F8;
+}
+#p-personal .mw-echo-overlay li.mw-echo-notification.mw-echo-unread,
+#p-personal .mw-echo-overlay li.mw-echo-notification.mw-echo-unread:hover {
+	background-color: white;
 }
 #p-personal .mw-echo-overlay li.mw-echo-notification:last-child {
 	border-bottom: none;
