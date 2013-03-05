@@ -1,29 +1,42 @@
 <?php
 
 class EchoNotification {
-	protected $id = false;
-	protected $user = false;
-	protected $event = false;
-	protected $timestamp = false;
-	protected $readTimestamp = null;
+
+	/**
+	 * @var User
+	 */
+	protected $user;
+
+	/**
+	 * @var EchoEvent
+	 */
+	protected $event;
+
+	/**
+	 * @var string
+	 */
+	protected $timestamp;
+
+	/**
+	 * @var string
+	 */
+	protected $readTimestamp;
 
 	/**
 	 * Do not use this constructor.
 	 */
-	protected function __construct() {
-	}
+	protected function __construct() {}
 
 	/**
-	 * Creates an EchoNotification object
-	 * @param $info array Named arguments:
-	 * event: (required) The EchoEvent being notified about.
-	 * user: (required) The User being notified.
-	 *
+	 * Creates an EchoNotification object based on event and user
+	 * @param $info array The following keys are required:
+	 * - 'event' The EchoEvent being notified about.
+	 * - 'user' The User being notified.
 	 * @throws MWException
 	 * @return EchoNotification
 	 */
-	public static function create( $info = array() ) {
-		$obj = new EchoNotification;
+	public static function create( array $info ) {
+		$obj = new EchoNotification();
 		static $validFields = array( 'event', 'user' );
 
 		$obj->timestamp = wfTimestampNow();
@@ -36,14 +49,12 @@ class EchoNotification {
 			}
 		}
 
-		if ( !$obj->user instanceof User &&
-			!$obj->user instanceof StubObject
-		) {
-			throw new MWException( "Invalid user parameter: " . get_class( $obj->user ) );
+		if ( !$obj->user instanceof User && !$obj->user instanceof StubObject ) {
+			throw new MWException( 'Invalid user parameter, expected: User/StubObject object' );
 		}
 
 		if ( !$obj->event instanceof EchoEvent ) {
-			throw new MWException( "Invalid event parameter" );
+			throw new MWException( 'Invalid event parameter, expected: EchoEvent object' );
 		}
 
 		$obj->insert();
@@ -81,5 +92,21 @@ class EchoNotification {
 	 */
 	public function getUser() {
 		return $this->user;
+	}
+
+	/**
+	 * Getter method
+	 * @return string Notification creation timestamp
+	 */
+	public function getTimestamp() {
+		return $this->timestamp;
+	}
+
+	/**
+	 * Getter method
+	 * @return string|null Notification read timestamp
+	 */
+	public function getReadTimestamp() {
+		return $this->readTimestamp;
 	}
 }
