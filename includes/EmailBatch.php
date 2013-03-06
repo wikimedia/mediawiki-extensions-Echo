@@ -38,7 +38,7 @@ abstract class MWEchoEmailBatch {
 	 * @return MWEchoEmailBatch/false
 	 */
 	public static function newFromUserId( $userId ) {
-		$batchClassName = self::getEmailBatchCalss();
+		$batchClassName = self::getEmailBatchClass();
 
 		$user = User::newFromId( intval( $userId ) );
 
@@ -73,7 +73,7 @@ abstract class MWEchoEmailBatch {
 	 * @return string
 	 * @throws MWException
 	 */
-	private static function getEmailBatchCalss() {
+	private static function getEmailBatchClass() {
 		global $wgEchoBackendName;
 
 		$className = 'MW' . $wgEchoBackendName . 'EchoEmailBatch';
@@ -247,7 +247,7 @@ abstract class MWEchoEmailBatch {
 	 * @param $priority int
 	 */
 	public static function addToQueue( $userId, $eventId, $priority ) {
-		$batchClassName = self::getEmailBatchCalss();
+		$batchClassName = self::getEmailBatchClass();
 
 		if ( !method_exists( $batchClassName, 'actuallyAddToQueue' ) ) {
 			throw new MWException( "$batchClassName must implement method actuallyAddToQueue()" );
@@ -262,7 +262,7 @@ abstract class MWEchoEmailBatch {
 	 * @param $batchSize int
 	 */
 	public static function getUsersToNotify( $startUserId, $batchSize ) {
-		$batchClassName = self::getEmailBatchCalss();
+		$batchClassName = self::getEmailBatchClass();
 
 		if ( !method_exists( $batchClassName, 'actuallyGetUsersToNotify' ) ) {
 			throw new MWException( "$batchClassName must implement method actuallyGetUsersToNotify()" );
