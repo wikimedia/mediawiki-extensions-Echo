@@ -165,7 +165,7 @@
 					}
 				}
 			);
-		},
+		}
 
 	};
 } )( jQuery, mediaWiki );
