@@ -12,12 +12,21 @@ class EchoHooks {
 	 */
 	public static function initEchoExtension() {
 		global $wgEchoBackend, $wgEchoBackendName, $wgEchoNotifications,
-			$wgEchoNotificationCategories;
+			$wgEchoNotificationCategories, $wgEchoConfig;
 
 		// allow extensions to define their own event
 		wfRunHooks( 'BeforeCreateEchoEvent', array( &$wgEchoNotifications, &$wgEchoNotificationCategories ) );
 
 		$wgEchoBackend = MWEchoBackend::factory( $wgEchoBackendName );
+
+		// turn schema off if eventLogging is not enabled
+		if ( !function_exists( 'efLogServerSideEvent' ) ) {
+			foreach ( $wgEchoConfig['eventlogging'] as $schema => $property ) {
+				if ( $property['enabled'] ) {
+					$wgEchoConfig['eventlogging'][$schema]['enabled'] = false;
+				}
+			}
+		}
 	}
 
 	/**
@@ -26,18 +35,14 @@ class EchoHooks {
 	public static function onResourceLoaderRegisterModules( ResourceLoader &$resourceLoader ) {
 		global $wgResourceModules, $wgEchoConfig;
 
-		$eventLogEnabled = function_exists( 'efLogServerSideEvent' );
-
 		foreach ( $wgEchoConfig['eventlogging'] as $schema => $property ) {
-			if ( $eventLogEnabled && $property['enabled'] ) {
+			if ( $property['enabled'] ) {
 				$wgResourceModules[ 'schema.' . $schema ] = array(
 					'class'  => 'ResourceLoaderSchemaModule',
 					'schema' => $schema,
 					'revision' => $property['revision'],
 				);
 				$wgResourceModules['ext.echo.base']['dependencies'][] = 'schema.' . $schema;
-			} else {
-				$wgEchoConfig['eventlogging'][$schema]['enabled'] = false;
 			}
 		}
 
