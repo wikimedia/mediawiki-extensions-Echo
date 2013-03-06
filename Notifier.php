@@ -62,29 +62,63 @@ class EchoNotifier {
 			// No valid email address
 			return false;
 		}
-		// See if the user wants to receive emails for this category of event
+
+		// See if the user wants to receive emails for this category
 		if ( $user->getOption( 'echo-subscriptions-email-' . $event->getCategory() ) ) {
-			global $wgEchoEnableEmailBatch, $wgPasswordSender, $wgPasswordSenderName;
-	
-			// batched email notification
+			global $wgEchoEnableEmailBatch, $wgEchoNotifications, $wgPasswordSender, $wgPasswordSenderName, $wgEchoBundleEmailInterval;
+
+			$priority = EchoNotificationController::getNotificationPriority( $event->getType() );
+
+			$bundleString = $bundleHash = '';
+
+			// We should have bundling for email digest as long as either web or email bundling is on, for example, talk page
+			// email bundling is off, but if a user decides to receive email digest, we should bundle those messages
+			if ( !empty( $wgEchoNotifications[$event->getType()]['bundle']['web'] ) || !empty( $wgEchoNotifications[$event->getType()]['bundle']['email'] ) ) {
+				wfRunHooks( 'EchoGetBundleRules', array( $event, &$bundleString ) );
+			}
+			if ( $bundleString ) {
+				$bundleHash = md5( $bundleString );
+			}
+
+			// email digest notification ( weekly or daily )
 			if ( $wgEchoEnableEmailBatch && $user->getOption( 'echo-email-frequency' ) > 0 ) {
-				$priority = EchoNotificationController::getNotificationPriority( $event->getType() );
-				MWEchoEmailBatch::addToQueue( $user->getId(), $event->getId(), $priority );
+				// always create a unique event hash for those events don't support bundling
+				// this is mainly for group by
+				if ( !$bundleHash ) {
+					$bundleHash = md5( $event->getType() . '-' . $event->getId() );
+				}
+				MWEchoEmailBatch::addToQueue( $user->getId(), $event->getId(), $priority, $bundleHash );
 				return true;
 			}
 			// no email notification
 			if ( $user->getOption( 'echo-email-frequency' ) < 0 ) {
 				return false;
 			}
-	
-			// instant email notification
-			$adminAddress = new MailAddress( $wgPasswordSender, $wgPasswordSenderName );
-			$address = new MailAddress( $user );
-			$email = EchoNotificationController::formatNotification( $event, $user, 'email' );
-			$subject = $email['subject'];
-			$body = $email['body'];
-	
-			UserMailer::send( $address, $adminAddress, $subject, $body );
+
+			$addedToQueue = false;
+
+			// only send bundle email if email bundling is on
+			if ( $wgEchoBundleEmailInterval && $bundleHash && !empty( $wgEchoNotifications[$event->getType()]['bundle']['email'] ) ) {
+				$bundler = MWEchoEmailBundler::newFromUserHash( $user, $bundleHash );
+				if ( $bundler ) {
+					$addedToQueue = $bundler->addToEmailBatch( $event->getId(), $priority );
+				}
+			}
+
+			// send single notification if the email wasn't added to queue for bundling
+			if ( !$addedToQueue ) {
+				// instant email notification
+				$adminAddress = new MailAddress( $wgPasswordSender, $wgPasswordSenderName );
+				$address = new MailAddress( $user );
+				// Since we are sending a single email, should set the bundle hash to null
+				// if it is set with a value from somewhere else
+				$event->setBundleHash( null );
+				$email = EchoNotificationController::formatNotification( $event, $user, 'email', 'email' );
+				$subject = $email['subject'];
+				$body = $email['body'];
+
+				UserMailer::send( $address, $adminAddress, $subject, $body );
+			}
 		}
 
 		return true;

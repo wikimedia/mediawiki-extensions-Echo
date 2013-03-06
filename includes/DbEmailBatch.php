@@ -39,6 +39,10 @@ class MWDbEchoEmailBatch extends MWEchoEmailBatch {
 
 		$validEvents = array_keys( $wgEchoNotifications );
 
+		// Per the tech discussion in the design meeting (03/22/2013), since this is
+		// processed by a cron job, it's okay to use GROUP BY over more complex
+		// composite index, favor insert performance, storage space over read
+		// performance in this case
 		if ( $validEvents ) {
 			$dbr = MWEchoDbFactory::getDB( DB_SLAVE );
 
@@ -48,6 +52,7 @@ class MWDbEchoEmailBatch extends MWEchoEmailBatch {
 				'event_type' => $validEvents
 			);
 
+			// See setLastEvent() for more detail for this variable
 			if ( $this->lastEvent ) {
 				$conds[] = 'eeb_event_id <= ' . intval( $this->lastEvent );
 			}
@@ -57,11 +62,19 @@ class MWDbEchoEmailBatch extends MWEchoEmailBatch {
 				array( '*' ),
 				$conds,
 				__METHOD__,
-				array( 'ORDER BY' => 'eeb_event_priority, eeb_event_id', 'LIMIT' => self::$displaySize + 1 )
+				array(
+					'ORDER BY' => 'eeb_event_priority',
+					'LIMIT' => self::$displaySize + 1,
+					'GROUP BY' => 'eeb_event_hash'
+				)
 			);
 
-			foreach( $res as $row ) {
-				$events[$row->eeb_id] = $row;
+			foreach ( $res as $row ) {
+				// records in the queue inserted before email bundling code
+				// have no hash, in this case, we just ignore them
+				if ( $row->eeb_event_hash ) {
+					$events[$row->eeb_id] = $row;
+				}
 			}
 		}
 
@@ -93,8 +106,9 @@ class MWDbEchoEmailBatch extends MWEchoEmailBatch {
 	 * @param $userId int
 	 * @param $eventId int
 	 * @param $priority int
+	 * @param $hash string
 	 */
-	public static function actuallyAddToQueue( $userId, $eventId, $priority ) {
+	public static function actuallyAddToQueue( $userId, $eventId, $priority, $hash ) {
 		if ( !$userId || !$eventId ) {
 			return;
 		}
@@ -105,7 +119,8 @@ class MWDbEchoEmailBatch extends MWEchoEmailBatch {
 			array(
 				'eeb_user_id' => $userId,
 				'eeb_event_id' => $eventId,
-				'eeb_event_priority' => $priority
+				'eeb_event_priority' => $priority,
+				'eeb_event_hash' => $hash
 			),
 			__METHOD__,
 			array( 'IGNORE' )

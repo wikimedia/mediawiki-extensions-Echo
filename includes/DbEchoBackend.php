@@ -88,32 +88,54 @@ class MWDbEchoBackend extends MWEchoBackend {
 	/**
 	 * @param $user User
 	 * @param $bundleHash string the bundle hash
+	 * @param $type string
 	 * @return ResultWrapper|bool
 	 */
-	public function getRawBundleData( $user, $bundleHash ) {
+	public function getRawBundleData( $user, $bundleHash, $type = 'web' ) {
 		// We only display 99+ if the number is over 100, we can do limit 250, this should be sufficient
 		// to return 99 distinct group iterators, avoid select count( distinct ) for the folliwng:
 		// 1. it will not scale for large volume data
 		// 2. notification may have random grouping iterator
 		// 2. agent may be anonymous, can't do distinct over two columens: event_agent_id and event_agent_ip
-		$res = $this->dbr->select(
-			array( 'echo_notification', 'echo_event' ),
-			array(
-				'event_agent_id',
-				'event_agent_ip',
-				'event_extra',
-				'event_page_namespace',
-				'event_page_title'
-			),
-			array(
-				'notification_event=event_id',
-				'notification_user' => $user->getId(),
-				'notification_bundle_base' => 0,
-				'notification_bundle_display_hash' => $bundleHash
-			),
-			__METHOD__,
-			array( 'ORDER BY' => 'notification_timestamp DESC', 'LIMIT' => 250 )
-		);
+		if ( $type == 'web' ) {
+			$res = $this->dbr->select(
+				array( 'echo_notification', 'echo_event' ),
+				array(
+					'event_agent_id',
+					'event_agent_ip',
+					'event_extra',
+					'event_page_namespace',
+					'event_page_title'
+				),
+				array(
+					'notification_event=event_id',
+					'notification_user' => $user->getId(),
+					'notification_bundle_base' => 0,
+					'notification_bundle_display_hash' => $bundleHash
+				),
+				__METHOD__,
+				array( 'ORDER BY' => 'notification_timestamp DESC', 'LIMIT' => 250 )
+			);
+		// this would be email for now
+		} else {
+			$res = $this->dbr->select(
+				array( 'echo_email_batch', 'echo_event' ),
+				array(
+					'event_agent_id',
+					'event_agent_ip',
+					'event_extra',
+					'event_page_namespace',
+					'event_page_title'
+				),
+				array(
+					'eeb_event_id=event_id',
+					'eeb_user_id' => $user->getId(),
+					'eeb_event_hash' => $bundleHash
+				),
+				__METHOD__,
+				array( 'ORDER BY' => 'eeb_event_id DESC', 'LIMIT' => 250 )
+			);
+		}
 
 		return $res;
 	}

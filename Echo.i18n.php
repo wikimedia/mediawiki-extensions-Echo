@@ -73,7 +73,7 @@ $messages['en'] = array(
 	'notification-reverted2' => 'Your {{PLURAL:$4|edit on [[$2]] has|edits on [[$2]] have}} been {{GENDER:$1|reverted}} by [[User:$1|$1]] $3',
 	'notification-reverted-flyout2' => 'Your {{PLURAL:$4|edit on $2 has|edits on $2 have}} been {{GENDER:$1|reverted}} by $1 $3',
 	'notification-edit-talk-page-email-subject2' => 'You have a new talkpage message',
-	'notification-edit-talk-page-email-body2' => '{{SITENAME}} user $1 {{GENDER:$1|posted}} on your talk page:
+	'notification-edit-talk-page-email-body2' => '$1
 
 $3
 
@@ -84,7 +84,7 @@ $2
 $4',
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|posted}} on your talk page',
 	'notification-page-linked-email-subject' => 'A page you started was linked on {{SITENAME}}',
-	'notification-page-linked-email-body' => '$2 was {{GENDER:$1|linked}} from $4
+	'notification-page-linked-email-body' => '$1
 
 See all links to this page:
 
@@ -152,6 +152,8 @@ $1',
 	// Bundle
 	'notification-edit-talk-page-bundle' => '$1 and $3 {{PLURAL:$4|other|others}} {{GENDER:$1|posted}} on your [[User talk:$2|talk page]].',
 	'notification-page-linked-bundle' => '$2 was {{GENDER:$1|linked}} from $3 and $4 other {{PLURAL:$5|page|pages}}. [[Special:WhatLinksHere/$2|See all links to this page]]',
+	'notification-edit-user-talk-email-batch-bundle-body' => '$1 and $2 {{PLURAL:$3|other|others}} {{GENDER:$1|posted}} on your talk page',
+	'notification-page-linked-email-batch-bundle-body' => '$2 was {{GENDER:$1|linked}} from $3 and $4 other {{PLURAL:$5|page|pages}}',
 
 	// Email batch
 	'echo-email-batch-separator' => '________________________________________________', # only translate this message to other languages if you have to change it
@@ -345,7 +347,7 @@ See also:
 {{Related|Notification-reverted}}",
 	'notification-edit-talk-page-email-subject2' => 'E-mail subject.',
 	'notification-edit-talk-page-email-body2' => 'E-mail notification. Parameters:
-* $1 is a username
+* $1 is the email intro, could be {{msg-mw|notification-edit-talk-page-email-batch-body2}} or {{msg-mw|notification-edit-talk-page-email-batch-bundle-body}}
 * $2 is a link to a change
 * $3 is the edit summary.
 * $4 is the e-mail footer, {{msg-mw|echo-email-footer-default}}',
@@ -358,10 +360,9 @@ See also:
 * {{msg-mw|Notification-page-linked-email-batch-body}}
 * {{msg-mw|Notification-page-linked-email-body}}',
 	'notification-page-linked-email-body' => 'E-mail notification. Parameters:
-* $1 is the username of the person who linked the page, plain text.  Can be used for GENDER.
+* $1 is the email intro, could be {{msg-mw|notification-page-linked-email-batch-body}} or {{msg-mw|notification-page-linked-email-batch-bundle-body}}
 * $2 is the page being linked.
 * $3 is the e-mail footer, {{msg-mw|echo-email-footer-default}}.
-* $4 is the page linked from
 See also:
 * {{msg-mw|Notification-page-linked}}
 * {{msg-mw|Notification-page-linked-flyout}}
@@ -443,17 +444,6 @@ The header text for each notification section which is grouped by date
 * $1 is the month, it could be {{msg-mw|january-gen}}, {{msg-mw|february-gen}}, {{msg-mw|march-gen}}, {{msg-mw|april-gen}}, {{msg-mw|may-gen}}, {{msg-mw|june-gen}}, {{msg-mw|july-gen}}, {{msg-mw|august-gen}}, {{msg-mw|september-gen}}, {{msg-mw|october-gen}}, {{msg-mw|november-gen}}, {{msg-mw|december-gen}}
 * $2 is the date of a month, eg 21',
 	'echo-load-more-error' => 'Error message for errors in loading more notifications',
-	'notification-edit-talk-page-bundle' => 'Bundled message for edit-user-talk notification.  Parameters:
-* $1 - the username who performs the action, which can be used for gender support
-* $2 - the username
-* $3 - the count of other action performers, could be number or {{msg-mw|echo-notification-count}}, eg, 7 others or 99+ others
-* $4 - a number used for plural support',
-	'notification-page-linked-bundle' => 'Bundled message for page-linked notification.  Parameters:
-* $1 - the username who performs the action, which can be used for gender support
-* $2 - the page title
-* $3 - the page linked from
-* $4 - the count of other action performers, could be number or {{msg-mw|echo-notification-count}}, eg, 7 others or 99+ others
-* $5 - a number used for plural support',
 	'echo-email-batch-separator' => '{{optional}}
 Email batch content separator',
 	'echo-email-batch-bullet' => '{{optional}}',
@@ -492,6 +482,29 @@ See also:
 ** {{msg-mw|Echo-category-title-mention}}
 ** {{msg-mw|Echo-category-title-other}}
 ** {{msg-mw|Echo-category-title-system}}',
+
+	// Bundle
+	'notification-edit-talk-page-bundle' => 'Bundled message for edit-user-talk notification.  Parameters:
+* $1 is the username who performs the action, which can be used for gender support
+* $2 is the username
+* $3 is the count of other action performers, could be number or {{msg:-mew|echo-notification-count}}, eg, 7 others or 99+ others
+* $4 is a number used for plural support',
+	'notification-page-linked-bundle' => 'Bundled message for page-linked notification.  Parameters:
+* $1 is the username who performs the action, which can be used for gender support
+* $2 is the page title
+* $3 is the page linked from
+* $4 is the count of other action performers, could be number or {{msg:-mew|echo-notification-count}}, eg, 7 others or 99+ others
+* $5 is a number used for plural support',
+	'notification-edit-user-talk-email-batch-bundle-body' => 'Bundled message for edit-user-talk email digest notification.  Parameters:
+* $1 is the username who performs the action, which can be used for gender support
+* $2 is the count of other action performers, could be number or {{msg:-mew|echo-notification-count}}
+* $3 is a number used for plural support',
+	'notification-page-linked-email-batch-bundle-body' => 'Bundled message for page-linked email digest notification.  Parameters:
+* $1 is the username who performs the action, which can be used for gender support
+* $2 is the link-to page title
+* $3 is the link-from page title
+* $4 is the cout of other link-from page title, can be number or {{msg:-mew|echo-notification-count}}
+* $5 is a number used for plural support',
 );
 
 /** Afrikaans (Afrikaans)

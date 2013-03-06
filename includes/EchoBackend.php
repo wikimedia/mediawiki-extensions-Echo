@@ -75,9 +75,10 @@ abstract class MWEchoBackend {
 	 * Get the bundle data for user/hash
 	 * @param $user User
 	 * @param $bundleHash string The hash used to identify a set of bundle-able events
+	 * @param $type string 'web'/'email'
 	 * @return ResultWrapper|bool
 	 */
-	abstract public function getRawBundleData( $user, $bundleHash );
+	abstract public function getRawBundleData( $user, $bundleHash, $type = 'web' );
 
 	/**
 	 * Get the last bundle stat - read_timestamp & bundle_display_hash

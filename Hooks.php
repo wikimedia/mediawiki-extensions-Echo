@@ -82,6 +82,8 @@ class EchoHooks {
 		$updater->addExtensionIndex( 'echo_event', 'event_type', "$dir/db_patches/patch-alter-type_page-index.sql" );
 		$updater->dropTable( 'echo_subscription' );
 		$updater->dropExtensionField( 'echo_event', 'event_timestamp', "$dir/db_patches/patch-drop-echo_event-event_timestamp.sql" );
+		$updater->addExtensionField( 'echo_email_batch', 'eeb_event_hash',
+			"$dir/db_patches/patch-email_batch-new-field.sql" );
 		return true;
 	}
 

@@ -15,9 +15,9 @@ abstract class MWEchoEmailBatch {
 	// the event count, this count is supported up to self::$displaySize + 1
 	protected $count = 0;
 
-	// number of events to include in an email, we couldn't include
+	// number of bundle events to include in an email, we couldn't include
 	// all events in a batch email
-	protected static $displaySize = 10;
+	protected static $displaySize = 20;
 
 	/**
 	 * @param $user User
@@ -48,6 +48,17 @@ abstract class MWEchoEmailBatch {
 		if ( $userEmailSetting == -1 ) {
 			$emailBatch = new $batchClassName( $user );
 			$emailBatch->clearProcessedEvent();
+			return false;
+		}
+
+		// @Todo - There may be some items idling in the queue, eg, a bundle job is lost
+		// and there is not never another message with the same hash or a user switches from
+		// digest to instant.  We should check the first item in the queue, if it doesn't
+		// have either web or email bundling or created long ago, then clear it, this will
+		// prevent idling item queuing up.
+
+		// user has instant email delivery
+		if ( $userEmailSetting == 0 ) {
 			return false;
 		}
 
@@ -106,7 +117,7 @@ abstract class MWEchoEmailBatch {
 					break;
 				}
 				$event = EchoEvent::newFromRow( $row );
-				$this->appendContent( $event );
+				$this->appendContent( $event, $row->eeb_event_hash );
 			}
 
 			$this->sendEmail();
@@ -144,11 +155,12 @@ abstract class MWEchoEmailBatch {
 	/**
 	 * Add individual event template to the big email content
 	 */
-	protected function appendContent( $event ) {
+	protected function appendContent( $event, $hash ) {
 		// get the category for this event
 		$category = $event->getCategory();
+		$event->setBundleHash( $hash );
+		$email = EchoNotificationController::formatNotification( $event, $this->mUser, 'email', 'email' );
 
-		$email = EchoNotificationController::formatNotification( $event, $this->mUser, 'email' );
 		if ( !isset( $this->content[$category] ) ) {
 			$this->content[$category] = array();
 		}
@@ -238,6 +250,7 @@ abstract class MWEchoEmailBatch {
 		$adminAddress = new MailAddress( $wgPasswordSender, $wgPasswordSenderName );
 		$address = new MailAddress( $this->mUser );
 
+		// @Todo Push the email to job queue or just send it out directly?
 		UserMailer::send( $address, $adminAddress, $subject, $body );
 	}
 
@@ -246,15 +259,16 @@ abstract class MWEchoEmailBatch {
 	 * @param $userId int
 	 * @param $eventId int
 	 * @param $priority int
+	 * @param $hash string
 	 */
-	public static function addToQueue( $userId, $eventId, $priority ) {
+	public static function addToQueue( $userId, $eventId, $priority, $hash ) {
 		$batchClassName = self::getEmailBatchClass();
 
 		if ( !method_exists( $batchClassName, 'actuallyAddToQueue' ) ) {
 			throw new MWException( "$batchClassName must implement method actuallyAddToQueue()" );
 		}
 
-		$batchClassName::actuallyAddToQueue( $userId, $eventId, $priority );
+		$batchClassName::actuallyAddToQueue( $userId, $eventId, $priority, $hash );
 	}
 
 	/**

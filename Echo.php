@@ -49,6 +49,8 @@ $wgAutoloadClasses['EchoEvent'] = $dir . 'model/Event.php';
 $wgAutoloadClasses['EchoNotification'] = $dir . 'model/Notification.php';
 $wgAutoloadClasses['MWEchoEmailBatch'] = $dir . 'includes/EmailBatch.php';
 $wgAutoloadClasses['MWDbEchoEmailBatch'] = $dir . 'includes/DbEmailBatch.php';
+$wgAutoloadClasses['MWEchoEmailBundler'] = $dir . 'includes/EmailBundler.php';
+$wgAutoloadClasses['MWDbEchoEmailBundler'] = $dir . 'includes/DbEmailBundler.php';
 
 // Formatters
 $wgAutoloadClasses['EchoNotificationFormatter'] = $dir . 'formatters/NotificationFormatter.php';
@@ -66,6 +68,8 @@ $wgAutoloadClasses['EchoDiscussionParser'] = $dir . 'includes/DiscussionParser.p
 // Job queue
 $wgAutoloadClasses['EchoNotificationJob'] = $dir . 'jobs/NotificationJob.php';
 $wgJobClasses['EchoNotificationJob'] = 'EchoNotificationJob';
+$wgAutoloadClasses['MWEchoNotificationEmailBundleJob'] = $dir . 'jobs/NotificationEmailBundleJob.php';
+$wgJobClasses['MWEchoNotificationEmailBundleJob'] = 'MWEchoNotificationEmailBundleJob';
 
 // API
 $wgAutoloadClasses['ApiEchoNotifications'] =  $dir . 'api/ApiEchoNotifications.php';
@@ -220,6 +224,11 @@ $wgEchoCluster = false;
 // The max number showed in bundled message, eg, <user> and 99+ others <action>
 $wgEchoMaxNotificationCount = 99;
 
+// The time interval between each bundle email in seconds
+// set a small number for test wikis, should set this to 0 to disable email bundling
+// if there is no delay queue support
+$wgEchoBundleEmailInterval = 0;
+
 // Define which output formats are available for each notification category
 $wgEchoDefaultNotificationTypes = array(
 	'all' => array(
@@ -298,9 +307,11 @@ $wgEchoNotifications = array(
 		'flyout-params' => array( 'agent', 'user' ),
 		'email-subject-message' => 'notification-edit-talk-page-email-subject2',
 		'email-body-message' => 'notification-edit-talk-page-email-body2',
-		'email-body-params' => array( 'agent', 'titlelink', 'summary', 'email-footer' ),
+		'email-body-params' => array( 'email-intro', 'titlelink', 'summary', 'email-footer' ),
 		'email-body-batch-message' => 'notification-edit-talk-page-email-batch-body2',
-		'email-body-batch-params' => array( 'agent', 'difflink', 'summary' ),
+		'email-body-batch-params' => array( 'agent' ),
+		'email-body-batch-bundle-message' => 'notification-edit-user-talk-email-batch-bundle-body',
+		'email-body-batch-bundle-params' => array( 'agent', 'agent-other-display', 'agent-other-count' ),
 		'icon' => 'chat',
 	),
 	'reverted' => array(
@@ -323,7 +334,7 @@ $wgEchoNotifications = array(
 	'page-linked' => array(
 		'category' => 'article-linked',
 		'group' => 'positive',
-		'bundle' => array( 'web' => true, 'email' => false ),
+		'bundle' => array( 'web' => true, 'email' => true ),
 		'formatter-class' => 'EchoPageLinkFormatter',
 		'title-message' => 'notification-page-linked',
 		'title-params' => array( 'agent', 'title', 'link-from-page' ),
@@ -335,9 +346,11 @@ $wgEchoNotifications = array(
 		'email-subject-message' => 'notification-page-linked-email-subject',
 		'email-subject-params' => array(),
 		'email-body-message' => 'notification-page-linked-email-body',
-		'email-body-params' => array( 'agent', 'title', 'email-footer', 'link-from-page' ),
+		'email-body-params' => array( 'email-intro', 'title', 'email-footer', 'link-from-page' ),
 		'email-body-batch-message' => 'notification-page-linked-email-batch-body',
 		'email-body-batch-params' => array( 'agent', 'title', 'link-from-page' ),
+		'email-body-batch-bundle-message' => 'notification-page-linked-email-batch-bundle-body',
+		'email-body-batch-bundle-params' => array( 'agent', 'title', 'link-from-page', 'link-from-page-other-display', 'link-from-page-other-count' ),
 		'icon' => 'linked',
 	),
 	'mention' => array(

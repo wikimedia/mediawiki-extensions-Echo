@@ -99,12 +99,15 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			'batch-body' => array(
 				'message' => $params['email-body-batch-message'],
 				'params' => $params['email-body-batch-params']
+			),
+			'batch-bundle-body' => array(
+				'message' => $params['email-body-batch-bundle-message'],
+				'params' => $params['email-body-batch-bundle-params']
 			)
 		);
 
 		// Notification icon for the event type
 		$this->icon = $params['icon'];
-
 	}
 
 	/**
@@ -125,6 +128,8 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			'email-body-params' => array( 'text-notification' ),
 			'email-body-batch-message' => 'echo-email-batch-body-default',
 			'email-body-batch-params' => array(),
+			'email-body-batch-bundle-message' => '',
+			'email-body-batch-bundle-params' => array(),
 			'icon' => 'placeholder'
 		);
 	}
@@ -141,7 +146,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 		global $wgEchoNotificationCategories;
 
 		// Use the bundle message if use-bundle is true and there is a bundle message
-		$this->generateBundleData( $event, $user );
+		$this->generateBundleData( $event, $user, $type );
 		if ( $this->bundleData['use-bundle'] && isset( $this->bundleTitle['message'] ) ) {
 			$this->title = $this->flyoutTitle = $this->bundleTitle;
 		}
@@ -245,7 +250,13 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 
 		$body = preg_replace( "/\n{3,}/", "\n\n", $this->formatFragment( $this->email['body'], $event, $user )->text() );
 
-		$batchBody = preg_replace( "/\n{3,}/", "\n\n", $this->formatFragment( $this->email['batch-body'], $event, $user )->text() );
+		if ( $this->bundleData['use-bundle'] && $this->email['batch-bundle-body'] ) {
+			$bodyKey = $this->email['batch-bundle-body'];
+		} else {
+			$bodyKey = $this->email['batch-body'];
+		}
+
+		$batchBody = preg_replace( "/\n{3,}/", "\n\n", $this->formatFragment( $bodyKey, $event, $user )->text() );
 
 		return array( 'subject' => $subject, 'body' => $body, 'batch-body' => $batchBody );
 	}
@@ -333,9 +344,10 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	 * Get raw bundle data for an event so it can be manipulated
 	 * @param $event EchoEvent
 	 * @param $user User
+	 * @param $type string Notification distribution type: web/email
 	 * @return ResultWrapper|bool
 	 */
-	protected function getRawBundleData( $event, $user ) {
+	protected function getRawBundleData( $event, $user, $type ) {
 		global $wgEchoBackend;
 
 		// We should keep bundling for events as long as it has bundle
@@ -345,7 +357,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			return false;
 		}
 
-		return $wgEchoBackend->getRawBundleData( $user, $event->getBundleHash() );
+		return $wgEchoBackend->getRawBundleData( $user, $event->getBundleHash(), $type );
 	}
 
 	/**
@@ -354,11 +366,12 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	 * this function to use a differnt group iterator such as title, namespace
 	 * @param $event EchoEvent
 	 * @param $user User
+	 * @param $type string Notification distribution type
 	 */
-	protected function generateBundleData( $event, $user ) {
+	protected function generateBundleData( $event, $user, $type ) {
 		global $wgEchoMaxNotificationCount;
 
-		$data = $this->getRawBundleData( $event, $user );
+		$data = $this->getRawBundleData( $event, $user, $type );
 
 		if ( !$data ) {
 			return;
@@ -468,6 +481,19 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			$this->setOutputFormat( $oldOutputFormat );
 
 			$message->params( $textNotification );
+		} elseif ( $param === 'email-intro' ) {
+			if ( $this->bundleData['use-bundle'] && isset( $this->email['batch-bundle-body']['message'] ) ) {
+				$detail = array(
+					'message' => $this->email['batch-bundle-body']['message'],
+					'params' => $this->email['batch-bundle-body']['params']
+				);
+			} else {
+				$detail = array(
+					'message' => $this->email['batch-body']['message'],
+					'params' => $this->email['batch-body']['params']
+				);
+			}
+			$message->params( $this->formatFragment( $detail, $event, $user )->text() );
 		} elseif ( $param === 'email-footer' ) {
 			global $wgEchoEmailFooterAddress;
 			$message->params(
