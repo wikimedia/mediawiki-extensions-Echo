@@ -57,8 +57,6 @@ class ApiEchoNotifications extends ApiQueryBase {
 	public static function getNotifications( $user, $unread = false, $format = false, $limit = 20, $timestamp = 0, $offset = 0 ) {
 		global $wgEchoBackend;
 
-		$lang = RequestContext::getMain()->getLanguage();
-
 		$output = array();
 
 		// TODO: Make 'web' based on a new API param?
@@ -66,15 +64,6 @@ class ApiEchoNotifications extends ApiQueryBase {
 
 		foreach ( $res as $row ) {
 			$event = EchoEvent::newFromRow( $row );
-
-			// Use $row->notification_timestamp instead of $event->getTimestamp() for display
-			// since we do the ordering based on notification_timestamp, otherwise, there will
-			// be a confusing ordering issue in some rare cases
-			if ( MWInit::methodExists( 'Language', 'prettyTimestamp' ) ) {
-				$ts = $lang->prettyTimestamp( $row->notification_timestamp, false, $user );
-			} else {
-				$ts = $lang->timeanddate( $row->notification_timestamp, true );
-			}
 
 			$timestamp = new MWTimestamp( $row->notification_timestamp );
 			$timestampUnix = $timestamp->getTimestamp( TS_UNIX );
@@ -116,7 +105,6 @@ class ApiEchoNotifications extends ApiQueryBase {
 				'timestamp' => array(
 					'unix' => $timestampUnix,
 					'mw' => $timestampMw,
-					'pretty' => $ts,
 					'date' => $date
 				),
 			);
