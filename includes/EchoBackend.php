@@ -42,11 +42,12 @@ abstract class MWEchoBackend {
 		global $wgEchoNotifications;
 		$eventTypesToLoad = $wgEchoNotifications;
 		foreach ( $eventTypesToLoad as $eventType => $eventData ) {
+			$category = EchoNotificationController::getNotificationCategory( $eventType );
 			// Make sure the user is eligible to recieve this type of notification
-			if ( !EchoNotificationController::getNotificationEligibility( $user, $eventType ) ) {
+			if ( !EchoNotificationController::getCategoryEligibility( $user, $category ) ) {
 				unset( $eventTypesToLoad[$eventType] );
 			}
-			if ( !$user->getOption( 'echo-subscriptions-' . $outputFormat . '-' . $eventType ) ) {
+			if ( !$user->getOption( 'echo-subscriptions-' . $outputFormat . '-' . $category ) ) {
 				unset( $eventTypesToLoad[$eventType] );
 			}
 		}
