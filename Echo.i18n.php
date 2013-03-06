@@ -723,10 +723,8 @@ $4
 
 $5',
 	'echo-email-batch-category-header-edit-user-talk' => '$1 {{PLURAL:$1|паведамленьне|паведамленьні|паведамленьняў}} на старонцы абмеркаваньняў',
-	'echo-email-batch-category-header-edit-revert' => '$1 {{PLURAL:$1|скасаваньне|скасаваньні|скасаваньняў}} правак',
-	'echo-email-batch-category-header-cross-reference' => '$1 {{PLURAL:$1|скрыжаваная спасылка|скрыжаваныя спасылкі|скрыжаваных спасылак}}',
 	'echo-email-batch-category-header-mention' => '$1 {{PLURAL:$1|згадка|згадкі|згадак}}',
-	'echo-email-batch-category-header-other' => '$1 {{PLURAL:$1|іншая|іншыя|іншых}}',
+	'echo-email-batch-category-header-other' => '$1 {{PLURAL:$1|іншая|іншыя|іншых}}', # Fuzzy
 );
 
 /** Bulgarian (български)
@@ -896,9 +894,11 @@ $messages['de'] = array(
 	'echo-pref-notify-hide-link' => 'Den Link sowie das Symbol für Benachrichtigungen nicht in meiner Benutzerleiste anzeigen',
 	'echo-dismiss-button' => 'Ausblenden',
 	'echo-dismiss-message' => 'Alle „$1“-Benachrichtigungen abschalten',
+	'echo-dismiss-prefs-message' => 'Du kannst dies in deinen Einstellungen wieder aktivieren',
 	'echo-dismiss-title-edit-user-talk' => 'Diskussionsseitennachricht',
 	'echo-dismiss-title-article-linked' => 'Seite verlinkt',
 	'echo-dismiss-title-reverted' => 'Bearbeitung rückgängig gemacht',
+	'echo-dismiss-title-mention' => 'Erwähnung',
 	'echo-no-agent' => '[Niemand]',
 	'echo-no-title' => '[Keine Seite]',
 	'echo-error-no-formatter' => 'Keine Formatierung zur Benachrichtigung definiert',
@@ -1003,10 +1003,11 @@ $4
 
 $5',
 	'echo-email-batch-category-header-edit-user-talk' => '{{PLURAL:$1|Eine Diskussionsseitennachricht|$1 Diskussionsseitennachrichten}}',
-	'echo-email-batch-category-header-edit-revert' => '{{PLURAL:$1|Eine Zurücksetzung|$1 Zurücksetzungen}}',
-	'echo-email-batch-category-header-cross-reference' => '{{PLURAL:$1|Ein Querverweis|$1 Querverweise}}',
+	'echo-email-batch-category-header-reverted' => '{{PLURAL:$1|Eine Bearbeitung|$1 Bearbeitungen}} rückgängig gemacht',
+	'echo-email-batch-category-header-article-linked' => '{{PLURAL:$1|Eine Seite|$1 Seiten}} verlinkt',
 	'echo-email-batch-category-header-mention' => '{{PLURAL:$1|Eine Erwähnung|$1 Erwähnungen}}',
-	'echo-email-batch-category-header-other' => '{{PLURAL:$1|Eine andere|$1 andere}}',
+	'echo-email-batch-category-header-other' => '{{PLURAL:$1|Eine nicht kategorisierte Benachrichtigung|$1 nicht kategorisierte Benachrichtigungen}}',
+	'echo-email-batch-category-header-system' => '{{PLURAL:$1|Eine Systembenachrichtigung|$1 Systembenachrichtigungen}}',
 );
 
 /** German (formal address) (Deutsch (Sie-Form)‎)
@@ -1069,6 +1070,13 @@ $messages['el'] = array(
 	'echo-date-today' => 'Σήμερα',
 	'echo-date-yesterday' => 'Χθες',
 	'echo-email-batch-category-header-other' => '$1 {{PLURAL:$1|άλλος|άλλοι}}',
+);
+
+/** British English (British English)
+ * @author Shirayuki
+ */
+$messages['en-gb'] = array(
+	'echo-email-batch-category-header-other' => '$1 uncategorised {{PLURAL:$1|notification|notifications}}',
 );
 
 /** Esperanto (Esperanto)
@@ -1307,9 +1315,11 @@ $messages['fr'] = array(
 	'echo-pref-notify-hide-link' => "Masquer le lien et l'insigne pour les notifications dans ma barre d'outils",
 	'echo-dismiss-button' => 'Rejeter',
 	'echo-dismiss-message' => 'Désactiver toutes les $1 notifications',
+	'echo-dismiss-prefs-message' => 'Vous pouvez les remettre en place dans les Préférences',
 	'echo-dismiss-title-edit-user-talk' => 'Message de la page de discussion',
 	'echo-dismiss-title-article-linked' => 'Article lié',
 	'echo-dismiss-title-reverted' => 'Modification annulée',
+	'echo-dismiss-title-mention' => 'Mention',
 	'echo-no-agent' => '[Personne]',
 	'echo-no-title' => '[Aucune page]',
 	'echo-error-no-formatter' => 'Aucune mise en forme définies pour la notification',
@@ -1414,10 +1424,11 @@ $4
 
 $5',
 	'echo-email-batch-category-header-edit-user-talk' => '$1 {{PLURAL:$1|message|messages}} de page de discussion',
-	'echo-email-batch-category-header-edit-revert' => '$1 {{PLURAL:$1|modification annulée|modifications annulées}}',
-	'echo-email-batch-category-header-cross-reference' => '$1 {{PLURAL:$1|référence croisée|références croisées}}',
+	'echo-email-batch-category-header-reverted' => '$1 {{PLURAL:$1|modification annulée|modifications annulées}}',
+	'echo-email-batch-category-header-article-linked' => '$1 {{PLURAL:$1|page liée|pages liées}}',
 	'echo-email-batch-category-header-mention' => '$1 {{PLURAL:$1|mention|mentions}}',
-	'echo-email-batch-category-header-other' => '$1 {{PLURAL:$1|Autre|Autres}}',
+	'echo-email-batch-category-header-other' => '$1 {{PLURAL:$1|notification non catégorisée|notifications non catégorisées}}',
+	'echo-email-batch-category-header-system' => '$1 {{PLURAL:$1|notification|notifications}} système',
 );
 
 /** Franco-Provençal (arpetan)
@@ -1609,10 +1620,8 @@ $4
 
 $5',
 	'echo-email-batch-category-header-edit-user-talk' => '$1 {{PLURAL:$1|mensaxe|mensaxes}} na páxina de conversa',
-	'echo-email-batch-category-header-edit-revert' => '$1 {{PLURAL:$1|reversión|reversións}}',
-	'echo-email-batch-category-header-cross-reference' => '$1 {{PLURAL:$1|referencia cruzada|referencias cruzadas}}',
 	'echo-email-batch-category-header-mention' => '$1 {{PLURAL:$1|mención|mencións}}',
-	'echo-email-batch-category-header-other' => '$1 {{PLURAL:$1|máis}}',
+	'echo-email-batch-category-header-other' => '$1 {{PLURAL:$1|máis}}', # Fuzzy
 );
 
 /** Hebrew (עברית)
@@ -1908,6 +1917,7 @@ $messages['it'] = array(
 	'echo-dismiss-title-edit-user-talk' => 'Post sulla pagina di discussione',
 	'echo-dismiss-title-article-linked' => 'Pagina collegata',
 	'echo-dismiss-title-reverted' => 'Modifica annullata',
+	'echo-dismiss-title-mention' => 'Menzione',
 	'echo-no-agent' => '[Nessuno]',
 	'echo-no-title' => '[Nessuna pagina]',
 	'echo-error-no-formatter' => 'Nessuna formattazione definita per le notifiche',
@@ -2012,9 +2022,11 @@ $4
 
 $5',
 	'echo-email-batch-category-header-edit-user-talk' => '$1 {{PLURAL:$1|messaggio|messaggi}} nella tua pagina di discussione',
-	'echo-email-batch-category-header-edit-revert' => '$1 {{PLURAL:$1|modifica annullata|modifiche annullate}}',
+	'echo-email-batch-category-header-reverted' => '$1 {{PLURAL:$1|modifica annullata|modifiche annullate}}',
+	'echo-email-batch-category-header-article-linked' => '$1 {{PLURAL:$1|pagina collegata|pagine collegate}}',
 	'echo-email-batch-category-header-mention' => '$1 {{PLURAL:$1|menzione|menzioni}}',
-	'echo-email-batch-category-header-other' => '$1 {{PLURAL:$1|altra|altre}}',
+	'echo-email-batch-category-header-other' => '$1 {{PLURAL:$1|altra notifica|altre notifiche}}',
+	'echo-email-batch-category-header-system' => '$1 {{PLURAL:$1|notifica|notifiche}} di sitema',
 );
 
 /** Japanese (日本語)
@@ -2041,9 +2053,11 @@ $messages['ja'] = array(
 	'echo-pref-notify-hide-link' => '通知のリンクとバッジをツールバーに表示しない',
 	'echo-dismiss-button' => '非表示',
 	'echo-dismiss-message' => '$1についての通知をすべて止める',
+	'echo-dismiss-prefs-message' => 'これらは個人設定で元に戻すこともできます',
 	'echo-dismiss-title-edit-user-talk' => 'トークページヘの投稿',
 	'echo-dismiss-title-article-linked' => 'ページヘのリンク',
 	'echo-dismiss-title-reverted' => '編集の差し戻し',
+	'echo-dismiss-title-mention' => '言及',
 	'echo-no-agent' => '[送信者なし]',
 	'echo-no-title' => '[ページなし]',
 	'echo-error-no-formatter' => '通知の書式が定義されていません',
@@ -2150,10 +2164,11 @@ $4
 
 $5',
 	'echo-email-batch-category-header-edit-user-talk' => 'トークページヘのメッセージ $1 {{PLURAL:$1|件}}',
-	'echo-email-batch-category-header-edit-revert' => '編集の差し戻し $1 {{PLURAL:$1|件}}',
-	'echo-email-batch-category-header-cross-reference' => '相互参照 $1 {{PLURAL:$1|件}}',
+	'echo-email-batch-category-header-reverted' => '編集の差し戻し $1 {{PLURAL:$1|件}}',
+	'echo-email-batch-category-header-article-linked' => 'ページヘのリンク $1 {{PLURAL:$1|件}}',
 	'echo-email-batch-category-header-mention' => '言及 $1 {{PLURAL:$1|件}}',
-	'echo-email-batch-category-header-other' => 'その他 $1 {{PLURAL:$1|件}}',
+	'echo-email-batch-category-header-other' => 'その他の通知 $1 {{PLURAL:$1|件}}',
+	'echo-email-batch-category-header-system' => 'システム通知 $1 {{PLURAL:$1|件}}',
 );
 
 /** Javanese (Basa Jawa)
@@ -2436,9 +2451,11 @@ $messages['mk'] = array(
 	'echo-pref-notify-hide-link' => 'Скриј ја врската и значката за известувања во алатникот',
 	'echo-dismiss-button' => 'Тргни',
 	'echo-dismiss-message' => 'Исклучи ги сите $1 известувања',
+	'echo-dismiss-prefs-message' => 'Овие можете пак да ги вклучите во Нагодувања',
 	'echo-dismiss-title-edit-user-talk' => 'Објава на страницата за разговор',
 	'echo-dismiss-title-article-linked' => 'Страницата е сврзана',
 	'echo-dismiss-title-reverted' => 'Уредувањето е вратено',
+	'echo-dismiss-title-mention' => 'Спомнување',
 	'echo-no-agent' => '[Никој]',
 	'echo-no-title' => '[Нема страница]',
 	'echo-error-no-formatter' => 'Нема зададено форматирање за ова известување',
@@ -2543,10 +2560,11 @@ $4
 
 $5',
 	'echo-email-batch-category-header-edit-user-talk' => '$1 {{PLURAL:$1|порака|пораки}} на страницата за разговор',
-	'echo-email-batch-category-header-edit-revert' => '$1 {{PLURAL:$1|враќање|враќања}} на уреденото',
-	'echo-email-batch-category-header-cross-reference' => '$1 {{PLURAL:$1|наведена врска|наведени врски}}',
+	'echo-email-batch-category-header-reverted' => '$1 {{PLURAL:$1|вратено уредување|вратени уредувања}}',
+	'echo-email-batch-category-header-article-linked' => '$1 {{PLURAL:$1|сврзана страница|сврзани страници}}',
 	'echo-email-batch-category-header-mention' => '$1 {{PLURAL:$1|спомнување|спомнувања}}',
-	'echo-email-batch-category-header-other' => '$1 {{PLURAL:$1|останато|останати}}',
+	'echo-email-batch-category-header-other' => '$1 {{PLURAL:$1|некатегоризирано известување|некатегоризирани известувања}}',
+	'echo-email-batch-category-header-system' => '$1 {{PLURAL:$1|системско известување|системски известувања}}',
 );
 
 /** Malayalam (മലയാളം)
@@ -2718,10 +2736,8 @@ $4
 
 $5',
 	'echo-email-batch-category-header-edit-user-talk' => '$1 pesanan di halaman perbualan',
-	'echo-email-batch-category-header-edit-revert' => '$1 suntingan dibalikkan',
-	'echo-email-batch-category-header-cross-reference' => '$1 rujukan silang',
 	'echo-email-batch-category-header-mention' => '$1 sebutan',
-	'echo-email-batch-category-header-other' => '$1 yang lain',
+	'echo-email-batch-category-header-other' => '$1 yang lain', # Fuzzy
 );
 
 /** Maltese (Malti)
@@ -3169,10 +3185,13 @@ $messages['roa-tara'] = array(
 	'echo-desc' => 'Sisteme de notifiche',
 	'prefs-echo' => 'Notificaziune',
 	'prefs-displaynotifications' => 'Opziune de visualizzazzione',
+	'echo-pref-web' => 'Web',
+	'echo-pref-email' => 'E-mail',
 	'echo-pref-subscription-reverted' => "Annulle 'u cangiamende mie",
 	'echo-no-agent' => '[Nisciune]',
 	'echo-no-title' => '[Nisciuna vôsce]',
 	'notifications' => 'Notificaziune',
+	'tooltip-pt-notifications' => 'Le notifiche tune',
 	'echo-specialpage' => 'Notificaziune mie',
 	'echo-none' => 'Non ge tìne notifiche.',
 	'echo-more-info' => "Cchiù 'mbormaziune",
@@ -3185,8 +3204,10 @@ $1",
 	'echo-overlay-link' => 'Tutte le notificaziune',
 	'echo-date-today' => 'Osce',
 	'echo-date-yesterday' => 'Ajere',
-	'echo-email-batch-category-header-edit-revert' => "$1 Cange l'{{PLURAL:$1|annullamende|annullaminde}}",
-	'echo-email-batch-category-header-other' => '$1 {{PLURAL:$1|Otre}}',
+	'echo-email-batch-category-header-reverted' => '$1 {{PLURAL:$1|cangiamende|cangiaminde}} annullate',
+	'echo-email-batch-category-header-article-linked' => '$1 {{PLURAL:$1|pàgene|pàggene}} collegate',
+	'echo-email-batch-category-header-other' => '$1 {{PLURAL:$1|Notifiche}} senza categorije',
+	'echo-email-batch-category-header-system' => '$1 {{PLURAL:$1|notifiche}} de sisteme',
 );
 
 /** Russian (русский)
