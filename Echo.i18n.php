@@ -1512,9 +1512,11 @@ $messages['gl'] = array(
 	'echo-pref-notify-hide-link' => 'Agochar a ligazón e a insignia das notificacións na miña barra de ferramentas',
 	'echo-dismiss-button' => 'Agochar',
 	'echo-dismiss-message' => 'Desactivar todas as notificacións de $1',
+	'echo-dismiss-prefs-message' => 'Pode activar isto de novo nas preferencias',
 	'echo-dismiss-title-edit-user-talk' => 'Mensaxe na páxina de conversa',
 	'echo-dismiss-title-article-linked' => 'Páxina ligada',
 	'echo-dismiss-title-reverted' => 'Edición revertida',
+	'echo-dismiss-title-mention' => 'Mención',
 	'echo-no-agent' => '[Ninguén]',
 	'echo-no-title' => '[Ningunha páxina]',
 	'echo-error-no-formatter' => 'Non se definiu formato ningún para a notificación',
@@ -1620,8 +1622,11 @@ $4
 
 $5',
 	'echo-email-batch-category-header-edit-user-talk' => '$1 {{PLURAL:$1|mensaxe|mensaxes}} na páxina de conversa',
+	'echo-email-batch-category-header-reverted' => '$1 {{PLURAL:$1|edición revertida|edicións revertidas}}',
+	'echo-email-batch-category-header-article-linked' => '$1 {{PLURAL:$1|páxina ligada|páxinas ligadas}}',
 	'echo-email-batch-category-header-mention' => '$1 {{PLURAL:$1|mención|mencións}}',
-	'echo-email-batch-category-header-other' => '$1 {{PLURAL:$1|máis}}', # Fuzzy
+	'echo-email-batch-category-header-other' => '$1 {{PLURAL:$1|notificación|notificacións}} sen categorizar',
+	'echo-email-batch-category-header-system' => '$1 {{PLURAL:$1|notificación|notificacións}} do sistema',
 );
 
 /** Hebrew (עברית)
