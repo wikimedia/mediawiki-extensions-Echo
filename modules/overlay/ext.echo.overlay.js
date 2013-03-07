@@ -61,7 +61,7 @@
 						var $li = $( '<li></li>' )
 								.data( 'details', data )
 								.data( 'id', id )
-								.attr( 'data-notification-type', data.type )
+								.attr( 'data-notification-category', data.category )
 								.addClass( 'mw-echo-notification' )
 								.append( data['*'] )
 								.appendTo( $ul );

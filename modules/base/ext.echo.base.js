@@ -14,13 +14,13 @@
 		'dismiss': function( notification ) {
 			var _this = this,
 				$notification = $( notification ),
-				eventType = $notification.attr( 'data-notification-type' ),
+				eventCategory = $notification.attr( 'data-notification-category' ),
 				prefName = '',
 				prefs = [],
 				prefRequest = {};
 			$.each( mw.echo.dismissOutputFormats, function( index, format ) {
 				// Make sure output format pref exists for this event type
-				prefName = 'echo-' + format + '-notifications' + eventType;
+				prefName = 'echo-subscriptions-' + format + '-' + eventCategory;
 				if ( mw.user.options.exists( prefName ) ) {
 					prefs.push( prefName + '=0' );
 				}
@@ -43,8 +43,8 @@
 					{
 						window.location.reload();
 					} else {
-						eventType = $notification.attr( 'data-notification-type' );
-						$( '.mw-echo-overlay li[data-notification-type="' + eventType + '"]' ).hide();
+						eventCategory = $notification.attr( 'data-notification-category' );
+						$( '.mw-echo-overlay li[data-notification-category="' + eventCategory + '"]' ).hide();
 						$notification.data( 'dismiss', false );
 					}
 				},
