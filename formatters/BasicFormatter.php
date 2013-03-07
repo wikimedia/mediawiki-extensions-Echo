@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @Todo - Consider having $event/$user as class properties since the formatter is
+ * always tied to these two entities, in this case, we won't have to pass it around
+ * in all the internal method
+ */
 class EchoBasicFormatter extends EchoNotificationFormatter {
 	protected $messageKey = false;
 	protected $messageParams = false;
@@ -7,7 +12,6 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 		'title-message',
 		'title-params',
 	);
-	protected $validPayloadComponents = array( 'summary', 'snippet', 'welcome' );
 
 	protected $title, $flyoutTitle, $content, $email, $icon;
 
@@ -142,25 +146,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 		// Build the notification payload
 		$payload = '';
 		foreach ( $this->payload as $payloadComponent ) {
-			if ( in_array( $payloadComponent, $this->validPayloadComponents ) ) {
-				switch ( $payloadComponent ) {
-					case 'summary':
-						$payload .= $this->formatSummary( $event, $user );
-						break;
-					case 'snippet':
-						// TODO: build this
-						break;
-					case 'welcome':
-						$details = array(
-							'message' => 'notification-new-user-content',
-							'params' => array( 'agent' )
-						);
-						$payload .= $this->formatFragment( $details, $event, $user )->parse();
-						break;
-				}
-			} else {
-				throw new MWException( "Unrecognised payload component $payloadComponent" );
-			}
+			$payload .= $this->formatPayload( $payloadComponent, $event, $user );
 		}
 
 		if ( $payload !== '' ) {
@@ -245,6 +231,32 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 		$this->processParams( $details['params'], $event, $message, $user );
 
 		return $message;
+	}
+
+	/**
+	 * Formats the payload of a notification, child method overwriting this method should
+	 * always call this method in default case so they can use the payload defined in this
+	 * function as well
+	 * @param $payload string
+	 * @param $event EchoEvent
+	 * @param $user User
+	 * @return string
+	 */
+	protected function formatPayload( $payload, $event, $user ) {
+		switch ( $payload ) {
+			case 'summary':
+				return $this->formatSummary( $event, $user );
+				break;
+			case 'welcome':
+				$details = array(
+					'message' => 'notification-new-user-content',
+					'params' => array( 'agent' )
+				);
+				return $this->formatFragment( $details, $event, $user )->parse();
+				break;
+			default:
+				return '';
+		}
 	}
 
 	/**
