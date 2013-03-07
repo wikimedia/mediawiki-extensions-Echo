@@ -44,8 +44,8 @@ class EchoNotificationController {
 	 * @return boolean
 	 */
 	public static function getNotificationEligibility( $user, $notificationType ) {
-		$category = EchoNotificationController::getNotificationCategory( $notificationType );
-		return EchoNotificationController::getCategoryEligibility( $user, $category );
+		$category = self::getNotificationCategory( $notificationType );
+		return self::getCategoryEligibility( $user, $category );
 	}
 
 	/**
@@ -75,7 +75,7 @@ class EchoNotificationController {
 	 * @return integer From 1 to 10 (10 is default)
 	 */
 	public static function getNotificationPriority( $notificationType ) {
-		$category = $this->getNotificationCategory( $notificationType );
+		$category = self::getNotificationCategory( $notificationType );
 		return EchoNotificationController::getCategoryPriority( $category );
 	}
 
