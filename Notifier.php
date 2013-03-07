@@ -58,8 +58,9 @@ class EchoNotifier {
 			// No valid email address
 			return false;
 		}
-		// See if the user wants to receive emails for this type of event
-		if ( $user->getOption( 'echo-subscriptions-email-' . $event->getType() ) ) {
+		// See if the user wants to receive emails for this category of event
+		$category = EchoNotificationController::getNotificationCategory( $event->getType() );
+		if ( $user->getOption( 'echo-subscriptions-email-' . $category ) ) {
 			global $wgEchoEnableEmailBatch, $wgPasswordSender, $wgPasswordSenderName;
 	
 			// batched email notification
