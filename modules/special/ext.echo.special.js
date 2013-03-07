@@ -80,7 +80,7 @@
 								.data( 'details', data )
 								.data( 'id', id )
 								.addClass( 'mw-echo-notification' )
-								.attr( 'data-notification-type', data.type )
+								.attr( 'data-notification-category', data.category )
 								.append( data['*'] )
 								.appendTo( container );
 

@@ -102,6 +102,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 			$thisEvent = array(
 				'id' => $event->getId(),
 				'type' => $event->getType(),
+				'category' => EchoNotificationController::getNotificationCategory( $event->getType() ),
 				'timestamp' => array(
 					'unix' => $timestampUnix,
 					'mw' => $timestampMw,
