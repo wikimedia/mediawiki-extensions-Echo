@@ -1,8 +1,10 @@
 <?php
 
-require_once ( getenv( 'MW_INSTALL_PATH' ) !== false
-	? getenv( 'MW_INSTALL_PATH' ) . '/maintenance/Maintenance.php'
-	: dirname( __FILE__ ) . '/../../../maintenance/Maintenance.php' );
+$IP = getenv( 'MW_INSTALL_PATH' );
+if ( $IP === false ) {
+	$IP = dirname( __FILE__ ) . '/../../..';
+}
+require_once( "$IP/maintenance/Maintenance.php" );
 
 class TestDiscussionParser extends Maintenance {
 	public function __construct() {
@@ -80,7 +82,7 @@ class TestDiscussionParser extends Maintenance {
 			$user = $pageData['revisions'][0]['user'];
 
 			print "http://en.wikipedia.org/w/index.php?diff=prev&oldid=$revid\n";
-			EchoDiscussionParser::getInterestedUsers( $oldText, $newText, $user );
+			EchoDiscussionParser::getInterestedUsers( $oldText, $newText, $user ); // FIXME: getInterestedUsers() is undefined
 		}
 	}
 }
