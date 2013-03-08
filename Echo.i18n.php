@@ -2243,7 +2243,7 @@ $messages['ko'] = array(
 	'echo-pref-subscription-edit-user-talk' => '내 토론 문서에 대한 게시물',
 	'echo-pref-subscription-article-linked' => '내가 만든 문서에 링크를 만들기',
 	'echo-pref-subscription-reverted' => '내 편집을 되돌리기',
-	'echo-pref-subscription-mention' => '내 사용자 문서로 링크', # Fuzzy
+	'echo-pref-subscription-mention' => '자신에게 언급',
 	'echo-pref-email-frequency-never' => '내게 어떠한 이메일 알림을 보내지 않기',
 	'echo-pref-email-frequency-immediately' => '모두한테 오는 개별 알림',
 	'echo-pref-email-frequency-daily' => '알림의 일별 요약',
@@ -2251,9 +2251,11 @@ $messages['ko'] = array(
 	'echo-pref-notify-hide-link' => '툴바에 알림에 대한 링크와 배지 숨기기',
 	'echo-dismiss-button' => '기각',
 	'echo-dismiss-message' => '모든 $1 알림 끄기',
+	'echo-dismiss-prefs-message' => '사용자 환경 설정에서 다시 설정할 수 있습니다.',
 	'echo-dismiss-title-edit-user-talk' => '토론 문서 게시물',
 	'echo-dismiss-title-article-linked' => '문서를 링크함',
 	'echo-dismiss-title-reverted' => '편집을 되돌림',
+	'echo-dismiss-title-mention' => '언급',
 	'echo-no-agent' => '[알 수 없는 사용자]',
 	'echo-no-title' => '[문서 없음]',
 	'echo-error-no-formatter' => '알림에 대해 정의한 형식이 없습니다',
@@ -2359,10 +2361,11 @@ $4
 
 $5',
 	'echo-email-batch-category-header-edit-user-talk' => '토론 문서 {{PLURAL:$1|메시지}} $1개',
-	'echo-email-batch-category-header-edit-revert' => '편집 {{PLURAL:$1|되돌리기}} $1개',
-	'echo-email-batch-category-header-cross-reference' => '{{PLURAL:$1|교차 참조}} $1개',
+	'echo-email-batch-category-header-reverted' => '{{PLURAL:$1|편집}} 되돌리기 $1회',
+	'echo-email-batch-category-header-article-linked' => '링크한 {{PLURAL:$1|문서}} $1개',
 	'echo-email-batch-category-header-mention' => '{{PLURAL:$1|언급}} $1번',
-	'echo-email-batch-category-header-other' => '{{PLURAL:$1|다른}} $1개',
+	'echo-email-batch-category-header-other' => '분류하지 않은 {{PLURAL:$1|알림}} $1개',
+	'echo-email-batch-category-header-system' => '시스템 {{PLURAL:$1|알림}} $1개',
 );
 
 /** Colognian (Ripoarisch)
@@ -3209,6 +3212,8 @@ $1",
 	'echo-overlay-link' => 'Tutte le notificaziune',
 	'echo-date-today' => 'Osce',
 	'echo-date-yesterday' => 'Ajere',
+	'echo-email-batch-subject-daily' => 'Tu è $1 {{PLURAL:$2|notifiche}} osce',
+	'echo-email-batch-subject-weekly' => 'Tu è $1 {{PLURAL:$2|notifiche}} sta sumàne',
 	'echo-email-batch-category-header-reverted' => '$1 {{PLURAL:$1|cangiamende|cangiaminde}} annullate',
 	'echo-email-batch-category-header-article-linked' => '$1 {{PLURAL:$1|pàgene|pàggene}} collegate',
 	'echo-email-batch-category-header-other' => '$1 {{PLURAL:$1|Notifiche}} senza categorije',
@@ -3626,7 +3631,7 @@ $messages['vi'] = array(
 	'echo-pref-subscription-edit-user-talk' => 'Nhắn tin vào trang thảo luận của tôi',
 	'echo-pref-subscription-article-linked' => 'Đặt liên kết đến một trang do tôi tạo ra',
 	'echo-pref-subscription-reverted' => 'Lùi sửa đổi của tôi',
-	'echo-pref-subscription-mention' => 'Các liên kết đến trang cá nhân của tôi', # Fuzzy
+	'echo-pref-subscription-mention' => 'Nói đến tôi',
 	'echo-pref-email-frequency-never' => 'Không gửi cho tôi bất kỳ thông báo qua thư điện tử',
 	'echo-pref-email-frequency-immediately' => 'Gửi các thông báo từng cái một vào đúng lúc xảy ra',
 	'echo-pref-email-frequency-daily' => 'Tóm lược các thông báo hàng ngày',
@@ -3634,9 +3639,11 @@ $messages['vi'] = array(
 	'echo-pref-notify-hide-link' => 'Ẩn liên kết và dấu hiệu thông báo khỏi thanh công cụ',
 	'echo-dismiss-button' => 'Tắt',
 	'echo-dismiss-message' => 'Tắt mọi thông báo $1',
+	'echo-dismiss-prefs-message' => 'Bạn có thể bật lại các thông báo này trong Tùy chọn',
 	'echo-dismiss-title-edit-user-talk' => 'Lời tin nhắn',
 	'echo-dismiss-title-article-linked' => 'Trang được liên kết',
 	'echo-dismiss-title-reverted' => 'Sửa đổi bị lùi lại',
+	'echo-dismiss-title-mention' => 'Lời nói đến',
 	'echo-no-agent' => '[Không ai]',
 	'echo-no-title' => '[Không có trang]',
 	'echo-error-no-formatter' => 'Thông báo không có định rõ định dạng',
@@ -3742,10 +3749,11 @@ $4
 
 $5',
 	'echo-email-batch-category-header-edit-user-talk' => '$1 tin nhắn',
-	'echo-email-batch-category-header-edit-revert' => '$1 sửa đổi bị lùi lại',
-	'echo-email-batch-category-header-cross-reference' => '$1 tham khảo chéo',
+	'echo-email-batch-category-header-reverted' => '$1 sửa đổi bị lùi lại',
+	'echo-email-batch-category-header-article-linked' => '$1 trang được liên kết',
 	'echo-email-batch-category-header-mention' => '$1 lời nói đến',
-	'echo-email-batch-category-header-other' => '$1 khác',
+	'echo-email-batch-category-header-other' => '$1 thông báo khác',
+	'echo-email-batch-category-header-system' => '$1 thông báo hệ thống',
 );
 
 /** Simplified Chinese (中文（简体）‎)
