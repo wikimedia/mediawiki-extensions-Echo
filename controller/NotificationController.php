@@ -76,7 +76,7 @@ class EchoNotificationController {
 	 */
 	public static function getNotificationPriority( $notificationType ) {
 		$category = self::getNotificationCategory( $notificationType );
-		return EchoNotificationController::getCategoryPriority( $category );
+		return self::getCategoryPriority( $category );
 	}
 
 	/**

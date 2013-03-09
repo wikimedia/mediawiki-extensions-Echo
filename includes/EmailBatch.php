@@ -146,7 +146,7 @@ abstract class MWEchoEmailBatch {
 	 */
 	protected function appendContent( $event ) {
 		// get the category for this event
-		$category = EchoNotificationController::getNotificationCategory( $event->getType() );
+		$category = $event->getCategory();
 
 		$email = EchoNotificationController::formatNotification( $event, $this->mUser, 'email' );
 		if ( !isset( $this->content[$category] ) ) {
