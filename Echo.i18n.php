@@ -800,6 +800,13 @@ $1',
 	'echo-email-batch-category-header-edit-user-talk' => '$1 pàgina de discussió {{PLURAL:$1|missatge|missatges}}',
 );
 
+/** Sorani Kurdish (کوردی)
+ * @author Calak
+ */
+$messages['ckb'] = array(
+	'echo-pref-email' => 'ئیمەیل',
+);
+
 /** Czech (česky)
  * @author Chmee2
  * @author Jkjk
@@ -2948,17 +2955,19 @@ $5',
  * @author Matma Rex
  * @author Odie2
  * @author Przemub
+ * @author WTM
  * @author Woytecr
  */
 $messages['pl'] = array(
 	'echo-desc' => 'System powiadomień',
 	'prefs-echo' => 'Powiadomienia',
 	'prefs-displaynotifications' => 'Opcje wyświetlania',
-	'prefs-emailsubscriptions' => 'Powiadom mnie przez e-mail, gdy ktoś',
-	'prefs-emailfrequency' => 'W jakiej formie chcę otrzymywać powiadomienia e-mailem', # Fuzzy
-	'echo-pref-email-edit-user-talk' => 'napisze na mojej stronie dyskusji',
-	'echo-pref-email-article-linked' => 'Utworzy link do strony, którą utworzyłem',
-	'echo-pref-email-reverted' => 'wycofa moją edycję',
+	'prefs-emailfrequency' => 'Kiedy chcesz otrzymywać powiadomienia e-mailem?',
+	'prefs-echosubscriptions' => 'Powiadom mnie gdy ktoś…',
+	'echo-pref-subscription-edit-user-talk' => 'napisze na mojej stronie dyskusji',
+	'echo-pref-subscription-article-linked' => 'stworzy link do strony utworzonej przeze mnie',
+	'echo-pref-subscription-reverted' => 'cofnie moją edycję',
+	'echo-pref-subscription-mention' => 'wspomni o mnie',
 	'echo-pref-email-frequency-never' => 'Nie wysyłaj powiadomień e-mailem',
 	'echo-pref-email-frequency-immediately' => 'Każde powiadomienie osobno',
 	'echo-pref-email-frequency-daily' => 'Dzienne podsumowanie',
@@ -2986,7 +2995,7 @@ Aby ustalić jakie wiadomości mamy CI przesyłać, odwiedź:
 
 $1',
 	'echo-link-new' => '$1 {{PLURAL:$1|nowe powiadomienie|nowe powiadomienia|nowych powiadomień}}',
-	'echo-link' => 'Moje powiadomienia', # Fuzzy
+	'echo-link' => 'Powiadomienia',
 	'echo-overlay-link' => 'Wszystkie powiadomienia',
 	'echo-overlay-title' => 'Moje powiadomienia',
 	'echo-overlay-title-overflow' => 'Moje powiadomienia (wyświetlono $1 z $2 nieprzeczytanych)',
@@ -3013,8 +3022,7 @@ $4
 
 $5',
 	'echo-email-batch-category-header-edit-user-talk' => '$1 {{PLURAL:$1|wiadomość|wiadomości}} na stronie dyskusji',
-	'echo-email-batch-category-header-edit-revert' => '$1 {{PLURAL:$1|wycofanie|wycofania|wycofań}} edycji',
-	'echo-email-batch-category-header-other' => '$1 {{PLURAL:$1|inne|inne|innych}}',
+	'echo-email-batch-category-header-other' => '$1 {{PLURAL:$1|inne|inne|innych}}', # Fuzzy
 );
 
 /** Piedmontese (Piemontèis)
