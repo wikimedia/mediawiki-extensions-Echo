@@ -753,9 +753,16 @@ $messages['bg'] = array(
  * @author Y-M D
  */
 $messages['br'] = array(
+	'echo-pref-web' => 'Web',
 	'echo-pref-email' => 'Postel',
+	'echo-pref-email-frequency-never' => 'Arabat kas posteloù kemenn din',
+	'echo-dismiss-button' => 'Disteurel',
 	'echo-no-agent' => '[Den]',
 	'echo-no-title' => '[Diditl]', # Fuzzy
+	'notifications' => 'Kemennoù',
+	'tooltip-pt-notifications' => 'Ho kemennoù',
+	'echo-specialpage' => "Ma c'hemennoù",
+	'echo-more-info' => "Gouzout hiroc'h",
 	'notification-new-user' => 'Degemer mat er {{SITENAME}}, $1!',
 	'echo-link-new' => '$1 {{PLURAL:$1|kemenn|kemenn}} nevez', # Fuzzy
 	'echo-link' => 'Kemennoù',
@@ -817,11 +824,14 @@ $messages['cs'] = array(
 	'echo-desc' => 'Notifikační systém',
 	'prefs-echo' => 'Upozornění',
 	'prefs-displaynotifications' => 'Možnosti zobrazení',
-	'prefs-emailsubscriptions' => 'Upozorněte mě e-mailem, když někdo',
 	'prefs-emailfrequency' => 'Kdy chcete dostávat e-mailová upozornění?',
-	'echo-pref-email-edit-user-talk' => 'Napíše do mé diskuse',
-	'echo-pref-email-article-linked' => 'Vytvoří odkaz na stránku, kterou jsem založil',
-	'echo-pref-email-reverted' => 'Vrátí moje úpravy',
+	'prefs-echosubscriptions' => 'Upozorněte mě, když…',
+	'echo-pref-web' => 'Web',
+	'echo-pref-email' => 'E-mail',
+	'echo-pref-subscription-edit-user-talk' => '…někdo napíše do mé diskuse',
+	'echo-pref-subscription-article-linked' => '…někdo odkáže na stránku, kterou jsem založil',
+	'echo-pref-subscription-reverted' => '…někdo vrátí moje úpravy',
+	'echo-pref-subscription-mention' => '…mě někdo zmíní',
 	'echo-pref-email-frequency-never' => 'Neposílejte mi žádná upozornění e-mailem',
 	'echo-pref-email-frequency-immediately' => 'Jednotlivá upozornění, jakmile se objeví',
 	'echo-pref-email-frequency-daily' => 'Denní souhrn upozornění',
@@ -834,7 +844,8 @@ $messages['cs'] = array(
 	'tooltip-pt-notifications' => 'Vaše upozornění',
 	'echo-specialpage' => 'Moje upozornění',
 	'echo-anon' => 'Pro zobrazování upozornění je nutné [[Special:Userlogin/signup|vytvořit si účet]] nebo [[Special:UserLogin|se přihlásit]].',
-	'echo-none' => 'Žádné upozornění zatím neobdrženo.', # Fuzzy
+	'echo-none' => 'Nemáte žádné upozornění.',
+	'echo-more-info' => 'Více informací',
 	'notification-new-user' => 'Vítá vás {{SITENAME}}, $1!',
 	'notification-new-user-content' => 'Nezapomeňte všechny komentáře v diskusních stránkách podepisovat čtyřmi vlnovkami (~~~~).',
 	'echo-email-subject-default' => 'Nové upozornění na {{grammar:6sg|{{SITENAME}}}}',
@@ -1819,26 +1830,46 @@ $1',
 
 /** Hungarian (magyar)
  * @author Dj
+ * @author TK-999
  */
 $messages['hu'] = array(
 	'echo-desc' => 'Értesítési rendszer',
 	'prefs-echo' => 'Értesítések',
 	'prefs-displaynotifications' => 'Megjelenítési beállítások',
-	'prefs-emailsubscriptions' => 'Értesíts e-mailen, ha valaki',
 	'prefs-emailfrequency' => 'Milyen gyakran kapok értesítést e-mailen', # Fuzzy
-	'echo-pref-email-edit-user-talk' => 'üzenet küld a vitalapomon',
-	'echo-pref-email-reverted' => 'visszavonja a szerkesztésem',
+	'prefs-echosubscriptions' => 'Értesítést kérek, ha valaki...',
+	'echo-pref-email' => 'E-mail',
+	'echo-pref-subscription-edit-user-talk' => 'Üzenetet ír a vitalapomra',
+	'echo-pref-subscription-article-linked' => 'Hivatkozik valamelyik általam létrehozott lapra',
+	'echo-pref-subscription-reverted' => 'visszavonja a szerkesztésem',
+	'echo-pref-subscription-mention' => 'Megemlít engem',
 	'echo-pref-email-frequency-never' => 'Egyáltalán ne küldjön e-mail értesítést',
 	'echo-pref-email-frequency-immediately' => 'egyéni értesítést, ahogy az esemény  bekövetkezik',
 	'echo-pref-email-frequency-daily' => 'értesítések napi összefoglalója',
 	'echo-pref-email-frequency-weekly' => 'értesítések heti összefoglalója',
+	'echo-pref-notify-hide-link' => 'Rejtse el az értesítések hivatkozásait és jelvényét az eszköztáramban',
+	'echo-dismiss-button' => 'elrejt',
+	'echo-dismiss-message' => 'Minden "$1" típusú értesítés kikapcsolása',
+	'echo-dismiss-prefs-message' => 'Visszakapcsolhatod ezeket a beállításaidban.',
+	'echo-dismiss-title-edit-user-talk' => 'vitalapi üzenet',
+	'echo-dismiss-title-article-linked' => 'hivatkozott lap',
+	'echo-dismiss-title-reverted' => 'visszaállított szerkesztés',
+	'echo-dismiss-title-mention' => 'említés',
 	'echo-no-agent' => '[Senki]',
 	'echo-no-title' => '[Nincs lap]',
 	'echo-error-no-formatter' => 'Nincs értesítési formatálás definiálva',
+	'echo-error-preference' => 'Hiba: Nem sikerült beállítani a felhasználói beállítást',
 	'notifications' => 'Értesítések',
+	'tooltip-pt-notifications' => 'Értesítéseim',
 	'echo-specialpage' => 'Értesítéseim',
 	'echo-anon' => 'Értesítések fogadásához [[Special:Userlogin/signup|hozz létre egy fiókot]] vagy [[Special:UserLogin|jelentkezzen be]].',
 	'echo-none' => 'Nincsenek értesítések.',
+	'echo-more-info' => 'További információ',
+	'notification-edit-talk-page2' => '[[User:$1|$1]] üzenetet írt [[User talk:$2|a vitalapodra]].',
+	'notification-edit-talk-page-flyout2' => '$1 üzenetet írt [[User talk:$2|a vitalapodra]].',
+	'notification-article-linked2' => '[[User:$1|$1]] hivatkozott a(z) $3 {{PLURAL:$4|lapra|lapokra}} innen: [[$2]]',
+	'notification-article-linked-flyout2' => '$1 hivatkozott a(z) $3 {{PLURAL:$4|lapra|lapokra}} innen: [[$2]]',
+	'notification-add-comment2' => '[[User:$1|$1]] hozzászólt a(z) "[[$3|$2]]" témához a(z) "$4" vitalapon',
 	'notification-new-user' => 'Üdvözlet a {{SITENAME}} oldalon, $1!',
 	'echo-link-new' => '$1 új értesítés',
 	'echo-link' => 'Értesítések',
@@ -1849,8 +1880,7 @@ $messages['hu'] = array(
 	'echo-date-yesterday' => 'Tegnap',
 	'echo-load-more-error' => 'Hiba történt a további eredmények lekérdezése során.',
 	'echo-email-batch-category-header-edit-user-talk' => '{{PLURAL:$1|Egy|$1}} vitalap üzenet',
-	'echo-email-batch-category-header-edit-revert' => '{{PLURAL:$1|Egy|$1}} szerkesztés visszavonás',
-	'echo-email-batch-category-header-other' => '{{PLURAL:$1|Egy|$1}} egyéb',
+	'echo-email-batch-category-header-other' => '{{PLURAL:$1|Egy|$1}} egyéb', # Fuzzy
 );
 
 /** Interlingua (interlingua)
