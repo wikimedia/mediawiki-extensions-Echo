@@ -2826,7 +2826,7 @@ $messages['nl'] = array(
 	'echo-pref-subscription-edit-user-talk' => 'Berichten op mijn overlegpagina',
 	'echo-pref-subscription-article-linked' => 'Koppeling maakt naar een pagina die ik heb aangemaakt',
 	'echo-pref-subscription-reverted' => 'Een bewerking van mij terugdraait',
-	'echo-pref-subscription-mention' => 'Koppeling toevoegt naar mijn gebruikerspagina', # Fuzzy
+	'echo-pref-subscription-mention' => 'U noemt',
 	'echo-pref-email-frequency-never' => 'Stuur mij geen meldingen via e-mail',
 	'echo-pref-email-frequency-immediately' => 'Individuele meldingen als ze binnenkomen',
 	'echo-pref-email-frequency-daily' => 'Een dagelijkse samenvatting van meldingen',
@@ -2834,9 +2834,11 @@ $messages['nl'] = array(
 	'echo-pref-notify-hide-link' => 'Verberg de koppeling en badge voor meldingen in mijn werkbalk',
 	'echo-dismiss-button' => 'Sluiten',
 	'echo-dismiss-message' => 'Alle meldingen uitschakelen over $1',
+	'echo-dismiss-prefs-message' => 'U kunt deze inschakelen in uw voorkeuren',
 	'echo-dismiss-title-edit-user-talk' => 'berichten op mijn overlegpagina',
 	'echo-dismiss-title-article-linked' => "gekoppelde pagina's",
 	'echo-dismiss-title-reverted' => 'teruggedraaide bewerkingen',
+	'echo-dismiss-title-mention' => 'Genoemd',
 	'echo-no-agent' => '[Niemand]',
 	'echo-no-title' => '[Geen pagina]',
 	'echo-error-no-formatter' => 'Er is geen opmaak ingesteld voor de melding',
@@ -2939,10 +2941,11 @@ $4
 
 $5',
 	'echo-email-batch-category-header-edit-user-talk' => '{{PLURAL:$1|één bericht op uw overlegpagina|$1 berichten op uw overlegpagina}}',
-	'echo-email-batch-category-header-edit-revert' => '{{PLURAL:$1|één teruggedraaide bewerking|$1  teruggedraaide bewerkingen}}',
-	'echo-email-batch-category-header-cross-reference' => '$1 kruisverwijzing{{PLURAL:$1||en}}',
+	'echo-email-batch-category-header-reverted' => '$1 teruggedraaide bewerking {{PLURAL:$1||en}}',
+	'echo-email-batch-category-header-article-linked' => "$1 gekoppelde pagina{{PLURAL:$1||'s}}",
 	'echo-email-batch-category-header-mention' => '{{PLURAL:$1|Eén|$1}} keer genoemd',
-	'echo-email-batch-category-header-other' => '{{PLURAL:$1|één andere|$1 anderen}}',
+	'echo-email-batch-category-header-other' => '$1 ongecategoriseerde melding{{PLURAL:$1||en}}',
+	'echo-email-batch-category-header-system' => '$1 systeemmelding{{PLURAL:$1||en}}',
 );
 
 /** Nederlands (informeel)‎ (Nederlands (informeel)‎)
