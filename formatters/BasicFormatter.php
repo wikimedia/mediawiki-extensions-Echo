@@ -282,7 +282,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			$title->setFragment( '#' . $props['fragment'] );
 		}
 
-		if ( $this->outputFormat === 'html' ) {
+		if ( $this->outputFormat === 'html' || $this->outputFormat === 'flyout' ) {
 			$class = array();
 			if ( isset( $props['class'] ) ) {
 				$class['class'] = $props['class'];
