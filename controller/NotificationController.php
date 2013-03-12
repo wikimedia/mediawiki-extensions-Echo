@@ -204,6 +204,12 @@ class EchoNotificationController {
 
 			foreach ( $subscriptions as $subscription ) {
 				$user = $subscription->getUser();
+
+				// Notification should not be sent to anonymous user
+				if ( $user->isAnon() ) {
+					continue;
+				}
+
 				$notifyTypes = $subscription->getNotificationTypes();
 
 				$notifyTypes = array_keys( array_filter( $notifyTypes ) );

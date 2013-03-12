@@ -111,8 +111,9 @@ abstract class EchoDiscussionParser {
 			// 1. the user name is not valid
 			// 2. the user mentions themselves
 			// 3. the user is the owner of the talk page
+			// 4. user is anonymous
 			if (
-				!$user || $user->getId() == $revision->getUser() ||
+				!$user || $user->isAnon() || $user->getId() == $revision->getUser() ||
 				( $title->getNamespace() === NS_USER_TALK && $title->getDBkey() === $dbk )
 			) {
 				continue;
