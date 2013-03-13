@@ -57,6 +57,7 @@ $wgAutoloadClasses['EchoBasicFormatter'] = $dir . 'formatters/BasicFormatter.php
 $wgAutoloadClasses['EchoEditFormatter'] = $dir . 'formatters/EditFormatter.php';
 $wgAutoloadClasses['EchoCommentFormatter'] = $dir . 'formatters/CommentFormatter.php';
 $wgAutoloadClasses['EchoArticleLinkedFormatter'] = $dir . 'formatters/ArticleLinkedFormatter.php';
+$wgAutoloadClasses['EchoUserRightsFormatter'] = $dir . 'formatters/UserRightsFormatter.php';
 
 // Internal stuff
 $wgAutoloadClasses['EchoNotifier'] = $dir . 'Notifier.php';
@@ -88,6 +89,7 @@ $wgHooks['BeforePageDisplay'][] = 'EchoHooks::beforePageDisplay';
 $wgHooks['MakeGlobalVariablesScript'][] = 'EchoHooks::makeGlobalVariablesScript';
 $wgHooks['UnitTestsList'][] = 'EchoHooks::getUnitTests';
 $wgHooks['ResourceLoaderRegisterModules'][] = 'EchoHooks::onResourceLoaderRegisterModules';
+$wgHooks['UserRights'][] = 'EchoHooks::onUserRights';
 
 // Extension initialization
 $wgExtensionFunctions[] = 'EchoHooks::initEchoExtension';
@@ -342,7 +344,24 @@ $wgEchoNotifications = array(
 		'content-message' => 'notification-talkpage-content',
 		'content-params' => array( 'commentText' ),
 		'icon' => 'chat',
-	)
+	),
+	'user-rights' => array(
+		'category' => 'system',
+		'group' => 'interactive',
+		'formatter-class' => 'EchoUserRightsFormatter',
+		'title-message' => 'notification-user-rights',
+		'title-params' => array( 'agent', 'user-rights-list' ),
+		'payload' => array(),
+		'flyout-message' => 'notification-user-rights-flyout',
+		'flyout-params' => array( 'agent', 'user-rights-list' ),
+		'email-subject-message' => 'notification-user-rights-email-subject',
+		'email-subject-params' => array(),
+		'email-body-message' => 'notification-user-rights-email-body',
+		'email-body-params' => array( 'agent', 'user-rights-list', 'email-footer' ),
+		'email-body-batch-message' => 'notification-user-rights-email-batch-body',
+		'email-body-batch-params' => array( 'agent', 'user-rights-list' ),
+		'icon' => 'w',
+	),
 );
 
 // Enable notifications for all logged in users by default

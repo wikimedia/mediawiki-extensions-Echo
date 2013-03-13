@@ -64,6 +64,10 @@ $messages['en'] = array(
 	'notification-add-comment-yours2' => '[[User:$1|$1]] {{GENDER:$1|commented}} on "[[$3#$2|$2]]" on your talk page',
 	'notification-mention' => '[[User:$1|$1]] {{GENDER:$1|mentioned}} you on [[$3#$2|$3]].',
 	'notification-mention-flyout' => '$1 {{GENDER:$1|mentioned}} you on [[$3#$2|$3]].',
+	'notification-user-rights' => 'Your user rights were {{GENDER:$1|changed}} by [[User:$1|$1]]. $2. [[Special:ListGroupRights|Learn more]]',
+	'notification-user-rights-flyout' => 'Your user rights were {{GENDER:$1|changed}} by $1. $2. [[Special:ListGroupRights|Learn more]]',
+	'notification-user-rights-add' => 'You are now a member of {{PLURAL:$2|this group|these groups}}: $1',
+	'notification-user-rights-remove' => 'You are no longer a member of {{PLURAL:$2|this group|these groups}}: $1',
 	'notification-talkpage-content' => '$1', ## Do not translate unless you deliberately want to change behaviour
 	'notification-new-user' => 'Welcome to {{SITENAME}}, $1!',
 	'notification-new-user-content' => 'Please remember to sign any comments on talk pages with 4 tildes (~~~~).',
@@ -111,6 +115,15 @@ $4
 
 $5',
 	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|mentioned}} you on $2',
+	'notification-user-rights-email-subject' => 'Your user rights have changed on {{SITENAME}}',
+	'notification-user-rights-email-body' => 'Your user rights were {{GENDER:$1|changed}} by $1. $2
+
+View more:
+
+{{canonicalurl:{{#special:ListGroupRights}}}}
+
+$3',
+	'notification-user-rights-email-batch-body' => 'Your user rights were {{GENDER:$1|changed}} by $1. $2',
 	'echo-notification-count' => '$1+',
 	// Email notification
 	'echo-email-subject-default' => 'New notification at {{SITENAME}}',
@@ -339,11 +352,22 @@ See also:
 * $2 - the section title of the discussion
 * $3 - the page title of the discussion",
 	'notification-mention-flyout' => "Flyout-specific format for displaying notifications of a comment including a link to another user's user page.
-
 Parameters:
 * $1 - the username of the person who mentioned you, plain text. Can be used for GENDER.
 * $2 - the section title of the discussion
 * $3 - the page title of the discussion",
+	'notification-user-rights' => 'Format for displaying notifications of a user right change in notification page.  Parameters:
+* $1 is the username of the person who made the user right change.  Can be used for GENDER support
+* $2 is a semicolon separated list of {{msg-mw}|notification-user-rights-add}, {{msg-mw|notification-user-rights-remove}}',
+	'notification-user-rights-flyout' => 'Format for displaying notifications of a user right change in notification flyout.  Parameters:
+* $1 is the username of the person who made the user right change.  Can be used for GENDER support
+* $2 is a semicolon separated list of {{msg-mw}|notification-user-rights-add}, {{msg-mw|notification-user-rights-remove}}',
+	'notification-user-rights-add' => 'Message indicating that a user was added to a user group.  Parameters:
+* $1 is a comma separated list of user group names
+* $2 is the number of user groups, this is used for PLURAL support',
+	'notification-user-rights-remove' => 'Message indicating that a user was removed from a user group.  Parameters:
+* $1 is a comma separated list of user group names
+* $2 is the number of user groups, this is used for PLURAL support',
 	'notification-talkpage-content' => 'Message shown as the "content" of a talkpage-related action.
 * $1 is the content of the talk page post.
 
@@ -432,6 +456,14 @@ See also:
 	'notification-mention-email-batch-body' => 'E-mail notification batch body.  Parameters:
 * $1 is a username, plaintext.  Can be used for gender support
 * $2 is talk page title',
+	'notification-user-rights-email-subject' => 'E-mail subject  for user rights notification',
+	'notification-user-rights-email-body' => 'E-mail notification.  Parameters:
+* $1 is a user name, plaintext.  Can be used for gender support
+* $2 is a semicolon separated list of {{msg-mw}|notification-user-rights-add}, {{msg-mw|notification-user-rights-remove}}
+* $3 is the email footer',
+	'notification-user-rights-email-batch-body' => 'Email notification batch body.  Parameters:
+* $1 is a user name, plaintext.  Can be used for gender support
+* $2 is a semicolon separated list of {{msg-mw}|notification-user-rights-add}, {{msg-mw|notification-user-rights-remove}}',
 	'echo-notification-count' => '{{optional}}
 The new notification count next to notification link, for example: 99+
 * $1 is the count',
