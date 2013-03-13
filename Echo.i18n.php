@@ -234,13 +234,36 @@ See also:
 ** {{msg-mw|Echo-dismiss-title-article-linked}}',
 	'echo-dismiss-title-edit-user-talk' => 'Used as the name of notification type.
 
-Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}}.',
+Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}}.
+
+See also:
+* {{msg-mw|echo-dismiss-title-article-linked}}
+* {{msg-mw|echo-dismiss-title-reverted}}
+* {{msg-mw|echo-dismiss-title-mention}}',
 	'echo-dismiss-title-article-linked' => 'Used as the name of notification type.
 
-Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}}.',
+Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}}.
+
+See also:
+* {{msg-mw|echo-dismiss-title-edit-user-talk}}
+* {{msg-mw|echo-dismiss-title-reverted}}
+* {{msg-mw|echo-dismiss-title-mention}}',
 	'echo-dismiss-title-reverted' => 'Used as the name of notification type.
 
-Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}}.',
+Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}}.
+
+See also:
+* {{msg-mw|echo-dismiss-title-edit-user-talk}}
+* {{msg-mw|echo-dismiss-title-article-linked}}
+* {{msg-mw|echo-dismiss-title-mention}}',
+	'echo-dismiss-title-mention' => 'Used as the name of notification type.
+
+Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}}.
+
+See also:
+* {{msg-mw|echo-dismiss-title-edit-user-talk}}
+* {{msg-mw|echo-dismiss-title-article-linked}}
+* {{msg-mw|echo-dismiss-title-reverted}}',
 	'echo-no-agent' => 'Shown in place of a username in a notification
 	if the notification has no specified user.',
 	'echo-no-title' => 'Shown in place of a page title in a notification if the notification has no specified page title.',
@@ -615,9 +638,11 @@ $messages['be-tarask'] = array(
 	'echo-pref-notify-hide-link' => 'Схаваць спасылку і значак пра абвесткі ў маёй панэлі інструмэнтаў',
 	'echo-dismiss-button' => 'Схаваць',
 	'echo-dismiss-message' => 'Выключыць усе апавяшчэньні пра $1',
+	'echo-dismiss-prefs-message' => 'Вы можаце ўключыць іх зноў у наладах',
 	'echo-dismiss-title-edit-user-talk' => 'запісы ў гутарках',
 	'echo-dismiss-title-article-linked' => 'спасыланьні на старонкі',
 	'echo-dismiss-title-reverted' => 'скасаваньні правак',
+	'echo-dismiss-title-mention' => 'Згадваньне',
 	'echo-no-agent' => '[Ніхто]',
 	'echo-no-title' => '[Няма старонкі]',
 	'echo-error-no-formatter' => 'Фарматаваньне для абвестак ня вызначана',
@@ -723,8 +748,11 @@ $4
 
 $5',
 	'echo-email-batch-category-header-edit-user-talk' => '$1 {{PLURAL:$1|паведамленьне|паведамленьні|паведамленьняў}} на старонцы абмеркаваньняў',
+	'echo-email-batch-category-header-reverted' => '{{PLURAL:$1|Адкочаная $1 праўка|Адкочаныя $1 праўкі|Адкочаныя $1 правак}}',
+	'echo-email-batch-category-header-article-linked' => 'Спасыланьні на $1 {{PLURAL:$1|старонку|старонкі|старонак}}',
 	'echo-email-batch-category-header-mention' => '$1 {{PLURAL:$1|згадка|згадкі|згадак}}',
-	'echo-email-batch-category-header-other' => '$1 {{PLURAL:$1|іншая|іншыя|іншых}}', # Fuzzy
+	'echo-email-batch-category-header-other' => '$1 {{PLURAL:$1|некатэгарызаваная абвестка|некатэгарызаваныя абвесткі|некатэгарызаваных абвестак}}',
+	'echo-email-batch-category-header-system' => '$1 {{PLURAL:$1|сыстэмная абвестка|сыстэмныя абвесткі|сыстэмных абвестак}}',
 );
 
 /** Bulgarian (български)
@@ -2267,6 +2295,7 @@ $messages['ka'] = array(
 );
 
 /** Korean (한국어)
+ * @author Freebiekr
  * @author 아라
  */
 $messages['ko'] = array(
@@ -2277,10 +2306,10 @@ $messages['ko'] = array(
 	'prefs-echosubscriptions' => '다음 경우에 알림…',
 	'echo-pref-web' => '웹',
 	'echo-pref-email' => '이메일',
-	'echo-pref-subscription-edit-user-talk' => '내 토론 문서에 대한 게시물',
-	'echo-pref-subscription-article-linked' => '내가 만든 문서에 링크를 만들기',
-	'echo-pref-subscription-reverted' => '내 편집을 되돌리기',
-	'echo-pref-subscription-mention' => '자신에게 언급',
+	'echo-pref-subscription-edit-user-talk' => '자신의 토론 문서에 게시물이 생길 경우',
+	'echo-pref-subscription-article-linked' => '자신이 만든 문서에 링크가 걸릴 경우',
+	'echo-pref-subscription-reverted' => '자신의 편집이 되돌려질 경우',
+	'echo-pref-subscription-mention' => '자신이 언급될 경우',
 	'echo-pref-email-frequency-never' => '내게 어떠한 이메일 알림을 보내지 않기',
 	'echo-pref-email-frequency-immediately' => '모두한테 오는 개별 알림',
 	'echo-pref-email-frequency-daily' => '알림의 일별 요약',
@@ -2674,6 +2703,7 @@ $messages['ms'] = array(
 	'echo-pref-notify-hide-link' => 'Sorokkan pautan dan lencana untuk pemberitahuan di dalam palang alatan saya',
 	'echo-dismiss-button' => 'Singkir',
 	'echo-dismiss-message' => 'Matikan semua pemberitahuan $1',
+	'echo-dismiss-prefs-message' => 'Anda boleh memasangnya semula dalam Keutamaan',
 	'echo-dismiss-title-edit-user-talk' => 'Pos halaman perbualan',
 	'echo-dismiss-title-article-linked' => 'Halaman telah dipautkan',
 	'echo-dismiss-title-reverted' => 'Suntingan dibalikkan',
@@ -2781,8 +2811,11 @@ $4
 
 $5',
 	'echo-email-batch-category-header-edit-user-talk' => '$1 pesanan di halaman perbualan',
+	'echo-email-batch-category-header-reverted' => '$1 suntingan dibuat asal',
+	'echo-email-batch-category-header-article-linked' => '$1 halaman dipautkan',
 	'echo-email-batch-category-header-mention' => '$1 sebutan',
-	'echo-email-batch-category-header-other' => '$1 yang lain', # Fuzzy
+	'echo-email-batch-category-header-other' => '$1 pemberitahuan yang belum dikategorikan',
+	'echo-email-batch-category-header-system' => '$1 pemberitahuan sistem',
 );
 
 /** Maltese (Malti)
