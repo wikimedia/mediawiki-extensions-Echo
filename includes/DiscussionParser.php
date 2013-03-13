@@ -104,6 +104,7 @@ abstract class EchoDiscussionParser {
 		$output = self::parseNonEditWikitext( $content, new Article( $title ) );
 		$links = $output->getLinks();
 		$mentionedUsers = array();
+		$count = 0;
 
 		foreach ( $links[NS_USER] as $dbk => $page_id ) {
 			$user = User::newFromName( $dbk );
@@ -117,7 +118,12 @@ abstract class EchoDiscussionParser {
 			) {
 				continue;
 			}
-			$mentionedUsers[$user->getId()] = $user;
+			$mentionedUsers[$user->getId()] = $user->getId();
+			$count++;
+			// This is an unbounded list, put a cap on the allowable mentioned user list
+			if ( $count > 300 ) {
+				break;
+			}
 		}
 
 		if ( !$mentionedUsers ) {
