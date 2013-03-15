@@ -1691,6 +1691,7 @@ $messages['he'] = array(
 	'echo-pref-subscription-edit-user-talk' => 'כותב בדף השיחה שלי',
 	'echo-pref-subscription-article-linked' => 'יצירת קישור לדף שיצרתי',
 	'echo-pref-subscription-reverted' => 'משחזר עריכה שלי',
+	'echo-pref-subscription-mention' => 'מזכיר אותי',
 	'echo-pref-email-frequency-never' => 'לא לשלוח לי הודעות הדואר אלקטרוני',
 	'echo-pref-email-frequency-immediately' => 'הודעות בודדות כשהן מגיעות',
 	'echo-pref-email-frequency-daily' => 'סיכום יומי של הודעות',
@@ -1698,9 +1699,11 @@ $messages['he'] = array(
 	'echo-pref-notify-hide-link' => 'להסתיר את הקישור ואת התג להתראות בסרגל שלי',
 	'echo-dismiss-button' => 'סגירה',
 	'echo-dismiss-message' => 'כיבוי כל ההודעת על $1',
+	'echo-dismiss-prefs-message' => 'אפשר להפעיל את אלה שוב בהעדפות',
 	'echo-dismiss-title-edit-user-talk' => 'כתיבה בדף שיחה',
 	'echo-dismiss-title-article-linked' => 'קישור לדף',
 	'echo-dismiss-title-reverted' => 'שחזור עריכה',
+	'echo-dismiss-title-mention' => 'אזכור',
 	'echo-no-agent' => '[לא צוין]',
 	'echo-no-title' => '[ללא דף]',
 	'echo-error-no-formatter' => 'לא הוגדת עיצוב להודעות',
@@ -1720,6 +1723,8 @@ $messages['he'] = array(
 	'notification-add-talkpage-topic2' => '[[User:$1|$1]] {{GENDER:$1|והוסיף|הוסיפה}} את נושא החדש "$2" לדף [[$3]]',
 	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]] {{GENDER:$1|שלח|שלחה}} לך הודעה: "[[$3#$2|$2]]"',
 	'notification-add-comment-yours2' => '[[User:$1|$1]] {{GENDER:$1|העיר|העירה}} על הנושא "[[$3#$2|$2]]" בדף השיחה שלך',
+	'notification-mention' => '[[User:$1|$1]] {{GENDER:$1|הזכיר|הזכירה}} אותך בדיון [[$3#$2|$3]].',
+	'notification-mention-flyout' => '$1 {{GENDER:$1|הזכיר|הזכירה}} אותך בדיון [[$3#$2|$3]].',
 	'notification-new-user' => 'ברוך בואך ל{{GRAMMAR:תחילית|{{SITENAME}}}}, $1!',
 	'notification-new-user-content' => 'נא לזכור לחתום על כל דפי השיחה ב־4 טילדות (~~~~).',
 	'notification-reverted2' => '[[User:$1|$1]] {{GENDER:$1|שחזר|שחזרה}} {{PLURAL:$4|עריכה שלך|עריכות שלך}} בדף [[$2]] $3',
@@ -1755,6 +1760,17 @@ $3
 
 $6',
 	'notification-reverted-email-batch-body2' => '$1 {{GENDER:$1|שחזר|שחזרה}} {{PLURAL:$3|עריכה שלך|עריכות שלך}} בדף $2',
+	'notification-mention-email-subject' => '$1 {{GENDER:$1|הזכיר|הזכירה}} אותך באתר {{SITENAME}}',
+	'notification-mention-email-body' => '$1 {{GENDER:$1|הזכיר|הזכירה}} אותך בדף $2
+
+$3
+
+מידע נוסף:
+
+$4
+
+$5',
+	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|הזכיר|הזכירה}} אותך בדף $2',
 	'echo-notification-count' => 'יותר מ־$1',
 	'echo-email-subject-default' => 'הודעה חדשה באתר {{SITENAME}}',
 	'echo-email-body-default' => 'יש לך הודעה חדשה באתר {{SITENAME}}:
@@ -1794,9 +1810,11 @@ $4
 
 $5',
 	'echo-email-batch-category-header-edit-user-talk' => '{{PLURAL:$1|הודעה אחת|$1 הודעות}} בדף השיחה',
-	'echo-email-batch-category-header-edit-revert' => '{{PLURAL:$1|שחזור אחד של עריכה|$1 שחזורים של עריכות}}',
-	'echo-email-batch-category-header-cross-reference' => '{{PLURAL:$1|הפניה אחת|$1 הפניות}}',
-	'echo-email-batch-category-header-other' => '{{PLURAL:$1|אחד אחר|$1 אחרים}}',
+	'echo-email-batch-category-header-reverted' => '{{PLURAL:$1|עריכה אחת שוחזרה|$1 עריכות שוחזרו}}',
+	'echo-email-batch-category-header-article-linked' => '{{PLURAL:$1|דף אחד קושר|$1 דפים קושרו}}',
+	'echo-email-batch-category-header-mention' => '{{PLURAL:$1|אזכור אחד|$1 אכורים}}',
+	'echo-email-batch-category-header-other' => '{{PLURAL:$1|הודעה אחת אחרת|$1 הודעות אחרות}}',
+	'echo-email-batch-category-header-system' => '{{PLURAL:$1|הודעה מערכתית אחת|$1 הודעות מערכתיות}}',
 );
 
 /** Hindi (हिन्दी)
@@ -2306,10 +2324,10 @@ $messages['ko'] = array(
 	'prefs-echosubscriptions' => '다음 경우에 알림…',
 	'echo-pref-web' => '웹',
 	'echo-pref-email' => '이메일',
-	'echo-pref-subscription-edit-user-talk' => '자신의 토론 문서에 게시물이 생길 경우',
-	'echo-pref-subscription-article-linked' => '자신이 만든 문서에 링크가 걸릴 경우',
-	'echo-pref-subscription-reverted' => '자신의 편집이 되돌려질 경우',
-	'echo-pref-subscription-mention' => '자신이 언급될 경우',
+	'echo-pref-subscription-edit-user-talk' => '자신의 토론 문서에 게시물이 생길 때',
+	'echo-pref-subscription-article-linked' => '자신이 만든 문서에 링크가 걸릴 때',
+	'echo-pref-subscription-reverted' => '자신의 편집이 되돌려질 떄',
+	'echo-pref-subscription-mention' => '자신이 언급될 때',
 	'echo-pref-email-frequency-never' => '내게 어떠한 이메일 알림을 보내지 않기',
 	'echo-pref-email-frequency-immediately' => '모두한테 오는 개별 알림',
 	'echo-pref-email-frequency-daily' => '알림의 일별 요약',
