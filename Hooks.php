@@ -191,7 +191,14 @@ class EchoHooks {
 				break;
 			case 'mention':
 				$extraData = $event->getExtra();
-				$users += $extraData['mentioned-users'];
+				foreach ( $extraData['mentioned-users'] as $userId ) {
+					//backward compatibility
+					if ( $userId instanceof User ) {
+						$users[$userId->getID()] = $userId;
+					} else {
+						$users[$userId] = User::newFromId( $userId );
+					}
+				}
 				break;
 		}
 
