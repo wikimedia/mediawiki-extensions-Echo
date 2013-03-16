@@ -58,6 +58,11 @@ $specialPageAliases['kw'] = array(
 	'Notifications' => array( 'Argemynow' ),
 );
 
+/** Luxembourgish (Lëtzebuergesch) */
+$specialPageAliases['lb'] = array(
+	'Notifications' => array( 'Notifikatiounen' ),
+);
+
 /** Macedonian (македонски) */
 $specialPageAliases['mk'] = array(
 	'Notifications' => array( 'Известувања' ),
