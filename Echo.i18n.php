@@ -334,9 +334,15 @@ See also:
 See also:
 * {{msg-mw|Notification-add-comment2}}',
 	'notification-mention' => "Format for displaying notifications of a comment including a link to another user's user page. Parameters:
-* $1 is the username of the person who edited, plain text. Can be used for GENDER
-* $2 is the section title of the discussion
-* $3 is a link to a page and section.",
+* $1 - the username of the person who edited, plain text. Can be used for GENDER
+* $2 - the section title of the discussion
+* $3 - the page title of the discussion",
+	'notification-mention-flyout' => "Flyout-specific format for displaying notifications of a comment including a link to another user's user page.
+
+Parameters:
+* $1 - the username of the person who mentioned you, plain text. Can be used for GENDER.
+* $2 - the section title of the discussion
+* $3 - the page title of the discussion",
 	'notification-talkpage-content' => 'Message shown as the "content" of a talkpage-related action.
 * $1 is the content of the talk page post.
 
