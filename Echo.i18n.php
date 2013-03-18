@@ -1,7 +1,6 @@
 <?php
-/**
- * Internationalization file for the Echo extension.
- */
+
+// Internationalisation file for Echo extension.
 
 $messages = array();
 
@@ -19,15 +18,15 @@ $messages['en'] = array(
 	'prefs-echosubscriptions' => 'Notify me when someone…',
 	'echo-pref-web' => 'Web',
 	'echo-pref-email' => 'Email',
-	'echo-pref-subscription-edit-user-talk' => 'Posts on your talk page',
-	'echo-pref-subscription-article-linked' => 'Creates a link to a page you created',
-	'echo-pref-subscription-reverted' => 'Reverts your edit',
+	'echo-pref-subscription-edit-user-talk' => 'Posts on my talk page',
+	'echo-pref-subscription-article-linked' => 'Creates a link to a page I created',
+	'echo-pref-subscription-reverted' => 'Reverts my edit',
 	'echo-pref-subscription-mention' => 'Mentions me',
 	'echo-pref-email-frequency-never' => 'Do not send me any email notifications',
 	'echo-pref-email-frequency-immediately' => 'Individual notifications as they come in',
 	'echo-pref-email-frequency-daily' => 'A daily summary of notifications',
 	'echo-pref-email-frequency-weekly' => 'A weekly summary of notifications',
-	'echo-pref-notify-hide-link' => 'Hide the link and badge for notifications in your toolbar',
+	'echo-pref-notify-hide-link' => 'Hide the link and badge for notifications in my toolbar',
 
 	// Dismiss interface
 	'echo-dismiss-button' => 'Dismiss',
@@ -48,7 +47,7 @@ $messages['en'] = array(
 	// Special:Notifications
 	'notifications' => 'Notifications',
 	'tooltip-pt-notifications' => 'Your notifications',
-	'echo-specialpage' => 'Your notifications',
+	'echo-specialpage' => 'My notifications',
 	'echo-anon' => 'To receive notifications, [[Special:Userlogin/signup|create an account]] or [[Special:UserLogin|log in]].',
 	'echo-none' => 'You have no notifications.',
 	'echo-more-info' => 'More info',
@@ -127,8 +126,8 @@ $1',
 	'echo-link-new' => '$1 new {{PLURAL:$1|notification|notifications}}',
 	'echo-link' => 'Notifications',
 	'echo-overlay-link' => 'All notifications',
-	'echo-overlay-title' => 'Your notifications',
-	'echo-overlay-title-overflow' => 'Your notifications (showing $1 of $2 unread)',
+	'echo-overlay-title' => 'My notifications',
+	'echo-overlay-title-overflow' => 'My notifications (showing $1 of $2 unread)',
 
 	// Special page
 	'echo-date-today' => 'Today',
@@ -2883,7 +2882,7 @@ $messages['nl'] = array(
 	'echo-pref-email' => 'E-mail',
 	'echo-pref-subscription-edit-user-talk' => 'Berichten op mijn overlegpagina',
 	'echo-pref-subscription-article-linked' => 'Koppeling maakt naar een pagina die ik heb aangemaakt',
-	'echo-pref-subscription-reverted' => 'Een bewerking van mij terugdraait',
+	'echo-pref-subscription-reverted' => 'Een bewerking van u terugdraait',
 	'echo-pref-subscription-mention' => 'U noemt',
 	'echo-pref-email-frequency-never' => 'Stuur mij geen meldingen via e-mail',
 	'echo-pref-email-frequency-immediately' => 'Individuele meldingen als ze binnenkomen',
