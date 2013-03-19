@@ -79,8 +79,7 @@ class SpecialNotifications extends SpecialPage {
 			}
 			$nextTimestamp = $row['timestamp']['unix'];
 			$nextOffset = $row['id'];
-			$dataNotificationCategory = EchoNotificationController::getNotificationCategory( $row['type'] );
-			$notices .= Html::rawElement( 'li', array( 'class' => $class, 'data-notification-category' => $dataNotificationCategory ), $row['*'] );
+			$notices .= Html::rawElement( 'li', array( 'class' => $class, 'data-notification-category' => $row['category'] ), $row['*'] );
 		}
 		$html .= Html::rawElement( 'ul', array( 'id' => 'mw-echo-special-container' ), $notices );
 

@@ -129,7 +129,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 		) . $output;
 
 		// Add the hidden dismiss interface if the notification is dismissable
-		$category = EchoNotificationController::getNotificationCategory( $event->getType() );
+		$category = $event->getCategory();
 		if ( isset( $wgEchoNotificationCategories[$category]['no-dismiss'] ) ) {
 			$noDismiss = $wgEchoNotificationCategories[$category]['no-dismiss'];
 		} else {

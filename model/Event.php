@@ -288,4 +288,12 @@ class EchoEvent {
 	public function getTitle() {
 		return $this->title;
 	}
+
+	/**
+	 * Get the category of the event type
+	 * @return string
+	 */
+	public function getCategory() {
+		return EchoNotificationController::getNotificationCategory( $this->type );
+	}
 }
