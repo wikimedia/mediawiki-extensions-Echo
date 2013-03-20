@@ -454,6 +454,15 @@ class EchoHooks {
 	 * @return bool
 	 */
 	public static function onLinksUpdateAfterInsert( $linksUpdate, $table, $insertions ) {
+		global $wgRequest, $wgUser;
+
+		// Rollback or undo should not trigger link notification
+		// @Todo Implement a better solution so it doesn't depend on the checking of
+		// a specific set of request variables
+		if ( $wgRequest->getVal( 'wpUndidRevision' ) || $wgRequest->getVal( 'action' ) == 'rollback' ) {
+			return true;
+		}
+
 		// Handle only
 		// 1. inserts to pagelinks table && 
 		// 2. content namespace pages &&
@@ -477,7 +486,6 @@ class EchoHooks {
 			return true;
 		}
 
-		global $wgUser;
 		EchoEvent::create( array(
 			'type' => 'article-linked',
 			'title' => $linksUpdate->mTitle,
