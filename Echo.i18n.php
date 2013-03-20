@@ -32,10 +32,14 @@ $messages['en'] = array(
 	'echo-dismiss-button' => 'Dismiss',
 	'echo-dismiss-message' => 'Turn off all $1 notifications',
 	'echo-dismiss-prefs-message' => 'You can turn these back on in Preferences',
-	'echo-dismiss-title-edit-user-talk' => 'Talk page post',
-	'echo-dismiss-title-article-linked' => 'Page linked',
-	'echo-dismiss-title-reverted' => 'Edit reverted',
-	'echo-dismiss-title-mention' => 'Mention',
+
+	// Category titles
+	'echo-category-title-edit-user-talk' => 'Talk page post',
+	'echo-category-title-article-linked' => 'Page linked',
+	'echo-category-title-reverted' => 'Edit reverted',
+	'echo-category-title-mention' => 'Mention',
+	'echo-category-title-other' => 'Other',
+	'echo-category-title-system' => 'System',
 
 	// Errors
 	'echo-no-agent' => '[Nobody]',
@@ -156,12 +160,7 @@ You have $2 {{PLURAL:$3|notification|notifications}} on {{SITENAME}} this week. 
 $4
 
 $5',
-	'echo-email-batch-category-header-edit-user-talk' => '$1 talk page {{PLURAL:$1|message|messages}}',
-	'echo-email-batch-category-header-reverted' => '$1 {{PLURAL:$1|edit|edits}} reverted',
-	'echo-email-batch-category-header-article-linked' => '$1 {{PLURAL:$1|page|pages}} linked',
-	'echo-email-batch-category-header-mention' => '$1 {{PLURAL:$1|mention|mentions}}',
-	'echo-email-batch-category-header-other' => '$1 uncategorized {{PLURAL:$1|notification|notifications}}',
-	'echo-email-batch-category-header-system' => '$1 system {{PLURAL:$1|notification|notifications}}',
+	'echo-email-batch-category-header' => '$1 $2 {{PLURAL:$1|notification|notifications}}',
 );
 
 /** Message documentation (Message documentation)
@@ -229,41 +228,18 @@ See also:
 {{Identical|Dismiss}}',
 	'echo-dismiss-message' => 'Message asking the user if they want to turn off all notifications of a certain type. Parameters:
 * $1 - the name of the type; one of the following:
-** {{msg-mw|Echo-dismiss-title-edit-user-talk}}
-** {{msg-mw|Echo-dismiss-title-reverted}}
-** {{msg-mw|Echo-dismiss-title-article-linked}}',
-	'echo-dismiss-title-edit-user-talk' => 'Used as the name of notification type.
-
-Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}}.
-
-See also:
-* {{msg-mw|echo-dismiss-title-article-linked}}
-* {{msg-mw|echo-dismiss-title-reverted}}
-* {{msg-mw|echo-dismiss-title-mention}}',
-	'echo-dismiss-title-article-linked' => 'Used as the name of notification type.
-
-Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}}.
-
-See also:
-* {{msg-mw|echo-dismiss-title-edit-user-talk}}
-* {{msg-mw|echo-dismiss-title-reverted}}
-* {{msg-mw|echo-dismiss-title-mention}}',
-	'echo-dismiss-title-reverted' => 'Used as the name of notification type.
-
-Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}}.
-
-See also:
-* {{msg-mw|echo-dismiss-title-edit-user-talk}}
-* {{msg-mw|echo-dismiss-title-article-linked}}
-* {{msg-mw|echo-dismiss-title-mention}}',
-	'echo-dismiss-title-mention' => 'Used as the name of notification type.
-
-Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}}.
-
-See also:
-* {{msg-mw|echo-dismiss-title-edit-user-talk}}
-* {{msg-mw|echo-dismiss-title-article-linked}}
-* {{msg-mw|echo-dismiss-title-reverted}}',
+** {{msg-mw|Echo-category-title-edit-user-talk}}
+** {{msg-mw|Echo-category-title-article-linked}}
+** {{msg-mw|Echo-category-title-reverted}}
+** {{msg-mw|Echo-category-title-mention}}
+** {{msg-mw|Echo-category-title-other}}
+** {{msg-mw|Echo-category-title-system}}',
+	'echo-category-title-edit-user-talk' => 'This is a short title for notification category. Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}} and <code>$2</code> in {{msg-mw|Echo-email-batch-category-header}}.',
+	'echo-category-title-article-linked' => 'This is a short title for notification category. Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}} and <code>$2</code> in {{msg-mw|Echo-email-batch-category-header}}.',
+	'echo-category-title-reverted' => 'This is a short title for notification category. Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}} and <code>$2</code> in {{msg-mw|Echo-email-batch-category-header}}.',
+	'echo-category-title-mention' => 'This is a short title for notification category. Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}} and <code>$2</code> in {{msg-mw|Echo-email-batch-category-header}}.',
+	'echo-category-title-other' => 'This is a short title for notification category. Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}} and <code>$2</code> in {{msg-mw|Echo-email-batch-category-header}}',
+	'echo-category-title-system' => 'This is a short title for notification category. Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}} and <code>$2</code> in {{msg-mw|Echo-email-batch-category-header}}.',
 	'echo-no-agent' => 'Shown in place of a username in a notification
 	if the notification has no specified user.',
 	'echo-no-title' => 'Shown in place of a page title in a notification if the notification has no specified page title.',
@@ -485,39 +461,15 @@ See also:
 * $5 is the e-mail footer, {{msg-mw|echo-email-footer-default}}
 See also:
 * {{msg-mw|Echo-email-batch-body-daily}}',
-	'echo-email-batch-category-header-edit-user-talk' => 'E-mail batch section title for edit-user-talk category
-* $1 is the numeric count
-See also:
-* {{msg-mw|Echo-email-batch-category-header-reverted}}
-* {{msg-mw|Echo-email-batch-category-header-article-linked}}
-* {{msg-mw|Echo-email-batch-category-header-other}}',
-	'echo-email-batch-category-header-reverted' => 'E-mail batch section title for reverted category
-* $1 is the numeric count
-See also:
-* {{msg-mw|Echo-email-batch-category-header-edit-user-talk}}
-* {{msg-mw|Echo-email-batch-category-header-article-linked}}
-* {{msg-mw|Echo-email-batch-category-header-other}}',
-	'echo-email-batch-category-header-article-linked' => 'E-mail batch section title for article-linked category
-* $1 is the numeric count
-See also:
-* {{msg-mw|Echo-email-batch-category-header-edit-user-talk}}
-* {{msg-mw|Echo-email-batch-category-header-reverted}}
-* {{msg-mw|Echo-email-batch-category-header-other}}',
-	'echo-email-batch-category-header-mention' => 'E-mail batch section title for mention category
-* $1 is the numeric count',
-	'echo-email-batch-category-header-other' => 'E-mail batch section title for events with category not specified
-* $1 is the numeric count
-See also:
-* {{msg-mw|Echo-email-batch-category-header-edit-user-talk}}
-* {{msg-mw|Echo-email-batch-category-header-reverted}}
-* {{msg-mw|Echo-email-batch-category-header-article-linked}}',
-	'echo-email-batch-category-header-system' => 'E-mail batch section title for system events category (events without user agents)
-* $1 is the numeric count
-See also:
-* {{msg-mw|Echo-email-batch-category-header-edit-user-talk}}
-* {{msg-mw|Echo-email-batch-category-header-reverted}}
-* {{msg-mw|Echo-email-batch-category-header-article-linked}}
-* {{msg-mw|Echo-email-batch-category-header-other}}',
+	'echo-email-batch-category-header' => 'E-mail digest section title. Parameters:
+* $1 - the numeric count
+* $2 - the name of the type; one of the following:
+** {{msg-mw|Echo-category-title-edit-user-talk}}
+** {{msg-mw|Echo-category-title-article-linked}}
+** {{msg-mw|Echo-category-title-reverted}}
+** {{msg-mw|Echo-category-title-mention}}
+** {{msg-mw|Echo-category-title-other}}
+** {{msg-mw|Echo-category-title-system}}',
 );
 
 /** Afrikaans (Afrikaans)
