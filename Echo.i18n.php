@@ -29,7 +29,7 @@ $messages['en'] = array(
 	// Dismiss interface
 	'echo-dismiss-button' => 'Dismiss',
 	'echo-dismiss-message' => 'Turn off all $1 notifications',
-	'echo-dismiss-prefs-message' => 'You can turn these back on in Preferences',
+	'echo-dismiss-prefs-message' => 'You can turn these back on in your [[Special:Preferences#mw-prefsection-echo|preferences]]',
 
 	// Category titles
 	'echo-category-title-edit-user-talk' => 'Talk page {{PLURAL:$1|post|posts}}',
