@@ -172,7 +172,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	 * @return string
 	 */
 	protected function formatDismissInterface( $event, $user ) {
-		$dismissTitle = wfMessage( 'echo-dismiss-title-' . $event->getType() )
+		$dismissTitle = wfMessage( 'echo-category-title-' . $event->getCategory() )
 			->inLanguage( $user->getOption( 'language' ) )
 			->escaped();
 		$dismissMessage = wfMessage( 'echo-dismiss-message', $dismissTitle )
