@@ -1690,10 +1690,10 @@ $messages['he'] = array(
 	'echo-dismiss-button' => 'סגירה',
 	'echo-dismiss-message' => 'כיבוי כל ההודעת על $1',
 	'echo-dismiss-prefs-message' => 'אפשר להפעיל את אלה שוב בהעדפות',
-	'echo-dismiss-title-edit-user-talk' => 'כתיבה בדף שיחה',
-	'echo-dismiss-title-article-linked' => 'קישור לדף',
-	'echo-dismiss-title-reverted' => 'שחזור עריכה',
-	'echo-dismiss-title-mention' => 'אזכור',
+	'echo-category-title-edit-user-talk' => 'כתיבה בדף שיחה',
+	'echo-category-title-article-linked' => 'קישור לדף',
+	'echo-category-title-reverted' => 'שחזור עריכה',
+	'echo-category-title-mention' => 'אזכור',
 	'echo-no-agent' => '[לא צוין]',
 	'echo-no-title' => '[ללא דף]',
 	'echo-error-no-formatter' => 'לא הוגדת עיצוב להודעות',
@@ -1799,12 +1799,6 @@ $5',
 $4
 
 $5',
-	'echo-email-batch-category-header-edit-user-talk' => '{{PLURAL:$1|הודעה אחת|$1 הודעות}} בדף השיחה',
-	'echo-email-batch-category-header-reverted' => '{{PLURAL:$1|עריכה אחת שוחזרה|$1 עריכות שוחזרו}}',
-	'echo-email-batch-category-header-article-linked' => '{{PLURAL:$1|דף אחד קושר|$1 דפים קושרו}}',
-	'echo-email-batch-category-header-mention' => '{{PLURAL:$1|אזכור אחד|$1 אכורים}}',
-	'echo-email-batch-category-header-other' => '{{PLURAL:$1|הודעה אחת אחרת|$1 הודעות אחרות}}',
-	'echo-email-batch-category-header-system' => '{{PLURAL:$1|הודעה מערכתית אחת|$1 הודעות מערכתיות}}',
 );
 
 /** Hindi (हिन्दी)
@@ -2331,10 +2325,10 @@ $messages['ko'] = array(
 	'echo-dismiss-button' => '기각',
 	'echo-dismiss-message' => '모든 $1 알림 끄기',
 	'echo-dismiss-prefs-message' => '사용자 환경 설정에서 다시 설정할 수 있습니다.',
-	'echo-dismiss-title-edit-user-talk' => '토론 문서 게시물',
-	'echo-dismiss-title-article-linked' => '문서를 링크함',
-	'echo-dismiss-title-reverted' => '편집을 되돌림',
-	'echo-dismiss-title-mention' => '언급',
+	'echo-category-title-edit-user-talk' => '토론 문서 게시물',
+	'echo-category-title-article-linked' => '문서를 링크함',
+	'echo-category-title-reverted' => '편집을 되돌림',
+	'echo-category-title-mention' => '언급',
 	'echo-no-agent' => '[알 수 없는 사용자]',
 	'echo-no-title' => '[문서 없음]',
 	'echo-error-no-formatter' => '알림에 대해 정의한 형식이 없습니다',
@@ -2439,12 +2433,6 @@ $5',
 $4
 
 $5',
-	'echo-email-batch-category-header-edit-user-talk' => '토론 문서 {{PLURAL:$1|메시지}} $1개',
-	'echo-email-batch-category-header-reverted' => '{{PLURAL:$1|편집}} 되돌리기 $1회',
-	'echo-email-batch-category-header-article-linked' => '링크한 {{PLURAL:$1|문서}} $1개',
-	'echo-email-batch-category-header-mention' => '{{PLURAL:$1|언급}} $1번',
-	'echo-email-batch-category-header-other' => '분류하지 않은 {{PLURAL:$1|알림}} $1개',
-	'echo-email-batch-category-header-system' => '시스템 {{PLURAL:$1|알림}} $1개',
 );
 
 /** Colognian (Ripoarisch)
@@ -2717,9 +2705,9 @@ $messages['ms'] = array(
 	'echo-dismiss-button' => 'Singkir',
 	'echo-dismiss-message' => 'Matikan semua pemberitahuan $1',
 	'echo-dismiss-prefs-message' => 'Anda boleh memasangnya semula dalam Keutamaan',
-	'echo-dismiss-title-edit-user-talk' => 'Pos halaman perbualan',
-	'echo-dismiss-title-article-linked' => 'Halaman telah dipautkan',
-	'echo-dismiss-title-reverted' => 'Suntingan dibalikkan',
+	'echo-category-title-edit-user-talk' => 'Pos halaman perbualan',
+	'echo-category-title-article-linked' => 'Halaman telah dipautkan',
+	'echo-category-title-reverted' => 'Suntingan dibalikkan',
 	'echo-no-agent' => '[Tiada Sesiapa]',
 	'echo-no-title' => '[Tiada halaman]',
 	'echo-error-no-formatter' => 'Tiada pemformatan yang ditetapkan untuk pemberitahuan',
@@ -2823,12 +2811,6 @@ Anda ada $2 {{PLURAL:$3|pemberitahuan}} di {{SITENAME}} minggu ini. Sila baca di
 $4
 
 $5',
-	'echo-email-batch-category-header-edit-user-talk' => '$1 pesanan di halaman perbualan',
-	'echo-email-batch-category-header-reverted' => '$1 suntingan dibuat asal',
-	'echo-email-batch-category-header-article-linked' => '$1 halaman dipautkan',
-	'echo-email-batch-category-header-mention' => '$1 sebutan',
-	'echo-email-batch-category-header-other' => '$1 pemberitahuan yang belum dikategorikan',
-	'echo-email-batch-category-header-system' => '$1 pemberitahuan sistem',
 );
 
 /** Maltese (Malti)
@@ -2881,10 +2863,10 @@ $messages['nl'] = array(
 	'echo-dismiss-button' => 'Sluiten',
 	'echo-dismiss-message' => 'Alle meldingen uitschakelen over $1',
 	'echo-dismiss-prefs-message' => 'U kunt deze inschakelen in uw voorkeuren',
-	'echo-dismiss-title-edit-user-talk' => 'berichten op mijn overlegpagina',
-	'echo-dismiss-title-article-linked' => "gekoppelde pagina's",
-	'echo-dismiss-title-reverted' => 'teruggedraaide bewerkingen',
-	'echo-dismiss-title-mention' => 'Genoemd',
+	'echo-category-title-edit-user-talk' => 'berichten op mijn overlegpagina',
+	'echo-category-title-article-linked' => "gekoppelde pagina's",
+	'echo-category-title-reverted' => 'teruggedraaide bewerkingen',
+	'echo-category-title-mention' => 'Genoemd',
 	'echo-no-agent' => '[Niemand]',
 	'echo-no-title' => '[Geen pagina]',
 	'echo-error-no-formatter' => 'Er is geen opmaak ingesteld voor de melding',
@@ -2986,12 +2968,6 @@ U hebt deze week {{PLURAL:$3|0=geen meldingen|één melding|$2 meldingen}} op {{
 $4
 
 $5',
-	'echo-email-batch-category-header-edit-user-talk' => '{{PLURAL:$1|één bericht op uw overlegpagina|$1 berichten op uw overlegpagina}}',
-	'echo-email-batch-category-header-reverted' => '$1 teruggedraaide bewerking {{PLURAL:$1||en}}',
-	'echo-email-batch-category-header-article-linked' => "$1 gekoppelde pagina{{PLURAL:$1||'s}}",
-	'echo-email-batch-category-header-mention' => '{{PLURAL:$1|Eén|$1}} keer genoemd',
-	'echo-email-batch-category-header-other' => '$1 ongecategoriseerde melding{{PLURAL:$1||en}}',
-	'echo-email-batch-category-header-system' => '$1 systeemmelding{{PLURAL:$1||en}}',
 );
 
 /** Nederlands (informeel)‎ (Nederlands (informeel)‎)
