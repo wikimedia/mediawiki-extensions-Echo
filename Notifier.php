@@ -30,7 +30,6 @@ class EchoNotifier {
 			} else {
 				$group = 'neutral';
 			}
-
 			$data = array (
 				'version' => $wgEchoConfig['version'],
 				'eventId' => $event->getId(),
@@ -40,6 +39,11 @@ class EchoNotifier {
 				'recipientUserId' => $user->getId(),
 				'recipientEditCount' => (int)$user->getEditCount()
 			);
+			// Add the source if it exists. (This is mostly for the Thanks extension.)
+			$extra = $event->getExtra();
+			if ( isset( $extra['source'] ) ) {
+				$data['eventSource'] = (string)$extra['source'];
+			}
 			EchoHooks::logEvent( 'Echo', $data );
 		}
 
