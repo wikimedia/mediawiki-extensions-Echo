@@ -200,6 +200,10 @@ class EchoHooks {
 					}
 				}
 				break;
+			case 'user-rights':
+				$extraData = $event->getExtra();
+				$users[$extraData['user']] = User::newFromId( $extraData['user'] );
+				break;
 		}
 
 		return true;
@@ -442,6 +446,33 @@ class EchoHooks {
 			'agent' => $user,
 		) );
 
+		return true;
+	}
+
+	/**
+	 * Handler for UserRights hook.
+	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/UserRights
+	 * @param $user User User object that was changed
+	 * @param $add array Array of strings corresponding to groups added
+	 * @param $remove array Array of strings corresponding to groups removed
+	 */
+	public static function onUserRights( &$user, $add, $remove ) {
+		global $wgUser;
+
+		if ( !$user->isAnon() && $wgUser->getId() != $user->getId() && ( $add || $remove ) ) {
+			EchoEvent::create(
+				array(
+					'type' => 'user-rights',
+					'title' => Title::newMainPage(),
+					'extra' => array(
+						'user' => $user->getID(),
+						'add' => $add,
+						'remove' => $remove
+					),
+					'agent' => $wgUser,
+				)
+			);
+		}
 		return true;
 	}
 
