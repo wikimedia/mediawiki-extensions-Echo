@@ -23,6 +23,11 @@ $specialPageAliases['diq'] = array(
 	'Notifications' => array( 'Tebliği' ),
 );
 
+/** Esperanto (Esperanto) */
+$specialPageAliases['eo'] = array(
+	'Notifications' => array( 'Atentigoj' ),
+);
+
 /** Persian (فارسی) */
 $specialPageAliases['fa'] = array(
 	'Notifications' => array( 'آگهی‌ها' ),

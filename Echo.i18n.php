@@ -186,6 +186,7 @@ $5',
  * @author Raymond
  * @author Shirayuki
  * @author Siebrand
+ * @author Toliño
  */
 $messages['qqq'] = array(
 	'echo-desc' => '{{desc|name=Echo|url=http://www.mediawiki.org/wiki/Extension:Echo}}',
@@ -251,8 +252,12 @@ See also:
 	'echo-category-title-article-linked' => 'This is a short title for notification category. Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}} and <code>$2</code> in {{msg-mw|Echo-email-batch-category-header}}.',
 	'echo-category-title-reverted' => 'This is a short title for notification category. Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}} and <code>$2</code> in {{msg-mw|Echo-email-batch-category-header}}.',
 	'echo-category-title-mention' => 'This is a short title for notification category. Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}} and <code>$2</code> in {{msg-mw|Echo-email-batch-category-header}}.',
-	'echo-category-title-other' => 'This is a short title for notification category. Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}} and <code>$2</code> in {{msg-mw|Echo-email-batch-category-header}}',
-	'echo-category-title-system' => 'This is a short title for notification category. Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}} and <code>$2</code> in {{msg-mw|Echo-email-batch-category-header}}.',
+	'echo-category-title-other' => 'This is a short title for notification category.
+
+Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}} and <code>$2</code> in {{msg-mw|Echo-email-batch-category-header}}.
+{{Identical|Other}}',
+	'echo-category-title-system' => 'This is a short title for notification category. Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}} and <code>$2</code> in {{msg-mw|Echo-email-batch-category-header}}.
+{{Identical|System}}',
 	'echo-no-agent' => 'Shown in place of a username in a notification
 	if the notification has no specified user.',
 	'echo-no-title' => 'Shown in place of a page title in a notification if the notification has no specified page title.',
@@ -333,10 +338,10 @@ Parameters:
 * $3 - the page title of the discussion",
 	'notification-user-rights' => 'Format for displaying notifications of a user right change in notification page.  Parameters:
 * $1 is the username of the person who made the user right change.  Can be used for GENDER support
-* $2 is a semicolon separated list of {{msg-mw}|notification-user-rights-add}, {{msg-mw|notification-user-rights-remove}}',
+* $2 is a semicolon separated list of {{msg-mw|notification-user-rights-add}}, {{msg-mw|notification-user-rights-remove}}',
 	'notification-user-rights-flyout' => 'Format for displaying notifications of a user right change in notification flyout.  Parameters:
-* $1 is the username of the person who made the user right change.  Can be used for GENDER support
-* $2 is a semicolon separated list of {{msg-mw}|notification-user-rights-add}, {{msg-mw|notification-user-rights-remove}}',
+* $1 - the username of the person who made the user right change.  Can be used for GENDER support
+* $2 - a semicolon separated list of {{msg-mw|notification-user-rights-add}}, {{msg-mw|notification-user-rights-remove}}',
 	'notification-user-rights-add' => 'Message indicating that a user was added to a user group.  Parameters:
 * $1 is a comma separated list of user group names
 * $2 is the number of user groups, this is used for PLURAL support',
@@ -438,7 +443,7 @@ See also:
 * $3 is the email footer',
 	'notification-user-rights-email-batch-body' => 'Email notification batch body.  Parameters:
 * $1 is a user name, plaintext.  Can be used for gender support
-* $2 is a semicolon separated list of {{msg-mw}|notification-user-rights-add}, {{msg-mw|notification-user-rights-remove}}',
+* $2 is a semicolon separated list of {{msg-mw|notification-user-rights-add}}, {{msg-mw|notification-user-rights-remove}}',
 	'echo-notification-count' => '{{optional}}
 The new notification count next to notification link, for example: 99+
 * $1 is the count',
@@ -931,10 +936,12 @@ $messages['de'] = array(
 	'echo-dismiss-button' => 'Ausblenden',
 	'echo-dismiss-message' => 'Alle „$1“-Benachrichtigungen abschalten',
 	'echo-dismiss-prefs-message' => 'Du kannst dies in deinen Einstellungen wieder aktivieren',
-	'echo-dismiss-title-edit-user-talk' => 'Diskussionsseitennachricht',
-	'echo-dismiss-title-article-linked' => 'Seite verlinkt',
-	'echo-dismiss-title-reverted' => 'Bearbeitung rückgängig gemacht',
-	'echo-dismiss-title-mention' => 'Erwähnung',
+	'echo-category-title-edit-user-talk' => 'Diskussionsseitennachricht',
+	'echo-category-title-article-linked' => 'Seite verlinkt',
+	'echo-category-title-reverted' => 'Bearbeitung rückgängig gemacht',
+	'echo-category-title-mention' => 'Erwähnung',
+	'echo-category-title-other' => 'Andere',
+	'echo-category-title-system' => 'System',
 	'echo-no-agent' => '[Niemand]',
 	'echo-no-title' => '[Keine Seite]',
 	'echo-error-no-formatter' => 'Keine Formatierung zur Benachrichtigung definiert',
@@ -956,6 +963,10 @@ $messages['de'] = array(
 	'notification-add-comment-yours2' => '[[User:$1|$1]] {{GENDER:$1|kommentierte}} auf „[[$3#$2|$2]]“ auf deiner Diskussionsseite',
 	'notification-mention' => '[[User:$1|$1]] {{GENDER:$1|erwähnte}} dich auf „[[$3#$2|$3]]“.',
 	'notification-mention-flyout' => '$1 {{GENDER:$1|erwähnte}} dich auf „[[$3#$2|$3]]“.',
+	'notification-user-rights' => 'Deine Benutzerrechte wurden von [[User:$1|$1]] {{GENDER:$1|geändert}}. $2. [[Special:ListGroupRights|Mehr erfahren]]',
+	'notification-user-rights-flyout' => 'Deine Benutzerrechte wurden von $1 {{GENDER:$1|geändert}}. $2. [[Special:ListGroupRights|Mehr erfahren]]',
+	'notification-user-rights-add' => 'Du bist jetzt Mitglied dieser {{PLURAL:$2|Gruppe|Gruppen}}: $1',
+	'notification-user-rights-remove' => 'Du bist nicht länger Mitglied dieser {{PLURAL:$2|Gruppe|Gruppen}}: $1',
 	'notification-new-user' => 'Willkommen bei {{SITENAME}}, $1!',
 	'notification-new-user-content' => 'Bitte vergiss nicht alle Beiträge auf Diskussionsseiten mit 4 Tilden (~~~~) zu signieren.',
 	'notification-reverted2' => 'Deine {{PLURAL:$4|Bearbeitung an der Seite [[$2]] wurde|Bearbeitungen an der Seite [[$2]] wurden}} von [[User:$1|$1]] {{GENDER:$1|rückgängig}} gemacht. $3',
@@ -1002,6 +1013,15 @@ $4
 
 $5',
 	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|erwähnte}} dich auf „$2“',
+	'notification-user-rights-email-subject' => 'Deine Benutzerrechte auf {{SITENAME}} wurden geändert.',
+	'notification-user-rights-email-body' => 'Deine Benutzerrechte wurden von $1 {{GENDER:$1|geändert}}. $2
+
+Mehr ansehen:
+
+{{canonicalurl:{{#special:ListGroupRights}}}}
+
+$3',
+	'notification-user-rights-email-batch-body' => 'Deine Benutzerrechte wurden von $1 {{GENDER:$1|geändert}}. $2',
 	'echo-email-subject-default' => 'Neue Benachrichtigung auf {{SITENAME}}',
 	'echo-email-body-default' => 'Es gibt eine neue Benachrichtigung auf {{SITENAME}}:
 
@@ -1038,12 +1058,7 @@ du hast diese Woche {{PLURAL:$3|eine Benachrichtigung|$2 Benachrichtigungen}} au
 $4
 
 $5',
-	'echo-email-batch-category-header-edit-user-talk' => '{{PLURAL:$1|Eine Diskussionsseitennachricht|$1 Diskussionsseitennachrichten}}',
-	'echo-email-batch-category-header-reverted' => '{{PLURAL:$1|Eine Bearbeitung|$1 Bearbeitungen}} rückgängig gemacht',
-	'echo-email-batch-category-header-article-linked' => '{{PLURAL:$1|Eine Seite|$1 Seiten}} verlinkt',
-	'echo-email-batch-category-header-mention' => '{{PLURAL:$1|Eine Erwähnung|$1 Erwähnungen}}',
-	'echo-email-batch-category-header-other' => '{{PLURAL:$1|Eine nicht kategorisierte Benachrichtigung|$1 nicht kategorisierte Benachrichtigungen}}',
-	'echo-email-batch-category-header-system' => '{{PLURAL:$1|Eine Systembenachrichtigung|$1 Systembenachrichtigungen}}',
+	'echo-email-batch-category-header' => '$1 „$2“-{{PLURAL:$1|Benachrichtigung|Benachrichtigungen}}',
 );
 
 /** German (formal address) (Deutsch (Sie-Form)‎)
@@ -1352,10 +1367,12 @@ $messages['fr'] = array(
 	'echo-dismiss-button' => 'Rejeter',
 	'echo-dismiss-message' => 'Désactiver toutes les $1 notifications',
 	'echo-dismiss-prefs-message' => 'Vous pouvez les remettre en place dans les Préférences',
-	'echo-dismiss-title-edit-user-talk' => 'Message de la page de discussion',
-	'echo-dismiss-title-article-linked' => 'Article lié',
-	'echo-dismiss-title-reverted' => 'Modification annulée',
-	'echo-dismiss-title-mention' => 'Mention',
+	'echo-category-title-edit-user-talk' => 'Message de la page de discussion',
+	'echo-category-title-article-linked' => 'Article lié',
+	'echo-category-title-reverted' => 'Modification annulée',
+	'echo-category-title-mention' => 'Mention',
+	'echo-category-title-other' => 'Autres',
+	'echo-category-title-system' => 'Système',
 	'echo-no-agent' => '[Personne]',
 	'echo-no-title' => '[Aucune page]',
 	'echo-error-no-formatter' => 'Aucune mise en forme définies pour la notification',
@@ -1377,6 +1394,10 @@ $messages['fr'] = array(
 	'notification-add-comment-yours2' => '[[User:$1|$1]] {{GENDER:$1|a fait un commentaire}} sur "[[$3#$2|$2]]" sur votre page de discussion',
 	'notification-mention' => '[[User:$1|$1]] vous {{GENDER:$1|a mentionné}} sur [[$3#$2|$3]].',
 	'notification-mention-flyout' => '$1 vous {{GENDER:$1|a mentionné}} sur [[$3#$2|$3]].',
+	'notification-user-rights' => 'Vos droits d’utilisateur {{GENDER:$1|ont été modifiés}} par [[User:$1|$1]]. $2. [[Special:ListGroupRights|En savoir plus]]',
+	'notification-user-rights-flyout' => 'Vos droits d’utilisateur {{GENDER:$1|ont été modifiés}} par $1. $2. [[Special:ListGroupRights|En savoir plus]]',
+	'notification-user-rights-add' => 'Vous êtes maintenant membre de {{PLURAL:$2|ce groupe|ces groupes}}: $1',
+	'notification-user-rights-remove' => 'Vous n’êtes plus membre de {{PLURAL:$2|ce groupe|ces groupes}}: $1',
 	'notification-new-user' => 'Bienvenue sur {{SITENAME}}, $1 !',
 	'notification-new-user-content' => "N'oubliez pas de signer vos commentaires sur les pages de discussion avec 4 tildes (~~~~).",
 	'notification-reverted2' => '{{PLURAL:$4|Votre modification sur [[$2]] a|Vos modifications sur [[$2]] ont}} été {{GENDER:$1|annulée}}{{PLURAL:$4||s}} par [[User:$1|$1]] $3',
@@ -1423,6 +1444,15 @@ $4
 
 $5',
 	'notification-mention-email-batch-body' => '$1 vous {{GENDER:$1|a mentionné}} sur $2',
+	'notification-user-rights-email-subject' => 'Vos droits d’utilisateur ont été modifiés sur {{SITENAME}}',
+	'notification-user-rights-email-body' => 'Vos droits d’utilisateur {{GENDER:$1|ont été modifiés}} par $1. $2
+
+En voir plus:
+
+{{canonicalurl:{{#special:ListGroupRights}}}}
+
+$3',
+	'notification-user-rights-email-batch-body' => 'Vos droits d’utilisateur {{GENDER:$1|ont été modifiés}} par $1. $2',
 	'echo-email-subject-default' => 'Nouvelle notification sur {{SITENAME}}',
 	'echo-email-body-default' => 'Vous avez une nouvelle notification sur {{SITENAME}} :
 
@@ -1459,12 +1489,7 @@ Vous avez $2 {{PLURAL:$3|notification|notifications}} sur {{SITENAME}} cette sem
 $4
 
 $5',
-	'echo-email-batch-category-header-edit-user-talk' => '$1 {{PLURAL:$1|message|messages}} de page de discussion',
-	'echo-email-batch-category-header-reverted' => '$1 {{PLURAL:$1|modification annulée|modifications annulées}}',
-	'echo-email-batch-category-header-article-linked' => '$1 {{PLURAL:$1|page liée|pages liées}}',
-	'echo-email-batch-category-header-mention' => '$1 {{PLURAL:$1|mention|mentions}}',
-	'echo-email-batch-category-header-other' => '$1 {{PLURAL:$1|notification non catégorisée|notifications non catégorisées}}',
-	'echo-email-batch-category-header-system' => '$1 {{PLURAL:$1|notification|notifications}} système',
+	'echo-email-batch-category-header' => '$1 $2 {{PLURAL:$1|notification|notifications}}',
 );
 
 /** Franco-Provençal (arpetan)
@@ -1547,12 +1572,14 @@ $messages['gl'] = array(
 	'echo-pref-email-frequency-weekly' => 'Un resumo semanal das notificacións',
 	'echo-pref-notify-hide-link' => 'Agochar a ligazón e a insignia das notificacións na miña barra de ferramentas',
 	'echo-dismiss-button' => 'Agochar',
-	'echo-dismiss-message' => 'Desactivar todas as notificacións de $1',
+	'echo-dismiss-message' => 'Desactivar todas as notificacións do tipo $1',
 	'echo-dismiss-prefs-message' => 'Pode activar isto de novo nas preferencias',
-	'echo-dismiss-title-edit-user-talk' => 'Mensaxe na páxina de conversa',
-	'echo-dismiss-title-article-linked' => 'Páxina ligada',
-	'echo-dismiss-title-reverted' => 'Edición revertida',
-	'echo-dismiss-title-mention' => 'Mención',
+	'echo-category-title-edit-user-talk' => 'Mensaxe na páxina de conversa',
+	'echo-category-title-article-linked' => 'Páxina ligada',
+	'echo-category-title-reverted' => 'Edición revertida',
+	'echo-category-title-mention' => 'Mención',
+	'echo-category-title-other' => 'Outras',
+	'echo-category-title-system' => 'Sistema',
 	'echo-no-agent' => '[Ninguén]',
 	'echo-no-title' => '[Ningunha páxina]',
 	'echo-error-no-formatter' => 'Non se definiu formato ningún para a notificación',
@@ -1574,6 +1601,10 @@ $messages['gl'] = array(
 	'notification-add-comment-yours2' => '[[User:$1|$1]] {{GENDER:$1|comentou}} en "[[$3#$2|$2]]" na páxina de conversa',
 	'notification-mention' => '[[User:$1|$1]] {{GENDER:$1|fíxolle}} unha mención en "[[$3#$2|$3]]".',
 	'notification-mention-flyout' => '$1 {{GENDER:$1|fíxolle}} unha mención en "[[$3#$2|$3]]".',
+	'notification-user-rights' => '[[User:$1|$1]] {{GENDER:$1|mudou}} os seus dereitos de usuario. $2. [[Special:ListGroupRights|Máis información]]',
+	'notification-user-rights-flyout' => '$1 {{GENDER:$1|mudou}} os seus dereitos de usuario. $2. [[Special:ListGroupRights|Máis información]]',
+	'notification-user-rights-add' => 'Agora pertence a {{PLURAL:$2|este grupo|estes grupos}}: $1',
+	'notification-user-rights-remove' => 'Xa non pertence a {{PLURAL:$2|este grupo|estes grupos}}: $1',
 	'notification-new-user' => 'Dámoslle a benvida a {{SITENAME}}, $1!',
 	'notification-new-user-content' => 'Lembre asinar calquera comentario que deixe nas páxinas de conversa con 4 tiles (~~~~).',
 	'notification-reverted2' => '[[User:$1|$1]] {{GENDER:$1|reverteu}} {{PLURAL:$4|a súa edición|as súas edicións}} en "[[$2]]" $3',
@@ -1620,6 +1651,15 @@ $4
 
 $5',
 	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|fíxolle}} unha mención en $2',
+	'notification-user-rights-email-subject' => 'Os seus dereitos de usuario cambiaron en {{SITENAME}}',
+	'notification-user-rights-email-body' => '$1 {{GENDER:$1|mudou}} os seus dereitos de usuario. $2
+
+Ollar máis:
+
+{{canonicalurl:{{#special:ListGroupRights}}}}
+
+$3',
+	'notification-user-rights-email-batch-body' => '$1 {{GENDER:$1|mudou}} os seus dereitos de usuario. $2',
 	'echo-email-subject-default' => 'Nova notificación en {{SITENAME}}',
 	'echo-email-body-default' => 'Ten unha nova notificación en {{SITENAME}}:
 
@@ -1657,12 +1697,7 @@ Esta semana ten $2 {{PLURAL:$3|notificación|notificacións}} en {{SITENAME}}. B
 $4
 
 $5',
-	'echo-email-batch-category-header-edit-user-talk' => '$1 {{PLURAL:$1|mensaxe|mensaxes}} na páxina de conversa',
-	'echo-email-batch-category-header-reverted' => '$1 {{PLURAL:$1|edición revertida|edicións revertidas}}',
-	'echo-email-batch-category-header-article-linked' => '$1 {{PLURAL:$1|páxina ligada|páxinas ligadas}}',
-	'echo-email-batch-category-header-mention' => '$1 {{PLURAL:$1|mención|mencións}}',
-	'echo-email-batch-category-header-other' => '$1 {{PLURAL:$1|notificación|notificacións}} sen categorizar',
-	'echo-email-batch-category-header-system' => '$1 {{PLURAL:$1|notificación|notificacións}} do sistema',
+	'echo-email-batch-category-header' => '$1 {{PLURAL:$1|notificación|notificacións}} do tipo $2',
 );
 
 /** Hebrew (עברית)
@@ -2131,10 +2166,12 @@ $messages['ja'] = array(
 	'echo-dismiss-button' => '非表示',
 	'echo-dismiss-message' => '$1についての通知をすべて止める',
 	'echo-dismiss-prefs-message' => 'これらは個人設定で元に戻すこともできます',
-	'echo-dismiss-title-edit-user-talk' => 'トークページヘの投稿',
-	'echo-dismiss-title-article-linked' => 'ページヘのリンク',
-	'echo-dismiss-title-reverted' => '編集の差し戻し',
-	'echo-dismiss-title-mention' => '言及',
+	'echo-category-title-edit-user-talk' => 'トークページヘの投稿',
+	'echo-category-title-article-linked' => 'ページヘのリンク',
+	'echo-category-title-reverted' => '編集の差し戻し',
+	'echo-category-title-mention' => '言及',
+	'echo-category-title-other' => 'その他',
+	'echo-category-title-system' => 'システム',
 	'echo-no-agent' => '[送信者なし]',
 	'echo-no-title' => '[ページなし]',
 	'echo-error-no-formatter' => '通知の書式が定義されていません',
@@ -2202,6 +2239,7 @@ $4
 
 $5',
 	'notification-mention-email-batch-body' => '$1 が $2 であなたに{{GENDER:$1|言及しました}}',
+	'notification-user-rights-email-subject' => '{{SITENAME}}での利用者権限が変更されました',
 	'echo-email-subject-default' => '{{SITENAME}}での新しい通知',
 	'echo-email-body-default' => '{{SITENAME}}で新しい通知があります:
 
@@ -2240,12 +2278,7 @@ $5',
 $4
 
 $5',
-	'echo-email-batch-category-header-edit-user-talk' => 'トークページヘのメッセージ $1 {{PLURAL:$1|件}}',
-	'echo-email-batch-category-header-reverted' => '編集の差し戻し $1 {{PLURAL:$1|件}}',
-	'echo-email-batch-category-header-article-linked' => 'ページヘのリンク $1 {{PLURAL:$1|件}}',
-	'echo-email-batch-category-header-mention' => '言及 $1 {{PLURAL:$1|件}}',
-	'echo-email-batch-category-header-other' => 'その他の通知 $1 {{PLURAL:$1|件}}',
-	'echo-email-batch-category-header-system' => 'システム通知 $1 {{PLURAL:$1|件}}',
+	'echo-email-batch-category-header' => '$2についての通知 $1 {{PLURAL:$1|件}}',
 );
 
 /** Javanese (Basa Jawa)
@@ -2527,10 +2560,12 @@ $messages['mk'] = array(
 	'echo-dismiss-button' => 'Тргни',
 	'echo-dismiss-message' => 'Исклучи ги сите $1 известувања',
 	'echo-dismiss-prefs-message' => 'Овие можете пак да ги вклучите во Нагодувања',
-	'echo-dismiss-title-edit-user-talk' => 'Објава на страницата за разговор',
-	'echo-dismiss-title-article-linked' => 'Страницата е сврзана',
-	'echo-dismiss-title-reverted' => 'Уредувањето е вратено',
-	'echo-dismiss-title-mention' => 'Спомнување',
+	'echo-category-title-edit-user-talk' => 'Објава на страницата за разговор',
+	'echo-category-title-article-linked' => 'Страницата е сврзана',
+	'echo-category-title-reverted' => 'Уредувањето е вратено',
+	'echo-category-title-mention' => 'Спомнување',
+	'echo-category-title-other' => 'Друго',
+	'echo-category-title-system' => 'Систем',
 	'echo-no-agent' => '[Никој]',
 	'echo-no-title' => '[Нема страница]',
 	'echo-error-no-formatter' => 'Нема зададено форматирање за ова известување',
@@ -2552,6 +2587,10 @@ $messages['mk'] = array(
 	'notification-add-comment-yours2' => '[[User:$1|$1]] {{GENDER:$1|коментираше}} на „[[$3#$2|$2]]“ на вашата страница за разговор',
 	'notification-mention' => '[[User:$1|$1]] {{GENDER:$1|ве спомна}} на „[[$3#$2|$3]]“.',
 	'notification-mention-flyout' => '$1 {{GENDER:$1|ве спомна}} на „[[$3#$2|$3]]“.',
+	'notification-user-rights' => 'Вашите кориснички права се {{GENDER:$1|изменети}} од [[User:$1|$1]]. $2. [[Special:ListGroupRights|Дознајте повеќе]]',
+	'notification-user-rights-flyout' => 'Вашите кориснички права се {{GENDER:$1|изменети}} од $1. $2. [[Special:ListGroupRights|Дознајте повеќе]]',
+	'notification-user-rights-add' => 'Сега членувате во {{PLURAL:$2|оваа група|овие групи}}: $1',
+	'notification-user-rights-remove' => 'Повеќе не членувате во {{PLURAL:$2|оваа група|овие групи}}: $1',
 	'notification-new-user' => 'Добредојдовте на {{SITENAME}}, $1!',
 	'notification-new-user-content' => 'НЕ заборавајте да си ги потпишувате коментарите на страниците за разговор со 4 тилди (~~~~).',
 	'notification-reverted2' => '[[User:$1|$1]] {{PLURAL:$4|го|ги}} {{GENDER:$1|врати}} {{PLURAL:$4|вашето уредување на [[$2]]|вашите уредувања на [[$2]]}} $3',
@@ -2598,6 +2637,15 @@ $4
 
 $5',
 	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|ве спомна}} на „$2“',
+	'notification-user-rights-email-subject' => 'Вашите кориснички права на {{SITENAME}} се изменети',
+	'notification-user-rights-email-body' => 'Вашите кориснички права се {{GENDER:$1|изменети}} од $1. $2
+
+Погледајте повеќе:
+
+{{canonicalurl:{{#special:ListGroupRights}}}}
+
+$3',
+	'notification-user-rights-email-batch-body' => 'Вашите кориснички права се {{GENDER:$1|изменети}} од $1. $2',
 	'echo-email-subject-default' => 'Ново известување на {{SITENAME}}',
 	'echo-email-body-default' => 'Имате ново известување на {{SITENAME}}:
 
@@ -2634,12 +2682,7 @@ $5',
 $4
 
 $5',
-	'echo-email-batch-category-header-edit-user-talk' => '$1 {{PLURAL:$1|порака|пораки}} на страницата за разговор',
-	'echo-email-batch-category-header-reverted' => '$1 {{PLURAL:$1|вратено уредување|вратени уредувања}}',
-	'echo-email-batch-category-header-article-linked' => '$1 {{PLURAL:$1|сврзана страница|сврзани страници}}',
-	'echo-email-batch-category-header-mention' => '$1 {{PLURAL:$1|спомнување|спомнувања}}',
-	'echo-email-batch-category-header-other' => '$1 {{PLURAL:$1|некатегоризирано известување|некатегоризирани известувања}}',
-	'echo-email-batch-category-header-system' => '$1 {{PLURAL:$1|системско известување|системски известувања}}',
+	'echo-email-batch-category-header' => '$1 $2 {{PLURAL:$1|известување|известувања}}',
 );
 
 /** Malayalam (മലയാളം)
