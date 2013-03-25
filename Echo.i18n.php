@@ -201,7 +201,9 @@ $messages['qqq'] = array(
 	'prefs-echosubscriptions' => 'Header for the section of preferences that deals with which notifications the user receives
 * {{msg-mw|Echo-pref-subscription-edit-user-talk}}
 * {{msg-mw|Echo-pref-subscription-article-linked}}
-* {{msg-mw|Echo-pref-subscription-reverted}}',
+* {{msg-mw|Echo-pref-subscription-reverted}}
+* {{msg-mw|Echo-pref-subscription-edit-thank}} - "Thanks" extension
+* ...',
 	'echo-pref-web' => 'Label for list of notifications which are delivered on the web. In other words, on the wiki itself rather by {{msg-mw|Echo-pref-email}} or another method.
 
 This message is followed by the following checkbox-labels:
@@ -248,6 +250,7 @@ See also:
 ** {{msg-mw|Echo-category-title-mention}}
 ** {{msg-mw|Echo-category-title-other}}
 ** {{msg-mw|Echo-category-title-system}}',
+	'echo-dismiss-prefs-message' => 'Used in Dismiss interface.',
 	'echo-category-title-edit-user-talk' => 'This is a short title for notification category. Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}} and <code>$2</code> in {{msg-mw|Echo-email-batch-category-header}}.',
 	'echo-category-title-article-linked' => 'This is a short title for notification category. Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}} and <code>$2</code> in {{msg-mw|Echo-email-batch-category-header}}.',
 	'echo-category-title-reverted' => 'This is a short title for notification category. Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}} and <code>$2</code> in {{msg-mw|Echo-email-batch-category-header}}.',
@@ -2910,6 +2913,8 @@ $messages['nl'] = array(
 	'echo-category-title-article-linked' => "gekoppelde pagina's",
 	'echo-category-title-reverted' => 'teruggedraaide bewerkingen',
 	'echo-category-title-mention' => 'Genoemd',
+	'echo-category-title-other' => 'Overige',
+	'echo-category-title-system' => 'Systeem',
 	'echo-no-agent' => '[Niemand]',
 	'echo-no-title' => '[Geen pagina]',
 	'echo-error-no-formatter' => 'Er is geen opmaak ingesteld voor de melding',
@@ -3746,10 +3751,12 @@ $messages['vi'] = array(
 	'echo-dismiss-button' => 'Tắt',
 	'echo-dismiss-message' => 'Tắt mọi thông báo $1',
 	'echo-dismiss-prefs-message' => 'Bạn có thể bật lại các thông báo này trong Tùy chọn',
-	'echo-dismiss-title-edit-user-talk' => 'Lời tin nhắn',
-	'echo-dismiss-title-article-linked' => 'Trang được liên kết',
-	'echo-dismiss-title-reverted' => 'Sửa đổi bị lùi lại',
-	'echo-dismiss-title-mention' => 'Lời nói đến',
+	'echo-category-title-edit-user-talk' => 'Lời tin nhắn',
+	'echo-category-title-article-linked' => 'Trang được liên kết',
+	'echo-category-title-reverted' => 'Sửa đổi bị lùi lại',
+	'echo-category-title-mention' => 'Lời nói đến',
+	'echo-category-title-other' => 'Khác',
+	'echo-category-title-system' => 'Hệ thống',
 	'echo-no-agent' => '[Không ai]',
 	'echo-no-title' => '[Không có trang]',
 	'echo-error-no-formatter' => 'Thông báo không có định rõ định dạng',
@@ -3771,6 +3778,10 @@ $messages['vi'] = array(
 	'notification-add-comment-yours2' => '[[User:$1|$1]] đã bình luận về “[[$3#$2|$2]]” tại trang thảo luận của bạn',
 	'notification-mention' => '[[User:$1|$1]] đã nói đến bạn tại [[$3#$2|$3]].',
 	'notification-mention-flyout' => '$1 đã nói đến bạn tại [[$3#$2|$3]].',
+	'notification-user-rights' => '[[User:$1|$1]] {{GENDER:$1}}đã thay đổi các quyền người dùng của bạn. $2. [[Special:ListGroupRights|Tìm hiểu thêm]]',
+	'notification-user-rights-flyout' => '$1 {{GENDER:$1}}đã thay đổi các quyền người dùng của bạn. $2. [[Special:ListGroupRights|Tìm hiểu thêm]]',
+	'notification-user-rights-add' => 'Bạn mới là thành viên của {{PLURAL:$2|nhóm|các nhóm}} này: $1',
+	'notification-user-rights-remove' => 'Bạn không còn là thành viên của {{PLURAL:$2|nhóm|các nhóm}} này: $1',
 	'notification-new-user' => 'Chào mừng $1 đã đến với {{SITENAME}}!',
 	'notification-new-user-content' => 'Hãy nhớ ký tên vào các lời bình luận tại trang thảo luận bằng 4 dấu ngã (~~~~).',
 	'notification-reverted2' => '[[User:$1|$1]] đã lùi lại {{PLURAL:$4|sửa đổi|các sửa đổi}} của bạn tại [[$2]] $3',
@@ -3817,6 +3828,15 @@ $4
 
 $5',
 	'notification-mention-email-batch-body' => '$1 đã nói đến bạn tại $2',
+	'notification-user-rights-email-subject' => 'Các quyền người dùng của bạn đã thay đổi tại {{SITENAME}}',
+	'notification-user-rights-email-body' => '$1 {{GENDER:$1}}đã thay đổi các quyền người dùng của bạn. $2
+
+Xem chi tiết:
+
+{{canonicalurl:{{#special:ListGroupRights}}}}
+
+$3',
+	'notification-user-rights-email-batch-body' => '$1 {{GENDER:$1}}đã thay đổi các quyền người dùng của bạn. $2',
 	'echo-email-subject-default' => 'Thông báo mới tại {{SITENAME}}',
 	'echo-email-body-default' => 'Bạn có thông báo mới tại {{SITENAME}}:
 
@@ -3854,12 +3874,7 @@ Bạn có {{PLURAL:$3|một thông báo|$2 thông báo}} tại {{SITENAME}} tu�
 $4
 
 $5',
-	'echo-email-batch-category-header-edit-user-talk' => '$1 tin nhắn',
-	'echo-email-batch-category-header-reverted' => '$1 sửa đổi bị lùi lại',
-	'echo-email-batch-category-header-article-linked' => '$1 trang được liên kết',
-	'echo-email-batch-category-header-mention' => '$1 lời nói đến',
-	'echo-email-batch-category-header-other' => '$1 thông báo khác',
-	'echo-email-batch-category-header-system' => '$1 thông báo hệ thống',
+	'echo-email-batch-category-header' => '$1 thông báo $2',
 );
 
 /** Simplified Chinese (中文（简体）‎)
@@ -3882,6 +3897,7 @@ $messages['zh-hans'] = array(
 	'echo-pref-subscription-edit-user-talk' => '在我的讨论页的留言',
 	'echo-pref-subscription-article-linked' => '于其他页面加入了一条链接到我创建的页面的链接',
 	'echo-pref-subscription-reverted' => '对我的编辑的回退',
+	'echo-pref-subscription-mention' => '提到我',
 	'echo-pref-email-frequency-never' => '不要给我发送任何电子邮件通知',
 	'echo-pref-email-frequency-immediately' => '允许的个别通知',
 	'echo-pref-email-frequency-daily' => '每日通知摘要',
@@ -3889,9 +3905,13 @@ $messages['zh-hans'] = array(
 	'echo-pref-notify-hide-link' => '在我的工具栏中隐藏通知的链接和标志',
 	'echo-dismiss-button' => '解除',
 	'echo-dismiss-message' => '关闭所有 $1 通知',
-	'echo-dismiss-title-edit-user-talk' => '讨论页留言',
-	'echo-dismiss-title-article-linked' => '页面被链接',
-	'echo-dismiss-title-reverted' => '编辑被回退',
+	'echo-dismiss-prefs-message' => '您可以在参数设置中重新打开这些选项',
+	'echo-category-title-edit-user-talk' => '讨论页留言',
+	'echo-category-title-article-linked' => '页面被链接',
+	'echo-category-title-reverted' => '编辑被回退',
+	'echo-category-title-mention' => '提及',
+	'echo-category-title-other' => '其他',
+	'echo-category-title-system' => '系统',
 	'echo-no-agent' => '[无人]',
 	'echo-no-title' => '[无页面]',
 	'echo-error-no-formatter' => '没有定义通知的格式',
@@ -3946,6 +3966,7 @@ $3
 
 $6',
 	'notification-reverted-email-batch-body2' => '您{{PLURAL:$3|在$2的编辑|在$2的编辑}}已被$1回退',
+	'notification-user-rights-email-subject' => '您在{{SITENAME}}的用户权限已变更',
 	'echo-email-subject-default' => '{{SITENAME}}上的新通知',
 	'echo-email-body-default' => '您在{{SITENAME}}上有新通知：
 
@@ -3981,10 +4002,6 @@ $5',
 $4
 
 $5',
-	'echo-email-batch-category-header-edit-user-talk' => '$1对话页$1条信息',
-	'echo-email-batch-category-header-edit-revert' => '$1个编辑被{{PLURAL:$1|回退|回退}}',
-	'echo-email-batch-category-header-cross-reference' => '$1个交叉引用',
-	'echo-email-batch-category-header-other' => '$1个杂项',
 );
 
 /** Traditional Chinese (中文（繁體）‎)
