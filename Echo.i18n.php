@@ -267,7 +267,7 @@ Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}} and <code>$2</code> i
 	'echo-error-no-formatter' => "Error message displayed when no formatting has been defined for a notification. In other words, the extension doesn't know how to properly display the notification.",
 	'echo-error-preference' => 'Error message displayed when request to set user preference fails',
 	'echo-error-token' => 'Error message displayed when request to get user token fails',
-	'notifications' => 'This message is the page title of the special page [[Special:Notifications]].
+	'notifications' => '{{doc-special|Notifications}}
 {{Identical|Notification}}',
 	'tooltip-pt-notifications' => 'This is used for the title (mouseover text) of the notifications user tool.',
 	'echo-specialpage' => 'Special page title for Special:Notifications',
