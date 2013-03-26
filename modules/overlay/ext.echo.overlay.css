@@ -10,6 +10,8 @@
 	color: #6D6D6D;
 	z-index: 60;
 	box-shadow: 0px 3px 8px rgba(50, 50, 50, 0.35);
+	/* Override for Monobook */
+	text-align: left;
 }
 .mw-echo-overlay-pokey {
 	/* @embed */
@@ -27,6 +29,8 @@
 	margin: 0;
 	padding: 0;
 	overflow: auto;
+	/* Override for Monobook */
+	text-align: left;
 }
 
 #p-personal .mw-echo-overlay li.mw-echo-notification {
