@@ -69,7 +69,7 @@ class EchoHooks {
 	public static function getSchemaUpdates( $updater ) {
 		$dir = __DIR__;
 		$baseSQLFile = "$dir/echo.sql";
-		$updater->addExtensionTable( 'echo_subscription', $baseSQLFile );
+		$updater->addExtensionTable( 'echo_event', $baseSQLFile );
 		$updater->addExtensionTable( 'echo_email_batch', "$dir/db_patches/echo_email_batch.sql" );
 
 		$updater->modifyExtensionField( 'echo_event', 'event_agent', "$dir/db_patches/patch-event_agent-split.sql" );
@@ -80,6 +80,8 @@ class EchoHooks {
 		$updater->addExtensionField( 'echo_notification', 'notification_bundle_base',
 			"$dir/db_patches/patch-notification-bundling-field.sql" );
 		$updater->addExtensionIndex( 'echo_event', 'event_type', "$dir/db_patches/patch-alter-type_page-index.sql" );
+		$updater->dropTable( 'echo_subscription' );
+		$updater->dropExtensionField( 'echo_event', 'event_timestamp', "$dir/db_patches/patch-drop-echo_event-event_timestamp.sql" );
 		return true;
 	}
 
