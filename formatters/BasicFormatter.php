@@ -342,6 +342,8 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			} else {
 				$message->params( $this->formatTitle( $event->getTitle() ) );
 			}
+		} elseif ( $param === 'titlelink' ) {
+			$this->setTitleLink( $event, $message );
 		} elseif ( $param === 'text-notification' ) {
 			$oldOutputFormat = $this->outputFormat;
 			$this->setOutputFormat( 'text' );
