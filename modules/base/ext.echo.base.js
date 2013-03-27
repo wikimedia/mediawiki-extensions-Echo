@@ -142,11 +142,6 @@
 					$notification.find( '.mw-echo-dismiss' ).hide();
 					$notification.css( 'height', 'auto' );
 					$closebox.show();
-					// Restore greyed-out state for read notifications
-					if ( !$notification.hasClass( 'mw-echo-unread' ) ) {
-						$notification.find( '.mw-echo-state' ).css( 'filter', 'alpha(opacity=50)' );
-						$notification.find( '.mw-echo-state' ).css( 'opacity', '0.5' );
-					}
 				} );
 			$notification.find( '.mw-echo-dismiss' )
 				.append( $dismissButton )
