@@ -327,9 +327,8 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	 */
 	protected function processParam( $event, $param, $message, $user ) {
 		if ( $param === 'agent' ) {
-			// Actually converts to two parameters for gender support
 			if ( !$event->getAgent() ) {
-				$message->params( '', wfMessage( 'echo-no-agent' )->text() );
+				$message->params( wfMessage( 'echo-no-agent' )->text() );
 			} else {
 				$agent = $event->getAgent();
 				$message->params( $agent->getName() );
