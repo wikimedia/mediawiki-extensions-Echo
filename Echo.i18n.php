@@ -954,7 +954,7 @@ $messages['de'] = array(
 	'echo-error-token' => 'Fehler: Benutzertoken konnte nicht abgerufen werden',
 	'notifications' => 'Benachrichtigungen',
 	'tooltip-pt-notifications' => 'Deine Benachrichtigungen',
-	'echo-specialpage' => 'Meine Benachrichtigungen',
+	'echo-specialpage' => 'Meine Benachrichtigungen', # Fuzzy
 	'echo-anon' => 'Um Benachrichtigungen erhalten zu können, muss man ein [[Special:Userlogin/signup|Benutzerkonto anlegen]] oder sich [[Special:UserLogin|anmelden]].',
 	'echo-none' => 'Du hast keine Benachrichtigungen.',
 	'echo-more-info' => 'Mehr Informationen',
@@ -973,7 +973,7 @@ $messages['de'] = array(
 	'notification-user-rights-add' => 'Du bist jetzt Mitglied dieser {{PLURAL:$2|Gruppe|Gruppen}}: $1',
 	'notification-user-rights-remove' => 'Du bist nicht länger Mitglied dieser {{PLURAL:$2|Gruppe|Gruppen}}: $1',
 	'notification-new-user' => 'Willkommen bei {{SITENAME}}, $1!',
-	'notification-new-user-content' => 'Bitte vergiss nicht alle Beiträge auf Diskussionsseiten mit 4 Tilden (~~~~) zu signieren.', # Fuzzy
+	'notification-new-user-content' => 'Wir freuen uns, dass du hier bist.',
 	'notification-reverted2' => 'Deine {{PLURAL:$4|Bearbeitung an der Seite [[$2]] wurde|Bearbeitungen an der Seite [[$2]] wurden}} von [[User:$1|$1]] {{GENDER:$1|rückgängig}} gemacht. $3',
 	'notification-reverted-flyout2' => 'Deine {{PLURAL:$4|Bearbeitung an der Seite $2 wurde|Bearbeitungen an der Seite $2 wurden}} von $1 {{GENDER:$1|rückgängig}} gemacht. $3',
 	'notification-edit-talk-page-email-subject2' => 'Du hast eine neue Diskussionsseitennachricht',
@@ -1040,8 +1040,8 @@ $1',
 	'echo-link-new' => '$1 neue {{PLURAL:$1|Benachrichtigung|Benachrichtigungen}}',
 	'echo-link' => 'Benachrichtigungen',
 	'echo-overlay-link' => 'Alle Benachrichtigungen',
-	'echo-overlay-title' => 'Meine Benachrichtigungen',
-	'echo-overlay-title-overflow' => 'Meine Benachrichtigungen ($1 von $2 ungelesenen werden angezeigt)',
+	'echo-overlay-title' => 'Meine Benachrichtigungen', # Fuzzy
+	'echo-overlay-title-overflow' => 'Meine Benachrichtigungen ($1 von $2 ungelesenen werden angezeigt)', # Fuzzy
 	'echo-date-today' => 'Heute',
 	'echo-date-yesterday' => 'Gestern',
 	'echo-load-more-error' => 'Beim Abrufen mehrerer Ergebnisse ist ein Fehler aufgetreten.',
@@ -1070,10 +1070,10 @@ $5',
  * @author Kghbln
  */
 $messages['de-formal'] = array(
-	'prefs-emailsubscriptions' => 'Benachrichtigen Sie mich per E-Mail, wenn jemand',
 	'prefs-emailfrequency' => 'Wann möchten Sie E-Mail-Benachrichtigungen erhalten?',
+	'prefs-echosubscriptions' => 'Benachrichtigen Sie mich, wenn jemand …',
 	'echo-none' => 'Sie haben in letzter Zeit keine Benachrichtigungen erhalten.', # Fuzzy
-	'notification-new-user-content' => 'Bitte vergessen Sie nicht alle Beiträge auf Diskussionsseiten mit 4 Tilden (~~~~) zu signieren.',
+	'notification-new-user-content' => 'Wir freuen uns, dass Sie hier sind.',
 );
 
 /** Zazaki (Zazaki)
@@ -1350,6 +1350,7 @@ $5',
  * @author Hello71
  * @author IAlex
  * @author Jean-Frédéric
+ * @author Peter17
  * @author Tititou36
  */
 $messages['fr'] = array(
@@ -1385,7 +1386,7 @@ $messages['fr'] = array(
 	'echo-error-token' => 'Erreur: Impossible de récupérer le jeton de l’utilisateur',
 	'notifications' => 'Notifications',
 	'tooltip-pt-notifications' => 'Vos notifications',
-	'echo-specialpage' => 'Mes notifications',
+	'echo-specialpage' => 'Mes notifications', # Fuzzy
 	'echo-anon' => 'Pour recevoir des notifications, [[Special:Userlogin/signup|créez un compte]] ou [[Special:UserLogin|connectez-vous]].',
 	'echo-none' => "Vous n'avez reçu aucune notification.",
 	'echo-more-info' => "Plus d'information",
@@ -1404,7 +1405,7 @@ $messages['fr'] = array(
 	'notification-user-rights-add' => 'Vous êtes maintenant membre de {{PLURAL:$2|ce groupe|ces groupes}}: $1',
 	'notification-user-rights-remove' => 'Vous n’êtes plus membre de {{PLURAL:$2|ce groupe|ces groupes}}: $1',
 	'notification-new-user' => 'Bienvenue sur {{SITENAME}}, $1 !',
-	'notification-new-user-content' => "N'oubliez pas de signer vos commentaires sur les pages de discussion avec 4 tildes (~~~~).", # Fuzzy
+	'notification-new-user-content' => 'Nous sommes heureux de vous voir.',
 	'notification-reverted2' => '{{PLURAL:$4|Votre modification sur [[$2]] a|Vos modifications sur [[$2]] ont}} été {{GENDER:$1|annulée}}{{PLURAL:$4||s}} par [[User:$1|$1]] $3',
 	'notification-reverted-flyout2' => '{{PLURAL:$4|Votre modification sur $2 a|Vos modifications sur $2 ont}} été {{GENDER:$1|annulée}}{{PLURAL:$4||s}} par $1 $3',
 	'notification-edit-talk-page-email-subject2' => 'Vous avez un nouveau message sur votre page de discussion',
@@ -1471,8 +1472,8 @@ $1',
 	'echo-link-new' => '$1 {{PLURAL:$1|nouvelle notification|nouvelles notifications}}',
 	'echo-link' => 'Notifications',
 	'echo-overlay-link' => 'Toutes les notifications',
-	'echo-overlay-title' => 'Mes notifications',
-	'echo-overlay-title-overflow' => 'Mes notifications (affichant $1 sur $2 non lus)',
+	'echo-overlay-title' => 'Mes notifications', # Fuzzy
+	'echo-overlay-title-overflow' => 'Mes notifications (affichant $1 sur $2 non lus)', # Fuzzy
 	'echo-date-today' => "Aujourd'hui",
 	'echo-date-yesterday' => 'Hier',
 	'echo-load-more-error' => "Un erreur s'est produite en analysant davantage de résultats.",
@@ -1592,7 +1593,7 @@ $messages['gl'] = array(
 	'echo-error-token' => 'Erro: Non se puido recuperar o pase de usuario',
 	'notifications' => 'Notificacións',
 	'tooltip-pt-notifications' => 'As súas notificacións',
-	'echo-specialpage' => 'As miñas notificacións',
+	'echo-specialpage' => 'As miñas notificacións', # Fuzzy
 	'echo-anon' => 'Para recibir notificacións, [[Special:Userlogin/signup|cree unha conta]] ou [[Special:UserLogin|acceda ao sistema]].',
 	'echo-none' => 'Non ten ningunha notificación.',
 	'echo-more-info' => 'Máis información',
@@ -1611,7 +1612,7 @@ $messages['gl'] = array(
 	'notification-user-rights-add' => 'Agora pertence a {{PLURAL:$2|este grupo|estes grupos}}: $1',
 	'notification-user-rights-remove' => 'Xa non pertence a {{PLURAL:$2|este grupo|estes grupos}}: $1',
 	'notification-new-user' => 'Dámoslle a benvida a {{SITENAME}}, $1!',
-	'notification-new-user-content' => 'Lembre asinar calquera comentario que deixe nas páxinas de conversa con 4 tiles (~~~~).', # Fuzzy
+	'notification-new-user-content' => 'Alegrámonos de que estea aquí.',
 	'notification-reverted2' => '[[User:$1|$1]] {{GENDER:$1|reverteu}} {{PLURAL:$4|a súa edición|as súas edicións}} en "[[$2]]" $3',
 	'notification-reverted-flyout2' => '$1 {{GENDER:$1|reverteu}} {{PLURAL:$4|a súa edición|as súas edicións}} en "$2" $3',
 	'notification-edit-talk-page-email-subject2' => 'Ten unha nova mensaxe na súa páxina de conversa',
@@ -1678,8 +1679,8 @@ $1',
 	'echo-link-new' => '$1 {{PLURAL:$1|nova notificación|novas notificacións}}',
 	'echo-link' => 'Notificacións',
 	'echo-overlay-link' => 'Todas as notificacións',
-	'echo-overlay-title' => 'As miñas notificacións',
-	'echo-overlay-title-overflow' => 'As miñas notificacións (mostrando $1 de $2 sen ler)',
+	'echo-overlay-title' => 'As miñas notificacións', # Fuzzy
+	'echo-overlay-title-overflow' => 'As miñas notificacións (mostrando $1 de $2 sen ler)', # Fuzzy
 	'echo-date-today' => 'Hoxe',
 	'echo-date-yesterday' => 'Onte',
 	'echo-date-header' => '$2 de $1',
@@ -2184,7 +2185,7 @@ $messages['ja'] = array(
 	'echo-error-token' => 'エラー: 利用者トークンを取得できませんでした',
 	'notifications' => '通知',
 	'tooltip-pt-notifications' => '自分の通知',
-	'echo-specialpage' => '自分の通知',
+	'echo-specialpage' => '自分の通知', # Fuzzy
 	'echo-anon' => '通知を受け取るには、[[Special:Userlogin/signup|アカウント作成]]または[[Special:UserLogin|ログイン]]をしてください。',
 	'echo-none' => '通知はありません。',
 	'echo-more-info' => '詳細情報',
@@ -2258,8 +2259,8 @@ $1',
 	'echo-link-new' => '$1 {{PLURAL:$1|件の新しい通知}}',
 	'echo-link' => '通知',
 	'echo-overlay-link' => 'すべての通知',
-	'echo-overlay-title' => '自分の通知',
-	'echo-overlay-title-overflow' => '自分の通知 (未読 $2 件中 $1 件を表示中)',
+	'echo-overlay-title' => '自分の通知', # Fuzzy
+	'echo-overlay-title-overflow' => '自分の通知 (未読 $2 件中 $1 件を表示中)', # Fuzzy
 	'echo-date-today' => '今日',
 	'echo-date-yesterday' => '昨日',
 	'echo-date-header' => '$1$2日',
@@ -2578,7 +2579,7 @@ $messages['mk'] = array(
 	'echo-error-token' => 'Грешка: Не можев да го добијам корисничкиот жетон',
 	'notifications' => 'Известувања',
 	'tooltip-pt-notifications' => 'Вашите известувања',
-	'echo-specialpage' => 'Мои известувања',
+	'echo-specialpage' => 'Мои известувања', # Fuzzy
 	'echo-anon' => 'За да добивате известувања, [[Special:Userlogin/signup|направете сметка]] или [[Special:UserLogin|најавете се]].',
 	'echo-none' => 'Немате известувања.',
 	'echo-more-info' => 'Повеќе информации',
@@ -2597,7 +2598,7 @@ $messages['mk'] = array(
 	'notification-user-rights-add' => 'Сега членувате во {{PLURAL:$2|оваа група|овие групи}}: $1',
 	'notification-user-rights-remove' => 'Повеќе не членувате во {{PLURAL:$2|оваа група|овие групи}}: $1',
 	'notification-new-user' => 'Добредојдовте на {{SITENAME}}, $1!',
-	'notification-new-user-content' => 'НЕ заборавајте да си ги потпишувате коментарите на страниците за разговор со 4 тилди (~~~~).', # Fuzzy
+	'notification-new-user-content' => 'Драго ни е што сте тука.',
 	'notification-reverted2' => '[[User:$1|$1]] {{PLURAL:$4|го|ги}} {{GENDER:$1|врати}} {{PLURAL:$4|вашето уредување на [[$2]]|вашите уредувања на [[$2]]}} $3',
 	'notification-reverted-flyout2' => '$1 {{PLURAL:$4|го|ги}} {{GENDER:$1|врати}} {{PLURAL:$4|вашето уредување на $2|вашите уредувања на $2}} $3',
 	'notification-edit-talk-page-email-subject2' => 'Имате нова порака',
@@ -2664,8 +2665,8 @@ $1',
 	'echo-link-new' => '$1 {{PLURAL:$1|ново известување|нови известувања}}',
 	'echo-link' => 'Известувања',
 	'echo-overlay-link' => 'Сите известувања',
-	'echo-overlay-title' => 'Мои известувања',
-	'echo-overlay-title-overflow' => 'Мои известувања (приказ на $1 од $2 непрочитани)',
+	'echo-overlay-title' => 'Мои известувања', # Fuzzy
+	'echo-overlay-title-overflow' => 'Мои известувања (приказ на $1 од $2 непрочитани)', # Fuzzy
 	'echo-date-today' => 'Денес',
 	'echo-date-yesterday' => 'Вчера',
 	'echo-load-more-error' => 'Се појави грешка при обидот да добијам повеќе резултати.',
@@ -2933,7 +2934,7 @@ $messages['nl'] = array(
 	'echo-error-token' => 'Fout: het gebruikerstoken kon niet opgehaald worden',
 	'notifications' => 'Meldingen',
 	'tooltip-pt-notifications' => 'Uw meldingen',
-	'echo-specialpage' => 'Mijn meldingen',
+	'echo-specialpage' => 'Mijn meldingen', # Fuzzy
 	'echo-anon' => '[[Special:Userlogin/signup|Maak een gebruiker aan]] of [[Special:UserLogin|meld u aan]] als u meldingen wilt ontvangen.',
 	'echo-none' => 'U hebt geen meldingen.',
 	'echo-more-info' => 'Meer info',
@@ -3006,8 +3007,8 @@ $1',
 	'echo-link-new' => '{{PLURAL:$1|1 nieuwe melding|$1 nieuwe meldingen}}',
 	'echo-link' => 'Meldingen',
 	'echo-overlay-link' => 'Alle meldingen',
-	'echo-overlay-title' => 'Mijn meldingen',
-	'echo-overlay-title-overflow' => 'Meldingen ($1 van $2 ongelezen)',
+	'echo-overlay-title' => 'Mijn meldingen', # Fuzzy
+	'echo-overlay-title-overflow' => 'Meldingen ($1 van $2 ongelezen)', # Fuzzy
 	'echo-date-today' => 'Vandaag',
 	'echo-date-yesterday' => 'Gisteren',
 	'echo-load-more-error' => 'Er is een fout opgetreden tijdens het ophalen van meer resultaten.',
@@ -3775,7 +3776,7 @@ $messages['vi'] = array(
 	'echo-error-token' => 'Lỗi: Không thể lấy dấu hiệu người dùng',
 	'notifications' => 'Thông báo',
 	'tooltip-pt-notifications' => 'Các thông báo cho bạn',
-	'echo-specialpage' => 'Thông báo cho tôi',
+	'echo-specialpage' => 'Thông báo cho tôi', # Fuzzy
 	'echo-anon' => 'Để nhận thông báo, hãy [[Special:Userlogin/signup|mở tài khoản]] hoặc [[Special:UserLogin|đăng nhập]].',
 	'echo-none' => 'Bạn không có thông báo.',
 	'echo-more-info' => 'Thêm thông tin',
@@ -3861,8 +3862,8 @@ $1',
 	'echo-link-new' => '$1 thông báo mới',
 	'echo-link' => 'Thông báo',
 	'echo-overlay-link' => 'Tất cả các thông báo',
-	'echo-overlay-title' => 'Thông báo cho tôi',
-	'echo-overlay-title-overflow' => 'Tin nhắn cho tôi (đang xem $1 trên $2 chưa đọc)',
+	'echo-overlay-title' => 'Thông báo cho tôi', # Fuzzy
+	'echo-overlay-title-overflow' => 'Tin nhắn cho tôi (đang xem $1 trên $2 chưa đọc)', # Fuzzy
 	'echo-date-today' => 'Hôm nay',
 	'echo-date-yesterday' => 'Hôm qua',
 	'echo-date-header' => '$2 $1',
@@ -3930,7 +3931,7 @@ $messages['zh-hans'] = array(
 	'echo-error-token' => '错误：无法检索用户令牌',
 	'notifications' => '通知',
 	'tooltip-pt-notifications' => '您的通知',
-	'echo-specialpage' => '我的通知',
+	'echo-specialpage' => '我的通知', # Fuzzy
 	'echo-anon' => '要接收通知，请[[Special:Userlogin/signup|创建帐号]]或[[Special:UserLogin|登录]]。',
 	'echo-none' => '您没有任何通知。',
 	'echo-more-info' => '更多信息',
@@ -3990,8 +3991,8 @@ $1',
 	'echo-link-new' => '$1条新通知',
 	'echo-link' => '通知',
 	'echo-overlay-link' => '全部通知',
-	'echo-overlay-title' => '我的通知',
-	'echo-overlay-title-overflow' => '我的通知（显示 $2 / $1 条未读）',
+	'echo-overlay-title' => '我的通知', # Fuzzy
+	'echo-overlay-title-overflow' => '我的通知（显示 $2 / $1 条未读）', # Fuzzy
 	'echo-date-today' => '今天',
 	'echo-date-yesterday' => '昨天',
 	'echo-load-more-error' => '获取更多的结果时出错。',
