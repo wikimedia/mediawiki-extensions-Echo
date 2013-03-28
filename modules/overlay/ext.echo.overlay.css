@@ -54,14 +54,6 @@
 #p-personal .mw-echo-overlay li.mw-echo-notification:last-child {
 	border-bottom: none;
 }
-#p-personal .mw-echo-overlay li.mw-echo-notification .mw-echo-state {
-	filter: alpha(opacity=50);
-	opacity: 0.5;
-}
-#p-personal .mw-echo-overlay li.mw-echo-notification.mw-echo-unread .mw-echo-state {
-	filter: alpha(opacity=100);
-	opacity: 1.0;
-}
 
 .mw-echo-overlay-title {
 	/*border-bottom: 1px solid #A7D7F9;*/

@@ -51,12 +51,13 @@ $messages['en'] = array(
 	// Special:Notifications
 	'notifications' => 'Notifications',
 	'tooltip-pt-notifications' => 'Your notifications',
-	'echo-specialpage' => 'My notifications',
+	'echo-specialpage' => 'Notifications',
 	'echo-anon' => 'To receive notifications, [[Special:Userlogin/signup|create an account]] or [[Special:UserLogin|log in]].',
 	'echo-none' => 'You have no notifications.',
 	'echo-more-info' => 'More info',
 
 	// Notification
+	'echo-quotation-marks' => '"$1"',
 	'notification-edit-talk-page2' => '[[User:$1|$1]] {{GENDER:$1|posted}} on your [[User talk:$2|talk page]].',
 	'notification-edit-talk-page-flyout2' => '$1 {{GENDER:$1|posted}} on your [[User talk:$2|talk page]].',
 	'notification-article-linked2' => '$3 {{PLURAL:$4|was|were}} {{GENDER:$1|linked}} by [[User:$1|$1]] from this page: [[$2]]',
@@ -143,8 +144,8 @@ $1',
 	'echo-link-new' => '$1 new {{PLURAL:$1|notification|notifications}}',
 	'echo-link' => 'Notifications',
 	'echo-overlay-link' => 'All notifications',
-	'echo-overlay-title' => 'My notifications',
-	'echo-overlay-title-overflow' => 'My notifications (showing $1 of $2 unread)',
+	'echo-overlay-title' => 'Notifications',
+	'echo-overlay-title-overflow' => 'Notifications (showing $1 of $2 unread)',
 
 	// Special page
 	'echo-date-today' => 'Today',
@@ -274,6 +275,7 @@ Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}} and <code>$2</code> i
 	'echo-anon' => 'Error message shown to users who try to visit Special:Notifications as an anon.',
 	'echo-none' => 'Message shown to users who have no notifications. Also shown in the overlay.',
 	'echo-more-info' => 'This is used for the title (mouseover text) of an icon that links to a page with more information about the Echo extension.',
+	'echo-quotation-marks' => 'Puts the edit summary in quotation marks. Only translate if different than English.',
 	'notification-edit-talk-page2' => "Format for displaying notifications of a user talk page being edited
 * $1 is the username of the person who edited, plain text. Can be used for GENDER.
 * $2 is the current user's name, used in the link to their talk page.

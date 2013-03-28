@@ -4,7 +4,8 @@
 	float: left;
 	margin-right: 10px;
 	margin-left: 10px;
-	background: no-repeat center left;
+	background: no-repeat center right;
+	background-size: 80%;
 }
 
 .mw-echo-icon-placeholder {

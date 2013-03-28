@@ -1,6 +1,6 @@
 .mw-echo-title {
 	font-size: 13px;
-	line-height: 16px;
+	line-height: 14px;
 	font-weight: normal;
 }
 .mw-echo-content {
@@ -9,11 +9,10 @@
 	overflow: hidden;
 }
 .mw-echo-payload {
-	margin-top: 0.5em;
+	margin-top: 0.3em;
 }
 .mw-echo-timestamp {
-	color: #A5A5A5;
-	margin-top: 0.1em;
+	color: #6D6D6D;
 	font-size: 9px;
 }
 .mw-echo-notifications {
@@ -31,6 +30,9 @@
 	/* Force container to expand to height of floated contents */
 	overflow: hidden;
 	zoom: 1;
+}
+.mw-echo-notification.mw-echo-unread {
+	color: #252525;
 }
 .mw-echo-close-box {
 	position: absolute;
@@ -62,4 +64,10 @@
 .mw-echo-cancel-link {
 	margin-left: 1em;
 	cursor: pointer;
+}
+.mw-echo-notification span.comment {
+	font-style: normal;
+}
+.mw-echo-notification span.autocomment {
+	color: inherit;
 }
