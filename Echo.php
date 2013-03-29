@@ -273,7 +273,6 @@ $wgEchoNotifications = array(
 		'group' => 'positive',
 		'title-message' => 'notification-new-user',
 		'title-params' => array( 'agent' ),
-		'payload' => array( 'welcome' ),
 		'icon' => 'w',
 	),
 	'edit-user-talk' => array(
