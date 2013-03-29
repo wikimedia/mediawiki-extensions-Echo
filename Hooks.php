@@ -334,7 +334,7 @@ class EchoHooks {
 		// Build the rows (notification categories)
 		$rows = array();
 		foreach ( $validSortedCategories as $category ) {
-			$categoryMessage = wfMessage( 'echo-pref-subscription-' . $category )->plain();
+			$categoryMessage = wfMessage( 'echo-category-title-' . $category )->plain();
 			$rows[$categoryMessage] = $category;
 		}
 

@@ -15,13 +15,9 @@ $messages['en'] = array(
 	'prefs-echo' => 'Notifications',
 	'prefs-displaynotifications' => 'Display options',
 	'prefs-emailfrequency' => 'When would you like to receive email notifications?',
-	'prefs-echosubscriptions' => 'Notify me when someone…',
+	'prefs-echosubscriptions' => 'Notify me about these events',
 	'echo-pref-web' => 'Web',
 	'echo-pref-email' => 'Email',
-	'echo-pref-subscription-edit-user-talk' => 'Posts on my talk page',
-	'echo-pref-subscription-article-linked' => 'Creates a link to a page I created',
-	'echo-pref-subscription-reverted' => 'Reverts my edit',
-	'echo-pref-subscription-mention' => 'Mentions me',
 	'echo-pref-email-frequency-never' => 'Do not send me any email notifications',
 	'echo-pref-email-frequency-immediately' => 'Individual notifications as they come in',
 	'echo-pref-email-frequency-daily' => 'A daily summary of notifications',
@@ -35,8 +31,8 @@ $messages['en'] = array(
 
 	// Category titles
 	'echo-category-title-edit-user-talk' => 'Talk page post',
-	'echo-category-title-page-linked' => 'Page linked',
-	'echo-category-title-reverted' => 'Edit reverted',
+	'echo-category-title-article-linked' => 'Page link',
+	'echo-category-title-reverted' => 'Edit revert',
 	'echo-category-title-mention' => 'Mention',
 	'echo-category-title-other' => 'Other',
 	'echo-category-title-system' => 'System',
@@ -203,38 +199,9 @@ $messages['qqq'] = array(
 * {{msg-mw|Echo-pref-email-frequency-immediately}}
 * {{msg-mw|Echo-pref-email-frequency-daily}}
 * {{msg-mw|Echo-pref-email-frequency-weekly}}',
-	'prefs-echosubscriptions' => 'Header for the section of preferences that deals with which notifications the user receives
-* {{msg-mw|Echo-pref-subscription-edit-user-talk}}
-* {{msg-mw|Echo-pref-subscription-article-linked}}
-* {{msg-mw|Echo-pref-subscription-reverted}}
-* {{msg-mw|Echo-pref-subscription-edit-thank}} - "Thanks" extension
-* ...',
-	'echo-pref-web' => 'Label for list of notifications which are delivered on the web. In other words, on the wiki itself rather by {{msg-mw|Echo-pref-email}} or another method.
-
-This message is followed by the following checkbox-labels:
-* {{msg-mw|Echo-pref-subscription-edit-user-talk}}
-* {{msg-mw|Echo-pref-subscription-article-linked}}
-* {{msg-mw|Echo-pref-subscription-reverted}}
-* {{msg-mw|Echo-pref-subscription-mention}}',
-	'echo-pref-email' => 'Label for list of notifications which are delivered via email.
-
-See also:
-* {{msg-mw|Echo-pref-web}}
-
-This message is followed by the following checkbox-labels:
-* {{msg-mw|Echo-pref-subscription-edit-user-talk}}
-* {{msg-mw|Echo-pref-subscription-article-linked}}
-* {{msg-mw|Echo-pref-subscription-reverted}}
-* {{msg-mw|Echo-pref-subscription-mention}}
-{{Identical|E-mail}}',
-	'echo-pref-subscription-edit-user-talk' => "Option for getting notifications when someone posts on the user's talk page.
-
-This is the conclusion of the sentence begun by the header: {{msg-mw|Prefs-echosubscriptions}}.",
-	'echo-pref-subscription-article-linked' => 'Option for getting notifications when someone creates a link to a page created by the user. This is the conclusion of the sentence begun by the header: {{msg-mw|prefs-echosubscriptions}}.',
-	'echo-pref-subscription-reverted' => "Option for getting notifications when someone reverts the user's edit.
-
-This is the conclusion of the sentence begun by the header: {{msg-mw|Prefs-echosubscriptions}}.",
-	'echo-pref-subscription-mention' => 'This is the conclusion of the sentence begun by the header: {{msg-mw|Prefs-echosubscriptions}}.',
+	'prefs-echosubscriptions' => 'Header for the section of preferences that deals with which notifications the user receives',
+	'echo-pref-web' => 'Label for list of notifications which are delivered on the web. In other words, on the wiki itself rather by email or another method. This should be kept very short.',
+	'echo-pref-email' => 'Label for list of notifications which are delivered via email. This should be kept very short.',
 	'echo-pref-email-frequency-never' => "Option for users who don't want to receive any email notifications
 
 See also:
@@ -250,14 +217,14 @@ See also:
 	'echo-dismiss-message' => 'Message asking the user if they want to turn off all notifications of a certain type. Parameters:
 * $1 - the name of the type; one of the following:
 ** {{msg-mw|Echo-category-title-edit-user-talk}}
-** {{msg-mw|Echo-category-title-page-linked}}
+** {{msg-mw|Echo-category-title-article-linked}}
 ** {{msg-mw|Echo-category-title-reverted}}
 ** {{msg-mw|Echo-category-title-mention}}
 ** {{msg-mw|Echo-category-title-other}}
 ** {{msg-mw|Echo-category-title-system}}',
 	'echo-dismiss-prefs-message' => 'Used in Dismiss interface.',
 	'echo-category-title-edit-user-talk' => 'This is a short title for notification category. Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}} and <code>$2</code> in {{msg-mw|Echo-email-batch-category-header}}.',
-	'echo-category-title-page-linked' => 'This is a short title for notification category. Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}} and <code>$2</code> in {{msg-mw|Echo-email-batch-category-header}}.',
+	'echo-category-title-article-linked' => 'This is a short title for notification category. Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}} and <code>$2</code> in {{msg-mw|Echo-email-batch-category-header}}.',
 	'echo-category-title-reverted' => 'This is a short title for notification category. Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}} and <code>$2</code> in {{msg-mw|Echo-email-batch-category-header}}.',
 	'echo-category-title-mention' => 'This is a short title for notification category. Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}} and <code>$2</code> in {{msg-mw|Echo-email-batch-category-header}}.',
 	'echo-category-title-other' => 'This is a short title for notification category.
