@@ -254,8 +254,12 @@ See also:
 	'echo-dismiss-prefs-message' => 'Used in Dismiss interface.',
 	'echo-category-title-edit-user-talk' => 'This is a short title for notification category. Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}} and <code>$2</code> in {{msg-mw|Echo-email-batch-category-header}}.',
 	'echo-category-title-article-linked' => 'This is a short title for notification category. Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}} and <code>$2</code> in {{msg-mw|Echo-email-batch-category-header}}.',
-	'echo-category-title-reverted' => 'This is a short title for notification category. Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}} and <code>$2</code> in {{msg-mw|Echo-email-batch-category-header}}.',
-	'echo-category-title-mention' => 'This is a short title for notification category. Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}} and <code>$2</code> in {{msg-mw|Echo-email-batch-category-header}}.',
+	'echo-category-title-reverted' => 'This is a short title for notification category.
+
+Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}} and as <code>$2</code> in {{msg-mw|Echo-email-batch-category-header}}.',
+	'echo-category-title-mention' => 'This is a short title for notification category.
+
+Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}} and as <code>$2</code> in {{msg-mw|Echo-email-batch-category-header}}.',
 	'echo-category-title-other' => 'This is a short title for notification category.
 
 Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}} and <code>$2</code> in {{msg-mw|Echo-email-batch-category-header}}.
@@ -271,7 +275,8 @@ Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}} and <code>$2</code> i
 	'notifications' => '{{doc-special|Notifications}}
 {{Identical|Notification}}',
 	'tooltip-pt-notifications' => 'This is used for the title (mouseover text) of the notifications user tool.',
-	'echo-specialpage' => 'Special page title for Special:Notifications',
+	'echo-specialpage' => 'Special page title for Special:Notifications.
+{{Identical|Notification}}',
 	'echo-anon' => 'Error message shown to users who try to visit Special:Notifications as an anon.',
 	'echo-none' => 'Message shown to users who have no notifications. Also shown in the overlay.',
 	'echo-more-info' => 'This is used for the title (mouseover text) of an icon that links to a page with more information about the Echo extension.',
@@ -462,11 +467,14 @@ The new notification count next to notification link, for example: 99+
 * $1 is number of unread notifications',
 	'echo-link' => 'Shown in "personal links" when a user has JS. New notifications are indicated with a badge.
 {{Identical|Notification}}',
-	'echo-overlay-link' => 'Link to "all notifications" at the bottom of the overlay',
-	'echo-overlay-title' => 'Title at the top of the notifications overlay',
+	'echo-overlay-link' => 'Link to "all notifications" at the bottom of the overlay.
+{{Identical|All notifications}}',
+	'echo-overlay-title' => 'Title at the top of the notifications overlay.
+{{Identical|Notification}}',
 	'echo-overlay-title-overflow' => 'Title at the top of the notifications overlay when there are additional unread notifications that are not being shown. Parameters:
 * $1 - the number of unread notifications being shown
-* $2 - the total number of unread notifications that exist',
+* $2 - the total number of unread notifications that exist
+{{Identical|Notification}}',
 	'echo-date-today' => "The header text for today's notification section",
 	'echo-date-yesterday' => "The header text for yesterday's notification section",
 	'echo-date-header' => '{{optional}}
@@ -954,7 +962,7 @@ $messages['de'] = array(
 	'echo-error-token' => 'Fehler: Benutzertoken konnte nicht abgerufen werden',
 	'notifications' => 'Benachrichtigungen',
 	'tooltip-pt-notifications' => 'Deine Benachrichtigungen',
-	'echo-specialpage' => 'Meine Benachrichtigungen', # Fuzzy
+	'echo-specialpage' => 'Benachrichtigungen',
 	'echo-anon' => 'Um Benachrichtigungen erhalten zu können, muss man ein [[Special:Userlogin/signup|Benutzerkonto anlegen]] oder sich [[Special:UserLogin|anmelden]].',
 	'echo-none' => 'Du hast keine Benachrichtigungen.',
 	'echo-more-info' => 'Mehr Informationen',
@@ -1040,8 +1048,8 @@ $1',
 	'echo-link-new' => '$1 neue {{PLURAL:$1|Benachrichtigung|Benachrichtigungen}}',
 	'echo-link' => 'Benachrichtigungen',
 	'echo-overlay-link' => 'Alle Benachrichtigungen',
-	'echo-overlay-title' => 'Meine Benachrichtigungen', # Fuzzy
-	'echo-overlay-title-overflow' => 'Meine Benachrichtigungen ($1 von $2 ungelesenen werden angezeigt)', # Fuzzy
+	'echo-overlay-title' => 'Benachrichtigungen',
+	'echo-overlay-title-overflow' => 'Benachrichtigungen ($1 von $2 ungelesenen werden angezeigt)',
 	'echo-date-today' => 'Heute',
 	'echo-date-yesterday' => 'Gestern',
 	'echo-load-more-error' => 'Beim Abrufen mehrerer Ergebnisse ist ein Fehler aufgetreten.',
@@ -1241,19 +1249,17 @@ $5',
 $messages['et'] = array(
 	'prefs-echo' => 'Teavitused',
 	'prefs-displaynotifications' => 'Kuvaseaded',
-	'prefs-emailsubscriptions' => 'Mulle saadetakse e-kiri, kui keegi',
-	'echo-pref-email-edit-user-talk' => 'Postitab mu aruteluleheküljele',
-	'echo-pref-email-reverted' => 'Tühistab mu muudatuse',
+	'echo-pref-subscription-reverted' => 'Tühistab mu muudatuse',
 	'echo-no-agent' => '[Eikeegi]',
 	'echo-no-title' => '[Lehekülge pole]',
 	'notifications' => 'Teavitused',
-	'echo-specialpage' => 'Minu märkused',
+	'echo-specialpage' => 'Teavitused',
 	'echo-anon' => 'Et teavitusi saada, [[Special:Userlogin/signup|loo konto]] või [[Special:UserLogin|logi sisse]].',
 	'notification-new-user' => 'Tere tulemast saidile {{SITENAME}}, $1!',
 	'echo-link-new' => '$1 {{PLURAL:$1|uus teavitus|uut teavitust}}',
 	'echo-link' => 'Teavitused',
 	'echo-overlay-link' => 'Kõik teavitused',
-	'echo-overlay-title' => 'Minu märkused',
+	'echo-overlay-title' => 'Teavitused',
 	'echo-date-today' => 'Täna',
 	'echo-date-yesterday' => 'Eile',
 );
@@ -1352,6 +1358,7 @@ $5',
  * @author Jean-Frédéric
  * @author Peter17
  * @author Tititou36
+ * @author Wyz
  */
 $messages['fr'] = array(
 	'echo-desc' => 'Système de notifications',
@@ -1386,7 +1393,7 @@ $messages['fr'] = array(
 	'echo-error-token' => 'Erreur: Impossible de récupérer le jeton de l’utilisateur',
 	'notifications' => 'Notifications',
 	'tooltip-pt-notifications' => 'Vos notifications',
-	'echo-specialpage' => 'Mes notifications', # Fuzzy
+	'echo-specialpage' => 'Notifications',
 	'echo-anon' => 'Pour recevoir des notifications, [[Special:Userlogin/signup|créez un compte]] ou [[Special:UserLogin|connectez-vous]].',
 	'echo-none' => "Vous n'avez reçu aucune notification.",
 	'echo-more-info' => "Plus d'information",
@@ -1472,8 +1479,8 @@ $1',
 	'echo-link-new' => '$1 {{PLURAL:$1|nouvelle notification|nouvelles notifications}}',
 	'echo-link' => 'Notifications',
 	'echo-overlay-link' => 'Toutes les notifications',
-	'echo-overlay-title' => 'Mes notifications', # Fuzzy
-	'echo-overlay-title-overflow' => 'Mes notifications (affichant $1 sur $2 non lus)', # Fuzzy
+	'echo-overlay-title' => 'Notifications',
+	'echo-overlay-title-overflow' => 'Notifications ($1 de $2 non lues affichées)',
 	'echo-date-today' => "Aujourd'hui",
 	'echo-date-yesterday' => 'Hier',
 	'echo-load-more-error' => "Un erreur s'est produite en analysant davantage de résultats.",
@@ -1593,7 +1600,7 @@ $messages['gl'] = array(
 	'echo-error-token' => 'Erro: Non se puido recuperar o pase de usuario',
 	'notifications' => 'Notificacións',
 	'tooltip-pt-notifications' => 'As súas notificacións',
-	'echo-specialpage' => 'As miñas notificacións', # Fuzzy
+	'echo-specialpage' => 'Notificacións',
 	'echo-anon' => 'Para recibir notificacións, [[Special:Userlogin/signup|cree unha conta]] ou [[Special:UserLogin|acceda ao sistema]].',
 	'echo-none' => 'Non ten ningunha notificación.',
 	'echo-more-info' => 'Máis información',
@@ -1679,8 +1686,8 @@ $1',
 	'echo-link-new' => '$1 {{PLURAL:$1|nova notificación|novas notificacións}}',
 	'echo-link' => 'Notificacións',
 	'echo-overlay-link' => 'Todas as notificacións',
-	'echo-overlay-title' => 'As miñas notificacións', # Fuzzy
-	'echo-overlay-title-overflow' => 'As miñas notificacións (mostrando $1 de $2 sen ler)', # Fuzzy
+	'echo-overlay-title' => 'Notificacións',
+	'echo-overlay-title-overflow' => 'Notificacións (mostrando $1 de $2 sen ler)',
 	'echo-date-today' => 'Hoxe',
 	'echo-date-yesterday' => 'Onte',
 	'echo-date-header' => '$2 de $1',
@@ -2185,10 +2192,11 @@ $messages['ja'] = array(
 	'echo-error-token' => 'エラー: 利用者トークンを取得できませんでした',
 	'notifications' => '通知',
 	'tooltip-pt-notifications' => '自分の通知',
-	'echo-specialpage' => '自分の通知', # Fuzzy
+	'echo-specialpage' => '通知',
 	'echo-anon' => '通知を受け取るには、[[Special:Userlogin/signup|アカウント作成]]または[[Special:UserLogin|ログイン]]をしてください。',
 	'echo-none' => '通知はありません。',
 	'echo-more-info' => '詳細情報',
+	'echo-quotation-marks' => '「$1」',
 	'notification-edit-talk-page2' => '[[User:$1|$1]] があなたの[[User talk:$2|トークページ]]に{{GENDER:$1|投稿しました}}。',
 	'notification-edit-talk-page-flyout2' => '$1 があなたの[[User talk:$2|トークページ]]に{{GENDER:$1|投稿しました}}。',
 	'notification-article-linked2' => '$3 {{PLURAL:$4|が}} [[User:$1|$1]] によって{{GENDER:$1|リンクされました}}。リンク元ページ: [[$2]]',
@@ -2259,8 +2267,8 @@ $1',
 	'echo-link-new' => '$1 {{PLURAL:$1|件の新しい通知}}',
 	'echo-link' => '通知',
 	'echo-overlay-link' => 'すべての通知',
-	'echo-overlay-title' => '自分の通知', # Fuzzy
-	'echo-overlay-title-overflow' => '自分の通知 (未読 $2 件中 $1 件を表示中)', # Fuzzy
+	'echo-overlay-title' => '通知',
+	'echo-overlay-title-overflow' => '通知 (未読 $2 件中 $1 件を表示中)',
 	'echo-date-today' => '今日',
 	'echo-date-yesterday' => '昨日',
 	'echo-date-header' => '$1$2日',
@@ -2579,7 +2587,7 @@ $messages['mk'] = array(
 	'echo-error-token' => 'Грешка: Не можев да го добијам корисничкиот жетон',
 	'notifications' => 'Известувања',
 	'tooltip-pt-notifications' => 'Вашите известувања',
-	'echo-specialpage' => 'Мои известувања', # Fuzzy
+	'echo-specialpage' => 'Известувања',
 	'echo-anon' => 'За да добивате известувања, [[Special:Userlogin/signup|направете сметка]] или [[Special:UserLogin|најавете се]].',
 	'echo-none' => 'Немате известувања.',
 	'echo-more-info' => 'Повеќе информации',
@@ -2665,8 +2673,8 @@ $1',
 	'echo-link-new' => '$1 {{PLURAL:$1|ново известување|нови известувања}}',
 	'echo-link' => 'Известувања',
 	'echo-overlay-link' => 'Сите известувања',
-	'echo-overlay-title' => 'Мои известувања', # Fuzzy
-	'echo-overlay-title-overflow' => 'Мои известувања (приказ на $1 од $2 непрочитани)', # Fuzzy
+	'echo-overlay-title' => 'Известувања',
+	'echo-overlay-title-overflow' => 'Известувања (приказ на $1 од $2 непрочитани)',
 	'echo-date-today' => 'Денес',
 	'echo-date-yesterday' => 'Вчера',
 	'echo-load-more-error' => 'Се појави грешка при обидот да добијам повеќе резултати.',
@@ -2693,6 +2701,7 @@ $5',
 
 /** Malayalam (മലയാളം)
  * @author Praveenp
+ * @author Santhosh.thottingal
  */
 $messages['ml'] = array(
 	'echo-desc' => 'അറിയിപ്പ് വ്യവസ്ഥ',
@@ -2711,14 +2720,14 @@ $messages['ml'] = array(
 	'echo-error-no-formatter' => 'അറിയിപ്പിനായി യാതൊരു രൂപവും നിർവ്വചിച്ചിട്ടില്ല',
 	'notifications' => 'അറിയിപ്പുകൾ',
 	'tooltip-pt-notifications' => 'താങ്കൾക്കുള്ള അറിയിപ്പുകൾ',
-	'echo-specialpage' => 'എനിക്കുള്ള അറിയിപ്പുകൾ',
+	'echo-specialpage' => 'അറിയിപ്പുകൾ',
 	'echo-anon' => 'അറിയിപ്പുകൾ ലഭിക്കാനായി, [[Special:Userlogin/signup|അംഗത്വമെടുക്കയോ]] [[Special:UserLogin|പ്രവേശിക്കുകയോ]] ചെയ്യേണ്ടതാണ്.',
 	'echo-none' => 'താങ്കൾക്ക് അറിയിപ്പുകളൊന്നുമില്ല.',
 	'echo-more-info' => 'കൂടുതൽ വിവരങ്ങൾ',
 	'notification-edit-talk-page2' => '[[User:$1|$1]] താങ്കളുടെ on your [[User talk:$2|സംവാദത്താളിൽ]] {{GENDER:$1|കുറിപ്പിട്ടു}} .',
 	'notification-edit-talk-page-flyout2' => 'താങ്കളുടെ [[User talk:$2|സംവാദത്താളിൽ]] $1 {{GENDER:$1|കുറിപ്പിട്ടിട്ടുണ്ട്}}.',
 	'notification-new-user' => '{{SITENAME}} സംരംഭത്തിലേയ്ക്ക് സ്വാഗതം, $1!',
-	'notification-new-user-content' => 'സംവാദം താളുകളിലെ ഏതൊരു കുറിപ്പിനും 4 റ്റിൽഡേകൾ (~~~~) ഉപയോഗിച്ച് ഒപ്പിടാൻ ഓർക്കുമല്ലോ.',
+	'notification-new-user-content' => 'വന്നതിൽ സന്തോഷം.',
 	'echo-email-subject-default' => '{{SITENAME}} സംരംഭത്തിൽ അറിയിപ്പുണ്ട്',
 	'echo-email-body-default' => '{{SITENAME}} സംരംഭത്തിൽ താങ്കൾക്ക് ഒരു അറിയിപ്പുണ്ട്:
 
@@ -2726,7 +2735,8 @@ $1',
 	'echo-link-new' => 'പുതിയ {{PLURAL:$1|അറിയിപ്പ്|$1 അറിയിപ്പുകൾ}}',
 	'echo-link' => 'എനിക്കുള്ള അറിയിപ്പുകൾ', # Fuzzy
 	'echo-overlay-link' => 'എല്ലാ അറിയിപ്പുകളും...', # Fuzzy
-	'echo-overlay-title' => 'എനിക്കുള്ള അറിയിപ്പുകൾ',
+	'echo-overlay-title' => 'അറിയിപ്പുകൾ',
+	'echo-overlay-title-overflow' => 'അറിയിപ്പുകൾ (വായിക്കാത്ത $2 എണ്ണത്തിലെ $1 അറിയിപ്പുകൾ കാണിക്കുന്നു)',
 	'echo-date-today' => 'ഇന്ന്',
 	'echo-date-yesterday' => 'ഇന്നലെ',
 );
@@ -3323,7 +3333,7 @@ $messages['roa-tara'] = array(
 	'echo-no-title' => '[Nisciuna vôsce]',
 	'notifications' => 'Notificaziune',
 	'tooltip-pt-notifications' => 'Le notifiche tune',
-	'echo-specialpage' => 'Notificaziune mie',
+	'echo-specialpage' => 'Notificaziune',
 	'echo-none' => 'Non ge tìne notifiche.',
 	'echo-more-info' => "Cchiù 'mbormaziune",
 	'notification-new-user' => "Bovègne jndr'à {{SITENAME}}, $1!",
@@ -3337,10 +3347,22 @@ $1",
 	'echo-date-yesterday' => 'Ajere',
 	'echo-email-batch-subject-daily' => 'Tu è $1 {{PLURAL:$2|notifiche}} osce',
 	'echo-email-batch-subject-weekly' => 'Tu è $1 {{PLURAL:$2|notifiche}} sta sumàne',
-	'echo-email-batch-category-header-reverted' => '$1 {{PLURAL:$1|cangiamende|cangiaminde}} annullate',
-	'echo-email-batch-category-header-article-linked' => '$1 {{PLURAL:$1|pàgene|pàggene}} collegate',
-	'echo-email-batch-category-header-other' => '$1 {{PLURAL:$1|Notifiche}} senza categorije',
-	'echo-email-batch-category-header-system' => '$1 {{PLURAL:$1|notifiche}} de sisteme',
+	'echo-email-batch-body-daily' => "$1,
+
+Tu è $2 {{PLURAL:$3|notificazione|notificaziune}} sus a {{SITENAME}} osce.  'Ndruchele:
+{{canonicalurl:{{#special:Notifications}}}}
+
+$4
+
+$5",
+	'echo-email-batch-body-weekly' => "$1,
+
+Tu è $2 {{PLURAL:$3|notificazione|notificaziune}} sus a {{SITENAME}} sta sumàne.  'Ndruchele:
+{{canonicalurl:{{#special:Notifications}}}}
+
+$4
+
+$5",
 );
 
 /** Russian (русский)
