@@ -2915,6 +2915,7 @@ $messages['nds'] = array(
  * @author Rcdeboer
  * @author SPQRobin
  * @author Siebrand
+ * @author User555
  */
 $messages['nl'] = array(
 	'echo-desc' => 'Meldingensysteem',
@@ -2923,7 +2924,7 @@ $messages['nl'] = array(
 	'prefs-emailfrequency' => 'Wanneer wilt u melding via e-mail ontvangen?',
 	'prefs-echosubscriptions' => 'Stuur mij een melding wanneer iemand...',
 	'echo-pref-web' => 'Web',
-	'echo-pref-email' => 'E-mail',
+	'echo-pref-email' => 'E-mailen',
 	'echo-pref-subscription-edit-user-talk' => 'Berichten op mijn overlegpagina',
 	'echo-pref-subscription-article-linked' => 'Koppeling maakt naar een pagina die ik heb aangemaakt',
 	'echo-pref-subscription-reverted' => 'Een bewerking van u terugdraait',
@@ -2949,7 +2950,7 @@ $messages['nl'] = array(
 	'echo-error-token' => 'Fout: het gebruikerstoken kon niet opgehaald worden',
 	'notifications' => 'Meldingen',
 	'tooltip-pt-notifications' => 'Uw meldingen',
-	'echo-specialpage' => 'Mijn meldingen', # Fuzzy
+	'echo-specialpage' => 'Meldingen',
 	'echo-anon' => '[[Special:Userlogin/signup|Maak een gebruiker aan]] of [[Special:UserLogin|meld u aan]] als u meldingen wilt ontvangen.',
 	'echo-none' => 'U hebt geen meldingen.',
 	'echo-more-info' => 'Meer info',
@@ -2963,8 +2964,12 @@ $messages['nl'] = array(
 	'notification-add-comment-yours2' => '[[User:$1|$1]] {{GENDER:$1|heeft gereageerd}} op "[[$3#$2|$2]]" op uw overlegpagina',
 	'notification-mention' => '[[User:$1|$1]] {{GENDER:$1|heeft}} u genoemd op [[$3#$2|$3]].',
 	'notification-mention-flyout' => '$1 {{GENDER:$1|heeft}} u genoemd op [[$3#$2|$3]].',
+	'notification-user-rights' => 'Rechten van uw gebruikersaccount waren  {{GENDER:$1| gewijzigd}} door [[gebruiker: $1 | $1 ]]. $2. [[Special: ListGroupRights|Meer informatie]]', # Fuzzy
+	'notification-user-rights-flyout' => 'Rechten van uw gebruikersaccount waren  {{GENDER:$1| gewijzigd}} door  $1 . $2. [[Special: ListGroupRights|Meer informatie]]', # Fuzzy
+	'notification-user-rights-add' => 'U bent niet langer een lid van  {{PLURAL:$2| deze groepen group|these}}:$1',
+	'notification-user-rights-remove' => 'U bent niet langer een lid van  {{PLURAL:$2| deze groepen group|these}}:$1',
 	'notification-new-user' => 'Welkom op {{SITENAME}}, $1!',
-	'notification-new-user-content' => "Vergeet niet om opmerkingen over overlegpagina's te ondertekenen met 4 tildes (~~~~).", # Fuzzy
+	'notification-new-user-content' => 'We zijn blij dat u hier bent.',
 	'notification-reverted2' => 'Uw {{PLURAL:$4|bewerking op [[$2]] is|bewerkingen op [[$2]] zijn}} {{GENDER:$1|teruggedraaid}} [[User:$1|$1]] $3',
 	'notification-reverted-flyout2' => 'Uw {{PLURAL:$4|bewerking op $2 is|bewerkingen op $2 zijn}} {{GENDER:$1|teruggedraaid}} door $1 $3',
 	'notification-edit-talk-page-email-subject2' => 'U hebt een nieuw bericht op uw overlegpagina',
@@ -3009,6 +3014,12 @@ $4
 
 $5',
 	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|heeft}} u genoemd op $2',
+	'notification-user-rights-email-subject' => 'Rechten van uw gebruikersaccount hebt gewijzigd op {{SITENAME}}',
+	'notification-user-rights-email-body' => 'Rechten van uw gebruikersaccount waren  {{GENDER:$1| gewijzigd}} door  $1 . $2
+N!Bekijk meer:
+N!{{canonicalurl: {{#special:ListGroupRights}}}
+N!$3', # Fuzzy
+	'notification-user-rights-email-batch-body' => 'Rechten van uw gebruikersaccount waren  {{GENDER:$1| gewijzigd}} door  $1 .$2',
 	'echo-email-subject-default' => 'Nieuwe melding op {{SITENAME}}',
 	'echo-email-body-default' => 'U hebt een nieuwe melding op {{SITENAME}}:
 
@@ -3022,9 +3033,9 @@ $1',
 	'echo-link-new' => '{{PLURAL:$1|1 nieuwe melding|$1 nieuwe meldingen}}',
 	'echo-link' => 'Meldingen',
 	'echo-overlay-link' => 'Alle meldingen',
-	'echo-overlay-title' => 'Mijn meldingen', # Fuzzy
-	'echo-overlay-title-overflow' => 'Meldingen ($1 van $2 ongelezen)', # Fuzzy
-	'echo-date-today' => 'Vandaag',
+	'echo-overlay-title' => 'Meldingen',
+	'echo-overlay-title-overflow' => 'Meldingen ($1 van $2 ongelezen)',
+	'echo-date-today' => 'vandaag',
 	'echo-date-yesterday' => 'Gisteren',
 	'echo-load-more-error' => 'Er is een fout opgetreden tijdens het ophalen van meer resultaten.',
 	'echo-email-batch-subject-daily' => 'U hebt vandaag {{PLURAL:$2|0=geen meldingen|één melding|$1 meldingen}}',
@@ -3043,6 +3054,7 @@ U hebt deze week {{PLURAL:$3|0=geen meldingen|één melding|$2 meldingen}} op {{
 $4
 
 $5',
+	'echo-email-batch-category-header' => '{{PLURAL:$1|1 nieuwe melding|$1 nieuwe meldingen}}', # Fuzzy
 );
 
 /** Nederlands (informeel)‎ (Nederlands (informeel)‎)
@@ -3803,10 +3815,11 @@ $messages['vi'] = array(
 	'echo-error-token' => 'Lỗi: Không thể lấy dấu hiệu người dùng',
 	'notifications' => 'Thông báo',
 	'tooltip-pt-notifications' => 'Các thông báo cho bạn',
-	'echo-specialpage' => 'Thông báo cho tôi', # Fuzzy
+	'echo-specialpage' => 'Thông báo',
 	'echo-anon' => 'Để nhận thông báo, hãy [[Special:Userlogin/signup|mở tài khoản]] hoặc [[Special:UserLogin|đăng nhập]].',
 	'echo-none' => 'Bạn không có thông báo.',
 	'echo-more-info' => 'Thêm thông tin',
+	'echo-quotation-marks' => '“$1”',
 	'notification-edit-talk-page2' => '[[User:$1|$1]] đã nhắn tin vào [[User talk:$2|trang thảo luận]] của bạn.',
 	'notification-edit-talk-page-flyout2' => '$1 đã nhắn tin vào [[User talk:$2|trang thảo luận]] của bạn.',
 	'notification-article-linked2' => '[[User:$1|$1]] đã đặt {{PLURAL:$4|liên kết|các liên kết}} đến $3 từ trang này: [[$2]]',
@@ -3822,7 +3835,7 @@ $messages['vi'] = array(
 	'notification-user-rights-add' => 'Bạn mới là thành viên của {{PLURAL:$2|nhóm|các nhóm}} này: $1',
 	'notification-user-rights-remove' => 'Bạn không còn là thành viên của {{PLURAL:$2|nhóm|các nhóm}} này: $1',
 	'notification-new-user' => 'Chào mừng $1 đã đến với {{SITENAME}}!',
-	'notification-new-user-content' => 'Hãy nhớ ký tên vào các lời bình luận tại trang thảo luận bằng 4 dấu ngã (~~~~).', # Fuzzy
+	'notification-new-user-content' => 'Chào mừng bạn đã đến đây.',
 	'notification-reverted2' => '[[User:$1|$1]] đã lùi lại {{PLURAL:$4|sửa đổi|các sửa đổi}} của bạn tại [[$2]] $3',
 	'notification-reverted-flyout2' => '$1 đã lùi lại {{PLURAL:$4|sửa đổi|các sửa đổi}} của bạn tại $2 $3',
 	'notification-edit-talk-page-email-subject2' => 'Trang thảo luận của bạn có tin nhắn mới',
@@ -3889,8 +3902,8 @@ $1',
 	'echo-link-new' => '$1 thông báo mới',
 	'echo-link' => 'Thông báo',
 	'echo-overlay-link' => 'Tất cả các thông báo',
-	'echo-overlay-title' => 'Thông báo cho tôi', # Fuzzy
-	'echo-overlay-title-overflow' => 'Tin nhắn cho tôi (đang xem $1 trên $2 chưa đọc)', # Fuzzy
+	'echo-overlay-title' => 'Thông báo',
+	'echo-overlay-title-overflow' => 'Tin nhắn (đang xem $1 trên $2 chưa đọc)',
 	'echo-date-today' => 'Hôm nay',
 	'echo-date-yesterday' => 'Hôm qua',
 	'echo-date-header' => '$2 $1',
