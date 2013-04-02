@@ -174,6 +174,7 @@ class EchoNotificationController {
 	 */
 	public static function resetNotificationCount( $user, $dbSource = DB_SLAVE ) {
 		self::getNotificationCount( $user, false, $dbSource );
+		$user->invalidateCache();
 	}
 
 	/**
