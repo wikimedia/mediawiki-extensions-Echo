@@ -239,6 +239,28 @@ class EchoEvent {
 		return $extra;
 	}
 
+	/**
+	 * Check if the event is dismissable for the given distribution type
+	 *
+	 * @param $distribution notification distribution web/email
+	 * @return bool
+	 */
+	public function isDismissable( $distribution ) {
+		global $wgEchoNotificationCategories;
+
+		$category = $this->getCategory();
+		if ( isset( $wgEchoNotificationCategories[$category]['no-dismiss'] ) ) {
+			$noDismiss = $wgEchoNotificationCategories[$category]['no-dismiss'];
+		} else {
+			$noDismiss = array();
+		}
+		if ( !in_array( $distribution, $noDismiss ) && !in_array( 'all' , $noDismiss ) ) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 	## Accessors
 	/**
 	 * @return int

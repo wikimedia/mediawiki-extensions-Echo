@@ -92,6 +92,8 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 
 		if ( isset( $params['icon'] ) ) {
 			$this->icon = $params['icon'];
+		} else {
+			$this->icon = 'placeholder';
 		}
 
 	}
@@ -116,32 +118,23 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 		}
 
 		// Assume html as the format for the notification
-
-		$output = '';
-
-		// Add the notification icon
-		if ( !$this->icon ) {
-			$this->icon = 'placeholder';
-		}
-		$output = Xml::tags( 'div',
+		$output = Xml::tags(
+			'div',
 			array( 'class' => "mw-echo-icon mw-echo-icon-{$this->icon}" ),
 			'&nbsp;'
-		) . $output;
+		);
 
 		// Add the hidden dismiss interface if the notification is dismissable
-		$category = $event->getCategory();
-		if ( isset( $wgEchoNotificationCategories[$category]['no-dismiss'] ) ) {
-			$noDismiss = $wgEchoNotificationCategories[$category]['no-dismiss'];
-		} else {
-			$noDismiss = array();
-		}
-		if ( !in_array( 'web', $noDismiss ) && !in_array( 'all' , $noDismiss ) ) {
+		if ( $event->isDismissable( 'web' ) ) {
 			$output .= $this->formatDismissInterface( $event, $user );
 		}
 
 		// Build the notification title
-		$title = $this->formatNotificationTitle( $event, $user )->parse();
-		$content = Xml::tags( 'div', array( 'class' => 'mw-echo-title' ), $title ) . "\n";
+		$content = Xml::tags(
+			'div',
+			array( 'class' => 'mw-echo-title' ),
+			$this->formatNotificationTitle( $event, $user )->parse()
+		) . "\n";
 
 		// Build the notification payload
 		$payload = '';
@@ -167,6 +160,8 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	}
 
 	/**
+	 * Format notification dismiss interface
+	 *
 	 * @param $event EchoEvent
 	 * @param $user User
 	 * @return string
@@ -327,12 +322,10 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	 */
 	protected function processParam( $event, $param, $message, $user ) {
 		if ( $param === 'agent' ) {
-			// Actually converts to two parameters for gender support
 			if ( !$event->getAgent() ) {
 				$message->params( '', wfMessage( 'echo-no-agent' )->text() );
 			} else {
-				$agent = $event->getAgent();
-				$message->params( $agent->getName() );
+				$message->params( $event->getAgent()->getName() );
 			}
 		} elseif ( $param === 'user' ) {
 			$message->params( $user->getName() );
