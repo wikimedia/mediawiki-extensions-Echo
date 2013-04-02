@@ -24,8 +24,6 @@ class EchoEditFormatter extends EchoBasicFormatter {
 				)
 			);
 			$this->setTitleLink( $event, $message, $props );
-		} elseif ( $param === 'titlelink' ) {
-			$this->setTitleLink( $event, $message );
 		} elseif ( $param === 'summary' ) {
 			$eventData = $event->getExtra();
 			if ( !isset( $eventData['revid'] ) ) {
