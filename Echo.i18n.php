@@ -873,17 +873,28 @@ $messages['cs'] = array(
 	'echo-pref-email-frequency-daily' => 'Denní souhrn upozornění',
 	'echo-pref-email-frequency-weekly' => 'Týdenní souhrn upozornění',
 	'echo-pref-notify-hide-link' => 'Skrýt odkaz a štítek upozornění v uživatelském panelu',
+	'echo-dismiss-button' => 'Zavřít',
+	'echo-dismiss-message' => 'Vypnout všechna upozornění na $1',
+	'echo-dismiss-prefs-message' => 'Znovu zapnout si je můžete v Nastavení',
+	'echo-category-title-edit-user-talk' => 'příspěvek v diskusi',
+	'echo-category-title-article-linked' => 'odkaz na stránku',
+	'echo-category-title-reverted' => 'vrácené úpravy',
+	'echo-category-title-mention' => 'zmínku',
+	'echo-category-title-other' => 'jiné události',
+	'echo-category-title-system' => 'systémové události',
 	'echo-no-agent' => '[Nikdo]',
 	'echo-no-title' => '[Žádná stránka]',
 	'echo-error-no-formatter' => 'Upozornění nemá definováno formátování',
+	'echo-error-preference' => 'Chyba: Nepodařilo se uložit uživatelské nastavení',
+	'echo-error-token' => 'Chyba: Nepodařilo se získat uživatelský token',
 	'notifications' => 'Upozornění',
 	'tooltip-pt-notifications' => 'Vaše upozornění',
-	'echo-specialpage' => 'Moje upozornění',
+	'echo-specialpage' => 'Upozornění',
 	'echo-anon' => 'Pro zobrazování upozornění je nutné [[Special:Userlogin/signup|vytvořit si účet]] nebo [[Special:UserLogin|se přihlásit]].',
 	'echo-none' => 'Nemáte žádné upozornění.',
 	'echo-more-info' => 'Více informací',
 	'notification-new-user' => 'Vítá vás {{SITENAME}}, $1!',
-	'notification-new-user-content' => 'Nezapomeňte všechny komentáře v diskusních stránkách podepisovat čtyřmi vlnovkami (~~~~).',
+	'notification-new-user-content' => 'Jsme rádi, že vás tu máme.',
 	'echo-email-subject-default' => 'Nové upozornění na {{grammar:6sg|{{SITENAME}}}}',
 	'echo-email-body-default' => 'Na {{grammar:6sg|{{SITENAME}}}} máte nové upozornění:
 
@@ -895,15 +906,16 @@ Pro nastavení e-mailů, které vám máme posílat, navštivte:
 
 $1',
 	'echo-link-new' => '$1 {{PLURAL:$1|nové upozornění|nová upozornění|nových upozornění}}',
-	'echo-link' => 'Moje upozornění', # Fuzzy
+	'echo-link' => 'Upozornění',
 	'echo-overlay-link' => 'Všechna upozornění',
-	'echo-overlay-title' => 'Moje upozornění',
-	'echo-overlay-title-overflow' => 'Moje upozornění (zobrazuje se $1 z $2 nepřečtených)',
+	'echo-overlay-title' => 'Upozornění',
+	'echo-overlay-title-overflow' => 'Upozornění (zobrazuje se $1 z $2 nepřečtených)',
 	'echo-date-today' => 'Dnes',
 	'echo-date-yesterday' => 'Včera',
 	'echo-load-more-error' => 'Při načítání dalších výsledků došlo k chybě.',
 	'echo-email-batch-subject-daily' => 'Dnes máte $1 {{PLURAL:$2|upozornění}}',
 	'echo-email-batch-subject-weekly' => 'Tento týden máte $1 {{PLURAL:$2|upozornění}}',
+	'echo-email-batch-category-header' => '$1 {{PLURAL:$1|upozornění}} na $2',
 );
 
 /** Danish (dansk)
@@ -1286,16 +1298,15 @@ $1',
  * @author Crt
  * @author Nedergard
  * @author Nike
+ * @author Silvonen
  * @author VezonThunder
  */
 $messages['fi'] = array(
 	'echo-desc' => 'Ilmoitusjärjestelmä',
 	'prefs-echo' => 'Ilmoitukset',
 	'prefs-displaynotifications' => 'Näyttöasetukset',
-	'prefs-emailsubscriptions' => 'Ilmoita minulle sähköpostilla, kun joku',
 	'prefs-emailfrequency' => 'Kuinka usein saan sähköposti-ilmoituksia', # Fuzzy
-	'echo-pref-email-edit-user-talk' => 'Kirjoittaa keskustelusivulleni',
-	'echo-pref-email-reverted' => 'Kumoaa muokkaukseni',
+	'echo-pref-subscription-reverted' => 'Kumoaa muokkaukseni',
 	'echo-pref-email-frequency-never' => 'Älä lähetä minulle sähköposti-ilmoituksia',
 	'echo-pref-email-frequency-immediately' => 'Yksittäisiä ilmoituksia niiden tullessa',
 	'echo-pref-email-frequency-daily' => 'Päivittäinen yhteenveto ilmoituksista',
@@ -1309,7 +1320,7 @@ $messages['fi'] = array(
 	'echo-anon' => 'Jos haluat saada ilmoituksia, [[Special:Userlogin/signup|luo käyttäjätunnus]] tai [[Special:UserLogin|kirjaudu sisään]].',
 	'echo-none' => 'Ei uusia ilmoituksia.',
 	'notification-new-user' => 'Tervetuloa sivustolle {{SITENAME}}, $1!',
-	'notification-new-user-content' => 'Muista allekirjoittaa kommenttisi keskustelusivuilla neljällä tildellä (~~~~).',
+	'notification-new-user-content' => 'Muista allekirjoittaa kommenttisi keskustelusivuilla neljällä tildellä (~~~~).', # Fuzzy
 	'echo-email-subject-default' => 'Uusi ilmoitus sivustolla {{SITENAME}}',
 	'echo-email-body-default' => 'Sinulle on uusi ilmoitus sivustolla {{SITENAME}}:
 
@@ -1324,7 +1335,7 @@ $1',
 	'echo-link' => 'Ilmoitukset',
 	'echo-overlay-link' => 'Kaikki ilmoitukset',
 	'echo-overlay-title' => 'Ilmoitukset',
-	'echo-overlay-title-overflow' => 'Ilmoitukseni (näytetään $1/$2 lukematonta)',
+	'echo-overlay-title-overflow' => 'Ilmoitukset (näytetään $1/$2 lukematonta)',
 	'echo-date-today' => 'Tänään',
 	'echo-date-yesterday' => 'Eilen',
 	'echo-load-more-error' => 'Virhe haettaessa lisää tuloksia.',
@@ -1344,9 +1355,6 @@ Sinulle on $2 {{PLURAL:$3|ilmoitus|ilmoitusta}} sivustolla {{SITENAME}} tällä 
 $4
 
 $5',
-	'echo-email-batch-category-header-edit-user-talk' => '$1 {{PLURAL:$1|viesti|viestiä}} keskustelusivulla',
-	'echo-email-batch-category-header-edit-revert' => '$1 {{PLURAL:$1|muokkaus|muokkausta}} kumottu',
-	'echo-email-batch-category-header-other' => '$1 {{PLURAL:$1|muu|muuta}}',
 );
 
 /** French (français)
@@ -2732,7 +2740,7 @@ $messages['ml'] = array(
 	'notification-edit-talk-page2' => '[[User:$1|$1]] താങ്കളുടെ on your [[User talk:$2|സംവാദത്താളിൽ]] {{GENDER:$1|കുറിപ്പിട്ടു}} .',
 	'notification-edit-talk-page-flyout2' => 'താങ്കളുടെ [[User talk:$2|സംവാദത്താളിൽ]] $1 {{GENDER:$1|കുറിപ്പിട്ടിട്ടുണ്ട്}}.',
 	'notification-new-user' => '{{SITENAME}} സംരംഭത്തിലേയ്ക്ക് സ്വാഗതം, $1!',
-	'notification-new-user-content' => 'വന്നതിൽ സന്തോഷം.',
+	'notification-new-user-content' => 'താങ്കളിവിടെ വന്നതിൽ ഞങ്ങൾക്ക് സന്തോഷമുണ്ട്.',
 	'echo-email-subject-default' => '{{SITENAME}} സംരംഭത്തിൽ അറിയിപ്പുണ്ട്',
 	'echo-email-body-default' => '{{SITENAME}} സംരംഭത്തിൽ താങ്കൾക്ക് ഒരു അറിയിപ്പുണ്ട്:
 
@@ -2741,7 +2749,7 @@ $1',
 	'echo-link' => 'എനിക്കുള്ള അറിയിപ്പുകൾ', # Fuzzy
 	'echo-overlay-link' => 'എല്ലാ അറിയിപ്പുകളും...', # Fuzzy
 	'echo-overlay-title' => 'അറിയിപ്പുകൾ',
-	'echo-overlay-title-overflow' => 'അറിയിപ്പുകൾ (വായിക്കാത്ത $2 എണ്ണത്തിലെ $1 അറിയിപ്പുകൾ കാണിക്കുന്നു)',
+	'echo-overlay-title-overflow' => 'അറിയിപ്പുകൾ (വായിക്കാത്ത $2 എണ്ണത്തിലെ $1 എണ്ണം കാണിക്കുന്നു)',
 	'echo-date-today' => 'ഇന്ന്',
 	'echo-date-yesterday' => 'ഇന്നലെ',
 );
@@ -2772,6 +2780,9 @@ $messages['ms'] = array(
 	'echo-category-title-edit-user-talk' => 'Pos halaman perbualan',
 	'echo-category-title-article-linked' => 'Halaman telah dipautkan',
 	'echo-category-title-reverted' => 'Suntingan dibalikkan',
+	'echo-category-title-mention' => 'Sebutan',
+	'echo-category-title-other' => 'Lain-lain',
+	'echo-category-title-system' => 'Sistem',
 	'echo-no-agent' => '[Tiada Sesiapa]',
 	'echo-no-title' => '[Tiada halaman]',
 	'echo-error-no-formatter' => 'Tiada pemformatan yang ditetapkan untuk pemberitahuan',
@@ -2779,7 +2790,7 @@ $messages['ms'] = array(
 	'echo-error-token' => 'Ralat: Token pengguna tidak dapat diambil',
 	'notifications' => 'Pemberitahuan',
 	'tooltip-pt-notifications' => 'Pemberitahuan anda',
-	'echo-specialpage' => 'Pemberitahuan saya',
+	'echo-specialpage' => 'Pemberitahuan',
 	'echo-anon' => 'Untuk menerima pemberitahuan, sila [[Special:Userlogin/signup|buka akaun]] atau [[Special:UserLogin|log masuk]].',
 	'echo-none' => 'Tiada pemberitahuan untuk anda.',
 	'echo-more-info' => 'Maklumat lanjut',
@@ -2793,8 +2804,12 @@ $messages['ms'] = array(
 	'notification-add-comment-yours2' => '[[User:$1|$1]] telah {{GENDER:$1|mengulas}} tentang "[[$3#$2|$2]]" di halaman perbualan anda',
 	'notification-mention' => '[[User:$1|$1]] {{GENDER:$1|menyebut}} anda di [[$3#$2|$3]].',
 	'notification-mention-flyout' => '$1 {{GENDER:$1|menyebut}} anda di [[$3#$2|$3]].',
+	'notification-user-rights' => 'Hak-hak pengguna anda telah {{GENDER:$1|diubah}} oleh [[User:$1|$1]]. $2. [[Special:ListGroupRights|Ketahui lebih lanjut]]',
+	'notification-user-rights-flyout' => 'Hak-hak pengguna anda telah {{GENDER:$1|diubah}} oleh $1. $2. [[Special:ListGroupRights|Ketahui lebih lanjut]]',
+	'notification-user-rights-add' => 'Anda kini menganggotai {{PLURAL:$2|kumpulan|kumpulan-kumpulan ini:}} $1',
+	'notification-user-rights-remove' => 'Anda tidak lagi menganggotai {{PLURAL:$2|kumpulan|kumpulan-kumpulan ini:}} $1',
 	'notification-new-user' => 'Selamat datang ke {{SITENAME}}, $1!',
-	'notification-new-user-content' => 'Jangan lupa untuk menandatangani sebarang komen pada halaman perbincangan dengan serentet 4 tanda tilde (~~~~).',
+	'notification-new-user-content' => 'Kami gembira dengan kehadiran anda.',
 	'notification-reverted2' => '{{PLURAL:$4|Suntingan|Suntingan-suntingan}} anda di [[$2]] telah {{GENDER:$1|dibalikkan}} oleh [[User:$1|$1]] $3',
 	'notification-reverted-flyout2' => '{{PLURAL:$4|Suntingan|Suntingan-suntingan}} anda di $2 telah {{GENDER:$1|dibalikkan}} oleh $1 $3',
 	'notification-edit-talk-page-email-subject2' => 'Anda mendapat pesanan baru di halaman perbualan',
@@ -2839,6 +2854,14 @@ $4
 
 $5',
 	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|menyebut}} anda di $2',
+	'notification-user-rights-email-subject' => 'Hak-hak pengguna anda telah berubah di {{SITENAME}}',
+	'notification-user-rights-email-body' => 'Hak-hak pengguna anda telah {{GENDER:$1|diubah}} oleh $1. $2
+
+Lihat selanjutnya:
+{{canonicalurl:{{#special:ListGroupRights}}}}
+
+$3',
+	'notification-user-rights-email-batch-body' => 'Hak-hak pengguna anda telah {{GENDER:$1|diubah}} oleh $1. $2',
 	'echo-email-subject-default' => 'Pemberitahuan baru di {{SITENAME}}',
 	'echo-email-body-default' => 'Anda menerima pemberitahuan baru di {{SITENAME}}:
 
@@ -2852,8 +2875,8 @@ $1',
 	'echo-link-new' => '$1 pemberitahuan baru',
 	'echo-link' => 'Pemberitahuan',
 	'echo-overlay-link' => 'Semua pemberitahuan',
-	'echo-overlay-title' => 'Pemberitahuan saya',
-	'echo-overlay-title-overflow' => 'Pemberitahuan untuk saya (memaparkan $1 daripada $2 pesanan belum dibaca)',
+	'echo-overlay-title' => 'Pemberitahuan',
+	'echo-overlay-title-overflow' => 'Pemberitahuan (memaparkan $1 daripada $2 yang belum dibaca)',
 	'echo-date-today' => 'Hari ini',
 	'echo-date-yesterday' => 'Semalam',
 	'echo-load-more-error' => 'Ralat berlaku ketika mengambil lebih banyak hasil.',
@@ -2875,6 +2898,7 @@ Anda ada $2 {{PLURAL:$3|pemberitahuan}} di {{SITENAME}} minggu ini. Sila baca di
 $4
 
 $5',
+	'echo-email-batch-category-header' => '$1 pemberitahuan $2',
 );
 
 /** Maltese (Malti)
@@ -2912,6 +2936,7 @@ $messages['nds'] = array(
 
 /** Dutch (Nederlands)
  * @author Kippenvlees1
+ * @author Nemo bis
  * @author Rcdeboer
  * @author SPQRobin
  * @author Siebrand
@@ -2924,7 +2949,7 @@ $messages['nl'] = array(
 	'prefs-emailfrequency' => 'Wanneer wilt u melding via e-mail ontvangen?',
 	'prefs-echosubscriptions' => 'Stuur mij een melding wanneer iemand...',
 	'echo-pref-web' => 'Web',
-	'echo-pref-email' => 'E-mailen',
+	'echo-pref-email' => 'E-mail',
 	'echo-pref-subscription-edit-user-talk' => 'Berichten op mijn overlegpagina',
 	'echo-pref-subscription-article-linked' => 'Koppeling maakt naar een pagina die ik heb aangemaakt',
 	'echo-pref-subscription-reverted' => 'Een bewerking van u terugdraait',
@@ -2964,10 +2989,6 @@ $messages['nl'] = array(
 	'notification-add-comment-yours2' => '[[User:$1|$1]] {{GENDER:$1|heeft gereageerd}} op "[[$3#$2|$2]]" op uw overlegpagina',
 	'notification-mention' => '[[User:$1|$1]] {{GENDER:$1|heeft}} u genoemd op [[$3#$2|$3]].',
 	'notification-mention-flyout' => '$1 {{GENDER:$1|heeft}} u genoemd op [[$3#$2|$3]].',
-	'notification-user-rights' => 'Rechten van uw gebruikersaccount waren  {{GENDER:$1| gewijzigd}} door [[gebruiker: $1 | $1 ]]. $2. [[Special: ListGroupRights|Meer informatie]]', # Fuzzy
-	'notification-user-rights-flyout' => 'Rechten van uw gebruikersaccount waren  {{GENDER:$1| gewijzigd}} door  $1 . $2. [[Special: ListGroupRights|Meer informatie]]', # Fuzzy
-	'notification-user-rights-add' => 'U bent niet langer een lid van  {{PLURAL:$2| deze groepen group|these}}:$1',
-	'notification-user-rights-remove' => 'U bent niet langer een lid van  {{PLURAL:$2| deze groepen group|these}}:$1',
 	'notification-new-user' => 'Welkom op {{SITENAME}}, $1!',
 	'notification-new-user-content' => 'We zijn blij dat u hier bent.',
 	'notification-reverted2' => 'Uw {{PLURAL:$4|bewerking op [[$2]] is|bewerkingen op [[$2]] zijn}} {{GENDER:$1|teruggedraaid}} [[User:$1|$1]] $3',
@@ -3014,12 +3035,6 @@ $4
 
 $5',
 	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|heeft}} u genoemd op $2',
-	'notification-user-rights-email-subject' => 'Rechten van uw gebruikersaccount hebt gewijzigd op {{SITENAME}}',
-	'notification-user-rights-email-body' => 'Rechten van uw gebruikersaccount waren  {{GENDER:$1| gewijzigd}} door  $1 . $2
-N!Bekijk meer:
-N!{{canonicalurl: {{#special:ListGroupRights}}}
-N!$3', # Fuzzy
-	'notification-user-rights-email-batch-body' => 'Rechten van uw gebruikersaccount waren  {{GENDER:$1| gewijzigd}} door  $1 .$2',
 	'echo-email-subject-default' => 'Nieuwe melding op {{SITENAME}}',
 	'echo-email-body-default' => 'U hebt een nieuwe melding op {{SITENAME}}:
 
@@ -3035,7 +3050,7 @@ $1',
 	'echo-overlay-link' => 'Alle meldingen',
 	'echo-overlay-title' => 'Meldingen',
 	'echo-overlay-title-overflow' => 'Meldingen ($1 van $2 ongelezen)',
-	'echo-date-today' => 'vandaag',
+	'echo-date-today' => 'Vandaag',
 	'echo-date-yesterday' => 'Gisteren',
 	'echo-load-more-error' => 'Er is een fout opgetreden tijdens het ophalen van meer resultaten.',
 	'echo-email-batch-subject-daily' => 'U hebt vandaag {{PLURAL:$2|0=geen meldingen|één melding|$1 meldingen}}',
@@ -3054,7 +3069,6 @@ U hebt deze week {{PLURAL:$3|0=geen meldingen|één melding|$2 meldingen}} op {{
 $4
 
 $5',
-	'echo-email-batch-category-header' => '{{PLURAL:$1|1 nieuwe melding|$1 nieuwe meldingen}}', # Fuzzy
 );
 
 /** Nederlands (informeel)‎ (Nederlands (informeel)‎)
