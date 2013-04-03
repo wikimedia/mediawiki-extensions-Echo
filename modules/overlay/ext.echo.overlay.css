@@ -64,15 +64,16 @@
 }
 
 #mw-echo-overlay-footer {
-	padding: 0px 0px 0px 48px;
+	padding: 0px;
 	border-top: 1px solid #DDDDDD;
 }
 
 #mw-echo-overlay-link {
+	display: block;
 	clear: left;
 	float: left;
-	padding: 15px 0px 15px 30px;
-	width: 150px;
+	padding: 15px 15px 15px 35px;
+	width: 175px;
 	min-height: 14px;
 	font-size: 13px;
 	/* @embed */
@@ -82,11 +83,12 @@
 }
 
 #mw-echo-overlay-pref-link {
+	display: block;
 	float: left;
-	width: 150px;
+	width: 174px;
 	min-height: 14px;
 	font-size: 13px;
-	padding: 15px 0 15px 30px;
+	padding: 15px 15px 15px 35px;
 	border-left: 1px solid #DDDDDD;
 	/* @embed */
 	background-image: url(../icons/Settings.png);
