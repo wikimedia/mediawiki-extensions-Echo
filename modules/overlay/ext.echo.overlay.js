@@ -97,26 +97,20 @@
 					var $overlayFooter = $( '<div/>' )
 						.attr( 'id', 'mw-echo-overlay-footer' );
 
-					// only show 'All notifications...' link if there is notification
-					if ( notifications.index.length > 0 ) {
-						$overlayFooter.append(
-							$( '<div/>' )
-								.attr( 'id', 'mw-echo-overlay-link' )
-								.append( $link
-									.clone()
-									.text( mw.msg( 'echo-overlay-link' ) )
-								)
-						);
-					}
+					// add link to notifications archive
+					$overlayFooter.append(
+						$link
+							.clone()
+							.attr( 'id', 'mw-echo-overlay-link' )
+							.text( mw.msg( 'echo-overlay-link' ) )
+					);
 
 					// add link to notification preferences
 					$overlayFooter.append(
-						$( '<div/>' )
+						$prefLink
+							.clone()
 							.attr( 'id', 'mw-echo-overlay-pref-link' )
-							.append( $prefLink
-								.clone()
-								.attr( 'href', $prefLink.attr( 'href' ) + '#mw-prefsection-echo' )
-							)
+							.attr( 'href', $prefLink.attr( 'href' ) + '#mw-prefsection-echo' )
 					);
 
 					$overlay.append( $overlayFooter );
@@ -182,15 +176,6 @@
 					$overlay
 						.hide()
 						.appendTo( $( '#pt-notifications' ) );
-					// Figure out which footer link is first and pad it appropriately
-					// (Sometimes the 'All notifications' link doesn't exist)
-					if ( $( '#mw-echo-overlay-link' ).length ) {
-						$( '#mw-echo-overlay-link' )
-							.addClass( 'mw-echo-overlay-first-footer-link' );
-					} else {
-						$( '#mw-echo-overlay-pref-link' )
-							.addClass( 'mw-echo-overlay-first-footer-link' );
-					}
 					// Create the pokey (aka chevron)
 					$( '.mw-echo-overlay' ).before( $( '<div/>' ).addClass( 'mw-echo-overlay-pokey' ) );
 					// Show the notifications overlay
