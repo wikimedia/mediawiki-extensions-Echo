@@ -73,8 +73,7 @@ $messages['en'] = array(
 	'notification-user-rights-add' => 'You are now a member of {{PLURAL:$2|this group|these groups}}: $1',
 	'notification-user-rights-remove' => 'You are no longer a member of {{PLURAL:$2|this group|these groups}}: $1',
 	'notification-talkpage-content' => '$1', ## Do not translate unless you deliberately want to change behaviour
-	'notification-new-user' => 'Welcome to {{SITENAME}}, $1!',
-	'notification-new-user-content' => "We're glad you're here.",
+	'notification-new-user' => "Welcome to {{SITENAME}}, $1! We're glad you're here.",
 	'notification-reverted2' => 'Your {{PLURAL:$4|edit on [[$2]] has|edits on [[$2]] have}} been {{GENDER:$1|reverted}} by [[User:$1|$1]] $3',
 	'notification-reverted-flyout2' => 'Your {{PLURAL:$4|edit on $2 has|edits on $2 have}} been {{GENDER:$1|reverted}} by $1 $3',
 	'notification-edit-talk-page-email-subject2' => 'You have a new talkpage message',
@@ -362,11 +361,10 @@ Parameters:
 * $1 is the content of the talk page post.
 
 {{optional}}',
-	'notification-new-user' => 'Title for the welcome notification. Parameters:
+	'notification-new-user' => 'Text of the welcome notification. Parameters:
 * $1 - the name of the new user
 See also:
 * {{msg-mw|Guidedtour-tour-gettingstarted-start-title}}',
-	'notification-new-user-content' => 'The content shown to users on their welcome notification.',
 	'notification-reverted2' => "Format for displaying notifications of a user's edit being reverted.
 * $1 is the username of the person who reverted, plain text. Can be used for GENDER.
 * $2 is the page that was reverted, formatted.

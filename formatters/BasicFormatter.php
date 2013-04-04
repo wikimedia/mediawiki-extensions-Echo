@@ -247,13 +247,6 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			case 'summary':
 				return $this->formatSummary( $event, $user );
 				break;
-			case 'welcome':
-				$details = array(
-					'message' => 'notification-new-user-content',
-					'params' => array( 'agent' )
-				);
-				return $this->formatFragment( $details, $event, $user )->parse();
-				break;
 			default:
 				return '';
 		}
