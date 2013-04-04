@@ -6,14 +6,49 @@
  * in all the internal method
  */
 class EchoBasicFormatter extends EchoNotificationFormatter {
-	protected $messageKey = false;
-	protected $messageParams = false;
+
+	/**
+	 * Required parameters
+	 * @param array
+	 */
 	protected $requiredParameters = array(
 		'title-message',
-		'title-params',
+		'title-params'
 	);
 
-	protected $title, $flyoutTitle, $bundleTitle, $content, $email, $icon;
+	/**
+	 * Notification title data for archive page
+	 * @param array
+	 */
+	protected $title;
+
+	/**
+	 * Notification title data for flyout
+	 * @param array
+	 */
+	protected $flyoutTitle;
+
+	/**
+	 * Notification title data for bundling ( flyout and archive page )
+	 */
+	protected $bundleTitle;
+
+	/**
+	 * @Todo Check if this varaible can be removed
+	 */
+	protected $content;
+
+	/**
+	 * Notification email data
+	 * @param array
+	 */
+	protected $email;
+
+	/**
+	 * Notification icon for each type
+	 * @param string
+	 */
+	protected $icon;
 
 	/**
 	 * Data for constructing bundle message, data in this array
@@ -27,94 +62,71 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	public function __construct( $params ) {
 		parent::__construct( $params );
 
-		$this->title = $this->flyoutTitle = $this->bundleTitle = array();
+		// Title for archive page
+		$this->title = array(
+			'message' => $params['title-message'],
+			'params' => $params['title-params']
+		);
 
-		if ( isset( $params['flyout-message'] ) && isset( $params['flyout-params'] ) ) {
-			$this->flyoutTitle['message'] = $params['flyout-message'];
-			$this->flyoutTitle['params'] = $params['flyout-params'];
-		} else {
-			$this->flyoutTitle['message'] = $params['title-message'];
-			$this->flyoutTitle['params'] = $params['title-params'];
-		}
+		// Set up default params if one is missing
+		$params += $this->getDefaultParams();
+		
+		// Title for the flyout
+		$this->flyoutTitle = array(
+			'message' => $params['flyout-message'],
+			'params' => $params['flyout-params']
+		);
 
-		if ( isset( $params['bundle-message'] ) ) {
-			$this->bundleTitle['message'] = $params['bundle-message'];
-			if ( isset( $params['bundle-params'] ) ) {
-				$this->bundleTitle['params'] = $params['bundle-params'];
-			} else {
-				$this->bundleTitle['params'] = array();
-			}
-		}
+		// Bundle title for both archive page and flyout
+		$this->bundleTitle = array(
+			'message' => $params['bundle-message'],
+			'params' => $params['bundle-params']
+		);
 
-		$this->title['message'] = $params['title-message'];
-		$this->title['params'] = $params['title-params'];
-		$this->payload = array();
+		// Notification payload data, eg, summary
+		$this->payload = $params['payload'];
 
-		if ( isset( $params['payload'] ) ) {
-			$this->payload = $params['payload'];
-		}
+		// Notification email subject and body
+		$this->email = array(
+			'subject' => array(
+				'message' => $params['email-subject-message'],
+				'params' => $params['email-subject-params']
+			),
+			'body' => array(
+				'message' => $params['email-body-message'],
+				'params' => $params['email-body-params']
+			),
+			'batch-body' => array(
+				'message' => $params['email-body-batch-message'],
+				'params' => $params['email-body-batch-params']
+			)
+		);
 
-		$this->email = array();
-		if ( isset( $params['email-subject-message'] ) ) {
-			$this->email['subject'] = array();
-			$this->email['subject']['message'] = $params['email-subject-message'];
+		// Notification icon for the event type
+		$this->icon = $params['icon'];
 
-			if ( isset( $params['email-subject-params'] ) ) {
-				$this->email['subject']['params'] = $params['email-subject-params'];
-			} else {
-				$this->email['subject']['params'] = array();
-			}
-		} else {
-			$this->email = array(
-				'subject' => array(
-					'message' => 'echo-email-subject-default',
-					'params' => array(),
-				),
-				'body' => array(
-					'message' => 'echo-email-body-default',
-					'params' => array(
-						'text-notification',
-					),
-				),
-			);
-		}
+	}
 
-		if ( isset( $params['email-body-message'] ) ) {
-			$this->email['body'] = array();
-			$this->email['body']['message'] = $params['email-body-message'];
-
-			if ( isset( $params['email-body-params'] ) ) {
-				$this->email['body']['params'] = $params['email-body-params'];
-			} else {
-				$this->email['body']['params'] = array( 'text-notification' );
-			}
-		} else {
-			$this->email['body'] = array(
-				'message' => 'echo-email-body-default',
-				'params' => array(
-					'text-notification',
-				),
-			);
-		}
-
-		$this->email['batch-body'] = array();
-		if ( isset( $params['email-body-batch-message'] ) ) {
-			$this->email['batch-body']['message'] = $params['email-body-batch-message'];
-			if ( isset( $params['email-body-batch-params'] ) ) {
-				$this->email['batch-body']['params'] = $params['email-body-batch-params'];
-			} else {
-				$this->email['batch-body']['params'] = array();
-			}
-		} else {
-			$this->email['batch-body'] = $this->email['body'];
-		}
-
-		if ( isset( $params['icon'] ) ) {
-			$this->icon = $params['icon'];
-		} else {
-			$this->icon = 'placeholder';
-		}
-
+	/**
+	 * Internal function that returns notification default params
+	 *
+	 * @return array
+	 */
+	protected function getDefaultParams() {
+		return array(
+			'flyout-message' => $this->title['message'],
+			'flyout-params' => $this->title['params'],
+			'bundle-message' => '',
+			'bundle-params' => array(),
+			'payload' => array(),
+			'email-subject-message' => 'echo-email-subject-default',
+			'email-subject-params' => array(),
+			'email-body-message' => 'echo-email-body-default',
+			'email-body-params' => array( 'text-notification' ),
+			'email-body-batch-message' => 'echo-email-batch-body-default',
+			'email-body-batch-params' => array(),
+			'icon' => 'placeholder'
+		);
 	}
 
 	/**
