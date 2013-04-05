@@ -156,9 +156,11 @@ abstract class EchoNotificationFormatter {
 						$summary = $matches[1] . "<span class='autocomment'>" . $section . "</span>" . $matches[3];
 					}
 				}
-				$summary = wfMessage( 'echo-quotation-marks', $summary )->inContentLanguage()->plain();
-				$summary = Xml::tags( 'span', array( 'class' => 'comment' ), $summary );
-				$summary = Xml::tags( 'div', array( 'class' => 'mw-echo-summary' ), $summary );
+				if ( $summary ) {
+					$summary = wfMessage( 'echo-quotation-marks', $summary )->inContentLanguage()->plain();
+					$summary = Xml::tags( 'span', array( 'class' => 'comment' ), $summary );
+					$summary = Xml::tags( 'div', array( 'class' => 'mw-echo-summary' ), $summary );
+				}
 			}
 
 			return $summary;
