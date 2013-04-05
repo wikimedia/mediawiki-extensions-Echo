@@ -133,6 +133,7 @@ $3',
 	'echo-email-body-default' => 'You have a new notification at {{SITENAME}}:
 
 $1',
+	'echo-email-batch-body-default' => 'You have a new notification',
 	'echo-email-footer-default' => '$2
 
 To control which emails we send you, visit:
@@ -455,6 +456,7 @@ The new notification count next to notification link, for example: 99+
 	'echo-email-subject-default' => 'Default subject for Echo e-mail notifications',
 	'echo-email-body-default' => 'Default message content for Echo e-mail notifications.
 * $1 is a plain text description of the notification.',
+	'echo-email-batch-body-default' => 'Default message for Echo e-mail digest notifications',
 	'echo-email-footer-default' => 'Default footer content for Echo e-mail notifications.  Parameters:
 * $1 is the address of the organization that sent the e-mail
 * $2 is "-------..." ({{msg-mw|echo-email-batch-separator}})',
