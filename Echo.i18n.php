@@ -181,10 +181,7 @@ $5',
 	'echo-email-batch-category-header' => '$1 $2 {{PLURAL:$1|notification|notifications}}',
 );
 
-/** Message documentation (This is the name of the message documentation language code (qqq). Follow the rules of your languages and use small first letter if it doesn't capitalize language names always.
-
-It might be easier to translate it as "translation guidelines" or "translation help".
-{{Identical|Message documentation}})
+/** Message documentation (Message documentation)
  * @author Amire80
  * @author Beta16
  * @author Kghbln
@@ -2085,7 +2082,7 @@ $messages['it'] = array(
 	'notification-add-comment-yours2' => '[[User:$1|$1]] {{GENDER:$1|ha lasciato un commento}} riguardo a "[[$3#$2|$2]]" nella tua pagina di discussione',
 	'notification-mention' => '[[User:$1|$1]] ti ha {{GENDER:$1|menzionato|menzionata|menzionato/a}} su [[$3#$2|$3]].',
 	'notification-mention-flyout' => '$1 ti ha {{GENDER:$1|menzionato|menzionata|menzionato/a}} su [[$3#$2|$3]].',
-	'notification-new-user' => 'Benvenuto su {{SITENAME}}, $1!', # Fuzzy
+	'notification-new-user' => 'Benvenuto su {{SITENAME}}, $1! Siamo felici che tu sia qui.',
 	'notification-reverted2' => '{{PLURAL:$4|La tua modifica|Le tue modifiche}} su [[$2]] {{PLURAL:$4|è stata annullata|sono state annullate}} {{GENDER:$1|da}} [[User:$1|$1]] $3',
 	'notification-reverted-flyout2' => '{{PLURAL:$4|La tua modifica|Le tue modifiche}} su $2 {{PLURAL:$4|è stata annullata|sono state annullate}} {{GENDER:$1|da}} $1 $3',
 	'notification-edit-talk-page-email-subject2' => 'Hai un nuovo messaggio nella pagina di discussione',
@@ -2125,6 +2122,7 @@ $5",
 	'echo-email-body-default' => 'Hai una nuova notifica su {{SITENAME}}:
 
 $1',
+	'echo-email-batch-body-default' => 'Hai una nuova notifica',
 	'echo-email-footer-default' => '$2
 
 Per controllare quali email ti verranno inviate, visita:
