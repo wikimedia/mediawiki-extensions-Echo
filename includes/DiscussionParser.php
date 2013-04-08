@@ -103,6 +103,10 @@ abstract class EchoDiscussionParser {
 
 		$output = self::parseNonEditWikitext( $content, new Article( $title ) );
 		$links = $output->getLinks();
+
+		if ( !isset( $links[NS_USER] ) || !is_array( $links[NS_USER] ) ) {
+			return;
+		}
 		$mentionedUsers = array();
 		$count = 0;
 
