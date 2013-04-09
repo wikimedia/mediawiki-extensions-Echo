@@ -14,8 +14,13 @@
 		 */
 		'initialize': function() {
 			var _this = this;
-			$( '#mw-echo-more' ).click(
-				function( e ) {
+			// Convert more link into a button
+			$( '#mw-echo-more' )
+				.button()
+				// Override jQuery UI button margins
+				.css( 'margin', '0.5em 0 0 0' )
+				.addClass( 'ui-button-blue' )
+				.click( function( e ) {
 					e.preventDefault();
 					if ( !_this.processing ) {
 						_this.processing = true;

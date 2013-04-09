@@ -8,10 +8,10 @@ h1#firstHeading {
 /* Echo specific CSS */
 
 #mw-echo-more {
+	display: block;
 	text-align: center;
 	font-size: 13px;
 	max-width: 600px;
-	margin-left: 45px;
 }
 
 #mw-echo-pref-link {
