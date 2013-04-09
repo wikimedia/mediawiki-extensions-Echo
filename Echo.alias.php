@@ -88,6 +88,11 @@ $specialPageAliases['pa'] = array(
 	'Notifications' => array( 'ਇਤਲਾਹਾਂ' ),
 );
 
+/** Russian (русский) */
+$specialPageAliases['ru'] = array(
+	'Notifications' => array( 'Уведомления' ),
+);
+
 /** Sicilian (sicilianu) */
 $specialPageAliases['scn'] = array(
 	'Notifications' => array( 'Notifiche' ),
