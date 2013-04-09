@@ -12,8 +12,8 @@ class MWDbEchoBackend extends MWEchoBackend {
 	private $dbw;
 
 	protected function __construct() {
-		$this->dbr = wfGetDB( DB_SLAVE );
-		$this->dbw = wfGetDB( DB_MASTER );
+		$this->dbr = MWEchoDbFactory::getDB( DB_SLAVE );
+		$this->dbw = MWEchoDbFactory::getDB( DB_MASTER );
 	}
 
 	/**
@@ -224,7 +224,7 @@ class MWDbEchoBackend extends MWEchoBackend {
 
 		global $wgEchoMaxNotificationCount;
 
-		$db = wfGetDB( $dbSource );
+		$db = MWEchoDbFactory::getDB( $dbSource );
 		$res = $db->select(
 			array( 'echo_notification', 'echo_event' ),
 			array( 'notification_event' ),

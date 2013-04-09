@@ -12,7 +12,7 @@ class MWDbEchoEmailBatch extends MWEchoEmailBatch {
 	 * @return bool true if event exists false otherwise
 	 */
 	protected function setLastEvent() {
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = MWEchoDbFactory::getDB( DB_SLAVE );
 		$res = $dbr->selectField(
 			array( 'echo_email_batch' ),
 			array( 'MAX( eeb_event_id )' ),
@@ -40,7 +40,7 @@ class MWDbEchoEmailBatch extends MWEchoEmailBatch {
 		$validEvents = array_keys( $wgEchoNotifications );
 
 		if ( $validEvents ) {
-			$dbr = wfGetDB( DB_SLAVE );
+			$dbr = MWEchoDbFactory::getDB( DB_SLAVE );
 
 			$conds = array(
 				'eeb_user_id' => $this->mUser->getId(),
@@ -79,7 +79,7 @@ class MWDbEchoEmailBatch extends MWEchoEmailBatch {
 			$conds[] = 'eeb_event_id <= ' . intval( $this->lastEvent );
 		}
 
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = MWEchoDbFactory::getDB( DB_MASTER );
 		$dbw->delete(
 			'echo_email_batch',
 			$conds,
@@ -99,7 +99,7 @@ class MWDbEchoEmailBatch extends MWEchoEmailBatch {
 			return;
 		}
 
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = MWEchoDbFactory::getDB( DB_MASTER );
 		$dbw->insert(
 			'echo_email_batch',
 			array(
@@ -118,7 +118,7 @@ class MWDbEchoEmailBatch extends MWEchoEmailBatch {
 	 * @param $batchSize int
 	 */
 	public static function actuallyGetUsersToNotify( $startUserId, $batchSize ) {
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = MWEchoDbFactory::getDB( DB_SLAVE );
 		$res = $dbr->select(
 			array( 'echo_email_batch' ),
 			array( 'eeb_user_id' ),
