@@ -427,7 +427,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	protected function processParam( $event, $param, $message, $user ) {
 		if ( $param === 'agent' ) {
 			if ( !$event->getAgent() ) {
-				$message->params( '', wfMessage( 'echo-no-agent' )->text() );
+				$message->params( wfMessage( 'echo-no-agent' )->text() );
 			} else {
 				$message->params( $event->getAgent()->getName() );
 			}
