@@ -1730,6 +1730,13 @@ $5',
 	'echo-email-batch-category-header' => '$1 {{PLURAL:$1|notificación|notificacións}} do tipo $2',
 );
 
+/** Gujarati (ગુજરાતી)
+ * @author KartikMistry
+ */
+$messages['gu'] = array(
+	'echo-email-batch-body-default' => 'તમને નવો સંદેશ આવેલો છે',
+);
+
 /** Hebrew (עברית)
  * @author Amire80
  * @author Inkbug
