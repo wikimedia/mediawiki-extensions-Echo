@@ -5,7 +5,7 @@ class SpecialNotifications extends SpecialPage {
 	/**
 	 * Number of notification records to display per page/load
 	 */
-	private static $displayNum = 10;
+	private static $displayNum = 20;
 
 	public function __construct() {
 		parent::__construct( 'Notifications' );
@@ -85,18 +85,16 @@ class SpecialNotifications extends SpecialPage {
 
 		// Build the more link
 		if ( $more ) {
-			// This is for no-javascript fallback
-			$url = Html::element(
+			$html .= Html::element(
 				'a',
 				array(
 					'href' => SpecialPage::getTitleFor( 'Notifications' )->getLinkURL(
 								array( 'paging' => intval( $nextTimestamp ) . '|' . intval( $nextOffset ) )
-							)
+							),
+					'id' => 'mw-echo-more'
 				),
 				wfMessage( 'moredotdotdot' )->text()
 			);
-
-			$html .= Html::rawElement( 'div', array( 'id' => 'mw-echo-more' ), $url );
 		}
 
 		$out->addHTML( $html );
