@@ -24,8 +24,8 @@ class removeInvalidNotification extends Maintenance {
 			return;
 		}
 
-		$dbw = wfGetDB( DB_MASTER );
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbw = MWEchoDbFactory::getDB( DB_MASTER );
+		$dbr = MWEchoDbFactory::getDB( DB_SLAVE );
 
 		$count = $this->batchSize;
 

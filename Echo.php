@@ -79,6 +79,7 @@ $wgSpecialPageGroups['Notifications'] = 'users';
 // Backend support
 $wgAutoloadClasses['MWEchoBackend'] = $dir . 'includes/EchoBackend.php';
 $wgAutoloadClasses['MWDbEchoBackend'] = $dir . 'includes/DbEchoBackend.php';
+$wgAutoloadClasses['MWEchoDbFactory'] = $dir . 'includes/EchoDbFactory.php';
 
 // Housekeeping hooks
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'EchoHooks::getSchemaUpdates';
@@ -207,6 +208,10 @@ $wgEchoUseJobQueue = false;
 
 // The organization address, the value should be defined in LocalSettings.php
 $wgEchoEmailFooterAddress = '';
+
+// Use the main db if this is set to false, to use a specific external db, just
+// use any key defined in $wgExternalServers
+$wgEchoCluster = false;
 
 // The max notification count showed in badge
 // The max number showed in bundled message, eg, <user> and 99+ others <action>

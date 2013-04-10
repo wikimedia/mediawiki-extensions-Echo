@@ -28,7 +28,7 @@ class processEchoEmailBatch extends Maintenance {
 	}
 
 	protected function init() {
-		$this->dbr = wfGetDB( DB_SLAVE );
+		$this->dbr = MWEchoDbFactory::getDB( DB_SLAVE );
 	}
 
 	public function execute() {
