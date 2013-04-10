@@ -12,6 +12,8 @@ class SpecialNotifications extends SpecialPage {
 	}
 
 	public function execute( $par ) {
+		global $wgEchoFeedbackPage;
+
 		$this->setHeaders();
 
 		$out = $this->getOutput();
@@ -37,6 +39,7 @@ class SpecialNotifications extends SpecialPage {
 		$html = Html::rawElement( 'a', array(
 			'href' => SpecialPage::getTitleFor( 'Preferences' )->getLinkURL() . '#mw-prefsection-echo',
 			'id' => 'mw-echo-pref-link',
+			'class' => 'mw-echo-special-header-link',
 			'title' => wfMessage( 'preferences' )->text()
 		) );
 
@@ -106,6 +109,7 @@ class SpecialNotifications extends SpecialPage {
 				'wgEchoDisplayNum' => self::$displayNum,
 				'wgEchoStartTimestamp' => $nextTimestamp,
 				'wgEchoStartOffset' => $nextOffset,
+				'wgEchoFeedbackPage' => $wgEchoFeedbackPage,
 				'wgEchoDateHeader' => $dateHeader
 			)
 		);

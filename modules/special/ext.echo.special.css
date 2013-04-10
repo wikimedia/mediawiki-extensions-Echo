@@ -14,12 +14,17 @@ h1#firstHeading {
 	margin-left: 45px;
 }
 
+.mw-echo-special-header-link {
+	display: block;
+	float: right;
+	font-size: 13px;
+	font-weight: normal;
+	line-height: 14px;
+}
 #mw-echo-pref-link {
 	margin: 5px 3px;
 	height: 18px;
 	width: 18px;
-	display: block;
-	float: right;
 	/* @embed */
 	background-image: url(Preferences.png);
 	background-repeat: no-repeat;
@@ -33,8 +38,6 @@ h1#firstHeading {
 	margin: 5px 3px;
 	height: 18px;
 	width: 18px;
-	display: block;
-	float: right;
 	/* @embed */
 	background-image: url(MoreInfo.png);
 	background-repeat: no-repeat;
@@ -43,6 +46,15 @@ h1#firstHeading {
 #mw-echo-moreinfo-link:hover {
 	/* @embed */
 	background-image: url(MoreInfoHover.png);
+}
+
+#mw-echo-feedback-link {
+	margin: 10px 7px;
+	cursor: pointer;
+}
+#mw-echo-link-separator {
+	color: #AAAAAA;
+	margin: 10px 3px;
 }
 
 .mw-echo-date-section {
