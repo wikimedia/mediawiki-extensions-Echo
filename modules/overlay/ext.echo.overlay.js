@@ -34,10 +34,12 @@
 				count = 0;
 			var Api = new mw.Api();
 			// Set notification limit based on height of the window
-			var notificationLimit = Math.floor( ( $( window ).height() - 134 ) / 85 );
+			var notificationLimit = Math.floor( ( $( window ).height() - 134 ) / 90 );
 
 			if ( notificationLimit < 1 ) {
 				notificationLimit = 1;
+			} else if ( notificationLimit > 8 ) {
+				notificationLimit = 8;
 			}
 
 			Api.get( {
