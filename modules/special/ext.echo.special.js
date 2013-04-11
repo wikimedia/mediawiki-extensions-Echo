@@ -40,15 +40,32 @@
 				}
 			} );
 
+			$( '#mw-echo-pref-link' )
+				.appendTo( $( '#firstHeading' ) );
+
+			$( '<div></div>' )
+				.attr( 'id', 'mw-echo-link-separator' )
+				.attr( 'class', 'mw-echo-special-header-link' )
+				.text( '|' )
+				.appendTo( $( '#firstHeading' ) );
+
+			$( '<a/>' )
+				.attr( 'href', mw.config.get( 'wgEchoFeedbackPage' ) )
+				.attr( 'id', 'mw-echo-feedback-link' )
+				.attr( 'class', 'mw-echo-special-header-link' )
+				.prop( 'target', '_blank' )
+				.text( 'Feedback' )
+				.appendTo( $( '#firstHeading' ) );
+
+			/* This is going to be changed and re-added soon --kaldari 04/2013
 			$( '<a/>' )
 				.attr( 'href', mw.config.get( 'wgEchoHelpPage' ) )
 				.attr( 'title', mw.msg( 'echo-more-info' ) )
 				.attr( 'id', 'mw-echo-moreinfo-link' )
+				.attr( 'class', 'mw-echo-special-header-link' )
 				.prop( 'target', '_blank' )
 				.appendTo( $( '#firstHeading' ) );
-
-			$( '#mw-echo-pref-link' )
-				.appendTo( $( '#firstHeading' ) );
+			*/
 		},
 
 		/**
