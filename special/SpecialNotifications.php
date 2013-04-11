@@ -39,7 +39,6 @@ class SpecialNotifications extends SpecialPage {
 		$html = Html::rawElement( 'a', array(
 			'href' => SpecialPage::getTitleFor( 'Preferences' )->getLinkURL() . '#mw-prefsection-echo',
 			'id' => 'mw-echo-pref-link',
-			'class' => 'mw-echo-special-header-link',
 			'title' => wfMessage( 'preferences' )->text()
 		) );
 
