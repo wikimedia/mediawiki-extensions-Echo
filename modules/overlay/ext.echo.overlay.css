@@ -77,9 +77,9 @@
 	min-height: 14px;
 	font-size: 13px;
 	/* @embed */
-	background-image: url(../icons/NotificationsPage.png);
+	background-image: url(../icons/NotificationsPage-ltr.png);
 	background-repeat: no-repeat;
-	background-position: 12px 15px;
+	background-position: 5% 50%;
 }
 
 #mw-echo-overlay-pref-link {
@@ -93,7 +93,7 @@
 	/* @embed */
 	background-image: url(../icons/Settings.png);
 	background-repeat: no-repeat;
-	background-position: 12px 15px;
+	background-position: 5% 50%;
 }
 
 #pt-notifications {
