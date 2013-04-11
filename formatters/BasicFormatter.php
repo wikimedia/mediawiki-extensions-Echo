@@ -162,9 +162,11 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 		);
 
 		// Add the hidden dismiss interface if the notification is dismissable
+		/* Disabling dismiss interface until there is consensus on how it should be implemented
 		if ( $event->isDismissable( 'web' ) ) {
 			$output .= $this->formatDismissInterface( $event, $user );
 		}
+		*/
 
 		// Build the notification title
 		$content = Xml::tags(
