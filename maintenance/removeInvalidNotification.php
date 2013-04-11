@@ -24,6 +24,8 @@ class removeInvalidNotification extends Maintenance {
 			return;
 		}
 
+		global $wgEchoCluster;
+
 		$dbw = MWEchoDbFactory::getDB( DB_MASTER );
 		$dbr = MWEchoDbFactory::getDB( DB_SLAVE );
 
@@ -66,7 +68,7 @@ class removeInvalidNotification extends Maintenance {
 				$dbw->commit();
 
 				$this->output( "processing " . count( $event ) . " invalid events\n" );
-				wfWaitForSlaves();
+				wfWaitForSlaves( false, false, $wgEchoCluster );
 			}
 
 			// Cleanup is not necessary for

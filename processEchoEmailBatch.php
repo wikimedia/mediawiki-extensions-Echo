@@ -32,6 +32,8 @@ class processEchoEmailBatch extends Maintenance {
 	}
 
 	public function execute() {
+		global $wgEchoCluster;
+
 		$this->init();
 		$this->output( "Started processing... \n" );
 
@@ -57,7 +59,7 @@ class processEchoEmailBatch extends Maintenance {
 				}
 				$count++;
 			}
-			wfWaitForSlaves();
+			wfWaitForSlaves( false, false, $wgEchoCluster );
 
 			// double check to make sure that the id is updated
 			if ( !$updated ) {
