@@ -70,8 +70,7 @@ class removeInvalidNotification extends Maintenance {
 			}
 
 			// Cleanup is not necessary for
-			// 1. echo_subscription, this table is not used yet
-			// 2. echo_email_batch, invalid notification is removed during the cron
+			// 1. echo_email_batch, invalid notification is removed during the cron
 		}
 	}
 }
