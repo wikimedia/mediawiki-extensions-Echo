@@ -44,11 +44,24 @@
 				.attr( 'href', mw.config.get( 'wgEchoHelpPage' ) )
 				.attr( 'title', mw.msg( 'echo-more-info' ) )
 				.attr( 'id', 'mw-echo-moreinfo-link' )
-				.attr( 'class', 'mw-echo-special-header-link' )
-				.prop( 'target', '_blank' )
+				.attr( 'target', '_blank' )
 				.appendTo( $( '#firstHeading' ) );
 
 			$( '#mw-echo-pref-link' )
+				.appendTo( $( '#firstHeading' ) );
+
+			$( '<span/>' )
+				.attr( 'id', 'mw-echo-link-separator' )
+				.addClass( 'mw-echo-special-header-link' )
+				.text( '|' )
+				.appendTo( $( '#firstHeading' ) );
+
+			$( '<a/>' )
+				.attr( 'href', mw.config.get( 'wgEchoFeedbackPage' ) )
+				.attr( 'id', 'mw-echo-feedback-link' )
+				.addClass( 'mw-echo-special-header-link' )
+				.attr( 'target', '_blank' )
+				.text( mw.msg( 'echo-feedback' ) )
 				.appendTo( $( '#firstHeading' ) );
 
 		},

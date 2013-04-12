@@ -51,6 +51,7 @@ $messages['en'] = array(
 	'echo-anon' => 'To receive notifications, [[Special:Userlogin/signup|create an account]] or [[Special:UserLogin|log in]].',
 	'echo-none' => 'You have no notifications.',
 	'echo-more-info' => 'More info',
+	'echo-feedback' => 'Feedback',
 
 	// Notification
 	'echo-quotation-marks' => '"$1"',
@@ -249,6 +250,7 @@ Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}} and <code>$2</code> i
 	'echo-anon' => 'Error message shown to users who try to visit Special:Notifications as an anon.',
 	'echo-none' => 'Message shown to users who have no notifications. Also shown in the overlay.',
 	'echo-more-info' => 'This is used for the title (mouseover text) of an icon that links to a page with more information about the Echo extension.',
+	'echo-feedback' => 'Text for a link that goes to a feedback survey',
 	'echo-quotation-marks' => 'Puts the edit summary in quotation marks. Only translate if different than English.',
 	'notification-edit-talk-page2' => "Format for displaying notifications of a user talk page being edited
 * $1 is the username of the person who edited, plain text. Can be used for GENDER.
