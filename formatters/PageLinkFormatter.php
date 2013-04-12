@@ -33,7 +33,11 @@ class EchoPageLinkFormatter extends EchoBasicFormatter {
 
 		$count = 1;
 		foreach ( $data as $row ) {
-			$extra = $row->event_extra;
+			$extra = $row->event_extra ? unserialize( $row->event_extra ) : null;
+			if ( !$extra ) {
+				continue;
+			}
+
 			if ( $this->isTitleSet( $extra ) ) {
 				$key = $this->getTitleHash( $extra );
 
