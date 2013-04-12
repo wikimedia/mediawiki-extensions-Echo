@@ -211,6 +211,13 @@ abstract class MWEchoEmailBundler {
 	 * Main function for processinig bundle email
 	 */
 	public function processBundleEmail() {
+		// User has switched to email digest, should not send any bundle email
+		// and should not schedule any bundle job, the daily cron will handle
+		// events left in the queue
+		if ( intval( $this->mUser->getOption( 'echo-email-frequency' ) ) > 0 ) {
+			return;
+		}
+
 		$this->retrieveLastEmailTimestamp();
 
 		// if there is nothing in the queue, do not schedule a job or
