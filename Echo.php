@@ -175,6 +175,7 @@ $wgHooks['EchoGetBundleRules'][] = 'EchoHooks::onEchoGetBundleRules';
 $wgHooks['ArticleSaveComplete'][] = 'EchoHooks::onArticleSaved';
 $wgHooks['AddNewAccount'][] = 'EchoHooks::onAccountCreated';
 $wgHooks['ArticleRollbackComplete'][] = 'EchoHooks::onRollbackComplete';
+$wgHooks['UserSaveSettings'][] = 'EchoHooks::onUserSaveSettings';
 
 // Disable ordinary user talk page email notifications
 $wgHooks['AbortEmailNotification'][] = 'EchoHooks::disableStandUserTalkEnotif';
