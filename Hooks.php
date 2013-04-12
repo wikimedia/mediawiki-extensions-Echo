@@ -697,4 +697,18 @@ class EchoHooks {
 
 		return true;
 	}
+
+	/**
+	 * Handler for UserSaveSettings hook.
+	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/UserSaveSettings
+	 * @param $user User whose settings were saved
+	 * @return bool true in all cases
+	 */
+	static function onUserSaveSettings( $user ) {
+		// Reset the notification count since it may have changed due to user
+		// option changes. This covers both explicit changes in the preferences
+		// and changes made through the options API (since both call this hook).
+		EchoNotificationController::resetNotificationCount( $user, DB_MASTER );
+		return true;
+	}
 }
