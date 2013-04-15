@@ -397,13 +397,6 @@ class EchoHooks {
 	public static function onArticleSaved( &$article, &$user, $text, $summary, $minoredit, $watchthis, $sectionanchor, &$flags, $revision, &$status ) {
 		global $wgEchoNotifications, $wgRequest;
 		if ( $revision ) {
-			EchoEvent::create( array(
-				'type' => 'edit',
-				'title' => $article->getTitle(),
-				'extra' => array( 'revid' => $revision->getID() ),
-				'agent' => $user,
-			) );
-
 			if ( $article->getTitle()->isTalkPage() ) {
 				EchoDiscussionParser::generateEventsForRevision( $revision );
 			}
