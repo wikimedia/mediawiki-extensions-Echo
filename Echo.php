@@ -153,6 +153,7 @@ $wgResourceModules += array(
 		'messages' => array(
 			'echo-load-more-error',
 			'echo-more-info',
+			'echo-feedback',
 		),
 	),
 	'ext.echo.icons' => $echoResourceTemplate + array(
