@@ -30,12 +30,12 @@ $messages['en'] = array(
 	'echo-dismiss-prefs-message' => 'You can turn these back on in Preferences',
 
 	// Category titles
-	'echo-category-title-edit-user-talk' => 'Talk page post',
-	'echo-category-title-article-linked' => 'Page link',
-	'echo-category-title-reverted' => 'Edit revert',
-	'echo-category-title-mention' => 'Mention',
-	'echo-category-title-other' => 'Other',
-	'echo-category-title-system' => 'System',
+	'echo-category-title-edit-user-talk' => 'Talk page {{PLURAL:$1|post|posts}}',
+	'echo-category-title-article-linked' => 'Page {{PLURAL:$1|link|links}}',
+	'echo-category-title-reverted' => 'Edit {{PLURAL:$1|revert|reverts}}',
+	'echo-category-title-mention' => '{{PLURAL:$1|Mention|Mentions}}',
+	'echo-category-title-other' => '{{PLURAL:$1|Other}}',
+	'echo-category-title-system' => '{{PLURAL:$1|System}}',
 
 	// Errors
 	'echo-no-agent' => '[Nobody]',
@@ -159,11 +159,11 @@ $1',
 	// Email batch
 	'echo-email-batch-separator' => '________________________________________________', # only translate this message to other languages if you have to change it
 	'echo-email-batch-bullet' => '•', # only translate this message to other languages if you have to change it
-	'echo-email-batch-subject-daily' => 'You have $1 {{PLURAL:$2|notification|notifications}} today',
-	'echo-email-batch-subject-weekly' => 'You have $1 {{PLURAL:$2|notification|notifications}} this week',
+	'echo-email-batch-subject-daily' => 'You have new {{PLURAL:$2|notification|notifications}} today',
+	'echo-email-batch-subject-weekly' => 'You have new {{PLURAL:$2|notification|notifications}} this week',
 	'echo-email-batch-body-daily' => '$1,
 
-You have $2 {{PLURAL:$3|notification|notifications}} on {{SITENAME}} today.  View them here:
+You have new {{PLURAL:$3|notification|notifications}} on {{SITENAME}} today.  View them here:
 {{canonicalurl:{{#special:Notifications}}}}
 
 $4
@@ -171,13 +171,12 @@ $4
 $5',
 	'echo-email-batch-body-weekly' => '$1,
 
-You have $2 {{PLURAL:$3|notification|notifications}} on {{SITENAME}} this week.  View them here:
+You have new {{PLURAL:$3|notification|notifications}} on {{SITENAME}} this week.  View them here:
 {{canonicalurl:{{#special:Notifications}}}}
 
 $4
 
 $5',
-	'echo-email-batch-category-header' => '$1 $2 {{PLURAL:$1|notification|notifications}}',
 );
 
 /** Message documentation (Message documentation)
@@ -226,16 +225,22 @@ See also:
 ** {{msg-mw|Echo-category-title-other}}
 ** {{msg-mw|Echo-category-title-system}}',
 	'echo-dismiss-prefs-message' => 'Used in Dismiss interface.',
-	'echo-category-title-edit-user-talk' => 'This is a short title for notification category. Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}} and <code>$2</code> in {{msg-mw|Echo-email-batch-category-header}}.',
-	'echo-category-title-article-linked' => 'This is a short title for notification category. Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}} and <code>$2</code> in {{msg-mw|Echo-email-batch-category-header}}.',
-	'echo-category-title-reverted' => 'This is a short title for notification category. Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}} and <code>$2</code> in {{msg-mw|Echo-email-batch-category-header}}.',
-	'echo-category-title-mention' => 'This is a short title for notification category. Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}} and <code>$2</code> in {{msg-mw|Echo-email-batch-category-header}}.',
+	'echo-category-title-edit-user-talk' => 'This is a short title for notification category. Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}} and <code>$2</code> in {{msg-mw|Echo-email-batch-category-header}}. Parameters:
+* $1 - the number used for plural support',
+	'echo-category-title-article-linked' => 'This is a short title for notification category. Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}} and <code>$2</code> in {{msg-mw|Echo-email-batch-category-header}}. Parameters:
+* $1 - the number used for plural support',
+	'echo-category-title-reverted' => 'This is a short title for notification category. Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}} and <code>$2</code> in {{msg-mw|Echo-email-batch-category-header}}. Parameters:
+* $1 - the number used for plural support',
+	'echo-category-title-mention' => 'This is a short title for notification category. Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}} and <code>$2</code> in {{msg-mw|Echo-email-batch-category-header}}. Parameters:
+* $1 - the number used for plural support',
 	'echo-category-title-other' => 'This is a short title for notification category.
 
 Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}} and <code>$2</code> in {{msg-mw|Echo-email-batch-category-header}}.
-{{Identical|Other}}',
+{{Identical|Other}} Parameters:
+* $1 - the number used for plural support',
 	'echo-category-title-system' => 'This is a short title for notification category. Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}} and <code>$2</code> in {{msg-mw|Echo-email-batch-category-header}}.
-{{Identical|System}}',
+{{Identical|System}} Parameters:
+* $1 - the number used for plural support',
 	'echo-no-agent' => 'Shown in place of a username in a notification
 	if the notification has no specified user.',
 	'echo-no-title' => 'Shown in place of a page title in a notification if the notification has no specified page title.',
@@ -472,18 +477,18 @@ The header text for each notification section which is grouped by date
 Email batch content separator',
 	'echo-email-batch-bullet' => '{{optional}}',
 	'echo-email-batch-subject-daily' => 'Daily e-mail batch subject.
-* $1 could be a numeric count or "10+". See also: {{msg-mw|echo-notification-count|optional message|notext=1}}.
+* $1 is currently not used, could be a numeric count or "10+". See also: {{msg-mw|echo-notification-count|optional message|notext=1}}.
 * $2 is a numeric count, this is used for plural support
 See also:
 * {{msg-mw|Echo-email-batch-subject-weekly}}',
 	'echo-email-batch-subject-weekly' => 'Weekly e-mail batch subject.
-* $1 could be a numeric count or "10+". See also: {{msg-mw|echo-notification-count|optional message|notext=1}}
+* $1 is currently not used, could be a numeric count or "10+". See also: {{msg-mw|echo-notification-count|optional message|notext=1}}
 * $2 is a numeric count, this is used for plural support
 See also:
 * {{msg-mw|Echo-email-batch-subject-daily}}',
 	'echo-email-batch-body-daily' => 'Daily e-mail batch body. Parameters:
 * $1 is a username
-* $2 could be a numeric count or "10+". See also: {{msg-mw|echo-notification-count|optional message|notext=1}}.
+* $2 is currently not used, could be a numeric count or "10+". See also: {{msg-mw|echo-notification-count|optional message|notext=1}}.
 * $3 is a numeric count, this is used for plural support
 * $4 is the e-mail batch content separated by "-------..." ({{msg-mw|echo-email-batch-separator}})
 * $5 is the e-mail footer, {{msg-mw|echo-email-footer-default}}
@@ -491,7 +496,7 @@ See also:
 * {{msg-mw|Echo-email-batch-body-weekly}}',
 	'echo-email-batch-body-weekly' => 'Weekly e-mail batch body. Parameters:
 * $1 is a username
-* $2 could be a numeric count or "10+". See also: {{msg-mw|echo-notification-count|optional message|notext=1}}.
+* $2 is currently not used, could be a numeric count or "10+". See also: {{msg-mw|echo-notification-count|optional message|notext=1}}.
 * $3 is a numeric count, this is used for plural support
 * $4 is the e-mail batch content separated by "--------..." ({{msg-mw|echo-email-batch-separator}})
 * $5 is the e-mail footer, {{msg-mw|echo-email-footer-default}}

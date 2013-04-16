@@ -211,16 +211,19 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	 * @return string
 	 */
 	protected function formatDismissInterface( $event, $user ) {
+		$userLanguage = $user->getOption( 'language' );
+
 		$dismissTitle = wfMessage( 'echo-category-title-' . $event->getCategory() )
-			->inLanguage( $user->getOption( 'language' ) )
-			->escaped();
-		$dismissMessage = wfMessage( 'echo-dismiss-message', $dismissTitle )
-			->inLanguage( $user->getOption( 'language' ) )
+			->inLanguage( $userLanguage )
+			->numParams( 1 )
 			->text();
+		$dismissMessage = wfMessage( 'echo-dismiss-message', $dismissTitle )
+			->inLanguage( $userLanguage )
+			->escaped();
 		$dismiss = Xml::tags( 'div', array( 'class' => 'mw-echo-dismiss-message' ), $dismissMessage ) . "\n";
 		$prefsMessage = wfMessage( 'echo-dismiss-prefs-message' )
-			->inLanguage( $user->getOption( 'language' ) )
-			->text();
+			->inLanguage( $userLanguage )
+			->escaped();
 		$dismiss .= Xml::tags( 'div', array( 'class' => 'mw-echo-prefs-dismiss-message' ), $prefsMessage ) . "\n";
 		$dismiss = Xml::tags( 'div', array( 'class' => 'mw-echo-dismiss', 'style' => 'display:none;' ), $dismiss ) . "\n";
 		return $dismiss;
