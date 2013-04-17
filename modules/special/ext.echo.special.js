@@ -161,7 +161,7 @@
 		},
 
 		'onSuccess': function() {
-			if ( this.moreData == '0' ) {
+			if ( this.moreData === '0' ) {
 				$( '#mw-echo-more' ).hide();
 			}
 			this.processing = false;

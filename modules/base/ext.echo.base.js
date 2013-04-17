@@ -1,4 +1,5 @@
 ( function ( $, mw ) {
+	/*global alert */
 	'use strict';
 
 	mw.echo = {
@@ -12,8 +13,7 @@
 		 * reload the page.
 		 */
 		'dismiss': function( notification ) {
-			var _this = this,
-				$notification = $( notification ),
+			var $notification = $( notification ),
 				eventCategory = $notification.attr( 'data-notification-category' ),
 				prefName = '',
 				prefs = [],
@@ -26,21 +26,21 @@
 				}
 			} );
 			prefRequest = {
-					'action': 'options',
-					'change': prefs.join( '|' ),
-					'token': mw.echo.optionsToken,
-					'format': 'json'
-				};
+				action: 'options',
+				change: prefs.join( '|' ),
+				token: mw.echo.optionsToken,
+				format: 'json'
+			};
 			$.ajax( {
 				type: 'post',
 				url: mw.util.wikiScript( 'api' ),
 				data: prefRequest,
 				dataType: 'json',
-				success: function( data ) {
+				success: function () {
 					// If we're on the Notifications archive page, just refresh the page
-					if ( mw.config.get( 'wgCanonicalNamespace' ) === 'Special'
-						&& mw.config.get( 'wgCanonicalSpecialPageName' ) === 'Notifications' )
-					{
+					if ( mw.config.get( 'wgCanonicalNamespace' ) === 'Special' &&
+						mw.config.get( 'wgCanonicalSpecialPageName' ) === 'Notifications'
+					) {
 						window.location.reload();
 					} else {
 						eventCategory = $notification.attr( 'data-notification-category' );
@@ -59,8 +59,10 @@
 		 * First we have to retrieve the options token.
 		 */
 		'setOptionsToken': function( callback, notification ) {
-			var _this = this;
-			var tokenRequest = {
+			var tokenRequest,
+				_this = this;
+
+			tokenRequest = {
 				'action': 'tokens',
 				'type' : 'options',
 				'format': 'json'
@@ -74,7 +76,7 @@
 					data: tokenRequest,
 					dataType: 'json',
 					success: function( data ) {
-						if ( typeof data.tokens.optionstoken === 'undefined' ) {
+						if ( data.tokens.optionstoken === undefined ) {
 							alert( mw.msg( 'echo-error-token' ) );
 						} else {
 							_this.optionsToken = data.tokens.optionstoken;
@@ -111,11 +113,12 @@
 		'setUpDismissability' : function( notification ) {
 			var $dismissButton,
 				$cancelButton,
+				$closebox,
 				_this = this,
 				$notification = $( notification );
 
 			// Add dismiss box
-			var $closebox = $( '<div/>' )
+			$closebox = $( '<div/>' )
 				.addClass( 'mw-echo-close-box' )
 				.css( 'display', 'none' )
 				.click( function() {
@@ -129,7 +132,7 @@
 				.addClass( 'mw-echo-dismiss-button' )
 				.addClass( 'ui-button-blue' )
 				.button( {
-					icons: { primary: "ui-icon-closethick" }
+					icons: { primary: 'ui-icon-closethick' }
 				} )
 				.click( function () {
 					_this.setOptionsToken( _this.dismiss, $notification );

@@ -22,19 +22,21 @@
 					.badge( newCount, true, true );
 			}
 
-			mw.echo.overlay.notification_count = newCount;
+			mw.echo.overlay.notificationCount = newCount;
 		},
 
 		'configuration' : mw.config.get( 'wgEchoOverlayConfiguration' ),
 
 		'buildOverlay' : function( callback ) {
-			var $overlay = $( '<div></div>' ).addClass( 'mw-echo-overlay' ),
+			var notificationLimit,
+				$overlay = $( '<div></div>' ).addClass( 'mw-echo-overlay' ),
 				$link = $( '#pt-notifications a' ),
 				$prefLink = $( '#pt-preferences a' ),
-				count = 0;
-			var Api = new mw.Api();
+				count = 0,
+				Api = new mw.Api();
+
 			// Set notification limit based on height of the window
-			var notificationLimit = Math.floor( ( $( window ).height() - 134 ) / 90 );
+			notificationLimit = Math.floor( ( $( window ).height() - 134 ) / 90 );
 
 			if ( notificationLimit < 1 ) {
 				notificationLimit = 1;
@@ -55,12 +57,13 @@
 						unreadTotalCount = result.query.notifications.count,
 						$title = $( '<div class="mw-echo-overlay-title"></div>' ),
 						$ul = $( '<ul class="mw-echo-notifications"></ul>' ),
-						titleText = '';
+						titleText = '',
+						$overlayFooter;
 
 					$ul.css( 'max-height', notificationLimit * 95 + 'px' );
 					$.each( notifications.index, function( index, id ) {
-						var data = notifications.list[id];
-						var $li = $( '<li></li>' )
+						var data = notifications.list[id],
+							$li = $( '<li></li>' )
 								.data( 'details', data )
 								.data( 'id', id )
 								.attr( 'data-notification-category', data.category )
@@ -96,7 +99,7 @@
 						$ul.appendTo( $overlay );
 					}
 
-					var $overlayFooter = $( '<div/>' )
+					$overlayFooter = $( '<div/>' )
 						.attr( 'id', 'mw-echo-overlay-footer' );
 
 					// add link to notifications archive
@@ -143,10 +146,10 @@
 		}
 	};
 
-	mw.echo.overlay.notification_count = mw.echo.overlay.configuration['notification-count'];
+	mw.echo.overlay.notificationCount = mw.echo.overlay.configuration['notification-count'];
 
 	$( function() {
-		mw.echo.overlay.updateCount( mw.echo.overlay.notification_count );
+		mw.echo.overlay.updateCount( mw.echo.overlay.notificationCount );
 
 		var $link = $( '#pt-notifications a' );
 		if ( ! $link.length ) {
@@ -154,8 +157,10 @@
 		}
 
 		$link.click( function( e ) {
+			var $target, $overlay;
+
 			e.preventDefault();
-			var $target = $( e.target );
+			$target = $( e.target );
 			// If the user clicked on the overlay or any child,
 			//  ignore the click
 			if ( $target.hasClass( 'mw-echo-overlay' ) ||
@@ -164,7 +169,7 @@
 				return;
 			}
 
-			var $overlay = $( '.mw-echo-overlay' );
+			$overlay = $( '.mw-echo-overlay' );
 
 			if ( $overlay.length ) {
 				$overlay.fadeOut( 'fast',
@@ -172,7 +177,7 @@
 				);
 				return;
 			}
-			
+
 			$overlay = mw.echo.overlay.buildOverlay(
 				function( $overlay ) {
 					$overlay
