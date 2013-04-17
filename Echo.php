@@ -218,6 +218,14 @@ $wgEchoUseJobQueue = false;
 // The organization address, the value should be defined in LocalSettings.php
 $wgEchoEmailFooterAddress = '';
 
+// The email address for both "from" and "reply to" on email notifications.
+// Should be defined in LocalSettings.php
+$wgNotificationSender = $wgPasswordSender;
+// Name for "from" on email notifications. Should be defined in LocalSettings.php
+$wgNotificationSenderName = $wgPasswordSenderName;
+// Name for "reply to" on email notifications. Should be defined in LocalSettings.php
+$wgNotificationReplyName = 'No Reply';
+
 // Use the main db if this is set to false, to use a specific external db, just
 // use any key defined in $wgExternalServers
 $wgEchoCluster = false;

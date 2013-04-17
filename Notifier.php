@@ -65,7 +65,7 @@ class EchoNotifier {
 
 		// See if the user wants to receive emails for this category
 		if ( $user->getOption( 'echo-subscriptions-email-' . $event->getCategory() ) ) {
-			global $wgEchoEnableEmailBatch, $wgEchoNotifications, $wgPasswordSender, $wgPasswordSenderName, $wgEchoBundleEmailInterval;
+			global $wgEchoEnableEmailBatch, $wgEchoNotifications, $wgNotificationSender, $wgNotificationSenderName, $wgNotificationReplyName, $wgEchoBundleEmailInterval;
 
 			$priority = EchoNotificationController::getNotificationPriority( $event->getType() );
 
@@ -108,8 +108,9 @@ class EchoNotifier {
 			// send single notification if the email wasn't added to queue for bundling
 			if ( !$addedToQueue ) {
 				// instant email notification
-				$adminAddress = new MailAddress( $wgPasswordSender, $wgPasswordSenderName );
-				$address = new MailAddress( $user );
+				$toAddress = new MailAddress( $user );
+				$fromAddress = new MailAddress( $wgNotificationSender, $wgNotificationSenderName );
+				$replyAddress = new MailAddress( $wgNotificationSender, $wgNotificationReplyName );
 				// Since we are sending a single email, should set the bundle hash to null
 				// if it is set with a value from somewhere else
 				$event->setBundleHash( null );
@@ -117,7 +118,7 @@ class EchoNotifier {
 				$subject = $email['subject'];
 				$body = $email['body'];
 
-				UserMailer::send( $address, $adminAddress, $subject, $body );
+				UserMailer::send( $toAddress, $fromAddress, $subject, $body, $replyAddress );
 			}
 		}
 
