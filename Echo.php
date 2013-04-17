@@ -129,6 +129,7 @@ $wgResourceModules += array(
 			'mediawiki.jqueryMsg',
 			'jquery.badge',
 			'ext.echo.icons',
+			'mediawiki.ui',
 		),
 		'messages' => array(
 			'echo-link-new',
@@ -137,6 +138,7 @@ $wgResourceModules += array(
 			'echo-overlay-title-overflow',
 			'echo-overlay-link',
 			'echo-none',
+			'echo-mark-all-as-read',
 		),
 	),
 	'ext.echo.special' => $echoResourceTemplate + array(

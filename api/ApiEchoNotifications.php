@@ -14,6 +14,8 @@ class ApiEchoNotifications extends ApiQueryBase {
 		$params = $this->extractRequestParams();
 		if ( count( $params['markread'] ) ) {
 			EchoNotificationController::markRead( $user, $params['markread'] );
+		} elseif ( $params['markallread'] ) {
+			EchoNotificationController::markAllRead( $user );
 		}
 
 		$prop = $params['prop'];
@@ -161,6 +163,10 @@ class ApiEchoNotifications extends ApiQueryBase {
 			'markread' => array(
 				ApiBase::PARAM_ISMULTI => true,
 			),
+			'markallread' => array(
+				ApiBase::PARAM_REQUIRED => false,
+				ApiBase::PARAM_TYPE => 'boolean'
+			),
 			'format' => array(
 				ApiBase::PARAM_TYPE => array(
 					'text',
@@ -188,6 +194,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 		return array(
 			'prop' => 'Details to request.',
 			'markread' => 'A list of notification IDs to mark as read',
+			'markallread' => "If set to true, marks all of a user's notifications as read",
 			'format' => 'If specified, notifications will be returned formatted this way.',
 			'index' => 'If specified, a list of notification IDs, in order, will be returned.',
 			'limit' => 'The maximum number of notifications to return.',

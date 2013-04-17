@@ -162,6 +162,25 @@ class EchoNotificationController {
 	}
 
 	/**
+	 * @param $user User to mark all notifications read for
+	 * @return boolean
+	 */
+	public static function markAllRead( $user ) {
+		global $wgEchoBackend, $wgEchoMaxNotificationCount;
+
+		$notificationCount = self::getNotificationCount( $user );
+		// Only update all the unread notifications if it isn't a huge number.
+		// TODO: Implement batched jobs it's over the maximum.
+		if ( $notificationCount <= $wgEchoMaxNotificationCount ) {
+			$wgEchoBackend->markAllRead( $user );
+			self::resetNotificationCount( $user, DB_MASTER );
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	/**
 	 * Recalculates the number of notifications that a user has.
 	 *
 	 * @param $user User object
