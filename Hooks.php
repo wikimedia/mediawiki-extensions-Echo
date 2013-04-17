@@ -376,6 +376,13 @@ class EchoHooks {
 			'columns' => $columns,
 			'remove-options' => $removeOptions,
 		);
+
+		// Show fly-out display prefs
+		$preferences['echo-notify-show-link'] = array(
+			'type' => 'toggle',
+			'label-message' => 'echo-pref-notify-show-link',
+			'section' => 'echo/displaynotifications',
+		);
 		return true;
 	}
 
@@ -541,7 +548,7 @@ class EchoHooks {
 	 */
 	static function beforePageDisplay( $out, $skin ) {
 		$user = $out->getUser();
-		if ( $user->isLoggedIn() && !$user->getOption( 'echo-notify-hide-link' ) ) {
+		if ( $user->isLoggedIn() && $user->getOption( 'echo-notify-show-link' ) ) {
 			// Load the module for the Notifications flyout
 			$out->addModules( array( 'ext.echo.overlay' ) );
 		}
@@ -559,7 +566,7 @@ class EchoHooks {
 	static function onPersonalUrls( &$personal_urls, &$title ) {
 		global $wgUser, $wgEchoShowFullNotificationsLink;
 		// Add a "My notifications" item to personal URLs
-		if ( $wgUser->isAnon() || $wgUser->getOption( 'echo-notify-hide-link' ) ) {
+		if ( $wgUser->isAnon() || !$wgUser->getOption( 'echo-notify-show-link' ) ) {
 			return true;
 		}
 
@@ -646,18 +653,22 @@ class EchoHooks {
 	/**
 	 * Handler for ArticleEditUpdateNewTalk hook.
 	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/ArticleEditUpdateNewTalk
-	 * @param $page WikiPage The WikiPage object of the talk page being updated
-	 * @return bool
+	 * @param &$page WikiPage The WikiPage object of the talk page being updated
+	 * @param $recipient User The user who's talk page was edited
+	 * @return bool Should return false to prevent the orange notification bar
+	 *     or true to allow the orange notification bar
 	 */
-	static function abortNewTalkNotification( $page ) {
-		global $wgUser, $wgEchoNotifications;
+	static function abortNewTalkNotification( &$page, $recipient ) {
+		global $wgEchoNotifications;
 		// If the user has the notifications flyout turned on and is receiving
-		// notifications for talk page messages, disable the yellow-bar-style notice.
-		if ( !$wgUser->getOption( 'echo-notify-hide-link' )
-			&& isset( $wgEchoNotifications['edit-user-talk'] ) )
-		{
+		// notifications for talk page messages, disable the orange-bar-style notice.
+		if ( $recipient->getOption( 'echo-notify-show-link' )
+			&& isset( $wgEchoNotifications['edit-user-talk'] )
+		) {
+			// hide orange bar
 			return false;
 		} else {
+			// show orange bar
 			return true;
 		}
 	}

@@ -22,7 +22,7 @@ $messages['en'] = array(
 	'echo-pref-email-frequency-immediately' => 'Individual notifications as they come in',
 	'echo-pref-email-frequency-daily' => 'A daily summary of notifications',
 	'echo-pref-email-frequency-weekly' => 'A weekly summary of notifications',
-	'echo-pref-notify-hide-link' => 'Hide the link and badge for notifications in my toolbar',
+	'echo-pref-notify-show-link' => 'Show notifications in my toolbar',
 
 	// Dismiss interface
 	'echo-dismiss-button' => 'Dismiss',
@@ -214,7 +214,7 @@ See also:
 	'echo-pref-email-frequency-immediately' => 'Option for users who want to receive email for each notification as it occurs',
 	'echo-pref-email-frequency-daily' => 'Option for users who want to receive a daily digest of email notifications',
 	'echo-pref-email-frequency-weekly' => 'Option for users who want to receive a weekly digest of email notifications',
-	'echo-pref-notify-hide-link' => "Label for a preference which disables the 'Notifications' link in the header and associated fly-out panel",
+	'echo-pref-notify-show-link' => "Label for a preference which enables the 'Notifications' link in the header and associated fly-out panel",
 	'echo-dismiss-button' => 'Text for the button that dismisses a notification type. Keep this short.
 {{Identical|Dismiss}}',
 	'echo-dismiss-message' => 'Message asking the user if they want to turn off all notifications of a certain type. Parameters:

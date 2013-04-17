@@ -394,7 +394,7 @@ $wgEchoNotifications = array(
 );
 
 // Enable notifications for all logged in users by default
-$wgDefaultUserOptions['echo-notify-link'] = 'true';
+$wgDefaultUserOptions['echo-notify-show-link'] = true;
 
 // By default, send emails for each notification as they come in
 $wgDefaultUserOptions['echo-email-frequency'] = EchoHooks::EMAIL_IMMEDIATELY;

@@ -76,7 +76,9 @@ abstract class EchoDiscussionParser {
 
 		if ( !$createdEvents && $title->getNamespace() == NS_USER_TALK ) {
 			$notifyUser = User::newFromName( $title->getText() );
-			if ( $notifyUser && $notifyUser->getID() ) {
+			// If the recipient is a valid non-anonymous user and hasn't turned
+			// off thier notifications, generate a talk page post Echo notification.
+			if ( $notifyUser && $notifyUser->getID() && $notifyUser->getOption( 'echo-notify-show-link' ) ) {
 				EchoEvent::create( array(
 					'type' => 'edit-user-talk',
 					'title' => $title,
