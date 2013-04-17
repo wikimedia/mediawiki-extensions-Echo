@@ -167,6 +167,10 @@ class MWDbEchoBackend extends MWEchoBackend {
 	public function createEvent( $row ) {
 		$id = $this->dbw->nextSequenceValue( 'echo_event_id' );
 
+		if ( $id ) {
+			$row['event_id'] = $id;
+		}
+
 		$this->dbw->insert( 'echo_event', $row, __METHOD__ );
 
 		if ( !$id ) {

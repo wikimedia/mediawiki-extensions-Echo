@@ -136,7 +136,6 @@ class EchoEvent {
 		}
 
 		$row = array(
-			'event_id' => $this->id,
 			'event_type' => $this->type,
 			'event_variant' => $this->variant,
 		);
