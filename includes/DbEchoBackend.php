@@ -6,24 +6,14 @@
 class MWDbEchoBackend extends MWEchoBackend {
 
 	/**
-	 * Database object
-	 */
-	private $dbr;
-	private $dbw;
-
-	protected function __construct() {
-		$this->dbr = MWEchoDbFactory::getDB( DB_SLAVE );
-		$this->dbw = MWEchoDbFactory::getDB( DB_MASTER );
-	}
-
-	/**
 	 * @param $row array
 	 */
 	public function createNotification( $row ) {
-		$this->dbw->begin( __METHOD__ );
+		$dbw = MWEchoDbFactory::getDB( DB_MASTER );
+		$dbw->begin( __METHOD__ );
 		// reset the base if this notification has a display hash
 		if ( $row['notification_bundle_display_hash'] ) {
-			$this->dbw->update(
+			$dbw->update(
 				'echo_notification',
 				array( 'notification_bundle_base' => 0 ),
 				array(
@@ -35,9 +25,9 @@ class MWDbEchoBackend extends MWEchoBackend {
 			);
 		}
 
-		$row['notification_timestamp'] = $this->dbw->timestamp( $row['notification_timestamp'] );
-		$this->dbw->insert( 'echo_notification', $row, __METHOD__ );
-		$this->dbw->commit( __METHOD__ );
+		$row['notification_timestamp'] = $dbw->timestamp( $row['notification_timestamp'] );
+		$dbw->insert( 'echo_notification', $row, __METHOD__ );
+		$dbw->commit( __METHOD__ );
 	}
 
 	/**
@@ -50,6 +40,8 @@ class MWDbEchoBackend extends MWEchoBackend {
 	 * @return array
 	 */
 	public function loadNotifications( $user, $limit, $timestamp, $offset, $outputFormat = 'web' ) {
+		$dbr = MWEchoDbFactory::getDB( DB_SLAVE );
+
 		$eventTypesToLoad = $this->getUserEnabledEvents( $user, $outputFormat );
 		if ( !$eventTypesToLoad ) {
 			return array();
@@ -64,11 +56,11 @@ class MWDbEchoBackend extends MWEchoBackend {
 
 		// Start points are specified
 		if ( $timestamp && $offset ) {
-			$conds[] = 'notification_timestamp <= ' . $this->dbr->addQuotes( $this->dbr->timestamp( $timestamp ) );
+			$conds[] = 'notification_timestamp <= ' . $dbr->addQuotes( $dbr->timestamp( $timestamp ) );
 			$conds[] = 'notification_event < ' . intval( $offset );
 		}
 
-		$res = $this->dbr->select(
+		$res = $dbr->select(
 			array( 'echo_notification', 'echo_event' ),
 			'*',
 			$conds,
@@ -92,13 +84,15 @@ class MWDbEchoBackend extends MWEchoBackend {
 	 * @return ResultWrapper|bool
 	 */
 	public function getRawBundleData( $user, $bundleHash, $type = 'web' ) {
+		$dbr = MWEchoDbFactory::getDB( DB_SLAVE );
+
 		// We only display 99+ if the number is over 100, we can do limit 250, this should be sufficient
 		// to return 99 distinct group iterators, avoid select count( distinct ) for the folliwng:
 		// 1. it will not scale for large volume data
 		// 2. notification may have random grouping iterator
 		// 2. agent may be anonymous, can't do distinct over two columens: event_agent_id and event_agent_ip
 		if ( $type == 'web' ) {
-			$res = $this->dbr->select(
+			$res = $dbr->select(
 				array( 'echo_notification', 'echo_event' ),
 				array(
 					'event_agent_id',
@@ -118,7 +112,7 @@ class MWDbEchoBackend extends MWEchoBackend {
 			);
 		// this would be email for now
 		} else {
-			$res = $this->dbr->select(
+			$res = $dbr->select(
 				array( 'echo_email_batch', 'echo_event' ),
 				array(
 					'event_agent_id',
@@ -147,7 +141,9 @@ class MWDbEchoBackend extends MWEchoBackend {
 	 * @return ResultWrapper|bool
 	 */
 	public function getLastBundleStat( $user, $bundleHash ) {
-		$res = $this->dbr->selectRow(
+		$dbr = MWEchoDbFactory::getDB( DB_SLAVE );
+
+		$res = $dbr->selectRow(
 			array( 'echo_notification' ),
 			array( 'notification_read_timestamp', 'notification_bundle_display_hash' ),
 			array(
@@ -165,16 +161,18 @@ class MWDbEchoBackend extends MWEchoBackend {
 	 * @return int
 	 */
 	public function createEvent( $row ) {
-		$id = $this->dbw->nextSequenceValue( 'echo_event_id' );
+		$dbw = MWEchoDbFactory::getDB( DB_MASTER );
+
+		$id = $dbw->nextSequenceValue( 'echo_event_id' );
 
 		if ( $id ) {
 			$row['event_id'] = $id;
 		}
 
-		$this->dbw->insert( 'echo_event', $row, __METHOD__ );
+		$dbw->insert( 'echo_event', $row, __METHOD__ );
 
 		if ( !$id ) {
-			$id = $this->dbw->insertId();
+			$id = $dbw->insertId();
 		}
 
 		return $id;
@@ -187,7 +185,7 @@ class MWDbEchoBackend extends MWEchoBackend {
 	 * @throws MWException
 	 */
 	public function loadEvent( $id, $fromMaster = false ) {
-		$db = $fromMaster ? $this->dbw : $this->dbr;
+		$db = $fromMaster ? MWEchoDbFactory::getDB( DB_MASTER ) : MWEchoDbFactory::getDB( DB_SLAVE );
 
 		$row = $db->selectRow( 'echo_event', '*', array( 'event_id' => $id ), __METHOD__ );
 
@@ -204,7 +202,9 @@ class MWDbEchoBackend extends MWEchoBackend {
 	 * @param $event EchoEvent
 	 */
 	public function updateEventExtra( $event ) {
-		$this->dbw->update(
+		$dbw = MWEchoDbFactory::getDB( DB_MASTER );
+
+		$dbw->update(
 			'echo_event',
 			array( 'event_extra' => $event->serializeExtra() ),
 			array( 'event_id' => $event->getId() ),
@@ -220,9 +220,12 @@ class MWDbEchoBackend extends MWEchoBackend {
 		if ( !$eventIDs ) {
 			return;
 		}
-		$this->dbw->update(
+
+		$dbw = MWEchoDbFactory::getDB( DB_MASTER );
+
+		$dbw->update(
 			'echo_notification',
-			array( 'notification_read_timestamp' => $this->dbw->timestamp( wfTimestampNow() ) ),
+			array( 'notification_read_timestamp' => $dbw->timestamp( wfTimestampNow() ) ),
 			array(
 				'notification_user' => $user->getId(),
 				'notification_event' => $eventIDs,
@@ -235,9 +238,11 @@ class MWDbEchoBackend extends MWEchoBackend {
 	 * @param $user User
 	 */
 	public function markAllRead( $user ) {
-		$this->dbw->update(
+		$dbw = MWEchoDbFactory::getDB( DB_MASTER );
+
+		$dbw->update(
 			'echo_notification',
-			array( 'notification_read_timestamp' => $this->dbw->timestamp( wfTimestampNow() ) ),
+			array( 'notification_read_timestamp' => $dbw->timestamp( wfTimestampNow() ) ),
 			array(
 				'notification_user' => $user->getId(),
 				'notification_read_timestamp' => NULL,

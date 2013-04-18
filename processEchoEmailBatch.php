@@ -17,24 +17,14 @@ class processEchoEmailBatch extends Maintenance {
 	 */
 	protected $batchSize = 300;
 
-	/**
-	 * @var DatabaseBase
-	 */
-	protected $dbr;
-
 	public function __construct() {
 		parent::__construct();
 		$this->mDescription = "Process email digest";
 	}
 
-	protected function init() {
-		$this->dbr = MWEchoDbFactory::getDB( DB_SLAVE );
-	}
-
 	public function execute() {
 		global $wgEchoCluster;
 
-		$this->init();
 		$this->output( "Started processing... \n" );
 
 		$startUserId = 0;
