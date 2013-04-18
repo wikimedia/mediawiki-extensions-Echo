@@ -145,6 +145,7 @@ $1',
 	'echo-overlay-link' => 'All notifications',
 	'echo-overlay-title' => 'Notifications',
 	'echo-overlay-title-overflow' => 'Notifications (showing $1 of $2 unread)',
+	'echo-mark-all-as-read' => 'Mark all as read',
 
 	// Special page
 	'echo-date-today' => 'Today',
@@ -449,6 +450,7 @@ The new notification count next to notification link, for example: 99+
 * $1 - the number of unread notifications being shown
 * $2 - the total number of unread notifications that exist
 {{Identical|Notification}}',
+	'echo-mark-all-as-read' => 'Text for button that marks all unread notifications as read. Keep this short as possible.',
 	'echo-date-today' => "The header text for today's notification section",
 	'echo-date-yesterday' => "The header text for yesterday's notification section",
 	'echo-date-header' => '{{optional}}

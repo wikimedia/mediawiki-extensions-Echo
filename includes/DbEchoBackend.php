@@ -232,6 +232,23 @@ class MWDbEchoBackend extends MWEchoBackend {
 	}
 
 	/**
+	 * @param $user User
+	 */
+	public function markAllRead( $user ) {
+		$this->dbw->update(
+			'echo_notification',
+			array( 'notification_read_timestamp' => $this->dbw->timestamp( wfTimestampNow() ) ),
+			array(
+				'notification_user' => $user->getId(),
+				'notification_read_timestamp' => NULL,
+				'notification_bundle_base' => 1,
+			),
+			__METHOD__,
+			array( 'LIMIT' => 500 )
+		);
+	}
+
+	/**
 	 * @param $user User object to check notifications for
 	 * @param $dbSource string use master or slave storage to pull count
 	 * @return int

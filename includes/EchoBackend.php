@@ -116,6 +116,12 @@ abstract class MWEchoBackend {
 	abstract public function markRead( $user, $eventIDs );
 
 	/**
+	 * Mark all unread notifications as read for a user
+	 * @param $user User
+	 */
+	abstract public function markAllRead( $user );
+
+	/**
 	 * Retrieves number of unread notifications that a user has.
 	 * @param $user User object to check notifications for
 	 * @param $dbSource string use master or slave storage to pull count

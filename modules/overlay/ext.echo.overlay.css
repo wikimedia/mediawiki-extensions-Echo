@@ -58,9 +58,12 @@
 .mw-echo-overlay-title {
 	/*border-bottom: 1px solid #A7D7F9;*/
 	font-size: 13px;
-	padding: 15px 15px 15px 60px;
+	line-height: 15px;
+	height: 15px;
+	padding: 15px 15px 15px 28px;
 	border-bottom: 1px solid #DDDDDD;
 	font-weight: bold;
+	position: relative;
 }
 
 #mw-echo-overlay-footer {
@@ -112,4 +115,14 @@
 	font-size: 13px;
 	border-bottom: 1px solid #DDDDDD;
 	padding: 15px 15px 10px 60px;
+}
+
+#mw-echo-mark-read-button {
+	position: absolute;
+	bottom: 12px;
+	right: 15px;
+	padding: 1px 8px;
+	font-size: 11px;
+	line-height: 15px;
+	font-weight: normal;
 }

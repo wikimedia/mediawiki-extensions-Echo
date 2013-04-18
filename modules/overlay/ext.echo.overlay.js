@@ -58,7 +58,9 @@
 						$title = $( '<div class="mw-echo-overlay-title"></div>' ),
 						$ul = $( '<ul class="mw-echo-notifications"></ul>' ),
 						titleText = '',
-						$overlayFooter;
+						overflow = false,
+						$overlayFooter,
+						$markReadButton;
 
 					$ul.css( 'max-height', notificationLimit * 95 + 'px' );
 					$.each( notifications.index, function( index, id ) {
@@ -84,15 +86,57 @@
 					} );
 
 					if ( notifications.index.length > 0 ) {
-						if ( unreadTotalCount > unread.length ) {
+						if ( isNaN( unreadTotalCount ) || unreadTotalCount > unread.length ) {
 							titleText = mw.msg( 'echo-overlay-title-overflow', unread.length, unreadTotalCount );
+							overflow = true;
 						} else {
 							titleText =  mw.msg( 'echo-overlay-title' );
 						}
 					} else {
 						titleText = mw.msg( 'echo-none' );
 					}
-					$title.text( titleText );
+
+					$markReadButton = $( '<button/>' )
+						.addClass( 'mw-ui-button' )
+						.attr( 'id', 'mw-echo-mark-read-button' )
+						.text( mw.msg( 'echo-mark-all-as-read' ) )
+						.click( function( e ) {
+							e.preventDefault();
+							Api.get( {
+								'action' : 'query',
+								'meta' : 'notifications',
+								'notmarkallread' : true,
+								'notprop' : 'count'
+							}, {
+								'ok' : function( result ) {
+									if ( result.query.notifications.count !== undefined ) {
+										count = result.query.notifications.count;
+										mw.echo.overlay.updateCount( count );
+										// Reset header to 'Notifications'
+										$( '#echo-overlay-title-text').text( mw.msg( 'echo-overlay-title' ) );
+									}
+								}
+							} );
+						} );
+
+					// If there are more unread notifications than can fit in the overlay,
+					// but fewer than the maximum count, show the 'mark all as read' button.
+					// The only reason we limit it to the maximum is to prevent expensive
+					// database updates. If the count is more than the maximum, it could
+					// be thousands.
+					if ( overflow &&
+						!isNaN( unreadTotalCount ) &&
+						unreadTotalCount < mw.echo.overlay.configuration['max-notification-count']
+					) {
+						// Add the 'mark all as read' button to the title area
+						$title.append( $markReadButton );
+					}
+					// Add the header to the title area
+					$( '<div/>' )
+						.attr( 'id', 'echo-overlay-title-text' )
+						.text( titleText )
+						.appendTo( $title );
+					// Insert the title area into the overlay
 					$title.appendTo( $overlay );
 
 					if ( $ul.find( 'li' ).length ) {
