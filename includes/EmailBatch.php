@@ -217,7 +217,7 @@ abstract class MWEchoEmailBatch {
 	 * Send the batch email
 	 */
 	public function sendEmail() {
-		global $wgPasswordSender, $wgPasswordSenderName, $wgEchoEmailFooterAddress;
+		global $wgNotificationSender, $wgNotificationSenderName, $wgNotificationReplyName, $wgEchoEmailFooterAddress;
 
 		// global email footer
 		$footer = wfMessage( 'echo-email-footer-default' )
@@ -247,11 +247,12 @@ abstract class MWEchoEmailBatch {
 				$footer
 			)->text();
 
-		$adminAddress = new MailAddress( $wgPasswordSender, $wgPasswordSenderName );
-		$address = new MailAddress( $this->mUser );
+		$toAddress = new MailAddress( $this->mUser );
+		$fromAddress = new MailAddress( $wgNotificationSender, $wgNotificationSenderName );
+		$replyAddress = new MailAddress( $wgNotificationSender, $wgNotificationReplyName );
 
 		// @Todo Push the email to job queue or just send it out directly?
-		UserMailer::send( $address, $adminAddress, $subject, $body );
+		UserMailer::send( $toAddress, $fromAddress, $subject, $body, $replyAddress );
 	}
 
 	/**

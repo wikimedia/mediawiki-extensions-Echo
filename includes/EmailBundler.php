@@ -241,13 +241,14 @@ abstract class MWEchoEmailBundler {
 			throw new MWException( "Fail to create bundle email content!" );
 		}
 
-		global $wgPasswordSender, $wgPasswordSenderName;
+		global $wgNotificationSender, $wgNotificationSenderName, $wgNotificationReplyName;
 
-		$adminAddress = new MailAddress( $wgPasswordSender, $wgPasswordSenderName );
-		$address = new MailAddress( $this->mUser );
+		$toAddress = new MailAddress( $this->mUser );
+		$fromAddress = new MailAddress( $wgNotificationSender, $wgNotificationSenderName );
+		$replyAddress = new MailAddress( $wgNotificationSender, $wgNotificationReplyName );
 
 		// Schedule a email job or just send the email directly?
-		UserMailer::send( $address, $adminAddress, $content['subject'], $content['body'] );
+		UserMailer::send( $toAddress, $fromAddress, $content['subject'], $content['body'], $replyAddress );
 	}
 
 	/**
