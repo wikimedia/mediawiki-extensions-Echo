@@ -114,14 +114,23 @@ class MWDbEchoEmailBatch extends MWEchoEmailBatch {
 		}
 
 		$dbw = MWEchoDbFactory::getDB( DB_MASTER );
+
+		$row = array(
+			'eeb_user_id' => $userId,
+			'eeb_event_id' => $eventId,
+			'eeb_event_priority' => $priority,
+			'eeb_event_hash' => $hash
+		);
+
+		$id = $dbw->nextSequenceValue( 'echo_email_batch_eeb_id' );
+
+		if ( $id ) {
+			$row['eeb_id'] = $id;
+		}
+
 		$dbw->insert(
 			'echo_email_batch',
-			array(
-				'eeb_user_id' => $userId,
-				'eeb_event_id' => $eventId,
-				'eeb_event_priority' => $priority,
-				'eeb_event_hash' => $hash
-			),
+			$row,
 			__METHOD__,
 			array( 'IGNORE' )
 		);
