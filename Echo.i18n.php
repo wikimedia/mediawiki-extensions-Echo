@@ -13,9 +13,11 @@ $messages['en'] = array(
 
 	// Preferences
 	'prefs-echo' => 'Notifications',
+	'prefs-emailsettings' => 'Email settings',
 	'prefs-displaynotifications' => 'Display options',
-	'prefs-emailfrequency' => 'When would you like to receive email notifications?',
 	'prefs-echosubscriptions' => 'Notify me about these events',
+	'echo-pref-send-me' => 'Send me:',
+	'echo-pref-send-to' => 'Send to:',
 	'echo-pref-web' => 'Web',
 	'echo-pref-email' => 'Email',
 	'echo-pref-email-frequency-never' => 'Do not send me any email notifications',
@@ -196,13 +198,15 @@ $messages['qqq'] = array(
 	'echo-desc' => '{{desc|name=Echo|url=http://www.mediawiki.org/wiki/Extension:Echo}}',
 	'prefs-echo' => 'Name of preferences section for Echo notifications.
 {{Identical|Notification}}',
+	'prefs-emailsettings' => 'Header for the section of preferences that deals with how often notification emails are sent out and what address they are sent to',
 	'prefs-displaynotifications' => 'Header for the section of preferences that deals with how notifications are displayed',
-	'prefs-emailfrequency' => 'Header for the section of preferences that deals with how often notification emails are sent out
+	'prefs-echosubscriptions' => 'Header for the section of preferences that deals with which notifications the user receives',
+	'echo-pref-send-me' => 'Label for the following email delivery options:
 * {{msg-mw|Echo-pref-email-frequency-never}}
-* {{msg-mw|Echo-pref-email-frequency-immediately}}
+* {{msg-mw|Echo-pref-email-frequency-immediately}} (default)
 * {{msg-mw|Echo-pref-email-frequency-daily}}
 * {{msg-mw|Echo-pref-email-frequency-weekly}}',
-	'prefs-echosubscriptions' => 'Header for the section of preferences that deals with which notifications the user receives',
+	'echo-pref-send-to' => "Label for the address to send email notifications to.",
 	'echo-pref-web' => 'Label for list of notifications which are delivered on the web. In other words, on the wiki itself rather by email or another method. This should be kept very short.',
 	'echo-pref-email' => 'Label for list of notifications which are delivered via email. This should be kept very short.',
 	'echo-pref-email-frequency-never' => "Option for users who don't want to receive any email notifications
