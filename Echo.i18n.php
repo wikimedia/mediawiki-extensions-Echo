@@ -133,7 +133,7 @@ $1',
 	'echo-email-batch-body-default' => 'You have a new notification',
 	'echo-email-footer-default' => '$2
 
-To control which emails we send you, visit:
+To control which emails we send you, check your preferences:
 {{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
 
 $1',
