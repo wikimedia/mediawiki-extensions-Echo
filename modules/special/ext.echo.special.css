@@ -2,7 +2,7 @@
 
 h1#firstHeading {
 	max-width: 555px;
-	margin-left: 45px;
+	margin-left: 50px;
 }
 
 /* Echo specific CSS */
@@ -66,8 +66,9 @@ h1#firstHeading {
 	font-weight: 800;
 	font-size: 1.1em;
 	text-transform: uppercase;
-	border-bottom: 8px solid #EAEAEA;
-	margin: 20px 0 5px 45px;
+	border-bottom: 1px solid #C9C9C9;
+	margin: 30px 0 5px 50px;
+	color: #686868;
 }
 
 ul#mw-echo-special-container {
@@ -79,12 +80,11 @@ ul#mw-echo-special-container {
 	padding: 15px 35px 10px 0;
 }
 #mw-echo-special-container .mw-echo-notification {
-	background-color: #F0F0F0;
+	background-color: white;
 }
 #mw-echo-special-container .mw-echo-notification:hover {
-	background-color: #F8F8F8;
+	background-color: #F6F6F6;
 }
-#mw-echo-special-container .mw-echo-notification.mw-echo-unread,
-#mw-echo-special-container .mw-echo-notification.mw-echo-unread:hover {
-	background-color: white;
+#mw-echo-special-container .mw-echo-notification.mw-echo-unread .mw-echo-title {
+	font-weight: bold;
 }

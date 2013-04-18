@@ -72,14 +72,14 @@
 	display: block;
 	clear: left;
 	float: left;
-	padding: 15px 15px 15px 35px;
-	width: 175px;
+	padding: 15px 15px 15px 60px;
+	width: 150px;
 	min-height: 14px;
 	font-size: 13px;
 	/* @embed */
 	background-image: url(../icons/NotificationsPage-ltr.png);
 	background-repeat: no-repeat;
-	background-position: 5% 50%;
+	background-position: 17% 50%;
 }
 
 #mw-echo-overlay-pref-link {
