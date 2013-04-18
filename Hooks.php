@@ -276,8 +276,8 @@ class EchoHooks {
 		}
 		$preferences['echo-email-frequency'] = array(
 			'type' => 'select',
-			//'label-message' => 'echo-pref-email-frequency',
-			'section' => 'echo/emailfrequency',
+			'label-message' => 'echo-pref-send-me',
+			'section' => 'echo/emailsettings',
 			'options' => $freqOptions
 		);
 
@@ -298,13 +298,12 @@ class EchoHooks {
 					. wfMessage( 'parentheses' )->rawParams( $link )->escaped();
 			}
 		}
-		$emailContent = wfMessage( 'youremail' )->escaped()
-			. wfMessage( 'word-separator' )->escaped() . $emailAddress;
 		$preferences['echo-emailaddress'] = array(
 			'type' => 'info',
 			'raw' => true,
-			'default' => $emailContent,
-			'section' => 'echo/emailfrequency'
+			'default' => $emailAddress,
+			'label-message' => 'echo-pref-send-to',
+			'section' => 'echo/emailsettings'
 		);
 
 		// Sort notification categories by priority
