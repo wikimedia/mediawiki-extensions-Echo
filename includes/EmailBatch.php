@@ -180,17 +180,15 @@ abstract class MWEchoEmailBatch {
 		$result = array();
 		// build the text section for each category
 		foreach( $this->content as $category => $notifs ) {
-			$output = wfMessage( 'echo-email-batch-category-header' )
-					->numParams( count( $notifs ) )
-					// Messages that can be used here:
-					// * echo-category-title-system
-					// * echo-category-title-other
-					// * echo-category-title-edit-user-talk
-					// * echo-category-title-reverted
-					// * echo-category-title-article-linked
-					// * echo-category-title-mention
-					->params( wfMessage( 'echo-category-title-' . $category )->text() )
-					->text() . "\n";
+			// Messages that can be used here:
+			// * echo-category-title-system
+			// * echo-category-title-other
+			// * echo-category-title-edit-user-talk
+			// * echo-category-title-reverted
+			// * echo-category-title-article-linked
+			// * echo-category-title-mention
+			$output = wfMessage( 'echo-category-title-' . $category )->numParams( count( $notifs ) )->text() . "\n";
+
 			foreach( $notifs as $notif ) {
 				$output .= "\n " . wfMessage( 'echo-email-batch-bullet' )->text() . ' ' . $notif;
 			}

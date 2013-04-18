@@ -330,14 +330,14 @@ class EchoHooks {
 		// Build the columns (output formats)
 		$columns = array();
 		foreach ( $wgEchoNotifiers as $notifierType => $notifierData ) {
-			$formatMessage = wfMessage( 'echo-pref-' . $notifierType )->plain();
+			$formatMessage = wfMessage( 'echo-pref-' . $notifierType )->escaped();
 			$columns[$formatMessage] = $notifierType;
 		}
 
 		// Build the rows (notification categories)
 		$rows = array();
 		foreach ( $validSortedCategories as $category ) {
-			$categoryMessage = wfMessage( 'echo-category-title-' . $category )->plain();
+			$categoryMessage = wfMessage( 'echo-category-title-' . $category )->numParams( 1 )->escaped();
 			$rows[$categoryMessage] = $category;
 		}
 
