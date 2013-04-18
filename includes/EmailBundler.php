@@ -101,7 +101,7 @@ abstract class MWEchoEmailBundler {
 		// send instant single notification email if there is no base event in the batch queue
 		// and the email is ready to send, otherwiase, add the email to batch and schedule
 		// a delayed job
-		if ( !$this->baseEvent &&  $this->shouldSendEmailNow() ) {
+		if ( !$this->baseEvent && $this->shouldSendEmailNow() ) {
 			$this->timestamp = wfTimestampNow();
 			$this->updateEmailMetadata();
 			return false;
@@ -211,24 +211,23 @@ abstract class MWEchoEmailBundler {
 	 * Main function for processinig bundle email
 	 */
 	public function processBundleEmail() {
-		// User has switched to email digest, should not send any bundle email
-		// and should not schedule any bundle job, the daily cron will handle
-		// events left in the queue
-		if ( intval( $this->mUser->getOption( 'echo-email-frequency' ) ) > 0 ) {
-			return;
+		$emailSetting = intval( $this->mUser->getOption( 'echo-email-frequency' ) );
+
+		// User has switched to email digest or decided not to receive email,
+		// the daily cron will handle events left in the queue
+		if ( $emailSetting != 0 ) {
+			throw new MWException( "User has switched to email digest/no email option!" );
 		}
 
-		$this->retrieveLastEmailTimestamp();
-
-		// if there is nothing in the queue, do not schedule a job or
-		// update timestamp so next email would be just an instant email
+		// If there is nothing in the queue, do not update timestamp so next
+		// email would be just an instant email
 		if ( $this->retrieveBaseEvent() ) {
 			$this->timestamp = wfTimestampNow();
 			$this->updateEmailMetadata();
 			$this->sendEmail();
-			// for testing purpose, comment out the line below so events are kept
 			$this->clearProcessedEvent();
-			$this->pushToJobQueue( $this->emailInterval );
+		} else {
+			throw new MWException( "There is no bundle notification to process!" );
 		}
 	}
 
@@ -238,10 +237,8 @@ abstract class MWEchoEmailBundler {
 	protected function sendEmail() {
 		$content = $this->generateEmailContent();
 
-		// Error has occurred
-		// @Todo more error handling
 		if ( !isset( $content['subject'] ) || !isset( $content['body'] ) ) {
-			return;
+			throw new MWException( "Fail to create bundle email content!" );
 		}
 
 		global $wgPasswordSender, $wgPasswordSenderName;
