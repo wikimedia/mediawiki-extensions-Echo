@@ -7,8 +7,6 @@
  */
 abstract class MWEchoBackend {
 
-	private static $cache = array();
-
 	/**
 	 * Factory to initialize a backend class
 	 * @param $backend string
@@ -24,11 +22,7 @@ abstract class MWEchoBackend {
 			throw new MWException( "$backend backend is not supported" );
 		}
 
-		if ( !isset( self::$cache[$backend] ) ) {
-			self::$cache[$backend] = new $className();
-		}
-
-		return self::$cache[$backend];
+		return new $className();
 	}
 
 	/**
