@@ -68,7 +68,7 @@ abstract class MWEchoEmailBundler {
 		$className = 'MW' . $wgEchoBackendName . 'EchoEmailBundler';
 
 		if ( !class_exists( $className ) ) {
-			throw new MWException( "$wgEchoBackendName email batch is not supported!" );
+			throw new MWException( "$wgEchoBackendName email bundler is not supported!" );
 		}
 
 		return $className;
@@ -131,11 +131,7 @@ abstract class MWEchoEmailBundler {
 			return $this->emailInterval + 600;
 		}
 
-		static $now;
-
-		if ( !$now ) {
-			$now = wfTimestamp( TS_UNIX );
-		}
+		$now = wfTimestamp( TS_UNIX );
 
 		return $now - wfTimestamp( TS_UNIX, $this->timestamp );
 	}
