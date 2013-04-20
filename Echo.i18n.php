@@ -162,11 +162,11 @@ $1',
 	// Email batch
 	'echo-email-batch-separator' => '________________________________________________', # only translate this message to other languages if you have to change it
 	'echo-email-batch-bullet' => '•', # only translate this message to other languages if you have to change it
-	'echo-email-batch-subject-daily' => 'You have new {{PLURAL:$2|notification|notifications}} today',
-	'echo-email-batch-subject-weekly' => 'You have new {{PLURAL:$2|notification|notifications}} this week',
+	'echo-email-batch-subject-daily' => 'You have {{PLURAL:$2|a new notification|new notifications}} today',
+	'echo-email-batch-subject-weekly' => 'You have {{PLURAL:$2|a new notification|new notifications}} this week',
 	'echo-email-batch-body-daily' => '$1,
 
-You have new {{PLURAL:$3|notification|notifications}} on {{SITENAME}} today.  View them here:
+You have {{PLURAL:$3|a new notification|new notifications}} on {{SITENAME}} today. View {{PLURAL:$3|it|them}} here:
 {{canonicalurl:{{#special:Notifications}}}}
 
 $4
@@ -174,7 +174,7 @@ $4
 $5',
 	'echo-email-batch-body-weekly' => '$1,
 
-You have new {{PLURAL:$3|notification|notifications}} on {{SITENAME}} this week.  View them here:
+You have {{PLURAL:$3|a new notification|new notifications}} on {{SITENAME}} this week. View {{PLURAL:$3|it|them}} here:
 {{canonicalurl:{{#special:Notifications}}}}
 
 $4
