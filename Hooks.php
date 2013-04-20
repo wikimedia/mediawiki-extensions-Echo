@@ -712,7 +712,7 @@ class EchoHooks {
 		// Reset the notification count since it may have changed due to user
 		// option changes. This covers both explicit changes in the preferences
 		// and changes made through the options API (since both call this hook).
-		EchoNotificationController::resetNotificationCount( $user, DB_MASTER );
+		EchoNotificationController::resetNotificationCount( $user );
 		return true;
 	}
 }
