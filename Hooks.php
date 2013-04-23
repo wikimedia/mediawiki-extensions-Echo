@@ -377,10 +377,12 @@ class EchoHooks {
 		);
 
 		// Show fly-out display prefs
+		// Per bug 47562, we're going to hide this pref for now until we see
+		// what the community reaction to Echo is on en.wiki.
 		$preferences['echo-notify-show-link'] = array(
-			'type' => 'toggle',
+			'type' => 'hidden',
 			'label-message' => 'echo-pref-notify-show-link',
-			'section' => 'echo/displaynotifications',
+			//'section' => 'echo/displaynotifications',
 		);
 		return true;
 	}
