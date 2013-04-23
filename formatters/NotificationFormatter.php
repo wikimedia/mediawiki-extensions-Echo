@@ -105,10 +105,9 @@ abstract class EchoNotificationFormatter {
 	}
 
 	/**
-	 * Formats a timestamp (in a human-readable format if supported by
-	 * MediaWiki)
+	 * Formats a timestamp in a human-readable format
 	 * @param $ts string Timestamp in some format compatible with wfTimestamp()
-	 * @return string Type description
+	 * @return string Human-readable timestamp
 	 */
 	protected function formatTimestamp( $ts ) {
 		$timestamp = new MWTimestamp( $ts );
