@@ -14,40 +14,60 @@ class EchoNotifier {
 
 		EchoNotification::create( array( 'user' => $user, 'event' => $event ) );
 
-		// Attempt event logging if Echo schema is enabled
-		if ( $wgEchoConfig['eventlogging']['Echo']['enabled'] ) {
-			$agent = $event->getAgent();
-			// Typically an event should always have an agent, but agent could be
-			// null if the data is corrupted
-			if ( $agent ) {
-				$sender = $agent->isAnon() ? $agent->getName() : $agent->getId();
-			} else {
-				$sender = 0;
-			}
-
-			if ( isset( $wgEchoNotifications[$event->getType()]['group'] ) ) {
-				$group = $wgEchoNotifications[$event->getType()]['group'];
-			} else {
-				$group = 'neutral';
-			}
-			$data = array (
-				'version' => $wgEchoConfig['version'],
-				'eventId' => $event->getId(),
-				'notificationType' => $event->getType(),
-				'notificationGroup' => $group,
-				'sender' => (string)$sender,
-				'recipientUserId' => $user->getId(),
-				'recipientEditCount' => (int)$user->getEditCount()
-			);
-			// Add the source if it exists. (This is mostly for the Thanks extension.)
-			$extra = $event->getExtra();
-			if ( isset( $extra['source'] ) ) {
-				$data['eventSource'] = (string)$extra['source'];
-			}
-			EchoHooks::logEvent( 'Echo', $data );
-		}
+		self::logEvent( $user, $event, 'web' );
 
 		EchoNotificationController::resetNotificationCount( $user, DB_MASTER );
+	}
+
+	/**
+	 * Store Event Logging data for web or email notifications
+	 *
+	 * @param $user User being notified.
+	 * @param $event EchoEvent to log detail about.
+	 * @param $deliveryMethod string containing either 'web' or 'email'
+	 */
+	public static function logEvent( $user, $event, $deliveryMethod ) {
+		global $wgEchoConfig, $wgEchoNotifications;
+		if ( $wgEchoConfig['eventlogging']['Echo']['enabled'] ) {
+			// Only attempt event logging if Echo schema is enabled
+			return;
+		}
+
+		$agent = $event->getAgent();
+		// Typically an event should always have an agent, but agent could be
+		// null if the data is corrupted
+		if ( $agent ) {
+			$sender = $agent->isAnon() ? $agent->getName() : $agent->getId();
+		} else {
+			$sender = -1;
+		}
+
+		if ( isset( $wgEchoNotifications[$event->getType()]['group'] ) ) {
+			$group = $wgEchoNotifications[$event->getType()]['group'];
+		} else {
+			$group = 'neutral';
+		}
+		$data = array (
+			'version' => $wgEchoConfig['version'],
+			'eventId' => $event->getId(),
+			'notificationType' => $event->getType(),
+			'notificationGroup' => $group,
+			'sender' => (string)$sender,
+			'recipientUserId' => $user->getId(),
+			'recipientEditCount' => (int)$user->getEditCount()
+		);
+		// Add the source if it exists. (This is mostly for the Thanks extension.)
+		$extra = $event->getExtra();
+		if ( isset( $extra['source'] ) ) {
+			$data['eventSource'] = (string)$extra['source'];
+		}
+		if( $deliveryMethod == 'email' ) {
+			$data['deliveryMethod'] = 'email';
+		} else {
+			// whitelist valid delivery methods so it is always valid
+			$data['deliveryMethod'] = 'web';
+		}
+		EchoHooks::logEvent( 'Echo', $data );
 	}
 
 	/**
@@ -96,6 +116,8 @@ class EchoNotifier {
 			}
 
 			$addedToQueue = false;
+
+			self::logEvent( $user, $event, 'email' );
 
 			// only send bundle email if email bundling is on
 			if ( $wgEchoBundleEmailInterval && $bundleHash && !empty( $wgEchoNotifications[$event->getType()]['bundle']['email'] ) ) {
