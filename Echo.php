@@ -416,9 +416,9 @@ foreach ( $wgEchoNotificationCategories as $category => $categoryData ) {
 	}
 }
 
-// unset default email for reverted, article-linked (change them to opt-in)
+// unset default notifications for reverted (change them to opt-in)
 $wgDefaultUserOptions['echo-subscriptions-email-reverted'] = false;
-$wgDefaultUserOptions['echo-subscriptions-email-article-linked'] = false;
+$wgDefaultUserOptions['echo-subscriptions-web-reverted'] = false;
 
 // Echo Configuration for EventLogging
 $wgEchoConfig = array(
