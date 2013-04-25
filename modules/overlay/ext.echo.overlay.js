@@ -113,7 +113,7 @@
 										count = result.query.notifications.count;
 										mw.echo.overlay.updateCount( count );
 										// Reset header to 'Notifications'
-										$( '#echo-overlay-title-text').text( mw.msg( 'echo-overlay-title' ) );
+										$( '#mw-echo-overlay-title-text').text( mw.msg( 'echo-overlay-title' ) );
 									}
 								}
 							} );
@@ -131,11 +131,21 @@
 						// Add the 'mark all as read' button to the title area
 						$title.append( $markReadButton );
 					}
+
 					// Add the header to the title area
 					$( '<div/>' )
-						.attr( 'id', 'echo-overlay-title-text' )
+						.attr( 'id', 'mw-echo-overlay-title-text' )
 						.text( titleText )
 						.appendTo( $title );
+
+					// Add help button
+					$( '<a/>' )
+						.attr( 'href', mw.config.get( 'wgEchoHelpPage' ) )
+						.attr( 'title', mw.msg( 'echo-more-info' ) )
+						.attr( 'id', 'mw-echo-moreinfo-link' )
+						.attr( 'target', '_blank' )
+						.appendTo( $title );
+
 					// Insert the title area into the overlay
 					$title.appendTo( $overlay );
 
