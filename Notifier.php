@@ -28,7 +28,7 @@ class EchoNotifier {
 	 */
 	public static function logEvent( $user, $event, $deliveryMethod ) {
 		global $wgEchoConfig, $wgEchoNotifications;
-		if ( $wgEchoConfig['eventlogging']['Echo']['enabled'] ) {
+		if ( !$wgEchoConfig['eventlogging']['Echo']['enabled'] ) {
 			// Only attempt event logging if Echo schema is enabled
 			return;
 		}
