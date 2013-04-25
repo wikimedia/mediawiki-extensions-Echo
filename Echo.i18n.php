@@ -74,7 +74,7 @@ $messages['en'] = array(
 	'notification-talkpage-content' => '$1', ## Do not translate unless you deliberately want to change behaviour
 	'notification-new-user' => "Welcome to {{SITENAME}}, $1! We're glad you're here.",
 	'notification-reverted2' => 'Your {{PLURAL:$4|edit on [[$2]] has|edits on [[$2]] have}} been {{GENDER:$1|reverted}} by [[User:$1|$1]] $3',
-	'notification-reverted-flyout2' => 'Your {{PLURAL:$4|edit on $2 has|edits on $2 have}} been {{GENDER:$1|reverted}} by <b>$1</b> $3',
+	'notification-reverted-flyout2' => 'Your {{PLURAL:$4|edit on <b>$2</b> has|edits on <b>$2</b> have}} been {{GENDER:$1|reverted}} by <b>$1</b> $3',
 	'notification-edit-talk-page-email-subject2' => 'You have a new talkpage message',
 	'notification-edit-talk-page-email-body2' => '$1
 
