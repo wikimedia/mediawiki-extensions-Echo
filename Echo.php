@@ -303,7 +303,6 @@ $wgEchoNotifications = array(
 		'group' => 'system',
 		'title-message' => 'notification-new-user',
 		'title-params' => array( 'agent' ),
-		'icon' => 'w',
 	),
 	'edit-user-talk' => array(
 		'category' => 'edit-user-talk',
@@ -399,7 +398,6 @@ $wgEchoNotifications = array(
 		'email-body-params' => array( 'agent', 'user-rights-list', 'email-footer' ),
 		'email-body-batch-message' => 'notification-user-rights-email-batch-body',
 		'email-body-batch-params' => array( 'agent', 'user-rights-list' ),
-		'icon' => 'w',
 	),
 );
 
