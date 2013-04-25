@@ -2,14 +2,14 @@
 
 $IP = getenv( 'MW_INSTALL_PATH' );
 if ( $IP === false ) {
-	$IP = dirname( __FILE__ ) . '/../..';
+	$IP = dirname( __FILE__ ) . '/../../..';
 }
 require_once( "$IP/maintenance/Maintenance.php" );
 
 /**
  * A maintenance script that processes email digest
  */
-class processEchoEmailBatch extends Maintenance {
+class ProcessEchoEmailBatch extends Maintenance {
 
 	/**
 	 * Max number of records to process at a time
@@ -61,5 +61,5 @@ class processEchoEmailBatch extends Maintenance {
 	}
 }
 
-$maintClass = "processEchoEmailBatch";
+$maintClass = "ProcessEchoEmailBatch";
 require_once( DO_MAINTENANCE );
