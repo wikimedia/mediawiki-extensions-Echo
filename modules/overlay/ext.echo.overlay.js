@@ -113,7 +113,7 @@
 										count = result.query.notifications.count;
 										mw.echo.overlay.updateCount( count );
 										// Reset header to 'Notifications'
-										$( '#mw-echo-overlay-title-text').text( mw.msg( 'echo-overlay-title' ) );
+										$( '#mw-echo-overlay-title-text').msg( 'echo-overlay-title' );
 									}
 								}
 							} );
@@ -135,7 +135,7 @@
 					// Add the header to the title area
 					$( '<div/>' )
 						.attr( 'id', 'mw-echo-overlay-title-text' )
-						.text( titleText )
+						.html( titleText )
 						.appendTo( $title );
 
 					// Add help button
