@@ -409,16 +409,15 @@ $wgDefaultUserOptions['echo-notify-show-link'] = true;
 // By default, send emails for each notification as they come in
 $wgDefaultUserOptions['echo-email-frequency'] = EchoHooks::EMAIL_IMMEDIATELY;
 
-// Set all of the events to notify by web and email by default (won't affect events that don't email)
+// Set all of the events to notify by web but not email by default (won't affect events that don't email)
 foreach ( $wgEchoNotificationCategories as $category => $categoryData ) {
-	foreach ( $wgEchoNotifiers as $notifierType => $notifierData ) {
-		$wgDefaultUserOptions["echo-subscriptions-{$notifierType}-{$category}"] = true;
-	}
+	$wgDefaultUserOptions["echo-subscriptions-email-{$category}"] = false;
+	$wgDefaultUserOptions["echo-subscriptions-web-{$category}"] = true;
 }
 
-// unset default notifications for reverted (change them to opt-in)
-$wgDefaultUserOptions['echo-subscriptions-email-reverted'] = false;
-$wgDefaultUserOptions['echo-subscriptions-web-reverted'] = false;
+// most settings default to web on, email off, but override these two
+$wgDefaultUserOptions['echo-subscriptions-email-edit-user-talk'] = true;
+$wgDefaultUserOptions['echo-subscriptions-web-article-linked'] = false;
 
 // Echo Configuration for EventLogging
 $wgEchoConfig = array(
