@@ -446,6 +446,17 @@ class EchoHooks {
 	 * @return bool
 	 */
 	public static function onAccountCreated( $user, $byEmail ) {
+
+		// new users get echo preferences set that are not the default settings for existing users
+		$user->setOption( 'echo-subscriptions-web-reverted', false );
+		$user->setOption( 'echo-subscriptions-email-reverted', false );
+		$user->setOption( 'echo-subscriptions-web-article-linked', true );
+		$user->setOption( 'echo-subscriptions-email-mention', true );
+		$user->setOption( 'echo-subscriptions-email-page-review', true );
+		$user->setOption( 'echo-subscriptions-email-edit-thank', true );
+		$user->setOption( 'echo-subscriptions-email-article-linked', true );
+		$user->saveSettings();
+
 		EchoEvent::create( array(
 			'type' => 'welcome',
 			'agent' => $user,
