@@ -139,6 +139,7 @@ $wgResourceModules += array(
 			'echo-overlay-link',
 			'echo-none',
 			'echo-mark-all-as-read',
+			'echo-more-info',
 		),
 	),
 	'ext.echo.special' => $echoResourceTemplate + array(
