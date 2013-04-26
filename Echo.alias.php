@@ -98,6 +98,11 @@ $specialPageAliases['scn'] = array(
 	'Notifications' => array( 'Notifiche' ),
 );
 
+/** Ukrainian (українська) */
+$specialPageAliases['uk'] = array(
+	'Notifications' => array( 'Сповіщення' ),
+);
+
 /** Vietnamese (Tiếng Việt) */
 $specialPageAliases['vi'] = array(
 	'Notifications' => array( 'Thông_báo' ),
