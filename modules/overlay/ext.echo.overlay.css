@@ -43,6 +43,8 @@
 	white-space: normal;
 	font-size: 13px;
 	line-height: 16px;
+	/* Override for Monobook */
+	color: #6D6D6D;
 }
 #p-personal .mw-echo-overlay li.mw-echo-notification:hover {
 	background-color: #F8F8F8;
