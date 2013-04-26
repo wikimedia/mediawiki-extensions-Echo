@@ -78,8 +78,8 @@ class EchoNotifier {
 	 * @return bool
 	 */
 	public static function notifyWithEmail( $user, $event ) {
-		if ( !$user->isEmailConfirmed() ) {
-			// No valid email address
+		// No valid email address or email notification
+		if ( !$user->isEmailConfirmed() || $user->getOption( 'echo-email-frequency' ) < 0 ) {
 			return false;
 		}
 
@@ -100,6 +100,8 @@ class EchoNotifier {
 				$bundleHash = md5( $bundleString );
 			}
 
+			self::logEvent( $user, $event, 'email' );
+
 			// email digest notification ( weekly or daily )
 			if ( $wgEchoEnableEmailBatch && $user->getOption( 'echo-email-frequency' ) > 0 ) {
 				// always create a unique event hash for those events don't support bundling
@@ -110,14 +112,8 @@ class EchoNotifier {
 				MWEchoEmailBatch::addToQueue( $user->getId(), $event->getId(), $priority, $bundleHash );
 				return true;
 			}
-			// no email notification
-			if ( $user->getOption( 'echo-email-frequency' ) < 0 ) {
-				return false;
-			}
 
 			$addedToQueue = false;
-
-			self::logEvent( $user, $event, 'email' );
 
 			// only send bundle email if email bundling is on
 			if ( $wgEchoBundleEmailInterval && $bundleHash && !empty( $wgEchoNotifications[$event->getType()]['bundle']['email'] ) ) {
