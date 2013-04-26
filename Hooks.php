@@ -730,4 +730,29 @@ class EchoHooks {
 		EchoNotificationController::resetNotificationCount( $user );
 		return true;
 	}
+
+	/**
+	 * Handler for UserLoadOptions hook.
+	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/UserLoadOptions
+	 * @param $user User whose options were loaded
+	 * @param $options Options can be modified
+	 * @return bool true in all cases
+	 */
+	public static function onUserLoadOptions( $user, &$options ) {
+		// If the user had opted out of the old version of talk page notification emails
+		// but we have not migrated a new style preference for the same preference
+		// then fake a new style one too
+		// Only check while we are migrating
+		global $wgRecentEchoInstall;
+		if ( $wgRecentEchoInstall ) {
+			if ( isset( $options['enotifusertalkpages'] ) &&
+				!$options['enotifusertalkpages']
+			) {
+				$options['echo-subscriptions-email-edit-user-talk'] = false;
+			}
+		}
+		// note not calling saveSettings()
+		// so will not change on disk until user saves for some other reason
+		return true;
+	}
 }

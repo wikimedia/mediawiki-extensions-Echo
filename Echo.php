@@ -104,6 +104,8 @@ $echoResourceTemplate = array(
 	'group' => 'ext.echo',
 );
 
+$wgRecentEchoInstall = false; // default should be overridden with true until sure migration is complete
+
 $wgResourceModules += array(
 	'ext.echo.base' => $echoResourceTemplate + array(
 		'styles' => 'base/ext.echo.base.css',
