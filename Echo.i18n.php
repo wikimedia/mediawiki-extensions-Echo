@@ -1568,7 +1568,7 @@ $messages['et'] = array(
 	'echo-link-new' => '$1 {{PLURAL:$1|uus teavitus|uut teavitust}}',
 	'echo-link' => 'Teavitused',
 	'echo-overlay-link' => 'Kõik teavitused',
-	'echo-overlay-title' => 'Teavitused',
+	'echo-overlay-title' => '<b>Teavitused</b>',
 	'echo-date-today' => 'Täna',
 	'echo-date-yesterday' => 'Eile',
 );
@@ -2911,7 +2911,7 @@ $messages['mk'] = array(
 	'echo-pref-notify-show-link' => 'Прикажувај известувања во мојот алатник',
 	'echo-dismiss-button' => 'Тргни',
 	'echo-dismiss-message' => 'Исклучи ги сите $1 известувања',
-	'echo-dismiss-prefs-message' => 'Овие можете пак да ги вклучите во Нагодувања', # Fuzzy
+	'echo-dismiss-prefs-message' => 'Овие можете пак да ги вклучите во [[Special:Preferences#mw-prefsection-echo|нагодувањата]]',
 	'echo-category-title-edit-user-talk' => '{{PLURAL:$1|Објава|Објави}} на стран. за разговор',
 	'echo-category-title-article-linked' => '{{PLURAL:$1|Врска|Врски}} до стран.',
 	'echo-category-title-reverted' => '{{PLURAL:$1|Вратено уредување|Вратени уредувања}}',
@@ -3012,8 +3012,8 @@ $1',
 	'echo-link-new' => '$1 {{PLURAL:$1|ново известување|нови известувања}}',
 	'echo-link' => 'Известувања',
 	'echo-overlay-link' => 'Сите известувања',
-	'echo-overlay-title' => 'Известувања', # Fuzzy
-	'echo-overlay-title-overflow' => 'Известувања (приказ на $1 од $2 непрочитани)', # Fuzzy
+	'echo-overlay-title' => '<b>Известувања</b>',
+	'echo-overlay-title-overflow' => '<b>Известувања</b> (прикажувам $1 од $2 непрочитани)',
 	'echo-mark-all-as-read' => 'Означи ги сите како прочитани',
 	'echo-date-today' => 'Денес',
 	'echo-date-yesterday' => 'Вчера',
@@ -3674,8 +3674,8 @@ $1', # Fuzzy
 	'echo-link-new' => '$1 {{PLURAL:$1|nowe powiadomienie|nowe powiadomienia|nowych powiadomień}}',
 	'echo-link' => 'Powiadomienia',
 	'echo-overlay-link' => 'Wszystkie powiadomienia',
-	'echo-overlay-title' => 'Powiadomienia',
-	'echo-overlay-title-overflow' => 'Powiadomienia (wyświetlono $1 z $2 nieprzeczytanych)',
+	'echo-overlay-title' => '<b>Powiadomienia</b>',
+	'echo-overlay-title-overflow' => '<b>Powiadomienia</b> (wyświetlono $1 z $2 nieprzeczytanych)',
 	'echo-date-today' => 'Dzisiaj',
 	'echo-date-yesterday' => 'Wczoraj',
 	'echo-date-header' => '$1 $2',
@@ -4272,25 +4272,20 @@ $messages['uk'] = array(
 	'echo-desc' => 'Система сповіщень',
 	'prefs-echo' => 'Сповіщення',
 	'prefs-displaynotifications' => 'Опції відображення',
-	'prefs-emailsubscriptions' => 'Сповіщати мене через електронну пошту, коли хтось',
-	'prefs-emailfrequency' => 'Як часто я отримуватиму сповіщення електронною поштою', # Fuzzy
-	'echo-pref-email-edit-user-talk' => 'напише на моїй сторінці обговорення',
-	'echo-pref-email-reverted' => 'відкотить моє редагування',
 	'echo-pref-email-frequency-never' => 'Не надсилати мені жодних сповіщень електронною поштою',
 	'echo-pref-email-frequency-immediately' => 'Сповіщати про кожну подію одразу',
 	'echo-pref-email-frequency-daily' => 'Щоденна збірка сповіщень',
 	'echo-pref-email-frequency-weekly' => 'Щомісячна збірка сповіщень',
-	'echo-pref-notify-hide-link' => 'Приховати посилання та значок сповіщень на моїй панелі інструментів',
+	'echo-dismiss-prefs-message' => 'Ви можете повернути їх назад у своїх [[Special:Preferences#mw-prefsection-echo|налаштуваннях]]',
 	'echo-no-agent' => '[Ніхто]',
 	'echo-no-title' => '[Нема сторінки]',
 	'echo-error-no-formatter' => 'Не визначено формату сповіщень',
 	'notifications' => 'Сповіщення',
 	'tooltip-pt-notifications' => 'Ваші сповіщення',
-	'echo-specialpage' => 'Мої сповіщення',
+	'echo-specialpage' => 'Мої сповіщення', # Fuzzy
 	'echo-anon' => 'Для отримання сповіщень, [[Special:Userlogin/signup|створіть обліковий запис]] або [[Special:UserLogin|увійдіть]].',
 	'echo-none' => 'У Вас немає сповіщень.',
-	'notification-new-user' => 'Ласкаво просимо до {{GRAMMAR:accusative|{{SITENAME}}}}, $1!',
-	'notification-new-user-content' => 'Будь ласка, не забувайте підписувати всі коментарі на сторінках обговорень чотирма тильдами (~~~~).',
+	'notification-new-user' => 'Ласкаво просимо до {{GRAMMAR:accusative|{{SITENAME}}}}, $1!', # Fuzzy
 	'echo-email-subject-default' => 'Нові сповіщення на {{SITENAME}}',
 	'echo-email-body-default' => 'У Вас є нове сповіщення на {{SITENAME}}:
 
@@ -4300,17 +4295,17 @@ $1',
 Щоб контролювати, які листи ми Вам надсилаємо, перейдіть сюди:
 {{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
 
-$1',
+$1', # Fuzzy
 	'echo-link-new' => '$1 {{PLURAL:$1|нове сповіщення|нові сповіщення|нових сповіщень}}',
 	'echo-link' => 'Сповіщення',
 	'echo-overlay-link' => 'Усі сповіщення',
-	'echo-overlay-title' => 'Мої сповіщення',
-	'echo-overlay-title-overflow' => 'Мої сповіщення (показано $1 з $2 непрочитаних)',
+	'echo-overlay-title' => '<b>Сповіщення</b>',
+	'echo-overlay-title-overflow' => '<b>Сповіщення</b> (показано $1 з $2 непрочитаних)',
 	'echo-date-today' => 'Сьогодні',
 	'echo-date-yesterday' => 'Вчора',
 	'echo-load-more-error' => 'Під час отримання додаткових результатів сталася помилка.',
-	'echo-email-batch-subject-daily' => 'У Вас $1 {{PLURAL:$2|сповіщення|сповіщення|сповіщень}} сьогодні',
-	'echo-email-batch-subject-weekly' => 'У Вас $1 {{PLURAL:$2|сповіщення|сповіщення|сповіщень}} цього тижня',
+	'echo-email-batch-subject-daily' => 'У Вас $1 {{PLURAL:$2|сповіщення|сповіщення|сповіщень}} сьогодні', # Fuzzy
+	'echo-email-batch-subject-weekly' => 'У Вас $1 {{PLURAL:$2|сповіщення|сповіщення|сповіщень}} цього тижня', # Fuzzy
 	'echo-email-batch-body-daily' => '$1,
 
 У Вас $2 {{PLURAL:$3|сповіщення|сповіщення|сповіщень}} на {{SITENAME}} сьогодні. Перегляньте їх тут:
@@ -4318,7 +4313,7 @@ $1',
 
 $4
 
-$5',
+$5', # Fuzzy
 	'echo-email-batch-body-weekly' => '$1,
 
 У Вас $2 {{PLURAL:$3|сповіщення|сповіщення|сповіщень}} на {{SITENAME}} цього тижня. Перегляньте їх тут:
@@ -4326,9 +4321,7 @@ $5',
 
 $4
 
-$5',
-	'echo-email-batch-category-header-edit-user-talk' => '$1 {{PLURAL:$1|повідомлення|повідомлення|повідомлень}} на сторінці обговорення',
-	'echo-email-batch-category-header-other' => '$1 {{PLURAL:$1|інше|інших}}',
+$5', # Fuzzy
 );
 
 /** Urdu (اردو)
@@ -4337,13 +4330,16 @@ $5',
  */
 $messages['ur'] = array(
 	'prefs-echo' => 'اطلاعات',
+	'echo-dismiss-prefs-message' => 'آپ اس کو واپس لا سکتے ہیں[[Special:Preferences#mw-prefsection-echo|preferences]] پر',
 	'echo-category-title-other' => 'دیگر', # Fuzzy
 	'notifications' => 'اطلاعات',
 	'echo-specialpage' => 'میری اطلاعات', # Fuzzy
 	'echo-feedback' => 'آپ کی رائے',
+	'notification-user-rights-flyout' => 'آپ کے صارفانہ حقوق ہوگئے  {{GENDER:$1| تبدیل}} <b> $1 </b>کے ذریعے ۔ $2. [[Special:ListGroupRights|مزید دیکھیں]]',
 	'echo-link' => 'میری اطلاعات', # Fuzzy
 	'echo-overlay-link' => 'سب اطلاعات...', # Fuzzy
-	'echo-overlay-title' => 'میری اطلاعات', # Fuzzy
+	'echo-overlay-title' => '<b>اطلاعات</b>',
+	'echo-overlay-title-overflow' => '<b>اطلاعات</b> (دکھا رہا ہے $1  کے  $2  غیر مطلع)',
 );
 
 /** Vietnamese (Tiếng Việt)
@@ -4518,12 +4514,15 @@ $messages['zh-hans'] = array(
 	'prefs-emailsettings' => '电子邮件设置',
 	'prefs-displaynotifications' => '显示选项',
 	'prefs-echosubscriptions' => '通知我有关这些事件的情况',
+	'echo-pref-send-me' => '发送给我：',
 	'echo-pref-send-to' => '发送到:',
+	'echo-pref-web' => '网站',
 	'echo-pref-email' => '电子邮件',
 	'echo-pref-email-frequency-never' => '不要给我发送任何电子邮件通知',
 	'echo-pref-email-frequency-immediately' => '允许的个别通知',
 	'echo-pref-email-frequency-daily' => '每日通知摘要',
 	'echo-pref-email-frequency-weekly' => '每周通知摘要',
+	'echo-pref-notify-show-link' => '在工具栏中显示通知',
 	'echo-dismiss-button' => '解除',
 	'echo-dismiss-message' => '关闭所有 $1 通知',
 	'echo-dismiss-prefs-message' => '您可以在参数设置中重新打开这些选项', # Fuzzy
@@ -4548,12 +4547,15 @@ $messages['zh-hans'] = array(
 	'notification-edit-talk-page2' => '[[User:$1|$1]]在您的[[User talk:$2|讨论页]]留言。',
 	'notification-edit-talk-page-flyout2' => '<b>$1</b>在您的[[User talk:$2|讨论页]]留言。',
 	'notification-page-linked' => '[[$2|$2]]由[[$3|$3]]{{GENDER:$1|链入}}：[[Special:WhatLinksHere/$2|查看本页的所有链入页面]]',
+	'notification-page-linked-flyout' => '共<b>$2</b>从<b>$3</b>链入：
+[[Special:WhatLinksHere/$2|显示所有这页面的链入链接]]', # Fuzzy
 	'notification-add-comment2' => '[[User:$1|$1]]在“$4”的讨论页中{{GENDER:$1|谈论了}}“[[$3|$2]]”',
 	'notification-add-talkpage-topic2' => '[[User:$1|$1]]在[[$3]]上发起了一个新的话题“$2”',
 	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]]给您发来一则消息：“[[$3#$2|$2]]”',
 	'notification-add-comment-yours2' => '[[User:$1|$1]]在您的讨论页上{{GENDER:$1|谈论了}}“[[$3#$2|$2]]”',
 	'notification-mention' => '[[User:$1|$1]]在[[$3#$2|$3]]中{{GENDER:$1|提到}}了你 。',
 	'notification-mention-flyout' => '$1在[[$3#$2|$3]]上{{GENDER:$1|提到}}了你。',
+	'notification-user-rights' => '你的用户权限被[[User:$1|$1]][[Special:Log/rights/$1|改变]。$2。[[Special:ListGroupRights|了解更多]]', # Fuzzy
 	'notification-user-rights-flyout' => '你的用户权限已被<b>$1</b>{{GENDER:$1|更改}}。$2。[[Special:ListGroupRights|了解更多]]',
 	'notification-user-rights-add' => '你现在是以下用户组的成员：$1', # Fuzzy
 	'notification-user-rights-remove' => '你不再是{{PLURAL:$2|以下用户组}}的成员：$1',
@@ -4579,6 +4581,7 @@ $4', # Fuzzy
 {{canonicalurl:{{#special:WhatLinksHere/$2}}}}
 
 $3', # Fuzzy
+	'notification-page-linked-email-batch-body' => '共<b>$2</b>从<b>$3</b>链入：', # Fuzzy
 	'notification-reverted-email-subject2' => '您{{PLURAL:$3|在$2的编辑|在$2的编辑}}已被$1回退',
 	'notification-reverted-email-body2' => '您{{PLURAL:$7|在$2的编辑已被|在$2的编辑已被}}$1回退。
 
@@ -4625,6 +4628,7 @@ $1', # Fuzzy
 	'echo-overlay-link' => '全部通知',
 	'echo-overlay-title' => '通知', # Fuzzy
 	'echo-overlay-title-overflow' => '通知（显示 $2 / $1 条未读）', # Fuzzy
+	'echo-mark-all-as-read' => '将所有标记为已读',
 	'echo-date-today' => '今天',
 	'echo-date-yesterday' => '昨天',
 	'echo-load-more-error' => '获取更多的结果时出错。',
@@ -4658,29 +4662,66 @@ $5', # Fuzzy
 $messages['zh-hant'] = array(
 	'echo-desc' => '通知系統',
 	'prefs-echo' => '通知',
+	'prefs-emailsettings' => '電子郵件設定',
 	'prefs-displaynotifications' => '顯示選項',
+	'prefs-echosubscriptions' => '通知我有關這些事件的情況',
+	'echo-pref-send-me' => '發送給我：',
+	'echo-pref-send-to' => '發送到:',
+	'echo-pref-web' => '網頁',
+	'echo-pref-email' => '電子郵件',
 	'echo-pref-email-frequency-never' => '不要向我發送任何電郵通知',
 	'echo-pref-email-frequency-immediately' => '允許個別通知',
 	'echo-pref-email-frequency-daily' => '每日通知摘要',
 	'echo-pref-email-frequency-weekly' => '每周通知摘要',
+	'echo-pref-notify-show-link' => '在工具列中顯示通知',
+	'echo-dismiss-button' => '取消',
+	'echo-dismiss-message' => '關閉所有$1通知',
+	'echo-category-title-edit-user-talk' => '討論頁{{PLURAL:$1|留言}}',
+	'echo-category-title-article-linked' => '頁面{{PLURAL:$1|連結|連結}}',
+	'echo-category-title-reverted' => '{{PLURAL:$1|回退|回退}}編輯',
+	'echo-category-title-mention' => '{{PLURAL:$1|提到|提到}}',
+	'echo-category-title-other' => '{{PLURAL:$1|其他}}',
+	'echo-category-title-system' => '{{PLURAL:$1|系統}}',
 	'echo-no-agent' => '[無人]',
 	'echo-no-title' => '[無頁面]',
 	'echo-error-no-formatter' => '沒有定義通知格式',
+	'echo-error-preference' => '錯誤: 無法設置用戶設定',
+	'echo-error-token' => '錯誤: 無法取得用戶令牌',
 	'notifications' => '通知',
 	'tooltip-pt-notifications' => '你的通知',
-	'echo-specialpage' => '我的通知', # Fuzzy
+	'echo-specialpage' => '通知',
 	'echo-anon' => '要接收通知，請[[Special:Userlogin/signup|創建帳號]]或[[Special:UserLogin|登錄]]。',
 	'echo-none' => '您沒有任何通知。',
-	'notification-new-user' => '歡迎來到{{SITENAME}}，$1！', # Fuzzy
+	'echo-more-info' => '更多資訊',
+	'echo-feedback' => '意見',
+	'notification-edit-talk-page2' => '[[User:$1|$1]]在您的[[User talk:$2|討論頁]]留言。',
+	'notification-edit-talk-page-flyout2' => '<b>$1</b>在您的[[User talk:$2|討論頁]]留言。',
+	'notification-new-user' => '歡迎來到{{SITENAME}}，$1！',
+	'notification-edit-talk-page-email-body2' => '$1
+
+$3
+
+查看更多：
+
+$2
+
+$4',
+	'notification-edit-talk-page-email-batch-body2' => '$1在您的討論頁{{GENDER:$1|留言}}',
+	'notification-mention-email-batch-body' => '$1在$2{{GENDER:$1|提到}}你',
+	'notification-user-rights-email-subject' => '您在{{SITENAME}}的用戶權限已變更',
 	'echo-email-subject-default' => '{{SITENAME}}上的新通知',
 	'echo-email-body-default' => '你在{{SITENAME}}有一項新訊息：
 
 $1',
 	'echo-email-batch-body-default' => '你有新訊息',
 	'echo-link-new' => '$1項新{{PLURAL:$1|訊息|訊息}}',
-	'echo-link' => '我的訊息', # Fuzzy
-	'echo-overlay-link' => '所有訊息...', # Fuzzy
-	'echo-overlay-title' => '我的訊息', # Fuzzy
+	'echo-link' => '通知',
+	'echo-overlay-link' => '所有通知',
+	'echo-overlay-title' => '<b>通知</b>',
+	'echo-mark-all-as-read' => '標記所有為已讀',
 	'echo-date-today' => '今天',
 	'echo-date-yesterday' => '昨天',
+	'echo-load-more-error' => '獲取更多的結果時出錯。',
+	'echo-email-batch-subject-daily' => '今天你有{{PLURAL:$2|新一項新通知|多項新通知}}',
+	'echo-email-batch-subject-weekly' => '本週你有{{PLURAL:$2|新一項新通知|多項新通知}}',
 );
