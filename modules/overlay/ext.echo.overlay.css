@@ -25,14 +25,18 @@
 	left: -9px;
 }
 
+#p-personal .mw-echo-overlay {
+	/* Override for Monobook */
+	text-transform: none;
+}
 #p-personal .mw-echo-overlay ul {
 	margin: 0;
 	padding: 0;
 	overflow: auto;
-	/* Override for Monobook */
+	/* Overrides for Monobook */
 	text-align: left;
+	text-transform: none;
 }
-
 #p-personal .mw-echo-overlay li.mw-echo-notification {
 	background-color: #F0F0F0;
 	display: block;
