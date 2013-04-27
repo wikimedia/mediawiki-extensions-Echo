@@ -37,6 +37,14 @@
 	text-align: left;
 	text-transform: none;
 }
+#p-personal #mw-echo-overlay-link {
+	/* Override for Monobook */
+	padding-bottom: 15px;
+}
+#p-personal #mw-echo-overlay-pref-link {
+	/* Override for Monobook */
+	padding-bottom: 15px;
+}
 #p-personal .mw-echo-overlay li.mw-echo-notification {
 	background-color: #F0F0F0;
 	display: block;
