@@ -618,7 +618,7 @@ $messages['ast'] = array(
 	'echo-pref-notify-show-link' => 'Amosar los avisos na mio barra de ferramientes',
 	'echo-dismiss-button' => 'Descartar',
 	'echo-dismiss-message' => "Desactivar tolos avisos del tipu ''$1''",
-	'echo-dismiss-prefs-message' => 'Pue volver a activalo en Preferencies', # Fuzzy
+	'echo-dismiss-prefs-message' => 'Pue volver a activalo en [[Special:Preferences#mw-prefsection-echo|Preferencies]]',
 	'echo-category-title-edit-user-talk' => 'Tien {{PLURAL:$1|un mensaxe|mensaxes}} nel so alderique',
 	'echo-category-title-article-linked' => '{{PLURAL:$1|Enllaz|Enllaces}} a páxina',
 	'echo-category-title-reverted' => "{{PLURAL:$1|Inversión|Inversiones}} d'edición",
@@ -719,8 +719,8 @@ $1',
 	'echo-link-new' => '$1 {{PLURAL:$1|avisu nuevu|avisos nuevos}}',
 	'echo-link' => 'Avisos',
 	'echo-overlay-link' => 'Tolos avisos',
-	'echo-overlay-title' => 'Avisos', # Fuzzy
-	'echo-overlay-title-overflow' => 'Avisos (amosando $1 de $2 ensin lleer)', # Fuzzy
+	'echo-overlay-title' => '<b>Avisos</b>',
+	'echo-overlay-title-overflow' => '<b>Avisos</b> (amosando $1 de $2 ensin lleer)',
 	'echo-mark-all-as-read' => 'Marcar too como lleío',
 	'echo-date-today' => 'Güei',
 	'echo-date-yesterday' => 'Ayeri',
@@ -2650,23 +2650,20 @@ $messages['ka'] = array(
 	'echo-desc' => 'შეტყობინებების სისტემა',
 	'prefs-echo' => 'შეტყობინებები',
 	'prefs-displaynotifications' => 'გამოსახვის პარამეტრები',
-	'prefs-echosubscriptions' => 'შემატყობინეთ როცა ვინმე…',
+	'prefs-echosubscriptions' => 'შემატყობინეთ ამ ღონისძიებების შესახებ',
 	'echo-pref-web' => 'ქსელი',
 	'echo-pref-email' => 'ელ. ფოსტა',
-	'echo-pref-subscription-edit-user-talk' => 'დაწერს ჩემი განხილვის გვერდზე',
-	'echo-pref-subscription-article-linked' => 'გააკეთებს ბმულს ჩემ მიერ შექმნილ გვერდზე',
-	'echo-pref-subscription-reverted' => 'გააუქმებს ჩემ რედაქტირებას',
 	'echo-no-agent' => '[არავინ]',
 	'echo-no-title' => '[არ არის გვერდი]',
 	'notifications' => 'შეტყობინებები',
 	'tooltip-pt-notifications' => 'თქვენი შეტყობინებები',
-	'echo-specialpage' => 'ჩემი შეტყობინებები',
+	'echo-specialpage' => 'შეტყობინებები',
 	'echo-more-info' => 'დეტალურად',
-	'notification-new-user' => 'კეთილი იყოს თქვენი მობრძანება საიტზე {{SITENAME}}, $1!',
+	'notification-new-user' => 'კეთილი იყოს თქვენი მობრძანება საიტზე {{SITENAME}}, $1! ჩვენ მოხარული ვართ თქვენი აქ ყოფნით.',
 	'echo-notification-count' => '$1+',
 	'echo-link' => 'შეტყობინებები',
 	'echo-overlay-link' => 'შეტყობინება',
-	'echo-overlay-title' => 'ჩემი შეტყობინებები',
+	'echo-overlay-title' => '<b>შეტყობინებები</b>',
 	'echo-date-today' => 'დღეს',
 	'echo-date-yesterday' => 'გუშინ',
 	'echo-date-header' => '$1 $2',
@@ -3282,27 +3279,32 @@ $1',
 );
 
 /** Norwegian Bokmål (norsk bokmål)
+ * @author Danmichaelo
  */
 $messages['nb'] = array(
 	'echo-desc' => 'Varslingssystem',
 	'prefs-echo' => 'Varsler',
+	'prefs-emailsettings' => 'E-postinnstillinger',
 	'prefs-displaynotifications' => 'Visningsvalg',
 	'prefs-echosubscriptions' => 'Varsle meg om disse hendelsene',
+	'echo-pref-send-me' => 'Send meg:',
+	'echo-pref-send-to' => 'Send til:',
 	'echo-pref-web' => 'Nett',
 	'echo-pref-email' => 'E-post',
 	'echo-pref-email-frequency-never' => 'Ikke send meg e-postvarsler',
 	'echo-pref-email-frequency-immediately' => 'Individuelle varsler når de kommer',
 	'echo-pref-email-frequency-daily' => 'Daglig oppsummering av varsler',
 	'echo-pref-email-frequency-weekly' => 'Ukentlig sammendrag av varsler',
+	'echo-pref-notify-show-link' => 'Vis varslinger i verktøylinjen min',
 	'echo-dismiss-button' => 'Lukk',
 	'echo-dismiss-message' => 'Slå av alle varsler for $1',
-	'echo-dismiss-prefs-message' => 'Du kan slå på disse igjen i innstillingene', # Fuzzy
-	'echo-category-title-edit-user-talk' => 'innlegg på diskusjonsside', # Fuzzy
-	'echo-category-title-article-linked' => 'sidelenke', # Fuzzy
-	'echo-category-title-reverted' => 'tilbakestilling av redigering', # Fuzzy
-	'echo-category-title-mention' => 'nevnelse', # Fuzzy
-	'echo-category-title-other' => 'annet', # Fuzzy
-	'echo-category-title-system' => 'system', # Fuzzy
+	'echo-dismiss-prefs-message' => 'Du kan slå på disse igjen i [[Special:Preferences#mw-prefsection-echo|innstillingene]] dine.',
+	'echo-category-title-edit-user-talk' => '{{PLURAL:$1|Innlegg}} på diskusjonsside',
+	'echo-category-title-article-linked' => '{{PLURAL:$1|Sidelenke|Sidelenker}}',
+	'echo-category-title-reverted' => 'Tilbakestilling av {{PLURAL:$1|redigering|redigeringer}}',
+	'echo-category-title-mention' => '{{PLURAL:$1|Omtale|Omtaler}}',
+	'echo-category-title-other' => '{{PLURAL:$1|Annet}}',
+	'echo-category-title-system' => '{{PLURAL:$1|System}}',
 	'echo-no-agent' => '[Ingen]',
 	'echo-no-title' => '[Ingen side]',
 	'echo-error-no-formatter' => 'Ingen formatering definert for varselet',
@@ -3314,6 +3316,7 @@ $messages['nb'] = array(
 	'echo-anon' => 'For å motta varsler, [[Special:Userlogin/signup|opprett en konto]] eller [[Special:UserLogin|logg inn]].',
 	'echo-none' => 'Du har ingen varsler.',
 	'echo-more-info' => 'Mer informasjon',
+	'echo-feedback' => 'Tilbakemelding',
 	'notification-edit-talk-page2' => '[[User:$1|$1]] {{GENDER:$1|postet}} på [[User talk:$2|diskusjonssiden din]].',
 	'notification-edit-talk-page-flyout2' => '<b>$1</b> {{GENDER:$1|postet}} på [[User talk:$2|diskusjonssiden din]]',
 	'notification-page-linked' => '[[$2|$2]] ble {{GENDER:$1|lenket til}} fra [[$3|$3]]: [[Special:WhatLinksHere/$2|Se alle lenker til denne siden]]',
@@ -3389,14 +3392,15 @@ $1',
 	'echo-email-batch-body-default' => 'Du har et nytt varsel',
 	'echo-email-footer-default' => '$2
 
-For å styre hva slags e-poster vi sender deg, gå til: {{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
+For å styre hva slags e-poster vi sender deg, sjekk innstillingene dine: {{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
 
-$1', # Fuzzy
+$1',
 	'echo-link-new' => '{{PLURAL:$1|Ett nytt varsel|$1 nye varsler}}',
 	'echo-link' => 'Varsler',
 	'echo-overlay-link' => 'Alle varsler',
-	'echo-overlay-title' => 'Varsler', # Fuzzy
-	'echo-overlay-title-overflow' => 'Varsler (viser $1 av $2 uleste)', # Fuzzy
+	'echo-overlay-title' => '<b>Varslinger</b>',
+	'echo-overlay-title-overflow' => '<b>Varslinger</b> (viser $1 av $2 uleste)',
+	'echo-mark-all-as-read' => 'Merk alle som leste',
 	'echo-date-today' => 'I dag',
 	'echo-date-yesterday' => 'I går',
 	'echo-load-more-error' => 'En feil oppsto under henting av flere resultater.',
@@ -3404,24 +3408,24 @@ $1', # Fuzzy
 	'notification-page-linked-bundle' => '$2 ble {{GENDER:$1|lenket til}} fra $3 og $4 {{PLURAL:$5|annen side|andre sider}}. [[Special:WhatLinksHere/$2|Se alle lenker til denne siden]]',
 	'notification-edit-user-talk-email-batch-bundle-body' => '$1 og $2 {{PLURAL:$3|annen|andre}} {{GENDER:$1|postet}} på brukerdiskusjonen din',
 	'notification-page-linked-email-batch-bundle-body' => '$2 ble {{GENDER:$1|lenket til}} fra $3 og $4 {{PLURAL:$5|annen side|andre sider}}',
-	'echo-email-batch-subject-daily' => 'Du har {{PLURAL:$2|ett varsel|$1 varsler}} i dag', # Fuzzy
-	'echo-email-batch-subject-weekly' => 'Du har {{PLURAL:$2|ett varsel|$1 varsler}} denne uka', # Fuzzy
+	'echo-email-batch-subject-daily' => 'Du har {{PLURAL:$2|ett nytt varsel|nye varsler}} i dag',
+	'echo-email-batch-subject-weekly' => 'Du har {{PLURAL:$2|ett nytt varsel|nye varsler}} denne uka',
 	'echo-email-batch-body-daily' => '$1,
 
-Du har {{PLURAL:$3|ett varsel|$2 varsler}} på {{SITENAME}} i dag. Se dem her:
+Du har {{PLURAL:$3|ett nytt varsel|nye varsler}} på {{SITENAME}} i dag. Se {{PLURAL:$3|det|dem}} her:
 {{canonicalurl:{{#special:Notifications}}}}
 
 $4
 
-$5', # Fuzzy
+$5',
 	'echo-email-batch-body-weekly' => '$1,
 
-Du har {{PLURAL:$3|ett varsel|$2 varsler}} på {{SITENAME}} denne uka. Se dem her:
+Du har {{PLURAL:$3|ett nytt varsel|nye varsler}} på {{SITENAME}} denne uka. Se {{PLURAL:$3|det|dem}} her:
 {{canonicalurl:{{#special:Notifications}}}}
 
 $4
 
-$5', # Fuzzy
+$5',
 );
 
 /** Low German (Plattdüütsch)
@@ -3458,7 +3462,7 @@ $messages['nl'] = array(
 	'echo-pref-notify-show-link' => 'Melding in uw hulpbalk weergeven',
 	'echo-dismiss-button' => 'Sluiten',
 	'echo-dismiss-message' => 'Alle meldingen uitschakelen over $1',
-	'echo-dismiss-prefs-message' => 'U kunt deze inschakelen in uw voorkeuren', # Fuzzy
+	'echo-dismiss-prefs-message' => 'U kunt deze inschakelen in uw [[Special:Preferences#mw-prefsection-echo|voorkeuren]]',
 	'echo-category-title-edit-user-talk' => 'Bericht{{PLURAL:$1||en}} op uw overlegpagina',
 	'echo-category-title-article-linked' => 'Paginakoppeling{{PLURAL:$1||en}}',
 	'echo-category-title-reverted' => 'Bewerking{{PLURAL:$1||en}} teruggedraaid',
@@ -3551,15 +3555,15 @@ $1',
 	'echo-email-batch-body-default' => 'U hebt een nieuwe melding',
 	'echo-email-footer-default' => '$2
 
-Volg de volgende koppeling om uw e-mailvoorkeuren te wijzigen of om u uit te schrijven:
+Volg de volgende koppeling om te bepalen welke e-mails wij u zenden:
 {{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
 
-$1', # Fuzzy
+$1',
 	'echo-link-new' => '{{PLURAL:$1|1 nieuwe melding|$1 nieuwe meldingen}}',
 	'echo-link' => 'Meldingen',
 	'echo-overlay-link' => 'Alle meldingen',
-	'echo-overlay-title' => 'Meldingen', # Fuzzy
-	'echo-overlay-title-overflow' => 'Meldingen ($1 van $2 ongelezen)', # Fuzzy
+	'echo-overlay-title' => '<b>Meldingen</b>',
+	'echo-overlay-title-overflow' => '<b>Meldingen</b> ($1 van $2 ongelezen)',
 	'echo-mark-all-as-read' => 'Alles als gelezen markeren',
 	'echo-date-today' => 'Vandaag',
 	'echo-date-yesterday' => 'Gisteren',
@@ -3568,22 +3572,22 @@ $1', # Fuzzy
 	'notification-page-linked-bundle' => "$2 is {{GENDER:$1|gekoppeld}} vanaf $3 en $4 andere pagina{{PLURAL:$5||'s}}. [[Special:WhatLinksHere/$2|Alle koppelingen naar deze pagina bekijken]]",
 	'notification-edit-user-talk-email-batch-bundle-body' => '$1 and $2 {{PLURAL:$3|andere gebruiker|andere gebruikers}} {{GENDER:$1|hebben}} een bericht op uw overlegpagina geplaatst',
 	'notification-page-linked-email-batch-bundle-body' => "$2 is {{GENDER:$1|gekoppeld}} vanaf $3 en $4 andere pagina{{PLURAL:$5||'s}}",
-	'echo-email-batch-subject-daily' => 'U hebt vandaag {{PLURAL:$2|0=geen meldingen|één melding|$1 meldingen}}', # Fuzzy
-	'echo-email-batch-subject-weekly' => 'U hebt deze week {{PLURAL:$2|0=geen meldingen|één melding|$1 meldingen}}', # Fuzzy
+	'echo-email-batch-subject-daily' => 'U hebt vandaag {{PLURAL:$2|0=geen nieuwe meldingen|een nieuwe melding|nieuwe meldingen}}',
+	'echo-email-batch-subject-weekly' => 'U hebt deze week {{PLURAL:$2|0=geen nieuwe meldingen|een nieuwe melding|nieuwe meldingen}}',
 	'echo-email-batch-body-daily' => '$1,
-U hebt vandaag {{PLURAL:$3|0=geen meldingen|één melding|$2 meldingen}} op {{SITENAME}}. Hier kunt u uw meldingen bekijken:
+U hebt vandaag {{PLURAL:$3|0=geen nieuwe meldingen|één nieuwe melding|nieuwe meldingen}} op {{SITENAME}}. Hier kunt u uw melding{{PLURAL:$3||en}} bekijken:
 {{canonicalurl:{{#special:Notifications}}}}
 
 $4
 
-$5', # Fuzzy
+$5',
 	'echo-email-batch-body-weekly' => '$1,
-U hebt deze week {{PLURAL:$3|0=geen meldingen|één melding|$2 meldingen}} op {{SITENAME}}. Hier kunt u uw meldingen bekijken:
+U hebt deze week {{PLURAL:$3|0=geen nieuwe meldingen|één nieuwe melding|nieuwe meldingen}} op {{SITENAME}}. Hier kunt u uw melding{{PLURAL:$3||en}} bekijken:
 {{canonicalurl:{{#special:Notifications}}}}
 
 $4
 
-$5', # Fuzzy
+$5',
 );
 
 /** Nederlands (informeel)‎ (Nederlands (informeel)‎)
@@ -3650,6 +3654,7 @@ $messages['pl'] = array(
 	'echo-none' => 'Nie masz żadnych powiadomień.',
 	'echo-more-info' => 'Więcej informacji na temat',
 	'notification-new-user' => 'Witaj na stronach {{SITENAME}}, $1! Cieszymy się, że tu jesteś.',
+	'notification-edit-talk-page-email-subject2' => 'Masz nową wiadomość na swojej stronie dyskusji',
 	'notification-edit-talk-page-email-body2' => '$1
 
 $3
@@ -3676,6 +3681,7 @@ $1', # Fuzzy
 	'echo-overlay-link' => 'Wszystkie powiadomienia',
 	'echo-overlay-title' => '<b>Powiadomienia</b>',
 	'echo-overlay-title-overflow' => '<b>Powiadomienia</b> (wyświetlono $1 z $2 nieprzeczytanych)',
+	'echo-mark-all-as-read' => 'Oznacz wszystko jako przeczytane',
 	'echo-date-today' => 'Dzisiaj',
 	'echo-date-yesterday' => 'Wczoraj',
 	'echo-date-header' => '$1 $2',
@@ -3902,6 +3908,7 @@ $5",
  * @author KPu3uC B Poccuu
  * @author Kaganer
  * @author Kalan
+ * @author Soul Train
  */
 $messages['ru'] = array(
 	'echo-desc' => 'Система уведомлений',
@@ -3938,7 +3945,7 @@ $1', # Fuzzy
 	'echo-link-new' => '$1 {{PLURAL:$1|новое уведомление|новых уведомлений}}',
 	'echo-link' => 'Уведомления',
 	'echo-overlay-link' => 'Все уведомления',
-	'echo-overlay-title' => 'Уведомления', # Fuzzy
+	'echo-overlay-title' => '<b>Уведомления</b>',
 	'echo-overlay-title-overflow' => 'Уведомления (показаны $1 из $2 непрочитанных)', # Fuzzy
 	'echo-date-today' => 'Сегодня',
 	'echo-date-yesterday' => 'Вчера',
