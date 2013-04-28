@@ -256,7 +256,7 @@ class EchoHooks {
 	 */
 	public static function getPreferences( $user, &$preferences ) {
 		global $wgEchoDefaultNotificationTypes, $wgAuth, $wgEchoEnableEmailBatch,
-			$wgEchoNotifiers, $wgEchoNotificationCategories;
+			$wgEchoNotifiers, $wgEchoNotificationCategories, $wgEchoNotifications;
 
 		// Show email frequency options
 		$never = wfMessage( 'echo-pref-email-frequency-never' )->plain();
@@ -324,9 +324,6 @@ class EchoHooks {
 
 		// Show subscription options
 
-		// $oldPrefs are prefs that we are replacing
-		$oldPrefs['email']['edit-user-talk'] = 'enotifusertalkpages';
-
 		// Build the columns (output formats)
 		$columns = array();
 		foreach ( $wgEchoNotifiers as $notifierType => $notifierData ) {
@@ -360,11 +357,6 @@ class EchoHooks {
 				} elseif ( !$wgEchoDefaultNotificationTypes['all'][$notifierType] ) {
 					$removeOptions[] = "$notifierType-$category";
 				}
-
-				// Unset redundant prefs while we're cycling through the matrix
-				if ( isset( $oldPrefs[$notifierType][$category] ) ) {
-					unset( $preferences[$oldPrefs[$notifierType][$category]] );
-				}
 			}
 		}
 
@@ -375,6 +367,18 @@ class EchoHooks {
 			'columns' => $columns,
 			'remove-options' => $removeOptions,
 		);
+
+		// If we're using Echo to handle user talk page post notifications,
+		// hide the old (non-Echo) preference for this. If Echo is moved to core
+		// we'll want to remove this old user option entirely. For now, though,
+		// we need to keep it defined in case Echo is ever uninstalled.
+		// Otherwise, that preference could be lost entirely. This hiding logic
+		// is not abstracted since there is only a single preference in core
+		// that is potentially made obsolete by Echo.
+		if ( isset( $wgEchoNotifications['edit-user-talk'] ) ) {
+			$preferences['enotifusertalkpages']['type'] = 'hidden';
+			unset( $preferences['enotifusertalkpages']['section'] );
+		}
 
 		// Show fly-out display prefs
 		// Per bug 47562, we're going to hide this pref for now until we see
