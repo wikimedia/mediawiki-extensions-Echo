@@ -328,38 +328,46 @@ class EchoHooks {
 		}
 
 		// Figure out the individual exceptions in the matrix and make them disabled
-		$removeOptions = array();
+		$forceOptionsOff = $forceOptionsOn = array();
 		foreach ( $wgEchoNotifiers as $notifierType => $notifierData ) {
 			foreach ( $validSortedCategories as $category ) {
 				// See if this output format is non-dismissable
 				if ( isset( $wgEchoNotificationCategories[$category]['no-dismiss'] )
 					&& in_array( $notifierType, $wgEchoNotificationCategories[$category]['no-dismiss'] ) )
 				{
-					$removeOptions[] = "$notifierType-$category";
+					$forceOptionsOn[] = "$notifierType-$category";
 				}
 
 				// Make sure this output format is possible for this notification category
 				if ( isset( $wgEchoDefaultNotificationTypes[$category] ) ) {
 					if ( !$wgEchoDefaultNotificationTypes[$category][$notifierType] ) {
-						$removeOptions[] = "$notifierType-$category";
+						$forceOptionsOff[] = "$notifierType-$category";
 					}
 				} elseif ( !$wgEchoDefaultNotificationTypes['all'][$notifierType] ) {
-					$removeOptions[] = "$notifierType-$category";
+					$forceOptionsOff[] = "$notifierType-$category";
 				}
 			}
 		}
 
+		$invalid = array_intersect( $forceOptionsOff, $forceOptionsOn );
+		if ( $invalid ) {
+			throw new MWException( sprintf(
+				'The following notifications are both forced and removed: %s',
+				implode( ', ', $invalid )
+			) );
+		}
 		$preferences['echo-subscriptions'] = array(
 			'class' => 'HTMLCheckMatrix',
 			'section' => 'echo/echosubscriptions',
 			'rows' => $rows,
 			'columns' => $columns,
-			'remove-options' => $removeOptions,
 			'help' => Html::rawElement(
 				'a',
 				array( 'href' => $wgEchoHelpPage ),
 				wfMessage( 'echo-learn-more' )->escaped()
 			),
+			'force-options-off' => $forceOptionsOff,
+			'force-options-on' => $forceOptionsOn,
 		);
 
 		// If we're using Echo to handle user talk page post notifications,
