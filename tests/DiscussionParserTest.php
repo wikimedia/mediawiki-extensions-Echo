@@ -8,6 +8,36 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 	// - stripSignature
 	// - getNotifiedUsersForComment
 
+	public function testDiscussionParserAcceptsInternalDiff() {
+		global $wgDiff;
+
+		$origWgDiff = $wgDiff;
+		$wgDiff = '/does/not/exist/or/at/least/we/hope/not';
+		try {
+			$res = EchoDiscussionParser::getMachineReadableDiff(
+				<<<TEXT
+line 1
+line 2
+line 3
+line 4
+TEXT
+				,
+				<<<TEXT
+line 1
+line c
+line 4
+TEXT
+			);
+		} catch ( MWException $e ) {
+			$wgDiff = $origWgDiff;
+			throw $e;
+		}
+		$wgDiff = $origWgDiff;
+
+		// Test failure occurs when MWException is thrown due to parsing failure
+		$this->assertTrue( true );
+	}
+
 	public function testTimestampRegex() {
 		$exemplarTimestamp = self::getExemplarTimestamp();
 		$timestampRegex = EchoDiscussionParser::getTimestampRegex();

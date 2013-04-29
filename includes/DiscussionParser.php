@@ -540,6 +540,49 @@ abstract class EchoDiscussionParser {
 	}
 
 	/**
+	 * Duplicates the check from the global wfDiff function to determine
+	 * if we are using internal or external diff utilities
+	 */
+	static protected function usingInternalDiff() {
+		global $wgDiff;
+
+		wfSuppressWarnings();
+		$haveDiff = $wgDiff && file_exists( $wgDiff );
+		wfRestoreWarnings();
+
+		return !$haveDiff;
+	}
+
+	/**
+	 * Strips a single space from the 2nd character of internal diff output
+	 * For more info see bug 41689.
+	 * @param $diff string
+	 */
+	static protected function fixInternalDiff( $diff ) {
+		$result = array();
+		$seenFirstLine = false;
+		foreach ( explode( "\n", $diff ) as $line ) {
+			if ( !$seenFirstLine ) {
+				$result[] = $line;
+				$seenFirstLine = true;
+				continue;
+			}
+			$len = strlen( $line );
+			if ( $len === 0 ) {
+				$result[] = '';
+			} elseif ( $len <= 2 ) {
+				$result[] = $line[0];
+			} elseif( $line[1] !== ' ' ) {
+				throw new MWException( "Internal diff did not match expected broken format. Line: `$line`" );
+			} else {
+				$result[] = $line[0] . substr( $line, 2 );
+			}
+		}
+
+		return implode( "\n", $result );
+	}
+
+	/**
 	 * Finds differences between $oldText and $newText
 	 * and returns the result in a machine-readable format.
 	 *
@@ -560,6 +603,9 @@ abstract class EchoDiscussionParser {
 		$oldText = trim( $oldText ) . "\n";
 		$newText = trim( $newText ) . "\n";
 		$diff = wfDiff( $oldText, $newText, '-u -w' );
+		if ( self::usingInternalDiff() ) {
+			$diff = self::fixInternalDiff( $diff );
+		}
 
 		$old_lines = explode( "\n", $oldText );
 		$new_lines = explode( "\n", $newText );
