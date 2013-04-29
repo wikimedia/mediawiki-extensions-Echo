@@ -456,8 +456,6 @@ class EchoHooks {
 		$user->setOption( 'echo-subscriptions-email-reverted', false );
 		$user->setOption( 'echo-subscriptions-web-article-linked', true );
 		$user->setOption( 'echo-subscriptions-email-mention', true );
-		$user->setOption( 'echo-subscriptions-email-page-review', true );
-		$user->setOption( 'echo-subscriptions-email-edit-thank', true );
 		$user->setOption( 'echo-subscriptions-email-article-linked', true );
 		$user->saveSettings();
 
