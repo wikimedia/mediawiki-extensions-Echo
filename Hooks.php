@@ -12,10 +12,10 @@ class EchoHooks {
 	 */
 	public static function initEchoExtension() {
 		global $wgEchoBackend, $wgEchoBackendName, $wgEchoNotifications,
-			$wgEchoNotificationCategories, $wgEchoConfig;
+			$wgEchoNotificationCategories, $wgEchoNotificationIcons, $wgEchoConfig;
 
 		// allow extensions to define their own event
-		wfRunHooks( 'BeforeCreateEchoEvent', array( &$wgEchoNotifications, &$wgEchoNotificationCategories ) );
+		wfRunHooks( 'BeforeCreateEchoEvent', array( &$wgEchoNotifications, &$wgEchoNotificationCategories, &$wgEchoNotificationIcons ) );
 
 		$wgEchoBackend = MWEchoBackend::factory( $wgEchoBackendName );
 

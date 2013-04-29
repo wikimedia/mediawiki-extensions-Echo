@@ -143,7 +143,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	 * @return array|string
 	 */
 	public function format( $event, $user, $type ) {
-		global $wgEchoNotificationCategories;
+		global $wgEchoNotificationCategories, $wgExtensionAssetsPath, $wgEchoNotificationIcons;
 
 		// Use the bundle message if use-bundle is true and there is a bundle message
 		$this->generateBundleData( $event, $user, $type );
@@ -159,11 +159,24 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			return $this->formatNotificationTitle( $event, $user )->text();
 		}
 
+		$iconInfo = $wgEchoNotificationIcons[$this->icon];
+		if ( isset( $iconInfo['url'] ) && $iconInfo['url'] ) {
+			$iconUrl = $iconInfo['url'];
+		} else {
+			if ( !isset( $iconInfo['path'] ) || !$iconInfo['path'] ) {
+				// Fallback in case icon is not configured; mainly intended for 'site'
+				$iconInfo = $wgEchoNotificationIcons['placeholder'];
+			}
+			$iconUrl = "$wgExtensionAssetsPath/{$iconInfo['path']}";
+		}
+
 		// Assume html as the format for the notification
-		$output = Xml::tags(
-			'div',
-			array( 'class' => "mw-echo-icon mw-echo-icon-{$this->icon}" ),
-			'&nbsp;'
+		$output = Html::element(
+			'img',
+			array(
+				'class' => "mw-echo-icon",
+				'src' => $iconUrl,
+			)
 		);
 
 		// Add the hidden dismiss interface if the notification is dismissable

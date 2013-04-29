@@ -128,7 +128,6 @@ $wgResourceModules += array(
 			'mediawiki.api',
 			'mediawiki.jqueryMsg',
 			'jquery.badge',
-			'ext.echo.icons',
 			'mediawiki.ui',
 		),
 		'messages' => array(
@@ -151,16 +150,12 @@ $wgResourceModules += array(
 			'ext.echo.base',
 			'mediawiki.api',
 			'mediawiki.jqueryMsg',
-			'ext.echo.icons',
 		),
 		'messages' => array(
 			'echo-load-more-error',
 			'echo-more-info',
 			'echo-feedback',
 		),
-	),
-	'ext.echo.icons' => $echoResourceTemplate + array(
-		'styles' => 'icons/icons.css',
 	),
 );
 
@@ -296,6 +291,56 @@ $wgEchoNotificationCategories = array(
 	),
 );
 
+$echoIconPath = "Echo/modules/icons";
+
+// Defines icons, which are 30x30 images. This is passed to BeforeCreateEchoEvent so
+// extensions can define their own icons with the same structure.  It is recommended that
+// extensions prefix their icon key. An example is myextension-name.  This will help
+// avoid namespace conflicts.
+//
+// You can use either a path or a url, but not both.
+// The value of 'path' is relative to $wgExtensionAssetsPath.
+//
+// The value of 'url' should be a URL.
+//
+// You should customize the site icon URL, which is:
+// $wgEchoNotificationIcons['site']['url']
+$wgEchoNotificationIcons = array(
+	'placeholder' => array(
+		'path' => "$echoIconPath/Generic.png",
+	),
+	'trash' => array(
+		'path' => "$echoIconPath/Deletion.png",
+	),
+	'chat' => array(
+		'path' => "$echoIconPath/Talk.png",
+	),
+	'linked' => array(
+		'path' => "$echoIconPath/CrossReferenced.png",
+	),
+	'featured' => array(
+		'path' => "$echoIconPath/Featured.png",
+	),
+	'reviewed' => array(
+		'path' => "$echoIconPath/Reviewed.png",
+	),
+	'tagged' => array(
+		'path' => "$echoIconPath/ReviewedWithTags.png",
+	),
+	'revert' => array(
+		'path' => "$echoIconPath/Revert.png",
+	),
+	'checkmark' => array(
+		'path' => "$echoIconPath/Reviewed.png",
+	),
+	'gratitude' => array(
+		'path' => "$echoIconPath/Gratitude.png",
+	),
+	'site' => array(
+		'url' => false
+	),
+);
+
 // Definitions of the notification event types built into Echo.
 // If formatter-class isn't specified, defaults to EchoBasicFormatter.
 $wgEchoNotifications = array(
@@ -304,6 +349,7 @@ $wgEchoNotifications = array(
 		'group' => 'system',
 		'title-message' => 'notification-new-user',
 		'title-params' => array( 'agent' ),
+		'icon' => 'site',
 	),
 	'edit-user-talk' => array(
 		'category' => 'edit-user-talk',
@@ -399,6 +445,7 @@ $wgEchoNotifications = array(
 		'email-body-params' => array( 'agent', 'user-rights-list', 'email-footer' ),
 		'email-body-batch-message' => 'notification-user-rights-email-batch-body',
 		'email-body-batch-params' => array( 'agent', 'user-rights-list' ),
+		'icon' => 'site',
 	),
 );
 

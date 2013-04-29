@@ -71,3 +71,10 @@
 .mw-echo-notification span.autocomment {
 	color: inherit;
 }
+.mw-echo-icon {
+	width: 30px;
+	height: 30px;
+	float: left;
+	margin-right: 10px;
+	margin-left: 10px;
+}
