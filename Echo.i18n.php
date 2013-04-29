@@ -75,7 +75,7 @@ $messages['en'] = array(
 	'notification-new-user' => "Welcome to {{SITENAME}}, $1! We're glad you're here.",
 	'notification-reverted2' => 'Your {{PLURAL:$4|edit on [[$2]] has|edits on [[$2]] have}} been {{GENDER:$1|reverted}} by [[User:$1|$1]] $3',
 	'notification-reverted-flyout2' => 'Your {{PLURAL:$4|edit on <b>$2</b> has|edits on <b>$2</b> have}} been {{GENDER:$1|reverted}} by <b>$1</b> $3',
-	'notification-edit-talk-page-email-subject2' => 'You have a new talkpage message',
+	'notification-edit-talk-page-email-subject2' => 'You have a new talkpage message on {{SITENAME}}',
 	'notification-edit-talk-page-email-body2' => '$1
 
 $3
@@ -95,7 +95,7 @@ See all links to this page:
 
 $3',
 	'notification-page-linked-email-batch-body' => '$2 was {{GENDER:$1|linked}} from $3',
-	'notification-reverted-email-subject2' => 'Your {{PLURAL:$3|edit on $2 was|edits on $2 were}} {{GENDER:$1|reverted}} by $1',
+	'notification-reverted-email-subject2' => 'Your {{PLURAL:$3|edit on $2 was|edits on $2 were}} {{GENDER:$1|reverted}} by $1 on {{SITENAME}}',
 	'notification-reverted-email-body2' => 'Your {{PLURAL:$7|edit on $2 has been|edits on $2 have been}} {{GENDER:$1|reverted}} by $1.
 
 $5
@@ -162,17 +162,17 @@ $1',
 	// Email batch
 	'echo-email-batch-separator' => '________________________________________________', # only translate this message to other languages if you have to change it
 	'echo-email-batch-bullet' => '•', # only translate this message to other languages if you have to change it
-	'echo-email-batch-subject-daily' => 'You have {{PLURAL:$2|a new notification|new notifications}} today',
-	'echo-email-batch-subject-weekly' => 'You have {{PLURAL:$2|a new notification|new notifications}} this week',
-	'echo-email-batch-body-daily' => '$1,
+	'echo-email-batch-subject-daily' => 'You have {{PLURAL:$2|a new notification|new notifications}} at {{SITENAME}}',
+	'echo-email-batch-subject-weekly' => 'You have {{PLURAL:$2|a new notification|new notifications}} at {{SITENAME}} this week',
+	'echo-email-batch-body-daily' => 'Hi $1,
 
-You have {{PLURAL:$3|a new notification|new notifications}} on {{SITENAME}} today. View {{PLURAL:$3|it|them}} here:
+You have {{PLURAL:$3|a new notification|new notifications}} on {{SITENAME}}. View {{PLURAL:$3|it|them}} here:
 {{canonicalurl:{{#special:Notifications}}}}
 
 $4
 
 $5',
-	'echo-email-batch-body-weekly' => '$1,
+	'echo-email-batch-body-weekly' => 'Hi $1,
 
 You have {{PLURAL:$3|a new notification|new notifications}} on {{SITENAME}} this week. View {{PLURAL:$3|it|them}} here:
 {{canonicalurl:{{#special:Notifications}}}}
