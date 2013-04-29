@@ -42,7 +42,7 @@ class MWDbEchoBackend extends MWEchoBackend {
 	public function loadNotifications( $user, $limit, $timestamp, $offset, $outputFormat = 'web' ) {
 		$dbr = MWEchoDbFactory::getDB( DB_SLAVE );
 
-		$eventTypesToLoad = $this->getUserEnabledEvents( $user, $outputFormat );
+		$eventTypesToLoad = EchoNotificationController::getUserEnabledEvents( $user, $outputFormat );
 		if ( !$eventTypesToLoad ) {
 			return array();
 		}
@@ -264,7 +264,7 @@ class MWDbEchoBackend extends MWEchoBackend {
 			$dbSource = DB_SLAVE;
 		}
 
-		$eventTypesToLoad = $this->getUserEnabledEvents( $user, 'web' );
+		$eventTypesToLoad = EchoNotificationController::getUserEnabledEvents( $user, 'web' );
 
 		if ( !$eventTypesToLoad ) {
 			return false;

@@ -31,6 +31,29 @@ class EchoNotificationController {
 	}
 
 	/**
+	 * Get the enabled events for a user, which excludes user-dismissed events
+	 * from the general enabled events
+	 * @param $user User
+	 * @param $outputFormat string
+	 * @return array
+	 */
+	public static function getUserEnabledEvents( $user, $outputFormat ) {
+		global $wgEchoNotifications;
+		$eventTypesToLoad = $wgEchoNotifications;
+		foreach ( $eventTypesToLoad as $eventType => $eventData ) {
+			$category = self::getNotificationCategory( $eventType );
+			// Make sure the user is eligible to recieve this type of notification
+			if ( !self::getCategoryEligibility( $user, $category ) ) {
+				unset( $eventTypesToLoad[$eventType] );
+			}
+			if ( !$user->getOption( 'echo-subscriptions-' . $outputFormat . '-' . $category ) ) {
+				unset( $eventTypesToLoad[$eventType] );
+			}
+		}
+		return array_keys( $eventTypesToLoad );
+	}
+
+	/**
 	 * See if a user is eligible to recieve a certain type of notification
 	 * (based on user groups, not user preferences)
 	 *
