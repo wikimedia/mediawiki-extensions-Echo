@@ -90,8 +90,8 @@ class EchoNotifier {
 			return false;
 		}
 
-		// See if the user wants to receive emails for this category
-		if ( $user->getOption( 'echo-subscriptions-email-' . $event->getCategory() ) ) {
+		// See if the user wants to receive emails for this category or the user is eligible to receive this email
+		if ( in_array( $event->getType(), EchoNotificationController::getUserEnabledEvents( $user, 'email' ) ) ) {
 			global $wgEchoEnableEmailBatch, $wgEchoNotifications, $wgNotificationSender, $wgNotificationSenderName, $wgNotificationReplyName, $wgEchoBundleEmailInterval;
 
 			$priority = EchoNotificationController::getNotificationPriority( $event->getType() );
