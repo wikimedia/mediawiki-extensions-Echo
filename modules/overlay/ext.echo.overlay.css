@@ -108,7 +108,8 @@
 	clear: left;
 	float: left;
 	padding: 15px 15px 15px 60px;
-	width: 150px;
+	/* 149px instead of 150px due to Chrome rounding bug (bug 47897) */
+	width: 149px;
 	min-height: 14px;
 	font-size: 13px;
 	/* @embed */
