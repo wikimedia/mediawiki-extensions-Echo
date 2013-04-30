@@ -222,18 +222,6 @@ class EchoHooks {
 	 */
 	public static function getNotificationTypes( $user, $event, &$notifyTypes ) {
 		$type = $event->getType();
-
-		// Figure out when to disallow email notifications
-		if ( $type == 'edit' ) {
-			if ( !$user->getOption( 'enotifwatchlistpages' ) ) {
-				$notifyTypes = array_diff( $notifyTypes, array( 'email' ) );
-			}
-		} elseif ( $type == 'edit-user-talk' ) {
-			if ( !$user->getOption( 'enotifusertalkpages' ) ) {
-				$notifyTypes = array_diff( $notifyTypes, array( 'email' ) );
-			}
-		}
-
 		if ( !$user->getOption( 'enotifminoredits' ) ) {
 			$extra = $event->getExtra();
 			if ( !empty( $extra['revid'] ) ) {
@@ -753,6 +741,29 @@ class EchoHooks {
 		}
 		// note not calling saveSettings()
 		// so will not change on disk until user saves for some other reason
+		return true;
+	}
+
+	/**
+	 * Handler for UserSaveOptions hook.
+	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/UserSaveOptions
+	 * @param $user User whose options are being saved
+	 * @param $options Options can be modified
+	 * @return bool true in all cases
+	 */
+	public static function onUserSaveOptions( $user, &$options ) {
+		global $wgRecentEchoInstall;
+		if ( $wgRecentEchoInstall ) {
+			// Both echo-subscriptions-email-edit-user-talk and enotifusertalkpages
+			// default to true.
+			if ( isset( $options['echo-subscriptions-email-edit-user-talk'] ) &&
+				!$options['echo-subscriptions-email-edit-user-talk']
+			) {
+				$options['enotifusertalkpages'] = false;
+			} else {
+				$options['enotifusertalkpages'] = true;
+			}
+		}
 		return true;
 	}
 }
