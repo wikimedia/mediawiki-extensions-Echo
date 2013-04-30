@@ -142,7 +142,7 @@
 					$( '<a/>' )
 						.attr( 'href', mw.config.get( 'wgEchoHelpPage' ) )
 						.attr( 'title', mw.msg( 'echo-more-info' ) )
-						.attr( 'id', 'mw-echo-moreinfo-link' )
+						.attr( 'id', 'mw-echo-overlay-moreinfo-link' )
 						.attr( 'target', '_blank' )
 						.appendTo( $title );
 
