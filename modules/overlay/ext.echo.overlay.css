@@ -8,7 +8,7 @@
 	min-height: 2em;
 	padding: 0;
 	color: #6D6D6D;
-	z-index: 60;
+	z-index: 100;
 	box-shadow: 0px 3px 8px rgba(50, 50, 50, 0.35);
 	/* Override for Monobook */
 	text-align: left;
@@ -20,7 +20,7 @@
 	width: 21px;
 	height: 11px;
 	position: absolute;
-	z-index: 61;
+	z-index: 101;
 	top: 21px;
 	left: -9px;
 }
