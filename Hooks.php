@@ -244,7 +244,8 @@ class EchoHooks {
 	 */
 	public static function getPreferences( $user, &$preferences ) {
 		global $wgEchoDefaultNotificationTypes, $wgAuth, $wgEchoEnableEmailBatch,
-			$wgEchoNotifiers, $wgEchoNotificationCategories, $wgEchoNotifications;
+			$wgEchoNotifiers, $wgEchoNotificationCategories, $wgEchoNotifications,
+			$wgEchoHelpPage;
 
 		// Show email frequency options
 		$never = wfMessage( 'echo-pref-email-frequency-never' )->plain();
@@ -354,6 +355,11 @@ class EchoHooks {
 			'rows' => $rows,
 			'columns' => $columns,
 			'remove-options' => $removeOptions,
+			'help' => Html::rawElement(
+				'a',
+				array( 'href' => $wgEchoHelpPage ),
+				wfMessage( 'echo-learn-more' )->escaped()
+			),
 		);
 
 		// If we're using Echo to handle user talk page post notifications,
@@ -501,7 +507,7 @@ class EchoHooks {
 		}
 
 		// Handle only
-		// 1. inserts to pagelinks table && 
+		// 1. inserts to pagelinks table &&
 		// 2. content namespace pages &&
 		// 3. non-transcluding pages &&
 		// 4. non-redirect pages
