@@ -173,6 +173,7 @@ $wgResourceModules += array(
 $wgHooks['EchoGetDefaultNotifiedUsers'][] = 'EchoHooks::getDefaultNotifiedUsers';
 $wgHooks['EchoGetNotificationTypes'][] = 'EchoHooks::getNotificationTypes';
 $wgHooks['EchoGetBundleRules'][] = 'EchoHooks::onEchoGetBundleRules';
+$wgHooks['EchoAbortEmailNotification'][] = 'EchoHooks::onEchoAbortEmailNotification';
 
 // Hook appropriate events
 $wgHooks['ArticleSaveComplete'][] = 'EchoHooks::onArticleSaved';

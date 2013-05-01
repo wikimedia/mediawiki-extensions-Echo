@@ -90,6 +90,11 @@ class EchoNotifier {
 			return false;
 		}
 
+		// Final check on whether to send email for this user & event
+		if ( !wfRunHooks( 'EchoAbortEmailNotification', array( $user, $event ) ) ) {
+			return false;
+		}
+
 		// See if the user wants to receive emails for this category or the user is eligible to receive this email
 		if ( in_array( $event->getType(), EchoNotificationController::getUserEnabledEvents( $user, 'email' ) ) ) {
 			global $wgEchoEnableEmailBatch, $wgEchoNotifications, $wgNotificationSender, $wgNotificationSenderName, $wgNotificationReplyName, $wgEchoBundleEmailInterval;

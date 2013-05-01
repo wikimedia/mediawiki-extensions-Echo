@@ -79,12 +79,15 @@ abstract class EchoDiscussionParser {
 			// If the recipient is a valid non-anonymous user and hasn't turned
 			// off thier notifications, generate a talk page post Echo notification.
 			if ( $notifyUser && $notifyUser->getID() && $notifyUser->getOption( 'echo-notify-show-link' ) ) {
-				EchoEvent::create( array(
-					'type' => 'edit-user-talk',
-					'title' => $title,
-					'extra' => array( 'revid' => $revision->getID() ),
-					'agent' => $user,
-				) );
+				// if this is a minor edit, only notify if the agent doesn't have talk page minor edit notification blocked
+				if ( !$revision->isMinor() || !$user->isAllowed( 'nominornewtalk' ) ) {
+					EchoEvent::create( array(
+						'type' => 'edit-user-talk',
+						'title' => $title,
+						'extra' => array( 'revid' => $revision->getID(), 'minoredit' => $revision->isMinor() ),
+						'agent' => $user,
+					) );
+				}
 			}
 		}
 	}
