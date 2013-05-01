@@ -665,7 +665,8 @@ class EchoHooks {
 		global $wgEchoNotifications;
 		// If the user has the notifications flyout turned on and is receiving
 		// notifications for talk page messages, disable the orange-bar-style notice.
-		if ( $recipient->getOption( 'echo-notify-show-link' )
+		if ( $recipient->isLoggedIn()
+			&& $recipient->getOption( 'echo-notify-show-link' )
 			&& isset( $wgEchoNotifications['edit-user-talk'] )
 		) {
 			// hide orange bar
