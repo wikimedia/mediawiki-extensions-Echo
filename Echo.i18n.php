@@ -1418,32 +1418,27 @@ $messages['el'] = array(
 	'echo-desc' => 'Σύστημα ειδοποιήσεων',
 	'prefs-echo' => 'Ειδοποιήσεις',
 	'prefs-displaynotifications' => 'Επιλογές εμφάνισης',
-	'prefs-emailfrequency' => 'Πόσο συχνά λαμβάνω ειδοποιήσεις μέσω ηλεκτρονικού ταχυδρομείου', # Fuzzy
-	'prefs-echosubscriptions' => 'Ειδοποιήστε με όταν κάποιος...',
+	'prefs-echosubscriptions' => 'Ειδοποιήστε με όταν κάποιος...', # Fuzzy
 	'echo-pref-web' => 'Διαδίκτυο',
 	'echo-pref-email' => 'Ηλεκτρονικό Ταχυδρομείο',
-	'echo-pref-subscription-edit-user-talk' => 'Δημοσιεύσεις στη σελίδα συζήτησής μου',
-	'echo-pref-subscription-article-linked' => 'Δημιουργεί σύνδεσμο με μια σελίδα που δημιούργησα',
-	'echo-pref-subscription-reverted' => 'Αναστρέφει την επεξεργασία μου',
 	'echo-pref-email-frequency-never' => 'Μην μου στέλνετε ειδοποιήσεις μέσω ηλεκτρονικού ταχυδρομείου',
 	'echo-pref-email-frequency-daily' => 'Μια ημερήσια σύνοψη ειδοποιήσεων',
 	'echo-pref-email-frequency-weekly' => 'Μια εβδομαδιαία σύνοψη ειδοποιήσεων',
-	'echo-dismiss-title-edit-user-talk' => 'Ανάρτηση σελίδας συζήτησης',
+	'echo-category-title-edit-user-talk' => 'Ανάρτηση σελίδας συζήτησης', # Fuzzy
 	'echo-no-agent' => '[Κανένας]',
 	'echo-no-title' => '[Χωρίς σελίδα]',
 	'notifications' => 'Ειδοποιήσεις',
 	'tooltip-pt-notifications' => 'Οι ειδοποιήσεις σας',
-	'echo-specialpage' => 'Οι ειδοποιήσεις μου',
+	'echo-specialpage' => 'Ειδοποιήσεις',
 	'echo-anon' => 'Για να λαμβάνετε ειδοποιήσεις, [[Special:Userlogin/signup|δημιουργήστε ένα λογαριασμό]] ή [[Special:UserLogin|συνδεθείτε]].',
 	'echo-none' => 'Δεν έχετε ειδοποιήσεις.',
-	'notification-new-user' => 'Καλώς ήρθατε στο {{SITENAME}}, $1!',
+	'notification-new-user' => 'Καλώς ήρθατε στο {{SITENAME}}, $1! Χαιρόμαστε που είστε εδώ.',
 	'echo-email-subject-default' => 'Νέα ειδοποίηση στο {{SITENAME}}',
-	'echo-link' => 'Οι ειδοποιήσεις μου', # Fuzzy
-	'echo-overlay-link' => 'Όλες οι ειδοποιήσεις...', # Fuzzy
-	'echo-overlay-title' => 'Οι ειδοποιήσεις μου',
+	'echo-link' => 'Ειδοποιήσεις',
+	'echo-overlay-link' => 'Όλες οι ειδοποιήσεις',
+	'echo-overlay-title' => '<b>Ανακοινώσεις</b>',
 	'echo-date-today' => 'Σήμερα',
 	'echo-date-yesterday' => 'Χθες',
-	'echo-email-batch-category-header-other' => '$1 {{PLURAL:$1|άλλος|άλλοι}}',
 );
 
 /** British English (British English)
@@ -2049,7 +2044,7 @@ $messages['he'] = array(
 	'echo-pref-send-to' => 'לשלוח אל:',
 	'echo-pref-web' => 'אינטרנט',
 	'echo-pref-email' => 'דואר אלקטרוני',
-	'echo-pref-email-frequency-never' => 'לא לשלוח לי שוםהודעות בדואר אלקטרוני',
+	'echo-pref-email-frequency-never' => 'לא לשלוח לי שום הודעות בדואר אלקטרוני',
 	'echo-pref-email-frequency-immediately' => 'הודעות בודדות כשהן מגיעות',
 	'echo-pref-email-frequency-daily' => 'סיכום יומי של הודעות',
 	'echo-pref-email-frequency-weekly' => 'סיכום שבועי של הודעות',
@@ -2063,16 +2058,16 @@ $messages['he'] = array(
 	'echo-category-title-mention' => '{{PLURAL:$1|אזכור|אזכורים}}',
 	'echo-category-title-other' => '{{PLURAL:$1|אחר}}',
 	'echo-category-title-system' => '{{PLURAL:$1|מערכת}}',
-	'echo-no-agent' => '[לא צוין]',
+	'echo-no-agent' => '[אף אחד]',
 	'echo-no-title' => '[ללא דף]',
 	'echo-error-no-formatter' => 'לא הוגדר עיצוב להודעות',
 	'echo-error-preference' => 'שגיאה: לא ניתן להגדיר העדפת משתמש',
-	'echo-error-token' => 'שגיאה: לא ניתן לקבל אסימון משתמש',
+	'echo-error-token' => 'שגיאה: לא ניתן לאחזר אסימון משתמש',
 	'notifications' => 'הודעות',
 	'tooltip-pt-notifications' => 'ההודעות שלך',
 	'echo-specialpage' => 'הודעות',
 	'echo-anon' => 'כדי לקבל הודעות, [[Special:Userlogin/signup|יש ליצור חשבון]] או [[Special:UserLogin|להיכנס]].',
-	'echo-none' => 'אין לך הודעות',
+	'echo-none' => 'אין לך הודעות.',
 	'echo-more-info' => 'מידע נוסף',
 	'echo-feedback' => 'משוב',
 	'notification-edit-talk-page2' => '[[User:$1|$1]] {{GENDER:$1|כתב|כתבה}} ב[[User talk:$2|הדף השיחה]] שלך.',
@@ -2085,8 +2080,8 @@ $messages['he'] = array(
 	'notification-add-comment-yours2' => '[[User:$1|$1]] {{GENDER:$1|העיר|העירה}} על הנושא "[[$3#$2|$2]]" בדף השיחה שלך',
 	'notification-mention' => '[[User:$1|$1]] {{GENDER:$1|הזכיר|הזכירה}} אותך בדיון [[$3#$2|$3]].',
 	'notification-mention-flyout' => '<b>$1</b> {{GENDER:$1|הזכיר|הזכירה}} אותך בדיון [[$3#$2|$3]].',
-	'notification-user-rights' => '[[User:$1|$1]] [[Special:Log/rights/$1|{{GENDER:$1|שינה|שינתה}}]] את ההררשאות שלך. $2. [[Special:ListGroupRights|מידע נוסף]]',
-	'notification-user-rights-flyout' => '<b>$1</b> {{GENDER:$1|שינה|שינתה}} את ההררשאות שלך. $2. [[Special:ListGroupRights|מידע נוסף]]',
+	'notification-user-rights' => '[[User:$1|$1]] [[Special:Log/rights/$1|{{GENDER:$1|שינה|שינתה}}]] את ההרשאות שלך. $2. [[Special:ListGroupRights|מידע נוסף]]',
+	'notification-user-rights-flyout' => '<b>$1</b> {{GENDER:$1|שינה|שינתה}} את ההרשאות שלך. $2. [[Special:ListGroupRights|מידע נוסף]]',
 	'notification-user-rights-add' => 'צורפת {{PLURAL:$2|לקבוצה הבאה|לקבוצות הבאות}}: $1',
 	'notification-user-rights-remove' => 'נמחקת {{PLURAL:$2|מהקבוצה הבאה|מהקבוצות הבאות}}: $1',
 	'notification-new-user' => 'ברוך בואך ל{{GRAMMAR:תחילית|{{SITENAME}}}}, $1! אנחנו שמחים לראות אותך כאן.',
@@ -2589,6 +2584,14 @@ $4
 $5',
 	'notification-mention-email-batch-body' => '$1 が $2 であなたに{{GENDER:$1|言及しました}}',
 	'notification-user-rights-email-subject' => '{{SITENAME}}での利用者権限が変更されました',
+	'notification-user-rights-email-body' => 'あなたの権限が $1 により{{GENDER:$1|変更されました}}。$2
+
+詳細を確認:
+
+{{canonicalurl:{{#special:ListGroupRights}}}}
+
+$3',
+	'notification-user-rights-email-batch-body' => 'あなたの権限が $1 により{{GENDER:$1|変更されました}}。$2',
 	'echo-email-subject-default' => '{{SITENAME}}での新しい通知',
 	'echo-email-body-default' => '{{SITENAME}}で新しい通知があります:
 
@@ -2627,7 +2630,7 @@ $4
 $5',
 	'echo-email-batch-body-weekly' => '$1 さん、
 
-{{SITENAME}}上で、この1週間に{{PLURAL:$3|新たな通知}}が届きました。{{PLURAL:$3}}下記の場所でご覧いただけます。
+{{SITENAME}}上で、この1週間に{{PLURAL:$3|新たな通知}}が届きました。{{PLURAL:$3|}}下記の場所でご覧いただけます。
 {{canonicalurl:{{#special:Notifications}}}}
 
 $4
@@ -4140,21 +4143,25 @@ $messages['sr-el'] = array(
 $messages['sv'] = array(
 	'echo-desc' => 'Notifikationssystem',
 	'prefs-echo' => 'Meddelanden',
+	'prefs-emailsettings' => 'E-postinställningar',
 	'prefs-displaynotifications' => 'Visningsalternativ',
 	'prefs-echosubscriptions' => 'Underrätta mig om dessa händelser',
+	'echo-pref-send-me' => 'Skicka mig:',
+	'echo-pref-send-to' => 'Skicka till:',
 	'echo-pref-web' => 'Webb',
 	'echo-pref-email' => 'E-post',
 	'echo-pref-email-frequency-never' => 'Skicka mig inte några aviseringar via e-postmeddelanden',
 	'echo-pref-email-frequency-immediately' => 'Enskilda meddelanden när de kommer',
 	'echo-pref-email-frequency-daily' => 'En daglig sammanfattning av aviseringar',
 	'echo-pref-email-frequency-weekly' => 'En veckosammanfattning av aviseringar',
+	'echo-pref-notify-show-link' => 'Visa meddelanden i min verktygsrad',
 	'echo-dismiss-button' => 'Avfärda',
 	'echo-dismiss-message' => 'Stäng av alla $1 notifieringar',
-	'echo-dismiss-prefs-message' => 'Du kan aktivera dessa igen i inställningarna', # Fuzzy
+	'echo-dismiss-prefs-message' => 'Du kan aktivera dessa igen i dina [[Special:#mw-prefsection-echo|inställningar]]', # Fuzzy
 	'echo-category-title-edit-user-talk' => '{{PLURAL:$1|Diskussionssideinlägg}}',
 	'echo-category-title-article-linked' => 'Sid{{PLURAL:$1|länk|länkar}}',
 	'echo-category-title-reverted' => 'Redigerings{{PLURAL:$1|återställning|återställningar}}',
-	'echo-category-title-mention' => 'Nämna', # Fuzzy
+	'echo-category-title-mention' => '{{PLURAL:$1|Omnämning|Omnämningar}}',
 	'echo-category-title-other' => '{{PLURAL:$1|Annan}}',
 	'echo-category-title-system' => '{{PLURAL:$1|System}}',
 	'echo-no-agent' => '[Ingen]',
@@ -4168,6 +4175,7 @@ $messages['sv'] = array(
 	'echo-anon' => 'För att ta emot meddelanden, [[Special:Userlogin/signup|skapa ett konto]] eller [[Special:UserLogin|logga in]].',
 	'echo-none' => 'Du har inga meddelanden.',
 	'echo-more-info' => 'Mer information',
+	'echo-feedback' => 'Feedback',
 	'notification-edit-talk-page2' => '[[User:$1|$1]] {{GENDER:$1|postade}} på din [[User talk:$2|diskussionssida]].',
 	'notification-edit-talk-page-flyout2' => '<b>$1</b> {{GENDER:$1|postade}} på din [[User talk:$2|diskussionssida]].',
 	'notification-page-linked' => '[[$2|$2]] blev {{GENDER:$1|länkad}} från [[$3|$3]]: [[Special:WhatLinksHere/$2|Se alla länkar till denna sida]]',
@@ -4250,8 +4258,9 @@ $1',
 	'echo-link-new' => '$1 {{PLURAL:$1|nytt meddelande|nya meddelanden}}',
 	'echo-link' => 'Meddelanden',
 	'echo-overlay-link' => 'Alla meddelanden',
-	'echo-overlay-title' => 'Meddelanden', # Fuzzy
-	'echo-overlay-title-overflow' => 'Meddelanden (visar $1 av $2 olästa)', # Fuzzy
+	'echo-overlay-title' => '<b>Meddelanden</b>',
+	'echo-overlay-title-overflow' => '<b>Meddelanden</b> (visar $1 av $2 olästa)',
+	'echo-mark-all-as-read' => 'Markera alla som lästa',
 	'echo-date-today' => 'Idag',
 	'echo-date-yesterday' => 'Igår',
 	'echo-load-more-error' => 'Ett fel uppstod när fler resultat skulle hämtas.',
@@ -4271,12 +4280,12 @@ $4
 $5',
 	'echo-email-batch-body-weekly' => '$1,
 
-Du har $2 {{PLURAL:$3|meddelande|meddelanden}} på {{SITENAME}} denna vecka. Se dem här:
+Du har {{PLURAL:$3|ett nytt meddelande|nya meddelanden}} på {{SITENAME}} denna vecka. Se {{PLURAL:$3|det|dem}} här:
 {{canonicalurl:{{#special:Notifications}}}}
 
 $4
 
-$5', # Fuzzy
+$5',
 );
 
 /** Tamil (தமிழ்)
@@ -4334,8 +4343,49 @@ $1',
 $messages['tr'] = array(
 	'echo-desc' => 'Bildirim sistemi',
 	'prefs-echo' => 'Bildirimler',
+	'prefs-emailsettings' => 'E-posta ayarları',
 	'prefs-displaynotifications' => 'Görüntüleme seçenekleri',
+	'prefs-echosubscriptions' => 'Bu olaylar hakkında bildir',
+	'echo-pref-send-me' => 'Bana gönder:',
+	'echo-pref-send-to' => 'Şuna gönder:',
+	'echo-pref-web' => 'Veb',
+	'echo-pref-email' => 'E-posta',
+	'echo-pref-email-frequency-never' => 'Bana e-posta bildirimi gönderme',
+	'echo-pref-email-frequency-daily' => 'Bildirimlerin günlük özeti',
+	'echo-pref-email-frequency-weekly' => 'Bildirimlerin haftalık özeti',
+	'echo-pref-notify-show-link' => 'Bildirimleri araç çubuğumda göster',
+	'echo-category-title-edit-user-talk' => 'Tartışma sayfası {{PLURAL:$1|gönderimi|gönderimleri}}',
+	'echo-category-title-article-linked' => 'Sayfa {{PLURAL:$1|bağlantısı|bağlantıları}}',
+	'echo-category-title-reverted' => 'Değişiklik {{PLURAL:$1|iptali}}',
+	'echo-category-title-mention' => '{{PLURAL:$1|Zikretme}}',
+	'echo-category-title-other' => '{{PLURAL:$1|Diğer}}',
+	'echo-category-title-system' => '{{PLURAL:$1|Sistem}}',
+	'echo-no-agent' => '[Kimse]',
+	'echo-no-title' => '[Sayfa yok]',
+	'echo-error-preference' => 'Hata: Kullanıcı tercihi ayarlanamadı',
+	'notifications' => 'Bildirimler',
+	'tooltip-pt-notifications' => 'Bildirimleriniz',
+	'echo-specialpage' => 'Bildirimler',
 	'echo-none' => 'Bildiriminiz bulunmamakta.',
+	'echo-more-info' => 'Daha fazla bilgi',
+	'echo-feedback' => 'Geri bildirim',
+	'notification-new-user' => 'Hoş geldin $1! Sizi burada görmekten memnun olduk.',
+	'notification-edit-talk-page-email-subject2' => 'Yeni tartışma sayfası iletiniz var.',
+	'notification-edit-talk-page-email-body2' => '$1
+
+$3
+
+Daha fazlası:
+
+$2
+
+$4',
+	'echo-email-batch-body-default' => 'Yeni bir bildiriminiz var',
+	'echo-link' => 'Bildirimler',
+	'echo-overlay-link' => 'Bütün bildirimler',
+	'echo-overlay-title' => '<b>Bildirimler</b>',
+	'echo-date-today' => 'Bugün',
+	'echo-date-yesterday' => 'Dün',
 );
 
 /** Uyghur (Arabic script) (ئۇيغۇرچە)
@@ -4806,6 +4856,7 @@ $1',
 	'echo-link' => '通知',
 	'echo-overlay-link' => '所有通知',
 	'echo-overlay-title' => '<b>通知</b>',
+	'echo-overlay-title-overflow' => '<b>通知</b>（顯示$2項未閱之中的$1項）',
 	'echo-mark-all-as-read' => '標記所有為已讀',
 	'echo-date-today' => '今天',
 	'echo-date-yesterday' => '昨天',
