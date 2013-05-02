@@ -350,7 +350,7 @@ $wgEchoNotificationIcons = array(
 $wgEchoNotifications = array(
 	'welcome' => array(
 		'category' => 'system',
-		'group' => 'system',
+		'group' => 'positive',
 		'title-message' => 'notification-new-user',
 		'title-params' => array( 'agent' ),
 		'icon' => 'site',
@@ -395,7 +395,7 @@ $wgEchoNotifications = array(
 	),
 	'page-linked' => array(
 		'category' => 'article-linked',
-		'group' => 'positive',
+		'group' => 'neutral',
 		'bundle' => array( 'web' => true, 'email' => true ),
 		'formatter-class' => 'EchoPageLinkFormatter',
 		'title-message' => 'notification-page-linked',
@@ -436,7 +436,7 @@ $wgEchoNotifications = array(
 	),
 	'user-rights' => array(
 		'category' => 'system',
-		'group' => 'interactive',
+		'group' => 'neutral',
 		'formatter-class' => 'EchoUserRightsFormatter',
 		'title-message' => 'notification-user-rights',
 		'title-params' => array( 'agent', 'user-rights-list' ),
