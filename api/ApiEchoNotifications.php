@@ -31,6 +31,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 			} else {
 				$result['more'] = '0';
 			}
+			$this->getResult()->setIndexedTagName( $result['list'], 'notification' );
 		}
 
 		if ( in_array( 'count', $prop ) ) {
@@ -38,7 +39,14 @@ class ApiEchoNotifications extends ApiQueryBase {
 		}
 
 		if ( in_array( 'index', $prop ) ) {
-			$result['index'] = array_keys( $result['list'] );
+			$result['index'] = array();
+			foreach ( array_keys( $result['list'] ) as $key ) {
+				// Don't include the XML tag name ('_element' key)
+				if ( $key != '_element' ) {
+					$result['index'][] = $key;
+				}
+			}
+			$this->getResult()->setIndexedTagName( $result['index'], 'id' );
 		}
 
 		$this->getResult()->setIndexedTagName( $result, 'notification' );
