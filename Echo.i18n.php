@@ -25,6 +25,7 @@ $messages['en'] = array(
 	'echo-pref-email-frequency-daily' => 'A daily summary of notifications',
 	'echo-pref-email-frequency-weekly' => 'A weekly summary of notifications',
 	'echo-pref-notify-show-link' => 'Show notifications in my toolbar',
+	'echo-learn-more' => 'Learn more',
 
 	// Dismiss interface
 	'echo-dismiss-button' => 'Dismiss',
@@ -221,6 +222,7 @@ See also:
 	'echo-pref-email-frequency-daily' => 'Option for users who want to receive a daily digest of email notifications',
 	'echo-pref-email-frequency-weekly' => 'Option for users who want to receive a weekly digest of email notifications',
 	'echo-pref-notify-show-link' => "Label for a preference which enables the 'Notifications' link in the header and associated fly-out panel",
+	'echo-learn-more' => 'Text for link to more information about a topic.',
 	'echo-dismiss-button' => 'Text for the button that dismisses a notification type. Keep this short.
 {{Identical|Dismiss}}',
 	'echo-dismiss-message' => 'Message asking the user if they want to turn off all notifications of a certain type. Parameters:
@@ -2099,7 +2101,7 @@ $2
 $4',
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|כתב|כתבה}} הדף השיחה שלך',
 	'notification-page-linked-email-subject' => 'מישהו קישר אל הדף שיצרת באתר {{SITENAME}}',
-	'notification-page-linked-email-body' => '$1 
+	'notification-page-linked-email-body' => '$1
 
 כל הקישורים אל הדף הזה:
 
