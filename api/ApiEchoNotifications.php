@@ -183,10 +183,11 @@ class ApiEchoNotifications extends ApiQueryBase {
 				),
 			),
 			'limit' => array(
-				ApiBase::PARAM_TYPE => 'integer',
+				ApiBase::PARAM_TYPE => 'limit',
 				ApiBase::PARAM_DFLT => 20,
-				ApiBase::PARAM_MAX => 50,
 				ApiBase::PARAM_MIN => 1,
+				ApiBase::PARAM_MAX => ApiBase::LIMIT_SML1,
+				ApiBase::PARAM_MAX2 => ApiBase::LIMIT_SML2,
 			),
 			'index' => false,
 			'offset' => array(
