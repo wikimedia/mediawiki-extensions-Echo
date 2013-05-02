@@ -403,7 +403,10 @@ class EchoHooks {
 	public static function onArticleSaved( &$article, &$user, $text, $summary, $minoredit, $watchthis, $sectionanchor, &$flags, $revision, &$status ) {
 		global $wgEchoNotifications, $wgRequest;
 		if ( $revision ) {
-			if ( $article->getTitle()->isTalkPage() ) {
+			$title = $article->getTitle();
+			// If the edit is to a talk page or a project page, send it to the
+			// discussion parser.
+			if ( $title->isTalkPage() || $title->inNamespace( NS_PROJECT ) ) {
 				EchoDiscussionParser::generateEventsForRevision( $revision );
 			}
 
