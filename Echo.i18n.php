@@ -45,6 +45,12 @@ $messages['en'] = array(
 	'echo-category-title-other' => '{{PLURAL:$1|Other}}',
 	'echo-category-title-system' => '{{PLURAL:$1|System}}',
 
+	// Category tooltips
+	'echo-pref-tooltip-edit-user-talk' => 'Notify me when someone posts a message or replies on my talk page.',
+	'echo-pref-tooltip-article-linked' => 'Notify me when someone links to a page I created from an article page.',
+	'echo-pref-tooltip-reverted' => 'Notify me when someone reverts an edit I made, by using the undo or rollback tool.',
+	'echo-pref-tooltip-mention' => 'Notify me when someone links to my user page from any talk page.',
+
 	// Errors
 	'echo-no-agent' => '[Nobody]',
 	'echo-no-title' => '[No page]',
@@ -258,6 +264,10 @@ Parameters:
 	'echo-category-title-system' => 'This is a short title for notification category. Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}} and <code>$2</code> in {{msg-mw|Echo-email-batch-category-header}}.
 {{Identical|System}} Parameters:
 * $1 - the number used for plural support',
+	'echo-pref-tooltip-edit-user-talk' => 'This is a short description of the edit-user-talk notification category.',
+	'echo-pref-tooltip-article-linked' => 'This is a short description of the article-linked notification category',
+	'echo-pref-tooltip-reverted' => 'This is a short description of the tooltip-reverted notification category',
+	'echo-pref-tooltip-mention' => 'This is a short description of the mention notification category',
 	'echo-no-agent' => 'Shown in place of a username in a notification
 	if the notification has no specified user.',
 	'echo-no-title' => 'Shown in place of a page title in a notification if the notification has no specified page title.',

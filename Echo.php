@@ -293,8 +293,8 @@ $wgEchoOnWikiBlacklist = 'Echo-blacklist';
 $wgEchoPerUserWhitelistFormat = '%s/Echo-whitelist';
 
 // Define the categories that notifications can belong to. Categories can be
-// assigned the following parameters: priority, nodismiss, and usergroups. All
-// parameters are optional.
+// assigned the following parameters: priority, nodismiss, tooltip, and usergroups.
+// All parameters are optional.
 // If a notifications type doesn't have a category parameter, it is
 // automatically assigned to the 'other' category which is lowest priority and
 // has no preferences or dismissibility.
@@ -318,15 +318,19 @@ $wgEchoNotificationCategories = array(
 	'edit-user-talk' => array(
 		'priority' => 1,
 		'no-dismiss' => array( 'web' ),
+		'tooltip' => 'echo-pref-tooltip-edit-user-talk',
 	),
 	'reverted' => array(
 		'priority' => 9,
+		'tooltip' => 'echo-pref-tooltip-reverted',
 	),
 	'article-linked' => array(
 		'priority' => 5,
+		'tooltip' => 'echo-pref-tooltip-article-linked',
 	),
 	'mention' => array(
 		'priority' => 4,
+		'tooltip' => 'echo-pref-tooltip-mention',
 	),
 );
 

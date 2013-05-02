@@ -315,9 +315,13 @@ class EchoHooks {
 
 		// Build the rows (notification categories)
 		$rows = array();
+		$tooltips = array();
 		foreach ( $validSortedCategories as $category ) {
 			$categoryMessage = wfMessage( 'echo-category-title-' . $category )->numParams( 1 )->escaped();
 			$rows[$categoryMessage] = $category;
+			if ( isset( $wgEchoNotificationCategories[$category]['tooltip'] ) ) {
+				$tooltips[$categoryMessage] = wfMessage( $wgEchoNotificationCategories[$category]['tooltip'] )->escaped();
+			}
 		}
 
 		// Figure out the individual exceptions in the matrix and make them disabled
@@ -355,13 +359,9 @@ class EchoHooks {
 			'rows' => $rows,
 			'columns' => $columns,
 			'prefix' => 'echo-subscriptions-',
-			'help' => Html::rawElement(
-				'a',
-				array( 'href' => $wgEchoHelpPage ),
-				wfMessage( 'echo-learn-more' )->escaped()
-			),
 			'force-options-off' => $forceOptionsOff,
 			'force-options-on' => $forceOptionsOn,
+			'tooltips' => $tooltips,
 		);
 
 		if ( $wgEchoNewMsgAlert ) {
