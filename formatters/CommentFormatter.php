@@ -48,9 +48,13 @@ class EchoCommentFormatter extends EchoEditFormatter {
 	 */
 	protected function processParam( $event, $param, $message, $user ) {
 		$extra = $event->getExtra();
-		if ( $param === 'subject' ) {
-			if ( isset( $extra['section-title'] ) && $extra['section-title'] ) {
-				$message->params( $extra['section-title'] );
+		if ( $param === 'subject-anchor' ) {
+			global $wgParser;
+			if ( !empty( $extra['section-title'] ) ) {
+				$message->params(
+					// Strip out #, keeping # in the i18n message makes it look more clear
+					substr( $wgParser->guessLegacySectionNameFromWikiText( $extra['section-title'] ), 1 )
+				);
 			} else {
 				$message->params( '' );
 			}
