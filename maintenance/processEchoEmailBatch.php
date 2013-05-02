@@ -50,6 +50,8 @@ class ProcessEchoEmailBatch extends Maintenance {
 				$count++;
 			}
 			wfWaitForSlaves( false, false, $wgEchoCluster );
+			// This is required since we are updating user properties in main wikidb
+			wfWaitForSlaves();
 
 			// double check to make sure that the id is updated
 			if ( !$updated ) {
