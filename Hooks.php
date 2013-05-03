@@ -531,6 +531,10 @@ class EchoHooks {
 		foreach ( $insertions as $key => $page ) {
 			if ( MWNamespace::isContent( $page['pl_namespace'] ) ) {
 				$title = Title::makeTitle( $page['pl_namespace'], $page['pl_title'] );
+				if ( $title->isRedirect() ) {
+					continue;
+				}
+
 				EchoEvent::create( array(
 					'type' => 'page-linked',
 					'title' => $title,
