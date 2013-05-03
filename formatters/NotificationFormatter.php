@@ -137,24 +137,8 @@ abstract class EchoNotificationFormatter {
 			$summary = $revision->getComment( Revision::FOR_THIS_USER, $user );
 
 			if ( $this->outputFormat === 'html' || $this->outputFormat === 'flyout' ) {
-				if ( $this->outputFormat === 'html' ) {
-					// Parse the edit summary
-					$summary = Linker::formatComment( $summary, $revision->getTitle() );
-				} else {
-					// Strip wikitext from the edit summary and manually convert autocomments
-					$summary = FeedItem::stripComment( $summary );
-					$summary = trim( htmlspecialchars( $summary ) );
-					// Convert section titles to proper HTML
-					preg_match( "!(.*)/\*\s*(.*?)\s*\*/(.*)!", $summary, $matches );
-					if ( $matches ) {
-						$section = $matches[2];
-						if ( $matches[3] ) {
-							// Add a colon after the section name
-							$section .= wfMessage( 'colon-separator' )->inContentLanguage()->escaped();
-						}
-						$summary = $matches[1] . "<span class='autocomment'>" . $section . "</span>" . $matches[3];
-					}
-				}
+				// Parse the edit summary
+				$summary = Linker::formatComment( $summary, $revision->getTitle() );
 				if ( $summary ) {
 					$summary = wfMessage( 'echo-quotation-marks', $summary )->inContentLanguage()->plain();
 					$summary = Xml::tags( 'span', array( 'class' => 'comment' ), $summary );
