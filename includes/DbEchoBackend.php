@@ -229,6 +229,7 @@ class MWDbEchoBackend extends MWEchoBackend {
 			array(
 				'notification_user' => $user->getId(),
 				'notification_event' => $eventIDs,
+				'notification_read_timestamp' => null,
 			),
 			__METHOD__
 		);
