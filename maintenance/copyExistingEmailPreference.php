@@ -56,6 +56,7 @@ ORDER BY up_user LIMIT $batch OFFSET $total";
 			if( $total < $users ) {
 				$this->output( "Total Updated: $total\n" );
 			}
+			wfWaitForSlaves();
 		}
 		$this->output( "Done. Final total: $users\n" );
 	}
