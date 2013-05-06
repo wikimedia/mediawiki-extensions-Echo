@@ -1569,6 +1569,7 @@ $5', # Fuzzy
  * @author Pikne
  */
 $messages['et'] = array(
+	'echo-desc' => 'Teavitussüsteem',
 	'prefs-echo' => 'Teavitused',
 	'prefs-emailsettings' => 'E-posti eelistused',
 	'prefs-displaynotifications' => 'Kuvaseaded',
@@ -4416,6 +4417,7 @@ $messages['tr'] = array(
 	'echo-pref-email-frequency-daily' => 'Bildirimlerin günlük özeti',
 	'echo-pref-email-frequency-weekly' => 'Bildirimlerin haftalık özeti',
 	'echo-pref-notify-show-link' => 'Bildirimleri araç çubuğumda göster',
+	'echo-learn-more' => 'Daha fazla bilgi',
 	'echo-category-title-edit-user-talk' => 'Tartışma sayfası {{PLURAL:$1|gönderimi|gönderimleri}}',
 	'echo-category-title-article-linked' => 'Sayfa {{PLURAL:$1|bağlantısı|bağlantıları}}',
 	'echo-category-title-reverted' => 'Değişiklik {{PLURAL:$1|iptali}}',
@@ -4717,22 +4719,22 @@ $messages['zh-hans'] = array(
 	'prefs-displaynotifications' => '显示选项',
 	'prefs-echosubscriptions' => '通知我有关这些事件的情况',
 	'echo-pref-send-me' => '发送给我：',
-	'echo-pref-send-to' => '发送到:',
+	'echo-pref-send-to' => '发送到：',
 	'echo-pref-web' => '网站',
 	'echo-pref-email' => '电子邮件',
 	'echo-pref-email-frequency-never' => '不要给我发送任何电子邮件通知',
-	'echo-pref-email-frequency-immediately' => '允许的个别通知',
-	'echo-pref-email-frequency-daily' => '每日通知摘要',
-	'echo-pref-email-frequency-weekly' => '每周通知摘要',
-	'echo-pref-notify-show-link' => '在工具栏中显示通知',
+	'echo-pref-email-frequency-immediately' => '每次发生时发出单独的通知',
+	'echo-pref-email-frequency-daily' => '每日发出通知的概要',
+	'echo-pref-email-frequency-weekly' => '每周发出通知的概要',
+	'echo-pref-notify-show-link' => '在我的工具栏中显示通知',
 	'echo-learn-more' => '了解更多',
 	'echo-dismiss-button' => '解除',
 	'echo-dismiss-message' => '关闭所有 $1 通知',
 	'echo-dismiss-prefs-message' => '您可以在[[Special:Preferences#mw-prefsection-echo|参数设置]]中重新打开这些选项',
-	'echo-category-title-edit-user-talk' => '讨论页 {{PLURAL:$1|留言}}',
-	'echo-category-title-article-linked' => '页面 {{PLURAL:$1| link|links}}',
-	'echo-category-title-reverted' => '编辑 {{PLURAL:$1| revert|reverts}}',
-	'echo-category-title-mention' => '{{PLURAL:$1|Mention|提到}}',
+	'echo-category-title-edit-user-talk' => '讨论页{{PLURAL:$1|留言}}',
+	'echo-category-title-article-linked' => '页面被{{PLURAL:$1|链接|链接}}',
+	'echo-category-title-reverted' => '编辑被{{PLURAL:$1|恢复|恢复}}',
+	'echo-category-title-mention' => '{{PLURAL:$1|提及|提及}}',
 	'echo-category-title-other' => '{{PLURAL:$1|其他}}',
 	'echo-category-title-system' => '{{PLURAL:$1|系统}}',
 	'echo-no-agent' => '[无人]',
@@ -4743,26 +4745,26 @@ $messages['zh-hans'] = array(
 	'notifications' => '通知',
 	'tooltip-pt-notifications' => '您的通知',
 	'echo-specialpage' => '通知',
-	'echo-anon' => '要接收通知，请[[Special:Userlogin/signup|创建帐号]]或[[Special:UserLogin|登录]]。',
+	'echo-anon' => '要想接收通知，请[[Special:Userlogin/signup|创建帐号]]或[[Special:UserLogin|登录]]。',
 	'echo-none' => '您没有任何通知。',
 	'echo-more-info' => '更多信息',
 	'echo-feedback' => '反馈',
 	'notification-edit-talk-page2' => '[[User:$1|$1]]在您的[[User talk:$2|讨论页]]留言。',
 	'notification-edit-talk-page-flyout2' => '<b>$1</b>在您的[[User talk:$2|讨论页]]留言。',
 	'notification-page-linked' => '[[:$2]]有来自[[:$3]]的{{GENDER:$1|链入}}：[[Special:WhatLinksHere/$2|查看本页的所有链入页面]]',
-	'notification-page-linked-flyout' => '<b>$2</b>是 {{GENDER:$1| 链接}} 从<b> $3 </b>： [[特别:链入页面/$2|见此页面的所有链接]]', # Fuzzy
+	'notification-page-linked-flyout' => '<b>$2</b>有来自<b>$3</b>的{{GENDER:$1|链入}}：[[Special:WhatLinksHere/$2|查看本页的所有链入页面]]',
 	'notification-add-comment2' => '[[User:$1|$1]]在“$4”的讨论页中{{GENDER:$1|谈论了}}“[[$3|$2]]”',
 	'notification-add-talkpage-topic2' => '[[User:$1|$1]]在[[$3]]上发起了一个新的话题“$2”',
-	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]]给您发来一则消息：“[[$3#$2|$2]]”',
+	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]]给您发来一条消息：“[[$3#$2|$2]]”',
 	'notification-add-comment-yours2' => '[[User:$1|$1]]在您的讨论页上{{GENDER:$1|谈论了}}“[[$3#$2|$2]]”',
-	'notification-mention' => '[[User:$1|$1]]在[[$3#$2|$3]]中{{GENDER:$1|提到}}了你 。',
+	'notification-mention' => '[[User:$1|$1]]在[[$3#$2|$3]]中{{GENDER:$1|提到}}了你。',
 	'notification-mention-flyout' => '$1在[[$3#$2|$3]]上{{GENDER:$1|提到}}了你。',
-	'notification-user-rights' => '您的用户权限被[[User:$1|$1]][[Special:Log/rights/$1|更改]]。$2。[[Special:ListGroupRights|了解更多]]',
+	'notification-user-rights' => '您的用户权限已被[[User:$1|$1]][[Special:Log/rights/$1|更改]]。$2。[[Special:ListGroupRights|了解更多]]',
 	'notification-user-rights-flyout' => '你的用户权限已被<b>$1</b>{{GENDER:$1|更改}}。$2。[[Special:ListGroupRights|了解更多]]',
-	'notification-user-rights-add' => '你现在的成员 {{PLURAL:$2| group|这组}}：$1',
-	'notification-user-rights-remove' => '你不再是{{PLURAL:$2|以下用户组}}的成员：$1',
+	'notification-user-rights-add' => '您现在是{{PLURAL:$2|此组|这些组}}的成员：$1',
+	'notification-user-rights-remove' => '您不再是{{PLURAL:$2|该组|这些组}}的成员：$1',
 	'notification-new-user' => '欢迎来到{{SITENAME}}，$1！我们十分欢迎您的光临。',
-	'notification-reverted2' => '您 {{PLURAL:$4| 上编辑 [[:$2 ]] 上的 has|edits [[:$2 ]] 有}} 已 {{GENDER:$1| 回复}} 由 [[用户:$1|$1]]$3', # Fuzzy
+	'notification-reverted2' => '您在{{PLURAL:$4|[[:$2]]上的编辑|[[:$2]]上的编辑}}已被[[User:$1|$1]]{{GENDER:$1|回退}} $3',
 	'notification-reverted-flyout2' => '您在{{PLURAL:$4|<b>$2</b>的编辑}}已被$1{{GENDER:$1|回退}} $3',
 	'notification-edit-talk-page-email-subject2' => '您有一条新的讨论页消息',
 	'notification-edit-talk-page-email-body2' => '$1
@@ -4774,16 +4776,16 @@ $3
 $2
 
 $4',
-	'notification-edit-talk-page-email-batch-body2' => '$1在你的讨论页面{{GENDER:$1|留言了}}',
-	'notification-page-linked-email-subject' => '您创建的页面被链接到了{{SITENAME}}',
+	'notification-edit-talk-page-email-batch-body2' => '$1在您的讨论页{{GENDER:$1|留言了}}',
+	'notification-page-linked-email-subject' => '您创建的页面在{{SITENAME}}上被链接了',
 	'notification-page-linked-email-body' => '$1
 
-查看本页的所有链入页面：
+查看此页的所有链入页面：
 
 {{canonicalurl:{{#special:WhatLinksHere/$2}}}}
 
 $3',
-	'notification-page-linked-email-batch-body' => '$2是 {{GENDER:$1| 链接}} 从$3',
+	'notification-page-linked-email-batch-body' => '$2已在$3上被链接', # Fuzzy
 	'notification-reverted-email-subject2' => '您{{PLURAL:$3|在$2的编辑|在$2的编辑}}已被$1回退',
 	'notification-reverted-email-body2' => '您{{PLURAL:$7|在$2的编辑已被|在$2的编辑已被}}$1回退。
 
@@ -4807,14 +4809,14 @@ $4
 $5',
 	'notification-mention-email-batch-body' => '$1在$2上{{GENDER:$1|提到}}了你',
 	'notification-user-rights-email-subject' => '您在{{SITENAME}}的用户权限已变更',
-	'notification-user-rights-email-body' => '你的用户权限被$1{{GENDER:$1|修改}}了。$2
+	'notification-user-rights-email-body' => '您的用户权限被$1{{GENDER:$1|修改}}了。$2
 
 查看更多
 
 {{canonicalurl:{{#special:ListGroupRights}}}}
 
 $3',
-	'notification-user-rights-email-batch-body' => '你的用户权限已被$1{{GENDER:$1|修改}}。$2',
+	'notification-user-rights-email-batch-body' => '您的用户权限已被$1{{GENDER:$1|修改}}。$2',
 	'echo-email-subject-default' => '{{SITENAME}}上的新通知',
 	'echo-email-body-default' => '您在{{SITENAME}}上有新通知：
 
@@ -4822,19 +4824,19 @@ $1',
 	'echo-email-batch-body-default' => '您有一条新通知',
 	'echo-email-footer-default' => '$2
 
-管理你想要接收的电子邮件的种类，请访问：{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
+要想管理您接收的电子邮件的种类，请访问：{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
 
 $1',
 	'echo-link-new' => '$1条新通知',
 	'echo-link' => '通知',
 	'echo-overlay-link' => '全部通知',
 	'echo-overlay-title' => '<b>通知</b>',
-	'echo-overlay-title-overflow' => '<b>通知</b>（显示$2条未读通知中的$1条）',
+	'echo-overlay-title-overflow' => '<b>通知</b>（正显示$2条未读通知中的$1条）',
 	'echo-mark-all-as-read' => '将所有标记为已读',
 	'echo-date-today' => '今天',
 	'echo-date-yesterday' => '昨天',
 	'echo-load-more-error' => '获取更多的结果时出错。',
-	'notification-edit-talk-page-bundle' => '$1和{{PLURAL:$4|其他}}$3名用户在你的[[User talk:$2|对话页]]上{{GENDER:$1|留言}}。',
+	'notification-edit-talk-page-bundle' => '$1和{{PLURAL:$4|其他}}$3名用户在你的[[User talk:$2|对话页]]上{{GENDER:$1|留言}}了。',
 	'echo-email-batch-subject-daily' => '您今天有{{PLURAL:$2|条通知|条通知}}',
 	'echo-email-batch-subject-weekly' => '您本周有{{PLURAL:$2|条通知|条通知}}',
 	'echo-email-batch-body-daily' => '$1：
