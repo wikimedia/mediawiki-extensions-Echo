@@ -440,6 +440,28 @@ class EchoHooks {
 	}
 
 	/**
+	 * Handler for EchoAbortEmailNotification hook
+	 * @param $user User
+	 * @param $event EchoEvent
+	 * @return bool true - send email, false - do not send email
+	 */
+	public static function onEchoAbortEmailNotification( $user, $event ) {
+		if ( $event->getType() === 'edit-user-talk' ) {
+			$extra = $event->getExtra();
+			if ( !empty( $extra['minoredit'] ) ) {
+				global $wgEnotifMinorEdits;
+				if ( !$wgEnotifMinorEdits || !$user->getOption( 'enotifminoredits' ) ) {
+					// Do not send talk page notification email
+					return false;
+				}
+			}
+		}
+
+		// Proceed to send talk page notification email
+		return true;
+	}
+
+	/**
 	 * Handler for AddNewAccount hook.
 	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/AddNewAccount
 	 * @param $user User object that was created.
