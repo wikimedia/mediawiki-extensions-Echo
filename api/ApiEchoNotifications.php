@@ -12,10 +12,15 @@ class ApiEchoNotifications extends ApiQueryBase {
 		}
 
 		$params = $this->extractRequestParams();
-		if ( count( $params['markread'] ) ) {
-			EchoNotificationController::markRead( $user, $params['markread'] );
-		} elseif ( $params['markallread'] ) {
-			EchoNotificationController::markAllRead( $user );
+
+		// There is no need to trigger markRead if all notifications are read
+		if ( EchoNotificationController::getNotificationCount( $user ) > 0 ) {
+			if ( count( $params['markread'] ) ) {
+				// Make sure there is a limit to the update
+				EchoNotificationController::markRead( $user, array_slice( $params['markread'], 0, ApiBase::LIMIT_SML2 ) );
+			} elseif ( $params['markallread'] ) {
+				EchoNotificationController::markAllRead( $user );
+			}
 		}
 
 		$prop = $params['prop'];
