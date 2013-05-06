@@ -184,7 +184,7 @@ $wgHooks['UserSaveSettings'][] = 'EchoHooks::onUserSaveSettings';
 $wgHooks['AbortEmailNotification'][] = 'EchoHooks::disableStandUserTalkEnotif';
 $wgHooks['UpdateUserMailerFormattedPageStatus'][] = 'EchoHooks::disableStandUserTalkEnotif';
 // Disable the yellow bar of death
-$wgHooks['ArticleEditUpdateNewTalk'][] = 'EchoHooks::abortNewTalkNotification';
+$wgHooks['GetNewMessagesAlert'][] = 'EchoHooks::abortNewMessagesAlert';
 $wgHooks['LinksUpdateAfterInsert'][] = 'EchoHooks::onLinksUpdateAfterInsert';
 
 // Configuration

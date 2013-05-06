@@ -667,25 +667,32 @@ class EchoHooks {
 	}
 
 	/**
-	 * Handler for ArticleEditUpdateNewTalk hook.
-	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/ArticleEditUpdateNewTalk
-	 * @param &$page WikiPage The WikiPage object of the talk page being updated
-	 * @param $recipient User The user who's talk page was edited
-	 * @return bool Should return false to prevent the orange notification bar
-	 *     or true to allow the orange notification bar
+	 * Handler for GetNewMessagesAlert hook.
+	 * We're using the GetNewMessagesAlert hook instead of the
+	 * ArticleEditUpdateNewTalk hook since we still want the user_newtalk data
+	 * to be updated and availble to client-side tools and the API.
+	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/GetNewMessagesAlert
+	 * @param &$newMessagesAlert String An alert that the user has new messages
+	 *     or an empty string if the user does not (empty by default)
+	 * @param $newtalks Array This will be empty if the user has no new messages
+	 *     or an Array containing links and revisions if there are new messages
+	 * @param $user User The user who is loading the page
+	 * @param $out Output object
+	 * @return bool Should return false to prevent the new messages alert (OBOD)
+	 *     or true to allow the new messages alert
 	 */
-	static function abortNewTalkNotification( &$page, $recipient ) {
+	static function abortNewMessagesAlert( &$newMessagesAlert, $newtalks, $user, $out ) {
 		global $wgEchoNotifications;
 		// If the user has the notifications flyout turned on and is receiving
-		// notifications for talk page messages, disable the orange-bar-style notice.
-		if ( $recipient->isLoggedIn()
-			&& $recipient->getOption( 'echo-notify-show-link' )
+		// notifications for talk page messages, disable the new messages alert.
+		if ( $user->isLoggedIn()
+			&& $user->getOption( 'echo-notify-show-link' )
 			&& isset( $wgEchoNotifications['edit-user-talk'] )
 		) {
-			// hide orange bar
+			// hide new messages alert
 			return false;
 		} else {
-			// show orange bar
+			// show new messages alert
 			return true;
 		}
 	}
