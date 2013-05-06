@@ -1,6 +1,9 @@
 <?php
 
 class EchoNotificationController {
+	static protected $blacklist;
+	static protected $userWhitelist;
+
 	/**
 	 * Retrieves number of unread notifications that a user has, would return
 	 * $wgEchoMaxNotificationCount + 1 at most
@@ -249,9 +252,13 @@ class EchoNotificationController {
 
 			$users = self::getUsersToNotifyForEvent( $event );
 
+			$blacklisted = self::isBlacklisted( $event );
 			foreach ( $users as $user ) {
 				// Notification should not be sent to anonymous user
 				if ( $user->isAnon() ) {
+					continue;
+				}
+				if ( $blacklisted && !self::isWhitelistedByUser( $event, $user ) ) {
 					continue;
 				}
 
@@ -262,6 +269,71 @@ class EchoNotificationController {
 				}
 			}
 		}
+	}
+
+	/**
+	 * Implements blacklist per active wiki expected to be initialized
+	 * from InitializeSettings.php
+	 *
+	 * @param $event EchoEvent The event to test for exclusion via global blacklist
+	 * @return boolean True when the event agent is in the global blacklist
+	 */
+	protected static function isBlacklisted( EchoEvent $event ) {
+		if ( !$event->getAgent() ) {
+			return false;
+		}
+
+		if ( self::$blacklist === null ) {
+			global $wgEchoAgentBlacklist, $wgEchoOnWikiBlacklist,
+			       $wgMemc;
+
+			self::$blacklist = new EchoContainmentSet;
+			self::$blacklist->addArray( $wgEchoAgentBlacklist );
+			if ( $wgEchoOnWikiBlacklist !== null ) {
+				self::$blacklist->addOnWiki(
+					NS_MEDIAWIKI,
+					$wgEchoOnWikiBlacklist,
+					$wgMemc,
+					wfMemcKey( "echo_on_wiki_blacklist")
+				);
+			}
+		}
+
+		return self::$blacklist->contains( $event->getAgent()->getName() );
+	}
+
+	/**
+	 * Implements per-user whitelist sourced from a user wiki page
+	 *
+	 * @param $event EchoEvent The event to test for inclusion in whitelist
+	 * @param $user User The user that owns the whitelist
+	 * @return boolean True when the event agent is in the user whitelist
+	 */
+	protected static function isWhitelistedByUser( EchoEvent $event, User $user ) {
+		global $wgEchoPerUserWhitelistFormat, $wgMemc;
+
+
+		if ( $wgEchoPerUserWhitelistFormat === null || !$event->getAgent() ) {
+			return false;
+		}
+
+		$userId = $user->getID();
+		if ( $userId === 0 ) {
+			return false; // anonymous user
+		}
+
+		if ( !isset( self::$userWhitelist[$userId] ) ) {
+			self::$userWhitelist[$userId] = new EchoContainmentSet;
+			self::$userWhitelist[$userId]->addOnWiki(
+				NS_USER,
+				sprintf( $wgEchoPerUserWhitelistFormat, $user->getName() ),
+				$wgMemc,
+				wfMemcKey( "echo_on_wiki_whitelist_" . $userId )
+			);
+		}
+
+		return self::$userWhitelist[$userId]
+			->contains( $event->getAgent()->getName() );
 	}
 
 	/**
