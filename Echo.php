@@ -51,6 +51,7 @@ $wgAutoloadClasses['MWEchoEmailBatch'] = $dir . 'includes/EmailBatch.php';
 $wgAutoloadClasses['MWDbEchoEmailBatch'] = $dir . 'includes/DbEmailBatch.php';
 $wgAutoloadClasses['MWEchoEmailBundler'] = $dir . 'includes/EmailBundler.php';
 $wgAutoloadClasses['MWDbEchoEmailBundler'] = $dir . 'includes/DbEmailBundler.php';
+$wgAutoloadClasses['MWEchoEventLogging'] = $dir . 'includes/EventLogging.php';
 
 // Formatters
 $wgAutoloadClasses['EchoNotificationFormatter'] = $dir . 'formatters/NotificationFormatter.php';
@@ -473,11 +474,16 @@ $wgDefaultUserOptions['echo-subscriptions-web-article-linked'] = false;
 
 // Echo Configuration for EventLogging
 $wgEchoConfig = array(
-	'version' => '1.1',
+	'version' => '1.2',
+	// default all eventlogging off, overwrite them in site configuration
 	'eventlogging' => array (
 		'Echo' => array (
 			'enabled' => false,
 			'revision' => 5423520
-		)
+		),
+		'EchoMail' => array (
+			'enabled' => false,
+			'revision' => 5467650
+		),
 	)
 );

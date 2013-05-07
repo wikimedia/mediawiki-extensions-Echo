@@ -50,19 +50,6 @@ class EchoHooks {
 	}
 
 	/**
-	 * Attempt to log the event
-	 * @param $schema string
-	 * @param $data array
-	 */
-	public static function logEvent( $schema, $data ) {
-		global $wgEchoConfig;
-
-		if ( !empty( $wgEchoConfig['eventlogging'][$schema]['enabled'] ) ) {
-			efLogServerSideEvent( $schema, $wgEchoConfig['eventlogging'][$schema]['revision'], $data );
-		}
-	}
-
-	/**
 	 * @param $updater DatabaseUpdater object
 	 * @return bool true in all cases
 	 */

@@ -226,8 +226,10 @@ abstract class MWEchoEmailBatch {
 		// @Todo - replace them with the CONSTANT in 33810 once it is merged 
 		if ( $this->mUser->getOption( 'echo-email-frequency' ) == 7 ) {
 			$frequency = 'weekly';
+			$emailDeliveryMode = 'weekly_digest';
 		} else {
 			$frequency = 'daily';
+			$emailDeliveryMode = 'daily_digest';
 		}
 
 		// email subject
@@ -251,6 +253,7 @@ abstract class MWEchoEmailBatch {
 
 		// @Todo Push the email to job queue or just send it out directly?
 		UserMailer::send( $toAddress, $fromAddress, $subject, $body, $replyAddress );
+		MWEchoEventLogging::logSchemaEchoMail( $this->mUser, $emailDeliveryMode );
 	}
 
 	/**
