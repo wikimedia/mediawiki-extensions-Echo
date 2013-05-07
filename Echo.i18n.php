@@ -1084,6 +1084,7 @@ $messages['cs'] = array(
 	'echo-pref-email-frequency-daily' => 'Denní souhrn upozornění',
 	'echo-pref-email-frequency-weekly' => 'Týdenní souhrn upozornění',
 	'echo-pref-notify-show-link' => 'Zobrazovat upozornění v panelu nástrojů',
+	'echo-learn-more' => 'Další informace',
 	'echo-dismiss-button' => 'Zavřít',
 	'echo-dismiss-message' => 'Vypnout všechna upozornění na $1',
 	'echo-dismiss-prefs-message' => 'Znovu zapnout si je můžete v [[Special:Preferences#mw-prefsection-echo|nastavení]]',
@@ -1107,7 +1108,7 @@ $messages['cs'] = array(
 	'echo-feedback' => 'Názor',
 	'notification-edit-talk-page2' => '[[User:$1|$1]] vám {{GENDER:$1|napsal|napsala}} na [[User talk:$2|vaši diskusní stránku]].',
 	'notification-edit-talk-page-flyout2' => '<b>$1</b> vám {{GENDER:$1|napsal|napsala}} na [[User talk:$2|vaši diskusní stránku]].',
-	'notification-page-linked' => 'Do stránky [[:$3]] {{GENDER:$1|byl přidán}} odkaz na stránku [[:$2]]: [[Special:WhatLinksHere/$2|Zobrazit všechny odkazy na tuto stránku]]', # Fuzzy
+	'notification-page-linked' => 'Do stránky [[:$3]] {{GENDER:$1|byl přidán}} odkaz na stránku [[:$2]]: [[Special:WhatLinksHere/$2|Zobrazit všechny odkazy na tuto stránku]]',
 	'notification-page-linked-flyout' => 'Do stránky <b>$3</b> {{GENDER:$1|byl přidán}} odkaz na stránku <b>$2</b>: [[Special:WhatLinksHere/$2|Zobrazit všechny odkazy na tuto stránku]]',
 	'notification-add-comment2' => '[[User:$1|$1]] {{GENDER:$1|přidal|přidala}} komentář k „[[$3|$2]]“ na stránce „$4“',
 	'notification-add-talkpage-topic2' => '[[User:$1|$1]] {{GENDER:$1|přidal|přidala}} komentář na nové téma „$2“ na stránce „[[$3]]“',
@@ -1120,7 +1121,7 @@ $messages['cs'] = array(
 	'notification-user-rights-add' => 'Nyní patříte do {{PLURAL:$2|této skupiny|těchto skupin}}: $1',
 	'notification-user-rights-remove' => 'Nadále už nepatříte do {{PLURAL:$2|této skupiny|těchto skupin}}: $1',
 	'notification-new-user' => 'Vítejte na {{grammar:6sg|{{SITENAME}}}}, $1! Těší nás, že jste tu.',
-	'notification-reverted2' => '[[User:$1|$1]] {{GENDER:$1|revertoval|revertovala}} {{PLURAL:$4|vaši editaci|vaše editace}} stránky [[:$2]] $3', # Fuzzy
+	'notification-reverted2' => '[[User:$1|$1]] {{GENDER:$1|revertoval|revertovala}} {{PLURAL:$4|vaši editaci|vaše editace}} stránky [[:$2]] $3',
 	'notification-reverted-flyout2' => '<b>$1</b> {{GENDER:$1|revertoval|revertovala}} {{PLURAL:$4|vaši editaci|vaše editace}} stránky <b>$2</b> $3',
 	'notification-edit-talk-page-email-subject2' => 'V diskusi máte novou zprávu',
 	'notification-edit-talk-page-email-body2' => '$1
@@ -4859,6 +4860,7 @@ $5', # Fuzzy
 
 /** Traditional Chinese (中文（繁體）‎)
  * @author Justincheng12345
+ * @author Kevinhksouth
  * @author Littletung
  * @author Shirayuki
  * @author Simon Shek
@@ -4884,8 +4886,8 @@ $messages['zh-hant'] = array(
 	'echo-dismiss-message' => '關閉所有$1通知',
 	'echo-dismiss-prefs-message' => '你可於[[Special:Preferences#mw-prefsection-echo|preferences]]重新啟動這些選項',
 	'echo-category-title-edit-user-talk' => '討論頁{{PLURAL:$1|留言}}',
-	'echo-category-title-article-linked' => '頁面{{PLURAL:$1|連結|連結}}',
-	'echo-category-title-reverted' => '{{PLURAL:$1|回退|回退}}編輯',
+	'echo-category-title-article-linked' => '頁面{{PLURAL:$1|連結}}',
+	'echo-category-title-reverted' => '編輯{{PLURAL:$1|回退}}',
 	'echo-category-title-mention' => '{{PLURAL:$1|提到|提到}}',
 	'echo-category-title-other' => '{{PLURAL:$1|其他}}',
 	'echo-category-title-system' => '{{PLURAL:$1|系統}}',
@@ -4895,7 +4897,7 @@ $messages['zh-hant'] = array(
 	'echo-error-preference' => '錯誤: 無法設置用戶設定',
 	'echo-error-token' => '錯誤: 無法取得用戶令牌',
 	'notifications' => '通知',
-	'tooltip-pt-notifications' => '你的通知',
+	'tooltip-pt-notifications' => '您的通知',
 	'echo-specialpage' => '通知',
 	'echo-anon' => '要接收通知，請[[Special:Userlogin/signup|創建帳號]]或[[Special:UserLogin|登錄]]。',
 	'echo-none' => '您沒有任何通知。',
