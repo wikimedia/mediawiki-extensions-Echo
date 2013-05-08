@@ -49,20 +49,15 @@ class EchoPageLinkFormatter extends EchoBasicFormatter {
 		}
 		$extra = self::extractExtra( $event->getExtra() );
 
-		$linkFrom = array();
-
 		if ( !$this->isTitleSet( $extra ) ) {
 			// Link from title is required for bundling notification
 			return;
 		}
-		$key = $this->getTitleHash( $extra );
-		if ( !$key ) {
-			// Page no longer exists
-			return;
-		}
-		$linkFrom[$key] = true;
 
 		$count = 1;
+		$linkFrom = array(
+			$extra['link-from-page-id'] => true
+		);
 		foreach ( $data as $row ) {
 			$extra = $row->event_extra ? unserialize( $row->event_extra ) : null;
 			if ( !$extra ) {
@@ -70,10 +65,10 @@ class EchoPageLinkFormatter extends EchoBasicFormatter {
 			}
 
 			if ( $this->isTitleSet( $extra ) ) {
-				$key = $this->getTitleHash( $extra );
+				$pageId = $extra['link-from-page-id'];
 
-				if ( $key && !isset( $linkFrom[$key] ) ) {
-					$linkFrom[$key] = true;
+				if ( !isset( $linkFrom[$pageId] ) ) {
+					$linkFrom[$pageId] = true;
 					$count++;
 				}
 			}
@@ -89,21 +84,12 @@ class EchoPageLinkFormatter extends EchoBasicFormatter {
 	}
 
 	/**
-	 * Internal function to check if link from namespace and title keys are set
+	 * Internal function to check if link from page id key is set
 	 * @param $extra array
 	 * @return bool
 	 */
 	private function isTitleSet( $extra ) {
-		return isset( $extra['link-from-page-id'] );
-	}
-
-	/**
-	 * Internal function to return a unique identifier representing the page.
-	 * @param $extra array
-	 * @return integer Unique identifier for the linked page
-	 */
-	private function getTitleHash( $extra ) {
-		return $extra['link-from-page-id'];
+		return isset( $extra['link-from-page-id'] ) && $extra['link-from-page-id'];
 	}
 
 	/**

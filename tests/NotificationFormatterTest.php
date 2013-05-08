@@ -1,4 +1,3 @@
-
 <?php
 
 class EchoNotificationFormatterTest extends MediaWikiTestCase {
@@ -58,8 +57,7 @@ class EchoNotificationFormatterTest extends MediaWikiTestCase {
 				'method' => 'undo',
 			),
 			'page-linked' => array(
-				'link-from-namespace' => 0,
-				'link-from-title' => 'Karl Sims',
+				'link-from-page-id' => 42,
 			),
 			'mention' => array(
 				'content' => 'lorem ipsum dolar sit amet',
@@ -86,6 +84,83 @@ class EchoNotificationFormatterTest extends MediaWikiTestCase {
 		return $tests;
 	}
 
+	public static function provider_revisionSummary() {
+		$comment = '(dummy comment)';
+		$suppressed = wfMessage( 'rev-deleted-comment' )->text();
+
+		// Test the 4 different events that reference the summary, although they should follow mostly
+		// the same code they may use different classes extended from the EchoNotificationFormatter
+		$tests = array();
+		$events = array( 'edit-user-talk', 'reverted', 'page-linked', 'mention' );
+		foreach ( $events as $eventType ) {
+			$tests[] = array( $eventType, $comment, $comment, 0);
+			$tests[] = array( $eventType, $suppressed, $comment, Revision::DELETED_COMMENT );
+		}
+
+		return $tests;
+	}
+
+	/**
+	 * @dataProvider provider_revisionSummary
+	 */
+	public function testRevisionSummarySuppression( $eventType, $expect, $comment, $deleted ) {
+		// Revision needs a comment to attempt to format
+		$event = $this->mockEvent(
+			$eventType,
+			array(),
+			new Revision( compact( 'comment', 'deleted' ) )
+		);
+
+		$this->assertContains( $expect, $this->format( $event, 'html' ) );
+	}
+
+	public static function provider_revisionAgent() {
+		$userText = '10.2.3.4';
+		$suppressed = wfMessage( 'rev-deleted-user' )->text();
+
+		$tests = array();
+		$events = array( 'edit-user-talk', 'reverted', 'mention' );
+		foreach ( $events as $eventType ) {
+			$tests[] = array( $eventType, $userText, $userText, 0 );
+			$tests[] = array( $eventType, $suppressed, $userText, Revision::DELETED_USER );
+		}
+
+		return $tests;
+	}
+
+	/**
+	 * @dataProvider provider_revisionAgent
+	 */
+	public function testAgentSuppression( $eventType, $expect, $user_text, $deleted ) {
+		$event = $this->mockEvent(
+			$eventType,
+			array(),
+			new Revision( compact( 'user_text', 'deleted' ) )
+		);
+
+		$user = new User;
+		$user->setName( $user_text );
+		$event->expects( $this->any() )
+			->method( 'getAgent' )
+			->will( $this->returnValue( $user ) );
+
+		$this->assertContains( $expect, $this->format( $event, 'html' ) );
+	}
+
+	public static function provider_sectionTitle() {
+		$message = "some_section_title"; // underscores simplifies the test, since it will transform ' ' to '_'
+		$suppressed = wfMessage( 'echo-rev-deleted-text-view')->text();
+
+		$tests = array();
+		$events = array( 'mention' ); // currently only mention uses sectionTitle, but likely edit-user-talk will soon as well
+		foreach ( $events as $eventType ) {
+			$tests[] = array( $eventType, $message, $message, 0);
+			$tests[] = array( $eventType, $suppressed, $message, Revision::DELETED_TEXT );
+		}
+
+		return $tests;
+	}
+
 	/**
 	 * @dataProvider provider_formatterDoesntFail
 	 */
@@ -102,6 +177,19 @@ class EchoNotificationFormatterTest extends MediaWikiTestCase {
 		}
 	}
 
+	/**
+	 * @dataProvider provider_sectionTitle
+	 */
+	public function testMentionSubjectSectionTitleSuppression( $eventType, $expect, $sectionTitle, $deleted ) {
+		$event = $this->mockEvent(
+			$eventType,
+			array( 'section-title' => $sectionTitle ),
+			new Revision( compact( 'deleted' ) )
+		);
+
+		$this->assertContains( $expect, $this->format( $event, 'html' ) );
+	}
+
 	protected function format( EchoEvent $event, $format, $type = 'web', array $params = array() ) {
 		global $wgEchoNotifications;
 
@@ -113,8 +201,11 @@ class EchoNotificationFormatterTest extends MediaWikiTestCase {
 	}
 
 	protected function mockEvent( $type, array $extra = array(), Revision $rev = null ) {
+		$methods = get_class_methods( 'EchoEvent' );
+		unset( $methods[array_search( 'userCan', $methods)] );
 		$event = $this->getMockBuilder( 'EchoEvent' )
 			->disableOriginalConstructor()
+			->setMethods( $methods )
 			->getMock();
 		$event->expects( $this->any() )
 			->method( 'getType' )

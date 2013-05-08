@@ -14,10 +14,21 @@ class EchoEvent {
 	protected $agent = null;
 
 	/**
+	 * Loaded dynamically on request
+	 *
 	 * @var Title
 	 */
 	protected $title = null;
-	protected $extra = null;
+	protected $pageId = null;
+
+	/**
+	 * Loaded dynamically on request
+	 *
+	 * @var Revision
+	 */
+	protected $revision = null;
+
+	protected $extra = array();
 
 	/**
 	 * Notification timestamp
@@ -97,8 +108,17 @@ class EchoEvent {
 			}
 		}
 
-		if ( $obj->title && !$obj->title instanceof Title ) {
-			throw new MWException( "Invalid title parameter" );
+		if ( $obj->title ) {
+			if ( !$obj->title instanceof Title ) {
+				throw new MWException( 'Invalid title parameter' );
+			}
+			$pageId = $obj->title->getArticleId();
+			if ( $pageId ) {
+				$obj->pageId = $pageId;
+			} else {
+				$obj->extra['page_title'] = $obj->title->getDBKey();
+				$obj->extra['page_namespace'] = $obj->title->getNamespace();
+			}
 		}
 
 		if ( $obj->agent && !
@@ -153,17 +173,8 @@ class EchoEvent {
 			}
 		}
 
-		if ( $this->title ) {
-			$pageId = $this->title->getArticleId();
-			if ( $pageId ) {
-				$row['event_page_id'] = $pageId;
-			} else {
-				if ( $this->extra === null ) {
-					$this->extra = array();
-				}
-				$this->extra['page_namespace'] = $this->title->getNamespace();
-				$this->extra['page_title'] = $this->title->getDBkey();
-			}
+		if ( $this->pageId ) {
+			$row['event_page_id'] = $this->pageId;
 		}
 
 		$row['event_extra'] = $this->serializeExtra();
@@ -190,7 +201,8 @@ class EchoEvent {
 		}
 
 		$this->variant = $row->event_variant;
-		$this->extra = $row->event_extra ? unserialize( $row->event_extra ) : null;
+		$this->extra = $row->event_extra ? unserialize( $row->event_extra ) : array();
+		$this->pageId = $row->event_page_id;
 
 		if ( $row->event_agent_id ) {
 			$this->agent = User::newFromID( $row->event_agent_id );
@@ -198,15 +210,9 @@ class EchoEvent {
 			$this->agent = User::newFromName( $row->event_agent_ip, false );
 		}
 
-		if ( $row->event_page_id ) {
+		if ( $row->event_page_id !== null ) {
 			$this->title = Title::newFromId( $row->event_page_id );
-		} elseif ( isset( $row->event_page_title ) ) {
-			// BC compat with orig Echo deployment
-			$this->title = Title::makeTitleSafe(
-				$row->event_page_namespace,
-				$row->event_page_title
-			);
-		} elseif ( isset( $this->extra['page_title'] ) ) {
+		} elseif ( isset( $this->extra['page_title'], $this->extra['page_namespace'] ) ) {
 			$this->title = Title::makeTitleSafe(
 				$this->extra['page_namespace'],
 				$this->extra['page_title']
@@ -299,6 +305,26 @@ class EchoEvent {
 		}
 	}
 
+	/**
+	 * Determine if the current user is allowed to view a particular
+	 * field of this revision, if it's marked as deleted.  When no
+	 * revision is attached always returns true.
+	 *
+	 * @param $field Integer:one of Revision::DELETED_TEXT,
+	 *                              Revision::DELETED_COMMENT,
+	 *                              Revision::DELETED_USER
+	 * @param $user User object to check, or null to use $wgUser
+	 * @return Boolean
+	 */
+	public function userCan( $field, User $user = null ) {
+		$revision = $this->getRevision();
+		if ( $revision ) {
+			return $revision->userCan( $field, $user );
+		} else {
+			return true;
+		}
+	}
+
 	## Accessors
 	/**
 	 * @return int
@@ -335,6 +361,10 @@ class EchoEvent {
 		return $this->extra;
 	}
 
+	public function getExtraParam( $key, $default = null ) {
+		return isset( $this->extra[$key] ) ? $this->extra[$key] : $default;
+	}
+
 	/**
 	 * @return User
 	 */
@@ -346,7 +376,29 @@ class EchoEvent {
 	 * @return Title|null
 	 */
 	public function getTitle() {
-		return $this->title;
+		if ( $this->title ) {
+			return $this->title;
+		} elseif ( $this->pageId ) {
+			return $this->title = Title::newFromId( $this->pageId );
+		} elseif ( isset( $this->extra['page_title'], $this->extra['page_namespace'] ) ) {
+			return $this->title = Title::newFromText(
+				$this->extra['page_title'],
+				$this->extra['page_namespace']
+			);
+		}
+		return null;
+	}
+
+	/**
+	 * @return Revision|null
+	 */
+	public function getRevision() {
+		if ( $this->revision ) {
+			return $this->revision;
+		} elseif ( isset( $this->extra['revid'] ) ) {
+			return $this->revision = Revision::newFromId( $this->extra['revid'] );
+		}
+		return null;
 	}
 
 	/**

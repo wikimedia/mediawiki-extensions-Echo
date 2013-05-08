@@ -188,6 +188,9 @@ You have {{PLURAL:$3|a new notification|new notifications}} on {{SITENAME}} this
 $4
 
 $5',
+
+	// Supressed Revisions
+	'echo-rev-deleted-text-view' => 'This page revision has been suppressed',
 );
 
 /** Message documentation (Message documentation)
@@ -580,6 +583,9 @@ See also:
 * $5 is the e-mail footer, {{msg-mw|echo-email-footer-default}}
 See also:
 * {{msg-mw|Echo-email-batch-body-daily}}',
+
+	// Supressed Revisions
+	"echo-rev-deleted-text-view" => "Short message displayed instead of edit content when revision text is suppressed.",
 );
 
 /** Afrikaans (Afrikaans)
@@ -1907,7 +1913,7 @@ N!$3',
 	'notification-reverted-email-subject2' => 'شما  {{PLURAL:$3| ویرایش بر روی  $2  was|edits در  $2  شدند}}  {{GENDER:$1| واگردانی}} با  $1  در {{SITENAME}}',
 	'notification-reverted-email-body2' => '{{PLURAL:$7|ویرایش|ویرایش‌های}} شما در $2 توسط $1 واگردانی شده‌اند.
 
-$5 
+$5
 
 بیشتر ببینید:
 
@@ -3358,7 +3364,7 @@ $1',
 	'echo-email-batch-subject-weekly' => '이번 주에 {{SITENAME}}에서 {{PLURAL:$2|새 알림}}이 있습니다',
 	'echo-email-batch-body-daily' => '$1님 안녕하세요,
 
-오늘 {{SITENAME}}에 {{PLURAL:$3|새 알림}}이 있습니다. 
+오늘 {{SITENAME}}에 {{PLURAL:$3|새 알림}}이 있습니다.
 여기서 볼 수 있습니다:
 {{canonicalurl:{{#special:Notifications}}}}
 
@@ -5312,7 +5318,7 @@ $3
 $5',
 	'notification-mention-email-batch-body' => '{{GENDER:$1|Користувач|Користувачка}} $1 {{GENDER:$1|згадав|згадала}} Вас на $2',
 	'notification-user-rights-email-subject' => 'Змінились Ваші права користувача на {{GRAMMAR:locative|{{SITENAME}}}}.',
-	'notification-user-rights-email-body' => 'Ваші права користувача було змінено {{GENDER:$1|користувачем|користувачкою}} $1. $2. 
+	'notification-user-rights-email-body' => 'Ваші права користувача було змінено {{GENDER:$1|користувачем|користувачкою}} $1. $2.
 
 Див. більше:
 

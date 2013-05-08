@@ -128,14 +128,13 @@ abstract class EchoNotificationFormatter {
 	 * @return string The edit summary (or empty string)
 	 */
 	protected function formatSummary( $event, $user ) {
-		$eventData = $event->getExtra();
-		if ( !isset( $eventData['revid'] ) ) {
+		$revision = $event->getRevision();
+		if ( $revision === null ) {
 			return '';
-		}
-		$revision = Revision::newFromId( $eventData['revid'] );
-		if ( $revision ) {
+		} elseif( !$event->userCan( Revision::DELETED_COMMENT, $user ) ) {
+			return wfMessage( 'rev-deleted-comment' )->text();
+		} else {
 			$summary = $revision->getComment( Revision::FOR_THIS_USER, $user );
-
 			if ( $this->outputFormat === 'html' || $this->outputFormat === 'flyout' ) {
 				// Parse the edit summary
 				$summary = Linker::formatComment( $summary, $revision->getTitle() );
@@ -148,7 +147,6 @@ abstract class EchoNotificationFormatter {
 
 			return $summary;
 		}
-		return '';
 	}
 
 }

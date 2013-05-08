@@ -12,8 +12,8 @@ class EchoEditFormatter extends EchoBasicFormatter {
 		if ( $param === 'subject-anchor' ) {
 			$message->params( $this->formatSubjectAnchor( $event ) );
 		} elseif ( $param === 'difflink' ) {
-			$eventData = $event->getExtra();
-			if ( !isset( $eventData['revid'] ) ) {
+			$revid = $event->getExtraParam( 'revid' );
+			if ( !$revid ) {
 				$message->params( '' );
 				return;
 			}
@@ -21,22 +21,13 @@ class EchoEditFormatter extends EchoBasicFormatter {
 				'class' => 'mw-echo-diff',
 				'linkText' => wfMessage( 'parentheses', wfMessage( 'showdiff' )->text() )->escaped(),
 				'param' => array(
-					'oldid' => $eventData['revid'],
+					'oldid' => $revid,
 					'diff' => 'prev',
 				)
 			);
 			$this->setTitleLink( $event, $message, $props );
 		} elseif ( $param === 'summary' ) {
-			$eventData = $event->getExtra();
-			if ( !isset( $eventData['revid'] ) ) {
-				$message->params( '' );
-				return;
-			}
-
-			$revision = Revision::newFromId( $eventData['revid'] );
-			if ( $revision ) {
-				$message->params( $revision->getComment( Revision::FOR_THIS_USER, $user ) );
-			}
+			$message->params( $this->formatSummary( $event, $user ) );
 		} elseif ( $param === 'number' ) {
 			$eventData = $event->getExtra();
 			// The folliwing is a bit of a hack...

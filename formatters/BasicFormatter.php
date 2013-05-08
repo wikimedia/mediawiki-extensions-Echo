@@ -323,6 +323,9 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	 * @return string Up to the first 200 characters of the comment
 	 */
 	protected function formatCommentText( EchoEvent $event, $user ) {
+		if ( !$event->userCan( Revision::DELETED_TEXT, $user ) ) {
+			return wfMessage( 'echo-rev-deleted-text-view' )->text();
+		}
 		$extra = $event->getExtra();
 		if ( !isset( $extra['content'] ) ) {
 			return '';
@@ -341,8 +344,11 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	 * @return string The anchor on page, or an empty string
 	 */
 	protected function formatSubjectAnchor( EchoEvent $event ) {
-		global $wgParser;
+		global $wgParser, $wgUser;
 
+		if ( !$event->userCan( Revision::DELETED_TEXT, $wgUser ) ) {
+			return wfMessage( 'echo-rev-deleted-text-view' )->text();
+		}
 		$extra = $event->getExtra();
 		if ( empty( $extra['section-title'] ) ) {
 			return '';
@@ -514,6 +520,8 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 		if ( $param === 'agent' ) {
 			if ( !$event->getAgent() ) {
 				$message->params( wfMessage( 'echo-no-agent' )->text() );
+			} elseif ( !$event->userCan( Revision::DELETED_USER, $user ) ) {
+				$message->params( wfMessage( 'rev-deleted-user' )->text() );
 			} else {
 				$message->params( $event->getAgent()->getName() );
 			}
