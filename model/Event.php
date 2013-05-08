@@ -72,6 +72,11 @@ class EchoEvent {
 	public static function create( $info = array() ) {
 		global $wgEchoNotifications;
 
+		// Do not create event and notifications if write access is locked
+		if ( wfReadOnly() ) {
+			throw new ReadOnlyError();
+		}
+
 		$obj = new EchoEvent;
 		static $validFields = array( 'type', 'variant', 'agent', 'title', 'extra' );
 
