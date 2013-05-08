@@ -57,8 +57,8 @@ class MWDbEchoBackend extends MWEchoBackend {
 
 		// Start points are specified
 		if ( $offset['timestamp'] && $offset['offset'] ) {
-			$conds[] = 'notification_timestamp <= ' . $dbr->addQuotes( $dbr->timestamp( $offset['timestamp'] ) );
-			$conds[] = 'notification_event <= ' . $offset['offset'];
+			$ts = $dbr->addQuotes( $dbr->timestamp( $offset['timestamp'] ) );
+			$conds[] = "notification_timestamp < $ts OR ( notification_timestamp = $ts AND notification_event < " . $offset['offset'] . " )";
 		}
 
 		$res = $dbr->select(
