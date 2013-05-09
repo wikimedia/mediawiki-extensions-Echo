@@ -311,7 +311,13 @@ class EchoHooks {
 		asort( $categoriesAndPriorities );
 		$validSortedCategories = array_keys( $categoriesAndPriorities );
 
-		// Show subscription options
+		// Show subscription options.  IMPORTANT: 'echo-subscriptions-email-edit-user-talk' is a
+		// virtual option, its value is saved to existing talk page notification option
+		// 'enotifusertalkpages', see onUserLoadOptions() and onUserSaveOptions() for more
+		// information on how it is handled. Doing it in this way, we can avoid keeping running
+		// massive data migration script to keep these two options synced when echo is enabled on
+		// new wikis or Echo is disabled and re-enabled for some reason.  We can update the name
+		// if Echo is ever merged to core
 
 		// Build the columns (output formats)
 		$columns = array();
@@ -770,20 +776,10 @@ class EchoHooks {
 	 * @return bool true in all cases
 	 */
 	public static function onUserLoadOptions( $user, &$options ) {
-		// If the user had opted out of the old version of talk page notification emails
-		// but we have not migrated a new style preference for the same preference
-		// then fake a new style one too
-		// Only check while we are migrating
-		global $wgRecentEchoInstall;
-		if ( $wgRecentEchoInstall ) {
-			if ( isset( $options['enotifusertalkpages'] ) &&
-				!$options['enotifusertalkpages']
-			) {
-				$options['echo-subscriptions-email-edit-user-talk'] = false;
-			}
+		// Use existing enotifusertalkpages option for echo-subscriptions-email-edit-user-talk
+		if ( isset( $options['enotifusertalkpages'] ) ) {
+			$options['echo-subscriptions-email-edit-user-talk'] =  $options['enotifusertalkpages'];
 		}
-		// note not calling saveSettings()
-		// so will not change on disk until user saves for some other reason
 		return true;
 	}
 
@@ -795,17 +791,11 @@ class EchoHooks {
 	 * @return bool true in all cases
 	 */
 	public static function onUserSaveOptions( $user, &$options ) {
-		global $wgRecentEchoInstall;
-		if ( $wgRecentEchoInstall ) {
-			// Both echo-subscriptions-email-edit-user-talk and enotifusertalkpages
-			// default to true.
-			if ( isset( $options['echo-subscriptions-email-edit-user-talk'] ) &&
-				!$options['echo-subscriptions-email-edit-user-talk']
-			) {
-				$options['enotifusertalkpages'] = false;
-			} else {
-				$options['enotifusertalkpages'] = true;
-			}
+		// echo-subscriptions-email-edit-user-talk is just a virtual option,
+		// save the value in the real option enotifusertalkpages
+		if ( isset( $options['echo-subscriptions-email-edit-user-talk'] ) ) {
+			$options['enotifusertalkpages'] = $options['echo-subscriptions-email-edit-user-talk'];
+			unset( $options['echo-subscriptions-email-edit-user-talk'] );
 		}
 		return true;
 	}

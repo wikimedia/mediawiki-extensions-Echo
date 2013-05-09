@@ -467,7 +467,6 @@ foreach ( $wgEchoNotificationCategories as $category => $categoryData ) {
 }
 
 // most settings default to web on, email off, but override these
-$wgDefaultUserOptions['echo-subscriptions-email-edit-user-talk'] = true;
 $wgDefaultUserOptions['echo-subscriptions-email-system'] = true;
 $wgDefaultUserOptions['echo-subscriptions-web-article-linked'] = false;
 
