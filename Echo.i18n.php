@@ -3607,6 +3607,7 @@ $messages['nl'] = array(
 	'echo-pref-email-frequency-daily' => 'Een dagelijkse samenvatting van meldingen',
 	'echo-pref-email-frequency-weekly' => 'Een wekelijkse samenvatting van meldingen',
 	'echo-pref-notify-show-link' => 'Melding in uw hulpbalk weergeven',
+	'echo-learn-more' => 'Meer lezen',
 	'echo-dismiss-button' => 'Sluiten',
 	'echo-dismiss-message' => 'Alle meldingen uitschakelen over $1',
 	'echo-dismiss-prefs-message' => 'U kunt deze inschakelen in uw [[Special:Preferences#mw-prefsection-echo|voorkeuren]]',
@@ -3630,7 +3631,7 @@ $messages['nl'] = array(
 	'echo-feedback' => 'Terugkoppeling',
 	'notification-edit-talk-page2' => '[[User:$1|$1]] {{GENDER:$1|heeft een bericht geplaatst}} op uw [[User talk:$2|overlegpagina]].',
 	'notification-edit-talk-page-flyout2' => '<b>$1</b> {{GENDER:$1|heeft een bericht geplaatst}} op uw [[User talk:$2|overlegpagina]].',
-	'notification-page-linked' => '[[:$2]] is {{GENDER:$1|gekoppeld}} vanaf [[:$3]]: [[Special:WhatLinksHere/$2|alle koppelingen naar deze pagina bekijken]]', # Fuzzy
+	'notification-page-linked' => '[[:$2]] is {{GENDER:$1|gekoppeld}} vanaf [[:$3]]: [[Special:WhatLinksHere/$2|alle koppelingen naar deze pagina bekijken]]',
 	'notification-page-linked-flyout' => '<b>$2</b> is {{GENDER:$1|gekoppeld}} vanaf <b>$3</b>: [[Special:WhatLinksHere/$2|alle koppelingen naar deze pagina bekijken]]',
 	'notification-add-comment2' => '[[User:$1|$1]] {{GENDER:$1|heeft gereageerd}} op "[[$3|$2]]" op de overlegpagina "$4"',
 	'notification-add-talkpage-topic2' => '[[User:$1|$1]] {{GENDER:$1|heeft}} een nieuw onderwerp "$2" geplaatst op [[$3]]',
@@ -3643,7 +3644,7 @@ $messages['nl'] = array(
 	'notification-user-rights-add' => 'U bent nu lid van deze groep{{PLURAL:$2||en}}: $1',
 	'notification-user-rights-remove' => 'U bent niet langer lid van deze groep{{PLURAL:$2||en}}: $1',
 	'notification-new-user' => 'Welkom op {{SITENAME}}, $1! We zijn blij dat u hier bent.',
-	'notification-reverted2' => 'Uw {{PLURAL:$4|bewerking op [[:$2]] is|bewerkingen op [[:$2]] zijn}} {{GENDER:$1|teruggedraaid}} [[User:$1|$1]] $3', # Fuzzy
+	'notification-reverted2' => 'Uw {{PLURAL:$4|bewerking op [[:$2]] is|bewerkingen op [[:$2]] zijn}} {{GENDER:$1|teruggedraaid}} [[User:$1|$1]] $3',
 	'notification-reverted-flyout2' => 'Uw {{PLURAL:$4|bewerking op <b>$2</b> is|bewerkingen op <b>$2</b> zijn}} {{GENDER:$1|teruggedraaid}} door <b>$1</b> $3',
 	'notification-edit-talk-page-email-subject2' => 'U hebt een nieuw bericht op uw overlegpagina',
 	'notification-edit-talk-page-email-body2' => '$1
@@ -4866,7 +4867,7 @@ $4',
 {{canonicalurl:{{#special:WhatLinksHere/$2}}}}
 
 $3',
-	'notification-page-linked-email-batch-body' => '$2已在$3上被链接', # Fuzzy
+	'notification-page-linked-email-batch-body' => '$2从$3{{GENDER:$1|链入}}',
 	'notification-reverted-email-subject2' => '您{{PLURAL:$3|在$2的编辑|在$2的编辑}}已被$1回退',
 	'notification-reverted-email-body2' => '您{{PLURAL:$7|在$2的编辑已被|在$2的编辑已被}}$1回退。
 
@@ -4918,24 +4919,27 @@ $1',
 	'echo-date-yesterday' => '昨天',
 	'echo-load-more-error' => '获取更多的结果时出错。',
 	'notification-edit-talk-page-bundle' => '$1和{{PLURAL:$4|其他}}$3名用户在你的[[User talk:$2|对话页]]上{{GENDER:$1|留言}}了。',
+	'notification-page-linked-bundle' => '$2由$3以及其他$4个{{PLURAL:$5|页面}}{{GENDER:$1|链入}}。[[Special:WhatLinksHere/$2|查看该页的所有链入页面]]',
+	'notification-edit-user-talk-email-batch-bundle-body' => '$1以及{{PLURAL:$3|其他}}$2个人在你的讨论页上{{GENDER:$1|留言}}',
+	'notification-page-linked-email-batch-bundle-body' => '$2由$3和其他$4个{{PLURAL:$5|页面}}{{GENDER:$1|链入}}',
 	'echo-email-batch-subject-daily' => '您今天有{{PLURAL:$2|条通知|条通知}}',
 	'echo-email-batch-subject-weekly' => '您本周有{{PLURAL:$2|条通知|条通知}}',
 	'echo-email-batch-body-daily' => '$1：
 
-今天您在{{SITENAME}}有 $2 {{PLURAL:$3|条通知|条通知}}。查看它们：
+今天您在{{SITENAME}}有{{PLURAL:$3|1条新通知|数条新通知}}。点此查看{{PLURAL:$3|它|它们}}：
 {{canonicalurl:{{#special:Notifications}}}}
 
 $4
 
-$5', # Fuzzy
+$5',
 	'echo-email-batch-body-weekly' => '$1：
 
-本周您在{{SITENAME}}有 $2 {{PLURAL:$3|条通知|条通知}}。查看它们：
+本周您在{{SITENAME}}有{{PLURAL:$3|1条新通知|数条新通知}}。点此查看{{PLURAL:$3|它|它们}}：
 {{canonicalurl:{{#special:Notifications}}}}
 
 $4
 
-$5', # Fuzzy
+$5',
 );
 
 /** Traditional Chinese (中文（繁體）‎)
