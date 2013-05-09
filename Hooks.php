@@ -71,6 +71,7 @@ class EchoHooks {
 		$updater->dropExtensionField( 'echo_event', 'event_timestamp', "$dir/db_patches/patch-drop-echo_event-event_timestamp.sql" );
 		$updater->addExtensionField( 'echo_email_batch', 'eeb_event_hash',
 			"$dir/db_patches/patch-email_batch-new-field.sql" );
+		$updater->addExtensionField( 'echo_event', 'event_page_id', "$dir/db_patches/patch-add-echo_event-event_page_id.sql" );
 		return true;
 	}
 
@@ -571,8 +572,7 @@ class EchoHooks {
 					'title' => $title,
 					'agent' => $wgUser,
 					'extra' => array(
-						'link-from-namespace' => $linksUpdate->mTitle->getNamespace(),
-						'link-from-title' => $linksUpdate->mTitle->getDBkey(),
+						'link-from-page-id' => $linksUpdate->mTitle->getArticleId(),
 					)
 				) );
 				$max--;

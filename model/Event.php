@@ -145,8 +145,6 @@ class EchoEvent {
 			'event_variant' => $this->variant,
 		);
 
-		$row['event_extra'] = $this->serializeExtra();
-
 		if ( $this->agent ) {
 			if ( $this->agent->isAnon() ) {
 				$row['event_agent_ip'] = $this->agent->getName();
@@ -156,9 +154,19 @@ class EchoEvent {
 		}
 
 		if ( $this->title ) {
-			$row['event_page_namespace'] = $this->title->getNamespace();
-			$row['event_page_title'] = $this->title->getDBkey();
+			$pageId = $this->title->getArticleId();
+			if ( $pageId ) {
+				$row['event_page_id'] = $pageId;
+			} else {
+				if ( $this->extra === null ) {
+					$this->extra = array();
+				}
+				$this->extra['page_namespace'] = $this->title->getNamespace();
+				$this->extra['page_title'] = $this->title->getDBkey();
+			}
 		}
+
+		$row['event_extra'] = $this->serializeExtra();
 
 		$this->id = $wgEchoBackend->createEvent( $row );
 	}
@@ -190,10 +198,18 @@ class EchoEvent {
 			$this->agent = User::newFromName( $row->event_agent_ip, false );
 		}
 
-		if ( $row->event_page_title !== null ) {
+		if ( $row->event_page_id ) {
+			$this->title = Title::newFromId( $row->event_page_id );
+		} elseif ( isset( $row->event_page_title ) ) {
+			// BC compat with orig Echo deployment
 			$this->title = Title::makeTitleSafe(
 				$row->event_page_namespace,
 				$row->event_page_title
+			);
+		} elseif ( isset( $this->extra['page_title'] ) ) {
+			$this->title = Title::makeTitleSafe(
+				$this->extra['page_namespace'],
+				$this->extra['page_title']
 			);
 		}
 	}
