@@ -130,6 +130,14 @@
 					) {
 						// Add the 'mark all as read' button to the title area
 						$title.append( $markReadButton );
+					// Display a feedback link if there is no 'mark read' button
+					} else {
+						$( '<a>' )
+						.attr( 'href', mw.config.get( 'wgEchoFeedbackPage' ) + '?c=flyout' )
+						.attr( 'id', 'mw-echo-overlay-feedback-link' )
+						.attr( 'target', '_blank' )
+						.text( mw.msg( 'echo-feedback' ) )
+						.appendTo( $title );
 					}
 
 					// Add the header to the title area

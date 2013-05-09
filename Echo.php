@@ -143,6 +143,7 @@ $wgResourceModules += array(
 			'echo-none',
 			'echo-mark-all-as-read',
 			'echo-more-info',
+			'echo-feedback',
 		),
 	),
 	'ext.echo.special' => $echoResourceTemplate + array(

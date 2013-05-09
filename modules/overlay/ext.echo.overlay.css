@@ -159,3 +159,9 @@
 	line-height: 15px;
 	font-weight: normal;
 }
+
+#mw-echo-overlay-feedback-link {
+	position: absolute;
+	bottom: 12px;
+	right: 15px;
+}

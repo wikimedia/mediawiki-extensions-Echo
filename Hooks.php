@@ -586,8 +586,10 @@ class EchoHooks {
 	static function beforePageDisplay( $out, $skin ) {
 		$user = $out->getUser();
 		if ( $user->isLoggedIn() && $user->getOption( 'echo-notify-show-link' ) ) {
+			global $wgEchoFeedbackPage;
 			// Load the module for the Notifications flyout
 			$out->addModules( array( 'ext.echo.overlay' ) );
+			$out->addJsConfigVars( array( 'wgEchoFeedbackPage' => $wgEchoFeedbackPage ) );
 		}
 		return true;
 	}
