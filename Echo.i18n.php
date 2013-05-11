@@ -3822,7 +3822,7 @@ $messages['pl'] = array(
 	'notification-edit-talk-page2' => '[[User:$1|$1]] {{GENDER:$1|napisał|napisała}} do ciebie na twojej [[User talk:$2|stronie dyskusji]].',
 	'notification-edit-talk-page-flyout2' => '<b>$1</b> {{GENDER:$1|napisał|napisała}} do ciebie na twojej [[User talk:$2|stronie dyskusji]].',
 	'notification-page-linked' => 'Na stronie [[:$3]] {{GENDER:$1|umieszczono}} link do strony [[:$2]]: [[Special:WhatLinksHere/$2|pokaż wszystkie linkujące do tej strony]]',
-	'notification-page-linked-flyout' => 'Na stronie <b>$3</b> umieszczono link do strony <b>$2</b>: [[Special:WhatLinksHere/$2|pokaż wszystkie linkujące do tej strony]]', # Fuzzy
+	'notification-page-linked-flyout' => 'Na stronie <b>$3</b> {{GENDER:$1|umieszczono}} link do strony <b>$2</b>: [[Special:WhatLinksHere/$2|pokaż wszystkie linkujące do tej strony]]',
 	'notification-add-comment2' => '[[User:$1|$1]] {{GENDER:$1|umieścił|umieściła}} komentarz do "[[$3|$2]]" na stronie dyskusji "$4"',
 	'notification-add-talkpage-topic2' => '[[User:$1|$1]] {{GENDER:$1|umieścił|umieściła}} komentarz w nowym wątku "$2" na stronie [[$3]]',
 	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]] {{GENDER:$1|wysłał|wysłała}} ci wiadomość: "[[$3#$2|$2]]"',
@@ -3855,7 +3855,7 @@ Pokaż wszystkie linkujące do tej strony:
 {{canonicalurl:{{#special:WhatLinksHere/$2}}}}
 
 $3',
-	'notification-page-linked-email-batch-body' => 'Na stronie $3 umieszczono link do strony $2', # Fuzzy
+	'notification-page-linked-email-batch-body' => 'Na stronie $3 {{GENDER:$1|umieszczono}} link do strony $2',
 	'notification-reverted-email-subject2' => '$1 {{GENDER:$1|zrewertował|zrewertowała}} {{PLURAL:$3|twoją edycję|twoje edycje}} na stronie $2',
 	'notification-reverted-email-body2' => '$1 {{GENDER:$1|zrewertował|zrewertowała}} {{PLURAL:$7|twoją edycję|twoje edycje}} na stronie $2
 
@@ -3910,9 +3910,9 @@ $1', # Fuzzy
 	'echo-date-header' => '$1 $2',
 	'echo-load-more-error' => 'Wystąpił błąd przy pobieraniu kolejnych wyników.',
 	'notification-edit-talk-page-bundle' => '$1 i {{PLURAL:$4|ktoś inny|$3 inni|$3 innych}} napisali do ciebie na twojej [[User talk:$2|stronie dyskusji]]',
-	'notification-page-linked-bundle' => 'Na stronie $3 i na {{PLURAL:$5|innej stronie|$4 innych stronach}}  umieszczono link do strony $2: [[Special:WhatLinksHere/$2|pokaż wszystkie linkujące do tej strony]]', # Fuzzy
-	'notification-edit-user-talk-email-batch-bundle-body' => '$1 i {{PLURAL:$4|ktoś inny|$2 inni|$2 innych}} napisali do ciebie na twojej stronie dyskusji', # Fuzzy
-	'notification-page-linked-email-batch-bundle-body' => 'Na stronie $3 i na {{PLURAL:$5|innej stronie|$4 innych stronach}}  umieszczono link do strony $2', # Fuzzy
+	'notification-page-linked-bundle' => 'Na stronie $3 i na {{PLURAL:$5|innej stronie|$4 innych stronach}} {{GENDER:$1|umieszczono}} link do strony $2: [[Special:WhatLinksHere/$2|pokaż wszystkie linkujące do tej strony]]',
+	'notification-edit-user-talk-email-batch-bundle-body' => '$1 i {{PLURAL:$4|ktoś inny|$2 inni|$2 innych}} {{GENDER:$1|napisali}} do ciebie na twojej stronie dyskusji', # Fuzzy
+	'notification-page-linked-email-batch-bundle-body' => 'Na stronie $3 i na {{PLURAL:$5|innej stronie|$4 innych stronach}} {{GENDER:$1|umieszczono}} link do strony $2',
 	'echo-email-batch-subject-daily' => 'Masz {{PLURAL:$2|nowe powiadomienie|nowe powiadomienia}} z dzisiejszego dnia',
 	'echo-email-batch-subject-weekly' => 'Masz {{PLURAL:$2|nowe powiadomienie|nowe powiadomienia}} z tego tygodnia',
 	'echo-email-batch-body-daily' => '{{GENDER:$1|Szanowny użytkowniku|Szanowna użytkowniczko}} $1,
@@ -3925,12 +3925,12 @@ $4
 $5',
 	'echo-email-batch-body-weekly' => '{{GENDER:$1|Szanowny użytkowniku|Szanowna użytkowniczko}} $1,
 
-Masz $2 {{PLURAL:$3|nowe powiadomienie|nowe powiadomienia}} w {{grammar:6sg|{{SITENAME}}}} z tego tygodnia. Możesz je zobaczyć tutaj:
+Masz {{PLURAL:$3|nowe powiadomienie|nowe powiadomienia}} w {{grammar:6sg|{{SITENAME}}}} z tego tygodnia. Możesz je zobaczyć tutaj:
 {{canonicalurl:{{#special:Notifications}}}}
 
 $4
 
-$5', # Fuzzy
+$5',
 );
 
 /** Piedmontese (Piemontèis)
