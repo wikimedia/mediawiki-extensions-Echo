@@ -23,6 +23,11 @@ $specialPageAliases['diq'] = array(
 	'Notifications' => array( 'Tebliği' ),
 );
 
+/** Greek (Ελληνικά) */
+$specialPageAliases['el'] = array(
+	'Notifications' => array( 'Ειδοποιήσεις' ),
+);
+
 /** Esperanto (Esperanto) */
 $specialPageAliases['eo'] = array(
 	'Notifications' => array( 'Atentigoj' ),
