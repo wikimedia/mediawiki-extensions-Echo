@@ -70,7 +70,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 
 		// Set up default params if one is missing
 		$params += $this->getDefaultParams();
-		
+
 		// Title for the flyout
 		$this->flyoutTitle = array(
 			'message' => $params['flyout-message'],
@@ -308,9 +308,29 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			case 'summary':
 				return $this->formatSummary( $event, $user );
 				break;
+			case 'comment-text':
+				return $this->formatCommentText( $event, $user );
+				break;
 			default:
 				return '';
 		}
+	}
+
+	/**
+	 * Extract the comment left by a user on a talk page from the event.
+	 * @param $event EchoEvent The event to format the comment of
+	 * @param $user User The user to format content for
+	 * @return string Up to the first 200 characters of the comment
+	 */
+	protected function formatCommentText( EchoEvent $event, $user ) {
+		$extra = $event->getExtra();
+		if ( !isset( $extra['content'] ) ) {
+			return '';
+		}
+		$content = EchoDiscussionParser::stripHeader( $extra['content'] );
+		$content = EchoDiscussionParser::stripSignature( $content );
+		$content = EchoDiscussionParser::stripIndents( $content );
+		return EchoDiscussionParser::getTextSnippet( $content, 200 );
 	}
 
 	/**

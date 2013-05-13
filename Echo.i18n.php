@@ -72,7 +72,6 @@ $messages['en'] = array(
 	'notification-user-rights-flyout' => 'Your user rights were {{GENDER:$1|changed}} by <b>$1</b>. $2. [[Special:ListGroupRights|Learn more]]',
 	'notification-user-rights-add' => 'You are now a member of {{PLURAL:$2|this group|these groups}}: $1',
 	'notification-user-rights-remove' => 'You are no longer a member of {{PLURAL:$2|this group|these groups}}: $1',
-	'notification-talkpage-content' => '$1', ## Do not translate unless you deliberately want to change behaviour
 	'notification-new-user' => "Welcome to {{SITENAME}}, $1! We're glad you're here.",
 	'notification-reverted2' => 'Your {{PLURAL:$4|edit on [[:$2]] has|edits on [[:$2]] have}} been {{GENDER:$1|reverted}} by [[User:$1|$1]] $3',
 	'notification-reverted-flyout2' => 'Your {{PLURAL:$4|edit on <b>$2</b> has|edits on <b>$2</b> have}} been {{GENDER:$1|reverted}} by <b>$1</b> $3',
@@ -345,10 +344,6 @@ Parameters:
 	'notification-user-rights-remove' => 'Message indicating that a user was removed from a user group.  Parameters:
 * $1 is a comma separated list of user group names
 * $2 is the number of user groups, this is used for PLURAL support',
-	'notification-talkpage-content' => 'Message shown as the "content" of a talkpage-related action.
-* $1 is the content of the talk page post.
-
-{{optional}}',
 	'notification-new-user' => 'Text of the welcome notification. Parameters:
 * $1 - the name of the new user
 See also:
@@ -3236,14 +3231,14 @@ $1',
 	'notification-page-linked-email-batch-bundle-body' => '$2 എന്ന താളിലേയ്ക്ക് $3 എന്ന താളിൽ നിന്നും മറ്റ് $4 {{PLURAL:$5|താളിൽ|താളുകളിൽ}} നിന്നും {{GENDER:$1|കണ്ണി ചേർക്കപ്പെട്ടിരിക്കുന്നു}}',
 	'echo-email-batch-subject-daily' => 'താങ്കൾക്ക് ഇന്ന് {{PLURAL:$2|പുതിയ ഒരറിയിപ്പ്|പുതിയ അറിയിപ്പുകൾ}} ഉണ്ട്',
 	'echo-email-batch-subject-weekly' => 'താങ്കൾക്ക് ഈ ആഴ്ച {{PLURAL:$2|പുതിയ ഒരറിയിപ്പ്|പുതിയ അറിയിപ്പുകൾ}} ഉണ്ട്',
-	'echo-email-batch-body-daily' => '$1, 
+	'echo-email-batch-body-daily' => '$1,
 
 താങ്കൾക്ക് ഇന്ന്  {{SITENAME}} സംരംഭത്തിൽ {{PLURAL:$3|പുതിയ ഒരു അറിയിപ്പ്|പുതിയ അറിയിപ്പുകൾ}} ഉണ്ട്. {{PLURAL:$3|അത്|അവ}} ഇവിടെ കാണുക: {{canonicalurl:{{#special:Notifications}}}}
 
 $4
 
 $5',
-	'echo-email-batch-body-weekly' => '$1, 
+	'echo-email-batch-body-weekly' => '$1,
 
 താങ്കൾക്ക് ഈ ആഴ്ച  {{SITENAME}} സംരംഭത്തിൽ {{PLURAL:$3|പുതിയ ഒരു അറിയിപ്പ്|പുതിയ അറിയിപ്പുകൾ}} ഉണ്ട്. {{PLURAL:$3|അത്|അവ}} ഇവിടെ കാണുക: {{canonicalurl:{{#special:Notifications}}}}
 
