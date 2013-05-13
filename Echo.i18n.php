@@ -83,7 +83,7 @@ $3
 
 View more:
 
-$2
+<$2>
 
 $4',
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|posted}} on your talk page',
@@ -103,7 +103,7 @@ $5
 
 View more:
 
-$3
+<$3>
 
 $6',
 	'notification-reverted-email-batch-body2' => 'Your {{PLURAL:$3|edit on $2 was|edits on $2 were}} {{GENDER:$1|reverted}} by $1',
@@ -114,7 +114,7 @@ $3
 
 View more:
 
-$4
+<$4>
 
 $5',
 	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|mentioned}} you on $2',
