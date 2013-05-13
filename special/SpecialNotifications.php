@@ -25,15 +25,9 @@ class SpecialNotifications extends SpecialPage {
 			return;
 		}
 
-		// The timestamp and offset to pull current set of data from, this
+		// The continue parameter to pull current set of data from, this
 		// would be used for browsers with javascript disabled
-		$timestamp = $offset = 0;
-		$paging = $this->getRequest()->getVal( 'paging', false );
-		if ( $paging ) {
-			$paging = explode( '|', $paging, 2 );
-			$timestamp = intval( $paging[0] );
-			$offset = intval( $paging[1] );
-		}
+		$continue = $this->getRequest()->getVal( 'continue', null );
 
 		// Preferences link
 		$html = Html::rawElement( 'a', array(
@@ -44,7 +38,7 @@ class SpecialNotifications extends SpecialPage {
 		) );
 
 		// Pull the notifications
-		$notif = ApiEchoNotifications::getNotifications( $user, 'html', self::$displayNum + 1, $timestamp, $offset );
+		$notif = ApiEchoNotifications::getNotifications( $user, 'html', self::$displayNum + 1, $continue );
 
 		// If there are no notifications, display a message saying so
 		if ( !$notif ) {
@@ -53,15 +47,12 @@ class SpecialNotifications extends SpecialPage {
 			return;
 		}
 
-		// The timestamp and offset to pull next set of data from
-		$nextTimestamp = $nextOffset = 0;
-
 		// Check if there is more data to load for next request
 		if ( count( $notif ) > self::$displayNum ) {
-			array_pop( $notif );
-			$more = true;
+			$lastItem = array_pop( $notif );
+			$nextContinue = $lastItem['timestamp']['unix'] . '|' . $lastItem['id'];
 		} else {
-			$more = false;
+			$nextContinue = null;
 		}
 
 		// Add the notifications to the page (interspersed with date headers)
@@ -80,19 +71,17 @@ class SpecialNotifications extends SpecialPage {
 				$class .= ' mw-echo-unread';
 				$unread[] = $row['id'];
 			}
-			$nextTimestamp = $row['timestamp']['unix'];
-			$nextOffset = $row['id'];
 			$notices .= Html::rawElement( 'li', array( 'class' => $class, 'data-notification-category' => $row['category'] ), $row['*'] );
 		}
 		$html .= Html::rawElement( 'ul', array( 'id' => 'mw-echo-special-container' ), $notices );
 
 		// Build the more link
-		if ( $more ) {
+		if ( $nextContinue ) {
 			$html .= Html::element(
 				'a',
 				array(
 					'href' => SpecialPage::getTitleFor( 'Notifications' )->getLinkURL(
-								array( 'paging' => intval( $nextTimestamp ) . '|' . intval( $nextOffset ) )
+								array( 'continue' => $nextContinue )
 							),
 					'id' => 'mw-echo-more'
 				),
@@ -105,8 +94,7 @@ class SpecialNotifications extends SpecialPage {
 		$out->addJsConfigVars(
 			array(
 				'wgEchoDisplayNum' => self::$displayNum,
-				'wgEchoStartTimestamp' => $nextTimestamp,
-				'wgEchoStartOffset' => $nextOffset,
+				'wgEchoNextContinue' => $nextContinue,
 				'wgEchoFeedbackPage' => $wgEchoFeedbackPage,
 				'wgEchoDateHeader' => $dateHeader
 			)

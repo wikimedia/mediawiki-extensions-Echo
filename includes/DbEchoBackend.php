@@ -33,13 +33,12 @@ class MWDbEchoBackend extends MWEchoBackend {
 	/**
 	 * @param $user User the user to get notifications for
 	 * @param $limit int The maximum number of notifications to return
-	 * @param $timestamp int The timestamp to start from
-	 * @param $offset int The notification event id to start from
+	 * @param $continue string Used for offset
 	 * @param $outputFormat string The output format of the notifications (web,
 	 *    email, etc.)
 	 * @return array
 	 */
-	public function loadNotifications( $user, $limit, $timestamp, $offset, $outputFormat = 'web' ) {
+	public function loadNotifications( $user, $limit, $continue, $outputFormat = 'web' ) {
 		$dbr = MWEchoDbFactory::getDB( DB_SLAVE );
 
 		$eventTypesToLoad = EchoNotificationController::getUserEnabledEvents( $user, $outputFormat );
@@ -54,10 +53,12 @@ class MWDbEchoBackend extends MWEchoBackend {
 			'notification_bundle_base' => 1
 		);
 
+		$offset = $this->extractQueryOffset( $continue );
+
 		// Start points are specified
-		if ( $timestamp && $offset ) {
-			$conds[] = 'notification_timestamp <= ' . $dbr->addQuotes( $dbr->timestamp( $timestamp ) );
-			$conds[] = 'notification_event < ' . intval( $offset );
+		if ( $offset['timestamp'] && $offset['offset'] ) {
+			$conds[] = 'notification_timestamp <= ' . $dbr->addQuotes( $dbr->timestamp( $offset['timestamp'] ) );
+			$conds[] = 'notification_event <= ' . $offset['offset'];
 		}
 
 		$res = $dbr->select(

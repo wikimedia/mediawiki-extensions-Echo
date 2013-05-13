@@ -3,11 +3,9 @@
 
 	mw.echo.special = {
 
-		'timestamp': 0,
-		'offset': 0,
+		'notcontinue': null,
 		'header': '',
 		'processing': false,
-		'moreData': '0',
 
 		/**
 		 * Initialize the property in special notification page.
@@ -28,8 +26,7 @@
 					}
 				}
 			);
-			_this.timestamp = mw.config.get( 'wgEchoStartTimestamp' );
-			_this.offset = mw.config.get( 'wgEchoStartOffset' );
+			_this.notcontinue = mw.config.get( 'wgEchoNextContinue' );
 			_this.header = mw.config.get( 'wgEchoDateHeader' );
 
 			// Set up each individual notification with a close box and dismiss
@@ -78,8 +75,7 @@
 					'meta' : 'notifications',
 					'notformat' : 'html',
 					'notprop' : 'index|list',
-					'nottimestamp': this.timestamp,
-					'notoffset': this.offset,
+					'notcontinue': this.notcontinue,
 					'notlimit': mw.config.get( 'wgEchoDisplayNum' )
 				},
 				{
@@ -112,14 +108,9 @@
 							if ( $li.find( '.mw-echo-dismiss' ).length ) {
 								mw.echo.setUpDismissability( $li );
 							}
-
-							// update the timestamp and offset to get data from
-							// this is used for next data retrieval
-							_this.timestamp = data.timestamp.unix;
-							_this.offset = data.id;
 						} );
 
-						_this.moreData = notifications.more;
+						_this.notcontinue = notifications['continue'];
 						if ( unread.length > 0 ) {
 							_this.markAsRead( unread );
 						} else {
@@ -161,7 +152,7 @@
 		},
 
 		'onSuccess': function() {
-			if ( this.moreData === '0' ) {
+			if ( !this.notcontinue ) {
 				$( '#mw-echo-more' ).hide();
 			}
 			this.processing = false;

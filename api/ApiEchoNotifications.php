@@ -27,14 +27,14 @@ class ApiEchoNotifications extends ApiQueryBase {
 
 		$result = array();
 		if ( in_array( 'list', $prop ) ) {
-			$result['list'] = self::getNotifications( $user, $params['format'], $params['limit'] + 1, $params['timestamp'], $params['offset'] );
+			$result['list'] = self::getNotifications( $user, $params['format'], $params['limit'] + 1, $params['continue'] );
 
 			// check if there is more elements than we request
 			if ( count( $result['list'] ) > $params['limit'] ) {
-				array_pop( $result['list'] );
-				$result['more'] = '1';
+				$lastItem = array_pop( $result['list'] );
+				$result['continue'] = $lastItem['timestamp']['unix'] . '|' . $lastItem['id'];
 			} else {
-				$result['more'] = '0';
+				$result['continue'] = null;
 			}
 			$this->getResult()->setIndexedTagName( $result['list'], 'notification' );
 		}
@@ -64,17 +64,16 @@ class ApiEchoNotifications extends ApiQueryBase {
 	 * @param $user User the user to get notifications for
 	 * @param $format string/bool false to not format any notifications, string to a specific output format
 	 * @param $limit int The maximum number of notifications to return
-	 * @param $timestamp int The timestamp to start from
-	 * @param $offset int The notification event id to start from
+	 * @param $continue string Used for offset
 	 * @return array
 	 */
-	public static function getNotifications( $user, $format = false, $limit = 20, $timestamp = 0, $offset = 0 ) {
+	public static function getNotifications( $user, $format = false, $limit = 20, $continue = null ) {
 		global $wgEchoBackend;
 
 		$output = array();
 
 		// TODO: Make 'web' based on a new API param?
-		$res = $wgEchoBackend->loadNotifications( $user, $limit, $timestamp, $offset, 'web' );
+		$res = $wgEchoBackend->loadNotifications( $user, $limit, $continue, 'web' );
 
 		foreach ( $res as $row ) {
 			$event = EchoEvent::newFromRow( $row );
@@ -201,6 +200,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 			'timestamp' => array(
 				ApiBase::PARAM_TYPE => 'integer',
 			),
+			'continue' => null,
 		);
 	}
 
@@ -214,6 +214,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 			'limit' => 'The maximum number of notifications to return.',
 			'offset' => 'Notification event id to start from (requires timestamp param to be passed as well)',
 			'timestamp' => 'Timestamp to start from',
+			'continue' => 'When more results are available, use this to continue',
 		);
 	}
 

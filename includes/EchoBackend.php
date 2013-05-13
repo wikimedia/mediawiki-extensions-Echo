@@ -26,6 +26,28 @@ abstract class MWEchoBackend {
 	}
 
 	/**
+	 * Extract the offset used for notification list
+	 * @param $continue String Used for offset
+	 * @param @return array
+	 */
+	protected function extractQueryOffset( $continue ) {
+		$offset = array (
+			'timestamp' => 0,
+			'offset' => 0,
+		);
+		if ( $continue ) {
+			$values = explode( '|', $continue, 3 );
+			if ( count( $values ) !== 2 ) {
+				throw new MWException( 'Invalid continue param: ' . $continue );
+			}
+			$offset['timestamp'] = (int)$values[0];
+			$offset['offset'] = (int)$values[1];
+		}
+
+		return $offset;
+	}
+
+	/**
 	 * Create a new notification
 	 * @param $row array
 	 */
@@ -35,11 +57,11 @@ abstract class MWEchoBackend {
 	 * Load notifications based on the parameters
 	 * @param $user User the user to get notifications for
 	 * @param $limit int The maximum number of notifications to return
-	 * @param $timestamp int The timestamp to start from
-	 * @param $offset int The notification event id to start from
+	 * @param $continue string Used for offset
+	 * @param $outputFormat string The output format of the notifications (web, email, etc.)
 	 * @return array
 	 */
-	abstract public function loadNotifications( $user, $limit, $timestamp, $offset );
+	abstract public function loadNotifications( $user, $limit, $continue, $outputFormat = 'web' );
 
 	/**
 	 * Get the bundle data for user/hash
