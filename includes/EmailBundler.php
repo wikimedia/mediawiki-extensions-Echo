@@ -245,6 +245,7 @@ abstract class MWEchoEmailBundler {
 
 		// Schedule a email job or just send the email directly?
 		UserMailer::send( $toAddress, $fromAddress, $content['subject'], $content['body'], $replyAddress );
+		MWEchoEventLogging::logSchemaEchoMail( $this->mUser, 'bundle' );
 	}
 
 	/**
