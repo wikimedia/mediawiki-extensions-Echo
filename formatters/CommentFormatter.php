@@ -58,18 +58,6 @@ class EchoCommentFormatter extends EchoEditFormatter {
 			} else {
 				$message->params( '' );
 			}
-		} elseif ( $param === 'commentText' ) {
-			if ( isset( $extra['content'] ) && $extra['content'] ) {
-				$content = $extra['content'];
-				$content = EchoDiscussionParser::stripHeader( $content );
-				$content = EchoDiscussionParser::stripSignature( $content );
-				$content = EchoDiscussionParser::stripIndents( $content );
-				$content = EchoDiscussionParser::getTextSnippet( $content, 200 );
-
-				$message->params( $content );
-			} else {
-				$message->params( '' );
-			}
 		} elseif ( $param === 'content-page' ) {
 			if ( $event->getTitle() ) {
 				$message->params( $event->getTitle()->getSubjectPage()->getPrefixedText() );

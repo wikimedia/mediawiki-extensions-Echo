@@ -433,8 +433,6 @@ $wgEchoNotifications = array(
 		'email-body-params' => array( 'agent', 'title', 'summary', 'subject-link', 'email-footer' ),
 		'email-body-batch-message' => 'notification-mention-email-batch-body',
 		'email-body-batch-params' => array( 'agent', 'title' ),
-		'content-message' => 'notification-talkpage-content',
-		'content-params' => array( 'commentText' ),
 		'icon' => 'chat',
 	),
 	'user-rights' => array(
