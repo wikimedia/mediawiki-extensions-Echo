@@ -1,0 +1,10 @@
+#pt-mytalk {
+	white-space: nowrap;
+}
+#pt-mytalk a.mw-echo-alert {
+	border-radius: 2px;
+	background-color: #F9C557;
+	padding: 0.3em 0.9em 0.25em 0.9em;
+	color: #555555;
+	font-weight: normal;
+}
