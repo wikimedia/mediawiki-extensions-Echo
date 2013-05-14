@@ -371,7 +371,7 @@ See also:
 	'notification-edit-talk-page-email-subject2' => 'E-mail subject.',
 	'notification-edit-talk-page-email-body2' => 'E-mail notification. Parameters:
 * $1 - the email intro, could be {{msg-mw|notification-edit-talk-page-email-batch-body2}} or {{msg-mw|notification-edit-user-talk-email-batch-bundle-body}}
-* $2 - a link to a change
+* <$2> - a link to a change
 * $3 - the edit summary
 * $4 - the e-mail footer, {{msg-mw|echo-email-footer-default}}',
 	'notification-edit-talk-page-email-batch-body2' => 'E-mail notification for talk page edit
@@ -413,7 +413,7 @@ See also:
 	'notification-reverted-email-body2' => "E-mail notification. Parameters:
 * $1 is the username
 * $2 is the page title
-* $3 is the link to the change
+* <$3> is the link to the change
 * $4 is the e-mail recipient's username
 * $5 is the edit summary
 * $6 is the email footer, {{msg-mw|echo-email-footer-default}}
@@ -436,7 +436,7 @@ See also:
 * $1 is a username, plaintext.  Can be used for gender support
 * $2 is talk page title
 * $3 is the edit summary
-* $4 is the link to the talk page section title
+* <$4> is the link to the talk page section title
 * $5 is the email footer
 
 See also:
@@ -667,9 +667,9 @@ $3
 
 Ver más:
 
-$2
+<$2>
 
-$4',
+$4', # Fuzzy
 	'notification-edit-talk-page-email-batch-body2' => "$1 {{GENDER:$1|escribió}} na so páxina d'alderique",
 	'notification-page-linked-email-subject' => "Una páxina que principió enllazóse'n {{SITENAME}}",
 	'notification-page-linked-email-body' => '$1
@@ -687,9 +687,9 @@ $5
 
 Ver más:
 
-$3
+<$3>
 
-$6',
+$6', # Fuzzy
 	'notification-reverted-email-batch-body2' => '$1 {{GENDER:$1|invertió}} {{PLURAL:$3|la so edición|les sos ediciones}} en $2',
 	'notification-mention-email-subject' => '$1 fizo-y una {{GENDER:$1|mención}} en {{SITENAME}}',
 	'notification-mention-email-body' => "L'usuariu $1 de {{SITENAME}} fizo-y una {{GENDER:$1|mención}} en $2.
@@ -698,9 +698,9 @@ $3
 
 Ver más:
 
-$4
+<$4>
 
-$5",
+$5", # Fuzzy
 	'notification-mention-email-batch-body' => '$1 fizo-y una {{GENDER:$1|mención}} en $2',
 	'notification-user-rights-email-subject' => "Camudaron los sos permisos d'usuariu en {{SITENAME}}",
 	'notification-user-rights-email-body' => "$1 {{GENDER:$1|camudó}} los sos permisos d'usuariu. $2
@@ -899,7 +899,7 @@ $3
 
 Падрабязьней:
 
-$2
+<$2>
 
 $4', # Fuzzy
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|напісаў|напісала}} вам на старонку гутарак',
@@ -910,9 +910,9 @@ $5
 
 Падрабязьней:
 
-$3
+<$3>
 
-$6',
+$6', # Fuzzy
 	'notification-reverted-email-batch-body2' => '$1 {{GENDER:$1|скасаваў|скасавала}} {{PLURAL:$3|вашую праўку|вашыя праўкі}} ў «$2»',
 	'notification-mention-email-subject' => '$1 {{GENDER:$1|згадаў|згадала}} вас у {{GRAMMAR:месны|{{SITENAME}}}}',
 	'notification-mention-email-body' => '{{GENDER:$1|Удзельнік|Удзельніца}} {{GRAMMAR:родны|{{SITENAME}}}} $1 {{GENDER:$1|згадаў|згадала}} вас у $2.
@@ -921,9 +921,9 @@ $3
 
 Падрабязьней:
 
-$4
+<$4>
 
-$5',
+$5', # Fuzzy
 	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|згадаў|згадала}} вас на $2',
 	'echo-email-subject-default' => 'Новая абвестка ад {{GRAMMAR:родны|{{SITENAME}}}}',
 	'echo-email-body-default' => 'Для вас ёсьць новая абвестка ў {{GRAMMAR:месны|{{SITENAME}}}}:
@@ -994,9 +994,9 @@ $3
 
 আরো দেখুন:
 
-$2
+<$2>
 
-$4',
+$4', # Fuzzy
 );
 
 /** Breton (brezhoneg)
@@ -1133,9 +1133,9 @@ $3
 
 Podrobnosti:
 
-$2
+<$2>
 
-$4',
+$4', # Fuzzy
 	'notification-edit-talk-page-email-batch-body2' => '$1 vám {{GENDER:$1|napsal|napsala}} na vaši diskusní stránku',
 	'notification-page-linked-email-subject' => 'Na {{grammar:6sg|{{SITENAME}}}} někdo odkázal na vámi založenou stránku',
 	'notification-page-linked-email-body' => '$1
@@ -1153,9 +1153,9 @@ $5
 
 Podrobnosti:
 
-$3
+<$3>
 
-$6',
+$6', # Fuzzy
 	'notification-reverted-email-batch-body2' => '$1 {{GENDER:$1|revertoval|revertovala}} {{PLURAL:$3|vaši editaci|vaše editace}} stránky $2.',
 	'notification-mention-email-subject' => '$1 vás na {{grammar:6sg|{{SITENAME}}}} {{GENDER:$1|zmínil|zmínila}}',
 	'notification-mention-email-body' => '{{GENDER:$1|Uživatel|Uživatelka}} $1 na {{grammar:6sg|{{SITENAME}}}} vás {{GENDER:$1|zmínil|zmínila}} v diskusi $2.
@@ -1164,9 +1164,9 @@ $3
 
 Podrobnosti:
 
-$4
+<$4>
 
-$5',
+$5', # Fuzzy
 	'notification-mention-email-batch-body' => '$1 vás {{GENDER:$1|zmínil|zmínila}} v diskusi $2',
 	'notification-user-rights-email-subject' => 'Na {{grammar:6sg|{{SITENAME}}}} byla změněna vaše uživatelská práva',
 	'notification-user-rights-email-body' => '$1 {{GENDER:$1|změnil|změnila}} vaše uživatelská práva. $2
@@ -1305,7 +1305,7 @@ $3
 
 Mehr:
 
-$2
+<$2>
 
 $4',
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|hinterließ}} eine Nachricht auf deiner Diskussionsseite',
@@ -1325,7 +1325,7 @@ $5
 
 Mehr:
 
-$3
+<$3>
 
 $6',
 	'notification-reverted-email-batch-body2' => 'Deine {{PLURAL:$3|Bearbeitung an der Seite $2 wurde|Bearbeitungen an der Seite $2 wurden}} von $1 {{GENDER:$1|rückgängig}} gemacht',
@@ -1336,7 +1336,7 @@ $3
 
 Mehr:
 
-$4
+<$4>
 
 $5',
 	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|erwähnte}} dich auf „$2“',
@@ -1524,9 +1524,9 @@ $3
 
 Ver más:
 
-$2
+<$2>
 
-$4',
+$4', # Fuzzy
 	'notification-page-linked-email-subject' => 'Se creó un enlace a una página que comenzaste en {{SITENAME}}',
 	'echo-email-subject-default' => 'Nueva notificación en {{SITENAME}}',
 	'echo-email-body-default' => 'Tienes una nueva notificación en {{SITENAME}}:
@@ -1695,9 +1695,9 @@ $3
 
 Näytä lisää:
 
-$2
+<$2>
 
-$4',
+$4', # Fuzzy
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|lähetti viestin}} keskustelusivullesi',
 	'notification-page-linked-email-subject' => 'Aloittamasi sivu linkitettiin sivustolla {{SITENAME}}',
 	'notification-page-linked-email-body' => '$1
@@ -1715,9 +1715,9 @@ $5
 
 Näytä lisää:
 
-$3
+<$3>
 
-$6',
+$6', # Fuzzy
 	'notification-reverted-email-batch-body2' => '$1 {{GENDER:$1|kumosi}} {{PLURAL:$3|muutoksesi sivulla $2}}',
 	'notification-mention-email-subject' => '$1 {{GENDER:$1|mainitsi}} sinut sivustolla {{SITENAME}}',
 	'notification-mention-email-body' => 'Sivuston {{SITENAME}} käyttäjä $1 {{GENDER:$1|mainitsi}} sinut sivulla $2.
@@ -1726,9 +1726,9 @@ $3
 
 Näytä lisää:
 
-$4
+<$4>
 
-$5',
+$5', # Fuzzy
 	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|mainitsi}} sinut sivulla $2',
 	'notification-user-rights-email-subject' => 'Käyttöoikeuksiasi on muutettu sivustolla {{SITENAME}}',
 	'notification-user-rights-email-body' => '$1 {{GENDER:$1|muutti}} käyttöoikeuksiasi. $2
@@ -1855,9 +1855,9 @@ $messages['fr'] = array(
 
 $3
 
-En savoir plus:
+En savoir plus :
 
-$2
+<$2>
 
 $4',
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|a publié}} sur votre page de discussion',
@@ -1875,9 +1875,9 @@ $3',
 
 $5
 
-En savoir plus:
+En savoir plus :
 
-$3
+<$3>
 
 $6',
 	'notification-reverted-email-batch-body2' => '{{PLURAL:$3|Votre modification sur $2 a été annulée|Vos modifications sur $2 ont été annulées}} {{GENDER:$1|}} par $1',
@@ -1886,9 +1886,9 @@ $6',
 
 $3
 
-En savoir plus:
+En savoir plus :
 
-$4
+<$4>
 
 $5',
 	'notification-mention-email-batch-body' => '$1 vous {{GENDER:$1|a mentionné}} sur $2',
@@ -2068,9 +2068,9 @@ $3
 
 Ollar máis:
 
-$2
+<$2>
 
-$4',
+$4', # Fuzzy
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|deixou}} unha mensaxe na súa páxina de conversa',
 	'notification-page-linked-email-subject' => 'Unha páxina que comezou foi ligada en {{SITENAME}}',
 	'notification-page-linked-email-body' => '$1
@@ -2088,9 +2088,9 @@ $5
 
 Ollar máis:
 
-$3
+<$3>
 
-$6',
+$6', # Fuzzy
 	'notification-reverted-email-batch-body2' => '$1 {{GENDER:$1|reverteu}} {{PLURAL:$3|a súa edición|as súas edicións}} en "$2"',
 	'notification-mention-email-subject' => '$1 {{GENDER:$1|fíxolle}} unha mención en {{SITENAME}}',
 	'notification-mention-email-body' => '{{GENDER:$1|O editor|A editora}} $1 fíxolle unha mención en $2:
@@ -2099,9 +2099,9 @@ $3
 
 Ollar máis:
 
-$4
+<$4>
 
-$5',
+$5', # Fuzzy
 	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|fíxolle}} unha mención en $2',
 	'notification-user-rights-email-subject' => 'Os seus dereitos de usuario cambiaron en {{SITENAME}}',
 	'notification-user-rights-email-body' => '$1 {{GENDER:$1|mudou}} os seus dereitos de usuario. $2
@@ -2231,9 +2231,9 @@ $3
 
 מידע נוסף:
 
-$2
+<$2>
 
-$4',
+$4', # Fuzzy
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|כתב|כתבה}} הדף השיחה שלך',
 	'notification-page-linked-email-subject' => 'מישהו קישר אל הדף שיצרת באתר {{SITENAME}}',
 	'notification-page-linked-email-body' => '$1
@@ -2251,9 +2251,9 @@ $5
 
 מידע נוסף:
 
-$3
+<$3>
 
-$6',
+$6', # Fuzzy
 	'notification-reverted-email-batch-body2' => '$1 {{GENDER:$1|שחזר|שחזרה}} {{PLURAL:$3|עריכה שלך|עריכות שלך}} בדף $2',
 	'notification-mention-email-subject' => '$1 {{GENDER:$1|הזכיר|הזכירה}} אותך באתר {{SITENAME}}',
 	'notification-mention-email-body' => '$1 {{GENDER:$1|הזכיר|הזכירה}} אותך בדף $2
@@ -2262,9 +2262,9 @@ $3
 
 מידע נוסף:
 
-$4
+<$4>
 
-$5',
+$5', # Fuzzy
 	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|הזכיר|הזכירה}} אותך בדף $2',
 	'notification-user-rights-email-subject' => 'ההרשאות שלך באתר {{SITENAME}} שונו',
 	'notification-user-rights-email-body' => '$1 {{GENDER:$1|שינה|שינתה}} את ההרשאות שלך. $2
@@ -2545,7 +2545,7 @@ $3
 
 Vedi anche:
 
-$2
+<$2>
 
 $4',
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|ha postato}} sulla tua pagina di discussione',
@@ -2565,7 +2565,7 @@ $5
 
 Mostra di più:
 
-$3
+<$3>
 
 $6',
 	'notification-reverted-email-batch-body2' => '{{PLURAL:$3|La tua modifica|Le tue modifiche}} su $2 {{PLURAL:$3|è stata annullata|sono state annullate}} {{GENDER:$1|da}} $1',
@@ -2576,7 +2576,7 @@ $3
 
 Vedi anche:
 
-$4
+<$4>
 
 $5",
 	'notification-mention-email-batch-body' => '$1 ti ha {{GENDER:$1|menzionato|menzionata|menzionato/a}} su $2',
@@ -2700,7 +2700,7 @@ $3
 
 詳細はこちら:
 
-$2
+<$2>
 
 $4',
 	'notification-edit-talk-page-email-batch-body2' => '$1 があなたのトークページに{{GENDER:$1|投稿しました}}',
@@ -2720,7 +2720,7 @@ $5
 
 詳細はこちら:
 
-$3
+<$3>
 
 $6',
 	'notification-reverted-email-batch-body2' => '{{PLURAL:$3|$2 でのあなたの編集}}を $1 が{{GENDER:$1|差し戻しました}}',
@@ -2731,7 +2731,7 @@ $3
 
 詳細はこちら:
 
-$4
+<$4>
 
 $5',
 	'notification-mention-email-batch-body' => '$1 が $2 であなたに{{GENDER:$1|言及しました}}',
@@ -2891,7 +2891,7 @@ $3
 
 더 보기:
 
-$2
+<$2>
 
 $4', # Fuzzy
 	'notification-edit-talk-page-email-batch-body2' => '$1 사용자가 내 토론 문서에 {{GENDER:$1|게시했습니다}}',
@@ -2902,9 +2902,9 @@ $5
 
 더 보기:
 
-$3
+<$3>
 
-$6',
+$6', # Fuzzy
 	'notification-reverted-email-batch-body2' => '{{PLURAL:$3|$2에 대한 내 편집}}을 $1 사용자가 {{GENDER:$1|되돌렸습니다}}',
 	'notification-mention-email-subject' => '$1 사용자가 {{SITENAME}}에 당신을 {{GENDER:$1|언급했습니다}}',
 	'notification-mention-email-body' => '{{SITENAME}} $1 사용자가 $2에 당신을 {{GENDER:$1|언급했습니다}}.
@@ -2913,9 +2913,9 @@ $3
 
 더 보기:
 
-$4
+<$4>
 
-$5',
+$5', # Fuzzy
 	'notification-mention-email-batch-body' => '$1 사용자가 $2에 당신을 {{GENDER:$1|언급했습니다}}',
 	'echo-email-subject-default' => '{{SITENAME}}에서 새 알림',
 	'echo-email-body-default' => '{{SITENAME}}에서 새 알림이 있습니다:
@@ -2991,6 +2991,7 @@ $messages['lb'] = array(
 	'prefs-emailsettings' => 'E-Mail-Astellungen',
 	'prefs-displaynotifications' => 'Optioune vum Affichage',
 	'prefs-echosubscriptions' => 'Mech iwwer dës Evenementer informéieren',
+	'echo-pref-send-to' => 'Schécken un:',
 	'echo-pref-web' => 'Web',
 	'echo-pref-email' => 'E-Mail',
 	'echo-pref-email-frequency-daily' => 'All Dag e Resumé vun den Notifikatiounen',
@@ -2998,6 +2999,7 @@ $messages['lb'] = array(
 	'echo-learn-more' => 'Fir méi ze wëssen',
 	'echo-dismiss-button' => 'Verwerfen',
 	'echo-dismiss-message' => 'All $1-Notifikatiounen ausschalten',
+	'echo-new-messages' => 'Dir hutt nei Messagen',
 	'echo-category-title-article-linked' => '{{PLURAL:$1|Säitelink|Säitelinken}}',
 	'echo-category-title-reverted' => '{{PLURAL:$1|Zréckgesetzung|Zrécksetzungen}} änneren',
 	'echo-category-title-mention' => '{{PLURAL:$1|Mentioun|Mentiounen}}',
@@ -3020,7 +3022,7 @@ $3
 
 Méi weisen:
 
-$2
+<$2>
 
 $4',
 	'notification-page-linked-email-subject' => 'Eng Säit déi Dir ugeluecht hutt gouf op {{SITENAME}} verlinkt',
@@ -3039,6 +3041,7 @@ $1',
 	'echo-mark-all-as-read' => 'All als geliest markéieren',
 	'echo-date-today' => 'Haut',
 	'echo-date-yesterday' => 'Gëschter',
+	'echo-load-more-error' => 'Am Sichen no méi Resultater ass e Feeler geschitt.',
 );
 
 /** Lithuanian (lietuvių)
@@ -3122,9 +3125,9 @@ $messages['mk'] = array(
 $3
 Погледајте повеќе:
 
-$2
+<$2>
 
-$4',
+$4', # Fuzzy
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|објави}} на вашата страница за разговор',
 	'notification-page-linked-email-subject' => 'Страница што вие ја започнавте е наведена на {{SITENAME}}',
 	'notification-page-linked-email-body' => '$1
@@ -3142,9 +3145,9 @@ $5
 
 Погледајте повеќе:
 
-$3
+<$3>
 
-$6',
+$6', # Fuzzy
 	'notification-reverted-email-batch-body2' => '$1 {{PLURAL:$3|го|ги}} {{GENDER:$1|врати}} {{PLURAL:$3|вашето уредување на $2|вашите уредувања на $2}}',
 	'notification-mention-email-subject' => '$1 {{GENDER:$1|ве спомна}} на {{SITENAME}}',
 	'notification-mention-email-body' => 'Корисникот $1 {{GENDER:$1|mentioned}} од {{SITENAME}} ве спомна на „$2“.
@@ -3153,9 +3156,9 @@ $3
 
 Погледајте повеќе:
 
-$4
+<$4>
 
-$5',
+$5', # Fuzzy
 	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|ве спомна}} на „$2“',
 	'notification-user-rights-email-subject' => 'Вашите кориснички права на {{SITENAME}} се изменети',
 	'notification-user-rights-email-body' => 'Вашите кориснички права се {{GENDER:$1|изменети}} од $1. $2
@@ -3270,7 +3273,7 @@ $messages['ml'] = array(
 	'notification-reverted2' => 'താങ്കൾ വരുത്തിയ {{PLURAL:$4|[[:$2]] താളിലെ തിരുത്ത്|[[:$2]] താളിലെ തിരുത്തുകൾ}} [[User:$1|$1]] {{GENDER:$1|മുൻപ്രാപനം ചെയ്തിരിക്കുന്നു}}  $3',
 	'notification-reverted-flyout2' => 'താങ്കൾ വരുത്തിയ {{PLURAL:$4|<b>$2</b> താളിലെ തിരുത്ത്|<b>$2</b> താളിലെ തിരുത്തുകൾ}} <b>$1</b>{{GENDER:$1|മുൻപ്രാപനം ചെയ്തിരിക്കുന്നു}}  $3',
 	'notification-edit-talk-page-email-subject2' => 'താങ്കൾക്ക് സംവാദത്താളിൽ പുതിയ സന്ദേശമുണ്ട്',
-	'notification-edit-talk-page-email-body2' => '$1 $3 കൂടുതൽ കാണുക: $2 $4',
+	'notification-edit-talk-page-email-body2' => '$1 $3 കൂടുതൽ കാണുക: <$2> $4', # Fuzzy
 	'notification-edit-talk-page-email-batch-body2' => '$1 താങ്കളുടെ സംവാദത്താളിൽ {{GENDER:$1|കുറിപ്പിട്ടിട്ടുണ്ട്}}',
 	'notification-page-linked-email-subject' => 'താങ്കൾ തുടക്കമിട്ട ഒരു താൾ {{SITENAME}} സംരംഭത്തിൽ കണ്ണി ചേർക്കപ്പെട്ടിരിക്കുന്നു',
 	'notification-page-linked-email-body' => '$1
@@ -3288,12 +3291,12 @@ $5
 
 കൂടുതൽ കാണുക:
 
-$3
+<$3>
 
-$6',
+$6', # Fuzzy
 	'notification-reverted-email-batch-body2' => 'താങ്കൾ വരുത്തിയ {{PLURAL:$3|$2 താളിലെ തിരുത്ത്|$2 താളിലെ തിരുത്തുകൾ}} $1 {{GENDER:$1|മുൻപ്രാപനം ചെയ്തിരുന്നു}}',
 	'notification-mention-email-subject' => '$1 താങ്കളെ {{SITENAME}} സംരംഭത്തിൽ {{GENDER:$1|പരാമർശിച്ചിരിക്കുന്നു}}',
-	'notification-mention-email-body' => '{{SITENAME}} ഉപയോക്താവ് $1 താങ്കളെ $2 താളിൽ {{GENDER:$1|പരാമർശിച്ചിരിക്കുന്നു}}. $3 കൂടുതൽ കാണുക: $4 $5',
+	'notification-mention-email-body' => '{{SITENAME}} ഉപയോക്താവ് $1 താങ്കളെ $2 താളിൽ {{GENDER:$1|പരാമർശിച്ചിരിക്കുന്നു}}. $3 കൂടുതൽ കാണുക: <$4> $5', # Fuzzy
 	'notification-mention-email-batch-body' => '$1 താങ്കളെ $2 താളിൽ {{GENDER:$1|പരാമർശിച്ചിരിക്കുന്നു}}',
 	'notification-user-rights-email-subject' => '{{SITENAME}} സംരംഭത്തിൽ താങ്കളുടെ അവകാശങ്ങളിൽ മാറ്റമുണ്ടായിരിക്കുന്നു',
 	'notification-user-rights-email-body' => 'താങ്കളുടെ ഉപയോക്തൃ അവകാശങ്ങൾ $1 {{GENDER:$1|മാറ്റിയിരിക്കുന്നു}}. $2
@@ -3408,9 +3411,9 @@ $3
 
 Maklumat lanjut:
 
-$2
+<$2>
 
-$4',
+$4', # Fuzzy
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|mengepos}} pada halaman perbualan anda',
 	'notification-page-linked-email-subject' => 'Sebuah halaman yang pernah anda wujudkan telah dipautkan di {{SITENAME}}',
 	'notification-page-linked-email-body' => '$1
@@ -3428,9 +3431,9 @@ $5
 
 Baca selanjutnya:
 
-$3
+<$3>
 
-$6',
+$6', # Fuzzy
 	'notification-reverted-email-batch-body2' => '{{PLURAL:$3|Suntingan|Suntingan-suntingan}} anda di $2 telah dibalikkan oleh $1',
 	'notification-mention-email-subject' => '$1 {{GENDER:$1|menyebut}} anda di {{SITENAME}}',
 	'notification-mention-email-body' => 'Pengguna {{SITENAME}}, $1 telah {{GENDER:$1|menyebut}} anda di $2.
@@ -3439,9 +3442,9 @@ $3
 
 Baca selanjutnya:
 
-$4
+<$4>
 
-$5',
+$5', # Fuzzy
 	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|menyebut}} anda di $2',
 	'notification-user-rights-email-subject' => 'Hak-hak pengguna anda telah berubah di {{SITENAME}}',
 	'notification-user-rights-email-body' => 'Hak-hak pengguna anda telah {{GENDER:$1|diubah}} oleh $1. $2
@@ -3526,6 +3529,7 @@ $messages['nb'] = array(
 	'prefs-emailsettings' => 'E-postinnstillinger',
 	'prefs-displaynotifications' => 'Visningsvalg',
 	'prefs-echosubscriptions' => 'Varsle meg om disse hendelsene',
+	'prefs-newmessageindicator' => 'Indikator for ny melding',
 	'echo-pref-send-me' => 'Send meg:',
 	'echo-pref-send-to' => 'Send til:',
 	'echo-pref-web' => 'Web',
@@ -3535,10 +3539,12 @@ $messages['nb'] = array(
 	'echo-pref-email-frequency-daily' => 'Daglig sammendrag av varsler',
 	'echo-pref-email-frequency-weekly' => 'Ukentlig sammendrag av varsler',
 	'echo-pref-notify-show-link' => 'Vis varslinger i verktøylinjen min',
+	'echo-pref-new-message-indicator' => 'Vis indikator for nye meldinger i verktøylinjen min',
 	'echo-learn-more' => 'Lær mer',
 	'echo-dismiss-button' => 'Lukk',
 	'echo-dismiss-message' => 'Slå av alle varsler for $1',
 	'echo-dismiss-prefs-message' => 'Du kan slå på disse igjen i [[Special:Preferences#mw-prefsection-echo|innstillingene]] dine.',
+	'echo-new-messages' => 'Du har nye meldinger',
 	'echo-category-title-edit-user-talk' => '{{PLURAL:$1|Innlegg}} på diskusjonsside',
 	'echo-category-title-article-linked' => '{{PLURAL:$1|Sidelenke|Sidelenker}}',
 	'echo-category-title-reverted' => 'Tilbakestilling av {{PLURAL:$1|redigering|redigeringer}}',
@@ -3581,7 +3587,7 @@ $3
 
 Vis mer:
 
-$2
+<$2>
 
 $4',
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|postet}} på diskusjonssiden din',
@@ -3601,7 +3607,7 @@ $5
 
 Vis mer:
 
-$3
+<$3>
 
 $6',
 	'notification-reverted-email-batch-body2' => '{{PLURAL:$3|Din redigering|Dine redigeringer}} på $2 ble {{GENDER:$1|tilbakestilt}} av $1.',
@@ -3612,7 +3618,7 @@ $3
 
 Vis mer:
 
-$4
+<$4>
 
 $5',
 	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|nevnte}} deg på $2',
@@ -3746,9 +3752,9 @@ $3
 
 Meer bekijken:
 
-$2
+<$2>
 
-$4',
+$4', # Fuzzy
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|heeft}} een bericht achtergelaten op uw overlegpagina',
 	'notification-page-linked-email-subject' => 'Een pagina die u hebt aangemaakt is gekoppeld op {{SITENAME}}',
 	'notification-page-linked-email-body' => '$1
@@ -3766,9 +3772,9 @@ $5
 
 Meer bekijken:
 
-$3
+<$3>
 
-$6',
+$6', # Fuzzy
 	'notification-reverted-email-batch-body2' => 'Uw {{PLURAL:$3|bewerking op $2 is|bewerkingen op $2 zijn}} {{GENDER:$1|teruggedraaid}} door $1',
 	'notification-mention-email-subject' => '$1 {{GENDER:$1|heeft}} u genoemd op {{SITENAME}}',
 	'notification-mention-email-body' => '$1 van {{SITENAME}} {{GENDER:$1|heeft}} u genoemd op $2.
@@ -3777,9 +3783,9 @@ $3
 
 Meer bekijken:
 
-$4
+<$4>
 
-$5',
+$5', # Fuzzy
 	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|heeft}} u genoemd op $2',
 	'notification-user-rights-email-subject' => 'Uw gebruikersrechten op {{SITENAME}} zijn gewijzigd',
 	'notification-user-rights-email-body' => 'Uw gebruikersrechten zijn {{GENDER:$1|gewijzigd}} door $1. $2
@@ -3936,9 +3942,9 @@ $3
 
 Szczegóły:
 
-$2
+<$2>
 
-$4',
+$4', # Fuzzy
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|napisał|napisała}} do ciebie na twojej stronie dyskusji',
 	'notification-page-linked-email-subject' => 'W {{grammar:6sg|{{SITENAME}}}} ktoś wstawił link do utworzonej przez ciebie strony',
 	'notification-page-linked-email-body' => '$1
@@ -3956,9 +3962,9 @@ $5
 
 Szczegóły:
 
-$3
+<$3>
 
-$6',
+$6', # Fuzzy
 	'notification-reverted-email-batch-body2' => '$1 {{GENDER:$1|zrewertował|zrewertowała}} {{PLURAL:$3|twoją edycję|twoje edycje}} na stronie $2',
 	'notification-mention-email-subject' => '$1 {{GENDER:$1|wspomniał|wspomniała}} o tobie w {{grammar:6sg|{{SITENAME}}}}',
 	'notification-mention-email-body' => '{{GENDER:$1|Użytkownik|Użytkowniczka}} $1 {{grammar:2sg{{SITENAME}}}} {{GENDER:$1|wspomniał|wspomniała}} o tobie w dyskusji $2.
@@ -3967,9 +3973,9 @@ $3
 
 Szczegóły:
 
-$4
+<$4>
 
-$5',
+$5', # Fuzzy
 	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|wspomniał|wspomniała}} o tobie w dyskusji $2',
 	'notification-user-rights-email-subject' => 'W {{grammar:6sg|{{SITENAME}}}} zostały zmienione twoje uprawnienia',
 	'notification-user-rights-email-body' => '$1 {{GENDER:$1|zmienił|zmieniła}} twoje uprawnienia. $2
@@ -4063,9 +4069,9 @@ $3
 
 Vëdde ëd pi:
 
-$2
+<$2>
 
-$4',
+$4', # Fuzzy
 	'notification-edit-talk-page-email-batch-body2' => "$1 {{GENDER:$1|a l'ha publicà}} dzora soa pàgina ëd ciaciarade",
 	'notification-reverted-email-subject2' => "{{PLURAL:$3|Toa modìfica dzor $2 a l'é stàit|Toe modìfiche dzor $2 a son stàite}} {{GENDER:$1|ripristinà}} da $1",
 	'notification-reverted-email-body2' => "{{PLURAL:$7|Toa modìfica dzor $2 a l'é stàita|Toe modìfiche dzor $2 a son stàite}} {{GENDER:$1|ripristinà}} da $1.
@@ -4074,9 +4080,9 @@ $5
 
 Vëdde ëd pi:
 
-$3
+<$3>
 
-$6",
+$6", # Fuzzy
 	'notification-reverted-email-batch-body2' => "{{PLURAL:$3|Toa modìfica dzor $2 a l'é stàit|Toe modìfiche dzor $2 a son stàite}} {{GENDER:$1|ripristinà}} da $1",
 	'echo-email-subject-default' => 'Notìfiche neuve a {{SITENAME}}',
 	'echo-email-body-default' => "It l'has na notìfica neuva a {{SITENAME}}:
@@ -4438,9 +4444,9 @@ $3
 
 Se mer:
 
-$2
+<$2>
 
-$4',
+$4', # Fuzzy
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|postade}} på din diskussionssida',
 	'notification-page-linked-email-subject' => 'En sida som du skapat länkades till på {{SITENAME}}',
 	'notification-page-linked-email-body' => '$1
@@ -4458,9 +4464,9 @@ $5
 
 Se mer:
 
-$3
+<$3>
 
-$6',
+$6', # Fuzzy
 	'notification-reverted-email-batch-body2' => '{{PLURAL:$3|Din redigering|Dina redigeringar}} på $2 blev {{GENDER:$1|återställda}} av $1',
 	'notification-mention-email-subject' => '$1 {{GENDER:$1|nämnde}} dig på {{SITENAME}}',
 	'notification-mention-email-body' => '{{SITENAME}} användare $1 {{GENDER:$1|nämnde}} dig på $2.
@@ -4469,9 +4475,9 @@ $3
 
 Se mer:
 
-$4
+<$4>
 
-$5',
+$5', # Fuzzy
 	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|nämnde}} dig på $2.',
 	'notification-user-rights-email-subject' => 'Dina användarrättigheter har ändrats på {{SITENAME}}',
 	'notification-user-rights-email-body' => 'Dina användarrättigheter blev {{GENDER:$1|ändrade}} av $1. $2
@@ -4616,9 +4622,9 @@ $3
 
 Daha fazlası:
 
-$2
+<$2>
 
-$4',
+$4', # Fuzzy
 	'echo-email-batch-body-default' => 'Yeni bir bildiriminiz var',
 	'echo-link' => 'Bildirimler',
 	'echo-overlay-link' => 'Bütün bildirimler',
@@ -4784,9 +4790,9 @@ $3
 
 Xem thêm:
 
-$2
+<$2>
 
-$4',
+$4', # Fuzzy
 	'notification-edit-talk-page-email-batch-body2' => '$1 đã nhắn tin vào trang thảo luận của bạn',
 	'notification-page-linked-email-subject' => 'Có liên kết mới đến một trang do bạn tạo ra tại {{SITENAME}}',
 	'notification-page-linked-email-body' => '$1
@@ -4804,9 +4810,9 @@ $5
 
 Xem thêm:
 
-$3
+<$3>
 
-$6',
+$6', # Fuzzy
 	'notification-reverted-email-batch-body2' => '$1 đã lùi lại {{PLURAL:$3|sửa đổi|các sửa đổi}} của bạn tại $2',
 	'notification-mention-email-subject' => '$1 đã nói đến bạn tại {{SITENAME}}',
 	'notification-mention-email-body' => 'Người dùng $1 tại {{SITENAME}} đã nói đến bạn tại $2.
@@ -4815,9 +4821,9 @@ $3
 
 Xem thêm:
 
-$4
+<$4>
 
-$5',
+$5', # Fuzzy
 	'notification-mention-email-batch-body' => '$1 đã nói đến bạn tại $2',
 	'notification-user-rights-email-subject' => 'Các quyền người dùng của bạn đã thay đổi tại {{SITENAME}}',
 	'notification-user-rights-email-body' => '$1 {{GENDER:$1}}đã thay đổi các quyền người dùng của bạn. $2
@@ -4948,9 +4954,9 @@ $3
 
 查看更多：
 
-$2
+<$2>
 
-$4',
+$4', # Fuzzy
 	'notification-edit-talk-page-email-batch-body2' => '$1在您的讨论页{{GENDER:$1|留言了}}',
 	'notification-page-linked-email-subject' => '您创建的页面在{{SITENAME}}上被链接了',
 	'notification-page-linked-email-body' => '$1
@@ -4968,9 +4974,9 @@ $5
 
 查看更多：
 
-$3
+<$3>
 
-$6',
+$6', # Fuzzy
 	'notification-reverted-email-batch-body2' => '您{{PLURAL:$3|在$2的编辑|在$2的编辑}}已被$1回退',
 	'notification-mention-email-subject' => '$1在{{SITENAME}}上{{GENDER:$1|提到}}了你',
 	'notification-mention-email-body' => '{{SITENAME}}用户$1在$2上{{GENDER:$1|提到}}了你。
@@ -4979,9 +4985,9 @@ $3
 
 查看更多：
 
-$4
+<$4>
 
-$5',
+$5', # Fuzzy
 	'notification-mention-email-batch-body' => '$1在$2上{{GENDER:$1|提到}}了你',
 	'notification-user-rights-email-subject' => '您在{{SITENAME}}的用户权限已变更',
 	'notification-user-rights-email-body' => '您的用户权限被$1{{GENDER:$1|修改}}了。$2
@@ -5104,7 +5110,7 @@ $3
 
 查看更多：
 
-$2
+<$2>
 
 $4',
 	'notification-edit-talk-page-email-batch-body2' => '$1在您的討論頁{{GENDER:$1|留言}}',
@@ -5118,24 +5124,24 @@ $4',
 $3',
 	'notification-page-linked-email-batch-body' => '$2已從$3{{GENDER:$1|連入}}',
 	'notification-reverted-email-subject2' => '您於$2上的{{PLURAL:$3|編輯}}遭$1回退',
-	'notification-reverted-email-body2' => '您於$2上的{{PLURAL:$7|編輯}}遭$1回退。
+	'notification-reverted-email-body2' => '您於$2上的{{PLURAL:$7|編輯}}遭$1{{GENDER:$1|回退}}。
 
 $5
 
 查看更多：
 
-$3
+<$3>
 
 $6',
 	'notification-reverted-email-batch-body2' => '您於$2上的{{PLURAL:$3|編輯}}遭$1回退',
 	'notification-mention-email-subject' => '$1於{{SITENAME}}提到你',
-	'notification-mention-email-body' => '{{SITENAME}}用戶$1於$2提到你。
+	'notification-mention-email-body' => '{{SITENAME}}用戶$1於$2{{GENDER:$1|提到}}你。
 
 $3
 
 查看更多：
 
-$4
+<$4>
 
 $5',
 	'notification-mention-email-batch-body' => '$1在$2{{GENDER:$1|提到}}你',
