@@ -177,7 +177,7 @@ class EchoNotificationController {
 		global $wgEchoBackend;
 
 		$eventIDs = array_filter( (array)$eventIDs, 'is_numeric' );
-		if ( !$eventIDs ) {
+		if ( !$eventIDs || wfReadOnly() ) {
 			return;
 		}
 		$wgEchoBackend->markRead( $user, $eventIDs );
@@ -190,6 +190,10 @@ class EchoNotificationController {
 	 */
 	public static function markAllRead( $user ) {
 		global $wgEchoBackend, $wgEchoMaxNotificationCount;
+
+		if ( wfReadOnly() ) {
+			return false;
+		}
 
 		$notificationCount = self::getNotificationCount( $user );
 		// Only update all the unread notifications if it isn't a huge number.
