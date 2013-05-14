@@ -16,6 +16,7 @@ $messages['en'] = array(
 	'prefs-emailsettings' => 'Email settings',
 	'prefs-displaynotifications' => 'Display options',
 	'prefs-echosubscriptions' => 'Notify me about these events',
+	'prefs-newmessageindicator' => 'New message indicator',
 	'echo-pref-send-me' => 'Send me:',
 	'echo-pref-send-to' => 'Send to:',
 	'echo-pref-web' => 'Web',
@@ -25,12 +26,16 @@ $messages['en'] = array(
 	'echo-pref-email-frequency-daily' => 'A daily summary of notifications',
 	'echo-pref-email-frequency-weekly' => 'A weekly summary of notifications',
 	'echo-pref-notify-show-link' => 'Show notifications in my toolbar',
+	'echo-pref-new-message-indicator' => 'Show talk page message indicator in my toolbar',
 	'echo-learn-more' => 'Learn more',
 
 	// Dismiss interface
 	'echo-dismiss-button' => 'Dismiss',
 	'echo-dismiss-message' => 'Turn off all $1 notifications',
 	'echo-dismiss-prefs-message' => 'You can turn these back on in your [[Special:Preferences#mw-prefsection-echo|preferences]]',
+
+	// Alert interface
+	'echo-new-messages' => 'You have new messages',
 
 	// Category titles
 	'echo-category-title-edit-user-talk' => 'Talk page {{PLURAL:$1|post|posts}}',
@@ -204,6 +209,7 @@ $messages['qqq'] = array(
 {{Identical|E-mail setting}}',
 	'prefs-displaynotifications' => 'Header for the section of preferences that deals with how notifications are displayed',
 	'prefs-echosubscriptions' => 'Header for the section of preferences that deals with which notifications the user receives',
+	'prefs-newmessageindicator' => 'Header for the section of preferences that deals with talk page message alerts',
 	'echo-pref-send-me' => 'Label for the following email delivery options:
 * {{msg-mw|Echo-pref-email-frequency-never}}
 * {{msg-mw|Echo-pref-email-frequency-immediately}} (default)
@@ -222,6 +228,7 @@ See also:
 	'echo-pref-email-frequency-daily' => 'Option for users who want to receive a daily digest of email notifications',
 	'echo-pref-email-frequency-weekly' => 'Option for users who want to receive a weekly digest of email notifications',
 	'echo-pref-notify-show-link' => "Label for a preference which enables the 'Notifications' link in the header and associated fly-out panel",
+	'echo-pref-new-message-indicator' => 'Label for a preference which enables the new talk page message alert',
 	'echo-learn-more' => 'Text for link to more information about a topic.
 {{Identical|Learn more}}',
 	'echo-dismiss-button' => 'Text for the button that dismisses a notification type. Keep this short.
@@ -235,6 +242,7 @@ See also:
 ** {{msg-mw|Echo-category-title-other}}
 ** {{msg-mw|Echo-category-title-system}}',
 	'echo-dismiss-prefs-message' => 'Used in Dismiss interface.',
+	'echo-new-messages' => 'Message to let the user know that they have new talk page messages. Keep this message short.',
 	'echo-category-title-edit-user-talk' => 'This is a short title for notification category. Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}} and <code>$2</code> in {{msg-mw|Echo-email-batch-category-header}}. Parameters:
 * $1 - the number used for plural support',
 	'echo-category-title-article-linked' => 'This is a short title for notification category. Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}} and <code>$2</code> in {{msg-mw|Echo-email-batch-category-header}}. Parameters:

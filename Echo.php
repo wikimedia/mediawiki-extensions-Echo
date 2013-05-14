@@ -163,6 +163,16 @@ $wgResourceModules += array(
 			'echo-feedback',
 		),
 	),
+	'ext.echo.alert' => $echoResourceTemplate + array(
+		'scripts' => array(
+			'alert/ext.echo.alert.js',
+		),
+		'styles' => 'alert/ext.echo.alert.css',
+		'messages' => array(
+			'echo-new-messages',
+			'colon-separator',
+		),
+	),
 );
 
 /**
@@ -243,6 +253,9 @@ $wgEchoMaxNotificationCount = 99;
 // set a small number for test wikis, should set this to 0 to disable email bundling
 // if there is no delay queue support
 $wgEchoBundleEmailInterval = 0;
+
+// Whether or not to enable a new talk page message alert for logged in users
+$wgEchoNewMsgAlert = true;
 
 // Define which output formats are available for each notification category
 $wgEchoDefaultNotificationTypes = array(
@@ -458,6 +471,9 @@ $wgEchoNotifications = array(
 
 // Enable notifications for all logged in users by default
 $wgDefaultUserOptions['echo-notify-show-link'] = true;
+
+// Enable new talk page messages alert for all logged in users by default
+$wgDefaultUserOptions['echo-show-alert'] = true;
 
 // By default, send emails for each notification as they come in
 $wgDefaultUserOptions['echo-email-frequency'] = EchoHooks::EMAIL_IMMEDIATELY;

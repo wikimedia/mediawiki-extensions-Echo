@@ -232,7 +232,7 @@ class EchoHooks {
 	public static function getPreferences( $user, &$preferences ) {
 		global $wgEchoDefaultNotificationTypes, $wgAuth, $wgEchoEnableEmailBatch,
 			$wgEchoNotifiers, $wgEchoNotificationCategories, $wgEchoNotifications,
-			$wgEchoHelpPage;
+			$wgEchoHelpPage, $wgEchoNewMsgAlert;
 
 		// Show email frequency options
 		$never = wfMessage( 'echo-pref-email-frequency-never' )->plain();
@@ -354,6 +354,14 @@ class EchoHooks {
 				wfMessage( 'echo-learn-more' )->escaped()
 			),
 		);
+
+		if ( $wgEchoNewMsgAlert ) {
+			$preferences['echo-show-alert'] = array(
+				'type' => 'toggle',
+				'label-message' => 'echo-pref-new-message-indicator',
+				'section' => 'echo/newmessageindicator',
+			);
+		}
 
 		// If we're using Echo to handle user talk page post notifications,
 		// hide the old (non-Echo) preference for this. If Echo is moved to core
@@ -577,12 +585,16 @@ class EchoHooks {
 	 * @return bool true in all cases
 	 */
 	static function beforePageDisplay( $out, $skin ) {
+		global $wgEchoNewMsgAlert;
 		$user = $out->getUser();
 		if ( $user->isLoggedIn() && $user->getOption( 'echo-notify-show-link' ) ) {
 			global $wgEchoFeedbackPage;
 			// Load the module for the Notifications flyout
 			$out->addModules( array( 'ext.echo.overlay' ) );
 			$out->addJsConfigVars( array( 'wgEchoFeedbackPage' => $wgEchoFeedbackPage ) );
+		}
+		if ( $wgEchoNewMsgAlert && $user->isLoggedIn() && $user->getOption( 'echo-show-alert' ) ) {
+			$out->addModules( array( 'ext.echo.alert' ) );
 		}
 		return true;
 	}
