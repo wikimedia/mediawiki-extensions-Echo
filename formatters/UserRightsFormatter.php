@@ -22,7 +22,7 @@ class EchoUserRightsFormatter extends EchoBasicFormatter {
 				$list = array();
 
 				foreach ( array( 'add', 'remove' ) as $action ) {
-					if ( $extra[$action] ) {
+					if ( isset( $extra[$action] ) && $extra[$action] ) {
 						// Messages that can be used here:
 						// * notification-user-rights-add
 						// * notification-user-rights-remove

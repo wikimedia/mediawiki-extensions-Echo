@@ -62,7 +62,7 @@ abstract class EchoNotificationFormatter {
 
 	/**
 	 * Set the output format that the notification will be displayed in.
-	 * @param $format string A valid output format (by default, 'text', 'html', and 'email' are allowed)
+	 * @param $format string A valid output format (by default, 'text', 'html', 'flyout', and 'email' are allowed)
 	 * @throws MWException
 	 */
 	public function setOutputFormat( $format ) {

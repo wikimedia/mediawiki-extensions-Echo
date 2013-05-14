@@ -334,6 +334,25 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	}
 
 	/**
+	 * Extract the subject anchor (linkable portion of the edited page) from
+	 * the event.
+	 *
+	 * @param $event EchoEvent The event to format the subject anchor of
+	 * @return string The anchor on page, or an empty string
+	 */
+	protected function formatSubjectAnchor( EchoEvent $event ) {
+		global $wgParser;
+
+		$extra = $event->getExtra();
+		if ( empty( $extra['section-title'] ) ) {
+			return '';
+		}
+
+		// Strip out #, keeping # in the i18n message makes it look more clear
+		return substr( $wgParser->guessLegacySectionNameFromWikiText( $extra['section-title'] ), 1 );
+	}
+
+	/**
 	 * Generate links based on output format and passed properties
 	 * $event EchoEvent
 	 * $message Message
@@ -353,8 +372,11 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 		}
 
 		if ( isset( $props['fragment'] ) ) {
-			$title->setFragment( '#' . $props['fragment'] );
+			$fragment = $props['fragment'];
+		} else {
+			$fragment = $this->formatSubjectAnchor( $event );
 		}
+		$title->setFragment( "#$fragment" );
 
 		if ( $this->outputFormat === 'html' || $this->outputFormat === 'flyout' ) {
 			$class = array();

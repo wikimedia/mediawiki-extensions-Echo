@@ -9,7 +9,9 @@ class EchoEditFormatter extends EchoBasicFormatter {
 	 * @param $user User
 	 */
 	protected function processParam( $event, $param, $message, $user ) {
-		if ( $param === 'difflink' ) {
+		if ( $param === 'subject-anchor' ) {
+			$message->params( $this->formatSubjectAnchor( $event ) );
+		} elseif ( $param === 'difflink' ) {
 			$eventData = $event->getExtra();
 			if ( !isset( $eventData['revid'] ) ) {
 				$message->params( '' );
