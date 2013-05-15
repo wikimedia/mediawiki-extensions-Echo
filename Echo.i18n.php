@@ -1059,6 +1059,13 @@ $1',
 	'echo-email-batch-category-header-edit-user-talk' => '$1 pàgina de discussió {{PLURAL:$1|missatge|missatges}}',
 );
 
+/** Chechen (нохчийн)
+ * @author Умар
+ */
+$messages['ce'] = array(
+	'prefs-displaynotifications' => 'Гуш болу гӀирсаш',
+);
+
 /** Sorani Kurdish (کوردی)
  * @author Calak
  */
@@ -1250,6 +1257,7 @@ $messages['de'] = array(
 	'prefs-emailsettings' => 'E-Mail-Einstellungen',
 	'prefs-displaynotifications' => 'Anzeigeoptionen',
 	'prefs-echosubscriptions' => 'Mich bei diesen Ereignissen benachrichtigen',
+	'prefs-newmessageindicator' => 'Neue-Nachrichten-Hinweise',
 	'echo-pref-send-me' => 'Sende mir:',
 	'echo-pref-send-to' => 'Senden an:',
 	'echo-pref-web' => 'Web',
@@ -1259,10 +1267,12 @@ $messages['de'] = array(
 	'echo-pref-email-frequency-daily' => 'Tägliche Benachrichtigung zu den Ereignissen',
 	'echo-pref-email-frequency-weekly' => 'Wöchentliche Benachrichtigung zu den Ereignissen',
 	'echo-pref-notify-show-link' => 'Benachrichtigungen in meiner Werkzeugleiste anzeigen',
+	'echo-pref-new-message-indicator' => 'Diskussionsseitennachrichthinweise in meiner Benutzerleiste anzeigen',
 	'echo-learn-more' => 'Mehr erfahren',
 	'echo-dismiss-button' => 'Ausblenden',
 	'echo-dismiss-message' => 'Alle „$1“-Benachrichtigungen abschalten',
 	'echo-dismiss-prefs-message' => 'Du kannst dies in deinen [[Special:Preferences#mw-prefsection-echo|Einstellungen]] wieder aktivieren',
+	'echo-new-messages' => 'Du hast neue Nachrichten',
 	'echo-category-title-edit-user-talk' => '{{PLURAL:$1|Diskussionsseitennachricht|Diskussionsseitennachrichten}}',
 	'echo-category-title-article-linked' => '{{PLURAL:$1|Seitenverlinkung|Seitenverlinkungen}}',
 	'echo-category-title-reverted' => '{{PLURAL:$1|Rückgängigmachung einer Bearbeitung|Rückgängigmachungen von Bearbeitungen}}',
@@ -1802,6 +1812,7 @@ $messages['fr'] = array(
 	'prefs-emailsettings' => 'Paramètres de courriel',
 	'prefs-displaynotifications' => "Options d'affichage",
 	'prefs-echosubscriptions' => 'Me prévenir de ces événements',
+	'prefs-newmessageindicator' => 'Indicateur de nouveau message',
 	'echo-pref-send-me' => "M'envoyer :",
 	'echo-pref-send-to' => 'Envoyer à :',
 	'echo-pref-web' => 'Web',
@@ -1811,10 +1822,12 @@ $messages['fr'] = array(
 	'echo-pref-email-frequency-daily' => 'Un sommaire quotidien des notifications',
 	'echo-pref-email-frequency-weekly' => 'Un sommaire hebdomadaire des notifications',
 	'echo-pref-notify-show-link' => "Afficher les notifications dans ma barre d'outils",
+	'echo-pref-new-message-indicator' => 'Afficher l’indicateur de message sur la page de discussion dans ma barre d’outils',
 	'echo-learn-more' => 'En savoir plus',
 	'echo-dismiss-button' => 'Rejeter',
 	'echo-dismiss-message' => 'Désactiver toutes les $1 notifications',
 	'echo-dismiss-prefs-message' => 'Vous pouvez les remettre en place dans vos [[Special:Preferences#mw-prefsection-echo|préférences]]',
+	'echo-new-messages' => 'Vous avez de nouveaux messages',
 	'echo-category-title-edit-user-talk' => '{{PLURAL:$1|Message}} de la page de discussion',
 	'echo-category-title-article-linked' => 'Article {{PLURAL:$1|lié}}',
 	'echo-category-title-reverted' => '{{PLURAL:$1|Modification annulée|Modifications annulées}}',
@@ -2490,6 +2503,7 @@ $messages['it'] = array(
 	'prefs-emailsettings' => 'Impostazioni email',
 	'prefs-displaynotifications' => 'Opzioni di visualizzazione',
 	'prefs-echosubscriptions' => 'Inviami una notifica su questi eventi',
+	'prefs-newmessageindicator' => 'Nuovo indicatore di messaggi',
 	'echo-pref-send-me' => 'Inviami:',
 	'echo-pref-send-to' => 'Invia a:',
 	'echo-pref-web' => 'Web',
@@ -2499,10 +2513,12 @@ $messages['it'] = array(
 	'echo-pref-email-frequency-daily' => 'Un riepilogo giornaliero delle notifiche',
 	'echo-pref-email-frequency-weekly' => 'Un riepilogo settimanale delle notifiche',
 	'echo-pref-notify-show-link' => 'Visualizza le notifiche nella mia barra degli strumenti',
+	'echo-pref-new-message-indicator' => "Mostra l'indicatore di messaggi sulla mia pagina di discussione nella barra degli strumenti",
 	'echo-learn-more' => 'Ulteriori informazioni',
 	'echo-dismiss-button' => 'Nascondi',
 	'echo-dismiss-message' => 'Nascondi tutte le notifiche di $1',
 	'echo-dismiss-prefs-message' => 'È possibile riattivarle nelle [[Special:Preferences#mw-prefsection-echo|preferenze]]',
+	'echo-new-messages' => 'Hai nuovi messaggi',
 	'echo-category-title-edit-user-talk' => '{{PLURAL:$1|Messaggio|Messaggi}} sulla pagina di discussione',
 	'echo-category-title-article-linked' => '{{PLURAL:$1|Collegamento|Collegamenti}} alla pagina',
 	'echo-category-title-reverted' => '{{PLURAL:$1|Modifica annullata|Modifiche annullate}}',
@@ -2644,6 +2660,7 @@ $messages['ja'] = array(
 	'prefs-emailsettings' => 'メールの設定',
 	'prefs-displaynotifications' => '表示の設定',
 	'prefs-echosubscriptions' => '以下の場合に通知を受け取る',
+	'prefs-newmessageindicator' => '新着メッセージの表示',
 	'echo-pref-send-me' => '受け取る頻度:',
 	'echo-pref-send-to' => '送信先:',
 	'echo-pref-web' => 'ウェブ',
@@ -2653,10 +2670,12 @@ $messages['ja'] = array(
 	'echo-pref-email-frequency-daily' => '通知を1日ごとに要約',
 	'echo-pref-email-frequency-weekly' => '通知を1週間ごとに要約',
 	'echo-pref-notify-show-link' => '通知をツールバーに表示',
+	'echo-pref-new-message-indicator' => 'ツールバーにトークページのメッセージの未読数を表示',
 	'echo-learn-more' => '詳細',
 	'echo-dismiss-button' => '非表示',
 	'echo-dismiss-message' => '$1についての通知をすべて止める',
 	'echo-dismiss-prefs-message' => 'これらは[[Special:Preferences#mw-prefsection-echo|個人設定]]で元に戻すこともできます',
+	'echo-new-messages' => '新着メッセージがあります',
 	'echo-category-title-edit-user-talk' => 'トークページヘの{{PLURAL:$1|投稿}}',
 	'echo-category-title-article-linked' => 'ページへの{{PLURAL:$1|リンク}}',
 	'echo-category-title-reverted' => '編集の{{PLURAL:$1|差し戻し}}',
@@ -3070,6 +3089,7 @@ $messages['mk'] = array(
 	'prefs-emailsettings' => 'Поставки за е-пошта',
 	'prefs-displaynotifications' => 'Нагодувања на приказот',
 	'prefs-echosubscriptions' => 'Известувај ме за следниве настани',
+	'prefs-newmessageindicator' => 'Показател за нови пораки',
 	'echo-pref-send-me' => 'Испрати ми:',
 	'echo-pref-send-to' => 'Испрати на:',
 	'echo-pref-web' => 'На вики',
@@ -3079,10 +3099,12 @@ $messages['mk'] = array(
 	'echo-pref-email-frequency-daily' => 'Дневен преглед на известувањата',
 	'echo-pref-email-frequency-weekly' => 'Неделен преглед на известувањата',
 	'echo-pref-notify-show-link' => 'Прикажувај известувања во мојот алатник',
+	'echo-pref-new-message-indicator' => 'Прикажувај показател за нови пораки (на стр. за разговор) во алатникот',
 	'echo-learn-more' => 'Дознајте повеќе',
 	'echo-dismiss-button' => 'Тргни',
 	'echo-dismiss-message' => 'Исклучи ги сите $1 известувања',
 	'echo-dismiss-prefs-message' => 'Овие можете пак да ги вклучите во [[Special:Preferences#mw-prefsection-echo|нагодувањата]]',
+	'echo-new-messages' => 'Имате нови пораки',
 	'echo-category-title-edit-user-talk' => '{{PLURAL:$1|Објава|Објави}} на стран. за разговор',
 	'echo-category-title-article-linked' => '{{PLURAL:$1|Врска|Врски}} до стран.',
 	'echo-category-title-reverted' => '{{PLURAL:$1|Вратено уредување|Вратени уредувања}}',
@@ -3123,11 +3145,12 @@ $messages['mk'] = array(
 	'notification-edit-talk-page-email-body2' => '$1
 
 $3
+
 Погледајте повеќе:
 
 <$2>
 
-$4', # Fuzzy
+$4',
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|објави}} на вашата страница за разговор',
 	'notification-page-linked-email-subject' => 'Страница што вие ја започнавте е наведена на {{SITENAME}}',
 	'notification-page-linked-email-body' => '$1
@@ -3139,7 +3162,7 @@ $4', # Fuzzy
 $3',
 	'notification-page-linked-email-batch-body' => '$2 е {{GENDER:$1|наведена}} на $3',
 	'notification-reverted-email-subject2' => '$1 {{PLURAL:$3|го|ги}} {{GENDER:$1|врати}} {{PLURAL:$3|вашето уредување на $2|вашите уредувања на $2}}',
-	'notification-reverted-email-body2' => '$1 {{PLURAL:$7|го|ги}} {{GENDER:$1|врати}} {{PLURAL:$7|вашето уредување на $2|вашите уредувања на $2}}.
+	'notification-reverted-email-body2' => '$1 {{PLURAL:$7|го|ги}} {{GENDER:$1|врати}} (поништи) {{PLURAL:$7|вашето уредување на $2|вашите уредувања на $2}}.
 
 $5
 
@@ -3147,7 +3170,7 @@ $5
 
 <$3>
 
-$6', # Fuzzy
+$6',
 	'notification-reverted-email-batch-body2' => '$1 {{PLURAL:$3|го|ги}} {{GENDER:$1|врати}} {{PLURAL:$3|вашето уредување на $2|вашите уредувања на $2}}',
 	'notification-mention-email-subject' => '$1 {{GENDER:$1|ве спомна}} на {{SITENAME}}',
 	'notification-mention-email-body' => 'Корисникот $1 {{GENDER:$1|mentioned}} од {{SITENAME}} ве спомна на „$2“.
@@ -3158,7 +3181,7 @@ $3
 
 <$4>
 
-$5', # Fuzzy
+$5',
 	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|ве спомна}} на „$2“',
 	'notification-user-rights-email-subject' => 'Вашите кориснички права на {{SITENAME}} се изменети',
 	'notification-user-rights-email-body' => 'Вашите кориснички права се {{GENDER:$1|изменети}} од $1. $2
@@ -4734,6 +4757,7 @@ $messages['vi'] = array(
 	'prefs-emailsettings' => 'Tùy chọn thư điện tử',
 	'prefs-displaynotifications' => 'Tùy chọn hiển thị',
 	'prefs-echosubscriptions' => 'Báo cho tôi biết về những sự kiện này',
+	'prefs-newmessageindicator' => 'Đèn tin nhắn mới',
 	'echo-pref-send-me' => 'Gửi thư cho tôi:',
 	'echo-pref-send-to' => 'Gửi đến:',
 	'echo-pref-web' => 'Web',
@@ -4743,10 +4767,12 @@ $messages['vi'] = array(
 	'echo-pref-email-frequency-daily' => 'Tóm lược các thông báo hàng ngày',
 	'echo-pref-email-frequency-weekly' => 'Tóm lược các thông báo hàng tuần',
 	'echo-pref-notify-show-link' => 'Hiển thị thông báo trên thanh công cụ',
+	'echo-pref-new-message-indicator' => 'Hiển thị đèn tin nhắn trên thanh công cụ của tôi',
 	'echo-learn-more' => 'Tìm hiểu thêm',
 	'echo-dismiss-button' => 'Tắt',
 	'echo-dismiss-message' => 'Tắt mọi thông báo $1',
 	'echo-dismiss-prefs-message' => 'Bạn có thể bật lại các thông báo này trong [[Special:Preferences#mw-prefsection-echo|Tùy chọn]]',
+	'echo-new-messages' => 'Bạn có tin nhắn mới',
 	'echo-category-title-edit-user-talk' => '{{PLURAL:$1}}Lời tin nhắn',
 	'echo-category-title-article-linked' => '{{PLURAL:$1}}Liên kết đến trang',
 	'echo-category-title-reverted' => '{{PLURAL:$1}}Lùi sửa',
@@ -4792,7 +4818,7 @@ Xem thêm:
 
 <$2>
 
-$4', # Fuzzy
+$4',
 	'notification-edit-talk-page-email-batch-body2' => '$1 đã nhắn tin vào trang thảo luận của bạn',
 	'notification-page-linked-email-subject' => 'Có liên kết mới đến một trang do bạn tạo ra tại {{SITENAME}}',
 	'notification-page-linked-email-body' => '$1
@@ -4812,7 +4838,7 @@ Xem thêm:
 
 <$3>
 
-$6', # Fuzzy
+$6',
 	'notification-reverted-email-batch-body2' => '$1 đã lùi lại {{PLURAL:$3|sửa đổi|các sửa đổi}} của bạn tại $2',
 	'notification-mention-email-subject' => '$1 đã nói đến bạn tại {{SITENAME}}',
 	'notification-mention-email-body' => 'Người dùng $1 tại {{SITENAME}} đã nói đến bạn tại $2.
@@ -4823,7 +4849,7 @@ Xem thêm:
 
 <$4>
 
-$5', # Fuzzy
+$5',
 	'notification-mention-email-batch-body' => '$1 đã nói đến bạn tại $2',
 	'notification-user-rights-email-subject' => 'Các quyền người dùng của bạn đã thay đổi tại {{SITENAME}}',
 	'notification-user-rights-email-body' => '$1 {{GENDER:$1}}đã thay đổi các quyền người dùng của bạn. $2
@@ -5055,6 +5081,7 @@ $messages['zh-hant'] = array(
 	'prefs-emailsettings' => '電子郵件設定',
 	'prefs-displaynotifications' => '顯示選項',
 	'prefs-echosubscriptions' => '通知我有關這些事件的情況',
+	'prefs-newmessageindicator' => '新訊息提示',
 	'echo-pref-send-me' => '發送給我：',
 	'echo-pref-send-to' => '發送到:',
 	'echo-pref-web' => '網頁',
@@ -5064,10 +5091,12 @@ $messages['zh-hant'] = array(
 	'echo-pref-email-frequency-daily' => '每日通知摘要',
 	'echo-pref-email-frequency-weekly' => '每周通知摘要',
 	'echo-pref-notify-show-link' => '在工具列中顯示通知',
+	'echo-pref-new-message-indicator' => '在工具列中顯示討論頁訊息提示',
 	'echo-learn-more' => '了解更多',
 	'echo-dismiss-button' => '取消',
 	'echo-dismiss-message' => '關閉所有$1通知',
 	'echo-dismiss-prefs-message' => '你可於[[Special:Preferences#mw-prefsection-echo|preferences]]重新啟動這些選項',
+	'echo-new-messages' => '你有新訊息',
 	'echo-category-title-edit-user-talk' => '討論頁{{PLURAL:$1|留言}}',
 	'echo-category-title-article-linked' => '頁面{{PLURAL:$1|連結}}',
 	'echo-category-title-reverted' => '編輯{{PLURAL:$1|回退}}',
