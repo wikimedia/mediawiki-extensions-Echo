@@ -599,6 +599,9 @@ class EchoHooks {
 			global $wgEchoFeedbackPage;
 			// Load the module for the Notifications flyout
 			$out->addModules( array( 'ext.echo.overlay' ) );
+			// Load the styles for the Notifications badge
+			$out->addModuleStyles( 'ext.echo.badge' );
+			// Pass needed global vars to the client
 			$out->addJsConfigVars( array( 'wgEchoFeedbackPage' => $wgEchoFeedbackPage ) );
 		}
 		if ( $wgEchoNewMsgAlert && $user->isLoggedIn() && $user->getOption( 'echo-show-alert' ) ) {
@@ -616,35 +619,29 @@ class EchoHooks {
 	 * @return bool true in all cases
 	 */
 	static function onPersonalUrls( &$personal_urls, &$title ) {
-		global $wgUser, $wgEchoShowFullNotificationsLink;
+		global $wgUser;
 		// Add a "My notifications" item to personal URLs
 		if ( $wgUser->isAnon() || !$wgUser->getOption( 'echo-notify-show-link' ) ) {
 			return true;
 		}
 
 		$notificationCount = EchoNotificationController::getNotificationCount( $wgUser );
-		if ( $wgEchoShowFullNotificationsLink ) {
-			// Add a "Notifications" item to personal URLs
-			$msg = wfMessage( $notificationCount == 0 ? 'echo-link' : 'echo-link-new' );
-			$text = $msg->params( EchoNotificationController::formatNotificationCount( $notificationCount ) )->text();
-		} else {
-			// Just add a number
-			$text = wfMessage( 'parentheses', EchoNotificationController::formatNotificationCount( $notificationCount ) )->plain();
-		}
+		$text = EchoNotificationController::formatNotificationCount( $notificationCount );
 		$url = SpecialPage::getTitleFor( 'Notifications' )->getLocalURL();
-
+		if ( $notificationCount == 0 ) {
+			$linkClasses = array( 'mw-echo-notifications-badge' );
+		} else {
+			$linkClasses = array( 'mw-echo-unread-notifications', 'mw-echo-notifications-badge' );
+		}
 		$notificationsLink = array(
 			'href' => $url,
 			'text' => $text,
 			'active' => ( $url == $title->getLocalUrl() ),
+			'class' => $linkClasses,
 		);
 
 		$insertUrls = array( 'notifications' => $notificationsLink );
-		if ( $wgEchoShowFullNotificationsLink ) {
-			$personal_urls = wfArrayInsertAfter( $personal_urls, $insertUrls, 'mytalk' );
-		} else {
-			$personal_urls = wfArrayInsertAfter( $personal_urls, $insertUrls, 'userpage' );
-		}
+		$personal_urls = wfArrayInsertAfter( $personal_urls, $insertUrls, 'userpage' );
 		return true;
 	}
 
@@ -672,7 +669,7 @@ class EchoHooks {
 	 * @return bool true in all cases
 	 */
 	public static function makeGlobalVariablesScript( &$vars, OutputPage $outputPage ) {
-		global $wgEchoShowFullNotificationsLink, $wgEchoHelpPage, $wgEchoMaxNotificationCount;
+		global $wgEchoHelpPage, $wgEchoMaxNotificationCount;
 		$user = $outputPage->getUser();
 
 		// Provide info for the Overlay
@@ -680,8 +677,6 @@ class EchoHooks {
 		$timestamp = new MWTimestamp( wfTimestampNow() );
 		if ( ! $user->isAnon() ) {
 			$vars['wgEchoOverlayConfiguration'] = array(
-				'notifications-link-full' => $wgEchoShowFullNotificationsLink,
-				'timestamp' => $timestamp->getTimestamp( TS_UNIX ),
 				'notification-count' => EchoNotificationController::getFormattedNotificationCount( $user ),
 				'max-notification-count' => $wgEchoMaxNotificationCount,
 			);

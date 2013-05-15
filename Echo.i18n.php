@@ -145,8 +145,6 @@ To control which emails we send you, check your preferences:
 
 $1',
 	// Notifications overlay
-	'echo-link-new' => '$1 new {{PLURAL:$1|notification|notifications}}',
-	'echo-link' => 'Notifications',
 	'echo-overlay-link' => 'All notifications',
 	'echo-overlay-title' => '<b>Notifications</b>',
 	'echo-overlay-title-overflow' => '<b>Notifications</b> (showing $1 of $2 unread)',
@@ -485,10 +483,6 @@ The new notification count next to notification link, for example: 99+
 	'echo-email-footer-default' => 'Default footer content for Echo e-mail notifications.  Parameters:
 * $1 is the address of the organization that sent the e-mail
 * $2 is "-------..." ({{msg-mw|echo-email-batch-separator}})',
-	'echo-link-new' => 'Shown in "personal links" when a user has unread notifications.
-* $1 is number of unread notifications',
-	'echo-link' => 'Shown in "personal links" when a user has JS. New notifications are indicated with a badge.
-{{Identical|Notification}}',
 	'echo-overlay-link' => 'Link to "all notifications" at the bottom of the overlay.
 {{Identical|All notifications}}',
 	'echo-overlay-title' => 'Title at the top of the notifications overlay. Should include bold tags.',

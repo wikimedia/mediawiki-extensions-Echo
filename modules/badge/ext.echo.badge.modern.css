@@ -1,0 +1,4 @@
+/* No rounded corners for modern skin */
+#pt-notifications  .mw-echo-notifications-badge {
+	border-radius: 0;
+}

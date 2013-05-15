@@ -20,14 +20,14 @@ class EchoNotificationController {
 		$memcKey = wfMemcKey( 'echo-notification-count', $user->getId(), $wgEchoConfig['version'] );
 
 		if ( $cached && $wgMemc->get( $memcKey ) !== false ) {
-			return $wgMemc->get( $memcKey );
+			return intval( $wgMemc->get( $memcKey ) );
 		}
 
 		$count = $wgEchoBackend->getNotificationCount( $user, $dbSource );
 
 		$wgMemc->set( $memcKey, $count, 86400 );
 
-		return $count;
+		return intval( $count );
 	}
 
 	/**
