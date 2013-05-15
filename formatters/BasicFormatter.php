@@ -370,13 +370,17 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 
 			$message->rawParams( Linker::link( $title, $linkText, $class, $param ) );
 		} elseif ( $this->outputFormat === 'email' ) {
-			// plain text email in some mail client is ignoring trailing
-			// dot in links, it is better to encode the last character
+			// plain text email in some mail client is messing with
+			// ending punctuation in links, it is better to encode them
 			$url = $title->getCanonicalURL( $param );
 			// $url should contain all ascii characters now, it's safe to use substr()
 			$lastChar = substr( $url, -1 );
 			if ( $lastChar && !ctype_alnum( $lastChar ) ) {
-				$lastChar = str_replace( array( '.', '-' ), array( '%2E', '%2D' ), urlencode( $lastChar ) );
+				$lastChar = str_replace(
+					array( '.', '-', '(', ';', '!', ':', ',' ),
+					array( '%2E', '%2D', '%28', '%3B', '%21', '%3A', '%2C' ),
+					$lastChar
+				);
 				$url = substr( $url, 0, -1 ) . $lastChar;
 			}
 			$message->params( $url );
