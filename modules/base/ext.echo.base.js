@@ -70,8 +70,7 @@
 			var $notification = $( notification ),
 				eventCategory = $notification.attr( 'data-notification-category' ),
 				prefName = '',
-				prefs = [],
-				prefRequest = {};
+				prefs = [];
 			$.each( mw.echo.dismissOutputFormats, function( index, format ) {
 				// Make sure output format pref exists for this event type
 				prefName = 'echo-subscriptions-' + format + '-' + eventCategory;
@@ -79,32 +78,23 @@
 					prefs.push( prefName + '=0' );
 				}
 			} );
-			prefRequest = {
+			( new mw.Api() ).post( {
 				action: 'options',
 				change: prefs.join( '|' ),
-				token: mw.echo.optionsToken,
-				format: 'json'
-			};
-			$.ajax( {
-				type: 'post',
-				url: mw.util.wikiScript( 'api' ),
-				data: prefRequest,
-				dataType: 'json',
-				success: function () {
-					// If we're on the Notifications archive page, just refresh the page
-					if ( mw.config.get( 'wgCanonicalNamespace' ) === 'Special' &&
-						mw.config.get( 'wgCanonicalSpecialPageName' ) === 'Notifications'
-					) {
-						window.location.reload();
-					} else {
-						eventCategory = $notification.attr( 'data-notification-category' );
-						$( '.mw-echo-overlay li[data-notification-category="' + eventCategory + '"]' ).hide();
-						$notification.data( 'dismiss', false );
-					}
-				},
-				error: function() {
-					alert( mw.msg( 'echo-error-preference' ) );
+				token: mw.echo.optionsToken
+			} ).done( function () {
+				// If we're on the Notifications archive page, just refresh the page
+				if ( mw.config.get( 'wgCanonicalNamespace' ) === 'Special' &&
+					mw.config.get( 'wgCanonicalSpecialPageName' ) === 'Notifications'
+				) {
+					window.location.reload();
+				} else {
+					eventCategory = $notification.attr( 'data-notification-category' );
+					$( '.mw-echo-overlay li[data-notification-category="' + eventCategory + '"]' ).hide();
+					$notification.data( 'dismiss', false );
 				}
+			} ).fail( function() {
+				alert( mw.msg( 'echo-error-preference' ) );
 			} );
 		},
 
@@ -113,31 +103,21 @@
 		 * First we have to retrieve the options token.
 		 */
 		setOptionsToken: function( callback, notification ) {
-			var tokenRequest = {
-				'action': 'tokens',
-				'type' : 'options',
-				'format': 'json'
-			};
-
 			if ( mw.echo.optionsToken ) {
 				callback( notification );
 			} else {
-				$.ajax( {
-					type: 'get',
-					url: mw.util.wikiScript( 'api' ),
-					data: tokenRequest,
-					dataType: 'json',
-					success: function( data ) {
-						if ( data.tokens.optionstoken === undefined ) {
-							alert( mw.msg( 'echo-error-token' ) );
-						} else {
-							mw.echo.optionsToken = data.tokens.optionstoken;
-							callback( notification );
-						}
-					},
-					error: function() {
+				( new mw.Api() ).get( {
+					action: 'tokens',
+					type : 'options'
+				} ).done( function( data ) {
+					if ( data.tokens.optionstoken === undefined ) {
 						alert( mw.msg( 'echo-error-token' ) );
+					} else {
+						mw.echo.optionsToken = data.tokens.optionstoken;
+						callback( notification );
 					}
+				} ).fail( function() {
+					alert( mw.msg( 'echo-error-token' ) );
 				} );
 			}
 		},
