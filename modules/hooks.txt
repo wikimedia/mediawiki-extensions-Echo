@@ -1,0 +1,7 @@
+hooks.txt
+
+This documents Echo's client-side hooks:
+
+'ext.echo.overlay.beforeShowingOverlay': Before showing the Echo overlay, it is
+passed to this hook, which can modify the DOM or take other actions.
+$overlay: the jQuery-wrapped element for the overlay
