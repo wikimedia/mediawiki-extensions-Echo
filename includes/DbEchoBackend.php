@@ -10,24 +10,30 @@ class MWDbEchoBackend extends MWEchoBackend {
 	 */
 	public function createNotification( $row ) {
 		$dbw = MWEchoDbFactory::getDB( DB_MASTER );
-		$dbw->begin( __METHOD__ );
-		// reset the base if this notification has a display hash
-		if ( $row['notification_bundle_display_hash'] ) {
-			$dbw->update(
-				'echo_notification',
-				array( 'notification_bundle_base' => 0 ),
-				array(
-					'notification_user' => $row['notification_user'],
-					'notification_bundle_display_hash' => $row['notification_bundle_display_hash'],
-					'notification_bundle_base' => 1
-				),
-				__METHOD__
-			);
-		}
 
-		$row['notification_timestamp'] = $dbw->timestamp( $row['notification_timestamp'] );
-		$dbw->insert( 'echo_notification', $row, __METHOD__ );
-		$dbw->commit( __METHOD__ );
+		$fname = __METHOD__;
+		$dbw->onTransactionIdle(
+			function() use ( $dbw, $row, $fname ) {
+				$dbw->begin( $fname );
+				// reset the base if this notification has a display hash
+				if ( $row['notification_bundle_display_hash'] ) {
+					$dbw->update(
+						'echo_notification',
+						array( 'notification_bundle_base' => 0 ),
+						array(
+							'notification_user' => $row['notification_user'],
+							'notification_bundle_display_hash' => $row['notification_bundle_display_hash'],
+							'notification_bundle_base' => 1
+						),
+						$fname
+					);
+				}
+
+				$row['notification_timestamp'] = $dbw->timestamp( $row['notification_timestamp'] );
+				$dbw->insert( 'echo_notification', $row, $fname );
+				$dbw->commit( $fname );
+			}
+		);
 	}
 
 	/**
