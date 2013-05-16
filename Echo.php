@@ -115,6 +115,7 @@ $wgResourceModules += array(
 		'scripts' => 'base/ext.echo.base.js',
 		'dependencies' => array(
 			'jquery.ui.button',
+			'mediawiki.util',
 		),
 		'messages' => array(
 			'cancel',
