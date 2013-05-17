@@ -2,7 +2,7 @@
 
 abstract class EchoDiscussionParser {
 	static protected $timestampRegex;
-	static protected $headerRegex = '^\=\=\s*([^=].*)\s*\=\=$';
+	static protected $headerRegex = '^(==+)\s*([^=].*)\s*\1$';
 	static protected $revisionInterpretationCache = array();
 	static protected $diffParser;
 
@@ -103,8 +103,10 @@ abstract class EchoDiscussionParser {
 	 * @param $interpretation array Results of self::getChangeInterpretationForRevision
 	 * @return string The section title if found otherwise a blank string
 	 */
-	protected static function detectSectionTitle( array $interpretation ) {
+	public static function detectSectionTitle( array $interpretation ) {
 		$header = '';
+		$found = false;
+
 		foreach ( $interpretation as $action ) {
 			switch( $action['type'] ) {
 			case 'add-comment':
@@ -116,8 +118,16 @@ abstract class EchoDiscussionParser {
 				break;
 			}
 			if ( $header ) {
-				return $header;
+				// If we find multiple headers within the same change interpretation then
+				// we cannot choose just 1 to link to
+				if ( $found ) {
+					return '';
+				}
+				$found = $header;
 			}
+		}
+		if ( $found ) {
+			return $found;
 		}
 		return '';
 	}
@@ -445,7 +455,7 @@ abstract class EchoDiscussionParser {
 	}
 
 	/**
-	 * Gets the title of a section
+	 * Gets the title of a section or sub section
 	 *
 	 * @param $text string The text of the section.
 	 * @return string The title of the section.
@@ -455,11 +465,11 @@ abstract class EchoDiscussionParser {
 
 		$matches = array();
 
-		if ( !preg_match( '/' . self::$headerRegex . '/um', $text, $matches ) ) {
+		if ( !preg_match_all( '/' . self::$headerRegex . '/um', $text, $matches ) ) {
 			return false;
 		}
 
-		return trim( $matches[1] );
+		return trim( end( $matches[2] ) );
 	}
 
 	/**

@@ -406,4 +406,167 @@ TEXT
 
 		return $exemplarTimestamp;
 	}
+
+	static public function provider_detectSectionTitle() {
+		$name = 'TestUser';
+		$mention = 'Someone';
+		$comment = self::signedMessage( $name );
+
+		return array(
+			array(
+				'Must detect first sub heading when inserting in the middle of two sub headings',
+				'Sub Heading 1',
+				"
+== Heading ==
+$comment
+
+== Sub Heading 1 ==
+$comment
+%s
+
+== Sub Heading 2 ==
+$comment
+				",
+				$name
+			),
+
+			array(
+				'Must detect second sub heading when inserting in the end of two sub headings',
+				'Sub Heading 2',
+				"
+== Heading ==
+$comment
+
+== Sub Heading 1 ==
+$comment
+
+== Sub Heading 2 ==
+$comment
+%s
+				",
+				$name
+			),
+
+			array(
+				'Commenting in multiple sub-headings must result in no section link',
+				'',
+				"
+== Heading ==
+$comment
+
+== Sub Heading 1 ==
+$comment
+%s
+
+== Sub Heading 2 ==
+$comment
+%s
+
+				",
+				$name
+			),
+
+			array(
+				'Must accept headings without a space between the = and the section name',
+				'Heading',
+				"
+==Heading==
+$comment
+%s
+				",
+				$name
+			),
+
+			array(
+				'Must not accept invalid headings split with a return',
+				'',
+				"
+==Some
+Heading==
+$comment
+%s
+				",
+				$name
+			),
+		);
+	}
+
+	/**
+	 * @dataProvider provider_detectSectionTitle
+	 */
+	public function testDetectSectionTitle( $message, $expect, $format, $name ) {
+		// str_replace because we want to replace multiple instances of '%s' with the same valueA
+		$before = str_replace( '%s', '', $format );
+		$after = str_replace( '%s', self::signedMessage( $name ), $format );
+
+		$diff = EchoDiscussionParser::getMachineReadableDiff( $before, $after );
+		$interp = EchoDiscussionParser::interpretDiff( $diff, $name );
+		$this->assertEquals( $expect, EchoDiscussionParser::detectSectionTitle( $interp, $message ) );
+	}
+
+	protected static function signedMessage( $name ) {
+		return ": foo [[User:$name|$name]] ([[User talk:$name|talk]]) 00:17, 7 May 2013 (UTC)";
+	}
+
+	static public function provider_getFullSection() {
+		$tests = array(
+			array(
+				'Extracts full section',
+				// Full document content
+				<<<TEXT
+==Header 1==
+foo
+===Header 2===
+bar
+==Header 3==
+baz
+TEXT
+				,
+				// Map of Line numbers to expanded section content
+				array(
+					1 => "==Header 1==\nfoo",
+					2 => "==Header 1==\nfoo",
+					3 => "===Header 2===\nbar",
+					4 => "===Header 2===\nbar",
+					5 => "==Header 3==\nbaz",
+					6 => "==Header 3==\nbaz",
+				),
+			),
+		);
+
+		// Allow for setting an array of line numbers to expand from rather than
+		// just a single line number
+		$retval = array();
+		foreach ( $tests as $test ) {
+			foreach ( $test[2] as $lineNum => $expected ) {
+				$retval[] = array(
+					$test[0],
+					$expected,
+					$test[1],
+					$lineNum,
+				);
+			}
+		}
+
+		return $retval;
+	}
+
+	/**
+	 * @dataProvider provider_getFullSection
+	 */
+	public function testGetFullSection( $message, $expect, $lines, $startLineNum ) {
+		$section = EchoDiscussionParser::getFullSection( explode( "\n", $lines ), $startLineNum );
+		$this->assertEquals( $expect, $section, $message );
+	}
+
+	public function testGetSectionCount() {
+		$one = "==Zomg==\nfoobar\n";
+		$two = "===SubZomg===\nHi there\n";
+		$three = "==Header==\nOh Hai!\n";
+
+		$this->assertEquals( 1, EchoDiscussionParser::getSectionCount( $one ) );
+		$this->assertEquals( 2, EchoDiscussionParser::getSectionCount( $one . $two ) );
+		$this->assertEquals( 2, EchoDiscussionParser::getSectionCount( $one . $three ) );
+		$this->assertEquals( 3, EchoDiscussionParser::getSectionCount( $one . $two . $three ) );
+	}
 }
