@@ -89,9 +89,9 @@ class ApiEchoNotifications extends ApiQueryBase {
 			$today = wfTimestamp( TS_MW );
 			$yesterday = wfTimestamp( TS_MW, wfTimestamp( TS_UNIX, $today ) - 24 * 3600 );
 
-			if ( substr( $today, 4, 4 ) === substr( $timestampMw, 4, 4 ) ) {
+			if ( substr( $today, 0, 8 ) === substr( $timestampMw, 0, 8 ) ) {
 				$date = wfMessage( 'echo-date-today' )->escaped();
-			} elseif ( substr( $yesterday, 4, 4 ) === substr( $timestampMw, 4, 4 ) ) {
+			} elseif ( substr( $yesterday, 0, 8 ) === substr( $timestampMw, 0, 8 ) ) {
 				$date = wfMessage( 'echo-date-yesterday' )->escaped();
 			} else {
 				$month = array(
