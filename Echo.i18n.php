@@ -63,8 +63,8 @@ $messages['en'] = array(
 
 	// Notification
 	'echo-quotation-marks' => '"$1"',
-	'notification-edit-talk-page2' => '[[User:$1|$1]] {{GENDER:$1|posted}} on your [[User talk:$2|talk page]].',
-	'notification-edit-talk-page-flyout2' => '<b>$1</b> {{GENDER:$1|posted}} on your [[User talk:$2|talk page]].',
+	'notification-edit-talk-page2' => '[[User:$1|$1]] {{GENDER:$1|posted}} on your [[User talk:$2#$3|talk page]].',
+	'notification-edit-talk-page-flyout2' => '<b>$1</b> {{GENDER:$1|posted}} on your [[User talk:$2#$3|talk page]].',
 	'notification-page-linked' => '[[:$2]] was {{GENDER:$1|linked}} from [[:$3]]: [[Special:WhatLinksHere/$2|See all links to this page]]',
 	'notification-page-linked-flyout' => '<b>$2</b> was {{GENDER:$1|linked}} from <b>$3</b>: [[Special:WhatLinksHere/$2|See all links to this page]]',
 	'notification-add-comment2' => '[[User:$1|$1]] {{GENDER:$1|commented}} on "[[$3|$2]]" on the "$4" talk page',
@@ -280,12 +280,14 @@ Parameters:
 	'notification-edit-talk-page2' => "Format for displaying notifications of a user talk page being edited
 * $1 is the username of the person who edited, plain text. Can be used for GENDER.
 * $2 is the current user's name, used in the link to their talk page.
+* $3 is the section title of the discussion, if any, used in the link to their talk page
 See also:
 * {{msg-mw|Notification-edit-talk-page-flyout2}}
 * {{msg-mw|Notification-add-talkpage-topic2}}",
 	'notification-edit-talk-page-flyout2' => "Flyout-specific format for displaying notifications of a user talk page being edited
 * $1 is the username of the person who edited, plain text. Can be used for GENDER.
 * $2 is the current user's name, used in the link to their talk page.
+* $3 is the section title of the discussion, if any, used in the link to their talk page
 See also:
 * {{msg-mw|Notification-edit-talk-page2}}
 * {{msg-mw|Notification-add-talkpage-topic2}}",

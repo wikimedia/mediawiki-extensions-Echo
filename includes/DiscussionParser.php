@@ -84,12 +84,41 @@ abstract class EchoDiscussionParser {
 					EchoEvent::create( array(
 						'type' => 'edit-user-talk',
 						'title' => $title,
-						'extra' => array( 'revid' => $revision->getID(), 'minoredit' => $revision->isMinor() ),
+						'extra' => array(
+							'revid' => $revision->getID(),
+							'minoredit' => $revision->isMinor(),
+							'section-title' => self::detectSectionTitle( $interpretation ),
+						),
 						'agent' => $user,
 					) );
 				}
 			}
 		}
+	}
+
+	/**
+	 * Attempts to determine what section title the edit was performed under (if any)
+	 *
+	 * @param $interpretation array Results of self::getChangeInterpretationForRevision
+	 * @return string The section title if found otherwise a blank string
+	 */
+	protected static function detectSectionTitle( array $interpretation ) {
+		$header = '';
+		foreach ( $interpretation as $action ) {
+			switch( $action['type'] ) {
+			case 'add-comment':
+				$header = self::extractHeader( $action['full-section'] );
+				break;
+
+			case 'new-section-with-comment':
+				$header = self::extractHeader( $action['content'] );
+				break;
+			}
+			if ( $header ) {
+				return $header;
+			}
+		}
+		return '';
 	}
 
 	/**
