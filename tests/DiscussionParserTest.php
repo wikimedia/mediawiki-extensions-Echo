@@ -200,16 +200,18 @@ line d',
 	}
 
 	/** @dataProvider annotationData */
-	public function testAnnotation( $diff, $user, $expectedAnnotation ) {
+	public function testAnnotation( $message, $diff, $user, $expectedAnnotation ) {
 		$actual = EchoDiscussionParser::interpretDiff( $diff, $user );
-		$this->assertEquals( $expectedAnnotation, $actual );
+		$this->assertEquals( $expectedAnnotation, $actual, $message );
 	}
 
 	public function annotationData() {
 		$ts = self::getExemplarTimestamp();
 
 		return array(
+
 			array(
+				'Must detect added comments',
 				// Diff
 				array(
 					// Action
@@ -246,7 +248,9 @@ TEXT
 					),
 				),
 			),
+
 			array(
+				'Full Section must not include the following pre-existing section',
 				// Diff
 				array(
 					// Action
@@ -287,7 +291,9 @@ TEXT
 					),
 				),
 			),
+
 			array(
+				'Must detect new-section-with-comment when a new section is added',
 				// Diff
 				array(
 					// Action
@@ -333,6 +339,58 @@ TEXT
 						,
 					),
 				),
+			),
+
+			array(
+				'Must detect multiple added comments when multiple sections are edited',
+				EchoDiscussionParser::getMachineReadableDiff(
+					<<<TEXT
+== Section 1 ==
+I do not like you. [[User:Jorm|Jorm]] $ts
+:What do you think? [[User:Werdna]] $ts
+== Section 2 ==
+Well well well. [[User:DarTar]] $ts
+== Section 3 ==
+Hai [[User:Bsitu]] $ts
+TEXT
+					,
+					<<<TEXT
+== Section 1 ==
+I do not like you. [[User:Jorm|Jorm]] $ts
+:What do you think? [[User:Werdna]] $ts
+:New Comment [[User:JarJar]] $ts
+== Section 2 ==
+Well well well. [[User:DarTar]] $ts
+== Section 3 ==
+Hai [[User:Bsitu]] $ts
+:Other New Comment [[User:JarJar]] $ts
+TEXT
+				),
+				// User
+				'JarJar',
+				// Expected annotation
+				array(
+					array(
+						'type' => 'add-comment',
+						'content' => ":New Comment [[User:JarJar]] $ts",
+						'full-section' => <<<TEXT
+== Section 1 ==
+I do not like you. [[User:Jorm|Jorm]] $ts
+:What do you think? [[User:Werdna]] $ts
+:New Comment [[User:JarJar]] $ts
+TEXT
+					),
+					array(
+						'type' => 'add-comment',
+						'content' => ":Other New Comment [[User:JarJar]] $ts",
+						'full-section' => <<<TEXT
+== Section 3 ==
+Hai [[User:Bsitu]] $ts
+:Other New Comment [[User:JarJar]] $ts
+TEXT
+					),
+				),
+
 			),
 		);
 	}
