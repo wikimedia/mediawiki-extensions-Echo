@@ -59,19 +59,31 @@ class EchoHooks {
 		$updater->addExtensionTable( 'echo_event', $baseSQLFile );
 		$updater->addExtensionTable( 'echo_email_batch', "$dir/db_patches/echo_email_batch.sql" );
 
-		$updater->modifyExtensionField( 'echo_event', 'event_agent', "$dir/db_patches/patch-event_agent-split.sql" );
-		$updater->modifyExtensionField( 'echo_event', 'event_variant', "$dir/db_patches/patch-event_variant_nullability.sql" );
-		$updater->modifyExtensionField( 'echo_event', 'event_extra', "$dir/db_patches/patch-event_extra-size.sql" );
-		$updater->modifyExtensionField( 'echo_event', 'event_agent_ip', "$dir/db_patches/patch-event_agent_ip-size.sql" );
+		if ( $updater->getDB()->getType() === 'sqlite' ) {
+			$updater->modifyExtensionField( 'echo_event', 'event_agent', "$dir/db_patches/patch-event_agent-split.sqlite.sql" );
+			$updater->modifyExtensionField( 'echo_event', 'event_variant', "$dir/db_patches/patch-event_variant_nullability.sqlite.sql" );
+			// There is no need to run the patch-event_extra-size or patch-event_agent_ip-size because
+			// sqlite ignores numeric arguments in parentheses that follow the type name (ex: VARCHAR(255))
+			// see http://www.sqlite.org/datatype3.html Section 2.2 for more info
+		} else {
+			$updater->modifyExtensionField( 'echo_event', 'event_agent', "$dir/db_patches/patch-event_agent-split.sql" );
+			$updater->modifyExtensionField( 'echo_event', 'event_variant', "$dir/db_patches/patch-event_variant_nullability.sql" );
+			$updater->modifyExtensionField( 'echo_event', 'event_extra', "$dir/db_patches/patch-event_extra-size.sql" );
+			$updater->modifyExtensionField( 'echo_event', 'event_agent_ip', "$dir/db_patches/patch-event_agent_ip-size.sql" );
+		}
 
 		$updater->addExtensionField( 'echo_notification', 'notification_bundle_base',
 			"$dir/db_patches/patch-notification-bundling-field.sql" );
-		$updater->addExtensionIndex( 'echo_event', 'event_type', "$dir/db_patches/patch-alter-type_page-index.sql" );
+		// This index was renamed twice,  first from type_page to event_type and later from event_type to echo_event_type
+		if ( $updater->getDB()->indexExists( 'echo_event', 'type_page', __METHOD__ ) ) {
+			$updater->addExtensionIndex( 'echo_event', 'event_type', "$dir/db_patches/patch-alter-type_page-index.sql" );
+		}
 		$updater->dropTable( 'echo_subscription' );
 		$updater->dropExtensionField( 'echo_event', 'event_timestamp', "$dir/db_patches/patch-drop-echo_event-event_timestamp.sql" );
 		$updater->addExtensionField( 'echo_email_batch', 'eeb_event_hash',
 			"$dir/db_patches/patch-email_batch-new-field.sql" );
 		$updater->addExtensionField( 'echo_event', 'event_page_id', "$dir/db_patches/patch-add-echo_event-event_page_id.sql" );
+		$updater->addExtensionIndex( 'echo_event', 'echo_event_type', "$dir/db_patches/patch-alter-event_type-index.sql" );
 		return true;
 	}
 

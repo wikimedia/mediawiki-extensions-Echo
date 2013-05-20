@@ -12,7 +12,7 @@ CREATE TABLE /*_*/echo_event (
 	event_page_id int unsigned null
 ) /*$wgDBTableOptions*/;
 
-CREATE INDEX /*i*/event_type ON /*_*/echo_event (event_type);
+CREATE INDEX /*i*/echo_event_type ON /*_*/echo_event (event_type);
 
 CREATE TABLE /*_*/echo_notification (
 	notification_event int unsigned not null,
@@ -24,7 +24,7 @@ CREATE TABLE /*_*/echo_notification (
 	notification_bundle_display_hash varchar(32) binary not null -- The hash for displaying bundle notifications with regard to timestamp, this is is a subset of notification_bundle_hash
 ) /*$wgDBTableOptions*/;
 
-CREATE INDEX /*i*/user_timestamp ON /*_*/echo_notification (notification_user,notification_timestamp);
+CREATE INDEX /*i*/echo_user_timestamp ON /*_*/echo_notification (notification_user,notification_timestamp);
 CREATE UNIQUE INDEX /*i*/user_event ON /*_*/echo_notification (notification_user,notification_event);
 CREATE INDEX /*i*/echo_notification_user_base_read_timestamp ON /*_*/echo_notification (notification_user, notification_bundle_base, notification_read_timestamp);
 CREATE INDEX /*i*/echo_notification_user_base_timestamp ON /*_*/echo_notification (notification_user, notification_bundle_base, notification_timestamp, notification_event);
