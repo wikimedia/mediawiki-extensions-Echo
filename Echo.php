@@ -86,6 +86,13 @@ $wgAutoloadClasses['MWEchoBackend'] = $dir . 'includes/EchoBackend.php';
 $wgAutoloadClasses['MWDbEchoBackend'] = $dir . 'includes/DbEchoBackend.php';
 $wgAutoloadClasses['MWEchoDbFactory'] = $dir . 'includes/EchoDbFactory.php';
 
+// Whitelist and Blacklist
+$wgAutoloadClasses['EchoContainmentList'] = $dir . 'includes/ContainmentSet.php';
+$wgAutoloadClasses['EchoContainmentSet'] = $dir . 'includes/ContainmentSet.php';
+$wgAutoloadClasses['EchoArrayList'] = $dir . 'includes/ContainmentSet.php';
+$wgAutoloadClasses['EchoOnWikiList'] = $dir . 'includes/ContainmentSet.php';
+$wgAutoloadClasses['EchoCachedList'] = $dir . 'includes/ContainmentSet.php';
+
 // Housekeeping hooks
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'EchoHooks::getSchemaUpdates';
 $wgHooks['GetPreferences'][] = 'EchoHooks::getPreferences';
@@ -273,6 +280,17 @@ $wgEchoNotifiers = array(
 	'web' => array( 'EchoNotifier', 'notifyWithNotification' ), // web-based notification
 	'email' => array( 'EchoNotifier', 'notifyWithEmail' ),
 );
+
+// List of usernames that will not trigger notification creation. This is initially
+// for bots that perform automated edits that are not important enough to regularly
+// spam people with notifications. Set to empty array when not in use.
+$wgEchoAgentBlacklist = array();
+
+// Page location of community maintained blacklist within NS_MEDIAWIKI.  Set to null to disable.
+$wgEchoOnWikiBlacklist = 'Echo-blacklist';
+
+// sprintf format of per-user notification agent whitelists. Set to null to disable.
+$wgEchoPerUserWhitelistFormat = '%s/Echo-whitelist';
 
 // Define the categories that notifications can belong to. Categories can be
 // assigned the following parameters: priority, nodismiss, and usergroups. All
