@@ -269,7 +269,7 @@ class MWDbEchoBackend extends MWEchoBackend {
 		$eventTypesToLoad = EchoNotificationController::getUserEnabledEvents( $user, 'web' );
 
 		if ( !$eventTypesToLoad ) {
-			return false;
+			return 0;
 		}
 
 		global $wgEchoMaxNotificationCount;
