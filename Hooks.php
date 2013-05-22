@@ -354,6 +354,7 @@ class EchoHooks {
 			'section' => 'echo/echosubscriptions',
 			'rows' => $rows,
 			'columns' => $columns,
+			'prefix' => 'echo-subscriptions-',
 			'help' => Html::rawElement(
 				'a',
 				array( 'href' => $wgEchoHelpPage ),
