@@ -187,7 +187,8 @@ abstract class MWEchoEmailBatch {
 			// * echo-category-title-reverted
 			// * echo-category-title-article-linked
 			// * echo-category-title-mention
-			$output = wfMessage( 'echo-category-title-' . $category )->numParams( count( $notifs ) )->text() . "\n";
+			$output = wfMessage( 'echo-category-title-' . $category )->numParams( count( $notifs ) )->text()
+				. wfMessage( 'colon-separator' )->text() . "\n";
 
 			foreach( $notifs as $notif ) {
 				$output .= "\n " . wfMessage( 'echo-email-batch-bullet' )->text() . ' ' . $notif;
