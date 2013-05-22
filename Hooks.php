@@ -800,12 +800,43 @@ class EchoHooks {
 	 * @return bool true in all cases
 	 */
 	public static function onUserSaveOptions( $user, &$options ) {
+		global $wgOut;
+
+		$context = $wgOut->getContext();
+
+		// Capture user options saved via Special:Preferences or ApiOptions
+		if ( $context->getTitle()->isSpecial( 'Preferences' )
+			|| ( defined( 'MW_API' ) && $context->getRequest()->getVal( 'action' ) === 'options' )
+		) {
+			// $clone is the current user object with the new option value not set
+			$clone = User::newFromId( $user->getId() );
+			$updated = array();
+
+			// loop through each options that starts with 'echo-'
+			foreach ( $options as $optName => $optValue ) {
+				// Only capture echo related preference
+				if ( substr( $optName, 0, 5 ) !== 'echo-' ) {
+					continue;
+				}
+				// loose comparision is required since some of the values
+				// are not consistent in the two variables, eg, '' vs false
+				if ( $clone->getOption( $optName ) != $optValue ) {
+					$updated[$optName] = $optValue;
+				}
+			}
+
+			if ( $updated ) {
+				MWEchoEventLogging::logSchemaEchoPrefUpdate( $user, $updated );
+			}
+		}
+
 		// echo-subscriptions-email-edit-user-talk is just a virtual option,
 		// save the value in the real option enotifusertalkpages
 		if ( isset( $options['echo-subscriptions-email-edit-user-talk'] ) ) {
 			$options['enotifusertalkpages'] = $options['echo-subscriptions-email-edit-user-talk'];
 			unset( $options['echo-subscriptions-email-edit-user-talk'] );
 		}
+
 		return true;
 	}
 }

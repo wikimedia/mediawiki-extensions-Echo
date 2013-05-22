@@ -507,7 +507,7 @@ $wgDefaultUserOptions['echo-subscriptions-web-article-linked'] = false;
 
 // Echo Configuration for EventLogging
 $wgEchoConfig = array(
-	'version' => '1.2',
+	'version' => '1.3',
 	// default all eventlogging off, overwrite them in site configuration
 	'eventlogging' => array (
 		'Echo' => array (
@@ -517,6 +517,10 @@ $wgEchoConfig = array(
 		'EchoMail' => array (
 			'enabled' => false,
 			'revision' => 5467650
+		),
+		'EchoPrefUpdate' => array (
+			'enabled' => false,
+			'revision' => 5488876
 		),
 	)
 );

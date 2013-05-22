@@ -13,18 +13,16 @@ class MWEchoEventLogging {
 	public static function actuallyLogTheEvent( $schema, $data ) {
 		global $wgEchoConfig;
 
-		if ( !empty( $wgEchoConfig['eventlogging'][$schema]['enabled'] ) ) {
-			efLogServerSideEvent( $schema, $wgEchoConfig['eventlogging'][$schema]['revision'], $data );
-		}
+		efLogServerSideEvent( $schema, $wgEchoConfig['eventlogging'][$schema]['revision'], $data );
 	}
 
 	/**
-	 * Functions for logging the event for Schema:Echo
+	 * Function for logging the event for Schema:Echo
 	 * @param $user User being notified.
 	 * @param $event EchoEvent to log detail about.
 	 * @param $deliveryMethod string containing either 'web' or 'email'
 	 */
-	public static function logSchemaEcho( $user, $event, $deliveryMethod ) {
+	public static function logSchemaEcho( User $user, EchoEvent $event, $deliveryMethod ) {
 		global $wgEchoConfig, $wgEchoNotifications;
 		if ( !$wgEchoConfig['eventlogging']['Echo']['enabled'] ) {
 			// Only attempt event logging if Echo schema is enabled
@@ -70,11 +68,11 @@ class MWEchoEventLogging {
 	}
 
 	/**
-	 * Functions for logging the event for Schema:EchoEmail
+	 * Function for logging the event for Schema:EchoEmail
 	 * @param $user User
 	 * @param $emailDeliveryMode string
 	 */
-	public static function logSchemaEchoMail( $user, $emailDeliveryMode = 'single' ) {
+	public static function logSchemaEchoMail( User $user, $emailDeliveryMode = 'single' ) {
 		global $wgEchoConfig;
 
 		if ( !$wgEchoConfig['eventlogging']['EchoMail']['enabled'] ) {
@@ -89,6 +87,32 @@ class MWEchoEventLogging {
 		);
 
 		self::actuallyLogTheEvent( 'EchoMail', $data );
+	}
+
+	/**
+	 * Function for logging the event for Schema:EchoPrefUpdate
+	 * @param $user User user who updates the preference page
+	 * @param $prefUpdate array list of user preferences being updated
+	 */
+	public static function logSchemaEchoPrefUpdate( User $user, array $prefUpdate ) {
+		global $wgEchoConfig;
+
+		if ( !$wgEchoConfig['eventlogging']['EchoPrefUpdate']['enabled'] ) {
+			// Only attempt event logging if EchoPrefUpdate schema is enabled
+			return;
+		}
+
+		$data = array (
+			'version' => $wgEchoConfig['version'],
+			'userId' => $user->getId(),
+			'saveTimestamp' => wfTimestampNow()
+		);
+		foreach ( $prefUpdate as $prefName => $prefValue ) {
+			$data['property'] = $prefName;
+			$data['value'] = (string)$prefValue;
+			$data['isDefault'] = User::getDefaultOption( $prefName ) == $prefValue;
+			self::actuallyLogTheEvent( 'EchoPrefUpdate', $data );
+		}
 	}
 
 }
