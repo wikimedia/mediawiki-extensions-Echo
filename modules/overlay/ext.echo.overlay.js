@@ -5,24 +5,15 @@
 	mw.echo.overlay = {
 
 		'updateCount' : function( newCount ) {
-			// Accomodate '10' or '100+'. Numbers need to be
-			// passed as numbers for correct behavior of '0'.
-			if ( !isNaN( newCount ) ) {
-				newCount = Number( newCount );
-			}
-
-			if ( mw.echo.overlay.configuration['notifications-link-full'] ) {
-				$( '#pt-notifications > a' )
-					.text( mw.msg( 'echo-link' ) )
-					.badge( newCount, true, true );
+			var $badge = $( '.mw-echo-notifications-badge' );
+			$badge.text( newCount );
+			// newCount could be '99+' or another string.
+			// Checking for number as well just to be paranoid.
+			if ( newCount !== '0' && newCount !== 0 ) {
+				$badge.addClass( 'mw-echo-unread-notifications' );
 			} else {
-				$( '#pt-notifications > a' )
-					.addClass( 'mw-echo-short-link' )
-					.text( '' )
-					.badge( newCount, true, true );
+				$badge.removeClass( 'mw-echo-unread-notifications' );
 			}
-
-			mw.echo.overlay.notificationCount = newCount;
 		},
 
 		'configuration' : mw.config.get( 'wgEchoOverlayConfiguration' ),
@@ -30,7 +21,6 @@
 		'buildOverlay' : function( callback ) {
 			var notificationLimit,
 				$overlay = $( '<div></div>' ).addClass( 'mw-echo-overlay' ),
-				$link = $( '#pt-notifications a' ),
 				$prefLink = $( '#pt-preferences a' ),
 				count = 0,
 				Api = new mw.Api();
@@ -62,6 +52,9 @@
 						$overlayFooter,
 						$markReadButton;
 
+					if ( unreadTotalCount !== undefined ) {
+						mw.echo.overlay.updateCount( unreadTotalCount );
+					}
 					$ul.css( 'max-height', notificationLimit * 95 + 'px' );
 					$.each( notifications.index, function( index, id ) {
 						var data = notifications.list[id],
@@ -166,9 +159,9 @@
 
 					// add link to notifications archive
 					$overlayFooter.append(
-						$link
-							.clone()
+						$( '<a>' )
 							.attr( 'id', 'mw-echo-overlay-link' )
+							.attr( 'href', mw.util.wikiGetlink( 'Special:Notifications' ) )
 							.text( mw.msg( 'echo-overlay-link' ) )
 					);
 
@@ -202,17 +195,13 @@
 					}
 				},
 				'err' : function() {
-					window.location.href = $link.attr( 'href' );
+					window.location.href = $( '#pt-notifications a' ).attr( 'href' );
 				}
 			} );
 		}
 	};
 
-	mw.echo.overlay.notificationCount = mw.echo.overlay.configuration['notification-count'];
-
 	$( function() {
-		mw.echo.overlay.updateCount( mw.echo.overlay.notificationCount );
-
 		var $link = $( '#pt-notifications a' );
 		if ( ! $link.length ) {
 			return;

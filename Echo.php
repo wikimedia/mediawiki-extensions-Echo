@@ -140,12 +140,10 @@ $wgResourceModules += array(
 			'ext.echo.base',
 			'mediawiki.api',
 			'mediawiki.jqueryMsg',
-			'jquery.badge',
 			'mediawiki.ui',
+			'mediawiki.util',
 		),
 		'messages' => array(
-			'echo-link-new',
-			'echo-link',
 			'echo-overlay-title',
 			'echo-overlay-title-overflow',
 			'echo-overlay-link',
@@ -179,6 +177,12 @@ $wgResourceModules += array(
 		'messages' => array(
 			'echo-new-messages',
 			'colon-separator',
+		),
+	),
+	'ext.echo.badge' => $echoResourceTemplate + array(
+		'styles' => 'badge/ext.echo.badge.css',
+		'skinStyles' => array(
+			'modern' => 'badge/ext.echo.badge.modern.css',
 		),
 	),
 );
@@ -221,10 +225,6 @@ $wgEchoBackend = null;
 
 // Whether to turn on email batch function
 $wgEchoEnableEmailBatch = true;
-
-// Show a 'Notifications' link with badge in the user toolbar at the top of the page.
-// Otherwise, only show a badge next to the username.
-$wgEchoShowFullNotificationsLink = false;
 
 // URL for more information about the Echo notification system
 $wgEchoHelpPage = '//www.mediawiki.org/wiki/Special:MyLanguage/Help:Extension:Echo';

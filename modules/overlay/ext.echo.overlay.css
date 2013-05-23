@@ -22,7 +22,7 @@
 	position: absolute;
 	z-index: 101;
 	top: 21px;
-	left: -9px;
+	left: -5px;
 }
 
 #p-personal .mw-echo-overlay {
@@ -134,14 +134,6 @@
 
 #pt-notifications {
 	position: relative;
-}
-
-#pt-notifications .mw-badge {
-	margin-left: 3px;
-}
-
-#pt-notifications a.mw-echo-short-link .mw-badge {
-	margin-left: -5px;
 }
 
 .mw-echo-overlay-none {
