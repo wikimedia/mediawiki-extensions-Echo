@@ -85,6 +85,7 @@ $wgSpecialPageGroups['Notifications'] = 'users';
 $wgAutoloadClasses['MWEchoBackend'] = $dir . 'includes/EchoBackend.php';
 $wgAutoloadClasses['MWDbEchoBackend'] = $dir . 'includes/DbEchoBackend.php';
 $wgAutoloadClasses['MWEchoDbFactory'] = $dir . 'includes/EchoDbFactory.php';
+$wgAutoloadClasses['MWEchoNotifUser'] = $dir . 'includes/NotifUser.php';
 
 // Whitelist and Blacklist
 $wgAutoloadClasses['EchoContainmentList'] = $dir . 'includes/ContainmentSet.php';
@@ -104,6 +105,7 @@ $wgHooks['ResourceLoaderRegisterModules'][] = 'EchoHooks::onResourceLoaderRegist
 $wgHooks['UserRights'][] = 'EchoHooks::onUserRights';
 $wgHooks['UserLoadOptions'][] = 'EchoHooks::onUserLoadOptions';
 $wgHooks['UserSaveOptions'][] = 'EchoHooks::onUserSaveOptions';
+$wgHooks['UserClearNewTalkNotification'][] = 'EchoHooks::onUserClearNewTalkNotification';
 
 // Extension initialization
 $wgExtensionFunctions[] = 'EchoHooks::initEchoExtension';
@@ -198,6 +200,7 @@ $wgHooks['EchoGetDefaultNotifiedUsers'][] = 'EchoHooks::getDefaultNotifiedUsers'
 $wgHooks['EchoGetNotificationTypes'][] = 'EchoHooks::getNotificationTypes';
 $wgHooks['EchoGetBundleRules'][] = 'EchoHooks::onEchoGetBundleRules';
 $wgHooks['EchoAbortEmailNotification'][] = 'EchoHooks::onEchoAbortEmailNotification';
+$wgHooks['EchoCreateNotificationComplete'][] = 'EchoHooks::onEchoCreateNotificationComplete';
 
 // Hook appropriate events
 $wgHooks['ArticleSaveComplete'][] = 'EchoHooks::onArticleSaved';

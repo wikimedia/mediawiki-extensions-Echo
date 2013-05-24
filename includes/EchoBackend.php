@@ -118,8 +118,16 @@ abstract class MWEchoBackend {
 	 * Retrieves number of unread notifications that a user has.
 	 * @param $user User object to check notifications for
 	 * @param $dbSource string use master or slave storage to pull count
-	 * @return ResultWrapper|bool
+	 * @return int
 	 */
 	abstract public function getNotificationCount( $user, $dbSource );
 
+	/**
+	 * Get the event ids for corresponding unread notifications for an
+	 * event type
+	 * @param $user User object to check notification for
+	 * @param $type string event type
+	 * @return array
+	 */
+	abstract public function getUnreadNotifications( $user, $type );
 }

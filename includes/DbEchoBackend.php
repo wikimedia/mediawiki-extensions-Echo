@@ -33,7 +33,7 @@ class MWDbEchoBackend extends MWEchoBackend {
 				$row['notification_timestamp'] = $dbw->timestamp( $row['notification_timestamp'] );
 				$dbw->insert( 'echo_notification', $row, $fname );
 				$dbw->commit( $fname );
-				EchoNotificationController::resetNotificationCount( $user, DB_MASTER );
+				MWEchoNotifUser::newFromUser( $user )->resetNotificationCount( DB_MASTER );
 			}
 		);
 	}
@@ -301,4 +301,34 @@ class MWDbEchoBackend extends MWEchoBackend {
 		return $db->numRows( $res );
 	}
 
+	/**
+	 * IMPORTANT: should only call this function if the number of unread notification
+	 * is reasonable, for example, unread notification count is less than the max
+	 * display defined in $wgEchoMaxNotificationCount
+	 * @param $user User
+	 * @param $type string
+	 * @return array
+	 */
+	public function getUnreadNotifications( $user, $type ) {
+		$dbr = MWEchoDbFactory::getDB( DB_SLAVE );
+		$res = $dbr->select(
+			array( 'echo_notification', 'echo_event' ),
+			array( 'notification_event' ),
+			array(
+				'notification_user' => $user->getId(),
+				'notification_bundle_base' => 1,
+				'notification_read_timestamp' => null,
+				'event_type' => $type,
+				'notification_event = event_id'
+			),
+			__METHOD__
+		);
+
+		$eventIds = array();
+		foreach ( $res as $row ) {
+			$eventIds[$row->notification_event] = $row->notification_event;
+		}
+
+		return $eventIds;
+	}
 }
