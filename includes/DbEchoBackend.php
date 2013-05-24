@@ -256,8 +256,7 @@ class MWDbEchoBackend extends MWEchoBackend {
 				'notification_read_timestamp' => NULL,
 				'notification_bundle_base' => 1,
 			),
-			__METHOD__,
-			array( 'LIMIT' => 500 )
+			__METHOD__
 		);
 	}
 
