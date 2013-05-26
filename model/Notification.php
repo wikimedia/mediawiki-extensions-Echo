@@ -103,7 +103,7 @@ class EchoNotification {
 			}
 		}
 
-		$wgEchoBackend->createNotification( $row );
+		$wgEchoBackend->createNotification( $this->user, $row );
 	}
 
 	/**

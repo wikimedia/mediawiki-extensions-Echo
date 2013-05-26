@@ -22,8 +22,6 @@ class EchoNotifier {
 		EchoNotification::create( array( 'user' => $user, 'event' => $event ) );
 
 		MWEchoEventLogging::logSchemaEcho( $user, $event, 'web' );
-
-		EchoNotificationController::resetNotificationCount( $user, DB_MASTER );
 	}
 
 	/**

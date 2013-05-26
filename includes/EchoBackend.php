@@ -49,9 +49,10 @@ abstract class MWEchoBackend {
 
 	/**
 	 * Create a new notification
+	 * @param $user User
 	 * @param $row array
 	 */
-	abstract public function createNotification( $row );
+	abstract public function createNotification( $user, $row );
 
 	/**
 	 * Load notifications based on the parameters

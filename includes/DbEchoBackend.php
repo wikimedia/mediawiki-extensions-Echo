@@ -6,14 +6,15 @@
 class MWDbEchoBackend extends MWEchoBackend {
 
 	/**
+	 * @param $user User
 	 * @param $row array
 	 */
-	public function createNotification( $row ) {
+	public function createNotification( $user, $row ) {
 		$dbw = MWEchoDbFactory::getDB( DB_MASTER );
 
 		$fname = __METHOD__;
 		$dbw->onTransactionIdle(
-			function() use ( $dbw, $row, $fname ) {
+			function() use ( $user, $dbw, $row, $fname ) {
 				$dbw->begin( $fname );
 				// reset the base if this notification has a display hash
 				if ( $row['notification_bundle_display_hash'] ) {
@@ -32,6 +33,7 @@ class MWDbEchoBackend extends MWEchoBackend {
 				$row['notification_timestamp'] = $dbw->timestamp( $row['notification_timestamp'] );
 				$dbw->insert( 'echo_notification', $row, $fname );
 				$dbw->commit( $fname );
+				EchoNotificationController::resetNotificationCount( $user, DB_MASTER );
 			}
 		);
 	}
