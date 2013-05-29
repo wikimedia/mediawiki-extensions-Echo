@@ -1005,6 +1005,7 @@ $messages['bn'] = array(
 	'echo-dismiss-button' => 'বাতিল',
 	'echo-dismiss-message' => 'সকল $1 বিজ্ঞপ্তি বন্ধ করো',
 	'echo-new-messages' => 'আপনার নতুন বার্তা এসেছে',
+	'echo-category-title-edit-user-talk' => 'আলাপ পাতা {{PLURAL:$1|পোষ্ট|পোষ্টসমূহ}}',
 	'echo-category-title-article-linked' => 'পাতা {{PLURAL:$1|সংযোগ|সংযোগসমূহ}}',
 	'echo-category-title-mention' => '{{PLURAL:$1|উল্লেখ|উল্লেখসমূহ}}',
 	'echo-category-title-other' => '{{PLURAL:$1|অন্য}}',
@@ -1032,6 +1033,7 @@ $messages['bn'] = array(
 	'notification-mention' => '[[User:$1|$1]] [[$3#$2|$3]] পাতায় আপনাকে {{GENDER:$1|উল্লেখ করেছেন}}।',
 	'notification-mention-flyout' => '<b>$1</b> [[$3#$2|$3]] পাতায় আপনাকে {{GENDER:$1|উল্লেখ করেছেন}}।',
 	'notification-user-rights-add' => 'আপনি এখন থেকে {{PLURAL:$2|এই দলের|এই দলসমূহের}} একজন সদস্য: $1',
+	'notification-edit-talk-page-email-subject2' => '{{SITENAME}} এ আপনার একটি নতুন আলাপ পাতা বার্তা রয়েছে।',
 	'notification-edit-talk-page-email-body2' => '$1
 
 $3
@@ -1041,6 +1043,13 @@ $3
 <$2>
 
 $4',
+	'notification-edit-talk-page-email-batch-body2' => '$1 আপনার আলাপ পাতায় {{GENDER:$1|পোষ্ট করেছেন}}',
+	'notification-user-rights-email-subject' => '{{SITENAME}} এ আপনার ব্যবহারকারী অধিকার পরবর্তন হয়েছে',
+	'echo-email-subject-default' => '{{SITENAME}} এ নতুন বিজ্ঞপ্তি',
+	'echo-email-body-default' => '{{SITENAME}} এ আপনার একটি নতুন বিজ্ঞপ্তি রয়েছে:
+
+$1',
+	'echo-email-batch-body-default' => 'আপনার নতুন একটি বিজ্ঞপ্তি রয়েছে',
 	'echo-overlay-link' => 'সকল বিজ্ঞপ্তি',
 	'echo-overlay-title' => '<b>বিজ্ঞপ্তি</b>',
 	'echo-mark-all-as-read' => 'সব পঠিত বলে চিহ্নিত',
@@ -3143,6 +3152,7 @@ $1',
 	'echo-email-batch-body-default' => 'Dir hutt eng Notifikatioun',
 	'echo-overlay-link' => 'All Notifikatiounen',
 	'echo-overlay-title' => '<b>Notifikatiounen</b>',
+	'echo-overlay-title-overflow' => '<b>Notifikatiounen</b> (weist $1 vun $2 net geliesten)',
 	'echo-mark-all-as-read' => 'All als geliest markéieren',
 	'echo-date-today' => 'Haut',
 	'echo-date-yesterday' => 'Gëschter',
@@ -3500,7 +3510,7 @@ $messages['ms'] = array(
 	'notification-edit-talk-page2' => '[[User:$1|$1]] telah {{GENDER:$1|mengepos}} di [[User talk:$2#$3|halaman perbualan]] anda.',
 	'notification-edit-talk-page-flyout2' => '<b>$1</b> telah {{GENDER:$1|mengepos}} di [[User talk:$2#$3|halaman perbualan]] anda.',
 	'notification-page-linked' => '[[:$2]] telah {{GENDER:$1|dipautkan}} dari [[:$3]]: [[Special:WhatLinksHere/$2|Lihat semua pautan ke halaman ini]]',
-	'notification-page-linked-flyout' => '<b>$2</b> telah {{GENDER:$1|dipautkan}} dari <b>$3</b>.', # Fuzzy
+	'notification-page-linked-flyout' => '<b>$2</b> telah {{GENDER:$1|dipautkan}} dari [[:$3]].',
 	'notification-add-comment2' => '[[User:$1|$1]] telah {{GENDER:$1|mengulas}} tentang "[[$3|$2]]" di halaman perbualan "$4"',
 	'notification-add-talkpage-topic2' => '[[User:$1|$1]] telah mengepos topik baru, "$2", di [[$3]]',
 	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]] telah {{GENDER:$1|mengirim}} pesanan kepada anda: "[[$3#$2|$2]]"',
@@ -4004,6 +4014,7 @@ $messages['pl'] = array(
 	'echo-pref-email-frequency-daily' => 'dzienne podsumowanie',
 	'echo-pref-email-frequency-weekly' => 'tygodniowe podsumowanie',
 	'echo-pref-notify-show-link' => 'Pokazuj powiadomienia w pasku narzędzi',
+	'echo-pref-new-message-indicator' => 'Pokazuj wskaźnik wiadomości w moim pasku narzędzi',
 	'echo-learn-more' => 'Dowiedz się więcej',
 	'echo-dismiss-button' => 'Zamknij',
 	'echo-dismiss-message' => 'Wyłącz wszystkie powiadomienia typu $1',
@@ -4041,10 +4052,10 @@ $messages['pl'] = array(
 	'notification-user-rights-flyout' => '<b>$1</b> {{GENDER:$1|zmienił|zmieniła}} twoje uprawnienia. $2. [[Special:ListGroupRights|Dowiedz się więcej]]',
 	'notification-user-rights-add' => 'Teraz należysz do {{PLURAL:$2|tej grupy|tych grup}}: $1',
 	'notification-user-rights-remove' => 'Nie należysz już do {{PLURAL:$2|tej grupy|tych grup}}: $1',
-	'notification-new-user' => 'Witaj w {{grammar:6sg|{{SITENAME}}}}, $1! Cieszymy się, że tu jesteś.',
+	'notification-new-user' => 'Witaj w {{grammar:MS.lp|{{SITENAME}}}}, $1! Cieszymy się, że tu jesteś.',
 	'notification-reverted2' => '[[User:$1|$1]] {{GENDER:$1|zrewertował|zrewertowała}} {{PLURAL:$4|twoją edycję|twoje edycje}} na stronie [[:$2]] $3',
 	'notification-reverted-flyout2' => '<b>$1</b> {{GENDER:$1|zrewertował|zrewertowała}} {{PLURAL:$4|twoją edycję|twoje edycje}} na stronie <b>$2</b> $3',
-	'notification-edit-talk-page-email-subject2' => 'Masz nową wiadomość na swojej stronie dyskusji w {{grammar:6sg|{{SITENAME}}}}',
+	'notification-edit-talk-page-email-subject2' => 'Masz nową wiadomość na swojej stronie dyskusji w {{grammar:MS.lp|{{SITENAME}}}}',
 	'notification-edit-talk-page-email-body2' => '$1
 
 $3
@@ -4055,7 +4066,7 @@ Szczegóły:
 
 $4',
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|napisał|napisała}} do ciebie na twojej stronie dyskusji',
-	'notification-page-linked-email-subject' => 'W {{grammar:6sg|{{SITENAME}}}} ktoś wstawił link do utworzonej przez ciebie strony',
+	'notification-page-linked-email-subject' => 'W {{grammar:MS.lp|{{SITENAME}}}} ktoś wstawił link do utworzonej przez ciebie strony',
 	'notification-page-linked-email-body' => '$1
 
 Pokaż wszystkie linkujące do tej strony:
@@ -4064,7 +4075,7 @@ Pokaż wszystkie linkujące do tej strony:
 
 $3',
 	'notification-page-linked-email-batch-body' => 'Na stronie $3 {{GENDER:$1|umieszczono}} link do strony $2',
-	'notification-reverted-email-subject2' => '$1 {{GENDER:$1|zrewertował|zrewertowała}} {{PLURAL:$3|twoją edycję|twoje edycje}} w {{grammar:6sg|{{SITENAME}}}} na stronie $2',
+	'notification-reverted-email-subject2' => '$1 {{GENDER:$1|zrewertował|zrewertowała}} {{PLURAL:$3|twoją edycję|twoje edycje}} w {{grammar:MS.lp|{{SITENAME}}}} na stronie $2',
 	'notification-reverted-email-body2' => '$1 {{GENDER:$1|zrewertował|zrewertowała}} {{PLURAL:$7|twoją edycję|twoje edycje}} na stronie $2
 
 $5
@@ -4075,8 +4086,8 @@ Szczegóły:
 
 $6',
 	'notification-reverted-email-batch-body2' => '$1 {{GENDER:$1|zrewertował|zrewertowała}} {{PLURAL:$3|twoją edycję|twoje edycje}} na stronie $2',
-	'notification-mention-email-subject' => '$1 {{GENDER:$1|wspomniał|wspomniała}} o tobie w {{grammar:6sg|{{SITENAME}}}}',
-	'notification-mention-email-body' => '{{GENDER:$1|Użytkownik|Użytkowniczka}} $1 {{grammar:2sg{{SITENAME}}}} {{GENDER:$1|wspomniał|wspomniała}} o tobie w dyskusji $2.
+	'notification-mention-email-subject' => '$1 {{GENDER:$1|wspomniał|wspomniała}} o tobie w {{grammar:MS.lp|{{SITENAME}}}}',
+	'notification-mention-email-body' => '{{GENDER:$1|Użytkownik|Użytkowniczka}} $1 {{grammar:D.lp{{SITENAME}}}} {{GENDER:$1|wspomniał|wspomniała}} o tobie w dyskusji $2.
 
 $3
 
@@ -4086,7 +4097,7 @@ Szczegóły:
 
 $5',
 	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|wspomniał|wspomniała}} o tobie w dyskusji $2',
-	'notification-user-rights-email-subject' => 'W {{grammar:6sg|{{SITENAME}}}} zostały zmienione twoje uprawnienia',
+	'notification-user-rights-email-subject' => 'W {{grammar:MS.lp|{{SITENAME}}}} zostały zmienione twoje uprawnienia',
 	'notification-user-rights-email-body' => '$1 {{GENDER:$1|zmienił|zmieniła}} twoje uprawnienia. $2
 
 Szczegóły:
@@ -4096,8 +4107,8 @@ Szczegóły:
 $3',
 	'notification-user-rights-email-batch-body' => '$1 {{GENDER:$1|zmienił|zmieniła}} twoje uprawnienia. $2',
 	'echo-notification-count' => '$1+',
-	'echo-email-subject-default' => 'Nowe powiadomienie w {{grammar:6sg|{{SITENAME}}}}',
-	'echo-email-body-default' => 'Masz nowe powiadomienie w {{grammar:6sg|{{SITENAME}}}}:
+	'echo-email-subject-default' => 'Nowe powiadomienie w {{grammar:MS.lp|{{SITENAME}}}}',
+	'echo-email-body-default' => 'Masz nowe powiadomienie w {{grammar:MS.lp|{{SITENAME}}}}:
 
 $1',
 	'echo-email-batch-body-default' => 'Masz nowe powiadomienie',
@@ -4119,11 +4130,11 @@ $1',
 	'notification-page-linked-bundle' => 'Na stronie $3 i na {{PLURAL:$5|innej stronie|$4 innych stronach}} {{GENDER:$1|umieszczono}} link do strony $2: [[Special:WhatLinksHere/$2|pokaż wszystkie linkujące do tej strony]]',
 	'notification-edit-user-talk-email-batch-bundle-body' => '$1 i {{PLURAL:$3|ktoś inny|$2 inni|$2 innych}} {{GENDER:$1|napisali}} do ciebie na twojej stronie dyskusji',
 	'notification-page-linked-email-batch-bundle-body' => 'Na stronie $3 i na {{PLURAL:$5|innej stronie|$4 innych stronach}} {{GENDER:$1|umieszczono}} link do strony $2',
-	'echo-email-batch-subject-daily' => 'Masz {{PLURAL:$2|nowe powiadomienie|nowe powiadomienia}} w {{grammar:6sg|{{SITENAME}}}}',
-	'echo-email-batch-subject-weekly' => 'Masz {{PLURAL:$2|nowe powiadomienie|nowe powiadomienia}} w {{grammar:6sg|{{SITENAME}}}} z tego tygodnia',
+	'echo-email-batch-subject-daily' => 'Masz {{PLURAL:$2|nowe powiadomienie|nowe powiadomienia}} w {{grammar:MS.lp|{{SITENAME}}}}',
+	'echo-email-batch-subject-weekly' => 'Masz {{PLURAL:$2|nowe powiadomienie|nowe powiadomienia}} w {{grammar:MS.lp|{{SITENAME}}}} z tego tygodnia',
 	'echo-email-batch-body-daily' => '{{GENDER:$1|Szanowny użytkowniku|Szanowna użytkowniczko}} $1,
 
-Masz {{PLURAL:$3|nowe powiadomienie|nowe powiadomienia}} w {{grammar:6sg|{{SITENAME}}}}. Możesz je zobaczyć tutaj:
+Masz {{PLURAL:$3|nowe powiadomienie|nowe powiadomienia}} w {{grammar:MS.lp|{{SITENAME}}}}. Możesz je zobaczyć tutaj:
 {{canonicalurl:{{#special:Notifications}}}}
 
 $4
@@ -4131,7 +4142,7 @@ $4
 $5',
 	'echo-email-batch-body-weekly' => '{{GENDER:$1|Szanowny użytkowniku|Szanowna użytkowniczko}} $1,
 
-Masz {{PLURAL:$3|nowe powiadomienie|nowe powiadomienia}} w {{grammar:6sg|{{SITENAME}}}} z tego tygodnia. Możesz je zobaczyć tutaj:
+Masz {{PLURAL:$3|nowe powiadomienie|nowe powiadomienia}} w {{grammar:MS.lp|{{SITENAME}}}} z tego tygodnia. Możesz je zobaczyć tutaj:
 {{canonicalurl:{{#special:Notifications}}}}
 
 $4
