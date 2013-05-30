@@ -13,6 +13,7 @@
 }
 #pt-notifications .mw-echo-notifications-badge:hover {
 	background-color: #c2c2c2;
+	text-decoration: none;
 }
 #pt-notifications .mw-echo-notifications-badge.mw-echo-unread-notifications {
 	background-color: #cc0000;
