@@ -626,7 +626,7 @@ class EchoHooks {
 			return true;
 		}
 
-		$notificationCount = EchoNotificationController::getNotificationCount( $wgUser );
+		$notificationCount = MWEchoNotifUser::newFromUser( $wgUser )->getNotificationCount();
 		$text = EchoNotificationController::formatNotificationCount( $notificationCount );
 		$url = SpecialPage::getTitleFor( 'Notifications' )->getLocalURL();
 		if ( $notificationCount == 0 ) {
@@ -678,7 +678,7 @@ class EchoHooks {
 		$timestamp = new MWTimestamp( wfTimestampNow() );
 		if ( ! $user->isAnon() ) {
 			$vars['wgEchoOverlayConfiguration'] = array(
-				'notification-count' => EchoNotificationController::getFormattedNotificationCount( $user ),
+				'notification-count' => MWEchoNotifUser::newFromUser( $user )->getFormattedNotificationCount(),
 				'max-notification-count' => $wgEchoMaxNotificationCount,
 			);
 			$vars['wgEchoHelpPage'] = $wgEchoHelpPage;
@@ -769,7 +769,7 @@ class EchoHooks {
 		// Reset the notification count since it may have changed due to user
 		// option changes. This covers both explicit changes in the preferences
 		// and changes made through the options API (since both call this hook).
-		EchoNotificationController::resetNotificationCount( $user );
+		MWEchoNotifUser::newFromUser( $user )->resetNotificationCount();
 		return true;
 	}
 
@@ -831,6 +831,37 @@ class EchoHooks {
 		if ( isset( $options['echo-subscriptions-email-edit-user-talk'] ) ) {
 			$options['enotifusertalkpages'] = $options['echo-subscriptions-email-edit-user-talk'];
 			unset( $options['echo-subscriptions-email-edit-user-talk'] );
+		}
+
+		return true;
+	}
+
+	/**
+	 * Handler for UserClearNewTalkNotification hook.
+	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/UserClearNewTalkNotification
+	 * @param $user User whose talk page notification should be marked as read
+	 * @return bool true in all cases
+	 */
+	public static function onUserClearNewTalkNotification( User $user ) {
+		if ( !$user->isAnon() ) {
+			MWEchoNotifUser::newFromUser( $user )->clearTalkNotification();
+		}
+		return true;
+	}
+
+	/**
+	 * Handler for EchoCreateNotificationComplete hook, this will allow some
+	 * extra stuff to be done upon creating a new notification
+	 * @param $notif EchoNotification
+	 * @return bool true in all cases
+	 */
+	public static function onEchoCreateNotificationComplete( EchoNotification $notif ) {
+		if ( $notif->getEvent() && $notif->getUser() ) {
+			// Extra stuff for talk page notification
+			if ( $notif->getEvent()->getType() === 'edit-user-talk' ) {
+				$notifUser = MWEchoNotifUser::newFromUser( $notif->getUser() );
+				$notifUser->flagCacheWithNewTalkNotification();
+			}
 		}
 
 		return true;

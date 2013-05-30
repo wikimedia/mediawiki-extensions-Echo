@@ -11,15 +11,17 @@ class ApiEchoNotifications extends ApiQueryBase {
 			$this->dieUsage( 'Login is required', 'login-required' );
 		}
 
+		$notifUser = MWEchoNotifUser::newFromUser( $user );
+
 		$params = $this->extractRequestParams();
 
 		// There is no need to trigger markRead if all notifications are read
-		if ( EchoNotificationController::getNotificationCount( $user ) > 0 ) {
+		if ( $notifUser->getNotificationCount() > 0 ) {
 			if ( count( $params['markread'] ) ) {
 				// Make sure there is a limit to the update
-				EchoNotificationController::markRead( $user, array_slice( $params['markread'], 0, ApiBase::LIMIT_SML2 ) );
+				$notifUser->markRead( array_slice( $params['markread'], 0, ApiBase::LIMIT_SML2 ) );
 			} elseif ( $params['markallread'] ) {
-				EchoNotificationController::markAllRead( $user );
+				$notifUser->markAllRead();
 			}
 		}
 
@@ -40,7 +42,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 		}
 
 		if ( in_array( 'count', $prop ) ) {
-			$result['count'] = EchoNotificationController::getFormattedNotificationCount( $user );
+			$result['count'] = $notifUser->getFormattedNotificationCount();
 		}
 
 		if ( in_array( 'index', $prop ) ) {

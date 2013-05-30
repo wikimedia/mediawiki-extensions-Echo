@@ -5,35 +5,6 @@ class EchoNotificationController {
 	static protected $userWhitelist;
 
 	/**
-	 * Retrieves number of unread notifications that a user has, would return
-	 * $wgEchoMaxNotificationCount + 1 at most
-	 *
-	 * @param $user User object to check notifications for
-	 * @param $cached bool Set to false to bypass the cache.
-	 * @param $dbSource string use master or slave database to pull count
-	 * @return Integer: Number of unread notifications.
-	 */
-	public static function getNotificationCount( $user, $cached = true, $dbSource = DB_SLAVE ) {
-		global $wgMemc, $wgEchoBackend, $wgEchoConfig;
-
-		if ( $user->isAnon() ) {
-			return 0;
-		}
-
-		$memcKey = wfMemcKey( 'echo-notification-count', $user->getId(), $wgEchoConfig['version'] );
-
-		if ( $cached && $wgMemc->get( $memcKey ) !== false ) {
-			return intval( $wgMemc->get( $memcKey ) );
-		}
-
-		$count = $wgEchoBackend->getNotificationCount( $user, $dbSource );
-
-		$wgMemc->set( $memcKey, $count, 86400 );
-
-		return intval( $count );
-	}
-
-	/**
 	 * Get the enabled events for a user, which excludes user-dismissed events
 	 * from the general enabled events
 	 * @param $user User
@@ -136,20 +107,6 @@ class EchoNotificationController {
 	}
 
 	/**
-	 * Retrieves formatted number of unread notifications that a user has.
-	 *
-	 * @param $user User object to check notifications for
-	 * @param $cached bool Set to false to bypass the cache.
-	 * @param $dbSource string use master or slave database to pull count
-	 * @return String: Number of unread notifications.
-	 */
-	public static function getFormattedNotificationCount( $user, $cached = true, $dbSource = DB_SLAVE ) {
-		return self::formatNotificationCount(
-				self::getNotificationCount( $user, $cached, $dbSource )
-			);
-	}
-
-	/**
 	 * Format the notification count with Language::formatNum().  In addition, for large count,
 	 * return abbreviated version, e.g. 99+
 	 * @param $count int
@@ -168,57 +125,6 @@ class EchoNotificationController {
 		}
 
 		return $count;
-	}
-
-	/**
-	 * Mark one or more notifications read for a user.
-	 *
-	 * @param $user User object to mark items read for.
-	 * @param $eventIDs Array of event IDs to mark read
-	 */
-	public static function markRead( $user, $eventIDs ) {
-		global $wgEchoBackend;
-
-		$eventIDs = array_filter( (array)$eventIDs, 'is_numeric' );
-		if ( !$eventIDs || wfReadOnly() ) {
-			return;
-		}
-		$wgEchoBackend->markRead( $user, $eventIDs );
-		self::resetNotificationCount( $user, DB_MASTER );
-	}
-
-	/**
-	 * @param $user User to mark all notifications read for
-	 * @return boolean
-	 */
-	public static function markAllRead( $user ) {
-		global $wgEchoBackend, $wgEchoMaxNotificationCount;
-
-		if ( wfReadOnly() ) {
-			return false;
-		}
-
-		$notificationCount = self::getNotificationCount( $user );
-		// Only update all the unread notifications if it isn't a huge number.
-		// TODO: Implement batched jobs it's over the maximum.
-		if ( $notificationCount <= $wgEchoMaxNotificationCount ) {
-			$wgEchoBackend->markAllRead( $user );
-			self::resetNotificationCount( $user, DB_MASTER );
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	/**
-	 * Recalculates the number of notifications that a user has.
-	 *
-	 * @param $user User object
-	 * @param $dbSource string use master or slave database to pull count
-	 */
-	public static function resetNotificationCount( $user, $dbSource = DB_SLAVE ) {
-		self::getNotificationCount( $user, false, $dbSource );
-		$user->invalidateCache();
 	}
 
 	/**

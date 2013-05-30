@@ -104,7 +104,7 @@ class SpecialNotifications extends SpecialPage {
 		$out->addExtensionStyle( "$wgExtensionAssetsPath/Echo/modules/base/ext.echo.base.css" );
 		// Mark items as read
 		if ( $unread ) {
-			EchoNotificationController::markRead( $user, $unread );
+			MWEchoNotifUser::newFromUser( $user )->markRead( $unread );
 		}
 	}
 
