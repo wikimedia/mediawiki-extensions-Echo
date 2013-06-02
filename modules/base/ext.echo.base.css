@@ -27,6 +27,8 @@
 	min-height: 30px;
 	background-color: white;
 	position: relative;
+	padding-top: 15px;
+	padding-bottom: 10px;
 	/* Force container to expand to height of floated contents */
 	overflow: hidden;
 	zoom: 1;

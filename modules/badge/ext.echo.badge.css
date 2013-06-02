@@ -11,9 +11,13 @@
 	text-shadow: 0 1px rgba(0, 0, 0, 0.4);
 	cursor: pointer;
 }
-#pt-notifications .mw-echo-notifications-badge:hover {
+#pt-notifications .mw-echo-notifications-badge:hover,
+#pt-notifications .mw-echo-notifications-badge:active,
+#pt-notifications .mw-echo-notifications-badge:focus {
 	background-color: #c2c2c2;
 	text-decoration: none;
+	outline: none;
+	-moz-outline-style: none;
 }
 #pt-notifications .mw-echo-notifications-badge.mw-echo-unread-notifications {
 	background-color: #cc0000;

@@ -1,6 +1,6 @@
 .mw-echo-overlay {
 	position: absolute;
-	top: 2.6em;
+	top: 30px;
 	left: -200px;
 	border: 1px solid silver;
 	background-color: #fff;
@@ -10,8 +10,6 @@
 	color: #6D6D6D;
 	z-index: 100;
 	box-shadow: 0px 3px 8px rgba(50, 50, 50, 0.35);
-	/* Override for Monobook */
-	text-align: left;
 }
 .mw-echo-overlay-pokey {
 	/* @embed */
@@ -21,29 +19,14 @@
 	height: 11px;
 	position: absolute;
 	z-index: 101;
-	top: 21px;
+	top: 20px;
 	left: -5px;
 }
 
-#p-personal .mw-echo-overlay {
-	/* Override for Monobook */
-	text-transform: none;
-}
 #p-personal .mw-echo-overlay ul {
 	margin: 0;
 	padding: 0;
 	overflow: auto;
-	/* Overrides for Monobook */
-	text-align: left;
-	text-transform: none;
-}
-#p-personal #mw-echo-overlay-link {
-	/* Override for Monobook */
-	padding-bottom: 15px;
-}
-#p-personal #mw-echo-overlay-pref-link {
-	/* Override for Monobook */
-	padding-bottom: 15px;
 }
 #p-personal .mw-echo-overlay li.mw-echo-notification {
 	background-color: #F0F0F0;
@@ -55,8 +38,6 @@
 	white-space: normal;
 	font-size: 13px;
 	line-height: 16px;
-	/* Override for Monobook */
-	color: #6D6D6D;
 }
 #p-personal .mw-echo-overlay li.mw-echo-notification:hover {
 	background-color: #F8F8F8;
@@ -113,9 +94,7 @@
 	min-height: 14px;
 	font-size: 13px;
 	/* @embed */
-	background-image: url(../icons/NotificationsPage-ltr.png);
-	background-repeat: no-repeat;
-	background-position: 17% 50%;
+	background: url(../icons/NotificationsPage-ltr.png) no-repeat 17% 50% !important;
 }
 
 #mw-echo-overlay-pref-link {
@@ -127,9 +106,7 @@
 	padding: 15px 15px 15px 35px;
 	border-left: 1px solid #DDDDDD;
 	/* @embed */
-	background-image: url(../icons/Settings.png);
-	background-repeat: no-repeat;
-	background-position: 5% 50%;
+	background: url(../icons/Settings.png) no-repeat 5% 50% !important;
 }
 
 #pt-notifications {
