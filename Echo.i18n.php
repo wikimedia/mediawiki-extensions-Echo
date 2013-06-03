@@ -594,7 +594,7 @@ $messages['af'] = array(
 	'echo-no-agent' => '[Niemand]',
 	'echo-no-title' => '[Geen titel]', # Fuzzy
 	'notifications' => 'Kennisgewings',
-	'echo-specialpage' => 'My kennisgewings',
+	'echo-specialpage' => 'My kennisgewings', # Fuzzy
 );
 
 /** Arabic (العربية)
@@ -606,7 +606,6 @@ $messages['af'] = array(
 $messages['ar'] = array(
 	'notifications' => 'إخطارات',
 	'echo-specialpage' => 'إخطاراتي', # Fuzzy
-	'echo-link' => 'إخطاراتي',
 	'echo-overlay-title' => '<b>الإخطارات</b>',
 );
 
@@ -770,24 +769,18 @@ $messages['azb'] = array(
 	'echo-desc' => 'بیلدیریش سیستِمی',
 	'prefs-echo' => 'بیلدیریلر',
 	'prefs-displaynotifications' => 'گؤرونتو سئچَنکلری',
-	'prefs-emailsubscriptions' => 'بیر کس بو ایشی گؤرنده منی ایمیل ایله بیلدیر',
-	'prefs-emailfrequency' => 'نئچه واختدان بیر من ایمیل ایله بیلدیری آلیرام', # Fuzzy
-	'echo-pref-email-edit-user-talk' => 'منیم دانیشیق صحیفه‌مه یازیر',
-	'echo-pref-email-reverted' => 'منیم دَییشیکلیکلریمی قایتار',
 	'echo-pref-email-frequency-never' => 'منه هئچ بیلدیری ایمیلی گؤندرمه',
 	'echo-pref-email-frequency-immediately' => 'آیری آیری هر بیلدیری گلنده',
 	'echo-pref-email-frequency-daily' => 'گونلوک بیلدیریلرین بیر خولاصه‌سی',
 	'echo-pref-email-frequency-weekly' => 'هفته‌لیک بیلدیریلرین بیر خولاصه‌سی',
-	'echo-pref-notify-hide-link' => 'بیلدیریلرین باغلانتی و نیشانینی منیم آراج‌چوبوغومدان گیزلت',
 	'echo-no-agent' => '[هئچ کیمسه]',
 	'echo-no-title' => '[هئچ صحیفه]',
 	'echo-error-no-formatter' => 'بیلدیری اوچون بیر فورمت تعریفی یوخدور',
 	'notifications' => 'بیلدیریلر',
-	'echo-specialpage' => 'منیم بیلدیریلریم',
+	'echo-specialpage' => 'منیم بیلدیریلریم', # Fuzzy
 	'echo-anon' => 'بیلدیریلری آلماق اوچون، [[Special:Userlogin/signup|بیر حساب یارادین]] یادا [[Special:UserLogin|گیریش ائدین]].',
 	'echo-none' => 'سیزین بیلدیرینیز یوخدور.',
-	'notification-new-user' => '{{SITENAME}}-ه خوش گلمیسینیز، $1!',
-	'notification-new-user-content' => 'لوطفاً دانیشیق صحیفه‌لرینده یوروملارینیزی ۴ تیلدا (~~~~) ایله ایمضالاماغی اونوتمایین.',
+	'notification-new-user' => '{{SITENAME}}-ه خوش گلمیسینیز، $1!', # Fuzzy
 	'echo-email-subject-default' => '{{SITENAME}}-ده یئنی بیلدیری',
 	'echo-email-body-default' => 'سیزین {{SITENAME}}-ده یئنی بیلدیرینیز واردیر:
 
@@ -797,17 +790,15 @@ $1',
 سیزه هانکی ایمیل‌لرین گله بیله‌جگینی دَییشمگه، باخین:
 {{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
 
-$1',
-	'echo-link-new' => '$1 یئنی {{PLURAL:$1|بیلدیری}}',
-	'echo-link' => 'بیلدیریلر',
+$1', # Fuzzy
 	'echo-overlay-link' => 'بوتون بیلدیریلر',
-	'echo-overlay-title' => 'منیم بیلدیریلریم',
-	'echo-overlay-title-overflow' => 'منیم بیلدیریلریم ($2 اوخونمامیشدان $1-ی گؤستریلیر)',
+	'echo-overlay-title' => 'منیم بیلدیریلریم', # Fuzzy
+	'echo-overlay-title-overflow' => 'منیم بیلدیریلریم ($2 اوخونمامیشدان $1-ی گؤستریلیر)', # Fuzzy
 	'echo-date-today' => 'بوگون',
 	'echo-date-yesterday' => 'دونن',
 	'echo-load-more-error' => 'آرتیق نتیجه‌لری گتیرنده بیر خطا قاباغا گلدی.',
-	'echo-email-batch-subject-daily' => 'سیزین بوگون $1 {{PLURAL:$2|بیلدیرینیز}} واردیر',
-	'echo-email-batch-subject-weekly' => 'سیزین بو هفته $1 {{PLURAL:$2|بیلدیرینیز}} واردیر',
+	'echo-email-batch-subject-daily' => 'سیزین بوگون $1 {{PLURAL:$2|بیلدیرینیز}} واردیر', # Fuzzy
+	'echo-email-batch-subject-weekly' => 'سیزین بو هفته $1 {{PLURAL:$2|بیلدیرینیز}} واردیر', # Fuzzy
 	'echo-email-batch-body-daily' => '$1،
 
 سیزین بوگون {{SITENAME}}-ده $2 {{PLURAL:$3|بیلدیرینیز}} واردیر. اونلارا بوردان باخین:
@@ -815,7 +806,7 @@ $1',
 
 $4
 
-$5',
+$5', # Fuzzy
 	'echo-email-batch-body-weekly' => '$1،
 
 سیزین بو هفته {{SITENAME}}-ده $2 {{PLURAL:$3|بیلدیرینیز}} واردیر. اونلارا بوردان باخین:
@@ -823,10 +814,7 @@ $5',
 
 $4
 
-$5',
-	'echo-email-batch-category-header-edit-user-talk' => '$1 دانیشیق صحیفه {{PLURAL:$1|مئساژی}}',
-	'echo-email-batch-category-header-edit-revert' => '$1 دَییشیکلیک {{PLURAL:$1|قایتاریلماسی}}',
-	'echo-email-batch-category-header-other' => '$1 {{PLURAL:$1|آیری}}',
+$5', # Fuzzy
 );
 
 /** Bashkir (башҡортса)
@@ -836,10 +824,9 @@ $messages['ba'] = array(
 	'prefs-echo' => 'Белдереүҙәр',
 	'notifications' => 'Белдереүҙәр',
 	'tooltip-pt-notifications' => 'Һеҙҙең белдереүҙәр',
-	'echo-specialpage' => 'Минең белдереүҙәр',
-	'echo-link' => 'Белдереүҙәр',
+	'echo-specialpage' => 'Минең белдереүҙәр', # Fuzzy
 	'echo-overlay-link' => 'Бөтә белдереүҙәр',
-	'echo-overlay-title' => 'Минең белдереүҙәр',
+	'echo-overlay-title' => 'Минең белдереүҙәр', # Fuzzy
 );
 
 /** Batak Toba (Batak Toba)
@@ -979,12 +966,11 @@ $messages['bg'] = array(
 	'echo-pref-email' => 'Е-поща',
 	'notifications' => 'Известия',
 	'tooltip-pt-notifications' => 'Вашите известия',
-	'echo-specialpage' => 'Моите известия',
+	'echo-specialpage' => 'Моите известия', # Fuzzy
 	'echo-more-info' => 'Повече информация',
-	'echo-link' => 'Известия',
 	'echo-overlay-link' => 'Всички известия',
-	'echo-overlay-title' => 'Моите известия',
-	'echo-overlay-title-overflow' => 'Моите известия (показване на $1 от $2 непрочетени)',
+	'echo-overlay-title' => 'Моите известия', # Fuzzy
+	'echo-overlay-title-overflow' => 'Моите известия (показване на $1 от $2 непрочетени)', # Fuzzy
 	'echo-date-today' => 'Днес',
 	'echo-date-yesterday' => 'Вчера',
 	'echo-load-more-error' => 'Възникна грешка при извличане на още резултати.',
@@ -1088,19 +1074,16 @@ $messages['br'] = array(
 	'echo-no-title' => '[Diditl]', # Fuzzy
 	'notifications' => 'Kemennoù',
 	'tooltip-pt-notifications' => 'Ho kemennoù',
-	'echo-specialpage' => "Ma c'hemennoù",
+	'echo-specialpage' => "Ma c'hemennoù", # Fuzzy
 	'echo-more-info' => "Gouzout hiroc'h",
-	'notification-new-user' => 'Degemer mat er {{SITENAME}}, $1!',
-	'echo-link-new' => '$1 {{PLURAL:$1|kemenn|kemenn}} nevez', # Fuzzy
-	'echo-link' => 'Kemennoù',
+	'notification-new-user' => 'Degemer mat er {{SITENAME}}, $1!', # Fuzzy
 	'echo-overlay-link' => 'An holl gemennoù',
-	'echo-overlay-title' => "Ma c'hemennoù",
-	'echo-overlay-title-overflow' => "Va c'hemennoù (o tiskouez $1 diwar $2 nann-lennet)",
+	'echo-overlay-title' => "Ma c'hemennoù", # Fuzzy
+	'echo-overlay-title-overflow' => "Va c'hemennoù (o tiskouez $1 diwar $2 nann-lennet)", # Fuzzy
 	'echo-date-today' => 'Hiziv',
 	'echo-date-yesterday' => "Dec'h",
 	'echo-email-batch-subject-daily' => '$1 kemenn{{PLURAL:$2||}} nevez hiziv', # Fuzzy
 	'echo-email-batch-subject-weekly' => '$1 kemenn{{PLURAL:$2||}} nevez ar sizhun-mañ', # Fuzzy
-	'echo-email-batch-category-header-other' => '$1 {{PLURAL:$1|all|all}}', # Fuzzy
 );
 
 /** Catalan (català)
@@ -1111,27 +1094,23 @@ $messages['ca'] = array(
 	'echo-desc' => 'Sistema de notificacions',
 	'prefs-echo' => 'Notificacions',
 	'prefs-displaynotifications' => 'Opcions de visualització',
-	'prefs-emailsubscriptions' => "Avisa'm per e-mail quan algú",
 	'notifications' => 'Notificacions',
 	'tooltip-pt-notifications' => 'Les vostres modificacions',
-	'echo-specialpage' => 'Les meves notificacions',
+	'echo-specialpage' => 'Les meves notificacions', # Fuzzy
 	'echo-none' => 'No heu rebut cap notificació',
 	'echo-more-info' => 'Més informació',
 	'echo-email-subject-default' => 'Notificació de nou a {{SITENAME}}',
 	'echo-email-body-default' => 'Teniu una nova notificació a {{SITENAME}}:
 
 $1',
-	'echo-link-new' => '$1 {{PLURAL:$1|nova notificació|noves notificacions}}',
-	'echo-link' => 'Notificacions',
 	'echo-overlay-link' => 'Totes les notificacions',
-	'echo-overlay-title' => 'Les meves notificacions',
-	'echo-overlay-title-overflow' => 'Les meves notificacions (mostrant $1 de $2 no llegides)',
+	'echo-overlay-title' => 'Les meves notificacions', # Fuzzy
+	'echo-overlay-title-overflow' => 'Les meves notificacions (mostrant $1 de $2 no llegides)', # Fuzzy
 	'echo-date-today' => 'Avui',
 	'echo-date-yesterday' => 'Ahir',
 	'echo-load-more-error' => "S'ha produït un error en obtenir més resultats.",
-	'echo-email-batch-subject-daily' => "Teniu $1 {{PLURAL:$2|notificació|notificacions}} d'avui",
-	'echo-email-batch-subject-weekly' => "Teniu $1 {{PLURAL:$2|notificació|notificacions}} d'aquesta setmana",
-	'echo-email-batch-category-header-edit-user-talk' => '$1 pàgina de discussió {{PLURAL:$1|missatge|missatges}}',
+	'echo-email-batch-subject-daily' => "Teniu $1 {{PLURAL:$2|notificació|notificacions}} d'avui", # Fuzzy
+	'echo-email-batch-subject-weekly' => "Teniu $1 {{PLURAL:$2|notificació|notificacions}} d'aquesta setmana", # Fuzzy
 );
 
 /** Chechen (нохчийн)
@@ -1310,15 +1289,13 @@ $5',
  */
 $messages['da'] = array(
 	'prefs-echo' => 'Meddelelser',
-	'prefs-emailsubscriptions' => 'Giv mig besked via e-mail, når nogen',
 	'echo-no-agent' => '[Ingen]',
 	'echo-no-title' => '[Ingen side]',
 	'notifications' => 'Meddelelser',
-	'echo-specialpage' => 'Mine meddelelser',
-	'echo-link' => 'Meddelelser',
+	'echo-specialpage' => 'Mine meddelelser', # Fuzzy
 	'echo-overlay-link' => 'Alle meddelelser',
-	'echo-overlay-title' => 'Mine meddelelser',
-	'echo-overlay-title-overflow' => 'Mine meddelelser (viser $1 af $2 ulæste)',
+	'echo-overlay-title' => 'Mine meddelelser', # Fuzzy
+	'echo-overlay-title-overflow' => 'Mine meddelelser (viser $1 af $2 ulæste)', # Fuzzy
 	'echo-date-today' => 'I dag',
 	'echo-date-yesterday' => 'I går',
 );
@@ -1355,6 +1332,10 @@ $messages['de'] = array(
 	'echo-category-title-mention' => '{{PLURAL:$1|Erwähnung|Erwähnungen}}',
 	'echo-category-title-other' => '{{PLURAL:$1|Andere}}',
 	'echo-category-title-system' => '{{PLURAL:$1|System}}',
+	'echo-pref-tooltip-edit-user-talk' => 'Benachrichtige mich, wenn jemand eine Nachricht oder eine Antwort auf meiner Diskussionsseite hinterlässt.',
+	'echo-pref-tooltip-article-linked' => 'Benachrichtige mich, wenn jemand in einem Artikel auf eine Seite verlinkt, die ich erstellt habe.',
+	'echo-pref-tooltip-reverted' => 'Benachrichtige mich, wenn jemand eine von mir gemachte Bearbeitung rückgängig macht oder zurücksetzt.',
+	'echo-pref-tooltip-mention' => 'Benachrichtige mich, wenn jemand von einer Diskussionsseite auf meine Benutzerseite verlinkt.',
 	'echo-no-agent' => '[Niemand]',
 	'echo-no-title' => '[Keine Seite]',
 	'echo-error-no-formatter' => 'Keine Formatierung zur Benachrichtigung definiert',
@@ -1493,10 +1474,9 @@ $messages['diq'] = array(
 	'prefs-echo' => 'Tebliği',
 	'echo-no-title' => '[Pele Çıniya]',
 	'notifications' => 'Tebliği',
-	'echo-specialpage' => 'Tebliğê me',
-	'echo-link' => 'Tebliği',
+	'echo-specialpage' => 'Tebliğê me', # Fuzzy
 	'echo-overlay-link' => 'Tebliği pêro...', # Fuzzy
-	'echo-overlay-title' => 'Tebliğê me',
+	'echo-overlay-title' => 'Tebliğê me', # Fuzzy
 );
 
 /** Greek (Ελληνικά)
@@ -1525,7 +1505,6 @@ $messages['el'] = array(
 	'echo-none' => 'Δεν έχετε ειδοποιήσεις.',
 	'notification-new-user' => 'Καλώς ήρθατε στο {{SITENAME}}, $1! Χαιρόμαστε που είστε εδώ.',
 	'echo-email-subject-default' => 'Νέα ειδοποίηση στο {{SITENAME}}',
-	'echo-link' => 'Ειδοποιήσεις',
 	'echo-overlay-link' => 'Όλες οι ειδοποιήσεις',
 	'echo-overlay-title' => '<b>Ανακοινώσεις</b>',
 	'echo-date-today' => 'Σήμερα',
@@ -1545,19 +1524,14 @@ $messages['en-gb'] = array(
 $messages['eo'] = array(
 	'echo-no-agent' => '[Neniu]',
 	'echo-no-title' => '[Sen Paĝo]',
-	'notification-new-user' => 'Bonvenon al {{SITENAME}}, $1!',
+	'notification-new-user' => 'Bonvenon al {{SITENAME}}, $1!', # Fuzzy
 	'echo-email-body-default' => 'Vi havas novan noton ĉe {{SITENAME}}:
 
 $1',
-	'echo-link-new' => '$1 {{PLURAL:$1|nova noto|novaj notoj}}',
-	'echo-link' => 'Miaj notoj', # Fuzzy
 	'echo-overlay-link' => 'Ĉiuj notoj...', # Fuzzy
-	'echo-overlay-title' => 'Miaj notoj',
+	'echo-overlay-title' => 'Miaj notoj', # Fuzzy
 	'echo-date-today' => 'Hodiaŭ',
 	'echo-date-yesterday' => 'Hieraŭ',
-	'echo-email-batch-category-header-edit-user-talk' => '$1 Diskuto-paĝo {{PLURAL:$1|mesaĝo|mesaĝoj}}',
-	'echo-email-batch-category-header-edit-revert' => '$1 {{PLURAL:$1|malfaro de redakto|malfaroj de redaktoj}}',
-	'echo-email-batch-category-header-other' => '{{PLURAL:$1|Alia|$1 Aliaj}}',
 );
 
 /** Spanish (español)
@@ -1600,7 +1574,7 @@ $messages['es'] = array(
 	'echo-more-info' => 'Más información',
 	'echo-feedback' => 'Comentarios',
 	'notification-new-user' => '¡Bienvenido a {{SITENAME}}, $1!', # Fuzzy
-	'notification-edit-talk-page-email-subject2' => 'Tienes un mensaje nuevo de página de discusión',
+	'notification-edit-talk-page-email-subject2' => 'Tienes un mensaje nuevo de página de discusión', # Fuzzy
 	'notification-edit-talk-page-email-body2' => '$1
 
 $3
@@ -1622,8 +1596,6 @@ Para controlar los emails que te enviamos, visita:
 {{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
 
 $1', # Fuzzy
-	'echo-link-new' => '$1 {{PLURAL:$1|notificación nueva|notificaciones nuevas}}',
-	'echo-link' => 'Notificaciones',
 	'echo-overlay-link' => 'Todas las notificaciones',
 	'echo-overlay-title' => 'Mis notificaciones', # Fuzzy
 	'echo-overlay-title-overflow' => 'Notificaciones: (Mostrando $1 de $2 sin leer)', # Fuzzy
@@ -1683,8 +1655,6 @@ $messages['et'] = array(
 	'echo-none' => 'Sul pole uusi teavitusi.',
 	'echo-more-info' => 'Lisateave',
 	'notification-new-user' => 'Tere tulemast saidile {{SITENAME}}, $1! Meil on hea meel, et siin oled.',
-	'echo-link-new' => '$1 {{PLURAL:$1|uus teavitus|uut teavitust}}',
-	'echo-link' => 'Teavitused',
 	'echo-overlay-link' => 'Kõik teavitused',
 	'echo-overlay-title' => '<b>Teavitused</b>',
 	'echo-date-today' => 'Täna',
@@ -2166,16 +2136,13 @@ $messages['frp'] = array(
 	'echo-desc' => 'Sistèmo de notificacions',
 	'prefs-echo' => 'Notificacions',
 	'prefs-displaynotifications' => 'Chouèx de visualisacion',
-	'echo-pref-email-edit-user-talk' => 'Mèssâjos sur ma pâge de discussion',
-	'echo-pref-email-reverted' => 'Anular mon changement',
 	'echo-no-agent' => '[Nion]',
 	'echo-no-title' => '[Niona pâge]',
 	'notifications' => 'Notificacions',
 	'tooltip-pt-notifications' => 'Voutres notificacions',
-	'echo-specialpage' => 'Mes notificacions',
+	'echo-specialpage' => 'Mes notificacions', # Fuzzy
 	'echo-none' => 'Vos éd reçu gins de notificacion.',
-	'notification-new-user' => 'Benvegnua sur {{SITENAME}}, $1 !',
-	'notification-new-user-content' => 'Volyéd pas oubliar de signér voutros comentèros sur les pâges de discussion avouéc 4 tildes (~~~~).',
+	'notification-new-user' => 'Benvegnua sur {{SITENAME}}, $1 !', # Fuzzy
 	'echo-email-subject-default' => 'Novèla notificacion dessus {{SITENAME}}',
 	'echo-email-body-default' => 'Vos avéd na novèla notificacion dessus {{SITENAME}} :
 
@@ -2185,17 +2152,15 @@ $1',
 Por controlar quints mèssâjos nos vos mandens, visitâd :
 {{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
 
-$1',
-	'echo-link-new' => '$1 {{PLURAL:$1|novèla notificacion|novèles notificacions}}',
-	'echo-link' => 'Notificacions',
+$1', # Fuzzy
 	'echo-overlay-link' => 'Totes les notificacions',
-	'echo-overlay-title' => 'Mes notificacions',
-	'echo-overlay-title-overflow' => 'Mes notificacions (montrent $1 sur $2 pas liesues)',
+	'echo-overlay-title' => 'Mes notificacions', # Fuzzy
+	'echo-overlay-title-overflow' => 'Mes notificacions (montrent $1 sur $2 pas liesues)', # Fuzzy
 	'echo-date-today' => 'Houé',
 	'echo-date-yesterday' => 'Hièr',
 	'echo-load-more-error' => 'Na fôta est arrevâye pendent la rècupèracion de més de rèsultats.',
-	'echo-email-batch-subject-daily' => 'Vos avéd $1 notificacion{{PLURAL:$2||s}} houé',
-	'echo-email-batch-subject-weekly' => 'Vos avéd $1 notificacion{{PLURAL:$2||s}} ceta semana',
+	'echo-email-batch-subject-daily' => 'Vos avéd $1 notificacion{{PLURAL:$2||s}} houé', # Fuzzy
+	'echo-email-batch-subject-weekly' => 'Vos avéd $1 notificacion{{PLURAL:$2||s}} ceta semana', # Fuzzy
 	'echo-email-batch-body-daily' => '$1,
 
 vos avéd $2 notificacion{{PLURAL:$3||s}} dessus {{SITENAME}} houé.  Vêde-les ique :
@@ -2203,7 +2168,7 @@ vos avéd $2 notificacion{{PLURAL:$3||s}} dessus {{SITENAME}} houé.  Vêde-les 
 
 $4
 
-$5',
+$5', # Fuzzy
 	'echo-email-batch-body-weekly' => '$1,
 
 vos avéd $2 notificacion{{PLURAL:$3||s}} dessus {{SITENAME}} ceta semana.  Vêde-les ique :
@@ -2211,10 +2176,7 @@ vos avéd $2 notificacion{{PLURAL:$3||s}} dessus {{SITENAME}} ceta semana.  Vêd
 
 $4
 
-$5',
-	'echo-email-batch-category-header-edit-user-talk' => '$1 mèssâjo{{PLURAL:$1||s}} de pâge de discussion',
-	'echo-email-batch-category-header-edit-revert' => '$1 {{PLURAL:$1|changement anulâ|changements anulâs}}',
-	'echo-email-batch-category-header-other' => '$1 ôtro{{PLURAL:$1||s}}',
+$5', # Fuzzy
 );
 
 /** Galician (galego)
@@ -2549,16 +2511,14 @@ $5', # Fuzzy
 $messages['hi'] = array(
 	'prefs-echo' => 'मला  म़ारा',
 	'prefs-displaynotifications' => 'Display options',
-	'prefs-emailfrequency' => 'When would you like to receive e-mail notifications?',
-	'prefs-echosubscriptions' => 'Notify me when someone…',
+	'prefs-echosubscriptions' => 'Notify me when someone…', # Fuzzy
 	'echo-no-agent' => '[कोई नहीं]',
 	'echo-no-title' => '[कोई पृष्ठ नहीं]',
 	'notifications' => 'सूचनाएँ',
 	'tooltip-pt-notifications' => 'आपकी सूचनाएँ',
-	'echo-specialpage' => 'मेरी सूचनाएँ',
-	'echo-link' => 'सूचनाएँ',
+	'echo-specialpage' => 'मेरी सूचनाएँ', # Fuzzy
 	'echo-overlay-link' => 'सभी सूचनाएँ',
-	'echo-overlay-title' => 'मेरी सूचनाएँ',
+	'echo-overlay-title' => 'मेरी सूचनाएँ', # Fuzzy
 	'echo-date-today' => 'आज',
 	'echo-date-yesterday' => 'कल',
 );
@@ -2578,12 +2538,11 @@ $messages['hsb'] = array(
 	'echo-error-no-formatter' => 'Za zdźělenje njeje so formatowanje definowało',
 	'notifications' => 'Zdźělenki',
 	'tooltip-pt-notifications' => 'Twoje zdźělenki',
-	'echo-specialpage' => 'Moje zdźělenki',
+	'echo-specialpage' => 'Moje zdźělenki', # Fuzzy
 	'echo-anon' => 'Zo by zdźělenki dóstał, dyrbiš [[Special:Userlogin/signup|konto załožić]] abo [[Special:UserLogin|so přizjewić]].',
 	'echo-none' => 'Nimaš zdźělenki.',
 	'echo-more-info' => 'Dalše informacije',
-	'notification-new-user' => 'Witaj do {{GRAMMAR:genitiw|{{SITENAME}}}}, $1!',
-	'notification-new-user-content' => 'Prošu njezabudź komentary na diskusijnych stronach z 4 tildami (~~~~) podpisać .',
+	'notification-new-user' => 'Witaj do {{GRAMMAR:genitiw|{{SITENAME}}}}, $1!', # Fuzzy
 	'echo-email-subject-default' => 'Nowa zdźělenka na {{GRAMMAR:lokatiw|{{SITENAME}}}}',
 	'echo-email-body-default' => 'Maš nowu zdźělenku na {{GRAMMAR:lokatiw|{{SITENAME}}}}:
 
@@ -2593,11 +2552,9 @@ $1',
 Zo by kontrolował, kotre e-mejle ći sćelemy, wopytaj:
 {{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
 
-$1',
-	'echo-link-new' => '$1 {{PLURAL:$1|nowa zdźělenka|nowej zdźělence|nowe zdźělenki|nowych zdźělenkow}}',
-	'echo-link' => 'Zdźělenki',
+$1', # Fuzzy
 	'echo-overlay-link' => 'Wšě zdźělenki',
-	'echo-overlay-title' => 'Moje zdźělenki',
+	'echo-overlay-title' => 'Moje zdźělenki', # Fuzzy
 	'echo-date-today' => 'Dźensa',
 	'echo-date-yesterday' => 'Wčera',
 	'echo-load-more-error' => 'Při wobstarowanju dalšich wuslědkow je zmylk wustupił.',
@@ -2655,17 +2612,15 @@ $messages['ia'] = array(
 	'echo-no-agent' => '[Nemo]',
 	'echo-no-title' => '[Sin titulo]', # Fuzzy
 	'notifications' => 'Notificationes',
-	'echo-specialpage' => 'Mi notificationes',
+	'echo-specialpage' => 'Mi notificationes', # Fuzzy
 	'echo-anon' => 'Pro reciper notificationes, [[Special:Userlogin/signup|crea un conto]] o [[Special:UserLogin|aperi session]].',
 	'echo-none' => 'Tu non ha recipite notificationes recentemente.', # Fuzzy
 	'echo-email-subject-default' => 'Nove notification in {{SITENAME}}',
 	'echo-email-body-default' => 'Tu ha un nove notification in {{SITENAME}}:
 
 $1',
-	'echo-link-new' => '$1 nove {{PLURAL:$1|notification|notificationes}}',
-	'echo-link' => 'Mi notificationes', # Fuzzy
 	'echo-overlay-link' => 'Tote le notificationes…', # Fuzzy
-	'echo-overlay-title' => 'Mi notificationes',
+	'echo-overlay-title' => 'Mi notificationes', # Fuzzy
 );
 
 /** Indonesian (Bahasa Indonesia)
@@ -2676,7 +2631,7 @@ $messages['id'] = array(
 	'echo-desc' => 'Sistem notifikasi',
 	'prefs-echo' => 'Notifikasi',
 	'notifications' => 'Notifikasi',
-	'notification-new-user' => 'Selamat datang di {{SITENAME}}, $1!',
+	'notification-new-user' => 'Selamat datang di {{SITENAME}}, $1!', # Fuzzy
 );
 
 /** Igbo (Igbo)
@@ -2885,6 +2840,10 @@ $messages['ja'] = array(
 	'echo-category-title-mention' => '{{PLURAL:$1|言及}}',
 	'echo-category-title-other' => '{{PLURAL:$1|その他}}',
 	'echo-category-title-system' => '{{PLURAL:$1|システム}}',
+	'echo-pref-tooltip-edit-user-talk' => '誰かが私のトークページでメッセージの投稿または返信をしたときに通知する。',
+	'echo-pref-tooltip-article-linked' => '誰かが私が作ったページに記事からリンクしたときに通知する。',
+	'echo-pref-tooltip-reverted' => '誰かが取り消しや巻き戻しといった方法で私の行った編集を差し戻したときに通知する。',
+	'echo-pref-tooltip-mention' => '誰かが私の利用者ページにどこかのトークページからリンクしたときに通知する。',
 	'echo-no-agent' => '[送信者なし]',
 	'echo-no-title' => '[ページなし]',
 	'echo-error-no-formatter' => '通知の書式が定義されていません',
@@ -3019,17 +2978,15 @@ $messages['jv'] = array(
 	'echo-no-agent' => '[Dudu sapa-sapa]',
 	'echo-no-title' => '[Ora ana judhul]', # Fuzzy
 	'notifications' => 'Wara-wara',
-	'echo-specialpage' => 'Wara-wara kula',
+	'echo-specialpage' => 'Wara-wara kula', # Fuzzy
 	'echo-anon' => 'Kanggo nampa wara-wara [[Special:Userlogin/signup|gawé akun]] utawa [[Special:UserLogin|mlebu log]].',
 	'echo-none' => 'Sampéyan durung nampa wara-wara apa-apa.', # Fuzzy
 	'echo-email-subject-default' => 'Wara-wara anyar nèng {{SITENAME}}',
 	'echo-email-body-default' => 'Sampéyan nduwé wara-wara anyar nèng {{SITENAME}}:
 
 $1',
-	'echo-link-new' => '$1 {{PLURAL:$1|wara-wara|wara-wara}} anyar',
-	'echo-link' => 'Wara-wara kula', # Fuzzy
 	'echo-overlay-link' => 'Kabèh wara-wara...', # Fuzzy
-	'echo-overlay-title' => 'Wara-wara kula',
+	'echo-overlay-title' => 'Wara-wara kula', # Fuzzy
 );
 
 /** Georgian (ქართული)
@@ -3050,7 +3007,6 @@ $messages['ka'] = array(
 	'echo-more-info' => 'დეტალურად',
 	'notification-new-user' => 'კეთილი იყოს თქვენი მობრძანება საიტზე {{SITENAME}}, $1! ჩვენ მოხარული ვართ თქვენი აქ ყოფნით.',
 	'echo-notification-count' => '$1+',
-	'echo-link' => 'შეტყობინებები',
 	'echo-overlay-link' => 'შეტყობინება',
 	'echo-overlay-title' => '<b>შეტყობინებები</b>',
 	'echo-date-today' => 'დღეს',
@@ -3225,19 +3181,16 @@ $messages['ksh'] = array(
 	'echo-no-agent' => '[Keine]',
 	'echo-no-title' => '[Kein Sigg]',
 	'notifications' => 'Meddeilonge',
-	'echo-specialpage' => 'Ming Meddeilonge',
+	'echo-specialpage' => 'Ming Meddeilonge', # Fuzzy
 	'echo-anon' => 'Do moß Desch [[Special:Userlogin/signup|aanmälde]] udder [[Special:UserLogin|enlogge]], öm Medeilonge krijje ze künne.',
 	'echo-none' => 'Ende läzde Zigg häß De kein Medeilonge krääje.', # Fuzzy
-	'notification-new-user' => '$1, welkumme op {{GENDER:Dative|{{SITENAME}}}}!',
-	'notification-new-user-content' => 'Bes esu jood un donn Ding Beidrääsch op Klaafsigge met vier Tilde (~~~~) „ongerschriive“.',
+	'notification-new-user' => '$1, welkumme op {{GENDER:Dative|{{SITENAME}}}}!', # Fuzzy
 	'echo-email-subject-default' => 'En neue Medeilong op {{GRAMMAR:dative|{{ucfirst:{{SITENAME}}}}}}',
 	'echo-email-body-default' => 'Do häss_en neue Medeilong op {{GRAMMAR:dative|{{ucfirst:{{SITENAME}}}}}}:
 
 $1',
-	'echo-link-new' => '{{PLURAL:$1|Ein neue Medeilong|$1 neue Medeilonge|Kein neue Medeilong}}',
-	'echo-link' => 'Ming Medeilonge', # Fuzzy
 	'echo-overlay-link' => 'Alle Medeilonge{{int:ellipsis}}', # Fuzzy
-	'echo-overlay-title' => 'Ming Medeilonge',
+	'echo-overlay-title' => 'Ming Medeilonge', # Fuzzy
 	'echo-date-today' => 'Hück',
 	'echo-date-yesterday' => 'Jäßtere',
 );
@@ -3778,22 +3731,19 @@ $5',
 $messages['mt'] = array(
 	'echo-desc' => 'Sistema għan-notifiki',
 	'prefs-echo' => 'Notifiki',
-	'prefs-emailfrequency' => 'Kemm huma spissi n-notifiki li nirċievi', # Fuzzy
 	'echo-no-agent' => '[Ħadd]',
 	'echo-no-title' => '[L-ebda paġna]',
 	'notifications' => 'Notifiki',
-	'echo-specialpage' => 'Notifiki tiegħi',
+	'echo-specialpage' => 'Notifiki tiegħi', # Fuzzy
 	'echo-anon' => 'Sabiex tirċievi notifiki, [[Special:Userlogin/signup|oħloq kont]] jew [[Special:UserLogin|illoggja]].',
 	'echo-none' => "M'għandek l-ebda notifiki",
-	'notification-new-user' => 'Merħba fuq {{SITENAME}}, $1!',
+	'notification-new-user' => 'Merħba fuq {{SITENAME}}, $1!', # Fuzzy
 	'echo-email-subject-default' => 'Notifika ġdida fuq {{SITENAME}}',
 	'echo-email-body-default' => 'Għandek notifika ġdida fuq {{SITENAME}}:
 
 $1',
-	'echo-link-new' => '{{PLURAL:$1|notifika ġdida|$1 notifiki ġodda}}',
-	'echo-link' => 'Notifiki tiegħi', # Fuzzy
 	'echo-overlay-link' => 'Notifiki kollha…', # Fuzzy
-	'echo-overlay-title' => 'Notifiki tiegħi',
+	'echo-overlay-title' => 'Notifiki tiegħi', # Fuzzy
 );
 
 /** Norwegian Bokmål (norsk bokmål)
@@ -3954,7 +3904,7 @@ $5', # Fuzzy
 $messages['nds'] = array(
 	'echo-pref-web' => 'Web',
 	'echo-pref-email' => 'E-Mail',
-	'echo-category-title-other' => 'Annere',
+	'echo-category-title-other' => 'Annere', # Fuzzy
 );
 
 /** Dutch (Nederlands)
@@ -4130,23 +4080,23 @@ $1',
 Volg de volgende koppeling om je e-mailvoorkeuren te wijzigen of om je uit te schrijven:
 {{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
 
-$1',
-	'echo-email-batch-subject-daily' => 'Je hebt vandaag {{PLURAL:$2|0=geen meldingen|één melding|$1 meldingen}}',
-	'echo-email-batch-subject-weekly' => 'Je hebt deze week {{PLURAL:$2|0=geen meldingen|één melding|$1 meldingen}}',
+$1', # Fuzzy
+	'echo-email-batch-subject-daily' => 'Je hebt vandaag {{PLURAL:$2|0=geen meldingen|één melding|$1 meldingen}}', # Fuzzy
+	'echo-email-batch-subject-weekly' => 'Je hebt deze week {{PLURAL:$2|0=geen meldingen|één melding|$1 meldingen}}', # Fuzzy
 	'echo-email-batch-body-daily' => '$1,
 Je hebt vandaag {{PLURAL:$3|0=geen meldingen|één melding|$2 meldingen}} op {{SITENAME}}. Hier kan je je meldingen bekijken:
 {{canonicalurl:{{#special:Notifications}}}}
 
 $4
 
-$5',
+$5', # Fuzzy
 	'echo-email-batch-body-weekly' => '$1,
 Je hebt deze week {{PLURAL:$3|0=geen meldingen|één melding|$2 meldingen}} op {{SITENAME}}. Hier kan je je meldingen bekijken:
 {{canonicalurl:{{#special:Notifications}}}}
 
 $4
 
-$5',
+$5', # Fuzzy
 );
 
 /** Polish (polski)
@@ -4409,8 +4359,6 @@ $messages['ps'] = array(
 	'echo-specialpage' => 'يادګيرنې',
 	'echo-none' => 'تاسې هېڅ يادګيرنې نه لرۍ.',
 	'notification-new-user' => '$1 {{SITENAME}} ته ښه راغلې!، موږ خوښ يو چې تاسې دلته ياست.',
-	'echo-link-new' => '$1 نوې {{PLURAL:$1|يادګيرنه|يادګيرنې}}',
-	'echo-link' => 'يادګيرنې',
 	'echo-overlay-link' => 'ټولې يادګيرنې',
 	'echo-overlay-title' => '<b>يادګيرنې</b>',
 	'echo-date-today' => 'نن',
@@ -4636,7 +4584,7 @@ $messages['ru'] = array(
 	'echo-more-info' => 'Подробнее',
 	'echo-quotation-marks' => '«$1»',
 	'notification-new-user' => 'Добро пожаловать в {{SITENAME}}, $1! Мы рады, что вы здесь.',
-	'notification-edit-talk-page-email-subject2' => 'На вашей странице обсуждения есть новое сообщение',
+	'notification-edit-talk-page-email-subject2' => 'На вашей странице обсуждения есть новое сообщение', # Fuzzy
 	'echo-email-subject-default' => 'Новые уведомления на {{SITENAME}}',
 	'echo-email-body-default' => 'Вы имеете новое уведомление в проекте {{SITENAME}}:
 
@@ -4648,8 +4596,6 @@ $1',
 {{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
 
 $1', # Fuzzy
-	'echo-link-new' => '$1 {{PLURAL:$1|новое уведомление|новых уведомлений}}',
-	'echo-link' => 'Уведомления',
 	'echo-overlay-link' => 'Все уведомления',
 	'echo-overlay-title' => '<b>Уведомления</b>',
 	'echo-overlay-title-overflow' => 'Уведомления (показаны $1 из $2 непрочитанных)', # Fuzzy
@@ -4683,9 +4629,6 @@ $messages['si'] = array(
 	'echo-desc' => 'නිවේදන පද්ධතිය',
 	'prefs-echo' => 'නිවේදන',
 	'prefs-displaynotifications' => 'විකල්ප පෙන්වන්න',
-	'prefs-emailsubscriptions' => 'මාව විද්‍යුත්-තැපෑලෙන් දැනුවත් කරන්න කවුරුහරි',
-	'echo-pref-email-edit-user-talk' => 'මගේ කතාබහ පිටුවේ හසුන්',
-	'echo-pref-email-reverted' => 'මගේ සංස්කරණය ප්‍රතිවර්තනය',
 	'echo-pref-email-frequency-never' => 'මට විද්‍යුත්-තැපැල් නිවේදන කිසිවක් එවන්න එපා',
 	'echo-pref-email-frequency-immediately' => 'තනි තනි නිවේදන ඒවා එන විට',
 	'echo-pref-email-frequency-daily' => 'නිවේදනවල දෛනික සාරාංශයක්',
@@ -4695,27 +4638,22 @@ $messages['si'] = array(
 	'echo-error-no-formatter' => 'නිවේදනය සඳහා කිසිදු ආකෘතියක් දක්වා නොමැත',
 	'notifications' => 'නිවේදන',
 	'tooltip-pt-notifications' => 'ඔබේ නිවේදන',
-	'echo-specialpage' => 'මගේ නිවේදන',
+	'echo-specialpage' => 'මගේ නිවේදන', # Fuzzy
 	'echo-anon' => 'නිවේදන ලබා ගැනීම සඳහා, [[Special:Userlogin/signup|ගිණුමක් තනන්න]] හෝ [[Special:UserLogin|ප්‍රවිෂ්ට වන්න]].',
 	'echo-none' => 'ඔබට නිවේදන කිසිවක් නොමැත.',
-	'notification-new-user' => '{{SITENAME}} වෙත පිළිගනිමු, $1!',
+	'notification-new-user' => '{{SITENAME}} වෙත පිළිගනිමු, $1!', # Fuzzy
 	'echo-email-subject-default' => '{{SITENAME}} හී නව නිවේදනයක්',
 	'echo-email-body-default' => 'ඔබට {{SITENAME}} හීදී නව නිවේදනයක් ඇත:
 
 $1',
-	'echo-link-new' => 'නව {{PLURAL:$1|නිවේදන|නිවේදන}} $1', # Fuzzy
-	'echo-link' => 'නිවේදන',
 	'echo-overlay-link' => 'සියලුම නිවේදන',
-	'echo-overlay-title' => 'මගේ නිවේදන',
-	'echo-overlay-title-overflow' => 'මගේ නිවේදන (නොකියවූ ඒවා $1 න් $2 පෙන්වමින්)',
+	'echo-overlay-title' => 'මගේ නිවේදන', # Fuzzy
+	'echo-overlay-title-overflow' => 'මගේ නිවේදන (නොකියවූ ඒවා $1 න් $2 පෙන්වමින්)', # Fuzzy
 	'echo-date-today' => 'අද',
 	'echo-date-yesterday' => 'පෙරදින',
 	'echo-load-more-error' => 'තවත් ප්‍රතිඑල පමුනුවිමේදී දෝෂයක් හට ගැනුණි.',
-	'echo-email-batch-subject-daily' => 'ඔබට අද {{PLURAL:$2|නිවේදන}} $1 ඇත',
-	'echo-email-batch-subject-weekly' => 'ඔබට මෙම සතියේ {{PLURAL:$2|නිවේදන}} $1 ඇත',
-	'echo-email-batch-category-header-edit-user-talk' => 'කතාබහ පිටු {{PLURAL:$1|පණිවුඩ|පණිවුඩ}} $1', # Fuzzy
-	'echo-email-batch-category-header-edit-revert' => 'සංස්කරණ {{PLURAL:$1|ප්‍රතිවර්තන|ප්‍රතිවර්තන}} $1', # Fuzzy
-	'echo-email-batch-category-header-other' => '{{PLURAL:$1|වෙනත්|වෙනත්}} $1', # Fuzzy
+	'echo-email-batch-subject-daily' => 'ඔබට අද {{PLURAL:$2|නිවේදන}} $1 ඇත', # Fuzzy
+	'echo-email-batch-subject-weekly' => 'ඔබට මෙම සතියේ {{PLURAL:$2|නිවේදන}} $1 ඇත', # Fuzzy
 );
 
 /** Serbian (Cyrillic script) (српски (ћирилица)‎)
@@ -4751,11 +4689,10 @@ $messages['sr-el'] = array(
 	'echo-no-agent' => '[Niko]',
 	'echo-no-title' => '[Bez naslova]', # Fuzzy
 	'notifications' => 'Obaveštenja',
-	'echo-specialpage' => 'Moja obaveštenja',
+	'echo-specialpage' => 'Moja obaveštenja', # Fuzzy
 	'echo-none' => 'U poslednje vreme niste primili nijedno obaveštenje.', # Fuzzy
-	'echo-link' => 'Moja obaveštenja', # Fuzzy
 	'echo-overlay-link' => 'Sva obaveštenja…', # Fuzzy
-	'echo-overlay-title' => 'Moja obaveštenja',
+	'echo-overlay-title' => 'Moja obaveštenja', # Fuzzy
 );
 
 /** Swedish (svenska)
@@ -4920,16 +4857,14 @@ $messages['ta'] = array(
 	'echo-pref-email-frequency-daily' => 'தினமும் அறிவித்தல்களின் சுருக்கம்',
 	'echo-no-title' => '[தலைப்பு இல்லை]', # Fuzzy
 	'notifications' => 'அறிவிப்புகள்',
-	'echo-specialpage' => 'என் அறிவிப்புகள்',
+	'echo-specialpage' => 'என் அறிவிப்புகள்', # Fuzzy
 	'echo-anon' => 'அறிவிப்புகளைப் பெறுவதற்கு [[Special:Userlogin/signup|ஒரு கணக்கை உருவாக்குங்கள்]] அல்லது [[Special:UserLogin|உள்நுழையுங்கள்]].',
 	'echo-email-subject-default' => '{{SITENAME}}இல்  புதிய அறிவிப்புகள்',
 	'echo-email-body-default' => '{{SITENAME}} இல் உங்களுக்கு ஒரு புதிய அறிவிப்பு உள்ளது:
 
 $1',
-	'echo-link-new' => '$1 புதிய {{PLURAL:$1|notification|அறிவிக்கைகள்}}',
-	'echo-link' => 'என் அறிவிப்புகள்', # Fuzzy
 	'echo-overlay-link' => 'எல்லா அறிவிப்புகள்....', # Fuzzy
-	'echo-overlay-title' => 'என் அறிவிப்புகள்',
+	'echo-overlay-title' => 'என் அறிவிப்புகள்', # Fuzzy
 	'echo-date-today' => 'இன்று',
 	'echo-date-yesterday' => 'நேற்று',
 );
@@ -4944,19 +4879,16 @@ $messages['tl'] = array(
 	'echo-no-agent' => '[Walang Sinuman]',
 	'echo-no-title' => '[Walang Pamagat]', # Fuzzy
 	'notifications' => 'Mga pagpapabatid',
-	'echo-specialpage' => 'Mga pagpapabatid ko',
+	'echo-specialpage' => 'Mga pagpapabatid ko', # Fuzzy
 	'echo-anon' => 'Upang makatanggap ng mga pagpapabatid, [[Special:Userlogin/signup|lumikha ng isang akawnt]] o [[Special:UserLogin|lumagdang papasok]].',
 	'echo-none' => 'Hindi ka nakakatanggap ng anumang mga pagpapabatid nitong mga uling panahon!', # Fuzzy
-	'notification-new-user' => 'Maligayang Pagdating sa {{SITENAME}}, $1!',
-	'notification-new-user-content' => 'Manyaring tandaan na lumagda ng kahit na anong komento sa mga pahina ng usapan na may 4 na bantas (~~~~).',
+	'notification-new-user' => 'Maligayang Pagdating sa {{SITENAME}}, $1!', # Fuzzy
 	'echo-email-subject-default' => 'Bagong pagpapabatid sa {{SITENAME}}',
 	'echo-email-body-default' => 'Mayroon kang isang bagong pagpapabatid doon sa {{SITENAME}}:
 
 $1',
-	'echo-link-new' => '$1 bagong {{PLURAL:$1|pagpapabatid|mga pagpapabatid}}',
-	'echo-link' => 'Mga pagpapabatid ko', # Fuzzy
 	'echo-overlay-link' => 'Lahat ng mga pagpapabatid...', # Fuzzy
-	'echo-overlay-title' => 'Mga pagpapabatid ko',
+	'echo-overlay-title' => 'Mga pagpapabatid ko', # Fuzzy
 );
 
 /** Turkish (Türkçe)
@@ -4993,7 +4925,7 @@ $messages['tr'] = array(
 	'echo-more-info' => 'Daha fazla bilgi',
 	'echo-feedback' => 'Geri bildirim',
 	'notification-new-user' => 'Hoş geldin $1! Sizi burada görmekten memnun olduk.',
-	'notification-edit-talk-page-email-subject2' => 'Yeni tartışma sayfası iletiniz var.',
+	'notification-edit-talk-page-email-subject2' => 'Yeni tartışma sayfası iletiniz var.', # Fuzzy
 	'notification-edit-talk-page-email-body2' => '$1
 
 $3
@@ -5004,7 +4936,6 @@ Daha fazlası:
 
 $4', # Fuzzy
 	'echo-email-batch-body-default' => 'Yeni bir bildiriminiz var',
-	'echo-link' => 'Bildirimler',
 	'echo-overlay-link' => 'Bütün bildirimler',
 	'echo-overlay-title' => '<b>Bildirimler</b>',
 	'echo-date-today' => 'Bugün',
@@ -5018,7 +4949,6 @@ $messages['ug-arab'] = array(
 	'prefs-echo' => 'ئۇقتۇرۇشلار',
 	'prefs-displaynotifications' => 'كۆرسىتىش تاللانما',
 	'notifications' => 'ئۇقتۇرۇشلار',
-	'echo-link' => 'ئۇقتۇرۇشلار',
 	'echo-date-today' => 'بۈگۈن',
 	'echo-date-yesterday' => 'تۈنۈگۈن',
 );
@@ -5191,7 +5121,6 @@ $messages['ur'] = array(
 	'echo-specialpage' => 'میری اطلاعات', # Fuzzy
 	'echo-feedback' => 'آپ کی رائے',
 	'notification-user-rights-flyout' => 'آپ کے صارفانہ حقوق ہوگئے  {{GENDER:$1| تبدیل}} <b> $1 </b>کے ذریعے ۔ $2. [[Special:ListGroupRights|مزید دیکھیں]]',
-	'echo-link' => 'میری اطلاعات', # Fuzzy
 	'echo-overlay-link' => 'سب اطلاعات...', # Fuzzy
 	'echo-overlay-title' => '<b>اطلاعات</b>',
 	'echo-overlay-title-overflow' => '<b>اطلاعات</b> (دکھا رہا ہے $1  کے  $2  غیر مطلع)',
