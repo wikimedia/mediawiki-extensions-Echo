@@ -64,7 +64,16 @@ class SpecialNotifications extends SpecialPage {
 				$class .= ' mw-echo-unread';
 				$unread[] = $row['id'];
 			}
-			$notices .= Html::rawElement( 'li', array( 'class' => $class, 'data-notification-category' => $row['category'] ), $row['*'] );
+			$notices .= Html::rawElement(
+				'li',
+				array(
+					'class' => $class,
+					'data-notification-category' => $row['category'],
+					'data-notification-event' => $row['id'],
+					'data-notification-type' => $row['type']
+				),
+				$row['*']
+			);
 		}
 		$html = Html::rawElement( 'ul', array( 'id' => 'mw-echo-special-container' ), $notices );
 
