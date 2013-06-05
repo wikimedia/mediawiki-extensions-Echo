@@ -65,6 +65,7 @@ $wgAutoloadClasses['EchoPageLinkFormatter'] = $dir . 'formatters/PageLinkFormatt
 $wgAutoloadClasses['EchoNotifier'] = $dir . 'Notifier.php';
 $wgAutoloadClasses['EchoNotificationController'] = $dir . 'controller/NotificationController.php';
 $wgAutoloadClasses['EchoDiscussionParser'] = $dir . 'includes/DiscussionParser.php';
+$wgAutoloadClasses['EchoDiffParser'] = $dir . 'includes/DiffParser.php';
 
 // Job queue
 $wgAutoloadClasses['EchoNotificationJob'] = $dir . 'jobs/NotificationJob.php';

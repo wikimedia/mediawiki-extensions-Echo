@@ -1,9 +1,10 @@
 <?php
 
 abstract class EchoDiscussionParser {
-	static $timestampRegex;
-	static $headerRegex = '^\=\=\s*([^=].*)\s*\=\=$';
-	static $revisionInterpretationCache = array();
+	static protected $timestampRegex;
+	static protected $headerRegex = '^(==+)\s*([^=].*)\s*\1$';
+	static protected $revisionInterpretationCache = array();
+	static protected $diffParser;
 
 	/**
 	 * Given a Revision object, generates EchoEvent objects for
@@ -102,8 +103,10 @@ abstract class EchoDiscussionParser {
 	 * @param $interpretation array Results of self::getChangeInterpretationForRevision
 	 * @return string The section title if found otherwise a blank string
 	 */
-	protected static function detectSectionTitle( array $interpretation ) {
+	public static function detectSectionTitle( array $interpretation ) {
 		$header = '';
+		$found = false;
+
 		foreach ( $interpretation as $action ) {
 			switch( $action['type'] ) {
 			case 'add-comment':
@@ -115,8 +118,16 @@ abstract class EchoDiscussionParser {
 				break;
 			}
 			if ( $header ) {
-				return $header;
+				// If we find multiple headers within the same change interpretation then
+				// we cannot choose just 1 to link to
+				if ( $found ) {
+					return '';
+				}
+				$found = $header;
 			}
+		}
+		if ( $found ) {
+			return $found;
 		}
 		return '';
 	}
@@ -425,7 +436,7 @@ abstract class EchoDiscussionParser {
 			}
 		}
 
-		return $content;
+		return trim( $content, "\n" );
 	}
 
 	/**
@@ -444,7 +455,7 @@ abstract class EchoDiscussionParser {
 	}
 
 	/**
-	 * Gets the title of a section
+	 * Gets the title of a section or sub section
 	 *
 	 * @param $text string The text of the section.
 	 * @return string The title of the section.
@@ -454,11 +465,11 @@ abstract class EchoDiscussionParser {
 
 		$matches = array();
 
-		if ( !preg_match( '/' . self::$headerRegex . '/um', $text, $matches ) ) {
+		if ( !preg_match_all( '/' . self::$headerRegex . '/um', $text, $matches ) ) {
 			return false;
 		}
 
-		return trim( $matches[1] );
+		return trim( end( $matches[2] ) );
 	}
 
 	/**
@@ -572,49 +583,6 @@ abstract class EchoDiscussionParser {
 	}
 
 	/**
-	 * Duplicates the check from the global wfDiff function to determine
-	 * if we are using internal or external diff utilities
-	 */
-	static protected function usingInternalDiff() {
-		global $wgDiff;
-
-		wfSuppressWarnings();
-		$haveDiff = $wgDiff && file_exists( $wgDiff );
-		wfRestoreWarnings();
-
-		return !$haveDiff;
-	}
-
-	/**
-	 * Strips a single space from the 2nd character of internal diff output
-	 * For more info see bug 41689.
-	 * @param $diff string
-	 */
-	static protected function fixInternalDiff( $diff ) {
-		$result = array();
-		$seenFirstLine = false;
-		foreach ( explode( "\n", $diff ) as $line ) {
-			if ( !$seenFirstLine ) {
-				$result[] = $line;
-				$seenFirstLine = true;
-				continue;
-			}
-			$len = strlen( $line );
-			if ( $len === 0 ) {
-				$result[] = '';
-			} elseif ( $len <= 2 ) {
-				$result[] = $line[0];
-			} elseif( $line[1] !== ' ' ) {
-				throw new MWException( "Internal diff did not match expected broken format. Line: `$line`" );
-			} else {
-				$result[] = $line[0] . substr( $line, 2 );
-			}
-		}
-
-		return implode( "\n", $result );
-	}
-
-	/**
 	 * Finds differences between $oldText and $newText
 	 * and returns the result in a machine-readable format.
 	 *
@@ -632,110 +600,10 @@ abstract class EchoDiscussionParser {
 	 * * 'left_pos' and 'right_pos' (in lines) of the change.
 	 */
 	static function getMachineReadableDiff( $oldText, $newText ) {
-		$oldText = trim( $oldText ) . "\n";
-		$newText = trim( $newText ) . "\n";
-		$diff = wfDiff( $oldText, $newText, '-u -w' );
-		if ( self::usingInternalDiff() ) {
-			$diff = self::fixInternalDiff( $diff );
+		if ( !isset( self::$diffParser ) ) {
+			self::$diffParser = new EchoDiffParser;
 		}
-
-		$old_lines = explode( "\n", $oldText );
-		$new_lines = explode( "\n", $newText );
-
-		// First break down the diff into additions and subtractions
-		$diff_lines = explode( "\n", $diff );
-		$left_pos = 0;
-		$right_pos = 0;
-		$changes = array();
-		$change_run = false;
-		$sub_lines = 0;
-
-		for ( $i = 0; $i < count( $diff_lines ); ++$i ) {
-			$line = $diff_lines[$i];
-
-			if ( strlen( $line ) == 0 ) {
-				continue;
-			}
-
-			$line_type = $line[0];
-
-			if ( $line_type == ' ' ) {
-				++$left_pos;
-				++$right_pos;
-			} elseif ( $line_type == '@' ) {
-				list( $at, $lhs_pos, $rhs_pos, $at ) = explode( ' ', $line );
-				$lhs_pos = substr( $lhs_pos, 1 );
-				$rhs_pos = substr( $rhs_pos, 1 );
-				list( $left_pos ) = explode( ',', $lhs_pos );
-				list( $right_pos ) = explode( ',', $rhs_pos );
-				$change_run = false;
-			} elseif ( $line_type == '-' ) {
-				$subtracted_line = substr( $line, 1 );
-
-				if ( trim( $subtracted_line ) === '' ) {
-					++$left_pos;
-					continue;
-				}
-
-				if ( $change_run && $changes[$change_run]['action'] == 'subtract' ) {
-					++$sub_lines;
-					$changes[$change_run]['content'] .= "\n" . $subtracted_line;
-				} else {
-					$sub_lines = 1;
-					$changes[] = array(
-						'action' => 'subtract',
-						'left-pos' => $left_pos,
-						'right-pos' => $right_pos,
-						'content' => $subtracted_line,
-					);
-					$change_run = count( $changes ) - 1;
-				}
-
-				// Consistency check
-				if ( $old_lines[$left_pos - 1] != $subtracted_line ) {
-					throw new MWException( "Left offset consistency error.\nOffset: $right_pos\nExpected: {$old_lines[$left_pos-1]}\nActual: $subtracted_line" );
-				}
-				++$left_pos;
-			} elseif ( $line_type == '+' ) {
-				$added_line = substr( $line, 1 );
-
-				if ( $change_run !== false && $changes[$change_run]['action'] == 'add' ) {
-					$changes[$change_run]['content'] .= "\n" . $added_line;
-				} elseif ( $change_run !== false && $changes[$change_run]['action'] == 'subtract' ) {
-					$changes[$change_run]['action'] = 'change';
-					$changes[$change_run]['old_content'] = $changes[$change_run]['content'];
-					$changes[$change_run]['new_content'] = $added_line;
-					--$sub_lines;
-					unset( $changes[$change_run]['content'] );
-				} elseif ( $change_run !== false && $changes[$change_run]['action'] == 'change' && $sub_lines > 0 ) {
-					--$sub_lines;
-					$changes[$change_run]['new_content'] .= "\n" . $added_line;
-				} else {
-					$changes[] = array(
-						'action' => 'add',
-						'left-pos' => $left_pos,
-						'right-pos' => $right_pos,
-						'content' => $added_line,
-					);
-					$change_run = count( $changes ) - 1;
-				}
-
-				// Consistency check
-				if ( $new_lines[$right_pos - 1] != $added_line ) {
-					throw new MWException( "Right offset consistency error.\nOffset: $right_pos\nExpected: {$new_lines[$right_pos-1]}\nActual: $added_line\n" );
-				}
-				++$right_pos;
-			}
-		}
-
-		$changes['_info'] = array(
-			'lhs-length' => count( $old_lines ),
-			'rhs-length' => count( $new_lines ),
-			'lhs' => $old_lines,
-			'rhs' => $new_lines,
-		);
-
-		return $changes;
+		return self::$diffParser->getChangeSet( $oldText, $newText );
 	}
 
 	/**
