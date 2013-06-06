@@ -801,7 +801,7 @@ class EchoHooks {
 		$context = $wgOut->getContext();
 
 		// Capture user options saved via Special:Preferences or ApiOptions
-		if ( $context->getTitle()->isSpecial( 'Preferences' )
+		if ( ( $context->getTitle() && $context->getTitle()->isSpecial( 'Preferences' ) )
 			|| ( defined( 'MW_API' ) && $context->getRequest()->getVal( 'action' ) === 'options' )
 		) {
 			// $clone is the current user object with the new option value not set
