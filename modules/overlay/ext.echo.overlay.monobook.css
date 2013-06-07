@@ -1,0 +1,24 @@
+#p-personal .mw-echo-overlay {
+	text-align: left;
+	text-transform: none;
+	font-weight: normal;
+}
+#p-personal .mw-echo-overlay ul {
+	text-align: left;
+	text-transform: none;
+}
+#p-personal #mw-echo-overlay-link {
+	padding-bottom: 15px;
+}
+#p-personal #mw-echo-overlay-pref-link {
+	padding-bottom: 15px;
+}
+#p-personal .mw-echo-overlay li.mw-echo-notification {
+	color: #6D6D6D;
+}
+#p-personal #mw-echo-overlay-moreinfo-link {
+	/* @embed */
+	background-image: url(Help.png);
+	background-repeat: no-repeat;
+	background-position: 0 0;
+}

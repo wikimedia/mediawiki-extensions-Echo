@@ -1,0 +1,40 @@
+body #p-personal {
+	overflow: visible;
+}
+
+#p-personal .mw-echo-overlay {
+	text-transform: none;
+	font-variant: normal;
+	font-weight: normal;
+	left: -20px;
+	top: 31px;
+}
+#p-personal .mw-echo-overlay-pokey {
+	left: -6px;
+}
+#p-personal #pt-notifications ul,
+#p-personal #pt-notifications li {
+	text-transform: none;
+	font-weight: normal;
+	height: auto;
+}
+#p-personal #mw-echo-overlay-link {
+	padding: 15px 15px 15px 60px;
+}
+#p-personal #mw-echo-overlay-pref-link {
+	padding: 15px 15px 15px 35px;
+}
+
+#p-personal .mw-echo-overlay a {
+	padding: 0;
+	color: #003366;
+}
+#p-personal .mw-echo-overlay a:visited {
+	padding: 0;
+	color: #5a3696;
+}
+#p-personal .mw-echo-overlay a:hover {
+	padding: 0;
+	color: #003366;
+	text-decoration: inherit;
+}

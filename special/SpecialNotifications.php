@@ -25,24 +25,17 @@ class SpecialNotifications extends SpecialPage {
 			return;
 		}
 
+		$out->addSubtitle( $this->buildSubtitle() );
+
 		// The continue parameter to pull current set of data from, this
 		// would be used for browsers with javascript disabled
 		$continue = $this->getRequest()->getVal( 'continue', null );
-
-		// Preferences link
-		$html = Html::rawElement( 'a', array(
-			'href' => SpecialPage::getTitleFor( 'Preferences' )->getLinkURL() . '#mw-prefsection-echo',
-			'id' => 'mw-echo-pref-link',
-			'class' => 'mw-echo-special-header-link',
-			'title' => wfMessage( 'preferences' )->text()
-		) );
 
 		// Pull the notifications
 		$notif = ApiEchoNotifications::getNotifications( $user, 'html', self::$displayNum + 1, $continue );
 
 		// If there are no notifications, display a message saying so
 		if ( !$notif ) {
-			$out->addHTML( $html );
 			$out->addWikiMsg( 'echo-none' );
 			return;
 		}
@@ -73,7 +66,7 @@ class SpecialNotifications extends SpecialPage {
 			}
 			$notices .= Html::rawElement( 'li', array( 'class' => $class, 'data-notification-category' => $row['category'] ), $row['*'] );
 		}
-		$html .= Html::rawElement( 'ul', array( 'id' => 'mw-echo-special-container' ), $notices );
+		$html = Html::rawElement( 'ul', array( 'id' => 'mw-echo-special-container' ), $notices );
 
 		// Build the more link
 		if ( $nextContinue ) {
@@ -108,4 +101,37 @@ class SpecialNotifications extends SpecialPage {
 		}
 	}
 
+	/**
+	 * Build the subtitle (more info and preference links)
+	 * @return string HTML for the subtitle
+	 */
+	public function buildSubtitle() {
+		global $wgEchoHelpPage;
+		$lang = $this->getLanguage();
+		$subtitleLinks = array();
+		// More info link
+		$subtitleLinks[] = Html::rawElement(
+			'a',
+			array(
+				'href' => $wgEchoHelpPage,
+				'id' => 'mw-echo-moreinfo-link',
+				'class' => 'mw-echo-special-header-link',
+				'title' => wfMessage( 'echo-more-info' )->text(),
+				'target' => '_blank'
+			),
+			wfMessage( 'echo-more-info' )->text()
+		);
+		// Preferences link
+		$subtitleLinks[] = Html::rawElement(
+			'a',
+			array(
+				'href' => SpecialPage::getTitleFor( 'Preferences' )->getLinkURL() . '#mw-prefsection-echo',
+				'id' => 'mw-echo-pref-link',
+				'class' => 'mw-echo-special-header-link',
+				'title' => wfMessage( 'preferences' )->text()
+			),
+			wfMessage( 'preferences' )->text()
+		);
+		return $lang->pipeList( $subtitleLinks );
+	}
 }

@@ -139,6 +139,10 @@ $wgResourceModules += array(
 			'overlay/ext.echo.overlay.js',
 		),
 		'styles' => 'overlay/ext.echo.overlay.css',
+		'skinStyles' => array(
+			'modern' => 'overlay/ext.echo.overlay.modern.css',
+			'monobook' => 'overlay/ext.echo.overlay.monobook.css',
+		),
 		'dependencies' => array(
 			'ext.echo.base',
 			'mediawiki.api',
@@ -177,6 +181,9 @@ $wgResourceModules += array(
 			'alert/ext.echo.alert.js',
 		),
 		'styles' => 'alert/ext.echo.alert.css',
+		'skinStyles' => array(
+			'modern' => 'alert/ext.echo.alert.modern.css',
+		),
 		'messages' => array(
 			'echo-new-messages',
 			'colon-separator',
@@ -186,6 +193,7 @@ $wgResourceModules += array(
 		'styles' => 'badge/ext.echo.badge.css',
 		'skinStyles' => array(
 			'modern' => 'badge/ext.echo.badge.modern.css',
+			'monobook' => 'badge/ext.echo.badge.monobook.css',
 		),
 	),
 );

@@ -11,7 +11,9 @@
 		 * Initialize the property in special notification page.
 		 */
 		'initialize': function() {
-			var _this = this;
+			var _this = this,
+				skin = mw.config.get('skin');
+
 			// Convert more link into a button
 			$( '#mw-echo-more' )
 				.button()
@@ -37,29 +39,18 @@
 				}
 			} );
 
-			$( '<a/>' )
-				.attr( 'href', mw.config.get( 'wgEchoHelpPage' ) )
-				.attr( 'title', mw.msg( 'echo-more-info' ) )
-				.attr( 'id', 'mw-echo-moreinfo-link' )
-				.attr( 'target', '_blank' )
-				.appendTo( $( '#firstHeading' ) );
-
-			$( '#mw-echo-pref-link' )
-				.appendTo( $( '#firstHeading' ) );
-
-			$( '<span/>' )
-				.attr( 'id', 'mw-echo-link-separator' )
-				.addClass( 'mw-echo-special-header-link' )
-				.text( '|' )
-				.appendTo( $( '#firstHeading' ) );
-
-			$( '<a/>' )
-				.attr( 'href', mw.config.get( 'wgEchoFeedbackPage' ) )
-				.attr( 'id', 'mw-echo-feedback-link' )
-				.addClass( 'mw-echo-special-header-link' )
-				.attr( 'target', '_blank' )
-				.text( mw.msg( 'echo-feedback' ) )
-				.appendTo( $( '#firstHeading' ) );
+			// Apply custom header styling for vector and monobook skins
+			if ( skin === 'vector' || skin === 'monobook' ) {
+				$( '#firstHeading' )
+					.css( { 'max-width': '555px', 'margin-left': '50px' } );
+				$( '#mw-echo-moreinfo-link' )
+					.text( '' )
+					.appendTo( '#firstHeading' );
+				$( '#mw-echo-pref-link' )
+					.text( '' )
+					.appendTo( '#firstHeading' );
+				$( '#contentSub' ).empty();
+			}
 
 		},
 
