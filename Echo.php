@@ -218,8 +218,7 @@ $wgHooks['ArticleRollbackComplete'][] = 'EchoHooks::onRollbackComplete';
 $wgHooks['UserSaveSettings'][] = 'EchoHooks::onUserSaveSettings';
 
 // Disable ordinary user talk page email notifications
-$wgHooks['AbortEmailNotification'][] = 'EchoHooks::disableStandUserTalkEnotif';
-$wgHooks['UpdateUserMailerFormattedPageStatus'][] = 'EchoHooks::disableStandUserTalkEnotif';
+$wgHooks['AbortTalkPageEmailNotification'][] = 'EchoHooks::onAbortTalkPageEmailNotification';
 // Disable the yellow bar of death
 $wgHooks['GetNewMessagesAlert'][] = 'EchoHooks::abortNewMessagesAlert';
 $wgHooks['LinksUpdateAfterInsert'][] = 'EchoHooks::onLinksUpdateAfterInsert';
@@ -276,6 +275,12 @@ $wgEchoBundleEmailInterval = 0;
 
 // Whether or not to enable a new talk page message alert for logged in users
 $wgEchoNewMsgAlert = true;
+
+// Cohort study period.  This array should consist of 3 TS_MW format timestamps
+// in ascending order, the 1st one is when the bucketing and study start, the 2nd
+// one is when the bucketing ends, the 3rd one is when the study ends.  Set this
+// to empty array to disable Cohort study, this should be defined in LocalSettings.php
+$wgEchoCohortInterval = array();
 
 // Define which output formats are available for each notification category
 $wgEchoDefaultNotificationTypes = array(

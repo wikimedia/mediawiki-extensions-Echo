@@ -261,6 +261,11 @@ class EchoNotificationController {
 			throw new MWException( "Invalid notification type $type" );
 		}
 
+		// Don't send any notification if Echo is disabled
+		if ( EchoHooks::isEchoDisabled( $user ) ) {
+			return;
+		}
+
 		call_user_func_array( $wgEchoNotifiers[$type], array( $user, $event ) );
 	}
 
