@@ -6,6 +6,32 @@
 class EchoPageLinkFormatter extends EchoBasicFormatter {
 
 	/**
+	 * This is a workaround for backwards compatibility.
+	 * In https://gerrit.wikimedia.org/r/#/c/63076 we changed
+	 * the schema to save link-from-page-id instead of
+	 * link-from-namespace & link-from-title
+	 */
+	protected function extractExtra( $extra ) {
+		if ( isset( $extra['link-from-namespace'], $extra['link-from-title'] )
+			&& !isset( $extra['link-from-page-id'] )
+		) {
+			$title = Title::makeTitleSafe(
+				$extra['link-from-namespace'],
+				$extra['link-from-title']
+			);
+			if ( $title ) {
+				$extra['link-from-page-id'] = $title->getArticleId();
+				unset(
+					$extra['link-from-namespace'],
+					$extra['link-from-title']
+				);
+			}
+		}
+
+		return $extra;
+	}
+
+	/**
 	 * This method overwrite parent method and construct the bundle iterator
 	 * based on link from, it will be used in a message like this: Page A was
 	 * link from Page B and X other pages
@@ -21,15 +47,20 @@ class EchoPageLinkFormatter extends EchoBasicFormatter {
 		if ( !$data ) {
 			return;
 		}
-		$extra = $event->getExtra();
+		$extra = self::extractExtra( $event->getExtra() );
 
 		$linkFrom = array();
 
-		if ( $this->isTitleSet( $extra ) ) {
-			$linkFrom[$this->getTitleHash( $extra )] = true;
-		} else {
-			throw new MWException( "Link from title is required for bundling notification!" );
+		if ( !$this->isTitleSet( $extra ) ) {
+			// Link from title is required for bundling notification
+			return;
 		}
+		$key = $this->getTitleHash( $extra );
+		if ( !$key ) {
+			// Page no longer exists
+			return;
+		}
+		$linkFrom[$key] = true;
 
 		$count = 1;
 		foreach ( $data as $row ) {
@@ -41,7 +72,7 @@ class EchoPageLinkFormatter extends EchoBasicFormatter {
 			if ( $this->isTitleSet( $extra ) ) {
 				$key = $this->getTitleHash( $extra );
 
-				if ( !isset( $linkFrom[$key] ) ) {
+				if ( $key && !isset( $linkFrom[$key] ) ) {
 					$linkFrom[$key] = true;
 					$count++;
 				}
@@ -63,20 +94,16 @@ class EchoPageLinkFormatter extends EchoBasicFormatter {
 	 * @return bool
 	 */
 	private function isTitleSet( $extra ) {
-		if ( isset( $extra['link-from-namespace'], $extra['link-from-title'] ) ) {
-			return true;
-		} else {
-			return false;
-		}
+		return isset( $extra['link-from-page-id'] );
 	}
 
 	/**
-	 * Internal function to generate a unique md5 of namespace and title
+	 * Internal function to return a unique identifier representing the page.
 	 * @param $extra array
-	 * @return string
+	 * @return integer Unique identifier for the linked page
 	 */
 	private function getTitleHash( $extra ) {
-		return md5( $extra['link-from-namespace'] . '-' .  $extra['link-from-title'] );
+		return $extra['link-from-page-id'];
 	}
 
 	/**
@@ -86,20 +113,21 @@ class EchoPageLinkFormatter extends EchoBasicFormatter {
 	 * @param $user User
 	 */
 	protected function processParam( $event, $param, $message, $user ) {
-		$extra = $event->getExtra();
+		$extra = self::extractExtra( $event->getExtra() );
 		switch ( $param ) {
 			// 'A' part in this message: link from page A and X others
 			case 'link-from-page':
+				$content = null;
 				if ( $this->isTitleSet( $extra ) ) {
-					$message->params(
-						Title::makeTitle(
-							$extra['link-from-namespace'],
-							$extra['link-from-title']
-						)
-					);
-				} else {
-					$message->params( '' );
+					$title = Title::newFromId( $extra['link-from-page-id'] );
+					if ( $title !== null ) {
+						$content = $this->formatTitle( $title );
+					}
 				}
+				if ( $content === null ) {
+					$content = wfMessage( 'echo-no-title' );
+				}
+				$message->params( $content );
 				break;
 
 			// example: {7} other page, {99+} other pages

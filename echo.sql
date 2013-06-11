@@ -8,7 +8,8 @@ CREATE TABLE /*_*/echo_event (
 	event_agent_ip varchar(39) binary null, -- IP address who triggered it, if any
 	event_page_namespace int unsigned null,
 	event_page_title varchar(255) binary null,
-	event_extra BLOB NULL
+	event_extra BLOB NULL,
+	event_page_id int unsigned null
 ) /*$wgDBTableOptions*/;
 
 CREATE INDEX /*i*/event_type ON /*_*/echo_event (event_type);

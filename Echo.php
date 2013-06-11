@@ -74,7 +74,7 @@ $wgAutoloadClasses['MWEchoNotificationEmailBundleJob'] = $dir . 'jobs/Notificati
 $wgJobClasses['MWEchoNotificationEmailBundleJob'] = 'MWEchoNotificationEmailBundleJob';
 
 // API
-$wgAutoloadClasses['ApiEchoNotifications'] =  $dir . 'api/ApiEchoNotifications.php';
+$wgAutoloadClasses['ApiEchoNotifications'] = $dir . 'api/ApiEchoNotifications.php';
 $wgAPIMetaModules['notifications'] = 'ApiEchoNotifications';
 
 // Special page
@@ -94,6 +94,13 @@ $wgAutoloadClasses['EchoContainmentSet'] = $dir . 'includes/ContainmentSet.php';
 $wgAutoloadClasses['EchoArrayList'] = $dir . 'includes/ContainmentSet.php';
 $wgAutoloadClasses['EchoOnWikiList'] = $dir . 'includes/ContainmentSet.php';
 $wgAutoloadClasses['EchoCachedList'] = $dir . 'includes/ContainmentSet.php';
+
+// Maintenance testing
+$wgAutoloadClasses['EchoBatchRowUpdate'] = $dir . 'includes/BatchRowUpdate.php';
+$wgAutoloadClasses['EchoBatchRowWriter'] = $dir . 'includes/BatchRowUpdate.php';
+$wgAutoloadClasses['EchoBatchRowIterator'] = $dir . 'includes/BatchRowUpdate.php';
+$wgAutoloadClasses['EchoRowUpdateGenerator'] = $dir . 'includes/BatchRowUpdate.php';
+$wgAutoloadClasses['EchoSuppressionRowUpdateGenerator'] = $dir . 'includes/schemaUpdate.php';
 
 // Housekeeping hooks
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'EchoHooks::getSchemaUpdates';

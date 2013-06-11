@@ -107,8 +107,7 @@ class MWDbEchoBackend extends MWEchoBackend {
 					'event_agent_id',
 					'event_agent_ip',
 					'event_extra',
-					'event_page_namespace',
-					'event_page_title'
+					'event_page_id'
 				),
 				array(
 					'notification_event=event_id',
@@ -127,8 +126,7 @@ class MWDbEchoBackend extends MWEchoBackend {
 					'event_agent_id',
 					'event_agent_ip',
 					'event_extra',
-					'event_page_namespace',
-					'event_page_title'
+					'event_page_id'
 				),
 				array(
 					'eeb_event_id=event_id',
