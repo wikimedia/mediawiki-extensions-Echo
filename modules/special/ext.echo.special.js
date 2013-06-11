@@ -170,6 +170,6 @@
 		}
 	};
 
-	mw.echo.special.initialize();
+	$( document ).ready( mw.echo.special.initialize );
 
 } )( jQuery, mediaWiki );
