@@ -60,10 +60,16 @@
 						$li = $( '<li></li>' )
 							.data( 'details', data )
 							.data( 'id', id )
-							.attr( 'data-notification-category', data.category )
+							.attr( {
+								'data-notification-category': data.category,
+								'data-notification-event': data.id,
+								'data-notification-type': data.type
+							} )
 							.addClass( 'mw-echo-notification' )
 							.append( data['*'] )
 							.appendTo( $ul );
+
+					mw.echo.setupNotificationLogging( $li, 'flyout' );
 
 					if ( !data.read ) {
 						$li.addClass( 'mw-echo-unread' );
@@ -142,6 +148,9 @@
 					.attr( 'title', mw.msg( 'echo-more-info' ) )
 					.attr( 'id', 'mw-echo-overlay-moreinfo-link' )
 					.attr( 'target', '_blank' )
+					.click( function() {
+						mw.echo.logInteraction( 'ui-help-click', 'flyout' );
+					} )
 					.appendTo( $title );
 
 				// Insert the title area into the overlay
@@ -160,6 +169,9 @@
 						.attr( 'id', 'mw-echo-overlay-link' )
 						.attr( 'href', mw.util.wikiGetlink( 'Special:Notifications' ) )
 						.text( mw.msg( 'echo-overlay-link' ) )
+						.click( function() {
+							mw.echo.logInteraction( 'ui-archive-link-click', 'flyout' );
+						} )
 				);
 
 				// add link to notification preferences
@@ -168,6 +180,9 @@
 						.clone()
 						.attr( 'id', 'mw-echo-overlay-pref-link' )
 						.attr( 'href', $prefLink.attr( 'href' ) + '#mw-prefsection-echo' )
+						.click( function() {
+							mw.echo.logInteraction( 'ui-prefs-click', 'flyout' );
+						} )
 				);
 
 				$overlay.append( $overlayFooter );
@@ -204,6 +219,10 @@
 			var $target, $overlay;
 
 			e.preventDefault();
+
+			// log the badge click
+			mw.echo.logInteraction( 'ui-badge-link-click' );
+
 			$target = $( e.target );
 			// If the user clicked on the overlay or any child,
 			//  ignore the click

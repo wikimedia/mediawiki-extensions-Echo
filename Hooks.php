@@ -687,7 +687,7 @@ class EchoHooks {
 	 * @return bool true in all cases
 	 */
 	public static function makeGlobalVariablesScript( &$vars, OutputPage $outputPage ) {
-		global $wgEchoHelpPage, $wgEchoMaxNotificationCount;
+		global $wgEchoHelpPage, $wgEchoMaxNotificationCount, $wgEchoConfig;
 		$user = $outputPage->getUser();
 
 		// Provide info for the Overlay
@@ -699,6 +699,7 @@ class EchoHooks {
 				'max-notification-count' => $wgEchoMaxNotificationCount,
 			);
 			$vars['wgEchoHelpPage'] = $wgEchoHelpPage;
+			$vars['wgEchoConfig'] = $wgEchoConfig;
 		}
 
 		return true;

@@ -8,6 +8,60 @@
 
 		'dismissOutputFormats': ['web', 'email'],
 
+		'clickThroughEnabled': mw.config.get( 'wgEchoConfig' ).eventlogging.EchoInteraction.enabled,
+
+		/**
+		 * Set up event logging for individual notification
+		 * @param {JQuery} notification JQuery representing a single notification
+		 * @param {string} context 'flyout'/'archive'
+		 */
+		'setupNotificationLogging': function ( notification, context ) {
+			var eventId = +notification.attr( 'data-notification-event' ),
+				eventType = notification.attr( 'data-notification-type' );
+
+			// Check if Schema:EchoInteraction is enabled
+			if ( !mw.echo.clickThroughEnabled ) {
+				return;
+			}
+			// Log the impression
+			mw.echo.logInteraction( 'notification-impression', context, eventId, eventType );
+			// Set up logging for clickthrough
+			notification.find( 'a' ).click( function() {
+				mw.echo.logInteraction( 'notification-link-click', context, eventId, eventType );
+			} );
+		},
+
+		/**
+		 * Log all Echo interaction related events
+		 * @param {string} clickAction The interaction
+		 * @param {string} context 'flyout'/'archive' or undefined for the badge
+		 * @param {int} eventId Notification event id
+		 * @param {string} eventType notification type
+		 */
+		'logInteraction': function( action, context, eventId, eventType ) {
+			// Check if Schema:EchoInteraction is enabled
+			if ( !mw.echo.clickThroughEnabled ) {
+				return;
+			}
+
+			var myEvt = {
+				action: action
+			};
+
+			// All the three fields below are optional
+			if ( context ) {
+				myEvt.context = context;
+			}
+			if ( eventId ) {
+				myEvt.eventId = eventId;
+			}
+			if ( eventType ) {
+				myEvt.notificationType = eventType;
+			}
+
+			mw.eventLog.logEvent( 'EchoInteraction', myEvt );
+		},
+
 		/**
 		 * Change the user's preferences related to this notification type and
 		 * reload the page.
@@ -59,15 +113,13 @@
 		 * First we have to retrieve the options token.
 		 */
 		'setOptionsToken': function( callback, notification ) {
-			var tokenRequest,
-				_this = this;
-
-			tokenRequest = {
+			var tokenRequest = {
 				'action': 'tokens',
 				'type' : 'options',
 				'format': 'json'
 			};
-			if ( this.optionsToken ) {
+
+			if ( mw.echo.optionsToken ) {
 				callback( notification );
 			} else {
 				$.ajax( {
@@ -79,7 +131,7 @@
 						if ( data.tokens.optionstoken === undefined ) {
 							alert( mw.msg( 'echo-error-token' ) );
 						} else {
-							_this.optionsToken = data.tokens.optionstoken;
+							mw.echo.optionsToken = data.tokens.optionstoken;
 							callback( notification );
 						}
 					},
@@ -114,7 +166,6 @@
 			var $dismissButton,
 				$cancelButton,
 				$closebox,
-				_this = this,
 				$notification = $( notification );
 
 			// Add dismiss box
@@ -122,7 +173,7 @@
 				.addClass( 'mw-echo-close-box' )
 				.css( 'display', 'none' )
 				.click( function() {
-					_this.showDismissOption( this );
+					mw.echo.showDismissOption( this );
 				} );
 			$notification.append( $closebox );
 
@@ -135,7 +186,7 @@
 					icons: { primary: 'ui-icon-closethick' }
 				} )
 				.click( function () {
-					_this.setOptionsToken( _this.dismiss, $notification );
+					mw.echo.setOptionsToken( mw.echo.dismiss, $notification );
 				} );
 			$cancelButton = $( '<a/>' )
 				.text( mw.msg( 'cancel' ) )
@@ -166,4 +217,12 @@
 		}
 
 	};
+
+	if ( mw.echo.clickThroughEnabled ) {
+		mw.eventLog.setDefaults( 'EchoInteraction', {
+			version: mw.config.get( 'wgEchoConfig' ).version,
+			userId: +mw.config.get( 'wgUserId' ),
+			editCount: +mw.config.get( 'wgUserEditCount' )
+		} );
+	}
 } )( jQuery, mediaWiki );

@@ -31,12 +31,20 @@
 			_this.notcontinue = mw.config.get( 'wgEchoNextContinue' );
 			_this.header = mw.config.get( 'wgEchoDateHeader' );
 
-			// Set up each individual notification with a close box and dismiss
-			// interface if it is dismissable.
+			// Set up each individual notification with eventlogging, a close
+			// box and dismiss interface if it is dismissable.
 			$( '.mw-echo-notification' ).each( function() {
+				mw.echo.setupNotificationLogging( $( this ), 'archive' );
 				if ( $( this ).find( '.mw-echo-dismiss' ).length ) {
 					mw.echo.setUpDismissability( this );
 				}
+			} );
+
+			$( '#mw-echo-moreinfo-link' ).click( function() {
+				mw.echo.logInteraction( 'ui-help-click', 'archive' );
+			} );
+			$( '#mw-echo-pref-link' ).click( function() {
+				mw.echo.logInteraction( 'ui-prefs-click', 'archive' );
 			} );
 
 			// Apply custom header styling for vector and monobook skins
@@ -87,7 +95,11 @@
 								.data( 'details', data )
 								.data( 'id', id )
 								.addClass( 'mw-echo-notification' )
-								.attr( 'data-notification-category', data.category )
+								.attr( {
+									'data-notification-category': data.category,
+									'data-notification-event': data.id,
+									'data-notification-type': data.type
+								} )
 								.append( data['*'] )
 								.appendTo( container );
 
@@ -95,6 +107,8 @@
 								$li.addClass( 'mw-echo-unread' );
 								unread.push( id );
 							}
+
+							mw.echo.setupNotificationLogging( $li, 'archive' );
 
 							if ( $li.find( '.mw-echo-dismiss' ).length ) {
 								mw.echo.setUpDismissability( $li );
