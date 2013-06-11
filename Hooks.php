@@ -235,6 +235,11 @@ class EchoHooks {
 			$wgEchoNotifiers, $wgEchoNotificationCategories, $wgEchoNotifications,
 			$wgEchoHelpPage, $wgEchoNewMsgAlert;
 
+		// Don't show echo preference page if echo is disabled for this user
+		if ( self::isEchoDisabled( $user ) ) {
+			return true;
+		}
+
 		// Show email frequency options
 		$never = wfMessage( 'echo-pref-email-frequency-never' )->plain();
 		$immediately = wfMessage( 'echo-pref-email-frequency-immediately' )->plain();
@@ -596,6 +601,12 @@ class EchoHooks {
 	static function beforePageDisplay( $out, $skin ) {
 		global $wgEchoNewMsgAlert;
 		$user = $out->getUser();
+
+		// Don't show the alert message and badge if echo is disabled for this user
+		if ( self::isEchoDisabled( $user ) ) {
+			return true;
+		}
+
 		if ( $user->isLoggedIn() && $user->getOption( 'echo-notify-show-link' ) ) {
 			global $wgEchoFeedbackPage;
 			// Load the module for the Notifications flyout
@@ -622,7 +633,7 @@ class EchoHooks {
 	static function onPersonalUrls( &$personal_urls, &$title ) {
 		global $wgUser;
 		// Add a "My notifications" item to personal URLs
-		if ( $wgUser->isAnon() || !$wgUser->getOption( 'echo-notify-show-link' ) ) {
+		if ( $wgUser->isAnon() || self::isEchoDisabled( $wgUser ) || !$wgUser->getOption( 'echo-notify-show-link' ) ) {
 			return true;
 		}
 
@@ -647,19 +658,25 @@ class EchoHooks {
 	}
 
 	/**
-	 * Handler for AbortEmailNotification and UpdateUserMailerFormattedPageStatus hook.
-	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/AbortEmailNotification
-	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/UpdateUserMailerFormattedPageStatus
-	 * @return bool true in all cases
+	 * Handler for AbortTalkPageEmailNotification hook.
+	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/AbortTalkPageEmailNotification
+	 * @param $targetUser User
+	 * @param $title Title
+	 * @return bool
 	 */
-	static function disableStandUserTalkEnotif() {
-		global $wgEchoNotifications, $wgEnotifUserTalk;
-		if ( isset( $wgEchoNotifications['edit-user-talk'] ) ) {
-			// Disable the standard email notification for talk page messages
-			$wgEnotifUserTalk = false;
+	static function onAbortTalkPageEmailNotification( $targetUser, $title ) {
+		global $wgEchoNotifications;
+
+		// Send legacy talk page email notification if
+		// 1. echo is disabled for them or
+		// 2. echo talk page notification is disabled
+		if ( self::isEchoDisabled( $targetUser ) || !isset( $wgEchoNotifications['edit-user-talk'] ) ) {
+			// Legacy talk page email notification
+			return true;
 		}
-		// Don't abort watchlist email notifications
-		return true;
+
+		// Echo talk page email notification
+		return false;
 	}
 
 	/**
@@ -716,12 +733,17 @@ class EchoHooks {
 	 */
 	static function abortNewMessagesAlert( &$newMessagesAlert, $newtalks, $user, $out ) {
 		global $wgEchoNotifications;
+
 		// If the user has the notifications flyout turned on and is receiving
 		// notifications for talk page messages, disable the new messages alert.
 		if ( $user->isLoggedIn()
 			&& $user->getOption( 'echo-notify-show-link' )
 			&& isset( $wgEchoNotifications['edit-user-talk'] )
 		) {
+			// Show the new messages alert for users with echo disabled
+			if ( self::isEchoDisabled( $user ) ) {
+				return true;
+			}
 			// hide new messages alert
 			return false;
 		} else {
@@ -866,4 +888,45 @@ class EchoHooks {
 
 		return true;
 	}
+
+	/**
+	 * Echo should be disabled for users who are under cohort study
+	 * @param $user User
+	 * @return bool
+	 */
+	public static function isEchoDisabled( User $user ) {
+		global $wgEchoCohortInterval;
+
+		// Make sure the user has an id and cohort study timestamp is specified
+		if ( !$wgEchoCohortInterval || !$user->getId() ) {
+			return false;
+		}
+
+		list( $start, $bucketEnd, $cohortEnd ) = $wgEchoCohortInterval;
+
+		$regTimestamp = $user->getRegistration();
+
+		// Cohort study is for user with a registration timestamp
+		if ( !$regTimestamp ) {
+			return false;
+		}
+
+		// Cohort study is for even user_id
+		if ( $user->getId() % 2 === 1 ) {
+			return false;
+		}
+
+		$now = wfTimestampNow();
+
+		// Make sure the user is registered during the bucketing period
+		// and the cohort study doesn't end yet
+		if ( $start <= $regTimestamp && $regTimestamp <= $bucketEnd
+			&& $start <= $now && $now <= $cohortEnd
+		) {
+			return true;
+		}
+
+		return false;
+	}
+
 }
