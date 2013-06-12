@@ -171,7 +171,7 @@ abstract class EchoDiscussionParser {
 			$mentionedUsers[$user->getId()] = $user->getId();
 			$count++;
 			// This is an unbounded list, put a cap on the allowable mentioned user list
-			if ( $count > 300 ) {
+			if ( $count > 100 ) {
 				break;
 			}
 		}
