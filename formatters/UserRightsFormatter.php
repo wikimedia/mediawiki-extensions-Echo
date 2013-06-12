@@ -32,12 +32,33 @@ class EchoUserRightsFormatter extends EchoBasicFormatter {
 					}
 				}
 				$message->params( $wgLang->semicolonList( $list ) );
-			break;
+				break;
 
 			default:
 				parent::processParam( $event, $param, $message, $user );
-			break;
+				break;
 		}
 	}
 
+	/**
+	 * Helper function for getLink()
+	 *
+	 * @param EchoEvent $event
+	 * @param User $user The user receiving the notification
+	 * @param String $destination The destination type for the link
+	 * @return Array including target and query parameters
+	 */
+	protected function getLinkParams( $event, $user, $destination ) {
+		$target = null;
+		$query = array();
+		// Set up link parameters based on the destination (or pass to parent)
+		switch ( $destination ) {
+			case 'user-rights-list':
+				$target = SpeicalPage::getTitleFor( 'ListsGroupRights' );
+				break;
+			default:
+				return parent::getLinkParams( $event, $user, $destination );
+		}
+		return array( $target, $query );
+	}
 }

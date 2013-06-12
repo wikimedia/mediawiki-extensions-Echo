@@ -29,7 +29,7 @@
 	overflow: auto;
 }
 #p-personal .mw-echo-overlay li.mw-echo-notification {
-	background-color: #F0F0F0;
+	background-color: #F1F1F1;
 	display: block;
 	float: none;
 	border-bottom: 1px solid #DDDDDD;
@@ -40,16 +40,28 @@
 	line-height: 16px;
 }
 #p-personal .mw-echo-overlay li.mw-echo-notification:hover {
-	background-color: #F8F8F8;
+	background-color: #F9F9F9;
 }
-#p-personal .mw-echo-overlay li.mw-echo-notification.mw-echo-unread,
-#p-personal .mw-echo-overlay li.mw-echo-notification.mw-echo-unread:hover {
+#p-personal .mw-echo-overlay li.mw-echo-notification.mw-echo-unread {
 	background-color: white;
+}
+#p-personal .mw-echo-overlay li.mw-echo-notification.mw-echo-unread:hover {
+	background-color: #F9F9F9;
 }
 #p-personal .mw-echo-overlay li.mw-echo-notification:last-child {
 	border-bottom: none;
 }
+#p-personal .mw-echo-title a {
+	font-weight: bold;
+	text-decoration: none;
+}
+#p-personal .mw-echo-overlay a.mw-echo-grey-link {
+	color: #6D6D6D;
+}
 
+.mw-echo-notification-primary-link {
+	display: none;
+}
 .mw-echo-overlay-title {
 	/*border-bottom: 1px solid #A7D7F9;*/
 	font-size: 13px;
@@ -93,20 +105,27 @@
 	width: 149px;
 	min-height: 14px;
 	font-size: 13px;
+	font-weight: bold;
 	/* @embed */
 	background: url(../icons/NotificationsPage-ltr.png) no-repeat 17% 50% !important;
 }
-
+#mw-echo-overlay-link:hover {
+	text-decoration: none;
+}
 #mw-echo-overlay-pref-link {
 	display: block;
 	float: left;
 	width: 174px;
 	min-height: 14px;
 	font-size: 13px;
+	font-weight: bold;
 	padding: 15px 15px 15px 35px;
 	border-left: 1px solid #DDDDDD;
 	/* @embed */
 	background: url(../icons/Settings.png) no-repeat 5% 50% !important;
+}
+#mw-echo-overlay-pref-link:hover {
+	text-decoration: none;
 }
 
 #pt-notifications {

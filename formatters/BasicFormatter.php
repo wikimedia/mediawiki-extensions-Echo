@@ -203,8 +203,13 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			$content .= Xml::tags( 'div', array( 'class' => 'mw-echo-payload' ), $payload ) . "\n";
 		}
 
-		// Add timestamp
-		$content .= $this->formatTimestamp( $event->getTimestamp() );
+		// Add footer (timestamp and secondary link)
+		$content .= $this->formatFooter( $event, $user );
+
+		// Add the primary link (hidden)
+		if ( $this->outputFormat === 'flyout' ) {
+			$content .= $this->getLink( $event, $user, 'primary' );
+		}
 
 		$output .= Xml::tags( 'div', array( 'class' => 'mw-echo-content' ), $content ) . "\n";
 
@@ -306,7 +311,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	protected function formatPayload( $payload, $event, $user ) {
 		switch ( $payload ) {
 			case 'summary':
-				return $this->formatSummary( $event, $user );
+				return $this->formatRevisionComment( $event, $user );
 				break;
 			case 'comment-text':
 				return $this->formatCommentText( $event, $user );
@@ -357,6 +362,31 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 		// Strip out #, keeping # in the i18n message makes it look more clear
 		return substr( $wgParser->guessLegacySectionNameFromWikiText( $extra['section-title'] ), 1 );
 	}
+
+	/**
+	 * Build the footer for the notification (timestamp and secondary link)
+	 * @param EchoEvent $event
+	 * @param User $user The user to format the notification for.
+	 * @return String HTML
+	 */
+	protected function formatFooter( $event, $user ) {
+		global $wgLang;
+		$timestamp = $this->formatTimestamp( $event->getTimestamp() );
+		$notificationFooterContent = array();
+		if ( $this->outputFormat === 'flyout' ) {
+			$secondaryLink = $this->getLink( $event, $user, 'secondary' );
+			if ( $secondaryLink ) {
+				$notificationFooterContent[] = $timestamp;
+				$notificationFooterContent[] = $secondaryLink;
+				$footer = $wgLang->pipeList( $notificationFooterContent );
+			}
+		}
+		if ( !$notificationFooterContent ) {
+			$footer = $timestamp;
+		}
+		return Xml::tags( 'div', array( 'class' => 'mw-echo-notification-footer' ), $footer ) . "\n";
+	}
+
 
 	/**
 	 * Generate links based on output format and passed properties
@@ -505,6 +535,95 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 		foreach ( $params as $param ) {
 			$this->processParam( $event, $param, $message, $user );
 		}
+	}
+
+	/**
+	 * Get the URL for the primary or secondary link for an event
+	 *
+	 * @param EchoEvent $event
+	 * @param User $user The user receiving the notification
+	 * @param String $rank 'primary' or 'secondary' (default is 'primary')
+	 * @param boolean $local True to return a local (relative) URL, false to
+	 *     return a full URL (for email for example) (default is true)
+	 * @param boolean $urlOnly True to return only the URL without the <a> tag,
+	 *     false to return a full anchor link (default is false)
+	 * @param String $style A style attribute to apply to the anchor, e.g.
+	 *     'border: 1px solid green; text-decoration: none;' (optional)
+	 * @return String URL for link, or HTML for anchor tag, or empty string
+	 */
+	protected function getLink( $event, $user, $rank = 'primary', $local = true, $urlOnly = false, $style = '' ) {
+		$destination = $event->getLinkDestination( $rank );
+		if ( !$destination ) {
+			return '';
+		}
+		// Get link parameters based on the destination
+		list( $target, $query ) = $this->getLinkParams( $event, $user, $destination );
+		if ( !$target ) {
+			return '';
+		}
+		if ( $urlOnly ) {
+			if ( $local ) {
+				return $target->getLinkURL( $query );
+			} else {
+				return $target->getCanonicalURL( $query );
+			}
+		} else {
+			$message = wfMessage( $event->getLinkMessage( $rank ) )->text();
+			$attribs = array( 'class' => "mw-echo-notification-{$rank}-link" );
+			if ( $style ) {
+				$attribs['style'] = $style;
+			}
+			$options = array();
+			// If local is false, return an absolute url using HTTP protocol
+			if ( !$local ) {
+				$options[] = 'http';
+			}
+			return Linker::link( $target, $message, $attribs, $query, $options );
+		}
+	}
+
+	/**
+	 * Helper function for getLink()
+	 *
+	 * @param EchoEvent $event
+	 * @param User $user The user receiving the notification
+	 * @param String $destination The destination type for the link, e.g. 'agent'
+	 * @return Array including target and query parameters
+	 */
+	protected function getLinkParams( $event, $user, $destination ) {
+		$target = null;
+		$query = array();
+		// Set up link parameters based on the destination
+		switch ( $destination ) {
+			case 'agent':
+				if ( $event->getAgent() ) {
+					$target = $event->getAgent()->getUserPage();
+				}
+				break;
+			case 'title':
+				$target = $event->getTitle();
+				break;
+			case 'section':
+				$target = $event->getTitle();
+				if ( $target ) {
+					$fragment = $this->formatSubjectAnchor( $event );
+					if ( $fragment ) {
+						$target->setFragment( "#$fragment" );
+					}
+				}
+				break;
+			case 'diff':
+				$eventData = $event->getExtra();
+				if ( isset( $eventData['revid'] ) && $event->getTitle() ) {
+					$target = $event->getTitle();
+					$query = array(
+						'oldid' => $eventData['revid'],
+						'diff' => 'prev',
+					);
+				}
+				break;
+		}
+		return array( $target, $query );
 	}
 
 	/**

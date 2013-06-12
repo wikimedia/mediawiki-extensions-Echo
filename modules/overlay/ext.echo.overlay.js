@@ -69,6 +69,29 @@
 							.append( data['*'] )
 							.appendTo( $ul );
 
+					// Grey links in the notification title and footer (except on hover)
+					$li.find( '.mw-echo-title a, .mw-echo-notification-footer a' )
+						.addClass( 'mw-echo-grey-link' );
+					$li.hover(
+						function() {
+							$( this ).find( '.mw-echo-title a' ).removeClass( 'mw-echo-grey-link' );
+						},
+						function() {
+							$( this ).find( '.mw-echo-title a' ).addClass( 'mw-echo-grey-link' );
+						}
+					);
+					// If there is a primary link, make the entire notification clickable.
+					if ( $li.find( '.mw-echo-notification-primary-link' ).length ) {
+						$li.css( 'cursor', 'pointer' );
+						$li.click( function() {
+							if ( mw.echo.clickThroughEnabled ) {
+								// Log the clickthrough
+								mw.echo.logInteraction( 'notification-link-click', 'flyout', data.id, data.type );
+							}
+							window.location.href = $li.find( '.mw-echo-notification-primary-link' ).attr( 'href' );
+						} );
+					}
+
 					mw.echo.setupNotificationLogging( $li, 'flyout' );
 
 					if ( !data.read ) {
@@ -126,14 +149,6 @@
 				) {
 					// Add the 'mark all as read' button to the title area
 					$title.append( $markReadButton );
-				// Display a feedback link if there is no 'mark read' button
-				} else {
-					$( '<a>' )
-					.attr( 'href', mw.config.get( 'wgEchoFeedbackPage' ) + '?c=flyout' )
-					.attr( 'id', 'mw-echo-overlay-feedback-link' )
-					.attr( 'target', '_blank' )
-					.text( mw.msg( 'echo-feedback' ) )
-					.appendTo( $title );
 				}
 
 				// Add the header to the title area
@@ -167,11 +182,20 @@
 				$overlayFooter.append(
 					$( '<a>' )
 						.attr( 'id', 'mw-echo-overlay-link' )
+						.addClass( 'mw-echo-grey-link' )
 						.attr( 'href', mw.util.wikiGetlink( 'Special:Notifications' ) )
 						.text( mw.msg( 'echo-overlay-link' ) )
 						.click( function () {
 							mw.echo.logInteraction( 'ui-archive-link-click', 'flyout' );
 						} )
+						.hover(
+							function() {
+								$( this ).removeClass( 'mw-echo-grey-link' );
+							},
+							function() {
+								$( this ).addClass( 'mw-echo-grey-link' );
+							}
+						)
 				);
 
 				// add link to notification preferences
@@ -179,10 +203,19 @@
 					$prefLink
 						.clone()
 						.attr( 'id', 'mw-echo-overlay-pref-link' )
+						.addClass( 'mw-echo-grey-link' )
 						.attr( 'href', $prefLink.attr( 'href' ) + '#mw-prefsection-echo' )
 						.click( function () {
 							mw.echo.logInteraction( 'ui-prefs-click', 'flyout' );
 						} )
+						.hover(
+							function() {
+								$( this ).removeClass( 'mw-echo-grey-link' );
+							},
+							function() {
+								$( this ).addClass( 'mw-echo-grey-link' );
+							}
+						)
 				);
 
 				$overlay.append( $overlayFooter );

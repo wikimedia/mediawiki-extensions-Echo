@@ -69,23 +69,28 @@ $messages['en'] = array(
 
 	// Notification
 	'echo-quotation-marks' => '"$1"',
+	'notification-link-text-view-message' => 'View message',
+	'notification-link-text-view-mention' => 'View mention',
+	'notification-link-text-view-changes' => 'View changes',
+	'notification-link-text-view-page' => 'View page',
+	'notification-link-text-view-edit' => 'View edit',
 	'notification-edit-talk-page2' => '[[User:$1|$1]] {{GENDER:$1|posted}} on your [[User talk:$2#$3|talk page]].',
-	'notification-edit-talk-page-flyout2' => '<b>$1</b> {{GENDER:$1|posted}} on your [[User talk:$2#$3|talk page]].',
+	'notification-edit-talk-page-flyout2' => '$1 {{GENDER:$1|posted}} on your [[User talk:$2#$3|talk page]].',
 	'notification-page-linked' => '[[:$2]] was {{GENDER:$1|linked}} from [[:$3]]: [[Special:WhatLinksHere/$2|See all links to this page]]',
-	'notification-page-linked-flyout' => '<b>$2</b> was {{GENDER:$1|linked}} from [[:$3]].',
+	'notification-page-linked-flyout' => '$2 was {{GENDER:$1|linked}} from [[:$3]].',
 	'notification-add-comment2' => '[[User:$1|$1]] {{GENDER:$1|commented}} on "[[$3|$2]]" on the "$4" talk page',
 	'notification-add-talkpage-topic2' => '[[User:$1|$1]] {{GENDER:$1|posted}} a new topic "$2" on [[$3]]',
 	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]] {{GENDER:$1|sent}} you a message: "[[$3#$2|$2]]"',
 	'notification-add-comment-yours2' => '[[User:$1|$1]] {{GENDER:$1|commented}} on "[[$3#$2|$2]]" on your talk page',
 	'notification-mention' => '[[User:$1|$1]] {{GENDER:$1|mentioned}} you on [[$3#$2|$3]].',
-	'notification-mention-flyout' => '<b>$1</b> {{GENDER:$1|mentioned}} you on [[$3#$2|$3]].',
+	'notification-mention-flyout' => '$1 {{GENDER:$1|mentioned}} you on [[$3#$2|$3]].',
 	'notification-user-rights' => 'Your user rights [[Special:Log/rights/$1|were {{GENDER:$1|changed}}]] by [[User:$1|$1]]. $2. [[Special:ListGroupRights|Learn more]]',
-	'notification-user-rights-flyout' => 'Your user rights were {{GENDER:$1|changed}} by <b>$1</b>. $2. [[Special:ListGroupRights|Learn more]]',
+	'notification-user-rights-flyout' => 'Your user rights were {{GENDER:$1|changed}} by $1. $2. [[Special:ListGroupRights|Learn more]]',
 	'notification-user-rights-add' => 'You are now a member of {{PLURAL:$2|this group|these groups}}: $1',
 	'notification-user-rights-remove' => 'You are no longer a member of {{PLURAL:$2|this group|these groups}}: $1',
 	'notification-new-user' => "Welcome to {{SITENAME}}, $1! We're glad you're here.",
 	'notification-reverted2' => 'Your {{PLURAL:$4|edit on [[:$2]] has|edits on [[:$2]] have}} been {{GENDER:$1|reverted}} by [[User:$1|$1]] $3',
-	'notification-reverted-flyout2' => 'Your {{PLURAL:$4|edit on <b>$2</b> has|edits on <b>$2</b> have}} been {{GENDER:$1|reverted}} by <b>$1</b> $3',
+	'notification-reverted-flyout2' => 'Your {{PLURAL:$4|edit on $2 has|edits on $2 have}} been {{GENDER:$1|reverted}} by $1 $3',
 	'notification-edit-talk-page-email-subject2' => 'You have a new talkpage message on {{SITENAME}}',
 	'notification-edit-talk-page-email-body3' => '$1
 
@@ -289,6 +294,11 @@ Parameters:
 	'echo-feedback' => 'Text for a link that goes to a feedback survey shown at [[Special:Notifications]].
 {{Identical|Feedback}}',
 	'echo-quotation-marks' => 'Puts the edit summary in quotation marks. Only translate if different than English.',
+	'notification-link-text-view-message' => 'Label for button that links to a message on your talk page.',
+	'notification-link-text-view-mention' => 'Label for button that links to a discussion where you were mentioned.',
+	'notification-link-text-view-changes' => 'Label for button that links to a "diff" view showing changes made to a page. This is an alternative to the wording in {{msg-mw|notification-link-text-view-edit}}, which serves essentially the same function.',
+	'notification-link-text-view-page' => 'Label for button that links to a page.',
+	'notification-link-text-view-edit' => 'Label for button that links to a "diff" view showing an edit made to a page. This is an alternative to the wording in {{msg-mw|notification-link-text-view-changes}}, which serves essentially the same function.',
 	'notification-edit-talk-page2' => "Format for displaying notifications of a user talk page being edited
 * $1 is the username of the person who edited, plain text. Can be used for GENDER.
 * $2 is the current user's name, used in the link to their talk page.
@@ -351,7 +361,7 @@ See also:
 * $3 - the page title of the discussion",
 	'notification-mention-flyout' => "Flyout-specific format for displaying notifications of a comment including a link to another user's user page.
 Parameters:
-* <b>$1</b> - the username of the person who mentioned you, plain text. Can be used for GENDER.
+* $1 - the username of the person who mentioned you, plain text. Can be used for GENDER.
 * $2 - the section title of the discussion
 * $3 - the page title of the discussion",
 	'notification-user-rights' => 'Format for displaying notifications of a user right change in notification page.  Parameters:

@@ -410,6 +410,34 @@ class EchoEvent {
 	}
 
 	/**
+	 * Get the message key of the primary or secondary link for a notification type.
+	 *
+	 * @param $rank String 'primary' or 'secondary'
+	 * @return String i18n message key
+	 */
+	public function getLinkMessage( $rank ) {
+		global $wgEchoNotifications;
+		if ( isset( $wgEchoNotifications[$this->type][$rank.'-link']['message'] ) ) {
+			return $wgEchoNotifications[$this->type][$rank.'-link']['message'];
+		}
+		return '';
+	}
+
+	/**
+	 * Get the link destination of the primary or secondary link for a notification type.
+	 *
+	 * @param $rank String 'primary' or 'secondary'
+	 * @return String The link destination, e.g. 'agent'
+	 */
+	public function getLinkDestination( $rank ) {
+		global $wgEchoNotifications;
+		if ( isset( $wgEchoNotifications[$this->type][$rank.'-link']['destination'] ) ) {
+			return $wgEchoNotifications[$this->type][$rank.'-link']['destination'];
+		}
+		return '';
+	}
+
+	/**
 	 * @return string
 	 */
 	public function getBundleHash() {

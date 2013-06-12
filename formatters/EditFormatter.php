@@ -27,7 +27,7 @@ class EchoEditFormatter extends EchoBasicFormatter {
 			);
 			$this->setTitleLink( $event, $message, $props );
 		} elseif ( $param === 'summary' ) {
-			$message->params( $this->formatSummary( $event, $user ) );
+			$message->params( $this->formatRevisionComment( $event, $user ) );
 		} elseif ( $param === 'number' ) {
 			$eventData = $event->getExtra();
 			// The folliwing is a bit of a hack...
