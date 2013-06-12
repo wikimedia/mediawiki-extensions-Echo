@@ -182,6 +182,7 @@ $wgResourceModules += array(
 			'echo-more-info',
 			'echo-feedback',
 		),
+		'position' => 'top',
 	),
 	'ext.echo.alert' => $echoResourceTemplate + array(
 		'scripts' => array(
