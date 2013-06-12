@@ -84,38 +84,28 @@ class ApiEchoNotifications extends ApiQueryBase {
 			}
 
 			$timestamp = new MWTimestamp( $row->notification_timestamp );
+			// Adjust for the user's timezone
+			$timestamp->offsetForUser( $user );
 			$timestampUnix = $timestamp->getTimestamp( TS_UNIX );
 			$timestampMw = $timestamp->getTimestamp( TS_MW );
 
-			// start creating date section header
+			// Start creating date section header
 			$today = wfTimestamp( TS_MW );
 			$yesterday = wfTimestamp( TS_MW, wfTimestamp( TS_UNIX, $today ) - 24 * 3600 );
 
 			if ( substr( $today, 0, 8 ) === substr( $timestampMw, 0, 8 ) ) {
+				// 'Today'
 				$date = wfMessage( 'echo-date-today' )->escaped();
 			} elseif ( substr( $yesterday, 0, 8 ) === substr( $timestampMw, 0, 8 ) ) {
+				// 'Yesterday'
 				$date = wfMessage( 'echo-date-yesterday' )->escaped();
 			} else {
-				$month = array(
-					'01' => 'january-gen',
-					'02' => 'february-gen',
-					'03' => 'march-gen',
-					'04' => 'april-gen',
-					'05' => 'may-gen',
-					'06' => 'june-gen',
-					'07' => 'july-gen',
-					'08' => 'august-gen',
-					'09' => 'september-gen',
-					'10' => 'october-gen',
-					'11' => 'november-gen',
-					'12' => 'december-gen'
-				);
-
-				$headerMonth = wfMessage( $month[substr( $timestampMw, 4, 2 )] )->text();
-				$headerDate  = substr( $timestampMw, 6, 2 );
-				$date = wfMessage( 'echo-date-header' )->params( $headerMonth )->numParams( $headerDate )->escaped();
+				// 'May 10' or '10 May' (depending on user's date format preference)
+				$lang = RequestContext::getMain()->getLanguage();
+				$dateFormat = $lang->getDateFormatString( 'pretty', $user->getDatePreference() ?: 'default' );
+				$date = $lang->sprintfDate( $dateFormat, $timestampMw );
 			}
-			// end creating date section header
+			// End creating date section header
 
 			$thisEvent = array(
 				'id' => $event->getId(),

@@ -159,7 +159,6 @@ $1',
 	// Special page
 	'echo-date-today' => 'Today',
 	'echo-date-yesterday' => 'Yesterday',
-	'echo-date-header' => '$1 $2',
 	'echo-load-more-error' => 'An error occurred while fetching more results.',
 
 	// Bundle
@@ -504,10 +503,6 @@ The new notification count next to notification link, for example: 99+
 	'echo-date-today' => "The header text for today's notification section.
 {{Identical|Today}}",
 	'echo-date-yesterday' => "The header text for yesterday's notification section",
-	'echo-date-header' => '{{optional}}
-The header text for each notification section which is grouped by date
-* $1 is the month, it could be {{msg-mw|january-gen}}, {{msg-mw|february-gen}}, {{msg-mw|march-gen}}, {{msg-mw|april-gen}}, {{msg-mw|may-gen}}, {{msg-mw|june-gen}}, {{msg-mw|july-gen}}, {{msg-mw|august-gen}}, {{msg-mw|september-gen}}, {{msg-mw|october-gen}}, {{msg-mw|november-gen}}, {{msg-mw|december-gen}}
-* $2 is the date of a month, eg 21',
 	'echo-load-more-error' => 'Error message for errors in loading more notifications',
 	'notification-edit-talk-page-bundle' => 'Bundled message for edit-user-talk notification.  Parameters:
 * $1 - the username who performs the action, which can be used for gender support
