@@ -11,8 +11,7 @@
 		 * Initialize the property in special notification page.
 		 */
 		'initialize': function() {
-			var _this = this,
-				skin = mw.config.get('skin');
+			var skin = mw.config.get('skin');
 
 			// Convert more link into a button
 			$( '#mw-echo-more' )
@@ -22,14 +21,14 @@
 				.addClass( 'ui-button-blue' )
 				.click( function( e ) {
 					e.preventDefault();
-					if ( !_this.processing ) {
-						_this.processing = true;
-						_this.loadMore();
+					if ( !mw.echo.special.processing ) {
+						mw.echo.special.processing = true;
+						mw.echo.special.loadMore();
 					}
 				}
 			);
-			_this.notcontinue = mw.config.get( 'wgEchoNextContinue' );
-			_this.header = mw.config.get( 'wgEchoDateHeader' );
+			mw.echo.special.notcontinue = mw.config.get( 'wgEchoNextContinue' );
+			mw.echo.special.header = mw.config.get( 'wgEchoDateHeader' );
 
 			// Set up each individual notification with eventlogging, a close
 			// box and dismiss interface if it is dismissable.
