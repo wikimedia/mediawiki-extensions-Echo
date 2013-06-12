@@ -4,18 +4,18 @@
 
 	mw.echo = {
 
-		'optionsToken': '',
+		optionsToken: '',
 
-		'dismissOutputFormats': ['web', 'email'],
+		dismissOutputFormats: ['web', 'email'],
 
-		'clickThroughEnabled': mw.config.get( 'wgEchoConfig' ).eventlogging.EchoInteraction.enabled,
+		clickThroughEnabled: mw.config.get( 'wgEchoConfig' ).eventlogging.EchoInteraction.enabled,
 
 		/**
 		 * Set up event logging for individual notification
 		 * @param {JQuery} notification JQuery representing a single notification
 		 * @param {string} context 'flyout'/'archive'
 		 */
-		'setupNotificationLogging': function ( notification, context ) {
+		setupNotificationLogging: function ( notification, context ) {
 			var eventId = +notification.attr( 'data-notification-event' ),
 				eventType = notification.attr( 'data-notification-type' );
 
@@ -38,7 +38,7 @@
 		 * @param {int} eventId Notification event id
 		 * @param {string} eventType notification type
 		 */
-		'logInteraction': function( action, context, eventId, eventType ) {
+		logInteraction: function( action, context, eventId, eventType ) {
 			// Check if Schema:EchoInteraction is enabled
 			if ( !mw.echo.clickThroughEnabled ) {
 				return;
@@ -66,7 +66,7 @@
 		 * Change the user's preferences related to this notification type and
 		 * reload the page.
 		 */
-		'dismiss': function( notification ) {
+		dismiss: function( notification ) {
 			var $notification = $( notification ),
 				eventCategory = $notification.attr( 'data-notification-category' ),
 				prefName = '',
@@ -112,7 +112,7 @@
 		 * Handle clicking the Dismiss button.
 		 * First we have to retrieve the options token.
 		 */
-		'setOptionsToken': function( callback, notification ) {
+		setOptionsToken: function( callback, notification ) {
 			var tokenRequest = {
 				'action': 'tokens',
 				'type' : 'options',
@@ -145,7 +145,7 @@
 		/**
 		 * Show the dismiss interface (Dismiss and Cancel buttons).
 		 */
-		'showDismissOption': function( closeBox ) {
+		showDismissOption: function( closeBox ) {
 			var $notification = $( closeBox ).parent();
 			$( closeBox ).hide();
 			$notification.data( 'dismiss', true );
@@ -162,7 +162,7 @@
 			}
 		},
 
-		'setUpDismissability' : function( notification ) {
+		setUpDismissability: function( notification ) {
 			var $dismissButton,
 				$cancelButton,
 				$closebox,

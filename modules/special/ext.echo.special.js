@@ -3,14 +3,14 @@
 
 	mw.echo.special = {
 
-		'notcontinue': null,
-		'header': '',
-		'processing': false,
+		notcontinue: null,
+		header: '',
+		processing: false,
 
 		/**
 		 * Initialize the property in special notification page.
 		 */
-		'initialize': function() {
+		initialize: function() {
 			var skin = mw.config.get('skin');
 
 			// Convert more link into a button
@@ -64,7 +64,7 @@
 		/**
 		 * Load more notification records.
 		 */
-		'loadMore': function() {
+		loadMore: function() {
 			var api = new mw.Api(), notifications, data, container, $li, _this = this, unread = [];
 
 			api.get(
@@ -131,7 +131,7 @@
 		/**
 		 * Mark notifications as read.
 		 */
-		'markAsRead': function( unread ) {
+		markAsRead: function( unread ) {
 			var api = new mw.Api(), _this = this;
 
 			api.get( {
@@ -155,14 +155,14 @@
 			} );
 		},
 
-		'onSuccess': function() {
+		onSuccess: function() {
 			if ( !this.notcontinue ) {
 				$( '#mw-echo-more' ).hide();
 			}
 			this.processing = false;
 		},
 
-		'onError': function() {
+		onError: function() {
 			// Todo: Show detail error message based on error code
 			$( '#mw-echo-more' ).text( mw.msg( 'echo-load-more-error' ) );
 			this.processing = false;

@@ -4,7 +4,7 @@
 
 	mw.echo.overlay = {
 
-		'updateCount' : function ( newCount ) {
+		updateCount: function ( newCount ) {
 			var $badge = $( '.mw-echo-notifications-badge' );
 			$badge.text( newCount );
 			// newCount could be '99+' or another string.
@@ -16,9 +16,9 @@
 			}
 		},
 
-		'configuration' : mw.config.get( 'wgEchoOverlayConfiguration' ),
+		configuration: mw.config.get( 'wgEchoOverlayConfiguration' ),
 
-		'buildOverlay' : function ( callback ) {
+		buildOverlay: function ( callback ) {
 			var notificationLimit,
 				$overlay = $( '<div></div>' ).addClass( 'mw-echo-overlay' ),
 				$prefLink = $( '#pt-preferences a' ),
