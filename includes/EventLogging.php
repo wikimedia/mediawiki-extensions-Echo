@@ -29,13 +29,16 @@ class MWEchoEventLogging {
 			return;
 		}
 
-		$agent = $event->getAgent();
-		// Typically an event should always have an agent, but agent could be
-		// null if the data is corrupted
-		if ( $agent ) {
-			$sender = $agent->isAnon() ? $agent->getName() : $agent->getId();
-		} else {
+		// Notifications under system category should have -1 as sender id
+		if ( $event->getCategory() === 'system' ) {
 			$sender = -1;
+		} else {
+			$agent = $event->getAgent();
+			if ( $agent ) {
+				$sender = $agent->isAnon() ? $agent->getName() : $agent->getId();
+			} else {
+				$sender = -1;
+			}
 		}
 
 		if ( isset( $wgEchoNotifications[$event->getType()]['group'] ) ) {
