@@ -43,7 +43,7 @@ class SpecialNotifications extends SpecialPage {
 		// Check if there is more data to load for next request
 		if ( count( $notif ) > self::$displayNum ) {
 			$lastItem = array_pop( $notif );
-			$nextContinue = $lastItem['timestamp']['unix'] . '|' . $lastItem['id'];
+			$nextContinue = $lastItem['timestamp']['utcunix'] . '|' . $lastItem['id'];
 		} else {
 			$nextContinue = null;
 		}

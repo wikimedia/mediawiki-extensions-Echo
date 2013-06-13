@@ -34,7 +34,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 			// check if there is more elements than we request
 			if ( count( $result['list'] ) > $params['limit'] ) {
 				$lastItem = array_pop( $result['list'] );
-				$result['continue'] = $lastItem['timestamp']['unix'] . '|' . $lastItem['id'];
+				$result['continue'] = $lastItem['timestamp']['utcunix'] . '|' . $lastItem['id'];
 			} else {
 				$result['continue'] = null;
 			}
@@ -84,6 +84,8 @@ class ApiEchoNotifications extends ApiQueryBase {
 			}
 
 			$timestamp = new MWTimestamp( $row->notification_timestamp );
+			// UTC timestamp in UNIX format used for loading more notification
+			$timestampUTCUnix = $timestamp->getTimestamp( TS_UNIX );
 			// Adjust for the user's timezone
 			$timestamp->offsetForUser( $user );
 			$timestampUnix = $timestamp->getTimestamp( TS_UNIX );
@@ -112,6 +114,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 				'type' => $event->getType(),
 				'category' => $event->getCategory(),
 				'timestamp' => array(
+					'utcunix' => $timestampUTCUnix,
 					'unix' => $timestampUnix,
 					'mw' => $timestampMw,
 					'date' => $date
