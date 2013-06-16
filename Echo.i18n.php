@@ -4646,39 +4646,41 @@ $messages['ro'] = array(
 	'echo-pref-email-frequency-daily' => 'Un rezumat zilnic al notificărilor',
 	'echo-pref-email-frequency-weekly' => 'Un rezumat săptămânal al notificărilor',
 	'echo-pref-notify-show-link' => 'Arată notificări în bara mea de instrumente',
-	'echo-pref-new-message-indicator' => 'Arată indicator pentru mesajele din pagina mea de discuție în bara mea de instrumente',
+	'echo-pref-new-message-indicator' => 'Arată indicator pentru mesajele din pagina de discuții în bara mea de instrumente',
 	'echo-learn-more' => 'Aflați mai multe',
 	'echo-dismiss-button' => 'Respinge',
 	'echo-dismiss-message' => 'Dezactivează toate notificările tip $1',
 	'echo-dismiss-prefs-message' => 'Le puteți reactiva în cadrul [[Special:Preferences#mw-prefsection-echo|preferințelor]] dumneavoastră',
 	'echo-new-messages' => 'Aveți mesaje noi',
-	'echo-category-title-edit-user-talk' => '{{PLURAL:$1|Mesaj|Mesaje}} în pagina de discuție',
+	'echo-category-title-edit-user-talk' => '{{PLURAL:$1|Mesaj|Mesaje}} în pagina de discuții',
 	'echo-category-title-article-linked' => '{{PLURAL:$1|Legătură|Legături}} către pagină',
 	'echo-category-title-reverted' => '{{PLURAL:$1|Revenire|Reveniri}} asupra modificărilor',
 	'echo-category-title-mention' => '{{PLURAL:$1|Menționare|Menționări}}',
 	'echo-category-title-other' => '{{PLURAL:$1|Altele}}',
 	'echo-category-title-system' => '{{PLURAL:$1|Sistem}}',
+	'echo-pref-tooltip-edit-user-talk' => 'Notifică-mă când cineva publică un mesaj sau răspunde pe pagina mea de discuții.',
+	'echo-pref-tooltip-mention' => 'Notifică-mă când cineva face referire la pagina mea de utilizator în orice pagină de discuții.',
 	'echo-no-agent' => '[Nimeni]',
 	'echo-no-title' => '[Nicio pagină]',
 	'echo-error-no-formatter' => 'Nicio formatare definită pentru această notificare',
 	'echo-error-preference' => 'Eroare: Nu s-au putut stabili preferințele utilizatorului',
 	'echo-error-token' => 'Eroare: Nu s-a putut prelua jetonul utilizatorului',
 	'notifications' => 'Notificări',
-	'tooltip-pt-notifications' => 'Notificările dv.',
+	'tooltip-pt-notifications' => 'Notificările dumneavoastră',
 	'echo-specialpage' => 'Notificări',
 	'echo-anon' => 'Pentru a primi notificări, [[Special:Userlogin/signup|creați-vă un cont]] sau [[Special:UserLogin|autentificați-vă]].',
 	'echo-none' => 'Nu aveți nicio notificare.',
 	'echo-more-info' => 'Mai multe informații',
 	'echo-feedback' => 'Reacții',
 	'notification-edit-talk-page2' => '[[User:$1|$1]] {{GENDER:$1|a scris}} pe [[User talk:$2#$3|pagina dumneavoastră de discuții]].',
-	'notification-edit-talk-page-flyout2' => '<b>$1</b> {{GENDER:$1|a scris}} pe [[User talk:$2#$3|pagina dumneavoastră de discuţii]].',
+	'notification-edit-talk-page-flyout2' => '<b>$1</b> {{GENDER:$1|a scris}} pe [[User talk:$2#$3|pagina dumneavoastră de discuții]].',
 	'notification-page-linked' => '[[:$2]] a fost {{GENDER:$1|legat|legată}} către [[:$3]]: [[Special:WhatLinksHere/$2|Vedeți toate legăturile către această pagină]]',
-	'notification-page-linked-flyout' => '<b>$2</b> a fost {{GENDER:$1|legat|legată}} către <b>$3</b>: [[Special:WhatLinksHere/$2|Vedeți toate legăturile către această pagină]]', # Fuzzy
+	'notification-page-linked-flyout' => '<b>$2</b> a fost {{GENDER:$1|legat|legată}} către [[:$3]].',
 	'notification-add-comment2' => '[[User:$1|$1]] {{GENDER:$1|a comentat}} la „[[$3|$2]]” din pagina de discuție pentru „$4”',
 	'notification-add-talkpage-topic2' => '[[User:$1|$1]] {{GENDER:$1|a pornit}} un nou subiect („$2”) pe [[$3]]',
 	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]] {{GENDER:$1|v-a trimis}} un mesaj: „[[$3#$2|$2]]”',
 	'notification-new-user' => 'Bine ați venit la {{SITENAME}}, $1! Ne bucurăm că sunteți aici.',
-	'notification-edit-talk-page-email-subject2' => 'Aveți un mesaj nou pe pagina dumneavoastră de discuții', # Fuzzy
+	'notification-edit-talk-page-email-subject2' => 'Aveți un mesaj nou pe pagina dumneavoastră de discuții de la {{SITENAME}}',
 	'notification-edit-talk-page-email-body2' => '$1
 
 $3
@@ -4710,8 +4712,8 @@ $1',
 	'echo-date-today' => 'Astăzi',
 	'echo-date-yesterday' => 'Ieri',
 	'echo-load-more-error' => 'A intervenit o eroare la obținerea mai multor rezultate.',
-	'echo-email-batch-subject-daily' => 'Aveți {{PLURAL:$2|o notificare nouă|notificări noi}} astăzi', # Fuzzy
-	'echo-email-batch-subject-weekly' => 'Aveți {{PLURAL:$2|o notificare nouă|notificări noi}} în această săptămână', # Fuzzy
+	'echo-email-batch-subject-daily' => 'Aveți {{PLURAL:$2|o notificare nouă|notificări noi}} la {{SITENAME}}',
+	'echo-email-batch-subject-weekly' => 'Aveți {{PLURAL:$2|o notificare nouă|notificări noi}} la {{SITENAME}} în această săptămână',
 );
 
 /** tarandíne (tarandíne)
@@ -4939,6 +4941,7 @@ $messages['sr-el'] = array(
  * @author Ainali
  * @author Dcastor
  * @author Edvinw
+ * @author Jopparn
  * @author WikiPhoenix
  */
 $messages['sv'] = array(
@@ -4947,6 +4950,7 @@ $messages['sv'] = array(
 	'prefs-emailsettings' => 'E-postinställningar',
 	'prefs-displaynotifications' => 'Visningsalternativ',
 	'prefs-echosubscriptions' => 'Underrätta mig om dessa händelser',
+	'prefs-newmessageindicator' => 'Ny indikator för meddelanden',
 	'echo-pref-send-me' => 'Skicka mig:',
 	'echo-pref-send-to' => 'Skicka till:',
 	'echo-pref-web' => 'Webb',
@@ -4956,15 +4960,20 @@ $messages['sv'] = array(
 	'echo-pref-email-frequency-daily' => 'En daglig sammanställning av notifieringar',
 	'echo-pref-email-frequency-weekly' => 'En veckovis sammanställning av notifieringar',
 	'echo-pref-notify-show-link' => 'Visa notifieringar i min verktygsrad',
+	'echo-learn-more' => 'Läs mer',
 	'echo-dismiss-button' => 'Avfärda',
 	'echo-dismiss-message' => 'Stäng av alla $1 notifieringar',
-	'echo-dismiss-prefs-message' => 'Du kan aktivera dessa igen i dina [[Special:#mw-prefsection-echo|inställningar]]', # Fuzzy
+	'echo-dismiss-prefs-message' => 'Du kan aktivera dessa igen i dina [[Special:Preferences#mw-prefsection-echo|inställningar]]',
+	'echo-new-messages' => 'Du har nya meddelanden',
 	'echo-category-title-edit-user-talk' => '{{PLURAL:$1|Diskussionssideinlägg}}',
 	'echo-category-title-article-linked' => 'Sid{{PLURAL:$1|länk|länkar}}',
 	'echo-category-title-reverted' => 'Redigerings{{PLURAL:$1|återställning|återställningar}}',
 	'echo-category-title-mention' => '{{PLURAL:$1|Omnämning|Omnämningar}}',
 	'echo-category-title-other' => '{{PLURAL:$1|Annan|Andra}}',
 	'echo-category-title-system' => '{{PLURAL:$1|System}}',
+	'echo-pref-tooltip-edit-user-talk' => 'Meddela mig när någon lämnar ett meddelande eller svarar på min diskussionssida.',
+	'echo-pref-tooltip-article-linked' => 'Meddela mig när någon länkar till en sida som jag skapat från en annan artikel.',
+	'echo-pref-tooltip-reverted' => 'Meddela mig när någon återställer en ändring som jag gjort, med hjälp av verktygen "gör ogjord" eller "rulla tillbaka".',
 	'echo-no-agent' => '[Ingen]',
 	'echo-no-title' => '[Ingen sida]',
 	'echo-error-no-formatter' => 'Ingen formatering definierad för notifikation',
