@@ -143,7 +143,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	 * @return array|string
 	 */
 	public function format( $event, $user, $type ) {
-		global $wgEchoNotificationCategories, $wgExtensionAssetsPath, $wgEchoNotificationIcons;
+		global $wgExtensionAssetsPath, $wgEchoNotificationIcons;
 
 		// Use the bundle message if use-bundle is true and there is a bundle message
 		$this->generateBundleData( $event, $user, $type );
@@ -259,7 +259,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	 * @param $event EchoEvent
 	 * @param $user User
 	 * @param $type
-	 * @return string
+	 * @return array
 	 */
 	protected function formatEmail( $event, $user, $type ) {
 		$subject = $this->formatFragment( $this->email['subject'], $event, $user )->text();
