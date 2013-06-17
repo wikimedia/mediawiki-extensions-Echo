@@ -4378,6 +4378,10 @@ $messages['pl'] = array(
 	'echo-category-title-mention' => '{{PLURAL:$1|Wzmianka|Wzmianki}}',
 	'echo-category-title-other' => '{{PLURAL:$1|Inne zdarzenie|Inne zdarzenia}}',
 	'echo-category-title-system' => '{{PLURAL:$1|zdarzenie systemowe|zdarzenia systemowe}}',
+	'echo-pref-tooltip-edit-user-talk' => 'Powiadom mnie, kiedy ktoś napisze nową wiadomość albo odzieli odpowiedzi na mojej stronie dyskusji.',
+	'echo-pref-tooltip-article-linked' => 'Powiadom mnie, kiedy ktoś umieści w artykule link do strony przeze mnie utworzonej.',
+	'echo-pref-tooltip-reverted' => 'Powiadom mnie, kiedy ktoś zrewertuje moją edycję korzystając z narzędzia anuluj albo cofnij.',
+	'echo-pref-tooltip-mention' => 'Powiadom mnie, kiedy ktoś umieści link do mojej strony użytkownika na jakiejkolwiek stronie dyskusji.',
 	'echo-no-agent' => '[Nikt]',
 	'echo-no-title' => '[Brak strony]',
 	'echo-error-no-formatter' => 'Nie określono formatowania dla powiadomień',
@@ -4476,7 +4480,6 @@ $1',
 	'echo-mark-all-as-read' => 'Oznacz wszystko jako przeczytane',
 	'echo-date-today' => 'Dzisiaj',
 	'echo-date-yesterday' => 'Wczoraj',
-	'echo-date-header' => '$1 $2',
 	'echo-load-more-error' => 'Wystąpił błąd przy pobieraniu kolejnych wyników.',
 	'notification-edit-talk-page-bundle' => '$1 i {{PLURAL:$4|ktoś inny|$3 inni|$3 innych}} napisali do ciebie na twojej [[User talk:$2|stronie dyskusji]]',
 	'notification-page-linked-bundle' => 'Na stronie $3 i na {{PLURAL:$5|innej stronie|$4 innych stronach}} {{GENDER:$1|umieszczono}} link do strony $2: [[Special:WhatLinksHere/$2|pokaż wszystkie linkujące do tej strony]]',
@@ -4974,6 +4977,7 @@ $messages['sv'] = array(
 	'echo-pref-tooltip-edit-user-talk' => 'Meddela mig när någon lämnar ett meddelande eller svarar på min diskussionssida.',
 	'echo-pref-tooltip-article-linked' => 'Meddela mig när någon länkar till en sida som jag skapat från en annan artikel.',
 	'echo-pref-tooltip-reverted' => 'Meddela mig när någon återställer en ändring som jag gjort, med hjälp av verktygen "gör ogjord" eller "rulla tillbaka".',
+	'echo-pref-tooltip-mention' => 'Meddela mig när någon länkar till min användarsida från någon diskussionssida.',
 	'echo-no-agent' => '[Ingen]',
 	'echo-no-title' => '[Ingen sida]',
 	'echo-error-no-formatter' => 'Ingen formatering definierad för notifikation',
@@ -4986,10 +4990,10 @@ $messages['sv'] = array(
 	'echo-none' => 'Du har inga meddelanden.',
 	'echo-more-info' => 'Mer information',
 	'echo-feedback' => 'Feedback',
-	'notification-edit-talk-page2' => '[[User:$1|$1]] {{GENDER:$1|postade}} på din [[User talk:$2#$3|diskussionssida]].', # Fuzzy
-	'notification-edit-talk-page-flyout2' => '<b>$1</b> {{GENDER:$1|postade}} på din [[User talk:$2#$3|diskussionssida]].', # Fuzzy
+	'notification-edit-talk-page2' => '[[User:$1|$1]] {{GENDER:$1|gjorde ett inlägg}} på din [[User talk:$2#$3|diskussionssida]].',
+	'notification-edit-talk-page-flyout2' => '<b>$1</b> {{GENDER:$1|gjorde ett inlägg}} på din [[User talk:$2#$3|diskussionssida]].',
 	'notification-page-linked' => '[[:$2]] blev {{GENDER:$1|länkad}} från [[:$3]]: [[Special:WhatLinksHere/$2|Se alla länkar till denna sida]]',
-	'notification-page-linked-flyout' => '<b>$2</b> blev {{GENDER:$1|länkad}} från <b>$3</b>: [[Special:WhatLinksHere/$2|Se alla länkar till denna sida]]', # Fuzzy
+	'notification-page-linked-flyout' => '<b>$2</b> blev {{GENDER:$1|länkad}} från [[:$3]].',
 	'notification-add-comment2' => '[[User:$1|$1]] {{GENDER:$1|kommenterade}} "[[$3|$2]]" på diskussionssidan för "$4"',
 	'notification-add-talkpage-topic2' => '[[User:$1|$1]] {{GENDER:$1|postade}} ett nytt ämne "$2" på [[$3]]',
 	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]] {{GENDER:$1|skickade}} ett meddelande till dig: "[[$3#$2|$2]]"',
@@ -5003,7 +5007,7 @@ $messages['sv'] = array(
 	'notification-new-user' => 'Välkommen till {{SITENAME}}, $1! Vi är glada att du är här.',
 	'notification-reverted2' => '{{PLURAL:$4|Din redigering|Dina redigeringar}} på [[:$2]] har {{GENDER:$1|återställts}} av [[User:$1|$1]] $3',
 	'notification-reverted-flyout2' => '{{PLURAL:$4|Din redigering|Dina redigeringar}} på <b>$2</b> har {{GENDER:$1|återställts}} av <b>$1</b> $3',
-	'notification-edit-talk-page-email-subject2' => 'Du har ett nytt meddelande på diskussionssidan', # Fuzzy
+	'notification-edit-talk-page-email-subject2' => 'Du har ett nytt meddelande på {{SITENAME}}',
 	'notification-edit-talk-page-email-body2' => '$1
 
 $3
@@ -5012,7 +5016,7 @@ Se mer:
 
 <$2>
 
-$4', # Fuzzy
+$4',
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|postade}} på din diskussionssida',
 	'notification-page-linked-email-subject' => 'En sida som du skapat länkades till på {{SITENAME}}',
 	'notification-page-linked-email-body' => '$1
@@ -5023,8 +5027,8 @@ Se alla länkar till denna sida:
 
 $3',
 	'notification-page-linked-email-batch-body' => '$2 blev {{GENDER:$1|länkad}} från $3',
-	'notification-reverted-email-subject2' => '{{PLURAL:$3|Din redigering|Dina redigeringar}} på $2 blev {{GENDER:$1|återställda}} av $1', # Fuzzy
-	'notification-reverted-email-body2' => '{{PLURAL:$7|Din redigering på $2|Dina redigeringar på $2}} har {{GENDER:$1|återställts}} av $1.
+	'notification-reverted-email-subject2' => 'Din {{PLURAL:$3|redigering på $2 var|redigeringar på $2 var}} {{GENDER:$1|återställda}} av $1 på {{SITENAME}}',
+	'notification-reverted-email-body2' => '{{PLURAL:$7|Din redigering på $2 har blivit|Dina redigeringar på $2 har blivit}} {{GENDER:$1|återställda}} av $1.
 
 $5
 
@@ -5032,7 +5036,7 @@ Se mer:
 
 <$3>
 
-$6', # Fuzzy
+$6',
 	'notification-reverted-email-batch-body2' => '{{PLURAL:$3|Din redigering|Dina redigeringar}} på $2 blev {{GENDER:$1|återställda}} av $1',
 	'notification-mention-email-subject' => '$1 {{GENDER:$1|nämnde}} dig på {{SITENAME}}',
 	'notification-mention-email-body' => '{{SITENAME}} användare $1 {{GENDER:$1|nämnde}} dig på $2.
@@ -5043,7 +5047,7 @@ Se mer:
 
 <$4>
 
-$5', # Fuzzy
+$5',
 	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|nämnde}} dig på $2.',
 	'notification-user-rights-email-subject' => 'Dina användarrättigheter har ändrats på {{SITENAME}}',
 	'notification-user-rights-email-body' => 'Dina användarrättigheter blev {{GENDER:$1|ändrade}} av $1. $2
@@ -5076,24 +5080,24 @@ $1',
 	'notification-page-linked-bundle' => '$2 blev {{GENDER:$1|länkad}} från $3 och $4 {{PLURAL:$5|annan sida|andra sidor}}. [[Special:WhatLinksHere/$2|Se alla länkar till denna sida]]',
 	'notification-edit-user-talk-email-batch-bundle-body' => '$1 och $2 {{PLURAL:$3|annan|andra}} {{GENDER:$1|postade}} på din diskussionssida.',
 	'notification-page-linked-email-batch-bundle-body' => '$2 blev {{GENDER:$1|länkad}} från $3 och $4 {{PLURAL:$5|annan sida|andra sidor}}',
-	'echo-email-batch-subject-daily' => 'Du har {{PLURAL:$2|ett nytt meddelande|nya meddelanden}} idag', # Fuzzy
-	'echo-email-batch-subject-weekly' => 'Du har {{PLURAL:$2|ett nytt meddelande|nya meddelanden}} denna vecka', # Fuzzy
-	'echo-email-batch-body-daily' => '$1,
+	'echo-email-batch-subject-daily' => 'Du har {{PLURAL:$2|ett nytt meddelande|nya meddelanden}} på {{SITENAME}}',
+	'echo-email-batch-subject-weekly' => 'Du har {{PLURAL:$2|ett nytt meddelande|nya meddelanden}} på {{SITENAME}} den här veckan',
+	'echo-email-batch-body-daily' => 'Hej $1,
 
-Du har {{PLURAL:$3|ett nytt meddelande|nya meddelanden}} på {{SITENAME}} idag. Se {{PLURAL:$3|det|dem}} här:
+Du har {{PLURAL:$3|ett nytt meddelande|nya meddelanden}} på {{SITENAME}}. Se {{PLURAL:$3|det|dem}} här:
 {{canonicalurl:{{#special:Notifications}}}}
 
 $4
 
-$5', # Fuzzy
-	'echo-email-batch-body-weekly' => '$1,
+$5',
+	'echo-email-batch-body-weekly' => 'Hej $1,
 
 Du har {{PLURAL:$3|ett nytt meddelande|nya meddelanden}} på {{SITENAME}} denna vecka. Se {{PLURAL:$3|det|dem}} här:
 {{canonicalurl:{{#special:Notifications}}}}
 
 $4
 
-$5', # Fuzzy
+$5',
 );
 
 /** Tamil (தமிழ்)
