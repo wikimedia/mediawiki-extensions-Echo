@@ -583,9 +583,7 @@ See also:
 * $5 is the e-mail footer, {{msg-mw|echo-email-footer-default}}
 See also:
 * {{msg-mw|Echo-email-batch-body-daily}}',
-
-	// Supressed Revisions
-	"echo-rev-deleted-text-view" => "Short message displayed instead of edit content when revision text is suppressed.",
+	'echo-rev-deleted-text-view' => 'Short message displayed instead of edit content when revision text is suppressed.',
 );
 
 /** Afrikaans (Afrikaans)
@@ -1005,12 +1003,18 @@ $messages['bn'] = array(
 	'echo-learn-more' => 'আরও জানুন',
 	'echo-dismiss-button' => 'বাতিল',
 	'echo-dismiss-message' => 'সকল $1 বিজ্ঞপ্তি বন্ধ করো',
+	'echo-dismiss-prefs-message' => 'আপনার [[Special:Preferences#mw-prefsection-echo|পছন্দসমূহ]] পাতা থেকে আপনি এটি সক্রিয় করতে পারেন।',
 	'echo-new-messages' => 'আপনার নতুন বার্তা এসেছে',
 	'echo-category-title-edit-user-talk' => 'আলাপ পাতা {{PLURAL:$1|পোষ্ট|পোষ্টসমূহ}}',
 	'echo-category-title-article-linked' => 'পাতা {{PLURAL:$1|সংযোগ|সংযোগসমূহ}}',
+	'echo-category-title-reverted' => 'সম্পাদনা {{PLURAL:$1|ফেরত}}',
 	'echo-category-title-mention' => '{{PLURAL:$1|উল্লেখ|উল্লেখসমূহ}}',
 	'echo-category-title-other' => '{{PLURAL:$1|অন্য}}',
 	'echo-category-title-system' => '{{PLURAL:$1|সিস্টেম}}',
+	'echo-pref-tooltip-edit-user-talk' => 'আমার আলাপ পাতায় কেউ বার্তা রাখলে বা উত্তর দিলে আমাকে বিজ্ঞপ্তি দাও।',
+	'echo-pref-tooltip-article-linked' => 'যদি কেউ অন্য পাতায় আমার তৈরি কোনো পাতার লিঙ্ক প্রদান করে তাহলে আমাকে বিজ্ঞপ্তি দাও।',
+	'echo-pref-tooltip-reverted' => 'আনডু বা রোলব্যাক টুল দিয়ে কেউ আমার সম্পাদনা ফেরত নিলে আমাকে বিজ্ঞপ্তি দাও।',
+	'echo-pref-tooltip-mention' => 'কেউ কোনো আলাপ পাতায় আপনার ব্যবহারকারী পাতার লিঙ্ক প্রদান করলে আমাকে বিজ্ঞপ্তি দাও।',
 	'echo-no-agent' => '[কেউ নাই]',
 	'echo-no-title' => '[কোনো পাতা নাই]',
 	'echo-error-no-formatter' => 'বিজ্ঞপ্তির জন্য কোনো ফরমেটিং নির্ধারিত হয়নি',
@@ -1038,6 +1042,7 @@ $messages['bn'] = array(
 	'notification-user-rights-add' => 'আপনি এখন থেকে {{PLURAL:$2|এই দলের|এই দলসমূহের}} একজন সদস্য: $1',
 	'notification-user-rights-remove' => 'আপনি আর {{PLURAL:$2|এই দলের|এই দলসমূহের}} সদস্য নন।: $1',
 	'notification-new-user' => '{{SITENAME}} সাইটে স্বাগতম, $1! আপনাকে এখানে পেয়ে আমরা খুব আনন্দিত।',
+	'notification-reverted2' => 'আপনার {{PLURAL:$4[[:$2]] সম্পাদনা|[[:$2]] সম্পাদনাগুলো}}  [[User:$1|$1]] দ্বারা  {{GENDER:$1|ফেরত}} নেওয়া হয়েছে $3',
 	'notification-edit-talk-page-email-subject2' => '{{SITENAME}} এ আপনার একটি নতুন আলাপ পাতা বার্তা রয়েছে।',
 	'notification-edit-talk-page-email-body2' => '$1
 
