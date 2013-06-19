@@ -132,7 +132,7 @@ $wgResourceModules += array(
 		'scripts' => 'base/ext.echo.base.js',
 		'dependencies' => array(
 			'jquery.ui.button',
-			'mediawiki.util',
+			'mediawiki.api',
 		),
 		'messages' => array(
 			'cancel',
@@ -152,7 +152,6 @@ $wgResourceModules += array(
 		),
 		'dependencies' => array(
 			'ext.echo.base',
-			'mediawiki.api',
 			'mediawiki.jqueryMsg',
 			'mediawiki.ui',
 			'mediawiki.util',
@@ -174,7 +173,6 @@ $wgResourceModules += array(
 		'styles' => 'special/ext.echo.special.css',
 		'dependencies' => array(
 			'ext.echo.base',
-			'mediawiki.api',
 			'mediawiki.jqueryMsg',
 		),
 		'messages' => array(
