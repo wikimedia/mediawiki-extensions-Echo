@@ -763,6 +763,7 @@ Tien {{PLURAL:$3|un avisu nuevu|avisos nuevos}} en {{SITENAME}} esta selmana. Pu
 $4
 
 $5',
+	'echo-rev-deleted-text-view' => 'Esta revisión de páxina ta encaboxada',
 );
 
 /** South Azerbaijani (تورکجه)
@@ -1183,6 +1184,10 @@ $messages['cs'] = array(
 	'echo-category-title-mention' => '{{PLURAL:$1|zmínku|zmínky}}',
 	'echo-category-title-other' => '{{PLURAL:$1|jinou událost|jiné události}}',
 	'echo-category-title-system' => '{{PLURAL:$1|systémovou událost|systémové události}}',
+	'echo-pref-tooltip-edit-user-talk' => 'Upozorněte mě, když mi někdo na mé diskusní stránce napíše zprávu nebo odpoví.',
+	'echo-pref-tooltip-article-linked' => 'Upozorněte mě, když někdo na stránku, kterou jsem založil, odkáže z článku.',
+	'echo-pref-tooltip-reverted' => 'Upozorněte mě, když někdo úpravu, kterou jsem provedl, vrátí pomocí nástrojů pro zrušení editace nebo vrácení zpět.',
+	'echo-pref-tooltip-mention' => 'Upozorněte mě, když někdo v libovolné diskusi odkáže na mou uživatelskou stránku.',
 	'echo-no-agent' => '[Nikdo]',
 	'echo-no-title' => '[Žádná stránka]',
 	'echo-error-no-formatter' => 'Upozornění nemá definováno formátování',
@@ -1303,6 +1308,7 @@ na {{grammar:6sg|{{SITENAME}}}} máte tento týden {{PLURAL:$3|nové oznámení|
 $4
 
 $5',
+	'echo-rev-deleted-text-view' => 'Tato verze stránky byla utajena',
 );
 
 /** Danish (dansk)
@@ -1618,6 +1624,7 @@ du hast diese Woche {{PLURAL:$3|eine neue Benachrichtigung|neue Benachrichtigung
 $4
 
 $5',
+	'echo-rev-deleted-text-view' => 'Diese Seitenversion wurde unterdrückt',
 );
 
 /** German (formal address) (Deutsch (Sie-Form)‎)
@@ -2157,6 +2164,7 @@ $5',
  * @author Hello71
  * @author IAlex
  * @author Jean-Frédéric
+ * @author Ltrlg
  * @author Metroitendo
  * @author Peter17
  * @author Tititou36
@@ -2219,7 +2227,7 @@ $messages['fr'] = array(
 	'notification-mention-flyout' => '<b>$1</b> vous {{GENDER:$1|a mentionné}} sur [[$3#$2|$3]].',
 	'notification-user-rights' => 'Vos droits d’utilisateur [[Special:Log/rights/$1|ont été {{GENDER:$1|modifiés}}]] par [[User:$1|$1]]. $2. [[Special:ListGroupRights|En savoir plus]]',
 	'notification-user-rights-flyout' => 'Vos droits d’utilisateur {{GENDER:$1|ont été modifiés}} par $1. $2. [[Special:ListGroupRights|En savoir plus]]',
-	'notification-user-rights-add' => 'Vous êtes maintenant membre de {{PLURAL:$2|ce groupe|ces groupes}}: $1',
+	'notification-user-rights-add' => 'Vous êtes maintenant membre de {{PLURAL:$2|ce groupe|ces groupes}}&nbsp;: $1',
 	'notification-user-rights-remove' => 'Vous n’êtes plus membre de {{PLURAL:$2|ce groupe|ces groupes}}: $1',
 	'notification-new-user' => 'Bienvenue sur {{SITENAME}}, $1 ! Nous sommes heureux de vous voir ici.',
 	'notification-reverted2' => '{{PLURAL:$4|Votre modification sur [[:$2]] a|Vos modifications sur [[:$2]] ont}} été {{GENDER:$1|annulée}}{{PLURAL:$4||s}} par [[User:$1|$1]] $3',
@@ -2315,6 +2323,7 @@ Vous avez {{PLURAL:$3|une nouvelle notification|de nouvelles notifications}} sur
 $4
 
 $5',
+	'echo-rev-deleted-text-view' => 'Cette révision de page a été supprimée',
 );
 
 /** Franco-Provençal (arpetan)
@@ -2500,7 +2509,6 @@ $1',
 	'echo-mark-all-as-read' => 'Marcar todo como lido',
 	'echo-date-today' => 'Hoxe',
 	'echo-date-yesterday' => 'Onte',
-	'echo-date-header' => '$2 de $1',
 	'echo-load-more-error' => 'Houbo un erro ao procurar máis resultados.',
 	'notification-edit-talk-page-bundle' => '$1 e {{PLURAL:$4|outra persoa|$3 persoas máis}} {{GENDER:$1|deixaron}} mensaxes na súa [[User talk:$2|páxina de conversa]].',
 	'notification-page-linked-bundle' => '"$2" foi {{GENDER:$1|ligada}} desde "$3" e $4 {{PLURAL:$5|páxina|páxinas}} máis. [[Special:WhatLinksHere/$2|Ollar todas as ligazóns cara a esta páxina]]',
@@ -2524,6 +2532,7 @@ Esta semana ten {{PLURAL:$3|unha nova notificación|novas notificacións}} en {{
 $4
 
 $5',
+	'echo-rev-deleted-text-view' => 'Eliminouse a revisión da páxina',
 );
 
 /** Gujarati (ગુજરાતી)
@@ -3019,6 +3028,7 @@ Hai {{PLURAL:$3|una nuova notifica|nuove notifiche}} su {{SITENAME}} questa sett
 $4
 
 $5',
+	'echo-rev-deleted-text-view' => 'Questa versione della pagina è stata soppressa',
 );
 
 /** Japanese (日本語)
@@ -3156,7 +3166,6 @@ $1',
 	'echo-mark-all-as-read' => 'すべて既読にする',
 	'echo-date-today' => '今日',
 	'echo-date-yesterday' => '昨日',
-	'echo-date-header' => '$1$2日',
 	'echo-load-more-error' => '結果の続きを取得する際にエラーが発生しました。',
 	'notification-edit-talk-page-bundle' => '$1 と他 $3 {{PLURAL:$4|人}}があなたの[[User talk:$2|トークページ]]に{{GENDER:$1|投稿しました}}。',
 	'notification-page-linked-bundle' => '$2 が $3 と他 $4 {{PLURAL:$5|件のページ}}から{{GENDER:$1|リンクされました}}。[[Special:WhatLinksHere/$2|このページのリンク元]]',
@@ -3181,6 +3190,7 @@ $5',
 $4
 
 $5',
+	'echo-rev-deleted-text-view' => 'ページのこの版は秘匿されています',
 );
 
 /** Javanese (Basa Jawa)
@@ -3663,7 +3673,6 @@ $1',
 	'echo-mark-all-as-read' => 'Означи ги сите како прочитани',
 	'echo-date-today' => 'Денес',
 	'echo-date-yesterday' => 'Вчера',
-	'echo-date-header' => '$2 $1',
 	'echo-load-more-error' => 'Се појави грешка при обидот да добијам повеќе резултати.',
 	'notification-edit-talk-page-bundle' => '$1 и {{PLURAL:$4|уште еден друг|уште $3 други}} {{GENDER:$1|објавија}} нешто на вашата [[User talk:$2|страница за разговор]].',
 	'notification-page-linked-bundle' => '$2 е {{GENDER:$1|наведена}} на $3 и уште $4 {{PLURAL:$5|страница|страници}}. [[Special:WhatLinksHere/$2|Погл. сите врски до страницава]]',
@@ -3687,6 +3696,7 @@ $5',
 $4
 
 $5',
+	'echo-rev-deleted-text-view' => 'Оваа ревизија е скриена',
 );
 
 /** Malayalam (മലയാളം)
