@@ -61,6 +61,14 @@ $wgAutoloadClasses['EchoCommentFormatter'] = $dir . 'formatters/CommentFormatter
 $wgAutoloadClasses['EchoUserRightsFormatter'] = $dir . 'formatters/UserRightsFormatter.php';
 $wgAutoloadClasses['EchoPageLinkFormatter'] = $dir . 'formatters/PageLinkFormatter.php';
 
+// Email formatters
+$wgAutoloadClasses['EchoEmailFormatter'] = $dir . 'includes/EmailFormatter.php';
+$wgAutoloadClasses['EchoTextEmailFormatter'] = $dir . 'includes/EmailFormatter.php';
+$wgAutoloadClasses['EchoHTMLEmailFormatter'] = $dir . 'includes/EmailFormatter.php';
+$wgAutoloadClasses['EchoEmailMode'] = $dir . 'includes/EmailFormatter.php';
+$wgAutoloadClasses['EchoEmailSingle'] = $dir . 'includes/EmailFormatter.php';
+$wgAutoloadClasses['EchoEmailDigest'] = $dir . 'includes/EmailFormatter.php';
+
 // Internal stuff
 $wgAutoloadClasses['EchoNotifier'] = $dir . 'Notifier.php';
 $wgAutoloadClasses['EchoNotificationController'] = $dir . 'controller/NotificationController.php';
@@ -123,8 +131,6 @@ $echoResourceTemplate = array(
 	'remoteExtPath' => 'Echo/modules',
 	'group' => 'ext.echo',
 );
-
-$wgRecentEchoInstall = false; // default should be overridden with true until sure migration is complete
 
 $wgResourceModules += array(
 	'ext.echo.base' => $echoResourceTemplate + array(
@@ -429,8 +435,7 @@ $wgEchoNotifications = array(
 		'flyout-message' => 'notification-edit-talk-page-flyout2',
 		'flyout-params' => array( 'agent', 'user', 'subject-anchor' ),
 		'email-subject-message' => 'notification-edit-talk-page-email-subject2',
-		'email-body-message' => 'notification-edit-talk-page-email-body3',
-		'email-body-params' => array( 'email-intro', 'titlelink', 'summary', 'difflink', 'email-footer' ),
+		'email-subject-params' => array( 'agent' ),
 		'email-body-batch-message' => 'notification-edit-talk-page-email-batch-body2',
 		'email-body-batch-params' => array( 'agent' ),
 		'email-body-batch-bundle-message' => 'notification-edit-user-talk-email-batch-bundle-body',
@@ -449,8 +454,6 @@ $wgEchoNotifications = array(
 		'flyout-params' => array( 'agent', 'title', 'difflink', 'number' ),
 		'email-subject-message' => 'notification-reverted-email-subject2',
 		'email-subject-params' => array( 'agent', 'title', 'number' ),
-		'email-body-message' => 'notification-reverted-email-body2',
-		'email-body-params' => array( 'agent', 'title', 'difflink', 'user', 'summary', 'email-footer', 'number' ),
 		'email-body-batch-message' => 'notification-reverted-email-batch-body2',
 		'email-body-batch-params' => array( 'agent', 'title', 'number' ),
 		'icon' => 'revert',
@@ -470,8 +473,6 @@ $wgEchoNotifications = array(
 		'flyout-params' => array( 'agent', 'title', 'link-from-page' ),
 		'email-subject-message' => 'notification-page-linked-email-subject',
 		'email-subject-params' => array(),
-		'email-body-message' => 'notification-page-linked-email-body',
-		'email-body-params' => array( 'email-intro', 'title', 'email-footer', 'link-from-page' ),
 		'email-body-batch-message' => 'notification-page-linked-email-batch-body',
 		'email-body-batch-params' => array( 'agent', 'title', 'link-from-page' ),
 		'email-body-batch-bundle-message' => 'notification-page-linked-email-batch-bundle-body',
@@ -491,8 +492,6 @@ $wgEchoNotifications = array(
 		'flyout-params' => array( 'agent', 'subject-anchor',  'title' ),
 		'email-subject-message' => 'notification-mention-email-subject',
 		'email-subject-params' => array( 'agent' ),
-		'email-body-message' => 'notification-mention-email-body',
-		'email-body-params' => array( 'agent', 'title', 'summary', 'subject-link', 'email-footer', 'difflink' ),
 		'email-body-batch-message' => 'notification-mention-email-batch-body',
 		'email-body-batch-params' => array( 'agent', 'title' ),
 		'icon' => 'chat',
@@ -509,8 +508,6 @@ $wgEchoNotifications = array(
 		'flyout-params' => array( 'agent', 'user-rights-list' ),
 		'email-subject-message' => 'notification-user-rights-email-subject',
 		'email-subject-params' => array(),
-		'email-body-message' => 'notification-user-rights-email-body',
-		'email-body-params' => array( 'agent', 'user-rights-list', 'email-footer' ),
 		'email-body-batch-message' => 'notification-user-rights-email-batch-body',
 		'email-body-batch-params' => array( 'agent', 'user-rights-list' ),
 		'icon' => 'site',
@@ -525,6 +522,12 @@ $wgDefaultUserOptions['echo-show-alert'] = true;
 
 // By default, send emails for each notification as they come in
 $wgDefaultUserOptions['echo-email-frequency'] = EchoHooks::EMAIL_IMMEDIATELY;
+
+if ( $wgAllowHTMLEmail ) {
+	$wgDefaultUserOptions['echo-email-format'] = EchoHooks::EMAIL_FORMAT_HTML;
+} else {
+	$wgDefaultUserOptions['echo-email-format'] = EchoHooks::EMAIL_FORMAT_PLAIN_TEXT;
+}
 
 // Set all of the events to notify by web but not email by default (won't affect events that don't email)
 foreach ( $wgEchoNotificationCategories as $category => $categoryData ) {

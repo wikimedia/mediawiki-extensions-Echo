@@ -19,12 +19,16 @@ $messages['en'] = array(
 	'prefs-newmessageindicator' => 'New message indicator',
 	'echo-pref-send-me' => 'Send me:',
 	'echo-pref-send-to' => 'Send to:',
+	// Update this to 'Email format' when HTML email is ready for email digest
+	'echo-pref-email-format' => 'Individual email format:',
 	'echo-pref-web' => 'Web',
 	'echo-pref-email' => 'Email',
 	'echo-pref-email-frequency-never' => 'Do not send me any email notifications',
 	'echo-pref-email-frequency-immediately' => 'Individual notifications as they come in',
 	'echo-pref-email-frequency-daily' => 'A daily summary of notifications',
 	'echo-pref-email-frequency-weekly' => 'A weekly summary of notifications',
+	'echo-pref-email-format-html' => 'HTML',
+	'echo-pref-email-format-plain-text' => 'Plain text',
 	'echo-pref-notify-show-link' => 'Show notifications in my toolbar',
 	'echo-pref-new-message-indicator' => 'Show talk page message indicator in my toolbar',
 	'echo-learn-more' => 'Learn more',
@@ -74,9 +78,9 @@ $messages['en'] = array(
 	'notification-link-text-view-changes' => 'View changes',
 	'notification-link-text-view-page' => 'View page',
 	'notification-link-text-view-edit' => 'View edit',
-	'notification-edit-talk-page2' => '[[User:$1|$1]] {{GENDER:$1|posted}} on your [[User talk:$2#$3|talk page]].',
-	'notification-edit-talk-page-flyout2' => '$1 {{GENDER:$1|posted}} on your [[User talk:$2#$3|talk page]].',
-	'notification-page-linked' => '[[:$2]] was {{GENDER:$1|linked}} from [[:$3]]. [[Special:WhatLinksHere/$2|See all links to this page]]',
+	'notification-edit-talk-page2' => '[[User:$1|$1]] {{GENDER:$1|left}} a message on your [[User talk:$2#$3|talk page]].',
+	'notification-edit-talk-page-flyout2' => '$1 {{GENDER:$1|left}} a message on your [[User talk:$2#$3|talk page]].',
+	'notification-page-linked' => '[[:$2]] was {{GENDER:$1|linked}} from [[:$3]]: [[Special:WhatLinksHere/$2|See all links to this page]]',
 	'notification-page-linked-flyout' => '$2 was {{GENDER:$1|linked}} from [[:$3]].',
 	'notification-add-comment2' => '[[User:$1|$1]] {{GENDER:$1|commented}} on "[[$3|$2]]" on the "$4" talk page',
 	'notification-add-talkpage-topic2' => '[[User:$1|$1]] {{GENDER:$1|posted}} a new topic "$2" on [[$3]]',
@@ -91,61 +95,15 @@ $messages['en'] = array(
 	'notification-new-user' => "Welcome to {{SITENAME}}, $1! We're glad you're here.",
 	'notification-reverted2' => 'Your {{PLURAL:$4|edit on [[:$2]] has|edits on [[:$2]] have}} been {{GENDER:$1|reverted}} by [[User:$1|$1]] $3',
 	'notification-reverted-flyout2' => 'Your {{PLURAL:$4|edit on $2 has|edits on $2 have}} been {{GENDER:$1|reverted}} by $1 $3',
-	'notification-edit-talk-page-email-subject2' => 'You have a new talkpage message on {{SITENAME}}',
-	'notification-edit-talk-page-email-body3' => '$1
-
-$3
-
-View your talk page:
-<$2>
-
-View this change:
-<$4>
-
-$5',
-	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|posted}} on your talk page',
-	'notification-page-linked-email-subject' => 'A page you started was linked on {{SITENAME}}',
-	'notification-page-linked-email-body' => '$1
-
-See all links to this page:
-
-{{canonicalurl:{{#special:WhatLinksHere/$2}}}}
-
-$3',
+	'notification-edit-talk-page-email-subject2' => '$1 {{GENDER:$1|left}} you a message on {{SITENAME}}',
+	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|left}} a message on your talk page',
+	'notification-page-linked-email-subject' => 'Your page was linked on {{SITENAME}}',
 	'notification-page-linked-email-batch-body' => '$2 was {{GENDER:$1|linked}} from $3',
-	'notification-reverted-email-subject2' => 'Your {{PLURAL:$3|edit on $2 was|edits on $2 were}} {{GENDER:$1|reverted}} by $1 on {{SITENAME}}',
-	'notification-reverted-email-body2' => 'Your {{PLURAL:$7|edit on $2 has been|edits on $2 have been}} {{GENDER:$1|reverted}} by $1.
-
-$5
-
-View more:
-
-<$3>
-
-$6',
-	'notification-reverted-email-batch-body2' => 'Your {{PLURAL:$3|edit on $2 was|edits on $2 were}} {{GENDER:$1|reverted}} by $1',
+	'notification-reverted-email-subject2' => 'Your {{PLURAL:$3|edit was|edits were}} {{GENDER:$1|reverted}} on {{SITENAME}}',
+	'notification-reverted-email-batch-body2' => 'Your {{PLURAL:$3|edit on $2 has been|edits on $2 have been}} {{GENDER:$1|reverted}} by $1',
 	'notification-mention-email-subject' => '$1 {{GENDER:$1|mentioned}} you on {{SITENAME}}',
-	'notification-mention-email-body' => '{{SITENAME}} user $1 {{GENDER:$1|mentioned}} you on $2.
-
-$3
-
-View mention:
-
-<$4>
-
-View changes:
-<$6>
-
-$5',
 	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|mentioned}} you on $2',
 	'notification-user-rights-email-subject' => 'Your user rights have changed on {{SITENAME}}',
-	'notification-user-rights-email-body' => 'Your user rights were {{GENDER:$1|changed}} by $1. $2
-
-View more:
-
-{{canonicalurl:{{#special:ListGroupRights}}}}
-
-$3',
 	'notification-user-rights-email-batch-body' => 'Your user rights were {{GENDER:$1|changed}} by $1. $2',
 	'echo-notification-count' => '$1+',
 	// Email notification
@@ -160,6 +118,8 @@ To control which emails we send you, check your preferences:
 {{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
 
 $1',
+	'echo-email-footer-default-html' => 'To control which emails we send you, <a href="$2" style="text-decoration:none; color: #3868B0;">check your preferences</a><br />
+$1',
 	// Notifications overlay
 	'echo-overlay-link' => 'All notifications',
 	'echo-overlay-title' => '<b>Notifications</b>',
@@ -172,9 +132,9 @@ $1',
 	'echo-load-more-error' => 'An error occurred while fetching more results.',
 
 	// Bundle
-	'notification-edit-talk-page-bundle' => '$1 and $3 {{PLURAL:$4|other|others}} {{GENDER:$1|posted}} on your [[User talk:$2|talk page]].',
+	'notification-edit-talk-page-bundle' => '$1 and $3 {{PLURAL:$4|other|others}} {{GENDER:$1|left}} a message on your [[User talk:$2|talk page]].',
 	'notification-page-linked-bundle' => '$2 was {{GENDER:$1|linked}} from $3 and $4 other {{PLURAL:$5|page|pages}}. [[Special:WhatLinksHere/$2|See all links to this page]]',
-	'notification-edit-user-talk-email-batch-bundle-body' => '$1 and $2 {{PLURAL:$3|other|others}} {{GENDER:$1|posted}} on your talk page',
+	'notification-edit-user-talk-email-batch-bundle-body' => '$1 and $2 {{PLURAL:$3|other|others}} {{GENDER:$1|left}} a message on your talk page',
 	'notification-page-linked-email-batch-bundle-body' => '$2 was {{GENDER:$1|linked}} from $3 and $4 other {{PLURAL:$5|page|pages}}',
 
 	// Email batch
@@ -231,6 +191,7 @@ $messages['qqq'] = array(
 * {{msg-mw|Echo-pref-email-frequency-daily}}
 * {{msg-mw|Echo-pref-email-frequency-weekly}}',
 	'echo-pref-send-to' => 'Label for the address to send email notifications to.',
+	'echo-pref-email-format' => 'Label for individual email notification format, the lable will be updated once HTML email is ready for email digest',
 	'echo-pref-web' => 'Label for list of notifications which are delivered on the web. In other words, on the wiki itself rather by email or another method. This should be kept very short.',
 	'echo-pref-email' => 'Label for list of notifications which are delivered via email. This should be kept very short.',
 	'echo-pref-email-frequency-never' => "Option for users who don't want to receive any email notifications
@@ -242,6 +203,8 @@ See also:
 	'echo-pref-email-frequency-immediately' => 'Option for users who want to receive email for each notification as it occurs',
 	'echo-pref-email-frequency-daily' => 'Option for users who want to receive a daily digest of email notifications',
 	'echo-pref-email-frequency-weekly' => 'Option for users who want to receive a weekly digest of email notifications',
+	'echo-pref-email-format-html' => 'Option for users who want to receive HTML email notification',
+	'echo-pref-email-format-plain-text' => 'Option for users who want to receive plain text email notification',
 	'echo-pref-notify-show-link' => "Label for a preference which enables the 'Notifications' link in the header and associated fly-out panel",
 	'echo-pref-new-message-indicator' => 'Label for a preference which enables the new talk page message alert',
 	'echo-learn-more' => 'Text for link to more information about a topic.
@@ -324,8 +287,7 @@ See also:
 See also:
 * {{msg-mw|Notification-page-linked-flyout}}
 * {{msg-mw|Notification-page-linked-email-batch-body}}
-* {{msg-mw|Notification-page-linked-email-subject}}
-* {{msg-mw|Notification-page-linked-email-body}}',
+* {{msg-mw|Notification-page-linked-email-subject}}',
 	'notification-page-linked-flyout' => 'Flyout-specific format for displaying notifications of articles being linked
 * $1 is the username of the person who linked the page, plain text. Can be used for GENDER.
 * $2 is the page being linked
@@ -333,8 +295,7 @@ See also:
 See also:
 * {{msg-mw|Notification-page-linked}}
 * {{msg-mw|Notification-page-linked-email-batch-body}}
-* {{msg-mw|Notification-page-linked-email-subject}}
-* {{msg-mw|Notification-page-linked-email-body}}',
+* {{msg-mw|Notification-page-linked-email-subject}}',
 	'notification-add-comment2' => 'Format for displaying notifications of a comment being added to an existing discussion. Parameters:
 * $1 is the username of the person who edited, plain text. Can be used for GENDER.
 * $2 is the section title of the discussion,
@@ -396,14 +357,9 @@ See also:
 * $3 is a diff link to the ''revert'', possibly formatted.
 * $4 is the number of edits that were reverted. NOTE: This will only be set to 1 or 2, with 2 actually meaning 'an unknown number greater than 0'.
 {{Related|Notification-reverted}}",
-	'notification-edit-talk-page-email-subject2' => 'E-mail subject.',
-	'notification-edit-talk-page-email-body3' => "E-mail notification. Parameters:
-* $1 - the email intro, could be {{msg-mw|notification-edit-talk-page-email-batch-body2}} or {{msg-mw|notification-edit-user-talk-email-batch-bundle-body}}
-* <$2> - a link to the user's talk page
-* $3 - the edit summary
-* <$4> - a link to the 'diff view' of the changes that were made
-* $5 - the e-mail footer, {{msg-mw|echo-email-footer-default}}",
-	'notification-edit-talk-page-email-batch-body2' => 'E-mail notification for talk page edit
+	'notification-edit-talk-page-email-subject2' => 'E-mail subject.  Parameters:
+* $1 is a username which can be used for gender support',
+	'notification-edit-talk-page-email-batch-body2' => 'E-mail notification for talk page edit.  Parameters
 * $1 is a username
 
 See also:
@@ -414,17 +370,7 @@ See also:
 See also:
 * {{msg-mw|Notification-page-linked}}
 * {{msg-mw|Notification-page-linked-flyout}}
-* {{msg-mw|Notification-page-linked-email-batch-body}}
-* {{msg-mw|Notification-page-linked-email-body}}',
-	'notification-page-linked-email-body' => 'E-mail notification. Parameters:
-* $1 is the email intro, could be {{msg-mw|notification-page-linked-email-batch-body}} or {{msg-mw|notification-page-linked-email-batch-bundle-body}}
-* $2 is the page being linked.
-* $3 is the e-mail footer, {{msg-mw|echo-email-footer-default}}.
-See also:
-* {{msg-mw|Notification-page-linked}}
-* {{msg-mw|Notification-page-linked-flyout}}
-* {{msg-mw|Notification-page-linked-email-batch-body}}
-* {{msg-mw|Notification-page-linked-email-subject}}',
+* {{msg-mw|Notification-page-linked-email-batch-body}}',
 	'notification-page-linked-email-batch-body' => 'E-mail notification for page being linked. Parameters:
 * $1 is the username of the person who linked the page, plain text. Can be used for GENDER.
 * $2 is the page being linked.
@@ -432,22 +378,12 @@ See also:
 See also:
 * {{msg-mw|Notification-page-linked}}
 * {{msg-mw|Notification-page-linked-flyout}}
-* {{msg-mw|Notification-page-linked-email-subject}}
-* {{msg-mw|Notification-page-linked-email-body}}',
+* {{msg-mw|Notification-page-linked-email-subject}}',
 	'notification-reverted-email-subject2' => 'E-mail subject. Parameters:
 * $1 is a username
 * $2 is a page title
 * $3 is the number of revert
 {{Related|Notification-reverted}}',
-	'notification-reverted-email-body2' => "E-mail notification. Parameters:
-* $1 is the username
-* $2 is the page title
-* <$3> is the link to the change
-* $4 is the e-mail recipient's username
-* $5 is the edit summary
-* $6 is the email footer, {{msg-mw|echo-email-footer-default}}
-* $7 is the number of revert
-{{Related|Notification-reverted}}",
 	'notification-reverted-email-batch-body2' => 'E-mail notification for page revert. Parameters:
 * $1 is a username
 * $2 is a page title
@@ -459,21 +395,7 @@ See also:
 See also:
 * {{msg-mw|Notification-mention}}
 * {{msg-mw|Notification-mention-flyout}}
-* {{msg-mw|Notification-mention-email-batch-body}}
-* {{msg-mw|Notification-mention-email-body}}',
-	'notification-mention-email-body' => 'E-mail notification. Parameters:
-* $1 is a username, plaintext.  Can be used for gender support
-* $2 is talk page title
-* $3 is the edit summary
-* <$4> is the link to the talk page section title
-* $5 is the email footer
-* <$6> is a link to the diff view of the changes that were made
-
-See also:
-* {{msg-mw|Notification-mention}}
-* {{msg-mw|Notification-mention-flyout}}
-* {{msg-mw|Notification-mention-email-batch-body}}
-* {{msg-mw|Notification-mention-email-subject}}',
+* {{msg-mw|Notification-mention-email-batch-body}}',
 	'notification-mention-email-batch-body' => 'E-mail notification batch body.  Parameters:
 * $1 is a username, plaintext.  Can be used for gender support
 * $2 is talk page title
@@ -481,25 +403,13 @@ See also:
 See also:
 * {{msg-mw|Notification-mention}}
 * {{msg-mw|Notification-mention-flyout}}
-* {{msg-mw|Notification-mention-email-body}}
 * {{msg-mw|Notification-mention-email-subject}}',
 	'notification-user-rights-email-subject' => 'E-mail subject for user rights notification
 
 See also:
 * {{msg-mw|Notification-user-rights}}
 * {{msg-mw|Notification-user-rights-flyout}}
-* {{msg-mw|Notification-user-rights-email-batch-body}}
-* {{msg-mw|Notification-user-rights-email-body}}',
-	'notification-user-rights-email-body' => 'E-mail notification.  Parameters:
-* $1 - a user name, plaintext.  Can be used for gender support
-* $2 - a semicolon separated list of {{msg-mw|notification-user-rights-add}}, {{msg-mw|notification-user-rights-remove}}
-* $3 - the email footer
-
-See also:
-* {{msg-mw|Notification-user-rights}}
-* {{msg-mw|Notification-user-rights-flyout}}
-* {{msg-mw|Notification-user-rights-email-batch-body}}
-* {{msg-mw|Notification-user-rights-email-subject}}',
+* {{msg-mw|Notification-user-rights-email-batch-body}}',
 	'notification-user-rights-email-batch-body' => 'Email notification batch body.  Parameters:
 * $1 is a user name, plaintext.  Can be used for gender support
 * $2 is a semicolon separated list of {{msg-mw|notification-user-rights-add}}, {{msg-mw|notification-user-rights-remove}}',
@@ -510,9 +420,12 @@ The new notification count next to notification link, for example: 99+
 	'echo-email-body-default' => 'Default message content for Echo e-mail notifications.
 * $1 is a plain text description of the notification.',
 	'echo-email-batch-body-default' => 'Default message for Echo e-mail digest notifications',
-	'echo-email-footer-default' => 'Default footer content for Echo e-mail notifications.  Parameters:
+	'echo-email-footer-default' => 'Default footer content for Echo text e-mail notifications.  Parameters:
 * $1 is the address of the organization that sent the e-mail
 * $2 is "-------..." ({{msg-mw|echo-email-batch-separator}})',
+	'echo-email-footer-default-html' => 'Default footer content for Echo html e-mail notifications.  Parameters:
+* $1 is the address of the organization that sent the e-mail
+* $2 is the url to the notification preference page',
 	'echo-overlay-link' => 'Link to "all notifications" at the bottom of the overlay.
 {{Identical|All notifications}}',
 	'echo-overlay-title' => 'Title at the top of the notifications overlay. Should include bold tags.',
@@ -534,8 +447,7 @@ The new notification count next to notification link, for example: 99+
 See also:
 * {{msg-mw|Notification-edit-talk-page2}}
 * {{msg-mw|Notification-edit-talk-page-email-batch-body2}}
-* {{msg-mw|Notification-edit-talk-page-email-subject2}}
-* {{msg-mw|Notification-edit-talk-page-email-body2}}',
+* {{msg-mw|Notification-edit-talk-page-email-subject2}}',
 	'notification-page-linked-bundle' => 'Bundled message for page-linked notification.  Parameters:
 * $1 - the username who performs the action, which can be used for gender support
 * $2 - the page title
@@ -557,8 +469,7 @@ See also:
 * {{msg-mw|Notification-edit-talk-page2}}
 * {{msg-mw|Notification-edit-talk-page-flyout2}}
 * {{msg-mw|Notification-edit-talk-page-email-batch-body2}}
-* {{msg-mw|Notification-edit-talk-page-email-subject2}}
-* {{msg-mw|Notification-edit-talk-page-email-body2}}',
+* {{msg-mw|Notification-edit-talk-page-email-subject2}}',
 	'notification-page-linked-email-batch-bundle-body' => 'Bundled message for page-linked email digest notification.  Parameters:
 * $1 - the username who performs the action, which can be used for gender support
 * $2 - the link-to page title
@@ -570,8 +481,7 @@ See also:
 * {{msg-mw|Notification-page-linked}}
 * {{msg-mw|Notification-page-linked-flyout}}
 * {{msg-mw|Notification-page-linked-email-batch-body}}
-* {{msg-mw|Notification-page-linked-email-subject}}
-* {{msg-mw|Notification-page-linked-email-body}}',
+* {{msg-mw|Notification-page-linked-email-subject}}',
 	'echo-email-batch-separator' => '{{optional}}
 Email batch content separator',
 	'echo-email-batch-bullet' => '{{optional}}',

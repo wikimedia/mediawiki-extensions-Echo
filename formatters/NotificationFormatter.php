@@ -12,7 +12,7 @@ abstract class EchoNotificationFormatter {
 	 * List of valid output format
 	 * @var array
 	 */
-	protected $validOutputFormats = array( 'text', 'flyout', 'html', 'email' );
+	protected $validOutputFormats = array( 'text', 'flyout', 'html', 'email', 'htmlemail' );
 
 	/**
 	 * Current output format, default is 'text'
@@ -121,7 +121,7 @@ abstract class EchoNotificationFormatter {
 	 * @param User $user The user to format the notification for.
 	 * @return String The revision comment (or empty string)
 	 */
-	protected function formatRevisionComment( $event, $user ) {
+	public function formatRevisionComment( $event, $user ) {
 		$revision = $event->getRevision();
 		if ( $revision === null ) {
 			return '';
@@ -143,6 +143,7 @@ abstract class EchoNotificationFormatter {
 					$comment = Xml::tags( 'div', array( 'class' => 'mw-echo-edit-summary' ), $comment );
 				}
 			}
+
 			return $comment;
 		}
 	}

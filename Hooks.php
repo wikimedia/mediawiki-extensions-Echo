@@ -5,6 +5,8 @@ class EchoHooks {
 	const EMAIL_IMMEDIATELY = 0; // Send email notificaitons immediately as they come in
 	const EMAIL_DAILY_DIGEST = 1; // Send daily email digests
 	const EMAIL_WEEKLY_DIGEST = 7; // Send weekly email digests
+	const EMAIL_FORMAT_HTML = 'html';
+	const EMAIL_FORMAT_PLAIN_TEXT = 'plain-text';
 
 	/**
 	 * Initialize Echo extension with necessary data, this function is invoked
@@ -247,7 +249,7 @@ class EchoHooks {
 	public static function getPreferences( $user, &$preferences ) {
 		global $wgEchoDefaultNotificationTypes, $wgAuth, $wgEchoEnableEmailBatch,
 			$wgEchoNotifiers, $wgEchoNotificationCategories, $wgEchoNotifications,
-			$wgEchoHelpPage, $wgEchoNewMsgAlert;
+			$wgEchoHelpPage, $wgEchoNewMsgAlert, $wgAllowHTMLEmail;
 
 		// Don't show echo preference page if echo is disabled for this user
 		if ( self::isEchoDisabled( $user ) ) {
@@ -301,6 +303,20 @@ class EchoHooks {
 			'label-message' => 'echo-pref-send-to',
 			'section' => 'echo/emailsettings'
 		);
+
+		// Only show this option if html email is allowed, otherwise it is always plain text format
+		if ( $wgAllowHTMLEmail ) {
+			// Email format
+			$preferences['echo-email-format'] = array(
+				'type' => 'select',
+				'label-message' => 'echo-pref-email-format',
+				'section' => 'echo/emailsettings',
+				'options' => array (
+					wfMessage( 'echo-pref-email-format-html' )->plain() => self::EMAIL_FORMAT_HTML,
+					wfMessage( 'echo-pref-email-format-plain-text' )->plain() => self::EMAIL_FORMAT_PLAIN_TEXT
+				)
+			);
+		}
 
 		// Sort notification categories by priority
 		$categoriesAndPriorities = array();

@@ -8,15 +8,6 @@
 class EchoBasicFormatter extends EchoNotificationFormatter {
 
 	/**
-	 * Required parameters
-	 * @param array
-	 */
-	protected $requiredParameters = array(
-		'title-message',
-		'title-params'
-	);
-
-	/**
 	 * Notification title data for archive page
 	 * @param array
 	 */
@@ -34,11 +25,6 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	protected $bundleTitle;
 
 	/**
-	 * @Todo Check if this varaible can be removed
-	 */
-	protected $content;
-
-	/**
 	 * Notification email data
 	 * @param array
 	 */
@@ -49,6 +35,15 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	 * @param string
 	 */
 	protected $icon;
+
+	/**
+	 * Required parameters
+	 * @param array
+	 */
+	protected $requiredParameters = array (
+		'title-message',
+		'title-params'
+	);
 
 	/**
 	 * Data for constructing bundle message, data in this array
@@ -92,10 +87,6 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 				'message' => $params['email-subject-message'],
 				'params' => $params['email-subject-params']
 			),
-			'body' => array(
-				'message' => $params['email-body-message'],
-				'params' => $params['email-body-params']
-			),
 			'batch-body' => array(
 				'message' => $params['email-body-batch-message'],
 				'params' => $params['email-body-batch-params']
@@ -124,8 +115,6 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			'payload' => array(),
 			'email-subject-message' => 'echo-email-subject-default',
 			'email-subject-params' => array(),
-			'email-body-message' => 'echo-email-body-default',
-			'email-body-params' => array( 'text-notification' ),
 			'email-body-batch-message' => 'echo-email-batch-body-default',
 			'email-body-batch-params' => array(),
 			'email-body-batch-bundle-message' => '',
@@ -261,25 +250,48 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	}
 
 	/**
+	 * Create text version and/or html version for email notification
+	 *
 	 * @param $event EchoEvent
 	 * @param $user User
-	 * @param $type
+	 * @param $type string
 	 * @return array
 	 */
 	protected function formatEmail( $event, $user, $type ) {
-		$subject = $this->formatFragment( $this->email['subject'], $event, $user )->text();
-
-		$body = preg_replace( "/\n{3,}/", "\n\n", $this->formatFragment( $this->email['body'], $event, $user )->text() );
-
 		if ( $this->bundleData['use-bundle'] && $this->email['batch-bundle-body'] ) {
-			$bodyKey = $this->email['batch-bundle-body'];
+			$key = $this->email['batch-bundle-body'];
 		} else {
-			$bodyKey = $this->email['batch-body'];
+			$key = $this->email['batch-body'];
 		}
 
-		$batchBody = preg_replace( "/\n{3,}/", "\n\n", $this->formatFragment( $bodyKey, $event, $user )->text() );
+		// Echo single email
+		$emailSingle = new EchoEmailSingle( $this, $event, $user );
 
-		return array( 'subject' => $subject, 'body' => $body, 'batch-body' => $batchBody );
+		$textEmailFormatter = new EchoTextEmailFormatter( $emailSingle );
+		$content = array(
+			// Single email subject, there is no need to to escape it for either html
+			// or text email since it's always treated as plain text by mail client
+			'subject' => $this->formatFragment( $this->email['subject'], $event, $user )->text(),
+			// Single email text body
+			'body' => $textEmailFormatter->formatEmail(),
+			// Email digest text body
+			'batch-body' => $this->formatFragment( $key, $event, $user )->text()
+		);
+
+		$format = MWEchoNotifUser::newFromUser( $user )->getEmailFormat();
+		if ( $format == EchoHooks::EMAIL_FORMAT_HTML ) {
+			$htmlEmailFormatter = new EchoHTMLEmailFormatter( $emailSingle );
+			$outputFormat = $this->outputFormat;
+			$this->setOutputFormat( 'htmlemail' );
+			// Add single email html body if user prefers html format
+			$content['body'] = array (
+				'text' => $content['body'],
+				'html' => $htmlEmailFormatter->formatEmail()
+			);
+			$this->setOutputFormat( $outputFormat );
+		}
+
+		return $content;
 	}
 
 	/**
@@ -290,7 +302,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	 * @param $user User to format the notification for.
 	 * @return string
 	 */
-	protected function formatFragment( $details, $event, $user ) {
+	public function formatFragment( $details, $event, $user ) {
 		$message = wfMessage( $details['message'] )
 			->inLanguage( $user->getOption( 'language' ) );
 
@@ -387,7 +399,6 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 		return Xml::tags( 'div', array( 'class' => 'mw-echo-notification-footer' ), $footer ) . "\n";
 	}
 
-
 	/**
 	 * Generate links based on output format and passed properties
 	 * $event EchoEvent
@@ -414,10 +425,10 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 		}
 		$title->setFragment( "#$fragment" );
 
-		if ( $this->outputFormat === 'html' || $this->outputFormat === 'flyout' ) {
-			$class = array();
-			if ( isset( $props['class'] ) ) {
-				$class['class'] = $props['class'];
+		if ( in_array( $this->outputFormat, array( 'html', 'flyout', 'htmlemail' ) ) ) {
+			$attribs = array();
+			if ( isset( $props['attribs'] ) ) {
+				$attribs = (array)$props['attribs'];
 			}
 
 			if ( isset( $props['linkText'] ) ) {
@@ -426,25 +437,38 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 				$linkText = htmlspecialchars( $title->getPrefixedText() );
 			}
 
-			$message->rawParams( Linker::link( $title, $linkText, $class, $param ) );
-		} elseif ( $this->outputFormat === 'email' ) {
-			// plain text email in some mail client is messing with
-			// ending punctuation in links, it is better to encode them
-			$url = $title->getCanonicalURL( $param );
-			// $url should contain all ascii characters now, it's safe to use substr()
-			$lastChar = substr( $url, -1 );
-			if ( $lastChar && !ctype_alnum( $lastChar ) ) {
-				$lastChar = str_replace(
-					array( '.', '-', '(', ';', '!', ':', ',' ),
-					array( '%2E', '%2D', '%28', '%3B', '%21', '%3A', '%2C' ),
-					$lastChar
-				);
-				$url = substr( $url, 0, -1 ) . $lastChar;
+			$options = array();
+			if ( $this->outputFormat === 'htmlemail' ) {
+				$options = array( 'https' );
 			}
-			$message->params( $url );
+
+			$message->rawParams( Linker::link( $title, $linkText, $attribs, $param, $options ) );
+		} elseif ( $this->outputFormat === 'email' ) {
+			$url = $title->getFullURL( $param, false, PROTO_HTTPS );
+			$message->params( $this->sanitizeEmailLink( $url ) );
 		} else {
 			$message->params( $title->getFullURL( $param ) );
 		}
+	}
+
+	/**
+	 * Plain text email in some mail client is misinterpreting the ending
+	 * punctuation, this function would encode the last character
+	 * @param $url string
+	 * @param string
+	 */
+	public function sanitizeEmailLink( $url ) {
+		// $url should contain all ascii characters now, it's safe to use substr()
+		$lastChar = substr( $url, -1 );
+		if ( $lastChar && !ctype_alnum( $lastChar ) ) {
+			$lastChar = str_replace(
+				array( '.', '-', '(', ';', '!', ':', ',' ),
+				array( '%2E', '%2D', '%28', '%3B', '%21', '%3A', '%2C' ),
+				$lastChar
+			);
+			$url = substr( $url, 0, -1 ) . $lastChar;
+		}
+		return $url;
 	}
 
 	/**
@@ -551,11 +575,12 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	 *     'border: 1px solid green; text-decoration: none;' (optional)
 	 * @return String URL for link, or HTML for anchor tag, or empty string
 	 */
-	protected function getLink( $event, $user, $rank = 'primary', $local = true, $urlOnly = false, $style = '' ) {
+	public function getLink( $event, $user, $rank = 'primary', $local = true, $urlOnly = false, $style = '' ) {
 		$destination = $event->getLinkDestination( $rank );
 		if ( !$destination ) {
 			return '';
 		}
+
 		// Get link parameters based on the destination
 		list( $target, $query ) = $this->getLinkParams( $event, $user, $destination );
 		if ( !$target ) {
@@ -565,7 +590,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			if ( $local ) {
 				return $target->getLinkURL( $query );
 			} else {
-				return $target->getCanonicalURL( $query );
+				return $target->getFullURL( $query, false, PROTO_HTTPS );
 			}
 		} else {
 			$message = wfMessage( $event->getLinkMessage( $rank ) )->text();
@@ -576,7 +601,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			$options = array();
 			// If local is false, return an absolute url using HTTP protocol
 			if ( !$local ) {
-				$options[] = 'http';
+				$options[] = 'https';
 			}
 			return Linker::link( $target, $message, $attribs, $query, $options );
 		}
@@ -631,22 +656,43 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	}
 
 	/**
+	 * Get the style for standard links in html email
+	 * @return string
+	 */
+	public function getHTMLLinkStyle() {
+		return 'text-decoration: none; color: #3A68B0;';
+	}
+
+	/**
 	 * Helper function for processParams()
 	 *
 	 * @param $event EchoEvent
-	 * @param $param
+	 * @param $param string
 	 * @param $message Message
 	 * @param $user User
 	 * @throws MWException
 	 */
 	protected function processParam( $event, $param, $message, $user ) {
 		if ( $param === 'agent' ) {
-			if ( !$event->getAgent() ) {
+			$agent = $event->getAgent();
+			if ( !$agent ) {
 				$message->params( wfMessage( 'echo-no-agent' )->text() );
 			} elseif ( !$event->userCan( Revision::DELETED_USER, $user ) ) {
 				$message->params( wfMessage( 'rev-deleted-user' )->text() );
 			} else {
-				$message->params( $event->getAgent()->getName() );
+				if ( $this->outputFormat === 'htmlemail' ) {
+					$message->rawParams(
+						Linker::link(
+							$agent->getUserPage(),
+							$agent->getName(),
+							array( 'style' => $this->getHTMLLinkStyle() ),
+							array(),
+							array( 'https' )
+						)
+					);
+				} else {
+					$message->params( $agent->getName() );
+				}
 			}
 		// example: {7} others, {99+} others
 		} elseif ( $param === 'agent-other-display') {
@@ -671,7 +717,14 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			if ( !$event->getTitle() ) {
 				$message->params( wfMessage( 'echo-no-title' )->text() );
 			} else {
-				$message->params( $this->formatTitle( $event->getTitle() ) );
+				if ( $this->outputFormat === 'htmlemail' ) {
+					$props = array (
+						'attribs' => array( 'style' => $this->getHTMLLinkStyle() )
+					);
+					$this->setTitleLink( $event, $message, $props );
+				} else {
+					$message->params( $this->formatTitle( $event->getTitle() ) );
+				}
 			}
 		} elseif ( $param === 'titlelink' ) {
 			$this->setTitleLink( $event, $message );
@@ -683,29 +736,20 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			$this->setOutputFormat( $oldOutputFormat );
 
 			$message->params( $textNotification );
-		} elseif ( $param === 'email-intro' ) {
-			if ( $this->bundleData['use-bundle'] && isset( $this->email['batch-bundle-body']['message'] ) ) {
-				$detail = array(
-					'message' => $this->email['batch-bundle-body']['message'],
-					'params' => $this->email['batch-bundle-body']['params']
-				);
-			} else {
-				$detail = array(
-					'message' => $this->email['batch-body']['message'],
-					'params' => $this->email['batch-body']['params']
-				);
-			}
-			$message->params( $this->formatFragment( $detail, $event, $user )->text() );
-		} elseif ( $param === 'email-footer' ) {
-			global $wgEchoEmailFooterAddress;
-			$message->params(
-				wfMessage( 'echo-email-footer-default' )
-				->inLanguage( $user->getOption( 'language' ) )
-				->params( $wgEchoEmailFooterAddress, wfMessage( 'echo-email-batch-separator' )->text() )
-				->text()
-			);
 		} else {
 			throw new MWException( "Unrecognised parameter $param" );
 		}
+	}
+
+	/**
+	 * Getter method
+	 * @param $key string
+	 * @return mixed
+	 */
+	public function getValue( $key ) {
+		if ( !property_exists( $this, $key ) ) {
+			throw new MWException( "Call to non-existing property $key in " . get_class( $this ) );
+		}
+		return $this->$key;
 	}
 }

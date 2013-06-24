@@ -4,8 +4,8 @@ class EchoNotificationFormatterTest extends MediaWikiTestCase {
 
 	public static function provider_editUserTalkEmail() {
 		return array(
-			array( '/Main_Page#Section_8/', 'Section 8' ),
 			array( '/Main_Page[^#]/', null ),
+			array( '/Main_Page#Section_8/', 'Section 8' ),
 		);
 	}
 
@@ -19,9 +19,13 @@ class EchoNotificationFormatterTest extends MediaWikiTestCase {
 		$event->expects( $this->any() )
 			->method( 'getTitle' )
 			->will( $this->returnValue( Title::newMainPage() ) );
-
 		$formatted = $this->format( $event, 'email' );
-		$this->assertRegExp( $pattern, $formatted['body'] );
+		if ( is_array( $formatted['body'] ) ) {
+			$this->assertRegExp( $pattern, $formatted['body']['text'] );
+			$this->assertRegExp( $pattern, $formatted['body']['html'] );
+		} else {
+			$this->assertRegExp( $pattern, $formatted['body'] );
+		}
 	}
 
 	public static function provider_editUserTalk() {
@@ -197,12 +201,14 @@ class EchoNotificationFormatterTest extends MediaWikiTestCase {
 		$formatter = EchoNotificationFormatter::factory( $params );
 		$formatter->setOutputFormat( $format );
 
-		return $formatter->format( $event, new User, $type );
+		// Notification users can not be anonymous, use a fake user id
+		return $formatter->format( $event, User::newFromId( 2 ), $type );
 	}
 
 	protected function mockEvent( $type, array $extra = array(), Revision $rev = null ) {
 		$methods = get_class_methods( 'EchoEvent' );
-		unset( $methods[array_search( 'userCan', $methods)] );
+		$methods = array_diff( $methods, array( 'userCan', 'getLinkMessage', 'getLinkDestination' ) );
+
 		$event = $this->getMockBuilder( 'EchoEvent' )
 			->disableOriginalConstructor()
 			->setMethods( $methods )

@@ -417,8 +417,8 @@ class EchoEvent {
 	 */
 	public function getLinkMessage( $rank ) {
 		global $wgEchoNotifications;
-		if ( isset( $wgEchoNotifications[$this->type][$rank.'-link']['message'] ) ) {
-			return $wgEchoNotifications[$this->type][$rank.'-link']['message'];
+		if ( isset( $wgEchoNotifications[$this->getType()][$rank.'-link']['message'] ) ) {
+			return $wgEchoNotifications[$this->getType()][$rank.'-link']['message'];
 		}
 		return '';
 	}
@@ -431,8 +431,8 @@ class EchoEvent {
 	 */
 	public function getLinkDestination( $rank ) {
 		global $wgEchoNotifications;
-		if ( isset( $wgEchoNotifications[$this->type][$rank.'-link']['destination'] ) ) {
-			return $wgEchoNotifications[$this->type][$rank.'-link']['destination'];
+		if ( isset( $wgEchoNotifications[$this->getType()][$rank.'-link']['destination'] ) ) {
+			return $wgEchoNotifications[$this->getType()][$rank.'-link']['destination'];
 		}
 		return '';
 	}

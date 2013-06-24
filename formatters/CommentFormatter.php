@@ -8,10 +8,6 @@ class EchoCommentFormatter extends EchoEditFormatter {
 			$this->title['message-yours'] = $params['title-message-yours'];
 		}
 
-		if ( isset( $params['content-message-yours'] ) ) {
-			$this->content['message-yours'] = $params['content-message-yours'];
-		}
-
 		if ( isset( $params['email-subject-message-yours'] ) ) {
 			$this->email['subject']['message-yours'] = $params['email-subject-message-yours'];
 		}
@@ -27,7 +23,7 @@ class EchoCommentFormatter extends EchoEditFormatter {
 	 * @param $user User
 	 * @return Message
 	 */
-	protected function formatFragment( $details, $event, $user ) {
+	public function formatFragment( $details, $event, $user ) {
 		$userTalkPage = $user->getUserPage()->getTalkPage();
 
 		$title = $event->getTitle();
@@ -47,7 +43,6 @@ class EchoCommentFormatter extends EchoEditFormatter {
 	 * @param User $user
 	 */
 	protected function processParam( $event, $param, $message, $user ) {
-		$extra = $event->getExtra();
 		if ( $param === 'content-page' ) {
 			if ( $event->getTitle() ) {
 				$message->params( $event->getTitle()->getSubjectPage()->getPrefixedText() );
