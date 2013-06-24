@@ -1101,6 +1101,23 @@ $messages['br'] = array(
 	'echo-email-batch-subject-weekly' => '$1 kemenn{{PLURAL:$2||}} nevez ar sizhun-mañ', # Fuzzy
 );
 
+/** Bosnian (bosanski)
+ * @author DzWiki
+ */
+$messages['bs'] = array(
+	'prefs-echo' => 'Obavijesti',
+	'prefs-displaynotifications' => 'Postavke izgleda',
+	'echo-learn-more' => 'Saznajte više',
+	'echo-new-messages' => 'Imate nove poruke',
+	'notifications' => 'Obavijesti',
+	'echo-specialpage' => 'Obavijesti',
+	'echo-none' => 'Nemate obavijesti',
+	'echo-overlay-link' => 'Sve obavijesti',
+	'echo-mark-all-as-read' => 'Označi sve kao pročitano',
+	'echo-date-today' => 'Danas',
+	'echo-date-yesterday' => 'Jučer',
+);
+
 /** Catalan (català)
  * @author Pitort
  * @author පසිඳු කාවින්ද
@@ -3220,23 +3237,26 @@ $1',
 $messages['ka'] = array(
 	'echo-desc' => 'შეტყობინებების სისტემა',
 	'prefs-echo' => 'შეტყობინებები',
+	'prefs-emailsettings' => 'ელ. ფოსტის პარამეტრები',
 	'prefs-displaynotifications' => 'გამოსახვის პარამეტრები',
 	'prefs-echosubscriptions' => 'შემატყობინეთ ამ ღონისძიებების შესახებ',
+	'echo-pref-send-me' => 'გამომიგზავნეთ:',
 	'echo-pref-web' => 'ქსელი',
 	'echo-pref-email' => 'ელ. ფოსტა',
+	'echo-category-title-edit-user-talk' => 'განხილვის გვერდის {{PLURAL:$1|შეტყობინება|შეტყობინება}}',
 	'echo-no-agent' => '[არავინ]',
 	'echo-no-title' => '[არ არის გვერდი]',
 	'notifications' => 'შეტყობინებები',
 	'tooltip-pt-notifications' => 'თქვენი შეტყობინებები',
 	'echo-specialpage' => 'შეტყობინებები',
 	'echo-more-info' => 'დეტალურად',
+	'echo-feedback' => 'შეფასება',
 	'notification-new-user' => 'კეთილი იყოს თქვენი მობრძანება საიტზე {{SITENAME}}, $1! ჩვენ მოხარული ვართ თქვენი აქ ყოფნით.',
 	'echo-notification-count' => '$1+',
 	'echo-overlay-link' => 'შეტყობინება',
 	'echo-overlay-title' => '<b>შეტყობინებები</b>',
 	'echo-date-today' => 'დღეს',
 	'echo-date-yesterday' => 'გუშინ',
-	'echo-date-header' => '$1 $2',
 	'echo-email-batch-separator' => '________________________________________________',
 	'echo-email-batch-bullet' => '•',
 );
@@ -3871,6 +3891,10 @@ $messages['ms'] = array(
 	'echo-category-title-mention' => '{{PLURAL:$1|Sebutan}}',
 	'echo-category-title-other' => '{{PLURAL:$1|Lain-lain}}',
 	'echo-category-title-system' => '{{PLURAL:$1|Sistem}}',
+	'echo-pref-tooltip-edit-user-talk' => 'Beritahu saya apabila seseorang mengirim pesanan atau membalas halaman perbualan saya.',
+	'echo-pref-tooltip-article-linked' => 'Beritahu saya apabila seseorang membuat pautan ke suatu halaman yang pernah saya wujudkan dari halaman rencana.',
+	'echo-pref-tooltip-reverted' => "Beritahu saya apabila seseorang mengundurkan suntingan saya dengan menggunakan alat 'batalkan' atau 'undur'.",
+	'echo-pref-tooltip-mention' => 'Beritahu saya apaila seseorang membuat pautan ke halaman pengguna saya dari sebarang halaman perbualan.',
 	'echo-no-agent' => '[Tiada Sesiapa]',
 	'echo-no-title' => '[Tiada halaman]',
 	'echo-error-no-formatter' => 'Tiada pemformatan yang ditetapkan untuk pemberitahuan',
@@ -3988,6 +4012,7 @@ Anda ada {{PLURAL:$3|satu|beberapa}} pemberitahuan baru di {{SITENAME}} minggu i
 $4
 
 $5',
+	'echo-rev-deleted-text-view' => 'Semakan halaman ini telah digantung',
 );
 
 /** Maltese (Malti)
