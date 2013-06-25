@@ -850,8 +850,12 @@ $messages['bbc-latn'] = array(
 $messages['be-tarask'] = array(
 	'echo-desc' => 'Сыстэма апавяшчэньняў',
 	'prefs-echo' => 'Абвесткі',
+	'prefs-emailsettings' => 'Налады пошты',
 	'prefs-displaynotifications' => 'Налады паказу',
 	'prefs-echosubscriptions' => 'Паведамляць мне пра гэтыя падзеі',
+	'prefs-newmessageindicator' => 'Індыкатар новых паведамленьняў',
+	'echo-pref-send-me' => 'Даслаць мне:',
+	'echo-pref-send-to' => 'Даслаць да:',
 	'echo-pref-web' => 'Праз сайт',
 	'echo-pref-email' => 'Праз пошту',
 	'echo-pref-email-frequency-never' => 'Не дасылаць мне абвестак праз e-mail',
@@ -859,15 +863,22 @@ $messages['be-tarask'] = array(
 	'echo-pref-email-frequency-daily' => 'Штодзённая зборка абвестак',
 	'echo-pref-email-frequency-weekly' => 'Штотыднёвая зборка абвестак',
 	'echo-pref-notify-show-link' => 'Паказваць апавяшчэньні ў маёй панэлі',
+	'echo-pref-new-message-indicator' => 'Паказваць індыкатар паведамленьняў на старонцы гутарак у маёй панэлі',
+	'echo-learn-more' => 'Даведацца болей',
 	'echo-dismiss-button' => 'Схаваць',
 	'echo-dismiss-message' => 'Выключыць усе апавяшчэньні пра $1',
-	'echo-dismiss-prefs-message' => 'Вы можаце ўключыць іх зноў у наладах', # Fuzzy
-	'echo-category-title-edit-user-talk' => 'запісы ў гутарках', # Fuzzy
-	'echo-category-title-article-linked' => 'Спасыланьне на старонку', # Fuzzy
-	'echo-category-title-reverted' => 'Адкат праўкі', # Fuzzy
-	'echo-category-title-mention' => 'Згадваньне', # Fuzzy
-	'echo-category-title-other' => 'Іншае', # Fuzzy
-	'echo-category-title-system' => 'Сыстэмнае', # Fuzzy
+	'echo-dismiss-prefs-message' => 'Вы можаце ўключыць іх зноў у [[Special:Preferences#mw-prefsection-echo|наладах]]',
+	'echo-new-messages' => 'Вы маеце новыя паведамленьні',
+	'echo-category-title-edit-user-talk' => '{{PLURAL:$1|Допіс у|Допісы ў}} гутарках',
+	'echo-category-title-article-linked' => '{{PLURAL:$1|Спасылка|Спасылкі}} на старонку',
+	'echo-category-title-reverted' => '{{PLURAL:$1|Адкат праўкі|Адкаты правак}}',
+	'echo-category-title-mention' => '{{PLURAL:$1|Згадваньне|Згадваньні}}',
+	'echo-category-title-other' => '{{PLURAL:$1|Іншае|Іншыя}}',
+	'echo-category-title-system' => '{{PLURAL:$1|Сыстэмнае|Сыстэмныя}}',
+	'echo-pref-tooltip-edit-user-talk' => 'Паведамляць, калі нехта дасылае паведамленьне на маю старонку гутарак.',
+	'echo-pref-tooltip-article-linked' => 'Паведамляць, калі нехта спасылаецца на створаную мной старонку зь іншага артыкула.',
+	'echo-pref-tooltip-reverted' => 'Паведамляць, калі нехта адкатвае зробленую мной праўку.',
+	'echo-pref-tooltip-mention' => 'Паведамляць, калі нехта спасылаецца на маю старонку ўдзельніка зь нейкай старонкі абмеркаваньня.',
 	'echo-no-agent' => '[Ніхто]',
 	'echo-no-title' => '[Няма старонкі]',
 	'echo-error-no-formatter' => 'Фарматаваньне для абвестак ня вызначана',
@@ -888,7 +899,9 @@ $messages['be-tarask'] = array(
 	'notification-add-comment-yours2' => '[[User:$1|$1]] {{GENDER:$1|пакінуў|пакінула}} камэнтар у тэме «[[$3#$2|$2]]» на вашай старонцы гутарак',
 	'notification-mention' => '[[User:$1|$1]] {{GENDER:$1|згадаў|згадала}} вас на [[$3#$2|$3]].',
 	'notification-mention-flyout' => '<b>$1</b> {{GENDER:$1|згадаў|згадала}} вас на [[$3#$2|$3]].',
-	'notification-new-user' => 'Вітаем у {{GRAMMAR:месны|{{SITENAME}}}}, $1!', # Fuzzy
+	'notification-user-rights-add' => 'Цяпер вы ўваходзіце ў {{PLURAL:$2|гэтую групу|гэтыя групы}}: $1',
+	'notification-user-rights-remove' => 'Цяпер вы не ўваходзіце ў {{PLURAL:$2|гэтую групу|гэтыя групы}}: $1',
+	'notification-new-user' => 'Вітаем у {{GRAMMAR:месны|{{SITENAME}}}}, $1! Мы рады бачыць вас.',
 	'notification-reverted2' => '[[User:$1|$1]] {{GENDER:$1|скасаваў|скасавала}} {{PLURAL:$4|вашую праўку|вашыя праўкі}} на старонцы [[:$2]] $3', # Fuzzy
 	'notification-reverted-flyout2' => '<b>$1</b> {{GENDER:$1|скасаваў|скасавала}} {{PLURAL:$4|вашую праўку|вашыя праўкі}} на старонцы <b>$2</b> $3',
 	'notification-edit-talk-page-email-subject2' => 'Вы маеце новае паведамленьне на старонцы гутарак', # Fuzzy
@@ -902,6 +915,14 @@ $3
 
 $4', # Fuzzy
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|напісаў|напісала}} вам на старонку гутарак',
+	'notification-page-linked-email-subject' => 'На створаную вамі старонку спаслаліся ў {{GRAMMAR:месны|{{SITENAME}}}}',
+	'notification-page-linked-email-body' => '$1
+
+Пабачце ўсе спасылкі на гэтую старонку:
+
+{{canonicalurl:{{#special:WhatLinksHere/$2}}}}
+
+$3',
 	'notification-reverted-email-subject2' => '$1 {{GENDER:$1|скасаваў|скасавала}} {{PLURAL:$3|вашую праўку|вашыя праўкі}} ў «$2»', # Fuzzy
 	'notification-reverted-email-body2' => '$1 {{GENDER:$1|скасаваў|скасавала}} {{PLURAL:$7|вашую праўку|вашыя праўкі}} ў «$2».
 
@@ -924,10 +945,12 @@ $3
 
 $5', # Fuzzy
 	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|згадаў|згадала}} вас на $2',
+	'notification-user-rights-email-subject' => 'Вашыя правы ў {{GRAMMAR:месны|{{SITENAME}}}} былі зьмененыя',
 	'echo-email-subject-default' => 'Новая абвестка ад {{GRAMMAR:родны|{{SITENAME}}}}',
 	'echo-email-body-default' => 'Для вас ёсьць новая абвестка ў {{GRAMMAR:месны|{{SITENAME}}}}:
 
 $1',
+	'echo-email-batch-body-default' => 'Вы маеце новую абвестку',
 	'echo-email-footer-default' => '$2
 
 Каб выбраць, якія лісты мы будзем дасылаць вам, наведайце:
@@ -935,11 +958,11 @@ $1',
 
 $1', # Fuzzy
 	'echo-overlay-link' => 'Усе абвесткі',
-	'echo-overlay-title' => 'Мае абвесткі', # Fuzzy
+	'echo-overlay-title' => '<b>Абвесткі</b>',
 	'echo-overlay-title-overflow' => 'Мае абвесткі (паказаныя $1 з $2)', # Fuzzy
+	'echo-mark-all-as-read' => 'Пазначыць усё як прачытанае',
 	'echo-date-today' => 'Сёньня',
 	'echo-date-yesterday' => 'Учора',
-	'echo-date-header' => '$2 $1',
 	'echo-load-more-error' => 'Узьнікла памылка ў час атрыманьня дадатковых вынікаў.',
 	'echo-email-batch-subject-daily' => 'Сёньня вы атрымалі $1 {{PLURAL:$2|абвестку|абвесткі|абвестак}}', # Fuzzy
 	'echo-email-batch-subject-weekly' => 'На гэтым тыдні вы атрымалі $1 {{PLURAL:$2|абвестку|абвесткі|абвестак}}', # Fuzzy
@@ -959,6 +982,7 @@ $5', # Fuzzy
 $4
 
 $5', # Fuzzy
+	'echo-rev-deleted-text-view' => 'Гэтая вэрсія старонкі была схаваная',
 );
 
 /** Bulgarian (български)
@@ -1107,12 +1131,16 @@ $messages['br'] = array(
 $messages['bs'] = array(
 	'prefs-echo' => 'Obavijesti',
 	'prefs-displaynotifications' => 'Postavke izgleda',
+	'echo-pref-email-frequency-never' => 'Ne šalji mi obavijesti preko e-pošte',
 	'echo-learn-more' => 'Saznajte više',
 	'echo-new-messages' => 'Imate nove poruke',
+	'echo-no-agent' => '[Niko]',
 	'notifications' => 'Obavijesti',
+	'tooltip-pt-notifications' => 'Vaše obavijesti',
 	'echo-specialpage' => 'Obavijesti',
 	'echo-none' => 'Nemate obavijesti',
 	'echo-overlay-link' => 'Sve obavijesti',
+	'echo-overlay-title' => '<b>Obavijesti</b>',
 	'echo-mark-all-as-read' => 'Označi sve kao pročitano',
 	'echo-date-today' => 'Danas',
 	'echo-date-yesterday' => 'Jučer',
@@ -3249,6 +3277,7 @@ $messages['ka'] = array(
 	'notifications' => 'შეტყობინებები',
 	'tooltip-pt-notifications' => 'თქვენი შეტყობინებები',
 	'echo-specialpage' => 'შეტყობინებები',
+	'echo-none' => 'თქვენ არ გაქვთ შეტყობინება.',
 	'echo-more-info' => 'დეტალურად',
 	'echo-feedback' => 'შეფასება',
 	'notification-new-user' => 'კეთილი იყოს თქვენი მობრძანება საიტზე {{SITENAME}}, $1! ჩვენ მოხარული ვართ თქვენი აქ ყოფნით.',
