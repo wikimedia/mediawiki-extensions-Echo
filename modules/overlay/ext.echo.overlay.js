@@ -148,7 +148,7 @@
 					.attr( 'title', mw.msg( 'echo-more-info' ) )
 					.attr( 'id', 'mw-echo-overlay-moreinfo-link' )
 					.attr( 'target', '_blank' )
-					.click( function() {
+					.click( function () {
 						mw.echo.logInteraction( 'ui-help-click', 'flyout' );
 					} )
 					.appendTo( $title );
@@ -169,7 +169,7 @@
 						.attr( 'id', 'mw-echo-overlay-link' )
 						.attr( 'href', mw.util.wikiGetlink( 'Special:Notifications' ) )
 						.text( mw.msg( 'echo-overlay-link' ) )
-						.click( function() {
+						.click( function () {
 							mw.echo.logInteraction( 'ui-archive-link-click', 'flyout' );
 						} )
 				);
@@ -180,7 +180,7 @@
 						.clone()
 						.attr( 'id', 'mw-echo-overlay-pref-link' )
 						.attr( 'href', $prefLink.attr( 'href' ) + '#mw-prefsection-echo' )
-						.click( function() {
+						.click( function () {
 							mw.echo.logInteraction( 'ui-prefs-click', 'flyout' );
 						} )
 				);

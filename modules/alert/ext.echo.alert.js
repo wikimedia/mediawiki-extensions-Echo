@@ -1,4 +1,4 @@
-( function( $, mw ) {
+( function ( $, mw ) {
 	'use strict';
 	if ( mw.config.get( 'wgUserNewMsgRevisionId' ) && !mw.config.get( 'echoNewMsgAlertDisplayed' ) ) {
 		var alertMessage = mw.html.escape( mw.msg( 'colon-separator' ) + mw.msg( 'echo-new-messages' ) );

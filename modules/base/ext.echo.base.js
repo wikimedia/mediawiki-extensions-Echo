@@ -26,7 +26,7 @@
 			// Log the impression
 			mw.echo.logInteraction( 'notification-impression', context, eventId, eventType );
 			// Set up logging for clickthrough
-			notification.find( 'a' ).click( function() {
+			notification.find( 'a' ).click( function () {
 				mw.echo.logInteraction( 'notification-link-click', context, eventId, eventType );
 			} );
 		},
@@ -38,7 +38,7 @@
 		 * @param {int} eventId Notification event id
 		 * @param {string} eventType notification type
 		 */
-		logInteraction: function( action, context, eventId, eventType ) {
+		logInteraction: function ( action, context, eventId, eventType ) {
 			// Check if Schema:EchoInteraction is enabled
 			if ( !mw.echo.clickThroughEnabled ) {
 				return;
@@ -66,12 +66,12 @@
 		 * Change the user's preferences related to this notification type and
 		 * reload the page.
 		 */
-		dismiss: function( notification ) {
+		dismiss: function ( notification ) {
 			var $notification = $( notification ),
 				eventCategory = $notification.attr( 'data-notification-category' ),
 				prefName = '',
 				prefs = [];
-			$.each( mw.echo.dismissOutputFormats, function( index, format ) {
+			$.each( mw.echo.dismissOutputFormats, function ( index, format ) {
 				// Make sure output format pref exists for this event type
 				prefName = 'echo-subscriptions-' + format + '-' + eventCategory;
 				if ( mw.user.options.exists( prefName ) ) {
@@ -93,7 +93,7 @@
 					$( '.mw-echo-overlay li[data-notification-category="' + eventCategory + '"]' ).hide();
 					$notification.data( 'dismiss', false );
 				}
-			} ).fail( function() {
+			} ).fail( function () {
 				alert( mw.msg( 'echo-error-preference' ) );
 			} );
 		},
@@ -102,21 +102,21 @@
 		 * Handle clicking the Dismiss button.
 		 * First we have to retrieve the options token.
 		 */
-		setOptionsToken: function( callback, notification ) {
+		setOptionsToken: function ( callback, notification ) {
 			if ( mw.echo.optionsToken ) {
 				callback( notification );
 			} else {
 				( new mw.Api() ).get( {
 					action: 'tokens',
 					type : 'options'
-				} ).done( function( data ) {
+				} ).done( function ( data ) {
 					if ( data.tokens.optionstoken === undefined ) {
 						alert( mw.msg( 'echo-error-token' ) );
 					} else {
 						mw.echo.optionsToken = data.tokens.optionstoken;
 						callback( notification );
 					}
-				} ).fail( function() {
+				} ).fail( function () {
 					alert( mw.msg( 'echo-error-token' ) );
 				} );
 			}
@@ -125,7 +125,7 @@
 		/**
 		 * Show the dismiss interface (Dismiss and Cancel buttons).
 		 */
-		showDismissOption: function( closeBox ) {
+		showDismissOption: function ( closeBox ) {
 			var $notification = $( closeBox ).parent();
 			$( closeBox ).hide();
 			$notification.data( 'dismiss', true );
@@ -142,7 +142,7 @@
 			}
 		},
 
-		setUpDismissability: function( notification ) {
+		setUpDismissability: function ( notification ) {
 			var $dismissButton,
 				$cancelButton,
 				$closebox,
@@ -152,7 +152,7 @@
 			$closebox = $( '<div/>' )
 				.addClass( 'mw-echo-close-box' )
 				.css( 'display', 'none' )
-				.click( function() {
+				.click( function () {
 					mw.echo.showDismissOption( this );
 				} );
 			$notification.append( $closebox );
@@ -183,12 +183,12 @@
 
 			// Make each notification hot for dismissability
 			$notification.hover(
-				function() {
+				function () {
 					if ( !$( this ).data( 'dismiss' ) ) {
 						$( this ).find( '.mw-echo-close-box' ).show();
 					}
 				},
-				function() {
+				function () {
 					if ( !$( this ).data( 'dismiss' ) ) {
 						$( this ).find( '.mw-echo-close-box' ).hide();
 					}
