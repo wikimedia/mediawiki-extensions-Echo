@@ -2748,6 +2748,7 @@ $5',
 $4
 
 $5',
+	'echo-rev-deleted-text-view' => 'הגרסה הזאת של הדף הוסתרה',
 );
 
 /** Hindi (हिन्दी)
@@ -3111,8 +3112,8 @@ $messages['ja'] = array(
 	'echo-category-title-other' => '{{PLURAL:$1|その他}}',
 	'echo-category-title-system' => '{{PLURAL:$1|システム}}',
 	'echo-pref-tooltip-edit-user-talk' => '誰かが私のトークページでメッセージの投稿または返信をしたときに通知する。',
-	'echo-pref-tooltip-article-linked' => '誰かが私が作ったページに記事からリンクしたときに通知する。',
-	'echo-pref-tooltip-reverted' => '誰かが取り消しや巻き戻しといった方法で私の行った編集を差し戻したときに通知する。',
+	'echo-pref-tooltip-article-linked' => '誰かが私が作成したページに記事からリンクしたときに通知する。',
+	'echo-pref-tooltip-reverted' => '誰かが取り消しや巻き戻しの機能で私の編集を差し戻したときに通知する。',
 	'echo-pref-tooltip-mention' => '誰かが私の利用者ページにどこかのトークページからリンクしたときに通知する。',
 	'echo-no-agent' => '[送信者なし]',
 	'echo-no-title' => '[ページなし]',
