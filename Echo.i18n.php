@@ -87,15 +87,17 @@ $messages['en'] = array(
 	'notification-reverted2' => 'Your {{PLURAL:$4|edit on [[:$2]] has|edits on [[:$2]] have}} been {{GENDER:$1|reverted}} by [[User:$1|$1]] $3',
 	'notification-reverted-flyout2' => 'Your {{PLURAL:$4|edit on <b>$2</b> has|edits on <b>$2</b> have}} been {{GENDER:$1|reverted}} by <b>$1</b> $3',
 	'notification-edit-talk-page-email-subject2' => 'You have a new talkpage message on {{SITENAME}}',
-	'notification-edit-talk-page-email-body2' => '$1
+	'notification-edit-talk-page-email-body3' => '$1
 
 $3
 
-View more:
-
+View your talk page:
 <$2>
 
-$4',
+View this change:
+<$4>
+
+$5',
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|posted}} on your talk page',
 	'notification-page-linked-email-subject' => 'A page you started was linked on {{SITENAME}}',
 	'notification-page-linked-email-body' => '$1
@@ -290,7 +292,7 @@ Parameters:
 	'notification-edit-talk-page2' => "Format for displaying notifications of a user talk page being edited
 * $1 is the username of the person who edited, plain text. Can be used for GENDER.
 * $2 is the current user's name, used in the link to their talk page.
-* $3 is the section title of the discussion, if any, used in the link to their talk page
+* $3 is the section title of the discussion, if any, used in the link to their talk page.
 See also:
 * {{msg-mw|Notification-edit-talk-page-flyout2}}
 * {{msg-mw|Notification-add-talkpage-topic2}}",
@@ -381,11 +383,12 @@ See also:
 * $4 is the number of edits that were reverted. NOTE: This will only be set to 1 or 2, with 2 actually meaning 'an unknown number greater than 0'.
 {{Related|Notification-reverted}}",
 	'notification-edit-talk-page-email-subject2' => 'E-mail subject.',
-	'notification-edit-talk-page-email-body2' => 'E-mail notification. Parameters:
+	'notification-edit-talk-page-email-body3' => "E-mail notification. Parameters:
 * $1 - the email intro, could be {{msg-mw|notification-edit-talk-page-email-batch-body2}} or {{msg-mw|notification-edit-user-talk-email-batch-bundle-body}}
-* <$2> - a link to a change
+* <$2> - a link to the user's talk page
 * $3 - the edit summary
-* $4 - the e-mail footer, {{msg-mw|echo-email-footer-default}}',
+* <$4> - a link to the 'diff view' of the changes that were made
+* $5 - the e-mail footer, {{msg-mw|echo-email-footer-default}}",
 	'notification-edit-talk-page-email-batch-body2' => 'E-mail notification for talk page edit
 * $1 is a username
 
