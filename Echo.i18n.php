@@ -1254,6 +1254,17 @@ $messages['cs'] = array(
 	'notification-reverted2' => '[[User:$1|$1]] {{GENDER:$1|revertoval|revertovala}} {{PLURAL:$4|vaši editaci|vaše editace}} stránky [[:$2]] $3',
 	'notification-reverted-flyout2' => '<b>$1</b> {{GENDER:$1|revertoval|revertovala}} {{PLURAL:$4|vaši editaci|vaše editace}} stránky <b>$2</b> $3',
 	'notification-edit-talk-page-email-subject2' => 'V diskusi na {{grammar:6sg|{{SITENAME}}}} máte novou zprávu',
+	'notification-edit-talk-page-email-body3' => '$1
+
+$3
+
+Podívejte se na svou diskusi:
+<$2>
+
+Prohlédněte si tuto změnu:
+<$4>
+
+$5',
 	'notification-edit-talk-page-email-batch-body2' => '$1 vám {{GENDER:$1|napsal|napsala}} na vaši diskusní stránku',
 	'notification-page-linked-email-subject' => 'Na {{grammar:6sg|{{SITENAME}}}} někdo odkázal na vámi založenou stránku',
 	'notification-page-linked-email-body' => '$1
@@ -1561,15 +1572,17 @@ $messages['de'] = array(
 	'notification-reverted2' => 'Deine {{PLURAL:$4|Bearbeitung an der Seite [[:$2]] wurde|Bearbeitungen an der Seite [[:$2]] wurden}} von [[User:$1|$1]] {{GENDER:$1|rückgängig}} gemacht. $3',
 	'notification-reverted-flyout2' => 'Deine {{PLURAL:$4|Bearbeitung an der Seite <b>$2</b> wurde|Bearbeitungen an der Seite <b>$2</b> wurden}} von <b>$1</b> {{GENDER:$1|rückgängig}} gemacht. $3',
 	'notification-edit-talk-page-email-subject2' => 'Du hast auf {{SITENAME}} eine neue Diskussionsseitennachricht',
-	'notification-edit-talk-page-email-body2' => '$1
+	'notification-edit-talk-page-email-body3' => '$1
 
 $3
 
-Mehr:
-
+Betrachte deine Diskussionsseite:
 <$2>
 
-$4',
+Betrachte diese Änderung:
+<$4>
+
+$5',
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|hinterließ}} eine Nachricht auf deiner Diskussionsseite',
 	'notification-page-linked-email-subject' => 'Eine Seite, die du angelegt hast, wurde auf {{SITENAME}} verlinkt',
 	'notification-page-linked-email-body' => '$1
@@ -2260,6 +2273,17 @@ $messages['fr'] = array(
 	'notification-reverted2' => '{{PLURAL:$4|Votre modification sur [[:$2]] a|Vos modifications sur [[:$2]] ont}} été {{GENDER:$1|annulée}}{{PLURAL:$4||s}} par [[User:$1|$1]] $3',
 	'notification-reverted-flyout2' => '{{PLURAL:$4|Votre modification sur <b>$2</b> a|Vos modifications sur <b>$2</b> ont}} été {{GENDER:$1|annulée}}{{PLURAL:$4||s}} par <b>$1</b> $3',
 	'notification-edit-talk-page-email-subject2' => 'Vous avez un nouveau message sur votre page de discussion sur {{SITENAME}}',
+	'notification-edit-talk-page-email-body3' => '$1
+
+$3
+
+Afficher votre page de discussion :
+<$2>
+
+Afficher cette modification :
+<$4>
+
+$5',
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|a publié}} sur votre page de discussion',
 	'notification-page-linked-email-subject' => 'Une page que vous avez commencée a été référencée sur {{SITENAME}}',
 	'notification-page-linked-email-body' => '$1
@@ -2460,15 +2484,17 @@ $messages['gl'] = array(
 	'notification-reverted2' => '[[User:$1|$1]] {{GENDER:$1|reverteu}} {{PLURAL:$4|a súa edición|as súas edicións}} en "[[:$2]]" $3',
 	'notification-reverted-flyout2' => '<b>$1</b> {{GENDER:$1|reverteu}} {{PLURAL:$4|a súa edición|as súas edicións}} en "<b>$2</b>" $3',
 	'notification-edit-talk-page-email-subject2' => 'Ten unha nova mensaxe na súa páxina de conversa en {{SITENAME}}',
-	'notification-edit-talk-page-email-body2' => '$1
+	'notification-edit-talk-page-email-body3' => '$1
 
 $3
 
-Ollar máis:
-
+Mostrar a súa páxina de conversa:
 <$2>
 
-$4',
+Mostrar esta modificación:
+<$4>
+
+$5',
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|deixou}} unha mensaxe na súa páxina de conversa',
 	'notification-page-linked-email-subject' => 'Unha páxina que comezou foi ligada en {{SITENAME}}',
 	'notification-page-linked-email-body' => '$1
@@ -2948,15 +2974,17 @@ $messages['it'] = array(
 	'notification-reverted2' => '{{PLURAL:$4|La tua modifica|Le tue modifiche}} su [[:$2]] {{PLURAL:$4|è stata annullata|sono state annullate}} {{GENDER:$1|da}} [[User:$1|$1]] $3',
 	'notification-reverted-flyout2' => '{{PLURAL:$4|La tua modifica|Le tue modifiche}} su <b>$2</b> {{PLURAL:$4|è stata annullata|sono state annullate}} {{GENDER:$1|da}} <b>$1</b> $3',
 	'notification-edit-talk-page-email-subject2' => 'Hai un nuovo messaggio nella pagina di discussione su {{SITENAME}}',
-	'notification-edit-talk-page-email-body2' => '$1
+	'notification-edit-talk-page-email-body3' => '$1
 
 $3
 
-Vedi anche:
-
+Vedi la tua pagina di discussione:
 <$2>
 
-$4',
+Vedi questa modifica:
+<$4>
+
+$5',
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|ha postato}} sulla tua pagina di discussione',
 	'notification-page-linked-email-subject' => 'Una pagina che hai creato è stata collegata su {{SITENAME}}',
 	'notification-page-linked-email-body' => '$1
@@ -3109,6 +3137,17 @@ $messages['ja'] = array(
 	'notification-reverted2' => '{{PLURAL:$4|[[:$2]] でのあなたの編集}}を [[User:$1|$1]] が{{GENDER:$1|差し戻しました}} $3',
 	'notification-reverted-flyout2' => '{{PLURAL:$4|<b>$2</b> でのあなたの編集}}を <b>$1</b> が{{GENDER:$1|差し戻しました}} $3',
 	'notification-edit-talk-page-email-subject2' => '{{SITENAME}}のトークページに新着メッセージがあります',
+	'notification-edit-talk-page-email-body3' => '$1
+
+$3
+
+あなたのトークページ:
+<$2>
+
+変更点はこちら:
+<$4>
+
+$5',
 	'notification-edit-talk-page-email-batch-body2' => '$1 があなたのトークページに{{GENDER:$1|投稿しました}}',
 	'notification-page-linked-email-subject' => 'あなたが作成したページが{{SITENAME}}でリンクされました',
 	'notification-page-linked-email-body' => '$1
@@ -3144,7 +3183,7 @@ $5',
 	'notification-user-rights-email-subject' => '{{SITENAME}}での利用者権限が変更されました',
 	'notification-user-rights-email-body' => 'あなたの権限が $1 により{{GENDER:$1|変更されました}}。$2
 
-詳細を確認:
+詳細はこちら:
 
 {{canonicalurl:{{#special:ListGroupRights}}}}
 
@@ -3611,15 +3650,17 @@ $messages['mk'] = array(
 	'notification-reverted2' => '[[User:$1|$1]] {{PLURAL:$4|го|ги}} {{GENDER:$1|врати}} {{PLURAL:$4|вашето уредување на [[:$2]]|вашите уредувања на [[:$2]]}} $3',
 	'notification-reverted-flyout2' => '<b>$1</b> {{PLURAL:$4|го|ги}} {{GENDER:$1|врати}} {{PLURAL:$4|вашето уредување на <b>$2</b>|вашите уредувања на <b>$2</b>}} $3',
 	'notification-edit-talk-page-email-subject2' => 'Имате нова порака на {{SITENAME}}',
-	'notification-edit-talk-page-email-body2' => '$1
+	'notification-edit-talk-page-email-body3' => '$1
 
 $3
 
-Погледајте повеќе:
-
+Погледајте ја вашата страница за разговор:
 <$2>
 
-$4',
+Погледајте ја страницава:
+<$4>
+
+$5',
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|објави}} на вашата страница за разговор',
 	'notification-page-linked-email-subject' => 'Страница што вие ја започнавте е наведена на {{SITENAME}}',
 	'notification-page-linked-email-body' => '$1
@@ -3908,6 +3949,17 @@ $messages['ms'] = array(
 	'notification-reverted2' => '{{PLURAL:$4|Suntingan|Suntingan-suntingan}} anda di [[:$2]] telah {{GENDER:$1|dibalikkan}} oleh [[User:$1|$1]] $3',
 	'notification-reverted-flyout2' => '{{PLURAL:$4|Suntingan|Suntingan-suntingan}} anda di <b>$2</b> telah {{GENDER:$1|dibalikkan}} oleh <b>$1</b> $3',
 	'notification-edit-talk-page-email-subject2' => 'Anda mendapat pesanan baru di halaman perbualan {{SITENAME}}',
+	'notification-edit-talk-page-email-body3' => '$1
+
+$3
+
+Lihat halaman perbualan anda:
+<$2>
+
+Lihat perubahan ini:
+<$4>
+
+$5',
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|mengepos}} pada halaman perbualan anda',
 	'notification-page-linked-email-subject' => 'Sebuah halaman yang pernah anda wujudkan telah dipautkan di {{SITENAME}}',
 	'notification-page-linked-email-body' => '$1
@@ -5039,15 +5091,18 @@ $messages['sv'] = array(
 	'notification-reverted2' => '{{PLURAL:$4|Din redigering|Dina redigeringar}} på [[:$2]] har {{GENDER:$1|återställts}} av [[User:$1|$1]] $3',
 	'notification-reverted-flyout2' => '{{PLURAL:$4|Din redigering|Dina redigeringar}} på <b>$2</b> har {{GENDER:$1|återställts}} av <b>$1</b> $3',
 	'notification-edit-talk-page-email-subject2' => 'Du har ett nytt meddelande på {{SITENAME}}',
-	'notification-edit-talk-page-email-body2' => '$1
+	'notification-edit-talk-page-email-body3' => '$1
 
 $3
 
-Se mer:
+Se din diskussionssida:
 
 <$2>
 
-$4',
+Se denna ändring:
+<$4>
+
+$5',
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|postade}} på din diskussionssida',
 	'notification-page-linked-email-subject' => 'En sida som du skapat länkades till på {{SITENAME}}',
 	'notification-page-linked-email-body' => '$1
@@ -5129,6 +5184,7 @@ Du har {{PLURAL:$3|ett nytt meddelande|nya meddelanden}} på {{SITENAME}} denna 
 $4
 
 $5',
+	'echo-rev-deleted-text-view' => 'Denna sidverion har dolts.',
 );
 
 /** Tamil (தமிழ்)
