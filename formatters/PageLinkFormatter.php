@@ -143,4 +143,34 @@ class EchoPageLinkFormatter extends EchoBasicFormatter {
 		}
 	}
 
+	/**
+	 * Helper function for getLink()
+	 *
+	 * @param EchoEvent $event
+	 * @param User $user The user receiving the notification
+	 * @param String $destination The destination type for the link
+	 * @return Array including target and query parameters
+	 */
+	protected function getLinkParams( $event, $user, $destination ) {
+		$target = null;
+		$query = array();
+		// Set up link parameters based on the destination (or pass to parent)
+		switch ( $destination ) {
+			case 'link-from-page':
+				if ( $this->bundleData['use-bundle'] ) {
+					if ( $event->getTitle() ) {
+						$target = SpecialPage::getTitleFor( 'WhatLinksHere', $event->getTitle()->getPrefixedText() );
+					}
+				} else {
+					$extra = self::extractExtra( $event->getExtra() );
+					if ( $this->isTitleSet( $extra ) ) {
+						$target = Title::newFromId( $extra['link-from-page-id'] );
+					}
+				}
+				break;
+			default:
+				return parent::getLinkParams( $event, $user, $destination );
+		}
+		return array( $target, $query );
+	}
 }

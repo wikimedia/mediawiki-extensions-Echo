@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * This class represents the controller for notifications and includes functions
+ * for dealing with notification categories.
+ */
 class EchoNotificationController {
 	static protected $blacklist;
 	static protected $userWhitelist;

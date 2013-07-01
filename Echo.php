@@ -418,6 +418,8 @@ $wgEchoNotifications = array(
 		'icon' => 'site',
 	),
 	'edit-user-talk' => array(
+		'primary-link' => array( 'message' => 'notification-link-text-view-message', 'destination' => 'section' ),
+		'secondary-link' => array( 'message' => 'notification-link-text-view-changes', 'destination' => 'diff' ),
 		'category' => 'edit-user-talk',
 		'group' => 'interactive',
 		'bundle' => array( 'web' => true, 'email' => false ),
@@ -439,6 +441,7 @@ $wgEchoNotifications = array(
 		'icon' => 'chat',
 	),
 	'reverted' => array(
+		'primary-link' => array( 'message' => 'notification-link-text-view-edit', 'destination' => 'diff' ),
 		'category' => 'reverted',
 		'group' => 'negative',
 		'formatter-class' => 'EchoEditFormatter',
@@ -456,6 +459,7 @@ $wgEchoNotifications = array(
 		'icon' => 'revert',
 	),
 	'page-linked' => array(
+		'primary-link' => array( 'message' => 'notification-link-text-view-page', 'destination' => 'link-from-page' ),
 		'category' => 'article-linked',
 		'group' => 'neutral',
 		'bundle' => array( 'web' => true, 'email' => true ),
@@ -478,6 +482,8 @@ $wgEchoNotifications = array(
 		'icon' => 'linked',
 	),
 	'mention' => array(
+		'primary-link' => array( 'message' => 'notification-link-text-view-mention', 'destination' => 'section' ),
+		'secondary-link' => array( 'message' => 'notification-link-text-view-changes', 'destination' => 'diff' ),
 		'category' => 'mention',
 		'group' => 'interactive',
 		'formatter-class' => 'EchoCommentFormatter',
@@ -495,6 +501,7 @@ $wgEchoNotifications = array(
 		'icon' => 'chat',
 	),
 	'user-rights' => array(
+		'primary-link' => array( 'message' => 'notification-learn-more', 'destination' => 'user-rights-list' ),
 		'category' => 'system',
 		'group' => 'neutral',
 		'formatter-class' => 'EchoUserRightsFormatter',

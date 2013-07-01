@@ -112,41 +112,67 @@ abstract class EchoNotificationFormatter {
 	protected function formatTimestamp( $ts ) {
 		$timestamp = new MWTimestamp( $ts );
 		$ts = $timestamp->getHumanTimestamp();
-
-		if ( $this->outputFormat === 'html' || $this->outputFormat === 'flyout' ) {
-			return Xml::element( 'div', array( 'class' => 'mw-echo-timestamp' ), $ts );
-		} else {
-			return $ts;
-		}
+		return $ts;
 	}
 
 	/**
-	 * Formats an edit summary
-	 * TODO: implement parsed option for notifications archive page (where we can use all the html)
-	 * @param $event EchoEvent that the notification is for.
-	 * @param $user User to format the notification for.
-	 * @return string The edit summary (or empty string)
+	 * Formats a revision comment (i.e. edit summary)
+	 * @param EchoEvent $event The event that the notification is for.
+	 * @param User $user The user to format the notification for.
+	 * @return String The revision comment (or empty string)
 	 */
-	protected function formatSummary( $event, $user ) {
+	protected function formatRevisionComment( $event, $user ) {
 		$revision = $event->getRevision();
 		if ( $revision === null ) {
 			return '';
 		} elseif( !$event->userCan( Revision::DELETED_COMMENT, $user ) ) {
 			return wfMessage( 'rev-deleted-comment' )->text();
 		} else {
-			$summary = $revision->getComment( Revision::FOR_THIS_USER, $user );
+			$comment = $revision->getComment( Revision::FOR_THIS_USER, $user );
 			if ( $this->outputFormat === 'html' || $this->outputFormat === 'flyout' ) {
-				// Parse the edit summary
-				$summary = Linker::formatComment( $summary, $revision->getTitle() );
-				if ( $summary ) {
-					$summary = wfMessage( 'echo-quotation-marks', $summary )->inContentLanguage()->plain();
-					$summary = Xml::tags( 'span', array( 'class' => 'comment' ), $summary );
-					$summary = Xml::tags( 'div', array( 'class' => 'mw-echo-summary' ), $summary );
+				if ( $this->outputFormat === 'html' ) {
+					// Parse the revision comment
+					$comment = Linker::formatComment( $comment, $revision->getTitle() );
+				} else {
+					$comment = $this->customFormatRevisionComment( $comment );
+				}
+				if ( $comment ) {
+					// No quotation marks for now, but this might need to be reverted.
+					// $comment = wfMessage( 'echo-quotation-marks', $comment )->inContentLanguage()->plain();
+					$comment = Xml::tags( 'span', array( 'class' => 'comment' ), $comment );
+					$comment = Xml::tags( 'div', array( 'class' => 'mw-echo-edit-summary' ), $comment );
 				}
 			}
-
-			return $summary;
+			return $comment;
 		}
+	}
+
+	/**
+	 * Formats a revision comment (i.e. edit summary) for use in the flyout (and
+	 * possibly HTML email). This is a helper function for formatRevisionComment.
+	 * @param String $comment The raw revision comment
+	 * @return String The formatted revision comment (or empty string)
+	 */
+	private function customFormatRevisionComment( $comment ) {
+		// Strip wikitext from the revision comment and manually convert autocomments.
+		// This bypasses the creation of the arrow section links (→) and turns
+		// any other links into plain text.
+		$comment = FeedItem::stripComment( $comment );
+		$comment = trim( htmlspecialchars( $comment ) );
+		// Convert autocomments (e.g. section titles) from raw form
+		// Example input: '/* Foobar */ My changes'
+		// Output: '<span class='autocomment'>Foobar:</span> My changes'
+		preg_match( "!(.*)/\*\s*(.*?)\s*\*/(.*)!", $comment, $matches );
+		if ( $matches ) {
+			$section = $matches[2];
+			if ( $matches[3] ) {
+				// Add a colon after the section name
+				$section .= wfMessage( 'colon-separator' )->inContentLanguage()->escaped();
+			}
+			// Add standard span tag for autocomment
+			$comment = $matches[1] . "<span class='autocomment'>" . $section . "</span>" . $matches[3];
+		}
+		return $comment;
 	}
 
 }

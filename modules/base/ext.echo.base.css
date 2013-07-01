@@ -11,7 +11,8 @@
 .mw-echo-payload {
 	margin-top: 0.3em;
 }
-.mw-echo-timestamp {
+/* Including .mw-echo-timestamp for backwards compat */
+.mw-echo-timestamp, .mw-echo-notification-footer {
 	color: #6D6D6D;
 	font-size: 9px;
 }
@@ -67,11 +68,9 @@
 	margin-left: 1em;
 	cursor: pointer;
 }
-.mw-echo-notification span.comment {
-	font-style: normal;
-}
 .mw-echo-notification span.autocomment {
 	color: inherit;
+	font-style: normal;
 }
 .mw-echo-icon {
 	width: 30px;
