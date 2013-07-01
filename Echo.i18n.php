@@ -69,28 +69,23 @@ $messages['en'] = array(
 
 	// Notification
 	'echo-quotation-marks' => '"$1"',
-	'notification-link-text-view-message' => 'View message',
-	'notification-link-text-view-mention' => 'View mention',
-	'notification-link-text-view-changes' => 'View changes',
-	'notification-link-text-view-page' => 'View page',
-	'notification-link-text-view-edit' => 'View edit',
 	'notification-edit-talk-page2' => '[[User:$1|$1]] {{GENDER:$1|posted}} on your [[User talk:$2#$3|talk page]].',
-	'notification-edit-talk-page-flyout2' => '$1 {{GENDER:$1|posted}} on your [[User talk:$2#$3|talk page]].',
+	'notification-edit-talk-page-flyout2' => '<b>$1</b> {{GENDER:$1|posted}} on your [[User talk:$2#$3|talk page]].',
 	'notification-page-linked' => '[[:$2]] was {{GENDER:$1|linked}} from [[:$3]]: [[Special:WhatLinksHere/$2|See all links to this page]]',
-	'notification-page-linked-flyout' => '$2 was {{GENDER:$1|linked}} from [[:$3]].',
+	'notification-page-linked-flyout' => '<b>$2</b> was {{GENDER:$1|linked}} from [[:$3]].',
 	'notification-add-comment2' => '[[User:$1|$1]] {{GENDER:$1|commented}} on "[[$3|$2]]" on the "$4" talk page',
 	'notification-add-talkpage-topic2' => '[[User:$1|$1]] {{GENDER:$1|posted}} a new topic "$2" on [[$3]]',
 	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]] {{GENDER:$1|sent}} you a message: "[[$3#$2|$2]]"',
 	'notification-add-comment-yours2' => '[[User:$1|$1]] {{GENDER:$1|commented}} on "[[$3#$2|$2]]" on your talk page',
 	'notification-mention' => '[[User:$1|$1]] {{GENDER:$1|mentioned}} you on [[$3#$2|$3]].',
-	'notification-mention-flyout' => '$1 {{GENDER:$1|mentioned}} you on [[$3#$2|$3]].',
+	'notification-mention-flyout' => '<b>$1</b> {{GENDER:$1|mentioned}} you on [[$3#$2|$3]].',
 	'notification-user-rights' => 'Your user rights [[Special:Log/rights/$1|were {{GENDER:$1|changed}}]] by [[User:$1|$1]]. $2. [[Special:ListGroupRights|Learn more]]',
-	'notification-user-rights-flyout' => 'Your user rights were {{GENDER:$1|changed}} by $1. $2. [[Special:ListGroupRights|Learn more]]',
+	'notification-user-rights-flyout' => 'Your user rights were {{GENDER:$1|changed}} by <b>$1</b>. $2. [[Special:ListGroupRights|Learn more]]',
 	'notification-user-rights-add' => 'You are now a member of {{PLURAL:$2|this group|these groups}}: $1',
 	'notification-user-rights-remove' => 'You are no longer a member of {{PLURAL:$2|this group|these groups}}: $1',
 	'notification-new-user' => "Welcome to {{SITENAME}}, $1! We're glad you're here.",
 	'notification-reverted2' => 'Your {{PLURAL:$4|edit on [[:$2]] has|edits on [[:$2]] have}} been {{GENDER:$1|reverted}} by [[User:$1|$1]] $3',
-	'notification-reverted-flyout2' => 'Your {{PLURAL:$4|edit on $2 has|edits on $2 have}} been {{GENDER:$1|reverted}} by $1 $3',
+	'notification-reverted-flyout2' => 'Your {{PLURAL:$4|edit on <b>$2</b> has|edits on <b>$2</b> have}} been {{GENDER:$1|reverted}} by <b>$1</b> $3',
 	'notification-edit-talk-page-email-subject2' => 'You have a new talkpage message on {{SITENAME}}',
 	'notification-edit-talk-page-email-body3' => '$1
 
@@ -294,11 +289,6 @@ Parameters:
 	'echo-feedback' => 'Text for a link that goes to a feedback survey shown at [[Special:Notifications]].
 {{Identical|Feedback}}',
 	'echo-quotation-marks' => 'Puts the edit summary in quotation marks. Only translate if different than English.',
-	'notification-link-text-view-message' => 'Label for button that links to a message on your talk page.',
-	'notification-link-text-view-mention' => 'Label for button that links to a discussion where you were mentioned.',
-	'notification-link-text-view-changes' => 'Label for button that links to a "diff" view showing changes made to a page. This is an alternative to the wording in {{msg-mw|notification-link-text-view-edit}}, which serves essentially the same function.',
-	'notification-link-text-view-page' => 'Label for button that links to a page.',
-	'notification-link-text-view-edit' => 'Label for button that links to a "diff" view showing an edit made to a page. This is an alternative to the wording in {{msg-mw|notification-link-text-view-changes}}, which serves essentially the same function.',
 	'notification-edit-talk-page2' => "Format for displaying notifications of a user talk page being edited
 * $1 is the username of the person who edited, plain text. Can be used for GENDER.
 * $2 is the current user's name, used in the link to their talk page.
@@ -361,7 +351,7 @@ See also:
 * $3 - the page title of the discussion",
 	'notification-mention-flyout' => "Flyout-specific format for displaying notifications of a comment including a link to another user's user page.
 Parameters:
-* $1 - the username of the person who mentioned you, plain text. Can be used for GENDER.
+* <b>$1</b> - the username of the person who mentioned you, plain text. Can be used for GENDER.
 * $2 - the section title of the discussion
 * $3 - the page title of the discussion",
 	'notification-user-rights' => 'Format for displaying notifications of a user right change in notification page.  Parameters:
@@ -686,15 +676,17 @@ $messages['ast'] = array(
 	'notification-reverted2' => '[[User:$1|$1]] {{GENDER:$1|invertió}} {{PLURAL:$4|la so edición|les sos ediciones}} en [[:$2]] $3',
 	'notification-reverted-flyout2' => '<b>$1</b> {{GENDER:$1|invertió}} {{PLURAL:$4|la so edición|les sos ediciones}} en <b>$2</b> $3',
 	'notification-edit-talk-page-email-subject2' => "Tien un mensaxe nuevu na páxina d'alderique de {{SITENAME}}",
-	'notification-edit-talk-page-email-body2' => '$1
+	'notification-edit-talk-page-email-body3' => "$1
 
 $3
 
-Ver más:
-
+Ver la so páxina d'alderique:
 <$2>
 
-$4',
+Ver esti cambiu:
+<$4>
+
+$5",
 	'notification-edit-talk-page-email-batch-body2' => "$1 {{GENDER:$1|escribió}} na so páxina d'alderique",
 	'notification-page-linked-email-subject' => "Una páxina que principió enllazóse'n {{SITENAME}}",
 	'notification-page-linked-email-body' => '$1
@@ -3498,7 +3490,7 @@ $messages['lb'] = array(
 	'echo-pref-email-frequency-daily' => 'All Dag e Resumé vun den Notifikatiounen',
 	'echo-pref-email-frequency-weekly' => 'All Woch e Resumé vun den Notifikatiounen',
 	'echo-pref-notify-show-link' => 'Notifikatiounen a menger Toolbar weisen',
-	'echo-pref-new-message-indicator' => 'Indicateur fir messagen op menger Diskussiounssäit a menger Toolbar weisen',
+	'echo-pref-new-message-indicator' => 'Indicateur fir Messagen op menger Diskussiounssäit a menger Toolbar weisen',
 	'echo-learn-more' => 'Fir méi ze wëssen',
 	'echo-dismiss-button' => 'Verwerfen',
 	'echo-dismiss-message' => 'All $1-Notifikatiounen ausschalten',
@@ -3521,15 +3513,6 @@ $messages['lb'] = array(
 	'notification-user-rights-add' => 'Dir sidd elo Member vun {{PLURAL:$2|dësem Grupp|dëse Gruppen}}: $1',
 	'notification-new-user' => 'Wëllkomm op {{SITENAME}}, $1! Mir si frou Iech begréissen ze kënnen.',
 	'notification-edit-talk-page-email-subject2' => 'Dir hutt en neie Message op Ärer Diskussiounssäit op {{SITENAME}}',
-	'notification-edit-talk-page-email-body2' => '$1
-
-$3
-
-Méi weisen:
-
-<$2>
-
-$4',
 	'notification-page-linked-email-subject' => 'Eng Säit déi Dir ugeluecht hutt gouf op {{SITENAME}} verlinkt',
 	'notification-page-linked-email-body' => '$1
 
@@ -4307,15 +4290,17 @@ $messages['nl'] = array(
 	'notification-reverted2' => 'Uw {{PLURAL:$4|bewerking op [[:$2]] is|bewerkingen op [[:$2]] zijn}} {{GENDER:$1|teruggedraaid}} [[User:$1|$1]] $3',
 	'notification-reverted-flyout2' => 'Uw {{PLURAL:$4|bewerking op <b>$2</b> is|bewerkingen op <b>$2</b> zijn}} {{GENDER:$1|teruggedraaid}} door <b>$1</b> $3',
 	'notification-edit-talk-page-email-subject2' => 'U hebt een nieuw bericht op uw overlegpagina op {{SITENAME}}',
-	'notification-edit-talk-page-email-body2' => '$1
+	'notification-edit-talk-page-email-body3' => '$1
 
 $3
 
-Meer bekijken:
-
+Uw overlegpagina bekijken:
 <$2>
 
-$4',
+Deze wijziging bekijken:
+<$4>
+
+$5',
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|heeft}} een bericht achtergelaten op uw overlegpagina',
 	'notification-page-linked-email-subject' => 'Een pagina die u hebt aangemaakt is gekoppeld op {{SITENAME}}',
 	'notification-page-linked-email-body' => '$1
@@ -4976,7 +4961,7 @@ $messages['si'] = array(
 	'echo-error-no-formatter' => 'නිවේදනය සඳහා කිසිදු ආකෘතියක් දක්වා නොමැත',
 	'notifications' => 'නිවේදන',
 	'tooltip-pt-notifications' => 'ඔබේ නිවේදන',
-	'echo-specialpage' => 'මගේ නිවේදන', # Fuzzy
+	'echo-specialpage' => 'නිවේදන',
 	'echo-anon' => 'නිවේදන ලබා ගැනීම සඳහා, [[Special:Userlogin/signup|ගිණුමක් තනන්න]] හෝ [[Special:UserLogin|ප්‍රවිෂ්ට වන්න]].',
 	'echo-none' => 'ඔබට නිවේදන කිසිවක් නොමැත.',
 	'notification-new-user' => '{{SITENAME}} වෙත පිළිගනිමු, $1!', # Fuzzy
@@ -5056,6 +5041,7 @@ $messages['sv'] = array(
 	'echo-pref-email-frequency-daily' => 'En daglig sammanställning av notifieringar',
 	'echo-pref-email-frequency-weekly' => 'En veckovis sammanställning av notifieringar',
 	'echo-pref-notify-show-link' => 'Visa notifieringar i min verktygsrad',
+	'echo-pref-new-message-indicator' => 'Visa symbolen för diskussionssidemeddelanden i min verktygslist.',
 	'echo-learn-more' => 'Läs mer',
 	'echo-dismiss-button' => 'Avfärda',
 	'echo-dismiss-message' => 'Stäng av alla $1 notifieringar',
