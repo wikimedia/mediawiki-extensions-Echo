@@ -129,9 +129,12 @@ $6',
 
 $3
 
-View more:
+View mention:
 
 <$4>
+
+View changes:
+<$6>
 
 $5',
 	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|mentioned}} you on $2',
@@ -463,6 +466,7 @@ See also:
 * $3 is the edit summary
 * <$4> is the link to the talk page section title
 * $5 is the email footer
+* <$6> is a link to the diff view of the changes that were made
 
 See also:
 * {{msg-mw|Notification-mention}}
