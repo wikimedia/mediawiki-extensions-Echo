@@ -49,7 +49,7 @@
 			// Apply custom header styling for vector and monobook skins
 			if ( skin === 'vector' || skin === 'monobook' ) {
 				$( '#firstHeading' )
-					.css( { 'max-width': '555px', 'margin-left': '50px' } );
+					.css( { 'max-width': '550px', 'margin-left': '50px' } );
 				$( '#mw-echo-moreinfo-link' )
 					.text( '' )
 					.appendTo( '#firstHeading' );
