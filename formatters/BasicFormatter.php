@@ -616,6 +616,10 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 				$eventData = $event->getExtra();
 				if ( isset( $eventData['revid'] ) && $event->getTitle() ) {
 					$target = $event->getTitle();
+					// Explicitly set fragment to empty string for diff links, $title is
+					// passed around by reference, it may end up using fragment set from
+					// other parameters
+					$target->setFragment( '#' );
 					$query = array(
 						'oldid' => $eventData['revid'],
 						'diff' => 'prev',

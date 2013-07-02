@@ -23,7 +23,9 @@ class EchoEditFormatter extends EchoBasicFormatter {
 				'param' => array(
 					'oldid' => $revid,
 					'diff' => 'prev',
-				)
+				),
+				// Set fragment to empty string for diff links
+				'fragment' => ''
 			);
 			$this->setTitleLink( $event, $message, $props );
 		} elseif ( $param === 'summary' ) {
