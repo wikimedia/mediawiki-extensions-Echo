@@ -56,9 +56,7 @@ class SpecialNotifications extends SpecialPage {
 			// Output the date header if it has not been displayed
 			if ( $dateHeader !== $row['timestamp']['date'] ) {
 				$dateHeader = $row['timestamp']['date'];
-				$notices .= Html::openElement( 'li' );
-				$notices .= Html::element( 'h2', array( 'class' => 'mw-echo-date-section' ), $dateHeader );
-				$notices .= Html::closeElement( 'li' );
+				$notices .= Html::rawElement( 'li', array( 'class' => 'mw-echo-date-section' ), $dateHeader );
 			}
 
 			$class = 'mw-echo-notification';
