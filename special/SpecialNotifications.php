@@ -52,18 +52,13 @@ class SpecialNotifications extends SpecialPage {
 		$dateHeader = '';
 		$notices = '';
 		$unread = array();
-		$openListElement = false;
-		$html = Html::openElement( 'div', array( 'id' => 'mw-echo-special-container' ) );
 		foreach ( $notif as $row ) {
 			// Output the date header if it has not been displayed
 			if ( $dateHeader !== $row['timestamp']['date'] ) {
 				$dateHeader = $row['timestamp']['date'];
-				if ( $openListElement ) {
-					$notices .= Html::closeElement( 'ul' );
-				}
+				$notices .= Html::openElement( 'li' );
 				$notices .= Html::element( 'h2', array( 'class' => 'mw-echo-date-section' ), $dateHeader );
-				$notices .= Html::openElement( 'ul', array( 'id' => 'mw-echo-special-container' ), $notices );
-				$openListElement = true;
+				$notices .= Html::closeElement( 'li' );
 			}
 
 			$class = 'mw-echo-notification';
@@ -82,11 +77,7 @@ class SpecialNotifications extends SpecialPage {
 				$row['*']
 			);
 		}
-		$html .= $notices;
-		if ( $openListElement ) {
-			$html .= Html::closeElement( 'ul' );
-		}
-		$html .= Html::closeElement( 'div' );
+		$html = Html::rawElement( 'ul', array( 'id' => 'mw-echo-special-container' ), $notices );
 
 		// Build the more link
 		if ( $nextContinue ) {
