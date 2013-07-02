@@ -86,7 +86,7 @@
 						$li.click( function() {
 							if ( mw.echo.clickThroughEnabled ) {
 								// Log the clickthrough
-								mw.echo.logInteraction( 'notification-link-click', 'flyout', data.id, data.type );
+								mw.echo.logInteraction( 'notification-link-click', 'flyout', +data.id, data.type );
 							}
 							window.location.href = $li.find( '.mw-echo-notification-primary-link' ).attr( 'href' );
 						} );
