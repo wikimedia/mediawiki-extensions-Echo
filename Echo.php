@@ -552,10 +552,6 @@ $wgEchoConfig = array(
 			'enabled' => false,
 			'revision' => 5467650
 		),
-		'EchoPrefUpdate' => array (
-			'enabled' => false,
-			'revision' => 5488876
-		),
 		'EchoInteraction' => array (
 			'enabled' => false,
 			'revision' => 5539940
