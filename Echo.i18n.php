@@ -673,6 +673,11 @@ $messages['ast'] = array(
 	'echo-none' => 'Nun tien avisos.',
 	'echo-more-info' => 'Más información',
 	'echo-feedback' => 'La so opinión',
+	'notification-link-text-view-message' => 'Ver el mensaxe',
+	'notification-link-text-view-mention' => 'Ver la mención',
+	'notification-link-text-view-changes' => 'Ver los cambios',
+	'notification-link-text-view-page' => 'Ver la páxina',
+	'notification-link-text-view-edit' => 'Ver la edición',
 	'notification-edit-talk-page2' => "[[User:$1|$1]] {{GENDER:$1|escribió}} na so [[User talk:$2#$3|páxina d'alderique]].",
 	'notification-edit-talk-page-flyout2' => "$1 {{GENDER:$1|escribió}} na so [[User talk:$2#$3|páxina d'alderique]].",
 	'notification-page-linked' => '[[:$2]] {{GENDER:$1|enllazóse}} dende [[:$3]]: [[Special:WhatLinksHere/$2|Ver tolos enllaces a esta páxina]]',
@@ -728,11 +733,14 @@ $6',
 
 $3
 
-Ver más:
+Ver la mención:
 
 <$4>
 
-$5", # Fuzzy
+Ver los cambios:
+<$6>
+
+$5",
 	'notification-mention-email-batch-body' => '$1 fizo-y una {{GENDER:$1|mención}} en $2',
 	'notification-user-rights-email-subject' => "Camudaron los sos permisos d'usuariu en {{SITENAME}}",
 	'notification-user-rights-email-body' => "$1 {{GENDER:$1|camudó}} los sos permisos d'usuariu. $2
@@ -3724,13 +3732,17 @@ $6',
 	'notification-mention-email-subject' => '$1 {{GENDER:$1|ве спомна}} на {{SITENAME}}',
 	'notification-mention-email-body' => 'Корисникот $1 {{GENDER:$1|mentioned}} од {{SITENAME}} ве спомна на „$2“.
 
+
 $3
 
 Погледајте го спомнувањето:
 
 <$4>
 
-$5', # Fuzzy
+Погледајте ги измените:
+<$6>
+
+$5',
 	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|ве спомна}} на „$2“',
 	'notification-user-rights-email-subject' => 'Вашите кориснички права на {{SITENAME}} се изменети',
 	'notification-user-rights-email-body' => 'Вашите кориснички права се {{GENDER:$1|изменети}} од $1. $2
@@ -4781,6 +4793,11 @@ $messages['ro'] = array(
 	'echo-none' => 'Nu aveți nicio notificare.',
 	'echo-more-info' => 'Mai multe informații',
 	'echo-feedback' => 'Reacții',
+	'notification-link-text-view-message' => 'Vezi mesajul',
+	'notification-link-text-view-mention' => 'Vezi menționarea',
+	'notification-link-text-view-changes' => 'Vezi schimbările',
+	'notification-link-text-view-page' => 'Vezi pagina',
+	'notification-link-text-view-edit' => 'Vezi modificarea',
 	'notification-edit-talk-page2' => '[[User:$1|$1]] {{GENDER:$1|a scris}} pe [[User talk:$2#$3|pagina dumneavoastră de discuții]].',
 	'notification-edit-talk-page-flyout2' => '$1 {{GENDER:$1|a scris}} pe [[User talk:$2#$3|pagina dumneavoastră de discuții]].',
 	'notification-page-linked' => '[[:$2]] a fost {{GENDER:$1|legat|legată}} către [[:$3]]: [[Special:WhatLinksHere/$2|Vedeți toate legăturile către această pagină]]',
@@ -4788,9 +4805,11 @@ $messages['ro'] = array(
 	'notification-add-comment2' => '[[User:$1|$1]] {{GENDER:$1|a comentat}} la „[[$3|$2]]” din pagina de discuție pentru „$4”',
 	'notification-add-talkpage-topic2' => '[[User:$1|$1]] {{GENDER:$1|a pornit}} un nou subiect („$2”) pe [[$3]]',
 	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]] {{GENDER:$1|v-a trimis}} un mesaj: „[[$3#$2|$2]]”',
+	'notification-mention-flyout' => '$1 {{GENDER:$1|v-a menționat}} în [[$3#$2|$3]].',
 	'notification-new-user' => 'Bine ați venit la {{SITENAME}}, $1! Ne bucurăm că sunteți aici.',
 	'notification-edit-talk-page-email-subject2' => 'Aveți un mesaj nou pe pagina dumneavoastră de discuții de la {{SITENAME}}',
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|a scris}} pe pagina dumneavoastră de discuții',
+	'notification-mention-email-subject' => '$1 {{GENDER:$1|v-a menționat}} la {{SITENAME}}',
 	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|v-a menționat}} pe $2',
 	'notification-user-rights-email-subject' => 'Drepturile dumneavoastră de utilizator s-au schimbat pe {{SITENAME}}',
 	'notification-user-rights-email-batch-body' => 'Drepturile dumneavoastră de utilizator au fost {{GENDER:$1|schimbate}} de către $1. $2',
@@ -4814,6 +4833,7 @@ $1',
 	'echo-load-more-error' => 'A intervenit o eroare la obținerea mai multor rezultate.',
 	'echo-email-batch-subject-daily' => 'Aveți {{PLURAL:$2|o notificare nouă|notificări noi}} la {{SITENAME}}',
 	'echo-email-batch-subject-weekly' => 'Aveți {{PLURAL:$2|o notificare nouă|notificări noi}} la {{SITENAME}} în această săptămână',
+	'echo-rev-deleted-text-view' => 'Această versiune a paginii a fost suprimată',
 );
 
 /** tarandíne (tarandíne)
