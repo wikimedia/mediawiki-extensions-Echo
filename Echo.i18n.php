@@ -3548,7 +3548,9 @@ $messages['lb'] = array(
 	'echo-category-title-article-linked' => '{{PLURAL:$1|Säitelink|Säitelinken}}',
 	'echo-category-title-reverted' => '{{PLURAL:$1|Zréckgesetzung|Zrécksetzungen}} änneren',
 	'echo-category-title-mention' => '{{PLURAL:$1|Mentioun|Mentiounen}}',
+	'echo-category-title-other' => '{{PLURAL:$1|Aneren|Anerer}}',
 	'echo-category-title-system' => '{{PLURAL:$1|System}}',
+	'echo-pref-tooltip-edit-user-talk' => 'Mech informéieren wann een eppes op meng Diskussiounssäit schreift oder do äntwert.',
 	'echo-no-agent' => '[Keen]',
 	'echo-no-title' => '[Keng Säit]',
 	'echo-error-preference' => 'Feeler:Benotzerastellung konnt net gemaacht ginn',
@@ -3559,9 +3561,25 @@ $messages['lb'] = array(
 	'echo-none' => 'Dir hutt keng Notifikatiounen.',
 	'echo-more-info' => 'Méi Informatiounen',
 	'echo-feedback' => 'Feedback',
+	'notification-link-text-view-message' => 'Message weisen',
+	'notification-link-text-view-changes' => 'Ännerunge weisen',
+	'notification-link-text-view-page' => 'Säit weisen',
+	'notification-link-text-view-edit' => 'Ännerung weisen',
 	'notification-user-rights-add' => 'Dir sidd elo Member vun {{PLURAL:$2|dësem Grupp|dëse Gruppen}}: $1',
+	'notification-user-rights-remove' => 'Dir sidd net méi Member vun {{PLURAL:$2|dësem Grupp|dëse Gruppen}}: $1',
 	'notification-new-user' => 'Wëllkomm op {{SITENAME}}, $1! Mir si frou Iech begréissen ze kënnen.',
 	'notification-edit-talk-page-email-subject2' => 'Dir hutt en neie Message op Ärer Diskussiounssäit op {{SITENAME}}',
+	'notification-edit-talk-page-email-body3' => '$1
+
+$3
+
+Kuckt Är Diskussiounssäit:
+<$2>
+
+Weist dës Ännerung:
+<$4>
+
+$5',
 	'notification-page-linked-email-subject' => 'Eng Säit déi Dir ugeluecht hutt gouf op {{SITENAME}} verlinkt',
 	'notification-page-linked-email-body' => '$1
 
@@ -3982,6 +4000,11 @@ $messages['ms'] = array(
 	'echo-none' => 'Tiada pemberitahuan untuk anda.',
 	'echo-more-info' => 'Maklumat lanjut',
 	'echo-feedback' => 'Maklum balas',
+	'notification-link-text-view-message' => 'Lihat pesanan',
+	'notification-link-text-view-mention' => 'Lihat sebutan',
+	'notification-link-text-view-changes' => 'Lihat perubahan',
+	'notification-link-text-view-page' => 'Lihat halaman',
+	'notification-link-text-view-edit' => 'Lihat suntingan',
 	'notification-edit-talk-page2' => '[[User:$1|$1]] telah {{GENDER:$1|mengepos}} di [[User talk:$2#$3|halaman perbualan]] anda.',
 	'notification-edit-talk-page-flyout2' => '$1 telah {{GENDER:$1|mengepos}} di [[User talk:$2#$3|halaman perbualan]] anda.',
 	'notification-page-linked' => '[[:$2]] telah {{GENDER:$1|dipautkan}} dari [[:$3]]: [[Special:WhatLinksHere/$2|Lihat semua pautan ke halaman ini]]',
@@ -4037,11 +4060,15 @@ $6',
 
 $3
 
-Baca selanjutnya:
+Lihat sebutan:
 
 <$4>
 
-$5', # Fuzzy
+Lihat perubahan:
+
+<$6>
+
+$5',
 	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|menyebut}} anda di $2',
 	'notification-user-rights-email-subject' => 'Hak-hak pengguna anda telah berubah di {{SITENAME}}',
 	'notification-user-rights-email-body' => 'Hak-hak pengguna anda telah {{GENDER:$1|diubah}} oleh $1. $2
@@ -4502,7 +4529,7 @@ $messages['pl'] = array(
 	'echo-category-title-mention' => '{{PLURAL:$1|Wzmianka|Wzmianki}}',
 	'echo-category-title-other' => '{{PLURAL:$1|Inne zdarzenie|Inne zdarzenia}}',
 	'echo-category-title-system' => '{{PLURAL:$1|zdarzenie systemowe|zdarzenia systemowe}}',
-	'echo-pref-tooltip-edit-user-talk' => 'Powiadom mnie, kiedy ktoś napisze nową wiadomość albo odzieli odpowiedzi na mojej stronie dyskusji.',
+	'echo-pref-tooltip-edit-user-talk' => 'Powiadom mnie, kiedy ktoś napisze nową wiadomość albo udzieli odpowiedzi na mojej stronie dyskusji.',
 	'echo-pref-tooltip-article-linked' => 'Powiadom mnie, kiedy ktoś umieści w artykule link do strony przeze mnie utworzonej.',
 	'echo-pref-tooltip-reverted' => 'Powiadom mnie, kiedy ktoś zrewertuje moją edycję korzystając z narzędzia anuluj albo cofnij.',
 	'echo-pref-tooltip-mention' => 'Powiadom mnie, kiedy ktoś umieści link do mojej strony użytkownika na jakiejkolwiek stronie dyskusji.',
@@ -4518,6 +4545,11 @@ $messages['pl'] = array(
 	'echo-none' => 'Nie masz żadnych powiadomień.',
 	'echo-more-info' => 'Więcej informacji na temat',
 	'echo-feedback' => 'Opinie',
+	'notification-link-text-view-message' => 'Zobacz wiadomość',
+	'notification-link-text-view-mention' => 'Zobacz wzmiankę',
+	'notification-link-text-view-changes' => 'Zobacz zmiany',
+	'notification-link-text-view-page' => 'Zobacz stronę',
+	'notification-link-text-view-edit' => 'Zobacz edycję',
 	'notification-edit-talk-page2' => '[[User:$1|$1]] {{GENDER:$1|napisał|napisała}} do ciebie na twojej [[User talk:$2#$3|stronie dyskusji]].',
 	'notification-edit-talk-page-flyout2' => '$1 {{GENDER:$1|napisał|napisała}} do ciebie na twojej [[User talk:$2#$3|stronie dyskusji]].',
 	'notification-page-linked' => 'Na stronie [[:$3]] {{GENDER:$1|umieszczono}} link do strony [[:$2]]: [[Special:WhatLinksHere/$2|pokaż wszystkie linkujące do tej strony]]',
@@ -4573,11 +4605,14 @@ $6',
 
 $3
 
-Szczegóły:
+Zobacz wzmiankę:
 
 <$4>
 
-$5', # Fuzzy
+Zobacz zmiany:
+<$6>
+
+$5',
 	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|wspomniał|wspomniała}} o tobie w dyskusji $2',
 	'notification-user-rights-email-subject' => 'W {{grammar:MS.lp|{{SITENAME}}}} zostały zmienione twoje uprawnienia',
 	'notification-user-rights-email-body' => '$1 {{GENDER:$1|zmienił|zmieniła}} twoje uprawnienia. $2
@@ -5667,6 +5702,7 @@ $messages['yi'] = array(
  * @author Liangent
  * @author Linforest
  * @author Shirayuki
+ * @author StephDC
  * @author Xiaomingyan
  * @author Yfdyh000
  * @author 乌拉跨氪
@@ -5677,6 +5713,7 @@ $messages['zh-hans'] = array(
 	'prefs-emailsettings' => '电子邮件设置',
 	'prefs-displaynotifications' => '显示选项',
 	'prefs-echosubscriptions' => '通知我有关这些事件的情况',
+	'prefs-newmessageindicator' => '新消息指示器',
 	'echo-pref-send-me' => '发送给我：',
 	'echo-pref-send-to' => '发送到：',
 	'echo-pref-web' => '网站',
@@ -5709,6 +5746,10 @@ $messages['zh-hans'] = array(
 	'echo-none' => '您没有任何通知。',
 	'echo-more-info' => '更多信息',
 	'echo-feedback' => '反馈',
+	'notification-link-text-view-message' => '查看信息',
+	'notification-link-text-view-changes' => '查看变更',
+	'notification-link-text-view-page' => '查看页面',
+	'notification-link-text-view-edit' => '查看编辑',
 	'notification-edit-talk-page2' => '[[User:$1|$1]]在您的[[User talk:$2#$3|讨论页]]留言。',
 	'notification-edit-talk-page-flyout2' => '$1在您的[[User talk:$2#$3|讨论页]]留言。',
 	'notification-page-linked' => '[[:$2]]有来自[[:$3]]的{{GENDER:$1|链入}}：[[Special:WhatLinksHere/$2|查看本页的所有链入页面]]',
@@ -5807,6 +5848,7 @@ $5', # Fuzzy
 $4
 
 $5', # Fuzzy
+	'echo-rev-deleted-text-view' => '该页面修订已取消',
 );
 
 /** Traditional Chinese (中文（繁體）‎)
