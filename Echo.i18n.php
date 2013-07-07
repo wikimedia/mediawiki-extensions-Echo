@@ -3565,6 +3565,9 @@ $messages['lb'] = array(
 	'notification-link-text-view-changes' => 'Ännerunge weisen',
 	'notification-link-text-view-page' => 'Säit weisen',
 	'notification-link-text-view-edit' => 'Ännerung weisen',
+	'notification-edit-talk-page2' => '[[User:$1|$1]] {{GENDER:$1|huet}} op Är [[User talk:$2#$3|Diskussiounssäit]] geschriwwen.',
+	'notification-page-linked-flyout' => '$2 gouf vun der Säit [[:$3]] {{GENDER:$1|verlinkt}}.',
+	'notification-mention-flyout' => '$1 {{GENDER:$1|huet}} Iech op [[$3#$2|$3]] ernimmt.',
 	'notification-user-rights-add' => 'Dir sidd elo Member vun {{PLURAL:$2|dësem Grupp|dëse Gruppen}}: $1',
 	'notification-user-rights-remove' => 'Dir sidd net méi Member vun {{PLURAL:$2|dësem Grupp|dëse Gruppen}}: $1',
 	'notification-new-user' => 'Wëllkomm op {{SITENAME}}, $1! Mir si frou Iech begréissen ze kënnen.',
@@ -3588,6 +3591,7 @@ Kuckt all Linken op dës Säit:
 {{canonicalurl:{{#special:WhatLinksHere/$2}}}}
 
 $3',
+	'notification-mention-email-subject' => '$1 {{GENDER:$1|huet}} Iech op {{SITENAME}} ernimmt',
 	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|huet}} Iech op $2 ernimmt',
 	'notification-user-rights-email-subject' => 'Är Benotzerrechter op {{SITENAME}} hu geännert',
 	'notification-user-rights-email-batch-body' => 'Är Benotzerrechter goufe vum $1 {{GENDER:$1|geännert}}. $2',
@@ -3596,6 +3600,12 @@ $3',
 
 $1',
 	'echo-email-batch-body-default' => 'Dir hutt eng Notifikatioun',
+	'echo-email-footer-default' => '$2
+
+Fir ze kontrolléiere wat fir eng E-Maile mir Iech schécken, kuckt Är Preferenzen no:
+{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
+
+$1',
 	'echo-overlay-link' => 'All Notifikatiounen',
 	'echo-overlay-title' => '<b>Notifikatiounen</b>',
 	'echo-overlay-title-overflow' => '<b>Notifikatiounen</b> (weist $1 vun $2 net geliesten)',
