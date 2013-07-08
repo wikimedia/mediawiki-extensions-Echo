@@ -4165,7 +4165,7 @@ $messages['nb'] = array(
 	'echo-pref-web' => 'Web',
 	'echo-pref-email' => 'E-post',
 	'echo-pref-email-frequency-never' => 'Ikke send meg e-postvarsler',
-	'echo-pref-email-frequency-immediately' => 'Individuelle varsler når de kommer',
+	'echo-pref-email-frequency-immediately' => 'Individuelle varsler fortløpende',
 	'echo-pref-email-frequency-daily' => 'Daglig sammendrag av varsler',
 	'echo-pref-email-frequency-weekly' => 'Ukentlig sammendrag av varsler',
 	'echo-pref-notify-show-link' => 'Vis varslinger i verktøylinjen min',
@@ -4197,6 +4197,11 @@ $messages['nb'] = array(
 	'echo-none' => 'Du har ingen varsler.',
 	'echo-more-info' => 'Mer informasjon',
 	'echo-feedback' => 'Tilbakemelding',
+	'notification-link-text-view-message' => 'Vis melding',
+	'notification-link-text-view-mention' => 'Vis omtale',
+	'notification-link-text-view-changes' => 'Vis endringer',
+	'notification-link-text-view-page' => 'Vis side',
+	'notification-link-text-view-edit' => 'Vis redigering',
 	'notification-edit-talk-page2' => '[[User:$1|$1]] {{GENDER:$1|postet}} på [[User talk:$2#$3|diskusjonssiden din]].',
 	'notification-edit-talk-page-flyout2' => '$1 {{GENDER:$1|postet}} på [[User talk:$2#$3|diskusjonssiden din]].',
 	'notification-page-linked' => '[[:$2]] ble {{GENDER:$1|lenket til}} fra [[:$3]]: [[Special:WhatLinksHere/$2|Se alle lenker til denne siden]]',
@@ -4215,6 +4220,17 @@ $messages['nb'] = array(
 	'notification-reverted2' => '{{PLURAL:$4|Din redigering|Dine redigeringer}} på [[:$2]] har blitt {{GENDER:$1|tilbakestilt}} av [[User:$1|$1]] $3',
 	'notification-reverted-flyout2' => '{{PLURAL:$4|Din redigering|Dine redigeringer}} påå $2 har blitt {{GENDER:$1|tilbakestilt}} av $1 $3',
 	'notification-edit-talk-page-email-subject2' => 'Du har en ny beskjed på diskusjonssiden din på {{SITENAME}}',
+	'notification-edit-talk-page-email-body3' => '$1
+
+$3
+
+Vis din diskusjonsside:
+<$2>
+
+Vis denne endringen:
+<$4>
+
+$5',
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|postet}} på diskusjonssiden din',
 	'notification-page-linked-email-subject' => 'En side du startet ble lenket til på {{SITENAME}}',
 	'notification-page-linked-email-body' => '$1
@@ -4241,11 +4257,14 @@ $6',
 
 $3
 
-Vis mer:
+Vis omtalen:
 
 <$4>
 
-$5', # Fuzzy
+Vis endringer:
+<$6>
+
+$5',
 	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|nevnte}} deg på $2',
 	'notification-user-rights-email-subject' => 'Brukerrettighetene dine ble endret på {{SITENAME}}',
 	'notification-user-rights-email-body' => 'Brukerrettighetene dine ble {{GENDER:$1|endret}} av $1. $2
@@ -4295,6 +4314,7 @@ Du har {{PLURAL:$3|ett nytt varsel|nye varsler}} på {{SITENAME}} denne uka. Se 
 $4
 
 $5',
+	'echo-rev-deleted-text-view' => 'Denne siderevisjonen har blitt skjult',
 );
 
 /** Low German (Plattdüütsch)
@@ -4908,6 +4928,8 @@ $messages['roa-tara'] = array(
 	'echo-new-messages' => 'Tu è messàgge nuève',
 	'echo-category-title-edit-user-talk' => "{{PLURAL:$1|Messàgge}} d'a pàgene de le 'ngazzaminde",
 	'echo-category-title-article-linked' => "{{PLURAL:$1|Collegamende|Collegaminde}} d'a pàgene",
+	'echo-category-title-reverted' => "Annulle {{PLURAL:$1|'u cangiamende|le cangiaminde}}",
+	'echo-category-title-mention' => '{{PLURAL:$1|Menzione}}',
 	'echo-category-title-other' => '{{PLURAL:$1|Otre}}',
 	'echo-category-title-system' => '{{PLURAL:$1|Sisteme}}',
 	'echo-no-agent' => '[Nisciune]',
@@ -4918,18 +4940,17 @@ $messages['roa-tara'] = array(
 	'echo-none' => 'Non ge tìne notifiche.',
 	'echo-more-info' => "Cchiù 'mbormaziune",
 	'echo-feedback' => 'Segnalazione',
+	'notification-link-text-view-message' => "'Ndruche 'u messàgge",
+	'notification-link-text-view-mention' => "'Ndruche 'a menzione",
+	'notification-link-text-view-changes' => "'Ndruche le cangiaminde",
+	'notification-link-text-view-page' => "'Ndruche 'a pàgene",
+	'notification-link-text-view-edit' => "'Ndruche 'u cangiamende",
+	'notification-edit-talk-page2' => "[[User:$1|$1]] {{GENDER:$1|ave scritte}} sus 'a [[User talk:$2#$3|pàgene de le 'ngazzaminde]] tune.",
+	'notification-edit-talk-page-flyout2' => "$1 {{GENDER:$1|ave scritte}} sus 'a [[User talk:$2#$3|pàgene de le 'ngazzaminde]] tune.",
 	'notification-new-user' => "Bovègne jndr'à {{SITENAME}}, $1! Nuje sime cundende ca ste aqquà.",
 	'notification-edit-talk-page-email-subject2' => "Tu è 'nu messàgge nuève sus 'a pàgene de le 'ngazzaminde sus a {{SITENAME}}",
-	'notification-edit-talk-page-email-body2' => "$1
-
-$3
-
-Pe 'ndrucà de cchiù:
-
-<$2>
-
-$4",
 	'notification-edit-talk-page-email-batch-body2' => "$1 {{GENDER:$1|mannate}} sus 'a pàgene de le 'ngazzaminde tune",
+	'echo-email-subject-default' => 'Notifica nove sus a {{SITENAME}}',
 	'echo-email-body-default' => "Tu è 'na notifica nove sus a {{SITENAME}}:
 
 $1",
@@ -4940,6 +4961,7 @@ $1",
 	'echo-mark-all-as-read' => 'Signe tutte cumme a lette',
 	'echo-date-today' => 'Osce',
 	'echo-date-yesterday' => 'Ajere',
+	'echo-load-more-error' => "Ha assute 'n'errore mendre analizzave le resultate.",
 	'echo-email-batch-subject-daily' => "Tu è {{PLURAL:$2|'na notifica|notifiche}} nove sus a {{SITENAME}}",
 	'echo-email-batch-subject-weekly' => "Tu è {{PLURAL:$2|'na notifica|notifiche}} nove STA SUMàNE sus a {{SITENAME}}",
 	'echo-email-batch-body-daily' => "Cià $1,
@@ -4958,6 +4980,7 @@ Tu è {{PLURAL:$3|'na notifica|notifiche}} nove sus a {{SITENAME}} sta sumàne. 
 $4
 
 $5",
+	'echo-rev-deleted-text-view' => "Sta revisione d'a pàgene ha state accise",
 );
 
 /** Russian (русский)
@@ -5585,6 +5608,11 @@ $messages['vi'] = array(
 	'echo-more-info' => 'Thêm thông tin',
 	'echo-feedback' => 'Phản hồi',
 	'echo-quotation-marks' => '“$1”',
+	'notification-link-text-view-message' => 'Xem thông điệp',
+	'notification-link-text-view-mention' => 'Xem lời nói đến bạn',
+	'notification-link-text-view-changes' => 'Xem các thay đổi',
+	'notification-link-text-view-page' => 'Xem trang',
+	'notification-link-text-view-edit' => 'Xem sửa đổi',
 	'notification-edit-talk-page2' => '[[User:$1|$1]] đã nhắn tin vào [[User talk:$2#$3|trang thảo luận]] của bạn.',
 	'notification-edit-talk-page-flyout2' => '$1 đã nhắn tin vào [[User talk:$2#$3|trang thảo luận]] của bạn.',
 	'notification-page-linked' => '[[:$3]] mới {{GENDER:$1}}có liên kết đến [[:$2]]: [[Special:WhatLinksHere/$2|Xem tất cả các liên kết đến trang này]]',
@@ -5603,6 +5631,17 @@ $messages['vi'] = array(
 	'notification-reverted2' => '[[User:$1|$1]] đã lùi lại {{PLURAL:$4|sửa đổi|các sửa đổi}} của bạn tại [[:$2]] $3',
 	'notification-reverted-flyout2' => '$1 đã lùi lại {{PLURAL:$4|sửa đổi|các sửa đổi}} của bạn tại $2 $3',
 	'notification-edit-talk-page-email-subject2' => 'Trang thảo luận của bạn có tin nhắn mới trên {{SITENAME}}',
+	'notification-edit-talk-page-email-body3' => '$1
+
+$3
+
+Xem trang tin nhắn của bạn:
+<$2>
+
+Xem thay đổi này:
+<$4>
+
+$5',
 	'notification-edit-talk-page-email-batch-body2' => '$1 đã nhắn tin vào trang thảo luận của bạn',
 	'notification-page-linked-email-subject' => 'Có liên kết mới đến một trang do bạn tạo ra tại {{SITENAME}}',
 	'notification-page-linked-email-body' => '$1
@@ -5629,11 +5668,14 @@ $6',
 
 $3
 
-Xem thêm:
+Xem lời nói đến bạn:
 
 <$4>
 
-$5', # Fuzzy
+Xem các thay đổi:
+<$6>
+
+$5',
 	'notification-mention-email-batch-body' => '$1 đã nói đến bạn tại $2',
 	'notification-user-rights-email-subject' => 'Các quyền người dùng của bạn đã thay đổi tại {{SITENAME}}',
 	'notification-user-rights-email-body' => '$1 {{GENDER:$1}}đã thay đổi các quyền người dùng của bạn. $2
