@@ -5754,6 +5754,7 @@ $messages['yi'] = array(
  * @author Liangent
  * @author Linforest
  * @author Shirayuki
+ * @author Shizhao
  * @author StephDC
  * @author Xiaomingyan
  * @author Yfdyh000
@@ -5775,17 +5776,21 @@ $messages['zh-hans'] = array(
 	'echo-pref-email-frequency-daily' => '每日发出通知的概要',
 	'echo-pref-email-frequency-weekly' => '每周发出通知的概要',
 	'echo-pref-notify-show-link' => '在我的工具栏中显示通知',
+	'echo-pref-new-message-indicator' => '在我的工具栏显示对话页消息指示器',
 	'echo-learn-more' => '了解更多',
 	'echo-dismiss-button' => '解除',
-	'echo-dismiss-message' => '关闭所有 $1 通知',
+	'echo-dismiss-message' => '关闭所有关于$1的通知',
 	'echo-dismiss-prefs-message' => '您可以在[[Special:Preferences#mw-prefsection-echo|参数设置]]中重新打开这些选项',
 	'echo-new-messages' => '您有新消息',
-	'echo-category-title-edit-user-talk' => '讨论页{{PLURAL:$1|留言}}',
-	'echo-category-title-article-linked' => '页面被{{PLURAL:$1|链接|链接}}',
+	'echo-category-title-edit-user-talk' => '对话页有$1个留言',
+	'echo-category-title-article-linked' => '页面有$1个链接',
 	'echo-category-title-reverted' => '编辑被{{PLURAL:$1|恢复|恢复}}',
-	'echo-category-title-mention' => '{{PLURAL:$1|提及|提及}}',
+	'echo-category-title-mention' => '$1次提及',
 	'echo-category-title-other' => '{{PLURAL:$1|其他}}',
 	'echo-category-title-system' => '{{PLURAL:$1|系统}}',
+	'echo-pref-tooltip-edit-user-talk' => '当有人发送一条消息或在我讨论页上答复时通知我。',
+	'echo-pref-tooltip-reverted' => '当有人使用撤销或回退工具恢复了我的编辑时，通知我。',
+	'echo-pref-tooltip-mention' => '当有人在任何对话页连接到我的用户页时，通知我。',
 	'echo-no-agent' => '[无人]',
 	'echo-no-title' => '[无页面]',
 	'echo-error-no-formatter' => '没有定义通知的格式',
@@ -5805,7 +5810,7 @@ $messages['zh-hans'] = array(
 	'notification-edit-talk-page2' => '[[User:$1|$1]]在您的[[User talk:$2#$3|讨论页]]留言。',
 	'notification-edit-talk-page-flyout2' => '$1在您的[[User talk:$2#$3|讨论页]]留言。',
 	'notification-page-linked' => '[[:$2]]有来自[[:$3]]的{{GENDER:$1|链入}}：[[Special:WhatLinksHere/$2|查看本页的所有链入页面]]',
-	'notification-page-linked-flyout' => '$2有来自<b>$3</b>的{{GENDER:$1|链入}}：[[Special:WhatLinksHere/$2|查看本页的所有链入页面]]', # Fuzzy
+	'notification-page-linked-flyout' => '$2有来自[[:$3]]的{{GENDER:$1|链入}}。',
 	'notification-add-comment2' => '[[User:$1|$1]]在“$4”的讨论页中{{GENDER:$1|谈论了}}“[[$3|$2]]”',
 	'notification-add-talkpage-topic2' => '[[User:$1|$1]]在[[$3]]上发起了一个新的话题“$2”',
 	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]]给您发来一条消息：“[[$3#$2|$2]]”',
@@ -5820,6 +5825,17 @@ $messages['zh-hans'] = array(
 	'notification-reverted2' => '您在{{PLURAL:$4|[[:$2]]上的编辑|[[:$2]]上的编辑}}已被[[User:$1|$1]]{{GENDER:$1|回退}} $3',
 	'notification-reverted-flyout2' => '您在{{PLURAL:$4|$2的编辑}}已被$1{{GENDER:$1|回退}} $3',
 	'notification-edit-talk-page-email-subject2' => '您在{{SITENAME}}上有一条新的讨论页消息',
+	'notification-edit-talk-page-email-body3' => '$1
+
+$3
+
+查看你的对话页：
+<$2>
+
+查看本次修改：
+<$4>
+
+$5',
 	'notification-edit-talk-page-email-batch-body2' => '$1在您的讨论页{{GENDER:$1|留言了}}',
 	'notification-page-linked-email-subject' => '您创建的页面在{{SITENAME}}上被链接了',
 	'notification-page-linked-email-body' => '$1
