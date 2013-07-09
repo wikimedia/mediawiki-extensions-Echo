@@ -54,7 +54,7 @@ class EchoUserRightsFormatter extends EchoBasicFormatter {
 		// Set up link parameters based on the destination (or pass to parent)
 		switch ( $destination ) {
 			case 'user-rights-list':
-				$target = SpecialPage::getTitleFor( 'ListGroupRights' );
+				$target = SpecialPage::getTitleFor( 'Listgrouprights' );
 				break;
 			default:
 				return parent::getLinkParams( $event, $user, $destination );
