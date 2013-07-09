@@ -19,8 +19,7 @@ $messages['en'] = array(
 	'prefs-newmessageindicator' => 'New message indicator',
 	'echo-pref-send-me' => 'Send me:',
 	'echo-pref-send-to' => 'Send to:',
-	// Update this to 'Email format' when HTML email is ready for email digest
-	'echo-pref-email-format' => 'Individual email format:',
+	'echo-pref-email-format' => 'Email format:',
 	'echo-pref-web' => 'Web',
 	'echo-pref-email' => 'Email',
 	'echo-pref-email-frequency-never' => 'Do not send me any email notifications',
@@ -142,23 +141,11 @@ $1',
 	'echo-email-batch-bullet' => '•', # only translate this message to other languages if you have to change it
 	'echo-email-batch-subject-daily' => 'You have {{PLURAL:$2|a new notification|new notifications}} at {{SITENAME}}',
 	'echo-email-batch-subject-weekly' => 'You have {{PLURAL:$2|a new notification|new notifications}} at {{SITENAME}} this week',
-	'echo-email-batch-body-daily' => 'Hi $1,
-
-You have {{PLURAL:$3|a new notification|new notifications}} on {{SITENAME}}. View {{PLURAL:$3|it|them}} here:
-{{canonicalurl:{{#special:Notifications}}}}
-
-$4
-
-$5',
-	'echo-email-batch-body-weekly' => 'Hi $1,
-
-You have {{PLURAL:$3|a new notification|new notifications}} on {{SITENAME}} this week. View {{PLURAL:$3|it|them}} here:
-{{canonicalurl:{{#special:Notifications}}}}
-
-$4
-
-$5',
-
+	'echo-email-batch-body-intro-daily' => "Hi $1,
+Here's a summary of today's activity on {{SITENAME}} for you",
+	'echo-email-batch-body-intro-weekly' => "Hi $1,
+Here's a summary of this week's activity on {{SITENAME}} for you",
+	'echo-email-batch-link-text-view-all-notifications' => 'View all notifications',
 	// Supressed Revisions
 	'echo-rev-deleted-text-view' => 'This page revision has been suppressed',
 );
@@ -495,22 +482,11 @@ See also:
 * $2 is a numeric count, this is used for plural support
 See also:
 * {{msg-mw|Echo-email-batch-subject-daily}}',
-	'echo-email-batch-body-daily' => 'Daily e-mail batch body. Parameters:
-* $1 is a username
-* $2 is currently not used, could be a numeric count or "10+". See also: {{msg-mw|echo-notification-count|optional message|notext=1}}.
-* $3 is a numeric count, this is used for plural support
-* $4 is the e-mail batch content separated by "-------..." ({{msg-mw|echo-email-batch-separator}})
-* $5 is the e-mail footer, {{msg-mw|echo-email-footer-default}}
-See also:
-* {{msg-mw|Echo-email-batch-body-weekly}}',
-	'echo-email-batch-body-weekly' => 'Weekly e-mail batch body. Parameters:
-* $1 is a username
-* $2 is currently not used, could be a numeric count or "10+". See also: {{msg-mw|echo-notification-count|optional message|notext=1}}.
-* $3 is a numeric count, this is used for plural support
-* $4 is the e-mail batch content separated by "--------..." ({{msg-mw|echo-email-batch-separator}})
-* $5 is the e-mail footer, {{msg-mw|echo-email-footer-default}}
-See also:
-* {{msg-mw|Echo-email-batch-body-daily}}',
+	'echo-email-batch-body-intro-daily' => "Introduction text for daily email digest.  Parameters:
+* $1 is a username",
+	'echo-email-batch-body-intro-weekly' => "Introduction text for weekly email digest.  Parameters:
+* $1 is a username",
+	'echo-email-batch-link-text-view-all-notifications' => 'The link text for the primary action in daily and weekly email digest',
 	'echo-rev-deleted-text-view' => 'Short message displayed instead of edit content when revision text is suppressed.',
 );
 

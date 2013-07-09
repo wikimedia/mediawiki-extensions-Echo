@@ -174,7 +174,7 @@ class EchoNotificationFormatterTest extends MediaWikiTestCase {
 		// generic assertion, could do better
 		if ( $format === 'email' ) {
 			$this->assertInternalType( 'array', $result );
-			$this->assertCount( 3, $result );
+			$this->assertCount( 2, $result );
 		} else {
 			$this->assertInternalType( 'string', $result );
 			$this->assertGreaterThan( 0, strlen( $result ) );

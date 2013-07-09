@@ -68,6 +68,9 @@ $wgAutoloadClasses['EchoHTMLEmailFormatter'] = $dir . 'includes/EmailFormatter.p
 $wgAutoloadClasses['EchoEmailMode'] = $dir . 'includes/EmailFormatter.php';
 $wgAutoloadClasses['EchoEmailSingle'] = $dir . 'includes/EmailFormatter.php';
 $wgAutoloadClasses['EchoEmailDigest'] = $dir . 'includes/EmailFormatter.php';
+$wgAutoloadClasses['EchoEmailDecorator'] = $dir . 'includes/EmailFormatter.php';
+$wgAutoloadClasses['EchoTextEmailDecorator'] = $dir . 'includes/EmailFormatter.php';
+$wgAutoloadClasses['EchoHTMLEmailDecorator'] = $dir . 'includes/EmailFormatter.php';
 
 // Internal stuff
 $wgAutoloadClasses['EchoNotifier'] = $dir . 'Notifier.php';

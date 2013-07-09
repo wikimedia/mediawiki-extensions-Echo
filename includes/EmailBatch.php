@@ -159,52 +159,12 @@ abstract class MWEchoEmailBatch {
 		// get the category for this event
 		$category = $event->getCategory();
 		$event->setBundleHash( $hash );
-		$email = EchoNotificationController::formatNotification( $event, $this->mUser, 'email', 'email' );
+		$email = EchoNotificationController::formatNotification( $event, $this->mUser, 'email', 'emaildigest' );
 
 		if ( !isset( $this->content[$category] ) ) {
 			$this->content[$category] = array();
 		}
-		$this->content[$category][] = $email['batch-body'];
-	}
-
-	/**
-	 * Concatenate the list of contents with 'echo-email-batch-separator'
-	 * grouped by category
-	 * @return string
-	 */
-	protected function listToText() {
-		if ( !$this->content ) {
-			return '';
-		}
-
-		$result = array();
-		// build the text section for each category
-		foreach( $this->content as $category => $notifs ) {
-			// Messages that can be used here:
-			// * echo-category-title-system
-			// * echo-category-title-other
-			// * echo-category-title-edit-user-talk
-			// * echo-category-title-reverted
-			// * echo-category-title-article-linked
-			// * echo-category-title-mention
-			$output = wfMessage( 'echo-category-title-' . $category )->numParams( count( $notifs ) )->text()
-				. wfMessage( 'colon-separator' )->text() . "\n";
-
-			foreach( $notifs as $notif ) {
-				$output .= "\n " . wfMessage( 'echo-email-batch-bullet' )->text() . ' ' . $notif;
-			}
-			$result[] = $output;
-		}
-
-		// for prepending and appending 'echo-email-batch-separator'
-		$result = array_merge( array( '' ), $result, array( '' ) );
-
-		return trim(
-				implode(
-					"\n\n" . wfMessage( 'echo-email-batch-separator' )->text() . "\n\n",
-					$result
-				)
-			);
+		$this->content[$category][] = $email;
 	}
 
 	/**
@@ -216,13 +176,7 @@ abstract class MWEchoEmailBatch {
 	 * Send the batch email
 	 */
 	public function sendEmail() {
-		global $wgNotificationSender, $wgNotificationSenderName, $wgNotificationReplyName, $wgEchoEmailFooterAddress;
-
-		// global email footer
-		$footer = wfMessage( 'echo-email-footer-default' )
-				->inLanguage( $this->mUser->getOption( 'language' ) )
-				->params( $wgEchoEmailFooterAddress, '' )
-				->text();
+		global $wgNotificationSender, $wgNotificationSenderName, $wgNotificationReplyName;
 
 		// @Todo - replace them with the CONSTANT in 33810 once it is merged 
 		if ( $this->mUser->getOption( 'echo-email-frequency' ) == 7 ) {
@@ -233,6 +187,22 @@ abstract class MWEchoEmailBatch {
 			$emailDeliveryMode = 'daily_digest';
 		}
 
+		// Echo digest email mode
+		$emailDigest = new EchoEmailDigest( $this->mUser, $this->content, $frequency );
+
+		$textEmailFormatter = new EchoTextEmailFormatter( $emailDigest );
+
+		$body = $textEmailFormatter->formatEmail();
+
+		$format = MWEchoNotifUser::newFromUser( $this->mUser )->getEmailFormat();
+		if ( $format == EchoHooks::EMAIL_FORMAT_HTML ) {
+			$htmlEmailFormatter = new EchoHTMLEmailFormatter( $emailDigest );
+			$body = array(
+				'text' => $body,
+				'html' => $htmlEmailFormatter->formatEmail()
+			);
+		}
+
 		// email subject
 		if ( $this->count > self::$displaySize ) {
 			$count = wfMessage( 'echo-notification-count' )->params( self::$displaySize )->text();
@@ -240,13 +210,6 @@ abstract class MWEchoEmailBatch {
 			$count = $this->count;
 		}
 		$subject = wfMessage( 'echo-email-batch-subject-' . $frequency )->params( $count, $this->count )->text();
-		$body = wfMessage( 'echo-email-batch-body-' . $frequency )->params(
-				$this->mUser->getName(),
-				$count,
-				$this->count,
-				$this->listToText(),
-				$footer
-			)->text();
 
 		$toAddress = new MailAddress( $this->mUser );
 		$fromAddress = new MailAddress( $wgNotificationSender, $wgNotificationSenderName );

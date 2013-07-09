@@ -258,10 +258,9 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	 * @return array
 	 */
 	protected function formatEmail( $event, $user, $type ) {
-		if ( $this->bundleData['use-bundle'] && $this->email['batch-bundle-body'] ) {
-			$key = $this->email['batch-bundle-body'];
-		} else {
-			$key = $this->email['batch-body'];
+		// Email digest
+		if ( $type === 'emaildigest' ) {
+			return $this->formatEmailDigest( $event, $user );
 		}
 
 		// Echo single email
@@ -274,8 +273,6 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			'subject' => $this->formatFragment( $this->email['subject'], $event, $user )->text(),
 			// Single email text body
 			'body' => $textEmailFormatter->formatEmail(),
-			// Email digest text body
-			'batch-body' => $this->formatFragment( $key, $event, $user )->text()
 		);
 
 		$format = MWEchoNotifUser::newFromUser( $user )->getEmailFormat();
@@ -291,6 +288,32 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			$this->setOutputFormat( $outputFormat );
 		}
 
+		return $content;
+	}
+
+	/**
+	 * Format text and/or html verion of email digest fragment for this event
+	 * @param $event EchoEvent
+	 * @param $user User
+	 * @return array
+	 */
+	protected function formatEmailDigest( $event, $user ) {
+		if ( $this->bundleData['use-bundle'] && $this->email['batch-bundle-body'] ) {
+			$key = $this->email['batch-bundle-body'];
+		} else {
+			$key = $this->email['batch-body'];
+		}
+
+		// Email digest text body
+		$content = array( 'batch-body' => $this->formatFragment( $key, $event, $user )->text() );
+		$format = MWEchoNotifUser::newFromUser( $user )->getEmailFormat();
+		if ( $format == EchoHooks::EMAIL_FORMAT_HTML ) {
+			$outputFormat = $this->outputFormat;
+			$this->setOutputFormat( 'htmlemail' );
+			$content['batch-body-html'] = $this->formatFragment( $key, $event, $user )->parse();
+			$content['icon'] = $this->icon;
+			$this->setOutputFormat( $outputFormat );
+		}
 		return $content;
 	}
 

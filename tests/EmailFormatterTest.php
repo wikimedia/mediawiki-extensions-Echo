@@ -3,6 +3,7 @@
 class EchoEmailFormatterTest extends MediaWikiTestCase {
 
 	private $emailSingle;
+	private $emailDigest;
 
 	public function setUp() {
 		parent::setUp();
@@ -18,11 +19,15 @@ class EchoEmailFormatterTest extends MediaWikiTestCase {
 		$formatter->setOutputFormat( 'email' );
 
 		$this->emailSingle = new EchoEmailSingle( $formatter, $event, User::newFromId( 2 ) );
+
+		$content[$event->getCategory()][] = EchoNotificationController::formatNotification( $event, User::newFromId( 2 ), 'email', 'emaildigest' );
+		$this->emailDigest = new EchoEmailDigest( User::newFromId( 2 ), $content );
 	}
 
 	public function testEmailFormatter() {
 		$pattern = '/%%(.*?)%%/is';
 
+		// Single email mode
 		$textFormatter = new EchoTextEmailFormatter( $this->emailSingle );
 		$this->assertRegExp( $pattern, $this->emailSingle->getTextTemplate() );
 		$this->assertEquals( 0, preg_match ( $pattern, $textFormatter->formatEmail() ) );
@@ -30,11 +35,29 @@ class EchoEmailFormatterTest extends MediaWikiTestCase {
 		$htmlFormatter = new EchoHTMLEmailFormatter( $this->emailSingle );
 		$this->assertRegExp( $pattern, $this->emailSingle->getHTMLTemplate() );
 		$this->assertEquals( 0, preg_match ( $pattern, $htmlFormatter->formatEmail() ) );
+
+		// Digest email mode
+		$textFormatter = new EchoTextEmailFormatter( $this->emailDigest );
+		$this->assertRegExp( $pattern, $this->emailSingle->getTextTemplate() );
+		$this->assertEquals( 0, preg_match ( $pattern, $textFormatter->formatEmail() ) );
+
+		$htmlFormatter = new EchoHTMLEmailFormatter( $this->emailDigest );
+		$this->assertRegExp( $pattern, $this->emailSingle->getHTMLTemplate() );
+		$this->assertEquals( 0, preg_match ( $pattern, $htmlFormatter->formatEmail() ) );
 	}
 
 	public function testBuildAction() {
-		$this->assertEquals( 0, preg_match ( '/<a /i', $this->emailSingle->buildAction( 'text' ) ) );
-		$this->assertRegExp( '/<a /i', $this->emailSingle->buildAction( 'html' ) );
+		$this->emailSingle->attachDecorator( new EchoTextEmailDecorator() );
+		$this->assertEquals( 0, preg_match ( '/<a /i', $this->emailSingle->buildAction() ) );
+
+		$this->emailSingle->attachDecorator( new EchoHTMLEmailDecorator() );
+		$this->assertRegExp( '/<a /i', $this->emailSingle->buildAction() );
+
+		$this->emailDigest->attachDecorator( new EchoTextEmailDecorator() );
+		$this->assertEquals( 0, preg_match ( '/<a /i', $this->emailDigest->buildAction() ) );
+
+		$this->emailDigest->attachDecorator( new EchoHTMLEmailDecorator() );
+		$this->assertRegExp( '/<a /i', $this->emailDigest->buildAction() );
 	}
 
 	protected function mockEvent( $type ) {
@@ -48,6 +71,9 @@ class EchoEmailFormatterTest extends MediaWikiTestCase {
 		$event->expects( $this->any() )
 			->method( 'getType' )
 			->will( $this->returnValue( $type ) );
+		$event->expects( $this->any() )
+			->method( 'getCategory' )
+			->will( $this->returnValue( EchoNotificationController::getNotificationCategory( $type ) ) );
 		return $event;
 	}
 
