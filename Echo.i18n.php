@@ -1930,6 +1930,7 @@ $messages['et'] = array(
  * @author A.R.Rostamzade
  * @author Ladsgroup
  * @author Mjbmr
+ * @author Reza1615
  * @author درفش کاویانی
  * @author فلورانس
  */
@@ -1977,6 +1978,11 @@ $messages['fa'] = array(
 	'echo-none' => 'شما هیچگونه اعلانی ندارید.',
 	'echo-more-info' => 'اطلاعات بیشتر',
 	'echo-feedback' => 'بازخورد',
+	'notification-link-text-view-message' => 'نمایش پیام',
+	'notification-link-text-view-mention' => 'مشاهده تذکر',
+	'notification-link-text-view-changes' => 'نمایش تغییرات',
+	'notification-link-text-view-page' => 'مشاهده صفحه',
+	'notification-link-text-view-edit' => 'نمایش ویرایش',
 	'notification-edit-talk-page2' => '[[User:$1|$1]] در صفحه بحث شما [[User talk:$2#$3|مطلبی]] گذاشته‌است.',
 	'notification-edit-talk-page-flyout2' => '$1 در صفحه بحث شما [[User talk:$2#$3|مطلبی]] گذاشته‌است.',
 	'notification-page-linked' => '[[:$2]] به [[:$3]] توسط $1 پیوند داده‌شد: [[Special:WhatLinksHere/$2|همه پیوندها به این صفحه را ببینید]]',
@@ -1995,6 +2001,17 @@ $messages['fa'] = array(
 	'notification-reverted2' => '{{PLURAL:$4|ویرایش|ویرایش‌های}} شما در [[:$2]] توسط [[User:$1|$1]] واگردانی شده‌اند. $3',
 	'notification-reverted-flyout2' => 'شما  {{PLURAL:$4| ویرایش بر روی <b> $2 </b> has|edits در <b> $2 </b> اند}} شده  {{GENDER:$1| واگردانی}} توسط$1 $3',
 	'notification-edit-talk-page-email-subject2' => 'شما یک پیام جدید در صفحه بحث {{SITENAME}} دارید.',
+	'notification-edit-talk-page-email-body3' => '$1
+
+$3
+
+مشاهده صفحه بحث شما:
+<$2>
+
+مشاهده این تغییر:
+<$4>
+
+$5',
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|نوشته شده در صفحه بحث شما}}',
 	'notification-page-linked-email-subject' => 'صفحه ای که شما آغازگر آن بودید در {{SITENAME}} پیوند شد.',
 	'notification-page-linked-email-body' => '$1
@@ -2015,10 +2032,17 @@ $6',
 	'notification-reverted-email-batch-body2' => 'شما  {{PLURAL:$3| ویرایش بر روی  $2  was|edits در  $2  شدند}}  {{GENDER:$1| واگردانی}} با  $1  در {{SITENAME}}',
 	'notification-mention-email-subject' => '$1 {{GENDER:$1|شما ذکر شده در {{SITENAME}}}}',
 	'notification-mention-email-body' => 'کاربری {{SITENAME}}  $1   {{GENDER:$1| ذکر شده}} شما را در  $2 .
-N!$3
-N!بیشتر:
-N!$4>
-N! $5', # Fuzzy
+
+$3
+
+نمایش تذکر:
+
+<$4>
+
+نمایش تغییرات:
+<$6>
+
+$5',
 	'notification-mention-email-batch-body' => '$1 در $2 به شما اشاره کرده‌است.',
 	'notification-user-rights-email-subject' => 'دسترسی‌های شما در {{SITENAME}} تغییر یافته‌است',
 	'notification-user-rights-email-body' => 'دسترسی‌های شما توسط $1 تغییر یافته‌است. $2
@@ -2071,6 +2095,7 @@ $5',
 $4
 
 $5',
+	'echo-rev-deleted-text-view' => 'بازنگری این صفحه متوقف شده‌است',
 );
 
 /** Finnish (suomi)
