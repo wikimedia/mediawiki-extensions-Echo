@@ -6,6 +6,9 @@ class ApiEchoNotifications extends ApiQueryBase {
 	}
 
 	public function execute() {
+		// To avoid API warning, register the parameter used to bust browser cache
+		$this->getMain()->getVal( '_' );
+
 		$user = $this->getUser();
 		if ( $user->isAnon() ) {
 			$this->dieUsage( 'Login is required', 'login-required' );
@@ -189,12 +192,6 @@ class ApiEchoNotifications extends ApiQueryBase {
 				ApiBase::PARAM_MAX2 => ApiBase::LIMIT_SML2,
 			),
 			'index' => false,
-			'offset' => array(
-				ApiBase::PARAM_TYPE => 'integer',
-			),
-			'timestamp' => array(
-				ApiBase::PARAM_TYPE => 'integer',
-			),
 			'continue' => null,
 		);
 	}
@@ -207,8 +204,6 @@ class ApiEchoNotifications extends ApiQueryBase {
 			'format' => 'If specified, notifications will be returned formatted this way.',
 			'index' => 'If specified, a list of notification IDs, in order, will be returned.',
 			'limit' => 'The maximum number of notifications to return.',
-			'offset' => 'Notification event id to start from (requires timestamp param to be passed as well)',
-			'timestamp' => 'Timestamp to start from',
 			'continue' => 'When more results are available, use this to continue',
 		);
 	}

@@ -65,7 +65,7 @@
 		 * Load more notification records.
 		 */
 		loadMore: function () {
-			var api = new mw.Api(), notifications, data, container, $li, that = this, unread = [];
+			var api = new mw.Api( { ajax: { cache: false } } ), notifications, data, container, $li, that = this, unread = [];
 
 			api.get( {
 				'action' : 'query',
@@ -128,7 +128,7 @@
 		markAsRead: function ( unread ) {
 			var api = new mw.Api(), that = this;
 
-			api.get( {
+			api.post( {
 				'action' : 'query',
 				'meta' : 'notifications',
 				'notmarkread' : unread.join( '|' ),

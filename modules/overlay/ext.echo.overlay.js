@@ -23,7 +23,7 @@
 				$overlay = $( '<div></div>' ).addClass( 'mw-echo-overlay' ),
 				$prefLink = $( '#pt-preferences a' ),
 				count = 0,
-				api = new mw.Api();
+				api = new mw.Api( { ajax: { cache: false } } );
 
 			// Set notification limit based on height of the window
 			notificationLimit = Math.floor( ( $( window ).height() - 134 ) / 90 );
@@ -123,7 +123,7 @@
 					.text( mw.msg( 'echo-mark-all-as-read' ) )
 					.click( function ( e ) {
 						e.preventDefault();
-						api.get( {
+						api.post( {
 							'action' : 'query',
 							'meta' : 'notifications',
 							'notmarkallread' : true,
@@ -224,7 +224,7 @@
 
 				// only need to mark as read if there is unread item
 				if ( unread.length > 0 ) {
-					api.get( {
+					api.post( {
 						'action' : 'query',
 						'meta' : 'notifications',
 						'notmarkread' : unread.join( '|' ),
