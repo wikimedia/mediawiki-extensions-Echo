@@ -4403,6 +4403,11 @@ $messages['nl'] = array(
 	'echo-none' => 'U hebt geen meldingen.',
 	'echo-more-info' => 'Meer info',
 	'echo-feedback' => 'Terugkoppeling',
+	'notification-link-text-view-message' => 'Bericht bekijken',
+	'notification-link-text-view-mention' => 'Vermelding bekijken',
+	'notification-link-text-view-changes' => 'Wijzigingen bekijken',
+	'notification-link-text-view-page' => 'Pagina bekijken',
+	'notification-link-text-view-edit' => 'Bewerking bekijken',
 	'notification-edit-talk-page2' => '[[User:$1|$1]] {{GENDER:$1|heeft een bericht geplaatst}} op uw [[User talk:$2#$3|overlegpagina]].',
 	'notification-edit-talk-page-flyout2' => '$1 {{GENDER:$1|heeft een bericht geplaatst}} op uw [[User talk:$2#$3|overlegpagina]].',
 	'notification-page-linked' => '[[:$2]] is {{GENDER:$1|gekoppeld}} vanaf [[:$3]]: [[Special:WhatLinksHere/$2|alle koppelingen naar deze pagina bekijken]]',
@@ -4458,11 +4463,14 @@ $6',
 
 $3
 
-Meer bekijken:
+Vermelding bekijken:
 
 <$4>
 
-$5', # Fuzzy
+Wijzigingen bekijken:
+<$6>
+
+$5',
 	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|heeft}} u genoemd op $2',
 	'notification-user-rights-email-subject' => 'Uw gebruikersrechten op {{SITENAME}} zijn gewijzigd',
 	'notification-user-rights-email-body' => 'Uw gebruikersrechten zijn {{GENDER:$1|gewijzigd}} door $1. $2
