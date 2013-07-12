@@ -12,7 +12,6 @@ class SpecialNotifications extends SpecialPage {
 	}
 
 	public function execute( $par ) {
-		global $wgEchoFeedbackPage;
 
 		$this->setHeaders();
 
@@ -97,7 +96,6 @@ class SpecialNotifications extends SpecialPage {
 			array(
 				'wgEchoDisplayNum' => self::$displayNum,
 				'wgEchoNextContinue' => $nextContinue,
-				'wgEchoFeedbackPage' => $wgEchoFeedbackPage,
 				'wgEchoDateHeader' => $dateHeader
 			)
 		);

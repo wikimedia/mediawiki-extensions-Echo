@@ -622,13 +622,10 @@ class EchoHooks {
 		}
 
 		if ( $user->isLoggedIn() && $user->getOption( 'echo-notify-show-link' ) ) {
-			global $wgEchoFeedbackPage;
 			// Load the module for the Notifications flyout
 			$out->addModules( array( 'ext.echo.overlay' ) );
 			// Load the styles for the Notifications badge
 			$out->addModuleStyles( 'ext.echo.badge' );
-			// Pass needed global vars to the client
-			$out->addJsConfigVars( array( 'wgEchoFeedbackPage' => $wgEchoFeedbackPage ) );
 		}
 		if ( $wgEchoNewMsgAlert && $user->isLoggedIn() && $user->getOption( 'echo-show-alert' ) ) {
 			$out->addModules( array( 'ext.echo.alert' ) );
