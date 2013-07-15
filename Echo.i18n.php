@@ -4518,6 +4518,7 @@ U hebt deze week {{PLURAL:$3|0=geen nieuwe meldingen|één nieuwe melding|nieuwe
 $4
 
 $5',
+	'echo-rev-deleted-text-view' => 'Deze paginaversie is onderdrukt',
 );
 
 /** Nederlands (informeel)‎ (Nederlands (informeel)‎)
@@ -5209,6 +5210,11 @@ $messages['sv'] = array(
 	'echo-none' => 'Du har inga meddelanden.',
 	'echo-more-info' => 'Mer information',
 	'echo-feedback' => 'Feedback',
+	'notification-link-text-view-message' => 'Visa meddelande',
+	'notification-link-text-view-mention' => 'Visa omnämnande',
+	'notification-link-text-view-changes' => 'Visa ändringar',
+	'notification-link-text-view-page' => 'Visa sida',
+	'notification-link-text-view-edit' => 'Visa redigering',
 	'notification-edit-talk-page2' => '[[User:$1|$1]] {{GENDER:$1|gjorde ett inlägg}} på din [[User talk:$2#$3|diskussionssida]].',
 	'notification-edit-talk-page-flyout2' => '$1 {{GENDER:$1|gjorde ett inlägg}} på din [[User talk:$2#$3|diskussionssida]].',
 	'notification-page-linked' => '[[:$2]] blev {{GENDER:$1|länkad}} från [[:$3]]: [[Special:WhatLinksHere/$2|Se alla länkar till denna sida]]',
@@ -5261,15 +5267,18 @@ Se mer:
 $6',
 	'notification-reverted-email-batch-body2' => '{{PLURAL:$3|Din redigering|Dina redigeringar}} på $2 blev {{GENDER:$1|återställda}} av $1',
 	'notification-mention-email-subject' => '$1 {{GENDER:$1|nämnde}} dig på {{SITENAME}}',
-	'notification-mention-email-body' => '{{SITENAME}} användare $1 {{GENDER:$1|nämnde}} dig på $2.
+	'notification-mention-email-body' => '{{SITENAME}}-användare $1 {{GENDER:$1|nämnde}} dig på $2.
 
 $3
 
-Se mer:
+Visa omnämnande:
 
 <$4>
 
-$5', # Fuzzy
+Visa ändringar:
+<$6>
+
+$5',
 	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|nämnde}} dig på $2.',
 	'notification-user-rights-email-subject' => 'Dina användarrättigheter har ändrats på {{SITENAME}}',
 	'notification-user-rights-email-body' => 'Dina användarrättigheter blev {{GENDER:$1|ändrade}} av $1. $2
