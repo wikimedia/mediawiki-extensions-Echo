@@ -526,7 +526,7 @@ class EchoHooks {
 	public static function onUserRights( &$user, $add, $remove ) {
 		global $wgUser;
 
-		if ( !$user->isAnon() && $wgUser->getId() != $user->getId() && ( $add || $remove ) ) {
+		if ( $user instanceof User && !$user->isAnon() && $wgUser->getId() != $user->getId() && ( $add || $remove ) ) {
 			EchoEvent::create(
 				array(
 					'type' => 'user-rights',
