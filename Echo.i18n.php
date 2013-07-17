@@ -5888,7 +5888,7 @@ $5',
 
 $3',
 	'notification-page-linked-email-batch-body' => '$2从$3{{GENDER:$1|链入}}',
-	'notification-reverted-email-subject2' => '您{{PLURAL:$3|在$2的编辑|在$2的编辑}}已被$1回退', # Fuzzy
+	'notification-reverted-email-subject2' => '您{{PLURAL:$3|在$2的编辑|在$2的编辑}}已被$1在{{SITENAME}}回退',
 	'notification-reverted-email-body2' => '您{{PLURAL:$7|在$2的编辑已被|在$2的编辑已被}}$1回退。
 
 $5
@@ -5897,18 +5897,21 @@ $5
 
 <$3>
 
-$6', # Fuzzy
+$6',
 	'notification-reverted-email-batch-body2' => '您{{PLURAL:$3|在$2的编辑|在$2的编辑}}已被$1回退',
 	'notification-mention-email-subject' => '$1在{{SITENAME}}上{{GENDER:$1|提到}}了你',
 	'notification-mention-email-body' => '{{SITENAME}}用户$1在$2上{{GENDER:$1|提到}}了你。
 
 $3
 
-查看更多：
+查看内容：
 
 <$4>
 
-$5', # Fuzzy
+查看更改：
+<$6>
+
+$5',
 	'notification-mention-email-batch-body' => '$1在$2上{{GENDER:$1|提到}}了你',
 	'notification-user-rights-email-subject' => '您在{{SITENAME}}的用户权限已变更',
 	'notification-user-rights-email-body' => '您的用户权限被$1{{GENDER:$1|修改}}了。$2
@@ -5940,24 +5943,24 @@ $1',
 	'notification-page-linked-bundle' => '$2由$3以及其他$4个{{PLURAL:$5|页面}}{{GENDER:$1|链入}}。[[Special:WhatLinksHere/$2|查看该页的所有链入页面]]',
 	'notification-edit-user-talk-email-batch-bundle-body' => '$1以及{{PLURAL:$3|其他}}$2个人在你的讨论页上{{GENDER:$1|留言}}',
 	'notification-page-linked-email-batch-bundle-body' => '$2由$3和其他$4个{{PLURAL:$5|页面}}{{GENDER:$1|链入}}',
-	'echo-email-batch-subject-daily' => '您今天有{{PLURAL:$2|条通知|条通知}}', # Fuzzy
-	'echo-email-batch-subject-weekly' => '您本周有{{PLURAL:$2|条通知|条通知}}', # Fuzzy
-	'echo-email-batch-body-daily' => '$1：
+	'echo-email-batch-subject-daily' => '您今天在{{SITENAME}}有{{PLURAL:$2|条通知|条通知}}',
+	'echo-email-batch-subject-weekly' => '您本周在{{SITENAME}}有{{PLURAL:$2|条通知|条通知}}',
+	'echo-email-batch-body-daily' => '你好$1：
 
-今天您在{{SITENAME}}有{{PLURAL:$3|1条新通知|数条新通知}}。点此查看{{PLURAL:$3|它|它们}}：
+您在{{SITENAME}}有{{PLURAL:$3|1条新通知|数条新通知}}。点此查看{{PLURAL:$3|它|它们}}：
 {{canonicalurl:{{#special:Notifications}}}}
 
 $4
 
-$5', # Fuzzy
-	'echo-email-batch-body-weekly' => '$1：
+$5',
+	'echo-email-batch-body-weekly' => '你好$1：
 
 本周您在{{SITENAME}}有{{PLURAL:$3|1条新通知|数条新通知}}。点此查看{{PLURAL:$3|它|它们}}：
 {{canonicalurl:{{#special:Notifications}}}}
 
 $4
 
-$5', # Fuzzy
+$5',
 	'echo-rev-deleted-text-view' => '该页面修订已取消',
 );
 
