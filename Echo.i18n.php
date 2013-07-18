@@ -1382,6 +1382,13 @@ $5',
 	'echo-rev-deleted-text-view' => 'Tato verze stránky byla utajena',
 );
 
+/** Church Slavic (словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
+ * @author ОйЛ
+ */
+$messages['cu'] = array(
+	'echo-category-title-system' => '{{PLURAL:$1|сѷстима}}',
+);
+
 /** Welsh (Cymraeg)
  * @author Lloffiwr
  */
@@ -1796,6 +1803,7 @@ $1',
  * @author Armando-Martin
  * @author Fitoschido
  * @author Invadinado
+ * @author Larjona
  * @author Ralgis
  * @author The Anonymouse
  * @author TheBITLINK
@@ -1825,7 +1833,7 @@ $messages['es'] = array(
 	'echo-no-agent' => '[Nadie]',
 	'echo-no-title' => '[No hay ninguna página]',
 	'echo-error-no-formatter' => 'Sin formato definido para notificaciones',
-	'echo-error-preference' => '<b>Error:</b> No se pudo establecer $1.', # Fuzzy
+	'echo-error-preference' => 'Error: No se pudo establecer la preferencia del usuario.',
 	'notifications' => 'Notificaciones',
 	'tooltip-pt-notifications' => 'Notificaciones',
 	'echo-specialpage' => 'Notificaciones',
@@ -1833,17 +1841,12 @@ $messages['es'] = array(
 	'echo-none' => 'No tienes notificaciones',
 	'echo-more-info' => 'Más información',
 	'echo-feedback' => 'Comentarios',
+	'notification-link-text-view-message' => 'Ver mensaje',
+	'notification-link-text-view-changes' => 'Ver cambios',
+	'notification-link-text-view-page' => 'Ver página',
+	'notification-link-text-view-edit' => 'Ver edición',
 	'notification-new-user' => '¡Bienvenido a {{SITENAME}}, $1!', # Fuzzy
 	'notification-edit-talk-page-email-subject2' => 'Tienes un mensaje nuevo de página de discusión', # Fuzzy
-	'notification-edit-talk-page-email-body2' => '$1
-
-$3
-
-Ver más:
-
-<$2>
-
-$4',
 	'notification-page-linked-email-subject' => 'Se creó un enlace a una página que comenzaste en {{SITENAME}}',
 	'echo-email-subject-default' => 'Nueva notificación en {{SITENAME}}',
 	'echo-email-body-default' => 'Tienes una nueva notificación en {{SITENAME}}:
@@ -4572,8 +4575,8 @@ $messages['pl'] = array(
 	'prefs-displaynotifications' => 'Opcje wyświetlania',
 	'prefs-echosubscriptions' => 'Powiadom mnie o tych zdarzeniach',
 	'prefs-newmessageindicator' => 'Wskaźnik nowych wiadomości',
-	'echo-pref-send-me' => 'Wysyłaj do mnie:',
-	'echo-pref-send-to' => 'Wyślij na:',
+	'echo-pref-send-me' => 'Wysyłaj mi:',
+	'echo-pref-send-to' => 'Wyślij na adres:',
 	'echo-pref-web' => 'Na stronie',
 	'echo-pref-email' => 'Przez e‐mail',
 	'echo-pref-email-frequency-never' => 'nie wysyłaj powiadomień e-mailem',
@@ -4581,21 +4584,21 @@ $messages['pl'] = array(
 	'echo-pref-email-frequency-daily' => 'dzienne podsumowanie',
 	'echo-pref-email-frequency-weekly' => 'tygodniowe podsumowanie',
 	'echo-pref-notify-show-link' => 'Pokazuj powiadomienia w pasku narzędzi',
-	'echo-pref-new-message-indicator' => 'Pokazuj wskaźnik wiadomości w moim pasku narzędzi',
+	'echo-pref-new-message-indicator' => 'Pokazuj wskaźnik wiadomości w moim pasku osobistym',
 	'echo-learn-more' => 'Dowiedz się więcej',
 	'echo-dismiss-button' => 'Zamknij',
 	'echo-dismiss-message' => 'Wyłącz wszystkie powiadomienia typu $1',
 	'echo-dismiss-prefs-message' => 'Można włączyć je ponownie w [[Special:Preferences#mw-prefsection-echo|preferencjach]]',
 	'echo-new-messages' => 'Masz nowe wiadomości',
 	'echo-category-title-edit-user-talk' => '{{PLURAL:$1|Wpis|Wpisy}} w dyskusji',
-	'echo-category-title-article-linked' => '{{PLURAL:$1|Link|Linki}} do strony',
+	'echo-category-title-article-linked' => '{{PLURAL:$1|Link|Linki}} do moich artykułów',
 	'echo-category-title-reverted' => '{{PLURAL:$1|Rewert|Rewerty}} edycji',
 	'echo-category-title-mention' => '{{PLURAL:$1|Wzmianka|Wzmianki}}',
 	'echo-category-title-other' => '{{PLURAL:$1|Inne zdarzenie|Inne zdarzenia}}',
-	'echo-category-title-system' => '{{PLURAL:$1|zdarzenie systemowe|zdarzenia systemowe}}',
-	'echo-pref-tooltip-edit-user-talk' => 'Powiadom mnie, kiedy ktoś napisze nową wiadomość albo udzieli odpowiedzi na mojej stronie dyskusji.',
+	'echo-category-title-system' => '{{PLURAL:$1|Zdarzenie systemowe|Zdarzenia systemowe}}',
+	'echo-pref-tooltip-edit-user-talk' => 'Powiadom mnie, kiedy ktoś napisze nową wiadomość albo odpowie na mojej stronie dyskusji.',
 	'echo-pref-tooltip-article-linked' => 'Powiadom mnie, kiedy ktoś umieści w artykule link do strony przeze mnie utworzonej.',
-	'echo-pref-tooltip-reverted' => 'Powiadom mnie, kiedy ktoś zrewertuje moją edycję korzystając z narzędzia anuluj albo cofnij.',
+	'echo-pref-tooltip-reverted' => 'Powiadom mnie, kiedy ktoś wycofa moją edycję korzystając z narzędzia „anuluj” albo „cofnij”.',
 	'echo-pref-tooltip-mention' => 'Powiadom mnie, kiedy ktoś umieści link do mojej strony użytkownika na jakiejkolwiek stronie dyskusji.',
 	'echo-no-agent' => '[Nikt]',
 	'echo-no-title' => '[Brak strony]',
@@ -4605,9 +4608,9 @@ $messages['pl'] = array(
 	'notifications' => 'Powiadomienia',
 	'tooltip-pt-notifications' => 'Twoje powiadomienia',
 	'echo-specialpage' => 'Powiadomienia',
-	'echo-anon' => 'Aby otrzymywać powiadomienia [[Special:Userlogin/signup|utwórz konto]] lub [[Special:UserLogin|zaloguj się]].',
+	'echo-anon' => 'Aby otrzymywać powiadomienia, [[Special:Userlogin/signup|utwórz konto]] lub [[Special:UserLogin|zaloguj się]].',
 	'echo-none' => 'Nie masz żadnych powiadomień.',
-	'echo-more-info' => 'Więcej informacji na temat',
+	'echo-more-info' => 'Więcej informacji',
 	'echo-feedback' => 'Opinie',
 	'notification-link-text-view-message' => 'Zobacz wiadomość',
 	'notification-link-text-view-mention' => 'Zobacz wzmiankę',
@@ -4617,20 +4620,20 @@ $messages['pl'] = array(
 	'notification-edit-talk-page2' => '[[User:$1|$1]] {{GENDER:$1|napisał|napisała}} do ciebie na twojej [[User talk:$2#$3|stronie dyskusji]].',
 	'notification-edit-talk-page-flyout2' => '$1 {{GENDER:$1|napisał|napisała}} do ciebie na twojej [[User talk:$2#$3|stronie dyskusji]].',
 	'notification-page-linked' => 'Na stronie [[:$3]] {{GENDER:$1|umieszczono}} link do strony [[:$2]]: [[Special:WhatLinksHere/$2|pokaż wszystkie linkujące do tej strony]]',
-	'notification-page-linked-flyout' => 'Na stronie [[:$3]]{{GENDER:$1|umieszczono}} link do strony $2.',
-	'notification-add-comment2' => '[[User:$1|$1]] {{GENDER:$1|umieścił|umieściła}} komentarz do "[[$3|$2]]" na stronie dyskusji "$4"',
-	'notification-add-talkpage-topic2' => '[[User:$1|$1]] {{GENDER:$1|umieścił|umieściła}} komentarz w nowym wątku "$2" na stronie [[$3]]',
-	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]] {{GENDER:$1|wysłał|wysłała}} ci wiadomość: "[[$3#$2|$2]]"',
-	'notification-add-comment-yours2' => '[[User:$1|$1]]{{GENDER:$1|umieścił|umieściła}} komentarz do "[[$3#$2|$2]]" na twojej stronie dyskusji',
+	'notification-page-linked-flyout' => 'Na stronie [[:$3]] {{GENDER:$1|umieszczono}} link do strony $2.',
+	'notification-add-comment2' => '[[User:$1|$1]] {{GENDER:$1|umieścił|umieściła}} komentarz do „[[$3|$2]]” na stronie dyskusji „$4”',
+	'notification-add-talkpage-topic2' => '[[User:$1|$1]] {{GENDER:$1|umieścił|umieściła}} komentarz w nowym wątku „$2” na stronie [[$3]]',
+	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]] {{GENDER:$1|wysłał|wysłała}} ci wiadomość: „[[$3#$2|$2]]”',
+	'notification-add-comment-yours2' => '[[User:$1|$1]]{{GENDER:$1|umieścił|umieściła}} komentarz do „[[$3#$2|$2]]” na twojej stronie dyskusji',
 	'notification-mention' => '[[User:$1|$1]] {{GENDER:$1|wspomniał|wspomniała}} o tobie na stronie [[$3#$2|$3]].',
 	'notification-mention-flyout' => '$1 {{GENDER:$1|wspomniał|wspomniała}} o tobie na stronie [[$3#$2|$3]].',
 	'notification-user-rights' => '[[User:$1|$1]] [[Special:Log/rights/$1|{{GENDER:$1|zmienił|zmieniła}}]] twoje uprawnienia. $2. [[Special:ListGroupRights|Dowiedz się więcej]]',
 	'notification-user-rights-flyout' => '$1 {{GENDER:$1|zmienił|zmieniła}} twoje uprawnienia. $2. [[Special:ListGroupRights|Dowiedz się więcej]]',
-	'notification-user-rights-add' => 'Teraz należysz do {{PLURAL:$2|tej grupy|tych grup}}: $1',
+	'notification-user-rights-add' => 'Należysz teraz do {{PLURAL:$2|tej grupy|tych grup}}: $1',
 	'notification-user-rights-remove' => 'Nie należysz już do {{PLURAL:$2|tej grupy|tych grup}}: $1',
 	'notification-new-user' => 'Witaj w {{grammar:MS.lp|{{SITENAME}}}}, $1! Cieszymy się, że tu jesteś.',
-	'notification-reverted2' => '[[User:$1|$1]] {{GENDER:$1|zrewertował|zrewertowała}} {{PLURAL:$4|twoją edycję|twoje edycje}} na stronie [[:$2]] $3',
-	'notification-reverted-flyout2' => '$1 {{GENDER:$1|zrewertował|zrewertowała}} {{PLURAL:$4|twoją edycję|twoje edycje}} na stronie $2 $3',
+	'notification-reverted2' => '[[User:$1|$1]] {{GENDER:$1|wycofał|wycofała}} {{PLURAL:$4|twoją edycję|twoje edycje}} na stronie [[:$2]] $3',
+	'notification-reverted-flyout2' => '$1 {{GENDER:$1|wycofał|wycofała}} {{PLURAL:$4|twoją edycję|twoje edycje}} na stronie $2 $3',
 	'notification-edit-talk-page-email-subject2' => 'Masz nową wiadomość na swojej stronie dyskusji w {{grammar:MS.lp|{{SITENAME}}}}',
 	'notification-edit-talk-page-email-body3' => '$1
 
@@ -4695,14 +4698,13 @@ $1',
 	'echo-email-batch-body-default' => 'Masz nowe powiadomienie',
 	'echo-email-footer-default' => '$2
 
-Aby mieć kontrolę nad tym, jakie e-maile mamy ci przesyłać, skonfiguruj swoje preferencje:
-{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
+Możesz wybrać, jakie e-maile chcesz otrzymywać, w swoich preferencjach: {{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
 
 $1',
 	'echo-overlay-link' => 'Wszystkie powiadomienia',
 	'echo-overlay-title' => '<b>Powiadomienia</b>',
 	'echo-overlay-title-overflow' => '<b>Powiadomienia</b> (wyświetlono $1 z $2 nieprzeczytanych)',
-	'echo-mark-all-as-read' => 'Oznacz wszystko jako przeczytane',
+	'echo-mark-all-as-read' => 'Oznacz wszystkie jako przeczytane',
 	'echo-date-today' => 'Dzisiaj',
 	'echo-date-yesterday' => 'Wczoraj',
 	'echo-load-more-error' => 'Wystąpił błąd przy pobieraniu kolejnych wyników.',
@@ -5795,6 +5797,7 @@ $messages['yi'] = array(
  * @author Li3939108
  * @author Liangent
  * @author Linforest
+ * @author Qiyue2001
  * @author Shirayuki
  * @author Shizhao
  * @author StephDC
@@ -5831,6 +5834,7 @@ $messages['zh-hans'] = array(
 	'echo-category-title-other' => '{{PLURAL:$1|其他}}',
 	'echo-category-title-system' => '{{PLURAL:$1|系统}}',
 	'echo-pref-tooltip-edit-user-talk' => '当有人发送一条消息或在我讨论页上答复时通知我。',
+	'echo-pref-tooltip-article-linked' => '当有人在条目中链接到我创建的页面时，通知我。',
 	'echo-pref-tooltip-reverted' => '当有人使用撤销或回退工具恢复了我的编辑时，通知我。',
 	'echo-pref-tooltip-mention' => '当有人在任何对话页连接到我的用户页时，通知我。',
 	'echo-no-agent' => '[无人]',
@@ -5846,6 +5850,7 @@ $messages['zh-hans'] = array(
 	'echo-more-info' => '更多信息',
 	'echo-feedback' => '反馈',
 	'notification-link-text-view-message' => '查看信息',
+	'notification-link-text-view-mention' => '查看提及您的地方',
 	'notification-link-text-view-changes' => '查看变更',
 	'notification-link-text-view-page' => '查看页面',
 	'notification-link-text-view-edit' => '查看编辑',
