@@ -1804,6 +1804,7 @@ $1',
  * @author Fitoschido
  * @author Invadinado
  * @author Larjona
+ * @author Miguel2706
  * @author Ralgis
  * @author The Anonymouse
  * @author TheBITLINK
@@ -1815,6 +1816,7 @@ $messages['es'] = array(
 	'prefs-emailsettings' => 'Configuración de correo electrónico',
 	'prefs-displaynotifications' => 'Opciones de visualización',
 	'prefs-echosubscriptions' => 'Notificarme sobre estos eventos',
+	'prefs-newmessageindicator' => 'Indicador de mensajes nuevos',
 	'echo-pref-send-me' => 'Enviarme:',
 	'echo-pref-send-to' => 'Enviar a:',
 	'echo-pref-web' => 'Web',
@@ -1824,11 +1826,14 @@ $messages['es'] = array(
 	'echo-pref-email-frequency-daily' => 'Un resumen diario de notificaciones',
 	'echo-pref-email-frequency-weekly' => 'Un resumen semanal de las notificaciones',
 	'echo-pref-notify-show-link' => 'Mostrar las notificaciones en mi barra de herramientas',
+	'echo-pref-new-message-indicator' => 'Mostrar el indicador de mensajes de páginas discusión en mi barra de herramientas',
 	'echo-learn-more' => 'Aprende más',
 	'echo-dismiss-button' => 'Ocultar',
 	'echo-dismiss-message' => 'Desactivar todas las notificaciones de $1',
 	'echo-dismiss-prefs-message' => 'Puedes reactivarlas en tus [[Special:Preferences#mw-prefsection-echo|preferencias]]',
 	'echo-new-messages' => 'Tienes mensajes nuevos',
+	'echo-category-title-edit-user-talk' => 'Página discusión {{PLURAL:$1|entrada|entradas}}',
+	'echo-category-title-article-linked' => 'Página {{PLURAL:$1|enlace|enlaces}}',
 	'echo-category-title-mention' => '{{PLURAL:$1|Mención|Menciones}}',
 	'echo-no-agent' => '[Nadie]',
 	'echo-no-title' => '[No hay ninguna página]',
