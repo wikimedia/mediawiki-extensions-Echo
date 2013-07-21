@@ -3697,6 +3697,13 @@ $messages['lv'] = array(
 	'echo-email-batch-body-default' => 'Jums ir jauns paziņojums',
 );
 
+/** Literary Chinese (文言)
+ * @author Yanteng3
+ */
+$messages['lzh'] = array(
+	'echo-new-messages' => '子有新訊息',
+);
+
 /** Macedonian (македонски)
  * @author Bjankuloski06
  */
