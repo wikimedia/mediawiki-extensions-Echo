@@ -13,6 +13,11 @@ $specialPageAliases['en'] = array(
 	'Notifications' => array( 'Notifications' ),
 );
 
+/** Chechen (нохчийн) */
+$specialPageAliases['ce'] = array(
+	'Notifications' => array( 'ДӀахаийтар' ),
+);
+
 /** German (Deutsch) */
 $specialPageAliases['de'] = array(
 	'Notifications' => array( 'Benachrichtigungen' ),
