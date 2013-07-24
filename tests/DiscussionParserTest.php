@@ -407,7 +407,7 @@ TEXT
 		return $exemplarTimestamp;
 	}
 
-	static public function provider_detectSectionTitle() {
+	static public function provider_detectSectionTitleAndText() {
 		$name = 'TestUser';
 		$mention = 'Someone';
 		$comment = self::signedMessage( $name );
@@ -492,20 +492,30 @@ $comment
 	}
 
 	/**
-	 * @dataProvider provider_detectSectionTitle
+	 * @dataProvider provider_detectSectionTitleAndText
 	 */
-	public function testDetectSectionTitle( $message, $expect, $format, $name ) {
+	public function testdetectSectionTitleAndText( $message, $expect, $format, $name ) {
 		// str_replace because we want to replace multiple instances of '%s' with the same valueA
 		$before = str_replace( '%s', '', $format );
 		$after = str_replace( '%s', self::signedMessage( $name ), $format );
 
 		$diff = EchoDiscussionParser::getMachineReadableDiff( $before, $after );
 		$interp = EchoDiscussionParser::interpretDiff( $diff, $name );
-		$this->assertEquals( $expect, EchoDiscussionParser::detectSectionTitle( $interp, $message ) );
+
+		// There should be a section-text only if there is section-title
+		$expectText = $expect ? self::message( $name ) : '';
+		$this->assertEquals(
+			array( 'section-title' => $expect, 'section-text' => $expectText ),
+			EchoDiscussionParser::detectSectionTitleAndText( $interp, $message )
+		);
 	}
 
 	protected static function signedMessage( $name ) {
-		return ": foo [[User:$name|$name]] ([[User talk:$name|talk]]) 00:17, 7 May 2013 (UTC)";
+		return ": " . self::message() . " [[User:$name|$name]] ([[User talk:$name|talk]]) 00:17, 7 May 2013 (UTC)";
+	}
+
+	protected static function message() {
+		return 'foo';
 	}
 
 	static public function provider_getFullSection() {

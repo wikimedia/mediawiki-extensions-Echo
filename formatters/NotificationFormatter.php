@@ -116,64 +116,20 @@ abstract class EchoNotificationFormatter {
 	}
 
 	/**
-	 * Formats a revision comment (i.e. edit summary)
+	 * Returns a revision snippet
 	 * @param EchoEvent $event The event that the notification is for.
 	 * @param User $user The user to format the notification for.
-	 * @return String The revision comment (or empty string)
+	 * @return String The revision snippet (or empty string)
 	 */
-	public function formatRevisionComment( $event, $user ) {
-		$revision = $event->getRevision();
-		if ( $revision === null ) {
+	public function getRevisionSnippet( $event, $user ) {
+		$extra = $event->getExtra();
+		if ( !isset( $extra['section-text'] ) || !$event->userCan( Revision::DELETED_TEXT, $user ) ) {
 			return '';
-		} elseif( !$event->userCan( Revision::DELETED_COMMENT, $user ) ) {
-			return wfMessage( 'rev-deleted-comment' )->text();
-		} else {
-			$comment = $revision->getComment( Revision::FOR_THIS_USER, $user );
-			if ( $this->outputFormat === 'html' || $this->outputFormat === 'flyout' ) {
-				if ( $this->outputFormat === 'html' ) {
-					// Parse the revision comment
-					$comment = Linker::formatComment( $comment, $revision->getTitle() );
-				} else {
-					$comment = $this->customFormatRevisionComment( $comment );
-				}
-				if ( $comment ) {
-					// No quotation marks for now, but this might need to be reverted.
-					// $comment = wfMessage( 'echo-quotation-marks', $comment )->inContentLanguage()->plain();
-					$comment = Xml::tags( 'span', array( 'class' => 'comment' ), $comment );
-					$comment = Xml::tags( 'div', array( 'class' => 'mw-echo-edit-summary' ), $comment );
-				}
-			}
-
-			return $comment;
 		}
-	}
 
-	/**
-	 * Formats a revision comment (i.e. edit summary) for use in the flyout (and
-	 * possibly HTML email). This is a helper function for formatRevisionComment.
-	 * @param String $comment The raw revision comment
-	 * @return String The formatted revision comment (or empty string)
-	 */
-	private function customFormatRevisionComment( $comment ) {
-		// Strip wikitext from the revision comment and manually convert autocomments.
-		// This bypasses the creation of the arrow section links (→) and turns
-		// any other links into plain text.
-		$comment = FeedItem::stripComment( $comment );
-		$comment = trim( htmlspecialchars( $comment ) );
-		// Convert autocomments (e.g. section titles) from raw form
-		// Example input: '/* Foobar */ My changes'
-		// Output: '<span class='autocomment'>Foobar:</span> My changes'
-		preg_match( "!(.*)/\*\s*(.*?)\s*\*/(.*)!", $comment, $matches );
-		if ( $matches ) {
-			$section = $matches[2];
-			if ( $matches[3] ) {
-				// Add a colon after the section name
-				$section .= wfMessage( 'colon-separator' )->inContentLanguage()->escaped();
-			}
-			// Add standard span tag for autocomment
-			$comment = $matches[1] . "<span class='autocomment'>" . $section . "</span>" . $matches[3];
-		}
-		return $comment;
+		$snippet = trim( $extra['section-text'] );
+
+		return $snippet;
 	}
 
 }

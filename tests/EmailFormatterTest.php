@@ -10,6 +10,7 @@ class EchoEmailFormatterTest extends MediaWikiTestCase {
 
 		global $wgEchoNotifications;
 
+		$this->setMwGlobals( 'wgAllowHTMLEmail', true );
 		$event = $this->mockEvent( 'edit-user-talk' );
 		$event->expects( $this->any() )
 			->method( 'getTitle' )
@@ -18,9 +19,13 @@ class EchoEmailFormatterTest extends MediaWikiTestCase {
 		$formatter = EchoNotificationFormatter::factory( $wgEchoNotifications[$event->getType()] );
 		$formatter->setOutputFormat( 'email' );
 
-		$this->emailSingle = new EchoEmailSingle( $formatter, $event, User::newFromId( 2 ) );
+		$user = User::newFromId( 2 );
+		$user->setName( 'Test' );
+		$user->setOption( 'echo-email-format', EchoHooks::EMAIL_FORMAT_HTML );
+	
+		$this->emailSingle = new EchoEmailSingle( $formatter, $event, $user );
 
-		$content[$event->getCategory()][] = EchoNotificationController::formatNotification( $event, User::newFromId( 2 ), 'email', 'emaildigest' );
+		$content[$event->getCategory()][] = EchoNotificationController::formatNotification( $event, $user, 'email', 'emaildigest' );
 		$this->emailDigest = new EchoEmailDigest( User::newFromId( 2 ), $content );
 	}
 

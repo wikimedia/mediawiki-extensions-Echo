@@ -242,9 +242,11 @@ class EchoEmailSingle extends EchoEmailMode {
 	 * @return string
 	 */
 	public function buildSummary() {
-		return $this->notifFormatter->formatRevisionComment(
-			$this->event,
-			$this->user
+		return $this->decorator->decorateRevisionSnippet(
+			$this->notifFormatter->getRevisionSnippet(
+				$this->event,
+				$this->user
+			)
 		);
 	}
 
@@ -563,6 +565,13 @@ interface EchoEmailDecorator {
 	public function decorateSingleAction( $notifFormatter, $event, $user, $rank, $message );
 
 	/**
+	 * Decorate a revision snippet
+	 * @param $snippet the raw revision snippet
+	 * @return string
+	 */
+	public function decorateRevisionSnippet( $snippet );
+
+	/**
 	 * Get the spacing for between action links
 	 * @return string
 	 */
@@ -648,6 +657,15 @@ class EchoTextEmailDecorator implements EchoEmailDecorator {
 	/**
 	 * {@inheritDoc}
 	 */
+	public function decorateRevisionSnippet( $snippet ) {
+		// Doing nothing now, but there is a potential to wrap the text
+		// around snippet with quote in plain text email
+		return $snippet;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
 	public function getActionLinkSeparator() {
 		return "\n";
 	}
@@ -722,6 +740,13 @@ class EchoHTMLEmailDecorator implements EchoEmailDecorator {
 		}
 
 		return $notifFormatter->getLink( $event, $user, $rank, false, false, $style );
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public function decorateRevisionSnippet( $snippet ) {
+		return htmlspecialchars( $snippet );
 	}
 
 	/**

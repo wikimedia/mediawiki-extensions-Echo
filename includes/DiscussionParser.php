@@ -82,13 +82,15 @@ abstract class EchoDiscussionParser {
 			if ( $notifyUser && $notifyUser->getID() && $notifyUser->getOption( 'echo-notify-show-link' ) ) {
 				// if this is a minor edit, only notify if the agent doesn't have talk page minor edit notification blocked
 				if ( !$revision->isMinor() || !$user->isAllowed( 'nominornewtalk' ) ) {
+					$section = self::detectSectionTitleAndText( $interpretation );
 					EchoEvent::create( array(
 						'type' => 'edit-user-talk',
 						'title' => $title,
 						'extra' => array(
 							'revid' => $revision->getID(),
 							'minoredit' => $revision->isMinor(),
-							'section-title' => self::detectSectionTitle( $interpretation ),
+							'section-title' => $section['section-title'],
+							'section-text' => $section['section-text']
 						),
 						'agent' => $user,
 					) );
@@ -101,35 +103,36 @@ abstract class EchoDiscussionParser {
 	 * Attempts to determine what section title the edit was performed under (if any)
 	 *
 	 * @param $interpretation array Results of self::getChangeInterpretationForRevision
-	 * @return string The section title if found otherwise a blank string
+	 * @return array Array containing section title and text
 	 */
-	public static function detectSectionTitle( array $interpretation ) {
-		$header = '';
+	public static function detectSectionTitleAndText( array $interpretation ) {
+		$header = $snippet = '';
 		$found = false;
 
 		foreach ( $interpretation as $action ) {
 			switch( $action['type'] ) {
-			case 'add-comment':
-				$header = self::extractHeader( $action['full-section'] );
-				break;
-
-			case 'new-section-with-comment':
-				$header = self::extractHeader( $action['content'] );
-				break;
+				case 'add-comment':
+					$header  = self::extractHeader( $action['full-section'] );
+					$snippet = self::getTextSnippet( self::stripSignature( self::stripHeader( $action['content'] ) ), 150 );
+					break;
+				case 'new-section-with-comment':
+					$header  = self::extractHeader( $action['content'] );
+					$snippet = self::getTextSnippet( self::stripSignature( self::stripHeader( $action['content'] ) ), 150 );
+					break;
 			}
 			if ( $header ) {
 				// If we find multiple headers within the same change interpretation then
 				// we cannot choose just 1 to link to
 				if ( $found ) {
-					return '';
+					return array( 'section-title' => '', 'section-text' => '' );
 				}
 				$found = $header;
 			}
 		}
 		if ( $found ) {
-			return $found;
+			return array( 'section-title' => $header, 'section-text' => $snippet );
 		}
-		return '';
+		return array( 'section-title' => '', 'section-text' => '' );
 	}
 
 	/**
@@ -887,7 +890,10 @@ abstract class EchoDiscussionParser {
 			$attempt++;
 		}
 
-		$text = trim( strip_tags( htmlspecialchars_decode( MessageCache::singleton()->parse( $text )->getText() ) ) );
+		// See Parser::parse() function, &#160; is replaced specifically, replace it back here
+		// with a space as this html entity won't be handled by htmlspecialchars_decode()
+		$text = str_replace( '&#160;', ' ', MessageCache::singleton()->parse( $text )->getText() );
+		$text = trim( strip_tags( htmlspecialchars_decode( $text ) ) );
 		// strip out non-useful data for snippet
 		$text = str_replace( array( '{', '}' ), '', $text );
 

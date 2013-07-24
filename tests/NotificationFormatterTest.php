@@ -30,7 +30,9 @@ class EchoNotificationFormatterTest extends MediaWikiTestCase {
 
 	public static function provider_editUserTalk() {
 		return array(
-			array( '/[[User talk:[^#]+#moar_cowbell|talk page]]/', 'moar_cowbell', 'text' ),
+			// if there is a section-title, the message should be '[[User:user_name|user_name]] left a message on
+			// your talk page in '[[User talk:user_name#section_title|section_title]]' 
+			array( '/[[User talk:[^#]+#moar_cowbell|moar_cowbell]]/', 'moar_cowbell', 'text' ),
 			array( '/#moar_cowbell/', 'moar_cowbell', 'html' ),
 			array( '/#moar_cowbell/', 'moar_cowbell', 'flyout' ),
 		);
@@ -89,16 +91,15 @@ class EchoNotificationFormatterTest extends MediaWikiTestCase {
 	}
 
 	public static function provider_revisionSummary() {
-		$comment = '(dummy comment)';
-		$suppressed = wfMessage( 'rev-deleted-comment' )->text();
+		$sectionText = '(dummy comment)';
 
 		// Test the 4 different events that reference the summary, although they should follow mostly
 		// the same code they may use different classes extended from the EchoNotificationFormatter
 		$tests = array();
-		$events = array( 'edit-user-talk', 'reverted', 'page-linked', 'mention' );
+		$events = array( 'edit-user-talk' );
 		foreach ( $events as $eventType ) {
-			$tests[] = array( $eventType, $comment, $comment, 0);
-			$tests[] = array( $eventType, $suppressed, $comment, Revision::DELETED_COMMENT );
+			$tests[] = array( $eventType, $sectionText, 0);
+			$tests[] = array( $eventType, $sectionText, Revision::DELETED_TEXT );
 		}
 
 		return $tests;
@@ -107,15 +108,18 @@ class EchoNotificationFormatterTest extends MediaWikiTestCase {
 	/**
 	 * @dataProvider provider_revisionSummary
 	 */
-	public function testRevisionSummarySuppression( $eventType, $expect, $comment, $deleted ) {
+	public function testRevisionSummarySuppression( $eventType, $text, $deleted ) {
 		// Revision needs a comment to attempt to format
 		$event = $this->mockEvent(
 			$eventType,
-			array(),
-			new Revision( compact( 'comment', 'deleted' ) )
+			array( 'section-title' => 'Test Title', 'section-text' => $text ),
+			new Revision( compact( 'deleted' ) )
 		);
-
-		$this->assertContains( $expect, $this->format( $event, 'html' ) );
+		if ( $deleted === Revision::DELETED_TEXT ) {
+			$this->assertNotContains( $text, $this->format( $event, 'html' ) );
+		} else {
+			$this->assertContains( $text, $this->format( $event, 'html' ) );
+		}
 	}
 
 	public static function provider_revisionAgent() {
