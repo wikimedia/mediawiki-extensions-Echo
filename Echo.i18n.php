@@ -13,7 +13,7 @@ $messages['en'] = array(
 
 	// Preferences
 	'prefs-echo' => 'Notifications',
-	'prefs-emailsettings' => 'Email settings',
+	'prefs-emailsettings' => 'Email options',
 	'prefs-displaynotifications' => 'Display options',
 	'prefs-echosubscriptions' => 'Notify me about these events',
 	'prefs-newmessageindicator' => 'New message indicator',
