@@ -415,6 +415,8 @@ class EchoEmailDigest extends EchoEmailMode {
 	 * @return string
 	 */
 	public function buildIntro() {
+		// Give grep a chance to find the usages:
+		// echo-email-batch-body-intro-daily, echo-email-batch-body-intro-weekly
 		$message = EchoEmailMode::message(
 			'echo-email-batch-body-intro-' . $this->digestMode, $this->user
 		)->params( $this->user->getName() );

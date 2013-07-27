@@ -211,6 +211,8 @@ abstract class MWEchoEmailBatch {
 		} else {
 			$count = $this->count;
 		}
+		// Give grep a chance to find the usages:
+		// echo-email-batch-subject-daily, echo-email-batch-subject-weekly
 		$subject = wfMessage( 'echo-email-batch-subject-' . $frequency )
 				->inLanguage( $this->mUser->getOption( 'language' ) )
 				->params( $count, $this->count )->text();
