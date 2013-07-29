@@ -72,6 +72,8 @@
 }
 #mw-echo-overlay-title-text {
 	display: inline-block;
+	*display: inline;
+	zoom: 1;
 }
 #mw-echo-overlay-moreinfo-link {
 	display: inline-block;
