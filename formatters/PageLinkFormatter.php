@@ -103,17 +103,29 @@ class EchoPageLinkFormatter extends EchoBasicFormatter {
 		switch ( $param ) {
 			// 'A' part in this message: link from page A and X others
 			case 'link-from-page':
-				$content = null;
+				$title = null;
 				if ( $this->isTitleSet( $extra ) ) {
 					$title = Title::newFromId( $extra['link-from-page-id'] );
-					if ( $title !== null ) {
-						$content = $this->formatTitle( $title );
+					if ( $title ) {
+						if ( $this->outputFormat === 'htmlemail' ) {
+							$message->rawParams(
+								Linker::link(
+									$title,
+									$this->formatTitle( $title ),
+									array( 'style' => $this->getHTMLLinkStyle() ),
+									array(),
+									array( 'https' )
+								)
+							);
+						} else {
+							$message->params( $this->formatTitle( $title ) );
+						}
 					}
 				}
-				if ( $content === null ) {
-					$content = wfMessage( 'echo-no-title' );
+
+				if ( !$title ) {
+					$message->params( wfMessage( 'echo-no-title' ) );
 				}
-				$message->params( $content );
 				break;
 
 			// example: {7} other page, {99+} other pages
