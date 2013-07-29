@@ -2080,7 +2080,7 @@ $5',
 $messages['fr'] = array(
 	'echo-desc' => 'Système de notifications',
 	'prefs-echo' => 'Notifications',
-	'prefs-emailsettings' => 'Paramètres de courriel', # Fuzzy
+	'prefs-emailsettings' => 'Options de courriel',
 	'prefs-displaynotifications' => "Options d'affichage",
 	'prefs-echosubscriptions' => 'Me prévenir de ces événements',
 	'prefs-newmessageindicator' => 'Indicateur de nouveau message',
@@ -2661,7 +2661,7 @@ $messages['is'] = array(
 $messages['it'] = array(
 	'echo-desc' => 'Sistema di notifica',
 	'prefs-echo' => 'Notifiche',
-	'prefs-emailsettings' => 'Impostazioni email', # Fuzzy
+	'prefs-emailsettings' => 'Opzioni email',
 	'prefs-displaynotifications' => 'Opzioni di visualizzazione',
 	'prefs-echosubscriptions' => 'Inviami una notifica su questi eventi',
 	'prefs-newmessageindicator' => 'Barra dei nuovi messaggi',
@@ -2729,7 +2729,7 @@ $messages['it'] = array(
 	'notification-reverted-flyout2' => '{{PLURAL:$4|La tua modifica|Le tue modifiche}} su $2 {{PLURAL:$4|è stata annullata|sono state annullate}} {{GENDER:$1|da}} $1 $3',
 	'notification-edit-talk-page-email-subject2' => '$1 ti {{GENDER:$1|ha lasciato}} un messaggio in {{SITENAME}}',
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|ha lasciato}} un messaggio sulla tua pagina di discussione',
-	'notification-page-linked-email-subject' => 'Una pagina che hai creato è stata collegata su {{SITENAME}}', # Fuzzy
+	'notification-page-linked-email-subject' => 'Una pagina che hai creato è stata collegata su {{SITENAME}}',
 	'notification-page-linked-email-batch-body' => '$2 è stata {{GENDER:$1|collegata}} da $3',
 	'notification-reverted-email-subject2' => '{{PLURAL:$3|La tua modifica è stata annullata|Le tue modifiche sono state annullate}} {{GENDER:$1|su}} {{SITENAME}}',
 	'notification-reverted-email-batch-body2' => '{{PLURAL:$3|La tua modifica|Le tue modifiche}} su $2 {{PLURAL:$3|è stata annullata|sono state annullate}} {{GENDER:$1|da}} $1',
@@ -2747,6 +2747,8 @@ $1',
 Per controllare quali email ti verranno inviate, controlla le tue preferenze:
 {{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
 
+$1',
+	'echo-email-footer-default-html' => 'Per verificare quali email ti vengono inviate, <a href="$2" style="text-decoration:none; color: #3868B0;">controlla le tue preferenze</a><br />
 $1',
 	'echo-overlay-link' => 'Tutte le notifiche',
 	'echo-overlay-title' => '<b>Notifiche</b>',
@@ -2777,7 +2779,7 @@ ecco una sintesi delle attività di questa settimana su {{SITENAME}} per te',
 $messages['ja'] = array(
 	'echo-desc' => '通知システム',
 	'prefs-echo' => '通知',
-	'prefs-emailsettings' => 'メールの設定', # Fuzzy
+	'prefs-emailsettings' => 'メール オプション',
 	'prefs-displaynotifications' => '表示の設定',
 	'prefs-echosubscriptions' => '以下の場合に通知を受け取る',
 	'prefs-newmessageindicator' => '新着メッセージの表示',
@@ -2944,7 +2946,7 @@ $messages['ka'] = array(
 $messages['ko'] = array(
 	'echo-desc' => '알림 시스템',
 	'prefs-echo' => '알림',
-	'prefs-emailsettings' => '이메일 설정', # Fuzzy
+	'prefs-emailsettings' => '이메일 설정',
 	'prefs-displaynotifications' => '보이기 설정',
 	'prefs-echosubscriptions' => '다음 경우에 알림',
 	'prefs-newmessageindicator' => '새 메시지 표시기',
@@ -2972,6 +2974,10 @@ $messages['ko'] = array(
 	'echo-category-title-mention' => '본인 {{PLURAL:$1|언급}}',
 	'echo-category-title-other' => '{{PLURAL:$1|기타}}',
 	'echo-category-title-system' => '{{PLURAL:$1|시스템}}',
+	'echo-pref-tooltip-edit-user-talk' => '내 토론 문서에 누군가가 글이나 답글을 남길 때 내게 알립니다.',
+	'echo-pref-tooltip-article-linked' => '내가 만든 문서에서 누군가가 문서에 링크할 때 내게 알립니다.',
+	'echo-pref-tooltip-reverted' => '편집 취소나 되돌리기 도구를 사용하여 내 편집을 되돌릴 때 내게 알립니다.',
+	'echo-pref-tooltip-mention' => '내 사용자 문서 어딘가에 누군가가 토론 문서에서 링크할 때 내게 알립니다.',
 	'echo-no-agent' => '[알 수 없는 사용자]',
 	'echo-no-title' => '[문서 없음]',
 	'echo-error-no-formatter' => '알림에 대해 정의한 형식이 없습니다',
@@ -2984,9 +2990,14 @@ $messages['ko'] = array(
 	'echo-none' => '알림이 없습니다.',
 	'echo-more-info' => '자세한 정보',
 	'echo-feedback' => '피드백 남기기',
-	'notification-edit-talk-page2' => '[[User:$1|$1]]님이 내 [[User talk:$2#$3|토론 문서]]에 글을 {{GENDER:$1|남겼습니다}}.', # Fuzzy
-	'notification-edit-talk-page-flyout2' => '$1님이 내 [[User talk:$2#$3|토론 문서]]에 글을 {{GENDER:$1|남겼습니다}}.', # Fuzzy
-	'notification-page-linked' => '[[:$2]] 문서가 [[:$3]]에 {{GENDER:$1|링크되었습니다}}: [[Special:WhatLinksHere/$2|이 문서를 가리키는 모든 링크 보기]]', # Fuzzy
+	'notification-link-text-view-message' => '메시지 보기',
+	'notification-link-text-view-mention' => '언급 보기',
+	'notification-link-text-view-changes' => '차이 보기',
+	'notification-link-text-view-page' => '문서 보기',
+	'notification-link-text-view-edit' => '편집 보기',
+	'notification-edit-talk-page2' => '[[User:$1|$1]]님이 내 [[User talk:$2#$3|토론 문서]]에 글을 {{GENDER:$1|남겼습니다}}.',
+	'notification-edit-talk-page-flyout2' => '$1님이 내 [[User talk:$2#$3|토론 문서]]에 글을 {{GENDER:$1|남겼습니다}}.',
+	'notification-page-linked' => '[[:$2]] 문서가 [[:$3]]에 {{GENDER:$1|링크되었습니다}}: [[Special:WhatLinksHere/$2|이 문서를 가리키는 모든 링크 보기]]',
 	'notification-page-linked-flyout' => '$2 문서가 [[:$3]]에 {{GENDER:$1|링크되었습니다}}.',
 	'notification-add-comment2' => '[[User:$1|$1]]님이 "$4" 토론 문서의 "[[$3|$2]]"에 {{GENDER:$1|덧글을 남겼습니다}}',
 	'notification-add-talkpage-topic2' => '[[User:$1|$1]]님이 [[$3]]의 "$2" 새 주제를 {{GENDER:$1|게시했습니다}}',
@@ -3001,12 +3012,12 @@ $messages['ko'] = array(
 	'notification-new-user' => '$1님, {{SITENAME}}에 온 것을 환영합니다! 당신이 여기에 오신 걸 매우 기쁘게 생각합니다.',
 	'notification-reverted2' => '{{PLURAL:$4|[[:$2]]에 대한 내 편집}}을 [[User:$1|$1]]님이 {{GENDER:$1|되돌렸습니다}}. $3',
 	'notification-reverted-flyout2' => '{{PLURAL:$4|$2에 대한 내 편집}}을 $1님이 {{GENDER:$1|되돌렸습니다}} $3',
-	'notification-edit-talk-page-email-subject2' => '{{SITENAME}}의 토론 문서에 새 메시지가 있습니다', # Fuzzy
-	'notification-edit-talk-page-email-batch-body2' => '$1님이 내 토론 문서에 글을 {{GENDER:$1|남겼습니다}}', # Fuzzy
-	'notification-page-linked-email-subject' => '{{SITENAME}}에서 당신이 만든 문서가 다른 문서에 링크되었습니다', # Fuzzy
+	'notification-edit-talk-page-email-subject2' => '$1님이 {{SITENAME}}의 나에게 글을 {{GENDER:$1|남겼습니다}}',
+	'notification-edit-talk-page-email-batch-body2' => '$1님이 내 토론 문서에 글을 {{GENDER:$1|남겼습니다}}',
+	'notification-page-linked-email-subject' => '{{SITENAME}}에서 당신의 문서가 링크되었습니다',
 	'notification-page-linked-email-batch-body' => '$2 문서가 $3에 {{GENDER:$1|링크되었습니다}}',
-	'notification-reverted-email-subject2' => '{{SITENAME}}의 {{PLURAL:$3|$2에 대한 내 편집}}을 $1님이 {{GENDER:$1|되돌렸습니다}}', # Fuzzy
-	'notification-reverted-email-batch-body2' => '{{PLURAL:$3|$2에 대한 내 편집}}을 $1님이 {{GENDER:$1|되돌렸습니다}}', # Fuzzy
+	'notification-reverted-email-subject2' => '{{SITENAME}}의 내 {{PLURAL:$3|편집}}이 {{GENDER:$1|되돌려졌습니다}}',
+	'notification-reverted-email-batch-body2' => '{{PLURAL:$3|$2에 대한 내 편집}}을 $1님이 {{GENDER:$1|되돌렸습니다}}',
 	'notification-mention-email-subject' => '$1님이 {{SITENAME}}에서 당신을 {{GENDER:$1|언급했습니다}}',
 	'notification-mention-email-batch-body' => '$1님이 $2에서 당신을 {{GENDER:$1|언급했습니다}}',
 	'notification-user-rights-email-subject' => '{{SITENAME}}에서 당신의 사용자 권한이 바뀌었습니다',
@@ -3022,6 +3033,8 @@ $1',
 {{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
 
 $1',
+	'echo-email-footer-default-html' => '우리가 보내는 이메일을 제어하려면, <a href="$2" style="text-decoration:none; color: #3868B0;">사용자 환경 설정을 확인하세요</a><br />
+$1',
 	'echo-overlay-link' => '모든 알림',
 	'echo-overlay-title' => '<b>알림</b>',
 	'echo-overlay-title-overflow' => '<b>알림</b> (읽지 않은 알림 $2개 중 $1개 보는 중)',
@@ -3029,12 +3042,18 @@ $1',
 	'echo-date-today' => '오늘',
 	'echo-date-yesterday' => '어제',
 	'echo-load-more-error' => '더 많은 결과를 가져오는 동안 오류가 발생했습니다.',
-	'notification-edit-talk-page-bundle' => '$1님과 {{PLURAL:$4|다른}} $3명이 당신의 [[User talk:$2|토론 문서]]에 글을 {{GENDER:$1|남겼습니다}}.', # Fuzzy
+	'notification-edit-talk-page-bundle' => '$1님과 {{PLURAL:$4|다른}} $3명이 당신의 [[User talk:$2|토론 문서]]에 글을 {{GENDER:$1|남겼습니다}}.',
 	'notification-page-linked-bundle' => '$2 문서가 $3 문서와 다른 $4개 {{PLURAL:$5|문서}}에 {{GENDER:$1|링크되었습니다}}. [[Special:WhatLinksHere/$2|이 문서를 가리키는 모든 링크 보기]]',
-	'notification-edit-user-talk-email-batch-bundle-body' => '$1님과 {{PLURAL:$3|다른}} $2명의 사용자가 당신의 토론 문서에 글을 {{GENDER:$1|남겼습니다}}', # Fuzzy
+	'notification-edit-user-talk-email-batch-bundle-body' => '$1님과 {{PLURAL:$3|다른}} $2명의 사용자가 당신의 토론 문서에 글을 {{GENDER:$1|남겼습니다}}',
 	'notification-page-linked-email-batch-bundle-body' => '$2 문서가 $3 문서와 다른 $4개 {{PLURAL:$5|문서}}에 {{GENDER:$1|링크되었습니다}}',
 	'echo-email-batch-subject-daily' => '{{SITENAME}}에서 {{PLURAL:$2|새 알림}}이 있습니다',
 	'echo-email-batch-subject-weekly' => '이번 주에 {{SITENAME}}에서 {{PLURAL:$2|새 알림}}이 있습니다',
+	'echo-email-batch-body-intro-daily' => '$1님 안녕하세요,
+여기에 {{SITENAME}}에 오늘의 활동의 요약이 있습니다',
+	'echo-email-batch-body-intro-weekly' => '$1님 안녕하세요,
+여기에 {{SITENAME}}에 이번 주의 활동의 요약이 있습니다.',
+	'echo-email-batch-link-text-view-all-notifications' => '모든 알림 보기',
+	'echo-rev-deleted-text-view' => '이 문서 판은 숨겨져 있습니다',
 );
 
 /** Colognian (Ripoarisch)
@@ -3223,7 +3242,7 @@ $messages['lzh'] = array(
 $messages['mk'] = array(
 	'echo-desc' => 'Известителен систем',
 	'prefs-echo' => 'Известувања',
-	'prefs-emailsettings' => 'Поставки за е-пошта', # Fuzzy
+	'prefs-emailsettings' => 'Можности за е-пошта',
 	'prefs-displaynotifications' => 'Нагодувања на приказот',
 	'prefs-echosubscriptions' => 'Известувај ме за следниве настани',
 	'prefs-newmessageindicator' => 'Показател за нови пораки',
@@ -4300,24 +4319,57 @@ $1",
 $messages['ru'] = array(
 	'echo-desc' => 'Система уведомлений',
 	'prefs-echo' => 'Уведомления',
+	'prefs-emailsettings' => 'Настройки эл. почты',
 	'prefs-displaynotifications' => 'Настройки отображения',
-	'echo-pref-email' => 'Электронная почта',
-	'echo-pref-email-frequency-never' => 'Не присылать мне уведомления по электронной почте',
+	'prefs-echosubscriptions' => 'Сообщать мне об этих событиях',
+	'prefs-newmessageindicator' => 'Индикатор новго сообщения',
+	'echo-pref-send-me' => 'Присылать мне:',
+	'echo-pref-send-to' => 'Отправлять в:',
+	'echo-pref-email-format' => 'Формат писем:',
+	'echo-pref-web' => 'Веб',
+	'echo-pref-email' => 'Эл. почта',
+	'echo-pref-email-frequency-never' => 'Не присылать мне уведомления по эл. почте',
 	'echo-pref-email-frequency-immediately' => 'Отдельные уведомления по мере их поступления',
 	'echo-pref-email-frequency-daily' => 'Ежедневная сводка уведомлений',
 	'echo-pref-email-frequency-weekly' => 'Еженедельная сводка уведомлений',
+	'echo-pref-email-format-html' => 'HTML',
+	'echo-pref-email-format-plain-text' => 'Простой текст',
+	'echo-pref-notify-show-link' => 'Показать уведомления в моей панели инструментов',
+	'echo-pref-new-message-indicator' => 'Показать в моей панели инструментов индикатор сообщений на странице обсуждения',
+	'echo-learn-more' => 'Узнать больше',
+	'echo-dismiss-button' => 'Пропустить',
+	'echo-dismiss-message' => 'Выключить все $1 {{PLURAL|$1|уведомление|уведомления|уведомлений}}',
+	'echo-dismiss-prefs-message' => 'Можно включить их обратно с помощью своих [[Special:Preferences#mw-prefsection-echo|персональных настроек]]',
+	'echo-new-messages' => 'У вас есть новые сообщения',
+	'echo-category-title-edit-user-talk' => '{{PLURAL:$1|сообщение|сообщения|сообщений}} на странице обсуждений',
+	'echo-category-title-article-linked' => '{{PLURAL:$1|ссылка|ссылки|ссылок}} на страницы',
+	'echo-category-title-reverted' => '{{PLURAL:$1|отмена|отмены|отмен}} правок',
+	'echo-category-title-mention' => '{{PLURAL:$1|упоминание|упоминания|упоминаний}}',
+	'echo-category-title-other' => '{{PLURAL:$1|прочее|прочих}}',
+	'echo-category-title-system' => '{{PLURAL:$1|системное|системных}}',
 	'echo-no-agent' => '[Никто]',
 	'echo-no-title' => '[Нет страницы]',
 	'echo-error-no-formatter' => 'Форматирование не определено для уведомления',
+	'echo-error-preference' => 'Ошибка: Не удаллось задать настройки участника',
+	'echo-error-token' => 'Ошибка: не удалось получить маркер участника (user token)',
 	'notifications' => 'Уведомления',
 	'tooltip-pt-notifications' => 'Ваши уведомления',
-	'echo-specialpage' => 'Мои уведомления', # Fuzzy
+	'echo-specialpage' => 'Уведомления',
 	'echo-anon' => 'Чтобы получать уведомления, [[Special:Userlogin/signup|создайте учётную запись]] или [[Special:UserLogin|представьтесь]].',
 	'echo-none' => 'Вы не получали уведомлений.',
 	'echo-more-info' => 'Подробнее',
+	'echo-feedback' => 'Обратная связь',
 	'echo-quotation-marks' => '«$1»',
+	'notification-link-text-view-message' => 'Просмотр сообщения',
+	'notification-link-text-view-mention' => 'Просмотр упоминания',
+	'notification-link-text-view-changes' => 'Просмотр изменений',
+	'notification-link-text-view-page' => 'Просмотр страницы',
+	'notification-link-text-view-edit' => 'Просмотр правки',
 	'notification-new-user' => 'Добро пожаловать в {{SITENAME}}, $1! Мы рады, что вы здесь.',
-	'notification-edit-talk-page-email-subject2' => 'На вашей странице обсуждения есть новое сообщение', # Fuzzy
+	'notification-edit-talk-page-email-subject2' => '{{GENDER:$1|Участник|Участница}} $1 {{GENDER:$1|оставил|оставила}} вам сообщение на сайте «{{SITENAME}}»',
+	'notification-edit-talk-page-email-batch-body2' => '{{GENDER:$1|Участник|Участница}} $1 {{GENDER:$1|оставил|оставила}} сообщение на вашей странице обсуждения',
+	'notification-page-linked-email-subject' => 'На сайте «{{SITENAME}}» появилась ссылка на вашу страницу участника',
+	'notification-page-linked-email-batch-body' => '{{GENDER:$1|Участник|участница}} $1 {{GENDER:$1|сослался|сослалась}} на $2 из $3',
 	'echo-email-subject-default' => 'Новые уведомления на {{SITENAME}}',
 	'echo-email-body-default' => 'Вы имеете новое уведомление в проекте {{SITENAME}}:
 
@@ -4325,34 +4377,23 @@ $1',
 	'echo-email-batch-body-default' => 'У вас есть новое уведомление',
 	'echo-email-footer-default' => '$2
 
-Для управления отправкой вам электронных сообщений посетите:
+Для контроля за тем, какие сообщения отправляются вам по эл. почте, проверьте свои персональные настройки:
 {{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
 
-$1', # Fuzzy
+$1',
+	'echo-email-footer-default-html' => 'Для контроля за тем, какие сообщения отправляются вам по эл. почте, <a href="$2" style="text-decoration:none; color: #3868B0;">проверьте свои персональные настройки</a><br />
+$1',
 	'echo-overlay-link' => 'Все уведомления',
 	'echo-overlay-title' => '<b>Уведомления</b>',
-	'echo-overlay-title-overflow' => 'Уведомления (показаны $1 из $2 непрочитанных)', # Fuzzy
+	'echo-overlay-title-overflow' => '<b>Уведомления</b> ({{PLURAL|$1|показано|показаны}} $1 из $2 {{PLURAL|$2|непрочитанного|непрочитанных}})',
+	'echo-mark-all-as-read' => 'Отметить все как прочитанные',
 	'echo-date-today' => 'Сегодня',
 	'echo-date-yesterday' => 'Вчера',
 	'echo-load-more-error' => 'Произошла ошибка при получении дополнительных результатов.',
-	'echo-email-batch-subject-daily' => 'Вы получили $1 {{PLURAL:$2|уведомление|уведомления|уведомлений}} сегодня', # Fuzzy
-	'echo-email-batch-subject-weekly' => 'Вы получили $1 {{PLURAL:$2|уведомление|уведомления|уведомлений}} на этой неделе', # Fuzzy
-	'echo-email-batch-body-daily' => '$1,
-
-Вы получили $2 {{PLURAL:$3|уведомление|уведомления|уведомлений}} в проекте {{SITENAME}} сегодня. Увидеть их можно здесь:
-{{canonicalurl:{{#special:Notifications}}}}
-
-$4
-
-$5', # Fuzzy
-	'echo-email-batch-body-weekly' => '$1,
-
-Вы получили $2 {{PLURAL:$3|уведомление|уведомления|уведомлений}} в проекте {{SITENAME}} на этой неделе. Увидеть их можно здесь:
-{{canonicalurl:{{#special:Notifications}}}}
-
-$4
-
-$5', # Fuzzy
+	'echo-email-batch-subject-daily' => 'Вы получили $2 {{PLURAL:$2|новое уведомление|новых уведомления|новых уведомлений}} в проекте «{{SITENAME}}»',
+	'echo-email-batch-subject-weekly' => 'На этой неделе вы получили $2 {{PLURAL:$2|новое уведомление|новых уведомления|новых уведомлений}} в проекте «{{SITENAME}}»',
+	'echo-email-batch-link-text-view-all-notifications' => 'Посмотреть все уведомления',
+	'echo-rev-deleted-text-view' => 'Эта версия страницы была скрыта',
 );
 
 /** Sinhala (සිංහල)
@@ -5012,7 +5053,7 @@ $messages['yi'] = array(
 $messages['zh-hans'] = array(
 	'echo-desc' => '通知系统',
 	'prefs-echo' => '通知',
-	'prefs-emailsettings' => '电子邮件设置',
+	'prefs-emailsettings' => '电子邮件选项',
 	'prefs-displaynotifications' => '显示选项',
 	'prefs-echosubscriptions' => '通知我有关这些事件的情况',
 	'prefs-newmessageindicator' => '新消息指示器',
