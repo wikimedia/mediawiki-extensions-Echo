@@ -322,7 +322,7 @@ EOF;
 			</tr><tr>
 				<td bgcolor="#FFFFFF" width="35" rowspan="2">&nbsp;</td>
 				<td bgcolor="#FFFFFF" width="61" align="center" valign="top" rowspan="2"><img src="%%emailIcon%%" alt="" height="30" width="30"></td>
-				<td bgcolor="#FFFFFF" width="469" align="left" style="font-family:arial; font-size:13px; line-height:20px; color:#A6A8AB;">%%intro%%</td>
+				<td bgcolor="#FFFFFF" width="469" align="left" style="font-family:arial; font-size:13px; line-height:20px; color:#6D6E70;">%%intro%%</td>
 				<td bgcolor="#FFFFFF" width="35" rowspan="2">&nbsp;</td>
 			</tr><tr>
 				<td bgcolor="#FFFFFF" width="469" align="left" style="font-family: arial; font-size:16px; line-height: 20px; font-weight: 600;">
@@ -349,7 +349,7 @@ EOF;
 			</tr><tr>
 				<td bgcolor="#F8F8F8" width="35">&nbsp;</td>
 				<td bgcolor="#F8F8F8" width="61">&nbsp;</td>
-				<td bgcolor="#F8F8F8" width="469" align="left" style="font-family:arial; font-size:10px; line-height:13px; color:#B7B7B7; padding:10px 20px;"><br />
+				<td bgcolor="#F8F8F8" width="469" align="left" style="font-family:arial; font-size:10px; line-height:13px; color:#6D6E70; padding:10px 20px;"><br />
 					%%footer%%
 					<br /><br />
 				</td>
@@ -471,7 +471,7 @@ EOF;
 			<tr>
 				<td bgcolor="#FFFFFF" width="35" rowspan="2">&nbsp;</td>
 				<td bgcolor="#FFFFFF" width="31" rowspan="2">&nbsp;</td>
-				<td bgcolor="#FFFFFF" width="469" align="center" style="font-family:arial; font-size:13px; line-height:20px; color: #A6A8AB; text-align: center;">%%intro%%</td>
+				<td bgcolor="#FFFFFF" width="469" align="center" style="font-family:arial; font-size:13px; line-height:20px; color:#6D6E70; text-align: center;">%%intro%%</td>
 				<td bgcolor="#FFFFFF" width="65" rowspan="2">&nbsp;</td>
 			</tr>
 			<tr>
@@ -501,7 +501,7 @@ EOF;
 			<tr>
 				<td bgcolor="#F8F8F8" width="35">&nbsp;</td>
 				<td bgcolor="#F8F8F8" width="31">&nbsp;</td>
-				<td bgcolor="#F8F8F8" width="469" align="left" style="font-family:arial; font-size:10px; line-height:13px; color:#B7B7B7; padding: 10px 20px;"><br />
+				<td bgcolor="#F8F8F8" width="469" align="left" style="font-family:arial; font-size:10px; line-height:13px; color:#6D6E70; padding: 10px 20px;"><br />
 					%%footer%%
 					<br /><br />
 				</td>
