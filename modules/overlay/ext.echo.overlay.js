@@ -200,8 +200,8 @@
 
 				// add link to notification preferences
 				$overlayFooter.append(
-					$prefLink
-						.clone()
+					$( '<a>' )
+						.html( $prefLink.html() )
 						.attr( 'id', 'mw-echo-overlay-pref-link' )
 						.addClass( 'mw-echo-grey-link' )
 						.attr( 'href', $prefLink.attr( 'href' ) + '#mw-prefsection-echo' )
