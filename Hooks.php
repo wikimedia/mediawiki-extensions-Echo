@@ -643,7 +643,7 @@ class EchoHooks {
 			// Load the styles for the Notifications badge
 			$out->addModuleStyles( 'ext.echo.badge' );
 		}
-		if ( $wgEchoNewMsgAlert && $user->isLoggedIn() && $user->getOption( 'echo-show-alert' ) && $user->getNewtalk() ) {
+		if ( $wgEchoNewMsgAlert && $user->isLoggedIn() && $user->getOption( 'echo-show-alert' ) ) {
 			$out->addModules( array( 'ext.echo.alert' ) );
 		}
 		return true;
