@@ -426,18 +426,12 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	 */
 	protected function formatFooter( $event, $user ) {
 		global $wgLang;
-		$timestamp = $this->formatTimestamp( $event->getTimestamp() );
-		$notificationFooterContent = array();
-		if ( $this->outputFormat === 'flyout' ) {
-			$secondaryLink = $this->getLink( $event, $user, 'secondary' );
-			if ( $secondaryLink ) {
-				$notificationFooterContent[] = $timestamp;
-				$notificationFooterContent[] = $secondaryLink;
-				$footer = $wgLang->pipeList( $notificationFooterContent );
-			}
-		}
-		if ( !$notificationFooterContent ) {
-			$footer = $timestamp;
+
+		// Default footer is timestamp
+		$footer = $this->formatTimestamp( $event->getTimestamp() );
+		$secondaryLink = $this->getLink( $event, $user, 'secondary' );
+		if ( $secondaryLink ) {
+			$footer = $wgLang->pipeList( array( $footer, $secondaryLink ) );
 		}
 		return Xml::tags( 'div', array( 'class' => 'mw-echo-notification-footer' ), $footer ) . "\n";
 	}
