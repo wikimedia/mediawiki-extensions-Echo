@@ -3,37 +3,6 @@
 class EchoCommentFormatter extends EchoEditFormatter {
 	public function __construct( $params ) {
 		parent::__construct( $params );
-
-		if ( isset( $params['title-message-yours'] ) ) {
-			$this->title['message-yours'] = $params['title-message-yours'];
-		}
-
-		if ( isset( $params['email-subject-message-yours'] ) ) {
-			$this->email['subject']['message-yours'] = $params['email-subject-message-yours'];
-		}
-
-		if ( isset( $params['email-body-message-yours'] ) ) {
-			$this->email['body']['message-yours'] = $params['email-body-message-yours'];
-		}
-	}
-
-	/**
-	 * @param $details
-	 * @param $event EchoEvent
-	 * @param $user User
-	 * @return Message
-	 */
-	public function formatFragment( $details, $event, $user ) {
-		$userTalkPage = $user->getUserPage()->getTalkPage();
-
-		$title = $event->getTitle();
-		if ( $title && $title->equals( $userTalkPage ) &&
-			isset( $details['message-yours'] )
-		) {
-			$details['message'] = $details['message-yours'];
-		}
-
-		return parent::formatFragment( $details, $event, $user );
 	}
 
 	/**
@@ -51,6 +20,13 @@ class EchoCommentFormatter extends EchoEditFormatter {
 			}
 		} elseif ( $param === 'subject-link' ) {
 			$this->setTitleLink( $event, $message );
+		// The title text without namespace
+		} elseif ( $param === 'main-title-text' ) {
+			if ( !$event->getTitle() ) {
+				$message->params( wfMessage( 'echo-no-title' )->text() );
+			} else {
+				$message->params( $event->getTitle()->getText() );	
+			}
 		} else {
 			parent::processParam( $event, $param, $message, $user );
 		}

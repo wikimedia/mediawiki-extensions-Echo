@@ -11,6 +11,8 @@ class EchoEditFormatter extends EchoBasicFormatter {
 	protected function processParam( $event, $param, $message, $user ) {
 		if ( $param === 'subject-anchor' ) {
 			$message->params( $this->formatSubjectAnchor( $event ) );
+		} elseif ( $param === 'section-title' ) {
+			$message->params( $this->getSectionTitle( $event, $user ) );
 		} elseif ( $param === 'difflink' ) {
 			$revid = $event->getExtraParam( 'revid' );
 			if ( !$revid ) {
@@ -29,7 +31,7 @@ class EchoEditFormatter extends EchoBasicFormatter {
 			);
 			$this->setTitleLink( $event, $message, $props );
 		} elseif ( $param === 'summary' ) {
-			$message->params( $this->formatRevisionComment( $event, $user ) );
+			$message->params( $this->getRevisionSnippet( $event, $user ) );
 		} elseif ( $param === 'number' ) {
 			$eventData = $event->getExtra();
 			// The folliwing is a bit of a hack...
@@ -45,5 +47,23 @@ class EchoEditFormatter extends EchoBasicFormatter {
 		} else {
 			parent::processParam( $event, $param, $message, $user );
 		}
+	}
+
+	/**
+	 * Get the section title for a talk page post
+	 * @param $event EchoEvent
+	 * @param $user User
+	 * @return string
+	 */
+	protected function getSectionTitle( $event, $user ) {
+		$extra = $event->getExtra();
+
+		if ( !empty( $extra['section-title'] ) ) {
+			if ( $event->userCan( Revision::DELETED_TEXT, $user ) ) {
+				return EchoDiscussionParser::getTextSnippet( $extra['section-title'], 30 );
+			}
+		}
+
+		return '';
 	}
 }

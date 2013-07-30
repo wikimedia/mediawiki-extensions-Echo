@@ -124,6 +124,23 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	}
 
 	/**
+	 * Apply some custom change beforing formatting, child class overwriting this method
+	 * should always invoke a call to the parent method unless child class wants to overwrite
+	 * the default completely
+	 *
+	 * @param $event EchoEvent that the notification is for.
+	 * @param $user User to format the notification for.
+	 * @param $type string The type of notification being distributed (e.g. email, web)
+	 */
+	protected function applyChangeBeforeFormatting( EchoEvent $event, User $user, $type ) {
+		// Use the bundle message if use-bundle is true and there is a bundle message
+		$this->generateBundleData( $event, $user, $type );
+		if ( $this->bundleData['use-bundle'] && isset( $this->bundleTitle['message'] ) ) {
+			$this->title = $this->flyoutTitle = $this->bundleTitle;
+		}
+	}
+
+	/**
 	 * Formats a notification
 	 *
 	 * @param $event EchoEvent that the notification is for.
@@ -134,11 +151,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	public function format( $event, $user, $type ) {
 		global $wgExtensionAssetsPath, $wgEchoNotificationIcons;
 
-		// Use the bundle message if use-bundle is true and there is a bundle message
-		$this->generateBundleData( $event, $user, $type );
-		if ( $this->bundleData['use-bundle'] && isset( $this->bundleTitle['message'] ) ) {
-			$this->title = $this->flyoutTitle = $this->bundleTitle;
-		}
+		$this->applyChangeBeforeFormatting( $event, $user, $type );
 
 		if ( $this->outputFormat === 'email' ) {
 			return $this->formatEmail( $event, $user, $type );
@@ -346,7 +359,14 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	protected function formatPayload( $payload, $event, $user ) {
 		switch ( $payload ) {
 			case 'summary':
-				return $this->formatRevisionComment( $event, $user );
+				return Xml::tags(
+					'div',
+					array( 'class' => 'mw-echo-edit-summary' ),
+					Xml::tags(
+						'span', array( 'class' => 'comment' ),
+						htmlspecialchars( $this->getRevisionSnippet( $event, $user ) )
+					)
+				);
 				break;
 			case 'comment-text':
 				return $this->formatCommentText( $event, $user );
