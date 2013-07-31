@@ -494,10 +494,10 @@ abstract class EchoDiscussionParser {
 			return substr( $text, 0, $timestampPos );
 		}
 
-		// Strip off signature with HTML truncation method.
-		// This way tags which are opened will be closed.
+		// Use truncate() instead of truncateHTML() because truncateHTML()
+		// would not strip signature if the text conatins < or &
 		global $wgContLang;
-		$truncated_text = $wgContLang->truncateHtml( $text, $output[0], '' );
+		$truncated_text = $wgContLang->truncate( $text, $output[0], '' );
 
 		return $truncated_text;
 	}
@@ -896,7 +896,13 @@ abstract class EchoDiscussionParser {
 		$text = trim( strip_tags( htmlspecialchars_decode( $text ) ) );
 		// strip out non-useful data for snippet
 		$text = str_replace( array( '{', '}' ), '', $text );
+		$text = $wgLang->truncate( $text, $length );
 
-		return $wgLang->truncate( $text, $length );
+		// Return empty string if there is undecoded char left
+		if ( strpos( $text, '&#' ) !== false ) {
+			$text = '';
+		}
+
+		return $text;
 	}
 }
