@@ -205,11 +205,15 @@ abstract class MWEchoEmailBatch {
 
 		// email subject
 		if ( $this->count > self::$displaySize ) {
-			$count = wfMessage( 'echo-notification-count' )->params( self::$displaySize )->text();
+			$count = wfMessage( 'echo-notification-count' )
+				->inLanguage( $this->mUser->getOption( 'language' ) )
+				->params( self::$displaySize )->text();
 		} else {
 			$count = $this->count;
 		}
-		$subject = wfMessage( 'echo-email-batch-subject-' . $frequency )->params( $count, $this->count )->text();
+		$subject = wfMessage( 'echo-email-batch-subject-' . $frequency )
+				->inLanguage( $this->mUser->getOption( 'language' ) )
+				->params( $count, $this->count )->text();
 
 		$toAddress = new MailAddress( $this->mUser );
 		$fromAddress = new MailAddress( $wgNotificationSender, $wgNotificationSenderName );

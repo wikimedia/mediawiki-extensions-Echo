@@ -630,7 +630,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 				return $target->getFullURL( $query, false, PROTO_HTTPS );
 			}
 		} else {
-			$message = wfMessage( $event->getLinkMessage( $rank ) )->text();
+			$message = wfMessage( $event->getLinkMessage( $rank ) )->inLanguage( $user->getOption( 'language' ) )->text();
 			$attribs = array( 'class' => "mw-echo-notification-{$rank}-link" );
 			if ( $style ) {
 				$attribs['style'] = $style;
