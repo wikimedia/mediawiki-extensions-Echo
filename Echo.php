@@ -497,7 +497,7 @@ $wgEchoNotifications = array(
 		'icon' => 'chat',
 	),
 	'user-rights' => array(
-		'primary-link' => array( 'message' => 'notification-learn-more', 'destination' => 'user-rights-list' ),
+		'primary-link' => array( 'message' => 'echo-learn-more', 'destination' => 'user-rights-list' ),
 		'category' => 'system',
 		'group' => 'neutral',
 		'formatter-class' => 'EchoUserRightsFormatter',
