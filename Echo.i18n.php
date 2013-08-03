@@ -668,12 +668,17 @@ $1',
 	'echo-date-today' => 'Güei',
 	'echo-date-yesterday' => 'Ayeri',
 	'echo-load-more-error' => 'Hubo un error al descargar más resultaos.',
-	'notification-edit-talk-page-bundle' => "$1 y {{PLURAL:$4|otra persona|otres $3 persones}} {{GENDER:$1|escribieron}} na so [[User talk:$2|páxina d'alderique]].", # Fuzzy
+	'notification-edit-talk-page-bundle' => "$1 y {{PLURAL:$4|otra persona|otres $3 persones}} {{GENDER:$1|dexaron}} un mensaxe na so [[User talk:$2|páxina d'alderique]].",
 	'notification-page-linked-bundle' => '$2 {{GENDER:$1|enllazóse}} dende $3 y $4 {{PLURAL:$5|páxina|páxines}} más. [[Special:WhatLinksHere/$2|Ver tolos enllaces a esta páxina]]',
-	'notification-edit-user-talk-email-batch-bundle-body' => "$1 y {{PLURAL:$3|otra persona|otres $2 persones}} {{GENDER:$1|escribieron}} na so páxina d'alderique", # Fuzzy
+	'notification-edit-user-talk-email-batch-bundle-body' => "$1 y {{PLURAL:$3|otra persona|otres $2 persones}} {{GENDER:$1|dexaron}} un mensaxe na so páxina d'alderique",
 	'notification-page-linked-email-batch-bundle-body' => '$2 {{GENDER:$1|enllazóse}} dende $3 y {{PLURAL:$5|otra páxina|otres $4 páxines}}',
 	'echo-email-batch-subject-daily' => 'Tien {{PLURAL:$2|un avisu nuevu|avisos nuevos}} en {{SITENAME}}',
 	'echo-email-batch-subject-weekly' => 'Tien {{PLURAL:$2|un avisu nuevu|avisos nuevos}} en {{SITENAME}} esta selmana',
+	'echo-email-batch-body-intro-daily' => 'Hola, $1:
+Esti ye un resume personal de la actividá de güei en {{SITENAME}}.',
+	'echo-email-batch-body-intro-weekly' => 'Hola, $1:
+Esti ye un resume personal de la actividá selmanal en {{SITENAME}}.',
+	'echo-email-batch-link-text-view-all-notifications' => 'Ver toles notificaciones',
 	'echo-rev-deleted-text-view' => 'Esta revisión de páxina ta encaboxada',
 );
 
@@ -1416,9 +1421,9 @@ $messages['de'] = array(
 	'notification-link-text-view-page' => 'Seite ansehen',
 	'notification-link-text-view-edit' => 'Bearbeitung ansehen',
 	'notification-edit-talk-page2' => '[[User:$1|$1]] {{GENDER:$1|hinterließ}} eine Nachricht auf deiner [[User talk:$2#$3|Diskussionsseite]].',
-	'notification-edit-talk-page-with-section' => '[[User:$1|$1]] {{GENDER:$1|hinterließ}} eine Nachricht auf deiner Diskussionsseite in „[[User talk:$2#$3|$4]]“.',
+	'notification-edit-talk-page-with-section' => '[[User:$1|$1]] {{GENDER:$1|hinterließ}} eine Nachricht auf deiner Diskussionsseite zum Thema „[[User talk:$2#$3|$4]]“.',
 	'notification-edit-talk-page-flyout2' => '$1 {{GENDER:$1|hinterließ}} eine Nachricht auf deiner [[User talk:$2#$3|Diskussionsseite]].',
-	'notification-edit-talk-page-flyout-with-section' => '$1 {{GENDER:$1|hinterließ}} eine Nachricht auf deiner Diskussionsseite in „[[User talk:$2#$3|$4]]“.',
+	'notification-edit-talk-page-flyout-with-section' => '„$1“ {{GENDER:$1|hinterließ}} eine Nachricht auf deiner Diskussionsseite zum Thema „[[User talk:$2#$3|$4]]“.',
 	'notification-page-linked' => '[[:$2]] wurde von der Seite [[:$3]] {{GENDER:$1|verlinkt}}: [[Special:WhatLinksHere/$2|Alle Links auf diese Seite ansehen]]',
 	'notification-page-linked-flyout' => '$2 wurde von der Seite [[:$3]] {{GENDER:$1|verlinkt}}.',
 	'notification-add-comment2' => '[[User:$1|$1]] {{GENDER:$1|kommentierte}} auf „[[$3|$2]]“ auf der Diskussionsseite von „$4“',
@@ -1436,7 +1441,7 @@ $messages['de'] = array(
 	'notification-reverted-flyout2' => 'Deine {{PLURAL:$4|Bearbeitung an der Seite $2 wurde|Bearbeitungen an der Seite $2 wurden}} von $1 {{GENDER:$1|rückgängig}} gemacht. $3',
 	'notification-edit-talk-page-email-subject2' => '$1 {{GENDER:$1|hinterließ}} dir eine Nachricht auf {{SITENAME}}',
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|hinterließ}} eine Nachricht auf deiner Diskussionsseite',
-	'notification-edit-talk-page-email-batch-body-with-section' => '$1 {{GENDER:$1|hinterließ}} eine Nachricht auf deiner Diskussionsseite in „$2“.',
+	'notification-edit-talk-page-email-batch-body-with-section' => '„$1“ {{GENDER:$1|hinterließ}} eine Nachricht auf deiner Diskussionsseite zum Thema „$2“.',
 	'notification-page-linked-email-subject' => 'Deine Seite wurde auf {{SITENAME}} verlinkt',
 	'notification-page-linked-email-batch-body' => '$2 wurde von der Seite $3 {{GENDER:$1|verlinkt}}',
 	'notification-reverted-email-subject2' => 'Deine {{PLURAL:$3|Bearbeitung wurde|Bearbeitungen wurden}} auf {{SITENAME}} {{GENDER:$1|rückgängig}} gemacht',
@@ -3149,12 +3154,12 @@ $messages['lb'] = array(
 	'notification-edit-talk-page2' => '[[User:$1|$1]] {{GENDER:$1|huet}} op Är [[User talk:$2#$3|Diskussiounssäit]] geschriwwen.',
 	'notification-page-linked-flyout' => '$2 gouf vun der Säit [[:$3]] {{GENDER:$1|verlinkt}}.',
 	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]] {{GENDER:$1|huet}} Iech ee Message geschéckt: "[[$3#$2|$2]]"',
-	'notification-mention-flyout' => '$1 {{GENDER:$1|huet}} Iech op [[$3#$2|$3]] ernimmt.', # Fuzzy
+	'notification-mention-flyout' => '$1 {{GENDER:$1|huet}} Iech op der $5 Diskussiounssäit bei "[[$3#$2|$4]]" ernimmt.',
 	'notification-user-rights-add' => 'Dir sidd elo Member vun {{PLURAL:$2|dësem Grupp|dëse Gruppen}}: $1',
 	'notification-user-rights-remove' => 'Dir sidd net méi Member vun {{PLURAL:$2|dësem Grupp|dëse Gruppen}}: $1',
 	'notification-new-user' => 'Wëllkomm op {{SITENAME}}, $1! Mir si frou Iech begréissen ze kënnen.',
 	'notification-edit-talk-page-email-subject2' => 'Dir hutt en neie Message op Ärer Diskussiounssäit op {{SITENAME}}', # Fuzzy
-	'notification-page-linked-email-subject' => 'Eng Säit déi Dir ugeluecht hutt gouf op {{SITENAME}} verlinkt', # Fuzzy
+	'notification-page-linked-email-subject' => 'Är Säit gouf op {{SITENAME}} verlinkt',
 	'notification-mention-email-subject' => '$1 {{GENDER:$1|huet}} Iech op {{SITENAME}} ernimmt',
 	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|huet}} Iech op $2 ernimmt', # Fuzzy
 	'notification-user-rights-email-subject' => 'Är Benotzerrechter op {{SITENAME}} hu geännert',
@@ -3178,6 +3183,7 @@ $1',
 	'echo-date-yesterday' => 'Gëschter',
 	'echo-load-more-error' => 'Am Sichen no méi Resultater ass e Feeler geschitt.',
 	'echo-email-batch-subject-daily' => 'Dir hutt haut {{PLURAL:$2|eng nei Notifikatioun|nei Notifikatiounen}} op {{SITENAME}}',
+	'echo-rev-deleted-text-view' => 'Dës Versioun vun der Säit gouf geläscht.',
 );
 
 /** Lithuanian (lietuvių)
@@ -4329,6 +4335,7 @@ $1",
  * @author KPu3uC B Poccuu
  * @author Kaganer
  * @author Kalan
+ * @author Orsa
  * @author ShinePhantom
  * @author Soul Train
  */
@@ -4393,6 +4400,7 @@ $messages['ru'] = array(
 	'notification-edit-talk-page-email-batch-body-with-section' => '{{GENDER:$1|Участник|Участница}} $1 {{GENDER:$1|оставил|оставила}} вам сообщение на вашей странице обсуждения в разделе (теме) «$2»',
 	'notification-page-linked-email-subject' => 'На сайте «{{SITENAME}}» появилась ссылка на вашу страницу участника',
 	'notification-page-linked-email-batch-body' => '{{GENDER:$1|Участник|участница}} $1 {{GENDER:$1|сослался|сослалась}} на $2 из $3',
+	'notification-mention-email-batch-body' => '$1 {{ПОЛ:$1|, упоминается}} вы на $4 страница обсуждения в "$3".',
 	'notification-user-rights-email-subject' => 'Ваши права на сайте «{{SITENAME}}» были изменены',
 	'notification-user-rights-email-batch-body' => 'Ваши права были изменены {{GENDER:$1|участником|участницей}} $1. $2.',
 	'echo-email-subject-default' => 'Новые уведомления на сайте «{{SITENAME}}»',
