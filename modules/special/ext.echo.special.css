@@ -7,7 +7,14 @@
 	max-width: 600px;
 }
 
-/* Special styles to use if we're converting the subtitle links into header icons */
+/* Custom header styling for Vector and Monobook skins */
+.skin-vector #firstHeading,
+.skin-monobook #firstHeading {
+	margin-left: 50px;
+	max-width: 550px;
+}
+
+/* Special styles to use if we're converting subtitle links into header icons */
 #firstHeading .mw-echo-special-header-link {
 	display: block;
 	height: 19px;
