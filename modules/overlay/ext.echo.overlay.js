@@ -56,7 +56,8 @@
 				}
 				$ul.css( 'max-height', notificationLimit * 95 + 'px' );
 				$.each( notifications.index, function ( index, id ) {
-					var data = notifications.list[id],
+					var $wrapper,
+						data = notifications.list[id],
 						$li = $( '<li></li>' )
 							.data( 'details', data )
 							.data( 'id', id )
@@ -81,16 +82,23 @@
 						}
 					);
 					// If there is a primary link, make the entire notification clickable.
+					// Yes, it is possible to nest <a> tags via DOM manipulation,
+					// and it works like one would expect.
 					if ( $li.find( '.mw-echo-notification-primary-link' ).length ) {
-						$li.css( 'cursor', 'pointer' );
-						$li.click( function() {
-							if ( mw.echo.clickThroughEnabled ) {
-								// Log the clickthrough
-								mw.echo.logInteraction( 'notification-link-click', 'flyout', +data.id, data.type );
-							}
-							window.location.href = $li.find( '.mw-echo-notification-primary-link' ).attr( 'href' );
-						} );
+						$wrapper = $( '<a>' )
+							.addClass( 'mw-echo-notification-wrapper' )
+							.attr( 'href', $li.find( '.mw-echo-notification-primary-link' ).attr( 'href' ) )
+							.click( function() {
+								if ( mw.echo.clickThroughEnabled ) {
+									// Log the clickthrough
+									mw.echo.logInteraction( 'notification-link-click', 'flyout', +data.id, data.type );
+								}
+							} );
+					} else {
+						$wrapper = $('<div>').addClass( 'mw-echo-notification-wrapper' );
 					}
+
+					$li.wrapInner( $wrapper );
 
 					mw.echo.setupNotificationLogging( $li, 'flyout' );
 
