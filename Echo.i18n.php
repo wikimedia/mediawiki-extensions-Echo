@@ -3493,6 +3493,25 @@ $4
 $5', # Fuzzy
 );
 
+/** Marathi (मराठी)
+ * @author V.narsikar
+ */
+$messages['mr'] = array(
+	'prefs-emailsettings' => 'विपत्र एच्छिके',
+	'echo-category-title-edit-user-talk' => 'चर्चा पान {{PLURAL:$1|संदेश}}',
+	'notification-edit-talk-page-flyout-with-section' => '$1 ने  "[[User talk:$2#$3|$4]]" येथे आपल्या चर्चा पानावर एक संदेश  {{GENDER:$1|टाकला}}.',
+	'notification-edit-talk-page-email-batch-body2' => '$1 ने आपल्या चर्चा पानावर एक संदेश {{GENDER:$1|टाकला}}:',
+	'notification-edit-talk-page-email-batch-body-with-section' => '$1 ने "$2" मधील आपल्या चर्चा पानावर एक संदेश {{GENDER:$1|टाकला}}.',
+	'echo-email-batch-body-default' => 'आपणासाठी एक नविन अधिसूचना आहे.',
+	'echo-email-footer-default-html' => 'आम्ही आपणास पाठविलेल्या विपत्रांवर नियंत्रणासाठी, <a href="$2" style="text-decoration:none; color: #3868B0;">आपला पसंतीक्रम तपासा</a>.<br />
+$1',
+	'echo-email-batch-body-intro-daily' => 'नमस्कार $1,
+आपण {{SITENAME}}वर केलेल्या आजच्या क्रियाकलापांचा सारांश येथे आहे.',
+	'echo-email-batch-body-intro-weekly' => 'नमस्कार $1,
+आपण {{SITENAME}}वर केलेल्या या आठवड्याच्या क्रियाकलापांचा सारांश येथे आहे.',
+	'echo-rev-deleted-text-view' => 'या पानाची आवृत्ती दाबण्यात आलेली आहे.',
+);
+
 /** Malay (Bahasa Melayu)
  * @author Anakmalaysia
  */
@@ -4029,6 +4048,7 @@ $1',
 	'notification-page-linked-email-batch-bundle-body' => 'Na stronie $3 i na {{PLURAL:$5|innej stronie|$4 innych stronach}} {{GENDER:$1|umieszczono}} link do strony $2',
 	'echo-email-batch-subject-daily' => 'Masz {{PLURAL:$2|nowe powiadomienie|nowe powiadomienia}} w {{grammar:MS.lp|{{SITENAME}}}}',
 	'echo-email-batch-subject-weekly' => 'Masz {{PLURAL:$2|nowe powiadomienie|nowe powiadomienia}} w {{grammar:MS.lp|{{SITENAME}}}} z tego tygodnia',
+	'echo-email-batch-link-text-view-all-notifications' => 'Zobacz wszystkie powiadomienia',
 	'echo-rev-deleted-text-view' => 'Ta wersja strony została ukryta',
 );
 
