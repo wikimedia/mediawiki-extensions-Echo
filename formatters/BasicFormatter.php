@@ -448,8 +448,22 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			return;
 		}
 
-		$title = $event->getTitle();
+		if ( !isset( $props['fragment'] ) ) {
+			$props['fragment'] = $this->formatSubjectAnchor( $event );
+		}
 
+		$link = $this->buildLinkParam( $event->getTitle(), $props );
+		$message->params( $link );
+	}
+
+	/**
+	 * Build a link, to be used as message parameter, based on output format and
+	 * passed properties. Return value of this function can be used as parameter
+	 * for Message::params()
+	 * $title Title
+	 * $props array
+	 */
+	protected function buildLinkParam( $title, $props = array() ) {
 		$param = array();
 		if ( isset( $props['param'] ) ) {
 			$param = (array)$props['param'];
@@ -457,10 +471,8 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 
 		if ( isset( $props['fragment'] ) ) {
 			$fragment = $props['fragment'];
-		} else {
-			$fragment = $this->formatSubjectAnchor( $event );
+			$title->setFragment( "#$fragment" );
 		}
-		$title->setFragment( "#$fragment" );
 
 		if ( in_array( $this->outputFormat, array( 'html', 'flyout', 'htmlemail' ) ) ) {
 			$attribs = array();
@@ -479,12 +491,12 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 				$options = array( 'https' );
 			}
 
-			$message->rawParams( Linker::link( $title, $linkText, $attribs, $param, $options ) );
+			return array( Message::rawParam( Linker::link( $title, $linkText, $attribs, $param, $options ) ) );
 		} elseif ( $this->outputFormat === 'email' ) {
 			$url = $title->getFullURL( $param, false, PROTO_HTTPS );
-			$message->params( $this->sanitizeEmailLink( $url ) );
+			return $this->sanitizeEmailLink( $url );
 		} else {
-			$message->params( $title->getFullURL( $param ) );
+			return $title->getFullURL( $param );
 		}
 	}
 
