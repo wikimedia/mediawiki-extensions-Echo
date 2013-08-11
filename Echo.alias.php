@@ -13,6 +13,11 @@ $specialPageAliases['en'] = array(
 	'Notifications' => array( 'Notifications' ),
 );
 
+/** Min Dong Chinese (Mìng-dĕ̤ng-ngṳ̄) */
+$specialPageAliases['cdo'] = array(
+	'Notifications' => array( '提醒' ),
+);
+
 /** Chechen (нохчийн) */
 $specialPageAliases['ce'] = array(
 	'Notifications' => array( 'ДӀахаийтар' ),
