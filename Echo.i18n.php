@@ -1155,8 +1155,10 @@ $messages['cs'] = array(
 	'notification-link-text-view-page' => 'Zobrazit stránku',
 	'notification-link-text-view-edit' => 'Zobrazit editaci',
 	'notification-edit-talk-page2' => '[[User:$1|$1]] vám {{GENDER:$1|napsal|napsala}} na [[User talk:$2#$3|vaši diskusní stránku]].',
+	'notification-edit-talk-page-with-section' => '[[User:$1|$1]] vám {{GENDER:$1|napsal|napsala}} na vaši diskusní stránku k „[[User talk:$2#$3|$4]]“.',
 	'notification-edit-talk-page-flyout2' => '$1 vám {{GENDER:$1|napsal|napsala}} na [[User talk:$2#$3|vaši diskusní stránku]].',
-	'notification-page-linked' => 'Do stránky [[:$3]] {{GENDER:$1|byl přidán}} odkaz na stránku [[:$2]]: [[Special:WhatLinksHere/$2|Zobrazit všechny odkazy na tuto stránku]]', # Fuzzy
+	'notification-edit-talk-page-flyout-with-section' => '$1 vám {{GENDER:$1|napsal|napsala}} na vaši diskusní stránku k „[[User talk:$2#$3|$4]]“.',
+	'notification-page-linked' => 'Do stránky [[:$3]] {{GENDER:$1|byl přidán}} odkaz na stránku [[:$2]]. [[Special:WhatLinksHere/$2|Zobrazit všechny odkazy na tuto stránku]].',
 	'notification-page-linked-flyout' => 'Do stránky [[:$3]] {{GENDER:$1|byl přidán}} odkaz na stránku $2.',
 	'notification-add-comment2' => '[[User:$1|$1]] {{GENDER:$1|přidal|přidala}} komentář k „[[$3|$2]]“ na stránce „$4“',
 	'notification-add-talkpage-topic2' => '[[User:$1|$1]] {{GENDER:$1|přidal|přidala}} komentář na nové téma „$2“ na stránce „[[$3]]“',
@@ -1172,7 +1174,8 @@ $messages['cs'] = array(
 	'notification-reverted2' => '[[User:$1|$1]] {{GENDER:$1|revertoval|revertovala}} {{PLURAL:$4|vaši editaci|vaše editace}} stránky [[:$2]] $3',
 	'notification-reverted-flyout2' => '$1 {{GENDER:$1|revertoval|revertovala}} {{PLURAL:$4|vaši editaci|vaše editace}} stránky $2 $3',
 	'notification-edit-talk-page-email-subject2' => '$1 vám na {{grammar:6sg|{{SITENAME}}}} {{GENDER:$1|napsal|napsala}} zprávu.',
-	'notification-edit-talk-page-email-batch-body2' => '$1 vám {{GENDER:$1|napsal|napsala}} na vaši diskusní stránku', # Fuzzy
+	'notification-edit-talk-page-email-batch-body2' => '$1 vám {{GENDER:$1|napsal|napsala}} na vaši diskusní stránku:',
+	'notification-edit-talk-page-email-batch-body-with-section' => '$1 vám {{GENDER:$1|napsal|napsala}} na vaši diskusní stránku k „$2“.',
 	'notification-page-linked-email-subject' => 'Na {{grammar:6sg|{{SITENAME}}}} někdo odkázal na vaši stránku.',
 	'notification-page-linked-email-batch-body' => 'Do stránky $3 {{GENDER:$1|byl přidán}} odkaz na stránku $2',
 	'notification-reverted-email-subject2' => '$1 {{GENDER:$1|revertoval|revertovala}} {{PLURAL:$3|vaši editaci|vaše editace}} na {{grammar:6sg|{{SITENAME}}}}',
@@ -2406,9 +2409,9 @@ $1',
  * @author Siddhartha Ghai
  */
 $messages['hi'] = array(
-	'prefs-echo' => 'मला  म़ारा',
-	'prefs-displaynotifications' => 'Display options',
-	'prefs-echosubscriptions' => 'Notify me when someone…', # Fuzzy
+	'prefs-echo' => 'सूचनाएँ',
+	'prefs-displaynotifications' => 'प्रदर्शन विकल्प',
+	'prefs-echosubscriptions' => 'मुझे इन घटनाओं के बारे में सूचित करें',
 	'echo-no-agent' => '[कोई नहीं]',
 	'echo-no-title' => '[कोई पृष्ठ नहीं]',
 	'notifications' => 'सूचनाएँ',
@@ -3113,6 +3116,7 @@ $messages['lb'] = array(
 	'notification-link-text-view-page' => 'Säit weisen',
 	'notification-link-text-view-edit' => 'Ännerung weisen',
 	'notification-edit-talk-page2' => '[[User:$1|$1]] {{GENDER:$1|huet}} op Är [[User talk:$2#$3|Diskussiounssäit]] geschriwwen.',
+	'notification-edit-talk-page-flyout2' => '$1 {{GENDER:$1|huet}} op Är [[User talk:$2#$3|Diskussiounssäit]] geschriwwen.',
 	'notification-page-linked-flyout' => '$2 gouf vun der Säit [[:$3]] {{GENDER:$1|verlinkt}}.',
 	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]] {{GENDER:$1|huet}} Iech ee Message geschéckt: "[[$3#$2|$2]]"',
 	'notification-add-comment-yours2' => '[[User:$1|$1]] {{GENDER:$1|huet}} op "[[$3#$2|$2]]" op Ärer Diskussiounssäit eng Bemierkung gemaach',
@@ -3120,6 +3124,7 @@ $messages['lb'] = array(
 	'notification-user-rights-add' => 'Dir sidd elo Member vun {{PLURAL:$2|dësem Grupp|dëse Gruppen}}: $1',
 	'notification-user-rights-remove' => 'Dir sidd net méi Member vun {{PLURAL:$2|dësem Grupp|dëse Gruppen}}: $1',
 	'notification-new-user' => 'Wëllkomm op {{SITENAME}}, $1! Mir si frou Iech begréissen ze kënnen.',
+	'notification-reverted-flyout2' => 'Är {{PLURAL:$4|Ännerung op $2 gouf|Ännerungen op $2 goufe}} vum $1 {{GENDER:$1|zréckgesat}} $3.',
 	'notification-edit-talk-page-email-subject2' => '$1 {{GENDER:$1|huet}} Iech en neie Message op Ärer Diskussiounssäit op {{SITENAME}} hannerlooss',
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|huet}} ee Message op Är Diskussiounssäit geschriwwen:',
 	'notification-page-linked-email-subject' => 'Är Säit gouf op {{SITENAME}} verlinkt',
@@ -3479,13 +3484,14 @@ $messages['ml'] = array(
 	'notification-reverted2' => 'താങ്കൾ വരുത്തിയ {{PLURAL:$4|[[:$2]] താളിലെ തിരുത്ത്|[[:$2]] താളിലെ തിരുത്തുകൾ}} [[User:$1|$1]] {{GENDER:$1|മുൻപ്രാപനം ചെയ്തിരിക്കുന്നു}}  $3',
 	'notification-reverted-flyout2' => 'താങ്കൾ വരുത്തിയ {{PLURAL:$4|$2 താളിലെ തിരുത്ത്|$2 താളിലെ തിരുത്തുകൾ}} $1{{GENDER:$1|മുൻപ്രാപനം ചെയ്തിരിക്കുന്നു}}  $3',
 	'notification-edit-talk-page-email-subject2' => '{{SITENAME}} സംരംഭത്തിൽ $1 താങ്കൾക്കൊരു സന്ദേശം {{GENDER:$1|ചേർത്തിട്ടുണ്ട്}}',
-	'notification-edit-talk-page-email-batch-body2' => '$1 താങ്കളുടെ സംവാദത്താളിൽ {{GENDER:$1|കുറിപ്പിട്ടിട്ടുണ്ട്}}', # Fuzzy
-	'notification-page-linked-email-subject' => 'താങ്കൾ തുടക്കമിട്ട ഒരു താൾ {{SITENAME}} സംരംഭത്തിൽ കണ്ണി ചേർക്കപ്പെട്ടിരിക്കുന്നു', # Fuzzy
+	'notification-edit-talk-page-email-batch-body2' => '$1 താങ്കളുടെ സംവാദത്താളിൽ ഒരു സന്ദേശം {{GENDER:$1|ചേർത്തിട്ടുണ്ട്}}:',
+	'notification-edit-talk-page-email-batch-body-with-section' => '$1 താങ്കളുടെ സംവാദത്താളിൽ "$2" എന്നതിൽ ഒരു സന്ദേശം {{GENDER:$1|ചേർത്തിട്ടുണ്ട്}}.',
+	'notification-page-linked-email-subject' => 'താങ്കളുടെ താൾ {{SITENAME}} സംരംഭത്തിൽ കണ്ണിചേർക്കപ്പെട്ടിരിക്കുന്നു',
 	'notification-page-linked-email-batch-body' => '$2 എന്ന താളിലേയ്ക്ക് $3 എന്ന താളിൽ നിന്ന് കണ്ണി {{GENDER:$1|ചേർക്കപ്പെട്ടിരിക്കുന്നു}}',
-	'notification-reverted-email-subject2' => 'താങ്കൾ വരുത്തിയ {{PLURAL:$3|$2 താളിലെ തിരുത്ത്|$2 താളിലെ തിരുത്തുകൾ}} $1 {{GENDER:$1|മുൻപ്രാപനം ചെയ്തിരിക്കുന്നു}}', # Fuzzy
-	'notification-reverted-email-batch-body2' => 'താങ്കൾ വരുത്തിയ {{PLURAL:$3|$2 താളിലെ തിരുത്ത്|$2 താളിലെ തിരുത്തുകൾ}} $1 {{GENDER:$1|മുൻപ്രാപനം ചെയ്തിരുന്നു}}', # Fuzzy
+	'notification-reverted-email-subject2' => '{{SITENAME}} സംരംഭത്തിൽ താങ്കൾ വരുത്തിയ {{PLURAL:$3|തിരുത്ത്|തിരുത്തുകൾ}} {{GENDER:$1|മുൻപ്രാപനം ചെയ്തിരിക്കുന്നു}}',
+	'notification-reverted-email-batch-body2' => 'താങ്കൾ വരുത്തിയ {{PLURAL:$3|$2 താളിലെ തിരുത്ത്|$2 താളിലെ തിരുത്തുകൾ}} $1 {{GENDER:$1|മുൻപ്രാപനം ചെയ്തിരിക്കുന്നു}}',
 	'notification-mention-email-subject' => '$1 താങ്കളെ {{SITENAME}} സംരംഭത്തിൽ {{GENDER:$1|പരാമർശിച്ചിരിക്കുന്നു}}',
-	'notification-mention-email-batch-body' => '$1 താങ്കളെ $2 താളിൽ {{GENDER:$1|പരാമർശിച്ചിരിക്കുന്നു}}', # Fuzzy
+	'notification-mention-email-batch-body' => '$1 താങ്കളെ $4 സംവാദത്താളിൽ "$3" എന്നതിൽ {{GENDER:$1|പരാമർശിച്ചിരിക്കുന്നു}}.',
 	'notification-user-rights-email-subject' => '{{SITENAME}} സംരംഭത്തിൽ താങ്കളുടെ അവകാശങ്ങളിൽ മാറ്റമുണ്ടായിരിക്കുന്നു',
 	'notification-user-rights-email-batch-body' => 'താങ്കളുടെ ഉപയോക്തൃ അവകാശങ്ങൾ $1 {{GENDER:$1|മാറ്റിയിരിക്കുന്നു}}. $2',
 	'echo-email-subject-default' => '{{SITENAME}} സംരംഭത്തിൽ അറിയിപ്പുണ്ട്',
@@ -3498,6 +3504,8 @@ $1',
 ഞങ്ങൾ താങ്കൾക്കയയ്ക്കുന്ന ഇമെയിലുകൾ നിയന്ത്രിക്കാൻ, താങ്കളുടെ ക്രമീകരണങ്ങൾ ഉപയോഗിക്കുക: {{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
 
 $1',
+	'echo-email-footer-default-html' => 'ഞങ്ങൾ താങ്കൾക്കയയ്ക്കുന്ന ഇമെയിലുകൾ നിയന്ത്രിക്കാൻ, <a href="$2" style="text-decoration:none; color: #3868B0;">താങ്കളുടെ ക്രമീകരണങ്ങൾ പരിശോധിക്കുക</a>.<br />
+$1',
 	'echo-overlay-link' => 'എല്ലാ അറിയിപ്പുകളും',
 	'echo-overlay-title' => '<b>അറിയിപ്പുകൾ</b>',
 	'echo-overlay-title-overflow' => '<b>അറിയിപ്പുകൾ</b> (വായിക്കാത്ത $2 എണ്ണത്തിലെ $1 എണ്ണം കാണിക്കുന്നു)',
@@ -3505,13 +3513,18 @@ $1',
 	'echo-date-today' => 'ഇന്ന്',
 	'echo-date-yesterday' => 'ഇന്നലെ',
 	'echo-load-more-error' => 'കൂടുതൽ ഫലങ്ങൾ എടുക്കുന്നതിനിടെ ഒരു പിഴവുണ്ടായി.',
-	'notification-edit-talk-page-bundle' => '$1 ഒപ്പം $3 {{PLURAL:$4|മറ്റൊരാൾ|മറ്റുള്ളവരും}} താങ്കളുടെ [[User talk:$2|സംവാദത്താളിൽ]] {{GENDER:$1|കുറിപ്പിട്ടിരിക്കുന്നു}}.', # Fuzzy
+	'notification-edit-talk-page-bundle' => '$1 ഒപ്പം {{PLURAL:$4|മറ്റൊരാളും|$3 മറ്റുള്ളവരും}} താങ്കളുടെ [[User talk:$2|സംവാദത്താളിൽ]] സന്ദേശം{{GENDER:$1|ചേർത്തിരിക്കുന്നു}}.',
 	'notification-page-linked-bundle' => '$2 എന്ന താളിലേയ്ക്ക് $3 എന്ന താളിൽ നിന്നും മറ്റ് $4 {{PLURAL:$5|താളിൽ|താളുകളിൽ}} നിന്നും കണ്ണി {{GENDER:$1|ചേർക്കപ്പെട്ടിരിക്കുന്നു}}. [[Special:WhatLinksHere/$2|ഈ താളിലേയ്ക്കുള്ള എല്ലാ കണ്ണികളും കാണുക]]',
-	'notification-edit-user-talk-email-batch-bundle-body' => '$1 എന്ന ഉപയോക്താവും ഒപ്പം $2 {{PLURAL:$3|മറ്റുപയോക്താവും|മറ്റുപയോക്താക്കളും}} താങ്കളുടെ സം‌വാദത്താളിൽ {{GENDER:$1|കുറിപ്പിട്ടിരിക്കുന്നു}}', # Fuzzy
+	'notification-edit-user-talk-email-batch-bundle-body' => '$1 എന്ന ഉപയോക്താവും ഒപ്പം {{PLURAL:$3|മറ്റൊരു ഉപയോക്താവും|$2 മറ്റുപയോക്താക്കളും}} താങ്കളുടെ സം‌വാദത്താളിൽ സന്ദേശം {{GENDER:$1|ചേർത്തിരിക്കുന്നു}}',
 	'notification-page-linked-email-batch-bundle-body' => '$2 എന്ന താളിലേയ്ക്ക് $3 എന്ന താളിൽ നിന്നും മറ്റ് $4 {{PLURAL:$5|താളിൽ|താളുകളിൽ}} നിന്നും {{GENDER:$1|കണ്ണി ചേർക്കപ്പെട്ടിരിക്കുന്നു}}',
-	'echo-email-batch-subject-daily' => 'താങ്കൾക്ക് ഇന്ന് {{PLURAL:$2|പുതിയ ഒരറിയിപ്പ്|പുതിയ അറിയിപ്പുകൾ}} ഉണ്ട്', # Fuzzy
-	'echo-email-batch-subject-weekly' => 'താങ്കൾക്ക് ഈ ആഴ്ച {{PLURAL:$2|പുതിയ ഒരറിയിപ്പ്|പുതിയ അറിയിപ്പുകൾ}} ഉണ്ട്', # Fuzzy
+	'echo-email-batch-subject-daily' => 'താങ്കൾക്ക് {{SITENAME}} സംരംഭത്തിൽ {{PLURAL:$2|ഒരു പുതിയ അറിയിപ്പ്|പുതിയ അറിയിപ്പുകൾ}} ഉണ്ട്',
+	'echo-email-batch-subject-weekly' => 'താങ്കൾക്ക് ഈ ആഴ്ച, {{SITENAME}} സംരംഭത്തിൽ {{PLURAL:$2|പുതിയ ഒരറിയിപ്പ്|പുതിയ അറിയിപ്പുകൾ}} ഉണ്ട്',
+	'echo-email-batch-body-intro-daily' => 'പ്രിയ $1,
+{{SITENAME}} സംരംഭത്തിൽ, താങ്കളെ ബാധിക്കുന്ന ഇന്നത്തെ പ്രവർത്തനങ്ങളുടെ സംഗ്രഹം ഇതാ.',
+	'echo-email-batch-body-intro-weekly' => 'പ്രിയ $1,
+{{SITENAME}} സംരംഭത്തിൽ, താങ്കളെ ബാധിക്കുന്ന ഈ ആഴ്ചയിലെ പ്രവർത്തനങ്ങളുടെ സംഗ്രഹം ഇതാ.',
 	'echo-email-batch-link-text-view-all-notifications' => 'എല്ലാ അറിയിപ്പുകളും കാണുക',
+	'echo-rev-deleted-text-view' => 'താളിന്റെ ഈ നാൾപ്പതിപ്പ് ഒതുക്കിയിരിക്കുന്നു.',
 );
 
 /** Marathi (मराठी)
@@ -4020,33 +4033,33 @@ $messages['pl'] = array(
 	'notification-link-text-view-page' => 'Zobacz stronę',
 	'notification-link-text-view-edit' => 'Zobacz edycję',
 	'notification-edit-talk-page2' => '[[User:$1|$1]] {{GENDER:$1|napisał|napisała}} do ciebie na twojej [[User talk:$2#$3|stronie dyskusji]].',
-	'notification-edit-talk-page-with-section' => '[[User:$1|$1]] {{GENDER:$1|napisał|napisała}} do ciebie na twojej stronie dyskusji, w wątku [[User talk:$2#$3|$4]].',
+	'notification-edit-talk-page-with-section' => '[[User:$1|$1]] {{GENDER:$1|napisał|napisała}} do ciebie na twojej stronie dyskusji, w wątku „[[User talk:$2#$3|$4]]” .',
 	'notification-edit-talk-page-flyout2' => '$1 {{GENDER:$1|napisał|napisała}} do ciebie na twojej [[User talk:$2#$3|stronie dyskusji]].',
-	'notification-edit-talk-page-flyout-with-section' => '$1 {{GENDER:$1|napisał|napisała}} do ciebie na twojej stronie dyskusji, w wątku [[User talk:$2#$3|$4]].',
+	'notification-edit-talk-page-flyout-with-section' => '$1 {{GENDER:$1|napisał|napisała}} do ciebie na twojej stronie dyskusji, w wątku „[[User talk:$2#$3|$4]]” .',
 	'notification-page-linked' => 'Na stronie [[:$3]] {{GENDER:$1|umieszczono}} link do strony [[:$2]]. [[Special:WhatLinksHere/$2|Pokaż wszystkie linkujące do tej strony]].',
 	'notification-page-linked-flyout' => 'Na stronie [[:$3]] {{GENDER:$1|umieszczono}} link do strony $2.',
 	'notification-add-comment2' => '[[User:$1|$1]] {{GENDER:$1|umieścił|umieściła}} komentarz do „[[$3|$2]]” na stronie dyskusji „$4”',
 	'notification-add-talkpage-topic2' => '[[User:$1|$1]] {{GENDER:$1|umieścił|umieściła}} komentarz w nowym wątku „$2” na stronie [[$3]]',
 	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]] {{GENDER:$1|wysłał|wysłała}} ci wiadomość: „[[$3#$2|$2]]”',
 	'notification-add-comment-yours2' => '[[User:$1|$1]] {{GENDER:$1|umieścił|umieściła}} komentarz do „[[$3#$2|$2]]” na twojej stronie dyskusji',
-	'notification-mention' => '[[User:$1|$1]] {{GENDER:$1|wspomniał|wspomniała}} o tobie w [[$3#$2|$4]] na stronie dyskusji $5.',
+	'notification-mention' => '[[User:$1|$1]] {{GENDER:$1|wspomniał|wspomniała}} o tobie na stronie dyskusji $5 w wątku „[[$3#$2|$4]]”.',
 	'notification-mention-flyout' => '$1 {{GENDER:$1|wspomniał|wspomniała}} o tobie w [[$3#$2|$4]] na stronie dyskusji $5.',
 	'notification-user-rights' => '[[User:$1|$1]] [[Special:Log/rights/$1|{{GENDER:$1|zmienił|zmieniła}}]] twoje uprawnienia. $2. [[Special:ListGroupRights|Dowiedz się więcej]]',
 	'notification-user-rights-flyout' => '$1 {{GENDER:$1|zmienił|zmieniła}} twoje uprawnienia. $2. [[Special:ListGroupRights|Dowiedz się więcej]]',
 	'notification-user-rights-add' => 'Należysz teraz do {{PLURAL:$2|tej grupy|tych grup}}: $1',
-	'notification-user-rights-remove' => 'Nie należysz już do {{PLURAL:$2|tej grupy|tych grup}}: $1',
+	'notification-user-rights-remove' => 'Od teraz nie należysz już do {{PLURAL:$2|tej grupy|tych grup}}: $1',
 	'notification-new-user' => 'Witaj w {{grammar:MS.lp|{{SITENAME}}}}, $1! Cieszymy się, że tu jesteś.',
 	'notification-reverted2' => '[[User:$1|$1]] {{GENDER:$1|wycofał|wycofała}} {{PLURAL:$4|twoją edycję|twoje edycje}} na stronie [[:$2]] $3',
 	'notification-reverted-flyout2' => '$1 {{GENDER:$1|wycofał|wycofała}} {{PLURAL:$4|twoją edycję|twoje edycje}} na stronie $2 $3',
 	'notification-edit-talk-page-email-subject2' => '$1 {{GENDER:$1|napisał|napisała}} do ciebie w {{grammar:MS.lp|{{SITENAME}}}}',
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|napisał|napisała}} do ciebie na twojej stronie dyskusji:',
-	'notification-edit-talk-page-email-batch-body-with-section' => '$1 {{GENDER:$1|napisał|napisała}} do ciebie na twojej stronie dyskusji w $2.',
+	'notification-edit-talk-page-email-batch-body-with-section' => '$1 {{GENDER:$1|napisał|napisała}} do ciebie na twojej stronie dyskusji w wątku „$2”.',
 	'notification-page-linked-email-subject' => 'W {{grammar:MS.lp|{{SITENAME}}}} ktoś wstawił link do twojej strony',
 	'notification-page-linked-email-batch-body' => 'Na stronie $3 {{GENDER:$1|umieszczono}} link do strony $2',
 	'notification-reverted-email-subject2' => '$1 {{GENDER:$1|zrewertował|zrewertowała}} {{PLURAL:$3|twoją edycję|twoje edycje}} w {{grammar:MS.lp|{{SITENAME}}}}',
 	'notification-reverted-email-batch-body2' => '$1 {{GENDER:$1|zrewertował|zrewertowała}} {{PLURAL:$3|twoją edycję|twoje edycje}} na stronie $2',
 	'notification-mention-email-subject' => '$1 {{GENDER:$1|wspomniał|wspomniała}} o tobie w {{grammar:MS.lp|{{SITENAME}}}}',
-	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|wspomniał|wspomniała}} o tobie w $3 w dyskusji $4.',
+	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|wspomniał|wspomniała}} o tobie na stronie dyskusji $4 w wątku „$3” .',
 	'notification-user-rights-email-subject' => 'W {{grammar:MS.lp|{{SITENAME}}}} zostały zmienione twoje uprawnienia',
 	'notification-user-rights-email-batch-body' => '$1 {{GENDER:$1|zmienił|zmieniła}} twoje uprawnienia. $2',
 	'echo-notification-count' => '$1+',
@@ -4060,7 +4073,7 @@ $1',
 Możesz wybrać, jakie e-maile chcesz otrzymywać, w swoich preferencjach: {{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
 
 $1',
-	'echo-email-footer-default-html' => 'Aby regulować e-maile, które ci wysyłamy, <a href="$2" style="text-decoration:none; color: #3868B0;">sprawdź swoje preferencje</a>.<br />
+	'echo-email-footer-default-html' => 'Możesz wybrać, jakie e-maile chcesz otrzymywać <a href="$2" style="text-decoration:none; color: #3868B0;">w swoich preferencjach</a>.<br />
 $1',
 	'echo-overlay-link' => 'Wszystkie powiadomienia',
 	'echo-overlay-title' => '<b>Powiadomienia</b>',
