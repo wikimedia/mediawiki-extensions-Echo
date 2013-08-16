@@ -57,7 +57,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 		parent::__construct( $params );
 
 		// Set up default params if any are missing
-		$params += $this->getDefaultParams();
+		$params = $this->setDefaultParams( $params );
 
 		// Title for archive page
 		$this->title = array(
@@ -101,15 +101,13 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	}
 
 	/**
-	 * Internal function that returns notification default params
-	 *
+	 * Internal function for setting notification default params
+	 * @param $params array
 	 * @return array
 	 */
-	protected function getDefaultParams() {
-		return array(
+	protected function setDefaultParams( $params ) {
+		$params += array(
 			'title-params' => array(),
-			'flyout-message' => $this->title['message'],
-			'flyout-params' => $this->title['params'],
 			'bundle-message' => '',
 			'bundle-params' => array(),
 			'payload' => array(),
@@ -121,6 +119,11 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			'email-body-batch-bundle-params' => array(),
 			'icon' => 'placeholder'
 		);
+
+		// default flyout-message to title-message if not defined
+		$params += array ( 'flyout-message' => $params['title-message'],  'flyout-params' => $params['title-params'] );
+
+		return $params;
 	}
 
 	/**
