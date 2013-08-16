@@ -815,8 +815,10 @@ $messages['be-tarask'] = array(
 	'notification-link-text-view-changes' => 'Праглядзець зьмены',
 	'notification-link-text-view-page' => 'Праглядзець старонку',
 	'notification-link-text-view-edit' => 'Праглядзець праўку',
-	'notification-edit-talk-page2' => '[[User:$1|$1]] {{GENDER:$1|напісаў|напісала}} на вашую [[User talk:$2#$3|старонку гутарак]].', # Fuzzy
-	'notification-edit-talk-page-flyout2' => '$1 {{GENDER:$1|напісаў|напісала}} на вашую [[User talk:$2#$3|старонку гутарак]].', # Fuzzy
+	'notification-edit-talk-page2' => '[[User:$1|$1]] {{GENDER:$1|пакінуў|пакінула}} паведамленьне на вашай [[User talk:$2#$3|старонцы гутарак]].',
+	'notification-edit-talk-page-with-section' => '[[User:$1|$1]] {{GENDER:$1|пакінуў|пакінула}} паведамленьне на вашай старонцы гутарак у «[[User talk:$2#$3|$4]]».',
+	'notification-edit-talk-page-flyout2' => '$1 {{GENDER:$1|пакінуў|пакінула}} паведамленьне на вашай [[User talk:$2#$3|старонцы гутарак]].',
+	'notification-edit-talk-page-flyout-with-section' => '$1 {{GENDER:$1|пакінуў|пакінула}} паведамленьне на вашай старонцы гутарак у «[[User talk:$2#$3|$4]]».',
 	'notification-page-linked' => 'На [[:$2]] {{GENDER:$1|спаслаліся}} з [[:$3]]: [[Special:WhatLinksHere/$2|усе спасылкі на гэтую старонку]]', # Fuzzy
 	'notification-page-linked-flyout' => 'На $2 {{GENDER:$1|спаслаліся}} з [[:$3]].',
 	'notification-add-comment2' => '[[User:$1|$1]] {{GENDER:$1|пакінуў|пакінула}} камэнтар у тэме «[[$3|$2]]» на старонцы абмеркаваньня «$4»',
@@ -826,6 +828,7 @@ $messages['be-tarask'] = array(
 	'notification-mention' => '[[User:$1|$1]] {{GENDER:$1|згадаў|згадала}} вас на [[$3#$2|$3]].', # Fuzzy
 	'notification-mention-flyout' => '$1 {{GENDER:$1|згадаў|згадала}} вас на [[$3#$2|$3]].', # Fuzzy
 	'notification-user-rights' => '[[User:$1|$1]] [[Special:Log/rights/$1|{{GENDER:$1|зьмяніў|зьмяніла}}]] вашыя правы. $2. [[Special:ListGroupRights|Даведайцеся болей]]',
+	'notification-user-rights-flyout' => '$1 {{GENDER:$1|зьмяніў|зьмяніла}} вашыя правы. $2. [[Special:ListGroupRights|Даведайцеся больш]]',
 	'notification-user-rights-add' => 'Цяпер вы ўваходзіце ў {{PLURAL:$2|гэтую групу|гэтыя групы}}: $1',
 	'notification-user-rights-remove' => 'Цяпер вы не ўваходзіце ў {{PLURAL:$2|гэтую групу|гэтыя групы}}: $1',
 	'notification-new-user' => 'Вітаем у {{GRAMMAR:месны|{{SITENAME}}}}, $1! Мы рады бачыць вас.',
@@ -833,7 +836,8 @@ $messages['be-tarask'] = array(
 	'notification-reverted-flyout2' => '$1 {{GENDER:$1|скасаваў|скасавала}} {{PLURAL:$4|вашую праўку|вашыя праўкі}} на старонцы $2 $3',
 	'notification-edit-talk-page-email-subject2' => 'Вы маеце новае паведамленьне на старонцы гутарак', # Fuzzy
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|напісаў|напісала}} вам на старонку гутарак', # Fuzzy
-	'notification-page-linked-email-subject' => 'На створаную вамі старонку спаслаліся ў {{GRAMMAR:месны|{{SITENAME}}}}', # Fuzzy
+	'notification-edit-talk-page-email-batch-body-with-section' => '$1 {{GENDER:$1|пакінуў|пакінула}} паведамленьне на вашай старонцы гутарак у «$2».',
+	'notification-page-linked-email-subject' => 'На вашую старонку спаслаліся ў {{GRAMMAR:месны|{{SITENAME}}}}',
 	'notification-page-linked-email-batch-body' => 'На $2 {{GENDER:$1|спаслаліся}} з $3',
 	'notification-reverted-email-subject2' => '$1 {{GENDER:$1|скасаваў|скасавала}} {{PLURAL:$3|вашую праўку|вашыя праўкі}} ў «$2»', # Fuzzy
 	'notification-reverted-email-batch-body2' => '$1 {{GENDER:$1|скасаваў|скасавала}} {{PLURAL:$3|вашую праўку|вашыя праўкі}} ў «$2»', # Fuzzy
@@ -861,6 +865,10 @@ $1',
 	'echo-load-more-error' => 'Узьнікла памылка ў час атрыманьня дадатковых вынікаў.',
 	'echo-email-batch-subject-daily' => 'Сёньня вы атрымалі $1 {{PLURAL:$2|абвестку|абвесткі|абвестак}}', # Fuzzy
 	'echo-email-batch-subject-weekly' => 'На гэтым тыдні вы атрымалі $1 {{PLURAL:$2|абвестку|абвесткі|абвестак}}', # Fuzzy
+	'echo-email-batch-body-intro-daily' => 'Вітаем, $1!
+Вось агляд сягоньняшняй актыўнасьці ў {{GRAMMAR:месны|{{SITENAME}}}} для вас.',
+	'echo-email-batch-body-intro-weekly' => 'Вітаем, $1!
+Вось тыднёвы агляд актыўнасьці ў {{GRAMMAR:месны|{{SITENAME}}}} для вас.',
 	'echo-email-batch-link-text-view-all-notifications' => 'Праглядзець усе абвесткі',
 	'echo-rev-deleted-text-view' => 'Гэтая вэрсія старонкі была схаваная',
 );
@@ -1077,6 +1085,7 @@ $1',
  */
 $messages['ce'] = array(
 	'prefs-displaynotifications' => 'Гуш болу гӀирсаш',
+	'echo-category-title-article-linked' => 'АгӀона тӀе {{PLURAL:$1|хьажориг|хьажоригаш}}',
 );
 
 /** Sorani Kurdish (کوردی)
@@ -2481,36 +2490,63 @@ $1',
 /** Hungarian (magyar)
  * @author Dj
  * @author TK-999
+ * @author Tgr
  */
 $messages['hu'] = array(
 	'echo-desc' => 'Értesítési rendszer',
 	'prefs-echo' => 'Értesítések',
+	'prefs-emailsettings' => 'E-mail beállítások',
 	'prefs-displaynotifications' => 'Megjelenítési beállítások',
-	'prefs-echosubscriptions' => 'Értesítést kérek, ha valaki...', # Fuzzy
+	'prefs-echosubscriptions' => 'Értesítést kérek ezekről az eseményekről',
+	'prefs-newmessageindicator' => 'Új üzenet jelzése',
+	'echo-pref-send-me' => 'Gyakoriság:',
+	'echo-pref-send-to' => 'Erre a címre:',
+	'echo-pref-email-format' => 'A levél formátuma:',
+	'echo-pref-web' => 'Web',
 	'echo-pref-email' => 'E-mail',
 	'echo-pref-email-frequency-never' => 'Egyáltalán ne küldjön e-mail értesítést',
-	'echo-pref-email-frequency-immediately' => 'egyéni értesítést, ahogy az esemény  bekövetkezik',
-	'echo-pref-email-frequency-daily' => 'értesítések napi összefoglalója',
-	'echo-pref-email-frequency-weekly' => 'értesítések heti összefoglalója',
-	'echo-dismiss-button' => 'elrejt',
-	'echo-dismiss-message' => 'Minden "$1" típusú értesítés kikapcsolása',
-	'echo-dismiss-prefs-message' => 'Visszakapcsolhatod ezeket a beállításaidban.', # Fuzzy
-	'echo-category-title-edit-user-talk' => 'vitalapi üzenet', # Fuzzy
-	'echo-category-title-article-linked' => 'hivatkozott lap', # Fuzzy
-	'echo-category-title-reverted' => 'visszaállított szerkesztés', # Fuzzy
-	'echo-category-title-mention' => 'említés', # Fuzzy
+	'echo-pref-email-frequency-immediately' => 'Küldjön külön értesítést minden eseményről',
+	'echo-pref-email-frequency-daily' => 'Küldjön napi összefoglalót az értesítésekről',
+	'echo-pref-email-frequency-weekly' => 'Küldjön heti összefoglalót az értesítésekről',
+	'echo-pref-email-format-html' => 'HTML',
+	'echo-pref-email-format-plain-text' => 'Sima szöveg',
+	'echo-pref-notify-show-link' => 'Mutassa az értesítéseket a lap tetején lévő menüben',
+	'echo-pref-new-message-indicator' => 'Jelezze a vitalapi üzeneteket a lap tetején lévő menüben',
+	'echo-learn-more' => 'Tudj meg többet',
+	'echo-dismiss-button' => 'Eltüntetés',
+	'echo-dismiss-message' => 'Minden „$1” típusú értesítés kikapcsolása',
+	'echo-dismiss-prefs-message' => '[[Special:Preferences#mw-prefsection-echo|A beállításaidnál]] tudod visszakapcsolni',
+	'echo-category-title-edit-user-talk' => 'vitalapi {{PLURAL:$1|üzenet|üzenetek}}',
+	'echo-category-title-article-linked' => 'hivatkozott {{PLURAL:$1|lap|lapok}}',
+	'echo-category-title-reverted' => 'visszaállított {{PLURAL:$1|szerkesztés|szerkesztések}}',
+	'echo-category-title-mention' => '{{PLURAL:$1|említés|említések}}',
+	'echo-category-title-other' => 'egyéb', # Fuzzy
+	'echo-category-title-system' => '{{PLURAL:$1|rendszerüzenet|rendszerüzenetek}}',
+	'echo-pref-tooltip-edit-user-talk' => 'Értesítést kérek, ha valaki üzen vagy válaszol a vitalapomon.',
+	'echo-pref-tooltip-article-linked' => 'Értesítést kérek, ha valaki linkel egy általam írt szócikkre egy másik szócikkből.',
+	'echo-pref-tooltip-reverted' => 'Értesítést kérek, ha valaki visszaállítja egy szerkesztésemet.',
+	'echo-pref-tooltip-mention' => 'Értesítést kérek, ha valaki linkel a felhasználói lapomra valamelyik vitalapról.',
 	'echo-no-agent' => '[Senki]',
 	'echo-no-title' => '[Nincs lap]',
-	'echo-error-no-formatter' => 'Nincs értesítési formatálás definiálva',
-	'echo-error-preference' => 'Hiba: Nem sikerült beállítani a felhasználói beállítást',
+	'echo-error-no-formatter' => 'Nincs értesítési formátum definiálva',
+	'echo-error-preference' => 'Hiba: Nem sikerült elmenteni a felhasználói beállítást',
+	'echo-error-token' => 'Hiba: nem sikerült lekérni a felhasználói tokent',
 	'notifications' => 'Értesítések',
-	'tooltip-pt-notifications' => 'Értesítéseim',
-	'echo-specialpage' => 'Értesítéseim', # Fuzzy
-	'echo-anon' => 'Értesítések fogadásához [[Special:Userlogin/signup|hozz létre egy fiókot]] vagy [[Special:UserLogin|jelentkezzen be]].',
-	'echo-none' => 'Nincsenek értesítések.',
+	'tooltip-pt-notifications' => 'Értesítéseid',
+	'echo-specialpage' => 'Értesítések',
+	'echo-anon' => 'Értesítések fogadásához [[Special:Userlogin/signup|hozz létre egy fiókot]] vagy [[Special:UserLogin|jelentkezz be]].',
+	'echo-none' => 'Nincsenek értesítéseid.',
 	'echo-more-info' => 'További információ',
-	'notification-edit-talk-page2' => '[[User:$1|$1]] üzenetet írt [[User talk:$2#$3|a vitalapodra]].', # Fuzzy
-	'notification-edit-talk-page-flyout2' => '$1 üzenetet írt [[User talk:$2#$3|a vitalapodra]].',
+	'echo-feedback' => 'Visszajelzés',
+	'notification-link-text-view-message' => 'Üzenet mutatása',
+	'notification-link-text-view-mention' => 'Említés mutatása',
+	'notification-link-text-view-changes' => 'Változások mutatása',
+	'notification-link-text-view-page' => 'Lap mutatása',
+	'notification-link-text-view-edit' => 'Szerkesztés mutatása',
+	'notification-edit-talk-page2' => '[[User:$1|$1]] üzenetet hagyott [[User talk:$2#$3|a vitalapodon]].',
+	'notification-edit-talk-page-with-section' => '[[User:$1|$1]] üzenetet hagyott a vitalapodon „[[User talk:$2#$3|$4]]” címmel.',
+	'notification-edit-talk-page-flyout2' => '$1 üzenetet hagyott[[User talk:$2#$3|a vitalapodon]].',
+	'notification-edit-talk-page-flyout-with-section' => '$1 üzenetet hagyott a vitalapodon „[[User talk:$2#$3|$4]]” címmel.',
 	'notification-add-comment2' => '[[User:$1|$1]] hozzászólt a(z) "[[$3|$2]]" témához a(z) "$4" vitalapon',
 	'notification-new-user' => 'Üdvözlet a {{SITENAME}} oldalon, $1!', # Fuzzy
 	'echo-overlay-link' => 'Összes értesítés…', # Fuzzy
@@ -2580,7 +2616,7 @@ $messages['ia'] = array(
 	'notification-edit-talk-page-with-section' => '[[User:$1|$1]] te lassava un message in tu pagina de discussion sub "[[User talk:$2#$3|$4]]".',
 	'notification-edit-talk-page-flyout2' => '$1 te lassava un message in tu [[User talk:$2#$3|pagina de discussion]].',
 	'notification-edit-talk-page-flyout-with-section' => '$1 te lassava un message in tu pagina de discussion sub "[[User talk:$2#$3|$4]]".',
-	'notification-page-linked' => 'Un ligamine a [[:$2]] ha essite inserite in [[:$3]]. [[Special:WhatLinksHere/$2|Vider tote le ligamines a iste pagina]].', # Fuzzy
+	'notification-page-linked' => 'Un ligamine a [[:$2]] ha essite {{GENDER:$1|inserite}} in [[:$3]]. [[Special:WhatLinksHere/$2|Vider tote le ligamines a iste pagina]].',
 	'notification-page-linked-flyout' => 'Un ligamine a $2 ha essite inserite in [[:$3]].', # Fuzzy
 	'notification-add-comment2' => '[[User:$1|$1]] commentava "[[$3|$2]]" in le pagina de discussion "$4"',
 	'echo-email-subject-default' => 'Nove notification in {{SITENAME}}',
