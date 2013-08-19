@@ -35,10 +35,10 @@ $messages['en'] = array(
 	// Dismiss interface
 	'echo-dismiss-button' => 'Dismiss',
 	'echo-dismiss-message' => 'Turn off all $1 notifications',
-	'echo-dismiss-prefs-message' => 'You can turn these back on in your [[Special:Preferences#mw-prefsection-echo|preferences]]',
+	'echo-dismiss-prefs-message' => 'You can turn these back on in your [[Special:Preferences#mw-prefsection-echo|preferences]].',
 
 	// Alert interface
-	'echo-new-messages' => 'You have new messages',
+	'echo-new-messages' => 'You have new messages.',
 
 	// Category titles
 	'echo-category-title-edit-user-talk' => 'Talk page {{PLURAL:$1|message|messages}}',
@@ -57,9 +57,9 @@ $messages['en'] = array(
 	// Errors
 	'echo-no-agent' => '[Nobody]',
 	'echo-no-title' => '[No page]',
-	'echo-error-no-formatter' => 'No formatting defined for notification',
-	'echo-error-preference' => 'Error: Could not set user preference',
-	'echo-error-token' => 'Error: Could not retrieve user token',
+	'echo-error-no-formatter' => 'No formatting defined for notification.',
+	'echo-error-preference' => 'Error: Could not set user preference.',
+	'echo-error-token' => 'Error: Could not retrieve user token.',
 
 	// Special:Notifications
 	'notifications' => 'Notifications',
@@ -83,10 +83,10 @@ $messages['en'] = array(
 	'notification-edit-talk-page-flyout-with-section' => '$1 {{GENDER:$1|left}} a message on your talk page in "[[User talk:$2#$3|$4]]".',
 	'notification-page-linked' => '[[:$2]] was {{GENDER:$1|linked}} from [[:$3]]. [[Special:WhatLinksHere/$2|See all links to this page]].',
 	'notification-page-linked-flyout' => '$2 was {{GENDER:$1|linked}} from [[:$3]].',
-	'notification-add-comment2' => '[[User:$1|$1]] {{GENDER:$1|commented}} on "[[$3|$2]]" on the "$4" talk page',
-	'notification-add-talkpage-topic2' => '[[User:$1|$1]] {{GENDER:$1|posted}} a new topic "$2" on [[$3]]',
-	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]] {{GENDER:$1|sent}} you a message: "[[$3#$2|$2]]"',
-	'notification-add-comment-yours2' => '[[User:$1|$1]] {{GENDER:$1|commented}} on "[[$3#$2|$2]]" on your talk page',
+	'notification-add-comment2' => '[[User:$1|$1]] {{GENDER:$1|commented}} on "[[$3|$2]]" on the "$4" talk page.',
+	'notification-add-talkpage-topic2' => '[[User:$1|$1]] {{GENDER:$1|posted}} a new topic "$2" on [[$3]].',
+	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]] {{GENDER:$1|sent}} you a message: "[[$3#$2|$2]]".',
+	'notification-add-comment-yours2' => '[[User:$1|$1]] {{GENDER:$1|commented}} on "[[$3#$2|$2]]" on your talk page.',
 	'notification-mention' => '[[User:$1|$1]] {{GENDER:$1|mentioned}} you on $5 talk page in "[[$3#$2|$4]]".',
 	'notification-mention-flyout' => '$1 {{GENDER:$1|mentioned}} you on $5 talk page in "[[$3#$2|$4]]".',
 	'notification-user-rights' => 'Your user rights [[Special:Log/rights/$1|were {{GENDER:$1|changed}}]] by [[User:$1|$1]]. $2. [[Special:ListGroupRights|Learn more]]',
@@ -94,8 +94,8 @@ $messages['en'] = array(
 	'notification-user-rights-add' => 'You are now a member of {{PLURAL:$2|this group|these groups}}: $1',
 	'notification-user-rights-remove' => 'You are no longer a member of {{PLURAL:$2|this group|these groups}}: $1',
 	'notification-new-user' => "Welcome to {{SITENAME}}, $1! We're glad you're here.",
-	'notification-reverted2' => 'Your {{PLURAL:$4|edit on [[:$2]] has|edits on [[:$2]] have}} been {{GENDER:$1|reverted}} by [[User:$1|$1]] $3',
-	'notification-reverted-flyout2' => 'Your {{PLURAL:$4|edit on $2 has|edits on $2 have}} been {{GENDER:$1|reverted}} by $1 $3.',
+	'notification-reverted2' => 'Your {{PLURAL:$4|edit on [[:$2]] has|edits on [[:$2]] have}} been {{GENDER:$1|reverted}} by [[User:$1|$1]]. $3',
+	'notification-reverted-flyout2' => 'Your {{PLURAL:$4|edit on $2 has|edits on $2 have}} been {{GENDER:$1|reverted}} by $1. $3',
 	'notification-edit-talk-page-email-subject2' => '$1 {{GENDER:$1|left}} you a message on {{SITENAME}}',
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|left}} a message on your talk page:',
 	'notification-edit-talk-page-email-batch-body-with-section' => '$1 {{GENDER:$1|left}} a message on your talk page in "$2".',
@@ -136,8 +136,8 @@ $1',
 	// Bundle
 	'notification-edit-talk-page-bundle' => '$1 and $3 {{PLURAL:$4|other|others}} {{GENDER:$1|left}} a message on your [[User talk:$2|talk page]].',
 	'notification-page-linked-bundle' => '$2 was {{GENDER:$1|linked}} from $3 and $4 other {{PLURAL:$5|page|pages}}. [[Special:WhatLinksHere/$2|See all links to this page]]',
-	'notification-edit-user-talk-email-batch-bundle-body' => '$1 and $2 {{PLURAL:$3|other|others}} {{GENDER:$1|left}} a message on your talk page',
-	'notification-page-linked-email-batch-bundle-body' => '$2 was {{GENDER:$1|linked}} from $3 and $4 other {{PLURAL:$5|page|pages}}',
+	'notification-edit-user-talk-email-batch-bundle-body' => '$1 and $2 {{PLURAL:$3|other|others}} {{GENDER:$1|left}} a message on your talk page.',
+	'notification-page-linked-email-batch-bundle-body' => '$2 was {{GENDER:$1|linked}} from $3 and $4 other {{PLURAL:$5|page|pages}}.',
 
 	// Email batch
 	'echo-email-batch-separator' => '________________________________________________', # only translate this message to other languages if you have to change it
