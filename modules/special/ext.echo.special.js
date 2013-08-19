@@ -46,15 +46,10 @@
 				mw.echo.logInteraction( 'ui-prefs-click', 'archive' );
 			} );
 
-			// Apply custom header styling for vector and monobook skins
+			// Convert subtitle links into header icons for Vector and Monobook skins
 			if ( skin === 'vector' || skin === 'monobook' ) {
-				$( '#firstHeading' )
-					.css( { 'max-width': '550px', 'margin-left': '50px' } );
-				$( '#mw-echo-moreinfo-link' )
-					.text( '' )
-					.appendTo( '#firstHeading' );
-				$( '#mw-echo-pref-link' )
-					.text( '' )
+				$( '#mw-echo-moreinfo-link, #mw-echo-pref-link' )
+					.empty()
 					.appendTo( '#firstHeading' );
 				$( '#contentSub' ).empty();
 			}
