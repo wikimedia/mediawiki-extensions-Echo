@@ -374,12 +374,14 @@ See also:
 * $3 - a diff link which is labeled {{msg-mw|Showdiff}}
 * $4 - the number of edits that were reverted. NOTE: This will only be set to 1 or 2, with 2 actually meaning 'an unknown number greater than 0'.
 {{Related|Notification-reverted}}",
-	'notification-reverted-flyout2' => "Flyout-specific format for displaying notifications of a user's edit being reverted.
+	'notification-reverted-flyout2' => 'Flyout-specific format for displaying notifications of a user\'s edit being reverted.
+
+Parameters:
 * $1 - the username of the person who reverted, plain text. Can be used for GENDER.
 * $2 - the page that was reverted, formatted
 * $3 - a diff link which is labeled {{msg-mw|Showdiff}}
-* $4 - the number of edits that were reverted. NOTE: This will only be set to 1 or 2, with 2 actually meaning 'an unknown number greater than 0'.
-{{Related|Notification-reverted}}",
+* $4 - the number of edits that were reverted. NOTE: This will only be set to 1 or 2, with 2 actually meaning "an unknown number greater than 0".
+{{Related|Notification-reverted}}',
 	'notification-edit-talk-page-email-subject2' => 'E-mail subject.  Parameters:
 * $1 is a username which can be used for gender support',
 	'notification-edit-talk-page-email-batch-body2' => 'First line of the email notification for a talk page edit. The following line completes it with the description of the message in question, that is its edit summary.
@@ -1683,6 +1685,7 @@ $1', # Fuzzy
 
 /** Estonian (eesti)
  * @author Avjoska
+ * @author Kyng
  * @author Pikne
  */
 $messages['et'] = array(
@@ -1701,8 +1704,12 @@ $messages['et'] = array(
 	'echo-pref-email-frequency-immediately' => 'Üksikud teavitused nende ilmumisel',
 	'echo-pref-email-frequency-daily' => 'Teavituste päevakokkuvõte',
 	'echo-pref-email-frequency-weekly' => 'Teavituste nädalakokkuvõte',
+	'echo-pref-email-format-html' => 'HTML',
 	'echo-pref-email-format-plain-text' => 'Lihttekst',
+	'echo-pref-notify-show-link' => 'Näita teavitusi minu tööriistaribal',
+	'echo-pref-new-message-indicator' => 'Näita arutelulehekülje postituste indikaatorit minu tööriistaribal.',
 	'echo-learn-more' => 'Lisateave',
+	'echo-dismiss-button' => 'Peida',
 	'echo-dismiss-message' => 'Ära teavita järgmistest sündmustest: $1',
 	'echo-dismiss-prefs-message' => 'Saad [[Special:Preferences#mw-prefsection-echo|eelistustes]] need tagasi sisse lülitada',
 	'echo-new-messages' => 'Sulle on uusi sõnumeid',
@@ -1710,11 +1717,17 @@ $messages['et'] = array(
 	'echo-category-title-article-linked' => '{{PLURAL:$1|Leheküljelink|Leheküljelingid}}',
 	'echo-category-title-reverted' => 'Tühistatud {{PLURAL:$1|muudatus|muudatused}}',
 	'echo-category-title-mention' => '{{PLURAL:$1|Mainimine|Mainimised}}',
+	'echo-category-title-other' => '{{PLURAL:$1|Muu}}',
+	'echo-category-title-system' => '{{PLURAL:$1|Süsteem}}',
 	'echo-pref-tooltip-edit-user-talk' => 'Teavita mind, kui keegi postitab või vastab minu aruteluleheküljel',
-	'echo-pref-tooltip-reverted' => 'Teavita mind, kui meegi tühistab minu muudatuse, kasutades eemaldus- või tühistusfunktsiooni.',
+	'echo-pref-tooltip-article-linked' => 'Teata mulle, kui keegi lingib mõnest artiklist minu loodud leheküljele.',
+	'echo-pref-tooltip-reverted' => 'Teavita mind, kui keegi tühistab minu muudatuse, kasutades eemaldus- või tühistusfunktsiooni.',
 	'echo-pref-tooltip-mention' => 'Teavita mind, kui keegi lingib mõnelt aruteluleheküljelt minu aruteluleheküljele',
 	'echo-no-agent' => '[Eikeegi]',
 	'echo-no-title' => '[Lehekülge pole]',
+	'echo-error-no-formatter' => 'Teavituse vormindusviis on määramata.',
+	'echo-error-preference' => 'Viga: Ei saanud kasutaja eelistusi salvestada',
+	'echo-error-token' => 'Viga: Ei saanud laadida kasutaja tunnust',
 	'notifications' => 'Teavitused',
 	'tooltip-pt-notifications' => 'Sinu teavitused',
 	'echo-specialpage' => 'Teavitused',
@@ -1722,11 +1735,57 @@ $messages['et'] = array(
 	'echo-none' => 'Sul pole uusi teavitusi.',
 	'echo-more-info' => 'Lisateave',
 	'echo-feedback' => 'Tagasiside',
+	'notification-link-text-view-message' => 'Vaata sõnumit',
+	'notification-link-text-view-mention' => 'Vaata mainimist',
+	'notification-link-text-view-changes' => 'Vaata muudatusi',
+	'notification-link-text-view-page' => 'Vaata lehekülge',
+	'notification-link-text-view-edit' => 'Vaata muudatust',
+	'notification-edit-talk-page2' => '[[User:$1|$1]] jättis sõnumi sinu [[User talk:$2#$3|aruteluleheküljele]].',
+	'notification-edit-talk-page-with-section' => '[[User:$1|$1]] jättis sõnumi sinu arutelulehekülje alaosasse "[[User talk:$2#$3|$4]]".',
+	'notification-edit-talk-page-flyout2' => '$1 jättis sõnumi sinu [[User talk:$2#$3|aruteluleheküljele]].',
+	'notification-edit-talk-page-flyout-with-section' => '$1 jättis sõnumi sinu arutelulehekülje alaosasse "[[User talk:$2#$3|$4]]".',
+	'notification-page-linked' => 'Leheküljele [[:$2]] {{GENDER:$1|lingiti}} asukohast [[:$3]]. [[Special:WhatLinksHere/$2|Vaata kõiki linke sellele leheküljele]].',
+	'notification-page-linked-flyout' => 'Leheküljele $2 {{GENDER:$1|lingiti}} asukohast [[:$3]].',
+	'notification-add-comment2' => '[[User:$1|$1]] lisas kommentaari lehekülje "$4" arutelu alaosasse "[[$3|$2]]".',
+	'notification-add-talkpage-topic2' => '[[User:$1|$1]] {{GENDER:$1|postitas}} uue teema "$2" arutellu [[$3]].',
+	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]] {{GENDER:$1|saatis}} sulle sõnumi: "[[$3#$2|$2]]".',
+	'notification-add-comment-yours2' => '[[User:$1|$1]] lisas kommentaari sinu arutelulehekülje alaosasse "[[$3#$2|$2]]".',
+	'notification-mention' => '[[User:$1|$1]] {{GENDER:$1|mainis}} sind lehe $5 arutelus "[[$3#$2|$4]]".',
+	'notification-mention-flyout' => '$1 {{GENDER:$1|mainis}} sind $5 arutelulehel lõigus "[[$3#$2|$4]]".',
+	'notification-user-rights' => '[[User:$1|$1]] [[Special:Log/rights/$1| {{GENDER:$1|muutis}}]] sinu kasutajaõigusi. $2. [[Special:ListGroupRights|Lisateave]]',
+	'notification-user-rights-flyout' => '$1 {{GENDER:$1|muutis}} sinu kasutajaõigusi. $2. [[Special:ListGroupRights|Lisateave]]',
+	'notification-user-rights-add' => 'Kuulud nüüd {{PLURAL:$2|gruppi|gruppidesse}}: $1',
+	'notification-user-rights-remove' => 'Sa ei kuulu enam {{PLURAL:$2|this group|these groups}}: $1',
 	'notification-new-user' => 'Tere tulemast saidile {{SITENAME}}, $1! Meil on hea meel, et siin oled.',
+	'notification-reverted2' => 'Sinu {{PLURAL:$4|muudatus [[:$2]] on|muudatused [[:$2]] on}} {{GENDER:$1|tühistatud}} [[User:$1|$1]] poolt. $3',
+	'notification-reverted-flyout2' => 'Sinu {{PLURAL:$4|muudatus lehe $2 on|muudatused lehel $2 on}} {{GENDER:$1|tühistatud}} $1 poolt. $3',
+	'notification-edit-talk-page-email-subject2' => '$1 {{GENDER:$1|jättis}} sulle lehele {{SITENAME}} sõnumi',
+	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|jättis}} sinu arutelulehele sõnumi:',
+	'notification-edit-talk-page-email-batch-body-with-section' => '$1 {{GENDER:$1|jättis}} sinu arutelulehele sõnumi "$2":',
+	'notification-page-linked-email-subject' => 'Sinu lehekülg lingiti lehega {{SITENAME}}',
+	'notification-page-linked-email-batch-body' => '{{GENDER:$1|Linkis}} leheküljele $2 asukohast $3.',
+	'notification-user-rights-email-subject' => 'Sinu kasutajaõigusi muudeti lehel {{SITENAME}}',
+	'notification-user-rights-email-batch-body' => '$1 {{GENDER:$1|muutis}} sinu kasutajaõigusi. $2.',
+	'echo-email-subject-default' => 'Lehel {{SITENAME}} on uus teavitus',
+	'echo-email-body-default' => 'Lehel {{SITENAME}} on sulle uus teavitus:
+
+$1',
+	'echo-email-batch-body-default' => 'Sulle on uus teavitus.',
 	'echo-overlay-link' => 'Kõik teavitused',
 	'echo-overlay-title' => '<b>Teavitused</b>',
+	'echo-overlay-title-overflow' => '<bTeavitused</b> (nähtaval $1 $2 lugematta tevitusest)',
+	'echo-mark-all-as-read' => 'Märgi kõik loetuks',
 	'echo-date-today' => 'Täna',
 	'echo-date-yesterday' => 'Eile',
+	'echo-load-more-error' => 'Rohkemate tulemuste laadimisel ilmnes tõrge.',
+	'echo-email-batch-subject-daily' => 'Sul on {{PLURAL:$2|uus teavitus|uut teavitust}} lehel {{SITENAME}}',
+	'echo-email-batch-subject-weekly' => 'Sul on sellel nädala {{PLURAL:$2|uus teavitus|uut teavitust}} lehel {{SITENAME}}',
+	'echo-email-batch-body-intro-daily' => 'Tere $1,
+Siin on sulle kokkuvõtte lehel {{SITENAME}} täna toimunust.',
+	'echo-email-batch-body-intro-weekly' => 'Tere $1,
+Siin on sulle kokkuvõtte lehel {{SITENAME}} sellel nädalal toimunust.',
+	'echo-email-batch-link-text-view-all-notifications' => 'Vaata kõiki teavitusi.',
+	'echo-rev-deleted-text-view' => 'See lehekülje muudatus on peidetud.',
 );
 
 /** Persian (فارسی)
@@ -2897,8 +2956,8 @@ $messages['ja'] = array(
 	'echo-learn-more' => '詳細',
 	'echo-dismiss-button' => '非表示',
 	'echo-dismiss-message' => '$1についての通知をすべて止める',
-	'echo-dismiss-prefs-message' => 'これらは[[Special:Preferences#mw-prefsection-echo|個人設定]]で元に戻すこともできます',
-	'echo-new-messages' => '新着メッセージがあります',
+	'echo-dismiss-prefs-message' => 'これらは[[Special:Preferences#mw-prefsection-echo|個人設定]]で元に戻すこともできます。',
+	'echo-new-messages' => '新着メッセージがあります。',
 	'echo-category-title-edit-user-talk' => 'トークページヘの{{PLURAL:$1|メッセージ}}',
 	'echo-category-title-article-linked' => 'ページへの{{PLURAL:$1|リンク}}',
 	'echo-category-title-reverted' => '編集の{{PLURAL:$1|差し戻し}}',
@@ -2911,9 +2970,9 @@ $messages['ja'] = array(
 	'echo-pref-tooltip-mention' => '誰かが私の利用者ページにどこかのトークページからリンクしたときに通知する。',
 	'echo-no-agent' => '[送信者なし]',
 	'echo-no-title' => '[ページなし]',
-	'echo-error-no-formatter' => '通知の書式が定義されていません',
-	'echo-error-preference' => 'エラー: 個人設定を変更できませんでした',
-	'echo-error-token' => 'エラー: 利用者トークンを取得できませんでした',
+	'echo-error-no-formatter' => '通知の書式が定義されていません。',
+	'echo-error-preference' => 'エラー: 個人設定を変更できませんでした。',
+	'echo-error-token' => 'エラー: 利用者トークンを取得できませんでした。',
 	'notifications' => '通知',
 	'tooltip-pt-notifications' => '自分の通知',
 	'echo-specialpage' => '通知',
@@ -2933,10 +2992,10 @@ $messages['ja'] = array(
 	'notification-edit-talk-page-flyout-with-section' => '$1 があなたのトークページの「[[User talk:$2#$3|$4]]」にメッセージを{{GENDER:$1|投稿しました}}。',
 	'notification-page-linked' => '[[:$2]] が [[:$3]] から{{GENDER:$1|リンクされました}}。[[Special:WhatLinksHere/$2|このページのリンク元]]',
 	'notification-page-linked-flyout' => '$2 が [[:$3]] から{{GENDER:$1|リンクされました}}。',
-	'notification-add-comment2' => '[[User:$1|$1]] が「$4」のトークページの「[[$3|$2]]」に{{GENDER:$1|コメントしました}}',
-	'notification-add-talkpage-topic2' => '[[User:$1|$1]] が [[$3]] に新しい話題「$2」を{{GENDER:$1|投稿しました}}',
+	'notification-add-comment2' => '[[User:$1|$1]] が「$4」のトークページの「[[$3|$2]]」に{{GENDER:$1|コメントしました}}。',
+	'notification-add-talkpage-topic2' => '[[User:$1|$1]] が [[$3]] に新しい話題「$2」を{{GENDER:$1|投稿しました}}。',
 	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]] があなたにメッセージを{{GENDER:$1|送信しました}}:「[[$3#$2|$2]]」',
-	'notification-add-comment-yours2' => '[[User:$1|$1]] があなたのトークページの「[[$3#$2|$2]]」に{{GENDER:$1|コメントしました}}',
+	'notification-add-comment-yours2' => '[[User:$1|$1]] があなたのトークページの「[[$3#$2|$2]]」に{{GENDER:$1|コメントしました}}。',
 	'notification-mention' => '[[User:$1|$1]] が $5 のトークページの「[[$3#$2|$4]]」であなたに{{GENDER:$1|言及しました}}。',
 	'notification-mention-flyout' => '$1 が $5 のトークページの「[[$3#$2|$4]]」であなたに{{GENDER:$1|言及しました}}。',
 	'notification-user-rights' => 'あなたの権限を[[User:$1|$1]]が[[Special:Log/rights/$1|{{GENDER:$1|変更しました}}]]。$2。[[Special:ListGroupRights|詳細はこちら]]',
@@ -2944,7 +3003,7 @@ $messages['ja'] = array(
 	'notification-user-rights-add' => 'あなたは{{PLURAL:$2|以下のグループ}}に所属になりました: $1',
 	'notification-user-rights-remove' => 'あなたは{{PLURAL:$2|以下のグループ}}の所属から外れました: $1',
 	'notification-new-user' => '$1さん、{{SITENAME}}へようこそおいでくださいました。',
-	'notification-reverted2' => '{{PLURAL:$4|[[:$2]] でのあなたの編集}}を [[User:$1|$1]] が{{GENDER:$1|差し戻しました}} $3',
+	'notification-reverted2' => '{{PLURAL:$4|[[:$2]] でのあなたの編集}}を [[User:$1|$1]] が{{GENDER:$1|差し戻しました}}。$3',
 	'notification-reverted-flyout2' => '{{PLURAL:$4|$2 でのあなたの編集}}を $1 が{{GENDER:$1|差し戻しました}}。$3',
 	'notification-edit-talk-page-email-subject2' => '{{SITENAME}}で $1 があなたのトークページにメッセージを{{GENDER:$1|投稿しました}}',
 	'notification-edit-talk-page-email-batch-body2' => '$1 があなたのトークページにメッセージを{{GENDER:$1|投稿しました}}:',
@@ -2979,8 +3038,8 @@ $1',
 	'echo-load-more-error' => '結果の続きを取得する際にエラーが発生しました。',
 	'notification-edit-talk-page-bundle' => '$1 と他 $3 {{PLURAL:$4|人}}があなたの[[User talk:$2|トークページ]]にメッセージを{{GENDER:$1|投稿しました}}。',
 	'notification-page-linked-bundle' => '$2 が $3 と他 $4 {{PLURAL:$5|件のページ}}から{{GENDER:$1|リンクされました}}。[[Special:WhatLinksHere/$2|このページのリンク元]]',
-	'notification-edit-user-talk-email-batch-bundle-body' => '$1 と他 $2 {{PLURAL:$3|人}}があなたのトークページにメッセージを{{GENDER:$1|投稿しました}}',
-	'notification-page-linked-email-batch-bundle-body' => '$2 が $3 と他 $4 {{PLURAL:$5|件のページ}}から{{GENDER:$1|リンクされました}}',
+	'notification-edit-user-talk-email-batch-bundle-body' => '$1 と他 $2 {{PLURAL:$3|人}}があなたのトークページにメッセージを{{GENDER:$1|投稿しました}}。',
+	'notification-page-linked-email-batch-bundle-body' => '$2 が $3 と他 $4 {{PLURAL:$5|件のページ}}から{{GENDER:$1|リンクされました}}。',
 	'echo-email-batch-separator' => '________________________________________________',
 	'echo-email-batch-subject-daily' => '{{SITENAME}}で{{PLURAL:$2|新たな通知}}が届いています',
 	'echo-email-batch-subject-weekly' => '{{SITENAME}}でこの1週間に{{PLURAL:$2|新たな通知}}が届いています',
@@ -3244,12 +3303,14 @@ $messages['lb'] = array(
 	'notification-edit-talk-page2' => '[[User:$1|$1]] {{GENDER:$1|huet}} op Är [[User talk:$2#$3|Diskussiounssäit]] geschriwwen.',
 	'notification-edit-talk-page-flyout2' => '$1 {{GENDER:$1|huet}} op Är [[User talk:$2#$3|Diskussiounssäit]] geschriwwen.',
 	'notification-page-linked-flyout' => '$2 gouf vun der Säit [[:$3]] {{GENDER:$1|verlinkt}}.',
+	'notification-add-comment2' => '[[User:$1|$1]] {{GENDER:$1|huet}} eng Bemierkung iwwer "[[$3|$2]]" op der "$4" Diskussiounssäit geschriwwen.',
 	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]] {{GENDER:$1|huet}} Iech ee Message geschéckt: "[[$3#$2|$2]]"',
 	'notification-add-comment-yours2' => '[[User:$1|$1]] {{GENDER:$1|huet}} op "[[$3#$2|$2]]" op Ärer Diskussiounssäit eng Bemierkung gemaach',
 	'notification-mention-flyout' => '$1 {{GENDER:$1|huet}} Iech op der $5 Diskussiounssäit bei "[[$3#$2|$4]]" ernimmt.',
 	'notification-user-rights-add' => 'Dir sidd elo Member vun {{PLURAL:$2|dësem Grupp|dëse Gruppen}}: $1',
 	'notification-user-rights-remove' => 'Dir sidd net méi Member vun {{PLURAL:$2|dësem Grupp|dëse Gruppen}}: $1',
 	'notification-new-user' => 'Wëllkomm op {{SITENAME}}, $1! Mir si frou Iech begréissen ze kënnen.',
+	'notification-reverted2' => 'Är {{PLURAL:$4|Ännerung vu(n) [[:$2]] gouf|Ännerunge vu(n) [[:$2]] goufe}} vum [[User:$1|$1]] {{GENDER:$1|zréckgesat}}. $3',
 	'notification-reverted-flyout2' => 'Är {{PLURAL:$4|Ännerung op $2 gouf|Ännerungen op $2 goufe}} vum $1 {{GENDER:$1|zréckgesat}} $3.',
 	'notification-edit-talk-page-email-subject2' => '$1 {{GENDER:$1|huet}} Iech en neie Message op Ärer Diskussiounssäit op {{SITENAME}} hannerlooss',
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|huet}} ee Message op Är Diskussiounssäit geschriwwen:',
@@ -3280,6 +3341,7 @@ $1',
 	'echo-date-today' => 'Haut',
 	'echo-date-yesterday' => 'Gëschter',
 	'echo-load-more-error' => 'Am Sichen no méi Resultater ass e Feeler geschitt.',
+	'notification-edit-user-talk-email-batch-bundle-body' => '$1 a(n) {{PLURAL:$3|een anere|$2 aner}} Benotzer {{GENDER:$1|hunn}} ee Message op Är Diskussiounssäit geschriwwen.',
 	'echo-email-batch-subject-daily' => 'Dir hutt haut {{PLURAL:$2|eng nei Notifikatioun|nei Notifikatiounen}} op {{SITENAME}}',
 	'echo-email-batch-body-intro-daily' => 'Salut $1,
 
@@ -3669,6 +3731,7 @@ $1',
  */
 $messages['mr'] = array(
 	'prefs-emailsettings' => 'विपत्र एच्छिके',
+	'echo-new-messages' => 'तुमच्यासाठी नवीन संदेश आहेत.',
 	'echo-category-title-edit-user-talk' => 'चर्चा पान {{PLURAL:$1|संदेश}}',
 	'notification-edit-talk-page-flyout-with-section' => '$1 ने  "[[User talk:$2#$3|$4]]" येथे आपल्या चर्चा पानावर एक संदेश  {{GENDER:$1|टाकला}}.',
 	'notification-edit-talk-page-email-batch-body2' => '$1 ने आपल्या चर्चा पानावर एक संदेश {{GENDER:$1|टाकला}}:',
@@ -4732,6 +4795,8 @@ $messages['roa-tara'] = array(
 	'notification-edit-talk-page-email-batch-body-with-section' => '$1 {{GENDER:$1|t\'ha lassate}} \'nu messàgge sus \'a pàgene de le \'ngazzaminde tune jndr\'à "$2".',
 	'notification-page-linked-email-subject' => "'A pàgena toje ha state collegate sus a {{SITENAME}}",
 	'notification-page-linked-email-batch-body' => '$2 ere {{GENDER:$1|collegate}} da $3',
+	'notification-mention-email-subject' => "$1 {{GENDER:$1|t'ave menzionate}} sus a {{SITENAME}}",
+	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|\'ave menzionate}} sus a pàgene de le \'ngazzaminde $4 jndr\'à "$3".',
 	'notification-user-rights-email-subject' => 'Le deritte utende tune onne state cangiate sus a {{SITENAME}}',
 	'notification-user-rights-email-batch-body' => 'Le deritte utende tune onne state {{GENDER:$1|cangiate}} da $1. $2.',
 	'echo-email-subject-default' => 'Notifica nove sus a {{SITENAME}}',
@@ -4739,6 +4804,12 @@ $messages['roa-tara'] = array(
 
 $1",
 	'echo-email-batch-body-default' => "Tu è 'na notifica nove",
+	'echo-email-footer-default' => "$2
+
+Pe condrollà quale email t'amme mannate, verifiche le prefenze tune:
+{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
+
+$1",
 	'echo-overlay-link' => 'Tutte le notificaziune',
 	'echo-overlay-title' => '<b>Notifiche</b>',
 	'echo-overlay-title-overflow' => '<b>Notifiche</b> (fà vedè $1 de $2 non lette)',
@@ -4944,7 +5015,7 @@ $messages['sr-el'] = array(
  * @author WikiPhoenix
  */
 $messages['sv'] = array(
-	'echo-desc' => 'Notifikationssystem',
+	'echo-desc' => 'Meddelandesystem',
 	'prefs-echo' => 'Meddelanden',
 	'prefs-emailsettings' => 'E-postinställningar',
 	'prefs-displaynotifications' => 'Visningsalternativ',
@@ -4955,13 +5026,13 @@ $messages['sv'] = array(
 	'echo-pref-email-format' => 'E-postformat:',
 	'echo-pref-web' => 'Webb',
 	'echo-pref-email' => 'E-post',
-	'echo-pref-email-frequency-never' => 'Skicka inga notifieringar till mig via e-post',
-	'echo-pref-email-frequency-immediately' => 'Enskilda notifieringar efterhand som de kommer',
-	'echo-pref-email-frequency-daily' => 'En daglig sammanställning av notifieringar',
-	'echo-pref-email-frequency-weekly' => 'En veckovis sammanställning av notifieringar',
+	'echo-pref-email-frequency-never' => 'Skicka inga meddelanden till mig via e-post',
+	'echo-pref-email-frequency-immediately' => 'Enskilda meddelanden efterhand som de kommer',
+	'echo-pref-email-frequency-daily' => 'En daglig sammanställning av meddelanden',
+	'echo-pref-email-frequency-weekly' => 'En veckovis sammanställning av meddelanden',
 	'echo-pref-email-format-html' => 'HTML',
 	'echo-pref-email-format-plain-text' => 'Ren text',
-	'echo-pref-notify-show-link' => 'Visa notifieringar i min verktygsrad',
+	'echo-pref-notify-show-link' => 'Visa meddelanden i min verktygsrad',
 	'echo-pref-new-message-indicator' => 'Visa symbolen för diskussionssidemeddelanden i min verktygslist.',
 	'echo-learn-more' => 'Läs mer',
 	'echo-dismiss-button' => 'Avfärda',
