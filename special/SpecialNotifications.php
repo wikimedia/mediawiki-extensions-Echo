@@ -20,7 +20,14 @@ class SpecialNotifications extends SpecialPage {
 
 		$user = $this->getUser();
 		if ( $user->isAnon() ) {
-			$out->addWikiMsg( 'echo-anon' );
+			$notificationsPageName = $this->getTitle()->getPrefixedDBkey();
+			$returnTo = array( 'returnto' => $notificationsPageName );
+			$signupTitle = SpecialPage::getTitleFor( 'UserLogin', 'signup' );
+			$signupURL = $signupTitle->getFullURL( $returnTo );
+			$loginTitle = SpecialPage::getTitleFor( 'UserLogin' );
+			$loginURL = $loginTitle->getFullURL( $returnTo );
+			$anonMsgHtml = $this->msg( 'echo-anon', $signupURL, $loginURL )->parse();
+			$out->addHTML( Html::rawElement( 'span', array( 'class' => 'plainlinks' ), $anonMsgHtml ) );
 			return;
 		}
 
