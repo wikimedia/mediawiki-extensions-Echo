@@ -95,20 +95,27 @@
 #mw-echo-overlay-footer {
 	padding: 0px;
 	border-top: 1px solid #DDDDDD;
+	display: table;
+}
+
+#mw-echo-overlay-footer a {
+	float: none;
+	display: table-cell;
 }
 
 #mw-echo-overlay-link {
 	display: block;
 	clear: left;
 	float: left;
-	padding: 15px 15px 15px 60px;
+	padding: 15px 15px 15px 45px;
 	/* 149px instead of 150px due to Chrome rounding bug (bug 47897) */
 	width: 149px;
 	min-height: 14px;
 	font-size: 13px;
 	font-weight: bold;
 	/* @embed */
-	background: url(../icons/NotificationsPage-ltr.png) no-repeat 17% 50% !important;
+	background: url(../icons/NotificationsPage-ltr.png) no-repeat 20px 15px !important;
+	white-space: normal;
 }
 #mw-echo-overlay-link:hover {
 	text-decoration: none;
@@ -120,10 +127,11 @@
 	min-height: 14px;
 	font-size: 13px;
 	font-weight: bold;
-	padding: 15px 15px 15px 35px;
+	padding: 15px 15px 15px 45px;
 	border-left: 1px solid #DDDDDD;
 	/* @embed */
-	background: url(../icons/Settings.png) no-repeat 5% 50% !important;
+	background: url(../icons/Settings.png) no-repeat 20px 15px !important;
+	white-space: normal;
 }
 #mw-echo-overlay-pref-link:hover {
 	text-decoration: none;
