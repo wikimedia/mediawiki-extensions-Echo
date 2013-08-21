@@ -326,24 +326,32 @@ EOF;
 	public function getHTMLTemplate() {
 		$alignStart = $this->lang->alignStart();
 		return <<< EOF
-<html><head></head><body>
+<html><head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<style>
+		@media only screen and (max-width: 480px){
+			table[id="email-container"]{max-width:600px !important; width:100% !important;}
+		}
+	</style>
+</head><body>
 <table cellspacing="0" cellpadding="0" border="0" width="100%" align="center" lang="{$this->lang->getCode()}" dir="{$this->lang->getDir()}">
 <tr>
 	<td bgcolor="#E6E7E8"><center>
 		<br /><br />
-		<table cellspacing="0" cellpadding="0" border="0" width="600">
+		<table cellspacing="0" cellpadding="0" border="0" width="600" id="email-container">
 			<tr>
-				<td bgcolor="#FFFFFF" width="35">&nbsp;</td>
-				<td bgcolor="#FFFFFF" width="61">&nbsp;</td>
-				<td bgcolor="#FFFFFF" width="469" style="line-height:40px;">&nbsp;</td>
-				<td bgcolor="#FFFFFF" width="35">&nbsp;</td>
+				<td bgcolor="#FFFFFF" width="5%">&nbsp;</td>
+				<td bgcolor="#FFFFFF" width="10%">&nbsp;</td>
+				<td bgcolor="#FFFFFF" width="80%" style="line-height:40px;">&nbsp;</td>
+				<td bgcolor="#FFFFFF" width="5%">&nbsp;</td>
 			</tr><tr>
-				<td bgcolor="#FFFFFF" width="35" rowspan="2">&nbsp;</td>
-				<td bgcolor="#FFFFFF" width="61" align="center" valign="top" rowspan="2"><img src="%%emailIcon%%" alt="" height="30" width="30"></td>
-				<td bgcolor="#FFFFFF" width="469" align="{$alignStart}" style="font-family: Arial, Helvetica, sans-serif; font-size:13px; line-height:20px; color:#6D6E70;">%%intro%%</td>
-				<td bgcolor="#FFFFFF" width="35" rowspan="2">&nbsp;</td>
+				<td bgcolor="#FFFFFF" rowspan="2">&nbsp;</td>
+				<td bgcolor="#FFFFFF" align="center" valign="top" rowspan="2"><img src="%%emailIcon%%" alt="" height="30" width="30"></td>
+				<td bgcolor="#FFFFFF" align="{$alignStart}" style="font-family: Arial, Helvetica, sans-serif; font-size:13px; line-height:20px; color:#6D6E70;">%%intro%%</td>
+				<td bgcolor="#FFFFFF" rowspan="2">&nbsp;</td>
 			</tr><tr>
-				<td bgcolor="#FFFFFF" width="469" align="{$alignStart}" style="font-family: Arial, Helvetica, sans-serif; font-size:16px; line-height: 20px; font-weight: 600;">
+				<td bgcolor="#FFFFFF" align="{$alignStart}" style="font-family: Arial, Helvetica, sans-serif; line-height: 20px; font-weight: 600;">
 					<table cellspacing="0" cellpadding="0" border="0">
 						<tr>
 							<td bgcolor="#FFFFFF" align="{$alignStart}" style="font-family: Arial, Helvetica, sans-serif; padding-top: 8px; font-size:13px; font-weight: bold; color: #58585B;">
@@ -360,18 +368,18 @@ EOF;
 					</table>
 				</td>
 			</tr><tr>
-				<td bgcolor="#FFFFFF" width="35">&nbsp;</td>
-				<td bgcolor="#FFFFFF" width="61">&nbsp;</td>
-				<td bgcolor="#FFFFFF" width="469" style="line-height:40px;">&nbsp;</td>
-				<td bgcolor="#FFFFFF" width="35">&nbsp;</td>
+				<td bgcolor="#FFFFFF">&nbsp;</td>
+				<td bgcolor="#FFFFFF">&nbsp;</td>
+				<td bgcolor="#FFFFFF" style="line-height:40px;">&nbsp;</td>
+				<td bgcolor="#FFFFFF">&nbsp;</td>
 			</tr><tr>
-				<td bgcolor="#F8F8F8" width="35">&nbsp;</td>
-				<td bgcolor="#F8F8F8" width="61">&nbsp;</td>
-				<td bgcolor="#F8F8F8" width="469" align="{$alignStart}" style="font-family: Arial, Helvetica, sans-serif; font-size:10px; line-height:13px; color:#6D6E70; padding:10px 20px;"><br />
+				<td bgcolor="#F8F8F8">&nbsp;</td>
+				<td bgcolor="#F8F8F8">&nbsp;</td>
+				<td bgcolor="#F8F8F8" align="{$alignStart}" style="font-family: Arial, Helvetica, sans-serif; font-size:10px; line-height:13px; color:#6D6E70; padding:10px 20px;"><br />
 					%%footer%%
 					<br /><br />
 				</td>
-				<td bgcolor="#F8F8F8" width="35">&nbsp;</td>
+				<td bgcolor="#F8F8F8">&nbsp;</td>
 			</tr><tr>
 				<td colspan="4">&nbsp;</td>
 			</tr>
@@ -476,26 +484,34 @@ EOF;
 	public function getHTMLTemplate() {
 		$alignStart = $this->lang->alignStart();
 		return <<< EOF
-<html><head></head><body>
+<html><head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<style>
+		@media only screen and (max-width: 480px){
+			table[id="email-container"]{max-width:600px !important; width:100% !important;}
+		}
+	</style>
+</head><body>
 <table cellspacing="0" cellpadding="0" border="0" width="100%" align="center" lang="{$this->lang->getCode()}" dir="{$this->lang->getDir()}">
 <tr>
 	<td bgcolor="#E6E7E8"><center>
 		<br /><br />
-		<table cellspacing="0" cellpadding="0" border="0" width="600">
+		<table cellspacing="0" cellpadding="0" border="0" width="600" id="email-container">
 			<tr>
-				<td bgcolor="#FFFFFF" width="35">&nbsp;</td>
-				<td bgcolor="#FFFFFF" width="31">&nbsp;</td>
-				<td bgcolor="#FFFFFF" width="469" style="line-height:40px;">&nbsp;</td>
-				<td bgcolor="#FFFFFF" width="65">&nbsp;</td>
+				<td bgcolor="#FFFFFF" width="5%">&nbsp;</td>
+				<td bgcolor="#FFFFFF" width="6%">&nbsp;</td>
+				<td bgcolor="#FFFFFF" width="79%" style="line-height:40px;">&nbsp;</td>
+				<td bgcolor="#FFFFFF" width="10%">&nbsp;</td>
 			</tr>
 			<tr>
-				<td bgcolor="#FFFFFF" width="35" rowspan="2">&nbsp;</td>
-				<td bgcolor="#FFFFFF" width="31" rowspan="2">&nbsp;</td>
-				<td bgcolor="#FFFFFF" width="469" align="center" style="font-family: Arial, Helvetica, sans-serif; font-size:13px; line-height:20px; color:#6D6E70; text-align: center;">%%intro%%</td>
-				<td bgcolor="#FFFFFF" width="65" rowspan="2">&nbsp;</td>
+				<td bgcolor="#FFFFFF" rowspan="2">&nbsp;</td>
+				<td bgcolor="#FFFFFF" rowspan="2">&nbsp;</td>
+				<td bgcolor="#FFFFFF" align="center" style="font-family: Arial, Helvetica, sans-serif; font-size:13px; line-height:20px; color:#6D6E70; text-align: center;">%%intro%%</td>
+				<td bgcolor="#FFFFFF" rowspan="2">&nbsp;</td>
 			</tr>
 			<tr>
-				<td bgcolor="#FFFFFF" width="469" align="{$alignStart}" style="font-family: Arial, Helvetica, sans-serif; font-size:16px; line-height: 20px; font-weight: 600;">
+				<td bgcolor="#FFFFFF" align="{$alignStart}" style="font-family: Arial, Helvetica, sans-serif; line-height: 20px; font-weight: 600;">
 					<table cellspacing="0" cellpadding="0" border="0" width="100%">
 						<tr>
 							<td bgcolor="#FFFFFF" align="{$alignStart}" style="font-family: Arial, Helvetica, sans-serif; font-size:13px; color: #58585B; padding-top: 25px;">
@@ -507,25 +523,25 @@ EOF;
 				</td>
 			</tr>
 			<tr>
-				<td bgcolor="#FFFFFF" width="35">&nbsp;</td>
-				<td bgcolor="#FFFFFF" width="31">&nbsp;</td>
-				<td bgcolor="#FFFFFF" width="469" style="line-height:60px;" align="center">%%action%%</td>
-				<td bgcolor="#FFFFFF" width="65">&nbsp;</td>
+				<td bgcolor="#FFFFFF">&nbsp;</td>
+				<td bgcolor="#FFFFFF">&nbsp;</td>
+				<td bgcolor="#FFFFFF" style="line-height:60px;" align="center">%%action%%</td>
+				<td bgcolor="#FFFFFF">&nbsp;</td>
 			</tr>
 			<tr>
-				<td bgcolor="#FFFFFF" width="35">&nbsp;</td>
-				<td bgcolor="#FFFFFF" width="31">&nbsp;</td>
-				<td bgcolor="#FFFFFF" width="469" style="line-height:40px;">&nbsp;</td>
-				<td bgcolor="#FFFFFF" width="65">&nbsp;</td>
+				<td bgcolor="#FFFFFF">&nbsp;</td>
+				<td bgcolor="#FFFFFF">&nbsp;</td>
+				<td bgcolor="#FFFFFF" style="line-height:40px;">&nbsp;</td>
+				<td bgcolor="#FFFFFF">&nbsp;</td>
 			</tr>
 			<tr>
-				<td bgcolor="#F8F8F8" width="35">&nbsp;</td>
-				<td bgcolor="#F8F8F8" width="31">&nbsp;</td>
-				<td bgcolor="#F8F8F8" width="469" align="{$alignStart}" style="font-family: Arial, Helvetica, sans-serif; font-size:10px; line-height:13px; color:#6D6E70; padding: 10px 20px;"><br />
+				<td bgcolor="#F8F8F8">&nbsp;</td>
+				<td bgcolor="#F8F8F8">&nbsp;</td>
+				<td bgcolor="#F8F8F8" align="{$alignStart}" style="font-family: Arial, Helvetica, sans-serif; font-size:10px; line-height:13px; color:#6D6E70; padding: 10px 20px;"><br />
 					%%footer%%
 					<br /><br />
 				</td>
-				<td bgcolor="#F8F8F8" width="65">&nbsp;</td>
+				<td bgcolor="#F8F8F8">&nbsp;</td>
 			</tr>
 			<tr>
 				<td colspan="4">&nbsp;</td>
@@ -826,7 +842,7 @@ EOF;
 		return <<< EOF
 <tr>
 	<td width="30">
-		<img src="$icon" width="70%" height="70%" style="vertical-align:middle;">
+		<img src="$icon" width="30" height="30" style="vertical-align:middle;">
 	</td>
 	<td style="font-family: Arial, Helvetica, sans-serif; font-size:13px; color: #58585B;">
 		$text
