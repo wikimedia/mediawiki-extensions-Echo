@@ -194,7 +194,7 @@ class EchoEvent {
 		// If the object is loaded from __sleep(), timestamp should be already set
 		if ( !$this->timestamp ) {
 			if ( isset( $row->notification_timestamp ) ) {
-				$this->timestamp = $row->notification_timestamp;
+				$this->timestamp = wfTimestamp( TS_MW, $row->notification_timestamp );
 			} else {
 				$this->timestamp = wfTimestampNow();
 			}

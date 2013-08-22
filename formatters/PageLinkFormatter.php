@@ -106,6 +106,17 @@ class EchoPageLinkFormatter extends EchoBasicFormatter {
 				$title = null;
 				if ( $this->isTitleSet( $extra ) ) {
 					$title = Title::newFromId( $extra['link-from-page-id'] );
+					// Link-from page could be a brand new page and page_id would not be replicated
+					// to slave db yet.  If job queue is enabled to process web and email notification,
+					// the check against master database is not necessary since there is already a
+					// delay in the job queue
+					if ( !$title ) {
+						global $wgEchoUseJobQueue;
+						$diff = wfTimestamp() - wfTimestamp( TS_UNIX, $event->getTimestamp() );
+						if ( !$wgEchoUseJobQueue && $diff < 5 ) {
+							$title = Title::newFromID( $extra['link-from-page-id'], Title::GAID_FOR_UPDATE );
+						}
+					}
 					if ( $title ) {
 						if ( $this->outputFormat === 'htmlemail' ) {
 							$message->rawParams(
