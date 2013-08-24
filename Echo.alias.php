@@ -103,6 +103,11 @@ $specialPageAliases['pa'] = array(
 	'Notifications' => array( 'ਇਤਲਾਹਾਂ' ),
 );
 
+/** Polish (polski) */
+$specialPageAliases['pl'] = array(
+	'Notifications' => array( 'Powiadomienia' ),
+);
+
 /** Russian (русский) */
 $specialPageAliases['ru'] = array(
 	'Notifications' => array( 'Уведомления' ),
