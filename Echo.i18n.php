@@ -2206,7 +2206,7 @@ $messages['fi'] = array(
 	'notification-link-text-view-edit' => 'Näytä muokkaus',
 	'notification-edit-talk-page2' => '[[User:$1|$1]] {{GENDER:$1|kirjoitti}} viestin [[User talk:$2#$3|keskustelusivullesi]].',
 	'notification-edit-talk-page-flyout2' => '$1 {{GENDER:$1|kirjoitti}} viestin [[User talk:$2#$3|keskustelusivullesi]].',
-	'notification-page-linked' => '[[:$2]] {{GENDER:$1|linkitti}} sivulta [[:$3]]: [[Special:WhatLinksHere/$2|Katso kaikki linkit tälle sivulle]]', # Fuzzy
+	'notification-page-linked' => '[[:$2]] {{GENDER:$1|linkitti}} sivulta [[:$3]]. [[Special:WhatLinksHere/$2|Katso kaikki linkit tälle sivulle]].',
 	'notification-page-linked-flyout' => 'Sivu $2 {{GENDER:$1|linkitettiin}} sivulta [[:$3]].',
 	'notification-add-comment2' => '[[User:$1|$1]] {{GENDER:$1|kommentoi}} aihetta "[[$3|$2]]" keskustelusivulla "$4"',
 	'notification-add-talkpage-topic2' => '[[User:$1|$1]] {{GENDER:$1|lisäsi}} uuden aiheen "$2" sivulle [[$3]]',
@@ -2223,9 +2223,9 @@ $messages['fi'] = array(
 	'notification-reverted-flyout2' => '$1 {{GENDER:$1|kumosi}} {{PLURAL:$4|muokkauksesi sivulla $2}} $3',
 	'notification-edit-talk-page-email-subject2' => 'Sinulla on uusi viesti keskustelusivulla sivustolla {{SITENAME}}', # Fuzzy
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|lähetti viestin}} keskustelusivullesi', # Fuzzy
-	'notification-page-linked-email-subject' => 'Aloittamasi sivu linkitettiin sivustolla {{SITENAME}}', # Fuzzy
+	'notification-page-linked-email-subject' => 'Sivusi linkitettiin sivustolla {{SITENAME}}',
 	'notification-page-linked-email-batch-body' => '$2 {{GENDER:$1|linkitettiin}} sivulta $3',
-	'notification-reverted-email-subject2' => '$1 {{GENDER:$1|kumosi}} {{PLURAL:$3|muokkauksesi sivulla $2}} sivustolla {{SITENAME}}', # Fuzzy
+	'notification-reverted-email-subject2' => '{{PLURAL:$3|Muokkauksesi}} sivustolla {{SITENAME}} on {{GENDER:$1|kumottu}}',
 	'notification-reverted-email-batch-body2' => '$1 {{GENDER:$1|kumosi}} {{PLURAL:$3|muutoksesi sivulla $2}}', # Fuzzy
 	'notification-mention-email-subject' => '$1 {{GENDER:$1|mainitsi}} sinut sivustolla {{SITENAME}}',
 	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|mainitsi}} sinut sivulla $2', # Fuzzy
@@ -2262,6 +2262,7 @@ Tässä on tiivistelmä sinulle tämän päivän tapahtumista sivustolla {{SITEN
 	'echo-email-batch-body-intro-weekly' => 'Hei $1,
 Tässä on tiivistelmä sinulle tämän viikonn tapahtumista sivustolla {{SITENAME}}.',
 	'echo-email-batch-link-text-view-all-notifications' => 'Katso kaikki ilmoitukset',
+	'echo-rev-deleted-text-view' => 'Tämän sivun versio on häivytetty.',
 );
 
 /** French (français)
