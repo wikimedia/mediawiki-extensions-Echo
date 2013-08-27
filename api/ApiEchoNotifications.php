@@ -86,22 +86,15 @@ class ApiEchoNotifications extends ApiQueryBase {
 				$event->setBundleHash( $row->notification_bundle_display_hash );
 			}
 
-			$timestamp = new MWTimestamp( $row->notification_timestamp );
-			// UTC timestamp in UNIX format used for loading more notification
-			$timestampUTCUnix = $timestamp->getTimestamp( TS_UNIX );
-			// Adjust for the user's timezone
-			$timestamp->offsetForUser( $user );
-			$timestampUnix = $timestamp->getTimestamp( TS_UNIX );
-			$timestampMw = $timestamp->getTimestamp( TS_MW );
+			$timestampMw = self::getUserLocalTime( $user, $row->notification_timestamp );
 
 			// Start creating date section header
-			$today = wfTimestamp( TS_MW );
-			$yesterday = wfTimestamp( TS_MW, wfTimestamp( TS_UNIX, $today ) - 24 * 3600 );
-
-			if ( substr( $today, 0, 8 ) === substr( $timestampMw, 0, 8 ) ) {
+			$now = wfTimestamp();
+			$dateFormat = substr( $timestampMw, 0, 8 );
+			if ( substr( self::getUserLocalTime( $user, $now ), 0, 8 ) === $dateFormat ) {
 				// 'Today'
 				$date = wfMessage( 'echo-date-today' )->escaped();
-			} elseif ( substr( $yesterday, 0, 8 ) === substr( $timestampMw, 0, 8 ) ) {
+			} elseif ( substr( self::getUserLocalTime( $user, $now - 86400 ), 0, 8 ) === $dateFormat ) {
 				// 'Yesterday'
 				$date = wfMessage( 'echo-date-yesterday' )->escaped();
 			} else {
@@ -117,8 +110,9 @@ class ApiEchoNotifications extends ApiQueryBase {
 				'type' => $event->getType(),
 				'category' => $event->getCategory(),
 				'timestamp' => array(
-					'utcunix' => $timestampUTCUnix,
-					'unix' => $timestampUnix,
+					// UTC timestamp in UNIX format used for loading more notification
+					'utcunix' => wfTimestamp( TS_UNIX, $row->notification_timestamp ),
+					'unix' => self::getUserLocalTime( $user, $row->notification_timestamp, TS_UNIX ),
 					'mw' => $timestampMw,
 					'date' => $date
 				),
@@ -157,6 +151,18 @@ class ApiEchoNotifications extends ApiQueryBase {
 		}
 
 		return $output;
+	}
+
+	/**
+	 * Internal helper function for converting UTC timezone to a user's timezone
+	 * @param $user User
+	 * @param $ts string
+	 * @param $format output format
+	 */
+	private static function getUserLocalTime( $user, $ts, $format = TS_MW ) {
+		$timestamp = new MWTimestamp( $ts );
+		$timestamp->offsetForUser( $user );
+		return $timestamp->getTimestamp( $format );
 	}
 
 	public function getAllowedParams() {
