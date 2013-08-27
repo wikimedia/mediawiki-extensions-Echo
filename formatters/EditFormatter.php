@@ -21,7 +21,10 @@ class EchoEditFormatter extends EchoBasicFormatter {
 			}
 			$props = array(
 				'attribs' => array( 'class' => 'mw-echo-diff' ),
-				'linkText' => wfMessage( 'parentheses', wfMessage( 'showdiff' )->text() )->escaped(),
+				'linkText' => $this->getMessage( 'parentheses' )
+						->params(
+							$this->getMessage( 'showdiff' )->text()
+						)->escaped(),
 				'param' => array(
 					'oldid' => $revid,
 					'diff' => 'prev',

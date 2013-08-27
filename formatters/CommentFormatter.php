@@ -23,7 +23,7 @@ class EchoCommentFormatter extends EchoEditFormatter {
 		// The title text without namespace
 		} elseif ( $param === 'main-title-text' ) {
 			if ( !$event->getTitle() ) {
-				$message->params( wfMessage( 'echo-no-title' )->text() );
+				$message->params( $this->getMessage( 'echo-no-title' )->text() );
 			} else {
 				$message->params( $event->getTitle()->getText() );	
 			}

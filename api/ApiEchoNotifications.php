@@ -199,6 +199,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 			),
 			'index' => false,
 			'continue' => null,
+			'uselang' => null
 		);
 	}
 
@@ -211,6 +212,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 			'index' => 'If specified, a list of notification IDs, in order, will be returned.',
 			'limit' => 'The maximum number of notifications to return.',
 			'continue' => 'When more results are available, use this to continue',
+			'uselang' => 'the desired language to format the output'
 		);
 	}
 

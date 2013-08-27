@@ -145,6 +145,7 @@ $wgResourceModules += array(
 		'dependencies' => array(
 			'jquery.ui.button',
 			'mediawiki.api',
+			'mediawiki.Uri'
 		),
 		'messages' => array(
 			'cancel',

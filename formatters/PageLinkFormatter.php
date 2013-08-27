@@ -135,7 +135,7 @@ class EchoPageLinkFormatter extends EchoBasicFormatter {
 				}
 
 				if ( !$title ) {
-					$message->params( wfMessage( 'echo-no-title' ) );
+					$message->params( $this->getMessage( 'echo-no-title' ) );
 				}
 				break;
 
@@ -145,8 +145,7 @@ class EchoPageLinkFormatter extends EchoBasicFormatter {
 
 				if ( $this->bundleData['link-from-page-other-count'] > $wgEchoMaxNotificationCount ) {
 					$message->params(
-						wfMessage( 'echo-notification-count' )
-						->inLanguage( $user->getOption( 'language' ) )
+						$this->getMessage( 'echo-notification-count' )
 						->params( $wgEchoMaxNotificationCount )
 						->text()
 					);
