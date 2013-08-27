@@ -103,7 +103,7 @@ class EchoNotification {
 			}
 		}
 
-		$wgEchoBackend->createNotification( $this->user, $row );
+		$wgEchoBackend->createNotification( $row );
 
 		wfRunHooks( 'EchoCreateNotificationComplete', array( $this ) );
 	}
