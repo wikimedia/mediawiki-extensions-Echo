@@ -1,6 +1,7 @@
 <?php
 /**
  * MediaWiki Extension: Echo
+ * http://www.mediawiki.org/wiki/Extension:Echo
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -19,7 +20,8 @@
  *
  * @file
  * @ingroup Extensions
- * @author Andrew Garrett
+ * @author Andrew Garrett, Benny Situ, Ryan Kaldari, Erik Bernhardson
+ * @licence MIT License
  */
 
 # Alert the user that this is not a valid entry point to MediaWiki if they try to access the special pages file directly.
