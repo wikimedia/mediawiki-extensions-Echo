@@ -108,6 +108,16 @@ $specialPageAliases['pl'] = array(
 	'Notifications' => array( 'Powiadomienia' ),
 );
 
+/** Portuguese (português) */
+$specialPageAliases['pt'] = array(
+	'Notifications' => array( 'Notificações' ),
+);
+
+/** Brazilian Portuguese (português do Brasil) */
+$specialPageAliases['pt-br'] = array(
+	'Notifications' => array( 'Notificações' ),
+);
+
 /** Russian (русский) */
 $specialPageAliases['ru'] = array(
 	'Notifications' => array( 'Уведомления' ),
