@@ -559,7 +559,7 @@ $wgEchoConfig = array(
 		),
 		'EchoInteraction' => array (
 			'enabled' => false,
-			'revision' => 5539940
+			'revision' => 5782287
 		),
 	)
 );
