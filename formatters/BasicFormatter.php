@@ -362,14 +362,19 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	protected function formatPayload( $payload, $event, $user ) {
 		switch ( $payload ) {
 			case 'summary':
-				return Xml::tags(
-					'div',
-					array( 'class' => 'mw-echo-edit-summary' ),
-					Xml::tags(
-						'span', array( 'class' => 'comment' ),
-						htmlspecialchars( $this->getRevisionSnippet( $event, $user ) )
-					)
-				);
+				$revisionSnippet = $this->getRevisionSnippet( $event, $user );
+				if ( $revisionSnippet ) {
+					return Xml::tags(
+						'div',
+						array( 'class' => 'mw-echo-edit-summary' ),
+						Xml::tags(
+							'span', array( 'class' => 'comment' ),
+							htmlspecialchars( $revisionSnippet )
+						)
+					);
+				} else {
+					return '';
+				}
 				break;
 			case 'comment-text':
 				return $this->formatCommentText( $event, $user );
