@@ -452,7 +452,9 @@ See also:
 * $2 is a semicolon separated list of {{msg-mw|notification-user-rights-add}}, {{msg-mw|notification-user-rights-remove}}',
 	'echo-notification-count' => '{{optional}}
 The new notification count next to notification link, for example: 99+
-* $1 is the count',
+
+Parameters:
+* $1 - the count',
 	'echo-email-subject-default' => 'Default subject for Echo e-mail notifications',
 	'echo-email-body-default' => 'Default message content for Echo e-mail notifications.
 * $1 is a plain text description of the notification.',
@@ -523,14 +525,14 @@ See also:
 	'echo-email-batch-separator' => '{{optional}}
 Email batch content separator',
 	'echo-email-batch-bullet' => '{{optional}}',
-	'echo-email-batch-subject-daily' => 'Daily e-mail batch subject.
-* $1 is currently not used, could be a numeric count or "10+". See also: {{msg-mw|echo-notification-count|optional message|notext=1}}.
-* $2 is a numeric count, this is used for plural support
+	'echo-email-batch-subject-daily' => 'Daily email batch subject.
+* $1 - (Unused) could be a numeric count or "10+". See also: {{msg-mw|Echo-notification-count|optional message}}.
+* $2 - a numeric count, this is used for plural support
 See also:
 * {{msg-mw|Echo-email-batch-subject-weekly}}',
-	'echo-email-batch-subject-weekly' => 'Weekly e-mail batch subject.
-* $1 is currently not used, could be a numeric count or "10+". See also: {{msg-mw|echo-notification-count|optional message|notext=1}}
-* $2 is a numeric count, this is used for plural support
+	'echo-email-batch-subject-weekly' => 'Weekly email batch subject. Parameters:
+* $1 - (Unused) could be a numeric count or "10+". See also: {{msg-mw|Echo-notification-count|optional message|notext=1}}
+* $2 - a numeric count, this is used for plural support
 See also:
 * {{msg-mw|Echo-email-batch-subject-daily}}',
 	'echo-email-batch-body-intro-daily' => 'Introduction text for daily email digest.  Parameters:
@@ -1027,6 +1029,9 @@ $messages['br'] = array(
 	'echo-pref-email-format-html' => 'HTML',
 	'echo-pref-email-format-plain-text' => 'Testenn blaen',
 	'echo-dismiss-button' => 'Disteurel',
+	'echo-category-title-mention' => '{{PLURAL:$1|Meneg}}',
+	'echo-category-title-other' => '{{PLURAL:$1|All}}',
+	'echo-category-title-system' => '{{PLURAL:$1|Sistem}}',
 	'echo-no-agent' => '[Den]',
 	'echo-no-title' => '[Diditl]', # Fuzzy
 	'notifications' => 'Kemennoù',
@@ -5354,9 +5359,12 @@ $messages['sr-ec'] = array(
 	'notification-edit-talk-page-flyout-with-section' => '$1 вам је {{GENDER:$1|оставио|оставила}} поруку на вашој страници за разговор у „[[User talk:$2#$3|$4]]“.',
 	'notification-mention' => '[[User:$1|$1]] вас је {{GENDER:$1|спомену|споменула}} на страници за разговор $5 у „[[$3#$2|$4]]“.',
 	'notification-mention-flyout' => '$1 вас је {{GENDER:$1|споменуо|споменула}} на страници за разговор $5 у „[[$3#$2|$4]]“.',
+	'notification-reverted2' => '{{PLURAL:$4|Ваша измена на [[:$2]] је поништена|Ваше  измене на [[:$2]] су поништене}} {{GENDER:$1|од}}  стране [[User:$1|$1]]. $3',
+	'notification-reverted-flyout2' => '{{PLURAL:$4|Ваша измена на $2 је поништена|Ваше  измене на $2 су поништене}} {{GENDER:$1|од}}  стране $1. $3',
 	'notification-edit-talk-page-email-subject2' => '$1 вам је {{GENDER:$1|оставио|оставила}} поруку на {{SITENAME}}',
 	'notification-edit-talk-page-email-batch-body2' => '$1 вам је {{GENDER:$1|оставио|оставила}} поруку на вашој страници за разговор:',
 	'notification-edit-talk-page-email-batch-body-with-section' => '$1 вам је {{GENDER:$1|оставио|оставила}} поруку на вашој страници за разговор у „$2“.',
+	'notification-reverted-email-batch-body2' => '{{PLURAL:$3|Ваша измена на $2 је поништена|Ваше  измене на $2 су поништене}} {{GENDER:$1|од}}  стране $1.',
 	'notification-mention-email-subject' => '$1 вас је {{GENDER:$1|споменуо|споменула}} на {{SITENAME}}',
 	'notification-mention-email-batch-body' => '$1 вас је {{GENDER:$1|споменуо|споменула}} на страници за разговор $4 у „$3“.',
 	'echo-email-batch-body-default' => 'Имате ново обавештење.',
