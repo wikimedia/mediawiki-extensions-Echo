@@ -59,7 +59,8 @@
 }
 
 ul#mw-echo-special-container {
-	list-style: none;
+	list-style: none none;
+	padding: 0;
 	margin: 30px 0 0 0;
 	max-width: 600px;
 }
@@ -67,10 +68,12 @@ ul#mw-echo-special-container {
 	padding: 15px 35px 10px 0;
 }
 #mw-echo-special-container .mw-echo-notification {
-	background-color: white;
+	background-color: transparent;
 }
 #mw-echo-special-container .mw-echo-notification:hover {
+	/* Fallback for IE<=8 */
 	background-color: #F6F6F6;
+	background-color: rgba(0, 0, 0, 0.035);
 }
 #mw-echo-special-container .mw-echo-notification.mw-echo-unread .mw-echo-title {
 	font-weight: bold;
