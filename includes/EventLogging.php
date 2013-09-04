@@ -92,30 +92,4 @@ class MWEchoEventLogging {
 		self::actuallyLogTheEvent( 'EchoMail', $data );
 	}
 
-	/**
-	 * Function for logging the event for Schema:EchoPrefUpdate
-	 * @param $user User user who updates the preference page
-	 * @param $prefUpdate array list of user preferences being updated
-	 */
-	public static function logSchemaEchoPrefUpdate( User $user, array $prefUpdate ) {
-		global $wgEchoConfig;
-
-		if ( !$wgEchoConfig['eventlogging']['EchoPrefUpdate']['enabled'] ) {
-			// Only attempt event logging if EchoPrefUpdate schema is enabled
-			return;
-		}
-
-		$data = array (
-			'version' => $wgEchoConfig['version'],
-			'userId' => $user->getId(),
-			'saveTimestamp' => wfTimestampNow()
-		);
-		foreach ( $prefUpdate as $prefName => $prefValue ) {
-			$data['property'] = $prefName;
-			$data['value'] = (string)$prefValue;
-			$data['isDefault'] = User::getDefaultOption( $prefName ) == $prefValue;
-			self::actuallyLogTheEvent( 'EchoPrefUpdate', $data );
-		}
-	}
-
 }
