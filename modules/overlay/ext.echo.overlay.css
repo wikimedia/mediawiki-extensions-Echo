@@ -29,26 +29,33 @@
 	overflow: auto;
 }
 #p-personal .mw-echo-overlay li.mw-echo-notification {
-	background-color: #F1F1F1;
 	display: block;
 	float: none;
+	margin: 0;
+	padding: 0;
+}
+#p-personal .mw-echo-overlay li.mw-echo-notification .mw-echo-notification-wrapper {
+	display: block;
+	background-color: #F1F1F1;
 	border-bottom: 1px solid #DDDDDD;
 	padding: 15px 40px 10px 10px;
-	margin: 0;
 	white-space: normal;
 	font-size: 13px;
 	line-height: 16px;
+	/* Suppress standard links styles */
+	color: inherit;
+	text-decoration: inherit;
 }
-#p-personal .mw-echo-overlay li.mw-echo-notification:hover {
+#p-personal .mw-echo-overlay li.mw-echo-notification:hover .mw-echo-notification-wrapper {
 	background-color: #F9F9F9;
 }
-#p-personal .mw-echo-overlay li.mw-echo-notification.mw-echo-unread {
+#p-personal .mw-echo-overlay li.mw-echo-notification.mw-echo-unread .mw-echo-notification-wrapper {
 	background-color: white;
 }
-#p-personal .mw-echo-overlay li.mw-echo-notification.mw-echo-unread:hover {
+#p-personal .mw-echo-overlay li.mw-echo-notification.mw-echo-unread:hover .mw-echo-notification-wrapper {
 	background-color: #F9F9F9;
 }
-#p-personal .mw-echo-overlay li.mw-echo-notification:last-child {
+#p-personal .mw-echo-overlay li.mw-echo-notification:last-child .mw-echo-notification-wrapper {
 	border-bottom: none;
 }
 #p-personal .mw-echo-title a {
