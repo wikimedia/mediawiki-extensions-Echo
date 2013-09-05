@@ -1083,6 +1083,7 @@ $messages['br'] = array(
 
 /** Bosnian (bosanski)
  * @author DzWiki
+ * @author Edinwiki
  * @author Palapa
  */
 $messages['bs'] = array(
@@ -1106,15 +1107,24 @@ $messages['bs'] = array(
 	'echo-pref-notify-show-link' => 'Pokaži obavještenja u mom toolbaru',
 	'echo-learn-more' => 'Saznajte više',
 	'echo-dismiss-button' => 'Odbaci',
+	'echo-dismiss-message' => 'Isključi sva $1 obavještenja',
+	'echo-dismiss-prefs-message' => 'Ovo možete vratiti nazad u svoj [[Special:Preferences#mw-prefsection-echo|preferences]].',
 	'echo-new-messages' => 'Imate nove poruke',
 	'echo-category-title-edit-user-talk' => '{{PLURAL:$1|Poruke}} na stranici za razogvor',
-	'echo-category-title-reverted' => 'Uredi {{PLURAL:$1|revert|reverts}}', # Fuzzy
+	'echo-category-title-article-linked' => 'Stranica {{PLURAL:$1|link|linkovi}}',
+	'echo-category-title-reverted' => 'Uredi {{PLURAL:$1|vraćanje|vraćanja}}',
+	'echo-category-title-mention' => '{{PLURAL:$1|Spominjanje|Spominjanja}}',
 	'echo-category-title-other' => '{{PLURAL:$1|Ostalo}}',
 	'echo-category-title-system' => '{{PLURAL:$1|Sistem}}',
 	'echo-pref-tooltip-edit-user-talk' => 'Obavijesti me kada neko ostavi poruku ili odgovor na mojoj stranici za razgovor.',
+	'echo-pref-tooltip-article-linked' => 'Obavijesti me kada neko linkuje na stranicu napravljenu sa stranice članaka.',
+	'echo-pref-tooltip-reverted' => 'Obavijesti me kada neko vrati uređivanje koje sam napravio/la, korištenjem naredbe undo ili alatom za vraćanje.',
 	'echo-pref-tooltip-mention' => 'Obavijesti me kada me neko spomene na nekoj stranici za razgovor.',
 	'echo-no-agent' => '[Niko]',
 	'echo-no-title' => '[Nema stranice]',
+	'echo-error-no-formatter' => 'Nema formatiranja određenog za obavještavanje.',
+	'echo-error-preference' => 'Greška: Nemoguće odrediti korisničke postavke.',
+	'echo-error-token' => 'Greška: Nemoguće ponovo pronaći korisničku oznaku.',
 	'notifications' => 'Obavještenja',
 	'tooltip-pt-notifications' => 'Vaša obavještenja',
 	'echo-specialpage' => 'Obavještenja',
@@ -1123,6 +1133,7 @@ $messages['bs'] = array(
 	'echo-more-info' => 'Više informacija',
 	'echo-feedback' => 'Povratna informacija',
 	'notification-link-text-view-message' => 'Pogledaj poruku',
+	'notification-link-text-view-mention' => 'Pogledajte spominjanje',
 	'notification-link-text-view-changes' => 'Pogledaj izmjene',
 	'notification-link-text-view-page' => 'Pogledaj stranicu',
 	'notification-link-text-view-edit' => 'Pogledaj uređivanje',
@@ -1130,10 +1141,13 @@ $messages['bs'] = array(
 	'notification-edit-talk-page-with-section' => '[[User:$1|$1]] vam je {{GENDER:$1|ostavio|ostavila}} poruku na vašoj stranici za razgovor u "[[User talk:$2#$3|$4]]".',
 	'notification-edit-talk-page-flyout2' => '$1 vam je {{GENDER:$1|ostavio|ostavila}} poruku na vašoj [[User talk:$2#$3|stranici za razgovor]].',
 	'notification-edit-talk-page-flyout-with-section' => '$1 vam je {{GENDER:$1|ostavio|ostavila}} poruku na vašoj stranici za razgovor u "[[User talk:$2#$3|$4]]".',
+	'notification-page-linked' => 'Stranica [[:$2]] je {{GENDER:$1|povezana}} sa stranicom [[:$3]]. [[Special:WhatLinksHere/$2|Pogledajte sve veze prema ovoj stranici]].',
+	'notification-page-linked-flyout' => '$2 je {{GENDER:$1|povezao}} iz [[:$3]].',
 	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]] vam je {{GENDER:$1|poslao|poslala}} poruku: "[[$3#$2|$2]]".',
 	'notification-add-comment-yours2' => '[[User:$1|$1]] je {{GENDER:$1|komentarisao|komentarisala}} temu "[[$3#$2|$2]]" na vašoj stranici za razgovor.',
 	'notification-mention' => '[[User:$1|$1]] vas je {{GENDER:$1|spomenuо|spomenula}} na stranici za razgovor $5 u "[[$3#$2|$4]]".',
 	'notification-mention-flyout' => '$1 vas je {{GENDER:$1|spomenuо|spomenula}} na stranici za razgovor $5 u "[[$3#$2|$4]]".',
+	'notification-user-rights' => 'Vaša korisnička prava [[Special:Log/rights/$1|su bila {{GENDER:$1|izmijenjena}}]] od strane [[User:$1|$1]]. $2. [[Special:ListGroupRights|Saznajte više]]',
 	'notification-user-rights-add' => 'Od sada ste član {{PLURAL:$2|ove grupe|ovih grupa}}: $1',
 	'notification-user-rights-remove' => 'Više niste član {{PLURAL:$2|ove grupe|ovih grupa}}: $1',
 	'notification-new-user' => '$1, dobro došli na {{SITENAME}}! Drago nam je što ste ovdje.',
@@ -1142,6 +1156,7 @@ $messages['bs'] = array(
 	'notification-edit-talk-page-email-subject2' => '$1 vam je {{GENDER:$1|ostavio|ostavila}} poruku na {{SITENAME}}',
 	'notification-edit-talk-page-email-batch-body2' => '$1 vam je {{GENDER:$1|ostavio|ostavila}} poruku na vašoj stranici za razgovor:',
 	'notification-edit-talk-page-email-batch-body-with-section' => '$1 vam je {{GENDER:$1|ostavio|ostavila}} poruku na vašoj stranici za razgovor u "$2".',
+	'notification-page-linked-email-subject' => 'Vaša stranica je povezana na {{SITENAME}}',
 	'notification-reverted-email-batch-body2' => '{{PLURAL:$3|Vaša izmjena na $2 je poništena|Vaše izmjene na $2 su poništene}} {{GENDER:$1|od}} strane $1.',
 	'notification-mention-email-subject' => '$1 vas je {{GENDER:$1|spomenuо|spomenula}} na {{SITENAME}}',
 	'notification-mention-email-batch-body' => '$1 vas je {{GENDER:$1|spomenuо|spomenula}} na stranici za razgovor $4 u "$3".',
