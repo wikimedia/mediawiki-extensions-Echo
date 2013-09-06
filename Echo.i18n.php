@@ -140,7 +140,7 @@ $1',
 	'notification-page-linked-email-batch-bundle-body' => '$2 was {{GENDER:$1|linked}} from $3 and $4 other {{PLURAL:$5|page|pages}}.',
 
 	// Email batch
-	'echo-email-batch-separator' => '________________________________________________', # only translate this message to other languages if you have to change it
+	'echo-email-batch-separator' => '--', # only translate this message to other languages if you have to change it
 	'echo-email-batch-bullet' => '•', # only translate this message to other languages if you have to change it
 	'echo-email-batch-subject-daily' => 'You have {{PLURAL:$2|a new notification|new notifications}} at {{SITENAME}}',
 	'echo-email-batch-subject-weekly' => 'You have {{PLURAL:$2|a new notification|new notifications}} at {{SITENAME}} this week',
