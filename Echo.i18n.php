@@ -346,11 +346,13 @@ See also:
 * {{msg-mw|Notification-page-linked}}
 * {{msg-mw|Notification-page-linked-email-batch-body}}
 * {{msg-mw|Notification-page-linked-email-subject}}',
-	'notification-add-comment2' => 'Format for displaying notifications of a comment being added to an existing discussion. Parameters:
-* $1 is the username of the person who edited, plain text. Can be used for GENDER.
-* $2 is the section title of the discussion,
-* $3 is a link to a page and section,
-* $4 is the page on which the discussion exists, plain text.
+	'notification-add-comment2' => 'Format for displaying notifications of a comment being added to an existing discussion.
+
+Parameters:
+* $1 - the username of the person who edited, plain text. Can be used for GENDER.
+* $2 - the section title of the discussion
+* $3 - a link to a page and section
+* $4 - the page on which the discussion exists, plain text
 See also:
 * {{msg-mw|Notification-add-comment-yours2}}',
 	'notification-add-talkpage-topic2' => 'Format for displaying notifications of a new discussion being added
@@ -1148,6 +1150,7 @@ $messages['bs'] = array(
 	'notification-mention' => '[[User:$1|$1]] vas je {{GENDER:$1|spomenuо|spomenula}} na stranici za razgovor $5 u "[[$3#$2|$4]]".',
 	'notification-mention-flyout' => '$1 vas je {{GENDER:$1|spomenuо|spomenula}} na stranici za razgovor $5 u "[[$3#$2|$4]]".',
 	'notification-user-rights' => 'Vaša korisnička prava [[Special:Log/rights/$1|su bila {{GENDER:$1|izmijenjena}}]] od strane [[User:$1|$1]]. $2. [[Special:ListGroupRights|Saznajte više]]',
+	'notification-user-rights-flyout' => 'Vaša korisnička prava su bila {{GENDER:$1|izmijenjena}} od strane $1. $2. [[Special:ListGroupRights|Saznajte više]]',
 	'notification-user-rights-add' => 'Od sada ste član {{PLURAL:$2|ove grupe|ovih grupa}}: $1',
 	'notification-user-rights-remove' => 'Više niste član {{PLURAL:$2|ove grupe|ovih grupa}}: $1',
 	'notification-new-user' => '$1, dobro došli na {{SITENAME}}! Drago nam je što ste ovdje.',
@@ -1162,6 +1165,10 @@ $messages['bs'] = array(
 	'notification-mention-email-subject' => '$1 vas je {{GENDER:$1|spomenuо|spomenula}} na {{SITENAME}}',
 	'notification-mention-email-batch-body' => '$1 vas je {{GENDER:$1|spomenuо|spomenula}} na stranici za razgovor $4 u "$3".',
 	'notification-user-rights-email-batch-body' => 'Vaša korisnička prava su {{GENDER:$1|promjenjena}} od strane $1. $2',
+	'echo-email-subject-default' => 'Novo obavještenje na {{SITENAME}}',
+	'echo-email-body-default' => 'Imate novo obavještenje na {{SITENAME}}: 
+
+$1',
 	'echo-email-batch-body-default' => 'Imate novo obavještenje.',
 	'echo-overlay-link' => 'Sva obavještenja',
 	'echo-overlay-title' => '<b>Obavještenja</b>',
@@ -1345,10 +1352,30 @@ $messages['ckb'] = array(
 	'notifications' => 'ئاگادارییەکان',
 	'tooltip-pt-notifications' => 'ئاگادارییەکانت',
 	'echo-specialpage' => 'ئاگادارییەکان',
+	'echo-anon' => 'بۆ وەرگرتنی ئاگادارییەکان، [$1 ھەژمارێک دروست بکە] یان [$2 بچۆ ژوورەوە].',
+	'echo-none' => 'ئاگادارییەکت نییە.',
 	'echo-more-info' => 'زانیاریی زیاتر',
+	'notification-link-text-view-message' => 'پەیام ببینە',
+	'notification-link-text-view-mention' => 'ئاماژە ببینە',
+	'notification-link-text-view-changes' => 'گۆڕانکارییەکان ببینە',
+	'notification-link-text-view-page' => 'پەڕە ببینە',
+	'notification-link-text-view-edit' => 'دەستکاری ببینە',
+	'notification-edit-talk-page2' => '[[User:$1|$1]] پەیامێکی لە [[User talk:$2#$3|پەڕەی لێدوان]]تدا {{GENDER:$1|نووسیوە}}.',
+	'notification-edit-talk-page-with-section' => '[[User:$1|$1]] پەیامێکی لە [[User talk:$2#$3|پەڕەی لێدوان]]ت لە "[[User talk:$2#$3|$4]]"دا {{GENDER:$1|نووسیوە}}.',
+	'notification-edit-talk-page-flyout2' => '$1 پەیامێکی لە [[User talk:$2#$3|پەڕەی لێدوان]]تدا {{GENDER:$1|نووسیوە}}.',
+	'notification-edit-talk-page-flyout-with-section' => '$1 پەیامێکی لە [[User talk:$2#$3|پەڕەی لێدوان]]ت لە "[[User talk:$2#$3|$4]]"دا {{GENDER:$1|نووسیوە}}.',
+	'echo-email-subject-default' => 'ئاگادارییەکی نوێ لە {{SITENAME}}',
+	'echo-email-body-default' => 'ئاگادارییەکی نوێت ھەیە لە {{SITENAME}}:
+
+$1',
+	'echo-email-batch-body-default' => 'ئاگادارییەکی نوێت ھەیە.',
+	'echo-overlay-link' => 'ھەموو ئاگادارییەکان',
 	'echo-overlay-title' => '<b>ئاگادارییەکان</b>',
+	'echo-overlay-title-overflow' => '<b>ئاگادارییەکان</b> (نیشاندانی $1 لە $2ی نەخوێنراو)',
+	'echo-mark-all-as-read' => 'ھەموویان وەک خوێنراوە نیشان بکە',
 	'echo-date-today' => 'ئەمڕۆ',
 	'echo-date-yesterday' => 'دوێینێ',
+	'echo-email-batch-link-text-view-all-notifications' => 'ھەموو ئاگادارییەکان ببینە',
 );
 
 /** Czech (česky)
@@ -2100,57 +2127,60 @@ Siin on sulle kokkuvõte võrgukohas {{SITENAME}} sellel nädalal toimunust.',
  * @author فلورانس
  */
 $messages['fa'] = array(
-	'echo-desc' => 'سیستم اعلان‌ها',
-	'prefs-echo' => 'اعلان‌ها',
-	'prefs-emailsettings' => 'تنظیمات رایانامه', # Fuzzy
+	'echo-desc' => 'سامانهٔ آگاه‌سازی‌ها',
+	'prefs-echo' => 'آگاه‌سازی‌ها',
+	'prefs-emailsettings' => 'تنظیمات رایانامه',
 	'prefs-displaynotifications' => 'گزینه‌های نمایش',
-	'prefs-echosubscriptions' => 'مرا در مورد این وقایع باخبر کن',
-	'prefs-newmessageindicator' => 'شاخص پیام جدید',
+	'prefs-echosubscriptions' => 'مرا در مورد این وقایع آگاه کن',
+	'prefs-newmessageindicator' => 'شاخص پیام تازه',
 	'echo-pref-send-me' => 'ارسال به من:',
 	'echo-pref-send-to' => 'ارسال به:',
-	'echo-pref-web' => 'وب سایت',
+	'echo-pref-email-format' => 'فرمت رایانامه',
+	'echo-pref-web' => 'وبگاه',
 	'echo-pref-email' => 'رایانامه',
-	'echo-pref-email-frequency-never' => 'اعلان‌های ایمیل را برای من ارسال نکن',
-	'echo-pref-email-frequency-immediately' => 'اعلان‌های فردی به عنوان آن‌ها',
-	'echo-pref-email-frequency-daily' => 'خلاصهٔ روزانهٔ اعلان‌ها',
-	'echo-pref-email-frequency-weekly' => 'خلاصهٔ هفتگی از اعلان‌ها',
-	'echo-pref-notify-show-link' => 'نمایش اعلان‌ها در نوار ابزار من',
+	'echo-pref-email-frequency-never' => 'آگاه‌سازی‌های رایانامه‌ای را برای من ارسال نکن',
+	'echo-pref-email-frequency-immediately' => 'آگاه‌سازی‌های فردی به عنوان آن‌ها',
+	'echo-pref-email-frequency-daily' => 'خلاصهٔ روزانهٔ آگاه‌سازی‌‌ها',
+	'echo-pref-email-frequency-weekly' => 'خلاصهٔ هفتگی از آگاه‌سازی‌ها',
+	'echo-pref-email-format-html' => 'اچ‌تی‌ام‌ال',
+	'echo-pref-email-format-plain-text' => 'متن ساده',
+	'echo-pref-notify-show-link' => 'نمایش آگاه‌سازی‌ها در نوار ابزار من',
 	'echo-pref-new-message-indicator' => 'نمایش نشانگر پیام صفحهٔ بحث در نوار ابزار من',
 	'echo-learn-more' => 'اطلاعات بیشتر',
 	'echo-dismiss-button' => 'بستن',
-	'echo-dismiss-message' => 'خاموش نمودن تمام $1 اعلان‌ها',
-	'echo-dismiss-prefs-message' => 'شما در [[Special:Preferences#mw-prefsection-echo|ترجیحات]] می‌توانید آنها را دوباره فعال کنید.',
+	'echo-dismiss-message' => 'غیرفعال کردن همهٔ $1 آگاه‌سازی‌ها',
+	'echo-dismiss-prefs-message' => 'شما در [[Special:Preferences#mw-prefsection-echo|ترجیحات]] می‌توانید آن‌ها را دوباره فعال کنید.',
 	'echo-new-messages' => 'پیام‌های جدیدی دارید!',
-	'echo-category-title-edit-user-talk' => '{{PLURAL:$1|پیام|پیام‌های}} صفحه بحث', # Fuzzy
+	'echo-category-title-edit-user-talk' => '{{PLURAL:$1|پیام|پیام‌های}} صفحه بحث',
 	'echo-category-title-article-linked' => '{{PLURAL:$1|پیوند|پیوندهای}} صفحه',
 	'echo-category-title-reverted' => '{{PLURAL:$1|واگردانی|واگردانی‌ها}}',
 	'echo-category-title-mention' => '{{PLURAL:$1|اشاره|اشاره‌ها}}',
 	'echo-category-title-other' => '{{PLURAL:$1|دیگر}}',
 	'echo-category-title-system' => '{{PLURAL:$1|سامانه}}',
 	'echo-pref-tooltip-edit-user-talk' => 'هنگامی که کسی برای من پیام فرستاد یا جواب پیام مرا در صفحهٔ بحثم داد، با خبرم کن.',
-	'echo-pref-tooltip-article-linked' => 'هنگامی که شخصی پیوندی به صفحه مقاله ای که من ایجاد کردم داد،مرا با خبر کن.',
-	'echo-pref-tooltip-reverted' => 'هنگامی که کسی ویرایشی را که من انجام دادم‌ام را با استفاده از ابزار خثنی سازی، خثنی کرد با خبرم کن.',
-	'echo-pref-tooltip-mention' => 'هنگامی که شخصی به صفحه شخصی من در هر صفحه‌ای پیوند ایجاد کرد، مرا با خبر کن.',
+	'echo-pref-tooltip-article-linked' => 'هنگامی که کسی به مقالهٔ ایجادشده توسط من پیوند داد، مرا آگاه کن.',
+	'echo-pref-tooltip-reverted' => 'هنگامی که کسی ویرایشی را که من انجام داده‌ام را با استفاده از ابزار خثنی‌سازی یا واگردانی، خثنی کرد، مرا آگاه کن.',
+	'echo-pref-tooltip-mention' => 'هنگامی که شخصی به صفحهٔ کاربری من در هر صفحه‌ای پیوند ایجاد کرد، مرا آگاه کن.',
 	'echo-no-agent' => '[هیچ کس]',
 	'echo-no-title' => '[بدون عنوان]',
-	'echo-error-no-formatter' => 'هیچ الگوی تعریف‌شده‌ای برای اطلاع‌رسانی وجود ندارد',
+	'echo-error-no-formatter' => 'هیچ الگوی تعریف‌شده‌ای برای آگاه‌سازی وجود ندارد',
 	'echo-error-preference' => 'خطا: ترجیحات کاربر تنظیم نشده',
 	'echo-error-token' => 'خطا: رمز کاربر قابل بازیابی نیست',
-	'notifications' => 'اعلامیه‌ها',
-	'tooltip-pt-notifications' => 'اعلان‌های شما',
-	'echo-specialpage' => 'اعلامیه‌ها',
-	'echo-anon' => 'برای دریافت اعلان‌ها [$1 حسابی بسازید] یا [$2 وارد سامانه شوید] .',
-	'echo-none' => 'شما هیچگونه اعلانی ندارید.',
+	'notifications' => 'آگاه‌سازی‌ها',
+	'tooltip-pt-notifications' => 'آگاه‌سازی‌های شما',
+	'echo-specialpage' => 'آگاه‌سازی‌ها',
+	'echo-anon' => 'برای دریافت آگاه‌سازی‌ها [$1 حسابی بسازید] یا [$2 وارد سامانه شوید] .',
+	'echo-none' => 'شما هیچگونه آگاه‌سازی‌ای ندارید.',
 	'echo-more-info' => 'اطلاعات بیشتر',
 	'echo-feedback' => 'بازخورد',
 	'notification-link-text-view-message' => 'نمایش پیام',
-	'notification-link-text-view-mention' => 'مشاهده تذکر',
+	'notification-link-text-view-mention' => 'مشاهدهٔ تذکر',
 	'notification-link-text-view-changes' => 'نمایش تغییرات',
-	'notification-link-text-view-page' => 'مشاهده صفحه',
+	'notification-link-text-view-page' => 'مشاهدهٔ صفحه',
 	'notification-link-text-view-edit' => 'نمایش ویرایش',
-	'notification-edit-talk-page2' => '[[User:$1|$1]] در صفحه بحث شما [[User talk:$2#$3|مطلبی]] گذاشته‌است.', # Fuzzy
-	'notification-edit-talk-page-flyout2' => '$1 در صفحه بحث شما [[User talk:$2#$3|مطلبی]] گذاشته‌است.', # Fuzzy
-	'notification-page-linked' => '[[:$2]] به [[:$3]] توسط $1 پیوند داده‌شد: [[Special:WhatLinksHere/$2|همه پیوندها به این صفحه را ببینید]]', # Fuzzy
+	'notification-edit-talk-page2' => '[[User:$1|$1]] در صفحه‌‌ٔ بحث شما [[User talk:$2#$3|مطلبی]] گذاشته‌است.',
+	'notification-edit-talk-page-flyout2' => '$1 در صفحه‌‌ٔ‌‌‌ بحث شما [[User talk:$2#$3|مطلبی]] گذاشته‌است.',
+	'notification-page-linked' => '[[:$2]] به [[:$3]] توسط $1 پیوند داده‌شد: [[Special:WhatLinksHere/$2|همه پیوندها به این صفحه را ببینید]]',
 	'notification-page-linked-flyout' => '$2 توسط $1 به [[:$3]] پیوند داده شد.',
 	'notification-add-comment2' => '[[User:$1|$1]] در "[[$3|$2]]" در صفحه بحث "$4" نظری افزود',
 	'notification-add-talkpage-topic2' => '[[User:$1|$1]] بخش جدیدی «$2» در [[$3]] ایجاد کرد',
@@ -2158,47 +2188,48 @@ $messages['fa'] = array(
 	'notification-add-comment-yours2' => '[[User:$1|$1]] در «[[$3#$2|$2]]» در صفحه بحث شما نظری داده‌است',
 	'notification-mention' => '[[User:$1|$1]] در [[$3#$2|$3]] به شما اشاره کرده‌است.', # Fuzzy
 	'notification-mention-flyout' => '$1 در [[$3#$2|$3]] به شما اشاره کرده‌است.', # Fuzzy
-	'notification-user-rights' => 'دسترسی‌های شما توسط [[User:$1|$1]] [[Special:Log/rights/$1|تغییر یافته‌است]] . $2. [[Special:ListGroupRights|بیشتر بخوانید]]',
+	'notification-user-rights' => 'دسترسی‌های شما توسط [[User:$1|$1]] [[Special:Log/rights/$1|تغییر یافته است]] . $2. [[Special:ListGroupRights|بیشتر بخوانید]]',
 	'notification-user-rights-flyout' => 'دسترسی‌های شما توسط $1. $2. [[Special:ListGroupRights|بیشتر بخوانید]]',
 	'notification-user-rights-add' => 'شما در حال حاضر عضو  {{PLURAL:$2| این گروه|این گروه‌ها}} هستید:$1',
-	'notification-user-rights-remove' => 'شما دیگر عضو هستید  {{PLURAL:$2| این گروه این گروه‌ها}} نیستید:$1',
-	'notification-new-user' => 'به {{SITENAME}} خوشامدید، $1! خوشحالیم که شما اینجا هستید.',
+	'notification-user-rights-remove' => 'شما دیگر عضو {{PLURAL:$2| این گروه این گروه‌ها}} نیستید:$1',
+	'notification-new-user' => 'به {{SITENAME}} خوش‌آمدید، $1! خوشحالیم که شما اینجا هستید.',
 	'notification-reverted2' => '{{PLURAL:$4|ویرایش|ویرایش‌های}} شما در [[:$2]] توسط [[User:$1|$1]] واگردانی شده‌اند. $3',
 	'notification-reverted-flyout2' => 'شما  {{PLURAL:$4| ویرایش بر روی <b> $2 </b> has|edits در <b> $2 </b> اند}} شده  {{GENDER:$1| واگردانی}} توسط$1 $3',
-	'notification-edit-talk-page-email-subject2' => 'شما یک پیام جدید در صفحه بحث {{SITENAME}} دارید.', # Fuzzy
-	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|نوشته شده در صفحه بحث شما}}', # Fuzzy
-	'notification-page-linked-email-subject' => 'صفحه ای که شما آغازگر آن بودید در {{SITENAME}} پیوند شد.', # Fuzzy
+	'notification-edit-talk-page-email-subject2' => 'شما یک پیام تازه در صفحهٔ بحث {{SITENAME}} دارید.', # Fuzzy
+	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|نوشته‌شده در صفحهٔ بحث شما}}',
+	'notification-page-linked-email-subject' => 'صفحه‌ای که شما آغازگر آن بودید در {{SITENAME}} پیوند شد.',
 	'notification-page-linked-email-batch-body' => '$2بود  {{GENDER:$1| مرتبط}} از$3',
-	'notification-reverted-email-subject2' => 'شما  {{PLURAL:$3| ویرایش بر روی  $2  was|edits در  $2  شدند}}  {{GENDER:$1| واگردانی}} با  $1  در {{SITENAME}}', # Fuzzy
-	'notification-reverted-email-batch-body2' => 'شما  {{PLURAL:$3| ویرایش بر روی  $2  was|edits در  $2  شدند}}  {{GENDER:$1| واگردانی}} با  $1  در {{SITENAME}}', # Fuzzy
+	'notification-reverted-email-subject2' => 'ویرایش‌های شما در {{SITENAME}} {{GENDER:$1|واگردانی}}  {{PLURAL:$3|شد|شدند}}',
+	'notification-reverted-email-batch-body2' => 'شما  {{PLURAL:$3| ویرایش بر روی  $2  was|edits در  $2  شدند}}  {{GENDER:$1| واگردانی}} با  $1  در {{SITENAME}}',
 	'notification-mention-email-subject' => '$1 {{GENDER:$1|شما ذکر شده در {{SITENAME}}}}',
-	'notification-mention-email-batch-body' => '$1 در $2 به شما اشاره کرده‌است.', # Fuzzy
+	'notification-mention-email-batch-body' => '$1 در $4 صفحهٔ بحث "$3" به شما {{GENDER:$1|اشاره کرد}}',
 	'notification-user-rights-email-subject' => 'دسترسی‌های شما در {{SITENAME}} تغییر یافته‌است',
 	'notification-user-rights-email-batch-body' => 'دسترسی‌های شما توسط $1 تغییر یافته‌است. $2',
-	'echo-email-subject-default' => 'اعلان‌های جدید در {{SITENAME}}',
-	'echo-email-body-default' => 'شما در {{SITENAME}} اعلان جدید دارید:
+	'echo-email-subject-default' => 'آگاه‌سازی‌های تازه در {{SITENAME}}',
+	'echo-email-body-default' => 'شما در {{SITENAME}} آگاه‌سازی تازه دارید:
 
 $1',
-	'echo-email-batch-body-default' => 'شما یک اعلان جدید دارید.',
+	'echo-email-batch-body-default' => 'شما آگاه‌سازی تازه‌ای دارید.',
 	'echo-email-footer-default' => '$2
 
-برای کنترل رایانامه‌های ارسالی به شما ترجیحاتتان را بررسی کنید:
+برای کنترل رایانامه‌های ارسالی به شما ترجیحات‌تان را بررسی کنید:
 {{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
 
 $1',
-	'echo-overlay-link' => 'همه اعلان ها',
-	'echo-overlay-title' => '<b>اعلان ها</b>',
-	'echo-overlay-title-overflow' => '<b>اعلان ها</b> (نمایش  $1  از  $2  خوانده نشده)',
-	'echo-mark-all-as-read' => 'علامتگذاری همه بعنوان خوانده شده',
+	'echo-overlay-link' => 'همهٔ آگاه‌سازی‌ها',
+	'echo-overlay-title' => '<b>آگاه‌سازی‌ها</b>',
+	'echo-overlay-title-overflow' => '<b>آگاه‌سازی‌ها</b> (نمایش  $1  از  $2  خوانده‌نشده)',
+	'echo-mark-all-as-read' => 'نشان‌گذاری همه به‌عنوان خوانده‌شده',
 	'echo-date-today' => 'امروز',
 	'echo-date-yesterday' => 'دیروز',
 	'echo-load-more-error' => 'دریافت نتیجه‌های بیشتر با خطا مواجه شده‌است.',
-	'notification-edit-talk-page-bundle' => '$1 و $3 {{PLURAL:$4|دیگر|دیگر}} در صفحه [[User talk:$2|بحث شما]] مطلبی فرستاده‌اند.', # Fuzzy
+	'notification-edit-talk-page-bundle' => '$1 و $3 {{PLURAL:$4|دیگر|دیگر}} در صفحهٔ [[User talk:$2|بحث شما]] مطلبی فرستاده‌اند.',
 	'notification-page-linked-bundle' => '$2 توسط $1 از  $3  و  $4  {{PLURAL:$5|صفحه دیگر|دیگر صفحات}} پیوند داده‌شد. [[Special:WhatLinksHere/$2|مشاهده تمام پیوندهای به این صفحه]]',
-	'notification-edit-user-talk-email-batch-bundle-body' => '$1 و $2 {{PLURAL:$3|شخص دیگر|دیگران}} در صفحه بحث شما پیام گذاشته‌اند', # Fuzzy
-	'notification-page-linked-email-batch-bundle-body' => '$2 توسط $1 از $3 و $4 {{PLURAL:$5|صفحه دیگر|صفحه دیگر}} پیوند داده‌شد',
-	'echo-email-batch-subject-daily' => 'شما دارای {{PLURAL:$2| اعلان notification|new جدید}} در {{SITENAME}} هستید',
-	'echo-email-batch-subject-weekly' => 'شما دارای  {{PLURAL:$2| اعلان notification|new جدید}} در {{SITENAME}} این هفته',
+	'notification-edit-user-talk-email-batch-bundle-body' => '$1 و $2 {{PLURAL:$3|شخص دیگر|دیگران}} در صفحهٔ بحث شما پیام گذاشته‌اند',
+	'notification-page-linked-email-batch-bundle-body' => '$2 توسط $1 از $3 و $4 {{PLURAL:$5|صفحه دیگر|صفحه دیگر}} پیوند داده شد',
+	'echo-email-batch-subject-daily' => 'شما دارای {{PLURAL:$2| آگاه‌سازی notification|new تازه}} در {{SITENAME}} هستید',
+	'echo-email-batch-subject-weekly' => 'شما دارای  {{PLURAL:$2| آگاه‌سازی notification|new تازه}} در {{SITENAME}} این هفته',
+	'echo-email-batch-link-text-view-all-notifications' => 'دیدن همهٔ آگاه‌سازی‌ها',
 	'echo-rev-deleted-text-view' => 'بازنگری این صفحه متوقف شده‌است',
 );
 
