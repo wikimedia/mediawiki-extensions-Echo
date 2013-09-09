@@ -7,6 +7,13 @@ class EchoNotificationJob extends Job {
 	}
 
 	function run() {
+		if ( !empty( $this->params['mainDbMasterPos'] ) ) {
+			wfGetLB()->waitFor( $this->params['mainDbMasterPos'] );
+		}
+		if ( !empty( $this->params['echoDbMasterPos'] ) ) {
+			global $wgEchoCluster;
+			wfGetLBFactory()->getExternalLB( $wgEchoCluster )->waitFor( $this->params['echoDbMasterPos'] );
+		}
 		EchoNotificationController::notify( $this->event, false );
 		return true;
 	}

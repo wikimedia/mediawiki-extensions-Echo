@@ -138,10 +138,27 @@ class EchoNotificationController {
 	 */
 	public static function notify( $event, $defer = true ) {
 		if ( $defer ) {
-			$title = $event->getTitle() ? $event->getTitle() : Title::newMainPage();
+			// defer job insertion till end of request when all primary db transactions
+			// have been committed
+			DeferredUpdates::addCallableUpdate(
+				function() use ( $event ) {
+					global $wgEchoCluster;
+					$params = array( 'event' => $event );
+					if ( wfGetLB()->getServerCount() > 1 ) {
+						$params['mainDbMasterPos'] = wfGetLB()->getMasterPos();
+					}
+					if ( $wgEchoCluster ) {
+						$lb = wfGetLBFactory()->getExternalLB( $wgEchoCluster );
+						if ( $lb->getServerCount() > 1 ) {
+							$params['echoDbMasterPos'] = $lb->getMasterPos();
+						}
+					}
 
-			$job = new EchoNotificationJob( $title, array( 'event' => $event ) );
-			$job->insert();
+					$title = $event->getTitle() ? $event->getTitle() : Title::newMainPage();
+					$job = new EchoNotificationJob( $title, $params );
+					$job->insert();
+				}
+			);
 			return;
 		}
 
