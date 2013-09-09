@@ -145,17 +145,15 @@ $wgResourceModules += array(
 		'styles' => 'base/ext.echo.base.css',
 		'scripts' => 'base/ext.echo.base.js',
 		'dependencies' => array(
-			'jquery.ui.button',
 			'mediawiki.api',
 			'mediawiki.Uri',
-			'mediawiki.user'
 		),
 		'messages' => array(
 			'cancel',
-			'echo-dismiss-button',
 			'echo-error-preference',
 			'echo-error-token',
 		),
+		'targets' => array( 'desktop', 'mobile' ),
 	),
 	'ext.echo.overlay' => $echoResourceTemplate + array(
 		'scripts' => array(
@@ -168,9 +166,9 @@ $wgResourceModules += array(
 		),
 		'dependencies' => array(
 			'ext.echo.base',
-			'mediawiki.jqueryMsg',
-			'mediawiki.ui',
 			'mediawiki.util',
+			'mediawiki.jqueryMsg',
+			'mediawiki.user',
 		),
 		'messages' => array(
 			'echo-overlay-title',
@@ -189,7 +187,9 @@ $wgResourceModules += array(
 		'styles' => 'special/ext.echo.special.css',
 		'dependencies' => array(
 			'ext.echo.base',
+			'mediawiki.ui',
 			'mediawiki.jqueryMsg',
+			'mediawiki.user',
 		),
 		'messages' => array(
 			'echo-load-more-error',

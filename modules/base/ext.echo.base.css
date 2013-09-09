@@ -38,37 +38,6 @@
 .mw-echo-notification.mw-echo-unread {
 	color: #252525;
 }
-.mw-echo-close-box {
-	position: absolute;
-	right: 10px;
-	top: 10px;
-	width: 23px;
-	height: 23px;
-	z-index: 3;
-	/* @embed */
-	background-image: url(DismissOnRowHover.png);
-	background-repeat: no-repeat;
-}
-.mw-echo-close-box:hover {
-	/* @embed */
-	background-image: url(DismissOnHover.png);
-}
-.mw-echo-dismiss {
-	padding: 10px 40px 5px 60px;
-	background-color: #EDEDEE;
-	position: absolute;
-	top: 0;
-	left: 0;
-	z-index: 1;
-}
-.mw-echo-prefs-dismiss-message {
-	font-size: 10px;
-	line-height: 14px;
-}
-.mw-echo-cancel-link {
-	margin-left: 1em;
-	cursor: pointer;
-}
 .mw-echo-notification span.autocomment {
 	color: inherit;
 	font-style: normal;

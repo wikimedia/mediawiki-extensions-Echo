@@ -15,10 +15,8 @@
 
 			// Convert more link into a button
 			$( '#mw-echo-more' )
-				.button()
-				// Override jQuery UI button margins
+				.addClass( 'mw-ui-button mw-ui-primary' )
 				.css( 'margin', '0.5em 0 0 0' )
-				.addClass( 'ui-button-blue' )
 				.click( function ( e ) {
 					e.preventDefault();
 					if ( !mw.echo.special.processing ) {

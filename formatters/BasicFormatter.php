@@ -191,13 +191,6 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			)
 		);
 
-		// Add the hidden dismiss interface if the notification is dismissable
-		/* Disabling dismiss interface until there is consensus on how it should be implemented
-		if ( $event->isDismissable( 'web' ) ) {
-			$output .= $this->formatDismissInterface( $event, $user );
-		}
-		*/
-
 		// Build the notification title
 		$content = Xml::tags(
 			'div',
@@ -231,29 +224,6 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 		$output = Xml::tags( 'div', array( 'class' => 'mw-echo-state' ), $output ) . "\n";
 
 		return $output;
-	}
-
-	/**
-	 * Format notification dismiss interface
-	 *
-	 * @param $event EchoEvent
-	 * @param $user User
-	 * @return string
-	 */
-	protected function formatDismissInterface( $event, $user ) {
-		$userLanguage = $user->getOption( 'language' );
-
-		$dismissTitle = wfMessage( 'echo-category-title-' . $event->getCategory() )
-			->numParams( 1 )
-			->text();
-		$dismissMessage = wfMessage( 'echo-dismiss-message', $dismissTitle )
-			->escaped();
-		$dismiss = Xml::tags( 'div', array( 'class' => 'mw-echo-dismiss-message' ), $dismissMessage ) . "\n";
-		$prefsMessage = wfMessage( 'echo-dismiss-prefs-message' )
-			->escaped();
-		$dismiss .= Xml::tags( 'div', array( 'class' => 'mw-echo-prefs-dismiss-message' ), $prefsMessage ) . "\n";
-		$dismiss = Xml::tags( 'div', array( 'class' => 'mw-echo-dismiss', 'style' => 'display:none;' ), $dismiss ) . "\n";
-		return $dismiss;
 	}
 
 	/**

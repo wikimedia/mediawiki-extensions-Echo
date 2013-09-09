@@ -32,11 +32,6 @@ $messages['en'] = array(
 	'echo-pref-new-message-indicator' => 'Show talk page message indicator in my toolbar',
 	'echo-learn-more' => 'Learn more',
 
-	// Dismiss interface
-	'echo-dismiss-button' => 'Dismiss',
-	'echo-dismiss-message' => 'Turn off all $1 notifications',
-	'echo-dismiss-prefs-message' => 'You can turn these back on in your [[Special:Preferences#mw-prefsection-echo|preferences]].',
-
 	// Alert interface
 	'echo-new-messages' => 'You have new messages.',
 
@@ -213,17 +208,6 @@ See also:
 	'echo-pref-new-message-indicator' => 'Label for a preference which enables the new talk page message alert',
 	'echo-learn-more' => 'Text for link to more information about a topic.
 {{Identical|Learn more}}',
-	'echo-dismiss-button' => 'Text for the button that dismisses a notification type. Keep this short.
-{{Identical|Dismiss}}',
-	'echo-dismiss-message' => 'Message asking the user if they want to turn off all notifications of a certain type. Parameters:
-* $1 - the name of the type; one of the following:
-** {{msg-mw|Echo-category-title-edit-user-talk}}
-** {{msg-mw|Echo-category-title-article-linked}}
-** {{msg-mw|Echo-category-title-reverted}}
-** {{msg-mw|Echo-category-title-mention}}
-** {{msg-mw|Echo-category-title-other}}
-** {{msg-mw|Echo-category-title-system}}',
-	'echo-dismiss-prefs-message' => 'Used in Dismiss interface.',
 	'echo-new-messages' => 'Message to let the user know that they have new talk page messages. Keep this message short.',
 	'echo-category-title-edit-user-talk' => 'This is a short title for notification category.
 
