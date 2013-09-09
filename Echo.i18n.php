@@ -3347,7 +3347,6 @@ $1',
 	'notification-page-linked-bundle' => '$2 が $3 と他 $4 {{PLURAL:$5|件のページ}}から{{GENDER:$1|リンクされました}}。[[Special:WhatLinksHere/$2|このページのリンク元]]',
 	'notification-edit-user-talk-email-batch-bundle-body' => '$1 と他 $2 {{PLURAL:$3|人}}があなたのトークページにメッセージを{{GENDER:$1|投稿しました}}。',
 	'notification-page-linked-email-batch-bundle-body' => '$2 が $3 と他 $4 {{PLURAL:$5|件のページ}}から{{GENDER:$1|リンクされました}}。',
-	'echo-email-batch-separator' => '________________________________________________',
 	'echo-email-batch-subject-daily' => '{{SITENAME}}で{{PLURAL:$2|新たな通知}}が届いています',
 	'echo-email-batch-subject-weekly' => '{{SITENAME}}でこの1週間に{{PLURAL:$2|新たな通知}}が届いています',
 	'echo-email-batch-body-intro-daily' => 'こんにちは、$1 さん。
@@ -3405,7 +3404,6 @@ $messages['ka'] = array(
 	'echo-overlay-title' => '<b>შეტყობინებები</b>',
 	'echo-date-today' => 'დღეს',
 	'echo-date-yesterday' => 'გუშინ',
-	'echo-email-batch-separator' => '________________________________________________',
 	'echo-email-batch-bullet' => '•',
 );
 
