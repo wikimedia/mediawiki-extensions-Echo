@@ -1084,6 +1084,7 @@ $messages['br'] = array(
 );
 
 /** Bosnian (bosanski)
+ * @author CERminator
  * @author DzWiki
  * @author Edinwiki
  * @author Palapa
@@ -1106,20 +1107,21 @@ $messages['bs'] = array(
 	'echo-pref-email-frequency-weekly' => 'Sedmični sažetak obavještenja',
 	'echo-pref-email-format-html' => 'HTML',
 	'echo-pref-email-format-plain-text' => 'Obični tekst',
-	'echo-pref-notify-show-link' => 'Pokaži obavještenja u mom toolbaru',
+	'echo-pref-notify-show-link' => 'Pokaži obavještenja u mojoj alatnoj traci',
+	'echo-pref-new-message-indicator' => 'Pokaži indikator da je dobijena poruka na stranici za razgovor u mojoj alatnoj traci',
 	'echo-learn-more' => 'Saznajte više',
 	'echo-dismiss-button' => 'Odbaci',
 	'echo-dismiss-message' => 'Isključi sva $1 obavještenja',
 	'echo-dismiss-prefs-message' => 'Možete ih ponovo uključiti u Vašim [[Special:Preferences#mw-prefsection-echo|postavkama]].',
 	'echo-new-messages' => 'Imate nove poruke',
-	'echo-category-title-edit-user-talk' => '{{PLURAL:$1|Poruke}} na stranici za razogvor',
+	'echo-category-title-edit-user-talk' => '{{PLURAL:$1|Poruke}} na stranici za razgovor',
 	'echo-category-title-article-linked' => 'Stranica {{PLURAL:$1|link|linkovi}}',
 	'echo-category-title-reverted' => 'Uredi {{PLURAL:$1|vraćanje|vraćanja}}',
 	'echo-category-title-mention' => '{{PLURAL:$1|Spominjanje|Spominjanja}}',
 	'echo-category-title-other' => '{{PLURAL:$1|Ostalo}}',
 	'echo-category-title-system' => '{{PLURAL:$1|Sistem}}',
 	'echo-pref-tooltip-edit-user-talk' => 'Obavijesti me kada neko ostavi poruku ili odgovor na mojoj stranici za razgovor.',
-	'echo-pref-tooltip-article-linked' => 'Obavijesti me kada neko linkuje na stranicu napravljenu sa stranice članaka.', # Fuzzy
+	'echo-pref-tooltip-article-linked' => 'Obavijesti me kada neko linkuje na stranicu koju sam napravio od stranice članaka.',
 	'echo-pref-tooltip-reverted' => 'Obavijesti me kada neko vrati uređivanje koje sam napravio/la, korištenjem naredbe undo ili alatom za vraćanje.',
 	'echo-pref-tooltip-mention' => 'Obavijesti me kada me neko spomene na nekoj stranici za razgovor.',
 	'echo-no-agent' => '[Niko]',
@@ -1144,7 +1146,9 @@ $messages['bs'] = array(
 	'notification-edit-talk-page-flyout2' => '$1 vam je {{GENDER:$1|ostavio|ostavila}} poruku na vašoj [[User talk:$2#$3|stranici za razgovor]].',
 	'notification-edit-talk-page-flyout-with-section' => '$1 vam je {{GENDER:$1|ostavio|ostavila}} poruku na vašoj stranici za razgovor u "[[User talk:$2#$3|$4]]".',
 	'notification-page-linked' => 'Stranica [[:$2]] je {{GENDER:$1|povezana}} sa stranicom [[:$3]]. [[Special:WhatLinksHere/$2|Pogledajte sve veze prema ovoj stranici]].',
-	'notification-page-linked-flyout' => '$2 je {{GENDER:$1|povezao}} iz [[:$3]].',
+	'notification-page-linked-flyout' => '$2 je {{GENDER:$1|povezana}} sa [[:$3]].',
+	'notification-add-comment2' => '[[User:$1|$1]] je {{GENDER:$1|ostavio|ostavila}} komentar na "[[$3|$2]]" na "$4" stranici za razgovor.',
+	'notification-add-talkpage-topic2' => '[[User:$1|$1]] je {{GENDER:$1|postavio|postavila}} novu temu "$2" na [[$3]].',
 	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]] vam je {{GENDER:$1|poslao|poslala}} poruku: "[[$3#$2|$2]]".',
 	'notification-add-comment-yours2' => '[[User:$1|$1]] je {{GENDER:$1|komentarisao|komentarisala}} temu "[[$3#$2|$2]]" na vašoj stranici za razgovor.',
 	'notification-mention' => '[[User:$1|$1]] vas je {{GENDER:$1|spomenuо|spomenula}} na stranici za razgovor $5 u "[[$3#$2|$4]]".',
@@ -1160,23 +1164,45 @@ $messages['bs'] = array(
 	'notification-edit-talk-page-email-batch-body2' => '$1 vam je {{GENDER:$1|ostavio|ostavila}} poruku na vašoj stranici za razgovor:',
 	'notification-edit-talk-page-email-batch-body-with-section' => '$1 vam je {{GENDER:$1|ostavio|ostavila}} poruku na vašoj stranici za razgovor u "$2".',
 	'notification-page-linked-email-subject' => 'Vaša stranica je povezana na {{SITENAME}}',
+	'notification-page-linked-email-batch-body' => '$2 je {{GENDER:$1|povezana}} sa $3.',
 	'notification-reverted-email-subject2' => '{{PLURAL:$3|Vaša izmjena je {{GENDER:$1|poništena}}|Vaše izmjene su {{GENDER:$1|poništene}}}} na {{SITENAME}}',
 	'notification-reverted-email-batch-body2' => '{{PLURAL:$3|Vaša izmjena na $2 je poništena|Vaše izmjene na $2 su poništene}} {{GENDER:$1|od}} strane $1.',
 	'notification-mention-email-subject' => '$1 vas je {{GENDER:$1|spomenuо|spomenula}} na {{SITENAME}}',
 	'notification-mention-email-batch-body' => '$1 vas je {{GENDER:$1|spomenuо|spomenula}} na stranici za razgovor $4 u "$3".',
+	'notification-user-rights-email-subject' => 'Vaša korisnička prava su se promijenila na {{SITENAME}}',
 	'notification-user-rights-email-batch-body' => 'Vaša korisnička prava su {{GENDER:$1|promjenjena}} od strane $1. $2',
 	'echo-email-subject-default' => 'Novo obavještenje na {{SITENAME}}',
 	'echo-email-body-default' => 'Imate novo obavještenje na {{SITENAME}}: 
 
 $1',
 	'echo-email-batch-body-default' => 'Imate novo obavještenje.',
+	'echo-email-footer-default' => '$2
+
+Da kontrolišete koje vam email poruke šaljemo, provjerite svoje postavke:
+{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
+
+$1',
+	'echo-email-footer-default-html' => 'Da kontrolišete koje vam email poruke šaljemo, <a href="$2" style="text-decoration:none; color: #3868B0;">provjerite vaše postavke</a>.<br />
+$1',
 	'echo-overlay-link' => 'Sva obavještenja',
 	'echo-overlay-title' => '<b>Obavještenja</b>',
 	'echo-overlay-title-overflow' => '<b>Obavještenja</b> (prikaz $1 od $2 nepročitanih)',
 	'echo-mark-all-as-read' => 'Označi sve kao pročitano',
 	'echo-date-today' => 'Danas',
 	'echo-date-yesterday' => 'Jučer',
+	'echo-load-more-error' => 'Greška se pojavila za vrijeme dobavljanja više rezultata.',
+	'notification-edit-talk-page-bundle' => '$1 i $3 {{PLURAL:$4|ostali|ostale}} {{GENDER:$1|ostavili}} su poruku na vašoj [[User talk:$2|stranici za razgovor]].',
+	'notification-page-linked-bundle' => '$2 je {{GENDER:$1|povezana}} sa $3 i $4 {{PLURAL:$5|druge stranice|drugih stranica}}. [[Special:WhatLinksHere/$2|Pogledaj sve linkove na ovu stranicu]]',
+	'notification-edit-user-talk-email-batch-bundle-body' => '$1 i $2 {{PLURAL:$3|ostali|ostalih}} {{GENDER:$1|ostavili}} su poruku na vašoj stranici za razgovor.',
+	'notification-page-linked-email-batch-bundle-body' => 'Stranica $2 je {{GENDER:$1|povezana}} sa $3 i $4 {{PLURAL:$5|druge stranice|drugih stranica}}.',
+	'echo-email-batch-subject-daily' => 'Imate {{PLURAL:$2|novo obavještenje|nova obavještenja}} na {{SITENAME}}',
+	'echo-email-batch-subject-weekly' => 'Imate {{PLURAL:$2|novo obavještenje|nova obavještenja}} na {{SITENAME}} ove sedmice',
+	'echo-email-batch-body-intro-daily' => 'Zdravo $1,
+Ovo je sažetak današnjih aktivnosti na {{SITENAME}} za Vas.',
+	'echo-email-batch-body-intro-weekly' => 'Zdravo $1,
+Ovo je sažetak sedmičnih aktivnosti na {{SITENAME}} za Vas.',
 	'echo-email-batch-link-text-view-all-notifications' => 'Pogledaj sva obavještenja',
+	'echo-rev-deleted-text-view' => 'Revizija ove stranice je zabranjena.',
 );
 
 /** Catalan (català)
@@ -1325,7 +1351,7 @@ $messages['ckb'] = array(
 	'echo-pref-email-format' => 'جۆری ئیمەیل:',
 	'echo-pref-web' => 'وێب',
 	'echo-pref-email' => 'ئیمەیل',
-	'echo-pref-email-frequency-never' => 'ئاگاداراییەکانی ئیمەیلم بۆ مەنێرە',
+	'echo-pref-email-frequency-never' => 'ھیچ ئاگاداراییەکم بە ئیمەیل بۆ مەنێرە',
 	'echo-pref-email-frequency-immediately' => 'ئاگادارییە تاکەکەسییەکان ھەر وەکی دێن',
 	'echo-pref-email-frequency-daily' => 'کورتەیەکی رۆژانەی ئاگادارییەکان',
 	'echo-pref-email-frequency-weekly' => 'کورتەیەکی حەفتانەی ئاگادارییەکان',
@@ -1333,49 +1359,102 @@ $messages['ckb'] = array(
 	'echo-pref-email-format-plain-text' => 'دەقی ساکار',
 	'echo-pref-notify-show-link' => 'ئاگادارییەکان لە تووڵامرازەکەمدا نیشان بدە',
 	'echo-pref-new-message-indicator' => 'نیشاندەری پەیامی پەڕەی لێدوان لە تووڵامرازەکەمدا نیشان بدە',
-	'echo-learn-more' => 'زۆرت بزانە',
+	'echo-learn-more' => 'زۆرتر بزانە',
 	'echo-dismiss-button' => 'لایبە',
 	'echo-dismiss-message' => 'ھەموو ئاگادارییەکانی $1 بکوژێنەوە',
 	'echo-dismiss-prefs-message' => 'دەتوانی دیسان ئەمانە لە [[Special:Preferences#mw-prefsection-echo|ھەڵبژاردەکان]]تدا ھەڵ بکەیەوە.',
 	'echo-new-messages' => 'پەیامی نوێت ھەیە.',
 	'echo-category-title-edit-user-talk' => '{{PLURAL:$1|پەیام|پەیامەکانی}} پەڕەی لێدوان',
 	'echo-category-title-article-linked' => '{{PLURAL:$1|بەستەر|بەستەرەکان}}ی پەڕە',
-	'echo-category-title-reverted' => '{{PLURAL:$1|گەڕاندنەوە|گەڕاندنەوەکانی}} دەستکاری',
+	'echo-category-title-reverted' => '{{PLURAL:$1|گەڕاندنەوە|گەڕاندنەوەکان}}ی دەستکاری',
 	'echo-category-title-mention' => '{{PLURAL:$1|ئاماژە|ئاماژەکان}}',
 	'echo-category-title-other' => '{{PLURAL:$1|دیکە}}',
 	'echo-category-title-system' => '{{PLURAL:$1|سیستەم}}',
 	'echo-pref-tooltip-edit-user-talk' => 'کاتێک کەسێک لە پەڕەی لێدوانمدا پەیامێکی نارد یان وەڵامی دامەوە، ئاگادارم بکە.',
 	'echo-pref-tooltip-article-linked' => 'کاتێک کەسێک لە پەڕەیەکی وتاردا بە پەڕەیەک کە من دروستم کردووە بەستەری دا، ئاگادارم بکە.',
 	'echo-pref-tooltip-reverted' => 'کاتێک کەسێک دەستکارییەکی من کردوومە بە ئامرازی پووچەڵکردنەوە یان گەڕاندنەوە دەگەڕێنێتەوە، ئاگادارم بکە.',
-	'echo-pref-tooltip-mention' => 'کاتێک کەسێک لە پەڕەیەکی لێدواندا بە پەڕەی بەکارھێنەری من بەستەری دا، ئاگادارم بکە.',
+	'echo-pref-tooltip-mention' => 'کاتێک کەسێک لە پەڕەیەکی لێدواندا بە پەڕەی بەکارھێنەریی من بەستەری دا، ئاگادارم بکە.',
 	'echo-no-agent' => '[هیچ کەس]',
+	'echo-no-title' => '[بێ سەردێڕ]',
+	'echo-error-no-formatter' => 'ھیچ شێوازێک بۆ ئاگاداری دیاری نەکراوە.',
+	'echo-error-preference' => 'ھەڵە: ھەڵبژاردەکانی بەکارھێنەر ڕێک ناخرێ.',
+	'echo-error-token' => 'ھەڵە: نیشانی بەکارھێنەر وەرناگیرێ.',
 	'notifications' => 'ئاگادارییەکان',
 	'tooltip-pt-notifications' => 'ئاگادارییەکانت',
 	'echo-specialpage' => 'ئاگادارییەکان',
 	'echo-anon' => 'بۆ وەرگرتنی ئاگادارییەکان، [$1 ھەژمارێک دروست بکە] یان [$2 بچۆ ژوورەوە].',
 	'echo-none' => 'ئاگادارییەکت نییە.',
 	'echo-more-info' => 'زانیاریی زیاتر',
+	'echo-feedback' => 'بەردەنگ',
 	'notification-link-text-view-message' => 'پەیام ببینە',
 	'notification-link-text-view-mention' => 'ئاماژە ببینە',
 	'notification-link-text-view-changes' => 'گۆڕانکارییەکان ببینە',
 	'notification-link-text-view-page' => 'پەڕە ببینە',
 	'notification-link-text-view-edit' => 'دەستکاری ببینە',
-	'notification-edit-talk-page2' => '[[User:$1|$1]] پەیامێکی لە [[User talk:$2#$3|پەڕەی لێدوان]]تدا {{GENDER:$1|نووسیوە}}.',
-	'notification-edit-talk-page-with-section' => '[[User:$1|$1]] پەیامێکی لە [[User talk:$2#$3|پەڕەی لێدوان]]ت لە "[[User talk:$2#$3|$4]]"دا {{GENDER:$1|نووسیوە}}.',
-	'notification-edit-talk-page-flyout2' => '$1 پەیامێکی لە [[User talk:$2#$3|پەڕەی لێدوان]]تدا {{GENDER:$1|نووسیوە}}.',
-	'notification-edit-talk-page-flyout-with-section' => '$1 پەیامێکی لە [[User talk:$2#$3|پەڕەی لێدوان]]ت لە "[[User talk:$2#$3|$4]]"دا {{GENDER:$1|نووسیوە}}.',
+	'notification-edit-talk-page2' => '[[User:$1|$1]] پەیامێکی لە [[User talk:$2#$3|پەڕەی لێدوان]]تدا {{GENDER:$1|نووسی}}.',
+	'notification-edit-talk-page-with-section' => '[[User:$1|$1]] پەیامێکی لە [[User talk:$2#$3|پەڕەی لێدوان]]ت لە "[[User talk:$2#$3|$4]]"دا {{GENDER:$1|نووسی}}.',
+	'notification-edit-talk-page-flyout2' => '$1 پەیامێکی لە [[User talk:$2#$3|پەڕەی لێدوان]]تدا {{GENDER:$1|نووسی}}.',
+	'notification-edit-talk-page-flyout-with-section' => '$1 پەیامێکی لە [[User talk:$2#$3|پەڕەی لێدوان]]ت لە "[[User talk:$2#$3|$4]]"دا {{GENDER:$1|نووسی}}.',
+	'notification-page-linked' => '[[:$2]] لە [[:$3]]دا {{GENDER:$1|بەستەر درا}}. [[Special:WhatLinksHere/$2|ھەموو بەستەرە بەسراوەکان بەم پەڕەیەوە ببینە]].',
+	'notification-page-linked-flyout' => '$2 لە [[:$3]]دا {{GENDER:$1|بەستەر درا}}.',
+	'notification-add-comment2' => '[[User:$1|$1]] لە «[[$3|$2]]»ی پەڕەی لێدوانی «$4»دا بۆچۆنی نووسی.',
+	'notification-add-talkpage-topic2' => '[[User:$1|$1]] بابەتی نوێی «$2»ی لە [[$3]]دا نووسی.',
+	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]] پەیامێکی بۆ ناردی: «[[$3#$2|$2]]».',
+	'notification-add-comment-yours2' => '[[User:$1|$1]] لە «[[$3#$2|$2]]»ی پەڕەی لێدوانتدا بۆچۆنی نووسی.',
+	'notification-mention' => '[[User:$1|$1]] لە پەڕەی لێدوانی $5 لە «[[$3#$2|$4]]»دا ئاماژەی پێ‌کردی.',
+	'notification-mention-flyout' => '$1 لە پەڕەی لێدوانی $5 لە «[[$3#$2|$4]]»دا ئاماژەی پێ‌کردی.',
+	'notification-user-rights' => 'مافەکانی بەکارھێنەریت لە لایەن [[User:$1|$1]]ەوە [[Special:Log/rights/$1|{{GENDER:$1|گۆڕدرا}}]]. $2. [[Special:ListGroupRights|زیاتر بزانە]]',
+	'notification-user-rights-flyout' => 'مافەکانی بەکارھێنەریت لە لایەن $1ەوە {{GENDER:$1|گۆڕدرا}}. $2. [[Special:ListGroupRights|زیاتر بزانە]]',
+	'notification-user-rights-add' => 'تۆ ھەر ئێستا ئەندامی ئەم {{PLURAL:$2|گرووپە|گرووپانە}}ی: $1',
+	'notification-user-rights-remove' => 'تۆ ئیتر ئەندامی ئەم {{PLURAL:$2|گرووپە|گرووپانە}} نی: $1',
+	'notification-new-user' => 'بەخێرھاتی بۆ {{SITENAME}}، $1! کەیفخۆشین لێرەی.',
+	'notification-reverted2' => '{{PLURAL:$4|دەستکارییەکەت|دەستکارییەکانت}} لە [[:$2]]دا لە لایەن [[User:$1|$1]]ەوە {{GENDER:$1|گەڕێنرایەوە}}. $3',
+	'notification-reverted-flyout2' => '{{PLURAL:$4|دەستکارییەکەت|دەستکارییەکانت}} لە $2دا لە لایەن $1ەوە {{GENDER:$1|گەڕێنرایەوە}}. $3',
+	'notification-edit-talk-page-email-subject2' => '$1 لە {{SITENAME}}دا پەیامێکی بۆ ناردی.',
+	'notification-edit-talk-page-email-batch-body2' => '$1 لە پەڕەی لێدوانتدا پەیامێکی نارد.',
+	'notification-edit-talk-page-email-batch-body-with-section' => '$1 لە پەڕەی لێدوانت لە «$2»دا پەیامێکی نارد.',
+	'notification-page-linked-email-subject' => 'پەڕەکەت لە {{SITENAME}}دا بەستەر درا.',
+	'notification-page-linked-email-batch-body' => '$2 لە $3دا {{GENDER:$1|بەستەر درا}}.',
+	'notification-reverted-email-subject2' => '{{PLURAL:$3|دەستکارییەکەت|دەستکارییەکانت}} لە {{SITENAME}}دا {{GENDER:$1|گەڕێنرایەوە}}',
+	'notification-reverted-email-batch-body2' => '{{PLURAL:$3|دەستکارییەکەت|دەستکارییەکانت}} لە $2دا لە لایەن $1ەوە {{GENDER:$1|گەڕێنرایەوە}}.',
+	'notification-mention-email-subject' => '$1 لە {{SITENAME}}دا ئاماژەی پێ‌کردی.',
+	'notification-mention-email-batch-body' => '$1 لە پەڕەی لێدوانی $4 لە «$3»دا ئاماژەی پێ‌کردی.',
+	'notification-user-rights-email-subject' => 'مافەکانی بەکارھێنەریت لە {{SITENAME}}دا گۆڕدرا.',
+	'notification-user-rights-email-batch-body' => 'مافەکانی بەکارھێنەریت لە لایەن $1ەوە گۆڕدرا. $2.',
 	'echo-email-subject-default' => 'ئاگادارییەکی نوێ لە {{SITENAME}}',
 	'echo-email-body-default' => 'ئاگادارییەکی نوێت ھەیە لە {{SITENAME}}:
 
 $1',
 	'echo-email-batch-body-default' => 'ئاگادارییەکی نوێت ھەیە.',
+	'echo-email-footer-default' => '$2
+
+بۆ کۆنترۆڵی ئەو ئیمەیلانەی بۆت دەنێرین، ھەڵبژاردەکانت تاوتوێ بکە:
+{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
+
+$1',
+	'echo-email-footer-default-html' => '
+
+بۆ کۆنترۆڵی ئەو ئیمەیلانەی بۆت دەنێرین، <a href="$2" style="text-decoration:none; color: #3868B0;">ھەڵبژاردەکانت تاوتوێ بکە</a>.<br />:
+$1',
 	'echo-overlay-link' => 'ھەموو ئاگادارییەکان',
 	'echo-overlay-title' => '<b>ئاگادارییەکان</b>',
 	'echo-overlay-title-overflow' => '<b>ئاگادارییەکان</b> (نیشاندانی $1 لە $2ی نەخوێنراو)',
 	'echo-mark-all-as-read' => 'ھەموویان وەک خوێنراوە نیشان بکە',
 	'echo-date-today' => 'ئەمڕۆ',
 	'echo-date-yesterday' => 'دوێینێ',
+	'echo-load-more-error' => 'ھەڵەیەک لە کاتی وەرگرتنی ئاکامی زیاتر ڕووی دا.',
+	'notification-edit-talk-page-bundle' => '$1 و $3ی {{PLURAL:$4|تر}} لە  [[User talk:$2|پەڕەی لێدوان]]تدا پەیامێکیان ناردووە.',
+	'notification-page-linked-bundle' => '$2 لە $3 و $4 {{PLURAL:$5|پەڕە}}ی تردا {{GENDER:$1|بەستەر درا}}. [[Special:WhatLinksHere/$2|ھەموو بەسراوەکان بەم پەڕەیە ببینە]]',
+	'notification-edit-user-talk-email-batch-bundle-body' => '$1 و $2ی {{PLURAL:$3|تر}} لە پەڕەی لێدوانتدا پەیامێکیان ناردووە.',
+	'notification-page-linked-email-batch-bundle-body' => '$2 لە $3 و $4 {{PLURAL:$5|پەڕە}}ی تردا {{GENDER:$1|بەستەر درا}}.',
+	'echo-email-batch-subject-daily' => 'لە {{SITENAME}}دا {{PLURAL:$2|ئاگادارییەکی نوێت|ئاگاداریی نوێت}} ھەیە',
+	'echo-email-batch-subject-weekly' => 'لە {{SITENAME}}دا {{PLURAL:$2|ئاگادارییەکی نوێت|ئاگاداریی نوێت}} لەم حەفتەیەدا ھەیە',
+	'echo-email-batch-body-intro-daily' => 'سڵاو $1،
+ئەمە کۆرتەیەکە لە چالاکییەکانی ئەمرۆی {{SITENAME}} بۆ تۆ.',
+	'echo-email-batch-body-intro-weekly' => 'سڵاو $1،
+ئەمە کۆرتەیەکە لە چالاکییەکانی حەفتانەی {{SITENAME}} بۆ تۆ.',
 	'echo-email-batch-link-text-view-all-notifications' => 'ھەموو ئاگادارییەکان ببینە',
+	'echo-rev-deleted-text-view' => 'پێداچوونەوەی ئەم پەڕەیە بێسراوە.',
 );
 
 /** Czech (česky)
@@ -2324,7 +2403,7 @@ $messages['fi'] = array(
 	'echo-email-body-default' => 'Sinulle on uusi ilmoitus sivustolla {{SITENAME}}:
 
 $1',
-	'echo-email-batch-body-default' => 'Sinulla on uusi ilmoitus',
+	'echo-email-batch-body-default' => 'Sinulla on uusi ilmoitus.',
 	'echo-email-footer-default' => '$2
 
 Hallitaksesi sähköposteja, mitä lähetämme sinulle, tarkista asetukset:
@@ -3082,6 +3161,15 @@ $1',
 	'notification-edit-talk-page-bundle' => '$1 e $3 {{PLURAL:$4|altere|alteres}} {{GENDER:$1|ha lassate}} un message in tu [[User talk:$2|pagina de discussion]].',
 	'notification-page-linked-bundle' => 'Ligamines a $2 ha essite {{GENDER:$1|inserite}} in $3 e $4 altere {{PLURAL:$5|pagina|paginas}}. [[Special:WhatLinksHere/$2|Vider tote le ligamines a iste pagina]]',
 	'notification-edit-user-talk-email-batch-bundle-body' => '$1 e $2 {{PLURAL:$3|altere|alteres}} {{GENDER:$1|ha lassate}} un message in tu pagina de discussion.',
+	'notification-page-linked-email-batch-bundle-body' => 'Un ligamine a $2 ha essite {{GENDER:$1|inserite}} in $3 e $4 altere {{PLURAL:$5|pagina|paginas}}.',
+	'echo-email-batch-subject-daily' => 'Tu ha {{PLURAL:$2|un nove notification|nove notificationes}} in {{SITENAME}}',
+	'echo-email-batch-subject-weekly' => 'Tu ha {{PLURAL:$2|un nove notification|nove notificationes}} in {{SITENAME}} iste septimana',
+	'echo-email-batch-body-intro-daily' => 'Salute $1,
+Ecce un summario del activitate de hodie in {{SITENAME}} pro te.',
+	'echo-email-batch-body-intro-weekly' => 'Salute $1,
+Ecce un summario del activitate de iste septimana in {{SITENAME}} pro te.',
+	'echo-email-batch-link-text-view-all-notifications' => 'Vider tote le notificationes',
+	'echo-rev-deleted-text-view' => 'Iste version del pagina ha essite supprimite.',
 );
 
 /** Indonesian (Bahasa Indonesia)
@@ -3383,13 +3471,13 @@ $1',
 $messages['ka'] = array(
 	'echo-desc' => 'შეტყობინებების სისტემა',
 	'prefs-echo' => 'შეტყობინებები',
-	'prefs-emailsettings' => 'ელ. ფოსტის პარამეტრები',
+	'prefs-emailsettings' => 'ელ. ფოსტის პარამეტრები', # Fuzzy
 	'prefs-displaynotifications' => 'გამოსახვის პარამეტრები',
 	'prefs-echosubscriptions' => 'შემატყობინეთ ამ ღონისძიებების შესახებ',
 	'echo-pref-send-me' => 'გამომიგზავნეთ:',
 	'echo-pref-web' => 'ქსელი',
 	'echo-pref-email' => 'ელ. ფოსტა',
-	'echo-category-title-edit-user-talk' => 'განხილვის გვერდის {{PLURAL:$1|შეტყობინება|შეტყობინება}}',
+	'echo-category-title-edit-user-talk' => 'განხილვის გვერდის {{PLURAL:$1|შეტყობინება|შეტყობინება}}', # Fuzzy
 	'echo-no-agent' => '[არავინ]',
 	'echo-no-title' => '[არ არის გვერდი]',
 	'notifications' => 'შეტყობინებები',
