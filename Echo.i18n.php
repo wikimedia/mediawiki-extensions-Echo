@@ -1948,6 +1948,7 @@ $1',
 
 /** Spanish (español)
  * @author Armando-Martin
+ * @author DJ Nietzsche
  * @author Fitoschido
  * @author Hahc21
  * @author Invadinado
@@ -2073,7 +2074,7 @@ Aquí está un resumen de la actividad de hoy en {{SITENAME}}.',
 	'echo-email-batch-body-intro-weekly' => 'Hola $1,
 Aquí está un resumen de la actividad de esta semana en {{SITENAME}}.',
 	'echo-email-batch-link-text-view-all-notifications' => 'Ver todas las notificaciones',
-	'echo-rev-deleted-text-view' => 'Ésta revisión de página ha sido suprimida.',
+	'echo-rev-deleted-text-view' => 'Esta revisión de página ha sido suprimida.',
 );
 
 /** Estonian (eesti)
