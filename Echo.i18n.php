@@ -2203,6 +2203,7 @@ Siin on sulle kokkuvõte võrgukohas {{SITENAME}} sellel nädalal toimunust.',
  * @author Ladsgroup
  * @author Mjbmr
  * @author Reza1615
+ * @author Rtemis
  * @author درفش کاویانی
  * @author فلورانس
  */
@@ -2275,7 +2276,7 @@ $messages['fa'] = array(
 	'notification-new-user' => 'به {{SITENAME}} خوش‌آمدید، $1! خوشحالیم که شما اینجا هستید.',
 	'notification-reverted2' => '{{PLURAL:$4|ویرایش|ویرایش‌های}} شما در [[:$2]] توسط [[User:$1|$1]] واگردانی شده‌اند. $3',
 	'notification-reverted-flyout2' => 'شما  {{PLURAL:$4| ویرایش بر روی <b> $2 </b> has|edits در <b> $2 </b> اند}} شده  {{GENDER:$1| واگردانی}} توسط$1 $3',
-	'notification-edit-talk-page-email-subject2' => 'شما یک پیام تازه در صفحهٔ بحث {{SITENAME}} دارید.', # Fuzzy
+	'notification-edit-talk-page-email-subject2' => 'شما یک پیام تازه از طرف $1 در صفحهٔ بحث {{SITENAME}} دارید.',
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|نوشته‌شده در صفحهٔ بحث شما}}',
 	'notification-page-linked-email-subject' => 'صفحه‌ای که شما آغازگر آن بودید در {{SITENAME}} پیوند شد.',
 	'notification-page-linked-email-batch-body' => '$2بود  {{GENDER:$1| مرتبط}} از$3',
