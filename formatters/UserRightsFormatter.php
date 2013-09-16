@@ -26,7 +26,7 @@ class EchoUserRightsFormatter extends EchoBasicFormatter {
 						// Messages that can be used here:
 						// * notification-user-rights-add
 						// * notification-user-rights-remove
-						$list[] = wfMessage( 'notification-user-rights-' . $action )
+						$list[] = $this->getMessage( 'notification-user-rights-' . $action )
 							->params( $wgLang->commaList( $extra[$action] ), count( $extra[$action] ) )
 							->escaped();
 					}

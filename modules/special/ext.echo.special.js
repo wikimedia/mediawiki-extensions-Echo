@@ -60,16 +60,23 @@
 		 * Load more notification records.
 		 */
 		loadMore: function () {
-			var api = new mw.Api( { ajax: { cache: false } } ), notifications, data, container, $li, that = this, unread = [];
+			var api = new mw.Api( { ajax: { cache: false } } ), curUri = new mw.Uri(),
+				notifications, data, container, $li, that = this, unread = [], apiData;
 
-			api.get( {
+			apiData = {
 				'action' : 'query',
 				'meta' : 'notifications',
 				'notformat' : 'html',
 				'notprop' : 'index|list',
 				'notcontinue': this.notcontinue,
 				'notlimit': mw.config.get( 'wgEchoDisplayNum' )
-			} ).done( function ( result ) {
+			};
+
+			if ( curUri.query.uselang !== undefined ) {
+				apiData.uselang = curUri.query.uselang;
+			}
+
+			api.get( apiData ).done( function ( result ) {
 				container = $( '#mw-echo-special-container' );
 				notifications = result.query.notifications;
 				unread = [];

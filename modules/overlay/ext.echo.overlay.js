@@ -23,6 +23,8 @@
 				$overlay = $( '<div></div>' ).addClass( 'mw-echo-overlay' ),
 				$prefLink = $( '#pt-preferences a' ),
 				count = 0,
+				apiData,
+				curUri = new mw.Uri(),
 				api = new mw.Api( { ajax: { cache: false } } );
 
 			// Set notification limit based on height of the window
@@ -34,13 +36,19 @@
 				notificationLimit = 8;
 			}
 
-			api.get( {
+			apiData = {
 				'action' : 'query',
 				'meta' : 'notifications',
 				'notformat' : 'flyout',
 				'notlimit' : notificationLimit,
 				'notprop' : 'index|list|count'
-			} ).done( function ( result ) {
+			};
+
+			if ( curUri.query.uselang !== undefined ) {
+				apiData.uselang = curUri.query.uselang;
+			}
+
+			api.get( apiData ).done( function ( result ) {
 				var notifications = result.query.notifications,
 					unread = [],
 					unreadTotalCount = result.query.notifications.count,

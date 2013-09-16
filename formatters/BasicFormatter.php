@@ -37,6 +37,13 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	protected $icon;
 
 	/**
+	 * The language to format a message, default language
+	 * is the current language
+	 * @param mixed Language code or Language object
+	 */
+	protected $language;
+
+	/**
 	 * Required parameters
 	 * @param array
 	 */
@@ -237,15 +244,12 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 		$userLanguage = $user->getOption( 'language' );
 
 		$dismissTitle = wfMessage( 'echo-category-title-' . $event->getCategory() )
-			->inLanguage( $userLanguage )
 			->numParams( 1 )
 			->text();
 		$dismissMessage = wfMessage( 'echo-dismiss-message', $dismissTitle )
-			->inLanguage( $userLanguage )
 			->escaped();
 		$dismiss = Xml::tags( 'div', array( 'class' => 'mw-echo-dismiss-message' ), $dismissMessage ) . "\n";
 		$prefsMessage = wfMessage( 'echo-dismiss-prefs-message' )
-			->inLanguage( $userLanguage )
 			->escaped();
 		$dismiss .= Xml::tags( 'div', array( 'class' => 'mw-echo-prefs-dismiss-message' ), $prefsMessage ) . "\n";
 		$dismiss = Xml::tags( 'div', array( 'class' => 'mw-echo-dismiss', 'style' => 'display:none;' ), $dismiss ) . "\n";
@@ -274,6 +278,9 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	 * @return array
 	 */
 	protected function formatEmail( $event, $user, $type ) {
+		// Email should be always sent in user language
+		$this->language = $user->getOption( 'language' );
+
 		// Email digest
 		if ( $type === 'emaildigest' ) {
 			return $this->formatEmailDigest( $event, $user );
@@ -334,6 +341,20 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	}
 
 	/**
+	 * Get Message object in the desired language, use this method instead
+	 * of wfMessage() if a message would be used in either web or email
+	 * @param $msgStr string message string
+	 * @return Message
+	 */
+	public function getMessage( $msgStr ) {
+		$message = wfMessage( $msgStr );
+		if ( $this->language ) {
+			$message->inLanguage( $this->language );
+		}
+		return $message;
+	}
+
+	/**
 	 * Creates a notification fragment based on a message and parameters
 	 *
 	 * @param $details array An i18n message and parameters to pass to the message
@@ -342,9 +363,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	 * @return string
 	 */
 	public function formatFragment( $details, $event, $user ) {
-		$message = wfMessage( $details['message'] )
-			->inLanguage( $user->getOption( 'language' ) );
-
+		$message = $this->getMessage( $details['message'] );
 		$this->processParams( $details['params'], $event, $message, $user );
 
 		return $message;
@@ -392,7 +411,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	 */
 	protected function formatCommentText( EchoEvent $event, $user ) {
 		if ( !$event->userCan( Revision::DELETED_TEXT, $user ) ) {
-			return wfMessage( 'echo-rev-deleted-text-view' )->text();
+			return $this->getMessage( 'echo-rev-deleted-text-view' )->text();
 		}
 		$extra = $event->getExtra();
 		if ( !isset( $extra['content'] ) ) {
@@ -415,7 +434,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 		global $wgParser, $wgUser;
 
 		if ( !$event->userCan( Revision::DELETED_TEXT, $wgUser ) ) {
-			return wfMessage( 'echo-rev-deleted-text-view' )->text();
+			return $this->getMessage( 'echo-rev-deleted-text-view' )->text();
 		}
 		$extra = $event->getExtra();
 		if ( empty( $extra['section-title'] ) ) {
@@ -452,7 +471,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	 */
 	protected function setTitleLink( $event, $message, $props = array() ) {
 		if ( !$event->getTitle() ) {
-			$message->params( wfMessage( 'echo-no-title' )->text() );
+			$message->params( $this->getMessage( 'echo-no-title' )->text() );
 			return;
 		}
 
@@ -650,7 +669,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 				return $target->getFullURL( $query, false, PROTO_HTTPS );
 			}
 		} else {
-			$message = wfMessage( $event->getLinkMessage( $rank ) )->inLanguage( $user->getOption( 'language' ) )->text();
+			$message = $this->getMessage( $event->getLinkMessage( $rank ) )->text();
 			$attribs = array( 'class' => "mw-echo-notification-{$rank}-link" );
 			if ( $style ) {
 				$attribs['style'] = $style;
@@ -733,9 +752,9 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 		if ( $param === 'agent' ) {
 			$agent = $event->getAgent();
 			if ( !$agent ) {
-				$message->params( wfMessage( 'echo-no-agent' )->text() );
+				$message->params( $this->getMessage( 'echo-no-agent' )->text() );
 			} elseif ( !$event->userCan( Revision::DELETED_USER, $user ) ) {
-				$message->params( wfMessage( 'rev-deleted-user' )->text() );
+				$message->params( $this->getMessage( 'rev-deleted-user' )->text() );
 			} else {
 				if ( $this->outputFormat === 'htmlemail' ) {
 					$message->rawParams(
@@ -757,8 +776,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 
 			if ( $this->bundleData['agent-other-count'] > $wgEchoMaxNotificationCount ) {
 				$message->params(
-					wfMessage( 'echo-notification-count' )
-					->inLanguage( $user->getOption( 'language' ) )
+					$this->getMessage( 'echo-notification-count' )
 					->params( $wgEchoMaxNotificationCount )
 					->text()
 				);
@@ -772,7 +790,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			$message->params( $user->getName() );
 		} elseif ( $param === 'title' ) {
 			if ( !$event->getTitle() ) {
-				$message->params( wfMessage( 'echo-no-title' )->text() );
+				$message->params( $this->getMessage( 'echo-no-title' )->text() );
 			} else {
 				if ( $this->outputFormat === 'htmlemail' ) {
 					$props = array (
@@ -809,4 +827,5 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 		}
 		return $this->$key;
 	}
+
 }
