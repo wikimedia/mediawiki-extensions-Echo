@@ -43,6 +43,11 @@ $specialPageAliases['eo'] = array(
 	'Notifications' => array( 'Atentigoj' ),
 );
 
+/** Spanish (español) */
+$specialPageAliases['es'] = array(
+	'Notifications' => array( 'Notificaciones' ),
+);
+
 /** Estonian (eesti) */
 $specialPageAliases['et'] = array(
 	'Notifications' => array( 'Teavitused' ),
