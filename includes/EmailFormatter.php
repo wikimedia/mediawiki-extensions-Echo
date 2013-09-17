@@ -115,6 +115,12 @@ abstract class EchoEmailMode {
 	protected $decorator;
 
 	/**
+	 * @var Language
+	 * The language object for the user language
+	 */
+	protected $lang;
+
+	/**
 	 * @param $user User
 	 * @param $component array
 	 */
@@ -125,6 +131,7 @@ abstract class EchoEmailMode {
 		// Initialize with a text decorator, the decorator can be altered
 		// via attacheDecorator() based on text/html emails
 		$this->decorator = new EchoTextEmailDecorator();
+		$this->lang = Language::factory( $user->getOption( 'language' ) );
 	}
 
 	/**
@@ -317,9 +324,10 @@ EOF;
 	 * {@inheritDoc}
 	 */
 	public function getHTMLTemplate() {
+		$alignStart = $this->lang->alignStart();
 		return <<< EOF
 <html><head></head><body>
-<table cellspacing="0" cellpadding="0" border="0" width="100%" align="center">
+<table cellspacing="0" cellpadding="0" border="0" width="100%" align="center" lang="{$this->lang->getCode()}" dir="{$this->lang->getDir()}">
 <tr>
 	<td bgcolor="#E6E7E8"><center>
 		<br /><br />
@@ -332,20 +340,20 @@ EOF;
 			</tr><tr>
 				<td bgcolor="#FFFFFF" width="35" rowspan="2">&nbsp;</td>
 				<td bgcolor="#FFFFFF" width="61" align="center" valign="top" rowspan="2"><img src="%%emailIcon%%" alt="" height="30" width="30"></td>
-				<td bgcolor="#FFFFFF" width="469" align="left" style="font-family:arial; font-size:13px; line-height:20px; color:#6D6E70;">%%intro%%</td>
+				<td bgcolor="#FFFFFF" width="469" align="{$alignStart}" style="font-family: Arial, Helvetica, sans-serif; font-size:13px; line-height:20px; color:#6D6E70;">%%intro%%</td>
 				<td bgcolor="#FFFFFF" width="35" rowspan="2">&nbsp;</td>
 			</tr><tr>
-				<td bgcolor="#FFFFFF" width="469" align="left" style="font-family: arial; font-size:16px; line-height: 20px; font-weight: 600;">
+				<td bgcolor="#FFFFFF" width="469" align="{$alignStart}" style="font-family: Arial, Helvetica, sans-serif; font-size:16px; line-height: 20px; font-weight: 600;">
 					<table cellspacing="0" cellpadding="0" border="0">
 						<tr>
-							<td bgcolor="#FFFFFF" align="left" style="font-family: arial; padding-top: 8px; font-size:13px; font-weight: bold; color: #58585B;">
+							<td bgcolor="#FFFFFF" align="{$alignStart}" style="font-family: Arial, Helvetica, sans-serif; padding-top: 8px; font-size:13px; font-weight: bold; color: #58585B;">
 								%%summary%%
 							</td>
 						</tr>
 					</table>
 					<table cellspacing="0" cellpadding="0" border="0">
 						<tr>
-							<td bgcolor="#FFFFFF" align="left" style="font-family: arial; font-size:14px; padding-top: 25px;">
+							<td bgcolor="#FFFFFF" align="{$alignStart}" style="font-family: Arial, Helvetica, sans-serif; font-size:14px; padding-top: 25px;">
 								%%action%%
 							</td>
 						</tr>
@@ -359,7 +367,7 @@ EOF;
 			</tr><tr>
 				<td bgcolor="#F8F8F8" width="35">&nbsp;</td>
 				<td bgcolor="#F8F8F8" width="61">&nbsp;</td>
-				<td bgcolor="#F8F8F8" width="469" align="left" style="font-family:arial; font-size:10px; line-height:13px; color:#6D6E70; padding:10px 20px;"><br />
+				<td bgcolor="#F8F8F8" width="469" align="{$alignStart}" style="font-family: Arial, Helvetica, sans-serif; font-size:10px; line-height:13px; color:#6D6E70; padding:10px 20px;"><br />
 					%%footer%%
 					<br /><br />
 				</td>
@@ -466,9 +474,10 @@ EOF;
 	 * {@inheritDoc}
 	 */
 	public function getHTMLTemplate() {
+		$alignStart = $this->lang->alignStart();
 		return <<< EOF
 <html><head></head><body>
-<table cellspacing="0" cellpadding="0" border="0" width="100%" align="center">
+<table cellspacing="0" cellpadding="0" border="0" width="100%" align="center" lang="{$this->lang->getCode()}" dir="{$this->lang->getDir()}">
 <tr>
 	<td bgcolor="#E6E7E8"><center>
 		<br /><br />
@@ -482,14 +491,14 @@ EOF;
 			<tr>
 				<td bgcolor="#FFFFFF" width="35" rowspan="2">&nbsp;</td>
 				<td bgcolor="#FFFFFF" width="31" rowspan="2">&nbsp;</td>
-				<td bgcolor="#FFFFFF" width="469" align="center" style="font-family:arial; font-size:13px; line-height:20px; color:#6D6E70; text-align: center;">%%intro%%</td>
+				<td bgcolor="#FFFFFF" width="469" align="center" style="font-family: Arial, Helvetica, sans-serif; font-size:13px; line-height:20px; color:#6D6E70; text-align: center;">%%intro%%</td>
 				<td bgcolor="#FFFFFF" width="65" rowspan="2">&nbsp;</td>
 			</tr>
 			<tr>
-				<td bgcolor="#FFFFFF" width="469" align="left" style="font-family: arial; font-size:16px; line-height: 20px; font-weight: 600;">
+				<td bgcolor="#FFFFFF" width="469" align="{$alignStart}" style="font-family: Arial, Helvetica, sans-serif; font-size:16px; line-height: 20px; font-weight: 600;">
 					<table cellspacing="0" cellpadding="0" border="0" width="100%">
 						<tr>
-							<td bgcolor="#FFFFFF" align="left" style="font-family: arial; font-size:13px; color: #58585B; padding-top: 25px;">
+							<td bgcolor="#FFFFFF" align="{$alignStart}" style="font-family: Arial, Helvetica, sans-serif; font-size:13px; color: #58585B; padding-top: 25px;">
 								%%digestList%%
 							</td>
 						</tr>
@@ -512,7 +521,7 @@ EOF;
 			<tr>
 				<td bgcolor="#F8F8F8" width="35">&nbsp;</td>
 				<td bgcolor="#F8F8F8" width="31">&nbsp;</td>
-				<td bgcolor="#F8F8F8" width="469" align="left" style="font-family:arial; font-size:10px; line-height:13px; color:#6D6E70; padding: 10px 20px;"><br />
+				<td bgcolor="#F8F8F8" width="469" align="{$alignStart}" style="font-family: Arial, Helvetica, sans-serif; font-size:10px; line-height:13px; color:#6D6E70; padding: 10px 20px;"><br />
 					%%footer%%
 					<br /><br />
 				</td>
@@ -776,7 +785,7 @@ class EchoHTMLEmailDecorator implements EchoEmailDecorator {
 	 */
 	protected function getPrimaryLinkCSS() {
 		return 'cursor:pointer; text-align:center; text-decoration:none; padding:.45em 1.2em .45em;
-			color:#D9EEF7; background:#3366BB; font-family: arial;font-size: 13px;';
+			color:#D9EEF7; background:#3366BB; font-family: Arial, Helvetica, sans-serif;font-size: 13px;';
 	}
 
 	/**
@@ -784,7 +793,7 @@ class EchoHTMLEmailDecorator implements EchoEmailDecorator {
 	 * @return string
 	 */
 	protected function getSecondaryLinkCSS() {
-		return 'text-decoration: none;font-size: 10px;font-family: arial; color: #808184';
+		return 'text-decoration: none;font-size: 10px;font-family: Arial, Helvetica, sans-serif; color: #808184';
 	}
 
 	/**
@@ -819,7 +828,7 @@ EOF;
 	<td width="30">
 		<img src="$icon" width="70%" height="70%" style="vertical-align:middle;">
 	</td>
-	<td style="font-family: arial; font-size:13px; color: #58585B;">
+	<td style="font-family: Arial, Helvetica, sans-serif; font-size:13px; color: #58585B;">
 		$text
 	</td>
 </tr>
