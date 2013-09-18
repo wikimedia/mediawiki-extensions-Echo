@@ -140,13 +140,12 @@
 					.click( function ( e ) {
 						e.preventDefault();
 						api.post( {
-							'action' : 'query',
-							'meta' : 'notifications',
-							'notmarkallread' : true,
-							'notprop' : 'count'
+							'action' : 'echomarkread',
+							'all' : true,
+							'token': mw.user.tokens.get( 'editToken' )
 						} ).done( function ( result ) {
-							if ( result.query.notifications.count !== undefined ) {
-								count = result.query.notifications.count;
+							if ( result.query.echomarkread.count !== undefined ) {
+								count = result.query.echomarkread.count;
 								mw.echo.overlay.updateCount( count );
 								// Reset header to 'Notifications'
 								$( '#mw-echo-overlay-title-text').msg( 'echo-overlay-title' );
@@ -241,13 +240,12 @@
 				// only need to mark as read if there is unread item
 				if ( unread.length > 0 ) {
 					api.post( {
-						'action' : 'query',
-						'meta' : 'notifications',
-						'notmarkread' : unread.join( '|' ),
-						'notprop' : 'count'
+						'action' : 'echomarkread',
+						'list' : unread.join( '|' ),
+						'token': mw.user.tokens.get( 'editToken' )
 					} ).done( function ( result ) {
-						if ( result.query.notifications.count !== undefined ) {
-							count = result.query.notifications.count;
+						if ( result.query.echomarkread.count !== undefined ) {
+							count = result.query.echomarkread.count;
 							mw.echo.overlay.updateCount( count );
 						}
 					} );

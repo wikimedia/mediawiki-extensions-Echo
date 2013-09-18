@@ -90,6 +90,8 @@ $wgJobClasses['MWEchoNotificationEmailBundleJob'] = 'MWEchoNotificationEmailBund
 // API
 $wgAutoloadClasses['ApiEchoNotifications'] = $dir . 'api/ApiEchoNotifications.php';
 $wgAPIMetaModules['notifications'] = 'ApiEchoNotifications';
+$wgAutoloadClasses['ApiEchoMarkRead'] = $dir . 'api/ApiEchoMarkRead.php';
+$wgAPIModules['echomarkread'] = 'ApiEchoMarkRead';
 
 // Special page
 $wgAutoloadClasses['SpecialNotifications'] = $dir . 'special/SpecialNotifications.php';
@@ -145,7 +147,8 @@ $wgResourceModules += array(
 		'dependencies' => array(
 			'jquery.ui.button',
 			'mediawiki.api',
-			'mediawiki.Uri'
+			'mediawiki.Uri',
+			'mediawiki.user'
 		),
 		'messages' => array(
 			'cancel',

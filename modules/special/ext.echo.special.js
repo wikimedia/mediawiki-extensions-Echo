@@ -131,16 +131,15 @@
 			var api = new mw.Api(), that = this;
 
 			api.post( {
-				'action' : 'query',
-				'meta' : 'notifications',
-				'notmarkread' : unread.join( '|' ),
-				'notprop' : 'count'
+				'action' : 'echomarkread',
+				'list' : unread.join( '|' ),
+				'token': mw.user.tokens.get( 'editToken' )
 			} ).done( function ( result ) {
 				// update the badge if the link is enabled
-				if ( result.query.notifications.count !== undefined &&
+				if ( result.query.echomarkread.count !== undefined &&
 					$( '#pt-notifications').length && typeof mw.echo.overlay === 'object'
 				) {
-					mw.echo.overlay.updateCount( result.query.notifications.count );
+					mw.echo.overlay.updateCount( result.query.echomarkread.count );
 				}
 				that.onSuccess();
 			} ).fail( function () {

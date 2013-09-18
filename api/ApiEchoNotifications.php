@@ -18,6 +18,11 @@ class ApiEchoNotifications extends ApiQueryBase {
 
 		$params = $this->extractRequestParams();
 
+		// @Todo - markread/markallread has been migrated to a separate new API module,
+		// any related code in this API should be removed in a follow-up patch so that
+		// anything integrated with markread will have time to switch to the new markread
+		// API, also to give client js code enough time to refresh
+		//
 		// There is no need to trigger markRead if all notifications are read
 		if ( $notifUser->getNotificationCount() > 0 ) {
 			if ( count( $params['markread'] ) ) {
@@ -178,10 +183,12 @@ class ApiEchoNotifications extends ApiQueryBase {
 			),
 			'markread' => array(
 				ApiBase::PARAM_ISMULTI => true,
+				ApiBase::PARAM_DEPRECATED => true,
 			),
 			'markallread' => array(
 				ApiBase::PARAM_REQUIRED => false,
-				ApiBase::PARAM_TYPE => 'boolean'
+				ApiBase::PARAM_TYPE => 'boolean',
+				ApiBase::PARAM_DEPRECATED => true,
 			),
 			'format' => array(
 				ApiBase::PARAM_TYPE => array(
