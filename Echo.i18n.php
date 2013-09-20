@@ -596,8 +596,45 @@ $messages['af'] = array(
  * @author Meno25
  * @author Mido
  * @author Zanatos
+ * @author زكريا
  */
 $messages['ar'] = array(
+	'echo-desc' => 'نظام الإشعارات',
+	'prefs-echo' => 'إشعارات',
+	'prefs-emailsettings' => 'خيارات البريد الإلكتروني',
+	'prefs-displaynotifications' => 'خيارات العرض',
+	'prefs-echosubscriptions' => 'أشعرني بشأن هذه الأحداث',
+	'prefs-newmessageindicator' => 'مؤشر الرسائل الجديدة',
+	'echo-pref-send-me' => 'أرسل لي:',
+	'echo-pref-send-to' => 'أرسل إلى:',
+	'echo-pref-email-format' => 'صيغة البريد الإلكتروني:',
+	'echo-pref-web' => 'ويب',
+	'echo-pref-email' => 'بريد إلكتروني',
+	'echo-pref-email-frequency-never' => 'لا ترسل لي أي إشعارات بالبريد الإلكتروني',
+	'echo-pref-email-frequency-immediately' => 'الإشعارات الفردية حال ورودها',
+	'echo-pref-email-frequency-daily' => 'ملخصا يوميا للإشعارات',
+	'echo-pref-email-frequency-weekly' => 'ملخصا أسبوعيا للإشعارات',
+	'echo-pref-email-format-html' => 'نص مصوغ',
+	'echo-pref-email-format-plain-text' => 'نص خام',
+	'echo-pref-notify-show-link' => 'أظهر الإشعارات في شريط الأدوات',
+	'echo-pref-new-message-indicator' => 'أظهر مؤشر رسائل صفحة النقاش في شريط الأدوات',
+	'echo-learn-more' => 'المزيد',
+	'echo-dismiss-button' => 'أغلق',
+	'echo-dismiss-message' => 'أوقف جميع إشعارات $1',
+	'echo-dismiss-prefs-message' => 'يمكن لك إعادة تشغيلها في [[Special:Preferences#mw-prefsection-echo|التفضيلات]]',
+	'echo-new-messages' => 'لديك رسائل جديدة.',
+	'echo-category-title-edit-user-talk' => '{{PLURAL:$1|رسالة|رسائل}} صفحة النقاش',
+	'echo-category-title-article-linked' => '{{PLURAL:$1|وصلة|وصلات}} صفحة',
+	'echo-category-title-reverted' => 'رفض {{PLURAL:$1|تعديل|تعديلات}}',
+	'echo-category-title-mention' => '{{PLURAL:$1|إشارة|إشارات}}',
+	'echo-category-title-other' => '{{PLURAL:$1|أخرى}}',
+	'echo-category-title-system' => '{{PLURAL:$1|النظام}}',
+	'echo-pref-tooltip-edit-user-talk' => 'أشعرني عندما توضع رسائل أو ردود في صفحة نقاشي.',
+	'echo-pref-tooltip-article-linked' => 'أشعرني عندما توضع في مقالة ما وصلة لصفحة أنشأتها.',
+	'echo-pref-tooltip-reverted' => 'أشعرني عندما يرفض تعديل أجريته.',
+	'echo-pref-tooltip-mention' => 'أشعرني عندما توضع في صفحة نقاش ما وصلة لصفحتي.',
+	'echo-no-agent' => '[لا أحد]',
+	'echo-no-title' => '[لا صفحة]',
 	'notifications' => 'إخطارات',
 	'echo-specialpage' => 'إخطاراتي', # Fuzzy
 	'echo-overlay-title' => '<b>الإخطارات</b>',
@@ -919,6 +956,7 @@ $messages['bg'] = array(
 /** Bengali (বাংলা)
  * @author Aftab1995
  * @author Bellayet
+ * @author Nasir8891
  */
 $messages['bn'] = array(
 	'echo-desc' => 'বিজ্ঞপ্তি ব্যবস্থা',
@@ -1021,6 +1059,7 @@ $1',
 	'echo-date-today' => 'আজ',
 	'echo-date-yesterday' => 'গতকাল',
 	'echo-load-more-error' => 'আরও ফলাফল আনার সময় কোনো ত্রুটি হয়েছে।',
+	'notification-edit-user-talk-email-batch-bundle-body' => '$1 এবং আরও $2 {{PLURAL:$3|জন}} আপনার আলাপ পাতায় বার্তা {{GENDER:$1|লিখেছেন}}।',
 	'echo-email-batch-subject-daily' => 'আপনি {{SITENAME}}-এ {{PLURAL:$2|একটি নতুন বিজ্ঞপ্তি|নতুন বিজ্ঞপ্তিসমূহ}} পেয়েছেন',
 	'echo-email-batch-subject-weekly' => 'এই সপ্তাহে আপনি {{SITENAME}}-এ {{PLURAL:$2|একটি নতুন বিজ্ঞপ্তি|নতুন বিজ্ঞপ্তিসমূহ}} পেয়েছেন',
 	'echo-email-batch-body-intro-daily' => 'প্রিয় $1,
@@ -1036,6 +1075,7 @@ $1',
  * @author Y-M D
  */
 $messages['br'] = array(
+	'echo-desc' => 'Reizhiad kemennoù',
 	'prefs-echo' => 'Kemennoù',
 	'prefs-emailsettings' => 'Dibarzhioù postel',
 	'prefs-displaynotifications' => 'Dibarzhioù diskwel',
@@ -1049,8 +1089,10 @@ $messages['br'] = array(
 	'echo-pref-email-format-html' => 'HTML',
 	'echo-pref-email-format-plain-text' => 'Testenn blaen',
 	'echo-pref-notify-show-link' => "Diskouez ar c'hemennoù em barrenn ostilhoù",
+	'echo-learn-more' => "Gouzout hiroc'h",
 	'echo-dismiss-button' => 'Disteurel',
 	'echo-new-messages' => "Kemennadennoù nevez zo ganeoc'h.",
+	'echo-category-title-article-linked' => 'Pajenn {{PLURAL:$1|link}}',
 	'echo-category-title-mention' => '{{PLURAL:$1|Meneg}}',
 	'echo-category-title-other' => '{{PLURAL:$1|All}}',
 	'echo-category-title-system' => '{{PLURAL:$1|Sistem}}',
@@ -1060,6 +1102,7 @@ $messages['br'] = array(
 	'notifications' => 'Kemennoù',
 	'tooltip-pt-notifications' => 'Ho kemennoù',
 	'echo-specialpage' => 'Kemennoù',
+	'echo-none' => "N'ho peus resevet kemenn ebet.",
 	'echo-more-info' => "Gouzout hiroc'h",
 	'echo-feedback' => 'Sonjoù',
 	'notification-link-text-view-message' => 'Dsikwel ar gemennadenn',
@@ -1068,9 +1111,12 @@ $messages['br'] = array(
 	'notification-link-text-view-page' => 'Gwelet ar bajenn',
 	'notification-link-text-view-edit' => "Gwelet ar c'hemm",
 	'notification-new-user' => 'Degemer mat er {{SITENAME}}, $1!',
+	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|en deus|he deus}} lezet ur gemennadenn war ho pajenn gaozeal :',
+	'notification-edit-talk-page-email-batch-body-with-section' => '$1 {{GENDER:$1|en deus|he deus}} lezet ur gemennadenn war ho pajenn gaozeal e-barzh "$2".',
 	'notification-page-linked-email-subject' => 'Liammet eo bet ho pajenn ouzh {{SITENAME}}',
 	'notification-user-rights-email-subject' => 'Cheñchet eo ho kwirioù implijer war {{SITENAME}}',
 	'echo-email-subject-default' => 'Kemenn nevez e {{SITENAME}}',
+	'echo-email-batch-body-default' => "Ur c'hemenn nevez ho peus resevet.",
 	'echo-overlay-link' => 'An holl gemennoù',
 	'echo-overlay-title' => 'Kemennoù',
 	'echo-overlay-title-overflow' => "Va c'hemennoù (o tiskouez $1 diwar $2 nann-lennet)", # Fuzzy
@@ -2836,9 +2882,9 @@ $messages['he'] = array(
 	'notification-link-text-view-page' => 'הצגת דף',
 	'notification-link-text-view-edit' => 'הצגת עריכה',
 	'notification-edit-talk-page2' => '[[User:$1|$1]] {{GENDER:$1|כתב|כתבה}} ב[[User talk:$2#$3|דף השיחה]] שלך.',
-	'notification-edit-talk-page-with-section' => "[[User:$1|$1]] {{GENDER:$1|כתב|כתבה}} כתבה בדף השיחה שלך הודעה עם הכותרת '[[User talk:$2#$3|$4]]'.",
+	'notification-edit-talk-page-with-section' => "[[User:$1|$1]] {{GENDER:$1|כתב|כתבה}} כתבה בדף השיחה שלך הודעה תחת הכותרת '[[User talk:$2#$3|$4]]'.",
 	'notification-edit-talk-page-flyout2' => '$1 {{GENDER:$1|כתב|כתבה}} ב[[User talk:$2#$3|דף השיחה שלך]].',
-	'notification-edit-talk-page-flyout-with-section' => "$1 {{GENDER:$1|כתב|כתבה}} כתבה בדף השיחה שלך הודעה עם הכותרת '[[User talk:$2#$3|$4]]'.",
+	'notification-edit-talk-page-flyout-with-section' => "$1 {{GENDER:$1|כתב|כתבה}} כתבה בדף השיחה שלך הודעה תחת הכותרת '[[User talk:$2#$3|$4]]'.",
 	'notification-page-linked' => '{{GENDER:$1|נוסף קישור}} אל הדף [[:$2]] מהדף [[:$3]]. [[Special:WhatLinksHere/$2|כל הקישורים אל הדף הזה]].',
 	'notification-page-linked-flyout' => '{{GENDER:$1|נוסף קישור}} אל הדף $2 מהדף [[:$3]].',
 	'notification-add-comment2' => '[[User:$1|$1]] {{GENDER:$1|העיר|העירה}} על הנושא "[[$3|$2]]" בדף השיחה של "$4"',
@@ -2856,7 +2902,7 @@ $messages['he'] = array(
 	'notification-reverted-flyout2' => '$1 {{GENDER:$1|שחזר|שחזרה}} {{PLURAL:$4|עריכה שלך|עריכות שלך}} בדף $2 $3',
 	'notification-edit-talk-page-email-subject2' => '$1 {{GENDER:$1|כתב|כתבה}} לך הודעה חדשה באתר {{SITENAME}}',
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|כתב|כתבה}} הודעה בדף השיחה שלך:',
-	'notification-edit-talk-page-email-batch-body-with-section' => "$1 {{GENDER:$1|כתב|כתבה}} בדף השיחה שלך הודעה עם הכותרת '$2'.",
+	'notification-edit-talk-page-email-batch-body-with-section' => "$1 {{GENDER:$1|כתב|כתבה}} בדף השיחה שלך הודעה תחת הכותרת '$2'.",
 	'notification-page-linked-email-subject' => 'מישהו קישר אל הדף שלך באתר {{SITENAME}}',
 	'notification-page-linked-email-batch-body' => '{{GENDER:$1|מישהו קישר|מישהי קישרה}} מהדף $3 אל הדף $2',
 	'notification-reverted-email-subject2' => '$1 {{GENDER:$1|שחזר|שחזרה}} {{PLURAL:$3|עריכה שלך|עריכות שלך}} באתר {{SITENAME}}',
@@ -4569,6 +4615,7 @@ $messages['nds'] = array(
  * @author Rcdeboer
  * @author SPQRobin
  * @author Siebrand
+ * @author Southparkfan
  * @author User555
  */
 $messages['nl'] = array(
@@ -4624,8 +4671,10 @@ $messages['nl'] = array(
 	'notification-link-text-view-page' => 'Pagina bekijken',
 	'notification-link-text-view-edit' => 'Bewerking bekijken',
 	'notification-edit-talk-page2' => '[[User:$1|$1]] {{GENDER:$1|heeft een bericht geplaatst}} op uw [[User talk:$2#$3|overlegpagina]].',
+	'notification-edit-talk-page-with-section' => '[[User:$1|$1]] {{GENDER:$1|heeft}} een bericht op uw overlegpagina achtergelaten in de sectie "[[User talk:$2#$3|$4]]".',
 	'notification-edit-talk-page-flyout2' => '$1 {{GENDER:$1|heeft een bericht geplaatst}} op uw [[User talk:$2#$3|overlegpagina]].',
-	'notification-page-linked' => '[[:$2]] is {{GENDER:$1|gekoppeld}} vanaf [[:$3]]: [[Special:WhatLinksHere/$2|alle koppelingen naar deze pagina bekijken]]', # Fuzzy
+	'notification-edit-talk-page-flyout-with-section' => '$1 {{GENDER:$1|heeft}} een bericht op uw overlegpagina achtergelaten in de sectie "[[User talk:$2#$3|$4]]".',
+	'notification-page-linked' => '[[:$2]] is {{GENDER:$1|gekoppeld}} vanaf [[:$3]]:[[Special:WhatLinksHere/$2|alle koppelingen naar deze pagina bekijken]]',
 	'notification-page-linked-flyout' => '$2 is {{GENDER:$1|gekoppeld}} vanaf [[:$3]].',
 	'notification-add-comment2' => '[[User:$1|$1]] {{GENDER:$1|heeft gereageerd}} op "[[$3|$2]]" op de overlegpagina "$4"',
 	'notification-add-talkpage-topic2' => '[[User:$1|$1]] {{GENDER:$1|heeft}} een nieuw onderwerp "$2" geplaatst op [[$3]]',
@@ -4641,7 +4690,7 @@ $messages['nl'] = array(
 	'notification-reverted2' => 'Uw {{PLURAL:$4|bewerking op [[:$2]] is|bewerkingen op [[:$2]] zijn}} {{GENDER:$1|teruggedraaid}} [[User:$1|$1]] $3',
 	'notification-reverted-flyout2' => 'Uw {{PLURAL:$4|bewerking op $2 is|bewerkingen op $2 zijn}} {{GENDER:$1|teruggedraaid}} door $1 $3',
 	'notification-edit-talk-page-email-subject2' => '$1 {{GENDER:$1|heeft}} een bericht voor u achtergelaten op {{SITENAME}}',
-	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|heeft}} een bericht achtergelaten op uw overlegpagina', # Fuzzy
+	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|heeft}} een bericht achtergelaten op uw overlegpagina:',
 	'notification-edit-talk-page-email-batch-body-with-section' => '$1 {{GENDER:$1|heeft}} een bericht achtergelaten op uw overlegpagina in "$2".',
 	'notification-page-linked-email-subject' => 'Een pagina die u hebt aangemaakt is gekoppeld op {{SITENAME}}',
 	'notification-page-linked-email-batch-body' => '$2 is {{GENDER:$1|gekoppeld}} vanaf $3',
@@ -4682,7 +4731,7 @@ Hier is een samenvatting voor u van de activiteiten op {{SITENAME}} van vandaag'
 	'echo-email-batch-body-intro-weekly' => 'Hallo $1,
 Hier is een samenvatting voor u van de activiteiten op {{SITENAME}} van deze week.',
 	'echo-email-batch-link-text-view-all-notifications' => 'Alle mededelingen bekijken',
-	'echo-rev-deleted-text-view' => 'Deze paginaversie is onderdrukt',
+	'echo-rev-deleted-text-view' => 'Deze paginaversie is onderdrukt.',
 );
 
 /** Nederlands (informeel)‎ (Nederlands (informeel)‎)
@@ -6015,48 +6064,62 @@ $1',
 
 /** Turkish (Türkçe)
  * @author Emperyan
+ * @author Incelemeelemani
  */
 $messages['tr'] = array(
 	'echo-desc' => 'Bildirim sistemi',
 	'prefs-echo' => 'Bildirimler',
-	'prefs-emailsettings' => 'E-posta ayarları',
+	'prefs-emailsettings' => 'E-posta seçenekleri',
 	'prefs-displaynotifications' => 'Görüntüleme seçenekleri',
 	'prefs-echosubscriptions' => 'Bu olaylar hakkında bildir',
+	'prefs-newmessageindicator' => 'Yeni ileti bildirimi',
 	'echo-pref-send-me' => 'Bana gönder:',
 	'echo-pref-send-to' => 'Şuna gönder:',
-	'echo-pref-web' => 'Veb',
+	'echo-pref-email-format' => 'E-posta biçimi:',
+	'echo-pref-web' => 'Web',
 	'echo-pref-email' => 'E-posta',
 	'echo-pref-email-frequency-never' => 'Bana e-posta bildirimi gönderme',
-	'echo-pref-email-frequency-daily' => 'Bildirimlerin günlük özeti',
-	'echo-pref-email-frequency-weekly' => 'Bildirimlerin haftalık özeti',
+	'echo-pref-email-frequency-immediately' => 'Tüm iletiler',
+	'echo-pref-email-frequency-daily' => 'İletilerin günlük özeti',
+	'echo-pref-email-frequency-weekly' => 'İletilerin haftalık özeti',
+	'echo-pref-email-format-html' => 'HTML',
+	'echo-pref-email-format-plain-text' => 'Düz metin',
 	'echo-pref-notify-show-link' => 'Bildirimleri araç çubuğumda göster',
+	'echo-pref-new-message-indicator' => 'Mesaj sayfamın yerine mesaj göstergesi araç çubuğunu göster',
 	'echo-learn-more' => 'Daha fazla bilgi',
-	'echo-category-title-edit-user-talk' => 'Tartışma sayfası {{PLURAL:$1|gönderimi|gönderimleri}}',
+	'echo-dismiss-button' => 'Reddet',
+	'echo-dismiss-message' => 'Tüm $1 iletilerini kapat',
+	'echo-dismiss-prefs-message' => 'Dilerseniz bu [[Special:Preferences#mw-prefsection-echo|tercihlerim]] bölümünden tekrar açabilirsiniz.',
+	'echo-new-messages' => 'Yeni mesajınız var.',
+	'echo-category-title-edit-user-talk' => 'Tartışma sayfası {{PLURAL:$1|mesajı|mesajları}}',
 	'echo-category-title-article-linked' => 'Sayfa {{PLURAL:$1|bağlantısı|bağlantıları}}',
 	'echo-category-title-reverted' => 'Değişiklik {{PLURAL:$1|iptali|iptalleri}}',
 	'echo-category-title-mention' => '{{PLURAL:$1|Zikretme|Zikretmeler}}',
 	'echo-category-title-other' => '{{PLURAL:$1|Diğer}}',
 	'echo-category-title-system' => '{{PLURAL:$1|Sistem}}',
+	'echo-pref-tooltip-edit-user-talk' => 'Ne zaman birisi bana mesaj gönderse ya da tartışma sayfamı değiştirse bana bildir.',
+	'echo-pref-tooltip-article-linked' => 'Oluşturduğum makalelerde değişiklik yapıldığında bana bildir.',
+	'echo-pref-tooltip-reverted' => 'Düzenleme yapıldıktan sonra geri alındığı takdirde bu durumu bana bildir.',
+	'echo-pref-tooltip-mention' => 'Ne zaman birisi tartışma sayfasında kullanıcı adıma bağlantı verirse, bunu bana bildir.',
 	'echo-no-agent' => '[Kimse]',
 	'echo-no-title' => '[Sayfa yok]',
-	'echo-error-preference' => 'Hata: Kullanıcı tercihi ayarlanamadı',
+	'echo-error-no-formatter' => 'Hiçbir bildirim için biçim tanımlanmamış.',
+	'echo-error-preference' => 'Hata: Kullanıcı tercihi ayarlanamadı.',
+	'echo-error-token' => 'Hata: Kullanıcı anahtarı alınamadı.',
 	'notifications' => 'Bildirimler',
 	'tooltip-pt-notifications' => 'Bildirimleriniz',
 	'echo-specialpage' => 'Bildirimler',
-	'echo-none' => 'Bildiriminiz bulunmamakta.',
+	'echo-anon' => 'Bildirimlere ulaşabilmek için, [$1 hesap oluşturun] ya da [$2 giriş yapın].',
+	'echo-none' => 'Bildiriminiz bulunmuyor.',
 	'echo-more-info' => 'Daha fazla bilgi',
 	'echo-feedback' => 'Geri bildirim',
+	'notification-link-text-view-message' => 'Mesajı görüntüle',
+	'notification-link-text-view-mention' => 'Bahsi görüntüle',
+	'notification-link-text-view-changes' => 'Değişiklikleri görüntüle',
+	'notification-link-text-view-page' => 'Sayfayı görüntüle',
+	'notification-link-text-view-edit' => 'Düzenlemeyi görüntüle',
 	'notification-new-user' => 'Hoş geldin $1! Sizi burada görmekten memnun olduk.',
 	'notification-edit-talk-page-email-subject2' => 'Yeni tartışma sayfası iletiniz var.', # Fuzzy
-	'notification-edit-talk-page-email-body2' => '$1
-
-$3
-
-Daha fazlası:
-
-<$2>
-
-$4', # Fuzzy
 	'echo-email-batch-body-default' => 'Yeni bir bildiriminiz var',
 	'echo-overlay-link' => 'Bütün bildirimler',
 	'echo-overlay-title' => '<b>Bildirimler</b>',
