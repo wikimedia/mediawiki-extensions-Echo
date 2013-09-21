@@ -55,7 +55,7 @@ $specialPageAliases['et'] = array(
 
 /** Persian (فارسی) */
 $specialPageAliases['fa'] = array(
-	'Notifications' => array( 'آگهی‌ها' ),
+	'Notifications' => array( 'آگاه‌سازی‌ها' ),
 );
 
 /** Finnish (suomi) */
