@@ -29,7 +29,13 @@ class ApiEchoMarkRead extends ApiBase {
 			}
 		}
 
-		$result = array( 'result' => 'success', 'count' => $notifUser->getFormattedNotificationCount() );
+		$rawCount = $notifUser->getNotificationCount();
+
+		$result = array(
+			'result' => 'success',
+			'rawcount' => $rawCount,
+			'count' => EchoNotificationController::formatNotificationCount( $rawCount ),
+		);
 		$this->getResult()->addValue( 'query', $this->getModuleName(), $result );
 	}
 
@@ -45,6 +51,7 @@ class ApiEchoMarkRead extends ApiBase {
 			'token' => array(
 				ApiBase::PARAM_REQUIRED => true,
 			),
+			'uselang' => null
 		);
 	}
 
@@ -53,6 +60,7 @@ class ApiEchoMarkRead extends ApiBase {
 			'list' => 'A list of notification IDs to mark as read',
 			'all' => "If set to true, marks all of a user's notifications as read",
 			'token' => 'edit token',
+			'uselang' => 'the desired language to format the output'
 		);
 	}
 

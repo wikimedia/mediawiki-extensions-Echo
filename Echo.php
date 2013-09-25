@@ -152,6 +152,16 @@ $wgResourceModules += array(
 		),
 		'targets' => array( 'desktop', 'mobile' ),
 	),
+	'ext.echo.desktop' => $echoResourceTemplate + array(
+		'scripts' => 'desktop/ext.echo.desktop.js',
+		'dependencies' => array(
+			'ext.echo.base',
+			'mediawiki.api',
+			'mediawiki.Uri',
+			'mediawiki.jqueryMsg',
+			'mediawiki.user',
+		),
+	),
 	'ext.echo.overlay' => $echoResourceTemplate + array(
 		'scripts' => array(
 			'overlay/ext.echo.overlay.js',
@@ -162,12 +172,8 @@ $wgResourceModules += array(
 			'monobook' => 'overlay/ext.echo.overlay.monobook.css',
 		),
 		'dependencies' => array(
-			'ext.echo.base',
-			'mediawiki.api',
-			'mediawiki.Uri',
+			'ext.echo.desktop',
 			'mediawiki.util',
-			'mediawiki.jqueryMsg',
-			'mediawiki.user',
 		),
 		'messages' => array(
 			'echo-overlay-title',
@@ -185,12 +191,8 @@ $wgResourceModules += array(
 		),
 		'styles' => 'special/ext.echo.special.css',
 		'dependencies' => array(
-			'ext.echo.base',
-			'mediawiki.api',
-			'mediawiki.Uri',
+			'ext.echo.desktop',
 			'mediawiki.ui',
-			'mediawiki.jqueryMsg',
-			'mediawiki.user',
 		),
 		'messages' => array(
 			'echo-load-more-error',

@@ -50,7 +50,9 @@ class ApiEchoNotifications extends ApiQueryBase {
 		}
 
 		if ( in_array( 'count', $prop ) ) {
-			$result['count'] = $notifUser->getFormattedNotificationCount();
+			$rawCount = $notifUser->getNotificationCount();
+			$result['rawcount'] = $rawCount;
+			$result['count'] = EchoNotificationController::formatNotificationCount( $rawCount );
 		}
 
 		if ( in_array( 'index', $prop ) ) {

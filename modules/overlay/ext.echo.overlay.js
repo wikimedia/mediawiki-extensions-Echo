@@ -4,12 +4,15 @@
 
 	mw.echo.overlay = {
 
-		updateCount: function ( newCount ) {
+		/**
+		 * @param newCount formatted count
+		 * @param rawCount unformatted count
+		 */
+		updateCount: function ( newCount, rawCount ) {
 			var $badge = $( '.mw-echo-notifications-badge' );
 			$badge.text( newCount );
-			// newCount could be '99+' or another string.
-			// Checking for number as well just to be paranoid.
-			if ( newCount !== '0' && newCount !== 0 ) {
+
+			if ( rawCount !== '0' && rawCount !== 0 ) {
 				$badge.addClass( 'mw-echo-unread-notifications' );
 			} else {
 				$badge.removeClass( 'mw-echo-unread-notifications' );
@@ -24,7 +27,6 @@
 				$prefLink = $( '#pt-preferences a' ),
 				count = 0,
 				apiData,
-				curUri = new mw.Uri(),
 				api = new mw.Api( { ajax: { cache: false } } );
 
 			// Set notification limit based on height of the window
@@ -44,14 +46,11 @@
 				'notprop' : 'index|list|count'
 			};
 
-			if ( curUri.query.uselang !== undefined ) {
-				apiData.uselang = curUri.query.uselang;
-			}
-
-			api.get( apiData ).done( function ( result ) {
+			api.get( mw.echo.desktop.appendUseLang( apiData ) ).done( function ( result ) {
 				var notifications = result.query.notifications,
 					unread = [],
 					unreadTotalCount = result.query.notifications.count,
+					unreadRawTotalCount = result.query.notifications.rawcount,
 					$title = $( '<div class="mw-echo-overlay-title"></div>' ),
 					$ul = $( '<ul class="mw-echo-notifications"></ul>' ),
 					titleText = '',
@@ -60,7 +59,7 @@
 					$markReadButton;
 
 				if ( unreadTotalCount !== undefined ) {
-					mw.echo.overlay.updateCount( unreadTotalCount );
+					mw.echo.overlay.updateCount( unreadTotalCount, unreadRawTotalCount );
 				}
 				$ul.css( 'max-height', notificationLimit * 95 + 'px' );
 				$.each( notifications.index, function ( index, id ) {
@@ -123,7 +122,7 @@
 				} );
 
 				if ( notifications.index.length > 0 ) {
-					if ( isNaN( unreadTotalCount ) || unreadTotalCount > unread.length ) {
+					if ( unreadRawTotalCount > unread.length ) {
 						titleText = mw.msg( 'echo-overlay-title-overflow', unread.length, unreadTotalCount );
 						overflow = true;
 					} else {
@@ -139,14 +138,14 @@
 					.text( mw.msg( 'echo-mark-all-as-read' ) )
 					.click( function ( e ) {
 						e.preventDefault();
-						api.post( {
+						api.post( mw.echo.desktop.appendUseLang( {
 							'action' : 'echomarkread',
 							'all' : true,
 							'token': mw.user.tokens.get( 'editToken' )
-						} ).done( function ( result ) {
+						} ) ).done( function ( result ) {
 							if ( result.query.echomarkread.count !== undefined ) {
 								count = result.query.echomarkread.count;
-								mw.echo.overlay.updateCount( count );
+								mw.echo.overlay.updateCount( count, result.query.echomarkread.rawcount );
 								// Reset header to 'Notifications'
 								$( '#mw-echo-overlay-title-text').msg( 'echo-overlay-title' );
 							}
@@ -158,9 +157,7 @@
 				// The only reason we limit it to the maximum is to prevent expensive
 				// database updates. If the count is more than the maximum, it could
 				// be thousands.
-				if ( overflow &&
-					!isNaN( unreadTotalCount ) &&
-					unreadTotalCount < mw.echo.overlay.configuration['max-notification-count']
+				if ( overflow && unreadRawTotalCount < mw.echo.overlay.configuration['max-notification-count']
 				) {
 					// Add the 'mark all as read' button to the title area
 					$title.append( $markReadButton );
@@ -239,14 +236,14 @@
 
 				// only need to mark as read if there is unread item
 				if ( unread.length > 0 ) {
-					api.post( {
+					api.post( mw.echo.desktop.appendUseLang( {
 						'action' : 'echomarkread',
 						'list' : unread.join( '|' ),
 						'token': mw.user.tokens.get( 'editToken' )
-					} ).done( function ( result ) {
+					} ) ).done( function ( result ) {
 						if ( result.query.echomarkread.count !== undefined ) {
 							count = result.query.echomarkread.count;
-							mw.echo.overlay.updateCount( count );
+							mw.echo.overlay.updateCount( count, result.query.echomarkread.rawcount );
 						}
 					} );
 				}
