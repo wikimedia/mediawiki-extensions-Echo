@@ -141,15 +141,12 @@ $echoResourceTemplate = array(
 );
 
 $wgResourceModules += array(
+	// ext.echo.base is used by mobile notifications as well, so be sure not to add any
+	// dependencies that do not target mobile.
 	'ext.echo.base' => $echoResourceTemplate + array(
 		'styles' => 'base/ext.echo.base.css',
 		'scripts' => 'base/ext.echo.base.js',
-		'dependencies' => array(
-			'mediawiki.api',
-			'mediawiki.Uri',
-		),
 		'messages' => array(
-			'cancel',
 			'echo-error-preference',
 			'echo-error-token',
 		),
@@ -166,6 +163,8 @@ $wgResourceModules += array(
 		),
 		'dependencies' => array(
 			'ext.echo.base',
+			'mediawiki.api',
+			'mediawiki.Uri',
 			'mediawiki.util',
 			'mediawiki.jqueryMsg',
 			'mediawiki.user',
@@ -187,6 +186,8 @@ $wgResourceModules += array(
 		'styles' => 'special/ext.echo.special.css',
 		'dependencies' => array(
 			'ext.echo.base',
+			'mediawiki.api',
+			'mediawiki.Uri',
 			'mediawiki.ui',
 			'mediawiki.jqueryMsg',
 			'mediawiki.user',
