@@ -78,7 +78,7 @@ class EchoEvent {
 	 * extra: Event-specific extra information (e.g. post content)
 	 *
 	 * @throws MWException
-	 * @return EchoEvent
+	 * @return EchoEvent|bool false if aborted via hook
 	 */
 	public static function create( $info = array() ) {
 		global $wgEchoNotifications;
@@ -128,7 +128,13 @@ class EchoEvent {
 			throw new MWException( "Invalid user parameter" );
 		}
 
+		if ( !wfRunHooks( 'BeforeEchoEventInsert', array( $obj ) ) ) {
+			return false;
+		}
+
 		$obj->insert();
+
+		wfRunHooks( 'EchoEventInsertComplete', array( $obj ) );
 
 		global $wgEchoUseJobQueue;
 
