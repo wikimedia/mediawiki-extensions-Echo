@@ -819,6 +819,39 @@ Esti ye un resume personal de la actividá selmanal en {{SITENAME}}.',
 	'echo-rev-deleted-text-view' => 'Esta revisión de páxina ta encaboxada',
 );
 
+/** Azerbaijani (azərbaycanca)
+ * @author Interfase
+ */
+$messages['az'] = array(
+	'echo-desc' => 'Bildiriş sistemi',
+	'prefs-echo' => 'Bildirişlər',
+	'prefs-emailsettings' => 'Elektron poçtun parametrləri',
+	'prefs-displaynotifications' => 'Displeyin parametrləri',
+	'echo-pref-send-me' => 'Mənə göndər:',
+	'echo-pref-send-to' => 'Göndər',
+	'notifications' => 'Bildirişlər',
+	'tooltip-pt-notifications' => 'Sizin bildirişləriniz',
+	'echo-specialpage' => 'Bildirişlər',
+	'echo-none' => 'Sizə bildiriş yoxdur',
+	'echo-more-info' => 'Daha ətraflı',
+	'echo-feedback' => 'Rəy',
+	'notification-link-text-view-message' => 'Məktuba bax',
+	'notification-link-text-view-mention' => 'Qeydə bax',
+	'notification-link-text-view-changes' => 'Dəyişiklərə bax',
+	'notification-link-text-view-page' => 'Səhifəyə bax',
+	'notification-link-text-view-edit' => 'Redaktəyə bax',
+	'echo-email-body-default' => 'Sizə {{SITENAME}} səhifəsində yeni bildiriş var :
+
+$1',
+	'echo-email-batch-body-default' => 'Sizə yeni bildiriş var',
+	'echo-overlay-link' => 'Bütün bildirişlər',
+	'echo-overlay-title' => '<b>Bildirişlər</b>',
+	'echo-overlay-title-overflow' => '<b>Bildirişlər</b> $2 {{PLURAL|$2|oxunmamış|oxunmamışlar}})dan $1 ({{PLURAL|$1|göstərilib|göstəriliblər}}',
+	'echo-mark-all-as-read' => 'Hamısını oxunmuş kimi qeyd et',
+	'echo-date-today' => 'Bugün',
+	'echo-date-yesterday' => 'Dünən',
+);
+
 /** South Azerbaijani (تورکجه)
  * @author Mousa
  */
@@ -2030,7 +2063,7 @@ $messages['el'] = array(
 	'echo-pref-send-me' => 'Στείλτε μου:',
 	'echo-pref-send-to' => 'Αποστολή σε:',
 	'echo-pref-email-format' => 'Μορφή ηλεκτρονικού ταχυδρομείου:',
-	'echo-pref-web' => 'Διαδίκτυο',
+	'echo-pref-web' => 'Ιστοσελίδα',
 	'echo-pref-email' => 'Ηλεκτρονικό ταχυδρομείο',
 	'echo-pref-email-frequency-never' => 'Μην μου στέλνετε ειδοποιήσεις μέσω ηλεκτρονικού ταχυδρομείου',
 	'echo-pref-email-frequency-immediately' => 'Μεμονωμένες κοινοποιήσεις καθώς έρχονται',
@@ -2041,9 +2074,6 @@ $messages['el'] = array(
 	'echo-pref-notify-show-link' => 'Εμφάνιση ειδοποιήσεων στη γραμμή εργαλείων μου',
 	'echo-pref-new-message-indicator' => 'Εμφάνιση δείκτη μηνυμάτων στη σελίδα συζήτησης στη γραμμή εργαλείων',
 	'echo-learn-more' => 'Μάθετε περισσότερα',
-	'echo-dismiss-button' => 'Απόρριψη',
-	'echo-dismiss-message' => 'Απενεργοποίηση όλων των ειδοποιήσεων $1',
-	'echo-dismiss-prefs-message' => 'Μπορείτε να ενεργοποιήσετε ξανά αυτά στις [[Special:Preferences#mw-prefsection-echo|προτιμήσεις]]',
 	'echo-new-messages' => 'Έχετε νέα μηνύματα',
 	'echo-category-title-edit-user-talk' => '{{PLURAL:$1|Μήνυμα|Μηνύματα}} στη σελίδα συζήτησης',
 	'echo-category-title-article-linked' => '{{PLURAL:$1|Σύνδεσμος|Σύνδεσμοι}} σελίδας',
@@ -2072,14 +2102,14 @@ $messages['el'] = array(
 	'notification-link-text-view-changes' => 'Προβολή αλλαγών',
 	'notification-link-text-view-page' => 'Προβολή σελίδας',
 	'notification-link-text-view-edit' => 'Προβολή επεξεργασίας',
-	'notification-edit-talk-page2' => '{{GENDER:$1|Ο|Η}} [[Χρήστης:$1|$1]] άφησε ένα μήνυμα στη [[User talk:$2#$3|σελίδα συζήτησής]] σας.', # Fuzzy
-	'notification-edit-talk-page-with-section' => '{{GENDER:$1|Ο|Η}} [[Χρήστης:$1|$1]] άφησε ένα μήνυμα στη σελίδα συζήτησής στην "[[User talk:$2#$3|$4]].', # Fuzzy
+	'notification-edit-talk-page2' => '{{GENDER:$1|Ο|Η}} [[User:$1|$1]] άφησε ένα μήνυμα στη [[User talk:$2#$3|σελίδα συζήτησής]] σας.',
+	'notification-edit-talk-page-with-section' => '{{GENDER:$1|Ο|Η}} [[User:$1|$1]] άφησε ένα μήνυμα στη σελίδα συζήτησής στην "[[User talk:$2#$3|$4]].',
 	'notification-edit-talk-page-flyout2' => '{{GENDER:$1|Ο|Η}} $1 άφησε ένα μήνυμα στη [[User talk:$2#$3|σελίδα συζήτησής]] σας.',
 	'notification-edit-talk-page-flyout-with-section' => '{{GENDER:$1|Ο|Η}} $1 άφησε ένα μήνυμα στη σελίδα συζήτησής στη[[User talk:$2#$3|$4]].',
 	'notification-new-user' => 'Καλώς ήρθατε στο {{SITENAME}}, $1! Χαιρόμαστε που είστε εδώ.',
 	'echo-email-subject-default' => 'Νέα ειδοποίηση στο {{SITENAME}}',
 	'echo-overlay-link' => 'Όλες οι ειδοποιήσεις',
-	'echo-overlay-title' => '<b>Ανακοινώσεις</b>',
+	'echo-overlay-title' => '<b>Ειδοποιήσεις</b>',
 	'echo-date-today' => 'Σήμερα',
 	'echo-date-yesterday' => 'Χθες',
 );
@@ -4021,10 +4051,10 @@ $messages['ko'] = array(
 	'echo-category-title-mention' => '본인 {{PLURAL:$1|언급}}',
 	'echo-category-title-other' => '{{PLURAL:$1|기타}}',
 	'echo-category-title-system' => '{{PLURAL:$1|시스템}}',
-	'echo-pref-tooltip-edit-user-talk' => '내게 내 토론 문서에 누군가가 글이나 답글을 남길 때 알립니다.',
-	'echo-pref-tooltip-article-linked' => '내게 누군가가 어느 문서에서 내가 만든 문서를 링크할 때 알립니다.',
-	'echo-pref-tooltip-reverted' => '내게 편집 취소나 되돌리기 도구를 사용하여 내 편집을 되돌릴 때 알립니다.',
-	'echo-pref-tooltip-mention' => '내게 누군가가 어느 토론 문서에서 내 사용자 문서를 링크할 때 알립니다.',
+	'echo-pref-tooltip-edit-user-talk' => '내 토론 문서에 누군가가 글이나 답글을 남길 때 내게 알립니다.',
+	'echo-pref-tooltip-article-linked' => '누군가가 어느 문서에서 내가 만든 문서를 링크할 때 내게 알립니다.',
+	'echo-pref-tooltip-reverted' => '누군가가 편집 취소나 되돌리기 도구를 사용하여 내 편집을 되돌릴 때 내게  알립니다.',
+	'echo-pref-tooltip-mention' => '누군가가 어느 토론 문서에서 내 사용자 문서를 링크할 때 내게 알립니다.',
 	'echo-no-agent' => '[알 수 없는 사용자]',
 	'echo-no-title' => '[문서 없음]',
 	'echo-error-no-formatter' => '알림에 대해 정의된 형식이 없습니다',
@@ -4056,8 +4086,8 @@ $messages['ko'] = array(
 	'notification-mention-flyout' => "$1님이 '[[$3#$2|$4]]'의 $5 토론 문서에 당신을 {{GENDER:$1|언급했습니다}}.",
 	'notification-user-rights' => '[[User:$1|$1]]님이 당신의 [[Special:Log/rights/$1|사용자 권한을 {{GENDER:$1|바꾸었}}습니다]]. $2. [[Special:ListGroupRights|더 알아보기]]',
 	'notification-user-rights-flyout' => '$1님이 당신의 사용자 권한을 {{GENDER:$1|바꾸었}}습니다. $2. [[Special:ListGroupRights|더 알아보기]]',
-	'notification-user-rights-add' => '당신은 이제 {{PLURAL:$2|다음 권한}}을 갖습니다: $1',
-	'notification-user-rights-remove' => '당신은 더 이상 {{PLURAL:$2|다음 권한}}을 갖지 않습니다: $1',
+	'notification-user-rights-add' => '당신은 이제 {{PLURAL:$2|다음 권한|다음 권한들}}을 갖습니다: $1',
+	'notification-user-rights-remove' => '당신은 더 이상 {{PLURAL:$2|다음 권한|다음 권한들}}을 갖지 않습니다: $1',
 	'notification-new-user' => '$1님, {{SITENAME}}에 온 것을 환영합니다! 당신이 여기에 오신 걸 매우 기쁘게 생각합니다.',
 	'notification-reverted2' => '{{PLURAL:$4|[[:$2]]에 대한 내 편집}}을 [[User:$1|$1]]님이 {{GENDER:$1|되돌렸습니다}}. $3',
 	'notification-reverted-flyout2' => '{{PLURAL:$4|$2에 대한 내 편집}}을 $1님이 {{GENDER:$1|되돌렸습니다}} $3',
@@ -4072,8 +4102,8 @@ $messages['ko'] = array(
 	'notification-mention-email-batch-body' => "$1님이 '$3'의 $4 토론 문서에 당신을 {{GENDER:$1|언급했습니다}}.",
 	'notification-user-rights-email-subject' => '{{SITENAME}}에서 당신의 사용자 권한이 바뀌었습니다',
 	'notification-user-rights-email-batch-body' => '당신의 사용자 권한이 $1님에 의해 {{GENDER:$1|바뀌었습니다}}. $2',
-	'echo-email-subject-default' => '{{SITENAME}}에서 새 알림',
-	'echo-email-body-default' => '{{SITENAME}}에서 새 알림이 있습니다:
+	'echo-email-subject-default' => '{{SITENAME}}의 새 알림',
+	'echo-email-body-default' => '{{SITENAME}}에 새 알림이 있습니다:
 
 $1',
 	'echo-email-batch-body-default' => '새 알림이 있습니다',
