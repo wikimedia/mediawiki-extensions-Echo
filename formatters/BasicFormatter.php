@@ -57,7 +57,8 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	 * @var array
 	 */
 	protected $bundleData = array (
-		'use-bundle' => false
+		'use-bundle' => false,
+		'raw-data-count' => 1
 	);
 
 	public function __construct( $params ) {
@@ -534,7 +535,16 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			return false;
 		}
 
-		return $wgEchoBackend->getRawBundleData( $user, $event->getBundleHash(), $type );
+		$data = $wgEchoBackend->getRawBundleData( $user, $event->getBundleHash(), $type );
+
+		if ( $data ) {
+			$this->bundleData['raw-data-count'] += $data->numRows();
+			if ( $type !== 'web' ) {
+				$this->bundleData['raw-data-count']--;
+			}
+		}
+
+		return $data;
 	}
 
 	/**
