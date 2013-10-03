@@ -135,7 +135,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	}
 
 	/**
-	 * Apply some custom change beforing formatting, child class overwriting this method
+	 * Apply some custom change before formatting, child class overwriting this method
 	 * should always invoke a call to the parent method unless child class wants to overwrite
 	 * the default completely
 	 *
@@ -146,7 +146,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	protected function applyChangeBeforeFormatting( EchoEvent $event, User $user, $type ) {
 		// Use the bundle message if use-bundle is true and there is a bundle message
 		$this->generateBundleData( $event, $user, $type );
-		if ( $this->bundleData['use-bundle'] && isset( $this->bundleTitle['message'] ) ) {
+		if ( $this->bundleData['use-bundle'] && $this->bundleTitle['message'] ) {
 			$this->title = $this->flyoutTitle = $this->bundleTitle;
 		}
 	}
