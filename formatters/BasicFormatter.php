@@ -4,6 +4,9 @@
  * @Todo - Consider having $event/$user as class properties since the formatter is
  * always tied to these two entities, in this case, we won't have to pass it around
  * in all the internal method
+ * @Todo - Instance variable $distributionType has been added, the local distribution
+ * type variable $type passed along all the protected/private method should be removed
+ * from all formatters
  */
 class EchoBasicFormatter extends EchoNotificationFormatter {
 
@@ -61,6 +64,14 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 		'raw-data-count' => 1
 	);
 
+	/**
+	 * Max number of raw bundle data to query for each bundle event
+	 */
+	protected static $maxRawBundleData = 250;
+
+	/**
+	 * @param array
+	 */
 	public function __construct( $params ) {
 		parent::__construct( $params );
 
@@ -141,7 +152,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	 *
 	 * @param $event EchoEvent that the notification is for.
 	 * @param $user User to format the notification for.
-	 * @param $type string The type of notification being distributed (e.g. email, web)
+	 * @deprecated $type
 	 */
 	protected function applyChangeBeforeFormatting( EchoEvent $event, User $user, $type ) {
 		// Use the bundle message if use-bundle is true and there is a bundle message
@@ -162,6 +173,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	public function format( $event, $user, $type ) {
 		global $wgExtensionAssetsPath, $wgEchoNotificationIcons;
 
+		$this->setDistributionType( $type );
 		$this->applyChangeBeforeFormatting( $event, $user, $type );
 
 		if ( $this->outputFormat === 'email' ) {
@@ -245,7 +257,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	 *
 	 * @param $event EchoEvent
 	 * @param $user User
-	 * @param $type string
+	 * @deprecated $type
 	 * @return array
 	 */
 	protected function formatEmail( $event, $user, $type ) {
@@ -253,7 +265,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 		$this->language = $user->getOption( 'language' );
 
 		// Email digest
-		if ( $type === 'emaildigest' ) {
+		if ( $this->distributionType === 'emaildigest' ) {
 			return $this->formatEmailDigest( $event, $user );
 		}
 
@@ -522,7 +534,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	 * Get raw bundle data for an event so it can be manipulated
 	 * @param $event EchoEvent
 	 * @param $user User
-	 * @param $type string Notification distribution type: web/email
+	 * @deprecated $type
 	 * @return ResultWrapper|bool
 	 */
 	protected function getRawBundleData( $event, $user, $type ) {
@@ -535,11 +547,11 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			return false;
 		}
 
-		$data = $wgEchoBackend->getRawBundleData( $user, $event->getBundleHash(), $type );
+		$data = $wgEchoBackend->getRawBundleData( $user, $event->getBundleHash(), $this->distributionType, 'DESC', self::$maxRawBundleData );
 
 		if ( $data ) {
 			$this->bundleData['raw-data-count'] += $data->numRows();
-			if ( $type !== 'web' ) {
+			if ( $this->distributionType !== 'web' ) {
 				$this->bundleData['raw-data-count']--;
 			}
 		}
@@ -553,12 +565,16 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	 * this function to use a differnt group iterator such as title, namespace
 	 * @param $event EchoEvent
 	 * @param $user User
-	 * @param $type string Notification distribution type
+	 * @deprecated $type
 	 */
 	protected function generateBundleData( $event, $user, $type ) {
 		global $wgEchoMaxNotificationCount;
 
 		$data = $this->getRawBundleData( $event, $user, $type );
+
+		// Default the last raw data to false, which means there is no
+		// bundle data other than the base
+		$this->bundleData['last-raw-data'] = false;
 
 		if ( !$data ) {
 			return;
@@ -584,15 +600,18 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 				$agents[$row->$key] = $row->$key;
 				$count++;
 			}
-
-			if ( $count > $wgEchoMaxNotificationCount + 1 ) {
-				break;
-			}
+			$this->bundleData['last-raw-data'] = $row;
 		}
 
 		$this->bundleData['agent-other-count'] = $count - 1;
 		if ( $count > 1 ) {
 			$this->bundleData['use-bundle'] = true;
+		}
+
+		// If there is more raw data than we requested, that means we have not
+		// retrieved the very last raw record, set the key back to null
+		if ( $data->numRows() >= self::$maxRawBundleData ) {
+			$this->bundleData['last-raw-data'] = null;
 		}
 	}
 
@@ -702,9 +721,38 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 					// other parameters
 					$target->setFragment( '#' );
 					$query = array(
-						'oldid' => $eventData['revid'],
-						'diff' => 'prev',
+						'oldid' => 'prev',
+						'diff' => $eventData['revid'],
 					);
+
+					if ( $event->getBundleHash() ) {
+						// First try cache data from preivous query
+						if ( isset( $this->bundleData['last-raw-data'] ) ) {
+							$stat = $this->bundleData['last-raw-data'];
+						// Then try to query the storage
+						} else {
+							global $wgEchoBackend;
+							$stat = $wgEchoBackend->getRawBundleData( $user, $event->getBundleHash(), $this->distributionType, 'ASC', 1 );
+							if ( $stat ) {
+								$stat = $stat->current();
+							}
+						}
+
+						if ( $stat ) {
+							$extra = $stat->event_extra ? unserialize( $stat->event_extra ) : array();
+							if ( isset( $extra['revid'] ) ) {
+								$oldId = $target->getPreviousRevisionID( $extra['revid'] );
+								// The diff engine doesn't provide a way to diff against a null revision.
+								// In this case, just fall back old id to the first revision
+								if ( !$oldId ) {
+									$oldId = $extra['revid'];
+								}
+								if ( $oldId < $eventData['revid'] ) {
+									$query['oldid'] = $oldId;
+								}
+							}
+						}
+					}
 				}
 				break;
 		}

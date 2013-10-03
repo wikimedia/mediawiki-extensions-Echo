@@ -92,25 +92,22 @@ class MWDbEchoBackend extends MWEchoBackend {
 	 * @param $user User
 	 * @param $bundleHash string the bundle hash
 	 * @param $type string
+	 * @param $order string 'ASC'/'DESC'
+	 * @param $limit int
 	 * @return ResultWrapper|bool
 	 */
-	public function getRawBundleData( $user, $bundleHash, $type = 'web' ) {
+	public function getRawBundleData( $user, $bundleHash, $type = 'web', $order = 'DESC', $limit = 250 ) {
 		$dbr = MWEchoDbFactory::getDB( DB_SLAVE );
 
 		// We only display 99+ if the number is over 100, we can do limit 250, this should be sufficient
-		// to return 99 distinct group iterators, avoid select count( distinct ) for the folliwng:
+		// to return 99 distinct group iterators, avoid select count( distinct ) for the following reason:
 		// 1. it will not scale for large volume data
 		// 2. notification may have random grouping iterator
-		// 2. agent may be anonymous, can't do distinct over two columens: event_agent_id and event_agent_ip
+		// 3. agent may be anonymous, can't do distinct over two columns: event_agent_id and event_agent_ip
 		if ( $type == 'web' ) {
 			$res = $dbr->select(
 				array( 'echo_notification', 'echo_event' ),
-				array(
-					'event_agent_id',
-					'event_agent_ip',
-					'event_extra',
-					'event_page_id'
-				),
+				array( 'event_agent_id', 'event_agent_ip', 'event_extra', 'event_page_id' ),
 				array(
 					'notification_event=event_id',
 					'notification_user' => $user->getId(),
@@ -118,25 +115,20 @@ class MWDbEchoBackend extends MWEchoBackend {
 					'notification_bundle_display_hash' => $bundleHash
 				),
 				__METHOD__,
-				array( 'ORDER BY' => 'notification_timestamp DESC', 'LIMIT' => 250 )
+				array( 'ORDER BY' => 'notification_timestamp ' . $order, 'LIMIT' => $limit )
 			);
 		// this would be email for now
 		} else {
 			$res = $dbr->select(
 				array( 'echo_email_batch', 'echo_event' ),
-				array(
-					'event_agent_id',
-					'event_agent_ip',
-					'event_extra',
-					'event_page_id'
-				),
+				array( 'event_agent_id', 'event_agent_ip', 'event_extra', 'event_page_id' ),
 				array(
 					'eeb_event_id=event_id',
 					'eeb_user_id' => $user->getId(),
 					'eeb_event_hash' => $bundleHash
 				),
 				__METHOD__,
-				array( 'ORDER BY' => 'eeb_event_id DESC', 'LIMIT' => 250 )
+				array( 'ORDER BY' => 'eeb_event_id ' . $order, 'LIMIT' => $limit )
 			);
 		}
 
@@ -330,4 +322,5 @@ class MWDbEchoBackend extends MWEchoBackend {
 
 		return $eventIds;
 	}
+
 }

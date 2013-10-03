@@ -68,9 +68,11 @@ abstract class MWEchoBackend {
 	 * @param $user User
 	 * @param $bundleHash string The hash used to identify a set of bundle-able events
 	 * @param $type string 'web'/'email'
+	 * @param $order 'ASC'/'DESC' Sort the result in ascending/descending order
+	 * @param $limit int the number of records to retrieve
 	 * @return ResultWrapper|bool
 	 */
-	abstract public function getRawBundleData( $user, $bundleHash, $type = 'web' );
+	abstract public function getRawBundleData( $user, $bundleHash, $type = 'web', $order = 'DESC', $limit = 250 );
 
 	/**
 	 * Get the last bundle stat - read_timestamp & bundle_display_hash
@@ -129,4 +131,5 @@ abstract class MWEchoBackend {
 	 * @return array
 	 */
 	abstract public function getUnreadNotifications( $user, $type );
+
 }

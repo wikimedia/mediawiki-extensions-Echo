@@ -15,10 +15,21 @@ abstract class EchoNotificationFormatter {
 	protected $validOutputFormats = array( 'text', 'flyout', 'html', 'email', 'htmlemail' );
 
 	/**
+	 * List of valid distribution type
+	 */
+	protected $validDistributionType = array( 'web', 'email', 'emaildigest' );
+
+	/**
 	 * Current output format, default is 'text'
 	 * @var string
 	 */
 	protected $outputFormat = 'text';
+
+	/**
+	 * Distribution type, default is 'web'
+	 * @var string
+	 */
+	protected $distributionType = 'web';
 
 	/**
 	 * List of parameters for constructing messages
@@ -71,6 +82,14 @@ abstract class EchoNotificationFormatter {
 		}
 
 		$this->outputFormat = $format;
+	}
+
+	public function setDistributionType( $type ) {
+		if ( !in_array( $type, $this->validDistributionType, true ) ) {
+			throw new Exception( "Invalid distribution type $type" );
+		}
+
+		$this->distributionType = $type;
 	}
 
 	/**
