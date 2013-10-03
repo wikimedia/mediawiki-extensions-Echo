@@ -671,11 +671,31 @@ abstract class EchoDiscussionParser {
 	 */
 	static function getUserFromLine( $line, $timestampPos ) {
 		global $wgContLang;
-		$possiblePrefixes = array( // Later entries have a higher precedence
-			'[[' . $wgContLang->getNsText( NS_USER ) . ':',
-			'[[' . $wgContLang->getNsText( NS_USER_TALK ) . ':',
-			'[[' . SpecialPage::getTitleFor( 'Contributions' )->getPrefixedText() . '/',
-		);
+
+		// Later entries have a higher precedence
+		// @todo FIXME: handle optional whitespace in links
+		$languages = array( $wgContLang );
+		if ( $wgContLang->getCode() !== 'en' ) {
+			$languages[] = Language::factory( 'en' );
+		}
+
+		$possiblePrefixes = array();
+
+		foreach ( $languages as $language ) {
+			$nsNames = $language->getNamespaces();
+			$possiblePrefixes[] = '[[' . $nsNames[NS_USER] . ':';
+			$possiblePrefixes[] = '[[' . $nsNames[NS_USER_TALK] . ':';
+
+			$nsAliases = $language->getNamespaceAliases();
+			foreach ( $nsAliases as $text => $id ) {
+				if ( $id == NS_USER || $id == NS_USER_TALK ) {
+					$possiblePrefixes[] = '[[' . $text . ':';
+				}
+			}
+		}
+
+		// @todo FIXME: Check aliases too
+		$possiblePrefixes[] = '[[' . SpecialPage::getTitleFor( 'Contributions' )->getPrefixedText() . '/';
 
 		foreach ( $possiblePrefixes as $prefix ) {
 			if ( strpos( $prefix, '_' ) !== false ) {
