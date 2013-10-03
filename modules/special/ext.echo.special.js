@@ -58,7 +58,7 @@
 		 * Load more notification records.
 		 */
 		loadMore: function () {
-			var api = new mw.Api( { ajax: { cache: false } } ), curUri = new mw.Uri(),
+			var api = new mw.Api( { ajax: { cache: false } } ),
 				notifications, data, container, $li, that = this, unread = [], apiData;
 
 			apiData = {
@@ -70,11 +70,7 @@
 				'notlimit': mw.config.get( 'wgEchoDisplayNum' )
 			};
 
-			if ( curUri.query.uselang !== undefined ) {
-				apiData.uselang = curUri.query.uselang;
-			}
-
-			api.get( apiData ).done( function ( result ) {
+			api.get( mw.echo.desktop.appendUseLang( apiData ) ).done( function ( result ) {
 				container = $( '#mw-echo-special-container' );
 				notifications = result.query.notifications;
 				unread = [];
@@ -128,16 +124,16 @@
 		markAsRead: function ( unread ) {
 			var api = new mw.Api(), that = this;
 
-			api.post( {
+			api.post( mw.echo.desktop.appendUseLang( {
 				'action' : 'echomarkread',
 				'list' : unread.join( '|' ),
 				'token': mw.user.tokens.get( 'editToken' )
-			} ).done( function ( result ) {
+			} ) ).done( function ( result ) {
 				// update the badge if the link is enabled
 				if ( result.query.echomarkread.count !== undefined &&
 					$( '#pt-notifications').length && typeof mw.echo.overlay === 'object'
 				) {
-					mw.echo.overlay.updateCount( result.query.echomarkread.count );
+					mw.echo.overlay.updateCount( result.query.echomarkread.count, result.query.echomarkread.rawcount );
 				}
 				that.onSuccess();
 			} ).fail( function () {
