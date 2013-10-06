@@ -5,6 +5,7 @@
  * @file
  * @ingroup Extensions
  */
+// @codingStandardsIgnoreFile
 
 $specialPageAliases = array();
 
@@ -146,6 +147,11 @@ $specialPageAliases['scn'] = array(
 /** Ukrainian (українська) */
 $specialPageAliases['uk'] = array(
 	'Notifications' => array( 'Сповіщення' ),
+);
+
+/** vèneto (vèneto) */
+$specialPageAliases['vec'] = array(
+	'Notifications' => array( 'Notifiche' ),
 );
 
 /** Vietnamese (Tiếng Việt) */
