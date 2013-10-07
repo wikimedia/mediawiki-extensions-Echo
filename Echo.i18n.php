@@ -120,7 +120,7 @@ $1',
 	// Notifications overlay
 	'echo-overlay-link' => 'All notifications',
 	'echo-overlay-title' => '<b>Notifications</b>',
-	'echo-overlay-title-overflow' => '<b>Notifications</b> (showing $1 of $2 unread)',
+	'echo-overlay-title-overflow' => '<b>{{PLURAL:$1|Notifications}}</b> (showing $1 of $2 unread)',
 	'echo-mark-all-as-read' => 'Mark all as read',
 
 	// Special page
