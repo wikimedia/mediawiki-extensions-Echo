@@ -174,6 +174,7 @@ $wgResourceModules += array(
 		'dependencies' => array(
 			'ext.echo.desktop',
 			'mediawiki.util',
+			'mediawiki.language',
 		),
 		'messages' => array(
 			'echo-overlay-title',

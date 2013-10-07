@@ -123,7 +123,11 @@
 
 				if ( notifications.index.length > 0 ) {
 					if ( unreadRawTotalCount > unread.length ) {
-						titleText = mw.msg( 'echo-overlay-title-overflow', unread.length, unreadTotalCount );
+						titleText = mw.msg(
+							'echo-overlay-title-overflow',
+							mw.language.convertNumber( unread.length ),
+							mw.language.convertNumber( unreadTotalCount )
+						);
 						overflow = true;
 					} else {
 						titleText =  mw.msg( 'echo-overlay-title' );
