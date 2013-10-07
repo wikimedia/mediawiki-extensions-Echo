@@ -156,7 +156,7 @@ class EchoNotificationController {
 
 					$title = $event->getTitle() ? $event->getTitle() : Title::newMainPage();
 					$job = new EchoNotificationJob( $title, $params );
-					$job->insert();
+					JobQueueGroup::singleton()->push( $job );
 				}
 			);
 			return;
