@@ -2059,11 +2059,8 @@ $messages['da'] = array(
 	'echo-pref-notify-show-link' => 'Vis meddelelser i min værktøjslinje',
 	'echo-pref-new-message-indicator' => 'Vis indikator for meddelelser på diskussionssiden i min værktøjslinje',
 	'echo-learn-more' => 'Find ud af mere',
-	'echo-dismiss-button' => 'Afvis',
-	'echo-dismiss-message' => 'Slå alle meddelelser fra af typen: $1',
-	'echo-dismiss-prefs-message' => 'Du kan slå dem til igen i dine [[Special:Preferences#mw-prefsection-echo|indstillinger]]',
 	'echo-new-messages' => 'Du har nye meddelelser',
-	'echo-category-title-edit-user-talk' => '{{PLURAL:$1|diskussionssideindlæg|diskussionssideindlæg}}', # Fuzzy
+	'echo-category-title-edit-user-talk' => '{{PLURAL:$1|Besked|Beskeder}} på diskussionsside',
 	'echo-category-title-article-linked' => '{{PLURAL:$1|Sidehenvisning|Sidehenvisninger}}',
 	'echo-category-title-reverted' => '{{PLURAL:$1|Redigeringstilbagestillelse|Redigeringstilbagestillelser}}',
 	'echo-category-title-mention' => '{{PLURAL:$1|Omtale|Omtaler}}',
@@ -2090,11 +2087,11 @@ $messages['da'] = array(
 	'notification-link-text-view-changes' => 'Se ændringer',
 	'notification-link-text-view-page' => 'Se side',
 	'notification-link-text-view-edit' => 'Se redigering',
-	'notification-edit-talk-page2' => '[[Bruger:$1|$1]] skrev et indlæg på din [[Brugerdiskussion:$2#$3|diskussionsside]].', # Fuzzy
+	'notification-edit-talk-page2' => '[[Bruger:$1|$1]] skrev en besked på din [[Brugerdiskussion:$2#$3|diskussionsside]].', # Fuzzy
 	'notification-edit-talk-page-with-section' => '[[Bruger:$1|$1]] lagde en besked på din diskussionsside i "[[Brugerdiskussion:$2#$3|$4]]".', # Fuzzy
 	'notification-edit-talk-page-flyout2' => '$1 skrev et indlæg på din [[User talk:$2#$3|diskussionsside]].',
 	'notification-edit-talk-page-flyout-with-section' => '$1 lagde en besked på din diskussionside i "[[User talk:$2#$3|$4]]".',
-	'notification-page-linked' => 'Der blev henvist til [[:$2]] fra [[:$3]]: [[Special:WhatLinksHere/$2|Se alle henvisninger til siden]]', # Fuzzy
+	'notification-page-linked' => 'Der blev henvist til [[:$2]] fra [[:$3]]. [[Special:WhatLinksHere/$2|Se alle henvisninger til siden]].', # Fuzzy
 	'notification-page-linked-flyout' => 'Der blev {{GENDER:$1|henvist}} til $2 fra [[:$3]].',
 	'notification-add-comment2' => '[[User:$1|$1]] kommenterede om "[[$3|$2]]" på diskussionssiden "$4"',
 	'notification-add-talkpage-topic2' => '[[User:$1|$1]] skrev et nyt indlæg om "$2" på [[$3]]',
@@ -4375,11 +4372,15 @@ $1',
 );
 
 /** Javanese (Basa Jawa)
+ * @author Anggoro
  * @author NoiX180
  */
 $messages['jv'] = array(
 	'echo-desc' => 'Infrastruktur wara-wara gènèrasi ngarep kanggo MediaWiki', # Fuzzy
 	'prefs-echo' => 'Wara-wara',
+	'echo-pref-send-me' => 'Kirim nang aku:',
+	'echo-pref-email-frequency-never' => 'Ora usah ngirimi aku notifikasi',
+	'echo-pref-email-format-plain-text' => 'aksara nglegena',
 	'echo-no-agent' => '[Dudu sapa-sapa]',
 	'echo-no-title' => '[Ora ana judhul]', # Fuzzy
 	'notifications' => 'Wara-wara',
@@ -5523,11 +5524,12 @@ $messages['mt'] = array(
 	'echo-category-title-edit-user-talk' => '{{PLURAL:$1|Messaġġ|Messaġġi}} fuq il-paġna tad-dikussjoni',
 	'echo-category-title-article-linked' => '{{PLURAL:$1|Ħolqa|Ħoloq}} ma paġna',
 	'echo-category-title-reverted' => '{{PLURAL:$1|Modifika annullata|Modifiki annullati}}',
+	'echo-category-title-mention' => '{{PLURAL:$1|Tismija|Tismijiet}}$1',
 	'echo-category-title-other' => '{{PLURAL:$1|Oħrajn}}',
 	'echo-category-title-system' => '{{PLURAL:$1|Sistema}}',
 	'echo-pref-tooltip-edit-user-talk' => 'Avżani meta xi ħadd jiktibli messaġġ jew iweġibni fuq il-paġna tad-diskussjoni tiegħi.',
 	'echo-pref-tooltip-article-linked' => 'Avżani meta xi ħadd joħloq ħolqa minn artiklu għal paġna li ħlaqt jien.',
-	'echo-pref-tooltip-reverted' => 'Avżani meta xi ħadd jannulla modifika li għamilt jien permezz tal-għodda tal-annullament (undo) jew tat-treġġigħ lura (rollback).',
+	'echo-pref-tooltip-reverted' => 'Avżani meta xi ħadd permezz tal-għodda tal-annullament (undo) jew tat-treġġigħ lura (rollback) jannulla xi modifika li għamilt jien.',
 	'echo-pref-tooltip-mention' => 'Avżani meta xi ħadd joħloq ħolqa minn xi paġna tad-diskussjoni għall-paġna tal-utent tiegħi.',
 	'echo-no-agent' => '[Ħadd]',
 	'echo-no-title' => '[L-ebda paġna]',
@@ -5537,8 +5539,8 @@ $messages['mt'] = array(
 	'notifications' => 'Notifiki',
 	'tooltip-pt-notifications' => 'In-notifiki tiegħek',
 	'echo-specialpage' => 'Notifiki',
-	'echo-anon' => 'Sabiex tirċievi notifiki, [$1 oħloq kont] jew [$2 illoggja].',
-	'echo-none' => "M'għandek l-ebda notifiki",
+	'echo-anon' => 'Sabiex tirċievi n-notifiki, [$1 oħloq kont] jew [$2 idħol fil-kont].',
+	'echo-none' => "M'għandek l-ebda notifika",
 	'echo-more-info' => 'Aktar informazzjoni',
 	'echo-feedback' => 'Kummenti',
 	'notification-link-text-view-message' => 'Ara l-messaġġ',
@@ -5549,9 +5551,20 @@ $messages['mt'] = array(
 	'notification-edit-talk-page2' => '[[User:$1|$1]] {{GENDER:$1|ħalla}} messaġġ fuq il-[[User talk:$2#$3|paġna tal-utent]] tiegħek.',
 	'notification-edit-talk-page-with-section' => '[[User:$1|$1]] {{GENDER:$1|ħalla}} messaġġ fuq il-paġna tad-diskussjoni tiegħek f\' "[[User talk:$2#$3|$4]]".',
 	'notification-edit-talk-page-flyout2' => '$1 {{GENDER:$1|ħalla}} messaġġ fuq il-[[User talk:$2#$3|paġna tad-diskussjoni]] tiegħek.',
-	'notification-edit-talk-page-flyout-with-section' => '$1 {{GENDER:$1|ħalla}} messaġġ fil-paġna tad-diskussjoni tiegħek f\' "[[User talk:$2#$3|$4]]".$1',
-	'notification-page-linked' => '[[:$2]] {{GENDER:$1|inħalqitilha}} ħolqa minn [[:$3]]. [[Special:WhatLinksHere/$2|Ara l-ħoloq għal din il-paġna kollha]].',
-	'notification-new-user' => 'Merħba fuq {{SITENAME}}, $1!', # Fuzzy
+	'notification-edit-talk-page-flyout-with-section' => '$1 {{GENDER:$1|ħalla}} messaġġ fil-paġna tad-diskussjoni tiegħek f\' "[[User talk:$2#$3|$4]]".',
+	'notification-page-linked' => '[[:$2]] {{GENDER:$1|inħalqitilha/inħalqitlu}} ħolqa minn [[:$3]]. [[Special:WhatLinksHere/$2|Ara l-ħoloq għal din il-paġna kollha]].',
+	'notification-page-linked-flyout' => '$2 {{GENDER:$1|inħalqitilha/inħalqitlu}} ħolqa minn [[:$3]].',
+	'notification-add-comment2' => '[[User:$1|$1]] {{GENDER:$1|ħalliet/ħalla}} kumment "[[$3|$2]]" fuq il-paġna tad-diskussjoni ta\' "$4".',
+	'notification-add-talkpage-topic2' => '[[User:$1|$1]] {{GENDER:$1|bdiet/beda}} suġġett ġdid  "$2" fuq [[$3]].',
+	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]] {{GENDER:$1|bagħtitlek/bagħatlek}} messaġġ: "[[$3#$2|$2]]".',
+	'notification-add-comment-yours2' => '[[User:$1|$1]] {{GENDER:$1|ħalliet/ħalla}} kumment dwar "[[$3#$2|$2]]" fuq il-paġna tad-diskussjoni tiegħek.',
+	'notification-mention' => '[[User:$1|$1]] {{GENDER:$1|semmietek/semmiek}} fuq il-paġna tad-diskussjoni ta\' $5 f\' "[[$3#$2|$4]]".',
+	'notification-mention-flyout' => '$1 {{GENDER:$1|semmietek/semmiek}} fuq il-paġna tad-diskussjoni ta\' $5 f\' "[[$3#$2|$4]]".',
+	'notification-user-rights' => "Id-drittijiet ta' utent tiegħek [[Special:Log/rights/$1|ġew {{GENDER:$1|modifikati}}]] minn [[User:$1|$1]]. $2. [[Special:ListGroupRights|Ara iżjed]]$1$1",
+	'notification-user-rights-flyout' => "Id-drittijiet ta' utent tiegħek ġew {{GENDER:$1|modifikati}} minn $1. $2. [[Special:ListGroupRights|Ara iżjed]]",
+	'notification-user-rights-add' => "Issa int membru ta' {{PLURAL:$2|dan il-grupp|dawn il-gruppi}}: $1",
+	'notification-user-rights-remove' => "Int m'għadikx membru ta' {{PLURAL:$2|dan il-grupp|dawn il-gruppi}}: $1",
+	'notification-new-user' => 'Merħba fuq {{SITENAME}}, $1! Qed nieħdu gost li ġejt hawn.',
 	'echo-email-subject-default' => 'Notifika ġdida fuq {{SITENAME}}',
 	'echo-email-body-default' => 'Għandek notifika ġdida fuq {{SITENAME}}:
 
@@ -7156,6 +7169,78 @@ $messages['sa'] = array(
 	'echo-more-info' => 'अधिकं विवरणम्',
 	'echo-feedback' => 'प्रतिस्पन्दः',
 	'notification-link-text-view-message' => 'सन्देशः दृश्यताम्',
+);
+
+/** Serbo-Croatian (srpskohrvatski / српскохрватски)
+ * @author Kolega2357
+ */
+$messages['sh'] = array(
+	'echo-desc' => 'Obavještajni sistem',
+	'prefs-echo' => 'Obavještenja',
+	'prefs-emailsettings' => 'Email opcije',
+	'prefs-displaynotifications' => 'Opcije prikaza',
+	'prefs-echosubscriptions' => 'Obavijesti me o tim događajima',
+	'prefs-newmessageindicator' => 'Indikator za nove poruke',
+	'echo-pref-send-me' => 'Pošalji mi:',
+	'echo-pref-send-to' => 'Pošalji:',
+	'echo-pref-email-format' => 'Format e-pošte:',
+	'echo-pref-web' => 'Web',
+	'echo-pref-email' => 'E-pošta',
+	'echo-pref-email-frequency-never' => 'Ne šalji mi obavještenja preko e-pošte',
+	'echo-pref-email-frequency-immediately' => 'Lična obavještenja kako dolaze u',
+	'echo-pref-email-frequency-daily' => 'Dnevni sažetak obavještenja',
+	'echo-pref-email-frequency-weekly' => 'Nedeljni sažetak obavještenja',
+	'echo-pref-email-format-html' => 'HTML',
+	'echo-pref-email-format-plain-text' => 'Obični tekst',
+	'echo-pref-notify-show-link' => 'Pokaži obavještenja u mojoj alatnoj traci',
+	'echo-pref-new-message-indicator' => 'Pokaži indikator da je dobijena poruka na stranici za razgovor u mojoj alatnoj traci',
+	'echo-learn-more' => 'Saznajte više',
+	'echo-new-messages' => 'Imate nove poruke',
+	'echo-category-title-edit-user-talk' => '{{PLURAL:$1|Poruke}} na stranici za razgovor',
+	'echo-category-title-article-linked' => '{{PLURAL:$1|Linkovi na stranicu}}',
+	'echo-category-title-reverted' => '{{PLURAL:$1|Vraćanje izmjena}}',
+	'echo-category-title-mention' => '{{PLURAL:$1|Spominjanje|Spominjanja}}',
+	'echo-category-title-other' => '{{PLURAL:$1|Ostalo}}',
+	'echo-category-title-system' => '{{PLURAL:$1|Sistem}}',
+	'echo-pref-tooltip-edit-user-talk' => 'Obavijesti me kada neko ostavi poruku ili odgovor na mojoj stranici za razgovor.',
+	'echo-pref-tooltip-article-linked' => 'Obavijesti me kada neko linkuje na stranicu koju sam napravio od stranice članaka.',
+	'echo-pref-tooltip-reverted' => 'Obavijesti me kada neko vrati uređivanje koje sam napravio/la, korištenjem naredbe undo ili alatom za vraćanje.',
+	'echo-pref-tooltip-mention' => 'Obavijesti me kada me neko spomene na nekoj stranici za razgovor.',
+	'echo-no-agent' => '[Niko]',
+	'echo-no-title' => '[Nema stranice]',
+	'echo-error-no-formatter' => 'Nema formatiranja određenog za obavještavanje.',
+	'echo-error-preference' => 'Greška: Nemoguće odrediti korisničke postavke.',
+	'echo-error-token' => 'Greška: Nemoguće ponovo pronaći korisničku oznaku.',
+	'notifications' => 'Obavještenja',
+	'tooltip-pt-notifications' => 'Vaša obavještenja',
+	'echo-specialpage' => 'Obavještenja',
+	'echo-anon' => 'Da biste primili obaveštenja, morate se [[Special:UserLogin|prijaviti]] ili [[Special:Userlogin/signup|napraviti račun]].', # Fuzzy
+	'echo-none' => 'Nemate obavještenja',
+	'echo-more-info' => 'Više informacija',
+	'echo-feedback' => 'Povratna informacija',
+	'notification-link-text-view-message' => 'Pogledaj poruku',
+	'notification-link-text-view-mention' => 'Pogledajte spominjanje',
+	'notification-link-text-view-changes' => 'Pogledaj izmjene',
+	'notification-link-text-view-page' => 'Pogledaj stranicu',
+	'notification-link-text-view-edit' => 'Pogledaj uređivanje',
+	'notification-edit-talk-page2' => '[[User:$1|$1]] vam je {{GENDER:$1|ostavio|ostavila}} poruku na vašoj [[User talk:$2#$3|stranici za razgovor]].',
+	'notification-edit-talk-page-with-section' => '[[User:$1|$1]] vam je {{GENDER:$1|ostavio|ostavila}} poruku na vašoj stranici za razgovor u "[[User talk:$2#$3|$4]]".',
+	'notification-edit-talk-page-flyout2' => '$1 vam je {{GENDER:$1|ostavio|ostavila}} poruku na vašoj [[User talk:$2#$3|stranici za razgovor]].',
+	'notification-edit-talk-page-flyout-with-section' => '$1 vam je {{GENDER:$1|ostavio|ostavila}} poruku na vašoj stranici za razgovor u "[[User talk:$2#$3|$4]]".',
+	'notification-page-linked' => 'Stranica [[:$2]] je {{GENDER:$1|povezana}} sa stranicom [[:$3]]. [[Special:WhatLinksHere/$2|Pogledajte sve veze prema ovoj stranici]].',
+	'notification-page-linked-flyout' => '$2 je {{GENDER:$1|povezana}} sa [[:$3]].',
+	'notification-add-comment2' => '[[User:$1|$1]] je {{GENDER:$1|ostavio|ostavila}} komentar na "[[$3|$2]]" na "$4" stranici za razgovor.',
+	'notification-add-talkpage-topic2' => '[[User:$1|$1]] je {{GENDER:$1|postavio|postavila}} novu temu "$2" na [[$3]].',
+	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]] vam je {{GENDER:$1|poslao|poslala}} poruku: "[[$3#$2|$2]]".',
+	'echo-date-today' => 'Danas',
+	'echo-date-yesterday' => 'Juče',
+	'echo-email-batch-subject-weekly' => 'Imate {{PLURAL:$2|novo obavještenje|nova obavještenja}} na {{SITENAME}} ove nedelje',
+	'echo-email-batch-body-intro-daily' => 'Zdravo $1,
+Ovo je sažetak današnjih aktivnosti na {{SITENAME}} za Vas.',
+	'echo-email-batch-body-intro-weekly' => 'Zdravo $1,
+Ovo je sažetak nedeljnih aktivnosti na {{SITENAME}} za Vas.',
+	'echo-email-batch-link-text-view-all-notifications' => 'Vidi sve notifikacije',
+	'echo-rev-deleted-text-view' => 'Revizija ove stranice je zabranjena.',
 );
 
 /** Sinhala (සිංහල)
