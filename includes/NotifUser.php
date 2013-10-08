@@ -117,7 +117,7 @@ class MWEchoNotifUser {
 	 * $wgEchoMaxNotificationCount + 1 at most
 	 *
 	 * @param $cached bool Set to false to bypass the cache.
-	 * @param $dbSource string use master or slave database to pull count
+	 * @param $dbSource int use master or slave database to pull count
 	 * @return integer: Number of unread notifications.
 	 */
 	public function getNotificationCount( $cached = true, $dbSource = DB_SLAVE ) {
@@ -174,7 +174,7 @@ class MWEchoNotifUser {
 
 	/**
 	 * Recalculates the number of notifications that a user has.
-	 * @param $dbSource string use master or slave database to pull count
+	 * @param $dbSource int use master or slave database to pull count
 	 */
 	public function resetNotificationCount( $dbSource = DB_SLAVE ) {
 		$this->getNotificationCount( false, $dbSource );
@@ -184,7 +184,7 @@ class MWEchoNotifUser {
 	/**
 	 * Retrieves formatted number of unread notifications that a user has.
 	 * @param $cached bool Set to false to bypass the cache.
-	 * @param $dbSource string use master or slave database to pull count
+	 * @param $dbSource int use master or slave database to pull count
 	 * @return String: Number of unread notifications.
 	 */
 	public function getFormattedNotificationCount( $cached = true, $dbSource = DB_SLAVE ) {

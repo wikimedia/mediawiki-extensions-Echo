@@ -11,7 +11,7 @@ class MWEchoDbFactory {
 	 *
 	 * @param $db int Index of the connection to get
 	 * @param $groups mixed Query groups.
-	 * @param $wiki string The wiki ID, or false for the current wiki
+	 * @param $wiki string|bool The wiki ID, or false for the current wiki
 	 * @return DatabaseBase
 	 */
 	public static function getDB( $db, $groups = array(), $wiki = false ) {
