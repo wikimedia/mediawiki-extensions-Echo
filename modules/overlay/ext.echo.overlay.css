@@ -1,7 +1,6 @@
 .mw-echo-overlay {
 	position: absolute;
 	top: 30px;
-	left: -200px;
 	border: 1px solid silver;
 	background-color: #fff;
 	width: 450px;
@@ -11,6 +10,15 @@
 	z-index: 100;
 	box-shadow: 0px 3px 8px rgba(50, 50, 50, 0.35);
 }
+
+.ltr .mw-echo-overlay {
+	left: -200px;
+}
+
+.rtl .mw-echo-overlay {
+	left: -400px;
+}
+
 .mw-echo-overlay-pokey {
 	/* @embed */
 	background-image: url('PokeyNorth.png');
