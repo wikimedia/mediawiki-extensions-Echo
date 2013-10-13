@@ -213,50 +213,58 @@ See also:
 	'echo-new-messages' => 'Message to let the user know that they have new talk page messages. Keep this message short.',
 	'echo-category-title-edit-user-talk' => 'This is a short title for notification category.
 
-Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}}.
+Used in a list of options under the heading {{msg-mw|Prefs-echosubscriptions}} in Special:Preferences. As far as I can see this always needs to be a plural for an unspecified number.
+
+It used to be used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}}, but this message is no longer used, apparently.
 
 Parameters:
 * $1 - number of messages, for PLURAL support
 {{Related|Echo-category-title}}',
 	'echo-category-title-article-linked' => 'This is a short title for notification category.
 
-Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}}.
+Used in a list of options under the heading {{msg-mw|Prefs-echosubscriptions}} in Special:Preferences. As far as I can see this always needs to be a plural for an unspecified number.
+
+It used to be used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}}, but this message is no longer used, apparently.
 
 Parameters:
-* $1 - number of links, for PLURAL support
+* $1 - number of messages, for PLURAL support
 {{Related|Echo-category-title}}',
 	'echo-category-title-reverted' => 'This is a short title for notification category.
 
-Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}}.
+Used in a list of options under the heading {{msg-mw|Prefs-echosubscriptions}} in Special:Preferences. As far as I can see this always needs to be a plural for an unspecified number.
+
+It used to be used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}}, but this message is no longer used, apparently.
 
 Parameters:
-* $1 - number of reverts, for PLURAL support
+* $1 - number of messages, for PLURAL support
 {{Related|Echo-category-title}}',
 	'echo-category-title-mention' => 'This is a short title for notification category.
 
-Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}}.
+Used in a list of options under the heading {{msg-mw|Prefs-echosubscriptions}} in Special:Preferences. As far as I can see this always needs to be a plural for an unspecified number.
 
-See [https://www.mediawiki.org/wiki/Echo_%28Notifications%29/Feature_requirements#User_Mention Notifications help] for definition of term.
+It used to be used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}}, but this message is no longer used, apparently.
 
 Parameters:
-* $1 - number of mentions, for PLURAL support
+* $1 - number of messages, for PLURAL support
 {{Related|Echo-category-title}}',
 	'echo-category-title-other' => 'This is a short title for notification category.
 
-Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}}.
+Used in a list of options under the heading {{msg-mw|Prefs-echosubscriptions}} in Special:Preferences. As far as I can see this always needs to be a plural for an unspecified number.
+
+It used to be used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}}, but this message is no longer used, apparently.
 
 Parameters:
-* $1 - the number used for plural support
-{{Related|Echo-category-title}}
-{{Identical|Other}}',
+* $1 - number of messages, for PLURAL support
+{{Related|Echo-category-title}}',
 	'echo-category-title-system' => 'This is a short title for notification category.
 
-Used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}}.
+Used in a list of options under the heading {{msg-mw|Prefs-echosubscriptions}} in Special:Preferences. As far as I can see this always needs to be a plural for an unspecified number.
+
+It used to be used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}}, but this message is no longer used, apparently.
 
 Parameters:
-* $1 - the number used for plural support
-{{Related|Echo-category-title}}
-{{Identical|System}}',
+* $1 - number of messages, for PLURAL support
+{{Related|Echo-category-title}}',
 	'echo-pref-tooltip-edit-user-talk' => 'This is a short description of the edit-user-talk notification category.',
 	'echo-pref-tooltip-article-linked' => 'This is a short description of the article-linked notification category',
 	'echo-pref-tooltip-reverted' => 'This is a short description of the tooltip-reverted notification category',
@@ -671,13 +679,13 @@ $messages['ar'] = array(
 	'echo-new-messages' => 'لديك رسائل جديدة',
 	'echo-category-title-edit-user-talk' => '{{PLURAL:$1|رسالة|رسائل}} صفحة النقاش',
 	'echo-category-title-article-linked' => '{{PLURAL:$1|وصلة|وصلات}} صفحة',
-	'echo-category-title-reverted' => 'رفض {{PLURAL:$1|تعديل|تعديلات}}',
+	'echo-category-title-reverted' => 'إلغاء {{PLURAL:$1|تعديل|تعديلات}}',
 	'echo-category-title-mention' => '{{PLURAL:$1|إشارة|إشارات}}',
 	'echo-category-title-other' => '{{PLURAL:$1|أخرى}}',
 	'echo-category-title-system' => '{{PLURAL:$1|النظام}}',
 	'echo-pref-tooltip-edit-user-talk' => 'أعلمني عندما توضع رسائل أو ردود في صفحة نقاشي.',
 	'echo-pref-tooltip-article-linked' => 'أعلمني عندما توضع في مقالة ما وصلة لصفحة أنشأتها.',
-	'echo-pref-tooltip-reverted' => 'أعلمني عندما يرفض تعديل أجريته.',
+	'echo-pref-tooltip-reverted' => 'أعلمني عندما إلغاء تعديل أجريته.',
 	'echo-pref-tooltip-mention' => 'أعلمني عندما توضع في صفحة نقاش ما وصلة لصفحتي.',
 	'echo-no-agent' => '[لا أحد]',
 	'echo-no-title' => '[لا صفحة]',
@@ -713,15 +721,15 @@ $messages['ar'] = array(
 	'notification-user-rights-add' => 'أنت الآن عضو في {{PLURAL:$2|مجموعة|مجموعات}}: $1',
 	'notification-user-rights-remove' => 'ألغيت عضويتك في {{PLURAL:$2|مجموعة|مجموعات}}: $1',
 	'notification-new-user' => '$1، مرحبا بك في {{SITENAME}}. أسعدنا بلقياك.',
-	'notification-reverted2' => '{{GENDER:$1|رفض|رفضت}} [[User:$1|$1]] {{PLURAL:$4|تعديلك في [[:$2]]|تعديلاتك في [[:$2]]}}. $3',
-	'notification-reverted-flyout2' => '{{GENDER:$1|رفض|رفضت}} $1 {{PLURAL:$4|تعديلك في $2|تعديلاتك في $2}}. $3',
+	'notification-reverted2' => '{{GENDER:$1|ألغى|ألغت}} [[User:$1|$1]] {{PLURAL:$4|تعديلك في [[:$2]]|تعديلاتك في [[:$2]]}}. $3',
+	'notification-reverted-flyout2' => '{{GENDER:$1|ألغى|ألغت}} $1 {{PLURAL:$4|تعديلك في $2|تعديلاتك في $2}}. $3',
 	'notification-edit-talk-page-email-subject2' => '{{GENDER:$1|بعث|بعثت}} لك $1 برسالة في {{SITENAME}}',
 	'notification-edit-talk-page-email-batch-body2' => '{{GENDER:$1|بعث|بعثت}} لك $1 برسالة في صفحة نقاشك:',
 	'notification-edit-talk-page-email-batch-body-with-section' => '{{GENDER:$1|بعث|بعثت}} لك $1 برسالة في صفحة نقاشك في "$2".',
 	'notification-page-linked-email-subject' => 'وضعت وصلة لصفحتك في {{SITENAME}}',
 	'notification-page-linked-email-batch-body' => '{{GENDER:$1|وضعت}} وصلة إلى $2 في $3.',
-	'notification-reverted-email-subject2' => '{{GENDER:$1|رفض{{PLURAL:$3||ت}}}} {{PLURAL:$3|تعديلك|تعديلاتك}} في {{SITENAME}}',
-	'notification-reverted-email-batch-body2' => '{{GENDER:$1|رفض|رفضت}} $1 {{PLURAL:$3|تعديلك|تعديلاتك}} في $2.',
+	'notification-reverted-email-subject2' => '{{GENDER:$1|ألغي{{PLURAL:$3||ت}}}} {{PLURAL:$3|تعديلك|تعديلاتك}} في {{SITENAME}}',
+	'notification-reverted-email-batch-body2' => '{{GENDER:$1|ألغى|ألغت}} $1 {{PLURAL:$3|تعديلك|تعديلاتك}} في $2.',
 	'notification-mention-email-subject' => ' {{GENDER:$1|أشار|أشارت}} إليك $1 في {{SITENAME}}',
 	'notification-mention-email-batch-body' => ' {{GENDER:$1|أشار|أشارت}} إليك $1 في قسم "$3" من صفحة نقاش $4.',
 	'notification-user-rights-email-subject' => 'غيرت صلاحياتك في {{SITENAME}}',
@@ -2076,12 +2084,12 @@ $messages['cy'] = array(
 	'echo-pref-new-message-indicator' => 'Dangos arwydd bod neges newydd ar fy nhudalen sgwrs yn fy mar offer',
 	'echo-learn-more' => 'Darllen mwy',
 	'echo-new-messages' => 'Mae negeseuon newydd gennych',
-	'echo-category-title-edit-user-talk' => 'y {{PLURAL:$1|Negeseuon}} ar dudalennau sgwrs',
-	'echo-category-title-article-linked' => 'y {{PLURAL:$1|Cysylltau i dudalennau}}',
-	'echo-category-title-reverted' => '{{PLURAL:$1|Dadwneud golygiadau}}',
-	'echo-category-title-mention' => 'y {{PLURAL:$1|Cyfeiriadau}}',
+	'echo-category-title-edit-user-talk' => '{{PLURAL:$1|negeseuon}} ar dudalennau sgwrs',
+	'echo-category-title-article-linked' => '{{PLURAL:$1|cysylltau i dudalennau}}',
+	'echo-category-title-reverted' => '{{PLURAL:$1|dadwneud golygiadau}}',
+	'echo-category-title-mention' => '{{PLURAL:$1|cyfeiriadau}}',
 	'echo-category-title-other' => '{{PLURAL:$1|Arall}}',
-	'echo-category-title-system' => '{{PLURAL:$1|y Sustem}}',
+	'echo-category-title-system' => '{{PLURAL:$1|sustem}}',
 	'echo-pref-tooltip-edit-user-talk' => 'Fy hysbysu pan fo rhywun yn gadael neges neu ateb ar fy nhudalen sgwrs.',
 	'echo-pref-tooltip-article-linked' => 'Fy hysbysu pan fo rhywun yn gosod cyswllt o ryw erthygl i dudalen a ddechreuais i.',
 	'echo-pref-tooltip-reverted' => "Hysbyswch fi pan fo rhywun yn dadwneud golygiad o'm heiddo i, drwy ddefnyddio'r teclynnau dadwneud neu wrthdroi.",
@@ -3762,21 +3770,36 @@ $messages['hr'] = array(
 	'echo-pref-email-frequency-immediately' => 'Pojedinačne obavijesti po redoslijedu',
 	'echo-pref-email-frequency-daily' => 'Dnevni sažetak obavijesti',
 	'echo-pref-email-frequency-weekly' => 'Tjedni sažetak obavijesti',
+	'echo-pref-email-format-html' => 'HTML',
 	'echo-pref-email-format-plain-text' => 'obični tekst',
 	'echo-pref-notify-show-link' => 'Prikaži obavijesti na mojoj alatnoj vrpci',
 	'echo-pref-new-message-indicator' => 'Prikaži pokazivač poruka na stranici za razgovor na mojoj alatnoj traci',
 	'echo-learn-more' => 'Saznajte više',
 	'echo-new-messages' => 'Imate nove poruke.',
 	'echo-category-title-edit-user-talk' => '{{PLURAL:$1|poruku|poruke|poruka}} na stranici za razgovor',
+	'echo-category-title-article-linked' => 'Stranica {{PLURAL:$1|poveznica|poveznice|poveznica}}',
+	'echo-category-title-reverted' => 'Uredi {{PLURAL:$1|uklanjanje|uklanjanja}}',
+	'echo-category-title-system' => '{{PLURAL:$1|Sustav}}',
 	'echo-pref-tooltip-edit-user-talk' => 'Obavijesti me kad netko snimi poruku ili odgovori na mojoj stranici za razgovor.',
 	'echo-pref-tooltip-reverted' => 'Obavijesti me kad netko ukloni moje uređivanje.',
+	'echo-pref-tooltip-mention' => 'Obavijesti me kad netko doda poveznicu prema mojoj suradničkoj stranici s bilo koje razgovorne stranice.',
+	'echo-no-agent' => '[Nitko]',
+	'echo-no-title' => '[Nema stranice]',
+	'echo-error-preference' => 'Pogrješka: Nije moguće postaviti suradničke postavke.',
 	'notifications' => 'Obavijesti',
 	'tooltip-pt-notifications' => 'Vaše obavijesti',
 	'echo-specialpage' => 'Obavijesti',
+	'echo-anon' => 'Da biste primali obavijesti, [$1 otvorite račun] ili se [$2 prijavite].',
 	'echo-none' => 'Nemate obavijesti.',
 	'echo-more-info' => 'Više informacija',
 	'echo-feedback' => 'Povratna informacija',
 	'notification-link-text-view-message' => 'Pogledajte poruku',
+	'notification-link-text-view-mention' => 'Pogledaj spominjanja',
+	'notification-link-text-view-changes' => 'Prikaži promjene',
+	'notification-edit-talk-page2' => '[[User:$1|$1]] je {{GENDER:$1|ostavio|ostavila}} poruku na Vašoj [[User talk:$2#$3|razgovornoj stranici]].',
+	'notification-edit-talk-page-with-section' => '[[User:$1|$1]] je {{GENDER:$1|ostavio|ostavila}} poruku na Vašoj razgovornoj stranici "[[User talk:$2#$3|$4]]".',
+	'notification-edit-talk-page-flyout2' => '$1 je {{GENDER:$1|ostavio|ostavila}} poruku na Vašoj [[User talk:$2#$3|razgovornoj stranici]].',
+	'notification-edit-talk-page-flyout-with-section' => '$1 je {{GENDER:$1|ostavio|ostavila}} poruku na Vašoj razgovornoj stranici u "[[User talk:$2#$3|$4]]".',
 	'notification-edit-talk-page-email-subject2' => '$1 vam je {{GENDER:$1|ostavio|ostavila}} poruku na {{SITENAME}}',
 	'echo-email-batch-body-default' => 'Imate novu poruku.',
 	'echo-overlay-link' => 'Sve obavijesti',
@@ -7522,6 +7545,7 @@ $1',
  * @author Sudo77(new)
  */
 $messages['sk'] = array(
+	'echo-desc' => 'Notifikačný systém',
 	'prefs-echo' => 'Upozornenia',
 	'prefs-emailsettings' => 'Možnosti e-mailu',
 	'prefs-displaynotifications' => 'Možnosti zobrazenia',
@@ -7546,6 +7570,8 @@ $messages['sk'] = array(
 	'echo-category-title-article-linked' => '{{PLURAL:$1|odkaz|odkazy}} na stránku',
 	'echo-category-title-reverted' => '{{PLURAL:$1|vrátenú úpravu|vrátené úpravy}}',
 	'echo-category-title-mention' => '{{PLURAL:$1|zmienku|zmienky}}',
+	'echo-category-title-other' => '{{PLURAL:$1|inú udalosť|iné udalosti}}',
+	'echo-category-title-system' => '{{PLURAL:$1|systémovú udalosť|systémové udalosti}}',
 	'echo-pref-tooltip-edit-user-talk' => 'Upozornite ma, keď mi niekto na mojej diskusnej stránke napíše správu alebo odpovie.',
 	'echo-pref-tooltip-article-linked' => 'Upozornite ma, keď niekto na stránku, ktorú som založil, odkáže z článku.',
 	'echo-pref-tooltip-reverted' => 'Upozornite ma, keď niekto vráti úpravu, ktorú som urobil, pomocou nástrojov vrátiť alebo rollback.',
@@ -7556,6 +7582,7 @@ $messages['sk'] = array(
 	'notifications' => 'Upozornenia',
 	'tooltip-pt-notifications' => 'Vaše upozornenia',
 	'echo-specialpage' => 'Upozornenia',
+	'echo-anon' => 'Ak chcete dostávať upozornenia, musíte si [$1 vytvoriť účet] alebo [$2 sa prihlásiť].',
 	'echo-none' => 'Nemáte žiadne upozornenia.',
 	'echo-more-info' => 'Viac informácií',
 	'echo-feedback' => 'Spätná väzba',
@@ -7565,6 +7592,7 @@ $messages['sk'] = array(
 	'notification-link-text-view-page' => 'Zobraziť stránku',
 	'notification-link-text-view-edit' => 'Zobraziť úpravu',
 	'notification-edit-talk-page2' => '[[User:$1|$1]] vám {{GENDER:$1|napísal|napísala}} na [[User talk:$2#$3|vašu diskusnú stránku]].',
+	'notification-edit-talk-page-flyout2' => '$1 vám {{GENDER:$1|napísal|napísala}} na [[User talk:$2#$3|vašu diskusnú stránku]].',
 	'echo-email-batch-body-default' => 'Máte nové upozornenie',
 	'echo-overlay-link' => 'Všetky upozornenia',
 	'echo-overlay-title' => '<b>Upozornenia</b>',
@@ -7725,11 +7753,16 @@ $messages['sq'] = array(
 	'echo-category-title-other' => '{{PLURAL:$1|Të tjera}}',
 	'echo-category-title-system' => '{{PLURAL:$1|Sistemi}}',
 	'echo-pref-tooltip-edit-user-talk' => 'Më njofto kur dikush poston një mesazh të ri ose përgjigjet në faqet time të diskutimit.',
+	'echo-pref-tooltip-article-linked' => 'Më njofto kur dikush lidh, një faqe, me një faqe që kam krijuar unë.',
 	'echo-pref-tooltip-reverted' => 'Më njofto kur dikush kthen një ndryshim që kam bërë unë, duke përdorur funksionet zhbëj ose riktheje.',
+	'echo-pref-tooltip-mention' => 'Më njofto kur dikush lidh faqen time të përdoruesit me cilëndo faqe diskutimi.',
 	'echo-no-agent' => '[Asnjeri]',
 	'echo-no-title' => '[Asnjë faqe]',
 	'echo-error-no-formatter' => 'Asnjë përcaktim mbi formatimimin e njoftimeve.',
 	'echo-error-preference' => 'Gabim: Preferenca e përdoruesit nuk janë ruajtur.',
+	'echo-error-token' => 'Gabim: Sistemi nuk arriti të rigjejë shenjat e identifikimit.',
+	'notifications' => 'Njoftimet',
+	'tooltip-pt-notifications' => 'Njoftimet tuaja',
 	'echo-specialpage' => 'Njoftimet',
 	'echo-anon' => 'Për të marrë njoftime, [$1 regjistrohuni] ose [$2 hyni].',
 	'echo-none' => 'Nuk keni njoftime.',
@@ -7765,6 +7798,15 @@ $messages['sq'] = array(
 	'notification-page-linked-email-subject' => 'Një faqe që keni krijuar u lidh në {{SITENAME}}',
 	'notification-page-linked-email-batch-body' => '$2 u {{GENDER:$1|lidh}} nga $3',
 	'notification-reverted-email-subject2' => '{{PLURAL:$3|Redaktimi juaj|Redaktimet tuaja}} {{GENDER:$1|u kthyen}} në {{SITENAME}}',
+	'notification-reverted-email-batch-body2' => '{{PLURAL:$3|Redaktimi juaj|Redaktimet e tua}} në $2 {{PLURAL:$3|u kthye|u kthyen}} {{GENDER:$1|nga}} $1',
+	'notification-mention-email-subject' => '$1 të {{GENDER:$1|përmëndi}} në {{SITENAME}}',
+	'notification-mention-email-batch-body' => "$1 të {{GENDER:$1|përmëndi}} në faqen e diskutimeve të $4 në seksionin '$3'.",
+	'notification-user-rights-email-subject' => 'Të drejtat e tua të përdoruesit u ndryshuan në {{SITENAME}}',
+	'notification-user-rights-email-batch-body' => 'Të drejtat e tua të përdoruesit u {{GENDER:$1|ndyshuan}} nga $1. $2',
+	'echo-email-subject-default' => 'Njoftim i ri në {{SITENAME}}',
+	'echo-email-body-default' => 'Keni një njoftim të ri në {{SITENAME}}:
+
+$1',
 	'echo-email-batch-body-default' => 'Keni një njoftim të ri.',
 	'echo-email-footer-default' => "$2
 
@@ -7776,12 +7818,23 @@ $1",
 $1',
 	'echo-overlay-link' => 'Të gjitha njoftimet',
 	'echo-overlay-title' => '<b>Njoftimet</b>',
-	'echo-overlay-title-overflow' => '<b>Njoftimet</b> (duke shfaqur $1 nga $2 të pa lexuara)', # Fuzzy
+	'echo-overlay-title-overflow' => '<b>{{PLURAL:$1|Njoftime}}</b> (duke shfaqur $1 nga $2 të pa lexuara)',
 	'echo-mark-all-as-read' => 'Shënoji të gjitha si të lexuara',
 	'echo-date-today' => 'Sot',
 	'echo-date-yesterday' => 'Dje',
 	'echo-load-more-error' => 'Pati një gabim në ngarkimin e rezultateve shtesë.',
 	'notification-edit-talk-page-bundle' => '$1 dhe {{PLURAL:$4|një përdorues tjetër|$3 përdorues të tjerë}} {{GENDER:$1|iu lanë}} një mesazh në [[User talk:$2|faqen tuaj të diskutimeve]].',
+	'notification-page-linked-bundle' => '$2 u {{GENDER:$1|lidh}} nga $3 dhe {{PLURAL:$5|një faqe tjetër|$4 faqe të tjera}}. [[Special:WhatLinksHere/$2|Shfaq të gjitha lidhjet me këtë faqe]]',
+	'notification-edit-user-talk-email-batch-bundle-body' => '$1 dhe {{PLURAL:$3|një tjetër|$2 të tjerë}} {{GENDER:$1|lanë}} një mesazh në faqen tuaj të diskutimeve',
+	'notification-page-linked-email-batch-bundle-body' => '$2 u {{GENDER:$1|lidh}} nga $3 dhe {{PLURAL:$5|një tjetër faqe|$4 faqe të tjera}}',
+	'echo-email-batch-subject-daily' => 'Keni {{PLURAL:$2|një njoftim të ri|njoftime të reja}} në {{SITENAME}}',
+	'echo-email-batch-subject-weekly' => 'Keni {{PLURAL:$2|një njoftim të ri|njoftime të reja}} në {{SITENAME}} gjatë kësaj jave.',
+	'echo-email-batch-body-intro-daily' => 'Përshëndetje $1,
+këtu është përmbledhja e aktivitetit të sotëm në {{SITENAME}} për ju.',
+	'echo-email-batch-body-intro-weekly' => 'Përshëndetje $1,
+këtu është përmbledhja e aktivitetit javor në {{SITENAME}} për ju.',
+	'echo-email-batch-link-text-view-all-notifications' => 'Shfaq të gjitha njoftimet',
+	'echo-rev-deleted-text-view' => 'Ky version i faqes është fshirë.',
 );
 
 /** Serbian (Cyrillic script) (српски (ћирилица)‎)
@@ -8313,13 +8366,13 @@ $messages['tr'] = array(
 	'echo-category-title-edit-user-talk' => 'Tartışma sayfası {{PLURAL:$1|mesajı|mesajları}}',
 	'echo-category-title-article-linked' => 'Sayfa {{PLURAL:$1|bağlantısı|bağlantıları}}',
 	'echo-category-title-reverted' => 'Değişiklik {{PLURAL:$1|iptali|iptalleri}}',
-	'echo-category-title-mention' => '{{PLURAL:$1|Zikretme|Zikretmeler}}',
+	'echo-category-title-mention' => '{{PLURAL:$1|Bahsetme|Bahsetmeler}}',
 	'echo-category-title-other' => '{{PLURAL:$1|Diğer}}',
 	'echo-category-title-system' => '{{PLURAL:$1|Sistem}}',
-	'echo-pref-tooltip-edit-user-talk' => 'Ne zaman birisi bana mesaj gönderse ya da tartışma sayfamı değiştirse bana bildir.',
-	'echo-pref-tooltip-article-linked' => 'Oluşturduğum makalelerde değişiklik yapıldığında bana bildir.',
+	'echo-pref-tooltip-edit-user-talk' => 'Bir kullanıcı mesaj sayfamı değiştirdiğinde bunu bana bildir.',
+	'echo-pref-tooltip-article-linked' => 'Oluşturduğum sayfalarda değişiklik yapıldığında bana bildir.',
 	'echo-pref-tooltip-reverted' => 'Düzenleme yapıldıktan sonra geri alındığı takdirde bu durumu bana bildir.',
-	'echo-pref-tooltip-mention' => 'Ne zaman birisi tartışma sayfasında kullanıcı adıma bağlantı verirse, bunu bana bildir.',
+	'echo-pref-tooltip-mention' => 'Herhangi bir tartışma sayfasında kullanıcı adıma bağlantı verildiğinde bunu bana bildir.',
 	'echo-no-agent' => '[Kimse]',
 	'echo-no-title' => '[Sayfa yok]',
 	'echo-error-no-formatter' => 'Hiçbir bildirim için biçim tanımlanmamış.',
