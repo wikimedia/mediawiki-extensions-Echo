@@ -637,6 +637,20 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	}
 
 	/**
+	 * Process a param that should be escaped
+	 * @param $message Message
+	 * @param $paramContent string
+	 */
+	protected function processParamEscaped( $message, $paramContent ) {
+		// Plain text email does not need escape
+		if ( $this->outputFormat !== 'email' ) {
+			$paramContent = htmlspecialchars( $paramContent );
+		}
+
+		$message->rawParams( $paramContent );
+	}
+
+	/**
 	 * Get the URL for the primary or secondary link for an event
 	 *
 	 * @param EchoEvent $event
