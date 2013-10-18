@@ -212,7 +212,6 @@ $wgResourceModules += array(
 		),
 		'messages' => array(
 			'echo-new-messages',
-			'colon-separator',
 		),
 	),
 	'ext.echo.badge' => $echoResourceTemplate + array(
