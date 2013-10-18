@@ -160,6 +160,7 @@ Here's a summary of this week's activity on {{SITENAME}} for you.",
  * @author Mormegil
  * @author Nemo bis
  * @author Nike
+ * @author Pxos
  * @author Raymond
  * @author Shirayuki
  * @author Siebrand
@@ -375,14 +376,14 @@ See also:
 * $2 - the section title of the discussion
 * $3 - the page title of the discussion
 * $4 - the raw section title text
-* $5 - the title text without namespace, in this case, it's always a user name",
+* $5 - the title text without namespace (a page title in any namespace)",
 	'notification-mention-flyout' => "Flyout-specific format for displaying notifications of a comment including a link to another user's user page.
 Parameters:
 * $1 - the username of the person who mentioned you, plain text. Can be used for GENDER.
 * $2 - the section title of the discussion
 * $3 - the page title of the discussion
 * $4 - the raw section title text
-* $5 - the title text without namespace, in this case, it's always a user name",
+* $5 - the title text without namespace (a page title in any namespace)",
 	'notification-user-rights' => 'Format for displaying notifications of a user right change in notification page.  Parameters:
 * $1 is the username of the person who made the user right change.  Can be used for GENDER support
 * $2 is a semicolon separated list of {{msg-mw|notification-user-rights-add}}, {{msg-mw|notification-user-rights-remove}}',
@@ -461,16 +462,16 @@ See also:
 * {{msg-mw|Notification-mention}}
 * {{msg-mw|Notification-mention-flyout}}
 * {{msg-mw|Notification-mention-email-batch-body}}',
-	'notification-mention-email-batch-body' => "E-mail notification batch body.  Parameters:
+	'notification-mention-email-batch-body' => 'E-mail notification batch body.  Parameters:
 * $1 - a username, plaintext.  Can be used for gender support
 * $2 - (Unused) talk page title
 * $3 - the raw section title text
-* $4 - the title text without namespace, in this case, it's always a user name
+* $4 - the title text without namespace (a page title in any namespace)
 
 See also:
 * {{msg-mw|Notification-mention}}
 * {{msg-mw|Notification-mention-flyout}}
-* {{msg-mw|Notification-mention-email-subject}}",
+* {{msg-mw|Notification-mention-email-subject}}',
 	'notification-user-rights-email-subject' => 'E-mail subject for user rights notification
 
 See also:
@@ -3038,8 +3039,8 @@ $messages['fi'] = array(
 	'notification-add-talkpage-topic2' => '[[User:$1|$1]] {{GENDER:$1|lisäsi}} uuden aiheen "$2" sivulle [[$3]].',
 	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]] {{GENDER:$1|lähetti}} sinulle viestin: "[[$3#$2|$2]]".',
 	'notification-add-comment-yours2' => '[[User:$1|$1]] {{GENDER:$1|kommentoi}} aihetta "[[$3#$2|$2]]" keskustelusivullasi.',
-	'notification-mention' => '[[User:$1|$1]] {{GENDER:$1|mainitsi}} sinut sivun $5 keskustelusivulla osiossa "[[$3#$2|$4]]".',
-	'notification-mention-flyout' => '$1 {{GENDER:$1|mainitsi}} sinut sivun $5 keskustelusivulla osiossa "[[$3#$2|$4]]".',
+	'notification-mention' => '[[User:$1|$1]] {{GENDER:$1|mainitsi}} sinut kohteen $5 keskustelusivulla osiossa "[[$3#$2|$4]]".',
+	'notification-mention-flyout' => '$1 {{GENDER:$1|mainitsi}} sinut kohteen $5 keskustelusivulla osiossa "[[$3#$2|$4]]".',
 	'notification-user-rights' => '[[User:$1|$1]] [[Special:Log/rights/$1|{{GENDER:$1|muutti}}]] käyttöoikeuksiasi. $2. [[Special:ListGroupRights|Lisätietoja]]',
 	'notification-user-rights-flyout' => '$1 {{GENDER:$1|muutti}} käyttöoikeuksiasi. $2. [[Special:ListGroupRights|Lisätietoja]]',
 	'notification-user-rights-add' => 'Olet nyt {{PLURAL:$2|tämän ryhmän|näiden ryhmien}} jäsen: $1',
@@ -3055,7 +3056,7 @@ $messages['fi'] = array(
 	'notification-reverted-email-subject2' => 'Tekemäsi {{PLURAL:$3|muokkaus|muokkaukset}} sivustolla {{SITENAME}} on {{GENDER:$1|kumottu}}.',
 	'notification-reverted-email-batch-body2' => 'Tekemäsi {{PLURAL:$3|muutoksen sivulle $2 on|muutokset sivulle $2 on}} {{GENDER:$1|kumonnut}} $1.',
 	'notification-mention-email-subject' => '$1 {{GENDER:$1|mainitsi}} sinut sivustolla {{SITENAME}}',
-	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|mainitsi}} sinut sivun $4 keskustelusivulla osiossa "$3".',
+	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|mainitsi}} sinut kohteen $4 keskustelusivulla osiossa "$3".',
 	'notification-user-rights-email-subject' => 'Käyttöoikeutesi ovat muuttuneet sivustolla {{SITENAME}}',
 	'notification-user-rights-email-batch-body' => '$1 {{GENDER:$1|muutti}} käyttöoikeuksiasi. $2.',
 	'echo-email-subject-default' => 'Uusi ilmoitus sivustolla {{SITENAME}}',
@@ -5882,9 +5883,9 @@ $messages['nb'] = array(
 	'notification-link-text-view-page' => 'Vis side',
 	'notification-link-text-view-edit' => 'Vis redigering',
 	'notification-edit-talk-page2' => '[[User:$1|$1]] {{GENDER:$1|la inn}} en melding på [[User talk:$2#$3|diskusjonssiden din]].',
-	'notification-edit-talk-page-with-section' => '[[User:$1|$1]] {{GENDER:$1|etterlot}} en melding på din diskusjonsside under «[[User talk:$2#$3|$4]]».',
+	'notification-edit-talk-page-with-section' => '[[User:$1|$1]] {{GENDER:$1|skrev}} en melding på diskusjonssiden din under «[[User talk:$2#$3|$4]]».',
 	'notification-edit-talk-page-flyout2' => '$1 {{GENDER:$1|la inn}} en melding på [[User talk:$2#$3|diskusjonssiden din]].',
-	'notification-edit-talk-page-flyout-with-section' => '$1 {{GENDER:$1|etterlot}} en melding på din diskusjonsside på "[[User talk:$2#$3|$4]]".',
+	'notification-edit-talk-page-flyout-with-section' => '$1 {{GENDER:$1|skrev}} en melding på diskusjonssiden din under «[[User talk:$2#$3|$4]]».',
 	'notification-page-linked' => '[[:$2]] ble {{GENDER:$1|lenket til}} fra [[:$3]]. [[Special:WhatLinksHere/$2|Se alle lenker til denne siden]].',
 	'notification-page-linked-flyout' => '$2 ble {{GENDER:$1|lenket til}} fra [[:$3]].',
 	'notification-add-comment2' => "[[User:$1|$1]] {{GENDER:$1|kommenterte}} på ''[[$3|$2]]'' på diskusjonssiden ''$4''",
@@ -8077,6 +8078,7 @@ Här är en sammanfattning av veckans aktivitet på {{SITENAME}} för dig.',
 );
 
 /** Tamil (தமிழ்)
+ * @author Jayarathina
  * @author Karthi.dr
  * @author Shanmugamp7
  * @author மதனாஹரன்
@@ -8084,16 +8086,18 @@ Här är en sammanfattning av veckans aktivitet på {{SITENAME}} för dig.',
 $messages['ta'] = array(
 	'prefs-echo' => 'அறிவிப்புகள்',
 	'echo-pref-email-frequency-daily' => 'தினமும் அறிவித்தல்களின் சுருக்கம்',
-	'echo-no-title' => '[தலைப்பு இல்லை]', # Fuzzy
+	'echo-learn-more' => 'மேலும் அறிய',
+	'echo-new-messages' => 'உங்களுக்கு புதிய செய்திகள் உள்ளன.',
+	'echo-no-title' => '[கட்டுரை இல்லை]',
 	'notifications' => 'அறிவிப்புகள்',
-	'echo-specialpage' => 'என் அறிவிப்புகள்', # Fuzzy
+	'echo-specialpage' => 'அறிவிப்புகள்',
 	'echo-anon' => 'அறிவிப்புகளைப் பெறுவதற்கு [$1 ஒரு கணக்கை உருவாக்குங்கள்] அல்லது [$2 உள்நுழையுங்கள்].',
 	'echo-email-subject-default' => '{{SITENAME}}இல்  புதிய அறிவிப்புகள்',
 	'echo-email-body-default' => '{{SITENAME}} இல் உங்களுக்கு ஒரு புதிய அறிவிப்பு உள்ளது:
 
 $1',
-	'echo-overlay-link' => 'எல்லா அறிவிப்புகள்....', # Fuzzy
-	'echo-overlay-title' => 'என் அறிவிப்புகள்', # Fuzzy
+	'echo-overlay-link' => 'எல்லா அறிவிப்புகள்',
+	'echo-overlay-title' => '<b>அறிவிப்புகள்</b>',
 	'echo-date-today' => 'இன்று',
 	'echo-date-yesterday' => 'நேற்று',
 );
