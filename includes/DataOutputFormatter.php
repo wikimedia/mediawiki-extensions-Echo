@@ -87,6 +87,10 @@ class EchoDataOutputFormatter {
 			}
 		}
 
+		if ( $event->getRevision() ) {
+			$output['revid'] = $event->getRevision()->getId();
+		}
+
 		if ( $notification->getReadTimestamp() ) {
 			$output['read'] = $notification->getReadTimestamp();
 		}
