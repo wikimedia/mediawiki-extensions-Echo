@@ -93,7 +93,7 @@ class SpecialNotifications extends SpecialPage {
 							),
 					'id' => 'mw-echo-more'
 				),
-				wfMessage( 'moredotdotdot' )->text()
+				$this->msg( 'moredotdotdot' )->text()
 			);
 		}
 
@@ -130,10 +130,10 @@ class SpecialNotifications extends SpecialPage {
 				'href' => $wgEchoHelpPage,
 				'id' => 'mw-echo-moreinfo-link',
 				'class' => 'mw-echo-special-header-link',
-				'title' => wfMessage( 'echo-more-info' )->text(),
+				'title' => $this->msg( 'echo-more-info' )->text(),
 				'target' => '_blank'
 			),
-			wfMessage( 'echo-more-info' )->text()
+			$this->msg( 'echo-more-info' )->text()
 		);
 		// Preferences link
 		$subtitleLinks[] = Html::rawElement(
@@ -142,9 +142,9 @@ class SpecialNotifications extends SpecialPage {
 				'href' => SpecialPage::getTitleFor( 'Preferences' )->getLinkURL() . '#mw-prefsection-echo',
 				'id' => 'mw-echo-pref-link',
 				'class' => 'mw-echo-special-header-link',
-				'title' => wfMessage( 'preferences' )->text()
+				'title' => $this->msg( 'preferences' )->text()
 			),
-			wfMessage( 'preferences' )->text()
+			$this->msg( 'preferences' )->text()
 		);
 		return $lang->pipeList( $subtitleLinks );
 	}
