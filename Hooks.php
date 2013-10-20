@@ -588,8 +588,6 @@ class EchoHooks {
 			return true;
 		}
 
-		global $wgUser;
-
 		// link notification is boundless as you can include infinite number of links in a page
 		// db insert is expensive, limit it to a reasonable amount, we can increase this limit
 		// once the storage is on Redis
