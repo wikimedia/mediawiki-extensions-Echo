@@ -343,7 +343,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	 * @param $details array An i18n message and parameters to pass to the message
 	 * @param $event EchoEvent that the notification is for.
 	 * @param $user User to format the notification for.
-	 * @return string
+	 * @return Message
 	 */
 	public function formatFragment( $details, $event, $user ) {
 		$message = $this->getMessage( $details['message'] );
