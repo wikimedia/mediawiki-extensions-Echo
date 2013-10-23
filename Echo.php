@@ -529,12 +529,12 @@ $wgDefaultUserOptions['echo-notify-show-link'] = true;
 $wgDefaultUserOptions['echo-show-alert'] = true;
 
 // By default, send emails for each notification as they come in
-$wgDefaultUserOptions['echo-email-frequency'] = EchoHooks::EMAIL_IMMEDIATELY;
+$wgDefaultUserOptions['echo-email-frequency'] = 0; /*EchoHooks::EMAIL_IMMEDIATELY*/
 
 if ( $wgAllowHTMLEmail ) {
-	$wgDefaultUserOptions['echo-email-format'] = EchoHooks::EMAIL_FORMAT_HTML;
+	$wgDefaultUserOptions['echo-email-format'] = 'html'; /*EchoHooks::EMAIL_FORMAT_HTML*/
 } else {
-	$wgDefaultUserOptions['echo-email-format'] = EchoHooks::EMAIL_FORMAT_PLAIN_TEXT;
+	$wgDefaultUserOptions['echo-email-format'] = 'plain-text'; /*EchoHooks::EMAIL_FORMAT_PLAIN_TEXT*/
 }
 
 // Set all of the events to notify by web but not email by default (won't affect events that don't email)
