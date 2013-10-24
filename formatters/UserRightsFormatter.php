@@ -23,11 +23,19 @@ class EchoUserRightsFormatter extends EchoBasicFormatter {
 
 				foreach ( array( 'add', 'remove' ) as $action ) {
 					if ( isset( $extra[$action] ) && $extra[$action] ) {
+
+						// Get the localized group names, bug 55338
+						$groups = array();
+						foreach( $extra[$action] as $group ) {
+							$msg = $this->getMessage( 'group-' . $group );
+							$groups[] = $msg->isBlank() ? $group : $msg->escaped();
+						}
+
 						// Messages that can be used here:
 						// * notification-user-rights-add
 						// * notification-user-rights-remove
 						$list[] = $this->getMessage( 'notification-user-rights-' . $action )
-							->params( $wgLang->commaList( $extra[$action] ), count( $extra[$action] ) )
+							->params( $wgLang->commaList( $groups ), count( $groups ) )
 							->escaped();
 					}
 				}
