@@ -3861,9 +3861,10 @@ $messages['hr'] = array(
 	'echo-pref-new-message-indicator' => 'Prikaži pokazivač poruka na stranici za razgovor na mojoj alatnoj traci',
 	'echo-learn-more' => 'Saznajte više',
 	'echo-new-messages' => 'Imate nove poruke.',
-	'echo-category-title-edit-user-talk' => '{{PLURAL:$1|poruku|poruke|poruka}} na stranici za razgovor',
+	'echo-category-title-edit-user-talk' => '{{PLURAL:$1|Poruka}} na stranici za razgovor',
 	'echo-category-title-article-linked' => 'Stranica {{PLURAL:$1|poveznica|poveznice|poveznica}}',
 	'echo-category-title-reverted' => 'Uredi {{PLURAL:$1|uklanjanje|uklanjanja}}',
+	'echo-category-title-mention' => 'Spominjanja', # Fuzzy
 	'echo-category-title-system' => '{{PLURAL:$1|Sustav}}',
 	'echo-pref-tooltip-edit-user-talk' => 'Obavijesti me kad netko snimi poruku ili odgovori na mojoj stranici za razgovor.',
 	'echo-pref-tooltip-article-linked' => 'Obavijesti me kad netko u članku doda poveznicu na članak kojega sam započeo.',
@@ -3886,11 +3887,18 @@ $messages['hr'] = array(
 	'notification-edit-talk-page-with-section' => '[[User:$1|$1]] je {{GENDER:$1|ostavio|ostavila}} poruku na Vašoj razgovornoj stranici "[[User talk:$2#$3|$4]]".',
 	'notification-edit-talk-page-flyout2' => '$1 je {{GENDER:$1|ostavio|ostavila}} poruku na Vašoj [[User talk:$2#$3|razgovornoj stranici]].',
 	'notification-edit-talk-page-flyout-with-section' => '$1 je {{GENDER:$1|ostavio|ostavila}} poruku na Vašoj razgovornoj stranici u "[[User talk:$2#$3|$4]]".',
-	'notification-reverted2' => '{{PLURAL:$4|Vaše uređivanje u članku [[:$2]] je|Vaša uređivanja u članku [[:$2]] je}} {{GENDER:$1|uklonio suradnik|uklonila suradnica}} [[User:$1|$1]]. $3',
-	'notification-reverted-flyout2' => '{{PLURAL:$4|Vaše uređivanje u članku [[:$2]] je|Vaša uređivanja u članku [[:$2]] je}} {{GENDER:$1|uklonio suradnik|uklonila suradnica}} [[User:$1|$1]]. $3', # Fuzzy
+	'notification-page-linked' => 'Članak [[:$2]] je {{GENDER:$1|povezan}} s člankom [[:$3]]. [[Special:WhatLinksHere/$2|Pogledajte što vodi prema ovom članku]].',
+	'notification-mention' => '[[User:$1|$1]] vas je {{GENDER:$1|spomenuо|spomenula}} na stranici za razgovor $5 odlomku [[$3#$2|$4]].',
+	'notification-mention-flyout' => '$1 vas je {{GENDER:$1|spomenuo|spomenula}} na stranici za razgovor suradnika $5, u odlomku [[$3#$2|$4]].',
+	'notification-reverted2' => '{{PLURAL:$4|Vaše uređivanje na stranici [[:$2]]|Vaša uređivanja na stranici [[:$2]]}} {{GENDER:$1|uklonio je suradnik|uklonila je suradnica}} [[User:$1|$1]]. $3',
+	'notification-reverted-flyout2' => '{{PLURAL:$4|Vaše uređivanje na stranici $2|Vaša uređivanja na stranici $2}} {{GENDER:$1|uklonio je suradnik|uklonila je suradnica}} $1. $3',
 	'notification-edit-talk-page-email-subject2' => '$1 vam je {{GENDER:$1|ostavio|ostavila}} poruku na projektu {{SITENAME}}',
 	'notification-edit-talk-page-email-batch-body2' => '$1 je {{GENDER:$1|ostavio|ostavila}} poruku na vašoj stranici za razgovor:',
 	'notification-edit-talk-page-email-batch-body-with-section' => '$1 je {{GENDER:$1|ostavio|ostavila}} poruku na vašoj stranici za razgovor u odlomku "$2".',
+	'notification-page-linked-email-subject' => 'Na projektu {{SITENAME}} dodana je poveznica na vaš članak.',
+	'notification-page-linked-email-batch-body' => 'Članak $2 je {{GENDER:$1|povezan}} s člankom $3.',
+	'notification-reverted-email-subject2' => '{{PLURAL:$3|Vaša izmjena je|Vaše izmjene su}} {{GENDER:$1|uklonjena|uklonjene}} na projektu {{SITENAME}}',
+	'notification-mention-email-subject' => '$1 vas je {{GENDER:$1|spomenuo|spomenula}} na projektu {{SITENAME}}',
 	'echo-email-batch-body-default' => 'Imate novu poruku.',
 	'echo-email-footer-default' => '$2
 
@@ -5462,6 +5470,64 @@ $1',
  */
 $messages['lzh'] = array(
 	'echo-new-messages' => '子有新訊息',
+);
+
+/** Malagasy (Malagasy)
+ * @author Jagwar
+ */
+$messages['mg'] = array(
+	'echo-desc' => 'Rafitra fampilazana',
+	'prefs-echo' => 'Filazana',
+	'prefs-emailsettings' => "Safidin'ny mailaka",
+	'prefs-displaynotifications' => 'Safidin-tseho',
+	'prefs-echosubscriptions' => 'Ampandreneso momba ireo zava-mitranga ireo aho',
+	'prefs-newmessageindicator' => 'Tondron-kafatra vaovao',
+	'echo-pref-send-me' => 'Andefaso ahy:',
+	'echo-pref-send-to' => 'Alefaso any amy:',
+	'echo-pref-web' => 'Tranonkala',
+	'echo-pref-email' => 'Mailaka',
+	'echo-pref-email-frequency-never' => "Aza andefasana fampilazana amin'ny mailaka aho",
+	'echo-pref-email-frequency-immediately' => 'Fampilazana tsirairay araky ny iaviany',
+	'echo-pref-email-frequency-daily' => "Famintinana isan'andron'ny fampilazana",
+	'echo-pref-email-frequency-weekly' => "Famintinana isan-kerinandron'ny fampilazana",
+	'echo-pref-email-format-html' => 'HTML',
+	'echo-pref-email-format-plain-text' => 'Soratra tsotra',
+	'echo-pref-notify-show-link' => "Asehoy ao amin'ny toolbar-ko ny fampilazana",
+	'echo-pref-new-message-indicator' => "Haneho ny mpanondro hafatra ao amin'ny pejin-dresaka ao amin'ny toolbar-ko",
+	'echo-learn-more' => 'Fampahalalana fanampiny',
+	'echo-new-messages' => 'Misy hafatra vaovao.',
+	'echo-category-title-edit-user-talk' => 'Hafatry ny {{PLURAL:$1|pejin-dresaka}}',
+	'echo-category-title-article-linked' => '{{PLURAL:$1|Rohim-pejy}}',
+	'echo-pref-tooltip-edit-user-talk' => "Ilazao aho raha misy mamela hafatra na mamaly hafatra eo amin'ny pejin-dresaka.",
+	'echo-pref-tooltip-article-linked' => "Ilazao aho raha misy manisy rohy mankany amina pejy noforiko avy amin'ny pejin-dahatsoratra",
+	'echo-no-agent' => '[Tsy misy]',
+	'echo-no-title' => '[Tsy misy pejy]',
+	'notifications' => 'Fampilazana',
+	'tooltip-pt-notifications' => 'Ny fampilazanao',
+	'echo-specialpage' => 'Fampilazana',
+	'echo-more-info' => 'Fampahalalana fanampiny',
+	'echo-feedback' => 'Famoahan-kevitra',
+	'notification-link-text-view-message' => 'Hijery hafatra',
+	'notification-link-text-view-mention' => 'Hijery ny zava-boamarika',
+	'notification-link-text-view-changes' => 'Hijery ny fiovana',
+	'notification-link-text-view-page' => 'Hijery ny pejy',
+	'notification-link-text-view-edit' => 'Hijery ny fanovàna',
+	'notification-edit-talk-page-email-batch-body-with-section' => 'Namela hafatra teo amin\'ny pejin-dresakao tanatin\'i "$2" i $1',
+	'notification-user-rights-email-subject' => "Voaova teo amin'i {{SITENAME}} ny zom-pikambanao",
+	'notification-user-rights-email-batch-body' => "Voaovan'i $1 ny zom-pikambanao. $2",
+	'echo-email-subject-default' => "Fampilazana vaovao any amin'i {{SITENAME}}",
+	'echo-email-body-default' => "Manana fampilazana vaovao ianao any amin'i {{SITENAME}}:
+
+$1",
+	'echo-email-batch-body-default' => 'Manana fampilazana vaovao ianao.',
+	'echo-overlay-link' => 'Fampilazana rehetra',
+	'echo-overlay-title' => '<b>Fampilazana</b>',
+	'echo-mark-all-as-read' => 'Marihana ho voavaky',
+	'echo-date-today' => 'Androany',
+	'echo-date-yesterday' => 'Omaly',
+	'echo-load-more-error' => 'Nisy hadisoana nitranga tam-panaovana fetch ny valiny.',
+	'echo-email-batch-link-text-view-all-notifications' => 'Hijery ny fampilazana rehetra',
+	'echo-rev-deleted-text-view' => 'Voafafa ity filazam-pajy ity.',
 );
 
 /** Macedonian (македонски)
@@ -7890,6 +7956,18 @@ tu je za vas povzetek aktivnosti preteklega tedna v {{GRAMMAR:dajalnik|{{SITENAM
 	'echo-rev-deleted-text-view' => 'Ta redakcija strani je bila izbrisana.',
 );
 
+/** Somali (Soomaaliga)
+ * @author Abshirdheere
+ */
+$messages['so'] = array(
+	'tooltip-pt-notifications' => 'Wargelinadaada',
+	'echo-specialpage' => 'Wargelin',
+	'echo-none' => 'Malahan wax wargelin ah.',
+	'echo-more-info' => 'Dheeraad',
+	'echo-overlay-link' => 'Dhammaan wargelinada',
+	'echo-overlay-title' => '<b>Wargelinada</b>',
+);
+
 /** Albanian (shqip)
  * @author Euriditi
  */
@@ -8068,12 +8146,12 @@ $messages['sr-ec'] = array(
 	'notification-user-rights' => 'Ваша корисничка права [[Special:Log/rights/$1|су била {{GENDER:$1|промењена}}]] од стране [[User:$1|$1]]. $2. [[Special:ListGroupRights|Сазнајте више]]',
 	'notification-user-rights-add' => 'Од сада сте члан {{PLURAL:$2|ове групе|ових група}}: $1',
 	'notification-user-rights-remove' => 'Више нисте члан {{PLURAL:$2|ове групе|ових група}}: $1',
-	'notification-reverted2' => '{{PLURAL:$4|Ваша измена на [[:$2]] је поништена|Ваше  измене на [[:$2]] су поништене}} {{GENDER:$1|од}}  стране [[User:$1|$1]]. $3',
+	'notification-reverted2' => '{{PLURAL:$4|Ваша измена на страници [[:$2]] је поништена|Ваше измене на страници [[:$2]] су поништене}} од стране {{GENDER:$1|корисника}} [[User:$1|$1]]. $3',
 	'notification-reverted-flyout2' => '{{PLURAL:$4|Ваша измена на $2 је поништена|Ваше  измене на $2 су поништене}} {{GENDER:$1|од}}  стране $1. $3',
 	'notification-edit-talk-page-email-subject2' => '$1 вам је {{GENDER:$1|оставио|оставила}} поруку на {{SITENAME}}',
 	'notification-edit-talk-page-email-batch-body2' => '$1 вам је {{GENDER:$1|оставио|оставила}} поруку на вашој страници за разговор:',
 	'notification-edit-talk-page-email-batch-body-with-section' => '$1 вам је {{GENDER:$1|оставио|оставила}} поруку на вашој страници за разговор у „$2“.',
-	'notification-reverted-email-batch-body2' => '{{PLURAL:$3|Ваша измена на $2 је поништена|Ваше  измене на $2 су поништене}} {{GENDER:$1|од}}  стране $1.',
+	'notification-reverted-email-batch-body2' => '{{PLURAL:$3|Ваша измена на страници $2 је поништена|Ваше измене на страници $2 су поништене}} од стране {{GENDER:$1|корисника}} $1.',
 	'notification-mention-email-subject' => '$1 вас је {{GENDER:$1|споменуо|споменула}} на {{SITENAME}}',
 	'notification-mention-email-batch-body' => '$1 вас је {{GENDER:$1|споменуо|споменула}} на страници за разговор $4 у „$3“.',
 	'notification-user-rights-email-subject' => 'Ваша корисничка права су се променила на {{SITENAME}}',
