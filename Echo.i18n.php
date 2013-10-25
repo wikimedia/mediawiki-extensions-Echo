@@ -1844,8 +1844,9 @@ $messages['ce'] = array(
 	'echo-pref-email-format-plain-text' => 'Цхьалхе йоза',
 	'echo-pref-notify-show-link' => 'Сан панелан тӀехь гайта хаам',
 	'echo-pref-new-message-indicator' => 'Сан панелан тӀехь гайта хааман индикатор',
+	'echo-new-messages' => 'Хьуна кхаьчна керла хаам',
 	'echo-category-title-edit-user-talk' => 'дийцаре агӀонехь {{PLURAL:$1|хаам|хаамаш}}',
-	'echo-category-title-article-linked' => 'АгӀона тӀе {{PLURAL:$1|хьажориг|хьажоригаш}}',
+	'echo-category-title-article-linked' => 'АгӀона тӀе {{PLURAL:$1|хьажораг|хьажорагаш}}',
 	'echo-category-title-reverted' => '{{PLURAL:$1|юхадаккхар нисдар|юхадаккхар нисдарш}}',
 	'echo-category-title-mention' => '{{PLURAL:$1|хаам|хаамаш}}',
 	'echo-pref-tooltip-edit-user-talk' => 'Хаийта соьга, цхьам хаам баийтача я сан дийцаре агӀорахь жоп делча.',
@@ -1857,6 +1858,12 @@ $messages['ce'] = array(
 	'echo-specialpage' => 'Хаамаш',
 	'echo-none' => 'Хьуна хаамаш ца беара.',
 	'echo-more-info' => 'Ма-дарра',
+	'notification-edit-talk-page2' => 'декъашхочо [[User:$1|$1]] хьан [[User talk:$2#$3|дийцаре агӀонехь]] {{GENDER:$1|битина}}. хаам.',
+	'notification-edit-talk-page-with-section' => 'хьан дийцаре агӀонехь [[User:$1|$1]] {{GENDER:$1|битина}} хаам "[[User talk:$2#$3|$4]]".',
+	'notification-edit-talk-page-flyout2' => 'декъашхочо [[User:$1|$1]] хьан [[User talk:$2#$3|дийцаре агӀонехь]] {{GENDER:$1|битина}}. хаам.', # Fuzzy
+	'notification-edit-talk-page-flyout-with-section' => 'хьан дийцаре агӀонехь $1 {{GENDER:$1|битина}} хаам "[[User talk:$2#$3|$4]]".',
+	'notification-edit-talk-page-email-batch-body2' => 'Хьан дийцаре агӀонехь {{GENDER:$1|декъашхочо}} $1 {{GENDER:$1|битина}} хаам:',
+	'notification-edit-talk-page-email-batch-body-with-section' => 'Хьан дийцаре агӀонехь {{GENDER:$1|декъашхочо}} $1 {{GENDER:$1|битина}} хаам (темехь) «$2»',
 	'echo-overlay-link' => 'Массо хаамаш',
 	'echo-overlay-title' => '<b>Хаамаш</b>',
 );
@@ -3598,6 +3605,7 @@ $1',
  * @author Ypnypn
  * @author דולב
  * @author חיים
+ * @author ערן
  */
 $messages['he'] = array(
 	'echo-desc' => 'מערכת הודעות',
@@ -3651,7 +3659,7 @@ $messages['he'] = array(
 	'notification-edit-talk-page2' => '[[User:$1|$1]] {{GENDER:$1|כתב|כתבה}} ב[[User talk:$2#$3|דף השיחה]] שלך.',
 	'notification-edit-talk-page-with-section' => "[[User:$1|$1]] {{GENDER:$1|כתב|כתבה}} כתבה בדף השיחה שלך הודעה תחת הכותרת '[[User talk:$2#$3|$4]]'.",
 	'notification-edit-talk-page-flyout2' => '$1 {{GENDER:$1|כתב|כתבה}} ב[[User talk:$2#$3|דף השיחה שלך]].',
-	'notification-edit-talk-page-flyout-with-section' => "$1 {{GENDER:$1|כתב|כתבה}} כתבה בדף השיחה שלך הודעה תחת הכותרת '[[User talk:$2#$3|$4]]'.",
+	'notification-edit-talk-page-flyout-with-section' => "$1 {{GENDER:$1|כתב|כתבה}} בדף השיחה שלך הודעה תחת הכותרת '[[User talk:$2#$3|$4]]'.",
 	'notification-page-linked' => '{{GENDER:$1|נוסף קישור}} אל הדף [[:$2]] מהדף [[:$3]]. [[Special:WhatLinksHere/$2|כל הקישורים אל הדף הזה]].',
 	'notification-page-linked-flyout' => '{{GENDER:$1|נוסף קישור}} אל הדף $2 מהדף [[:$3]].',
 	'notification-add-comment2' => '[[User:$1|$1]] {{GENDER:$1|העיר|העירה}} על הנושא "[[$3|$2]]" בדף השיחה של "$4".',
@@ -3862,12 +3870,12 @@ $messages['hr'] = array(
 	'echo-learn-more' => 'Saznajte više',
 	'echo-new-messages' => 'Imate nove poruke.',
 	'echo-category-title-edit-user-talk' => '{{PLURAL:$1|Poruka}} na stranici za razgovor',
-	'echo-category-title-article-linked' => 'Stranica {{PLURAL:$1|poveznica|poveznice|poveznica}}',
-	'echo-category-title-reverted' => 'Uredi {{PLURAL:$1|uklanjanje|uklanjanja}}',
+	'echo-category-title-article-linked' => '{{PLURAL:$1|Poveznica|Poveznice|Poveznica}} na stranicu',
+	'echo-category-title-reverted' => 'Uklanjanje {{PLURAL:$1|uređivanja}}',
 	'echo-category-title-mention' => 'Spominjanja', # Fuzzy
 	'echo-category-title-system' => '{{PLURAL:$1|Sustav}}',
 	'echo-pref-tooltip-edit-user-talk' => 'Obavijesti me kad netko snimi poruku ili odgovori na mojoj stranici za razgovor.',
-	'echo-pref-tooltip-article-linked' => 'Obavijesti me kad netko u članku doda poveznicu na članak kojega sam započeo.',
+	'echo-pref-tooltip-article-linked' => 'Obavijesti me kad netko doda poveznicu na stranicu koju sam započeo.',
 	'echo-pref-tooltip-reverted' => 'Obavijesti me kad netko ukloni moje uređivanje.',
 	'echo-pref-tooltip-mention' => 'Obavijesti me kad netko doda poveznicu prema mojoj suradničkoj stranici s bilo koje razgovorne stranice.',
 	'echo-no-agent' => '[Nitko]',
@@ -5778,12 +5786,12 @@ $messages['mr'] = array(
 	'prefs-displaynotifications' => 'प्रदर्शित करण्याचे पर्याय',
 	'prefs-echosubscriptions' => 'ह्या उपक्रमाबद्दल कळवावे',
 	'prefs-newmessageindicator' => 'नवीन संदेश निर्देशक',
-	'echo-pref-send-me' => 'मला पाठवा',
-	'echo-pref-send-to' => 'पाठवा',
+	'echo-pref-send-me' => 'मला पाठवा:',
+	'echo-pref-send-to' => 'ला पाठवा:',
 	'echo-pref-email-format' => 'नवीन संदेश निर्देशक',
 	'echo-pref-email' => 'ई-मेल',
-	'echo-pref-email-frequency-never' => 'ईमेलद्वारे मला सूचित करू नये',
-	'echo-pref-email-frequency-immediately' => 'त्वरित स्वतंत्र सूचना मिळण्याची सोय',
+	'echo-pref-email-frequency-never' => 'ईमेलद्वारे मला अधिसूचना पाठविण्यात येऊ नये',
+	'echo-pref-email-frequency-immediately' => 'वैयक्तीक अधिसूचना त्या जश्या प्राप्त होतील तेंव्हाच',
 	'echo-learn-more' => 'अधिक जाणून घ्या',
 	'echo-new-messages' => 'तुमच्यासाठी नवीन संदेश आहेत.',
 	'echo-category-title-edit-user-talk' => 'चर्चा पान {{PLURAL:$1|संदेश}}',
@@ -8109,7 +8117,7 @@ $messages['sr-ec'] = array(
 	'echo-pref-email-format-plain-text' => 'Чист текст',
 	'echo-pref-notify-show-link' => 'Прикажи обавештења у мојој траци алатки',
 	'echo-learn-more' => 'Сазнајте више',
-	'echo-new-messages' => 'Стигла вам је нова порука',
+	'echo-new-messages' => 'Стигла вам је нова порука.',
 	'echo-category-title-edit-user-talk' => '{{PLURAL:$1|Поруке}} на страници за разговор',
 	'echo-category-title-reverted' => 'Поништене {{PLURAL:$1|измене}}',
 	'echo-category-title-mention' => '{{PLURAL:$1|Спомињања}}',
@@ -8124,7 +8132,7 @@ $messages['sr-ec'] = array(
 	'notifications' => 'Обавештења',
 	'tooltip-pt-notifications' => 'Ваша обавештења',
 	'echo-specialpage' => 'Обавештења',
-	'echo-anon' => 'Да би сте приступили овој страници морате се [[Special:UserLogin|пријавити]] или [[Special:Userlogin/signup|отворити налог]].',
+	'echo-anon' => 'Да би сте приступили овој страници морате се [$2 пријавити] или [$1 отворити налог].',
 	'echo-none' => 'Немате обавештења',
 	'echo-more-info' => 'Више информација',
 	'notification-link-text-view-message' => 'Погледај поруку',
@@ -8147,11 +8155,13 @@ $messages['sr-ec'] = array(
 	'notification-user-rights-add' => 'Од сада сте члан {{PLURAL:$2|ове групе|ових група}}: $1',
 	'notification-user-rights-remove' => 'Више нисте члан {{PLURAL:$2|ове групе|ових група}}: $1',
 	'notification-reverted2' => '{{PLURAL:$4|Ваша измена на страници [[:$2]] је поништена|Ваше измене на страници [[:$2]] су поништене}} од стране {{GENDER:$1|корисника}} [[User:$1|$1]]. $3',
-	'notification-reverted-flyout2' => '{{PLURAL:$4|Ваша измена на $2 је поништена|Ваше  измене на $2 су поништене}} {{GENDER:$1|од}}  стране $1. $3',
+	'notification-reverted-flyout2' => '{{PLURAL:$4|Ваша измена на страници $2 је враћена|Ваше  измене на страници $2 су враћене}} од стране {{GENDER:$1|корисника}} $1. $3',
 	'notification-edit-talk-page-email-subject2' => '$1 вам је {{GENDER:$1|оставио|оставила}} поруку на {{SITENAME}}',
 	'notification-edit-talk-page-email-batch-body2' => '$1 вам је {{GENDER:$1|оставио|оставила}} поруку на вашој страници за разговор:',
 	'notification-edit-talk-page-email-batch-body-with-section' => '$1 вам је {{GENDER:$1|оставио|оставила}} поруку на вашој страници за разговор у „$2“.',
-	'notification-reverted-email-batch-body2' => '{{PLURAL:$3|Ваша измена на страници $2 је поништена|Ваше измене на страници $2 су поништене}} од стране {{GENDER:$1|корисника}} $1.',
+	'notification-page-linked-email-subject' => 'Ваша страница је повезана на {{SITENAME}}',
+	'notification-page-linked-email-batch-body' => 'Страница $2 је {{GENDER:$1|повезана}} са $3.',
+	'notification-reverted-email-batch-body2' => '{{PLURAL:$3|Ваша измена на страници $2 је враћена|Ваше измене на страници $2 су враћене}} од стране {{GENDER:$1|корисника}} $1.',
 	'notification-mention-email-subject' => '$1 вас је {{GENDER:$1|споменуо|споменула}} на {{SITENAME}}',
 	'notification-mention-email-batch-body' => '$1 вас је {{GENDER:$1|споменуо|споменула}} на страници за разговор $4 у „$3“.',
 	'notification-user-rights-email-subject' => 'Ваша корисничка права су се променила на {{SITENAME}}',
@@ -8163,8 +8173,8 @@ $1',
 	'echo-email-batch-body-default' => 'Имате ново обавештење.',
 	'echo-overlay-link' => 'Сва обавештења',
 	'echo-overlay-title' => '<b>Обавештења</b>',
-	'echo-overlay-title-overflow' => '<b>Обавештења</b> (приказ $1 од $2 непрочитаних)', # Fuzzy
-	'echo-mark-all-as-read' => 'Означи све као прочитано',
+	'echo-overlay-title-overflow' => '<b>{{PLURAL:$1|Обавештења}}</b> (приказ $1 од $2 непрочитаних)',
+	'echo-mark-all-as-read' => 'Означи све прочитаним',
 	'echo-date-today' => 'Данас',
 	'echo-date-yesterday' => 'Јуче',
 	'echo-load-more-error' => 'Дошло је до грешке при добављању више резултата.',
@@ -8860,6 +8870,7 @@ $messages['vec'] = array(
 );
 
 /** Vietnamese (Tiếng Việt)
+ * @author Baonguyen21022003
  * @author Minh Nguyen
  */
 $messages['vi'] = array(
@@ -8957,7 +8968,7 @@ $1',
 $1',
 	'echo-overlay-link' => 'Tất cả các thông báo',
 	'echo-overlay-title' => '<b>Thông báo</b>',
-	'echo-overlay-title-overflow' => '<b>Tin nhắn</b> (đang xem $1 trên $2 chưa đọc)', # Fuzzy
+	'echo-overlay-title-overflow' => '<b>{{PLURAL:$1|Tin nhắn}}</b> (đang xem $1 trên $2 chưa đọc)',
 	'echo-mark-all-as-read' => 'Đánh dấu tất cả là đã đọc',
 	'echo-date-today' => 'Hôm nay',
 	'echo-date-yesterday' => 'Hôm qua',
