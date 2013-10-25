@@ -66,6 +66,11 @@ class MWEchoEventLogging {
 			// whitelist valid delivery methods so it is always valid
 			$data['deliveryMethod'] = 'web';
 		}
+		// Add revision ID if it exists
+		$rev = $event->getRevision();
+		if ( $rev ) {
+			$event['revisionId'] = $rev->getId();
+		}
 
 		self::actuallyLogTheEvent( 'Echo', $data );
 	}
