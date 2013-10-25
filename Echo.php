@@ -349,6 +349,10 @@ $wgEchoNotificationCategories = array(
 		'priority' => 9,
 		'no-dismiss' => array( 'all' ),
 	),
+	'user-rights' => array( // bug 55337
+		'priority' => 9,
+		'tooltip' => 'echo-pref-tooltip-user-rights',
+	),
 	'other' => array(
 		'no-dismiss' => array( 'all' ),
 	),
@@ -505,7 +509,7 @@ $wgEchoNotifications = array(
 	),
 	'user-rights' => array(
 		'primary-link' => array( 'message' => 'echo-learn-more', 'destination' => 'user-rights-list' ),
-		'category' => 'system',
+		'category' => 'user-rights',
 		'group' => 'neutral',
 		'formatter-class' => 'EchoUserRightsFormatter',
 		'title-message' => 'notification-user-rights',
@@ -543,6 +547,7 @@ foreach ( $wgEchoNotificationCategories as $category => $categoryData ) {
 
 // most settings default to web on, email off, but override these
 $wgDefaultUserOptions['echo-subscriptions-email-system'] = true;
+$wgDefaultUserOptions['echo-subscriptions-email-user-rights'] = true;
 $wgDefaultUserOptions['echo-subscriptions-web-article-linked'] = false;
 
 // Echo Configuration for EventLogging
