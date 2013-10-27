@@ -1,4 +1,4 @@
-/* No rounded corners for modern skin */
-.mw-echo-alert {
+/* No rounded corners for Modern skin */
+#pt-mytalk a.mw-echo-alert {
 	border-radius: 0;
 }

@@ -209,6 +209,7 @@ $wgResourceModules += array(
 		'styles' => 'alert/ext.echo.alert.css',
 		'skinStyles' => array(
 			'modern' => 'alert/ext.echo.alert.modern.css',
+			'monobook' => 'alert/ext.echo.alert.monobook.css',
 		),
 		'messages' => array(
 			'echo-new-messages',
