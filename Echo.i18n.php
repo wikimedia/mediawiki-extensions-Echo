@@ -33,7 +33,7 @@ $messages['en'] = array(
 	'echo-learn-more' => 'Learn more',
 
 	// Alert interface
-	'echo-new-messages' => 'You have new messages.',
+	'echo-new-messages' => 'You have new messages',
 
 	// Category titles
 	'echo-category-title-edit-user-talk' => 'Talk page {{PLURAL:$1|message|messages}}',
@@ -212,7 +212,7 @@ See also:
 	'echo-pref-new-message-indicator' => 'Label for a preference which enables the new talk page message alert',
 	'echo-learn-more' => 'Text for link to more information about a topic.
 {{Identical|Learn more}}',
-	'echo-new-messages' => 'Message to let the user know that they have new talk page messages. Keep this message short.',
+	'echo-new-messages' => 'Message to let the user know that they have new talk page messages, displayed in the personal menu (top-right corner on Vector and Monobook). Keep this message short. It \'\'\'should not\'\'\' end in a full stop.',
 	'echo-category-title-edit-user-talk' => 'This is a short title for notification category.
 
 Used in a list of options under the heading {{msg-mw|Prefs-echosubscriptions}} in Special:Preferences. As far as I can see this always needs to be a plural for an unspecified number.
