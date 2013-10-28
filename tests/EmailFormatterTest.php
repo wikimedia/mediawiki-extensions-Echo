@@ -19,10 +19,10 @@ class EchoEmailFormatterTest extends MediaWikiTestCase {
 		$formatter = EchoNotificationFormatter::factory( $wgEchoNotifications[$event->getType()] );
 		$formatter->setOutputFormat( 'email' );
 
-		$user = User::newFromId( 2 );
+		$user = User::newFromId( 1 );
 		$user->setName( 'Test' );
 		$user->setOption( 'echo-email-format', EchoHooks::EMAIL_FORMAT_HTML );
-	
+
 		$this->emailSingle = new EchoEmailSingle( $formatter, $event, $user );
 
 		$content[$event->getCategory()][] = EchoNotificationController::formatNotification( $event, $user, 'email', 'emaildigest' );

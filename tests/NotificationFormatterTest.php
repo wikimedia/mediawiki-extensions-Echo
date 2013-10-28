@@ -2,6 +2,14 @@
 
 class EchoNotificationFormatterTest extends MediaWikiTestCase {
 
+	public function setUp() {
+		parent::setUp();
+		$user = new User();
+		$user->setName( 'Notification-formatter-test' );
+		$user->addToDatabase();
+		$this->setMwGlobals( 'wgUser', $user );
+	}
+
 	public static function provider_editUserTalkEmail() {
 		return array(
 			array( '/Main_Page[^#]/', null ),
@@ -31,7 +39,7 @@ class EchoNotificationFormatterTest extends MediaWikiTestCase {
 	public static function provider_editUserTalk() {
 		return array(
 			// if there is a section-title, the message should be '[[User:user_name|user_name]] left a message on
-			// your talk page in '[[User talk:user_name#section_title|section_title]]' 
+			// your talk page in '[[User talk:user_name#section_title|section_title]]'
 			array( '/[[User talk:[^#]+#moar_cowbell|moar_cowbell]]/', 'moar_cowbell', 'text' ),
 			array( '/#moar_cowbell/', 'moar_cowbell', 'html' ),
 			array( '/#moar_cowbell/', 'moar_cowbell', 'flyout' ),
@@ -43,12 +51,12 @@ class EchoNotificationFormatterTest extends MediaWikiTestCase {
 	 */
 	public function testEditUserTalkFlyoutSectionLinkFragment( $pattern, $sectionTitle, $format ) {
 		// Required hack so parser doesnt turn the links into redlinks which contain no fragment
-		LinkCache::singleton()->addGoodLinkObj( 42, Title::newFromText( '127.0.0.1', NS_USER_TALK ) );
+		global $wgUser;
+		LinkCache::singleton()->addGoodLinkObj( 42, $wgUser->getTalkPage() );
 
 		$event = $this->mockEvent( 'edit-user-talk', array(
 			'section-title' => $sectionTitle,
 		) );
-
 		$this->assertRegExp( $pattern, $this->format( $event, $format ) );
 	}
 
@@ -121,7 +129,7 @@ class EchoNotificationFormatterTest extends MediaWikiTestCase {
 			$this->assertContains( $text, $this->format( $event, 'html' ) );
 		}
 	}
-
+	
 	public static function provider_revisionAgent() {
 		$userText = '10.2.3.4';
 		$suppressed = wfMessage( 'rev-deleted-user' )->text();
@@ -198,15 +206,19 @@ class EchoNotificationFormatterTest extends MediaWikiTestCase {
 		$this->assertContains( $expect, $this->format( $event, 'html' ) );
 	}
 
-	protected function format( EchoEvent $event, $format, $type = 'web', array $params = array() ) {
+	protected function format( EchoEvent $event, $format, $user = false, $type = 'web', array $params = array() ) {
 		global $wgEchoNotifications;
 
 		$params += $wgEchoNotifications[ $event->getType() ];
 		$formatter = EchoNotificationFormatter::factory( $params );
 		$formatter->setOutputFormat( $format );
 
+		if ( $user === false ) {
+			$user = User::newFromName('Notification-formatter-test');
+		}
+
 		// Notification users can not be anonymous, use a fake user id
-		return $formatter->format( $event, User::newFromId( 2 ), $type );
+		return $formatter->format( $event, $user, $type );
 	}
 
 	protected function mockEvent( $type, array $extra = array(), Revision $rev = null ) {
