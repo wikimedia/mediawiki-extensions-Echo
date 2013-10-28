@@ -212,7 +212,9 @@ See also:
 	'echo-pref-new-message-indicator' => 'Label for a preference which enables the new talk page message alert',
 	'echo-learn-more' => 'Text for link to more information about a topic.
 {{Identical|Learn more}}',
-	'echo-new-messages' => "Message to let the user know that they have new talk page messages, displayed in the personal menu (top-right corner on Vector and Monobook). Keep this message short. It '''should not''' end in a full stop.",
+	'echo-new-messages' => "Message to let the user know that they have new talk page messages, displayed in the personal menu (top-right corner on Vector and Monobook).
+
+Keep this message short. It '''should not''' end in a full stop.",
 	'echo-category-title-edit-user-talk' => 'This is a short title for notification category.
 
 Used in a list of options under the heading {{msg-mw|Prefs-echosubscriptions}} in Special:Preferences. As far as I can see this always needs to be a plural for an unspecified number.
@@ -4714,7 +4716,7 @@ $messages['ja'] = array(
 	'echo-pref-notify-show-link' => '通知をツールバーに表示',
 	'echo-pref-new-message-indicator' => 'トークページのメッセージの未読数をツールバーに表示',
 	'echo-learn-more' => '詳細',
-	'echo-new-messages' => '新着メッセージがあります。',
+	'echo-new-messages' => '新着メッセージがあります',
 	'echo-category-title-edit-user-talk' => 'トークページヘの{{PLURAL:$1|メッセージ}}',
 	'echo-category-title-article-linked' => 'ページへの{{PLURAL:$1|リンク}}',
 	'echo-category-title-reverted' => '編集の{{PLURAL:$1|差し戻し}}',
@@ -5305,7 +5307,7 @@ $messages['lb'] = array(
 	'echo-pref-notify-show-link' => 'Notifikatiounen a menger Geschirläischt weisen',
 	'echo-pref-new-message-indicator' => 'Indicateur fir Messagen op menger Diskussiounssäit a menger Geschirläischt weisen',
 	'echo-learn-more' => 'Fir méi ze wëssen',
-	'echo-new-messages' => 'Dir hutt nei Messagen.', # Fuzzy
+	'echo-new-messages' => 'Dir hutt nei Messagen',
 	'echo-category-title-edit-user-talk' => 'Diskussiounssäit {{PLURAL:$1|Message|Messagen}}',
 	'echo-category-title-article-linked' => '{{PLURAL:$1|Säitelink|Säitelinken}}',
 	'echo-category-title-reverted' => '{{PLURAL:$1|Zréckgesetzung|Zrécksetzungen}} änneren',
@@ -5836,6 +5838,7 @@ $1',
 /** Marathi (मराठी)
  * @author Nikhil.kawale
  * @author Niraj Suryawanshi
+ * @author Prabodh1987
  * @author Sankoswal
  * @author V.narsikar
  */
@@ -5849,7 +5852,7 @@ $messages['mr'] = array(
 	'echo-pref-send-me' => 'मला पाठवा:',
 	'echo-pref-send-to' => 'ला पाठवा:',
 	'echo-pref-email-format' => 'विपत्र प्रारुप:',
-	'echo-pref-web' => 'जाल',
+	'echo-pref-web' => 'वेब',
 	'echo-pref-email' => 'ई-मेल',
 	'echo-pref-email-frequency-never' => 'ईमेलद्वारे मला अधिसूचना पाठविण्यात येऊ नये',
 	'echo-pref-email-frequency-immediately' => 'वैयक्तीक अधिसूचना त्या जश्या प्राप्त होतील तेंव्हाच',
@@ -5863,35 +5866,35 @@ $messages['mr'] = array(
 	'echo-new-messages' => 'तुमच्यासाठी नवीन संदेश आहेत.', # Fuzzy
 	'echo-category-title-edit-user-talk' => 'चर्चा पान {{PLURAL:$1|संदेश}}',
 	'echo-category-title-article-linked' => 'पान {{PLURAL:$1|दुवा|दुवे}}',
-	'echo-category-title-reverted' => 'संपादन {{PLURAL:$1|उलटवणे}}',
+	'echo-category-title-reverted' => 'संपादन {{PLURAL:$1|उलटवा}}',
 	'echo-category-title-mention' => '{{PLURAL:$1|उल्लेख}}',
-	'echo-category-title-other' => '{{PLURAL:$1|दुसरे}}',
+	'echo-category-title-other' => '{{PLURAL:$1|इतर}}',
 	'echo-category-title-system' => '{{PLURAL:$1|प्रणाली}}',
-	'echo-pref-tooltip-edit-user-talk' => 'माझ्या चर्चापानावर कोणी संदेश किंवा उत्तर टाकल्यास मला कळवा .',
-	'echo-pref-tooltip-article-linked' => 'मी तयार केलेल्या लेखपानास कोणी एखाद्या इतर पानाचा दुवा दिल्यास मला कळवा.',
+	'echo-pref-tooltip-edit-user-talk' => 'माझ्या चर्चापानावर कोणी संदेश किंवा उत्तर टाकल्यास मला कळवा.',
+	'echo-pref-tooltip-article-linked' => 'मी तयार केलेल्या लेख पानाचा दुवा कोणी दुसरऱ्या लेख पानात दिल्यास मला कळवा.',
 	'echo-pref-tooltip-reverted' => "मी केलेले संपादन जर कोणी 'रद्द करा' किंवा रोलबॅक साधन वापरून उलटवित असेल तर मला कळवा.",
-	'echo-pref-tooltip-mention' => 'माझ्या सदस्यपानास दुसऱ्या चर्चापानाशी जर कोणी दुवा देत असेल तर मला कळवा.',
+	'echo-pref-tooltip-mention' => 'माझ्या सदस्यपानाचा दुवा जर कोणी इतर कुठल्याही चर्चापानात दिल्यास मला कळवा.',
 	'echo-no-agent' => '[कोणीच नाही]',
 	'echo-no-title' => '[कोणतेच पान नाही]',
 	'echo-error-no-formatter' => 'अधिसूचनेसाठी कोणतेच प्रारुपण निश्चित नाही.',
-	'echo-error-preference' => 'त्रूटी:सदस्य पसंतीक्रम स्थापता आला नाही.',
+	'echo-error-preference' => 'त्रूटी: सदस्य पसंतीक्रम स्थापता आला नाही.',
 	'echo-error-token' => 'त्रूटी:सदस्य बिल्ला शोधू शकलो नाही.',
 	'notifications' => 'अधिसूचना',
 	'tooltip-pt-notifications' => 'आपल्या अधिसूचना',
 	'echo-specialpage' => 'अधिसूचना',
-	'echo-anon' => 'अधिसूचना मिळण्यास,[$1 create an account] किंवा [$2 log in].',
+	'echo-anon' => 'अधिसूचना मिळण्यास, [$1 create an account] किंवा [$2 log in].',
 	'echo-none' => 'आपल्यासाठी काहीच अधिसूचना नाहीत.',
 	'echo-more-info' => 'अधिक माहिती',
 	'echo-feedback' => 'प्रतिक्रिया',
 	'notification-link-text-view-message' => 'संदेश बघा',
 	'notification-link-text-view-mention' => 'उल्लेख बघा',
-	'notification-link-text-view-changes' => 'बदल पहा',
+	'notification-link-text-view-changes' => 'बदल बघा',
 	'notification-link-text-view-page' => 'पान बघा',
-	'notification-link-text-view-edit' => 'संपादन पहा',
-	'notification-edit-talk-page2' => '[[User:$1|$1]]ने  आपल्या [[User talk:$2#$3|चर्चा पानावर]] संदेश {{GENDER:$1|टाकला}}.',
-	'notification-edit-talk-page-with-section' => '[[User:$1|$1]]ने  एक संदेश आपल्या चर्चा पानावर "[[User talk:$2#$3|$4]]" मध्ये {{GENDER:$1|टाकला.}}',
-	'notification-edit-talk-page-flyout2' => '$1 ने  आपल्या  [[User talk:$2#$3|चर्चा पानावर]] एक संदेश {{GENDER:$1|टाकला.}}',
-	'notification-edit-talk-page-flyout-with-section' => '$1 ने  "[[User talk:$2#$3|$4]]" येथे आपल्या चर्चा पानावर एक संदेश  {{GENDER:$1|टाकला}}.',
+	'notification-link-text-view-edit' => 'संपादन बघा',
+	'notification-edit-talk-page2' => '[[User:$1|$1]]{{GENDER:$1|ने}} आपल्या [[User talk:$2#$3|चर्चा पानावर]] संदेश टाकला.',
+	'notification-edit-talk-page-with-section' => '[[User:$1|$1]]{{GENDER:$1|ने}} एक संदेश आपल्या चर्चा पानावर "[[User talk:$2#$3|$4]]" मध्ये टाकला.',
+	'notification-edit-talk-page-flyout2' => '$1{{GENDER:$1|ने}} आपल्या [[User talk:$2#$3|चर्चा पानावर]] एक संदेश टाकला.',
+	'notification-edit-talk-page-flyout-with-section' => "$1{{GENDER:$1|ने}} ''[[User talk:$2#$3|$4]]'' येथे आपल्या चर्चा पानावर एक संदेश टाकला.",
 	'notification-page-linked' => '[[:$2]] ला [[:$3]] वरून {{GENDER:$1|दुवा दिल्या गेला}}. [[Special:WhatLinksHere/$2|या पानाचे सर्व दुवे बघा]].',
 	'notification-page-linked-flyout' => '$2 ला [[:$3]] वरुन {{GENDER:$1|दुवा दिल्या गेला}}.',
 	'notification-add-comment2' => '[[User:$1|$1]] ने "[[$3|$2]]" वर, "$4" चर्चा पानावर{{GENDER:$1|शेरा टाकला}}.',
@@ -6684,6 +6687,43 @@ Her er eit samandrag av aktiviteten i dag på {{SITENAME}} for deg.',
 Her er eit samandrag av aktiviteten denne veka på {{SITENAME}} for deg.',
 	'echo-email-batch-link-text-view-all-notifications' => 'Sjå alle meldingane',
 	'echo-rev-deleted-text-view' => 'Denne sideversjonen er vorten løynd.',
+);
+
+/** Occitan (occitan)
+ * @author Cedric31
+ */
+$messages['oc'] = array(
+	'prefs-echo' => 'Notificacions',
+	'prefs-emailsettings' => 'Opcions del corrièr electronic',
+	'prefs-displaynotifications' => "Opcions d'afichatge",
+	'echo-pref-send-me' => 'Me mandar :',
+	'echo-pref-send-to' => 'Mandar a :',
+	'echo-pref-email-format' => 'Format de corrièr electronic :',
+	'echo-pref-web' => 'Web',
+	'echo-pref-email' => 'Corrièr electronic',
+	'echo-pref-email-format-html' => 'HTML',
+	'echo-pref-email-format-plain-text' => 'Tèxte brut',
+	'echo-category-title-article-linked' => '{{PLURAL:$1|Article ligat|Articles ligats}}',
+	'echo-category-title-other' => '{{PLURAL:$1|Autres}}',
+	'echo-category-title-system' => '{{PLURAL:$1|Sistèma}}',
+	'echo-no-agent' => '[Pas degun]',
+	'echo-no-title' => '[Pas cap de pagina]',
+	'notifications' => 'Notificacions',
+	'tooltip-pt-notifications' => 'Vòstras notificacions',
+	'echo-specialpage' => 'Notificacions',
+	'echo-more-info' => "Mai d'informacion",
+	'echo-feedback' => 'Vejaires',
+	'notification-link-text-view-message' => 'Afichar lo messatge',
+	'notification-link-text-view-mention' => 'Afichar la mencion',
+	'notification-link-text-view-changes' => 'Afichar las modificacions',
+	'notification-link-text-view-page' => 'Afichar la pagina',
+	'notification-link-text-view-edit' => 'Afichar la modificacion',
+	'echo-overlay-link' => 'Totas las notificacions',
+	'echo-overlay-title' => '<b>Notificacions</b>',
+	'echo-overlay-title-overflow' => "<b>{{PLURAL:$1|Notificacion|Notificacions}}</b> ($1 sus $2 {{PLURAL:$1|pas legida d'afichada|pas legidas d'afichadas}})",
+	'echo-mark-all-as-read' => 'Marcar tot coma legit',
+	'echo-date-today' => 'Uèi',
+	'echo-date-yesterday' => 'Ièr',
 );
 
 /** Oriya (ଓଡ଼ିଆ)
@@ -9146,7 +9186,7 @@ $messages['vi'] = array(
 	'echo-pref-notify-show-link' => 'Hiển thị thông báo trên thanh công cụ',
 	'echo-pref-new-message-indicator' => 'Hiển thị đèn tin nhắn trên thanh công cụ của tôi',
 	'echo-learn-more' => 'Tìm hiểu thêm',
-	'echo-new-messages' => 'Bạn có tin nhắn mới', # Fuzzy
+	'echo-new-messages' => 'Bạn có tin nhắn mới',
 	'echo-category-title-edit-user-talk' => '{{PLURAL:$1}}Lời tin nhắn',
 	'echo-category-title-article-linked' => '{{PLURAL:$1}}Liên kết đến trang',
 	'echo-category-title-reverted' => '{{PLURAL:$1}}Lùi sửa',
@@ -9220,7 +9260,7 @@ $1',
 $1',
 	'echo-overlay-link' => 'Tất cả các thông báo',
 	'echo-overlay-title' => '<b>Thông báo</b>',
-	'echo-overlay-title-overflow' => '<b>{{PLURAL:$1|Tin nhắn}}</b> (đang xem $1 trên $2 chưa đọc)',
+	'echo-overlay-title-overflow' => '<b>Tin nhắn</b> (đang xem $1 trên $2 chưa đọc)',
 	'echo-mark-all-as-read' => 'Đánh dấu tất cả là đã đọc',
 	'echo-date-today' => 'Hôm nay',
 	'echo-date-yesterday' => 'Hôm qua',
