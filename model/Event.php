@@ -265,18 +265,6 @@ class EchoEvent {
 	}
 
 	/**
-	 * Update extra data
-	 */
-	public function updateExtra( $extra ) {
-		global $wgEchoBackend;
-
-		$this->extra = $extra;
-		if ( $this->id && $this->extra ) {
-			$wgEchoBackend->updateEventExtra( $this );
-		}
-	}
-
-	/**
 	 * Serialize the extra data for event
 	 * @return string
 	 */

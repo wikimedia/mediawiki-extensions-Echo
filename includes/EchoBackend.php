@@ -100,12 +100,6 @@ abstract class MWEchoBackend {
 	abstract public function loadEvent( $id, $fromMaster );
 
 	/**
-	 * Update the extra data for an Echo event
-	 * @param $event EchoEvent
-	 */
-	abstract public function updateEventExtra( $event );
-
-	/**
 	 * Mark notifications as read for a user
 	 * @param $user User
 	 * @param $eventIDs array

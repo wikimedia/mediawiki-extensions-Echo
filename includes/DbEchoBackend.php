@@ -200,20 +200,6 @@ class MWDbEchoBackend extends MWEchoBackend {
 	}
 
 	/**
-	 * @param $event EchoEvent
-	 */
-	public function updateEventExtra( $event ) {
-		$dbw = MWEchoDbFactory::getDB( DB_MASTER );
-
-		$dbw->update(
-			'echo_event',
-			array( 'event_extra' => $event->serializeExtra() ),
-			array( 'event_id' => $event->getId() ),
-			__METHOD__
-		);
-	}
-
-	/**
 	 * @param $user User
 	 * @param $eventIDs array
 	 */
