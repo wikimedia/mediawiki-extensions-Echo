@@ -139,10 +139,14 @@ class ApiEchoNotifications extends ApiQueryBase {
 			}
 
 			if ( $event->getAgent() ) {
-				$thisEvent['agent'] = array(
-					'id' => $event->getAgent()->getId(),
-					'name' => $event->getAgent()->getName(),
-				);
+				if ( $event->userCan( Revision::DELETED_USER, $user ) ) {
+					$thisEvent['agent'] = array(
+						'id' => $event->getAgent()->getId(),
+						'name' => $event->getAgent()->getName(),
+					);
+				} else {
+					$thisEvent['agent'] = array( 'userhidden' => '' );
+				}
 			}
 
 			if ( $row->notification_read_timestamp ) {
