@@ -23,7 +23,7 @@
 
 		buildOverlay: function ( callback ) {
 			var notificationLimit,
-				$overlay = $( '<div></div>' ).addClass( 'mw-echo-overlay' ),
+				$overlay = $( '<div>' ).addClass( 'mw-echo-overlay' ),
 				$prefLink = $( '#pt-preferences a' ),
 				count = 0,
 				apiData,
@@ -51,10 +51,10 @@
 					unread = [],
 					unreadTotalCount = result.query.notifications.count,
 					unreadRawTotalCount = result.query.notifications.rawcount,
-					$title = $( '<div class="mw-echo-overlay-title"></div>' ),
-					$ul = $( '<ul class="mw-echo-notifications"></ul>' ),
-					titleText = '',
-					overflow = false,
+					$title = $( '<div>' ).addClass( 'mw-echo-overlay-title' ),
+					$ul = $( '<ul>' ).addClass( 'mw-echo-notifications' ),
+					titleText,
+					overflow,
 					$overlayFooter,
 					$markReadButton;
 
@@ -65,7 +65,7 @@
 				$.each( notifications.index, function ( index, id ) {
 					var $wrapper,
 						data = notifications.list[id],
-						$li = $( '<li></li>' )
+						$li = $( '<li>' )
 							.data( 'details', data )
 							.data( 'id', id )
 							.attr( {
@@ -130,7 +130,8 @@
 						);
 						overflow = true;
 					} else {
-						titleText =  mw.msg( 'echo-overlay-title' );
+						titleText = mw.msg( 'echo-overlay-title' );
+						overflow = false;
 					}
 				} else {
 					titleText = mw.msg( 'echo-none' );
@@ -159,7 +160,7 @@
 									count = result.query.echomarkread.count;
 									mw.echo.overlay.updateCount( count, result.query.echomarkread.rawcount );
 									// Reset header to 'Notifications'
-									$( '#mw-echo-overlay-title-text').msg( 'echo-overlay-title' );
+									$( '#mw-echo-overlay-title-text' ).html( mw.msg( 'echo-overlay-title' ) );
 								}
 							} );
 						} );
@@ -288,19 +289,21 @@
 				return;
 			}
 
-			$overlay = mw.echo.overlay.buildOverlay(
+			mw.echo.overlay.buildOverlay(
 				function ( $overlay ) {
 					$overlay
 						.hide()
 						.appendTo( $( '#pt-notifications' ) );
+
 					// Create the pokey (aka chevron)
-					$( '.mw-echo-overlay' ).before( $( '<div>' ).addClass( 'mw-echo-overlay-pokey' ) );
+					$overlay.before( $( '<div>' ).addClass( 'mw-echo-overlay-pokey' ) );
 
 					mw.hook( 'ext.echo.overlay.beforeShowingOverlay' ).fire( $overlay );
 
 					// Show the notifications overlay
 					$overlay.show();
-				} );
+				}
+			);
 		} );
 
 		$( 'body' ).click( function ( e ) {
