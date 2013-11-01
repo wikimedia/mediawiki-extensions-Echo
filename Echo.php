@@ -137,7 +137,6 @@ $wgExtensionFunctions[] = 'EchoHooks::initEchoExtension';
 $echoResourceTemplate = array(
 	'localBasePath' => $dir . 'modules',
 	'remoteExtPath' => 'Echo/modules',
-	'group' => 'ext.echo',
 );
 
 $wgResourceModules += array(
