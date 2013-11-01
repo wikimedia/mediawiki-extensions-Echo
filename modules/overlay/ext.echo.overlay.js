@@ -21,6 +21,12 @@
 
 		configuration: mw.config.get( 'wgEchoOverlayConfiguration' ),
 
+		removeOverlay: function () {
+			$( '.mw-echo-overlay, .mw-echo-overlay-pokey' ).fadeOut( 'fast',
+				function () { $( this ).remove(); }
+			);
+		},
+
 		buildOverlay: function ( callback ) {
 			var notificationLimit,
 				$overlay = $( '<div>' ).addClass( 'mw-echo-overlay' ),
@@ -264,7 +270,7 @@
 		}
 
 		$link.click( function ( e ) {
-			var $target, $overlay;
+			var $target;
 
 			e.preventDefault();
 
@@ -272,20 +278,13 @@
 			mw.echo.logInteraction( 'ui-badge-link-click' );
 
 			$target = $( e.target );
-			// If the user clicked on the overlay or any child,
-			//  ignore the click
-			if ( $target.hasClass( 'mw-echo-overlay' ) ||
-				$target.is( 'mw-echo-overlay *' )
-			) {
+			// If the user clicked on the overlay or any child, ignore the click
+			if ( $target.hasClass( 'mw-echo-overlay' ) || $target.is( '.mw-echo-overlay *' ) ) {
 				return;
 			}
 
-			$overlay = $( '.mw-echo-overlay' );
-
-			if ( $overlay.length ) {
-				$overlay.fadeOut( 'fast',
-					function () { $overlay.remove(); }
-				);
+			if ( $( '.mw-echo-overlay' ).length ) {
+				mw.echo.overlay.removeOverlay();
 				return;
 			}
 
@@ -307,10 +306,8 @@
 		} );
 
 		$( 'body' ).click( function ( e ) {
-			if ( ! $( e.target ).is( '.mw-echo-overlay, .mw-echo-overlay *, .mw-echo-overlay-pokey' ) ) {
-				$( '.mw-echo-overlay, .mw-echo-overlay-pokey' ).fadeOut( 'fast',
-					function () { $( this ).remove(); }
-				);
+			if ( ! $( e.target ).is( '.mw-echo-overlay, .mw-echo-overlay *, .mw-echo-overlay-pokey, #pt-notifications a' ) ) {
+				mw.echo.overlay.removeOverlay();
 			}
 		} );
 	} );
