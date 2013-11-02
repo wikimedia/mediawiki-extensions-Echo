@@ -2,7 +2,8 @@
 	white-space: nowrap;
 }
 
-.mw-echo-alert {
+/* High-specificity rule to override core styles for #p-personal li a */
+#pt-mytalk a.mw-echo-alert {
 	border-radius: 2px;
 	background-color: #F9C557;
 	padding: 0.25em 0.8em 0.2em 0.8em;

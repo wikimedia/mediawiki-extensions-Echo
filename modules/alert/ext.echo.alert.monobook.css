@@ -1,0 +1,4 @@
+/* Different background color on hover for consistency with Monobook skin */
+#pt-mytalk a.mw-echo-alert:hover {
+	background-color: #FAB951;
+}
