@@ -69,7 +69,7 @@ class MWEchoEventLogging {
 		// Add revision ID if it exists
 		$rev = $event->getRevision();
 		if ( $rev ) {
-			$event['revisionId'] = $rev->getId();
+			$data['revisionId'] = $rev->getId();
 		}
 
 		self::actuallyLogTheEvent( 'Echo', $data );
