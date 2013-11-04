@@ -448,17 +448,14 @@ class EchoHooks {
 	 */
 	public static function onArticleSaved( &$article, &$user, $text, $summary, $minoredit, $watchthis, $sectionanchor, &$flags, $revision, &$status ) {
 		global $wgEchoNotifications, $wgRequest;
+
 		if ( $revision ) {
-			$title = $article->getTitle();
-			// If the edit is to a talk page or a project page, send it to the
-			// discussion parser.
-			if ( $title->isTalkPage() || $title->inNamespace( NS_PROJECT ) ) {
-				EchoDiscussionParser::generateEventsForRevision( $revision );
-			}
+			EchoDiscussionParser::generateEventsForRevision( $revision );
 
 			// Handle the case of someone undoing an edit, either through the
 			// 'undo' link in the article history or via the API.
 			if ( isset( $wgEchoNotifications['reverted'] ) ) {
+				$title = $article->getTitle();
 				$undidRevId = $wgRequest->getVal( 'wpUndidRevision' );
 				if ( $undidRevId ) {
 					$undidRevision = Revision::newFromId( $undidRevId );
@@ -467,7 +464,7 @@ class EchoHooks {
 						if ( $victimId ) { // No notifications for anonymous users
 							EchoEvent::create( array(
 								'type' => 'reverted',
-								'title' => $article->getTitle(),
+								'title' => $title,
 								'extra' => array(
 									'revid' => $revision->getId(),
 									'reverted-user-id' => $victimId,
