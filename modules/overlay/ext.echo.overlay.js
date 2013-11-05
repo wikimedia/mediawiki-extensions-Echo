@@ -136,26 +136,6 @@
 					titleText = mw.msg( 'echo-none' );
 				}
 
-				$markReadButton = $( '<button>' )
-					.addClass( 'mw-ui-button' )
-					.attr( 'id', 'mw-echo-mark-read-button' )
-					.text( mw.msg( 'echo-mark-all-as-read' ) )
-					.click( function ( e ) {
-						e.preventDefault();
-						api.post( mw.echo.desktop.appendUseLang( {
-							'action' : 'echomarkread',
-							'all' : true,
-							'token': mw.user.tokens.get( 'editToken' )
-						} ) ).done( function ( result ) {
-							if ( result.query.echomarkread.count !== undefined ) {
-								count = result.query.echomarkread.count;
-								mw.echo.overlay.updateCount( count, result.query.echomarkread.rawcount );
-								// Reset header to 'Notifications'
-								$( '#mw-echo-overlay-title-text').msg( 'echo-overlay-title' );
-							}
-						} );
-					} );
-
 				// If there are more unread notifications than can fit in the overlay,
 				// but fewer than the maximum count, show the 'mark all as read' button.
 				// The only reason we limit it to the maximum is to prevent expensive
@@ -164,6 +144,25 @@
 				if ( overflow && unreadRawTotalCount < mw.echo.overlay.configuration['max-notification-count']
 				) {
 					// Add the 'mark all as read' button to the title area
+					$markReadButton = $( '<button>' )
+						.addClass( 'mw-ui-button' )
+						.attr( 'id', 'mw-echo-mark-read-button' )
+						.text( mw.msg( 'echo-mark-all-as-read' ) )
+						.click( function ( e ) {
+							e.preventDefault();
+							api.post( mw.echo.desktop.appendUseLang( {
+								'action' : 'echomarkread',
+								'all' : true,
+								'token': mw.user.tokens.get( 'editToken' )
+							} ) ).done( function ( result ) {
+								if ( result.query.echomarkread.count !== undefined ) {
+									count = result.query.echomarkread.count;
+									mw.echo.overlay.updateCount( count, result.query.echomarkread.rawcount );
+									// Reset header to 'Notifications'
+									$( '#mw-echo-overlay-title-text').msg( 'echo-overlay-title' );
+								}
+							} );
+						} );
 					$title.append( $markReadButton );
 				}
 
