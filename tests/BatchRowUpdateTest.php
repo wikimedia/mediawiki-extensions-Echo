@@ -232,7 +232,7 @@ class BatchRowUpdateTest extends MediaWikiTestCase {
 	protected function mockDb() {
 		// Cant mock from DatabaseType or DatabaseBase, they dont
 		// have the full gamut of methods
-		return $this->getMock( 'DatabaseMysql' );
+		return $this->getMockBuilder( 'DatabaseMysql' )->disableOriginalConstructor()->getMock();
 	}
 }
 
