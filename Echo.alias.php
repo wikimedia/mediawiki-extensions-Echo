@@ -114,6 +114,11 @@ $specialPageAliases['ml'] = array(
 	'Notifications' => array( 'അറിയിപ്പുകൾ' ),
 );
 
+/** Maltese (Malti) */
+$specialPageAliases['mt'] = array(
+	'Notifications' => array( 'Notifiki' ),
+);
+
 /** Dutch (Nederlands) */
 $specialPageAliases['nl'] = array(
 	'Notifications' => array( 'Meldingen' ),
