@@ -740,6 +740,11 @@ abstract class EchoDiscussionParser {
 			$offset = $failureOffset - strlen( $line ) - 1;
 		}
 
+		// Avoid PHP warning: Offset is greater than the length of haystack string
+		if ( abs( $offset ) > strlen( $line ) ) {
+			return false;
+		}
+
 		$linkPos = strripos( $line, $linkPrefix, $offset );
 
 		if ( $linkPos === false ) {
