@@ -5410,7 +5410,7 @@ $messages['la'] = array(
 	'echo-pref-notify-show-link' => 'Nuntia in arca ferramentorum monstrare',
 	'echo-pref-new-message-indicator' => 'Monstrare indicatorem paginarum disputationis nuntiorum in arca ferramentorum',
 	'echo-learn-more' => 'Plura legere',
-	'echo-new-messages' => 'Habes nuntia nova.',
+	'echo-new-messages' => 'Habes nuntia nova.', # Fuzzy
 	'echo-category-title-edit-user-talk' => 'Paginae disputationis {{PLURAL:$1|nuntium|nuntia}}',
 	'echo-category-title-article-linked' => '{{PLURAL:$1|Nexus}} ad paginam',
 	'echo-category-title-mention' => '{{PLURAL:$1|Mentio|Mentiones}}',
@@ -5433,6 +5433,7 @@ $messages['la'] = array(
 	'notification-link-text-view-changes' => 'Mutata ostendere',
 	'notification-link-text-view-page' => 'Vide paginam',
 	'notification-link-text-view-edit' => 'Vide recensionem',
+	'notification-page-linked-flyout' => '$2 nectum est a pagina [[:$3]].', # Fuzzy
 	'notification-user-rights-add' => 'Nunc es sodalis {{PLURAL:$2|eius gregis|eorum gregium}}: $1',
 	'notification-user-rights-remove' => 'Non iam es sodalis {{PLURAL:$2|eius gregis|eorum gregium}}: $1',
 	'notification-new-user' => 'Salve ad {{grammar:accusative|{{SITENAME}}}}, $1!',
@@ -5459,6 +5460,7 @@ $1',
 	'echo-date-today' => 'Hodie',
 	'echo-date-yesterday' => 'Heri',
 	'echo-load-more-error' => 'Error in plura eventa quaerendo.',
+	'notification-page-linked-bundle' => '$2 nectum est a $3 et $4 {{PLURAL:$5|alia pagina|aliis paginis}}. [[Special:WhatLinksHere/$2|Omnes nexus ad hanc paginam spectare]]', # Fuzzy
 	'echo-email-batch-subject-daily' => 'Habes {{PLURAL:$2|novum nuntium|nova nuntia}} apud {{grammar:accusative|{{SITENAME}}}}',
 	'echo-email-batch-subject-weekly' => 'Habes {{PLURAL:$2|novum nuntium|nova nuntia}} apud {{grammar:accusative|{{SITENAME}}}} hac hebdomada',
 	'echo-email-batch-body-intro-daily' => 'Salve $1,
@@ -6625,6 +6627,7 @@ Hier he'j n samenvatting van de aktiviteiten op {{SITENAME}} van disse weke.",
  * @author Kippenvlees1
  * @author Nemo bis
  * @author Rcdeboer
+ * @author Romaine
  * @author SPQRobin
  * @author Siebrand
  * @author Southparkfan
@@ -6652,7 +6655,7 @@ $messages['nl'] = array(
 	'echo-pref-notify-show-link' => 'Meldingen weergeven in mijn werkbalk',
 	'echo-pref-new-message-indicator' => 'Toon overlegpagina-berichtenindicator in mijn werkbalk',
 	'echo-learn-more' => 'Meer lezen',
-	'echo-new-messages' => 'U heeft nieuwe berichten', # Fuzzy
+	'echo-new-messages' => 'U heeft nieuwe berichten',
 	'echo-category-title-edit-user-talk' => 'Bericht{{PLURAL:$1||en}} op uw overlegpagina',
 	'echo-category-title-article-linked' => 'Paginakoppeling{{PLURAL:$1||en}}',
 	'echo-category-title-reverted' => 'Bewerking{{PLURAL:$1||en}} teruggedraaid',
@@ -6681,9 +6684,9 @@ $messages['nl'] = array(
 	'notification-link-text-view-page' => 'Pagina bekijken',
 	'notification-link-text-view-edit' => 'Bewerking bekijken',
 	'notification-edit-talk-page2' => '[[User:$1|$1]] {{GENDER:$1|heeft een bericht geplaatst}} op uw [[User talk:$2#$3|overlegpagina]].',
-	'notification-edit-talk-page-with-section' => '[[User:$1|$1]] {{GENDER:$1|heeft}} een bericht op uw overlegpagina achtergelaten onder het hoofdje "[[User talk:$2#$3|$4]]".',
+	'notification-edit-talk-page-with-section' => '[[User:$1|$1]] {{GENDER:$1|heeft}} een bericht op uw overlegpagina achtergelaten onder het kopje "[[User talk:$2#$3|$4]]".',
 	'notification-edit-talk-page-flyout2' => '$1 {{GENDER:$1|heeft een bericht geplaatst}} op uw [[User talk:$2#$3|overlegpagina]].',
-	'notification-edit-talk-page-flyout-with-section' => '$1 {{GENDER:$1|heeft}} een bericht op uw overlegpagina achtergelaten onder het hoofdje "[[User talk:$2#$3|$4]]".',
+	'notification-edit-talk-page-flyout-with-section' => '$1 {{GENDER:$1|heeft}} een bericht op uw overlegpagina achtergelaten onder het kopje "[[User talk:$2#$3|$4]]".',
 	'notification-page-linked' => '[[:$2]] is {{GENDER:$1|gekoppeld}} vanaf [[:$3]]:[[Special:WhatLinksHere/$2|alle koppelingen naar deze pagina bekijken]]',
 	'notification-page-linked-flyout' => '$2 is {{GENDER:$1|gekoppeld}} vanaf [[:$3]].',
 	'notification-add-comment2' => '[[User:$1|$1]] {{GENDER:$1|heeft gereageerd}} op "[[$3|$2]]" op de overlegpagina "$4"',
