@@ -3718,6 +3718,7 @@ $1',
 
 /** Hebrew (עברית)
  * @author Amire80
+ * @author Guycn1
  * @author Inkbug
  * @author Orsa
  * @author Ypnypn
@@ -3784,8 +3785,8 @@ $messages['he'] = array(
 	'notification-add-talkpage-topic2' => '[[User:$1|$1]] {{GENDER:$1|והוסיף|הוסיפה}} את נושא החדש "$2" לדף [[$3]]',
 	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]] {{GENDER:$1|שלח|שלחה}} לך הודעה: "[[$3#$2|$2]]"',
 	'notification-add-comment-yours2' => '[[User:$1|$1]] {{GENDER:$1|העיר|העירה}} על הנושא "[[$3#$2|$2]]" בדף השיחה שלך',
-	'notification-mention' => '[[User:$1|$1]] {{GENDER:$1|הזכיר|הזכירה}} אותך בדיון "[[$3#$2|$4]]" בדף השיחה של $5.',
-	'notification-mention-flyout' => '$1 {{GENDER:$1|הזכיר|הזכירה}} אותך בדיון "[[$3#$2|$4]]" בדף השיחה של $5.',
+	'notification-mention' => '[[User:$1|$1]] {{GENDER:$1|הזכיר|הזכירה}} אותך בפסקה "[[$3#$2|$4]]" בדף השיחה של $5.',
+	'notification-mention-flyout' => '$1 {{GENDER:$1|הזכיר|הזכירה}} אותך בפסקה "[[$3#$2|$4]]" בדף השיחה של $5.',
 	'notification-user-rights' => '[[User:$1|$1]] [[Special:Log/rights/$1|{{GENDER:$1|שינה|שינתה}}]] את ההרשאות שלך. $2. [[Special:ListGroupRights|מידע נוסף]]',
 	'notification-user-rights-flyout' => '$1 {{GENDER:$1|שינה|שינתה}} את ההרשאות שלך. $2. [[Special:ListGroupRights|מידע נוסף]]',
 	'notification-user-rights-add' => 'צורפת {{PLURAL:$2|לקבוצה הבאה|לקבוצות הבאות}}: $1',
@@ -3801,7 +3802,7 @@ $messages['he'] = array(
 	'notification-reverted-email-subject2' => '$1 {{GENDER:$1|שחזר|שחזרה}} {{PLURAL:$3|עריכה שלך|עריכות שלך}} באתר {{SITENAME}}',
 	'notification-reverted-email-batch-body2' => '$1 {{GENDER:$1|שחזר|שחזרה}} {{PLURAL:$3|עריכה שלך|עריכות שלך}} בדף $2',
 	'notification-mention-email-subject' => '$1 {{GENDER:$1|הזכיר|הזכירה}} אותך באתר {{SITENAME}}',
-	'notification-mention-email-batch-body' => "$1 {{GENDER:$1|הזכיר|הזכירה}} אותך בדיון בדך השיחה של $4 בדיון תחת הכותרת '$3'.",
+	'notification-mention-email-batch-body' => "$1 {{GENDER:$1|הזכיר|הזכירה}} אותך בדיון בדף השיחה של $4 בפסקה '$3'.",
 	'notification-user-rights-email-subject' => 'ההרשאות שלך באתר {{SITENAME}} שונו',
 	'notification-user-rights-email-batch-body' => '$1 {{GENDER:$1|שינה|שינתה}} את ההרשאות שלך. $2',
 	'echo-notification-count' => 'יותר מ־$1',
@@ -6616,7 +6617,7 @@ $1',
 $1',
 	'echo-overlay-link' => 'Alle meldingen',
 	'echo-overlay-title' => '<b>Meldingen</b>',
-	'echo-overlay-title-overflow' => "<b>Meldingen</b> ($1 van $2 he'j nog niet elezen)", # Fuzzy
+	'echo-overlay-title-overflow' => "<b>{{PLURAL:$1|Meldingen}}</b> ($1 van $2 he'j nog niet elezen)",
 	'echo-mark-all-as-read' => 'Alles as elezen markeren',
 	'echo-date-today' => 'Vandage',
 	'echo-date-yesterday' => 'Gisteren',
@@ -6633,6 +6634,19 @@ Hier he'j n samenvatting van de aktiviteiten op {{SITENAME}} van vandage",
 Hier he'j n samenvatting van de aktiviteiten op {{SITENAME}} van disse weke.",
 	'echo-email-batch-link-text-view-all-notifications' => 'Alle mededelingen bekieken',
 	'echo-rev-deleted-text-view' => 'Disse ziedversie is onderdrokt.',
+);
+
+/** Nepali (नेपाली)
+ * @author सरोज कुमार ढकाल
+ */
+$messages['ne'] = array(
+	'notifications' => 'जानकारीहरू',
+	'echo-specialpage' => 'जानकारीहरू',
+	'echo-none' => 'तपाईँको लागि नयाँ जानकारी छैन ।',
+	'echo-email-batch-body-default' => 'तपाईँको लागि नयाँ जानकारी छ ।',
+	'echo-overlay-link' => 'सबै जानकारीहरु',
+	'echo-overlay-title-overflow' => '<b>{{PLURAL:$1|जानकारीहरू}}</b> ($2 मध्येका $1 नहेरिएका जानकारीहरू )',
+	'echo-email-batch-link-text-view-all-notifications' => 'सबै जानकारीहरु हेर्नुहोस्',
 );
 
 /** Dutch (Nederlands)
