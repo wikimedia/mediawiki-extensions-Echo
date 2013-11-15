@@ -6646,6 +6646,7 @@ $messages['ne'] = array(
 	'echo-email-batch-body-default' => 'तपाईँको लागि नयाँ जानकारी छ ।',
 	'echo-overlay-link' => 'सबै जानकारीहरु',
 	'echo-overlay-title-overflow' => '<b>{{PLURAL:$1|जानकारीहरू}}</b> ($2 मध्येका $1 नहेरिएका जानकारीहरू )',
+	'echo-date-today' => 'आज',
 	'echo-email-batch-link-text-view-all-notifications' => 'सबै जानकारीहरु हेर्नुहोस्',
 );
 
