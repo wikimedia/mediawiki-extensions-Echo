@@ -789,7 +789,10 @@ class EchoHooks {
 	static function onRollbackComplete( $page, $agent, $newRevision, $oldRevision ) {
 		$victimId = $oldRevision->getUser();
 
-		if ( $victimId ) { // No notifications for anonymous users
+		if (
+			$victimId && // No notifications for anonymous users
+			!$oldRevision->getContent()->equals( $newRevision->getContent() ) // No notifications for null rollbacks
+		) {
 			EchoEvent::create( array(
 				'type' => 'reverted',
 				'title' => $page->getTitle(),
