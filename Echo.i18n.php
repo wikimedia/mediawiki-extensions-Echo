@@ -2622,7 +2622,7 @@ $messages['el'] = array(
 	'echo-pref-notify-show-link' => 'Εμφάνιση ειδοποιήσεων στη γραμμή εργαλείων μου',
 	'echo-pref-new-message-indicator' => 'Να εμφανίζεται, στη γραμμή εργαλείων, ο δείκτης μηνυμάτων της σελίδας συζήτησης',
 	'echo-learn-more' => 'Μάθετε περισσότερα',
-	'echo-new-messages' => 'Έχετε νέα μηνύματα', # Fuzzy
+	'echo-new-messages' => 'Έχετε νέα μηνύματα',
 	'echo-category-title-edit-user-talk' => '{{PLURAL:$1|Μήνυμα|Μηνύματα}} στη σελίδα συζήτησης',
 	'echo-category-title-article-linked' => '{{PLURAL:$1|Σύνδεσμος|Σύνδεσμοι}} σελίδας',
 	'echo-category-title-reverted' => '{{PLURAL:$1|Επαναφορά|Επαναφορές}} επεξεργασίας',
@@ -3021,6 +3021,14 @@ Siin on sulle kokkuvõte võrgukohas {{SITENAME}} täna toimunust.',
 Siin on sulle kokkuvõte võrgukohas {{SITENAME}} sellel nädalal toimunust.',
 	'echo-email-batch-link-text-view-all-notifications' => 'Vaata kõiki teavitusi',
 	'echo-rev-deleted-text-view' => 'Lehekülje see redaktsioon on varjatud.',
+);
+
+/** Basque (euskara)
+ * @author Xabier Armendaritz
+ */
+$messages['eu'] = array(
+	'echo-new-messages' => 'Mezu berriak dituzu',
+	'tooltip-pt-notifications' => 'Zure jakinarazpenak',
 );
 
 /** Persian (فارسی)
@@ -5635,6 +5643,7 @@ $messages['lt'] = array(
 
 /** Latvian (latviešu)
  * @author Admresdeserv.
+ * @author Edgars2007
  * @author Papuass
  */
 $messages['lv'] = array(
@@ -5658,7 +5667,7 @@ $messages['lv'] = array(
 	'echo-pref-notify-show-link' => 'Rādīt paziņojumus manā rīkjoslā',
 	'echo-pref-new-message-indicator' => 'Rādīt diskusiju lapas ziņojumu indikatoru manā rīkjoslā',
 	'echo-learn-more' => 'Uzzināt vairāk',
-	'echo-new-messages' => 'Jums nav jaunu paziņojumu',
+	'echo-new-messages' => 'tev ir jauni paziņojumi',
 	'echo-category-title-edit-user-talk' => 'Diskusiju lapas {{PLURAL:$1|paziņojums|paziņojumi}}',
 	'echo-category-title-article-linked' => 'Lapas {{PLURAL:$1|saite|saites}}',
 	'echo-category-title-reverted' => '{{PLURAL:$1|Atcelts labojums|Atcelti labojumi}}',
