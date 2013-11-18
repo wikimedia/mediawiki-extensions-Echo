@@ -1667,7 +1667,7 @@ $messages['ca'] = array(
 	'echo-pref-notify-show-link' => "Mostra les notificacions a la meva barra d'eines",
 	'echo-pref-new-message-indicator' => "Mostra l'indicador de missatges en pàgina de discussió a la meva barra d'eines",
 	'echo-learn-more' => 'Més informació',
-	'echo-new-messages' => 'Teniu nous missatges.',
+	'echo-new-messages' => 'Teniu nous missatges',
 	'echo-category-title-edit-user-talk' => '{{PLURAL:$1|Missatge|Missatges}} de discussió',
 	'echo-category-title-article-linked' => '{{PLURAL:$1|Enllaç|Enllaços}} de pàgina',
 	'echo-category-title-reverted' => "{{PLURAL:$1|Reversió d'edició|Reversions d'edicions}}",
@@ -2430,7 +2430,7 @@ Tjek dine indstillinger for at se hvilke e-mails vi sender til dig:
 {{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
 
 $1',
-	'echo-email-footer-default-html' => 'For att kontrollere hvilke beskeder, vi sender til dig, <a href="$2" style="text-decoration:none; color: #3868B0;">gå til dine indstillinger</a><br />
+	'echo-email-footer-default-html' => 'For at kontrollere hvilke beskeder, vi sender til dig, <a href="$2" style="text-decoration:none; color: #3868B0;">gå til dine indstillinger</a><br />
 $1',
 	'echo-overlay-link' => 'Alle meddelelser',
 	'echo-overlay-title' => '<b>Meddelelser</b>',
@@ -6004,8 +6004,8 @@ $messages['ml'] = array(
 	'notification-reverted2' => 'താങ്കൾ വരുത്തിയ {{PLURAL:$4|[[:$2]] താളിലെ തിരുത്ത്|[[:$2]] താളിലെ തിരുത്തുകൾ}} [[User:$1|$1]] {{GENDER:$1|മുൻപ്രാപനം ചെയ്തിരിക്കുന്നു}}  $3',
 	'notification-reverted-flyout2' => 'താങ്കൾ വരുത്തിയ {{PLURAL:$4|$2 താളിലെ തിരുത്ത്|$2 താളിലെ തിരുത്തുകൾ}} $1{{GENDER:$1|മുൻപ്രാപനം ചെയ്തിരിക്കുന്നു}}  $3',
 	'notification-edit-talk-page-email-subject2' => '{{SITENAME}} സംരംഭത്തിൽ $1 താങ്കൾക്കൊരു സന്ദേശം {{GENDER:$1|ചേർത്തിട്ടുണ്ട്}}',
-	'notification-edit-talk-page-email-batch-body2' => '$1 താങ്കളുടെ സംവാദത്താളിൽ ഒരു സന്ദേശം {{GENDER:$1|ചേർത്തിട്ടുണ്ട്}}:',
-	'notification-edit-talk-page-email-batch-body-with-section' => '$1 താങ്കളുടെ സംവാദത്താളിൽ "$2" എന്നതിൽ ഒരു സന്ദേശം {{GENDER:$1|ചേർത്തിട്ടുണ്ട്}}.',
+	'notification-edit-talk-page-email-batch-body2' => 'താങ്കളുടെ സംവാദത്താളിൽ, ഒരു സന്ദേശം $1 {{GENDER:$1|ചേർത്തിട്ടുണ്ട്}}:',
+	'notification-edit-talk-page-email-batch-body-with-section' => 'താങ്കളുടെ സംവാദത്താളിൽ, "$2" എന്നതിൽ ഒരു സന്ദേശം $1 {{GENDER:$1|ചേർത്തിട്ടുണ്ട്}}.',
 	'notification-page-linked-email-subject' => 'താങ്കളുടെ താൾ {{SITENAME}} സംരംഭത്തിൽ കണ്ണിചേർക്കപ്പെട്ടിരിക്കുന്നു',
 	'notification-page-linked-email-batch-body' => '$2 എന്ന താളിലേയ്ക്ക് $3 എന്ന താളിൽ നിന്ന് കണ്ണി {{GENDER:$1|ചേർക്കപ്പെട്ടിരിക്കുന്നു}}',
 	'notification-reverted-email-subject2' => '{{SITENAME}} സംരംഭത്തിൽ താങ്കൾ വരുത്തിയ {{PLURAL:$3|തിരുത്ത്|തിരുത്തുകൾ}} {{GENDER:$1|മുൻപ്രാപനം ചെയ്തിരിക്കുന്നു}}',
