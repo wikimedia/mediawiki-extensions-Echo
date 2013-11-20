@@ -82,8 +82,10 @@ $messages['en'] = array(
 	'notification-add-talkpage-topic2' => '[[User:$1|$1]] {{GENDER:$1|posted}} a new topic "$2" on [[$3]].',
 	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]] {{GENDER:$1|sent}} you a message: "[[$3#$2|$2]]".',
 	'notification-add-comment-yours2' => '[[User:$1|$1]] {{GENDER:$1|commented}} on "[[$3#$2|$2]]" on your talk page.',
-	'notification-mention' => '[[User:$1|$1]] {{GENDER:$1|mentioned}} you on $5 talk page in "[[$3#$2|$4]]".',
-	'notification-mention-flyout' => '$1 {{GENDER:$1|mentioned}} you on $5 talk page in "[[$3#$2|$4]]".',
+	'notification-mention' => '[[User:$1|$1]] {{GENDER:$1|mentioned}} you on the $5 talk page in "[[$3#$2|$4]]".',
+	'notification-mention-flyout' => '$1 {{GENDER:$1|mentioned}} you on the $5 talk page in "[[$3#$2|$4]]".',
+	'notification-mention-nosection' => '[[User:$1|$1]] {{GENDER:$1|mentioned}} you on the [[$3|$2 talk page]].',
+	'notification-mention-nosection-flyout' => '$1 {{GENDER:$1|mentioned}} you on the [[$3|$2 talk page]].',
 	'notification-user-rights' => 'Your user rights [[Special:Log/rights/$1|were {{GENDER:$1|changed}}]] by [[User:$1|$1]]. $2. [[Special:ListGroupRights|Learn more]]',
 	'notification-user-rights-flyout' => 'Your user rights were {{GENDER:$1|changed}} by $1. $2. [[Special:ListGroupRights|Learn more]]',
 	'notification-user-rights-add' => 'You are now a member of {{PLURAL:$2|this group|these groups}}: $1',
@@ -99,7 +101,8 @@ $messages['en'] = array(
 	'notification-reverted-email-subject2' => 'Your {{PLURAL:$3|edit was|edits were}} {{GENDER:$1|reverted}} on {{SITENAME}}',
 	'notification-reverted-email-batch-body2' => 'Your {{PLURAL:$3|edit on $2 has been|edits on $2 have been}} {{GENDER:$1|reverted}} by $1.',
 	'notification-mention-email-subject' => '$1 {{GENDER:$1|mentioned}} you on {{SITENAME}}',
-	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|mentioned}} you on $4 talk page in "$3".',
+	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|mentioned}} you on the $4 talk page in "$3".',
+	'notification-mention-nosection-email-batch-body' => '$1 {{GENDER:$1|mentioned}} you on the $2 talk page.',
 	'notification-user-rights-email-subject' => 'Your user rights have changed on {{SITENAME}}',
 	'notification-user-rights-email-batch-body' => 'Your user rights were {{GENDER:$1|changed}} by $1. $2.',
 	'echo-notification-count' => '$1+',
@@ -373,19 +376,28 @@ See also:
 * $3 - link to user talk page
 See also:
 * {{msg-mw|Notification-add-comment2}}',
-	'notification-mention' => "Format for displaying notifications of a comment including a link to another user's user page. Parameters:
+	'notification-mention' => "Format for displaying notifications of a comment in a specific section including a link to another user's user page. Parameters:
 * $1 - the username of the person who edited, plain text. Can be used for GENDER
 * $2 - the section title of the discussion
 * $3 - the page title of the discussion
 * $4 - the raw section title text
 * $5 - the title text without namespace (a page title in any namespace)",
-	'notification-mention-flyout' => "Flyout-specific format for displaying notifications of a comment including a link to another user's user page.
+	'notification-mention-flyout' => "Flyout-specific format for displaying notifications of a comment in a specific section.
 Parameters:
 * $1 - the username of the person who mentioned you, plain text. Can be used for GENDER.
 * $2 - the section title of the discussion
 * $3 - the page title of the discussion
 * $4 - the raw section title text
 * $5 - the title text without namespace (a page title in any namespace)",
+	'notification-mention-nosection' => "Format for displaying notifications of a comment including a link to another user's user page. Parameters:
+* $1 - the username of the person who edited, plain text. Can be used for GENDER
+* $2 - the title text without namespace (a page title in any namespace)
+* $3 - the page title of the discussion",
+	'notification-mention-nosection-flyout' => "Flyout-specific format for displaying notifications of a comment.
+Parameters:
+* $1 - the username of the person who edited, plain text. Can be used for GENDER
+* $2 - the title text without namespace (a page title in any namespace)
+* $3 - the page title of the discussion",
 	'notification-user-rights' => 'Format for displaying notifications of a user right change in notification page.  Parameters:
 * $1 is the username of the person who made the user right change.  Can be used for GENDER support
 * $2 is a semicolon separated list of {{msg-mw|notification-user-rights-add}}, {{msg-mw|notification-user-rights-remove}}',
@@ -473,6 +485,14 @@ See also:
 See also:
 * {{msg-mw|Notification-mention}}
 * {{msg-mw|Notification-mention-flyout}}
+* {{msg-mw|Notification-mention-email-subject}}',
+	'notification-mention-nosection-email-batch-body' => 'E-mail notification batch body.  Parameters:
+* $1 - a username, plaintext.  Can be used for gender support
+* $2 - the title text without namespace (a page title in any namespace)
+
+See also:
+* {{msg-mw|Notification-mention-nosection}}
+* {{msg-mw|Notification-mention-nosection-flyout}}
 * {{msg-mw|Notification-mention-email-subject}}',
 	'notification-user-rights-email-subject' => 'E-mail subject for user rights notification
 
