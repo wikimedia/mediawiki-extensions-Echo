@@ -19,6 +19,7 @@ class EchoEditFormatter extends EchoBasicFormatter {
 				$message->params( '' );
 				return;
 			}
+			$diff = $event->getExtraParam( 'diffid', 'prev' );
 			$props = array(
 				'attribs' => array( 'class' => 'mw-echo-diff' ),
 				'linkText' => $this->getMessage( 'parentheses' )
@@ -27,7 +28,7 @@ class EchoEditFormatter extends EchoBasicFormatter {
 						)->escaped(),
 				'param' => array(
 					'oldid' => $revid,
-					'diff' => 'prev',
+					'diff' => $diff,
 				),
 				// Set fragment to empty string for diff links
 				'fragment' => ''
