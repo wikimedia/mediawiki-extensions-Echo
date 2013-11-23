@@ -462,7 +462,7 @@ class EchoHooks {
 				$undidRevId = $wgRequest->getVal( 'wpUndidRevision' );
 				if ( $undidRevId ) {
 					$undidRevision = Revision::newFromId( $undidRevId );
-					if ( $undidRevision ) {
+					if ( $undidRevision && $undidRevision->getTitle()->equals( $title ) ) {
 						$victimId = $undidRevision->getUser();
 						if ( $victimId ) { // No notifications for anonymous users
 							EchoEvent::create( array(
