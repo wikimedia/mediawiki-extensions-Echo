@@ -152,7 +152,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	 *
 	 * @param $event EchoEvent that the notification is for.
 	 * @param $user User to format the notification for.
-	 * @deprecated $type
+	 * @param $type string deprecated
 	 */
 	protected function applyChangeBeforeFormatting( EchoEvent $event, User $user, $type ) {
 		// Use the bundle message if use-bundle is true and there is a bundle message
@@ -257,7 +257,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	 *
 	 * @param $event EchoEvent
 	 * @param $user User
-	 * @deprecated $type
+	 * @param $type string deprecated
 	 * @return array
 	 */
 	protected function formatEmail( $event, $user, $type ) {
@@ -534,7 +534,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	 * Get raw bundle data for an event so it can be manipulated
 	 * @param $event EchoEvent
 	 * @param $user User
-	 * @deprecated $type
+	 * @param $type string deprecated
 	 * @return ResultWrapper|bool
 	 */
 	protected function getRawBundleData( $event, $user, $type ) {
@@ -565,7 +565,8 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	 * this function to use a differnt group iterator such as title, namespace
 	 * @param $event EchoEvent
 	 * @param $user User
-	 * @deprecated $type
+	 * @param $type string deprecated
+	 * @throws MWException
 	 */
 	protected function generateBundleData( $event, $user, $type ) {
 		global $wgEchoMaxNotificationCount;
