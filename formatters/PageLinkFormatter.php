@@ -37,7 +37,7 @@ class EchoPageLinkFormatter extends EchoBasicFormatter {
 	 * link from Page B and X other pages
 	 * @param $event EchoEvent
 	 * @param $user User
-	 * @deprecated $type
+	 * @param $type string deprecated
 	 */
 	protected function generateBundleData( $event, $user, $type ) {
 		global $wgEchoMaxNotificationCount;
