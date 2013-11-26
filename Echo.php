@@ -60,6 +60,7 @@ $wgAutoloadClasses['EchoNotificationFormatter'] = $dir . 'formatters/Notificatio
 $wgAutoloadClasses['EchoBasicFormatter'] = $dir . 'formatters/BasicFormatter.php';
 $wgAutoloadClasses['EchoEditFormatter'] = $dir . 'formatters/EditFormatter.php';
 $wgAutoloadClasses['EchoCommentFormatter'] = $dir . 'formatters/CommentFormatter.php';
+$wgAutoloadClasses['EchoMentionFormatter'] = $dir . 'formatters/MentionFormatter.php';
 $wgAutoloadClasses['EchoUserRightsFormatter'] = $dir . 'formatters/UserRightsFormatter.php';
 $wgAutoloadClasses['EchoPageLinkFormatter'] = $dir . 'formatters/PageLinkFormatter.php';
 $wgAutoloadClasses['EchoEditUserTalkFormatter'] = $dir . 'formatters/EditUserTalkFormatter.php';
@@ -494,7 +495,7 @@ $wgEchoNotifications = array(
 		'secondary-link' => array( 'message' => 'notification-link-text-view-changes', 'destination' => 'diff' ),
 		'category' => 'mention',
 		'group' => 'interactive',
-		'formatter-class' => 'EchoCommentFormatter',
+		'formatter-class' => 'EchoMentionFormatter',
 		'title-message' => 'notification-mention',
 		'title-params' => array( 'agent', 'subject-anchor', 'title', 'section-title', 'main-title-text' ),
 		'flyout-message' => 'notification-mention-flyout',
