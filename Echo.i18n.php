@@ -10322,6 +10322,7 @@ $messages['yi'] = array(
 	'notification-link-text-view-page' => 'באקוקן בלאט',
 	'notification-link-text-view-edit' => 'באקוקן רעדאקטירונג',
 	'notification-edit-talk-page2' => '[[User:$1|$1]] {{GENDER:$1|האט געלאזט}} א מעלדונג אויף אײַער [[User talk:$2#$3|שמועס בלאט]].',
+	'notification-edit-talk-page-with-section' => '[[User:$1|$1]] {{GENDER:$1|האט געלאזט}} א מעלדונג אויף אייער שמועס בלאט ביי "[[User talk:$2#$3|$4]]".',
 	'notification-page-linked-flyout' => '$2 איז געווארן {{GENDER:$1|פֿאַרלינקט}} פֿון [[:$3]].',
 	'notification-add-comment2' => '[[User:$1|$1]] {{GENDER:$1|האט געלאזט א הערה}} וועגן "[[$3|$2]]" אויפן "$4" רעדן בלאט.',
 	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]] {{GENDER:$1|האט}} אײַך געשיקט אן אנזאג: "[[$3#$2|$2]]".',

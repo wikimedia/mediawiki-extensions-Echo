@@ -74,6 +74,11 @@ $specialPageAliases['gl'] = array(
 	'Notifications' => array( 'Notificacións' ),
 );
 
+/** Hebrew (עברית) */
+$specialPageAliases['he'] = array(
+	'Notifications' => array( 'הודעות', 'כל_ההודעות' ),
+);
+
 /** Indonesian (Bahasa Indonesia) */
 $specialPageAliases['id'] = array(
 	'Notifications' => array( 'Notifikasi' ),
