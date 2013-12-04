@@ -2494,6 +2494,7 @@ Her er et resumé af denne uges aktivitet på {{SITENAME}} for dig.',
  * @author Kghbln
  * @author Metalhead64
  * @author Se4598
+ * @author TMg
  */
 $messages['de'] = array(
 	'echo-desc' => 'Ermöglicht ein Benachrichtigungssystem',
@@ -2512,7 +2513,7 @@ $messages['de'] = array(
 	'echo-pref-email-frequency-daily' => 'Tägliche Benachrichtigung zu den Ereignissen',
 	'echo-pref-email-frequency-weekly' => 'Wöchentliche Benachrichtigung zu den Ereignissen',
 	'echo-pref-email-format-html' => 'HTML',
-	'echo-pref-email-format-plain-text' => 'Klartext',
+	'echo-pref-email-format-plain-text' => 'Nur Text',
 	'echo-pref-notify-show-link' => 'Benachrichtigungen in meiner Werkzeugleiste anzeigen',
 	'echo-pref-new-message-indicator' => 'Diskussionsseitennachrichthinweise in meiner Benutzerleiste anzeigen',
 	'echo-learn-more' => 'Mehr erfahren',
@@ -2643,10 +2644,14 @@ $messages['diq'] = array(
 	'notifications' => 'Tebliği',
 	'echo-specialpage' => 'Tebliği',
 	'echo-feedback' => 'Peydrışten',
+	'notification-edit-talk-page2' => '[[User:$1|$1]],  perda [[User talk:$2#$3| mesacande]] to de zew mesaco newe {{GENDER:$1|vırada}}.',
+	'notification-edit-talk-page-with-section' => '[[User:$1|$1]], Pera masecan de "[[User talk:$2#$3|$4]]" de mewzu {{GENDER:$1|vırade}}.',
+	'notification-reverted-flyout2' => '$1 {{PLURAL:$4|vırnayışa $2 |vırnayışane $2 }} rewizyona $3 {{GENDER:$1|peyser}} grot',
 	'echo-overlay-link' => 'Tebliği péro',
 	'echo-overlay-title' => '<b>Tebliği</b>',
 	'echo-date-today' => 'Naroc',
 	'echo-date-yesterday' => 'Vızér',
+	'notification-edit-user-talk-email-batch-bundle-body' => '$1 u $2 {{PLURAL:$3|zewna karberi|tayna karberan}}, to re zew mesac {{GENDER:$1|vırada}}.',
 );
 
 /** Lower Sorbian (dolnoserbski)
@@ -4127,7 +4132,7 @@ $1',
 $1',
 	'echo-overlay-link' => 'כל ההודעות',
 	'echo-overlay-title' => '<b>הודעות</b>',
-	'echo-overlay-title-overflow' => '<b>הודעות</b> ג({{PLURAL:$1|מוצגת אחת|מוצגות $1}} {{PLURAL:$2|שלא נקראה|מתוך $2 שלא נקראו}})',
+	'echo-overlay-title-overflow' => '<b>הודעות</b> ({{PLURAL:$1|מוצגת אחת|מוצגות $1}} {{PLURAL:$2|שלא נקראה|מתוך $2 שלא נקראו}})',
 	'echo-mark-all-as-read' => 'לסמן שהכול נקרא',
 	'echo-date-today' => 'היום',
 	'echo-date-yesterday' => 'אתמול',
@@ -7961,6 +7966,7 @@ $1',
 );
 
 /** Portuguese (português)
+ * @author Cainamarques
  * @author GoEThe
  * @author Helder.wiki
  * @author Lijealso
@@ -8028,8 +8034,8 @@ $messages['pt'] = array(
 	'notification-add-comment-yours2' => '[[User:$1|$1]] comentou a secção "[[$3#$2|$2]]" na sua página de discussão',
 	'notification-mention' => '{{GENDER:$1|O|A}} [[User:$1|$1]] mencionou-{{GENDER:$1|o|a}} na página de discussão $5, na secção "[[$3#$2|$4]]".',
 	'notification-mention-flyout' => '{{GENDER:$1|O|A}} $1 mencionou-{{GENDER:$1|o|a}} na página de discussão de $5, na secção "[[$3#$2|$4]]".',
-	'notification-mention-nosection' => '[[User:$1|$1]] fez uma menção a si na [[$3|$2 página de discussão]].',
-	'notification-mention-nosection-flyout' => '$1 mencionou você na [[$3|$2 página de discussão]].',
+	'notification-mention-nosection' => '[[User:$1|$1]] fez uma menção a si na [[$3|página de discussão de $2]].',
+	'notification-mention-nosection-flyout' => '$1 mencionou você na [[$3|página de discussão de $2]].',
 	'notification-user-rights' => 'Os seus privilégios de {{GENDER:$1|utilizador}} [[Special:Log/rights/$1|foram]] alterados por [[User:$1|$1]]. $2. [[Special:ListGroupRights|Saiba mais]]',
 	'notification-user-rights-flyout' => 'Os seus privilégios de {{GENDER:$1|utilizador|utilizadora}} foram alterados por $1. $2. [[Special:ListGroupRights|Saiba mais]]',
 	'notification-user-rights-add' => 'É agora membro {{PLURAL:$2|deste grupo|destes grupos}}: $1',
@@ -8046,7 +8052,7 @@ $messages['pt'] = array(
 	'notification-reverted-email-batch-body2' => '{{PLURAL:$3|A sua edição em $2 foi revertida|As suas edições em $2 foram revertidas}} por $1.',
 	'notification-mention-email-subject' => '$1 {{GENDER:$1|mencionou-o|mencionou-a}} em {{SITENAME}}',
 	'notification-mention-email-batch-body' => '$1 mencionou-{{GENDER:$1|o|a}} na página de discussão $4, na secção "$3".',
-	'notification-mention-nosection-email-batch-body' => '$1 mencionou você na seguinte página de discussão: $2',
+	'notification-mention-nosection-email-batch-body' => '$1 mencionou você na página de discussão de $2',
 	'notification-user-rights-email-subject' => 'Os seus privilégios de utilizador foram alterados em {{SITENAME}}',
 	'notification-user-rights-email-batch-body' => 'Os seus privilégios de {{GENDER:$1|utilizador|utilizadora}} foram alterados por $1. $2.',
 	'echo-email-subject-default' => 'Nova notificação em {{SITENAME}}',
@@ -8151,6 +8157,8 @@ $messages['pt-br'] = array(
 	'notification-add-comment-yours2' => '{{GENDER:$1|O|A}} [[User:$1|$1]] comentou em "[[$3#$2|$2]]" em sua página de discussão.',
 	'notification-mention' => '{{GENDER:$1|O|A}} [[User:$1|$1]] mencionou você na página de discussão $5 em "[[$3#$2|$4]]".',
 	'notification-mention-flyout' => '{{GENDER:$1|O|A}} $1 mencionou você na página de discussão $5 em "[[$3#$2|$4]]".',
+	'notification-mention-nosection' => '[[User:$1|$1]] mencionou você na [[$3|página de discussão de $2]].',
+	'notification-mention-nosection-flyout' => '$1 mencionou você na [[$3|página de discussão de $2]].',
 	'notification-user-rights' => 'Seus direitos de usuário [[Special:Log/rights/$1|foram alterados]] {{GENDER:$1|pelo|pela|por}} [[User:$1|$1]]. $2. [[Special:ListGroupRights|Saiba mais]]',
 	'notification-user-rights-flyout' => 'Seus direitos de usuário foram alterados {{GENDER:$1|pelo|pela|por}} $1. $2. [[Special:ListGroupRights|Saiba mais]]',
 	'notification-user-rights-add' => 'Você agora é membro {{PLURAL:$2|desse grupo|desses grupos}}: $1',
@@ -8167,6 +8175,7 @@ $messages['pt-br'] = array(
 	'notification-reverted-email-batch-body2' => '{{PLURAL:$3|Sua edição em $2 foi revertida|Suas edições em $2 foram revertidas}} {{GENDER:$1|pelo|pela|por}} $1.',
 	'notification-mention-email-subject' => '$1 mencionou você em {{SITENAME}}',
 	'notification-mention-email-batch-body' => '{{GENDER:$1|O|A}} $1 mencionou você na página de discussão de $4 em "$3".',
+	'notification-mention-nosection-email-batch-body' => '$1 mencionou você na página de discussão de $2.',
 	'notification-user-rights-email-subject' => 'Seus direitos de usuários mudaram na {{SITENAME}}',
 	'notification-user-rights-email-batch-body' => 'Seus direitos de usuário foram alterados por $1. $2.',
 	'echo-email-subject-default' => 'Nova notificação em {{SITENAME}}',
