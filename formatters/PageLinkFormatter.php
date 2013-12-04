@@ -146,11 +146,11 @@ class EchoPageLinkFormatter extends EchoBasicFormatter {
 				if ( $this->bundleData['link-from-page-other-count'] > $wgEchoMaxNotificationCount ) {
 					$message->params(
 						$this->getMessage( 'echo-notification-count' )
-						->params( $wgEchoMaxNotificationCount )
+						->numParams( $wgEchoMaxNotificationCount )
 						->text()
 					);
 				} else {
-					$message->params( $this->bundleData['link-from-page-other-count'] );
+					$message->numParams( $this->bundleData['link-from-page-other-count'] );
 				}
 				break;
 
