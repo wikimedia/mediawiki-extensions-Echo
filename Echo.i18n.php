@@ -2585,11 +2585,11 @@ $1',
 	'echo-email-batch-body-default' => 'Du hast eine neue Benachrichtigung',
 	'echo-email-footer-default' => '$2
 
-Um zu kontrollieren, welche E-Mails wir dir senden, überprüfe bitte deine Einstellungen:
+Um zu steuern, welche E-Mails wir dir senden, nutze deine Einstellungen:
 {{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
 
 $1',
-	'echo-email-footer-default-html' => 'Um zu kontrollieren, welche E-Mails wir dir senden, <a href="$2" style="text-decoration:none; color: #3868B0;">überprüfe deine Einstellungen</a>.<br />
+	'echo-email-footer-default-html' => 'Um zu steuern, welche E-Mails wir dir senden, <a href="$2" style="text-decoration:none; color: #3868B0;">nutze deine Einstellungen</a>.<br />
 $1',
 	'echo-overlay-link' => 'Alle Benachrichtigungen',
 	'echo-overlay-title' => '<b>Benachrichtigungen</b>',
