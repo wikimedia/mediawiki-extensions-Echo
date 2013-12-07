@@ -671,7 +671,7 @@ $messages['am'] = array(
 	'echo-pref-email-format-html' => 'ኤች.ቲ.ኤም.ኤል. (HTML)',
 	'echo-pref-email-format-plain-text' => 'ጥሬ ጽሁፍ',
 	'echo-learn-more' => 'የበለጠ ለመረዳት',
-	'echo-new-messages' => 'አዲስ መልዕክቶች አሉዎት።',
+	'echo-new-messages' => 'አዲስ መልዕክቶች አሉዎት።', # Fuzzy
 	'echo-category-title-edit-user-talk' => 'ውይይት ገጽ {{PLURAL:$1|መልዕክት|መልዕክቶች}}',
 	'echo-category-title-article-linked' => 'የገጽ {{PLURAL:$1|መያያዣ|መያያዣዎች}}',
 	'echo-category-title-reverted' => 'የ{{PLURAL:$1|ተገለበጠ ለውጥ|ተገለበጡ ለውጦች}}',
@@ -1184,7 +1184,7 @@ $messages['be-tarask'] = array(
 	'echo-pref-notify-show-link' => 'Паказваць апавяшчэньні ў маёй панэлі',
 	'echo-pref-new-message-indicator' => 'Паказваць індыкатар паведамленьняў на старонцы гутарак у маёй панэлі',
 	'echo-learn-more' => 'Даведацца болей',
-	'echo-new-messages' => 'Вы маеце новыя паведамленьні',
+	'echo-new-messages' => 'Вы маеце новыя паведамленьні', # Fuzzy
 	'echo-category-title-edit-user-talk' => '{{PLURAL:$1|Паведамленьне ў|Паведамленьні ў}} гутарках',
 	'echo-category-title-article-linked' => '{{PLURAL:$1|Спасылка|Спасылкі}} на старонку',
 	'echo-category-title-reverted' => '{{PLURAL:$1|Адкат праўкі|Адкаты правак}}',
@@ -1499,7 +1499,7 @@ $messages['br'] = array(
 	'echo-pref-email-format-plain-text' => 'Testenn blaen',
 	'echo-pref-notify-show-link' => "Diskouez ar c'hemennoù em barrenn ostilhoù",
 	'echo-learn-more' => "Gouzout hiroc'h",
-	'echo-new-messages' => "Kemennadennoù nevez zo ganeoc'h.",
+	'echo-new-messages' => "Kemennadennoù nevez zo ganeoc'h.", # Fuzzy
 	'echo-category-title-article-linked' => 'Pajenn {{PLURAL:$1|link}}',
 	'echo-category-title-mention' => '{{PLURAL:$1|Meneg}}',
 	'echo-category-title-other' => '{{PLURAL:$1|All}}',
@@ -1810,7 +1810,7 @@ $messages['cdo'] = array(
 	'echo-pref-notify-show-link' => '敆我其工具欄顯示通知',
 	'echo-pref-new-message-indicator' => '敆我其工具欄顯示討論頁信息指示',
 	'echo-learn-more' => '學習更更価仂囝',
-	'echo-new-messages' => '汝有新其信息。',
+	'echo-new-messages' => '汝有新其信息。', # Fuzzy
 	'echo-category-title-edit-user-talk' => '討論頁 {{PLURAL:$1|條}}信息',
 	'echo-category-title-article-linked' => '頁面{{PLURAL:$1|萆鏈接}}',
 	'echo-category-title-reverted' => '修改{{PLURAL:$1|回退回}}',
@@ -2019,7 +2019,7 @@ $messages['ckb'] = array(
 	'echo-pref-notify-show-link' => 'ئاگادارییەکان لە تووڵامرازەکەمدا نیشان بدە',
 	'echo-pref-new-message-indicator' => 'نیشاندەری پەیامی پەڕەی لێدوان لە تووڵامرازەکەمدا نیشان بدە',
 	'echo-learn-more' => 'زۆرتر بزانە',
-	'echo-new-messages' => 'پەیامی نوێت ھەیە.',
+	'echo-new-messages' => 'پەیامی نوێت ھەیە.', # Fuzzy
 	'echo-category-title-edit-user-talk' => '{{PLURAL:$1|پەیام|پەیامەکان}}ی پەڕەی لێدوان',
 	'echo-category-title-article-linked' => '{{PLURAL:$1|بەستەر|بەستەرەکان}}ی پەڕە',
 	'echo-category-title-reverted' => '{{PLURAL:$1|گەڕاندنەوە|گەڕاندنەوەکان}}ی دەستکاری',
@@ -2238,7 +2238,7 @@ zde pro vás máme shrnutí aktivity na {{grammar:6sg|{{SITENAME}}}} za tento t�
 	'echo-rev-deleted-text-view' => 'Tato verze stránky byla utajena',
 );
 
-/** Church Slavic (словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
+/** Church Slavic (словѣньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
  * @author ОйЛ
  */
 $messages['cu'] = array(
@@ -2559,7 +2559,7 @@ $messages['de'] = array(
 	'notification-mention-flyout' => '$1 {{GENDER:$1|erwähnte}} dich auf der Diskussionsseite von $5 in „[[$3#$2|$4]]“.',
 	'notification-mention-nosection' => '[[User:$1|$1]] {{GENDER:$1|erwähnte}} dich auf der [[$3|Diskussionsseite „$2“]].',
 	'notification-mention-nosection-flyout' => '$1 {{GENDER:$1|erwähnte}} dich auf der [[$3|Diskussionsseite „$2“]].',
-	'notification-user-rights' => 'Deine Benutzerrechte [[Special:Log/rights/$1|wurden von [[User:$1|$1]] {{GENDER:$1|geändert}}]]. $2. [[Special:ListGroupRights|Mehr erfahren]]',
+	'notification-user-rights' => 'Deine Benutzerrechte wurden von [[User:$1|$1]] [[Special:Log/rights/$1|{{GENDER:$1|geändert}}]]. $2. [[Special:ListGroupRights|Mehr erfahren]]',
 	'notification-user-rights-flyout' => 'Deine Benutzerrechte wurden von $1 {{GENDER:$1|geändert}}. $2. [[Special:ListGroupRights|Mehr erfahren]]',
 	'notification-user-rights-add' => 'Du bist jetzt Mitglied dieser {{PLURAL:$2|Gruppe|Gruppen}}: $1',
 	'notification-user-rights-remove' => 'Du bist nicht länger Mitglied dieser {{PLURAL:$2|Gruppe|Gruppen}}: $1',
@@ -2616,7 +2616,7 @@ Hier ist für dich eine Zusammenfassung der Aktivitäten auf {{SITENAME}} von di
  * @author Kghbln
  */
 $messages['de-formal'] = array(
-	'echo-new-messages' => 'Sie haben neue Nachrichten',
+	'echo-new-messages' => 'Sie haben neue Nachrichten', # Fuzzy
 	'echo-none' => 'Sie haben in letzter Zeit keine Benachrichtigungen erhalten.', # Fuzzy
 );
 
@@ -4685,7 +4685,7 @@ $messages['ia'] = array(
 	'echo-pref-notify-show-link' => 'Monstrar notificationes in mi instrumentario',
 	'echo-pref-new-message-indicator' => 'Monstrar indicator de message in pagina de discussion in mi instrumentario',
 	'echo-learn-more' => 'Leger plus',
-	'echo-new-messages' => 'Tu ha nove messages', # Fuzzy
+	'echo-new-messages' => 'Tu ha nove messages',
 	'echo-category-title-edit-user-talk' => '{{PLURAL:$1|Message|Messages}} del pagina de discussion',
 	'echo-category-title-article-linked' => '{{PLURAL:$1|Ligamine|Ligamines}} a un pagina',
 	'echo-category-title-reverted' => '{{PLURAL:$1|Modification|Modificationes}} revertite',
@@ -4927,7 +4927,7 @@ $messages['ilo'] = array(
 	'echo-pref-notify-show-link' => 'Ipakita dagiti pakaammo iti baras ti ramitko',
 	'echo-pref-new-message-indicator' => 'Iparang ti panangipakita ti mensahe ti tungtungan a panid iti baras ti ramitko',
 	'echo-learn-more' => 'Agadal pay ti adu',
-	'echo-new-messages' => 'Adda dagiti baro a mensahem.',
+	'echo-new-messages' => 'Adda dagiti baro a mensahem.', # Fuzzy
 	'echo-category-title-edit-user-talk' => '{{PLURAL:$1|Ti mensahe|Dagiti mensahe}} ti tungtungan a panid',
 	'echo-category-title-article-linked' => '{{PLURAL:$1|Ti silpo|Dagiti silpo}} ti panid',
 	'echo-category-title-reverted' => '{{PLURAL:$1|Ti naisubli|Dagiti naisubli}} nga inurnos',
@@ -5491,7 +5491,7 @@ $messages['kn'] = array(
 	'echo-pref-notify-show-link' => 'ನನ್ನ ಸಾಧನಪಟ್ಟಿಯಲ್ಲಿ ಸೂಚನೆಗಳನ್ನು ತೋರಿಸಿ',
 	'echo-pref-new-message-indicator' => 'ನನ್ನ ಸಾಧನಪಟ್ಟಿಯಲ್ಲಿ ಚರ್ಚಾಪುಟದ ಸಂದೇಶಸೂಚನೆ ತೋರಿಸಿ',
 	'echo-learn-more' => 'ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ',
-	'echo-new-messages' => 'ನಿಮಗೆ ಹೊಸ ಸಂದೇಶಗಳಿವೆ',
+	'echo-new-messages' => 'ನಿಮಗೆ ಹೊಸ ಸಂದೇಶಗಳಿವೆ', # Fuzzy
 	'echo-category-title-edit-user-talk' => 'ಚರ್ಚಾಪುಟ {{PLURAL:$1|message|messages}}',
 	'echo-category-title-article-linked' => 'ಪುಟ {{PLURAL:$1|link|links}}',
 	'echo-category-title-reverted' => '{{PLURAL:$1|revert|reverts}} ಸಂಪಾದಿಸಿ',
@@ -5808,7 +5808,7 @@ $1',
  * @author George Animal
  */
 $messages['ku-latn'] = array(
-	'echo-new-messages' => 'Peyamên nû ji te re hene',
+	'echo-new-messages' => 'Peyamên nû ji te re hene', # Fuzzy
 );
 
 /** Latin (Latina)
@@ -6047,7 +6047,7 @@ $messages['lt'] = array(
 	'echo-pref-email' => 'El. paštas',
 	'echo-pref-email-frequency-never' => 'Nesiųskite man jokiu el. pašto pranešimų',
 	'echo-learn-more' => 'Sužinokite daugiau',
-	'echo-new-messages' => 'Jūs turite naujų žinučių',
+	'echo-new-messages' => 'Jūs turite naujų žinučių', # Fuzzy
 	'echo-no-agent' => '[Niekas]',
 	'notifications' => 'Pranešimai',
 	'tooltip-pt-notifications' => 'Jūsų pranešimai',
@@ -6179,7 +6179,7 @@ $1',
  * @author Yanteng3
  */
 $messages['lzh'] = array(
-	'echo-new-messages' => '子有新訊息',
+	'echo-new-messages' => '子有新訊息', # Fuzzy
 );
 
 /** Malagasy (Malagasy)
@@ -6623,7 +6623,7 @@ $messages['ms'] = array(
 	'echo-pref-notify-show-link' => 'Paparkan pemberitahuan di palang alat saya',
 	'echo-pref-new-message-indicator' => 'Paparkan indikator pesanan dari halaman perbincangan pada palang alat saya',
 	'echo-learn-more' => 'Ketahui lebih lanjut',
-	'echo-new-messages' => 'Anda ada pesanan baru',
+	'echo-new-messages' => 'Anda ada pesanan baru', # Fuzzy
 	'echo-category-title-edit-user-talk' => '{{PLURAL:$1|Pesanan}} halaman perbualan',
 	'echo-category-title-article-linked' => '{{PLURAL:$1|Pautan}} halaman',
 	'echo-category-title-reverted' => '{{PLURAL:$1|Pembalikan}} suntingan',
@@ -7495,7 +7495,7 @@ $messages['or'] = array(
 	'echo-pref-notify-show-link' => 'ମୋ ଟୁଲବାରରେ ସୂଚନା ସବୁ ଦେଖାନ୍ତୁ',
 	'echo-pref-new-message-indicator' => 'ମୋ ଟୁଲବାରରେ ଆଲୋଚନା ପୃଷ୍ଠା ବାର୍ତ୍ତ ସୂଚକ ଦେଖାନ୍ତୁ',
 	'echo-learn-more' => 'ଅଧିକ ଶିଖନ୍ତୁ',
-	'echo-new-messages' => 'ଆପଣଙ୍କ ପାଇଁ ଏକ ନୂଆ ବାର୍ତ୍ତା ଅଛି',
+	'echo-new-messages' => 'ଆପଣଙ୍କ ପାଇଁ ଏକ ନୂଆ ବାର୍ତ୍ତା ଅଛି', # Fuzzy
 	'echo-category-title-edit-user-talk' => 'ଆଲୋଚନା ପୃଷ୍ଠା {{PLURAL:$1|ବାର୍ତ୍ତା|ଏକାଧିକ ବାର୍ତ୍ତା}}',
 	'echo-category-title-article-linked' => 'ପୃଷ୍ଠା {{PLURAL:$1|ଲିଙ୍କ|ଏକାଧିକ ଲିଙ୍କ}}',
 	'echo-category-title-reverted' => 'ସଂପାଦନା {{PLURAL:$1|ପଶ୍ଚାତକରଣ|ଏକାଧିକ ପଶ୍ଚାତକରଣ}}',
@@ -7564,7 +7564,7 @@ $messages['pa'] = array(
 	'echo-pref-notify-show-link' => 'ਮੇਰੀ ਟੂਲਬਾਰ ਵਿੱਚ ਸੂਚਨਾਵਾਂ ਵਿਖਾਓ',
 	'echo-pref-new-message-indicator' => 'ਮੇਰੀ ਟੂਲਬਾਰ ਵਿੱਚ ਗੱਲ-ਬਾਤ ਪੰਨਾ ਸੂਚਕ ਵਿਖਾਓ',
 	'echo-learn-more' => 'ਹੋਰ ਜਾਣੋ',
-	'echo-new-messages' => 'ਤੁਹਾਡੇ ਲਈ ਨਵੇਂ ਸੁਨੇਹੇ ਹਨ।',
+	'echo-new-messages' => 'ਤੁਹਾਡੇ ਲਈ ਨਵੇਂ ਸੁਨੇਹੇ ਹਨ।', # Fuzzy
 	'echo-category-title-edit-user-talk' => 'ਗੱਲ-ਬਾਤ ਪੰਨਾ {{PLURAL:$1|ਸੁਨੇਹਾ|ਸੁਨੇਹੇ}}',
 	'echo-category-title-article-linked' => 'ਪੰਨਾ {{PLURAL:$1|ਲਿੰਕ}}',
 	'echo-category-title-reverted' => 'ਸੋਧ {{PLURAL:$1|ਰੱਦ ਕੀਤਾ|ਰੱਦ ਕੀਤੇ}}',
@@ -8356,7 +8356,7 @@ $messages['roa-tara'] = array(
 	'echo-pref-notify-show-link' => "Fà vedè le notifiche sus 'a barre de le struminde meje",
 	'echo-pref-new-message-indicator' => "Fà vedè le 'ndicature de le messàgge sus a pàgene de le 'ngazzaminde jndr'à barre de le struminde meje",
 	'echo-learn-more' => "'Mbare de cchiù",
-	'echo-new-messages' => 'Tu è messàgge nuève',
+	'echo-new-messages' => 'Tu è messàgge nuève', # Fuzzy
 	'echo-category-title-edit-user-talk' => "{{PLURAL:$1|Messàgge}} d'a pàgene de le 'ngazzaminde",
 	'echo-category-title-article-linked' => "{{PLURAL:$1|Collegamende|Collegaminde}} d'a pàgene",
 	'echo-category-title-reverted' => "Annulle {{PLURAL:$1|'u cangiamende|le cangiaminde}}",
@@ -8607,7 +8607,7 @@ $messages['sa'] = array(
 	'echo-pref-notify-show-link' => 'उपकरणपट्टिकायां सूचनाः दर्श्यन्ताम्',
 	'echo-pref-new-message-indicator' => 'मम साधनापट्टिकायां चर्चापुटस्य सन्देशः दर्श्यताम्',
 	'echo-learn-more' => 'अधिकं ज्ञायताम्',
-	'echo-new-messages' => 'भवते नूतनसन्देशाः सन्ति |',
+	'echo-new-messages' => 'भवते नूतनसन्देशाः सन्ति |', # Fuzzy
 	'echo-category-title-edit-user-talk' => 'चर्चापुटम् {{PLURAL:$1|सन्देशः|सन्देशाः}}',
 	'echo-category-title-article-linked' => 'पुटम् {{PLURAL:$1|सम्पर्कतन्तुः|सम्पर्कतन्तवः}}',
 	'echo-category-title-reverted' => 'सम्पाद्यताम् {{PLURAL:$1|revert|reverts}}',
@@ -8771,7 +8771,7 @@ $messages['sh'] = array(
 	'echo-pref-notify-show-link' => 'Pokaži obavještenja u mojoj alatnoj traci',
 	'echo-pref-new-message-indicator' => 'Pokaži indikator da je dobijena poruka na stranici za razgovor u mojoj alatnoj traci',
 	'echo-learn-more' => 'Saznajte više',
-	'echo-new-messages' => 'Imate nove poruke',
+	'echo-new-messages' => 'Imate nove poruke', # Fuzzy
 	'echo-category-title-edit-user-talk' => '{{PLURAL:$1|Poruke}} na stranici za razgovor',
 	'echo-category-title-article-linked' => '{{PLURAL:$1|Linkovi na stranicu}}',
 	'echo-category-title-reverted' => '{{PLURAL:$1|Vraćanje izmjena}}',
@@ -8991,7 +8991,7 @@ $messages['sl'] = array(
 	'echo-pref-notify-show-link' => 'Prikaži obvestila v orodni vrstici',
 	'echo-pref-new-message-indicator' => 'V orodni vrstici prikaži kazalnik sporočil na pogovornih straneh',
 	'echo-learn-more' => 'Več o tem',
-	'echo-new-messages' => 'Imate nova sporočila.',
+	'echo-new-messages' => 'Imate nova sporočila.', # Fuzzy
 	'echo-category-title-edit-user-talk' => '{{PLURAL:$1|Sporočilo|Sporočila}} na pogovornih straneh',
 	'echo-category-title-article-linked' => '{{PLURAL:$1|Povezava|Povezave}} na pogovornih straneh',
 	'echo-category-title-reverted' => 'Uredi {{PLURAL:$1|vračanje|vračanja}}',
@@ -9628,7 +9628,7 @@ $messages['te'] = array(
 	'echo-pref-notify-show-link' => 'నా టూల్‌బార్‌లో సూచనలను చూపించు',
 	'echo-pref-new-message-indicator' => 'నా టూల్‌బార్‌లో చర్చా పేజీ సందేశ-సూచికను చూపించు',
 	'echo-learn-more' => 'మరింత తెలుసుకోండి',
-	'echo-new-messages' => 'మీకు క్రొత్త సందేశాలు ఉన్నాయి.',
+	'echo-new-messages' => 'మీకు క్రొత్త సందేశాలు ఉన్నాయి.', # Fuzzy
 	'echo-category-title-edit-user-talk' => 'చర్చా పేజి {{PLURAL:$1|సందేశం|సందేశాలు}}',
 	'echo-category-title-article-linked' => 'పేజి {{PLURAL:$1|లంకె|లంకెలు}}',
 	'echo-category-title-reverted' => 'మార్చు {{PLURAL:$1|మళ్ళింపు|మళ్ళింపులు}}',
@@ -9744,7 +9744,7 @@ $messages['th'] = array(
 	'echo-pref-notify-show-link' => 'แสดงการแจ้งเตือนในแถบเครื่องมือของฉัน',
 	'echo-pref-new-message-indicator' => 'แสดงตัวบ่งชี้ข้อความในหน้าพูดคุยในแถบเครื่องมือของฉัน',
 	'echo-learn-more' => 'เรียนรู้เพิ่มเติม',
-	'echo-new-messages' => 'คุณมีข้อความใหม่',
+	'echo-new-messages' => 'คุณมีข้อความใหม่', # Fuzzy
 	'echo-category-title-edit-user-talk' => 'หน้าพูดคุย {{PLURAL:$1| ข้อความ|ข้อความ} }',
 	'echo-category-title-article-linked' => 'หน้า {{PLURAL:$1|ลิงก์|ลิงก์} }',
 	'echo-category-title-reverted' => 'การแก้ไข {{PLURAL:$1| ย้อนกลับ|ย้อนกลับ} }',
@@ -10148,7 +10148,7 @@ $messages['vec'] = array(
 	'echo-pref-email-frequency-never' => 'No sta mandarme nissuna notifica par email',
 	'echo-pref-email-format-html' => 'HTML',
 	'echo-pref-email-format-plain-text' => 'Testo normal',
-	'echo-new-messages' => 'Te ghè dei messagi novi.',
+	'echo-new-messages' => 'Te ghè dei messagi novi.', # Fuzzy
 	'echo-category-title-other' => '{{PLURAL:$1|Altro}}',
 	'echo-category-title-system' => '{{PLURAL:$1|Sistema}}',
 	'echo-no-agent' => '[Nissun]',
@@ -10373,7 +10373,7 @@ $messages['yue'] = array(
 	'echo-pref-notify-show-link' => '喺工具列道出通知',
 	'echo-pref-new-message-indicator' => '喺工具列道出新留言提示',
 	'echo-learn-more' => '了解多啲',
-	'echo-new-messages' => '你有新信',
+	'echo-new-messages' => '你有新信', # Fuzzy
 	'echo-category-title-edit-user-talk' => '傾偈版{{PLURAL:$1|新信}}',
 	'echo-category-title-article-linked' => '{{PLURAL:$1|連}}到我開嘅版',
 	'echo-category-title-reverted' => '將我嘅修改{{PLURAL:$1|打回頭}}',
