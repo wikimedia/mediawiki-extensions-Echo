@@ -694,10 +694,15 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 
 		// Get link parameters based on the destination
 		list( $target, $query ) = $this->getLinkParams( $event, $user, $destination );
+		// Note that $target can be a Title object or a raw url
 		if ( !$target ) {
 			return '';
 		}
 		if ( $urlOnly ) {
+			if ( is_string( $target ) ) {
+				// A raw url was passed back
+				return $target;
+			}
 			if ( $local ) {
 				return $target->getLinkURL( $query );
 			} else {
@@ -714,7 +719,13 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			if ( !$local ) {
 				$options[] = 'https';
 			}
-			return Linker::link( $target, $message, $attribs, $query, $options );
+			if ( is_string( $target ) ) {
+				$attribs['href'] = wfAppendQuery( $target, $query );
+				return Html::element( 'a', $attribs, $message );
+			} else {
+				return Linker::link( $target, $message, $attribs, $query, $options );
+			}
+
 		}
 	}
 
@@ -724,7 +735,8 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	 * @param EchoEvent $event
 	 * @param User $user The user receiving the notification
 	 * @param String $destination The destination type for the link, e.g. 'agent'
-	 * @return Array including target and query parameters
+	 * @return Array including target and query parameters. Note that target can
+	 *               be either a Title or a full url
 	 */
 	protected function getLinkParams( $event, $user, $destination ) {
 		$target = null;
