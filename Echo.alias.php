@@ -36,7 +36,7 @@ $specialPageAliases['de'] = array(
 
 /** Zazaki (Zazaki) */
 $specialPageAliases['diq'] = array(
-	'Notifications' => array( 'Tebliği' ),
+	'Notifications' => array( 'Mengeney' ),
 );
 
 /** Greek (Ελληνικά) */
