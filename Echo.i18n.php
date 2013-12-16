@@ -1775,7 +1775,7 @@ $1',
 	'echo-date-today' => 'Avui',
 	'echo-date-yesterday' => 'Ahir',
 	'echo-load-more-error' => "S'ha produït un error en obtenir més resultats.",
-	'notification-edit-talk-page-bundle' => '$1 i $3 {{PLURAL:$4|més}} {{GENDER:$1|han deixat}} un missatge a la seva [[User talk:$2|pàgina de discussió]].',
+	'notification-edit-talk-page-bundle' => '$1 i $3 {{PLURAL:$4|més}} {{GENDER:$1|han deixat}} un missatge a la vostra [[User talk:$2|pàgina de discussió]].',
 	'notification-page-linked-bundle' => "S'ha {{GENDER:$1|enllaçat}} $2 des de $3 i $4  {{PLURAL:$5|pàgina|pàgines}} més. [[Special:WhatLinksHere/$2|Vegeu tots els enllaços a aquesta pàgina]]",
 	'notification-edit-user-talk-email-batch-bundle-body' => '$1 i $2 {{PLURAL:$3|més}} {{GENDER:$1|han deixat}} un missatge a la seva pàgina de discussió.',
 	'notification-page-linked-email-batch-bundle-body' => '$2 ha {{GENDER:$1|enllaçat}} {{PLURAL:$5|una altra pàgina|altres pàgines}} des de $3 i $4.',
@@ -10002,6 +10002,7 @@ Ito ang buod ng mga gawain ngayong linggo sa {{SITENAME}} para sa iyo.',
 /** Turkish (Türkçe)
  * @author Emperyan
  * @author Incelemeelemani
+ * @author Joseph
  * @author Meelo
  * @author Rapsar
  */
@@ -10026,7 +10027,7 @@ $messages['tr'] = array(
 	'echo-pref-notify-show-link' => 'Bildirimleri araç çubuğumda göster',
 	'echo-pref-new-message-indicator' => 'Mesaj sayfamın yerine mesaj göstergesi araç çubuğunu göster',
 	'echo-learn-more' => 'Daha fazla bilgi',
-	'echo-new-messages' => 'Yeni mesajınız var.', # Fuzzy
+	'echo-new-messages' => 'Yeni mesajınız var',
 	'echo-category-title-edit-user-talk' => 'Tartışma sayfası {{PLURAL:$1|mesajı|mesajları}}',
 	'echo-category-title-article-linked' => 'Sayfa {{PLURAL:$1|bağlantısı|bağlantıları}}',
 	'echo-category-title-reverted' => 'Değişiklik {{PLURAL:$1|iptali|iptalleri}}',
