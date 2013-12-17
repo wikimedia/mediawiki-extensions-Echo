@@ -816,10 +816,14 @@ class EchoHooks {
 	 * @return bool true in all cases
 	 */
 	static function onUserSaveSettings( $user ) {
-		// Reset the notification count since it may have changed due to user
-		// option changes. This covers both explicit changes in the preferences
-		// and changes made through the options API (since both call this hook).
-		MWEchoNotifUser::newFromUser( $user )->resetNotificationCount();
+		// Extensions like AbuseFilter might create an account, but
+		// the tables we need might not exist. Bug 57335
+		if ( !defined( 'MW_UPDATER' ) ) {
+			// Reset the notification count since it may have changed due to user
+			// option changes. This covers both explicit changes in the preferences
+			// and changes made through the options API (since both call this hook).
+			MWEchoNotifUser::newFromUser( $user )->resetNotificationCount();
+		}
 		return true;
 	}
 
