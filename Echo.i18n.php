@@ -376,7 +376,9 @@ See also:
 * $3 - link to user talk page
 See also:
 * {{msg-mw|Notification-add-comment2}}',
-	'notification-mention' => "Format for displaying notifications of a comment in a specific section including a link to another user's user page. Parameters:
+	'notification-mention' => "Format for displaying notifications of a comment in a specific section including a link to another user's user page.
+
+Parameters:
 * $1 - the username of the person who edited, plain text. Can be used for GENDER
 * $2 - the section title of the discussion
 * $3 - the page title of the discussion
