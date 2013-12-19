@@ -8041,6 +8041,7 @@ $messages['ps'] = array(
 	'echo-pref-email-format-html' => 'اچ ټي ام اېل',
 	'echo-pref-email-format-plain-text' => 'ساده متن',
 	'echo-pref-notify-show-link' => 'يادگيرنې زما په توکپټه کې ښکاره کول',
+	'echo-pref-new-message-indicator' => 'زما په توکپټه کې د خبرو اترو پيغام ښودونکی ښکاره کول',
 	'echo-learn-more' => 'نور څه زده کول',
 	'echo-new-messages' => 'تاسې نوي پيغامونه لرئ',
 	'echo-category-title-edit-user-talk' => 'خبرو اترو مخ {{PLURAL:$1|پيغام|پيغامونه}}',
