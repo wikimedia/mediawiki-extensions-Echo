@@ -177,6 +177,10 @@ abstract class EchoEmailMode {
 		} else {
 			if ( !isset( $iconInfo['path'] ) || !$iconInfo['path'] ) {
 				$iconInfo = $wgEchoNotificationIcons['placeholder'];
+			} else {
+				if ( is_callable( $iconInfo['path'] ) ) {
+					$iconInfo['path'] = call_user_func( $iconInfo['path'] );
+				}
 			}
 			$iconUrl = "$wgExtensionAssetsPath/{$iconInfo['path']}";
 		}
