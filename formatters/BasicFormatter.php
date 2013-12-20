@@ -825,20 +825,20 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 				}
 			}
 		// example: {7} others, {99+} others
-		} elseif ( $param === 'agent-other-display') {
+		} elseif ( $param === 'agent-other-display' ) {
 			global $wgEchoMaxNotificationCount;
 
 			if ( $this->bundleData['agent-other-count'] > $wgEchoMaxNotificationCount ) {
 				$message->params(
 					$this->getMessage( 'echo-notification-count' )
-					->params( $wgEchoMaxNotificationCount )
+					->numParams( $wgEchoMaxNotificationCount )
 					->text()
 				);
 			} else {
-				$message->params( $this->bundleData['agent-other-count'] );
+				$message->numParams( $this->bundleData['agent-other-count'] );
 			}
 		// the number used for plural support
-		} elseif ( $param === 'agent-other-count') {
+		} elseif ( $param === 'agent-other-count' ) {
 			$message->params( $this->bundleData['agent-other-count'] );
 		} elseif ( $param === 'user' ) {
 			$message->params( $user->getName() );
