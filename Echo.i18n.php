@@ -5388,7 +5388,7 @@ $messages['ka'] = array(
 	'echo-pref-email-frequency-weekly' => 'კვირის შემაჯამებელი შეტყობინებები',
 	'echo-pref-email-format-plain-text' => 'ჩვეულებრივი ტექსტი',
 	'echo-pref-new-message-indicator' => 'განხილვის გვერდის შეტყობინების ინდიკატორის ჩვენება ხელსაწყოების პანელზე',
-	'echo-new-messages' => 'თქვენ გაქვთ ახალი შეტყობინება.', # Fuzzy
+	'echo-new-messages' => 'თქვენ გაქვთ ახალი შეტყობინება',
 	'echo-category-title-edit-user-talk' => 'განხილვის გვერდის {{PLURAL:$1|შეტყობინება}}',
 	'echo-no-agent' => '[არავინ]',
 	'echo-no-title' => '[არ არის გვერდი]',
@@ -9095,6 +9095,7 @@ $messages['sk'] = array(
 );
 
 /** Slovenian (slovenščina)
+ * @author Dbc334
  * @author Eleassar
  * @author Matej1234
  * @author Pinky sl
@@ -9121,7 +9122,7 @@ $messages['sl'] = array(
 	'echo-pref-notify-show-link' => 'Prikaži obvestila v orodni vrstici',
 	'echo-pref-new-message-indicator' => 'V orodni vrstici prikaži kazalnik sporočil na pogovornih straneh',
 	'echo-learn-more' => 'Več o tem',
-	'echo-new-messages' => 'Imate nova sporočila.', # Fuzzy
+	'echo-new-messages' => 'Imate nova sporočila',
 	'echo-category-title-edit-user-talk' => '{{PLURAL:$1|Sporočilo|Sporočila}} na pogovornih straneh',
 	'echo-category-title-article-linked' => '{{PLURAL:$1|Povezava|Povezave}} na pogovornih straneh',
 	'echo-category-title-reverted' => 'Uredi {{PLURAL:$1|vračanje|vračanja}}',
@@ -9161,6 +9162,8 @@ $messages['sl'] = array(
 	'notification-add-comment-yours2' => '[[User:$1|$1]] je na vaši pogovorni strani {{GENDER:$1|komentiral|komentirala}} o temi »[[$3#$2|$2]]«.',
 	'notification-mention' => '[[User:$1|$1]] vas je {{GENDER:$1|omenil|omenila}} na pogovorni strani strani »$5« v razdelku »[[$3#$2|$4]]«.',
 	'notification-mention-flyout' => '$1 vas je {{GENDER:$1|omenil|omenila}} v razdelku »[[$3#$2|$4]]« na pogovorni strani uporabnika »$5«.',
+	'notification-mention-nosection' => '[[User:$1|$1]] vas je {{GENDER:$1|omenil|omenila|omenil(-a)}} na [[$3|pogovorni strani $2]].',
+	'notification-mention-nosection-flyout' => '$1 vas je {{GENDER:$1|omenil|omenila|omenil(-a)}} na [[$3|pogovorni strani $2]].',
 	'notification-user-rights' => 'Vaše uporabniške pravice [[Special:Log/rights/$1|je {{GENDER:$1|spremenil|spremenila}}]] {{GENDER:$1|uporabnik|uporabnica}} [[User:$1|$1]]. $2. [[Special:ListGroupRights|Več o tem]].',
 	'notification-user-rights-flyout' => 'Vaše uporabniške pravice je {{GENDER:$1|spremenil|spremenila}} {{GENDER:$1|uporabnik|uporabnica}} $1. $2. [[Special:ListGroupRights|Več o tem]].',
 	'notification-user-rights-add' => 'Odslej ste član {{PLURAL:$2|naslednje skupine|naslednjih skupin}}: $1',
@@ -9177,6 +9180,7 @@ $messages['sl'] = array(
 	'notification-reverted-email-batch-body2' => '{{PLURAL:$3|Vaše urejanje|Vaša urejanja}} v {{GRAMMAR:mestnik|$2}} je {{GENER:$1|vrnil|vrnila}} $1.',
 	'notification-mention-email-subject' => 'V projektu {{SITENAME}} vas je {{GENDER:$1|omenil|omenila}} $1.',
 	'notification-mention-email-batch-body' => 'V razdelku »$3« na pogovorni strani {{GENDER:$4|uporabnika|uporabnice}} vas je {{GENDER:$1|omenil|omenila}} $1.',
+	'notification-mention-nosection-email-batch-body' => '$1 vas je {{GENDER:$1|omenil|omenila|omenil(-a)}} na pogovorni strani $2.',
 	'notification-user-rights-email-subject' => 'V {{GRAMMAR:dajalnik|{{SITENAME}}}} so bile spremenjene vaše uporabniške pravice',
 	'notification-user-rights-email-batch-body' => 'Vaše uporabniške pravice je {{GENDER:$1|spremenil|spremenila}} $1. $2.',
 	'echo-email-subject-default' => 'Novo obvestilo v {{GRAMMAR:dajalnik|{{SITENAME}}}}',
