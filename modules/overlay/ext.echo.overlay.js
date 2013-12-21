@@ -301,6 +301,19 @@
 
 					// Show the notifications overlay
 					$overlay.show();
+
+					// Make sure the overlay is visible, even if the badge is near the edge of browser window.
+					// 10 is an arbitrarily chosen "close enough" number.
+					// We are careful not to slide out from below the pokey (which is 21px wide) (200-21/2+1 == 189)
+					var
+						offset = $overlay.offset(),
+						width = $overlay.width(),
+						windowWidth = $( window ).width();
+					if ( offset.left < 10 ) {
+						$overlay.css( 'left', '+=' + Math.min( 189, 10 - offset.left ) );
+					} else if ( offset.left + width > windowWidth - 10 ) {
+						$overlay.css( 'left', '-=' + Math.min( 189, ( offset.left + width ) - ( windowWidth - 10 ) ) );
+					}
 				}
 			);
 		} );
