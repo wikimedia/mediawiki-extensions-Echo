@@ -10137,6 +10137,7 @@ $messages['ug-arab'] = array(
 
 /** Ukrainian (українська)
  * @author AS
+ * @author Ahonc
  * @author Andriykopanytsia
  * @author Base
  * @author Olvin
@@ -10168,7 +10169,7 @@ $messages['uk'] = array(
 	'echo-new-messages' => 'У Вас є нові повідомлення',
 	'echo-category-title-edit-user-talk' => '{{PLURAL:$1|Повідомлення|Повідомлення|Повідомлень}} на сторінці обговорення',
 	'echo-category-title-article-linked' => '{{PLURAL:$1|посилання}} на сторінку',
-	'echo-category-title-reverted' => '{{PLURAL:$1|відкот|відкоти}} редагувань',
+	'echo-category-title-reverted' => '{{PLURAL:$1|скасування|скасування}} редагувань', # Fuzzy
 	'echo-category-title-mention' => '{{PLURAL:$1|згадування}}',
 	'echo-category-title-other' => '{{PLURAL:$1|інше}}',
 	'echo-category-title-system' => '{{PLURAL:$1|системне}}',
