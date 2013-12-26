@@ -3063,6 +3063,7 @@ $1',
 );
 
 /** Spanish (español)
+ * @author -jem-
  * @author Armando-Martin
  * @author DJ Nietzsche
  * @author Fitoschido
@@ -3150,7 +3151,7 @@ $messages['es'] = array(
 	'notification-edit-talk-page-email-subject2' => '$1 te ha dejado un mensaje en {{SITENAME}}',
 	'notification-edit-talk-page-email-batch-body2' => '$1 te ha dejado un mensaje en tu página de discusión:',
 	'notification-edit-talk-page-email-batch-body-with-section' => '$1 te ha dejado un mensaje en tu página de discusión: «$2»',
-	'notification-page-linked-email-subject' => 'Se creó un enlace a tu página en {{SITENAME}}',
+	'notification-page-linked-email-subject' => 'Se ha añadido un enlace a una página creada por ti en {{SITENAME}}',
 	'notification-page-linked-email-batch-body' => '$2 ha sido {{GENDER:$1|enlazada}} desde $3.',
 	'notification-reverted-email-subject2' => '{{PLURAL:$3|Tu|Tus}} {{PLURAL:$3|edición fue|ediciones fueron}} {{GENDER:$1|{{PLURAL:$3|revertida|revertidas}}}} en {{SITENAME}}',
 	'notification-reverted-email-batch-body2' => '{{PLURAL:$3|Tu|Tus}} {{PLURAL:$3|edición en $2 ha sido|ediciones en $2 han sido}} {{GENDER:$1|{{PLURAL:$3|revertida|revertidas}}}} por $1.',
@@ -4193,9 +4194,9 @@ $1',
 	'echo-date-today' => 'היום',
 	'echo-date-yesterday' => 'אתמול',
 	'echo-load-more-error' => 'אירעה שגיאה בעת אחזור תוצאות נוספות.',
-	'notification-edit-talk-page-bundle' => '$1 ועוד {{PLURAL:$4|אדם אחד|$3 אנשים אחרים}} כתבו הודעות ב[[User talk:$2|דף השיחה]] שלך.',
+	'notification-edit-talk-page-bundle' => '$1 ועוד {{PLURAL:$4|אדם אחד|$3 אנשים}} כתבו הודעות ב[[User talk:$2|דף השיחה]] שלך.',
 	'notification-page-linked-bundle' => 'אל הדף $2 {{GENDER:$1|נוסף קישור}} מהדף $3 ומעוד {{PLURAL:$5|דף|$4 דפים אחרים}}. [[Special:WhatLinksHere/$2|כל הקישורים אל הדף הזה]]',
-	'notification-edit-user-talk-email-batch-bundle-body' => '$1 ועוד {{PLURAL:$3|אדם אחד|$2 אנשים אחרים}} כתבו הודעות בדף השיחה שלך.',
+	'notification-edit-user-talk-email-batch-bundle-body' => '$1 ועוד {{PLURAL:$3|אדם אחד|$2 אנשים}} כתבו הודעות בדף השיחה שלך.',
 	'notification-page-linked-email-batch-bundle-body' => 'אל הדף $2 {{GENDER:$1|נוסף קישור}} מהדף $3 ומעוד {{PLURAL:$5|דף|$4 דפים אחרים}}.',
 	'echo-email-batch-subject-daily' => 'קיבלת {{PLURAL:$2|הודעה חדשה|הודעות חדשות}} באתר {{SITENAME}}',
 	'echo-email-batch-subject-weekly' => 'קיבלת {{PLURAL:$2|הודעה חדשה|הודעות חדשות}} השבוע באתר {{SITENAME}}',
