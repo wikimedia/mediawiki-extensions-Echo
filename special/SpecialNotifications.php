@@ -20,7 +20,7 @@ class SpecialNotifications extends SpecialPage {
 
 		$user = $this->getUser();
 		if ( $user->isAnon() ) {
-			$notificationsPageName = $this->getTitle()->getPrefixedDBkey();
+			$notificationsPageName = $this->getPageTitle()->getPrefixedDBkey();
 			$returnTo = array( 'returnto' => $notificationsPageName );
 			$signupTitle = SpecialPage::getTitleFor( 'UserLogin', 'signup' );
 			$signupURL = $signupTitle->getFullURL( $returnTo );
