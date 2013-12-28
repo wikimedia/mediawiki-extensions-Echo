@@ -2670,7 +2670,7 @@ $messages['diq'] = array(
 	'echo-pref-email-format-plain-text' => 'Duz metin',
 	'echo-learn-more' => 'Zewbi',
 	'echo-new-messages' => 'Şımaré mesaco newe esto',
-	'echo-category-title-edit-user-talk' => 'Pera vaten {{PLURAL:$1|vaten|vateni}}',
+	'echo-category-title-edit-user-talk' => '{{PLURAL:$1|Mesacê|Mesacên}} pela werênayışi',
 	'echo-category-title-article-linked' => 'Para {{PLURAL:$1|link|linki}}',
 	'echo-category-title-reverted' => 'Timara {{PLURAL:$1|terknayış|terknayışi}}',
 	'echo-category-title-mention' => '{{PLURAL:$1|Bahs kerden|Bahs kerdeni}}',
@@ -5454,14 +5454,14 @@ $messages['kk-cyrl'] = array(
 	'echo-pref-email' => 'Е-поштаңыз',
 	'echo-pref-email-frequency-never' => 'Ешбір е-пошта хабарландыруларын маған жіберме',
 	'echo-pref-email-frequency-daily' => 'Хабарландырулардың күнделікті түйіндемесі',
-	'echo-pref-email-frequency-weekly' => 'Хабарландырулардың апта сайынғы түйіндемесі',
+	'echo-pref-email-frequency-weekly' => 'Хабарландырулардың апталық түйіндемесі',
 	'echo-pref-email-format-html' => 'HTML',
 	'echo-pref-email-format-plain-text' => 'Қалыпты мәтін',
 	'echo-pref-notify-show-link' => 'Құралдар үстелімде ескертпелерді көрсету',
 	'echo-pref-new-message-indicator' => 'Құралдар үстелімде талқылау беттегі хабарламалар көрсеткішін көрсету',
 	'echo-learn-more' => 'Көбірек білу',
 	'echo-new-messages' => 'Сізде жаңа хабарламалар бар',
-	'echo-category-title-edit-user-talk' => 'Талқылау беттегі {{PLURAL:$1|хабарлама|хабарламалар}}',
+	'echo-category-title-edit-user-talk' => 'Талқылау бетіңіздегі {{PLURAL:$1|хабарлама|хабарламалар}}',
 	'echo-category-title-article-linked' => 'Бет {{PLURAL:$1|сілтемесі|сілтемелері}}',
 	'echo-category-title-reverted' => 'Өңдеме {{PLURAL:$1|қайтаруы|қайтарулары}}',
 	'echo-category-title-mention' => '{{PLURAL:$1|Еске салу|Еске салу}}',
@@ -5508,7 +5508,7 @@ $messages['kk-cyrl'] = array(
 	'notification-user-rights-remove' => 'Сіз {{PLURAL:$2|бұл топтың|бұл топтың}} көптен бергі мүшесі емессіз: $1',
 	'notification-new-user' => '$1 {{SITENAME}} сайтына қош келдіңіз! Сіз осында болғаныңызға біз қуаныштымыз.',
 	'notification-reverted2' => 'Сіздің {{PLURAL:$4|[[:$2]] бетіндегі өңдемеңізді|[[:$2]] бетіндегі өңдемелеріңізді}} [[User:$1|$1]] есімді қатысушы {{GENDER:$1|жоққа шығарды}}. $3',
-	'notification-reverted-flyout2' => 'Сіздің {{PLURAL:$4|$2 бетіндегі өңдемеңізді|$2 бетіндегі өңдемелеріңізді}} $1есімді қатысушы {{GENDER:$1|жоққа шығарыды}}. $3',
+	'notification-reverted-flyout2' => 'Сіздің {{PLURAL:$4|$2 бетіндегі өңдемеңізді|$2 бетіндегі өңдемелеріңізді}} $1 есімді қатысушы {{GENDER:$1|жоққа шығарыды}}. $3',
 	'notification-edit-talk-page-email-subject2' => '$1 {{SITENAME}} сайтында сізге хабарлама {{GENDER:$1|қалдырды}}',
 	'notification-edit-talk-page-email-batch-body2' => '$1 сіздің талқылау бетіңізге хабарлама {{GENDER:$1|қалдырды}}:',
 	'notification-edit-talk-page-email-batch-body-with-section' => '$1 сіздің талқылау бетіңіздегі  "$2" бөліміне хабарлама {{GENDER:$1|қалдырды}}.',
@@ -10511,6 +10511,42 @@ $messages['yi'] = array(
 	'echo-date-yesterday' => 'נעכטן',
 	'notification-edit-user-talk-email-batch-bundle-body' => '$1 און $2 {{PLURAL:$3|אנדערער|אנדערע}} {{GENDER:$1|האבן געלאזט}} אן אנזאג אויף אייער רעדן בלאט.',
 	'notification-page-linked-email-batch-bundle-body' => '$2 איז געווארן {{GENDER:$1|געלינקט}} פון $3 און $4 {{PLURAL:$5|אנדער בלאט|אנדערע בלעטער}}.',
+);
+
+/** Yoruba (Yorùbá)
+ * @author Demmy
+ */
+$messages['yo'] = array(
+	'notifications' => 'Àwọn ìdálákìíyèsí',
+	'tooltip-pt-notifications' => 'Àwọn ìdálákìíyèsí yín',
+	'echo-specialpage' => 'Àwọn ìdálákìíyèsí',
+	'echo-none' => 'Ẹ kò ní ìdálákìíyèsí kankan.',
+	'notification-link-text-view-message' => 'Ìgbéwò ìránṣẹ́',
+	'notification-link-text-view-mention' => 'Ìgbéwò ìdárúkọ',
+	'notification-link-text-view-changes' => 'Ìgbéwò àwọn àtúnṣe tuntun',
+	'notification-link-text-view-page' => 'Ìgbéwò ojúewé',
+	'notification-link-text-view-edit' => 'Ìgbéwò àtúnṣe',
+	'notification-edit-talk-page2' => "[[User:$1|$1]] {{GENDER:$1|fi}} ìránṣẹ́ s'órí [[User talk:$2#$3|ojúewé ọ̀rọ̀]] yín.",
+	'notification-edit-talk-page-with-section' => '[[User:$1|$1]] {{GENDER:$1|fi}} ìránṣẹ́ s\'órí ojúewé ọ̀rọ̀ yín ní "[[User talk:$2#$3|$4]]".',
+	'notification-edit-talk-page-flyout2' => '$1 {{GENDER:$1|fi}} ìránṣẹ́ sí [[User talk:$2#$3|ojúewé ọ̀rọ̀]] yín.',
+	'notification-edit-talk-page-email-subject2' => '$1 {{GENDER:$1|fi}} ìránṣẹ́ fún yín lórí {{SITENAME}}',
+	'notification-edit-talk-page-email-batch-body2' => "$1 {{GENDER:$1|fi}} ìránṣẹ́ s'órí ojúewé ọ̀rọ̀ yín:",
+	'notification-edit-talk-page-email-batch-body-with-section' => '$1 {{GENDER:$1|fi}} ìránṣẹ́ s\'órí ojúewé ọ̀rọ̀ yín ní "$2".',
+	'notification-mention-email-subject' => '$1 {{GENDER:$1|dárúkọ}} yín lórí {{SITENAME}}',
+	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|dárúkọ}} yín lórí ojúewé ọ̀rọ̀ $4 nínú "$3".',
+	'notification-mention-nosection-email-batch-body' => '$1 {{GENDER:$1|dárúkọ}} yín lórí ojúewé ọ̀rọ̀ $2.',
+	'echo-email-subject-default' => 'Ìdálákìíyèsí tuntun wà ní {{SITENAME}}',
+	'echo-email-body-default' => 'Ẹ ní ìdálákìíyèsí tuntun ní {{SITENAME}}:
+
+
+$1',
+	'echo-email-batch-body-default' => 'Ẹ ní ìdálákìíyèsí tuntun.',
+	'echo-overlay-link' => 'Gbogbo ìdálákìíyèsí',
+	'echo-overlay-title' => '<b>Àwọn ìdálákìíyèsí</b>',
+	'echo-overlay-title-overflow' => '<b>{{PLURAL:$1|Àwọn ìdálákìíyèsí}}</b> (ìhàn $1 nínú $2 àìtíìkà)',
+	'echo-date-today' => 'Òní',
+	'echo-date-yesterday' => 'Àná',
+	'echo-email-batch-link-text-view-all-notifications' => 'Ìgbéwò gbogbo ìdálákìíyèsí',
 );
 
 /** Cantonese (粵語)
