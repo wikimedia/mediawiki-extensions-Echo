@@ -5985,6 +5985,13 @@ Hoc est summarium actionum hebdomadum apud {{grammar:accusative|{{SITENAME}}}}.'
 	'echo-rev-deleted-text-view' => 'Haec emendatio paginae oppressa est.',
 );
 
+/** Ladino (Ladino)
+ * @author Menachem.Moreira
+ */
+$messages['lad'] = array(
+	'echo-pref-email-format-html' => 'HTML',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
  * @author Soued031
