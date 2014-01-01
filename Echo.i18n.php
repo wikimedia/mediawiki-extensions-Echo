@@ -5989,6 +5989,7 @@ Hoc est summarium actionum hebdomadum apud {{grammar:accusative|{{SITENAME}}}}.'
  * @author Menachem.Moreira
  */
 $messages['lad'] = array(
+	'echo-pref-email' => 'Korreo elektroniko',
 	'echo-pref-email-format-html' => 'HTML',
 );
 
