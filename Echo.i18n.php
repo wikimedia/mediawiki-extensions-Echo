@@ -1187,12 +1187,12 @@ $messages['be-tarask'] = array(
 	'echo-pref-new-message-indicator' => 'Паказваць індыкатар паведамленьняў на старонцы гутарак у маёй панэлі',
 	'echo-learn-more' => 'Даведацца болей',
 	'echo-new-messages' => 'Вы маеце новыя паведамленьні', # Fuzzy
-	'echo-category-title-edit-user-talk' => '{{PLURAL:$1|Паведамленьне ў|Паведамленьні ў}} гутарках',
-	'echo-category-title-article-linked' => '{{PLURAL:$1|Спасылка|Спасылкі}} на старонку',
-	'echo-category-title-reverted' => '{{PLURAL:$1|Адкат праўкі|Адкаты правак}}',
-	'echo-category-title-mention' => '{{PLURAL:$1|Згадваньне|Згадваньні}}',
-	'echo-category-title-other' => '{{PLURAL:$1|Іншае|Іншыя}}',
-	'echo-category-title-system' => '{{PLURAL:$1|Сыстэмнае|Сыстэмныя}}',
+	'echo-category-title-edit-user-talk' => '{{PLURAL:$1|1=Паведамленьне ў|Паведамленьні ў}} гутарках', # Fuzzy
+	'echo-category-title-article-linked' => '{{PLURAL:$1|1=Спасылка|Спасылкі}} на старонку', # Fuzzy
+	'echo-category-title-reverted' => '{{PLURAL:$1|1=Адкат праўкі|Адкаты правак}}', # Fuzzy
+	'echo-category-title-mention' => '{{PLURAL:$1|1=Згадваньне|Згадваньні}}', # Fuzzy
+	'echo-category-title-other' => '{{PLURAL:$1|1=Іншае|Іншыя}}', # Fuzzy
+	'echo-category-title-system' => '{{PLURAL:$1|1=Сыстэмнае|Сыстэмныя}}', # Fuzzy
 	'echo-pref-tooltip-edit-user-talk' => 'Паведамляць, калі нехта дасылае паведамленьне на маю старонку гутарак.',
 	'echo-pref-tooltip-article-linked' => 'Паведамляць, калі нехта спасылаецца на створаную мной старонку зь іншага артыкула.',
 	'echo-pref-tooltip-reverted' => 'Паведамляць, калі нехта адкатвае зробленую мной праўку.',
@@ -1228,18 +1228,18 @@ $messages['be-tarask'] = array(
 	'notification-mention-flyout' => '$1 {{GENDER:$1|згадаў|згадала}} Вас на старонцы абмеркаваньня $5 у «[[$3#$2|$4]]».',
 	'notification-user-rights' => '[[User:$1|$1]] [[Special:Log/rights/$1|{{GENDER:$1|зьмяніў|зьмяніла}}]] Вашыя правы. $2. [[Special:ListGroupRights|Даведайцеся болей]]',
 	'notification-user-rights-flyout' => '$1 {{GENDER:$1|зьмяніў|зьмяніла}} вашыя правы. $2. [[Special:ListGroupRights|Даведайцеся больш]]',
-	'notification-user-rights-add' => 'Цяпер Вы ўваходзіце ў {{PLURAL:$2|гэтую групу|гэтыя групы}}: $1',
-	'notification-user-rights-remove' => 'Цяпер вы не ўваходзіце ў {{PLURAL:$2|гэтую групу|гэтыя групы}}: $1',
+	'notification-user-rights-add' => 'Цяпер Вы ўваходзіце ў {{PLURAL:$2|1=гэтую групу|гэтыя групы}}: $1', # Fuzzy
+	'notification-user-rights-remove' => 'Цяпер вы не ўваходзіце ў {{PLURAL:$2|1=гэтую групу|гэтыя групы}}: $1', # Fuzzy
 	'notification-new-user' => 'Вітаем у {{GRAMMAR:месны|{{SITENAME}}}}, $1! Мы радыя бачыць Вас.',
-	'notification-reverted2' => '{{PLURAL:$4|Вашая праўка|Вашыя праўкі}} на старонцы [[:$2]] {{GENDER:$1|скасаваў|скасавала}} [[User:$1|$1]]. $3',
-	'notification-reverted-flyout2' => '$1 {{GENDER:$1|скасаваў|скасавала}} {{PLURAL:$4|Вашую праўку|Вашыя праўкі}} на старонцы $2. $3',
+	'notification-reverted2' => '{{PLURAL:$4|1=Вашая праўка|Вашыя праўкі}} на старонцы [[:$2]] {{GENDER:$1|скасаваў|скасавала}} [[User:$1|$1]]. $3', # Fuzzy
+	'notification-reverted-flyout2' => '$1 {{GENDER:$1|скасаваў|скасавала}} {{PLURAL:$4|1=Вашую праўку|Вашыя праўкі}} на старонцы $2. $3', # Fuzzy
 	'notification-edit-talk-page-email-subject2' => '$1 {{GENDER:$1|пакінуў|пакінула}} Вам паведамленьне на {{SITENAME}}',
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|пакінуў|пакінула}} Вам паведамленьне на старонцы абмеркаваньня:',
 	'notification-edit-talk-page-email-batch-body-with-section' => '$1 {{GENDER:$1|пакінуў|пакінула}} паведамленьне на Вашай старонцы гутарак у «$2».',
 	'notification-page-linked-email-subject' => 'На вашую старонку спаслаліся ў {{GRAMMAR:месны|{{SITENAME}}}}',
 	'notification-page-linked-email-batch-body' => 'На $2 {{GENDER:$1|спаслаліся}} з $3.',
-	'notification-reverted-email-subject2' => '$1 {{GENDER:$1|скасаваў|скасавала}} {{PLURAL:$3|Вашую праўку|Вашыя праўкі}} на {{SITENAME}}',
-	'notification-reverted-email-batch-body2' => '$1 {{GENDER:$1|скасаваў|скасавала}} {{PLURAL:$3|Вашую праўку|Вашыя праўкі}} ў «$2».',
+	'notification-reverted-email-subject2' => '$1 {{GENDER:$1|скасаваў|скасавала}} {{PLURAL:$3|1=Вашую праўку|Вашыя праўкі}} на {{SITENAME}}', # Fuzzy
+	'notification-reverted-email-batch-body2' => '$1 {{GENDER:$1|скасаваў|скасавала}} {{PLURAL:$3|1=Вашую праўку|Вашыя праўкі}} ў «$2».', # Fuzzy
 	'notification-mention-email-subject' => '$1 {{GENDER:$1|згадаў|згадала}} Вас у {{GRAMMAR:месны|{{SITENAME}}}}',
 	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|згадаў|згадала}} Вас на старонцы абмеркаваньня $4 у «$3».',
 	'notification-user-rights-email-subject' => 'Вашыя правы ў {{GRAMMAR:месны|{{SITENAME}}}} былі зьмененыя',
@@ -1264,10 +1264,10 @@ $1',
 	'echo-date-today' => 'Сёньня',
 	'echo-date-yesterday' => 'Учора',
 	'echo-load-more-error' => 'Узьнікла памылка ў час атрыманьня дадатковых вынікаў.',
-	'notification-edit-talk-page-bundle' => '$1 і $3 {{PLURAL:$4|іншы|іншыя}} {{GENDER:$1|пакінуў|пакінула}} паведамленьне на Вашай [[User talk:$2|старонцы гутарак]].',
-	'notification-page-linked-bundle' => '$1 {{GENDER:$1|дадаў|дадала}} спасылку на $2 на старонцы $3 і {{PLURAL:$5|іншай старонцы|$4 іншых старонках}}. [[Special:WhatLinksHere/$2|Глядзіце ўсе спасылкі на гэтую старонку]]',
-	'notification-edit-user-talk-email-batch-bundle-body' => '$1 і $2 {{PLURAL:$3|іншы|іншых}} {{GENDER:$1|пакінуў|пакінула}} паведамленьне на Вашай старонцы гутарак.',
-	'notification-page-linked-email-batch-bundle-body' => '$1 {{GENDER:$1|дадаў|дадала}} спасылку на $2 на старонцы $3 і яшчэ $4 {{PLURAL:$5|старонкі|старонак}}.',
+	'notification-edit-talk-page-bundle' => '$1 і $3 {{PLURAL:$4|1=іншы|іншыя}} {{GENDER:$1|пакінуў|пакінула}} паведамленьне на Вашай [[User talk:$2|старонцы гутарак]].', # Fuzzy
+	'notification-page-linked-bundle' => '$1 {{GENDER:$1|дадаў|дадала}} спасылку на $2 на старонцы $3 і {{PLURAL:$5|1=іншай старонцы|$4 іншых старонках}}. [[Special:WhatLinksHere/$2|Глядзіце ўсе спасылкі на гэтую старонку]]', # Fuzzy
+	'notification-edit-user-talk-email-batch-bundle-body' => '$1 і $2 {{PLURAL:$3|1=іншы|іншых}} {{GENDER:$1|пакінуў|пакінула}} паведамленьне на Вашай старонцы гутарак.', # Fuzzy
+	'notification-page-linked-email-batch-bundle-body' => '$1 {{GENDER:$1|дадаў|дадала}} спасылку на $2 на старонцы $3 і яшчэ $4 {{PLURAL:$5|1=старонкі|старонак}}.', # Fuzzy
 	'echo-email-batch-subject-daily' => 'Вы атрымалі {{PLURAL:$2|новую абвестку|новыя абвесткі|новых абвестак}} на {{SITENAME}}',
 	'echo-email-batch-subject-weekly' => 'На гэтым тыдні Вы атрымалі {{PLURAL:$2|новую абвестку|новыя абвесткі|новых абвестак}} на {{SITENAME}}',
 	'echo-email-batch-body-intro-daily' => 'Вітаем, $1!
@@ -1930,12 +1930,12 @@ $messages['ce'] = array(
 	'echo-pref-new-message-indicator' => 'Сан панелан тӀехь гайта хааман индикатор',
 	'echo-learn-more' => 'Цул совнаха хаа',
 	'echo-new-messages' => 'Хьуна кхаьчна керла хаам',
-	'echo-category-title-edit-user-talk' => 'Дийцаре агӀонехь {{PLURAL:$1|хаам|хаамаш}}',
-	'echo-category-title-article-linked' => 'АгӀона тӀе {{PLURAL:$1|хьажораг|хьажорагаш}}',
-	'echo-category-title-reverted' => '{{PLURAL:$1|юхадаккхар нисдар|юхадаккхар нисдарш}}',
-	'echo-category-title-mention' => '{{PLURAL:$1|хаам|хаамаш}}',
-	'echo-category-title-other' => '{{PLURAL:$1|кхин долу|кхин дерш}}',
-	'echo-category-title-system' => '{{PLURAL:$1|системан}}',
+	'echo-category-title-edit-user-talk' => 'Дийцаре агӀонехь {{PLURAL:$1|1=хаам|хаамаш}}', # Fuzzy
+	'echo-category-title-article-linked' => 'АгӀона тӀе {{PLURAL:$1|1=хьажораг|хьажорагаш}}', # Fuzzy
+	'echo-category-title-reverted' => '{{PLURAL:$1|1=юхадаккхар нисдар|юхадаккхар нисдарш}}', # Fuzzy
+	'echo-category-title-mention' => '{{PLURAL:$1|1=хаам|хаамаш}}', # Fuzzy
+	'echo-category-title-other' => '{{PLURAL:$1|1=кхин долу|кхин дерш}}', # Fuzzy
+	'echo-category-title-system' => '{{PLURAL:$1|системан}}', # Fuzzy
 	'echo-pref-tooltip-edit-user-talk' => 'Хаийта соьга, цхьам хаам баийтача я сан дийцаре агӀорахь жоп делча.',
 	'echo-pref-tooltip-article-linked' => 'Хаийта соьга, цхьам ас кхоьллина агӀона тӀе хьажораг цхьан агӀонашкахь йитича.',
 	'echo-pref-tooltip-reverted' => 'Хаийта соьга, цхьам сан нисдар юха даьккхича.',
@@ -1973,18 +1973,18 @@ $messages['ce'] = array(
 	'notification-mention-nosection-flyout' => '{{GENDER:$1||декъашхочо}} хьо хьахийна [[$3|дийцаре агӀонехь $2]].',
 	'notification-user-rights' => 'Хьан бакъонаш [[Special:Log/rights/$1|{{GENDER:$1|хийцина}}]] [[User:$1|$1]]. $2. [[Special:ListGroupRights|Мадарра]]',
 	'notification-user-rights-flyout' => 'Декъашхочун бакъонаш {{GENDER:$1|хийцина}} $1. $2. [[Special:ListGroupRights|Мадарра]]',
-	'notification-user-rights-add' => 'ХӀинца хьо {{PLURAL:$2|тобан юкъа эцна|тобаншан юкъа эцна}}: $1',
-	'notification-user-rights-remove' => 'Хьан хӀокху {{PLURAL:$2|тобан|тобашан}} бакъо дӀаяьккхина: $1',
+	'notification-user-rights-add' => 'ХӀинца хьо {{PLURAL:$2|1=тобан юкъа эцна|тобаншан юкъа эцна}}: $1', # Fuzzy
+	'notification-user-rights-remove' => 'Хьан хӀокху {{PLURAL:$2|1=тобан|тобашан}} бакъо дӀаяьккхина: $1', # Fuzzy
 	'notification-new-user' => 'Марша догӀилла {{SITENAME}}, $1! Хьо кхузахь хиларна даккхийде тхо.',
-	'notification-reverted2' => '{{PLURAL:$4|АгӀонехь [[:$2]] хьан нисдар|АгӀонехь [[:$2]] хьан нисдарш}}  {{GENDER:$1|юхадаькхина}} [[User:$1|$1]]. $3',
-	'notification-reverted-flyout2' => '{{PLURAL:$4|АгӀонехь $2 хьан нисдар|АгӀонехь $2 хьан нисдарш}} {{GENDER:$1|юхадаькхина}} $1. $3',
+	'notification-reverted2' => '{{PLURAL:$4|1=АгӀонехь [[:$2]] хьан нисдар|АгӀонехь [[:$2]] хьан нисдарш}}  {{GENDER:$1|юхадаькхина}} [[User:$1|$1]]. $3', # Fuzzy
+	'notification-reverted-flyout2' => '{{PLURAL:$4|1=АгӀонехь $2 хьан нисдар|АгӀонехь $2 хьан нисдарш}} {{GENDER:$1|юхадаькхина}} $1. $3', # Fuzzy
 	'notification-edit-talk-page-email-subject2' => '{{GENDER:$1|Декъашхочо}} $1 «{{SITENAME}}» сайтехь хьуна хаам {{GENDER:$1|биттина}}',
 	'notification-edit-talk-page-email-batch-body2' => 'Хьан дийцаре агӀонехь {{GENDER:$1|декъашхочо}} $1 {{GENDER:$1|битина}} хаам:',
 	'notification-edit-talk-page-email-batch-body-with-section' => 'Хьан дийцаре агӀонехь {{GENDER:$1|декъашхочо}} $1 {{GENDER:$1|битина}} хаам (темехь) «$2»',
 	'notification-page-linked-email-subject' => '«{{SITENAME}}» сайтехь хьан декъашхочун агӀона тӀе хьажораг хӀоттина',
 	'notification-page-linked-email-batch-body' => '{{GENDER:$1|Декъашхо}} $1 {{GENDER:$1|тӀетеввжина}} цу $2 $3',
-	'notification-reverted-email-subject2' => '{{GENDER:$1|Цхьам}} «{{SITENAME}}» сайтехь хьан {{PLURAL:$3|нисдар юхадаькхина|нисдарш юхадаьхина}}',
-	'notification-reverted-email-batch-body2' => '{{GENDER:$1|Декъашхочо}} $1 {{PLURAL:$3|«$2» агӀонехь хьан нисдар юхадаьккхина|«$2» агӀонехь хьан нисдарш юхадаьхина}}.',
+	'notification-reverted-email-subject2' => '{{GENDER:$1|Цхьам}} «{{SITENAME}}» сайтехь хьан {{PLURAL:$3|1=нисдар юхадаькхина|нисдарш юхадаьхина}}', # Fuzzy
+	'notification-reverted-email-batch-body2' => '{{GENDER:$1|Декъашхочо}} $1 {{PLURAL:$3|1=«$2» агӀонехь хьан нисдар юхадаьккхина|«$2» агӀонехь хьан нисдарш юхадаьхина}}.', # Fuzzy
 	'notification-mention-email-subject' => '$1 {{GENDER:$1|Декъашхочо}} «{{SITENAME}}» сайтехь хьо хьахийна',
 	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|хьахийна}} хьо $4 дийцарийн агӀо "$3".',
 	'notification-mention-nosection-email-batch-body' => '$1 декъашхочо хьо хьахийна $2 агӀона чохь.',
@@ -2005,17 +2005,17 @@ $1',
 $1',
 	'echo-overlay-link' => 'Массо хаамаш',
 	'echo-overlay-title' => '<b>Хаамаш</b>',
-	'echo-overlay-title-overflow' => '<b>{{PLURAL:$1|Хаам}}</b> ({{PLURAL|$1|гайтина}} $1 царах $2 {{PLURAL|$2|беша бац}})',
+	'echo-overlay-title-overflow' => '<b>{{PLURAL:$1|Хаам}}</b> ({{PLURAL:$1|гайтина}} $1 царах $2 {{PLURAL:$2|беша бац}})', # Fuzzy
 	'echo-mark-all-as-read' => 'Массо билгал йе еша сана',
 	'echo-date-today' => 'Тахана',
 	'echo-date-yesterday' => 'Селхана',
 	'echo-load-more-error' => 'Кхин тӀе хилам схьаоьцуш гӀалат хила',
-	'notification-edit-talk-page-bundle' => '$1 а $3 {{PLURAL:$4|кхи}} {{GENDER:$1|декъашхоша}} хьан [[User talk:$2|дийцаре агӀонехь хаам битина]].',
-	'notification-page-linked-bundle' => 'АгӀона тӀе «$2» {{GENDER:$1|хьажораг}} ю «$3» агӀона чура а кхин $4 {{PLURAL:$5|агӀона|агӀонашан}}. [[Special:WhatLinksHere/$2|Хьажа массо хьажорагашка]]',
-	'notification-edit-user-talk-email-batch-bundle-body' => '$1 а $2 {{PLURAL:$3|кхин}} {{GENDER:$1|декъашхоша}} хьан дийцаре агӀонехь хаам битина.',
-	'notification-page-linked-email-batch-bundle-body' => 'АгӀона «$2» тӀе {{GENDER:$1|хьажораг ю}} «$3» агӀона чура а кхин $4 {{PLURAL:$5|агӀона|агӀонашан}} чура а',
-	'echo-email-batch-subject-daily' => 'Хьоьга кхаьчна $2 {{PLURAL:$2|керла хаам|керла хаамаш}} «{{SITENAME}}» проектехь',
-	'echo-email-batch-subject-weekly' => 'ХӀокху кӀиран чохь хьоьга кхаьчна $2 {{PLURAL:$2|керла хаам|керла хаамаш}} «{{SITENAME}}» проектехь',
+	'notification-edit-talk-page-bundle' => '$1 а $3 {{PLURAL:$4|кхи}} {{GENDER:$1|декъашхоша}} хьан [[User talk:$2|дийцаре агӀонехь хаам битина]].', # Fuzzy
+	'notification-page-linked-bundle' => 'АгӀона тӀе «$2» {{GENDER:$1|хьажораг}} ю «$3» агӀона чура а кхин $4 {{PLURAL:$5|1=агӀона|агӀонашан}}. [[Special:WhatLinksHere/$2|Хьажа массо хьажорагашка]]', # Fuzzy
+	'notification-edit-user-talk-email-batch-bundle-body' => '$1 а $2 {{PLURAL:$3|кхин}} {{GENDER:$1|декъашхоша}} хьан дийцаре агӀонехь хаам битина.', # Fuzzy
+	'notification-page-linked-email-batch-bundle-body' => 'АгӀона «$2» тӀе {{GENDER:$1|хьажораг ю}} «$3» агӀона чура а кхин $4 {{PLURAL:$5|1=агӀона|агӀонашан}} чура а', # Fuzzy
+	'echo-email-batch-subject-daily' => 'Хьоьга кхаьчна $2 {{PLURAL:$2|1=керла хаам|керла хаамаш}} «{{SITENAME}}» проектехь', # Fuzzy
+	'echo-email-batch-subject-weekly' => 'ХӀокху кӀиран чохь хьоьга кхаьчна $2 {{PLURAL:$2|1=керла хаам|керла хаамаш}} «{{SITENAME}}» проектехь', # Fuzzy
 	'echo-email-batch-body-intro-daily' => 'Маршалла, $1!
 Тахан хилларг {{SITENAME}}.',
 	'echo-email-batch-body-intro-weekly' => 'Маршалла, $1!
@@ -3605,6 +3605,7 @@ $messages['fo'] = array(
 );
 
 /** French (français)
+ * @author Automatik
  * @author Crochet.david
  * @author DavidL
  * @author Gomoko
@@ -3650,7 +3651,7 @@ $messages['fr'] = array(
 	'echo-category-title-system' => '{{PLURAL:$1|Système}}',
 	'echo-pref-tooltip-edit-user-talk' => 'Me prévenir quand quelqu’un publie un message ou répond sur ma page de discussion.',
 	'echo-pref-tooltip-article-linked' => 'Me prévenir quand quelqu’un fait référence à une page que j’ai créée à partir d’une page d’article.',
-	'echo-pref-tooltip-reverted' => 'Me prévenir quand quelqu’un annule une modification que j’ai faite, en utilisant l’outil annulation ou retour arrière',
+	'echo-pref-tooltip-reverted' => 'Me prévenir quand quelqu’un annule une modification que j’ai faite, en utilisant l’outil annulation ou révocation',
 	'echo-pref-tooltip-mention' => 'Me prévenir quand quelqu’un fait référence à ma page utilisateur depuis une page de discussion.',
 	'echo-no-agent' => '[Personne]',
 	'echo-no-title' => '[Aucune page]',
@@ -5779,12 +5780,12 @@ $messages['krc'] = array(
 	'echo-pref-new-message-indicator' => 'Адырла панелимде сюзюу бетимдеги билдириулени индикаторун кёргюз',
 	'echo-learn-more' => 'Кёбюрек бил',
 	'echo-new-messages' => 'Джангы билдириулеринг барды',
-	'echo-category-title-edit-user-talk' => 'Сюзюу бетде {{PLURAL:$1|билдириу|билдириуле}}',
-	'echo-category-title-article-linked' => 'Бетлеге {{PLURAL:$1|джибериу|джибериуле}}',
-	'echo-category-title-reverted' => 'Тюрлендириулени {{PLURAL:$1|ызына алыу|ызына алыула}}',
-	'echo-category-title-mention' => '{{PLURAL:$1|Сагъыныу|Сагъыныула}}',
-	'echo-category-title-other' => '{{PLURAL:$1|башха}}',
-	'echo-category-title-system' => '{{PLURAL:$1|Система}}',
+	'echo-category-title-edit-user-talk' => 'Сюзюу бетде {{PLURAL:$1|1=билдириу|билдириуле}}', # Fuzzy
+	'echo-category-title-article-linked' => 'Бетлеге {{PLURAL:$1|1=джибериу|джибериуле}}', # Fuzzy
+	'echo-category-title-reverted' => 'Тюрлендириулени {{PLURAL:$1|1=ызына алыу|ызына алыула}}', # Fuzzy
+	'echo-category-title-mention' => '{{PLURAL:$1|1=Сагъыныу|Сагъыныула}}', # Fuzzy
+	'echo-category-title-other' => '{{PLURAL:$1|башха}}', # Fuzzy
+	'echo-category-title-system' => '{{PLURAL:$1|Система}}', # Fuzzy
 	'echo-pref-tooltip-edit-user-talk' => 'Ким болса да билдириу ийсе неда сюзюу бетимде джууаб берсе, меннге билдир.',
 	'echo-pref-tooltip-article-linked' => 'Ким болса да статьялада мен къурагъан бетге джибериу салса, меннге билдир.',
 	'echo-pref-tooltip-reverted' => 'Ким болса да, ызына алыу неда дженгил къайтарыу функция бла мени тюрлендириуюмю ызына алса, меннге билдир.',
@@ -5820,18 +5821,18 @@ $messages['krc'] = array(
 	'notification-mention-flyout' => '$1, $5 сюзюу бетинде ("[[$3#$2|$4]]") сизни {{GENDER:$1|сагъынды}}.',
 	'notification-user-rights' => 'Къошулуучу хакъларыгъыз [[User:$1|$1]] джанындан [[Special:Log/rights/$1|{{GENDER:$1|тюрлендирилди}}]]. $2. [[Special:ListGroupRights|Толуракъ билги]]',
 	'notification-user-rights-flyout' => 'Къошулуучу хакъларыгъызны $1 {{GENDER:$1|тюрлендирди}}. $2. [[Special:ListGroupRights|Толуракъ билги]]',
-	'notification-user-rights-add' => 'Энди сиз {{PLURAL:$2|бу къауумгъа|бу къауумлагъа}} киресиз: $1',
-	'notification-user-rights-remove' => 'Энди сиз {{PLURAL:$2|бу къауумгъа|бу къауумлагъа}} кирмейсиз: $1',
+	'notification-user-rights-add' => 'Энди сиз {{PLURAL:$2|1=бу къауумгъа|бу къауумлагъа}} киресиз: $1', # Fuzzy
+	'notification-user-rights-remove' => 'Энди сиз {{PLURAL:$2|1=бу къауумгъа|бу къауумлагъа}} кирмейсиз: $1', # Fuzzy
 	'notification-new-user' => '{{SITENAME}} сайтха хош келигиз, $1! Сизни былайгъа келгенигизге къууандыкъ.',
-	'notification-reverted2' => '[[User:$1|$1]], {{PLURAL:$4|[[:$2]] бетде сизни тюрлендириуюгюзню|[[:$2]] бетде сизни тюрлендириулеригизни}} {{GENDER:$1|ызына алды}}. $3',
-	'notification-reverted-flyout2' => '{{PLURAL:$4|$2 бетде сизни тюрлендириуюгюзню|$2 бетде сизни тюрлендириулеригизни}} $1 {{GENDER:$1|ызына алды}}. $3',
+	'notification-reverted2' => '[[User:$1|$1]], {{PLURAL:$4|1=[[:$2]] бетде сизни тюрлендириуюгюзню|[[:$2]] бетде сизни тюрлендириулеригизни}} {{GENDER:$1|ызына алды}}. $3', # Fuzzy
+	'notification-reverted-flyout2' => '{{PLURAL:$4|1=$2 бетде сизни тюрлендириуюгюзню|$2 бетде сизни тюрлендириулеригизни}} $1 {{GENDER:$1|ызына алды}}. $3', # Fuzzy
 	'notification-edit-talk-page-email-subject2' => '$1 {{GENDER:$1|къошулуучу}} сизге «{{SITENAME}}» сайтда билдириу {{GENDER:$1|къойду}}',
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|къошулуучу}}, сюзюу бетигизде билдириу {{GENDER:$1|къойду}}:',
 	'notification-edit-talk-page-email-batch-body-with-section' => '$1 {{GENDER:$1|къошулуучу}}, сюзюу бетигизни «$2» бёлюмюнде (темасында) билдириу {{GENDER:$1|къойду}}.',
 	'notification-page-linked-email-subject' => '«{{SITENAME}}» сайтда сизни къошулуучу бетигизге джибериу салынды',
 	'notification-page-linked-email-batch-body' => '$1 къошулуучу, $3 бетде $2 бетге джибериу {{GENDER:$1|салды}}.',
-	'notification-reverted-email-subject2' => '{{GENDER:$1|Ким эсе да}}, сизни «{{SITENAME}}» сайтда {{PLURAL:$3|тюрлендириуюгюзню|тюрлендириулеригизни}} ызына алды',
-	'notification-reverted-email-batch-body2' => '{{PLURAL:$3|«$2» бетде сизни тюрлендириуюгюзню|«$2» бетде сизни тюрлендириулеригизни}} $1 {{GENDER:$1|ызына алды}}.',
+	'notification-reverted-email-subject2' => '{{GENDER:$1|Ким эсе да}}, сизни «{{SITENAME}}» сайтда {{PLURAL:$3|1=тюрлендириуюгюзню|тюрлендириулеригизни}} ызына алды', # Fuzzy
+	'notification-reverted-email-batch-body2' => '{{PLURAL:$3|1=«$2» бетде сизни тюрлендириуюгюзню|«$2» бетде сизни тюрлендириулеригизни}} $1 {{GENDER:$1|ызына алды}}.', # Fuzzy
 	'notification-mention-email-subject' => '$1, {{SITENAME}} сайтда сизни {{GENDER:$1|сагъынды}}',
 	'notification-mention-email-batch-body' => '$1, $4 сюзюу бетинде ("$3") сизни {{GENDER:$1|сагъынды}}.',
 	'notification-user-rights-email-subject' => 'Сизни «{{SITENAME}}» сайтда хакъларыгъыз тюрлендирилдиле',
@@ -5851,17 +5852,17 @@ $1',
 $1',
 	'echo-overlay-link' => 'Бютеу билдириуле',
 	'echo-overlay-title' => '<b>Билдириуле</b>',
-	'echo-overlay-title-overflow' => '<b>{{PLURAL:$1|Билдириуле}}</b> ($2 {{PLURAL|$2|окъулмагъандан}} $1 саны {{PLURAL|$1|кёргюзюлгенди}})',
+	'echo-overlay-title-overflow' => '<b>{{PLURAL:$1|Билдириуле}}</b> ($2 {{PLURAL|$2|окъулмагъандан}} $1 саны {{PLURAL|$1|кёргюзюлгенди}})', # Fuzzy
 	'echo-mark-all-as-read' => 'Барысын да окъулгъанлача белгиле',
 	'echo-date-today' => 'Бюгюн',
 	'echo-date-yesterday' => 'Тюнене',
 	'echo-load-more-error' => 'Къошакъ эсеблени алгъан сагъатда халат чыкъды.',
-	'notification-edit-talk-page-bundle' => '$1 бла $3 {{PLURAL:$4|башха къошулуучу|башха къошулуучула}}, [[User talk:$2|сюзюу бетигизде]] билдириу {{GENDER:$1|къойду}}.',
-	'notification-page-linked-bundle' => '«$2» бетге «$3» бетден эмда башха $4 {{PLURAL:$5|бетден}}  {{GENDER:$1|джибериу}} барды. [[Special:WhatLinksHere/$2|Бу бетге бютеу джибериулеге къарагъыз]]',
-	'notification-edit-user-talk-email-batch-bundle-body' => '$1 бла $2 {{PLURAL:$3|башха къошулуучу|башха къошулуучула}}, сюзюу бетигизде билдириу {{GENDER:$1|къойду}}.',
+	'notification-edit-talk-page-bundle' => '$1 бла $3 {{PLURAL:$4|1=башха къошулуучу|башха къошулуучула}}, [[User talk:$2|сюзюу бетигизде]] билдириу {{GENDER:$1|къойду}}.', # Fuzzy
+	'notification-page-linked-bundle' => '«$2» бетге «$3» бетден эмда башха $4 {{PLURAL:$5|бетден}} {{GENDER:$1|джибериу}} барды. [[Special:WhatLinksHere/$2|Бу бетге бютеу джибериулеге къарагъыз]]', # Fuzzy
+	'notification-edit-user-talk-email-batch-bundle-body' => '$1 бла $2 {{PLURAL:$3|1=башха къошулуучу|башха къошулуучула}}, сюзюу бетигизде билдириу {{GENDER:$1|къойду}}.', # Fuzzy
 	'notification-page-linked-email-batch-bundle-body' => '«$2» бетге «$3» бетден эмда башха $4 {{PLURAL:$5|бетден}} {{GENDER:$1|джибериу}} барды.',
-	'echo-email-batch-subject-daily' => '«{{SITENAME}}» проектде сизни $2 {{PLURAL:$2|джангы билдириуюгюз}} барды',
-	'echo-email-batch-subject-weekly' => '«{{SITENAME}}» проектде бу ыйыкъда сизге $2 {{PLURAL:$2|джангы билдириу}} келди.',
+	'echo-email-batch-subject-daily' => '«{{SITENAME}}» проектде сизни $2 {{PLURAL:$2|джангы билдириуюгюз}} барды', # Fuzzy
+	'echo-email-batch-subject-weekly' => '«{{SITENAME}}» проектде бу ыйыкъда сизге $2 {{PLURAL:$2|джангы билдириу}} келди.', # Fuzzy
 	'echo-email-batch-body-intro-daily' => 'Салам, $1!
 Сизге {{SITENAME}} сайтда бюгюннгю турумну юсюнден къысха хапар.',
 	'echo-email-batch-body-intro-weekly' => 'Салам, $1!
@@ -8653,12 +8654,12 @@ $messages['ru'] = array(
 	'echo-pref-new-message-indicator' => 'Показать в моей панели инструментов индикатор сообщений на странице обсуждения',
 	'echo-learn-more' => 'Узнать больше',
 	'echo-new-messages' => 'У вас есть новые сообщения',
-	'echo-category-title-edit-user-talk' => '{{PLURAL:$1|сообщение|сообщения}} на странице обсуждения',
-	'echo-category-title-article-linked' => '{{PLURAL:$1|ссылка|ссылки}} на страницы',
-	'echo-category-title-reverted' => '{{PLURAL:$1|отмена|отмены}} правок',
-	'echo-category-title-mention' => '{{PLURAL:$1|упоминание|упоминания}}',
-	'echo-category-title-other' => '{{PLURAL:$1|прочее|прочие}}',
-	'echo-category-title-system' => '{{PLURAL:$1|системное|системные}}',
+	'echo-category-title-edit-user-talk' => '{{PLURAL:$1|1=сообщение|сообщения}} на странице обсуждения', # Fuzzy
+	'echo-category-title-article-linked' => '{{PLURAL:$1|1=ссылка|ссылки}} на страницы', # Fuzzy
+	'echo-category-title-reverted' => '{{PLURAL:$1|1=отмена|отмены}} правок', # Fuzzy
+	'echo-category-title-mention' => '{{PLURAL:$1|1=упоминание|упоминания}}', # Fuzzy
+	'echo-category-title-other' => '{{PLURAL:$1|1=прочее|прочие}}', # Fuzzy
+	'echo-category-title-system' => '{{PLURAL:$1|1=системное|системные}}', # Fuzzy
 	'echo-pref-tooltip-edit-user-talk' => 'Сообщать мне, когда кто-то посылает сообщение или отвечает на моей странице обсуждения.',
 	'echo-pref-tooltip-article-linked' => 'Сообщать мне, когда кто-то ссылается в статьях на созданную мной страницу',
 	'echo-pref-tooltip-reverted' => 'Сообщать мне, когда кто-то отменил мою правку, используя функцию отмены или отката.',
@@ -8697,18 +8698,18 @@ $messages['ru'] = array(
 	'notification-mention-nosection-flyout' => '$1 упомянул{{GENDER:$1||а}} вас на [[$3|странице обсуждения $2]].',
 	'notification-user-rights' => 'Ваши права пользователя [[Special:Log/rights/$1|{{GENDER:$1|изменил|изменила}}]] [[User:$1|$1]]. $2. [[Special:ListGroupRights|Подробнее]]',
 	'notification-user-rights-flyout' => 'Права пользователя {{GENDER:$1|изменил|изменила}} $1. $2. [[Special:ListGroupRights|Подробнее]]',
-	'notification-user-rights-add' => 'Теперь вы входите в {{PLURAL:$2|следующую группу|следующие группы}}: $1',
-	'notification-user-rights-remove' => 'Вы больше не входите в {{PLURAL:$2|следующую группу|следующие группы}}: $1',
+	'notification-user-rights-add' => 'Теперь вы входите в {{PLURAL:$2|1=следующую группу|следующие группы}}: $1', # Fuzzy
+	'notification-user-rights-remove' => 'Вы больше не входите в {{PLURAL:$2|1=следующую группу|следующие группы}}: $1', # Fuzzy
 	'notification-new-user' => 'Добро пожаловать в {{SITENAME}}, $1! Мы рады, что вы здесь.',
-	'notification-reverted2' => '{{PLURAL:$4|Вашу правку на станице [[:$2]]|Ваши правки на странице [[:$2]]}}  {{GENDER:$1|отменил|отменила}} [[User:$1|$1]]. $3',
-	'notification-reverted-flyout2' => '{{PLURAL:$4|Вашу правку на странице $2|Ваши правки на странице $2}} {{GENDER:$1|отменил|отменила}} $1. $3',
+	'notification-reverted2' => '{{PLURAL:$4|1=Вашу правку на станице [[:$2]]|Ваши правки на странице [[:$2]]}} {{GENDER:$1|отменил|отменила}} [[User:$1|$1]]. $3', # Fuzzy
+	'notification-reverted-flyout2' => '{{PLURAL:$4|1=Вашу правку на странице $2|Ваши правки на странице $2}} {{GENDER:$1|отменил|отменила}} $1. $3', # Fuzzy
 	'notification-edit-talk-page-email-subject2' => '{{GENDER:$1|Участник|Участница}} $1 {{GENDER:$1|оставил|оставила}} вам сообщение на сайте «{{SITENAME}}»',
 	'notification-edit-talk-page-email-batch-body2' => '{{GENDER:$1|Участник|Участница}} $1 {{GENDER:$1|оставил|оставила}} сообщение на вашей странице обсуждения:',
 	'notification-edit-talk-page-email-batch-body-with-section' => '{{GENDER:$1|Участник|Участница}} $1 {{GENDER:$1|оставил|оставила}} вам сообщение на вашей странице обсуждения в разделе (теме) «$2»',
 	'notification-page-linked-email-subject' => 'На сайте «{{SITENAME}}» появилась ссылка на вашу страницу участника',
 	'notification-page-linked-email-batch-body' => '{{GENDER:$1|Участник|участница}} $1 {{GENDER:$1|сослался|сослалась}} на $2 из $3',
-	'notification-reverted-email-subject2' => '{{GENDER:$1|Кто-то}} отменил {{PLURAL:$3|вашу правку|ваши правки}} на сайте «{{SITENAME}}»',
-	'notification-reverted-email-batch-body2' => '{{PLURAL:$3|Ваша правка на странице «$2» была отменена|Ваши правки на странице «$2» были отменены}} {{GENDER:$1|участником|участницей}} $1.',
+	'notification-reverted-email-subject2' => '{{GENDER:$1|Кто-то}} отменил {{PLURAL:$3|1=вашу правку|ваши правки}} на сайте «{{SITENAME}}»', # Fuzzy
+	'notification-reverted-email-batch-body2' => '{{PLURAL:$3|1=Ваша правка на странице «$2» была отменена|Ваши правки на странице «$2» были отменены}} {{GENDER:$1|участником|участницей}} $1.', # Fuzzy
 	'notification-mention-email-subject' => '{{GENDER:$1|Участник|Участница}} $1 {{GENDER:$1|упомянул|упомянула}} вас на сайте «{{SITENAME}}»',
 	'notification-mention-email-batch-body' => '$1 {{ПОЛ:$1|, упоминается}} вы на $4 страница обсуждения в "$3".',
 	'notification-mention-nosection-email-batch-body' => '$1 упомянул{{GENDER:$1||а}} вас на странице обсуждения $2.',
@@ -8730,18 +8731,18 @@ $1',
 $1',
 	'echo-overlay-link' => 'Все уведомления',
 	'echo-overlay-title' => '<b>Уведомления</b>',
-	'echo-overlay-title-overflow' => '<b>{{PLURAL:$1|Уведомления}}</b> ({{PLURAL|$1|показано|показаны}} $1 из $2 {{PLURAL|$2|непрочитанного|непрочитанных}})',
+	'echo-overlay-title-overflow' => '<b>{{PLURAL:$1|Уведомления}}</b> ({{PLURAL:$1|1=показано|показаны}} $1 из $2 {{PLURAL:$2|1=непрочитанного|непрочитанных}})', # Fuzzy
 	'echo-mark-all-as-read' => 'Отметить все как прочитанные',
 	'echo-date-today' => 'Сегодня',
 	'echo-date-yesterday' => 'Вчера',
 	'echo-load-more-error' => 'Произошла ошибка при получении дополнительных результатов.',
-	'notification-edit-talk-page-bundle' => '$1 и $3 {{PLURAL:$4|другой|других}} {{GENDER:$1|участников}} оставили сообщение на вашей [[User talk:$2|странице обсуждения]].',
-	'notification-page-linked-bundle' => 'На страницу «$2» есть {{GENDER:$1|ссылка}} со страницы «$3» и ещё $4 {{PLURAL:$5|страницы|страниц}}. [[Special:WhatLinksHere/$2|См. все ссылки на эту страницу]]',
-	'notification-edit-user-talk-email-batch-bundle-body' => '$1 и $2 {{PLURAL:$3|другой|других}} {{GENDER:$1|участников}} оставили сообщение на вашей странице обсуждения.',
-	'notification-page-linked-email-batch-bundle-body' => 'На страницу «$2» есть {{GENDER:$1|ссылка}} со страницы «$3» и ещё $4 {{PLURAL:$5|страницы|страниц}}',
+	'notification-edit-talk-page-bundle' => '$1 и $3 {{PLURAL:$4|1=другой|других}} {{GENDER:$1|участников}} оставили сообщение на вашей [[User talk:$2|странице обсуждения]].', # Fuzzy
+	'notification-page-linked-bundle' => 'На страницу «$2» есть {{GENDER:$1|ссылка}} со страницы «$3» и ещё $4 {{PLURAL:$5|1=страницы|страниц}}. [[Special:WhatLinksHere/$2|См. все ссылки на эту страницу]]', # Fuzzy
+	'notification-edit-user-talk-email-batch-bundle-body' => '$1 и $2 {{PLURAL:$3|1=другой|других}} {{GENDER:$1|участников}} оставили сообщение на вашей странице обсуждения.', # Fuzzy
+	'notification-page-linked-email-batch-bundle-body' => 'На страницу «$2» есть {{GENDER:$1|ссылка}} со страницы «$3» и ещё $4 {{PLURAL:$5|1=страницы|страниц}}', # Fuzzy
 	'echo-email-batch-bullet' => '•',
-	'echo-email-batch-subject-daily' => 'Вы получили $2 {{PLURAL:$2|новое уведомление|новых уведомления|новых уведомлений}} в проекте «{{SITENAME}}»',
-	'echo-email-batch-subject-weekly' => 'На этой неделе вы получили $2 {{PLURAL:$2|новое уведомление|новых уведомления|новых уведомлений}} в проекте «{{SITENAME}}»',
+	'echo-email-batch-subject-daily' => 'Вы получили $2 {{PLURAL:$2|новое уведомление|новых уведомлений|новых уведомления}} в проекте «{{SITENAME}}»', # Fuzzy
+	'echo-email-batch-subject-weekly' => 'На этой неделе вы получили $2 {{PLURAL:$2|новое уведомление|новых уведомлений|новых уведомления}} в проекте «{{SITENAME}}»', # Fuzzy
 	'echo-email-batch-body-intro-daily' => 'Привет, $1!
 Вот краткий обзор сегодняшней деятельности в {{SITENAME}} для вас.',
 	'echo-email-batch-body-intro-weekly' => 'Привет, $1!
@@ -9443,16 +9444,16 @@ $messages['sr-ec'] = array(
 	'notification-mention' => '[[User:$1|$1]] вас је {{GENDER:$1|спомену|споменула}} на страници за разговор $5 у „[[$3#$2|$4]]“.',
 	'notification-mention-flyout' => '$1 вас је {{GENDER:$1|споменуо|споменула}} на страници за разговор $5 у „[[$3#$2|$4]]“.',
 	'notification-user-rights' => 'Ваша корисничка права [[Special:Log/rights/$1|су била {{GENDER:$1|промењена}}]] од стране [[User:$1|$1]]. $2. [[Special:ListGroupRights|Сазнајте више]]',
-	'notification-user-rights-add' => 'Од сада сте члан {{PLURAL:$2|ове групе|ових група}}: $1',
-	'notification-user-rights-remove' => 'Више нисте члан {{PLURAL:$2|ове групе|ових група}}: $1',
-	'notification-reverted2' => '{{PLURAL:$4|Ваша измена на страници [[:$2]] је поништена|Ваше измене на страници [[:$2]] су поништене}} од стране {{GENDER:$1|корисника}} [[User:$1|$1]]. $3',
-	'notification-reverted-flyout2' => '{{PLURAL:$4|Ваша измена на страници $2 је поништена|Ваше измене на страници $2 су поништене}} од стране {{GENDER:$1|корисника}} $1. $3',
+	'notification-user-rights-add' => 'Од сада сте члан {{PLURAL:$2|1=ове групе|ових група}}: $1', # Fuzzy
+	'notification-user-rights-remove' => 'Више нисте члан {{PLURAL:$2|1=ове групе|ових група}}: $1', # Fuzzy
+	'notification-reverted2' => '{{PLURAL:$4|1=Ваша измена на страници [[:$2]] је поништена|Ваше измене на страници [[:$2]] су поништене}} од стране {{GENDER:$1|корисника}} [[User:$1|$1]]. $3', # Fuzzy
+	'notification-reverted-flyout2' => '{{PLURAL:$4|1=Ваша измена на страници $2 је поништена|Ваше измене на страници $2 су поништене}} од стране {{GENDER:$1|корисника}} $1. $3', # Fuzzy
 	'notification-edit-talk-page-email-subject2' => '$1 вам је {{GENDER:$1|оставио|оставила}} поруку на {{SITENAME}}',
 	'notification-edit-talk-page-email-batch-body2' => '$1 вам је {{GENDER:$1|оставио|оставила}} поруку на вашој страници за разговор:',
 	'notification-edit-talk-page-email-batch-body-with-section' => '$1 вам је {{GENDER:$1|оставио|оставила}} поруку на вашој страници за разговор у „$2“.',
 	'notification-page-linked-email-subject' => 'Ваша страница је повезана на {{SITENAME}}',
 	'notification-page-linked-email-batch-body' => 'Страница $2 је {{GENDER:$1|повезана}} са $3.',
-	'notification-reverted-email-batch-body2' => '{{PLURAL:$3|Ваша измена на страници $2 је поништена|Ваше измене на страници $2 су поништене}} од стране {{GENDER:$1|корисника}} $1.',
+	'notification-reverted-email-batch-body2' => '{{PLURAL:$3|1=Ваша измена на страници $2 је поништена|Ваше измене на страници $2 су поништене}} од стране {{GENDER:$1|корисника}} $1.', # Fuzzy
 	'notification-mention-email-subject' => '$1 вас је {{GENDER:$1|споменуо|споменула}} на {{SITENAME}}',
 	'notification-mention-email-batch-body' => '$1 вас је {{GENDER:$1|споменуо|споменула}} на страници за разговор $4 у „$3“.',
 	'notification-user-rights-email-subject' => 'Ваша корисничка права су се променила на {{SITENAME}}',
@@ -9469,8 +9470,8 @@ $1',
 	'echo-date-today' => 'Данас',
 	'echo-date-yesterday' => 'Јуче',
 	'echo-load-more-error' => 'Дошло је до грешке при добављању више резултата.',
-	'notification-page-linked-bundle' => 'Страница $2 је {{GENDER:$1|повезана}} са $3 и $4 {{PLURAL:$5|друге странице|других страница}}. [[Special:WhatLinksHere/$2|Погледајте све везе према овој страници]]',
-	'echo-email-batch-subject-daily' => 'Имате {{PLURAL:$2|ново обавештење|нова обавештења}} на {{SITENAME}}',
+	'notification-page-linked-bundle' => 'Страница $2 је {{GENDER:$1|повезана}} са $3 и $4 {{PLURAL:$5|1=друге странице|других страница}}. [[Special:WhatLinksHere/$2|Погледајте све везе према овој страници]]', # Fuzzy
+	'echo-email-batch-subject-daily' => 'Имате {{PLURAL:$2|1=ново обавештење|нова обавештења}} на {{SITENAME}}', # Fuzzy
 	'echo-email-batch-link-text-view-all-notifications' => 'Погледај сва обавештења',
 	'echo-rev-deleted-text-view' => 'Ова ревизија странице је потиснута.',
 );
@@ -9532,16 +9533,16 @@ $messages['sr-el'] = array(
 	'notification-mention' => '[[User:$1|$1]] vas je {{GENDER:$1|spomenuo|spomenula}} na stranici za razgovor $5 u „[[$3#$2|$4]]“.',
 	'notification-mention-flyout' => '$1 vas je {{GENDER:$1|spomenuo|spomenula}} na stranici za razgovor $5 u „[[$3#$2|$4]]“.',
 	'notification-user-rights' => 'Vaša korisnička prava [[Special:Log/rights/$1|su bila {{GENDER:$1|promenjena}}]] od strane [[User:$1|$1]]. $2. [[Special:ListGroupRights|Saznajte više]]',
-	'notification-user-rights-add' => 'Od sada ste član {{PLURAL:$2|ove grupe|ovih grupa}}: $1',
-	'notification-user-rights-remove' => 'Više niste član {{PLURAL:$2|ove grupe|ovih grupa}}: $1',
-	'notification-reverted2' => '{{PLURAL:$4|Vaša izmena na stranici [[:$2]] je poništena|Vaše izmene na stranici [[:$2]] su poništene}} od strane {{GENDER:$1|korisnika}} [[User:$1|$1]]. $3',
-	'notification-reverted-flyout2' => '{{PLURAL:$4|Vaša izmena na stranici $2 je poništena|Vaše izmene na stranici $2 su poništene}} od strane {{GENDER:$1|korisnika}} $1. $3',
+	'notification-user-rights-add' => 'Od sada ste član {{PLURAL:$2|1=ove grupe|ovih grupa}}: $1', # Fuzzy
+	'notification-user-rights-remove' => 'Više niste član {{PLURAL:$2|1=ove grupe|ovih grupa}}: $1', # Fuzzy
+	'notification-reverted2' => '{{PLURAL:$4|1=Vaša izmena na stranici [[:$2]] je poništena|Vaše izmene na stranici [[:$2]] su poništene}} od strane {{GENDER:$1|korisnika}} [[User:$1|$1]]. $3', # Fuzzy
+	'notification-reverted-flyout2' => '{{PLURAL:$4|1=Vaša izmena na stranici $2 je poništena|Vaše izmene na stranici $2 su poništene}} od strane {{GENDER:$1|korisnika}} $1. $3', # Fuzzy
 	'notification-edit-talk-page-email-subject2' => '$1 vam je {{GENDER:$1|ostavio|ostavila}} poruku na {{SITENAME}}',
 	'notification-edit-talk-page-email-batch-body2' => '$1 vam je {{GENDER:$1|ostavio|ostavila}} poruku na vašoj stranici za razgovor:',
 	'notification-edit-talk-page-email-batch-body-with-section' => '$1 vam je {{GENDER:$1|ostavio|ostavila}} poruku na vašoj stranici za razgovor u „$2“.',
 	'notification-page-linked-email-subject' => 'Vaša stranica je povezana na {{SITENAME}}',
 	'notification-page-linked-email-batch-body' => '$2 je {{GENDER:$1|povezana}} sa $3.',
-	'notification-reverted-email-batch-body2' => '{{PLURAL:$3|Vaša izmena na stranici $2 je poništena|Vaše izmene na stranici $2 su poništene}} od strane {{GENDER:$1|korisnika}} $1.',
+	'notification-reverted-email-batch-body2' => '{{PLURAL:$3|1=Vaša izmena na stranici $2 je poništena|Vaše izmene na stranici $2 su poništene}} od strane {{GENDER:$1|korisnika}} $1.', # Fuzzy
 	'notification-mention-email-subject' => '$1 vas je {{GENDER:$1|spomenuо|spomenula}} na {{SITENAME}}',
 	'notification-mention-email-batch-body' => '$1 vas je {{GENDER:$1|spomenuо|spomenula}} na stranici za razgovor $4 u „$3“.',
 	'notification-user-rights-email-subject' => 'Vaša korisnička prava su se promenila na {{SITENAME}}',
@@ -9558,7 +9559,7 @@ $1',
 	'echo-date-today' => 'Danas',
 	'echo-date-yesterday' => 'Juče',
 	'echo-load-more-error' => 'Došlo je do greške pri dobavljanju više rezultata.',
-	'echo-email-batch-subject-daily' => 'Imate {{PLURAL:$2|novo obaveštenje|nova obaveštenja}} na {{SITENAME}}',
+	'echo-email-batch-subject-daily' => 'Imate {{PLURAL:$2|1=novo obaveštenje|nova obaveštenja}} na {{SITENAME}}', # Fuzzy
 	'echo-email-batch-link-text-view-all-notifications' => 'Pogledaj sva obaveštenja',
 	'echo-rev-deleted-text-view' => 'Ova revizija stranice je potisnuta.',
 );
@@ -9898,6 +9899,7 @@ $1',
 );
 
 /** Thai (ไทย)
+ * @author Nullzero
  * @author Supasate
  */
 $messages['th'] = array(
@@ -9920,10 +9922,10 @@ $messages['th'] = array(
 	'echo-pref-notify-show-link' => 'แสดงการแจ้งเตือนในแถบเครื่องมือของฉัน',
 	'echo-pref-new-message-indicator' => 'แสดงตัวบ่งชี้ข้อความในหน้าพูดคุยในแถบเครื่องมือของฉัน',
 	'echo-learn-more' => 'เรียนรู้เพิ่มเติม',
-	'echo-new-messages' => 'คุณมีข้อความใหม่', # Fuzzy
-	'echo-category-title-edit-user-talk' => 'หน้าพูดคุย {{PLURAL:$1| ข้อความ|ข้อความ} }',
-	'echo-category-title-article-linked' => 'หน้า {{PLURAL:$1|ลิงก์|ลิงก์} }',
-	'echo-category-title-reverted' => 'การแก้ไข {{PLURAL:$1| ย้อนกลับ|ย้อนกลับ} }',
+	'echo-new-messages' => 'คุณมีข้อความใหม่',
+	'echo-category-title-edit-user-talk' => 'หน้าพูดคุย {{PLURAL:$1| ข้อความ|ข้อความ}}',
+	'echo-category-title-article-linked' => 'หน้า {{PLURAL:$1|ลิงก์|ลิงก์}}',
+	'echo-category-title-reverted' => 'การแก้ไข {{PLURAL:$1| ย้อนกลับ|ย้อนกลับ}}',
 	'echo-category-title-mention' => '{{PLURAL:$1|การกล่าวถึง|การกล่าวถึง}}',
 	'echo-category-title-other' => '{{PLURAL:$1|อื่นๆ}}',
 	'echo-category-title-system' => '{{PLURAL:$1|ระบบ}}',
@@ -10247,18 +10249,18 @@ $messages['uk'] = array(
 	'notification-mention-nosection-flyout' => '$1 {{GENDER:$1|згадав|згадала}} вас на [[$3|сторінці обговорення $2]].',
 	'notification-user-rights' => 'Ваші права користувача [[Special:Log/rights/$1|було змінено]] {{GENDER:$1|користувачем|користувачкою}} [[User:$1|$1]]. $2. [[Special:ListGroupRights|Дізнатися більше]]',
 	'notification-user-rights-flyout' => 'Ваші права користувача було змінено {{GENDER:$1|користувачем|користувачкою}} $1. $2. [[Special:ListGroupRights|Дізнатися більше]]',
-	'notification-user-rights-add' => 'Зараз Ви член {{PLURAL:$2|такої групи|таких груп}}: $1',
-	'notification-user-rights-remove' => 'Ви більше не є членом {{PLURAL:$2|цієї групи|таких груп}}: $1',
+	'notification-user-rights-add' => 'Зараз Ви член {{PLURAL:$2|1=такої групи|таких груп}}: $1',
+	'notification-user-rights-remove' => 'Ви більше не є членом {{PLURAL:$2|1=цієї групи|таких груп}}: $1',
 	'notification-new-user' => 'Ласкаво просимо до {{GRAMMAR:Genitive|{{SITENAME}}}}, $1! Ми раді, що Ви тут.',
-	'notification-reverted2' => '{{PLURAL:$4|Ваше редагування|Ваші редагування}} сторінки [[:$2]] було {{GENDER:$1|відкочено}} {{GENDER:$1|користувачем|користувачкою}} [[User:$1|$1]] $3',
-	'notification-reverted-flyout2' => '{{PLURAL:$4|Ваше редагування|Ваші редагування}} сторінки $2 було {{GENDER:$1|відкочено}} {{GENDER:$1|користувачем|користувачкою}} $1 $3',
+	'notification-reverted2' => '{{PLURAL:$4|1=Ваше редагування|Ваші редагування}} сторінки [[:$2]] було {{GENDER:$1|відкочено}} {{GENDER:$1|користувачем|користувачкою}} [[User:$1|$1]] $3',
+	'notification-reverted-flyout2' => '{{PLURAL:$4|1=Ваше редагування|Ваші редагування}} сторінки $2 було {{GENDER:$1|відкочено}} {{GENDER:$1|користувачем|користувачкою}} $1 $3',
 	'notification-edit-talk-page-email-subject2' => '$1 {{GENDER:$1|залишив|залишила}} Вам повідомлення на сайті {{SITENAME}}',
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|залишив|залишила}} повідомлення на Вашій сторінці обговорення:',
 	'notification-edit-talk-page-email-batch-body-with-section' => '$1 {{GENDER:$1|залишив|залишила}} повідомлення на Вашій сторінці обговорення у «$2».',
 	'notification-page-linked-email-subject' => "На сайті {{SITENAME}} з'явилось посилання на Вашу сторінку",
 	'notification-page-linked-email-batch-body' => 'На «$3» $1 {{GENDER:$1|зробив|зробила}} посилання на «$2»',
-	'notification-reverted-email-subject2' => '{{PLURAL:$3|Ваше редагування|Ваші редагування}} на сайті {{SITENAME}} було {{GENDER:$1|відкочено}}',
-	'notification-reverted-email-batch-body2' => '{{PLURAL:$3|Ваше редагування|Ваші редагування}} сторінки $2 було {{GENDER:$1|відкочено}} {{GENDER:$1|користувачем|користувачкою}} $1',
+	'notification-reverted-email-subject2' => '{{PLURAL:$3|1=Ваше редагування|Ваші редагування}} на сайті {{SITENAME}} було {{GENDER:$1|відкочено}}',
+	'notification-reverted-email-batch-body2' => '{{PLURAL:$3|1=Ваше редагування|Ваші редагування}} сторінки $2 було {{GENDER:$1|відкочено}} {{GENDER:$1|користувачем|користувачкою}} $1',
 	'notification-mention-email-subject' => '$1 {{GENDER:$1|згадав|згадала}} Вас на {{GRAMMAR:locative|{{SITENAME}}}}.',
 	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|згадав|згадала}} Вас на сторінці обговорення {{GENDER:$4|користувача|користувачки}} $4 у «$3».',
 	'notification-mention-nosection-email-batch-body' => '$1 {{GENDER:$1|згадав|згадала}} вас на сторінці обговорення $2.',
@@ -10285,9 +10287,9 @@ $1',
 	'echo-date-yesterday' => 'Вчора',
 	'echo-load-more-error' => 'Під час отримання додаткових результатів сталася помилка.',
 	'notification-edit-talk-page-bundle' => '$1 та $3 {{PLURAL:$4|інший користувач|інші користувачі|інших користувачів}} {{GENDER:$1|залишили}} повідомлення на Вашій [[User talk:$2|сторінці обговорення]].',
-	'notification-page-linked-bundle' => 'На $3 та $4 {{PLURAL:$5|іншій сторінці|інших сторінках}} $1 {{GENDER:$1|додав|додала}} посилання на $2. [[Special:WhatLinksHere/$2|Див. усі посилання на цю сторінку]]',
+	'notification-page-linked-bundle' => 'На $3 та $4 {{PLURAL:$5|1=іншій сторінці|інших сторінках}} $1 {{GENDER:$1|додав|додала}} посилання на $2. [[Special:WhatLinksHere/$2|Див. усі посилання на цю сторінку]]',
 	'notification-edit-user-talk-email-batch-bundle-body' => '$1 та $2 {{PLURAL:$3|інший користувач|інші користувачі|інших користувачів}} {{GENDER:$1|залишили}} повідомлення на Вашій сторінці обговорення',
-	'notification-page-linked-email-batch-bundle-body' => 'На $3 та $4 {{PLURAL:$5|іншій сторінці|інших сторінках}} $1 {{GENDER:$1|додав|додала}} посилання на $2.',
+	'notification-page-linked-email-batch-bundle-body' => 'На $3 та $4 {{PLURAL:$5|1=іншій сторінці|інших сторінках}} $1 {{GENDER:$1|додав|додала}} посилання на $2.',
 	'echo-email-batch-subject-daily' => 'У Вас {{PLURAL:$2|нове сповіщення|нові сповіщення|нових сповіщень}} на сайті {{SITENAME}}',
 	'echo-email-batch-subject-weekly' => 'У Вас {{PLURAL:$2|нове сповіщення|нові сповіщення|нових сповіщень}} на сайті {{SITENAME}} цього тижня',
 	'echo-email-batch-body-intro-daily' => 'Привіт $1!
