@@ -9876,6 +9876,7 @@ $1',
 
 /** Telugu (తెలుగు)
  * @author Arjunaraoc
+ * @author Veeven
  * @author Visdaviva
  * @author రహ్మానుద్దీన్
  * @author వైజాసత్య
@@ -9901,7 +9902,7 @@ $messages['te'] = array(
 	'echo-pref-notify-show-link' => 'నా టూల్‌బార్‌లో సూచనలను చూపించు',
 	'echo-pref-new-message-indicator' => 'నా టూల్‌బార్‌లో చర్చా పేజీ సందేశ-సూచికను చూపించు',
 	'echo-learn-more' => 'మరింత తెలుసుకోండి',
-	'echo-new-messages' => 'మీకు క్రొత్త సందేశాలు ఉన్నాయి.', # Fuzzy
+	'echo-new-messages' => 'మీకు కొత్త సందేశాలు ఉన్నాయి',
 	'echo-category-title-edit-user-talk' => 'చర్చా పేజి {{PLURAL:$1|సందేశం|సందేశాలు}}',
 	'echo-category-title-article-linked' => 'పేజి {{PLURAL:$1|లంకె|లంకెలు}}',
 	'echo-category-title-reverted' => 'మార్చు {{PLURAL:$1|మళ్ళింపు|మళ్ళింపులు}}',
