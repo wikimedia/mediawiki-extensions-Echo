@@ -156,6 +156,7 @@ Here's a summary of this week's activity on {{SITENAME}} for you.",
  * @author Beta16
  * @author Geraki
  * @author Jduranboger
+ * @author Kaganer
  * @author Kghbln
  * @author Krenair
  * @author Lloffiwr
@@ -571,7 +572,7 @@ See also:
 * $1 - the username who performs the action, which can be used for gender support
 * $2 - the link-to page title
 * $3 - the link-from page title
-* $4 - the cout of other link-from page title, can be number or {{msg-mw|echo-notification-count}}
+* $4 - the count of other link-from page title, can be number or {{msg-mw|echo-notification-count}}
 * $5 - a number used for plural support
 
 See also:
@@ -2653,6 +2654,7 @@ $messages['de-formal'] = array(
 );
 
 /** Zazaki (Zazaki)
+ * @author Asmen
  * @author Erdemaslancan
  * @author Marmase
  * @author Mirzali
@@ -2679,32 +2681,32 @@ $messages['diq'] = array(
 	'echo-no-agent' => '[Kesek]',
 	'echo-no-title' => '[Pele Çıniya]',
 	'notifications' => 'Mengene',
-	'tooltip-pt-notifications' => 'Mengeney şıma',
+	'tooltip-pt-notifications' => 'Beyanatê to',
 	'echo-specialpage' => 'Mengeney',
-	'echo-none' => 'Mengeney şıma çıni',
-	'echo-more-info' => 'Véşi malumat',
+	'echo-none' => 'Beyanatê to çıniyê.',
+	'echo-more-info' => 'Zêde (vêşi) melumat',
 	'echo-feedback' => 'Peydrışten',
-	'notification-link-text-view-message' => 'Bewni mesaci',
-	'notification-link-text-view-mention' => 'Bewni bahsi',
-	'notification-link-text-view-changes' => 'Bewni vurnayışa',
-	'notification-link-text-view-page' => 'Bewni perer',
-	'notification-link-text-view-edit' => 'Bewni vurnayış',
+	'notification-link-text-view-message' => 'Qaytê mesaci ke',
+	'notification-link-text-view-mention' => 'Qayt ke, cao ke qalê to biyo',
+	'notification-link-text-view-changes' => 'Qaytê vırnayışan ke',
+	'notification-link-text-view-page' => 'Qaytê pele ke',
+	'notification-link-text-view-edit' => 'Qaytê vırnayışi ke',
 	'notification-edit-talk-page2' => '[[User:$1|$1]],  perda [[User talk:$2#$3| mesacande]] to de zew mesaco newe {{GENDER:$1|vırada}}.',
 	'notification-edit-talk-page-with-section' => '[[User:$1|$1]], Pera masecan de "[[User talk:$2#$3|$4]]" de mewzu {{GENDER:$1|vırade}}.',
 	'notification-reverted-flyout2' => '$1 {{PLURAL:$4|vırnayışa $2 |vırnayışane $2 }} rewizyona $3 {{GENDER:$1|peyser}} grot',
-	'echo-email-subject-default' => '{{SITENAME}} de mengeneya newiye',
-	'echo-email-body-default' => '{{SITENAME}} ra ju mengeneya newiye esta:
+	'echo-email-subject-default' => '{{SITENAME}} de beyanato newe',
+	'echo-email-body-default' => '{{SITENAME}} de beyanatê do newe esto:
 
 $1',
-	'echo-email-batch-body-default' => 'Mengeneya şıma esta',
-	'echo-overlay-link' => 'Mengeney péro',
+	'echo-email-batch-body-default' => 'Yew beyanatê to esto.',
+	'echo-overlay-link' => 'Pêro beyanati',
 	'echo-overlay-title' => '<b>Tebliği</b>',
-	'echo-mark-all-as-read' => 'Wanaye deye nişane kerê',
+	'echo-mark-all-as-read' => 'Pêrine wende nışan ke',
 	'echo-date-today' => 'Naroc',
 	'echo-date-yesterday' => 'Vızér',
 	'notification-edit-user-talk-email-batch-bundle-body' => '$1 u $2 {{PLURAL:$3|zewna karberi|tayna karberan}}, to re zew mesac {{GENDER:$1|vırada}}.',
-	'echo-email-batch-link-text-view-all-notifications' => 'Bewni mengena hemın',
-	'echo-rev-deleted-text-view' => 'Rewizyona na perer hewadeya.',
+	'echo-email-batch-link-text-view-all-notifications' => 'Qaytê beyanatan pêrine ke',
+	'echo-rev-deleted-text-view' => 'Vırnayışê na pele dard we.',
 );
 
 /** Lower Sorbian (dolnoserbski)
@@ -3484,7 +3486,7 @@ $messages['fi'] = array(
 	'echo-pref-notify-show-link' => 'Näytä ilmoitukset työkalurivissä',
 	'echo-pref-new-message-indicator' => 'Näytä keskustelusivujen viestistä erillinen ilmoitus työkalurivilläni',
 	'echo-learn-more' => 'Lue lisää aiheesta',
-	'echo-new-messages' => 'Sinulle on uusia viestejä', # Fuzzy
+	'echo-new-messages' => 'Sinulle on uusia viestejä',
 	'echo-category-title-edit-user-talk' => 'Keskustelusivun {{PLURAL:$1|viesti|viestit}}',
 	'echo-category-title-article-linked' => '{{PLURAL:$1|Sivun linkki|Sivujen linkit}}',
 	'echo-category-title-reverted' => '{{PLURAL:$1|Muokkauksen kumoaminen|Muokkausten kumoamiset}}',
@@ -3524,6 +3526,8 @@ $messages['fi'] = array(
 	'notification-add-comment-yours2' => '[[User:$1|$1]] {{GENDER:$1|kommentoi}} aihetta "[[$3#$2|$2]]" keskustelusivullasi.',
 	'notification-mention' => '[[User:$1|$1]] {{GENDER:$1|mainitsi}} sinut kohteen $5 keskustelussa osiossa "[[$3#$2|$4]]".',
 	'notification-mention-flyout' => '$1 {{GENDER:$1|mainitsi}} sinut kohteen $5 keskustelussa osiossa "[[$3#$2|$4]]".',
+	'notification-mention-nosection' => '[[User:$1|$1]] {{GENDER:$1|mainitsi}} sinut [[$3|$2 keskustelusivulla]].',
+	'notification-mention-nosection-flyout' => '$1 {{GENDER:$1|mainitsi}} sinut [[$3|$2 keskustelusivulla]].',
 	'notification-user-rights' => '[[User:$1|$1]] [[Special:Log/rights/$1|{{GENDER:$1|muutti}}]] käyttöoikeuksiasi. $2. [[Special:ListGroupRights|Lisätietoja]]',
 	'notification-user-rights-flyout' => '$1 {{GENDER:$1|muutti}} käyttöoikeuksiasi. $2. [[Special:ListGroupRights|Lisätietoja]]',
 	'notification-user-rights-add' => 'Olet nyt {{PLURAL:$2|tämän ryhmän|näiden ryhmien}} jäsen: $1',
@@ -3540,6 +3544,7 @@ $messages['fi'] = array(
 	'notification-reverted-email-batch-body2' => 'Tekemäsi {{PLURAL:$3|muutoksen sivulle $2 on|muutokset sivulle $2 on}} {{GENDER:$1|kumonnut}} $1.',
 	'notification-mention-email-subject' => '$1 {{GENDER:$1|mainitsi}} sinut sivustolla {{SITENAME}}',
 	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|mainitsi}} sinut kohteen $4 keskustelussa osiossa "$3".',
+	'notification-mention-nosection-email-batch-body' => '$1 {{GENDER:$1|mainitsi}} sinut keskustelusivulla $2.',
 	'notification-user-rights-email-subject' => 'Käyttöoikeutesi ovat muuttuneet sivustolla {{SITENAME}}',
 	'notification-user-rights-email-batch-body' => '$1 {{GENDER:$1|muutti}} käyttöoikeuksiasi. $2.',
 	'echo-email-subject-default' => 'Uusi ilmoitus sivustolla {{SITENAME}}',
@@ -8835,10 +8840,10 @@ $1',
 	'notification-edit-talk-page-bundle' => '$1 и $3 {{PLURAL:$4|1=другой участник|других участников|других участника}} оставили сообщение на вашей [[User talk:$2|странице обсуждения]].',
 	'notification-page-linked-bundle' => 'На страницу «$2» есть {{GENDER:$1|ссылка}} со страницы «$3» и ещё $4 {{PLURAL:$5|страницы|страниц}}. [[Special:WhatLinksHere/$2|См. все ссылки на эту страницу]]',
 	'notification-edit-user-talk-email-batch-bundle-body' => '$1 и $2 {{PLURAL:$3|другой участник|других участников|других участникa}} оставили сообщения на вашей странице обсуждения.',
-	'notification-page-linked-email-batch-bundle-body' => 'На страницу «$2» есть {{GENDER:$1|ссылка}} со страницы «$3» и ещё $4 {{PLURAL:$5|1=страницы|страниц}}', # Fuzzy
+	'notification-page-linked-email-batch-bundle-body' => 'На страницу «$2» есть {{GENDER:$1|ссылка}} со страницы «$3» и ещё {{PLURAL:$5|$4 страницы|$4 страниц|1=одной страницы}}',
 	'echo-email-batch-bullet' => '•',
-	'echo-email-batch-subject-daily' => 'Вы получили $2 {{PLURAL:$2|новое уведомление|новых уведомлений|новых уведомления}} в проекте «{{SITENAME}}»', # Fuzzy
-	'echo-email-batch-subject-weekly' => 'На этой неделе вы получили $2 {{PLURAL:$2|новое уведомление|новых уведомлений|новых уведомления}} в проекте «{{SITENAME}}»', # Fuzzy
+	'echo-email-batch-subject-daily' => 'Вы получили {{PLURAL:$2|$2 новое уведомление|$2 новых уведомлений|$2 новых уведомления|1=новое уведомление}} в проекте «{{SITENAME}}»',
+	'echo-email-batch-subject-weekly' => 'На этой неделе вы получили {{PLURAL:$2|$2 новое уведомление|$2 новых уведомлений|$2 новых уведомления|1=новое уведомление}} в проекте «{{SITENAME}}»',
 	'echo-email-batch-body-intro-daily' => 'Привет, $1!
 Вот краткий обзор сегодняшней деятельности в {{SITENAME}} для вас.',
 	'echo-email-batch-body-intro-weekly' => 'Привет, $1!
