@@ -6212,6 +6212,7 @@ Hei ass e Resumé vun den Aktivitéite vun dëser Woch op {{SITENAME}} fir Iech.
  * @author Mogoeilor
  */
 $messages['lrc'] = array(
+	'prefs-echosubscriptions' => 'مه نه سی ای رخ ونیا خوردار کو',
 	'echo-pref-send-me' => 'کل کو سیم:',
 	'echo-pref-send-to' => 'کل کو سی:',
 	'echo-pref-email-format' => 'قالو ایمیل:',
@@ -6221,16 +6222,24 @@ $messages['lrc'] = array(
 	'echo-pref-email-format-plain-text' => 'متن ساده',
 	'echo-learn-more' => 'بيشتر يا بيئريت',
 	'echo-new-messages' => 'شما پیغومیا تازه داریتو',
+	'echo-category-title-edit-user-talk' => 'بلگه چک چنه {{جمی:$1|پیغوم|پیغومیا}}', # Fuzzy
 	'echo-category-title-article-linked' => 'بلگه {{جمی:$1|هوم پیوند|هوم پیوندیا}}', # Fuzzy
+	'echo-category-title-reverted' => 'ویایشت بکید {{جمی:$1|ورگشتی|ورگشتیا}}', # Fuzzy
+	'echo-category-title-mention' => '{{جمی:$1|گوتن|گوتنیا}}', # Fuzzy
 	'echo-category-title-other' => '{{جمی:$1|هنی}}', # Fuzzy
+	'echo-category-title-system' => '{{جمی:$1|سیستم}}', # Fuzzy
+	'echo-pref-tooltip-edit-user-talk' => 'مه نه وختی که یه نفر د بلگه چک چنم پیغوم می نه یا جواو می ئه خوردار کو.',
 	'echo-no-agent' => '[هیشکی]',
 	'echo-no-title' => '[بی بلگه]',
 	'echo-more-info' => 'دونسمنیا هنی',
 	'echo-feedback' => 'بازحرد',
 	'notification-link-text-view-message' => 'دیئن پیغوما',
+	'notification-link-text-view-mention' => 'گوته نه بیئنیت.',
 	'notification-link-text-view-changes' => 'دیئن آلشتیا',
 	'notification-link-text-view-page' => 'بلگه بوینیت',
 	'notification-link-text-view-edit' => 'ویرایشت نه بوینیت',
+	'notification-edit-talk-page-with-section' => '[[کارور:$1|$1]] {{جنس:$1|}} یه گل پیغوم د بلگه چک چنه شما نیا د "[[بلگه چک چنه:$2#$3|$4]]".', # Fuzzy
+	'notification-page-linked-flyout' => '$2  {{جنس:$1|هوم پیوند دئه }}سی [[:$3]].',
 	'echo-mark-all-as-read' => 'همه نه د عنوان حنه بیه نشو بیه',
 	'echo-date-today' => 'امرو',
 	'echo-date-yesterday' => 'دوش،دیرو',
