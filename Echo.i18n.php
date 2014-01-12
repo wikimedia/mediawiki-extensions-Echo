@@ -273,10 +273,14 @@ It used to be used as <code>$1</code> in {{msg-mw|Echo-dismiss-message}}, but th
 Parameters:
 * $1 - number of messages, for PLURAL support
 {{Related|Echo-category-title}}',
-	'echo-pref-tooltip-edit-user-talk' => 'This is a short description of the edit-user-talk notification category.',
-	'echo-pref-tooltip-article-linked' => 'This is a short description of the article-linked notification category',
-	'echo-pref-tooltip-reverted' => 'This is a short description of the tooltip-reverted notification category',
-	'echo-pref-tooltip-mention' => 'This is a short description of the mention notification category',
+	'echo-pref-tooltip-edit-user-talk' => 'This is a short description of the edit-user-talk notification category.
+{{Related|Echo-pref-tooltip}}',
+	'echo-pref-tooltip-article-linked' => 'This is a short description of the article-linked notification category.
+{{Related|Echo-pref-tooltip}}',
+	'echo-pref-tooltip-reverted' => 'This is a short description of the tooltip-reverted notification category.
+{{Related|Echo-pref-tooltip}}',
+	'echo-pref-tooltip-mention' => 'This is a short description of the mention notification category.
+{{Related|Echo-pref-tooltip}}',
 	'echo-no-agent' => 'Shown in place of a username in a notification
 	if the notification has no specified user.',
 	'echo-no-title' => 'Shown in place of a page title in a notification if the notification has no specified page title.',
@@ -304,9 +308,11 @@ Puts the edit summary in quotation marks. Only translate if different than Engli
 
 Parameters:
 * $1 - ...',
-	'notification-link-text-view-message' => 'Label for button that links to a message on your talk page.',
+	'notification-link-text-view-message' => 'Label for button that links to a message on your talk page.
+{{Identical|View message}}',
 	'notification-link-text-view-mention' => 'Label for button that links to a discussion where you were mentioned.',
-	'notification-link-text-view-changes' => 'Label for button that links to a "diff" view showing changes made to a page. This is an alternative to the wording in {{msg-mw|notification-link-text-view-edit}}, which serves essentially the same function.',
+	'notification-link-text-view-changes' => 'Label for button that links to a "diff" view showing changes made to a page. This is an alternative to the wording in {{msg-mw|notification-link-text-view-edit}}, which serves essentially the same function.
+{{Identical|View changes}}',
 	'notification-link-text-view-page' => 'Label for button that links to a page.
 {{Identical|View page}}',
 	'notification-link-text-view-edit' => 'Label for button that links to a "diff" view showing an edit made to a page. This is an alternative to the wording in {{msg-mw|notification-link-text-view-changes}}, which serves essentially the same function.',
@@ -6154,8 +6160,13 @@ Hoc est summarium actionum hebdomadum apud {{grammar:accusative|{{SITENAME}}}}.'
  * @author Menachem.Moreira
  */
 $messages['lad'] = array(
+	'prefs-emailsettings' => 'Opsyones del korreo elektroniko',
 	'echo-pref-email' => 'Korreo elektroniko',
 	'echo-pref-email-format-html' => 'HTML',
+	'echo-category-title-article-linked' => 'Pajina{{PLURAL:$1|enlase|enlases}}',
+	'notification-link-text-view-changes' => 'Ver kambios',
+	'notification-link-text-view-page' => 'Ver pajina',
+	'notification-link-text-view-edit' => 'Ver edisyon',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
