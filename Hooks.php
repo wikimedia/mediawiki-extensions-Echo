@@ -627,7 +627,6 @@ class EchoHooks {
 	 * @return bool true in all cases
 	 */
 	static function beforePageDisplay( $out, $skin ) {
-		global $wgEchoNewMsgAlert;
 		$user = $out->getUser();
 
 		// Don't show the alert message and badge if echo is disabled for this user
@@ -641,9 +640,7 @@ class EchoHooks {
 			// Load the styles for the Notifications badge
 			$out->addModuleStyles( 'ext.echo.badge' );
 		}
-		if ( $wgEchoNewMsgAlert && $user->isLoggedIn() && $user->getOption( 'echo-show-alert' ) ) {
-			$out->addModules( array( 'ext.echo.alert' ) );
-		}
+
 		return true;
 	}
 
@@ -653,32 +650,44 @@ class EchoHooks {
 	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/PersonalUrls
 	 * @param &$personal_urls Array of URLs to append to.
 	 * @param &$title Title of page being visited.
+	 * @param SkinTemplate $sk
 	 * @return bool true in all cases
 	 */
-	static function onPersonalUrls( &$personal_urls, &$title ) {
-		global $wgUser;
-		// Add a "My notifications" item to personal URLs
-		if ( $wgUser->isAnon() || self::isEchoDisabled( $wgUser ) || !$wgUser->getOption( 'echo-notify-show-link' ) ) {
+	static function onPersonalUrls( &$personal_urls, &$title, $sk ) {
+		global $wgEchoNewMsgAlert;
+		$user = $sk->getUser();
+		if ( $user->isAnon() || self::isEchoDisabled( $user ) ) {
 			return true;
 		}
 
-		$notificationCount = MWEchoNotifUser::newFromUser( $wgUser )->getNotificationCount();
-		$text = EchoNotificationController::formatNotificationCount( $notificationCount );
-		$url = SpecialPage::getTitleFor( 'Notifications' )->getLocalURL();
-		if ( $notificationCount == 0 ) {
-			$linkClasses = array( 'mw-echo-notifications-badge' );
-		} else {
-			$linkClasses = array( 'mw-echo-unread-notifications', 'mw-echo-notifications-badge' );
-		}
-		$notificationsLink = array(
-			'href' => $url,
-			'text' => $text,
-			'active' => ( $url == $title->getLocalUrl() ),
-			'class' => $linkClasses,
-		);
+		// Add a "My notifications" item to personal URLs
+		if ( $user->getOption( 'echo-notify-show-link' ) ) {
+			$notificationCount = MWEchoNotifUser::newFromUser( $user )->getNotificationCount();
+			$text = EchoNotificationController::formatNotificationCount( $notificationCount );
+			$url = SpecialPage::getTitleFor( 'Notifications' )->getLocalURL();
+			if ( $notificationCount == 0 ) {
+				$linkClasses = array( 'mw-echo-notifications-badge' );
+			} else {
+				$linkClasses = array( 'mw-echo-unread-notifications', 'mw-echo-notifications-badge' );
+			}
+			$notificationsLink = array(
+				'href' => $url,
+				'text' => $text,
+				'active' => ( $url == $title->getLocalUrl() ),
+				'class' => $linkClasses,
+			);
 
-		$insertUrls = array( 'notifications' => $notificationsLink );
-		$personal_urls = wfArrayInsertAfter( $personal_urls, $insertUrls, 'userpage' );
+			$insertUrls = array( 'notifications' => $notificationsLink );
+			$personal_urls = wfArrayInsertAfter( $personal_urls, $insertUrls, 'userpage' );
+		}
+
+		// If the user has new messages, display a talk page alert
+		if ( $wgEchoNewMsgAlert && $user->getOption( 'echo-show-alert' ) && $user->getNewtalk() ) {
+			$personal_urls['mytalk']['text'] = $sk->msg( 'echo-new-messages' )->text();
+			$personal_urls['mytalk']['class'] = array( 'mw-echo-alert' );
+			$sk->getOutput()->addModuleStyles( 'ext.echo.alert' );
+		}
+
 		return true;
 	}
 
