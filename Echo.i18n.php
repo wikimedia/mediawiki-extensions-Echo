@@ -6158,14 +6158,15 @@ Hoc est summarium actionum hebdomadum apud {{grammar:accusative|{{SITENAME}}}}.'
 
 /** Ladino (Ladino)
  * @author Menachem.Moreira
+ * @author Universal Life
  */
 $messages['lad'] = array(
 	'prefs-emailsettings' => 'Opsyones del korreo elektroniko',
 	'echo-pref-email' => 'Korreo elektroniko',
 	'echo-pref-email-format-html' => 'HTML',
 	'echo-category-title-article-linked' => 'Pajina{{PLURAL:$1|enlase|enlases}}',
-	'notification-link-text-view-changes' => 'Ver kambios',
-	'notification-link-text-view-page' => 'Ver pajina',
+	'notification-link-text-view-changes' => 'Amostrar los trocamientos',
+	'notification-link-text-view-page' => 'Ver la hoja',
 	'notification-link-text-view-edit' => 'Ver edisyon',
 );
 
