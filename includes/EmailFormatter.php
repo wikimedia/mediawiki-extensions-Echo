@@ -384,13 +384,13 @@ EOF;
 				<td bgcolor="#FFFFFF" style="line-height:40px;">&nbsp;</td>
 				<td bgcolor="#FFFFFF">&nbsp;</td>
 			</tr><tr>
-				<td bgcolor="#F8F8F8">&nbsp;</td>
-				<td bgcolor="#F8F8F8">&nbsp;</td>
-				<td bgcolor="#F8F8F8" align="{$alignStart}" style="font-family: Arial, Helvetica, sans-serif; font-size:10px; line-height:13px; color:#6D6E70; padding:10px 20px;"><br />
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td align="{$alignStart}" style="font-family: Arial, Helvetica, sans-serif; font-size:10px; line-height:13px; color:#6D6E70; padding:10px 20px;"><br />
 					%%footer%%
 					<br /><br />
 				</td>
-				<td bgcolor="#F8F8F8">&nbsp;</td>
+				<td>&nbsp;</td>
 			</tr><tr>
 				<td colspan="4">&nbsp;</td>
 			</tr>
@@ -546,13 +546,13 @@ EOF;
 				<td bgcolor="#FFFFFF">&nbsp;</td>
 			</tr>
 			<tr>
-				<td bgcolor="#F8F8F8">&nbsp;</td>
-				<td bgcolor="#F8F8F8">&nbsp;</td>
-				<td bgcolor="#F8F8F8" align="{$alignStart}" style="font-family: Arial, Helvetica, sans-serif; font-size:10px; line-height:13px; color:#6D6E70; padding: 10px 20px;"><br />
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td align="{$alignStart}" style="font-family: Arial, Helvetica, sans-serif; font-size:10px; line-height:13px; color:#6D6E70; padding: 10px 20px;"><br />
 					%%footer%%
 					<br /><br />
 				</td>
-				<td bgcolor="#F8F8F8">&nbsp;</td>
+				<td>&nbsp;</td>
 			</tr>
 			<tr>
 				<td colspan="4">&nbsp;</td>
