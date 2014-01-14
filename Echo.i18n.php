@@ -6286,6 +6286,7 @@ Hei ass e Resumé vun den Aktivitéite vun dëser Woch op {{SITENAME}} fir Iech.
 );
 
 /** لوری (لوری)
+ * @author Bonevarluri
  * @author Mogoeilor
  */
 $messages['lrc'] = array(
@@ -6316,6 +6317,8 @@ $messages['lrc'] = array(
 	'notification-link-text-view-page' => 'بلگه بوینیت',
 	'notification-link-text-view-edit' => 'ویرایشت نه بوینیت',
 	'notification-edit-talk-page-with-section' => '[[کارور:$1|$1]] {{جنس:$1|}} یه گل پیغوم د بلگه چک چنه شما نیا د "[[بلگه چک چنه:$2#$3|$4]]".', # Fuzzy
+	'notification-edit-talk-page-flyout2' => '$1 {{جنس:$1|}}یه گل پیغوم د  [[چک چنه کارور:$2#$3|بلگه چک چنه]]تو نیائه.', # Fuzzy
+	'notification-edit-talk-page-flyout-with-section' => '$1 {{جنس:$1|}}یه گل پیغوم د بلگه چک چنه شما نیائه" د[[چک چنه کارور:$2#$3|$4]]".', # Fuzzy
 	'notification-page-linked-flyout' => '$2  {{جنس:$1|هوم پیوند دئه }}سی [[:$3]].',
 	'echo-mark-all-as-read' => 'همه نه د عنوان حنه بیه نشو بیه',
 	'echo-date-today' => 'امرو',
