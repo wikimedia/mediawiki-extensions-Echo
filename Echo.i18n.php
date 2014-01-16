@@ -542,7 +542,8 @@ Parameters:
 {{Identical|Mark all as read}}',
 	'echo-date-today' => "The header text for today's notification section.
 {{Identical|Today}}",
-	'echo-date-yesterday' => "The header text for yesterday's notification section",
+	'echo-date-yesterday' => "The header text for yesterday's notification section.
+{{Identical|Yesterday}}",
 	'echo-load-more-error' => 'Error message for errors in loading more notifications',
 	'notification-edit-talk-page-bundle' => 'Bundled message for edit-user-talk notification. Parameters:
 * $1 - the username who performs the action, which can be used for gender support
