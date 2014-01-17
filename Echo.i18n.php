@@ -1512,7 +1512,7 @@ $messages['br'] = array(
 	'echo-pref-email-format-plain-text' => 'Testenn blaen',
 	'echo-pref-notify-show-link' => "Diskouez ar c'hemennoù em barrenn ostilhoù",
 	'echo-learn-more' => "Gouzout hiroc'h",
-	'echo-new-messages' => "Kemennadennoù nevez zo ganeoc'h.", # Fuzzy
+	'echo-new-messages' => "Kemennadennoù nevez zo ganeoc'h",
 	'echo-category-title-article-linked' => 'Pajenn {{PLURAL:$1|link}}',
 	'echo-category-title-mention' => '{{PLURAL:$1|Meneg}}',
 	'echo-category-title-other' => '{{PLURAL:$1|All}}',
@@ -1540,6 +1540,7 @@ war {{SITENAME}}",
 	'notification-edit-talk-page-email-batch-body-with-section' => '$1 {{GENDER:$1|en deus|he deus}} embannet ur gemennadenn war ho pajenn gaozeal diwar-benn "$2".',
 	'notification-page-linked-email-subject' => 'Liammet eo bet ho pajenn ouzh {{SITENAME}}',
 	'notification-mention-email-subject' => '$1 {{GENDER:$1|en deus|he deus}} ho meneget war {{SITENAME}}',
+	'notification-mention-nosection-email-batch-body' => "$1 {{GENDER:$1|en deus|he deus}} meneget ac'hanoc'h war ar bajenn gaozeal $2.",
 	'notification-user-rights-email-subject' => 'Cheñchet eo ho kwirioù implijer war {{SITENAME}}',
 	'notification-user-rights-email-batch-body' => 'Kemmet eo bet ho kwirioù implijer gant $1. $2.',
 	'echo-email-subject-default' => 'Kemenn nevez e {{SITENAME}}',
@@ -1557,6 +1558,7 @@ $1",
 	'echo-email-batch-subject-daily' => '$1 kemenn{{PLURAL:$2||}} nevez hiziv', # Fuzzy
 	'echo-email-batch-subject-weekly' => '$1 kemenn{{PLURAL:$2||}} nevez ar sizhun-mañ', # Fuzzy
 	'echo-email-batch-link-text-view-all-notifications' => 'Gwelet an holl gemennoù',
+	'echo-rev-deleted-text-view' => 'Lamet eo bet an adwel pajenn-mañ.',
 );
 
 /** Bosnian (bosanski)
