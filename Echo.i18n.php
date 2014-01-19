@@ -6323,6 +6323,9 @@ $messages['lrc'] = array(
 	'notification-edit-talk-page-flyout2' => '$1 {{جنس:$1|}}یه گل پیغوم د  [[چک چنه کارور:$2#$3|بلگه چک چنه]]تو نیائه.', # Fuzzy
 	'notification-edit-talk-page-flyout-with-section' => '$1 {{جنس:$1|}}یه گل پیغوم د بلگه چک چنه شما نیائه" د[[چک چنه کارور:$2#$3|$4]]".', # Fuzzy
 	'notification-page-linked-flyout' => '$2  {{جنس:$1|هوم پیوند دئه }}سی [[:$3]].',
+	'notification-add-comment2' => '[[کارور:$1|$1]] {{جنس:$1|د}}د "[[$3|$2]]" د بلگه چک چنه "$4"  نیا.', # Fuzzy
+	'notification-add-comment-yours2' => '[[کارور:$1|$1]] {{جنس:$1|د}}د "[[$3|$2]]" د بلگه چک چنه "$4"  نیا.', # Fuzzy
+	'notification-user-rights' => 'حقوق کاروری تو [[ویجه:پهرستنومه/حقوق/$1|بیه {{جنس:$1|آلشت بیه }}]] وا [[کارور:$1|$1]]. $2. [[ویجه:نوم گه حقوق گرو|بیشتر بفئمید]]', # Fuzzy
 	'notification-page-linked-email-subject' => 'بلگه شما د {{نوم مالگه}} هوم پیوند بیه',
 	'echo-mark-all-as-read' => 'همه نه د عنوان حنه بیه نشو بیه',
 	'echo-date-today' => 'امرو',
@@ -9133,7 +9136,7 @@ $messages['sh'] = array(
 	'echo-pref-notify-show-link' => 'Pokaži obavještenja u mojoj alatnoj traci',
 	'echo-pref-new-message-indicator' => 'Pokaži indikator da je dobijena poruka na stranici za razgovor u mojoj alatnoj traci',
 	'echo-learn-more' => 'Saznajte više',
-	'echo-new-messages' => 'Imate nove poruke', # Fuzzy
+	'echo-new-messages' => 'Imate nove poruke.',
 	'echo-category-title-edit-user-talk' => '{{PLURAL:$1|Poruke}} na stranici za razgovor',
 	'echo-category-title-article-linked' => '{{PLURAL:$1|Linkovi na stranicu}}',
 	'echo-category-title-reverted' => '{{PLURAL:$1|Vraćanje izmjena}}',
@@ -9638,16 +9641,16 @@ $messages['sr-ec'] = array(
 	'notification-mention' => '[[User:$1|$1]] вас је {{GENDER:$1|спомену|споменула}} на страници за разговор $5 у „[[$3#$2|$4]]“.',
 	'notification-mention-flyout' => '$1 вас је {{GENDER:$1|споменуо|споменула}} на страници за разговор $5 у „[[$3#$2|$4]]“.',
 	'notification-user-rights' => 'Ваша корисничка права [[Special:Log/rights/$1|су била {{GENDER:$1|промењена}}]] од стране [[User:$1|$1]]. $2. [[Special:ListGroupRights|Сазнајте више]]',
-	'notification-user-rights-add' => 'Од сада сте члан {{PLURAL:$2|1=ове групе|ових група}}: $1', # Fuzzy
-	'notification-user-rights-remove' => 'Више нисте члан {{PLURAL:$2|1=ове групе|ових група}}: $1', # Fuzzy
-	'notification-reverted2' => '{{PLURAL:$4|1=Ваша измена на страници [[:$2]] је поништена|Ваше измене на страници [[:$2]] су поништене}} од стране {{GENDER:$1|корисника}} [[User:$1|$1]]. $3', # Fuzzy
-	'notification-reverted-flyout2' => '{{PLURAL:$4|1=Ваша измена на страници $2 је поништена|Ваше измене на страници $2 су поништене}} од стране {{GENDER:$1|корисника}} $1. $3', # Fuzzy
+	'notification-user-rights-add' => 'Од сада сте члан {{PLURAL:$2|ове групе|ових група}}: $1',
+	'notification-user-rights-remove' => 'Више нисте члан {{PLURAL:$2|ове групе|ових група}}: $1',
+	'notification-reverted2' => '{{PLURAL:$4|Ваша измена на страници [[:$2]] је поништена|Ваше измене на страници [[:$2]] су поништене}} од стране {{GENDER:$1|корисника|кориснице}} [[User:$1|$1]]. $3',
+	'notification-reverted-flyout2' => '{{PLURAL:$4|Ваша измена на страници $2 је поништена|Ваше измене на страници $2 су поништене}} од стране {{GENDER:$1|корисника|кориснице}} $1. $3',
 	'notification-edit-talk-page-email-subject2' => '$1 вам је {{GENDER:$1|оставио|оставила}} поруку на {{SITENAME}}',
 	'notification-edit-talk-page-email-batch-body2' => '$1 вам је {{GENDER:$1|оставио|оставила}} поруку на вашој страници за разговор:',
 	'notification-edit-talk-page-email-batch-body-with-section' => '$1 вам је {{GENDER:$1|оставио|оставила}} поруку на вашој страници за разговор у „$2“.',
 	'notification-page-linked-email-subject' => 'Ваша страница је повезана на {{SITENAME}}',
 	'notification-page-linked-email-batch-body' => 'Страница $2 је {{GENDER:$1|повезана}} са $3.',
-	'notification-reverted-email-batch-body2' => '{{PLURAL:$3|1=Ваша измена на страници $2 је поништена|Ваше измене на страници $2 су поништене}} од стране {{GENDER:$1|корисника}} $1.', # Fuzzy
+	'notification-reverted-email-batch-body2' => '{{PLURAL:$3|Ваша измена на страници $2 је поништена|Ваше измене на страници $2 су поништене}} од стране {{GENDER:$1|корисника|кориснице}} $1.',
 	'notification-mention-email-subject' => '$1 вас је {{GENDER:$1|споменуо|споменула}} на {{SITENAME}}',
 	'notification-mention-email-batch-body' => '$1 вас је {{GENDER:$1|споменуо|споменула}} на страници за разговор $4 у „$3“.',
 	'notification-user-rights-email-subject' => 'Ваша корисничка права су се променила на {{SITENAME}}',
@@ -9664,8 +9667,8 @@ $1',
 	'echo-date-today' => 'Данас',
 	'echo-date-yesterday' => 'Јуче',
 	'echo-load-more-error' => 'Дошло је до грешке при добављању више резултата.',
-	'notification-page-linked-bundle' => 'Страница $2 је {{GENDER:$1|повезана}} са $3 и $4 {{PLURAL:$5|1=друге странице|других страница}}. [[Special:WhatLinksHere/$2|Погледајте све везе према овој страници]]', # Fuzzy
-	'echo-email-batch-subject-daily' => 'Имате {{PLURAL:$2|1=ново обавештење|нова обавештења}} на {{SITENAME}}', # Fuzzy
+	'notification-page-linked-bundle' => 'Страница $2 је {{GENDER:$1|повезана}} са $3 и $4 {{PLURAL:$5|друге странице|других страница}}. [[Special:WhatLinksHere/$2|Погледајте све везе према овој страници]]',
+	'echo-email-batch-subject-daily' => 'Имате {{PLURAL:$2|ново обавештење|нова обавештења}} на {{SITENAME}}',
 	'echo-email-batch-link-text-view-all-notifications' => 'Погледај сва обавештења',
 	'echo-rev-deleted-text-view' => 'Ова ревизија странице је потиснута.',
 );
@@ -9727,16 +9730,16 @@ $messages['sr-el'] = array(
 	'notification-mention' => '[[User:$1|$1]] vas je {{GENDER:$1|spomenuo|spomenula}} na stranici za razgovor $5 u „[[$3#$2|$4]]“.',
 	'notification-mention-flyout' => '$1 vas je {{GENDER:$1|spomenuo|spomenula}} na stranici za razgovor $5 u „[[$3#$2|$4]]“.',
 	'notification-user-rights' => 'Vaša korisnička prava [[Special:Log/rights/$1|su bila {{GENDER:$1|promenjena}}]] od strane [[User:$1|$1]]. $2. [[Special:ListGroupRights|Saznajte više]]',
-	'notification-user-rights-add' => 'Od sada ste član {{PLURAL:$2|1=ove grupe|ovih grupa}}: $1', # Fuzzy
-	'notification-user-rights-remove' => 'Više niste član {{PLURAL:$2|1=ove grupe|ovih grupa}}: $1', # Fuzzy
-	'notification-reverted2' => '{{PLURAL:$4|1=Vaša izmena na stranici [[:$2]] je poništena|Vaše izmene na stranici [[:$2]] su poništene}} od strane {{GENDER:$1|korisnika}} [[User:$1|$1]]. $3', # Fuzzy
-	'notification-reverted-flyout2' => '{{PLURAL:$4|1=Vaša izmena na stranici $2 je poništena|Vaše izmene na stranici $2 su poništene}} od strane {{GENDER:$1|korisnika}} $1. $3', # Fuzzy
+	'notification-user-rights-add' => 'Od sada ste član {{PLURAL:$2|ove grupe|ovih grupa}}: $1',
+	'notification-user-rights-remove' => 'Više niste član {{PLURAL:$2|ove grupe|ovih grupa}}: $1',
+	'notification-reverted2' => '{{PLURAL:$4|Vaša izmena na stranici [[:$2]] je poništena|Vaše izmene na stranici [[:$2]] su poništene}} od strane {{GENDER:$1|korisnika|korisnice}} [[User:$1|$1]]. $3',
+	'notification-reverted-flyout2' => '{{PLURAL:$4|Vaša izmena na stranici $2 je poništena|Vaše izmene na stranici $2 su poništene}} od strane {{GENDER:$1|korisnika|korisnice}} $1. $3',
 	'notification-edit-talk-page-email-subject2' => '$1 vam je {{GENDER:$1|ostavio|ostavila}} poruku na {{SITENAME}}',
 	'notification-edit-talk-page-email-batch-body2' => '$1 vam je {{GENDER:$1|ostavio|ostavila}} poruku na vašoj stranici za razgovor:',
 	'notification-edit-talk-page-email-batch-body-with-section' => '$1 vam je {{GENDER:$1|ostavio|ostavila}} poruku na vašoj stranici za razgovor u „$2“.',
 	'notification-page-linked-email-subject' => 'Vaša stranica je povezana na {{SITENAME}}',
 	'notification-page-linked-email-batch-body' => '$2 je {{GENDER:$1|povezana}} sa $3.',
-	'notification-reverted-email-batch-body2' => '{{PLURAL:$3|1=Vaša izmena na stranici $2 je poništena|Vaše izmene na stranici $2 su poništene}} od strane {{GENDER:$1|korisnika}} $1.', # Fuzzy
+	'notification-reverted-email-batch-body2' => '{{PLURAL:$3|Vaša izmena na stranici $2 je poništena|Vaše izmene na stranici $2 su poništene}} od strane {{GENDER:$1|korisnika|korisnice}} $1.',
 	'notification-mention-email-subject' => '$1 vas je {{GENDER:$1|spomenuо|spomenula}} na {{SITENAME}}',
 	'notification-mention-email-batch-body' => '$1 vas je {{GENDER:$1|spomenuо|spomenula}} na stranici za razgovor $4 u „$3“.',
 	'notification-user-rights-email-subject' => 'Vaša korisnička prava su se promenila na {{SITENAME}}',
@@ -9753,7 +9756,8 @@ $1',
 	'echo-date-today' => 'Danas',
 	'echo-date-yesterday' => 'Juče',
 	'echo-load-more-error' => 'Došlo je do greške pri dobavljanju više rezultata.',
-	'echo-email-batch-subject-daily' => 'Imate {{PLURAL:$2|1=novo obaveštenje|nova obaveštenja}} na {{SITENAME}}', # Fuzzy
+	'notification-page-linked-bundle' => 'Stranica $2 je {{GENDER:$1|povezana}} sa $3 i $4 {{PLURAL:$5|druge stranice|drugih stranica}}. [[Special:WhatLinksHere/$2|Pogledajte sve veze prema ovoj stranici]]',
+	'echo-email-batch-subject-daily' => 'Imate {{PLURAL:$2|novo obaveštenje|nova obaveštenja}} na {{SITENAME}}',
 	'echo-email-batch-link-text-view-all-notifications' => 'Pogledaj sva obaveštenja',
 	'echo-rev-deleted-text-view' => 'Ova revizija stranice je potisnuta.',
 );
