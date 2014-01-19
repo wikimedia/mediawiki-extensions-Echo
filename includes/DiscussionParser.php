@@ -582,7 +582,7 @@ abstract class EchoDiscussionParser {
 			return false;
 		}
 
-		return $tsMatches[0][0];
+		return $tsMatches[0][1];
 	}
 
 	/**
@@ -627,13 +627,8 @@ abstract class EchoDiscussionParser {
 
 		foreach ( $lines as $line ) {
 			++$lineNumber;
-			$tsMatches = array();
-			if ( !preg_match(
-				"/$timestampRegex$endOfLine/mu",
-				$line,
-				$tsMatches,
-				PREG_OFFSET_CAPTURE
-			) ) {
+			$timestampPos = self::getTimestampPosition( $line );
+			if ( !$timestampPos ) {
 				// Ignore lines that don't finish with a timestamp
 				// print "I\tNo timestamp\n";
 				// print "$line\n";
@@ -642,7 +637,7 @@ abstract class EchoDiscussionParser {
 
 			// Now that we know we have a timestamp, look for
 			// the last user link on the line.
-			$userData = self::getUserFromLine( $line, $tsMatches[0][0] );
+			$userData = self::getUserFromLine( $line, $timestampPos );
 			if ( $userData === false ) {
 				// print "F\t$lineNumber\t$line\n";
 				continue;
