@@ -14,7 +14,7 @@
 /* Including .mw-echo-timestamp for backwards compat */
 .mw-echo-timestamp, .mw-echo-notification-footer {
 	color: #6D6D6D;
-	font-size: 9px;
+	font-size: 11px;
 	margin-top: 0.2em;
 }
 .mw-echo-notifications {
