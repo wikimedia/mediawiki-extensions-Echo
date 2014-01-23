@@ -4109,7 +4109,7 @@ $messages['gu'] = array(
 	'notification-link-text-view-mention' => 'ઉલ્લેખ જુઓ',
 	'notification-link-text-view-changes' => 'ફેરફારો જુઓ',
 	'notification-link-text-view-page' => 'પાનું જુઓ',
-	'notification-link-text-view-edit' => 'સમપાદન જુઓ',
+	'notification-link-text-view-edit' => 'ફેરફાર જુઓ',
 	'notification-edit-talk-page2' => '[[User:$1|$1]]એ તમારાં [[User talk:$2#$3|ચર્ચા પાનાં]] પર સંદેશો {{GENDER:$1|છોડ્યો}} છે.',
 	'notification-edit-talk-page-with-section' => '[[User:$1|$1]]એ તમારા ચર્ચા પાનાંમાં "[[User talk:$2#$3|$4]]" પર સંદેશો {{GENDER:$1|છોડ્યો}} છે.',
 	'notification-edit-talk-page-flyout2' => '$1એ તમારા [[User talk:$2#$3|ચર્ચા પાનાં]] પર સંદેશો {{GENDER:$1|છોડયો}} છે.',
@@ -5809,6 +5809,7 @@ $messages['kn'] = array(
  * @author Freebiekr
  * @author Hym411
  * @author Kwj2772
+ * @author Priviet
  * @author 관인생략
  * @author 아라
  */
@@ -5909,7 +5910,7 @@ $1',
 $1',
 	'echo-overlay-link' => '모든 알림',
 	'echo-overlay-title' => '<b>알림</b>',
-	'echo-overlay-title-overflow' => '<b>알림</b> (보여지는 $2개 중 $1개를 읽지 않음)',
+	'echo-overlay-title-overflow' => '<b>알림</b> (보이는 $2개 중 $1개를 읽지 않음)',
 	'echo-mark-all-as-read' => '모두 읽은 것으로 표시',
 	'echo-date-today' => '오늘',
 	'echo-date-yesterday' => '어제',
@@ -10360,6 +10361,20 @@ Burada {{SITENAME}} için bu günün etkinlik özetini bulabilirsiniz.',
 Burada {{SITENAME}} için bu haftaki etkinlik özetini bulabilirsiniz.',
 	'echo-email-batch-link-text-view-all-notifications' => 'Tüm bildirimleri göster',
 	'echo-rev-deleted-text-view' => 'Bu sayfa sürümü kaldırıldı.',
+);
+
+/** Tatar (Cyrillic script) (татарча)
+ * @author Ilnur efende
+ */
+$messages['tt-cyrl'] = array(
+	'tooltip-pt-notifications' => 'Сезнең хәбәрләр',
+	'notification-link-text-view-edit' => 'Үзгәртүне карау',
+	'notification-mention' => '[[User:$1|$1]] $5 бәхәс битенең "[[$3#$2|$4]]" бүлегендә сезне искә алды.',
+	'notification-mention-flyout' => '[[User:$1|$1]] $5 бәхәс битенең "[[$3#$2|$4]]" бүлегендә сезне искә алды.', # Fuzzy
+	'notification-mention-nosection' => '[[User:$1|$1]] $5 бәхәс битенең "[[$3#$2|$4]]" бүлегендә сезне искә алды.', # Fuzzy
+	'notification-mention-nosection-flyout' => '[[User:$1|$1]] $5 бәхәс битенең "[[$3#$2|$4]]" бүлегендә сезне искә алды.', # Fuzzy
+	'notification-mention-nosection-email-batch-body' => '[[User:$1|$1]] $5 бәхәс битенең "[[$3#$2|$4]]" бүлегендә сезне искә алды.', # Fuzzy
+	'echo-date-yesterday' => 'Кичә',
 );
 
 /** Uyghur (Arabic script) (ئۇيغۇرچە)
