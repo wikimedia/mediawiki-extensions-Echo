@@ -8722,7 +8722,7 @@ $messages['roa-tara'] = array(
 	'echo-pref-notify-show-link' => "Fà vedè le notifiche sus 'a barre de le struminde meje",
 	'echo-pref-new-message-indicator' => "Fà vedè le 'ndicature de le messàgge sus a pàgene de le 'ngazzaminde jndr'à barre de le struminde meje",
 	'echo-learn-more' => "'Mbare de cchiù",
-	'echo-new-messages' => 'Tu è messàgge nuève', # Fuzzy
+	'echo-new-messages' => 'Tu è messàgge nuève',
 	'echo-category-title-edit-user-talk' => "{{PLURAL:$1|Messàgge}} d'a pàgene de le 'ngazzaminde",
 	'echo-category-title-article-linked' => "{{PLURAL:$1|Collegamende|Collegaminde}} d'a pàgene",
 	'echo-category-title-reverted' => "Annulle {{PLURAL:$1|'u cangiamende|le cangiaminde}}",
@@ -8795,7 +8795,7 @@ $1",
 $1',
 	'echo-overlay-link' => 'Tutte le notificaziune',
 	'echo-overlay-title' => '<b>Notifiche</b>',
-	'echo-overlay-title-overflow' => '<b>Notifiche</b> (fà vedè $1 de $2 non lette)', # Fuzzy
+	'echo-overlay-title-overflow' => "<b>{{PLURAL:$1|Notifiche}}</b> (face 'ndrucà $1 de $2 non lette)",
 	'echo-mark-all-as-read' => 'Signe tutte cumme a lette',
 	'echo-date-today' => 'Osce',
 	'echo-date-yesterday' => 'Ajere',
