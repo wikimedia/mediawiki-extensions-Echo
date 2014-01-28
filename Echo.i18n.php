@@ -835,9 +835,9 @@ $1',
 	'echo-date-today' => 'اليوم',
 	'echo-date-yesterday' => 'أمس',
 	'echo-load-more-error' => 'وقع خطأ في إيراد المزيد من النتائج.',
-	'notification-edit-talk-page-bundle' => '{{GENDER:$1|{{PLURAL:$4|بعث}}|{{PLURAL:$4|بعثت}}}} لك $1 و{{PLURAL:$4|مستخدم آخر|مستخدم آخر|مستخدمان آخران|$3 آخرون}} برسالة في [[User talk:$2|صفحة نقاشك]].',
+	'notification-edit-talk-page-bundle' => '{{GENDER:$1|{{PLURAL:$4|بعث}}|{{PLURAL:$4|بعثت}}}} لك $1 و{{PLURAL:$4|مستخدم آخر|مستخدم آخر|مستخدمان آخران|$3 آخرون}} برسائل في [[User talk:$2|صفحة نقاشك]].',
 	'notification-page-linked-bundle' => '{{GENDER:$1|وضعت}} وصلة إلى $2 في $3 و{{PLURAL:$5|صفحة أخرى|صفحة أخرى|صفحتين أخريين|$4 صفحات أخرى|$4 صفحة أخرى}}. [[Special:WhatLinksHere/$2|انظر جميع الوصلات إلى هذه الصفحة]]',
-	'notification-edit-user-talk-email-batch-bundle-body' => '{{GENDER:$1|{{PLURAL:$3|بعث}}|{{PLURAL:$3|بعثت}}}} لك $1 و{{PLURAL:$3|مستخدم آخر|مستخدم آخر|مستخدمان آخران|$2 مستخدمين آخرين|$2 مستخدما آخر|$2 مستخدم آخر}} برسالة في صفحة نقاشك.',
+	'notification-edit-user-talk-email-batch-bundle-body' => '{{GENDER:$1|{{PLURAL:$3|بعث}}|{{PLURAL:$3|بعثت}}}} لك $1 و{{PLURAL:$3|مستخدم آخر|مستخدم آخر|مستخدمان آخران|$2 مستخدمين آخرين|$2 مستخدما آخر|$2 مستخدم آخر}} برسائل في صفحة نقاشك.',
 	'notification-page-linked-email-batch-bundle-body' => '{{GENDER:$1|وضعت}} وصلة إلى $2 في $3 و{{PLURAL:$5|صفحة أخرى|صفحة أخرى|صفحتين أخريين|$4 صفحات أخرى|$4 صفحة أخرى}}.',
 	'echo-email-batch-subject-daily' => 'لديك {{PLURAL:$2|إشعار جديد|إشعارات جديدة}} في {{SITENAME}}',
 	'echo-email-batch-subject-weekly' => 'لديك {{PLURAL:$2|إشعار جديد|إشعارات جديدة}} في {{SITENAME}} هذا الأسبوع',
@@ -5564,6 +5564,7 @@ Ini adalah ringkasan aktivitas kegiatan pekan ini di {{SITENAME}} untuk Anda.',
 /** Georgian (ქართული)
  * @author David1010
  * @author MIKHEIL
+ * @author Nodar Kherkheulidze
  */
 $messages['ka'] = array(
 	'echo-desc' => 'შეტყობინებების სისტემა',
@@ -5596,13 +5597,13 @@ $messages['ka'] = array(
 	'notification-link-text-view-changes' => 'ცვლილებების ნახვა',
 	'notification-link-text-view-edit' => 'რედაქტირების ნახვა',
 	'notification-edit-talk-page2' => 'მომხმარებელმა [[User:$1|$1]] {{GENDER:$1|დატოვა}} შეტყობინება თქვენი [[User talk:$2#$3|განხილვის გვერდზე]].',
-	'notification-edit-talk-page-with-section' => 'მომხმარებელმა [[User:$1|$1]] {{GENDER:$1|დატოვა}} შეტყობინება თქვენი განხილვის გვერდზე განყოფილებაში "[[User talk:$2#$3|$4]]".',
+	'notification-edit-talk-page-with-section' => 'მომხმარებელმა [[User:$1|$1]] {{GENDER:$1|დატოვა}} შეტყობინება თქვენი განხილვის გვერდზე განყოფილებაში „[[User talk:$2#$3|$4]]“.',
 	'notification-edit-talk-page-flyout2' => 'მომხმარებელმა $1 {{GENDER:$1|დატოვა}} შეტყობინება თქვენი [[User talk:$2#$3|განხილვის გვერდზე]].',
-	'notification-edit-talk-page-flyout-with-section' => 'მომხმარებელმა $1 {{GENDER:$1|დატოვა}} შეტყობინება თქვენი განხილვის გვერდზე განყოფილებაში "[[User talk:$2#$3|$4]]".',
+	'notification-edit-talk-page-flyout-with-section' => 'მომხმარებელმა $1 {{GENDER:$1|დატოვა}} შეტყობინება თქვენი განხილვის გვერდზე განყოფილებაში „[[User talk:$2#$3|$4]]“.',
 	'notification-page-linked' => '[[:$2]] {{GENDER:$1|ბმული}} გაკეთდა სტატიაში [[:$3]]. [[Special:WhatLinksHere/$2|იხილეთ ამ გვერდის ყველა ბმული]].',
 	'notification-new-user' => 'კეთილი იყოს თქვენი მობრძანება საიტზე {{SITENAME}}, $1! ჩვენ მოხარული ვართ თქვენი აქ ყოფნით.',
 	'notification-edit-talk-page-email-batch-body2' => 'მომხმარებელმა $1 {{GENDER:$1|დატოვა}} შეტყობინება თქვენი განხილვის გვერდზე:',
-	'notification-edit-talk-page-email-batch-body-with-section' => 'მომხმარებელმა $1 {{GENDER:$1|დატოვა}} შეტყობინება თქვენი განხილვის გვერდზე განყოფილებაში "$2".',
+	'notification-edit-talk-page-email-batch-body-with-section' => 'მომხმარებელმა $1 {{GENDER:$1|დატოვა}} შეტყობინება თქვენი განხილვის გვერდზე განყოფილებაში „$2“.',
 	'echo-notification-count' => '$1+',
 	'echo-overlay-link' => 'შეტყობინება',
 	'echo-overlay-title' => '<b>შეტყობინებები</b>',
@@ -6294,6 +6295,7 @@ Hei ass e Resumé vun den Aktivitéite vun dëser Woch op {{SITENAME}} fir Iech.
  * @author Mogoeilor
  */
 $messages['lrc'] = array(
+	'echo-desc' => 'وارسیاریا سامونه',
 	'prefs-echosubscriptions' => 'مه نه سی ای رخ ونیا خوردار کو',
 	'echo-pref-send-me' => 'کل کو سیم:',
 	'echo-pref-send-to' => 'کل کو سی:',
@@ -6313,6 +6315,8 @@ $messages['lrc'] = array(
 	'echo-pref-tooltip-edit-user-talk' => 'مه نه وختی که یه نفر د بلگه چک چنم پیغوم می نه یا جواو می ئه خوردار کو.',
 	'echo-no-agent' => '[هیشکی]',
 	'echo-no-title' => '[بی بلگه]',
+	'notifications' => 'وارسیاریا',
+	'tooltip-pt-notifications' => 'وارسیاریا شما',
 	'echo-more-info' => 'دونسمنیا هنی',
 	'echo-feedback' => 'بازحرد',
 	'notification-link-text-view-message' => 'دیئن پیغوما',
@@ -6328,9 +6332,11 @@ $messages['lrc'] = array(
 	'notification-add-comment-yours2' => '[[کارور:$1|$1]] {{جنس:$1|د}}د "[[$3|$2]]" د بلگه چک چنه "$4"  نیا.', # Fuzzy
 	'notification-user-rights' => 'حقوق کاروری تو [[ویجه:پهرستنومه/حقوق/$1|بیه {{جنس:$1|آلشت بیه }}]] وا [[کارور:$1|$1]]. $2. [[ویجه:نوم گه حقوق گرو|بیشتر بفئمید]]', # Fuzzy
 	'notification-page-linked-email-subject' => 'بلگه شما د {{نوم مالگه}} هوم پیوند بیه',
+	'echo-overlay-link' => 'همه وارسیاریا',
 	'echo-mark-all-as-read' => 'همه نه د عنوان حنه بیه نشو بیه',
 	'echo-date-today' => 'امرو',
 	'echo-date-yesterday' => 'دوش،دیرو',
+	'echo-email-batch-link-text-view-all-notifications' => 'همه وارسیاریانه بوینیت',
 );
 
 /** Lithuanian (lietuvių)
@@ -6815,7 +6821,7 @@ $1',
 $messages['mr'] = array(
 	'echo-desc' => 'अधिसूचना प्रणाली',
 	'prefs-echo' => 'अधिसूचना',
-	'prefs-emailsettings' => 'विपत्र एच्छिके',
+	'prefs-emailsettings' => 'विपत्र ऐच्छिके',
 	'prefs-displaynotifications' => 'प्रदर्शित करण्याचे पर्याय',
 	'prefs-echosubscriptions' => 'ह्या उपक्रमाबद्दल कळवावे',
 	'prefs-newmessageindicator' => 'नवीन संदेश निर्देशक',
