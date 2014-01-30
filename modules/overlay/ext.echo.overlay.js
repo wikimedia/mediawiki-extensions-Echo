@@ -272,10 +272,16 @@
 		$link.click( function ( e ) {
 			var $target;
 
-			e.preventDefault();
-
 			// log the badge click
 			mw.echo.logInteraction( 'ui-badge-link-click' );
+
+			// If the link is not near the top of the window, showing the overlay below it
+			// will likely look very silly, so let's not do this and just go the special page
+			if ( $link.offset().top > 0.2 * $( window ).height() ) {
+				return;
+			}
+
+			e.preventDefault();
 
 			$target = $( e.target );
 			// If the user clicked on the overlay or any child, ignore the click
