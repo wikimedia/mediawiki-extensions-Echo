@@ -5601,9 +5601,15 @@ $messages['ka'] = array(
 	'notification-edit-talk-page-flyout2' => 'მომხმარებელმა $1 {{GENDER:$1|დატოვა}} შეტყობინება თქვენი [[User talk:$2#$3|განხილვის გვერდზე]].',
 	'notification-edit-talk-page-flyout-with-section' => 'მომხმარებელმა $1 {{GENDER:$1|დატოვა}} შეტყობინება თქვენი განხილვის გვერდზე განყოფილებაში „[[User talk:$2#$3|$4]]“.',
 	'notification-page-linked' => '[[:$2]] {{GENDER:$1|ბმული}} გაკეთდა სტატიაში [[:$3]]. [[Special:WhatLinksHere/$2|იხილეთ ამ გვერდის ყველა ბმული]].',
+	'notification-mention' => '[[User:$1|$1]] {{GENDER:$1|მოგნიშნათ}} განხილვის გვერდზე „$5“ სექციაში „[[$3#$2|$4]]“.',
+	'notification-mention-flyout' => '$1 {{GENDER:$1|მოგნიშნათ}} განხილვის გვერდზე „$5“ სექციაში „[[$3#$2|$4]]“.',
+	'notification-mention-nosection' => '[[User:$1|$1]] {{GENDER:$1|მოგნიშნათ}} [[$3|$2 განხილვის გვერდზე]].',
+	'notification-mention-nosection-flyout' => '$1 {{GENDER:$1|მოგნიშნათ}} [[$3|$2 განხილვის გვერდზე]].',
 	'notification-new-user' => 'კეთილი იყოს თქვენი მობრძანება საიტზე {{SITENAME}}, $1! ჩვენ მოხარული ვართ თქვენი აქ ყოფნით.',
 	'notification-edit-talk-page-email-batch-body2' => 'მომხმარებელმა $1 {{GENDER:$1|დატოვა}} შეტყობინება თქვენი განხილვის გვერდზე:',
 	'notification-edit-talk-page-email-batch-body-with-section' => 'მომხმარებელმა $1 {{GENDER:$1|დატოვა}} შეტყობინება თქვენი განხილვის გვერდზე განყოფილებაში „$2“.',
+	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|მოგნიშნათ}} განხილვის გვერდზე „$4“ სექციაში „$3“.',
+	'notification-mention-nosection-email-batch-body' => '$1 {{GENDER:$1|მოგნიშნათ}} $2 განხილვის გვერდზე.',
 	'echo-notification-count' => '$1+',
 	'echo-overlay-link' => 'შეტყობინება',
 	'echo-overlay-title' => '<b>შეტყობინებები</b>',
@@ -6333,6 +6339,7 @@ $messages['lrc'] = array(
 	'notification-user-rights' => 'حقوق کاروری تو [[ویجه:پهرستنومه/حقوق/$1|بیه {{جنس:$1|آلشت بیه }}]] وا [[کارور:$1|$1]]. $2. [[ویجه:نوم گه حقوق گرو|بیشتر بفئمید]]', # Fuzzy
 	'notification-page-linked-email-subject' => 'بلگه شما د {{نوم مالگه}} هوم پیوند بیه',
 	'echo-overlay-link' => 'همه وارسیاریا',
+	'echo-overlay-title-overflow' => '<b>{{جمی:$1|وارسیاری یا}}</b> (نشو دئه  $1 د $2 حنه نبیه)', # Fuzzy
 	'echo-mark-all-as-read' => 'همه نه د عنوان حنه بیه نشو بیه',
 	'echo-date-today' => 'امرو',
 	'echo-date-yesterday' => 'دوش،دیرو',
@@ -8580,6 +8587,23 @@ Aqui está o resumo diário de atividades na {{SITENAME}} para você.',
 Aqui está o resumo semanal de atividades na {{SITENAME}} para você.',
 	'echo-email-batch-link-text-view-all-notifications' => 'Ver todas as notificações',
 	'echo-rev-deleted-text-view' => 'Esta revisão foi removida.',
+);
+
+/** Quechua (Runa Simi)
+ * @author AlimanRuna
+ */
+$messages['qu'] = array(
+	'notification-link-text-view-message' => 'Willasqata qhaway',
+	'notification-link-text-view-changes' => 'Hukchasqakunata qhaway',
+	'notification-edit-talk-page-email-batch-body2' => "$1 sutiyuq {{GENDER:$1|ruraqqa}} rimanakuy p'anqaykipi willasqantam saqirqan:",
+	'echo-email-footer-default' => '$2
+
+Kachasunayku e-chaski qillqakunata kamachinaykipaqqa, allinkachinaykikunata llanchiy:
+{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
+
+$1',
+	'echo-email-footer-default-html' => 'Kachasunayku e-chaski qillqakunata kamachinaykipaqqa, <a href="$2" style="text-decoration:none; color: #3868B0;">allinkachinaykikunata llanchiy</a>.<br />
+$1',
 );
 
 /** Romanian (română)
@@ -10988,7 +11012,7 @@ $1',
 	'echo-email-batch-body-intro-weekly' => '$1，
 这是本周您在{{SITENAME}}的通知摘要。',
 	'echo-email-batch-link-text-view-all-notifications' => '查看所有通知',
-	'echo-rev-deleted-text-view' => '该页面版本已经被取消。',
+	'echo-rev-deleted-text-view' => '此页面修订已被隐藏。',
 );
 
 /** Traditional Chinese (中文（繁體）‎)
