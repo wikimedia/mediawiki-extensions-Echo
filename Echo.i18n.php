@@ -1940,12 +1940,12 @@ $messages['ce'] = array(
 	'echo-pref-new-message-indicator' => 'Сан панелан тӀехь гайта хааман индикатор',
 	'echo-learn-more' => 'Цул совнаха хаа',
 	'echo-new-messages' => 'Хьуна кхаьчна керла хаам',
-	'echo-category-title-edit-user-talk' => 'Дийцаре агӀонехь {{PLURAL:$1|1=хаам|хаамаш}}', # Fuzzy
-	'echo-category-title-article-linked' => 'АгӀона тӀе {{PLURAL:$1|1=хьажораг|хьажорагаш}}', # Fuzzy
-	'echo-category-title-reverted' => '{{PLURAL:$1|1=юхадаккхар нисдар|юхадаккхар нисдарш}}', # Fuzzy
-	'echo-category-title-mention' => '{{PLURAL:$1|1=хаам|хаамаш}}', # Fuzzy
-	'echo-category-title-other' => '{{PLURAL:$1|1=кхин долу|кхин дерш}}', # Fuzzy
-	'echo-category-title-system' => '{{PLURAL:$1|системан}}', # Fuzzy
+	'echo-category-title-edit-user-talk' => 'Дийцаре агӀонехь {{PLURAL:$1|хаам|хаамаш}}',
+	'echo-category-title-article-linked' => 'АгӀона тӀе {{PLURAL:$1|хьажораг|хьажорагаш}}',
+	'echo-category-title-reverted' => '{{PLURAL:$1|юхадаккхар нисдар|юхадаккхар нисдарш}}',
+	'echo-category-title-mention' => '{{PLURAL:$1|хаам|хаамаш}}',
+	'echo-category-title-other' => '{{PLURAL:$1|кхин долу|кхин дерш}}',
+	'echo-category-title-system' => '{{PLURAL:$1|Системан}}',
 	'echo-pref-tooltip-edit-user-talk' => 'Хаийта соьга, цхьам хаам баийтача я сан дийцаре агӀорахь жоп делча.',
 	'echo-pref-tooltip-article-linked' => 'Хаийта соьга, цхьам ас кхоьллина агӀона тӀе хьажораг цхьан агӀонашкахь йитича.',
 	'echo-pref-tooltip-reverted' => 'Хаийта соьга, цхьам сан нисдар юха даьккхича.',
@@ -1983,23 +1983,24 @@ $messages['ce'] = array(
 	'notification-mention-nosection-flyout' => '{{GENDER:$1||декъашхочо}} хьо хьахийна [[$3|дийцаре агӀонехь $2]].',
 	'notification-user-rights' => 'Хьан бакъонаш [[Special:Log/rights/$1|{{GENDER:$1|хийцина}}]] [[User:$1|$1]]. $2. [[Special:ListGroupRights|Мадарра]]',
 	'notification-user-rights-flyout' => 'Декъашхочун бакъонаш {{GENDER:$1|хийцина}} $1. $2. [[Special:ListGroupRights|Мадарра]]',
-	'notification-user-rights-add' => 'ХӀинца хьо {{PLURAL:$2|1=тобан юкъа эцна|тобаншан юкъа эцна}}: $1', # Fuzzy
-	'notification-user-rights-remove' => 'Хьан хӀокху {{PLURAL:$2|1=тобан|тобашан}} бакъо дӀаяьккхина: $1', # Fuzzy
+	'notification-user-rights-add' => 'ХӀинца хьо {{PLURAL:$2|1=тобан юкъа эцна|тобанийн юкъа эцна}}: $1',
+	'notification-user-rights-remove' => 'Хьан хӀокху {{PLURAL:$2|тобан|тобанийн}} бакъо дӀаяьккхина: $1',
 	'notification-new-user' => 'Марша догӀилла {{SITENAME}}, $1! Хьо кхузахь хиларна даккхийде тхо.',
-	'notification-reverted2' => '{{PLURAL:$4|1=АгӀонехь [[:$2]] хьан нисдар|АгӀонехь [[:$2]] хьан нисдарш}}  {{GENDER:$1|юхадаькхина}} [[User:$1|$1]]. $3', # Fuzzy
-	'notification-reverted-flyout2' => '{{PLURAL:$4|1=АгӀонехь $2 хьан нисдар|АгӀонехь $2 хьан нисдарш}} {{GENDER:$1|юхадаькхина}} $1. $3', # Fuzzy
+	'notification-reverted2' => '{{PLURAL:$4|АгӀонехь [[:$2]] хьан нисдар|АгӀонехь [[:$2]] хьан нисдарш}}  {{GENDER:$1|юхадаькхина}} [[User:$1|$1]]. $3',
+	'notification-reverted-flyout2' => '{{PLURAL:$4|АгӀонехь $2 хьан нисдар|АгӀонехь $2 хьан нисдарш}} {{GENDER:$1|юхадаькхина}} $1. $3',
 	'notification-edit-talk-page-email-subject2' => '{{GENDER:$1|Декъашхочо}} $1 «{{SITENAME}}» сайтехь хьуна хаам {{GENDER:$1|биттина}}',
 	'notification-edit-talk-page-email-batch-body2' => 'Хьан дийцаре агӀонехь {{GENDER:$1|декъашхочо}} $1 {{GENDER:$1|битина}} хаам:',
 	'notification-edit-talk-page-email-batch-body-with-section' => 'Хьан дийцаре агӀонехь {{GENDER:$1|декъашхочо}} $1 {{GENDER:$1|битина}} хаам (темехь) «$2»',
 	'notification-page-linked-email-subject' => '«{{SITENAME}}» сайтехь хьан декъашхочун агӀона тӀе хьажораг хӀоттина',
 	'notification-page-linked-email-batch-body' => '{{GENDER:$1|Декъашхо}} $1 {{GENDER:$1|тӀетеввжина}} цу $2 $3',
-	'notification-reverted-email-subject2' => '{{GENDER:$1|Цхьам}} «{{SITENAME}}» сайтехь хьан {{PLURAL:$3|1=нисдар юхадаькхина|нисдарш юхадаьхина}}', # Fuzzy
-	'notification-reverted-email-batch-body2' => '{{GENDER:$1|Декъашхочо}} $1 {{PLURAL:$3|1=«$2» агӀонехь хьан нисдар юхадаьккхина|«$2» агӀонехь хьан нисдарш юхадаьхина}}.', # Fuzzy
+	'notification-reverted-email-subject2' => '{{GENDER:$1|Цхьам}} «{{SITENAME}}» сайтехь хьан {{PLURAL:$3|нисдар юхадаькхина|нисдарш юхадаьхина}}',
+	'notification-reverted-email-batch-body2' => '{{GENDER:$1|Декъашхочо}} $1 {{PLURAL:$3|«$2» агӀонехь хьан нисдар юхадаьккхина|«$2» агӀонехь хьан нисдарш юхадаьхина}}.',
 	'notification-mention-email-subject' => '$1 {{GENDER:$1|Декъашхочо}} «{{SITENAME}}» сайтехь хьо хьахийна',
 	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|хьахийна}} хьо $4 дийцарийн агӀо "$3".',
 	'notification-mention-nosection-email-batch-body' => '$1 декъашхочо хьо хьахийна $2 агӀона чохь.',
 	'notification-user-rights-email-subject' => 'Сайтехь «{{SITENAME}}» хьан бакъонаш хийцина',
 	'notification-user-rights-email-batch-body' => '{{GENDER:$1|Декъашхочо}} хьан бакъонаш хийцина $1. $2.',
+	'echo-notification-count' => '$1+',
 	'echo-email-subject-default' => 'Сайтехь «{{SITENAME}}» керла хаам',
 	'echo-email-body-default' => 'Сайтехь «{{SITENAME}}» хьога керла хаам бу:
 
@@ -2015,17 +2016,17 @@ $1',
 $1',
 	'echo-overlay-link' => 'Массо хаамаш',
 	'echo-overlay-title' => '<b>Хаамаш</b>',
-	'echo-overlay-title-overflow' => '<b>{{PLURAL:$1|Хаам}}</b> ({{PLURAL:$1|гайтина}} $1 царах $2 {{PLURAL:$2|беша бац}})', # Fuzzy
+	'echo-overlay-title-overflow' => '<b>{{PLURAL:$1|Хаам}}</b> ({{PLURAL:$1|гайтина}} $1 царах $2 {{PLURAL:$2|беша бац}})',
 	'echo-mark-all-as-read' => 'Массо билгал йе еша сана',
 	'echo-date-today' => 'Тахана',
 	'echo-date-yesterday' => 'Селхана',
 	'echo-load-more-error' => 'Кхин тӀе хилам схьаоьцуш гӀалат хила',
-	'notification-edit-talk-page-bundle' => '$1 а $3 {{PLURAL:$4|кхи}} {{GENDER:$1|декъашхоша}} хьан [[User talk:$2|дийцаре агӀонехь хаам битина]].', # Fuzzy
-	'notification-page-linked-bundle' => 'АгӀона тӀе «$2» {{GENDER:$1|хьажораг}} ю «$3» агӀона чура а кхин $4 {{PLURAL:$5|1=агӀона|агӀонашан}}. [[Special:WhatLinksHere/$2|Хьажа массо хьажорагашка]]', # Fuzzy
-	'notification-edit-user-talk-email-batch-bundle-body' => '$1 а $2 {{PLURAL:$3|кхин}} {{GENDER:$1|декъашхоша}} хьан дийцаре агӀонехь хаам битина.', # Fuzzy
-	'notification-page-linked-email-batch-bundle-body' => 'АгӀона «$2» тӀе {{GENDER:$1|хьажораг ю}} «$3» агӀона чура а кхин $4 {{PLURAL:$5|1=агӀона|агӀонашан}} чура а', # Fuzzy
-	'echo-email-batch-subject-daily' => 'Хьоьга кхаьчна $2 {{PLURAL:$2|1=керла хаам|керла хаамаш}} «{{SITENAME}}» проектехь', # Fuzzy
-	'echo-email-batch-subject-weekly' => 'ХӀокху кӀиран чохь хьоьга кхаьчна $2 {{PLURAL:$2|1=керла хаам|керла хаамаш}} «{{SITENAME}}» проектехь', # Fuzzy
+	'notification-edit-talk-page-bundle' => '$1 а $3 {{PLURAL:$4|кхи}} {{GENDER:$1|декъашхоша}} хьан [[User talk:$2|дийцаре агӀонехь хаам битина]].',
+	'notification-page-linked-bundle' => 'АгӀона тӀе «$2» {{GENDER:$1|хьажораг}} ю «$3» агӀона чура а кхин $4 {{PLURAL:$5|агӀона|агӀонийн}}. [[Special:WhatLinksHere/$2|Хьажа массо хьажорагашка]]',
+	'notification-edit-user-talk-email-batch-bundle-body' => '$1 а $2 {{PLURAL:$3|кхин}} {{GENDER:$1|декъашхоша}} хьан дийцаре агӀонехь хаам битина.',
+	'notification-page-linked-email-batch-bundle-body' => 'АгӀона «$2» тӀе {{GENDER:$1|хьажораг ю}} «$3» агӀона чура а кхин $4 {{PLURAL:$5|агӀона|агӀонийн}} чура а',
+	'echo-email-batch-subject-daily' => 'Хьоьга кхаьчна $2 {{PLURAL:$2|керла хаам|керла хаамаш}} «{{SITENAME}}» проектехь',
+	'echo-email-batch-subject-weekly' => 'ХӀокху кӀиран чохь хьоьга кхаьчна $2 {{PLURAL:$2|керла хаам|керла хаамаш}} «{{SITENAME}}» проектехь',
 	'echo-email-batch-body-intro-daily' => 'Маршалла, $1!
 Тахан хилларг {{SITENAME}}.',
 	'echo-email-batch-body-intro-weekly' => 'Маршалла, $1!
@@ -8593,8 +8594,16 @@ Aqui está o resumo semanal de atividades na {{SITENAME}} para você.',
  * @author AlimanRuna
  */
 $messages['qu'] = array(
+	'echo-new-messages' => 'Musuq willaykunam qhawanayki kachkan',
+	'tooltip-pt-notifications' => 'Qampaq willaykuna',
 	'notification-link-text-view-message' => 'Willasqata qhaway',
 	'notification-link-text-view-changes' => 'Hukchasqakunata qhaway',
+	'notification-edit-talk-page-flyout2' => "$1 qampaq {{GENDER:$1|willaynintam}} [[User talk:$2#$3|rimanakuy p'anqaykipi]] saqisurqanki.",
+	'notification-edit-talk-page-flyout-with-section' => "$1 qampaq {{GENDER:$1|willaynintam}} rimanakuy p'anqaykipi [[User talk:$2#$3|$4]]-pi saqisurqanki.",
+	'notification-mention' => '[[User:$1|$1]] qammanta rimaspa {{GENDER:$1|qillqarqan}} $5 rimanakuy p\'anqapi "[[$3#$2|$4]]" nisqapim.',
+	'notification-mention-flyout' => '$1 qammanta rimaspa {{GENDER:$1|qillqarqan}} $5 rimanakuy p\'anqapi "[[$3#$2|$4]]" nisqapim.',
+	'notification-reverted2' => "[[User:$1|$1]] sutiyuq ruraqqa [[:$2]] nisqapi qampa {{PLURAL:$4|llamk'apusqaykita|llamk'apusqaykikunata}} {{GENDER:$1|kutichirqanmi}}. $3",
+	'notification-reverted-flyout2' => "$1 sutiyuq ruraqqa $2 nisqapi qampa {{PLURAL:$4|llamk'apusqaykita|llamk'apusqaykikunata}} {{GENDER:$1|kutichirqanmi}}. $3",
 	'notification-edit-talk-page-email-batch-body2' => "$1 sutiyuq {{GENDER:$1|ruraqqa}} rimanakuy p'anqaykipi willasqantam saqirqan:",
 	'echo-email-footer-default' => '$2
 
@@ -8604,6 +8613,8 @@ Kachasunayku e-chaski qillqakunata kamachinaykipaqqa, allinkachinaykikunata llan
 $1',
 	'echo-email-footer-default-html' => 'Kachasunayku e-chaski qillqakunata kamachinaykipaqqa, <a href="$2" style="text-decoration:none; color: #3868B0;">allinkachinaykikunata llanchiy</a>.<br />
 $1',
+	'notification-edit-talk-page-bundle' => "$1, $3 {{PLURAL:$4|wakinpas|wakinkunapas}} qampaq {{GENDER:$1|willaynintam}} [[User talk:$2|rimanakuy p'anqaykipi]] saqisurqanki.",
+	'notification-edit-user-talk-email-batch-bundle-body' => "$1, $2 wakin {{PLURAL:$3|ruraqpas|ruraqkunapas}} [[User talk:$2|rimanakuy p'anqaykipim]] qillqamusurqanki.", # Fuzzy
 );
 
 /** Romanian (română)
