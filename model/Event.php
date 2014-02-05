@@ -109,7 +109,9 @@ class EchoEvent {
 		}
 
 		// If the extra size is more than 50000 bytes, that means there is
-		// probably a problem with the design of this notification type
+		// probably a problem with the design of this notification type.
+		// There might be data loss if the size exceeds the DB column size of
+		// event_extra.
 		if ( strlen( $obj->serializeExtra() ) > 50000 ) {
 			wfDebugLog( __CLASS__, __FUNCTION__ . ': event extra data is too huge for ' . $info['type'] );
 			return false;
