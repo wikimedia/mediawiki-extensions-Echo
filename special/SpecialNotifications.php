@@ -59,6 +59,9 @@ class SpecialNotifications extends SpecialPage {
 		$notices = '';
 		$unread = array();
 		foreach ( $notif as $row ) {
+			if ( !$row['*'] ) {
+				continue;
+			}
 			// Output the date header if it has not been displayed
 			if ( $dateHeader !== $row['timestamp']['date'] ) {
 				$dateHeader = $row['timestamp']['date'];

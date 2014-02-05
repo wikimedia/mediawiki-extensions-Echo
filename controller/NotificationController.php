@@ -328,11 +328,24 @@ class EchoNotificationController {
 		$eventType = $event->getType();
 
 		if ( isset( $wgEchoNotifications[$eventType] ) ) {
-			$params = $wgEchoNotifications[$eventType];
-			$notifier = EchoNotificationFormatter::factory( $params );
-			$notifier->setOutputFormat( $format );
+			try {
+				$params = $wgEchoNotifications[$eventType];
+				$notifier = EchoNotificationFormatter::factory( $params );
+				$notifier->setOutputFormat( $format );
 
-			return $notifier->format( $event, $user, $type );
+				return $notifier->format( $event, $user, $type );
+			} catch ( Exception $e ) {
+				$meta = array(
+					'id' => $event->getId(),
+					'eventType' => $eventType,
+					'format' => $format,
+					'type' => $type,
+					'user' => $user ? $user->getName() : 'no user',
+				);
+				wfDebugLog( __CLASS__, __FUNCTION__ . ": Error formatting " . FormatJson::encode( $meta ) );
+				MWExceptionHandler::logException( $e );
+				return '';
+			}
 		}
 
 		return Xml::tags( 'span', array( 'class' => 'error' ),
