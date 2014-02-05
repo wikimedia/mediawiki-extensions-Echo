@@ -3633,6 +3633,7 @@ $messages['fo'] = array(
  * @author Sherbrooke
  * @author Tititou36
  * @author Urhixidur
+ * @author Verdy p
  * @author Wyz
  * @author Y-M D
  */
@@ -3680,6 +3681,7 @@ $messages['fr'] = array(
 	'echo-none' => "Vous n'avez reçu aucune notification.",
 	'echo-more-info' => "Plus d'information",
 	'echo-feedback' => 'Avis',
+	'echo-quotation-marks' => '« $1 »',
 	'notification-link-text-view-message' => 'Afficher le message',
 	'notification-link-text-view-mention' => 'Afficher la mention',
 	'notification-link-text-view-changes' => 'Afficher les modifications',
@@ -5187,13 +5189,50 @@ $messages['is'] = array(
 	'echo-pref-email-format-plain-text' => 'óstílfærður texti',
 	'echo-pref-notify-show-link' => 'Sýna tilkynningar í verkfærastiku',
 	'echo-new-messages' => 'Þú hefur ný skilaboð',
-	'echo-category-title-edit-user-talk' => '{{PLURAL:$1|Skilaboð|Skilaboð}} á spjallsíðu', # Fuzzy
+	'echo-category-title-edit-user-talk' => '{{PLURAL:$1|Skilaboð}} á spjallsíðu',
 	'echo-category-title-article-linked' => '{{PLURAL:$1|Tengil|Tengla}} á síðum',
+	'echo-category-title-reverted' => '{{PLURAL:$1|Breyting tekin|Breytingar teknar}} aftur',
 	'echo-category-title-other' => '{{PLURAL:$1|Annað}}',
 	'echo-pref-tooltip-edit-user-talk' => 'Tilkynntu mig um þegar einhver skilur eftir skilaboð eða svarar skilaboðum á spjallsíðunni minni.',
+	'echo-pref-tooltip-article-linked' => 'Gefðu mér tilkynningu þegar einhver tengir í síðu, sem ég bjó til, frá annari síðu.',
+	'echo-pref-tooltip-reverted' => 'Gefðu mér tilkynningu þegar einhver tekur aftur breytingu sem ég gerði.',
+	'echo-pref-tooltip-mention' => 'Gefðu mér tilkynningu þegar einhver tengir í notendasíðu mína frá hvaða spjallsíðu sem er.',
 	'echo-no-agent' => '[Enginn]',
 	'echo-no-title' => '[Engin síða]',
 	'echo-error-no-formatter' => 'Engin stílviðmið tilgreind fyrir tilkynningum.',
+	'echo-error-preference' => 'Villa: Mistókst að setja notenda stillingu.',
+	'echo-error-token' => 'Villa: Mistókst að sækja tóka notanda.',
+	'notifications' => 'Tilkynningar',
+	'tooltip-pt-notifications' => 'Þínar tilkynningar',
+	'echo-specialpage' => 'Tilkynningar',
+	'echo-anon' => 'Til þess að fá tilkynningar þarft þú annaðhvort að [$1 búa til aðgang] eða [$2 skrá þig inn].',
+	'echo-none' => 'Þú hefur engar tilkynningar.',
+	'echo-more-info' => 'Frekari upplýsingar',
+	'echo-feedback' => 'Svörun',
+	'notification-link-text-view-message' => 'Sjá skilaboð',
+	'notification-link-text-view-changes' => 'Sjá breytingar',
+	'notification-link-text-view-page' => 'Skoða síðu',
+	'notification-link-text-view-edit' => 'Skoða breytingu',
+	'notification-edit-talk-page2' => '[[User:$1|$1]] {{GENDER:$1|skildi}} eftir skilaboð á [[User talk:$2#$3|spjallsíðu þinni]].',
+	'notification-edit-talk-page-with-section' => '[[User:$1|$1]] {{GENDER:$1|skildi}} eftir skilaboð í "[[User talk:$2#$3|$4]]".',
+	'notification-edit-talk-page-flyout2' => '$1 {{GENDER:$1|skildi}} eftir skilaboð á [[User talk:$2#$3|spjallsíðu þinni]].',
+	'notification-edit-talk-page-flyout-with-section' => '$1 {{GENDER:$1|skildi}} eftir skilaboð á spjallsíðu þinni í "[[User talk:$2#$3|$4]]".',
+	'notification-page-linked' => '[[:$2]] var {{GENDER:$1|tengd}} við [[:$3]]. [[Special:WhatLinksHere/$2|Sjá alla tengla sem tengjast hingað]].',
+	'notification-page-linked-flyout' => '$2 var {{GENDER:$1|tengd}} við [[:$3]].',
+	'notification-add-comment2' => '[[User:$1|$1]] {{GENDER:$1|tjáði sig}} um „[[$3|$2]]” á spjallsíðu „$4”.',
+	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]] {{GENDER:$1|senti}} þér skilaboð: "[[$3#$2|$2]]".',
+	'notification-add-comment-yours2' => '[[User:$1|$1]] {{GENDER:$1|tjáði sig}} í "[[$3#$2|$2]]" á spjallsíðu þinni.',
+	'notification-user-rights' => 'Notendaréttindum þínum [[Special:Log/rights/$1|var {{GENDER:$1|breytt}}]] af [[User:$1|$1]]. $2. [[Special:ListGroupRights|Læra meira]]',
+	'notification-user-rights-flyout' => 'Notendaréttindum þínum var {{GENDER:$1|breytt}} af $1. $2. [[Special:ListGroupRights|Læra meira]]',
+	'notification-user-rights-add' => 'Þú ert nú meðlimur {{PLURAL:$2|þessa hóps|þessara hópa}}: $1',
+	'notification-user-rights-remove' => 'Þú ert ekki lengur meðlimur {{PLURAL:$2|þessa hóps|þessara hópa}}: $1',
+	'notification-new-user' => 'Velkomin til {{SITENAME}}, $1! Við erum ánægð með að sjá þig hér.',
+	'notification-reverted2' => '{{PLURAL:$4|Breyting þín|Breytingar þínar}} á [[:$2]] {{PLURAL:$4|hefur verið {{GENDER:$1|tekin aftur}}|hafa verið {{GENDER:$1|teknar aftur}}}} af [[User:$1|$1]]. $3',
+	'notification-reverted-flyout2' => '{{PLURAL:$4|Breyting þín|Breytingar þínar}} á $2 {{PLURAL:$4|hefur verið {{GENDER:$1|tekin aftur}}|hafa verið {{GENDER:$1|teknar aftur}}}} af $1. $3',
+	'notification-edit-talk-page-email-subject2' => '$1 {{GENDER:$1|skildi}} eftir skilaboð handa þér á {{SITENAME}}',
+	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|skildi}} eftir skilaboð á spjallsíðu þinni:',
+	'notification-edit-talk-page-email-batch-body-with-section' => '$1 {{GENDER:$1|skildi}} eftir skilaboð á spjallsíðu þinni undir "$2".',
+	'notification-reverted-email-subject2' => '{{PLURAL:$3|Breytingin þín var tekin aftur|Breytingarnar þínar voru teknar}} {{GENDER:$1|aftur}} á {{SITENAME}}',
 );
 
 /** Italian (italiano)
@@ -8594,8 +8633,11 @@ Aqui está o resumo semanal de atividades na {{SITENAME}} para você.',
  * @author AlimanRuna
  */
 $messages['qu'] = array(
+	'prefs-echo' => 'Willaykuykuna',
 	'echo-new-messages' => 'Musuq willaykunam qhawanayki kachkan',
+	'notifications' => 'Willaykuykuna',
 	'tooltip-pt-notifications' => 'Qampaq willaykuna',
+	'echo-specialpage' => 'Willaykuykuna',
 	'notification-link-text-view-message' => 'Willasqata qhaway',
 	'notification-link-text-view-changes' => 'Hukchasqakunata qhaway',
 	'notification-edit-talk-page-flyout2' => "$1 qampaq {{GENDER:$1|willaynintam}} [[User talk:$2#$3|rimanakuy p'anqaykipi]] saqisurqanki.",
@@ -8613,8 +8655,11 @@ Kachasunayku e-chaski qillqakunata kamachinaykipaqqa, allinkachinaykikunata llan
 $1',
 	'echo-email-footer-default-html' => 'Kachasunayku e-chaski qillqakunata kamachinaykipaqqa, <a href="$2" style="text-decoration:none; color: #3868B0;">allinkachinaykikunata llanchiy</a>.<br />
 $1',
+	'echo-overlay-link' => 'Tukuy qampaq willaykuykuna',
+	'echo-overlay-title' => '<b>Willaykuykuna</b>',
 	'notification-edit-talk-page-bundle' => "$1, $3 {{PLURAL:$4|wakinpas|wakinkunapas}} qampaq {{GENDER:$1|willaynintam}} [[User talk:$2|rimanakuy p'anqaykipi]] saqisurqanki.",
 	'notification-edit-user-talk-email-batch-bundle-body' => "$1, $2 wakin {{PLURAL:$3|ruraqpas|ruraqkunapas}} [[User talk:$2|rimanakuy p'anqaykipim]] qillqamusurqanki.", # Fuzzy
+	'echo-email-batch-link-text-view-all-notifications' => 'Tukuy willaykuykunata qhaway',
 );
 
 /** Romanian (română)
