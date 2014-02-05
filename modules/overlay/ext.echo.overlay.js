@@ -79,9 +79,13 @@
 								'data-notification-event': data.id,
 								'data-notification-type': data.type
 							} )
-							.addClass( 'mw-echo-notification' )
-							.append( data['*'] )
-							.appendTo( $ul );
+							.addClass( 'mw-echo-notification' );
+					if ( !data['*'] ) {
+						return;
+					}
+
+					$li.append( data['*'] )
+						.appendTo( $ul );
 
 					// Grey links in the notification title and footer (except on hover)
 					$li.find( '.mw-echo-title a, .mw-echo-notification-footer a' )
