@@ -193,7 +193,7 @@ $wgResourceModules += array(
 		'styles' => 'special/ext.echo.special.css',
 		'dependencies' => array(
 			'ext.echo.desktop',
-			'mediawiki.ui',
+			'mediawiki.ui.button',
 		),
 		'messages' => array(
 			'echo-load-more-error',
