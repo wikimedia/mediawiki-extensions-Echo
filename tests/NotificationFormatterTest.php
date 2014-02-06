@@ -206,19 +206,15 @@ class EchoNotificationFormatterTest extends MediaWikiTestCase {
 		$this->assertContains( $expect, $this->format( $event, 'html' ) );
 	}
 
-	protected function format( EchoEvent $event, $format, $user = false, $type = 'web', array $params = array() ) {
+	protected function format( EchoEvent $event, $format, $user = false, $type = 'web' ) {
 		global $wgEchoNotifications;
-
-		$params += $wgEchoNotifications[ $event->getType() ];
-		$formatter = EchoNotificationFormatter::factory( $params );
-		$formatter->setOutputFormat( $format );
 
 		if ( $user === false ) {
 			$user = User::newFromName('Notification-formatter-test');
 		}
 
 		// Notification users can not be anonymous, use a fake user id
-		return $formatter->format( $event, $user, $type );
+		return EchoNotificationController::formatNotification( $event, $user, $format, $type );
 	}
 
 	protected function mockEvent( $type, array $extra = array(), Revision $rev = null ) {
