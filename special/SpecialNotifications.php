@@ -59,6 +59,12 @@ class SpecialNotifications extends SpecialPage {
 		$notices = '';
 		$unread = array();
 		foreach ( $notif as $row ) {
+			$class = 'mw-echo-notification';
+			if ( !isset( $row['read'] ) ) {
+				$class .= ' mw-echo-unread';
+				$unread[] = $row['id'];
+			}
+
 			if ( !$row['*'] ) {
 				continue;
 			}
@@ -68,11 +74,6 @@ class SpecialNotifications extends SpecialPage {
 				$notices .= Html::rawElement( 'li', array( 'class' => 'mw-echo-date-section' ), $dateHeader );
 			}
 
-			$class = 'mw-echo-notification';
-			if ( !isset( $row['read'] ) ) {
-				$class .= ' mw-echo-unread';
-				$unread[] = $row['id'];
-			}
 			$notices .= Html::rawElement(
 				'li',
 				array(

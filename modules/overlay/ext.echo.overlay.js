@@ -80,6 +80,12 @@
 								'data-notification-type': data.type
 							} )
 							.addClass( 'mw-echo-notification' );
+
+					if ( !data.read ) {
+						$li.addClass( 'mw-echo-unread' );
+						unread.push( id );
+					}
+
 					if ( !data['*'] ) {
 						return;
 					}
@@ -118,11 +124,6 @@
 					$li.wrapInner( $wrapper );
 
 					mw.echo.setupNotificationLogging( $li, 'flyout' );
-
-					if ( !data.read ) {
-						$li.addClass( 'mw-echo-unread' );
-						unread.push( id );
-					}
 
 					// Set up each individual notification with a close box and dismiss
 					// interface if it is dismissable.
