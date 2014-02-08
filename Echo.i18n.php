@@ -3329,11 +3329,21 @@ Siin on sulle kokkuvõte võrgukohas {{SITENAME}} sellel nädalal toimunust.',
 );
 
 /** Basque (euskara)
+ * @author Subi
  * @author Xabier Armendaritz
  */
 $messages['eu'] = array(
 	'echo-new-messages' => 'Mezu berriak dituzu',
+	'notifications' => 'Jakinarazpenak',
 	'tooltip-pt-notifications' => 'Zure jakinarazpenak',
+	'echo-specialpage' => 'Jakinarazpenak',
+	'echo-none' => 'Ez duzu jakinarazpenik.',
+	'echo-email-batch-body-default' => 'Jakinarazpen berri bat daukazu.',
+	'echo-overlay-link' => 'Jakinarazpen guztiak',
+	'echo-overlay-title' => '<b>Jakinarazpenak</b>',
+	'echo-date-today' => 'Gaur',
+	'echo-date-yesterday' => 'Atzo',
+	'echo-email-batch-link-text-view-all-notifications' => 'Jakinarazpen guztiak ikusi',
 );
 
 /** Persian (فارسی)
@@ -8388,6 +8398,7 @@ $1',
  * @author Cainamarques
  * @author GoEThe
  * @author Helder.wiki
+ * @author Imperadeiro98
  * @author Lijealso
  * @author Polyethylen
  * @author Vitorvicentevalente
@@ -8445,8 +8456,8 @@ $messages['pt'] = array(
 	'notification-edit-talk-page-with-section' => '[[User:$1|$1]] deixou uma mensagem na sua página de discussão na secção "[[User talk:$2#$3|$4]]".',
 	'notification-edit-talk-page-flyout2' => '$1 deixou uma mensagem na sua [[User talk:$2#$3|página de discussão]].',
 	'notification-edit-talk-page-flyout-with-section' => '$1 deixou uma mensagem na sua página de discussão na secção "[[User talk:$2#$3|$4]]".',
-	'notification-page-linked' => '[[:$2]] foi ligada a partir de [[:$3]]. [[Special:WhatLinksHere/$2|Veja todas as páginas afluentes a esta]].', # Fuzzy
-	'notification-page-linked-flyout' => '$2 foi ligada a partir de [[:$3]].', # Fuzzy
+	'notification-page-linked' => '[[:$2]] foi {{GENDER:$1|ligada}} a partir de [[:$3]]. [[Especial:WhatLinksHere/$2|Ver todos os links para esta página]].', # Fuzzy
+	'notification-page-linked-flyout' => '$2 foi {{GENDER:$1|ligada}} a partir de [[:$3]].',
 	'notification-add-comment2' => '[[User:$1|$1]] comentou em "[[$3|$2]]" na página de discussão de "$4"',
 	'notification-add-talkpage-topic2' => '[[User:$1|$1]] criou o novo tópico "$2" em [[$3]]',
 	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]] enviou-lhe uma mensagem: "[[$3#$2|$2]]"',
