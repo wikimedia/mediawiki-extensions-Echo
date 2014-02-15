@@ -726,6 +726,7 @@ $messages['am'] = array(
 
 /** Arabic (العربية)
  * @author Achraf94
+ * @author Asaifm
  * @author Ciphers
  * @author Meno25
  * @author Mido
@@ -794,7 +795,7 @@ $messages['ar'] = array(
 	'notification-add-comment-yours2' => '{{GENDER:$1|علق|علقت}} [[User:$1|$1]] على "[[$3#$2|$2]]" في صفحة نقاشك.',
 	'notification-mention' => '{{GENDER:$1|أشار|أشارت}} إليك [[User:$1|$1]] في قسم "[[$3#$2|$4]]" من صفحة نقاش $5.',
 	'notification-mention-flyout' => '{{GENDER:$1|أشار|أشارت}} إليك $1 في قسم "[[$3#$2|$4]]" في صفحة نقاش $5.',
-	'notification-mention-nosection' => '{{GENDER:$1|أشار|أشارت}} [[مستخدم:$1|$1]] إليك في [[$3|صفحة نقاش $2]].', # Fuzzy
+	'notification-mention-nosection' => '{{GENDER:$1|أشار|أشارت}} [[User:$1|$1]] إليك على [[$3|صفحة نقاش $2]].',
 	'notification-mention-nosection-flyout' => '{{GENDER:$1|أشار|أشارت}} $1 إليك في [[$3|صفحة نقاش $2]].',
 	'notification-user-rights' => '[[Special:Log/rights/$1|{{GENDER:$1|غير|غيرت}}]]  [[User:$1|$1]] صلاحياتك. $2. [[Special:ListGroupRights|المزيد]]',
 	'notification-user-rights-flyout' => '{{GENDER:$1|غير|غيرت}} $1 صلاحياتك. $2. [[Special:ListGroupRights|المزيد]]',
@@ -2670,6 +2671,7 @@ $messages['de-formal'] = array(
  * @author Mirzali
  */
 $messages['diq'] = array(
+	'echo-desc' => 'Sistema tebliğan',
 	'prefs-echo' => 'Mengeney',
 	'prefs-emailsettings' => 'Opsiyona e-posta',
 	'prefs-displaynotifications' => 'Weçinayışa mocnayışi',
