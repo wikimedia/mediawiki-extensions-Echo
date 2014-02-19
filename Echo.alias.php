@@ -19,6 +19,11 @@ $specialPageAliases['ar'] = array(
 	'Notifications' => array( 'إشعارات' ),
 );
 
+/** Egyptian Spoken Arabic (مصرى) */
+$specialPageAliases['arz'] = array(
+	'Notifications' => array( 'اخطارات' ),
+);
+
 /** Min Dong Chinese (Mìng-dĕ̤ng-ngṳ̄) */
 $specialPageAliases['cdo'] = array(
 	'Notifications' => array( '提醒' ),
@@ -124,6 +129,11 @@ $specialPageAliases['mt'] = array(
 	'Notifications' => array( 'Notifiki' ),
 );
 
+/** Norwegian Bokmål (norsk bokmål) */
+$specialPageAliases['nb'] = array(
+	'Notifications' => array( 'Varsler' ),
+);
+
 /** Dutch (Nederlands) */
 $specialPageAliases['nl'] = array(
 	'Notifications' => array( 'Meldingen' ),
@@ -147,6 +157,11 @@ $specialPageAliases['pt'] = array(
 /** Brazilian Portuguese (português do Brasil) */
 $specialPageAliases['pt-br'] = array(
 	'Notifications' => array( 'Notificações' ),
+);
+
+/** Quechua (Runa Simi) */
+$specialPageAliases['qu'] = array(
+	'Notifications' => array( 'Willaykuykuna' ),
 );
 
 /** Russian (русский) */
