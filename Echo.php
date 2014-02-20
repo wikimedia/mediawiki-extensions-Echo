@@ -549,7 +549,7 @@ $wgEchoConfig = array(
 	'eventlogging' => array (
 		'Echo' => array (
 			'enabled' => false,
-			'revision' => 6081131
+			'revision' => 7572295,
 		),
 		'EchoMail' => array (
 			'enabled' => false,
