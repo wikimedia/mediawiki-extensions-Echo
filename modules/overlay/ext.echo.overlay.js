@@ -2,6 +2,9 @@
 ( function ( $, mw ) {
 	'use strict';
 
+	// backwards compatibility <= MW 1.21
+	var getUrl = mw.util.getUrl || mw.util.wikiGetlink;
+
 	mw.echo.overlay = {
 
 		/**
@@ -210,7 +213,7 @@
 					$( '<a>' )
 						.attr( 'id', 'mw-echo-overlay-link' )
 						.addClass( 'mw-echo-grey-link' )
-						.attr( 'href', mw.util.wikiGetlink( 'Special:Notifications' ) )
+						.attr( 'href', getUrl( 'Special:Notifications' ) )
 						.text( mw.msg( 'echo-overlay-link' ) )
 						.click( function () {
 							mw.echo.logInteraction( 'ui-archive-link-click', 'flyout' );
