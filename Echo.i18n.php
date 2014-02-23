@@ -169,6 +169,7 @@ Here's a summary of this week's activity on {{SITENAME}} for you.",
  * @author Shirayuki
  * @author Siebrand
  * @author Toliño
+ * @author Urhixidur
  * @author రహ్మానుద్దీన్
  */
 $messages['qqq'] = array(
@@ -559,7 +560,7 @@ See also:
 * $2 - the page title
 * $3 - the page linked from
 * $4 - the count of other action performers, could be number or {{msg-mw|Echo-notification-count}}. e.g. 7 others or 99+ others
-* $5 - a number used for plural support
+* $5 - a number used for plural support (numeric version of $4)
 See also:
 * {{msg-mw|Notification-page-linked}}
 * {{msg-mw|Notification-page-linked-flyout}}
@@ -580,7 +581,7 @@ See also:
 * $2 - the link-to page title
 * $3 - the link-from page title
 * $4 - the count of other link-from page title, can be number or {{msg-mw|echo-notification-count}}
-* $5 - a number used for plural support
+* $5 - a number used for plural support (numeric version of $4)
 
 See also:
 * {{msg-mw|Notification-page-linked}}
@@ -3721,32 +3722,32 @@ $messages['fr'] = array(
 	'notification-edit-talk-page-flyout2' => '$1 {{GENDER:$1|a laissé}} un message sur votre [[User talk:$2#$3|page de discussion]].',
 	'notification-edit-talk-page-flyout-with-section' => "$1 a laissé un message sur votre page de discussion dans la [[User talk:$2#$3|section ''$4'']].",
 	'notification-page-linked' => '[[:$2]] a été {{GENDER:$1|référencé}} depuis [[:$3]]. [[Special:WhatLinksHere/$2|Voir tous les liens vers cette page]].',
-	'notification-page-linked-flyout' => '$2 a été {{GENDER:$1|référencé}} depuis [[:$3]].',
+	'notification-page-linked-flyout' => '$2 a été référencé depuis [[:$3]].', # Fuzzy
 	'notification-add-comment2' => '[[User:$1|$1]] {{GENDER:$1|a fait un commentaire}} dans « [[$3|$2]] » sur la page de discussion « $4 »',
 	'notification-add-talkpage-topic2' => '[[User:$1|$1]] {{GENDER:$1|a publié}} un nouveau sujet "$2" sur [[$3]]',
 	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]] vous {{GENDER:$1|a envoyé}} un message: "[[$3#$2|$2]]"',
 	'notification-add-comment-yours2' => "[[User:$1|$1]] {{GENDER:$1|a fait un commentaire}} dans ''[[$3#$2|$2]]'' sur votre page de discussion",
-	'notification-mention' => "[[User:$1|$1]] vous {{GENDER:$1|a mentionné|a mentionnée}} sur la page de discussion de $5 dans la [[$3#$2|section ''$4'']].",
-	'notification-mention-flyout' => "$1 vous {{GENDER:$1|a mentionné|a mentionnée}} sur la page de discussion de $5 dans la [[$3#$2|section ''$4'']].",
-	'notification-mention-nosection' => '[[User:$1|$1]] {{GENDER:$1|a fait mention}} de vous sur la [[$3|page de discussion de $2]].',
-	'notification-mention-nosection-flyout' => '$1 {{GENDER:$1|a fait mention}} de vous sur la [[$3|page de discussion de $2]].',
-	'notification-user-rights' => 'Vos droits d’utilisateur [[Special:Log/rights/$1|ont été {{GENDER:$1|modifiés}}]] par [[User:$1|$1]]. $2. [[Special:ListGroupRights|En savoir plus]]',
+	'notification-mention' => "[[User:$1|$1]] vous a mentionné sur la page de discussion de $5 dans la [[$3#$2|section ''$4'']].",
+	'notification-mention-flyout' => "$1 vous a mentionné sur la page de discussion de $5 dans la [[$3#$2|section ''$4'']].",
+	'notification-mention-nosection' => '[[User:$1|$1]] a fait mention de vous sur la [[$3|page de discussion de $2]].',
+	'notification-mention-nosection-flyout' => '$1 a fait mention de vous sur la [[$3|page de discussion de $2]].',
+	'notification-user-rights' => 'Vos droits d’utilisateur [[Special:Log/rights/$1|ont été modifiés]] par [[User:$1|$1]]. $2. [[Special:ListGroupRights|En savoir plus]]',
 	'notification-user-rights-flyout' => 'Vos droits d’utilisateur {{GENDER:$1|ont été modifiés}} par $1. $2. [[Special:ListGroupRights|En savoir plus]]',
 	'notification-user-rights-add' => 'Vous êtes maintenant membre de {{PLURAL:$2|ce groupe|ces groupes}} : $1',
 	'notification-user-rights-remove' => 'Vous n’êtes plus membre de {{PLURAL:$2|ce groupe|ces groupes}} : $1',
 	'notification-new-user' => 'Bienvenue sur {{SITENAME}}, $1 ! Nous sommes heureux de vous voir ici.',
-	'notification-reverted2' => '{{PLURAL:$4|Votre modification sur [[:$2]] a|Vos modifications sur [[:$2]] ont}} été {{GENDER:$1|annulée}}{{PLURAL:$4||s}} par [[User:$1|$1]] $3',
-	'notification-reverted-flyout2' => '{{PLURAL:$4|Votre modification sur $2 a|Vos modifications sur $2 ont}} été {{GENDER:$1|annulée}}{{PLURAL:$4||s}} par $1 $3',
+	'notification-reverted2' => '{{PLURAL:$4|Votre modification sur [[:$2]] a|Vos modifications sur [[:$2]] ont}} été annulée{{PLURAL:$4||s}} par [[User:$1|$1]] $3',
+	'notification-reverted-flyout2' => '{{PLURAL:$4|Votre modification sur $2 a|Vos modifications sur $2 ont}} été annulée{{PLURAL:$4||s}} par $1 $3',
 	'notification-edit-talk-page-email-subject2' => '$1 {{GENDER:$1|a laissé}} un message sur votre page de discussion sur {{SITENAME}}',
 	'notification-edit-talk-page-email-batch-body2' => '$1 {{GENDER:$1|a laissé}} un message sur votre page de discussion :',
 	'notification-edit-talk-page-email-batch-body-with-section' => "$1 a laissé un message sur votre page de discussion dans ''$2''.",
 	'notification-page-linked-email-subject' => 'Votre page a été référencée sur {{SITENAME}}',
-	'notification-page-linked-email-batch-body' => '$2 a été {{GENDER:$1|référencé}} depuis $3',
-	'notification-reverted-email-subject2' => '{{PLURAL:$3|Votre modification a été annulée|Vos modifications ont été annulées}} {{GENDER:$1|}} sur {{SITENAME}}',
-	'notification-reverted-email-batch-body2' => '{{PLURAL:$3|Votre modification sur $2 a été annulée|Vos modifications sur $2 ont été annulées}} {{GENDER:$1|}} par $1',
-	'notification-mention-email-subject' => '$1 vous {{GENDER:$1|a mentionné|a mentionnée}} sur {{SITENAME}}',
-	'notification-mention-email-batch-body' => "$1 vous {{GENDER:$1|a mentionné|a mentionnée}} sur la page de discussion de $4 dans ''$3''.",
-	'notification-mention-nosection-email-batch-body' => '$1 {{GENDER:$1|a fait mention}} de vous sur la page de discussion de $2.',
+	'notification-page-linked-email-batch-body' => '$2 a été référencé depuis $3', # Fuzzy
+	'notification-reverted-email-subject2' => '{{PLURAL:$3|Votre modification a été annulée|Vos modifications ont été annulées}} sur {{SITENAME}}', # Fuzzy
+	'notification-reverted-email-batch-body2' => '{{PLURAL:$3|Votre modification sur $2 a été annulée|Vos modifications sur $2 ont été annulées}} par $1',
+	'notification-mention-email-subject' => '$1 vous a mentionné sur {{SITENAME}}',
+	'notification-mention-email-batch-body' => "$1 vous a mentionné sur la page de discussion de $4 dans ''$3''.",
+	'notification-mention-nosection-email-batch-body' => '$1 a fait mention de vous sur la page de discussion de $2.',
 	'notification-user-rights-email-subject' => 'Vos droits d’utilisateur ont été modifiés sur {{SITENAME}}',
 	'notification-user-rights-email-batch-body' => 'Vos droits d’utilisateur {{GENDER:$1|ont été modifiés}} par $1. $2',
 	'echo-email-subject-default' => 'Nouvelle notification sur {{SITENAME}}',
@@ -3769,10 +3770,10 @@ $1',
 	'echo-date-today' => 'Aujourd’hui',
 	'echo-date-yesterday' => 'Hier',
 	'echo-load-more-error' => "Un erreur s'est produite en analysant davantage de résultats.",
-	'notification-edit-talk-page-bundle' => '$1 et $3 {{PLURAL:$4|autre|autres}} {{GENDER:$1|ont laissé}} un message sur votre [[User talk:$2|page de discussion]].',
-	'notification-page-linked-bundle' => '$2 a été {{GENDER:$1|référencé}} depuis $3 et $4 {{PLURAL:$5|autre page|autres pages}}. [[Special:WhatLinksHere/$2|Voir tous les liens vers cette page]]',
+	'notification-edit-talk-page-bundle' => '$1 et $3 {{PLURAL:$4|autre|autres}} ont laissé un message sur votre [[User talk:$2|page de discussion]].',
+	'notification-page-linked-bundle' => '$2 a été référencé depuis $3 et $4 {{PLURAL:$5|autre page|autres pages}}. [[Special:WhatLinksHere/$2|Voir tous les liens vers cette page]]', # Fuzzy
 	'notification-edit-user-talk-email-batch-bundle-body' => '$1 et $2 {{PLURAL:$3|autre|autres}} ont {{GENDER:$1|laissé}} un message sur votre page de discussion.',
-	'notification-page-linked-email-batch-bundle-body' => '$2 a été {{GENDER:$1|lié}} depuis $3 et $4 autres {{PLURAL:$5|page|pages}}',
+	'notification-page-linked-email-batch-bundle-body' => '$2 a été lié depuis $3 et $4 {{PLURAL:$5|autre page|autres pages}}', # Fuzzy
 	'echo-email-batch-subject-daily' => "Vous avez {{PLURAL:$2|une nouvelle notification|de nouvelles notifications}} aujourd'hui sur {{SITENAME}}",
 	'echo-email-batch-subject-weekly' => 'Vous avez {{PLURAL:$2|une nouvelle notification|de nouvelles notifications}} sur {{SITENAME}} cette semaine',
 	'echo-email-batch-body-intro-daily' => 'Bonjour $1,
@@ -5687,14 +5688,18 @@ $messages['ka'] = array(
 	'notification-mention-flyout' => '$1 {{GENDER:$1|მოგნიშნათ}} განხილვის გვერდზე „$5“ სექციაში „[[$3#$2|$4]]“.',
 	'notification-mention-nosection' => '[[User:$1|$1]] {{GENDER:$1|მოგნიშნათ}} [[$3|$2 განხილვის გვერდზე]].',
 	'notification-mention-nosection-flyout' => '$1 {{GENDER:$1|მოგნიშნათ}} [[$3|$2 განხილვის გვერდზე]].',
+	'notification-user-rights-add' => 'თქვენ გაწევრიანებული ხართ {{PLURAL:$2|ამ ჯგუფში|ამ ჯგუფებში}}: $1',
+	'notification-user-rights-remove' => 'თქვენ აღარ ხართ გაწევრიანებული {{PLURAL:$2|ამ ჯგუფში|ამ ჯგუფებში}}: $1',
 	'notification-new-user' => 'კეთილი იყოს თქვენი მობრძანება საიტზე {{SITENAME}}, $1! ჩვენ მოხარული ვართ თქვენი აქ ყოფნით.',
 	'notification-edit-talk-page-email-batch-body2' => 'მომხმარებელმა $1 {{GENDER:$1|დატოვა}} შეტყობინება თქვენი განხილვის გვერდზე:',
 	'notification-edit-talk-page-email-batch-body-with-section' => 'მომხმარებელმა $1 {{GENDER:$1|დატოვა}} შეტყობინება თქვენი განხილვის გვერდზე განყოფილებაში „$2“.',
 	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|მოგნიშნათ}} განხილვის გვერდზე „$4“ სექციაში „$3“.',
 	'notification-mention-nosection-email-batch-body' => '$1 {{GENDER:$1|მოგნიშნათ}} $2 განხილვის გვერდზე.',
 	'echo-notification-count' => '$1+',
+	'echo-email-batch-body-default' => 'თქვენ გაქვთ ახალი შეტყობინება.',
 	'echo-overlay-link' => 'შეტყობინება',
 	'echo-overlay-title' => '<b>შეტყობინებები</b>',
+	'echo-mark-all-as-read' => 'მონიშნეთ ყველა, როგორც წაკითხული',
 	'echo-date-today' => 'დღეს',
 	'echo-date-yesterday' => 'გუშინ',
 	'echo-email-batch-bullet' => '•',
