@@ -273,7 +273,8 @@ $wgEchoEmailFooterAddress = '';
 // Should be defined in LocalSettings.php
 $wgNotificationSender = $wgPasswordSender;
 // Name for "from" on email notifications. Should be defined in LocalSettings.php
-$wgNotificationSenderName = $wgPasswordSenderName;
+// if null, uses 'emailsender' message
+$wgNotificationSenderName = null;
 // Name for "reply to" on email notifications. Should be defined in LocalSettings.php
 $wgNotificationReplyName = 'No Reply';
 
