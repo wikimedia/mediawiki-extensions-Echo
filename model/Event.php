@@ -121,13 +121,7 @@ class EchoEvent {
 			if ( !$obj->title instanceof Title ) {
 				throw new MWException( 'Invalid title parameter' );
 			}
-			$pageId = $obj->title->getArticleId();
-			if ( $pageId ) {
-				$obj->pageId = $pageId;
-			} else {
-				$obj->extra['page_title'] = $obj->title->getDBKey();
-				$obj->extra['page_namespace'] = $obj->title->getNamespace();
-			}
+			$obj->setTitle( $obj->title );
 		}
 
 		if ( $obj->agent && !
@@ -422,6 +416,34 @@ class EchoEvent {
 	 */
 	public function getCategory() {
 		return EchoNotificationController::getNotificationCategory( $this->type );
+	}
+
+	public function setType( $type ) {
+		$this->type = $type;
+	}
+
+	public function setVariant( $variant ) {
+		$this->variant = $variant;
+	}
+
+	public function setAgent( User $agent ) {
+		$this->agent = $agent;
+	}
+
+	public function setTitle( Title $title ) {
+		$this->title = $title;
+		$pageId = $title->getArticleId();
+		if ( $pageId ) {
+			$this->pageId = $pageId;
+		} else {
+			$this->extra['page_title'] = $title->getDBKey();
+			$this->extra['page_namespace'] = $title->getNamespace();
+		}
+
+	}
+
+	public function setExtra( $name, $value ) {
+		$this->extra[$name] = $value;
 	}
 
 	/**
