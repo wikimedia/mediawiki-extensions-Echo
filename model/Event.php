@@ -390,9 +390,9 @@ class EchoEvent {
 		} elseif ( $this->pageId ) {
 			return $this->title = Title::newFromId( $this->pageId );
 		} elseif ( isset( $this->extra['page_title'], $this->extra['page_namespace'] ) ) {
-			return $this->title = Title::newFromText(
-				$this->extra['page_title'],
-				$this->extra['page_namespace']
+			return $this->title = Title::makeTitleSafe(
+				$this->extra['page_namespace'],
+				$this->extra['page_title']
 			);
 		}
 		return null;
