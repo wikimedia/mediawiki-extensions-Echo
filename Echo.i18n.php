@@ -9819,6 +9819,14 @@ $messages['sr-ec'] = array(
 
 $1',
 	'echo-email-batch-body-default' => 'Имате ново обавештење.',
+	'echo-email-footer-default' => '$2
+
+Да би сте променили које поруке примате од нас идите у подешавања:
+{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
+
+$1',
+	'echo-email-footer-default-html' => 'Да би сте променили које поруке примате од нас идите у <a href="$2" style="text-decoration:none; color: #3868B0;">подешавања</a>.<br />
+$1',
 	'echo-overlay-link' => 'Сва обавештења',
 	'echo-overlay-title' => '<b>Обавештења</b>',
 	'echo-overlay-title-overflow' => '<b>{{PLURAL:$1|Обавештења}}</b> (приказ $1 од $2 непрочитаних)',
