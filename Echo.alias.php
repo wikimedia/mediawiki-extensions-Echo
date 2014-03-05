@@ -174,6 +174,11 @@ $specialPageAliases['scn'] = array(
 	'Notifications' => array( 'Notifiche' ),
 );
 
+/** Swedish (svenska) */
+$specialPageAliases['sv'] = array(
+	'Notifications' => array( 'Meddelanden' ),
+);
+
 /** Ukrainian (українська) */
 $specialPageAliases['uk'] = array(
 	'Notifications' => array( 'Сповіщення' ),
