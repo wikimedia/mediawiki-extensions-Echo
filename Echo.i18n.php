@@ -10165,6 +10165,7 @@ $1',
 
 /** Telugu (తెలుగు)
  * @author Arjunaraoc
+ * @author Chaduvari
  * @author Veeven
  * @author Visdaviva
  * @author రహ్మానుద్దీన్
@@ -10172,7 +10173,7 @@ $1',
  */
 $messages['te'] = array(
 	'echo-desc' => 'సూచన వ్యవస్థ',
-	'prefs-echo' => 'సూచనలు',
+	'prefs-echo' => 'గమనింపులు',
 	'prefs-emailsettings' => 'ఈ-మెయిల్ ఐచ్ఛికాలు',
 	'prefs-displaynotifications' => 'ప్రదర్శన ఐచ్ఛికాలు',
 	'prefs-echosubscriptions' => 'ఈ సంఘటనల గురించి నాకు తెలియచేయి',
