@@ -3446,8 +3446,8 @@ $messages['fa'] = array(
 	'notification-add-comment-yours2' => '[[User:$1|$1]] در «[[$3#$2|$2]]» در صفحه بحث شما نظری داده‌است',
 	'notification-mention' => '[[User:$1|$1]] به شما در بحث $5  در «[[$3#$2|$4]]» {{GENDER:$1|اشاره‌کرد}}.',
 	'notification-mention-flyout' => '$1 در بحث $5 در «[[$3#$2|$4]]» به شما {{GENDER:$1|اشاره}} کرده‌است.',
-	'notification-mention-nosection' => '[[User:$1|$1]] در  [[$3|صفحه بحث $2]] به شما {{GENDER:$1|اشاره}} کرده‌ است.',
-	'notification-mention-nosection-flyout' => '$1 در  [[$3|صفحهٔ بحث $2 ]] به شما {{GENDER:$1|اشاره}} کرده است.',
+	'notification-mention-nosection' => '[[User:$1|$1]] در [[$3|صفحهٔ بحث $2]] به شما {{GENDER:$1|اشاره}} کرده‌ است.',
+	'notification-mention-nosection-flyout' => '$1 در [[$3|صفحهٔ بحث $2]] به شما {{GENDER:$1|اشاره}} کرده است.',
 	'notification-user-rights' => 'دسترسی‌های شما توسط [[User:$1|$1]] [[Special:Log/rights/$1|تغییر یافته است]] . $2. [[Special:ListGroupRights|بیشتر بخوانید]]',
 	'notification-user-rights-flyout' => 'دسترسی‌های شما توسط $1 تغییر یافت. $2. [[Special:ListGroupRights|اطلاعات بیشتر]]',
 	'notification-user-rights-add' => 'شما در حال حاضر عضو  {{PLURAL:$2| این گروه|این گروه‌ها}} هستید:$1',
@@ -8732,6 +8732,13 @@ $1',
 	'notification-edit-talk-page-bundle' => "$1, $3 {{PLURAL:$4|wakinpas|wakinkunapas}} qampaq {{GENDER:$1|willaynintam}} [[User talk:$2|rimanakuy p'anqaykipi]] saqisurqanki.",
 	'notification-edit-user-talk-email-batch-bundle-body' => "$1, $2 wakin {{PLURAL:$3|ruraqpas|ruraqkunapas}} willayninta rimanakuy p'anqaykipim {{GENDER:$1|qillqamusurqanki}}.",
 	'echo-email-batch-link-text-view-all-notifications' => 'Tukuy willaykuykunata qhaway',
+);
+
+/** Romansh (rumantsch)
+ * @author Kazu89
+ */
+$messages['rm'] = array(
+	'echo-new-messages' => 'Ti has novs messadis',
 );
 
 /** Romanian (română)
