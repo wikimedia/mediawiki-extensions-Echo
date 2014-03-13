@@ -9647,8 +9647,13 @@ $messages['so'] = array(
 	'echo-specialpage' => 'Wargelin',
 	'echo-none' => 'Malahan wax wargelin ah.',
 	'echo-more-info' => 'Dheeraad',
+	'notification-new-user' => 'Ku soo dhowoow {{SITENAME}}, $1! Waan ku faraxsan-nahay inaad halkaan joogto.',
 	'echo-overlay-link' => 'Dhammaan wargelinada',
 	'echo-overlay-title' => '<b>Wargelinada</b>',
+	'echo-mark-all-as-read' => 'Ka dhig dhammaan wax la aqriyey',
+	'echo-date-today' => 'Maanta',
+	'echo-date-yesterday' => 'Shalay',
+	'echo-email-batch-link-text-view-all-notifications' => 'Dhamaan eeg waegelinada',
 );
 
 /** Albanian (shqip)
@@ -10565,7 +10570,11 @@ Burada {{SITENAME}} için bu haftaki etkinlik özetini bulabilirsiniz.',
  * @author Ilnur efende
  */
 $messages['tt-cyrl'] = array(
+	'prefs-echo' => 'Яңалыклар',
+	'notifications' => 'Яңалыклар',
 	'tooltip-pt-notifications' => 'Сезнең хәбәрләр',
+	'echo-specialpage' => 'Яңалыклар',
+	'notification-link-text-view-changes' => 'Үзгәртүләрне карау',
 	'notification-link-text-view-edit' => 'Үзгәртүне карау',
 	'notification-mention' => '[[User:$1|$1]] $5 бәхәс битенең "[[$3#$2|$4]]" бүлегендә сезне искә алды.',
 	'notification-mention-flyout' => '[[User:$1|$1]] $5 бәхәс битенең "[[$3#$2|$4]]" бүлегендә сезне искә алды.', # Fuzzy
