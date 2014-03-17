@@ -9004,6 +9004,7 @@ Aqquà ste 'u rieploghe de l'attività d'a sumàne sus a {{SITENAME}} pe te.",
 );
 
 /** Russian (русский)
+ * @author AVRS
  * @author Amire80
  * @author Base
  * @author DCamer
@@ -9098,7 +9099,7 @@ $messages['ru'] = array(
 	'notification-reverted-email-subject2' => '{{GENDER:$1|Кто-то}} отменил {{PLURAL:$3|1=вашу правку|ваши правки}} на сайте «{{SITENAME}}»',
 	'notification-reverted-email-batch-body2' => '{{PLURAL:$3|1=Ваша правка на странице «$2» была отменена|Ваши правки на странице «$2» были отменены}} {{GENDER:$1|участником|участницей}} $1.',
 	'notification-mention-email-subject' => '{{GENDER:$1|Участник|Участница}} $1 {{GENDER:$1|упомянул|упомянула}} вас на сайте «{{SITENAME}}»',
-	'notification-mention-email-batch-body' => '$1 {{ПОЛ:$1|, упоминается}} вы на $4 страница обсуждения в "$3".',
+	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|упомянул|упомянула}} Вас на странице обсуждения $4 в разделе «$3».',
 	'notification-mention-nosection-email-batch-body' => '$1 упомянул{{GENDER:$1||а}} вас на странице обсуждения $2.',
 	'notification-user-rights-email-subject' => 'Ваши права на сайте «{{SITENAME}}» были изменены',
 	'notification-user-rights-email-batch-body' => 'Ваши права были изменены {{GENDER:$1|участником|участницей}} $1. $2.',
@@ -9671,7 +9672,13 @@ $messages['so'] = array(
 	'echo-specialpage' => 'Wargelin',
 	'echo-none' => 'Malahan wax wargelin ah.',
 	'echo-more-info' => 'Dheeraad',
+	'notification-mention' => '[[User:$1|$1]] {{GENDER:$1|xusid}} kugula sameeyey $5 bogaa wadahadalka ee "[[$3#$2|$4]]".',
+	'notification-mention-flyout' => '$1 {{GENDER:$1|xusid}} kugula sameeyey $5 bogga wadahadalka "[[$3#$2|$4]]".',
+	'notification-mention-nosection' => '[[User:$1|$1]] {{GENDER:$1|xusid}} kugula sameeyey [[$3|$2 bogga wadahadalka]].',
+	'notification-mention-nosection-flyout' => '$1 {{GENDER:$1|xusid}} kugula sameeyay [[$3|$2 bogga wadahadalka]].',
 	'notification-new-user' => 'Ku soo dhowoow {{SITENAME}}, $1! Waan ku faraxsan-nahay inaad halkaan joogto.',
+	'notification-mention-email-batch-body' => '$1 {{GENDER:$1|xusid}} kugula sameeyey $4 bogga wadahadalka ee "$3".',
+	'notification-mention-nosection-email-batch-body' => '$1 {{GENDER:$1|xusid}} kugula sameeyey $2 bogga wadahadalka.',
 	'echo-overlay-link' => 'Dhammaan wargelinada',
 	'echo-overlay-title' => '<b>Wargelinada</b>',
 	'echo-mark-all-as-read' => 'Ka dhig dhammaan wax la aqriyey',
@@ -10190,8 +10197,8 @@ $1',
 	'echo-date-today' => 'இன்று',
 	'echo-date-yesterday' => 'நேற்று',
 	'echo-load-more-error' => 'மேலும் முடிவுகளைப் பெறும்போது பிழை ஏற்பட்டுள்ளது.',
-	'notification-page-linked-bundle' => '$2 $3 மற்றும் $4 மற்றும் பிற {{PLURAL:$5|பக்கத்தில்|பக்கங்களில்}} {{GENDER:$1|இணைக்கப்பட்டுள்ளது}}. [[Special:WhatLinksHere/$2|இந்த பக்கத்துக்கான அனைத்து இணைப்புகளையும் பார்க்கவும்]]',
-	'notification-page-linked-email-batch-bundle-body' => '$2 $3 மற்றும் $4 மற்றும் பிற {{PLURAL:$5|பக்கத்தில்|பக்கங்களில்}} {{GENDER:$1|இணைக்கப்பட்டுள்ளது}}.',
+	'notification-page-linked-bundle' => '$2 $3 மற்றும் $4 பிற {{PLURAL:$5|பக்கத்தில்|பக்கங்களில்}} {{GENDER:$1|இணைக்கப்பட்டுள்ளது}}. [[Special:WhatLinksHere/$2|இந்த பக்கத்துக்கான அனைத்து இணைப்புகளையும் பார்க்கவும்]]',
+	'notification-page-linked-email-batch-bundle-body' => '$2 $3 மற்றும் $4 பிற {{PLURAL:$5|பக்கத்தில்|பக்கங்களில்}} {{GENDER:$1|இணைக்கப்பட்டுள்ளது}}.',
 	'echo-email-batch-subject-daily' => '{{SITENAME}}இல் உங்களுக்கு {{PLURAL:$2|ஒரு புதிய செய்தி|புதிய செய்திகள்}} உள்ளன',
 	'echo-email-batch-subject-weekly' => 'இவ்வாரம் {{SITENAME}}இல் உங்களுக்கு {{PLURAL:$2|ஒரு புதிய செய்தி|புதிய செய்திகள்}} உள்ளன',
 	'echo-email-batch-body-intro-daily' => '$1,
@@ -11195,10 +11202,11 @@ $1',
 	'echo-email-batch-body-default' => '您有新的通知。',
 	'echo-email-footer-default' => '$2
 
-想要调整我们发送给您的电子邮件，请更改您的设置：{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
+要管理我们给你发送的电子邮件，请更改您的设置：
+{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
 
 $1',
-	'echo-email-footer-default-html' => '要调整我们发送给您哪些电子邮件，请<a href="$2" style="text-decoration:none; color: #3868B0;">更改您的设置</a>。<br />
+	'echo-email-footer-default-html' => '要管理我们给你发送的电子邮件，请<a href="$2" style="text-decoration:none; color: #3868B0;">更改您的设置</a>。<br />
 $1',
 	'echo-overlay-link' => '全部通知',
 	'echo-overlay-title' => '<b>通知</b>',
