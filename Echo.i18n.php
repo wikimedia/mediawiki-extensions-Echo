@@ -972,6 +972,7 @@ Esti ye un resume personal de la actividá selmanal en {{SITENAME}}.',
 
 /** Azerbaijani (azərbaycanca)
  * @author Interfase
+ * @author Khan27
  */
 $messages['az'] = array(
 	'echo-desc' => 'Bildiriş sistemi',
@@ -992,10 +993,10 @@ $messages['az'] = array(
 	'echo-pref-email-format-html' => 'HTML',
 	'echo-pref-email-format-plain-text' => 'Sadə mətn',
 	'echo-pref-notify-show-link' => 'Dəyişiklikləri mənim alətlər panelimdə göstər',
-	'echo-pref-new-message-indicator' => 'Müzakirə səhifəsində məktublar indikatorunu mənim alətləır panelimdə göstər',
+	'echo-pref-new-message-indicator' => 'Müzakirə səhifəsindəki mesaj indikatorunu alətlər panelimdə göstər',
 	'echo-learn-more' => 'Daha ətraflı',
-	'echo-new-messages' => 'Sizə yeni məktublar var',
-	'echo-category-title-edit-user-talk' => 'Müzakirə səhifəsindəki {{PLURAL:$1|1=post|məktublar}}',
+	'echo-new-messages' => 'Yeni mesajlarınız var',
+	'echo-category-title-edit-user-talk' => 'Müzakirə səhifəsindəki {{PLURAL:$1|1=mesaj|mesaj}}',
 	'echo-category-title-article-linked' => 'Səhifəyə {{PLURAL:$1|keçid|keçidlər}}',
 	'echo-category-title-reverted' => 'Redaktələrin {{PLURAL:$1|1=ləğv|ləğvi}}',
 	'notifications' => 'Bildirişlər',
@@ -1010,8 +1011,8 @@ $messages['az'] = array(
 	'notification-link-text-view-page' => 'Səhifəyə bax',
 	'notification-link-text-view-edit' => 'Redaktəyə bax',
 	'notification-edit-talk-page2' => '[[User:$1|$1]] sizin [[User talk:$2#$3|müzakirə səhifənizdə]] məktub {{GENDER:$1|qoyub}} .',
-	'notification-edit-talk-page-with-section' => '[[User:$1|$1]] sizin "[[User talk:$2#$3|$4]]" müzakirə səhifənizdə məktub {{GENDER:$1|qoyub}} .',
-	'notification-edit-talk-page-flyout2' => 'Sizin [[User talk:$2#$3|müzakirə səhifənizdə]] məktub $1 {{GENDER:$1|qoyub}}.',
+	'notification-edit-talk-page-with-section' => '[[User:$1|$1]] sizin "[[User talk:$2#$3|$4]]" müzakirə səhifənizdə mesaj {{GENDER:$1|qoyub}} .',
+	'notification-edit-talk-page-flyout2' => 'Sizin [[User talk:$2#$3|müzakirə səhifənizdə]] mesaj $1 {{GENDER:$1|qoyub}}.',
 	'echo-email-body-default' => 'Sizə {{SITENAME}} səhifəsində yeni bildiriş var :
 
 $1',
@@ -5759,7 +5760,7 @@ $messages['kk-cyrl'] = array(
 	'echo-pref-notify-show-link' => 'Құралдар үстелімде ескертпелерді көрсету',
 	'echo-pref-new-message-indicator' => 'Құралдар үстелімде талқылау беттегі хабарламалар көрсеткішін көрсету',
 	'echo-learn-more' => 'Көбірек білу',
-	'echo-new-messages' => 'Сізде жаңа хабарламалар бар',
+	'echo-new-messages' => 'Сізге жаңа хабарламалар келді',
 	'echo-category-title-edit-user-talk' => 'Талқылау бетіңіздегі {{PLURAL:$1|хабарлама|хабарламалар}}',
 	'echo-category-title-article-linked' => 'Бет {{PLURAL:$1|сілтемесі|сілтемелері}}',
 	'echo-category-title-reverted' => 'Өңдеме {{PLURAL:$1|қайтаруы|қайтарулары}}',
@@ -5791,26 +5792,26 @@ $messages['kk-cyrl'] = array(
 	'notification-edit-talk-page-with-section' => '[[User:$1|$1]] талқылау бетіңіздегі "[[User talk:$2#$3|$4]]" бөліміне хабарлама {{GENDER:$1|қалдырды}}.',
 	'notification-edit-talk-page-flyout2' => '$1 [[User talk:$2#$3|талқылау бетіңізге]] хабарлама {{GENDER:$1|қалдырды}}.',
 	'notification-edit-talk-page-flyout-with-section' => '$1 талқылау бетіңіздегі "[[User talk:$2#$3|$4]]" бөліміне хабарлама {{GENDER:$1|қалдырды}}.',
-	'notification-page-linked' => '[[:$2]] [[:$3]] дегенде {{GENDER:$1|сілтенді}}  . [[Special:WhatLinksHere/$2|Бұл бетке барлық сілтенгендерді көру]].',
+	'notification-page-linked' => '[[:$2]] [[:$3]] дегенде {{GENDER:$1|сілтенді}}  . [[Special:WhatLinksHere/$2|Бұл бетке барлық сілтенгендерді көріңіз]].',
 	'notification-page-linked-flyout' => '$2 [[:$3]] дегеннен {{GENDER:$1|сілтенді}}.',
 	'notification-add-comment2' => '[[User:$1|$1]] "$4" талқылау бетіндегі "[[$3|$2]]" бөліміне {{GENDER:$1|пікір жазды}}.',
 	'notification-add-talkpage-topic2' => '[[$3]] бетінде [[User:$1|$1]] "$2" деген жаңа тақырып  {{GENDER:$1|қосты}}.',
 	'notification-add-talkpage-topic-yours2' => '[[User:$1|$1]] сізге хабарлама {{GENDER:$1|жіберді}}: "[[$3#$2|$2]]".',
-	'notification-add-comment-yours2' => '[[User:$1|$1]] талқылау бетіндегі "[[$3#$2|$2]]" бөліміне {{GENDER:$1|пікір жазды}}.',
+	'notification-add-comment-yours2' => '[[User:$1|$1]] талқылау бетіндегі "[[$3#$2|$2]]" бөліміне {{GENDER:$1|пікірін білдірді}}.',
 	'notification-mention' => '[[User:$1|$1]] $5 талқылау бетінің "[[$3#$2|$4]]" бөлімінде сізді {{GENDER:$1|атап өтті}}.',
 	'notification-mention-flyout' => '$1 $5 талқылау бетінің "[[$3#$2|$4]]" бөлімінде сізді {{GENDER:$1|атап өтті}}.',
 	'notification-mention-nosection' => '[[User:$1|$1]] [[$3|$2 талқылау бетінде]] сізді {{GENDER:$1|атап өтті}}.',
 	'notification-mention-nosection-flyout' => '$1 [[$3|$2 талқылау бетінде]] сізді {{GENDER:$1|атап өтті}}.',
-	'notification-user-rights' => 'Сіздің қатысушы құқықтарыңызды [[User:$1|$1]][[Special:Log/rights/$1| {{GENDER:$1|өзгерті}}]]. $2. [[Special:ListGroupRights|Толығырақ білу]]',
-	'notification-user-rights-flyout' => 'Сіздің қатысушы құқықтарыңызды $1. $2 {{GENDER:$1|өзгерті}}. [[Special:ListGroupRights|Көбірек білу]]',
+	'notification-user-rights' => 'Сіздің қатысушы құқықтарыңызды [[User:$1|$1]][[Special:Log/rights/$1|{{GENDER:$1|өзгерті}}]]. $2. [[Special:ListGroupRights|Толығырақ біліңіз]]',
+	'notification-user-rights-flyout' => 'Сіздің қатысушы құқықтарыңызды $1 {{GENDER:$1|өзгерті}}. $2. [[Special:ListGroupRights|Қатысушы құқықтары туралы көбірек біліңіз]]',
 	'notification-user-rights-add' => 'Сіз қазір {{PLURAL:$2|бұл топтың|бұл топтардың}} мүшесісіз: $1',
 	'notification-user-rights-remove' => 'Сіз {{PLURAL:$2|бұл топтың|бұл топтың}} көптен бергі мүшесі емессіз: $1',
 	'notification-new-user' => '$1 {{SITENAME}} сайтына қош келдіңіз! Сіз осында болғаныңызға біз қуаныштымыз.',
-	'notification-reverted2' => 'Сіздің {{PLURAL:$4|[[:$2]] бетіндегі өңдемеңізді|[[:$2]] бетіндегі өңдемелеріңізді}} [[User:$1|$1]] есімді қатысушы {{GENDER:$1|жоққа шығарды}}. $3',
+	'notification-reverted2' => 'Сіздің {{PLURAL:$4|[[:$2]] бетіндегі өңдемеңізді|[[:$2]] бетіндегі өңдемелеріңізді}} [[User:$1|$1]] {{GENDER:$1|жоққа шығарды}}. $3',
 	'notification-reverted-flyout2' => 'Сіздің {{PLURAL:$4|$2 бетіндегі өңдемеңізді|$2 бетіндегі өңдемелеріңізді}} $1 есімді қатысушы {{GENDER:$1|жоққа шығарыды}}. $3',
 	'notification-edit-talk-page-email-subject2' => '$1 {{SITENAME}} сайтында сізге хабарлама {{GENDER:$1|қалдырды}}',
-	'notification-edit-talk-page-email-batch-body2' => '$1 сіздің талқылау бетіңізге хабарлама {{GENDER:$1|қалдырды}}:',
-	'notification-edit-talk-page-email-batch-body-with-section' => '$1 сіздің талқылау бетіңіздегі  "$2" бөліміне хабарлама {{GENDER:$1|қалдырды}}.',
+	'notification-edit-talk-page-email-batch-body2' => '$1 талқылау бетіңізге хабарлама {{GENDER:$1|қалдырды}}:',
+	'notification-edit-talk-page-email-batch-body-with-section' => '$1 талқылау бетіңіздегі  "$2" бөліміне хабарлама {{GENDER:$1|қалдырды}}.',
 	'notification-page-linked-email-subject' => '{{SITENAME}} сайтында сіздің бетіңіз сілтенді',
 	'notification-page-linked-email-batch-body' => '$2 $3 дегеннен {{GENDER:$1|сілтенді}}.',
 	'notification-reverted-email-subject2' => '{{SITENAME}} сайтында сіздің {{PLURAL:$3|өңдемеңіз|өңдемелеріңіз}}{{GENDER:$1|қайтарылды}}',
@@ -5819,33 +5820,33 @@ $messages['kk-cyrl'] = array(
 	'notification-mention-email-batch-body' => '$1 $4 талқылау бетінің "$3" бөлімінде сізді {{GENDER:$1|атап өтті}}.',
 	'notification-mention-nosection-email-batch-body' => '$1 $2 талқылау бетінде сізді {{GENDER:$1|атап өтті}}.',
 	'notification-user-rights-email-subject' => '{{SITENAME}} сайтында сіздің қатысушы құқықтарыңыз өзгерілді.',
-	'notification-user-rights-email-batch-body' => 'Сіздің қатысушы құқықтарыңызды $1. $2 {{GENDER:$1|өзгерті}}.',
+	'notification-user-rights-email-batch-body' => 'Сіздің қатысушы құқықтарыңызды $1 {{GENDER:$1|өзгерті}}. $2.',
 	'echo-email-subject-default' => '{{SITENAME}} сайтында жаңа ескертпелер',
 	'echo-email-body-default' => '{{SITENAME}} сайтында сіз жаңа ескертпелер алдыңыз:
 
 $1',
-	'echo-email-batch-body-default' => 'Сізде жаңа ескертпелер бар.',
+	'echo-email-batch-body-default' => 'Сізге жаңа ескертпелер келді.',
 	'echo-email-footer-default' => '$2
 
-Бақылау email арқылы жіберілсе, бапталымдарыңызды тексеріп шығыңыз:
+Бақылау э-пошта арқылы жіберілсе, бапталымдарыңызды тексеріп шығыңыз:
 {{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}
 
 $1',
-	'echo-email-footer-default-html' => 'Бақылау email арқылы жіберілсе, <a href="$2" style="text-decoration:none; color: #3868B0;">бапталымдарыңызды тексеріңіз</a>.<br />
+	'echo-email-footer-default-html' => 'Бақылау э-почта арқылы жіберілсе, <a href="$2" style="text-decoration:none; color: #3868B0;">бапталымдарыңызды тексеріңіз</a>.<br />
 
 $1',
 	'echo-overlay-link' => 'Барлық ескертпелер',
 	'echo-overlay-title' => '<b>Ескертпелер</b>',
-	'echo-overlay-title-overflow' => '<b>{{PLURAL:$1|Ескертпелер}}</b> (көрселуде:$1 оқылмағандар:$2 )',
-	'echo-mark-all-as-read' => 'Оқылды деп белгіле',
+	'echo-overlay-title-overflow' => '<b>{{PLURAL:$1|Ескертпелер}}</b> (оқылмаған $2 ескертпенің $1 ескертпесі көрселуде)',
+	'echo-mark-all-as-read' => 'Барлығын оқылды деп белгіле',
 	'echo-date-today' => 'Бүгін',
 	'echo-date-yesterday' => 'Ертең',
 	'notification-edit-talk-page-bundle' => '$1 және {{PLURAL:$4|басқа|басқа}} $3 қатысушы[[User talk:$2|талқылау бетіңізге]] хабарлама {{GENDER:$1|қалдырды}}.',
-	'notification-page-linked-bundle' => '$2 $3 және басқа $4 {{PLURAL:$5|беттен|беттен}} {{GENDER:$1|сілтенді}}. [[Special:WhatLinksHere/$2|Бұл бетке барлық сілтенгендерді көру]]',
+	'notification-page-linked-bundle' => '$2 $3 және басқа $4 {{PLURAL:$5|беттен|беттен}} {{GENDER:$1|сілтенді}}. [[Special:WhatLinksHere/$2|Бұл бетке барлық сілтенгендерді көріңіз]]',
 	'notification-edit-user-talk-email-batch-bundle-body' => '$1 және {{PLURAL:$3|басқа|басқа}} $2 қатысушы талқылау бетіңізге хабарлама {{GENDER:$1|қалдырды}}.',
 	'notification-page-linked-email-batch-bundle-body' => '$2 $3 және басқа $4 {{PLURAL:$5|беттен|беттен}} {{GENDER:$1|сілтенді}}.',
-	'echo-email-batch-subject-daily' => 'Сіз {{SITENAME}} сайтында {{PLURAL:$2|жаңа ескертпе|жаңа ескертпелер}} алдыңыз',
-	'echo-email-batch-subject-weekly' => 'Сіз осы аптада {{SITENAME}} сайтында {{PLURAL:$2|жаңа ескертпе|жаңа ескертпелер}} алдыңыз',
+	'echo-email-batch-subject-daily' => 'Сізге {{SITENAME}} сайтында {{PLURAL:$2|жаңа ескертпе|жаңа ескертпелер}} келді',
+	'echo-email-batch-subject-weekly' => 'Сізге осы аптада {{SITENAME}} сайтында {{PLURAL:$2|жаңа ескертпе|жаңа ескертпелер}} келді',
 	'echo-email-batch-body-intro-daily' => 'Сәлем $1, 
 Бұл {{SITENAME}} жобасындағы бүгінгі сіз үшін іс-әрекеттер түйіндемесі.',
 	'echo-email-batch-body-intro-weekly' => 'Сәлем $1, 
@@ -7639,7 +7640,7 @@ $messages['nl'] = array(
 	'echo-category-title-other' => '{{PLURAL:$1|Overige}}',
 	'echo-category-title-system' => '{{PLURAL:$1|Systeem}}',
 	'echo-pref-tooltip-edit-user-talk' => 'Houd mij op de hoogte wanneer iemand een bericht of antwoord op mijn overlegpagina plaatst.',
-	'echo-pref-tooltip-article-linked' => 'Houd mij op de hoogte wanneer iemand vanaf een artikelpagina linkt naar een pagina die ik gemaakt heb.',
+	'echo-pref-tooltip-article-linked' => 'U een melding zenden als iemand een koppeling naar een inhoudspagina maakt die u hebt aangemaakt.',
 	'echo-pref-tooltip-reverted' => 'Houd mij op de hoogte wanneer iemand een bewerking van mij terugdraait met behulp van "ongedaan maken" of "terugdraaien".',
 	'echo-pref-tooltip-mention' => 'Houd mij op de hoogte wanneer iemand een link naar mijn gebruikerspagina plaats op een overlegpagina.',
 	'echo-no-agent' => '[Niemand]',
