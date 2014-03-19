@@ -717,6 +717,30 @@ class EchoHooks {
 	}
 
 	/**
+	 * Handler for AbortWatchlistEmailNotification hook.
+	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/AbortWatchlistEmailNotification
+	 * @param $targetUser User
+	 * @param $title Title
+	 * @param $emailNotification EmailNotification The email notification object that sends non-echo notifications
+	 * @return bool
+	 */
+	static function onSendWatchlistEmailNotification( $targetUser, $title, $emailNotification ) {
+		// If a user is watching his/her own talk page, do not send talk page watchlist
+		// email notification if the user is receiving Echo talk page notification
+		if ( $title->isTalkPage() && $targetUser->getTalkPage()->equals( $title ) ) {
+			if (
+				!self::isEchoDisabled( $targetUser )
+				&& in_array( 'edit-user-talk', EchoNotificationController::getUserEnabledEvents( $targetUser, 'email' ) )
+			) {
+				// Do not send watchlist email notification, the user will receive an Echo notification
+				return false;
+			}
+		}
+		// Proceed to send watchlist email notification
+		return true;
+	}
+
+	/**
 	 * Handler for MakeGlobalVariablesScript hook.
 	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/MakeGlobalVariablesScript
 	 * @param &$vars array Variables to be added into the output
