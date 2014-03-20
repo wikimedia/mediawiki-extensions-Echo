@@ -668,6 +668,7 @@ $1",
 );
 
 /** Amharic (አማርኛ)
+ * @author Amire80
  * @author Elfalem
  */
 $messages['am'] = array(
@@ -682,7 +683,7 @@ $messages['am'] = array(
 	'echo-pref-email-format-html' => 'ኤች.ቲ.ኤም.ኤል. (HTML)',
 	'echo-pref-email-format-plain-text' => 'ጥሬ ጽሁፍ',
 	'echo-learn-more' => 'የበለጠ ለመረዳት',
-	'echo-new-messages' => 'አዲስ መልዕክቶች አሉዎት።', # Fuzzy
+	'echo-new-messages' => 'አዲስ መልዕክቶች አሉዎት',
 	'echo-category-title-edit-user-talk' => 'ውይይት ገጽ {{PLURAL:$1|መልዕክት|መልዕክቶች}}',
 	'echo-category-title-article-linked' => 'የገጽ {{PLURAL:$1|መያያዣ|መያያዣዎች}}',
 	'echo-category-title-reverted' => 'የ{{PLURAL:$1|ተገለበጠ ለውጥ|ተገለበጡ ለውጦች}}',
@@ -1846,6 +1847,7 @@ Aquí teniu un resum de l'activitat d'aquesta setmana a {{SITENAME}}.",
 );
 
 /** Min Dong Chinese (Mìng-dĕ̤ng-ngṳ̄)
+ * @author Amire80
  * @author Yejianfei
  */
 $messages['cdo'] = array(
@@ -1869,7 +1871,7 @@ $messages['cdo'] = array(
 	'echo-pref-notify-show-link' => '敆我其工具欄顯示通知',
 	'echo-pref-new-message-indicator' => '敆我其工具欄顯示討論頁信息指示',
 	'echo-learn-more' => '學習更更価仂囝',
-	'echo-new-messages' => '汝有新其信息。', # Fuzzy
+	'echo-new-messages' => '汝有新其信息',
 	'echo-category-title-edit-user-talk' => '討論頁 {{PLURAL:$1|條}}信息',
 	'echo-category-title-article-linked' => '頁面{{PLURAL:$1|萆鏈接}}',
 	'echo-category-title-reverted' => '修改{{PLURAL:$1|回退回}}',
@@ -4479,6 +4481,7 @@ $1',
 );
 
 /** Croatian (hrvatski)
+ * @author Amire80
  * @author MaGa
  * @author Roberta F.
  */
@@ -4503,7 +4506,7 @@ $messages['hr'] = array(
 	'echo-pref-notify-show-link' => 'Prikaži obavijesti na mojoj alatnoj vrpci',
 	'echo-pref-new-message-indicator' => 'Prikaži pokazivač poruka na stranici za razgovor na mojoj alatnoj traci',
 	'echo-learn-more' => 'Saznajte više',
-	'echo-new-messages' => 'Imate nove poruke.', # Fuzzy
+	'echo-new-messages' => 'Imate nove poruke',
 	'echo-category-title-edit-user-talk' => '{{PLURAL:$1|Poruka}} na stranici za razgovor',
 	'echo-category-title-article-linked' => '{{PLURAL:$1|Poveznica|Poveznice|Poveznica}} na stranicu',
 	'echo-category-title-reverted' => 'Uklanjanje {{PLURAL:$1|uređivanja}}',
@@ -4987,6 +4990,7 @@ Ecce un summario del activitate de iste septimana in {{SITENAME}} pro te.',
 );
 
 /** Indonesian (Bahasa Indonesia)
+ * @author Amire80
  * @author Farras
  * @author William Surya Permana
  * @author පසිඳු කාවින්ද
@@ -5012,7 +5016,7 @@ $messages['id'] = array(
 	'echo-pref-notify-show-link' => 'Tampilkan pemberitahuan di bilah alat saya',
 	'echo-pref-new-message-indicator' => 'Tampilkan penanda pesan halaman pembicaraan pada bilah alat saya',
 	'echo-learn-more' => 'Pelajari selengkapnya',
-	'echo-new-messages' => 'Anda memiliki pesan baru.', # Fuzzy
+	'echo-new-messages' => 'Anda memiliki pesan baru',
 	'echo-category-title-edit-user-talk' => '{{PLURAL:$1|Pesan}} halaman pembicaraan',
 	'echo-category-title-article-linked' => '{{PLURAL:$1|Pranala}} halaman',
 	'echo-category-title-reverted' => '{{PLURAL:$1|Pembalikan}} suntingan',
@@ -6202,6 +6206,7 @@ $messages['ku-latn'] = array(
 );
 
 /** Latin (Latina)
+ * @author Amire80
  * @author Autokrator
  * @author UV
  */
@@ -6225,7 +6230,7 @@ $messages['la'] = array(
 	'echo-pref-notify-show-link' => 'Nuntia in arca ferramentorum monstrare',
 	'echo-pref-new-message-indicator' => 'Monstrare indicatorem paginarum disputationis nuntiorum in arca ferramentorum',
 	'echo-learn-more' => 'Plura legere',
-	'echo-new-messages' => 'Habes nuntia nova.', # Fuzzy
+	'echo-new-messages' => 'Habes nuntia nova',
 	'echo-category-title-edit-user-talk' => 'Paginae disputationis {{PLURAL:$1|nuntium|nuntia}}',
 	'echo-category-title-article-linked' => '{{PLURAL:$1|Nexus}} ad paginam',
 	'echo-category-title-mention' => '{{PLURAL:$1|Mentio|Mentiones}}',
@@ -6648,6 +6653,7 @@ $messages['lzh'] = array(
 );
 
 /** Malagasy (Malagasy)
+ * @author Amire80
  * @author Jagwar
  */
 $messages['mg'] = array(
@@ -6670,7 +6676,7 @@ $messages['mg'] = array(
 	'echo-pref-notify-show-link' => "Asehoy ao amin'ny toolbar-ko ny fampilazana",
 	'echo-pref-new-message-indicator' => "Haneho ny mpanondro hafatra ao amin'ny pejin-dresaka ao amin'ny toolbar-ko",
 	'echo-learn-more' => 'Fampahalalana fanampiny',
-	'echo-new-messages' => 'Misy hafatra vaovao.', # Fuzzy
+	'echo-new-messages' => 'Misy hafatra vaovao',
 	'echo-category-title-edit-user-talk' => 'Hafatry ny {{PLURAL:$1|pejin-dresaka}}',
 	'echo-category-title-article-linked' => '{{PLURAL:$1|Rohim-pejy}}',
 	'echo-pref-tooltip-edit-user-talk' => "Ilazao aho raha misy mamela hafatra na mamaly hafatra eo amin'ny pejin-dresaka.",
@@ -6947,6 +6953,7 @@ $1',
 );
 
 /** Marathi (मराठी)
+ * @author Amire80
  * @author Nikhil.kawale
  * @author Niraj Suryawanshi
  * @author Prabodh1987
@@ -6974,7 +6981,7 @@ $messages['mr'] = array(
 	'echo-pref-notify-show-link' => 'माझ्या साधनपेटीत अधिसूचना दाखवा',
 	'echo-pref-new-message-indicator' => 'चर्चापान संदेश दर्शक माझ्या साधनपेटीत दाखवा',
 	'echo-learn-more' => 'अधिक जाणून घ्या',
-	'echo-new-messages' => 'तुमच्यासाठी नवीन संदेश आहेत.', # Fuzzy
+	'echo-new-messages' => 'तुमच्यासाठी नवीन संदेश आहेत',
 	'echo-category-title-edit-user-talk' => 'चर्चा पान {{PLURAL:$1|संदेश}}',
 	'echo-category-title-article-linked' => 'पान {{PLURAL:$1|दुवा|दुवे}}',
 	'echo-category-title-reverted' => 'संपादन {{PLURAL:$1|उलटवा}}',
@@ -7184,6 +7191,7 @@ Yang berikut adalah ringkasan kegiatan minggu ini di {{SITENAME}} untuk rujukan 
 );
 
 /** Maltese (Malti)
+ * @author Amire80
  * @author Chrisportelli
  * @author Leli Forte
  * @author MTSap
@@ -7209,7 +7217,7 @@ $messages['mt'] = array(
 	'echo-pref-notify-show-link' => 'Uri n-notifiki fl-iżbarra tal-għodda',
 	'echo-pref-new-message-indicator' => 'Uri s-sinjal tal-messaġġi l-ġodda fil-paġna tad-diskussjoni tiegħi fl-iżbarra tal-għodda',
 	'echo-learn-more' => 'Aktar tagħrif',
-	'echo-new-messages' => 'Għandek messaġġi ġodda.',
+	'echo-new-messages' => 'Għandek messaġġi ġodda',
 	'echo-category-title-edit-user-talk' => "{{PLURAL:$1|Messaġġ|Messaġġi}} fuq il-paġna ta' diskussjoni",
 	'echo-category-title-article-linked' => "{{PLURAL:$1|Ħolqa|Ħoloq}} ma' paġna",
 	'echo-category-title-reverted' => '{{PLURAL:$1|Modifika annullata|Modifiki annullati}}',
@@ -7747,6 +7755,7 @@ $1', # Fuzzy
 );
 
 /** Norwegian Nynorsk (norsk nynorsk)
+ * @author Amire80
  * @author Njardarlogar
  */
 $messages['nn'] = array(
@@ -7770,7 +7779,7 @@ $messages['nn'] = array(
 	'echo-pref-notify-show-link' => 'Vis meldingar på verktøylina mi',
 	'echo-pref-new-message-indicator' => 'Vis indikatoren for diskusjonssidemeldingar på verktøylina mi',
 	'echo-learn-more' => 'Lær meir',
-	'echo-new-messages' => 'Du har nye meldingar.', # Fuzzy
+	'echo-new-messages' => 'Du har nye meldingar',
 	'echo-category-title-edit-user-talk' => 'Diskusjonssidemelding{{PLURAL:$1||ar}}',
 	'echo-category-title-article-linked' => 'Sidelenkje{{PLURAL:$1||r}}',
 	'echo-category-title-reverted' => 'Attenderulling av endring{{PLURAL:$1||ar}}',
@@ -9141,6 +9150,7 @@ $1',
 );
 
 /** Sanskrit (संस्कृतम्)
+ * @author Amire80
  * @author Shubha
  */
 $messages['sa'] = array(
@@ -9164,7 +9174,7 @@ $messages['sa'] = array(
 	'echo-pref-notify-show-link' => 'उपकरणपट्टिकायां सूचनाः दर्श्यन्ताम्',
 	'echo-pref-new-message-indicator' => 'मम साधनापट्टिकायां चर्चापुटस्य सन्देशः दर्श्यताम्',
 	'echo-learn-more' => 'अधिकं ज्ञायताम्',
-	'echo-new-messages' => 'भवते नूतनसन्देशाः सन्ति |', # Fuzzy
+	'echo-new-messages' => 'भवते नूतनसन्देशाः सन्ति',
 	'echo-category-title-edit-user-talk' => 'चर्चापुटम् {{PLURAL:$1|सन्देशः|सन्देशाः}}',
 	'echo-category-title-article-linked' => 'पुटम् {{PLURAL:$1|सम्पर्कतन्तुः|सम्पर्कतन्तवः}}',
 	'echo-category-title-reverted' => 'सम्पाद्यताम् {{PLURAL:$1|revert|reverts}}',
@@ -10784,6 +10794,7 @@ $messages['ur'] = array(
 );
 
 /** vèneto (vèneto)
+ * @author Amire80
  * @author Candalua
  */
 $messages['vec'] = array(
@@ -10795,7 +10806,7 @@ $messages['vec'] = array(
 	'echo-pref-email-frequency-never' => 'No sta mandarme nissuna notifica par email',
 	'echo-pref-email-format-html' => 'HTML',
 	'echo-pref-email-format-plain-text' => 'Testo normal',
-	'echo-new-messages' => 'Te ghè dei messagi novi.', # Fuzzy
+	'echo-new-messages' => 'Te ghè dei messagi novi',
 	'echo-category-title-other' => '{{PLURAL:$1|Altro}}',
 	'echo-category-title-system' => '{{PLURAL:$1|Sistema}}',
 	'echo-no-agent' => '[Nissun]',
