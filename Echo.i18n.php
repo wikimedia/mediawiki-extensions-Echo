@@ -974,6 +974,7 @@ Esti ye un resume personal de la actividá selmanal en {{SITENAME}}.',
 /** Azerbaijani (azərbaycanca)
  * @author Interfase
  * @author Khan27
+ * @author Wertuose
  */
 $messages['az'] = array(
 	'echo-desc' => 'Bildiriş sistemi',
@@ -1012,7 +1013,7 @@ $messages['az'] = array(
 	'notification-link-text-view-page' => 'Səhifəyə bax',
 	'notification-link-text-view-edit' => 'Redaktəyə bax',
 	'notification-edit-talk-page2' => '[[User:$1|$1]] sizin [[User talk:$2#$3|müzakirə səhifənizdə]] məktub {{GENDER:$1|qoyub}} .',
-	'notification-edit-talk-page-with-section' => '[[User:$1|$1]] sizin "[[User talk:$2#$3|$4]]" müzakirə səhifənizdə mesaj {{GENDER:$1|qoyub}} .',
+	'notification-edit-talk-page-with-section' => '[[User:$1|$1]] sizin müzakirə səhifənizdə "[[User talk:$2#$3|$4]]" başlıqlı mesaj {{GENDER:$1|qoyub}}.',
 	'notification-edit-talk-page-flyout2' => 'Sizin [[User talk:$2#$3|müzakirə səhifənizdə]] mesaj $1 {{GENDER:$1|qoyub}}.',
 	'echo-email-body-default' => 'Sizə {{SITENAME}} səhifəsində yeni bildiriş var :
 
@@ -2276,7 +2277,7 @@ $messages['cs'] = array(
 	'notification-user-rights-flyout' => '$1 {{GENDER:$1|změnil|změnila}} vaše uživatelská práva. $2. [[Special:ListGroupRights|Více informací]]',
 	'notification-user-rights-add' => 'Nyní patříte do {{PLURAL:$2|této skupiny|těchto skupin}}: $1',
 	'notification-user-rights-remove' => 'Nadále už nepatříte do {{PLURAL:$2|této skupiny|těchto skupin}}: $1',
-	'notification-new-user' => 'Vítejte na {{grammar:6sg|{{SITENAME}}}}, $1! Těší nás, že jste tu.',
+	'notification-new-user' => 'Vítejte na {{grammar:6sg|{{SITENAME}}}}, {{GENDER:$1|uživateli|uživatelko}} $1! Těší nás, že jste tu.',
 	'notification-reverted2' => '[[User:$1|$1]] {{GENDER:$1|revertoval|revertovala}} {{PLURAL:$4|vaši editaci|vaše editace}} stránky [[:$2]] $3',
 	'notification-reverted-flyout2' => '$1 {{GENDER:$1|revertoval|revertovala}} {{PLURAL:$4|vaši editaci|vaše editace}} stránky $2 $3',
 	'notification-edit-talk-page-email-subject2' => '$1 vám na {{grammar:6sg|{{SITENAME}}}} {{GENDER:$1|napsal|napsala}} zprávu.',
