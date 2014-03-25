@@ -1593,7 +1593,8 @@ war {{SITENAME}}",
 $1",
 	'echo-email-batch-body-default' => "Ur c'hemenn nevez ho peus resevet.",
 	'echo-email-footer-default' => "Evit kontrollañ peseurt posteloù a gasomp deoc'h, gwiriit ho tibaboù : {{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}", # Fuzzy
-	'echo-email-footer-default-html' => 'Evit kontrollañ peseurt posteloù a gasomp deoc\'h, <a href="$2" style="text-decoration:none; color: #3868B0;">gwiriit ho tibaboù</a>.<br />', # Fuzzy
+	'echo-email-footer-default-html' => 'Evit kontrollañ peseurt posteloù a gasomp deoc\'h, <a href="$2" style="text-decoration:none; color: #3868B0;">gwiriit ho tibaboù</a>.<br />
+$1',
 	'echo-overlay-link' => 'An holl gemennoù',
 	'echo-overlay-title' => 'Kemennoù',
 	'echo-overlay-title-overflow' => "Va c'hemennoù (o tiskouez $1 diwar $2 nann-lennet)", # Fuzzy
@@ -1601,8 +1602,13 @@ $1",
 	'echo-date-today' => 'Hiziv',
 	'echo-date-yesterday' => "Dec'h",
 	'echo-load-more-error' => "Ur fazi zo bet en ur glask disoc'hoù all.",
+	'notification-edit-user-talk-email-batch-bundle-body' => '$1 hag $2 {{PLURAL:$3|unan|re}} all {{GENDER:$1|o deus}} lezet ur gemennadenn war ho pajenn gaozeal.',
 	'echo-email-batch-subject-daily' => '$1 kemenn{{PLURAL:$2||}} nevez hiziv', # Fuzzy
 	'echo-email-batch-subject-weekly' => '$1 kemenn{{PLURAL:$2||}} nevez ar sizhun-mañ', # Fuzzy
+	'echo-email-batch-body-intro-daily' => "Demat deoc'h $1,
+Setu amañ un diverradur eus obererezh an deiz war {{SITENAME}} evidoc'h.",
+	'echo-email-batch-body-intro-weekly' => "Demat deoc'h $1,
+Setu amañ un diverradur eus obererezh ar sizhun-mañ war {{SITENAME}} evidoc'h.",
 	'echo-email-batch-link-text-view-all-notifications' => 'Gwelet an holl gemennoù',
 	'echo-rev-deleted-text-view' => 'Lamet eo bet an adwel pajenn-mañ.',
 );
