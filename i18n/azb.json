@@ -1,0 +1,33 @@
+{
+    "@metadata": {
+        "authors": [
+            "Mousa"
+        ]
+    },
+    "echo-desc": "بیلدیریش سیستِمی",
+    "prefs-echo": "بیلدیریلر",
+    "prefs-displaynotifications": "گؤرونتو سئچَنکلری",
+    "echo-pref-email-frequency-never": "منه هئچ بیلدیری ایمیلی گؤندرمه",
+    "echo-pref-email-frequency-immediately": "آیری آیری هر بیلدیری گلنده",
+    "echo-pref-email-frequency-daily": "گونلوک بیلدیریلرین بیر خولاصه‌سی",
+    "echo-pref-email-frequency-weekly": "هفته‌لیک بیلدیریلرین بیر خولاصه‌سی",
+    "echo-no-agent": "[هئچ کیمسه]",
+    "echo-no-title": "[هئچ صحیفه]",
+    "echo-error-no-formatter": "بیلدیری اوچون بیر فورمت تعریفی یوخدور",
+    "notifications": "بیلدیریلر",
+    "echo-specialpage": "منیم بیلدیریلریم",
+    "echo-anon": "بیلدیریلری آلماق اوچون، [$1 بیر حساب یارادین] یادا [$2 گیریش ائدین].",
+    "echo-none": "سیزین بیلدیرینیز یوخدور.",
+    "notification-new-user": "{{SITENAME}}-ه خوش گلمیسینیز، $1!",
+    "echo-email-subject-default": "{{SITENAME}}-ده یئنی بیلدیری",
+    "echo-email-body-default": "سیزین {{SITENAME}}-ده یئنی بیلدیرینیز واردیر:\n\n$1",
+    "echo-email-footer-default": "$2\n\nسیزه هانکی ایمیل‌لرین گله بیله‌جگینی دَییشمگه، باخین:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
+    "echo-overlay-link": "بوتون بیلدیریلر",
+    "echo-overlay-title": "منیم بیلدیریلریم",
+    "echo-overlay-title-overflow": "منیم بیلدیریلریم ($2 اوخونمامیشدان $1-ی گؤستریلیر)",
+    "echo-date-today": "بوگون",
+    "echo-date-yesterday": "دونن",
+    "echo-load-more-error": "آرتیق نتیجه‌لری گتیرنده بیر خطا قاباغا گلدی.",
+    "echo-email-batch-subject-daily": "سیزین بوگون $1 {{PLURAL:$2|بیلدیرینیز}} واردیر",
+    "echo-email-batch-subject-weekly": "سیزین بو هفته $1 {{PLURAL:$2|بیلدیرینیز}} واردیر"
+}

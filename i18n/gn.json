@@ -1,0 +1,32 @@
+{
+    "@metadata": {
+        "authors": [
+            "P. S. F. Freitas"
+        ]
+    },
+    "echo-desc": "Maranduha reko",
+    "prefs-echo": "Maranduha",
+    "prefs-emailsettings": "E-mail jeporavo",
+    "prefs-displaynotifications": "Jehecha jeporavo",
+    "prefs-echosubscriptions": "Tomomarandu chéve kóva rehegua",
+    "prefs-newmessageindicator": "Momba'ukaha pyahu hechaukaha",
+    "echo-pref-send-me": "Chemombe'ukarãː",
+    "echo-pref-send-to": "Mombe'ukaː",
+    "echo-pref-email-format": "E-mail rekoː",
+    "echo-pref-web": "Web",
+    "echo-pref-email": "E-mail",
+    "echo-pref-email-format-html": "HTML",
+    "echo-no-agent": "[Mavave]",
+    "echo-no-title": "[Ndaipóri Kuatirogue]",
+    "notifications": "Maranduha",
+    "tooltip-pt-notifications": "Nde maranduha",
+    "echo-specialpage": "Maranduha",
+    "echo-none": "Nderereko maranduha pyahu.",
+    "echo-more-info": "Maranduve",
+    "echo-feedback": "Ñeimo'ã",
+    "notification-link-text-view-message": "Mombe'ukaha jehecha",
+    "notification-link-text-view-changes": "Ñemoambue jehecha",
+    "notification-link-text-view-page": "Kuatiarogue jehecha",
+    "notification-link-text-view-edit": "Jehaijey jehecha",
+    "notification-edit-talk-page2": "[[User:$1|$1]] {{GENDER:$1|omoĩ}} mombe'ukaha pyahu nde [[User talk:$2#$3|myangekõi kuatiápe]]."
+}

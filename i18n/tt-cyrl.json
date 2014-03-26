@@ -1,0 +1,20 @@
+{
+    "@metadata": {
+        "authors": [
+            "Ilnur efende"
+        ]
+    },
+    "prefs-echo": "Яңалыклар",
+    "notifications": "Яңалыклар",
+    "tooltip-pt-notifications": "Сезнең хәбәрләр",
+    "echo-specialpage": "Яңалыклар",
+    "notification-link-text-view-changes": "Үзгәртүләрне карау",
+    "notification-link-text-view-edit": "Үзгәртүне карау",
+    "notification-mention": "[[User:$1|$1]] $5 бәхәс битенең \"[[$3#$2|$4]]\" бүлегендә сезне искә алды.",
+    "notification-mention-flyout": "[[User:$1|$1]] $5 бәхәс битенең \"[[$3#$2|$4]]\" бүлегендә сезне искә алды.",
+    "notification-mention-nosection": "[[User:$1|$1]] сезне [[$3|$2 бәхәс битендә]] искә алды.",
+    "notification-mention-nosection-flyout": "$1 сезне [[$3| $2 бәхәс битендә]] искә алды.",
+    "notification-mention-nosection-email-batch-body": "$1 сезне $2 бәхәс битендә искә алды.",
+    "echo-date-yesterday": "Кичә",
+    "notification-edit-talk-page-bundle": "$1 һәм тагын $3 кулланучы сезнең [[User talk:$2|бәхәс битендә]] хәбәр калдырганнар."
+}

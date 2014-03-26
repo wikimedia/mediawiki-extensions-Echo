@@ -1,0 +1,29 @@
+{
+    "@metadata": {
+        "authors": [
+            "EileenSanda"
+        ]
+    },
+    "echo-desc": "Fráboðanarskipan",
+    "prefs-echo": "Fráboðanir",
+    "prefs-emailsettings": "T-post innstillingar",
+    "prefs-displaynotifications": "Innstillingar fyri sýning",
+    "prefs-echosubscriptions": "Gev mær boð um hesar hendingar",
+    "echo-pref-send-me": "Send mær:",
+    "echo-pref-send-to": "Send til:",
+    "echo-pref-email-format": "Teldupost format:",
+    "echo-pref-web": "Net",
+    "echo-pref-email": "T-postur",
+    "echo-pref-email-frequency-never": "Ikki senda mær fráboðanir við telduposti",
+    "echo-no-agent": "[Ongin]",
+    "echo-no-title": "[Ongin síða]",
+    "notification-link-text-view-page": "Vís síðu",
+    "notification-link-text-view-edit": "Vís rætting",
+    "echo-email-batch-body-default": "Tú hevur nýggj boð.",
+    "echo-overlay-link": "Allar fráboðanir",
+    "echo-overlay-title": "<b>Fráboðanir</b>",
+    "echo-overlay-title-overflow": "<b>{{PLURAL:$1|Fráboðanir}}</b> (vísir $1 av $2 ólisnum)",
+    "echo-mark-all-as-read": "Merk alt sum lisið",
+    "echo-date-today": "Í dag",
+    "echo-date-yesterday": "Í gjár"
+}

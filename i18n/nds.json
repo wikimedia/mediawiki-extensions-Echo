@@ -1,0 +1,10 @@
+{
+    "@metadata": {
+        "authors": [
+            "Joachim Mos"
+        ]
+    },
+    "echo-pref-web": "Web",
+    "echo-pref-email": "E-Mail",
+    "echo-category-title-other": "Annere"
+}

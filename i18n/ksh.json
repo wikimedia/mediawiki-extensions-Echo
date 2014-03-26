@@ -1,0 +1,22 @@
+{
+    "@metadata": {
+        "authors": [
+            "Purodha"
+        ]
+    },
+    "echo-desc": "Süßtehm för Medeilonge",
+    "prefs-echo": "Meddeilonge",
+    "echo-no-agent": "[Keine]",
+    "echo-no-title": "[Kein Sigg]",
+    "notifications": "Meddeilonge",
+    "echo-specialpage": "Ming Meddeilonge",
+    "echo-anon": "Do moß Desch [$1 aanmälde] udder [$2 enlogge], öm Medeilonge krijje ze künne.",
+    "echo-none": "Ende läzde Zigg häß De kein Medeilonge krääje.",
+    "notification-new-user": "$1, welkumme op {{GENDER:Dative|{{SITENAME}}}}!",
+    "echo-email-subject-default": "En neue Medeilong op {{GRAMMAR:dative|{{ucfirst:{{SITENAME}}}}}}",
+    "echo-email-body-default": "Do häss_en neue Medeilong op {{GRAMMAR:dative|{{ucfirst:{{SITENAME}}}}}}:\n\n$1",
+    "echo-overlay-link": "Alle Medeilonge{{int:ellipsis}}",
+    "echo-overlay-title": "Ming Medeilonge",
+    "echo-date-today": "Hück",
+    "echo-date-yesterday": "Jäßtere"
+}

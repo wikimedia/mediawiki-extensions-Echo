@@ -1,0 +1,28 @@
+{
+    "@metadata": {
+        "authors": [
+            "ChrisPtDe"
+        ]
+    },
+    "echo-desc": "Sistèmo de notificacions",
+    "prefs-echo": "Notificacions",
+    "prefs-displaynotifications": "Chouèx de visualisacion",
+    "echo-no-agent": "[Nion]",
+    "echo-no-title": "[Niona pâge]",
+    "notifications": "Notificacions",
+    "tooltip-pt-notifications": "Voutres notificacions",
+    "echo-specialpage": "Mes notificacions",
+    "echo-none": "Vos éd reçu gins de notificacion.",
+    "notification-new-user": "Benvegnua sur {{SITENAME}}, $1 !",
+    "echo-email-subject-default": "Novèla notificacion dessus {{SITENAME}}",
+    "echo-email-body-default": "Vos avéd na novèla notificacion dessus {{SITENAME}} :\n\n$1",
+    "echo-email-footer-default": "$2\n\nPor controlar quints mèssâjos nos vos mandens, visitâd :\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
+    "echo-overlay-link": "Totes les notificacions",
+    "echo-overlay-title": "Mes notificacions",
+    "echo-overlay-title-overflow": "Mes notificacions (montrent $1 sur $2 pas liesues)",
+    "echo-date-today": "Houé",
+    "echo-date-yesterday": "Hièr",
+    "echo-load-more-error": "Na fôta est arrevâye pendent la rècupèracion de més de rèsultats.",
+    "echo-email-batch-subject-daily": "Vos avéd $1 notificacion{{PLURAL:$2||s}} houé",
+    "echo-email-batch-subject-weekly": "Vos avéd $1 notificacion{{PLURAL:$2||s}} ceta semana"
+}

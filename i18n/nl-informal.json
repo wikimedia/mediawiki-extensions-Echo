@@ -1,0 +1,13 @@
+{
+    "@metadata": {
+        "authors": [
+            "Siebrand"
+        ]
+    },
+    "tooltip-pt-notifications": "Jouw meldingen",
+    "echo-none": "Je hebt geen meldingen.",
+    "echo-email-body-default": "Je hebt een nieuwe melding op {{SITENAME}}:\n\n$1",
+    "echo-email-footer-default": "$2\n\nVolg de volgende koppeling om je e-mailvoorkeuren te wijzigen of om je uit te schrijven:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
+    "echo-email-batch-subject-daily": "Je hebt vandaag {{PLURAL:$2|0=geen meldingen|één melding|$1 meldingen}}",
+    "echo-email-batch-subject-weekly": "Je hebt deze week {{PLURAL:$2|0=geen meldingen|één melding|$1 meldingen}}"
+}

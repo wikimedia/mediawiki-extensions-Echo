@@ -1,0 +1,8 @@
+{
+    "@metadata": {
+        "authors": [
+            "Shirayuki"
+        ]
+    },
+    "echo-email-batch-category-header-other": "$1 uncategorised {{PLURAL:$1|notification|notifications}}"
+}

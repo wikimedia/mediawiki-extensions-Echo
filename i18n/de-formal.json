@@ -1,0 +1,9 @@
+{
+    "@metadata": {
+        "authors": [
+            "Kghbln"
+        ]
+    },
+    "echo-new-messages": "Sie haben neue Nachrichten",
+    "echo-none": "Sie haben in letzter Zeit keine Benachrichtigungen erhalten."
+}

@@ -1,0 +1,25 @@
+{
+    "@metadata": {
+        "authors": [
+            "Amire80",
+            "Candalua"
+        ]
+    },
+    "echo-pref-send-me": "Màndeme:",
+    "echo-pref-send-to": "Manda a:",
+    "echo-pref-email-format": "Formato email:",
+    "echo-pref-web": "Web",
+    "echo-pref-email": "Email",
+    "echo-pref-email-frequency-never": "No sta mandarme nissuna notifica par email",
+    "echo-pref-email-format-html": "HTML",
+    "echo-pref-email-format-plain-text": "Testo normal",
+    "echo-new-messages": "Te ghè dei messagi novi",
+    "echo-category-title-other": "{{PLURAL:$1|Altro}}",
+    "echo-category-title-system": "{{PLURAL:$1|Sistema}}",
+    "echo-no-agent": "[Nissun]",
+    "echo-no-title": "[Nissuna pagina]",
+    "notification-link-text-view-message": "Varda messajo",
+    "echo-mark-all-as-read": "Segna tuto come zà lèto",
+    "echo-date-today": "Uncuò",
+    "echo-date-yesterday": "Jeri"
+}

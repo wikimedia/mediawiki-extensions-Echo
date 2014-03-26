@@ -1,0 +1,34 @@
+{
+    "@metadata": {
+        "authors": [
+            "Demmy"
+        ]
+    },
+    "notifications": "Àwọn ìdálákìíyèsí",
+    "tooltip-pt-notifications": "Àwọn ìdálákìíyèsí yín",
+    "echo-specialpage": "Àwọn ìdálákìíyèsí",
+    "echo-none": "Ẹ kò ní ìdálákìíyèsí kankan.",
+    "notification-link-text-view-message": "Ìgbéwò ìránṣẹ́",
+    "notification-link-text-view-mention": "Ìgbéwò ìdárúkọ",
+    "notification-link-text-view-changes": "Ìgbéwò àwọn àtúnṣe tuntun",
+    "notification-link-text-view-page": "Ìgbéwò ojúewé",
+    "notification-link-text-view-edit": "Ìgbéwò àtúnṣe",
+    "notification-edit-talk-page2": "[[User:$1|$1]] {{GENDER:$1|fi}} ìránṣẹ́ s'órí [[User talk:$2#$3|ojúewé ọ̀rọ̀]] yín.",
+    "notification-edit-talk-page-with-section": "[[User:$1|$1]] {{GENDER:$1|fi}} ìránṣẹ́ s'órí ojúewé ọ̀rọ̀ yín ní \"[[User talk:$2#$3|$4]]\".",
+    "notification-edit-talk-page-flyout2": "$1 {{GENDER:$1|fi}} ìránṣẹ́ sí [[User talk:$2#$3|ojúewé ọ̀rọ̀]] yín.",
+    "notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|fi}} ìránṣẹ́ fún yín lórí {{SITENAME}}",
+    "notification-edit-talk-page-email-batch-body2": "$1 {{GENDER:$1|fi}} ìránṣẹ́ s'órí ojúewé ọ̀rọ̀ yín:",
+    "notification-edit-talk-page-email-batch-body-with-section": "$1 {{GENDER:$1|fi}} ìránṣẹ́ s'órí ojúewé ọ̀rọ̀ yín ní \"$2\".",
+    "notification-mention-email-subject": "$1 {{GENDER:$1|dárúkọ}} yín lórí {{SITENAME}}",
+    "notification-mention-email-batch-body": "$1 {{GENDER:$1|dárúkọ}} yín lórí ojúewé ọ̀rọ̀ $4 nínú \"$3\".",
+    "notification-mention-nosection-email-batch-body": "$1 {{GENDER:$1|dárúkọ}} yín lórí ojúewé ọ̀rọ̀ $2.",
+    "echo-email-subject-default": "Ìdálákìíyèsí tuntun wà ní {{SITENAME}}",
+    "echo-email-body-default": "Ẹ ní ìdálákìíyèsí tuntun ní {{SITENAME}}:\n\n\n$1",
+    "echo-email-batch-body-default": "Ẹ ní ìdálákìíyèsí tuntun.",
+    "echo-overlay-link": "Gbogbo ìdálákìíyèsí",
+    "echo-overlay-title": "<b>Àwọn ìdálákìíyèsí</b>",
+    "echo-overlay-title-overflow": "<b>{{PLURAL:$1|Àwọn ìdálákìíyèsí}}</b> (ìhàn $1 nínú $2 àìtíìkà)",
+    "echo-date-today": "Òní",
+    "echo-date-yesterday": "Àná",
+    "echo-email-batch-link-text-view-all-notifications": "Ìgbéwò gbogbo ìdálákìíyèsí"
+}
