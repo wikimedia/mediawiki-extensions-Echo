@@ -48,7 +48,7 @@
     "echo-email-body-default": "Manana fampilazana vaovao ianao any amin'i {{SITENAME}}:\n\n$1",
     "echo-email-batch-body-default": "Manana fampilazana vaovao ianao.",
     "echo-overlay-link": "Fampilazana rehetra",
-    "echo-overlay-title": "<b>Fampilazana</b>",
+    "echo-overlay-title": "\u003Cb\u003EFampilazana\u003C/b\u003E",
     "echo-mark-all-as-read": "Marihana ho voavaky",
     "echo-date-today": "Androany",
     "echo-date-yesterday": "Omaly",
