@@ -25,7 +25,7 @@
     "echo-pref-notify-show-link": "敆我其工具欄顯示通知",
     "echo-pref-new-message-indicator": "敆我其工具欄顯示討論頁信息指示",
     "echo-learn-more": "學習更更価仂囝",
-    "echo-new-messages": "!!FUZZY!!汝有新其信息",
+    "echo-new-messages": "汝有新其信息",
     "echo-category-title-edit-user-talk": "討論頁 {{PLURAL:$1|條}}信息",
     "echo-category-title-article-linked": "頁面{{PLURAL:$1|萆鏈接}}",
     "echo-category-title-reverted": "修改{{PLURAL:$1|回退回}}",

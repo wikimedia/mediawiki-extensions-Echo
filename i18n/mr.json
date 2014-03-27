@@ -29,7 +29,7 @@
     "echo-pref-notify-show-link": "माझ्या साधनपेटीत अधिसूचना दाखवा",
     "echo-pref-new-message-indicator": "चर्चापान संदेश दर्शक माझ्या साधनपेटीत दाखवा",
     "echo-learn-more": "अधिक जाणून घ्या",
-    "echo-new-messages": "!!FUZZY!!तुमच्यासाठी नवीन संदेश आहेत",
+    "echo-new-messages": "तुमच्यासाठी नवीन संदेश आहेत",
     "echo-category-title-edit-user-talk": "चर्चा पान {{PLURAL:$1|संदेश}}",
     "echo-category-title-article-linked": "पान {{PLURAL:$1|दुवा|दुवे}}",
     "echo-category-title-reverted": "संपादन {{PLURAL:$1|उलटवा}}",
