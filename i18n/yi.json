@@ -50,7 +50,7 @@
     "notification-page-linked-email-subject": "אײַער בלאט איז געווארן פֿאַרלינקט אויף {{SITENAME}}",
     "notification-page-linked-email-batch-body": "$2 איז געווארן {{GENDER:$1| פֿאַרלינקט}} פֿון $3.",
     "echo-overlay-link": "אלע הודעות",
-    "echo-overlay-title": "<b>הודעות</b>",
+    "echo-overlay-title": "\u003Cb\u003Eהודעות\u003C/b\u003E",
     "echo-mark-all-as-read": "מאַרקירן אַלע געליינט",
     "echo-date-today": "הײַנט",
     "echo-date-yesterday": "נעכטן",

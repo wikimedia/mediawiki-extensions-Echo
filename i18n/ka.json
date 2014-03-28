@@ -64,7 +64,7 @@
     "echo-notification-count": "$1+",
     "echo-email-batch-body-default": "თქვენ გაქვთ ახალი შეტყობინება.",
     "echo-overlay-link": "შეტყობინება",
-    "echo-overlay-title": "<b>შეტყობინებები</b>",
+    "echo-overlay-title": "\u003Cb\u003Eშეტყობინებები\u003C/b\u003E",
     "echo-mark-all-as-read": "მონიშნეთ ყველა, როგორც წაკითხული",
     "echo-date-today": "დღეს",
     "echo-date-yesterday": "გუშინ",

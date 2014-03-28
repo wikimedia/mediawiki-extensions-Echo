@@ -45,7 +45,7 @@
     "notification-new-user": "خوش اومایت د {{نوم سیل جا}}, $1! ایما خوشالیم که ایسه هایتیت ایچه.",
     "notification-page-linked-email-subject": "بلگه شما د {{نوم مالگه}} هوم پیوند بیه",
     "echo-overlay-link": "همه وارسیاریا",
-    "echo-overlay-title-overflow": "<b>{{جمی:$1|وارسیاری یا}}</b> (نشو دئه  $1 د $2 حنه نبیه)",
+    "echo-overlay-title-overflow": "\u003Cb\u003E{{جمی:$1|وارسیاری یا}}\u003C/b\u003E (نشو دئه  $1 د $2 حنه نبیه)",
     "echo-mark-all-as-read": "همه نه د عنوان حنه بیه نشو بیه",
     "echo-date-today": "امرو",
     "echo-date-yesterday": "دوش،دیرو",

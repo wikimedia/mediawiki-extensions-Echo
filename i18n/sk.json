@@ -79,7 +79,7 @@
     "notification-user-rights-email-batch-body": "$1 {{GENDER:$1|zmenil|zmenila}} vaše redaktorské práva. $2",
     "echo-email-batch-body-default": "Máte nové upozornenie",
     "echo-overlay-link": "Všetky upozornenia",
-    "echo-overlay-title": "<b>Upozornenia</b>",
+    "echo-overlay-title": "\u003Cb\u003EUpozornenia\u003C/b\u003E",
     "echo-mark-all-as-read": "Označiť všetko ako prečítané",
     "echo-date-today": "Dnes",
     "echo-date-yesterday": "Včera",

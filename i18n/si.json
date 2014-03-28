@@ -23,7 +23,7 @@
     "echo-email-subject-default": "{{SITENAME}} හී නව නිවේදනයක්",
     "echo-email-body-default": "ඔබට {{SITENAME}} හීදී නව නිවේදනයක් ඇත:\n\n$1",
     "echo-overlay-link": "සියලුම නිවේදන",
-    "echo-overlay-title": "<b>නිවේදන</b>",
+    "echo-overlay-title": "\u003Cb\u003Eනිවේදන\u003C/b\u003E",
     "echo-overlay-title-overflow": "මගේ නිවේදන (නොකියවූ ඒවා $1 න් $2 පෙන්වමින්)",
     "echo-date-today": "අද",
     "echo-date-yesterday": "පෙරදින",
