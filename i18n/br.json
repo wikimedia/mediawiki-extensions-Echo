@@ -72,7 +72,7 @@
     "echo-email-body-default": "Ur c'hemenn nevez ho peus war {{SITENAME}}:\n\n$1",
     "echo-email-batch-body-default": "Ur c'hemenn nevez ho peus resevet.",
     "echo-email-footer-default": "Evit kontrollañ peseurt posteloù a gasomp deoc'h, gwiriit ho tibaboù : {{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}",
-    "echo-email-footer-default-html": "Evit kontrollañ peseurt posteloù a gasomp deoc'h, \u003Ca href=\"$2\" style=\"text-decoration:none; color: #3868B0;\"\u003Egwiriit ho tibaboù\u003C/a\u003E.\u003Cbr /\u003E\n$1",
+    "echo-email-footer-default-html": "Evit kontrollañ peseurt posteloù a gasomp deoc'h, <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">gwiriit ho tibaboù</a>.<br />\n$1",
     "echo-overlay-link": "An holl gemennoù",
     "echo-overlay-title": "Kemennoù",
     "echo-overlay-title-overflow": "Va c'hemennoù (o tiskouez $1 diwar $2 nann-lennet)",

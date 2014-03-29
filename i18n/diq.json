@@ -49,7 +49,7 @@
     "echo-email-body-default": "{{SITENAME}} de beyanatê do newe esto:\n\n$1",
     "echo-email-batch-body-default": "Yew beyanatê to esto.",
     "echo-overlay-link": "Pêro beyanati",
-    "echo-overlay-title": "\u003Cb\u003ETebliği\u003C/b\u003E",
+    "echo-overlay-title": "<b>Tebliği</b>",
     "echo-mark-all-as-read": "Pêrine wende nışan ke",
     "echo-date-today": "Naroc",
     "echo-date-yesterday": "Vızér",
