@@ -90,10 +90,10 @@
     "echo-email-body-default": "Имате ново известување на {{SITENAME}}:\n\n$1",
     "echo-email-batch-body-default": "Имате ново известување",
     "echo-email-footer-default": "$2\n\nАко сакате да изберете какви пораки да добивате, појдете на страницата:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}} $1\n\n$1",
-    "echo-email-footer-default-html": "За да изберете какви писма да примате од нас, \u003Ca href=\"$2\" style=\"text-decoration:none; color: #3868B0;\"\u003Eпојдете во вашите нагодувања\u003C/a\u003E\u003Cbr /\u003E\n$1",
+    "echo-email-footer-default-html": "За да изберете какви писма да примате од нас, <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">појдете во вашите нагодувања</a><br />\n$1",
     "echo-overlay-link": "Сите известувања",
-    "echo-overlay-title": "\u003Cb\u003EИзвестувања\u003C/b\u003E",
-    "echo-overlay-title-overflow": "\u003Cb\u003E{{PLURAL:$1|Известувања}}\u003C/b\u003E ({{PLURAL:$1|прикажано|прикажани}} $1 од $2 непрочитани)",
+    "echo-overlay-title": "<b>Известувања</b>",
+    "echo-overlay-title-overflow": "<b>{{PLURAL:$1|Известувања}}</b> ({{PLURAL:$1|прикажано|прикажани}} $1 од $2 непрочитани)",
     "echo-mark-all-as-read": "Означи ги сите како прочитани",
     "echo-date-today": "Денес",
     "echo-date-yesterday": "Вчера",
@@ -107,5 +107,5 @@
     "echo-email-batch-body-intro-daily": "Здраво $1,\nВи даваме преглед на денешните збиднувања на {{SITENAME}}",
     "echo-email-batch-body-intro-weekly": "Здраво $1,\nВи даваме преглед на збиднувањата на {{SITENAME}} за оваа седмица",
     "echo-email-batch-link-text-view-all-notifications": "Погл. сите известувања",
-    "echo-rev-deleted-text-view": "Оваа ревизија е скриена"
+    "echo-rev-deleted-text-view": "Оваа преработка е скриена"
 }
