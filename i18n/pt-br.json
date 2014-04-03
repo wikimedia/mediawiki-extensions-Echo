@@ -31,7 +31,7 @@
     "echo-learn-more": "Saiba mais",
     "echo-new-messages": "Você tem novas mensagens",
     "echo-category-title-edit-user-talk": "{{PLURAL:$1|Mensagem|Mensagens}} na página de discussão",
-    "echo-category-title-article-linked": "{{PLURAL:$1|Link|Links}} para página",
+    "echo-category-title-article-linked": "{{PLURAL:$1|Link|Links}} para a página",
     "echo-category-title-reverted": "{{PLURAL:$1|Edição revertida|Edições revertidas}}",
     "echo-category-title-mention": "{{PLURAL:$1|Menção|Menções}}",
     "echo-category-title-other": "{{PLURAL:$1|Outro|Outros}}",
