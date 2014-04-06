@@ -337,5 +337,13 @@
 				mw.echo.overlay.removeOverlay();
 			}
 		} );
+
+		// Closes the notifications overlay when ESC key pressed
+		$( document ).on( 'keydown', function ( e ) {
+			if ( e.which === 27 ) {
+				mw.echo.overlay.removeOverlay();
+			}
+		} );
+
 	} );
 } )( jQuery, mediaWiki );
