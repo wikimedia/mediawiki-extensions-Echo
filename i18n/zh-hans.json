@@ -56,7 +56,7 @@
     "echo-pref-tooltip-edit-user-talk": "当有人在我的讨论页上留言或回复时通知我。",
     "echo-pref-tooltip-article-linked": "当有人在条目中链接了我创建的页面时通知我。",
     "echo-pref-tooltip-reverted": "当有人用撤销或回退工具回退了我的编辑时通知我。",
-    "echo-pref-tooltip-mention": "当有人在任何讨论页链接我的用户页面时通知我。",
+    "echo-pref-tooltip-mention": "当有人在任何讨论页链接我的用户页时通知我。",
     "echo-no-agent": "[匿名]",
     "echo-no-title": "[无页面]",
     "echo-error-no-formatter": "未指定通知格式",
