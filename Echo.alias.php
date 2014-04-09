@@ -79,6 +79,11 @@ $specialPageAliases['gl'] = array(
 	'Notifications' => array( 'Notificacións' ),
 );
 
+/** Hawaiian (Hawai`i) */
+$specialPageAliases['haw'] = array(
+	'Notifications' => array( 'Notikala' ),
+);
+
 /** Hebrew (עברית) */
 $specialPageAliases['he'] = array(
 	'Notifications' => array( 'הודעות', 'כל_ההודעות' ),
