@@ -15,7 +15,8 @@
             "ShinePhantom",
             "Soul Train",
             "Sunpriat",
-            "Чаховіч Уладзіслаў"
+            "Чаховіч Уладзіслаў",
+            "Doff"
         ]
     },
     "echo-desc": "Система уведомлений",
@@ -91,7 +92,7 @@
     "notification-edit-talk-page-email-subject2": "{{GENDER:$1|Участник|Участница}} $1 {{GENDER:$1|оставил|оставила}} вам сообщение на сайте «{{SITENAME}}»",
     "notification-edit-talk-page-email-batch-body2": "{{GENDER:$1|Участник|Участница}} $1 {{GENDER:$1|оставил|оставила}} сообщение на вашей странице обсуждения:",
     "notification-edit-talk-page-email-batch-body-with-section": "{{GENDER:$1|Участник|Участница}} $1 {{GENDER:$1|оставил|оставила}} вам сообщение на вашей странице обсуждения в разделе (теме) «$2»",
-    "notification-page-linked-email-subject": "На сайте «{{SITENAME}}» появилась ссылка на вашу страницу участника",
+    "notification-page-linked-email-subject": "На сайте «{{SITENAME}}» появилась ссылка на созданную вами страницу",
     "notification-page-linked-email-batch-body": "{{GENDER:$1|Участник|участница}} $1 {{GENDER:$1|сослался|сослалась}} на $2 из $3",
     "notification-reverted-email-subject2": "{{GENDER:$1|Кто-то}} отменил {{PLURAL:$3|1=вашу правку|ваши правки}} на сайте «{{SITENAME}}»",
     "notification-reverted-email-batch-body2": "{{PLURAL:$3|1=Ваша правка на странице «$2» была отменена|Ваши правки на странице «$2» были отменены}} {{GENDER:$1|участником|участницей}} $1.",
@@ -105,10 +106,10 @@
     "echo-email-body-default": "У вас есть новое уведомление на сайте «{{SITENAME}}»:\n\n$1",
     "echo-email-batch-body-default": "У вас есть новое уведомление",
     "echo-email-footer-default": "$2\n\nДля контроля за тем, какие сообщения отправляются вам по эл. почте, проверьте свои персональные настройки:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
-    "echo-email-footer-default-html": "Для контроля за тем, какие сообщения отправляются вам по эл. почте, \u003Ca href=\"$2\" style=\"text-decoration:none; color: #3868B0;\"\u003Eпроверьте свои персональные настройки\u003C/a\u003E\u003Cbr /\u003E\n$1",
+    "echo-email-footer-default-html": "Для контроля за тем, какие сообщения отправляются вам по эл. почте, <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">проверьте свои персональные настройки</a><br />\n$1",
     "echo-overlay-link": "Все уведомления",
-    "echo-overlay-title": "\u003Cb\u003EУведомления\u003C/b\u003E",
-    "echo-overlay-title-overflow": "\u003Cb\u003E{{PLURAL:$1|Уведомления}}\u003C/b\u003E ({{PLURAL:$1|показано|показаны}} $1 из $2 {{PLURAL:$2|непрочитанного|непрочитанных}})",
+    "echo-overlay-title": "<b>Уведомления</b>",
+    "echo-overlay-title-overflow": "<b>{{PLURAL:$1|Уведомления}}</b> ({{PLURAL:$1|показано|показаны}} $1 из $2 {{PLURAL:$2|непрочитанного|непрочитанных}})",
     "echo-mark-all-as-read": "Отметить все как прочитанные",
     "echo-date-today": "Сегодня",
     "echo-date-yesterday": "Вчера",
