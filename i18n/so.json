@@ -1,35 +1,35 @@
 {
-    "@metadata": {
-        "authors": [
-            "Abshirdheere"
-        ]
-    },
-    "prefs-echo": "Wargelinada",
-    "echo-new-messages": "Farriin cusub baa kuu taal",
-    "notifications": "Wargelinada",
-    "tooltip-pt-notifications": "Wargelinadaada",
-    "echo-specialpage": "Wargelin",
-    "echo-none": "Malahan wax wargelin ah.",
-    "echo-more-info": "Dheeraad",
-    "notification-edit-talk-page2": "[[User:$1|$1]] {{GENDER:$1|kuugu reebay|kuugu reebtay}} farriin [[User talk:$2#$3|bogga wadahadalka]].",
-    "notification-edit-talk-page-with-section": "[[User:$1|$1]] kuugu {{GENDER:$1|dhaafay|dhaaftay}} farriin boggada wadahadalka ee \"[[User talk:$2#$3|$4]]\".",
-    "notification-edit-talk-page-flyout2": "$1 {{GENDER:$1|kuu dhigay|kuu dhigtay}} farriin [[User talk:$2#$3|bogga wadahadalka]].",
-    "notification-edit-talk-page-flyout-with-section": "$1 {{GENDER:$1|kuu reebay|kuu reebtay}} farriin boggaada wadahadalka ee \"[[User talk:$2#$3|$4]]\".",
-    "notification-mention": "[[User:$1|$1]] {{GENDER:$1|xusid}} kugula sameeyey $5 bogaa wadahadalka ee \"[[$3#$2|$4]]\".",
-    "notification-mention-flyout": "$1 {{GENDER:$1|xusid}} kugula sameeyey $5 bogga wadahadalka \"[[$3#$2|$4]]\".",
-    "notification-mention-nosection": "[[User:$1|$1]] {{GENDER:$1|xusid}} kugula sameeyey [[$3|$2 bogga wadahadalka]].",
-    "notification-mention-nosection-flyout": "$1 {{GENDER:$1|xusid}} kugula sameeyay [[$3|$2 bogga wadahadalka]].",
-    "notification-new-user": "Ku soo dhowoow {{SITENAME}}, $1! Waan ku faraxsan-nahay inaad halkaan joogto.",
-    "notification-edit-talk-page-email-batch-body2": "$1 {{GENDER:$1|ayaa kuugu dhaafay|ayaa kuugu dhaaftay}} farriin boggada wadahadalka:",
-    "notification-edit-talk-page-email-batch-body-with-section": "$1 {{GENDER:$1|kuugu dhaafay|kuugu dhaaftay}} farriin boggaada wadahadalka ee \"$2\".",
-    "notification-mention-email-batch-body": "$1 {{GENDER:$1|xusid}} kugula sameeyey $4 bogga wadahadalka ee \"$3\".",
-    "notification-mention-nosection-email-batch-body": "$1 {{GENDER:$1|xusid}} kugula sameeyey $2 bogga wadahadalka.",
-    "echo-overlay-link": "Dhammaan wargelinada",
-    "echo-overlay-title": "\u003Cb\u003EWargelinada\u003C/b\u003E",
-    "echo-mark-all-as-read": "Ka dhig dhammaan wax la aqriyey",
-    "echo-date-today": "Maanta",
-    "echo-date-yesterday": "Shalay",
-    "notification-edit-talk-page-bundle": "$1 iyo $3 {{PLURAL:$4|mid kale|kuwa kale}} {{GENDER:$1|kuugu daafay|kuugu dhaaftay}} farriin boggaada [[User talk:$2|wadahadalka]].",
-    "notification-edit-user-talk-email-batch-bundle-body": "$1 iyo $2 {{PLURAL:$3|mid kale|kuwa kale}} {{GENDER:$1|kuugu dhaafay|kuugu dhaaftay}} farriin boggada wadahadalka.",
-    "echo-email-batch-link-text-view-all-notifications": "Dhamaan eeg waegelinada"
+	"@metadata": {
+		"authors": [
+			"Abshirdheere"
+		]
+	},
+	"prefs-echo": "Wargelinada",
+	"echo-new-messages": "Farriin cusub baa kuu taal",
+	"notifications": "Wargelinada",
+	"tooltip-pt-notifications": "Wargelinadaada",
+	"echo-specialpage": "Wargelin",
+	"echo-none": "Malahan wax wargelin ah.",
+	"echo-more-info": "Dheeraad",
+	"notification-edit-talk-page2": "[[User:$1|$1]] {{GENDER:$1|kuugu reebay|kuugu reebtay}} farriin [[User talk:$2#$3|bogga wadahadalka]].",
+	"notification-edit-talk-page-with-section": "[[User:$1|$1]] kuugu {{GENDER:$1|dhaafay|dhaaftay}} farriin boggada wadahadalka ee \"[[User talk:$2#$3|$4]]\".",
+	"notification-edit-talk-page-flyout2": "$1 {{GENDER:$1|kuu dhigay|kuu dhigtay}} farriin [[User talk:$2#$3|bogga wadahadalka]].",
+	"notification-edit-talk-page-flyout-with-section": "$1 {{GENDER:$1|kuu reebay|kuu reebtay}} farriin boggaada wadahadalka ee \"[[User talk:$2#$3|$4]]\".",
+	"notification-mention": "[[User:$1|$1]] {{GENDER:$1|xusid}} kugula sameeyey $5 bogaa wadahadalka ee \"[[$3#$2|$4]]\".",
+	"notification-mention-flyout": "$1 {{GENDER:$1|xusid}} kugula sameeyey $5 bogga wadahadalka \"[[$3#$2|$4]]\".",
+	"notification-mention-nosection": "[[User:$1|$1]] {{GENDER:$1|xusid}} kugula sameeyey [[$3|$2 bogga wadahadalka]].",
+	"notification-mention-nosection-flyout": "$1 {{GENDER:$1|xusid}} kugula sameeyay [[$3|$2 bogga wadahadalka]].",
+	"notification-new-user": "Ku soo dhowoow {{SITENAME}}, $1! Waan ku faraxsan-nahay inaad halkaan joogto.",
+	"notification-edit-talk-page-email-batch-body2": "$1 {{GENDER:$1|ayaa kuugu dhaafay|ayaa kuugu dhaaftay}} farriin boggada wadahadalka:",
+	"notification-edit-talk-page-email-batch-body-with-section": "$1 {{GENDER:$1|kuugu dhaafay|kuugu dhaaftay}} farriin boggaada wadahadalka ee \"$2\".",
+	"notification-mention-email-batch-body": "$1 {{GENDER:$1|xusid}} kugula sameeyey $4 bogga wadahadalka ee \"$3\".",
+	"notification-mention-nosection-email-batch-body": "$1 {{GENDER:$1|xusid}} kugula sameeyey $2 bogga wadahadalka.",
+	"echo-overlay-link": "Dhammaan wargelinada",
+	"echo-overlay-title": "<b>Wargelinada</b>",
+	"echo-mark-all-as-read": "Ka dhig dhammaan wax la aqriyey",
+	"echo-date-today": "Maanta",
+	"echo-date-yesterday": "Shalay",
+	"notification-edit-talk-page-bundle": "$1 iyo $3 {{PLURAL:$4|mid kale|kuwa kale}} {{GENDER:$1|kuugu daafay|kuugu dhaaftay}} farriin boggaada [[User talk:$2|wadahadalka]].",
+	"notification-edit-user-talk-email-batch-bundle-body": "$1 iyo $2 {{PLURAL:$3|mid kale|kuwa kale}} {{GENDER:$1|kuugu dhaafay|kuugu dhaaftay}} farriin boggada wadahadalka.",
+	"echo-email-batch-link-text-view-all-notifications": "Dhamaan eeg waegelinada"
 }

@@ -1,33 +1,33 @@
 {
-    "@metadata": {
-        "authors": [
-            "පසිඳු කාවින්ද"
-        ]
-    },
-    "echo-desc": "නිවේදන පද්ධතිය",
-    "prefs-echo": "නිවේදන",
-    "prefs-displaynotifications": "විකල්ප පෙන්වන්න",
-    "echo-pref-email-frequency-never": "මට විද්‍යුත්-තැපැල් නිවේදන කිසිවක් එවන්න එපා",
-    "echo-pref-email-frequency-immediately": "තනි තනි නිවේදන ඒවා එන විට",
-    "echo-pref-email-frequency-daily": "නිවේදනවල දෛනික සාරාංශයක්",
-    "echo-pref-email-frequency-weekly": "නිවේදනවල සතිපතා සාරාංශයක්",
-    "echo-no-agent": "[කිසිවෙකු නැත]",
-    "echo-no-title": "[පිටුවක් නොමැත]",
-    "echo-error-no-formatter": "නිවේදනය සඳහා කිසිදු ආකෘතියක් දක්වා නොමැත",
-    "notifications": "නිවේදන",
-    "tooltip-pt-notifications": "ඔබේ නිවේදන",
-    "echo-specialpage": "නිවේදන",
-    "echo-anon": "නිවේදන ලබා ගැනීම සඳහා, [$1 ගිණුමක් තනන්න] හෝ [$2 ප්‍රවිෂ්ට වන්න].",
-    "echo-none": "ඔබට නිවේදන කිසිවක් නොමැත.",
-    "notification-new-user": "{{SITENAME}} වෙත පිළිගනිමු, $1!",
-    "echo-email-subject-default": "{{SITENAME}} හී නව නිවේදනයක්",
-    "echo-email-body-default": "ඔබට {{SITENAME}} හීදී නව නිවේදනයක් ඇත:\n\n$1",
-    "echo-overlay-link": "සියලුම නිවේදන",
-    "echo-overlay-title": "\u003Cb\u003Eනිවේදන\u003C/b\u003E",
-    "echo-overlay-title-overflow": "මගේ නිවේදන (නොකියවූ ඒවා $1 න් $2 පෙන්වමින්)",
-    "echo-date-today": "අද",
-    "echo-date-yesterday": "පෙරදින",
-    "echo-load-more-error": "තවත් ප්‍රතිඑල පමුනුවිමේදී දෝෂයක් හට ගැනුණි.",
-    "echo-email-batch-subject-daily": "ඔබට අද {{PLURAL:$2|නිවේදන}} $1 ඇත",
-    "echo-email-batch-subject-weekly": "ඔබට මෙම සතියේ {{PLURAL:$2|නිවේදන}} $1 ඇත"
+	"@metadata": {
+		"authors": [
+			"පසිඳු කාවින්ද"
+		]
+	},
+	"echo-desc": "නිවේදන පද්ධතිය",
+	"prefs-echo": "නිවේදන",
+	"prefs-displaynotifications": "විකල්ප පෙන්වන්න",
+	"echo-pref-email-frequency-never": "මට විද්‍යුත්-තැපැල් නිවේදන කිසිවක් එවන්න එපා",
+	"echo-pref-email-frequency-immediately": "තනි තනි නිවේදන ඒවා එන විට",
+	"echo-pref-email-frequency-daily": "නිවේදනවල දෛනික සාරාංශයක්",
+	"echo-pref-email-frequency-weekly": "නිවේදනවල සතිපතා සාරාංශයක්",
+	"echo-no-agent": "[කිසිවෙකු නැත]",
+	"echo-no-title": "[පිටුවක් නොමැත]",
+	"echo-error-no-formatter": "නිවේදනය සඳහා කිසිදු ආකෘතියක් දක්වා නොමැත",
+	"notifications": "නිවේදන",
+	"tooltip-pt-notifications": "ඔබේ නිවේදන",
+	"echo-specialpage": "නිවේදන",
+	"echo-anon": "නිවේදන ලබා ගැනීම සඳහා, [$1 ගිණුමක් තනන්න] හෝ [$2 ප්‍රවිෂ්ට වන්න].",
+	"echo-none": "ඔබට නිවේදන කිසිවක් නොමැත.",
+	"notification-new-user": "{{SITENAME}} වෙත පිළිගනිමු, $1!",
+	"echo-email-subject-default": "{{SITENAME}} හී නව නිවේදනයක්",
+	"echo-email-body-default": "ඔබට {{SITENAME}} හීදී නව නිවේදනයක් ඇත:\n\n$1",
+	"echo-overlay-link": "සියලුම නිවේදන",
+	"echo-overlay-title": "<b>නිවේදන</b>",
+	"echo-overlay-title-overflow": "මගේ නිවේදන (නොකියවූ ඒවා $1 න් $2 පෙන්වමින්)",
+	"echo-date-today": "අද",
+	"echo-date-yesterday": "පෙරදින",
+	"echo-load-more-error": "තවත් ප්‍රතිඑල පමුනුවිමේදී දෝෂයක් හට ගැනුණි.",
+	"echo-email-batch-subject-daily": "ඔබට අද {{PLURAL:$2|නිවේදන}} $1 ඇත",
+	"echo-email-batch-subject-weekly": "ඔබට මෙම සතියේ {{PLURAL:$2|නිවේදන}} $1 ඇත"
 }

@@ -1,19 +1,19 @@
 {
-    "@metadata": {
-        "authors": [
-            "Subi",
-            "Xabier Armendaritz"
-        ]
-    },
-    "echo-new-messages": "Mezu berriak dituzu",
-    "notifications": "Jakinarazpenak",
-    "tooltip-pt-notifications": "Zure jakinarazpenak",
-    "echo-specialpage": "Jakinarazpenak",
-    "echo-none": "Ez duzu jakinarazpenik.",
-    "echo-email-batch-body-default": "Jakinarazpen berri bat daukazu.",
-    "echo-overlay-link": "Jakinarazpen guztiak",
-    "echo-overlay-title": "\u003Cb\u003EJakinarazpenak\u003C/b\u003E",
-    "echo-date-today": "Gaur",
-    "echo-date-yesterday": "Atzo",
-    "echo-email-batch-link-text-view-all-notifications": "Jakinarazpen guztiak ikusi"
+	"@metadata": {
+		"authors": [
+			"Subi",
+			"Xabier Armendaritz"
+		]
+	},
+	"echo-new-messages": "Mezu berriak dituzu",
+	"notifications": "Jakinarazpenak",
+	"tooltip-pt-notifications": "Zure jakinarazpenak",
+	"echo-specialpage": "Jakinarazpenak",
+	"echo-none": "Ez duzu jakinarazpenik.",
+	"echo-email-batch-body-default": "Jakinarazpen berri bat daukazu.",
+	"echo-overlay-link": "Jakinarazpen guztiak",
+	"echo-overlay-title": "<b>Jakinarazpenak</b>",
+	"echo-date-today": "Gaur",
+	"echo-date-yesterday": "Atzo",
+	"echo-email-batch-link-text-view-all-notifications": "Jakinarazpen guztiak ikusi"
 }

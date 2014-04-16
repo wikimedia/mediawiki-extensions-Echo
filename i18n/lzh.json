@@ -1,8 +1,8 @@
 {
-    "@metadata": {
-        "authors": [
-            "Yanteng3"
-        ]
-    },
-    "echo-new-messages": "子有新訊息"
+	"@metadata": {
+		"authors": [
+			"Yanteng3"
+		]
+	},
+	"echo-new-messages": "子有新訊息"
 }
