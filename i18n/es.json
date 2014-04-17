@@ -25,7 +25,7 @@
 	"prefs-newmessageindicator": "Indicador de mensajes nuevos",
 	"echo-pref-send-me": "Enviarme:",
 	"echo-pref-send-to": "Enviar a:",
-	"echo-pref-email-format": "Formato de correo electrónico:",
+	"echo-pref-email-format": "Formato del mensaje:",
 	"echo-pref-web": "Web",
 	"echo-pref-email": "Correo electrónico",
 	"echo-pref-email-frequency-never": "No enviarme notificaciones por correo electrónico",

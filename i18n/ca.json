@@ -6,7 +6,8 @@
 			"Pitort",
 			"QuimGil",
 			"Vriullop",
-			"පසිඳු කාවින්ද"
+			"පසිඳු කාවින්ද",
+			"Fitoschido"
 		]
 	},
 	"echo-desc": "Sistema de notificacions",
@@ -17,7 +18,7 @@
 	"prefs-newmessageindicator": "Indicador de missatges nous",
 	"echo-pref-send-me": "Envia'm:",
 	"echo-pref-send-to": "Envia a:",
-	"echo-pref-email-format": "Format de correu:",
+	"echo-pref-email-format": "Format del missatge:",
 	"echo-pref-web": "Web",
 	"echo-pref-email": "Correu electrònic",
 	"echo-pref-email-frequency-never": "No m'enviïs notificacions per correu electrònic",
