@@ -3,7 +3,8 @@
 		"authors": [
 			"AnakngAraw",
 			"Sky Harbor",
-			"TheSleepyhollow02"
+			"TheSleepyhollow02",
+			"Jojit fb"
 		]
 	},
 	"echo-desc": "Sistema ng pagpapabatid",
@@ -42,7 +43,7 @@
 	"notifications": "Mga pagpapabatid",
 	"tooltip-pt-notifications": "Mga pabatid mo",
 	"echo-specialpage": "Mga pabatid",
-	"echo-anon": "Upang makatanggap ng mga pagpapabatid, [$1 lumikha ng isang akawnt] o [$2 lumagdang papasok].",
+	"echo-anon": "Upang makatanggap ng mga pagpapabatid, [$1 lumikha ng isang account] o [$2 lumagdang papasok].",
 	"echo-none": "Wala kang mga pabatid.",
 	"echo-more-info": "Karagdagang impormasyon",
 	"echo-feedback": "Komentaryo",
