@@ -66,7 +66,7 @@
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] {{GENDER:$1|přidal|přidala}} komentář na nové téma „$2“ na stránce „[[$3]]“",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] vám {{GENDER:$1|poslal|poslala}} zprávu: „[[$3#$2|$2]]“",
 	"notification-add-comment-yours2": "[[User:$1|$1]] {{GENDER:$1|přidal|přidala}} komentář k „[[$3#$2|$2]]“ na vaší diskusní stránce",
-	"notification-mention": "[[User:$1|$1]] vás {{GENDER:$1|zmínil|zmínila}} v diskusi {{GENDER:$5|uživatele|uživatelky}} $5 u „[[$3#$2|$4]]“.",
+	"notification-mention": "[[User:$1|$1]] vás {{GENDER:$1|zmínil|zmínila}} v diskusi k „$5“ u „[[$3#$2|$4]]“.",
 	"notification-mention-flyout": "$1 vás {{GENDER:$1|zmínil|zmínila}} v diskusi {{GENDER:$5|uživatele|uživatelky}} $5 u „[[$3#$2|$4]]“.",
 	"notification-mention-nosection": "[[User:$1|$1]] vás {{GENDER:$1|zmínil|zmínila}} v [[$3|diskusi ke stránce $2]].",
 	"notification-mention-nosection-flyout": "$1 vás {{GENDER:$1|zmínil|zmínila}} v [[$3|diskusi ke stránce $2]].",
