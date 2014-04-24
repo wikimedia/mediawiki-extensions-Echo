@@ -2,10 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Noor2020",
-			"පසිඳු කාවින්ද"
+			"පසිඳු කාවින්ද",
+			"Amire80"
 		]
 	},
 	"prefs-echo": "اطلاعات",
+	"echo-new-messages": "آپ کے لیے نئے پیغامات",
 	"echo-category-title-other": "دیگر",
 	"notifications": "اطلاعات",
 	"echo-specialpage": "میری اطلاعات",
@@ -13,5 +15,8 @@
 	"notification-user-rights-flyout": "آپ کے صارفانہ حقوق ہوگئے  {{GENDER:$1| تبدیل}} <b> $1 </b>کے ذریعے ۔ $2. [[Special:ListGroupRights|مزید دیکھیں]]",
 	"echo-overlay-link": "سب اطلاعات...",
 	"echo-overlay-title": "<b>اطلاعات</b>",
-	"echo-overlay-title-overflow": "<b>اطلاعات</b> (دکھا رہا ہے $1  کے  $2  غیر مطلع)"
+	"echo-overlay-title-overflow": "<b>اطلاعات</b> (دکھا رہا ہے $1  کے  $2  غیر مطلع)",
+	"echo-mark-all-as-read": "جملہ اطلاعات کو خواندہ نشانزد کریں",
+	"echo-date-today": "آج",
+	"echo-date-yesterday": "گذشتہ کل"
 }
