@@ -44,7 +44,11 @@
 	"notification-link-text-view-edit": "Qaytê vırnayışi ke",
 	"notification-edit-talk-page2": "[[User:$1|$1]],  perda [[User talk:$2#$3| mesacande]] to de zew mesaco newe {{GENDER:$1|vırada}}.",
 	"notification-edit-talk-page-with-section": "[[User:$1|$1]], Pera masecan de \"[[User talk:$2#$3|$4]]\" de mewzu {{GENDER:$1|vırade}}.",
+	"notification-edit-talk-page-flyout2": "[[User:$1|$1]],   [[User talk:$2#$3|perda mesacande]] to de zew mesaco newe {{GENDER:$1|vırada}}.",
+	"notification-edit-talk-page-flyout-with-section": "$1 perda mesacan de sernama da \"[[User talk:$2#$3|$4]]\" de yew mesac {{GENDER:$1|vırada}}.",
+	"notification-reverted2": "[[User:$1|$1]] {{PLURAL:$4|vırnayışa [[:$2]] |vırnayışane [[:$2]] }} rewizyona $3 {{GENDER:$1|peyser}} grot.",
 	"notification-reverted-flyout2": "$1 {{PLURAL:$4|vırnayışa $2 |vırnayışane $2 }} rewizyona $3 {{GENDER:$1|peyser}} grot",
+	"notification-edit-talk-page-email-batch-body-with-section": "$1, perda mesacan de sernama da \"$2\" de yew mesac {{GENDER:$1|vırada}}.",
 	"echo-email-subject-default": "{{SITENAME}} de beyanato newe",
 	"echo-email-body-default": "{{SITENAME}} de beyanatê do newe esto:\n\n$1",
 	"echo-email-batch-body-default": "Yew beyanatê to esto.",
@@ -53,7 +57,7 @@
 	"echo-mark-all-as-read": "Pêrine wende nışan ke",
 	"echo-date-today": "Naroc",
 	"echo-date-yesterday": "Vızér",
-	"notification-edit-user-talk-email-batch-bundle-body": "$1 u $2 {{PLURAL:$3|zewna karberi|tayna karberan}}, to re zew mesac {{GENDER:$1|vırada}}.",
+	"notification-edit-user-talk-email-batch-bundle-body": "$1 u $2 {{PLURAL:$3|zewna karberi|tayna karberan}}, torê zew mesac {{GENDER:$1|vırada}}.",
 	"echo-email-batch-link-text-view-all-notifications": "Qaytê beyanatan pêrine ke",
 	"echo-rev-deleted-text-view": "Vırnayışê na pele dard we."
 }
