@@ -87,7 +87,7 @@
 	"notification-mention-email-subject": "V projektu {{SITENAME}} vas je {{GENDER:$1|omenil|omenila}} $1.",
 	"notification-mention-email-batch-body": "V razdelku »$3« na pogovorni strani {{GENDER:$4|uporabnika|uporabnice}} vas je {{GENDER:$1|omenil|omenila}} $1.",
 	"notification-mention-nosection-email-batch-body": "$1 vas je {{GENDER:$1|omenil|omenila|omenil(-a)}} na pogovorni strani $2.",
-	"notification-user-rights-email-subject": "V {{GRAMMAR:dajalnik|{{SITENAME}}}} so bile spremenjene vaše uporabniške pravice",
+	"notification-user-rights-email-subject": "V {{GRAMMAR:dajalnik|{{SITENAME}}}} so bile spremenjene vaše uporabniške pravice.",
 	"notification-user-rights-email-batch-body": "Vaše uporabniške pravice je {{GENDER:$1|spremenil|spremenila}} $1. $2.",
 	"echo-email-subject-default": "Novo obvestilo v {{GRAMMAR:dajalnik|{{SITENAME}}}}",
 	"echo-email-body-default": "V {{GRAMMAR:dajalnik|{{SITENAME}}}} imate novo obvestilo:\n\n$1",
