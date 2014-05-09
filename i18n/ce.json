@@ -26,7 +26,7 @@
 	"echo-learn-more": "Цул совнаха хаа",
 	"echo-new-messages": "Хьуна кхаьчна керла хаам",
 	"echo-category-title-edit-user-talk": "Дийцаре агӀонехь {{PLURAL:$1|хаам|хаамаш}}",
-	"echo-category-title-article-linked": "АгӀона тӀе {{PLURAL:$1|хьажораг|хьажорагаш}}",
+	"echo-category-title-article-linked": "АгӀона тӀе {{PLURAL:$1|хьажораг|хьажоргаш}}",
 	"echo-category-title-reverted": "{{PLURAL:$1|нисдар юхадаккхар|нисдарш юхадаккхар}}",
 	"echo-category-title-mention": "{{PLURAL:$1|хаам|хаамаш}}",
 	"echo-category-title-other": "{{PLURAL:$1|кхин долу|кхин дерш}}",
