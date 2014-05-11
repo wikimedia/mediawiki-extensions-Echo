@@ -14,7 +14,7 @@
 	"notification-edit-talk-page2": "[[User:$1|$1]] {{GENDER:$1|kuugu reebay|kuugu reebtay}} farriin [[User talk:$2#$3|bogga wadahadalka]].",
 	"notification-edit-talk-page-with-section": "[[User:$1|$1]] kuugu {{GENDER:$1|dhaafay|dhaaftay}} farriin boggada wadahadalka ee \"[[User talk:$2#$3|$4]]\".",
 	"notification-edit-talk-page-flyout2": "$1 {{GENDER:$1|kuu dhigay|kuu dhigtay}} farriin [[User talk:$2#$3|bogga wadahadalka]].",
-	"notification-edit-talk-page-flyout-with-section": "$1 {{GENDER:$1|kuu reebay|kuu reebtay}} farriin boggaada wadahadalka ee \"[[User talk:$2#$3|$4]]\".",
+	"notification-edit-talk-page-flyout-with-section": "$1 {{GENDER:$1|wuxuu kuugu dhaafay|waxay kuu dhaaftay}} farriin boggaada wadahadalka taasoo ah \"[[User talk:$2#$3|$4]]\".",
 	"notification-mention": "[[User:$1|$1]] {{GENDER:$1|xusid}} kugula sameeyey $5 bogaa wadahadalka ee \"[[$3#$2|$4]]\".",
 	"notification-mention-flyout": "$1 {{GENDER:$1|xusid}} kugula sameeyey $5 bogga wadahadalka \"[[$3#$2|$4]]\".",
 	"notification-mention-nosection": "[[User:$1|$1]] {{GENDER:$1|xusid}} kugula sameeyey [[$3|$2 bogga wadahadalka]].",
