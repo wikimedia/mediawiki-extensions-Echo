@@ -15,6 +15,7 @@ class EchoTalkPageFunctionalTest extends ApiTestCase {
 	/**
 	 * Creates and updates a user talk page a few times to ensure proper events are
 	 * created. The user performing the edits is self::$users['sysop'].
+	 * @group Broken
 	 */
 	public function testAddCommentsToTalkPage() {
 		$editor = self::$users['sysop']->user->getName();
