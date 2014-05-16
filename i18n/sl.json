@@ -31,7 +31,7 @@
 	"echo-new-messages": "Imate nova sporočila",
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Sporočilo|Sporočila}} na pogovornih straneh",
 	"echo-category-title-article-linked": "{{PLURAL:$1|Povezava|Povezave}} na pogovornih straneh",
-	"echo-category-title-reverted": "Uredi {{PLURAL:$1|vračanje|vračanja}}",
+	"echo-category-title-reverted": "{{PLURAL:$1|Vračanje|Vračanja}} urejanj",
 	"echo-category-title-mention": "{{PLURAL:$1|Omemba|Omembe}}",
 	"echo-category-title-other": "{{PLURAL:$1|Drugo}}",
 	"echo-category-title-system": "{{PLURAL:$1|Sistem}}",
