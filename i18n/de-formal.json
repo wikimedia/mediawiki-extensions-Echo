@@ -6,5 +6,11 @@
 	},
 	"echo-new-messages": "Sie haben neue Nachrichten",
 	"echo-none": "Sie haben in letzter Zeit keine Benachrichtigungen erhalten.",
-	"notification-new-user": "Willkommen bei {{SITENAME}}, $1! Wir freuen uns, dass Sie hier sind."
+	"notification-user-rights": "Ihre Benutzerrechte wurden von [[User:$1|$1]] [[Special:Log/rights/$1|{{GENDER:$1|geändert}}]]. $2. [[Special:ListGroupRights|Weitere Informationen …]]",
+	"notification-user-rights-flyout": "Ihre Benutzerrechte wurden von $1 {{GENDER:$1|geändert}}. $2. [[Special:ListGroupRights|Weitere Informationen …]]",
+	"notification-user-rights-add": "Sie sind jetzt Mitglied dieser {{PLURAL:$2|Benutzergruppe|Benutzergruppen}}: $1",
+	"notification-user-rights-remove": "Sie sind nicht länger Mitglied dieser {{PLURAL:$2|Benutzergruppe|Benutzergruppen}}: $1",
+	"notification-new-user": "Willkommen bei {{SITENAME}}, $1! Wir freuen uns, dass Sie hier sind.",
+	"notification-user-rights-email-subject": "Ihre Benutzerrechte auf „{{SITENAME}}“ wurden geändert.",
+	"notification-user-rights-email-batch-body": "Ihre Benutzerrechte wurden von $1 {{GENDER:$1|geändert}}. $2"
 }
