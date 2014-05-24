@@ -4,7 +4,8 @@
 			"Kghbln",
 			"Metalhead64",
 			"Se4598",
-			"TMg"
+			"TMg",
+			"ChrisiPK"
 		]
 	},
 	"echo-desc": "Ermöglicht ein Benachrichtigungssystem",
@@ -69,8 +70,8 @@
 	"notification-mention-flyout": "$1 {{GENDER:$1|erwähnte}} dich auf der Seite „$5“ in „[[$3#$2|$4]]“.",
 	"notification-mention-nosection": "[[User:$1|$1]] {{GENDER:$1|erwähnte}} dich auf der [[$3|Seite „$2“]].",
 	"notification-mention-nosection-flyout": "$1 {{GENDER:$1|erwähnte}} dich auf der [[$3|Seite „$2“]].",
-	"notification-user-rights": "Deine Benutzerrechte wurden von [[User:$1|$1]] [[Special:Log/rights/$1|{{GENDER:$1|geändert}}]]. $2. [[Special:ListGroupRights|Weitere Informationen …]]",
-	"notification-user-rights-flyout": "Deine Benutzerrechte wurden von $1 {{GENDER:$1|geändert}}. $2. [[Special:ListGroupRights|Weitere Informationen …]]",
+	"notification-user-rights": "Deine Benutzerrechte wurden von [[User:$1|$1]] [[Special:Log/rights/$1|{{GENDER:$1|geändert}}]]. $2. [[Special:ListGroupRights|Weitere Informationen]]",
+	"notification-user-rights-flyout": "Deine Benutzerrechte wurden von $1 {{GENDER:$1|geändert}}. $2. [[Special:ListGroupRights|Weitere Informationen]]",
 	"notification-user-rights-add": "Du bist jetzt Mitglied dieser {{PLURAL:$2|Benutzergruppe|Benutzergruppen}}: $1",
 	"notification-user-rights-remove": "Du bist nicht länger Mitglied dieser {{PLURAL:$2|Benutzergruppe|Benutzergruppen}}: $1",
 	"notification-new-user": "Willkommen bei {{SITENAME}}, $1! Wir freuen uns, dass du hier bist.",
