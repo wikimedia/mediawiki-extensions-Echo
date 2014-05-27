@@ -64,6 +64,8 @@ class EchoContainmentSet {
 	 * @param $title          string    The title of the page containing the list.
 	 * @param $cache          BagOStuff An object to cache the page with or null for no cache.
 	 * @param $cacheKeyPrefix string    A prefix to be combined with the pages latest revision id and used as a cache key.
+	 *
+	 * @throws MWException
 	 */
 	public function addOnWiki( $namespace, $title, BagOStuff $cache = null, $cacheKeyPrefix = '' ) {
 		$list = new EchoOnWikiList( $namespace, $title );

@@ -228,10 +228,13 @@ abstract class MWEchoEmailBatch {
 
 	/**
 	 * Insert notification event into email queue
+	 *
 	 * @param $userId int
 	 * @param $eventId int
 	 * @param $priority int
 	 * @param $hash string
+	 *
+	 * @throws MWException
 	 */
 	public static function addToQueue( $userId, $eventId, $priority, $hash ) {
 		$batchClassName = self::getEmailBatchClass();
@@ -245,8 +248,12 @@ abstract class MWEchoEmailBatch {
 
 	/**
 	 * Get a list of users to be notified for the batch
+	 *
 	 * @param $startUserId int
 	 * @param $batchSize int
+	 *
+	 * @throws MWException
+	 * @return ResultWrapper|bool
 	 */
 	public static function getUsersToNotify( $startUserId, $batchSize ) {
 		$batchClassName = self::getEmailBatchClass();

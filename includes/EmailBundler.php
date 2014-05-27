@@ -30,7 +30,7 @@ abstract class MWEchoEmailBundler {
 	protected $timestamp;
 
 	/**
-	 * @var Event
+	 * @var EchoEvent
 	 */
 	protected $baseEvent;
 
@@ -92,6 +92,10 @@ abstract class MWEchoEmailBundler {
 	 * Check if a new notification should be added to the batch queue
 	 * true  - added to the queue for bundling email
 	 * false - not added, the client should send single email
+	 *
+	 * @param int $eventId
+	 * @param int $eventPriority
+	 *
 	 * @return bool
 	 */
 	public function addToEmailBatch( $eventId, $eventPriority ) {

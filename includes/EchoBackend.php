@@ -27,8 +27,11 @@ abstract class MWEchoBackend {
 
 	/**
 	 * Extract the offset used for notification list
+	 *
 	 * @param $continue String Used for offset
-	 * @param @return array
+	 *
+	 * @throws MWException
+	 * @return int[]
 	 */
 	protected function extractQueryOffset( $continue ) {
 		$offset = array (

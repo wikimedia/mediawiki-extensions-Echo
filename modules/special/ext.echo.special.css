@@ -35,7 +35,7 @@
 }
 #firstHeading #mw-echo-moreinfo-link {
 	display: inline-block;
-	margin: 0px 3px;
+	margin: 0 3px;
 	/* @embed */
 	background-image: url(Help.png);
 	background-repeat: no-repeat;

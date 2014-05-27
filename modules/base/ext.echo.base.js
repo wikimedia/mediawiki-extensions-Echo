@@ -7,9 +7,9 @@
 
 		/**
 		 * Set up event logging for individual notification
-		 * @param {JQuery} notification JQuery representing a single notification
+		 * @param {jQuery} notification JQuery representing a single notification
 		 * @param {string} context 'flyout'/'archive'
-		 * @param {boolean} mobile True if interaction was on a mobile device
+		 * @param {boolean} [mobile] True if interaction was on a mobile device
 		 */
 		setupNotificationLogging: function ( notification, context, mobile ) {
 			var eventId = +notification.attr( 'data-notification-event' ),
@@ -29,11 +29,11 @@
 
 		/**
 		 * Log all Echo interaction related events
-		 * @param {string} clickAction The interaction
-		 * @param {string} context 'flyout'/'archive' or undefined for the badge
-		 * @param {int} eventId Notification event id
-		 * @param {string} eventType notification type
-		 * @param {boolean} mobile True if interaction was on a mobile device
+		 * @param {string} action The interaction
+		 * @param {string} [context] 'flyout'/'archive' or undefined for the badge
+		 * @param {int} [eventId] Notification event id
+		 * @param {string} [eventType] notification type
+		 * @param {boolean} [mobile] True if interaction was on a mobile device
 		 */
 		logInteraction: function ( action, context, eventId, eventType, mobile ) {
 			// Check if Schema:EchoInteraction is enabled

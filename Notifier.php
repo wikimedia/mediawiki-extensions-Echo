@@ -10,8 +10,6 @@ class EchoNotifier {
 	 * @param $event EchoEvent to notify about.
 	 */
 	public static function notifyWithNotification( $user, $event ) {
-		global $wgEchoConfig, $wgEchoNotifications;
-
 		// Only create the notification if the user wants to recieve that type
 		// of notification and they are eligible to recieve it. See bug 47664.
 		$userWebNotifications = EchoNotificationController::getUserEnabledEvents( $user, 'web' );

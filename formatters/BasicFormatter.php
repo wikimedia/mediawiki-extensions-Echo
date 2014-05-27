@@ -524,8 +524,10 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	/**
 	 * Plain text email in some mail client is misinterpreting the ending
 	 * punctuation, this function would encode the last character
+	 *
 	 * @param $url string
-	 * @param string
+	 *
+	 * @return string
 	 */
 	public function sanitizeEmailLink( $url ) {
 		// $url should contain all ascii characters now, it's safe to use substr()
@@ -580,8 +582,6 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	 * @throws MWException
 	 */
 	protected function generateBundleData( $event, $user, $type ) {
-		global $wgEchoMaxNotificationCount;
-
 		$data = $this->getRawBundleData( $event, $user, $type );
 
 		// Default the last raw data to false, which means there is no
@@ -872,7 +872,10 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 
 	/**
 	 * Getter method
+	 *
 	 * @param $key string
+	 *
+	 * @throws MWException
 	 * @return mixed
 	 */
 	public function getValue( $key ) {

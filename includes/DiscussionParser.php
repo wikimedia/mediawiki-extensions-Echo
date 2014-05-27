@@ -558,7 +558,7 @@ abstract class EchoDiscussionParser {
 			return true;
 		}
 
-		list( $signaturePos, $foundUser ) = $userData;
+		list( , $foundUser ) = $userData;
 
 		return User::getCanonicalName( $foundUser, false ) === User::getCanonicalName( $user, false );
 	}
@@ -618,8 +618,6 @@ abstract class EchoDiscussionParser {
 	 */
 	static function extractSignatures( $text ) {
 		$lines = explode( "\n", $text );
-		$timestampRegex = self::getTimestampRegex();
-		$endOfLine = self::getLineEndingRegex();
 
 		$output = array();
 

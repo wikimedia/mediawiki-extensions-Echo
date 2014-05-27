@@ -99,6 +99,7 @@ class EchoHooks {
 
 	/**
 	 * Handler for EchoGetBundleRule hook, which defines the bundle rule for each notification
+	 *
 	 * @param $event EchoEvent
 	 * @param $bundleString string Determines how the notification should be bundled, for example,
 	 * talk page notification is bundled based on namespace and title, the bundle string would be
@@ -106,6 +107,7 @@ class EchoHooks {
 	 * a key to identify bundle-able event.  For web bundling, we bundle further based on user's
 	 * visit to the overlay, we would generate a display hash based on the hash of $bundleString
 	 *
+	 * @return bool
 	 */
 	public static function onEchoGetBundleRules( $event, &$bundleString ) {
 		switch ( $event->getType() ) {
@@ -231,7 +233,6 @@ class EchoHooks {
 	 * @return bool
 	 */
 	public static function getNotificationTypes( $user, $event, &$notifyTypes ) {
-		$type = $event->getType();
 		if ( !$user->getOption( 'enotifminoredits' ) ) {
 			$extra = $event->getExtra();
 			if ( !empty( $extra['revid'] ) ) {
@@ -248,14 +249,17 @@ class EchoHooks {
 	/**
 	 * Handler for GetPreferences hook.
 	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/GetPreferences
+	 *
 	 * @param $user User to get preferences for
 	 * @param &$preferences Preferences array
+	 *
+	 * @throws MWException
 	 * @return bool true in all cases
 	 */
 	public static function getPreferences( $user, &$preferences ) {
 		global $wgEchoDefaultNotificationTypes, $wgAuth, $wgEchoEnableEmailBatch,
 			$wgEchoNotifiers, $wgEchoNotificationCategories, $wgEchoNotifications,
-			$wgEchoHelpPage, $wgEchoNewMsgAlert, $wgAllowHTMLEmail;
+			$wgEchoNewMsgAlert, $wgAllowHTMLEmail;
 
 		// Don't show echo preference page if echo is disabled for this user
 		if ( self::isEchoDisabled( $user ) ) {
@@ -538,9 +542,12 @@ class EchoHooks {
 	/**
 	 * Handler for UserRights hook.
 	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/UserRights
+	 *
 	 * @param $user User User object that was changed
 	 * @param $add array Array of strings corresponding to groups added
 	 * @param $remove array Array of strings corresponding to groups removed
+	 *
+	 * @return bool
 	 */
 	public static function onUserRights( &$user, $add, $remove ) {
 		global $wgUser;
@@ -597,7 +604,7 @@ class EchoHooks {
 		$max = 10;
 		// Only create notifications for links to content namespace pages
 		// @Todo - use one big insert instead of individual insert inside foreach loop
-		foreach ( $insertions as $key => $page ) {
+		foreach ( $insertions as $page ) {
 			if ( MWNamespace::isContent( $page['pl_namespace'] ) ) {
 				$title = Title::makeTitle( $page['pl_namespace'], $page['pl_title'] );
 				if ( $title->isRedirect() ) {
@@ -753,7 +760,6 @@ class EchoHooks {
 
 		// Provide info for the Overlay
 
-		$timestamp = new MWTimestamp( wfTimestampNow() );
 		if ( ! $user->isAnon() ) {
 			$vars['wgEchoOverlayConfiguration'] = array(
 				'notification-count' => MWEchoNotifUser::newFromUser( $user )->getFormattedNotificationCount(),

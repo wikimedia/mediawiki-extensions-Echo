@@ -415,7 +415,6 @@ TEXT
 
 	static public function provider_detectSectionTitleAndText() {
 		$name = 'TestUser';
-		$mention = 'Someone';
 		$comment = self::signedMessage( $name );
 
 		return array(

@@ -616,7 +616,7 @@ interface EchoEmailDecorator {
 
 	/**
 	 * Decorate a revision snippet
-	 * @param $snippet the raw revision snippet
+	 * @param string $snippet the raw revision snippet
 	 * @return string
 	 */
 	public function decorateRevisionSnippet( $snippet );

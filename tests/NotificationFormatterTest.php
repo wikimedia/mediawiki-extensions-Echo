@@ -207,8 +207,6 @@ class EchoNotificationFormatterTest extends MediaWikiTestCase {
 	}
 
 	protected function format( EchoEvent $event, $format, $user = false, $type = 'web' ) {
-		global $wgEchoNotifications;
-
 		if ( $user === false ) {
 			$user = User::newFromName('Notification-formatter-test');
 		}

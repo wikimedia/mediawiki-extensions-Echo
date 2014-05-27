@@ -57,7 +57,7 @@ class EchoDiffParser {
 	protected $rightPos;
 
 	/**
-	 * @var array $changeSet Set of add, subtract, or change operations within the diff
+	 * @var array[] $changeSet Set of add, subtract, or change operations within the diff
 	 */
 	protected $changeSet;
 
@@ -66,7 +66,7 @@ class EchoDiffParser {
 	 *
 	 * @param string $leftText The left, or old, revision of the text
 	 * @param string $rightText The right, or new, revision of the text
-	 * @return array Array of arrays containing changes to individual groups of lines within the text
+	 * @return array[] Array of arrays containing changes to individual groups of lines within the text
 	 * Each change consists of:
 	 * An 'action', one of:
 	 * - add
@@ -115,6 +115,8 @@ class EchoDiffParser {
 	 * @param string $diff The unified diff output
 	 * @param string $left The left side of the diff used for sanity checks
 	 * @param string $right The right side of the diff used for sanity checks
+	 *
+	 * @return array[]
 	 */
 	protected function parse( $diff, $left, $right ) {
 		$this->left = explode( "\n", $left );
@@ -148,6 +150,8 @@ class EchoDiffParser {
 	 *
 	 * @param string $line The next line of the unified diff
 	 * @param EchoDiffGroup $change Changes the the immediately previous lines
+	 *
+	 * @throws MWException
 	 * @return EchoDiffGroup Changes to this line and any changed lines immediately previous
 	 */
 	protected function parseLine( $line, EchoDiffGroup $change = null ) {
@@ -169,7 +173,7 @@ class EchoDiffParser {
 				$change = null;
 			}
 			// @@ -start,numLines +start,numLines @@
-			list( $at, $left, $right, $at ) = explode( ' ', $line );
+			list( , $left, $right ) = explode( ' ', $line );
 			list( $this->leftPos ) = explode( ',', substr( $left, 1 ) );
 			list( $this->rightPos ) = explode( ',', substr( $right, 1 ) );
 
@@ -263,7 +267,7 @@ class EchoDiffGroup {
 	}
 
 	/**
-	 * @return array set of changes
+	 * @return array[] set of changes
 	 * Each change consists of:
 	 * An 'action', one of:
 	 *   - add
@@ -309,4 +313,3 @@ class EchoDiffGroup {
 		return $changeSet;
 	}
 }
-

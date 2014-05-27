@@ -194,7 +194,7 @@ class EchoEvent {
 	/**
 	 * Loads data from the provided $row into this object.
 	 *
-	 * @param $row Database row object from echo_event
+	 * @param $row stdClass row object from echo_event
 	 */
 	public function loadFromRow( $row ) {
 		$this->id = $row->event_id;
@@ -243,7 +243,7 @@ class EchoEvent {
 	/**
 	 * Creates an EchoEvent from a row object
 	 *
-	 * @param $row Database row object from echo_event
+	 * @param $row stdClass row object from echo_event
 	 * @return EchoEvent object.
 	 */
 	public static function newFromRow( $row ) {
@@ -295,7 +295,7 @@ class EchoEvent {
 	/**
 	 * Check if the event is dismissable for the given distribution type
 	 *
-	 * @param $distribution notification distribution web/email
+	 * @param string $distribution notification distribution web/email
 	 * @return bool
 	 */
 	public function isDismissable( $distribution ) {

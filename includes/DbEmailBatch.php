@@ -138,8 +138,11 @@ class MWDbEchoEmailBatch extends MWEchoEmailBatch {
 
 	/**
 	 * Get a list of users to be notified for the batch
+	 *
 	 * @param $startUserId int
 	 * @param $batchSize int
+	 *
+	 * @return ResultWrapper|bool
 	 */
 	public static function actuallyGetUsersToNotify( $startUserId, $batchSize ) {
 		$dbr = MWEchoDbFactory::getDB( DB_SLAVE );

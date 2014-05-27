@@ -60,9 +60,10 @@ class ApiEchoNotifications extends ApiQueryBase {
 	 * Get a list of notifications based on the passed parameters
 	 *
 	 * @param $user User the user to get notifications for
-	 * @param $format string/bool false to not format any notifications, string to a specific output format
+	 * @param $format string|bool false to not format any notifications, string to a specific output format
 	 * @param $limit int The maximum number of notifications to return
 	 * @param $continue string Used for offset
+	 *
 	 * @return array
 	 */
 	public static function getNotifications( $user, $format = false, $limit = 20, $continue = null ) {
@@ -152,9 +153,12 @@ class ApiEchoNotifications extends ApiQueryBase {
 
 	/**
 	 * Internal helper function for converting UTC timezone to a user's timezone
+	 *
 	 * @param $user User
 	 * @param $ts string
-	 * @param $format output format
+	 * @param $format int output format
+	 *
+	 * @return string
 	 */
 	private static function getUserLocalTime( $user, $ts, $format = TS_MW ) {
 		$timestamp = new MWTimestamp( $ts );

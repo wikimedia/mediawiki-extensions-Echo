@@ -8,7 +8,7 @@
 class EchoSuppressionRowUpdateGenerator implements EchoRowUpdateGenerator
 {
 	/**
-	 * @param callable Hack to allow replacing Title::newFromText in tests
+	 * @var callable Hack to allow replacing Title::newFromText in tests
 	 */
 	protected $newTitleFromText = array( 'Title', 'newFromText' );
 
@@ -79,6 +79,8 @@ class EchoSuppressionRowUpdateGenerator implements EchoRowUpdateGenerator
 	 * rather than the namespace+title combo.
 	 *
 	 * @param $row stdClass A row from the database
+	 * @param $update array
+	 *
 	 * @return array All updates required for this row
 	 */
 	protected function updatePageLinkedExtraData( $row, array $update ) {
