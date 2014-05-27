@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"MKar"
+			"MKar",
+			"Psubhashish"
 		]
 	},
 	"echo-desc": "ସୂଚନା ପ୍ରଣାଳି",
@@ -39,9 +40,9 @@
 	"echo-error-no-formatter": "ସୂଚନା ନିମନ୍ତେ କୌଣସି ନିର୍ଦ୍ଦିଷ୍ଟ ଶୈଳୀ ନାହିଁ",
 	"echo-error-preference": "ତୃଟି:ବ୍ୟବହାରକାରୀ ପସନ୍ଦ ସ୍ଥାପନ କରାଯାଇପାରିଲା ନାହିଁ",
 	"echo-error-token": "ତୃଟି:ବ୍ୟବହାରକାରୀ ଟୋକନ ଅଣାଯାଇ ପାରିଲା ନାହିଁ",
-	"notifications": "ସୂଚନାବଳି",
-	"tooltip-pt-notifications": "ଆପଣଙ୍କ ନିମନ୍ତେ ସୂଚନାବଳି",
-	"echo-specialpage": "ସୂଚନାବଳି",
+	"notifications": "ସୂଚନା",
+	"tooltip-pt-notifications": "ଆପଣଙ୍କ ପାଇଁ ସୂଚନା",
+	"echo-specialpage": "ସୂଚନା",
 	"echo-anon": "ସୂଚନା ପ୍ରାପ୍ତି ନିମନ୍ତେ, [$1 ନୂଆ ଖାତା ଖୋଲନ୍ତୁ] କିମ୍ବା [$2 ଲଗ ଇନ କରନ୍ତୁ].",
 	"echo-none": "ଆପଣଙ୍କ ନିମନ୍ତେ କୌଣସି ସୂଚନା ନାହିଁ",
 	"echo-more-info": "ଅଧିକ ତଥ୍ୟ",
