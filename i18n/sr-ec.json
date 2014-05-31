@@ -100,8 +100,8 @@
 	"notification-page-linked-email-batch-bundle-body": "Страница $2 је {{GENDER:$1|повезана}} са $3 и $4 {{PLURAL:$5|друге странице|других страница}}.",
 	"echo-email-batch-subject-daily": "Имате {{PLURAL:$2|ново обавештење|нова обавештења}} на пројекту {{SITENAME}}",
 	"echo-email-batch-subject-weekly": "Имате {{PLURAL:$2|ново обавештење|нова обавештења}} на пројекту {{SITENAME}} ове седмице",
-	"echo-email-batch-body-intro-daily": "Дневни сажетак данашњих активности на пројекту {{SITENAME}} за вас.",
-	"echo-email-batch-body-intro-weekly": "Недељни сажетак активности на пројекту {{SITENAME}} за вас.",
+	"echo-email-batch-body-intro-daily": "Здраво $1,\nОво је дневни сажетак данашњих активности на пројекту {{SITENAME}} за вас.",
+	"echo-email-batch-body-intro-weekly": "Здраво $1,\nОво је недељни сажетак активности на пројекту {{SITENAME}} за вас.",
 	"echo-email-batch-link-text-view-all-notifications": "Погледај сва обавештења",
 	"echo-rev-deleted-text-view": "Ова ревизија странице је потиснута."
 }
