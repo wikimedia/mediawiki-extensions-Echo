@@ -101,6 +101,7 @@
 	padding: 0px;
 	border-top: 1px solid #DDDDDD;
 	display: table;
+	width: 100%;
 }
 
 #mw-echo-overlay-footer a {
@@ -113,8 +114,6 @@
 	clear: left;
 	float: left;
 	padding: 15px 15px 15px 45px;
-	/* 149px instead of 150px due to Chrome rounding bug (bug 47897) */
-	width: 149px;
 	min-height: 14px;
 	font-size: 13px;
 	font-weight: bold;
@@ -128,7 +127,6 @@
 #mw-echo-overlay-pref-link {
 	display: block;
 	float: left;
-	width: 174px;
 	min-height: 14px;
 	font-size: 13px;
 	font-weight: bold;
