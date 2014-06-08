@@ -43,7 +43,7 @@
 	"echo-error-preference": "エラー: 個人設定を変更できませんでした。",
 	"echo-error-token": "エラー: 利用者トークンを取得できませんでした。",
 	"notifications": "通知",
-	"tooltip-pt-notifications": "自分の通知",
+	"tooltip-pt-notifications": "あなたへの通知",
 	"echo-specialpage": "通知",
 	"echo-anon": "通知を受け取るには、[$1 アカウント作成]または[$2 ログイン]をしてください。",
 	"echo-none": "通知はありません。",
