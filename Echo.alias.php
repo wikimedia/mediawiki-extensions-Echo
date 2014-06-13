@@ -179,6 +179,11 @@ $specialPageAliases['scn'] = array(
 	'Notifications' => array( 'Notifiche' ),
 );
 
+/** Serbian (Cyrillic script) (српски (ћирилица)‎) */
+$specialPageAliases['sr-ec'] = array(
+	'Notifications' => array( 'Обавештења' ),
+);
+
 /** Swedish (svenska) */
 $specialPageAliases['sv'] = array(
 	'Notifications' => array( 'Meddelanden' ),
