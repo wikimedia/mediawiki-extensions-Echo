@@ -112,5 +112,5 @@
 	"echo-email-batch-body-intro-daily": "$1님 안녕하세요,\n여기에 {{SITENAME}}에 오늘의 활동 요약이 있습니다.",
 	"echo-email-batch-body-intro-weekly": "$1님 안녕하세요,\n여기에 {{SITENAME}}에 이번 주의 활동 요약이 있습니다.",
 	"echo-email-batch-link-text-view-all-notifications": "모든 알림 보기",
-	"echo-rev-deleted-text-view": "이 문서 판은 숨겨져 있습니다"
+	"echo-rev-deleted-text-view": "이 문서 판은 숨겨져 있습니다."
 }
