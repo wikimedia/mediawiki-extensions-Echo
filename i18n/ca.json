@@ -41,6 +41,7 @@
 	"echo-pref-tooltip-article-linked": "Avisa'm quan algú enllaça des d'un article a una pàgina que he creat.",
 	"echo-pref-tooltip-reverted": "Avisa'm quan algú reverteix una modificació que he fet, emprant l'eina per a desfer o revocar.",
 	"echo-pref-tooltip-mention": "Avisa'm quan algú enllaça a la meva pàgina d'usuari des de qualsevol pàgina de discussió.",
+	"echo-pref-tooltip-user-rights": "Avisa’m quan algú canviï els meus drets d’usuari.",
 	"echo-no-agent": "[Ningú]",
 	"echo-no-title": "[Cap pàgina]",
 	"echo-error-no-formatter": "Cap format definit per a la notificació.",

@@ -103,5 +103,6 @@
 	"echo-email-batch-subject-weekly": "Сізге осы аптада {{SITENAME}} сайтында {{PLURAL:$2|жаңа ескертпе|жаңа ескертпелер}} келді",
 	"echo-email-batch-body-intro-daily": "Сәлем $1, \nБұл {{SITENAME}} жобасындағы бүгінгі сіз үшін іс-әрекеттер түйіндемесі.",
 	"echo-email-batch-body-intro-weekly": "Сәлем $1, \nБұл {{SITENAME}} жобасындағы осы аптадағы сіз үшін іс-әрекеттер түйіндемесі.",
-	"echo-email-batch-link-text-view-all-notifications": "Барлық ескертпелерді көру"
+	"echo-email-batch-link-text-view-all-notifications": "Барлық ескертпелерді көру",
+	"echo-rev-deleted-text-view": "Бұл бет нұсқасы жасырылған"
 }

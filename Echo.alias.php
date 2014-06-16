@@ -89,6 +89,11 @@ $specialPageAliases['he'] = array(
 	'Notifications' => array( 'הודעות', 'כל_ההודעות' ),
 );
 
+/** Upper Sorbian (hornjoserbsce) */
+$specialPageAliases['hsb'] = array(
+	'Notifications' => array( 'Zdźělenja' ),
+);
+
 /** Indonesian (Bahasa Indonesia) */
 $specialPageAliases['id'] = array(
 	'Notifications' => array( 'Notifikasi' ),
