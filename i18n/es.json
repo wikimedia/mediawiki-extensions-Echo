@@ -14,7 +14,8 @@
 			"Ralgis",
 			"The Anonymouse",
 			"TheBITLINK",
-			"Vivaelcelta"
+			"Vivaelcelta",
+			"Themasterriot"
 		]
 	},
 	"echo-desc": "Sistema de notificaciones",
@@ -44,6 +45,7 @@
 	"echo-category-title-mention": "{{PLURAL:$1|Mención|Menciones}}",
 	"echo-category-title-other": "{{PLURAL:$1|Otros}}",
 	"echo-category-title-system": "{{PLURAL:$1|Sistema}}",
+	"echo-category-title-user-rights": "{{PLURAL:$1|Cambio de permisos de usuario|Cambios de permisos de usuarios}}",
 	"echo-pref-tooltip-edit-user-talk": "Notificarme cuando alguien publique un mensaje o responda en mi página de discusión.",
 	"echo-pref-tooltip-article-linked": "Notificarme cuando alguien enlace en un artículo a una página creada por mí.",
 	"echo-pref-tooltip-reverted": "Notificarme cuando alguien revierta una edición mía mediante las herramientas de deshacer o revertir.",
