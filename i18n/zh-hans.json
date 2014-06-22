@@ -23,7 +23,8 @@
 			"Xiaomingyan",
 			"Xingzhe",
 			"Yfdyh000",
-			"乌拉跨氪"
+			"乌拉跨氪",
+			"Mywood"
 		]
 	},
 	"echo-desc": "通知系统",
@@ -131,5 +132,5 @@
 	"echo-email-batch-body-intro-daily": "嗨，$1，\n这是今天您在{{SITENAME}}的通知摘要。",
 	"echo-email-batch-body-intro-weekly": "$1，\n这是本周您在{{SITENAME}}的通知摘要。",
 	"echo-email-batch-link-text-view-all-notifications": "查看所有通知",
-	"echo-rev-deleted-text-view": "此页面修订已被隐藏。"
+	"echo-rev-deleted-text-view": "此页面版本已被隐藏。"
 }
