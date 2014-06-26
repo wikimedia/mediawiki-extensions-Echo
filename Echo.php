@@ -132,6 +132,7 @@ $wgHooks['UserRights'][] = 'EchoHooks::onUserRights';
 $wgHooks['UserLoadOptions'][] = 'EchoHooks::onUserLoadOptions';
 $wgHooks['UserSaveOptions'][] = 'EchoHooks::onUserSaveOptions';
 $wgHooks['UserClearNewTalkNotification'][] = 'EchoHooks::onUserClearNewTalkNotification';
+$wgHooks['ParserTestTables'][] = 'EchoHooks::onParserTestTables';
 
 // Extension initialization
 $wgExtensionFunctions[] = 'EchoHooks::initEchoExtension';

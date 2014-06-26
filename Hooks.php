@@ -934,6 +934,19 @@ class EchoHooks {
 	}
 
 	/**
+	 * Handler for ParserTestTables hook, makes sure that Echo's tables are present during tests
+	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/UserClearNewTalkNotification
+	 * @param array $tables List of DB tables to be used for parser tests
+	 * @return bool true in all cases
+	 */
+	public static function onParserTestTables( &$tables ) {
+		$tables[] = 'echo_event';
+		$tables[] = 'echo_notification';
+		$tables[] = 'echo_email_batch';
+		return true;
+	}
+
+	/**
 	 * Echo should be disabled for users who are under cohort study
 	 * @param $user User
 	 * @return bool
