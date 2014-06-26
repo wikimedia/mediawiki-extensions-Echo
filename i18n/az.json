@@ -3,7 +3,8 @@
 		"authors": [
 			"Interfase",
 			"Khan27",
-			"Wertuose"
+			"Wertuose",
+			"Dağlı95"
 		]
 	},
 	"echo-desc": "Bildiriş sistemi",
@@ -44,9 +45,14 @@
 	"notification-edit-talk-page2": "[[User:$1|$1]] sizin [[User talk:$2#$3|müzakirə səhifənizdə]] məktub {{GENDER:$1|qoyub}} .",
 	"notification-edit-talk-page-with-section": "[[User:$1|$1]] sizin müzakirə səhifənizdə \"[[User talk:$2#$3|$4]]\" başlıqlı mesaj {{GENDER:$1|qoyub}}.",
 	"notification-edit-talk-page-flyout2": "Sizin [[User talk:$2#$3|müzakirə səhifənizdə]] mesaj $1 {{GENDER:$1|qoyub}}.",
+	"notification-page-linked": "[[:$2]] səhifəsinə [[:$3]] səhifəsindən {{GENDER:$1|keçid verilib}}. [[Special:WhatLinksHere/$2|Bu səhifəyə olan bütün keçidlərə bax]].",
+	"notification-add-talkpage-topic2": "[[User:$1|$1]] [[$3]] səhifəsində yeni \"$2\" başlıqlı mövzu {{GENDER:$1|əlavə edib|əlavə edib}}.",
+	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] tərəfindən sizə mesaj {{GENDER:$1|göndərilib|göndərilib}}: \"[[$3#$2|$2]]\"",
+	"notification-add-comment-yours2": "[[User:$2|$2]] sizin müzakirə səhifənizindəki «[[$4#$3|$3]]» başlıqlı mövzuya {{GENDER:$1|fikir bildirdi|fikir bildirdi}}.",
 	"notification-mention": "[[User:$1|$1]] sizin adınızı $5 danışıq səhifəsinin \"[[:$3#$2|$4]]\" bölməsində $1 qeyd edib.",
 	"notification-mention-flyout": "[[User:$1|$1]] sizin adınızı $5 danışıq səhifəsinin \"[[:$3#$2|$4]]\" bölməsində $1 qeyd edib.",
 	"notification-mention-nosection": "[[User:$1|$1]] sizin adınızı [[:$3|müzakirə səhifəsind $2]] qeyd edib.",
+	"notification-new-user": "'''$1''' {{SITENAME}} saytına xoş gəlmisiniz! Sizi burada görməyimizə çox şadıq. Uğurlar!",
 	"notification-edit-talk-page-email-subject2": "{{GENDER:$1|İstifadəçi}} sizə «{{SITENAME}}» səhifəsində məktub $1 {{GENDER:$1|yazıb}}",
 	"notification-edit-talk-page-email-batch-body2": "{{GENDER:$1|İstifadəçi}} sizin müzakirə səhifənizdə məktub $1 {{GENDER:$1|yazıb}}",
 	"notification-edit-talk-page-email-batch-body-with-section": "{{GENDER:$1|İstifadəçi}} sizin müzakirə səhifənizdə «$2» bölməsində məktub $1 {{GENDER:$1|yazıb}}",
