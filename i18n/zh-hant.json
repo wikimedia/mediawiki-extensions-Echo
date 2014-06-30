@@ -12,7 +12,8 @@
 			"Shirayuki",
 			"Simon Shek",
 			"Waihorace",
-			"Wong128hk"
+			"Wong128hk",
+			"LNDDYL"
 		]
 	},
 	"echo-desc": "通知系統",
@@ -47,6 +48,7 @@
 	"echo-pref-tooltip-article-linked": "有人從條目頁面連結到我建立的頁面時，請通知我。",
 	"echo-pref-tooltip-reverted": "有人使用復原或回退工具來恢復我的編輯時，請通知我。",
 	"echo-pref-tooltip-mention": "有人從任何討論頁連結到我的使用者頁面時，請通知我。",
+	"echo-pref-tooltip-user-rights": "當我的使用者權限修改時通知我。",
 	"echo-no-agent": "[無使用者]",
 	"echo-no-title": "[無頁面]",
 	"echo-error-no-formatter": "沒有格式化定義的通知。",
