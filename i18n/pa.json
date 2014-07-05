@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Satdeep gill"
+			"Satdeep gill",
+			"Babanwalia"
 		]
 	},
 	"echo-desc": "ਸੂਚਨਾ ਪ੍ਰਣਾਲੀ",
@@ -62,8 +63,8 @@
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] ਨੇ [[$3]] ਉੱਤੇ ਇੱਕ ਨਵਾਂ ਵਿਸ਼ਾ \"$2\" {{GENDER:$1|ਪਾਇਆ}}",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] ਨੇ ਤੁਹਾਨੂੰ ਇੱਕ ਸੰਦੇਸ਼ {{GENDER:$1|ਭੇਜਿਆ ਹੈ}}: \"[[$3#$2|$2]]\".",
 	"notification-add-comment-yours2": "[[User:$1|$1]] ਨੇ ਤੁਹਾਡੇ ਗੱਲ-ਬਾਤ ਪੰਨੇ ਉੱਤੇ \"[[$3#$2|$2]]\" ਉੱਤੇ {{GENDER:$1|ਟਿੱਪਣੀ ਕੀਤੀ ਹੈ}}।",
-	"notification-mention": "[[User:$1|$1]] ਨੇ \"[[:$3#$2|$4]]\" ਵਿੱਚ $5 ਗੱਲ-ਬਾਤ ਪੰਨੇ ਉੱਤੇ ਤੁਹਾਡਾ {{GENDER:$1|ਜ਼ਿਕਰ ਕੀਤਾ ਹੈ}}",
-	"notification-mention-flyout": "$1 ਨੇ \"[[:$3#$2|$4]]\" ਵਿੱਚ $5 ਗੱਲ-ਬਾਤ ਪੰਨੇ ਉੱਤੇ ਤੁਹਾਡਾ {{GENDER:$1|ਜ਼ਿਕਰ ਕੀਤਾ ਹੈ}}",
+	"notification-mention": "[[User:$1|$1]] ਨੇ \"[[:$3#$2|$4]]\" ਵਿੱਚ $5 ਗੱਲ-ਬਾਤ ਸਫ਼ੇ ਉੱਤੇ ਤੁਹਾਡਾ {{GENDER:$1|ਜ਼ਿਕਰ ਕੀਤਾ ਹੈ}}",
+	"notification-mention-flyout": "$1 ਨੇ \"[[:$3#$2|$4]]\" ਵਿੱਚ $5 ਗੱਲ-ਬਾਤ ਸਫ਼ੇ ਉੱਤੇ ਤੁਹਾਡਾ {{GENDER:$1|ਜ਼ਿਕਰ ਕੀਤਾ ਹੈ}}",
 	"notification-user-rights": "ਤੁਹਾਡੇ ਵਰਤੋਂਕਾਰ ਅਧਿਕਾਰ [[User:$1|$1]] ਦੁਆਰਾ [[Special:Log/rights/$1|{{GENDER:$1|ਬਦਲ ਦਿੱਤੇ ਗਏ ਸਨ}}]]। $2। [[Special:ListGroupRights|ਹੋਰ ਜਾਣੋ]]",
 	"notification-user-rights-flyout": "ਤੁਹਾਡੇ ਵਰਤੋਂਕਾਰ ਅਧਿਕਾਰ $1 ਦੁਆਰਾ {{GENDER:$1|ਬਦਲ ਦਿੱਤੇ ਗਏ}} ਸਨ। $2।[[Special:ListGroupRights|ਹੋਰ ਜਾਣੋ]]",
 	"notification-user-rights-add": "ਹੁਣ ਤੁਸੀਂ {{PLURAL:$2|ਇਸ ਸਮੂਹ|ਇਨ੍ਹਾਂ ਸਮੂਹਾਂ}} ਦੇ ਮੈਂਬਰ ਹੋ: $1",
