@@ -41,6 +41,8 @@
 	"notification-link-text-view-changes": "Hijery ny fiovana",
 	"notification-link-text-view-page": "Hijery ny pejy",
 	"notification-link-text-view-edit": "Hijery ny fanovàna",
+	"notification-edit-talk-page2": "Nametraka hafatra teo amin'ny [[User talk:$2#$3|pejin-dresakao]] i [[User:$1|$1]].",
+	"notification-edit-talk-page-email-subject2": "Nametraka hafatra teo amin'ny pejin-dresakao teo amin'i {{SITENAME}} i $1",
 	"notification-edit-talk-page-email-batch-body-with-section": "Namela hafatra teo amin'ny pejin-dresakao tanatin'i \"$2\" i $1",
 	"notification-user-rights-email-subject": "Voaova teo amin'i {{SITENAME}} ny zom-pikambanao",
 	"notification-user-rights-email-batch-body": "Voaovan'i $1 ny zom-pikambanao. $2",
