@@ -751,31 +751,18 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 						'diff' => $eventData['revid'],
 					);
 
-					if ( $event->getBundleHash() ) {
-						// First try cache data from preivous query
-						if ( isset( $this->bundleData['last-raw-data'] ) ) {
-							$stat = $this->bundleData['last-raw-data'];
-						// Then try to query the storage
-						} else {
-							global $wgEchoBackend;
-							$stat = $wgEchoBackend->getRawBundleData( $user, $event->getBundleHash(), $this->distributionType, 'ASC', 1 );
-							if ( $stat ) {
-								$stat = $stat->current();
+					$data = $this->getBundleLastRawData( $event, $user );
+					if ( $data ) {
+						$extra = $data->extra_data;
+						if ( isset( $extra['revid'] ) ) {
+							$oldId = $target->getPreviousRevisionID( $extra['revid'] );
+							// The diff engine doesn't provide a way to diff against a null revision.
+							// In this case, just fall back old id to the first revision
+							if ( !$oldId ) {
+								$oldId = $extra['revid'];
 							}
-						}
-
-						if ( $stat ) {
-							$extra = $stat->event_extra ? unserialize( $stat->event_extra ) : array();
-							if ( isset( $extra['revid'] ) ) {
-								$oldId = $target->getPreviousRevisionID( $extra['revid'] );
-								// The diff engine doesn't provide a way to diff against a null revision.
-								// In this case, just fall back old id to the first revision
-								if ( !$oldId ) {
-									$oldId = $extra['revid'];
-								}
-								if ( $oldId < $eventData['revid'] ) {
-									$query['oldid'] = $oldId;
-								}
+							if ( $oldId < $eventData['revid'] ) {
+								$query['oldid'] = $oldId;
 							}
 						}
 					}
@@ -783,6 +770,39 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 				break;
 		}
 		return array( $target, $query );
+	}
+
+	/**
+	 * Get the last bundle data in raw stdObject format. When bundling notifications,
+	 * we mostly only need the very first notification, which is the bundle base.
+	 * In some cases, like talk notification diff, Flow notificaiton first unread post,
+	 * we need data from the very last notification.
+	 *
+	 * @param EchoEvent
+	 * @param User
+	 * @return stdObject|boolean false for none
+	 */
+	protected function getBundleLastRawData( $event, $user ) {
+		if ( $event->getBundleHash() ) {
+			// First try cache data from preivous query
+			if ( isset( $this->bundleData['last-raw-data'] ) ) {
+				$data = $this->bundleData['last-raw-data'];
+			// Then try to query the storage
+			} else {
+				global $wgEchoBackend;
+				$data = $wgEchoBackend->getRawBundleData( $user, $event->getBundleHash(), $this->distributionType, 'ASC', 1 );
+				if ( $data ) {
+					$data = $data->current();
+				}
+			}
+
+			if ( $data ) {
+				$data->event_extra = $data->event_extra ? unserialize( $data->event_extra ) : array();
+				return $data;
+			}
+		}
+
+		return false;
 	}
 
 	/**
