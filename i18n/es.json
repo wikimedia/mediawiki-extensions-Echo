@@ -15,7 +15,8 @@
 			"The Anonymouse",
 			"TheBITLINK",
 			"Vivaelcelta",
-			"Themasterriot"
+			"Themasterriot",
+			"Macofe"
 		]
 	},
 	"echo-desc": "Sistema de notificaciones",
@@ -81,7 +82,7 @@
 	"notification-mention": "[[User:$1|$1]] {{GENDER:$1|te mencionó}} en la página de discusión de $5 en \"[[:$3#$2|$4]]\".",
 	"notification-mention-flyout": "$1 {{GENDER:$1|te mencionó}} en la página de discusión de $5 en \"[[:$3#$2|$4]]\".",
 	"notification-mention-nosection": "[[User:$1|$1]] te ha mencionado en la [[:$3|página de discusión de $2]].",
-	"notification-mention-nosection-flyout": "$1 te ha mencionado en la [[:$3|$2 página de discusión]].",
+	"notification-mention-nosection-flyout": "$1 te ha {{GENDER:$1|mencionado}} en la [[:$3|$2 página de discusión]].",
 	"notification-user-rights": "Tus permisos de usuario [[Special:Log/rights/$1|han sido {{GENDER:$1|modificados}}]] por [[User:$1|$1]]. $2. [[Special:ListGroupRights|Ver más]]",
 	"notification-user-rights-flyout": "Tus permisos de usuario {{GENDER:$1|han sido modificados}} por $1. $2. [[Special:ListGroupRights|Ver más]]",
 	"notification-user-rights-add": "Ahora eres miembro {{PLURAL:$2|del siguiente grupo|de los siguientes grupos grupos}}: $1",
