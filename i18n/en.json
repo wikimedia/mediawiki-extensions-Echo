@@ -35,7 +35,7 @@
     "echo-pref-tooltip-edit-user-talk": "Notify me when someone posts a message or replies on my talk page.",
     "echo-pref-tooltip-article-linked": "Notify me when someone links to a page I created from an article page.",
     "echo-pref-tooltip-reverted": "Notify me when someone reverts an edit I made, by using the undo or rollback tool.",
-    "echo-pref-tooltip-mention": "Notify me when someone links to my user page from any talk page.",
+    "echo-pref-tooltip-mention": "Notify me when someone links to my user page.",
     "echo-pref-tooltip-user-rights": "Notify me when someone changes my user rights.",
     "echo-no-agent": "[Nobody]",
     "echo-no-title": "[No page]",
