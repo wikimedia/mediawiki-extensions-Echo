@@ -34,7 +34,7 @@
 	"echo-pref-tooltip-edit-user-talk": "Obaveštava vas kada neko ostavi poruku na vašoj stranici za razgovor.",
 	"echo-pref-tooltip-article-linked": "Obaveštava vas kada neko poveže članak koji ste vi napravili sa nekom drugom stranicom.",
 	"echo-pref-tooltip-reverted": "Obaveštava vas kada neko poništi izmenu koju ste vi načinili.",
-	"echo-pref-tooltip-mention": "Obaveštava vas kad vas neko spomene na nekoj stranici za razgovor.",
+	"echo-pref-tooltip-mention": "Obaveštava vas kad vas neko spomene.",
 	"echo-no-agent": "[Niko]",
 	"echo-no-title": "[Nema stranice]",
 	"echo-error-no-formatter": "Nije zadato oblikovanje za obaveštenja",

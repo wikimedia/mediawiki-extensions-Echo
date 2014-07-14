@@ -41,7 +41,7 @@
 	"echo-pref-tooltip-edit-user-talk": "Notificar-me quando alguém publicar na minha página de discussão.",
 	"echo-pref-tooltip-article-linked": "Notificar-me quando alguém interligar uma página criada por mim numa outra.",
 	"echo-pref-tooltip-reverted": "Notificar-me quando alguém reverter uma edição minha, ao utilizar a função desfazer ou a ferramenta de reversão.",
-	"echo-pref-tooltip-mention": "Notificar-me quando alguém mencionar a minha página de utilizador numa outra página de discussão.",
+	"echo-pref-tooltip-mention": "Notificar-me quando alguém mencionar a minha página de utilizador.",
 	"echo-pref-tooltip-user-rights": "Notificar-me quando os meus privilégios de utilizador forem alterados.",
 	"echo-no-agent": "[Ninguém]",
 	"echo-no-title": "[Nenhuma página]",

@@ -44,7 +44,7 @@
 	"echo-pref-tooltip-edit-user-talk": "Meddela mig när någon lämnar ett meddelande eller svarar på min diskussionssida.",
 	"echo-pref-tooltip-article-linked": "Meddela mig när någon länkar till en sida som jag skapat från en annan artikel.",
 	"echo-pref-tooltip-reverted": "Meddela mig när någon återställer en ändring som jag gjort, med hjälp av verktygen \"gör ogjord\" eller \"rulla tillbaka\".",
-	"echo-pref-tooltip-mention": "Meddela mig när någon länkar till min användarsida från någon diskussionssida.",
+	"echo-pref-tooltip-mention": "Meddela mig när någon länkar till min användarsida.",
 	"echo-pref-tooltip-user-rights": "Meddela mig när någon ändrar mina användarrättigheter.",
 	"echo-no-agent": "[Ingen]",
 	"echo-no-title": "[Ingen sida]",

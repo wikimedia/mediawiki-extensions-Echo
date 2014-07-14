@@ -37,7 +37,7 @@
 	"echo-pref-tooltip-edit-user-talk": "Teavita mind, kui keegi postitab või vastab minu aruteluleheküljel.",
 	"echo-pref-tooltip-article-linked": "Teavita mind, kui keegi lingib mõnest artiklist minu alustatud leheküljele.",
 	"echo-pref-tooltip-reverted": "Teavita mind, kui keegi tühistab minu muudatuse, kasutades eemaldus- või tühistusfunktsiooni.",
-	"echo-pref-tooltip-mention": "Teavita mind, kui keegi lingib mõnelt aruteluleheküljelt minu kasutajaleheküljele.",
+	"echo-pref-tooltip-mention": "Teavita mind, kui keegi lingib minu kasutajaleheküljele.",
 	"echo-pref-tooltip-user-rights": "Teavita mind, kui keegi muudab minu kasutajaõigusi.",
 	"echo-no-agent": "[Eikeegi]",
 	"echo-no-title": "[Lehekülge pole]",

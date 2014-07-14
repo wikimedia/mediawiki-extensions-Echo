@@ -39,7 +39,7 @@
 	"echo-pref-tooltip-edit-user-talk": "Benachrichtige mich, wenn jemand eine Nachricht oder eine Antwort auf meiner Diskussionsseite hinterlässt.",
 	"echo-pref-tooltip-article-linked": "Benachrichtige mich, wenn jemand in einem Artikel auf eine Seite verlinkt, die ich erstellt habe.",
 	"echo-pref-tooltip-reverted": "Benachrichtige mich, wenn jemand eine von mir gemachte Bearbeitung rückgängig macht oder zurücksetzt.",
-	"echo-pref-tooltip-mention": "Benachrichtige mich, wenn jemand von einer Diskussionsseite auf meine Benutzerseite verlinkt.",
+	"echo-pref-tooltip-mention": "Benachrichtige mich, wenn jemand auf meine Benutzerseite verlinkt.",
 	"echo-pref-tooltip-user-rights": "Benachrichtige mich, wenn jemand meine Benutzerrechte ändert.",
 	"echo-no-agent": "[Niemand]",
 	"echo-no-title": "[Keine Seite]",
