@@ -23,6 +23,25 @@ class EchoNotification {
 	protected $readTimestamp;
 
 	/**
+	 * Determine whether this is a bundle base.  Default is 1,
+	 * which means it's a bundle base
+	 * @var int
+	 */
+	protected $bundleBase = 1;
+
+	/**
+	 * The hash used to determine if a set of event could be bundled
+	 * @var string
+	 */
+	protected $bundleHash = '';
+
+	/**
+	 * The hash used to bundle events to display
+	 * @var string
+	 */
+	protected $bundleDisplayHash = '';
+
+	/**
 	 * Do not use this constructor.
 	 */
 	protected function __construct() {}
@@ -71,16 +90,9 @@ class EchoNotification {
 	 * Adds this new notification object to the backend storage.
 	 */
 	protected function insert() {
-		global $wgEchoBackend, $wgEchoNotifications;
+		global $wgEchoNotifications;
 
-		$row = array(
-			'notification_event' => $this->event->getId(),
-			'notification_user' => $this->user->getId(),
-			'notification_timestamp' => $this->timestamp,
-			'notification_read_timestamp' => $this->readTimestamp,
-			'notification_bundle_hash' => '',
-			'notification_bundle_display_hash' => ''
-		);
+		$notifMapper = new EchoNotificationMapper( MWEchoDbFactory::newFromDefault() );
 
 		// Get the bundle key for this event if web bundling is enabled
 		$bundleKey = '';
@@ -89,23 +101,60 @@ class EchoNotification {
 		}
 		if ( $bundleKey ) {
 			$hash = md5( $bundleKey );
-			$row['notification_bundle_hash'] = $hash;
-
-			$lastStat = $wgEchoBackend->getLastBundleStat( $this->user, $hash );
+			$this->bundleHash = $hash;
+			$lastNotif = $notifMapper->fetchNewestByUserBundleHash( $this->user, $hash );
 
 			// Use a new display hash if:
 			// 1. there was no last bundle notification
 			// 2. last bundle notification with the same hash was read
-			if ( $lastStat && !$lastStat->notification_read_timestamp ) {
-				$row['notification_bundle_display_hash'] = $lastStat->notification_bundle_display_hash;
+			if ( $lastNotif && !$lastNotif->getReadTimestamp() ) {
+				$this->bundleDisplayHash = $lastNotif->getBundleDisplayHash();
 			} else {
-				$row['notification_bundle_display_hash'] = md5( $bundleKey . '-display-hash-' . wfTimestampNow() );
+				$this->bundleDisplayHash = md5( $bundleKey . '-display-hash-' . wfTimestampNow() );
 			}
 		}
 
-		$wgEchoBackend->createNotification( $row );
+		$notifMapper->insert( $this );
 
 		wfRunHooks( 'EchoCreateNotificationComplete', array( $this ) );
+	}
+
+	/**
+	 * Load a notification record from std class
+	 * @param stdClass
+	 * @return EchoNotification
+	 */
+	public static function newFromRow( $row ) {
+		$notification = new EchoNotification();
+
+		if ( property_exists( $row, 'event_type' ) ) {
+			$notification->event = EchoEvent::newFromRow( $row );
+		} else {
+			$notification->event = EchoEvent::newFromID( $row->notification_event );
+		}
+		$notification->user = User::newFromId( $row->notification_user );
+		$notification->timestamp = $row->notification_timestamp;
+		$notification->readTimestamp = $row->notification_read_timestamp;
+		$notification->bundleBase = $row->notification_bundle_base;
+		$notification->bundleHash = $row->notification_bundle_hash;
+		$notification->bundleDisplayHash = $row->notification_bundle_display_hash;
+		return $notification;
+	}
+
+	/**
+	 * Convert object property to database row array
+	 * @return array
+	 */
+	public function toDbArray() {
+		return array(
+			'notification_event' => $this->event->getId(),
+			'notification_user' => $this->user->getId(),
+			'notification_timestamp' => $this->timestamp,
+			'notification_read_timestamp' => $this->readTimestamp,
+			'notification_bundle_base' => $this->bundleBase,
+			'notification_bundle_hash' => $this->bundleHash,
+			'notification_bundle_display_hash' => $this->bundleDisplayHash
+		);
 	}
 
 	/**
@@ -138,5 +187,29 @@ class EchoNotification {
 	 */
 	public function getReadTimestamp() {
 		return $this->readTimestamp;
+	}
+
+	/**
+	 * Getter method
+	 * @return int Notification bundle base
+	 */
+	public function getBundleBase() {
+		return $this->bundleBase;
+	}
+
+	/**
+	 * Getter method
+	 * @return string|null Notification bundle hash
+	 */
+	public function getBundleHash() {
+		return $this->bundleHash;
+	}
+
+	/**
+	 * Getter method
+	 * @return string|null Notification bundle display hash
+	 */
+	public function getBundleDisplayHash() {
+		return $this->bundleDisplayHash;
 	}
 }

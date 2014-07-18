@@ -545,40 +545,44 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 
 	/**
 	 * Get raw bundle data for an event so it can be manipulated
-	 * @param $event EchoEvent
-	 * @param $user User
-	 * @param $type string deprecated
-	 * @return ResultWrapper|bool
+	 * @param EchoEvent
+	 * @param User
+	 * @param string deprecated
+	 * @return EchoEvent[]|bool
 	 */
 	protected function getRawBundleData( $event, $user, $type ) {
-		global $wgEchoBackend;
-
-		// We should keep bundling for events as long as it has bundle
-		// hash event for bundle-turned-off events as well, this is
-		// mainly for historical data
+		// We should keep bundling for events as long as it has bundle hash
+		// even for events with bundling switched to off, this is mainly for
+		// historical data
 		if ( !$event->getBundleHash() ) {
 			return false;
 		}
 
-		$data = $wgEchoBackend->getRawBundleData( $user, $event->getBundleHash(), $this->distributionType, 'DESC', self::$maxRawBundleData );
+		$eventMapper = new EchoEventMapper( MWEchoDbFactory::newFromDefault() );
+		$events = $eventMapper->fetchByUserBundleHash(
+			$user, $event->getBundleHash(), $this->distributionType, 'DESC', self::$maxRawBundleData
+		);
 
-		if ( $data ) {
-			$this->bundleData['raw-data-count'] += $data->numRows();
+		if ( $events ) {
+			$this->bundleData['raw-data-count'] += count( $events );
+			// Distribution types other than web include the base event
+			// in the result already, decrement it by one
 			if ( $this->distributionType !== 'web' ) {
 				$this->bundleData['raw-data-count']--;
 			}
 		}
 
-		return $data;
+		return $events;
 	}
 
 	/**
 	 * Construct the bundle data for an event, by default, the group iterator
 	 * is agent, eg, by user A and x others. custom formatter can overwrite
 	 * this function to use a differnt group iterator such as title, namespace
-	 * @param $event EchoEvent
-	 * @param $user User
-	 * @param $type string deprecated
+	 *
+	 * @param EchoEvent
+	 * @param User
+	 * @param string deprecated
 	 * @throws MWException
 	 */
 	protected function generateBundleData( $event, $user, $type ) {
@@ -606,13 +610,19 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 
 		// Initialize with 1 for the agent of current event
 		$count = 1;
-		foreach ( $data as $row ) {
-			$key = $row->event_agent_id ? 'event_agent_id' : 'event_agent_ip';
-			if ( !isset( $agents[$row->$key] ) ) {
-				$agents[$row->$key] = $row->$key;
-				$count++;
+		foreach ( $data as $evt ) {
+			if ( $evt->getAgent() ) {
+				if ( $evt->getAgent()->isAnon() ) {
+					$key = $evt->getAgent()->getName();
+				} else {
+					$key = $evt->getAgent()->getId();
+				}
+				if ( !isset( $agents[$key] ) ) {
+					$agents[$key] = $key;
+					$count++;
+				}
 			}
-			$this->bundleData['last-raw-data'] = $row;
+			$this->bundleData['last-raw-data'] = $evt;
 		}
 
 		$this->bundleData['agent-other-count'] = $count - 1;
@@ -622,7 +632,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 
 		// If there is more raw data than we requested, that means we have not
 		// retrieved the very last raw record, set the key back to null
-		if ( $data->numRows() >= self::$maxRawBundleData ) {
+		if ( count( $data ) >= self::$maxRawBundleData ) {
 			$this->bundleData['last-raw-data'] = null;
 		}
 	}
@@ -753,7 +763,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 
 					$data = $this->getBundleLastRawData( $event, $user );
 					if ( $data ) {
-						$extra = $data->event_extra;
+						$extra = $data->getExtra();
 						if ( isset( $extra['revid'] ) ) {
 							$oldId = $target->getPreviousRevisionID( $extra['revid'] );
 							// The diff engine doesn't provide a way to diff against a null revision.
@@ -773,31 +783,32 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	}
 
 	/**
-	 * Get the last bundle data in raw stdObject format. When bundling notifications,
+	 * Get the last echo event in a set of bundling data. When bundling notifications,
 	 * we mostly only need the very first notification, which is the bundle base.
 	 * In some cases, like talk notification diff, Flow notificaiton first unread post,
 	 * we need data from the very last notification.
 	 *
 	 * @param EchoEvent
 	 * @param User
-	 * @return stdObject|boolean false for none
+	 * @return EchoEvent|boolean false for none
 	 */
-	protected function getBundleLastRawData( $event, $user ) {
+	protected function getBundleLastRawData( EchoEvent $event, User $user ) {
 		if ( $event->getBundleHash() ) {
 			// First try cache data from preivous query
 			if ( isset( $this->bundleData['last-raw-data'] ) ) {
 				$data = $this->bundleData['last-raw-data'];
 			// Then try to query the storage
 			} else {
-				global $wgEchoBackend;
-				$data = $wgEchoBackend->getRawBundleData( $user, $event->getBundleHash(), $this->distributionType, 'ASC', 1 );
+				$eventMapper = new EchoEventMapper( MWEchoDbFactory::newFromDefault() );
+				$data = $eventMapper->fetchByUserBundleHash(
+					$user, $event->getBundleHash(), $this->distributionType, 'ASC', 1
+				);
 				if ( $data ) {
-					$data = $data->current();
+					$data = reset( $data );
 				}
 			}
 
 			if ( $data ) {
-				$data->event_extra = $data->event_extra ? unserialize( $data->event_extra ) : array();
 				return $data;
 			}
 		}

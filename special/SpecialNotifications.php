@@ -38,7 +38,12 @@ class SpecialNotifications extends SpecialPage {
 		$continue = $this->getRequest()->getVal( 'continue', null );
 
 		// Pull the notifications
-		$notif = ApiEchoNotifications::getNotifications( $user, 'html', self::$displayNum + 1, $continue );
+		$notif = array();
+		$notificationMapper = new EchoNotificationMapper( MWEchoDbFactory::newFromDefault() );
+		$notifications = $notificationMapper->fetchByUser( $user, self::$displayNum + 1, $continue, 'web' );
+		foreach ( $notifications as $notification ) {
+			$notif[] = EchoDataOutputFormatter::formatOutput( $notification, 'html', $user );
+		}
 
 		// If there are no notifications, display a message saying so
 		if ( !$notif ) {
