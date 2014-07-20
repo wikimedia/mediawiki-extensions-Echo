@@ -35,7 +35,7 @@
 	"echo-pref-tooltip-edit-user-talk": "Mech informéiere wann een eppes op meng Diskussiounssäit schreift oder do äntwert.",
 	"echo-pref-tooltip-article-linked": "Mech informéiere wann een an engem Artikel op eng Säit verlinkt, déi ech kreéiert hunn.",
 	"echo-pref-tooltip-reverted": "Mech informéiere wann ee meng Ännerung zrécksetzt oder andeems hien de 'Rollback'-Tool benotzt.",
-	"echo-pref-tooltip-mention": "Mech informéiere wann een op iergendenger Diskussiounssäit e Link op meng Benotzersäit setzt.",
+	"echo-pref-tooltip-mention": "Mech informéiere wann een e Link op meng Benotzersäit setzt.",
 	"echo-no-agent": "[Keen]",
 	"echo-no-title": "[Keng Säit]",
 	"echo-error-no-formatter": "Keng Formatéierung fir Notifikatiounen definéiert.",
