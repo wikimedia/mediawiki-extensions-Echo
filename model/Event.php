@@ -422,7 +422,8 @@ class EchoEvent {
 	 * @return string
 	 */
 	public function getCategory() {
-		return EchoNotificationController::getNotificationCategory( $this->type );
+		$attributeManager = EchoAttributeManager::newFromGlobalVars();
+		return $attributeManager->getNotificationCategory( $this->type );
 	}
 
 	public function setType( $type ) {

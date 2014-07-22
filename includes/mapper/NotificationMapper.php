@@ -89,17 +89,23 @@ class EchoNotificationMapper {
 	 * @param User the user to get notifications for
 	 * @param int The maximum number of notifications to return
 	 * @param string Used for offset
-	 * @param string Notification distribution type ( web, email, etc.)
+	 * @param array Event types to load
 	 * @return EchoNotification[]
 	 */
-	public function fetchByUser( User $user, $limit, $continue, $distributionType = 'web' ) {
+	public function fetchByUser( User $user, $limit, $continue, array $eventTypesToLoad = array() ) {
 		$dbr = $this->dbFactory->getEchoDb( DB_SLAVE );
 
-		$eventTypesToLoad = EchoNotificationController::getUserEnabledEvents( $user, $distributionType );
 		if ( !$eventTypesToLoad ) {
 			return array();
 		}
 
+		// There is a problem with querying by event type, if a user has only one or none
+		// flow notification and huge amount other notications, the lookup of only flow
+		// notification will result in a slow query.  Luckily users won't have that many
+		// notifications.  We should have some cron job to remove old notifications so
+		// the notification volume is in a reasonable amount for such case.  The other option
+		// is to denormalize notification table with event_type and lookup index.
+		//
 		// Look for notifications with base = 1
 		$conds = array(
 			'notification_user' => $user->getID(),

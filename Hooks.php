@@ -333,9 +333,10 @@ class EchoHooks {
 			if ( isset( $categoryData['no-dismiss'] ) && in_array( 'all' , $categoryData['no-dismiss'] ) ) {
 				continue;
 			}
+			$attributeManager = EchoAttributeManager::newFromGlobalVars();
 			// See if user is eligible to recieve this notification (per user group restrictions)
-			if ( EchoNotificationController::getCategoryEligibility( $user, $category ) ) {
-				$categoriesAndPriorities[$category] = EchoNotificationController::getCategoryPriority( $category );
+			if ( $attributeManager->getCategoryEligibility( $user, $category ) ) {
+				$categoriesAndPriorities[$category] = $attributeManager->getCategoryPriority( $category );
 			}
 		}
 		asort( $categoriesAndPriorities );
@@ -732,9 +733,11 @@ class EchoHooks {
 		// If a user is watching his/her own talk page, do not send talk page watchlist
 		// email notification if the user is receiving Echo talk page notification
 		if ( $title->isTalkPage() && $targetUser->getTalkPage()->equals( $title ) ) {
+			$attributeManager = EchoAttributeManager::newFromGlobalVars();
+			$events = $attributeManager->getUserEnabledEvents( $targetUser, 'email' );
 			if (
 				!self::isEchoDisabled( $targetUser )
-				&& in_array( 'edit-user-talk', EchoNotificationController::getUserEnabledEvents( $targetUser, 'email' ) )
+				&& in_array( 'edit-user-talk', $events )
 			) {
 				// Do not send watchlist email notification, the user will receive an Echo notification
 				return false;

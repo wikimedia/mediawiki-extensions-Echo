@@ -20,13 +20,14 @@ class SpecialNotifications extends SpecialPage {
 
 		$user = $this->getUser();
 		if ( $user->isAnon() ) {
-			$notificationsPageName = $this->getPageTitle()->getPrefixedDBkey();
-			$returnTo = array( 'returnto' => $notificationsPageName );
-			$signupTitle = SpecialPage::getTitleFor( 'UserLogin', 'signup' );
-			$signupURL = $signupTitle->getFullURL( $returnTo );
-			$loginTitle = SpecialPage::getTitleFor( 'UserLogin' );
-			$loginURL = $loginTitle->getFullURL( $returnTo );
-			$anonMsgHtml = $this->msg( 'echo-anon', $signupURL, $loginURL )->parse();
+			// return to this title upon login
+			$returnTo = array( 'returnto' => $this->getPageTitle()->getPrefixedDBkey() );
+			// the html message for anon users
+			$anonMsgHtml = $this->msg(
+				'echo-anon',
+				SpecialPage::getTitleFor( 'UserLogin', 'signup' )->getFullURL( $returnTo ),
+				SpecialPage::getTitleFor( 'UserLogin' )->getFullURL( $returnTo )
+			)->parse();
 			$out->addHTML( Html::rawElement( 'span', array( 'class' => 'plainlinks' ), $anonMsgHtml ) );
 			return;
 		}
@@ -40,7 +41,14 @@ class SpecialNotifications extends SpecialPage {
 		// Pull the notifications
 		$notif = array();
 		$notificationMapper = new EchoNotificationMapper( MWEchoDbFactory::newFromDefault() );
-		$notifications = $notificationMapper->fetchByUser( $user, self::$displayNum + 1, $continue, 'web' );
+
+		$attributeManager = EchoAttributeManager::newFromGlobalVars();
+		$notifications = $notificationMapper->fetchByUser(
+			$user,
+			/* $limit = */self::$displayNum + 1,
+			$continue,
+			$attributeManager->getUserEnabledEvents( $user, 'web' )
+		);
 		foreach ( $notifications as $notification ) {
 			$notif[] = EchoDataOutputFormatter::formatOutput( $notification, 'html', $user );
 		}
