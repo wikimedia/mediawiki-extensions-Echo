@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @group Echo
+ */
 class EchoDiscussionParserTest extends MediaWikiTestCase {
 	// TODO test cases for:
 	// - generateEventsForRevision

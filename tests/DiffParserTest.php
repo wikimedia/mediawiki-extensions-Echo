@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @group Echo
+ */
 class EchoDiffParserTest extends MediaWikiTestCase {
 
 	/**

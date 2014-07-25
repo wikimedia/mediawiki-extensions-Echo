@@ -1,5 +1,6 @@
 <?php
 /**
+ * @group Echo
  * @group DataBase
  * @group medium
  */

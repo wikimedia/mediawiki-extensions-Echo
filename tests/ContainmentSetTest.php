@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @group Echo
+ */
 class ContainmentSetTest extends MediaWikiTestCase {
 
 	public function testGenericContains() {

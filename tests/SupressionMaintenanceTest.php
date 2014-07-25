@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @group Echo
+ */
 class SuppressionMaintenanceTest extends MediaWikiTestCase {
 
 	public static function provider_updateRow() {

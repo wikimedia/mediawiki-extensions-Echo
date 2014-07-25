@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @group Echo
+ */
 class MWEchoNotifUserTest extends MediaWikiTestCase {
 
 	protected function setUp() {

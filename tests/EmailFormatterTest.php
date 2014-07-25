@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @group Echo
+ */
 class EchoEmailFormatterTest extends MediaWikiTestCase {
 
 	private $emailSingle;

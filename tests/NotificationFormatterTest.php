@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @group Echo
+ */
 class EchoNotificationFormatterTest extends MediaWikiTestCase {
 
 	public function setUp() {

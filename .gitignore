@@ -2,3 +2,6 @@
 *~
 *.kate-swp
 .*.swp
+Gemfile.lock
+node_modules/
+scripts/remotes/
