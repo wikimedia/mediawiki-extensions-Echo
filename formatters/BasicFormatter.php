@@ -753,7 +753,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 
 					$data = $this->getBundleLastRawData( $event, $user );
 					if ( $data ) {
-						$extra = $data->extra_data;
+						$extra = $data->event_extra;
 						if ( isset( $extra['revid'] ) ) {
 							$oldId = $target->getPreviousRevisionID( $extra['revid'] );
 							// The diff engine doesn't provide a way to diff against a null revision.
