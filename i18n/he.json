@@ -117,5 +117,5 @@
 	"echo-email-batch-body-intro-daily": "שלום $1,\nלהלן תקציר של פעילויות שקשורות אליך באתר {{SITENAME}} היום.",
 	"echo-email-batch-body-intro-weekly": "שלום $1,\nלהלן תקציר של פעילויות שקשורות אליך באתר {{SITENAME}} השבוע.",
 	"echo-email-batch-link-text-view-all-notifications": "הצגת כל ההודעות",
-	"echo-rev-deleted-text-view": "הגרסה הזאת של הדף הוסתרה."
+	"echo-rev-deleted-text-view": "הגרסה הזאת של הדף הועלמה."
 }
