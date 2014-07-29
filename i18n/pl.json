@@ -47,7 +47,7 @@
 	"echo-pref-tooltip-edit-user-talk": "Powiadom mnie, kiedy ktoś napisze nową wiadomość albo odpowie na mojej stronie dyskusji.",
 	"echo-pref-tooltip-article-linked": "Powiadom mnie, kiedy ktoś umieści w artykule link do strony utworzonej przeze mnie.",
 	"echo-pref-tooltip-reverted": "Powiadom mnie, kiedy ktoś wycofa moją edycję korzystając z narzędzia „anuluj” albo „cofnij”.",
-	"echo-pref-tooltip-mention": "Powiadom mnie, kiedy ktoś umieści link do mojej strony użytkownika na jakiejkolwiek stronie dyskusji.",
+	"echo-pref-tooltip-mention": "Powiadom mnie, kiedy ktoś umieści link do mojej strony użytkownika.",
 	"echo-pref-tooltip-user-rights": "Powiadamiaj mnie, gdy ktoś zmieni moje uprawnienia.",
 	"echo-no-agent": "[Nikt]",
 	"echo-no-title": "[Brak strony]",

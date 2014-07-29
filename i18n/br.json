@@ -57,6 +57,7 @@
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] {{GENDER:$1|en deus|he deus}} kaset ur gemennadenn deoc'h: \"[[$3#$2|$2]]\".",
 	"notification-mention": "[[User:$1|$1]] {{GENDER:$1|en deus|he deus}} meneget ac'hanoc'h war ar bajenn gaozeal $5 e-barzh \"[[:$3#$2|$4]]\".",
 	"notification-mention-flyout": "$1 {{GENDER:$1|en deus|he deus}} meneget ac'hanoc'h war ar bajenn gaozeal $5 e-barzh \"[[:$3#$2|$4]]\".",
+	"notification-user-rights-add": "Bremañ ez oc'h un ezel eus {{PLURAL:$2|ar strollad-mañ|ar strolladoù-mañ}}: $1",
 	"notification-user-rights-remove": "N'oc'h ket ken un ezel eus ar {{PLURAL:$2|strollad|strolladoù}}-mañ : $1",
 	"notification-new-user": "Degemer mat er {{SITENAME}}, $1!",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|en|he}} deus laosket deoc'h ur gemennadenn\nwar {{SITENAME}}",
