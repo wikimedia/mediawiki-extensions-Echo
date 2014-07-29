@@ -89,6 +89,7 @@ $wgAutoloadClasses['EchoHTMLEmailDecorator'] = $dir . 'includes/EmailFormatter.p
 
 // Internal stuff
 $wgAutoloadClasses['EchoNotifier'] = $dir . 'Notifier.php';
+$wgAutoloadClasses['EchoUserLocator'] = $dir . 'includes/UserLocator.php';
 $wgAutoloadClasses['EchoNotificationController'] = $dir . 'controller/NotificationController.php';
 $wgAutoloadClasses['EchoDiscussionParser'] = $dir . 'includes/DiscussionParser.php';
 $wgAutoloadClasses['EchoDiffParser'] = $dir . 'includes/DiffParser.php';
@@ -442,6 +443,9 @@ $wgEchoNotifications = array(
 		'icon' => 'site',
 	),
 	'edit-user-talk' => array(
+		'user-locators' => array(
+			'EchoUserLocator::locateTalkPageOwner',
+		),
 		'primary-link' => array( 'message' => 'notification-link-text-view-message', 'destination' => 'section' ),
 		'secondary-link' => array( 'message' => 'notification-link-text-view-changes', 'destination' => 'diff' ),
 		'category' => 'edit-user-talk',
