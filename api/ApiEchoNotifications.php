@@ -15,50 +15,82 @@ class ApiEchoNotifications extends ApiQueryBase {
 			$this->dieUsage( 'Login is required', 'login-required' );
 		}
 
-		$notifUser = MWEchoNotifUser::newFromUser( $user );
-
 		$params = $this->extractRequestParams();
 
 		$prop = $params['prop'];
 
 		$result = array();
 		if ( in_array( 'list', $prop ) ) {
-			$result['list'] = array();
-			$notifMapper = new EchoNotificationMapper( MWEchoDbFactory::newFromDefault() );
-			$notifs = $notifMapper->fetchByUser( $user, $params['limit'] + 1, $params['continue'], 'web' );
-			foreach ( $notifs as $notif ) {
-				$result['list'][$notif->getEvent()->getID()] = EchoDataOutputFormatter::formatOutput( $notif, $params['format'], $user );
-			}
-
-			// check if there is more elements than we request
-			if ( count( $result['list'] ) > $params['limit'] ) {
-				$lastItem = array_pop( $result['list'] );
-				$result['continue'] = $lastItem['timestamp']['utcunix'] . '|' . $lastItem['id'];
-			} else {
-				$result['continue'] = null;
-			}
+			$result = $this->getPropList(
+				$user,
+				EchoNotificationController::getUserEnabledEvents( $user, 'web' ),
+				$params['limit'], $params['continue'], $params['format']
+			);
 			$this->getResult()->setIndexedTagName( $result['list'], 'notification' );
+			// 'index' is built on top of 'list'
+			if ( in_array( 'index', $prop ) ) {
+				$result['index'] = $this->getPropIndex( $result['list'] );
+				$this->getResult()->setIndexedTagName( $result['index'], 'id' );
+			}
 		}
 
 		if ( in_array( 'count', $prop ) ) {
-			$rawCount = $notifUser->getNotificationCount();
-			$result['rawcount'] = $rawCount;
-			$result['count'] = EchoNotificationController::formatNotificationCount( $rawCount );
-		}
-
-		if ( in_array( 'index', $prop ) ) {
-			$result['index'] = array();
-			foreach ( array_keys( $result['list'] ) as $key ) {
-				// Don't include the XML tag name ('_element' key)
-				if ( $key != '_element' ) {
-					$result['index'][] = $key;
-				}
-			}
-			$this->getResult()->setIndexedTagName( $result['index'], 'id' );
+			$result += $this->getPropCount( $user );
 		}
 
 		$this->getResult()->setIndexedTagName( $result, 'notification' );
 		$this->getResult()->addValue( 'query', $this->getModuleName(), $result );
+	}
+
+	/**
+	* Internal helper method for getting property 'count' data
+	*/
+	protected function getPropCount( User $user ) {
+		$result = array();
+		$notifUser = MWEchoNotifUser::newFromUser( $user );
+		// Always get total count
+		$rawCount = $notifUser->getNotificationCount();
+		$result['rawcount'] = $rawCount;
+		$result['count'] = EchoNotificationController::formatNotificationCount( $rawCount );
+		return $result;
+	}
+
+	/**
+	 * Internal helper method for getting property 'list' data
+	 */
+	protected function getPropList( User $user, array $eventTypesToLoad, $limit, $continue, $format ) {
+		$result = array(
+			'list' => array(),
+			'continue' => null
+		);
+
+		// Fetch the result for the event types above
+		$notifMapper = new EchoNotificationMapper( MWEchoDbFactory::newFromDefault() );
+		$notifs = $notifMapper->fetchByUser( $user, $limit + 1, $continue, $eventTypesToLoad );
+		foreach ( $notifs as $notif ) {
+			$result['list'][$notif->getEvent()->getID()] = EchoDataOutputFormatter::formatOutput( $notif, $format, $user );
+		}
+
+		if ( count( $result['list'] ) > $limit ) {
+			$lastItem = array_pop( $result['list'] );
+			$result['continue'] = $lastItem['timestamp']['utcunix'] . '|' . $lastItem['id'];
+		}
+
+		return $result;
+	}
+
+	/**
+	 * Internal helper method for getting property 'index' data
+	 */
+	protected function getPropIndex( $list ) {
+		$result = array();
+		foreach ( array_keys( $list ) as $key ) {
+			// Don't include the XML tag name ('_element' key)
+			if ( $key != '_element' ) {
+				$result[] = $key;
+			}
+		}
+		return $result;
 	}
 
 	public function getAllowedParams() {
