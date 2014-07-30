@@ -5,7 +5,36 @@
  */
 class EchoUserLocatorTest extends MediaWikiTestCase {
 
-	protected $tablesUsed = array( 'user' );
+	protected $tablesUsed = array( 'user', 'watchlist' );
+
+	public function testLocateUsersWatchingTitle() {
+		$title = Title::makeTitleSafe( NS_USER_TALK, 'Something_something_something' );
+		$key = $title->getDBkey();
+
+		for ( $i = 1000; $i < 1050; ++$i ) {
+			$rows[] = array(
+				'wl_user' => $i,
+				'wl_namespace' => NS_USER_TALK,
+				'wl_title' => $key
+			);
+		}
+		wfGetDB( DB_MASTER )->insert( 'watchlist', $rows, __METHOD__ );
+
+		$event = $this->getMockBuilder( 'EchoEvent' )
+			->disableOriginalConstructor()
+			->getMock();
+		$event->expects( $this->any() )
+			->method( 'getTitle' )
+			->will( $this->returnValue( $title ) );
+
+		$it = EchoUserLocator::locateUsersWatchingTitle( $event, 10 );
+		$count = 0;
+		foreach ( $it as $user ) {
+			++$count;
+		}
+		$this->assertEquals( 50, $count );
+		// @todo assert more than one query was issued
+	}
 
 	public function locateTalkPageOwnerProvider() {
 		return array(

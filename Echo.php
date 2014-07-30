@@ -115,6 +115,15 @@ $wgSpecialPageGroups['Notifications'] = 'users';
 $wgAutoloadClasses['MWEchoDbFactory'] = $dir . 'includes/EchoDbFactory.php';
 $wgAutoloadClasses['MWEchoNotifUser'] = $dir . 'includes/NotifUser.php';
 
+// Iterators used when building up list of users to send events to
+$wgAutoloadClasses['EchoFilteredSequentialIterator'] = $dir . 'includes/iterator/FilteredSequentialIterator.php';
+$wgAutoloadClasses['EchoIteratorDecorator'] = $dir . 'includes/iterator/IteratorDecorator.php';
+$wgAutoloadClasses['EchoCallbackIterator'] = $dir . 'includes/iterator/CallbackIterator.php';
+$wgAutoloadClasses['EchoNotRecursiveIterator'] = $dir . 'includes/iterator/NotRecursiveIterator.php';
+$wgAutoloadClasses['EchoMultipleIterator'] = $dir . 'includes/iterator/MultipleIterator.php';
+// This class was added in PHP5.4, as such this autoloader line will only be triggered in PHP5.3
+$wgAutoloadClasses['CallbackFilterIterator'] = $dir . 'includes/iterator/CallbackFilterIterator.php';
+
 // Whitelist and Blacklist
 $wgAutoloadClasses['EchoContainmentList'] = $dir . 'includes/ContainmentSet.php';
 $wgAutoloadClasses['EchoContainmentSet'] = $dir . 'includes/ContainmentSet.php';
@@ -395,7 +404,7 @@ $wgEchoNotifications = array(
 	),
 	'reverted' => array(
 		'user-locators' => array(
-			array( 'EchoUserLocator::locateFromEventExtra', 'reverted-user-id' ),
+			array( 'EchoUserLocator::locateFromEventExtra', array( 'reverted-user-id' ) ),
 		),
 		'primary-link' => array( 'message' => 'notification-link-text-view-edit', 'destination' => 'diff' ),
 		'category' => 'reverted',
@@ -438,7 +447,7 @@ $wgEchoNotifications = array(
 	),
 	'mention' => array(
 		'user-locators' => array(
-			array( 'EchoUserLocator::locateFromEventExtra', 'mentioned-users' ),
+			array( 'EchoUserLocator::locateFromEventExtra', array( 'mentioned-users' ) ),
 		),
 		'primary-link' => array( 'message' => 'notification-link-text-view-mention', 'destination' => 'section' ),
 		'secondary-link' => array( 'message' => 'notification-link-text-view-changes', 'destination' => 'diff' ),
@@ -458,7 +467,7 @@ $wgEchoNotifications = array(
 	),
 	'user-rights' => array(
 		'user-locators' => array(
-			array( 'EchoUserLocator::locateFromEventExtra', 'user' ),
+			array( 'EchoUserLocator::locateFromEventExtra', array( 'user' ) ),
 		),
 		'primary-link' => array( 'message' => 'echo-learn-more', 'destination' => 'user-rights-list' ),
 		'category' => 'user-rights',

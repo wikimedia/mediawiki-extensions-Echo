@@ -10,31 +10,32 @@ class EchoUserLocator {
 	 * @param EchoEvent $event
 	 * @return User[]
 	 */
-	public static function locateUsersWatchingTitle( EchoEvent $event ) {
+	public static function locateUsersWatchingTitle( EchoEvent $event, $batchSize = 500 ) {
 		$title = $event->getTitle();
 		if ( !$title ) {
 			return array();
 		}
 
-		$dbr = wfGetDB( DB_SLAVE, 'watchlist' );
-		$res = $dbr->select(
-			array( 'watchlist' ),
-			array( 'wl_user' ),
-			array(
-				'wl_namespace' => $title->getNamespace(),
-				'wl_title' => $title->getDBkey(),
-			),
-			__METHOD__
+		$it = new EchoBatchRowIterator(
+			wfGetDB( DB_SLAVE, 'watchlist' ),
+			/* $table = */ 'watchlist',
+			/* $primaryKeys = */ array( 'wl_user' ),
+			$batchSize
 		);
+		$it->addConditions( array(
+			'wl_namespace' => $title->getNamespace(),
+			'wl_title' => $title->getDBkey(),
+		) );
 
-		$users = array();
-		if ( $res ) {
-			foreach ( $res as $row ) {
-				$users[$row->wl_user] = User::newFromId( $row->wl_user );
-			}
-		}
+		// flatten the result into a stream of rows
+		$it = new RecursiveIteratorIterator( $it );
 
-		return $users;
+		// add callback to convert user id to user objects
+		$it = new EchoCallbackIterator( $it, function( $row ) {
+			return User::newFromId( $row->wl_user );
+		} );
+
+		return $it;
 	}
 
 	/**

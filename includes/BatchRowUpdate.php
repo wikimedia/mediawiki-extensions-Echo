@@ -213,7 +213,7 @@ class EchoBatchRowWriter {
  *
  * @ingroup Maintenance
  */
-class EchoBatchRowIterator implements Iterator {
+class EchoBatchRowIterator implements RecursiveIterator {
 
 	/**
 	 * @var DatabaseBase $db The database to read from
@@ -275,6 +275,7 @@ class EchoBatchRowIterator implements Iterator {
 		$this->db = $db;
 		$this->table = $table;
 		$this->primaryKey = (array) $primaryKey;
+		$this->fetchColumns = $this->primaryKey;
 		$this->orderBy = implode( ' ASC,', $this->primaryKey ) . ' ASC';
 		$this->batchSize = $batchSize;
 	}
@@ -340,6 +341,20 @@ class EchoBatchRowIterator implements Iterator {
 	 */
 	public function valid() {
 		return (bool) $this->current;
+	}
+
+	/**
+	 * @return boolean True when this result set has rows
+	 */
+	public function hasChildren() {
+		return $this->current && count( $this->current );
+	}
+
+	/**
+	 * @return RecursiveIterator
+	 */
+	public function getChildren() {
+		return new EchoNotRecursiveIterator( new ArrayIterator( $this->current ) );
 	}
 
 	/**
