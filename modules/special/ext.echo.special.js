@@ -1,25 +1,17 @@
 ( function ( $, mw ) {
 	'use strict';
 
-	var isInitialized = false;
-
 	mw.echo.special = {
 
 		notcontinue: null,
 		header: '',
 		processing: false,
 
-		isInitialized: function() {
-			return isInitialized;
-		},
-
 		/**
 		 * Initialize the property in special notification page.
 		 */
 		initialize: function () {
 			var skin = mw.config.get('skin');
-
-			isInitialized = true;
 
 			// Convert more link into a button
 			$( '#mw-echo-more' )
@@ -60,7 +52,6 @@
 				$( '#contentSub' ).empty();
 			}
 
-			mw.hook( 'ext.echo.special.onInitialize' ).fire( this );
 		},
 
 		/**
@@ -109,7 +100,6 @@
 						unread.push( id );
 					}
 
-					mw.hook( 'ext.echo.special.onLoadMore' ).fire( $li, data );
 					mw.echo.setupNotificationLogging( $li, 'archive' );
 
 					if ( $li.find( '.mw-echo-dismiss' ).length ) {
