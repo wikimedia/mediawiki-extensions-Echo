@@ -66,7 +66,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 
 		// Fetch the result for the event types above
 		$notifMapper = new EchoNotificationMapper( MWEchoDbFactory::newFromDefault() );
-		$notifs = $notifMapper->fetchByUser( $user, $limit + 1, $continue, $eventTypesToLoad );
+		$notifs = $notifMapper->fetchByUser( $user, $limit + 1, $continue, 'web' );
 		foreach ( $notifs as $notif ) {
 			$result['list'][$notif->getEvent()->getID()] = EchoDataOutputFormatter::formatOutput( $notif, $format, $user );
 		}
