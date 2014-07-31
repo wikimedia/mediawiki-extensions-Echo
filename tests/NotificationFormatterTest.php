@@ -34,6 +34,14 @@ class EchoNotificationFormatterTest extends MediaWikiTestCase {
 		} else {
 			$this->assertRegExp( $pattern, $formatted['body'] );
 		}
+
+		# Reset the Title cache
+		$mainPage = Title::newMainPage();
+		$mainPage->setFragment('');
+		# And assert it has been cleaned up
+		$mainPageCached = Title::newMainPage();
+		$this->assertEquals( '', $mainPageCached->getFragment() );
+
 	}
 
 	public static function provider_editUserTalk() {
