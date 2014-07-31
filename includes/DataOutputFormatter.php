@@ -12,7 +12,7 @@ class EchoDataOutputFormatter {
 	 * @param User|null the target user viewing the notification
 	 * @return array
 	 */
-	public function formatOutput( EchoNotification $notification, $format = false, User $user = null ) {
+	public static function formatOutput( EchoNotification $notification, $format = false, User $user = null ) {
 		$event = $notification->getEvent();
 		// Default to notification user if user is not specified
 		if ( !$user ) {
