@@ -23,7 +23,12 @@ class ApiEchoNotifications extends ApiQueryBase {
 
 		$result = array();
 		if ( in_array( 'list', $prop ) ) {
-			$result['list'] = self::getNotifications( $user, $params['format'], $params['limit'] + 1, $params['continue'] );
+			$result['list'] = array();
+			$notifMapper = new EchoNotificationMapper( MWEchoDbFactory::newFromDefault() );
+			$notifs = $notifMapper->fetchByUser( $user, $params['limit'] + 1, $params['continue'], 'web' );
+			foreach ( $notifs as $notif ) {
+				$result['list'][$notif->getEvent()->getID()] = EchoDataOutputFormatter::formatOutput( $notif, $params['format'], $user );
+			}
 
 			// check if there is more elements than we request
 			if ( count( $result['list'] ) > $params['limit'] ) {
@@ -54,116 +59,6 @@ class ApiEchoNotifications extends ApiQueryBase {
 
 		$this->getResult()->setIndexedTagName( $result, 'notification' );
 		$this->getResult()->addValue( 'query', $this->getModuleName(), $result );
-	}
-
-	/**
-	 * Get a list of notifications based on the passed parameters
-	 *
-	 * @param $user User the user to get notifications for
-	 * @param $format string|bool false to not format any notifications, string to a specific output format
-	 * @param $limit int The maximum number of notifications to return
-	 * @param $continue string Used for offset
-	 *
-	 * @return array
-	 */
-	public static function getNotifications( $user, $format = false, $limit = 20, $continue = null ) {
-		global $wgEchoBackend;
-
-		$output = array();
-
-		// TODO: Make 'web' based on a new API param?
-		$res = $wgEchoBackend->loadNotifications( $user, $limit, $continue, 'web' );
-
-		foreach ( $res as $row ) {
-			$event = EchoEvent::newFromRow( $row );
-			if ( $row->notification_bundle_base && $row->notification_bundle_display_hash ) {
-				$event->setBundleHash( $row->notification_bundle_display_hash );
-			}
-
-			$timestampMw = self::getUserLocalTime( $user, $row->notification_timestamp );
-
-			// Start creating date section header
-			$now = wfTimestamp();
-			$dateFormat = substr( $timestampMw, 0, 8 );
-			if ( substr( self::getUserLocalTime( $user, $now ), 0, 8 ) === $dateFormat ) {
-				// 'Today'
-				$date = wfMessage( 'echo-date-today' )->escaped();
-			} elseif ( substr( self::getUserLocalTime( $user, $now - 86400 ), 0, 8 ) === $dateFormat ) {
-				// 'Yesterday'
-				$date = wfMessage( 'echo-date-yesterday' )->escaped();
-			} else {
-				// 'May 10' or '10 May' (depending on user's date format preference)
-				$lang = RequestContext::getMain()->getLanguage();
-				$dateFormat = $lang->getDateFormatString( 'pretty', $user->getDatePreference() ?: 'default' );
-				$date = $lang->sprintfDate( $dateFormat, $timestampMw );
-			}
-			// End creating date section header
-
-			$thisEvent = array(
-				'id' => $event->getId(),
-				'type' => $event->getType(),
-				'category' => $event->getCategory(),
-				'timestamp' => array(
-					// UTC timestamp in UNIX format used for loading more notification
-					'utcunix' => wfTimestamp( TS_UNIX, $row->notification_timestamp ),
-					'unix' => self::getUserLocalTime( $user, $row->notification_timestamp, TS_UNIX ),
-					'mw' => $timestampMw,
-					'date' => $date
-				),
-			);
-
-			if ( $event->getVariant() ) {
-				$thisEvent['variant'] = $event->getVariant();
-			}
-
-			if ( $event->getTitle() ) {
-				$thisEvent['title'] = array(
-					'full' => $event->getTitle()->getPrefixedText(),
-					'namespace' => $event->getTitle()->getNSText(),
-					'namespace-key' => $event->getTitle()->getNamespace(),
-					'text' => $event->getTitle()->getText(),
-				);
-			}
-
-			if ( $event->getAgent() ) {
-				if ( $event->userCan( Revision::DELETED_USER, $user ) ) {
-					$thisEvent['agent'] = array(
-						'id' => $event->getAgent()->getId(),
-						'name' => $event->getAgent()->getName(),
-					);
-				} else {
-					$thisEvent['agent'] = array( 'userhidden' => '' );
-				}
-			}
-
-			if ( $row->notification_read_timestamp ) {
-				$thisEvent['read'] = $row->notification_read_timestamp;
-			}
-
-			if ( $format ) {
-				$thisEvent['*'] = EchoNotificationController::formatNotification(
-					$event, $user, $format );
-			}
-
-			$output[$event->getID()] = $thisEvent;
-		}
-
-		return $output;
-	}
-
-	/**
-	 * Internal helper function for converting UTC timezone to a user's timezone
-	 *
-	 * @param $user User
-	 * @param $ts string
-	 * @param $format int output format
-	 *
-	 * @return string
-	 */
-	private static function getUserLocalTime( $user, $ts, $format = TS_MW ) {
-		$timestamp = new MWTimestamp( $ts );
-		$timestamp->offsetForUser( $user );
-		return $timestamp->getTimestamp( $format );
 	}
 
 	public function getAllowedParams() {

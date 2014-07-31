@@ -13,14 +13,11 @@ class EchoHooks {
 	 * from $wgExtensionFunctions
 	 */
 	public static function initEchoExtension() {
-		global $wgEchoBackend, $wgEchoBackendName, $wgEchoNotifications,
-			$wgEchoNotificationCategories, $wgEchoNotificationIcons, $wgEchoConfig,
-			$wgNotificationSenderName;
+		global $wgEchoNotifications, $wgEchoNotificationCategories, $wgEchoNotificationIcons,
+			$wgEchoConfig, $wgNotificationSenderName;
 
 		// allow extensions to define their own event
 		wfRunHooks( 'BeforeCreateEchoEvent', array( &$wgEchoNotifications, &$wgEchoNotificationCategories, &$wgEchoNotificationIcons ) );
-
-		$wgEchoBackend = MWEchoBackend::factory( $wgEchoBackendName );
 
 		// turn schema off if eventLogging is not enabled
 		if ( !function_exists( 'efLogServerSideEvent' ) ) {

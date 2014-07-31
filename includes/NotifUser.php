@@ -18,20 +18,21 @@ class MWEchoNotifUser {
 	private $cache;
 
 	/**
-	 * Echo backend storage
-	 * @var MWEchoBackend
+	 * Database access gateway
+	 * @var EchoUserNotificationGateway
 	 */
-	private $storage;
+	private $userNotifGateway;
 
 	/**
 	 * Constructor for initialization
-	 * @param $user User
+	 * @param User
+	 * @param BagOStuff
+	 * @param EchoUserNotificationGateway
 	 */
-	private function __construct( User $user ) {
-		global $wgMemc, $wgEchoBackend;
+	private function __construct( User $user, BagOStuff $cache, EchoUserNotificationGateway $userNotifGateway  ) {
 		$this->mUser = $user;
-		$this->storage = $wgEchoBackend;
-		$this->cache = $wgMemc;
+		$this->userNotifGateway = $userNotifGateway;
+		$this->cache = $cache;
 	}
 
 	/**
@@ -44,7 +45,11 @@ class MWEchoNotifUser {
 		if ( $user->isAnon() ) {
 			throw new MWException( 'User must be logged in to view notification!' );
 		}
-		return new MWEchoNotifUser( $user );
+		global $wgMemc;
+		return new MWEchoNotifUser(
+			$user, $wgMemc,
+			new EchoUserNotificationGateway( $user, MWEchoDbFactory::newFromDefault() )
+		);
 	}
 
 	/**
@@ -66,8 +71,7 @@ class MWEchoNotifUser {
 
 		// Mark the talk page notification as read
 		$this->markRead(
-			$this->storage->getUnreadNotifications(
-				$this->mUser,
+			$this->userNotifGateway->getUnreadNotifications(
 				'edit-user-talk'
 			)
 		);
@@ -133,7 +137,7 @@ class MWEchoNotifUser {
 			return (int)$this->cache->get( $memcKey );
 		}
 
-		$count = $this->storage->getNotificationCount( $this->mUser, $dbSource );
+		$count = $this->userNotifGateway->getNotificationCount( $dbSource );
 
 		$this->cache->set( $memcKey, $count, 86400 );
 
@@ -150,7 +154,7 @@ class MWEchoNotifUser {
 			return;
 		}
 
-		$this->storage->markRead( $this->mUser, $eventIds );
+		$this->userNotifGateway->markRead( $eventIds );
 		$this->resetNotificationCount( DB_MASTER );
 	}
 
@@ -165,7 +169,7 @@ class MWEchoNotifUser {
 
 		// Only update all the unread notifications if it isn't a huge number.
 		// TODO: Implement batched jobs it's over the maximum.
-		$this->storage->markAllRead( $this->mUser );
+		$this->userNotifGateway->markAllRead();
 		$this->resetNotificationCount( DB_MASTER );
 		$this->flagCacheWithNoTalkNotification();
 		return true;

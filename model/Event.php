@@ -147,6 +147,37 @@ class EchoEvent {
 	}
 
 	/**
+	 * Convert the object's database property to array
+	 * @return array
+	 */
+	public function toDbArray() {
+		$data = array (
+			'event_type' => $this->type,
+			'event_variant' => $this->variant,
+			'event_extra' => $this->serializeExtra()
+		);
+		if ( $this->id ) {
+			$data['event_id'] = $this->id;
+		}
+		if ( $this->agent ) {
+			if ( $this->agent->isAnon() ) {
+				$data['event_agent_ip'] = $this->agent->getName();
+			} else {
+				$data['event_agent_id'] = $this->agent->getId();
+			}
+		}
+		if ( $this->title ) {
+			$pageId = $this->title->getArticleId();
+			// Don't need any special handling for title with no id
+			// as they are already stored in extra data array
+			if ( $pageId ) {
+				$data['event_page_id'] = $pageId;
+			}
+		}
+		return $data;
+	}
+
+	/**
 	 * Check whether the echo event is an enabled event
 	 * @return bool
 	 */
@@ -163,32 +194,8 @@ class EchoEvent {
 	 * Inserts the object into the database.
 	 */
 	protected function insert() {
-		global $wgEchoBackend;
-
-		if ( $this->id ) {
-			throw new MWException( "Attempt to insert() an existing event" );
-		}
-
-		$row = array(
-			'event_type' => $this->type,
-			'event_variant' => $this->variant,
-		);
-
-		if ( $this->agent ) {
-			if ( $this->agent->isAnon() ) {
-				$row['event_agent_ip'] = $this->agent->getName();
-			} else {
-				$row['event_agent_id'] = $this->agent->getId();
-			}
-		}
-
-		if ( $this->pageId ) {
-			$row['event_page_id'] = $this->pageId;
-		}
-
-		$row['event_extra'] = $this->serializeExtra();
-
-		$this->id = $wgEchoBackend->createEvent( $row );
+		$eventMapper = new EchoEventMapper( MWEchoDbFactory::newFromDefault() );
+		$this->id = $eventMapper->insert( $this );
 	}
 
 	/**
@@ -235,9 +242,21 @@ class EchoEvent {
 	 * @param $fromMaster bool
 	 */
 	public function loadFromID( $id, $fromMaster = false ) {
-		global $wgEchoBackend;
+		$eventMapper = new EchoEventMapper( MWEchoDbFactory::newFromDefault() );
+		$event = $eventMapper->fetchById( $id, $fromMaster );
 
-		$this->loadFromRow( $wgEchoBackend->loadEvent( $id, $fromMaster ) );
+		// Copy over the attribute
+		$this->id = $event->id;
+		$this->type = $event->type;
+		$this->variant = $event->variant;
+		$this->extra = $event->extra;
+		$this->pageId = $event->pageId;
+		$this->agent = $event->agent;
+		$this->title = $event->title;
+		// Don't overwrite timestamp if it exists already
+		if ( !$this->timestamp ) {
+			$this->timestamp = $event->timestamp;
+		}
 	}
 
 	/**

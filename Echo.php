@@ -47,6 +47,7 @@ $wgMessagesDirs['Echo'] = __DIR__ . '/i18n';
 $wgExtensionMessagesFiles['Echo'] = $dir . 'Echo.i18n.php';
 $wgExtensionMessagesFiles['EchoAliases'] = $dir . 'Echo.alias.php';
 
+// Basic Echo classes
 $wgAutoloadClasses['EchoHooks'] = $dir . 'Hooks.php';
 $wgAutoloadClasses['EchoEvent'] = $dir . 'model/Event.php';
 $wgAutoloadClasses['EchoNotification'] = $dir . 'model/Notification.php';
@@ -56,7 +57,15 @@ $wgAutoloadClasses['MWEchoEmailBundler'] = $dir . 'includes/EmailBundler.php';
 $wgAutoloadClasses['MWDbEchoEmailBundler'] = $dir . 'includes/DbEmailBundler.php';
 $wgAutoloadClasses['MWEchoEventLogging'] = $dir . 'includes/EventLogging.php';
 
-// Formatters
+// Database mappers && gateways
+$wgAutoloadClasses['EchoEventMapper'] = $dir . 'includes/mapper/EventMapper.php';
+$wgAutoloadClasses['EchoNotificationMapper'] = $dir . 'includes/mapper/NotificationMapper.php';
+$wgAutoloadClasses['EchoUserNotificationGateway'] = $dir . 'includes/gateway/UserNotificationGateway.php';
+
+// Output formatters
+$wgAutoloadClasses['EchoDataOutputFormatter'] = $dir . 'includes/DataOutputFormatter.php';
+
+// Event formatters
 $wgAutoloadClasses['EchoNotificationFormatter'] = $dir . 'formatters/NotificationFormatter.php';
 $wgAutoloadClasses['EchoBasicFormatter'] = $dir . 'formatters/BasicFormatter.php';
 $wgAutoloadClasses['EchoEditFormatter'] = $dir . 'formatters/EditFormatter.php';
@@ -101,8 +110,6 @@ $wgSpecialPages['Notifications'] = 'SpecialNotifications';
 $wgSpecialPageGroups['Notifications'] = 'users';
 
 // Backend support
-$wgAutoloadClasses['MWEchoBackend'] = $dir . 'includes/EchoBackend.php';
-$wgAutoloadClasses['MWDbEchoBackend'] = $dir . 'includes/DbEchoBackend.php';
 $wgAutoloadClasses['MWEchoDbFactory'] = $dir . 'includes/EchoDbFactory.php';
 $wgAutoloadClasses['MWEchoNotifUser'] = $dir . 'includes/NotifUser.php';
 
@@ -248,14 +255,11 @@ $wgHooks['LinksUpdateAfterInsert'][] = 'EchoHooks::onLinksUpdateAfterInsert';
 
 // Configuration
 
-// The name of the backend to use for Echo, eg, Db, Redis, Zeromq
+// The name of the backend to use for Echo email bundling and digest, it should
+// be always Db
+// @deprecated
+// @todo remove it from code base
 $wgEchoBackendName = 'Db';
-
-/**
- * The backend object
- * @var MWEchoBackend
- */
-$wgEchoBackend = null;
 
 // Whether to turn on email batch function
 $wgEchoEnableEmailBatch = true;
