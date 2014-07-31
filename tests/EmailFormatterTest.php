@@ -69,6 +69,7 @@ class EchoEmailFormatterTest extends MediaWikiTestCase {
 		$methods = get_class_methods( 'EchoEvent' );
 		$methods = array_diff( $methods, array( 'userCan', 'getLinkMessage', 'getLinkDestination' ) );
 
+		$attribManager = EchoAttributeManager::newFromGlobalVars();
 		$event = $this->getMockBuilder( 'EchoEvent' )
 			->disableOriginalConstructor()
 			->setMethods( $methods )
@@ -78,7 +79,7 @@ class EchoEmailFormatterTest extends MediaWikiTestCase {
 			->will( $this->returnValue( $type ) );
 		$event->expects( $this->any() )
 			->method( 'getCategory' )
-			->will( $this->returnValue( EchoNotificationController::getNotificationCategory( $type ) ) );
+			->will( $this->returnValue( $attribManager->getNotificationCategory( $type ) ) );
 		return $event;
 	}
 

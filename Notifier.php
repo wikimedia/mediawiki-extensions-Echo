@@ -12,7 +12,8 @@ class EchoNotifier {
 	public static function notifyWithNotification( $user, $event ) {
 		// Only create the notification if the user wants to recieve that type
 		// of notification and they are eligible to recieve it. See bug 47664.
-		$userWebNotifications = EchoNotificationController::getUserEnabledEvents( $user, 'web' );
+		$attributeManager = EchoAttributeManager::newFromGlobalVars();
+		$userWebNotifications = $attributeManager->getUserEnabledEvents( $user, 'web' );
 		if ( !in_array( $event->getType(), $userWebNotifications ) ) {
 			return;
 		}
@@ -40,11 +41,13 @@ class EchoNotifier {
 			return false;
 		}
 
+		$attributeManager = EchoAttributeManager::newFromGlobalVars();
+		$userEmailNotifications = $attributeManager->getUserEnabledEvents( $user, 'email' );
 		// See if the user wants to receive emails for this category or the user is eligible to receive this email
-		if ( in_array( $event->getType(), EchoNotificationController::getUserEnabledEvents( $user, 'email' ) ) ) {
+		if ( in_array( $event->getType(), $userEmailNotifications ) ) {
 			global $wgEchoEnableEmailBatch, $wgEchoNotifications, $wgNotificationSender, $wgNotificationSenderName, $wgNotificationReplyName, $wgEchoBundleEmailInterval;
 
-			$priority = EchoNotificationController::getNotificationPriority( $event->getType() );
+			$priority = $attributeManager->getNotificationPriority( $event->getType() );
 
 			$bundleString = $bundleHash = '';
 

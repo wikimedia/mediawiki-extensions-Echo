@@ -19,11 +19,12 @@ class ApiEchoNotifications extends ApiQueryBase {
 
 		$prop = $params['prop'];
 
+		$attributeManager = EchoAttributeManager::newFromGlobalVars();
 		$result = array();
 		if ( in_array( 'list', $prop ) ) {
 			$result = $this->getPropList(
 				$user,
-				EchoNotificationController::getUserEnabledEvents( $user, 'web' ),
+				$attributeManager->getUserEnabledEvents( $user, 'web' ),
 				$params['limit'], $params['continue'], $params['format']
 			);
 			$this->getResult()->setIndexedTagName( $result['list'], 'notification' );
@@ -66,7 +67,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 
 		// Fetch the result for the event types above
 		$notifMapper = new EchoNotificationMapper( MWEchoDbFactory::newFromDefault() );
-		$notifs = $notifMapper->fetchByUser( $user, $limit + 1, $continue, 'web' );
+		$notifs = $notifMapper->fetchByUser( $user, $limit + 1, $continue, $eventTypesToLoad );
 		foreach ( $notifs as $notif ) {
 			$result['list'][$notif->getEvent()->getID()] = EchoDataOutputFormatter::formatOutput( $notif, $format, $user );
 		}

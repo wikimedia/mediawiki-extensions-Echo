@@ -27,35 +27,21 @@ class EchoUserNotificationGatewayTest extends MediaWikiTestCase {
 	}
 
 	public function testGetNotificationCount() {
-		global $wgEchoNotificationCategories;
-		$previous = $wgEchoNotificationCategories;
-
-		// Alter the category group so the user is always elegible to
-		// view some notification types.
-		foreach ( $wgEchoNotificationCategories as &$value ) {
-			$value['usergroups'] = array( 'echo_group' );
-		}
-		unset( $value );
-
-		// successful select
+		// unsuccessful select
 		$gateway = new EchoUserNotificationGateway( $this->mockUser(), $this->mockMWEchoDbFactory( array( 'select' => false ) ) );
-		$this->assertEquals( 0, $gateway->getNotificationCount( DB_SLAVE ) );
+		$this->assertEquals( 0, $gateway->getNotificationCount( DB_SLAVE, array( 'event_one' ) ) );
+
+		// successful select of alert
+		$gateway = new EchoUserNotificationGateway( $this->mockUser(), $this->mockMWEchoDbFactory( array( 'select' => array( 1, 2 ) ) ) );
+		$this->assertEquals( 2, $gateway->getNotificationCount( DB_SLAVE, array( 'event_one', 'event_two' ) ) );
+
+		// there is event, should return 0
+		$gateway = new EchoUserNotificationGateway( $this->mockUser(), $this->mockMWEchoDbFactory( array( 'select' => array( 1, 2 ) ) ) );
+		$this->assertEquals( 0, $gateway->getNotificationCount( DB_SLAVE, array() ) );
 
 		// successful select
 		$gateway = new EchoUserNotificationGateway( $this->mockUser(), $this->mockMWEchoDbFactory( array( 'select' => array( 1, 2, 3 ) ) ) );
-		$this->assertEquals( 3, $gateway->getNotificationCount( DB_SLAVE ) );
-
-		// Alter the category group so the user is not elegible to
-		// view any notification types.
-		foreach ( $wgEchoNotificationCategories as &$value ) {
-			$value['usergroups'] = array( 'sysop' );
-		}
-		unset( $value );
-
-		$gateway = new EchoUserNotificationGateway( $this->mockUser(), $this->mockMWEchoDbFactory( array( 'select' => array( 1, 2, 3 ) ) ) );
-		$this->assertEquals( 0, $gateway->getNotificationCount( DB_SLAVE ) );
-
-		$wgEchoNotificationCategories = $previous;
+		$this->assertEquals( 3, $gateway->getNotificationCount( DB_SLAVE, array( 'event_one' ) ) );
 	}
 
 	public function testGetUnreadNotifications() {
@@ -75,7 +61,7 @@ class EchoUserNotificationGatewayTest extends MediaWikiTestCase {
 	/**
 	 * Mock object of User
 	 */
-	protected function mockUser() {
+	protected function mockUser( $group = 'echo_group' ) {
 		$user = $this->getMockBuilder( 'User' )
 			->disableOriginalConstructor()
 			->getMock();
@@ -87,7 +73,7 @@ class EchoUserNotificationGatewayTest extends MediaWikiTestCase {
 			->will( $this->returnValue( true ) );
 		$user->expects( $this->any() )
 			->method( 'getGroups' )
-			->will( $this->returnValue( array( 'echo_group' ) ) );
+			->will( $this->returnValue( array( $group ) ) );
 		return $user;
 	}
 

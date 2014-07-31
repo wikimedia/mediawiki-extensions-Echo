@@ -74,16 +74,16 @@ class EchoUserNotificationGateway {
 	}
 
 	/**
-	 * @param $dbSource string use master or slave storage to pull count
+	 * Get notification count for the types specified
+	 * @param int use master or slave storage to pull count
+	 * @param array event types to retrieve
 	 * @return int
 	 */
-	public function getNotificationCount( $dbSource ) {
+	public function getNotificationCount( $dbSource, array $eventTypesToLoad = array() ) {
 		// double check
 		if ( !in_array( $dbSource, array( DB_SLAVE, DB_MASTER ) ) ) {
 			$dbSource = DB_SLAVE;
 		}
-
-		$eventTypesToLoad = EchoNotificationController::getUserEnabledEvents( $this->user, 'web' );
 
 		if ( !$eventTypesToLoad ) {
 			return 0;

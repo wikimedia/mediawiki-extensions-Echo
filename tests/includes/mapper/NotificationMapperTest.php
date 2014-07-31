@@ -44,8 +44,13 @@ class EchoNotificationMapperTest extends MediaWikiTestCase {
 			)
 		);
 		$notifMapper = new EchoNotificationMapper( $this->mockMWEchoDbFactory( array ( 'select' => $dbResult ) ) );
-		$res = $notifMapper->fetchByUser( $this->mockUser(), 10, '' );
+		$res = $notifMapper->fetchByUser( $this->mockUser(), 10, '', array() );
+		$this->assertEmpty( $res  );
+
+		$notifMapper = new EchoNotificationMapper( $this->mockMWEchoDbFactory( array ( 'select' => $dbResult ) ) );
+		$res = $notifMapper->fetchByUser( $this->mockUser(), 10, '', array( 'test_event' ) );
 		$this->assertTrue( is_array( $res ) );
+		$this->assertGreaterThan( 0, count( $res ) );
 		foreach ( $res as $row ) {
 			$this->assertInstanceOf( 'EchoNotification', $row  );
 		}

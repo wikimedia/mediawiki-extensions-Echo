@@ -137,7 +137,9 @@ class MWEchoNotifUser {
 			return (int)$this->cache->get( $memcKey );
 		}
 
-		$count = $this->userNotifGateway->getNotificationCount( $dbSource );
+		$attributeManager = EchoAttributeManager::newFromGlobalVars();
+		$eventTypesToLoad = $attributeManager->getUserEnabledEvents( $this->mUser, 'web' );
+		$count = $this->userNotifGateway->getNotificationCount( $dbSource, $eventTypesToLoad );
 
 		$this->cache->set( $memcKey, $count, 86400 );
 

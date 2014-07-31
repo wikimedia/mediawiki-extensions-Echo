@@ -56,6 +56,7 @@ $wgAutoloadClasses['MWDbEchoEmailBatch'] = $dir . 'includes/DbEmailBatch.php';
 $wgAutoloadClasses['MWEchoEmailBundler'] = $dir . 'includes/EmailBundler.php';
 $wgAutoloadClasses['MWDbEchoEmailBundler'] = $dir . 'includes/DbEmailBundler.php';
 $wgAutoloadClasses['MWEchoEventLogging'] = $dir . 'includes/EventLogging.php';
+$wgAutoloadClasses['EchoAttributeManager'] = $dir . 'includes/AttributeManager.php';
 
 // Database mappers && gateways
 $wgAutoloadClasses['EchoEventMapper'] = $dir . 'includes/mapper/EventMapper.php';
