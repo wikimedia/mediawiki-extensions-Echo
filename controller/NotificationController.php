@@ -197,11 +197,18 @@ class EchoNotificationController {
 		$type = $event->getType();
 		// Key notifyList by user id to ensure there are no duplicated users
 		$notifyList = array();
-
 		$attributeManager = EchoAttributeManager::newFromGlobalVars();
 		foreach ( $attributeManager->getUserLocators( $type ) as $callable ) {
+			// locator options can be set per-event by using an array with
+			// name as first parameter
+			if ( is_array( $callable ) ) {
+				$options = $callable;
+				$callable = array_shift( $options );
+			} else {
+				$options = array();
+			}
 			if ( is_callable( $callable ) ) {
-				$notifyList += call_user_func( $callable, $event );
+				$notifyList += call_user_func( $callable, $event, $options );
 			} else {
 				wfDebugLog( __CLASS__, __FUNCTION__ . ": Invalid user-locator returned for $type" );
 			}

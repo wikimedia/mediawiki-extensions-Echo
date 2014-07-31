@@ -355,6 +355,9 @@ $wgEchoNotificationIcons = array(
 // If formatter-class isn't specified, defaults to EchoBasicFormatter.
 $wgEchoNotifications = array(
 	'welcome' => array(
+		'user-locators' => array(
+			'EchoUserLocator::locateEventAgent'
+		),
 		'category' => 'system',
 		'group' => 'positive',
 		'title-message' => 'notification-new-user',
@@ -386,6 +389,9 @@ $wgEchoNotifications = array(
 		'icon' => 'chat',
 	),
 	'reverted' => array(
+		'user-locators' => array(
+			array( 'EchoUserLocator::locateFromEventExtra', 'reverted-user-id' ),
+		),
 		'primary-link' => array( 'message' => 'notification-link-text-view-edit', 'destination' => 'diff' ),
 		'category' => 'reverted',
 		'group' => 'negative',
@@ -401,6 +407,9 @@ $wgEchoNotifications = array(
 		'icon' => 'revert',
 	),
 	'page-linked' => array(
+		'user-locators' => array(
+			'EchoUserLocator::locateArticleCreator',
+		),
 		'primary-link' => array( 'message' => 'notification-link-text-view-page', 'destination' => 'link-from-page' ),
 		'category' => 'article-linked',
 		'group' => 'neutral',
@@ -421,6 +430,9 @@ $wgEchoNotifications = array(
 		'icon' => 'linked',
 	),
 	'mention' => array(
+		'user-locators' => array(
+			array( 'EchoUserLocator::locateFromEventExtra', 'mentioned-users' ),
+		),
 		'primary-link' => array( 'message' => 'notification-link-text-view-mention', 'destination' => 'section' ),
 		'secondary-link' => array( 'message' => 'notification-link-text-view-changes', 'destination' => 'diff' ),
 		'category' => 'mention',
@@ -437,6 +449,9 @@ $wgEchoNotifications = array(
 		'icon' => 'chat',
 	),
 	'user-rights' => array(
+		'user-locators' => array(
+			array( 'EchoUserLocator::locateFromEventExtra', 'user' ),
+		),
 		'primary-link' => array( 'message' => 'echo-learn-more', 'destination' => 'user-rights-list' ),
 		'category' => 'user-rights',
 		'group' => 'neutral',

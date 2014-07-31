@@ -134,6 +134,7 @@ class EchoHooks {
 	 */
 	public static function getDefaultNotifiedUsers( $event, &$users ) {
 		switch ( $event->getType() ) {
+			// AFAICT these two are unused?
 			case 'add-comment':
 			case 'add-talkpage-topic':
 				// Handled by EchoDiscussionParser
@@ -144,63 +145,10 @@ class EchoHooks {
 				}
 
 				$revision = Revision::newFromId( $extraData['revid'] );
+				break;
 				if ( $revision ) {
 					$users += EchoDiscussionParser::getNotifiedUsersForComment( $revision );
 				}
-				break;
-			case 'welcome':
-				$users[$event->getAgent()->getId()] = $event->getAgent();
-				break;
-			case 'reverted':
-				$extra = $event->getExtra();
-
-				if ( !$extra || !isset( $extra['reverted-user-id'] ) ) {
-					break;
-				}
-				$victimID = $extra['reverted-user-id'];
-				$victim = User::newFromId( $victimID );
-				$users[$victim->getId()] = $victim;
-				break;
-			case 'page-linked':
-				$agent = $event->getAgent();
-				$title = $event->getTitle();
-
-				if ( !$title || $title->getArticleID() <= 0 || !$agent ) {
-					break;
-				}
-
-				$dbr = wfGetDB( DB_SLAVE );
-
-				$res = $dbr->selectRow(
-					array( 'revision' ),
-					array( 'rev_user' ),
-					array( 'rev_page' => $title->getArticleID() ),
-					__METHOD__,
-					array( 'LIMIT' => 1, 'ORDER BY' => 'rev_timestamp, rev_id' )
-				);
-				// No notification if agents link their own articles
-				if ( $res && $res->rev_user && $agent->getID() != $res->rev_user ) {
-					// Map each linked page to a corresponding author
-					$user = User::newFromId( $res->rev_user );
-					if ( $user ) {
-						$users[$user->getID()] = $user;
-					}
-				}
-				break;
-			case 'mention':
-				$extraData = $event->getExtra();
-				foreach ( $extraData['mentioned-users'] as $userId ) {
-					//backward compatibility
-					if ( $userId instanceof User ) {
-						$users[$userId->getID()] = $userId;
-					} else {
-						$users[$userId] = User::newFromId( $userId );
-					}
-				}
-				break;
-			case 'user-rights':
-				$extraData = $event->getExtra();
-				$users[$extraData['user']] = User::newFromId( $extraData['user'] );
 				break;
 		}
 
