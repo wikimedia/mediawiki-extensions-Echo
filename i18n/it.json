@@ -29,7 +29,7 @@
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Testo normale",
 	"echo-pref-notify-show-link": "Visualizza le notifiche nella mia barra degli strumenti",
-	"echo-pref-new-message-indicator": "Notificami i nuovi messaggi nella mia discussione con un avviso nella mia barra degli strumenti",
+	"echo-pref-new-message-indicator": "Notificami i nuovi messaggi nella mia pagina di discussione con un avviso nella barra degli strumenti",
 	"echo-learn-more": "Ulteriori informazioni",
 	"echo-new-messages": "Hai nuovi messaggi",
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Messaggio|Messaggi}} sulla pagina di discussione",
