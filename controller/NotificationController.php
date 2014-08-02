@@ -94,9 +94,10 @@ class EchoNotificationController {
 
 			foreach ( $users as $user ) {
 
-				wfRunHooks( 'EchoGetNotificationTypes', array( $user, $event, &$notifyTypes ) );
+				$userNotifyTypes = $notifyTypes;
+				wfRunHooks( 'EchoGetNotificationTypes', array( $user, $event, &$userNotifyTypes ) );
 
-				foreach ( $notifyTypes as $type ) {
+				foreach ( $userNotifyTypes as $type ) {
 					self::doNotification( $event, $user, $type );
 				}
 			}
