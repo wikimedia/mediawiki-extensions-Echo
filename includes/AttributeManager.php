@@ -56,6 +56,21 @@ class EchoAttributeManager {
 	}
 
 	/**
+	 * Get the user-locators related to the provided event type
+	 *
+	 * @param string $type
+	 * @return array
+	 */
+	public function getUserLocators( $type ) {
+		if ( isset( $this->notifications[$type]['user-locators'] ) ) {
+			return (array)$this->notifications[$type]['user-locators'];
+		} else {
+			wfDebugLog( 'Echo', __METHOD__ . ": No user-locators configured for $type" );
+			return array();
+		}
+	}
+
+	/**
 	 * Get the enabled events for a user, which excludes user-dismissed events
 	 * from the general enabled events
 	 * @param User

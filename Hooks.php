@@ -134,19 +134,6 @@ class EchoHooks {
 	 */
 	public static function getDefaultNotifiedUsers( $event, &$users ) {
 		switch ( $event->getType() ) {
-			// Everyone deserves to know when something happens
-			// on their user talk page
-			case 'edit-user-talk':
-				if ( !$event->getTitle() || !$event->getTitle()->getNamespace() == NS_USER_TALK ) {
-					break;
-				}
-
-				$username = $event->getTitle()->getText();
-				$user = User::newFromName( $username );
-				if ( $user && $user->getId() ) {
-					$users[$user->getId()] = $user;
-				}
-				break;
 			case 'add-comment':
 			case 'add-talkpage-topic':
 				// Handled by EchoDiscussionParser

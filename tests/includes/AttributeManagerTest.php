@@ -6,6 +6,61 @@ class EchoAttributeManagerTest extends MediaWikiTestCase {
 		$this->assertInstanceOf( 'EchoAttributeManager', EchoAttributeManager::newFromGlobalVars() );
 	}
 
+	public static function getUserLocatorsProvider() {
+		return array(
+			array(
+				'No errors when requesting unknown type',
+				// expected result
+				array(),
+				// event type
+				'foo',
+				// notification configuration
+				array(),
+			),
+
+			array(
+				'Returns selected notification configuration',
+				// expected result
+				array( 'woot!' ),
+				// event type
+				'magic',
+				// notification configuration
+				array(
+					'foo' => array(
+						'user-locators' => array( 'frown' ),
+					),
+					'magic' => array(
+						'user-locators' => array( 'woot!' ),
+					),
+				),
+			),
+
+			array(
+				'Accepts user-locators as string and returns array',
+				// expected result
+				array( 'sagen' ),
+				// event type
+				'challah',
+				// notification configuration
+				array(
+					'challah' => array(
+						'user-locators' => 'sagen',
+					),
+				),
+			),
+		);
+	}
+
+	/**
+	 * @dataProvider getUserLocatorsProvider
+	 */
+	public function testGetUserLocators( $message, $expect, $type, $notifications) {
+		$manager = new EchoAttributeManager( $notifications, array() );
+
+		$result = $manager->getUserLocators( $type );
+		$this->assertEquals( $expect, $result, $message );
+	}
+
 	public function testGetCategoryEligibility() {
 		$notif = array(
 			'event_one' => array (

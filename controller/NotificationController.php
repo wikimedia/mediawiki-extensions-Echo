@@ -87,7 +87,7 @@ class EchoNotificationController {
 					continue;
 				}
 				if ( $blacklisted && !self::isWhitelistedByUser( $event, $user ) ) {
-					continue;
+	 				continue;
 				}
 
 				wfRunHooks( 'EchoGetNotificationTypes', array( $user, $event, &$notifyTypes ) );
@@ -190,13 +190,27 @@ class EchoNotificationController {
 	/**
 	 * Retrieves an array of User objects to be notified for an EchoEvent.
 	 *
-	 * @param $event EchoEvent to retrieve users to be notified for.
-	 * @return Array of User objects
+	 * @param EchoEvent $event
+	 * @return array keys are user ids, values are User objects
 	 */
-	protected static function getUsersToNotifyForEvent( $event ) {
-		$users = $notifyList = array();
+	public static function getUsersToNotifyForEvent( EchoEvent $event ) {
+		$type = $event->getType();
+		// Key notifyList by user id to ensure there are no duplicated users
+		$notifyList = array();
+
+		$attributeManager = EchoAttributeManager::newFromGlobalVars();
+		foreach ( $attributeManager->getUserLocators( $type ) as $callable ) {
+			if ( is_callable( $callable ) ) {
+				$notifyList += call_user_func( $callable, $event );
+			} else {
+				wfDebugLog( __CLASS__, __FUNCTION__ . ": Invalid user-locator returned for $type" );
+			}
+		}
+
+		// hook for injecting more users.
+		// @deprecated
+		$users = array();
 		wfRunHooks( 'EchoGetDefaultNotifiedUsers', array( $event, &$users ) );
-		// Make sure there is no duplicated users
 		foreach ( $users as $user ) {
 			$notifyList[$user->getId()] = $user;
 		}
@@ -259,7 +273,7 @@ class EchoNotificationController {
 	/**
 	 * INTERNAL.  Must be public to be callable by the php error handling methods.
 	 *
-	 * Converts E_RECOVERABLE_ERROR, such as passing null to a method expecting 
+	 * Converts E_RECOVERABLE_ERROR, such as passing null to a method expecting
 	 * a non-null object, into exceptions.
 	 */
 	public static function formatterErrorHandler( $errno, $errstr, $errfile, $errline ) {
