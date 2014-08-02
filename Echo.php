@@ -262,6 +262,10 @@ $wgEchoDefaultNotificationTypes = array(
 		'web' => true,
 		'email' => true,
 	),
+	// Only send web notification for welcome event
+	'welcome' => array(
+		'email' => false,
+	),
 );
 
 // Definitions of the different types of notification delivery that are possible.
