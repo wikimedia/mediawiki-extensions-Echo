@@ -33,7 +33,7 @@ $wgResourceModules += array(
 	// ext.echo.base is used by mobile notifications as well, so be sure not to add any
 	// dependencies that do not target mobile.
 	'ext.echo.base' => $echoResourceTemplate + array(
-		'styles' => 'base/ext.echo.base.css',
+		'styles' => 'base/ext.echo.base.less',
 		'scripts' => 'base/ext.echo.base.js',
 		'messages' => array(
 			'echo-error-preference',
@@ -55,7 +55,7 @@ $wgResourceModules += array(
 		'scripts' => array(
 			'overlay/ext.echo.overlay.js',
 		),
-		'styles' => 'overlay/ext.echo.overlay.css',
+		'styles' => 'overlay/ext.echo.overlay.less',
 		'skinStyles' => array(
 			'modern' => 'overlay/ext.echo.overlay.modern.css',
 			'monobook' => 'overlay/ext.echo.overlay.monobook.css',
@@ -79,7 +79,7 @@ $wgResourceModules += array(
 		'scripts' => array(
 			'special/ext.echo.special.js',
 		),
-		'styles' => 'special/ext.echo.special.css',
+		'styles' => 'special/ext.echo.special.less',
 		'dependencies' => array(
 			'ext.echo.desktop',
 			'mediawiki.ui.button',
@@ -92,14 +92,14 @@ $wgResourceModules += array(
 		'position' => 'top',
 	),
 	'ext.echo.alert' => $echoResourceTemplate + array(
-		'styles' => 'alert/ext.echo.alert.css',
+		'styles' => 'alert/ext.echo.alert.less',
 		'skinStyles' => array(
 			'modern' => 'alert/ext.echo.alert.modern.css',
 			'monobook' => 'alert/ext.echo.alert.monobook.css',
 		),
 	),
 	'ext.echo.badge' => $echoResourceTemplate + array(
-		'styles' => 'badge/ext.echo.badge.css',
+		'styles' => 'badge/ext.echo.badge.less',
 		'skinStyles' => array(
 			'modern' => 'badge/ext.echo.badge.modern.css',
 			'monobook' => 'badge/ext.echo.badge.monobook.css',

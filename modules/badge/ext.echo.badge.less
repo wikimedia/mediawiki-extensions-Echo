@@ -1,0 +1,30 @@
+/* We have to include the #pt-notifications selector due to monobook */
+#pt-notifications .mw-echo-notifications-badge {
+	min-width: 7px;
+	border-radius: 2px;
+	padding: 0.25em 0.45em 0.2em 0.45em;
+	margin-left: -4px;
+	text-align: center;
+	background-color: #d2d2d2;
+	font-weight: bold;
+	color: white;
+	cursor: pointer;
+	text-decoration: none;
+
+	&:hover,
+	&:active,
+	&:focus {
+		background-color: #c2c2c2;
+		outline: none;
+		-moz-outline-style: none;
+	}
+
+	&.mw-echo-unread-notifications {
+		background-color: #cc0000;
+	}
+
+	&.mw-echo-unread-notifications:hover {
+		background-color: #bf0000;
+	}
+}
+

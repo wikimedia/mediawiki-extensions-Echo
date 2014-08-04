@@ -23,17 +23,23 @@
 	left: -5px;
 }
 
-#p-personal .mw-echo-overlay ul {
-	margin: 0;
-	padding: 0;
-	overflow: auto;
+#p-personal {
+	.mw-echo-overlay {
+		ul {
+			margin: 0;
+			padding: 0;
+			overflow: auto;
+		}
+
+		li.mw-echo-notification {
+			display: block;
+			float: none;
+			margin: 0;
+			padding: 0;
+		}
+	}
 }
-#p-personal .mw-echo-overlay li.mw-echo-notification {
-	display: block;
-	float: none;
-	margin: 0;
-	padding: 0;
-}
+
 #p-personal .mw-echo-overlay li.mw-echo-notification .mw-echo-notification-wrapper {
 	display: block;
 	background-color: #F1F1F1;

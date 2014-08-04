@@ -34,14 +34,17 @@
 	/* Force container to expand to height of floated contents */
 	overflow: hidden;
 	zoom: 1;
+
+	&.mw-echo-unread {
+		color: #252525;
+	}
+
+	span.autocomment {
+		color: inherit;
+		font-style: normal;
+	}
 }
-.mw-echo-notification.mw-echo-unread {
-	color: #252525;
-}
-.mw-echo-notification span.autocomment {
-	color: inherit;
-	font-style: normal;
-}
+
 .mw-echo-icon {
 	width: 30px;
 	height: 30px;
