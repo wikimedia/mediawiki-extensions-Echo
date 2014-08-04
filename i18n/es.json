@@ -50,7 +50,7 @@
 	"echo-pref-tooltip-edit-user-talk": "Notificarme cuando alguien publique un mensaje o responda en mi página de discusión.",
 	"echo-pref-tooltip-article-linked": "Notificarme cuando alguien enlace en un artículo a una página creada por mí.",
 	"echo-pref-tooltip-reverted": "Notificarme cuando alguien revierta una edición mía mediante las herramientas de deshacer o revertir.",
-	"echo-pref-tooltip-mention": "Notificarme cuando alguien enlace a mi página de usuario.",
+	"echo-pref-tooltip-mention": "Notificarme cuando alguien enlace mi página de usuario.",
 	"echo-pref-tooltip-user-rights": "Notificarme cuando alguien cambie mis derechos de usuario.",
 	"echo-no-agent": "[Nadie]",
 	"echo-no-title": "[No hay ninguna página]",
