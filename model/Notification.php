@@ -116,6 +116,11 @@ class EchoNotification {
 
 		$notifMapper->insert( $this );
 
+		// Clear applicable section status from cache upon new notification creation
+		MWEchoNotifUser::newFromUser( $this->user )->clearSectionStatusCache(
+			$this->event->getSection()
+		);
+
 		wfRunHooks( 'EchoCreateNotificationComplete', array( $this ) );
 	}
 

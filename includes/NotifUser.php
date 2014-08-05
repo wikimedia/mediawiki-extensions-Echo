@@ -24,6 +24,14 @@ class MWEchoNotifUser {
 	private $userNotifGateway;
 
 	/**
+	 * Whether to check cache for section status
+	 */
+	static $sectionStatusCheckCache = array (
+		EchoAttributeManager::ALERT => false,
+		EchoAttributeManager::MESSAGE => true
+	);
+
+	/**
 	 * Constructor for initialization
 	 * @param User
 	 * @param BagOStuff
@@ -49,6 +57,80 @@ class MWEchoNotifUser {
 		return new MWEchoNotifUser(
 			$user, $wgMemc,
 			new EchoUserNotificationGateway( $user, MWEchoDbFactory::newFromDefault() )
+		);
+	}
+
+	/**
+	 * Check whether should trigger a query to fetch data for a section when making
+	 * such request.  This method normally should return true for all section.
+	 * For some sections, it's better to save the result in cache and check before
+	 * triggering a query. Flow is in very limited deployment, Most *users would
+	 * not have flow notifications, it's better to save *this status in cache
+	 * to save a query.  In addition, Flow notification is far less than other
+	 * notifications for most users at this moment. Querying could be expensive
+	 * in extreme cases
+	 * @param string $section
+	 * @return boolean
+	 */
+	public function shouldQuerySectionData( $section ) {
+		if ( !self::$sectionStatusCheckCache[$section] ) {
+			return true;
+		}
+		$cacheVal = $this->cache->get( $this->sectionStatusCacheKey( $section ) );
+		// '1' means should query
+		// '0' means should not query
+		// false means no cache and should query
+		if ( $cacheVal !== '0' ) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	/**
+	 * Set section data status into cache, '1' means there is data for the section,
+	 * '0' means there is no data for this section
+	 * @param string $section
+	 * @param int $num
+	 */
+	public function setSectionStatusCache( $section, $num ) {
+		if ( !self::$sectionStatusCheckCache[$section] ) {
+			return;
+		}
+		$key = $this->sectionStatusCacheKey( $section );
+		// Set cache for 5 days
+		if ( $num > 0 ) {
+			$this->cache->set( $key, '1', 432000 );
+		} else {
+			$this->cache->set( $key, '0', 432000 );
+		}
+	}
+
+	/**
+	 * Clear section data cache for the section
+	 * @param string
+	 */
+	public function clearSectionStatusCache( $section ) {
+		if ( !self::$sectionStatusCheckCache[$section] ) {
+			return;
+		}
+		$this->cache->delete(
+			$this->sectionStatusCacheKey( $section )
+		);
+	}
+
+	/**
+	 * Get the section data status cache key
+	 * @param string $section
+	 * @return string
+	 */
+	protected function sectionStatusCacheKey( $section ) {
+		global $wgEchoConfig;
+		return wfMemcKey(
+			'echo-notification-section-exist',
+			$section,
+			$this->mUser->getId(),
+			$wgEchoConfig['version']
 		);
 	}
 
@@ -120,25 +202,35 @@ class MWEchoNotifUser {
 	 * Retrieves number of unread notifications that a user has, would return
 	 * $wgEchoMaxNotificationCount + 1 at most
 	 *
-	 * @param $cached bool Set to false to bypass the cache.
-	 * @param $dbSource int use master or slave database to pull count
-	 * @return integer: Number of unread notifications.
+	 * @param boolean $cached Set to false to bypass the cache.
+	 * @param int $dbSource Use master or slave database to pull count
+	 * @param string $section Notification section
+	 * @return int
 	 */
-	public function getNotificationCount( $cached = true, $dbSource = DB_SLAVE ) {
+	public function getNotificationCount( $cached = true, $dbSource = DB_SLAVE, $section = EchoAttributeManager::ALL ) {
 		global $wgEchoConfig;
 
 		if ( $this->mUser->isAnon() ) {
 			return 0;
 		}
 
-		$memcKey = wfMemcKey( 'echo-notification-count', $this->mUser->getId(), $wgEchoConfig['version'] );
+		$memcKey = wfMemcKey(
+			'echo-notification-count' . ( $section === EchoAttributeManager::ALL ? '' : ( '-' . $section ) ),
+			$this->mUser->getId(),
+			$wgEchoConfig['version']
+		);
 
 		if ( $cached && $this->cache->get( $memcKey ) !== false ) {
 			return (int)$this->cache->get( $memcKey );
 		}
 
 		$attributeManager = EchoAttributeManager::newFromGlobalVars();
-		$eventTypesToLoad = $attributeManager->getUserEnabledEvents( $this->mUser, 'web' );
+		if ( $section === EchoAttributeManager::ALL ) {
+			$eventTypesToLoad = $attributeManager->getUserEnabledEvents( $this->mUser, 'web' );
+		} else {
+			$eventTypesToLoad = $attributeManager->getUserEnabledEventsbySections( $this->mUser, 'web', array( $section ) );
+		}
+
 		$count = $this->userNotifGateway->getNotificationCount( $dbSource, $eventTypesToLoad );
 
 		$this->cache->set( $memcKey, $count, 86400 );
@@ -183,19 +275,23 @@ class MWEchoNotifUser {
 	 * @param $dbSource int use master or slave database to pull count
 	 */
 	public function resetNotificationCount( $dbSource = DB_SLAVE ) {
-		$this->getNotificationCount( false, $dbSource );
+		// Reset notification count for all sections as well
+		$this->getNotificationCount( false, $dbSource, EchoAttributeManager::ALL );
+		$this->getNotificationCount( false, $dbSource, EchoAttributeManager::ALERT );
+		$this->getNotificationCount( false, $dbSource, EchoAttributeManager::MESSAGE );
 		$this->mUser->invalidateCache();
 	}
 
 	/**
 	 * Retrieves formatted number of unread notifications that a user has.
-	 * @param $cached bool Set to false to bypass the cache.
-	 * @param $dbSource int use master or slave database to pull count
-	 * @return String: Number of unread notifications.
+	 * @param boolean $cached Set to false to bypass the cache.
+	 * @param int $dbSource use master or slave database to pull count
+	 * @param string $section
+	 * @return string
 	 */
-	public function getFormattedNotificationCount( $cached = true, $dbSource = DB_SLAVE ) {
+	public function getFormattedNotificationCount( $cached = true, $dbSource = DB_SLAVE, $section = EchoAttributeManager::ALL ) {
 		return EchoNotificationController::formatNotificationCount(
-			$this->getNotificationCount( $cached, $dbSource )
+			$this->getNotificationCount( $cached, $dbSource, $section )
 		);
 	}
 

@@ -426,6 +426,15 @@ class EchoEvent {
 		return $attributeManager->getNotificationCategory( $this->type );
 	}
 
+	/**
+	 * Get the section of the event type
+	 * @return string
+	 */
+	public function getSection() {
+		$attributeManager = EchoAttributeManager::newFromGlobalVars();
+		return $attributeManager->getNotificationSection( $this->type );
+	}
+
 	public function setType( $type ) {
 		$this->type = $type;
 	}
