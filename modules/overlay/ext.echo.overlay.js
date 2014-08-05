@@ -49,6 +49,30 @@
 			return notificationLimit;
 		},
 
+		_getMarkAsReadButton: function() {
+			var self = this;
+			return $( '<button>' )
+				.addClass( 'mw-ui-button' )
+				.attr( 'id', 'mw-echo-mark-read-button' )
+				.text( mw.msg( 'echo-mark-all-as-read' ) )
+				.click( function ( e ) {
+					e.preventDefault();
+					// FIXME: Use postWithToken
+					self.api.post( mw.echo.desktop.appendUseLang( {
+						'action' : 'echomarkread',
+						'all' : true,
+						'token': mw.user.tokens.get( 'editToken' )
+					} ) ).done( function ( result ) {
+						var count;
+						if ( result.query.echomarkread.count !== undefined ) {
+							count = result.query.echomarkread.count;
+							mw.echo.overlay.updateCount( count, result.query.echomarkread.rawcount );
+							// Reset header to 'Notifications'
+							$( '#mw-echo-overlay-title-text' ).html( mw.msg( 'echo-overlay-title' ) );
+						}
+					} );
+				} );
+		},
 		/**
 		 * Builds an overlay element
 		 * @method
@@ -58,7 +82,6 @@
 			var notificationLimit = this.getNotificationLimit(),
 				$overlay = $( '<div>' ).addClass( 'mw-echo-overlay' ),
 				$prefLink = $( '#pt-preferences a' ),
-				count = 0,
 				self = this,
 				apiData;
 
@@ -79,8 +102,7 @@
 					$ul = $( '<ul>' ).addClass( 'mw-echo-notifications' ),
 					titleText,
 					overflow,
-					$overlayFooter,
-					$markReadButton;
+					$overlayFooter;
 
 				if ( unreadTotalCount !== undefined ) {
 					mw.echo.overlay.updateCount( unreadTotalCount, unreadRawTotalCount );
@@ -174,26 +196,7 @@
 				if ( overflow && unreadRawTotalCount < mw.echo.overlay.configuration['max-notification-count']
 				) {
 					// Add the 'mark all as read' button to the title area
-					$markReadButton = $( '<button>' )
-						.addClass( 'mw-ui-button' )
-						.attr( 'id', 'mw-echo-mark-read-button' )
-						.text( mw.msg( 'echo-mark-all-as-read' ) )
-						.click( function ( e ) {
-							e.preventDefault();
-							self.api.post( mw.echo.desktop.appendUseLang( {
-								'action' : 'echomarkread',
-								'all' : true,
-								'token': mw.user.tokens.get( 'editToken' )
-							} ) ).done( function ( result ) {
-								if ( result.query.echomarkread.count !== undefined ) {
-									count = result.query.echomarkread.count;
-									mw.echo.overlay.updateCount( count, result.query.echomarkread.rawcount );
-									// Reset header to 'Notifications'
-									$( '#mw-echo-overlay-title-text' ).html( mw.msg( 'echo-overlay-title' ) );
-								}
-							} );
-						} );
-					$title.append( $markReadButton );
+					$title.append( self._getMarkAsReadButton() );
 				}
 
 				// Add the header to the title area
