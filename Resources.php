@@ -79,6 +79,14 @@ $wgResourceModules += array(
 			'echo-feedback',
 		),
 	),
+	'ext.echo.overlay.init' => $echoResourceTemplate + array(
+		'dependencies' => array(
+			'ext.echo.overlay',
+		),
+		'scripts' => array(
+			'overlay/ext.echo.overlay.init.js',
+		),
+	),
 	'ext.echo.special' => $echoResourceTemplate + array(
 		'scripts' => array(
 			'special/ext.echo.special.js',

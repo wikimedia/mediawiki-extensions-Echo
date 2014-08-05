@@ -623,7 +623,7 @@ class EchoHooks {
 
 		if ( $user->isLoggedIn() && $user->getOption( 'echo-notify-show-link' ) ) {
 			// Load the module for the Notifications flyout
-			$out->addModules( array( 'ext.echo.overlay' ) );
+			$out->addModules( array( 'ext.echo.overlay.init' ) );
 			// Load the styles for the Notifications badge
 			$out->addModuleStyles( 'ext.echo.badge' );
 		}
