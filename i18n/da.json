@@ -5,7 +5,8 @@
 			"Christian List",
 			"Palnatoke",
 			"Sarrus",
-			"Tjernobyl"
+			"Tjernobyl",
+			"Thomsen"
 		]
 	},
 	"echo-desc": "Meddelelsessystem",
@@ -38,7 +39,8 @@
 	"echo-pref-tooltip-edit-user-talk": "Giv mig besked når nogen skriver en besked eller et svar på min diskussionsside.",
 	"echo-pref-tooltip-article-linked": "Giv mig beked når nogen henviser til en side som jeg har oprettet, fra en artikelside.",
 	"echo-pref-tooltip-reverted": "Giv mig besked når nogen tilbagestiller en redigering som jeg lavet, ved at bruge fjern redigering eller rul tilbage.",
-	"echo-pref-tooltip-mention": "Giv mig besked når nogen henviser til min brugerside fra en diskussionsside.",
+	"echo-pref-tooltip-mention": "Giv mig besked når nogen henviser til min brugerside.",
+	"echo-pref-tooltip-user-rights": "Advisér mig når nogen ændrer min brugerrettigheder.",
 	"echo-no-agent": "[Ingen]",
 	"echo-no-title": "[Ingen side]",
 	"echo-error-no-formatter": "Der er ikke defineret et format for meddelelsen",
