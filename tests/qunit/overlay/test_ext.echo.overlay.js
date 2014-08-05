@@ -46,7 +46,7 @@
 					} );
 				}
 			};
-			this.sandbox.stub( mw, 'Api', ApiStub );
+			this.sandbox.stub( mw.echo.overlay, 'api', new ApiStub() );
 		}
 	} );
 

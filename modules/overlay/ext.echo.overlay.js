@@ -6,7 +6,10 @@
 	var getUrl = mw.util.getUrl || mw.util.wikiGetlink;
 
 	mw.echo.overlay = {
-
+		/**
+		 * @var mw.Api
+		 */
+		api: new mw.Api( { ajax: { cache: false } } ),
 		/**
 		 * @param newCount formatted count
 		 * @param rawCount unformatted count
@@ -30,22 +33,34 @@
 			);
 		},
 
-		buildOverlay: function ( callback ) {
-			var notificationLimit,
-				$overlay = $( '<div>' ).addClass( 'mw-echo-overlay' ),
-				$prefLink = $( '#pt-preferences a' ),
-				count = 0,
-				apiData,
-				api = new mw.Api( { ajax: { cache: false } } );
-
-			// Set notification limit based on height of the window
-			notificationLimit = Math.floor( ( $( window ).height() - 134 ) / 90 );
+		/**
+		 * Set notification limit based on height of the window
+		 * @method
+		 * @return int
+		 */
+		getNotificationLimit: function () {
+			var notificationLimit = Math.floor( ( $( window ).height() - 134 ) / 90 );
 
 			if ( notificationLimit < 1 ) {
 				notificationLimit = 1;
 			} else if ( notificationLimit > 8 ) {
 				notificationLimit = 8;
 			}
+			return notificationLimit;
+		},
+
+		/**
+		 * Builds an overlay element
+		 * @method
+		 * @param callback a callback which passes the newly created overlay as a parameter
+		 */
+		buildOverlay: function ( callback ) {
+			var notificationLimit = this.getNotificationLimit(),
+				$overlay = $( '<div>' ).addClass( 'mw-echo-overlay' ),
+				$prefLink = $( '#pt-preferences a' ),
+				count = 0,
+				self = this,
+				apiData;
 
 			apiData = {
 				'action' : 'query',
@@ -55,7 +70,7 @@
 				'notprop' : 'index|list|count'
 			};
 
-			api.get( mw.echo.desktop.appendUseLang( apiData ) ).done( function ( result ) {
+			this.api.get( mw.echo.desktop.appendUseLang( apiData ) ).done( function ( result ) {
 				var notifications = result.query.notifications,
 					unread = [],
 					unreadTotalCount = result.query.notifications.count,
@@ -165,7 +180,7 @@
 						.text( mw.msg( 'echo-mark-all-as-read' ) )
 						.click( function ( e ) {
 							e.preventDefault();
-							api.post( mw.echo.desktop.appendUseLang( {
+							self.api.post( mw.echo.desktop.appendUseLang( {
 								'action' : 'echomarkread',
 								'all' : true,
 								'token': mw.user.tokens.get( 'editToken' )
@@ -251,23 +266,31 @@
 				$overlay.append( $overlayFooter );
 
 				callback( $overlay );
-
-				// only need to mark as read if there is unread item
-				if ( unread.length > 0 ) {
-					api.post( mw.echo.desktop.appendUseLang( {
-						'action' : 'echomarkread',
-						'list' : unread.join( '|' ),
-						'token': mw.user.tokens.get( 'editToken' )
-					} ) ).done( function ( result ) {
-						if ( result.query.echomarkread.count !== undefined ) {
-							count = result.query.echomarkread.count;
-							mw.echo.overlay.updateCount( count, result.query.echomarkread.rawcount );
-						}
-					} );
-				}
+				self.markAsRead( unread );
 			} ).fail( function () {
 				window.location.href = $( '#pt-notifications a' ).attr( 'href' );
 			} );
+		},
+		/**
+		 * Mark a list of notifications as read
+		 * @method
+		 * @param {array} unread a list of unread ids
+		 */
+		markAsRead: function( unread ) {
+			// only need to mark as read if there is unread item
+			if ( unread.length > 0 ) {
+				this.api.post( mw.echo.desktop.appendUseLang( {
+					'action' : 'echomarkread',
+					'list' : unread.join( '|' ),
+					'token': mw.user.tokens.get( 'editToken' )
+				} ) ).done( function ( result ) {
+					var count;
+					if ( result.query.echomarkread.count !== undefined ) {
+						count = result.query.echomarkread.count;
+						mw.echo.overlay.updateCount( count, result.query.echomarkread.rawcount );
+					}
+				} );
+			}
 		}
 	};
 
