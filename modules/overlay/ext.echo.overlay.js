@@ -120,6 +120,66 @@
 			);
 			return $overlayFooter;
 		},
+
+		/**
+		 * Builds an Echo overlay header element
+		 * @method
+		 * @param integer length of all notifications (both unread and read) that will be visible in the overlay
+		 * @param integer the total number of all unread notifications including those not in the overlay
+		 * @param string a string representation the current number of unread notifications (1, 99, 99+)
+		 * @param integer the number of unread notifications in the current overlay
+		 * @return jQuery element
+		 */
+		_getTitleElement: function( notificationsCount, unreadRawTotalCount, unreadTotalCount, unreadCount ) {
+			var titleText, includeMarkAsReadButton, overflow,
+				$title = $( '<div>' ).addClass( 'mw-echo-overlay-title' );
+
+			if ( notificationsCount > 0 ) {
+				if ( unreadRawTotalCount > unreadCount ) {
+					titleText = mw.msg(
+						'echo-overlay-title-overflow',
+						mw.language.convertNumber( unreadCount ),
+						mw.language.convertNumber( unreadTotalCount )
+					);
+					overflow = true;
+				} else {
+					titleText = mw.msg( 'echo-overlay-title' );
+					overflow = false;
+				}
+			} else {
+				titleText = mw.msg( 'echo-none' );
+			}
+			// If there are more unread notifications than can fit in the overlay,
+			// but fewer than the maximum count, show the 'mark all as read' button.
+			// The only reason we limit it to the maximum is to prevent expensive
+			// database updates. If the count is more than the maximum, it could
+			// be thousands.
+			includeMarkAsReadButton = overflow &&
+				unreadRawTotalCount < mw.echo.overlay.configuration[ 'max-notification-count' ];
+			if ( includeMarkAsReadButton ) {
+				// Add the 'mark all as read' button to the title area
+				$title.append( this._getMarkAsReadButton() );
+			}
+
+			// Add the header to the title area
+			$( '<div>' )
+			.attr( 'id', 'mw-echo-overlay-title-text' )
+			.html( titleText )
+			.appendTo( $title );
+
+			// Add help button
+			$( '<a>' )
+				.attr( 'href', mw.config.get( 'wgEchoHelpPage' ) )
+				.attr( 'title', mw.msg( 'echo-more-info' ) )
+				.attr( 'id', 'mw-echo-overlay-moreinfo-link' )
+				.attr( 'target', '_blank' )
+				.click( function () {
+					mw.echo.logInteraction( 'ui-help-click', 'flyout' );
+				} )
+				.appendTo( $title );
+			return $title;
+		},
+
 		/**
 		 * Builds an overlay element
 		 * @method
@@ -144,10 +204,7 @@
 					unread = [],
 					unreadTotalCount = result.query.notifications.count,
 					unreadRawTotalCount = result.query.notifications.rawcount,
-					$title = $( '<div>' ).addClass( 'mw-echo-overlay-title' ),
-					$ul = $( '<ul>' ).addClass( 'mw-echo-notifications' ),
-					titleText,
-					overflow;
+					$ul = $( '<ul>' ).addClass( 'mw-echo-notifications' );
 
 				if ( unreadTotalCount !== undefined ) {
 					mw.echo.overlay.updateCount( unreadTotalCount, unreadRawTotalCount );
@@ -216,53 +273,8 @@
 						mw.echo.setUpDismissability( $li );
 					}
 				} );
-
-				if ( notifications.index.length > 0 ) {
-					if ( unreadRawTotalCount > unread.length ) {
-						titleText = mw.msg(
-							'echo-overlay-title-overflow',
-							mw.language.convertNumber( unread.length ),
-							mw.language.convertNumber( unreadTotalCount )
-						);
-						overflow = true;
-					} else {
-						titleText = mw.msg( 'echo-overlay-title' );
-						overflow = false;
-					}
-				} else {
-					titleText = mw.msg( 'echo-none' );
-				}
-
-				// If there are more unread notifications than can fit in the overlay,
-				// but fewer than the maximum count, show the 'mark all as read' button.
-				// The only reason we limit it to the maximum is to prevent expensive
-				// database updates. If the count is more than the maximum, it could
-				// be thousands.
-				if ( overflow && unreadRawTotalCount < mw.echo.overlay.configuration['max-notification-count']
-				) {
-					// Add the 'mark all as read' button to the title area
-					$title.append( self._getMarkAsReadButton() );
-				}
-
-				// Add the header to the title area
-				$( '<div>' )
-				.attr( 'id', 'mw-echo-overlay-title-text' )
-				.html( titleText )
-				.appendTo( $title );
-
-				// Add help button
-				$( '<a>' )
-					.attr( 'href', mw.config.get( 'wgEchoHelpPage' ) )
-					.attr( 'title', mw.msg( 'echo-more-info' ) )
-					.attr( 'id', 'mw-echo-overlay-moreinfo-link' )
-					.attr( 'target', '_blank' )
-					.click( function () {
-						mw.echo.logInteraction( 'ui-help-click', 'flyout' );
-					} )
-					.appendTo( $title );
-
-				// Insert the title area into the overlay
-				$title.appendTo( $overlay );
+				self._getTitleElement( notifications.index.length, unreadRawTotalCount, unreadTotalCount, unread.length ).
+					appendTo( $overlay );
 
 				if ( $ul.find( 'li' ).length ) {
 					$ul.appendTo( $overlay );
