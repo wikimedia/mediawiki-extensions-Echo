@@ -73,6 +73,53 @@
 					} );
 				} );
 		},
+
+		_getFooterElement: function() {
+			var $prefLink = $( '#pt-preferences a' ),
+				$overlayFooter = $( '<div>' )
+					.attr( 'id', 'mw-echo-overlay-footer' );
+
+			// add link to notifications archive
+			$overlayFooter.append(
+				$( '<a>' )
+					.attr( 'id', 'mw-echo-overlay-link' )
+					.addClass( 'mw-echo-grey-link' )
+					.attr( 'href', getUrl( 'Special:Notifications' ) )
+					.text( mw.msg( 'echo-overlay-link' ) )
+					.click( function () {
+						mw.echo.logInteraction( 'ui-archive-link-click', 'flyout' );
+					} )
+					.hover(
+						function() {
+							$( this ).removeClass( 'mw-echo-grey-link' );
+						},
+						function() {
+							$( this ).addClass( 'mw-echo-grey-link' );
+						}
+					)
+			);
+
+			// add link to notification preferences
+			$overlayFooter.append(
+				$( '<a>' )
+					.html( $prefLink.html() )
+					.attr( 'id', 'mw-echo-overlay-pref-link' )
+					.addClass( 'mw-echo-grey-link' )
+					.attr( 'href', $prefLink.attr( 'href' ) + '#mw-prefsection-echo' )
+					.click( function () {
+						mw.echo.logInteraction( 'ui-prefs-click', 'flyout' );
+					} )
+					.hover(
+						function() {
+							$( this ).removeClass( 'mw-echo-grey-link' );
+						},
+						function() {
+							$( this ).addClass( 'mw-echo-grey-link' );
+						}
+					)
+			);
+			return $overlayFooter;
+		},
 		/**
 		 * Builds an overlay element
 		 * @method
@@ -81,7 +128,6 @@
 		buildOverlay: function ( callback ) {
 			var notificationLimit = this.getNotificationLimit(),
 				$overlay = $( '<div>' ).addClass( 'mw-echo-overlay' ),
-				$prefLink = $( '#pt-preferences a' ),
 				self = this,
 				apiData;
 
@@ -101,8 +147,7 @@
 					$title = $( '<div>' ).addClass( 'mw-echo-overlay-title' ),
 					$ul = $( '<ul>' ).addClass( 'mw-echo-notifications' ),
 					titleText,
-					overflow,
-					$overlayFooter;
+					overflow;
 
 				if ( unreadTotalCount !== undefined ) {
 					mw.echo.overlay.updateCount( unreadTotalCount, unreadRawTotalCount );
@@ -223,50 +268,7 @@
 					$ul.appendTo( $overlay );
 				}
 
-				$overlayFooter = $( '<div>' )
-					.attr( 'id', 'mw-echo-overlay-footer' );
-
-				// add link to notifications archive
-				$overlayFooter.append(
-					$( '<a>' )
-						.attr( 'id', 'mw-echo-overlay-link' )
-						.addClass( 'mw-echo-grey-link' )
-						.attr( 'href', getUrl( 'Special:Notifications' ) )
-						.text( mw.msg( 'echo-overlay-link' ) )
-						.click( function () {
-							mw.echo.logInteraction( 'ui-archive-link-click', 'flyout' );
-						} )
-						.hover(
-							function() {
-								$( this ).removeClass( 'mw-echo-grey-link' );
-							},
-							function() {
-								$( this ).addClass( 'mw-echo-grey-link' );
-							}
-						)
-				);
-
-				// add link to notification preferences
-				$overlayFooter.append(
-					$( '<a>' )
-						.html( $prefLink.html() )
-						.attr( 'id', 'mw-echo-overlay-pref-link' )
-						.addClass( 'mw-echo-grey-link' )
-						.attr( 'href', $prefLink.attr( 'href' ) + '#mw-prefsection-echo' )
-						.click( function () {
-							mw.echo.logInteraction( 'ui-prefs-click', 'flyout' );
-						} )
-						.hover(
-							function() {
-								$( this ).removeClass( 'mw-echo-grey-link' );
-							},
-							function() {
-								$( this ).addClass( 'mw-echo-grey-link' );
-							}
-						)
-				);
-
-				$overlay.append( $overlayFooter );
+				$overlay.append( self._getFooterElement() );
 
 				callback( $overlay );
 				self.markAsRead( unread );
