@@ -143,6 +143,9 @@ $wgHooks['UserSaveOptions'][] = 'EchoHooks::onUserSaveOptions';
 $wgHooks['UserClearNewTalkNotification'][] = 'EchoHooks::onUserClearNewTalkNotification';
 $wgHooks['ParserTestTables'][] = 'EchoHooks::onParserTestTables';
 
+// Exception
+$wgAutoloadClasses['EchoCatchableFatalErrorException'] = $dir . 'includes/exception/CatchableFatalErrorException.php';
+
 // Extension initialization
 $wgExtensionFunctions[] = 'EchoHooks::initEchoExtension';
 

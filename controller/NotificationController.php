@@ -1,17 +1,29 @@
 <?php
 /**
- * This class represents the controller for notifications and includes functions
- * for dealing with notification categories.
+ * This class represents the controller for notifications
  */
 class EchoNotificationController {
+
+	/**
+	 * Echo event agent per wiki blacklist
+	 *
+	 * @var string[]
+	 */
 	static protected $blacklist;
+
+	/**
+	 * Echo event agent per user whitelist, this overwrites $blacklist
+	 *
+	 * @param string[]
+	 */
 	static protected $userWhitelist;
 
 	/**
 	 * Format the notification count with Language::formatNum().  In addition, for large count,
 	 * return abbreviated version, e.g. 99+
-	 * @param $count int
-	 * @return string - formatted number
+	 *
+	 * @param int count
+	 * @return string
 	 */
 	public static function formatNotificationCount( $count ) {
 		global $wgLang, $wgEchoMaxNotificationCount;
@@ -31,8 +43,8 @@ class EchoNotificationController {
 	/**
 	 * Processes notifications for a newly-created EchoEvent
 	 *
-	 * @param $event EchoEvent to do notifications for
-	 * @param $defer bool Defer to job queue
+	 * @param EchoEvent $event
+	 * @param boolean $defer Defer to job queue or not
 	 */
 	public static function notify( $event, $defer = true ) {
 		if ( $defer ) {
@@ -103,7 +115,7 @@ class EchoNotificationController {
 	 * Implements blacklist per active wiki expected to be initialized
 	 * from InitializeSettings.php
 	 *
-	 * @param $event EchoEvent The event to test for exclusion via global blacklist
+	 * @param EchoEvent $event The event to test for exclusion via global blacklist
 	 * @return boolean True when the event agent is in the global blacklist
 	 */
 	protected static function isBlacklisted( EchoEvent $event ) {
@@ -133,8 +145,8 @@ class EchoNotificationController {
 	/**
 	 * Implements per-user whitelist sourced from a user wiki page
 	 *
-	 * @param $event EchoEvent The event to test for inclusion in whitelist
-	 * @param $user User The user that owns the whitelist
+	 * @param EchoEvent $event The event to test for inclusion in whitelist
+	 * @param User $user The user that owns the whitelist
 	 * @return boolean True when the event agent is in the user whitelist
 	 */
 	protected static function isWhitelistedByUser( EchoEvent $event, User $user ) {
@@ -167,9 +179,9 @@ class EchoNotificationController {
 	/**
 	 * Processes a single notification for an EchoEvent
 	 *
-	 * @param $event EchoEvent to do a notification for.
-	 * @param $user User object to notify.
-	 * @param $type string The type of notification delivery to process, e.g. 'email'.
+	 * @param EchoEvent $event
+	 * @param User $user The user to be notified.
+	 * @param string $type The type of notification delivery to process, e.g. 'email'.
 	 * @throws MWException
 	 */
 	public static function doNotification( $event, $user, $type ) {
@@ -191,7 +203,7 @@ class EchoNotificationController {
 	 * Retrieves an array of User objects to be notified for an EchoEvent.
 	 *
 	 * @param EchoEvent $event
-	 * @return array keys are user ids, values are User objects
+	 * @return User[]
 	 */
 	public static function getUsersToNotifyForEvent( EchoEvent $event ) {
 		$type = $event->getType();
@@ -234,10 +246,10 @@ class EchoNotificationController {
 	/**
 	 * Formats a notification
 	 *
-	 * @param $event EchoEvent that the notification is for.
-	 * @param $user User to format the notification for.
-	 * @param $format string The format to show the notification in: text, html, or email
-	 * @param $type string The type of notification being distributed (e.g. email, web)
+	 * @param EchoEvent $event The event for a notification.
+	 * @param User $user The user to format the notification for.
+	 * @param string $format The format to show the notification in: text, html, or email
+	 * @param string $type The type of notification being distributed (e.g. email, web)
 	 * @return string|array The formatted notification, or an array of subject
 	 *     and body (for emails), or an error message
 	 */
@@ -288,15 +300,6 @@ class EchoNotificationController {
 			return false;
 		}
 
-		throw new CatchableFatalErrorException( $errno, $errstr, $errfile, $errline );
-	}
-}
-
-class CatchableFatalErrorException extends MWException {
-	public function __construct( $errno, $errstr, $errfile, $errline ) {
-		parent::__construct( "Catchable fatal error: $errstr", $errno );
-		// inherited protected variables from \Exception
-		$this->file = $errfile;
-		$this->line = $errline;
+		throw new EchoCatchableFatalErrorException( $errno, $errstr, $errfile, $errline );
 	}
 }
