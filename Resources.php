@@ -34,7 +34,9 @@ $wgResourceModules += array(
 	// dependencies that do not target mobile.
 	'ext.echo.base' => $echoResourceTemplate + array(
 		'styles' => 'base/ext.echo.base.less',
-		'scripts' => 'base/ext.echo.base.js',
+		'scripts' => array(
+			'base/ext.echo.base.js',
+		),
 		'messages' => array(
 			'echo-error-preference',
 			'echo-error-token',
@@ -42,7 +44,9 @@ $wgResourceModules += array(
 		'targets' => array( 'desktop', 'mobile' ),
 	),
 	'ext.echo.desktop' => $echoResourceTemplate + array(
-		'scripts' => 'desktop/ext.echo.desktop.js',
+		'scripts' => array(
+			'desktop/ext.echo.desktop.js',
+		),
 		'dependencies' => array(
 			'ext.echo.base',
 			'mediawiki.api',

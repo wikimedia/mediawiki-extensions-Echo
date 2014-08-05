@@ -35,6 +35,50 @@ class EchoHooks {
 	}
 
 	/**
+	 * ResourceLoaderTestModules hook handler
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ResourceLoaderTestModules
+	 *
+	 * @param array $testModules
+	 * @param ResourceLoader $resourceLoader
+	 * @return bool
+	 */
+	public static function onResourceLoaderTestModules( array &$testModules,
+		ResourceLoader $resourceLoader
+	) {
+		global $wgResourceModules;
+
+		$testModuleBoilerplate = array(
+			'localBasePath' => __DIR__,
+			'remoteExtPath' => 'Echo',
+			'targets' => array( 'desktop', 'mobile' ),
+		);
+
+		// find test files for every RL module
+		$prefix = 'ext.echo';
+		foreach ( $wgResourceModules as $key => $module ) {
+			if ( substr( $key, 0, strlen( $prefix ) ) === $prefix && isset( $module['scripts'] ) ) {
+				$testFiles = array();
+				foreach ( $module['scripts'] as $script ) {
+					$testFile = 'tests/qunit/' . dirname( $script ) . '/test_' . basename( $script );
+					// if a test file exists for a given JS file, add it
+					if ( file_exists( $testModuleBoilerplate['localBasePath'] . '/' . $testFile ) ) {
+						$testFiles[] = $testFile;
+					}
+				}
+				// if test files exist for given module, create a corresponding test module
+				if ( count( $testFiles ) > 0 ) {
+					$testModules['qunit']["$key.tests"] = $testModuleBoilerplate + array(
+						'dependencies' => array( $key ),
+						'scripts' => $testFiles,
+					);
+				}
+			}
+		}
+
+		return true;
+	}
+
+	/**
 	 * Handler for ResourceLoaderRegisterModules hook
 	 */
 	public static function onResourceLoaderRegisterModules( ResourceLoader &$resourceLoader ) {
@@ -702,6 +746,13 @@ class EchoHooks {
 			);
 			$vars['wgEchoHelpPage'] = $wgEchoHelpPage;
 			$vars['wgEchoConfig'] = $wgEchoConfig;
+		} else if ( SpecialPage::getTitleFor( 'JavaScriptTest', 'qunit' )->equals( $outputPage->getTitle() ) ) {
+			// For testing purposes
+			$vars['wgEchoConfig'] = array(
+				'eventlogging' => array(
+					'EchoInteraction' => array(),
+				),
+			);
 		}
 
 		return true;
