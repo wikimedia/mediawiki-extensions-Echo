@@ -176,6 +176,58 @@ class EchoAttributeManagerTest extends MediaWikiTestCase {
 		$this->assertEquals( 10, $manager->getNotificationPriority( 'event_four' ) );
 	}
 
+	public function testGetMessageEvents() {
+		$notif = array(
+			'event_one' => array (
+				'category' => 'category_one',
+				'section' => 'message'
+			),
+			'event_two' => array (
+				'category' => 'category_two'
+			),
+			'event_three' => array (
+				'category' => 'category_three',
+				'section' => 'message'
+			),
+			'event_four' => array (
+				'category' => 'category_four'
+			)
+		);
+		$category = array(
+			'category_one' => array (
+				'priority' => 6
+			)
+		);
+		$manager = new EchoAttributeManager( $notif, $category );
+		$this->assertEquals( $manager->getMessageEvents(), array( 'event_one', 'event_three' ) );
+	}
+
+	public function testGetAlertEvents() {
+		$notif = array(
+			'event_one' => array (
+				'category' => 'category_one',
+				'section' => 'message'
+			),
+			'event_two' => array (
+				'category' => 'category_two'
+			),
+			'event_three' => array (
+				'category' => 'category_three',
+				'section' => 'alert'
+			),
+			'event_four' => array (
+				'category' => 'category_four'
+			)
+		);
+		$category = array(
+			'category_one' => array (
+				'priority' => 6
+			)
+		);
+		$manager = new EchoAttributeManager( $notif, $category );
+		$this->assertEquals( $manager->getAlertEvents(), array( 'event_two', 'event_three', 'event_four' ) );
+	}
+
 	public function testGetUserEnabledEvents() {
 		$notif = array(
 			'event_one' => array (
@@ -207,6 +259,54 @@ class EchoAttributeManagerTest extends MediaWikiTestCase {
 		);
 		$manager = new EchoAttributeManager( $notif, $category );
 		$this->assertEquals( $manager->getUserEnabledEvents( $this->mockUser(), 'web' ), array( 'event_two', 'event_three' ) );
+	}
+
+	public function testGetUserEnabledEventsbySections() {
+		$notif = array(
+			'event_one' => array (
+				'category' => 'category_one'
+			),
+			'event_two' => array (
+				'category' => 'category_two',
+				'section' => 'message'
+			),
+			'event_three' => array (
+				'category' => 'category_three',
+				'section' => 'alert'
+			),
+			'event_four' => array (
+				'category' => 'category_three',
+			),
+		);
+		$category = array(
+			'category_one' => array (
+				'priority' => 10,
+			),
+			'category_two' => array (
+				'priority' => 10,
+			),
+			'category_three' => array (
+				'priority' => 10
+			),
+		);
+		$manager = new EchoAttributeManager( $notif, $category );
+		$expected = array( 'event_one', 'event_three', 'event_four' );
+		$actual = $manager->getUserEnabledEventsBySections( $this->mockUser(), 'web', array( 'alert' ) );
+		sort( $expected );
+		sort( $actual );
+		$this->assertEquals( $actual, $expected );
+
+		$expected = array( 'event_two' );
+		$actual = $manager->getUserEnabledEventsBySections( $this->mockUser(), 'web', array( 'message' ) );
+		sort( $expected );
+		sort( $actual );
+		$this->assertEquals( $actual, $expected );
+
+		$expected = array( 'event_one', 'event_two', 'event_three', 'event_four' );
+		$actual = $manager->getUserEnabledEventsBySections( $this->mockUser(), 'web', array( 'message', 'alert' ) );
+		sort( $expected );
+		sort( $actual );
+		$this->assertEquals( $actual, $expected );
 	}
 
 	/**

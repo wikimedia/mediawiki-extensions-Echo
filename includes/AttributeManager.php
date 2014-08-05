@@ -17,6 +17,22 @@ class EchoAttributeManager {
 	protected $categories;
 
 	/**
+	 * Notification section constant
+	 */
+	const ALERT = 'alert';
+	const MESSAGE = 'message';
+	const ALL = 'all';
+
+	/**
+	 * Notifications are broken down to two sections, default is alert
+	 * @var array
+	 */
+	public static $sections = array (
+		self::ALERT,
+		self::MESSAGE
+	);
+
+	/**
 	 * An array of EchoAttributeManager instance created from global variables
 	 * @param EchoAttributeManager[]
 	 */
@@ -95,12 +111,62 @@ class EchoAttributeManager {
 	}
 
 	/**
+	 * Get the uesr enabled events for the specified sections
+	 * @param User
+	 * @param string
+	 * @param string[]
+	 * @return string[]
+	 */
+	public function getUserEnabledEventsbySections( User $user, $outputFormat, array $sections ) {
+		$events = array();
+		foreach ( $sections as $section ) {
+			$events = array_merge(
+				$events,
+				call_user_func(
+					array( $this, 'get' . ucfirst( $section ) . 'Events' )
+				)
+			);
+		}
+		return array_intersect(
+			$this->getUserEnabledEvents( $user, $outputFormat ),
+			$events
+		);
+	}
+
+	/**
 	 * Get alert notification event.  Notifications without a section attributes
 	 * default to section alert
 	 * @return array
 	 */
-	public function getEvents() {
-		return array_keys( $this->notifications );
+	public function getAlertEvents() {
+		$events = array();
+		foreach ( $this->notifications as $event => $attribs ) {
+			if (
+				!isset( $attribs['section'] )
+				|| !in_array( $attribs['section'], self::$sections )
+				|| $attribs['section'] === 'alert'
+			) {
+				$events[] = $event;
+			}
+		}
+		return $events;
+	}
+
+	/**
+	 * Get message notification event
+	 * @return array
+	 */
+	public function getMessageEvents() {
+		$events = array();
+		foreach ( $this->notifications as $event => $attribs ) {
+			if (
+				isset( $attribs['section'] )
+				&& $attribs['section'] === 'message'
+			) {
+				$events[] = $event;
+			}
+		}
+		return $events;
 	}
 
 	/**
@@ -165,4 +231,18 @@ class EchoAttributeManager {
 		}
 		return 'other';
 	}
+
+	/**
+	 * Get notification section for a notification type
+	 * @todo add a unit test case
+	 * @parm string
+	 * @return string
+	 */
+	public function getNotificationSection( $notificationType ) {
+		if ( isset( $this->notifications[$notificationType]['section'] ) ) {
+			return $this->notifications[$notificationType]['section'];
+		}
+		return 'alert';
+	}
+
 }
