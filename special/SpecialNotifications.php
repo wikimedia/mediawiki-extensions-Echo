@@ -125,7 +125,7 @@ class SpecialNotifications extends SpecialPage {
 		);
 		// For no-js support
 		global $wgExtensionAssetsPath;
-		$out->addExtensionStyle( "$wgExtensionAssetsPath/Echo/modules/base/ext.echo.base.css" );
+		$out->addModuleStyles( "ext.echo.base" );
 		// Mark items as read
 		if ( $unread ) {
 			MWEchoNotifUser::newFromUser( $user )->markRead( $unread );
