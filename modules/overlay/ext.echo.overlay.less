@@ -25,6 +25,7 @@
 
 
 #p-personal {
+	.mw-echo-overlay-title ul,
 	ul.mw-echo-notifications {
 		// override #p-personal ul in core
 		padding: 0;
@@ -43,6 +44,10 @@
 }
 
 .mw-echo-overlay {
+	.mw-echo-section-current {
+		font-weight: bold;
+	}
+
 	a.mw-echo-grey-link {
 		color: #6D6D6D;
 	}
@@ -104,6 +109,24 @@
 	line-height: 15px;
 	padding: 15px 15px 15px 28px;
 	border-bottom: 1px solid #DDDDDD;
+}
+
+/* override #p-personal li*/
+#p-personal .mw-echo-overlay-title li {
+	font-size: 1em;
+	margin-left: 0;
+}
+
+.mw-echo-overlay-title li {
+	&::after {
+		content: " · ";
+		padding: 0 .25em;
+	}
+	&:last-child {
+		&::after {
+			content: '';
+		}
+	}
 }
 
 #mw-echo-overlay-title-text {

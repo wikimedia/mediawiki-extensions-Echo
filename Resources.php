@@ -70,13 +70,13 @@ $wgResourceModules += array(
 			'mediawiki.language',
 		),
 		'messages' => array(
-			'echo-overlay-title',
-			'echo-overlay-title-overflow',
 			'echo-overlay-link',
-			'echo-none',
 			'echo-mark-all-as-read',
 			'echo-more-info',
 			'echo-feedback',
+			'echo-notification-alert',
+			'echo-notification-message',
+			'echo-email-batch-bullet'
 		),
 	),
 	'ext.echo.overlay.init' => $echoResourceTemplate + array(

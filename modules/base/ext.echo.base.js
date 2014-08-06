@@ -1,4 +1,4 @@
-( function ( mw ) {
+( function ( mw, $ ) {
 	'use strict';
 
 	mw.echo = {
@@ -61,6 +61,13 @@
 			mw.loader.using( 'ext.eventLogging', function() {
 				mw.eventLog.logEvent( 'EchoInteraction', myEvt );
 			} );
+		},
+		/**
+		 * @method
+		 * @return jQuery element corresponding to the badge reflecting the notification count
+		 */
+		getBadge: function() {
+			return $( '.mw-echo-notifications-badge' );
 		}
 
 	};
@@ -74,4 +81,4 @@
 			} );
 		} );
 	}
-} )( mediaWiki );
+} )( mediaWiki, jQuery );

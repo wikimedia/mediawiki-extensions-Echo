@@ -7,144 +7,55 @@
 
 	function EchoOverlay( apiResultNotifications ) {
 		this.api = mw.echo.overlay.api;
+		// set internal properties
+		this.tabs = [];
 		this._buildOverlay( apiResultNotifications );
 	}
 
-	EchoOverlay.prototype = {
-		/**
-		 * @var array a list of unread notification ids that are visible in the UI
-		 */
+	function EchoOverlayTab( name, notifications ) {
+		this.api = mw.echo.overlay.api;
+		this.name = name;
+		this.unread = [];
+		this._buildList( notifications );
+	}
+
+	EchoOverlayTab.prototype = {
 		unread: [],
-		/**
-		 * @var object current count status of notification types
-		 */
-		notificationCount: {
-			/* @var integer length of all notifications (both unread and read) that will be visible in the overlay */
-			all: 0,
-			/* @var string a string representation the current number of unread notifications (1, 99, 99+) */
-			unread: '0',
-			/* @var integer the total number of all unread notifications including those not in the overlay */
-			unreadRaw: 0
+		getUnreadIds: function() {
+			return this.unread;
 		},
 		/**
-		 * @param newCount formatted count
-		 * @param rawCount unformatted count
+		 * Mark all unread notifications as read
+		 * @method
+		 * @return jQuery.Deferred
 		 */
-		updateCount: function ( newCount, rawCount ) {
-			var $badge = $( '.mw-echo-notifications-badge' );
-			$badge.text( newCount );
-
-			if ( rawCount !== '0' && rawCount !== 0 ) {
-				$badge.addClass( 'mw-echo-unread-notifications' );
+		markAsRead: function() {
+			var self = this;
+			// only need to mark as read if there is unread item
+			if ( this.unread.length ) {
+				return this.api.post( mw.echo.desktop.appendUseLang( {
+					'action' : 'echomarkread',
+					'list' : this.unread.join( '|' ),
+					'token': mw.user.tokens.get( 'editToken' )
+				} ) ).then( function ( result ) {
+					return result.query.echomarkread[self.name];
+				} );
 			} else {
-				$badge.removeClass( 'mw-echo-unread-notifications' );
+				return new $.Deferred();
 			}
-			this.notificationCount.unread = newCount;
-			this.notificationCount.unreadRaw = rawCount;
 		},
-
-		configuration: mw.config.get( 'wgEchoOverlayConfiguration' ),
-
-		_getFooterElement: function() {
-			var $prefLink = $( '#pt-preferences a' ),
-				$overlayFooter = $( '<div>' )
-					.attr( 'id', 'mw-echo-overlay-footer' );
-
-			// add link to notifications archive
-			$overlayFooter.append(
-				$( '<a>' )
-					.attr( 'id', 'mw-echo-overlay-link' )
-					.addClass( 'mw-echo-grey-link' )
-					.attr( 'href', getUrl( 'Special:Notifications' ) )
-					.text( mw.msg( 'echo-overlay-link' ) )
-					.click( function () {
-						mw.echo.logInteraction( 'ui-archive-link-click', 'flyout' );
-					} )
-					.hover(
-						function() {
-							$( this ).removeClass( 'mw-echo-grey-link' );
-						},
-						function() {
-							$( this ).addClass( 'mw-echo-grey-link' );
-						}
-					)
-			);
-
-			// add link to notification preferences
-			$overlayFooter.append(
-				$( '<a>' )
-					.html( $prefLink.html() )
-					.attr( 'id', 'mw-echo-overlay-pref-link' )
-					.addClass( 'mw-echo-grey-link' )
-					.attr( 'href', $prefLink.attr( 'href' ) + '#mw-prefsection-echo' )
-					.click( function () {
-						mw.echo.logInteraction( 'ui-prefs-click', 'flyout' );
-					} )
-					.hover(
-						function() {
-							$( this ).removeClass( 'mw-echo-grey-link' );
-						},
-						function() {
-							$( this ).addClass( 'mw-echo-grey-link' );
-						}
-					)
-			);
-			return $overlayFooter;
-		},
-
-		_getTitleElement: function() {
-			var titleText,
-				counter = this.notificationCount,
-				notificationsCount = counter.all,
-				unreadRawTotalCount = counter.unreadRaw,
-				unreadTotalCount = counter.unread,
-				unreadCount = this.unread.length,
-				$title = $( '<div>' ).addClass( 'mw-echo-overlay-title' );
-
-			if ( notificationsCount > 0 ) {
-				if ( unreadRawTotalCount > unreadCount ) {
-					titleText = mw.msg(
-						'echo-overlay-title-overflow',
-						mw.language.convertNumber( unreadCount ),
-						mw.language.convertNumber( unreadTotalCount )
-					);
-				} else {
-					titleText = mw.msg( 'echo-overlay-title' );
-				}
-			} else {
-				titleText = mw.msg( 'echo-none' );
-			}
-
-			// Add the header to the title area
-			$( '<div>' )
-			.attr( 'id', 'mw-echo-overlay-title-text' )
-			.html( titleText )
-			.appendTo( $title );
-
-			// Add help button
-			$( '<a>' )
-				.attr( 'href', mw.config.get( 'wgEchoHelpPage' ) )
-				.attr( 'title', mw.msg( 'echo-more-info' ) )
-				.attr( 'id', 'mw-echo-overlay-moreinfo-link' )
-				.attr( 'target', '_blank' )
-				.click( function () {
-					mw.echo.logInteraction( 'ui-help-click', 'flyout' );
-				} )
-				.appendTo( $title );
-			return $title;
-		},
-
 		/**
 		 * Builds an Echo notifications list
 		 * @method
-		 * @param object as returned by the api of notification items
+		 * @param string tabName the tab
+		 * @param object notifications as returned by the api of notification items
 		 * @return jQuery element
 		 */
-		_buildNotificationList: function( notifications ) {
+		_buildList: function( notifications ) {
 			var self = this,
 				$ul = $( '<ul>' ).addClass( 'mw-echo-notifications' )
+					.data( 'tab', this )
 					.css( 'max-height', $( window ).height() - 134 );
-
 
 			$.each( notifications.index, function ( index, id ) {
 				var $wrapper,
@@ -209,52 +120,178 @@
 					mw.echo.setUpDismissability( $li );
 				}
 			} );
+			this.$el = $ul;
+		}
+	};
+
+	EchoOverlay.prototype = {
+		/**
+		 * @var string the name of the tab that is currently active
+		 */
+		activeTabName: 'alert',
+		/**
+		 * @var array a list of EchoOverlayTabs
+		 */
+		tabs: [],
+		/**
+		 * @var object current count status of notification types
+		 */
+		notificationCount: {
+			/* @var integer length of all notifications (both unread and read) that will be visible in the overlay */
+			all: 0,
+			/* @var string a string representation the current number of unread notifications (1, 99, 99+) */
+			unread: '0',
+			/* @var integer the total number of all unread notifications including those not in the overlay */
+			unreadRaw: 0
+		},
+
+		/**
+		 * FIXME: This should be pulled out of EchoOverlay and use an EventEmitter.
+		 * @param newCount formatted count
+		 * @param rawCount unformatted count
+		 */
+		updateBadgeCount: function ( newCount, rawCount ) {
+			var $badge = mw.echo.getBadge();
+			$badge.text( newCount );
+
+			if ( rawCount !== '0' && rawCount !== 0 ) {
+				$badge.addClass( 'mw-echo-unread-notifications' );
+			} else {
+				$badge.removeClass( 'mw-echo-unread-notifications' );
+			}
+			this.notificationCount.unread = newCount;
+			this.notificationCount.unreadRaw = rawCount;
+		},
+
+		configuration: mw.config.get( 'wgEchoOverlayConfiguration' ),
+
+		_getFooterElement: function() {
+			var $prefLink = $( '#pt-preferences a' ),
+				$overlayFooter = $( '<div>' )
+					.attr( 'id', 'mw-echo-overlay-footer' );
+
+			// add link to notifications archive
+			$overlayFooter.append(
+				$( '<a>' )
+					.attr( 'id', 'mw-echo-overlay-link' )
+					.addClass( 'mw-echo-grey-link' )
+					.attr( 'href', getUrl( 'Special:Notifications' ) )
+					.text( mw.msg( 'echo-overlay-link' ) )
+					.click( function () {
+						mw.echo.logInteraction( 'ui-archive-link-click', 'flyout' );
+					} )
+					.hover(
+						function() {
+							$( this ).removeClass( 'mw-echo-grey-link' );
+						},
+						function() {
+							$( this ).addClass( 'mw-echo-grey-link' );
+						}
+					)
+			);
+
+			// add link to notification preferences
+			$overlayFooter.append(
+				$( '<a>' )
+					.html( $prefLink.html() )
+					.attr( 'id', 'mw-echo-overlay-pref-link' )
+					.addClass( 'mw-echo-grey-link' )
+					.attr( 'href', $prefLink.attr( 'href' ) + '#mw-prefsection-echo' )
+					.click( function () {
+						mw.echo.logInteraction( 'ui-prefs-click', 'flyout' );
+					} )
+					.hover(
+						function() {
+							$( this ).removeClass( 'mw-echo-grey-link' );
+						},
+						function() {
+							$( this ).addClass( 'mw-echo-grey-link' );
+						}
+					)
+			);
+			return $overlayFooter;
+		},
+
+		_showTabList: function( tab ) {
+			var $lists = this.$el.find( '.mw-echo-notifications' ).hide(),
+				self = this;
+
+			this.activeTabName = tab.name;
+			$lists.each( function() {
+				if ( $( this ).data( 'tab' ).name === tab.name ) {
+					$( this ).show();
+					tab.markAsRead().done( function( data ) {
+						self.updateBadgeCount( data.count, data.rawcount );
+					} );
+				}
+			} );
+		},
+
+		_getTabsElement: function() {
+			var $li,
+				$ul = $( '<ul>' ), self = this;
+
+			$.each( this.tabs, function( i, echoTab ) {
+				var
+					tabName = echoTab.name,
+					// @todo: Pass the number of unread messages
+					label = mw.msg( 'echo-notification-' + tabName );
+
+				$li = $( '<li>' )
+					.on( 'click', function() {
+						var $this = $( this );
+						$ul.find( 'li' ).removeClass( 'mw-echo-section-current' );
+						$this.addClass( 'mw-echo-section-current' );
+						self._showTabList( $this.data( 'tab' ) );
+					} )
+					.data( 'tab', echoTab )
+					.addClass( i === 0 ? 'mw-echo-section-current' : '' )
+					.text( label )
+					.appendTo( $ul );
+			} );
 			return $ul;
 		},
 
+		getUnreadCount: function() {
+			var count = 0;
+			$.each( this.tabs, function( i, tab ) {
+				count += tab.getUnreadIds().length;
+			} );
+			return count;
+		},
+
+		_getTitleElement: function() {
+			var tabs = this._getTabsElement(),
+				$title = $( '<div>' ).addClass( 'mw-echo-overlay-title' );
+
+			$title.append( tabs );
+			this._showTabList( this.tabs[0] );
+
+			return $title;
+		},
+
 		_buildOverlay: function ( notifications ) {
-			var $ul,
-				$overlay = $( '<div>' ).addClass( 'mw-echo-overlay' ),
-				self = this;
-
-			this.notificationCount.all = notifications.index.length;
-			if ( this.notificationCount.all !== undefined ) {
-				self.updateCount( notifications.count, notifications.rawcount );
-			}
-
-			$ul = self._buildNotificationList( notifications );
-			self._getTitleElement().
-				appendTo( $overlay );
-
-			if ( $ul.find( 'li' ).length ) {
-				$ul.appendTo( $overlay );
-			}
-
-			$overlay.append( self._getFooterElement() );
-			self.markAsRead();
+			var tabs,
+				self = this,
+				$overlay = $( '<div>' ).addClass( 'mw-echo-overlay' );
 
 			this.$el = $overlay;
-		},
-		/**
-		 * Mark a list of notifications as read
-		 * @method
-		 */
-		markAsRead: function() {
-			var self = this;
-			// only need to mark as read if there is unread item
-			if ( this.unread.length ) {
-				this.api.post( mw.echo.desktop.appendUseLang( {
-					'action' : 'echomarkread',
-					'list' : this.unread.join( '|' ),
-					'token': mw.user.tokens.get( 'editToken' )
-				} ) ).done( function ( result ) {
-					var count;
-					if ( result.query.echomarkread.count !== undefined ) {
-						count = result.query.echomarkread.count;
-						self.updateCount( count, result.query.echomarkread.rawcount );
-					}
-				} );
+
+			if ( notifications.message.index.length ) {
+				tabs = [ 'message', 'alert' ];
+			} else {
+				tabs = [ 'alert' ];
 			}
+
+			$.each( tabs, function( i, tabName ) {
+				var tab = new EchoOverlayTab( tabName, notifications[tabName] );
+				self.$el.append( tab.$el );
+				self.tabs.push( tab );
+				self.notificationCount.all += notifications[tabName].index.length;
+			} );
+
+			$overlay.prepend( this._getTitleElement() );
+			$overlay.append( this._getFooterElement() );
 		}
 	};
 
@@ -276,6 +313,8 @@
 			var apiData = {
 				'action' : 'query',
 				'meta' : 'notifications',
+				notsections : 'alert|message',
+				notgroupbysection: 1,
 				'notformat' : 'flyout',
 				'notlimit' : this.notificationLimit,
 				'notprop' : 'index|list|count'
