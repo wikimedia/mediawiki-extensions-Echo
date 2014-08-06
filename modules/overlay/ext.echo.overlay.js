@@ -66,7 +66,7 @@
 						var count;
 						if ( result.query.echomarkread.count !== undefined ) {
 							count = result.query.echomarkread.count;
-							mw.echo.overlay.updateCount( count, result.query.echomarkread.rawcount );
+							self.updateCount( count, result.query.echomarkread.rawcount );
 							// Reset header to 'Notifications'
 							$( '#mw-echo-overlay-title-text' ).html( mw.msg( 'echo-overlay-title' ) );
 						}
@@ -155,7 +155,7 @@
 			// database updates. If the count is more than the maximum, it could
 			// be thousands.
 			includeMarkAsReadButton = overflow &&
-				unreadRawTotalCount < mw.echo.overlay.configuration[ 'max-notification-count' ];
+				unreadRawTotalCount < this.configuration[ 'max-notification-count' ];
 			if ( includeMarkAsReadButton ) {
 				// Add the 'mark all as read' button to the title area
 				$title.append( this._getMarkAsReadButton() );
@@ -207,7 +207,7 @@
 					$ul = $( '<ul>' ).addClass( 'mw-echo-notifications' );
 
 				if ( unreadTotalCount !== undefined ) {
-					mw.echo.overlay.updateCount( unreadTotalCount, unreadRawTotalCount );
+					self.updateCount( unreadTotalCount, unreadRawTotalCount );
 				}
 				$ul.css( 'max-height', notificationLimit * 95 + 'px' );
 				$.each( notifications.index, function ( index, id ) {
@@ -294,6 +294,7 @@
 		 * @param {array} unread a list of unread ids
 		 */
 		markAsRead: function( unread ) {
+			var self = this;
 			// only need to mark as read if there is unread item
 			if ( unread.length > 0 ) {
 				this.api.post( mw.echo.desktop.appendUseLang( {
@@ -304,7 +305,7 @@
 					var count;
 					if ( result.query.echomarkread.count !== undefined ) {
 						count = result.query.echomarkread.count;
-						mw.echo.overlay.updateCount( count, result.query.echomarkread.rawcount );
+						self.updateCount( count, result.query.echomarkread.rawcount );
 					}
 				} );
 			}
