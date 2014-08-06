@@ -52,6 +52,7 @@ $wgAutoloadClasses['EchoHooks'] = $dir . 'Hooks.php';
 $wgAutoloadClasses['EchoAbstractEntity'] = $dir . 'model/AbstractEntity.php';
 $wgAutoloadClasses['EchoEvent'] = $dir . 'model/Event.php';
 $wgAutoloadClasses['EchoNotification'] = $dir . 'model/Notification.php';
+$wgAutoloadClasses['EchoTargetPage'] = $dir . 'model/TargetPage.php';
 $wgAutoloadClasses['MWEchoEmailBatch'] = $dir . 'includes/EmailBatch.php';
 $wgAutoloadClasses['MWDbEchoEmailBatch'] = $dir . 'includes/DbEmailBatch.php';
 $wgAutoloadClasses['MWEchoEmailBundler'] = $dir . 'includes/EmailBundler.php';
@@ -63,6 +64,7 @@ $wgAutoloadClasses['EchoAttributeManager'] = $dir . 'includes/AttributeManager.p
 $wgAutoloadClasses['EchoAbstractMapper'] = $dir . 'includes/mapper/AbstractMapper.php';
 $wgAutoloadClasses['EchoEventMapper'] = $dir . 'includes/mapper/EventMapper.php';
 $wgAutoloadClasses['EchoNotificationMapper'] = $dir . 'includes/mapper/NotificationMapper.php';
+$wgAutoloadClasses['EchoTargetPageMapper'] = $dir . 'includes/mapper/TargetPageMapper.php';
 $wgAutoloadClasses['EchoUserNotificationGateway'] = $dir . 'includes/gateway/UserNotificationGateway.php';
 
 // Output formatters
