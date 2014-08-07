@@ -22,6 +22,7 @@ class EchoTargetPageMapperTest extends MediaWikiTestCase {
 		$targetMapper = new EchoTargetPageMapper( $this->mockMWEchoDbFactory( array ( 'select' => $dbResult ) ) );
 		$res = $targetMapper->fetchByUserPageId( User::newFromId( 1 ), 2 );
 		$this->assertTrue( is_array( $res ) );
+		$this->assertCount( 2, $res );
 		foreach ( $res as $row ) {
 			$this->assertInstanceOf( 'EchoTargetPage', $row );
 		}

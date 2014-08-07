@@ -75,7 +75,9 @@ class SpecialNotifications extends SpecialPage {
 			$class = 'mw-echo-notification';
 			if ( !isset( $row['read'] ) ) {
 				$class .= ' mw-echo-unread';
-				$unread[] = $row['id'];
+				if ( !$row['targetpage'] ) {
+					$unread[] = $row['id'];
+				}
 			}
 
 			if ( !$row['*'] ) {
