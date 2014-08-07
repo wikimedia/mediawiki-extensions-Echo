@@ -651,6 +651,23 @@ class EchoHooks {
 			return true;
 		}
 
+		// Attempt to mark a notification as read when visiting a page,
+		// ideally this should be deferred to end of request and update
+		// the notification count accordingly
+		// @Fixme - Find a better place to put this code
+		if ( $title->getArticleID() ) {
+			$mapper = new EchoTargetPageMapper();
+			$targetPages = $mapper->fetchByUserPageId( $user, $title->getArticleID() );
+			if ( $targetPages ) {
+				$eventIds = array();
+				foreach ( $targetPages as $targetPage ) {
+					$eventIds[] = $targetPage->getEventId();
+				}
+				$notifUser = MWEchoNotifUser::newFromUser( $user );
+				$notifUser->markRead( $eventIds );
+			}
+		}
+
 		// Add a "My notifications" item to personal URLs
 		if ( $user->getOption( 'echo-notify-show-link' ) ) {
 			$notificationCount = MWEchoNotifUser::newFromUser( $user )->getNotificationCount();

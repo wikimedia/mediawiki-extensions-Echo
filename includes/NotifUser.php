@@ -30,6 +30,12 @@ class MWEchoNotifUser {
 	private $notifMapper;
 
 	/**
+	 * Target page mapper
+	 * @var EchoTargetPageMapper
+	 */
+	private $targetPageMapper;
+
+	/**
 	 * Whether to check cache for section status
 	 */
 	static $sectionStatusCheckCache = array (
@@ -40,21 +46,24 @@ class MWEchoNotifUser {
 	/**
 	 * Usually client code doesn't need to initialize the object directly
 	 * because it could be obtained from factory method newFromUser()
-	 * @param User
-	 * @param BagOStuff
-	 * @param EchoUserNotificationGateway
-	 * @param EchoNotificationMapper
+	 * @param User $user
+	 * @param BagOStuff $cache
+	 * @param EchoUserNotificationGateway $userNotifGateway
+	 * @param EchoNotificationMapper $notifMapper
+	 * @param EchoTargetPageMapper $targetPageMapper
 	 */
 	public function __construct(
 		User $user,
 		BagOStuff $cache,
 		EchoUserNotificationGateway $userNotifGateway,
-		EchoNotificationMapper $notifMapper
+		EchoNotificationMapper $notifMapper,
+		EchoTargetPageMapper $targetPageMapper
 	) {
 		$this->mUser = $user;
 		$this->userNotifGateway = $userNotifGateway;
 		$this->cache = $cache;
 		$this->notifMapper = $notifMapper;
+		$this->targetPageMapper = $targetPageMapper;
 	}
 
 	/**
@@ -71,7 +80,8 @@ class MWEchoNotifUser {
 		return new MWEchoNotifUser(
 			$user, $wgMemc,
 			new EchoUserNotificationGateway( $user, MWEchoDbFactory::newFromDefault() ),
-			new EchoNotificationMapper()
+			new EchoNotificationMapper(),
+			new EchoTargetPageMapper()
 		);
 	}
 
@@ -266,6 +276,9 @@ class MWEchoNotifUser {
 
 		$res = $this->userNotifGateway->markRead( $eventIds );
 		if ( $res ) {
+			// Delete records from echo_target_page
+			$this->targetPageMapper->deleteByUserEvents( $this->mUser, $eventIds );
+			// Update notification count in cache
 			$this->resetNotificationCount( DB_MASTER );
 		}
 		return $res;
@@ -297,23 +310,28 @@ class MWEchoNotifUser {
 		$eventTypes = $attributeManager->getUserEnabledEventsbySections( $this->mUser, 'web', $sections );
 
 		$notifs = $this->notifMapper->fetchUnreadByUser( $this->mUser, $wgEchoMaxUpdateCount, $eventTypes );
-		$res = $this->markRead( array_map(
-			function( EchoNotification $notif ) {
-				// This should not happen at all, but just 0 in
+
+		$eventIds = array_filter(
+			array_map( function( EchoNotification $notif ) {
+				// This should not happen at all, but use 0 in
 				// such case so to keep the code running
 				if ( $notif->getEvent() ) {
 					return $notif->getEvent()->getId();
 				} else {
 					return 0;
 				}
-			},
-			$notifs
-		) );
-		if ( $res && count( $notifs ) < $wgEchoMaxUpdateCount ) {
-			$this->flagCacheWithNoTalkNotification();
+			}, $notifs )
+		);
+
+		$res = $this->markRead( $eventIds );
+		if ( $res ) {
+			// Delete records from echo_target_page
+			$this->targetPageMapper->deleteByUserEvents( $this->mUser, $eventIds );
+			if ( count( $notifs ) < $wgEchoMaxUpdateCount ) {
+				$this->flagCacheWithNoTalkNotification();
+			}
 		}
 		return $res;
-
 	}
 
 	/**
