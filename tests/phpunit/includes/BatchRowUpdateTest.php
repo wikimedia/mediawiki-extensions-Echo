@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . "/../includes/BatchRowUpdate.php";
+require_once __DIR__ . "/../../../includes/BatchRowUpdate.php";
 
 /**
  * Tests for BatchRowUpdate and its components
