@@ -12,6 +12,12 @@ abstract class EchoAbstractMapper {
 	protected $dbFactory;
 
 	/**
+	 * Event listeners for method like insert/delete
+	 * @var array
+	 */
+	protected $listeners;
+
+	/**
 	 * @param MWEchoDbFactory|null
 	 */
 	public function __construct( MWEchoDbFactory $dbFactory = null ) {
@@ -19,6 +25,52 @@ abstract class EchoAbstractMapper {
 			$dbFactory = MWEchoDbFactory::newFromDefault();
 		}
 		$this->dbFactory = $dbFactory;
+	}
+
+	/**
+	 * Attach a listener
+	 *
+	 * @param string $method Method name
+	 * @param string $key Identification of the callable
+	 * @param callable $callable
+	 */
+	public function attachListener( $method, $key, $callable ) {
+		if ( !method_exists( $this, $method ) ) {
+			throw new MWException( $method . ' does not exist in ' . get_class( $this ) );
+		}
+		if ( !isset( $this->listeners[$method] ) ) {
+			$this->listeners[$method] = array();
+		}
+
+		$this->listeners[$method][$key] = $callable;
+	}
+
+	/**
+	 * Detach a listener
+	 *
+	 * @param string $method Method name
+	 * @param string $key identification of the callable
+	 */
+	public function detachListener( $method, $key ) {
+		if ( isset( $this->listeners[$method] ) ) {
+			unset( $this->listeners[$method][$key] );
+		}
+	}
+
+	/**
+	 * Get the listener for a method
+	 *
+	 * @return array
+	 */
+	public function getMethodListeners( $method ) {
+		if ( !method_exists( $this, $method ) ) {
+			throw new MWException( $method . ' does not exist in ' . get_class( $this ) );
+		}
+		if ( isset( $this->listeners[$method] ) ) {
+			return $this->listeners[$method];
+		} else {
+			return array();
+		}
 	}
 
 }

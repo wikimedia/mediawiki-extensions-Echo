@@ -15,8 +15,9 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 
 		$fname = __METHOD__;
 		$row = $notification->toDbArray();
+		$listeners = $this->getMethodListeners( __FUNCTION__ );
 
-		$dbw->onTransactionIdle( function() use ( $dbw, $row, $fname ) {
+		$dbw->onTransactionIdle( function() use ( $dbw, $row, $fname, $listeners ) {
 			$dbw->startAtomic( $fname );
 			// reset the bundle base if this notification has a display hash
 			// the result of this operation is that all previous notifications
@@ -39,11 +40,13 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 			$res = $dbw->insert( 'echo_notification', $row, $fname );
 			$dbw->endAtomic( $fname );
 
-			// @todo - This is simple and easy but the proper way is to build a notification
-			// observer to notify all listeners on creating a new notification
 			if ( $res ) {
+				// @Todo - move the reset notification count logic to a listener
 				$user = User::newFromId( $row['notification_user'] );
 				MWEchoNotifUser::newFromUser( $user )->resetNotificationCount( DB_MASTER );
+				foreach ( $listeners as $listener ) {
+					call_user_func( $listener );
+				}
 			}
 		} );
 	}
