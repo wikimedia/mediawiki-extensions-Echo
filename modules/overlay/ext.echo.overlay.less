@@ -1,8 +1,14 @@
+.mw-echo-title {
+	a {
+		font-weight: bold;
+	}
+}
+
 @offset: 200px;
+@chevronHeight: 11px;
 .mw-echo-overlay {
 	position: absolute;
-	top: 30px;
-	left: -@offset;
+	top: 30px + @chevronHeight;
 	border: 1px solid silver;
 	background-color: #fff;
 	width: 450px;
@@ -19,26 +25,12 @@
 		background-image: url('PokeyNorth.png');
 		background-repeat: no-repeat;
 		width: 21px;
-		height: 11px;
+		height: @chevronHeight;
 		position: absolute;
 		z-index: 101;
-		top: -11px;
+		top: -@chevronHeight;
 		// subtract half the width from the offset and then add the left box shadow
 		left: @offset - 10px + 3px;
-	}
-}
-
-
-#p-personal {
-	.mw-echo-overlay-title ul,
-	.mw-echo-notifications ul {
-		// override #p-personal ul in core
-		padding: 0;
-	}
-	// override #p-personal ul in core
-	li.mw-echo-notification {
-		margin: 0;
-		float: none;
 	}
 }
 
@@ -76,6 +68,8 @@
 	.mw-echo-notifications,
 	ul {
 		overflow: auto;
+		padding: 0;
+		margin: 0;
 	}
 
 	li.mw-echo-notification {
@@ -132,7 +126,6 @@
 }
 
 .mw-echo-overlay-title {
-	/*border-bottom: 1px solid #A7D7F9;*/
 	font-size: 13px;
 	line-height: 15px;
 	padding: 15px 15px 15px 28px;
@@ -142,22 +135,20 @@
 		line-height: 15px;
 		font: inherit;
 	}
-}
 
-/* override #p-personal li*/
-#p-personal .mw-echo-overlay-title li {
-	font-size: 1em;
-	margin-left: 0;
-}
+	li {
+		display: inline;
+		font-size: 1em;
+		margin-left: 0;
 
-.mw-echo-overlay-title li {
-	&::after {
-		content: " · ";
-		padding: 0 .25em;
-	}
-	&:last-child {
 		&::after {
-			content: '';
+			content: " · ";
+			padding: 0 .25em;
+		}
+		&:last-child {
+			&::after {
+				content: '';
+			}
 		}
 	}
 }
@@ -230,10 +221,6 @@
 	&:hover {
 		text-decoration: none;
 	}
-}
-
-#pt-notifications {
-	position: relative;
 }
 
 .mw-echo-overlay-none {

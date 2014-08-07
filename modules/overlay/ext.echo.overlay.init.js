@@ -28,8 +28,14 @@
 				function ( $overlay ) {
 					$overlay
 						.hide()
-						.appendTo( $( '#pt-notifications' ) );
+						.appendTo( document.body );
 
+					function positionOverlay() {
+						var offset = $( '#pt-notifications' ).offset();
+						$overlay.css( { left: offset.left - 200 } );
+					}
+					positionOverlay();
+					$( window ).on( 'resize', positionOverlay );
 					mw.hook( 'ext.echo.overlay.beforeShowingOverlay' ).fire( $overlay );
 
 					// Show the notifications overlay
