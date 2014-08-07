@@ -30,9 +30,6 @@
 						.hide()
 						.appendTo( $( '#pt-notifications' ) );
 
-					// Create the pokey (aka chevron)
-					$overlay.before( $( '<div>' ).addClass( 'mw-echo-overlay-pokey' ) );
-
 					mw.hook( 'ext.echo.overlay.beforeShowingOverlay' ).fire( $overlay );
 
 					// Show the notifications overlay
@@ -55,7 +52,7 @@
 		} );
 
 		$( 'body' ).click( function ( e ) {
-			if ( ! $( e.target ).is( '.mw-echo-overlay, .mw-echo-overlay *, .mw-echo-overlay-pokey, #pt-notifications a' ) ) {
+			if ( ! $( e.target ).is( '.mw-echo-overlay, .mw-echo-overlay *, #pt-notifications a' ) ) {
 				mw.echo.overlay.removeOverlay();
 			}
 		} );

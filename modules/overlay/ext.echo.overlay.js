@@ -402,7 +402,7 @@
 			} );
 		},
 		removeOverlay: function () {
-			$( '.mw-echo-overlay, .mw-echo-overlay-pokey' ).fadeOut( 'fast',
+			$( '.mw-echo-overlay' ).fadeOut( 'fast',
 				function () {
 					$( this ).remove();
 				}

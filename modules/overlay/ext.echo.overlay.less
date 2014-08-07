@@ -1,7 +1,8 @@
+@offset: 200px;
 .mw-echo-overlay {
 	position: absolute;
 	top: 30px;
-	left: -200px;
+	left: -@offset;
 	border: 1px solid silver;
 	background-color: #fff;
 	width: 450px;
@@ -10,17 +11,21 @@
 	color: #6D6D6D;
 	z-index: 100;
 	box-shadow: 0 3px 8px rgba(50, 50, 50, 0.35);
-}
-.mw-echo-overlay-pokey {
-	/* @embed */
-	background-image: url('PokeyNorth.png');
-	background-repeat: no-repeat;
-	width: 21px;
-	height: 11px;
-	position: absolute;
-	z-index: 101;
-	top: 20px;
-	left: -5px;
+
+	// IE8
+	&:before,
+	&::before {
+		content: '';
+		background-image: url('PokeyNorth.png');
+		background-repeat: no-repeat;
+		width: 21px;
+		height: 11px;
+		position: absolute;
+		z-index: 101;
+		top: -11px;
+		// subtract half the width from the offset and then add the left box shadow
+		left: @offset - 10px + 3px;
+	}
 }
 
 
