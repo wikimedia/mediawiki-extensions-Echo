@@ -45,7 +45,7 @@ class EchoNotifier {
 		$userEmailNotifications = $attributeManager->getUserEnabledEvents( $user, 'email' );
 		// See if the user wants to receive emails for this category or the user is eligible to receive this email
 		if ( in_array( $event->getType(), $userEmailNotifications ) ) {
-			global $wgEchoEnableEmailBatch, $wgEchoNotifications, $wgNotificationSender, $wgNotificationSenderName, $wgNotificationReplyName, $wgEchoBundleEmailInterval;
+			global $wgEchoEnableEmailBatch, $wgEchoNotifications, $wgNotificationSender, $wgNotificationReplyName, $wgEchoBundleEmailInterval;
 
 			$priority = $attributeManager->getNotificationPriority( $event->getType() );
 
@@ -87,7 +87,7 @@ class EchoNotifier {
 			if ( !$addedToQueue ) {
 				// instant email notification
 				$toAddress = new MailAddress( $user );
-				$fromAddress = new MailAddress( $wgNotificationSender, $wgNotificationSenderName );
+				$fromAddress = new MailAddress( $wgNotificationSender, EchoHooks::getNotificationSenderName() );
 				$replyAddress = new MailAddress( $wgNotificationSender, $wgNotificationReplyName );
 				// Since we are sending a single email, should set the bundle hash to null
 				// if it is set with a value from somewhere else
