@@ -4,6 +4,13 @@ def make_page_with_user( title, text, username )
   client.create_page(title, text)
 end
 
+def clear_notifications( username )
+  client = on(APIPage).client
+  step 'the user "' + username + '" exists'
+  client.log_in(username, ENV["MEDIAWIKI_PASSWORD"])
+  client.action( 'echomarkread', token_type: 'edit', all: '1' )
+end
+
 def make_page_with_user_b( title, text )
   username = get_session_username_b()
   step 'the user "' + username + '" exists'
@@ -42,6 +49,12 @@ Given(/^another user mentions me on the wiki$/) do
   username = get_session_username().sub( '_', ' ' )
   text = "== The walrus ==\n[[User:" +  username + "]]: Cho cho cho. ~~~~\n"
   make_page_with_user_b(title, text)
+end
+
+Given(/^I am logged in as a new user with no notifications$/) do
+  @username = get_new_username()
+  clear_notifications( @username )
+  step 'I am logged in as the user "' + @username + '"'
 end
 
 Given(/^I am logged in with no notifications$/) do

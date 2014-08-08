@@ -29,9 +29,6 @@ Feature: Notification types
        And I am on the "Selenium Echo flyout test page" page
     Then I have new notifications
 
-  Scenario: Change in user rights
-    # Too hard. Will do later.
-
   Scenario: Page revert
     # Too hard. Will do later.
 

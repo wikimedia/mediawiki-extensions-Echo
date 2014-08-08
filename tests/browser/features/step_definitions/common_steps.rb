@@ -6,6 +6,10 @@ def get_session_username_b()
   return "EchoUser"
 end
 
+def get_new_username()
+  return "EchoUserNew" + @random_string
+end
+
 # For use in Firefox browser tests only
 Given /^I am using user agent "(.+)"$/ do |user_agent|
   @user_agent = user_agent
@@ -30,8 +34,9 @@ Given(/^the user "(.*?)" exists$/) do |username|
   on(APIPage).client.log_in(ENV["MEDIAWIKI_USER"], ENV["MEDIAWIKI_PASSWORD"])
   begin
     on(APIPage).client.create_account(username, ENV["MEDIAWIKI_PASSWORD"])
+    puts "Successfully created user " + username
   rescue MediawikiApi::ApiError
-    puts 'Assuming user ' + username + ' already exists since was unable to create.'
+    puts 'Assuming in step that user ' + username + ' already exists since was unable to create.'
   end
 end
 
@@ -46,7 +51,12 @@ Given(/^I am logged in my non-shared account$/) do
   step 'I am logged in as the user "' + username + '"'
 end
 
-Given(/^I am logged in as a new user$/) do
-  @username = "SeleniumEchoUser" + @random_string
-  step 'I am logged in as the user "' + @username + '"'
+Given(/^my user rights get changed$/) do
+  @username = get_new_username()
+  client = on(APIPage).client
+  client.log_in(ENV["MEDIAWIKI_USER"], ENV["MEDIAWIKI_PASSWORD"])
+  resp = client.query(action: "query", list: "users", ususers: @username, ustoken: 'userrights')
+  data = resp.data()
+  @token = data["users"][0]["userrightstoken"]
+  client.action('userrights', token_type: false, token: @token, add: "bot", user: @username)
 end
