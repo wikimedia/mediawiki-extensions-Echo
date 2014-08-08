@@ -17,3 +17,13 @@ Given(/^I am on the "(.+)" page$/) do |title|
   on(APIPage).create title, "Test is used by Selenium web driver"
   visit(ArticlePage, :using_params => {:article_name => title})
 end
+
+Given(/^I am logged in as the user "(.*?)"$/) do |username|
+  on(APIPage).client.create_account(@username, ENV["MEDIAWIKI_PASSWORD"])
+  visit(LoginPage).login_with(@username, ENV["MEDIAWIKI_PASSWORD"])
+end
+
+Given(/^I am logged in as a new user$/) do
+  @username = "SeleniumEchoUser" + @random_string
+  step 'I am logged in as the user "' + @username + '"'
+end
