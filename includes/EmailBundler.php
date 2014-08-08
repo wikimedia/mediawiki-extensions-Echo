@@ -241,10 +241,10 @@ abstract class MWEchoEmailBundler {
 			throw new MWException( "Fail to create bundle email content!" );
 		}
 
-		global $wgNotificationSender, $wgNotificationSenderName, $wgNotificationReplyName;
+		global $wgNotificationSender, $wgNotificationReplyName;
 
 		$toAddress = new MailAddress( $this->mUser );
-		$fromAddress = new MailAddress( $wgNotificationSender, $wgNotificationSenderName );
+		$fromAddress = new MailAddress( $wgNotificationSender, EchoHooks::getNotificationSenderName() );
 		$replyAddress = new MailAddress( $wgNotificationSender, $wgNotificationReplyName );
 
 		// Schedule a email job or just send the email directly?

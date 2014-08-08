@@ -176,7 +176,7 @@ abstract class MWEchoEmailBatch {
 	 * Send the batch email
 	 */
 	public function sendEmail() {
-		global $wgNotificationSender, $wgNotificationSenderName, $wgNotificationReplyName;
+		global $wgNotificationSender, $wgNotificationReplyName;
 
 		// @Todo - replace them with the CONSTANT in 33810 once it is merged 
 		if ( $this->mUser->getOption( 'echo-email-frequency' ) == 7 ) {
@@ -218,7 +218,7 @@ abstract class MWEchoEmailBatch {
 				->params( $count, $this->count )->text();
 
 		$toAddress = new MailAddress( $this->mUser );
-		$fromAddress = new MailAddress( $wgNotificationSender, $wgNotificationSenderName );
+		$fromAddress = new MailAddress( $wgNotificationSender, EchoHooks::getNotificationSenderName() );
 		$replyAddress = new MailAddress( $wgNotificationSender, $wgNotificationReplyName );
 
 		// @Todo Push the email to job queue or just send it out directly?
