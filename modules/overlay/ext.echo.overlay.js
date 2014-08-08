@@ -5,11 +5,12 @@
 	// backwards compatibility <= MW 1.21
 	var getUrl = mw.util.getUrl || mw.util.wikiGetlink;
 
-	mw.echo.overlay = {
-		/**
-		 * @var mw.Api
-		 */
-		api: new mw.Api( { ajax: { cache: false } } ),
+	function EchoOverlay( apiResultNotifications ) {
+		this.api = mw.echo.overlay.api;
+		this._buildOverlay( apiResultNotifications );
+	}
+
+	EchoOverlay.prototype = {
 		/**
 		 * @param newCount formatted count
 		 * @param rawCount unformatted count
@@ -26,28 +27,6 @@
 		},
 
 		configuration: mw.config.get( 'wgEchoOverlayConfiguration' ),
-
-		removeOverlay: function () {
-			$( '.mw-echo-overlay, .mw-echo-overlay-pokey' ).fadeOut( 'fast',
-				function () { $( this ).remove(); }
-			);
-		},
-
-		/**
-		 * Set notification limit based on height of the window
-		 * @method
-		 * @return int
-		 */
-		getNotificationLimit: function () {
-			var notificationLimit = Math.floor( ( $( window ).height() - 134 ) / 90 );
-
-			if ( notificationLimit < 1 ) {
-				notificationLimit = 1;
-			} else if ( notificationLimit > 8 ) {
-				notificationLimit = 8;
-			}
-			return notificationLimit;
-		},
 
 		_getMarkAsReadButton: function() {
 			var self = this;
@@ -180,113 +159,92 @@
 			return $title;
 		},
 
-		/**
-		 * Builds an overlay element
-		 * @method
-		 * @param callback a callback which passes the newly created overlay as a parameter
-		 */
-		buildOverlay: function ( callback ) {
-			var notificationLimit = this.getNotificationLimit(),
-				$overlay = $( '<div>' ).addClass( 'mw-echo-overlay' ),
+		_buildOverlay: function ( notifications ) {
+			var $overlay = $( '<div>' ).addClass( 'mw-echo-overlay' ),
 				self = this,
-				apiData;
+				unread = [],
+				unreadTotalCount = notifications.count,
+				unreadRawTotalCount = notifications.rawcount,
+				$ul = $( '<ul>' ).addClass( 'mw-echo-notifications' );
 
-			apiData = {
-				'action' : 'query',
-				'meta' : 'notifications',
-				'notformat' : 'flyout',
-				'notlimit' : notificationLimit,
-				'notprop' : 'index|list|count'
-			};
+			if ( unreadTotalCount !== undefined ) {
+				self.updateCount( unreadTotalCount, unreadRawTotalCount );
+			}
+			$.each( notifications.index, function ( index, id ) {
+				var $wrapper,
+					data = notifications.list[id],
+					$li = $( '<li>' )
+						.data( 'details', data )
+						.data( 'id', id )
+						.attr( {
+							'data-notification-category': data.category,
+							'data-notification-event': data.id,
+							'data-notification-type': data.type
+						} )
+						.addClass( 'mw-echo-notification' );
 
-			this.api.get( mw.echo.desktop.appendUseLang( apiData ) ).done( function ( result ) {
-				var notifications = result.query.notifications,
-					unread = [],
-					unreadTotalCount = result.query.notifications.count,
-					unreadRawTotalCount = result.query.notifications.rawcount,
-					$ul = $( '<ul>' ).addClass( 'mw-echo-notifications' );
-
-				if ( unreadTotalCount !== undefined ) {
-					self.updateCount( unreadTotalCount, unreadRawTotalCount );
+				if ( !data.read ) {
+					$li.addClass( 'mw-echo-unread' );
+					unread.push( id );
 				}
-				$ul.css( 'max-height', notificationLimit * 95 + 'px' );
-				$.each( notifications.index, function ( index, id ) {
-					var $wrapper,
-						data = notifications.list[id],
-						$li = $( '<li>' )
-							.data( 'details', data )
-							.data( 'id', id )
-							.attr( {
-								'data-notification-category': data.category,
-								'data-notification-event': data.id,
-								'data-notification-type': data.type
-							} )
-							.addClass( 'mw-echo-notification' );
+				$ul.css( 'max-height', $( window ).height() - 134 );
 
-					if ( !data.read ) {
-						$li.addClass( 'mw-echo-unread' );
-						unread.push( id );
-					}
-
-					if ( !data['*'] ) {
-						return;
-					}
-
-					$li.append( data['*'] )
-						.appendTo( $ul );
-
-					// Grey links in the notification title and footer (except on hover)
-					$li.find( '.mw-echo-title a, .mw-echo-notification-footer a' )
-						.addClass( 'mw-echo-grey-link' );
-					$li.hover(
-						function() {
-							$( this ).find( '.mw-echo-title a' ).removeClass( 'mw-echo-grey-link' );
-						},
-						function() {
-							$( this ).find( '.mw-echo-title a' ).addClass( 'mw-echo-grey-link' );
-						}
-					);
-					// If there is a primary link, make the entire notification clickable.
-					// Yes, it is possible to nest <a> tags via DOM manipulation,
-					// and it works like one would expect.
-					if ( $li.find( '.mw-echo-notification-primary-link' ).length ) {
-						$wrapper = $( '<a>' )
-							.addClass( 'mw-echo-notification-wrapper' )
-							.attr( 'href', $li.find( '.mw-echo-notification-primary-link' ).attr( 'href' ) )
-							.click( function() {
-								if ( mw.echo.clickThroughEnabled ) {
-									// Log the clickthrough
-									mw.echo.logInteraction( 'notification-link-click', 'flyout', +data.id, data.type );
-								}
-							} );
-					} else {
-						$wrapper = $('<div>').addClass( 'mw-echo-notification-wrapper' );
-					}
-
-					$li.wrapInner( $wrapper );
-
-					mw.echo.setupNotificationLogging( $li, 'flyout' );
-
-					// Set up each individual notification with a close box and dismiss
-					// interface if it is dismissable.
-					if ( $li.find( '.mw-echo-dismiss' ).length ) {
-						mw.echo.setUpDismissability( $li );
-					}
-				} );
-				self._getTitleElement( notifications.index.length, unreadRawTotalCount, unreadTotalCount, unread.length ).
-					appendTo( $overlay );
-
-				if ( $ul.find( 'li' ).length ) {
-					$ul.appendTo( $overlay );
+				if ( !data['*'] ) {
+					return;
 				}
 
-				$overlay.append( self._getFooterElement() );
+				$li.append( data['*'] )
+					.appendTo( $ul );
 
-				callback( $overlay );
-				self.markAsRead( unread );
-			} ).fail( function () {
-				window.location.href = $( '#pt-notifications a' ).attr( 'href' );
+				// Grey links in the notification title and footer (except on hover)
+				$li.find( '.mw-echo-title a, .mw-echo-notification-footer a' )
+					.addClass( 'mw-echo-grey-link' );
+				$li.hover(
+					function() {
+						$( this ).find( '.mw-echo-title a' ).removeClass( 'mw-echo-grey-link' );
+					},
+					function() {
+						$( this ).find( '.mw-echo-title a' ).addClass( 'mw-echo-grey-link' );
+					}
+				);
+				// If there is a primary link, make the entire notification clickable.
+				// Yes, it is possible to nest <a> tags via DOM manipulation,
+				// and it works like one would expect.
+				if ( $li.find( '.mw-echo-notification-primary-link' ).length ) {
+					$wrapper = $( '<a>' )
+						.addClass( 'mw-echo-notification-wrapper' )
+						.attr( 'href', $li.find( '.mw-echo-notification-primary-link' ).attr( 'href' ) )
+						.click( function() {
+							if ( mw.echo.clickThroughEnabled ) {
+								// Log the clickthrough
+								mw.echo.logInteraction( 'notification-link-click', 'flyout', +data.id, data.type );
+							}
+						} );
+				} else {
+					$wrapper = $('<div>').addClass( 'mw-echo-notification-wrapper' );
+				}
+
+				$li.wrapInner( $wrapper );
+
+				mw.echo.setupNotificationLogging( $li, 'flyout' );
+
+				// Set up each individual notification with a close box and dismiss
+				// interface if it is dismissable.
+				if ( $li.find( '.mw-echo-dismiss' ).length ) {
+					mw.echo.setUpDismissability( $li );
+				}
 			} );
+			self._getTitleElement( notifications.index.length, unreadRawTotalCount, unreadTotalCount, unread.length ).
+				appendTo( $overlay );
+
+			if ( $ul.find( 'li' ).length ) {
+				$ul.appendTo( $overlay );
+			}
+
+			$overlay.append( self._getFooterElement() );
+			self.markAsRead( unread );
+
+			this.$el = $overlay;
 		},
 		/**
 		 * Mark a list of notifications as read
@@ -309,6 +267,45 @@
 					}
 				} );
 			}
+		}
+	};
+
+	mw.echo.overlay = {
+		/**
+		 * @var integer the maximum number of notifications to show in the overlay
+		 */
+		notificationLimit: 8,
+		/**
+		 * @var mw.Api
+		 */
+		api: new mw.Api( { ajax: { cache: false } } ),
+		/**
+		 * Builds an overlay element
+		 * @method
+		 * @param callback a callback which passes the newly created overlay as a parameter
+		 */
+		buildOverlay: function( callback ) {
+			var apiData = {
+				'action' : 'query',
+				'meta' : 'notifications',
+				'notformat' : 'flyout',
+				'notlimit' : this.notificationLimit,
+				'notprop' : 'index|list|count'
+			};
+
+			this.api.get( mw.echo.desktop.appendUseLang( apiData ) ).done( function ( result ) {
+				var overlay = new EchoOverlay( result.query.notifications );
+				callback( overlay.$el );
+			} ).fail( function () {
+				window.location.href = $( '#pt-notifications a' ).attr( 'href' );
+			} );
+		},
+		removeOverlay: function () {
+			$( '.mw-echo-overlay, .mw-echo-overlay-pokey' ).fadeOut( 'fast',
+				function () {
+					$( this ).remove();
+				}
+			);
 		}
 	};
 } )( jQuery, mediaWiki );
