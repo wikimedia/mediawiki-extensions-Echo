@@ -54,7 +54,6 @@ class EchoHooks {
 		$testModuleBoilerplate = array(
 			'localBasePath' => __DIR__,
 			'remoteExtPath' => 'Echo',
-			'targets' => array( 'desktop', 'mobile' ),
 		);
 
 		// find test files for every RL module
