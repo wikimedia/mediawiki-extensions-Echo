@@ -134,6 +134,11 @@ $specialPageAliases['ml'] = array(
 	'Notifications' => array( 'അറിയിപ്പുകൾ' ),
 );
 
+/** Marathi (मराठी) */
+$specialPageAliases['mr'] = array(
+	'Notifications' => array( 'संदेश' ),
+);
+
 /** Maltese (Malti) */
 $specialPageAliases['mt'] = array(
 	'Notifications' => array( 'Notifiki' ),
