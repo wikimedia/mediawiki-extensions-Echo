@@ -12,6 +12,21 @@
 
 	EchoOverlay.prototype = {
 		/**
+		 * @var array a list of unread notification ids that are visible in the UI
+		 */
+		unread: [],
+		/**
+		 * @var object current count status of notification types
+		 */
+		notificationCount: {
+			/* @var integer length of all notifications (both unread and read) that will be visible in the overlay */
+			all: 0,
+			/* @var string a string representation the current number of unread notifications (1, 99, 99+) */
+			unread: '0',
+			/* @var integer the total number of all unread notifications including those not in the overlay */
+			unreadRaw: 0
+		},
+		/**
 		 * @param newCount formatted count
 		 * @param rawCount unformatted count
 		 */
@@ -24,6 +39,8 @@
 			} else {
 				$badge.removeClass( 'mw-echo-unread-notifications' );
 			}
+			this.notificationCount.unread = newCount;
+			this.notificationCount.unreadRaw = rawCount;
 		},
 
 		configuration: mw.config.get( 'wgEchoOverlayConfiguration' ),
@@ -100,17 +117,13 @@
 			return $overlayFooter;
 		},
 
-		/**
-		 * Builds an Echo overlay header element
-		 * @method
-		 * @param integer length of all notifications (both unread and read) that will be visible in the overlay
-		 * @param integer the total number of all unread notifications including those not in the overlay
-		 * @param string a string representation the current number of unread notifications (1, 99, 99+)
-		 * @param integer the number of unread notifications in the current overlay
-		 * @return jQuery element
-		 */
-		_getTitleElement: function( notificationsCount, unreadRawTotalCount, unreadTotalCount, unreadCount ) {
+		_getTitleElement: function() {
 			var titleText, includeMarkAsReadButton, overflow,
+				counter = this.notificationCount,
+				notificationsCount = counter.all,
+				unreadRawTotalCount = counter.unreadRaw,
+				unreadTotalCount = counter.unread,
+				unreadCount = this.unread.length,
 				$title = $( '<div>' ).addClass( 'mw-echo-overlay-title' );
 
 			if ( notificationsCount > 0 ) {
@@ -159,17 +172,18 @@
 			return $title;
 		},
 
-		_buildOverlay: function ( notifications ) {
-			var $overlay = $( '<div>' ).addClass( 'mw-echo-overlay' ),
-				self = this,
-				unread = [],
-				unreadTotalCount = notifications.count,
-				unreadRawTotalCount = notifications.rawcount,
-				$ul = $( '<ul>' ).addClass( 'mw-echo-notifications' );
+		/**
+		 * Builds an Echo notifications list
+		 * @method
+		 * @param object as returned by the api of notification items
+		 * @return jQuery element
+		 */
+		_buildNotificationList: function( notifications ) {
+			var self = this,
+				$ul = $( '<ul>' ).addClass( 'mw-echo-notifications' )
+					.css( 'max-height', $( window ).height() - 134 );
 
-			if ( unreadTotalCount !== undefined ) {
-				self.updateCount( unreadTotalCount, unreadRawTotalCount );
-			}
+
 			$.each( notifications.index, function ( index, id ) {
 				var $wrapper,
 					data = notifications.list[id],
@@ -185,9 +199,8 @@
 
 				if ( !data.read ) {
 					$li.addClass( 'mw-echo-unread' );
-					unread.push( id );
+					self.unread.push( id );
 				}
-				$ul.css( 'max-height', $( window ).height() - 134 );
 
 				if ( !data['*'] ) {
 					return;
@@ -234,7 +247,21 @@
 					mw.echo.setUpDismissability( $li );
 				}
 			} );
-			self._getTitleElement( notifications.index.length, unreadRawTotalCount, unreadTotalCount, unread.length ).
+			return $ul;
+		},
+
+		_buildOverlay: function ( notifications ) {
+			var $ul,
+				$overlay = $( '<div>' ).addClass( 'mw-echo-overlay' ),
+				self = this;
+
+			this.notificationCount.all = notifications.index.length;
+			if ( this.notificationCount.all !== undefined ) {
+				self.updateCount( notifications.count, notifications.rawcount );
+			}
+
+			$ul = self._buildNotificationList( notifications );
+			self._getTitleElement().
 				appendTo( $overlay );
 
 			if ( $ul.find( 'li' ).length ) {
@@ -242,22 +269,21 @@
 			}
 
 			$overlay.append( self._getFooterElement() );
-			self.markAsRead( unread );
+			self.markAsRead();
 
 			this.$el = $overlay;
 		},
 		/**
 		 * Mark a list of notifications as read
 		 * @method
-		 * @param {array} unread a list of unread ids
 		 */
-		markAsRead: function( unread ) {
+		markAsRead: function() {
 			var self = this;
 			// only need to mark as read if there is unread item
-			if ( unread.length > 0 ) {
+			if ( this.unread.length ) {
 				this.api.post( mw.echo.desktop.appendUseLang( {
 					'action' : 'echomarkread',
-					'list' : unread.join( '|' ),
+					'list' : this.unread.join( '|' ),
 					'token': mw.user.tokens.get( 'editToken' )
 				} ) ).done( function ( result ) {
 					var count;
