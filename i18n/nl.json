@@ -12,7 +12,8 @@
 			"Southparkfan",
 			"User555",
 			"Whaledad",
-			"JurgenNL"
+			"JurgenNL",
+			"Sjoerddebruin"
 		]
 	},
 	"echo-desc": "Meldingensysteem",
@@ -46,7 +47,7 @@
 	"echo-pref-tooltip-edit-user-talk": "Houd mij op de hoogte wanneer iemand een bericht of antwoord op mijn overlegpagina plaatst.",
 	"echo-pref-tooltip-article-linked": "U een melding zenden als iemand een koppeling naar een inhoudspagina maakt die u hebt aangemaakt.",
 	"echo-pref-tooltip-reverted": "Houd mij op de hoogte wanneer iemand een bewerking van mij terugdraait met behulp van \"ongedaan maken\" of \"terugdraaien\".",
-	"echo-pref-tooltip-mention": "Houd mij op de hoogte wanneer iemand een link naar mijn gebruikerspagina plaatst op een overlegpagina.",
+	"echo-pref-tooltip-mention": "Houd mij op de hoogte wanneer iemand een link naar mijn gebruikerspagina plaatst.",
 	"echo-pref-tooltip-user-rights": "Houd me op de hoogte van gebruikersrechtenwijzigingen aan mijn account.",
 	"echo-no-agent": "[Niemand]",
 	"echo-no-title": "[Geen pagina]",

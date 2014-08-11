@@ -40,7 +40,7 @@
 	"echo-pref-tooltip-article-linked": "Giv mig beked når nogen henviser til en side som jeg har oprettet, fra en artikelside.",
 	"echo-pref-tooltip-reverted": "Giv mig besked når nogen tilbagestiller en redigering som jeg lavet, ved at bruge fjern redigering eller rul tilbage.",
 	"echo-pref-tooltip-mention": "Giv mig besked når nogen henviser til min brugerside.",
-	"echo-pref-tooltip-user-rights": "Advisér mig når nogen ændrer min brugerrettigheder.",
+	"echo-pref-tooltip-user-rights": "Giv mig besked når nogen ændrer min brugerrettigheder.",
 	"echo-no-agent": "[Ingen]",
 	"echo-no-title": "[Ingen side]",
 	"echo-error-no-formatter": "Der er ikke defineret et format for meddelelsen",
