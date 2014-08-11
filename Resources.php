@@ -68,6 +68,7 @@ $wgResourceModules += array(
 			'ext.echo.desktop',
 			'mediawiki.util',
 			'mediawiki.language',
+			'mediawiki.ui.anchor',
 		),
 		'messages' => array(
 			'echo-overlay-link',

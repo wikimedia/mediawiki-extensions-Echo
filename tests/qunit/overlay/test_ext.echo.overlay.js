@@ -135,7 +135,7 @@
 		} );
 		assert.strictEqual( $overlay.find( '.mw-echo-overlay-title ul li' ).length, 2, 'There are two tabs in header' );
 		assert.strictEqual( $overlay.find( '.mw-echo-notifications' ).length, 2, 'Overlay contains 2 lists of notifications.' );
-		assert.strictEqual( $overlay.find( '.mw-echo-overlay-title li' ).eq( 0 ).hasClass( 'mw-echo-section-current' ),
+		assert.strictEqual( $overlay.find( '.mw-echo-overlay-title a' ).eq( 0 ).hasClass( 'mw-ui-active' ),
 			true, 'First tab is the selected tab upon opening.' );
 		assert.strictEqual( this.$badge.text(),
 			'1', 'The label stays as 1 until you switch tabs.' );
@@ -149,15 +149,15 @@
 		this.sandbox.stub( mw.echo.overlay, 'api', new this.ApiStub( 1 ) );
 		mw.echo.overlay.buildOverlay( function( $o ) {
 			$overlay = $o;
-			$tabs = $overlay.find( '.mw-echo-overlay-title li' );
+			$tabs = $overlay.find( '.mw-echo-overlay-title li a' );
 		} );
 
 		// switch to 2nd tab
-		$overlay.find( '.mw-echo-overlay-title li' ).eq( 1 ).trigger( 'click' );
+		$overlay.find( '.mw-echo-overlay-title li a' ).eq( 1 ).trigger( 'click' );
 
-		assert.strictEqual( $tabs.eq( 0 ).hasClass( 'mw-echo-section-current' ),
+		assert.strictEqual( $tabs.eq( 0 ).hasClass( 'mw-ui-active' ),
 			false, 'First tab is now the selected tab.' );
-		assert.strictEqual( $tabs.eq( 1 ).hasClass( 'mw-echo-section-current' ),
+		assert.strictEqual( $tabs.eq( 1 ).hasClass( 'mw-ui-active' ),
 			true, 'Second tab is now the selected tab.' );
 		assert.strictEqual( this.$badge.text(),
 			'0', 'The label is now set to 0.' );
@@ -171,18 +171,18 @@
 		this.sandbox.stub( mw.echo.overlay, 'api', new this.ApiStub( 1 ) );
 		mw.echo.overlay.buildOverlay( function( $o ) {
 			$overlay = $o;
-			$tabs = $overlay.find( '.mw-echo-overlay-title li' );
-			beforeAlertText = $overlay.find( '.mw-echo-overlay-title li' ).eq( 1 ).text();
+			$tabs = $overlay.find( '.mw-echo-overlay-title li a' );
+			beforeAlertText = $overlay.find( '.mw-echo-overlay-title li a' ).eq( 1 ).text();
 			$tabs.eq( 1 ).trigger( 'click' );
-			afterAlertText = $overlay.find( '.mw-echo-overlay-title li' ).eq( 1 ).text();
+			afterAlertText = $overlay.find( '.mw-echo-overlay-title li a' ).eq( 1 ).text();
 		} );
 
 		// switch to 2nd tab
-		$tabs = $overlay.find( '.mw-echo-overlay-title li' );
-		assert.strictEqual( $overlay.find( '.mw-echo-overlay-title li' ).eq( 0 ).text(), 'Messages (0)', 'Check the label has a count in it.' );
+		$tabs = $overlay.find( '.mw-echo-overlay-title li a' );
+		assert.strictEqual( $overlay.find( '.mw-echo-overlay-title li a' ).eq( 0 ).text(), 'Messages (0)', 'Check the label has a count in it.' );
 		assert.strictEqual( beforeAlertText, 'Alerts (1)', 'Check the label has a count in it.' );
 		assert.strictEqual( afterAlertText, 'Alerts (0)', 'Check the label has an updated count in it.' );
-		assert.strictEqual( $overlay.find( '.mw-echo-overlay-title li' ).eq( 1 ).hasClass( 'mw-echo-section-current' ),
+		assert.strictEqual( $overlay.find( '.mw-echo-overlay-title li a' ).eq( 1 ).hasClass( 'mw-ui-active' ),
 			true, 'Second tab is the selected tab.' );
 	} );
 

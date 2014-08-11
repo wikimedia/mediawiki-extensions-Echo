@@ -251,16 +251,18 @@
 					label = mw.msg( 'echo-notification-' + tabName, echoTab.getUnreadIds().length );
 
 				$li = $( '<li>' )
+					.appendTo( $ul );
+
+				$( '<a class="mw-ui-progressive">' )
 					.on( 'click', function() {
 						var $this = $( this );
-						$ul.find( 'li' ).removeClass( 'mw-echo-section-current' );
-						$this.addClass( 'mw-echo-section-current' );
+						$ul.find( 'a' ).removeClass( 'mw-ui-active' ).addClass( 'mw-ui-quiet' );
+						$this.addClass( 'mw-ui-active' ).removeClass( 'mw-ui-quiet');
 						self._showTabList( $this.data( 'tab' ) );
 					} )
 					.data( 'tab', echoTab )
-					.addClass( echoTab.name === self.activeTabName ? 'mw-echo-section-current' : '' )
-					.text( label )
-					.appendTo( $ul );
+					.addClass( echoTab.name === self.activeTabName ? 'mw-ui-active' : 'mw-ui-quiet' )
+					.text( label ).appendTo( $li );
 			} );
 			return $ul;
 		},
