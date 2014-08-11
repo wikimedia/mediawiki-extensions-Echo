@@ -39,6 +39,9 @@
 					'token': mw.user.tokens.get( 'editToken' )
 				} ) ).then( function ( result ) {
 					return result.query.echomarkread[self.name];
+				} ).done( function() {
+					// reset internal state of unread messages
+					self.unread = [];
 				} );
 			} else {
 				return new $.Deferred();
@@ -222,9 +225,18 @@
 					$( this ).show();
 					tab.markAsRead().done( function( data ) {
 						self.updateBadgeCount( data.count, data.rawcount );
+						self._updateTitleElement();
 					} );
 				}
 			} );
+		},
+
+
+		_updateTitleElement: function() {
+			var $header;
+			$header = this.$el.find( '.mw-echo-overlay-title' );
+			this._getTitleElement().insertBefore( $header );
+			$header.remove();
 		},
 
 		_getTabsElement: function() {
@@ -234,8 +246,9 @@
 			$.each( this.tabs, function( i, echoTab ) {
 				var
 					tabName = echoTab.name,
-					// @todo: Pass the number of unread messages
-					label = mw.msg( 'echo-notification-' + tabName );
+					// @todo: Unread value is inaccurate. If a user has more than mw.echo.overlay.notificationLimit
+					// API change needed
+					label = mw.msg( 'echo-notification-' + tabName, echoTab.getUnreadIds().length );
 
 				$li = $( '<li>' )
 					.on( 'click', function() {
@@ -245,7 +258,7 @@
 						self._showTabList( $this.data( 'tab' ) );
 					} )
 					.data( 'tab', echoTab )
-					.addClass( i === 0 ? 'mw-echo-section-current' : '' )
+					.addClass( echoTab.name === self.activeTabName ? 'mw-echo-section-current' : '' )
 					.text( label )
 					.appendTo( $ul );
 			} );
@@ -261,12 +274,9 @@
 		},
 
 		_getTitleElement: function() {
-			var tabs = this._getTabsElement(),
-				$title = $( '<div>' ).addClass( 'mw-echo-overlay-title' );
-
-			$title.append( tabs );
+			var $title = $( '<div>' ).addClass( 'mw-echo-overlay-title' )
+				.append( this._getTabsElement() );
 			this._showTabList( this.tabs[0] );
-
 			return $title;
 		},
 
@@ -289,6 +299,7 @@
 				self.tabs.push( tab );
 				self.notificationCount.all += notifications[tabName].index.length;
 			} );
+			this.activeTabName = this.tabs[0].name;
 
 			$overlay.prepend( this._getTitleElement() );
 			$overlay.append( this._getFooterElement() );

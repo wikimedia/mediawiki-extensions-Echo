@@ -165,4 +165,25 @@
 			false, 'There are now zero unread notifications.' );
 	} );
 
+	QUnit.test( 'Tabs have labels with counts in them.', 4, function( assert ) {
+		var $overlay, $tabs, beforeAlertText, afterAlertText;
+
+		this.sandbox.stub( mw.echo.overlay, 'api', new this.ApiStub( 1 ) );
+		mw.echo.overlay.buildOverlay( function( $o ) {
+			$overlay = $o;
+			$tabs = $overlay.find( '.mw-echo-overlay-title li' );
+			beforeAlertText = $overlay.find( '.mw-echo-overlay-title li' ).eq( 1 ).text();
+			$tabs.eq( 1 ).trigger( 'click' );
+			afterAlertText = $overlay.find( '.mw-echo-overlay-title li' ).eq( 1 ).text();
+		} );
+
+		// switch to 2nd tab
+		$tabs = $overlay.find( '.mw-echo-overlay-title li' );
+		assert.strictEqual( $overlay.find( '.mw-echo-overlay-title li' ).eq( 0 ).text(), 'Messages (0)', 'Check the label has a count in it.' );
+		assert.strictEqual( beforeAlertText, 'Alerts (1)', 'Check the label has a count in it.' );
+		assert.strictEqual( afterAlertText, 'Alerts (0)', 'Check the label has an updated count in it.' );
+		assert.strictEqual( $overlay.find( '.mw-echo-overlay-title li' ).eq( 1 ).hasClass( 'mw-echo-section-current' ),
+			true, 'Second tab is the selected tab.' );
+	} );
+
 }( jQuery, mediaWiki ) );
