@@ -144,6 +144,13 @@ class EchoNotification extends EchoAbstractEntity {
 			} );
 		}
 
+		// Add listener to refresh notification count upon insert
+		$notifMapper->attachListener( 'insert', 'refresh-notif-count',
+			function() use ( $user ) {
+				MWEchoNotifUser::newFromUser( $user )->resetNotificationCount( DB_MASTER );
+			}
+		);
+
 		$notifMapper->insert( $this );
 
 		// Clear applicable section status from cache upon new notification creation

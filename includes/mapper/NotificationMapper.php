@@ -41,9 +41,6 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 			$dbw->endAtomic( $fname );
 
 			if ( $res ) {
-				// @Todo - move the reset notification count logic to a listener
-				$user = User::newFromId( $row['notification_user'] );
-				MWEchoNotifUser::newFromUser( $user )->resetNotificationCount( DB_MASTER );
 				foreach ( $listeners as $listener ) {
 					call_user_func( $listener );
 				}
