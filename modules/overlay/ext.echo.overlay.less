@@ -26,7 +26,7 @@
 
 #p-personal {
 	.mw-echo-overlay-title ul,
-	ul.mw-echo-notifications {
+	.mw-echo-notifications ul {
 		// override #p-personal ul in core
 		padding: 0;
 	}
@@ -44,6 +44,12 @@
 }
 
 .mw-echo-overlay {
+	button {
+		top: 15px;
+		right: 15px;
+		position: absolute;
+	}
+
 	.mw-ui-progressive {
 		cursor: pointer;
 	}
@@ -52,6 +58,7 @@
 		color: #6D6D6D;
 	}
 
+	.mw-echo-notifications,
 	ul {
 		overflow: auto;
 	}
@@ -109,6 +116,11 @@
 	line-height: 15px;
 	padding: 15px 15px 15px 28px;
 	border-bottom: 1px solid #DDDDDD;
+
+	button {
+		line-height: 15px;
+		font: inherit;
+	}
 }
 
 /* override #p-personal li*/

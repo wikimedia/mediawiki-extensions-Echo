@@ -12,11 +12,13 @@
 		this._buildOverlay( apiResultNotifications );
 	}
 
-	function EchoOverlayTab( name, notifications ) {
+	function EchoOverlayTab( options, notifications ) {
 		this.api = mw.echo.overlay.api;
-		this.name = name;
+		this.markOnView = options.markOnView;
+		this.markAsReadCallback = options.markAsReadCallback;
+		this.name = options.name;
 		this.unread = [];
-		this._buildList( notifications );
+		this._buildList( notifications[this.name] );
 	}
 
 	EchoOverlayTab.prototype = {
@@ -30,18 +32,20 @@
 		 * @return jQuery.Deferred
 		 */
 		markAsRead: function() {
-			var self = this;
+			var self = this, data;
 			// only need to mark as read if there is unread item
 			if ( this.unread.length ) {
-				return this.api.post( mw.echo.desktop.appendUseLang( {
+				data = {
 					'action' : 'echomarkread',
-					'list' : this.unread.join( '|' ),
+					'all': 1,
 					'token': mw.user.tokens.get( 'editToken' )
-				} ) ).then( function ( result ) {
+				};
+				return this.api.post( mw.echo.desktop.appendUseLang( data ) ).then( function ( result ) {
 					return result.query.echomarkread[self.name];
-				} ).done( function() {
+				} ).done( function( result ) {
 					// reset internal state of unread messages
 					self.unread = [];
+					self.markAsReadCallback( result );
 				} );
 			} else {
 				return new $.Deferred();
@@ -56,9 +60,10 @@
 		 */
 		_buildList: function( notifications ) {
 			var self = this,
-				$ul = $( '<ul>' ).addClass( 'mw-echo-notifications' )
+				$container = $( '<div class="mw-echo-notifications">' )
 					.data( 'tab', this )
-					.css( 'max-height', $( window ).height() - 134 );
+					.css( 'max-height', $( window ).height() - 134 ),
+				$ul = $( '<ul>' ).appendTo( $container );
 
 			$.each( notifications.index, function ( index, id ) {
 				var $wrapper,
@@ -123,7 +128,20 @@
 					mw.echo.setUpDismissability( $li );
 				}
 			} );
-			this.$el = $ul;
+
+			if ( !this.markOnView && this.unread.length ) {
+				$( '<button class="mw-ui-button mw-ui-quiet">' )
+					.text( mw.msg( 'echo-mark-all-as-read' ) )
+					.on( 'click', function() {
+						var $btn = $( this );
+						self.markAsRead().done( function() {
+							self.$el.find( '.mw-echo-unread' ).removeClass( 'mw-echo-unread' );
+							$btn.remove();
+						} );
+					} )
+					.prependTo( $container );
+			}
+			this.$el = $container;
 		}
 	};
 
@@ -216,17 +234,15 @@
 		},
 
 		_showTabList: function( tab ) {
-			var $lists = this.$el.find( '.mw-echo-notifications' ).hide(),
-				self = this;
+			var $lists = this.$el.find( '.mw-echo-notifications' ).hide();
 
 			this.activeTabName = tab.name;
 			$lists.each( function() {
 				if ( $( this ).data( 'tab' ).name === tab.name ) {
 					$( this ).show();
-					tab.markAsRead().done( function( data ) {
-						self.updateBadgeCount( data.count, data.rawcount );
-						self._updateTitleElement();
-					} );
+					if ( tab.markOnView ) {
+						tab.markAsRead();
+					}
 				}
 			} );
 		},
@@ -285,21 +301,27 @@
 		_buildOverlay: function ( notifications ) {
 			var tabs,
 				self = this,
+				options = {
+					markAsReadCallback: function( data ) {
+						self.updateBadgeCount( data.count, data.rawcount );
+						self._updateTitleElement();
+					}
+				},
 				$overlay = $( '<div>' ).addClass( 'mw-echo-overlay' );
 
 			this.$el = $overlay;
 
 			if ( notifications.message.index.length ) {
-				tabs = [ 'message', 'alert' ];
+				tabs = [ { name: 'message' }, { name: 'alert', markOnView: true } ];
 			} else {
-				tabs = [ 'alert' ];
+				tabs = [ { name: 'alert', markOnView: true } ];
 			}
 
-			$.each( tabs, function( i, tabName ) {
-				var tab = new EchoOverlayTab( tabName, notifications[tabName] );
+			$.each( tabs, function( i, tabOptions ) {
+				var tab = new EchoOverlayTab( $.extend( tabOptions, options ), notifications );
 				self.$el.append( tab.$el );
 				self.tabs.push( tab );
-				self.notificationCount.all += notifications[tabName].index.length;
+				self.notificationCount.all += notifications[tabOptions.name].index.length;
 			} );
 			this.activeTabName = this.tabs[0].name;
 

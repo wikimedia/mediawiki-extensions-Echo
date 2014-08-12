@@ -14,7 +14,9 @@
 					return new $.Deferred().resolve( this.getNewNotificationCountData( data ) );
 				},
 				get: function() {
-					var data = this.getData();
+					var i, id,
+						index = [], listObj = {},
+						data = this.getData();
 					if ( this.mode === 1 ) {
 						data.query.notifications.message = {
 							index: [ 100 ],
@@ -28,6 +30,18 @@
 								}
 							}
 						};
+					} else if ( this.mode === 2 ) {
+						for ( i = 0; i < 7; i++ ) {
+							id = 500 + i;
+							index.push( id );
+							listObj[id] = { '*': '!', category: 'message', id: id, type: 'message' };
+						}
+						data.query.notifications.message = {
+							index: index,
+							list: listObj
+						};
+						data.query.notifications.count = '7';
+						data.query.notifications.rawcount = 7;
 					}
 					return $.Deferred().resolve( data );
 				},
@@ -116,8 +130,8 @@
 			$overlay = $o;
 		} );
 		assert.strictEqual( $overlay.find( '.mw-echo-overlay-title ul li' ).length, 1, 'Only one tab in header' );
-		assert.strictEqual( $overlay.find( 'ul.mw-echo-notifications' ).length, 1, 'Overlay contains a list of notifications.' );
-		assert.strictEqual( $overlay.find( 'ul.mw-echo-notifications li' ).length, 2, 'There are two notifications.' );
+		assert.strictEqual( $overlay.find( '.mw-echo-notifications' ).length, 1, 'Overlay contains a list of notifications.' );
+		assert.strictEqual( $overlay.find( '.mw-echo-notifications li' ).length, 2, 'There are two notifications.' );
 		assert.strictEqual( $overlay.find( '.mw-echo-unread' ).length, 1, 'There is one unread notification.' );
 		assert.strictEqual( $overlay.find( '#mw-echo-overlay-footer a' ).length, 2,
 			'There is a footer with 2 links to preferences and all notifications.' );
@@ -184,6 +198,29 @@
 		assert.strictEqual( afterAlertText, 'Alerts (0)', 'Check the label has an updated count in it.' );
 		assert.strictEqual( $overlay.find( '.mw-echo-overlay-title li a' ).eq( 1 ).hasClass( 'mw-ui-active' ),
 			true, 'Second tab is the selected tab.' );
+	} );
+
+	QUnit.test( 'Unread message behaviour', 5, function( assert ) {
+		var $overlay;
+
+		this.sandbox.stub( mw.echo.overlay, 'api', new this.ApiStub( 2 ) );
+		mw.echo.overlay.buildOverlay( function( $o ) {
+			$overlay = $o;
+		} );
+
+		// Test initial state
+		assert.strictEqual( $overlay.find( '.mw-echo-overlay-title li a' ).eq( 0 ).text(), 'Messages (7)',
+			'Check the label has a count in it and it is not automatically reset when tab is open.' );
+		assert.strictEqual( $overlay.find( '.mw-echo-unread' ).length, 8, 'There are 8 unread notifications.' );
+
+		// Click mark as read
+		$overlay.find( '.mw-echo-notifications button' ).trigger( 'click' );
+		assert.strictEqual( $overlay.find( '.mw-echo-overlay-title li a' ).eq( 0 ).text(), 'Messages (0)',
+			'Check all the notifications (even those outside overlay) have been marked as read.' );
+		assert.strictEqual( $overlay.find( '.mw-echo-notifications ' ).eq( 0 ).find( '.mw-echo-unread' ).length,
+			0, 'There are now no unread notifications in this tab.' );
+		assert.strictEqual( $overlay.find( '.mw-echo-notifications button' ).length, 0,
+			'There are no notifications now so no need for button.' );
 	} );
 
 }( jQuery, mediaWiki ) );
