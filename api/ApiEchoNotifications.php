@@ -51,7 +51,10 @@ class ApiEchoNotifications extends ApiQueryBase {
 		}
 
 		if ( in_array( 'count', $prop ) ) {
-			$result += $this->getPropcount( $user, $params['sections'], $params['groupbysection'] );
+			$result = array_merge_recursive(
+				$result,
+				$this->getPropcount( $user, $params['sections'], $params['groupbysection'] )
+			);
 		}
 
 		$this->getResult()->setIndexedTagName( $result, 'notification' );
