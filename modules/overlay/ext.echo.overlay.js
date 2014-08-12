@@ -45,31 +45,6 @@
 
 		configuration: mw.config.get( 'wgEchoOverlayConfiguration' ),
 
-		_getMarkAsReadButton: function() {
-			var self = this;
-			return $( '<button>' )
-				.addClass( 'mw-ui-button' )
-				.attr( 'id', 'mw-echo-mark-read-button' )
-				.text( mw.msg( 'echo-mark-all-as-read' ) )
-				.click( function ( e ) {
-					e.preventDefault();
-					// FIXME: Use postWithToken
-					self.api.post( mw.echo.desktop.appendUseLang( {
-						'action' : 'echomarkread',
-						'all' : true,
-						'token': mw.user.tokens.get( 'editToken' )
-					} ) ).done( function ( result ) {
-						var count;
-						if ( result.query.echomarkread.count !== undefined ) {
-							count = result.query.echomarkread.count;
-							self.updateCount( count, result.query.echomarkread.rawcount );
-							// Reset header to 'Notifications'
-							$( '#mw-echo-overlay-title-text' ).html( mw.msg( 'echo-overlay-title' ) );
-						}
-					} );
-				} );
-		},
-
 		_getFooterElement: function() {
 			var $prefLink = $( '#pt-preferences a' ),
 				$overlayFooter = $( '<div>' )
@@ -118,7 +93,7 @@
 		},
 
 		_getTitleElement: function() {
-			var titleText, includeMarkAsReadButton, overflow,
+			var titleText,
 				counter = this.notificationCount,
 				notificationsCount = counter.all,
 				unreadRawTotalCount = counter.unreadRaw,
@@ -133,24 +108,11 @@
 						mw.language.convertNumber( unreadCount ),
 						mw.language.convertNumber( unreadTotalCount )
 					);
-					overflow = true;
 				} else {
 					titleText = mw.msg( 'echo-overlay-title' );
-					overflow = false;
 				}
 			} else {
 				titleText = mw.msg( 'echo-none' );
-			}
-			// If there are more unread notifications than can fit in the overlay,
-			// but fewer than the maximum count, show the 'mark all as read' button.
-			// The only reason we limit it to the maximum is to prevent expensive
-			// database updates. If the count is more than the maximum, it could
-			// be thousands.
-			includeMarkAsReadButton = overflow &&
-				unreadRawTotalCount < this.configuration[ 'max-notification-count' ];
-			if ( includeMarkAsReadButton ) {
-				// Add the 'mark all as read' button to the title area
-				$title.append( this._getMarkAsReadButton() );
 			}
 
 			// Add the header to the title area
