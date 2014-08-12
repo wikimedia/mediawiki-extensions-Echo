@@ -3,7 +3,8 @@
 	'use strict';
 
 	// backwards compatibility <= MW 1.21
-	var getUrl = mw.util.getUrl || mw.util.wikiGetlink;
+	var getUrl = mw.util.getUrl || mw.util.wikiGetlink,
+		useLang = mw.config.get( 'wgUserLanguage' );
 
 	function EchoOverlay( apiResultNotifications ) {
 		this.api = mw.echo.overlay.api;
@@ -54,8 +55,9 @@
 			// only need to mark as read if there is unread item
 			if ( this.unread.length ) {
 				data = {
-					'action' : 'echomarkread',
-					'token': mw.user.tokens.get( 'editToken' )
+					action: 'echomarkread',
+					token: mw.user.tokens.get( 'editToken' ),
+					uselang: useLang
 				};
 				if ( id ) {
 					// If id is given mark that as read otherwise use all unread messages
@@ -64,7 +66,7 @@
 					data.sections = this.name;
 				}
 
-				return this.api.post( mw.echo.desktop.appendUseLang( data ) ).then( function ( result ) {
+				return this.api.post( data ).then( function ( result ) {
 					return result.query.echomarkread;
 				} ).done( function( result ) {
 					// reset internal state of unread messages
@@ -383,11 +385,10 @@
 		 */
 		api: new mw.Api( { ajax: { cache: false } } ),
 		/**
-		 * Builds an overlay element
-		 * @method
-		 * @param callback a callback which passes the newly created overlay as a parameter
+		 * Create an Echo overlay
+		 * @return jQuery.Deferred with new EchoOverlay passed in callback
 		 */
-		buildOverlay: function( callback ) {
+		getNewOverlay: function() {
 			var apiData = {
 				action: 'query',
 				meta: 'notifications',
@@ -396,11 +397,21 @@
 				notmessageunreadfirst: 1,
 				notformat: 'flyout',
 				notlimit: this.notificationLimit,
-				notprop: 'index|list|count'
+				notprop: 'index|list|count',
+				uselang: useLang
 			};
 
-			this.api.get( mw.echo.desktop.appendUseLang( apiData ) ).done( function ( result ) {
-				var overlay = new EchoOverlay( result.query.notifications );
+			return this.api.get( apiData ).then( function ( result ) {
+				return new EchoOverlay( result.query.notifications );
+			} );
+		},
+		/**
+		 * Builds an overlay element
+		 * @method
+		 * @param callback a callback which passes the newly created overlay as a parameter
+		 */
+		buildOverlay: function( callback ) {
+			this.getNewOverlay().done( function( overlay ) {
 				callback( overlay.$el );
 			} ).fail( function () {
 				window.location.href = $( '#pt-notifications a' ).attr( 'href' );

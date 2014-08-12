@@ -1,5 +1,6 @@
 ( function ( $, mw ) {
 	'use strict';
+	var useLang = mw.config.get( 'wgUserLanguage' );
 
 	mw.echo.special = {
 
@@ -67,10 +68,11 @@
 				'notformat' : 'html',
 				'notprop' : 'index|list',
 				'notcontinue': this.notcontinue,
-				'notlimit': mw.config.get( 'wgEchoDisplayNum' )
+				'notlimit': mw.config.get( 'wgEchoDisplayNum' ),
+				uselang: useLang
 			};
 
-			api.get( mw.echo.desktop.appendUseLang( apiData ) ).done( function ( result ) {
+			api.get( apiData ).done( function ( result ) {
 				container = $( '#mw-echo-special-container' );
 				notifications = result.query.notifications;
 				unread = [];
@@ -125,11 +127,12 @@
 			var newCount, rawCount, $badge,
 				api = new mw.Api(), that = this;
 
-			api.post( mw.echo.desktop.appendUseLang( {
+			api.post( {
 				'action' : 'echomarkread',
 				'list' : unread.join( '|' ),
-				'token': mw.user.tokens.get( 'editToken' )
-			} ) ).done( function ( result ) {
+				'token': mw.user.tokens.get( 'editToken' ),
+				uselang: useLang
+			} ).done( function ( result ) {
 				// update the badge if the link is enabled
 				if ( result.query.echomarkread.count !== undefined &&
 					$( '#pt-notifications').length
