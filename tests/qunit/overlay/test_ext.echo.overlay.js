@@ -61,6 +61,13 @@
 						};
 						count = 1;
 						rawCount = 1;
+					} else if ( data.list === 500 ) {
+						messageCount = {
+							count: '6',
+							rawcount: 6
+						};
+						rawCount = 7;
+						count = 7;
 					} else {
 						alertCount = {
 							count: '0',
@@ -214,13 +221,39 @@
 		assert.strictEqual( $overlay.find( '.mw-echo-unread' ).length, 8, 'There are 8 unread notifications.' );
 
 		// Click mark as read
-		$overlay.find( '.mw-echo-notifications button' ).trigger( 'click' );
+		$overlay.find( '.mw-echo-notifications > button' ).eq( 0 ).trigger( 'click' );
 		assert.strictEqual( $overlay.find( '.mw-echo-overlay-title li a' ).eq( 0 ).text(), 'Messages (0)',
 			'Check all the notifications (even those outside overlay) have been marked as read.' );
 		assert.strictEqual( $overlay.find( '.mw-echo-notifications ' ).eq( 0 ).find( '.mw-echo-unread' ).length,
 			0, 'There are now no unread notifications in this tab.' );
-		assert.strictEqual( $overlay.find( '.mw-echo-notifications button' ).length, 0,
+		assert.strictEqual( $overlay.find( '.mw-echo-notifications > button' ).length, 0,
 			'There are no notifications now so no need for button.' );
 	} );
 
+	QUnit.test( 'Mark as read.', 8, function( assert ) {
+		var $overlay;
+		this.$badge.text( '8' );
+		this.sandbox.stub( mw.echo.overlay, 'api', new this.ApiStub( 2 ) );
+		mw.echo.overlay.buildOverlay( function( $o ) {
+			$overlay = $o;
+		} );
+
+		// Test initial state
+		assert.strictEqual( $overlay.find( '.mw-echo-overlay-title li a' ).eq( 0 ).text(), 'Messages (7)',
+			'Check the label has a count in it and it is not automatically reset when tab is open.' );
+		assert.strictEqual( $overlay.find( '.mw-echo-unread' ).length, 8, 'There are 8 unread notifications.' );
+		assert.strictEqual( this.$badge.text(), '8', '8 unread notifications in badge.' );
+		assert.strictEqual( $overlay.find( '.mw-echo-notifications li button' ).length, 7,
+			'There are 7 mark as read button.' );
+
+		// Click first mark as read
+		$overlay.find( '.mw-echo-notifications li button' ).eq( 0 ).trigger( 'click' );
+
+		assert.strictEqual( $overlay.find( '.mw-echo-overlay-title li a' ).eq( 0 ).text(), 'Messages (6)',
+			'Check the notification was marked as read.' );
+		assert.strictEqual( $overlay.find( '.mw-echo-unread' ).length, 7, 'There are now 7 unread notifications.' );
+		assert.strictEqual( $overlay.find( '.mw-echo-notifications li button' ).length, 6,
+			'There are now 6 mark as read buttons.' );
+		assert.strictEqual( this.$badge.text(), '7', 'Now 7 unread notifications.' );
+	} );
 }( jQuery, mediaWiki ) );

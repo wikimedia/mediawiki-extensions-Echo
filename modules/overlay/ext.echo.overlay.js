@@ -27,25 +27,38 @@
 			return this.unread;
 		},
 		/**
-		 * Mark all unread notifications as read
+		 * Mark all existing notifications as read
 		 * @method
+		 * @param integer id of a notification to mark as read
 		 * @return jQuery.Deferred
 		 */
-		markAsRead: function() {
+		markAsRead: function( id ) {
 			var self = this, data;
 			// only need to mark as read if there is unread item
 			if ( this.unread.length ) {
 				data = {
 					'action' : 'echomarkread',
-					'all': 1,
 					'token': mw.user.tokens.get( 'editToken' )
 				};
+				if ( id ) {
+					// If id is given mark that as read otherwise use all unread messages
+					data.list = id;
+				} else {
+					data.all = 1;
+				}
+
 				return this.api.post( mw.echo.desktop.appendUseLang( data ) ).then( function ( result ) {
-					return result.query.echomarkread[self.name];
+					return result.query.echomarkread;
 				} ).done( function( result ) {
 					// reset internal state of unread messages
-					self.unread = [];
-					self.markAsReadCallback( result );
+					if ( id ) {
+						if ( self.unread.indexOf( id ) > -1 ) {
+							self.unread.splice( self.unread.indexOf( id ), 1 );
+						}
+					} else {
+						self.unread = [];
+					}
+					self.markAsReadCallback( result, id );
 				} );
 			} else {
 				return new $.Deferred();
@@ -78,17 +91,24 @@
 						} )
 						.addClass( 'mw-echo-notification' );
 
-				if ( !data.read ) {
-					$li.addClass( 'mw-echo-unread' );
-					self.unread.push( id );
-				}
-
 				if ( !data['*'] ) {
 					return;
 				}
 
 				$li.append( data['*'] )
 					.appendTo( $ul );
+
+				if ( !data.read ) {
+					$li.addClass( 'mw-echo-unread' );
+					self.unread.push( id );
+					if ( !self.markOnView ) {
+						$( '<button class="mw-ui-button mw-ui-quiet">&times;</button>' )
+							.on( 'click', function( ev ) {
+								ev.preventDefault();
+								self.markAsRead( $( this ).closest( 'li' ).data( 'notification-event' ) );
+							} ).appendTo( $li );
+					}
+				}
 
 				// Grey links in the notification title and footer (except on hover)
 				$li.find( '.mw-echo-title a, .mw-echo-notification-footer a' )
@@ -302,9 +322,13 @@
 			var tabs,
 				self = this,
 				options = {
-					markAsReadCallback: function( data ) {
+					markAsReadCallback: function( data, id ) {
 						self.updateBadgeCount( data.count, data.rawcount );
 						self._updateTitleElement();
+						if ( id ) {
+							self.$el.find( '[data-notification-event="' + id + '"]').removeClass( 'mw-echo-unread' )
+								.find( 'button' ).remove();
+						}
 					}
 				},
 				$overlay = $( '<div>' ).addClass( 'mw-echo-overlay' );
