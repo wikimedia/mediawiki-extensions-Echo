@@ -9,17 +9,44 @@ class EchoNotificationMapperTest extends MediaWikiTestCase {
 		$this->assertTrue( true );
 	}
 
-	public function testFetchByUser() {
-		global $wgEchoNotificationCategories;
-		$previous = $wgEchoNotificationCategories;
+	public function fetchUnreadByUser( User $user, $limit, array $eventTypes = array() ) {
+		// Unsuccessful select
+		$notifMapper = new EchoNotificationMapper( $this->mockMWEchoDbFactory( array ( 'select' => false ) ) );
+		$res = $notifMapper->fetchUnreadByUser( $this->mockUser(), 10, '' );
+		$this->assertEmpty( $res );
 
-		// Alter the category group so the user is always elegible to
-		// view some notification types.
-		foreach ( $wgEchoNotificationCategories as &$value ) {
-			$value['usergroups'] = array( 'echo_group' );
+		// Successful select
+		$dbResult = array(
+			(object)array (
+				'event_id' => 1,
+				'event_type' => 'test_event',
+				'event_variant' => '',
+				'event_extra' => '',
+				'event_page_id' => '',
+				'event_agent_id' => '',
+				'event_agent_ip' => '',
+				'notification_user' => 1,
+				'notification_timestamp' => '20140615101010',
+				'notification_read_timestamp' => '',
+				'notification_bundle_base' => 1,
+				'notification_bundle_hash' => 'testhash',
+				'notification_bundle_display_hash' => 'testdisplayhash'
+			)
+		);
+		$notifMapper = new EchoNotificationMapper( $this->mockMWEchoDbFactory( array ( 'select' => $dbResult ) ) );
+		$res = $notifMapper->fetchUnreadByUser( $this->mockUser(), 10, '', array() );
+		$this->assertEmpty( $res  );
+
+		$notifMapper = new EchoNotificationMapper( $this->mockMWEchoDbFactory( array ( 'select' => $dbResult ) ) );
+		$res = $notifMapper->fetchUnreadByUser( $this->mockUser(), 10, '', array( 'test_event' ) );
+		$this->assertTrue( is_array( $res ) );
+		$this->assertGreaterThan( 0, count( $res ) );
+		foreach ( $res as $row ) {
+			$this->assertInstanceOf( 'EchoNotification', $row  );
 		}
-		unset( $value );
+	}
 
+	public function testFetchByUser() {
 		// Unsuccessful select
 		$notifMapper = new EchoNotificationMapper( $this->mockMWEchoDbFactory( array ( 'select' => false ) ) );
 		$res = $notifMapper->fetchByUser( $this->mockUser(), 10, '' );
@@ -29,7 +56,7 @@ class EchoNotificationMapperTest extends MediaWikiTestCase {
 		$dbResult = array(
 			(object)array (
 				'event_id' => 1,
-				'event_type' => 'test',
+				'event_type' => 'test_event',
 				'event_variant' => '',
 				'event_extra' => '',
 				'event_page_id' => '',
@@ -55,19 +82,9 @@ class EchoNotificationMapperTest extends MediaWikiTestCase {
 			$this->assertInstanceOf( 'EchoNotification', $row  );
 		}
 
-		// Alter the category group so the user is not elegible to
-		// view any notification types.
-		foreach ( $wgEchoNotificationCategories as &$value ) {
-			$value['usergroups'] = array( 'sysop' );
-		}
-		unset( $value );
-
 		$notifMapper = new EchoNotificationMapper( $this->mockMWEchoDbFactory( array() ) );
 		$res = $notifMapper->fetchByUser( $this->mockUser(), 10, '' );
 		$this->assertEmpty( $res );
-
-		// Restore the default setting
-		$wgEchoNotificationCategories = $previous;
 	}
 
 	public function testFetchNewestByUserBundleHash() {
