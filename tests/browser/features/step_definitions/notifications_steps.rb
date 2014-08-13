@@ -5,7 +5,7 @@ def make_page_with_user( title, text, username )
 end
 
 def make_page_with_user_b( title, text )
-  username = "EchoUser"
+  username = get_session_username_b()
   step 'the user "' + username + '" exists'
   make_page_with_user( title, text, username )
 end
@@ -38,26 +38,17 @@ Given(/^another user mentions me on the wiki$/) do
 end
 
 Given(/^I am logged in with no notifications$/) do
+  # Mark all messages as read
+  client = on(APIPage).client
+  username = get_session_username()
+  step 'the user "' + username + '" exists'
+  client.log_in(username, ENV["MEDIAWIKI_PASSWORD"])
+  client.action( 'echomarkread', token_type: 'edit', all: '1' )
+
   step 'I am logged in my non-shared account'
-  # wait for JavaScript to have fully loaded
-  sleep 5
-  on(ArticlePage).flyout_link_element.click
-  # wait for the API call that marks these as read and for UI to refresh
-  sleep 5
   on(ArticlePage).flyout_link_element.class_name.should_not match 'mw-echo-unread-notifications'
 end
 
 Then(/^I have new notifications$/) do
   on(ArticlePage).flyout_link_element.when_present.class_name.should match 'mw-echo-unread-notifications'
-end
-
-Then(/^I have no new notifications$/) do
-  on(ArticlePage).flyout_link_element.when_present.class_name.should_not match 'mw-echo-unread-notifications'
-end
-
-Then(/^another user has linked to a page I created from another page$/) do
-  title = 'Selenium Echo link test ' + @random_string
-  make_page_with_user_a(title, "Selenium test page. Feel free to delete me.")
-  title2 = title + ' ' + @random_string
-  make_page_with_user_b(title2, "I am linking to [[" + title + "]].")
 end
