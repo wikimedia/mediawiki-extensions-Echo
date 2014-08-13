@@ -3,20 +3,7 @@
 /**
  * Database mapper for EchoNotification model
  */
-class EchoNotificationMapper {
-
-	/**
-	 * Echo database factory
-	 * @param MWEchoDbFactory
-	 */
-	protected $dbFactory;
-
-	/**
-	 * @param MWEchoDbFactory
-	 */
-	public function __construct( MWEchoDbFactory $dbFactory ) {
-		$this->dbFactory = $dbFactory;
-	}
+class EchoNotificationMapper extends EchoAbstractMapper {
 
 	/**
 	 * Insert a notification record
