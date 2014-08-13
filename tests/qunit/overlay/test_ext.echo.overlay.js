@@ -6,8 +6,9 @@
 			// Kill any existing overlays to avoid clashing with other tests
 			$( '.mw-echo-overlay' ).remove();
 
-			var ApiStub = function( mode ) {
+			var ApiStub = function( mode, numberUnreadMessages ) {
 				this.mode = mode;
+				this.numberUnreadMessages = numberUnreadMessages || 7;
 			};
 			ApiStub.prototype = {
 				post: function( data ) {
@@ -28,7 +29,9 @@
 									id: 100,
 									type: 'message'
 								}
-							}
+							},
+							rawcount: 0,
+							count: '0'
 						};
 					} else if ( this.mode === 2 ) {
 						for ( i = 0; i < 7; i++ ) {
@@ -38,10 +41,13 @@
 						}
 						data.query.notifications.message = {
 							index: index,
-							list: listObj
+							list: listObj,
+							rawcount: this.numberUnreadMessages,
+							count: '' + this.numberUnreadMessages
 						};
-						data.query.notifications.count = '7';
-						data.query.notifications.rawcount = 7;
+						// Total number is number of messages + number of alerts (1)
+						data.query.notifications.count = this.numberUnreadMessages + 1;
+						data.query.notifications.rawcount = this.numberUnreadMessages + 1;
 					}
 					return $.Deferred().resolve( data );
 				},
@@ -93,10 +99,14 @@
 								count: '1',
 								rawcount: 1,
 								message: {
+									rawcount: 0,
+									count: '0',
 									index: [],
 									list: {}
 								},
 								alert: {
+									rawcount: 1,
+									count: '1',
 									index: [ 70, 71 ],
 									list: {
 										70: {
@@ -255,5 +265,18 @@
 		assert.strictEqual( $overlay.find( '.mw-echo-notifications li button' ).length, 6,
 			'There are now 6 mark as read buttons.' );
 		assert.strictEqual( this.$badge.text(), '7', 'Now 7 unread notifications.' );
+	} );
+
+	QUnit.test( 'Tabs when there is overflow.', 2, function( assert ) {
+		var $overlay;
+		this.sandbox.stub( mw.echo.overlay, 'api', new this.ApiStub( 2, 50 ) );
+		mw.echo.overlay.buildOverlay( function( $o ) {
+			$overlay = $o;
+		} );
+
+		// Test initial state
+		assert.strictEqual( $overlay.find( '.mw-echo-overlay-title li a' ).eq( 0 ).text(), 'Messages (50)',
+			'Check the label has a count in it and reflects the total unread and not the shown unread' );
+		assert.strictEqual( $overlay.find( '.mw-echo-unread' ).length, 8, 'There are 8 unread notifications.' );
 	} );
 }( jQuery, mediaWiki ) );

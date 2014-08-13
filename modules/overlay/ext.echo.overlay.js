@@ -18,13 +18,30 @@
 		this.markAsReadCallback = options.markAsReadCallback;
 		this.name = options.name;
 		this.unread = [];
+		this._totalUnread = notifications[this.name].rawcount;
 		this._buildList( notifications[this.name] );
 	}
 
 	EchoOverlayTab.prototype = {
-		unread: [],
+		/* @var integer totalUnread the number of unread notifications in this tab.
+			including those that are not visible. */
+		/**
+		 * Return a list of unread and shown ids
+		 * @method
+		 * @param integer id of a notification to mark as read
+		 * @return jQuery.Deferred
+		 */
 		getUnreadIds: function() {
 			return this.unread;
+		},
+		/**
+		 * Get a count the number of all unread notifications of this type
+		 * @method
+		 * @param integer id of a notification to mark as read
+		 * @return integer
+		 */
+		getNumberUnread: function() {
+			return this._totalUnread;
 		},
 		/**
 		 * Mark all existing notifications as read
@@ -58,6 +75,8 @@
 					} else {
 						self.unread = [];
 					}
+					// update the count
+					self._totalUnread = result[self.name].rawcount;
 					self.markAsReadCallback( result, id );
 				} );
 			} else {
@@ -284,7 +303,7 @@
 					tabName = echoTab.name,
 					// @todo: Unread value is inaccurate. If a user has more than mw.echo.overlay.notificationLimit
 					// API change needed
-					label = mw.msg( 'echo-notification-' + tabName, echoTab.getUnreadIds().length );
+					label = mw.msg( 'echo-notification-' + tabName, echoTab.getNumberUnread() );
 
 				$li = $( '<li>' )
 					.appendTo( $ul );
@@ -306,7 +325,7 @@
 		getUnreadCount: function() {
 			var count = 0;
 			$.each( this.tabs, function( i, tab ) {
-				count += tab.getUnreadIds().length;
+				count += tab.getNumberUnread();
 			} );
 			return count;
 		},
