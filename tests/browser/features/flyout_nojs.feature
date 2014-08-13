@@ -1,4 +1,4 @@
-@en.m.wikipedia.beta.wmflabs.org @firefox
+@chrome @en.wikipedia.beta.wmflabs.org @firefox @login
 Feature: Flyout (nojs)
 
   Background:
