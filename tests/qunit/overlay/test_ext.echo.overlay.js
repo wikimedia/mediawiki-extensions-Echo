@@ -279,4 +279,29 @@
 			'Check the label has a count in it and reflects the total unread and not the shown unread' );
 		assert.strictEqual( $overlay.find( '.mw-echo-unread' ).length, 8, 'There are 8 unread notifications.' );
 	} );
+
+	QUnit.test( 'Switching tabs visibility', 4, function( assert ) {
+		var $overlay;
+
+		this.sandbox.stub( mw.echo.overlay, 'api', new this.ApiStub( 2 ) );
+		mw.echo.overlay.buildOverlay( function( $o ) {
+			// put in dom so we can do visibility tests
+			$overlay = $o.appendTo( '#qunit-fixture' );
+		} );
+
+		// Test initial state
+		assert.strictEqual( $overlay.find( '.mw-echo-notifications' ).eq( 0 ).is( ':visible' ),
+			true, 'First tab is visible.' );
+		assert.strictEqual( $overlay.find( '.mw-echo-notifications' ).eq( 1 ).is( ':visible' ),
+			false, 'Second tab starts hidden.' );
+
+		// Switch to second tab
+		$overlay.find( '.mw-echo-overlay-title li a' ).eq( 1 ).trigger( 'click' );
+
+		// check new tab visibility
+		assert.strictEqual( $overlay.find( '.mw-echo-notifications' ).eq( 0 ).is( ':visible' ),
+			false, 'First tab is now hidden.' );
+		assert.strictEqual( $overlay.find( '.mw-echo-notifications' ).eq( 1 ).is( ':visible' ),
+			true, 'Second tab is now visible.' );
+	} );
 }( jQuery, mediaWiki ) );

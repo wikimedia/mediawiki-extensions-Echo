@@ -186,10 +186,6 @@
 
 	EchoOverlay.prototype = {
 		/**
-		 * @var string the name of the tab that is currently active
-		 */
-		activeTabName: 'alert',
-		/**
 		 * @var array a list of EchoOverlayTabs
 		 */
 		tabs: [],
@@ -275,7 +271,7 @@
 		_showTabList: function( tab ) {
 			var $lists = this.$el.find( '.mw-echo-notifications' ).hide();
 
-			this.activeTabName = tab.name;
+			this._activeTab = tab;
 			$lists.each( function() {
 				if ( $( this ).data( 'tab' ).name === tab.name ) {
 					$( this ).show();
@@ -316,7 +312,7 @@
 						self._showTabList( $this.data( 'tab' ) );
 					} )
 					.data( 'tab', echoTab )
-					.addClass( echoTab.name === self.activeTabName ? 'mw-ui-active' : 'mw-ui-quiet' )
+					.addClass( echoTab.name === self._activeTab.name ? 'mw-ui-active' : 'mw-ui-quiet' )
 					.text( label ).appendTo( $li );
 			} );
 			return $ul;
@@ -333,7 +329,7 @@
 		_getTitleElement: function() {
 			var $title = $( '<div>' ).addClass( 'mw-echo-overlay-title' )
 				.append( this._getTabsElement() );
-			this._showTabList( this.tabs[0] );
+			this._showTabList( this._activeTab );
 			return $title;
 		},
 
@@ -366,7 +362,7 @@
 				self.tabs.push( tab );
 				self.notificationCount.all += notifications[tabOptions.name].index.length;
 			} );
-			this.activeTabName = this.tabs[0].name;
+			this._activeTab = this.tabs[0];
 
 			$overlay.prepend( this._getTitleElement() );
 			$overlay.append( this._getFooterElement() );
