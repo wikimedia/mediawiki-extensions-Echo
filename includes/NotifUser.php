@@ -24,6 +24,12 @@ class MWEchoNotifUser {
 	private $userNotifGateway;
 
 	/**
+	 * Notification mapper
+	 * @var EchoNotificationMapper
+	 */
+	private $notifMapper;
+
+	/**
 	 * Whether to check cache for section status
 	 */
 	static $sectionStatusCheckCache = array (
@@ -32,15 +38,23 @@ class MWEchoNotifUser {
 	);
 
 	/**
-	 * Constructor for initialization
+	 * Usually client code doesn't need to initialize the object directly
+	 * because it could be obtained from factory method newFromUser()
 	 * @param User
 	 * @param BagOStuff
 	 * @param EchoUserNotificationGateway
+	 * @param EchoNotificationMapper
 	 */
-	private function __construct( User $user, BagOStuff $cache, EchoUserNotificationGateway $userNotifGateway  ) {
+	public function __construct(
+		User $user,
+		BagOStuff $cache,
+		EchoUserNotificationGateway $userNotifGateway,
+		EchoNotificationMapper $notifMapper
+	) {
 		$this->mUser = $user;
 		$this->userNotifGateway = $userNotifGateway;
 		$this->cache = $cache;
+		$this->notifMapper = $notifMapper;
 	}
 
 	/**
@@ -56,7 +70,8 @@ class MWEchoNotifUser {
 		global $wgMemc;
 		return new MWEchoNotifUser(
 			$user, $wgMemc,
-			new EchoUserNotificationGateway( $user, MWEchoDbFactory::newFromDefault() )
+			new EchoUserNotificationGateway( $user, MWEchoDbFactory::newFromDefault() ),
+			new EchoNotificationMapper()
 		);
 	}
 
@@ -241,32 +256,63 @@ class MWEchoNotifUser {
 	/**
 	 * Mark one or more notifications read for a user.
 	 * @param $eventIds Array of event IDs to mark read
+	 * @return boolean
 	 */
 	public function markRead( $eventIds ) {
 		$eventIds = array_filter( (array)$eventIds, 'is_numeric' );
 		if ( !$eventIds || wfReadOnly() ) {
-			return;
-		}
-
-		$this->userNotifGateway->markRead( $eventIds );
-		$this->resetNotificationCount( DB_MASTER );
-	}
-
-	/**
-	 * Attempt to mark all notifications as read
-	 * @return boolean
-	 */
-	public function markAllRead() {
-		if ( wfReadOnly() || $this->notifCountHasReachedMax() ) {
 			return false;
 		}
 
-		// Only update all the unread notifications if it isn't a huge number.
-		// TODO: Implement batched jobs it's over the maximum.
-		$this->userNotifGateway->markAllRead();
-		$this->resetNotificationCount( DB_MASTER );
-		$this->flagCacheWithNoTalkNotification();
-		return true;
+		$res = $this->userNotifGateway->markRead( $eventIds );
+		if ( $res ) {
+			$this->resetNotificationCount( DB_MASTER );
+		}
+		return $res;
+	}
+
+	/**
+	 * Attempt to mark all or sections of notifications as read, this only
+	 * updates up to $wgEchoMaxUpdateCount records per request, see more
+	 * detail about this in Echo.php, the other reason is that mediawiki
+	 * database interface doesn't support updateJoin() that would update
+	 * across multiple tables, we would visit this later
+	 *
+	 * @param string[] $sections
+	 * @return boolean
+	 */
+	public function markAllRead( array $sections = array( EchoAttributeManager::ALL ) ) {
+		if ( wfReadOnly() ) {
+			return false;
+		}
+
+		global $wgEchoMaxUpdateCount;
+
+		// Mark all sections as read if this is the case
+		if ( in_array( EchoAttributeManager::ALL, $sections ) ) {
+			$sections = EchoAttributeManager::$sections;
+		}
+
+		$attributeManager = EchoAttributeManager::newFromGlobalVars();
+		$eventTypes = $attributeManager->getUserEnabledEventsbySections( $this->mUser, 'web', $sections );
+
+		$notifs = $this->notifMapper->fetchUnreadByUser( $this->mUser, $wgEchoMaxUpdateCount, $eventTypes );
+		$res = $this->markRead( array_map(
+			function( EchoNotification $notif ) {
+				// This should not happen at all, but just 0 in
+				// such case so to keep the code running
+				if ( $notif->getEvent() ) {
+					return $notif->getEvent()->getId();
+				} else {
+					return 0;
+				}
+			},
+			$notifs
+		) );
+		if ( $res && count( $notifs ) < $wgEchoMaxUpdateCount ) {
+			$this->flagCacheWithNoTalkNotification();
+		}
+		return $res;
 
 	}
 

@@ -35,6 +35,7 @@ class EchoUserNotificationGateway {
 	/**
 	 * Mark notifications as read
 	 * @param $eventIDs array
+	 * @return boolean
 	 */
 	public function markRead( array $eventIDs ) {
 		if ( !$eventIDs ) {
@@ -56,7 +57,9 @@ class EchoUserNotificationGateway {
 	}
 
 	/**
-	 * Mark all notification as read
+	 * Mark all notification as read, use MWEchoNotifUer::markAllRead() instead
+	 * @deprecated may need this when running in a job or revive this when we
+	 * have updateJoin()
 	 */
 	public function markAllRead() {
 		$dbw = $this->dbFactory->getEchoDb( DB_MASTER );

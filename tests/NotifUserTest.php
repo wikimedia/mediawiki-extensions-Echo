@@ -88,4 +88,107 @@ class MWEchoNotifUserTest extends MediaWikiTestCase {
 		$this->setMwGlobals( 'wgAllowHTMLEmail', $format );
 	}
 
+	public function testMarkRead() {
+		global $wgMemc;
+		$notifUser = new MWEchoNotifUser(
+			User::newFromId( 2 ),
+			$wgMemc,
+			$this->mockEchoUserNotificationGateway( array( 'markRead' => true ) ),
+			$this->mockEchoNotificationMapper()
+		);
+		$this->assertFalse( $notifUser->markRead( array() ) );
+		$this->assertTrue( $notifUser->markRead( array( 1 ) ) );
+
+		$notifUser = new MWEchoNotifUser(
+			User::newFromId( 2 ),
+			$wgMemc,
+			$this->mockEchoUserNotificationGateway( array( 'markRead' => false ) ),
+			$this->mockEchoNotificationMapper()
+		);
+		$this->assertFalse( $notifUser->markRead( array() ) );
+		$this->assertFalse( $notifUser->markRead( array( 1 ) ) );
+	}
+
+	public function testMarkAllRead() {
+		global $wgMemc;
+
+		// Successful mark as read & non empty fetch
+		$notifUser = new MWEchoNotifUser(
+			User::newFromId( 2 ),
+			$wgMemc,
+			$this->mockEchoUserNotificationGateway( array( 'markRead' => true ) ),
+			$this->mockEchoNotificationMapper( array( $this->mockEchoNotification() ) )
+		);
+		$this->assertTrue( $notifUser->markAllRead() );
+
+		// Unsuccessful mark as read & non empty fetch
+		$notifUser = new MWEchoNotifUser(
+			User::newFromId( 2 ),
+			$wgMemc,
+			$this->mockEchoUserNotificationGateway( array( 'markRead' => false ) ),
+			$this->mockEchoNotificationMapper( array( $this->mockEchoNotification() ) )
+		);
+		$this->assertFalse( $notifUser->markAllRead() );
+
+		// Successful mark as read & empty fetch
+		$notifUser = new MWEchoNotifUser(
+			User::newFromId( 2 ),
+			$wgMemc,
+			$this->mockEchoUserNotificationGateway( array( 'markRead' => true ) ),
+			$this->mockEchoNotificationMapper()
+		);
+		$this->assertFalse( $notifUser->markAllRead() );
+
+		// Unsuccessful mark as read & empty fetch
+		$notifUser = new MWEchoNotifUser(
+			User::newFromId( 2 ),
+			$wgMemc,
+			$this->mockEchoUserNotificationGateway( array( 'markRead' => false ) ),
+			$this->mockEchoNotificationMapper()
+		);
+		$this->assertFalse( $notifUser->markAllRead() );
+	}
+
+	public function mockEchoUserNotificationGateway( array $dbResult = array() ) {
+		$dbResult += array(
+			'markRead' => true
+		);
+		$gateway = $this->getMockBuilder( 'EchoUserNotificationGateway' )
+			->disableOriginalConstructor()
+			->getMock();
+		$gateway->expects( $this->any() )
+			->method( 'markRead' )
+			->will( $this->returnValue( $dbResult['markRead'] ) );
+		return $gateway;
+	}
+
+	public function mockEchoNotificationMapper( array $result = array() ) {
+		$mapper = $this->getMockBuilder( 'EchoNotificationMapper' )
+			->disableOriginalConstructor()
+			->getMock();
+		$mapper->expects( $this->any() )
+			->method( 'fetchUnreadByUser' )
+			->will( $this->returnValue( $result ) );
+		return $mapper;
+	}
+
+	protected function mockEchoNotification() {
+		$notification = $this->getMockBuilder( 'EchoNotification' )
+			->disableOriginalConstructor()
+			->getMock();
+		$notification->expects( $this->any() )
+			->method( 'getEvent' )
+			->will( $this->returnValue( $this->mockEchoEvent() ) );
+		return $notification;
+	}
+
+	protected function mockEchoEvent() {
+		$event = $this->getMockBuilder( 'EchoEvent' )
+			->disableOriginalConstructor()
+			->getMock();
+		$event->expects( $this->any() )
+			->method( 'getId' )
+			->will( $this->returnValue( 1 ) );
+		return $event;
+	}
 }
