@@ -25,7 +25,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 				foreach ( $params['sections'] as $section ) {
 					$result[$section] = $this->getSectionPropList(
 						$user, $section, $params['limit'],
-						$params[$section . 'continue'], $params['format']
+						$params[$section . 'continue'], $params['format'], $params[$section . 'unreadfirst']
 					);
 					$this->getResult()->setIndexedTagName( $result[$section]['list'], 'notification' );
 					// 'index' is built on top of 'list'
@@ -68,9 +68,10 @@ class ApiEchoNotifications extends ApiQueryBase {
 	 * @param int $limit
 	 * @param string $continue
 	 * @param string $format
+	 * @param boolean $unreadFirst
 	 * @return array
 	 */
-	protected function getSectionPropList( User $user, $section, $limit, $continue, $format ) {
+	protected function getSectionPropList( User $user, $section, $limit, $continue, $format, $unreadFirst = false ) {
 		$notifUser = MWEchoNotifUser::newFromUser( $user );
 		$attributeManager = EchoAttributeManager::newFromGlobalVars();
 		$sectionEvents = $attributeManager->getUserEnabledEventsbySections( $user, 'web', array( $section ) );
@@ -83,7 +84,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 			);
 		} else {
 			$result = $this->getPropList(
-				$user, $sectionEvents, $limit, $continue, $format
+				$user, $sectionEvents, $limit, $continue, $format, $unreadFirst
 			);
 			// If events exist for applicable section we should set the section status
 			// in cache to check whether a query should be triggered in later request.
@@ -100,28 +101,47 @@ class ApiEchoNotifications extends ApiQueryBase {
 	 * on the event types specified in the arguments and it could be event types
 	 * of a set of sections or a single section
 	 * @param User $user
-	 * @param string[] $eventTypesToLoad
+	 * @param string[] $eventTypes
 	 * @param int $limit
 	 * @param string $continue
 	 * @param string $format
+	 * @param boolean $unreadFirst
 	 * @return array
 	 */
-	protected function getPropList( User $user, array $eventTypesToLoad, $limit, $continue, $format ) {
+	protected function getPropList( User $user, array $eventTypes, $limit, $continue, $format, $unreadFirst = false ) {
 		$result = array(
 			'list' => array(),
 			'continue' => null
 		);
 
-		// Fetch the result for the event types above
 		$notifMapper = new EchoNotificationMapper();
-		$notifs = $notifMapper->fetchByUser( $user, $limit + 1, $continue, $eventTypesToLoad );
+
+		// Unread notifications + possbile 3 read notification depending on result number
+		// We don't care about next offset in this case
+		if ( $unreadFirst ) {
+			$notifs = $notifMapper->fetchUnreadByUser( $user, $limit, $eventTypes );
+			// If there are less unread notifications than we requested,
+			// then fill the result with some read notifications
+			$count = count( $notifs );
+			if ( $count < $limit ) {
+				// We could add another function for "notification_read_timestamp is not null"
+				// but it's probably not good to add negation condition to a query
+				$mixedNotifs = $notifMapper->fetchByUser( $user, $count + 3, null, $eventTypes );
+				foreach ( $mixedNotifs as $notif ) {
+					if ( !isset( $notifs[$notif->getEvent()->getId()] ) ) {
+						if ( $count >= $limit ) {
+							break;
+						}
+						$count++;
+						$notifs[$notif->getEvent()->getId()] = $notif;
+					}
+				}
+			}
+		} else {
+			$notifs = $notifMapper->fetchByUser( $user, $limit + 1, $continue, $eventTypes );
+		}
 		foreach ( $notifs as $notif ) {
 			$result['list'][$notif->getEvent()->getID()] = EchoDataOutputFormatter::formatOutput( $notif, $format, $user );
-		}
-
-		if ( count( $result['list'] ) > $limit ) {
-			$lastItem = array_pop( $result['list'] );
-			$result['continue'] = $lastItem['timestamp']['utcunix'] . '|' . $lastItem['id'];
 		}
 
 		return $result;
@@ -185,7 +205,10 @@ class ApiEchoNotifications extends ApiQueryBase {
 				ApiBase::PARAM_TYPE => $sections,
 				ApiBase::PARAM_ISMULTI => true,
 			),
-			'groupbysection' => false,
+			'groupbysection' => array(
+				ApiBase::PARAM_TYPE => 'boolean',
+				ApiBase::PARAM_DFLT => false,
+			),
 			'format' => array(
 				ApiBase::PARAM_TYPE => array(
 					'text',
@@ -206,6 +229,10 @@ class ApiEchoNotifications extends ApiQueryBase {
 		);
 		foreach ( $sections as $section ) {
 			$params[$section . 'continue'] = null;
+			$params[$section . 'unreadfirst'] = array(
+				ApiBase::PARAM_TYPE => 'boolean',
+				ApiBase::PARAM_DFLT => false,
+			);
 		}
 		return $params;
 	}
@@ -221,7 +248,9 @@ class ApiEchoNotifications extends ApiQueryBase {
 			'continue' => 'When more results are available, use this to continue, this is used only when groupbysection is not set.',
 			'alertcontinue' => 'When more alert results are available, use this to continue.',
 			'messagecontinue' => 'When more message results are available, use this to continue.',
-			'uselang' => 'the desired language to format the output'
+			'uselang' => 'the desired language to format the output',
+			'alertunreadfirst' => 'Whether to show unread message notifications first',
+			'messageunreadfirst' => 'Whether to show unread alert notifications first'
 		);
 	}
 
