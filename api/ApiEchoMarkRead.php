@@ -20,8 +20,12 @@ class ApiEchoMarkRead extends ApiBase {
 			if ( count( $params['list'] ) ) {
 				// Make sure there is a limit to the update
 				$notifUser->markRead( array_slice( $params['list'], 0, ApiBase::LIMIT_SML2 ) );
+				// Mark all as read
 			} elseif ( $params['all'] ) {
 				$notifUser->markAllRead();
+				// Mark all as read for sections
+			} elseif ( $params['sections'] ) {
+				$notifUser->markAllRead( $params['sections'] );
 			}
 		}
 
@@ -54,6 +58,10 @@ class ApiEchoMarkRead extends ApiBase {
 				ApiBase::PARAM_REQUIRED => false,
 				ApiBase::PARAM_TYPE => 'boolean'
 			),
+			'sections' => array(
+				ApiBase::PARAM_TYPE => EchoAttributeManager::$sections,
+				ApiBase::PARAM_ISMULTI => true,
+			),
 			'token' => array(
 				ApiBase::PARAM_REQUIRED => true,
 			),
@@ -65,6 +73,7 @@ class ApiEchoMarkRead extends ApiBase {
 		return array(
 			'list' => 'A list of notification IDs to mark as read',
 			'all' => "If set to true, marks all of a user's notifications as read",
+			'sections' => 'A list of sections to mark as read',
 			'token' => 'edit token',
 			'uselang' => 'the desired language to format the output'
 		);

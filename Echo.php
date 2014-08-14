@@ -220,6 +220,12 @@ $wgEchoCluster = false;
 // The max number showed in bundled message, eg, <user> and 99+ others <action>
 $wgEchoMaxNotificationCount = 99;
 
+// The max number allowed to be updated on a web request, when we mark all notification
+// as read, it's a bad idea to update on a web request if the number is incredibly
+// huge, to prevent this, we just fetch 2000 thousand records and mark them as read.
+// This would cover most of the use cases.
+$wgEchoMaxUpdateCount = 2000;
+
 // The time interval between each bundle email in seconds
 // set a small number for test wikis, should set this to 0 to disable email bundling
 // if there is no delay queue support
