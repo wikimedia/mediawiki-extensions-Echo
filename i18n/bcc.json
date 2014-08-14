@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Baloch Afghanistan"
+		]
+	},
+	"echo-notification-alert": "{{جمع:$1|هشداران ($1)|هشداران ($1)|100=هشداران (99+)}}",
+	"echo-notification-message": "{{جمع:$1|پیامان ($1)|پیامان ($1)|100=پیامان (99+)}}"
+}
