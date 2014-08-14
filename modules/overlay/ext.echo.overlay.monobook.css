@@ -16,9 +16,3 @@
 #p-personal .mw-echo-overlay li.mw-echo-notification {
 	color: #6D6D6D;
 }
-#p-personal #mw-echo-overlay-moreinfo-link {
-	/* @embed */
-	background-image: url(Help.png);
-	background-repeat: no-repeat;
-	background-position: 0 0;
-}
