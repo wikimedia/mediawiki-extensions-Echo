@@ -150,7 +150,7 @@
 		assert.strictEqual( $overlay.find( '.mw-echo-notifications' ).length, 1, 'Overlay contains a list of notifications.' );
 		assert.strictEqual( $overlay.find( '.mw-echo-notifications li' ).length, 2, 'There are two notifications.' );
 		assert.strictEqual( $overlay.find( '.mw-echo-unread' ).length, 1, 'There is one unread notification.' );
-		assert.strictEqual( $overlay.find( '#mw-echo-overlay-footer a' ).length, 2,
+		assert.strictEqual( $overlay.find( '.mw-echo-overlay-footer a' ).length, 2,
 			'There is a footer with 2 links to preferences and all notifications.' );
 		assert.strictEqual( this.$badge.text(),
 			'0', 'The alerts are marked as read once opened.' );
