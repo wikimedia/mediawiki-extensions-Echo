@@ -1,11 +1,5 @@
 @import '../mixins.less';
 
-.mw-echo-title {
-	a {
-		font-weight: bold;
-	}
-}
-
 @offset: 200px;
 @chevronHeight: 11px;
 .mw-echo-overlay {
@@ -34,23 +28,7 @@
 		// subtract half the width from the offset and then add the left box shadow
 		left: @offset - 10px + 3px;
 	}
-}
 
-.mw-echo-title {
-	// Helper class to be used to force single-line text in overlay
-	.plainlinks {
-		.truncated-text();
-		max-width: 100%;
-		display: inline-block;
-		vertical-align: top;
-	}
-
-	a {
-		font-weight: bold;
-	}
-}
-
-.mw-echo-overlay {
 	button {
 		top: 15px;
 		right: 15px;
@@ -120,6 +98,26 @@
 		}
 	}
 }
+
+.mw-echo-title {
+	a {
+		font-weight: bold;
+	}
+
+	// Helper class to be used to force single-line text in overlay
+	.plainlinks {
+		.truncated-text();
+		max-width: 100%;
+		display: inline-block;
+		vertical-align: top;
+	}
+
+	a {
+		font-weight: bold;
+	}
+}
+
+
 
 .mw-echo-notification-primary-link {
 	display: none;
