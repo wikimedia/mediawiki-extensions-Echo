@@ -1,4 +1,4 @@
-@chrome @en.wikipedia.beta.wmflabs.org @firefox
+@chrome  @firefox @en.m.wikipedia.beta.wmflabs.org
 Feature: Flyout
 
   Background:
