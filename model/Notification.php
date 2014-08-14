@@ -1,6 +1,6 @@
 <?php
 
-class EchoNotification {
+class EchoNotification extends EchoAbstractEntity {
 
 	/**
 	 * @var User
@@ -92,7 +92,7 @@ class EchoNotification {
 	protected function insert() {
 		global $wgEchoNotifications;
 
-		$notifMapper = new EchoNotificationMapper( MWEchoDbFactory::newFromDefault() );
+		$notifMapper = new EchoNotificationMapper();
 
 		// Get the bundle key for this event if web bundling is enabled
 		$bundleKey = '';

@@ -61,7 +61,7 @@
 					// If id is given mark that as read otherwise use all unread messages
 					data.list = id;
 				} else {
-					data.all = 1;
+					data.sections = this.name;
 				}
 
 				return this.api.post( mw.echo.desktop.appendUseLang( data ) ).then( function ( result ) {

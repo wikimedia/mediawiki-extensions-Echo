@@ -4,7 +4,8 @@
  * Immutable class to represent an event.
  * In Echo nomenclature, an event is a single occurrence.
  */
-class EchoEvent {
+class EchoEvent extends EchoAbstractEntity{
+
 	protected $type = null;
 	protected $id = null;
 	protected $variant = null;
@@ -194,7 +195,7 @@ class EchoEvent {
 	 * Inserts the object into the database.
 	 */
 	protected function insert() {
-		$eventMapper = new EchoEventMapper( MWEchoDbFactory::newFromDefault() );
+		$eventMapper = new EchoEventMapper();
 		$this->id = $eventMapper->insert( $this );
 	}
 
@@ -242,7 +243,7 @@ class EchoEvent {
 	 * @param $fromMaster bool
 	 */
 	public function loadFromID( $id, $fromMaster = false ) {
-		$eventMapper = new EchoEventMapper( MWEchoDbFactory::newFromDefault() );
+		$eventMapper = new EchoEventMapper();
 		$event = $eventMapper->fetchById( $id, $fromMaster );
 
 		// Copy over the attribute
