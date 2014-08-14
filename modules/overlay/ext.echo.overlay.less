@@ -2,6 +2,7 @@
 
 @offset: 200px;
 @chevronHeight: 11px;
+@headerFontSize: .8em;
 .mw-echo-overlay {
 	position: absolute;
 	top: 30px + @chevronHeight;
@@ -33,6 +34,7 @@
 		top: 15px;
 		right: 15px;
 		position: absolute;
+		padding: 0;
 	}
 
 	.mw-ui-progressive {
@@ -48,6 +50,14 @@
 		overflow: auto;
 		padding: 0;
 		margin: 0;
+	}
+
+	.mw-echo-notifications {
+		button {
+			// Add 1px border to 15px line height so lines up with tabs
+			line-height: 16px;
+			font-size: @headerFontSize;
+		}
 	}
 
 	li.mw-echo-notification {
@@ -85,7 +95,6 @@
 			}
 
 			button {
-				padding: 0;
 				background: none;
 				border: none;
 			}
@@ -124,15 +133,10 @@
 }
 
 .mw-echo-overlay-title {
-	font-size: 13px;
+	font-size: @headerFontSize;
 	line-height: 15px;
 	padding: 15px 15px 15px 28px;
 	border-bottom: 1px solid #DDDDDD;
-
-	button {
-		line-height: 15px;
-		font: inherit;
-	}
 
 	li {
 		display: inline;
