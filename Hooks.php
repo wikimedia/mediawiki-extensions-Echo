@@ -110,6 +110,7 @@ class EchoHooks {
 		$baseSQLFile = "$dir/echo.sql";
 		$updater->addExtensionTable( 'echo_event', $baseSQLFile );
 		$updater->addExtensionTable( 'echo_email_batch', "$dir/db_patches/echo_email_batch.sql" );
+		$updater->addExtensionTable( 'echo_target_page', "$dir/db_patches/echo_target_page.sql" );
 
 		if ( $updater->getDB()->getType() === 'sqlite' ) {
 			$updater->modifyExtensionField( 'echo_event', 'event_agent', "$dir/db_patches/patch-event_agent-split.sqlite.sql" );
