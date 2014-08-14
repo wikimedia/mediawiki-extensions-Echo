@@ -234,10 +234,6 @@ class ApiEchoNotifications extends ApiQueryBase {
 	}
 
 	public function getHelpUrls() {
-		return 'https://www.mediawiki.org/wiki/Echo_(notifications)/API';
-	}
-
-	public function getVersion() {
-		return __CLASS__ . '-0.1';
+		return 'https://www.mediawiki.org/wiki/Echo_(Notifications)/API';
 	}
 }
