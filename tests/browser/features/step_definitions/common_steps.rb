@@ -2,6 +2,10 @@ def get_session_username
   return "#{ENV["MEDIAWIKI_USER"]}_#{@browser.name}"
 end
 
+def get_session_username_b()
+  return "EchoUser"
+end
+
 # For use in Firefox browser tests only
 Given /^I am using user agent "(.+)"$/ do |user_agent|
   @user_agent = user_agent
