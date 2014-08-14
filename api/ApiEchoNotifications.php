@@ -51,7 +51,10 @@ class ApiEchoNotifications extends ApiQueryBase {
 		}
 
 		if ( in_array( 'count', $prop ) ) {
-			$result += $this->getPropcount( $user, $params['sections'], $params['groupbysection'] );
+			$result = array_merge_recursive(
+				$result,
+				$this->getPropcount( $user, $params['sections'], $params['groupbysection'] )
+			);
 		}
 
 		$this->getResult()->setIndexedTagName( $result, 'notification' );
@@ -110,7 +113,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 		);
 
 		// Fetch the result for the event types above
-		$notifMapper = new EchoNotificationMapper( MWEchoDbFactory::newFromDefault() );
+		$notifMapper = new EchoNotificationMapper();
 		$notifs = $notifMapper->fetchByUser( $user, $limit + 1, $continue, $eventTypesToLoad );
 		foreach ( $notifs as $notif ) {
 			$result['list'][$notif->getEvent()->getID()] = EchoDataOutputFormatter::formatOutput( $notif, $format, $user );

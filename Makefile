@@ -41,7 +41,7 @@ nodecheck:
 
 # Verify all javascript in the project has valid syntax and follows jshint rules
 jshint: nodecheck
-	@node_modules/.bin/jshint modules/* --config .jshintrc
+	@node_modules/.bin/jshint modules/* tests/qunit --config .jshintrc
 
 # Verify all less files are compilable
 checkless:

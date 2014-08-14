@@ -1,3 +1,7 @@
+def get_session_username
+  return "#{ENV["MEDIAWIKI_USER"]}_#{@browser.name}"
+end
+
 # For use in Firefox browser tests only
 Given /^I am using user agent "(.+)"$/ do |user_agent|
   @user_agent = user_agent
@@ -18,9 +22,24 @@ Given(/^I am on the "(.+)" page$/) do |title|
   visit(ArticlePage, :using_params => {:article_name => title})
 end
 
+Given(/^the user "(.*?)" exists$/) do |username|
+  on(APIPage).client.log_in(ENV["MEDIAWIKI_USER"], ENV["MEDIAWIKI_PASSWORD"])
+  begin
+    on(APIPage).client.create_account(username, ENV["MEDIAWIKI_PASSWORD"])
+  rescue MediawikiApi::ApiError
+    puts 'Assuming user ' + username + ' already exists since was unable to create.'
+  end
+end
+
 Given(/^I am logged in as the user "(.*?)"$/) do |username|
-  on(APIPage).client.create_account(@username, ENV["MEDIAWIKI_PASSWORD"])
-  visit(LoginPage).login_with(@username, ENV["MEDIAWIKI_PASSWORD"])
+  step 'the user "' + username +'" exists'
+  visit(LoginPage).login_with(username, ENV["MEDIAWIKI_PASSWORD"])
+end
+
+# Note Echo redefines this so that the user is unique to the current browser
+Given(/^I am logged in my non-shared account$/) do
+  username = get_session_username()
+  step 'I am logged in as the user "' + username + '"'
 end
 
 Given(/^I am logged in as a new user$/) do
