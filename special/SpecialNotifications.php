@@ -40,7 +40,7 @@ class SpecialNotifications extends SpecialPage {
 
 		// Pull the notifications
 		$notif = array();
-		$notificationMapper = new EchoNotificationMapper( MWEchoDbFactory::newFromDefault() );
+		$notificationMapper = new EchoNotificationMapper();
 
 		$attributeManager = EchoAttributeManager::newFromGlobalVars();
 		$notifications = $notificationMapper->fetchByUser(
