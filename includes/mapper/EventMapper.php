@@ -4,7 +4,20 @@
  * Database mapper for EchoEvent model, which is an immutable class, there should
  * not be any update to it
  */
-class EchoEventMapper extends EchoAbstractMapper {
+class EchoEventMapper {
+
+	/**
+	 * Echo database factory
+	 * @param MWEchoDbFactory
+	 */
+	protected $dbFactory;
+
+	/**
+	 * @param MWEchoDbFactory
+	 */
+	public function __construct( MWEchoDbFactory $dbFactory ) {
+		$this->dbFactory = $dbFactory;
+	}
 
 	/**
 	 * Insert an event record

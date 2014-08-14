@@ -768,22 +768,8 @@ class EchoHooks {
 	 * @return bool true in all cases
 	 */
 	static function getUnitTests( &$files ) {
-		// @codeCoverageIgnoreStart
-		$directoryIterator = new RecursiveDirectoryIterator( __DIR__ . '/tests/' );
-
-		/**
-		 * @var SplFileInfo $fileInfo
-		 */
-		$ourFiles = array();
-		foreach ( new RecursiveIteratorIterator( $directoryIterator ) as $fileInfo ) {
-			if ( substr( $fileInfo->getFilename(), -8 ) === 'Test.php' ) {
-				$ourFiles[] = $fileInfo->getPathname();
-			}
-		}
-
-		$files = array_merge( $files, $ourFiles );
+		$files = array_merge( $files, glob( __DIR__ . '/tests/*Test.php' ) );
 		return true;
-		// @codeCoverageIgnoreEnd
 	}
 
 	/**

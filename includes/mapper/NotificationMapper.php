@@ -3,7 +3,20 @@
 /**
  * Database mapper for EchoNotification model
  */
-class EchoNotificationMapper extends EchoAbstractMapper {
+class EchoNotificationMapper {
+
+	/**
+	 * Echo database factory
+	 * @param MWEchoDbFactory
+	 */
+	protected $dbFactory;
+
+	/**
+	 * @param MWEchoDbFactory
+	 */
+	public function __construct( MWEchoDbFactory $dbFactory ) {
+		$this->dbFactory = $dbFactory;
+	}
 
 	/**
 	 * Insert a notification record
@@ -72,49 +85,6 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	}
 
 	/**
-	 * Get unread notifications by user in the amount specified by limit. Based on existing
-	 * requirements, we just need x amount ( 100 ) unread notifications to show on the
-	 * overlay, so we don't need offset and ordering, we have an index to retrieve unread
-	 * notifications but it's not optimized for ordering
-	 * @param User $user
-	 * @param int $limit
-	 * @param string[] $eventTypes
-	 * @return EchoNotification[]
-	 */
-	public function fetchUnreadByUser( User $user, $limit, array $eventTypes = array() ) {
-		$data = array();
-
-		if ( !$eventTypes ) {
-			return $data;
-		}
-
-		$dbr = $this->dbFactory->getEchoDb( DB_SLAVE );
-		$res = $dbr->select(
-			array( 'echo_notification', 'echo_event' ),
-			'*',
-			array(
-				'notification_user' => $user->getID(),
-				'event_type' => $eventTypes,
-				'notification_bundle_base' => 1,
-				'notification_read_timestamp' => NULL
-			),
-			__METHOD__,
-			array(
-				'LIMIT' => $limit,
-			),
-			array(
-				'echo_event' => array( 'LEFT JOIN', 'notification_event=event_id' ),
-			)
-		);
-		if ( $res ) {
-			foreach ( $res as $row ) {
-				$data[] = EchoNotification::newFromRow( $row );
-			}
-		}
-		return $data;
-	}
-
-	/**
 	 * Get Notification by user in batch along with limit, offset etc
 	 * @param User the user to get notifications for
 	 * @param int The maximum number of notifications to return
@@ -122,10 +92,10 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	 * @param array Event types to load
 	 * @return EchoNotification[]
 	 */
-	public function fetchByUser( User $user, $limit, $continue, array $eventTypes = array() ) {
+	public function fetchByUser( User $user, $limit, $continue, array $eventTypesToLoad = array() ) {
 		$dbr = $this->dbFactory->getEchoDb( DB_SLAVE );
 
-		if ( !$eventTypes ) {
+		if ( !$eventTypesToLoad ) {
 			return array();
 		}
 
@@ -139,7 +109,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 		// Look for notifications with base = 1
 		$conds = array(
 			'notification_user' => $user->getID(),
-			'event_type' => $eventTypes,
+			'event_type' => $eventTypesToLoad,
 			'notification_bundle_base' => 1
 		);
 

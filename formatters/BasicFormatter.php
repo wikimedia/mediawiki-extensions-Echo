@@ -558,7 +558,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			return false;
 		}
 
-		$eventMapper = new EchoEventMapper();
+		$eventMapper = new EchoEventMapper( MWEchoDbFactory::newFromDefault() );
 		$events = $eventMapper->fetchByUserBundleHash(
 			$user, $event->getBundleHash(), $this->distributionType, 'DESC', self::$maxRawBundleData
 		);
@@ -811,7 +811,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 				$data = $this->bundleData['last-raw-data'];
 			// Then try to query the storage
 			} else {
-				$eventMapper = new EchoEventMapper();
+				$eventMapper = new EchoEventMapper( MWEchoDbFactory::newFromDefault() );
 				$data = $eventMapper->fetchByUserBundleHash(
 					$user, $event->getBundleHash(), $this->distributionType, 'ASC', 1
 				);
