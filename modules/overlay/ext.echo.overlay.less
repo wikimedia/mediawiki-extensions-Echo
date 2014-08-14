@@ -1,3 +1,5 @@
+@import '../mixins.less';
+
 .mw-echo-title {
 	a {
 		font-weight: bold;
@@ -35,14 +37,12 @@
 }
 
 .mw-echo-title {
-	// Automatically makes any text too long in a single line capped by ellipsis
-	// @todo .truncated-text() doesn't really apply here because we don't want white-space changed
-	overflow-x: hidden;
-	text-overflow: ellipsis;
-
 	// Helper class to be used to force single-line text in overlay
-	.mw-echo-title-heading {
-		white-space: nowrap;
+	.plainlinks {
+		.truncated-text();
+		max-width: 100%;
+		display: inline-block;
+		vertical-align: top;
 	}
 
 	a {
