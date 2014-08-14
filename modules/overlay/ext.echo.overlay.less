@@ -162,41 +162,27 @@
 	width: 100%;
 
 	a {
+		border-left: 1px solid #DDDDDD;
 		float: none;
 		display: table-cell;
+		min-height: 14px;
+		font-size: 13px;
+		white-space: normal;
+		font-weight: bold;
+		padding: 15px 15px 15px 45px;
+
+		&:hover {
+			text-decoration: none;
+		}
 	}
 }
 
-#mw-echo-overlay-link {
-	display: block;
-	clear: left;
-	float: left;
-	padding: 15px 15px 15px 45px;
-	min-height: 14px;
-	font-size: 13px;
-	font-weight: bold;
+.mw-echo-icon-all {
 	/* @embed */
 	background: url(../icons/NotificationsPage-ltr.png) no-repeat 20px 15px !important;
-	white-space: normal;
-
-	&:hover {
-		text-decoration: none;
-	}
 }
 
-#mw-echo-overlay-pref-link {
-	display: block;
-	float: left;
-	min-height: 14px;
-	font-size: 13px;
-	font-weight: bold;
-	padding: 15px 15px 15px 45px;
-	border-left: 1px solid #DDDDDD;
+.mw-echo-icon-cog {
 	/* @embed */
 	background: url(../icons/Settings.png) no-repeat 20px 15px !important;
-	white-space: normal;
-
-	&:hover {
-		text-decoration: none;
-	}
 }
