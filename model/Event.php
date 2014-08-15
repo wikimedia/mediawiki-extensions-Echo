@@ -136,6 +136,7 @@ class EchoEvent extends EchoAbstractEntity{
 			return false;
 		}
 
+		//@Todo - Database insert logic should not be inside the model
 		$obj->insert();
 
 		wfRunHooks( 'EchoEventInsertComplete', array( $obj ) );

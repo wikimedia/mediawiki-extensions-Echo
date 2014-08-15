@@ -81,6 +81,7 @@ class EchoNotification extends EchoAbstractEntity {
 			$obj->timestamp = wfTimestampNow();
 		}
 
+		//@Todo - Database insert logic should not be inside the model
 		$obj->insert();
 
 		return $obj;
@@ -99,6 +100,11 @@ class EchoNotification extends EchoAbstractEntity {
 		if ( !empty( $wgEchoNotifications[$this->event->getType()]['bundle']['web'] ) ) {
 			wfRunHooks( 'EchoGetBundleRules', array( $this->event, &$bundleKey ) );
 		}
+
+		// The list of event ids to be removed from echo_target_page,
+		// this is mainly for bundled notifications when an event is
+		// no longer the bundle base
+		$eventIds = array();
 		if ( $bundleKey ) {
 			$hash = md5( $bundleKey );
 			$this->bundleHash = $hash;
@@ -109,9 +115,33 @@ class EchoNotification extends EchoAbstractEntity {
 			// 2. last bundle notification with the same hash was read
 			if ( $lastNotif && !$lastNotif->getReadTimestamp() ) {
 				$this->bundleDisplayHash = $lastNotif->getBundleDisplayHash();
+				$lastEvent = $lastNotif->getEvent();
+				if ( $lastEvent ) {
+					$eventIds[] = $lastEvent->getId();
+				}
 			} else {
 				$this->bundleDisplayHash = md5( $bundleKey . '-display-hash-' . wfTimestampNow() );
 			}
+		}
+
+		// Create a target page object if specified by event
+		$event = $this->event;
+		$user = $this->user;
+		if ( $event->getExtraParam( 'target-page' ) ) {
+			$notifMapper->attachListener( 'insert', 'add-target-page', function() use ( $event, $user, $eventIds ) {
+				// Make sure the target-page id is a valid id
+				$title = Title::newFromID( $event->getExtraParam( 'target-page' ) );
+				if ( $title ) {
+					$targetMapper = new EchoTargetPageMapper();
+					if ( $eventIds ) {
+						$targetMapper->deleteByUserEvents( $user, $eventIds );
+					}
+					$targetPage = EchoTargetPage::create( $user, $title, $event );
+					if ( $targetPage ) {
+						$targetMapper->insert( $targetPage );
+					}
+				}
+			} );
 		}
 
 		$notifMapper->insert( $this );
