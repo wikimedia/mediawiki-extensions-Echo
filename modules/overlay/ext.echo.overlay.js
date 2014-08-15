@@ -297,6 +297,9 @@
 			$.each( this.tabs, function( i, echoTab ) {
 				var
 					tabName = echoTab.name,
+					// Messages that can be used here:
+					// * echo-notification-alert
+					// * echo-notification-message
 					// @todo: Unread value is inaccurate. If a user has more than mw.echo.overlay.notificationLimit
 					// API change needed
 					label = mw.msg( 'echo-notification-' + tabName, echoTab.getNumberUnread() );
