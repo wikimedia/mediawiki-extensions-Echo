@@ -95,6 +95,8 @@
 	"echo-email-batch-body-default": "Aveți o notificare nouă.",
 	"echo-email-footer-default": "$2\n\nPentru a avea controlul asupra tipurilor de e-mailuri pe care vi le trimitem, verificați-vă preferințele:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
 	"echo-email-footer-default-html": "Pentru a controla e-mailurile pe care vi le trimitem, <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">verificați-vă preferințele</a>.<br />\n$1",
+	"echo-notification-alert": "{{PLURAL:$1|Alerte ($1)|Alerte ($1)|100=Alerte (99+)}}",
+	"echo-notification-message": "{{PLURAL:$1|Mesaje ($1)|Mesaje ($1)|100=Mesaje (99+)}}",
 	"echo-overlay-link": "Toate notificările",
 	"echo-overlay-title": "<b>Notificări</b>",
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Notificări}}</b> (se afișează $1 din $2 necitite)",

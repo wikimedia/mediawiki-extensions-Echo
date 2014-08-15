@@ -93,6 +93,8 @@
 	"echo-email-batch-body-default": "Имате ново известување",
 	"echo-email-footer-default": "$2\n\nАко сакате да изберете какви пораки да добивате, појдете на страницата:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}} $1\n\n$1",
 	"echo-email-footer-default-html": "За да изберете какви писма да примате од нас, <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">појдете во вашите нагодувања</a><br />\n$1",
+	"echo-notification-alert": "{{PLURAL:$1|Едно известување|$1 известувања|100=99+ известувања}}",
+	"echo-notification-message": "{{PLURAL:$1|Една порака|$1 пораки|100=99+ пораки}}",
 	"echo-overlay-link": "Сите известувања",
 	"echo-overlay-title": "<b>Известувања</b>",
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Известувања}}</b> ({{PLURAL:$1|прикажано|прикажани}} $1 од $2 непрочитани)",
