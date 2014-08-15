@@ -13,6 +13,12 @@ class EchoNotification extends EchoAbstractEntity {
 	protected $event;
 
 	/**
+	 * The target page object for the notification if there is one
+	 * @var EchoTargetPage|null
+	 */
+	protected $targetPage;
+
+	/**
 	 * @var string
 	 */
 	protected $timestamp;
@@ -174,6 +180,10 @@ class EchoNotification extends EchoAbstractEntity {
 		} else {
 			$notification->event = EchoEvent::newFromID( $row->notification_event );
 		}
+
+		if ( property_exists( $row, 'etp_event' ) && $row->etp_event ) {
+			$notification->targetPage = EchoTargetPage::newFromRow( $row );
+		}
 		$notification->user = User::newFromId( $row->notification_user );
 		$notification->timestamp = $row->notification_timestamp;
 		$notification->readTimestamp = $row->notification_read_timestamp;
@@ -253,5 +263,13 @@ class EchoNotification extends EchoAbstractEntity {
 	 */
 	public function getBundleDisplayHash() {
 		return $this->bundleDisplayHash;
+	}
+
+	/**
+	 * Getter method
+	 * @return EchoTargetPage|null
+	 */
+	public function getTargetPage() {
+		return $this->targetPage;
 	}
 }

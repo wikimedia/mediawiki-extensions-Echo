@@ -83,6 +83,15 @@ class EchoDataOutputFormatter {
 			$output['read'] = $notification->getReadTimestamp();
 		}
 
+		// This is only meant for unread notifications, if a notification has a target
+		// page, then it shouldn't be auto marked as read unless the user visits
+		// the target page or a user marks it as read manully ( coming soon )
+		if ( $notification->getTargetPage() ) {
+			$output['targetpage'] = $notification->getTargetPage()->getPageId();
+		} else {
+			$output['targetpage'] = '';
+		}
+
 		if ( $format ) {
 			$output['*'] = EchoNotificationController::formatNotification( $event, $user, $format );
 		}

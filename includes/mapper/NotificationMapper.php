@@ -153,7 +153,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 		}
 
 		$res = $dbr->select(
-			array( 'echo_notification', 'echo_event' ),
+			array( 'echo_notification', 'echo_event', 'echo_target_page' ),
 			'*',
 			$conds,
 			__METHOD__,
@@ -163,6 +163,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 			),
 			array(
 				'echo_event' => array( 'LEFT JOIN', 'notification_event=event_id' ),
+				'echo_target_page' => array( 'LEFT JOIN', array( 'notification_event=etp_event', 'notification_user=etp_user' ) ),
 			)
 		);
 
