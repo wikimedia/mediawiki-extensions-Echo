@@ -464,7 +464,8 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	 * $props array
 	 */
 	protected function setTitleLink( $event, $message, $props = array() ) {
-		if ( !$event->getTitle() ) {
+		$title = $event->getTitle();
+		if ( !$title ) {
 			$message->params( $this->getMessage( 'echo-no-title' )->text() );
 			return;
 		}
@@ -473,7 +474,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			$props['fragment'] = $this->formatSubjectAnchor( $event );
 		}
 
-		$link = $this->buildLinkParam( $event->getTitle(), $props );
+		$link = $this->buildLinkParam( $title, $props );
 		$message->params( $link );
 	}
 
@@ -740,7 +741,8 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	 */
 	protected function getLinkParams( $event, $user, $destination ) {
 		$target = null;
-		$query = array();
+		$query  = array();
+		$title  = $event->getTitle();
 		// Set up link parameters based on the destination
 		switch ( $destination ) {
 			case 'agent':
@@ -749,10 +751,10 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 				}
 				break;
 			case 'title':
-				$target = $event->getTitle();
+				$target = $title;
 				break;
 			case 'section':
-				$target = $event->getTitle();
+				$target = $title;
 				if ( $target ) {
 					$fragment = $this->formatSubjectAnchor( $event );
 					if ( $fragment ) {
@@ -762,8 +764,8 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 				break;
 			case 'diff':
 				$eventData = $event->getExtra();
-				if ( isset( $eventData['revid'] ) && $event->getTitle() ) {
-					$target = $event->getTitle();
+				if ( isset( $eventData['revid'] ) && $title ) {
+					$target = $title;
 					// Explicitly set fragment to empty string for diff links, $title is
 					// passed around by reference, it may end up using fragment set from
 					// other parameters
@@ -886,7 +888,8 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 		} elseif ( $param === 'user' ) {
 			$message->params( $user->getName() );
 		} elseif ( $param === 'title' ) {
-			if ( !$event->getTitle() ) {
+			$title = $event->getTitle();
+			if ( !$title ) {
 				$message->params( $this->getMessage( 'echo-no-title' )->text() );
 			} else {
 				if ( $this->outputFormat === 'htmlemail' ) {
@@ -895,7 +898,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 					);
 					$this->setTitleLink( $event, $message, $props );
 				} else {
-					$message->params( $this->formatTitle( $event->getTitle() ) );
+					$message->params( $this->formatTitle( $title ) );
 				}
 			}
 		} elseif ( $param === 'titlelink' ) {

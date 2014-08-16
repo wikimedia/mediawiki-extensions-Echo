@@ -496,8 +496,9 @@ class EchoEvent extends EchoAbstractEntity{
 	 */
 	public function getLinkMessage( $rank ) {
 		global $wgEchoNotifications;
-		if ( isset( $wgEchoNotifications[$this->getType()][$rank.'-link']['message'] ) ) {
-			return $wgEchoNotifications[$this->getType()][$rank.'-link']['message'];
+		$type = $this->getType();
+		if ( isset( $wgEchoNotifications[$type][$rank.'-link']['message'] ) ) {
+			return $wgEchoNotifications[$type][$rank.'-link']['message'];
 		}
 		return '';
 	}
@@ -510,8 +511,9 @@ class EchoEvent extends EchoAbstractEntity{
 	 */
 	public function getLinkDestination( $rank ) {
 		global $wgEchoNotifications;
-		if ( isset( $wgEchoNotifications[$this->getType()][$rank.'-link']['destination'] ) ) {
-			return $wgEchoNotifications[$this->getType()][$rank.'-link']['destination'];
+		$type = $this->getType();
+		if ( isset( $wgEchoNotifications[$type][$rank.'-link']['destination'] ) ) {
+			return $wgEchoNotifications[$type][$rank.'-link']['destination'];
 		}
 		return '';
 	}
