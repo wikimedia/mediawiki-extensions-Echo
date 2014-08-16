@@ -245,6 +245,10 @@ class EchoEvent extends EchoAbstractEntity{
 			$titleCache = EchoTitleLocalCache::create();
 			$titleCache->add( $row->event_page_id );
 		}
+		if ( isset( $this->extra['revid'] ) && $this->extra['revid'] ) {
+			$revisionCache = EchoRevisionLocalCache::create();
+			$revisionCache->add( $this->extra['revid'] );
+		}
 	}
 
 	/**
@@ -428,6 +432,11 @@ class EchoEvent extends EchoAbstractEntity{
 		if ( $this->revision ) {
 			return $this->revision;
 		} elseif ( isset( $this->extra['revid'] ) ) {
+			$revisionCache = EchoRevisionLocalCache::create();
+			$revision = $revisionCache->get( $this->extra['revid'] );
+			if ( $revision ) {
+				return $this->revision = $revision;
+			}
 			return $this->revision = Revision::newFromId( $this->extra['revid'] );
 		}
 		return null;

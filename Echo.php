@@ -70,6 +70,7 @@ $wgAutoloadClasses['EchoUserNotificationGateway'] = $dir . 'includes/gateway/Use
 // Local caches
 $wgAutoloadClasses['EchoLocalCache'] = $dir . 'includes/cache/LocalCache.php';
 $wgAutoloadClasses['EchoTitleLocalCache'] = $dir . 'includes/cache/TitleLocalCache.php';
+$wgAutoloadClasses['EchoRevisionLocalCache'] = $dir . 'includes/cache/RevisionLocalCache.php';
 
 // Output formatters
 $wgAutoloadClasses['EchoDataOutputFormatter'] = $dir . 'includes/DataOutputFormatter.php';
