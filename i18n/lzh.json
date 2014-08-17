@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Yanteng3"
+			"Yanteng3",
+			"Jason924tw"
 		]
 	},
-	"echo-new-messages": "子有新訊息"
+	"echo-new-messages": "子有新訊息",
+	"notifications": "訊"
 }

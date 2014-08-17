@@ -101,6 +101,7 @@
 	"echo-email-batch-body-default": "Du har ett nytt meddelande.",
 	"echo-email-footer-default": "$2\n\nFör att hantera vilken e-post vi skickar dig, kontrollera dina inställningar:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
 	"echo-email-footer-default-html": "För att kontrollera vilka meddelanden vi e-postar till dig, <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">gå till dina inställningar</a><br />\n$1",
+	"echo-notification-message": "{{PLURAL:$1|Meddelande ($1)|Meddelanden ($1)|100=Meddelande (99+)}}",
 	"echo-overlay-link": "Alla meddelanden",
 	"echo-overlay-title": "<b>Meddelanden</b>",
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Meddelande|Meddelanden}}</b> (visar $1 av $2 {{PLURAL:$2|oläst|olästa}})",
