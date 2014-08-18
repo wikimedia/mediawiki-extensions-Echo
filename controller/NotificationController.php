@@ -92,15 +92,7 @@ class EchoNotificationController {
 
 			$users = self::getUsersToNotifyForEvent( $event );
 
-			$blacklisted = self::isBlacklisted( $event );
 			foreach ( $users as $user ) {
-				// Notification should not be sent to anonymous user
-				if ( $user->isAnon() ) {
-					continue;
-				}
-				if ( $blacklisted && !self::isWhitelistedByUser( $event, $user ) ) {
-	 				continue;
-				}
 
 				wfRunHooks( 'EchoGetNotificationTypes', array( $user, $event, &$notifyTypes ) );
 
@@ -200,47 +192,91 @@ class EchoNotificationController {
 	}
 
 	/**
-	 * Retrieves an array of User objects to be notified for an EchoEvent.
+	 * Returns an array each element of which is the result of a
+	 * user-locator attached to the event type.
 	 *
 	 * @param EchoEvent $event
-	 * @return User[]
+	 * @return array
 	 */
-	public static function getUsersToNotifyForEvent( EchoEvent $event ) {
-		$type = $event->getType();
-		// Key notifyList by user id to ensure there are no duplicated users
-		$notifyList = array();
+	public static function evaluateUserLocators( EchoEvent $event ) {
 		$attributeManager = EchoAttributeManager::newFromGlobalVars();
+		$type = $event->getType();
+		$result = array();
 		foreach ( $attributeManager->getUserLocators( $type ) as $callable ) {
 			// locator options can be set per-event by using an array with
-			// name as first parameter
+			// name as first parameter.
 			if ( is_array( $callable ) ) {
 				$options = $callable;
-				$callable = array_shift( $options );
+				$spliced = array_splice( $options, 0, 1, array( $event ) );
+				$callable = reset( $spliced );
 			} else {
-				$options = array();
+				$options = array( $event );
 			}
 			if ( is_callable( $callable ) ) {
-				$notifyList += call_user_func( $callable, $event, $options );
+				$result[] = call_user_func_array( $callable, $options );
 			} else {
 				wfDebugLog( __CLASS__, __FUNCTION__ . ": Invalid user-locator returned for $type" );
 			}
 		}
 
-		// hook for injecting more users.
+		return $result;
+	}
+
+	/**
+	 * Retrieves an array of User objects to be notified for an EchoEvent.
+	 *
+	 * @param EchoEvent $event
+	 * @return Iterator values are User objects
+	 */
+	public static function getUsersToNotifyForEvent( EchoEvent $event ) {
+		$notify = new EchoFilteredSequentialIterator;
+		foreach ( self::evaluateUserLocators( $event ) as $users ) {
+			$notify->add( $users );
+		}
+
+		// Hook for injecting more users.
 		// @deprecated
 		$users = array();
 		wfRunHooks( 'EchoGetDefaultNotifiedUsers', array( $event, &$users ) );
-		foreach ( $users as $user ) {
-			$notifyList[$user->getId()] = $user;
+		if ( $users ) {
+			$notify->add( $users );
 		}
 
-		// Don't notify the person who made the edit unless the event extra says to do so
+		// Filter non-User, anon and duplicate users
+		$seen = array();
+		$notify->addFilter( function( $user ) use( &$seen ) {
+			if ( !$user instanceof User ) {
+				wfDebugLog( __METHOD__, 'Expected all User instances, received:' .
+					( is_object( $user ) ? get_class( $user ) : gettype( $user ) )
+				);
+				return false;
+			}
+			if ( $user->isAnon() || isset( $seen[$user->getId()] ) ) {
+				return false;
+			}
+			$seen[$user->getId()] = true;
+			return true;
+		} );
+
+		// Don't notify the person who initiated the event unless the event extra says to do so
 		$extra = $event->getExtra();
 		if ( ( !isset( $extra['notifyAgent'] ) || !$extra['notifyAgent'] ) && $event->getAgent() ) {
-			unset( $notifyList[$event->getAgent()->getId()] );
+			$agentId = $event->getAgent()->getId();
+			$notify->addFilter( function( $user ) use( $agentId ) {
+				return $user->getId() != $agentId;
+			} );
 		}
 
-		return $notifyList;
+		// Apply per-wiki event blacklist and per-user whitelists
+		// of that blacklist.
+		if ( self::isBlacklisted( $event ) ) {
+			$notify->addFilter( function( $user ) use( $event ) {
+				// don't use self:: - PHP5.3 closures don't inherit class scope
+				return EchoNotificationController::isWhitelistedByUser( $event, $user );
+			} );
+		}
+
+		return $notify->getIterator();
 	}
 
 	/**
