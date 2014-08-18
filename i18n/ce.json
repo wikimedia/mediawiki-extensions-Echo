@@ -96,7 +96,7 @@
 	"echo-overlay-link": "Массо хаамаш",
 	"echo-overlay-title": "<b>Хаамаш</b>",
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Хаам}}</b> ({{PLURAL:$1|гайтина}} $1 царах $2 {{PLURAL:$2|беша бац}})",
-	"echo-mark-all-as-read": "Массо билгал йе еша сана",
+	"echo-mark-all-as-read": "Массо билгалъе еша сана",
 	"echo-date-today": "Тахана",
 	"echo-date-yesterday": "Селхана",
 	"echo-load-more-error": "Кхин тӀе хилам схьаоьцуш гӀалат хила",
