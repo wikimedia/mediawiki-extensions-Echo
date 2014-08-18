@@ -168,7 +168,10 @@ class EchoEvent extends EchoAbstractEntity{
 				$data['event_agent_id'] = $this->agent->getId();
 			}
 		}
-		if ( $this->title ) {
+
+		if ( $this->pageId ) {
+			$data['event_page_id'] = $this->pageId;
+		} elseif ( $this->title ) {
 			$pageId = $this->title->getArticleId();
 			// Don't need any special handling for title with no id
 			// as they are already stored in extra data array
@@ -228,9 +231,11 @@ class EchoEvent extends EchoAbstractEntity{
 			$this->agent = User::newFromName( $row->event_agent_ip, false );
 		}
 
-		if ( $row->event_page_id !== null ) {
-			$this->title = Title::newFromId( $row->event_page_id );
-		} elseif ( isset( $this->extra['page_title'], $this->extra['page_namespace'] ) ) {
+		// Lazy load the title from getTitle() so that we can do a batch-load
+		if (
+			isset( $this->extra['page_title'], $this->extra['page_namespace'] )
+			&& !$row->event_page_id
+		) {
 			$this->title = Title::makeTitleSafe(
 				$this->extra['page_namespace'],
 				$this->extra['page_title']
