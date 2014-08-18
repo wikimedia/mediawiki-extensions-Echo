@@ -223,8 +223,7 @@
 
 		_getFooterElement: function() {
 			var $prefLink = $( '#pt-preferences a' ),
-				$overlayFooter = $( '<div>' )
-					.attr( 'id', 'mw-echo-overlay-footer' );
+				$overlayFooter = $( '<div class="mw-echo-overlay-footer">' );
 
 			// add link to notifications archive
 			$overlayFooter.append(
