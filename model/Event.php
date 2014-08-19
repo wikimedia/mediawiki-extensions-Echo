@@ -241,6 +241,10 @@ class EchoEvent extends EchoAbstractEntity{
 				$this->extra['page_title']
 			);
 		}
+		if ( $row->event_page_id ) {
+			$titleCache = EchoTitleLocalCache::create();
+			$titleCache->add( $row->event_page_id );
+		}
 	}
 
 	/**
@@ -402,6 +406,11 @@ class EchoEvent extends EchoAbstractEntity{
 		if ( $this->title ) {
 			return $this->title;
 		} elseif ( $this->pageId ) {
+			$titleCache = EchoTitleLocalCache::create();
+			$title = $titleCache->get( $this->pageId );
+			if ( $title ) {
+				return $this->title = $title;
+			}
 			return $this->title = Title::newFromId( $this->pageId );
 		} elseif ( isset( $this->extra['page_title'], $this->extra['page_namespace'] ) ) {
 			return $this->title = Title::makeTitleSafe(
