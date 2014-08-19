@@ -29,6 +29,11 @@ class MWEchoDbFactory {
 
 	/**
 	 * Create a db factory instance from default Echo configuration
+	 * DO NOT use singleton in here because job queue may run
+	 * against multiple wikis, having a singleton would result in
+	 * wrong db configuration.  In addition, singleton is not necessary
+	 * because it's actually handled inside core database object
+	 *
 	 * @return MWEchoDbFactory
 	 */
 	public static function newFromDefault() {
@@ -63,7 +68,11 @@ class MWEchoDbFactory {
 	}
 
 	/**
-	 * Wrapper function for wfGetDB
+	 * Wrapper function for wfGetDB, some extensions like MobileFrontend is
+	 * using this to issue sql queries against Echo database directly.  This
+	 * is totally not accepted and should be updated to use Echo database access
+	 * objects
+	 *
 	 * @deprecated Use newFromDefault() instead to create a db factory
 	 * @param $db int Index of the connection to get
 	 * @param $groups mixed Query groups.
@@ -82,6 +91,13 @@ class MWEchoDbFactory {
 
 		return $lb->getConnection( $db, $groups, $wiki );
 
+	}
+
+	/**
+	 * Wait for the slaves of the database
+	 */
+	public function waitForSlaves() {
+		wfWaitForSlaves( false, $this->wiki, $this->cluster );
 	}
 
 }
