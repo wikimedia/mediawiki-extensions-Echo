@@ -223,46 +223,29 @@
 
 		_getFooterElement: function() {
 			var $prefLink = $( '#pt-preferences a' ),
+				links = [
+					{ url: getUrl( 'Special:Notifications' ), text: mw.msg( 'echo-overlay-link' ),
+						className: 'mw-echo-icon-all' },
+					{ url: $prefLink.attr( 'href' ) + '#mw-prefsection-echo', text: $prefLink.text(),
+						className: 'mw-echo-icon-cog' }
+				],
 				$overlayFooter = $( '<div class="mw-echo-overlay-footer">' );
 
+			$.each( links, function( i, link ) {
+				$( '<a class="mw-echo-grey-link">' )
+					.attr( 'href', link.url )
+					.addClass( link.className )
+					.text( link.text )
+					.appendTo( $overlayFooter );
+			} );
 			// add link to notifications archive
-			$overlayFooter.append(
-				$( '<a>' )
-					.attr( 'id', 'mw-echo-overlay-link' )
-					.addClass( 'mw-echo-grey-link' )
-					.attr( 'href', getUrl( 'Special:Notifications' ) )
-					.text( mw.msg( 'echo-overlay-link' ) )
-					.click( function () {
-						mw.echo.logInteraction( 'ui-archive-link-click', 'flyout' );
-					} )
-					.hover(
-						function() {
-							$( this ).removeClass( 'mw-echo-grey-link' );
-						},
-						function() {
-							$( this ).addClass( 'mw-echo-grey-link' );
-						}
-					)
-			);
-
-			// add link to notification preferences
-			$overlayFooter.append(
-				$( '<a>' )
-					.html( $prefLink.html() )
-					.attr( 'id', 'mw-echo-overlay-pref-link' )
-					.addClass( 'mw-echo-grey-link' )
-					.attr( 'href', $prefLink.attr( 'href' ) + '#mw-prefsection-echo' )
-					.click( function () {
-						mw.echo.logInteraction( 'ui-prefs-click', 'flyout' );
-					} )
-					.hover(
-						function() {
-							$( this ).removeClass( 'mw-echo-grey-link' );
-						},
-						function() {
-							$( this ).addClass( 'mw-echo-grey-link' );
-						}
-					)
+			$overlayFooter.find( 'a' ).on( 'hover',
+				function() {
+					$( this ).removeClass( 'mw-echo-grey-link' );
+				},
+				function() {
+					$( this ).addClass( 'mw-echo-grey-link' );
+				}
 			);
 			return $overlayFooter;
 		},
