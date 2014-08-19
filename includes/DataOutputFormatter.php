@@ -14,6 +14,9 @@ class EchoDataOutputFormatter {
 	 */
 	public static function formatOutput( EchoNotification $notification, $format = false, User $user = null ) {
 		$event = $notification->getEvent();
+		$timestamp = $notification->getTimestamp();
+		$utcTimestampUnix = wfTimestamp( TS_UNIX, $timestamp );
+
 		// Default to notification user if user is not specified
 		if ( !$user ) {
 			$user = $notification->getUser();
@@ -23,22 +26,24 @@ class EchoDataOutputFormatter {
 			$event->setBundleHash( $notification->getBundleDisplayHash() );
 		}
 
-		$timestampMw = self::getUserLocalTime( $user, $notification->getTimestamp() );
+		$timestampMw = self::getUserLocalTime( $user, $timestamp );
 
 		// Start creating date section header
 		$now = wfTimestamp();
 		$dateFormat = substr( $timestampMw, 0, 8 );
-		if ( substr( self::getUserLocalTime( $user, $now ), 0, 8 ) === $dateFormat ) {
-			// 'Today'
+		$timeDiff = $now - $utcTimestampUnix;
+		// Most notifications would be more than two days ago, check this
+		// first instead of checking 'today' then 'yesterday'
+		if ( $timeDiff > 172800 ) {
+			$date = self::getDateHeader( $user, $timestampMw );
+		// 'Today'
+		} elseif ( substr( self::getUserLocalTime( $user, $now ), 0, 8 ) === $dateFormat ) {
 			$date = wfMessage( 'echo-date-today' )->escaped();
+		// 'Yesterday'
 		} elseif ( substr( self::getUserLocalTime( $user, $now - 86400 ), 0, 8 ) === $dateFormat ) {
-			// 'Yesterday'
 			$date = wfMessage( 'echo-date-yesterday' )->escaped();
 		} else {
-			// 'May 10' or '10 May' (depending on user's date format preference)
-			$lang = RequestContext::getMain()->getLanguage();
-			$dateFormat = $lang->getDateFormatString( 'pretty', $user->getDatePreference() ?: 'default' );
-			$date = $lang->sprintfDate( $dateFormat, $timestampMw );
+			$date = self::getDateHeader( $user, $timestampMw );
 		}
 		// End creating date section header
 
@@ -48,8 +53,8 @@ class EchoDataOutputFormatter {
 			'category' => $event->getCategory(),
 			'timestamp' => array(
 				// UTC timestamp in UNIX format used for loading more notification
-				'utcunix' => wfTimestamp( TS_UNIX, $notification->getTimestamp() ),
-				'unix' => self::getUserLocalTime( $user, $notification->getTimestamp(), TS_UNIX ),
+				'utcunix' => $utcTimestampUnix,
+				'unix' => self::getUserLocalTime( $user, $timestamp, TS_UNIX ),
 				'mw' => $timestampMw,
 				'date' => $date
 			),
@@ -59,20 +64,22 @@ class EchoDataOutputFormatter {
 			$output['variant'] = $event->getVariant();
 		}
 
-		if ( $event->getTitle() ) {
+		$title = $event->getTitle();
+		if ( $title ) {
 			$output['title'] = array(
-				'full' => $event->getTitle()->getPrefixedText(),
-				'namespace' => $event->getTitle()->getNSText(),
-				'namespace-key' => $event->getTitle()->getNamespace(),
-				'text' => $event->getTitle()->getText(),
+				'full' => $title->getPrefixedText(),
+				'namespace' => $title->getNSText(),
+				'namespace-key' =>$title->getNamespace(),
+				'text' => $title->getText(),
 			);
 		}
 
-		if ( $event->getAgent() ) {
+		$agent = $event->getAgent();
+		if ( $agent ) {
 			if ( $event->userCan( Revision::DELETED_USER, $user ) ) {
 				$output['agent'] = array(
-					'id' => $event->getAgent()->getId(),
-					'name' => $event->getAgent()->getName(),
+					'id' => $agent->getId(),
+					'name' => $agent->getName(),
 				);
 			} else {
 				$output['agent'] = array( 'userhidden' => '' );
@@ -97,6 +104,19 @@ class EchoDataOutputFormatter {
 		}
 
 		return $output;
+	}
+
+	/**
+	 * Get the date header in user's format, 'May 10' or '10 May', depending
+	 * on user's date format preference
+	 * @param User $user
+	 * @param string $timestampMw
+	 * @return string
+	 */
+	protected static function getDateHeader( User $user, $timestampMw ) {
+		$lang = RequestContext::getMain()->getLanguage();
+		$dateFormat = $lang->getDateFormatString( 'pretty', $user->getDatePreference() ?: 'default' );
+		return $lang->sprintfDate( $dateFormat, $timestampMw );
 	}
 
 	/**
