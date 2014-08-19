@@ -67,6 +67,10 @@ $wgAutoloadClasses['EchoNotificationMapper'] = $dir . 'includes/mapper/Notificat
 $wgAutoloadClasses['EchoTargetPageMapper'] = $dir . 'includes/mapper/TargetPageMapper.php';
 $wgAutoloadClasses['EchoUserNotificationGateway'] = $dir . 'includes/gateway/UserNotificationGateway.php';
 
+// Local caches
+$wgAutoloadClasses['EchoLocalCache'] = $dir . 'includes/cache/LocalCache.php';
+$wgAutoloadClasses['EchoTitleLocalCache'] = $dir . 'includes/cache/TitleLocalCache.php';
+
 // Output formatters
 $wgAutoloadClasses['EchoDataOutputFormatter'] = $dir . 'includes/DataOutputFormatter.php';
 
