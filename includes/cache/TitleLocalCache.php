@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Cache class that maps article id to Title object
+ */
 class EchoTitleLocalCache extends EchoLocalCache {
 
 	/**
