@@ -14,6 +14,13 @@ def make_page_with_user_a( title, text )
   make_page_with_user( title, text, get_session_username() )
 end
 
+Given(/^another user has linked to a page I created from another page$/) do
+  title = 'Selenium Echo link test ' + @random_string
+  make_page_with_user_a(title, "Selenium test page. Feel free to delete me.")
+  title2 = title + ' ' + @random_string
+  make_page_with_user_b(title2, "I am linking to [[" + title + "]].")
+end
+
 Given(/^another user writes on my talk page$/) do
   make_page_with_user_b("User talk:" + get_session_username(),
     "== Barnstar ==\nHello Selenium, here is a barnstar for all your testing! " + @random_string + "~~~~\n")
@@ -46,7 +53,11 @@ Given(/^I am logged in with no notifications$/) do
   client.action( 'echomarkread', token_type: 'edit', all: '1' )
 
   step 'I am logged in my non-shared account'
-  on(ArticlePage).flyout_link_element.class_name.should_not match 'mw-echo-unread-notifications'
+  step 'I have no new notifications'
+end
+
+Then(/^I have no new notifications$/) do
+  on(ArticlePage).flyout_link_element.when_present.class_name.should_not match 'mw-echo-unread-notifications'
 end
 
 Then(/^I have new notifications$/) do
