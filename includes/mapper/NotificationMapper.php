@@ -108,7 +108,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 		);
 		if ( $res ) {
 			foreach ( $res as $row ) {
-				$data[] = EchoNotification::newFromRow( $row );
+				$data[$row->event_id] = EchoNotification::newFromRow( $row );
 			}
 		}
 		return $data;
@@ -171,7 +171,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 
 		if ( $res ) {
 			foreach ( $res as $row ) {
-				$data[] = EchoNotification::newFromRow( $row );
+				$data[$row->event_id] = EchoNotification::newFromRow( $row );
 			}
 		}
 		return $data;

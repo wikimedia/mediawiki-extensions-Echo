@@ -358,7 +358,7 @@
 		/**
 		 * @var integer the maximum number of notifications to show in the overlay
 		 */
-		notificationLimit: 8,
+		notificationLimit: 25,
 		/**
 		 * @var mw.Api
 		 */
@@ -370,13 +370,14 @@
 		 */
 		buildOverlay: function( callback ) {
 			var apiData = {
-				'action' : 'query',
-				'meta' : 'notifications',
-				notsections : 'alert|message',
+				action: 'query',
+				meta: 'notifications',
+				notsections: 'alert|message',
 				notgroupbysection: 1,
-				'notformat' : 'flyout',
-				'notlimit' : this.notificationLimit,
-				'notprop' : 'index|list|count'
+				notmessageunreadfirst: 1,
+				notformat: 'flyout',
+				notlimit: this.notificationLimit,
+				notprop: 'index|list|count'
 			};
 
 			this.api.get( mw.echo.desktop.appendUseLang( apiData ) ).done( function ( result ) {
