@@ -13,7 +13,7 @@ class MWEchoEventLogging {
 	public static function actuallyLogTheEvent( $schema, $data ) {
 		global $wgEchoConfig;
 
-		efLogServerSideEvent( $schema, $wgEchoConfig['eventlogging'][$schema]['revision'], $data );
+		EventLogging::logEvent( $schema, $wgEchoConfig['eventlogging'][$schema]['revision'], $data );
 	}
 
 	/**
