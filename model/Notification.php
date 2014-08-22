@@ -185,8 +185,8 @@ class EchoNotification extends EchoAbstractEntity {
 			$notification->targetPage = EchoTargetPage::newFromRow( $row );
 		}
 		$notification->user = User::newFromId( $row->notification_user );
-		$notification->timestamp = $row->notification_timestamp;
-		$notification->readTimestamp = $row->notification_read_timestamp;
+		$notification->timestamp = wfTimestamp( TS_MW, $row->notification_timestamp );
+		$notification->readTimestamp = wfTimestamp( TS_MW, $row->notification_read_timestamp );
 		$notification->bundleBase = $row->notification_bundle_base;
 		$notification->bundleHash = $row->notification_bundle_hash;
 		$notification->bundleDisplayHash = $row->notification_bundle_display_hash;
