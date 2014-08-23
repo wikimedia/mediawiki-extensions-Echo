@@ -98,7 +98,7 @@
 	"echo-date-today": "Danas",
 	"echo-date-yesterday": "Juče",
 	"echo-load-more-error": "Došlo je do greške pri dobavljanju više rezultata.",
-	"notification-edit-talk-page-bundle": "$1 i još $3 {{PLURAL:$4|1=jedan korisnik|korisnika}} {{GENDER:$1|ostavili}} su poruke na vašoj [[User talk:$2|stranici za razgovor]].",
+	"notification-edit-talk-page-bundle": "$1 i još $3 {{PLURAL:$4|korisnik|korisnika}} {{GENDER:$1|ostavili}} su poruke na vašoj [[User talk:$2|stranici za razgovor]].",
 	"notification-page-linked-bundle": "Stranica $2 je {{GENDER:$1|povezana}} sa $3 i $4 {{PLURAL:$5|druge stranice|drugih stranica}}. [[Special:WhatLinksHere/$2|Pogledajte sve veze prema ovoj stranici]]",
 	"notification-edit-user-talk-email-batch-bundle-body": "$1 i još $2 {{PLURAL:$3|1=jedan korisnik|korisnika}} {{GENDER:$1|ostavili}} su poruke na vašoj stranici za razgovor.",
 	"notification-page-linked-email-batch-bundle-body": "Stranica $2 je {{GENDER:$1|povezana}} sa $3 i $4 {{PLURAL:$5|druge stranice|drugih stranica}}.",

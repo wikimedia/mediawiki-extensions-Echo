@@ -48,6 +48,7 @@
 	"notification-edit-talk-page-email-batch-body2": "$1 {{جنس:$1|یه گل پیغوم د بلگه چک چنه شما}} نیائه:",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 {{جنس:$1|یه گل پیغوم د بلگه چک چنه شما د \"$2\"}} نیائه.",
 	"notification-page-linked-email-subject": "بلگه شما د {{نوم مالگه}} هوم پیوند بیه",
+	"notification-page-linked-email-batch-body": "$2 {{GENDER:$1|هوم پیوند کرده}} سی$3.",
 	"notification-user-rights-email-subject": "حقوق کاریاری شما د {{نوم دیارگه}} آلشت دئیه بیه",
 	"echo-overlay-link": "همه وارسیاریا",
 	"echo-overlay-title-overflow": "<b>{{جمی:$1|وارسیاری یا}}</b> (نشو دئه  $1 د $2 حنه نبیه)",
