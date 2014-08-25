@@ -51,6 +51,7 @@ class EchoNotificationController {
 			// defer job insertion till end of request when all primary db transactions
 			// have been committed
 			DeferredUpdates::addCallableUpdate( function() use ( $event ) {
+				// can't use self::, php 5.3 doesn't inherit class scope
 				EchoNotificationController::enqueueEvent( $event );
 			} );
 			return;
@@ -62,30 +63,37 @@ class EchoNotificationController {
 			return;
 		}
 
-		// Only send web notification for welcome event
-		if ( $event->getType() == 'welcome' ) {
-			self::doNotification( $event, $event->getAgent(), 'web' );
-		} else {
-			// Get the notification types for this event, eg, web/email
-			global $wgEchoDefaultNotificationTypes;
-			$notifyTypes = $wgEchoDefaultNotificationTypes['all'];
-			if ( isset( $wgEchoDefaultNotificationTypes[$event->getType()] ) ) {
-				$notifyTypes = array_merge( $notifyTypes, $wgEchoDefaultNotificationTypes[$event->getType()] );
-			}
-			$notifyTypes = array_keys( array_filter( $notifyTypes ) );
+		$type = $event->getType();
+		$notifyTypes = self::getEventNotifyTypes( $type );
+		foreach ( self::getUsersToNotifyForEvent( $event ) as $user ) {
+			$userNotifyTypes = $notifyTypes;
+			wfRunHooks( 'EchoGetNotificationTypes', array( $user, $event, &$userNotifyTypes ) );
 
-			$users = self::getUsersToNotifyForEvent( $event );
-
-			foreach ( $users as $user ) {
-
-				$userNotifyTypes = $notifyTypes;
-				wfRunHooks( 'EchoGetNotificationTypes', array( $user, $event, &$userNotifyTypes ) );
-
-				foreach ( $userNotifyTypes as $type ) {
-					self::doNotification( $event, $user, $type );
-				}
+			// types such as web, email, etc
+			foreach ( $userNotifyTypes as $type ) {
+				self::doNotification( $event, $user, $type );
 			}
 		}
+	}
+
+	/**
+	 * @param string $type Event type
+	 * @return string[] List of notification types to send for
+	 *  this event type
+	 */
+	public static function getEventNotifyTypes( $type ) {
+		// Get the notification types for this event, eg, web/email
+		global $wgEchoDefaultNotificationTypes;
+
+		$notifyTypes = $wgEchoDefaultNotificationTypes['all'];
+		if ( isset( $wgEchoDefaultNotificationTypes[$type] ) ) {
+			$notifyTypes = array_merge(
+				$notifyTypes,
+				$wgEchoDefaultNotificationTypes[$type]
+			);
+		}
+
+		return array_keys( array_filter( $notifyTypes ) );
 	}
 
 	/**

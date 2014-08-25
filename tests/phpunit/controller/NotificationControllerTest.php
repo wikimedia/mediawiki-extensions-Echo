@@ -160,4 +160,61 @@ class NotificationControllerTest extends MediaWikiTestCase {
 		}
 		$this->assertEquals( $expect, $ids, $message );
 	}
+
+	public function testDoesNotDeliverDisabledEvent() {
+		$event = $this->getMockBuilder( 'EchoEvent' )
+			->disableOriginalConstructor()
+			->getMock();
+		$event->expects( $this->any() )
+			->method( 'isEnabledEvent' )
+			->will( $this->returnValue( false ) );
+		// Assume it would have to check the event type to
+		// determine how to deliver
+		$event->expects( $this->never() )
+			->method( 'getType' );
+
+		EchoNotificationController::notify( $event, false );
+	}
+
+	public static function getEventNotifyTypesProvider() {
+		return array(
+			array(
+				'Selects the `all` configuration by default',
+				// expected result
+				array( 'web' ),
+				// event type
+				'bar',
+				// default notification types configuration
+				array(
+					'all' => array( 'web' => true ),
+					'foo' => array( 'email' => true ),
+				),
+			),
+
+			array(
+				'Overrides `all` configuration with event type configuration',
+				// expected result
+				array( 'web' ),
+				// event type
+				'foo',
+				// default notification types configuration
+				array(
+					'all' => array( 'web' => true, 'email' => true ),
+					'foo' => array( 'email' => false ),
+					'bar' => array( 'sms' => true ),
+				),
+			),
+		);
+	}
+
+	/**
+	 * @dataProvider getEventNotifyTypesProvider
+	 */
+	public function testGetEventNotifyTypes( $message, $expect, $type, array $notificationTypes ) {
+		$this->setMwGlobals( array(
+			'wgEchoDefaultNotificationTypes' => $notificationTypes,
+		) );
+		$result = EchoNotificationController::getEventNotifyTypes( $type );
+		$this->assertEquals( $expect, $result, $message );
+	}
 }
