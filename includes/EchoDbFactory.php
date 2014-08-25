@@ -97,7 +97,48 @@ class MWEchoDbFactory {
 	 * Wait for the slaves of the database
 	 */
 	public function waitForSlaves() {
-		wfWaitForSlaves( false, $this->wiki, $this->cluster );
+		$this->waitFor( $this->getMasterPosition() );
 	}
 
+	/**
+	 * Get the current master position for the wiki and echo
+	 * db when they have at least one slave in their cluster.
+	 *
+	 * @return array
+	 */
+	public function getMasterPosition() {
+		$position = array(
+			'wikiDb' => false,
+			'echoDb' => false,
+		);
+		$lb = wfGetLB();
+		if ( $lb->getServerCount() > 1 ) {
+			$position['wikiDb'] = $lb->getMasterPos();
+		};
+
+		if ( $this->cluster ) {
+			$lb = $this->getLB();
+			if ( $lb->getServerCount() > 1 ) {
+				$position['echoDb'] = $lb->getMasterPos();
+			}
+		}
+
+		return $position;
+	}
+
+	/**
+	 * Recieves the output of self::getMasterPosition. Waits
+	 * for slaves to catch up to the master position at that
+	 * point.
+	 *
+	 * @param array $position
+	 */
+	public function waitFor( array $position ) {
+		if ( $position['wikiDb'] ) {
+			wfGetLB()->waitFor( $position['wikiDb'] );
+		}
+		if ( $position['echoDb'] ) {
+			$this->getLB()->waitFor( $position['echoDb'] );
+		}
+	}
 }

@@ -7,14 +7,31 @@ class EchoNotificationJob extends Job {
 	}
 
 	function run() {
-		if ( !empty( $this->params['mainDbMasterPos'] ) ) {
-			wfGetLB()->waitFor( $this->params['mainDbMasterPos'] );
+		// back compat for jobs still in queue, new jobs
+		// masterPos is always set. remove after deploy.
+		if ( isset( $this->params['masterPos'] ) ) {
+			$masterPos = $this->params['masterPos'];
+		} else {
+			$masterPos = $this->getMasterPosition();
 		}
-		if ( !empty( $this->params['echoDbMasterPos'] ) ) {
-			global $wgEchoCluster;
-			wfGetLBFactory()->getExternalLB( $wgEchoCluster )->waitFor( $this->params['echoDbMasterPos'] );
-		}
+
+		MWEchoDbFactory::newFromDefault()->waitFor( $masterPos );
 		EchoNotificationController::notify( $this->event, false );
 		return true;
+	}
+
+	// back compat detects masterPos from prior job params
+	function getMasterPosition() {
+		$masterPos = array(
+			'wikiDb' => false,
+			'echoDb' => false,
+		);
+		if ( !empty( $this->params['mainDbMasterPos'] ) ) {
+			$masterPos['wikiDb'] = $this->params['mainDbMasterPos'];
+		}
+		if ( !empty( $this->params['echoDbMasterPos'] ) ) {
+			$masterPos['echoDb'] = $this->params['echoDbMasterPos'];
+		}
+		return $masterPos;
 	}
 }

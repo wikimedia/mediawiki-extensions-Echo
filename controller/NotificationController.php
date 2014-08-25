@@ -50,25 +50,9 @@ class EchoNotificationController {
 		if ( $defer ) {
 			// defer job insertion till end of request when all primary db transactions
 			// have been committed
-			DeferredUpdates::addCallableUpdate(
-				function() use ( $event ) {
-					global $wgEchoCluster;
-					$params = array( 'event' => $event );
-					if ( wfGetLB()->getServerCount() > 1 ) {
-						$params['mainDbMasterPos'] = wfGetLB()->getMasterPos();
-					}
-					if ( $wgEchoCluster ) {
-						$lb = wfGetLBFactory()->getExternalLB( $wgEchoCluster );
-						if ( $lb->getServerCount() > 1 ) {
-							$params['echoDbMasterPos'] = $lb->getMasterPos();
-						}
-					}
-
-					$title = $event->getTitle() ? $event->getTitle() : Title::newMainPage();
-					$job = new EchoNotificationJob( $title, $params );
-					JobQueueGroup::singleton()->push( $job );
-				}
-			);
+			DeferredUpdates::addCallableUpdate( function() use ( $event ) {
+				EchoNotificationController::enqueueEvent( $event );
+			} );
 			return;
 		}
 
@@ -103,6 +87,24 @@ class EchoNotificationController {
 			}
 		}
 	}
+
+	/**
+	 * Push $event onto the mediawiki job queue
+	 *
+	 * @param EchoEvent $event
+	 */
+	public static function enqueueEvent( EchoEvent $event ) {
+		$job = new EchoNotificationJob(
+			$event->getTitle() ?: Title::newMainPage(),
+			array(
+				'event' => $event,
+				'masterPos' => MWEchoDbFactory::newFromDefault()
+					->getMasterPosition(),
+			)
+		);
+		JobQueueGroup::singleton()->push( $job );
+	}
+
 
 	/**
 	 * Implements blacklist per active wiki expected to be initialized
