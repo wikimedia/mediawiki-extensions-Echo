@@ -22,7 +22,7 @@ class EchoNotificationController {
 	 * Format the notification count with Language::formatNum().  In addition, for large count,
 	 * return abbreviated version, e.g. 99+
 	 *
-	 * @param int count
+	 * @param int $count
 	 * @return string
 	 */
 	public static function formatNotificationCount( $count ) {
@@ -152,7 +152,7 @@ class EchoNotificationController {
 	 * @param User $user The user that owns the whitelist
 	 * @return boolean True when the event agent is in the user whitelist
 	 */
-	protected static function isWhitelistedByUser( EchoEvent $event, User $user ) {
+	public static function isWhitelistedByUser( EchoEvent $event, User $user ) {
 		global $wgEchoPerUserWhitelistFormat, $wgMemc;
 
 
