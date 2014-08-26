@@ -144,6 +144,14 @@ class ApiEchoNotifications extends ApiQueryBase {
 			$result['list'][$notif->getEvent()->getID()] = EchoDataOutputFormatter::formatOutput( $notif, $format, $user );
 		}
 
+		// Generate offset if necessary
+		if ( !$unreadFirst ) {
+			if ( count( $result['list'] ) > $limit ) {
+				$lastItem = array_pop( $result['list'] );
+				$result['continue'] = $lastItem['timestamp']['utcunix'] . '|' . $lastItem['id'];
+			}
+		}
+
 		return $result;
 	}
 
