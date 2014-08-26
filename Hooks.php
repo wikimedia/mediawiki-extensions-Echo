@@ -1011,4 +1011,36 @@ class EchoHooks {
 		return false;
 	}
 
+	/**
+	 * For integration with the UserMerge extension.
+	 *
+	 * @param array $updateFields
+	 * @return bool
+	 */
+	public static function onUserMergeAccountFields( &$updateFields ) {
+		// array( tableName, idField, textField )
+		$dbw = MWEchoDBFactory::newFromDefault()->getEchoDb( DB_MASTER );
+		$updateFields[] = array( 'echo_event', 'event_agent_id', 'db' => $dbw );
+		$updateFields[] = array( 'echo_notification', 'notification_user', 'db' => $dbw, 'options' => array( 'IGNORE' ) );
+		$updateFields[] = array( 'echo_email_batch', 'eeb_user_id', 'db' => $dbw, 'options' => array( 'IGNORE' ) );
+		$updateFields[] = array( 'echo_target_page', 'etp_user', 'db' => $dbw, 'options' => array( 'IGNORE' ) );
+
+		return true;
+	}
+
+	public static function onMergeAccountFromTo( User &$oldUser, User &$newUser ) {
+		MWEchoNotifUser::newFromUser( $oldUser )->resetNotificationCount( DB_MASTER );
+		MWEchoNotifUser::newFromUser( $newUser )->resetNotificationCount( DB_MASTER );
+
+		return true;
+	}
+
+	public static function onUserMergeAccountDeleteTables( &$tables ) {
+		$dbw = MWEchoDBFactory::newFromDefault()->getEchoDb( DB_MASTER );
+		$tables['echo_notification'] = array( 'notification_user', 'db' => $dbw );
+		$tables['echo_email_batch'] = array( 'eeb_user_id', 'db' => $dbw );
+		$tables['echo_target_page'] = array( 'etp_user', 'db' => $dbw );
+
+		return true;
+	}
 }
