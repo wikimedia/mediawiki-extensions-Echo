@@ -460,6 +460,20 @@ class EchoEvent extends EchoAbstractEntity{
 		return $attributeManager->getNotificationSection( $this->type );
 	}
 
+	/**
+	 * Get the use-jobqueue attribute of an event type
+	 * @FIXME - use global for now instead of attribute manager, we may need
+	 * to cherry pick this to enwiki
+	 * @return boolean
+	 */
+	public function getUseJobQueue() {
+		global $wgEchoNotifications;
+		if ( isset( $wgEchoNotifications[$this->type]['use-jobqueue'] ) ) {
+			return (bool)$wgEchoNotifications[$this->type]['use-jobqueue'];
+		}
+		return false;
+	}
+
 	public function setType( $type ) {
 		$this->type = $type;
 	}
