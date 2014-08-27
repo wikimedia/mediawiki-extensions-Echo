@@ -47,7 +47,9 @@ class EchoNotificationController {
 	 * @param boolean $defer Defer to job queue or not
 	 */
 	public static function notify( $event, $defer = true ) {
-		if ( $defer ) {
+		// Defer to job queue if defer to job queue is requested and
+		// this event should use job queue
+		if ( $defer && $event->getUseJobQueue() ) {
 			// defer job insertion till end of request when all primary db transactions
 			// have been committed
 			DeferredUpdates::addCallableUpdate( function() use ( $event ) {
