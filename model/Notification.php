@@ -135,8 +135,13 @@ class EchoNotification extends EchoAbstractEntity {
 		$user = $this->user;
 		if ( $event->getExtraParam( 'target-page' ) ) {
 			$notifMapper->attachListener( 'insert', 'add-target-page', function() use ( $event, $user, $eventIds ) {
+				$targetPageId = $event->getExtraParam( 'target-page' );
 				// Make sure the target-page id is a valid id
-				$title = Title::newFromID( $event->getExtraParam( 'target-page' ) );
+				$title = Title::newFromID( $targetPageId );
+				// Try master if there is no match
+				if ( !$title ) {
+					$title = Title::newFromID( $targetPageId, Title::GAID_FOR_UPDATE );
+				}
 				if ( $title ) {
 					$targetMapper = new EchoTargetPageMapper();
 					if ( $eventIds ) {
