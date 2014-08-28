@@ -178,7 +178,7 @@ abstract class MWEchoEmailBatch {
 	public function sendEmail() {
 		global $wgNotificationSender, $wgNotificationReplyName;
 
-		// @Todo - replace them with the CONSTANT in 33810 once it is merged 
+		// @Todo - replace them with the CONSTANT in 33810 once it is merged
 		if ( $this->mUser->getOption( 'echo-email-frequency' ) == 7 ) {
 			$frequency = 'weekly';
 			$emailDeliveryMode = 'weekly_digest';

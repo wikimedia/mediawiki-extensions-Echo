@@ -25,7 +25,7 @@ class EchoCommentFormatter extends EchoEditFormatter {
 			if ( !$event->getTitle() ) {
 				$message->params( $this->getMessage( 'echo-no-title' )->text() );
 			} else {
-				$message->params( $event->getTitle()->getText() );	
+				$message->params( $event->getTitle()->getText() );
 			}
 		} else {
 			parent::processParam( $event, $param, $message, $user );

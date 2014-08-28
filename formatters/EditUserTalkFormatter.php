@@ -12,7 +12,7 @@ class EchoEditUserTalkFormatter extends EchoEditFormatter {
 		parent::applyChangeBeforeFormatting( $event, $user, $type );
 
 		// Replace default generic notification message with 'Someone left a message
-		// on your talk page in "xxxx"' if 
+		// on your talk page in "xxxx"' if
 		// * the message is not bundled and
 		// * there is a section title
 		//
