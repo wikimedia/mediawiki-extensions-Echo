@@ -515,6 +515,10 @@ class EchoHooks {
 		EchoEvent::create( array(
 			'type' => 'welcome',
 			'agent' => $user,
+			// welcome email is sent to agent
+			'extra' => array (
+				'notifyAgent' => true
+			)
 		) );
 
 		return true;
