@@ -7,6 +7,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 	}
 
 	public function execute() {
+		wfProfileIn( __METHOD__ );
 		// To avoid API warning, register the parameter used to bust browser cache
 		$this->getMain()->getVal( '_' );
 
@@ -22,6 +23,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 		if ( in_array( 'list', $prop ) ) {
 			// Group notification results by section
 			if ( $params['groupbysection'] ) {
+				wfProfileIn( __METHOD__ . '-group-by-section' );
 				foreach ( $params['sections'] as $section ) {
 					$result[$section] = $this->getSectionPropList(
 						$user, $section, $params['limit'],
@@ -34,7 +36,9 @@ class ApiEchoNotifications extends ApiQueryBase {
 						$this->getResult()->setIndexedTagName( $result[$section]['index'], 'id' );
 					}
 				}
+				wfProfileOut( __METHOD__ . '-group-by-section' );
 			} else {
+				wfProfileIn( __METHOD__ . '-group-by-none' );
 				$attributeManager = EchoAttributeManager::newFromGlobalVars();
 				$result = $this->getPropList(
 					$user,
@@ -47,18 +51,22 @@ class ApiEchoNotifications extends ApiQueryBase {
 					$result['index'] = $this->getPropIndex( $result['list'] );
 					$this->getResult()->setIndexedTagName( $result['index'], 'id' );
 				}
+				wfProfileOut( __METHOD__ . '-group-by-none' );
 			}
 		}
 
 		if ( in_array( 'count', $prop ) ) {
+			wfProfileIn( __METHOD__ . '-count' );
 			$result = array_merge_recursive(
 				$result,
 				$this->getPropcount( $user, $params['sections'], $params['groupbysection'] )
 			);
+			wfProfileOut( __METHOD__ . '-count' );
 		}
 
 		$this->getResult()->setIndexedTagName( $result, 'notification' );
 		$this->getResult()->addValue( 'query', $this->getModuleName(), $result );
+		wfProfileOut( __METHOD__ );
 	}
 
 	/**
@@ -119,6 +127,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 		// Unread notifications + possbile 3 read notification depending on result number
 		// We don't care about next offset in this case
 		if ( $unreadFirst ) {
+			wfProfileIn( __METHOD__ . '-fetch-data-unread-first' );
 			$notifs = $notifMapper->fetchUnreadByUser( $user, $limit, $eventTypes );
 			// If there are less unread notifications than we requested,
 			// then fill the result with some read notifications
@@ -137,12 +146,18 @@ class ApiEchoNotifications extends ApiQueryBase {
 					}
 				}
 			}
+			wfProfileOut( __METHOD__ . '-fetch-data-unread-first' );
 		} else {
+			wfProfileIn( __METHOD__ . '-fetch-data' );
 			$notifs = $notifMapper->fetchByUser( $user, $limit + 1, $continue, $eventTypes );
+			wfProfileOut( __METHOD__ . '-fetch-data' );
 		}
+
+		wfProfileIn( __METHOD__ . '-formatting' );
 		foreach ( $notifs as $notif ) {
 			$result['list'][$notif->getEvent()->getID()] = EchoDataOutputFormatter::formatOutput( $notif, $format, $user );
 		}
+		wfProfileOut( __METHOD__ . '-formatting' );
 
 		// Generate offset if necessary
 		if ( !$unreadFirst ) {
