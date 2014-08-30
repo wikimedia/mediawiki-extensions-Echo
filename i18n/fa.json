@@ -59,6 +59,7 @@
 	"echo-none": "شما هیچگونه آگاه‌سازی‌ای ندارید.",
 	"echo-more-info": "اطلاعات بیشتر",
 	"echo-feedback": "بازخورد",
+	"echo-quotation-marks": "«$1»",
 	"notification-link-text-view-message": "نمایش پیام",
 	"notification-link-text-view-mention": "مشاهدهٔ تذکر",
 	"notification-link-text-view-changes": "نمایش تغییرات",
