@@ -36,6 +36,7 @@
 	"echo-category-title-mention": "{{PLURAL:$1|Omtale|Omtaler}}",
 	"echo-category-title-other": "{{PLURAL:$1|Anden|Andre}}",
 	"echo-category-title-system": "{{PLURAL:$1|System}}",
+	"echo-category-title-user-rights": "{{PLURAL:$1|Ændring af brugerrettighed|Ændring af brugerrettigheder}}",
 	"echo-pref-tooltip-edit-user-talk": "Giv mig besked når nogen skriver en besked eller et svar på min diskussionsside.",
 	"echo-pref-tooltip-article-linked": "Giv mig beked når nogen henviser til en side som jeg har oprettet, fra en artikelside.",
 	"echo-pref-tooltip-reverted": "Giv mig besked når nogen tilbagestiller en redigering som jeg lavet, ved at bruge fjern redigering eller rul tilbage.",
