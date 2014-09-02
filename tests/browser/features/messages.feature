@@ -1,5 +1,5 @@
 @chrome @en.wikipedia.beta.wmflabs.org @firefox @login @test2.wikipedia.org
-Feature: Notification types
+Feature: Unread messages
 
   # Scenarios which trigger notifications
   Scenario: Mark all as unread

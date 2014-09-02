@@ -1,5 +1,5 @@
 @chrome @firefox @login
-Feature: Notification types
+Feature: User rights
 
   Scenario: Change in user rights
     Given I am logged in as a new user with no notifications
