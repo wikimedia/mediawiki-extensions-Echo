@@ -77,6 +77,7 @@
 	"echo-email-batch-body-default": "Ur c'hemenn nevez ho peus resevet.",
 	"echo-email-footer-default": "$2\n\nEvit kontrollañ peseurt posteloù a gasomp deoc'h, gwiriit ho penndibaboù : {{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
 	"echo-email-footer-default-html": "Evit kontrollañ peseurt posteloù a gasomp deoc'h, <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">gwiriit ho tibaboù</a>.<br />\n$1",
+	"echo-notification-message": "{{PLURAL:$1|Kemennadenn ($1)|Kemennadennoù ($1)|100=Kemennadennoù (99+)}}",
 	"echo-overlay-link": "An holl gemennoù",
 	"echo-overlay-title": "<b>Kemennoù</b>",
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Kemennoù}}</b> (o tiskouez $1 diwar $2 nann-lennet)",
