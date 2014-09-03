@@ -72,10 +72,11 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	}
 
 	/**
-	 * Get unread notifications by user in the amount specified by limit. Based on existing
-	 * requirements, we just need x amount ( 100 ) unread notifications to show on the
-	 * overlay, so we don't need offset and ordering, we have an index to retrieve unread
-	 * notifications but it's not optimized for ordering
+	 * Get unread notifications by user in the amount specified by limit order by
+	 * notification timestamp in descending order.  We have an index to retrieve
+	 * unread notifications but it's not optimized for ordering by timestamp.  The
+	 * descending order is only allowed if we keep the notification in low volume,
+	 * which is done via a deleteJob
 	 * @param User $user
 	 * @param int $limit
 	 * @param string[] $eventTypes
@@ -101,6 +102,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 			__METHOD__,
 			array(
 				'LIMIT' => $limit,
+				'ORDER BY' => 'notification_timestamp DESC'
 			),
 			array(
 				'echo_event' => array( 'LEFT JOIN', 'notification_event=event_id' ),
