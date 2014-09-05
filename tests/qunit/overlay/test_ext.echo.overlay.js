@@ -158,22 +158,6 @@
 			false, 'The badge no longer indicates new messages.' );
 	} );
 
-	QUnit.test( 'mw.echo.overlay.buildOverlay with messages', 5, function( assert ) {
-		var $overlay;
-		this.sandbox.stub( mw.echo.overlay, 'api', new this.ApiStub( 'no-new-messages' ) );
-		mw.echo.overlay.buildOverlay( function( $o ) {
-			$overlay = $o;
-		} );
-		assert.strictEqual( $overlay.find( '.mw-echo-overlay-title ul li' ).length, 2, 'There are two tabs in header' );
-		assert.strictEqual( $overlay.find( '.mw-echo-notifications' ).length, 2, 'Overlay contains 2 lists of notifications.' );
-		assert.strictEqual( $overlay.find( '.mw-echo-overlay-title a' ).eq( 0 ).hasClass( 'mw-ui-active' ),
-			true, 'First tab is the selected tab upon opening.' );
-		assert.strictEqual( this.$badge.text(),
-			'1', 'The label stays as 1 until you switch tabs.' );
-		assert.strictEqual( this.$badge.hasClass( 'mw-echo-unread-notifications' ),
-			true, 'The notification button class is not updated until you switch to alert tab.' );
-	} );
-
 	QUnit.test( 'Switch tabs on overlay. No unread messages, 1 unread alert.', 4, function( assert ) {
 		var $overlay, $tabs;
 
@@ -194,27 +178,6 @@
 			'0', 'The label is now set to 0.' );
 		assert.strictEqual( this.$badge.hasClass( 'mw-echo-unread-notifications' ),
 			false, 'There are now zero unread notifications.' );
-	} );
-
-	QUnit.test( 'Tabs have labels with counts in them.', 4, function( assert ) {
-		var $overlay, $tabs, beforeAlertText, afterAlertText;
-
-		this.sandbox.stub( mw.echo.overlay, 'api', new this.ApiStub( 'no-new-messages' ) );
-		mw.echo.overlay.buildOverlay( function( $o ) {
-			$overlay = $o;
-			$tabs = $overlay.find( '.mw-echo-overlay-title li a' );
-			beforeAlertText = $overlay.find( '.mw-echo-overlay-title li a' ).eq( 1 ).text();
-			$tabs.eq( 1 ).trigger( 'click' );
-			afterAlertText = $overlay.find( '.mw-echo-overlay-title li a' ).eq( 1 ).text();
-		} );
-
-		// switch to 2nd tab
-		$tabs = $overlay.find( '.mw-echo-overlay-title li a' );
-		assert.strictEqual( $overlay.find( '.mw-echo-overlay-title li a' ).eq( 0 ).text(), 'Messages (0)', 'Check the label has a count in it.' );
-		assert.strictEqual( beforeAlertText, 'Alerts (1)', 'Check the label has a count in it.' );
-		assert.strictEqual( afterAlertText, 'Alerts (0)', 'Check the label has an updated count in it.' );
-		assert.strictEqual( $overlay.find( '.mw-echo-overlay-title li a' ).eq( 1 ).hasClass( 'mw-ui-active' ),
-			true, 'Second tab is the selected tab.' );
 	} );
 
 	QUnit.test( 'Unread message behaviour', 5, function( assert ) {
@@ -238,33 +201,6 @@
 			0, 'There are now no unread notifications in this tab.' );
 		assert.strictEqual( $overlay.find( '.mw-echo-notifications > button' ).length, 0,
 			'There are no notifications now so no need for button.' );
-	} );
-
-	QUnit.test( 'Mark as read.', 8, function( assert ) {
-		var $overlay;
-		this.$badge.text( '8' );
-		this.sandbox.stub( mw.echo.overlay, 'api', new this.ApiStub( 'with-new-messages' ) );
-		mw.echo.overlay.buildOverlay( function( $o ) {
-			$overlay = $o;
-		} );
-
-		// Test initial state
-		assert.strictEqual( $overlay.find( '.mw-echo-overlay-title li a' ).eq( 0 ).text(), 'Messages (7)',
-			'Check the label has a count in it and it is not automatically reset when tab is open.' );
-		assert.strictEqual( $overlay.find( '.mw-echo-unread' ).length, 8, 'There are 8 unread notifications.' );
-		assert.strictEqual( this.$badge.text(), '8', '8 unread notifications in badge.' );
-		assert.strictEqual( $overlay.find( '.mw-echo-notifications li button' ).length, 7,
-			'There are 7 mark as read button.' );
-
-		// Click first mark as read
-		$overlay.find( '.mw-echo-notifications li button' ).eq( 0 ).trigger( 'click' );
-
-		assert.strictEqual( $overlay.find( '.mw-echo-overlay-title li a' ).eq( 0 ).text(), 'Messages (6)',
-			'Check the notification was marked as read.' );
-		assert.strictEqual( $overlay.find( '.mw-echo-unread' ).length, 7, 'There are now 7 unread notifications.' );
-		assert.strictEqual( $overlay.find( '.mw-echo-notifications li button' ).length, 6,
-			'There are now 6 mark as read buttons.' );
-		assert.strictEqual( this.$badge.text(), '7', 'Now 7 unread notifications.' );
 	} );
 
 	QUnit.test( 'Tabs when there is overflow.', 2, function( assert ) {
@@ -291,17 +227,17 @@
 
 		// Test initial state
 		assert.strictEqual( $overlay.find( '.mw-echo-notifications' ).eq( 0 ).is( ':visible' ),
-			true, 'First tab is visible.' );
+			false, 'First tab starts hidden.' );
 		assert.strictEqual( $overlay.find( '.mw-echo-notifications' ).eq( 1 ).is( ':visible' ),
-			false, 'Second tab starts hidden.' );
+			true, 'Second tab is visible.' );
 
-		// Switch to second tab
-		$overlay.find( '.mw-echo-overlay-title li a' ).eq( 1 ).trigger( 'click' );
+		// Switch to first tab
+		$overlay.find( '.mw-echo-overlay-title li a' ).eq( 0 ).trigger( 'click' );
 
 		// check new tab visibility
 		assert.strictEqual( $overlay.find( '.mw-echo-notifications' ).eq( 0 ).is( ':visible' ),
-			false, 'First tab is now hidden.' );
+			true, 'First tab is now visible.' );
 		assert.strictEqual( $overlay.find( '.mw-echo-notifications' ).eq( 1 ).is( ':visible' ),
-			true, 'Second tab is now visible.' );
+			false, 'Second tab is now hidden.' );
 	} );
 }( jQuery, mediaWiki ) );

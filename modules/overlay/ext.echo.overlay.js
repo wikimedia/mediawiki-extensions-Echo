@@ -347,7 +347,20 @@
 				self.tabs.push( tab );
 				self.notificationCount.all += notifications[tabOptions.name].index.length;
 			} );
-			this._activeTab = this.tabs[0];
+
+			if ( tabs.length === 1 ) {
+				// only one tab exists
+				this._activeTab = this.tabs[0];
+			} else if (
+				notifications.message.rawcount > 0 &&
+				notifications.alert.rawcount === 0
+			) {
+				// if there are new messages and no new alerts show the messages tab
+				this._activeTab = this.tabs[0];
+			} else {
+				// otherwise show the alerts tab
+				this._activeTab = this.tabs[1];
+			}
 
 			$overlay.prepend( this._getTitleElement() );
 			$overlay.append( this._getFooterElement() );
