@@ -122,7 +122,8 @@
 		 * Mark notifications as read.
 		 */
 		markAsRead: function ( unread ) {
-			var api = new mw.Api(), that = this;
+			var newCount, rawCount, $badge,
+				api = new mw.Api(), that = this;
 
 			api.post( mw.echo.desktop.appendUseLang( {
 				'action' : 'echomarkread',
@@ -131,9 +132,18 @@
 			} ) ).done( function ( result ) {
 				// update the badge if the link is enabled
 				if ( result.query.echomarkread.count !== undefined &&
-					$( '#pt-notifications').length && typeof mw.echo.overlay === 'object'
+					$( '#pt-notifications').length
 				) {
-					mw.echo.overlay.updateCount( result.query.echomarkread.count, result.query.echomarkread.rawcount );
+					newCount = result.query.echomarkread.count;
+					rawCount = result.query.echomarkread.rawcount;
+					$badge = mw.echo.getBadge();
+					$badge.text( newCount );
+
+					if ( rawCount !== '0' && rawCount !== 0 ) {
+						$badge.addClass( 'mw-echo-unread-notifications' );
+					} else {
+						$badge.removeClass( 'mw-echo-unread-notifications' );
+					}
 				}
 				that.onSuccess();
 			} ).fail( function () {
