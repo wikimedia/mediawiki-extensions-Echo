@@ -18,7 +18,7 @@
 					var i, id,
 						index = [], listObj = {},
 						data = this.getData();
-					if ( this.mode === 1 ) {
+					if ( this.mode === 'no-new-messages' ) {
 						data.query.notifications.message = {
 							index: [ 100 ],
 							list: {
@@ -33,7 +33,7 @@
 							rawcount: 0,
 							count: '0'
 						};
-					} else if ( this.mode === 2 ) {
+					} else if ( this.mode === 'with-new-messages' ) {
 						for ( i = 0; i < 7; i++ ) {
 							id = 500 + i;
 							index.push( id );
@@ -160,7 +160,7 @@
 
 	QUnit.test( 'mw.echo.overlay.buildOverlay with messages', 5, function( assert ) {
 		var $overlay;
-		this.sandbox.stub( mw.echo.overlay, 'api', new this.ApiStub( 1 ) );
+		this.sandbox.stub( mw.echo.overlay, 'api', new this.ApiStub( 'no-new-messages' ) );
 		mw.echo.overlay.buildOverlay( function( $o ) {
 			$overlay = $o;
 		} );
@@ -177,7 +177,7 @@
 	QUnit.test( 'Switch tabs on overlay. No unread messages, 1 unread alert.', 4, function( assert ) {
 		var $overlay, $tabs;
 
-		this.sandbox.stub( mw.echo.overlay, 'api', new this.ApiStub( 1 ) );
+		this.sandbox.stub( mw.echo.overlay, 'api', new this.ApiStub( 'no-new-messages' ) );
 		mw.echo.overlay.buildOverlay( function( $o ) {
 			$overlay = $o;
 			$tabs = $overlay.find( '.mw-echo-overlay-title li a' );
@@ -199,7 +199,7 @@
 	QUnit.test( 'Tabs have labels with counts in them.', 4, function( assert ) {
 		var $overlay, $tabs, beforeAlertText, afterAlertText;
 
-		this.sandbox.stub( mw.echo.overlay, 'api', new this.ApiStub( 1 ) );
+		this.sandbox.stub( mw.echo.overlay, 'api', new this.ApiStub( 'no-new-messages' ) );
 		mw.echo.overlay.buildOverlay( function( $o ) {
 			$overlay = $o;
 			$tabs = $overlay.find( '.mw-echo-overlay-title li a' );
@@ -220,7 +220,7 @@
 	QUnit.test( 'Unread message behaviour', 5, function( assert ) {
 		var $overlay;
 
-		this.sandbox.stub( mw.echo.overlay, 'api', new this.ApiStub( 2 ) );
+		this.sandbox.stub( mw.echo.overlay, 'api', new this.ApiStub( 'with-new-messages' ) );
 		mw.echo.overlay.buildOverlay( function( $o ) {
 			$overlay = $o;
 		} );
@@ -243,7 +243,7 @@
 	QUnit.test( 'Mark as read.', 8, function( assert ) {
 		var $overlay;
 		this.$badge.text( '8' );
-		this.sandbox.stub( mw.echo.overlay, 'api', new this.ApiStub( 2 ) );
+		this.sandbox.stub( mw.echo.overlay, 'api', new this.ApiStub( 'with-new-messages' ) );
 		mw.echo.overlay.buildOverlay( function( $o ) {
 			$overlay = $o;
 		} );
@@ -269,7 +269,7 @@
 
 	QUnit.test( 'Tabs when there is overflow.', 2, function( assert ) {
 		var $overlay;
-		this.sandbox.stub( mw.echo.overlay, 'api', new this.ApiStub( 2, 50 ) );
+		this.sandbox.stub( mw.echo.overlay, 'api', new this.ApiStub( 'with-new-messages', 50 ) );
 		mw.echo.overlay.buildOverlay( function( $o ) {
 			$overlay = $o;
 		} );
@@ -283,7 +283,7 @@
 	QUnit.test( 'Switching tabs visibility', 4, function( assert ) {
 		var $overlay;
 
-		this.sandbox.stub( mw.echo.overlay, 'api', new this.ApiStub( 2 ) );
+		this.sandbox.stub( mw.echo.overlay, 'api', new this.ApiStub( 'with-new-messages' ) );
 		mw.echo.overlay.buildOverlay( function( $o ) {
 			// put in dom so we can do visibility tests
 			$overlay = $o.appendTo( '#qunit-fixture' );
