@@ -51,6 +51,11 @@ Given(/^another user mentions me on the wiki$/) do
   make_page_with_user_b(title, text)
 end
 
+Given(/^I am logged in as a new user$/) do
+  @username = get_new_username()
+  step 'I am logged in as the user "' + @username + '"'
+end
+
 Given(/^I am logged in as a new user with no notifications$/) do
   @username = get_new_username()
   clear_notifications( @username )
