@@ -19,6 +19,13 @@ class EchoNotificationController {
 	static protected $userWhitelist;
 
 	/**
+	 * Queue's that failed formatting and marks them as read at end of request.
+	 *
+	 * @var DeferredMarkAsReadUpdate|null
+	 */
+	static protected $markAsRead;
+
+	/**
 	 * Format the notification count with Language::formatNum().  In addition, for large count,
 	 * return abbreviated version, e.g. 99+
 	 *
@@ -330,12 +337,30 @@ class EchoNotificationController {
 			restore_error_handler();
 		}
 
-		if ( $res ) {
-			return $res;
-		} else {
-			return Xml::tags( 'span', array( 'class' => 'error' ),
-				wfMessage( 'echo-error-no-formatter', $event->getType() )->escaped() );
+		if ( $res === '' ) {
+			self::failFormatting( $event, $user );
 		}
+
+		return $res;
+	}
+
+	/**
+	 * Event has failed to format for the given user.  Mark it as read so
+	 * we do not continue to notify them about this broken event.
+	 *
+	 * @param EchoEvent $event
+	 * @param User $user
+	 */
+	protected static function failFormatting( EchoEvent $event, $user ) {
+		// FIXME: The only issue is that the badge count won't be up to date
+		// till you refresh the page.  Probably we could do this in the browser
+		// so that if the formatting is empty and the notif is unread, put it
+		// in the auto-mark-read API
+		if ( self::$markAsRead === null ) {
+			self::$markAsRead = new EchoDeferredMarkAsReadUpdate();
+			DeferredUpdates::addUpdate( self::$markAsRead );
+		}
+		self::$markAsRead->add( $event, $user );
 	}
 
 	/**
