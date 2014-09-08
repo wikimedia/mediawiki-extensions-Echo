@@ -292,12 +292,12 @@
 				$( '<a class="mw-ui-progressive">' )
 					.on( 'click', function() {
 						var $this = $( this );
-						$ul.find( 'a' ).removeClass( 'mw-ui-active' ).addClass( 'mw-ui-quiet' );
-						$this.addClass( 'mw-ui-active' ).removeClass( 'mw-ui-quiet');
+						$ul.find( 'a' ).removeClass( 'mw-ui-quiet' ).addClass( 'mw-ui-active' );
+						$this.addClass( 'mw-ui-quiet' ).removeClass( 'mw-ui-active');
 						self._showTabList( $this.data( 'tab' ) );
 					} )
 					.data( 'tab', echoTab )
-					.addClass( echoTab.name === self._activeTab.name ? 'mw-ui-active' : 'mw-ui-quiet' )
+					.addClass( echoTab.name === self._activeTab.name ? 'mw-ui-quiet' : 'mw-ui-active' )
 					.text( label ).appendTo( $li );
 			} );
 			return $ul;

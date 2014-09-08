@@ -170,9 +170,9 @@
 		// switch to 2nd tab
 		$overlay.find( '.mw-echo-overlay-title li a' ).eq( 1 ).trigger( 'click' );
 
-		assert.strictEqual( $tabs.eq( 0 ).hasClass( 'mw-ui-active' ),
+		assert.strictEqual( $tabs.eq( 0 ).hasClass( 'mw-ui-quiet' ),
 			false, 'First tab is now the selected tab.' );
-		assert.strictEqual( $tabs.eq( 1 ).hasClass( 'mw-ui-active' ),
+		assert.strictEqual( $tabs.eq( 1 ).hasClass( 'mw-ui-quiet' ),
 			true, 'Second tab is now the selected tab.' );
 		assert.strictEqual( this.$badge.text(),
 			'0', 'The label is now set to 0.' );
