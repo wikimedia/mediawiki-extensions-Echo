@@ -109,6 +109,9 @@ $wgJobClasses['EchoNotificationJob'] = 'EchoNotificationJob';
 $wgAutoloadClasses['MWEchoNotificationEmailBundleJob'] = $dir . 'jobs/NotificationEmailBundleJob.php';
 $wgJobClasses['MWEchoNotificationEmailBundleJob'] = 'MWEchoNotificationEmailBundleJob';
 
+// Deferred execution
+$wgAutoloadClasses['EchoDeferredMarkAsReadUpdate'] = $dir . '/includes/DeferredMarkAsReadUpdate.php';
+
 // API
 $wgAutoloadClasses['ApiEchoNotifications'] = $dir . 'api/ApiEchoNotifications.php';
 $wgAPIMetaModules['notifications'] = 'ApiEchoNotifications';
