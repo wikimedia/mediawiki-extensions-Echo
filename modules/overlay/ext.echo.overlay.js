@@ -314,7 +314,6 @@
 		_getTitleElement: function() {
 			var $title = $( '<div>' ).addClass( 'mw-echo-overlay-title' )
 				.append( this._getTabsElement() );
-			this._showTabList( this._activeTab );
 			return $title;
 		},
 
@@ -364,6 +363,8 @@
 
 			$overlay.prepend( this._getTitleElement() );
 			$overlay.append( this._getFooterElement() );
+			// Show the active tab.
+			this._showTabList( this._activeTab );
 		}
 	};
 
