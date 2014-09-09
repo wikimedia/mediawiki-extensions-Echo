@@ -141,6 +141,27 @@ class EchoTargetPageMapper extends EchoAbstractMapper {
 	}
 
 	/**
+	 * Delete multiple EchoTargetPage records by user & event_id offset
+	 *
+	 * @param User $user
+	 * @param int $eventId
+	 * @return boolean
+	 */
+	public function deleteByUserEventOffset( User $user, $eventId ) {
+		$dbw = $this->dbFactory->getEchoDb( DB_MASTER );
+
+		$res = $dbw->delete(
+			'echo_target_page',
+			array(
+				'etp_user' => $user->getId(),
+				'etp_event < ' . (int)$eventId
+			),
+			__METHOD__
+		);
+		return $res;
+	}
+
+	/**
 	 * Delete multiple EchoTargetPage records by user
 	 *
 	 * @param User $user

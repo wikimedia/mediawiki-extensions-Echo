@@ -121,6 +121,16 @@ class EchoTargetPageMapperTest extends MediaWikiTestCase {
 		$this->assertSame( $targetMapper->deleteByUser( User::newFromId( 1 ) ), false );
 	}
 
+	public function testDeleteByUserEventOffset() {
+		$dbResult = array( 'delete' => true );
+		$targetMapper = new EchoTargetPageMapper( $this->mockMWEchoDbFactory( $dbResult ) );
+		$this->assertSame( $targetMapper->deleteByUserEventOffset( User::newFromId( 1 ), 500 ), true );
+
+		$dbResult = array( 'delete' => false );
+		$targetMapper = new EchoTargetPageMapper( $this->mockMWEchoDbFactory( $dbResult ) );
+		$this->assertSame( $targetMapper->deleteByUserEventOffset( User::newFromId( 1 ), 500 ), false );
+	}
+
 	/**
 	 * Mock object of EchoTargetPage
 	 */

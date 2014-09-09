@@ -74,7 +74,10 @@ class EchoNotificationController {
 
 		$type = $event->getType();
 		$notifyTypes = self::getEventNotifyTypes( $type );
+		$userIds = array();
+		$userIdsCount = 0;
 		foreach ( self::getUsersToNotifyForEvent( $event ) as $user ) {
+			$userIds[$user->getId()] = $user->getId();
 			$userNotifyTypes = $notifyTypes;
 			wfRunHooks( 'EchoGetNotificationTypes', array( $user, $event, &$userNotifyTypes ) );
 
@@ -82,7 +85,41 @@ class EchoNotificationController {
 			foreach ( $userNotifyTypes as $type ) {
 				self::doNotification( $event, $user, $type );
 			}
+
+			$userIdsCount++;
+			// Process 1000 users per NotificationDeleteJob
+			if ( $userIdsCount > 1000 ) {
+				self::enqueueDeleteJob( $userIds, $event );
+				$userIds = array();
+				$userIdsCount = 0;
+			}
 		}
+
+		// process the userIds left in the array
+		if ( $userIds ) {
+			self::enqueueDeleteJob( $userIds, $event );
+		}
+	}
+
+	/**
+	 * Schedule a job to check and delete older notifications
+	 *
+	 * @param int $userIds
+	 * @param EchoEvent $event
+	 */
+	public static function enqueueDeleteJob( array $userIds, EchoEvent $event ) {
+		// Do nothing if there is no user
+		if ( !$userIds ) {
+			return;
+		}
+
+		$job = new EchoNotificationDeleteJob(
+			$event->getTitle() ?: Title::newMainPage(),
+			array(
+				'userIds' => $userIds
+			)
+		);
+		JobQueueGroup::singleton()->push( $job );
 	}
 
 	/**

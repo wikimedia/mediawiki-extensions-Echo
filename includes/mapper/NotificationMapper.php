@@ -206,4 +206,57 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 		}
 	}
 
+	/**
+	 * Fetch a notification by user in the specified offset.  The caller should
+	 * know that passing a big number for offset is NOT going to work
+	 * @param User $user
+	 * @param int $offset
+	 * @return EchoNotification|bool
+	 */
+	public function fetchByUserOffset( User $user, $offset ) {
+		$dbr = $this->dbFactory->getEchoDb( DB_SLAVE );
+		$row = $dbr->selectRow(
+			array( 'echo_notification', 'echo_event' ),
+			array( '*' ),
+			array(
+				'notification_user' => $user->getId(),
+				'notification_bundle_base' => 1
+			),
+			__METHOD__,
+			array(
+				'ORDER BY' => 'notification_timestamp DESC, notification_event DESC',
+				'OFFSET' => $offset,
+				'LIMIT' => 1
+			),
+			array(
+				'echo_event' => array( 'LEFT JOIN', 'notification_event=event_id' ),
+			)
+		);
+
+		if ( $row ) {
+			return EchoNotification::newFromRow( $row );
+		} else {
+			return false;
+		}
+	}
+
+	/**
+	 * Batch delete notifications by user and eventId offset
+	 * @param User $user
+	 * @param int $eventId
+	 * @return boolean
+	 */
+	public function deleteByUserEventOffset( User $user, $eventId ) {
+		$dbw = $this->dbFactory->getEchoDb( DB_MASTER );
+		$res = $dbw->delete(
+			'echo_notification',
+			array(
+				'notification_user' => $user->getId(),
+				'notification_event < ' . (int)$eventId
+			),
+			__METHOD__
+		);
+		return $res;
+	}
+
 }

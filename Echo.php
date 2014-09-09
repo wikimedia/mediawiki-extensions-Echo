@@ -103,11 +103,15 @@ $wgAutoloadClasses['EchoNotificationController'] = $dir . 'controller/Notificati
 $wgAutoloadClasses['EchoDiscussionParser'] = $dir . 'includes/DiscussionParser.php';
 $wgAutoloadClasses['EchoDiffParser'] = $dir . 'includes/DiffParser.php';
 
-// Job queue
+// Job to process the sending of Echo notifications
 $wgAutoloadClasses['EchoNotificationJob'] = $dir . 'jobs/NotificationJob.php';
 $wgJobClasses['EchoNotificationJob'] = 'EchoNotificationJob';
+// Job to process notification email bundling
 $wgAutoloadClasses['MWEchoNotificationEmailBundleJob'] = $dir . 'jobs/NotificationEmailBundleJob.php';
 $wgJobClasses['MWEchoNotificationEmailBundleJob'] = 'MWEchoNotificationEmailBundleJob';
+// Job to delete older notifications
+$wgAutoloadClasses['EchoNotificationDeleteJob'] = $dir . 'jobs/NotificationDeleteJob.php';
+$wgJobClasses['EchoNotificationDeleteJob'] = 'EchoNotificationDeleteJob';
 
 // Deferred execution
 $wgAutoloadClasses['EchoDeferredMarkAsReadUpdate'] = $dir . '/includes/DeferredMarkAsReadUpdate.php';
@@ -239,10 +243,10 @@ $wgEchoCluster = false;
 // The max number showed in bundled message, eg, <user> and 99+ others <action>
 $wgEchoMaxNotificationCount = 99;
 
-// The max number allowed to be updated on a web request, when we mark all notification
-// as read, it's a bad idea to update on a web request if the number is incredibly
-// huge, to prevent this, we just fetch 2000 thousand records and mark them as read.
-// This would cover most of the use cases.
+// The max number of notifications allowed for a user to do a live update,
+// this is also the number of max notifications allowed for a user to have
+// @FIXME - the name is not intuitive, probably change it when the deleteJob patch
+// is deployed to both deployment branches
 $wgEchoMaxUpdateCount = 2000;
 
 // The time interval between each bundle email in seconds
