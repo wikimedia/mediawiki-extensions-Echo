@@ -77,6 +77,8 @@ $wgResourceModules += array(
 			'echo-feedback',
 			'echo-notification-alert',
 			'echo-notification-message',
+			'echo-notification-alert-text-only',
+			'echo-notification-message-text-only',
 			'echo-email-batch-bullet'
 		),
 	),
