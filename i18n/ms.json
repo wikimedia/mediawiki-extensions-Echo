@@ -26,7 +26,7 @@
 	"echo-pref-notify-show-link": "Paparkan pemberitahuan di palang alat saya",
 	"echo-pref-new-message-indicator": "Paparkan indikator pesanan dari halaman perbincangan pada palang alat saya",
 	"echo-learn-more": "Ketahui lebih lanjut",
-	"echo-new-messages": "Anda ada pesanan baru",
+	"echo-new-messages": "Anda mempunyai pesanan baru",
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Pesanan|Pesanan-pesanan}} laman perbincangan",
 	"echo-category-title-article-linked": "{{PLURAL:$1|Pautan}} halaman",
 	"echo-category-title-reverted": "{{PLURAL:$1|Pembalikan}} suntingan",
