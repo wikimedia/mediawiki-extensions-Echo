@@ -286,7 +286,10 @@
 					// * echo-notification-message-text-only
 					// @todo: Unread value is inaccurate. If a user has more than mw.echo.overlay.notificationLimit
 					// API change needed
-					label = mw.msg( 'echo-notification-' + tabName, echoTab.getNumberUnread() );
+					label = mw.msg(
+						'echo-notification-' + tabName,
+						mw.language.convertNumber( echoTab.getNumberUnread() )
+					);
 
 				$li = $( '<li>' )
 					.appendTo( $ul );
