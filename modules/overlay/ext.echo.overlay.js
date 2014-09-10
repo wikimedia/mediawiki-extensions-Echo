@@ -340,7 +340,7 @@
 			this.$el = $overlay;
 
 			if ( notifications.message.index.length ) {
-				tabs = [ { name: 'message' }, { name: 'alert', markOnView: true } ];
+				tabs = [ { name: 'alert', markOnView: true }, { name: 'message' } ];
 			} else {
 				tabs = [ { name: 'alert', markOnView: true } ];
 			}
@@ -360,10 +360,10 @@
 				notifications.alert.rawcount === 0
 			) {
 				// if there are new messages and no new alerts show the messages tab
-				this._activeTab = this.tabs[0];
+				this._activeTab = this.tabs[1];
 			} else {
 				// otherwise show the alerts tab
-				this._activeTab = this.tabs[1];
+				this._activeTab = this.tabs[0];
 			}
 
 			$overlay.prepend( this._getTitleElement() );
