@@ -174,9 +174,10 @@ abstract class EchoDiscussionParser {
 			}
 			$mentionedUsers[$user->getId()] = $user->getId();
 			$count++;
-			// This is an unbounded list, put a cap on the allowable mentioned user list
-			if ( $count > 100 ) {
-				break;
+			// If more than 20 users are being pinged this is likely a spam/attack vector
+			// Don't send any mention notifications.
+			if ( $count > 20 ) {
+				return;
 			}
 		}
 
