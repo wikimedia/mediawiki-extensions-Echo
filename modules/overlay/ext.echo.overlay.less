@@ -1,4 +1,7 @@
 @import '../mixins.less';
+@import "mediawiki.mixins";
+@import "mediawiki.ui/variables";
+@import "mediawiki.ui/mixins";
 
 @offset: 200px;
 @chevronHeight: 11px;
@@ -45,7 +48,7 @@
 	}
 
 	a.mw-echo-grey-link {
-		color: #6D6D6D;
+		color: @colorTextLight;
 	}
 
 	.mw-echo-notifications,
@@ -112,8 +115,15 @@
 }
 
 .mw-echo-title {
-	.mw-echo-title-heading, a {
-		font-weight: bold;
+	color: @colorTextLight;
+
+	.mw-echo-title-heading {
+		color: @colorTextLight;
+		font-size: 1.15em;
+
+		&, a {
+			font-weight: bold;
+		}
 	}
 
 	.mw-echo-title-heading,
@@ -165,7 +175,7 @@
 		float: none;
 		display: table-cell;
 		min-height: 14px;
-		font-size: 13px;
+		font-size: @headerFontSize;
 		white-space: normal;
 		font-weight: bold;
 		padding: 15px 15px 15px 45px;
