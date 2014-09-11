@@ -102,6 +102,8 @@
 	"echo-email-footer-default-html": "Määrittele, mitä sähköpostiviestejä lähetämme sinulle, <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">tarkistamalla asetuksesi</a>.<br />\n$1",
 	"echo-notification-alert": "{{PLURAL:$1|Hälytys ($1)|Hälytykset ($1)|100=Hälytykset (99+)}}",
 	"echo-notification-message": "{{PLURAL:$1|Viesti ($1)|Viestit ($1)|100=Viestit (99+)}}",
+	"echo-notification-alert-text-only": "Hälytykset",
+	"echo-notification-message-text-only": "Viestit",
 	"echo-overlay-link": "Kaikki ilmoitukset",
 	"echo-overlay-title": "<b>Ilmoitukset</b>",
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Ilmoitukset}}</b> (näytetään $1 ($2) lukematonta)",

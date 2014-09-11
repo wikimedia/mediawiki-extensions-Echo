@@ -24,7 +24,7 @@
 	"echo-pref-email-format-html": "ԷյչԹիԷմԷլ",
 	"echo-pref-email-format-plain-text": "Պարզ տեքստ",
 	"echo-pref-notify-show-link": "Ցուցադրել ծանուցումները իմ վահանակում",
-	"echo-pref-new-message-indicator": "Ցուցադրել քննարկման էջում հաղորդագրությունների ցուցիչը իմ վահանակում",
+	"echo-pref-new-message-indicator": "Ցուցադրել քննարկման էջի հաղորդագրությունների ցուցիչը իմ վահանակում",
 	"echo-learn-more": "Իմանալ ավելին",
 	"echo-new-messages": "Դուք նոր ուղերձներ ունեք",
 	"echo-category-title-edit-user-talk": "Քննարկման էջում {{PLURAL:$1|ուղերձ|ուղերձներ}}",

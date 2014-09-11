@@ -11,7 +11,8 @@
 			"Rtemis",
 			"درفش کاویانی",
 			"فلورانس",
-			"Alirezaaa"
+			"Alirezaaa",
+			"Bersam"
 		]
 	},
 	"echo-desc": "سامانهٔ آگاه‌سازی‌ها",
@@ -105,6 +106,8 @@
 	"echo-email-footer-default-html": "برای کنترل اینکه چه رایانامه‌ای به شما بفرستیم، <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">ترجیحاتتان را بررسی کنید</a>.<br />\n$1",
 	"echo-notification-alert": "{{PLURAL:$1|هشدارها ($1)|هشدارها ($1)|100=هشدارها (۹۹+)}}",
 	"echo-notification-message": "{{PLURAL:$1|پیام‌ها ($1)|پیام‌ها ($1)|100=پیام‌ها (۹۹+)}}",
+	"echo-notification-alert-text-only": "هشدار",
+	"echo-notification-message-text-only": "پیام‌ها",
 	"echo-overlay-link": "همهٔ آگاه‌سازی‌ها",
 	"echo-overlay-title": "<b>آگاه‌سازی‌ها</b>",
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|آگاه‌سازی‌ها}}</b> (نمایش $1 از $2 خوانده‌نشده)",
