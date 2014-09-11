@@ -330,8 +330,10 @@ class EchoNotificationController {
 					'format' => $format,
 					'type' => $type,
 					'user' => $user ? $user->getName() : 'no user',
+					'exceptionName' => get_class( $e ),
+					'exceptionMessage' => $e->getMessage(),
 				);
-				wfDebugLog( __CLASS__, __FUNCTION__ . ": Error formatting " . FormatJson::encode( $meta ) );
+				wfDebugLog( 'Echo', __FUNCTION__ . ": Error formatting " . FormatJson::encode( $meta ) );
 				MWExceptionHandler::logException( $e );
 			}
 			restore_error_handler();
