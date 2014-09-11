@@ -282,12 +282,19 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 
 		// Echo single email
 		$emailSingle = new EchoEmailSingle( $this, $event, $user );
-
 		$textEmailFormatter = new EchoTextEmailFormatter( $emailSingle );
+		// Update the distribution type to emailsubject when formatting
+		// email subject
+		// @FIXME - Find a better way to do this
+		$distributionType = $this->distributionType;
+		$this->setDistributionType( 'emailsubject' );
+		$subject = $this->formatFragment( $this->email['subject'], $event, $user )->text();
+		$this->setDistributionType( $distributionType );
+
 		$content = array(
 			// Single email subject, there is no need to to escape it for either html
 			// or text email since it's always treated as plain text by mail client
-			'subject' => $this->formatFragment( $this->email['subject'], $event, $user )->text(),
+			'subject' => $subject,
 			// Single email text body
 			'body' => $textEmailFormatter->formatEmail(),
 		);
@@ -660,13 +667,15 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	}
 
 	/**
-	 * Process a param that should be escaped
+	 * Process a parameter that should be escaped for display except for use
+	 * cases like plain text email and email subject
+	 *
 	 * @param $message Message
 	 * @param $paramContent string
 	 */
 	protected function processParamEscaped( $message, $paramContent ) {
-		// Plain text email does not need escape
-		if ( $this->outputFormat !== 'email' ) {
+		// Plain text email and email subject do not need to be escaped
+		if ( $this->outputFormat !== 'email' && $this->distributionType !== 'emailsubject' ) {
 			$paramContent = htmlspecialchars( $paramContent );
 		}
 

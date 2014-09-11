@@ -17,7 +17,7 @@ abstract class EchoNotificationFormatter {
 	/**
 	 * List of valid distribution type
 	 */
-	protected $validDistributionType = array( 'web', 'email', 'emaildigest' );
+	protected $validDistributionType = array( 'web', 'email', 'emaildigest', 'emailsubject' );
 
 	/**
 	 * Current output format, default is 'text'
