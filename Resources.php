@@ -29,10 +29,14 @@ $echoResourceTemplate = array(
 	'remoteExtPath' => 'Echo/modules',
 );
 
+$mobileReadyTemplate = array(
+	'targets' => array( 'desktop', 'mobile' ),
+);
+
 $wgResourceModules += array(
 	// ext.echo.base is used by mobile notifications as well, so be sure not to add any
 	// dependencies that do not target mobile.
-	'ext.echo.base' => $echoResourceTemplate + array(
+	'ext.echo.base' => $echoResourceTemplate + $mobileReadyTemplate + array(
 		'styles' => 'base/ext.echo.base.less',
 		'scripts' => array(
 			'base/ext.echo.base.js',
@@ -41,34 +45,22 @@ $wgResourceModules += array(
 			'echo-error-preference',
 			'echo-error-token',
 		),
-		'targets' => array( 'desktop', 'mobile' ),
 	),
-	'ext.echo.desktop' => $echoResourceTemplate + array(
-		'scripts' => array(
-			'desktop/ext.echo.desktop.js',
-		),
-		'dependencies' => array(
-			'ext.echo.base',
-			'mediawiki.api',
-			'mediawiki.Uri',
-			'mediawiki.jqueryMsg',
-			'mediawiki.user',
-		),
-	),
-	'ext.echo.overlay' => $echoResourceTemplate + array(
+	'ext.echo.overlay' => $echoResourceTemplate + $mobileReadyTemplate + array(
 		'scripts' => array(
 			'overlay/ext.echo.overlay.js',
 		),
-		'styles' => 'overlay/ext.echo.overlay.less',
 		'skinStyles' => array(
 			'modern' => 'overlay/ext.echo.overlay.modern.css',
 			'monobook' => 'overlay/ext.echo.overlay.monobook.css',
 		),
 		'dependencies' => array(
-			'ext.echo.desktop',
 			'mediawiki.util',
 			'mediawiki.language',
 			'mediawiki.ui.anchor',
+			'ext.echo.base',
+			'mediawiki.api',
+			'mediawiki.jqueryMsg',
 		),
 		'messages' => array(
 			'echo-overlay-link',
@@ -83,6 +75,9 @@ $wgResourceModules += array(
 		),
 	),
 	'ext.echo.overlay.init' => $echoResourceTemplate + array(
+		'styles' => array(
+			'overlay/ext.echo.overlay.less',
+		),
 		'dependencies' => array(
 			'ext.echo.overlay',
 		),
@@ -96,8 +91,8 @@ $wgResourceModules += array(
 		),
 		'styles' => 'special/ext.echo.special.less',
 		'dependencies' => array(
-			'ext.echo.desktop',
 			'mediawiki.ui.button',
+			'ext.echo.base',
 		),
 		'messages' => array(
 			'echo-load-more-error',
