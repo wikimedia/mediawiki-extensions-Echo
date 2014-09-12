@@ -16,7 +16,6 @@ abstract class EchoDiscussionParser {
 	 */
 	static function generateEventsForRevision( $revision ) {
 		$interpretation = self::getChangeInterpretationForRevision( $revision );
-		$createdEvents = false;
 
 		// use slave database if there is a previous revision
 		if ( $revision->getPrevious() ) {
@@ -40,43 +39,15 @@ abstract class EchoDiscussionParser {
 			if ( $action['type'] == 'add-comment' ) {
 				$fullSection = $action['full-section'];
 				$header = self::extractHeader( $fullSection );
-				/*
-				EchoEvent::create( array(
-					'type' => 'add-comment',
-					'title' => $title,
-					'extra' => array(
-						'revid' => $revision->getID(),
-						'section-title' => $header,
-						'content' => $action['content'],
-					),
-					'agent' => $user,
-				) );
-				*/
 				self::generateMentionEvents( $header, $action['content'], $revision, $user );
-
-				//$createdEvents = true;
 			} elseif ( $action['type'] == 'new-section-with-comment' ) {
 				$content = $action['content'];
 				$header = self::extractHeader( $content );
-				/*
-				EchoEvent::create( array(
-					'type' => 'add-talkpage-topic',
-					'title' => $title,
-					'extra' => array(
-						'revid' => $revision->getID(),
-						'section-title' => $header,
-						'content' => $content,
-					),
-					'agent' => $user,
-				) );
-				*/
 				self::generateMentionEvents( $header, $content, $revision, $user );
-
-				//$createdEvents = true;
 			}
 		}
 
-		if ( !$createdEvents && $title->getNamespace() == NS_USER_TALK ) {
+		if ( $title->getNamespace() == NS_USER_TALK ) {
 			$notifyUser = User::newFromName( $title->getText() );
 			// If the recipient is a valid non-anonymous user and hasn't turned
 			// off their notifications, generate a talk page post Echo notification.
