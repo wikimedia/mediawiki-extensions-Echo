@@ -63,12 +63,12 @@
 				notifications, data, container, $li, that = this, unread = [], apiData;
 
 			apiData = {
-				'action' : 'query',
-				'meta' : 'notifications',
-				'notformat' : 'html',
-				'notprop' : 'index|list',
-				'notcontinue': this.notcontinue,
-				'notlimit': mw.config.get( 'wgEchoDisplayNum' ),
+				action : 'query',
+				meta : 'notifications',
+				notformat : 'html',
+				notprop : 'index|list',
+				notcontinue: this.notcontinue,
+				notlimit: mw.config.get( 'wgEchoDisplayNum' ),
 				uselang: useLang
 			};
 
@@ -128,9 +128,9 @@
 				api = new mw.Api(), that = this;
 
 			api.post( {
-				'action' : 'echomarkread',
-				'list' : unread.join( '|' ),
-				'token': mw.user.tokens.get( 'editToken' ),
+				action : 'echomarkread',
+				list : unread.join( '|' ),
+				token: mw.user.tokens.get( 'editToken' ),
 				uselang: useLang
 			} ).done( function ( result ) {
 				// update the badge if the link is enabled
