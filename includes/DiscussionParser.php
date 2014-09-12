@@ -1,8 +1,9 @@
 <?php
 
 abstract class EchoDiscussionParser {
+	const HEADER_REGEX = '^(==+)\s*([^=].*)\s*\1$';
+
 	static protected $timestampRegex;
-	static protected $headerRegex = '^(==+)\s*([^=].*)\s*\1$';
 	static protected $revisionInterpretationCache = array();
 	static protected $diffParser;
 
@@ -340,7 +341,10 @@ abstract class EchoDiscussionParser {
 
 			if ( $change['action'] == 'add' ) {
 				$content = trim( $change['content'] );
-				$startSection = preg_match( "/\A" . self::$headerRegex . '/um', $content );
+				// The \A means the regex must match at the begining of the string.
+				// This is slightly different than ^ which matches begining of each
+				// line in multiline mode.
+				$startSection = preg_match( "/\A" . self::HEADER_REGEX . '/um', $content );
 				$sectionCount = self::getSectionCount( $content );
 				$signedUsers = array_keys( self::extractSignatures( $content ) );
 
@@ -411,7 +415,7 @@ abstract class EchoDiscussionParser {
 	 */
 	static function getFullSection( $lines, $offset ) {
 		$content = $lines[$offset - 1];
-		$headerRegex = '/' . self::$headerRegex . '/um';
+		$headerRegex = '/' . self::HEADER_REGEX . '/um';
 
 		// Expand backwards...
 		$continue = !preg_match( $headerRegex, $lines[$offset - 1] );
@@ -452,7 +456,7 @@ abstract class EchoDiscussionParser {
 		$text = trim( $text );
 
 		$matches = array();
-		preg_match_all( '/' . self::$headerRegex . '/um', $text, $matches );
+		preg_match_all( '/' . self::HEADER_REGEX . '/um', $text, $matches );
 
 		return count( $matches[0] );
 	}
@@ -468,7 +472,7 @@ abstract class EchoDiscussionParser {
 
 		$matches = array();
 
-		if ( !preg_match_all( '/' . self::$headerRegex . '/um', $text, $matches ) ) {
+		if ( !preg_match_all( '/' . self::HEADER_REGEX . '/um', $text, $matches ) ) {
 			return false;
 		}
 
@@ -530,7 +534,7 @@ abstract class EchoDiscussionParser {
 	 * @return string: The same text, with the section header stripped out.
 	 */
 	static function stripHeader( $text ) {
-		$text = preg_replace( '/' . self::$headerRegex . '/um', '', $text );
+		$text = preg_replace( '/' . self::HEADER_REGEX . '/um', '', $text );
 
 		return $text;
 	}
