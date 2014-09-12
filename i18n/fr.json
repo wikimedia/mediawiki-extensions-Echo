@@ -16,7 +16,8 @@
 			"Urhixidur",
 			"Verdy p",
 			"Wyz",
-			"Y-M D"
+			"Y-M D",
+			"Kvardek du"
 		]
 	},
 	"echo-desc": "Système de notifications",
@@ -37,7 +38,7 @@
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Texte brut",
 	"echo-pref-notify-show-link": "Afficher les notifications dans ma barre d'outils",
-	"echo-pref-new-message-indicator": "Afficher l’indicateur de message sur la page de discussion dans ma barre d’outils",
+	"echo-pref-new-message-indicator": "Afficher dans ma barre d’outils l’indicateur de nouveau message sur ma page de discussion",
 	"echo-learn-more": "En savoir plus",
 	"echo-new-messages": "Vous avez de nouveaux messages",
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Message|Messages}} de la page de discussion",
