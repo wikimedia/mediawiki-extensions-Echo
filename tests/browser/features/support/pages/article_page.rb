@@ -9,4 +9,5 @@ class ArticlePage
   # Overlay header
   a("alert_tab_link", css: '.mw-echo-overlay-title ul li a', index: 1)
   button("mark_as_read", css: '.mw-echo-notifications > button')
+  a(:messages_view_link, css: ".mw-ui-active")
 end

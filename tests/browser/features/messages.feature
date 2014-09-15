@@ -12,7 +12,7 @@ Feature: Unread messages
       And I have new notifications
       And I click the notification flyout button
       And I see the notification flyout
+      And I click for the Messages view
     When I click the mark all as read button
       And I am on the "Selenium Echo flyout test page" page
-    # I still have an alert notification.
-    Then I have new notifications
+    Then I have no new notifications
