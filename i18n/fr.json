@@ -111,6 +111,8 @@
 	"echo-email-footer-default-html": "Pour contrôler les courriels que nous vous envoyons, <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">vérifiez vos préférences</a><br />\n$1",
 	"echo-notification-alert": "{{PLURAL:$1|Alertes ($1)|100=Alertes (99+)}}",
 	"echo-notification-message": "{{PLURAL:$1|Messages ($1)|100=Messages (99+)}}",
+	"echo-notification-alert-text-only": "Alertes",
+	"echo-notification-message-text-only": "Messages",
 	"echo-overlay-link": "Toutes les notifications",
 	"echo-overlay-title": "<b>Notifications</b>",
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Notification|Notifications}}</b> ($1 sur $2 {{PLURAL:$1|non lue affichée|non lues affichées}})",
