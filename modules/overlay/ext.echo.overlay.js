@@ -241,7 +241,7 @@
 					.appendTo( $overlayFooter );
 			} );
 			// add link to notifications archive
-			$overlayFooter.find( 'a' ).on( 'hover',
+			$overlayFooter.find( 'a' ).hover(
 				function() {
 					$( this ).removeClass( 'mw-echo-grey-link' );
 				},
