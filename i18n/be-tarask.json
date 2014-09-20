@@ -3,7 +3,8 @@
 		"authors": [
 			"Base",
 			"Renessaince",
-			"Wizardist"
+			"Wizardist",
+			"Red Winged Duck"
 		]
 	},
 	"echo-desc": "Сыстэма апавяшчэньняў",
@@ -27,7 +28,7 @@
 	"echo-pref-new-message-indicator": "Паказваць індыкатар паведамленьняў на старонцы гутарак у маёй панэлі",
 	"echo-learn-more": "Даведацца болей",
 	"echo-new-messages": "Вы маеце новыя паведамленьні",
-	"echo-category-title-edit-user-talk": "{{PLURAL:$1|1=Паведамленьне ў|Паведамленьні ў}} гутарках",
+	"echo-category-title-edit-user-talk": "{{PLURAL:$1|1=Паведамленьне|Паведамленьні}} ў гутарках",
 	"echo-category-title-article-linked": "{{PLURAL:$1|1=Спасылка|Спасылкі}} на старонку",
 	"echo-category-title-reverted": "{{PLURAL:$1|1=Адкат праўкі|Адкаты правак}}",
 	"echo-category-title-mention": "{{PLURAL:$1|1=Згадваньне|Згадваньні}}",
