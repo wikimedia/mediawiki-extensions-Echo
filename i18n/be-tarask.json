@@ -34,6 +34,7 @@
 	"echo-category-title-mention": "{{PLURAL:$1|1=Згадваньне|Згадваньні}}",
 	"echo-category-title-other": "{{PLURAL:$1|1=Іншае|Іншыя}}",
 	"echo-category-title-system": "{{PLURAL:$1|1=Сыстэмнае|Сыстэмныя}}",
+	"echo-category-title-user-rights": "{{PLURAL:$1|1=Зьмена|Зьмены}} правоў удзельніка",
 	"echo-pref-tooltip-edit-user-talk": "Паведамляць, калі нехта дасылае паведамленьне на маю старонку гутарак.",
 	"echo-pref-tooltip-article-linked": "Паведамляць, калі нехта спасылаецца на створаную мной старонку зь іншага артыкула.",
 	"echo-pref-tooltip-reverted": "Паведамляць, калі нехта адкатвае зробленую мной праўку.",

@@ -1,11 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"C.R."
+			"C.R.",
+			"Chelin"
 		]
 	},
 	"prefs-newmessageindicator": "Barra d' 'e mmasciate nove",
 	"echo-new-messages": "Avite mmasciate nove",
-	"echo-notification-alert": "{{PLURAL:$1|Avvertemiénte ($1)|Avvertemiénte ($1)|100=Avvertemiénte (99+)}}",
+	"echo-notification-alert": "{{PLURAL:$1|Avvertemiénto ($1)|Avvertemiénte ($1)|100=Avvertemiénte (99+)}}",
 	"echo-notification-message": "{{PLURAL:$1|Mmasciata ($1)|Mmasciate ($1)|100=Mmasciate (99+)}}"
 }
