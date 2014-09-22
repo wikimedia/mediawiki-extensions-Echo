@@ -217,7 +217,7 @@ abstract class MWEchoEmailBatch {
 				->inLanguage( $this->mUser->getOption( 'language' ) )
 				->params( $count, $this->count )->text();
 
-		$toAddress = new MailAddress( $this->mUser );
+		$toAddress = MailAddress::newFromUser( $this->mUser );
 		$fromAddress = new MailAddress( $wgNotificationSender, EchoHooks::getNotificationSenderName() );
 		$replyAddress = new MailAddress( $wgNotificationSender, $wgNotificationReplyName );
 

@@ -86,7 +86,7 @@ class EchoNotifier {
 			// send single notification if the email wasn't added to queue for bundling
 			if ( !$addedToQueue ) {
 				// instant email notification
-				$toAddress = new MailAddress( $user );
+				$toAddress = MailAddress::newFromUser( $user );
 				$fromAddress = new MailAddress( $wgNotificationSender, EchoHooks::getNotificationSenderName() );
 				$replyAddress = new MailAddress( $wgNotificationSender, $wgNotificationReplyName );
 				// Since we are sending a single email, should set the bundle hash to null
