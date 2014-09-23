@@ -96,7 +96,7 @@
 			var self = this,
 				$container = $( '<div class="mw-echo-notifications">' )
 					.data( 'tab', this )
-					.css( 'max-height', $( window ).height() - 134 ),
+					.css( 'max-height', $( window ).height() - 140 ),
 				$ul = $( '<ul>' ).appendTo( $container );
 
 			$.each( notifications.index, function ( index, id ) {
