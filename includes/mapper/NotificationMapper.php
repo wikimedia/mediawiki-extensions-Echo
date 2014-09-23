@@ -116,13 +116,15 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 
 	/**
 	 * Get Notification by user in batch along with limit, offset etc
-	 * @param User the user to get notifications for
-	 * @param int The maximum number of notifications to return
-	 * @param string Used for offset
-	 * @param array Event types to load
+	 *
+	 * @param User $user the user to get notifications for
+	 * @param int $limit The maximum number of notifications to return
+	 * @param string $continue Used for offset
+	 * @param array $eventTypes Event types to load
+	 * @param array $excludeEventIds Event id's to exclude.
 	 * @return EchoNotification[]
 	 */
-	public function fetchByUser( User $user, $limit, $continue, array $eventTypes = array() ) {
+	public function fetchByUser( User $user, $limit, $continue, array $eventTypes = array(), array $excludeEventIds = array() ) {
 		$dbr = $this->dbFactory->getEchoDb( DB_SLAVE );
 
 		if ( !$eventTypes ) {
@@ -142,6 +144,10 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 			'event_type' => $eventTypes,
 			'notification_bundle_base' => 1
 		);
+
+		if ( $excludeEventIds ) {
+			$conds[] = 'event_id NOT IN ( ' . $dbr->makeList( $excludeEventIds ) . ' ) ';
+		}
 
 		$offset = $this->extractQueryOffset( $continue );
 
