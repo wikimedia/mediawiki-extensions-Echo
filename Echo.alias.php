@@ -204,7 +204,7 @@ $specialPageAliases['uk'] = array(
 	'Notifications' => array( 'Сповіщення' ),
 );
 
-/** vèneto (vèneto) */
+/** Venetian (vèneto) */
 $specialPageAliases['vec'] = array(
 	'Notifications' => array( 'Notifiche' ),
 );
