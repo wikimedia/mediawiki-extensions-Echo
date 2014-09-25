@@ -2,7 +2,7 @@ Given(/^I click for the Messages view$/) do
   on(ArticlePage).messages_view_link_element.when_present.click
 end
 
-Given(/^I have a Flow message$/) do
+Given(/^I have a Flow message that triggers an alert notification$/) do
   client = on(APIPage).client
   username = get_session_username_b()
   step 'the user "' + username + '" exists'

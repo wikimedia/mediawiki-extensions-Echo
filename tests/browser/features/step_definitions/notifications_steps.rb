@@ -75,9 +75,9 @@ Given(/^I am logged in with no notifications$/) do
 end
 
 Then(/^I have no new notifications$/) do
-  on(ArticlePage).flyout_link_element.when_present.class_name.should_not match 'mw-echo-unread-notifications'
+  expect(on(ArticlePage).flyout_link_element.when_present.class_name).not_to match "mw-echo-unread-notifications"
 end
 
 Then(/^I have new notifications$/) do
-  on(ArticlePage).flyout_link_element.when_present.class_name.should match 'mw-echo-unread-notifications'
+  expect(on(ArticlePage).flyout_link_element.when_present.class_name).to match "mw-echo-unread-notifications"
 end
