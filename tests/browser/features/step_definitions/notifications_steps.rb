@@ -21,6 +21,13 @@ def make_page_with_user_a( title, text )
   make_page_with_user( title, text, get_session_username() )
 end
 
+def poll_for_new_notifications(number_of_polls)
+  number_of_polls.to_i.times do
+    step 'I am on the "Selenium Echo flyout test page" page'
+    break if on(ArticlePage).flyout_link_element.class_name =~ /mw-echo-unread-notifications/
+  end
+end
+
 Given(/^another user has linked to a page I created from another page$/) do
   title = 'Selenium Echo link test ' + @random_string
   make_page_with_user_a(title, "Selenium test page. Feel free to delete me.")
@@ -39,9 +46,8 @@ Given(/^another user @s me on "(.*?)"$/) do |title|
   make_page_with_user_b(title, text)
 end
 
-Given(/^I come back from grabbing a cup of coffee$/) do
-  # Notifications can be extremely slow to trickle into beta labs so go to sleep for a bit
-  sleep 7
+Given(/^I reload the page (.*?) times or until a notification shows up$/) do |number_of_polls|
+  poll_for_new_notifications(number_of_polls)
 end
 
 Given(/^another user mentions me on the wiki$/) do

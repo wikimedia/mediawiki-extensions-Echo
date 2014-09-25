@@ -5,14 +5,14 @@ Feature: Notification types
   Scenario: Someone links to a page I created
     Given I am logged in with no notifications
       And another user has linked to a page I created from another page
-      And I come back from grabbing a cup of coffee
+      And I reload the page 5 times or until a notification shows up
     When I am on the "Selenium Echo flyout test page" page
     Then I have new notifications
 
   Scenario: Mention message triggers notification
     Given I am logged in with no notifications
       And another user mentions me on the wiki
-      And I come back from grabbing a cup of coffee
+      And I reload the page 5 times or until a notification shows up
     When I am on the "Selenium Echo flyout test page" page
     Then I have new notifications
 
@@ -20,7 +20,7 @@ Feature: Notification types
     Given I am logged in with no notifications
       # And I do not have Flow boards enabled on the user talk namespace
       And another user writes on my talk page
-      And I come back from grabbing a cup of coffee
+      And I reload the page 5 times or until a notification shows up
     When I am on the "Selenium Echo flyout test page" page
     Then I have new notifications
 
