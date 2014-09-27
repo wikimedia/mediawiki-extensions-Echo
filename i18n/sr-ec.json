@@ -24,7 +24,7 @@
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Чист текст",
 	"echo-pref-notify-show-link": "Прикажи обавештења у мојој траци алатки",
-	"echo-pref-new-message-indicator": "Покажи индикатор када добијем поруку на страници за разговор",
+	"echo-pref-new-message-indicator": "Прикажи индикатор када добијем поруку на страници за разговор",
 	"echo-learn-more": "Сазнајте више",
 	"echo-new-messages": "Имате нове поруке",
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Поруке}} на страници за разговор",
