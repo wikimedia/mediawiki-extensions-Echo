@@ -73,7 +73,7 @@
 	"notification-user-rights-add": "Цяпер Вы ўваходзіце ў {{PLURAL:$2|1=гэтую групу|гэтыя групы}}: $1",
 	"notification-user-rights-remove": "Цяпер вы не ўваходзіце ў {{PLURAL:$2|1=гэтую групу|гэтыя групы}}: $1",
 	"notification-new-user": "Вітаем у {{GRAMMAR:месны|{{SITENAME}}}}, $1! Мы радыя бачыць Вас.",
-	"notification-reverted2": "{{PLURAL:$4|1=Вашая праўка|Вашыя праўкі}} на старонцы [[:$2]] {{GENDER:$1|скасаваў|скасавала}} [[User:$1|$1]]. $3",
+	"notification-reverted2": "{{PLURAL:$4|1=Вашая праўка|Вашыя праўкі}} на старонцы [[:$2]] {{PLURAL:$4|1=была скасавная|былі скасаваныя}} {{GENDER:$1|ўдзельнікам|ўдзельніцай}} [[User:$1|$1]]. $3",
 	"notification-reverted-flyout2": "$1 {{GENDER:$1|скасаваў|скасавала}} {{PLURAL:$4|1=Вашую праўку|Вашыя праўкі}} на старонцы $2. $3",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|пакінуў|пакінула}} Вам паведамленьне на {{SITENAME}}",
 	"notification-edit-talk-page-email-batch-body2": "$1 {{GENDER:$1|пакінуў|пакінула}} Вам паведамленьне на старонцы абмеркаваньня:",
