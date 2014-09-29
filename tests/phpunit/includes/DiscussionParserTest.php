@@ -83,17 +83,66 @@ TEXT
 		$ts = self::getExemplarTimestamp();
 		return array(
 			// Basic
-			array( "I like this. [[User:Werdna]] ([[User talk:Werdna|talk]]) $ts", 'Werdna' ),
+			array(
+				"I like this. [[User:Werdna]] ([[User talk:Werdna|talk]]) $ts",
+				array(
+					13,
+					'Werdna'
+				),
+			),
 			// Confounding
-			array( "[[User:Jorm]] is a meanie. --[[User:Werdna|Andrew]] $ts", "Werdna" ),
+			array(
+				"[[User:Jorm]] is a meanie. --[[User:Werdna|Andrew]] $ts",
+				array(
+					29,
+					"Werdna"
+				),
+			),
 			// Talk page link only
-			array( "[[User:Swalling|Steve]] is the best person I have ever met. --[[User talk:Werdna|Andrew]] $ts", 'Werdna' ),
+			array(
+				"[[User:Swalling|Steve]] is the best person I have ever met. --[[User talk:Werdna|Andrew]] $ts",
+				array(
+					62,
+					'Werdna'
+				),
+			),
 			// Anonymous user
-			array( "I am anonymous because I like my IP address. --[[Special:Contributions/127.0.0.1]] $ts", '127.0.0.1' ),
+			array(
+				"I am anonymous because I like my IP address. --[[Special:Contributions/127.0.0.1]] $ts",
+				array(
+					47,
+					'127.0.0.1'
+				),
+			),
 			// No signature
-			array( "Well, I do think that [[User:Newyorkbrad]] is pretty cool, but what do I know?", false ),
+			array(
+				"Well, \nI do think that [[User:Newyorkbrad]] is pretty cool, but what do I know?", 
+				false
+			),
 			// Hash symbols in usernames
-			array( "What do you think? [[User talk:We buried our secrets in the garden#top|wbositg]] $ts", 'We buried our secrets in the garden' ),
+			array(
+				"What do you think? [[User talk:We buried our secrets in the garden#top|wbositg]] $ts",
+				array(
+					19,
+					'We buried our secrets in the garden'
+				),
+			),
+			// Title that gets normalized different than it is provided in the wikitext
+			array(
+				"Beep boop [[User:I_Heart_Spaces]] ([[User_talk:I_Heart_Spaces]]) $ts",
+				array(
+					10,
+					'I Heart Spaces'
+				),
+			),
+			// Accepts ] in the pipe
+			array(
+				"Shake n Bake --[[User:Werdna|wer]dna]] $ts",
+				array(
+					15,
+					'Werdna',
+				),
+			),
 		);
 	}
 
@@ -423,7 +472,9 @@ TEXT
 		return array(
 			array(
 				'Must detect first sub heading when inserting in the middle of two sub headings',
+				// expected header content
 				'Sub Heading 1',
+				// test content format
 				"
 == Heading ==
 $comment
@@ -435,12 +486,15 @@ $comment
 == Sub Heading 2 ==
 $comment
 				",
+				// user signing new comment
 				$name
 			),
 
 			array(
 				'Must detect second sub heading when inserting in the end of two sub headings',
+				// expected header content
 				'Sub Heading 2',
+				// test content format
 				"
 == Heading ==
 $comment
@@ -452,12 +506,15 @@ $comment
 $comment
 %s
 				",
+				// user signing new comment
 				$name
 			),
 
 			array(
 				'Commenting in multiple sub-headings must result in no section link',
+				// expected header content
 				'',
+				// test content format
 				"
 == Heading ==
 $comment
@@ -471,29 +528,36 @@ $comment
 %s
 
 				",
+				// user signing new comment
 				$name
 			),
 
 			array(
 				'Must accept headings without a space between the = and the section name',
+				// expected header content
 				'Heading',
+				// test content format
 				"
 ==Heading==
 $comment
 %s
 				",
+				// user signing new comment
 				$name
 			),
 
 			array(
 				'Must not accept invalid headings split with a return',
+				// expected header content
 				'',
+				// test content format
 				"
 ==Some
 Heading==
 $comment
 %s
 				",
+				// user signing new comment
 				$name
 			),
 		);
@@ -502,7 +566,7 @@ $comment
 	/**
 	 * @dataProvider provider_detectSectionTitleAndText
 	 */
-	public function testdetectSectionTitleAndText( $message, $expect, $format, $name ) {
+	public function testDetectSectionTitleAndText( $message, $expect, $format, $name ) {
 		// str_replace because we want to replace multiple instances of '%s' with the same valueA
 		$before = str_replace( '%s', '', $format );
 		$after = str_replace( '%s', self::signedMessage( $name ), $format );
