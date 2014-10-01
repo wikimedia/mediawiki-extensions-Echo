@@ -80,7 +80,7 @@
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 {{GENDER:$1|пакінуў|пакінула}} паведамленьне на Вашай старонцы гутарак у «$2».",
 	"notification-page-linked-email-subject": "На вашую старонку спаслаліся ў {{GRAMMAR:месны|{{SITENAME}}}}",
 	"notification-page-linked-email-batch-body": "На $2 {{GENDER:$1|спаслаліся}} з $3.",
-	"notification-reverted-email-subject2": "$1 {{GENDER:$1|скасаваў|скасавала}} {{PLURAL:$3|1=Вашую праўку|Вашыя праўкі}} на {{SITENAME}}",
+	"notification-reverted-email-subject2": "$1 {{GENDER:$1|скасаваў|скасавала}} {{PLURAL:$3|1=Вашую праўку|Вашыя праўкі}} на сайце {{SITENAME}}",
 	"notification-reverted-email-batch-body2": "$1 {{GENDER:$1|скасаваў|скасавала}} {{PLURAL:$3|1=Вашую праўку|Вашыя праўкі}} ў «$2».",
 	"notification-mention-email-subject": "$1 {{GENDER:$1|згадаў|згадала}} Вас у {{GRAMMAR:месны|{{SITENAME}}}}",
 	"notification-mention-email-batch-body": "$1 {{GENDER:$1|згадаў|згадала}} Вас на старонцы абмеркаваньня $4 у «$3».",
