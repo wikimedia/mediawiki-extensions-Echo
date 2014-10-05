@@ -132,7 +132,7 @@
 	"notification-page-linked-bundle": "$2被$3和另外$4个{{PLURAL:$5|页面}}{{GENDER:$1|链接}}。[[Special:WhatLinksHere/$2|查看链至该页的所有页面]]",
 	"notification-edit-user-talk-email-batch-bundle-body": "$1和{{PLURAL:$3|另外}}$2位用户在您的讨论页{{GENDER:$1|留言}}了。",
 	"notification-page-linked-email-batch-bundle-body": "$2被$3和另外$4个{{PLURAL:$5|页面}}{{GENDER:$1|链接}}。",
-	"echo-email-batch-subject-daily": "你在{{SITENAME}}有{{PLURAL:$2|新通知}}",
+	"echo-email-batch-subject-daily": "您在{{SITENAME}}有{{PLURAL:$2|新通知}}",
 	"echo-email-batch-subject-weekly": "您本周在{{SITENAME}}有{{PLURAL:$2|新通知}}",
 	"echo-email-batch-body-intro-daily": "嗨，$1，\n这是今天您在{{SITENAME}}的通知摘要。",
 	"echo-email-batch-body-intro-weekly": "$1，\n这是本周您在{{SITENAME}}的通知摘要。",
