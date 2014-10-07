@@ -100,7 +100,7 @@
 	"echo-load-more-error": "Узьнікла памылка ў час атрыманьня дадатковых вынікаў.",
 	"notification-edit-talk-page-bundle": "$1 і $3 {{PLURAL:$4|іншы ўдзельнік|іншыя ўдзельнікі|іншых удзельнікаў}} пакінулі паведамленьне на Вашай [[User talk:$2|старонцы гутарак]].",
 	"notification-page-linked-bundle": "$1 {{GENDER:$1|дадаў|дадала}} спасылку на $2 на старонцы $3 і {{PLURAL:$5|1=іншай старонцы|$4 іншых старонках}}. [[Special:WhatLinksHere/$2|Глядзіце ўсе спасылкі на гэтую старонку]]",
-	"notification-edit-user-talk-email-batch-bundle-body": "$1 і $2 {{PLURAL:$3|1=іншы|іншых}} {{GENDER:$1|пакінуў|пакінула}} паведамленьне на Вашай старонцы гутарак.",
+	"notification-edit-user-talk-email-batch-bundle-body": "$1 і $2 {{PLURAL:$3|1=іншы|іншых}} пакінулі паведамленьне на Вашай старонцы гутарак.",
 	"notification-page-linked-email-batch-bundle-body": "$1 {{GENDER:$1|дадаў|дадала}} спасылку на $2 на старонцы $3 і яшчэ $4 {{PLURAL:$5|1=старонкі|старонак}}.",
 	"echo-email-batch-subject-daily": "Вы атрымалі {{PLURAL:$2|новую абвестку|новыя абвесткі|новых абвестак}} на {{SITENAME}}",
 	"echo-email-batch-subject-weekly": "На гэтым тыдні Вы атрымалі {{PLURAL:$2|новую абвестку|новыя абвесткі|новых абвестак}} на {{SITENAME}}",
