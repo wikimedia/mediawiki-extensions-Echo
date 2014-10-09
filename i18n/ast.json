@@ -94,6 +94,8 @@
 	"echo-email-footer-default-html": "Pa controlar los correos electrónicos que-y unviamos, <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">compruebe les sos preferencies</a>.<br />\n$1",
 	"echo-notification-alert": "{{PLURAL:$1|($1) alerta|($1) alertes|100=(99+) alertes}}",
 	"echo-notification-message": "{{PLURAL:$1|($1) mensaxe|($1) mensaxes|100=(99+) mensaxes}}",
+	"echo-notification-alert-text-only": "Alertes",
+	"echo-notification-message-text-only": "Mensaxes",
 	"echo-overlay-link": "Tolos avisos",
 	"echo-overlay-title": "<b>Avisos</b>",
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Avisu|Avisos}}</b> (amosando $1 de $2 ensin lleer)",
