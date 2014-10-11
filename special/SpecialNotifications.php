@@ -126,7 +126,6 @@ class SpecialNotifications extends SpecialPage {
 			)
 		);
 		// For no-js support
-		global $wgExtensionAssetsPath;
 		$out->addModuleStyles( "ext.echo.base" );
 		// Mark items as read
 		if ( $unread ) {
