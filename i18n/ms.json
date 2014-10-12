@@ -90,6 +90,7 @@
 	"echo-email-footer-default": "$2\n\nUntuk mengubah pesanan-pesanan e-mel yang anda hendak kami hantar, semak keutamaan anda:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
 	"echo-email-footer-default-html": "Untuk mengawal e-mel yang kami hantar kepada anda, <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">semak keutamaan anda</a><br />\n$1",
 	"echo-notification-alert": "{{PLURAL:$1|Pesanan ($1)|100=Pesanan (99+)}}",
+	"echo-notification-message": "{{PLURAL:$1|Pesanan ($1)|Pesanan ($1)|100=Pesanan (99+)}}",
 	"echo-notification-message-text-only": "Pesanan",
 	"echo-overlay-link": "Semua pemberitahuan",
 	"echo-overlay-title": "<b>Pemberitahuan</b>",
