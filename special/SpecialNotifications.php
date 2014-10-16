@@ -5,7 +5,7 @@ class SpecialNotifications extends SpecialPage {
 	/**
 	 * Number of notification records to display per page/load
 	 */
-	private static $displayNum = 20;
+	const DISPLAY_NUM = 20;
 
 	public function __construct() {
 		parent::__construct( 'Notifications' );
@@ -45,7 +45,7 @@ class SpecialNotifications extends SpecialPage {
 		$attributeManager = EchoAttributeManager::newFromGlobalVars();
 		$notifications = $notificationMapper->fetchByUser(
 			$user,
-			/* $limit = */self::$displayNum + 1,
+			/* $limit = */self::DISPLAY_NUM + 1,
 			$continue,
 			$attributeManager->getUserEnabledEvents( $user, 'web' )
 		);
@@ -60,7 +60,7 @@ class SpecialNotifications extends SpecialPage {
 		}
 
 		// Check if there is more data to load for next request
-		if ( count( $notif ) > self::$displayNum ) {
+		if ( count( $notif ) > self::DISPLAY_NUM ) {
 			$lastItem = array_pop( $notif );
 			$nextContinue = $lastItem['timestamp']['utcunix'] . '|' . $lastItem['id'];
 		} else {
@@ -120,7 +120,7 @@ class SpecialNotifications extends SpecialPage {
 		$out->addModules( 'ext.echo.special' );
 		$out->addJsConfigVars(
 			array(
-				'wgEchoDisplayNum' => self::$displayNum,
+				'wgEchoDisplayNum' => self::DISPLAY_NUM,
 				'wgEchoNextContinue' => $nextContinue,
 				'wgEchoDateHeader' => $dateHeader
 			)
