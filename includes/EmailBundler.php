@@ -243,7 +243,7 @@ abstract class MWEchoEmailBundler {
 
 		global $wgNotificationSender, $wgNotificationReplyName;
 
-		$toAddress = new MailAddress( $this->mUser );
+		$toAddress = MailAddress::newFromUser( $this->mUser );
 		$fromAddress = new MailAddress( $wgNotificationSender, EchoHooks::getNotificationSenderName() );
 		$replyAddress = new MailAddress( $wgNotificationSender, $wgNotificationReplyName );
 
