@@ -5,5 +5,7 @@
 		]
 	},
 	"echo-notification-alert": "{{جمع:$1|هشداران ($1)|هشداران ($1)|100=هشداران (99+)}}",
-	"echo-notification-message": "{{جمع:$1|پیامان ($1)|پیامان ($1)|100=پیامان (99+)}}"
+	"echo-notification-message": "{{جمع:$1|پیامان ($1)|پیامان ($1)|100=پیامان (99+)}}",
+	"echo-date-today": "مروچی",
+	"echo-date-yesterday": "زئ"
 }
