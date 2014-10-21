@@ -169,6 +169,11 @@ $wgHooks['UserSaveOptions'][] = 'EchoHooks::onUserSaveOptions';
 $wgHooks['UserClearNewTalkNotification'][] = 'EchoHooks::onUserClearNewTalkNotification';
 $wgHooks['ParserTestTables'][] = 'EchoHooks::onParserTestTables';
 
+// Extension:UserMerge support
+$wgHooks['UserMergeAccountFields'][] = 'EchoHooks::onUserMergeAccountFields';
+$wgHooks['MergeAccountFromTo'][] = 'EchoHooks::onMergeAccountFromTo';
+$wgHooks['UserMergeAccountDeleteTables'][] = 'EchoHooks::onUserMergeAccountDeleteTables';
+
 // Exception
 $wgAutoloadClasses['EchoCatchableFatalErrorException'] = $dir . 'includes/exception/CatchableFatalErrorException.php';
 
