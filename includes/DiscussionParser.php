@@ -669,74 +669,74 @@ abstract class EchoDiscussionParser {
 	static function getUserFromLine( $line, $timestampPos ) {
 		global $wgContLang;
 
-		// Later entries have a higher precedence
-		// @todo FIXME: handle optional whitespace in links
-		$languages = array( $wgContLang );
-		if ( $wgContLang->getCode() !== 'en' ) {
-			$languages[] = Language::factory( 'en' );
+		// lifted from Parser::pstPass2
+		$tc = '[' . Title::legalChars() . ']';
+		$nc = '[ _0-9A-Za-z\x80-\xff-]'; // Namespaces can use non-ascii
+
+		// [[ns:page]] with optional fragment(#foo) and/or pipe(|bar)
+		$regex = "/\[\[($nc+:$tc+)(?:#.*?)?(?:\\|.*?)?]]/";
+
+		$potentialContext = substr( $line, 0, $timestampPos );
+		// only look at the 300 chars preceding the timestamp
+		$startCheckAt = max( 0, $timestampPos - 300 );
+		$context = substr( $potentialContext, -$startCheckAt );
+
+		if ( !preg_match_all( $regex, $context, $matches, PREG_SET_ORDER ) ) {
+			return false;
 		}
 
-		$possiblePrefixes = array();
-
-		foreach ( $languages as $language ) {
-			$nsNames = $language->getNamespaces();
-			$possiblePrefixes[] = '[[' . $nsNames[NS_USER] . ':';
-			$possiblePrefixes[] = '[[' . $nsNames[NS_USER_TALK] . ':';
-
-			$nsAliases = $language->getNamespaceAliases();
-			foreach ( $nsAliases as $text => $id ) {
-				if ( $id == NS_USER || $id == NS_USER_TALK ) {
-					$possiblePrefixes[] = '[[' . $text . ':';
+		// prefer the last match in the line
+		$winningUser = $winner = false;
+		foreach ( array_reverse( $matches ) as $match ) {
+			$title = Title::newFromText( $match[1] );
+			if ( !$title ) {
+				continue;
+			}
+			if ( $title->getNamespace() === NS_USER ) {
+				if ( $winningUser === false || $winningUser === $title->getText() ) {
+					// registered user winner!!
+					$winningUser = $title->getText();
+					$winner = $match;
+				}
+				break;
+			}
+			// Only check Special:Contributions and NS_USER_TALK if NS_USER_TALK
+			// has not yet triggered.
+			if ( $winningUser === false ) {
+				if ( $title->isSpecial( 'Contributions' ) ) {
+					// anon user winner!!
+					$parts = explode( '/', $title->getText(), 2 );
+					$winningUser = end( $parts );
+					$winner = $match;
+					break;
+				}
+				if ( $title->getNamespace() === NS_USER_TALK ) {
+					// registered user winner!
+					// but keep looking for a matching NS_USER link to the same user so
+					// we return the correct starting position. often the signature is:
+					//     NS_USER (NS_USER_TALK) <timestamp>
+					// Wiki's have complete control over their signatures via Mediawiki:Signature,
+					// so it's also possible there is no matching NS_USER link.
+					$winningUser = $title->getText();
+					$winner = $match;
+					continue;
 				}
 			}
 		}
 
-		// @todo FIXME: Check aliases too
-		$possiblePrefixes[] = '[[' . SpecialPage::getTitleFor( 'Contributions' )->getPrefixedText() . '/';
-
-		foreach ( $possiblePrefixes as $prefix ) {
-			if ( strpos( $prefix, '_' ) !== false ) {
-				$possiblePrefixes[] = str_replace( '_', ' ', $prefix );
-			}
-		}
-
-		$winningUser = false;
-		$winningPos = false;
-
-		// Look for the leftmost link to the rightmost user
-		foreach ( $possiblePrefixes as $prefix ) {
-			$output = self::getLinkFromLine( $line, $prefix );
-
-			if ( $output === false ) {
-				continue;
-			} else {
-				list( $pos, $user ) = $output;
-			}
-
-			// Couldn't be a signature
-			if ( ( $timestampPos - $pos ) > 255 ) {
-				continue;
-			}
-
-			if (
-				$winningPos === false ||
-				( $pos > $winningPos && $user !== $winningUser ) ||
-				(
-					$pos < $winningPos &&
-					$user === $winningUser
-				)
-			) {
-				$winningPos = $pos;
-				$winningUser = ucfirst( trim( $user ) );
-			}
-		}
-
-		if ( $winningUser === false ) {
-			// print "E\tNo winning user\n";
+		if ( !$winningUser ) {
 			return false;
 		}
 
-		return array( $winningPos, $winningUser );
+		$pos = strrpos( $potentialContext, $winner[0] );
+		if ( !$pos ) {
+			// shouldn't be possible, $winner[0] is the string match from preg_match_all above,
+			// but just in case.
+			wfDebugLog( 'Echo', __METHOD__ . 'Did not find user "' . $match[0] . '" in wikitext: ' . $line );
+			return false;
+		}
+
+		return array( $pos, $winningUser );
 	}
 
 	/**
