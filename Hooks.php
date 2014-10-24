@@ -1019,7 +1019,7 @@ class EchoHooks {
 	 */
 	public static function onUserMergeAccountFields( &$updateFields ) {
 		// array( tableName, idField, textField )
-		$dbw = MWEchoDBFactory::newFromDefault()->getEchoDb( DB_MASTER );
+		$dbw = MWEchoDbFactory::newFromDefault()->getEchoDb( DB_MASTER );
 		$updateFields[] = array( 'echo_event', 'event_agent_id', 'db' => $dbw );
 		$updateFields[] = array( 'echo_notification', 'notification_user', 'db' => $dbw, 'options' => array( 'IGNORE' ) );
 		$updateFields[] = array( 'echo_email_batch', 'eeb_user_id', 'db' => $dbw, 'options' => array( 'IGNORE' ) );
@@ -1036,7 +1036,7 @@ class EchoHooks {
 	}
 
 	public static function onUserMergeAccountDeleteTables( &$tables ) {
-		$dbw = MWEchoDBFactory::newFromDefault()->getEchoDb( DB_MASTER );
+		$dbw = MWEchoDbFactory::newFromDefault()->getEchoDb( DB_MASTER );
 		$tables['echo_notification'] = array( 'notification_user', 'db' => $dbw );
 		$tables['echo_email_batch'] = array( 'eeb_user_id', 'db' => $dbw );
 		$tables['echo_target_page'] = array( 'etp_user', 'db' => $dbw );
