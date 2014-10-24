@@ -93,4 +93,5 @@ $wgAutoloadClasses['MWEchoNotifUser'] = __DIR__ . '/includes/NotifUser.php';
 $wgAutoloadClasses['MWEchoNotifUserTest'] = __DIR__ . '/tests/phpunit/includes/NotifUserTest.php';
 $wgAutoloadClasses['MWEchoNotificationEmailBundleJob'] = __DIR__ . '/jobs/NotificationEmailBundleJob.php';
 $wgAutoloadClasses['NotificationControllerTest'] = __DIR__ . '/tests/phpunit/controller/NotificationControllerTest.php';
+$wgAutoloadClasses['SpecialNotifications'] = __DIR__ . '/special/SpecialNotifications.php';
 $wgAutoloadClasses['SuppressionMaintenanceTest'] = __DIR__ . '/tests/phpunit/maintenance/SupressionMaintenanceTest.php';

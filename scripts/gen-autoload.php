@@ -133,9 +133,14 @@ function main() {
 	$base = dirname( __DIR__ );
 	$generator = new AutoloadGenerator( $base );
 	$dirs = array(
-		'api', 'controller', 
-		'formatters', 'includes', 
-		'jobs', 'model', 'tests'
+		'api',
+		'controller', 
+		'formatters',
+		'includes', 
+		'jobs',
+		'model',
+		'special',
+		'tests',
 	);
 	foreach ( $dirs as $dir ) {
 		$generator->readDir( $base . '/' . $dir );
