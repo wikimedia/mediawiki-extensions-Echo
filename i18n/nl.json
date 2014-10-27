@@ -48,7 +48,7 @@
 	"echo-pref-tooltip-edit-user-talk": "Informeer mij wanneer iemand een bericht of antwoord op mijn overlegpagina plaatst.",
 	"echo-pref-tooltip-article-linked": "Informeer mij wanneer iemand in een artikel een link aanbrengt naar een pagina die ik heb aangemaakt.",
 	"echo-pref-tooltip-reverted": "Informeer mij wanneer iemand een bewerking van mij terugdraait met behulp van \"ongedaan maken\" of \"terugdraaien\".",
-	"echo-pref-tooltip-mention": "Informeer mij wanneer iemand een link naar mijn gebruikerspagina plaatst.",
+	"echo-pref-tooltip-mention": "Informeer mij wanneer iemand een koppeling naar mijn gebruikerspagina plaatst.",
 	"echo-pref-tooltip-user-rights": "Informeer mij wanneer iemand mijn gebruikersrechten wijzigt.",
 	"echo-no-agent": "[Niemand]",
 	"echo-no-title": "[Geen pagina]",
