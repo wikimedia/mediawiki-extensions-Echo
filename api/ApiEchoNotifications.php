@@ -124,8 +124,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 
 		$notifMapper = new EchoNotificationMapper();
 
-		// Unread notifications + possbile 3 read notification depending on result number
-		// We don't care about next offset in this case
+		// Prefer unread notifications. We don't care about next offset in this case
 		if ( $unreadFirst ) {
 			wfProfileIn( __METHOD__ . '-fetch-data-unread-first' );
 			$notifs = $notifMapper->fetchUnreadByUser( $user, $limit, $eventTypes );
@@ -133,17 +132,17 @@ class ApiEchoNotifications extends ApiQueryBase {
 			// then fill the result with some read notifications
 			$count = count( $notifs );
 			if ( $count < $limit ) {
-				// We could add another function for "notification_read_timestamp is not null"
-				// but it's probably not good to add negation condition to a query
-				$mixedNotifs = $notifMapper->fetchByUser( $user, $count + 3, null, $eventTypes );
+				// Query planner should be smart enough that passing a short list of ids to exclude
+				// will only visit at most that number of extra rows.
+				$mixedNotifs = $notifMapper->fetchByUser(
+					$user,
+					$limit - $count,
+					null,
+					$eventTypes,
+					array_keys( $notifs )
+				);
 				foreach ( $mixedNotifs as $notif ) {
-					if ( !isset( $notifs[$notif->getEvent()->getId()] ) ) {
-						if ( $count >= $limit ) {
-							break;
-						}
-						$count++;
-						$notifs[$notif->getEvent()->getId()] = $notif;
-					}
+					$notifs[$notif->getEvent()->getId()] = $notif;
 				}
 			}
 			wfProfileOut( __METHOD__ . '-fetch-data-unread-first' );
