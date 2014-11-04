@@ -246,7 +246,10 @@ class ApiEchoNotifications extends ApiQueryBase {
 				ApiBase::PARAM_MAX2 => ApiBase::LIMIT_SML2,
 			),
 			'index' => false,
-			'continue' => null,
+			'continue' => array(
+				/** @todo Once support for MediaWiki < 1.25 is dropped, just use ApiBase::PARAM_HELP_MSG directly */
+				constant( 'ApiBase::PARAM_HELP_MSG' ) ?: '' => 'api-help-param-continue',
+			),
 			'uselang' => null
 		);
 		foreach ( $sections as $section ) {
@@ -259,6 +262,9 @@ class ApiEchoNotifications extends ApiQueryBase {
 		return $params;
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getParamDescription() {
 		return array(
 			'prop' => 'Details to request.',
@@ -276,14 +282,32 @@ class ApiEchoNotifications extends ApiQueryBase {
 		);
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getDescription() {
 		return 'Get notifications waiting for the current user';
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getExamples() {
 		return array(
 			'api.php?action=query&meta=notifications',
 			'api.php?action=query&meta=notifications&notprop=count&notsections=alert|message&notgroupbysection=1',
+		);
+	}
+
+	/**
+	 * @see ApiBase::getExamplesMessages()
+	 */
+	protected function getExamplesMessages() {
+		return array(
+			'action=query&meta=notifications'
+				=> 'apihelp-query+notifications-example-1',
+			'action=query&meta=notifications&notprop=count&notsections=alert|message&notgroupbysection=1'
+				=> 'apihelp-query+notifications-example-2',
 		);
 	}
 

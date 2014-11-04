@@ -69,6 +69,9 @@ class ApiEchoMarkRead extends ApiBase {
 		);
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getParamDescription() {
 		return array(
 			'list' => 'A list of notification IDs to mark as read',
@@ -95,14 +98,32 @@ class ApiEchoMarkRead extends ApiBase {
 		return true;
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getDescription() {
 		return 'Mark notifications as read for the current user';
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getExamples() {
 		return array(
 			'api.php?action=echomarkread&list=8',
 			'api.php?action=echomarkread&all=true'
+		);
+	}
+
+	/**
+	 * @see ApiBase::getExamplesMessages()
+	 */
+	protected function getExamplesMessages() {
+		return array(
+			'action=echomarkread&list=8'
+				=> 'apihelp-echomarkread-example-1',
+			'action=echomarkread&all=true'
+				=> 'apihelp-echomarkread-example-2',
 		);
 	}
 
