@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Robin0van0der0vliet"
+		]
+	},
+	"echo-pref-email": "E-mail",
+	"echo-pref-email-format-html": "HTML",
+	"echo-date-today": "Hjoed"
+}

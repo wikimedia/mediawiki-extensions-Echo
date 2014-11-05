@@ -117,7 +117,7 @@
 	"echo-email-batch-body-intro-weekly": "Chào $1,\nĐây là bản tóm tắt các chuyện xảy ra vào tuần này trên {{SITENAME}}.",
 	"echo-email-batch-link-text-view-all-notifications": "Xem tất cả thông báo",
 	"echo-rev-deleted-text-view": "Phiên bản trang này đã bị ẩn",
-	"apihelp-echomarkread-param-list": "Danh sách các ID thông báo đánh dấu là đã đọc.",
+	"apihelp-echomarkread-param-list": "Danh sách các ID thông báo để đánh dấu là đã đọc.",
 	"apihelp-echomarkread-example-2": "Đánh dấu tất cả thông báo là đã đọc",
 	"apihelp-query+notifications-param-prop": "Chi tiết để yêu cầu.",
 	"apihelp-query+notifications-example-1": "Danh sách thông báo"

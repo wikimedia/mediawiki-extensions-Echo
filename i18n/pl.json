@@ -126,5 +126,6 @@
 	"echo-email-batch-body-intro-daily": "Cześć, $1!\nW {{grammar:MS.lp|{{SITENAME}}}} czeka na ciebie dzisiejsze podsumowanie powiadomień.",
 	"echo-email-batch-body-intro-weekly": "Cześć, $1!\nW {{grammar:MS.lp|{{SITENAME}}}} czeka na ciebie podsumowanie powiadomień z ostatniego tygodnia.",
 	"echo-email-batch-link-text-view-all-notifications": "Zobacz wszystkie powiadomienia",
-	"echo-rev-deleted-text-view": "Ta wersja strony została ukryta"
+	"echo-rev-deleted-text-view": "Ta wersja strony została ukryta",
+	"apihelp-query+notifications-example-1": "Spis powiadomień"
 }

@@ -117,5 +117,6 @@
 	"echo-email-batch-body-intro-daily": "Hallo $1,\nHier ist für dich eine Zusammenfassung der Aktivitäten auf {{SITENAME}} von heute.",
 	"echo-email-batch-body-intro-weekly": "Hallo $1,\nHier ist für dich eine Zusammenfassung der Aktivitäten auf {{SITENAME}} von dieser Woche.",
 	"echo-email-batch-link-text-view-all-notifications": "Alle Benachrichtigungen ansehen",
-	"echo-rev-deleted-text-view": "Diese Seitenversion wurde unterdrückt"
+	"echo-rev-deleted-text-view": "Diese Seitenversion wurde unterdrückt",
+	"apihelp-query+notifications-example-1": "Benachrichtigungen auflisten"
 }
