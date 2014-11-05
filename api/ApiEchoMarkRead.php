@@ -65,7 +65,6 @@ class ApiEchoMarkRead extends ApiBase {
 			'token' => array(
 				ApiBase::PARAM_REQUIRED => true,
 			),
-			'uselang' => null
 		);
 	}
 
@@ -78,7 +77,6 @@ class ApiEchoMarkRead extends ApiBase {
 			'all' => "If set to true, marks all of a user's notifications as read",
 			'sections' => 'A list of sections to mark as read',
 			'token' => 'edit token',
-			'uselang' => 'the desired language to format the output'
 		);
 	}
 
