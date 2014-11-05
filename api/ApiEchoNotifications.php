@@ -250,7 +250,6 @@ class ApiEchoNotifications extends ApiQueryBase {
 				/** @todo Once support for MediaWiki < 1.25 is dropped, just use ApiBase::PARAM_HELP_MSG directly */
 				constant( 'ApiBase::PARAM_HELP_MSG' ) ?: '' => 'api-help-param-continue',
 			),
-			'uselang' => null
 		);
 		foreach ( $sections as $section ) {
 			$params[$section . 'continue'] = null;
@@ -276,7 +275,6 @@ class ApiEchoNotifications extends ApiQueryBase {
 			'continue' => 'When more results are available, use this to continue, this is used only when groupbysection is not set.',
 			'alertcontinue' => 'When more alert results are available, use this to continue.',
 			'messagecontinue' => 'When more message results are available, use this to continue.',
-			'uselang' => 'the desired language to format the output',
 			'alertunreadfirst' => 'Whether to show unread message notifications first',
 			'messageunreadfirst' => 'Whether to show unread alert notifications first'
 		);
