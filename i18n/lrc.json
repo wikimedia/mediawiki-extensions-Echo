@@ -67,5 +67,6 @@
 	"echo-mark-all-as-read": "همه نه د عنوان حنه بیه نشو بیه",
 	"echo-date-today": "امرو",
 	"echo-date-yesterday": "دوش،دیرو",
-	"echo-email-batch-link-text-view-all-notifications": "همه وارسیاریانه بوینیت"
+	"echo-email-batch-link-text-view-all-notifications": "همه وارسیاریانه بوینیت",
+	"apihelp-query+notifications-param-prop": "جزئیات حاسته بیه."
 }
