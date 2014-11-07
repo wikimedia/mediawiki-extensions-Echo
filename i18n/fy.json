@@ -6,5 +6,7 @@
 	},
 	"echo-pref-email": "E-mail",
 	"echo-pref-email-format-html": "HTML",
-	"echo-date-today": "Hjoed"
+	"echo-feedback": "Weromkeppeling",
+	"echo-date-today": "Hjoed",
+	"echo-date-yesterday": "Juster"
 }
