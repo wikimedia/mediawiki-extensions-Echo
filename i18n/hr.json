@@ -85,7 +85,7 @@
 	"echo-mark-all-as-read": "Označi sve pročitanim",
 	"echo-date-today": "Danas",
 	"echo-date-yesterday": "Jučer",
-	"notification-edit-talk-page-bundle": "$1 i $3 {{PLURAL:$4|ostali|ostalih}} {{GENDER:$1|ostavili}} su poruku na Vašoj [[User talk:$2|stranici za razgovor]].",
+	"notification-edit-talk-page-bundle": "$1 i još $3 {{PLURAL:$4|suradnik|suradnika}} {{GENDER:$1|ostavili}} su poruku na Vašoj [[User talk:$2|stranici za razgovor]].",
 	"notification-page-linked-bundle": "Članak $2 je {{GENDER:$1|povezan}} s člankom $3 i još $4 {{PLURAL:$5|člankom|članka|članaka}}. [[Special:WhatLinksHere/$2|Pogledajte što vodi prema ovom članku]].",
 	"notification-edit-user-talk-email-batch-bundle-body": "$1 i još $2 {{PLURAL:$3|suradnik|suradnika}} {{GENDER:$1|ostavili}} su poruku na Vašoj stranici za razgovor.",
 	"notification-page-linked-email-batch-bundle-body": "Članak $2 je {{GENDER:$1|povezan}} s člankom $3 i još $4 {{PLURAL:$5|člankom|članka|članaka}}.",

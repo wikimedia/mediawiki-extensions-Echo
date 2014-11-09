@@ -138,5 +138,6 @@
 	"echo-email-batch-body-intro-weekly": "$1，\n这是本周您在{{SITENAME}}的通知摘要。",
 	"echo-email-batch-link-text-view-all-notifications": "查看所有通知",
 	"echo-rev-deleted-text-view": "此页面版本已被隐藏。",
+	"apihelp-query+notifications-param-prop": "请求的细节。",
 	"apihelp-query+notifications-example-1": "通知列表"
 }
