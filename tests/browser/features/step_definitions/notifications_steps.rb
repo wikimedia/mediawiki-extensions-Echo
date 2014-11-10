@@ -1,13 +1,13 @@
 def make_page_with_user(title, text, username)
   client = on(APIPage).client
-  client.log_in(username, ENV["MEDIAWIKI_PASSWORD"])
+  client.log_in(username, ENV['MEDIAWIKI_PASSWORD'])
   client.create_page(title, text)
 end
 
 def clear_notifications(username)
   client = on(APIPage).client
   step 'the user "' + username + '" exists'
-  client.log_in(username, ENV["MEDIAWIKI_PASSWORD"])
+  client.log_in(username, ENV['MEDIAWIKI_PASSWORD'])
   client.action('echomarkread', token_type: 'edit', all: '1')
 end
 
@@ -30,19 +30,19 @@ end
 
 Given(/^another user has linked to a page I created from another page$/) do
   title = 'Selenium Echo link test ' + @random_string
-  make_page_with_user_a(title, "Selenium test page. Feel free to delete me.")
+  make_page_with_user_a(title, 'Selenium test page. Feel free to delete me.')
   title2 = title + ' ' + @random_string
-  make_page_with_user_b(title2, "I am linking to [[" + title + "]].")
+  make_page_with_user_b(title2, 'I am linking to [[' + title + ']].')
 end
 
 Given(/^another user writes on my talk page$/) do
-  make_page_with_user_b("User talk:" + get_session_username,
+  make_page_with_user_b('User talk:' + get_session_username,
                         "== Barnstar ==\nHello Selenium, here is a barnstar for all your testing! " + @random_string + "~~~~\n")
 end
 
 Given(/^another user @s me on "(.*?)"$/) do |title|
   username = get_session_username.sub('_', ' ')
-  text = "@" + username + " Cho cho cho. ~~~~"
+  text = '@' + username + ' Cho cho cho. ~~~~'
   make_page_with_user_b(title, text)
 end
 
@@ -73,7 +73,7 @@ Given(/^I am logged in with no notifications$/) do
   client = on(APIPage).client
   username = get_session_username
   step 'the user "' + username + '" exists'
-  client.log_in(username, ENV["MEDIAWIKI_PASSWORD"])
+  client.log_in(username, ENV['MEDIAWIKI_PASSWORD'])
   client.action('echomarkread', token_type: 'edit', all: '1')
 
   step 'I am logged in my non-shared account'
@@ -81,9 +81,9 @@ Given(/^I am logged in with no notifications$/) do
 end
 
 Then(/^I have no new notifications$/) do
-  expect(on(ArticlePage).flyout_link_element.when_present.class_name).not_to match "mw-echo-unread-notifications"
+  expect(on(ArticlePage).flyout_link_element.when_present.class_name).not_to match 'mw-echo-unread-notifications'
 end
 
 Then(/^I have new notifications$/) do
-  expect(on(ArticlePage).flyout_link_element.when_present.class_name).to match "mw-echo-unread-notifications"
+  expect(on(ArticlePage).flyout_link_element.when_present.class_name).to match 'mw-echo-unread-notifications'
 end
