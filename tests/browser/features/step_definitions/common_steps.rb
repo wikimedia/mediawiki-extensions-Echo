@@ -3,7 +3,7 @@ def get_new_username
 end
 
 def get_session_username
-  "#{ENV["MEDIAWIKI_USER"]}_#{@browser.name}"
+  "#{ENV['MEDIAWIKI_USER']}_#{@browser.name}"
 end
 
 def get_session_username_b
