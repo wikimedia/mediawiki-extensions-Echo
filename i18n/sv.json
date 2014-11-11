@@ -119,5 +119,15 @@
 	"echo-email-batch-body-intro-daily": "Hej $1,\nHär är en sammanfattning av dagens aktivitet på {{SITENAME}} för dig.",
 	"echo-email-batch-body-intro-weekly": "Hej $1,\nHär är en sammanfattning av veckans aktivitet på {{SITENAME}} för dig.",
 	"echo-email-batch-link-text-view-all-notifications": "Visa alla meddelanden",
-	"echo-rev-deleted-text-view": "Denna sidversion har dolts."
+	"echo-rev-deleted-text-view": "Denna sidversion har dolts.",
+	"apihelp-echomarkread-description": "Markera meddelanden som lästa för den aktuella användaren.",
+	"apihelp-echomarkread-param-list": "En lista över meddelande-ID att markera som lästa.",
+	"apihelp-echomarkread-param-all": "Om angiven, markerar alla en användares meddelanden som lästa.",
+	"apihelp-echomarkread-param-sections": "En lista över avsnitt att markera som lästa.",
+	"apihelp-echomarkread-example-1": "Markera meddelande 8 som läst",
+	"apihelp-echomarkread-example-2": "Markera alla meddelanden som lästa",
+	"apihelp-query+notifications-param-prop": "Detaljer som ska begäras.",
+	"apihelp-query+notifications-param-limit": "Det maximala antalet meddelanden som ska returneras.",
+	"apihelp-query+notifications-param-messagecontinue": "När fler meddelanden finns tillgängliga, använd detta för att fortsätta.",
+	"apihelp-query+notifications-example-1": "Lista meddelanden"
 }
