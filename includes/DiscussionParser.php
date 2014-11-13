@@ -667,12 +667,12 @@ abstract class EchoDiscussionParser {
 	 * - First element is the position of the signature.
 	 * - Second element is the normalised user name.
 	 */
-	static function getUserFromLine( $line, $timestampPos ) {
+	static public function getUserFromLine( $line, $timestampPos ) {
 		global $wgContLang;
 
 		// lifted from Parser::pstPass2
 		$tc = '[' . Title::legalChars() . ']';
-		$nc = '[ _0-9A-Za-z\x80-\xff-]'; // Namespaces can use non-ascii
+		$nc = '[() _0-9A-Za-z\x80-\xff-]'; // Namespaces can use non-ascii
 
 		// [[ns:page]] with optional fragment(#foo) and/or pipe(|bar)
 		$regex = "/\[\[($nc+:$tc+)(?:#.*?)?(?:\\|.*?)?]]/";
