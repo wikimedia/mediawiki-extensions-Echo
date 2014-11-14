@@ -131,7 +131,7 @@ TEXT
 			array(
 				"Beep boop [[User:I_Heart_Spaces]] ([[User_talk:I_Heart_Spaces]]) $ts",
 				array(
-					10,
+					strlen( "Beep boop " ),
 					'I Heart Spaces'
 				),
 			),
@@ -139,8 +139,24 @@ TEXT
 			array(
 				"Shake n Bake --[[User:Werdna|wer]dna]] $ts",
 				array(
-					15,
+					strlen( "Shake n Bake --" ),
 					'Werdna',
+				),
+			),
+
+			array(
+				"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxã? [[User:Jam]] $ts",
+				array(
+					strlen( "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxã? " ),
+					"Jam"
+				),
+			),
+			// extra long signature
+			array(
+				"{{U|He7d3r}}, xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxã? [[User:Reverta-me|<span style=\"font-size:13px; color:blue;font-family:Lucida Handwriting;text-shadow:aqua 5px 3px 12px;\">Aaaaa Bbbbbbb</span>]]'' <sup>[[User Talk:Reverta-me|<font color=\"gold\" face=\"Lucida Calligraphy\">Discussão</font>]]</sup>''</font></sup> $ts",
+				array(
+					strlen( "{{U|He7d3r}}, xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxã? " ),
+					'Reverta-me',
 				),
 			),
 		);
