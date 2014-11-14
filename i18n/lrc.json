@@ -28,6 +28,7 @@
 	"echo-category-title-mention": "{{جمی:$1|گوتن|گوتنیا}}",
 	"echo-category-title-other": "{{جمی:$1|هنی}}",
 	"echo-category-title-system": "{{جمی:$1|سامونه}}{{PLURAL:$1|}}",
+	"echo-category-title-user-rights": "{{PLURAL:$1|حقوق کاریار سی آلشت دئن|حقو کاریار سی آلشت دئن}}",
 	"echo-pref-tooltip-edit-user-talk": "مه نه وختی که یه نفر د بلگه چک چنم پیغوم می نه یا جواو می ئه خوردار کو.",
 	"echo-no-agent": "[هیشکی]",
 	"echo-no-title": "[بی بلگه]",

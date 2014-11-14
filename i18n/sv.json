@@ -126,6 +126,7 @@
 	"apihelp-echomarkread-param-sections": "En lista över avsnitt att markera som lästa.",
 	"apihelp-echomarkread-example-1": "Markera meddelande 8 som läst",
 	"apihelp-echomarkread-example-2": "Markera alla meddelanden som lästa",
+	"apihelp-query+notifications-description": "Hämta meddelanden som väntar på aktuell användare.",
 	"apihelp-query+notifications-param-prop": "Detaljer som ska begäras.",
 	"apihelp-query+notifications-param-limit": "Det maximala antalet meddelanden som ska returneras.",
 	"apihelp-query+notifications-param-messagecontinue": "När fler meddelanden finns tillgängliga, använd detta för att fortsätta.",
