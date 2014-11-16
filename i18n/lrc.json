@@ -73,5 +73,6 @@
 	"echo-date-yesterday": "دوش،دیرو",
 	"echo-email-batch-link-text-view-all-notifications": "همه وارسیاریانه بوینیت",
 	"echo-rev-deleted-text-view": "وانئری ای بلگه پاکساگری بیه.",
+	"apihelp-echomarkread-param-sections": "نومجایی د بهرجایایی که چی حنه بیه نشودار بیه.",
 	"apihelp-query+notifications-param-prop": "جزئیات حاسته بیه."
 }
