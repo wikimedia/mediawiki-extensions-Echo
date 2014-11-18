@@ -241,6 +241,11 @@ class EchoBatchRowIterator implements RecursiveIterator {
 	protected $conditions = array();
 
 	/**
+	 * @var array $joinConditions
+	 */
+	protected $joinConditions = array();
+
+	/**
 	 * @var array $fetchColumns List of column names to select from the table suitable for use with DatabaseBase::select()
 	 */
 	protected $fetchColumns = array( '*' );
@@ -285,6 +290,10 @@ class EchoBatchRowIterator implements RecursiveIterator {
 	 */
 	public function addConditions( array $conditions ) {
 		$this->conditions = array_merge( $this->conditions, $conditions );
+	}
+
+	public function addJoinConditions( array $conditions ) {
+		$this->joinConditions = array_merge( $this->joinConditions, $conditions );
 	}
 
 	/**
@@ -369,7 +378,8 @@ class EchoBatchRowIterator implements RecursiveIterator {
 			array(
 				'LIMIT' => $this->batchSize,
 				'ORDER BY' => $this->orderBy,
-			)
+			),
+			$this->joinConditions
 		);
 
 		// The iterator is converted to an array because in addition to returning it
