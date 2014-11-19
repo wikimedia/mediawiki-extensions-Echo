@@ -128,7 +128,9 @@
 	"apihelp-echomarkread-example-2": "Markera alla meddelanden som lästa",
 	"apihelp-query+notifications-description": "Hämta meddelanden som väntar på aktuell användare.",
 	"apihelp-query+notifications-param-prop": "Detaljer som ska begäras.",
+	"apihelp-query+notifications-param-format": "Om angivet, returneras meddelanden formaterade på detta sätt.",
 	"apihelp-query+notifications-param-limit": "Det maximala antalet meddelanden som ska returneras.",
+	"apihelp-query+notifications-param-index": "Om angivet, en lista över meddelande-ID, i ordning, kommer att returneras.",
 	"apihelp-query+notifications-param-messagecontinue": "När fler meddelanden finns tillgängliga, använd detta för att fortsätta.",
 	"apihelp-query+notifications-example-1": "Lista meddelanden"
 }
