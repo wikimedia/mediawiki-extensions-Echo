@@ -84,5 +84,6 @@
 	"apihelp-echomarkread-example-1": "هشت گله وارسیاری نه چی حنه بیه یا نشودار بک",
 	"apihelp-echomarkread-example-2": "همه وارسیاری یا نه چی حنه بیه یا نشودار بک",
 	"apihelp-query+notifications-param-prop": "جزئیات حاسته بیه.",
+	"apihelp-query+notifications-param-limit": "بیشترونه شماره وارسیاریا سی ؤرئشتن",
 	"apihelp-query+notifications-example-1": "نومجا وارسیاریا"
 }

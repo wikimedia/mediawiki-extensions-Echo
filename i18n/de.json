@@ -118,5 +118,8 @@
 	"echo-email-batch-body-intro-weekly": "Hallo $1,\nHier ist für dich eine Zusammenfassung der Aktivitäten auf {{SITENAME}} von dieser Woche.",
 	"echo-email-batch-link-text-view-all-notifications": "Alle Benachrichtigungen ansehen",
 	"echo-rev-deleted-text-view": "Diese Seitenversion wurde unterdrückt",
+	"apihelp-echomarkread-param-all": "Falls festgelegt, markiert alle Benutzerbenachrichtigungen als gelesen.",
+	"apihelp-echomarkread-example-1": "Benachrichtigung 8 als gelesen markieren",
+	"apihelp-echomarkread-example-2": "Alle Benachrichtigungen als gelesen markieren",
 	"apihelp-query+notifications-example-1": "Benachrichtigungen auflisten"
 }

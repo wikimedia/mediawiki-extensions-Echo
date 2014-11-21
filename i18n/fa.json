@@ -124,5 +124,8 @@
 	"echo-email-batch-body-intro-daily": "سلام $1،\nدر اینجا خلاصهٔ فعالیت امروز شما در {{SITENAME}} وجود دارد.",
 	"echo-email-batch-body-intro-weekly": "سلام $1،\nدر اینجا خلاصهٔ فعالیت این هفتهٔ شما در {{SITENAME}} وجود دارد.",
 	"echo-email-batch-link-text-view-all-notifications": "دیدن همهٔ آگاه‌سازی‌ها",
-	"echo-rev-deleted-text-view": "بازنگری این صفحه متوقف شده‌است."
+	"echo-rev-deleted-text-view": "بازنگری این صفحه متوقف شده‌است.",
+	"apihelp-echomarkread-example-2": "علامت‌گذاری تمامی اعلان‌ها به عنوان خوانده شده",
+	"apihelp-query+notifications-example-1": "فهرست اعلان‌ها",
+	"apihelp-query+notifications-example-2": "فهرست اعلان‌ها، بخش بندیش شده، همراه با شمار آن‌ها."
 }
