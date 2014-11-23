@@ -37,7 +37,7 @@
 	"echo-pref-tooltip-edit-user-talk": "Sciigu min kiam iu komencas diskuton aŭ respondas en mia diskutpaĝo.",
 	"echo-pref-tooltip-article-linked": "Sciigu min kiam iu ligas al paĝo kiun mi kreis de artikolo.",
 	"echo-pref-tooltip-reverted": "Sciigu min kiam iu malfaras mian redakton per ilo por malfari aŭ amasmalfari.",
-	"echo-pref-tooltip-mention": "Sciigu min kiam iu ligas al mia uzantopaĝo de ajna diskutpaĝo.",
+	"echo-pref-tooltip-mention": "Sciigu min kiam iu ligas al mia uzantopaĝo.",
 	"echo-pref-tooltip-user-rights": "Sciigu min, se iu ŝanĝas miajn rajtojn de uzanto.",
 	"echo-no-agent": "[Neniu]",
 	"echo-no-title": "[Sen Paĝo]",
@@ -94,6 +94,7 @@
 	"echo-email-batch-body-default": "Vi havas novajn sciigojn.",
 	"echo-email-footer-default": "$2\n\nPor kontroli kiujn retpoŝtaĵojn ni sendas al vi, kontrolu viajn preferojn:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
 	"echo-email-footer-default-html": "Por kontroli kiujn retpoŝtaĵojn ni sendas al vi, <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">kontrolu viajn preferojn</a>.<br />\n$1",
+	"echo-notification-alert-text-only": "Sciigoj",
 	"echo-notification-message-text-only": "Mesaĝoj",
 	"echo-overlay-link": "Ĉiuj sciigoj",
 	"echo-overlay-title": "<b>Sciigoj</b>",
@@ -111,5 +112,8 @@
 	"echo-email-batch-body-intro-daily": "Saluton $1,\nĈi tie estas resumo de hodiaŭaj aktivaĵoj sur {{SITENAME}} por vi.",
 	"echo-email-batch-body-intro-weekly": "Saluton $1,\nĈi tie estas resumo de la aktivaĵoj de ĉi tiu semajno sur {{SITENAME}} por vi.",
 	"echo-email-batch-link-text-view-all-notifications": "Montri ĉiujn sciigojn",
-	"echo-rev-deleted-text-view": "Ĉi tiu revizio de la paĝo estis subpremita."
+	"echo-rev-deleted-text-view": "Ĉi tiu revizio de la paĝo estis subpremita.",
+	"apihelp-echomarkread-description": "Marki sciigojn legitaj por tiu ĉi uzanto.",
+	"apihelp-echomarkread-example-2": "Marki ĉiujn sciigojn legitaj",
+	"apihelp-query+notifications-description": "Ricevi sciigojn atentantajn por tiu ĉi uzanto."
 }
