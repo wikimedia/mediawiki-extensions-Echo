@@ -20,6 +20,7 @@
 	"echo-pref-email-format-html": "اچ تی ام ال",
 	"echo-pref-email-format-plain-text": "متن ساده",
 	"echo-pref-notify-show-link": "وارسیاریا نه د نوار اوزار مه نشو بیه",
+	"echo-pref-new-message-indicator": "نشودیارکن پیغوم نه د اوزارجا بلگه چک چنه نشو بیئه",
 	"echo-learn-more": "بيشتر يا بيئريت",
 	"echo-new-messages": "شما پیغومیا تازه داریتو",
 	"echo-category-title-edit-user-talk": "بلگه چک چنه {{جمی:$1|پیغوم|پیغومیا}}",
