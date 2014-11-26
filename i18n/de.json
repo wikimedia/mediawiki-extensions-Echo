@@ -121,5 +121,6 @@
 	"apihelp-echomarkread-param-all": "Falls festgelegt, markiert alle Benutzerbenachrichtigungen als gelesen.",
 	"apihelp-echomarkread-example-1": "Benachrichtigung 8 als gelesen markieren",
 	"apihelp-echomarkread-example-2": "Alle Benachrichtigungen als gelesen markieren",
+	"apihelp-query+notifications-param-limit": "Die maximale Anzahl zurückzugebender Benachrichtigungen.",
 	"apihelp-query+notifications-example-1": "Benachrichtigungen auflisten"
 }
