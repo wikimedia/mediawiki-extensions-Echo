@@ -864,13 +864,16 @@ abstract class EchoDiscussionParser {
 		$output = $exemplarTimestamp;
 		$tzRegex = '/\s*\(\w+\)\s*$/';
 		$tzMatches = array();
-		preg_match( $tzRegex, $output, $tzMatches );
-		$output = preg_replace( $tzRegex, '', $output );
+		if ( preg_match( $tzRegex, $output, $tzMatches ) ) {
+			$output = preg_replace( $tzRegex, '', $output );
+		}
 		$output = preg_quote( $output, '/' );
 		$output = preg_replace( '/[^\d\W]+/u', '[^\d\W]+', $output );
 		$output = preg_replace( '/\d+/u', '\d+', $output );
 
-		$output .= preg_quote( $tzMatches[0] );
+		if ( $tzMatches ) {
+			$output .= preg_quote( $tzMatches[0] );
+		}
 
 		if ( !preg_match( "/$output/u", $exemplarTimestamp ) ) {
 			throw new MWException( "Timestamp regex does not match exemplar" );
