@@ -6,7 +6,9 @@
 		]
 	},
 	"echo-desc": "وارسیاریا سامونه",
+	"prefs-echo": "وارسیاریا",
 	"prefs-emailsettings": "چیا هنی انجومانامه",
+	"prefs-displaynotifications": "گزینه یا نه نشو بیه",
 	"prefs-echosubscriptions": "مه نه سی ای رخ ونیا خوردار کو",
 	"prefs-newmessageindicator": "نشو دیارکن پیغام تازه",
 	"echo-pref-send-me": "کل کو سیم:",
@@ -15,6 +17,7 @@
 	"echo-pref-web": "مالگه",
 	"echo-pref-email": "پیومک برقی",
 	"echo-pref-email-frequency-never": "سی مه ایمیل بشگار کو کل نکو",
+	"echo-pref-email-frequency-immediately": "وارسیاری شخصی ایسه دارن میان",
 	"echo-pref-email-frequency-daily": "یه گل چکسه روزانه د وارسیاریا",
 	"echo-pref-email-frequency-weekly": "یه گل چکسه هفته ای د وارسیاریا",
 	"echo-pref-email-format-html": "اچ تی ام ال",
