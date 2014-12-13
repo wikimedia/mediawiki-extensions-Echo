@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Kurdbuddha"
+		]
+	},
+	"echo-pref-web": "وێب",
+	"echo-pref-email": "ئیمەیل",
+	"echo-notification-message-text-only": "پەیامەیل"
+}

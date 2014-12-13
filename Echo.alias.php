@@ -214,6 +214,11 @@ $specialPageAliases['vi'] = array(
 	'Notifications' => array( 'Thông_báo' ),
 );
 
+/** Chinese (中文) */
+$specialPageAliases['zh'] = array(
+	'Notifications' => array( '通知' ),
+);
+
 /** Simplified Chinese (中文（简体）‎) */
 $specialPageAliases['zh-hans'] = array(
 	'Notifications' => array( '通知' ),
