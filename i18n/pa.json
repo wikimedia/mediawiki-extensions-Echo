@@ -58,7 +58,7 @@
 	"notification-edit-talk-page-flyout2": "$1 ਨੇ ਤੁਹਾਡੇ [[User talk:$2#$3|ਗੱਲਬਾਤ ਸਫ਼ੇ]] ਉੱਤੇ ਇੱਕ ਸੁਨੇਹਾ {{GENDER:$1|ਛੱਡਿਆ ਹੈ}}।",
 	"notification-edit-talk-page-flyout-with-section": "$1 ਨੇ \"[[User talk:$2#$3|$4]]\" ਵਿਚਲੇ ਤੁਹਾਡੇ ਗੱਲ-ਬਾਤ ਸਫ਼ੇ ਉੱਤੇ ਇੱਕ ਸੁਨੇਹਾ {{GENDER:$1|ਛੱਡਿਆ ਹੈ}}।",
 	"notification-page-linked": "[[:$2]] ਨੂੰ [[:$3]] ਤੋਂ {{GENDER:$1|ਜੋੜਿਆ}} ਸੀ। [[Special:WhatLinksHere/$2|ਇਸ ਪੰਨੇ ਨਾਲ ਜੁੜਦੇ ਸਾਰੇ ਲਿੰਕ ਵੇਖੋ]]।",
-	"notification-page-linked-flyout": "$2 ਨੂੰ [[:$3]] ਤੋਂ {{GENDER:$1|ਜੋੜਿਆ}} ਸੀ।",
+	"notification-page-linked-flyout": "[[:$2]] ਨੂੰ [[:$3]] ਤੋਂ {{GENDER:$1|ਜੋੜਿਆ}} ਸੀ।",
 	"notification-add-comment2": "[[User:$1|$1]] ਨੇ \"$4\" ਗੱਲ-ਬਾਤ ਪੰਨੇ ਉੱਤੇ \"[[$3|$2]]\" ਉੱਤੇ {{GENDER:$1|ਟਿੱਪਣੀ ਕੀਤੀ}}।",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] ਨੇ [[$3]] ਉੱਤੇ ਇੱਕ ਨਵਾਂ ਵਿਸ਼ਾ \"$2\" {{GENDER:$1|ਪਾਇਆ}}",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] ਨੇ ਤੁਹਾਨੂੰ ਇੱਕ ਸੁਨੇਹਾ {{GENDER:$1|ਭੇਜਿਆ ਹੈ}}: \"[[$3#$2|$2]]\"।",

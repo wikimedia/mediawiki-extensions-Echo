@@ -58,7 +58,7 @@
 	"notification-edit-talk-page-flyout2": "$1 [[User talk:$2#$3|талқылау бетіңізге]] хабарлама {{GENDER:$1|қалдырды}}.",
 	"notification-edit-talk-page-flyout-with-section": "$1 талқылау бетіңіздегі «[[User talk:$2#$3|$4]]» бөліміне хабарлама {{GENDER:$1|қалдырды}}.",
 	"notification-page-linked": "[[:$2]] [[:$3]] бетінен {{GENDER:$1|сілтенді}}. [[Special:WhatLinksHere/$2|Бұл бетке барлық сілтенгендерді көріңіз]].",
-	"notification-page-linked-flyout": "$2 [[:$3]] дегеннен {{GENDER:$1|сілтенді}}.",
+	"notification-page-linked-flyout": "[[:$2]] [[:$3]] дегеннен {{GENDER:$1|сілтенді}}.",
 	"notification-add-comment2": "[[User:$1|$1]] \"$4\" талқылау бетіндегі \"[[$3|$2]]\" бөліміне {{GENDER:$1|пікір жазды}}.",
 	"notification-add-talkpage-topic2": "[[$3]] бетінде [[User:$1|$1]] \"$2\" деген жаңа тақырып  {{GENDER:$1|қосты}}.",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] сізге хабарлама {{GENDER:$1|жіберді}}: \"[[$3#$2|$2]]\".",

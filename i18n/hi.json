@@ -62,7 +62,7 @@
 	"notification-edit-talk-page-flyout2": "$1 ने आपके [[User talk:$2#$3|वार्ता पृष्ठ]] पर एक सन्देश {{GENDER:$1|छोड़ा}} है।",
 	"notification-edit-talk-page-flyout-with-section": "$1 ने आपके वार्ता पृष्ठ पर \"[[User talk:$2#$3|$4]]\" भाग में एक सन्देश {{GENDER:$1|छोड़ा}} है।",
 	"notification-page-linked": "[[:$3]] पर [[:$2]] की कड़ी {{GENDER:$1|जोड़ी}} गयी थी। [[Special:WhatLinksHere/$2|इस पृष्ठ से जुड़ने वाले सभी पृष्ठ देखें]]।",
-	"notification-page-linked-flyout": "[[:$3]] पर $2 की कड़ी {{GENDER:$1|जोड़ी}} गयी।",
+	"notification-page-linked-flyout": "[[:$3]] पर [[:$2]] की कड़ी {{GENDER:$1|जोड़ी}} गयी।",
 	"notification-add-comment2": "[[User:$1|$1]] ने \"$4\" वार्ता पृष्ठ पर \"[[$3|$2]]\" भाग में {{GENDER:$1|टिप्पणी की है}}।",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] ने [[$3]] पर \"$2\" विषय पर चर्चा शुरू {{GENDER:$1|की}} है।",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] ने आपको एक नया सन्देश {{GENDER:$1|भेजा}} है: \"[[$3#$2|$2]]\"।",

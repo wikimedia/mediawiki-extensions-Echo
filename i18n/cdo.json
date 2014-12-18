@@ -58,7 +58,7 @@
 	"notification-edit-talk-page-flyout2": "$1敆汝其[[User talk:$2#$3|討論頁]]{{GENDER:$1|留下}}蜀條信息。",
 	"notification-edit-talk-page-flyout-with-section": "$1敆汝其討論頁「[[User talk:$2#$3|$4]]」{{GENDER:$1|留下}}蜀條信息。",
 	"notification-page-linked": "[[:$2]]趁[[:$3]]𡅏{{GENDER:$1|鏈}}過來。[[Special:WhatLinksHere/$2|看全部鏈遘茲蜀頁其鏈接]]。",
-	"notification-page-linked-flyout": "$2是趁[[:$3]]𡅏{{GENDER:$1|鏈}}過來。",
+	"notification-page-linked-flyout": "[[:$2]]是趁[[:$3]]𡅏{{GENDER:$1|鏈}}過來。",
 	"notification-add-comment2": "[[User:$1|$1]]敆「$4」其討論頁𡅏{{GENDER:$1|評論}}「[[$3|$2]]」。",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]]敆[[$3]]𡅏{{GENDER:$1|發表}}蜀萆新其话題「$2」。",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]]{{GENDER:$1|發}}給汝蜀條信息：「[[$3#$2|$2]]」。",

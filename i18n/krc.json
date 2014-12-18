@@ -57,7 +57,7 @@
 	"notification-edit-talk-page-flyout2": "$1, [[User talk:$2#$3|сюзюу бетигизде]] билдириу {{GENDER:$1|къойду}}.",
 	"notification-edit-talk-page-flyout-with-section": "$1, сюзюу бетигизде (\"[[User talk:$2#$3|$4]]\") билдириу {{GENDER:$1|къойду}}.",
 	"notification-page-linked": "[[:$2]], [[:$3]] бла {{GENDER:$1|байламлы}} эди. [[Special:WhatLinksHere/$2|Бу бетге бары джибериулеге къарагъыз]].",
-	"notification-page-linked-flyout": "$2, [[:$3]] бла {{GENDER:$1|байламлы}} эди.",
+	"notification-page-linked-flyout": "[[:$2]], [[:$3]] бла {{GENDER:$1|байламлы}} эди.",
 	"notification-add-comment2": "[[User:$1|$1]], \"$4\" сюзюу бетдеги \"[[$3|$2]]\" темада комментарий {{GENDER:$1|къойду}}.",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]], [[$3]] бетде \"$2\" деген джангы теманы {{GENDER:$1|ачды}}.",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]], сизге билдириу {{GENDER:$1|джиберди}}: \"[[$3#$2|$2]]\".",

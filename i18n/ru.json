@@ -75,7 +75,7 @@
 	"notification-edit-talk-page-flyout2": "$1 {{GENDER:$1|оставил|оставила}} сообщение на вашей [[User talk:$2#$3|странице обсуждения]].",
 	"notification-edit-talk-page-flyout-with-section": "$1 {{GENDER:$1|оставил|оставила}} сообщение на вашей странице обсуждения \"[[User talk:$2#$3|$4]]\".",
 	"notification-page-linked": "[[:$2]] была {{GENDER:$1|связана}} с [[:$3]]. [[Special:WhatLinksHere/$2|См. все ссылки на эту страницу]].",
-	"notification-page-linked-flyout": "$2 была {{GENDER:$1|связана}} с [[:$3]].",
+	"notification-page-linked-flyout": "[[:$2]] была {{GENDER:$1|связана}} с [[:$3]].",
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|прокомментировал|прокомментировала}} тему \"[[$3|$2]]\" на странице обсуждения \"$4\".",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] {{GENDER:$1|добавил|добавила}} новую тему \"$2\" на странице [[$3]].",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] {{GENDER:$1|отправил|отправила}} вам сообщение: \"[[$3#$2|$2]]\".",

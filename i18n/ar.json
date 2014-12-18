@@ -68,7 +68,7 @@
 	"notification-edit-talk-page-flyout2": "{{GENDER:$1|بعث|بعثت}} لك $1 برسالة في [[User talk:$2#$3|صفحة نقاشك]].",
 	"notification-edit-talk-page-flyout-with-section": "{{GENDER:$1|بعث|بعثت}} لك $1 برسالة في قسم [[User talk:$2#$3|$4]] من صفحة نقاشك.",
 	"notification-page-linked": "{{GENDER:$1|وضعت}} وصلة لصفحة [[:$2]] في [[:$3]]. [[Special:WhatLinksHere/$2|انظر جميع وصلات تلك الصفحة]].",
-	"notification-page-linked-flyout": "{{GENDER:$1|وضعت}} وصلة لصفحة $2 في [[:$3]].",
+	"notification-page-linked-flyout": "{{GENDER:$1|وضعت}} وصلة لصفحة [[:$2]] في [[:$3]].",
 	"notification-add-comment2": "{{GENDER:$1|علق|علقت}} [[User:$1|$1]] على \"[[$3|$2]]\" في صفحة نقاش \"$4\".",
 	"notification-add-talkpage-topic2": "{{GENDER:$1|أنشأ|أنشأت}} [[User:$1|$1]] قسما جديدا بعنوان \"$2\" في [[$3]].",
 	"notification-add-talkpage-topic-yours2": "{{GENDER:$1|أرسل|أرسلت}} لك [[User:$1|$1]] رسالة بعنوان \"[[$3#$2|$2]]\".",

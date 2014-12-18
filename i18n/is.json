@@ -55,7 +55,7 @@
 	"notification-edit-talk-page-flyout2": "$1 {{GENDER:$1|skildi}} eftir skilaboð á [[User talk:$2#$3|spjallsíðu þinni]].",
 	"notification-edit-talk-page-flyout-with-section": "$1 {{GENDER:$1|skildi}} eftir skilaboð á spjallsíðu þinni í \"[[User talk:$2#$3|$4]]\".",
 	"notification-page-linked": "[[:$2]] var {{GENDER:$1|tengd}} við [[:$3]]. [[Special:WhatLinksHere/$2|Sjá alla tengla sem tengjast hingað]].",
-	"notification-page-linked-flyout": "$2 var {{GENDER:$1|tengd}} við [[:$3]].",
+	"notification-page-linked-flyout": "[[:$2]] var {{GENDER:$1|tengd}} við [[:$3]].",
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|tjáði sig}} um „[[$3|$2]]” á spjallsíðu „$4”.",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] {{GENDER:$1|skrifaði}} nýtt innlegg um \"$2\" á [[$3]].",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] {{GENDER:$1|senti}} þér skilaboð: \"[[$3#$2|$2]]\".",

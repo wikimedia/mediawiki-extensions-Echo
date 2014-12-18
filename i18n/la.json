@@ -48,7 +48,7 @@
 	"notification-link-text-view-changes": "Mutata ostendere",
 	"notification-link-text-view-page": "Vide paginam",
 	"notification-link-text-view-edit": "Vide recensionem",
-	"notification-page-linked-flyout": "$2 nectum est a pagina [[:$3]].",
+	"notification-page-linked-flyout": "[[:$2]] nectum est a pagina [[:$3]].",
 	"notification-user-rights-add": "Nunc es sodalis {{PLURAL:$2|eius gregis|eorum gregium}}: $1",
 	"notification-user-rights-remove": "Non iam es sodalis {{PLURAL:$2|eius gregis|eorum gregium}}: $1",
 	"notification-new-user": "Salve ad {{grammar:accusative|{{SITENAME}}}}, $1!",

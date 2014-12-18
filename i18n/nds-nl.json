@@ -57,7 +57,7 @@
 	"notification-edit-talk-page-flyout2": "$1 {{GENDER:$1|hef n bericht achtereleuten}} op joew [[User talk:$2#$3|overlegzied]].",
 	"notification-edit-talk-page-flyout-with-section": "$1 {{GENDER:$1|hef}} n bericht op joew overlegzied achtereleuten in t onderwarp \"[[User talk:$2#$3|$4]]\".",
 	"notification-page-linked": "[[:$2]] is {{GENDER:$1|ekoppeld}} vanaof [[:$3]]:[[Special:WhatLinksHere/$2|alle verwiezingen naor disse zied bekieken]].",
-	"notification-page-linked-flyout": "$2 is {{GENDER:$1|ekoppeld}} vanaof [[:$3]].",
+	"notification-page-linked-flyout": "[[:$2]] is {{GENDER:$1|ekoppeld}} vanaof [[:$3]].",
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|hef ereageerd}} op \"[[$3|$2]]\" op de overlegzied \"$4\".",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] {{GENDER:$1|hef}} n niej onderwarp \"$2\" op [[$3]] ezet.",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] {{GENDER:$1|hef}} joe n bericht estuurd: \"[[$3#$2|$2]]\"",

@@ -67,7 +67,7 @@
 	"notification-edit-talk-page-flyout2": "$1 {{GENDER:$1|כתב|כתבה}} ב[[User talk:$2#$3|דף השיחה שלך]].",
 	"notification-edit-talk-page-flyout-with-section": "$1 {{GENDER:$1|כתב|כתבה}} בדף השיחה שלך הודעה תחת הכותרת '[[User talk:$2#$3|$4]]'.",
 	"notification-page-linked": "{{GENDER:$1|נוסף קישור}} אל הדף [[:$2]] מהדף [[:$3]]. [[Special:WhatLinksHere/$2|כל הקישורים אל הדף הזה]].",
-	"notification-page-linked-flyout": "{{GENDER:$1|נוסף קישור}} אל הדף $2 מהדף [[:$3]].",
+	"notification-page-linked-flyout": "{{GENDER:$1|נוסף קישור}} אל הדף [[:$2]] מהדף [[:$3]].",
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|העיר|העירה}} על הנושא \"[[$3|$2]]\" בדף השיחה של \"$4\".",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] {{GENDER:$1|והוסיף|הוסיפה}} את נושא החדש \"$2\" לדף [[$3]]",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] {{GENDER:$1|שלח|שלחה}} לך הודעה: \"[[$3#$2|$2]]\"",

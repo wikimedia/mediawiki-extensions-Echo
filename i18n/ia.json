@@ -57,7 +57,7 @@
 	"notification-edit-talk-page-flyout2": "$1 te lassava un message in tu [[User talk:$2#$3|pagina de discussion]].",
 	"notification-edit-talk-page-flyout-with-section": "$1 te lassava un message in tu pagina de discussion sub \"[[User talk:$2#$3|$4]]\".",
 	"notification-page-linked": "Un ligamine a [[:$2]] ha essite {{GENDER:$1|inserite}} in [[:$3]]. [[Special:WhatLinksHere/$2|Vider tote le ligamines a iste pagina]].",
-	"notification-page-linked-flyout": "Un ligamine a $2 ha essite {{GENDER:$1|inserite}} in [[:$3]].",
+	"notification-page-linked-flyout": "Un ligamine a [[:$2]] ha essite {{GENDER:$1|inserite}} in [[:$3]].",
 	"notification-add-comment2": "[[User:$1|$1]] commentava \"[[$3|$2]]\" in le pagina de discussion \"$4\"",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] {{GENDER:$1|ha comenciate}} un nove discussion \"$2\" in [[$3]].",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] te {{GENDER:$1|ha inviate}} un message: \"[[$3#$2|$2]]\".",

@@ -64,7 +64,7 @@
 	"notification-edit-talk-page-flyout2": "$1 üzenetet hagyott [[User talk:$2#$3|a vitalapodon]].",
 	"notification-edit-talk-page-flyout-with-section": "$1 üzenetet hagyott a vitalapodon „[[User talk:$2#$3|$4]]” címmel.",
 	"notification-page-linked": "A(z) [[:$2]] szócikkedre {{GENDER:$1|hivatkoztak}} a(z) [[:$3]] cikkben. [[Special:WhatLinksHere/$2|Kilistázhatod az összes hivatkozást a szócikkre]].",
-	"notification-page-linked-flyout": "A(z) $2 szócikkedre {{GENDER:$1|hivatkoztak}} a(z) [[:$3]] cikkben.",
+	"notification-page-linked-flyout": "A(z) [[:$2]] szócikkedre {{GENDER:$1|hivatkoztak}} a(z) [[:$3]] cikkben.",
 	"notification-add-comment2": "[[User:$1|$1]] hozzászólt a(z) „[[$3|$2]]” témához a(z) „$4” vitalapon",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] új témát kezdett „$2” néven a(z) [[$3]] lapon.",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] üzenetet küldött neked: „[[$3#$2|$2]]”",

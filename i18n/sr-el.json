@@ -58,7 +58,7 @@
 	"notification-edit-talk-page-flyout2": "$1 vam je {{GENDER:$1|ostavio|ostavila}} poruku na vašoj [[User talk:$2#$3|stranici za razgovor]].",
 	"notification-edit-talk-page-flyout-with-section": "$1 vam je {{GENDER:$1|ostavio|ostavila}} poruku na vašoj stranici za razgovor u „[[User talk:$2#$3|$4]]“.",
 	"notification-page-linked": "Stranica [[:$2]] je {{GENDER:$1|povezana}} sa stranicom [[:$3]]. [[Special:WhatLinksHere/$2|Pogledajte sve veze prema ovoj stranici]].",
-	"notification-page-linked-flyout": "$2 je {{GENDER:$1|povezana}} sa [[:$3]].",
+	"notification-page-linked-flyout": "[[:$2]] je {{GENDER:$1|povezana}} sa [[:$3]].",
 	"notification-add-comment2": "[[User:$1|$1]] je {{GENDER:$1|prokomentarisao|prokomentarisala}} temu „[[$3|$2]]“ na stranici za razgovor „$4“.",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] je {{GENDER:$1|postavio|postavila}} novu temu „$2“ na [[$3]].",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] vam je {{GENDER:$1|poslao|poslala}} poruku: „[[$3#$2|$2]]“.",

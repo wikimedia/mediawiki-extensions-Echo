@@ -59,7 +59,7 @@
 	"notification-edit-talk-page-flyout2": "Ni $1 ket {{GENDER:$1|nangibati}} ti mensahe a idiay [[User talk:$2#$3|tungtungam a panid]].",
 	"notification-edit-talk-page-flyout-with-section": "Ni $1 ket {{GENDER:$1|nangibati}} ti mensahe idiay tungtungam a panid idiay \"[[User talk:$2#$3|$4]]\".",
 	"notification-page-linked": "Ti [[:$2]] ket {{GENDER:$1|naisilpo}} manipud ti [[:$3]]. [[Special:WhatLinksHere/$2|Kitaen amin dagiti silpo iti daytoy a panid]].",
-	"notification-page-linked-flyout": "Ti $2 ket {{GENDER:$1|naisilpo}} manipud ti [[:$3]].",
+	"notification-page-linked-flyout": "Ti [[:$2]] ket {{GENDER:$1|naisilpo}} manipud ti [[:$3]].",
 	"notification-add-comment2": "Ni [[User:$1|$1]] ket {{GENDER:$1|nagkomentario}} iti \"[[$3|$2]]\" iti tungtungan a panid ti \"$4\".",
 	"notification-add-talkpage-topic2": "Ni [[User:$1|$1]] ket {{GENDER:$1|nangipablaak}} ti baro a topiko ti \"$2\" iti [[$3]].",
 	"notification-add-talkpage-topic-yours2": "Ni [[User:$1|$1]] ket {{GENDER:$1|pinatulodannaka}} ti mensahe: \"[[$3#$2|$2]]\".",

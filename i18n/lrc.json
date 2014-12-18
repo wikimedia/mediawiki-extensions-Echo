@@ -53,7 +53,7 @@
 	"notification-edit-talk-page-with-section": "[[کاریار:$1|$1]] {{جنس:$1|}} یه گل پیغوم د بلگه چک چنه شما نیا د \"[[بلگه چک چنه:$2#$3|$4]]\".",
 	"notification-edit-talk-page-flyout2": "$1 {{جنس:$1|}}یه گل پیغوم د  [[چک چنه کاریار:$2#$3|بلگه چک چنه]]تو نیائه.",
 	"notification-edit-talk-page-flyout-with-section": "$1 {{جنس:$1|}}یه گل پیغوم د بلگه چک چنه شما نیائه\" د[[چک چنه کاریار:$2#$3|$4]]\".",
-	"notification-page-linked-flyout": "$2  {{جنس:$1|هوم پیوند دئه }}سی [[:$3]].",
+	"notification-page-linked-flyout": "[[:$2]]  {{جنس:$1|هوم پیوند دئه }}سی [[:$3]].",
 	"notification-add-comment2": "[[کاریار:$1|$1]] {{جنس:$1|د}}د \"[[$3|$2]]\" د بلگه چک چنه \"$4\"  نیا.",
 	"notification-add-talkpage-topic-yours2": "[[کاریار:$1|$1]] {{GENDER:$1|}} یه گل پیغوم سی شما کل کرد: \"[[$3#$2|$2]]\".",
 	"notification-add-comment-yours2": "[[کاریار:$1|$1]] {{جنس:$1|د}}د \"[[$3|$2]]\" د بلگه چک چنه \"$4\"  نیا.",

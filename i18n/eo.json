@@ -61,7 +61,7 @@
 	"notification-edit-talk-page-flyout2": "$1 {{GENDER:$1|lasis}} mesaĝon sur via [[User talk:$2#$3|diskutopaĝo]].",
 	"notification-edit-talk-page-flyout-with-section": "$1 {{GENDER:$1|lasis}} mesaĝon sur via diskutopaĝo en \"[[User talk:$2#$3|$4]]\".",
 	"notification-page-linked": "[[:$2]] estis {{GENDER:$1|ligata}} de [[:$3]]. [[Special:WhatLinksHere/$2|Ligiloj ĉi tien]].",
-	"notification-page-linked-flyout": "$2 estis {{GENDER:$1|ligita}} de [[:$3]].",
+	"notification-page-linked-flyout": "[[:$2]] estis {{GENDER:$1|ligita}} de [[:$3]].",
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|komentis}} sur \"[[$3|$2]]\" sur la diskutopaĝo de \"$4\".",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] {{GENDER:$1|afiŝis}} novan temon \"$2\" sur [[$3]].",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] {{GENDER:$1|sendis}} al vi mesaĝon: \"[[$3#$2|$2]]\".",

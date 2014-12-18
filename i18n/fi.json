@@ -67,7 +67,7 @@
 	"notification-edit-talk-page-flyout2": "$1 {{GENDER:$1|jätti}} viestin [[User talk:$2#$3|keskustelusivullesi]].",
 	"notification-edit-talk-page-flyout-with-section": "$1 {{GENDER:$1|jätti}} viestin keskustelusivullesi osioon \"[[User talk:$2#$3|$4]]\".",
 	"notification-page-linked": "Sivulle [[:$2]] {{GENDER:$1|on nyt linkki}} sivulta [[:$3]].[[Special:WhatLinksHere/$2|Katso kaikki kohteeseen viittaavat linkit]].",
-	"notification-page-linked-flyout": "Sivulle $2 {{GENDER:$1|johtaa nyt linkki}} sivulta [[:$3]].",
+	"notification-page-linked-flyout": "Sivulle [[:$2]] {{GENDER:$1|johtaa nyt linkki}} sivulta [[:$3]].",
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|kommentoi}} aihetta \"[[$3|$2]]\" keskustelusivulla \"$4\"",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] {{GENDER:$1|lisäsi}} uuden aiheen \"$2\" sivulle [[$3]].",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] {{GENDER:$1|lähetti}} sinulle viestin: \"[[$3#$2|$2]]\".",

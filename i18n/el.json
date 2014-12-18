@@ -64,7 +64,7 @@
 	"notification-edit-talk-page-flyout2": "{{GENDER:$1|Ο|Η}} $1 άφησε μήνυμα στη [[User talk:$2#$3|σελίδα συζήτησής]] σας.",
 	"notification-edit-talk-page-flyout-with-section": "{{GENDER:$1|Ο|Η}} $1 άφησε μήνυμα στη σελίδα συζήτησής στη [[User talk:$2#$3|$4]].",
 	"notification-page-linked": "Η σελίδα [[:$2]] {{GENDER:$1|συνδέθηκε}} από τη σελίδα [[:$3]]. [[Special:WhatLinksHere/$2|Δείτε όλους τους συνδέσμους προς αυτή τη σελίδα]].",
-	"notification-page-linked-flyout": "Η σελίδα $2 {{GENDER:$1|συνδέθηκε}} από τη σελίδα [[:$3]].",
+	"notification-page-linked-flyout": "Η σελίδα [[:$2]] {{GENDER:$1|συνδέθηκε}} από τη σελίδα [[:$3]].",
 	"notification-add-comment2": "{{GENDER:$1|Ο|Η}} [[User:$1|$1]] σχολίασε στο \"[[$3|$2]]\" στην συζήτηση \"$4\".",
 	"notification-mention": "{{GENDER:$1|Ο|Η}} [[User:$1|$1]] {{GENDER:$1|σας ανάφερε}} στην ενότητα \"[[:$3#$2|$4]]\" της σελίδας $5.",
 	"notification-mention-flyout": "{{GENDER:$1|Ο|Η}} [[User:$1|$1]] {{GENDER:$1|σας ανάφερε}} στην ενότητα \"[[:$3#$2|$4]]\" της σελίδας $5.",

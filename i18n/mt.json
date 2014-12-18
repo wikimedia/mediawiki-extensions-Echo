@@ -60,7 +60,7 @@
 	"notification-edit-talk-page-flyout2": "$1 {{GENDER:$1|ħalla|ħalliet}} messaġġ fuq il-[[User talk:$2#$3|paġna tad-diskussjoni]] tiegħek.",
 	"notification-edit-talk-page-flyout-with-section": "$1 {{GENDER:$1|ħalla|ħalliet}} messaġġ fil-paġna tad-diskussjoni tiegħek f' \"[[User talk:$2#$3|$4]]\".",
 	"notification-page-linked": "[[:$2]] {{GENDER:$1|inħalqitilha}} ħolqa minn [[:$3]]. [[Special:WhatLinksHere/$2|Ara l-ħoloq għal din il-paġna kollha]].",
-	"notification-page-linked-flyout": "$2 {{GENDER:$1|inħalqitilha}} ħolqa minn [[:$3]].",
+	"notification-page-linked-flyout": "[[:$2]] {{GENDER:$1|inħalqitilha}} ħolqa minn [[:$3]].",
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|ħalla|ħalliet}} kumment \"[[$3|$2]]\" fuq il-paġna tad-diskussjoni ta' \"$4\".",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] {{GENDER:$1|beda|bdiet}} suġġett ġdid  \"$2\" fuq [[$3]].",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] {{GENDER:$1|bagħatlek|bagħtitlek}} messaġġ: \"[[$3#$2|$2]]\".",

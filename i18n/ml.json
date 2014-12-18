@@ -62,7 +62,7 @@
 	"notification-edit-talk-page-flyout2": "താങ്കളുടെ [[User talk:$2#$3|സംവാദത്താളിൽ]] $1 ഒരു സന്ദേശം {{GENDER:$1|ചേർത്തിരിക്കുന്നു}}.",
 	"notification-edit-talk-page-flyout-with-section": "താങ്കളുടെ സംവാദത്താളിൽ ''[[User talk:$2#$3|$4]]'' എന്ന് ഒരു സന്ദേശം  $1 {{GENDER:$1|ചേർത്തിരിക്കുന്നു}}.",
 	"notification-page-linked": "[[:$2]] എന്ന താളിലേയ്ക്ക് [[:$3]] എന്ന താളിൽ നിന്ന് കണ്ണി {{GENDER:$1|ചേർക്കപ്പെട്ടിരിക്കുന്നു}}: [[Special:WhatLinksHere/$2|ഈ താളിലേയ്ക്കുള്ള എല്ലാ കണ്ണികളും കാണുക]]",
-	"notification-page-linked-flyout": "$2 എന്ന താളിലേയ്ക്ക് [[:$3]] എന്ന താളിൽ നിന്ന് കണ്ണി {{GENDER:$1|ചേർക്കപ്പെട്ടിരിക്കുന്നു}}.",
+	"notification-page-linked-flyout": "[[:$2]] എന്ന താളിലേയ്ക്ക് [[:$3]] എന്ന താളിൽ നിന്ന് കണ്ണി {{GENDER:$1|ചേർക്കപ്പെട്ടിരിക്കുന്നു}}.",
 	"notification-add-comment2": "[[User:$1|$1]]  \"$4\" സംവാദത്താളിലെ \"[[$3|$2]]\" എന്നതിൽ {{GENDER:$1|കുറിപ്പിട്ടിരിക്കുന്നു}}",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] [[$3]] എന്ന താളിലെ \"$2\" എന്നതിൽ ഒരു പുതിയ വിഷയം {{GENDER:$1|ചേർത്തു}}.",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]]  താങ്കൾക്ക് ഒരു സന്ദേശം {{GENDER:$1|അയച്ചിട്ടുണ്ട്}}: \"[[$3#$2|$2]]\".",

@@ -66,7 +66,7 @@
 	"notification-edit-talk-page-flyout2": "$1 {{GENDER:$1|залишив|залишила}} повідомлення на Вашій [[User talk:$2#$3|сторінці обговорення]].",
 	"notification-edit-talk-page-flyout-with-section": "$1 {{GENDER:$1|залишив|залишила}} повідомлення на Вашій сторінці обговорення у «[[User talk:$2#$3|$4]]».",
 	"notification-page-linked": "На [[:$3]] $1 {{GENDER:$1|додав|додала}} посилання на [[:$2]]. [[Special:WhatLinksHere/$2|Див. усі посилання на цю сторінку]]",
-	"notification-page-linked-flyout": "На [[:$3]] $1 {{GENDER:$1|додав|додала}} посилання на $2.",
+	"notification-page-linked-flyout": "На [[:$3]] $1 {{GENDER:$1|додав|додала}} посилання на [[:$2]].",
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|прокоментував|прокоментувала}} \"[[$3|$2]]\" на сторінці обговорення \"$4\".",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] {{GENDER:$1|створив|створила}} нову тему \"$2\" на [[$3]].",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] {{GENDER:$1|надіслав|надіслала}} Вам повідомлення: \"[[$3#$2|$2]]\".",

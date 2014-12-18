@@ -57,7 +57,7 @@
 	"notification-edit-talk-page-flyout2": "$1 {{GENDER:$1|a daissat}} un messatge sus vòstra [[User talk:$2#$3|pagina de discussion]].",
 	"notification-edit-talk-page-flyout-with-section": "$1 a daissat un messatge sus vòstra pagina de discussion dins la [[User talk:$2#$3|seccion ''$4'']].",
 	"notification-page-linked": "[[:$2]] es estat {{GENDER:$1|referenciat}} dempuèi [[:$3]]. [[Special:WhatLinksHere/$2|Veire totes los ligams cap a aquesta pagina]].",
-	"notification-page-linked-flyout": "$2 es estat {{GENDER:$1|referenciat}} dempuèi [[:$3]].",
+	"notification-page-linked-flyout": "[[:$2]] es estat {{GENDER:$1|referenciat}} dempuèi [[:$3]].",
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|a fach un comentari}} dins « [[$3|$2]] » sus la pagina de discussion « $4 »",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] {{GENDER:$1|a publicat}} un subjècte novèl \"$2\" sus [[$3]]",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] vos {{GENDER:$1|a mandat}} un messatge : \"[[$3#$2|$2]]\"",

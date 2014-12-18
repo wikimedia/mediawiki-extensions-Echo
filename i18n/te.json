@@ -62,7 +62,7 @@
 	"notification-edit-talk-page-flyout2": "$1   మీ   [[User talk:$2#$3|చర్చాపేజీ]] పై  ఒక సందేశం {{GENDER:$1|చేర్చారు}}.",
 	"notification-edit-talk-page-flyout-with-section": "$1 మీ చర్చా పేజీలో \"[[User talk:$2#$3|$4]]\"  వద్ద ఒక సందేశాన్ని {{GENDER:$1|చేర్చారు}}.",
 	"notification-page-linked": "[[:$3]] నుండి [[:$2]]కి {{GENDER:$1|లంకె వేసారు}}.\n[[Special:WhatLinksHere/$2|ఈ పేజీకి చేరుకోవటానికున్న అన్ని లంకెలను చూడు]].",
-	"notification-page-linked-flyout": "[[:$3]] నుండి $2 కి {{GENDER:$1|లంకె వేశారు}}.",
+	"notification-page-linked-flyout": "[[:$3]] నుండి [[:$2]] కి {{GENDER:$1|లంకె వేశారు}}.",
 	"notification-add-comment2": "[[User:$1|$1]] \"$4\" చర్చా పేజీలో  \"[[$3|$2]]\" పై {{GENDER:$1|వ్యాఖ్యానించారు}}.",
 	"notification-add-talkpage-topic2": " [[User:$1|$1]]    [[$3]]  పై \"$2\" అనే ఒక కొత్త విషయాన్ని {{GENDER:$1|చేర్చారు}}.",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] మీకు {{GENDER:$1|పంపిన సందేశం}}: \"[[$3#$2|$2]]\".",

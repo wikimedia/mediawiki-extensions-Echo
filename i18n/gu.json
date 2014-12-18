@@ -59,7 +59,7 @@
 	"notification-edit-talk-page-flyout2": "$1એ તમારા [[User talk:$2#$3|ચર્ચા પાનાં]] પર સંદેશો {{GENDER:$1|છોડયો}} છે.",
 	"notification-edit-talk-page-flyout-with-section": "$1એ તમારા \"[[User talk:$2#$3|$4]]\" ચર્ચા પાનાં પર સંદેશો {{GENDER:$1|છોડયો}} છે.",
 	"notification-page-linked": "{{GENDER:$1|linked}} દ્વારા [[:$2]], [[:$3]] પર જોડવામાં આવેલું. [[Special:WhatLinksHere/$2|આ પાનાંને સમ્બોધતી બધી કડીઓ જુઓ]].",
-	"notification-page-linked-flyout": "$2ને [[:$3]] સાથે {{GENDER:$1|જોડ્યું છે}}.",
+	"notification-page-linked-flyout": "[[:$2]]ને [[:$3]] સાથે {{GENDER:$1|જોડ્યું છે}}.",
 	"notification-add-comment2": "[[User:$1|$1]]એ \"$4\"નાં \"[[$3|$2]]\" પર {{GENDER:$1|સંદેશો છોડ્યો}}.",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]]એ [[$3]] પર નવો વિશય \"$2\" {{GENDER:$1|ચાલૂ કર્યો}}.",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]]એ તમને નવો સંદેશો {{GENDER:$1|મોકલ્યો}}: \"[[$3#$2|$2]]\".",

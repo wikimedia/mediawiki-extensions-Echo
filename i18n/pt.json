@@ -66,7 +66,7 @@
 	"notification-edit-talk-page-flyout2": "$1 deixou uma mensagem na sua [[User talk:$2#$3|página de discussão]].",
 	"notification-edit-talk-page-flyout-with-section": "$1 deixou uma mensagem na sua página de discussão na secção \"[[User talk:$2#$3|$4]]\".",
 	"notification-page-linked": "[[:$2]] foi {{GENDER:$1|ligada}} a partir de [[:$3]]. [[Special:WhatLinksHere/$2|Ver todas as páginas afluentes a esta]].",
-	"notification-page-linked-flyout": "$2 foi {{GENDER:$1|ligada}} a partir de [[:$3]].",
+	"notification-page-linked-flyout": "[[:$2]] foi {{GENDER:$1|ligada}} a partir de [[:$3]].",
 	"notification-add-comment2": "[[User:$1|$1]] comentou em \"[[$3|$2]]\" na página de discussão de \"$4\".",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] criou o novo tópico \"$2\" em [[$3]].",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] enviou-lhe uma mensagem: \"[[$3#$2|$2]]\".",

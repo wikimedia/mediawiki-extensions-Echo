@@ -76,7 +76,7 @@
 	"notification-edit-talk-page-flyout2": "$1 {{GENDER:$1|a laissé}} un message sur votre [[User talk:$2#$3|page de discussion]].",
 	"notification-edit-talk-page-flyout-with-section": "$1 a laissé un message sur votre page de discussion dans la [[User talk:$2#$3|section ''$4'']].",
 	"notification-page-linked": "[[:$2]] a été {{GENDER:$1|référencé}} depuis [[:$3]]. [[Special:WhatLinksHere/$2|Voir tous les liens vers cette page]].",
-	"notification-page-linked-flyout": "$2 a été {{GENDER:$1|référencé}} depuis [[:$3]].",
+	"notification-page-linked-flyout": "[[:$2]] a été {{GENDER:$1|référencé}} depuis [[:$3]].",
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|a fait un commentaire}} dans « [[$3|$2]] » sur la page de discussion « $4 »",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] {{GENDER:$1|a publié}} un nouveau sujet \"$2\" sur [[$3]]",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] vous {{GENDER:$1|a envoyé}} un message: \"[[$3#$2|$2]]\"",

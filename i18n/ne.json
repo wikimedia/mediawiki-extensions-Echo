@@ -57,7 +57,7 @@
 	"notification-edit-talk-page-flyout2": "$1ले तपाईँको [[User talk:$2#$3|वार्ता पृष्ठ]]मा सन्देश  {{GENDER:$1|छोड्नुभएको छ}} ।",
 	"notification-edit-talk-page-flyout-with-section": "$1 ले तपाईँको वार्ता पृष्ठमा \"[[User talk:$2#$3|$4]]\" मा एउटा सन्देश {{GENDER:$1|छोड्नुभएको छ}}।",
 	"notification-page-linked": "[[:$2]] [[:$3]] बाट {{GENDER:$1|लिङ्क भयो}}। [[Special:WhatLinksHere/$2|यस पृष्ठसँग भएको सबै लिङ्कहरू हेर्नुहोस्]]।",
-	"notification-page-linked-flyout": "[[:$3]] मा $2 {{GENDER:$1|जोडियो }}",
+	"notification-page-linked-flyout": "[[:$3]] मा [[:$2]] {{GENDER:$1|जोडियो }}",
 	"notification-add-comment2": "[[User:$1|$1]] ले \"[[$3|$2]]\" मा \"$4\" वार्तालाप पृष्ठमा {{GENDER:$1|टिप्पणी गर्नुभयो}}।",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] ले [[$3]] मा एउटा नयाँ विषय \"$2\" {{GENDER:$1|पोस्ट गर्नुभयो}}।",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] ले तपाईँलाई एउटा सन्देश: \"[[$3#$2|$2]]\" {{GENDER:$1|पठाउनुभयो}}।",

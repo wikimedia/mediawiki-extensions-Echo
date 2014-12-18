@@ -58,7 +58,7 @@
 	"notification-edit-talk-page-flyout2": "$1 {{GENDER:$1|la att}} ei melding på [[User talk:$2#$3|diskusjonssida]] di.",
 	"notification-edit-talk-page-flyout-with-section": "$1 {{GENDER:$1|la att}} ei melding på diskusjonssida di under bolken «[[User talk:$2#$3|$4]]».",
 	"notification-page-linked": "[[:$2]] vart {{GENDER:$1|lenkja}} til frå [[:$3]].  [[Special:WhatLinksHere/$2|Sjå alle lenkjene til sida]].",
-	"notification-page-linked-flyout": "$2 vart {{GENDER:$1|lenkja}} til frå [[:$3]].",
+	"notification-page-linked-flyout": "[[:$2]] vart {{GENDER:$1|lenkja}} til frå [[:$3]].",
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|kommenterte}} emnet «[[$3|$2]]» på diskusjonssida «$4».",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] {{GENDER:$1|la inn}} det nye emnet «$2» på [[$3]].",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] {{GENDER:$1|sende}} deg ei melding: «[[$3#$2|$2]]».",

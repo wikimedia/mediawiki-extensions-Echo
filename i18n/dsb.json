@@ -57,7 +57,7 @@
 	"notification-edit-talk-page-flyout2": "$1 jo powěsć na twójom [[User talk:$2#$3|diskusijnem boku]] {{GENDER:$1|zawóstajił|zawóstajiła}}.",
 	"notification-edit-talk-page-flyout-with-section": "$1 jo powěsć na twójom diskusijnem boku w \"[[User talk:$2#$3|$4]]\" {{GENDER:$1|zawóstajił|zawóstajiła}}.",
 	"notification-page-linked": "[[:$2]] jo se wót [[:$3]] {{GENDER:$1|wótkazał|wótkazała}}. [[Special:WhatLinksHere/$2|Wšykne wótkaze k toś tomu bokoju pokazaś]].",
-	"notification-page-linked-flyout": "$2 jo se wót [[:$3]] {{GENDER:$1|wótkazał|wótkazała}}.",
+	"notification-page-linked-flyout": "[[:$2]] jo se wót [[:$3]] {{GENDER:$1|wótkazał|wótkazała}}.",
 	"notification-add-comment2": "[[User:$1|$1]] jo na \"[[$3|$2]]\" na diskusijnem boku \"$4\" {{GENDER:$1|komentěrował|komentěrowała}}.",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] jo nowu temu \"$2\" na [[$3]] {{GENDER:$1|startował|startowała}}.",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]]  jo śi powěsć {{GENDER:$1|pósłał|pósłała}}: \"[[$3#$2|$2]]\".",

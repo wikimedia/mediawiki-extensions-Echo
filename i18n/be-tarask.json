@@ -61,7 +61,7 @@
 	"notification-edit-talk-page-flyout2": "$1 {{GENDER:$1|пакінуў|пакінула}} паведамленьне на Вашай [[User talk:$2#$3|старонцы гутарак]].",
 	"notification-edit-talk-page-flyout-with-section": "$1 {{GENDER:$1|пакінуў|пакінула}} паведамленьне на вашай старонцы гутарак у «[[User talk:$2#$3|$4]]».",
 	"notification-page-linked": "На [[:$2]] {{GENDER:$1|спаслаліся}} з [[:$3]]. [[Special:WhatLinksHere/$2|усе спасылкі на гэтую старонку]].",
-	"notification-page-linked-flyout": "На $2 {{GENDER:$1|спаслаліся}} з [[:$3]].",
+	"notification-page-linked-flyout": "На [[:$2]] {{GENDER:$1|спаслаліся}} з [[:$3]].",
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|пакінуў|пакінула}} камэнтар у тэме «[[$3|$2]]» на старонцы абмеркаваньня «$4»",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] {{GENDER:$1|стварыў|стварыла}} новую тэму «$2» у [[$3]]",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] {{GENDER:$1|даслаў|даслала}} Вам паведамленьне: «[[$3#$2|$2]]»",

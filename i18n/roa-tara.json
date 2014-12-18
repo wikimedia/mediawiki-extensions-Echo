@@ -57,7 +57,7 @@
 	"notification-edit-talk-page-flyout2": "$1 {{GENDER:$1|ha lassate}} 'nu messàgge sus 'a [[User talk:$2#$3|pàgene de le 'ngazzaminde]] tune.",
 	"notification-edit-talk-page-flyout-with-section": "$1 {{GENDER:$1|ave lassate}} 'nu messàgge sus 'a pàgene de le 'ngazzaminde toje jndr'à \"[[User talk:$2#$3|$4]]\".",
 	"notification-page-linked": "[[:$2]] ha state {{GENDER:$1|appundate}} da [[:$3]]. [[Special:WhatLinksHere/$2|'Ndruche tutte le collegaminde a sta pàgene]].",
-	"notification-page-linked-flyout": "$2 ere {{GENDER:$1|appondate}} da [[:$3]].",
+	"notification-page-linked-flyout": "[[:$2]] ere {{GENDER:$1|appondate}} da [[:$3]].",
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|ave commendate}} sus a \"[[$3|$2]]\" sus a pàgene de le 'ngazzaminde \"$4\"",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] {{GENDER:$1|ave mannate}} 'n'argomende nuève \"$2\" sus a [[$3]]",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] {{GENDER:$1|y'ha mannate}} 'nu messàgge: \"[[$3#$2|$2]]\"",

@@ -63,7 +63,7 @@
 	"notification-edit-talk-page-flyout2": "$1 đã nhắn tin vào [[User talk:$2#$3|trang thảo luận]] của bạn.",
 	"notification-edit-talk-page-flyout-with-section": "$1 đã {{GENDER:$1}}nhắn tin cho bạn trong “[[User talk:$2#$3|$4]]”.",
 	"notification-page-linked": "[[:$3]] mới {{GENDER:$1}}có liên kết đến [[:$2]]. [[Special:WhatLinksHere/$2|Xem tất cả các liên kết đến trang này]].",
-	"notification-page-linked-flyout": "[[:$3]] mới {{GENDER:$1}}có liên kết đến $2",
+	"notification-page-linked-flyout": "[[:$3]] mới {{GENDER:$1}}có liên kết đến [[:$2]]",
 	"notification-add-comment2": "[[User:$1|$1]] đã bình luận về “[[$3|$2]]” tại trang thảo luận “$4”",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] đã bắt đầu cuộc thảo luận mới về “$2” tại [[$3]]",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] đã nhắn tin cho bạn: “[[$3#$2|$2]]”",

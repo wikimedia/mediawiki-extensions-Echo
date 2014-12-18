@@ -57,7 +57,7 @@
 	"notification-edit-talk-page-flyout2": "$1 {{GENDER:$1|lassau}} nu missaggiu supra la tò [[User talk:$2#$3|pàggina di discussioni]].",
 	"notification-edit-talk-page-flyout-with-section": "$1 {{GENDER:$1|lassau}} nu missaggiu ntâ tò pàggina di discussioni n '[[User talk:$2#$3|$4]]'.",
 	"notification-page-linked": "[[:$2]] fu {{GENDER:$1|culligata}} di [[:$3]]. [[Special:WhatLinksHere/$2|Talìa tutti li liami a sta pàggina]].",
-	"notification-page-linked-flyout": "$2 fu {{GENDER:$1|culligata}} di [[:$3]].",
+	"notification-page-linked-flyout": "[[:$2]] fu {{GENDER:$1|culligata}} di [[:$3]].",
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|lassau nu cummentu}} arriguardu a \"[[$3|$2]]\" ntâ pàggina di discussioni di \"$4\"",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] {{GENDER:$1|juncìu}} n'argumentu novu \"$2\" supra [[$3]]",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] ti {{GENDER:$1|mannàu}} nu missaggiu: \"[[$3#$2|$2]]\"",

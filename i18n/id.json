@@ -60,7 +60,7 @@
 	"notification-edit-talk-page-flyout2": "$1 {{GENDER:$1|meninggalkan}} sebuah pesan pada [[User talk:$2#$3|halaman pembicaraan]] Anda.",
 	"notification-edit-talk-page-flyout-with-section": "$1 {{GENDER:$1|meninggalkan}} sebuah pesan pada halaman pembicaraan Anda di [[User talk:$2#$3|$4]].",
 	"notification-page-linked": "Pranala ke [[:$2]] {{GENDER:$1|ditambahkan}} di [[:$3]]. [[Special:WhatLinksHere/$2|Lihat semua pranala balik ke halaman ini]].",
-	"notification-page-linked-flyout": "Pranala ke $2 {{GENDER:$1|ditambahkan}} di [[:$3]].",
+	"notification-page-linked-flyout": "Pranala ke [[:$2]] {{GENDER:$1|ditambahkan}} di [[:$3]].",
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|mengomentari}} \"[[$3|$2]]\" pada halaman pembicaraan \"$4\".",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] {{GENDER:$1|mengirimkan}} sebuah topik baru \"$2\" di [[$3]].",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] {{GENDER:$1|mengirimi}} Anda sebuah pesan: \"[[$3#$2|$2]]\".",

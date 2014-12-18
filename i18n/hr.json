@@ -58,7 +58,7 @@
 	"notification-edit-talk-page-flyout2": "$1 je {{GENDER:$1|ostavio|ostavila}} poruku na Vašoj [[User talk:$2#$3|razgovornoj stranici]].",
 	"notification-edit-talk-page-flyout-with-section": "$1 je {{GENDER:$1|ostavio|ostavila}} poruku na Vašoj razgovornoj stranici u \"[[User talk:$2#$3|$4]]\".",
 	"notification-page-linked": "Članak [[:$2]] je {{GENDER:$1|povezan}} s člankom [[:$3]]. [[Special:WhatLinksHere/$2|Pogledajte što vodi prema ovom članku]].",
-	"notification-page-linked-flyout": "Članak $2 je {{GENDER:$1|povezan}} s člankom [[:$3]].",
+	"notification-page-linked-flyout": "Članak [[:$2]] je {{GENDER:$1|povezan}} s člankom [[:$3]].",
 	"notification-mention": "[[User:$1|$1]] Vas je {{GENDER:$1|spomenuо|spomenula}} na stranici za razgovor $5, u odlomku [[:$3#$2|$4]].",
 	"notification-mention-flyout": "$1 Vas je {{GENDER:$1|spomenuo|spomenula}} na stranici za razgovor $5, u odlomku [[:$3#$2|$4]].",
 	"notification-user-rights": "Vaša suradnička prava [[Special:Log/rights/$1|{{GENDER:$1|promijenio|promijenila}}]] je {{GENDER:$1|suradnik|suradnica}} [[User:$1|$1]]. $2. [[Special:ListGroupRights|Saznajte više]]",

@@ -57,7 +57,7 @@
 	"notification-edit-talk-page-flyout2": "$1 {{GENDER:$1|iu la}} një mesazh në [[User talk:$2#$3|faqen tuaj të diskutimeve]].",
 	"notification-edit-talk-page-flyout-with-section": "$1 {{GENDER:$1|iu la}} një mesazh në faqen tuaj të diskutimeve në seksionin '[[User talk:$2#$3|$4]]'.",
 	"notification-page-linked": "[[:$2]] u {{GENDER:$1|lidh}} nga [[:$3]]. [[Special:WhatLinksHere/$2|Shiko të gjitha lidhjet me këtë faqe]].",
-	"notification-page-linked-flyout": "$2 u {{GENDER:$1|lidh}} nga [[:$3]].",
+	"notification-page-linked-flyout": "[[:$2]] u {{GENDER:$1|lidh}} nga [[:$3]].",
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|la një koment}} në lidhje me \"[[$3|$2]]\" në faqen e diskutimeve të \"$4\"",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] {{GENDER:$1|postoi}} një temë të re \"$2\" në [[$3]]",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] të {{GENDER:$1|dërgoi}} një mesazh: \"[[$3#$2|$2]]\"",

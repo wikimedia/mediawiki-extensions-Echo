@@ -65,7 +65,7 @@
 	"notification-edit-talk-page-flyout2": "$1, [[User talk:$2#$3|mesaj sayfanıza]] bir mesaj {{GENDER:$1|bıraktı}}.",
 	"notification-edit-talk-page-flyout-with-section": "$1, mesaj sayfanızdaki \"[[User talk:$2#$3|$4]]\" başlığına bir mesaj {{GENDER:$1|bıraktı}}.",
 	"notification-page-linked": "[[:$2]] sayfasına [[:$3]] sayfasından {{GENDER:$1|bağlantı verildi}}. [[Special:WhatLinksHere/$2|Bu sayfaya bağlantı veren tüm sayfaları görüntüleyin]].",
-	"notification-page-linked-flyout": "$2 sayfasına [[:$3]] sayfasından {{GENDER:$1|bağlantı verildi}}.",
+	"notification-page-linked-flyout": "[[:$2]] sayfasına [[:$3]] sayfasından {{GENDER:$1|bağlantı verildi}}.",
 	"notification-add-comment2": "[[User:$1|$1]], \"$4\" mesaj sayfasındaki \"[[$3|$2]]\" bölümüne {{GENDER:$1|yorum yaptı}}.",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] size bir mesaj {{GENDER:$1|gönderdi}}: \"[[$3#$2|$2]]\".",
 	"notification-add-comment-yours2": "[[User:$1|$1]], mesaj sayfanızdaki \"[[$3#$2|$2]]\" konusuna {{GENDER:$1|yorum yaptı}}.",

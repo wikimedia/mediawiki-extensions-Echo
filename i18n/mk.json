@@ -60,7 +60,7 @@
 	"notification-edit-talk-page-flyout2": "$1 {{GENDER:$1|остави}} порака на вашата [[User talk:$2#$3|страница за разговор]].",
 	"notification-edit-talk-page-flyout-with-section": "$1 {{GENDER:$1|остави}} порака на вашата страница за разговор во „[[User talk:$2#$3|$4]]“.",
 	"notification-page-linked": "[[:$2]] е {{GENDER:$1|наведена}} од [[:$3]].  [[Special:WhatLinksHere/$2|Погл. сите врски до страницава]].",
-	"notification-page-linked-flyout": "$2 е {{GENDER:$1|наведена}} на [[:$3]].",
+	"notification-page-linked-flyout": "[[:$2]] е {{GENDER:$1|наведена}} на [[:$3]].",
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|коментираше}} на „[[$3|$2]]“ на страницата за разговор „$4“",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] {{GENDER:$1|ја објави}} новата тема „$2“ на [[$3]]",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] {{GENDER:$1|ви испрати}} порака: „[[$3#$2|$2]]“",

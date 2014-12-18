@@ -59,7 +59,7 @@
 	"notification-edit-talk-page-flyout2": "Dh'fhàg $1 {{GENDER:$1|}} teachdaireachd air [[User talk:$2#$3|duilleag na deasbaireachd]] agad.",
 	"notification-edit-talk-page-flyout-with-section": "Dh'fhàg $1 {{GENDER:$1|}} teachdaireachd duilleag na deasbaireachd agad ann an \"[[User talk:$2#$3|$4]]\".",
 	"notification-page-linked": "Chaidh [[:$2]] a cheangal {{GENDER:$1|}} o [[:$3]]. [[Special:WhatLinksHere/$2|Seall a h-uile ceangal dhan duilleag seo]].",
-	"notification-page-linked-flyout": "Chaidh $2 a cheangal {{GENDER:$1|}} o [[:$3]].",
+	"notification-page-linked-flyout": "Chaidh [[:$2]] a cheangal {{GENDER:$1|}} o [[:$3]].",
 	"notification-add-comment2": "Bheachdaich [[User:$1|$1]] {{GENDER:$1|}} air \"[[$3|$2]]\" air duilleag na deasbaireachd \"$4\".",
 	"notification-add-talkpage-topic2": "Thòisich [[User:$1|$1]] {{GENDER:$1|}} cuspair ùr \"$2\" air [[$3]].",
 	"notification-add-talkpage-topic-yours2": "Chuir [[User:$1|$1]] {{GENDER:$1|}} teachdaireachd thugad: \"[[$3#$2|$2]]\".",

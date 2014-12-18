@@ -57,7 +57,7 @@
 	"notification-edit-talk-page-flyout2": "{{GENDER:$1|Gadawodd}} $1 neges ar eich [[User talk:$2#$3|tudalen sgwrs]].",
 	"notification-edit-talk-page-flyout-with-section": "{{GENDER:$1|Gadawodd}} $1 neges ar eich tudalen sgwrs yn yr adran \"[[User talk:$2#$3|$4]]\".",
 	"notification-page-linked": "{{GENDER:$1|Cysylltwyd}} [[:$2]] o [[:$3]]. [[Special:WhatLinksHere/$2|Gweler yr holl gysylltau i'r dudalen hon]].",
-	"notification-page-linked-flyout": "{{GENDER:$1|Cysylltwyd}} $2 o [[:$3]].",
+	"notification-page-linked-flyout": "{{GENDER:$1|Cysylltwyd}} [[:$2]] o [[:$3]].",
 	"notification-add-comment2": "{{GENDER:$1|Gadawodd}} [[User:$1|$1]] sylw am \"[[$3|$2]]\" ar y dudalen sgwrs \"$4\".",
 	"notification-add-talkpage-topic2": "{{GENDER:$1|Gosododd}} [[User:$1|$1]] sylw ar y pwnc newydd \"$2\" ar [[$3]].",
 	"notification-add-talkpage-topic-yours2": "{{GENDER:$1|Anfonodd}} [[User:$1|$1]] neges atoch: \"[[$3#$2|$2]]\".",

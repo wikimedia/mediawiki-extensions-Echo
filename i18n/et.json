@@ -61,7 +61,7 @@
 	"notification-edit-talk-page-flyout2": "$1 jättis sõnumi sinu [[User talk:$2#$3|aruteluleheküljele]].",
 	"notification-edit-talk-page-flyout-with-section": "$1 jättis sõnumi sinu arutelulehekülje alaosasse \"[[User talk:$2#$3|$4]]\".",
 	"notification-page-linked": "Leheküljele [[:$2]] {{GENDER:$1|lingiti}} asukohast [[:$3]]. [[Special:WhatLinksHere/$2|Vaata kõiki linke sellele leheküljele]].",
-	"notification-page-linked-flyout": "Leheküljele $2 {{GENDER:$1|lingiti}} asukohast [[:$3]].",
+	"notification-page-linked-flyout": "Leheküljele [[:$2]] {{GENDER:$1|lingiti}} asukohast [[:$3]].",
 	"notification-add-comment2": "[[User:$1|$1]] lisas kommentaari lehekülje \"$4\" arutelu alaosasse \"[[$3|$2]]\".",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] {{GENDER:$1|postitas}} uue teema \"$2\" arutellu [[$3]].",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] {{GENDER:$1|saatis}} sulle sõnumi: \"[[$3#$2|$2]]\".",

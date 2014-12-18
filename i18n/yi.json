@@ -54,7 +54,7 @@
 	"notification-edit-talk-page-flyout2": "$1 {{GENDER:$1|האט געלאזט}} א מעלדונג אויף אײַער [[User talk:$2#$3|שמועס בלאט]].",
 	"notification-edit-talk-page-flyout-with-section": "$1 {{GENDER:$1|האט געלאזט}} א מעלדונג אויף אייער שמועס בלאט ביי \"[[User talk:$2#$3|$4]]\".",
 	"notification-page-linked": "[[:$2]] איז געווארן {{GENDER:$1|פארלינקט}} פון [[:$3]]. [[Special:WhatLinksHere/$2|זען אלע לינקען צו דעם בלאט]].",
-	"notification-page-linked-flyout": "$2 איז געווארן {{GENDER:$1|פֿאַרלינקט}} פֿון [[:$3]].",
+	"notification-page-linked-flyout": "[[:$2]] איז געווארן {{GENDER:$1|פֿאַרלינקט}} פֿון [[:$3]].",
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|האט געלאזט א הערה}} וועגן \"[[$3|$2]]\" אויפן \"$4\" רעדן בלאט.",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] {{GENDER:$1|האט}} אײַך געשיקט אן אנזאג: \"[[$3#$2|$2]]\".",
 	"notification-add-comment-yours2": "[[User:$1|$1]] {{GENDER:$1|האט געלאזט א הערה}} וועגן \"[[$3#$2|$2]]\" אויף אײַער רעדן בלאט.",

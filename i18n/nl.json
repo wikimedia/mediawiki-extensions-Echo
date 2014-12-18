@@ -72,7 +72,7 @@
 	"notification-edit-talk-page-flyout2": "$1 {{GENDER:$1|heeft een bericht geplaatst}} op uw [[User talk:$2#$3|overlegpagina]].",
 	"notification-edit-talk-page-flyout-with-section": "$1 {{GENDER:$1|heeft}} een bericht achtergelaten op uw overlegpagina onder het kopje \"[[User talk:$2#$3|$4]]\".",
 	"notification-page-linked": "[[:$2]] is {{GENDER:$1|gekoppeld}} vanaf [[:$3]]. [[Special:WhatLinksHere/$2|Alle koppelingen naar deze pagina bekijken]].",
-	"notification-page-linked-flyout": "$2 is {{GENDER:$1|gekoppeld}} vanaf [[:$3]].",
+	"notification-page-linked-flyout": "[[:$2]] is {{GENDER:$1|gekoppeld}} vanaf [[:$3]].",
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|heeft gereageerd}} op \"[[$3|$2]]\" op de overlegpagina \"$4\"",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] {{GENDER:$1|heeft}} een nieuw onderwerp \"$2\" geplaatst op [[$3]]",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] {{GENDER:$1|heeft}} u een bericht gezonden: \"[[$3#$2|$2]]\"",

@@ -64,7 +64,7 @@
 	"notification-edit-talk-page-flyout2": "$1 {{GENDER:$1|ha deixat}} un missatge a la vostra [[User talk:$2#$3|pàgina de discussió]].",
 	"notification-edit-talk-page-flyout-with-section": "$1 {{GENDER:$1|ha deixat}} un missatge a la vostra pàgina de discussió sobre «[[User talk:$2#$3|$4]]».",
 	"notification-page-linked": "S'ha {{GENDER:$1|enllaçat}} [[:$2]] des de [[:$3]]. [[Special:WhatLinksHere/$2|Vegeu tots els enllaços a aquesta pàgina]].",
-	"notification-page-linked-flyout": "S'ha {{GENDER:$1|enllaçada}} $2 des de [[:$3]].",
+	"notification-page-linked-flyout": "S'ha {{GENDER:$1|enllaçada}} [[:$2]] des de [[:$3]].",
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|ha fet un comentari}} sobre «[[$3|$2]]» a la pàgina de discussió «$4».",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] {{GENDER:$1|ha publicat}} un nou fil de discussió «$2» a [[$3]].",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] us {{GENDER:$1|ha enviat}} un missatge: «[[$3#$2|$2]]».",

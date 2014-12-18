@@ -59,7 +59,7 @@
 	"notification-edit-talk-page-flyout2": "$1 {{GENDER:$1|hää}} en bööd üüb din [[User talk:$2#$3|diskuschuunsidj]] skrewen.",
 	"notification-edit-talk-page-flyout-with-section": "$1 {{GENDER:$1|hää}} en bööd üüb din diskuschuunsidj skrewen auer \"[[User talk:$2#$3|$4]]\".",
 	"notification-page-linked": "Üüb [[:$2]] as faan [[:$3]] {{GENDER:$1|ferwiset}} wurden. [[Special:WhatLinksHere/$2|Aal a ferwisangen üüb detdiar sidj uunwise]].",
-	"notification-page-linked-flyout": "Üüb $2 as faan [[:$3]] {{GENDER:$1|ferwiset}} wurden.",
+	"notification-page-linked-flyout": "Üüb [[:$2]] as faan [[:$3]] {{GENDER:$1|ferwiset}} wurden.",
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|skrääw}} auer \"[[$3|$2]]\" üüb det \"$4\" diskuschuunsidj.",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] {{GENDER:$1|skrääw}} en nei kirew \"$2\" üüb [[$3]].",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] {{GENDER:$1|hää}} di en bööd schüürd: \"[[$3#$2|$2]]\".",

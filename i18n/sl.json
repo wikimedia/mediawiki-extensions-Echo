@@ -63,7 +63,7 @@
 	"notification-edit-talk-page-flyout2": "$1 je na vaši [[User talk:$2#$3|pogovorni strani]]{{GENDER:$1|pustil|pustila}} sporočilo.",
 	"notification-edit-talk-page-flyout-with-section": "$1 je {{GENDER:$1|pustil|pustila}} sporočilo na vaši pogovorni strani v razdelku »[[User talk:$2#$3|$4]]«.",
 	"notification-page-linked": "Na strani »[[:$3]]« je bila {{GENDER:$1|dodana}} povezava na stran »[[:$2]]«. [[Special:WhatLinksHere/$2|Ogled vseh povezav na to stran]].",
-	"notification-page-linked-flyout": "Na strani »[[:$3]]« je bila {{GENDER:$1|dodana povezava}} na stran »$2«.",
+	"notification-page-linked-flyout": "Na strani »[[:$3]]« je bila {{GENDER:$1|dodana povezava}} na stran »[[:$2]]«.",
 	"notification-add-comment2": "[[User:$1|$1]] je o »[[$3|$2]]« {{GENDER:$1|komentiral|komentirala}} na pogovorni strani »$4«.",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] je na strani »[[$3]]« {{GENDER:$1|objavil|objavila}} novo temo »$2«.",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] vam je {{GENDER:$1|poslal|poslala}} sporočilo: »[[$3#$2|$2]]«.",

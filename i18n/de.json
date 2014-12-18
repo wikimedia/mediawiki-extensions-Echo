@@ -64,7 +64,7 @@
 	"notification-edit-talk-page-flyout2": "$1 {{GENDER:$1|hinterließ}} eine Nachricht auf deiner [[User talk:$2#$3|Diskussionsseite]].",
 	"notification-edit-talk-page-flyout-with-section": "„$1“ {{GENDER:$1|hinterließ}} eine Nachricht auf deiner Diskussionsseite zum Thema „[[User talk:$2#$3|$4]]“.",
 	"notification-page-linked": "[[:$2]] wurde von der Seite [[:$3]] {{GENDER:$1|verlinkt}}. [[Special:WhatLinksHere/$2|Alle Links auf diese Seite ansehen]].",
-	"notification-page-linked-flyout": "$2 wurde von der Seite [[:$3]] {{GENDER:$1|verlinkt}}.",
+	"notification-page-linked-flyout": "[[:$2]] wurde von der Seite [[:$3]] {{GENDER:$1|verlinkt}}.",
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|kommentierte}} auf „[[$3|$2]]“ auf der Diskussionsseite von „$4“",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] {{GENDER:$1|startete}} das neue Thema „$2“ auf [[$3]]",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] hat dir eine Nachricht {{GENDER:$1|gesandt}}: „[[$3#$2|$2]]“",

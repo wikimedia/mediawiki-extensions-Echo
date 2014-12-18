@@ -59,7 +59,7 @@
 	"notification-edit-talk-page-flyout2": "$1 telah {{GENDER:$1|meninggalkan}} sebuah pesanan di [[Perbincangan pengguna:$2#$3|laman perbincangan]] anda.",
 	"notification-edit-talk-page-flyout-with-section": "$1 telah {{GENDER:$1|meninggalkan}} sebuah pesanan pada laman perbincangan anda di \"[[Perbincangan pengguna:$2#$3|$4]]\".",
 	"notification-page-linked": "[[:$2]] telah {{GENDER:$1|dipautkan}} dari [[:$3]]. [[Special:WhatLinksHere/$2|Lihat semua pautan ke halaman ini]].",
-	"notification-page-linked-flyout": "$2 telah {{GENDER:$1|dipautkan}} dari [[:$3]].",
+	"notification-page-linked-flyout": "[[:$2]] telah {{GENDER:$1|dipautkan}} dari [[:$3]].",
 	"notification-add-comment2": "[[Pengguna:$1|$1]] telah {{GENDER:$1|mengulas}} tentang \"[[$3|$2]]\" pada laman perbincangan \"$4\"",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] telah mengepos topik baru, \"$2\", di [[$3]]",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] telah {{GENDER:$1|mengirim}} pesanan kepada anda: \"[[$3#$2|$2]]\"",

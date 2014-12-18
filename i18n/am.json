@@ -45,7 +45,7 @@
 	"notification-edit-talk-page-flyout2": "$1  [[User talk:$2#$3|በውይይት ገጽዎ]] ላይ መልዕክት {{GENDER:$1|ትቷል|ትታለች|ትተዋል}}።",
 	"notification-edit-talk-page-flyout-with-section": "$1 በውይይት ገጽዎ ላይ በ«[[User talk:$2#$3|$4]]» ርዕስ ስር መልዕክት {{GENDER:$1|ትቷል|ትታለች|ትተዋል}}።",
 	"notification-page-linked": "$1 በ[[:$3]] ላይ ወደ [[:$2]] መያያዣ {{GENDER:$1|ፈጥሯል|ፈጥራለች|ፈጥረዋል}}። [[Special:WhatLinksHere/$2|ወደዚህ ገጽ ያሉት መያያዣዎች ሁሉ ይዩ]]።",
-	"notification-page-linked-flyout": "በ[[:$3]] ላይ ወደ $2 ገጽ መያያዣ ተፈጥሯል።",
+	"notification-page-linked-flyout": "በ[[:$3]] ላይ ወደ [[:$2]] ገጽ መያያዣ ተፈጥሯል።",
 	"notification-add-comment2": "[[User:$1|$1]] በ$4 ገጽ በ«[[$3|$2]]» ርዕስ ላይ አስተያየት {{GENDER:$1|ሰጥቷል|ስጥታለች|ስጥተዋል}}።",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] በ[[$3]] ላይ አዲስ ውይይት በ«$2» ርዕስ {{GENDER:$1|ጀመረ|ጀመረች|ጀመሩ}}።",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] አዲስ መልዕክት {{GENDER:$1|ልኮሎታል}}፣ «[[$3#$2|$2]]»።",

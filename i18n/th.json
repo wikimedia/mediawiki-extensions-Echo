@@ -61,7 +61,7 @@
 	"notification-edit-talk-page-flyout2": "$1 ฝากข้อความไว้ใน[[User talk:$2#$3|หน้าพูดคุย]]ของคุณ",
 	"notification-edit-talk-page-flyout-with-section": "$1 ฝากข้อความไว้ในหน้าพูดคุยของคุณใน \"[[User talk:$2#$3|$4]]\"",
 	"notification-page-linked": "[[:$2]] ถูกโยงจาก [[:$3]] [[Special:WhatLinksHere/$2|ดูการโยงมายังหน้านี้ทั้งหมด]]",
-	"notification-page-linked-flyout": "$2 ถูกโยงจาก [[:$3]]",
+	"notification-page-linked-flyout": "[[:$2]] ถูกโยงจาก [[:$3]]",
 	"notification-add-comment2": "[[User:$1|$1]] ออกความเห็นใน \"[[$3|$2]]\" ในหน้าพูดคุย \"$4\"",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] โพสต์หัวข้อใหม่ \"$2\" ใน [[$3]]",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] ส่งข้อความหาคุณ: \"[[$3#$2|$2]]\"",

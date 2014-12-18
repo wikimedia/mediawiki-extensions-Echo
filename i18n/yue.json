@@ -56,7 +56,7 @@
 	"notification-edit-talk-page-flyout2": "$1喺你[[User talk:$2#$3|傾偈版]]道{{GENDER:$1|留}}咗個訊息。",
 	"notification-edit-talk-page-flyout-with-section": "$1喺你傾偈版小節「[[User talk:$2#$3|$4]]」道{{GENDER:$1|留}}咗個訊息。",
 	"notification-page-linked": "[[:$3]]道有連結{{GENDER:$1|連}}過去[[:$2]]。 [[Special:WhatLinksHere/$2|睇嗮有乜連過去]]",
-	"notification-page-linked-flyout": "[[:$3]]道有連結{{GENDER:$1|連}}過去$2。",
+	"notification-page-linked-flyout": "[[:$3]]道有連結{{GENDER:$1|連}}過去[[:$2]]。",
 	"notification-add-comment2": "[[User:$1|$1]]喺「$4」傾偈頁小節「[[$3|$2]]」道{{GENDER:$1|發}}咗個意見。",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]]喺[[$3]]道{{GENDER:$1|開}}咗個小節「$2」。",
 	"echo-email-batch-body-default": "你有新通知",

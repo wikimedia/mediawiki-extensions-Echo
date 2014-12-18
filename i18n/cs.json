@@ -4,7 +4,8 @@
 			"Chmee2",
 			"Jkjk",
 			"Mormegil",
-			"Vks"
+			"Vks",
+			"Matěj Suchánek"
 		]
 	},
 	"echo-desc": "Notifikační systém",
@@ -63,7 +64,7 @@
 	"notification-edit-talk-page-flyout2": "$1 vám {{GENDER:$1|napsal|napsala}} na [[User talk:$2#$3|vaši diskusní stránku]].",
 	"notification-edit-talk-page-flyout-with-section": "$1 vám {{GENDER:$1|napsal|napsala}} na vaši diskusní stránku k „[[User talk:$2#$3|$4]]“.",
 	"notification-page-linked": "Do stránky [[:$3]] {{GENDER:$1|byl přidán}} odkaz na stránku [[:$2]]. [[Special:WhatLinksHere/$2|Zobrazit všechny odkazy na tuto stránku]].",
-	"notification-page-linked-flyout": "Do stránky [[:$3]] {{GENDER:$1|byl přidán}} odkaz na stránku $2.",
+	"notification-page-linked-flyout": "Do stránky [[:$3]] {{GENDER:$1|byl přidán}} odkaz na stránku [[:$2]].",
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|přidal|přidala}} komentář k „[[$3|$2]]“ na stránce „$4“",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] {{GENDER:$1|přidal|přidala}} komentář na nové téma „$2“ na stránce „[[$3]]“",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] vám {{GENDER:$1|poslal|poslala}} zprávu: „[[$3#$2|$2]]“",
@@ -87,7 +88,7 @@
 	"notification-reverted-email-subject2": "$1 {{GENDER:$1|revertoval|revertovala}} {{PLURAL:$3|vaši editaci|vaše editace}} na {{grammar:6sg|{{SITENAME}}}}",
 	"notification-reverted-email-batch-body2": "$1 {{GENDER:$1|revertoval|revertovala}} {{PLURAL:$3|vaši editaci|vaše editace}} stránky $2.",
 	"notification-mention-email-subject": "$1 vás na {{grammar:6sg|{{SITENAME}}}} {{GENDER:$1|zmínil|zmínila}}",
-	"notification-mention-email-batch-body": "$1 vás {{GENDER:$1|zmínil|zmínila}} v diskusi {{GENDER:$4|uživatele|uživatelky}} $4 u „$3“.",
+	"notification-mention-email-batch-body": "$1 vás {{GENDER:$1|zmínil|zmínila}} v diskusi $4 u „$3“.",
 	"notification-mention-nosection-email-batch-body": "$1 vás {{GENDER:$1|zmínil|zmínila}} v diskusi ke stránce $2.",
 	"notification-user-rights-email-subject": "Na {{grammar:6sg|{{SITENAME}}}} byla změněna vaše uživatelská práva",
 	"notification-user-rights-email-batch-body": "$1 {{GENDER:$1|změnil|změnila}} vaše uživatelská práva. $2",

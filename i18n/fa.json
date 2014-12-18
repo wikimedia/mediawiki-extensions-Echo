@@ -71,7 +71,7 @@
 	"notification-edit-talk-page-flyout2": "$1 در صفحه‌‌ٔ‌‌‌ بحث شما [[User talk:$2#$3|مطلبی]] گذاشته‌است.",
 	"notification-edit-talk-page-flyout-with-section": "$1 یک پیام در بحث شما در «[[User talk:$2#$3|$4]]» {{GENDER:$1|گذاشته‌است}}.",
 	"notification-page-linked": "[[:$2]] از [[:$3]] {{GENDER:$1|پیوند گرفته‌است}}. [[Special:WhatLinksHere/$2|همهٔ پیوندها به این صفحه را ببینید]].",
-	"notification-page-linked-flyout": "$2 از [[:$3]] {{GENDER:$1|پیوند گرفته‌است}}.",
+	"notification-page-linked-flyout": "[[:$2]] از [[:$3]] {{GENDER:$1|پیوند گرفته‌است}}.",
 	"notification-add-comment2": "[[User:$1|$1]] در «[[$3|$2]]» در صفحه بحث «$4» نظری افزود.",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] بخش جدیدی «$2» در [[$3]] ایجاد کرد.",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] به شما پیامی فرستاد: «[[$3#$2|$2]]»",

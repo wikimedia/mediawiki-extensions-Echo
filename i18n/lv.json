@@ -59,7 +59,7 @@
 	"notification-edit-talk-page-flyout2": "$1 {{GENDER:$1|atstāja}} paziņojumu jūsu [[User talk:$2#$3|diskusiju lapā]].",
 	"notification-edit-talk-page-flyout-with-section": "$1 {{GENDER:$1|atstāja}} paziņojumu tavā diskusiju lapā \"[[User talk:$2#$3|$4]]\".",
 	"notification-page-linked": "Uz [[:$2]] {{GENDER:$1|tika izveidota saite}} no [[:$3]]. [[Special:WhatLinksHere/$2|Apskatīt visas saites uz šo lapu]].",
-	"notification-page-linked-flyout": "Uz $2 tika  {{GENDER:$1|izveidota saite}} no [[:$3]].",
+	"notification-page-linked-flyout": "Uz [[:$2]] tika  {{GENDER:$1|izveidota saite}} no [[:$3]].",
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|komentēja}} par \"[[$3|$2]]\" \"$4\" diskusiju lapā",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] {{GENDER:$1|izveidoja}} jaunu tēmu \"$2\" [[$3]]",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] {{GENDER:$1|nosūtīja}} jums paziņojumu: \"[[$3#$2|$2]]\"",

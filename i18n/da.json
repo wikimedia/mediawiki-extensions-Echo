@@ -64,7 +64,7 @@
 	"notification-edit-talk-page-flyout2": "$1 skrev et indlæg på din [[User talk:$2#$3|diskussionsside]].",
 	"notification-edit-talk-page-flyout-with-section": "$1 lagde en besked på din diskussionside i \"[[User talk:$2#$3|$4]]\".",
 	"notification-page-linked": "Der blev {{GENDER:$1|henvist}} til [[:$2]] fra [[:$3]]. [[Special:WhatLinksHere/$2|Se alle henvisninger til siden]].",
-	"notification-page-linked-flyout": "Der blev {{GENDER:$1|henvist}} til $2 fra [[:$3]].",
+	"notification-page-linked-flyout": "Der blev {{GENDER:$1|henvist}} til [[:$2]] fra [[:$3]].",
 	"notification-add-comment2": "[[User:$1|$1]] kommenterede om \"[[$3|$2]]\" på diskussionssiden \"$4\"",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] skrev et nyt indlæg om \"$2\" på [[$3]]",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] har sendt dig en besked: \"[[$3#$2|$2]]\"",

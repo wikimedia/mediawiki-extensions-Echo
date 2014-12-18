@@ -58,7 +58,7 @@
 	"notification-edit-talk-page-flyout2": "$1 {{GENDER:$1|zawostaji}} powěsć na twojej [[User talk:$2#$3|diskusijnej stronje]].",
 	"notification-edit-talk-page-flyout-with-section": "$1 {{GENDER:$1|zawostaji}} powěsć na twojej diskusijnej stronje w \"[[User talk:$2#$3|$4]]\".",
 	"notification-page-linked": "[[:$2]] je so wot [[:$3]] {{GENDER:$1|wotkazał|wotkazała}}. [[Special:WhatLinksHere/$2|Wšě wotkazy k tutej stronje pokazać]].",
-	"notification-page-linked-flyout": "$2 je so wot [[:$3]] {{GENDER:$1|wotkazał}}.",
+	"notification-page-linked-flyout": "[[:$2]] je so wot [[:$3]] {{GENDER:$1|wotkazał}}.",
 	"notification-add-comment2": "[[User:$1|$1]]  je na \"[[$3|$2]]\" na diskusijnej stronje \"$4\" {{GENDER:$1|komentował|komentowała}}.",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] je nowu temu \"$2\" na [[$3]] {{GENDER:$1|startował|startowała}}.",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]]  je ći powěsć {{GENDER:$1|pósłał|pósłała}}: \"[[$3#$2|$2]]\".",

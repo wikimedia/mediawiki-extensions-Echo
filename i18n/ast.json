@@ -59,7 +59,7 @@
 	"notification-edit-talk-page-flyout2": "$1 {{GENDER:$1|dexó}} un mensaxe na so [[User talk:$2#$3|páxina d'alderique]].",
 	"notification-edit-talk-page-flyout-with-section": "$1 {{GENDER:$1|dexó}} un mensaxe na so páxina d'alderique en «[[User talk:$2#$3|$4]]».",
 	"notification-page-linked": "[[:$2]] {{GENDER:$1|enllazóse}} dende [[:$3]]. [[Special:WhatLinksHere/$2|Ver tolos enllaces a esta páxina]].",
-	"notification-page-linked-flyout": "$2 {{GENDER:$1|enllazóse}} dende [[:$3]].",
+	"notification-page-linked-flyout": "[[:$2]] {{GENDER:$1|enllazóse}} dende [[:$3]].",
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|comentó}} sobro \"[[$3|$2]]\" na páxina d'alderique \"$4\"",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] {{GENDER:$1|amestó}} l'asuntu nuevu \"$2\" en [[$3]]",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] {{GENDER:$1|unvió-y}} un mensaxe: \"[[$3#$2|$2]]\"",

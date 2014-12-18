@@ -62,7 +62,7 @@
 	"notification-edit-talk-page-flyout2": "$1 があなたの[[User talk:$2#$3|トークページ]]にメッセージを{{GENDER:$1|投稿しました}}。",
 	"notification-edit-talk-page-flyout-with-section": "$1 があなたのトークページの「[[User talk:$2#$3|$4]]」にメッセージを{{GENDER:$1|投稿しました}}。",
 	"notification-page-linked": "[[:$2]] が [[:$3]] から{{GENDER:$1|リンクされました}}。[[Special:WhatLinksHere/$2|このページのリンク元]]",
-	"notification-page-linked-flyout": "$2 が [[:$3]] から{{GENDER:$1|リンクされました}}。",
+	"notification-page-linked-flyout": "[[:$2]] が [[:$3]] から{{GENDER:$1|リンクされました}}。",
 	"notification-add-comment2": "[[User:$1|$1]] が「$4」のトークページの「[[$3|$2]]」に{{GENDER:$1|コメントしました}}。",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] が [[$3]] に新しい話題「$2」を{{GENDER:$1|投稿しました}}。",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] があなたにメッセージを{{GENDER:$1|送信しました}}:「[[$3#$2|$2]]」",

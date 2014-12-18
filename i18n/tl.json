@@ -57,7 +57,7 @@
 	"notification-edit-talk-page-flyout2": "{{GENDER:$1|Nag-iwan}} si $1 ng mensahe sa iyong [[User talk:$2#$3|pahinang usapan]].",
 	"notification-edit-talk-page-flyout-with-section": "{{GENDER:$1|Nag-iwan}} si $1 ng mensahe sa iyong pahinang usapan sa seksiyong \"[[User talk:$2#$3|$4]]\".",
 	"notification-page-linked": "{{GENDER:$1|Ikinawing}} ang [[:$2]] mula sa [[:$3]].  [[Special:WhatLinksHere/$2|Tingnan ang lahat ng kawing patungo sa pahinang ito.]]",
-	"notification-page-linked-flyout": "{{GENDER:$1|Ikinawing}} ang $2 mula sa [[:$3]].",
+	"notification-page-linked-flyout": "{{GENDER:$1|Ikinawing}} ang [[:$2]] mula sa [[:$3]].",
 	"notification-add-comment2": "{{GENDER:$1|Nagkomento}} si [[User:$1|$1]] sa seksiyong \"[[$3|$2]]\" ng pahinang usapan ng \"$4\".",
 	"notification-add-talkpage-topic-yours2": "{{GENDER:$1|Ipinadala}} ka ni [[User:$1|$1]] ng mensahe: \"[[$3#$2|$2]]\".",
 	"notification-add-comment-yours2": "{{GENDER:$1|Nagkomento}} si [[User:$1|$1]] sa seksiyong \"[[$3#$2|$2]]\" sa iyong pahinang usapan.",

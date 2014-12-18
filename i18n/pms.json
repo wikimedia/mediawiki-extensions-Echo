@@ -58,7 +58,7 @@
 	"notification-edit-talk-page-flyout2": "$1 {{GENDER:$1|a l'ha lassà}} un mëssagi dzora soa [[User talk:$2#$3|pàgina ëd ciaciarade]].",
 	"notification-edit-talk-page-flyout-with-section": "$1 {{GENDER:$1|a l'ha lassà}} un mëssagi su soa pàgina ëd ciaciarade an «[[User talk:$2#$3|$4]]».",
 	"notification-page-linked": "[[:$2]] a l'é stàit {{GENDER:$1|colegà}} da [[:$3]]. [[Special:WhatLinksHere/$2|Vëdde tute le liure a costa pàgina]].",
-	"notification-page-linked-flyout": "$2 a l'é stàit {{GENDER:$1|colegà}} da [[:$3]].",
+	"notification-page-linked-flyout": "[[:$2]] a l'é stàit {{GENDER:$1|colegà}} da [[:$3]].",
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|a l'ha comentà}} su «[[$3|$2]]» an sla pàgina ëd discussion «$4»",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] {{GENDER:$1|a l'ha publicà}} n'argoment neuv «$2» dzor [[$3]]",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] {{GENDER:$1|a l'ha manda}}te un mëssagi: \"[[$3#$2|$2]]\"",
