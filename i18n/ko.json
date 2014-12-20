@@ -100,6 +100,9 @@
 	"echo-email-footer-default": "$2\n\n발송되는 이메일을 관리하려면, 환경 설정을 확인하세요:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
 	"echo-email-footer-default-html": "우리가 보내는 이메일을 제어하려면, <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">사용자 환경 설정을 확인하세요</a><br />\n$1",
 	"echo-notification-alert": "{{PLURAL:$1|$1 개의 알림|$1 개의 알림|100= 100개 이상의 알림}}",
+	"echo-notification-message": "{{PLURAL:$1|메시지 ($1)개|메시지 ($1)개|100=메시지 (99개 이상)개}}",
+	"echo-notification-alert-text-only": "알림",
+	"echo-notification-message-text-only": "메시지",
 	"echo-overlay-link": "모든 알림",
 	"echo-overlay-title": "<b>알림</b>",
 	"echo-overlay-title-overflow": "<b>알림</b> (보이는 $2개 중 $1개를 읽지 않음)",
@@ -116,5 +119,6 @@
 	"echo-email-batch-body-intro-daily": "$1님 안녕하세요,\n여기에 {{SITENAME}}에 오늘의 활동 요약이 있습니다.",
 	"echo-email-batch-body-intro-weekly": "$1님 안녕하세요,\n여기에 {{SITENAME}}에 이번 주의 활동 요약이 있습니다.",
 	"echo-email-batch-link-text-view-all-notifications": "모든 알림 보기",
-	"echo-rev-deleted-text-view": "이 문서의 판은 숨겨져 있습니다."
+	"echo-rev-deleted-text-view": "이 문서의 판은 숨겨져 있습니다.",
+	"apihelp-echomarkread-description": "현재 사용자의 알림을 읽은 것으로 표시"
 }
