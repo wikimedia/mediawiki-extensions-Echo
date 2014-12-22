@@ -60,7 +60,7 @@
 	"notification-edit-talk-page-flyout2": "$1 sizning [[User talk:$2#$3|munozara sahifangizda]] xat {{GENDER:$1|qoldirdi}}.",
 	"notification-edit-talk-page-flyout-with-section": "$1 sizning munozara sahifangizda „[[User talk:$2#$3|$4]]“ mavzusida xat {{GENDER:$1|qoldirdi}}.",
 	"notification-page-linked": "[[:$2]] [[:$3]]dan {{GENDER:$1|bogʻlandi}}. [[Special:WhatLinksHere/$2|Bu sahifaga ulangan barcha linklarni koʻring]].",
-	"notification-page-linked-flyout": "[[:$2]] [[:$3]]dan {{GENDER:$1|bogʻlandi}}.",
+	"notification-page-linked-flyout": "[[:$2]] sahifasi [[:$3]] sahifasi bilan {{GENDER:$1|bogʻlandi}}.",
 	"notification-add-comment2": "[[User:$1|$1]] „$4“ munozara sahifasida „[[$3|$2]]“ mavzusida {{GENDER:$1|sharh qoldirdi}}.",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] [[$3]] sahifasida yangi „$2“ mavzusini {{GENDER:$1|qoʻshdi}}.",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] sizga xabar {{GENDER:$1|joʻnatdi}}: „[[$3#$2|$2]]“.",
