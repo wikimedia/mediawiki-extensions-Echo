@@ -30,8 +30,16 @@
 		position: absolute;
 		z-index: 101;
 		top: -@chevronHeight;
-		// subtract half the width from the offset and then add the left box shadow
-		left: @offset - 10px + 3px;
+
+		/* @noflip */ body.ltr & {
+			// subtract half the width from the offset and then add the left box shadow
+			/* @noflip */ left: @offset - 10px + 3px;
+		}
+
+		/* @noflip */ body.rtl & {
+			// subtract the box shadow
+			/* @noflip */ left: @offset - 3px;
+		}
 	}
 
 	button {
