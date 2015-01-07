@@ -20,7 +20,7 @@ class EchoHooks {
 		wfRunHooks( 'BeforeCreateEchoEvent', array( &$wgEchoNotifications, &$wgEchoNotificationCategories, &$wgEchoNotificationIcons ) );
 
 		// turn schema off if eventLogging is not enabled
-		if ( !function_exists( 'efLogServerSideEvent' ) ) {
+		if ( !class_exists( 'EventLogging' ) ) {
 			foreach ( $wgEchoConfig['eventlogging'] as $schema => $property ) {
 				if ( $property['enabled'] ) {
 					$wgEchoConfig['eventlogging'][$schema]['enabled'] = false;
