@@ -91,6 +91,7 @@
 	"echo-email-batch-body-default": "Imate novo obaveštenje.",
 	"echo-email-footer-default": "$2\n\nDa bi ste promenili koje poruke primate od nas idite u podešavanja:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
 	"echo-email-footer-default-html": "Da bi ste promenili koje poruke primate od nas idite u <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">podešavanja</a>.<br />\n$1",
+	"echo-notification-message-text-only": "Poruke",
 	"echo-overlay-link": "Sva obaveštenja",
 	"echo-overlay-title": "<b>Obaveštenja</b>",
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Obaveštenja}}</b> (prikaz $1 od $2 nepročitanih)",
