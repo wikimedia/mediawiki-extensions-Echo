@@ -30,7 +30,15 @@ class EchoTitleLocalCacheTest extends MediaWikiTestCase {
 		$lookups = $object->getProperty( 'lookups' );
 		$lookups->setAccessible( true );
 		$lookups->setValue( $cache, array( '1' => '1', '2' => '2' ) );
-		$this->assertTrue( count( $cache->getLookups() ) > 0 );
+
+		# A second page in addition to MediaWikiTestPage 'UTPage' since
+		# TitleLocalCache internally invokes Title::newFromIDs()
+		$this->insertPage('EchoTitleLocalCacheTest_testGet');
+		$titles = Title::newFromIDs( array( '1', '2' ) );
+		$this->assertEquals( 2, count( $titles ), "Must have at least two pages" );
+
+		$this->assertEquals( array(1 => '1', 2 => '2' ), $cache->getLookups() );
+
 		// MapCacheLRU should treat key 1 same as '1'
 		$this->assertInstanceOf( 'Title', $cache->get( '1' ) );
 		$this->assertTrue( count( $cache->getLookups() ) > 0 );
