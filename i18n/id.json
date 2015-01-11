@@ -52,6 +52,7 @@
 	"echo-none": "Anda tidak memiliki pemberitahuan.",
 	"echo-more-info": "Informasi selengkapnya",
 	"echo-feedback": "Umpan balik",
+	"echo-quotation-marks": "\"$1\"",
 	"notification-link-text-view-message": "Lihat pesan",
 	"notification-link-text-view-mention": "Lihat sebutan",
 	"notification-link-text-view-changes": "Lihat perubahan",
