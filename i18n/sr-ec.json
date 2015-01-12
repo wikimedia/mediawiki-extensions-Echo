@@ -69,7 +69,7 @@
 	"notification-mention-flyout": "$1 вас је {{GENDER:$1|споменуо|споменула}} на страници за разговор $5 у „[[:$3#$2|$4]]“.",
 	"notification-mention-nosection": "[[User:$1|$1]] вас је {{GENDER:$1|споменуо|споменула}} на [[:$3|страници за разговор $2]].",
 	"notification-mention-nosection-flyout": "$1 вас је {{GENDER:$1|споменуо|споменула}} на [[:$3|страници за разговор $2]].",
-	"notification-user-rights": "[[User:$1|$1]] {{GENDER:$1|[[Special:Log/rights/$1|је променио]]|[[Special:Log/rights/$1|је променила]]}} ваша корисничка права. $2. [[Special:ListGroupRights|Сазнајте више]]",
+	"notification-user-rights": "[[User:$1|$1]] је {{GENDER:$1|[[Special:Log/rights/$1|променио]]|[[Special:Log/rights/$1|променила]]}} ваша корисничка права. $2. [[Special:ListGroupRights|Сазнајте више]]",
 	"notification-user-rights-flyout": "$1 {{GENDER:$1|је променио|је променила}} ваша корисничка права. $2. [[Special:ListGroupRights|Сазнајте више]]",
 	"notification-user-rights-add": "Од сада сте члан {{PLURAL:$2|следеће групе|следећих група}}: $1",
 	"notification-user-rights-remove": "Више нисте члан {{PLURAL:$2|следеће групе|следећих група}}: $1",

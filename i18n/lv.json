@@ -94,7 +94,7 @@
 	"echo-email-footer-default-html": "Lai kontrolētu, kurus e-pastus mēs Jums sūtām, <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">pārbaudiet savus iestatījumus</a>.<br />\n$1",
 	"echo-overlay-link": "Visi paziņojumi",
 	"echo-overlay-title": "<b>Paziņojumi</b>",
-	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Paziņojumi}}</b> (rāda $1 no $2 nelasītiem)",
+	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Paziņojumi|Paziņojums|Paziņojumi}}</b> (rāda $1 no $2 nelasītiem)",
 	"echo-mark-all-as-read": "Atzīmēt visus kā izlasītus",
 	"echo-date-today": "Šodien",
 	"echo-date-yesterday": "Vakar",
