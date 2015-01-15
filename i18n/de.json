@@ -126,6 +126,7 @@
 	"apihelp-query+notifications-param-format": "Falls angegeben, werden die zurückgegebenen Benachrichtigungen auf diese Weise formatiert.",
 	"apihelp-query+notifications-param-limit": "Die maximale Anzahl zurückzugebender Benachrichtigungen.",
 	"apihelp-query+notifications-param-messagecontinue": "Falls mehrere Nachrichtenergebnisse verfügbar sind, dies zum Fortfahren verwenden.",
+	"apihelp-query+notifications-param-messageunreadfirst": "Ob ungelesene Benachrichtigungen zuerst angezeigt werden sollen.",
 	"apihelp-query+notifications-example-1": "Benachrichtigungen auflisten",
 	"apihelp-query+notifications-example-2": "Benachrichtigungen auflisten, gruppiert nach Abschnitt, mit Zählern"
 }
