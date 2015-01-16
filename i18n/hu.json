@@ -78,7 +78,7 @@
 	"notification-user-rights-flyout": "$1 megváltoztatta a jogosultságaidat. $2. [[Special:ListGroupRights|Információ a jogosultságokról]]",
 	"notification-user-rights-add": "Tagja lettél {{PLURAL:$2|ennek a csoportnak|ezeknek a csoportoknak}}: $1",
 	"notification-user-rights-remove": "Kikerültél {{PLURAL:$2|ebből a csoportból|ezekből a csoportokból}}: $1",
-	"notification-new-user": "Üdvözlünk a {{SITENAME}} oldalon, $1! Örülünk, hogy csatlakoztál hozzánk.",
+	"notification-new-user": "Kedves $1! Üdvözlünk a {{SITENAME}} oldalon. Örülünk, hogy csatlakoztál hozzánk.",
 	"notification-reverted2": "[[User:$1|$1]] visszavonta a {{PLURAL:$4|szerkesztésedet|szerkesztéseidet}} a(z) [[:$2]] cikkben. $3",
 	"notification-reverted-flyout2": "$1 visszavonta a {{PLURAL:$4|szerkesztésedet|szerkesztéseidet}} a(z) $2 cikkben. $3",
 	"notification-edit-talk-page-email-subject2": "$1 üzenetet hagyott neked a(z) {{SITENAME}} wikin",
