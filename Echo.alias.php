@@ -204,6 +204,11 @@ $specialPageAliases['uk'] = array(
 	'Notifications' => array( 'Сповіщення' ),
 );
 
+/** Urdu (اردو) */
+$specialPageAliases['ur'] = array(
+	'Notifications' => array( 'اطلاعات' ),
+);
+
 /** Venetian (vèneto) */
 $specialPageAliases['vec'] = array(
 	'Notifications' => array( 'Notifiche' ),

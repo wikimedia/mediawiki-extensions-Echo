@@ -17,7 +17,8 @@
 			"Verdy p",
 			"Wyz",
 			"Y-M D",
-			"Kvardek du"
+			"Kvardek du",
+			"NemesisIII"
 		]
 	},
 	"echo-desc": "Système de notifications",
@@ -63,7 +64,7 @@
 	"echo-specialpage": "Notifications",
 	"echo-anon": "Pour recevoir des notifications, [$1 créez un compte] ou [$2 connectez-vous].",
 	"echo-none": "Vous n'avez reçu aucune notification.",
-	"echo-more-info": "Plus d'information",
+	"echo-more-info": "Plus d’informations",
 	"echo-feedback": "Avis",
 	"echo-quotation-marks": "« $1 »",
 	"notification-link-text-view-message": "Afficher le message",
