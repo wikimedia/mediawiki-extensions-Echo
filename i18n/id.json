@@ -35,7 +35,7 @@
 	"echo-category-title-other": "{{PLURAL:$1|Lainnya}}",
 	"echo-category-title-system": "{{PLURAL:$1|Sistem}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|Perubahan hak pengguna}}",
-	"echo-pref-tooltip-edit-user-talk": "Beritahu saya saat seseorang mengirim pesan atau balasan pada halaman pembicaraan saya.",
+	"echo-pref-tooltip-edit-user-talk": "Beritahu saya saat seseorang mengirimkan pesan atau balasan pada halaman pembicaraan saya.",
 	"echo-pref-tooltip-article-linked": "Beritahu saya saat seseorang membuat pranala di halaman artikel ke sebuah halaman yang pernah saya rintis.",
 	"echo-pref-tooltip-reverted": "Beritahu saya saat seseorang membalikkan suntingan yang pernah saya buat, dengan menggunakan alat batalkan atau balikkan.",
 	"echo-pref-tooltip-mention": "Beritahu saya saat seseorang membuat pranala menuju halaman pengguna saya.",
