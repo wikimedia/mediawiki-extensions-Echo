@@ -24,6 +24,11 @@ $specialPageAliases['arz'] = array(
 	'Notifications' => array( 'اخطارات' ),
 );
 
+/** Avaric (авар) */
+$specialPageAliases['av'] = array(
+	'Notifications' => array( 'Уведомления' ),
+);
+
 /** Min Dong Chinese (Mìng-dĕ̤ng-ngṳ̄) */
 $specialPageAliases['cdo'] = array(
 	'Notifications' => array( '提醒' ),
@@ -137,6 +142,11 @@ $specialPageAliases['ml'] = array(
 /** Marathi (मराठी) */
 $specialPageAliases['mr'] = array(
 	'Notifications' => array( 'संदेश' ),
+);
+
+/** Malay (Bahasa Melayu) */
+$specialPageAliases['ms'] = array(
+	'Notifications' => array( 'Pemberitahuan' ),
 );
 
 /** Maltese (Malti) */
