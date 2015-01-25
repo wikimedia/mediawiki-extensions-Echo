@@ -5,12 +5,17 @@
 			"Xabier Armendaritz"
 		]
 	},
+	"prefs-echo": "Jakinarazpenak",
+	"echo-learn-more": "Gehiago ikasi",
 	"echo-new-messages": "Mezu berriak dituzu",
 	"notifications": "Jakinarazpenak",
 	"tooltip-pt-notifications": "Zure jakinarazpenak",
 	"echo-specialpage": "Jakinarazpenak",
 	"echo-none": "Ez duzu jakinarazpenik.",
 	"echo-email-batch-body-default": "Jakinarazpen berri bat daukazu.",
+	"echo-notification-message": "{{PLURAL:$1|Mezua ($1)|Mezuak ($1)|100=Mezuak (+99)}}",
+	"echo-notification-alert-text-only": "Alertak",
+	"echo-notification-message-text-only": "Mezuak",
 	"echo-overlay-link": "Jakinarazpen guztiak",
 	"echo-overlay-title": "<b>Jakinarazpenak</b>",
 	"echo-date-today": "Gaur",
