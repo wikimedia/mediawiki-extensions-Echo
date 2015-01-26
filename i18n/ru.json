@@ -130,5 +130,12 @@
 	"echo-email-batch-body-intro-daily": "Привет, $1!\nВот краткий обзор сегодняшней деятельности в {{SITENAME}} для вас.",
 	"echo-email-batch-body-intro-weekly": "Привет, $1!\nВот краткий недельный обзор деятельности в {{SITENAME}} для вас.",
 	"echo-email-batch-link-text-view-all-notifications": "Посмотреть все уведомления",
-	"echo-rev-deleted-text-view": "Эта версия страницы была скрыта"
+	"echo-rev-deleted-text-view": "Эта версия страницы была скрыта",
+	"apihelp-echomarkread-description": "Отметить уведомления как прочитанные для текущего пользователя.",
+	"apihelp-echomarkread-param-list": "Список ID уведомлений для отметки прочитанными.",
+	"apihelp-echomarkread-example-2": "Отметить все уведомления как прочитанные",
+	"apihelp-query+notifications-param-alertunreadfirst": "Нужно ли показывать непрочитанные уведомления о сообщениях в первую очередь.",
+	"apihelp-query+notifications-param-messageunreadfirst": "Нужно ли показывать непрочитанные уведомления о предупреждениях в первую очередь.",
+	"apihelp-query+notifications-example-1": "Список уведомлений",
+	"apihelp-query+notifications-example-2": "Список уведомлений, сгруппированных по разделам, с указанием количества"
 }
