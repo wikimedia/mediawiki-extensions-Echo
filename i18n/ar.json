@@ -10,7 +10,8 @@
 			"زكريا",
 			"مشعل الحربي",
 			"Abanima",
-			"Omda4wady"
+			"Omda4wady",
+			"Khaled"
 		]
 	},
 	"echo-desc": "نظام الإشعارات",
@@ -121,5 +122,7 @@
 	"echo-email-batch-body-intro-weekly": "سلام $1،\nهذا ملخص لنشاطات الأسبوع في {{SITENAME}}.",
 	"echo-email-batch-link-text-view-all-notifications": "اعرض كل الإشعارات",
 	"echo-rev-deleted-text-view": "هذه النسخة من الصفحة قد حذفت.",
-	"apihelp-query+notifications-param-limit": "العدد الأقصى للإخطارات في النتائج."
+	"apihelp-query+notifications-param-prop": "طلب تفاصيل.",
+	"apihelp-query+notifications-param-limit": "العدد الأقصى للإخطارات في النتائج.",
+	"apihelp-query+notifications-example-1": "قائمة الإشعارات"
 }
