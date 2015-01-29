@@ -40,6 +40,7 @@ $wgExtensionCredits['specialpage'][] = array(
 	'url' => 'https://www.mediawiki.org/wiki/Extension:Echo',
 	'author' => array( 'Andrew Garrett', 'Ryan Kaldari', 'Benny Situ', 'Luke Welling' ),
 	'descriptionmsg' => 'echo-desc',
+	'license-name' => 'MIT',
 );
 
 $dir = dirname( __FILE__ ) . '/';
