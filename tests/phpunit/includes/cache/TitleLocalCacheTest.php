@@ -21,29 +21,40 @@ class EchoTitleLocalCacheTest extends MediaWikiTestCase {
 	 * @depends testCreate
 	 */
 	public function testGet( $cache ) {
+		$lruMap = new MapCacheLRU( EchoLocalCache::TARGET_MAX_NUM );
+		$titleIds = array();
+		$res = $this->insertPage( "EchoTitleLocalCacheTest_testGet" );
+		$titleIds[$res['id']] = $res['id'];
+		// First title included in cache
+		$lruMap->set( $res['id'], $res['title'] );
+
+		// second title not in internal cache, resolves from db.
+		$res = $this->insertPage( "EchoTitleLocalCacheTest_testGet2" );
+		$titleIds[$res['id']] = $res['id'];
+
 		$object = new \ReflectionObject( $cache );
+
+		// Load our generated MapCacheLRU in as the targets(known mapping from
+		// title id to title object) into $cache
 		$targets = $object->getProperty( 'targets' );
 		$targets->setAccessible( true );
-		$lruMap = new MapCacheLRU( EchoLocalCache::TARGET_MAX_NUM );
-		$lruMap->set( 1, $this->mockTitle() );
 		$targets->setValue( $cache, $lruMap );
+
+		// Load both of the titles we are curious about into the list of titles
+		// to be looked up
 		$lookups = $object->getProperty( 'lookups' );
 		$lookups->setAccessible( true );
-		$lookups->setValue( $cache, array( '1' => '1', '2' => '2' ) );
+		$lookups->setValue( $cache, $titleIds );
 
-		# A second page in addition to MediaWikiTestPage 'UTPage' since
-		# TitleLocalCache internally invokes Title::newFromIDs()
-		$this->insertPage('EchoTitleLocalCacheTest_testGet');
-		$titles = Title::newFromIDs( array( '1', '2' ) );
-		$this->assertEquals( 2, count( $titles ), "Must have at least two pages" );
+		// Requesting the first object, which is within the known targets, should
+		// not resolve the pending lookups.
+		$this->assertInstanceOf( 'Title', $cache->get( reset( $titleIds ) ) );
+		$this->assertGreaterThan( 0, count( $cache->getLookups() ) );
 
-		$this->assertEquals( array(1 => '1', 2 => '2' ), $cache->getLookups() );
-
-		// MapCacheLRU should treat key 1 same as '1'
-		$this->assertInstanceOf( 'Title', $cache->get( '1' ) );
-		$this->assertTrue( count( $cache->getLookups() ) > 0 );
-		$this->assertInstanceOf( 'Title', $cache->get( 2 ) );
-		$this->assertTrue( count( $cache->getLookups() ) == 0 );
+		// Requesting the second object, which is not within the known targets, should
+		// resolve the pending lookups and reset the list to lookup.
+		$this->assertInstanceOf( 'Title', $cache->get( end( $titleIds ) ) );
+		$this->assertEquals( 0, count( $cache->getLookups() ) );
 	}
 
 	/**
