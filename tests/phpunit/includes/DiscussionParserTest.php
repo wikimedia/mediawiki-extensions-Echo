@@ -2,8 +2,106 @@
 
 /**
  * @group Echo
+ * @group Database
  */
 class EchoDiscussionParserTest extends MediaWikiTestCase {
+	/**
+	 * @var array
+	 */
+	protected $tablesUsed = array( 'user' );
+
+	/**
+	 * @var array
+	 */
+	protected $testusers = array(
+		// username
+		'Werdna' => array(
+			// user preferences
+			'nickname' => '',
+			'fancysig' => '0',
+		),
+		'Werdna2' => array(
+			'nickname' => '[[User:Werdna2|Andrew]]',
+			'fancysig' => '1',
+		),
+		'Werdna3' => array(
+			'nickname' => '[[User talk:Werdna3|Andrew]]',
+			'fancysig' => '1',
+		),
+		'Werdna4' => array(
+			'nickname' => '[[User:Werdna4|wer]dna]]',
+			'fancysig' => '1',
+		),
+		'We buried our secrets in the garden' => array(
+			'nickname' => '[[User talk:We buried our secrets in the garden#top|wbositg]]',
+			'fancysig' => '1',
+		),
+		'I Heart Spaces' => array(
+			'nickname' => '[[User:I_Heart_Spaces]] ([[User_talk:I_Heart_Spaces]])',
+			'fancysig' => '1',
+		),
+		'Jam' => array(
+			'nickname' => '[[User:Jam]]',
+			'fancysig' => '1',
+		),
+		'Reverta-me' => array(
+			'nickname' => "[[User:Reverta-me|<span style=\"font-size:13px; color:blue;font-family:Lucida Handwriting;text-shadow:aqua 5px 3px 12px;\">Aaaaa Bbbbbbb</span>]]'' <sup>[[User Talk:Reverta-me|<font color=\"gold\" face=\"Lucida Calligraphy\">Discussão</font>]]</sup>''",
+			'fancysig' => '1',
+		),
+		'Jorm' => array(
+			'nickname' => '',
+			'fancysig' => '0',
+		),
+		'Jdforrester' => array(
+			'nickname' => '',
+			'fancysig' => '0',
+		),
+		'DarTar' => array(
+			'nickname' => '',
+			'fancysig' => '0',
+		),
+		'Bsitu' => array(
+			'nickname' => '',
+			'fancysig' => '0',
+		),
+		'JarJar' => array(
+			'nickname' => '',
+			'fancysig' => '0',
+		),
+		'Schnark' => array(
+			'nickname' => '[[User:Schnark]] ([[User:Schnark/js|js]])',
+			'fancysig' => '1',
+		),
+		'Cwobeel' => array(
+			'nickname' => '[[User:Cwobeel|<span style="color:#339966">Cwobeel</span>]] [[User_talk:Cwobeel|<span style="font-size:80%">(talk)</span>]]',
+			'fancysig' => '1',
+		),
+	);
+
+	protected function setUp() {
+		parent::setUp();
+
+		// we only need to add these users once, we won't (can't) tear them down anyway
+		static $executed = false;
+		if ( $executed === true ) {
+			return;
+		}
+
+		foreach ( $this->testusers as $username => $preferences ) {
+			$user = User::createNew( $username );
+
+			// set signature preferences
+			if ( $user ) {
+				foreach ( $preferences as $option => $value ) {
+					$user->setOption( $option, $value );
+				}
+				$user->saveSettings();
+			}
+		}
+
+		$executed = true;
+	}
+
 	// TODO test cases for:
 	// - generateEventsForRevision
 	// - stripHeader
@@ -65,8 +163,7 @@ TEXT
 			return;
 		}
 
-		$tsPos = EchoDiscussionParser::getTimestampPosition( $line );
-		$output = EchoDiscussionParser::getUserFromLine( $line, $tsPos );
+		$output = EchoDiscussionParser::getUserFromLine( $line );
 
 		if ( $output === false ) {
 			$this->assertEquals( false, $expectedUser );
@@ -84,7 +181,7 @@ TEXT
 		return array(
 			// Basic
 			array(
-				"I like this. [[User:Werdna]] ([[User talk:Werdna|talk]]) $ts",
+				"I like this. [[User:Werdna|Werdna]] ([[User talk:Werdna|talk]]) $ts",
 				array(
 					13,
 					'Werdna'
@@ -92,23 +189,23 @@ TEXT
 			),
 			// Confounding
 			array(
-				"[[User:Jorm]] is a meanie. --[[User:Werdna|Andrew]] $ts",
+				"[[User:Jorm]] is a meanie. --[[User:Werdna2|Andrew]] $ts",
 				array(
 					29,
-					"Werdna"
+					"Werdna2"
 				),
 			),
 			// Talk page link only
 			array(
-				"[[User:Swalling|Steve]] is the best person I have ever met. --[[User talk:Werdna|Andrew]] $ts",
+				"[[User:Swalling|Steve]] is the best person I have ever met. --[[User talk:Werdna3|Andrew]] $ts",
 				array(
 					62,
-					'Werdna'
+					'Werdna3'
 				),
 			),
 			// Anonymous user
 			array(
-				"I am anonymous because I like my IP address. --[[Special:Contributions/127.0.0.1]] $ts",
+				"I am anonymous because I like my IP address. --[[Special:Contributions/127.0.0.1|127.0.0.1]] $ts",
 				array(
 					47,
 					'127.0.0.1'
@@ -137,10 +234,10 @@ TEXT
 			),
 			// Accepts ] in the pipe
 			array(
-				"Shake n Bake --[[User:Werdna|wer]dna]] $ts",
+				"Shake n Bake --[[User:Werdna4|wer]dna]] $ts",
 				array(
 					strlen( "Shake n Bake --" ),
-					'Werdna',
+					'Werdna4',
 				),
 			),
 
@@ -153,12 +250,24 @@ TEXT
 			),
 			// extra long signature
 			array(
-				"{{U|He7d3r}}, xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxã? [[User:Reverta-me|<span style=\"font-size:13px; color:blue;font-family:Lucida Handwriting;text-shadow:aqua 5px 3px 12px;\">Aaaaa Bbbbbbb</span>]]'' <sup>[[User Talk:Reverta-me|<font color=\"gold\" face=\"Lucida Calligraphy\">Discussão</font>]]</sup>''</font></sup> $ts",
+				"{{U|He7d3r}}, xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxã? [[User:Reverta-me|<span style=\"font-size:13px; color:blue;font-family:Lucida Handwriting;text-shadow:aqua 5px 3px 12px;\">Aaaaa Bbbbbbb</span>]]'' <sup>[[User Talk:Reverta-me|<font color=\"gold\" face=\"Lucida Calligraphy\">Discussão</font>]]</sup>''",
 				array(
 					strlen( "{{U|He7d3r}}, xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxã? " ),
 					'Reverta-me',
 				),
 			),
+			// Bug: T87852
+			array(
+				"Test --[[User:Schnark]] ([[User:Schnark/js|js]])",
+				array(
+					strlen( "Test --" ),
+					'Schnark',
+				),
+			),
+			// when adding additional tests, make sure to add the non-anon users
+			// to EchoDiscussionParserTest::$testusers - the DiscussionParser
+			// needs the users to exist, because it'll generate a comparison
+			// signature, which is different when the user is considered anon
 		);
 	}
 
@@ -291,19 +400,19 @@ line d',
 					// Action
 					array(
 						'action' => 'add',
-						'content' => ":What do you think? [[User:Werdna]] $ts",
+						'content' => ":What do you think? [[User:Werdna|Werdna]] ([[User talk:Werdna|talk]]) $ts",
 						'left-pos' => 3,
 						'right-pos' => 3,
 					),
 					'_info' => array(
 						'lhs' => array(
 							'== Section 1 ==',
-							"I do not like you. [[User:Jorm|Jorm]] $ts",
+							"I do not like you. [[User:Jorm|Jorm]] ([[User talk:Jorm|talk]]) $ts",
 						),
 						'rhs' => array(
 							'== Section 1 ==',
-							"I do not like you. [[User:Jorm|Jorm]] $ts",
-							":What do you think? [[User:Werdna]] $ts",
+							"I do not like you. [[User:Jorm|Jorm]] ([[User talk:Jorm|talk]]) $ts",
+							":What do you think? [[User:Werdna|Werdna]] ([[User talk:Werdna|talk]]) $ts",
 						),
 					),
 				),
@@ -313,11 +422,11 @@ line d',
 				array(
 					array(
 						'type' => 'add-comment',
-						'content' => ":What do you think? [[User:Werdna]] $ts",
+						'content' => ":What do you think? [[User:Werdna|Werdna]] ([[User talk:Werdna|talk]]) $ts",
 						'full-section' => <<<TEXT
 == Section 1 ==
-I do not like you. [[User:Jorm|Jorm]] $ts
-:What do you think? [[User:Werdna]] $ts
+I do not like you. [[User:Jorm|Jorm]] ([[User talk:Jorm|talk]]) $ts
+:What do you think? [[User:Werdna|Werdna]] ([[User talk:Werdna|talk]]) $ts
 TEXT
 					),
 				),
@@ -330,23 +439,23 @@ TEXT
 					// Action
 					array(
 						'action' => 'add',
-						'content' => ":What do you think? [[User:Werdna]] $ts",
+						'content' => ":What do you think? [[User:Werdna|Werdna]] ([[User talk:Werdna|talk]]) $ts",
 						'left-pos' => 3,
 						'right-pos' => 3,
 					),
 					'_info' => array(
 						'lhs' => array(
 							'== Section 1 ==',
-							"I do not like you. [[User:Jorm|Jorm]] $ts",
+							"I do not like you. [[User:Jorm|Jorm]] ([[User talk:Jorm|talk]]) $ts",
 							'== Section 2 ==',
-							"Well well well. [[User:DarTar]] $ts",
+							"Well well well. [[User:DarTar|DarTar]] ([[User talk:DarTar|talk]]) $ts",
 						),
 						'rhs' => array(
 							'== Section 1 ==',
-							"I do not like you. [[User:Jorm|Jorm]] $ts",
-							":What do you think? [[User:Werdna]] $ts",
+							"I do not like you. [[User:Jorm|Jorm]] ([[User talk:Jorm|talk]]) $ts",
+							":What do you think? [[User:Werdna|Werdna]] ([[User talk:Werdna|talk]]) $ts",
 							'== Section 2 ==',
-							"Well well well. [[User:DarTar]] $ts",
+							"Well well well. [[User:DarTar|DarTar]] ([[User talk:DarTar|talk]]) $ts",
 						),
 					),
 				),
@@ -356,11 +465,11 @@ TEXT
 				array(
 					array(
 						'type' => 'add-comment',
-						'content' => ":What do you think? [[User:Werdna]] $ts",
+						'content' => ":What do you think? [[User:Werdna|Werdna]] ([[User talk:Werdna|talk]]) $ts",
 						'full-section' => <<<TEXT
 == Section 1 ==
-I do not like you. [[User:Jorm|Jorm]] $ts
-:What do you think? [[User:Werdna]] $ts
+I do not like you. [[User:Jorm|Jorm]] ([[User talk:Jorm|talk]]) $ts
+:What do you think? [[User:Werdna|Werdna]] ([[User talk:Werdna|talk]]) $ts
 TEXT
 					),
 				),
@@ -375,7 +484,7 @@ TEXT
 						'action' => 'add',
 						'content' => <<<TEXT
 == Section 1a ==
-Hmmm? [[User:Jdforrester]] $ts
+Hmmm? [[User:Jdforrester|Jdforrester]] ([[User talk:Jdforrester|talk]]) $ts
 TEXT
 						,
 						'left-pos' => 4,
@@ -384,19 +493,19 @@ TEXT
 					'_info' => array(
 						'lhs' => array(
 							'== Section 1 ==',
-							"I do not like you. [[User:Jorm|Jorm]] $ts",
-							":What do you think? [[User:Werdna]] $ts",
+							"I do not like you. [[User:Jorm|Jorm]] ([[User talk:Jorm|talk]]) $ts",
+							":What do you think? [[User:Werdna|Werdna]] ([[User talk:Werdna|talk]]) $ts",
 							'== Section 2 ==',
-							"Well well well. [[User:DarTar]] $ts",
+							"Well well well. [[User:DarTar|DarTar]] ([[User talk:DarTar|talk]]) $ts",
 						),
 						'rhs' => array(
 							'== Section 1 ==',
-							"I do not like you. [[User:Jorm|Jorm]] $ts",
-							":What do you think? [[User:Werdna]] $ts",
+							"I do not like you. [[User:Jorm|Jorm]] ([[User talk:Jorm|talk]]) $ts",
+							":What do you think? [[User:Werdna|Werdna]] ([[User talk:Werdna|talk]]) $ts",
 							'== Section 1a ==',
-							'Hmmm? [[User:Jdforrester]] $ts',
+							'Hmmm? [[User:Jdforrester|Jdforrester]] ([[User talk:Jdforrested|talk]]) $ts',
 							'== Section 2 ==',
-							"Well well well. [[User:DarTar]] $ts",
+							"Well well well. [[User:DarTar|DarTar]] ([[User talk:DarTar|talk]]) $ts",
 						),
 					),
 				),
@@ -408,7 +517,7 @@ TEXT
 						'type' => 'new-section-with-comment',
 						'content' => <<<TEXT
 == Section 1a ==
-Hmmm? [[User:Jdforrester]] $ts
+Hmmm? [[User:Jdforrester|Jdforrester]] ([[User talk:Jdforrester|talk]]) $ts
 TEXT
 						,
 					),
@@ -420,24 +529,24 @@ TEXT
 				EchoDiscussionParser::getMachineReadableDiff(
 					<<<TEXT
 == Section 1 ==
-I do not like you. [[User:Jorm|Jorm]] $ts
-:What do you think? [[User:Werdna]] $ts
+I do not like you. [[User:Jorm|Jorm]] ([[User talk:Jorm|talk]]) $ts
+:What do you think? [[User:Werdna|Werdna]] ([[User talk:Werdna|talk]]) $ts
 == Section 2 ==
-Well well well. [[User:DarTar]] $ts
+Well well well. [[User:DarTar|DarTar]] ([[User talk:DarTar|talk]]) $ts
 == Section 3 ==
-Hai [[User:Bsitu]] $ts
+Hai [[User:Bsitu|Bsitu]] ([[User talk:Bsitu|talk]]) $ts
 TEXT
 					,
 					<<<TEXT
 == Section 1 ==
-I do not like you. [[User:Jorm|Jorm]] $ts
-:What do you think? [[User:Werdna]] $ts
-:New Comment [[User:JarJar]] $ts
+I do not like you. [[User:Jorm|Jorm]] ([[User talk:Jorm|talk]]) $ts
+:What do you think? [[User:Werdna|Werdna]] ([[User talk:Werdna|talk]]) $ts
+:New Comment [[User:JarJar|JarJar]] ([[User talk:JarJar|talk]]) $ts
 == Section 2 ==
-Well well well. [[User:DarTar]] $ts
+Well well well. [[User:DarTar|DarTar]] ([[User talk:DarTar|talk]]) $ts
 == Section 3 ==
-Hai [[User:Bsitu]] $ts
-:Other New Comment [[User:JarJar]] $ts
+Hai [[User:Bsitu|Bsitu]] ([[User talk:Bsitu|talk]]) $ts
+:Other New Comment [[User:JarJar|JarJar]] ([[User talk:JarJar|talk]]) $ts
 TEXT
 				),
 				// User
@@ -446,26 +555,61 @@ TEXT
 				array(
 					array(
 						'type' => 'add-comment',
-						'content' => ":New Comment [[User:JarJar]] $ts",
+						'content' => ":New Comment [[User:JarJar|JarJar]] ([[User talk:JarJar|talk]]) $ts",
 						'full-section' => <<<TEXT
 == Section 1 ==
-I do not like you. [[User:Jorm|Jorm]] $ts
-:What do you think? [[User:Werdna]] $ts
-:New Comment [[User:JarJar]] $ts
+I do not like you. [[User:Jorm|Jorm]] ([[User talk:Jorm|talk]]) $ts
+:What do you think? [[User:Werdna|Werdna]] ([[User talk:Werdna|talk]]) $ts
+:New Comment [[User:JarJar|JarJar]] ([[User talk:JarJar|talk]]) $ts
 TEXT
 					),
 					array(
 						'type' => 'add-comment',
-						'content' => ":Other New Comment [[User:JarJar]] $ts",
+						'content' => ":Other New Comment [[User:JarJar|JarJar]] ([[User talk:JarJar|talk]]) $ts",
 						'full-section' => <<<TEXT
 == Section 3 ==
-Hai [[User:Bsitu]] $ts
-:Other New Comment [[User:JarJar]] $ts
+Hai [[User:Bsitu|Bsitu]] ([[User talk:Bsitu|talk]]) $ts
+:Other New Comment [[User:JarJar|JarJar]] ([[User talk:JarJar|talk]]) $ts
 TEXT
 					),
 				),
-
 			),
+
+			array(
+				'Bug T78424',
+				EchoDiscussionParser::getMachineReadableDiff(
+					<<<TEXT
+== Washington Post Reception Source ==
+
+''The Boston Post'' source that was used in the reception section has a couple of problems. First, it's actually a repost of ''The Washington Post'', but ''The Washington Post'' doesn't allow the Internet Archive to preserve it. Should it still be sourced to Boston or to Washington? Second, it seems to be a lot of analysis that can't be summed up easily without trimming it out, and doesn't really fit with the reception section and should probably moved next to Wilson's testimony. Any suggestions? --[[User:RAN1|RAN1]] ([[User talk:RAN1|talk]]) 01:44, 11 December 2014 (UTC)
+TEXT
+					,
+					<<<TEXT
+== Washington Post Reception Source ==
+
+''The Boston Post'' source that was used in the reception section has a couple of problems. First, it's actually a repost of ''The Washington Post'', but ''The Washington Post'' doesn't allow the Internet Archive to preserve it. Should it still be sourced to Boston or to Washington? Second, it seems to be a lot of analysis that can't be summed up easily without trimming it out, and doesn't really fit with the reception section and should probably moved next to Wilson's testimony. Any suggestions? --[[User:RAN1|RAN1]] ([[User talk:RAN1|talk]]) 01:44, 11 December 2014 (UTC)
+
+== Grand jury no bill reception ==
+
+{{u|Bob K31416}} has started a process of summarizing that section, in a manner that I believe it to be counter productive. We have expert opinions from legal, law enforcement, politicians, and media outlets all of which are notable and informative. [[WP:NOTPAPER|Wikipedia is not paper]] – If the section is too long, the correct process to avoid losing good content that is well sources, is to create a sub-article with all the detail, and summarize here per [[WP:SUMMARY]]. But deleting useful and well sourced material, is not acceptable. We are here to build an encyclopedia. - [[User:Cwobeel|<span style="color:#339966">Cwobeel</span>]] [[User_talk:Cwobeel|<span style="font-size:80%">(talk)</span>]] 16:02, 11 December 2014 (UTC)
+TEXT
+				),
+				// User
+				'Cwobeel',
+				// Expected annotation
+				array(
+					array(
+						'type' => 'new-section-with-comment',
+						'content' => '== Grand jury no bill reception ==
+
+{{u|Bob K31416}} has started a process of summarizing that section, in a manner that I believe it to be counter productive. We have expert opinions from legal, law enforcement, politicians, and media outlets all of which are notable and informative. [[WP:NOTPAPER|Wikipedia is not paper]] – If the section is too long, the correct process to avoid losing good content that is well sources, is to create a sub-article with all the detail, and summarize here per [[WP:SUMMARY]]. But deleting useful and well sourced material, is not acceptable. We are here to build an encyclopedia. - [[User:Cwobeel|<span style="color:#339966">Cwobeel</span>]] [[User_talk:Cwobeel|<span style="font-size:80%">(talk)</span>]] 16:02, 11 December 2014 (UTC)',
+					),
+				),
+			),
+			// when adding additional tests, make sure to add the non-anon users
+			// to EchoDiscussionParserTest::$testusers - the DiscussionParser
+			// needs the users to exist, because it'll generate a comparison
+			// signature, which is different when the user is considered anon
 		);
 	}
 
@@ -482,7 +626,7 @@ TEXT
 	}
 
 	static public function provider_detectSectionTitleAndText() {
-		$name = 'TestUser';
+		$name = 'Werdna'; // See EchoDiscussionParserTest::$testusers
 		$comment = self::signedMessage( $name );
 
 		return array(
@@ -583,7 +727,7 @@ $comment
 	 * @dataProvider provider_detectSectionTitleAndText
 	 */
 	public function testDetectSectionTitleAndText( $message, $expect, $format, $name ) {
-		// str_replace because we want to replace multiple instances of '%s' with the same valueA
+		// str_replace because we want to replace multiple instances of '%s' with the same value
 		$before = str_replace( '%s', '', $format );
 		$after = str_replace( '%s', self::signedMessage( $name ), $format );
 
@@ -594,7 +738,8 @@ $comment
 		$expectText = $expect ? self::message( $name ) : '';
 		$this->assertEquals(
 			array( 'section-title' => $expect, 'section-text' => $expectText ),
-			EchoDiscussionParser::detectSectionTitleAndText( $interp, $message )
+			EchoDiscussionParser::detectSectionTitleAndText( $interp ),
+			$message
 		);
 	}
 
