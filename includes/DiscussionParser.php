@@ -161,6 +161,7 @@ abstract class EchoDiscussionParser {
 
 		foreach ( $links[NS_USER] as $dbk => $page_id ) {
 			$user = User::newFromName( $dbk );
+
 			// we should not add user to 'mention' notification list if
 			// 1. the user name is not valid
 			// 2. the user mentions themselves
@@ -668,7 +669,7 @@ abstract class EchoDiscussionParser {
 	 * - Second element is the normalised user name.
 	 */
 	static public function getUserFromLine( $line, $timestampPos ) {
-		global $wgContLang;
+		global $wgContLang, $wgMaxSigChars;
 
 		// lifted from Parser::pstPass2
 		$tc = '[' . Title::legalChars() . ']';
@@ -677,10 +678,19 @@ abstract class EchoDiscussionParser {
 		// [[ns:page]] with optional fragment(#foo) and/or pipe(|bar)
 		$regex = "/\[\[($nc+:$tc+)(?:#.*?)?(?:\\|.*?)?]]/";
 
+		// chop off everything after the timestamp
 		$potentialContext = substr( $line, 0, $timestampPos );
-		// only look at the 300 chars preceding the timestamp
-		$startCheckAt = max( 0, $timestampPos - 300 );
-		$context = substr( $potentialContext, -$startCheckAt );
+
+		// only look at the chars preceding the timestamp that can be part of
+		// the signature. Note that $wgMaxSigChars is characters and not
+		// bytes and must be handled with the multibyte string extension.
+		//
+		// Additionally, wfEscapeWikiText is run against the signature after
+		// checking length but before replacing the ~~~~ in page content. For
+		// this we add a fudge factor of 10 characters, as undoing the
+		// wfEscapeWikiText is more complicated than we need and hopefully
+		// this covers most cases.
+		$context = mb_substr( $potentialContext, -$wgMaxSigChars - 10 );
 
 		if ( !preg_match_all( $regex, $context, $matches, PREG_SET_ORDER ) ) {
 			return false;
