@@ -219,6 +219,7 @@
 			}
 			this.notificationCount.unread = newCount;
 			this.notificationCount.unreadRaw = rawCount;
+			mw.hook( 'ext.echo.updateNotificationCount' ).fire( rawCount );
 		},
 
 		configuration: mw.config.get( 'wgEchoOverlayConfiguration' ),
