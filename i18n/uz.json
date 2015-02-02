@@ -85,7 +85,7 @@
 	"notification-reverted-email-batch-body2": "$2 sahifasidagi {{PLURAL:$4|1=tahriringizni|tahrirlaringizni}} $1 {{GENDER:$1|bekor qildi}}.",
 	"notification-mention-email-subject": "$1 sizni {{SITENAME}} saytida {{GENDER:$1|tilga oldi}}.",
 	"notification-mention-email-batch-body": "$4 sahifasining munozarasidagi „$3“ boʻlimida $1 sizni {{GENDER:$1|tilga oldi}}.",
-	"notification-mention-nosection-email-batch-body": "„$2 sahifasi munozarasida $1 sizni {{GENDER:$1|tilga ldi}}.",
+	"notification-mention-nosection-email-batch-body": "„$2 sahifasi munozarasida $1 sizni {{GENDER:$1|tilga oldi}}.",
 	"notification-user-rights-email-subject": "{{SITENAME}} saytidagi huquqlaringiz oʻzgartirildi.",
 	"notification-user-rights-email-batch-body": "Sizning huquqlaringiz $1 tomonidan {{GENDER:$1|oʻzgartirildi}}. $2.",
 	"echo-email-subject-default": "{{SITENAME}} saytida yangi xabarlar",
