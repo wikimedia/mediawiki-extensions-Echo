@@ -3,7 +3,8 @@
 		"authors": [
 			"Fryed-peach",
 			"Shirayuki",
-			"Whym"
+			"Whym",
+			"Penn Station"
 		]
 	},
 	"echo-desc": "通知システム",
@@ -95,9 +96,9 @@
 	"echo-email-batch-body-default": "新しい通知があります。",
 	"echo-email-footer-default": "$2\n\n受け取るメールの設定を変更するには、個人設定をご確認ください:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
 	"echo-email-footer-default-html": "お送りするメールの設定を変更するには、<a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">個人設定を参照してください</a>。<br />\n$1",
-	"echo-notification-alert": "{{PLURAL:$1|警告 ($1)|100=警告 (99+)}}",
+	"echo-notification-alert": "{{PLURAL:$1|アラート ($1)|100=アラート (99+)}}",
 	"echo-notification-message": "{{PLURAL:$1|メッセージ ($1)|100=メッセージ (99+)}}",
-	"echo-notification-alert-text-only": "警告",
+	"echo-notification-alert-text-only": "アラート",
 	"echo-notification-message-text-only": "メッセージ",
 	"echo-overlay-link": "すべての通知",
 	"echo-overlay-title": "<b>通知</b>",

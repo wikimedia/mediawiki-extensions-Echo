@@ -53,7 +53,7 @@
 	"notification-mention-flyout": "[[User:$1|$1]] sizin adınızı $5 danışıq səhifəsinin \"[[:$3#$2|$4]]\" bölməsində $1 qeyd edib.",
 	"notification-mention-nosection": "[[User:$1|$1]] sizin adınızı [[:$3|müzakirə səhifəsind $2]] qeyd edib.",
 	"notification-new-user": "'''$1''' {{SITENAME}} saytına xoş gəlmisiniz! Sizi burada görməyimizə çox şadıq. Uğurlar!",
-	"notification-edit-talk-page-email-subject2": "{{GENDER:$1|İstifadəçi}} sizə «{{SITENAME}}» səhifəsində məktub $1 {{GENDER:$1|yazıb}}",
+	"notification-edit-talk-page-email-subject2": "İstifadəçi $1 \"{{SITENAME}}\" saytındakı müzakirə səhifənizdə sizə mesaj yazıb",
 	"notification-edit-talk-page-email-batch-body2": "{{GENDER:$1|İstifadəçi}} sizin müzakirə səhifənizdə məktub $1 {{GENDER:$1|yazıb}}",
 	"notification-edit-talk-page-email-batch-body-with-section": "{{GENDER:$1|İstifadəçi}} sizin müzakirə səhifənizdə «$2» bölməsində məktub $1 {{GENDER:$1|yazıb}}",
 	"notification-mention-email-subject": "{{GENDER:$1|İstifadəçi}} sizin adınızı «{{SITENAME}}» səhifəsində $1 {{GENDER:$1|qeyd edib}}",
