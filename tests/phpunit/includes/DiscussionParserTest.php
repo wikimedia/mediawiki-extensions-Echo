@@ -8,12 +8,15 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 	/**
 	 * @var array
 	 */
-	protected $tablesUsed = array( 'user' );
+	protected $tablesUsed = array( 'user', 'revision', 'text', 'page' );
 
 	/**
-	 * @var array
+	 * Users used in these tests: signature extraction, mentioned users, ... all
+	 * assume a user exists.
+	 *
+	 * @var array [username => [user preference => preference value]]
 	 */
-	protected $testusers = array(
+	protected $testUsers = array(
 		// username
 		'Werdna' => array(
 			// user preferences
@@ -69,11 +72,27 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 			'fancysig' => '0',
 		),
 		'Schnark' => array(
-			'nickname' => '[[User:Schnark]] ([[User:Schnark/js|js]])',
+			'nickname' => '[[Benutzer:Schnark]] ([[Benutzer:Schnark/js|js]])',
 			'fancysig' => '1',
 		),
 		'Cwobeel' => array(
 			'nickname' => '[[User:Cwobeel|<span style="color:#339966">Cwobeel</span>]] [[User_talk:Cwobeel|<span style="font-size:80%">(talk)</span>]]',
+			'fancysig' => '1',
+		),
+		'Bob K31416' => array(
+			'nickname' => '',
+			'fancysig' => '0',
+		),
+		'X" onclick="alert(\'XSS\');" title="y' => array(
+			'nickname' => '',
+			'fancysig' => '0',
+		),
+		'He7d3r' => array(
+			'nickname' => '',
+			'fancysig' => '0',
+		),
+		'PauloEduardo' => array(
+			'nickname' => "[[User:PauloEduardo|<span style=\"font-size:13px; color:blue;font-family:Lucida Handwriting;text-shadow:aqua 5px 3px 12px;\">Paulo Eduardo</span>]]'' <sup>[[User Talk:PauloEduardo|<font color=\"gold\" face=\"Lucida Calligraphy\">Discussão</font>]]</sup>''",
 			'fancysig' => '1',
 		),
 	);
@@ -87,7 +106,7 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 			return;
 		}
 
-		foreach ( $this->testusers as $username => $preferences ) {
+		foreach ( $this->testUsers as $username => $preferences ) {
 			$user = User::createNew( $username );
 
 			// set signature preferences
@@ -102,8 +121,150 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 		$executed = true;
 	}
 
+	protected function tearDown() {
+		parent::tearDown();
+
+		global $wgHooks;
+		unset( $wgHooks['BeforeEchoEventInsert'][999] );
+	}
+
+	public function generateEventsForRevisionData() {
+		return array(
+			array(
+				'new' => 637638133,
+				'old' => 637637213,
+				'username' => 'Cwobeel',
+				'lang' => 'en',
+				'pages' => array(
+					// pages expected to exist (e.g. templates to be expanded)
+					'Template:u' => '[[User:{{{1}}}|{{<includeonly>safesubst:</includeonly>#if:{{{2|}}}|{{{2}}}|{{{1}}}}}]]<noinclude>{{documentation}}</noinclude>',
+				),
+				'expected' => array(
+					// events expected to be fired going from old revision to new
+					array(
+						'type' => 'mention',
+						'agent' => 'Cwobeel',
+						/*
+						 * I wish I could also compare EchoEvent::$extra data to
+						 * compare user ids of mentioned users. However, due to
+						 * How PHPUnit works, setUp won't be run by the time
+						 * this dataset is generated, so we don't yet know the
+						 * user ids of the folks we're about to insert...
+						 * I'll skip that part for now.
+						 */
+					),
+				),
+			),
+			array(
+				'new' => 138275105,
+				'old' => 138274875,
+				'username' => 'Schnark',
+				'lang' => 'de',
+				'pages' => array(),
+				'expected' => array(
+					array(
+						'type' => 'mention',
+						'agent' => 'Schnark',
+					),
+				),
+			),
+			array(
+				'new' => 40610292,
+				'old' => 40608353,
+				'username' => 'PauloEduardo',
+				'lang' => 'pt',
+				'pages' => array(
+					'Predefinição:U' => '[[User:{{{1|<noinclude>Exemplo</noinclude>}}}|{{{{{|safesubst:}}}#if:{{{2|}}}|{{{2}}}|{{{1|<noinclude>Exemplo</noinclude>}}}}}]]<noinclude>{{Atalho|Predefinição:U}}{{Documentação|Predefinição:Usuário/doc}}</noinclude>',
+				),
+				'expected' => array(
+					array(
+						'type' => 'mention',
+						'agent' => 'PauloEduardo',
+					),
+				),
+			),
+		);
+	}
+
+	/**
+	 * @dataProvider generateEventsForRevisionData
+	 */
+	public function testGenerateEventsForRevision( $newId, $oldId, $username, $lang, $pages, $expected ) {
+		// this global is used by the code that interprets the namespace part of
+		// titles (Title::getTitleParser), so should be the fake language ;)
+		$this->setMwGlobals( 'wgContLang', Language::factory( $lang ) );
+
+		// pages to be created: templates may be used to ping users (e.g.
+		// {{u|...}}) but if we don't have that template, it just won't work!
+		foreach ( $pages as $title => $text ) {
+			$template = WikiPage::factory( Title::newFromText( $title ) );
+			$template->doEditContent( new WikitextContent( $text ), '' );
+		}
+
+		// grab revision excerpts (didn't include them in this src file because
+		// they can be pretty long)
+		$oldText = file_get_contents( __DIR__ . '/revision_txt/' . $oldId . '.txt' );
+		$newText = file_get_contents( __DIR__ . '/revision_txt/' . $newId . '.txt' );
+
+		// revision texts can be in different languages, where links etc are
+		// different (e.g. User: becomes Benutzer: in German), so let's pretend
+		// the page they belong to is from that language
+		$title = Title::newFromText( 'UTPage' );
+		$object = new ReflectionObject( $title );
+		$property = $object->getProperty( 'mDbPageLanguage' );
+		$property->setAccessible( true );
+		$property->setValue( $title, $lang );
+
+		// create stub Revision object
+		$row = array(
+			'id' => $newId,
+			'user_text' => $username,
+			'user' => User::newFromName( $username )->getId(),
+			'parent_id' => $oldId,
+			'text' => $newText,
+			'title' => $title,
+		);
+		$revision = Revision::newFromRow( $row );
+
+		// generate diff between 2 revisions
+		$changes = EchoDiscussionParser::getMachineReadableDiff( $oldText, $newText );
+		$output = EchoDiscussionParser::interpretDiff( $changes, $revision->getUserText() );
+
+		// store diff in some local cache var, to circumvent
+		// EchoDiscussionParser::getChangeInterpretationForRevision's attempt to
+		// retrieve parent revision from DB
+		$class = new ReflectionClass( 'EchoDiscussionParser' );
+		$property = $class->getProperty( 'revisionInterpretationCache' );
+		$property->setAccessible( true );
+		$property->setValue( array( $revision->getId() => $output ) );
+
+		// to catch the generated event, I'm going to attach a callback to the
+		// hook that's being run just prior to sending the notifications out
+		$events = array();
+		$callback = function( EchoEvent $event ) use ( &$events ) {
+			$events[] = array(
+				'type' => $event->getType(),
+				'agent' => $event->getAgent()->getName(),
+			);
+
+			// don't let the event go out, abort from within this hook
+			return false;
+		};
+
+		// can't use setMwGlobals here, so I'll just re-attach to the same key
+		// for every dataProvider value (and don't worry, I'm removing it on
+		// tearDown too - I just felt the attaching should be happening here
+		// instead of on setUp, or code would get too messy)
+		global $wgHooks;
+		$wgHooks['BeforeEchoEventInsert'][999] = $callback;
+
+		// finally, dear god, start generating the events already!
+		EchoDiscussionParser::generateEventsForRevision( $revision );
+
+		$this->assertEquals( $expected, $events );
+	}
+
 	// TODO test cases for:
-	// - generateEventsForRevision
 	// - stripHeader
 	// - stripIndents
 	// - stripSignature
@@ -258,7 +419,7 @@ TEXT
 			),
 			// Bug: T87852
 			array(
-				"Test --[[User:Schnark]] ([[User:Schnark/js|js]])",
+				"Test --[[Benutzer:Schnark]] ([[Benutzer:Schnark/js|js]])",
 				array(
 					strlen( "Test --" ),
 					'Schnark',
