@@ -207,7 +207,7 @@ abstract class EchoDiscussionParser {
 	 * @param $wikitext String
 	 * @param $article Article
 	 *
-	 * @return object
+	 * @return ParserOutput
 	 */
 	static function parseNonEditWikitext( $wikitext, $article ) {
 		static $cache = array();
@@ -302,8 +302,8 @@ abstract class EchoDiscussionParser {
 	 * in terms of discussion page actions
 	 *
 	 * @todo Expand recognisable actions.
-	 * @param $changes array Output of EchoEvent::getMachineReadableDiff
-	 * @param $user User name
+	 * @param array $changes Output of EchoEvent::getMachineReadableDiff
+	 * @param string $user Username
 	 * @return Array of associative arrays.
 	 * Each entry represents an action, which is classified in the 'action' field.
 	 * All types contain a 'content' field except 'unknown'
@@ -488,24 +488,16 @@ abstract class EchoDiscussionParser {
 	 * @return string
 	 */
 	static function stripSignature( $text ) {
-		$timestampPos = self::getTimestampPosition( $text );
-
-		if ( $timestampPos === false ) {
-			return $text;
-		}
-
-		$output = self::getUserFromLine( $text, $timestampPos );
-
+		$output = self::getUserFromLine( $text );
 		if ( $output === false ) {
+			$timestampPos = self::getTimestampPosition( $text );
 			return substr( $text, 0, $timestampPos );
 		}
 
 		// Use truncate() instead of truncateHTML() because truncateHTML()
-		// would not strip signature if the text conatins < or &
+		// would not strip signature if the text contains < or &
 		global $wgContLang;
-		$truncated_text = $wgContLang->truncate( $text, $output[0], '' );
-
-		return $truncated_text;
+		return $wgContLang->truncate( $text, $output[0], '' );
 	}
 
 	/**
@@ -550,13 +542,7 @@ abstract class EchoDiscussionParser {
 	 * @return bool: true or false.
 	 */
 	static function isSignedComment( $text, $user = false ) {
-		$timestampPos = self::getTimestampPosition( $text );
-
-		if ( $timestampPos === false ) {
-			return false;
-		}
-
-		$userData = self::getUserFromLine( $text, $timestampPos );
+		$userData = self::getUserFromLine( $text );
 
 		if ( $userData === false ) {
 			return false;
@@ -631,17 +617,9 @@ abstract class EchoDiscussionParser {
 
 		foreach ( $lines as $line ) {
 			++$lineNumber;
-			$timestampPos = self::getTimestampPosition( $line );
-			if ( !$timestampPos ) {
-				// Ignore lines that don't finish with a timestamp
-				// print "I\tNo timestamp\n";
-				// print "$line\n";
-				continue;
-			}
 
-			// Now that we know we have a timestamp, look for
-			// the last user link on the line.
-			$userData = self::getUserFromLine( $line, $timestampPos );
+			// Look for the last user link on the line.
+			$userData = self::getUserFromLine( $line );
 			if ( $userData === false ) {
 				// print "F\t$lineNumber\t$line\n";
 				continue;
@@ -663,91 +641,67 @@ abstract class EchoDiscussionParser {
 	 *  has signed it.
 	 *
 	 * @param $line string The line.
-	 * @param $timestampPos int The offset of the start of the timestamp.
 	 * @return bool|array false for none, Array for success.
 	 * - First element is the position of the signature.
 	 * - Second element is the normalised user name.
 	 */
-	static public function getUserFromLine( $line, $timestampPos ) {
-		global $wgContLang, $wgMaxSigChars;
+	static public function getUserFromLine( $line ) {
+		global $wgParser;
 
-		// lifted from Parser::pstPass2
-		$tc = '[' . Title::legalChars() . ']';
-		$nc = '[() _0-9A-Za-z\x80-\xff-]'; // Namespaces can use non-ascii
-
-		// [[ns:page]] with optional fragment(#foo) and/or pipe(|bar)
-		$regex = "/\[\[($nc+:$tc+)(?:#.*?)?(?:\\|.*?)?]]/";
-
-		// chop off everything after the timestamp
-		$potentialContext = substr( $line, 0, $timestampPos );
-
-		// only look at the chars preceding the timestamp that can be part of
-		// the signature. Note that $wgMaxSigChars is characters and not
-		// bytes and must be handled with the multibyte string extension.
-		//
-		// Additionally, wfEscapeWikiText is run against the signature after
-		// checking length but before replacing the ~~~~ in page content. For
-		// this we add a fudge factor of 10 characters, as undoing the
-		// wfEscapeWikiText is more complicated than we need and hopefully
-		// this covers most cases.
-		$context = mb_substr( $potentialContext, -$wgMaxSigChars - 10 );
-
-		if ( !preg_match_all( $regex, $context, $matches, PREG_SET_ORDER ) ) {
+		// match all title-like excerpts in this line
+		if ( !preg_match_all( '/\[\[([^\[]+)\]\]/', $line, $matches ) ) {
 			return false;
 		}
 
-		// prefer the last match in the line
-		$winningUser = $winner = false;
-		foreach ( array_reverse( $matches ) as $match ) {
-			$title = Title::newFromText( $match[1] );
-			if ( !$title ) {
+		/*
+		 * Signatures can look like anything (as defined by i18n messages
+		 * "signature" & "signature-anon").
+		 * A signature can, e.g., be both a link to user & user-talk page.
+		 * I'll be looping backwards through all founds links, figure out what
+		 * matches to a user, regenerate the signature based on that user, and
+		 * see if it matches!
+		 */
+		$matches = array_reverse( $matches[1] );
+		foreach ( $matches as $match ) {
+			/*
+			 * Create an object out of the link title.
+			 * In theory, links can be [[text]], [[text|text]] or pipe tricks
+			 * [[text|]] or [[|text]].
+			 * In the case of reverse pipe trick, the value we use *could* be
+			 * empty, but Parser::pstPass2 should have normalized that for us
+			 * already.
+			 */
+			$match = explode( '|', $match );
+			$title = Title::newFromText( $match[0] );
+
+			// figure out if we the link is related to a user
+			if ( $title && ( $title->getNamespace() === NS_USER || $title->getNamespace() === NS_USER_TALK ) ) {
+				$username = $title->getText();
+			} elseif ( $title && $title->isSpecial( 'Contributions' ) ) {
+				$parts = explode( '/', $title->getText(), 2 );
+				$username = end( $parts );
+			} else {
+				// move on to next matched title-like excerpt
 				continue;
 			}
-			if ( $title->getNamespace() === NS_USER ) {
-				if ( $winningUser === false || $winningUser === $title->getText() ) {
-					// registered user winner!!
-					$winningUser = $title->getText();
-					$winner = $match;
-				}
-				break;
+
+			// generate (dateless) signature from the user we think we've
+			// discovered the signature from
+			// don't validate the username - anon (IP) is fine!
+			$user = User::newFromName( $username, false );
+			$sig = $wgParser->preSaveTransform( '~~~', Title::newMainPage(), $user, new ParserOptions() );
+
+			// see if we can find this user's generated signature in the content
+			$pos = strrpos( $line, $sig );
+			if ( $pos !== false ) {
+				return array( $pos, $username );
 			}
-			// Only check Special:Contributions and NS_USER_TALK if NS_USER_TALK
-			// has not yet triggered.
-			if ( $winningUser === false ) {
-				if ( $title->isSpecial( 'Contributions' ) ) {
-					// anon user winner!!
-					$parts = explode( '/', $title->getText(), 2 );
-					$winningUser = end( $parts );
-					$winner = $match;
-					break;
-				}
-				if ( $title->getNamespace() === NS_USER_TALK ) {
-					// registered user winner!
-					// but keep looking for a matching NS_USER link to the same user so
-					// we return the correct starting position. often the signature is:
-					//     NS_USER (NS_USER_TALK) <timestamp>
-					// Wiki's have complete control over their signatures via Mediawiki:Signature,
-					// so it's also possible there is no matching NS_USER link.
-					$winningUser = $title->getText();
-					$winner = $match;
-					continue;
-				}
-			}
+
+			// couldn't find sig, move on to next link excerpt and try there
 		}
 
-		if ( !$winningUser ) {
-			return false;
-		}
-
-		$pos = strrpos( $potentialContext, $winner[0] );
-		if ( !$pos ) {
-			// shouldn't be possible, $winner[0] is the string match from preg_match_all above,
-			// but just in case.
-			wfDebugLog( 'Echo', __METHOD__ . 'Did not find user "' . $match[0] . '" in wikitext: ' . $line );
-			return false;
-		}
-
-		return array( $pos, $winningUser );
+		// couldn't find any matching signature
+		return false;
 	}
 
 	/**
