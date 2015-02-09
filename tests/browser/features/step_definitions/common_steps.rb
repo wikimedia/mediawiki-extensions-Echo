@@ -57,5 +57,5 @@ Then(/^I am on the Special Notifications page$/) do
 end
 
 Then(/^I see the first heading on the page says Notifications$/) do
-  expect(on(ArticlePage).first_heading_span).to match 'Notifications'
+  expect(on(ArticlePage).first_heading).to eq 'Notifications'
 end
