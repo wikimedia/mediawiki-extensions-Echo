@@ -100,8 +100,6 @@ abstract class MWEchoEmailBatch {
 	 * Wrapper function that calls other functions required to process email batch
 	 */
 	public function process() {
-		wfProfileIn( __METHOD__ );
-
 		// if there is no event for this user, exist the process
 		if ( !$this->setLastEvent() ) {
 			return;
@@ -125,8 +123,6 @@ abstract class MWEchoEmailBatch {
 
 		$this->clearProcessedEvent();
 		$this->updateUserLastBatchTimestamp();
-
-		wfProfileOut( __METHOD__ );
 	}
 
 	/**

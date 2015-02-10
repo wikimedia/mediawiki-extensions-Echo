@@ -7,7 +7,6 @@ class ApiEchoNotifications extends ApiQueryBase {
 	}
 
 	public function execute() {
-		wfProfileIn( __METHOD__ );
 		// To avoid API warning, register the parameter used to bust browser cache
 		$this->getMain()->getVal( '_' );
 
@@ -66,7 +65,6 @@ class ApiEchoNotifications extends ApiQueryBase {
 
 		$this->getResult()->setIndexedTagName( $result, 'notification' );
 		$this->getResult()->addValue( 'query', $this->getModuleName(), $result );
-		wfProfileOut( __METHOD__ );
 	}
 
 	/**
