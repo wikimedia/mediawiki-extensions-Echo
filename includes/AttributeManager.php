@@ -81,7 +81,6 @@ class EchoAttributeManager {
 		if ( isset( $this->notifications[$type]['user-locators'] ) ) {
 			return (array)$this->notifications[$type]['user-locators'];
 		} else {
-			wfDebugLog( 'Echo', __METHOD__ . ": No user-locators configured for $type" );
 			return array();
 		}
 	}
