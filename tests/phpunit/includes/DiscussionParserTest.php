@@ -244,6 +244,7 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 						'agent' => 'PatHadley',
 					),
 				),
+				'precondition' => 'isParserFunctionsInstalled',
 			),
 			array(
 				'new' => 647260329,
@@ -271,7 +272,15 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 	/**
 	 * @dataProvider generateEventsForRevisionData
 	 */
-	public function testGenerateEventsForRevision( $newId, $oldId, $username, $lang, $pages, $title, $expected ) {
+	public function testGenerateEventsForRevision( $newId, $oldId, $username, $lang, $pages, $title, $expected, $precondition = '' ) {
+		if ( $precondition !== '' ) {
+			$result = $this->$precondition();
+			if ( $result !== true ) {
+				$this->markTestSkipped( $result );
+				return;
+			}
+		}
+
 		$this->setMwGlobals( array(
 			// this global is used by the code that interprets the namespace part of
 			// titles (Title::getTitleParser), so should be the fake language ;)
@@ -1063,5 +1072,13 @@ TEXT
 		$this->assertEquals( 2, EchoDiscussionParser::getSectionCount( $one . $two ) );
 		$this->assertEquals( 2, EchoDiscussionParser::getSectionCount( $one . $three ) );
 		$this->assertEquals( 3, EchoDiscussionParser::getSectionCount( $one . $two . $three ) );
+	}
+
+	protected function isParserFunctionsInstalled() {
+		if ( class_exists( 'ExtParserFunctions' ) ) {
+			return true;
+		} else {
+			return "ParserFunctions not enabled";
+		}
 	}
 }
