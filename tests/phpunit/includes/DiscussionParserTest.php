@@ -95,6 +95,26 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 			'nickname' => "[[User:PauloEduardo|<span style=\"font-size:13px; color:blue;font-family:Lucida Handwriting;text-shadow:aqua 5px 3px 12px;\">Paulo Eduardo</span>]]'' <sup>[[User Talk:PauloEduardo|<font color=\"gold\" face=\"Lucida Calligraphy\">Discussão</font>]]</sup>''",
 			'fancysig' => '1',
 		),
+		'PatHadley' => array(
+			'nickname' => '',
+			'fancysig' => '0',
+		),
+		'Samwalton9' => array(
+			'nickname' => '',
+			'fancysig' => '0',
+		),
+		'Kudpung' => array(
+			'nickname' => '[[User:Kudpung|Kudpung กุดผึ้ง]] ([[User talk:Kudpung#top|talk]])',
+			'fancysig' => '1',
+		),
+		'Jim Carter' => array(
+			'nickname' => '',
+			'fancysig' => '0',
+		),
+		'Buster7' => array(
+			'nickname' => '',
+			'fancysig' => '0',
+		),
 	);
 
 	protected function setUp() {
@@ -139,6 +159,7 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 					// pages expected to exist (e.g. templates to be expanded)
 					'Template:u' => '[[User:{{{1}}}|{{<includeonly>safesubst:</includeonly>#if:{{{2|}}}|{{{2}}}|{{{1}}}}}]]<noinclude>{{documentation}}</noinclude>',
 				),
+				'title' => 'UTPage', // can't remember, not important here
 				'expected' => array(
 					// events expected to be fired going from old revision to new
 					array(
@@ -161,6 +182,7 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 				'username' => 'Schnark',
 				'lang' => 'de',
 				'pages' => array(),
+				'title' => 'UTPage', // can't remember, not important here
 				'expected' => array(
 					array(
 						'type' => 'mention',
@@ -176,10 +198,70 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 				'pages' => array(
 					'Predefinição:U' => '[[User:{{{1|<noinclude>Exemplo</noinclude>}}}|{{{{{|safesubst:}}}#if:{{{2|}}}|{{{2}}}|{{{1|<noinclude>Exemplo</noinclude>}}}}}]]<noinclude>{{Atalho|Predefinição:U}}{{Documentação|Predefinição:Usuário/doc}}</noinclude>',
 				),
+				'title' => 'UTPage', // can't remember, not important here
 				'expected' => array(
 					array(
 						'type' => 'mention',
 						'agent' => 'PauloEduardo',
+					),
+				),
+			),
+			array(
+				'new' => 646792804,
+				'old' => 646790570,
+				'username' => 'PatHadley',
+				'lang' => 'en',
+				'pages' => array(
+					'Template:ping' => '{{SAFESUBST:<noinclude />#if:{{{1|<noinclude>$</noinclude>}}}
+ |<span class="template-ping">@[[:User:{{SAFESUBST:<noinclude />BASEPAGENAME:{{{1|Example}}}}}|{{SAFESUBST:<noinclude />BASEPAGENAME:{{{label1|{{{1|Example}}}}}}}}]]{{SAFESUBST:<noinclude />#if:{{{2|}}}
+ |, [[:User:{{SAFESUBST:<noinclude />BASEPAGENAME:{{{2|Example}}}}}|{{SAFESUBST:<noinclude />BASEPAGENAME:{{{label2|{{{2|Example}}}}}}}}]]{{SAFESUBST:<noinclude />#if:{{{3|}}}
+ |, [[:User:{{SAFESUBST:<noinclude />BASEPAGENAME:{{{3|Example}}}}}|{{SAFESUBST:<noinclude />BASEPAGENAME:{{{label3|{{{3|Example}}}}}}}}]]{{SAFESUBST:<noinclude />#if:{{{4|}}}
+ |, [[:User:{{SAFESUBST:<noinclude />BASEPAGENAME:{{{4|Example}}}}}|{{SAFESUBST:<noinclude />BASEPAGENAME:{{{label4|{{{4|Example}}}}}}}}]]{{SAFESUBST:<noinclude />#if:{{{5|}}}
+ |, [[:User:{{SAFESUBST:<noinclude />BASEPAGENAME:{{{5|Example}}}}}|{{SAFESUBST:<noinclude />BASEPAGENAME:{{{label5|{{{5|Example}}}}}}}}]]{{SAFESUBST:<noinclude />#if:{{{6|}}}
+ |, [[:User:{{SAFESUBST:<noinclude />BASEPAGENAME:{{{6|Example}}}}}|{{SAFESUBST:<noinclude />BASEPAGENAME:{{{label6|{{{6|Example}}}}}}}}]]{{SAFESUBST:<noinclude />#if:{{{7|}}}
+ |, [[:User:{{SAFESUBST:<noinclude />BASEPAGENAME:{{{7|Example}}}}}|{{SAFESUBST:<noinclude />BASEPAGENAME:{{{label7|{{{7|Example}}}}}}}}]]
+      }}
+     }}
+    }}
+   }}
+  }}
+ }}{{{p|:}}}</span>
+ |{{SAFESUBST:<noinclude />Error|Error in [[Template:Replyto]]: Username not given.}}
+}}<noinclude>
+
+{{documentation}}
+</noinclude>',
+					'MediaWiki:Signature' => '[[User:$1|$2]] {{#ifeq:{{FULLPAGENAME}}|User talk:$1|([[User talk:$1#top|talk]])|([[User talk:$1|talk]])}}',
+				),
+				'title' => 'User_talk:PatHadley',
+				'expected' => array(
+					array(
+						'type' => 'mention',
+						'agent' => 'PatHadley',
+					),
+					array(
+						'type' => 'edit-user-talk',
+						'agent' => 'PatHadley',
+					),
+				),
+			),
+			array(
+				'new' => 647260329,
+				'old' => 647258025,
+				'username' => 'Kudpung',
+				'lang' => 'en',
+				'pages' => array(
+					'Template:U' => '[[User:{{{1}}}|{{<includeonly>safesubst:</includeonly>#if:{{{2|}}}|{{{2}}}|{{{1}}}}}]]<noinclude>{{documentation}}</noinclude>',
+				),
+				'title' => 'User_talk:Kudpung',
+				'expected' => array(
+					array(
+						'type' => 'mention',
+						'agent' => 'Kudpung',
+					),
+					array(
+						'type' => 'edit-user-talk',
+						'agent' => 'Kudpung',
 					),
 				),
 			),
@@ -189,17 +271,26 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 	/**
 	 * @dataProvider generateEventsForRevisionData
 	 */
-	public function testGenerateEventsForRevision( $newId, $oldId, $username, $lang, $pages, $expected ) {
-		// this global is used by the code that interprets the namespace part of
-		// titles (Title::getTitleParser), so should be the fake language ;)
-		$this->setMwGlobals( 'wgContLang', Language::factory( $lang ) );
+	public function testGenerateEventsForRevision( $newId, $oldId, $username, $lang, $pages, $title, $expected ) {
+		$this->setMwGlobals( array(
+			// this global is used by the code that interprets the namespace part of
+			// titles (Title::getTitleParser), so should be the fake language ;)
+			'wgContLang' => Language::factory( $lang ),
+			// this one allows Mediawiki:xyz pages to be set as messages
+			'wgUseDatabaseMessages' => true
+		) );
 
 		// pages to be created: templates may be used to ping users (e.g.
 		// {{u|...}}) but if we don't have that template, it just won't work!
-		foreach ( $pages as $title => $text ) {
-			$template = WikiPage::factory( Title::newFromText( $title ) );
-			$template->doEditContent( new WikitextContent( $text ), '' );
+		$pages += array( $title => '' );
+		foreach ( $pages as $pageTitle => $pageText ) {
+			$template = WikiPage::factory( Title::newFromText( $pageTitle ) );
+			$template->doEditContent( new WikitextContent( $pageText ), '' );
 		}
+
+		// force i18n messages to be reloaded (from DB, where a new message
+		// might have been created as page)
+		MessageCache::destroyInstance();
 
 		// grab revision excerpts (didn't include them in this src file because
 		// they can be pretty long)
@@ -209,7 +300,7 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 		// revision texts can be in different languages, where links etc are
 		// different (e.g. User: becomes Benutzer: in German), so let's pretend
 		// the page they belong to is from that language
-		$title = Title::newFromText( 'UTPage' );
+		$title = Title::newFromText( $title );
 		$object = new ReflectionObject( $title );
 		$property = $object->getProperty( 'mDbPageLanguage' );
 		$property->setAccessible( true );
@@ -228,7 +319,7 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 
 		// generate diff between 2 revisions
 		$changes = EchoDiscussionParser::getMachineReadableDiff( $oldText, $newText );
-		$output = EchoDiscussionParser::interpretDiff( $changes, $revision->getUserText() );
+		$output = EchoDiscussionParser::interpretDiff( $changes, $revision->getUserText(), $title );
 
 		// store diff in some local cache var, to circumvent
 		// EchoDiscussionParser::getChangeInterpretationForRevision's attempt to

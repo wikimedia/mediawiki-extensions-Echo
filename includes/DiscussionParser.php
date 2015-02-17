@@ -83,7 +83,7 @@ abstract class EchoDiscussionParser {
 			if ( $notifyUser && $notifyUser->getID() && $notifyUser->getOption( 'echo-notify-show-link' ) ) {
 				// if this is a minor edit, only notify if the agent doesn't have talk page minor edit notification blocked
 				if ( !$revision->isMinor() || !$user->isAllowed( 'nominornewtalk' ) ) {
-					$section = self::detectSectionTitleAndText( $interpretation );
+					$section = self::detectSectionTitleAndText( $interpretation, $title );
 					EchoEvent::create( array(
 						'type' => 'edit-user-talk',
 						'title' => $title,
@@ -105,8 +105,9 @@ abstract class EchoDiscussionParser {
 	 *
 	 * @param $interpretation array Results of self::getChangeInterpretationForRevision
 	 * @return array Array containing section title and text
+	 * @param Title $title
 	 */
-	public static function detectSectionTitleAndText( array $interpretation ) {
+	public static function detectSectionTitleAndText( array $interpretation, Title $title = null ) {
 		$header = $snippet = '';
 		$found = false;
 
@@ -114,11 +115,11 @@ abstract class EchoDiscussionParser {
 			switch( $action['type'] ) {
 				case 'add-comment':
 					$header  = self::extractHeader( $action['full-section'] );
-					$snippet = self::getTextSnippet( self::stripSignature( self::stripHeader( $action['content'] ) ), 150 );
+					$snippet = self::getTextSnippet( self::stripSignature( self::stripHeader( $action['content'] ), $title ), 150 );
 					break;
 				case 'new-section-with-comment':
 					$header  = self::extractHeader( $action['content'] );
-					$snippet = self::getTextSnippet( self::stripSignature( self::stripHeader( $action['content'] ) ), 150 );
+					$snippet = self::getTextSnippet( self::stripSignature( self::stripHeader( $action['content'] ), $title ), 150 );
 					break;
 			}
 			if ( $header ) {
@@ -241,7 +242,7 @@ abstract class EchoDiscussionParser {
 		foreach ( $interpretation as $action ) {
 			if ( $action['type'] == 'add-comment' ) {
 				$fullSection = $action['full-section'];
-				$interestedUsers = array_keys( self::extractSignatures( $fullSection ) );
+				$interestedUsers = array_keys( self::extractSignatures( $fullSection, $revision->getTitle() ) );
 
 				foreach ( $interestedUsers as $userName ) {
 					$user = User::newFromName( $userName );
@@ -291,7 +292,7 @@ abstract class EchoDiscussionParser {
 		}
 
 		$changes = self::getMachineReadableDiff( $prevText, $revision->getText() );
-		$output = self::interpretDiff( $changes, $user->getName() );
+		$output = self::interpretDiff( $changes, $user->getName(), $revision->getTitle() );
 
 		self::$revisionInterpretationCache[$revision->getID()] = $output;
 		return $output;
@@ -304,6 +305,7 @@ abstract class EchoDiscussionParser {
 	 * @todo Expand recognisable actions.
 	 * @param array $changes Output of EchoEvent::getMachineReadableDiff
 	 * @param string $user Username
+	 * @param Title $title
 	 * @return Array of associative arrays.
 	 * Each entry represents an action, which is classified in the 'action' field.
 	 * All types contain a 'content' field except 'unknown'
@@ -327,7 +329,7 @@ abstract class EchoDiscussionParser {
 	 *    These actions are not currently analysed.
 	 * - unknown: Unrecognised change type.
 	 */
-	static function interpretDiff( $changes, $user ) {
+	static function interpretDiff( $changes, $user, Title $title = null ) {
 		// One extra item in $changes for _info
 		$actions = array();
 
@@ -348,7 +350,7 @@ abstract class EchoDiscussionParser {
 				// line in multiline mode.
 				$startSection = preg_match( "/\A" . self::HEADER_REGEX . '/um', $content );
 				$sectionCount = self::getSectionCount( $content );
-				$signedUsers = array_keys( self::extractSignatures( $content ) );
+				$signedUsers = array_keys( self::extractSignatures( $content, $title ) );
 
 				if (
 					count( $signedUsers ) == 1 &&
@@ -485,10 +487,11 @@ abstract class EchoDiscussionParser {
 	 * Strips out a signature if possible.
 	 *
 	 * @param $text string The wikitext to strip
+	 * @param Title $title
 	 * @return string
 	 */
-	static function stripSignature( $text ) {
-		$output = self::getUserFromLine( $text );
+	static function stripSignature( $text, Title $title = null ) {
+		$output = self::getUserFromLine( $text, $title );
 		if ( $output === false ) {
 			$timestampPos = self::getTimestampPosition( $text );
 			return substr( $text, 0, $timestampPos );
@@ -539,10 +542,11 @@ abstract class EchoDiscussionParser {
 	 * @param $text string The text to check.
 	 * @param $user User|bool If set, will only return true if the comment is
 	 *  signed by this user.
+	 * @param Title $title
 	 * @return bool: true or false.
 	 */
-	static function isSignedComment( $text, $user = false ) {
-		$userData = self::getUserFromLine( $text );
+	static function isSignedComment( $text, $user = false, Title $title = null ) {
+		$userData = self::getUserFromLine( $text, $title );
 
 		if ( $userData === false ) {
 			return false;
@@ -605,10 +609,11 @@ abstract class EchoDiscussionParser {
 	 * Finds and extracts signatures in $text
 	 *
 	 * @param $text string The text in which to look for signed comments.
+	 * @param Title $title
 	 * @return array. Associative array, the key is the username, the value
 	 *  is the last signature that was found.
 	 */
-	static function extractSignatures( $text ) {
+	static function extractSignatures( $text, Title $title = null ) {
 		$lines = explode( "\n", $text );
 
 		$output = array();
@@ -619,7 +624,7 @@ abstract class EchoDiscussionParser {
 			++$lineNumber;
 
 			// Look for the last user link on the line.
-			$userData = self::getUserFromLine( $line );
+			$userData = self::getUserFromLine( $line, $title );
 			if ( $userData === false ) {
 				// print "F\t$lineNumber\t$line\n";
 				continue;
@@ -641,11 +646,12 @@ abstract class EchoDiscussionParser {
 	 *  has signed it.
 	 *
 	 * @param $line string The line.
+	 * @param Title $title
 	 * @return bool|array false for none, Array for success.
 	 * - First element is the position of the signature.
 	 * - Second element is the normalised user name.
 	 */
-	static public function getUserFromLine( $line ) {
+	static public function getUserFromLine( $line, Title $title = null ) {
 		global $wgParser;
 
 		// match all title-like excerpts in this line
@@ -689,7 +695,7 @@ abstract class EchoDiscussionParser {
 			// discovered the signature from
 			// don't validate the username - anon (IP) is fine!
 			$user = User::newFromName( $username, false );
-			$sig = $wgParser->preSaveTransform( '~~~', Title::newMainPage(), $user, new ParserOptions() );
+			$sig = $wgParser->preSaveTransform( '~~~', $title ?: Title::newMainPage(), $user, new ParserOptions() );
 
 			// see if we can find this user's generated signature in the content
 			$pos = strrpos( $line, $sig );
