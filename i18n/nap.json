@@ -7,6 +7,7 @@
 	},
 	"prefs-newmessageindicator": "Barra d' 'e mmasciate nove",
 	"echo-new-messages": "Avite mmasciate nove",
+	"tooltip-pt-notifications": "'E notifiche vuoste",
 	"echo-notification-alert": "{{PLURAL:$1|Avvertemiénto ($1)|Avvertemiénte ($1)|100=Avvertemiénte (99+)}}",
 	"echo-notification-message": "{{PLURAL:$1|Mmasciata ($1)|Mmasciate ($1)|100=Mmasciate (99+)}}"
 }

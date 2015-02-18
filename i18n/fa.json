@@ -111,7 +111,7 @@
 	"echo-overlay-link": "همهٔ آگاه‌سازی‌ها",
 	"echo-overlay-title": "<b>آگاه‌سازی‌ها</b>",
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|آگاه‌سازی‌ها}}</b> (نمایش $1 از $2 خوانده‌نشده)",
-	"echo-mark-all-as-read": "نشان‌گذاری همه به‌عنوان خوانده‌شده",
+	"echo-mark-all-as-read": "نشان‌گذاری همه به عنوان خوانده‌شده",
 	"echo-date-today": "امروز",
 	"echo-date-yesterday": "دیروز",
 	"echo-load-more-error": "دریافت نتیجه‌های بیشتر با خطا مواجه شده‌است.",
