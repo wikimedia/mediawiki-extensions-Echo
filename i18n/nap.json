@@ -5,7 +5,18 @@
 			"Chelin"
 		]
 	},
+	"echo-desc": "Sistema 'e notifiche",
+	"prefs-echo": "Mmasciate",
+	"prefs-emailsettings": "Opziune e-mail",
+	"prefs-displaynotifications": "Opziune 'e visualizzazione",
+	"prefs-echosubscriptions": "Famme sapè ncopp'a sti avvenimente",
 	"prefs-newmessageindicator": "Barra d' 'e mmasciate nove",
+	"echo-pref-send-me": "Manna a mme:",
+	"echo-pref-send-to": "Manna a:",
+	"echo-pref-email-format": "Furmato e-mail:",
+	"echo-pref-web": "Web",
+	"echo-pref-email": "E-mail",
+	"echo-pref-email-frequency-never": "Nun me mannà notifeche e-mail",
 	"echo-new-messages": "Avite mmasciate nove",
 	"tooltip-pt-notifications": "'E notifiche vuoste",
 	"echo-notification-alert": "{{PLURAL:$1|Avvertemiénto ($1)|Avvertemiénte ($1)|100=Avvertemiénte (99+)}}",
