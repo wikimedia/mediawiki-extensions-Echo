@@ -36,8 +36,10 @@ Given(/^another user has linked to a page I created from another page$/) do
 end
 
 Given(/^another user writes on my talk page$/) do
-  make_page_with_user_b('User talk:' + get_session_username,
-                        "== Barnstar ==\nHello Selenium, here is a barnstar for all your testing! " + @random_string + "~~~~\n")
+  make_page_with_user_b(
+    'User talk:' + get_session_username,
+    "== Barnstar ==\nHello Selenium, here is a barnstar for all your testing! " +
+    @random_string + "~~~~\n")
 end
 
 Given(/^another user @s me on "(.*?)"$/) do |title|
@@ -81,9 +83,11 @@ Given(/^I am logged in with no notifications$/) do
 end
 
 Then(/^I have no new notifications$/) do
-  expect(on(ArticlePage).flyout_link_element.when_present.class_name).not_to match 'mw-echo-unread-notifications'
+  expect(on(ArticlePage).flyout_link_element.when_present.class_name).not_to
+  match 'mw-echo-unread-notifications'
 end
 
 Then(/^I have new notifications$/) do
-  expect(on(ArticlePage).flyout_link_element.when_present.class_name).to match 'mw-echo-unread-notifications'
+  expect(on(ArticlePage).flyout_link_element.when_present.class_name).to
+  match 'mw-echo-unread-notifications'
 end
