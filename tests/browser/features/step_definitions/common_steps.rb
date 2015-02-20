@@ -1,12 +1,12 @@
-def get_new_username
+def new_username
   "EchoUserNew#{@random_string}"
 end
 
-def get_session_username
+def session_username
   "#{ENV['MEDIAWIKI_USER']}_#{@browser.name}"
 end
 
-def get_session_username_b
+def session_username_b
   'EchoUser'
 end
 
@@ -17,7 +17,7 @@ end
 
 # Note Echo redefines this so that the user is unique to the current browser
 Given(/^I am logged in my non-shared account$/) do
-  username = get_session_username
+  username = session_username
   step 'I am logged in as the user "' + username + '"'
 end
 
@@ -33,7 +33,7 @@ Given(/^I am using user agent "(.+)"$/) do |user_agent|
 end
 
 Given(/^my user rights get changed$/) do
-  @username = get_new_username
+  @username = new_username
   client = on(APIPage).client
   client.log_in(ENV['MEDIAWIKI_USER'], ENV['MEDIAWIKI_PASSWORD'])
   resp = client.query(action: 'query', list: 'users', ususers: @username, ustoken: 'userrights')
