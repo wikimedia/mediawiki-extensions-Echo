@@ -10,10 +10,6 @@ Style/AccessorMethodName:
   Enabled: false
 
 # Offense count: 1
-Style/Documentation:
-  Enabled: false
-
-# Offense count: 1
 # Configuration parameters: AllowedVariables.
 Style/GlobalVars:
   Enabled: false

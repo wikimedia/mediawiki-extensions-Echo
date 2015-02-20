@@ -1,3 +1,4 @@
+# Page Object describing Headings, Flyouts, and Overlay in Echo
 class ArticlePage
   include PageObject
   include URL
