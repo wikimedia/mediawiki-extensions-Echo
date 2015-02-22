@@ -59,6 +59,7 @@
 	"notification-edit-talk-page-with-section": "[[User:$1|$1]] {{GENDER:$1|t'ha lassato}} na mmasciata dint'a \"[[User talk:$2#$3|$4]]\".",
 	"notification-edit-talk-page-flyout2": "$1 {{GENDER:$1|t'ha lassato}} na mmasciata dint' 'a [[User talk:$2#$3|paggena 'e chiacchiera]].",
 	"notification-edit-talk-page-flyout-with-section": "$1 {{GENDER:$1|ha lassato}} na mmasciata int'a paggena 'e chiacchiera d' 'a toja int'a \"[[User talk:$2#$3|$4]]\".",
+	"notification-page-linked": "[[:$2]] fuje {{GENDER:$1|cullegato}} 'a [[:$3]]. [[Special:WhatLinksHere/$2|Vedite tutt' 'e link a sta paggena]].",
 	"echo-notification-alert": "{{PLURAL:$1|Avvertemiénto ($1)|Avvertemiénte ($1)|100=Avvertemiénte (99+)}}",
 	"echo-notification-message": "{{PLURAL:$1|Mmasciata ($1)|Mmasciate ($1)|100=Mmasciate (99+)}}"
 }
