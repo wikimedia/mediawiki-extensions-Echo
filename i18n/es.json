@@ -59,7 +59,7 @@
 	"echo-error-preference": "Error: no se pudo establecer la preferencia del usuario.",
 	"echo-error-token": "Error: no se pudo recuperar la ficha de usuario.",
 	"notifications": "Notificaciones",
-	"tooltip-pt-notifications": "Mis notificaciones",
+	"tooltip-pt-notifications": "Tus notificaciones",
 	"echo-specialpage": "Notificaciones",
 	"echo-anon": "[$1 Crea una cuenta] o [$2 accede] para recibir notificaciones.",
 	"echo-none": "No tienes notificaciones.",
