@@ -119,5 +119,13 @@
 	"echo-email-batch-body-intro-daily": "Ciao $1,\neccoti una sintesi delle attività di oggi su {{SITENAME}}.",
 	"echo-email-batch-body-intro-weekly": "Ciao $1,\neccoti una sintesi delle attività di questa settimana su {{SITENAME}}.",
 	"echo-email-batch-link-text-view-all-notifications": "Vedi tutte le notifiche",
-	"echo-rev-deleted-text-view": "Questa versione della pagina è stata soppressa"
+	"echo-rev-deleted-text-view": "Questa versione della pagina è stata soppressa",
+	"apihelp-echomarkread-description": "Contrassegna tutte le notifiche come lette per l'utente attuale.",
+	"apihelp-echomarkread-param-list": "Un elenco di ID notifiche da contrassegnare come lette.",
+	"apihelp-echomarkread-param-all": "Se impostato, contrassegna tutte le notifiche dell'utente come lette.",
+	"apihelp-echomarkread-param-sections": "Un elenco di sezioni da contrassegnare come lette.",
+	"apihelp-echomarkread-example-1": "Contrassegna la notifica 8 come letta",
+	"apihelp-echomarkread-example-2": "Contrassegna tutte le notifiche come lette",
+	"apihelp-query+notifications-example-1": "Elenco notifiche",
+	"apihelp-query+notifications-example-2": "Elenco notifiche, raggruppate per sezione, con i conteggi"
 }
