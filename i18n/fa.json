@@ -12,7 +12,8 @@
 			"درفش کاویانی",
 			"فلورانس",
 			"Alirezaaa",
-			"Bersam"
+			"Bersam",
+			"Saeidpourbabak"
 		]
 	},
 	"echo-desc": "سامانهٔ آگاه‌سازی‌ها",
@@ -85,7 +86,7 @@
 	"notification-user-rights-add": "شما در حال حاضر عضو  {{PLURAL:$2| این گروه|این گروه‌ها}} هستید:$1",
 	"notification-user-rights-remove": "شما دیگر عضو {{PLURAL:$2|این گروه|این گروه‌ها}} نیستید: $1",
 	"notification-new-user": "به {{SITENAME}} خوش‌آمدید، $1! خوشحالیم که شما اینجا هستید.",
-	"notification-reverted2": "{{PLURAL:$4|ویرایش|ویرایش‌های}} شما در [[:$2]] توسط [[User:$1|$1]] واگردانی شده‌اند. $3",
+	"notification-reverted2": "{{PLURAL:$4|ویرایش|ویرایش‌های}} شما در [[:$2]] توسط [[User:$1|$1]] خنثی‌سازی شده است. $3",
 	"notification-reverted-flyout2": "{{PLURAL:$4|ویرایش|ویرایش‌های}} شما بر روی $2 توسط $1 واگردانی {{GENDER:$1|شده‌است}}. $3",
 	"notification-edit-talk-page-email-subject2": "شما یک پیام تازه از طرف $1 در صفحهٔ بحث {{SITENAME}} دارید.",
 	"notification-edit-talk-page-email-batch-body2": "$1 پیامی بر روی صفحهٔ بحثتان {{GENDER:$1|گذاشته‌است}}:",

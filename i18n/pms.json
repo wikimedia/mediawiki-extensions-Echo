@@ -32,6 +32,7 @@
 	"echo-category-title-mention": "{{PLURAL:$1|Mension}}",
 	"echo-category-title-other": "{{PLURAL:$1|Àutr}}",
 	"echo-category-title-system": "{{PLURAL:$1|Sistema}}",
+	"echo-category-title-user-rights": "{{PLURAL:$1|Modìfica|Modìfiche}} dij drit dj'utent",
 	"echo-pref-tooltip-edit-user-talk": "Aviseme cand cheidun a pùblica un mëssagi o a rëspond su mia pàgina ëd ciaciarade.",
 	"echo-pref-tooltip-article-linked": "Aviseme cand cheidun a buta na liura a na pàgina che mi i l'hai creà da na pàgina d'artìcol.",
 	"echo-pref-tooltip-reverted": "Aviseme cand cheidun a anula na modìfica che mi i l'hai fàit, an dovrand l'utiss d'anulament o d'artorn andaré.",
