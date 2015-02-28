@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Joetaras"
+			"Joetaras",
+			"C.R."
 		]
 	},
 	"echo-desc": "Sisteme de notifiche",
@@ -61,7 +62,7 @@
 	"notification-page-linked-flyout": "[[:$2]] ere {{GENDER:$1|appondate}} da [[:$3]].",
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|ave commendate}} sus a \"[[$3|$2]]\" sus a pàgene de le 'ngazzaminde \"$4\"",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] {{GENDER:$1|ave mannate}} 'n'argomende nuève \"$2\" sus a [[$3]]",
-	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] {{GENDER:$1|y'ha mannate}} 'nu messàgge: \"[[$3#$2|$2]]\"",
+	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] {{GENDER:$1|t'ha mannate}} 'nu messàgge: \"[[$3#$2|$2]]\"",
 	"notification-add-comment-yours2": "[[User:$1|$1]] {{GENDER:$1|ave commendate}} sus a \"[[$3#$2|$2]]\" sus 'a pàgene de le 'ngazzaminde tune",
 	"notification-mention": "[[User:$1|$1]] {{GENDER:$1|t'ave menzionate}} sus a pàgene de le 'ngazzaminde $5 jndr'à \"[[:$3#$2|$4]]\".",
 	"notification-mention-flyout": "$1 {{GENDER:$1|t'ave menzionate}} sus a pàgene de le 'ngazzaminde $5 jndr'à \"[[:$3#$2|$4]]\".",
