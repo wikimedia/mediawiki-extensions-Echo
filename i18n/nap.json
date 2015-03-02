@@ -64,7 +64,19 @@
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|lassaje nu commento}} ncopp'a \"[[$3|$2]]\" dint' 'a \"$4\" paggena 'e chiacchiera.",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] {{GENDER:$1|ave mannato}} n'argomento nuovo \"$2\" ncopp'a [[$3]].",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] {{GENDER:$1|t'a mannato}} na mmasciata: \"[[$3#$2|$2]]\".",
-	"notification-add-comment-yours2": "[[User:$1|$1]] {{GENDER:$1|lassaje nu commento}} ncopp'a \"[[$3|$2]]\" dint' 'a paggena 'e chiacchiera vosta.",
+	"notification-add-comment-yours2": "[[User:$1|$1]] {{GENDER:$1|lassaje nu commento}} ncopp'a \"[[$3#$2|$2]]\" dint' 'a paggena 'e chiacchiera vosta.",
+	"notification-mention": "[[User:$1|$1]] {{GENDER:$1|facette 'o nomme vuosto}} dint' 'a $5 paggena 'e chiacchiera int'a \"[[:$3#$2|$4]]\".",
+	"notification-new-user": "Bemmenuto/a a {{SITENAME}}, $1! Nuje simmo cuntente 'e te veré ccà.",
+	"notification-page-linked-email-subject": "'A paggena tuja fuje cullegata ncopp'a {{SITENAME}}",
+	"echo-email-batch-body-default": "È arrevata na notifica nova.",
 	"echo-notification-alert": "{{PLURAL:$1|Avvertemiénto ($1)|Avvertemiénte ($1)|100=Avvertemiénte (99+)}}",
-	"echo-notification-message": "{{PLURAL:$1|Mmasciata ($1)|Mmasciate ($1)|100=Mmasciate (99+)}}"
+	"echo-notification-message": "{{PLURAL:$1|Mmasciata ($1)|Mmasciate ($1)|100=Mmasciate (99+)}}",
+	"echo-notification-alert-text-only": "Avvise",
+	"echo-notification-message-text-only": "Mmasciate",
+	"echo-overlay-link": "Tutt' 'e notifiche vuoste",
+	"echo-overlay-title": "<b>Notifiche</b>",
+	"echo-mark-all-as-read": "Nzegna tutte cumme fossero lette",
+	"echo-date-today": "Ogge",
+	"echo-date-yesterday": "Aiere",
+	"echo-email-batch-link-text-view-all-notifications": "Vide tutte 'e notifiche"
 }
