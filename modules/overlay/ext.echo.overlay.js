@@ -297,7 +297,7 @@
 				$li = $( '<li>' )
 					.appendTo( $ul );
 
-				$( '<a class="mw-ui-progressive">' )
+				$( '<a class="mw-ui-anchor mw-ui-progressive">' )
 					.on( 'click', function() {
 						var $this = $( this );
 						$ul.find( 'a' ).removeClass( 'mw-ui-quiet' ).addClass( 'mw-ui-active' );
