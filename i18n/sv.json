@@ -12,7 +12,8 @@
 			"Lokal Profil",
 			"MagnusA",
 			"Paracel63",
-			"Hangsna"
+			"Hangsna",
+			"NH"
 		]
 	},
 	"echo-desc": "Aviseringssystem",
@@ -75,10 +76,10 @@
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] {{GENDER:$1|la in}} ett nytt ämne \"$2\" på [[$3]].",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] {{GENDER:$1|skickade}} ett meddelande till dig: \"[[$3#$2|$2]]\".",
 	"notification-add-comment-yours2": "[[User:$1|$1]] {{GENDER:$1|kommenterade}} om \"[[$3#$2|$2]]\" på din diskussionssida.",
-	"notification-mention": "[[User:$1|$1]] nämnde dig på diskussionssidan för $5 i \"[[:$3#$2|$4]]\".",
-	"notification-mention-flyout": "$1 {{GENDER:$1|nämnde}} dig på diskussionssidan för $5 i \"[[:$3#$2|$4]]\".",
-	"notification-mention-nosection": "[[User:$1|$1]] {{GENDER:$1|nämnde}} dig på [[:$3|diskussionssidan för $2]].",
-	"notification-mention-nosection-flyout": "$1 {{GENDER:$1|nämnde}} dig på [[:$3|diskussionssidan för $2]].",
+	"notification-mention": "[[User:$1|$1]] nämnde dig på [[$3]] i avsnittet \"[[:$3#$2|$4]]\".",
+	"notification-mention-flyout": "[[User:$1|$1]] nämnde dig på [[$3]] i avsnittet \"[[:$3#$2|$4]]\".",
+	"notification-mention-nosection": "[[User:$1|$1]] nämnde dig på [[$3]].",
+	"notification-mention-nosection-flyout": "[[User:$1|$1]] nämnde dig på [[$3]].",
 	"notification-user-rights": "Dina användarrättigheter [[Special:Log/rights/$1|{{GENDER:$1|ändrades}}]] av [[User:$1|$1]]. $2. [[Special:ListGroupRights|Läs mer]]",
 	"notification-user-rights-flyout": "Dina användarrättigheter {{GENDER:$1|ändrades}} av $1. $2. [[Special:ListGroupRights|Läs mer]]",
 	"notification-user-rights-add": "Du är nu medlem i {{PLURAL:$2|denna grupp|dessa grupper}}: $1",
