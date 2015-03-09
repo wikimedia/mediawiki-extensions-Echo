@@ -1,4 +1,7 @@
 When(/^I click the notification flyout button$/) do
+  # Sleep works around Chrome 40 issue that began
+  # ~2015-03-04
+  sleep 1
   on(ArticlePage).flyout_link_element.when_present.click
 end
 
