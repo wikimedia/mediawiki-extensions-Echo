@@ -20,6 +20,7 @@
 	"echo-pref-email-format-html": "<i lang=\"en\" xml:lang=\"en\" dir=\"ltr\" title=\"PHP Hypertext Preprocessor</i>",
 	"echo-pref-email-format-plain-text": "Eijfache Täx",
 	"echo-learn-more": "Mieh lässe",
+	"echo-new-messages": "Do häs neu Nohreeschte udder Meddeilonge",
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Nohreesch|Nohreeschte|Nohreesch}} op der Klaafsigg",
 	"echo-no-agent": "[Keine]",
 	"echo-no-title": "[Kein Sigg]",
