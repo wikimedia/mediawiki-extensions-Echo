@@ -68,6 +68,7 @@
 	"notification-mention": "[[User:$1|$1]] {{GENDER:$1|facette 'o nomme vuosto}} dint' 'a $5 paggena 'e chiacchiera int'a \"[[:$3#$2|$4]]\".",
 	"notification-new-user": "Bemmenuto/a a {{SITENAME}}, $1! Nuje simmo cuntente 'e te veré ccà.",
 	"notification-page-linked-email-subject": "'A paggena tuja fuje cullegata ncopp'a {{SITENAME}}",
+	"echo-email-subject-default": "Notifica nova ncopp'a {{SITENAME}}",
 	"echo-email-batch-body-default": "È arrevata na notifica nova.",
 	"echo-notification-alert": "{{PLURAL:$1|Avvertemiénto ($1)|Avvertemiénte ($1)|100=Avvertemiénte (99+)}}",
 	"echo-notification-message": "{{PLURAL:$1|Mmasciata ($1)|Mmasciate ($1)|100=Mmasciate (99+)}}",
