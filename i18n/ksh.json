@@ -48,6 +48,11 @@
 	"notification-link-text-view-page": "De Sigg belohre",
 	"notification-link-text-view-edit": "De Veränderong belohre",
 	"notification-new-user": "$1, welkumme op {{GENDER:Dative|{{SITENAME}}}}!",
+	"notification-mention-email-subject": "{{GENDER:$2|Dä|Dat|Dä Metmaacher|De|Dat}} hät Desch {{GRAMMAR:em|{{ucfirst:{{SITENAME}}}}}} jenannt.",
+	"notification-mention-email-batch-body": "{{GENDER:$1|Dä|Dat|Dä Metmaacher|De|Dat}} hät Desch op dä Sigg „$4“ em Affschnet „$3“ jenannt.",
+	"notification-mention-nosection-email-batch-body": "{{GENDER:$1|Dä|Dat|Dä Metmaacher|De|Dat}} hät Desch op dä Sigg „$2“ jenannt.",
+	"notification-user-rights-email-subject": "Ding Rääschde als Metmaacher {{GRAMMAR:em|{{ucfirst:{{SITENAME}}}}}} sin verändert woode.",
+	"notification-user-rights-email-batch-body": "Ding Rääschde als Metmaacher sin {{GENDER:$2|vum|vum|vumm Metmaacher|vun dä|vum}} [[User:$1|$1]] verändert woode. $2.",
 	"echo-email-subject-default": "En neue Medeilong op {{GRAMMAR:dative|{{ucfirst:{{SITENAME}}}}}}",
 	"echo-email-body-default": "Do häss_en neue Medeilong op {{GRAMMAR:dative|{{ucfirst:{{SITENAME}}}}}}:\n\n$1",
 	"echo-email-batch-body-default": "Do häss_en neuje Medeilong.",
@@ -58,7 +63,10 @@
 	"echo-date-today": "Hück",
 	"echo-date-yesterday": "Jäßtere",
 	"echo-load-more-error": "Ene Fähler es opjetrodde beim Versohch, mieh ze holle vun dämm wadd_erus kohm.",
+	"echo-email-batch-subject-daily": "Do häs {{PLURAL:$2|en neue Meddeilong|$2 neue Meddeilong|kein neue Meddeilonge}} {{GRAMMAR:em|{{ucfirst:{{SITENAME}}}}}}.",
+	"echo-email-batch-subject-weekly": "Do häs en dä Woch {{PLURAL:$2|en neue Meddeilong|$2 neue Meddeilong|kein neue Meddeilonge}} {{GRAMMAR:em|{{ucfirst:{{SITENAME}}}}}}.",
 	"echo-email-batch-link-text-view-all-notifications": "Alle Meddeilonge belohre",
+	"echo-rev-deleted-text-view": "Heh di Väsjohn vun dä Sigg es ongerdrök woode.",
 	"apihelp-query+notifications-example-1": "Meddeilonge opleßte",
 	"apihelp-query+notifications-example-2": "Meddeilonge opleßte, noh Affschnedde, met der Aanzahl"
 }
