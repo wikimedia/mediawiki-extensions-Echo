@@ -20,7 +20,8 @@
 			"Toliño",
 			"Urhixidur",
 			"రహ్మానుద్దీన్",
-			"Liuxinyu970226"
+			"Liuxinyu970226",
+			"Purodha"
 		]
 	},
 	"echo-desc": "{{desc|name=Echo|url=http://www.mediawiki.org/wiki/Extension:Echo}} The [https://www.mediawiki.org/wiki/Help:Notifications Mediawiki help] page gives notes on the terminology in this extension.",
@@ -124,7 +125,7 @@
 	"echo-date-today": "The header text for today's notification section.\n{{Identical|Today}}",
 	"echo-date-yesterday": "The header text for yesterday's notification section.\n{{Identical|Yesterday}}",
 	"echo-load-more-error": "Error message for errors in loading more notifications",
-	"notification-edit-talk-page-bundle": "Bundled message for edit-user-talk notification. Parameters:\n* $1 - the username who performs the action, which can be used for gender support\n* $2 - the username\n* $3 - the count of other action performers, could be number or {{msg-mw|Echo-notification-count}}. e.g. 7 others or 99+ others\n* $4 - a number used for plural support\nSee also:\n* {{msg-mw|Notification-edit-talk-page2}}\n* {{msg-mw|Notification-edit-talk-page-email-batch-body2}}\n* {{msg-mw|Notification-edit-talk-page-email-subject2}}",
+	"notification-edit-talk-page-bundle": "Bundled message for edit-user-talk notification. Parameters:\n* $1 - the name of the user who performed the action, which can be used for gender support\n* $2 - the name of the user being addressed\n* $3 - the count of other action performers, could be a number or {{msg-mw|Echo-notification-count}}. e.g. \"7\" or \"99+\"\n* $4 - a number used for plural support relating to $3 (likely identical to $3 it that is a number, and 100 otherwise)\nSee also:\n* {{msg-mw|Notification-edit-talk-page2}}\n* {{msg-mw|Notification-edit-talk-page-email-batch-body2}}\n* {{msg-mw|Notification-edit-talk-page-email-subject2}}",
 	"notification-page-linked-bundle": "Bundled message for page-linked notification. Parameters:\n* $1 - the username who performs the action, which can be used for gender support\n* $2 - the page title\n* $3 - the page linked from\n* $4 - the count of other action performers, could be number or {{msg-mw|Echo-notification-count}}. e.g. 7 others or 99+ others\n* $5 - a number used for plural support (numeric version of $4)\nSee also:\n* {{msg-mw|Notification-page-linked}}\n* {{msg-mw|Notification-page-linked-flyout}}\n* {{msg-mw|Notification-page-linked-email-batch-body}}\n* {{msg-mw|Notification-page-linked-email-subject}}",
 	"notification-edit-user-talk-email-batch-bundle-body": "Bundled message for edit-user-talk email digest notification.  Parameters:\n* $1 - the username who performs the action, which can be used for gender support\n* $2 - the count of other action performers, could be number or {{msg-mw|echo-notification-count}}\n* $3 - a number used for plural support\n\nSee also:\n* {{msg-mw|Notification-edit-talk-page2}}\n* {{msg-mw|Notification-edit-talk-page-flyout2}}\n* {{msg-mw|Notification-edit-talk-page-email-batch-body2}}\n* {{msg-mw|Notification-edit-talk-page-email-subject2}}",
 	"notification-page-linked-email-batch-bundle-body": "Bundled message for page-linked email digest notification.  Parameters:\n* $1 - the username who performs the action, which can be used for gender support\n* $2 - the link-to page title\n* $3 - the link-from page title\n* $4 - the count of other link-from page title, can be number or {{msg-mw|echo-notification-count}}\n* $5 - a number used for plural support (numeric version of $4)\n\nSee also:\n* {{msg-mw|Notification-page-linked}}\n* {{msg-mw|Notification-page-linked-flyout}}\n* {{msg-mw|Notification-page-linked-email-batch-body}}\n* {{msg-mw|Notification-page-linked-email-subject}}",
