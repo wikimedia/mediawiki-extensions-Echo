@@ -69,6 +69,7 @@
 	"notification-mention-flyout": "$1 {{GENDER:$1|ave fatto 'o nomme}} vuosto dint' 'a $5 paggena 'e chiacchiera 'e \"[[:$3#$2|$4]]\".",
 	"notification-mention-nosection": "[[User:$1|$1]] {{GENDER:$1|ave fatto 'o nomme}} vuoto int' 'a [[:$3|$2 paggena 'e chiacchiera]].",
 	"notification-mention-nosection-flyout": "$1 {{GENDER:$1|ha fatto 'o nomme}} vuosto dint' 'a [[:$3|$2 paggena 'e chiacchiera]].",
+	"notification-user-rights-add": "Mo' site membre 'e {{PLURAL:$2|stu gruppo|sti gruppe}}: $1",
 	"notification-new-user": "Bemmenuto/a a {{SITENAME}}, $1! Nuje simmo cuntente 'e te veré ccà.",
 	"notification-page-linked-email-subject": "'A paggena tuja fuje cullegata ncopp'a {{SITENAME}}",
 	"echo-email-subject-default": "Notifica nova ncopp'a {{SITENAME}}",

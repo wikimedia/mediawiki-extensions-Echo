@@ -3,7 +3,8 @@
 		"authors": [
 			"Elisardojm",
 			"Toliño",
-			"Vivaelcelta"
+			"Vivaelcelta",
+			"Banjo"
 		]
 	},
 	"echo-desc": "Sistema de notificacións",
@@ -114,5 +115,6 @@
 	"echo-email-batch-body-intro-daily": "Boas, $1:\nVelaquí ten un resumo da actividade de hoxe en {{SITENAME}}",
 	"echo-email-batch-body-intro-weekly": "Boas, $1:\nVelaquí ten un resumo da actividade da semana en {{SITENAME}}",
 	"echo-email-batch-link-text-view-all-notifications": "Ollar todas as notificacións",
-	"echo-rev-deleted-text-view": "Eliminouse a revisión da páxina"
+	"echo-rev-deleted-text-view": "Eliminouse a revisión da páxina",
+	"apihelp-echomarkread-example-2": "Marcar tódalas notificacións como lidas"
 }
