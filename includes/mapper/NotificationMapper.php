@@ -6,6 +6,22 @@
 class EchoNotificationMapper extends EchoAbstractMapper {
 
 	/**
+	 * @var EchoTargetPageMapper
+	 */
+	protected $targetPageMapper;
+
+	public function __construct(
+		MWEchoDbFactory $dbFactory = null,
+		EchoTargetPageMapper $targetPageMapper = null
+	) {
+		parent::__construct( $dbFactory );
+		if ( $targetPageMapper === null ) {
+			$targetPageMapper = new EchoTargetPageMapper( $this->dbFactory );
+		}
+		$this->targetPageMapper = $targetPageMapper;
+	}
+
+	/**
 	 * Insert a notification record
 	 * @param EchoNotification
 	 * @return null
@@ -175,17 +191,37 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 			)
 		);
 
-		$data = array();
 
-		if ( $res ) {
-			foreach ( $res as $row ) {
-				try { 
-					$data[$row->event_id] = EchoNotification::newFromRow( $row );
-				} catch ( Exception $e ) {
-					$id = isset( $row->event_id ) ? $row->event_id : 'unknown event';
-					wfDebugLog( 'Echo', __METHOD__ . ": Failed initializing event: $id" );
-					MWExceptionHandler::logException( $e );
+		// query failure of some sort
+		if ( !$res ) {
+			return array();
+		}
+
+		$events = array();
+		foreach ( $res as $row ) {
+			$events[$row->event_id] = $row;
+		}
+
+		// query returned no events
+		if ( !$events ) {
+			return array();
+		}
+
+		$targetPages = $this->targetPageMapper->fetchByUserPageId( $user, array_keys( $events ) );
+
+		$data = array();
+		foreach ( $events as $eventId => $row ) {
+			try {
+				if ( isset( $targetPages[$row->event_id] ) ) {
+					$targets = $targetPages[$row->event_id];
+				} else {
+					$targets = null;
 				}
+				$data[$row->event_id] = EchoNotification::newFromRow( $row, $targets );
+			} catch ( Exception $e ) {
+				$id = isset( $row->event_id ) ? $row->event_id : 'unknown event';
+				wfDebugLog( 'Echo', __METHOD__ . ": Failed initializing event: $id" );
+				MWExceptionHandler::logException( $e );
 			}
 		}
 		return $data;

@@ -23,8 +23,10 @@ class EchoTargetPageMapperTest extends MediaWikiTestCase {
 		$res = $targetMapper->fetchByUserPageId( User::newFromId( 1 ), 2 );
 		$this->assertTrue( is_array( $res ) );
 		$this->assertCount( 2, $res );
-		foreach ( $res as $row ) {
-			$this->assertInstanceOf( 'EchoTargetPage', $row );
+		foreach ( $res as $targetPages ) {
+			$this->assertTrue( is_array( $targetPages ) );
+			$this->assertCount( 1, $targetPages );
+			$this->assertInstanceOf( 'EchoTargetPage', reset( $targetPages ) );
 		}
 	}
 

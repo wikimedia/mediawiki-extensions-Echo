@@ -1,0 +1,7 @@
+March, 2015
+-----------
+
+* Echo events now support multiple target pages.  As a result The api output of individual
+ notifications within api.php?action=query&meta=notifications no longer has a 'targetpage'
+ property.  This has been replaced with a 'targetpages' property which is the same as
+ 'targetpage' was, but now as an array.

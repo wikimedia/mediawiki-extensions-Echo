@@ -14,7 +14,7 @@ class EchoNotificationTest extends MediaWikiTestCase {
 			wfTimestamp( TS_MW, $row['notification_timestamp'] )
 		);
 		$this->assertInstanceOf( 'EchoEvent', $notif->getEvent() );
-		$this->assertNull( $notif->getTargetPage() );
+		$this->assertNull( $notif->getTargetPages() );
 
 		// Provide a read timestamp
 		$row['notification_read_timestamp'] = time() + 1000;
@@ -25,9 +25,13 @@ class EchoNotificationTest extends MediaWikiTestCase {
 			wfTimestamp( TS_MW, $row['notification_read_timestamp'] )
 		);
 
-		$row += $this->mockTargetPageRow();
-		$notif = EchoNotification::newFromRow( (object)$row );
-		$this->assertInstanceOf( 'EchoTargetPage', $notif->getTargetPage() );
+		$notif = EchoNotification::newFromRow( (object)$row, array(
+			EchoTargetPage::newFromRow( (object)$this->mockTargetPageRow() )
+		) );
+		$this->assertGreaterThan( 0, count( $notif->getTargetPages() ) );
+		foreach ( $notif->getTargetPages() as $targetPage ) {
+			$this->assertInstanceOf( 'EchoTargetPage', $targetPage );
+		}
 	}
 
 	/**

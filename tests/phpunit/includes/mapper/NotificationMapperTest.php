@@ -53,7 +53,7 @@ class EchoNotificationMapperTest extends MediaWikiTestCase {
 		$this->assertEmpty( $res );
 
 		// Successful select
-		$dbResult = array(
+		$notifDbResult = array(
 			(object)array (
 				'event_id' => 1,
 				'event_type' => 'test_event',
@@ -70,11 +70,25 @@ class EchoNotificationMapperTest extends MediaWikiTestCase {
 				'notification_bundle_display_hash' => 'testdisplayhash'
 			)
 		);
-		$notifMapper = new EchoNotificationMapper( $this->mockMWEchoDbFactory( array ( 'select' => $dbResult ) ) );
+
+		$tpDbResult = array(
+			(object)array(
+				'etp_user' => 1, // userid
+				'etp_page' => 7, // pageid
+				'etp_event' => 1, // eventid
+			),
+		);
+
+		$notifMapper = new EchoNotificationMapper( $this->mockMWEchoDbFactory( array ( 'select' => $notifDbResult ) ) );
 		$res = $notifMapper->fetchByUser( $this->mockUser(), 10, '', array() );
 		$this->assertEmpty( $res  );
 
-		$notifMapper = new EchoNotificationMapper( $this->mockMWEchoDbFactory( array ( 'select' => $dbResult ) ) );
+		$notifMapper = new EchoNotificationMapper(
+			$this->mockMWEchoDbFactory( array ( 'select' => $notifDbResult ) ),
+			new EchoTargetPageMapper(
+				$this->mockMWEchoDbFactory( array( 'select' => $tpDbResult ) )
+			)
+		);
 		$res = $notifMapper->fetchByUser( $this->mockUser(), 10, '', array( 'test_event' ) );
 		$this->assertTrue( is_array( $res ) );
 		$this->assertGreaterThan( 0, count( $res ) );

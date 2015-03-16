@@ -115,6 +115,7 @@ class EchoHooks {
 		if ( $updater->getDB()->getType() === 'sqlite' ) {
 			$updater->modifyExtensionField( 'echo_event', 'event_agent', "$dir/db_patches/patch-event_agent-split.sqlite.sql" );
 			$updater->modifyExtensionField( 'echo_event', 'event_variant', "$dir/db_patches/patch-event_variant_nullability.sqlite.sql" );
+			$updater->addExtensionField( 'echo_target_page', 'etp_id', "$dir/db_patches/patch-multiple_target_pages.sqlite.sql" );
 			// There is no need to run the patch-event_extra-size or patch-event_agent_ip-size because
 			// sqlite ignores numeric arguments in parentheses that follow the type name (ex: VARCHAR(255))
 			// see http://www.sqlite.org/datatype3.html Section 2.2 for more info
@@ -123,6 +124,7 @@ class EchoHooks {
 			$updater->modifyExtensionField( 'echo_event', 'event_variant', "$dir/db_patches/patch-event_variant_nullability.sql" );
 			$updater->modifyExtensionField( 'echo_event', 'event_extra', "$dir/db_patches/patch-event_extra-size.sql" );
 			$updater->modifyExtensionField( 'echo_event', 'event_agent_ip', "$dir/db_patches/patch-event_agent_ip-size.sql" );
+			$updater->addExtensionField( 'echo_target_page', 'etp_id', "$dir/db_patches/patch-multiple_target_pages.sql" );
 		}
 
 		$updater->addExtensionField( 'echo_notification', 'notification_bundle_base',
@@ -663,10 +665,7 @@ class EchoHooks {
 			$mapper = new EchoTargetPageMapper();
 			$targetPages = $mapper->fetchByUserPageId( $user, $title->getArticleID() );
 			if ( $targetPages ) {
-				$eventIds = array();
-				foreach ( $targetPages as $targetPage ) {
-					$eventIds[] = $targetPage->getEventId();
-				}
+				$eventIds = array_keys( $targetPages );
 				$notifUser = MWEchoNotifUser::newFromUser( $user );
 				$notifUser->markRead( $eventIds );
 			}

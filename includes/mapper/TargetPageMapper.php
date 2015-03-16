@@ -16,11 +16,13 @@ class EchoTargetPageMapper extends EchoAbstractMapper {
 	);
 
 	/**
-	 * Fetch an EchoTargetPage instance by user & page_id
+	 * Fetch EchoTargetPage instances by user & page_id.  The resulting
+	 * array is indexed by the event id. Each entry contains an array
+	 * of EchoTargetPage instances.
 	 *
 	 * @param User $user
-	 * @param int $pageId
-	 * @return EchoTargetPage[]|boolean
+	 * @param int|int[] $pageId One or more page ids to fetch target pages of
+	 * @return EchoTargetPage[][]|boolean
 	 */
 	public function fetchByUserPageId( User $user, $pageId ) {
 		$dbr = $this->dbFactory->getEchoDb( DB_SLAVE );
@@ -37,7 +39,7 @@ class EchoTargetPageMapper extends EchoAbstractMapper {
 		if ( $res ) {
 			$targetPages = array();
 			foreach ( $res as $row ) {
-				$targetPages[] = EchoTargetPage::newFromRow( $row );
+				$targetPages[$row->etp_event][] = EchoTargetPage::newFromRow( $row );
 			}
 			return $targetPages;
 		} else {

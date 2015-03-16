@@ -13,10 +13,12 @@ class EchoNotification extends EchoAbstractEntity {
 	protected $event;
 
 	/**
-	 * The target page object for the notification if there is one
-	 * @var EchoTargetPage|null
+	 * The target page object for the notification if there is one. Null means
+	 * the information has not been loaded.
+	 *
+	 * @var EchoTargetPage[]|null
 	 */
-	protected $targetPage;
+	protected $targetPages;
 
 	/**
 	 * @var string
@@ -133,20 +135,14 @@ class EchoNotification extends EchoAbstractEntity {
 		// Create a target page object if specified by event
 		$event = $this->event;
 		$user = $this->user;
-		if ( $event->getExtraParam( 'target-page' ) ) {
-			$notifMapper->attachListener( 'insert', 'add-target-page', function() use ( $event, $user, $eventIds ) {
-				$targetPageId = $event->getExtraParam( 'target-page' );
-				// Make sure the target-page id is a valid id
-				$title = Title::newFromID( $targetPageId );
-				// Try master if there is no match
-				if ( !$title ) {
-					$title = Title::newFromID( $targetPageId, Title::GAID_FOR_UPDATE );
+		$targetPages = self::resolveTargetPages( $event->getExtraParam( 'target-page' ) );
+		if ( $targetPages ) {
+			$notifMapper->attachListener( 'insert', 'add-target-page', function() use ( $event, $user, $eventIds, $targetPages ) {
+				$targetMapper = new EchoTargetPageMapper();
+				if ( $eventIds ) {
+					$targetMapper->deleteByUserEvents( $user, $eventIds );
 				}
-				if ( $title ) {
-					$targetMapper = new EchoTargetPageMapper();
-					if ( $eventIds ) {
-						$targetMapper->deleteByUserEvents( $user, $eventIds );
-					}
+				foreach ( $targetPages as $title ) {
 					$targetPage = EchoTargetPage::create( $user, $title, $event );
 					if ( $targetPage ) {
 						$targetMapper->insert( $targetPage );
@@ -173,11 +169,38 @@ class EchoNotification extends EchoAbstractEntity {
 	}
 
 	/**
+	 * @param int[]|int|false $targetPageIds
+	 * @return Title[]
+	 */
+	protected static function resolveTargetPages( $targetPageIds ) {
+		if ( !$targetPageIds ) {
+			return array();
+		}
+		if ( !is_array( $targetPageIds ) ) {
+			$targetPageIds = array( $targetPageIds );
+		}
+		$result = array();
+		foreach ( $targetPageIds as $targetPageId ) {
+			// Make sure the target-page id is a valid id
+			$title = Title::newFromID( $targetPageId );
+			// Try master if there is no match
+			if ( !$title ) {
+				$title = Title::newFromID( $targetPageId, Title::GAID_FOR_UPDATE );
+			}
+			if ( $title ) {
+				$result[] = $title;
+			}
+		}
+		return $result;
+	}
+
+	/**
 	 * Load a notification record from std class
 	 * @param stdClass
+	 * @param EchoTargetPage[]|null An array of EchoTargetPage instances, or null if not loaded.
 	 * @return EchoNotification
 	 */
-	public static function newFromRow( $row ) {
+	public static function newFromRow( $row, $targetPages = null ) {
 		$notification = new EchoNotification();
 
 		if ( property_exists( $row, 'event_type' ) ) {
@@ -186,9 +209,7 @@ class EchoNotification extends EchoAbstractEntity {
 			$notification->event = EchoEvent::newFromID( $row->notification_event );
 		}
 
-		if ( property_exists( $row, 'etp_event' ) && $row->etp_event ) {
-			$notification->targetPage = EchoTargetPage::newFromRow( $row );
-		}
+		$notification->targetPages = $targetPages;
 		$notification->user = User::newFromId( $row->notification_user );
 		// Notification timestamp should never be empty
 		$notification->timestamp = wfTimestamp( TS_MW, $row->notification_timestamp );
@@ -276,10 +297,12 @@ class EchoNotification extends EchoAbstractEntity {
 	}
 
 	/**
-	 * Getter method
-	 * @return EchoTargetPage|null
+	 * Getter method.  Returns an array of EchoTargetPages, or null if they have
+	 * not been loaded.
+	 *
+	 * @return EchoTargetPage[]|null
 	 */
-	public function getTargetPage() {
-		return $this->targetPage;
+	public function getTargetPages() {
+		return $this->targetPages;
 	}
 }
