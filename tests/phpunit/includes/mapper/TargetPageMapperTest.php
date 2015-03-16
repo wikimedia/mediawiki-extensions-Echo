@@ -28,32 +28,6 @@ class EchoTargetPageMapperTest extends MediaWikiTestCase {
 		}
 	}
 
-	public function testFetchByUserEventIds() {
-		$targetMapper = new EchoTargetPageMapper( $this->mockMWEchoDbFactory( array ( 'select' => false ) ) );
-		$res = $targetMapper->fetchByUserEventIds( User::newFromId( 1 ), array( 1, 2, 3 ) );
-		$this->assertFalse( $res );
-
-		$dbResult = array (
-			(object)array (
-				'etp_user' => 1,
-				'etp_page' => 2,
-				'etp_event' => 2
-			),
-			(object)array (
-				'etp_user' => 1,
-				'etp_page' => 2,
-				'etp_event' => 3,
-			)
-		);
-		$targetMapper = new EchoTargetPageMapper( $this->mockMWEchoDbFactory( array ( 'select' => $dbResult ) ) );
-		$res = $targetMapper->fetchByUserEventIds( User::newFromId( 1 ), array( 1, 2, 3 ) );
-		$this->assertTrue( is_array( $res ) );
-		$this->assertCount( 2, $res );
-		foreach ( $res as $row ) {
-			$this->assertInstanceOf( 'EchoTargetPage', $row );
-		}
-	}
-
 	public function provideDataTestInsert() {
 		return array (
 			array (
