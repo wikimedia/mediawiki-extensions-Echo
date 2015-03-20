@@ -46,39 +46,6 @@ class EchoTargetPageMapper extends EchoAbstractMapper {
 	}
 
 	/**
-	 * Fetch EchoTargetPage records by user and set of event_id
-	 *
-	 * @param User $user
-	 * @param int[] $eventIds
-	 * @return EchoTargetPage[]|boolean
-	 */
-	public function fetchByUserEventIds( User $user, array $eventIds ) {
-		if ( !$eventIds ) {
-			return array();
-		}
-		$dbr = $this->dbFactory->getEchoDb( DB_SLAVE );
-
-		$res = $dbr->select(
-			array( 'echo_target_page' ),
-			self::$fields,
-			array(
-				'etp_user' => $user->getId(),
-				'etp_event' => $eventIds
-			),
-			__METHOD__
-		);
-		if ( $res ) {
-			$targetPages = array();
-			foreach ( $res as $row ) {
-				$targetPages[] = EchoTargetPage::newFromRow( $row );
-			}
-			return $targetPages;
-		} else {
-			return false;
-		}
-	}
-
-	/**
 	 * Insert an EchoTargetPage instance into the database
 	 *
 	 * @param EchoTargetPage $targetPage
