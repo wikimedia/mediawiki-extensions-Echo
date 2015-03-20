@@ -216,7 +216,7 @@ class EchoHooks {
 		if ( !$user->getOption( 'enotifminoredits' ) ) {
 			$extra = $event->getExtra();
 			if ( !empty( $extra['revid'] ) ) {
-				$rev = Revision::newFromID( $extra['revid'] );
+				$rev = Revision::newFromID( $extra['revid'], Revision::READ_LATEST );
 
 				if ( $rev->isMinor() ) {
 					$notifyTypes = array_diff( $notifyTypes, array( 'email' ) );
