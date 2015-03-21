@@ -771,7 +771,11 @@ class EchoHooks {
 			);
 			$vars['wgEchoHelpPage'] = $wgEchoHelpPage;
 			$vars['wgEchoConfig'] = $wgEchoConfig;
-		} else if ( SpecialPage::getTitleFor( 'JavaScriptTest', 'qunit' )->equals( $outputPage->getTitle() ) ) {
+		} else if (
+			$outputPage->getTitle()->equals( SpecialPage::getTitleFor( 'JavaScriptTest', 'qunit' ) ) ||
+			// Also if running from /plain or /export
+			$outputPage->getTitle()->isSubpageOf( SpecialPage::getTitleFor( 'JavaScriptTest', 'qunit' ) )
+		) {
 			// For testing purposes
 			$vars['wgEchoConfig'] = array(
 				'eventlogging' => array(
