@@ -116,7 +116,10 @@
 	"echo-email-batch-body-intro-weekly": "Boas, $1:\nVelaquí ten un resumo da actividade da semana en {{SITENAME}}",
 	"echo-email-batch-link-text-view-all-notifications": "Ollar todas as notificacións",
 	"echo-rev-deleted-text-view": "Eliminouse a revisión da páxina",
+	"apihelp-echomarkread-description": "Marcar notificacións coma lidas para o usuario actual.",
+	"apihelp-echomarkread-param-list": "Lista de identificadores de notificacións a marcar coma lidas.",
 	"apihelp-echomarkread-param-sections": "Unha lista das seccións a marcar como lidas.",
+	"apihelp-echomarkread-example-1": "Marcar a notificación 8 coma lida",
 	"apihelp-echomarkread-example-2": "Marcar tódalas notificacións como lidas",
 	"apihelp-query+notifications-param-limit": "Número máximo de notifiacións a retornar.",
 	"apihelp-query+notifications-example-1": "Listar notificacións"
