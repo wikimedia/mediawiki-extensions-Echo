@@ -79,6 +79,7 @@
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|t'ha lassato}} na mmasciata {{SITENAME}}",
 	"notification-edit-talk-page-email-batch-body2": "$1 {{GENDER:$1|lassaje}} na mmasciata dint'a paggena 'e chiacchiera toja:",
 	"notification-page-linked-email-subject": "'A paggena tuja fuje cullegata ncopp'a {{SITENAME}}",
+	"notification-page-linked-email-batch-body": "$2 è stata {{GENDER:$1|cullegata}} 'a $3.",
 	"echo-email-subject-default": "Notifica nova ncopp'a {{SITENAME}}",
 	"echo-email-batch-body-default": "È arrevata na notifica nova.",
 	"echo-notification-alert": "{{PLURAL:$1|Avvertemiénto ($1)|Avvertemiénte ($1)|100=Avvertemiénte (99+)}}",
