@@ -136,10 +136,10 @@
 					.addClass( 'mw-echo-grey-link' );
 				$li.hover(
 					function() {
-						$( this ).find( '.mw-echo-title a' ).removeClass( 'mw-echo-grey-link' );
+						$( this ).find( '.mw-echo-title a, .mw-echo-notification-footer a' ).removeClass( 'mw-echo-grey-link' );
 					},
 					function() {
-						$( this ).find( '.mw-echo-title a' ).addClass( 'mw-echo-grey-link' );
+						$( this ).find( '.mw-echo-title a, .mw-echo-notification-footer a' ).addClass( 'mw-echo-grey-link' );
 					}
 				);
 				// If there is a primary link, make the entire notification clickable.
