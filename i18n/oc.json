@@ -34,7 +34,7 @@
 	"echo-pref-tooltip-edit-user-talk": "M'avisar quand qualqu’un publica un messatge o respond sus ma pagina de discussion.",
 	"echo-pref-tooltip-article-linked": "M'avisar quand qualqu’un fa referéncia a una pagina qu’ai creada a partir d’una pagina d’article.",
 	"echo-pref-tooltip-reverted": "M'avisar quand qualqu’un anulla una modificacion qu’ai facha, en utilizant l’aisina anullacion o retorn arrièr",
-	"echo-pref-tooltip-mention": "M'avisar quand qualqu’un fa referéncia a ma pagina d'utilizaire dempuèi una pagina de discussion.",
+	"echo-pref-tooltip-mention": "M'avisar quand qualqu’un fa referéncia a ma pagina d'utilizaire.",
 	"echo-no-agent": "[Pas degun]",
 	"echo-no-title": "[Pas cap de pagina]",
 	"echo-error-no-formatter": "Cap de mesa en forma pas definida per la notificacion",
