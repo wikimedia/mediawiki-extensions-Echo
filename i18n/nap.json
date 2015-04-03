@@ -89,6 +89,7 @@
 	"notification-user-rights-email-subject": "'E deritte utente vuoste so' state cagnate ncopp'a {{SITENAME}}",
 	"notification-user-rights-email-batch-body": "'E deritte utente vuoste so' state {{GENDER:$1|cagnate}} 'a $1. $2.",
 	"echo-email-subject-default": "Notifica nova ncopp'a {{SITENAME}}",
+	"echo-email-body-default": "Avite na notifica nova ncopp'a {{SITENAME}}:\n\n$1",
 	"echo-email-batch-body-default": "È arrevata na notifica nova.",
 	"echo-notification-alert": "{{PLURAL:$1|Avvertemiénto ($1)|Avvertemiénte ($1)|100=Avvertemiénte (99+)}}",
 	"echo-notification-message": "{{PLURAL:$1|Mmasciata ($1)|Mmasciate ($1)|100=Mmasciate (99+)}}",

@@ -18,7 +18,8 @@
 			"Wyz",
 			"Y-M D",
 			"Kvardek du",
-			"NemesisIII"
+			"NemesisIII",
+			"Od1n"
 		]
 	},
 	"echo-desc": "Système de notifications",
@@ -33,7 +34,7 @@
 	"echo-pref-web": "Web",
 	"echo-pref-email": "Courriel",
 	"echo-pref-email-frequency-never": "Ne pas m'envoyer de notification par courriel",
-	"echo-pref-email-frequency-immediately": "Notifications individuelles au fil de l'eau",
+	"echo-pref-email-frequency-immediately": "Notifications individuelles au fur et à mesure",
 	"echo-pref-email-frequency-daily": "Un résumé quotidien des notifications",
 	"echo-pref-email-frequency-weekly": "Un résumé hebdomadaire des notifications",
 	"echo-pref-email-format-html": "HTML",
