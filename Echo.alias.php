@@ -29,6 +29,11 @@ $specialPageAliases['av'] = array(
 	'Notifications' => array( 'Уведомления' ),
 );
 
+/** Western Balochi (بلوچی رخشانی) */
+$specialPageAliases['bgn'] = array(
+	'Notifications' => array( 'آگاه_کورتینۆک_ئان' ),
+);
+
 /** Min Dong Chinese (Mìng-dĕ̤ng-ngṳ̄) */
 $specialPageAliases['cdo'] = array(
 	'Notifications' => array( '提醒' ),
