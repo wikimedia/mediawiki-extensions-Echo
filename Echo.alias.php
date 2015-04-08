@@ -134,6 +134,11 @@ $specialPageAliases['lb'] = array(
 	'Notifications' => array( 'Notifikatiounen' ),
 );
 
+/** لوری (لوری) */
+$specialPageAliases['lrc'] = array(
+	'Notifications' => array( 'وارسیاریا' ),
+);
+
 /** Macedonian (македонски) */
 $specialPageAliases['mk'] = array(
 	'Notifications' => array( 'Известувања' ),
