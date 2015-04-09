@@ -118,9 +118,21 @@
 	"echo-rev-deleted-text-view": "Eliminouse a revisión da páxina",
 	"apihelp-echomarkread-description": "Marcar notificacións coma lidas para o usuario actual.",
 	"apihelp-echomarkread-param-list": "Lista de identificadores de notificacións a marcar coma lidas.",
+	"apihelp-echomarkread-param-all": "Si se establece, marca todas as notificacións dun usuario como lidas.",
 	"apihelp-echomarkread-param-sections": "Unha lista das seccións a marcar como lidas.",
 	"apihelp-echomarkread-example-1": "Marcar a notificación 8 coma lida",
 	"apihelp-echomarkread-example-2": "Marcar tódalas notificacións como lidas",
+	"apihelp-query+notifications-description": "Obter notificacións de espera para o usuario actual.",
+	"apihelp-query+notifications-param-prop": "Detalles que solicitar.",
+	"apihelp-query+notifications-param-sections": "As seccións de notificación a consultar.",
+	"apihelp-query+notifications-param-groupbysection": "Si se agrupan os resultados por sección. Cada sección obtense por separado si así se establece.",
+	"apihelp-query+notifications-param-format": "Si se especifica, as notificacións devolveranse neste formato.",
 	"apihelp-query+notifications-param-limit": "Número máximo de notifiacións a retornar.",
-	"apihelp-query+notifications-example-1": "Listar notificacións"
+	"apihelp-query+notifications-param-index": "Si se especifica, devolverase unha lista ordenada de identificadores de notificación.",
+	"apihelp-query+notifications-param-alertcontinue": "Cando estean dispoñibles alertas adicionais, use esta opción para continuar.",
+	"apihelp-query+notifications-param-alertunreadfirst": "Mostra as notificacións de mensaxes sen ler primeiro.",
+	"apihelp-query+notifications-param-messagecontinue": "Cando novos mensaxes estean dispoñibles, use esta opción para continuar.",
+	"apihelp-query+notifications-param-messageunreadfirst": "Mostra as notificacións de alertas sen ler primeiro.",
+	"apihelp-query+notifications-example-1": "Listar notificacións",
+	"apihelp-query+notifications-example-2": "Lista de notificacións, agrupadas por sección, incluíndo contadores"
 }
