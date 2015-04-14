@@ -248,7 +248,7 @@ class EchoBatchRowIterator implements RecursiveIterator {
 	/**
 	 * @var array $fetchColumns List of column names to select from the table suitable for use with DatabaseBase::select()
 	 */
-	protected $fetchColumns = array( '*' );
+	protected $fetchColumns;
 
 	/**
 	 * @var string $orderBy SQL Order by condition generated from $this->primaryKey
