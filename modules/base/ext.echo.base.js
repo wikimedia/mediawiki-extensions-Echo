@@ -50,7 +50,7 @@
 				myEvt.context = context;
 			}
 			if ( eventId ) {
-				myEvt.eventId = eventId;
+				myEvt.eventId = Number( eventId );
 			}
 			if ( eventType ) {
 				myEvt.notificationType = eventType;
