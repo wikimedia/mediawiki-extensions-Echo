@@ -56,6 +56,7 @@ class EchoNotificationDeleteJob extends Job {
 					);
 				}
 				$dbw->endAtomic( __METHOD__ );
+				$dbw->commit( 'flush' );
 				if ( $res ) {
 					$updateCount++;
 					$notifUser = MWEchoNotifUser::newFromUser( $user );
