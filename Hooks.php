@@ -177,35 +177,6 @@ class EchoHooks {
 	}
 
 	/**
-	 * Handler for EchoGetDefaultNotifiedUsers hook.
-	 * @param $event EchoEvent to get implicitly subscribed users for
-	 * @param &$users Array to append implicitly subscribed users to.
-	 * @return bool true in all cases
-	 */
-	public static function getDefaultNotifiedUsers( $event, &$users ) {
-		switch ( $event->getType() ) {
-			// AFAICT these two are unused?
-			case 'add-comment':
-			case 'add-talkpage-topic':
-				// Handled by EchoDiscussionParser
-				$extraData = $event->getExtra();
-
-				if ( !isset( $extraData['revid'] ) || !$extraData['revid'] ) {
-					break;
-				}
-
-				$revision = Revision::newFromId( $extraData['revid'] );
-				break;
-				if ( $revision ) {
-					$users += EchoDiscussionParser::getNotifiedUsersForComment( $revision );
-				}
-				break;
-		}
-
-		return true;
-	}
-
-	/**
 	 * Handler for EchoGetNotificationTypes hook, Adjust the notify types (e.g. web, email) which
 	 * are applicable to this event and user based on various user options. In other words, allow
 	 * certain non-echo user options to override the echo notification options.

@@ -97,7 +97,6 @@ include __DIR__ . '/Resources.php';
  * their own user talk page being edited. In fact, that is what it is used for
  * internally.
  */
-$wgHooks['EchoGetDefaultNotifiedUsers'][] = 'EchoHooks::getDefaultNotifiedUsers';
 $wgHooks['EchoGetNotificationTypes'][] = 'EchoHooks::getNotificationTypes';
 $wgHooks['EchoGetBundleRules'][] = 'EchoHooks::onEchoGetBundleRules';
 $wgHooks['EchoAbortEmailNotification'][] = 'EchoHooks::onEchoAbortEmailNotification';
