@@ -101,5 +101,7 @@
 	"echo-mark-all-as-read": "Nzegna tutte cumme fossero lette",
 	"echo-date-today": "Ogge",
 	"echo-date-yesterday": "Aiere",
+	"echo-load-more-error": "Ascette n'errore pe' tramente ca s'arrepigliaveno cchiù risultate.",
+	"notification-edit-talk-page-bundle": "$1 e $3 {{PLURAL:$4|ati}} {{GENDER:$1|lassajeno}} na mmasciata ncopp' 'a [[User talk:$2|paggena 'e chiacchiere d' 'a toja]].",
 	"echo-email-batch-link-text-view-all-notifications": "Vide tutte 'e notifiche"
 }
