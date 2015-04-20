@@ -31,6 +31,11 @@ class EchoNotifier {
 	 * @return bool
 	 */
 	public static function notifyWithEmail( $user, $event ) {
+		global $wgEnableEmail;
+
+		if ( !$wgEnableEmail ) {
+			return false;
+		}
 		// No valid email address or email notification
 		if ( !$user->isEmailConfirmed() || $user->getOption( 'echo-email-frequency' ) < 0 ) {
 			return false;
