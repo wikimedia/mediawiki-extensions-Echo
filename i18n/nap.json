@@ -103,5 +103,16 @@
 	"echo-date-yesterday": "Aiere",
 	"echo-load-more-error": "Ascette n'errore pe' tramente ca s'arrepigliaveno cchiù risultate.",
 	"notification-edit-talk-page-bundle": "$1 e $3 {{PLURAL:$4|ati}} {{GENDER:$1|lassajeno}} na mmasciata ncopp' 'a [[User talk:$2|paggena 'e chiacchiere d' 'a toja]].",
-	"echo-email-batch-link-text-view-all-notifications": "Vide tutte 'e notifiche"
+	"echo-email-batch-link-text-view-all-notifications": "Vide tutte 'e notifiche",
+	"echo-rev-deleted-text-view": "Sta verziona d' 'a paggena è stata scancellata.",
+	"apihelp-echomarkread-description": "Nzegna tutt' 'e notifiche comm'a fossero liggiute 'a ll'utente.",
+	"apihelp-echomarkread-param-list": "N'elenco 'e ll'ID notifiche 'a nzegnare comme fossero lette.",
+	"apihelp-echomarkread-param-all": "Si mpustato, contrassegna tutte 'e notifiche 'e ll'utente comme fossero lette.",
+	"apihelp-echomarkread-param-sections": "N'elenco d' 'e sezine ca s'avesser'a nzegnà comme liggiute.",
+	"apihelp-echomarkread-example-1": "Nzegna 'a notifica 8 comme liggiuta",
+	"apihelp-echomarkread-example-2": "Nzegna tutt' 'e notifiche comme fossero liggiute",
+	"apihelp-query+notifications-description": "Piglia 'e notifiche ca stesser'aspettann'a ll'utente.",
+	"apihelp-query+notifications-param-prop": "Dettaglie d' 'a richiesta.",
+	"apihelp-query+notifications-param-sections": "'E seziune 'e notifica a se ffà 'a query.",
+	"apihelp-query+notifications-param-groupbysection": "Si vulite accucchià 'o risultato pe' sezziona. Ogne seziona se pigliasse comme fosse a spartuta si chisto se buò ffà."
 }
