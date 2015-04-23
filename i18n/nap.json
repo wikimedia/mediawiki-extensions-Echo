@@ -114,5 +114,9 @@
 	"apihelp-query+notifications-description": "Piglia 'e notifiche ca stesser'aspettann'a ll'utente.",
 	"apihelp-query+notifications-param-prop": "Dettaglie d' 'a richiesta.",
 	"apihelp-query+notifications-param-sections": "'E seziune 'e notifica a se ffà 'a query.",
-	"apihelp-query+notifications-param-groupbysection": "Si vulite accucchià 'o risultato pe' sezziona. Ogne seziona se pigliasse comme fosse a spartuta si chisto se buò ffà."
+	"apihelp-query+notifications-param-groupbysection": "Si vulite accucchià 'o risultato pe' sezziona. Ogne seziona se pigliasse comme fosse a spartuta si chisto se buò ffà.",
+	"apihelp-query+notifications-param-format": "Quanno fosse specificato, 'e notifiche fossero turnate cu stu formato.",
+	"apihelp-query+notifications-param-limit": "'O nummero massimo 'e notifiche ca s'avess'a turnà.",
+	"apihelp-query+notifications-param-index": "Si specificato, n'elenco 'e ID 'e notifica, ordinato, sarrà turnato.",
+	"apihelp-query+notifications-param-alertcontinue": "Quanno stessero cchiù risultate ccà a disposizione, facite stu prucesso pe cuntinuà."
 }
