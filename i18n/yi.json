@@ -64,7 +64,7 @@
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|האט אייך געשריבן}} א נייע מעלדונג אינעם {{SITENAME}} וועבזייטל",
 	"notification-edit-talk-page-email-batch-body2": "$1 {{GENDER:$1|האט געשריבן}} א מעלדונג אין אײַער רעדן בלאַט:",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 {{GENDER:$1|האט געלאזט}} א מעלדונג אין אײַער רעדן בלאַט אין \"$2\".",
-	"notification-page-linked-email-subject": "אײַער בלאט איז געווארן פֿאַרלינקט אויף {{SITENAME}}",
+	"notification-page-linked-email-subject": "א בלאט איר האט געשאפן איז געווארן פֿאַרלינקט אויף {{SITENAME}}",
 	"notification-page-linked-email-batch-body": "$2 איז געווארן {{GENDER:$1| פֿאַרלינקט}} פֿון $3.",
 	"notification-mention-email-subject": "$1 {{GENDER:$1|האט אײַך דערמאנט}} אויף {{SITENAME}}",
 	"notification-mention-email-batch-body": "$1 {{GENDER:$1|האט אײַך דערמאנט}} אויפן $4 רעדן בלאט אין \"$3\".",

@@ -79,7 +79,7 @@
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|t'ha lassato}} na mmasciata {{SITENAME}}",
 	"notification-edit-talk-page-email-batch-body2": "$1 {{GENDER:$1|lassaje}} na mmasciata dint'a paggena 'e chiacchiera toja:",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 {{GENDER:$1|lassaje}} na mmasciata dint'a paggena 'e chiacchiera r' 'a vosta \"$2\".",
-	"notification-page-linked-email-subject": "'A paggena tuja fuje cullegata ncopp'a {{SITENAME}}",
+	"notification-page-linked-email-subject": "Na paggena c'avite criato fuje cullegata ncopp'a {{SITENAME}}",
 	"notification-page-linked-email-batch-body": "$2 è stata {{GENDER:$1|cullegata}} 'a $3.",
 	"notification-reverted-email-subject2": "{{PLURAL:$3|'O cangiamento vuosto è stato|'E cangiamiente vuoste so'}} state {{GENDER:$1|annullate}} ncopp'a {{SITENAME}}",
 	"notification-reverted-email-batch-body2": "{{PLURAL:$3|'O cagnamiento ncopp'a $2 vuosto è stato|'E cagnamiente vuoste ncopp' 'a $2 so state}} {{GENDER:$1|annullate}} 'a $1.",

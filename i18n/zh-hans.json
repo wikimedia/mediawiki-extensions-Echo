@@ -103,7 +103,7 @@
 	"notification-edit-talk-page-email-subject2": "$1在{{SITENAME}}给您{{GENDER:$1|留言}}了",
 	"notification-edit-talk-page-email-batch-body2": "$1在您的讨论页{{GENDER:$1|留言}}了：",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1在您的讨论页的“$2”段落{{GENDER:$1|留言}}了。",
-	"notification-page-linked-email-subject": "你在{{SITENAME}}创建的页面被链接",
+	"notification-page-linked-email-subject": "您创建的一个页面在{{SITENAME}}被链接",
 	"notification-page-linked-email-batch-body": "$2被$3{{GENDER:$1|链接}}。",
 	"notification-reverted-email-subject2": "你在{{SITENAME}}的{{PLURAL:$3|编辑}}被{{GENDER:$1|还原了}}",
 	"notification-reverted-email-batch-body2": "你{{PLURAL:$3|对$2的编辑}}被$1{{GENDER:$1|还原了}}。",

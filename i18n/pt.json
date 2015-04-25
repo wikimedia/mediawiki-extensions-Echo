@@ -85,7 +85,7 @@
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|deixou-lhe}} uma mensagem em {{SITENAME}}",
 	"notification-edit-talk-page-email-batch-body2": "$1 deixou-lhe uma mensagem {{GENDER:$1|na}} {{SITENAME}}",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 {{GENDER:$1|deixou-lhe}} uma mensagem na sua página de discussão na secção \"$2\".",
-	"notification-page-linked-email-subject": "A sua página foi ligada em {{SITENAME}}",
+	"notification-page-linked-email-subject": "A página que criou foi ligada em {{SITENAME}}",
 	"notification-page-linked-email-batch-body": "A página $2 foi {{GENDER:$1|ligada}} a partir de $3.",
 	"notification-reverted-email-subject2": "{{PLURAL:$3|A sua edição foi revertida|As suas edições foram revertidas}} {{GENDER:$1|}} em {{SITENAME}}",
 	"notification-reverted-email-batch-body2": "{{PLURAL:$3|A sua edição em $2 foi revertida|As suas edições em $2 foram revertidas}} por $1.",

@@ -84,7 +84,7 @@
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|hinterließ}} dir eine Nachricht auf {{SITENAME}}",
 	"notification-edit-talk-page-email-batch-body2": "$1 {{GENDER:$1|hinterließ}} eine Nachricht auf deiner Diskussionsseite:",
 	"notification-edit-talk-page-email-batch-body-with-section": "„$1“ {{GENDER:$1|hinterließ}} eine Nachricht auf deiner Diskussionsseite zum Thema „$2“.",
-	"notification-page-linked-email-subject": "Deine Seite wurde auf {{SITENAME}} verlinkt",
+	"notification-page-linked-email-subject": "Eine Seite, die du erstellt hast, wurde auf {{SITENAME}} verlinkt",
 	"notification-page-linked-email-batch-body": "$2 wurde von der Seite $3 {{GENDER:$1|verlinkt}}",
 	"notification-reverted-email-subject2": "Deine {{PLURAL:$3|Bearbeitung wurde|Bearbeitungen wurden}} auf {{SITENAME}} {{GENDER:$1|rückgängig}} gemacht",
 	"notification-reverted-email-batch-body2": "Deine {{PLURAL:$3|Bearbeitung an der Seite $2 wurde|Bearbeitungen an der Seite $2 wurden}} von $1 {{GENDER:$1|rückgängig}} gemacht",

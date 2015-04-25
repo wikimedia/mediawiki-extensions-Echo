@@ -78,7 +78,7 @@
 	"notification-edit-talk-page-email-subject2": "{{GENDER:$1|Dä|Dat|Dä Metmaacher|De|Dat}} „$1“ hät Der op {{GENDER:Dative|{{SITENAME}}}} en Metdeilong jeschek.",
 	"notification-edit-talk-page-email-batch-body2": "{{GENDER:$1|Dä|Dat|Dä Metmaacher|De|Dat}} „$1“ hät Der op en Metdeilong op Ding Klaafsigg jedonn.",
 	"notification-edit-talk-page-email-batch-body-with-section": "{{GENDER:$1|Dä|Dat|Dä Metmaacher|De|Dat}} „$1“ hät Der op en Metdeilong op Ding Klaafsigg en dä Affschnett „$2“ jedonn.",
-	"notification-page-linked-email-subject": "Op {{GENDER:Dative|{{SITENAME}}}} wohd ene Lengk op Ding Sigg aanjelaht.",
+	"notification-page-linked-email-subject": "Op {{GENDER:Dative|{{SITENAME}}}} wohd ene Lengk op Sigg aanjelaht, di Do aanjalaht hats.",
 	"notification-page-linked-email-batch-body": "{{GENDER:$1|Dä|Dat|Dä Metmaacher|De|Dat}} „$1“ häd op dä Sigg „$3“ ene Lengk noh „$2“ enjebout.",
 	"notification-reverted-email-subject2": "{{GENDER:$1|Dä|Dat|Dä Metmaacher|De|Dat}} „$1“ häd op {{GENDER:Dative|{{SITENAME}}}} {{PLURAL:$3|en Änderong|$3 Änderonge|kein Änderonge}} vun Der retuhr jemaht.",
 	"notification-reverted-email-batch-body2": "{{GENDER:$1|Dä|Dat|Dä Metmaacher|De|Dat}} „$1“ häd op {{GENDER:Dative|{{SITENAME}}}} {{PLURAL:$3|en Änderong vun Der|$3 vun Dinge Änderonge|kein vun Dinge Änderonge}} aan dä Sigg „$2“ retuhr jemaht.",

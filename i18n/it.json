@@ -8,7 +8,8 @@
 			"Nemo bis",
 			"Pietrodn",
 			"Raoli",
-			"Vituzzu"
+			"Vituzzu",
+			"Horcrux92"
 		]
 	},
 	"echo-desc": "Sistema di notifica",
@@ -111,9 +112,9 @@
 	"echo-date-yesterday": "Ieri",
 	"echo-load-more-error": "Si è verificato un errore nel recupero di ulteriori risultati.",
 	"notification-edit-talk-page-bundle": "$1 e {{PLURAL:$4|un altro utente|altri $3 utenti}} {{GENDER:$1|hanno lasciato}} un messaggio nella tua [[User talk:$2|pagina di discussione]].",
-	"notification-page-linked-bundle": "$2 è stata {{GENDER:$1|collegata}} da $3 ed {{PLURAL:$5|un altra pagina|altre $4 pagine}}. [[Special:WhatLinksHere/$2|Vedi tutti i collegamenti a questa pagina]]",
+	"notification-page-linked-bundle": "$2 è stata {{GENDER:$1|collegata}} da $3 ed {{PLURAL:$5|un'altra pagina|altre $4 pagine}}. [[Special:WhatLinksHere/$2|Vedi tutti i collegamenti a questa pagina]].",
 	"notification-edit-user-talk-email-batch-bundle-body": "$1 e {{PLURAL:$3|un altro|altri $2}} {{GENDER:$1|hanno lasciato}} un messaggio sulla tua pagina di discussione",
-	"notification-page-linked-email-batch-bundle-body": "$2 è stata {{GENDER:$1|collegata}} da $3 ed {{PLURAL:$5|un altra pagina|altre $4 pagine}}",
+	"notification-page-linked-email-batch-bundle-body": "$2 è stata {{GENDER:$1|collegata}} da $3 ed {{PLURAL:$5|un'altra pagina|altre $4 pagine}}.",
 	"echo-email-batch-subject-daily": "Hai {{PLURAL:$2|una nuova notifica|nuove notifiche}} su {{SITENAME}}",
 	"echo-email-batch-subject-weekly": "Hai {{PLURAL:$2|una nuova notifica|nuove notifiche}} su {{SITENAME}} questa settimana",
 	"echo-email-batch-body-intro-daily": "Ciao $1,\neccoti una sintesi delle attività di oggi su {{SITENAME}}.",
