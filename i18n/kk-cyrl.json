@@ -77,7 +77,7 @@
 	"notification-edit-talk-page-email-subject2": "$1 {{SITENAME}} сайтында сізге хабарлама {{GENDER:$1|қалдырды}}",
 	"notification-edit-talk-page-email-batch-body2": "$1 талқылау бетіңізге хабарлама {{GENDER:$1|қалдырды}}:",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 талқылау бетіңіздегі  «$2» бөліміне хабарлама {{GENDER:$1|қалдырды}}.",
-	"notification-page-linked-email-subject": "{{SITENAME}} сайтында сіздің бетіңіз сілтенді",
+	"notification-page-linked-email-subject": "{{SITENAME}} сайтында сіз бастаған бет сілтенді",
 	"notification-page-linked-email-batch-body": "$2 $3 дегеннен {{GENDER:$1|сілтенді}}.",
 	"notification-reverted-email-subject2": "{{SITENAME}} сайтында сіздің {{PLURAL:$3|өңдемеңіз|өңдемелеріңіз}}{{GENDER:$1|қайтарылды}}",
 	"notification-reverted-email-batch-body2": "Сіздің {{PLURAL:$3|$2 бетіндегі өңдемеңізді|$2 бетіндегі өңдемелеріңізді}} $1 есімді қатысушы {{GENDER:$1|жоққа шығарыды}}.",
@@ -111,5 +111,6 @@
 	"echo-email-batch-body-intro-daily": "Сәлем $1, \nБұл {{SITENAME}} жобасындағы бүгінгі сіз үшін іс-әрекеттер түйіндемесі.",
 	"echo-email-batch-body-intro-weekly": "Сәлем $1, \nБұл {{SITENAME}} жобасындағы осы аптадағы сіз үшін іс-әрекеттер түйіндемесі.",
 	"echo-email-batch-link-text-view-all-notifications": "Барлық ескертпелерді көру",
-	"echo-rev-deleted-text-view": "Бұл бет нұсқасы жасырылған"
+	"echo-rev-deleted-text-view": "Бұл бет нұсқасы жасырылған",
+	"apihelp-query+notifications-example-1": "Ескертпелер тізімі"
 }
