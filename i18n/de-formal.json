@@ -12,5 +12,6 @@
 	"notification-user-rights-remove": "Sie sind nicht länger Mitglied dieser {{PLURAL:$2|Benutzergruppe|Benutzergruppen}}: $1",
 	"notification-new-user": "Willkommen bei {{SITENAME}}, $1! Wir freuen uns, dass Sie hier sind.",
 	"notification-user-rights-email-subject": "Ihre Benutzerrechte auf „{{SITENAME}}“ wurden geändert.",
-	"notification-user-rights-email-batch-body": "Ihre Benutzerrechte wurden von $1 {{GENDER:$1|geändert}}. $2"
+	"notification-user-rights-email-batch-body": "Ihre Benutzerrechte wurden von $1 {{GENDER:$1|geändert}}. $2",
+	"echo-email-footer-default": "$2\n\nUm zu steuern, welche E-Mails wir Ihnen senden, nutzen Sie Ihre Einstellungen:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1"
 }

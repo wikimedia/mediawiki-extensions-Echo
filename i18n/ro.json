@@ -81,7 +81,7 @@
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|v-a lăsat}} un mesaj la {{SITENAME}}",
 	"notification-edit-talk-page-email-batch-body2": "$1 {{GENDER:$1|a lăsat}} un mesaj pe pagina dumneavoastră de discuții:",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 {{GENDER:$1|a lăsat}} un mesaj pe pagina dumneavoastră de discuții, în cadrul secțiunii „$2”.",
-	"notification-page-linked-email-subject": "Pagina dumnevoastră a fost menționată la {{SITENAME}}",
+	"notification-page-linked-email-subject": "O pagină creată de dumnevoastră a fost menționată la {{SITENAME}}",
 	"notification-page-linked-email-batch-body": "$2 a fost {{GENDER:$1|menționată}} în $3.",
 	"notification-reverted-email-subject2": "{{PLURAL:$3|Modificarea dumneavoastră a fost|Modificările dumneavoastră au fost}} {{GENDER:$1|înlăturat}}{{PLURAL:$3|ă|e}} la {{SITENAME}}",
 	"notification-reverted-email-batch-body2": "{{PLURAL:$3|Modificarea dumneavoastră asupra paginii $2 a fost|Modificările dumneavoastră asupra paginii $2 au fost}} {{GENDER:$1|înlăturat}}{{PLURAL:$3|ă|e}} de către $1.",
