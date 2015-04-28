@@ -94,18 +94,19 @@ abstract class EchoDiscussionParser {
 					break;
 			}
 			if ( $header ) {
-				// If we find multiple headers within the same change interpretation then
+				// If we find a second header within the same change interpretation then
 				// we cannot choose just 1 to link to
 				if ( $found ) {
-					return array( 'section-title' => '', 'section-text' => '' );
+					$found = false;
+					break;
 				}
-				$found = $header;
+				$found = true;
 			}
 		}
-		if ( $found ) {
-			return array( 'section-title' => $header, 'section-text' => $snippet );
+		if ( $found === false ) {
+			return array( 'section-title' => '', 'section-text' => '' );
 		}
-		return array( 'section-title' => '', 'section-text' => '' );
+		return array( 'section-title' => $header, 'section-text' => $snippet );
 	}
 
 	/**
