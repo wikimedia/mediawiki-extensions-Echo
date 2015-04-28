@@ -37,6 +37,7 @@ $wgResourceModules += array(
 	// ext.echo.base is used by mobile notifications as well, so be sure not to add any
 	// dependencies that do not target mobile.
 	'ext.echo.base' => $echoResourceTemplate + $mobileReadyTemplate + array(
+		'position' => 'top',
 		'styles' => 'base/ext.echo.base.less',
 		'scripts' => array(
 			'base/ext.echo.base.js',
@@ -102,6 +103,7 @@ $wgResourceModules += array(
 		'position' => 'top',
 	),
 	'ext.echo.alert' => $echoResourceTemplate + array(
+		'position' => 'top',
 		'styles' => 'alert/ext.echo.alert.less',
 		'skinStyles' => array(
 			'modern' => 'alert/ext.echo.alert.modern.css',
@@ -109,6 +111,7 @@ $wgResourceModules += array(
 		),
 	),
 	'ext.echo.badge' => $echoResourceTemplate + array(
+		'position' => 'top',
 		'styles' => 'badge/ext.echo.badge.less',
 		'skinStyles' => array(
 			'modern' => 'badge/ext.echo.badge.modern.css',
