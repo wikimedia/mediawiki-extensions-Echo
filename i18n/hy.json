@@ -3,7 +3,8 @@
 		"authors": [
 			"Xelgen",
 			"Lilitik22",
-			"Դավիթ Սարոյան"
+			"Դավիթ Սարոյան",
+			"Aram1985"
 		]
 	},
 	"echo-desc": "Ծանուցումների համակարգ",
@@ -62,6 +63,7 @@
 	"notification-mention": "[[User:$1|$1]] մասնակիցը {{GENDER:$1|հիշատակել}} է Ձեզ, $5 էջի «[[:$3#$2|$4]]» բաժնում։",
 	"notification-mention-flyout": "$1 մասնակիցը {{GENDER:$1|հիշատակել}} է Ձեզ $5 քննարկման էջի «[[:$3#$2|$4]]» բաժնում։",
 	"notification-new-user": "Բարի՛ գալուստ {{SITENAME}}, $1։ Ուրախ ենք տեսնել Ձեզ այստեղ։",
+	"notification-page-linked-email-subject": "Ձեր ստեղծած էջը հղվում է դեպի {{SITENAME}} կայքը",
 	"echo-email-subject-default": "Նոր ծանուցումներ {{SITENAME}} կայքից։",
 	"echo-email-body-default": "Դուք ունեք նոր ծանուցումներ «{{SITENAME}}» կայքից:\n\n$1",
 	"echo-email-batch-body-default": "Դուք ունեք նոր ծանուցում։",

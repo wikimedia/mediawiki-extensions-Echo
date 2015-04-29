@@ -118,5 +118,7 @@
 	"apihelp-query+notifications-param-format": "Quanno fosse specificato, 'e notifiche fossero turnate cu stu formato.",
 	"apihelp-query+notifications-param-limit": "'O nummero massimo 'e notifiche ca s'avess'a turnà.",
 	"apihelp-query+notifications-param-index": "Si specificato, n'elenco 'e ID 'e notifica, ordinato, sarrà turnato.",
-	"apihelp-query+notifications-param-alertcontinue": "Quanno stessero cchiù risultate ccà a disposizione, facite stu prucesso pe cuntinuà."
+	"apihelp-query+notifications-param-alertcontinue": "Quanno stessero cchiù risultate ccà a disposizione, facite stu prucesso pe cuntinuà.",
+	"apihelp-query+notifications-example-1": "Elenca notifiche",
+	"apihelp-query+notifications-example-2": "Elenca notifiche, raggruppate pe' seziona, cu 'e cuntegge"
 }
