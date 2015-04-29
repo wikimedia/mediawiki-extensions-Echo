@@ -644,10 +644,19 @@ class EchoHooks {
 
 		// Add a "My notifications" item to personal URLs
 		if ( $user->getOption( 'echo-notify-show-link' ) ) {
-			$notificationCount = MWEchoNotifUser::newFromUser( $user )->getNotificationCount();
+			$notifUser = MWEchoNotifUser::newFromUser( $user );
+			$notificationCount = $notifUser->getNotificationCount();
+			$notificationTimestamp = $notifUser->getLastUnreadNotificationTime();
+			$seenTime = $user->getOption( 'echo-seen-time' );
 			$text = EchoNotificationController::formatNotificationCount( $notificationCount );
 			$url = SpecialPage::getTitleFor( 'Notifications' )->getLocalURL();
-			if ( $notificationCount == 0 ) {
+
+			if (
+				$notificationCount == 0 || // no unread notifications
+				$notificationTimestamp === false || // should already always be false if count === 0
+				$seenTime === null || // seenTime hasn't yet been recorded, don't rely on it
+				$notificationTimestamp->getTimestamp( TS_MW ) <= $seenTime // all notifications have already been seen
+			) {
 				$linkClasses = array( 'mw-echo-notifications-badge' );
 			} else {
 				$linkClasses = array( 'mw-echo-unread-notifications', 'mw-echo-notifications-badge' );

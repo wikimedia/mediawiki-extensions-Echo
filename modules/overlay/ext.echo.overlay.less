@@ -7,6 +7,16 @@
 @chevronHeight: 11px;
 @headerFontSize: 13px;
 
+@-webkit-keyframes unseen-fadeout {
+	from { background-color: #dce8ff; }
+	to { background-color: white; }
+}
+
+@keyframes unseen-fadeout {
+	from { background-color: #dce8ff; }
+	to { background-color: white; }
+}
+
 .mw-echo-overlay {
 	position: absolute;
 	top: 30px + @chevronHeight;
@@ -105,6 +115,21 @@
 			&:hover {
 				.mw-echo-notification-wrapper {
 					background-color: #F9F9F9;
+				}
+			}
+
+			&.mw-echo-unseen {
+				.mw-echo-notification-wrapper {
+					-webkit-animation-name: unseen-fadeout;
+					animation-name: unseen-fadeout;
+					-webkit-animation-duration: .5s;
+					animation-duration: .5s;
+					-webkit-animation-delay: 2s;
+					animation-delay: 2s;
+					-webkit-animation-timing-function: ease-out;
+					animation-timing-function: ease-out;
+					-webkit-animation-fill-mode: both;
+					animation-fill-mode: both;
 				}
 			}
 

@@ -12,8 +12,20 @@
 			};
 			ApiStub.prototype = {
 				post: function( data ) {
-					return new $.Deferred().resolve( this.getNewNotificationCountData( data,
-							this.mode === 'with-new-messages' ) );
+					switch ( data.action ) {
+						case 'echomarkread':
+							data = this.getNewNotificationCountData( data, this.mode === 'with-new-messages' );
+							break;
+
+						case 'echomarkseen':
+							data = { query: { echomarkseen: { result: 'success', timestamp: '20140509000000' } } };
+							break;
+
+						default:
+							throw 'Unrecognized post action: ' + data.action;
+					}
+
+					return $.Deferred().resolve( data );
 				},
 				get: function() {
 					var i, id,
@@ -29,6 +41,12 @@
 									read: '20140805211446',
 									category: 'message',
 									id: 100,
+									timestamp: {
+										date: '8 May',
+										mw: '20140508211436',
+										unix: '1407273276',
+										utcunix: '1407273276'
+									},
 									type: 'message'
 								}
 							},
@@ -40,7 +58,18 @@
 						for ( i = 0; i < 7; i++ ) {
 							id = 500 + i;
 							index.push( id );
-							listObj[id] = { '*': '!', category: 'message', id: id, type: 'message' };
+							listObj[id] = {
+								'*': '!',
+								category: 'message',
+								id: id,
+								timestamp: {
+									date: '8 May',
+									mw: '20140508211436',
+									unix: '1407273276',
+									utcunix: '1407273276'
+								},
+								type: 'message'
+							};
 						}
 						data.query.notifications.message = {
 							index: index,
@@ -130,7 +159,10 @@
 											id: 70,
 											read: '20140805211446',
 											timestamp: {
-												unix: '1407273276'
+												date: '8 May',
+												mw: '20140508211436',
+												unix: '1407273276',
+												utcunix: '1407273276'
 											},
 											title: {
 												full: 'Spiders'
@@ -141,6 +173,12 @@
 											'*': 'X talked to you.',
 											category: 'edit-user-talk',
 											id: 71,
+											timestamp: {
+												date: '8 May',
+												mw: '20140508211436',
+												unix: '1407273276',
+												utcunix: '1407273276'
+											},
 											type: 'edit-user-talk'
 										}
 									}
