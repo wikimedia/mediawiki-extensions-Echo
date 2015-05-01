@@ -6,6 +6,7 @@ global $wgAutoloadClasses;
 $wgAutoloadClasses += array(
 	'ApiEchoMarkRead' => __DIR__ . '/api/ApiEchoMarkRead.php',
 	'ApiEchoMarkReadTest' => __DIR__ . '/tests/phpunit/api/ApiEchoMarkReadTest.php',
+	'ApiEchoMarkSeen' => __DIR__ . '/api/ApiEchoMarkSeen.php',
 	'ApiEchoNotifications' => __DIR__ . '/api/ApiEchoNotifications.php',
 	'ApiEchoNotificationsTest' => __DIR__ . '/tests/phpunit/api/ApiEchoNotificationsTest.php',
 	'BatchRowUpdateTest' => __DIR__ . '/tests/phpunit/includes/BatchRowUpdateTest.php',

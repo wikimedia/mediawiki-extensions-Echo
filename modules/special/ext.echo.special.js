@@ -60,6 +60,7 @@
 		 */
 		loadMore: function () {
 			var api = new mw.Api( { ajax: { cache: false } } ),
+				seenTime = mw.user.options.get( 'echo-seen-time' ),
 				notifications, data, container, $li, that = this, unread = [], apiData;
 
 			apiData = {
@@ -102,6 +103,10 @@
 						unread.push( id );
 					}
 
+					if ( seenTime !== null && data.timestamp.mw > seenTime ) {
+						$li.addClass( 'mw-echo-unseen' );
+					}
+
 					mw.echo.setupNotificationLogging( $li, 'archive' );
 
 					if ( $li.find( '.mw-echo-dismiss' ).length ) {
@@ -142,9 +147,11 @@
 					$badge = mw.echo.getBadge();
 					$badge.text( newCount );
 
-					if ( rawCount !== '0' && rawCount !== 0 ) {
-						$badge.addClass( 'mw-echo-unread-notifications' );
-					} else {
+					// Special:Notifications never loads newer notifications, so
+					// the badge should never light up again when it fetches
+					// additional (older) unread notifications. It can only go
+					// grey once all unread posts have been fetched.
+					if ( rawCount === '0' || rawCount === 0 ) {
 						$badge.removeClass( 'mw-echo-unread-notifications' );
 					}
 				}

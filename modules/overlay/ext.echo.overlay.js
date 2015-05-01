@@ -20,6 +20,7 @@
 		this.name = options.name;
 		this.unread = [];
 		this._totalUnread = notifications[this.name].rawcount;
+		this._setLastUnreadNotificationTime( notifications );
 		this._buildList( notifications[this.name] );
 	}
 
@@ -38,11 +39,39 @@
 		/**
 		 * Get a count the number of all unread notifications of this type
 		 * @method
-		 * @param integer id of a notification to mark as read
-		 * @return integer
+		 * @return {integer}
 		 */
 		getNumberUnread: function() {
 			return this._totalUnread;
+		},
+		/**
+		 * Returns the timestamp of the last unread notification
+		 * @method
+		 * @return {string|false} Timestamp of last notification (in TS_MW format), or false if there is none
+		 */
+		getLastUnreadNotificationTime: function() {
+			return this._lastUnreadNotificationTime || false;
+		},
+		/**
+		 * Set the timestamp of the last unread notification
+		 * @method
+		 * @param {object} notifications List of notifications
+		 */
+		_setLastUnreadNotificationTime: function( notifications ) {
+			var self = this;
+			$.each( notifications[this.name].list, function ( key, data ) {
+				if ( data.read ) {
+					// ignore notifications that have already been read
+					return;
+				}
+
+				if (
+					self._lastUnreadNotificationTime === undefined ||
+					self._lastUnreadNotificationTime < data.timestamp.mw
+				) {
+					self._lastUnreadNotificationTime = data.timestamp.mw;
+				}
+			} );
 		},
 		/**
 		 * Mark all existing notifications as read
@@ -88,8 +117,7 @@
 		/**
 		 * Builds an Echo notifications list
 		 * @method
-		 * @param string tabName the tab
-		 * @param object notifications as returned by the api of notification items
+		 * @param {object} notifications as returned by the api of notification items
 		 * @return jQuery element
 		 */
 		_buildList: function( notifications ) {
@@ -97,7 +125,8 @@
 				$container = $( '<div class="mw-echo-notifications">' )
 					.data( 'tab', this )
 					.css( 'max-height', $( window ).height() - 140 ),
-				$ul = $( '<ul>' ).appendTo( $container );
+				$ul = $( '<ul>' ).appendTo( $container ),
+				seenTime = mw.user.options.get( 'echo-seen-time' );
 
 			$.each( notifications.index, function ( index, id ) {
 				var $wrapper,
@@ -129,6 +158,10 @@
 								self.markAsRead( $( this ).closest( 'li' ).data( 'notification-event' ) );
 							} ).appendTo( $li );
 					}
+				}
+
+				if ( seenTime !== null && data.timestamp.mw > seenTime ) {
+					$li.addClass( 'mw-echo-unseen' );
 				}
 
 				// Grey links in the notification title and footer (except on hover)
@@ -212,14 +245,31 @@
 			var $badge = mw.echo.getBadge();
 			$badge.text( newCount );
 
-			if ( rawCount !== '0' && rawCount !== 0 ) {
+			this.notificationCount.unread = newCount;
+			this.notificationCount.unreadRaw = rawCount;
+			mw.hook( 'ext.echo.updateNotificationCount' ).fire( rawCount );
+		},
+
+		/**
+		 * FIXME: This should be pulled out of EchoOverlay and use an EventEmitter.
+		 */
+		updateBadgeColor: function () {
+			var $badge = mw.echo.getBadge(),
+				count = this.notificationCount.unreadRaw,
+				seenTime = mw.user.options.set( 'echo-seen-time' ),
+				seen = true;
+
+			// figure out if unread notifications in all tabs have already been seen
+			$.each( this.tabs, function ( key, tab ) {
+				var time = tab.getLastUnreadNotificationTime();
+				seen = seen && (time === false || time < seenTime);
+			} );
+
+			if ( !seen && count !== '0' && count !== 0 ) {
 				$badge.addClass( 'mw-echo-unread-notifications' );
 			} else {
 				$badge.removeClass( 'mw-echo-unread-notifications' );
 			}
-			this.notificationCount.unread = newCount;
-			this.notificationCount.unreadRaw = rawCount;
-			mw.hook( 'ext.echo.updateNotificationCount' ).fire( rawCount );
 		},
 
 		configuration: mw.config.get( 'wgEchoOverlayConfiguration' ),
@@ -331,6 +381,7 @@
 				options = {
 					markAsReadCallback: function( data, id ) {
 						self.updateBadgeCount( data.count, data.rawcount );
+						self.updateBadgeColor();
 						self._updateTitleElement();
 						if ( id ) {
 							self.$el.find( '[data-notification-event="' + id + '"]').removeClass( 'mw-echo-unread' )
@@ -373,6 +424,24 @@
 			$overlay.append( this._getFooterElement() );
 			// Show the active tab.
 			this._showTabList( this._activeTab );
+
+			this._updateSeenTime();
+		},
+
+		_updateSeenTime: function() {
+			var self = this;
+
+			// update 'echo-seen-time'
+			return this.api.post( {
+				action: 'echomarkseen',
+				token: mw.user.tokens.get( 'editToken' )
+			} ).done( function ( data ) {
+				// update echo-seen-time value in JS (where it wouldn't
+				// otherwise propagate until page reload)
+				mw.user.options.set( 'echo-seen-time', data.query.echomarkseen.timestamp );
+
+				self.updateBadgeColor();
+			} );
 		}
 	};
 

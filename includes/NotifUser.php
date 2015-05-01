@@ -264,6 +264,54 @@ class MWEchoNotifUser {
 	}
 
 	/**
+	 * Returns the timestamp of the last unread notification.
+	 *
+	 * @param boolean $cached Set to false to bypass the cache.
+	 * @param string $section Notification section
+	 * @return bool|MWTimestamp Timestamp of last notification, or false if there is none
+	 */
+	public function getLastUnreadNotificationTime( $cached = true, $section = EchoAttributeManager::ALL ) {
+		global $wgEchoConfig;
+
+		if ( $this->mUser->isAnon() ) {
+			return false;
+		}
+
+		$memcKey = wfMemcKey(
+			'echo-notification-timestamp' . ( $section === EchoAttributeManager::ALL ? '' : ( '-' . $section ) ),
+			$this->mUser->getId(),
+			$wgEchoConfig['version']
+		);
+
+		// read from cache, if allowed
+		if ( $cached ) {
+			$timestamp = $this->cache->get( $memcKey );
+			if ( $timestamp !== false ) {
+				return new MWTimestamp( $timestamp );
+			}
+		}
+
+		$attributeManager = EchoAttributeManager::newFromGlobalVars();
+		if ( $section === EchoAttributeManager::ALL ) {
+			$eventTypesToLoad = $attributeManager->getUserEnabledEvents( $this->mUser, 'web' );
+		} else {
+			$eventTypesToLoad = $attributeManager->getUserEnabledEventsbySections( $this->mUser, 'web', array( $section ) );
+		}
+
+		$notifications = $this->notifMapper->fetchUnreadByUser( $this->mUser, 1, $eventTypesToLoad );
+		if ( $notifications ) {
+			$notification = reset( $notifications );
+			$timestamp = $notification->getTimestamp();
+
+			// store to cache & return
+			$this->cache->set( $memcKey, $timestamp, 86400 );
+			return new MWTimestamp( $timestamp );
+		}
+
+		return false;
+	}
+
+	/**
 	 * Mark one or more notifications read for a user.
 	 * @param $eventIds Array of event IDs to mark read
 	 * @return boolean
@@ -343,6 +391,11 @@ class MWEchoNotifUser {
 		$this->getNotificationCount( false, $dbSource, EchoAttributeManager::ALL );
 		$this->getNotificationCount( false, $dbSource, EchoAttributeManager::ALERT );
 		$this->getNotificationCount( false, $dbSource, EchoAttributeManager::MESSAGE );
+		// when notification count needs to be updated, last notification may have
+		// changed too, so we need to invalidate that cache too
+		$this->getLastUnreadNotificationTime( false, EchoAttributeManager::ALL );
+		$this->getLastUnreadNotificationTime( false, EchoAttributeManager::ALERT );
+		$this->getLastUnreadNotificationTime( false, EchoAttributeManager::MESSAGE );
 		$this->mUser->invalidateCache();
 	}
 

@@ -71,13 +71,19 @@ class SpecialNotifications extends SpecialPage {
 		$dateHeader = '';
 		$notices = '';
 		$unread = array();
+		$seenTime = $user->getOption( 'echo-seen-time' );
 		foreach ( $notif as $row ) {
 			$class = 'mw-echo-notification';
+
 			if ( !isset( $row['read'] ) ) {
 				$class .= ' mw-echo-unread';
 				if ( !$row['targetpages'] ) {
 					$unread[] = $row['id'];
 				}
+			}
+
+			if ( $seenTime !== null && $row['timestamp']['mw'] > $seenTime ) {
+				$class .= ' mw-echo-unseen';
 			}
 
 			if ( !$row['*'] ) {
@@ -131,6 +137,11 @@ class SpecialNotifications extends SpecialPage {
 		if ( $unread ) {
 			MWEchoNotifUser::newFromUser( $user )->markRead( $unread );
 		}
+
+		// Record time notifications have been seen
+		$timestamp = wfTimestamp( TS_MW );
+		$user->setOption( 'echo-seen-time', $timestamp );
+		$user->saveSettings();
 	}
 
 	/**

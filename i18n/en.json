@@ -123,6 +123,8 @@
 	"apihelp-echomarkread-param-sections": "A list of sections to mark as read.",
 	"apihelp-echomarkread-example-1": "Mark notification 8 as read",
 	"apihelp-echomarkread-example-2": "Mark all notifications as read",
+	"apihelp-echomarkseen-description": "Mark notifications as seen for the current user.",
+	"apihelp-echomarkseen-example-1": "Mark notifications as seen",
 	"apihelp-query+notifications-description": "Get notifications waiting for the current user.",
 	"apihelp-query+notifications-param-prop": "Details to request.",
 	"apihelp-query+notifications-param-sections": "The notification sections to query.",

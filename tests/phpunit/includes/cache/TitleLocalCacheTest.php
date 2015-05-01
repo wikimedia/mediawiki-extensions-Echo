@@ -12,6 +12,7 @@ class EchoTitleLocalCacheTest extends MediaWikiTestCase {
 	 * @depends testCreate
 	 */
 	public function testAdd( $cache ) {
+		$cache->clearAll();
 		$cache->add( 1 );
 		$this->assertEquals( count( $cache->getLookups() ), 1 );
 		$this->assertArrayHasKey( 1, $cache->getLookups() );
