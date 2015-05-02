@@ -16,7 +16,8 @@
 			"Soul Train",
 			"Sunpriat",
 			"Чаховіч Уладзіслаў",
-			"Doff"
+			"Doff",
+			"Marina Melik-Adamyan"
 		]
 	},
 	"echo-desc": "Система уведомлений",
@@ -135,6 +136,8 @@
 	"apihelp-echomarkread-param-list": "Список ID уведомлений для отметки прочитанными.",
 	"apihelp-echomarkread-param-all": "Если задано, отметает все уведомления пользователя как прочитанные.",
 	"apihelp-echomarkread-example-2": "Отметить все уведомления как прочитанные",
+	"apihelp-echomarkseen-description": "Отметить уведомления как прочитанные для данного пользователя.",
+	"apihelp-echomarkseen-example-1": "Отметить уведомления как прочитанные",
 	"apihelp-query+notifications-param-groupbysection": "Следует ли группировать результат по разделам. Если задано, каждый раздел извлекается отдельно.",
 	"apihelp-query+notifications-param-format": "Если определено, уведомления будут возвращены отформатированными таким образом.",
 	"apihelp-query+notifications-param-alertunreadfirst": "Нужно ли показывать непрочитанные уведомления о сообщениях в первую очередь.",

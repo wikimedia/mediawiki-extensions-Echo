@@ -120,6 +120,8 @@
 	"apihelp-echomarkread-param-sections": "Список на поднаслови што треба да се означат како прочитани.",
 	"apihelp-echomarkread-example-1": "Означи го известувањето 8 како прочитано",
 	"apihelp-echomarkread-example-2": "Означиу ги сите известувања како прочитани",
+	"apihelp-echomarkseen-description": "Означи ги известувањата како прочитани за тековниот корисник.",
+	"apihelp-echomarkseen-example-1": "Означи ги известувањања како прочитани",
 	"apihelp-query+notifications-description": "Дај ги известувањата што го исчекуваат тековниот корисник.",
 	"apihelp-query+notifications-param-prop": "Подробности што треба да се побараат.",
 	"apihelp-query+notifications-param-sections": "Известителните поднаслови што треба да се побараат.",

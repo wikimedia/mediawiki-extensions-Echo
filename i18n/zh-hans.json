@@ -144,6 +144,8 @@
 	"apihelp-echomarkread-param-sections": "要标记为已读的部分列表。",
 	"apihelp-echomarkread-example-1": "标记通知8为已读",
 	"apihelp-echomarkread-example-2": "标记所有通知为已读",
+	"apihelp-echomarkseen-description": "对当前用户标记通知为已读。",
+	"apihelp-echomarkseen-example-1": "标记通知为已读",
 	"apihelp-query+notifications-description": "获取当前用户等待的通知。",
 	"apihelp-query+notifications-param-prop": "请求的细节。",
 	"apihelp-query+notifications-param-sections": "要查询的通知部分。",
