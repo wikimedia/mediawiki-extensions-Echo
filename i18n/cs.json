@@ -5,7 +5,8 @@
 			"Jkjk",
 			"Mormegil",
 			"Vks",
-			"Matěj Suchánek"
+			"Matěj Suchánek",
+			"Cvanca"
 		]
 	},
 	"echo-desc": "Notifikační systém",
@@ -117,5 +118,6 @@
 	"echo-email-batch-body-intro-daily": "Ahoj, uživateli $1,\n\nzde pro vás máme shrnutí dnešní aktivity na {{grammar:6sg|{{SITENAME}}}}",
 	"echo-email-batch-body-intro-weekly": "Ahoj, uživateli $1,\n\nzde pro vás máme shrnutí aktivity na {{grammar:6sg|{{SITENAME}}}} za tento týden",
 	"echo-email-batch-link-text-view-all-notifications": "Zobrazit všechna upozornění",
-	"echo-rev-deleted-text-view": "Tato verze stránky byla utajena"
+	"echo-rev-deleted-text-view": "Tato verze stránky byla utajena",
+	"apihelp-echomarkseen-example-1": "Označit oznámení jako přečtená"
 }

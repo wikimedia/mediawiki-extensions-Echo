@@ -31,6 +31,7 @@
 	"echo-category-title-mention": "{{PLURAL:$1|דערמאנונג|דערמאנונגען}}",
 	"echo-category-title-other": "{{PLURAL:$1|אנדערע}}",
 	"echo-category-title-system": "{{PLURAL:$1|סיסטעם}}",
+	"echo-category-title-user-rights": "{{PLURAL:$1|באניצער־רעכטן ענדערונג|באניצער־רעכטן ענדערונגען}}",
 	"echo-pref-tooltip-edit-user-talk": "זיי מיך מודיע ווען עמעצער שיקט א מעלדונג אדער ענטפערט אויף מיין שמועס בלאט.",
 	"echo-pref-tooltip-article-linked": "מים מודיע זײַן ווען איינער פארבינדט זיך צו א בלאט וואס איך האב געשאפן פון אן ארטיקל בלאט.",
 	"echo-pref-tooltip-mention": "מיך מודיע זײַן ווען איינער פארבינדט זיך צו מײַן באניצער־בלאט.",
@@ -60,7 +61,9 @@
 	"notification-add-comment-yours2": "[[User:$1|$1]] {{GENDER:$1|האט געלאזט א הערה}} וועגן \"[[$3#$2|$2]]\" אויף אײַער רעדן בלאט.",
 	"notification-mention": "[[User:$1|$1]] {{GENDER:$1|האט אײַך דערמאנט}} אויפן  $5 רעדן בלאט אין \"[[:$3#$2|$4]]\".",
 	"notification-mention-nosection": "[[User:$1|$1]] {{GENDER:$1|האט אײַך דערמאנט}} אויפן  [[:$3|$2 רעדן בלאט]].",
+	"notification-mention-nosection-flyout": "$1 {{GENDER:$1|האט אײַך דערמאנט}} אויפן [[:$3|$2 רעדן בלאט]].",
 	"notification-user-rights-add": "איר זענט יעצט א מיטגליד פון {{PLURAL:$2|די גרופע |די גרופעס}}: $1",
+	"notification-reverted2": " {{PLURAL:$4|אייער רעדאקטירונג אויף  [[:$2]] |אייערע רעדאקטירונגען אויף  [[:$2]] }} האט  [[User:$1|$1]]  {{GENDER:$1|צוריקגעדרייט}}. $3",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|האט אייך געשריבן}} א נייע מעלדונג אינעם {{SITENAME}} וועבזייטל",
 	"notification-edit-talk-page-email-batch-body2": "$1 {{GENDER:$1|האט געשריבן}} א מעלדונג אין אײַער רעדן בלאַט:",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 {{GENDER:$1|האט געלאזט}} א מעלדונג אין אײַער רעדן בלאַט אין \"$2\".",
@@ -68,9 +71,11 @@
 	"notification-page-linked-email-batch-body": "$2 איז געווארן {{GENDER:$1| פֿאַרלינקט}} פֿון $3.",
 	"notification-mention-email-subject": "$1 {{GENDER:$1|האט אײַך דערמאנט}} אויף {{SITENAME}}",
 	"notification-mention-email-batch-body": "$1 {{GENDER:$1|האט אײַך דערמאנט}} אויפן $4 רעדן בלאט אין \"$3\".",
+	"notification-user-rights-email-subject": "אײַערע באניצער־רעכטן זענען געווארן געענדערט אויף {{SITENAME}}",
 	"echo-email-subject-default": "נײַער אנזאג בײַ {{SITENAME}}",
 	"echo-email-body-default": "איר האט א נײַעם אנזאג  בײַ {{SITENAME}}:\n\n$1",
 	"echo-email-batch-body-default": "איר האט א נײַעם אנזאג.",
+	"echo-notification-message-text-only": "מעלדונגען",
 	"echo-overlay-link": "אלע הודעות",
 	"echo-overlay-title": "<b>הודעות</b>",
 	"echo-mark-all-as-read": "מאַרקירן אַלע געליינט",
@@ -80,5 +85,6 @@
 	"notification-edit-user-talk-email-batch-bundle-body": "$1 און $2 {{PLURAL:$3|אנדערער|אנדערע}} {{GENDER:$1|האבן געלאזט}} אן אנזאג אויף אייער רעדן בלאט.",
 	"notification-page-linked-email-batch-bundle-body": "$2 איז געווארן {{GENDER:$1|געלינקט}} פון $3 און $4 {{PLURAL:$5|אנדער בלאט|אנדערע בלעטער}}.",
 	"echo-email-batch-link-text-view-all-notifications": "ווײַזן אלע אנזאגן",
-	"echo-rev-deleted-text-view": "די בלאט־ווערסיע איז געווארן אונטערדרוקט."
+	"echo-rev-deleted-text-view": "די בלאט־ווערסיע איז געווארן אונטערדרוקט.",
+	"apihelp-echomarkread-param-sections": "א ליסטע פון אפטיילונגען צו מארקירן געלייענט."
 }

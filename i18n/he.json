@@ -86,7 +86,7 @@
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|כתב|כתבה}} לך הודעה חדשה באתר {{SITENAME}}",
 	"notification-edit-talk-page-email-batch-body2": "$1 {{GENDER:$1|כתב|כתבה}} הודעה בדף השיחה שלך:",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 {{GENDER:$1|כתב|כתבה}} בדף השיחה שלך הודעה תחת הכותרת '$2'.",
-	"notification-page-linked-email-subject": "מישהו קישר אל הדף שלך באתר {{SITENAME}}",
+	"notification-page-linked-email-subject": "מישהו קישר לדף שיצרת באתר {{SITENAME}}",
 	"notification-page-linked-email-batch-body": "{{GENDER:$1|מישהו קישר|מישהי קישרה}} מהדף $3 אל הדף $2",
 	"notification-reverted-email-subject2": "$1 {{GENDER:$1|שחזר|שחזרה}} {{PLURAL:$3|עריכה שלך|עריכות שלך}} באתר {{SITENAME}}",
 	"notification-reverted-email-batch-body2": "$1 {{GENDER:$1|שחזר|שחזרה}} {{PLURAL:$3|עריכה שלך|עריכות שלך}} בדף $2",

@@ -120,6 +120,8 @@
 	"apihelp-echomarkread-param-sections": "En Leß met Affschnedde, di op „jelässe“ jesaz wähde sulle.",
 	"apihelp-echomarkread-example-1": "Säz de Meddeilong aach op „jelässe“.",
 	"apihelp-echomarkread-example-2": "Säz alle Meddeilonge op „jelässe“.",
+	"apihelp-echomarkseen-description": "Makkehr, dat dä aktoälle Metmaacher di Meddeilonge jesinn hät.",
+	"apihelp-echomarkseen-example-1": "Makehr de Meddeilong als „jesinn“",
 	"apihelp-query+notifications-description": "Holl däm aktoälle Metmaacher sing Waadeschlang met Meddeilonge.",
 	"apihelp-query+notifications-param-prop": "De Einzelheijte för dernoh ze frohre.",
 	"apihelp-query+notifications-param-sections": "De Afschnedde vun de Nohreeschte holle.",
