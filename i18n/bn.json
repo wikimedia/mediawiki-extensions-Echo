@@ -39,7 +39,7 @@
 	"echo-category-title-user-rights": "{{PLURAL:$1|ব্যবহারকারীর অধিকার পরিবর্তন}}",
 	"echo-pref-tooltip-edit-user-talk": "আমার আলাপ পাতায় কেউ বার্তা রাখলে বা উত্তর দিলে আমাকে বিজ্ঞপ্তি দাও।",
 	"echo-pref-tooltip-article-linked": "যদি কেউ অন্য পাতায় আমার তৈরি কোনো পাতার লিঙ্ক প্রদান করে তাহলে আমাকে বিজ্ঞপ্তি দাও।",
-	"echo-pref-tooltip-reverted": "আনডু বা রোলব্যাক টুল দিয়ে কেউ আমার সম্পাদনা ফেরত নিলে আমাকে বিজ্ঞপ্তি দাও।",
+	"echo-pref-tooltip-reverted": "পূর্বাবস্থা বা রোলব্যাক সরঞ্জাম দিয়ে কেউ আমার সম্পাদনা ফেরত নিলে আমাকে বিজ্ঞপ্তি দাও।",
 	"echo-pref-tooltip-mention": "কেউ আমার ব্যবহারকারী পাতার লিঙ্ক প্রদান করলে আমাকে বিজ্ঞপ্তি দাও।",
 	"echo-pref-tooltip-user-rights": "কেউ আমার ব্যবহারকারীর অধিকার পরিবর্তন করলে আমাকে বিজ্ঞপ্তি দাও।",
 	"echo-no-agent": "[কেউ নাই]",
@@ -83,7 +83,7 @@
 	"notification-edit-talk-page-email-subject2": "$1 {{SITENAME}} এ আপনার জন্য একটি বার্তা {{GENDER:$1|রেখেছেন}}",
 	"notification-edit-talk-page-email-batch-body2": "$1 আপনার আলাপ পাতায় একটি বার্তা {{GENDER:$1|রেখেছেন}}:",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 আপনার আলাপ পাতায় \"$2\"-এ একটি বার্তা {{GENDER:$1|রেখেছেন}}।",
-	"notification-page-linked-email-subject": "আপনার পাতাটি {{SITENAME}} সাইটে সংযুক্ত রয়েছে।",
+	"notification-page-linked-email-subject": "আপনার তৈরিকৃত একটি পাতা {{SITENAME}} সাইটে সংযোগ করা হয়েছে।",
 	"notification-page-linked-email-batch-body": "$2 পাতাটি $3 হতে {{GENDER:$1|সংযুক্ত}}।",
 	"notification-reverted-email-subject2": "{{SITENAME}}-এ আপনার {{PLURAL:$3|সম্পাদনা|সম্পাদনাগুলো}} {{GENDER:$1|পূর্বাবস্থায়}} নেয়া হয়েছে",
 	"notification-reverted-email-batch-body2": "$1 দ্বারা {{PLURAL:$3|$2-এ আপনার সম্পাদনা|$2-এ আপনার সম্পাদনাগুলি}} {{GENDER:$1|পূর্বাবস্থায়}} নেয়া হয়েছে।",
@@ -117,5 +117,8 @@
 	"echo-email-batch-body-intro-daily": "প্রিয় $1,\n{{SITENAME}} সাইটে আপনার জন্য দিনের কার্যক্রমের সারাংশ এখানে দেওয়া হল।",
 	"echo-email-batch-body-intro-weekly": "প্রিয় $1,\n{{SITENAME}} সাইটে আপনার জন্য সপ্তাহের কার্যক্রমের সারাংশ এখানে দেওয়া হল।",
 	"echo-email-batch-link-text-view-all-notifications": "সকল বিজ্ঞপ্তি দেখাও",
-	"echo-rev-deleted-text-view": "এই পাতা সংস্করণটি বাতিল করা হয়েছে।"
+	"echo-rev-deleted-text-view": "এই পাতা সংস্করণটি বাতিল করা হয়েছে।",
+	"apihelp-echomarkread-example-2": "পঠিত হিসাবে সকল বিজ্ঞপ্তি চিহ্নিত করুন",
+	"apihelp-query+notifications-example-1": "বিজ্ঞপ্তির তালিকা",
+	"apihelp-query+notifications-example-2": "বিজ্ঞপ্তির তালিকা, গণনাসহ, দলগতভাবে অনুচ্ছেদে ভাগ করা"
 }

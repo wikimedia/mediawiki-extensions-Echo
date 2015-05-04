@@ -136,7 +136,7 @@
 	"apihelp-echomarkread-example-1": "Marca la notificación 8 como leída.",
 	"apihelp-echomarkread-example-2": "Marca todas las notificaciones como leídas.",
 	"apihelp-echomarkseen-description": "Marcar las notificaciones como leídas para el usuario actual.",
-	"apihelp-echomarkseen-example-1": "Marcar las notificaciones como leídas.",
+	"apihelp-echomarkseen-example-1": "Marcar las notificaciones como leídas",
 	"apihelp-query+notifications-description": "Recibe notificaciones de espera para el usuario actual.",
 	"apihelp-query+notifications-param-prop": "Detalles que solicitar.",
 	"apihelp-query+notifications-param-sections": "Las secciones de notificación a consultar.",
