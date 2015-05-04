@@ -58,7 +58,7 @@
 			if ( mobile ) {
 				myEvt.mobile = mobile;
 			}
-			mw.loader.using( 'ext.eventLogging', function() {
+			mw.loader.using( 'ext.eventLogging', function () {
 				mw.eventLog.logEvent( 'EchoInteraction', myEvt );
 			} );
 		},
@@ -66,14 +66,14 @@
 		 * @method
 		 * @return jQuery element corresponding to the badge reflecting the notification count
 		 */
-		getBadge: function() {
+		getBadge: function () {
 			return $( '.mw-echo-notifications-badge' );
 		}
 
 	};
 
 	if ( mw.echo.clickThroughEnabled ) {
-		mw.loader.using( 'ext.eventLogging', function() {
+		mw.loader.using( 'ext.eventLogging', function () {
 			mw.eventLog.setDefaults( 'EchoInteraction', {
 				version: mw.config.get( 'wgEchoConfig' ).version,
 				userId: +mw.config.get( 'wgUserId' ),

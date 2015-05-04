@@ -12,7 +12,7 @@
 		 * Initialize the property in special notification page.
 		 */
 		initialize: function () {
-			var skin = mw.config.get('skin');
+			var skin = mw.config.get( 'skin' );
 
 			// Convert more link into a button
 			$( '#mw-echo-more' )
@@ -59,19 +59,20 @@
 		 * Load more notification records.
 		 */
 		loadMore: function () {
-			var api = new mw.Api( { ajax: { cache: false } } ),
+			var notifications, data, container, $li,
+				api = new mw.Api( { ajax: { cache: false } } ),
 				seenTime = mw.user.options.get( 'echo-seen-time' ),
-				notifications, data, container, $li, that = this, unread = [], apiData;
-
-			apiData = {
-				action : 'query',
-				meta : 'notifications',
-				notformat : 'html',
-				notprop : 'index|list',
-				notcontinue: this.notcontinue,
-				notlimit: mw.config.get( 'wgEchoDisplayNum' ),
-				uselang: useLang
-			};
+				that = this,
+				unread = [],
+				apiData = {
+					action: 'query',
+					meta: 'notifications',
+					notformat: 'html',
+					notprop: 'index|list',
+					notcontinue: this.notcontinue,
+					notlimit: mw.config.get( 'wgEchoDisplayNum' ),
+					uselang: useLang
+				};
 
 			api.get( apiData ).done( function ( result ) {
 				container = $( '#mw-echo-special-container' );
@@ -130,17 +131,18 @@
 		 */
 		markAsRead: function ( unread ) {
 			var newCount, rawCount, $badge,
-				api = new mw.Api(), that = this;
+				api = new mw.Api(),
+				that = this;
 
 			api.post( {
-				action : 'echomarkread',
-				list : unread.join( '|' ),
+				action: 'echomarkread',
+				list: unread.join( '|' ),
 				token: mw.user.tokens.get( 'editToken' ),
 				uselang: useLang
 			} ).done( function ( result ) {
 				// update the badge if the link is enabled
 				if ( result.query.echomarkread.count !== undefined &&
-					$( '#pt-notifications').length
+					$( '#pt-notifications' ).length
 				) {
 					newCount = result.query.echomarkread.count;
 					rawCount = result.query.echomarkread.rawcount;

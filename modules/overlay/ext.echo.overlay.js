@@ -33,7 +33,7 @@
 		 * @param integer id of a notification to mark as read
 		 * @return jQuery.Deferred
 		 */
-		getUnreadIds: function() {
+		getUnreadIds: function () {
 			return this.unread;
 		},
 		/**
@@ -41,7 +41,7 @@
 		 * @method
 		 * @return {integer}
 		 */
-		getNumberUnread: function() {
+		getNumberUnread: function () {
 			return this._totalUnread;
 		},
 		/**
@@ -49,7 +49,7 @@
 		 * @method
 		 * @return {string|false} Timestamp of last notification (in TS_MW format), or false if there is none
 		 */
-		getLastUnreadNotificationTime: function() {
+		getLastUnreadNotificationTime: function () {
 			return this._lastUnreadNotificationTime || false;
 		},
 		/**
@@ -57,7 +57,7 @@
 		 * @method
 		 * @param {object} notifications List of notifications
 		 */
-		_setLastUnreadNotificationTime: function( notifications ) {
+		_setLastUnreadNotificationTime: function ( notifications ) {
 			var self = this;
 			$.each( notifications[this.name].list, function ( key, data ) {
 				if ( data.read ) {
@@ -79,8 +79,9 @@
 		 * @param integer id of a notification to mark as read
 		 * @return jQuery.Deferred
 		 */
-		markAsRead: function( id ) {
-			var self = this, data;
+		markAsRead: function ( id ) {
+			var data,
+				self = this;
 			// only need to mark as read if there is unread item
 			if ( this.unread.length ) {
 				data = {
@@ -97,7 +98,7 @@
 
 				return this.api.post( data ).then( function ( result ) {
 					return result.query.echomarkread;
-				} ).done( function( result ) {
+				} ).done( function ( result ) {
 					// reset internal state of unread messages
 					if ( id ) {
 						if ( self.unread.indexOf( id ) > -1 ) {
@@ -120,7 +121,7 @@
 		 * @param {object} notifications as returned by the api of notification items
 		 * @return jQuery element
 		 */
-		_buildList: function( notifications ) {
+		_buildList: function ( notifications ) {
 			var self = this,
 				$container = $( '<div class="mw-echo-notifications">' )
 					.data( 'tab', this )
@@ -153,7 +154,7 @@
 					self.unread.push( id );
 					if ( !self.markOnView ) {
 						$( '<button class="mw-ui-button mw-ui-quiet">&times;</button>' )
-							.on( 'click', function( ev ) {
+							.on( 'click', function ( ev ) {
 								ev.preventDefault();
 								self.markAsRead( $( this ).closest( 'li' ).data( 'notification-event' ) );
 							} ).appendTo( $li );
@@ -168,10 +169,10 @@
 				$li.find( '.mw-echo-title a, .mw-echo-notification-footer a' )
 					.addClass( 'mw-echo-grey-link' );
 				$li.hover(
-					function() {
+					function () {
 						$( this ).find( '.mw-echo-title a, .mw-echo-notification-footer a' ).removeClass( 'mw-echo-grey-link' );
 					},
-					function() {
+					function () {
 						$( this ).find( '.mw-echo-title a, .mw-echo-notification-footer a' ).addClass( 'mw-echo-grey-link' );
 					}
 				);
@@ -182,14 +183,14 @@
 					$wrapper = $( '<a>' )
 						.addClass( 'mw-echo-notification-wrapper' )
 						.attr( 'href', $li.find( '.mw-echo-notification-primary-link' ).attr( 'href' ) )
-						.click( function() {
+						.click( function () {
 							if ( mw.echo.clickThroughEnabled ) {
 								// Log the clickthrough
 								mw.echo.logInteraction( 'notification-link-click', 'flyout', +data.id, data.type );
 							}
 						} );
 				} else {
-					$wrapper = $('<div>').addClass( 'mw-echo-notification-wrapper' );
+					$wrapper = $( '<div>' ).addClass( 'mw-echo-notification-wrapper' );
 				}
 
 				$li.wrapInner( $wrapper );
@@ -206,9 +207,9 @@
 			if ( !this.markOnView && this.unread.length ) {
 				$( '<button class="mw-ui-button mw-ui-quiet">' )
 					.text( mw.msg( 'echo-mark-all-as-read' ) )
-					.on( 'click', function() {
+					.on( 'click', function () {
 						var $btn = $( this );
-						self.markAsRead().done( function() {
+						self.markAsRead().done( function () {
 							self.$el.find( '.mw-echo-unread' ).removeClass( 'mw-echo-unread' );
 							$btn.remove();
 						} );
@@ -262,7 +263,7 @@
 			// figure out if unread notifications in all tabs have already been seen
 			$.each( this.tabs, function ( key, tab ) {
 				var time = tab.getLastUnreadNotificationTime();
-				seen = seen && (time === false || time < seenTime);
+				seen = seen && ( time === false || time < seenTime );
 			} );
 
 			if ( !seen && count !== '0' && count !== 0 ) {
@@ -274,7 +275,7 @@
 
 		configuration: mw.config.get( 'wgEchoOverlayConfiguration' ),
 
-		_getFooterElement: function() {
+		_getFooterElement: function () {
 			var $prefLink = $( '#pt-preferences a' ),
 				links = [
 					{ url: getUrl( 'Special:Notifications' ), text: mw.msg( 'echo-overlay-link' ),
@@ -284,7 +285,7 @@
 				],
 				$overlayFooter = $( '<div class="mw-echo-overlay-footer">' );
 
-			$.each( links, function( i, link ) {
+			$.each( links, function ( i, link ) {
 				$( '<a class="mw-echo-grey-link">' )
 					.attr( 'href', link.url )
 					.addClass( link.className )
@@ -293,21 +294,21 @@
 			} );
 			// add link to notifications archive
 			$overlayFooter.find( 'a' ).hover(
-				function() {
+				function () {
 					$( this ).removeClass( 'mw-echo-grey-link' );
 				},
-				function() {
+				function () {
 					$( this ).addClass( 'mw-echo-grey-link' );
 				}
 			);
 			return $overlayFooter;
 		},
 
-		_showTabList: function( tab ) {
+		_showTabList: function ( tab ) {
 			var $lists = this.$el.find( '.mw-echo-notifications' ).hide();
 
 			this._activeTab = tab;
-			$lists.each( function() {
+			$lists.each( function () {
 				if ( $( this ).data( 'tab' ).name === tab.name ) {
 					$( this ).show();
 					if ( tab.markOnView ) {
@@ -317,19 +318,19 @@
 			} );
 		},
 
-
-		_updateTitleElement: function() {
+		_updateTitleElement: function () {
 			var $header;
 			$header = this.$el.find( '.mw-echo-overlay-title' );
 			this._getTitleElement().insertBefore( $header );
 			$header.remove();
 		},
 
-		_getTabsElement: function() {
+		_getTabsElement: function () {
 			var $li,
-				$ul = $( '<ul>' ), self = this;
+				$ul = $( '<ul>' ),
+				self = this;
 
-			$.each( this.tabs, function( i, echoTab ) {
+			$.each( this.tabs, function ( i, echoTab ) {
 				var
 					tabName = self.tabs.length > 1 ? echoTab.name : ( echoTab.name + '-text-only' ),
 					// Messages that can be used here:
@@ -348,10 +349,10 @@
 					.appendTo( $ul );
 
 				$( '<a class="mw-ui-anchor mw-ui-progressive">' )
-					.on( 'click', function() {
+					.on( 'click', function () {
 						var $this = $( this );
 						$ul.find( 'a' ).removeClass( 'mw-ui-quiet' ).addClass( 'mw-ui-active' );
-						$this.addClass( 'mw-ui-quiet' ).removeClass( 'mw-ui-active');
+						$this.addClass( 'mw-ui-quiet' ).removeClass( 'mw-ui-active' );
 						self._showTabList( $this.data( 'tab' ) );
 					} )
 					.data( 'tab', echoTab )
@@ -361,15 +362,15 @@
 			return $ul;
 		},
 
-		getUnreadCount: function() {
+		getUnreadCount: function () {
 			var count = 0;
-			$.each( this.tabs, function( i, tab ) {
+			$.each( this.tabs, function ( i, tab ) {
 				count += tab.getNumberUnread();
 			} );
 			return count;
 		},
 
-		_getTitleElement: function() {
+		_getTitleElement: function () {
 			var $title = $( '<div>' ).addClass( 'mw-echo-overlay-title' )
 				.append( this._getTabsElement() );
 			return $title;
@@ -379,12 +380,12 @@
 			var tabs,
 				self = this,
 				options = {
-					markAsReadCallback: function( data, id ) {
+					markAsReadCallback: function ( data, id ) {
 						self.updateBadgeCount( data.count, data.rawcount );
 						self.updateBadgeColor();
 						self._updateTitleElement();
 						if ( id ) {
-							self.$el.find( '[data-notification-event="' + id + '"]').removeClass( 'mw-echo-unread' )
+							self.$el.find( '[data-notification-event="' + id + '"]' ).removeClass( 'mw-echo-unread' )
 								.find( 'button' ).remove();
 						}
 					}
@@ -399,7 +400,7 @@
 				tabs = [ { name: 'alert', markOnView: true } ];
 			}
 
-			$.each( tabs, function( i, tabOptions ) {
+			$.each( tabs, function ( i, tabOptions ) {
 				var tab = new EchoOverlayTab( $.extend( tabOptions, options ), notifications );
 				self.$el.append( tab.$el );
 				self.tabs.push( tab );
@@ -428,7 +429,7 @@
 			this._updateSeenTime();
 		},
 
-		_updateSeenTime: function() {
+		_updateSeenTime: function () {
 			var self = this;
 
 			// update 'echo-seen-time'
@@ -458,7 +459,7 @@
 		 * Create an Echo overlay
 		 * @return jQuery.Deferred with new EchoOverlay passed in callback
 		 */
-		getNewOverlay: function() {
+		getNewOverlay: function () {
 			var apiData = {
 				action: 'query',
 				meta: 'notifications',
@@ -480,8 +481,8 @@
 		 * @method
 		 * @param callback a callback which passes the newly created overlay as a parameter
 		 */
-		buildOverlay: function( callback ) {
-			this.getNewOverlay().done( function( overlay ) {
+		buildOverlay: function ( callback ) {
+			this.getNewOverlay().done( function ( overlay ) {
 				callback( overlay.$el );
 			} ).fail( function () {
 				window.location.href = $( '#pt-notifications a' ).attr( 'href' );

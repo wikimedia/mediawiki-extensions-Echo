@@ -1,7 +1,7 @@
 ( function ( $, mw ) {
 	$( function () {
 		var $link = $( '#pt-notifications a' );
-		if ( ! $link.length ) {
+		if ( !$link.length ) {
 			return;
 		}
 
@@ -58,7 +58,7 @@
 		} );
 
 		$( 'body' ).click( function ( e ) {
-			if ( ! $( e.target ).is( '.mw-echo-overlay, .mw-echo-overlay *, #pt-notifications a' ) ) {
+			if ( !$( e.target ).is( '.mw-echo-overlay, .mw-echo-overlay *, #pt-notifications a' ) ) {
 				mw.echo.overlay.removeOverlay();
 			}
 		} );
@@ -71,4 +71,4 @@
 		} );
 
 	} );
-}( jQuery, mediaWiki ));
+}( jQuery, mediaWiki ) );

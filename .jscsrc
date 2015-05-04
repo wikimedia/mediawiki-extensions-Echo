@@ -1,22 +1,4 @@
 {
 	"preset": "wikimedia",
-
-	"requireSpaceAfterLineComment": null,
-	"requireSpacesInsideParentheses": null,
-	"requireSpaceBeforeKeywords": null,
-	"disallowImplicitTypeConversion": null,
-	"disallowSpacesInCallExpression": null,
-	"disallowOperatorBeforeLineBreak": null,
-	"requireLineBreakAfterVariableAssignment": null,
-	"disallowSpaceAfterPrefixUnaryOperators": null,
-
-	"requireSpaceAfterKeywords": null,
-	"requireSpacesInsideArrayBrackets": null,
-	"disallowQuotedKeysInObjects": null,
-	"disallowDanglingUnderscores": null,
-	"disallowSpaceAfterObjectKeys": null,
-	"disallowMultipleLineBreaks": null,
-	"requireCamelCaseOrUpperCaseIdentifiers": null,
-	"validateQuoteMarks": null,
-	"validateIndentation": null
+	"disallowDanglingUnderscores": null
 }
