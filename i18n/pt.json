@@ -106,7 +106,7 @@
 	"echo-overlay-link": "Todas as notificações",
 	"echo-overlay-title": "<b>Notificações</b>",
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Notificações}}</b> (a mostrar $1 de $2 não lidas)",
-	"echo-mark-all-as-read": "Marcas todas como lidas",
+	"echo-mark-all-as-read": "Marcar todas como lidas",
 	"echo-date-today": "Hoje",
 	"echo-date-yesterday": "Ontem",
 	"echo-load-more-error": "Ocorreu um erro ao carregar mais resultados.",
