@@ -257,13 +257,13 @@
 		updateBadgeColor: function () {
 			var $badge = mw.echo.getBadge(),
 				count = this.notificationCount.unreadRaw,
-				seenTime = mw.user.options.set( 'echo-seen-time' ),
+				seenTime = mw.user.options.get( 'echo-seen-time' ),
 				seen = true;
 
 			// figure out if unread notifications in all tabs have already been seen
 			$.each( this.tabs, function ( key, tab ) {
 				var time = tab.getLastUnreadNotificationTime();
-				seen = seen && ( time === false || time < seenTime );
+				seen = seen && ( time === false || ( seenTime !== null && time < seenTime ) );
 			} );
 
 			if ( !seen && count !== '0' && count !== 0 ) {

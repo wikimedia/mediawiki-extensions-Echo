@@ -654,8 +654,7 @@ class EchoHooks {
 			if (
 				$notificationCount == 0 || // no unread notifications
 				$notificationTimestamp === false || // should already always be false if count === 0
-				$seenTime === null || // seenTime hasn't yet been recorded, don't rely on it
-				$notificationTimestamp->getTimestamp( TS_MW ) <= $seenTime // all notifications have already been seen
+				( $seenTime !== null && $notificationTimestamp->getTimestamp( TS_MW ) <= $seenTime ) // all notifications have already been seen
 			) {
 				$linkClasses = array( 'mw-echo-notifications-badge' );
 			} else {
