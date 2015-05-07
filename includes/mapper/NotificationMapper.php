@@ -96,16 +96,17 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	 * @param User $user
 	 * @param int $limit
 	 * @param string[] $eventTypes
+	 * @param int $dbSource Use master or slave database to pull count
 	 * @return EchoNotification[]
 	 */
-	public function fetchUnreadByUser( User $user, $limit, array $eventTypes = array() ) {
+	public function fetchUnreadByUser( User $user, $limit, array $eventTypes = array(), $dbSource = DB_SLAVE ) {
 		$data = array();
 
 		if ( !$eventTypes ) {
 			return $data;
 		}
 
-		$dbr = $this->dbFactory->getEchoDb( DB_SLAVE );
+		$dbr = $this->dbFactory->getEchoDb( $dbSource );
 		$res = $dbr->select(
 			array( 'echo_notification', 'echo_event' ),
 			'*',
