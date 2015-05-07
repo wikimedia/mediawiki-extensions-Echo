@@ -55,7 +55,7 @@
 	"notification-edit-talk-page-flyout2": "$1 մասնակիցը հաղորդագրություն է թողել Ձեր [[User talk:$2#$3|քննարկման էջում]]:",
 	"notification-edit-talk-page-flyout-with-section": "$1 մասնակիցը հաղորդագրություն է թողել Ձեր քննարկման էջի \"[[User talk:$2#$3|$4]]\" բաժնում:",
 	"notification-page-linked": "[[:$2]] {{GENDER:$1|հղվել է}} [[:$3]] հոդվածից: [[Special:WhatLinksHere/$2|Տեսնել այս էջին հղվող բոլոր հոդվածները]].",
-	"notification-page-linked-flyout": "[[:$2]] {{GENDER:$1|հղվել է}} [[:$3]] հոդվածից:",
+	"notification-page-linked-flyout": "[[:$2]] հոդվածը {{GENDER:$1|հղվել է}} [[:$3]] հոդվածում:",
 	"notification-add-comment2": "[[User:$1|$1]] մասնակիցը {{GENDER:$1|մեկնաբանել է}} \"$4\" քննարկման էջի \"[[$3|$2]]\" բաժնում:",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] մասնակիցը [[$3]] էջում {{GENDER:$1|ավելացրել է}} \"$2\" անվամբ բաժին:",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] մասնակիցը \"[[$3#$2|$2]]\" բաժնում Ձեզ {{GENDER:$1|ուղարկել է}} նոր հաղորդագրություն:",
