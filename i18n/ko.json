@@ -86,7 +86,7 @@
 	"notification-edit-talk-page-email-subject2": "$1님이 {{SITENAME}}에서 당신에게 글을 {{GENDER:$1|남겼습니다}}",
 	"notification-edit-talk-page-email-batch-body2": "$1님이 당신의 토론 문서에 글을 {{GENDER:$1|남겼습니다}}:",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1님이 당신의 토론 문서의 \"$2\" 문단에 글을 {{GENDER:$1|남겼습니다}}.",
-	"notification-page-linked-email-subject": "{{SITENAME}}에서 당신의 문서가 링크되었습니다",
+	"notification-page-linked-email-subject": "{{SITENAME}}에서 당신이 만든 문서가 링크되었습니다",
 	"notification-page-linked-email-batch-body": "$2 문서가 $3에 {{GENDER:$1|링크되었습니다}}",
 	"notification-reverted-email-subject2": "{{SITENAME}}의 당신의 {{PLURAL:$3|편집}}이 {{GENDER:$1|되돌려졌습니다}}",
 	"notification-reverted-email-batch-body2": "{{PLURAL:$3|$2에 대한 내 편집}}을 $1님이 {{GENDER:$1|되돌렸습니다}}.",

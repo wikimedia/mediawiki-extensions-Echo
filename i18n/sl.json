@@ -82,7 +82,7 @@
 	"notification-edit-talk-page-email-subject2": "V projektu {{SITENAME}} vam je {{GENDER:$1|uporabnik|uporabnica}} {{GENDER:$1|pustil|pustila}} sporočilo.",
 	"notification-edit-talk-page-email-batch-body2": "{{GENDER:$1|Uporabnik|Uporabnica}} vam je na pogovorni strani {{GENDER:$1|pustil|pustila}} sporočilo:",
 	"notification-edit-talk-page-email-batch-body-with-section": "{{GENDER:$1|Uporabnik|Uporabnica}} vam je {{GENDER:$1|pustil|pustila}} sporočilo na pogovorni strani v razdelku »$2«.",
-	"notification-page-linked-email-subject": "V projektu {{SITENAME}} je bila dodana povezava na vašo stran",
+	"notification-page-linked-email-subject": "Stran, ki ste jo ustvarili, je na projektu {{SITENAME}} dobila povezavo nanjo",
 	"notification-page-linked-email-batch-body": "Stran »$2« je bila {{GENDER:$1|povezana}} s strani »$3«.",
 	"notification-reverted-email-subject2": "V {{GRAMMAR:dajalnik|{{SITENAME}}}} {{PLURAL:$3|je bilo|so bila}} {{PLURAL:$3|vaše urejanje|vaša urejanja}} {{GENDER:$1|{{PLURAL:$3|vrnjeno|vrnjena}}}}.",
 	"notification-reverted-email-batch-body2": "{{PLURAL:$3|Vaše urejanje|Vaša urejanja}} v {{GRAMMAR:mestnik|$2}} je {{GENER:$1|vrnil|vrnila}} $1.",
