@@ -19,7 +19,7 @@ $specialPageAliases['ar'] = array(
 	'Notifications' => array( 'إشعارات' ),
 );
 
-/** Egyptian Spoken Arabic (مصرى) */
+/** Egyptian Arabic (مصرى) */
 $specialPageAliases['arz'] = array(
 	'Notifications' => array( 'اخطارات' ),
 );
@@ -134,7 +134,7 @@ $specialPageAliases['lb'] = array(
 	'Notifications' => array( 'Notifikatiounen' ),
 );
 
-/** لوری (لوری) */
+/** لوری مینجایی (لوری مینجایی) */
 $specialPageAliases['lrc'] = array(
 	'Notifications' => array( 'وارسیاریا' ),
 );
