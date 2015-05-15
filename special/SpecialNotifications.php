@@ -177,4 +177,8 @@ class SpecialNotifications extends SpecialPage {
 		);
 		return $lang->pipeList( $subtitleLinks );
 	}
+
+	protected function getGroupName() {
+		return 'users';
+	}
 }
