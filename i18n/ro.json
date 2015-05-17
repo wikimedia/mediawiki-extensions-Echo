@@ -47,7 +47,7 @@
 	"echo-error-preference": "Eroare: Nu s-au putut stabili preferințele utilizatorului.",
 	"echo-error-token": "Eroare: Nu s-a putut prelua jetonul utilizatorului.",
 	"notifications": "Notificări",
-	"tooltip-pt-notifications": "Notificările tale",
+	"tooltip-pt-notifications": "Notificările dumneavoastră",
 	"echo-specialpage": "Notificări",
 	"echo-anon": "Pentru a primi notificări, [$1 creați-vă un cont] sau [$2 autentificați-vă].",
 	"echo-none": "Nu aveți nicio notificare.",

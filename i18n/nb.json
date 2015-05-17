@@ -4,7 +4,8 @@
 			"Danmichaelo",
 			"Jeblad",
 			"Laaknor",
-			"Njardarlogar"
+			"Njardarlogar",
+			"Chameleon222"
 		]
 	},
 	"echo-desc": "Varslingssystem",
@@ -81,7 +82,7 @@
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|skrev}} en melding til deg på {{SITENAME}}",
 	"notification-edit-talk-page-email-batch-body2": "$1 {{GENDER:$1|skrev}} en melding på diskusjonssiden din:",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 {{GENDER:$1|skrev}} en melding til deg under overskriften «$2» på diskussjonssiden din.",
-	"notification-page-linked-email-subject": "Siden din ble lenket til på {{SITENAME}}",
+	"notification-page-linked-email-subject": "En side du opprettet ble lenket til på {{SITENAME}}",
 	"notification-page-linked-email-batch-body": "$2 ble {{GENDER:$1|lenket}} til fra $3",
 	"notification-reverted-email-subject2": "{{PLURAL:$3|Redigeringen din|Redigeringene dine}} på {{SITENAME}} ble {{GENDER:$1|tilbakestilt}}",
 	"notification-reverted-email-batch-body2": "{{PLURAL:$3|Redigeringen din|Redigeringene dine}} på $2 har blitt {{GENDER:$1|tilbakestilt}} av $1.",
@@ -122,6 +123,8 @@
 	"apihelp-echomarkread-param-sections": "En liste over seksjoner som skal markeres som leste.",
 	"apihelp-echomarkread-example-1": "Merk varsel 8 som lest",
 	"apihelp-echomarkread-example-2": "Merk alle varsler som leste",
+	"apihelp-echomarkseen-description": "Merk varsler som sett for den aktuelle brukeren.",
+	"apihelp-echomarkseen-example-1": "Merk varsler som sett",
 	"apihelp-query+notifications-description": "Hent ventende varsler for den aktuelle brukeren.",
 	"apihelp-query+notifications-param-prop": "Detaljer som skal forespørres.",
 	"apihelp-query+notifications-param-sections": "Seksjoner som skal hentes.",
