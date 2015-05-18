@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"सरोज कुमार ढकाल"
+			"सरोज कुमार ढकाल",
+			"Nirjal stha"
 		]
 	},
 	"echo-desc": "जानकारी प्रणाली",
@@ -106,5 +107,6 @@
 	"echo-email-batch-body-intro-daily": "नमस्ते $1,\nयहाँ तपाईँको लागि {{SITENAME}} मा आजको गतिविधिको एउटा सारांश छ।",
 	"echo-email-batch-body-intro-weekly": "नमस्ते $1,\nयहाँ तपाईँको लागि {{SITENAME}} मा यो हप्ताको गतिविधिको एउटा सारांश छ।",
 	"echo-email-batch-link-text-view-all-notifications": "सबै सूचनाहरू हेर्नुहोस्",
-	"echo-rev-deleted-text-view": "यो पृष्ठको पुनरावलोकन दबाइएको छ ।"
+	"echo-rev-deleted-text-view": "यो पृष्ठको पुनरावलोकन दबाइएको छ ।",
+	"apihelp-echomarkseen-example-1": "सूचनालाई हेरेको भनि चिन्ह लगाउने"
 }
