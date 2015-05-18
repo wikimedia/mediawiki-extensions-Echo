@@ -272,8 +272,6 @@ abstract class MWEchoEmailBundler {
 
 		$key = $this->getMemcacheKey();
 
-		// Delete existing data
-		$wgMemc->delete( $key );
 		// Store new data and make it expire in 7 days
 		$wgMemc->set(
 			$key,
