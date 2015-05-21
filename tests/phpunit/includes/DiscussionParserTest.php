@@ -120,7 +120,9 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 	protected function setUp() {
 		parent::setUp();
 
-		$this->setMwGlobals( array( 'wgDiff' => false ) );
+		if ( extension_loaded( 'wikidiff2' ) ) {
+			$this->setMwGlobals( array( 'wgDiff' => false ) );
+		}
 
 		// we only need to add these users once, we won't (can't) tear them down anyway
 		static $executed = false;
