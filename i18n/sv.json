@@ -131,6 +131,8 @@
 	"apihelp-echomarkread-param-sections": "En lista över avsnitt att markera som lästa.",
 	"apihelp-echomarkread-example-1": "Markera avisering 8 som läst",
 	"apihelp-echomarkread-example-2": "Markera alla aviseringar som lästa",
+	"apihelp-echomarkseen-description": "Märk aviseringar som lästa för aktuell användare.",
+	"apihelp-echomarkseen-example-1": "Märk aviseringar som lästa",
 	"apihelp-query+notifications-description": "Hämta aviseringar som väntar på aktuell användare.",
 	"apihelp-query+notifications-param-prop": "Detaljer som ska begäras.",
 	"apihelp-query+notifications-param-sections": "De aviseringsavsnitt som ska undersökas.",

@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Amire80",
-			"Shubha"
+			"Shubha",
+			"NehalDaveND"
 		]
 	},
 	"echo-desc": "सूचनाव्यवस्था",
@@ -15,11 +16,11 @@
 	"echo-pref-send-to": "एतस्मै प्रेष्यताम्",
 	"echo-pref-email-format": "ईपत्र-प्रारूपः:",
 	"echo-pref-web": "विश्वव्यापिजालम्",
-	"echo-pref-email": "ईपत्रम्",
+	"echo-pref-email": "वि-पत्रम्",
 	"echo-pref-email-frequency-never": "ईपत्रसन्देशाः मा प्रेष्यन्ताम्",
 	"echo-pref-email-frequency-immediately": "प्रत्येकसूचना यथा प्राप्यते",
 	"echo-pref-email-frequency-daily": "प्रतिदिनस्य सन्देशानां सारांशाः",
-	"echo-pref-email-frequency-weekly": "प्रतिसप्ताहस्य सन्देशानां सारांश:",
+	"echo-pref-email-frequency-weekly": "प्रतिसप्ताहस्य सन्देशानां सारांशः",
 	"echo-pref-email-format-html": "एच् टि एम् एल्",
 	"echo-pref-email-format-plain-text": "सरलपठ्यम्",
 	"echo-pref-notify-show-link": "उपकरणपट्टिकायां सूचनाः दर्श्यन्ताम्",
@@ -46,5 +47,7 @@
 	"echo-none": "भवते सूचनाः न विद्यन्ते |",
 	"echo-more-info": "अधिकं विवरणम्",
 	"echo-feedback": "प्रतिस्पन्दः",
-	"notification-link-text-view-message": "सन्देशः दृश्यताम्"
+	"notification-link-text-view-message": "सन्देशः दृश्यताम्",
+	"echo-date-today": "अद्य",
+	"echo-date-yesterday": "ह्यः"
 }
