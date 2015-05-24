@@ -6,7 +6,8 @@
 			"Bill william compton",
 			"Hindustanilanguage",
 			"Shubhamkanodia",
-			"Siddhartha Ghai"
+			"Siddhartha Ghai",
+			"NehalDaveND"
 		]
 	},
 	"echo-desc": "अधिसूचना प्रणाली",
@@ -40,6 +41,7 @@
 	"echo-pref-tooltip-article-linked": "जब कोई मेरे द्वारा बनाए गए लेख की कड़ी कहीं जोड़े तो मुझे सूचित करें।",
 	"echo-pref-tooltip-reverted": "जब कोई मेरे किसी सम्पादन को पूर्ववत करे या वापस ले तो मुझे सूचित करें।",
 	"echo-pref-tooltip-mention": "जब कोई मेरे सदस्य पृष्ठ की कड़ी का किसी वार्ता पृष्ठ पर प्रयोग करे तो मुझे सूचित करें।",
+	"echo-pref-tooltip-user-rights": "यदि कोई मेरे सदस्य अधिकार परिवर्तित करता है तो मुझे सूचित करें।",
 	"echo-no-agent": "[कोई नहीं]",
 	"echo-no-title": "[कोई पृष्ठ नहीं]",
 	"echo-error-no-formatter": "अधिसूचना के लिए कोई स्वरूपण परिभाषित नहीं है।",
@@ -95,6 +97,8 @@
 	"echo-email-batch-body-default": "आपके लिए नई अधिसूचना है।",
 	"echo-email-footer-default": "$2\n\nहमारी ओर से भेजे जाने वाले ईमेलों पर नियंत्रण करने के लिये कृपया अपनी पसन्द देखिए:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
 	"echo-email-footer-default-html": "हमारी ओर से भेजे जाने वाले ईमेलों पर नियंत्रण करने के लिये <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">अपनी पसन्द देखिए</a>।<br />\n\n$1",
+	"echo-notification-alert-text-only": "चेतावनी",
+	"echo-notification-message-text-only": "संदेश",
 	"echo-overlay-link": "सभी अधिसूचनाएँ",
 	"echo-overlay-title": "<b>अधिसूचनाएँ</b>",
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|अधिसूचनाएँ}}</b>($2 अपठित में से $1 दिखाई जा रही हैं)",
@@ -111,5 +115,16 @@
 	"echo-email-batch-body-intro-daily": "नमस्कार $1,\n{{SITENAME}} पर आज की गतिविधि का सारांश निम्न है।",
 	"echo-email-batch-body-intro-weekly": "नमस्कार $1,\n{{SITENAME}} पर इस सप्ताह की गतिविधि का सारांश निम्न है।",
 	"echo-email-batch-link-text-view-all-notifications": "सभी अधिसूचनाएँ देखें",
-	"echo-rev-deleted-text-view": "यह पृष्ठ अवतरण छिपा दिया गया है।"
+	"echo-rev-deleted-text-view": "यह पृष्ठ अवतरण छिपा दिया गया है।",
+	"apihelp-echomarkread-description": "वर्तमान सदस्य की अधिसूचनाओं पढ़ी गई रेखांकित करें।",
+	"apihelp-echomarkread-param-list": "अधिसूचनाओं के आई०डी० की सूची जिन्हें पढ़े जाने के तौर पर रेखांकित करना है।",
+	"apihelp-echomarkread-param-all": "यदि तय हो, किसी सदस्य की सारे अधिसूचनाओं पढ़े जाने के तौर पर रेखांकित करें।",
+	"apihelp-echomarkread-param-sections": "अनुभागों की सूची जिन्हें पढ़े जाने के तौर पर रेखांकित करना है।",
+	"apihelp-echomarkread-example-1": "अधिसूचना ८ को पढ़े जाने के तौर पर चिन्हित करें",
+	"apihelp-echomarkread-example-2": "सभी अधिसूचनाओं को पढ़े जाने के तौर पर चिन्हित करें",
+	"apihelp-echomarkseen-description": "वर्तमान सदस्य की अधिसूचनाओं पढ़ी गई रेखांकित करें।",
+	"apihelp-echomarkseen-example-1": "अधिसूचनाओं को देखे जाने के तौर पर चिन्हित करें",
+	"apihelp-query+notifications-param-sections": "पूछताछ के अधिसूचना अनुभाग",
+	"apihelp-query+notifications-example-1": "अधिसूचनाओं को सूचीबद्ध करें",
+	"apihelp-query+notifications-example-2": "अधिसूचनाओं को सूचीबद्ध अनुभाग के अनुसार सम्मिलित करके गिनकर करें"
 }

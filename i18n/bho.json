@@ -1,8 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Nepaboy"
+			"Nepaboy",
+			"SatyamMishra"
 		]
 	},
-	"tooltip-pt-notifications": "आपके अधिसूचनासब"
+	"tooltip-pt-notifications": "हमार अधिसूचना"
 }

@@ -3,7 +3,8 @@
 		"authors": [
 			"Dsvyas",
 			"KartikMistry",
-			"Rangilo Gujarati"
+			"Rangilo Gujarati",
+			"NehalDaveND"
 		]
 	},
 	"echo-desc": "સૂચના સિસ્ટમ",
@@ -85,6 +86,8 @@
 	"echo-email-subject-default": "{{SITENAME}} પર નવી સૂચના",
 	"echo-email-body-default": "તમારા માટે {{SITENAME}} પર નવી સૂચના છે:\n\n$1",
 	"echo-email-batch-body-default": "તમને નવો સંદેશ આવેલો છે",
+	"echo-notification-alert-text-only": "ચેતવણી:",
+	"echo-notification-message-text-only": "સંદેશાઓ",
 	"echo-overlay-link": "બધી સૂચનાઓ",
 	"echo-overlay-title": "<b>સૂચનાઓ</b>",
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|સુચનાઓ}}</b> ($2 પૈકીની નહિવાંચેલી $1 દર્શાવી છે)",
