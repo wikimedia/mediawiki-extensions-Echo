@@ -48,6 +48,9 @@
 	"echo-more-info": "अधिकं विवरणम्",
 	"echo-feedback": "प्रतिस्पन्दः",
 	"notification-link-text-view-message": "सन्देशः दृश्यताम्",
+	"notification-link-text-view-changes": "परिवर्तनानि दृश्यन्ताम्",
+	"notification-link-text-view-page": "पृष्ठं दृश्यताम्",
+	"notification-link-text-view-edit": "सम्पादनं दृश्यताम्",
 	"echo-date-today": "अद्य",
 	"echo-date-yesterday": "ह्यः"
 }

@@ -4,5 +4,10 @@
 			"George Animal"
 		]
 	},
-	"echo-new-messages": "Peyamên nû ji te re hene"
+	"echo-pref-email-format-html": "HTML",
+	"echo-new-messages": "Peyamên nû ji te re hene",
+	"notification-link-text-view-changes": "Guherandinan bibîne",
+	"notification-link-text-view-page": "Rûpelê bibîne",
+	"echo-date-today": "Îro",
+	"echo-date-yesterday": "Doh"
 }

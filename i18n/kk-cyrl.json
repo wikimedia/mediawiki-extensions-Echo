@@ -112,5 +112,12 @@
 	"echo-email-batch-body-intro-weekly": "Сәлем $1, \nБұл {{SITENAME}} жобасындағы осы аптадағы сіз үшін іс-әрекеттер түйіндемесі.",
 	"echo-email-batch-link-text-view-all-notifications": "Барлық ескертпелерді көру",
 	"echo-rev-deleted-text-view": "Бұл бет нұсқасы жасырылған",
-	"apihelp-query+notifications-example-1": "Ескертпелер тізімі"
+	"apihelp-echomarkread-description": "Қазіргі қатысушы үшін ескертпелер оқылған деп белгілеу",
+	"apihelp-echomarkread-param-sections": "Бөлімдер тізімін оқылды деп белгілеу.",
+	"apihelp-echomarkread-example-1": "8 ескертпені оқылды деп белгілеу",
+	"apihelp-echomarkread-example-2": "Барлық ескертпелерді оқылды деп белгілеу",
+	"apihelp-echomarkseen-description": "Қазіргі қатысушы үшін ескертпелер көрілген деп белгілеу",
+	"apihelp-echomarkseen-example-1": "Ескертпелерді көрілді деп белгілеу",
+	"apihelp-query+notifications-example-1": "Ескертпелер тізімі",
+	"apihelp-query+notifications-example-2": "Санымен көрсетілген, бөлімі бойынша топталған ескертпелер сан"
 }
