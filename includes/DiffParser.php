@@ -77,17 +77,6 @@ class EchoDiffParser {
 	 * 'left_pos' and 'right_pos' (in 1-indexed lines) of the change.
 	 */
 	public function getChangeSet( $leftText, $rightText ) {
-		/**
-		 * The internal diff utility, which is used when GNU diff is not available
-		 * prefixes lines with 2 characters instead of 1.
-		 * For more info see bug 41689.
-		 */
-		if ( self::usingInternalDiff() ) {
-			$this->prefixLength = 2;
-		} else {
-			$this->prefixLength = 1;
-		}
-
 		$left = trim( $leftText ) . "\n";
 		$right = trim( $rightText ) . "\n";
 		$diff = wfDiff( $left, $right, '-u -w' );
