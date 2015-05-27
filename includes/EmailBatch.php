@@ -35,9 +35,13 @@ abstract class MWEchoEmailBatch {
 	 *  1 - once everyday
 	 *  7 - once every 7 days
 	 * @param $userId int
+	 * @param $enforceFrequency boolean Whether or not email sending frequency should be enforced.
+	 * 									When true, today's notifications won't be returned if their are
+	 * 									configured to go out tonight or at the end of the week.
+	 * 									When false, all pending notifications will be returned.
 	 * @return MWEchoEmailBatch/false
 	 */
-	public static function newFromUserId( $userId ) {
+	public static function newFromUserId( $userId, $enforceFrequency = true ) {
 		$batchClassName = self::getEmailBatchClass();
 
 		$user = User::newFromId( intval( $userId ) );
@@ -71,7 +75,7 @@ abstract class MWEchoEmailBatch {
 		if ( $userLastBatch ) {
 			// use 20 as hours per day to get estimate
 			$nextBatch = wfTimestamp( TS_UNIX, $userLastBatch ) + $userEmailSetting * 20 * 60 * 60;
-			if ( wfTimestamp( TS_MW, $nextBatch ) > wfTimestampNow() ) {
+			if ( $enforceFrequency && wfTimestamp( TS_MW, $nextBatch ) > wfTimestampNow() ) {
 				return false;
 			}
 		}
