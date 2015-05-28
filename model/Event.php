@@ -101,7 +101,11 @@ class EchoEvent extends EchoAbstractEntity{
 		}
 
 		$obj->id = false;
-		$obj->timestamp = wfTimestampNow();
+		if ( isset( $info['timestamp'] ) ) {
+			$obj->timestamp = $info['timestamp'];
+		} else {
+			$obj->timestamp = wfTimestampNow();
+		}
 
 		foreach ( $validFields as $field ) {
 			if ( isset( $info[$field] ) ) {
