@@ -19,7 +19,8 @@
 			"Y-M D",
 			"Kvardek du",
 			"NemesisIII",
-			"Od1n"
+			"Od1n",
+			"Mattho69"
 		]
 	},
 	"echo-desc": "Système de notifications",
@@ -138,6 +139,8 @@
 	"apihelp-echomarkread-param-sections": "Une liste des sections à marquer comme lues.",
 	"apihelp-echomarkread-example-1": "Marquer la notification 8 comme lue",
 	"apihelp-echomarkread-example-2": "Marquer toutes les notifications comme lues",
+	"apihelp-echomarkseen-description": "Marquer les notifications comme lues pour l’utilisateur actuel.",
+	"apihelp-echomarkseen-example-1": "Marquer les notifications comme lues.",
 	"apihelp-query+notifications-description": "Obtenir les notifications en attente pour l’utilisateur courant.",
 	"apihelp-query+notifications-param-prop": "Détails à demander.",
 	"apihelp-query+notifications-param-sections": "Les sections de notification à demander.",
