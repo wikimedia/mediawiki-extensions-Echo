@@ -131,7 +131,6 @@ $wgEchoHelpPage = '//www.mediawiki.org/wiki/Special:MyLanguage/Help:Notification
 // Whether to use job queue to process web and email notifications, bypass the queue for now
 // since it's taking more than an hour to run in mediawiki.org, this is not acceptable for the
 // purpose of testing notification.
-// Todo - Abstract this into classes like: JobQueueNone, JobQueueMySQL, JobQueueRedis
 $wgEchoUseJobQueue = false;
 
 // The organization address, the value should be defined in LocalSettings.php
