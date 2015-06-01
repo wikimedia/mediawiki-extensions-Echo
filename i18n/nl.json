@@ -14,7 +14,8 @@
 			"Whaledad",
 			"JurgenNL",
 			"Sjoerddebruin",
-			"Mar(c)"
+			"Mar(c)",
+			"Esketti"
 		]
 	},
 	"echo-desc": "Meldingensysteem",
@@ -91,7 +92,7 @@
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|heeft}} een bericht voor u achtergelaten op {{SITENAME}}",
 	"notification-edit-talk-page-email-batch-body2": "$1 {{GENDER:$1|heeft}} een bericht achtergelaten op uw overlegpagina:",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 {{GENDER:$1|heeft}} een bericht achtergelaten op uw overlegpagina onder \"$2\".",
-	"notification-page-linked-email-subject": "Een pagina die u hebt aangemaakt is gekoppeld vanaf {{SITENAME}}",
+	"notification-page-linked-email-subject": "Een pagina die je hebt gemaakt is gekoppeld aan {{SITENAME}}",
 	"notification-page-linked-email-batch-body": "$2 is {{GENDER:$1|gekoppeld}} vanaf $3",
 	"notification-reverted-email-subject2": "Uw {{PLURAL:$3|bewerking op {{SITENAME}} is|bewerkingen op {{SITENAME}} zijn}} {{GENDER:$1|teruggedraaid}}",
 	"notification-reverted-email-batch-body2": "Uw {{PLURAL:$3|bewerking op $2 is|bewerkingen op $2 zijn}} {{GENDER:$1|teruggedraaid}} door $1",
@@ -125,5 +126,26 @@
 	"echo-email-batch-body-intro-daily": "Hallo $1,\nHier is een samenvatting voor u van de activiteiten van vandaag op {{SITENAME}}.",
 	"echo-email-batch-body-intro-weekly": "Hallo $1,\nHier is een samenvatting voor u van de activiteiten van deze week op {{SITENAME}}.",
 	"echo-email-batch-link-text-view-all-notifications": "Alle mededelingen bekijken",
-	"echo-rev-deleted-text-view": "Deze paginaversie is onderdrukt."
+	"echo-rev-deleted-text-view": "Deze paginaversie is onderdrukt.",
+	"apihelp-echomarkread-description": "Mark meldingen lezen voor de huidige gebruiker.",
+	"apihelp-echomarkread-param-list": "Een lijst van de kennisgeving Id ' s te markeren als gelezen.",
+	"apihelp-echomarkread-param-all": "Als dit is ingesteld, markeert alle van een gebruiker van de meldingen lezen.",
+	"apihelp-echomarkread-param-sections": "Een lijst van de secties te markeren als gelezen.",
+	"apihelp-echomarkread-example-1": "Mark kennisgeving 8 als gelezen",
+	"apihelp-echomarkread-example-2": "Markeer alle meldingen als gelezen",
+	"apihelp-echomarkseen-description": "Mark meldingen gezien voor de huidige gebruiker.",
+	"apihelp-echomarkseen-example-1": "Mark meldingen gezien",
+	"apihelp-query+notifications-description": "Ontvang meldingen te wachten voor de huidige gebruiker.",
+	"apihelp-query+notifications-param-prop": "Details op aanvraag.",
+	"apihelp-query+notifications-param-sections": "De kennisgeving van secties query.",
+	"apihelp-query+notifications-param-groupbysection": "Of de groep in het resultaat door de sectie. Elke sectie wordt opgehaald apart instellen.",
+	"apihelp-query+notifications-param-format": "Indien opgegeven, meldingen zullen worden geretourneerd op deze manier geformatteerd.",
+	"apihelp-query+notifications-param-limit": "Het maximum aantal meldingen terug te keren.",
+	"apihelp-query+notifications-param-index": "Indien opgegeven, een lijst van de kennisgeving Id ' s, in volgorde, zal worden teruggegeven.",
+	"apihelp-query+notifications-param-alertcontinue": "Wanneer er meer alert resultaten beschikbaar zijn, gebruik deze om verder te gaan.",
+	"apihelp-query+notifications-param-alertunreadfirst": "Of het nu om de ongelezen berichten eerst.",
+	"apihelp-query+notifications-param-messagecontinue": "Wanneer meer bericht resultaten beschikbaar zijn, gebruik deze om verder te gaan.",
+	"apihelp-query+notifications-param-messageunreadfirst": "Of ongelezen meldingen eerste.",
+	"apihelp-query+notifications-example-1": "Lijst meldingen",
+	"apihelp-query+notifications-example-2": "Lijst van meldingen, gegroepeerd per paragraaf, met graven"
 }
