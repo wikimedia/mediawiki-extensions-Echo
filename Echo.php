@@ -111,7 +111,7 @@ $wgHooks['UserSaveSettings'][] = 'EchoHooks::onUserSaveSettings';
 // Disable ordinary user talk page email notifications
 $wgHooks['AbortTalkPageEmailNotification'][] = 'EchoHooks::onAbortTalkPageEmailNotification';
 $wgHooks['SendWatchlistEmailNotification'][] = 'EchoHooks::onSendWatchlistEmailNotification';
-// Disable the yellow bar of death
+// Disable the orange bar of death
 $wgHooks['GetNewMessagesAlert'][] = 'EchoHooks::abortNewMessagesAlert';
 $wgHooks['LinksUpdateAfterInsert'][] = 'EchoHooks::onLinksUpdateAfterInsert';
 
