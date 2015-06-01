@@ -106,7 +106,7 @@ class EchoNotification extends EchoAbstractEntity {
 		// Get the bundle key for this event if web bundling is enabled
 		$bundleKey = '';
 		if ( !empty( $wgEchoNotifications[$this->event->getType()]['bundle']['web'] ) ) {
-			wfRunHooks( 'EchoGetBundleRules', array( $this->event, &$bundleKey ) );
+			Hooks::run( 'EchoGetBundleRules', array( $this->event, &$bundleKey ) );
 		}
 
 		// The list of event ids to be removed from echo_target_page,
@@ -165,7 +165,7 @@ class EchoNotification extends EchoAbstractEntity {
 			$this->event->getSection()
 		);
 
-		wfRunHooks( 'EchoCreateNotificationComplete', array( $this ) );
+		Hooks::run( 'EchoCreateNotificationComplete', array( $this ) );
 	}
 
 	/**

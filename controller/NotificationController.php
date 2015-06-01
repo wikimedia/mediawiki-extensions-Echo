@@ -79,7 +79,7 @@ class EchoNotificationController {
 		foreach ( self::getUsersToNotifyForEvent( $event ) as $user ) {
 			$userIds[$user->getId()] = $user->getId();
 			$userNotifyTypes = $notifyTypes;
-			wfRunHooks( 'EchoGetNotificationTypes', array( $user, $event, &$userNotifyTypes ) );
+			Hooks::run( 'EchoGetNotificationTypes', array( $user, $event, &$userNotifyTypes ) );
 
 			// types such as web, email, etc
 			foreach ( $userNotifyTypes as $type ) {
@@ -294,7 +294,7 @@ class EchoNotificationController {
 		// Hook for injecting more users.
 		// @deprecated
 		$users = array();
-		wfRunHooks( 'EchoGetDefaultNotifiedUsers', array( $event, &$users ) );
+		Hooks::run( 'EchoGetDefaultNotifiedUsers', array( $event, &$users ) );
 		if ( $users ) {
 			$notify->add( $users );
 		}

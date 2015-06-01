@@ -42,7 +42,7 @@ class EchoNotifier {
 		}
 
 		// Final check on whether to send email for this user & event
-		if ( !wfRunHooks( 'EchoAbortEmailNotification', array( $user, $event ) ) ) {
+		if ( !Hooks::run( 'EchoAbortEmailNotification', array( $user, $event ) ) ) {
 			return false;
 		}
 
@@ -59,7 +59,7 @@ class EchoNotifier {
 			// We should have bundling for email digest as long as either web or email bundling is on, for example, talk page
 			// email bundling is off, but if a user decides to receive email digest, we should bundle those messages
 			if ( !empty( $wgEchoNotifications[$event->getType()]['bundle']['web'] ) || !empty( $wgEchoNotifications[$event->getType()]['bundle']['email'] ) ) {
-				wfRunHooks( 'EchoGetBundleRules', array( $event, &$bundleString ) );
+				Hooks::run( 'EchoGetBundleRules', array( $event, &$bundleString ) );
 			}
 			if ( $bundleString ) {
 				$bundleHash = md5( $bundleString );

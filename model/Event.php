@@ -136,14 +136,14 @@ class EchoEvent extends EchoAbstractEntity{
 			throw new MWException( "Invalid user parameter" );
 		}
 
-		if ( !wfRunHooks( 'BeforeEchoEventInsert', array( $obj ) ) ) {
+		if ( !Hooks::run( 'BeforeEchoEventInsert', array( $obj ) ) ) {
 			return false;
 		}
 
 		//@Todo - Database insert logic should not be inside the model
 		$obj->insert();
 
-		wfRunHooks( 'EchoEventInsertComplete', array( $obj ) );
+		Hooks::run( 'EchoEventInsertComplete', array( $obj ) );
 
 		global $wgEchoUseJobQueue;
 

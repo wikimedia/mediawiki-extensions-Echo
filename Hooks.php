@@ -17,7 +17,7 @@ class EchoHooks {
 			$wgEchoConfig;
 
 		// allow extensions to define their own event
-		wfRunHooks( 'BeforeCreateEchoEvent', array( &$wgEchoNotifications, &$wgEchoNotificationCategories, &$wgEchoNotificationIcons ) );
+		Hooks::run( 'BeforeCreateEchoEvent', array( &$wgEchoNotifications, &$wgEchoNotificationCategories, &$wgEchoNotificationIcons ) );
 
 		// turn schema off if eventLogging is not enabled
 		if ( !class_exists( 'EventLogging' ) ) {
