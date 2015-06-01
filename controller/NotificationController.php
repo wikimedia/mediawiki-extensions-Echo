@@ -240,9 +240,9 @@ class EchoNotificationController {
 			throw new MWException( "Invalid notification type $type" );
 		}
 
-		// Don't send any notification if Echo is disabled
-		if ( EchoHooks::isEchoDisabled( $user ) ) {
-			return;
+		// Don't send any notifications to anonymous users
+		if ( $user->isAnon() ) {
+			throw new MWException( "Cannot notify anonymous user: {$user->getName()}" );
 		}
 
 		call_user_func_array( $wgEchoNotifiers[$type], array( $user, $event ) );

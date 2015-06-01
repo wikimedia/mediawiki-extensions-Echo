@@ -235,11 +235,6 @@ class EchoHooks {
 			$wgEchoNotifiers, $wgEchoNotificationCategories, $wgEchoNotifications,
 			$wgEchoNewMsgAlert, $wgAllowHTMLEmail;
 
-		// Don't show echo preference page if echo is disabled for this user
-		if ( self::isEchoDisabled( $user ) ) {
-			return true;
-		}
-
 		// Show email frequency options
 		$never = wfMessage( 'echo-pref-email-frequency-never' )->plain();
 		$immediately = wfMessage( 'echo-pref-email-frequency-immediately' )->plain();
@@ -623,11 +618,6 @@ class EchoHooks {
 	static function beforePageDisplay( $out, $skin ) {
 		$user = $out->getUser();
 
-		// Don't show the alert message and badge if echo is disabled for this user
-		if ( self::isEchoDisabled( $user ) ) {
-			return true;
-		}
-
 		if ( $user->isLoggedIn() && $user->getOption( 'echo-notify-show-link' ) ) {
 			// Load the module for the Notifications flyout
 			$out->addModules( array( 'ext.echo.overlay.init' ) );
@@ -650,7 +640,7 @@ class EchoHooks {
 	static function onPersonalUrls( &$personal_urls, &$title, $sk ) {
 		global $wgEchoNewMsgAlert;
 		$user = $sk->getUser();
-		if ( $user->isAnon() || self::isEchoDisabled( $user ) ) {
+		if ( $user->isAnon() ) {
 			return true;
 		}
 
@@ -720,7 +710,7 @@ class EchoHooks {
 		// Send legacy talk page email notification if
 		// 1. echo is disabled for them or
 		// 2. echo talk page notification is disabled
-		if ( self::isEchoDisabled( $targetUser ) || !isset( $wgEchoNotifications['edit-user-talk'] ) ) {
+		if ( !isset( $wgEchoNotifications['edit-user-talk'] ) ) {
 			// Legacy talk page email notification
 			return true;
 		}
@@ -743,10 +733,7 @@ class EchoHooks {
 		if ( $title->isTalkPage() && $targetUser->getTalkPage()->equals( $title ) ) {
 			$attributeManager = EchoAttributeManager::newFromGlobalVars();
 			$events = $attributeManager->getUserEnabledEvents( $targetUser, 'email' );
-			if (
-				!self::isEchoDisabled( $targetUser )
-				&& in_array( 'edit-user-talk', $events )
-			) {
+			if ( in_array( 'edit-user-talk', $events ) ) {
 				// Do not send watchlist email notification, the user will receive an Echo notification
 				return false;
 			}
@@ -840,10 +827,6 @@ class EchoHooks {
 			&& $user->getOption( 'echo-notify-show-link' )
 			&& isset( $wgEchoNotifications['edit-user-talk'] )
 		) {
-			// Show the new messages alert for users with echo disabled
-			if ( self::isEchoDisabled( $user ) ) {
-				return true;
-			}
 			// hide new messages alert
 			return false;
 		} else {
@@ -977,46 +960,6 @@ class EchoHooks {
 		$tables[] = 'echo_notification';
 		$tables[] = 'echo_email_batch';
 		return true;
-	}
-
-	/**
-	 * Echo should be disabled for users who are under cohort study
-	 * @param $user User
-	 * @return bool
-	 */
-	public static function isEchoDisabled( User $user ) {
-		global $wgEchoCohortInterval;
-
-		// Make sure the user has an id and cohort study timestamp is specified
-		if ( !$wgEchoCohortInterval || !$user->getId() ) {
-			return false;
-		}
-
-		list( $start, $bucketEnd, $cohortEnd ) = $wgEchoCohortInterval;
-
-		$regTimestamp = $user->getRegistration();
-
-		// Cohort study is for user with a registration timestamp
-		if ( !$regTimestamp ) {
-			return false;
-		}
-
-		// Cohort study is for even user_id
-		if ( $user->getId() % 2 === 1 ) {
-			return false;
-		}
-
-		$now = wfTimestampNow();
-
-		// Make sure the user is registered during the bucketing period
-		// and the cohort study doesn't end yet
-		if ( $start <= $regTimestamp && $regTimestamp <= $bucketEnd
-			&& $start <= $now && $now <= $cohortEnd
-		) {
-			return true;
-		}
-
-		return false;
 	}
 
 	/**
