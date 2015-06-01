@@ -117,12 +117,6 @@ $wgHooks['LinksUpdateAfterInsert'][] = 'EchoHooks::onLinksUpdateAfterInsert';
 
 // Configuration
 
-// The name of the backend to use for Echo email bundling and digest, it should
-// be always Db
-// @deprecated
-// @todo remove it from code base
-$wgEchoBackendName = 'Db';
-
 // Whether to turn on email batch function
 $wgEchoEnableEmailBatch = true;
 

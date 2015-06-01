@@ -42,15 +42,13 @@ abstract class MWEchoEmailBatch {
 	 * @return MWEchoEmailBatch/false
 	 */
 	public static function newFromUserId( $userId, $enforceFrequency = true ) {
-		$batchClassName = self::getEmailBatchClass();
-
 		$user = User::newFromId( intval( $userId ) );
 
 		$userEmailSetting = intval( $user->getOption( 'echo-email-frequency' ) );
 
 		// clear all existing events if user decides not to receive emails
 		if ( $userEmailSetting == -1 ) {
-			$emailBatch = new $batchClassName( $user );
+			$emailBatch = new MWDbEchoEmailBatch( $user );
 			$emailBatch->clearProcessedEvent();
 			return false;
 		}
@@ -80,24 +78,7 @@ abstract class MWEchoEmailBatch {
 			}
 		}
 
-		return new $batchClassName( $user );
-	}
-
-	/**
-	 * Get the name of the email batch class
-	 * @return string
-	 * @throws MWException
-	 */
-	private static function getEmailBatchClass() {
-		global $wgEchoBackendName;
-
-		$className = 'MW' . $wgEchoBackendName . 'EchoEmailBatch';
-
-		if ( !class_exists( $className ) ) {
-			throw new MWException( "$wgEchoBackendName email batch is not supported!" );
-		}
-
-		return $className;
+		return new MWDbEchoEmailBatch( $user );
 	}
 
 	/**
@@ -237,13 +218,7 @@ abstract class MWEchoEmailBatch {
 	 * @throws MWException
 	 */
 	public static function addToQueue( $userId, $eventId, $priority, $hash ) {
-		$batchClassName = self::getEmailBatchClass();
-
-		if ( !method_exists( $batchClassName, 'actuallyAddToQueue' ) ) {
-			throw new MWException( "$batchClassName must implement method actuallyAddToQueue()" );
-		}
-
-		$batchClassName::actuallyAddToQueue( $userId, $eventId, $priority, $hash );
+		MWDbEchoEmailBatch::actuallyAddToQueue( $userId, $eventId, $priority, $hash );
 	}
 
 	/**
@@ -256,12 +231,6 @@ abstract class MWEchoEmailBatch {
 	 * @return ResultWrapper|bool
 	 */
 	public static function getUsersToNotify( $startUserId, $batchSize ) {
-		$batchClassName = self::getEmailBatchClass();
-
-		if ( !method_exists( $batchClassName, 'actuallyGetUsersToNotify' ) ) {
-			throw new MWException( "$batchClassName must implement method actuallyGetUsersToNotify()" );
-		}
-
-		return $batchClassName::actuallyGetUsersToNotify( $startUserId, $batchSize );
+		return MWDbEchoEmailBatch::actuallyGetUsersToNotify( $startUserId, $batchSize );
 	}
 }

@@ -43,9 +43,9 @@ abstract class MWEchoEmailBundler {
 	protected $emailInterval;
 
 	/**
-	 * Private constructor
+	 * Protected constructor so subclasses can call it
 	 */
-	private function __construct( $user, $hash ) {
+	protected function __construct( $user, $hash ) {
 		global $wgEchoBundleEmailInterval;
 
 		$this->mUser = $user;
@@ -58,23 +58,6 @@ abstract class MWEchoEmailBundler {
 	}
 
 	/**
-	 * Get the name of the email batch class
-	 * @return string
-	 * @throws MWException
-	 */
-	private static function getEmailBundlerClass() {
-		global $wgEchoBackendName;
-
-		$className = 'MW' . $wgEchoBackendName . 'EchoEmailBundler';
-
-		if ( !class_exists( $className ) ) {
-			throw new MWException( "$wgEchoBackendName email bundler is not supported!" );
-		}
-
-		return $className;
-	}
-
-	/**
 	 * Factory method
 	 */
 	public static function newFromUserHash( User $user, $hash ) {
@@ -84,8 +67,7 @@ abstract class MWEchoEmailBundler {
 		if ( !$hash || !preg_match( '/^[a-f0-9]{32}$/', $hash ) ) {
 			return false;
 		}
-		$className = self::getEmailBundlerClass();
-		return new $className( $user, $hash );
+		return new MWDbEchoEmailBundler( $user, $hash );
 	}
 
 	/**
