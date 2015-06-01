@@ -34,19 +34,7 @@ $mobileReadyTemplate = array(
 );
 
 $wgResourceModules += array(
-	// ext.echo.base is used by mobile notifications as well, so be sure not to add any
-	// dependencies that do not target mobile.
-	'ext.echo.base' => $echoResourceTemplate + $mobileReadyTemplate + array(
-		'position' => 'top',
-		'styles' => 'base/ext.echo.base.less',
-		'scripts' => array(
-			'base/ext.echo.base.js',
-		),
-		'messages' => array(
-			'echo-error-preference',
-			'echo-error-token',
-		),
-	),
+	// ext.echo.base is registered in EchoHooks::onResourceLoaderRegisterModules
 	'ext.echo.overlay' => $echoResourceTemplate + $mobileReadyTemplate + array(
 		'scripts' => array(
 			'overlay/ext.echo.overlay.js',

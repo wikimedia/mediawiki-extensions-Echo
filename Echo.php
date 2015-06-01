@@ -72,6 +72,7 @@ $wgHooks['BeforePageDisplay'][] = 'EchoHooks::beforePageDisplay';
 $wgHooks['MakeGlobalVariablesScript'][] = 'EchoHooks::makeGlobalVariablesScript';
 $wgHooks['UnitTestsList'][] = 'EchoHooks::getUnitTests';
 $wgHooks['ResourceLoaderRegisterModules'][] = 'EchoHooks::onResourceLoaderRegisterModules';
+$wgHooks['EventLoggingRegisterSchemas'][] = 'EchoHooks::onEventLoggingRegisterSchemas';
 $wgHooks['ResourceLoaderTestModules'][] = 'EchoHooks::onResourceLoaderTestModules';
 $wgHooks['UserRights'][] = 'EchoHooks::onUserRights';
 $wgHooks['UserLoadOptions'][] = 'EchoHooks::onUserLoadOptions';

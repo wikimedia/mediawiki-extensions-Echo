@@ -81,24 +81,45 @@ class EchoHooks {
 		return true;
 	}
 
+	public static function onEventLoggingRegisterSchemas( array &$schemas ) {
+		global $wgEchoConfig;
+		foreach ( $wgEchoConfig['eventlogging'] as $schema => $property ) {
+			if ( $property['enabled'] ) {
+				$schemas[$schema] = $property['revision'];
+			}
+		}
+	}
+
 	/**
 	 * Handler for ResourceLoaderRegisterModules hook
 	 */
 	public static function onResourceLoaderRegisterModules( ResourceLoader &$resourceLoader ) {
-		global $wgResourceModules, $wgEchoConfig;
+		global $wgEchoConfig;
+
+		// ext.echo.base is used by mobile notifications as well, so be sure not to add any
+		// dependencies that do not target mobile.
+		$definition = array(
+			'position' => 'top',
+			'styles' => 'base/ext.echo.base.less',
+			'scripts' => array(
+				'base/ext.echo.base.js',
+			),
+			'messages' => array(
+				'echo-error-preference',
+				'echo-error-token',
+			),
+			'localBasePath' => __DIR__ . '/modules',
+			'remoteExtPath' => 'Echo/modules',
+			'targets' => array( 'desktop', 'mobile' ),
+		);
 
 		foreach ( $wgEchoConfig['eventlogging'] as $schema => $property ) {
 			if ( $property['enabled'] ) {
-				$wgResourceModules[ 'schema.' . $schema ] = array(
-					'class'  => 'ResourceLoaderSchemaModule',
-					'schema' => $schema,
-					'revision' => $property['revision'],
-				);
-				$wgResourceModules['ext.echo.base']['dependencies'][] = 'schema.' . $schema;
+				$definition['dependencies'][] = 'schema.' . $schema;
 			}
 		}
 
-		return true;
+		$resourceLoader->register( 'ext.echo.base', $definition );
 	}
 
 	/**
