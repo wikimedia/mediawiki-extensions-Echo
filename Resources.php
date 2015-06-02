@@ -29,13 +29,9 @@ $echoResourceTemplate = array(
 	'remoteExtPath' => 'Echo/modules',
 );
 
-$mobileReadyTemplate = array(
-	'targets' => array( 'desktop', 'mobile' ),
-);
-
 $wgResourceModules += array(
 	// ext.echo.base is registered in EchoHooks::onResourceLoaderRegisterModules
-	'ext.echo.overlay' => $echoResourceTemplate + $mobileReadyTemplate + array(
+	'ext.echo.overlay' => $echoResourceTemplate + array(
 		'scripts' => array(
 			'overlay/ext.echo.overlay.js',
 		),
@@ -62,6 +58,7 @@ $wgResourceModules += array(
 			'echo-notification-message-text-only',
 			'echo-email-batch-bullet'
 		),
+		'targets' => array( 'desktop', 'mobile' ),
 	),
 	'ext.echo.overlay.init' => $echoResourceTemplate + array(
 		'styles' => array(
@@ -107,3 +104,5 @@ $wgResourceModules += array(
 		),
 	),
 );
+
+unset( $echoResourceTemplate );
