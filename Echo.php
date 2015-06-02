@@ -88,7 +88,7 @@ $wgHooks['UserMergeAccountDeleteTables'][] = 'EchoHooks::onUserMergeAccountDelet
 // Extension initialization
 $wgExtensionFunctions[] = 'EchoHooks::initEchoExtension';
 
-include __DIR__ . '/Resources.php';
+require __DIR__ . '/Resources.php';
 
 /**
  * This Echo hook can be used to define users who are by default interested in
