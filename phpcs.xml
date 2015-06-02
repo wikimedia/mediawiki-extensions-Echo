@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<ruleset name="MediaWiki">
+	<file>.</file>
+	<rule ref="vendor/mediawiki/mediawiki-codesniffer/MediaWiki">
+		<exclude name="Generic.Files.LineLength"/>
+		<exclude name="Generic.Functions.FunctionCallArgumentSpacing.SpaceBeforeComma"/>
+		<exclude name="Generic.PHP.ForbiddenFunctions.FoundWithAlternative"/>
+		<exclude name="MediaWiki.NamingConventions.PrefixedGlobalFunctions.wfPrefix"/>
+		<exclude name="MediaWiki.Usage.DirUsage.FunctionFound"/>
+		<exclude name="MediaWiki.VariableAnalysis.UnusedGlobalVariables"/>
+		<exclude name="MediaWiki.WhiteSpace.SpaceAfterControlStructure.Incorrect"/>
+		<exclude name="MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment"/>
+		<exclude name="PSR2.Classes.PropertyDeclaration.ScopeMissing"/>
+		<exclude name="PSR2.Classes.PropertyDeclaration.VarUsed"/>
+		<exclude name="PSR2.Methods.MethodDeclaration.AbstractAfterVisibility"/>
+		<exclude name="PSR2.Methods.MethodDeclaration.StaticBeforeVisibility"/>
+		<exclude name="Squiz.Classes.ValidClassName.NotCamelCaps"/>
+		<exclude name="Squiz.WhiteSpace.LanguageConstructSpacing.Incorrect"/>
+	</rule>
+	<arg name="encoding" value="utf8"/>
+	<arg name="extensions" value="php,php5,inc"/>
+	<arg name="colors"/>
+	<arg value="p"/>
+	<exclude-pattern>vendor</exclude-pattern>
+</ruleset>
