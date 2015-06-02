@@ -124,9 +124,13 @@ class EchoHooks {
 
 	/**
 	 * @param $updater DatabaseUpdater object
-	 * @return bool true in all cases
 	 */
-	public static function getSchemaUpdates( $updater ) {
+	public static function onLoadExtensionSchemaUpdates( DatabaseUpdater $updater ) {
+		global $wgEchoCluster;
+		if ( $wgEchoCluster !== false ) {
+			// DatabaseUpdater does not support other databases, so skip
+			return;
+		}
 		$dir = __DIR__;
 		$baseSQLFile = "$dir/echo.sql";
 		$updater->addExtensionTable( 'echo_event', $baseSQLFile );
@@ -161,8 +165,6 @@ class EchoHooks {
 		$updater->addExtensionField( 'echo_event', 'event_page_id', "$dir/db_patches/patch-add-echo_event-event_page_id.sql" );
 		$updater->addExtensionIndex( 'echo_event', 'echo_event_type', "$dir/db_patches/patch-alter-event_type-index.sql" );
 		$updater->addExtensionIndex( 'echo_notification', 'echo_user_timestamp', "$dir/db_patches/patch-alter-user_timestamp-index.sql" );
-
-		return true;
 	}
 
 	/**
