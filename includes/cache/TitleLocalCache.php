@@ -11,22 +11,10 @@ class EchoTitleLocalCache extends EchoLocalCache {
 	private static $instance;
 
 	/**
-	 * The current wiki id
-	 * @var string|null
-	 */
-	private static $wiki;
-
-	/**
 	 * Create a TitleLocalCache object
-	 * @return TitleLocalCache
+	 * @return EchoTitleLocalCache
 	 */
 	public static function create() {
-		// A job queue may run against multiple wikis,
-		// initialize a new one for the current wiki
-		if ( wfWikiId() != self::$wiki ) {
-			self::$instance = null;
-			self::$wiki = wfWikiId();
-		}
 		if ( !self::$instance ) {
 			self::$instance = new EchoTitleLocalCache();
 		}
