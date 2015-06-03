@@ -55,9 +55,6 @@ abstract class EchoDiscussionParser {
 				// if this is a minor edit, only notify if the agent doesn't have talk page minor edit notification blocked
 				if ( !$revision->isMinor() || !$user->isAllowed( 'nominornewtalk' ) ) {
 					$section = self::detectSectionTitleAndText( $interpretation, $title );
-					if ( $section['section-title'] === '' ) {
-						$section['section-title'] = 'footer';
-					}
 					if ( $section['section-text'] === '' ) {
 						$section['section-text'] = $revision->getComment();
 					}
