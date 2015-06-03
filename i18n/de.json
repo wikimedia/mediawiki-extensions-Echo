@@ -83,7 +83,7 @@
 	"notification-reverted2": "Deine {{PLURAL:$4|Bearbeitung an der Seite [[:$2]] wurde|Bearbeitungen an der Seite [[:$2]] wurden}} von [[User:$1|$1]] {{GENDER:$1|rückgängig}} gemacht. $3",
 	"notification-reverted-flyout2": "Deine {{PLURAL:$4|Bearbeitung an der Seite $2 wurde|Bearbeitungen an der Seite $2 wurden}} von $1 {{GENDER:$1|rückgängig}} gemacht. $3",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|hinterließ}} dir eine Nachricht auf {{SITENAME}}",
-	"notification-edit-talk-page-email-batch-body2": "$1 {{GENDER:$1|hinterließ}} eine Nachricht auf deiner Diskussionsseite:",
+	"notification-edit-talk-page-email-batch-body2": "$1 {{GENDER:$1|hinterließ}} eine Nachricht auf deiner Diskussionsseite.",
 	"notification-edit-talk-page-email-batch-body-with-section": "„$1“ {{GENDER:$1|hinterließ}} eine Nachricht auf deiner Diskussionsseite zum Thema „$2“.",
 	"notification-page-linked-email-subject": "Eine Seite, die du erstellt hast, wurde auf {{SITENAME}} verlinkt",
 	"notification-page-linked-email-batch-body": "$2 wurde von der Seite $3 {{GENDER:$1|verlinkt}}",

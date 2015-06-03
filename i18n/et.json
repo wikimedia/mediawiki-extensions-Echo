@@ -78,7 +78,7 @@
 	"notification-reverted2": "[[User:$1|$1]] tühistas sinu {{PLURAL:$4|muudatuse|muudatused}} leheküljel [[:$2]]. $3",
 	"notification-reverted-flyout2": "$1 tühistas sinu {{PLURAL:$4|muudatuse|muudatused}} leheküljel $2. $3",
 	"notification-edit-talk-page-email-subject2": "$1 jättis sulle {{GRAMMAR:inessive|{{SITENAME}}}} sõnumi",
-	"notification-edit-talk-page-email-batch-body2": "$1 {{GENDER:$1|jättis}} sinu arutelulehele sõnumi:",
+	"notification-edit-talk-page-email-batch-body2": "$1 {{GENDER:$1|jättis}} sinu aruteluleheküljele sõnumi.",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 {{GENDER:$1|jättis}} sinu arutelulehele sõnumi \"$2\":",
 	"notification-page-linked-email-subject": "{{GRAMMAR:inessive|{{SITENAME}}}} lingiti sinu alustatud leheküljele",
 	"notification-page-linked-email-batch-body": "Leheküljele $2 {{GENDER:$1|lingiti}} asukohast $3.",
