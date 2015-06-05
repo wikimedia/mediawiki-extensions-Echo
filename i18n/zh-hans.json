@@ -101,7 +101,7 @@
 	"notification-reverted2": "您对[[:$2]]的{{PLURAL:$4|编辑}}被[[User:$1|$1]]{{GENDER:$1|还原了}}。$3",
 	"notification-reverted-flyout2": "您对$2的{{PLURAL:$4|编辑}}被$1{{GENDER:$1|还原了}}。$3",
 	"notification-edit-talk-page-email-subject2": "$1在{{SITENAME}}给您{{GENDER:$1|留言}}了",
-	"notification-edit-talk-page-email-batch-body2": "$1在您的讨论页{{GENDER:$1|留言}}了：",
+	"notification-edit-talk-page-email-batch-body2": "$1在您的讨论页{{GENDER:$1|留言}}了。",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1在您的讨论页的“$2”段落{{GENDER:$1|留言}}了。",
 	"notification-page-linked-email-subject": "您创建的一个页面在{{SITENAME}}被链接",
 	"notification-page-linked-email-batch-body": "$2被$3{{GENDER:$1|链接}}。",

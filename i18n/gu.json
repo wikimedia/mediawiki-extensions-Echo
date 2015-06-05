@@ -74,7 +74,7 @@
 	"notification-reverted2": "{{PLURAL:$4|[[:$2]] પરનો તમારો ફેરફાર|[[:$2]] પરના તમારા ફેરફારો}} [[User:$1|$1]]એ {{GENDER:$1|{{PLURAL|પાછો વાળ્યો|પાછા વાળ્યા}} છે}}. $3",
 	"notification-reverted-flyout2": "{{PLURAL:$4|$2 પરનો તમારો ફેરફાર|$2 પરના તમારા ફેરફારો}} $1એ {{GENDER:$1|પૂર્વવત્}} કરેલ છે. $3",
 	"notification-edit-talk-page-email-subject2": "{{SITENAME}} પર તમારા માટે $1એ {{GENDER:$1|સંદેશો}} મૂક્યો છે.",
-	"notification-edit-talk-page-email-batch-body2": "$1એ તમારા ચર્ચાનાં પાને {{GENDER:$1|સંદેશો}} મૂક્યો છે:",
+	"notification-edit-talk-page-email-batch-body2": "$1એ તમારા ચર્ચાનાં પાને {{GENDER:$1|સંદેશો}} મૂક્યો છે.",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1એ તમારા ચર્ચાનાં પાને ''$2'' હેઠળ તમારા માટે {{GENDER:$1|સંદેશો}} મૂક્યો છે.",
 	"notification-page-linked-email-subject": "તમારુ પાનાની કડી {{SITENAME}} પર જોડવામાં આવી",
 	"notification-page-linked-email-batch-body": "$2ને $3 સાથે {{GENDER:$1|જોડ્યું}} હતું,",

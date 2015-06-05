@@ -81,7 +81,7 @@
 	"notification-reverted2": "{{PLURAL:$4[[:$2]]-এ আপনার সম্পাদনা|[[:$2]]-এ আপনার সম্পাদনাগুলো}}  [[User:$1|$1]] দ্বারা  {{GENDER:$1|পূর্বাবস্থায়}} নেওয়া হয়েছে। $3",
 	"notification-reverted-flyout2": "$2-এ আপনার {{PLURAL:$4|সম্পাদনা|সম্পাদনাগুলো}}  $1 দ্বারা {{GENDER:$1|পূর্বাবস্থায়}} নেয়া হয়েছে। $3",
 	"notification-edit-talk-page-email-subject2": "$1 {{SITENAME}} এ আপনার জন্য একটি বার্তা {{GENDER:$1|রেখেছেন}}",
-	"notification-edit-talk-page-email-batch-body2": "$1 আপনার আলাপ পাতায় একটি বার্তা {{GENDER:$1|রেখেছেন}}:",
+	"notification-edit-talk-page-email-batch-body2": "$1 আপনার আলাপ পাতায় একটি বার্তা {{GENDER:$1|রেখেছেন}}।",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 আপনার আলাপ পাতায় \"$2\"-এ একটি বার্তা {{GENDER:$1|রেখেছেন}}।",
 	"notification-page-linked-email-subject": "আপনার তৈরিকৃত একটি পাতা {{SITENAME}} সাইটে সংযোগ করা হয়েছে।",
 	"notification-page-linked-email-batch-body": "$2 পাতাটি $3 হতে {{GENDER:$1|সংযুক্ত}}।",
@@ -118,7 +118,9 @@
 	"echo-email-batch-body-intro-weekly": "প্রিয় $1,\n{{SITENAME}} সাইটে আপনার জন্য সপ্তাহের কার্যক্রমের সারাংশ এখানে দেওয়া হল।",
 	"echo-email-batch-link-text-view-all-notifications": "সকল বিজ্ঞপ্তি দেখাও",
 	"echo-rev-deleted-text-view": "এই পাতা সংস্করণটি বাতিল করা হয়েছে।",
+	"apihelp-echomarkread-description": "বর্তমান ব্যবহারকারীর জন্য বিজ্ঞপ্তি পঠিত হিসাবে চিহ্নিত করে।",
 	"apihelp-echomarkread-example-2": "পঠিত হিসাবে সকল বিজ্ঞপ্তি চিহ্নিত করুন",
+	"apihelp-echomarkseen-example-1": "বিজ্ঞপ্তি দেখা হয়েছে হিসাবে চিহ্নিত করে",
 	"apihelp-query+notifications-example-1": "বিজ্ঞপ্তির তালিকা",
 	"apihelp-query+notifications-example-2": "বিজ্ঞপ্তির তালিকা, গণনাসহ, দলগতভাবে অনুচ্ছেদে ভাগ করা"
 }

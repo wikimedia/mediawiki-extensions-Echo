@@ -136,7 +136,7 @@ $specialPageAliases['lb'] = array(
 
 /** Northern Luri (لوری مینجایی) */
 $specialPageAliases['lrc'] = array(
-	'Notifications' => array( 'وارسیاریا' ),
+	'Notifications' => array( 'ڤارسیاریا' ),
 );
 
 /** Macedonian (македонски) */

@@ -79,7 +79,7 @@
 	"notification-reverted2": "[[User:$1|$1]] {{GENDER:$1|reverteu}} {{PLURAL:$4|a súa edición|as súas edicións}} en \"[[:$2]]\" $3",
 	"notification-reverted-flyout2": "$1 {{GENDER:$1|reverteu}} {{PLURAL:$4|a súa edición|as súas edicións}} en \"$2\" $3",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|deixoulle}} unha mensaxe en {{SITENAME}}",
-	"notification-edit-talk-page-email-batch-body2": "$1 {{GENDER:$1|deixou}} unha mensaxe na súa páxina de conversa:",
+	"notification-edit-talk-page-email-batch-body2": "$1 {{GENDER:$1|deixou}} unha mensaxe na súa páxina de conversa.",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 {{GENDER:$1|deixou}} unha mensaxe na súa páxina de conversa na sección \"$2\"",
 	"notification-page-linked-email-subject": "Unha páxina creada por vostede foi ligada en {{SITENAME}}",
 	"notification-page-linked-email-batch-body": "\"$2\" foi {{GENDER:$1|ligada}} desde \"$3\".",
