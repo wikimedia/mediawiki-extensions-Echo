@@ -15,7 +15,8 @@
 			"JurgenNL",
 			"Sjoerddebruin",
 			"Mar(c)",
-			"Esketti"
+			"Esketti",
+			"HanV"
 		]
 	},
 	"echo-desc": "Meldingensysteem",
@@ -90,7 +91,7 @@
 	"notification-reverted2": "Uw {{PLURAL:$4|bewerking op [[:$2]] is|bewerkingen op [[:$2]] zijn}} {{GENDER:$1|teruggedraaid}} door [[User:$1|$1]]: $3",
 	"notification-reverted-flyout2": "Uw {{PLURAL:$4|bewerking op $2 is|bewerkingen op $2 zijn}} {{GENDER:$1|teruggedraaid}} door $1 $3",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|heeft}} een bericht voor u achtergelaten op {{SITENAME}}",
-	"notification-edit-talk-page-email-batch-body2": "$1 {{GENDER:$1|heeft}} een bericht achtergelaten op uw overlegpagina:",
+	"notification-edit-talk-page-email-batch-body2": "$1 {{GENDER:$1|heeft}} een bericht geplaatst op uw overlegpagina.",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 {{GENDER:$1|heeft}} een bericht achtergelaten op uw overlegpagina onder \"$2\".",
 	"notification-page-linked-email-subject": "Een pagina die je hebt gemaakt is gekoppeld aan {{SITENAME}}",
 	"notification-page-linked-email-batch-body": "$2 is {{GENDER:$1|gekoppeld}} vanaf $3",
