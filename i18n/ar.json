@@ -11,7 +11,8 @@
 			"مشعل الحربي",
 			"Abanima",
 			"Omda4wady",
-			"Khaled"
+			"Khaled",
+			"محمد أحمد عبد الفتاح"
 		]
 	},
 	"echo-desc": "نظام الإشعارات",
@@ -54,7 +55,7 @@
 	"echo-error-token": "خطأ: لم يتوصل إلى مفتاح معطيات المستخدم.",
 	"notifications": "إشعارات",
 	"tooltip-pt-notifications": "إشعاراتك",
-	"echo-specialpage": "إشعاراتي",
+	"echo-specialpage": "إشعارات",
 	"echo-anon": "لتلقي الإشعارات، [$1 أنشئ حسابا] أو [$2 سجل الدخول].",
 	"echo-none": "ليس لديك أي إشعارات",
 	"echo-more-info": "المزيد",
@@ -86,9 +87,9 @@
 	"notification-reverted2": "{{GENDER:$1|ألغى|ألغت}} [[User:$1|$1]] {{PLURAL:$4|تعديلك في [[:$2]]|تعديلاتك في [[:$2]]}}. $3",
 	"notification-reverted-flyout2": "{{GENDER:$1|ألغى|ألغت}} $1 {{PLURAL:$4|تعديلك في $2|تعديلاتك في $2}}. $3",
 	"notification-edit-talk-page-email-subject2": "{{GENDER:$1|بعث|بعثت}} لك $1 برسالة في {{SITENAME}}",
-	"notification-edit-talk-page-email-batch-body2": "{{GENDER:$1|بعث|بعثت}} لك $1 برسالة في صفحة نقاشك:",
+	"notification-edit-talk-page-email-batch-body2": "{{GENDER:$1|بعث|بعثت}} لك $1 برسالة في صفحة نقاشك.",
 	"notification-edit-talk-page-email-batch-body-with-section": "{{GENDER:$1|بعث|بعثت}} لك $1 برسالة في صفحة نقاشك في \"$2\".",
-	"notification-page-linked-email-subject": "وضعت وصلة لصفحتك في {{SITENAME}}",
+	"notification-page-linked-email-subject": "وضعت وصلة لصفحة أنشأتها في {{SITENAME}}",
 	"notification-page-linked-email-batch-body": "{{GENDER:$1|وضعت}} وصلة إلى $2 في $3.",
 	"notification-reverted-email-subject2": "{{GENDER:$1|ألغي{{PLURAL:$3||ت}}}} {{PLURAL:$3|تعديلك|تعديلاتك}} في {{SITENAME}}",
 	"notification-reverted-email-batch-body2": "{{GENDER:$1|ألغى|ألغت}} $1 {{PLURAL:$3|تعديلك|تعديلاتك}} في $2.",
