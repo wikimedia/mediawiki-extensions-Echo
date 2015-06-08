@@ -78,6 +78,7 @@ $wgResourceModules += array(
 		'styles' => 'special/ext.echo.special.less',
 		'dependencies' => array(
 			'mediawiki.ui.button',
+			'mediawiki.api',
 			'ext.echo.base',
 		),
 		'messages' => array(
