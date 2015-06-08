@@ -3,7 +3,7 @@
 /**
  * Handle user email batch ( daily/ weekly )
  */
-abstract class MWEchoEmailBatch {
+class MWEchoEmailBatch {
 
 	// the user to be notified
 	protected $mUser;
@@ -51,7 +51,7 @@ abstract class MWEchoEmailBatch {
 
 		// clear all existing events if user decides not to receive emails
 		if ( $userEmailSetting == -1 ) {
-			$emailBatch = new MWDbEchoEmailBatch( $user );
+			$emailBatch = new self( $user );
 			$emailBatch->clearProcessedEvent();
 			return false;
 		}
@@ -81,7 +81,7 @@ abstract class MWEchoEmailBatch {
 			}
 		}
 
-		return new MWDbEchoEmailBatch( $user );
+		return new self( $user );
 	}
 
 	/**
@@ -119,7 +119,22 @@ abstract class MWEchoEmailBatch {
 	 *
 	 * @return bool true if event exists false otherwise
 	 */
-	abstract protected function setLastEvent();
+	protected function setLastEvent() {
+		$dbr = MWEchoDbFactory::getDB( DB_SLAVE );
+		$res = $dbr->selectField(
+			array( 'echo_email_batch' ),
+			array( 'MAX( eeb_event_id )' ),
+			array( 'eeb_user_id' => $this->mUser->getId() ),
+			__METHOD__
+		);
+
+		if ( $res ) {
+			$this->lastEvent = $res;
+			return true;
+		} else {
+			return false;
+		}
+	}
 
 	/**
 	 * Update the user's last batch timestamp after a successful batch
@@ -134,7 +149,54 @@ abstract class MWEchoEmailBatch {
 	 * Get the events queued for the current user
 	 * @return array
 	 */
-	abstract protected function getEvents();
+	protected function getEvents() {
+		global $wgEchoNotifications;
+
+		$events = array();
+
+		$validEvents = array_keys( $wgEchoNotifications );
+
+		// Per the tech discussion in the design meeting (03/22/2013), since this is
+		// processed by a cron job, it's okay to use GROUP BY over more complex
+		// composite index, favor insert performance, storage space over read
+		// performance in this case
+		if ( $validEvents ) {
+			$dbr = MWEchoDbFactory::getDB( DB_SLAVE );
+
+			$conds = array(
+				'eeb_user_id' => $this->mUser->getId(),
+				'event_id = eeb_event_id',
+				'event_type' => $validEvents
+			);
+
+			// See setLastEvent() for more detail for this variable
+			if ( $this->lastEvent ) {
+				$conds[] = 'eeb_event_id <= ' . intval( $this->lastEvent );
+			}
+
+			$res = $dbr->select(
+				array( 'echo_email_batch', 'echo_event' ),
+				array( '*' ),
+				$conds,
+				__METHOD__,
+				array(
+					'ORDER BY' => 'eeb_event_priority',
+					'LIMIT' => self::$displaySize + 1,
+					'GROUP BY' => 'eeb_event_hash'
+				)
+			);
+
+			foreach ( $res as $row ) {
+				// records in the queue inserted before email bundling code
+				// have no hash, in this case, we just ignore them
+				if ( $row->eeb_event_hash ) {
+					$events[$row->eeb_id] = $row;
+				}
+			}
+		}
+
+		return $events;
+	}
 
 	/**
 	 * Add individual event template to the big email content
@@ -154,7 +216,22 @@ abstract class MWEchoEmailBatch {
 	/**
 	 * Clear "processed" events in the queue, processed could be: email sent, invalid, users do not want to receive emails
 	 */
-	abstract public function clearProcessedEvent();
+	public function clearProcessedEvent() {
+		$conds = array( 'eeb_user_id' => $this->mUser->getId() );
+
+		// there is a processed cutoff point
+		if ( $this->lastEvent ) {
+			$conds[] = 'eeb_event_id <= ' . intval( $this->lastEvent );
+		}
+
+		$dbw = MWEchoDbFactory::getDB( DB_MASTER );
+		$dbw->delete(
+			'echo_email_batch',
+			$conds,
+			__METHOD__,
+			array()
+		);
+	}
 
 	/**
 	 * Send the batch email
@@ -221,7 +298,31 @@ abstract class MWEchoEmailBatch {
 	 * @throws MWException
 	 */
 	public static function addToQueue( $userId, $eventId, $priority, $hash ) {
-		MWDbEchoEmailBatch::actuallyAddToQueue( $userId, $eventId, $priority, $hash );
+		if ( !$userId || !$eventId ) {
+			return;
+		}
+
+		$dbw = MWEchoDbFactory::getDB( DB_MASTER );
+
+		$row = array(
+			'eeb_user_id' => $userId,
+			'eeb_event_id' => $eventId,
+			'eeb_event_priority' => $priority,
+			'eeb_event_hash' => $hash
+		);
+
+		$id = $dbw->nextSequenceValue( 'echo_email_batch_eeb_id' );
+
+		if ( $id ) {
+			$row['eeb_id'] = $id;
+		}
+
+		$dbw->insert(
+			'echo_email_batch',
+			$row,
+			__METHOD__,
+			array( 'IGNORE' )
+		);
 	}
 
 	/**
@@ -234,6 +335,15 @@ abstract class MWEchoEmailBatch {
 	 * @return ResultWrapper|bool
 	 */
 	public static function getUsersToNotify( $startUserId, $batchSize ) {
-		return MWDbEchoEmailBatch::actuallyGetUsersToNotify( $startUserId, $batchSize );
+		$dbr = MWEchoDbFactory::getDB( DB_SLAVE );
+		$res = $dbr->select(
+			array( 'echo_email_batch' ),
+			array( 'eeb_user_id' ),
+			array( 'eeb_user_id > ' . $startUserId  ),
+			__METHOD__,
+			array( 'ORDER BY' => 'eeb_user_id', 'LIMIT' => $batchSize )
+		);
+
+		return $res;
 	}
 }
