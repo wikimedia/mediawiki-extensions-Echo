@@ -2,9 +2,6 @@
 ( function ( $, mw ) {
 	'use strict';
 
-	// backwards compatibility <= MW 1.21
-	var getUrl = mw.util.getUrl || mw.util.wikiGetlink;
-
 	function EchoOverlay( apiResultNotifications ) {
 		this.api = mw.echo.overlay.api;
 		// set internal properties
@@ -277,7 +274,7 @@
 		_getFooterElement: function () {
 			var $prefLink = $( '#pt-preferences a' ),
 				links = [
-					{ url: getUrl( 'Special:Notifications' ), text: mw.msg( 'echo-overlay-link' ),
+					{ url: mw.util.getUrl( 'Special:Notifications' ), text: mw.msg( 'echo-overlay-link' ),
 						className: 'mw-echo-icon-all' },
 					{ url: $prefLink.attr( 'href' ) + '#mw-prefsection-echo', text: $prefLink.text(),
 						className: 'mw-echo-icon-cog' }
