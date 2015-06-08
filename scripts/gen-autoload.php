@@ -6,13 +6,7 @@ function main() {
 	$base = dirname( __DIR__ );
 	$generator = new AutoloadGenerator( $base );
 	$dirs = array(
-		'api',
-		'controller', 
-		'formatters',
-		'includes', 
-		'jobs',
-		'model',
-		'special',
+		'includes',
 		'tests',
 	);
 	foreach ( $dirs as $dir ) {
