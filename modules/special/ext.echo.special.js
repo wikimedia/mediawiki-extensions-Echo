@@ -133,10 +133,9 @@
 				api = new mw.Api(),
 				that = this;
 
-			api.post( {
+			api.postWithToken( 'edit', {
 				action: 'echomarkread',
 				list: unread.join( '|' ),
-				token: mw.user.tokens.get( 'editToken' ),
 				uselang: 'user'
 			} ).done( function ( result ) {
 				// update the badge if the link is enabled

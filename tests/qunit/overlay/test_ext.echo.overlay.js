@@ -27,6 +27,9 @@
 
 					return $.Deferred().resolve( data );
 				},
+				postWithToken: function ( type, data ) {
+					return this.post( data );
+				},
 				get: function () {
 					var i, id,
 						index = [],

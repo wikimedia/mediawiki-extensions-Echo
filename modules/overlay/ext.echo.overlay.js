@@ -82,7 +82,6 @@
 			if ( this.unread.length ) {
 				data = {
 					action: 'echomarkread',
-					token: mw.user.tokens.get( 'editToken' ),
 					uselang: 'user'
 				};
 				if ( id ) {
@@ -92,7 +91,7 @@
 					data.sections = this.name;
 				}
 
-				return this.api.post( data ).then( function ( result ) {
+				return this.api.postWithToken( 'edit', data ).then( function ( result ) {
 					return result.query.echomarkread;
 				} ).done( function ( result ) {
 					// reset internal state of unread messages
