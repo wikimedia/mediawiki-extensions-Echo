@@ -339,7 +339,7 @@ class MWEchoEmailBatch {
 		$res = $dbr->select(
 			array( 'echo_email_batch' ),
 			array( 'eeb_user_id' ),
-			array( 'eeb_user_id > ' . $startUserId  ),
+			array( 'eeb_user_id > ' . intval( $startUserId )  ),
 			__METHOD__,
 			array( 'ORDER BY' => 'eeb_user_id', 'LIMIT' => $batchSize )
 		);
