@@ -191,12 +191,6 @@
 				$li.wrapInner( $wrapper );
 
 				mw.echo.setupNotificationLogging( $li, 'flyout' );
-
-				// Set up each individual notification with a close box and dismiss
-				// interface if it is dismissable.
-				if ( $li.find( '.mw-echo-dismiss' ).length ) {
-					mw.echo.setUpDismissability( $li );
-				}
 			} );
 
 			if ( !this.markOnView && this.unread.length ) {

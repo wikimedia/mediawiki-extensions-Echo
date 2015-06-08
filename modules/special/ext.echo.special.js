@@ -32,9 +32,6 @@
 			// box and dismiss interface if it is dismissable.
 			$( '.mw-echo-notification' ).each( function () {
 				mw.echo.setupNotificationLogging( $( this ), 'archive' );
-				if ( $( this ).find( '.mw-echo-dismiss' ).length ) {
-					mw.echo.setUpDismissability( this );
-				}
 			} );
 
 			$( '#mw-echo-moreinfo-link' ).click( function () {
@@ -108,10 +105,6 @@
 					}
 
 					mw.echo.setupNotificationLogging( $li, 'archive' );
-
-					if ( $li.find( '.mw-echo-dismiss' ).length ) {
-						mw.echo.setUpDismissability( $li );
-					}
 				} );
 
 				that.notcontinue = notifications['continue'];
