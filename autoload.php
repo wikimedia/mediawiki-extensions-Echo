@@ -87,7 +87,6 @@ $wgAutoloadClasses += array(
 	'EchoUserNotificationGatewayTest' => __DIR__ . '/tests/phpunit/includes/gateway/UserNotificationGatewayTest.php',
 	'EchoUserRightsFormatter' => __DIR__ . '/includes/formatters/UserRightsFormatter.php',
 	'FilteredSequentialIteratorTest' => __DIR__ . '/tests/phpunit/includes/iterator/FilteredSequentialIteratorTest.php',
-	'MWDbEchoEmailBundler' => __DIR__ . '/includes/DbEmailBundler.php',
 	'MWEchoDbFactory' => __DIR__ . '/includes/EchoDbFactory.php',
 	'MWEchoDbFactoryTest' => __DIR__ . '/tests/phpunit/includes/EchoDbFactoryTest.php',
 	'MWEchoEmailBatch' => __DIR__ . '/includes/EmailBatch.php',
