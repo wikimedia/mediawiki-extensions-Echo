@@ -3,8 +3,7 @@
 	'use strict';
 
 	// backwards compatibility <= MW 1.21
-	var getUrl = mw.util.getUrl || mw.util.wikiGetlink,
-		useLang = mw.config.get( 'wgUserLanguage' );
+	var getUrl = mw.util.getUrl || mw.util.wikiGetlink;
 
 	function EchoOverlay( apiResultNotifications ) {
 		this.api = mw.echo.overlay.api;
@@ -87,7 +86,7 @@
 				data = {
 					action: 'echomarkread',
 					token: mw.user.tokens.get( 'editToken' ),
-					uselang: useLang
+					uselang: 'user'
 				};
 				if ( id ) {
 					// If id is given mark that as read otherwise use all unread messages
@@ -469,7 +468,7 @@
 				notformat: 'flyout',
 				notlimit: this.notificationLimit,
 				notprop: 'index|list|count',
-				uselang: useLang
+				uselang: 'user'
 			};
 
 			return this.api.get( apiData ).then( function ( result ) {

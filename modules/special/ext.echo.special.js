@@ -1,6 +1,5 @@
 ( function ( $, mw ) {
 	'use strict';
-	var useLang = mw.config.get( 'wgUserLanguage' );
 
 	mw.echo.special = {
 
@@ -71,7 +70,7 @@
 					notprop: 'index|list',
 					notcontinue: this.notcontinue,
 					notlimit: mw.config.get( 'wgEchoDisplayNum' ),
-					uselang: useLang
+					uselang: 'user'
 				};
 
 			api.get( apiData ).done( function ( result ) {
@@ -138,7 +137,7 @@
 				action: 'echomarkread',
 				list: unread.join( '|' ),
 				token: mw.user.tokens.get( 'editToken' ),
-				uselang: useLang
+				uselang: 'user'
 			} ).done( function ( result ) {
 				// update the badge if the link is enabled
 				if ( result.query.echomarkread.count !== undefined &&
