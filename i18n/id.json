@@ -4,7 +4,8 @@
 			"Amire80",
 			"Farras",
 			"William Surya Permana",
-			"පසිඳු කාවින්ද"
+			"පසිඳු කාවින්ද",
+			"Bennylin"
 		]
 	},
 	"echo-desc": "Sistem pemberitahuan",
@@ -45,7 +46,7 @@
 	"echo-error-no-formatter": "Tidak ada pemformatan yang ditetapkan untuk pemberitahuan.",
 	"echo-error-preference": "Galat: Tidak dapat menetapkan preferensi pengguna.",
 	"echo-error-token": "Galat: Tidak dapat mengambil token pengguna.",
-	"notifications": "Pemberitahuan",
+	"notifications": "Notifikasi (Pemberitahuan)",
 	"tooltip-pt-notifications": "Pemberitahuan Anda",
 	"echo-specialpage": "Pemberitahuan",
 	"echo-anon": "Untuk menerima pemberitahuan, [$1 buat sebuah akun] atau [$2 masuk log].",

@@ -65,7 +65,7 @@
 	"notification-user-rights-add": "איר זענט יעצט א מיטגליד פון {{PLURAL:$2|די גרופע |די גרופעס}}: $1",
 	"notification-reverted2": " {{PLURAL:$4|אייער רעדאקטירונג אויף  [[:$2]] |אייערע רעדאקטירונגען אויף  [[:$2]] }} האט  [[User:$1|$1]]  {{GENDER:$1|צוריקגעדרייט}}. $3",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|האט אייך געשריבן}} א נייע מעלדונג אינעם {{SITENAME}} וועבזייטל",
-	"notification-edit-talk-page-email-batch-body2": "$1 {{GENDER:$1|האט געשריבן}} א מעלדונג אין אײַער רעדן בלאַט:",
+	"notification-edit-talk-page-email-batch-body2": "$1 {{GENDER:$1|האט געשריבן}} א מעלדונג אין אײַער רעדן בלאַט.",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 {{GENDER:$1|האט געלאזט}} א מעלדונג אין אײַער רעדן בלאַט אין \"$2\".",
 	"notification-page-linked-email-subject": "א בלאט איר האט געשאפן איז געווארן פֿאַרלינקט אויף {{SITENAME}}",
 	"notification-page-linked-email-batch-body": "$2 איז געווארן {{GENDER:$1| פֿאַרלינקט}} פֿון $3.",
