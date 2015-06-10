@@ -372,7 +372,6 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 	// - stripHeader
 	// - stripIndents
 	// - stripSignature
-	// - getNotifiedUsersForComment
 
 	public function testDiscussionParserAcceptsInternalDiff() {
 		global $wgDiff;

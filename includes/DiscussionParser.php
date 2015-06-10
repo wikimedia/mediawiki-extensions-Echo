@@ -204,45 +204,6 @@ abstract class EchoDiscussionParser {
 	}
 
 	/**
-	 * Given a Revision object, determines which users are interested
-	 * in related EchoEvents.
-	 *
-	 * @param $revision Revision object.
-	 * @return Array of User objects
-	 */
-	static function getNotifiedUsersForComment( $revision ) {
-		$interpretation = self::getChangeInterpretationForRevision( $revision );
-		$users = array();
-
-		foreach ( $interpretation as $action ) {
-			if ( $action['type'] == 'add-comment' ) {
-				$fullSection = $action['full-section'];
-				$interestedUsers = array_keys( self::extractSignatures( $fullSection, $revision->getTitle() ) );
-
-				foreach ( $interestedUsers as $userName ) {
-					$user = User::newFromName( $userName );
-
-					// Deliberately ignoring anonymous users
-					if ( $user && $user->getID() ) {
-						$users[$user->getID()] = $user;
-					}
-				}
-			}
-		}
-
-		if ( $revision->getTitle()->getNamespace() == NS_USER_TALK ) {
-			$userName = $revision->getTitle()->getText();
-			$user = User::newFromName( $userName );
-
-			if ( $user ) {
-				$users[$user->getID()] = $user;
-			}
-		}
-
-		return $users;
-	}
-
-	/**
 	 * Given a Revision object, returns a talk-page-centric interpretation
 	 * of the changes made in it.
 	 *
