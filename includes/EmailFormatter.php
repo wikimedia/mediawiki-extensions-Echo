@@ -758,6 +758,18 @@ class EchoHTMLEmailDecorator implements EchoEmailDecorator {
 	 * {@inheritDoc}
 	 */
 	public function decorateDigestAction( $title, $user ) {
+		/*
+		 * Linker::link() will try to figure out if $title already exists
+		 * (Title::isKnown) and alter the link depending on the outcome
+		 * (&action=edit&redlink=1)
+		 * Notifications are usually triggered by new content, so we better
+		 * make damn sure that slave lag doesn't mess that up. Especially
+		 * in emails, which we can't rerender once they've been sent.
+		 * I'll force the status for this $title to be read from master, so
+		 * Linker::link is guaranteed to get the correct exists() result.
+		 */
+		$title->exists( wfGetLB()->hasOrMadeRecentMasterChanges() ? Title::GAID_FOR_UPDATE : 0 );
+
 		return Linker::link(
 			$title,
 			EchoEmailMode::message( 'echo-email-batch-link-text-view-all-notifications', $user )->escaped(),
