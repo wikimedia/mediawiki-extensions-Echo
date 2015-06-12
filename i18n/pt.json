@@ -38,7 +38,7 @@
 	"echo-category-title-mention": "{{PLURAL:$1|Menção|Menções}}",
 	"echo-category-title-other": "{{PLURAL:$1|Outro|Outros}}",
 	"echo-category-title-system": "{{PLURAL:$1|Sistema|Sistemas}}",
-	"echo-category-title-user-rights": "{{PLURAL:$1|alteração de privilégios de utilizador|alterações de privilégios de utilizador}}",
+	"echo-category-title-user-rights": "{{PLURAL:$1|Alteração de privilégios de utilizador|Alterações de privilégios de utilizador}}",
 	"echo-pref-tooltip-edit-user-talk": "Notificar-me quando alguém publicar na minha página de discussão.",
 	"echo-pref-tooltip-article-linked": "Notificar-me quando alguém interligar uma página criada por mim numa outra.",
 	"echo-pref-tooltip-reverted": "Notificar-me quando alguém reverter uma edição minha, ao utilizar a função desfazer ou a ferramenta de reversão.",
