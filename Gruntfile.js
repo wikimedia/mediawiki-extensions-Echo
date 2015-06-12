@@ -9,6 +9,7 @@ module.exports = function ( grunt ) {
 	grunt.loadNpmTasks( 'grunt-contrib-csslint' );
 	grunt.loadNpmTasks( 'grunt-contrib-jshint' );
 	grunt.loadNpmTasks( 'grunt-contrib-watch' );
+	grunt.loadNpmTasks( 'grunt-jsonlint' );
 	grunt.loadNpmTasks( 'grunt-banana-checker' );
 	grunt.loadNpmTasks( 'grunt-jscs' );
 
@@ -42,10 +43,16 @@ module.exports = function ( grunt ) {
 				'<%= csslint.all %>'
 			],
 			tasks: 'test'
+		},
+		jsonlint: {
+			all: [
+				'**/*.json',
+				'!node_modules/**'
+			]
 		}
 	} );
 
-	grunt.registerTask( 'lint', [ 'jscs', 'jshint', 'csslint', 'banana' ] );
+	grunt.registerTask( 'lint', [ 'jscs', 'jshint', 'csslint', 'jsonlint', 'banana' ] );
 	grunt.registerTask( 'test', 'lint' );
 	grunt.registerTask( 'default', 'test' );
 };
