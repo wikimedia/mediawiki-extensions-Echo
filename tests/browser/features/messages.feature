@@ -1,7 +1,7 @@
 @chrome @en.wikipedia.beta.wmflabs.org @firefox @login @test2.wikipedia.org
 Feature: Scenarios that trigger notifications
 
-  Scenario: Mark all as unread
+  Scenario: Mark all as read
     Given I am logged in with no notifications
       And I have a Flow message that triggers an alert notification
       And another user mentions me on the wiki
