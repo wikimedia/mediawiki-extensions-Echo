@@ -578,32 +578,28 @@ abstract class EchoDiscussionParser {
 	}
 
 	/**
-	 * From a line in a wiki page, determine which user, if any,
-	 *  has signed it.
+	 * From a line in the signature, extract all the users linked to
 	 *
-	 * @param $line string The line.
-	 * @param Title $title
-	 * @return bool|array false for none, Array for success.
-	 * - First element is the position of the signature.
-	 * - Second element is the normalised user name.
+	 * @param string $line Line of text potentially including linked user, user talk,
+	 *  and contribution pages
+	 * @return array Array of users; empty array for none detected
 	 */
-	static public function getUserFromLine( $line, Title $title = null ) {
-		global $wgParser;
-
-		// match all title-like excerpts in this line
-		if ( !preg_match_all( '/\[\[([^\[]+)\]\]/', $line, $matches ) ) {
-			return false;
-		}
-
+	static public function extractUsersFromLine( $line ) {
 		/*
 		 * Signatures can look like anything (as defined by i18n messages
 		 * "signature" & "signature-anon").
 		 * A signature can, e.g., be both a link to user & user-talk page.
-		 * I'll be looping backwards through all founds links, figure out what
-		 * matches to a user, regenerate the signature based on that user, and
-		 * see if it matches!
+		 *
 		 */
-		$matches = array_reverse( $matches[1] );
+		// match all title-like excerpts in this line
+		if ( !preg_match_all( '/\[\[([^\[]+)\]\]/', $line, $matches ) ) {
+			return array();
+		}
+
+		$matches = $matches[1];
+
+		$usernames = array();
+
 		foreach ( $matches as $match ) {
 			/*
 			 * Create an object out of the link title.
@@ -618,15 +614,41 @@ abstract class EchoDiscussionParser {
 
 			// figure out if we the link is related to a user
 			if ( $title && ( $title->getNamespace() === NS_USER || $title->getNamespace() === NS_USER_TALK ) ) {
-				$username = $title->getText();
+				$usernames[] = $title->getText();
 			} elseif ( $title && $title->isSpecial( 'Contributions' ) ) {
 				$parts = explode( '/', $title->getText(), 2 );
-				$username = end( $parts );
+				$usernames[] = end( $parts );
 			} else {
 				// move on to next matched title-like excerpt
 				continue;
 			}
+		}
 
+		return $usernames;
+	}
+
+	/**
+	 * From a line in a wiki page, determine which user, if any,
+	 *  has signed it.
+	 *
+	 * @param string $line The line.
+	 * @param Title $title
+	 * @return bool|array false for none, Array for success.
+	 * - First element is the position of the signature.
+	 * - Second element is the normalised user name.
+	 */
+	static public function getUserFromLine( $line, Title $title = null ) {
+		global $wgParser;
+
+		/*
+		 * First we call extractUsersFromLine to get all the potential usernames
+		 * from the line.  Then, we loop backwards through them, figure out which
+		 * match to a user, regenera the signature based on that user, and
+		 * see if it matches!
+		 */
+		$usernames = self::extractUsersFromLine( $line );
+		$usernames = array_reverse( $usernames );
+		foreach ( $usernames as $username ) {
 			// generate (dateless) signature from the user we think we've
 			// discovered the signature from
 			// don't validate the username - anon (IP) is fine!
