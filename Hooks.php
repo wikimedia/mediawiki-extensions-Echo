@@ -200,29 +200,6 @@ class EchoHooks {
 	}
 
 	/**
-	 * Handler for EchoGetNotificationTypes hook, Adjust the notify types (e.g. web, email) which
-	 * are applicable to this event and user based on various user options. In other words, allow
-	 * certain non-echo user options to override the echo notification options.
-	 * @param $user User
-	 * @param $event EchoEvent
-	 * @param $notifyTypes
-	 * @return bool
-	 */
-	public static function getNotificationTypes( $user, $event, &$notifyTypes ) {
-		if ( !$user->getOption( 'enotifminoredits' ) ) {
-			$extra = $event->getExtra();
-			if ( !empty( $extra['revid'] ) ) {
-				$rev = Revision::newFromID( $extra['revid'], Revision::READ_LATEST );
-
-				if ( $rev->isMinor() ) {
-					$notifyTypes = array_diff( $notifyTypes, array( 'email' ) );
-				}
-			}
-		}
-		return true;
-	}
-
-	/**
 	 * Handler for GetPreferences hook.
 	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/GetPreferences
 	 *

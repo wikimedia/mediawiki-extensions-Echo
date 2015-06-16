@@ -90,14 +90,6 @@ $wgExtensionFunctions[] = 'EchoHooks::initEchoExtension';
 
 require __DIR__ . '/Resources.php';
 
-/**
- * This Echo hook can be used to define users who are by default interested in
- * certain events.
- * For example, it can be used to say that users are by default interested in
- * their own user talk page being edited. In fact, that is what it is used for
- * internally.
- */
-$wgHooks['EchoGetNotificationTypes'][] = 'EchoHooks::getNotificationTypes';
 $wgHooks['EchoGetBundleRules'][] = 'EchoHooks::onEchoGetBundleRules';
 $wgHooks['EchoAbortEmailNotification'][] = 'EchoHooks::onEchoAbortEmailNotification';
 

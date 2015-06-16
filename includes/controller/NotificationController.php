@@ -79,6 +79,18 @@ class EchoNotificationController {
 		foreach ( self::getUsersToNotifyForEvent( $event ) as $user ) {
 			$userIds[$user->getId()] = $user->getId();
 			$userNotifyTypes = $notifyTypes;
+			// Respect the enotifminoredits preference
+			// @todo should this be checked somewhere else?
+			if ( !$user->getOption( 'enotifminoredits' ) ) {
+				$extra = $event->getExtra();
+				if ( !empty( $extra['revid'] ) ) {
+					$rev = Revision::newFromID( $extra['revid'], Revision::READ_LATEST );
+
+					if ( $rev->isMinor() ) {
+						$notifyTypes = array_diff( $notifyTypes, array( 'email' ) );
+					}
+				}
+			}
 			Hooks::run( 'EchoGetNotificationTypes', array( $user, $event, &$userNotifyTypes ) );
 
 			// types such as web, email, etc
