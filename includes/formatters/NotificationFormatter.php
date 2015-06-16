@@ -38,27 +38,12 @@ abstract class EchoNotificationFormatter {
 	protected $parameters;
 
 	/**
-	 * List of parameters that must exist in $this->$parameters
-	 */
-	protected $requiredParameters = array();
-
-	/**
 	 * Creates an instance of the given class with the given parameters.
 	 * @param $parameters array Associative array of parameters
 	 * @throws MWException
 	 */
 	public function __construct( array $parameters ) {
 		$this->parameters = $parameters;
-
-		$missingParameters = array_diff( $this->requiredParameters, array_keys( $parameters ) );
-
-		if ( $missingParameters ) {
-			throw new MWException(
-				"Missing required parameters for " .
-					get_class( $this ) . ":" .
-					implode( " ", $missingParameters )
-			);
-		}
 	}
 
 	/**

@@ -47,14 +47,6 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	protected $language;
 
 	/**
-	 * Required parameters
-	 * @param array
-	 */
-	protected $requiredParameters = array (
-		'title-message'
-	);
-
-	/**
 	 * Data for constructing bundle message, data in this array
 	 * should be used in function processParams()
 	 * @var array
@@ -74,6 +66,11 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	 */
 	public function __construct( $params ) {
 		parent::__construct( $params );
+
+		if ( !isset( $params['title-message'] ) ) {
+			// Required, no default value set
+			throw new InvalidArgumentException( "'title-message' parameter not set" );
+		}
 
 		// Set up default params if any are missing
 		$params = $this->setDefaultParams( $params );
