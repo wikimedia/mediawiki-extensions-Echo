@@ -22,10 +22,10 @@ class EchoNotificationDeleteJob extends Job {
 	protected $dbFactory;
 
 	/**
-	 * @param Title
-	 * @param array
+	 * @param Title $title
+	 * @param array $params
 	 */
-	function __construct( $title, $params ) {
+	public function __construct( $title, $params ) {
 		parent::__construct( __CLASS__, $title, $params );
 		$this->userIds = $params['userIds'];
 		$this->dbFactory = MWEchoDbFactory::newFromDefault();
@@ -34,7 +34,7 @@ class EchoNotificationDeleteJob extends Job {
 	/**
 	 * Run the job of finding & deleting older notifications
 	 */
-	function run() {
+	public function run() {
 		global $wgEchoMaxUpdateCount;
 
 		$updateCount  = 0;
