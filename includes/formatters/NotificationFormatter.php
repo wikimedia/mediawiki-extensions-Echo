@@ -95,20 +95,20 @@ abstract class EchoNotificationFormatter {
 	/**
 	 * Create an EchoNotificationFormatter from the supplied parameters.
 	 * @param $parameters array Associative array.
-	 * Select the class of formatter to use with the 'class' field.
+	 * Select the class of formatter to use with the 'formatter-class' field.
 	 * For other parameters, see the appropriate class' constructor.
-	 * @throws MWException
+	 * @throws RuntimeException
 	 * @return EchoNotificationFormatter object.
 	 */
 	public static function factory( $parameters ) {
-		$class = null;
 		if ( isset( $parameters['formatter-class'] ) ) {
 			$class = $parameters['formatter-class'];
+		} else {
+			$class = 'EchoBasicFormatter';
 		}
 
-		// Default to basic formatter
-		if ( !$class || !class_exists( $class ) ) {
-			$class = 'EchoBasicFormatter';
+		if ( !class_exists( $class ) ) {
+			throw new RuntimeException( "Class $class does not exist" );
 		}
 
 		return new $class( $parameters );
