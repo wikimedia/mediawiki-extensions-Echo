@@ -74,11 +74,11 @@ abstract class EchoNotificationFormatter {
 	/**
 	 * Set the output format that the notification will be displayed in.
 	 * @param $format string A valid output format (by default, 'text', 'html', 'flyout', and 'email' are allowed)
-	 * @throws MWException
+	 * @throws InvalidArgumentException
 	 */
 	public function setOutputFormat( $format ) {
 		if ( !in_array( $format, $this->validOutputFormats, true ) ) {
-			throw new MWException( "Invalid output format $format" );
+			throw new InvalidArgumentException( "Invalid output format $format" );
 		}
 
 		$this->outputFormat = $format;
@@ -86,7 +86,7 @@ abstract class EchoNotificationFormatter {
 
 	public function setDistributionType( $type ) {
 		if ( !in_array( $type, $this->validDistributionType, true ) ) {
-			throw new Exception( "Invalid distribution type $type" );
+			throw new InvalidArgumentException( "Invalid distribution type $type" );
 		}
 
 		$this->distributionType = $type;
