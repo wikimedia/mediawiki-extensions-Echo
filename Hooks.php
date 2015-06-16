@@ -934,24 +934,6 @@ class EchoHooks {
 	}
 
 	/**
-	 * Handler for EchoCreateNotificationComplete hook, this will allow some
-	 * extra stuff to be done upon creating a new notification
-	 * @param $notif EchoNotification
-	 * @return bool true in all cases
-	 */
-	public static function onEchoCreateNotificationComplete( EchoNotification $notif ) {
-		if ( $notif->getEvent() && $notif->getUser() ) {
-			// Extra stuff for talk page notification
-			if ( $notif->getEvent()->getType() === 'edit-user-talk' ) {
-				$notifUser = MWEchoNotifUser::newFromUser( $notif->getUser() );
-				$notifUser->flagCacheWithNewTalkNotification();
-			}
-		}
-
-		return true;
-	}
-
-	/**
 	 * Handler for ParserTestTables hook, makes sure that Echo's tables are present during tests
 	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/UserClearNewTalkNotification
 	 * @param array $tables List of DB tables to be used for parser tests

@@ -100,7 +100,6 @@ require __DIR__ . '/Resources.php';
 $wgHooks['EchoGetNotificationTypes'][] = 'EchoHooks::getNotificationTypes';
 $wgHooks['EchoGetBundleRules'][] = 'EchoHooks::onEchoGetBundleRules';
 $wgHooks['EchoAbortEmailNotification'][] = 'EchoHooks::onEchoAbortEmailNotification';
-$wgHooks['EchoCreateNotificationComplete'][] = 'EchoHooks::onEchoCreateNotificationComplete';
 
 // Hook appropriate events
 $wgHooks['ArticleSaveComplete'][] = 'EchoHooks::onArticleSaved';

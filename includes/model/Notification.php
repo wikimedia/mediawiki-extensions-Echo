@@ -151,20 +151,25 @@ class EchoNotification extends EchoAbstractEntity {
 			} );
 		}
 
+		$notifUser = MWEchoNotifUser::newFromUser( $user );
+
 		// Add listener to refresh notification count upon insert
 		$notifMapper->attachListener( 'insert', 'refresh-notif-count',
-			function() use ( $user ) {
-				MWEchoNotifUser::newFromUser( $user )->resetNotificationCount( DB_MASTER );
+			function() use ( $notifUser ) {
+				$notifUser->resetNotificationCount( DB_MASTER );
 			}
 		);
 
 		$notifMapper->insert( $this );
 
 		// Clear applicable section status from cache upon new notification creation
-		MWEchoNotifUser::newFromUser( $this->user )->clearSectionStatusCache(
+		$notifUser->clearSectionStatusCache(
 			$this->event->getSection()
 		);
 
+		if ( $event->getType() === 'edit-user-talk' ) {
+			$notifUser->flagCacheWithNewTalkNotification();
+		}
 		Hooks::run( 'EchoCreateNotificationComplete', array( $this ) );
 	}
 
