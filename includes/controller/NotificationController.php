@@ -21,7 +21,7 @@ class EchoNotificationController {
 	/**
 	 * Queue's that failed formatting and marks them as read at end of request.
 	 *
-	 * @var DeferredMarkAsReadUpdate|null
+	 * @var EchoDeferredMarkAsReadUpdate|null
 	 */
 	static protected $markAsRead;
 
