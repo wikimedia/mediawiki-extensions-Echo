@@ -7,7 +7,8 @@
 			"QuimGil",
 			"Vriullop",
 			"පසිඳු කාවින්ද",
-			"Fitoschido"
+			"Fitoschido",
+			"Ssola"
 		]
 	},
 	"echo-desc": "Sistema de notificacions",
@@ -64,7 +65,7 @@
 	"notification-edit-talk-page-flyout2": "$1 {{GENDER:$1|ha deixat}} un missatge a la vostra [[User talk:$2#$3|pàgina de discussió]].",
 	"notification-edit-talk-page-flyout-with-section": "$1 {{GENDER:$1|ha deixat}} un missatge a la vostra pàgina de discussió sobre «[[User talk:$2#$3|$4]]».",
 	"notification-page-linked": "S'ha {{GENDER:$1|enllaçat}} [[:$2]] des de [[:$3]]. [[Special:WhatLinksHere/$2|Vegeu tots els enllaços a aquesta pàgina]].",
-	"notification-page-linked-flyout": "S'ha {{GENDER:$1|enllaçada}} [[:$2]] des de [[:$3]].",
+	"notification-page-linked-flyout": "S'ha {{GENDER:$1|enllaçat}} [[:$2]] des de [[:$3]].",
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|ha fet un comentari}} sobre «[[$3|$2]]» a la pàgina de discussió «$4».",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] {{GENDER:$1|ha publicat}} un nou fil de discussió «$2» a [[$3]].",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] us {{GENDER:$1|ha enviat}} un missatge: «[[$3#$2|$2]]».",
@@ -82,7 +83,7 @@
 	"notification-edit-talk-page-email-batch-body2": "$1 us {{GENDER:$1|ha deixat}} un missatge en la vostra pàgina de discussió:",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 us {{GENDER:$1|ha deixat}} un missatge en la vostra pàgina de discussió sobre «$2».",
 	"notification-page-linked-email-subject": "S'ha enllaçat la vostra pàgina al projecte {{SITENAME}}",
-	"notification-page-linked-email-batch-body": "S'ha {{GENDER:$1|enllaçada}} $2 des de $3.",
+	"notification-page-linked-email-batch-body": "S'ha {{GENDER:$1|enllaçat}} $2 des de $3.",
 	"notification-reverted-email-subject2": "{{PLURAL:$3|S'ha revertit la vostra edició|S'han revertit les vostres edicions}} {{GENDER:$1|al projecte}} {{SITENAME}}",
 	"notification-reverted-email-batch-body2": "{{PLURAL:$3|S'ha revertit la vostra edició a $2|S'ha revertit les vostres edicions a $2}} {{GENDER:$1|}}per $1.",
 	"notification-mention-email-subject": "$1 us ha {{GENDER:$1|mencionat}} a {{SITENAME}}",
