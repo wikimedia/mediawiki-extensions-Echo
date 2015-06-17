@@ -7,6 +7,9 @@
  * of notifications in the history while users wouldn't bother to click 'load more'
  * like 100 times to see them. What we gain from this is we could run expensive
  * queries otherwise that would requires adding index and data denormalization.
+ *
+ * The initial job contains multiple users, which will in turn have individual jobs
+ * queued for them.
  */
 class EchoNotificationDeleteJob extends Job {
 
@@ -17,18 +20,12 @@ class EchoNotificationDeleteJob extends Job {
 	protected $userIds = array();
 
 	/**
-	 * @var MWEchoDbFactory
-	 */
-	protected $dbFactory;
-
-	/**
 	 * @param Title $title
 	 * @param array $params
 	 */
 	public function __construct( $title, $params ) {
 		parent::__construct( __CLASS__, $title, $params );
 		$this->userIds = $params['userIds'];
-		$this->dbFactory = MWEchoDbFactory::newFromDefault();
 	}
 
 	/**
@@ -36,37 +33,34 @@ class EchoNotificationDeleteJob extends Job {
 	 */
 	public function run() {
 		global $wgEchoMaxUpdateCount;
+		if ( count( $this->userIds ) > 1 ) {
+			// If there are multiple users, queue a single job for each one
+			$jobs = array();
+			foreach ( $this->userIds as $userId ) {
+				$jobs[] = new EchoNotificationDeleteJob( $this->title, array( 'userIds' => array( $userId ) ) );
+			}
+			JobQueueGroup::singleton()->push( $jobs );
+			return true;
+		}
 
-		$updateCount  = 0;
-		$dbw = $this->dbFactory->getEchoDb( DB_MASTER );
 		$notifMapper  = new EchoNotificationMapper();
 		$targetMapper = new EchoTargetPageMapper();
 
-		foreach ( $this->userIds as $userId ) {
-			$user = User::newFromId( $userId );
-			$notif = $notifMapper->fetchByUserOffset( $user, $wgEchoMaxUpdateCount );
-			if ( $notif ) {
-				$dbw->startAtomic( __METHOD__ );
-				$res = $notifMapper->deleteByUserEventOffset(
+		$userId = $this->userIds[0];
+		$user = User::newFromId( $userId );
+		$notif = $notifMapper->fetchByUserOffset( $user, $wgEchoMaxUpdateCount );
+		if ( $notif ) {
+			$res = $notifMapper->deleteByUserEventOffset(
+				$user, $notif->getEvent()->getId()
+			);
+			if ( $res ) {
+				$res = $targetMapper->deleteByUserEventOffset(
 					$user, $notif->getEvent()->getId()
 				);
-				if ( $res ) {
-					$res = $targetMapper->deleteByUserEventOffset(
-						$user, $notif->getEvent()->getId()
-					);
-				}
-				$dbw->endAtomic( __METHOD__ );
-				$dbw->commit( 'flush' );
-				if ( $res ) {
-					$updateCount++;
-					$notifUser = MWEchoNotifUser::newFromUser( $user );
-					$notifUser->resetNotificationCount( DB_MASTER );
-				}
-				// Wait for slave if we are doing a lot of updates
-				if ( $updateCount > 10 ) {
-					$this->dbFactory->waitForSlaves();
-					$updateCount = 0;
-				}
+			}
+			if ( $res ) {
+				$notifUser = MWEchoNotifUser::newFromUser( $user );
+				$notifUser->resetNotificationCount( DB_MASTER );
 			}
 		}
 		return true;
