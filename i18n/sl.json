@@ -80,7 +80,7 @@
 	"notification-reverted2": "{{PLURAL:$4|Vaše urejanje strani »[[:$2]]« je|Vaša urejanja strani »[[:$2]]« je}} {{GENDER:$1|uporabnik|uporabnica}} [[User:$1|$1]] {{GENDER:$1|vrnil|vrnila}}. $3.",
 	"notification-reverted-flyout2": "{{PLURAL:$4|Vaše urejanje strani »$2«|Vaša urejanja strani »$2«}} je {{GENDER:$1|vrnil|vrnila}} {{GENDER:$1|uporabnik|uporabnica}} $1. $3.",
 	"notification-edit-talk-page-email-subject2": "V projektu {{SITENAME}} vam je {{GENDER:$1|uporabnik|uporabnica}} {{GENDER:$1|pustil|pustila}} sporočilo.",
-	"notification-edit-talk-page-email-batch-body2": "{{GENDER:$1|Uporabnik|Uporabnica}} vam je na pogovorni strani {{GENDER:$1|pustil|pustila}} sporočilo:",
+	"notification-edit-talk-page-email-batch-body2": "{{GENDER:$1|Uporabnik|Uporabnica}} vam je na pogovorni strani {{GENDER:$1|pustil|pustila}} sporočilo.",
 	"notification-edit-talk-page-email-batch-body-with-section": "{{GENDER:$1|Uporabnik|Uporabnica}} vam je {{GENDER:$1|pustil|pustila}} sporočilo na pogovorni strani v razdelku »$2«.",
 	"notification-page-linked-email-subject": "Stran, ki ste jo ustvarili, je na projektu {{SITENAME}} dobila povezavo nanjo",
 	"notification-page-linked-email-batch-body": "Stran »$2« je bila {{GENDER:$1|povezana}} s strani »$3«.",

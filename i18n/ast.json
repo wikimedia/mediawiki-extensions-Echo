@@ -72,11 +72,11 @@
 	"notification-user-rights-flyout": "$1 {{GENDER:$1|camudó}} los sos permisos d'usuariu. $2. [[Special:ListGroupRights|Más información]]",
 	"notification-user-rights-add": "Agora ye miembru d'{{PLURAL:$2|esti grupu|estos grupos}}: $1",
 	"notification-user-rights-remove": "Dexó de ser miembru d'{{PLURAL:$2|esti grupu|estos grupos}}: $1",
-	"notification-new-user": "¡Damos-y la bienvenida a {{SITENAME}}, $1! Prestanos que tea equí.",
+	"notification-new-user": "¡Dámoste la bienvenida a {{SITENAME}}, $1! Préstanos que teas equí.",
 	"notification-reverted2": "[[User:$1|$1]] {{GENDER:$1|invertió}} {{PLURAL:$4|la so edición|les sos ediciones}} en [[:$2]] $3",
 	"notification-reverted-flyout2": "$1 {{GENDER:$1|invertió}} {{PLURAL:$4|la so edición|les sos ediciones}} en $2 $3",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|dexó-y}} un mensaxe en {{SITENAME}}",
-	"notification-edit-talk-page-email-batch-body2": "$1 {{GENDER:$1|dexó}} un mensaxe na to páxina d'alderique:",
+	"notification-edit-talk-page-email-batch-body2": "$1 {{GENDER:$1|dexó}} un mensaxe na to páxina d'alderique.",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 {{GENDER:$1|dexó}} un mensaxe na so páxina d'alderique en «$2».",
 	"notification-page-linked-email-subject": "Una páxina que creasti enllazóse'n {{SITENAME}}",
 	"notification-page-linked-email-batch-body": "$2 {{GENDER:$1|enllazóse}} dende $3",
@@ -126,5 +126,12 @@
 	"apihelp-query+notifications-param-sections": "Les seiciones de notificación a consultar.",
 	"apihelp-query+notifications-param-groupbysection": "Si hai qu'agrupar los resultaos por seición. Cada seición recíbese por separao si se configura.",
 	"apihelp-query+notifications-param-format": "Si s'especifica, les notificaciones devolveránse con esti formatu.",
-	"apihelp-query+notifications-param-limit": "El máximu númberu de notificaciones a devolver."
+	"apihelp-query+notifications-param-limit": "El máximu númberu de notificaciones a devolver.",
+	"apihelp-query+notifications-param-index": "Si s'especifica, devolveráse una llista ordenada d'identificadores de notificación.",
+	"apihelp-query+notifications-param-alertcontinue": "Cando tean disponibles más resultaos d'alerta, usa esto pa siguir.",
+	"apihelp-query+notifications-param-alertunreadfirst": "Si hai qu'amosar primero los avisos de mensaxes sin lleer.",
+	"apihelp-query+notifications-param-messagecontinue": "Cando tean disponibles más resultaos de mensaxes, usa esto pa siguir.",
+	"apihelp-query+notifications-param-messageunreadfirst": "Si hai qu'amosar primero los avisos d'alertes sin lleer.",
+	"apihelp-query+notifications-example-1": "Llista d'avisos",
+	"apihelp-query+notifications-example-2": "Llista d'avisos, agrupaos por seición, incluyendo contadores"
 }

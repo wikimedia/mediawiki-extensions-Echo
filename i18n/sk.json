@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Sudo77(new)"
+			"Sudo77(new)",
+			"Teslaton"
 		]
 	},
 	"echo-desc": "Notifikačný systém",
@@ -31,10 +32,12 @@
 	"echo-category-title-mention": "{{PLURAL:$1|zmienku|zmienky}}",
 	"echo-category-title-other": "{{PLURAL:$1|inú udalosť|iné udalosti}}",
 	"echo-category-title-system": "{{PLURAL:$1|systémovú udalosť|systémové udalosti}}",
+	"echo-category-title-user-rights": "{{PLURAL:$1|zmenu|zmeny}} používateľských práv",
 	"echo-pref-tooltip-edit-user-talk": "Upozornite ma, keď mi niekto na mojej diskusnej stránke napíše správu alebo odpovie.",
 	"echo-pref-tooltip-article-linked": "Upozornite ma, keď niekto na stránku, ktorú som založil, odkáže z článku.",
 	"echo-pref-tooltip-reverted": "Upozornite ma, keď niekto vráti úpravu, ktorú som urobil, pomocou nástrojov vrátiť alebo rollback.",
 	"echo-pref-tooltip-mention": "Upozornite ma, keď v akejkoľvek diskusii niekto odkáže na moju redaktorskú stránku.",
+	"echo-pref-tooltip-user-rights": "Upozornite ma, keď niekto zmení moje používateľské práva.",
 	"echo-no-agent": "[Nikto]",
 	"echo-no-title": "[Žiadna stránka]",
 	"echo-error-no-formatter": "Upozornenie nemá definované formátovanie",
