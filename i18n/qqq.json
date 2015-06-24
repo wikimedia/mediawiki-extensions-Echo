@@ -61,8 +61,6 @@
 	"echo-no-agent": "Shown in place of a username in a notification\n\tif the notification has no specified user.",
 	"echo-no-title": "Shown in place of a page title in a notification if the notification has no specified page title.",
 	"echo-error-no-formatter": "Error message displayed when no formatting has been defined for a notification. In other words, the extension doesn't know how to properly display the notification.",
-	"echo-error-preference": "Error message displayed when request to set user preference fails",
-	"echo-error-token": "Error message displayed when request to get user token fails",
 	"notifications": "{{doc-special|Notifications}}\n{{Identical|Notification}}",
 	"tooltip-pt-notifications": "This is used for the title (mouseover text) of the notifications user tool.",
 	"echo-specialpage": "Special page title for Special:Notifications.\n{{Identical|Notification}}",

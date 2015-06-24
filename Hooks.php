@@ -104,10 +104,6 @@ class EchoHooks {
 			'scripts' => array(
 				'base/ext.echo.base.js',
 			),
-			'messages' => array(
-				'echo-error-preference',
-				'echo-error-token',
-			),
 			'localBasePath' => __DIR__ . '/modules',
 			'remoteExtPath' => 'Echo/modules',
 			'targets' => array( 'desktop', 'mobile' ),

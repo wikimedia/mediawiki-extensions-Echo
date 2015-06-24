@@ -40,8 +40,6 @@
 	"echo-no-agent": "[Nobody]",
 	"echo-no-title": "[No page]",
 	"echo-error-no-formatter": "No formatting defined for notification.",
-	"echo-error-preference": "Error: Could not set user preference.",
-	"echo-error-token": "Error: Could not retrieve user token.",
 	"notifications": "Notifications",
 	"tooltip-pt-notifications": "Your notifications",
 	"echo-specialpage": "Notifications",
