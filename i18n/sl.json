@@ -44,8 +44,6 @@
 	"echo-no-agent": "[Nihče]",
 	"echo-no-title": "[Nobena stran]",
 	"echo-error-no-formatter": "Za obvestilo ni določeno nobeno oblikovanje.",
-	"echo-error-preference": "Napaka: ni bilo mogoče nastaviti uporabniških nastavitev.",
-	"echo-error-token": "Napaka: ni bilo mogoče pridobiti uporabnikovega žetona.",
 	"notifications": "Obvestila",
 	"tooltip-pt-notifications": "Vaša obvestila",
 	"echo-specialpage": "Obvestila",

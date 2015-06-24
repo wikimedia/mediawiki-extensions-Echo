@@ -41,8 +41,6 @@
 	"echo-no-agent": "[કોઈ નહી]",
 	"echo-no-title": "[કોઈ પાનું નહી]",
 	"echo-error-no-formatter": "સૂચનાઓ માટે કોઈ માળખું નિયત નથી કર્યું.",
-	"echo-error-preference": "ભૂલ: સભ્ય પસંદગી સાચવી ન શક્યા.",
-	"echo-error-token": "ભૂલ: સભ્ય ટોકન શોધાયુ નહી.",
 	"notifications": "સૂચનાઓ",
 	"tooltip-pt-notifications": "તમારી સૂચનાઓ",
 	"echo-specialpage": "સૂચનાઓ",

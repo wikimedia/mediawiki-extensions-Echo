@@ -41,7 +41,6 @@
 	"echo-no-agent": "[Nikto]",
 	"echo-no-title": "[Žiadna stránka]",
 	"echo-error-no-formatter": "Upozornenie nemá definované formátovanie",
-	"echo-error-preference": "Chyba: Nepodarilo sa uložiť užívateľské nastavenie",
 	"notifications": "Upozornenia",
 	"tooltip-pt-notifications": "Vaše upozornenia",
 	"echo-specialpage": "Upozornenia",

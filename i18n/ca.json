@@ -46,8 +46,6 @@
 	"echo-no-agent": "[Ningú]",
 	"echo-no-title": "[Cap pàgina]",
 	"echo-error-no-formatter": "Cap format definit per a la notificació.",
-	"echo-error-preference": "Error: No s'ha pogut establir la preferència d'usuari.",
-	"echo-error-token": "Error: No ha pogut recuperar el símbol de l'usuari.",
 	"notifications": "Notificacions",
 	"tooltip-pt-notifications": "Les vostres notificacions",
 	"echo-specialpage": "Notificacions",
