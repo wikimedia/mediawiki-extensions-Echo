@@ -51,8 +51,6 @@
 	"echo-no-agent": "[لا أحد]",
 	"echo-no-title": "[لا صفحة]",
 	"echo-error-no-formatter": "لم يحدد للإشعارات أي تنسيق.",
-	"echo-error-preference": "خطأ: لم تحفظ تفضيلات المستخدم.",
-	"echo-error-token": "خطأ: لم يتوصل إلى مفتاح معطيات المستخدم.",
 	"notifications": "إشعارات",
 	"tooltip-pt-notifications": "إشعاراتك",
 	"echo-specialpage": "إشعارات",
