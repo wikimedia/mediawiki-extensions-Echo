@@ -2,6 +2,8 @@
 ( function ( $, mw ) {
 	'use strict';
 
+	var useLang = mw.config.get( 'wgUserLanguage' );
+
 	function EchoOverlay( apiResultNotifications ) {
 		this.api = mw.echo.overlay.api;
 		// set internal properties
@@ -82,7 +84,7 @@
 			if ( this.unread.length ) {
 				data = {
 					action: 'echomarkread',
-					uselang: 'user'
+					uselang: useLang
 				};
 				if ( id ) {
 					// If id is given mark that as read otherwise use all unread messages
@@ -458,7 +460,7 @@
 				notformat: 'flyout',
 				notlimit: this.notificationLimit,
 				notprop: 'index|list|count',
-				uselang: 'user'
+				uselang: useLang
 			};
 
 			return this.api.get( apiData ).then( function ( result ) {
