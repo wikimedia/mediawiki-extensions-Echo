@@ -4,7 +4,8 @@
 			"Fryed-peach",
 			"Shirayuki",
 			"Whym",
-			"Penn Station"
+			"Penn Station",
+			"Sujiniku"
 		]
 	},
 	"echo-desc": "通知システム",
@@ -43,8 +44,6 @@
 	"echo-no-agent": "[送信者なし]",
 	"echo-no-title": "[ページなし]",
 	"echo-error-no-formatter": "通知の書式が定義されていません。",
-	"echo-error-preference": "エラー: 個人設定を変更できませんでした。",
-	"echo-error-token": "エラー: 利用者トークンを取得できませんでした。",
 	"notifications": "通知",
 	"tooltip-pt-notifications": "あなたへの通知",
 	"echo-specialpage": "通知",
@@ -80,9 +79,9 @@
 	"notification-reverted2": "{{PLURAL:$4|[[:$2]] でのあなたの編集}}を [[User:$1|$1]] が{{GENDER:$1|差し戻しました}}。$3",
 	"notification-reverted-flyout2": "{{PLURAL:$4|$2 でのあなたの編集}}を $1 が{{GENDER:$1|差し戻しました}}。$3",
 	"notification-edit-talk-page-email-subject2": "{{SITENAME}}で $1 があなたのトークページにメッセージを{{GENDER:$1|投稿しました}}",
-	"notification-edit-talk-page-email-batch-body2": "$1 があなたのトークページにメッセージを{{GENDER:$1|投稿しました}}:",
+	"notification-edit-talk-page-email-batch-body2": "$1 があなたのトークページにメッセージを{{GENDER:$1|投稿しました}}。",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 があなたのトークページの「$2」にメッセージを{{GENDER:$1|投稿しました}}。",
-	"notification-page-linked-email-subject": "あなたのページが{{SITENAME}}でリンクされました",
+	"notification-page-linked-email-subject": "あなたの作成したページが{{SITENAME}}でリンクされました",
 	"notification-page-linked-email-batch-body": "$2 が $3 から{{GENDER:$1|リンクされました}}。",
 	"notification-reverted-email-subject2": "{{SITENAME}}でのあなたの{{PLURAL:$3|編集}}が{{GENDER:$1|差し戻されました}}",
 	"notification-reverted-email-batch-body2": "{{PLURAL:$3|$2 でのあなたの編集}}を $1 が{{GENDER:$1|差し戻しました}}。",

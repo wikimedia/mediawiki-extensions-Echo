@@ -2,10 +2,17 @@
 	"@metadata": {
 		"authors": [
 			"Subi",
-			"Xabier Armendaritz"
+			"Xabier Armendaritz",
+			"Sator"
 		]
 	},
 	"prefs-echo": "Jakinarazpenak",
+	"prefs-emailsettings": "E-posta aukerak",
+	"prefs-displaynotifications": "Aukerak erakutsi",
+	"echo-pref-web": "Web",
+	"echo-pref-email": "Posta elektronikoa",
+	"echo-pref-email-format-html": "HTML",
+	"echo-pref-email-format-plain-text": "Testu laua",
 	"echo-learn-more": "Gehiago ikasi",
 	"echo-new-messages": "Mezu berriak dituzu",
 	"echo-no-agent": "[Inor ez]",
@@ -17,12 +24,15 @@
 	"echo-more-info": "Informazio gehiago",
 	"notification-link-text-view-message": "Ikusi mezua",
 	"notification-link-text-view-mention": "Ikusi aipamena",
+	"notification-link-text-view-changes": "Ikusi aldaketak",
+	"notification-link-text-view-page": "Orrialdea ikusi",
 	"echo-email-batch-body-default": "Jakinarazpen berri bat daukazu.",
 	"echo-notification-message": "{{PLURAL:$1|Mezua ($1)|Mezuak ($1)|100=Mezuak (+99)}}",
 	"echo-notification-alert-text-only": "Alertak",
 	"echo-notification-message-text-only": "Mezuak",
 	"echo-overlay-link": "Jakinarazpen guztiak",
 	"echo-overlay-title": "<b>Jakinarazpenak</b>",
+	"echo-mark-all-as-read": "Markatu denak irakurritzat",
 	"echo-date-today": "Gaur",
 	"echo-date-yesterday": "Atzo",
 	"echo-email-batch-link-text-view-all-notifications": "Jakinarazpen guztiak ikusi",
