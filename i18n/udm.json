@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"AlnashPiyash2"
+		]
+	},
+	"notification-edit-talk-page2": "[[User:$1|$1]] гожтӥз тӥляд [[User talk:$2#$3|вераськон бамады]].",
+	"notification-page-linked-flyout": "[[:$2]] вал {{GENDER:$1|герӟамын}} [[:$3]]."
+}
