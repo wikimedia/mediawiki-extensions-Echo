@@ -317,6 +317,7 @@ $wgEchoNotifications = array(
 		'email-body-batch-bundle-message' => 'notification-edit-user-talk-email-batch-bundle-body',
 		'email-body-batch-bundle-params' => array( 'agent', 'agent-other-display', 'agent-other-count' ),
 		'icon' => 'chat',
+		'immediate' => true,
 	),
 	'reverted' => array(
 		'user-locators' => array(
