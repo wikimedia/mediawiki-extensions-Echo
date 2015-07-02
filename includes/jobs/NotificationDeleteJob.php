@@ -46,7 +46,9 @@ class EchoNotificationDeleteJob extends Job {
 		$notifMapper  = new EchoNotificationMapper();
 		$targetMapper = new EchoTargetPageMapper();
 
-		$userId = $this->userIds[0];
+		// Back-compat for older jobs which used array( $userId => $userId );
+		$userIds = array_values( $this->userIds );
+		$userId = $userIds[0];
 		$user = User::newFromId( $userId );
 		$notif = $notifMapper->fetchByUserOffset( $user, $wgEchoMaxUpdateCount );
 		if ( $notif ) {
