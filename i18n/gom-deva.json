@@ -1,8 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Darshan kandolkar"
+			"Darshan kandolkar",
+			"The Discoverer"
 		]
 	},
-	"tooltip-pt-notifications": "तुमच्यो अधिसुचोवण्यो"
+	"tooltip-pt-notifications": "तुमच्यो कळवण्यो"
 }

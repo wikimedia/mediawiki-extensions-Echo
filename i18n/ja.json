@@ -115,5 +115,7 @@
 	"echo-email-batch-body-intro-daily": "こんにちは、$1 さん。\nこれが {{SITENAME}} での今日の出来事をあなたのために要約したものです。",
 	"echo-email-batch-body-intro-weekly": "こんにちは、$1 さん。\nこれが {{SITENAME}} での今週の出来事をあなたのために要約したものです。",
 	"echo-email-batch-link-text-view-all-notifications": "すべての通知を閲覧",
-	"echo-rev-deleted-text-view": "ページのこの版は秘匿されています。"
+	"echo-rev-deleted-text-view": "ページのこの版は秘匿されています。",
+	"apihelp-query+notifications-example-1": "リスト通知",
+	"apihelp-query+notifications-example-2": "リスト通知、セクションによるグループ、カウントで"
 }
