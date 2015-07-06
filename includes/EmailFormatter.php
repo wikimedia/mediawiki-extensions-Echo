@@ -192,8 +192,7 @@ abstract class EchoEmailMode {
 			$iconUrl = "$wgExtensionAssetsPath/$path";
 		}
 
-		// Use http for image path, there is no need for https
-		return wfExpandUrl( $iconUrl, PROTO_HTTP );
+		return wfExpandUrl( $iconUrl, PROTO_CANONICAL );
 	}
 
 	/**
