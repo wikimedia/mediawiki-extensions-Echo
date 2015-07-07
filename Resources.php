@@ -40,7 +40,6 @@ $wgResourceModules += array(
 			'monobook' => 'overlay/ext.echo.overlay.monobook.css',
 		),
 		'dependencies' => array(
-			'mediawiki.util',
 			'mediawiki.language',
 			'mediawiki.ui.anchor',
 			'ext.echo.base',

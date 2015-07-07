@@ -269,7 +269,7 @@
 		_getFooterElement: function () {
 			var $prefLink = $( '#pt-preferences a' ),
 				links = [
-					{ url: mw.util.getUrl( 'Special:Notifications' ), text: mw.msg( 'echo-overlay-link' ),
+					{ url: $( '#pt-notifications a' ).attr( 'href' ), text: mw.msg( 'echo-overlay-link' ),
 						className: 'mw-echo-icon-all' },
 					{ url: $prefLink.attr( 'href' ) + '#mw-prefsection-echo', text: $prefLink.text(),
 						className: 'mw-echo-icon-cog' }
