@@ -28,7 +28,6 @@
 		"echoarticlereminder": "ApiEchoArticleReminder"
 	},
 	"DefaultUserOptions": {
-		"echo-show-alert": true,
 		"echo-email-frequency": 0
 	},
 	"ExtensionFunctions": [
@@ -498,9 +497,6 @@
 		},
 		"EchoBundleEmailInterval": {
 			"value": 0
-		},
-		"EchoNewMsgAlert": {
-			"value": true
 		},
 		"DefaultNotifyTypeAvailability": {
 			"value": {

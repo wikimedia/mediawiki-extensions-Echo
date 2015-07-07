@@ -276,7 +276,7 @@ class EchoHooks {
 	public static function getPreferences( $user, &$preferences ) {
 		global $wgEchoEnableEmailBatch,
 			$wgEchoNotifiers, $wgEchoNotificationCategories, $wgEchoNotifications,
-			$wgEchoNewMsgAlert, $wgAllowHTMLEmail, $wgEchoUseCrossWikiBetaFeature,
+			$wgAllowHTMLEmail, $wgEchoUseCrossWikiBetaFeature,
 			$wgEchoCrossWikiNotifications, $wgEchoPerUserBlacklist;
 
 		$attributeManager = EchoAttributeManager::newFromGlobalVars();
@@ -424,14 +424,6 @@ class EchoHooks {
 				'type' => 'toggle',
 				'label-message' => 'echo-pref-cross-wiki-notifications',
 				'section' => 'echo/echocrosswiki'
-			];
-		}
-
-		if ( $wgEchoNewMsgAlert ) {
-			$preferences['echo-show-alert'] = [
-				'type' => 'toggle',
-				'label-message' => 'echo-pref-new-message-indicator',
-				'section' => 'echo/newmessageindicator',
 			];
 		}
 
@@ -828,7 +820,6 @@ class EchoHooks {
 	 * @return bool true in all cases
 	 */
 	public static function onPersonalUrls( &$personal_urls, &$title, $sk ) {
-		global $wgEchoNewMsgAlert;
 		$user = $sk->getUser();
 		if ( $user->isAnon() ) {
 			return true;
@@ -997,14 +988,10 @@ class EchoHooks {
 
 		// If the user has new messages, display a talk page alert
 		// We need to check:
-		// * Orange alert is enabled in configuration
-		// * Enabled in user preferences
 		// * User actually has new messages
 		// * User is not viewing their user talk page, as user_newtalk
 		// will not have been cleared yet. (bug T107655).
-		if ( $wgEchoNewMsgAlert && $user->getOption( 'echo-show-alert' )
-			&& $user->getNewtalk() && !$user->getTalkPage()->equals( $title )
-		) {
+		if ( $user->getNewtalk() && !$user->getTalkPage()->equals( $title ) ) {
 			if ( Hooks::run( 'BeforeDisplayOrangeAlert', [ $user, $title ] ) ) {
 				$personal_urls['mytalk']['text'] = $sk->msg( 'echo-new-messages' )->text();
 				$personal_urls['mytalk']['class'] = [ 'mw-echo-alert' ];
