@@ -115,6 +115,14 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 			'nickname' => '',
 			'fancysig' => '0',
 		),
+		'Admin' => array(
+			'nickname' => '[[:User:Admin|Admin]]',
+			'fancysig' => '1',
+		),
+		'Test11' => array(
+			'nickname' => '',
+			'fancysig' => '0',
+		),
 	);
 
 	protected function setUp() {
@@ -269,6 +277,26 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 						'agent' => 'Kudpung',
 					),
 				),
+			),
+			// T68512, leading colon in user page link in signature
+			array(
+				'new' => 612485855,
+				'old' => 612485595,
+				'username' => 'Admin',
+				'lang' => 'en',
+				'pages' => array(),
+				'title' => 'User_talk:Admin',
+				'expected' => array(
+					array(
+						'type' => 'mention',
+						'agent' => 'Admin',
+					),
+					array(
+						'type' => 'edit-user-talk',
+						'agent' => 'Admin',
+					),
+				),
+				'precondition' => 'isParserFunctionsInstalled',
 			),
 		);
 	}
