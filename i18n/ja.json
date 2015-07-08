@@ -26,7 +26,6 @@
 	"echo-pref-email-frequency-weekly": "通知を1週間ごとに要約",
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "プレーンテキスト",
-	"echo-pref-notify-show-link": "通知をツールバーに表示",
 	"echo-pref-new-message-indicator": "トークページのメッセージの未読数をツールバーに表示",
 	"echo-learn-more": "詳細",
 	"echo-new-messages": "新着メッセージがあります",
