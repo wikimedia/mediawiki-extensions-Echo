@@ -403,9 +403,6 @@ $wgEchoNotifications = array(
 	),
 );
 
-// Enable notifications for all logged in users by default
-$wgDefaultUserOptions['echo-notify-show-link'] = true;
-
 // Enable new talk page messages alert for all logged in users by default
 $wgDefaultUserOptions['echo-show-alert'] = true;
 

@@ -375,14 +375,6 @@ class EchoHooks {
 			unset( $preferences['enotifusertalkpages']['section'] );
 		}
 
-		// Show fly-out display prefs
-		// Per bug 47562, we're going to hide this pref for now until we see
-		// what the community reaction to Echo is on en.wiki.
-		$preferences['echo-notify-show-link'] = array(
-			'type' => 'hidden',
-			'label-message' => 'echo-pref-notify-show-link',
-			//'section' => 'echo/displaynotifications',
-		);
 		return true;
 	}
 
@@ -591,9 +583,7 @@ class EchoHooks {
 	 * @return bool true in all cases
 	 */
 	static function beforePageDisplay( $out, $skin ) {
-		$user = $out->getUser();
-
-		if ( $user->isLoggedIn() && $user->getOption( 'echo-notify-show-link' ) ) {
+		if ( $out->getUser()->isLoggedIn() ) {
 			// Load the module for the Notifications flyout
 			$out->addModules( array( 'ext.echo.overlay.init' ) );
 			// Load the styles for the Notifications badge
@@ -634,33 +624,31 @@ class EchoHooks {
 		}
 
 		// Add a "My notifications" item to personal URLs
-		if ( $user->getOption( 'echo-notify-show-link' ) ) {
-			$notifUser = MWEchoNotifUser::newFromUser( $user );
-			$notificationCount = $notifUser->getNotificationCount();
-			$notificationTimestamp = $notifUser->getLastUnreadNotificationTime();
-			$seenTime = $user->getOption( 'echo-seen-time' );
-			$text = EchoNotificationController::formatNotificationCount( $notificationCount );
-			$url = SpecialPage::getTitleFor( 'Notifications' )->getLocalURL();
+		$notifUser = MWEchoNotifUser::newFromUser( $user );
+		$notificationCount = $notifUser->getNotificationCount();
+		$notificationTimestamp = $notifUser->getLastUnreadNotificationTime();
+		$seenTime = $user->getOption( 'echo-seen-time' );
+		$text = EchoNotificationController::formatNotificationCount( $notificationCount );
+		$url = SpecialPage::getTitleFor( 'Notifications' )->getLocalURL();
 
-			if (
-				$notificationCount == 0 || // no unread notifications
-				$notificationTimestamp === false || // should already always be false if count === 0
-				( $seenTime !== null && $notificationTimestamp->getTimestamp( TS_MW ) <= $seenTime ) // all notifications have already been seen
-			) {
-				$linkClasses = array( 'mw-echo-notifications-badge' );
-			} else {
-				$linkClasses = array( 'mw-echo-unread-notifications', 'mw-echo-notifications-badge' );
-			}
-			$notificationsLink = array(
-				'href' => $url,
-				'text' => $text,
-				'active' => ( $url == $title->getLocalUrl() ),
-				'class' => $linkClasses,
-			);
-
-			$insertUrls = array( 'notifications' => $notificationsLink );
-			$personal_urls = wfArrayInsertAfter( $personal_urls, $insertUrls, 'userpage' );
+		if (
+			$notificationCount == 0 || // no unread notifications
+			$notificationTimestamp === false || // should already always be false if count === 0
+			( $seenTime !== null && $notificationTimestamp->getTimestamp( TS_MW ) <= $seenTime ) // all notifications have already been seen
+		) {
+			$linkClasses = array( 'mw-echo-notifications-badge' );
+		} else {
+			$linkClasses = array( 'mw-echo-unread-notifications', 'mw-echo-notifications-badge' );
 		}
+		$notificationsLink = array(
+			'href' => $url,
+			'text' => $text,
+			'active' => ( $url == $title->getLocalUrl() ),
+			'class' => $linkClasses,
+		);
+
+		$insertUrls = array( 'notifications' => $notificationsLink );
+		$personal_urls = wfArrayInsertAfter( $personal_urls, $insertUrls, 'userpage' );
 
 		// If the user has new messages, display a talk page alert
 		if ( $wgEchoNewMsgAlert && $user->getOption( 'echo-show-alert' ) && $user->getNewtalk() ) {
@@ -799,7 +787,6 @@ class EchoHooks {
 		// If the user has the notifications flyout turned on and is receiving
 		// notifications for talk page messages, disable the new messages alert.
 		if ( $user->isLoggedIn()
-			&& $user->getOption( 'echo-notify-show-link' )
 			&& isset( $wgEchoNotifications['edit-user-talk'] )
 		) {
 			// hide new messages alert

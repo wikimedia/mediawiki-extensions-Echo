@@ -51,7 +51,7 @@ abstract class EchoDiscussionParser {
 			$notifyUser = User::newFromName( $title->getText() );
 			// If the recipient is a valid non-anonymous user and hasn't turned
 			// off their notifications, generate a talk page post Echo notification.
-			if ( $notifyUser && $notifyUser->getID() && $notifyUser->getOption( 'echo-notify-show-link' ) ) {
+			if ( $notifyUser && $notifyUser->getID() ) {
 				// if this is a minor edit, only notify if the agent doesn't have talk page minor edit notification blocked
 				if ( !$revision->isMinor() || !$user->isAllowed( 'nominornewtalk' ) ) {
 					$section = self::detectSectionTitleAndText( $interpretation, $title );
