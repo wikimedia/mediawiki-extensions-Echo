@@ -84,7 +84,7 @@ class EchoHooks {
 	public static function onEventLoggingRegisterSchemas( array &$schemas ) {
 		global $wgEchoConfig;
 		foreach ( $wgEchoConfig['eventlogging'] as $schema => $property ) {
-			if ( $property['enabled'] ) {
+			if ( $property['enabled'] && $property['client'] ) {
 				$schemas[$schema] = $property['revision'];
 			}
 		}
@@ -110,7 +110,7 @@ class EchoHooks {
 		);
 
 		foreach ( $wgEchoConfig['eventlogging'] as $schema => $property ) {
-			if ( $property['enabled'] ) {
+			if ( $property['enabled'] && $property['client'] ) {
 				$definition['dependencies'][] = 'schema.' . $schema;
 			}
 		}
