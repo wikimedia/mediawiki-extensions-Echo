@@ -25,8 +25,8 @@ class SpecialNotifications extends SpecialPage {
 			// the html message for anon users
 			$anonMsgHtml = $this->msg(
 				'echo-anon',
-				SpecialPage::getTitleFor( 'UserLogin', 'signup' )->getFullURL( $returnTo ),
-				SpecialPage::getTitleFor( 'UserLogin' )->getFullURL( $returnTo )
+				SpecialPage::getTitleFor( 'Userlogin', 'signup' )->getFullURL( $returnTo ),
+				SpecialPage::getTitleFor( 'Userlogin' )->getFullURL( $returnTo )
 			)->parse();
 			$out->addHTML( Html::rawElement( 'span', array( 'class' => 'plainlinks' ), $anonMsgHtml ) );
 			return;
