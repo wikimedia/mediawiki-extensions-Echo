@@ -429,19 +429,27 @@ $wgDefaultUserOptions['echo-subscriptions-web-article-linked'] = false;
 // Echo Configuration for EventLogging
 $wgEchoConfig = array(
 	'version' => '1.5',
-	// default all eventlogging off, overwrite them in site configuration
 	'eventlogging' => array (
+		/**
+		 * Properties:
+		 * - 'enabled': Whether it should be used
+		 * - 'revision': revision id of the schema
+		 * - 'client': whether the schema is needed client-side
+		 */
 		'Echo' => array (
 			'enabled' => false,
 			'revision' => 7572295,
+			'client' => false,
 		),
 		'EchoMail' => array (
 			'enabled' => false,
-			'revision' => 5467650
+			'revision' => 5467650,
+			'client' => false,
 		),
 		'EchoInteraction' => array (
 			'enabled' => false,
-			'revision' => 5782287
+			'revision' => 5782287,
+			'client' => true,
 		),
 	)
 );
