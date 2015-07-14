@@ -34,7 +34,6 @@
 	"echo-pref-email-frequency-weekly": "Tygodniowe podsumowanie",
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Zwykły tekst",
-	"echo-pref-notify-show-link": "Pokazuj powiadomienia w pasku narzędzi",
 	"echo-pref-new-message-indicator": "Pokazuj informację o nowej wiadomości w pasku osobistym",
 	"echo-learn-more": "Dowiedz się więcej",
 	"echo-new-messages": "Masz nowe wiadomości",
@@ -53,8 +52,6 @@
 	"echo-no-agent": "[Nikt]",
 	"echo-no-title": "[Brak strony]",
 	"echo-error-no-formatter": "Nie określono formatowania dla powiadomień",
-	"echo-error-preference": "Błąd: Nie można ustawić preferencji użytkownika",
-	"echo-error-token": "Błąd: Nie można pobrać tokenu",
 	"notifications": "Powiadomienia",
 	"tooltip-pt-notifications": "Twoje powiadomienia",
 	"echo-specialpage": "Powiadomienia",
@@ -127,5 +124,6 @@
 	"echo-email-batch-body-intro-weekly": "Cześć, $1!\nW {{grammar:MS.lp|{{SITENAME}}}} czeka na ciebie podsumowanie powiadomień z ostatniego tygodnia.",
 	"echo-email-batch-link-text-view-all-notifications": "Zobacz wszystkie powiadomienia",
 	"echo-rev-deleted-text-view": "Ta wersja strony została ukryta",
+	"apihelp-query+notifications-param-limit": "Maksymalna liczba zwracanych powiadomień.",
 	"apihelp-query+notifications-example-1": "Spis powiadomień"
 }
