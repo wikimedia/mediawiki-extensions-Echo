@@ -124,6 +124,8 @@
 	"echo-email-batch-body-intro-weekly": "Cześć, $1!\nW {{grammar:MS.lp|{{SITENAME}}}} czeka na ciebie podsumowanie powiadomień z ostatniego tygodnia.",
 	"echo-email-batch-link-text-view-all-notifications": "Zobacz wszystkie powiadomienia",
 	"echo-rev-deleted-text-view": "Ta wersja strony została ukryta",
+	"apihelp-echomarkread-description": "Oznacz powiadomienia jako przeczytane dla bieżącego użytkownika.",
+	"apihelp-echomarkread-example-2": "Oznacz wszystkie powiadomienia jako przeczytane",
 	"apihelp-query+notifications-param-limit": "Maksymalna liczba zwracanych powiadomień.",
 	"apihelp-query+notifications-example-1": "Spis powiadomień"
 }
