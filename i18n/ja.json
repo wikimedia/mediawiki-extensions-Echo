@@ -6,7 +6,8 @@
 			"Whym",
 			"Penn Station",
 			"Sujiniku",
-			"2nd-player"
+			"2nd-player",
+			"Takot"
 		]
 	},
 	"echo-desc": "通知システム",
@@ -116,6 +117,7 @@
 	"echo-email-batch-body-intro-weekly": "こんにちは、$1 さん。\nこれが {{SITENAME}} での今週の出来事をあなたのために要約したものです。",
 	"echo-email-batch-link-text-view-all-notifications": "すべての通知を閲覧",
 	"echo-rev-deleted-text-view": "ページのこの版は秘匿されています。",
+	"apihelp-echomarkread-description": "現在のユーザーについては通知を既読にする",
 	"apihelp-query+notifications-example-1": "通知を一覧表示する",
 	"apihelp-query+notifications-example-2": "通知をセクションによりグループ化し、カウントで一覧表示する"
 }
