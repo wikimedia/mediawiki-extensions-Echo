@@ -29,8 +29,6 @@ class ApiEchoMarkRead extends ApiBase {
 			}
 		}
 
-		$rawCount = $notifUser->getNotificationCount();
-
 		$result = array(
 			'result' => 'success'
 		);
