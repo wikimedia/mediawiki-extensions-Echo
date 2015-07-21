@@ -245,8 +245,11 @@ class MWEchoNotifUser {
 			$wgEchoConfig['version']
 		);
 
-		if ( $cached && $this->cache->get( $memcKey ) !== false ) {
-			return (int)$this->cache->get( $memcKey );
+		if ( $cached ) {
+			$data = $this->cache->get( $memcKey );
+			if ( $data !== false ) {
+				return (int)$data;
+			}
 		}
 
 		$attributeManager = EchoAttributeManager::newFromGlobalVars();
