@@ -28,7 +28,7 @@
 			"Impersonator 1"
 		]
 	},
-	"echo-desc": "通知系统",
+	"echo-desc": "用于通知用户有关活动和消息的系统",
 	"prefs-echo": "通知",
 	"prefs-emailsettings": "电子邮件选项",
 	"prefs-displaynotifications": "显示选项",

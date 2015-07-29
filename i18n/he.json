@@ -12,7 +12,7 @@
 			"ערן"
 		]
 	},
-	"echo-desc": "מערכת התראות",
+	"echo-desc": "מערכת לשליחת התראות למשתמשים על אירועים ומסרים",
 	"prefs-echo": "הודעות",
 	"prefs-emailsettings": "אפשרויות דוא\"ל",
 	"prefs-displaynotifications": "אפשרויות תצוגה",
@@ -29,7 +29,6 @@
 	"echo-pref-email-frequency-weekly": "סיכום שבועי של הודעות",
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "טקסט רגיל",
-	"echo-pref-notify-show-link": "להציג התראות בסרגל שלי",
 	"echo-pref-new-message-indicator": "הצגת סמן הודעות דף שיחה בסרגל הכלים שלי",
 	"echo-learn-more": "מידע נוסף",
 	"echo-new-messages": "יש לך הודעות חדשות",
@@ -48,8 +47,6 @@
 	"echo-no-agent": "[אף אחד]",
 	"echo-no-title": "[ללא דף]",
 	"echo-error-no-formatter": "לא הוגדר עיצוב להתראות.",
-	"echo-error-preference": "שגיאה: לא ניתן להגדיר העדפת משתמש.",
-	"echo-error-token": "שגיאה: לא ניתן לאחזר אסימון משתמש",
 	"notifications": "התראות",
 	"tooltip-pt-notifications": "ההתראות שלך",
 	"echo-specialpage": "הודעות",

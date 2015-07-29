@@ -20,10 +20,11 @@
 			"Kvardek du",
 			"NemesisIII",
 			"Od1n",
-			"Mattho69"
+			"Mattho69",
+			"Wladek92"
 		]
 	},
-	"echo-desc": "Système de notifications",
+	"echo-desc": "Système pour avertir les utilisateurs sur les événements et les messages",
 	"prefs-echo": "Notifications",
 	"prefs-emailsettings": "Options de courriel",
 	"prefs-displaynotifications": "Options d'affichage",
@@ -40,7 +41,6 @@
 	"echo-pref-email-frequency-weekly": "Un résumé hebdomadaire des notifications",
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Texte brut",
-	"echo-pref-notify-show-link": "Afficher les notifications dans ma barre d'outils",
 	"echo-pref-new-message-indicator": "Afficher dans ma barre d’outils l’indicateur de nouveau message sur ma page de discussion",
 	"echo-learn-more": "En savoir plus",
 	"echo-new-messages": "Vous avez de nouveaux messages",
@@ -59,8 +59,6 @@
 	"echo-no-agent": "[Personne]",
 	"echo-no-title": "[Aucune page]",
 	"echo-error-no-formatter": "Aucune mise en forme définie pour la notification",
-	"echo-error-preference": "Erreur : Impossible de définir la préférence utilisateur",
-	"echo-error-token": "Erreur : Impossible de récupérer le jeton de l’utilisateur",
 	"notifications": "Notifications",
 	"tooltip-pt-notifications": "Vos notifications",
 	"echo-specialpage": "Notifications",

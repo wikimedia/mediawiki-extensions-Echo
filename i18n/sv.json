@@ -16,7 +16,7 @@
 			"NH"
 		]
 	},
-	"echo-desc": "Aviseringssystem",
+	"echo-desc": "System för att meddela användare om händelser och meddelanden",
 	"prefs-echo": "Aviseringar",
 	"prefs-emailsettings": "E-postinställningar",
 	"prefs-displaynotifications": "Visningsalternativ",
@@ -33,7 +33,6 @@
 	"echo-pref-email-frequency-weekly": "En veckovis sammanställning av aviseringar",
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Oformaterad text",
-	"echo-pref-notify-show-link": "Visa aviseringar i min verktygsrad",
 	"echo-pref-new-message-indicator": "Visa symbolen för diskussionssidemeddelanden i min verktygsrad",
 	"echo-learn-more": "Läs mer",
 	"echo-new-messages": "Du har nya meddelanden",
