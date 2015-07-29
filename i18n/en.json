@@ -4,7 +4,7 @@
 			"Andrew Garrett"
 		]
 	},
-	"echo-desc": "Notifications system",
+	"echo-desc": "System for notifying users about events and messages",
 	"prefs-echo": "Notifications",
 	"prefs-emailsettings": "Email options",
 	"prefs-displaynotifications": "Display options",
