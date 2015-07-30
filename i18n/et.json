@@ -6,7 +6,7 @@
 			"Pikne"
 		]
 	},
-	"echo-desc": "Teavitussüsteem",
+	"echo-desc": "Süsteem, millega teavitatakse kasutajaid sündumstest ja sõnumitest",
 	"prefs-echo": "Teavitused",
 	"prefs-emailsettings": "E-posti suvandid",
 	"prefs-displaynotifications": "Kuvaseaded",
@@ -23,7 +23,6 @@
 	"echo-pref-email-frequency-weekly": "Teavituste nädalakokkuvõte",
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Lihttekst",
-	"echo-pref-notify-show-link": "Näita teavitusi minu tööriistaribal",
 	"echo-pref-new-message-indicator": "Näita arutelulehekülje postituste indikaatorit minu tööriistaribal",
 	"echo-learn-more": "Lisateave",
 	"echo-new-messages": "Sulle on uusi sõnumeid",
@@ -42,8 +41,6 @@
 	"echo-no-agent": "[Eikeegi]",
 	"echo-no-title": "[Lehekülge pole]",
 	"echo-error-no-formatter": "Teavituse vormindusviis on määramata.",
-	"echo-error-preference": "Viga: Ei saanud kasutaja eelistusi salvestada",
-	"echo-error-token": "Tõrge: Ei õnnestunud leida kasutajaluba.",
 	"notifications": "Teavitused",
 	"tooltip-pt-notifications": "Sinu teavitused",
 	"echo-specialpage": "Teavitused",

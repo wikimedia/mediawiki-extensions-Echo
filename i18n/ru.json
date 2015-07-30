@@ -20,7 +20,7 @@
 			"Marina Melik-Adamyan"
 		]
 	},
-	"echo-desc": "Система уведомлений",
+	"echo-desc": "Система уведомления участников о событиях и сообщениях",
 	"prefs-echo": "Уведомления",
 	"prefs-emailsettings": "Настройки эл. почты",
 	"prefs-displaynotifications": "Настройки отображения",
@@ -37,7 +37,6 @@
 	"echo-pref-email-frequency-weekly": "Еженедельная сводка уведомлений",
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Простой текст",
-	"echo-pref-notify-show-link": "Показать уведомления в моей панели инструментов",
 	"echo-pref-new-message-indicator": "Показать в моей панели инструментов индикатор сообщений на странице обсуждения",
 	"echo-learn-more": "Узнать больше",
 	"echo-new-messages": "У вас есть новые сообщения",
@@ -56,8 +55,6 @@
 	"echo-no-agent": "[Никто]",
 	"echo-no-title": "[Нет страницы]",
 	"echo-error-no-formatter": "Форматирование не определено для уведомления",
-	"echo-error-preference": "Ошибка: Не удалось задать настройки участника",
-	"echo-error-token": "Ошибка: не удалось получить маркер участника (user token)",
 	"notifications": "Уведомления",
 	"tooltip-pt-notifications": "Ваши уведомления",
 	"echo-specialpage": "Уведомления",

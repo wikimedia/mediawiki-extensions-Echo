@@ -5,7 +5,7 @@
 			"Soued031"
 		]
 	},
-	"echo-desc": "Notifikatiounssystem",
+	"echo-desc": "System fir Benotzer iwwer Evenementer a Messagen z'informéieren",
 	"prefs-echo": "Notifikatiounen",
 	"prefs-emailsettings": "E-Mail-Astellungen",
 	"prefs-displaynotifications": "Optioune vum Affichage",
@@ -22,7 +22,6 @@
 	"echo-pref-email-frequency-weekly": "All Woch e Resumé vun den Notifikatiounen",
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Kloertext",
-	"echo-pref-notify-show-link": "Notifikatiounen a menger Geschirläischt weisen",
 	"echo-pref-new-message-indicator": "Indicateur fir Messagen op menger Diskussiounssäit a menger Geschirläischt weisen",
 	"echo-learn-more": "Fir méi ze wëssen",
 	"echo-new-messages": "Dir hutt nei Messagen",
@@ -40,8 +39,6 @@
 	"echo-no-agent": "[Keen]",
 	"echo-no-title": "[Keng Säit]",
 	"echo-error-no-formatter": "Keng Formatéierung fir Notifikatiounen definéiert.",
-	"echo-error-preference": "Feeler: Benotzerastellung konnt net gemaach ginn.",
-	"echo-error-token": "Feelerː Benotzertoken konnt net ofgeruff ginn.",
 	"notifications": "Notifikatiounen",
 	"tooltip-pt-notifications": "Är Notifikatiounen",
 	"echo-specialpage": "Notifikatiounen",

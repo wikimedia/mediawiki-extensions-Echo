@@ -9,7 +9,7 @@
 			"Cvanca"
 		]
 	},
-	"echo-desc": "Notifikační systém",
+	"echo-desc": "Systém pro upozorňování uživatelů na události a zprávy",
 	"prefs-echo": "Upozornění",
 	"prefs-emailsettings": "Nastavení e-mailu",
 	"prefs-displaynotifications": "Možnosti zobrazení",
@@ -26,7 +26,6 @@
 	"echo-pref-email-frequency-weekly": "Týdenní souhrn upozornění",
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Prostý text",
-	"echo-pref-notify-show-link": "Zobrazovat upozornění v panelu nástrojů",
 	"echo-pref-new-message-indicator": "Zobrazit indikátor diskusních zpráv v mém panelu nástrojů",
 	"echo-learn-more": "Další informace",
 	"echo-new-messages": "Máte nové zprávy",
@@ -45,8 +44,6 @@
 	"echo-no-agent": "[Nikdo]",
 	"echo-no-title": "[Žádná stránka]",
 	"echo-error-no-formatter": "Upozornění nemá definováno formátování",
-	"echo-error-preference": "Chyba: Nepodařilo se uložit uživatelské nastavení",
-	"echo-error-token": "Chyba: Nepodařilo se získat uživatelský token",
 	"notifications": "Upozornění",
 	"tooltip-pt-notifications": "Vaše upozornění",
 	"echo-specialpage": "Upozornění",

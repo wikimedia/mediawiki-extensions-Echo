@@ -17,10 +17,11 @@
 			"Vivaelcelta",
 			"Themasterriot",
 			"Macofe",
-			"Amitie 10g"
+			"Amitie 10g",
+			"Peter Bowman"
 		]
 	},
-	"echo-desc": "Sistema de notificaciones",
+	"echo-desc": "Sistema para notificar a los usuarios sobre eventos y mensajes",
 	"prefs-echo": "Notificaciones",
 	"prefs-emailsettings": "Opciones de correo electrónico",
 	"prefs-displaynotifications": "Opciones de visualización",
@@ -94,7 +95,7 @@
 	"notification-page-linked-email-subject": "Se ha enlazado una página creada por ti en {{SITENAME}}",
 	"notification-page-linked-email-batch-body": "$2 se ha {{GENDER:$1|enlazado}} desde $3.",
 	"notification-reverted-email-subject2": "{{PLURAL:$3|Tu edición fue {{GENDER:$1|revertida}}|Tus ediciones fueron revertidas}} en {{SITENAME}}",
-	"notification-reverted-email-batch-body2": "{{PLURAL:$3|Tu|}} {{PLURAL:$3|Tu edición en $2 ha sido {{GENDER:$1|revertida}}|Tus ediciones en $2 han sido revertidas}} por $1.",
+	"notification-reverted-email-batch-body2": "{{PLURAL:$3|Tu edición en $2 ha sido {{GENDER:$1|revertida}}|Tus ediciones en $2 han sido revertidas}} por $1.",
 	"notification-mention-email-subject": "$1 te ha {{GENDER:$1|mencionado}} en {{SITENAME}}",
 	"notification-mention-email-batch-body": "$1 te ha {{GENDER:$1|mencionado}} en la página de discusión de $4, en \"$3\"",
 	"notification-mention-nosection-email-batch-body": "$1 te ha mencionado en la página de discusión de $2.",

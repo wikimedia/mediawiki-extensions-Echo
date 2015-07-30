@@ -5,7 +5,7 @@
 			"C.R."
 		]
 	},
-	"echo-desc": "Sisteme de notifiche",
+	"echo-desc": "Sisteme de notifiche a l'utinde sus a avveneminde e messàgge",
 	"prefs-echo": "Notificaziune",
 	"prefs-emailsettings": "'Mbostaziune de l'email",
 	"prefs-displaynotifications": "Opziune de visualizzazzione",
@@ -22,7 +22,6 @@
 	"echo-pref-email-frequency-weekly": "'Nu riepiloghe sumanale de le notifiche",
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Teste semblice",
-	"echo-pref-notify-show-link": "Fà vedè le notifiche sus 'a barre de le struminde meje",
 	"echo-pref-new-message-indicator": "Fà vedè le 'ndicature de le messàgge sus a pàgene de le 'ngazzaminde jndr'à barre de le struminde meje",
 	"echo-learn-more": "'Mbare de cchiù",
 	"echo-new-messages": "Tu è messàgge nuève",
@@ -32,6 +31,7 @@
 	"echo-category-title-mention": "{{PLURAL:$1|Menzione}}",
 	"echo-category-title-other": "{{PLURAL:$1|Otre}}",
 	"echo-category-title-system": "{{PLURAL:$1|Sisteme}}",
+	"echo-category-title-user-rights": "{{PLURAL:$1|Cangiamende|Cangiaminde}} de le deritte de l'utende",
 	"echo-pref-tooltip-edit-user-talk": "Notificame quacche quacchedune manne 'nu messàgge o responne sus 'a pàgene de le 'ngazzaminde meje.",
 	"echo-pref-tooltip-article-linked": "Notificame quacche quacchedune se colleghe a 'na pàgene ca ije agghie ccrejate da 'na vôsce.",
 	"echo-pref-tooltip-reverted": "Notificame quanne quacchedune annulle 'nu cangiamende ca agghie fatte ije, ausanne 'u strumende de annullamende.",

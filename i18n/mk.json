@@ -4,7 +4,7 @@
 			"Bjankuloski06"
 		]
 	},
-	"echo-desc": "Известителен систем",
+	"echo-desc": "Систем за известување на корисници во врска со настани и пораки",
 	"prefs-echo": "Известувања",
 	"prefs-emailsettings": "Можности за е-пошта",
 	"prefs-displaynotifications": "Нагодувања на приказот",
@@ -21,7 +21,6 @@
 	"echo-pref-email-frequency-weekly": "Неделен преглед на известувањата",
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Прост текст",
-	"echo-pref-notify-show-link": "Прикажувај известувања во мојот алатник",
 	"echo-pref-new-message-indicator": "Прикажувај показател за нови пораки (на стр. за разговор) во алатникот",
 	"echo-learn-more": "Дознајте повеќе",
 	"echo-new-messages": "Имате нови пораки",
@@ -40,8 +39,6 @@
 	"echo-no-agent": "[Никој]",
 	"echo-no-title": "[Нема страница]",
 	"echo-error-no-formatter": "Нема зададено форматирање за ова известување",
-	"echo-error-preference": "Грешка: Не можам да го зададам нагодувањето",
-	"echo-error-token": "Грешка: Не можев да ја добијам корисничката шифра",
 	"notifications": "Известувања",
 	"tooltip-pt-notifications": "Вашите известувања",
 	"echo-specialpage": "Известувања",
