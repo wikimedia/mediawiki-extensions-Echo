@@ -10,7 +10,7 @@
 			"Takot"
 		]
 	},
-	"echo-desc": "通知システム",
+	"echo-desc": "イベントおよびメッセージについて、ユーザーに通知するシステム",
 	"prefs-echo": "通知",
 	"prefs-emailsettings": "メールの設定",
 	"prefs-displaynotifications": "表示の設定",
