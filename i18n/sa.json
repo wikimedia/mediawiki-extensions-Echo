@@ -3,7 +3,8 @@
 		"authors": [
 			"Amire80",
 			"Shubha",
-			"NehalDaveND"
+			"NehalDaveND",
+			"రహ్మానుద్దీన్"
 		]
 	},
 	"echo-desc": "सूचनाव्यवस्था",
@@ -23,7 +24,6 @@
 	"echo-pref-email-frequency-weekly": "प्रतिसप्ताहस्य सन्देशानां सारांशः",
 	"echo-pref-email-format-html": "एच् टि एम् एल्",
 	"echo-pref-email-format-plain-text": "सरलपठ्यम्",
-	"echo-pref-notify-show-link": "उपकरणपट्टिकायां सूचनाः दर्श्यन्ताम्",
 	"echo-pref-new-message-indicator": "मम साधनापट्टिकायां चर्चापुटस्य सन्देशः दर्श्यताम्",
 	"echo-learn-more": "अधिकं ज्ञायताम्",
 	"echo-new-messages": "भवते नूतनसन्देशाः सन्ति",
@@ -38,9 +38,8 @@
 	"echo-pref-tooltip-reverted": "मया कृतं सम्पादनं यदि अन्यः पूर्ववत् परिवर्तयेत् तर्हि सूच्यताम् |",
 	"echo-pref-tooltip-mention": "कस्यचित् चर्चापुटस्य सम्पर्कतन्तुः मम योजकपुटेन सह योज्यते चेत् सूच्यताम् |",
 	"echo-no-agent": "[कोपि नास्ति]",
-	"echo-no-title": "[न किञ्चित् पुटं विद्यते]",
+	"echo-no-title": "[न किञ्चित् पृष्ठं विद्यते]",
 	"echo-error-no-formatter": "सूचनानां प्रारूपः न रचितः |",
-	"echo-error-preference": "दोषः: योजकस्य इष्टतमानि न निर्दिष्टानि |",
 	"notifications": "सूचनाः",
 	"tooltip-pt-notifications": "भवतः सूचनाः",
 	"echo-specialpage": "सूचनाः",
@@ -51,6 +50,9 @@
 	"notification-link-text-view-changes": "परिवर्तनानि दृश्यन्ताम्",
 	"notification-link-text-view-page": "पृष्ठं दृश्यताम्",
 	"notification-link-text-view-edit": "सम्पादनं दृश्यताम्",
+	"echo-notification-message-text-only": "संदेशाः",
+	"echo-overlay-link": "सर्वाः सूचनाः",
+	"echo-overlay-title": "<b>सूचनाः</b>",
 	"echo-date-today": "अद्य",
 	"echo-date-yesterday": "ह्यः"
 }

@@ -75,6 +75,8 @@
 	"echo-date-today": "Днес",
 	"echo-date-yesterday": "Вчера",
 	"echo-load-more-error": "Възникна грешка при извличане на още резултати.",
+	"notification-edit-talk-page-bundle": "$1 и {{PLURAL:$4|някой друг|още $3 други потребителя}} {{GENDER:$1|оставиха}} съобщение на Вашата [[User talk:$2|беседа]].",
+	"notification-edit-user-talk-email-batch-bundle-body": "$1 и {{PLURAL:$3|някой друг|още $2 други потребителя}} {{GENDER:$1|оставиха}} съобщение на Вашата беседа.",
 	"echo-email-batch-subject-daily": "Имате {{PLURAL:$2|ново известие|нови известия}} в {{SITENAME}}",
 	"echo-email-batch-subject-weekly": "Имате {{PLURAL:$2|ново известие|нови известия}} в {{SITENAME}} от тази седмица",
 	"echo-email-batch-body-intro-daily": "Здравейте $1,\nПо-долу е показано резюме на активността в {{SITENAME}} за днес.",
