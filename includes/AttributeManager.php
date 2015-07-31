@@ -33,14 +33,14 @@ class EchoAttributeManager {
 	);
 
 	/**
-	 * An array of EchoAttributeManager instance created from global variables
-	 * @param EchoAttributeManager[]
+	 * An EchoAttributeManager instance created from global variables
+	 * @param EchoAttributeManager
 	 */
-	protected static $globalVarInstance = array();
+	protected static $globalVarInstance = null;
 
 	/**
-	 * @param array notification attributes
-	 * @param array notification categories
+	 * @param array $notifications notification attributes
+	 * @param array $categories notification categories
 	 */
 	public function __construct( array $notifications, array $categories ) {
 		// Extensions can define their own notifications and categories
@@ -59,16 +59,14 @@ class EchoAttributeManager {
 		if ( defined( 'MW_PHPUNIT_TEST' ) && MW_PHPUNIT_TEST ) {
 			return new self( $wgEchoNotifications, $wgEchoNotificationCategories );
 		}
-		// A job queue job may run against different wikis, the singleton
-		// instance should be a per wiki singleton
-		$wikiId = wfWikiId();
-		if ( !isset( self::$globalVarInstance[$wikiId] ) ) {
-			self::$globalVarInstance[$wikiId] = new self(
+
+		if ( self::$globalVarInstance === null ) {
+			self::$globalVarInstance = new self(
 				$wgEchoNotifications,
 				$wgEchoNotificationCategories
 			);
 		}
-		return self::$globalVarInstance[$wikiId];
+		return self::$globalVarInstance;
 	}
 
 	/**

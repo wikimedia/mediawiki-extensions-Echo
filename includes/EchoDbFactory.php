@@ -29,10 +29,8 @@ class MWEchoDbFactory {
 
 	/**
 	 * Create a db factory instance from default Echo configuration
-	 * DO NOT use singleton in here because job queue may run
-	 * against multiple wikis, having a singleton would result in
-	 * wrong db configuration.  In addition, singleton is not necessary
-	 * because it's actually handled inside core database object
+	 * A singleton is not necessary because it's actually handled
+	 * inside core database object
 	 *
 	 * @return MWEchoDbFactory
 	 */
