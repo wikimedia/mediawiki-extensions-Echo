@@ -100,8 +100,9 @@ class EchoNotifier {
 				$email = EchoNotificationController::formatNotification( $event, $user, 'email', 'email' );
 				$subject = $email['subject'];
 				$body = $email['body'];
+				$options = array( 'replyTo' => $replyAddress );
 
-				UserMailer::send( $toAddress, $fromAddress, $subject, $body, $replyAddress );
+				UserMailer::send( $toAddress, $fromAddress, $subject, $body, $options );
 				MWEchoEventLogging::logSchemaEchoMail( $user, 'single' );
 			}
 		}
