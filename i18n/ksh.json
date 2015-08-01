@@ -26,7 +26,7 @@
 	"echo-new-messages": "Do häs neu Meddeilonge",
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Nohreesch|Nohreeschte|Nohreesch}} op der Klaafsigg",
 	"echo-category-title-article-linked": "{{PLURAL:$1|Lengk|Lengks|Lenk}} en Sigge",
-	"echo-category-title-reverted": "Retuur jenumme {{PLURAL:$1|Änderong|Änderonge|Änderong}}",
+	"echo-category-title-reverted": "Retuhr jenumme {{PLURAL:$1|Ännderong|Ännderonge|Ännderong}}",
 	"echo-category-title-mention": "{{PLURAL:$1|Äwähnong|Äwähnonge|Äwähnong}}",
 	"echo-category-title-other": "{{PLURAL:$1|Söns}}",
 	"echo-category-title-system": "{{PLURAL:$1|Fum Wikki}}",
