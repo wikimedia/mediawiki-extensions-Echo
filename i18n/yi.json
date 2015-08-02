@@ -4,7 +4,7 @@
 			"פוילישער"
 		]
 	},
-	"echo-desc": "נאטיפֿיקאציע סיסטעם",
+	"echo-desc": "סיסטעם פאר נאטיפֿיצירן באניצער וועגן פאסירונגען און מעלדונגען",
 	"prefs-echo": "אנזאגן",
 	"prefs-emailsettings": "ע־פאסט אפציעס",
 	"prefs-displaynotifications": "ווײַזן אפציעס",
@@ -21,7 +21,6 @@
 	"echo-pref-email-frequency-weekly": "א וועכנטלעכע רעזומע פון אנזאגן",
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "פשוטער טעקסט",
-	"echo-pref-notify-show-link": "ווײַזן אנזאגן אין מײַן געצייגפאס",
 	"echo-pref-new-message-indicator": "ווײַזן רעדן־בלאט מעלדונג סימן אין מײַן געצייג פאס",
 	"echo-learn-more": "לערנען נאך",
 	"echo-new-messages": "איר האט נייע מעלדונגען",
@@ -38,7 +37,6 @@
 	"echo-no-agent": "[קיינער]",
 	"echo-no-title": "[קיין בלאט]",
 	"echo-error-no-formatter": "קיין פארמאטירונג נישט דעפינירט פאר דער הודעה.",
-	"echo-error-preference": "פעלער: נישט געווען מעגלעך צו שטעלן באניצער פרעפערענץ.",
 	"notifications": "אנזאגן",
 	"tooltip-pt-notifications": "אײַערע אנזאגן",
 	"echo-specialpage": "אנזאגן",
