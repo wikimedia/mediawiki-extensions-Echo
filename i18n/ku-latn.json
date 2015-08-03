@@ -1,11 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"George Animal"
+			"George Animal",
+			"Bikarhêner"
 		]
 	},
 	"echo-pref-email-format-html": "HTML",
 	"echo-new-messages": "Peyamên nû ji te re hene",
+	"tooltip-pt-notifications": "Agahdarîyên te",
 	"notification-link-text-view-changes": "Guherandinan bibîne",
 	"notification-link-text-view-page": "Rûpelê bibîne",
 	"echo-date-today": "Îro",

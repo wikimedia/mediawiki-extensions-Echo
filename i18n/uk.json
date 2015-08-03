@@ -11,7 +11,7 @@
 			"Ата"
 		]
 	},
-	"echo-desc": "Система сповіщень",
+	"echo-desc": "Система сповіщення користувачів про події і повідомлення",
 	"prefs-echo": "Сповіщення",
 	"prefs-emailsettings": "Параметри електронної пошти",
 	"prefs-displaynotifications": "Опції відображення",
@@ -28,7 +28,6 @@
 	"echo-pref-email-frequency-weekly": "Щомісячна збірка сповіщень",
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Простий текст",
-	"echo-pref-notify-show-link": "Показувати сповіщення в моїй панелі інструментів",
 	"echo-pref-new-message-indicator": "Показувати індикатор повідомлень на сторінці обговорення у моїй панелі інструментів",
 	"echo-learn-more": "Дізнатися більше",
 	"echo-new-messages": "У Вас є нові повідомлення",

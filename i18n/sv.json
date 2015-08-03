@@ -89,7 +89,7 @@
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 {{GENDER:$1|lämnade}} ett meddelande på din diskussionssida i \"$2\".",
 	"notification-page-linked-email-subject": "En sida du skapade länkades till på {{SITENAME}}",
 	"notification-page-linked-email-batch-body": "$2 {{GENDER:$1|länkades}} från $3.",
-	"notification-reverted-email-subject2": "{{PLURAL:$3|Din redigering blev|Dina redigeringar blev}} {{GENDER:$1|återställda}} på {{SITENAME}}",
+	"notification-reverted-email-subject2": "{{PLURAL:$3|Din redigering blev {{GENDER:$1|återställd}}|Dina redigeringar blev {{GENDER:$1|återställda}}}} på {{SITENAME}}",
 	"notification-reverted-email-batch-body2": "{{PLURAL:$3|Din redigering|Dina redigeringar}} på $2 har återställts av $1.",
 	"notification-mention-email-subject": "$1 {{GENDER:$1|nämnde}} dig på {{SITENAME}}",
 	"notification-mention-email-batch-body": "$1 {{GENDER:$1|nämnde}} dig på diskussionssidan för $4 i \"$3\".",
