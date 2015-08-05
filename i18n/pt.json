@@ -11,7 +11,7 @@
 			"He7d3r"
 		]
 	},
-	"echo-desc": "Sistema de notificações",
+	"echo-desc": "Sistema de notificações sobre eventos e mensagens para utilizadores",
 	"prefs-echo": "Notificações",
 	"prefs-emailsettings": "Opções de e-mail",
 	"prefs-displaynotifications": "Opções de visualização",
@@ -28,7 +28,6 @@
 	"echo-pref-email-frequency-weekly": "Um resumo semanal de notificações",
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Texto simples",
-	"echo-pref-notify-show-link": "Mostrar notificações na minha barra de ferramentas",
 	"echo-pref-new-message-indicator": "Mostrar indicador de mensagem na página de discussão na minha barra de ferramentas",
 	"echo-learn-more": "Saiba mais",
 	"echo-new-messages": "Tem novas mensagens",
@@ -47,8 +46,6 @@
 	"echo-no-agent": "[Ninguém]",
 	"echo-no-title": "[Nenhuma página]",
 	"echo-error-no-formatter": "Sem formato definido para notificações",
-	"echo-error-preference": "Erro: não foi possível configurar as preferências do utilizador",
-	"echo-error-token": "Erro: Não foi possível receber o toque do utilizador.",
 	"notifications": "Notificações",
 	"tooltip-pt-notifications": "As suas notificações",
 	"echo-specialpage": "Notificações",
