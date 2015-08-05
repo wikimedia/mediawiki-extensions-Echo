@@ -169,28 +169,9 @@ abstract class EchoEmailMode {
 	 * @return string
 	 */
 	public static function getNotifIcon( $icon ) {
-		global $wgEchoNotificationIcons, $wgExtensionAssetsPath, $wgLang;
+		global $wgLang;
 
-		$iconInfo = $wgEchoNotificationIcons[$icon];
-		if ( isset( $iconInfo['url'] ) && $iconInfo['url'] ) {
-			$iconUrl = $iconInfo['url'];
-		} else {
-			if ( !isset( $iconInfo['path'] ) || !$iconInfo['path'] ) {
-				$iconInfo = $wgEchoNotificationIcons['placeholder'];
-			}
-			if ( is_array( $iconInfo['path'] ) ) {
-				$dir = $wgLang->getDir();
-				if ( isset( $iconInfo['path'][$dir] ) ) {
-					$path = $iconInfo['path'][$dir];
-				} else {
-					wfDebugLog( 'Echo', "The \"$icon\" icon does not have anything set for $dir direction." );
-					$path = $wgEchoNotificationIcons['placeholder']['path']; // Fallback
-				}
-			} else {
-				$path = $iconInfo['path'];
-			}
-			$iconUrl = "$wgExtensionAssetsPath/$path";
-		}
+		$iconUrl = EchoNotificationFormatter::getIconUrl( $icon, $wgLang->getDir() );
 
 		return wfExpandUrl( $iconUrl, PROTO_CANONICAL );
 	}
