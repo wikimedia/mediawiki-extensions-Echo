@@ -200,16 +200,16 @@ class MWEchoEmailBatch {
 
 	/**
 	 * Add individual event template to the big email content
+	 *
+	 * @param EchoEvent $event
+	 * @param string $hash
 	 */
-	protected function appendContent( $event, $hash ) {
+	protected function appendContent( EchoEvent $event, $hash ) {
 		// get the category for this event
 		$category = $event->getCategory();
 		$event->setBundleHash( $hash );
 		$email = EchoNotificationController::formatNotification( $event, $this->mUser, 'email', 'emaildigest' );
 
-		if ( !isset( $this->content[$category] ) ) {
-			$this->content[$category] = array();
-		}
 		$this->content[$category][] = $email;
 	}
 

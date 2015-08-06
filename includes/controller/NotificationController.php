@@ -358,7 +358,7 @@ class EchoNotificationController {
 	 * @return string|array The formatted notification, or an array of subject
 	 *     and body (for emails), or an error message
 	 */
-	public static function formatNotification( $event, $user, $format = 'text', $type = 'web' ) {
+	public static function formatNotification( EchoEvent $event, User $user, $format = 'text', $type = 'web' ) {
 		global $wgEchoNotifications;
 
 		$eventType = $event->getType();

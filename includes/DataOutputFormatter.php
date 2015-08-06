@@ -8,8 +8,9 @@ class EchoDataOutputFormatter {
 	/**
 	 * Format a notification for a user in the format specified
 	 *
-	 * @param string|bool specifify output format, false to not format any notifications
-	 * @param User|null the target user viewing the notification
+	 * @param EchoNotification $notification
+	 * @param string|bool $format specifify output format, false to not format any notifications
+	 * @param User|null $user the target user viewing the notification
 	 * @return array
 	 */
 	public static function formatOutput( EchoNotification $notification, $format = false, User $user = null ) {
