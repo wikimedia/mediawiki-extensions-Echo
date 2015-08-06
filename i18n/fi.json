@@ -9,10 +9,11 @@
 			"Samoasambia",
 			"Silvonen",
 			"Stryn",
-			"VezonThunder"
+			"VezonThunder",
+			"Pitke"
 		]
 	},
-	"echo-desc": "Ilmoitusten lähetysjärjestelmä",
+	"echo-desc": "Järjestelmä ilmoitusten lähettämiseen käyttäjille",
 	"prefs-echo": "Ilmoitukset",
 	"prefs-emailsettings": "Sähköpostiasetukset",
 	"prefs-displaynotifications": "Näyttöasetukset",
