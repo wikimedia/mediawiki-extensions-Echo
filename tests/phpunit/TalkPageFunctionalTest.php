@@ -19,8 +19,8 @@ class EchoTalkPageFunctionalTest extends ApiTestCase {
 	 * @group Broken
 	 */
 	public function testAddCommentsToTalkPage() {
-		$editor = self::$users['sysop']->user->getName();
-		$talkPage = self::$users['uploader']->user->getName();
+		$editor = self::$users['sysop']->getUser()->getName();
+		$talkPage = self::$users['uploader']->getUser()->getName();
 		// A set of messages which will be inserted
 		$messages = array(
 			'Moar Cowbell',
