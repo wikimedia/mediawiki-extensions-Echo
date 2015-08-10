@@ -78,14 +78,20 @@ abstract class EchoNotificationFormatter {
 	}
 
 	/**
-	 * Create an EchoNotificationFormatter from the supplied parameters.
-	 * @param $parameters array Associative array.
+	 * Create an EchoNotificationFormatter for the given type.
+	 * @param string $type
 	 * Select the class of formatter to use with the 'formatter-class' field.
 	 * For other parameters, see the appropriate class' constructor.
 	 * @throws RuntimeException
 	 * @return EchoNotificationFormatter object.
 	 */
-	public static function factory( $parameters ) {
+	public static function factory( $type ) {
+		global $wgEchoNotifications;
+		if ( !isset( $wgEchoNotifications[$type] ) ) {
+			throw new InvalidArgumentException( "The notification type '$type' is not registered" );
+		}
+
+		$parameters = $wgEchoNotifications[$type];
 		if ( isset( $parameters['formatter-class'] ) ) {
 			$class = $parameters['formatter-class'];
 		} else {

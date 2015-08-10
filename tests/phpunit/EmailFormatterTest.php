@@ -11,15 +11,14 @@ class EchoEmailFormatterTest extends MediaWikiTestCase {
 	public function setUp() {
 		parent::setUp();
 
-		global $wgEchoNotifications;
-
 		$this->setMwGlobals( 'wgAllowHTMLEmail', true );
+
 		$event = $this->mockEvent( 'edit-user-talk' );
 		$event->expects( $this->any() )
 			->method( 'getTitle' )
 			->will( $this->returnValue( Title::newMainPage() ) );
 
-		$formatter = EchoNotificationFormatter::factory( $wgEchoNotifications[$event->getType()] );
+		$formatter = EchoNotificationFormatter::factory( $event->getType() );
 		$formatter->setOutputFormat( 'email' );
 
 		$user = User::newFromId( 1 );
@@ -68,6 +67,10 @@ class EchoEmailFormatterTest extends MediaWikiTestCase {
 		$this->assertRegExp( '/<a /i', $this->emailDigest->buildAction() );
 	}
 
+	/**
+	 * @param string $type
+	 * @return PHPUnit_Framework_MockObject_MockObject|EchoEvent
+	 */
 	protected function mockEvent( $type ) {
 		$methods = get_class_methods( 'EchoEvent' );
 		$methods = array_diff( $methods, array( 'userCan', 'getLinkMessage', 'getLinkDestination' ) );

@@ -1,4 +1,6 @@
 <?php
+
+use MediaWiki\Logger\LoggerFactory;
 /**
  * This class represents the controller for notifications
  */
@@ -364,29 +366,30 @@ class EchoNotificationController {
 		$eventType = $event->getType();
 
 		$res = '';
-		if ( isset( $wgEchoNotifications[$eventType] ) ) {
-			set_error_handler( array( __CLASS__, 'formatterErrorHandler' ), -1 );
-			try {
-				$params = $wgEchoNotifications[$eventType];
-				$notifier = EchoNotificationFormatter::factory( $params );
-				$notifier->setOutputFormat( $format );
-
-				$res = $notifier->format( $event, $user, $type );
-			} catch ( Exception $e ) {
-				$meta = array(
-					'id' => $event->getId(),
-					'eventType' => $eventType,
-					'format' => $format,
-					'type' => $type,
-					'user' => $user ? $user->getName() : 'no user',
-					'exceptionName' => get_class( $e ),
-					'exceptionMessage' => $e->getMessage(),
-				);
-				wfDebugLog( 'Echo', __FUNCTION__ . ": Error formatting " . FormatJson::encode( $meta ) );
-				MWExceptionHandler::logException( $e );
-			}
-			restore_error_handler();
+		try {
+			$formatter = EchoNotificationFormatter::factory( $eventType );
+			$formatter->setOutputFormat( $format );
+		} catch ( InvalidArgumentException $e ) {
+			self::failFormatting( $event, $user );
+			return '';
 		}
+		set_error_handler( array( __CLASS__, 'formatterErrorHandler' ), -1 );
+		try {
+			$res = $formatter->format( $event, $user, $type );
+		} catch ( Exception $e ) {
+			$context = array(
+				'id' => $event->getId(),
+				'eventType' => $eventType,
+				'format' => $format,
+				'type' => $type,
+				'user' => $user ? $user->getName() : 'no user',
+				'exceptionName' => get_class( $e ),
+				'exceptionMessage' => $e->getMessage(),
+			);
+			LoggerFactory::getInstance( 'Echo' )->error( 'Error formatting notification', $context );
+			MWExceptionHandler::logException( $e );
+		}
+		restore_error_handler();
 
 		if ( $res === '' ) {
 			self::failFormatting( $event, $user );
