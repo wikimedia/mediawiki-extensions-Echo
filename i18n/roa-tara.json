@@ -87,6 +87,7 @@
 	"echo-email-batch-body-default": "Tu è 'na notifica nove",
 	"echo-email-footer-default": "$2\n\nPe condrollà quale email t'amme mannate, verifiche le prefenze tune:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
 	"echo-email-footer-default-html": "Pe condrollà quale email t'amme mannate, <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">condrolle le preferenze tune</a>.<br />\n$1",
+	"echo-notification-alert-text-only": "Avvise",
 	"echo-notification-message-text-only": "Messàgge",
 	"echo-overlay-link": "Tutte le notificaziune",
 	"echo-overlay-title": "<b>Notifiche</b>",
