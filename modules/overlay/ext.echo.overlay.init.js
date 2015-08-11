@@ -6,7 +6,7 @@
 		}
 
 		$link.click( function ( e ) {
-			var $target;
+			var $target, time = mw.now();
 
 			// log the badge click
 			mw.echo.logInteraction( 'ui-badge-link-click' );
@@ -53,6 +53,8 @@
 					} else if ( offset.left + width > windowWidth - 10 ) {
 						$overlay.css( 'left', '-=' + Math.min( 189, ( offset.left + width ) - ( windowWidth - 10 ) ) );
 					}
+
+					mw.track( 'timing.MediaWiki.echo.overlay', mw.now() - time );
 				}
 			);
 		} );
