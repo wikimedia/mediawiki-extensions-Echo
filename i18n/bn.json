@@ -9,7 +9,7 @@
 			"Aftabuzzaman"
 		]
 	},
-	"echo-desc": "বিজ্ঞপ্তি ব্যবস্থা",
+	"echo-desc": "ঘটনা এবং বার্তা সম্পর্কে ব্যবহারকারীদের বিজ্ঞপ্তি দেয়ার জন্য সিস্টেম",
 	"prefs-echo": "বিজ্ঞপ্তি",
 	"prefs-emailsettings": "ইমেইল অপশন",
 	"prefs-displaynotifications": "প্রদর্শনের অপশন",
@@ -26,7 +26,6 @@
 	"echo-pref-email-frequency-weekly": "সাপ্তাহিক বিজ্ঞপ্তির একটি সারাংশ",
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "সরল লেখা",
-	"echo-pref-notify-show-link": "আমার টুলবারে বিজ্ঞপ্তি দেখাও",
 	"echo-pref-new-message-indicator": "আমার টুলবারে আলাপ পাতা বার্তা নির্দেশক (বিজ্ঞপ্তি) দেখাও",
 	"echo-learn-more": "আরও জানুন",
 	"echo-new-messages": "আপনার নতুন বার্তা এসেছে",
@@ -45,8 +44,6 @@
 	"echo-no-agent": "[কেউ নাই]",
 	"echo-no-title": "[কোনো পাতা নাই]",
 	"echo-error-no-formatter": "বিজ্ঞপ্তির জন্য কোনো ফরমেটিং নির্ধারিত হয়নি",
-	"echo-error-preference": "ত্রুটি: ব্যবহারকারী পছন্দ ধার্য্য করা যাচ্ছে না",
-	"echo-error-token": "ত্রুটি: ব্যবহারকারী টোকেন উদ্ধার করা যাচ্ছে না",
 	"notifications": "বিজ্ঞপ্তি",
 	"tooltip-pt-notifications": "আপনার বিজ্ঞপ্তি",
 	"echo-specialpage": "বিজ্ঞপ্তি",
