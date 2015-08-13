@@ -96,13 +96,15 @@ class EchoHooks {
 	public static function onResourceLoaderRegisterModules( ResourceLoader &$resourceLoader ) {
 		global $wgEchoConfig;
 
-		// ext.echo.base is used by mobile notifications as well, so be sure not to add any
+		// ext.echo.logger is used by mobile notifications as well, so be sure not to add any
 		// dependencies that do not target mobile.
 		$definition = array(
 			'position' => 'top',
-			'styles' => 'base/ext.echo.base.less',
 			'scripts' => array(
-				'base/ext.echo.base.js',
+				'logger/mw.echo.Logger.js',
+			),
+			'dependencies' => array(
+				'oojs'
 			),
 			'localBasePath' => __DIR__ . '/modules',
 			'remoteExtPath' => 'Echo/modules',
@@ -115,7 +117,7 @@ class EchoHooks {
 			}
 		}
 
-		$resourceLoader->register( 'ext.echo.base', $definition );
+		$resourceLoader->register( 'ext.echo.logger', $definition );
 	}
 
 	/**
@@ -585,9 +587,14 @@ class EchoHooks {
 	static function beforePageDisplay( $out, $skin ) {
 		if ( $out->getUser()->isLoggedIn() ) {
 			// Load the module for the Notifications flyout
-			$out->addModules( array( 'ext.echo.overlay.init' ) );
+			$out->addModules( array( 'ext.echo.init' ) );
 			// Load the styles for the Notifications badge
-			$out->addModuleStyles( 'ext.echo.badge' );
+			$out->addModuleStyles( array(
+				'ext.echo.nojs',
+				'oojs-ui.styles',
+				'oojs-ui.styles.icons-alerts'
+			) );
+			$out->enableOOUI();
 		}
 
 		return true;
@@ -625,29 +632,63 @@ class EchoHooks {
 
 		// Add a "My notifications" item to personal URLs
 		$notifUser = MWEchoNotifUser::newFromUser( $user );
-		$notificationCount = $notifUser->getNotificationCount();
-		$notificationTimestamp = $notifUser->getLastUnreadNotificationTime();
+		$msgCount = $notifUser->getMessageCount();
+		$alertCount = $notifUser->getAlertCount();
+
+		$msgNotificationTimestamp = $notifUser->getLastUnreadMessageTime();
+		$alertNotificationTimestamp = $notifUser->getLastUnreadAlertTime();
+
 		$seenTime = $user->getOption( 'echo-seen-time' );
-		$text = EchoNotificationController::formatNotificationCount( $notificationCount );
+
+		$msgText = EchoNotificationController::formatNotificationCount( $msgCount );
+		$alertText = EchoNotificationController::formatNotificationCount( $alertCount );
+
 		$url = SpecialPage::getTitleFor( 'Notifications' )->getLocalURL();
 
+		$msgLinkClasses = array( 'mw-echo-notifications-badge  oo-ui-image-invert oo-ui-iconElement oo-ui-iconElement-icon oo-ui-icon-speechBubble' );
+		$alertLinkClasses = array( 'mw-echo-notifications-badge  oo-ui-image-invert oo-ui-iconElement oo-ui-iconElement-icon' );
+
 		if (
-			$notificationCount == 0 || // no unread notifications
-			$notificationTimestamp === false || // should already always be false if count === 0
-			( $seenTime !== null && $notificationTimestamp->getTimestamp( TS_MW ) <= $seenTime ) // all notifications have already been seen
+			$msgCount != 0 && // no unread notifications
+			$msgNotificationTimestamp !== false && // should already always be false if count === 0
+			( $seenTime === null || $seenTime < $msgNotificationTimestamp->getTimestamp( TS_MW ) ) // there are no unseen notifications
 		) {
-			$linkClasses = array( 'mw-echo-notifications-badge' );
-		} else {
-			$linkClasses = array( 'mw-echo-unread-notifications', 'mw-echo-notifications-badge' );
+			$msgLinkClasses[] = 'mw-echo-unseen-notifications';
 		}
-		$notificationsLink = array(
+
+		$alertIcon = "bell";
+		if (
+			$alertCount != 0 && // no unread notifications
+			$alertNotificationTimestamp !== false && // should already always be false if count === 0
+			( $seenTime === null || $seenTime < $alertNotificationTimestamp->getTimestamp( TS_MW ) ) // all notifications have already been seen
+		) {
+			$alertLinkClasses[] = 'mw-echo-unseen-notifications';
+			$alertIcon = "bellOn";
+		}
+		$alertLinkClasses[] = 'oo-ui-icon-' . $alertIcon;
+
+		$alertLink = array(
 			'href' => $url,
-			'text' => $text,
+			'text' => $alertText,
 			'active' => ( $url == $title->getLocalUrl() ),
-			'class' => $linkClasses,
+			'class' => $alertLinkClasses,
 		);
 
-		$insertUrls = array( 'notifications' => $notificationsLink );
+		$insertUrls = array(
+			'notifications_alert' => $alertLink,
+		);
+
+		if ( $notifUser->hasMessages() ) {
+			$msgLink = array(
+				'href' => $url,
+				'text' => $msgText,
+				'active' => ( $url == $title->getLocalUrl() ),
+				'class' => $msgLinkClasses,
+			);
+
+			$insertUrls['notifications_message'] = $msgLink;
+		}
+
 		$personal_urls = wfArrayInsertAfter( $personal_urls, $insertUrls, 'userpage' );
 
 		// If the user has new messages, display a talk page alert

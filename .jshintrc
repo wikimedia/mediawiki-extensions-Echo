@@ -26,6 +26,7 @@
 	"predef": [
 		"jQuery",
 		"QUnit",
+		"OO",
 		"mediaWiki"
 	]
 }

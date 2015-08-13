@@ -116,6 +116,7 @@ class SpecialNotifications extends SpecialPage {
 					'href' => SpecialPage::getTitleFor( 'Notifications' )->getLinkURL(
 								array( 'continue' => $nextContinue )
 							),
+					'class' => 'mw-ui-button mw-ui-primary',
 					'id' => 'mw-echo-more'
 				),
 				$this->msg( 'moredotdotdot' )->text()
@@ -132,7 +133,7 @@ class SpecialNotifications extends SpecialPage {
 			)
 		);
 		// For no-js support
-		$out->addModuleStyles( "ext.echo.base" );
+		$out->addModuleStyles( "ext.echo.nojs" );
 		// Mark items as read
 		if ( $unread ) {
 			MWEchoNotifUser::newFromUser( $user )->markRead( $unread );

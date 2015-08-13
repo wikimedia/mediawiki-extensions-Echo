@@ -24,7 +24,7 @@ end
 def poll_for_new_notifications(number_of_polls)
   number_of_polls.to_i.times do
     step 'I am on the "Selenium Echo flyout test page" page'
-    break if on(ArticlePage).flyout_link_element.class_name =~ /mw-echo-unread-notifications/
+    break if on(ArticlePage).flyout_link_element.class_name =~ /mw-echo-unseen-notifications/
   end
 end
 
@@ -83,9 +83,9 @@ Given(/^I am logged in with no notifications$/) do
 end
 
 Then(/^I have no new notifications$/) do
-  expect(on(ArticlePage).flyout_link_element.when_present.class_name).not_to match 'mw-echo-unread-notifications'
+  expect(on(ArticlePage).flyout_link_element.when_present.class_name).not_to match 'mw-echo-unseen-notifications'
 end
 
 Then(/^I have new notifications$/) do
-  expect(on(ArticlePage).flyout_link_element.when_present.class_name).to match 'mw-echo-unread-notifications'
+  expect(on(ArticlePage).flyout_link_element.when_present.class_name).to match 'mw-echo-unseen-notifications'
 end

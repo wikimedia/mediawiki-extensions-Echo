@@ -224,11 +224,79 @@ class MWEchoNotifUser {
 	}
 
 	/**
+	 * Get message count for this user.
+	 *
+	 * @param boolean $cached Set to false to bypass the cache. (Optional. Defaults to true)
+	 * @param int $dbSource Use master or slave database to pull count (Optional. Defaults to DB_SLAVE)
+	 * @return int
+	 */
+	public function getMessageCount( $cached = true, $dbSource = DB_SLAVE ) {
+		return $this->getNotificationCount( $cached, $dbSource, EchoAttributeManager::MESSAGE );
+	}
+
+	/**
+	 * Get alert count for this user.
+	 *
+	 * @param boolean $cached Set to false to bypass the cache. (Optional. Defaults to true)
+	 * @param int $dbSource Use master or slave database to pull count (Optional. Defaults to DB_SLAVE)
+	 * @return int
+	 */
+	public function getAlertCount( $cached = true, $dbSource = DB_SLAVE ) {
+		return $this->getNotificationCount( $cached, $dbSource, EchoAttributeManager::ALERT );
+	}
+
+	/**
+	 * Get the memcache key for 'has ever had messages' value
+	 * @return string
+	 */
+	private function getHasMessagesKey() {
+		global $wgEchoConfig;
+		return wfMemcKey( 'echo', 'user', 'had', 'messages', $this->mUser->getId(), $wgEchoConfig['version'] );
+	}
+
+	/**
+	 * Check whether the user has ever had messages.
+	 *
+	 * @param boolean $cached Set to false to bypass the cache. (Optional. Defaults to true)
+	 * @return boolean User has received messages
+	 */
+	public function hasMessages( $cached = true ) {
+		global $wgEchoConfig;
+		$section = EchoAttributeManager::MESSAGE;
+
+		$memcKey = $this->getHasMessagesKey();
+		if ( $cached ) {
+			$data = $this->cache->get( $memcKey );
+			if ( $data !== false && $data !== null ) {
+				return (bool)$data;
+			}
+		}
+		$attributeManager = EchoAttributeManager::newFromGlobalVars();
+		$eventTypesToLoad = $attributeManager->getUserEnabledEventsbySections( $this->mUser, 'web', array( $section ) );
+
+		$count = count( $this->notifMapper->fetchByUser( $this->mUser, 1, 0, $eventTypesToLoad ) );
+
+		$result = $count > 0 ? 1 : 0;
+		$this->cache->set( $memcKey, $result, 86400 );
+
+		return (bool)$result;
+	}
+
+	/**
+	 * Cache the fact that the user has messages.
+	 * This is used after the user receives a message, making the system skip the actual test
+	 * of whether they have messages against the database at all.
+	 */
+	public function cacheHasMessages() {
+		$this->cache->set( $memcKey, 1, 86400 );
+	}
+
+	/**
 	 * Retrieves number of unread notifications that a user has, would return
 	 * $wgEchoMaxNotificationCount + 1 at most
 	 *
-	 * @param boolean $cached Set to false to bypass the cache.
-	 * @param int $dbSource Use master or slave database to pull count
+	 * @param boolean $cached Set to false to bypass the cache. (Optional. Defaults to true)
+	 * @param int $dbSource Use master or slave database to pull count (Optional. Defaults to DB_SLAVE)
 	 * @param string $section Notification section
 	 * @return int
 	 */
@@ -244,10 +312,9 @@ class MWEchoNotifUser {
 			$this->mUser->getId(),
 			$wgEchoConfig['version']
 		);
-
 		if ( $cached ) {
 			$data = $this->cache->get( $memcKey );
-			if ( $data !== false ) {
+			if ( $data !== false && $data !== null ) {
 				return (int)$data;
 			}
 		}
@@ -260,17 +327,38 @@ class MWEchoNotifUser {
 		}
 
 		$count = $this->userNotifGateway->getNotificationCount( $dbSource, $eventTypesToLoad );
-
 		$this->cache->set( $memcKey, $count, 86400 );
 
 		return (int)$count;
 	}
 
 	/**
+	 * Get the unread timestamp of the latest alert
+	 *
+	 * @param boolean $cached Set to false to bypass the cache. (Optional. Defaults to true)
+	 * @param int $dbSource Use master or slave database to pull count (Optional. Defaults to DB_SLAVE)
+	 * @return int
+	 */
+	public function getLastUnreadAlertTime( $cached = true, $dbSource = DB_SLAVE ) {
+		return $this->getLastUnreadNotificationTime( $cached, $dbSource, EchoAttributeManager::ALERT );
+	}
+
+	/**
+	 * Get the unread timestamp of the latest message
+	 *
+	 * @param boolean $cached Set to false to bypass the cache. (Optional. Defaults to true)
+	 * @param int $dbSource Use master or slave database to pull count (Optional. Defaults to DB_SLAVE)
+	 * @return int
+	 */
+	public function getLastUnreadMessageTime( $cached = true, $dbSource = DB_SLAVE ) {
+		return $this->getLastUnreadNotificationTime( $cached, $dbSource, EchoAttributeManager::MESSAGE );
+	}
+
+	/**
 	 * Returns the timestamp of the last unread notification.
 	 *
-	 * @param boolean $cached Set to false to bypass the cache.
-	 * @param int $dbSource Use master or slave database to pull count
+	 * @param boolean $cached Set to false to bypass the cache. (Optional. Defaults to true)
+	 * @param int $dbSource Use master or slave database to pull count (Optional. Defaults to DB_SLAVE)
 	 * @param string $section Notification section
 	 * @return bool|MWTimestamp Timestamp of last notification, or false if there is none
 	 */
@@ -405,8 +493,8 @@ class MWEchoNotifUser {
 
 	/**
 	 * Retrieves formatted number of unread notifications that a user has.
-	 * @param boolean $cached Set to false to bypass the cache.
-	 * @param int $dbSource use master or slave database to pull count
+	 * @param boolean $cached Set to false to bypass the cache. (Optional. Defaults to true)
+	 * @param int $dbSource Use master or slave database to pull count (Optional. Defaults to DB_SLAVE)
 	 * @param string $section
 	 * @return string
 	 */

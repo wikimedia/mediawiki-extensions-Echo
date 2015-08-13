@@ -30,21 +30,34 @@ $echoResourceTemplate = array(
 );
 
 $wgResourceModules += array(
-	// ext.echo.base is registered in EchoHooks::onResourceLoaderRegisterModules
-	'ext.echo.overlay' => $echoResourceTemplate + array(
+	'ext.echo.ui' => $echoResourceTemplate + array(
 		'scripts' => array(
-			'overlay/ext.echo.overlay.js',
+			'ooui/mw.echo.ui.js',
+			'ooui/mw.echo.ui.NotificationsWidget.js',
+			'ooui/mw.echo.ui.NotificationOptionWidget.js',
+			'ooui/mw.echo.ui.NotificationBadgeWidget.js'
+		),
+		'styles' => array(
+			'ooui/styles/mw.echo.ui.NotificationsWidget.less',
+			'ooui/styles/mw.echo.ui.NotificationOptionWidget.less',
+			'ooui/styles/mw.echo.ui.NotificationBadgeWidget.less'
 		),
 		'skinStyles' => array(
-			'modern' => 'overlay/ext.echo.overlay.modern.css',
-			'monobook' => 'overlay/ext.echo.overlay.monobook.css',
+			'monobook' => array(
+				'ooui/styles/mw.echo.ui.NotificationsWidget.monobook.less',
+				'ooui/styles/mw.echo.ui.NotificationBadgeWidget.monobook.less'
+			),
+			'modern' => array(
+				'ooui/styles/mw.echo.ui.NotificationOptionWidget.modern.less',
+				'ooui/styles/mw.echo.ui.NotificationBadgeWidget.modern.less'
+			)
 		),
 		'dependencies' => array(
-			'mediawiki.language',
-			'mediawiki.ui.anchor',
-			'ext.echo.base',
+			'ext.echo.nojs',
+			'ext.echo.dm',
+			'oojs-ui',
+			'ext.echo.logger',
 			'mediawiki.api',
-			'mediawiki.jqueryMsg',
 		),
 		'messages' => array(
 			'echo-overlay-link',
@@ -55,52 +68,70 @@ $wgResourceModules += array(
 			'echo-notification-message',
 			'echo-notification-alert-text-only',
 			'echo-notification-message-text-only',
-			'echo-email-batch-bullet'
+			'echo-email-batch-bullet',
+			'mypreferences'
 		),
 		'targets' => array( 'desktop', 'mobile' ),
 	),
-	'ext.echo.overlay.init' => $echoResourceTemplate + array(
-		'styles' => array(
-			'overlay/ext.echo.overlay.less',
+	'ext.echo.dm' => $echoResourceTemplate + array(
+		'scripts' => array(
+			'viewmodel/mw.echo.dm.js',
+			'viewmodel/mw.echo.dm.NotificationItem.js',
+			'viewmodel/mw.echo.dm.List.js',
+			'viewmodel/mw.echo.dm.NotificationList.js',
+			'viewmodel/mw.echo.dm.NotificationsModel.js',
 		),
 		'dependencies' => array(
-			'ext.echo.overlay',
+			'oojs'
 		),
+		'targets' => array( 'desktop', 'mobile' ),
+	),
+	'ext.echo.base' => array(
+		// This is a dummy module for backwards compatibility.
+		// Most extensions that require ext.echo.base actually need
+		// the logger. They will have to be adjusted to use the new
+		// logger functionality, however.
+		//
+		// This module is mainly here to make sure other extensions
+		// that rely on ext.echo.base don't explode, and that CI lets
+		// us merge this while fixing the main extensions that require
+		// to be changed due to the new structure.
+		'targets' => array( 'desktop', 'mobile' ),
+		'dependencies' => array( 'ext.echo.logger' )
+	),
+	// ext.echo.logger is registered in EchoHooks::onResourceLoaderRegisterModules
+	'ext.echo.init' => $echoResourceTemplate + array(
 		'scripts' => array(
-			'overlay/ext.echo.overlay.init.js',
+			'ext.echo.init.js',
 		),
+		'dependencies' => array(
+			'ext.echo.ui'
+		),
+		'targets' => array( 'desktop', 'mobile' ),
+	),
+	// Base no-js styles
+	'ext.echo.nojs' => $echoResourceTemplate + array(
+		'position' => 'top',
+		'styles' => array(
+			'nojs/mw.echo.badge.less',
+			'nojs/mw.echo.special.less',
+			'nojs/mw.echo.notifications.less'
+		),
+		'targets' => array( 'desktop', 'mobile' ),
 	),
 	'ext.echo.special' => $echoResourceTemplate + array(
 		'scripts' => array(
 			'special/ext.echo.special.js',
 		),
-		'styles' => 'special/ext.echo.special.less',
 		'dependencies' => array(
 			'mediawiki.ui.button',
 			'mediawiki.api',
-			'ext.echo.base',
+			'ext.echo.ui',
 		),
 		'messages' => array(
 			'echo-load-more-error',
 			'echo-more-info',
 			'echo-feedback',
-		),
-		'position' => 'top',
-	),
-	'ext.echo.alert' => $echoResourceTemplate + array(
-		'position' => 'top',
-		'styles' => 'alert/ext.echo.alert.less',
-		'skinStyles' => array(
-			'modern' => 'alert/ext.echo.alert.modern.css',
-			'monobook' => 'alert/ext.echo.alert.monobook.css',
-		),
-	),
-	'ext.echo.badge' => $echoResourceTemplate + array(
-		'position' => 'top',
-		'styles' => 'badge/ext.echo.badge.less',
-		'skinStyles' => array(
-			'modern' => 'badge/ext.echo.badge.modern.css',
-			'monobook' => 'badge/ext.echo.badge.monobook.css',
 		),
 	),
 );
