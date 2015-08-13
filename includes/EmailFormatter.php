@@ -129,7 +129,7 @@ abstract class EchoEmailMode {
 		// All email delivery mode share the same footer
 		$this->component = array_merge( $component, array( 'footer' ) );
 		// Initialize with a text decorator, the decorator can be altered
-		// via attacheDecorator() based on text/html emails
+		// via attachDecorator() based on text/html emails
 		$this->decorator = new EchoTextEmailDecorator();
 		$this->lang = Language::factory( $user->getOption( 'language' ) );
 	}
@@ -190,7 +190,7 @@ abstract class EchoEmailMode {
 	 * @param $user User
 	 * @return Message
 	 */
-	public static function message( $message, $user ) {
+	public static function message( $message, User $user ) {
 		return wfMessage( $message )->inLanguage( $user->getOption( 'language' ) );
 	}
 
@@ -565,7 +565,7 @@ interface EchoEmailDecorator {
 	 * @param $user User
 	 * @return string
 	 */
-	public function decorateDigestList( $digestList, $user );
+	public function decorateDigestList( $digestList, User $user );
 
 	/**
 	 * Decorate the primary action for digest mode
@@ -573,7 +573,7 @@ interface EchoEmailDecorator {
 	 * @param $user User
 	 * @return string
 	 */
-	public function decorateDigestAction( $title, $user );
+	public function decorateDigestAction( $title, User $user );
 
 	/**
 	 * Decorate the footer for all mode
@@ -581,7 +581,7 @@ interface EchoEmailDecorator {
 	 * @param $user User
 	 * @return string
 	 */
-	public function decorateFooter( $address, $user );
+	public function decorateFooter( $address, User $user );
 
 	/**
 	 * Decorate the actions for single mode
@@ -592,7 +592,7 @@ interface EchoEmailDecorator {
 	 * @param $message string
 	 * @return string
 	 */
-	public function decorateSingleAction( $notifFormatter, $event, $user, $rank, $message );
+	public function decorateSingleAction( $notifFormatter, EchoEvent $event, User $user, $rank, $message );
 
 	/**
 	 * Decorate a revision snippet
@@ -623,7 +623,7 @@ class EchoTextEmailDecorator implements EchoEmailDecorator {
 	/**
 	 * {@inheritDoc}
 	 */
-	public function decorateDigestList( $digestList, $user ) {
+	public function decorateDigestList( $digestList, User $user ) {
 		$result = array();
 
 		// build the text section for each category
@@ -651,18 +651,18 @@ class EchoTextEmailDecorator implements EchoEmailDecorator {
 	/**
 	 * {@inheritDoc}
 	 */
-	public function decorateDigestAction( $title, $user ) {
+	public function decorateDigestAction( $title, User $user ) {
 		return EchoEmailMode::message( 'echo-email-batch-link-text-view-all-notifications', $user )->text()
 			. EchoEmailMode::message( 'colon-separator', $user )->text()
 			. '<'
-			. $title->getFullURL( '', false, PROTO_HTTPS )
+			. $title->getFullURL( '', false, PROTO_CANONICAL )
 			. '>';
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
-	public function decorateFooter( $address, $user ) {
+	public function decorateFooter( $address, User $user ) {
 		return EchoEmailMode::message( 'echo-email-footer-default', $user )
 				->params(
 					$address,
@@ -674,7 +674,7 @@ class EchoTextEmailDecorator implements EchoEmailDecorator {
 	/**
 	 * {@inheritDoc}
 	 */
-	public function decorateSingleAction( $notifFormatter, $event, $user, $rank, $message ) {
+	public function decorateSingleAction( $notifFormatter, EchoEvent $event, User $user, $rank, $message ) {
 		$url = $notifFormatter->getLink( $event, $user, $rank, false, true );
 
 		return EchoEmailMode::message( $message, $user )->text()
@@ -716,7 +716,7 @@ class EchoHTMLEmailDecorator implements EchoEmailDecorator {
 	/**
 	 * {@inheritDoc}
 	 */
-	public function decorateDigestList( $digestList, $user ) {
+	public function decorateDigestList( $digestList, User $user ) {
 		$result = array();
 		// build the html section for each category
 		foreach( $digestList as $category => $notifs ) {
@@ -737,7 +737,7 @@ class EchoHTMLEmailDecorator implements EchoEmailDecorator {
 	/**
 	 * {@inheritDoc}
 	 */
-	public function decorateDigestAction( $title, $user ) {
+	public function decorateDigestAction( $title, User $user ) {
 		/*
 		 * Linker::link() will try to figure out if $title already exists
 		 * (Title::isKnown) and alter the link depending on the outcome
@@ -762,7 +762,7 @@ class EchoHTMLEmailDecorator implements EchoEmailDecorator {
 	/**
 	 * {@inheritDoc}
 	 */
-	public function decorateFooter( $address, $user ) {
+	public function decorateFooter( $address, User $user ) {
 		$title = SpecialPage::getTitleFor( 'Preferences' );
 		$title->setFragment( "#mw-prefsection-echo" );
 		return EchoEmailMode::message( 'echo-email-footer-default-html', $user )
@@ -774,7 +774,7 @@ class EchoHTMLEmailDecorator implements EchoEmailDecorator {
 	/**
 	 * {@inheritDoc}
 	 */
-	public function decorateSingleAction( $notifFormatter, $event, $user, $rank, $message ) {
+	public function decorateSingleAction( $notifFormatter, EchoEvent $event, User $user, $rank, $message ) {
 		if ( $rank === 'primary' ) {
 			$style = $this->getPrimaryLinkCSS();
 		} else {
