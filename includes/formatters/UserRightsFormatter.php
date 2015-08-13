@@ -13,11 +13,10 @@ class EchoUserRightsFormatter extends EchoBasicFormatter {
 	 */
 	protected function processParam( $event, $param, $message, $user ) {
 		$extra = $event->getExtra();
-
 		switch ( $param ) {
 			// List of user rights that are granted or revoked
 			case 'user-rights-list':
-				global $wgLang;
+				$lang = $this->getLanguage();
 
 				$list = array();
 
@@ -35,11 +34,11 @@ class EchoUserRightsFormatter extends EchoBasicFormatter {
 						// * notification-user-rights-add
 						// * notification-user-rights-remove
 						$list[] = $this->getMessage( 'notification-user-rights-' . $action )
-							->params( $wgLang->commaList( $groups ), count( $groups ) )
+							->params( $lang->commaList( $groups ), count( $groups ) )
 							->escaped();
 					}
 				}
-				$message->params( $wgLang->semicolonList( $list ) );
+				$message->params( $lang->semicolonList( $list ) );
 				break;
 
 			default:

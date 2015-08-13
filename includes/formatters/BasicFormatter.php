@@ -40,6 +40,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	protected $icon;
 
 	/**
+	 * @todo make this private
 	 * The language to format a message, default language
 	 * is the current language
 	 * @param mixed Language code or Language object
@@ -168,8 +169,6 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	 * @return array|string
 	 */
 	public function format( $event, $user, $type ) {
-		global $wgLang;
-
 		$this->setDistributionType( $type );
 		$this->applyChangeBeforeFormatting( $event, $user, $type );
 
@@ -181,7 +180,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			return $this->formatNotificationTitle( $event, $user )->text();
 		}
 
-		$iconUrl = $this->getIconUrl( $this->icon, $wgLang->getDir() );
+		$iconUrl = $this->getIconUrl( $this->icon, $this->getLanguage()->getDir() );
 
 		// Assume html as the format for the notification
 		$output = Html::element(
@@ -275,7 +274,6 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			// Single email text body
 			'body' => $textEmailFormatter->formatEmail(),
 		);
-
 		$format = MWEchoNotifUser::newFromUser( $user )->getEmailFormat();
 		if ( $format == EchoHooks::EMAIL_FORMAT_HTML ) {
 			$htmlEmailFormatter = new EchoHTMLEmailFormatter( $emailSingle );
@@ -325,11 +323,20 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	 * @return Message
 	 */
 	public function getMessage( $msgStr ) {
-		$message = wfMessage( $msgStr );
+		return wfMessage( $msgStr )->inLanguage( $this->getLanguage() );
+	}
+
+	/**
+	 * @return Language
+	 */
+	public function getLanguage() {
+		global $wgLang;
+		// @todo we should always set this
 		if ( $this->language ) {
-			$message->inLanguage( $this->language );
+			return wfGetLangObj( $this->language );
 		}
-		return $message;
+
+		return $wgLang;
 	}
 
 	/**
@@ -430,13 +437,11 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	 * @return String HTML
 	 */
 	protected function formatFooter( $event, $user ) {
-		global $wgLang;
-
 		// Default footer is timestamp
 		$footer = $this->formatTimestamp( $event->getTimestamp() );
 		$secondaryLink = $this->getLink( $event, $user, 'secondary' );
 		if ( $secondaryLink ) {
-			$footer = $wgLang->pipeList( array( $footer, $secondaryLink ) );
+			$footer = $this->getLanguage()->pipeList( array( $footer, $secondaryLink ) );
 		}
 		return Xml::tags( 'div', array( 'class' => 'mw-echo-notification-footer' ), $footer ) . "\n";
 	}
