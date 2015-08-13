@@ -8,7 +8,7 @@
 			"Yerpo"
 		]
 	},
-	"echo-desc": "Sistem obvestil",
+	"echo-desc": "Sistem za obveščanje uporabnikov o dogodkih in sporočilih",
 	"prefs-echo": "Obvestila",
 	"prefs-emailsettings": "Možnosti e-pošte",
 	"prefs-displaynotifications": "Možnosti prikaza",
@@ -25,7 +25,6 @@
 	"echo-pref-email-frequency-weekly": "Tedenski povzetek obvestil",
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Neoblikovano besedilo",
-	"echo-pref-notify-show-link": "Prikaži obvestila v orodni vrstici",
 	"echo-pref-new-message-indicator": "V orodni vrstici prikaži kazalnik sporočil na pogovornih straneh",
 	"echo-learn-more": "Več o tem",
 	"echo-new-messages": "Imate nova sporočila",
