@@ -168,7 +168,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	 * @return array|string
 	 */
 	public function format( $event, $user, $type ) {
-		global $wgExtensionAssetsPath, $wgEchoNotificationIcons, $wgLang;
+		global $wgLang;
 
 		$this->setDistributionType( $type );
 		$this->applyChangeBeforeFormatting( $event, $user, $type );
