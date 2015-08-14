@@ -35,7 +35,7 @@
 	"echo-pref-email-frequency-never": "No enviarme notificaciones por correo electrónico",
 	"echo-pref-email-frequency-immediately": "Enviarme las notificaciones individuales en cuanto lleguen",
 	"echo-pref-email-frequency-daily": "Resumen diario de notificaciones",
-	"echo-pref-email-frequency-weekly": "Resumen semanal de las notificaciones",
+	"echo-pref-email-frequency-weekly": "Resumen semanal de notificaciones",
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Texto sin formato",
 	"echo-pref-new-message-indicator": "Mostrar un indicador de mensajes nuevos en la barra de herramientas",
