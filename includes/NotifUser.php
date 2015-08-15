@@ -36,14 +36,6 @@ class MWEchoNotifUser {
 	private $targetPageMapper;
 
 	/**
-	 * Whether to check cache for section status
-	 */
-	static $sectionStatusCheckCache = array (
-		EchoAttributeManager::ALERT => false,
-		EchoAttributeManager::MESSAGE => true
-	);
-
-	/**
 	 * Usually client code doesn't need to initialize the object directly
 	 * because it could be obtained from factory method newFromUser()
 	 * @param User $user
@@ -82,80 +74,6 @@ class MWEchoNotifUser {
 			new EchoUserNotificationGateway( $user, MWEchoDbFactory::newFromDefault() ),
 			new EchoNotificationMapper(),
 			new EchoTargetPageMapper()
-		);
-	}
-
-	/**
-	 * Check whether should trigger a query to fetch data for a section when making
-	 * such request.  This method normally should return true for all section.
-	 * For some sections, it's better to save the result in cache and check before
-	 * triggering a query. Flow is in very limited deployment, Most *users would
-	 * not have flow notifications, it's better to save *this status in cache
-	 * to save a query.  In addition, Flow notification is far less than other
-	 * notifications for most users at this moment. Querying could be expensive
-	 * in extreme cases
-	 * @param string $section
-	 * @return boolean
-	 */
-	public function shouldQuerySectionData( $section ) {
-		if ( !self::$sectionStatusCheckCache[$section] ) {
-			return true;
-		}
-		$cacheVal = $this->cache->get( $this->sectionStatusCacheKey( $section ) );
-		// '1' means should query
-		// '0' means should not query
-		// false means no cache and should query
-		if ( $cacheVal !== '0' ) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	/**
-	 * Set section data status into cache, '1' means there is data for the section,
-	 * '0' means there is no data for this section
-	 * @param string $section
-	 * @param int $num
-	 */
-	public function setSectionStatusCache( $section, $num ) {
-		if ( !self::$sectionStatusCheckCache[$section] ) {
-			return;
-		}
-		$key = $this->sectionStatusCacheKey( $section );
-		// Set cache for 5 days
-		if ( $num > 0 ) {
-			$this->cache->set( $key, '1', 432000 );
-		} else {
-			$this->cache->set( $key, '0', 432000 );
-		}
-	}
-
-	/**
-	 * Clear section data cache for the section
-	 * @param string
-	 */
-	public function clearSectionStatusCache( $section ) {
-		if ( !self::$sectionStatusCheckCache[$section] ) {
-			return;
-		}
-		$this->cache->delete(
-			$this->sectionStatusCacheKey( $section )
-		);
-	}
-
-	/**
-	 * Get the section data status cache key
-	 * @param string $section
-	 * @return string
-	 */
-	protected function sectionStatusCacheKey( $section ) {
-		global $wgEchoConfig;
-		return wfMemcKey(
-			'echo-notification-section-exist',
-			$section,
-			$this->mUser->getId(),
-			$wgEchoConfig['version']
 		);
 	}
 
@@ -420,6 +338,15 @@ class MWEchoNotifUser {
 			$this->targetPageMapper->deleteByUserEvents( $this->mUser, $eventIds );
 			// Update notification count in cache
 			$this->resetNotificationCount( DB_MASTER );
+
+			// After this 'mark read', is there any unread edit-user-talk
+			// remaining?  If not, we should clear the newtalk flag.
+			if ( $this->mUser->getNewtalk() ) {
+				$unreadEditUserTalk = $this->notifMapper->fetchUnreadByUser( $this->mUser, 1, array( 'edit-user-talk' ), DB_MASTER );
+				if ( count( $unreadEditUserTalk ) === 0 ) {
+					$this->mUser->setNewtalk( false );
+				}
+			}
 		}
 		return $res;
 	}

@@ -301,7 +301,7 @@ $wgEchoNotifications = array(
 		'secondary-link' => array( 'message' => 'notification-link-text-view-changes', 'destination' => 'diff' ),
 		'category' => 'edit-user-talk',
 		'group' => 'interactive',
-		'section' => 'alert',
+		'section' => 'message',
 		'bundle' => array( 'web' => true, 'email' => false ),
 		'formatter-class' => 'EchoEditUserTalkFormatter',
 		'title-message' => 'notification-edit-talk-page2',
