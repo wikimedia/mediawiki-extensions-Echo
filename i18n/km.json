@@ -4,5 +4,11 @@
 			"គីមស៊្រុន"
 		]
 	},
-	"tooltip-pt-notifications": "សារជូនដំណឹងសម្រាប់អ្នក"
+	"prefs-echo": "ការជូនដំណឹង",
+	"echo-pref-email-frequency-never": "កុំផ្ញើសារជូនដំណឹងអោយសោះ",
+	"echo-pref-email-frequency-daily": "ការជូនដំណឹងសង្ខេបប្រចាំថ្ងៃ",
+	"notifications": "ការជូនដំណឹង",
+	"tooltip-pt-notifications": "សារជូនដំណឹងសម្រាប់អ្នក",
+	"echo-anon": "ដើម្បីទទួលបានការជូនដំណឺង សូម[$1 បង្កើតគណនី] ឬ [$2 កត់ឈ្មោះចូល]។",
+	"echo-overlay-link": "ការជូនដំណឹងទាំងអស់"
 }
