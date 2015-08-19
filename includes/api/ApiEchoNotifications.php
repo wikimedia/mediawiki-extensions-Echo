@@ -172,7 +172,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 	 * @param User $user
 	 * @param string[] $sections
 	 * @param boolean $groupBySection
-	 * @return aray
+	 * @return array
 	 */
 	protected function getPropCount( User $user, array $sections, $groupBySection ) {
 		$result = array();
