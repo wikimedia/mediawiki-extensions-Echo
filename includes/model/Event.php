@@ -383,7 +383,7 @@ class EchoEvent extends EchoAbstractEntity{
 	}
 
 	/**
-	 * @return string
+	 * @return string|null
 	 */
 	public function getVariant() {
 		return $this->variant;
@@ -401,7 +401,7 @@ class EchoEvent extends EchoAbstractEntity{
 	}
 
 	/**
-	 * @return User
+	 * @return User|null
 	 */
 	public function getAgent() {
 		return $this->agent;
