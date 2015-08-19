@@ -70,3 +70,4 @@ class EchoUserRightsFormatter extends EchoBasicFormatter {
 		return array( $target, $query );
 	}
 }
+
