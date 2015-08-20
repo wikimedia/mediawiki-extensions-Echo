@@ -128,5 +128,6 @@
 	"apihelp-echomarkread-param-all": "若設定，標記所有某個使用者的通知為已讀。",
 	"apihelp-echomarkread-param-sections": "要標記為已讀的章節清單。",
 	"apihelp-echomarkread-example-1": "標記通知 8 為已讀",
-	"apihelp-echomarkread-example-2": "標記所有通知為已讀"
+	"apihelp-echomarkread-example-2": "標記所有通知為已讀",
+	"apihelp-query+notifications-example-1": "通知清單"
 }
