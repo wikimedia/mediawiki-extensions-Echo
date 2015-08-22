@@ -78,7 +78,9 @@ class EchoEventMapper extends EchoAbstractMapper {
 		if ( $type == 'web' ) {
 			$res = $dbr->select(
 				array( 'echo_notification', 'echo_event' ),
-				array( 'echo_event.*' ),
+				array( 'event_agent_id', 'event_agent_ip', 'event_extra',
+					'event_id', 'event_page_id', 'event_type', 'event_variant',
+					'notification_timestamp' ),
 				array(
 					'notification_event=event_id',
 					'notification_user' => $user->getId(),
@@ -92,7 +94,9 @@ class EchoEventMapper extends EchoAbstractMapper {
 		} else {
 			$res = $dbr->select(
 				array( 'echo_email_batch', 'echo_event' ),
-				array( 'echo_event.*' ),
+				array( 'event_agent_id', 'event_agent_ip', 'event_extra',
+					'event_id', 'event_page_id', 'event_type', 'event_variant',
+					'notification_timestamp' ),
 				array(
 					'eeb_event_id=event_id',
 					'eeb_user_id' => $user->getId(),
