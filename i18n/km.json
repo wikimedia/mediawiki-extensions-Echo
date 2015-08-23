@@ -5,10 +5,20 @@
 		]
 	},
 	"prefs-echo": "ការជូនដំណឹង",
+	"prefs-emailsettings": "ជម្រើសទាក់ទិននឹងអ៊ីមែល",
+	"echo-pref-send-me": "ផ្ញើមកខ្ញុំនូវ៖",
+	"echo-pref-send-to": "ផ្ញើទៅកាន់៖",
+	"echo-pref-email-format": "ទម្រង់អ៊ីមែល៖",
+	"echo-pref-web": "វិបសាយ",
+	"echo-pref-email": "អ៊ីមែល",
 	"echo-pref-email-frequency-never": "កុំផ្ញើសារជូនដំណឹងអោយសោះ",
-	"echo-pref-email-frequency-daily": "ការជូនដំណឹងសង្ខេបប្រចាំថ្ងៃ",
+	"echo-pref-email-frequency-immediately": "សារជូនដំណឹងមួយៗពេលដែលគេផ្ញើចូលមក",
+	"echo-pref-email-frequency-daily": "ការជូនដំណឹងសង្ខេបសរុបប្រចាំថ្ងៃ",
+	"echo-pref-email-frequency-weekly": "ការជូនដំណឹងសង្ខេបសរុបប្រចាំសប្ដាហ៍",
+	"echo-pref-email-format-plain-text": "អក្សរសុទ្ធ",
 	"notifications": "ការជូនដំណឹង",
 	"tooltip-pt-notifications": "សារជូនដំណឹងសម្រាប់អ្នក",
 	"echo-anon": "ដើម្បីទទួលបានការជូនដំណឺង សូម[$1 បង្កើតគណនី] ឬ [$2 កត់ឈ្មោះចូល]។",
+	"echo-email-footer-default": "$2\n\nដើម្បីកំណត់អ៊ីមែលដែលយើងត្រូវផ្ញើអោយអ្នក សូមពិនិត្យចំណង់ចំណូលសិត្តរបស់អ្នក៖\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
 	"echo-overlay-link": "ការជូនដំណឹងទាំងអស់"
 }
