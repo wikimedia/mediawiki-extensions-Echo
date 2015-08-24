@@ -638,7 +638,8 @@ class EchoHooks {
 		$msgNotificationTimestamp = $notifUser->getLastUnreadMessageTime();
 		$alertNotificationTimestamp = $notifUser->getLastUnreadAlertTime();
 
-		$seenTime = $user->getOption( 'echo-seen-time' );
+		$seenTime = EchoSeenTime::newFromUser( $user )->getTime();
+		$sk->getOutput()->addJsConfigVars( 'wgEchoSeenTime', $seenTime );
 
 		$msgText = EchoNotificationController::formatNotificationCount( $msgCount );
 		$alertText = EchoNotificationController::formatNotificationCount( $alertCount );

@@ -71,6 +71,7 @@ $wgAutoloadClasses += array(
 	'EchoPageLinkFormatter' => __DIR__ . '/includes/formatters/PageLinkFormatter.php',
 	'EchoRevisionLocalCache' => __DIR__ . '/includes/cache/RevisionLocalCache.php',
 	'EchoRowUpdateGenerator' => __DIR__ . '/includes/BatchRowUpdate.php',
+	'EchoSeenTime' => __DIR__ . '/includes/SeenTime.php',
 	'EchoSuppressionRowUpdateGenerator' => __DIR__ . '/includes/schemaUpdate.php',
 	'EchoTalkPageFunctionalTest' => __DIR__ . '/tests/phpunit/TalkPageFunctionalTest.php',
 	'EchoTargetPage' => __DIR__ . '/includes/model/TargetPage.php',

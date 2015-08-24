@@ -27,7 +27,7 @@
 		this.api = new mw.Api( { ajax: { cache: false } } );
 		this.fetchNotificationsPromise = null;
 
-		this.seenTime = mw.user.options.get( 'echo-seen-time' );
+		this.seenTime = mw.config.get( 'wgEchoSeenTime' );
 
 		// Store references to unseen and unread notifications
 		this.unseenNotifications = new mw.echo.dm.NotificationList();
@@ -189,9 +189,9 @@
 				items = model.unseenNotifications.getItems(),
 				time = data.query.echomarkseen.timestamp;
 
-			// update echo-seen-time value in JS (where it wouldn't
+			// update wgEchoSeenTime value in JS (where it wouldn't
 			// otherwise propagate until page reload)
-			mw.user.options.set( 'echo-seen-time', time );
+			mw.config.set( 'wgEchoSeenTime', time );
 			model.setSeenTime( time );
 
 			// Update the notifications seen status
