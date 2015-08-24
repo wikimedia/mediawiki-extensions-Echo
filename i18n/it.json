@@ -13,7 +13,7 @@
 			"Alexmar983"
 		]
 	},
-	"echo-desc": "Sistema di notifica",
+	"echo-desc": "Sistema per notificare agli utenti messaggi ed eventi",
 	"prefs-echo": "Notifiche",
 	"prefs-emailsettings": "Opzioni email",
 	"prefs-displaynotifications": "Opzioni di visualizzazione",
@@ -30,7 +30,6 @@
 	"echo-pref-email-frequency-weekly": "Un riepilogo settimanale delle notifiche",
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Testo normale",
-	"echo-pref-notify-show-link": "Visualizza le notifiche nella mia barra degli strumenti",
 	"echo-pref-new-message-indicator": "Notificami i nuovi messaggi nella mia pagina di discussione con un avviso nella barra degli strumenti",
 	"echo-learn-more": "Ulteriori informazioni",
 	"echo-new-messages": "Hai nuovi messaggi",
@@ -49,8 +48,6 @@
 	"echo-no-agent": "[Nessuno]",
 	"echo-no-title": "[Nessuna pagina]",
 	"echo-error-no-formatter": "Nessuna formattazione definita per le notifiche",
-	"echo-error-preference": "Errore: impossibile impostare le preferenze dell'utente",
-	"echo-error-token": "Errore: impossibile recuperare token utente",
 	"notifications": "Notifiche",
 	"tooltip-pt-notifications": "Tutte le notifiche",
 	"echo-specialpage": "Notifiche",
