@@ -18,6 +18,7 @@
 	"echo-category-title-system": "{{PLURAL:$1|Sistema}}",
 	"echo-no-agent": "[Nissun]",
 	"echo-no-title": "[Nissuna pagina]",
+	"tooltip-pt-notifications": "Le to notifiche",
 	"notification-link-text-view-message": "Varda messajo",
 	"echo-mark-all-as-read": "Segna tuto come zà lèto",
 	"echo-date-today": "Uncuò",
