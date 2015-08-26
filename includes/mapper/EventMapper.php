@@ -79,7 +79,8 @@ class EchoEventMapper extends EchoAbstractMapper {
 			$res = $dbr->select(
 				array( 'echo_notification', 'echo_event' ),
 				array( 'event_agent_id', 'event_agent_ip', 'event_extra',
-					'event_id', 'event_page_id', 'event_type', 'event_variant' ),
+					'event_id', 'event_page_id', 'event_type', 'event_variant',
+					'notification_timestamp' ),
 				array(
 					'notification_event=event_id',
 					'notification_user' => $user->getId(),
