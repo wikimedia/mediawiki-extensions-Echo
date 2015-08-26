@@ -150,9 +150,9 @@ abstract class EchoDiscussionParser {
 			}
 			$mentionedUsers[$user->getId()] = $user->getId();
 			$count++;
-			// If more than 20 users are being pinged this is likely a spam/attack vector
+			// If more than 50 users are being pinged this is likely a spam/attack vector
 			// Don't send any mention notifications.
-			if ( $count > 20 ) {
+			if ( $count > 50 ) {
 				return;
 			}
 		}
