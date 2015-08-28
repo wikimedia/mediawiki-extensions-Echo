@@ -359,9 +359,31 @@ class EchoEvent extends EchoAbstractEntity {
 	 */
 	public function userCan( $field, User $user = null ) {
 		$revision = $this->getRevision();
-		if ( $revision ) {
+		// User is handled specially
+		if ( $field === Revision::DELETED_USER ) {
+			$agent = $this->getAgent();
+			if ( !$agent ) {
+				// No user associated, so they can see it.
+				return true;
+			} elseif ( $revision
+				&& $agent->getName() === $revision->getUserText( Revision::RAW )
+			) {
+				// If the agent and the revision user are the same, use rev_deleted
+				return $revision->userCan( $field, $user );
+			} else {
+				// Use User::isHidden()
+				if ( !$user ) {
+					// @FIXME Require a user object for this function
+					global $wgUser;
+					$user = $wgUser;
+				}
+				return $user->isAllowedAny( 'viewsuppressed', 'hideuser' ) || !$agent->isHidden();
+			}
+		} elseif ( $revision ) {
+			// A revision is set, use rev_deleted
 			return $revision->userCan( $field, $user );
 		} else {
+			// Not a user, and there is no associated revision, so the user can see it
 			return true;
 		}
 	}
