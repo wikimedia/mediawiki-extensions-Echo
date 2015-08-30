@@ -36,7 +36,7 @@
 	"echo-category-title-edit-user-talk": "토론 문서 {{PLURAL:$1|메시지}}",
 	"echo-category-title-article-linked": "문서 {{PLURAL:$1|링크}}",
 	"echo-category-title-reverted": "편집이 {{PLURAL:$1|되돌려짐}}",
-	"echo-category-title-mention": "본인 {{PLURAL:$1|언급}}",
+	"echo-category-title-mention": "{{PLURAL:$1|언급}}",
 	"echo-category-title-other": "{{PLURAL:$1|기타}}",
 	"echo-category-title-system": "{{PLURAL:$1|시스템}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|사용자 권한 변경}}",
