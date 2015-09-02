@@ -283,7 +283,7 @@
 								category: notifData.category,
 								content: $content,
 								// Hack: Get the primary link from the $content
-								primaryLink: $content.find( '.mw-echo-notification-primary-link' ).attr( 'href' )
+								primaryUrl: $content.find( '.mw-echo-notification-primary-link' ).attr( 'href' )
 							}
 						);
 

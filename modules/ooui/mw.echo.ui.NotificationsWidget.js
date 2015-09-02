@@ -141,7 +141,7 @@
 			return;
 		}
 
-		link = item.getPrimaryLink();
+		link = item.getPrimaryUrl();
 		if ( link ) {
 			// Log the clickthrough
 			mw.echo.logger.logInteraction( 'notification-link-click', item.getData(), this.type );

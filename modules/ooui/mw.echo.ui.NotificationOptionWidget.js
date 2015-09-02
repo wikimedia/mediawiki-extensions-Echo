@@ -110,8 +110,8 @@
 	 *
 	 * @return {string} Notification link
 	 */
-	mw.echo.ui.NotificationOptionWidget.prototype.getPrimaryLink = function () {
-		return this.model.getPrimaryLink();
+	mw.echo.ui.NotificationOptionWidget.prototype.getPrimaryUrl = function () {
+		return this.model.getPrimaryUrl();
 	};
 
 	/**
