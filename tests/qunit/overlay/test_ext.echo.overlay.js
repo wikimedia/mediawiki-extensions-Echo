@@ -1,7 +1,7 @@
 ( function ( $, mw ) {
 	QUnit.module( 'ext.echo.overlay', {
 		setup: function () {
-			this.$badge = $( '<a class="mw-echo-notifications-badge mw-echo-unread-notifications">1</a>' );
+			this.$badge = $( '<a class="mw-echo-notifications-badge mw-echo-unseen-notifications">1</a>' );
 			this.sandbox.stub( mw.echo, 'getBadge' ).returns( this.$badge );
 			// Kill any existing overlays to avoid clashing with other tests
 			$( '.mw-echo-overlay' ).remove();
@@ -210,7 +210,7 @@
 			'There is a footer with 2 links to preferences and all notifications.' );
 		assert.strictEqual( this.$badge.text(),
 			'0', 'The alerts are marked as read once opened.' );
-		assert.strictEqual( this.$badge.hasClass( 'mw-echo-unread-notifications' ),
+		assert.strictEqual( this.$badge.hasClass( 'mw-echo-unseen-notifications' ),
 			false, 'The badge no longer indicates new messages.' );
 	} );
 
@@ -226,7 +226,7 @@
 			true, 'First tab is the selected tab upon opening.' );
 		assert.strictEqual( this.$badge.text(),
 			'0', 'The label updates to 0 as alerts tab is default and now alerts have been read.' );
-		assert.strictEqual( this.$badge.hasClass( 'mw-echo-unread-notifications' ),
+		assert.strictEqual( this.$badge.hasClass( 'mw-echo-unseen-notifications' ),
 			false, 'The notification button class is updated with the default switch to alert tab.' );
 	} );
 
@@ -248,7 +248,7 @@
 			false, 'Second tab is not the selected tab.' );
 		assert.strictEqual( this.$badge.text(),
 			'0', 'The label is now set to 0.' );
-		assert.strictEqual( this.$badge.hasClass( 'mw-echo-unread-notifications' ),
+		assert.strictEqual( this.$badge.hasClass( 'mw-echo-unseen-notifications' ),
 			false, 'There are now zero unread notifications.' );
 
 		assert.strictEqual( $tabs.eq( 0 ).text(), 'Alerts (0)', 'Check the label has a count in it.' );

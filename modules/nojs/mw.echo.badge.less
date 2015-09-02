@@ -1,0 +1,41 @@
+@import '../echo.mixins';
+@import '../echo.variables';
+
+/* We have to include the #pt-notifications selector due to monobook */
+.mw-echo-notifications-badge {
+	#pt-notifications_alert &,
+	#pt-notifications_message & {
+		.mixin-notifications-badge;
+		display: inline-block;
+
+		padding: @badge-padding 0.35em @badge-padding 1.45em;
+
+		body.ltr & {
+			background-position: @badge-padding center;
+		}
+		body.rtl & {
+			// CSS sucks, we can't specify background-position-x from the right
+			// You can in Firefox with background-position-x: right 0.12em;
+			// but that's not supported in any other browsers
+			background-position: ~"calc(100% - @{badge-padding}) center";
+		}
+		background-size: @badge-icon-size;
+
+		&:hover,
+		&:active,
+		&:focus {
+			background-color: #c2c2c2;
+			outline: none;
+			-moz-outline-style: none;
+		}
+	}
+
+	&.mw-echo-unseen-notifications {
+		#pt-notifications_alert & {
+			background-color: @badge-background-unseen-alert;
+		}
+		#pt-notifications_message & {
+			background-color: @badge-background-unseen-message;
+		}
+	}
+}

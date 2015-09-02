@@ -16,8 +16,6 @@
 
 			// Convert more link into a button
 			$( '#mw-echo-more' )
-				.addClass( 'mw-ui-button mw-ui-primary' )
-				.css( 'margin', '0.5em 0 0 0' )
 				.click( function ( e ) {
 					e.preventDefault();
 					if ( !mw.echo.special.processing ) {
@@ -32,14 +30,19 @@
 			// Set up each individual notification with eventlogging, a close
 			// box and dismiss interface if it is dismissable.
 			$( '.mw-echo-notification' ).each( function () {
-				mw.echo.setupNotificationLogging( $( this ), 'archive' );
+				mw.echo.logger.logInteraction(
+					'notification-impression',
+					mw.echo.Logger.static.context.archive,
+					Number( $( this ).attr( 'data-notification-event' ) ),
+					$( this ).attr( 'data-notification-type' )
+				);
 			} );
 
 			$( '#mw-echo-moreinfo-link' ).click( function () {
-				mw.echo.logInteraction( 'ui-help-click', 'archive' );
+				mw.echo.logger.logInteraction( 'ui-help-click', mw.echo.Logger.static.context.archive );
 			} );
 			$( '#mw-echo-pref-link' ).click( function () {
-				mw.echo.logInteraction( 'ui-prefs-click', 'archive' );
+				mw.echo.logger.logInteraction( 'ui-prefs-click', mw.echo.Logger.static.context.archive );
 			} );
 
 			// Convert subtitle links into header icons for Vector and Monobook skins
@@ -105,7 +108,12 @@
 						$li.addClass( 'mw-echo-unseen' );
 					}
 
-					mw.echo.setupNotificationLogging( $li, 'archive' );
+					mw.echo.logger.logInteraction(
+						'notification-impression',
+						mw.echo.Logger.static.context.archive,
+						Number( $li.attr( 'data-notification-event' ) ),
+						$li.attr( 'data-notification-type' )
+					);
 				} );
 
 				that.notcontinue = notifications['continue'];
@@ -123,32 +131,21 @@
 		 * Mark notifications as read.
 		 */
 		markAsRead: function ( unread ) {
-			var newCount, rawCount, $badge,
-				api = new mw.Api(),
+			var api = new mw.Api(),
 				that = this;
-
 			api.postWithToken( 'edit', {
 				action: 'echomarkread',
 				list: unread.join( '|' ),
 				uselang: useLang
-			} ).done( function ( result ) {
-				// update the badge if the link is enabled
-				if ( result.query.echomarkread.count !== undefined &&
-					$( '#pt-notifications' ).length
-				) {
-					newCount = result.query.echomarkread.count;
-					rawCount = result.query.echomarkread.rawcount;
-					$badge = mw.echo.getBadge();
-					$badge.text( newCount );
+			} ).done( function () {
+				// HACK: We should really redo the way the entire special
+				// page handles the notifications now that they are separated
+				// into 'alert' and 'messages'. However, until that happens,
+				// the badges should be updated individually.
+				// Don't try this at home.
+				mw.echo.ui.messageWidget.fetchUnreadCountFromApi();
+				mw.echo.ui.alertWidget.fetchUnreadCountFromApi();
 
-					// Special:Notifications never loads newer notifications, so
-					// the badge should never light up again when it fetches
-					// additional (older) unread notifications. It can only go
-					// grey once all unread posts have been fetched.
-					if ( rawCount === '0' || rawCount === 0 ) {
-						$badge.removeClass( 'mw-echo-unread-notifications' );
-					}
-				}
 				that.onSuccess();
 			} ).fail( function () {
 				that.onError();

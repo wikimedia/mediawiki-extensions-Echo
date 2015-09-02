@@ -1,0 +1,79 @@
+@import '../../echo.mixins';
+@import '../../echo.variables';
+
+.mw-echo-ui-notificationBadgeButtonPopupWidget {
+	&-alert {
+		// Must be strong to override OOUI's button background color definition
+		&.oo-ui-flaggedElement-unseen > .oo-ui-buttonElement-button {
+			background-color: @badge-background-unseen-alert;
+		}
+	}
+	&-message {
+		// Must be strong to override OOUI's button background color definition
+		&.oo-ui-flaggedElement-unseen > .oo-ui-buttonElement-button {
+			background-color: @badge-background-unseen-message;
+		}
+	}
+
+	.oo-ui-popupWidget-footer {
+		border-top: 1px solid #DDDDDD;
+		.oo-ui-buttonElement {
+			display: table-cell;
+			white-space: normal;
+			font-weight: bold;
+			padding: 1em 3em 1em 2.5em;
+
+			&:last-child {
+				border-left: 1px solid #DDDDDD;
+			}
+		}
+	}
+
+	// Badge
+	> .oo-ui-buttonElement-button {
+		.mixin-notifications-badge();
+		padding: @badge-padding;
+
+		.oo-ui-labelElement-label {
+			// We must use !important here because ooui's button's label rules
+			// are extremely strong and cannot be overridden
+			color: @badge-text-color-idle !important;
+		}
+		.oo-ui-iconElement-icon {
+			// We must use !important here because ooui's button's icon rules
+			// are extremely strong and cannot be overridden
+			width: @badge-icon-size !important;
+			height: @badge-icon-size !important;
+			margin-top: -0.1em;
+			&.oo-ui-icon-speechBubble {
+				margin-top: -0.14em;
+				padding-left: 0.1em;
+			}
+		}
+	}
+
+	.oo-ui-popupWidget {
+		// #p-personal li has a font-size of 0.75em, but we want the
+		// font size here to be exactly 0.875em, so we must override
+		// the parent em sizing by dividing.
+		font-size: 0.875em / 0.75em;
+	}
+
+	.oo-ui-popupWidget-head {
+		> .oo-ui-iconWidget {
+			float: left;
+			margin: 0.7em 0 1em 1em;
+		}
+
+		> .oo-ui-labelElement-label {
+			font-size: 1.2em;
+			padding: 0.3em;
+			margin-left: 0;
+			font-weight: bold;
+		}
+
+		.mw-echo-ui-notificationsWidget-markAllReadButton {
+			margin: 1em;
+		}
+	}
+}

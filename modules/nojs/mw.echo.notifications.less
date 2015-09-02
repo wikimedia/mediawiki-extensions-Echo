@@ -1,0 +1,84 @@
+// This needs to be outside the upper selector 'NotificationOptionWidget'
+// because the same styles also apply (for the moment, at least) to the notification
+// objects in the Special:Notifications page, which are, individually
+// not wrapped with a notificationOptionWidget.
+.mw-echo-state {
+	display: block;
+	padding: 15px 40px 10px 10px;
+
+	.mw-echo-notification-primary-link {
+		display: none;
+	}
+
+	.mw-echo-icon {
+		width: 30px;
+		height: 30px;
+		float: left;
+		margin-right: 10px;
+		margin-left: 10px;
+	}
+	.mw-echo-notification {
+		clear: both;
+		display: block;
+		color: #6D6D6D;
+		line-height: 90%;
+		margin: 0;
+		min-height: 30px;
+		background-color: white;
+		position: relative;
+		padding-top: 15px;
+		padding-bottom: 10px;
+		/* Force container to expand to height of floated contents */
+		overflow: hidden;
+		zoom: 1;
+
+		&.mw-echo-unread {
+			color: #252525;
+		}
+
+		span.autocomment {
+			color: inherit;
+			font-style: normal;
+		}
+	}
+
+	.mw-echo-notifications {
+		background-color: #EEEEEE;
+	}
+
+	.mw-echo-content {
+		overflow: hidden;
+		display: block;
+
+		.mw-echo-title {
+			color: #666666;
+			font-size: 1em;
+			line-height: 1.4em;
+
+			.mw-echo-title-heading {
+				color: #666;
+				font-size: 1.15em;
+			}
+			.mw-echo-title-heading,
+			.mw-echo-title-heading a {
+				font-weight: bold;
+			}
+
+			.mw-echo-title-heading,
+			.plainlinks {
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				max-width: 100%;
+				display: inline-block;
+				vertical-align: top;
+			}
+		}
+
+		.mw-echo-timestamp, .mw-echo-notification-footer {
+			color: #6D6D6D;
+			font-size: 11px;
+			margin-top: 0.2em;
+		}
+	}
+}

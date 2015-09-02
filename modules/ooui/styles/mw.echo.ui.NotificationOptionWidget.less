@@ -1,0 +1,91 @@
+@import '../../echo.variables';
+
+.mw-echo-ui-notificationOptionWidget {
+	padding: 0.5em;
+	background-color: #F1F1F1;
+	border-bottom: 1px solid #DDDDDD;
+	white-space: normal;
+	font-size: 13px;
+	line-height: 16px;
+
+	&:last-child {
+		border-bottom: none;
+	}
+
+	.oo-ui-labelElement-label {
+		// We have to override this with !important because OOUI's rules for
+		// the label element are extremely strong and cannot be overridden
+		white-space: normal !important;
+	}
+
+	&-markAsReadButton {
+		float: right;
+		font-size: 0.5em;
+		opacity: 0.5;
+		padding: 0.5em;
+
+		&:hover {
+			opacity: 1;
+		}
+	}
+
+	&:not(:hover) a,
+	#p-personal &:not(:hover) a.new {
+		color: #666666;
+		text-decoration: none;
+	}
+
+	&-unseen {
+		-webkit-animation-name: unseen-fadeout;
+		animation-name: unseen-fadeout;
+		-webkit-animation-duration: .5s;
+		animation-duration: .5s;
+		-webkit-animation-delay: 2s;
+		animation-delay: 2s;
+		-webkit-animation-timing-function: ease-out;
+		animation-timing-function: ease-out;
+		-webkit-animation-fill-mode: both;
+		animation-fill-mode: both;
+
+		&.mw-echo-ui-notificationOptionWidget-markReadWhenSeen {
+			-webkit-animation-name: unseen-fadeout-to-read;
+			animation-name: unseen-fadeout-to-read;
+		}
+	}
+	&-unread {
+		background-color: white;
+	}
+
+	&.oo-ui-optionWidget-selected,
+	&.oo-ui-optionWidget-highlighted {
+		background-color: #F9F9F9;
+	}
+
+	&-unread.oo-ui-optionWidget-highlighted {
+		background-color: white;
+	}
+
+	// NOTE: The internal styling of the notifications is outside this file, because
+	// it also affects the notifications in Special:Notifications
+	// These styles are in modules/nojs/ext.echo.notifications.less
+}
+
+@-webkit-keyframes unseen-fadeout {
+	from { background-color: @notification-background-unseen; }
+	to { background-color: @notification-background-unread; }
+}
+
+@keyframes unseen-fadeout {
+	from { background-color: @notification-background-unseen; }
+	to { background-color: @notification-background-unread; }
+}
+
+@-webkit-keyframes unseen-fadeout-to-read {
+	from { background-color: @notification-background-unseen; }
+	to { background-color: @notification-background-read; }
+}
+
+@keyframes unseen-fadeout-to-read {
+	from { background-color: @notification-background-unseen; }
+	to { background-color: @notification-background-read; }
+}
