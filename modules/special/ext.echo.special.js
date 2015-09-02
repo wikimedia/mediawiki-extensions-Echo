@@ -61,7 +61,7 @@
 		loadMore: function () {
 			var notifications, data, container, $li,
 				api = new mw.Api( { ajax: { cache: false } } ),
-				seenTime = mw.user.options.get( 'echo-seen-time' ),
+				seenTime = mw.config.get( 'wgEchoSeenTime' ),
 				that = this,
 				unread = [],
 				apiData = {

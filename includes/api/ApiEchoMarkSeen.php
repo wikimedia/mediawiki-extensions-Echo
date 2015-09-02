@@ -11,14 +11,9 @@ class ApiEchoMarkSeen extends ApiBase {
 			$this->dieUsage( 'Login is required', 'login-required' );
 		}
 
-		// Load from the master to reduce CAS errors from high update frequency
-		$u = User::newFromId( $user->getId() );
-		$u->load( User::READ_LATEST );
-
 		$timestamp = wfTimestamp( TS_MW );
-		// @TODO: do not abuse user preferences for "last seen"
-		$u->setOption( 'echo-seen-time', $timestamp );
-		$u->saveSettings();
+		$seenTime = EchoSeenTime::newFromUser( $user );
+		$seenTime->setTime( $timestamp );
 
 		$this->getResult()->addValue( 'query', $this->getModuleName(), array(
 			'result' => 'success',

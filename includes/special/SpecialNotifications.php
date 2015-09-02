@@ -71,7 +71,8 @@ class SpecialNotifications extends SpecialPage {
 		$dateHeader = '';
 		$notices = '';
 		$unread = array();
-		$seenTime = $user->getOption( 'echo-seen-time' );
+		$echoSeenTime = EchoSeenTime::newFromUser( $user );
+		$seenTime = $echoSeenTime->getTime();
 		foreach ( $notif as $row ) {
 			$class = 'mw-echo-notification';
 
@@ -141,8 +142,7 @@ class SpecialNotifications extends SpecialPage {
 
 		// Record time notifications have been seen
 		$timestamp = wfTimestamp( TS_MW );
-		$user->setOption( 'echo-seen-time', $timestamp );
-		$user->saveSettings();
+		$echoSeenTime->setTime( $timestamp );
 	}
 
 	/**
