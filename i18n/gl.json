@@ -7,7 +7,7 @@
 			"Banjo"
 		]
 	},
-	"echo-desc": "Sistema de notificacións",
+	"echo-desc": "Sistema para notificar ós usuarios sobre eventos e mensaxes",
 	"prefs-echo": "Notificacións",
 	"prefs-emailsettings": "Opcións de correo electrónico",
 	"prefs-displaynotifications": "Opcións de visualización",
@@ -24,7 +24,6 @@
 	"echo-pref-email-frequency-weekly": "Un resumo semanal das notificacións",
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Texto simple",
-	"echo-pref-notify-show-link": "Mostrar as notificacións na miña barra de ferramentas",
 	"echo-pref-new-message-indicator": "Mostrar o indicador de mensaxe na páxina de conversa na miña barra de ferramentas",
 	"echo-learn-more": "Máis información",
 	"echo-new-messages": "Ten mensaxes novas",
@@ -43,8 +42,6 @@
 	"echo-no-agent": "[Ninguén]",
 	"echo-no-title": "[Ningunha páxina]",
 	"echo-error-no-formatter": "Non se definiu formato ningún para a notificación",
-	"echo-error-preference": "Erro: Non se puido establecer a preferencia de usuario",
-	"echo-error-token": "Erro: Non se puido recuperar o pase de usuario",
 	"notifications": "Notificacións",
 	"tooltip-pt-notifications": "As súas notificacións",
 	"echo-specialpage": "Notificacións",
