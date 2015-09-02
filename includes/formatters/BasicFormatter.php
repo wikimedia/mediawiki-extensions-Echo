@@ -405,7 +405,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 		$content = EchoDiscussionParser::stripHeader( $extra['content'] );
 		$content = EchoDiscussionParser::stripSignature( $content );
 		$content = EchoDiscussionParser::stripIndents( $content );
-		return EchoDiscussionParser::getTextSnippet( $content, 200 );
+		return EchoDiscussionParser::getTextSnippet( $content, $this->getLanguage(), 200 );
 	}
 
 	/**

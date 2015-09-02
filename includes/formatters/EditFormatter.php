@@ -64,7 +64,11 @@ class EchoEditFormatter extends EchoBasicFormatter {
 
 		if ( !empty( $extra['section-title'] ) ) {
 			if ( $event->userCan( Revision::DELETED_TEXT, $user ) ) {
-				return EchoDiscussionParser::getTextSnippet( $extra['section-title'], 30 );
+				return EchoDiscussionParser::getTextSnippet(
+						$extra['section-title'],
+						$this->getLanguage(),
+						30
+				);
 			} else {
 				return $this->getMessage( 'echo-rev-deleted-text-view' )->text();
 			}
