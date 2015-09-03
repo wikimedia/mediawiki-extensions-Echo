@@ -17,8 +17,8 @@
 			$existingMessageLink = $( '#pt-notifications_message a' ),
 			numAlerts = $existingAlertLink.text(),
 			numMessages = $existingMessageLink.text(),
-			hasUnreadAlerts = $existingAlertLink.hasClass( 'mw-echo-unseen-notifications' ),
-			hasUnreadMessages = $existingMessageLink.hasClass( 'mw-echo-unseen-notifications' ),
+			hasUnseenAlerts = $existingAlertLink.hasClass( 'mw-echo-unseen-notifications' ),
+			hasUnseenMessages = $existingMessageLink.hasClass( 'mw-echo-unseen-notifications' ),
 			// Store links
 			links = {
 				notifications: $( '#pt-notifications_message a' ).attr( 'href' ),
@@ -30,7 +30,7 @@
 				type: 'message',
 				markReadWhenSeen: false,
 				numItems: numMessages,
-				hasUnread: hasUnreadMessages,
+				hasUnseen: hasUnseenMessages,
 				badgeIcon: 'speechBubble',
 				links: links
 			} );
@@ -41,10 +41,10 @@
 			type: 'alert',
 			markReadWhenSeen: true,
 			numItems: numAlerts,
-			hasUnread: hasUnreadAlerts,
+			hasUnseen: hasUnseenAlerts,
 			badgeIcon: {
-				read: 'bell',
-				unread: 'bellOn'
+				seen: 'bell',
+				unseen: 'bellOn'
 			},
 			links: links
 		} );
