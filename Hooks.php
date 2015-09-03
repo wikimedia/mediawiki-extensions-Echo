@@ -638,8 +638,13 @@ class EchoHooks {
 		$msgNotificationTimestamp = $notifUser->getLastUnreadMessageTime();
 		$alertNotificationTimestamp = $notifUser->getLastUnreadAlertTime();
 
-		$seenTime = EchoSeenTime::newFromUser( $user )->getTime();
-		$sk->getOutput()->addJsConfigVars( 'wgEchoSeenTime', $seenTime );
+		$seenAlertTime = EchoSeenTime::newFromUser( $user )->getTime( 'alert' );
+		$seenMsgTime = EchoSeenTime::newFromUser( $user )->getTime( 'message' );
+
+		$sk->getOutput()->addJsConfigVars( 'wgEchoSeenTime', array(
+			'alert' => $seenAlertTime,
+			'message' => $seenMsgTime
+		) );
 
 		$msgText = EchoNotificationController::formatNotificationCount( $msgCount );
 		$alertText = EchoNotificationController::formatNotificationCount( $alertCount );
@@ -652,7 +657,7 @@ class EchoHooks {
 		if (
 			$msgCount != 0 && // no unread notifications
 			$msgNotificationTimestamp !== false && // should already always be false if count === 0
-			( $seenTime === null || $seenTime < $msgNotificationTimestamp->getTimestamp( TS_MW ) ) // there are no unseen notifications
+			( $seenMsgTime === null || $seenMsgTime < $msgNotificationTimestamp->getTimestamp( TS_MW ) ) // there are no unseen notifications
 		) {
 			$msgLinkClasses[] = 'mw-echo-unseen-notifications';
 		}
@@ -661,7 +666,7 @@ class EchoHooks {
 		if (
 			$alertCount != 0 && // no unread notifications
 			$alertNotificationTimestamp !== false && // should already always be false if count === 0
-			( $seenTime === null || $seenTime < $alertNotificationTimestamp->getTimestamp( TS_MW ) ) // all notifications have already been seen
+			( $seenAlertTime === null || $seenAlertTime < $alertNotificationTimestamp->getTimestamp( TS_MW ) ) // all notifications have already been seen
 		) {
 			$alertLinkClasses[] = 'mw-echo-unseen-notifications';
 			$alertIcon = "bellOn";

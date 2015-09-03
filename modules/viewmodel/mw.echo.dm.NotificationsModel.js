@@ -152,7 +152,7 @@
 	 * @param {string} Mediawiki seen timestamp in Mediawiki timestamp format
 	 */
 	mw.echo.dm.NotificationsModel.prototype.setSeenTime = function ( time ) {
-		this.seenTime = time;
+		this.seenTime[this.type] = time;
 	};
 
 	/**
@@ -161,7 +161,7 @@
 	 * @return {string} Mediawiki seen timestamp in Mediawiki timestamp format
 	 */
 	mw.echo.dm.NotificationsModel.prototype.getSeenTime = function () {
-		return this.seenTime;
+		return this.seenTime[this.type];
 	};
 
 	/**
@@ -183,7 +183,8 @@
 		var model = this;
 
 		return this.api.postWithToken( 'edit', {
-			action: 'echomarkseen'
+			action: 'echomarkseen',
+			type: this.type
 		} ).then( function ( data ) {
 			var i, len,
 				items = model.unseenNotifications.getItems(),
@@ -191,7 +192,6 @@
 
 			// update wgEchoSeenTime value in JS (where it wouldn't
 			// otherwise propagate until page reload)
-			mw.config.set( 'wgEchoSeenTime', time );
 			model.setSeenTime( time );
 
 			// Update the notifications seen status
@@ -200,7 +200,7 @@
 			}
 			model.unseenNotifications.clearItems();
 
-			model.emit( 'updateSeenTime' );
+			model.emit( 'updateSeenTime', model.getSeenTime() );
 		} );
 	};
 
