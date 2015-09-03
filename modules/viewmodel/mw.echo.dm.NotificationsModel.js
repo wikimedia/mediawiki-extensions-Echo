@@ -55,7 +55,6 @@
 
 	/**
 	 * @event updateSeenTime
-	 * @param {number} seenTime Seen time
 	 *
 	 * Seen time has been updated
 	 */
@@ -110,9 +109,9 @@
 
 		if ( unreadItem ) {
 			if ( isRead ) {
-				this.unseenNotifications.removeItems( [ unreadItem ] );
+				this.unreadNotifications.removeItems( [ unreadItem ] );
 			} else {
-				this.unseenNotifications.addItems( [ unreadItem ] );
+				this.unreadNotifications.addItems( [ unreadItem ] );
 			}
 			this.emit( 'unreadChange', this.unreadNotifications.getItems() );
 		}
@@ -149,6 +148,7 @@
 	/**
 	 * Set the system seen time - the last time we've marked notification as seen
 	 *
+	 * @private
 	 * @param {string} Mediawiki seen timestamp in Mediawiki timestamp format
 	 */
 	mw.echo.dm.NotificationsModel.prototype.setSeenTime = function ( time ) {
@@ -180,28 +180,26 @@
 	 * @fires updateSeenTime
 	 */
 	mw.echo.dm.NotificationsModel.prototype.updateSeenTime = function () {
-		var model = this;
+		var i, len,
+			model = this,
+			items = this.unseenNotifications.getItems();
+
+		// Update the notifications seen status
+		for ( i = 0, len = items.length; i < len; i++ ) {
+			items[i].toggleSeen( true );
+		}
+		this.emit( 'updateSeenTime' );
 
 		return this.api.postWithToken( 'edit', {
 			action: 'echomarkseen',
 			type: this.type
-		} ).then( function ( data ) {
-			var i, len,
-				items = model.unseenNotifications.getItems(),
-				time = data.query.echomarkseen.timestamp;
+		} )
+			.then( function ( data ) {
+				var time = data.query.echomarkseen.timestamp;
 
-			// update wgEchoSeenTime value in JS (where it wouldn't
-			// otherwise propagate until page reload)
-			model.setSeenTime( time );
-
-			// Update the notifications seen status
-			for ( i = 0, len = items.length; i < len; i++ ) {
-				items[i].toggleSeen( true );
-			}
-			model.unseenNotifications.clearItems();
-
-			model.emit( 'updateSeenTime', model.getSeenTime() );
-		} );
+				// Update seen time from the server
+				model.setSeenTime( time );
+			} );
 	};
 
 	/**
