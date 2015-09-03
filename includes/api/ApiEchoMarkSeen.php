@@ -11,9 +11,10 @@ class ApiEchoMarkSeen extends ApiBase {
 			$this->dieUsage( 'Login is required', 'login-required' );
 		}
 
+		$params = $this->extractRequestParams();
 		$timestamp = wfTimestamp( TS_MW );
 		$seenTime = EchoSeenTime::newFromUser( $user );
-		$seenTime->setTime( $timestamp );
+		$seenTime->setTime( $timestamp, $params['type'] );
 
 		$this->getResult()->addValue( 'query', $this->getModuleName(), array(
 			'result' => 'success',
@@ -26,6 +27,10 @@ class ApiEchoMarkSeen extends ApiBase {
 			'token' => array(
 				ApiBase::PARAM_REQUIRED => true,
 			),
+			'type' => array(
+				ApiBase::PARAM_REQUIRED => true,
+				ApiBase::PARAM_TYPE => array( 'alert', 'message', 'all' ),
+			)
 		);
 	}
 
@@ -75,7 +80,7 @@ class ApiEchoMarkSeen extends ApiBase {
 	 */
 	protected function getExamplesMessages() {
 		return array(
-			'action=echomarkseen' => 'apihelp-echomarkseen-example-1',
+			'action=echomarkseen&type=all' => 'apihelp-echomarkseen-example-1',
 		);
 	}
 
