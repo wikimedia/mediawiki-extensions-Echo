@@ -81,6 +81,7 @@ abstract class EchoDiscussionParser {
 	 * @param Title $title
 	 */
 	public static function detectSectionTitleAndText( array $interpretation, Title $title = null ) {
+		global $wgLang;
 		$header = $snippet = '';
 		$found = false;
 
@@ -88,11 +89,17 @@ abstract class EchoDiscussionParser {
 			switch( $action['type'] ) {
 				case 'add-comment':
 					$header  = self::extractHeader( $action['full-section'] );
-					$snippet = self::getTextSnippet( self::stripSignature( self::stripHeader( $action['content'] ), $title ), 150 );
+					$snippet = self::getTextSnippet(
+							self::stripSignature( self::stripHeader( $action['content'] ), $title ),
+							$wgLang,
+							150 );
 					break;
 				case 'new-section-with-comment':
 					$header  = self::extractHeader( $action['content'] );
-					$snippet = self::getTextSnippet( self::stripSignature( self::stripHeader( $action['content'] ), $title ), 150 );
+					$snippet = self::getTextSnippet(
+							self::stripSignature( self::stripHeader( $action['content'] ), $title ),
+							$wgLang,
+							150 );
 					break;
 			}
 			if ( $header ) {
@@ -815,12 +822,11 @@ abstract class EchoDiscussionParser {
 	 * This function returns plain text snippet, it also removes html tag,
 	 * template from text content
 	 * @param $text string
+	 * @param Language $lang
 	 * @param $length int default 150
 	 * @return string
 	 */
-	static function getTextSnippet( $text, $length = 150 ) {
-		global $wgLang;
-
+	static function getTextSnippet( $text, Language $lang, $length = 150 ) {
 		$text = strip_tags( $text );
 		$attempt = 0;
 
@@ -849,7 +855,7 @@ abstract class EchoDiscussionParser {
 		$text = trim( strip_tags( htmlspecialchars_decode( $text ) ) );
 		// strip out non-useful data for snippet
 		$text = str_replace( array( '{', '}' ), '', $text );
-		$text = $wgLang->truncate( $text, $length );
+		$text = $lang->truncate( $text, $length );
 
 		// Return empty string if there is undecoded char left
 		if ( strpos( $text, '&#' ) !== false ) {
