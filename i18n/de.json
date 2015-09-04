@@ -124,7 +124,7 @@
 	"apihelp-echomarkread-example-1": "Benachrichtigung 8 als gelesen markieren",
 	"apihelp-echomarkread-example-2": "Alle Benachrichtigungen als gelesen markieren",
 	"apihelp-echomarkseen-description": "Benachrichtigungen für den derzeitigen Benutzer als gesehen markieren.",
-	"apihelp-echomarkseen-example-1": "Benachrichtigungen als gesehen markieren",
+	"apihelp-echomarkseen-example-1": "Benachrichtigungen aller Typen als gesehen markieren",
 	"apihelp-query+notifications-description": "Benachrichtigungen abrufen, die auf den aktuellen Benutzer warten.",
 	"apihelp-query+notifications-param-prop": "Einzelheiten der Anfrage.",
 	"apihelp-query+notifications-param-sections": "Die Abschnitte der Meldungen abfragen.",
