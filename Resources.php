@@ -114,8 +114,17 @@ $wgResourceModules += array(
 		'position' => 'top',
 		'styles' => array(
 			'nojs/mw.echo.badge.less',
+			'nojs/mw.echo.alert.less',
 			'nojs/mw.echo.special.less',
 			'nojs/mw.echo.notifications.less'
+		),
+		'skinStyles' => array(
+			'monobook' => array(
+				'nojs/mw.echo.alert.monobook.less',
+			),
+			'modern' => array(
+				'nojs/mw.echo.alert.modern.less',
+			)
 		),
 		'targets' => array( 'desktop', 'mobile' ),
 	),
