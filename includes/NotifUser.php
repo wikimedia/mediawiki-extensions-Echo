@@ -276,7 +276,7 @@ class MWEchoNotifUser {
 
 		$count = count( $this->notifMapper->fetchByUser( $this->mUser, 1, 0, $eventTypesToLoad ) );
 
-		$result = $count > 0 ? 1 : 0;
+		$result = (int)( $count > 0 );
 		$this->cache->set( $memcKey, $result, 86400 );
 
 		return (bool)$result;
@@ -288,7 +288,7 @@ class MWEchoNotifUser {
 	 * of whether they have messages against the database at all.
 	 */
 	public function cacheHasMessages() {
-		$this->cache->set( $memcKey, 1, 86400 );
+		$this->cache->set( $this->getHasMessagesKey(), 1, 86400 );
 	}
 
 	/**
