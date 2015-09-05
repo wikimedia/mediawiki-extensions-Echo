@@ -136,7 +136,7 @@
 	"apihelp-echomarkread-example-1": "Пометить уведомление 8 как прочитанное",
 	"apihelp-echomarkread-example-2": "Отметить все уведомления как прочитанные",
 	"apihelp-echomarkseen-description": "Отметить уведомления как прочитанные для данного пользователя.",
-	"apihelp-echomarkseen-example-1": "Отметить уведомления как прочитанные",
+	"apihelp-echomarkseen-example-1": "Отметить уведомления всех типов как прочитанные",
 	"apihelp-query+notifications-param-prop": "Подробности для запроса.",
 	"apihelp-query+notifications-param-groupbysection": "Следует ли группировать результат по разделам. Если задано, каждый раздел извлекается отдельно.",
 	"apihelp-query+notifications-param-format": "Если определено, уведомления будут возвращены отформатированными таким образом.",

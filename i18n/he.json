@@ -130,7 +130,7 @@
 	"apihelp-echomarkseen-param-type": "סוג ההתראות לסמן בתור נראות: 'alert'‏, 'message' או 'all'.",
 	"apihelp-query+notifications-description": "קבלת התראות שממתינות למשתמש הנוכחי.",
 	"apihelp-query+notifications-param-prop": "אילו פרטים לבקש.",
-	"apihelp-query+notifications-param-sections": "פסקאות ההתראות שצריך לאחזר.",
+	"apihelp-query+notifications-param-sections": "פסקאות ההתראות שצריך לאחזר (כלומר, שילוב כלשהו של 'alert' ו־'message').",
 	"apihelp-query+notifications-param-groupbysection": "האם לקבץ את התוצאות לפי פסקה. כל פסקה מאוחזרת בנפרד אם זה מוגדר.",
 	"apihelp-query+notifications-param-format": "אם זה מצוין, ההתראות תוחזרנה עם עיצוב כזה.",
 	"apihelp-query+notifications-param-limit": "המספר המרבי של ההתראות להחזיר.",

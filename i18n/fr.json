@@ -21,7 +21,8 @@
 			"NemesisIII",
 			"Od1n",
 			"Mattho69",
-			"Wladek92"
+			"Wladek92",
+			"Momo50WM"
 		]
 	},
 	"echo-desc": "Système pour avertir les utilisateurs sur les événements et les messages",
@@ -142,7 +143,7 @@
 	"apihelp-echomarkseen-param-type": "Type de notifications à marquer comme vues : 'alert', 'message' ou 'all'.",
 	"apihelp-query+notifications-description": "Obtenir les notifications en attente pour l’utilisateur courant.",
 	"apihelp-query+notifications-param-prop": "Détails à demander.",
-	"apihelp-query+notifications-param-sections": "Les sections de notification à demander.",
+	"apihelp-query+notifications-param-sections": "Les sections de notification de la requête (c'est à dire une combinaison de 'alerte' et 'message').",
 	"apihelp-query+notifications-param-groupbysection": "S’il faut grouper les résultats par section. Chaque section est analysée séparément, s’il est défini.",
 	"apihelp-query+notifications-param-format": "Si spécifié, les notifications seront renvoyées dans ce format.",
 	"apihelp-query+notifications-param-limit": "Le nombre maximal de notifications à renvoyer.",
