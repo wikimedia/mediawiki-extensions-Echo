@@ -70,7 +70,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 	/**
 	 * Internal method for getting the property 'list' data for individual section
 	 * @param User $user
-	 * @param string $section
+	 * @param string $section 'alert' or 'message'
 	 * @param int $limit
 	 * @param string $continue
 	 * @param string $format
@@ -81,9 +81,8 @@ class ApiEchoNotifications extends ApiQueryBase {
 		$notifUser = MWEchoNotifUser::newFromUser( $user );
 		$attributeManager = EchoAttributeManager::newFromGlobalVars();
 		$sectionEvents = $attributeManager->getUserEnabledEventsbySections( $user, 'web', array( $section ) );
-		// Some section like 'message' only has flow notifications, which most wikis and
-		// users don't have, we should skip the query in such case
-		if ( !$sectionEvents || !$notifUser->shouldQuerySectionData( $section ) ) {
+
+		if ( !$sectionEvents ) {
 			$result = array(
 				'list' => array(),
 				'continue' => null
@@ -92,12 +91,6 @@ class ApiEchoNotifications extends ApiQueryBase {
 			$result = $this->getPropList(
 				$user, $sectionEvents, $limit, $continue, $format, $unreadFirst
 			);
-			// If events exist for applicable section we should set the section status
-			// in cache to check whether a query should be triggered in later request.
-			// This is mostly for users who don't have 'message' notifications
-			if ( $sectionEvents ) {
-				$notifUser->setSectionStatusCache( $section, count( $result['list'] ) );
-			}
 		}
 		return $result;
 	}
@@ -265,7 +258,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 	public function getParamDescription() {
 		return array(
 			'prop' => 'Details to request.',
-			'sections' => 'The notification sections to query.',
+			'sections' => 'The notification sections to query (i.e. some combination of \'alert\' and \'message\').',
 			'groupbysection' => 'Whether to group the result by section, each section is fetched separately if set',
 			'format' => 'If specified, notifications will be returned formatted this way.',
 			'index' => 'If specified, a list of notification IDs, in order, will be returned.',

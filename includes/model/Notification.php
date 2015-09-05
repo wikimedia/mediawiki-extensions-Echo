@@ -166,9 +166,6 @@ class EchoNotification extends EchoAbstractEntity {
 
 		$notifMapper->insert( $this );
 
-		// Clear applicable section status from cache upon new notification creation
-		$notifUser->clearSectionStatusCache( $section );
-
 		if ( $event->getType() === 'edit-user-talk' ) {
 			$notifUser->flagCacheWithNewTalkNotification();
 		}

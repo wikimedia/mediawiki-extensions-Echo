@@ -1,9 +1,3 @@
-/*!
- * Grunt file
- *
- * @package Flow
- */
-
 /*jshint node:true */
 module.exports = function ( grunt ) {
 	grunt.loadNpmTasks( 'grunt-contrib-csslint' );
