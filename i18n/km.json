@@ -16,6 +16,8 @@
 	"echo-pref-email-frequency-daily": "ការជូនដំណឹងសង្ខេបសរុបប្រចាំថ្ងៃ",
 	"echo-pref-email-frequency-weekly": "ការជូនដំណឹងសង្ខេបសរុបប្រចាំសប្ដាហ៍",
 	"echo-pref-email-format-plain-text": "អក្សរសុទ្ធ",
+	"echo-learn-more": "ស្វែងយល់បន្ថែម",
+	"echo-new-messages": "អ្នកមានសារថ្មីៗ",
 	"notifications": "ការជូនដំណឹង",
 	"tooltip-pt-notifications": "សារជូនដំណឹងសម្រាប់អ្នក",
 	"echo-anon": "ដើម្បីទទួលបានការជូនដំណឺង សូម[$1 បង្កើតគណនី] ឬ [$2 កត់ឈ្មោះចូល]។",

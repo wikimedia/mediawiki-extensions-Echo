@@ -138,7 +138,7 @@
 	"apihelp-echomarkseen-param-type": "Tipo de notificaciones para marcar como leídas: 'alert' (alerta), 'message' (mensaje) or 'all (todas)'.",
 	"apihelp-query+notifications-description": "Recibe notificaciones de espera para el usuario actual.",
 	"apihelp-query+notifications-param-prop": "Detalles que solicitar.",
-	"apihelp-query+notifications-param-sections": "Las secciones de notificación a consultar.",
+	"apihelp-query+notifications-param-sections": "Las secciones de notificación que consultar (o sea, alguna combinación de 'alert' y 'message').",
 	"apihelp-query+notifications-param-groupbysection": "Si se agrupan los resultados por sección. Cada sección se obtiene por separado si así se establece.",
 	"apihelp-query+notifications-param-format": "Si se especifica, las notificaciones se recibirán en éste formatdo.",
 	"apihelp-query+notifications-param-limit": "Número máximo de notificaciones a recibir.",

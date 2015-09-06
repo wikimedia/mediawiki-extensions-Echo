@@ -85,7 +85,7 @@
 	"notification-mention-email-batch-body": "$1 вас је {{GENDER:$1|споменуо|споменула}} на страници за разговор $4 у „$3“.",
 	"notification-mention-nosection-email-batch-body": "$1 вас је {{GENDER:$1|споменуо|споменула}} на страници за разговор $2.",
 	"notification-user-rights-email-subject": "Ваша корисничка права на пројекту {{SITENAME}} су промењена.",
-	"notification-user-rights-email-batch-body": "$1 {{GENDER:$1|је променио|је променила}} ваша корисничка права. $2.",
+	"notification-user-rights-email-batch-body": "$1 је {{GENDER:$1|променио|променила}} ваша корисничка права. $2.",
 	"echo-email-subject-default": "Ново обавештење на {{SITENAME}}",
 	"echo-email-body-default": "Имате ново обавештење на пројекту {{SITENAME}}:\n\n$1",
 	"echo-email-batch-body-default": "Имате ново обавештење.",

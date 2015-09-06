@@ -26,6 +26,7 @@
 	"echo-new-messages": "U het nuwe boodskappe",
 	"echo-category-title-edit-user-talk": "Boodskap{{PLURAL:$1||pe}} op u besprekingsblad",
 	"echo-category-title-article-linked": "Bladsyskakel{{PLURAL:$1||s}}",
+	"echo-category-title-reverted": "Wysiging {{PLURAL:$1|teruggerol}}",
 	"echo-category-title-system": "{{PLURAL:$1|Stelsel}}",
 	"echo-no-agent": "[Niemand]",
 	"echo-no-title": "[Geen bladsy]",

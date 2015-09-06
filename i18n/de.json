@@ -127,7 +127,7 @@
 	"apihelp-echomarkseen-example-1": "Benachrichtigungen aller Typen als gesehen markieren",
 	"apihelp-query+notifications-description": "Benachrichtigungen abrufen, die auf den aktuellen Benutzer warten.",
 	"apihelp-query+notifications-param-prop": "Einzelheiten der Anfrage.",
-	"apihelp-query+notifications-param-sections": "Die Abschnitte der Meldungen abfragen.",
+	"apihelp-query+notifications-param-sections": "Die abzufragenden Benachrichtigungsabschnitte (z.&nbsp;B. eine Kombination aus „alert“ und „message“).",
 	"apihelp-query+notifications-param-groupbysection": "Ob das Ergebnis nach Abschnitt gruppiert werden soll. Jeder Abschnitt wird separat abgerufen, wenn es eingestellt wird.",
 	"apihelp-query+notifications-param-format": "Falls angegeben, werden die zurückgegebenen Benachrichtigungen auf diese Weise formatiert.",
 	"apihelp-query+notifications-param-limit": "Die maximale Anzahl zurückzugebender Benachrichtigungen.",
