@@ -112,6 +112,6 @@
 	"echo-rev-deleted-text-view": "Dës Versioun vun der Säit gouf geläscht.",
 	"apihelp-echomarkread-param-sections": "Eng Lëscht vun den Abschnitter déi als geliest markéiert solle ginn.",
 	"apihelp-echomarkseen-description": "Notifikatioune fir den aktuelle Benotzer als geliest markéieren.",
-	"apihelp-echomarkseen-example-1": "Notifikatiounen als geliest markéieren",
+	"apihelp-echomarkseen-example-1": "Notifikatiounen vun all Typ als geliest markéieren",
 	"apihelp-query+notifications-param-prop": "Detailer fir unzefroen."
 }
