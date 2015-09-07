@@ -681,7 +681,7 @@ class EchoHooks {
 		);
 
 		$insertUrls = array(
-			'notifications_alert' => $alertLink,
+			'notifications-alert' => $alertLink,
 		);
 
 		if ( $notifUser->hasMessages() ) {
@@ -692,7 +692,7 @@ class EchoHooks {
 				'class' => $msgLinkClasses,
 			);
 
-			$insertUrls['notifications_message'] = $msgLink;
+			$insertUrls['notifications-message'] = $msgLink;
 		}
 
 		$personal_urls = wfArrayInsertAfter( $personal_urls, $insertUrls, 'userpage' );

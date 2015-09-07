@@ -13,8 +13,8 @@
 
 	// Activate ooui
 	$( document ).ready( function () {
-		var $existingAlertLink = $( '#pt-notifications_alert a' ),
-			$existingMessageLink = $( '#pt-notifications_message a' ),
+		var $existingAlertLink = $( '#pt-notifications-alert a' ),
+			$existingMessageLink = $( '#pt-notifications-message a' ),
 			numAlerts = $existingAlertLink.text(),
 			numMessages = $existingMessageLink.text(),
 			hasUnseenAlerts = $existingAlertLink.hasClass( 'mw-echo-unseen-notifications' ),

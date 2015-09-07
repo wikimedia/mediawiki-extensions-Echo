@@ -69,6 +69,8 @@ $wgResourceModules += array(
 			'echo-notification-alert-text-only',
 			'echo-notification-message-text-only',
 			'echo-email-batch-bullet',
+			'tooltip-pt-notifications-alert',
+			'tooltip-pt-notifications-message',
 			'mypreferences'
 		),
 		'targets' => array( 'desktop', 'mobile' ),
