@@ -9,15 +9,15 @@
 	 * @param {Object} [config] Configuration object
 	 * @cfg {string} [type='alert'] Notification type 'alert' or 'message'
 	 * @cfg {number} [numItems=0] How many items are in the button display
-	 * @cfg {boolean} [hasUnread=false] Whether there are unread items
+	 * @cfg {boolean} [hasUnseen=false] Whether there are unseen items
 	 * @cfg {boolean} [markReadWhenSeen=false] Mark all notifications as read on open
 	 * @cfg {string|Object} [badgeIcon] The icons to use for this button.
 	 *  If this is a string, it will be used as the icon regardless of the state.
 	 *  If it is an object, it must include
-	 *  the properties 'unread' and 'read' with icons attached to both. For example:
+	 *  the properties 'unseen' and 'seen' with icons attached to both. For example:
 	 *  { badgeIcon: {
-	 *    unread: 'bellOn',
-	 *    read: 'bell'
+	 *    unseen: 'bellOn',
+	 *    seen: 'bell'
 	 *  } }
 	 */
 	mw.echo.ui.NotificationBadgeWidget = function MwEchoUiNotificationBadgeButtonPopupWidget( config ) {
@@ -31,14 +31,13 @@
 
 		this.type = config.type || 'alert';
 		this.numItems = config.numItems || 0;
-		this.hasUnread = !!config.hasUnread;
 		this.badgeIcon = config.badgeIcon || {};
 		this.markReadWhenSeen = !!config.markReadWhenSeen;
 
 		this.hasRunFirstTime = false;
 
 		buttonFlags = [ 'primary' ];
-		if ( this.hasUnread ) {
+		if ( !!config.hasUnseen ) {
 			buttonFlags.push( 'unseen' );
 		}
 
@@ -89,11 +88,6 @@
 			framed: false,
 			flags: buttonFlags,
 			label: this.numItems,
-			icon: (
-				typeof this.badgeIcon === 'string' ?
-				this.badgeIcon :
-				this.badgeIcon[ this.hasUnread ? 'unread' : 'read' ]
-			),
 			popup: {
 				$content: this.notificationsWidget.$element,
 				$footer: $footer,
@@ -104,9 +98,11 @@
 				label: mw.msg( 'echo-notification-' + this.type + '-text-only' )
 			}
 		}, config ) );
-
 		// HACK: Add an icon to the popup head label
-		this.popup.$head.prepend( new OO.ui.IconWidget( { icon: 'bell' } ).$element );
+		this.popupHeadIcon = new OO.ui.IconWidget();
+		this.popup.$head.prepend( this.popupHeadIcon.$element );
+
+		this.updateIcon( !!config.hasUnseen );
 
 		// Mark all as read button
 		this.markAllReadButton = new OO.ui.ButtonWidget( {
@@ -119,7 +115,7 @@
 		this.popup.closeButton.toggle( false );
 		// Add the 'mark all as read' button to the header
 		this.popup.$head.append( this.markAllReadButton.$element );
-		this.markAllReadButton.toggle( !this.markReadWhenSeen && this.hasUnread );
+		this.markAllReadButton.toggle( !this.markReadWhenSeen && !!config.hasUnseen );
 
 		// Events
 		this.markAllReadButton.connect( this, { click: 'onMarkAllReadButtonClick' } );
@@ -143,6 +139,19 @@
 	OO.mixinClass( mw.echo.ui.NotificationBadgeWidget, OO.ui.mixin.PendingElement );
 
 	/**
+	 * Update the badge icon with the read/unread versions if they exist.
+	 *
+	 * @param {boolean} hasUnseen Widget has unseen notifications
+	 */
+	mw.echo.ui.NotificationBadgeWidget.prototype.updateIcon = function ( hasUnseen ) {
+		var icon = typeof this.badgeIcon === 'string' ?
+			this.badgeIcon :
+			this.badgeIcon[ hasUnseen ? 'unseen' : 'seen' ];
+		this.setIcon( icon );
+		this.popupHeadIcon.setIcon( icon );
+	};
+
+	/**
 	 * Update the badge state and label based on changes to the model
 	 */
 	mw.echo.ui.NotificationBadgeWidget.prototype.updateBadge = function () {
@@ -152,6 +161,7 @@
 		// Update numbers and seen/unseen state
 		this.setFlags( { unseen: !!unseenCount } );
 		this.setLabel( String( unreadCount ) );
+		this.updateIcon( !!unseenCount );
 	};
 
 	/**
