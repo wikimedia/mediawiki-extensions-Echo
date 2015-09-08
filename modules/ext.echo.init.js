@@ -21,7 +21,7 @@
 			hasUnseenMessages = $existingMessageLink.hasClass( 'mw-echo-unseen-notifications' ),
 			// Store links
 			links = {
-				notifications: $( '#pt-notifications_message a' ).attr( 'href' ),
+				notifications: $( '#pt-notifications-alert a' ).attr( 'href' ),
 				preferences: $( '#pt-preferences a' ).attr( 'href' )
 			};
 
