@@ -118,7 +118,7 @@
 	"apihelp-echomarkread-example-1": "Nzegna 'a notifica 8 comme liggiuta",
 	"apihelp-echomarkread-example-2": "Nzegna tutt' 'e notifiche comme fossero liggiute",
 	"apihelp-echomarkseen-description": "Nzegna 'e notifiche comme fossero liggiute 'a ll'utente 'e mo'.",
-	"apihelp-echomarkseen-example-1": "Nzegna tutte 'e notifice 'e comme liggiute",
+	"apihelp-echomarkseen-example-1": "Nzegna tutte 'e notifiche comme liggiute",
 	"apihelp-echomarkseen-param-type": "Tipo 'e notifica pe' nzegnà visto comme: 'allerta', 'mmasciata' o 'tutto'.",
 	"apihelp-query+notifications-description": "Piglia 'e notifiche ca stesser'aspettann'a ll'utente.",
 	"apihelp-query+notifications-param-prop": "Dettaglie d' 'a richiesta.",

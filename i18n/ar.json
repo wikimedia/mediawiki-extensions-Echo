@@ -12,7 +12,8 @@
 			"Abanima",
 			"Omda4wady",
 			"Khaled",
-			"محمد أحمد عبد الفتاح"
+			"محمد أحمد عبد الفتاح",
+			"Hiba Alshawi"
 		]
 	},
 	"echo-desc": "نظام الإشعارات",
@@ -120,7 +121,9 @@
 	"echo-email-batch-body-intro-weekly": "سلام $1،\nهذا ملخص لنشاطات الأسبوع في {{SITENAME}}.",
 	"echo-email-batch-link-text-view-all-notifications": "اعرض كل الإشعارات",
 	"echo-rev-deleted-text-view": "هذه النسخة من الصفحة قد حذفت.",
+	"apihelp-echomarkseen-param-type": "نوع الإشعارت  لتحديد كما تبدو على أنها: 'تنبيه' 'رسالة'  أو 'كل'.",
 	"apihelp-query+notifications-param-prop": "طلب تفاصيل.",
+	"apihelp-query+notifications-param-sections": "اقسام الأشعار للأستعلام (أي بمعنى بعض الثنائي من \"تنبيه\" و \"رسالة\").",
 	"apihelp-query+notifications-param-limit": "العدد الأقصى للإخطارات في النتائج.",
 	"apihelp-query+notifications-example-1": "قائمة الإشعارات"
 }
