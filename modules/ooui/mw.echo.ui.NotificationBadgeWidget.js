@@ -82,12 +82,12 @@
 				allNotificationsButton.$element,
 				preferencesButton.$element
 			);
-
 		// Parent constructor
 		mw.echo.ui.NotificationBadgeWidget.parent.call( this, $.extend( {
 			framed: false,
 			flags: buttonFlags,
 			label: this.numItems,
+			title: mw.msg( 'tooltip-pt-notifications-' + this.type ),
 			popup: {
 				$content: this.notificationsWidget.$element,
 				$footer: $footer,

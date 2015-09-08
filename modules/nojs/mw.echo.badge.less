@@ -3,8 +3,8 @@
 
 /* We have to include the #pt-notifications selector due to monobook */
 .mw-echo-notifications-badge {
-	#pt-notifications_alert &,
-	#pt-notifications_message & {
+	#pt-notifications-alert &,
+	#pt-notifications-message & {
 		.mixin-notifications-badge();
 		display: inline-block;
 
@@ -31,10 +31,10 @@
 	}
 
 	&.mw-echo-unseen-notifications {
-		#pt-notifications_alert & {
+		#pt-notifications-alert & {
 			background-color: @badge-background-unseen-alert;
 		}
-		#pt-notifications_message & {
+		#pt-notifications-message & {
 			background-color: @badge-background-unseen-message;
 		}
 	}
