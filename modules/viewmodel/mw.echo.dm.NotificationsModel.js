@@ -248,6 +248,10 @@
 				action: 'query',
 				meta: 'notifications',
 				notsections: this.type,
+				// We have to send the API 'groupbysection' otherwise
+				// the 'messageunreadfirst' doesn't do anything.
+				// TODO: Fix the API.
+				notgroupbysection: 1,
 				notmessageunreadfirst: 1,
 				notformat: 'flyout',
 				notlimit: this.limit,
@@ -261,7 +265,7 @@
 					var notifData, i, len, $content, wasSeen, wasRead, notificationModel,
 						optionItems = [],
 						idArray = [],
-						data = result.query.notifications;
+						data = result.query.notifications[model.type];
 
 					for ( i = 0, len = data.index.length; i < len; i++ ) {
 						notifData = data.list[ data.index[i] ];
