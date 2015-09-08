@@ -125,6 +125,7 @@
 			unseenChange: 'updateBadge',
 			unreadChange: 'updateBadge'
 		} );
+		this.popup.connect( this, { toggle: 'onPopupToggle' } );
 
 		this.$element
 			.addClass(
@@ -174,12 +175,14 @@
 	/**
 	 * Extend the response to button click so we can also update the notification list.
 	 */
-	mw.echo.ui.NotificationBadgeWidget.prototype.onAction = function () {
+	mw.echo.ui.NotificationBadgeWidget.prototype.onPopupToggle = function ( isVisible ) {
 		var widget = this,
 			time = mw.now();
 
-		// Parent method
-		mw.echo.ui.NotificationBadgeWidget.parent.prototype.onAction.call( this, arguments );
+		if ( !isVisible ) {
+			// If the popup is closing, leave
+			return;
+		}
 
 		// Log the click event
 		mw.echo.logger.logInteraction(
