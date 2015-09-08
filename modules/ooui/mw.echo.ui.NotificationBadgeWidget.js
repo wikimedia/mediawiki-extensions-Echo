@@ -163,6 +163,9 @@
 		this.setFlags( { unseen: !!unseenCount } );
 		this.setLabel( String( unreadCount ) );
 		this.updateIcon( !!unseenCount );
+
+		// Check if we need to display the 'mark all unread' button
+		this.markAllReadButton.toggle( !!unreadCount );
 	};
 
 	/**
