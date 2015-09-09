@@ -58,6 +58,7 @@ $wgResourceModules += array(
 			'oojs-ui',
 			'ext.echo.logger',
 			'mediawiki.api',
+			'mediawiki.jqueryMsg'
 		),
 		'messages' => array(
 			'echo-overlay-link',
