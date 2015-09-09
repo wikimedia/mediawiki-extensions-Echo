@@ -40,8 +40,18 @@
 		this.$element
 			.addClass( 'mw-echo-ui-notificationOptionWidget' )
 			.append(
-				this.markAsReadButton.$element,
-				this.$label
+				// HACK: Wrap the entire option with a link that takes
+				// the user to the primary url. This is not perfect,
+				// but it makes the behavior native to the browser rather
+				// than us listening to click events and opening new
+				// windows.
+				$( '<a>' )
+					.addClass( 'mw-echo-ui-notificationOptionWidget-linkWrapper' )
+					.attr( 'href', this.model.getPrimaryUrl() )
+					.append(
+						this.markAsReadButton.$element,
+						this.$label
+					)
 			);
 
 		this.$element.toggleClass( 'mw-echo-ui-notificationOptionWidget-initiallyUnseen', !this.model.isSeen() );

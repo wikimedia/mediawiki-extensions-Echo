@@ -8,6 +8,15 @@
 	font-size: 13px;
 	line-height: 16px;
 
+	&:hover > a {
+		text-decoration: none;
+	}
+
+	&:not(:hover) a,
+	#p-personal &:not(:hover) a.new {
+		color: #666666;
+	}
+
 	&:last-child {
 		border-bottom: none;
 	}
@@ -27,12 +36,6 @@
 		&:hover {
 			opacity: 1;
 		}
-	}
-
-	&:not(:hover) a,
-	#p-personal &:not(:hover) a.new {
-		color: #666666;
-		text-decoration: none;
 	}
 
 	&-initiallyUnseen {
