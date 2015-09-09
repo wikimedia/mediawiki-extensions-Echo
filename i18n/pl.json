@@ -54,7 +54,6 @@
 	"echo-no-title": "[Brak strony]",
 	"echo-error-no-formatter": "Nie określono formatowania dla powiadomień",
 	"notifications": "Powiadomienia",
-	"tooltip-pt-notifications": "Twoje powiadomienia",
 	"echo-specialpage": "Powiadomienia",
 	"echo-anon": "Aby otrzymywać powiadomienia, [$1 załóż konto] lub [$2 zaloguj się].",
 	"echo-none": "Nie masz żadnych powiadomień.",

@@ -57,7 +57,6 @@
 	"echo-no-title": "[No hay ninguna página]",
 	"echo-error-no-formatter": "No se definió ningún formato para las notificaciones.",
 	"notifications": "Notificaciones",
-	"tooltip-pt-notifications": "Tus notificaciones",
 	"echo-specialpage": "Notificaciones",
 	"echo-anon": "[$1 Crea una cuenta] o [$2 accede] para recibir notificaciones.",
 	"echo-none": "No tienes notificaciones.",

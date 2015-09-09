@@ -64,7 +64,6 @@
 	"echo-no-title": "[无页面]",
 	"echo-error-no-formatter": "未指定通知格式",
 	"notifications": "通知",
-	"tooltip-pt-notifications": "您的通知",
 	"echo-specialpage": "通知",
 	"echo-anon": "想要接收通知，请[$1 创建账户]或[$2 登录]。",
 	"echo-none": "您没有通知。",

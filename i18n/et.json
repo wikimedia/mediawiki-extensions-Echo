@@ -42,7 +42,6 @@
 	"echo-no-title": "[Lehekülge pole]",
 	"echo-error-no-formatter": "Teavituse vormindusviis on määramata.",
 	"notifications": "Teavitused",
-	"tooltip-pt-notifications": "Sinu teavitused",
 	"echo-specialpage": "Teavitused",
 	"echo-anon": "Et teavitusi saada, [$1 loo konto] või [$2 logi sisse].",
 	"echo-none": "Sul pole uusi teavitusi.",

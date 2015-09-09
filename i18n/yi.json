@@ -38,7 +38,7 @@
 	"echo-no-title": "[קיין בלאט]",
 	"echo-error-no-formatter": "קיין פארמאטירונג נישט דעפינירט פאר דער הודעה.",
 	"notifications": "אנזאגן",
-	"tooltip-pt-notifications": "אײַערע אנזאגן",
+	"tooltip-pt-notifications-alert": "{{GENDER:|אייערע}} אויפדערוואכן",
 	"echo-specialpage": "אנזאגן",
 	"echo-anon": "כדי צו באקומען הודעות, [$1 שאפט א קאנטע] אדער [$2 לאגירט אריין].",
 	"echo-none": "איר האט נישט קיין אנזאגן.",

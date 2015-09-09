@@ -43,7 +43,6 @@
 	"echo-no-title": "[Nėra puslapio]",
 	"echo-error-no-formatter": "Pranešimo formatavimas nėra apibrėžtas.",
 	"notifications": "Pranešimai",
-	"tooltip-pt-notifications": "Jūsų pranešimai",
 	"echo-specialpage": "Pranešimai",
 	"echo-anon": "Norėdami gauti pranešimus [$1 susikurkite paskyrą] arba [$2 prisijunkite].",
 	"echo-none": "Jūs turite jokių pranešimų.",

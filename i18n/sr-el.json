@@ -4,7 +4,7 @@
 			"Milicevic01"
 		]
 	},
-	"echo-desc": "Obaveštajni sistem",
+	"echo-desc": "Sistem za obaveštavanje korisnika o dešavanjima i porukama",
 	"prefs-echo": "Obaveštenja",
 	"prefs-emailsettings": "Postavke e-pošte",
 	"prefs-displaynotifications": "Postavke prikaza",
@@ -40,7 +40,6 @@
 	"echo-no-title": "[Nema stranice]",
 	"echo-error-no-formatter": "Nije zadato oblikovanje za obaveštenja",
 	"notifications": "Obaveštenja",
-	"tooltip-pt-notifications": "Vaša obaveštenja",
 	"echo-specialpage": "Obaveštenja",
 	"echo-anon": "Da biste pristupili ovoj stranici morate se [$2 prijaviti] ili [$1 otvoriti nalog].",
 	"echo-none": "Nemate obaveštenja",

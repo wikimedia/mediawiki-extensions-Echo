@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"रमेश सिंह बोहरा"
+			"रमेश सिंह बोहरा",
+			"जनक राज भट्ट"
 		]
 	},
-	"tooltip-pt-notifications": "तमरा जानकारीहरू"
+	"tooltip-pt-notifications-alert": "{{GENDER:|Your}} alerts",
+	"tooltip-pt-notifications-message": "{{GENDER:|तमरो}} सन्देस"
 }

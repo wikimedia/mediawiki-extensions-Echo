@@ -53,7 +53,6 @@
 	"echo-no-title": "[無頁面]",
 	"echo-error-no-formatter": "沒有定義通知的格式。",
 	"notifications": "通知",
-	"tooltip-pt-notifications": "您的通知",
 	"echo-specialpage": "通知",
 	"echo-anon": "要接收通知，請先 [$1 註冊帳號] 或是 [$2 登入]。",
 	"echo-none": "您沒有任何通知。",

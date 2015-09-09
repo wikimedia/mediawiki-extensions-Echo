@@ -45,7 +45,8 @@
 	"echo-no-title": "[Žádná stránka]",
 	"echo-error-no-formatter": "Upozornění nemá definováno formátování",
 	"notifications": "Upozornění",
-	"tooltip-pt-notifications": "Vaše upozornění",
+	"tooltip-pt-notifications-alert": "{{GENDER:|Vaše}} upozornění",
+	"tooltip-pt-notifications-message": "{{GENDER:|Vaše}} zprávy",
 	"echo-specialpage": "Upozornění",
 	"echo-anon": "Pro zobrazování upozornění je nutné [$1 vytvořit si účet] nebo [$2 se přihlásit].",
 	"echo-none": "Nemáte žádné upozornění.",
@@ -116,5 +117,5 @@
 	"echo-email-batch-body-intro-weekly": "Ahoj, uživateli $1,\n\nzde pro vás máme shrnutí aktivity na {{grammar:6sg|{{SITENAME}}}} za tento týden",
 	"echo-email-batch-link-text-view-all-notifications": "Zobrazit všechna upozornění",
 	"echo-rev-deleted-text-view": "Tato verze stránky byla utajena",
-	"apihelp-echomarkseen-example-1": "Označit oznámení jako přečtená"
+	"apihelp-echomarkseen-example-1": "Označit oznámení všech typů jako přečtená"
 }

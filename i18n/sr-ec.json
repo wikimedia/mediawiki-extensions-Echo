@@ -6,7 +6,7 @@
 			"Михајло Анђелковић"
 		]
 	},
-	"echo-desc": "Обавештајни систем",
+	"echo-desc": "Систем за обавештавање корисника о дешавањима и порукама",
 	"prefs-echo": "Обавештења",
 	"prefs-emailsettings": "Поставке е-поште",
 	"prefs-displaynotifications": "Поставке приказа",
@@ -42,7 +42,8 @@
 	"echo-no-title": "[Нема странице]",
 	"echo-error-no-formatter": "Није задато обликовање за обавештења",
 	"notifications": "Обавештења",
-	"tooltip-pt-notifications": "Ваша обавештења",
+	"tooltip-pt-notifications-alert": "{{GENDER:|Ваша}} обавештења",
+	"tooltip-pt-notifications-message": "{{GENDER:|Ваше}} поруке",
 	"echo-specialpage": "Обавештења",
 	"echo-anon": "Да бисте приступили овој страници морате се [$2 пријавити] или [$1 отворити налог].",
 	"echo-none": "Немате обавештења",
