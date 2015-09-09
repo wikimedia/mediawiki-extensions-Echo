@@ -18,11 +18,16 @@
 
 	.oo-ui-popupWidget-footer {
 		border-top: 1px solid #DDDDDD;
+		width: 100%;
+
 		.oo-ui-buttonElement {
 			display: table-cell;
 			white-space: normal;
 			font-weight: bold;
-			padding: 1em 3em 1em 2.5em;
+			padding: 1em;
+			padding-left: 2em;
+			width: calc( @notification-popup-width / 2 );
+			box-sizing: border-box;
 
 			&:last-child {
 				border-left: 1px solid #DDDDDD;
