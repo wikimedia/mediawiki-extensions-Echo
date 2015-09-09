@@ -210,6 +210,7 @@
 			}
 
 			this.pushPending();
+			this.markAllReadButton.toggle( false );
 			this.notificationsModel.fetchNotifications()
 				.then( function ( idArray ) {
 					// Clip again
