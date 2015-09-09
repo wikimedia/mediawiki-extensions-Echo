@@ -11,6 +11,7 @@
 	 * @cfg {number} [numItems=0] How many items are in the button display
 	 * @cfg {boolean} [hasUnseen=false] Whether there are unseen items
 	 * @cfg {boolean} [markReadWhenSeen=false] Mark all notifications as read on open
+	 * @cfg {number} [popupWidth=450] The width of the popup
 	 * @cfg {string|Object} [badgeIcon] The icons to use for this button.
 	 *  If this is a string, it will be used as the icon regardless of the state.
 	 *  If it is an object, it must include
@@ -21,7 +22,7 @@
 	 *  } }
 	 */
 	mw.echo.ui.NotificationBadgeWidget = function MwEchoUiNotificationBadgeButtonPopupWidget( config ) {
-		var buttonFlags, allNotificationsButton, preferencesButton, $footer;
+		var buttonFlags, allNotificationsButton, preferencesButton, footerButtonGroupWidget, $footer;
 
 		config = config || {};
 		config.links = config.links || {};
@@ -76,12 +77,13 @@
 			classes: [ 'mw-echo-ui-notificationBadgeButtonPopupWidget-footer-preferences' ]
 		} );
 
+		footerButtonGroupWidget = new OO.ui.ButtonGroupWidget( {
+			items: [ allNotificationsButton, preferencesButton ]
+		} );
+
 		$footer = $( '<div>' )
 			.addClass( 'mw-echo-ui-notificationBadgeButtonPopupWidget-footer' )
-			.append(
-				allNotificationsButton.$element,
-				preferencesButton.$element
-			);
+			.append( footerButtonGroupWidget.$element );
 		// Parent constructor
 		mw.echo.ui.NotificationBadgeWidget.parent.call( this, $.extend( {
 			framed: false,
@@ -91,7 +93,7 @@
 			popup: {
 				$content: this.notificationsWidget.$element,
 				$footer: $footer,
-				width: 450,
+				width: config.popupWidth || 450,
 				head: true,
 				// This covers the messages 'echo-notification-alert-text-only'
 				// and 'echo-notification-message-text-only'
