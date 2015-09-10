@@ -142,7 +142,9 @@ class SpecialNotifications extends SpecialPage {
 
 		// Record time notifications have been seen
 		$timestamp = wfTimestamp( TS_MW );
-		$echoSeenTime->setTime( $timestamp );
+		DeferredUpdates::addCallableUpdate( function() use ( $echoSeenTime, $timestamp ) {
+			$echoSeenTime->setTime( $timestamp );
+		} );
 	}
 
 	/**
