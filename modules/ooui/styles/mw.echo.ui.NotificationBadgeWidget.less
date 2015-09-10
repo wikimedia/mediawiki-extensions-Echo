@@ -24,13 +24,20 @@
 			display: table-cell;
 			white-space: normal;
 			font-weight: bold;
-			padding: 1em;
-			padding-left: 2em;
 			width: @notification-popup-width / 2;
 			box-sizing: border-box;
 
 			&:last-child {
 				border-left: 1px solid #DDDDDD;
+			}
+
+			> .oo-ui-buttonElement-button {
+				display: block;
+				line-height: 4em;
+				text-align: left;
+				padding: 0 1em 0 2em;
+				margin: 0;
+				border: 0;
 			}
 		}
 	}
