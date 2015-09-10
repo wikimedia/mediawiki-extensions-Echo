@@ -58,8 +58,6 @@
 			}
 		);
 
-		this.setPendingElement( this.notificationsWidget.$element );
-
 		// Footer
 		allNotificationsButton = new OO.ui.ButtonWidget( {
 			framed: false,
@@ -105,6 +103,8 @@
 		this.popup.$head.prepend( this.popupHeadIcon.$element );
 
 		this.updateIcon( !!config.hasUnseen );
+
+		this.setPendingElement( this.popup.$head );
 
 		// Mark all as read button
 		this.markAllReadButton = new OO.ui.ButtonWidget( {
@@ -199,9 +199,6 @@
 
 		if ( !this.notificationsModel.isFetchingNotifications() ) {
 			if ( this.hasRunFirstTime ) {
-				// Don't clear items on the first time we open the popup
-				this.notificationsModel.clearItems();
-
 				// HACK: Clippable doesn't resize the clippable area when
 				// it calculates the new size. Since the popup contents changed
 				// and the popup is "empty" now, we need to manually set its
