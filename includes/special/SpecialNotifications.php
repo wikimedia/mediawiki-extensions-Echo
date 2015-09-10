@@ -135,15 +135,14 @@ class SpecialNotifications extends SpecialPage {
 		);
 		// For no-js support
 		$out->addModuleStyles( array( 'ext.echo.nojs', 'ext.echo.nojs.special' ) );
-		// Mark items as read
-		if ( $unread ) {
-			MWEchoNotifUser::newFromUser( $user )->markRead( $unread );
-		}
 
-		// Record time notifications have been seen
-		$timestamp = wfTimestamp( TS_MW );
-		DeferredUpdates::addCallableUpdate( function() use ( $echoSeenTime, $timestamp ) {
-			$echoSeenTime->setTime( $timestamp );
+		DeferredUpdates::addCallableUpdate( function() use ( $user, $echoSeenTime, $unread ) {
+			// Mark items as read
+			if ( $unread ) {
+				MWEchoNotifUser::newFromUser( $user )->markRead( $unread );
+			}
+			// Record time notifications have been seen
+			$echoSeenTime->setTime( wfTimestamp( TS_MW ) );
 		} );
 	}
 
