@@ -89,14 +89,18 @@
 			framed: false,
 			flags: buttonFlags,
 			label: this.numItems,
+			// The following messages can be used here:
+			// tooltip-pt-notifications-alert
+			// tooltip-pt-notifications-message
 			title: mw.msg( 'tooltip-pt-notifications-' + this.type ),
 			popup: {
 				$content: this.notificationsWidget.$element,
 				$footer: $footer,
 				width: config.popupWidth || 450,
 				head: true,
-				// This covers the messages 'echo-notification-alert-text-only'
-				// and 'echo-notification-message-text-only'
+				// The following messages can be used here:
+				// echo-notification-alert-text-only
+				// echo-notification-message-text-only
 				label: mw.msg( 'echo-notification-' + this.type + '-text-only' )
 			}
 		}, config ) );
@@ -129,6 +133,9 @@
 		} );
 		this.popup.connect( this, { toggle: 'onPopupToggle' } );
 
+		// The following classes can be used here:
+		// mw-echo-ui-notificationBadgeButtonPopupWidget-alert
+		// mw-echo-ui-notificationBadgeButtonPopupWidget-message
 		this.$element
 			.addClass(
 				'mw-echo-ui-notificationBadgeButtonPopupWidget ' +
