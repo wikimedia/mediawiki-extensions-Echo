@@ -62,7 +62,6 @@
 
 		// Footer
 		allNotificationsButton = new OO.ui.ButtonWidget( {
-			framed: false,
 			icon: 'next',
 			label: mw.msg( 'echo-overlay-link' ),
 			href: config.links.notifications,
@@ -70,7 +69,6 @@
 		} );
 
 		preferencesButton = new OO.ui.ButtonWidget( {
-			framed: false,
 			icon: 'advanced',
 			label: mw.msg( 'mypreferences' ),
 			href: config.links.preferences,
