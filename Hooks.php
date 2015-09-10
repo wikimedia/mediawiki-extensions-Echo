@@ -651,8 +651,14 @@ class EchoHooks {
 
 		$url = SpecialPage::getTitleFor( 'Notifications' )->getLocalURL();
 
-		$msgLinkClasses = array( 'mw-echo-notifications-badge  oo-ui-image-invert oo-ui-iconElement oo-ui-iconElement-icon oo-ui-icon-speechBubble' );
-		$alertLinkClasses = array( 'mw-echo-notifications-badge  oo-ui-image-invert oo-ui-iconElement oo-ui-iconElement-icon' );
+		// HACK: inverted icons only work in the "MediaWiki" OOUI theme
+		// Avoid flashes in skins that don't use it (T111821)
+		$oouiImageClass = get_class( OOUI\Theme::singleton() ) === 'OOUI\\MediaWikiTheme'
+				? 'oo-ui-image-invert'
+				: '';
+
+		$msgLinkClasses = array( "mw-echo-notifications-badge  $oouiImageClass oo-ui-iconElement oo-ui-iconElement-icon oo-ui-icon-speechBubble" );
+		$alertLinkClasses = array( "mw-echo-notifications-badge  $oouiImageClass oo-ui-iconElement oo-ui-iconElement-icon" );
 
 		if (
 			$msgCount != 0 && // no unread notifications
