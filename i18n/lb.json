@@ -40,6 +40,8 @@
 	"echo-no-title": "[Keng Säit]",
 	"echo-error-no-formatter": "Keng Formatéierung fir Notifikatiounen definéiert.",
 	"notifications": "Notifikatiounen",
+	"tooltip-pt-notifications-alert": "{{GENDER:|Är}} Warnungen",
+	"tooltip-pt-notifications-message": "{{GENDER:|Är}} Messagen",
 	"echo-specialpage": "Notifikatiounen",
 	"echo-anon": "Fir Notifikatiounen ze kréien, [$1 maacht e Benotzerkont op] oder [$2 loggt Iech an]",
 	"echo-none": "Dir hutt keng Notifikatiounen.",

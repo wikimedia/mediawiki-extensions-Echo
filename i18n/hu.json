@@ -7,7 +7,8 @@
 			"TK-999",
 			"Tgr",
 			"Tacsipacsi",
-			"Samat"
+			"Samat",
+			"Bináris"
 		]
 	},
 	"echo-desc": "Értesítési rendszer",
@@ -27,7 +28,6 @@
 	"echo-pref-email-frequency-weekly": "Küldjön heti összefoglalót az értesítésekről",
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Sima szöveg",
-	"echo-pref-notify-show-link": "Mutassa az értesítéseket a lap tetején lévő menüben",
 	"echo-pref-new-message-indicator": "Jelezze a vitalapi üzeneteket a lap tetején lévő menüben",
 	"echo-learn-more": "Tudj meg többet",
 	"echo-new-messages": "Új üzeneted van",
@@ -46,10 +46,9 @@
 	"echo-no-agent": "[Senki]",
 	"echo-no-title": "[Nincs lap]",
 	"echo-error-no-formatter": "Nincs értesítési formátum definiálva",
-	"echo-error-preference": "Hiba: Nem sikerült elmenteni a felhasználói beállítást",
-	"echo-error-token": "Hiba: nem sikerült lekérni a felhasználói tokent",
 	"notifications": "Értesítések",
-	"tooltip-pt-notifications": "Értesítéseid",
+	"tooltip-pt-notifications-alert": "Értesítéseid",
+	"tooltip-pt-notifications-message": "Üzeneteid",
 	"echo-specialpage": "Értesítések",
 	"echo-anon": "Értesítések fogadásához [$1 hozz létre egy fiókot] vagy [$2 jelentkezz be].",
 	"echo-none": "Nincsenek értesítéseid.",

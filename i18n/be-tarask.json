@@ -43,6 +43,7 @@
 	"echo-error-no-formatter": "Фарматаваньне для абвестак ня вызначана",
 	"notifications": "Абвесткі",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Вашыя}} апавяшчэньні",
+	"tooltip-pt-notifications-message": "{{GENDER:|Вашыя}} паведамленьні",
 	"echo-specialpage": "Абвесткі",
 	"echo-anon": "Для атрыманьня абвестак [$1 стварыце рахунак] або [$2 увайдзіце].",
 	"echo-none": "Вы ня маеце абвестак.",

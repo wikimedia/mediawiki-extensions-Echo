@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Euriditi"
+			"Euriditi",
+			"Olsi"
 		]
 	},
 	"echo-desc": "Sistemi i njoftimeve",
@@ -21,7 +22,6 @@
 	"echo-pref-email-frequency-weekly": "Përmbledhje javore e njoftimeve",
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Tekst normal",
-	"echo-pref-notify-show-link": "Shfaq njoftimet në brezin e mjeteve",
 	"echo-pref-new-message-indicator": "Shfaq brezin e mesazheve të reja në faqen time të diskutimit në brezin e mjeteve",
 	"echo-learn-more": "Mëso më tepër",
 	"echo-new-messages": "Keni mesazhe të reja",
@@ -38,10 +38,8 @@
 	"echo-no-agent": "[Asnjeri]",
 	"echo-no-title": "[Asnjë faqe]",
 	"echo-error-no-formatter": "Asnjë përcaktim mbi formatimimin e njoftimeve.",
-	"echo-error-preference": "Gabim: Preferenca e përdoruesit nuk janë ruajtur.",
-	"echo-error-token": "Gabim: Sistemi nuk arriti të rigjejë shenjat e identifikimit.",
 	"notifications": "Njoftimet",
-	"tooltip-pt-notifications": "Njoftimet tuaja",
+	"tooltip-pt-notifications-alert": "Njoftimet tuaja",
 	"echo-specialpage": "Njoftimet",
 	"echo-anon": "Për të marrë njoftime, [$1 regjistrohuni] ose [$2 hyni].",
 	"echo-none": "Nuk keni njoftime.",

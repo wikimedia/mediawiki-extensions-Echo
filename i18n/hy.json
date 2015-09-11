@@ -4,7 +4,8 @@
 			"Xelgen",
 			"Lilitik22",
 			"Դավիթ Սարոյան",
-			"Aram1985"
+			"Aram1985",
+			"Աշոտ1997"
 		]
 	},
 	"echo-desc": "Ծանուցումների համակարգ",
@@ -24,7 +25,6 @@
 	"echo-pref-email-frequency-weekly": "Ծանուցումների շաբաթական ամփոփում",
 	"echo-pref-email-format-html": "ԷյչԹիԷմԷլ",
 	"echo-pref-email-format-plain-text": "Պարզ տեքստ",
-	"echo-pref-notify-show-link": "Ցուցադրել ծանուցումները իմ վահանակում",
 	"echo-pref-new-message-indicator": "Ցուցադրել քննարկման էջի հաղորդագրությունների ցուցիչը իմ վահանակում",
 	"echo-learn-more": "Իմանալ ավելին",
 	"echo-new-messages": "Դուք նոր ուղերձներ ունեք",
@@ -39,7 +39,8 @@
 	"echo-no-agent": "[Ոչ ոք]",
 	"echo-no-title": "[Էջը չկա]",
 	"notifications": "Ծանուցումներ",
-	"tooltip-pt-notifications": "Ձեր ծանուցումները",
+	"tooltip-pt-notifications-alert": "Ձեր ծանուցումները",
+	"tooltip-pt-notifications-message": "Ձեր հաղորդագրությունները",
 	"echo-specialpage": "Ծանուցումներ",
 	"echo-anon": "Ծանուցումներ ստանալու համար [$1 ստեղծեք հաշիվ] կամ [$2 մուտք գործեք]։",
 	"echo-none": "Դուք ծանուցումներ չունեք։",

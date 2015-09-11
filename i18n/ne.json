@@ -3,7 +3,8 @@
 		"authors": [
 			"सरोज कुमार ढकाल",
 			"Nirjal stha",
-			"NehalDaveND"
+			"NehalDaveND",
+			"राम प्रसाद जोशी"
 		]
 	},
 	"echo-desc": "जानकारी प्रणाली",
@@ -23,7 +24,6 @@
 	"echo-pref-email-frequency-weekly": "साप्ताहिक जानकारीको सारांश",
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "साधारण पाठ",
-	"echo-pref-notify-show-link": "मेरो टुलबारमा देखाउने",
 	"echo-pref-new-message-indicator": "टुलबारमा मेरो वार्तालाप पृष्ठको सन्देश पनि देखाउने",
 	"echo-learn-more": "थप जानकारी",
 	"echo-new-messages": "तपाईंको लागि नयाँ सन्देशहरू छन्",
@@ -40,10 +40,8 @@
 	"echo-no-agent": "[कोही पनि हैन]",
 	"echo-no-title": "[कुनै पनि पृष्ठ हैन]",
 	"echo-error-no-formatter": "जानकारीको लागि कुनै पनि ढाँचा खुलाइएको छैन ।",
-	"echo-error-preference": "त्रुटि: प्रयोगकर्ता अभिरुचीहरू मिलाउन सकिएन ।",
-	"echo-error-token": "त्रुटी: प्रयोगकर्ता टोकन प्राप्त गर्न सकिएन ।",
 	"notifications": "जानकारीहरू",
-	"tooltip-pt-notifications": "तपाईँका जानकारीहरू",
+	"tooltip-pt-notifications-message": "{{GENDER:|तपाईंका}} संदेशहरू",
 	"echo-specialpage": "जानकारीहरू",
 	"echo-anon": "जानकारीहरू प्राप्त गर्न, [$1 एउटा खाता खोल्नुहोस्] वा [$2 प्रवेश गर्नुहोस्]",
 	"echo-none": "तपाईँको लागि नयाँ जानकारी छैन ।",

@@ -14,7 +14,9 @@
 			"Waihorace",
 			"Wong128hk",
 			"LNDDYL",
-			"Cwlin0416"
+			"Cwlin0416",
+			"EagerLin",
+			"Shizhao"
 		]
 	},
 	"echo-desc": "用來通知使用者事件及訊息的系統",
@@ -53,6 +55,8 @@
 	"echo-no-title": "[無頁面]",
 	"echo-error-no-formatter": "沒有定義通知的格式。",
 	"notifications": "通知",
+	"tooltip-pt-notifications-alert": "{{GENDER:|您的}}提醒",
+	"tooltip-pt-notifications-message": "{{GENDER:|您的}}留言訊息",
 	"echo-specialpage": "通知",
 	"echo-anon": "要接收通知，請先 [$1 註冊帳號] 或是 [$2 登入]。",
 	"echo-none": "您沒有任何通知。",
@@ -101,9 +105,9 @@
 	"echo-email-batch-body-default": "你有一則新通知訊息。",
 	"echo-email-footer-default": "$2\n\n如要調整我們寄給您的電子郵件，請檢查您的偏好設定：\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
 	"echo-email-footer-default-html": "如要調整我們寄給您的電子郵件，<a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">請檢查您的偏好設定</a>。<br />\n$1",
-	"echo-notification-alert": "{{PLURAL:$1|警報 ($1 條)|100=警報 (超過 99 條)}}",
-	"echo-notification-message": "{{PLURAL:$1|訊息 ($1)|訊息 ($1)|100=訊息 (99+)}}",
-	"echo-notification-alert-text-only": "警告",
+	"echo-notification-alert": "{{PLURAL:$1|提醒 ($1則)|100=提醒 (99+則)}}",
+	"echo-notification-message": "{{PLURAL:$1|留言訊息($1則)|100=留言訊息(99+則)}}",
+	"echo-notification-alert-text-only": "提醒",
 	"echo-notification-message-text-only": "訊息",
 	"echo-overlay-link": "所有通知",
 	"echo-overlay-title": "<b>通知</b>",

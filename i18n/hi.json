@@ -7,7 +7,8 @@
 			"Hindustanilanguage",
 			"Shubhamkanodia",
 			"Siddhartha Ghai",
-			"NehalDaveND"
+			"NehalDaveND",
+			"राम प्रसाद जोशी"
 		]
 	},
 	"echo-desc": "अधिसूचना प्रणाली",
@@ -27,7 +28,6 @@
 	"echo-pref-email-frequency-weekly": "अधिसूचनाओं का साप्ताहिक सारांश",
 	"echo-pref-email-format-html": "एच॰टी॰एम॰एल॰",
 	"echo-pref-email-format-plain-text": "सादा पाठ",
-	"echo-pref-notify-show-link": "अधिसूचनाओं को मेरी उपकरण-पट्टी में दिखाएँ",
 	"echo-pref-new-message-indicator": "वार्ता पृष्ठ संदेश संकेतक मेरी उपकरण पट्टी में दिखाएँ",
 	"echo-learn-more": "अधिक जानिए",
 	"echo-new-messages": "आपके लिए नए संदेश हैं",
@@ -45,10 +45,8 @@
 	"echo-no-agent": "[कोई नहीं]",
 	"echo-no-title": "[कोई पृष्ठ नहीं]",
 	"echo-error-no-formatter": "अधिसूचना के लिए कोई स्वरूपण परिभाषित नहीं है।",
-	"echo-error-preference": "त्रुटि: सदस्य पसंद निर्धारित नहीं की जा सकी।",
-	"echo-error-token": "त्रुटि: सदस्य टोकन प्राप्त नहीं किया जा सका।",
 	"notifications": "अधिसूचनाएँ",
-	"tooltip-pt-notifications": "आपकी अधिसूचनाएँ",
+	"tooltip-pt-notifications-message": "{{GENDER:|आप के}} संदेश",
 	"echo-specialpage": "अधिसूचनाएँ",
 	"echo-anon": "अधिसूचनाएँ पाने के लिये, [$1 खाता बनाएँ] या [$2 लॉग इन करें]।",
 	"echo-none": "आपके लिये कोई अधिसूचना नहीं है।",

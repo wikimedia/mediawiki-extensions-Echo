@@ -15,7 +15,8 @@
 			"Wpedzich",
 			"Tsca",
 			"Peter Bowman",
-			"The Polish"
+			"The Polish",
+			"Rzuwig"
 		]
 	},
 	"echo-desc": "System powiadomień użytkowników o wydarzeniach i komunikatach",
@@ -54,6 +55,8 @@
 	"echo-no-title": "[Brak strony]",
 	"echo-error-no-formatter": "Nie określono formatowania dla powiadomień",
 	"notifications": "Powiadomienia",
+	"tooltip-pt-notifications-alert": "Twoje powiadomienia",
+	"tooltip-pt-notifications-message": "Twoje wiadomości",
 	"echo-specialpage": "Powiadomienia",
 	"echo-anon": "Aby otrzymywać powiadomienia, [$1 załóż konto] lub [$2 zaloguj się].",
 	"echo-none": "Nie masz żadnych powiadomień.",
@@ -114,9 +117,9 @@
 	"echo-date-today": "Dzisiaj",
 	"echo-date-yesterday": "Wczoraj",
 	"echo-load-more-error": "Wystąpił błąd przy pobieraniu kolejnych wyników.",
-	"notification-edit-talk-page-bundle": "$1 i {{PLURAL:$4|ktoś inny|$3 inni|$3 innych}} napisali do ciebie na twojej [[User talk:$2|stronie dyskusji]].",
+	"notification-edit-talk-page-bundle": "$1 i {{PLURAL:$4|ktoś inny|$3 inni|$3 innych}} napisali do Ciebie na Twojej [[User talk:$2|stronie dyskusji]].",
 	"notification-page-linked-bundle": "Na stronie $3 i na {{PLURAL:$5|innej stronie|$4 innych stronach}} {{GENDER:$1|umieszczono}} link do strony $2: [[Special:WhatLinksHere/$2|pokaż wszystkie linkujące do tej strony]]",
-	"notification-edit-user-talk-email-batch-bundle-body": "$1 i {{PLURAL:$3|ktoś inny|$2 inni|$2 innych}} {{GENDER:$1|napisali}} do ciebie na twojej stronie dyskusji.",
+	"notification-edit-user-talk-email-batch-bundle-body": "$1 i {{PLURAL:$3|ktoś inny|$2 inni|$2 innych}} {{GENDER:$1|napisali}} do Ciebie na Twojej stronie dyskusji.",
 	"notification-page-linked-email-batch-bundle-body": "Na stronie $3 i na {{PLURAL:$5|innej stronie|$4 innych stronach}} {{GENDER:$1|umieszczono}} link do strony $2",
 	"echo-email-batch-subject-daily": "Masz {{PLURAL:$2|nowe powiadomienie|nowe powiadomienia}} w {{grammar:MS.lp|{{SITENAME}}}}",
 	"echo-email-batch-subject-weekly": "Masz {{PLURAL:$2|nowe powiadomienie|nowe powiadomienia}} w {{grammar:MS.lp|{{SITENAME}}}} z tego tygodnia",

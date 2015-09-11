@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Mashoi7"
+		]
+	},
+	"tooltip-pt-notifications-alert": "{{GENDER:|Sinun}} hälytykset",
+	"tooltip-pt-notifications-message": "{{GENDER:|Sinun}} viestit"
+}

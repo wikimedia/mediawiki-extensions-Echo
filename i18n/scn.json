@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Gmelfi",
-			"Pippinu"
+			"Pippinu",
+			"Sarvaturi"
 		]
 	},
 	"echo-desc": "Sistema di nutifica",
@@ -39,7 +40,7 @@
 	"echo-no-title": "[Nudda pàggina]",
 	"echo-error-no-formatter": "Nudda furnattazzioni difinuta pê nutìfichi",
 	"notifications": "Nutìfichi",
-	"tooltip-pt-notifications-alert": "Li {{GENDER:|to}} avvisi",
+	"tooltip-pt-notifications-alert": "Li {{GENDER:|tò}} avvisi",
 	"echo-specialpage": "Nutìfichi",
 	"echo-anon": "Pi arriciviri li nutìfichi, [$1 arriggistrati] o [$2 trasi].",
 	"echo-none": "Nun arricivistru nutìfichi",

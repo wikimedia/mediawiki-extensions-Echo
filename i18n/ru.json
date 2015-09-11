@@ -56,6 +56,8 @@
 	"echo-no-title": "[Нет страницы]",
 	"echo-error-no-formatter": "Форматирование не определено для уведомления",
 	"notifications": "Уведомления",
+	"tooltip-pt-notifications-alert": "{{GENDER:|Ваши}} оповещения",
+	"tooltip-pt-notifications-message": "{{GENDER:|Ваши}} сообщения",
 	"echo-specialpage": "Уведомления",
 	"echo-anon": "Чтобы получать уведомления, [$1 создайте учётную запись] или [$2 представьтесь].",
 	"echo-none": "Вы не получали уведомлений.",
