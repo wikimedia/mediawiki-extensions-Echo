@@ -22,7 +22,7 @@
 			// Store links
 			links = {
 				notifications: $( '#pt-notifications-alert a' ).attr( 'href' ),
-				preferences: $( '#pt-preferences a' ).attr( 'href' )
+				preferences: $( '#pt-preferences a' ).attr( 'href' ) + '#mw-prefsection-echo'
 			};
 
 		if ( $existingMessageLink.length ) {
