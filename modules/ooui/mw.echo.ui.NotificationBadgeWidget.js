@@ -168,7 +168,7 @@
 
 		// Update numbers and seen/unseen state
 		this.setFlags( { unseen: !!unseenCount } );
-		this.setLabel( String( unreadCount ) );
+		this.setLabel( mw.language.convertNumber( unreadCount ) );
 		this.updateIcon( !!unseenCount );
 
 		// Check if we need to display the 'mark all unread' button
