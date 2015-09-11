@@ -34,9 +34,6 @@
 			remove: 'onModelNotificationRemove',
 			clear: 'onModelNotificationClear'
 		} );
-		this.connect( this, {
-			choose: 'onNotificationChoose'
-		} );
 
 		this.$element
 			.addClass( 'mw-echo-ui-notificationsWidget' );
@@ -126,28 +123,6 @@
 		if ( !items.length ) {
 			// Add dummy option
 			this.addItems( [ this.loadingOptionWidget ] );
-		}
-	};
-
-	/**
-	 * Respond to choosing a notification option
-	 *
-	 * @param {mw.echo.ui.NotificationOptionWidget} item Notification option
-	 */
-	mw.echo.ui.NotificationsWidget.prototype.onNotificationChoose = function ( item ) {
-		var link;
-
-		if ( !item ) {
-			return;
-		}
-
-		link = item.getPrimaryUrl();
-		if ( link ) {
-			// Log the clickthrough
-			mw.echo.logger.logInteraction( 'notification-link-click', item.getData(), this.type );
-
-			// Follow the link
-			window.location.href = link;
 		}
 	};
 } )( mediaWiki, jQuery );
