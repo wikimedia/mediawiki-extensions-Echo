@@ -34,6 +34,8 @@
 				badgeIcon: 'speechBubble',
 				links: links
 			} );
+			// avoid late debouncedUpdateThemeClasses
+			mw.echo.ui.messageWidget.debouncedUpdateThemeClasses();
 			$existingMessageLink.replaceWith( mw.echo.ui.messageWidget.$element );
 		}
 
@@ -48,6 +50,9 @@
 			},
 			links: links
 		} );
+
+		// avoid late debouncedUpdateThemeClasses
+		mw.echo.ui.alertWidget.debouncedUpdateThemeClasses();
 		$existingAlertLink.replaceWith( mw.echo.ui.alertWidget.$element );
 	} );
 
