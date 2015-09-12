@@ -269,6 +269,10 @@
 
 					for ( i = 0, len = data.index.length; i < len; i++ ) {
 						notifData = data.list[ data.index[i] ];
+						if ( model.getItemById( notifData.id ) ) {
+							// Skip if we already have the item
+							continue;
+						}
 						// TODO: This should really be formatted better, and the OptionWidget
 						// should be the one that displays whatever icon relates to this notification
 						// according to its type.
@@ -292,7 +296,7 @@
 						idArray.push( notifData.id );
 						optionItems.push( notificationModel );
 					}
-					model.addItems( optionItems );
+					model.addItems( optionItems, 0 );
 
 					return idArray;
 				} )
