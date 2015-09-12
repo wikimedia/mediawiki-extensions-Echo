@@ -53,7 +53,7 @@
 	"echo-error-no-formatter": "لم يحدد للإشعارات أي تنسيق.",
 	"notifications": "إشعارات",
 	"tooltip-pt-notifications-alert": "إخطاراتك",
-	"tooltip-pt-notifications-message": "رسائلك",
+	"tooltip-pt-notifications-message": "{{GENDER:|رسائلك}}",
 	"echo-specialpage": "إشعارات",
 	"echo-anon": "لتلقي الإشعارات، [$1 أنشئ حسابا] أو [$2 سجل الدخول].",
 	"echo-none": "ليس لديك أي إشعارات",

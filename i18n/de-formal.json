@@ -5,7 +5,7 @@
 		]
 	},
 	"echo-new-messages": "Sie haben neue Nachrichten",
-	"tooltip-pt-notifications": "Ihre Benachrichtigungen",
+	"tooltip-pt-notifications-alert": "{{GENDER:|Ihre}} Meldungen",
 	"echo-none": "Sie haben in letzter Zeit keine Benachrichtigungen erhalten.",
 	"notification-user-rights": "Ihre Benutzerrechte wurden von [[User:$1|$1]] [[Special:Log/rights/$1|{{GENDER:$1|geändert}}]]. $2. [[Special:ListGroupRights|Weitere Informationen …]]",
 	"notification-user-rights-flyout": "Ihre Benutzerrechte wurden von $1 {{GENDER:$1|geändert}}. $2. [[Special:ListGroupRights|Weitere Informationen …]]",

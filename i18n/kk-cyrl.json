@@ -4,7 +4,7 @@
 			"Arystanbek"
 		]
 	},
-	"echo-desc": "Хабарландыру жүйесі",
+	"echo-desc": "Оқиғалар мен хабарламалар туралы қатысушыларға ескерту \nжүйесі",
 	"prefs-echo": "Хабарландырулар",
 	"prefs-emailsettings": "Е-пошта баптаулары",
 	"prefs-displaynotifications": "Көрсету бапталымдары",
@@ -39,7 +39,8 @@
 	"echo-no-title": "[Бет жоқ]",
 	"echo-error-no-formatter": "Ескертпелер үшін форматтау анықталмайды.",
 	"notifications": "Хабарландырулар",
-	"tooltip-pt-notifications": "Сіздегі хабарландырулар",
+	"tooltip-pt-notifications-alert": "{{GENDER:|Сіздегі}} дабылдар",
+	"tooltip-pt-notifications-message": "Сіздегі хабарламалар",
 	"echo-specialpage": "Хабарландырулар",
 	"echo-anon": "Ескертпелерді қабылдау үшін [$1 тіркеліңіз] немесе [$2 кіріңіз].",
 	"echo-none": "Сізде ескертпелер жоқ.",
@@ -72,7 +73,7 @@
 	"notification-reverted2": "Сіздің {{PLURAL:$4|[[:$2]] бетіндегі өңдемеңізді|[[:$2]] бетіндегі өңдемелеріңізді}} [[User:$1|$1]] {{GENDER:$1|жоққа шығарды}}. $3",
 	"notification-reverted-flyout2": "Сіздің {{PLURAL:$4|$2 бетіндегі өңдемеңізді|$2 бетіндегі өңдемелеріңізді}} $1 есімді қатысушы {{GENDER:$1|жоққа шығарыды}}. $3",
 	"notification-edit-talk-page-email-subject2": "$1 {{SITENAME}} сайтында сізге хабарлама {{GENDER:$1|қалдырды}}",
-	"notification-edit-talk-page-email-batch-body2": "$1 талқылау бетіңізге хабарлама {{GENDER:$1|қалдырды}}:",
+	"notification-edit-talk-page-email-batch-body2": "$1 талқылау бетіңізге хабарлама {{GENDER:$1|қалдырды}}.",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 талқылау бетіңіздегі  «$2» бөліміне хабарлама {{GENDER:$1|қалдырды}}.",
 	"notification-page-linked-email-subject": "{{SITENAME}} сайтында сіз бастаған бет сілтенді",
 	"notification-page-linked-email-batch-body": "$2 $3 дегеннен {{GENDER:$1|сілтенді}}.",
@@ -114,7 +115,7 @@
 	"apihelp-echomarkread-example-1": "8 ескертпені оқылды деп белгілеу",
 	"apihelp-echomarkread-example-2": "Барлық ескертпелерді оқылды деп белгілеу",
 	"apihelp-echomarkseen-description": "Қазіргі қатысушы үшін ескертпелер көрілген деп белгілеу",
-	"apihelp-echomarkseen-example-1": "Ескертпелерді көрілді деп белгілеу",
+	"apihelp-echomarkseen-example-1": "Ескертпелердің барлық түрін көрдім деп белгілеу",
 	"apihelp-query+notifications-example-1": "Ескертпелер тізімі",
 	"apihelp-query+notifications-example-2": "Санымен көрсетілген, бөлімі бойынша топталған ескертпелер сан"
 }
