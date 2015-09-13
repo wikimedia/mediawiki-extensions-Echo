@@ -41,6 +41,7 @@
 	"echo-error-no-formatter": "Nudda furnattazzioni difinuta pê nutìfichi",
 	"notifications": "Nutìfichi",
 	"tooltip-pt-notifications-alert": "Li {{GENDER:|tò}} avvisi",
+	"tooltip-pt-notifications-message": "Li {{GENDER:|to}} missaggi",
 	"echo-specialpage": "Nutìfichi",
 	"echo-anon": "Pi arriciviri li nutìfichi, [$1 arriggistrati] o [$2 trasi].",
 	"echo-none": "Nun arricivistru nutìfichi",

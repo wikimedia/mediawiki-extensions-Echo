@@ -128,6 +128,7 @@
 	"echo-email-batch-link-text-view-all-notifications": "Zobacz wszystkie powiadomienia",
 	"echo-rev-deleted-text-view": "Ta wersja strony została ukryta",
 	"apihelp-echomarkread-description": "Oznacz powiadomienia jako przeczytane dla bieżącego użytkownika.",
+	"apihelp-echomarkread-param-sections": "Lista sekcji do oznaczania jako przeczytane.",
 	"apihelp-echomarkread-example-2": "Oznacz wszystkie powiadomienia jako przeczytane",
 	"apihelp-echomarkseen-example-1": "Oznacz powiadomienia wszystkich typów jako przeczytane",
 	"apihelp-query+notifications-param-limit": "Maksymalna liczba zwracanych powiadomień.",

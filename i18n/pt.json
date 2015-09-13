@@ -8,7 +8,8 @@
 			"Lijealso",
 			"Polyethylen",
 			"Vitorvicentevalente",
-			"He7d3r"
+			"He7d3r",
+			"Fúlvio"
 		]
 	},
 	"echo-desc": "Sistema de notificações sobre eventos e mensagens para utilizadores",
@@ -47,7 +48,8 @@
 	"echo-no-title": "[Nenhuma página]",
 	"echo-error-no-formatter": "Sem formato definido para notificações",
 	"notifications": "Notificações",
-	"tooltip-pt-notifications": "As suas notificações",
+	"tooltip-pt-notifications-alert": "{{GENDER:|Seus}} alertas",
+	"tooltip-pt-notifications-message": "{{GENDER:|Suas}} mensagens",
 	"echo-specialpage": "Notificações",
 	"echo-anon": "Para receber notificações, [$1 crie uma conta] ou [$2 entre] na sua.",
 	"echo-none": "Não tem notificações.",

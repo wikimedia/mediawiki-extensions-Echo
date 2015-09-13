@@ -4,5 +4,6 @@
 			"محک"
 		]
 	},
-	"tooltip-pt-notifications": "شمه ونگ‌بَیی‌ئون"
+	"tooltip-pt-notifications-alert": "{{GENDER:|شمه}} هشدارون",
+	"tooltip-pt-notifications-message": "{{GENDER:|شمه}} پیغوم‌ئون"
 }
