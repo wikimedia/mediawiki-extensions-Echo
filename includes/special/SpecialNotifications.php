@@ -134,7 +134,7 @@ class SpecialNotifications extends SpecialPage {
 			)
 		);
 		// For no-js support
-		$out->addModuleStyles( "ext.echo.nojs" );
+		$out->addModuleStyles( array( 'ext.echo.nojs', 'ext.echo.nojs.special' ) );
 		// Mark items as read
 		if ( $unread ) {
 			MWEchoNotifUser::newFromUser( $user )->markRead( $unread );
