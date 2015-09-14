@@ -75,7 +75,7 @@ $wgResourceModules += array(
 			'tooltip-pt-notifications-message',
 			'mypreferences'
 		),
-		'targets' => array( 'desktop', 'mobile' ),
+		'targets' => array( 'desktop' ),
 	),
 	'ext.echo.dm' => $echoResourceTemplate + array(
 		'scripts' => array(
@@ -111,7 +111,7 @@ $wgResourceModules += array(
 		'dependencies' => array(
 			'ext.echo.ui'
 		),
-		'targets' => array( 'desktop', 'mobile' ),
+		'targets' => array( 'desktop' ),
 	),
 	// Base no-js styles
 	'ext.echo.nojs' => $echoResourceTemplate + array(

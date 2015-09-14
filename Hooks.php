@@ -585,7 +585,7 @@ class EchoHooks {
 	 * @return bool true in all cases
 	 */
 	static function beforePageDisplay( $out, $skin ) {
-		if ( $out->getUser()->isLoggedIn() ) {
+		if ( $out->getUser()->isLoggedIn() && $skin->getSkinName() !== 'minerva' ) {
 			// Load the module for the Notifications flyout
 			$out->addModules( array( 'ext.echo.init' ) );
 			// Load the styles for the Notifications badge
