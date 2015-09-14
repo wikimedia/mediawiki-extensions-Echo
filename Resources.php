@@ -118,8 +118,14 @@ $wgResourceModules += array(
 		'position' => 'top',
 		'styles' => array(
 			'nojs/mw.echo.badge.less',
-			'nojs/mw.echo.alert.less',
 			'nojs/mw.echo.notifications.less'
+		),
+		'targets' => array( 'desktop', 'mobile' ),
+	),
+	'ext.echo.nojs.alert' => $echoResourceTemplate + array(
+		'position' => 'top',
+		'styles' => array(
+			'nojs/mw.echo.alert.less',
 		),
 		'skinStyles' => array(
 			'monobook' => array(
@@ -127,7 +133,7 @@ $wgResourceModules += array(
 			),
 			'modern' => array(
 				'nojs/mw.echo.alert.modern.less',
-			)
+			),
 		),
 		'targets' => array( 'desktop', 'mobile' ),
 	),

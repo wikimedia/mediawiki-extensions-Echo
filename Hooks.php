@@ -714,7 +714,7 @@ class EchoHooks {
 		) {
 			$personal_urls['mytalk']['text'] = $sk->msg( 'echo-new-messages' )->text();
 			$personal_urls['mytalk']['class'] = array( 'mw-echo-alert' );
-			$sk->getOutput()->addModuleStyles( 'ext.echo.alert' );
+			$sk->getOutput()->addModuleStyles( 'ext.echo.nojs.alert' );
 		}
 
 		return true;
