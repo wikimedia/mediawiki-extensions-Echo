@@ -112,5 +112,6 @@
 	"echo-email-batch-body-intro-daily": "Здраво $1,\nОво је дневни сажетак данашњих активности на пројекту {{SITENAME}} за вас.",
 	"echo-email-batch-body-intro-weekly": "Здраво $1,\nОво је недељни сажетак активности на пројекту {{SITENAME}} за вас.",
 	"echo-email-batch-link-text-view-all-notifications": "Погледај сва обавештења",
-	"echo-rev-deleted-text-view": "Ова ревизија странице је потиснута."
+	"echo-rev-deleted-text-view": "Ова ревизија странице је потиснута.",
+	"apihelp-echomarkread-example-2": "Означи сва обавештења прочитаним"
 }

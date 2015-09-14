@@ -3,7 +3,8 @@
 		"authors": [
 			"Fohanno",
 			"Fulup",
-			"Y-M D"
+			"Y-M D",
+			"Gwenn-Ael"
 		]
 	},
 	"echo-desc": "Reizhiad kemennoù",
@@ -23,7 +24,6 @@
 	"echo-pref-email-frequency-weekly": "Un diverrañ sizhuniek eus ar c'hemennoù",
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Testenn blaen",
-	"echo-pref-notify-show-link": "Diskouez ar c'hemennoù em barrenn ostilhoù",
 	"echo-learn-more": "Gouzout hiroc'h",
 	"echo-new-messages": "Kemennadennoù nevez zo ganeoc'h",
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Kemennadenn|Kemennadennoù}} ar bajenn gaozeal",
@@ -38,10 +38,9 @@
 	"echo-pref-tooltip-user-rights": "Kelaouiñ ac'hanon pa vez kemmet va gwirioù implijer gant unan bennak.",
 	"echo-no-agent": "[Den]",
 	"echo-no-title": "[Pajenn ebet]",
-	"echo-error-preference": "Fazi : Dibosubl eo termenniñ an arventenn implijer.",
-	"echo-error-token": "Fazi : N'eus ket bet gallet adtapout jedouer an implijer",
 	"notifications": "Kemennoù",
-	"tooltip-pt-notifications": "Ho kemennoù",
+	"tooltip-pt-notifications-alert": "{{GENDER:|Ho}} kememmoù diwall",
+	"tooltip-pt-notifications-message": "{{GENDER:|Ho}} kemennoù",
 	"echo-specialpage": "Kemennoù",
 	"echo-anon": "Evit resev kemennoù, [$1 krouit ur gont] pe [$2 kevreit].",
 	"echo-none": "N'ho peus resevet kemenn ebet.",

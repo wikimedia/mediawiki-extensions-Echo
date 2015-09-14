@@ -4,6 +4,28 @@
 			"Mashoi7"
 		]
 	},
+	"echo-pref-send-me": "Työnnä minule:",
+	"echo-pref-send-to": "Työnnä adressah:",
+	"echo-pref-email": "Sähköpoštu",
+	"echo-pref-email-frequency-never": "Älä työnnä minule sähköpoštuilmoituksii",
+	"echo-pref-email-format-html": "HTML",
+	"echo-pref-email-format-plain-text": "Perustekstu",
+	"echo-new-messages": "Sinul on uuzii viestilöi",
+	"echo-category-title-other": "{{PLURAL:$1|Muu|Muut}}",
+	"echo-no-agent": "[Niken]",
+	"echo-no-title": "[Ei sivuu]",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Sinun}} hälytykset",
-	"tooltip-pt-notifications-message": "{{GENDER:|Sinun}} viestit"
+	"tooltip-pt-notifications-message": "{{GENDER:|Sinun}} viestit",
+	"echo-feedback": "Työndö",
+	"notification-link-text-view-message": "Ozuta viesti",
+	"notification-link-text-view-page": "Ozuta sivu",
+	"notification-edit-talk-page2": "[[User:$1|$1]] {{GENDER:$1|kirjutti}} viestin [[User talk:$2#$3|sinun paginsivule]].",
+	"notification-edit-talk-page-flyout2": "$1 {{GENDER:$1|kirjutti}} viestin [[User talk:$2#$3|sinun paginsivule]].",
+	"notification-new-user": "Tule terveh sivule {{SITENAME}}, $1! Olemmo hyväs mieles ku olet tiä.",
+	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|kirjutti}} sinule viestin sivul {{SITENAME}}",
+	"notification-edit-talk-page-email-batch-body2": "$1 {{GENDER:$1|kirjutti}} viestin sinun paginsivule.",
+	"echo-notification-message-text-only": "Viestit",
+	"echo-mark-all-as-read": "Merkiče kai luvettuloikse",
+	"echo-date-today": "Tänäpäi",
+	"echo-date-yesterday": "Egläi"
 }
