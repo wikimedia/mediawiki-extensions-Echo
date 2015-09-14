@@ -153,6 +153,17 @@ $wgResourceModules += array(
 			'echo-feedback',
 		),
 	),
+
+	// HACK: OOUI has an icon pack for these, but it's unhelpfully large and we don't
+	// want to load more as render-blocking CSS than we have to (T112401)
+	'ext.echo.badgeicons' => $echoResourceTemplate + array(
+		'class' => 'ResourceLoaderOOUIImageModule',
+		'position' => 'top',
+		'name' => 'badgeicons',
+		'rootPath' => 'icons',
+		'selectorWithoutVariant' => '.oo-ui-icon-{name}',
+		'selectorWithVariant' => '.oo-ui-image-{variant}.oo-ui-icon-{name}',
+	),
 );
 
 unset( $echoResourceTemplate );

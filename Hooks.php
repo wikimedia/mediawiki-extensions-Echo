@@ -591,7 +591,7 @@ class EchoHooks {
 			// Load the styles for the Notifications badge
 			$out->addModuleStyles( array(
 				'ext.echo.nojs',
-				'oojs-ui.styles.icons-alerts'
+				'ext.echo.badgeicons'
 			) );
 		}
 
