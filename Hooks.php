@@ -591,10 +591,8 @@ class EchoHooks {
 			// Load the styles for the Notifications badge
 			$out->addModuleStyles( array(
 				'ext.echo.nojs',
-				'oojs-ui.styles',
 				'oojs-ui.styles.icons-alerts'
 			) );
-			$out->enableOOUI();
 		}
 
 		return true;
@@ -653,6 +651,7 @@ class EchoHooks {
 
 		// HACK: inverted icons only work in the "MediaWiki" OOUI theme
 		// Avoid flashes in skins that don't use it (T111821)
+		$sk->getOutput()->setupOOUI( strtolower( $sk->getSkinName() ), $sk->getOutput()->getLanguage()->getDir() );
 		$oouiImageClass = get_class( OOUI\Theme::singleton() ) === 'OOUI\\MediaWikiTheme'
 				? 'oo-ui-image-invert'
 				: '';
