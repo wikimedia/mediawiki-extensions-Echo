@@ -109,7 +109,7 @@ $wgResourceModules += array(
 			'ext.echo.init.js',
 		),
 		'dependencies' => array(
-			'ext.echo.ui'
+			'ext.echo.logger',
 		),
 		'targets' => array( 'desktop' ),
 	),
