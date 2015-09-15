@@ -703,7 +703,15 @@ class EchoHooks {
 		$personal_urls = wfArrayInsertAfter( $personal_urls, $insertUrls, 'userpage' );
 
 		// If the user has new messages, display a talk page alert
-		if ( $wgEchoNewMsgAlert && $user->getOption( 'echo-show-alert' ) && $user->getNewtalk() ) {
+		// We need to check:
+		// * Orange alert is enabled in configuration
+		// * Enabled in user preferences
+		// * User actually has new messages
+		// * User is not viewing their user talk page, as user_newtalk
+		//   will not have been cleared yet. (bug T107655).
+		if ( $wgEchoNewMsgAlert && $user->getOption( 'echo-show-alert' )
+				&& $user->getNewtalk() && !$user->getTalkPage()->equals( $title )
+		) {
 			$personal_urls['mytalk']['text'] = $sk->msg( 'echo-new-messages' )->text();
 			$personal_urls['mytalk']['class'] = array( 'mw-echo-alert' );
 			$sk->getOutput()->addModuleStyles( 'ext.echo.alert' );
