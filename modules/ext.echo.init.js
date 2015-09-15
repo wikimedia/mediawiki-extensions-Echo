@@ -89,6 +89,12 @@
 				myWidget.populateNotifications( apiRequest );
 				myWidget.popup.toggle( true );
 			} );
+
+			if ( hasUnseenAlerts || hasUnseenMessages ) {
+				// Clicked on the flyout due to having unread notifications
+				mw.track( 'counter.MediaWiki.echo.unseen.click' );
+			}
+
 			// Prevent default
 			return false;
 		} );

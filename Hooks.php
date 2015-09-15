@@ -659,12 +659,14 @@ class EchoHooks {
 		$msgLinkClasses = array( "mw-echo-notifications-badge mw-echo-notification-badge-nojs $oouiImageClass oo-ui-iconElement oo-ui-iconElement-icon oo-ui-icon-speechBubble" );
 		$alertLinkClasses = array( "mw-echo-notifications-badge mw-echo-notification-badge-nojs $oouiImageClass oo-ui-iconElement oo-ui-iconElement-icon" );
 
+		$hasUnseen = false;
 		if (
 			$msgCount != 0 && // no unread notifications
 			$msgNotificationTimestamp !== false && // should already always be false if count === 0
 			( $seenMsgTime === null || $seenMsgTime < $msgNotificationTimestamp->getTimestamp( TS_MW ) ) // there are no unseen notifications
 		) {
 			$msgLinkClasses[] = 'mw-echo-unseen-notifications';
+			$hasUnseen = true;
 		}
 
 		$alertIcon = "bell";
@@ -675,6 +677,7 @@ class EchoHooks {
 		) {
 			$alertLinkClasses[] = 'mw-echo-unseen-notifications';
 			$alertIcon = "bellOn";
+			$hasUnseen = true;
 		}
 		$alertLinkClasses[] = 'oo-ui-icon-' . $alertIcon;
 
@@ -701,6 +704,11 @@ class EchoHooks {
 		}
 
 		$personal_urls = wfArrayInsertAfter( $personal_urls, $insertUrls, 'userpage' );
+
+		if ( $hasUnseen ) {
+			// Record that the user is going to see an indicator that they have unread notifications
+			RequestContext::getMain()->getStats()->increment( 'MediaWiki.echo.unseen' );
+		}
 
 		// If the user has new messages, display a talk page alert
 		// We need to check:
