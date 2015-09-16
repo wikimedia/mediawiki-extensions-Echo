@@ -596,7 +596,7 @@ class EchoHooks {
 			$out->addModules( array( 'ext.echo.init' ) );
 			// Load the styles for the Notifications badge
 			$out->addModuleStyles( array(
-				'ext.echo.nojs',
+				'ext.echo.styles.badge',
 				'ext.echo.badgeicons'
 			) );
 		}
@@ -728,7 +728,7 @@ class EchoHooks {
 		) {
 			$personal_urls['mytalk']['text'] = $sk->msg( 'echo-new-messages' )->text();
 			$personal_urls['mytalk']['class'] = array( 'mw-echo-alert' );
-			$sk->getOutput()->addModuleStyles( 'ext.echo.nojs.alert' );
+			$sk->getOutput()->addModuleStyles( 'ext.echo.styles.alert' );
 		}
 
 		return true;

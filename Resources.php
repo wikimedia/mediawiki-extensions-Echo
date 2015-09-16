@@ -53,7 +53,8 @@ $wgResourceModules += array(
 			)
 		),
 		'dependencies' => array(
-			'ext.echo.nojs',
+			'ext.echo.styles.badge',
+			'ext.echo.styles.notifications',
 			'ext.echo.dm',
 			'oojs-ui',
 			'ext.echo.logger',
@@ -111,15 +112,22 @@ $wgResourceModules += array(
 		'targets' => array( 'desktop' ),
 	),
 	// Base no-js styles
-	'ext.echo.nojs' => $echoResourceTemplate + array(
+	'ext.echo.styles.badge' => $echoResourceTemplate + array(
 		'position' => 'top',
 		'styles' => array(
 			'nojs/mw.echo.badge.less',
+		),
+		'targets' => array( 'desktop', 'mobile' ),
+	),
+	// Styles for individual notification entries in flyout and Special:Notifications
+	'ext.echo.styles.notifications' => $echoResourceTemplate + array(
+		'position' => 'top',
+		'styles' => array(
 			'nojs/mw.echo.notifications.less'
 		),
 		'targets' => array( 'desktop', 'mobile' ),
 	),
-	'ext.echo.nojs.alert' => $echoResourceTemplate + array(
+	'ext.echo.styles.alert' => $echoResourceTemplate + array(
 		'position' => 'top',
 		'styles' => array(
 			'nojs/mw.echo.alert.less',
@@ -134,7 +142,7 @@ $wgResourceModules += array(
 		),
 		'targets' => array( 'desktop', 'mobile' ),
 	),
-	'ext.echo.nojs.special' => $echoResourceTemplate + array(
+	'ext.echo.styles.special' => $echoResourceTemplate + array(
 		'position' => 'top',
 		'styles' => array(
 			'nojs/mw.echo.special.less',
