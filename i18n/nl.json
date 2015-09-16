@@ -55,6 +55,8 @@
 	"echo-no-title": "[Geen pagina]",
 	"echo-error-no-formatter": "Er is geen opmaak ingesteld voor deze melding.",
 	"notifications": "Meldingen",
+	"tooltip-pt-notifications-alert": "{{GENDER:|Uw}} waarschuwingen",
+	"tooltip-pt-notifications-message": "{{GENDER:|Uw}} berichten",
 	"echo-specialpage": "Meldingen",
 	"echo-anon": "[$1 Maak een gebruiker aan] of [$2 meld u aan] als u meldingen wilt ontvangen.",
 	"echo-none": "U hebt geen meldingen.",

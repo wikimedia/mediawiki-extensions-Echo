@@ -40,6 +40,8 @@
 	"echo-no-title": "[Ensin páxina]",
 	"echo-error-no-formatter": "Nun se definió formatu dalu pal avisu",
 	"notifications": "Avisos",
+	"tooltip-pt-notifications-alert": "{{GENDER:|Les tos}} alertes",
+	"tooltip-pt-notifications-message": "{{GENDER:|Los tos}} mensaxes",
 	"echo-specialpage": "Avisos",
 	"echo-anon": "Pa recibir avisos, [$1 cree una cuenta] o [$2 anicie sesión].",
 	"echo-none": "Nun tien avisos.",

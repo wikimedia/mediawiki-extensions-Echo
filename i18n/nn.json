@@ -33,7 +33,7 @@
 	"echo-category-title-system": "{{PLURAL:$1|System}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|Endring}} av brukarrettar",
 	"echo-pref-tooltip-edit-user-talk": "Meld meg når nokon skriv ei melding eller svarar på diskusjonssida mi.",
-	"echo-pref-tooltip-article-linked": "Meld meg når nokon lenkjer frå ein artikkel til ei side eg har oppretta.",
+	"echo-pref-tooltip-article-linked": "Meld meg når nokon lenkjar frå ein artikkel til ei side eg har oppretta.",
 	"echo-pref-tooltip-reverted": "Meld meg når nokon fjernar ei endring eg gjorde ved bruk av angre- eller attenderullingsverktøyet.",
 	"echo-pref-tooltip-mention": "Meld meg når nokon lenkjar til brukarsida mi.",
 	"echo-pref-tooltip-user-rights": "Meld meg når nokon endrar brukarrettane mine.",
