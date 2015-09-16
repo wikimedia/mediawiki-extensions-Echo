@@ -26,6 +26,7 @@
 
 		this.api = new mw.Api( { ajax: { cache: false } } );
 		this.fetchNotificationsPromise = null;
+		this.apiErrorState = false;
 
 		this.seenTime = mw.config.get( 'wgEchoSeenTime' );
 
@@ -174,6 +175,15 @@
 	};
 
 	/**
+	 * Check whether the model has an api error state flagged
+	 *
+	 * @return {boolean} The model is in api error state
+	 */
+	mw.echo.dm.NotificationsModel.prototype.isFetchingErrorState = function () {
+		return !!this.apiErrorState;
+	};
+
+	/**
 	 * Return the fetch notifications promise
 	 * @return {jQuery.Promise} Promise that is resolved when notifications were
 	 *  fetched from the API.
@@ -259,7 +269,10 @@
 		var model = this,
 			params = $.extend( { notsections: this.type }, mw.echo.apiCallParams );
 
-		if ( !this.fetchNotificationsPromise ) {
+		// Rebuild the notifications promise either when it is null or when
+		// it exists in a failed state
+		if ( !this.fetchNotificationsPromise || this.isFetchingErrorState() ) {
+			this.apiErrorState = false;
 			this.fetchNotificationsPromise = ( apiPromise || this.api.get( params ) )
 				.then( function ( result ) {
 					var notifData, i, len, $content, wasSeen, wasRead, notificationModel,
@@ -300,7 +313,11 @@
 
 					return idArray;
 				} )
-				.then( function ( idArray ) {
+				.fail( function () {
+					// Mark API error state
+					model.apiErrorState = true;
+				} )
+				.always( function ( idArray ) {
 					model.fetchNotificationsPromise = null;
 
 					return idArray;

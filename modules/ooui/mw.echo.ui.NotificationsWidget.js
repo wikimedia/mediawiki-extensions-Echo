@@ -96,7 +96,7 @@
 		this.clearItems();
 
 		// Add dummy option
-		this.addItems( [ this.loadingOptionWidget ] );
+		this.resetLoadingOption();
 	};
 
 	/**
@@ -121,8 +121,17 @@
 
 		items = this.getItems();
 		if ( !items.length ) {
-			// Add dummy option
-			this.addItems( [ this.loadingOptionWidget ] );
+			this.resetLoadingOption();
 		}
+	};
+
+	/**
+	 * Reset the loading 'dummy' option widget
+	 *
+	 * @param {string} [label] Label for the option widget
+	 */
+	mw.echo.ui.NotificationsWidget.prototype.resetLoadingOption = function ( label ) {
+		this.loadingOptionWidget.setLabel( label || '' );
+		this.addItems( [ this.loadingOptionWidget ] );
 	};
 } )( mediaWiki, jQuery );
