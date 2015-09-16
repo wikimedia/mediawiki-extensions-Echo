@@ -1,10 +1,7 @@
-# ruby=ruby-2.1.1
-# ruby-gemset=Echo
-
 source 'https://rubygems.org'
 
-gem 'chunky_png'
-gem 'csscss'
-gem 'mediawiki_api'
-gem 'mediawiki_selenium'
-gem 'rubocop', require: false
+gem 'chunky_png', '~> 1.3.4'
+gem 'csscss', '~> 1.3.3'
+gem 'mediawiki_api', '~> 0.3.0'
+gem 'mediawiki_selenium', '~> 0.4.2'
+gem 'rubocop', '~> 0.29.0', require: false
