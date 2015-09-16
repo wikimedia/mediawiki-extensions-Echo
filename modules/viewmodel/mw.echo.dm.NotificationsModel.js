@@ -174,6 +174,15 @@
 	};
 
 	/**
+	 * Return the fetch notifications promise
+	 * @return {jQuery.Promise} Promise that is resolved when notifications were
+	 *  fetched from the API.
+	 */
+	mw.echo.dm.NotificationsModel.prototype.getFetchNotificationPromise = function () {
+		return this.fetchNotificationsPromise;
+	};
+
+	/**
 	 * Update the seen timestamp
 	 *
 	 * @return {jQuery.Promise} A promise that resolves with the seen timestamp
@@ -239,28 +248,19 @@
 	/**
 	 * Fetch notifications from the API and update the notifications list.
 	 *
+	 * @param {jQuery.Promise} An existing promise querying the API for notifications.
+	 *  This allows us to send an API request external to the DM and have the model
+	 *  handle the operation as if it asked for the request itself, updating all that
+	 *  needs to be updated and emitting all proper events.
 	 * @return {jQuery.Promise} A promise that resolves with an array of notification
 	 *  id's.
 	 */
-	mw.echo.dm.NotificationsModel.prototype.fetchNotifications = function () {
+	mw.echo.dm.NotificationsModel.prototype.fetchNotifications = function ( apiPromise ) {
 		var model = this,
-			apiData = {
-				action: 'query',
-				meta: 'notifications',
-				notsections: this.type,
-				// We have to send the API 'groupbysection' otherwise
-				// the 'messageunreadfirst' doesn't do anything.
-				// TODO: Fix the API.
-				notgroupbysection: 1,
-				notmessageunreadfirst: 1,
-				notformat: 'flyout',
-				notlimit: this.limit,
-				notprop: 'index|list|count',
-				uselang: this.userLang
-			};
+			params = $.extend( { notsections: this.type }, mw.echo.apiCallParams );
 
 		if ( !this.fetchNotificationsPromise ) {
-			this.fetchNotificationsPromise = this.api.get( apiData )
+			this.fetchNotificationsPromise = ( apiPromise || this.api.get( params ) )
 				.then( function ( result ) {
 					var notifData, i, len, $content, wasSeen, wasRead, notificationModel,
 						optionItems = [],
@@ -306,7 +306,6 @@
 					return idArray;
 				} );
 		}
-
 		return this.fetchNotificationsPromise;
 	};
 

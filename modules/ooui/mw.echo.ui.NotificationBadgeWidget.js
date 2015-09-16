@@ -46,7 +46,8 @@
 		this.notificationsModel = new mw.echo.dm.NotificationsModel( {
 			type: this.type,
 			limit: 25,
-			userLang: mw.config.get( 'wgUserLanguage' )
+			userLang: mw.config.get( 'wgUserLanguage' ),
+			apiData: mw.echo.apiCallParams
 		} );
 
 		// Notifications widget
@@ -183,39 +184,21 @@
 	};
 
 	/**
-	 * Extend the response to button click so we can also update the notification list.
+	 * Populate notifications from the API.
+	 *
+	 * @param {jQuery.Promise} [fetchingApiRequest] An existing promise for fetching
+	 *  notifications from the API. This allows us to start fetching notifications
+	 *  externally.
+	 * @return {jQuery.Promise} Promise that is resolved when the notifications populate
 	 */
-	mw.echo.ui.NotificationBadgeWidget.prototype.onPopupToggle = function ( isVisible ) {
+	mw.echo.ui.NotificationBadgeWidget.prototype.populateNotifications = function ( fetchingApiRequest ) {
 		var widget = this,
 			time = mw.now();
 
-		if ( !isVisible ) {
-			// If the popup is closing, leave
-			return;
-		}
-
-		// Log the click event
-		mw.echo.logger.logInteraction(
-			'ui-badge-link-click',
-			mw.echo.Logger.static.context,
-			null,
-			this.type
-		);
-
 		if ( !this.notificationsModel.isFetchingNotifications() ) {
-			if ( this.hasRunFirstTime ) {
-				// HACK: Clippable doesn't resize the clippable area when
-				// it calculates the new size. Since the popup contents changed
-				// and the popup is "empty" now, we need to manually set its
-				// size to 1px so the clip calculations will resize it properly.
-				// See bug report: https://phabricator.wikimedia.org/T110759
-				this.popup.$clippable.css( 'height', '1px' );
-				this.popup.clip();
-			}
-
 			this.pushPending();
 			this.markAllReadButton.toggle( false );
-			this.notificationsModel.fetchNotifications()
+			return this.notificationsModel.fetchNotifications( fetchingApiRequest )
 				.then( function ( idArray ) {
 					// Clip again
 					widget.popup.clip();
@@ -241,9 +224,42 @@
 					// Nullify the promise; let the user fetch again
 					widget.fetchNotificationsPromise = null;
 				} );
-
-			this.hasRunFirstTime = true;
+		} else {
+			return this.notificationsModel.getFetchNotificationPromise();
 		}
+	};
+
+	/**
+	 * Extend the response to button click so we can also update the notification list.
+	 */
+	mw.echo.ui.NotificationBadgeWidget.prototype.onPopupToggle = function ( isVisible ) {
+		var widget = this;
+
+		if ( !isVisible ) {
+			// If the popup is closing, leave
+			return;
+		}
+
+		// Log the click event
+		mw.echo.logger.logInteraction(
+			'ui-badge-link-click',
+			mw.echo.Logger.static.context,
+			null,
+			this.type
+		);
+
+		if ( this.hasRunFirstTime ) {
+			// HACK: Clippable doesn't resize the clippable area when
+			// it calculates the new size. Since the popup contents changed
+			// and the popup is "empty" now, we need to manually set its
+			// size to 1px so the clip calculations will resize it properly.
+			// See bug report: https://phabricator.wikimedia.org/T110759
+			this.popup.$clippable.css( 'height', '1px' );
+			this.popup.clip();
+			widget.hasRunFirstTime = true;
+		}
+
+		this.populateNotifications();
 	};
 
 	/**

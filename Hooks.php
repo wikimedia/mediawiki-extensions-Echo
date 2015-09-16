@@ -656,8 +656,8 @@ class EchoHooks {
 				? 'oo-ui-image-invert'
 				: '';
 
-		$msgLinkClasses = array( "mw-echo-notifications-badge  $oouiImageClass oo-ui-iconElement oo-ui-iconElement-icon oo-ui-icon-speechBubble" );
-		$alertLinkClasses = array( "mw-echo-notifications-badge  $oouiImageClass oo-ui-iconElement oo-ui-iconElement-icon" );
+		$msgLinkClasses = array( "mw-echo-notifications-badge mw-echo-notification-badge-nojs $oouiImageClass oo-ui-iconElement oo-ui-iconElement-icon oo-ui-icon-speechBubble" );
+		$alertLinkClasses = array( "mw-echo-notifications-badge mw-echo-notification-badge-nojs $oouiImageClass oo-ui-iconElement oo-ui-iconElement-icon" );
 
 		if (
 			$msgCount != 0 && // no unread notifications

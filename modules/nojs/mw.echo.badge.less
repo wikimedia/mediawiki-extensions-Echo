@@ -9,15 +9,16 @@
 		display: inline-block;
 
 		padding: @badge-padding (@badge-padding + 0.25em) @badge-padding (@badge-padding + 0.25em + 1.1em);
+		height: 1.05em;
 
 		body.ltr & {
-			background-position: @badge-padding center;
+			background-position: @badge-padding 0.1em;
 		}
 		body.rtl & {
 			// CSS sucks, we can't specify background-position-x from the right
 			// You can in Firefox with background-position-x: right 0.12em;
 			// but that's not supported in any other browsers
-			background-position: ~"calc(100% - @{badge-padding}) center";
+			background-position: ~"calc(100% - @{badge-padding}) 0.1em";
 		}
 		background-size: @badge-icon-size;
 		background-repeat: no-repeat;
@@ -28,6 +29,10 @@
 			background-color: #c2c2c2;
 			outline: none;
 			-moz-outline-style: none;
+		}
+
+		&-dimmed {
+			opacity: 0.4;
 		}
 	}
 
