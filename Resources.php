@@ -108,9 +108,6 @@ $wgResourceModules += array(
 		'scripts' => array(
 			'ext.echo.init.js',
 		),
-		'dependencies' => array(
-			'ext.echo.logger',
-		),
 		'targets' => array( 'desktop' ),
 	),
 	// Base no-js styles
