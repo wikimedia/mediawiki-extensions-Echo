@@ -73,7 +73,7 @@
 	"notification-user-rights-add": "You are now a member of {{PLURAL:$2|this group|these groups}}: $1",
 	"notification-user-rights-remove": "You are no longer a member of {{PLURAL:$2|this group|these groups}}: $1",
 	"notification-new-user": "Welcome to {{SITENAME}}, $1! We're glad you're here.",
-	"notification-reverted2": "Your {{PLURAL:$4|edit on [[:$2]] has|edits on [[:$2]] have}} been {{GENDER:$1|reverted}} by [[User:$1|$1]]. $3",
+	"notification-reverted2": "Your {{PLURAL:$4|edit on [[:$2]] has|edits on [[:$2]] have}} been {{GENDER:$1|reverted}} by [[$5|$1]]. $3",
 	"notification-reverted-flyout2": "Your {{PLURAL:$4|edit on $2 has|edits on $2 have}} been {{GENDER:$1|reverted}} by $1. $3",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|left}} you a message on {{SITENAME}}",
 	"notification-edit-talk-page-email-batch-body2": "$1 {{GENDER:$1|left}} a message on your talk page.",

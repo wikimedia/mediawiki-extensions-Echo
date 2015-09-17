@@ -98,11 +98,14 @@ class EchoNotificationFormatterTest extends MediaWikiTestCase {
 		);
 		$formats = array( 'html', 'flyout', 'email', 'text' );
 		$tests = array();
+		$loggedUser = User::newFromName( 'Notification-formatter-test' );
+		$anonUser = new User();
+
 		foreach ( $untested as $type => $extra ) {
 			foreach ( $formats as $format ) {
 				// Run tests with blank extra data and with the provided extra data
-				$tests[] = array( $format, $type, $extra );
-				$tests[] = array( $format, $type, array() );
+				$tests[] = array( $format, $type, $extra, $loggedUser );
+				$tests[] = array( $format, $type, array(), $anonUser );
 			}
 		}
 
@@ -140,7 +143,7 @@ class EchoNotificationFormatterTest extends MediaWikiTestCase {
 			$this->assertContains( $text, $this->format( $event, 'html' ) );
 		}
 	}
-	
+
 	public static function provider_revisionAgent() {
 		$userText = '10.2.3.4';
 		$suppressed = wfMessage( 'rev-deleted-user' )->text();
@@ -191,8 +194,8 @@ class EchoNotificationFormatterTest extends MediaWikiTestCase {
 	/**
 	 * @dataProvider provider_formatterDoesntFail
 	 */
-	public function testFormatterDoesntFail( $format, $type, array $extra ) {
-		$result = $this->format( $this->mockEvent( $type, $extra ), $format );
+	public function testFormatterDoesntFail( $format, $type, array $extra, User $agent ) {
+		$result = $this->format( $this->mockEvent( $type, $extra, null, $agent ), $format );
 
 		// generic assertion, could do better
 		if ( $format === 'email' ) {
@@ -219,14 +222,14 @@ class EchoNotificationFormatterTest extends MediaWikiTestCase {
 
 	protected function format( EchoEvent $event, $format, $user = false, $type = 'web' ) {
 		if ( $user === false ) {
-			$user = User::newFromName('Notification-formatter-test');
+			$user = User::newFromName( 'Notification-formatter-test' );
 		}
 
 		// Notification users can not be anonymous, use a fake user id
 		return EchoNotificationController::formatNotification( $event, $user, $format, $type );
 	}
 
-	protected function mockEvent( $type, array $extra = array(), Revision $rev = null ) {
+	protected function mockEvent( $type, array $extra = array(), Revision $rev = null, User $agent = null ) {
 		$methods = get_class_methods( 'EchoEvent' );
 		$methods = array_diff( $methods, array( 'userCan', 'getLinkMessage', 'getLinkDestination' ) );
 
@@ -240,6 +243,11 @@ class EchoNotificationFormatterTest extends MediaWikiTestCase {
 		$event->expects( $this->any() )
 			->method( 'getExtra' )
 			->will( $this->returnValue( $extra ) );
+		if ( $agent !== null ) {
+			$event->expects( $this->any() )
+				->method( 'getAgent' )
+				->will( $this->returnValue( $agent ) );
+		}
 		if ( $rev !== null ) {
 			$event->expects( $this->any() )
 				->method( 'getRevision' )
