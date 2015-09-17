@@ -195,7 +195,12 @@
 		var widget = this,
 			time = mw.now();
 
-		if ( !this.notificationsModel.isFetchingNotifications() ) {
+		// The model retrieves the fetching notifications or returns the existing one
+		// but in the case of an error from the API, the fetching promise is not being
+		// reset to null.
+		// We should reset the notification population method if the model is either not
+		// in the process of fetching notifications or if it is in an error state
+		if ( !this.notificationsModel.isFetchingNotifications() || this.notificationsModel.isFetchingErrorState() ) {
 			this.pushPending();
 			this.markAllReadButton.toggle( false );
 			return this.notificationsModel.fetchNotifications( fetchingApiRequest )
@@ -218,6 +223,13 @@
 					// Update seen time
 					widget.notificationsModel.updateSeenTime();
 				} )
+				.fail( function ( errCode, errObj ) {
+					var info = OO.getProp( errObj, 'error', 'info' );
+					// Display the message only if there are no notifications
+					if ( widget.notificationsModel.isEmpty() ) {
+						widget.notificationsWidget.resetLoadingOption( mw.msg( 'echo-api-failure', errCode, info ) );
+					}
+				} )
 				.always( function () {
 					// Pop pending
 					widget.popPending();
@@ -233,8 +245,6 @@
 	 * Extend the response to button click so we can also update the notification list.
 	 */
 	mw.echo.ui.NotificationBadgeWidget.prototype.onPopupToggle = function ( isVisible ) {
-		var widget = this;
-
 		if ( !isVisible ) {
 			// If the popup is closing, leave
 			return;
@@ -256,10 +266,11 @@
 			// See bug report: https://phabricator.wikimedia.org/T110759
 			this.popup.$clippable.css( 'height', '1px' );
 			this.popup.clip();
-			widget.hasRunFirstTime = true;
 		}
-
+		// Always populate on popup open. The model and widget should handle
+		// the case where the promise is already underway.
 		this.populateNotifications();
+		this.hasRunFirstTime = true;
 	};
 
 	/**

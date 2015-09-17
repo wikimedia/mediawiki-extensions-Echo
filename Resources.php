@@ -72,6 +72,7 @@ $wgResourceModules += array(
 			'echo-notification-alert-text-only',
 			'echo-notification-message-text-only',
 			'echo-email-batch-bullet',
+			'echo-api-failure',
 			'tooltip-pt-notifications-alert',
 			'tooltip-pt-notifications-message',
 			'mypreferences'

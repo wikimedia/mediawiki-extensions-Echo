@@ -69,6 +69,7 @@
 	"echo-more-info": "This is used for the title (mouseover text) of an icon that links to a page with more information about the Echo extension.\n{{Identical|More information}}",
 	"echo-feedback": "Text for a link that goes to a feedback survey shown at [[Special:Notifications]].\n{{Identical|Feedback}}",
 	"echo-quotation-marks": "Unused at this time.\n\n{{optional}}\nPuts the edit summary in quotation marks. Only translate if different than English.\n\nParameters:\n* $1 - ...",
+	"echo-api-failure": "Label for the text that notes an error in retrieving notifications for the Echo popup.\n$1 - The api error code.",
 	"notification-link-text-view-message": "Label for button that links to a message on your talk page.\n{{Identical|View message}}",
 	"notification-link-text-view-mention": "Label for button that links to a discussion where you were mentioned.",
 	"notification-link-text-view-changes": "Label for button that links to a \"diff\" view showing changes made to a page. This is an alternative to the wording in {{msg-mw|notification-link-text-view-edit}}, which serves essentially the same function.\n{{Identical|View changes}}",
