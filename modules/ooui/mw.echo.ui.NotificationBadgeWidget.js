@@ -195,11 +195,12 @@
 		var widget = this,
 			time = mw.now();
 
-		// The model retrieves the fetching notifications or returns the existing one
-		// but in the case of an error from the API, the fetching promise is not being
-		// reset to null.
-		// We should reset the notification population method if the model is either not
-		// in the process of fetching notifications or if it is in an error state
+		// The model retrieves the ongoing promise or returns the existing one that it
+		// has. When the promise is completed successfuly, it nullifies itself so we can
+		// request for it to be rebuilt and the request to the API resent.
+		// However, in the case of an API failure, the promise does not nullify itself.
+		// In that case we also want the model to rebuild the request, so in this condition
+		// we must check both cases.
 		if ( !this.notificationsModel.isFetchingNotifications() || this.notificationsModel.isFetchingErrorState() ) {
 			this.pushPending();
 			this.markAllReadButton.toggle( false );
