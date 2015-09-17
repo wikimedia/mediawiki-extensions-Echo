@@ -39,8 +39,8 @@
 	}
 
 	&-initiallyUnseen {
-		-webkit-animation-name: unseen-fadeout;
-		animation-name: unseen-fadeout;
+		-webkit-animation-name: unseen-fadeout-to-read;
+		animation-name: unseen-fadeout-to-read;
 		-webkit-animation-duration: .5s;
 		animation-duration: .5s;
 		-webkit-animation-delay: 2s;
@@ -50,9 +50,9 @@
 		-webkit-animation-fill-mode: both;
 		animation-fill-mode: both;
 
-		&.mw-echo-ui-notificationOptionWidget-markReadWhenSeen {
-			-webkit-animation-name: unseen-fadeout-to-read;
-			animation-name: unseen-fadeout-to-read;
+		&.mw-echo-ui-notificationOptionWidget-unread {
+			-webkit-animation-name: unseen-fadeout-to-unread;
+			animation-name: unseen-fadeout-to-unread;
 		}
 	}
 	&-unread {
@@ -73,12 +73,12 @@
 	// These styles are in modules/nojs/ext.echo.notifications.less
 }
 
-@-webkit-keyframes unseen-fadeout {
+@-webkit-keyframes unseen-fadeout-to-unread {
 	from { background-color: @notification-background-unseen; }
 	to { background-color: @notification-background-unread; }
 }
 
-@keyframes unseen-fadeout {
+@keyframes unseen-fadeout-to-unread {
 	from { background-color: @notification-background-unseen; }
 	to { background-color: @notification-background-unread; }
 }
