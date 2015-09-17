@@ -224,13 +224,22 @@
 					// Update seen time
 					widget.notificationsModel.updateSeenTime();
 				} )
-				.fail( function ( errCode, errObj ) {
-					var info = OO.getProp( errObj, 'error', 'info' );
-					// Display the message only if there are no notifications
-					if ( widget.notificationsModel.isEmpty() ) {
-						widget.notificationsWidget.resetLoadingOption( mw.msg( 'echo-api-failure', errCode, info ) );
+				.then(
+					// Success
+					function () {
+						// Display the message only if there are no notifications
+						if ( widget.notificationsModel.isEmpty() ) {
+							widget.notificationsWidget.resetLoadingOption( mw.msg( 'echo-notification-placeholder' ) );
+						}
+					},
+					// Fail
+					function ( errCode ) {
+						// Display the message only if there are no notifications
+						if ( widget.notificationsModel.isEmpty() ) {
+							widget.notificationsWidget.resetLoadingOption( mw.msg( 'echo-api-failure', errCode ) );
+						}
 					}
-				} )
+				)
 				.always( function () {
 					// Pop pending
 					widget.popPending();

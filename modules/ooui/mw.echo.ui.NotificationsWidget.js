@@ -22,10 +22,7 @@
 		mw.echo.ui.NotificationsWidget.parent.call( this, config );
 
 		// Dummy 'loading' option widget
-		this.loadingOptionWidget = new OO.ui.OptionWidget( {
-			data: null,
-			classes: [ 'mw-echo-ui-notificationsWidget-loadingOption' ]
-		} );
+		this.loadingOptionWidget = new mw.echo.ui.PlaceholderOptionWidget();
 		this.addItems( [ this.loadingOptionWidget ] );
 
 		// Events

@@ -33,6 +33,7 @@ $wgResourceModules += array(
 	'ext.echo.ui' => $echoResourceTemplate + array(
 		'scripts' => array(
 			'ooui/mw.echo.ui.js',
+			'ooui/mw.echo.ui.PlaceholderOptionWidget.js',
 			'ooui/mw.echo.ui.NotificationsWidget.js',
 			'ooui/mw.echo.ui.NotificationOptionWidget.js',
 			'ooui/mw.echo.ui.NotificationBadgeWidget.js'
@@ -73,6 +74,7 @@ $wgResourceModules += array(
 			'echo-notification-message-text-only',
 			'echo-email-batch-bullet',
 			'echo-api-failure',
+			'echo-notification-placeholder',
 			'tooltip-pt-notifications-alert',
 			'tooltip-pt-notifications-message',
 			'mypreferences'
