@@ -162,6 +162,13 @@
 
 	mw.echo.ui.NotificationBadgeWidget.static.tagName = 'li';
 
+	/* Events */
+
+	/**
+	 * @event allRead
+	 * All notifications were marked as read
+	 */
+
 	/* Methods */
 
 	/**

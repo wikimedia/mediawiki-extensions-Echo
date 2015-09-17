@@ -74,6 +74,12 @@
 	 * Items' read status has changed
 	 */
 
+	/**
+	 * @event allRead
+	 *
+	 * All items are marked as read
+	 */
+
 	/* Methods */
 
 	/**
@@ -116,6 +122,10 @@
 				this.unreadNotifications.addItems( [ unreadItem ] );
 			}
 			this.emit( 'unreadChange', this.unreadNotifications.getItems() );
+		}
+
+		if ( this.unreadNotifications.isEmpty() ) {
+			this.emit( 'allRead' );
 		}
 	};
 

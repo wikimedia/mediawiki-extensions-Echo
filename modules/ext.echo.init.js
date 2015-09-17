@@ -57,6 +57,11 @@
 					mw.echo.ui.messageWidget.badgeButton.debouncedUpdateThemeClasses();
 					// Replace the link button with the ooui button
 					$existingMessageLink.parent().replaceWith( mw.echo.ui.messageWidget.$element );
+
+					mw.echo.ui.messageWidget.getModel().on( 'allRead', function () {
+						// If there was a talk page notification, get rid of it
+						$( '#pt-mytalk' ).detach();
+					} );
 				}
 
 				// Load alerts popup and button
