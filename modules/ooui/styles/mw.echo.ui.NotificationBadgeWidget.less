@@ -1,20 +1,16 @@
-@import '../../echo.mixins';
 @import '../../echo.variables';
 
+// These rules are outside of the LESS nesting because they don't work inside
+// the nested rule. These should be very strong so as to override the base styles
+#pt-notifications-alert .mw-echo-notifications-badge.oo-ui-flaggedElement-unseen {
+		background-color: @badge-background-unseen-alert;
+}
+#pt-notifications-message .mw-echo-notifications-badge.oo-ui-flaggedElement-unseen {
+		background-color: @badge-background-unseen-message;
+}
+
 .mw-echo-ui-notificationBadgeButtonPopupWidget {
-	&-alert {
-		// Must be strong to override OOUI's button background color definition
-		&.oo-ui-flaggedElement-unseen > .oo-ui-buttonElement-button {
-			background-color: @badge-background-unseen-alert;
-		}
-	}
-	&-message {
-		margin-left: @badge-distance-adjustment - 0.1em;
-		// Must be strong to override OOUI's button background color definition
-		&.oo-ui-flaggedElement-unseen > .oo-ui-buttonElement-button {
-			background-color: @badge-background-unseen-message;
-		}
-	}
+	position: relative;
 
 	.oo-ui-popupWidget-footer {
 		border-top: 1px solid #DDDDDD;
@@ -40,34 +36,14 @@
 		}
 	}
 
-	// Badge
-	> .oo-ui-buttonElement-button {
-		.mixin-notifications-badge();
-		padding: @badge-padding;
-
-		.oo-ui-labelElement-label {
-			// We must use !important here because ooui's button's label rules
-			// are extremely strong and cannot be overridden
-			color: @badge-text-color-idle !important;
-		}
-		.oo-ui-iconElement-icon {
-			// We must use !important here because ooui's button's icon rules
-			// are extremely strong and cannot be overridden
-			width: @badge-icon-size !important;
-			height: @badge-icon-size !important;
-			margin-top: -0.1em;
-			&.oo-ui-icon-speechBubble {
-				margin-top: -0.14em;
-				padding-left: 0.1em;
-			}
-		}
-	}
-
 	.oo-ui-popupWidget {
 		// #p-personal li has a font-size of 0.75em, but we want the
 		// font size here to be exactly 0.875em, so we must override
 		// the parent em sizing by dividing.
 		font-size: 0.875em / 0.75em;
+
+		// Align the popup with the center of the button
+		left: 1em;
 	}
 
 	.oo-ui-popupWidget-head {

@@ -27,20 +27,32 @@
 		config = config || {};
 		config.links = config.links || {};
 
+		// Parent constructor
+		mw.echo.ui.NotificationBadgeWidget.parent.call( this, config );
+
 		// Mixin constructors
 		OO.ui.mixin.PendingElement.call( this, config );
 
 		this.type = config.type || 'alert';
 		this.numItems = config.numItems || 0;
-		this.badgeIcon = config.badgeIcon || {};
 		this.markReadWhenSeen = !!config.markReadWhenSeen;
-
+		this.badgeIcon = config.badgeIcon || {};
 		this.hasRunFirstTime = false;
 
 		buttonFlags = [ 'primary' ];
 		if ( !!config.hasUnseen ) {
 			buttonFlags.push( 'unseen' );
 		}
+
+		this.badgeButton = new mw.echo.ui.BadgeLinkWidget( {
+			label: this.numItems,
+			flags: buttonFlags,
+			badgeIcon: config.badgeIcon,
+			// The following messages can be used here:
+			// tooltip-pt-notifications-alert
+			// tooltip-pt-notifications-message
+			title: mw.msg( 'tooltip-pt-notifications-' + this.type )
+		} );
 
 		// View model
 		this.notificationsModel = new mw.echo.dm.NotificationsModel( {
@@ -77,37 +89,28 @@
 		footerButtonGroupWidget = new OO.ui.ButtonGroupWidget( {
 			items: [ allNotificationsButton, preferencesButton ]
 		} );
-
 		$footer = $( '<div>' )
 			.addClass( 'mw-echo-ui-notificationBadgeButtonPopupWidget-footer' )
 			.append( footerButtonGroupWidget.$element );
-		// Parent constructor
-		mw.echo.ui.NotificationBadgeWidget.parent.call( this, $.extend( {
-			framed: false,
-			flags: buttonFlags,
-			label: this.numItems,
+
+		this.popup = new OO.ui.PopupWidget( {
+			$content: this.notificationsWidget.$element,
+			$footer: $footer,
+			width: config.popupWidth || 450,
+			autoClose: true,
+			$autoCloseIgnore: this.$element,
+			head: true,
 			// The following messages can be used here:
-			// tooltip-pt-notifications-alert
-			// tooltip-pt-notifications-message
-			title: mw.msg( 'tooltip-pt-notifications-' + this.type ),
-			popup: {
-				$content: this.notificationsWidget.$element,
-				$footer: $footer,
-				width: config.popupWidth || 450,
-				head: true,
-				// The following messages can be used here:
-				// echo-notification-alert-text-only
-				// echo-notification-message-text-only
-				label: mw.msg( 'echo-notification-' + this.type + '-text-only' )
-			}
-		}, config ) );
+			// echo-notification-alert-text-only
+			// echo-notification-message-text-only
+			label: mw.msg( 'echo-notification-' + this.type + '-text-only' )
+		} );
 		// HACK: Add an icon to the popup head label
 		this.popupHeadIcon = new OO.ui.IconWidget();
 		this.popup.$head.prepend( this.popupHeadIcon.$element );
 
-		this.updateIcon( !!config.hasUnseen );
-
 		this.setPendingElement( this.popup.$head );
+		this.updateIcon( !!config.hasUnseen );
 
 		// Mark all as read button
 		this.markAllReadButton = new OO.ui.ButtonWidget( {
@@ -131,21 +134,42 @@
 			unreadChange: 'updateBadge'
 		} );
 		this.popup.connect( this, { toggle: 'onPopupToggle' } );
+		this.badgeButton.connect( this, {
+			click: 'onBadgeButtonClick'
+		} );
 
-		// The following classes can be used here:
-		// mw-echo-ui-notificationBadgeButtonPopupWidget-alert
-		// mw-echo-ui-notificationBadgeButtonPopupWidget-message
 		this.$element
+			.prop( 'id', 'pt-notifications-' + this.type )
+			// The following classes can be used here:
+			// mw-echo-ui-notificationBadgeButtonPopupWidget-alert
+			// mw-echo-ui-notificationBadgeButtonPopupWidget-message
 			.addClass(
 				'mw-echo-ui-notificationBadgeButtonPopupWidget ' +
 				'mw-echo-ui-notificationBadgeButtonPopupWidget-' + this.type
+			)
+			.append(
+				this.badgeButton.$element,
+				this.popup.$element
 			);
 	};
 
 	/* Initialization */
 
-	OO.inheritClass( mw.echo.ui.NotificationBadgeWidget, OO.ui.PopupButtonWidget );
+	OO.inheritClass( mw.echo.ui.NotificationBadgeWidget, OO.ui.Widget );
 	OO.mixinClass( mw.echo.ui.NotificationBadgeWidget, OO.ui.mixin.PendingElement );
+
+	/* Static properties */
+
+	mw.echo.ui.NotificationBadgeWidget.static.tagName = 'li';
+
+	/* Methods */
+
+	/**
+	 * Respond to badge button click
+	 */
+	mw.echo.ui.NotificationBadgeWidget.prototype.onBadgeButtonClick = function () {
+		this.popup.toggle( true );
+	};
 
 	/**
 	 * Update the badge icon with the read/unread versions if they exist.
@@ -156,7 +180,8 @@
 		var icon = typeof this.badgeIcon === 'string' ?
 			this.badgeIcon :
 			this.badgeIcon[ hasUnseen ? 'unseen' : 'seen' ];
-		this.setIcon( icon );
+
+		this.badgeButton.setIcon( icon );
 		this.popupHeadIcon.setIcon( icon );
 	};
 
@@ -168,8 +193,8 @@
 			unreadCount = this.notificationsModel.getUnreadCount();
 
 		// Update numbers and seen/unseen state
-		this.setFlags( { unseen: !!unseenCount } );
-		this.setLabel( mw.language.convertNumber( unreadCount ) );
+		this.badgeButton.setFlags( { unseen: !!unseenCount } );
+		this.badgeButton.setLabel( mw.language.convertNumber( unreadCount ) );
 		this.updateIcon( !!unseenCount );
 
 		// Check if we need to display the 'mark all unread' button

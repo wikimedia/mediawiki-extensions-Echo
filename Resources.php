@@ -35,6 +35,7 @@ $wgResourceModules += array(
 			'ooui/mw.echo.ui.js',
 			'ooui/mw.echo.ui.NotificationsWidget.js',
 			'ooui/mw.echo.ui.NotificationOptionWidget.js',
+			'ooui/mw.echo.ui.BadgeLinkWidget.js',
 			'ooui/mw.echo.ui.NotificationBadgeWidget.js'
 		),
 		'styles' => array(
