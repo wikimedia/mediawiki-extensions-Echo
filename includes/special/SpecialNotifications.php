@@ -134,7 +134,7 @@ class SpecialNotifications extends SpecialPage {
 			)
 		);
 		// For no-js support
-		$out->addModuleStyles( array( 'ext.echo.nojs', 'ext.echo.nojs.special' ) );
+		$out->addModuleStyles( array( 'ext.echo.styles.notifications', 'ext.echo.styles.special' ) );
 
 		DeferredUpdates::addCallableUpdate( function() use ( $user, $echoSeenTime, $unread ) {
 			// Mark items as read
