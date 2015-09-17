@@ -1,15 +1,7 @@
 ( function ( mw, $ ) {
 	'use strict';
 
-	if ( mw.echo.Logger.static.clickThroughEnabled ) {
-		mw.loader.using( 'ext.eventLogging', function () {
-			mw.eventLog.setDefaults( 'EchoInteraction', {
-				version: mw.config.get( 'wgEchoConfig' ).version,
-				userId: +mw.config.get( 'wgUserId' ),
-				editCount: +mw.config.get( 'wgUserEditCount' )
-			} );
-		} );
-	}
+	mw.echo = mw.echo || {};
 
 	mw.echo.apiCallParams = {
 		action: 'query',

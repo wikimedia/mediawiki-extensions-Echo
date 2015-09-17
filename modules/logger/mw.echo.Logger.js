@@ -1,4 +1,4 @@
-( function ( mw ) {
+( function ( $, mw ) {
 	mw.echo = mw.echo || {};
 
 	/**
@@ -15,6 +15,18 @@
 
 		this.clickThroughEnabled = config.clickThroughEnabled || this.constructor.static.clickThroughEnabled;
 		this.notificationsIdCache = [];
+		if ( this.clickThroughEnabled ) {
+			// This should usually already be loaded, but not always
+			this.deferred = mw.loader.using( 'ext.eventLogging', function () {
+				mw.eventLog.setDefaults( 'EchoInteraction', {
+					version: mw.config.get( 'wgEchoConfig' ).version,
+					userId: +mw.config.get( 'wgUserId' ),
+					editCount: +mw.config.get( 'wgUserEditCount' )
+				} );
+			} );
+		} else {
+			this.deferred = $.Deferred().resolve();
+		}
 	};
 
 	OO.initClass( mw.echo.Logger );
@@ -99,7 +111,9 @@
 			myEvt.mobile = mobile;
 		}
 
-		mw.eventLog.logEvent( 'EchoInteraction', myEvt );
+		this.deferred.done( function () {
+			mw.eventLog.logEvent( 'EchoInteraction', myEvt );
+		} );
 	};
 
 	/**
@@ -124,4 +138,4 @@
 	};
 
 	mw.echo.logger = new mw.echo.Logger();
-} )( mediaWiki );
+} )( jQuery, mediaWiki );

@@ -111,10 +111,16 @@ class EchoHooks {
 			'targets' => array( 'desktop', 'mobile' ),
 		);
 
+		$hasSchemas = false;
 		foreach ( $wgEchoConfig['eventlogging'] as $schema => $property ) {
 			if ( $property['enabled'] && $property['client'] ) {
 				$definition['dependencies'][] = 'schema.' . $schema;
+				$hasSchemas = true;
 			}
+		}
+
+		if ( $hasSchemas ) {
+			$definition['dependencies'][] = 'ext.eventLogging';
 		}
 
 		$resourceLoader->register( 'ext.echo.logger', $definition );
