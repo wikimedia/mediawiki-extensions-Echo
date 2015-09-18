@@ -55,11 +55,6 @@
 			);
 
 		this.$element.toggleClass( 'mw-echo-ui-notificationOptionWidget-initiallyUnseen', !this.model.isSeen() );
-
-		if ( this.markReadWhenSeen ) {
-			this.$element.addClass( 'mw-echo-ui-notificationOptionWidget-markReadWhenSeen' );
-		}
-
 	};
 
 	/* Initialization */
