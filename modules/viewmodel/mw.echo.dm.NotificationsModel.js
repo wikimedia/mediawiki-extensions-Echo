@@ -110,6 +110,7 @@
 
 		if ( unreadItem ) {
 			if ( isRead ) {
+				this.markItemReadInApi( id );
 				this.unreadNotifications.removeItems( [ unreadItem ] );
 			} else {
 				this.unreadNotifications.addItems( [ unreadItem ] );
@@ -252,6 +253,31 @@
 					items[i].toggleSeen( true );
 				}
 				model.unreadNotifications.clearItems();
+			} );
+	};
+
+	/**
+	 * Update the read status of a notification item in the API
+	 *
+	 * @param {string} itemId Item id
+	 * @return {jQuery.Promise} A promise that resolves when the notifications
+	 * were marked as read.
+	 */
+	mw.echo.dm.NotificationsModel.prototype.markItemReadInApi = function ( itemId ) {
+		var model = this,
+			data = {
+				action: 'echomarkread',
+				uselang: this.userLang,
+				list: itemId
+			};
+
+		if ( !this.unreadNotifications.getItemCount() ) {
+			return $.Deferred().resolve( 0 ).promise();
+		}
+
+		return this.api.postWithToken( 'edit', data )
+			.then( function ( result ) {
+				return result.query.echomarkread[model.type].rawcount || 0;
 			} );
 	};
 
