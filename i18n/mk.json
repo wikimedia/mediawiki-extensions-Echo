@@ -48,6 +48,8 @@
 	"echo-more-info": "Повеќе информации",
 	"echo-feedback": "Мислења",
 	"echo-quotation-marks": "„$1“",
+	"echo-api-failure": "Не можев да ги добијам известувањата. Обидете се повторно. (Грешка $1)",
+	"echo-notification-placeholder": "Нема известувања.",
 	"notification-link-text-view-message": "Погл. порака",
 	"notification-link-text-view-mention": "Погл. споменувањето",
 	"notification-link-text-view-changes": "Погл. промени",

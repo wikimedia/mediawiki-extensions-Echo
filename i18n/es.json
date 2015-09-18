@@ -64,6 +64,8 @@
 	"echo-none": "No tienes notificaciones.",
 	"echo-more-info": "Más información",
 	"echo-feedback": "Comentarios",
+	"echo-api-failure": "No se pudieron recuperar las notificaciones. Inténtalo de nuevo. (Error $1)",
+	"echo-notification-placeholder": "No hay notificaciones.",
 	"notification-link-text-view-message": "Ver mensaje",
 	"notification-link-text-view-mention": "Ver la mención",
 	"notification-link-text-view-changes": "Ver cambios",

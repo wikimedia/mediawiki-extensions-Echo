@@ -53,6 +53,7 @@
 	"echo-more-info": "Více informací",
 	"echo-feedback": "Názor",
 	"echo-quotation-marks": "„$1“",
+	"echo-notification-placeholder": "Nemáte žádná upozornění.",
 	"notification-link-text-view-message": "Zobrazit zprávu",
 	"notification-link-text-view-mention": "Zobrazit zmínku",
 	"notification-link-text-view-changes": "Zobrazit změny",

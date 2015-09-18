@@ -4,7 +4,7 @@
 			"Умар"
 		]
 	},
-	"echo-desc": "Хааман система",
+	"echo-desc": "Декъашхойн хиларг а, хаамаш а болу дӀахаийтаран система",
 	"prefs-echo": "ДӀахаийтарш",
 	"prefs-emailsettings": "Электронан поштан гӀирс нисбар",
 	"prefs-displaynotifications": "Гуш болу гӀирсаш",
@@ -111,5 +111,7 @@
 	"echo-email-batch-body-intro-daily": "Маршалла, $1!\nТахан хилларг {{SITENAME}}.",
 	"echo-email-batch-body-intro-weekly": "Маршалла, $1!\nТахан хилларг {{SITENAME}}.",
 	"echo-email-batch-link-text-view-all-notifications": "Массо хаамашка хьажар",
-	"echo-rev-deleted-text-view": "Хьара агӀона верси къайлаяьккхина"
+	"echo-rev-deleted-text-view": "Хьара агӀона верси къайлаяьккхина",
+	"apihelp-echomarkread-description": "Билгалде дӀахаийтарш хьаьжна сана.",
+	"apihelp-echomarkread-param-list": "Хьажжина сана билгалдаран ID дӀахаийтарийн могӀам."
 }

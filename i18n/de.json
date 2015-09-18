@@ -54,6 +54,8 @@
 	"echo-none": "Du hast keine Benachrichtigungen.",
 	"echo-more-info": "Mehr Informationen",
 	"echo-feedback": "Rückmeldung",
+	"echo-api-failure": "Benachrichtigungen konnten nicht abgerufen werden. Bitte erneut versuchen. (Fehler $1)",
+	"echo-notification-placeholder": "Es gibt keine Benachrichtigungen.",
 	"notification-link-text-view-message": "Nachricht ansehen",
 	"notification-link-text-view-mention": "Erwähnung ansehen",
 	"notification-link-text-view-changes": "Änderungen ansehen",

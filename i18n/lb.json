@@ -47,6 +47,8 @@
 	"echo-none": "Dir hutt keng Notifikatiounen.",
 	"echo-more-info": "Méi Informatiounen",
 	"echo-feedback": "Feedback",
+	"echo-api-failure": "D'Notifikatioune konnten net ofgeruff  ginn.Probéiert nach eng Kéier. (Feeler $1)",
+	"echo-notification-placeholder": "Et si keng Notifikatiounen do.",
 	"notification-link-text-view-message": "Message weisen",
 	"notification-link-text-view-mention": "Mentioun weisen",
 	"notification-link-text-view-changes": "Ännerunge weisen",

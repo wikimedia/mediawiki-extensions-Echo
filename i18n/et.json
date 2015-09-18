@@ -49,6 +49,8 @@
 	"echo-none": "Sul pole uusi teavitusi.",
 	"echo-more-info": "Lisateave",
 	"echo-feedback": "Tagasiside",
+	"echo-api-failure": "Teavitusi ei õnnestunud hankida. Palun proovi uuesti. (Tõrge $1)",
+	"echo-notification-placeholder": "Teavitused puuduvad.",
 	"notification-link-text-view-message": "Vaata sõnumit",
 	"notification-link-text-view-mention": "Vaata mainimist",
 	"notification-link-text-view-changes": "Vaata muudatusi",

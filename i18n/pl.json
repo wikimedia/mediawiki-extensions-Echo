@@ -62,6 +62,8 @@
 	"echo-none": "Nie masz żadnych powiadomień.",
 	"echo-more-info": "Więcej informacji",
 	"echo-feedback": "Opinie",
+	"echo-api-failure": "Nie udało się pobrać powiadomień. Spróbuj ponownie. (Błąd $1)",
+	"echo-notification-placeholder": "Nie ma powiadomień.",
 	"notification-link-text-view-message": "Zobacz wiadomość",
 	"notification-link-text-view-mention": "Zobacz wzmiankę",
 	"notification-link-text-view-changes": "Zobacz zmiany",

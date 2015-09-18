@@ -55,6 +55,8 @@
 	"echo-none": "אין לך הודעות.",
 	"echo-more-info": "מידע נוסף",
 	"echo-feedback": "משוב",
+	"echo-api-failure": "לא היה אשר לאחזר התראות. נא לנסות שוב. (שגיאה $1)",
+	"echo-notification-placeholder": "אין התראות.",
 	"notification-link-text-view-message": "הצגת הודעה",
 	"notification-link-text-view-mention": "הצגת אזכור",
 	"notification-link-text-view-changes": "הצגת שינויים",

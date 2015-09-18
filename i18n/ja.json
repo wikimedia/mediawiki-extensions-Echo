@@ -54,6 +54,8 @@
 	"echo-more-info": "詳細情報",
 	"echo-feedback": "フィードバック",
 	"echo-quotation-marks": "「$1」",
+	"echo-api-failure": "通知を取得できませんでした。もう一度、やりなおしてください。(エラー $1)",
+	"echo-notification-placeholder": "通知は無し。",
 	"notification-link-text-view-message": "メッセージを閲覧",
 	"notification-link-text-view-mention": "言及を閲覧",
 	"notification-link-text-view-changes": "差分を閲覧",
