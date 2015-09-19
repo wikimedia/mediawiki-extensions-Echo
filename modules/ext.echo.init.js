@@ -53,10 +53,10 @@
 						badgeIcon: 'speechBubble',
 						links: links
 					} );
-					// avoid late debouncedUpdateThemeClasses
-					mw.echo.ui.messageWidget.debouncedUpdateThemeClasses();
+					// HACK: avoid late debouncedUpdateThemeClasses
+					mw.echo.ui.messageWidget.badgeButton.debouncedUpdateThemeClasses();
 					// Replace the link button with the ooui button
-					$existingMessageLink.replaceWith( mw.echo.ui.messageWidget.$element );
+					$existingMessageLink.parent().replaceWith( mw.echo.ui.messageWidget.$element );
 				}
 
 				// Load alerts popup and button
@@ -71,10 +71,10 @@
 					},
 					links: links
 				} );
-				// avoid late debouncedUpdateThemeClasses
-				mw.echo.ui.alertWidget.debouncedUpdateThemeClasses();
+				// HACK: avoid late debouncedUpdateThemeClasses
+				mw.echo.ui.alertWidget.badgeButton.debouncedUpdateThemeClasses();
 				// Replace the link button with the ooui button
-				$existingAlertLink.replaceWith( mw.echo.ui.alertWidget.$element );
+				$existingAlertLink.parent().replaceWith( mw.echo.ui.alertWidget.$element );
 
 				// HACK: Now that the module loaded, show the popup
 				myWidget = myType === 'alert' ? mw.echo.ui.alertWidget : mw.echo.ui.messageWidget;
