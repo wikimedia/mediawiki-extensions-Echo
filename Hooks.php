@@ -984,6 +984,34 @@ class EchoHooks {
 	}
 
 	/**
+	 * Handler for EmailUserComplete hook.
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/EmailUserComplete
+	 * @param $address MailAddress Adress of receiving user
+	 * @param $from MailAddress Adress of sending user
+	 * @param $subject string Subject of the mail
+	 * @param $text string Text of the mail
+	 * @return bool true in all cases
+	 */
+	public static function onEmailUserComplete( $address, $from, $subject, $text ) {
+		if ( $from->name === $address->name ) {
+			// nothing to notify
+			return true;
+		}
+		$userTo = User::newFromName( $address->name );
+		$userFrom = User::newFromName( $from->name );
+
+		EchoEvent::create( array(
+			'type' => 'emailuser',
+			'extra' => array(
+				'to-user-id' => $userTo->getId(),
+			),
+			'agent' => $userFrom,
+		) );
+
+		return true;
+	}
+
+	/**
 	 * For integration with the UserMerge extension.
 	 *
 	 * @param array $updateFields

@@ -78,6 +78,7 @@ $wgHooks['UserLoadOptions'][] = 'EchoHooks::onUserLoadOptions';
 $wgHooks['UserSaveOptions'][] = 'EchoHooks::onUserSaveOptions';
 $wgHooks['UserClearNewTalkNotification'][] = 'EchoHooks::onUserClearNewTalkNotification';
 $wgHooks['ParserTestTables'][] = 'EchoHooks::onParserTestTables';
+$wgHooks['EmailUserComplete'][] = 'EchoHooks::onEmailUserComplete';
 
 // Extension:UserMerge support
 $wgHooks['UserMergeAccountFields'][] = 'EchoHooks::onUserMergeAccountFields';
@@ -162,6 +163,11 @@ $wgEchoDefaultNotificationTypes = array(
 	'welcome' => array(
 		'email' => false,
 	),
+	// No need to get a email when another user sends to me
+	'emailuser' => array(
+		'web' => true,
+		'email' => false,
+	),
 );
 
 // Definitions of the different types of notification delivery that are possible.
@@ -226,6 +232,10 @@ $wgEchoNotificationCategories = array(
 	'mention' => array(
 		'priority' => 4,
 		'tooltip' => 'echo-pref-tooltip-mention',
+	),
+	'emailuser' => array(
+		'priority' => 9,
+		'tooltip' => 'echo-pref-tooltip-emailuser',
 	),
 );
 
@@ -401,6 +411,19 @@ $wgEchoNotifications = array(
 		'email-body-batch-params' => array( 'agent', 'user-rights-list' ),
 		'icon' => 'site',
 	),
+	'emailuser' => array(
+		'user-locators' => array(
+			array( 'EchoUserLocator::locateFromEventExtra', array( 'to-user-id' ) ),
+		),
+		'category' => 'emailuser',
+		'group' => 'neutral',
+		'section' => 'alert',
+		'title-message' => 'notification-emailuser',
+		'title-params' => array( 'agent' ),
+		'flyout-message' => 'notification-emailuser-flyout',
+		'flyout-params' => array( 'agent' ),
+		'icon' => 'site',
+	),
 );
 
 // Enable new talk page messages alert for all logged in users by default
@@ -425,6 +448,7 @@ foreach ( $wgEchoNotificationCategories as $category => $categoryData ) {
 $wgDefaultUserOptions['echo-subscriptions-email-system'] = true;
 $wgDefaultUserOptions['echo-subscriptions-email-user-rights'] = true;
 $wgDefaultUserOptions['echo-subscriptions-web-article-linked'] = false;
+$wgDefaultUserOptions['echo-subscriptions-web-emailuser'] = false;
 
 // Echo Configuration for EventLogging
 $wgEchoConfig = array(
