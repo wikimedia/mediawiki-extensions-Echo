@@ -7,6 +7,8 @@
 	},
 	"prefs-echo": "Яңалыклар",
 	"notifications": "Яңалыклар",
+	"tooltip-pt-notifications-alert": "{{GENDER:|Сезнең}} искәртүләр",
+	"tooltip-pt-notifications-message": "{{GENDER:|Сезнең}} хатлар",
 	"echo-specialpage": "Яңалыклар",
 	"notification-link-text-view-changes": "Үзгәртүләрне карау",
 	"notification-link-text-view-edit": "Үзгәртүне карау",

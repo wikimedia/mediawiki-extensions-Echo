@@ -48,6 +48,8 @@
 	"echo-none": "Nun tiene notifiche.",
 	"echo-more-info": "Cchiù nfurmaziune",
 	"echo-feedback": "Commenti",
+	"echo-api-failure": "Nun se ponno arrepiglià 'e notifiche. Pe' piacere tentate n'ata vota (Errore $1)",
+	"echo-notification-placeholder": "Nun ce stanno notifiche.",
 	"notification-link-text-view-message": "Vire mmasciata",
 	"notification-link-text-view-mention": "Vire menziona",
 	"notification-link-text-view-changes": "Vire 'e cagnamiente",

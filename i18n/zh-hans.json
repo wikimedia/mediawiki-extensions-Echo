@@ -73,6 +73,7 @@
 	"echo-more-info": "更多信息",
 	"echo-feedback": "反馈",
 	"echo-quotation-marks": "“$1”",
+	"echo-api-failure": "无法检索通知。请重试。（错误$1）",
 	"echo-notification-placeholder": "这里没有通知。",
 	"notification-link-text-view-message": "查看留言",
 	"notification-link-text-view-mention": "查看提及",

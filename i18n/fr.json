@@ -22,7 +22,8 @@
 			"Od1n",
 			"Mattho69",
 			"Wladek92",
-			"Momo50WM"
+			"Momo50WM",
+			"Orlodrim"
 		]
 	},
 	"echo-desc": "Système pour avertir les utilisateurs sur les événements et les messages",
@@ -69,6 +70,8 @@
 	"echo-more-info": "Plus d’informations",
 	"echo-feedback": "Avis",
 	"echo-quotation-marks": "« $1 »",
+	"echo-api-failure": "Impossible d’obtenir les notifications. Veuillez réessayez. (Erreur $1)",
+	"echo-notification-placeholder": "Il n’y a aucune notification.",
 	"notification-link-text-view-message": "Afficher le message",
 	"notification-link-text-view-mention": "Afficher la mention",
 	"notification-link-text-view-changes": "Afficher les modifications",
