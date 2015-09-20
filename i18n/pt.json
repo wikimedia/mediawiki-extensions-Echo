@@ -9,7 +9,8 @@
 			"Polyethylen",
 			"Vitorvicentevalente",
 			"He7d3r",
-			"Fúlvio"
+			"Fúlvio",
+			"Jkb8"
 		]
 	},
 	"echo-desc": "Sistema de notificações sobre eventos e mensagens para utilizadores",
@@ -55,6 +56,8 @@
 	"echo-none": "Não tem notificações.",
 	"echo-more-info": "Mais informações",
 	"echo-feedback": "Comentários",
+	"echo-api-failure": "Não foi possível recuperar as notificações. Por favor tente novamente. (Erro $1)",
+	"echo-notification-placeholder": "Não há notificações.",
 	"notification-link-text-view-message": "Ver mensagem",
 	"notification-link-text-view-mention": "Ver menção",
 	"notification-link-text-view-changes": "Ver mudanças",

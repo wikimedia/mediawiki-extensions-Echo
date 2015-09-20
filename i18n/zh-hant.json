@@ -62,6 +62,7 @@
 	"echo-none": "您沒有任何通知。",
 	"echo-more-info": "更多資訊",
 	"echo-feedback": "意見回饋",
+	"echo-notification-placeholder": "無通知。",
 	"notification-link-text-view-message": "檢視訊息",
 	"notification-link-text-view-mention": "檢視提到",
 	"notification-link-text-view-changes": "檢視變更",
