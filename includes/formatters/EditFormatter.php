@@ -48,6 +48,14 @@ class EchoEditFormatter extends EchoBasicFormatter {
 			} else {
 				$message->params( 1 );
 			}
+		} elseif ( $param === 'userpage-contributions' ) {
+			$user = $event->getAgent();
+			$name = $user->getName();
+			if ( $user->isAnon() ) {
+				$message->params( "Special:Contributions/$name" );
+			} else {
+				$message->params( "User:$name" );
+			}
 		} else {
 			parent::processParam( $event, $param, $message, $user );
 		}
