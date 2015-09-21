@@ -73,7 +73,7 @@
 	"notification-user-rights-add": "आपण आता {{PLURAL:$2|या गटाचे|या गटांचे}} सदस्य आहात:$1",
 	"notification-user-rights-remove": "आपण यापुढे {{PLURAL:$2|या गटाचे|या गटांचे}} सदस्य नाहीत:\n$1",
 	"notification-new-user": "$1! या {{SITENAME}}वर आपले स्वागत. आपण येथे आल्यामुळे आम्हास आनंद झाला.",
-	"notification-reverted2": "आपले/ली{{PLURAL:$4|संपादन [[:$2]]वर|संपादने [[:$2]]वर}} [[User:$1|$1]]ने {{GENDER:$1|उलटवली}}. $3",
+	"notification-reverted2": "आपले/ली{{PLURAL:$4|संपादन [[:$2]]वर|संपादने [[:$2]]वर}} [[$5|$1]]ने {{GENDER:$1|उलटवली}}. $3",
 	"notification-reverted-flyout2": "आपले/ली {{PLURAL:$4|$2वरील संपादन|$2वरील संपादने}} $1ने {{GENDER:$1|उलटविलीत}}. $3",
 	"notification-edit-talk-page-email-subject2": "$1 ने {{SITENAME}}वर आपल्यासाठी एक संदेश {{GENDER:$1|टाकला}}",
 	"notification-edit-talk-page-email-batch-body2": "$1 ने आपल्या चर्चा पानावर एक संदेश {{GENDER:$1|टाकला}}:",

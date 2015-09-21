@@ -74,7 +74,7 @@
 	"notification-user-rights-add": "താങ്കളിപ്പോൾ {{PLURAL:$2|ഈ സംഘത്തിൽ|ഈ സംഘങ്ങളിൽ}} അംഗമാണ്: $1",
 	"notification-user-rights-remove": "താങ്കളിപ്പോൾ {{PLURAL:$2|ഈ സംഘത്തിൽ|ഈ സംഘങ്ങളിൽ}} അംഗമല്ല: $1",
 	"notification-new-user": "{{SITENAME}} സംരംഭത്തിലേയ്ക്ക് സ്വാഗതം, $1! താങ്കളിവിടെ എത്തിയതിൽ സന്തോഷമുണ്ട്.",
-	"notification-reverted2": "[[:$2]] എന്ന താളിൽ, താങ്കൾ ചെയ്ത {{PLURAL:$4|തിരുത്ത്|തിരുത്തുകൾ}} [[User:$1|$1]] {{GENDER:$1|മുൻപ്രാപനം ചെയ്തിരിക്കുന്നു}}. $3",
+	"notification-reverted2": "[[:$2]] എന്ന താളിൽ, താങ്കൾ ചെയ്ത {{PLURAL:$4|തിരുത്ത്|തിരുത്തുകൾ}} [[$5|$1]] {{GENDER:$1|മുൻപ്രാപനം ചെയ്തിരിക്കുന്നു}}. $3",
 	"notification-reverted-flyout2": "$2 എന്ന താളിൽ, താങ്കൾ ചെയ്ത {{PLURAL:$4|തിരുത്ത്|തിരുത്തുകൾ}} $1 {{GENDER:$1|മുൻപ്രാപനം ചെയ്തിരിക്കുന്നു}}.  $3",
 	"notification-edit-talk-page-email-subject2": "{{SITENAME}} സംരംഭത്തിൽ, താങ്കൾക്കൊരു സന്ദേശം $1 {{GENDER:$1|ചേർത്തിട്ടുണ്ട്}}",
 	"notification-edit-talk-page-email-batch-body2": "താങ്കളുടെ സംവാദത്താളിൽ, ഒരു സന്ദേശം $1 {{GENDER:$1|ചേർത്തിട്ടുണ്ട്}}.",

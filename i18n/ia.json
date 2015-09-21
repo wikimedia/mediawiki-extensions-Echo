@@ -69,7 +69,7 @@
 	"notification-user-rights-add": "Tu es ora membro de iste {{PLURAL:$2|gruppo|gruppos}}: $1",
 	"notification-user-rights-remove": "Tu non plus es membro de iste {{PLURAL:$2|gruppo|gruppos}}: $1",
 	"notification-new-user": "Benvenite a {{SITENAME}}, $1! Nos es felice de vider te hic.",
-	"notification-reverted2": "Tu {{PLURAL:$4|modification|modificationes}} de [[:$2]] ha essite {{GENDER:$1|revertite}} per [[User:$1|$1]]. $3",
+	"notification-reverted2": "Tu {{PLURAL:$4|modification|modificationes}} de [[:$2]] ha essite {{GENDER:$1|revertite}} per [[$5|$1]]. $3",
 	"notification-reverted-flyout2": "Tu {{PLURAL:$4|modification|modificationes}} de $2 ha essite {{GENDER:$1|revertite}} per $1. $3",
 	"notification-edit-talk-page-email-subject2": "$1 te {{GENDER:$1|ha lassate}} un message in {{SITENAME}}",
 	"notification-edit-talk-page-email-batch-body2": "$1 {{GENDER:$1|ha lassate}} un message in tu pagina de discussion:",

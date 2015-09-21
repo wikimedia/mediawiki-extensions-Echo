@@ -83,7 +83,7 @@
 	"notification-user-rights-add": "Du är nu medlem i {{PLURAL:$2|denna grupp|dessa grupper}}: $1",
 	"notification-user-rights-remove": "Du är inte längre medlem i {{PLURAL:$2|denna grupp|dessa grupper}}: $1",
 	"notification-new-user": "Välkommen till {{SITENAME}}, $1! Vi är glada att du är här.",
-	"notification-reverted2": "{{PLURAL:$4|Din redigering|Dina redigeringar}} på [[:$2]] har {{GENDER:$1|återställts}} av [[User:$1|$1]]. $3",
+	"notification-reverted2": "{{PLURAL:$4|Din redigering|Dina redigeringar}} på [[:$2]] har {{GENDER:$1|återställts}} av [[$5|$1]]. $3",
 	"notification-reverted-flyout2": "{{PLURAL:$4|Din redigering|Dina redigeringar}} på $2 har {{GENDER:$1|återställts}} av $1. $3",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|lämnade}} ett meddelande till dig på {{SITENAME}}",
 	"notification-edit-talk-page-email-batch-body2": "$1 {{GENDER:$1|lämnade}} ett meddelande på din diskussionssida.",

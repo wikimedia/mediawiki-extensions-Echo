@@ -77,7 +77,7 @@
 	"notification-user-rights-add": "আপনি এখন থেকে {{PLURAL:$2|এই দলের|এই দলসমূহের}} একজন সদস্য: $1",
 	"notification-user-rights-remove": "আপনি আর {{PLURAL:$2|এই দলের|এই দলসমূহের}} সদস্য নন।: $1",
 	"notification-new-user": "{{SITENAME}} সাইটে স্বাগতম, $1! আপনাকে এখানে পেয়ে আমরা খুব আনন্দিত।",
-	"notification-reverted2": "{{PLURAL:$4[[:$2]]-এ আপনার সম্পাদনা|[[:$2]]-এ আপনার সম্পাদনাগুলো}}  [[User:$1|$1]] দ্বারা  {{GENDER:$1|পূর্বাবস্থায়}} নেওয়া হয়েছে। $3",
+	"notification-reverted2": "{{PLURAL:$4[[:$2]]-এ আপনার সম্পাদনা|[[:$2]]-এ আপনার সম্পাদনাগুলো}}  [[$5|$1]] দ্বারা  {{GENDER:$1|পূর্বাবস্থায়}} নেওয়া হয়েছে। $3",
 	"notification-reverted-flyout2": "$2-এ আপনার {{PLURAL:$4|সম্পাদনা|সম্পাদনাগুলো}}  $1 দ্বারা {{GENDER:$1|পূর্বাবস্থায়}} নেয়া হয়েছে। $3",
 	"notification-edit-talk-page-email-subject2": "$1 {{SITENAME}} এ আপনার জন্য একটি বার্তা {{GENDER:$1|রেখেছেন}}",
 	"notification-edit-talk-page-email-batch-body2": "$1 আপনার আলাপ পাতায় একটি বার্তা {{GENDER:$1|রেখেছেন}}।",

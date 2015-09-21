@@ -73,7 +73,7 @@
 	"notification-user-rights-add": "ขณะนี้คุณเป็นสมาชิก{{PLURAL:$2|กลุ่มนี้|กลุ่มเหล่านี้}}: $1",
 	"notification-user-rights-remove": "คุณไม่ได้เป็นสมาชิก{{PLURAL:$2|กลุ่มนี้|กลุ่มเหล่านี้}}อีก: $1",
 	"notification-new-user": "ยินดีต้อนรับสู่ {{SITENAME}} $1! เรายินดีที่คุณอยู่ที่นี่",
-	"notification-reverted2": "การแก้ไขใน [[:$2]] ของคุณถูกย้อนโดย [[User:$1|$1]] $3",
+	"notification-reverted2": "การแก้ไขใน [[:$2]] ของคุณถูกย้อนโดย [[$5|$1]] $3",
 	"notification-reverted-flyout2": "การแก้ไขใน $2 ของคุณถูกย้อนโดย $1 $3",
 	"notification-edit-talk-page-email-subject2": "$1 ส่งข้อความถึงคุณบน {{SITENAME}}",
 	"notification-edit-talk-page-email-batch-body2": "$1 ส่งข้อความบนหน้าคุยกับผู้ใช้ของคุณ:",

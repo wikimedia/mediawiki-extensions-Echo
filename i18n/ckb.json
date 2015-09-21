@@ -70,7 +70,7 @@
 	"notification-user-rights-add": "تۆ ھەر ئێستا ئەندامی ئەم {{PLURAL:$2|گرووپە|گرووپانە}}ی: $1",
 	"notification-user-rights-remove": "تۆ ئیتر ئەندامی ئەم {{PLURAL:$2|گرووپە|گرووپانە}} نی: $1",
 	"notification-new-user": "بەخێرھاتی بۆ {{SITENAME}}، $1! کەیفخۆشین لێرەی.",
-	"notification-reverted2": "{{PLURAL:$4|دەستکارییەکەت|دەستکارییەکانت}} لە [[:$2]]دا لە لایەن [[User:$1|$1]]ەوە {{GENDER:$1|گەڕێنرایەوە}}. $3",
+	"notification-reverted2": "{{PLURAL:$4|دەستکارییەکەت|دەستکارییەکانت}} لە [[:$2]]دا لە لایەن [[$5|$1]]ەوە {{GENDER:$1|گەڕێنرایەوە}}. $3",
 	"notification-reverted-flyout2": "{{PLURAL:$4|دەستکارییەکەت|دەستکارییەکانت}} لە $2دا لە لایەن $1ەوە {{GENDER:$1|گەڕێنرایەوە}}. $3",
 	"notification-edit-talk-page-email-subject2": "$1 لە {{SITENAME}}دا پەیامێکی بۆ ناردی.",
 	"notification-edit-talk-page-email-batch-body2": "$1 لە پەڕەی لێدوانتدا پەیامێکی نارد.",

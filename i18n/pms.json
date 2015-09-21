@@ -72,7 +72,7 @@
 	"notification-user-rights-add": "Adess a l'é mèmber ëd {{PLURAL:$2|costa partìa|coste partìe}}: $1",
 	"notification-user-rights-remove": "A l'é pi nen mèmber ëd {{PLURAL:$2|costa partìa|coste partìe}}: $1",
 	"notification-new-user": "Bin-ëvnù su {{SITENAME}}, $1! I soma content ch'a l'é ambelessì.",
-	"notification-reverted2": "{{PLURAL:$4|Soa modìfica dzor [[:$2]] a l'é stàita|Soe modìfiche dzor [[:$2]] a son stàite}} {{GENDER:$1|ripristinà}} da [[User:$1|$1]] $3",
+	"notification-reverted2": "{{PLURAL:$4|Soa modìfica dzor [[:$2]] a l'é stàita|Soe modìfiche dzor [[:$2]] a son stàite}} {{GENDER:$1|ripristinà}} da [[$5|$1]] $3",
 	"notification-reverted-flyout2": "{{PLURAL:$4|Soa modìfica dzor $2 a l'é stàita|Soe modìfiche dzor $2 a son stàite}} {{GENDER:$1|ripristinà}} da $1 $3",
 	"notification-edit-talk-page-email-subject2": "$1 a l'ha {{GENDER:$1|lassaje}} un mëssagi su {{SITENAME}}",
 	"notification-edit-talk-page-email-batch-body2": "$1 {{GENDER:$1|a l'ha lassà}} un mëssadi dzora soa pàgina ëd ciaciarade:",

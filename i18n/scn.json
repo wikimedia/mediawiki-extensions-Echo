@@ -69,7 +69,7 @@
 	"notification-user-rights-add": "Ora si membru di {{PLURAL:$2|stu gruppu|sti gruppa}}: $1",
 	"notification-user-rights-remove": "Nun si cchiù membru di {{PLURAL:$2|stu gruppu|sti gruppa}}: $1",
 	"notification-new-user": "Bimminutu/a supra {{SITENAME}}, $1! Semu filici ca tu si ccà.",
-	"notification-reverted2": "{{PLURAL:$4|Lu tò canciamentu|Li tò canciamenti}} supra [[:$2]] {{PLURAL:$4|fu annullatu|foru annullati}} {{GENDER:$1|di}} [[User:$1|$1]] $3",
+	"notification-reverted2": "{{PLURAL:$4|Lu tò canciamentu|Li tò canciamenti}} supra [[:$2]] {{PLURAL:$4|fu annullatu|foru annullati}} {{GENDER:$1|di}} [[$5|$1]] $3",
 	"notification-reverted-flyout2": "{{PLURAL:$4|Lu tò canciamentu|Li tò canciamenti}} supra $2 {{PLURAL:$4|fu annullatu|foru annullati}} {{GENDER:$1|di}} $1 $3",
 	"notification-edit-talk-page-email-subject2": "$1 ti {{GENDER:$1|lassau}} nu missaggiu n {{SITENAME}}",
 	"notification-edit-talk-page-email-batch-body2": "$1 {{GENDER:$1|lassau}} nu missaggiu supra la tò pàggina di discussioni:",

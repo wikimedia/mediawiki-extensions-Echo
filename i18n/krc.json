@@ -72,7 +72,7 @@
 	"notification-user-rights-add": "Энди сиз {{PLURAL:$2|бу къауумгъа|бу къауумлагъа}} киресиз: $1",
 	"notification-user-rights-remove": "Энди сиз {{PLURAL:$2|бу къауумгъа|бу къауумлагъа}} кирмейсиз: $1",
 	"notification-new-user": "{{SITENAME}} сайтха хош келигиз, $1! Сизни былайгъа келгенигизге къууандыкъ.",
-	"notification-reverted2": "[[User:$1|$1]], {{PLURAL:$4|[[:$2]] бетде сизни тюрлендириуюгюзню|[[:$2]] бетде сизни тюрлендириулеригизни}} {{GENDER:$1|ызына алды}}. $3",
+	"notification-reverted2": "[[$5|$1]], {{PLURAL:$4|[[:$2]] бетде сизни тюрлендириуюгюзню|[[:$2]] бетде сизни тюрлендириулеригизни}} {{GENDER:$1|ызына алды}}. $3",
 	"notification-reverted-flyout2": "{{PLURAL:$4|$2 бетде сизни тюрлендириуюгюзню|$2 бетде сизни тюрлендириулеригизни}} $1 {{GENDER:$1|ызына алды}}. $3",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|къошулуучу}} сизге «{{SITENAME}}» сайтда билдириу {{GENDER:$1|къойду}}",
 	"notification-edit-talk-page-email-batch-body2": "$1, сюзюу бетигизде билдириу {{GENDER:$1|къойду}}:",

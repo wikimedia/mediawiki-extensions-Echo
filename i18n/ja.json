@@ -80,7 +80,7 @@
 	"notification-user-rights-add": "あなたは{{PLURAL:$2|以下のグループ}}に所属になりました: $1",
 	"notification-user-rights-remove": "あなたは{{PLURAL:$2|以下のグループ}}の所属から外れました: $1",
 	"notification-new-user": "$1さん、{{SITENAME}}へようこそおいでくださいました。",
-	"notification-reverted2": "{{PLURAL:$4|[[:$2]] でのあなたの編集}}を [[User:$1|$1]] が{{GENDER:$1|差し戻しました}}。$3",
+	"notification-reverted2": "{{PLURAL:$4|[[:$2]] でのあなたの編集}}を [[$5|$1]] が{{GENDER:$1|差し戻しました}}。$3",
 	"notification-reverted-flyout2": "{{PLURAL:$4|$2 でのあなたの編集}}を $1 が{{GENDER:$1|差し戻しました}}。$3",
 	"notification-edit-talk-page-email-subject2": "{{SITENAME}}で $1 があなたのトークページにメッセージを{{GENDER:$1|投稿しました}}",
 	"notification-edit-talk-page-email-batch-body2": "$1 があなたのトークページにメッセージを{{GENDER:$1|投稿しました}}。",

@@ -75,7 +75,7 @@
 	"notification-user-rights-add": "Kuulud nüüd {{PLURAL:$2|sellesse rühma|nendesse rühmadesse}}: $1",
 	"notification-user-rights-remove": "Sa ei kuulu enam {{PLURAL:$2|sellesse rühma|nendesse rühmadesse}}: $1",
 	"notification-new-user": "Tere tulemast saidile {{SITENAME}}, $1! Meil on hea meel, et siin oled.",
-	"notification-reverted2": "[[User:$1|$1]] tühistas sinu {{PLURAL:$4|muudatuse|muudatused}} leheküljel [[:$2]]. $3",
+	"notification-reverted2": "[[$5|$1]] tühistas sinu {{PLURAL:$4|muudatuse|muudatused}} leheküljel [[:$2]]. $3",
 	"notification-reverted-flyout2": "$1 tühistas sinu {{PLURAL:$4|muudatuse|muudatused}} leheküljel \"$2\". $3",
 	"notification-edit-talk-page-email-subject2": "$1 jättis sulle {{GRAMMAR:inessive|{{SITENAME}}}} sõnumi",
 	"notification-edit-talk-page-email-batch-body2": "$1 {{GENDER:$1|jättis}} sinu aruteluleheküljele sõnumi.",

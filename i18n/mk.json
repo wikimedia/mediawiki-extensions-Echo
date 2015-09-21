@@ -74,7 +74,7 @@
 	"notification-user-rights-add": "Сега членувате во {{PLURAL:$2|оваа група|овие групи}}: $1",
 	"notification-user-rights-remove": "Повеќе не членувате во {{PLURAL:$2|оваа група|овие групи}}: $1",
 	"notification-new-user": "Добре дојдовте на {{SITENAME}}, $1! Драго ни е што сте тука.",
-	"notification-reverted2": "[[User:$1|$1]] {{PLURAL:$4|го|ги}} {{GENDER:$1|врати}} {{PLURAL:$4|вашето уредување на [[:$2]]|вашите уредувања на [[:$2]]}} $3",
+	"notification-reverted2": "[[$5|$1]] {{PLURAL:$4|го|ги}} {{GENDER:$1|врати}} {{PLURAL:$4|вашето уредување на [[:$2]]|вашите уредувања на [[:$2]]}} $3",
 	"notification-reverted-flyout2": "$1 {{PLURAL:$4|го|ги}} {{GENDER:$1|врати}} {{PLURAL:$4|вашето уредување на $2|вашите уредувања на $2}} $3",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|ви остави}} порака на {{SITENAME}}",
 	"notification-edit-talk-page-email-batch-body2": "$1 {{GENDER:$1|остави}} порака на вашата страница за разговор.",

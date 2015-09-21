@@ -80,7 +80,7 @@
 	"notification-user-rights-add": "당신은 이제 {{PLURAL:$2|다음 권한}}을 갖습니다: $1",
 	"notification-user-rights-remove": "당신은 더 이상 {{PLURAL:$2|다음 권한}}을 갖지 않습니다: $1",
 	"notification-new-user": "$1님, {{SITENAME}}에 온 것을 환영합니다! 당신이 여기에 오신 걸 매우 기쁘게 생각합니다.",
-	"notification-reverted2": "{{PLURAL:$4|[[:$2]]에 대한 내 편집}}을 [[User:$1|$1]]님이 {{GENDER:$1|되돌렸습니다}}. $3",
+	"notification-reverted2": "{{PLURAL:$4|[[:$2]]에 대한 내 편집}}을 [[$5|$1]]님이 {{GENDER:$1|되돌렸습니다}}. $3",
 	"notification-reverted-flyout2": "{{PLURAL:$4|$2에 대한 내 편집}}을 $1님이 {{GENDER:$1|되돌렸습니다}}. $3",
 	"notification-edit-talk-page-email-subject2": "$1님이 {{SITENAME}}에서 당신에게 글을 {{GENDER:$1|남겼습니다}}",
 	"notification-edit-talk-page-email-batch-body2": "$1님이 당신의 토론 문서에 글을 {{GENDER:$1|남겼습니다}}.",

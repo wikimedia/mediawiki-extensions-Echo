@@ -72,7 +72,7 @@
 	"notification-user-rights-add": "Od sada ste član {{PLURAL:$2|sledeće grupe|sledećih grupa}}: $1",
 	"notification-user-rights-remove": "Više niste član {{PLURAL:$2|sledeće grupe|sledećih grupa}}: $1",
 	"notification-new-user": "$1, dobro došli na projekat {{SITENAME}}! Drago nam je što ste ovde.",
-	"notification-reverted2": "{{PLURAL:$4|Vaša izmena na stranici [[:$2]] je poništena|Vaše izmene na stranici [[:$2]] su poništene}} od strane {{GENDER:$1|korisnika|korisnice}} [[User:$1|$1]]. $3",
+	"notification-reverted2": "{{PLURAL:$4|1=Vaša izmena na stranici [[:$2]] je poništena|Vaše izmene na stranici [[:$2]] su poništene}} od strane {{GENDER:$1|korisnika|korisnice}} [[$5|$1]]. $3",
 	"notification-reverted-flyout2": "{{PLURAL:$4|Vaša izmena na stranici $2 je poništena|Vaše izmene na stranici $2 su poništene}} od strane {{GENDER:$1|korisnika|korisnice}} $1. $3",
 	"notification-edit-talk-page-email-subject2": "$1 vam je {{GENDER:$1|ostavio|ostavila}} poruku na {{SITENAME}}",
 	"notification-edit-talk-page-email-batch-body2": "$1 vam je {{GENDER:$1|ostavio|ostavila}} poruku na vašoj stranici za razgovor:",

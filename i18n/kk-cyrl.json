@@ -70,7 +70,7 @@
 	"notification-user-rights-add": "Қазір {{PLURAL:$2|бұл топтың|бұл топтардың}} мүшесісіз: $1",
 	"notification-user-rights-remove": "Сіз {{PLURAL:$2|бұл топтың|бұл топтың}} көптен бергі мүшесі емессіз: $1",
 	"notification-new-user": "$1 {{SITENAME}} сайтына қош келдіңіз! Сіз осында болғаныңызға біз қуаныштымыз.",
-	"notification-reverted2": "Сіздің {{PLURAL:$4|[[:$2]] бетіндегі өңдемеңізді|[[:$2]] бетіндегі өңдемелеріңізді}} [[User:$1|$1]] {{GENDER:$1|жоққа шығарды}}. $3",
+	"notification-reverted2": "Сіздің {{PLURAL:$4|[[:$2]] бетіндегі өңдемеңізді|[[:$2]] бетіндегі өңдемелеріңізді}} [[$5|$1]] {{GENDER:$1|жоққа шығарды}}. $3",
 	"notification-reverted-flyout2": "Сіздің {{PLURAL:$4|$2 бетіндегі өңдемеңізді|$2 бетіндегі өңдемелеріңізді}} $1 есімді қатысушы {{GENDER:$1|жоққа шығарыды}}. $3",
 	"notification-edit-talk-page-email-subject2": "$1 {{SITENAME}} сайтында сізге хабарлама {{GENDER:$1|қалдырды}}",
 	"notification-edit-talk-page-email-batch-body2": "$1 талқылау бетіңізге хабарлама {{GENDER:$1|қалдырды}}.",

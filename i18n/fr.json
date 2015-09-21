@@ -96,7 +96,7 @@
 	"notification-user-rights-add": "Vous êtes maintenant membre de {{PLURAL:$2|ce groupe|ces groupes}} : $1",
 	"notification-user-rights-remove": "Vous n’êtes plus membre de {{PLURAL:$2|ce groupe|ces groupes}} : $1",
 	"notification-new-user": "Bienvenue sur {{SITENAME}}, $1 ! Nous sommes heureux de vous voir ici.",
-	"notification-reverted2": "{{PLURAL:$4|Votre modification sur [[:$2]] a|Vos modifications sur [[:$2]] ont}} été annulée{{PLURAL:$4||s}} par [[User:$1|$1]] $3",
+	"notification-reverted2": "{{PLURAL:$4|Votre modification sur [[:$2]] a|Vos modifications sur [[:$2]] ont}} été annulée{{PLURAL:$4||s}} par [[$5|$1]] $3",
 	"notification-reverted-flyout2": "{{PLURAL:$4|Votre modification sur $2 a|Vos modifications sur $2 ont}} été annulée{{PLURAL:$4||s}} par $1 $3",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|a laissé}} un message sur votre page de discussion sur {{SITENAME}}",
 	"notification-edit-talk-page-email-batch-body2": "$1 {{GENDER:$1|a laissé}} un message sur votre page de discussion .",

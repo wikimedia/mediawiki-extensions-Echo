@@ -79,7 +79,7 @@
 	"notification-user-rights-add": "Зараз Ви член {{PLURAL:$2|1=такої групи|таких груп}}: $1",
 	"notification-user-rights-remove": "Ви більше не є членом {{PLURAL:$2|1=цієї групи|таких груп}}: $1",
 	"notification-new-user": "Ласкаво просимо до {{GRAMMAR:Genitive|{{SITENAME}}}}, $1! Ми раді, що Ви тут.",
-	"notification-reverted2": "{{PLURAL:$4|1=Ваше редагування|Ваші редагування}} сторінки [[:$2]] було {{GENDER:$1|скасовано}} {{GENDER:$1|користувачем|користувачкою}} [[User:$1|$1]] $3",
+	"notification-reverted2": "{{PLURAL:$4|1=Ваше редагування|Ваші редагування}} сторінки [[:$2]] було {{GENDER:$1|скасовано}} {{GENDER:$1|користувачем|користувачкою}} [[$5|$1]] $3",
 	"notification-reverted-flyout2": "{{PLURAL:$4|1=Ваше редагування|Ваші редагування}} сторінки $2 було {{GENDER:$1|скасовано}} {{GENDER:$1|користувачем|користувачкою}} $1 $3",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|залишив|залишила}} Вам повідомлення на сайті {{SITENAME}}",
 	"notification-edit-talk-page-email-batch-body2": "$1 {{GENDER:$1|залишив|залишила}} повідомлення на Вашій сторінці обговорення.",

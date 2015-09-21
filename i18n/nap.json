@@ -74,7 +74,7 @@
 	"notification-user-rights-add": "Mo' site membre 'e {{PLURAL:$2|stu gruppo|sti gruppe}}: $1",
 	"notification-user-rights-remove": "Mo' nun site cchiù membre 'e {{PLURAL:$2|stu gruppo|sti gruppe}}: $1",
 	"notification-new-user": "Bemmenuto/a a {{SITENAME}}, $1! Nuje simmo cuntente 'e te veré ccà.",
-	"notification-reverted2": "{{PLURAL:$4|'O cagnamiento vuosto ncopp'a [[:$2]] è stato|'E cagnamiente vuoste ncopp' 'a [[:$2]] so' state}} {{GENDER:$1|annullate}} 'a [[User:$1|$1]]. $3",
+	"notification-reverted2": "{{PLURAL:$4|'O cagnamiento vuosto ncopp'a [[:$2]] è stato|'E cagnamiente vuoste ncopp' 'a [[:$2]] so' state}} {{GENDER:$1|annullate}} 'a [[$5|$1]]. $3",
 	"notification-reverted-flyout2": "{{PLURAL:$4|'O cagnamiento ncopp'a $2 vuosto è stato|'E cagnamiente vuoste ncopp' 'a $2 so state}} {{GENDER:$1|annullate}} 'a $1. $3",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|t'ha lassato}} na mmasciata {{SITENAME}}",
 	"notification-edit-talk-page-email-batch-body2": "$1 {{GENDER:$1|lassaje}} na mmasciata dint'a paggena 'e chiacchiera toja.",

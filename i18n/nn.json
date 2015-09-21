@@ -70,7 +70,7 @@
 	"notification-user-rights-add": "Du er no ein medlem av {{PLURAL:$2|denne gruppa|desse gruppene}}: $1",
 	"notification-user-rights-remove": "Du er ikkje lenger medlem av {{PLURAL:$2|denne gruppa|desse gruppene}}: $1",
 	"notification-new-user": "Velkomen til {{SITENAME}}, $1! Me er glade for at du er her.",
-	"notification-reverted2": "{{PLURAL:$4|Endringa di|Endringane dine}} på [[:$2]] vart {{GENDER:$1|fjerna}} av [[User:$1|$1]]. $3",
+	"notification-reverted2": "{{PLURAL:$4|Endringa di|Endringane dine}} på [[:$2]] vart {{GENDER:$1|fjerna}} av [[$5|$1]]. $3",
 	"notification-reverted-flyout2": "{{PLURAL:$4|Endringa di|Endringane dine}} på $2 vart {{GENDER:$1|fjerna}} av $1. $3",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|la att}} ei melding til deg på {{SITENAME}}",
 	"notification-edit-talk-page-email-batch-body2": "$1 {{GENDER:$1|la att}} ei melding på diskusjonssida di.",

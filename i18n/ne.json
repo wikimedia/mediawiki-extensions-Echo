@@ -71,7 +71,7 @@
 	"notification-user-rights-add": "अब तपाईँ {{PLURAL:$2|यो समूह|यी समूहहरू}}: $1 को एउटा सदस्य हुनुहुन्छ।",
 	"notification-user-rights-remove": "अब तपाईँ {{PLURAL:$2|यो समूह|यी समूहहरू}}: $1 को सदस्य हुनुहुन्न।",
 	"notification-new-user": "{{SITENAME}} मा स्वागत, $1! तपाईँ यहाँ हुनुहुन्छ हामी खुसी छौँ।",
-	"notification-reverted2": "तपाईँको {{PLURAL:$4|सम्पादन [[:$2]] मा |सम्पादनहरू [[:$2]] मा}} [[User:$1|$1]] द्वारा {{GENDER:$1|उल्ट्याइएको छ}}। $3",
+	"notification-reverted2": "तपाईँको {{PLURAL:$4|सम्पादन [[:$2]] मा |सम्पादनहरू [[:$2]] मा}} [[$5|$1]] द्वारा {{GENDER:$1|उल्ट्याइएको छ}}। $3",
 	"notification-reverted-flyout2": "तपाईँको {{PLURAL:$4|सम्पादन $2 मा |सम्पादनहरू $2 मा}} $1 द्वारा {{GENDER:$1|उल्ट्याइएको छ}}। $3",
 	"notification-edit-talk-page-email-subject2": "$1 ले तपाईँलाई {{SITENAME}} मा एउटा सन्देश {{GENDER:$1|छोड्नुभएको छ}}",
 	"notification-edit-talk-page-email-batch-body2": "$1 तपाईँको वार्ता पृष्ठमा एउटा सन्देश {{GENDER:$1|छोड्नुभएको छ}}:",

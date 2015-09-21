@@ -62,7 +62,7 @@
 	"notification-mention-flyout": "$1 Vas je {{GENDER:$1|spomenuo|spomenula}} na stranici za razgovor $5, u odlomku [[:$3#$2|$4]].",
 	"notification-user-rights": "Vaša suradnička prava [[Special:Log/rights/$1|{{GENDER:$1|promijenio|promijenila}}]] je {{GENDER:$1|suradnik|suradnica}} [[User:$1|$1]]. $2. [[Special:ListGroupRights|Saznajte više]]",
 	"notification-user-rights-add": "Sada ste član {{PLURAL:$2|sljedeće grupe|sljedećih grupa}}: $1",
-	"notification-reverted2": "{{PLURAL:$4|Vaše uređivanje na stranici [[:$2]]|Vaša uređivanja na stranici [[:$2]]}} {{GENDER:$1|uklonio je suradnik|uklonila je suradnica}} [[User:$1|$1]]. $3",
+	"notification-reverted2": "{{PLURAL:$4|Vaše uređivanje na stranici [[:$2]]|Vaša uređivanja na stranici [[:$2]]}} {{GENDER:$1|uklonio je suradnik|uklonila je suradnica}} [[$5|$1]]. $3",
 	"notification-reverted-flyout2": "{{PLURAL:$4|Vaše uređivanje na stranici $2|Vaša uređivanja na stranici $2}} {{GENDER:$1|uklonio je suradnik|uklonila je suradnica}} $1. $3",
 	"notification-edit-talk-page-email-subject2": "$1 Vam je {{GENDER:$1|ostavio|ostavila}} poruku na projektu {{SITENAME}}",
 	"notification-edit-talk-page-email-batch-body2": "$1 Vam je {{GENDER:$1|ostavio|ostavila}} poruku na Vašoj stranici za razgovor:",

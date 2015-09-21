@@ -69,7 +69,7 @@
 	"notification-user-rights-add": "Du bisch itz Mitglid {{PLURAL:$2|vor|vo de}} Gruppe $1",
 	"notification-user-rights-remove": "Du bisch nümm Mitglid {{PLURAL:$2|vor|vo de}} Gruppe $1",
 	"notification-new-user": "{{GENDER:$1|Liebe $1|Liebi $1|Hallo $1}} – willkomme by {{SITENAME}}! Mir fröüen üs, das d’ mitmachsch.",
-	"notification-reverted2": "{{GENDER:$1|Der [[User:$1|$1]]|D [[User:$1|$1]]|[[User:$1|$1]]}} het {{PLURAL:$4|dyni Veränderig|dyni Veränderigen}} ar Syte [[:$2]] rückgängig gmacht. $3",
+	"notification-reverted2": "{{GENDER:$1|Der [[$5|$1]]|D [[$5|$1]]|[[$5|$1]]}} het {{PLURAL:$4|dyni Veränderig|dyni Veränderigen}} ar Syte [[:$2]] rückgängig gmacht. $3",
 	"notification-reverted-flyout2": "{{GENDER:$1|Der $1|D $1|$1}} het dyni {{PLURAL:$4|Änderig|Änderigen}} ar Syte $2 rückgängig gemacht. $3",
 	"notification-edit-talk-page-email-subject2": "{{GENDER:$1|Der $1|D $1|$1}} het der e Nachricht uf {{SITENAME}} gschribe",
 	"notification-edit-talk-page-email-batch-body2": "{{GENDER:$1|Der $1|D $1|$1}} het dir e Nachricht uf dyre Diskussion gschribe.",

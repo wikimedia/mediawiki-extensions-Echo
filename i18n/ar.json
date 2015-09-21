@@ -83,7 +83,7 @@
 	"notification-user-rights-add": "أنت الآن عضو في {{PLURAL:$2|مجموعة|مجموعات}}: $1",
 	"notification-user-rights-remove": "ألغيت عضويتك في {{PLURAL:$2|مجموعة|مجموعات}}: $1",
 	"notification-new-user": "$1، مرحبا بك في {{SITENAME}}. أسعدنا بلقياك.",
-	"notification-reverted2": "{{GENDER:$1|ألغى|ألغت}} [[User:$1|$1]] {{PLURAL:$4|تعديلك في [[:$2]]|تعديلاتك في [[:$2]]}}. $3",
+	"notification-reverted2": "{{GENDER:$1|ألغى|ألغت}} [[$5|$1]] {{PLURAL:$4|تعديلك في [[:$2]]|تعديلاتك في [[:$2]]}}. $3",
 	"notification-reverted-flyout2": "{{GENDER:$1|ألغى|ألغت}} $1 {{PLURAL:$4|تعديلك في $2|تعديلاتك في $2}}. $3",
 	"notification-edit-talk-page-email-subject2": "{{GENDER:$1|بعث|بعثت}} لك $1 برسالة في {{SITENAME}}",
 	"notification-edit-talk-page-email-batch-body2": "{{GENDER:$1|بعث|بعثت}} لك $1 برسالة في صفحة نقاشك.",

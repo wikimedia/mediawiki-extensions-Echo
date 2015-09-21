@@ -67,7 +67,7 @@
 	"notification-user-rights-add": "Tashmë je anëtar i {{PLURAL:$2|këtij grupi|këtyre grupeve}}: $1",
 	"notification-user-rights-remove": "Ju nuk jeni më anëtar i {{PLURAL:$2|këtij grupi|këtyre grupeve}}: $1",
 	"notification-new-user": "Mirësevini në {{SITENAME}}, $1! Jemi të lumtur që ti je këtu.",
-	"notification-reverted2": "{{PLURAL:$4|Redaktimi juaj|Redaktimet e tua}} në [[:$2]] {{PLURAL:$4|u kthye|u kthyen}} {{GENDER:$1|nga}} [[User:$1|$1]]. $3",
+	"notification-reverted2": "{{PLURAL:$4|Redaktimi juaj|Redaktimet e tua}} në [[:$2]] {{PLURAL:$4|u kthye|u kthyen}} {{GENDER:$1|nga}} [[$5|$1]]. $3",
 	"notification-reverted-flyout2": "{{PLURAL:$4|Redaktimi juaj|Redaktimet e tua}} në $2 {{PLURAL:$4|u kthye|u kthyen}} {{GENDER:$1|nga}} $1. $3",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|iu la}} një mesazh në {{SITENAME}}",
 	"notification-edit-talk-page-email-batch-body2": "$1 {{GENDER:$1|iu la}} një mesazh në faqen tuaj të diskutimeve:",

@@ -87,7 +87,7 @@
 	"notification-user-rights-add": "您現在已成為{{PLURAL:$2|這個群組|這些群組}}的成員：$1",
 	"notification-user-rights-remove": "你不再是{{PLURAL:$2|這個群組|這些群組}}的成員：$1",
 	"notification-new-user": "歡迎來到 {{SITENAME}}，$1！ 我們很歡迎您的蒞臨。",
-	"notification-reverted2": "您{{PLURAL:$4|在 [[:$2]] 頁面的編輯}}已由 [[User:$1|$1]] {{GENDER:$1|還原了}}。$3",
+	"notification-reverted2": "您{{PLURAL:$4|在 [[:$2]] 頁面的編輯}}已由 [[$5|$1]] {{GENDER:$1|還原了}}。$3",
 	"notification-reverted-flyout2": "您{{PLURAL:$4|在 $2 頁面的編輯}}已由 $1 給還原了。 $3",
 	"notification-edit-talk-page-email-subject2": "$1 在 {{SITENAME}} {{GENDER:$1|留下了}}一則訊息給您。",
 	"notification-edit-talk-page-email-batch-body2": "$1 在您的對話頁面中{{GENDER:$1|留下了}}一則訊息。",

@@ -71,7 +71,7 @@
 	"notification-user-rights-add": "Agora ye miembru d'{{PLURAL:$2|esti grupu|estos grupos}}: $1",
 	"notification-user-rights-remove": "Dexó de ser miembru d'{{PLURAL:$2|esti grupu|estos grupos}}: $1",
 	"notification-new-user": "¡Dámoste la bienvenida a {{SITENAME}}, $1! Préstanos que teas equí.",
-	"notification-reverted2": "[[User:$1|$1]] {{GENDER:$1|invertió}} {{PLURAL:$4|la so edición|les sos ediciones}} en [[:$2]] $3",
+	"notification-reverted2": "[[$5|$1]] {{GENDER:$1|invertió}} {{PLURAL:$4|la so edición|les sos ediciones}} en [[:$2]] $3",
 	"notification-reverted-flyout2": "$1 {{GENDER:$1|invertió}} {{PLURAL:$4|la so edición|les sos ediciones}} en $2 $3",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|dexó-y}} un mensaxe en {{SITENAME}}",
 	"notification-edit-talk-page-email-batch-body2": "$1 {{GENDER:$1|dexó}} un mensaxe na to páxina d'alderique.",

@@ -76,7 +76,7 @@
 	"notification-user-rights-add": "आप अब {{PLURAL:$2|इस समूह|इन समूहों}} के सदस्य हैं: $1",
 	"notification-user-rights-remove": "आप अब {{PLURAL:$2|इस समूह|इन समूहों}} के सदस्य नहीं रहे: $1",
 	"notification-new-user": "आपका {{SITENAME}} पर स्वागत है, $1! हमे ख़ुशी है आप यहाँ आये।",
-	"notification-reverted2": "[[:$2]] पर आपके {{PLURAL:$4|सम्पादन|सम्पादनों}} को [[User:$1|$1]] द्वारा {{GENDER:$1|पूर्ववत}} कर दिया गया है। $3",
+	"notification-reverted2": "[[:$2]] पर आपके {{PLURAL:$4|सम्पादन|सम्पादनों}} को [[$5|$1]] द्वारा {{GENDER:$1|पूर्ववत}} कर दिया गया है। $3",
 	"notification-reverted-flyout2": "$2 पर आपके {{PLURAL:$4|सम्पादन|सम्पादनों}} को $1 द्वारा {{GENDER:$1|पूर्ववत}} कर दिया गया है। $3",
 	"notification-edit-talk-page-email-subject2": "$1 ने आपके लिए {{SITENAME}} पर संदेश {{GENDER:$1|छोड़ा है}}",
 	"notification-edit-talk-page-email-batch-body2": "$1 ने आपके वार्ता पृष्ठ पर संदेश {{GENDER:$1|छोड़ा है}}:",

@@ -75,7 +75,7 @@
 	"notification-user-rights-add": "Bạn mới là thành viên của {{PLURAL:$2|nhóm|các nhóm}} này: $1",
 	"notification-user-rights-remove": "Bạn không còn là thành viên của {{PLURAL:$2|nhóm|các nhóm}} này: $1",
 	"notification-new-user": "Chào mừng $1 đã đến với {{SITENAME}}!",
-	"notification-reverted2": "[[User:$1|$1]] đã lùi lại {{PLURAL:$4|sửa đổi|các sửa đổi}} của bạn tại [[:$2]] $3",
+	"notification-reverted2": "[[$5|$1]] đã lùi lại {{PLURAL:$4|sửa đổi|các sửa đổi}} của bạn tại [[:$2]] $3",
 	"notification-reverted-flyout2": "$1 đã lùi lại {{PLURAL:$4|sửa đổi|các sửa đổi}} của bạn tại $2 $3",
 	"notification-edit-talk-page-email-subject2": "$1 đã {{GENDER:$1}}nhắn tin cho bạn trên {{SITENAME}}",
 	"notification-edit-talk-page-email-batch-body2": "$1 đã nhắn tin vào trang thảo luận của bạn.",
