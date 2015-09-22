@@ -494,19 +494,33 @@ class EchoHooks {
 	}
 
 	/**
-	 * Handler for UserRights hook.
-	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/UserRights
+	 * Handler for UserGroupsChanged hook.
+	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/UserGroupsChanged
 	 *
-	 * @param $user User User object that was changed
-	 * @param $add array Array of strings corresponding to groups added
-	 * @param $remove array Array of strings corresponding to groups removed
+	 * @param User $user user that was changed
+	 * @param string[] $add strings corresponding to groups added
+	 * @param string[] $remove strings corresponding to groups removed
+	 * @param User|bool $performer
 	 *
 	 * @return bool
 	 */
-	public static function onUserRights( &$user, $add, $remove ) {
-		global $wgUser;
+	public static function onUserGroupsChanged( $user, $add, $remove, $performer ) {
+		if ( !$performer ) {
+			// TODO: Implement support for autopromotion
+			return true;
+		}
 
-		if ( $user instanceof User && !$user->isAnon() && $wgUser->getId() != $user->getId() && ( $add || $remove ) ) {
+		if ( !$user instanceof User ) {
+			// TODO: Support UserRightsProxy
+			return true;
+		}
+
+		if ( $user->equals( $performer ) ) {
+			// Don't notify for self changes
+			return true;
+		}
+
+		if ( $add || $remove ) {
 			EchoEvent::create(
 				array(
 					'type' => 'user-rights',
@@ -516,7 +530,7 @@ class EchoHooks {
 						'add' => $add,
 						'remove' => $remove
 					),
-					'agent' => $wgUser,
+					'agent' => $performer,
 				)
 			);
 		}
