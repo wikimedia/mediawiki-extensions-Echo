@@ -78,6 +78,7 @@ $wgResourceModules += array(
 			'echo-notification-placeholder',
 			'tooltip-pt-notifications-alert',
 			'tooltip-pt-notifications-message',
+			'mytalk',
 			'mypreferences'
 		),
 		'targets' => array( 'desktop' ),

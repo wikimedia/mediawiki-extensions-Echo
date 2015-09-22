@@ -61,7 +61,9 @@
 
 					mw.echo.ui.messageWidget.getModel().on( 'allRead', function () {
 						// If there was a talk page notification, get rid of it
-						$( '#pt-mytalk' ).detach();
+						$( '#pt-mytalk a' )
+							.removeClass( 'mw-echo-alert' )
+							.text( mw.msg( 'mytalk' ) );
 					} );
 				}
 
