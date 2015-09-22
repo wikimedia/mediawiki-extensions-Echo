@@ -23,6 +23,7 @@
 	"notification-edit-talk-page-email-batch-body2": "{{GENDER:$1|Кулланучы}} $1 сезнең бәхәс битегездә хат {{GENDER:$1|калдырды}}.",
 	"notification-edit-talk-page-email-batch-body-with-section": "{{GENDER:$1|Кулланучы}} $1 сезгә «$2» темасының бәхәс битендә хат {{GENDER:$1|калдырды}}",
 	"notification-mention-nosection-email-batch-body": "$1 сезне $2 бәхәс битендә искә алды.",
+	"echo-overlay-link": "Барлык искәртүләр",
 	"echo-date-yesterday": "Кичә",
 	"notification-edit-talk-page-bundle": "$1 һәм тагын $3 кулланучы сезнең [[User talk:$2|бәхәс битендә]] хәбәр калдырганнар."
 }

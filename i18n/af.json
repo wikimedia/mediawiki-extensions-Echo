@@ -31,6 +31,8 @@
 	"echo-no-agent": "[Niemand]",
 	"echo-no-title": "[Geen bladsy]",
 	"notifications": "Kennisgewings",
+	"tooltip-pt-notifications-alert": "{{GENDER:|U}} waarskuwings",
+	"tooltip-pt-notifications-message": "{{GENDER:|U}} boodskappe",
 	"echo-specialpage": "Kennisgewings",
 	"echo-more-info": "Meer inligting",
 	"echo-feedback": "Terugvoer",

@@ -50,6 +50,8 @@
 	"echo-none": "Jūs turite jokių pranešimų.",
 	"echo-more-info": "Daugiau informacijos",
 	"echo-feedback": "Atsiliepimas",
+	"echo-api-failure": "Nepavyko gauti pranešimų. Prašome bandyti dar kartą. (Klaida $1)",
+	"echo-notification-placeholder": "Nėra pranešimų.",
 	"notification-link-text-view-message": "Peržiūrėti žinutę",
 	"notification-link-text-view-mention": "Peržiūrėti paminėjimą",
 	"notification-link-text-view-changes": "Peržiūrėti pakeitimus",
