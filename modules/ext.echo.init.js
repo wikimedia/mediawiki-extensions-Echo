@@ -34,7 +34,8 @@
 
 		// Respond to click on the notification button and load the UI on demand
 		$( '.mw-echo-notification-badge-nojs' ).click( function () {
-			var myType = $( this ).parent().prop( 'id' ) === 'pt-notifications-alert' ? 'alert' : 'message';
+			var myType = $( this ).parent().prop( 'id' ) === 'pt-notifications-alert' ? 'alert' : 'message',
+				time = mw.now();
 			// Dim the button while we load
 			$( this ).addClass( 'mw-echo-notifications-badge-dimmed' );
 
@@ -83,7 +84,10 @@
 
 				// HACK: Now that the module loaded, show the popup
 				myWidget = myType === 'alert' ? mw.echo.ui.alertWidget : mw.echo.ui.messageWidget;
-				myWidget.populateNotifications( apiRequest );
+				myWidget.populateNotifications( apiRequest ).then( function () {
+					// Log timing after notifications are shown
+					mw.track( 'timing.MediaWiki.echo.overlay', mw.now() - time );
+				} );
 				myWidget.popup.toggle( true );
 			} );
 
