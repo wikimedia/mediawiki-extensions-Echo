@@ -217,8 +217,7 @@
 	 * @return {jQuery.Promise} Promise that is resolved when the notifications populate
 	 */
 	mw.echo.ui.NotificationBadgeWidget.prototype.populateNotifications = function ( fetchingApiRequest ) {
-		var widget = this,
-			time = mw.now();
+		var widget = this;
 
 		// The model retrieves the ongoing promise or returns the existing one that it
 		// has. When the promise is completed successfuly, it nullifies itself so we can
@@ -236,9 +235,6 @@
 
 					// Log impressions
 					mw.echo.logger.logNotificationImpressions( this.type, idArray, mw.echo.Logger.static.context.popup );
-
-					// Log timing
-					mw.track( 'timing.MediaWiki.echo.overlay', mw.now() - time );
 
 					// // Mark notifications as 'read' if markReadWhenSeen is set to true
 					if ( widget.markReadWhenSeen ) {
