@@ -284,7 +284,8 @@
 	 */
 	mw.echo.ui.NotificationBadgeWidget.prototype.onPopupToggle = function ( isVisible ) {
 		if ( !isVisible ) {
-			// If the popup is closing, leave
+			// If the popup is closing, remove "initiallyUnseen" and leave
+			this.notificationsWidget.resetNotificationItems();
 			return;
 		}
 

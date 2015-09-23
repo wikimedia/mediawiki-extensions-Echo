@@ -123,6 +123,21 @@
 	};
 
 	/**
+	 * Go over the items and remove all items with 'initiallyUnseen' class on them.
+	 * That class is given to the widgets so that the animation works. When we refresh
+	 * the notifications, they should no longer be animated, allowing any new notifications
+	 * that were fetched to be set as unseen.
+	 */
+	mw.echo.ui.NotificationsWidget.prototype.resetNotificationItems = function () {
+		var i, len,
+			items = this.getItems();
+
+		for ( i = 0, len = items.length; i < len; i++ ) {
+			items[i].reset();
+		}
+	};
+
+	/**
 	 * Reset the loading 'dummy' option widget
 	 *
 	 * @param {string} [label] Label for the option widget
