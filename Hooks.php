@@ -727,7 +727,7 @@ class EchoHooks {
 
 		if ( $hasUnseen ) {
 			// Record that the user is going to see an indicator that they have unread notifications
-			RequestContext::getMain()->getStats()->increment( 'MediaWiki.echo.unseen' );
+			RequestContext::getMain()->getStats()->increment( 'echo.unseen' );
 		}
 
 		// If the user has new messages, display a talk page alert
