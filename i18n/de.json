@@ -11,7 +11,7 @@
 			"Tiin"
 		]
 	},
-	"echo-desc": "System zur Benachrichtigung von Benutzern über Ereignisse und Nachrichten",
+	"echo-desc": "Stellt ein System zur Benachrichtigung von Benutzern über Ereignisse und Nachrichten bereit",
 	"prefs-echo": "Benachrichtigungen",
 	"prefs-emailsettings": "E-Mail-Optionen",
 	"prefs-displaynotifications": "Anzeigeoptionen",

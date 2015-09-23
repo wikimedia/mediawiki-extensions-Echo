@@ -41,7 +41,7 @@
 	"echo-category-title-other": "{{PLURAL:$1|Altro}}",
 	"echo-category-title-system": "{{PLURAL:$1|Sistema}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|Modifica diritto|Modifiche diritti}} utente",
-	"echo-category-title-emailuser": "{{PLURAL:$1|Email da un altro utente|Emails da altri utenti}}",
+	"echo-category-title-emailuser": "{{PLURAL:$1|Email da un altro utente|Email da altri utenti}}",
 	"echo-pref-tooltip-edit-user-talk": "Avvisami quando qualcuno mi scrive un messaggio o risponde nella mia pagina di discussione.",
 	"echo-pref-tooltip-article-linked": "Avvisami quando qualcuno collega, da una voce, una pagina che ho creato.",
 	"echo-pref-tooltip-reverted": "Avvisami quando qualcuno annulla una modifica che ho fatto, usando le funzioni annulla o rollback.",

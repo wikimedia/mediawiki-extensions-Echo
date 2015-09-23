@@ -52,6 +52,7 @@
 	"echo-pref-tooltip-reverted": "Powiadom mnie, kiedy ktoś wycofa moją edycję korzystając z narzędzia „anuluj” albo „cofnij”.",
 	"echo-pref-tooltip-mention": "Powiadom mnie, kiedy ktoś umieści link do mojej strony użytkownika.",
 	"echo-pref-tooltip-user-rights": "Powiadamiaj mnie, gdy ktoś zmieni moje uprawnienia.",
+	"echo-pref-tooltip-emailuser": "Powiadom mnie, gdy ktoś mi wyśle e-mail.",
 	"echo-no-agent": "[Nikt]",
 	"echo-no-title": "[Brak strony]",
 	"echo-error-no-formatter": "Nie określono formatowania dla powiadomień",

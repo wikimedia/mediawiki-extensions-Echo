@@ -5,7 +5,8 @@
 			"Minisarm",
 			"Reception123",
 			"Stelistcristi",
-			"ImGelu"
+			"ImGelu",
+			"Wintereu"
 		]
 	},
 	"echo-desc": "Sistem de notificare a utilizatorilor cu privire la evenimente și mesaje",
@@ -44,6 +45,8 @@
 	"echo-no-title": "[Nicio pagină]",
 	"echo-error-no-formatter": "Nicio formatare definită pentru această notificare.",
 	"notifications": "Notificări",
+	"tooltip-pt-notifications-alert": "Alertele {{GENDER:|dumneavoastră}}",
+	"tooltip-pt-notifications-message": "Mesajele {{GENDER:|dumneavoastră}}",
 	"echo-specialpage": "Notificări",
 	"echo-anon": "Pentru a primi notificări, [$1 creați-vă un cont] sau [$2 autentificați-vă].",
 	"echo-none": "Nu aveți nicio notificare.",
