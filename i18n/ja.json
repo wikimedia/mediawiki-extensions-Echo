@@ -37,7 +37,7 @@
 	"echo-category-title-other": "{{PLURAL:$1|その他}}",
 	"echo-category-title-system": "{{PLURAL:$1|システム}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|利用者権限の変更}}",
-	"echo-category-title-emailuser": "他の利用者からのEメール",
+	"echo-category-title-emailuser": "{{PLURAL:$1|他の利用者からのEメール}}",
 	"echo-pref-tooltip-edit-user-talk": "誰かが私のトークページでメッセージの投稿または返信をしたときに通知する。",
 	"echo-pref-tooltip-article-linked": "誰かが私が作成したページに記事からリンクしたときに通知する。",
 	"echo-pref-tooltip-reverted": "誰かが取り消しや巻き戻しの機能で私の編集を差し戻したときに通知する。",

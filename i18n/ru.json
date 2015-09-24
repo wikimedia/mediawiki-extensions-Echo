@@ -17,7 +17,8 @@
 			"Sunpriat",
 			"Чаховіч Уладзіслаў",
 			"Doff",
-			"Marina Melik-Adamyan"
+			"Marina Melik-Adamyan",
+			"INS Pirat"
 		]
 	},
 	"echo-desc": "Система уведомления участников о событиях и сообщениях",
@@ -52,6 +53,7 @@
 	"echo-pref-tooltip-reverted": "Сообщать мне, когда кто-то отменил мою правку, используя функцию отмены или отката.",
 	"echo-pref-tooltip-mention": "Сообщать мне, когда кто-то ссылается на мою страницу участника.",
 	"echo-pref-tooltip-user-rights": "Сообщать мне, когда кто-то изменяет мои права участника.",
+	"echo-pref-tooltip-emailuser": "Уведомлять меня, когда кто-то присылает мне письмо по электронной почте.",
 	"echo-no-agent": "[Никто]",
 	"echo-no-title": "[Нет страницы]",
 	"echo-error-no-formatter": "Форматирование не определено для уведомления",
@@ -64,6 +66,7 @@
 	"echo-more-info": "Подробнее",
 	"echo-feedback": "Обратная связь",
 	"echo-quotation-marks": "«$1»",
+	"echo-notification-placeholder": "Уведомлений нет.",
 	"notification-link-text-view-message": "Просмотр сообщения",
 	"notification-link-text-view-mention": "Просмотр упоминания",
 	"notification-link-text-view-changes": "Просмотр изменений",

@@ -43,12 +43,14 @@
 	"notification-link-text-view-changes": "بدلونونه کتل",
 	"notification-link-text-view-page": "مخ کتل",
 	"notification-link-text-view-edit": "سمون کتل",
+	"notification-edit-talk-page2": "[[User:$1|$1]] ستاسې د [[User talk:$2#$3|خبرو اترو په مخ]] يو پيغام {{GENDER:$1|پرېښوه}}.",
 	"notification-edit-talk-page-with-section": "[[User:$1|$1]] ستاسې د خبرو اترو پر مخ يو پيغام په \"[[User talk:$2#$3|$4]]\" کې {{GENDER:$1|پرېښوده}} .",
+	"notification-edit-talk-page-flyout2": "$1 ستاسې د [[User talk:$2#$3|خبرو اترو په مخ]] يو پيغام {{GENDER:$1|پرېښوده}}.",
 	"notification-edit-talk-page-flyout-with-section": "$1 ستاسې د خبرو اترو پر مخ يو پيغام په \"[[User talk:$2#$3|$4]]\" کې {{GENDER:$1|پرېښود}}.",
 	"notification-page-linked": "[[:$2]] له [[:$3]] سره {{GENDER:$1|تړل شوی}}. [[Special:WhatLinksHere/$2|دې مخ سره ټولې تړنې وگورئ]].",
 	"notification-page-linked-flyout": "[[:$2]] له [[:$3]] سره {{GENDER:$1|وتړل شو}}.",
 	"notification-new-user": "$1 {{SITENAME}} ته ښه راغلې!، موږ خوښ يو چې تاسې دلته ياست.",
-	"notification-edit-talk-page-email-batch-body2": "$1 ستاسې د خبرو اترو په مخ يو پيغام {{GENDER:$1|پرېښوده}}:",
+	"notification-edit-talk-page-email-batch-body2": "$1 ستاسې د خبرو اترو په مخ يو پيغام {{GENDER:$1|پرېښوده}}.",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 ستاسې د خبرو اترو پر مخ يو پيغام په \"$2\" کې {{GENDER:$1|پرېښود}}.",
 	"notification-page-linked-email-subject": "يو مخ چې تاسې جوړ کړی، په {{SITENAME}} يې تړنه جوړه شوه",
 	"notification-page-linked-email-batch-body": "[[:$2]] له [[:$3]] سره {{GENDER:$1|تړل شوی}}.",
@@ -64,6 +66,7 @@
 	"echo-mark-all-as-read": "ټول لوستی په نخښه کول",
 	"echo-date-today": "نن",
 	"echo-date-yesterday": "پرون",
+	"notification-edit-talk-page-bundle": "$1 او $3 {{PLURAL:$4|بل|نور}} ستاسې د [[User talk:$2|خبرو اترو په مخ]] يو پيغام {{GENDER:$1|پرېښوده}}.",
 	"notification-edit-user-talk-email-batch-bundle-body": "$1 او $2 {{PLURAL:$3|نور|نورو}} يو پيغام ستاسې د خبرو اترو په مخ {{GENDER:$1|پرېښوده}}.",
 	"echo-email-batch-link-text-view-all-notifications": "ټولې يادگيرنې کتل"
 }

@@ -40,6 +40,8 @@
 	"echo-no-title": "[Awan ti panid]",
 	"echo-error-no-formatter": "Awan ti naipalawag a panagporma para iti pakaammo.",
 	"notifications": "Dagiti pakaammo",
+	"tooltip-pt-notifications-alert": "{{GENDER:|Dagiti}} pakaammom",
+	"tooltip-pt-notifications-message": "{{GENDER:|Dagiti}} mensahem",
 	"echo-specialpage": "Dagiti pakaammo",
 	"echo-anon": "Tapno makaawat kadagiti pakaammo, [$1 agpartuat ti pakabilangan] wenno [$2 sumrek].",
 	"echo-none": "Awan dagiti pakaammom.",

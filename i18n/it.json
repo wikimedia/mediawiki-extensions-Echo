@@ -87,7 +87,7 @@
 	"notification-reverted2": "{{PLURAL:$4|La tua modifica|Le tue modifiche}} su [[:$2]] {{PLURAL:$4|è stata annullata|sono state annullate}} {{GENDER:$1|da}} [[$5|$1]] $3",
 	"notification-reverted-flyout2": "{{PLURAL:$4|La tua modifica|Le tue modifiche}} su $2 {{PLURAL:$4|è stata annullata|sono state annullate}} {{GENDER:$1|da}} $1 $3",
 	"notification-emailuser": "[[User:$1|$1]] {{GENDER:$1|ti ha inviato}} una email.",
-	"notification-emailuser-flyout": "$1 {{{{GENDER:$1|ti ha inviato}} una email",
+	"notification-emailuser-flyout": "$1 {{GENDER:$1|ti ha inviato}} una email",
 	"notification-edit-talk-page-email-subject2": "$1 ti {{GENDER:$1|ha lasciato}} un messaggio in {{SITENAME}}",
 	"notification-edit-talk-page-email-batch-body2": "$1 {{GENDER:$1|ha lasciato}} un messaggio sulla tua pagina di discussione.",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 {{GENDER:$1|ha lasciato}} un messaggio sulla tua pagina di discussione in '$2'.",
