@@ -40,7 +40,11 @@
 			$( this ).addClass( 'mw-echo-notifications-badge-dimmed' );
 
 			// Fire the notification API requests
-			apiRequest = new mw.Api( { ajax: { cache: false } } ).get( $.extend( { notsections: myType }, mw.echo.apiCallParams ) );
+			apiRequest = new mw.Api( { ajax: { cache: false } } ).get( $.extend( { notsections: myType }, mw.echo.apiCallParams ) )
+					.then( function ( data ) {
+						mw.track( 'timing.MediaWiki.echo.overlay.api', mw.now() - time );
+						return data;
+					} );
 
 			// Load the ui
 			mw.loader.using( 'ext.echo.ui', function () {
@@ -88,9 +92,13 @@
 				myWidget = myType === 'alert' ? mw.echo.ui.alertWidget : mw.echo.ui.messageWidget;
 				myWidget.populateNotifications( apiRequest ).then( function () {
 					// Log timing after notifications are shown
+					// FIXME: The notifications might not be shown yet if the API
+					// request finished before the UI loads, in which case it will
+					// only be shown after the toggle( true ) call below.
 					mw.track( 'timing.MediaWiki.echo.overlay', mw.now() - time );
 				} );
 				myWidget.popup.toggle( true );
+				mw.track( 'timing.MediaWiki.echo.overlay.ooui', mw.now() - time );
 			} );
 
 			if ( hasUnseenAlerts || hasUnseenMessages ) {
