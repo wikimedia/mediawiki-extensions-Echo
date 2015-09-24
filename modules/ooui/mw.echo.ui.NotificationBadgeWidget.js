@@ -263,12 +263,6 @@
 						return widget.notificationsModel.markAllRead();
 					}
 				} )
-				.then( function () {
-					if ( widget.popup.isVisible() ) {
-						// Update seen time
-						widget.notificationsModel.updateSeenTime();
-					}
-				} )
 				.then(
 					// Success
 					function () {
@@ -300,6 +294,8 @@
 	 * Extend the response to button click so we can also update the notification list.
 	 */
 	mw.echo.ui.NotificationBadgeWidget.prototype.onPopupToggle = function ( isVisible ) {
+		var widget = this;
+
 		if ( !isVisible ) {
 			// If the popup is closing, remove "initiallyUnseen" and leave
 			this.notificationsWidget.resetNotificationItems();
@@ -325,7 +321,13 @@
 		}
 		// Always populate on popup open. The model and widget should handle
 		// the case where the promise is already underway.
-		this.populateNotifications();
+		this.populateNotifications()
+			.then( function () {
+				if ( widget.popup.isVisible() ) {
+					// Update seen time
+					widget.notificationsModel.updateSeenTime();
+				}
+			} );
 		this.hasRunFirstTime = true;
 	};
 
