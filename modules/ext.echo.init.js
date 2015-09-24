@@ -33,9 +33,14 @@
 			};
 
 		// Respond to click on the notification button and load the UI on demand
-		$( '.mw-echo-notification-badge-nojs' ).click( function () {
+		$( '.mw-echo-notification-badge-nojs' ).click( function ( e ) {
 			var myType = $( this ).parent().prop( 'id' ) === 'pt-notifications-alert' ? 'alert' : 'message',
 				time = mw.now();
+
+			if ( e.which !== 1 ) {
+				return;
+			}
+
 			// Dim the button while we load
 			$( this ).addClass( 'mw-echo-notifications-badge-dimmed' );
 
@@ -56,7 +61,8 @@
 						numItems: numMessages,
 						hasUnseen: hasUnseenMessages,
 						badgeIcon: 'speechBubble',
-						links: links
+						links: links,
+						href: $existingMessageLink.attr( 'href' )
 					} );
 					// HACK: avoid late debouncedUpdateThemeClasses
 					mw.echo.ui.messageWidget.badgeButton.debouncedUpdateThemeClasses();
@@ -81,7 +87,8 @@
 						seen: 'bell',
 						unseen: 'bellOn'
 					},
-					links: links
+					links: links,
+					href: $existingAlertLink.attr( 'href' )
 				} );
 				// HACK: avoid late debouncedUpdateThemeClasses
 				mw.echo.ui.alertWidget.badgeButton.debouncedUpdateThemeClasses();

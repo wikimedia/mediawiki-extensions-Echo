@@ -15,6 +15,7 @@
 	 *    unseen: 'bellOn',
 	 *    seen: 'bell'
 	 *  } }
+	 * @cfg {string} [href] URL the badge links to
 	 */
 	mw.echo.ui.BadgeLinkWidget = function MwEchoUiBadgeLinkWidget( config ) {
 		config = config || {};
@@ -30,6 +31,10 @@
 		OO.ui.mixin.FlaggedElement.call( this, $.extend( {}, config, { $flagged: this.$element } ) );
 
 		this.$element.addClass( 'mw-echo-notifications-badge' );
+
+		if ( config.href !== undefined && OO.ui.isSafeUrl( config.href ) ) {
+			this.$element.attr( 'href', config.href );
+		}
 	};
 
 	OO.inheritClass( mw.echo.ui.BadgeLinkWidget, OO.ui.Widget );
