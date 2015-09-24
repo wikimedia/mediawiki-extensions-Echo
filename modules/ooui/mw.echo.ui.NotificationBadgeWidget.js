@@ -38,6 +38,7 @@
 		this.markReadWhenSeen = !!config.markReadWhenSeen;
 		this.badgeIcon = config.badgeIcon || {};
 		this.hasRunFirstTime = false;
+		this.currentUnreadCountInBadge = 0;
 
 		buttonFlags = [ 'primary' ];
 		if ( !!config.hasUnseen ) {
@@ -200,12 +201,26 @@
 			unreadCount = this.notificationsModel.getUnreadCount();
 
 		// Update numbers and seen/unseen state
-		this.badgeButton.setFlags( { unseen: !!unseenCount } );
-		this.badgeButton.setLabel( mw.language.convertNumber( unreadCount ) );
-		this.updateIcon( !!unseenCount );
+		// If the popup is open, only allow a "demotion" of the badge
+		// to grey; ignore change of color to 'unseen'
+		if ( this.popup.isVisible() ) {
+			if ( !unseenCount ) {
+				this.badgeButton.setFlags( { unseen: false } );
+				this.updateIcon( false );
+			}
+		} else {
+			this.badgeButton.setFlags( { unseen: !!unseenCount } );
+			this.updateIcon( !!unseenCount );
+		}
+
+		// Update badge count
+		if ( !this.markReadWhenSeen || !this.popup.isVisible() || unreadCount < this.currentUnreadCountInBadge ) {
+			this.badgeButton.setLabel( mw.language.convertNumber( unreadCount ) );
+		}
 
 		// Check if we need to display the 'mark all unread' button
 		this.markAllReadButton.toggle( !!unreadCount );
+		this.currentUnreadCountInBadge = unreadCount;
 	};
 
 	/**
@@ -244,13 +259,15 @@
 					mw.echo.logger.logNotificationImpressions( this.type, idArray, mw.echo.Logger.static.context.popup );
 
 					// // Mark notifications as 'read' if markReadWhenSeen is set to true
-					if ( widget.markReadWhenSeen ) {
+					if ( widget.popup.isVisible() && widget.markReadWhenSeen ) {
 						return widget.notificationsModel.markAllRead();
 					}
 				} )
 				.then( function () {
-					// Update seen time
-					widget.notificationsModel.updateSeenTime();
+					if ( widget.popup.isVisible() ) {
+						// Update seen time
+						widget.notificationsModel.updateSeenTime();
+					}
 				} )
 				.then(
 					// Success
