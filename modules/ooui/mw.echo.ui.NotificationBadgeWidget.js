@@ -20,6 +20,7 @@
 	 *    unseen: 'bellOn',
 	 *    seen: 'bell'
 	 *  } }
+	 * @cfg {string} [href] URL the badge links to
 	 */
 	mw.echo.ui.NotificationBadgeWidget = function MwEchoUiNotificationBadgeButtonPopupWidget( config ) {
 		var buttonFlags, allNotificationsButton, preferencesButton, footerButtonGroupWidget, $footer;
@@ -52,7 +53,8 @@
 			// The following messages can be used here:
 			// tooltip-pt-notifications-alert
 			// tooltip-pt-notifications-message
-			title: mw.msg( 'tooltip-pt-notifications-' + this.type )
+			title: mw.msg( 'tooltip-pt-notifications-' + this.type ),
+			href: config.href
 		} );
 
 		// View model
