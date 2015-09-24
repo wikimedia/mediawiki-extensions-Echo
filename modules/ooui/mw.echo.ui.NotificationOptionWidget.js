@@ -77,6 +77,17 @@
 	mw.echo.ui.NotificationOptionWidget.prototype.onMarkAsReadButtonClick = function () {
 		this.model.toggleRead( true );
 	};
+
+	/**
+	 * Reset the status of the notification without touching its user-controlled status.
+	 * For one, remove 'initiallyUnseen' which exists only for the animation to work.
+	 * This is called when new notifications are added to the parent widget, having to
+	 * reset the 'unseen' status from the old ones.
+	 */
+	mw.echo.ui.NotificationOptionWidget.prototype.reset = function () {
+		this.$element.removeClass( 'mw-echo-ui-notificationOptionWidget-initiallyUnseen' );
+	};
+
 	/**
 	 * Toggle the read state of the widget
 	 *
