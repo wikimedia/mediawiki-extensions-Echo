@@ -106,7 +106,8 @@
 			// The following messages can be used here:
 			// echo-notification-alert-text-only
 			// echo-notification-message-text-only
-			label: mw.msg( 'echo-notification-' + this.type + '-text-only' )
+			label: mw.msg( 'echo-notification-' + this.type + '-text-only' ),
+			classes: [ 'mw-echo-ui-notificationBadgeButtonPopupWidget-popup' ]
 		} );
 		// HACK: Add an icon to the popup head label
 		this.popupHeadIcon = new OO.ui.IconWidget();
