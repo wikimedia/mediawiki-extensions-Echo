@@ -34,6 +34,8 @@
 	"echo-no-agent": "[არავინ]",
 	"echo-no-title": "[არ არის გვერდი]",
 	"notifications": "შეტყობინებები",
+	"tooltip-pt-notifications-alert": "{{GENDER:|თქვენი}} მოხსენებები",
+	"tooltip-pt-notifications-message": "{{GENDER:|თქვენი}} შეტყობინებები",
 	"echo-specialpage": "შეტყობინებები",
 	"echo-anon": "რომ მიიღოთ შეტყობინებები, [$1 შექმენით ანგარიში] ან [$2 შედით სისტემაში].",
 	"echo-none": "თქვენ არ გაქვთ შეტყობინება.",
