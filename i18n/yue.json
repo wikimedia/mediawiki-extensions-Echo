@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"William915",
-			"Wong128hk"
+			"Wong128hk",
+			"Ktchankt"
 		]
 	},
 	"echo-desc": "通知系統",
@@ -22,7 +23,6 @@
 	"echo-pref-email-frequency-weekly": "一個禮拜出一次",
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "純文字",
-	"echo-pref-notify-show-link": "喺工具列道出通知",
 	"echo-pref-new-message-indicator": "喺工具列道出新留言提示",
 	"echo-learn-more": "了解多啲",
 	"echo-new-messages": "你有新信",
@@ -36,11 +36,12 @@
 	"echo-pref-tooltip-article-linked": "有人喺文章連過去我開嘅版，話我知",
 	"echo-pref-tooltip-reverted": "有人將我嘅修改打回頭，話我知。",
 	"echo-pref-tooltip-mention": "有人喺任何傾偈頁提及我嘅用戶頁，話我知。",
+	"echo-no-agent": "[無人]",
+	"echo-no-title": "[無版]",
 	"echo-error-no-formatter": "無預定通知格式",
-	"echo-error-preference": "出錯︰設定唔到用戶喜好。",
-	"echo-error-token": "出錯︰攞唔到用戶保安編碼。",
 	"notifications": "通知",
-	"tooltip-pt-notifications": "你嘅通知",
+	"tooltip-pt-notifications-alert": "{{GENDER:|你}}嘅提示",
+	"tooltip-pt-notifications-message": "{{GENDER:|你}}嘅訊息",
 	"echo-specialpage": "通知",
 	"echo-anon": "要收到通知嘅話，就[$1 開戶]或者[$2 簽到]啦。",
 	"echo-none": "爾家無通知畀你",
@@ -60,8 +61,13 @@
 	"notification-add-comment2": "[[User:$1|$1]]喺「$4」傾偈頁小節「[[$3|$2]]」道{{GENDER:$1|發}}咗個意見。",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]]喺[[$3]]道{{GENDER:$1|開}}咗個小節「$2」。",
 	"echo-email-batch-body-default": "你有新通知",
+	"echo-notification-alert-text-only": "提示",
+	"echo-notification-message-text-only": "訊息",
+	"echo-overlay-link": "所有通知",
+	"echo-overlay-title": "<b>通知</b>",
 	"echo-mark-all-as-read": "全部標做讀過",
 	"echo-date-today": "今日",
 	"echo-date-yesterday": "尋日",
+	"echo-email-batch-link-text-view-all-notifications": "睇所有通知",
 	"echo-rev-deleted-text-view": "爾次修改收埋咗"
 }
