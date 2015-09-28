@@ -59,6 +59,7 @@
 	"echo-none": "ليس لديك أي إشعارات",
 	"echo-more-info": "المزيد",
 	"echo-feedback": "تعليقات",
+	"echo-notification-placeholder": "لا توجد أية إخطارات.",
 	"notification-link-text-view-message": "اعرض الرسالة",
 	"notification-link-text-view-mention": "اعرض الإشارة",
 	"notification-link-text-view-changes": "اعرض التعديلات",
