@@ -127,7 +127,7 @@
 		this.popup.closeButton.toggle( false );
 		// Add the 'mark all as read' button to the header
 		this.popup.$head.append( this.markAllReadButton.$element );
-		this.markAllReadButton.toggle( !this.markReadWhenSeen && !!config.hasUnseen );
+		this.markAllReadButton.toggle( false );
 
 		// Events
 		this.markAllReadButton.connect( this, { click: 'onMarkAllReadButtonClick' } );
@@ -222,7 +222,7 @@
 		}
 
 		// Check if we need to display the 'mark all unread' button
-		this.markAllReadButton.toggle( !!unreadCount );
+		this.markAllReadButton.toggle( !this.markReadWhenSeen && !!unreadCount );
 		this.currentUnreadCountInBadge = unreadCount;
 	};
 
