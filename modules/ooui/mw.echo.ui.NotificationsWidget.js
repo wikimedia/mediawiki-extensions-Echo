@@ -133,7 +133,9 @@
 			items = this.getItems();
 
 		for ( i = 0, len = items.length; i < len; i++ ) {
-			items[i].reset();
+			if ( items[i] && typeof items[i].reset === 'function' ) {
+				items[i].reset();
+			}
 		}
 	};
 
