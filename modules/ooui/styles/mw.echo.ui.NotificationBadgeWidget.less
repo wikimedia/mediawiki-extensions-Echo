@@ -32,6 +32,13 @@
 				line-height: 4em;
 				margin: 0;
 				border: 0;
+
+				.oo-ui-iconElement-icon {
+					// HACK: these are absolutely positioned in OOUI, and our line-height: 4em;
+					// rule breaks that.
+					// FIXME: We should really use a different widget here
+					position: static;
+				}
 			}
 		}
 	}
