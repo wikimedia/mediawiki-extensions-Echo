@@ -337,6 +337,7 @@
 								timestamp: notifData.timestamp.mw,
 								category: notifData.category,
 								content: $content,
+								type: model.getType(),
 								// Hack: Get the primary link from the $content
 								primaryUrl: $content.find( '.mw-echo-notification-primary-link' ).attr( 'href' )
 							}

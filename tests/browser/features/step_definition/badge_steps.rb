@@ -4,3 +4,7 @@
 Given(/^I click the alert badge$/) do
   on(ArticlePage).notifications_badge_alert
 end
+
+Given(/^I click the message badge$/) do
+  on(ArticlePage).notifications_badge_message
+end

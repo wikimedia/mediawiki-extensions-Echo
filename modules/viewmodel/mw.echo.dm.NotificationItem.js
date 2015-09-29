@@ -11,6 +11,7 @@
 	 * @cfg {jQuery|string} [content] The html content of this notification
 	 * @cfg {string} [category] The category of this notification. The category identifies
 	 *  where the notification originates from.
+	 * @cfg {string} [type] The notification type 'message' or 'alert'
 	 * @cfg {boolean} [read=false] State the read state of the option
 	 * @cfg {boolean} [seen=false] State the seen state of the option
 	 * @cfg {string} [timestamp] Notification timestamp in Mediawiki timestamp format
@@ -39,6 +40,7 @@
 		this.content = config.content || $();
 
 		this.category = config.category || '';
+		this.type = config.type || 'alert';
 
 		this.toggleRead( !!config.read );
 		this.toggleSeen( !!config.seen );
@@ -91,6 +93,13 @@
 	 */
 	mw.echo.dm.NotificationItem.prototype.getCategory = function () {
 		return this.category;
+	};
+	/**
+	 * Get NotificationItem type
+	 * @return {string} NotificationItem type
+	 */
+	mw.echo.dm.NotificationItem.prototype.getType = function () {
+		return this.type;
 	};
 
 	/**
