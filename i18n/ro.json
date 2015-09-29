@@ -121,5 +121,13 @@
 	"echo-email-batch-body-intro-daily": "Bună ziua $1,\nAveți aici un rezumat al activității de astăzi la {{SITENAME}}.",
 	"echo-email-batch-body-intro-weekly": "Bună ziua $1,\nAveți aici un rezumat al activității din această săptămână la {{SITENAME}}.",
 	"echo-email-batch-link-text-view-all-notifications": "Vezi toate notificările",
-	"echo-rev-deleted-text-view": "Această versiune a paginii a fost suprimată."
+	"echo-rev-deleted-text-view": "Această versiune a paginii a fost suprimată.",
+	"apihelp-echomarkread-description": "Marcați notificările ca citite pentru utilizatorul curent.",
+	"apihelp-echomarkread-param-list": "Lista de ID-ul de notificare pentru a marca ca fiind citite.",
+	"apihelp-echomarkread-param-all": "Dacă este setat, marchează toate notificările a unui utilizator ca citite.",
+	"apihelp-echomarkread-param-sections": "O listă de sectiuni a fi marcată ca citită.",
+	"apihelp-echomarkread-example-1": "Marca notificare 8 ca fiind citită.",
+	"apihelp-echomarkread-example-2": "Marchează toate notificările ca find citite.",
+	"apihelp-echomarkseen-description": "Marcați notificările ca citite pentru utilizatorul curent.",
+	"apihelp-echomarkseen-example-1": "Marcați notificarile de toate tipurile ca văzute"
 }
