@@ -1,11 +1,8 @@
-inherit_from: .rubocop_todo.yml
-
 AllCops:
   StyleGuideCopsOnly: true
 
-# uncomment when the offese is fixed
-# Metrics/LineLength:
-#   Max: 100
+Metrics/LineLength:
+  Max: 100
 
 Metrics/MethodLength:
   Enabled: false
