@@ -64,7 +64,8 @@ abstract class EchoDiscussionParser {
 							'revid' => $revision->getID(),
 							'minoredit' => $revision->isMinor(),
 							'section-title' => $section['section-title'],
-							'section-text' => $section['section-text']
+							'section-text' => $section['section-text'],
+							'target-page' => $title->getArticleID(),
 						),
 						'agent' => $user,
 					) );
