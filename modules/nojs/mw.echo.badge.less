@@ -45,7 +45,14 @@
 	#pt-notifications-message & {
 		margin-left: @badge-distance-adjustment;
 
-		+ .oo-ui-popupWidget {
+		body.ltr & + .oo-ui-popupWidget {
+			// Only add a left adjustment for LTR pages.
+			// In LTR, the correction above moves the badge from the left
+			// which means we have to adjust the positioning of the anchor
+			// to be in the middle of the badge.
+			// In RTL, however, the above will be flipped to margin-right
+			// which doesn't affect the positioning of the anchor and hence
+			// doesn't require a correction.
 			left: (1em + @badge-distance-adjustment);
 		}
 	}
