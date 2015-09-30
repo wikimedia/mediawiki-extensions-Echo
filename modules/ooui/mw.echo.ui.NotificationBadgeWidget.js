@@ -179,7 +179,7 @@
 	 * Respond to badge button click
 	 */
 	mw.echo.ui.NotificationBadgeWidget.prototype.onBadgeButtonClick = function () {
-		this.popup.toggle( true );
+		this.popup.toggle();
 	};
 
 	/**
