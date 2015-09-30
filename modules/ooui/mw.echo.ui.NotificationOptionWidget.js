@@ -29,6 +29,7 @@
 		this.toggleSeen( this.model.isSeen() );
 
 		this.markReadWhenSeen = !!config.markReadWhenSeen;
+		this.markAsReadButton.toggle( !this.markReadWhenSeen && !this.model.isRead() );
 
 		// Events
 		this.markAsReadButton.connect( this, { click: 'onMarkAsReadButtonClick' } );
