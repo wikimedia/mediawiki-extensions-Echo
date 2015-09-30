@@ -1,9 +1,12 @@
 .mw-echo-ui-notificationOptionWidget {
 	#p-personal & a,
 	#p-personal & a.new {
-		// In modern, the hover color is white, which is unhelpful.
-		color: #666666;
-		text-decoration: none;
+		// Oh and double everything for :hover since Modern does that too.
+		&, &:hover {
+			// In modern, the hover color is white, which is unhelpful.
+			color: #666666;
+			text-decoration: none;
+		}
 	}
 
 }
