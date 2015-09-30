@@ -260,11 +260,6 @@
 
 					// Log impressions
 					mw.echo.logger.logNotificationImpressions( this.type, idArray, mw.echo.Logger.static.context.popup );
-
-					// // Mark notifications as 'read' if markReadWhenSeen is set to true
-					if ( widget.popup.isVisible() && widget.markReadWhenSeen ) {
-						return widget.notificationsModel.markAllRead();
-					}
 				} )
 				.then(
 					// Success
@@ -329,6 +324,10 @@
 				if ( widget.popup.isVisible() ) {
 					// Update seen time
 					widget.notificationsModel.updateSeenTime();
+					// Mark notifications as 'read' if markReadWhenSeen is set to true
+					if ( widget.markReadWhenSeen ) {
+						widget.notificationsModel.markAllRead();
+					}
 				}
 			} );
 		this.hasRunFirstTime = true;
