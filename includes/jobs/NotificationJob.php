@@ -17,6 +17,7 @@ class EchoNotificationJob extends Job {
 
 		MWEchoDbFactory::newFromDefault()->waitFor( $masterPos );
 		EchoNotificationController::notify( $this->event, false );
+
 		return true;
 	}
 
@@ -32,6 +33,7 @@ class EchoNotificationJob extends Job {
 		if ( !empty( $this->params['echoDbMasterPos'] ) ) {
 			$masterPos['echoDb'] = $this->params['echoDbMasterPos'];
 		}
+
 		return $masterPos;
 	}
 }

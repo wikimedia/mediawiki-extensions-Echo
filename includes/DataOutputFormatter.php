@@ -70,7 +70,7 @@ class EchoDataOutputFormatter {
 			$output['title'] = array(
 				'full' => $title->getPrefixedText(),
 				'namespace' => $title->getNSText(),
-				'namespace-key' =>$title->getNamespace(),
+				'namespace-key' => $title->getNamespace(),
 				'text' => $title->getText(),
 			);
 		}
@@ -122,6 +122,7 @@ class EchoDataOutputFormatter {
 	protected static function getDateHeader( User $user, $timestampMw ) {
 		$lang = RequestContext::getMain()->getLanguage();
 		$dateFormat = $lang->getDateFormatString( 'pretty', $user->getDatePreference() ?: 'default' );
+
 		return $lang->sprintfDate( $dateFormat, $timestampMw );
 	}
 
@@ -137,6 +138,7 @@ class EchoDataOutputFormatter {
 	public static function getUserLocalTime( User $user, $ts, $format = TS_MW ) {
 		$timestamp = new MWTimestamp( $ts );
 		$timestamp->offsetForUser( $user );
+
 		return $timestamp->getTimestamp( $format );
 	}
 

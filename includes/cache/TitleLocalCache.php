@@ -18,6 +18,7 @@ class EchoTitleLocalCache extends EchoLocalCache {
 		if ( !self::$instance ) {
 			self::$instance = new EchoTitleLocalCache();
 		}
+
 		return self::$instance;
 	}
 

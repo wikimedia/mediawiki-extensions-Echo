@@ -385,7 +385,7 @@ $wgEchoNotifications = array(
 		'title-message' => 'notification-mention',
 		'title-params' => array( 'agent', 'subject-anchor', 'title', 'section-title', 'main-title-text' ),
 		'flyout-message' => 'notification-mention-flyout',
-		'flyout-params' => array( 'agent', 'subject-anchor',  'title', 'section-title', 'main-title-text' ),
+		'flyout-params' => array( 'agent', 'subject-anchor', 'title', 'section-title', 'main-title-text' ),
 		'email-subject-message' => 'notification-mention-email-subject',
 		'email-subject-params' => array( 'agent' ),
 		'email-body-batch-message' => 'notification-mention-email-batch-body',
@@ -453,24 +453,24 @@ $wgDefaultUserOptions['echo-subscriptions-web-emailuser'] = false;
 // Echo Configuration for EventLogging
 $wgEchoConfig = array(
 	'version' => '1.5',
-	'eventlogging' => array (
+	'eventlogging' => array(
 		/**
 		 * Properties:
 		 * - 'enabled': Whether it should be used
 		 * - 'revision': revision id of the schema
 		 * - 'client': whether the schema is needed client-side
 		 */
-		'Echo' => array (
+		'Echo' => array(
 			'enabled' => false,
 			'revision' => 7572295,
 			'client' => false,
 		),
-		'EchoMail' => array (
+		'EchoMail' => array(
 			'enabled' => false,
 			'revision' => 5467650,
 			'client' => false,
 		),
-		'EchoInteraction' => array (
+		'EchoInteraction' => array(
 			'enabled' => false,
 			'revision' => 5782287,
 			'client' => true,

@@ -17,12 +17,10 @@
 	"unused": true,
 	// Legacy
 	"onevar": true,
-
 	/* Local */
 
 	// Environment
 	"browser": true,
-
 	"predef": [
 		"jQuery",
 		"QUnit",

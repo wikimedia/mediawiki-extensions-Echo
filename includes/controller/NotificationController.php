@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\Logger\LoggerFactory;
+
 /**
  * This class represents the controller for notifications
  */
@@ -61,10 +62,11 @@ class EchoNotificationController {
 		if ( $defer && $event->getUseJobQueue() ) {
 			// defer job insertion till end of request when all primary db transactions
 			// have been committed
-			DeferredUpdates::addCallableUpdate( function() use ( $event ) {
+			DeferredUpdates::addCallableUpdate( function () use ( $event ) {
 				// can't use self::, php 5.3 doesn't inherit class scope
 				EchoNotificationController::enqueueEvent( $event );
 			} );
+
 			return;
 		}
 
@@ -173,7 +175,6 @@ class EchoNotificationController {
 		JobQueueGroup::singleton()->push( $job );
 	}
 
-
 	/**
 	 * Implements blacklist per active wiki expected to be initialized
 	 * from InitializeSettings.php
@@ -188,7 +189,7 @@ class EchoNotificationController {
 
 		if ( self::$blacklist === null ) {
 			global $wgEchoAgentBlacklist, $wgEchoOnWikiBlacklist,
-			       $wgMemc;
+				$wgMemc;
 
 			self::$blacklist = new EchoContainmentSet;
 			self::$blacklist->addArray( $wgEchoAgentBlacklist );
@@ -197,7 +198,7 @@ class EchoNotificationController {
 					NS_MEDIAWIKI,
 					$wgEchoOnWikiBlacklist,
 					$wgMemc,
-					wfMemcKey( "echo_on_wiki_blacklist")
+					wfMemcKey( "echo_on_wiki_blacklist" )
 				);
 			}
 		}
@@ -214,7 +215,6 @@ class EchoNotificationController {
 	 */
 	public static function isWhitelistedByUser( EchoEvent $event, User $user ) {
 		global $wgEchoPerUserWhitelistFormat, $wgMemc;
-
 
 		if ( $wgEchoPerUserWhitelistFormat === null || !$event->getAgent() ) {
 			return false;
@@ -315,17 +315,19 @@ class EchoNotificationController {
 
 		// Filter non-User, anon and duplicate users
 		$seen = array();
-		$notify->addFilter( function( $user ) use( &$seen ) {
+		$notify->addFilter( function ( $user ) use ( &$seen ) {
 			if ( !$user instanceof User ) {
 				wfDebugLog( __METHOD__, 'Expected all User instances, received:' .
 					( is_object( $user ) ? get_class( $user ) : gettype( $user ) )
 				);
+
 				return false;
 			}
 			if ( $user->isAnon() || isset( $seen[$user->getId()] ) ) {
 				return false;
 			}
 			$seen[$user->getId()] = true;
+
 			return true;
 		} );
 
@@ -333,7 +335,7 @@ class EchoNotificationController {
 		$extra = $event->getExtra();
 		if ( ( !isset( $extra['notifyAgent'] ) || !$extra['notifyAgent'] ) && $event->getAgent() ) {
 			$agentId = $event->getAgent()->getId();
-			$notify->addFilter( function( $user ) use( $agentId ) {
+			$notify->addFilter( function ( $user ) use ( $agentId ) {
 				return $user->getId() != $agentId;
 			} );
 		}
@@ -341,7 +343,7 @@ class EchoNotificationController {
 		// Apply per-wiki event blacklist and per-user whitelists
 		// of that blacklist.
 		if ( self::isBlacklisted( $event ) ) {
-			$notify->addFilter( function( $user ) use( $event ) {
+			$notify->addFilter( function ( $user ) use ( $event ) {
 				// don't use self:: - PHP5.3 closures don't inherit class scope
 				return EchoNotificationController::isWhitelistedByUser( $event, $user );
 			} );
@@ -369,6 +371,7 @@ class EchoNotificationController {
 			$formatter->setOutputFormat( $format );
 		} catch ( InvalidArgumentException $e ) {
 			self::failFormatting( $event, $user );
+
 			return '';
 		}
 		set_error_handler( array( __CLASS__, 'formatterErrorHandler' ), -1 );

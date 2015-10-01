@@ -3,23 +3,23 @@
 class EchoTargetPageMapperTest extends MediaWikiTestCase {
 
 	public function testFetchByUserPageId() {
-		$targetMapper = new EchoTargetPageMapper( $this->mockMWEchoDbFactory( array ( 'select' => false ) ) );
+		$targetMapper = new EchoTargetPageMapper( $this->mockMWEchoDbFactory( array( 'select' => false ) ) );
 		$res = $targetMapper->fetchByUserPageId( User::newFromId( 1 ), 1 );
 		$this->assertFalse( $res );
 
-		$dbResult = array (
-			(object)array (
+		$dbResult = array(
+			(object)array(
 				'etp_user' => 1,
 				'etp_page' => 2,
 				'etp_event' => 3
 			),
-			(object)array (
+			(object)array(
 				'etp_user' => 1,
 				'etp_page' => 2,
 				'etp_event' => 7,
 			)
 		);
-		$targetMapper = new EchoTargetPageMapper( $this->mockMWEchoDbFactory( array ( 'select' => $dbResult ) ) );
+		$targetMapper = new EchoTargetPageMapper( $this->mockMWEchoDbFactory( array( 'select' => $dbResult ) ) );
 		$res = $targetMapper->fetchByUserPageId( User::newFromId( 1 ), 2 );
 		$this->assertTrue( is_array( $res ) );
 		$this->assertCount( 2, $res );
@@ -31,20 +31,20 @@ class EchoTargetPageMapperTest extends MediaWikiTestCase {
 	}
 
 	public function provideDataTestInsert() {
-		return array (
-			array (
+		return array(
+			array(
 				'successful insert with next sequence = 1',
-				array ( 'nextSequenceValue' => 1, 'insert' => true, 'insertId' => 2 ),
+				array( 'nextSequenceValue' => 1, 'insert' => true, 'insertId' => 2 ),
 				1
 			),
-			array (
+			array(
 				'successful insert with insert id = 2',
-				array ( 'nextSequenceValue' => null, 'insert' => true, 'insertId' => 2 ),
+				array( 'nextSequenceValue' => null, 'insert' => true, 'insertId' => 2 ),
 				2
 			),
-			array (
+			array(
 				'unsuccessful insert',
-				array ( 'nextSequenceValue' => null, 'insert' => false, 'insertId' => 2 ),
+				array( 'nextSequenceValue' => null, 'insert' => false, 'insertId' => 2 ),
 				false
 			),
 		);
@@ -126,6 +126,7 @@ class EchoTargetPageMapperTest extends MediaWikiTestCase {
 		$target->expects( $this->any() )
 			->method( 'getEventId' )
 			->will( $this->returnValue( 3 ) );
+
 		return $target;
 	}
 
@@ -139,6 +140,7 @@ class EchoTargetPageMapperTest extends MediaWikiTestCase {
 		$dbFactory->expects( $this->any() )
 			->method( 'getEchoDb' )
 			->will( $this->returnValue( $this->mockDb( $dbResult ) ) );
+
 		return $dbFactory;
 	}
 
@@ -171,6 +173,7 @@ class EchoTargetPageMapperTest extends MediaWikiTestCase {
 		$db->expects( $this->any() )
 			->method( 'delete' )
 			->will( $this->returnValue( $dbResult['delete'] ) );
+
 		return $db;
 	}
 

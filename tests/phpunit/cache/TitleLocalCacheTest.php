@@ -5,6 +5,7 @@ class EchoTitleLocalCacheTest extends MediaWikiTestCase {
 	public function testCreate() {
 		$cache = EchoTitleLocalCache::create();
 		$this->assertInstanceOf( 'EchoTitleLocalCache', $cache );
+
 		return $cache;
 	}
 
@@ -85,6 +86,7 @@ class EchoTitleLocalCacheTest extends MediaWikiTestCase {
 		$title = $this->getMockBuilder( 'Title' )
 			->disableOriginalConstructor()
 			->getMock();
+
 		return $title;
 	}
 }

@@ -151,59 +151,59 @@ class EchoDiffParser {
 			} else {
 				$line = '';
 			}
-		}  else {
+		} else {
 			$op = ' ';
 		}
 
-		switch( $op ) {
-		case '@': // metadata
-			if ( $change !== null ) {
-				$this->changeSet = array_merge( $this->changeSet, $change->getChangeSet() );
-				$change = null;
-			}
-			// @@ -start,numLines +start,numLines @@
-			list( , $left, $right ) = explode( ' ', $line );
-			list( $this->leftPos ) = explode( ',', substr( $left, 1 ) );
-			list( $this->rightPos ) = explode( ',', substr( $right, 1 ) );
+		switch ( $op ) {
+			case '@': // metadata
+				if ( $change !== null ) {
+					$this->changeSet = array_merge( $this->changeSet, $change->getChangeSet() );
+					$change = null;
+				}
+				// @@ -start,numLines +start,numLines @@
+				list( , $left, $right ) = explode( ' ', $line );
+				list( $this->leftPos ) = explode( ',', substr( $left, 1 ) );
+				list( $this->rightPos ) = explode( ',', substr( $right, 1 ) );
 
-			// -1 because diff is 1 indexed and we are 0 indexed
-			$this->leftPos--;
-			$this->rightPos--;
-			break;
+				// -1 because diff is 1 indexed and we are 0 indexed
+				$this->leftPos--;
+				$this->rightPos--;
+				break;
 
-		case ' ': // No changes
-			if ( $change !== null ) {
-				$this->changeSet = array_merge( $this->changeSet, $change->getChangeSet() );
-				$change = null;
-			}
-			$this->leftPos++;
-			$this->rightPos++;
-			break;
+			case ' ': // No changes
+				if ( $change !== null ) {
+					$this->changeSet = array_merge( $this->changeSet, $change->getChangeSet() );
+					$change = null;
+				}
+				$this->leftPos++;
+				$this->rightPos++;
+				break;
 
-		case '-': // subtract
-			if ( $this->left[$this->leftPos] !== $line ) {
-				throw new MWException( 'Positional error: left' );
-			}
-			if ( $change === null ) {
-				$change = new EchoDiffGroup( $this->leftPos, $this->rightPos );
-			}
-			$change->subtract( $line );
-			$this->leftPos++;
-			break;
+			case '-': // subtract
+				if ( $this->left[$this->leftPos] !== $line ) {
+					throw new MWException( 'Positional error: left' );
+				}
+				if ( $change === null ) {
+					$change = new EchoDiffGroup( $this->leftPos, $this->rightPos );
+				}
+				$change->subtract( $line );
+				$this->leftPos++;
+				break;
 
-		case '+': // add
-			if ( $this->right[$this->rightPos] !== $line ) {
-				throw new MWException( 'Positional error: right' );
-			}
-			if ( $change === null ) {
-				$change = new EchoDiffGroup( $this->leftPos, $this->rightPos );
-			}
-			$change->add( $line );
-			$this->rightPos++;
-			break;
+			case '+': // add
+				if ( $this->right[$this->rightPos] !== $line ) {
+					throw new MWException( 'Positional error: right' );
+				}
+				if ( $change === null ) {
+					$change = new EchoDiffGroup( $this->leftPos, $this->rightPos );
+				}
+				$change->add( $line );
+				$this->rightPos++;
+				break;
 
-		default:
-			throw new MWException( 'Unknown Diff Operation: ' . $op );
+			default:
+				throw new MWException( 'Unknown Diff Operation: ' . $op );
 		}
 
 		return $change;

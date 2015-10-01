@@ -33,7 +33,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 		$row = $notification->toDbArray();
 		$listeners = $this->getMethodListeners( __FUNCTION__ );
 
-		$dbw->onTransactionIdle( function() use ( $dbw, $row, $fname, $listeners ) {
+		$dbw->onTransactionIdle( function () use ( $dbw, $row, $fname, $listeners ) {
 			$dbw->startAtomic( $fname );
 			// reset the bundle base if this notification has a display hash
 			// the result of this operation is that all previous notifications
@@ -71,7 +71,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	 * @return int[]
 	 */
 	protected function extractQueryOffset( $continue ) {
-		$offset = array (
+		$offset = array(
 			'timestamp' => 0,
 			'offset' => 0,
 		);
@@ -114,7 +114,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 				'notification_user' => $user->getID(),
 				'event_type' => $eventTypes,
 				'notification_bundle_base' => 1,
-				'notification_read_timestamp' => NULL
+				'notification_read_timestamp' => null
 			),
 			__METHOD__,
 			array(
@@ -130,6 +130,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 				$data[$row->event_id] = EchoNotification::newFromRow( $row );
 			}
 		}
+
 		return $data;
 	}
 
@@ -192,7 +193,6 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 			)
 		);
 
-
 		// query failure of some sort
 		if ( !$res ) {
 			return array();
@@ -225,6 +225,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 				MWExceptionHandler::logException( $e );
 			}
 		}
+
 		return $data;
 	}
 
@@ -307,6 +308,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 			),
 			__METHOD__
 		);
+
 		return $res;
 	}
 

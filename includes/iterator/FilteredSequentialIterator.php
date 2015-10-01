@@ -17,12 +17,12 @@
  *   ...
  *   $it = new RecursiveIteratorIterator( $it );
  *   $users->add( new EchoCallbackIterator( $it, function( $row ) {
- *   	...
- *   	return $user;
+ *    ...
+ *    return $user;
  *   } ) );
  *
  *   foreach ( $users as $user ) {
- *   	...
+ *    ...
  *   }
  *
  * By default the EchoBatchRowIterator returns an array of rows, this class
@@ -87,15 +87,15 @@ class EchoFilteredSequentialIterator implements IteratorAggregate {
 	 * @return Iterator
 	 */
 	protected function createIterator() {
-		switch( count( $this->iterators ) ) {
-		case 0:
-			return new EmptyIterator;
+		switch ( count( $this->iterators ) ) {
+			case 0:
+				return new EmptyIterator;
 
-		case 1:
-			return reset( $this->iterators );
+			case 1:
+				return reset( $this->iterators );
 
-		default:
-			return new RecursiveIteratorIterator( new EchoMultipleIterator( $this->iterators ) );
+			default:
+				return new RecursiveIteratorIterator( new EchoMultipleIterator( $this->iterators ) );
 		}
 	}
 
@@ -103,23 +103,27 @@ class EchoFilteredSequentialIterator implements IteratorAggregate {
 	 * @return callable
 	 */
 	protected function createFilter() {
-		switch( count( $this->filters ) ) {
-		case 0:
-			return function() { return true; };
+		switch ( count( $this->filters ) ) {
+			case 0:
+				return function () {
+					return true;
+				};
 
-		case 1:
-			return reset( $this->filters );
+			case 1:
+				return reset( $this->filters );
 
-		default:
-			$filters = $this->filters;
-			return function( $user ) use( $filters ) {
-				foreach ( $filters as $filter ) {
-					if ( !call_user_func( $filter, $user ) ) {
-						return false;
+			default:
+				$filters = $this->filters;
+
+				return function ( $user ) use ( $filters ) {
+					foreach ( $filters as $filter ) {
+						if ( !call_user_func( $filter, $user ) ) {
+							return false;
+						}
 					}
-				}
-				return true;
-			};
+
+					return true;
+				};
 		}
 	}
 }

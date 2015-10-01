@@ -53,6 +53,7 @@ class MWEchoEmailBatch {
 		if ( $userEmailSetting == -1 ) {
 			$emailBatch = new self( $user );
 			$emailBatch->clearProcessedEvent();
+
 			return false;
 		}
 
@@ -97,7 +98,7 @@ class MWEchoEmailBatch {
 		$events = $this->getEvents();
 
 		if ( $events ) {
-			foreach( $events as $row ) {
+			foreach ( $events as $row ) {
 				$this->count++;
 				if ( $this->count > self::$displaySize ) {
 					break;
@@ -130,6 +131,7 @@ class MWEchoEmailBatch {
 
 		if ( $res ) {
 			$this->lastEvent = $res;
+
 			return true;
 		} else {
 			return false;
@@ -275,8 +277,8 @@ class MWEchoEmailBatch {
 		// Give grep a chance to find the usages:
 		// echo-email-batch-subject-daily, echo-email-batch-subject-weekly
 		$subject = wfMessage( 'echo-email-batch-subject-' . $frequency )
-				->inLanguage( $this->mUser->getOption( 'language' ) )
-				->params( $count, $this->count )->text();
+			->inLanguage( $this->mUser->getOption( 'language' ) )
+			->params( $count, $this->count )->text();
 
 		$toAddress = MailAddress::newFromUser( $this->mUser );
 		$fromAddress = new MailAddress( $wgNotificationSender, EchoHooks::getNotificationSenderName() );
@@ -339,7 +341,7 @@ class MWEchoEmailBatch {
 		$res = $dbr->select(
 			array( 'echo_email_batch' ),
 			array( 'eeb_user_id' ),
-			array( 'eeb_user_id > ' . intval( $startUserId )  ),
+			array( 'eeb_user_id > ' . intval( $startUserId ) ),
 			__METHOD__,
 			array( 'ORDER BY' => 'eeb_user_id', 'LIMIT' => $batchSize )
 		);

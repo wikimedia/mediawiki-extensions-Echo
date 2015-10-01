@@ -7,14 +7,20 @@
 		}
 	},
 	"images": {
-		"bell": { "file": "../bell.svg" },
-		"bellOn": { "file": {
-			"ltr": "../bellOn-ltr.svg",
-			"rtl": "../bellOn-rtl.svg"
-		} },
-		"speechBubble": { "file": {
-			"ltr": "../speechBubble-ltr.svg",
-			"rtl": "../speechBubble-rtl.svg"
-		} }
+		"bell": {
+			"file": "../bell.svg"
+		},
+		"bellOn": {
+			"file": {
+				"ltr": "../bellOn-ltr.svg",
+				"rtl": "../bellOn-rtl.svg"
+			}
+		},
+		"speechBubble": {
+			"file": {
+				"ltr": "../speechBubble-ltr.svg",
+				"rtl": "../speechBubble-rtl.svg"
+			}
+		}
 	}
 }

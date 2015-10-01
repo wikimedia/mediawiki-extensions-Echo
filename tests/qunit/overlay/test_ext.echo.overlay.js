@@ -62,7 +62,7 @@
 						for ( i = 0; i < 7; i++ ) {
 							id = 500 + i;
 							index.push( id );
-							listObj[id] = {
+							listObj[ id ] = {
 								'*': '!',
 								category: 'message',
 								id: id,

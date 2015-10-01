@@ -28,6 +28,7 @@ class EchoEventMapper extends EchoAbstractMapper {
 			if ( !$id ) {
 				$id = $dbw->insertId();
 			}
+
 			return $id;
 		} else {
 			return false;
@@ -111,6 +112,7 @@ class EchoEventMapper extends EchoAbstractMapper {
 			foreach ( $res as $row ) {
 				$data[] = EchoEvent::newFromRow( $row );
 			}
+
 			return $data;
 		} else {
 			return false;

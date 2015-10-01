@@ -70,6 +70,7 @@ abstract class EchoLocalCache {
 				return $target;
 			}
 		}
+
 		return null;
 	}
 

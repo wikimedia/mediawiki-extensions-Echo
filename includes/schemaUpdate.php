@@ -5,8 +5,7 @@
  *   Updates event_page_id based on event_page_title and event_page_namespace
  *   Updates extra data for page-linked events to contain page id's
  */
-class EchoSuppressionRowUpdateGenerator implements EchoRowUpdateGenerator
-{
+class EchoSuppressionRowUpdateGenerator implements EchoRowUpdateGenerator {
 	/**
 	 * @var callable Hack to allow replacing Title::newFromText in tests
 	 */
@@ -116,6 +115,7 @@ class EchoSuppressionRowUpdateGenerator implements EchoRowUpdateGenerator
 		} elseif ( $row->event_extra ) {
 			return unserialize( $row->event_extra );
 		}
+
 		return array();
 	}
 

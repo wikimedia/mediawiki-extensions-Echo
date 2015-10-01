@@ -66,15 +66,15 @@ class EchoBatchRowUpdate {
 	protected $output;
 
 	/**
-	 * @param EchoBatchRowIterator   $reader    Iterator that returns an array of database rows
-	 * @param EchoBatchRowWriter     $writer    Writer capable of pushing row updates to the database
+	 * @param EchoBatchRowIterator $reader Iterator that returns an array of database rows
+	 * @param EchoBatchRowWriter $writer Writer capable of pushing row updates to the database
 	 * @param EchoRowUpdateGenerator $generator Generates single row updates based on the rows content
 	 */
 	public function __construct( EchoBatchRowIterator $reader, EchoBatchRowWriter $writer, EchoRowUpdateGenerator $generator ) {
 		$this->reader = $reader;
 		$this->writer = $writer;
 		$this->generator = $generator;
-		$this->output = function() {
+		$this->output = function () {
 		}; // nop
 	}
 
@@ -174,9 +174,9 @@ class EchoBatchRowWriter {
 	protected $clusterName;
 
 	/**
-	 * @param DatabaseBase $db          The database to write to
-	 * @param string       $table       The name of the table to update
-	 * @param string|bool  $clusterName A cluster name valid for use with LBFactory
+	 * @param DatabaseBase $db The database to write to
+	 * @param string $table The name of the table to update
+	 * @param string|bool $clusterName A cluster name valid for use with LBFactory
 	 */
 	public function __construct( DatabaseBase $db, $table, $clusterName = false ) {
 		$this->db = $db;
@@ -266,10 +266,10 @@ class EchoBatchRowIterator implements RecursiveIterator {
 	private $key;
 
 	/**
-	 * @param DatabaseBase $db         The database to read from
-	 * @param string       $table      The name of the table to read from
+	 * @param DatabaseBase $db The database to read from
+	 * @param string $table The name of the table to read from
 	 * @param string|array $primaryKey The name or names of the primary key columns
-	 * @param integer      $batchSize  The number of rows to fetch per iteration
+	 * @param integer $batchSize The number of rows to fetch per iteration
 	 *
 	 * @throws MWException
 	 */
@@ -279,7 +279,7 @@ class EchoBatchRowIterator implements RecursiveIterator {
 		}
 		$this->db = $db;
 		$this->table = $table;
-		$this->primaryKey = (array) $primaryKey;
+		$this->primaryKey = (array)$primaryKey;
 		$this->fetchColumns = $this->primaryKey;
 		$this->orderBy = implode( ' ASC,', $this->primaryKey ) . ' ASC';
 		$this->batchSize = $batchSize;
@@ -319,6 +319,7 @@ class EchoBatchRowIterator implements RecursiveIterator {
 		foreach ( $this->primaryKey as $column ) {
 			$pk[$column] = $row->$column;
 		}
+
 		return $pk;
 	}
 
@@ -349,7 +350,7 @@ class EchoBatchRowIterator implements RecursiveIterator {
 	 * @return boolean True when the iterator is in a valid state
 	 */
 	public function valid() {
-		return (bool) $this->current;
+		return (bool)$this->current;
 	}
 
 	/**
@@ -394,7 +395,7 @@ class EchoBatchRowIterator implements RecursiveIterator {
 	 * key use `=` conditions while the final key uses a `>` condition
 	 *
 	 * Example output:
-	 * 	  array( '( foo = 42 AND bar > 7 ) OR ( foo > 42 )' )
+	 *      array( '( foo = 42 AND bar > 7 ) OR ( foo > 42 )' )
 	 *
 	 * @return array The SQL conditions necessary to select the next set of rows in the batched query
 	 */

@@ -69,6 +69,7 @@ class MWEchoNotifUser {
 			throw new MWException( 'User must be logged in to view notification!' );
 		}
 		global $wgMemc;
+
 		return new MWEchoNotifUser(
 			$user, $wgMemc,
 			new EchoUserNotificationGateway( $user, MWEchoDbFactory::newFromDefault() ),
@@ -169,6 +170,7 @@ class MWEchoNotifUser {
 	 */
 	private function getHasMessagesKey() {
 		global $wgEchoConfig;
+
 		return wfMemcKey( 'echo', 'user', 'had', 'messages', $this->mUser->getId(), $wgEchoConfig['version'] );
 	}
 
@@ -314,7 +316,8 @@ class MWEchoNotifUser {
 			$timestamp = $notification->getTimestamp();
 
 			// store to cache & return
-			$this->cache->set($memcKey, $timestamp, 86400);
+			$this->cache->set( $memcKey, $timestamp, 86400 );
+
 			return new MWTimestamp( $timestamp );
 		}
 
@@ -348,6 +351,7 @@ class MWEchoNotifUser {
 				}
 			}
 		}
+
 		return $res;
 	}
 
@@ -379,7 +383,7 @@ class MWEchoNotifUser {
 		$notifs = $this->notifMapper->fetchUnreadByUser( $this->mUser, $wgEchoMaxUpdateCount, $eventTypes );
 
 		$eventIds = array_filter(
-			array_map( function( EchoNotification $notif ) {
+			array_map( function ( EchoNotification $notif ) {
 				// This should not happen at all, but use 0 in
 				// such case so to keep the code running
 				if ( $notif->getEvent() ) {
@@ -398,6 +402,7 @@ class MWEchoNotifUser {
 				$this->flagCacheWithNoTalkNotification();
 			}
 		}
+
 		return $res;
 	}
 

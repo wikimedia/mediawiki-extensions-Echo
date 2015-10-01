@@ -186,7 +186,7 @@
 	 * @param {string} Mediawiki seen timestamp in Mediawiki timestamp format
 	 */
 	mw.echo.dm.NotificationsModel.prototype.setSeenTime = function ( time ) {
-		this.seenTime[this.type] = time;
+		this.seenTime[ this.type ] = time;
 	};
 
 	/**
@@ -195,7 +195,7 @@
 	 * @return {string} Mediawiki seen timestamp in Mediawiki timestamp format
 	 */
 	mw.echo.dm.NotificationsModel.prototype.getSeenTime = function () {
-		return this.seenTime[this.type];
+		return this.seenTime[ this.type ];
 	};
 
 	/**
@@ -238,7 +238,7 @@
 
 		// Update the notifications seen status
 		for ( i = 0, len = items.length; i < len; i++ ) {
-			items[i].toggleSeen( true );
+			items[ i ].toggleSeen( true );
 		}
 		this.emit( 'updateSeenTime' );
 
@@ -394,11 +394,11 @@
 		var i, len;
 
 		for ( i = 0, len = items.length; i < len; i++ ) {
-			if ( !items[i].isRead() ) {
-				this.unreadNotifications.addItems( [ items[i] ] );
+			if ( !items[ i ].isRead() ) {
+				this.unreadNotifications.addItems( [ items[ i ] ] );
 			}
-			if ( !items[i].isSeen() ) {
-				this.unseenNotifications.addItems( [ items[i] ] );
+			if ( !items[ i ].isSeen() ) {
+				this.unseenNotifications.addItems( [ items[ i ] ] );
 			}
 		}
 
@@ -416,8 +416,8 @@
 		var i, len;
 
 		for ( i = 0, len = items.length; i < len; i++ ) {
-			this.unreadNotifications.removeItems( [ items[i] ] );
-			this.unseenNotifications.removeItems( [ items[i] ] );
+			this.unreadNotifications.removeItems( [ items[ i ] ] );
+			this.unseenNotifications.removeItems( [ items[ i ] ] );
 		}
 
 		// Parent

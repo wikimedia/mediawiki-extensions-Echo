@@ -4,7 +4,8 @@ class EchoAbstractMapperTest extends MediaWikiTestCase {
 
 	public function testAttachListener() {
 		$mapper = new EchoAbstractMapperStub();
-		$mapper->attachListener( 'testMethod', 'key_a', function() {} );
+		$mapper->attachListener( 'testMethod', 'key_a', function () {
+		} );
 
 		$class = new ReflectionClass( 'EchoAbstractMapperStub' );
 		$property = $class->getProperty( 'listeners' );
@@ -14,6 +15,7 @@ class EchoAbstractMapperTest extends MediaWikiTestCase {
 		$this->assertArrayHasKey( 'testMethod', $listeners );
 		$this->assertArrayHasKey( 'key_a', $listeners['testMethod'] );
 		$this->assertTrue( is_callable( $listeners['testMethod']['key_a'] ) );
+
 		return array( 'mapper' => $mapper, 'property' => $property );
 	}
 
@@ -22,7 +24,8 @@ class EchoAbstractMapperTest extends MediaWikiTestCase {
 	 */
 	public function testAttachListenerWithException() {
 		$mapper = new EchoAbstractMapperStub();
-		$mapper->attachListener( 'nonExistingMethod', 'key_a', function() {} );
+		$mapper->attachListener( 'nonExistingMethod', 'key_a', function () {
+		} );
 	}
 
 	/**
@@ -69,7 +72,6 @@ class EchoAbstractMapperTest extends MediaWikiTestCase {
 class EchoAbstractMapperStub extends EchoAbstractMapper {
 
 	public function testMethod() {
-
 	}
 
 }

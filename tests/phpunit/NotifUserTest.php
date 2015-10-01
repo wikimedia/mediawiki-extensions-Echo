@@ -165,6 +165,7 @@ class MWEchoNotifUserTest extends MediaWikiTestCase {
 		$gateway->expects( $this->any() )
 			->method( 'markRead' )
 			->will( $this->returnValue( $dbResult['markRead'] ) );
+
 		return $gateway;
 	}
 
@@ -175,6 +176,7 @@ class MWEchoNotifUserTest extends MediaWikiTestCase {
 		$mapper->expects( $this->any() )
 			->method( 'fetchUnreadByUser' )
 			->will( $this->returnValue( $result ) );
+
 		return $mapper;
 	}
 
@@ -185,6 +187,7 @@ class MWEchoNotifUserTest extends MediaWikiTestCase {
 		$mapper->expects( $this->any() )
 			->method( 'deleteByUserEvents' )
 			->will( $this->returnValue( $result ) );
+
 		return $mapper;
 	}
 
@@ -195,6 +198,7 @@ class MWEchoNotifUserTest extends MediaWikiTestCase {
 		$notification->expects( $this->any() )
 			->method( 'getEvent' )
 			->will( $this->returnValue( $this->mockEchoEvent() ) );
+
 		return $notification;
 	}
 
@@ -205,6 +209,7 @@ class MWEchoNotifUserTest extends MediaWikiTestCase {
 		$event->expects( $this->any() )
 			->method( 'getId' )
 			->will( $this->returnValue( 1 ) );
+
 		return $event;
 	}
 }

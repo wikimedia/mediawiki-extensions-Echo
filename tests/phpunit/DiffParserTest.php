@@ -167,6 +167,7 @@ class EchoDiffParserTest extends MediaWikiTestCase {
 		if ( $right === null ) {
 			$right = $left;
 		}
+
 		return array(
 			'action' => $action,
 			'content' => $content,
@@ -179,6 +180,7 @@ class EchoDiffParserTest extends MediaWikiTestCase {
 		if ( $right === null ) {
 			$right = $left;
 		}
+
 		return array(
 			'action' => 'change',
 			'old_content' => $oldContent,

@@ -17,15 +17,16 @@ class EchoEditFormatter extends EchoBasicFormatter {
 			$revid = $event->getExtraParam( 'revid' );
 			if ( !$revid ) {
 				$message->params( '' );
+
 				return;
 			}
 			$diff = $event->getExtraParam( 'diffid', 'prev' );
 			$props = array(
 				'attribs' => array( 'class' => 'mw-echo-diff' ),
 				'linkText' => $this->getMessage( 'parentheses' )
-						->params(
-							$this->getMessage( 'showdiff' )->text()
-						)->escaped(),
+					->params(
+						$this->getMessage( 'showdiff' )->text()
+					)->escaped(),
 				'param' => array(
 					'oldid' => $revid,
 					'diff' => $diff,
@@ -73,9 +74,9 @@ class EchoEditFormatter extends EchoBasicFormatter {
 		if ( !empty( $extra['section-title'] ) ) {
 			if ( $event->userCan( Revision::DELETED_TEXT, $user ) ) {
 				return EchoDiscussionParser::getTextSnippet(
-						$extra['section-title'],
-						$this->getLanguage(),
-						30
+					$extra['section-title'],
+					$this->getLanguage(),
+					30
 				);
 			} else {
 				return $this->getMessage( 'echo-rev-deleted-text-view' )->text();

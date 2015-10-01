@@ -54,7 +54,7 @@
 
 		for ( i = 0, len = notificationItems.length; i < len; i++ ) {
 			widget = new mw.echo.ui.NotificationOptionWidget(
-				notificationItems[i],
+				notificationItems[ i ],
 				{
 					markReadWhenSeen: this.markReadWhenSeen
 				}
@@ -84,9 +84,9 @@
 
 		// Destroy all the widgets and their events
 		for ( i = 0, len = items.length; i < len; i++ ) {
-			if ( typeof items[i].destroy === 'function' ) {
+			if ( typeof items[ i ].destroy === 'function' ) {
 				// Destroy if destroyable
-				items[i].destroy();
+				items[ i ].destroy();
 			}
 		}
 
@@ -106,7 +106,7 @@
 			removalWidgets = [];
 
 		for ( i = 0, len = notificationItems.length; i < len; i++ ) {
-			widget = this.getItemById( notificationItems[i].getId() );
+			widget = this.getItemById( notificationItems[ i ].getId() );
 			if ( widget && typeof widget.destroy === 'function' ) {
 				// Destroy all widgets that can be destroyed
 				widget.destroy();
@@ -133,8 +133,8 @@
 			items = this.getItems();
 
 		for ( i = 0, len = items.length; i < len; i++ ) {
-			if ( items[i] && typeof items[i].reset === 'function' ) {
-				items[i].reset();
+			if ( items[ i ] && typeof items[ i ].reset === 'function' ) {
+				items[ i ].reset();
 			}
 		}
 	};

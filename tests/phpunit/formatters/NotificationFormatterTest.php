@@ -40,11 +40,10 @@ class EchoNotificationFormatterTest extends MediaWikiTestCase {
 
 		# Reset the Title cache
 		$mainPage = Title::newMainPage();
-		$mainPage->setFragment('');
+		$mainPage->setFragment( '' );
 		# And assert it has been cleaned up
 		$mainPageCached = Title::newMainPage();
 		$this->assertEquals( '', $mainPageCached->getFragment() );
-
 	}
 
 	public static function provider_editUserTalk() {
@@ -120,7 +119,7 @@ class EchoNotificationFormatterTest extends MediaWikiTestCase {
 		$tests = array();
 		$events = array( 'edit-user-talk' );
 		foreach ( $events as $eventType ) {
-			$tests[] = array( $eventType, $sectionText, 0);
+			$tests[] = array( $eventType, $sectionText, 0 );
 			$tests[] = array( $eventType, $sectionText, Revision::DELETED_TEXT );
 		}
 
@@ -179,12 +178,12 @@ class EchoNotificationFormatterTest extends MediaWikiTestCase {
 
 	public static function provider_sectionTitle() {
 		$message = "some_section_title"; // underscores simplifies the test, since it will transform ' ' to '_'
-		$suppressed = wfMessage( 'echo-rev-deleted-text-view')->text();
+		$suppressed = wfMessage( 'echo-rev-deleted-text-view' )->text();
 
 		$tests = array();
 		$events = array( 'mention' ); // currently only mention uses sectionTitle, but likely edit-user-talk will soon as well
 		foreach ( $events as $eventType ) {
-			$tests[] = array( $eventType, $message, $message, 0);
+			$tests[] = array( $eventType, $message, $message, 0 );
 			$tests[] = array( $eventType, $suppressed, $message, Revision::DELETED_TEXT );
 		}
 
@@ -253,6 +252,7 @@ class EchoNotificationFormatterTest extends MediaWikiTestCase {
 				->method( 'getRevision' )
 				->will( $this->returnValue( $rev ) );
 		}
+
 		return $event;
 	}
 

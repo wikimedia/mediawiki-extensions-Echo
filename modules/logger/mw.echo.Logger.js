@@ -128,11 +128,11 @@
 		var i, len;
 
 		for ( i = 0, len = notificationIds.length; i < len; i++ ) {
-			if ( !this.notificationsIdCache[ notificationIds[i] ] ) {
+			if ( !this.notificationsIdCache[ notificationIds[ i ] ] ) {
 				// Log notification impression
-				this.logInteraction( 'notification-impression', context, notificationIds[i], type, mobile );
+				this.logInteraction( 'notification-impression', context, notificationIds[ i ], type, mobile );
 				// Cache
-				this.notificationsIdCache[ notificationIds[i] ] = true;
+				this.notificationsIdCache[ notificationIds[ i ] ] = true;
 			}
 		}
 	};

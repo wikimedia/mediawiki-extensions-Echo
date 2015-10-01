@@ -5,7 +5,7 @@
  *
  * @ingroup Maintenance
  */
-require_once ( getenv( 'MW_INSTALL_PATH' ) !== false
+require_once( getenv( 'MW_INSTALL_PATH' ) !== false
 	? getenv( 'MW_INSTALL_PATH' ) . '/maintenance/Maintenance.php'
 	: __DIR__ . '/../../../maintenance/Maintenance.php' );
 
@@ -77,7 +77,7 @@ class removeInvalidTargetPage extends Maintenance {
 			// Reset the head of the iterator
 			$res->rewind();
 			$count = $invalidCount = 0;
-			foreach( $res as $row ) {
+			foreach ( $res as $row ) {
 				if (
 					// Delete if notification is read
 					$row->notification_read_timestamp

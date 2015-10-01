@@ -27,7 +27,7 @@ class EchoAttributeManager {
 	 * Notifications are broken down to two sections, default is alert
 	 * @var array
 	 */
-	public static $sections = array (
+	public static $sections = array(
 		self::ALERT,
 		self::MESSAGE
 	);
@@ -66,6 +66,7 @@ class EchoAttributeManager {
 				$wgEchoNotificationCategories
 			);
 		}
+
 		return self::$globalVarInstance;
 	}
 
@@ -124,6 +125,7 @@ class EchoAttributeManager {
 				)
 			);
 		}
+
 		return array_intersect(
 			$this->getUserEnabledEvents( $user, $outputFormat ),
 			$events
@@ -146,6 +148,7 @@ class EchoAttributeManager {
 				$events[] = $event;
 			}
 		}
+
 		return $events;
 	}
 
@@ -163,6 +166,7 @@ class EchoAttributeManager {
 				$events[] = $event;
 			}
 		}
+
 		return $events;
 	}
 
@@ -182,6 +186,7 @@ class EchoAttributeManager {
 				return false;
 			}
 		}
+
 		return true;
 	}
 
@@ -193,6 +198,7 @@ class EchoAttributeManager {
 	 */
 	public function getNotificationPriority( $notificationType ) {
 		$category = $this->getNotificationCategory( $notificationType );
+
 		return $this->getCategoryPriority( $category );
 	}
 
@@ -209,6 +215,7 @@ class EchoAttributeManager {
 				return $priority;
 			}
 		}
+
 		return 10;
 	}
 
@@ -226,6 +233,7 @@ class EchoAttributeManager {
 				return $category;
 			}
 		}
+
 		return 'other';
 	}
 
@@ -239,6 +247,7 @@ class EchoAttributeManager {
 		if ( isset( $this->notifications[$notificationType]['section'] ) ) {
 			return $this->notifications[$notificationType]['section'];
 		}
+
 		return 'alert';
 	}
 

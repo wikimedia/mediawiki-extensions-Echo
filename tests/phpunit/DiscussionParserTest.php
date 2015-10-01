@@ -309,6 +309,7 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 			$result = $this->$precondition();
 			if ( $result !== true ) {
 				$this->markTestSkipped( $result );
+
 				return;
 			}
 		}
@@ -373,7 +374,7 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 		// to catch the generated event, I'm going to attach a callback to the
 		// hook that's being run just prior to sending the notifications out
 		$events = array();
-		$callback = function( EchoEvent $event ) use ( &$events ) {
+		$callback = function ( EchoEvent $event ) use ( &$events ) {
 			$events[] = array(
 				'type' => $event->getType(),
 				'agent' => $event->getAgent()->getName(),
@@ -440,7 +441,7 @@ TEXT
 	}
 
 	public function testGetTimestampPosition() {
-		$line = 'Hello World. '. self::getExemplarTimestamp();
+		$line = 'Hello World. ' . self::getExemplarTimestamp();
 		$pos = EchoDiscussionParser::getTimestampPosition( $line );
 		$this->assertEquals( 13, $pos );
 	}
@@ -452,6 +453,7 @@ TEXT
 	public function testSigningDetection( $line, $expectedUser ) {
 		if ( !EchoDiscussionParser::isSignedComment( $line ) ) {
 			$this->assertEquals( $expectedUser, false );
+
 			return;
 		}
 
@@ -470,6 +472,7 @@ TEXT
 
 	public function signingDetectionData() {
 		$ts = self::getExemplarTimestamp();
+
 		return array(
 			// Basic
 			array(
@@ -505,7 +508,7 @@ TEXT
 			),
 			// No signature
 			array(
-				"Well, \nI do think that [[User:Newyorkbrad]] is pretty cool, but what do I know?", 
+				"Well, \nI do think that [[User:Newyorkbrad]] is pretty cool, but what do I know?",
 				false
 			),
 			// Hash symbols in usernames
@@ -581,12 +584,12 @@ line 2
 line 3
 line 4
 TEXT
-				,<<<TEXT
+			, <<<TEXT
 line 1
 line 3
 line 4
 TEXT
-				,
+			,
 				array( array(
 					'action' => 'subtract',
 					'content' => 'line 2',
@@ -601,14 +604,14 @@ line 2
 line 3
 line 4
 TEXT
-				,<<<TEXT
+			, <<<TEXT
 line 1
 line 2
 line 2.5
 line 3
 line 4
 TEXT
-				,
+			,
 				array( array(
 					'action' => 'add',
 					'content' => 'line 2.5',
@@ -623,13 +626,13 @@ line 2
 line 3
 line 4
 TEXT
-				,<<<TEXT
+			, <<<TEXT
 line 1
 line b
 line 3
 line 4
 TEXT
-				,
+			,
 				array( array(
 					'action' => 'change',
 					'old_content' => 'line 2',
@@ -645,7 +648,7 @@ line 2
 line 3
 line 4
 TEXT
-				,<<<TEXT
+			, <<<TEXT
 line 1
 line b
 line c
@@ -653,7 +656,7 @@ line d
 line 3
 line 4
 TEXT
-				,
+			,
 				array(
 					array(
 						'action' => 'change',
@@ -778,7 +781,7 @@ TEXT
 == Section 1a ==
 Hmmm? [[User:Jdforrester|Jdforrester]] ([[User talk:Jdforrester|talk]]) $ts
 TEXT
-						,
+					,
 						'left-pos' => 4,
 						'right-pos' => 4,
 					),
@@ -811,7 +814,7 @@ TEXT
 == Section 1a ==
 Hmmm? [[User:Jdforrester|Jdforrester]] ([[User talk:Jdforrester|talk]]) $ts
 TEXT
-						,
+					,
 					),
 				),
 			),
@@ -1056,7 +1059,7 @@ bar
 ==Header 3==
 baz
 TEXT
-				,
+			,
 				// Map of Line numbers to expanded section content
 				array(
 					1 => "==Header 1==\nfoo",

@@ -189,17 +189,18 @@ class EchoHooks {
 				$bundleString = 'edit-user-talk';
 				if ( $event->getTitle() ) {
 					$bundleString .= '-' . $event->getTitle()->getNamespace()
-								. '-' . $event->getTitle()->getDBkey();
+						. '-' . $event->getTitle()->getDBkey();
 				}
-			break;
+				break;
 			case 'page-linked':
 				$bundleString = 'page-linked';
 				if ( $event->getTitle() ) {
 					$bundleString .= '-' . $event->getTitle()->getNamespace()
-								. '-' . $event->getTitle()->getDBkey();
+						. '-' . $event->getTitle()->getDBkey();
 				}
-			break;
+				break;
 		}
+
 		return true;
 	}
 
@@ -273,7 +274,7 @@ class EchoHooks {
 				'type' => 'select',
 				'label-message' => 'echo-pref-email-format',
 				'section' => 'echo/emailsettings',
-				'options' => array (
+				'options' => array(
 					wfMessage( 'echo-pref-email-format-html' )->plain() => self::EMAIL_FORMAT_HTML,
 					wfMessage( 'echo-pref-email-format-plain-text' )->plain() => self::EMAIL_FORMAT_PLAIN_TEXT
 				)
@@ -285,7 +286,7 @@ class EchoHooks {
 		foreach ( $wgEchoNotificationCategories as $category => $categoryData ) {
 			// See if the category is not dismissable at all. Must do strict
 			// comparison to true since no-dismiss can also be an array
-			if ( isset( $categoryData['no-dismiss'] ) && in_array( 'all' , $categoryData['no-dismiss'] ) ) {
+			if ( isset( $categoryData['no-dismiss'] ) && in_array( 'all', $categoryData['no-dismiss'] ) ) {
 				continue;
 			}
 			$attributeManager = EchoAttributeManager::newFromGlobalVars();
@@ -329,8 +330,8 @@ class EchoHooks {
 			foreach ( $validSortedCategories as $category ) {
 				// See if this output format is non-dismissable
 				if ( isset( $wgEchoNotificationCategories[$category]['no-dismiss'] )
-					&& in_array( $notifierType, $wgEchoNotificationCategories[$category]['no-dismiss'] ) )
-				{
+					&& in_array( $notifierType, $wgEchoNotificationCategories[$category]['no-dismiss'] )
+				) {
 					$forceOptionsOn[] = "$notifierType-$category";
 				}
 
@@ -409,7 +410,7 @@ class EchoHooks {
 		}
 
 		// Try to do this after the HTTP response
-		DeferredUpdates::addCallableUpdate( function() use ( $revision ) {
+		DeferredUpdates::addCallableUpdate( function () use ( $revision ) {
 			EchoDiscussionParser::generateEventsForRevision( $revision );
 		} );
 
@@ -485,7 +486,7 @@ class EchoHooks {
 			'type' => 'welcome',
 			'agent' => $user,
 			// welcome email is sent to agent
-			'extra' => array (
+			'extra' => array(
 				'notifyAgent' => true
 			)
 		) );
@@ -534,6 +535,7 @@ class EchoHooks {
 				)
 			);
 		}
+
 		return true;
 	}
 
@@ -561,8 +563,8 @@ class EchoHooks {
 		// 3. non-transcluding pages &&
 		// 4. non-redirect pages
 		if ( $table !== 'pagelinks' || !MWNamespace::isContent( $linksUpdate->mTitle->getNamespace() )
-			|| !$linksUpdate->mRecursive || $linksUpdate->mTitle->isRedirect() )
-		{
+			|| !$linksUpdate->mRecursive || $linksUpdate->mTitle->isRedirect()
+		) {
 			return true;
 		}
 
@@ -673,8 +675,8 @@ class EchoHooks {
 		// Avoid flashes in skins that don't use it (T111821)
 		$sk->getOutput()->setupOOUI( strtolower( $sk->getSkinName() ), $sk->getOutput()->getLanguage()->getDir() );
 		$oouiImageClass = get_class( OOUI\Theme::singleton() ) === 'OOUI\\MediaWikiTheme'
-				? 'oo-ui-image-invert'
-				: '';
+			? 'oo-ui-image-invert'
+			: '';
 
 		$msgLinkClasses = array( "mw-echo-notifications-badge mw-echo-notification-badge-nojs $oouiImageClass oo-ui-iconElement oo-ui-iconElement-icon oo-ui-icon-speechBubble" );
 		$alertLinkClasses = array( "mw-echo-notifications-badge mw-echo-notification-badge-nojs $oouiImageClass oo-ui-iconElement oo-ui-iconElement-icon" );
@@ -738,7 +740,7 @@ class EchoHooks {
 		// * User is not viewing their user talk page, as user_newtalk
 		//   will not have been cleared yet. (bug T107655).
 		if ( $wgEchoNewMsgAlert && $user->getOption( 'echo-show-alert' )
-				&& $user->getNewtalk() && !$user->getTalkPage()->equals( $title )
+			&& $user->getNewtalk() && !$user->getTalkPage()->equals( $title )
 		) {
 			$personal_urls['mytalk']['text'] = $sk->msg( 'echo-new-messages' )->text();
 			$personal_urls['mytalk']['class'] = array( 'mw-echo-alert' );
@@ -789,6 +791,7 @@ class EchoHooks {
 				return false;
 			}
 		}
+
 		// Proceed to send watchlist email notification
 		return true;
 	}
@@ -806,7 +809,7 @@ class EchoHooks {
 
 		// Provide info for the Overlay
 
-		if ( ! $user->isAnon() ) {
+		if ( !$user->isAnon() ) {
 			$vars['wgEchoOverlayConfiguration'] = array(
 				'notification-count' => MWEchoNotifUser::newFromUser( $user )->getFormattedNotificationCount(),
 				'max-notification-count' => $wgEchoMaxNotificationCount,
@@ -850,6 +853,7 @@ class EchoHooks {
 		}
 
 		$files = array_merge( $files, $ourFiles );
+
 		return true;
 		// @codeCoverageIgnoreEnd
 	}
@@ -932,6 +936,7 @@ class EchoHooks {
 			// and changes made through the options API (since both call this hook).
 			MWEchoNotifUser::newFromUser( $user )->resetNotificationCount();
 		}
+
 		return true;
 	}
 
@@ -945,8 +950,9 @@ class EchoHooks {
 	public static function onUserLoadOptions( $user, &$options ) {
 		// Use existing enotifusertalkpages option for echo-subscriptions-email-edit-user-talk
 		if ( isset( $options['enotifusertalkpages'] ) ) {
-			$options['echo-subscriptions-email-edit-user-talk'] =  $options['enotifusertalkpages'];
+			$options['echo-subscriptions-email-edit-user-talk'] = $options['enotifusertalkpages'];
 		}
+
 		return true;
 	}
 
@@ -976,7 +982,7 @@ class EchoHooks {
 	 */
 	public static function onUserClearNewTalkNotification( User $user ) {
 		if ( !$user->isAnon() ) {
-			DeferredUpdates::addCallableUpdate( function() use ( $user ) {
+			DeferredUpdates::addCallableUpdate( function () use ( $user ) {
 				MWEchoNotifUser::newFromUser( $user )->clearTalkNotification();
 			} );
 		}
@@ -994,6 +1000,7 @@ class EchoHooks {
 		$tables[] = 'echo_event';
 		$tables[] = 'echo_notification';
 		$tables[] = 'echo_email_batch';
+
 		return true;
 	}
 

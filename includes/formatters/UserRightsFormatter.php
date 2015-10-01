@@ -25,7 +25,7 @@ class EchoUserRightsFormatter extends EchoBasicFormatter {
 
 						// Get the localized group names, bug 55338
 						$groups = array();
-						foreach( $extra[$action] as $group ) {
+						foreach ( $extra[$action] as $group ) {
 							$msg = $this->getMessage( 'group-' . $group );
 							$groups[] = $msg->isBlank() ? $group : $msg->escaped();
 						}
@@ -66,6 +66,7 @@ class EchoUserRightsFormatter extends EchoBasicFormatter {
 			default:
 				return parent::getLinkParams( $event, $user, $destination );
 		}
+
 		return array( $target, $query );
 	}
 }

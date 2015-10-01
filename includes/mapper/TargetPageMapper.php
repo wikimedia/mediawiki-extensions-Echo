@@ -41,6 +41,7 @@ class EchoTargetPageMapper extends EchoAbstractMapper {
 			foreach ( $res as $row ) {
 				$targetPages[$row->etp_event][] = EchoTargetPage::newFromRow( $row );
 			}
+
 			return $targetPages;
 		} else {
 			return false;
@@ -81,6 +82,7 @@ class EchoTargetPageMapper extends EchoAbstractMapper {
 			),
 			__METHOD__
 		);
+
 		return $res;
 	}
 
@@ -106,6 +108,7 @@ class EchoTargetPageMapper extends EchoAbstractMapper {
 			),
 			__METHOD__
 		);
+
 		return $res;
 	}
 
@@ -127,6 +130,7 @@ class EchoTargetPageMapper extends EchoAbstractMapper {
 			),
 			__METHOD__
 		);
+
 		return $res;
 	}
 
@@ -146,6 +150,7 @@ class EchoTargetPageMapper extends EchoAbstractMapper {
 			),
 			__METHOD__
 		);
+
 		return $res;
 	}
 

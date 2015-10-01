@@ -4,7 +4,7 @@
  * Immutable class to represent an event.
  * In Echo nomenclature, an event is a single occurrence.
  */
-class EchoEvent extends EchoAbstractEntity{
+class EchoEvent extends EchoAbstractEntity {
 
 	protected $type = null;
 	protected $id = null;
@@ -51,13 +51,15 @@ class EchoEvent extends EchoAbstractEntity{
 	 * EchoEvent::newFromRow    To create an event object from a row object
 	 * EchoEvent::newFromID     To create an event object from the database given its ID
 	 */
-	protected function __construct() {}
+	protected function __construct() {
+	}
 
 	## Save the id and timestamp
 	function __sleep() {
 		if ( !$this->id ) {
 			throw new MWException( "Unable to serialize an uninitialized EchoEvent" );
 		}
+
 		return array( 'id', 'timestamp' );
 	}
 
@@ -119,6 +121,7 @@ class EchoEvent extends EchoAbstractEntity{
 		// event_extra.
 		if ( strlen( $obj->serializeExtra() ) > 50000 ) {
 			wfDebugLog( __CLASS__, __FUNCTION__ . ': event extra data is too huge for ' . $info['type'] );
+
 			return false;
 		}
 
@@ -130,8 +133,8 @@ class EchoEvent extends EchoAbstractEntity{
 		}
 
 		if ( $obj->agent && !
-		( $obj->agent instanceof User ||
-			$obj->agent instanceof StubObject )
+			( $obj->agent instanceof User ||
+				$obj->agent instanceof StubObject )
 		) {
 			throw new MWException( "Invalid user parameter" );
 		}
@@ -147,7 +150,7 @@ class EchoEvent extends EchoAbstractEntity{
 
 		global $wgEchoUseJobQueue;
 
-		EchoNotificationController::notify( $obj, $wgEchoUseJobQueue  );
+		EchoNotificationController::notify( $obj, $wgEchoUseJobQueue );
 
 		return $obj;
 	}
@@ -157,7 +160,7 @@ class EchoEvent extends EchoAbstractEntity{
 	 * @return array
 	 */
 	public function toDbArray() {
-		$data = array (
+		$data = array(
 			'event_type' => $this->type,
 			'event_variant' => $this->variant,
 			'event_extra' => $this->serializeExtra()
@@ -183,6 +186,7 @@ class EchoEvent extends EchoAbstractEntity{
 				$data['event_page_id'] = $pageId;
 			}
 		}
+
 		return $data;
 	}
 
@@ -287,6 +291,7 @@ class EchoEvent extends EchoAbstractEntity{
 	public static function newFromRow( $row ) {
 		$obj = new EchoEvent();
 		$obj->loadFromRow( $row );
+
 		return $obj;
 	}
 
@@ -299,6 +304,7 @@ class EchoEvent extends EchoAbstractEntity{
 	public static function newFromID( $id ) {
 		$obj = new EchoEvent();
 		$obj->loadFromID( $id );
+
 		return $obj;
 	}
 
@@ -333,7 +339,7 @@ class EchoEvent extends EchoAbstractEntity{
 		} else {
 			$noDismiss = array();
 		}
-		if ( !in_array( $distribution, $noDismiss ) && !in_array( 'all' , $noDismiss ) ) {
+		if ( !in_array( $distribution, $noDismiss ) && !in_array( 'all', $noDismiss ) ) {
 			return true;
 		} else {
 			return false;
@@ -419,6 +425,7 @@ class EchoEvent extends EchoAbstractEntity{
 			if ( $title ) {
 				return $this->title = $title;
 			}
+
 			return $this->title = Title::newFromId( $this->pageId );
 		} elseif ( isset( $this->extra['page_title'], $this->extra['page_namespace'] ) ) {
 			return $this->title = Title::makeTitleSafe(
@@ -426,6 +433,7 @@ class EchoEvent extends EchoAbstractEntity{
 				$this->extra['page_title']
 			);
 		}
+
 		return null;
 	}
 
@@ -441,8 +449,10 @@ class EchoEvent extends EchoAbstractEntity{
 			if ( $revision ) {
 				return $this->revision = $revision;
 			}
+
 			return $this->revision = Revision::newFromId( $this->extra['revid'] );
 		}
+
 		return null;
 	}
 
@@ -452,6 +462,7 @@ class EchoEvent extends EchoAbstractEntity{
 	 */
 	public function getCategory() {
 		$attributeManager = EchoAttributeManager::newFromGlobalVars();
+
 		return $attributeManager->getNotificationCategory( $this->type );
 	}
 
@@ -461,6 +472,7 @@ class EchoEvent extends EchoAbstractEntity{
 	 */
 	public function getSection() {
 		$attributeManager = EchoAttributeManager::newFromGlobalVars();
+
 		return $attributeManager->getNotificationSection( $this->type );
 	}
 
@@ -473,6 +485,7 @@ class EchoEvent extends EchoAbstractEntity{
 		if ( isset( $wgEchoNotifications[$this->type]['immediate'] ) ) {
 			return !(bool)$wgEchoNotifications[$this->type]['immediate'];
 		}
+
 		return true;
 	}
 
@@ -497,7 +510,6 @@ class EchoEvent extends EchoAbstractEntity{
 			$this->extra['page_title'] = $title->getDBKey();
 			$this->extra['page_namespace'] = $title->getNamespace();
 		}
-
 	}
 
 	public function setExtra( $name, $value ) {
@@ -513,9 +525,10 @@ class EchoEvent extends EchoAbstractEntity{
 	public function getLinkMessage( $rank ) {
 		global $wgEchoNotifications;
 		$type = $this->getType();
-		if ( isset( $wgEchoNotifications[$type][$rank.'-link']['message'] ) ) {
-			return $wgEchoNotifications[$type][$rank.'-link']['message'];
+		if ( isset( $wgEchoNotifications[$type][$rank . '-link']['message'] ) ) {
+			return $wgEchoNotifications[$type][$rank . '-link']['message'];
 		}
+
 		return '';
 	}
 
@@ -528,9 +541,10 @@ class EchoEvent extends EchoAbstractEntity{
 	public function getLinkDestination( $rank ) {
 		global $wgEchoNotifications;
 		$type = $this->getType();
-		if ( isset( $wgEchoNotifications[$type][$rank.'-link']['destination'] ) ) {
-			return $wgEchoNotifications[$type][$rank.'-link']['destination'];
+		if ( isset( $wgEchoNotifications[$type][$rank . '-link']['destination'] ) ) {
+			return $wgEchoNotifications[$type][$rank . '-link']['destination'];
 		}
+
 		return '';
 	}
 

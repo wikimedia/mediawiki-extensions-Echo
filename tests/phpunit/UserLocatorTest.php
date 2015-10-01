@@ -58,7 +58,7 @@ class EchoUserLocatorTest extends MediaWikiTestCase {
 				'Selects user from NS_USER_TALK',
 				// callback returning expected user ids and event title.
 				// required because database insert must be inside test.
-				function() {
+				function () {
 					$user = User::newFromName( 'UTUser' );
 					$user->addToDatabase();
 
@@ -91,7 +91,7 @@ class EchoUserLocatorTest extends MediaWikiTestCase {
 		return array(
 			array(
 				'Something',
-				function() {
+				function () {
 					$user = User::newFromName( 'UTUser' );
 					$user->addToDatabase();
 
@@ -259,6 +259,7 @@ class EchoUserLocatorTest extends MediaWikiTestCase {
 			// EchoEvent::getExtraParam second argument defaults to null
 			$result[] = array( $key, null, $value );
 		}
+
 		return $result;
 	}
 

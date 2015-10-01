@@ -14,8 +14,8 @@ class NotificationsTest extends MediaWikiTestCase {
 		parent::setUp();
 		$this->sysop = User::newFromName( 'UTSysop' );
 		$this->setMwGlobals( 'wgUser', $this->sysop );
-
 	}
+
 	/**
 	 * Helper function to get a user's latest notification
 	 * @param User $user
@@ -23,9 +23,11 @@ class NotificationsTest extends MediaWikiTestCase {
 	 */
 	public static function getLatestNotification( $user ) {
 		$notifs = ApiEchoNotifications::getNotifications( $user );
-		$index = array_keys($notifs);
+		$index = array_keys( $notifs );
+
 		return EchoEvent::newFromID( $notifs[$index[0]]['id'] );
 	}
+
 	/**
 	 * @covers EchoHooks::onUserRights
 	 */
@@ -38,7 +40,7 @@ class NotificationsTest extends MediaWikiTestCase {
 		$context->setUser( $this->sysop );
 		$ur = new UserrightsPage();
 		$ur->setContext( $context );
-		$ur->doSaveUserGroups( $user, array('sysop'), array(), 'reason' );
+		$ur->doSaveUserGroups( $user, array( 'sysop' ), array(), 'reason' );
 		$event = self::getLatestNotification( $user );
 		$this->assertEquals( $event->getType(), 'user-rights' );
 		$this->assertEquals( $this->sysop->getName(), $event->getAgent()->getName() );

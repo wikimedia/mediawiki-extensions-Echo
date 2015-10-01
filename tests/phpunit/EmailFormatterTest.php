@@ -37,31 +37,31 @@ class EchoEmailFormatterTest extends MediaWikiTestCase {
 		// Single email mode
 		$textFormatter = new EchoTextEmailFormatter( $this->emailSingle );
 		$this->assertRegExp( $pattern, $this->emailSingle->getTextTemplate() );
-		$this->assertEquals( 0, preg_match ( $pattern, $textFormatter->formatEmail() ) );
+		$this->assertEquals( 0, preg_match( $pattern, $textFormatter->formatEmail() ) );
 
 		$htmlFormatter = new EchoHTMLEmailFormatter( $this->emailSingle );
 		$this->assertRegExp( $pattern, $this->emailSingle->getHTMLTemplate() );
-		$this->assertEquals( 0, preg_match ( $pattern, $htmlFormatter->formatEmail() ) );
+		$this->assertEquals( 0, preg_match( $pattern, $htmlFormatter->formatEmail() ) );
 
 		// Digest email mode
 		$textFormatter = new EchoTextEmailFormatter( $this->emailDigest );
 		$this->assertRegExp( $pattern, $this->emailSingle->getTextTemplate() );
-		$this->assertEquals( 0, preg_match ( $pattern, $textFormatter->formatEmail() ) );
+		$this->assertEquals( 0, preg_match( $pattern, $textFormatter->formatEmail() ) );
 
 		$htmlFormatter = new EchoHTMLEmailFormatter( $this->emailDigest );
 		$this->assertRegExp( $pattern, $this->emailSingle->getHTMLTemplate() );
-		$this->assertEquals( 0, preg_match ( $pattern, $htmlFormatter->formatEmail() ) );
+		$this->assertEquals( 0, preg_match( $pattern, $htmlFormatter->formatEmail() ) );
 	}
 
 	public function testBuildAction() {
 		$this->emailSingle->attachDecorator( new EchoTextEmailDecorator() );
-		$this->assertEquals( 0, preg_match ( '/<a /i', $this->emailSingle->buildAction() ) );
+		$this->assertEquals( 0, preg_match( '/<a /i', $this->emailSingle->buildAction() ) );
 
 		$this->emailSingle->attachDecorator( new EchoHTMLEmailDecorator() );
 		$this->assertRegExp( '/<a /i', $this->emailSingle->buildAction() );
 
 		$this->emailDigest->attachDecorator( new EchoTextEmailDecorator() );
-		$this->assertEquals( 0, preg_match ( '/<a /i', $this->emailDigest->buildAction() ) );
+		$this->assertEquals( 0, preg_match( '/<a /i', $this->emailDigest->buildAction() ) );
 
 		$this->emailDigest->attachDecorator( new EchoHTMLEmailDecorator() );
 		$this->assertRegExp( '/<a /i', $this->emailDigest->buildAction() );
@@ -86,6 +86,7 @@ class EchoEmailFormatterTest extends MediaWikiTestCase {
 		$event->expects( $this->any() )
 			->method( 'getCategory' )
 			->will( $this->returnValue( $attribManager->getNotificationCategory( $type ) ) );
+
 		return $event;
 	}
 

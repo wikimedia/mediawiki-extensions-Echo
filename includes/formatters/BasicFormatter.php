@@ -52,7 +52,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	 * should be used in function processParams()
 	 * @var array
 	 */
-	protected $bundleData = array (
+	protected $bundleData = array(
 		'use-bundle' => false,
 		'raw-data-count' => 1
 	);
@@ -138,7 +138,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 		);
 
 		// default flyout-message to title-message if not defined
-		$params += array ( 'flyout-message' => $params['title-message'],  'flyout-params' => $params['title-params'] );
+		$params += array( 'flyout-message' => $params['title-message'], 'flyout-params' => $params['title-params'] );
 
 		return $params;
 	}
@@ -280,7 +280,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			$outputFormat = $this->outputFormat;
 			$this->setOutputFormat( 'htmlemail' );
 			// Add single email html body if user prefers html format
-			$content['body'] = array (
+			$content['body'] = array(
 				'text' => $content['body'],
 				'html' => $htmlEmailFormatter->formatEmail()
 			);
@@ -313,6 +313,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			$content['icon'] = $this->icon;
 			$this->setOutputFormat( $outputFormat );
 		}
+
 		return $content;
 	}
 
@@ -405,6 +406,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 		$content = EchoDiscussionParser::stripHeader( $extra['content'] );
 		$content = EchoDiscussionParser::stripSignature( $content );
 		$content = EchoDiscussionParser::stripIndents( $content );
+
 		return EchoDiscussionParser::getTextSnippet( $content, $this->getLanguage(), 200 );
 	}
 
@@ -443,6 +445,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 		if ( $secondaryLink ) {
 			$footer = $this->getLanguage()->pipeList( array( $footer, $secondaryLink ) );
 		}
+
 		return Xml::tags( 'div', array( 'class' => 'mw-echo-notification-footer' ), $footer ) . "\n";
 	}
 
@@ -456,6 +459,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 		$title = $event->getTitle();
 		if ( !$title ) {
 			$message->params( $this->getMessage( 'echo-no-title' )->text() );
+
 			return;
 		}
 
@@ -505,6 +509,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			return array( Message::rawParam( Linker::link( $title, $linkText, $attribs, $param, $options ) ) );
 		} elseif ( $this->outputFormat === 'email' ) {
 			$url = $title->getFullURL( $param, false, PROTO_HTTPS );
+
 			return $this->sanitizeEmailLink( $url );
 		} else {
 			return $title->getFullURL( $param );
@@ -530,6 +535,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			);
 			$url = substr( $url, 0, -1 ) . $lastChar;
 		}
+
 		return $url;
 	}
 
@@ -713,11 +719,11 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			}
 			if ( is_string( $target ) ) {
 				$attribs['href'] = wfAppendQuery( $target, $query );
+
 				return Html::element( 'a', $attribs, $message );
 			} else {
 				return Linker::link( $target, $message, $attribs, $query, $options );
 			}
-
 		}
 	}
 
@@ -732,8 +738,8 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	 */
 	protected function getLinkParams( $event, $user, $destination ) {
 		$target = null;
-		$query  = array();
-		$title  = $event->getTitle();
+		$query = array();
+		$title = $event->getTitle();
 		// Set up link parameters based on the destination
 		switch ( $destination ) {
 			case 'agent':
@@ -784,6 +790,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 				}
 				break;
 		}
+
 		return array( $target, $query );
 	}
 
@@ -802,7 +809,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			// First try cache data from preivous query
 			if ( isset( $this->bundleData['last-raw-data'] ) ) {
 				$data = $this->bundleData['last-raw-data'];
-			// Then try to query the storage
+				// Then try to query the storage
 			} else {
 				$eventMapper = new EchoEventMapper();
 				$data = $eventMapper->fetchByUserBundleHash(
@@ -867,8 +874,8 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			if ( $this->bundleData['agent-other-count'] > $wgEchoMaxNotificationCount ) {
 				$message->params(
 					$this->getMessage( 'echo-notification-count' )
-					->numParams( $wgEchoMaxNotificationCount )
-					->text()
+						->numParams( $wgEchoMaxNotificationCount )
+						->text()
 				);
 			} else {
 				$message->numParams( $this->bundleData['agent-other-count'] );
@@ -884,7 +891,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 				$message->params( $this->getMessage( 'echo-no-title' )->text() );
 			} else {
 				if ( $this->outputFormat === 'htmlemail' ) {
-					$props = array (
+					$props = array(
 						'attribs' => array( 'style' => $this->getHTMLLinkStyle() )
 					);
 					$this->setTitleLink( $event, $message, $props );
@@ -919,6 +926,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 		if ( !property_exists( $this, $key ) ) {
 			throw new MWException( "Call to non-existing property $key in " . get_class( $this ) );
 		}
+
 		return $this->$key;
 	}
 

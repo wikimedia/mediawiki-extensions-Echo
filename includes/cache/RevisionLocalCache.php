@@ -18,6 +18,7 @@ class EchoRevisionLocalCache extends EchoLocalCache {
 		if ( !self::$instance ) {
 			self::$instance = new EchoRevisionLocalCache();
 		}
+
 		return self::$instance;
 	}
 

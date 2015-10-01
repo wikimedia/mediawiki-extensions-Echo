@@ -69,7 +69,7 @@ class EchoUserNotificationGateway {
 			array( 'notification_read_timestamp' => $dbw->timestamp( wfTimestampNow() ) ),
 			array(
 				'notification_user' => $this->user->getId(),
-				'notification_read_timestamp' => NULL,
+				'notification_read_timestamp' => null,
 				'notification_bundle_base' => 1,
 			),
 			__METHOD__

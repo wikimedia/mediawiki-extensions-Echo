@@ -87,20 +87,20 @@ abstract class EchoDiscussionParser {
 		$found = false;
 
 		foreach ( $interpretation as $action ) {
-			switch( $action['type'] ) {
+			switch ( $action['type'] ) {
 				case 'add-comment':
-					$header  = self::extractHeader( $action['full-section'] );
+					$header = self::extractHeader( $action['full-section'] );
 					$snippet = self::getTextSnippet(
-							self::stripSignature( self::stripHeader( $action['content'] ), $title ),
-							$wgLang,
-							150 );
+						self::stripSignature( self::stripHeader( $action['content'] ), $title ),
+						$wgLang,
+						150 );
 					break;
 				case 'new-section-with-comment':
-					$header  = self::extractHeader( $action['content'] );
+					$header = self::extractHeader( $action['content'] );
 					$snippet = self::getTextSnippet(
-							self::stripSignature( self::stripHeader( $action['content'] ), $title ),
-							$wgLang,
-							150 );
+						self::stripSignature( self::stripHeader( $action['content'] ), $title ),
+						$wgLang,
+						150 );
 					break;
 			}
 			if ( $header ) {
@@ -116,6 +116,7 @@ abstract class EchoDiscussionParser {
 		if ( $found === false ) {
 			return array( 'section-title' => '', 'section-text' => '' );
 		}
+
 		return array( 'section-title' => $header, 'section-text' => $snippet );
 	}
 
@@ -238,6 +239,7 @@ abstract class EchoDiscussionParser {
 		$output = self::interpretDiff( $changes, $user->getName(), $revision->getTitle() );
 
 		self::$revisionInterpretationCache[$revision->getID()] = $output;
+
 		return $output;
 	}
 
@@ -437,12 +439,14 @@ abstract class EchoDiscussionParser {
 		$output = self::getUserFromLine( $text, $title );
 		if ( $output === false ) {
 			$timestampPos = self::getTimestampPosition( $text );
+
 			return substr( $text, 0, $timestampPos );
 		}
 
 		// Use truncate() instead of truncateHTML() because truncateHTML()
 		// would not strip signature if the text contains < or &
 		global $wgContLang;
+
 		return $wgContLang->truncate( $text, $output[0], '' );
 	}
 
@@ -545,6 +549,7 @@ abstract class EchoDiscussionParser {
 		if ( !isset( self::$diffParser ) ) {
 			self::$diffParser = new EchoDiffParser;
 		}
+
 		return self::$diffParser->getChangeSet( $oldText, $newText );
 	}
 
@@ -667,7 +672,6 @@ abstract class EchoDiscussionParser {
 			if ( $pos !== false ) {
 				return array( $pos, $username );
 			}
-
 			// couldn't find sig, move on to next link excerpt and try there
 		}
 
@@ -841,7 +845,7 @@ abstract class EchoDiscussionParser {
 			}
 			$tempStr = substr( $text, 0, $closeCurPos + 2 );
 
-			$openCurPos = strrpos( $tempStr,  '{{' );
+			$openCurPos = strrpos( $tempStr, '{{' );
 			if ( $openCurPos === false ) {
 				$text = substr_replace( $text, '', $closeCurPos, 2 );
 			} else {

@@ -4,7 +4,7 @@
  *
  * @ingroup Maintenance
  */
-require_once ( getenv( 'MW_INSTALL_PATH' ) !== false
+require_once( getenv( 'MW_INSTALL_PATH' ) !== false
 	? getenv( 'MW_INSTALL_PATH' ) . '/maintenance/Maintenance.php'
 	: dirname( __FILE__ ) . '/../../../maintenance/Maintenance.php' );
 
@@ -21,6 +21,7 @@ class removeInvalidNotification extends Maintenance {
 	public function execute() {
 		if ( !$this->invalidEventType ) {
 			$this->output( "There is nothing to process\n" );
+
 			return;
 		}
 
@@ -44,7 +45,7 @@ class removeInvalidNotification extends Maintenance {
 
 			$event = array();
 			$count = 0;
-			foreach( $res as $row ) {
+			foreach ( $res as $row ) {
 				if ( !in_array( $row->event_id, $event ) ) {
 					$event[] = $row->event_id;
 				}

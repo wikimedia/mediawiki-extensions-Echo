@@ -152,6 +152,7 @@ abstract class EchoEmailMode {
 	 */
 	public function buildFooter() {
 		global $wgEchoEmailFooterAddress;
+
 		return $this->decorator->decorateFooter( $wgEchoEmailFooterAddress, $this->user );
 	}
 
@@ -217,7 +218,7 @@ class EchoEmailSingle extends EchoEmailMode {
 	 * @param $user User
 	 */
 	public function __construct( EchoBasicFormatter $notifFormatter, EchoEvent $event, User $user ) {
-		parent::__construct( $user, array ( 'emailIcon', 'intro', 'summary', 'action' ) );
+		parent::__construct( $user, array( 'emailIcon', 'intro', 'summary', 'action' ) );
 		$this->notifFormatter = $notifFormatter;
 		$this->event = $event;
 	}
@@ -228,7 +229,7 @@ class EchoEmailSingle extends EchoEmailMode {
 	 */
 	public function buildIntro() {
 		$bundle = $this->notifFormatter->getValue( 'bundleData' );
-		$email  = $this->notifFormatter->getValue( 'email' );
+		$email = $this->notifFormatter->getValue( 'email' );
 
 		if ( $bundle['use-bundle'] && $email['batch-bundle-body']['message'] ) {
 			$detail = $email['batch-bundle-body'];
@@ -285,6 +286,7 @@ class EchoEmailSingle extends EchoEmailMode {
 
 		// Add some spacing between the two action links
 		$spacing = $this->decorator->getActionLinkSeparator();
+
 		return implode( $spacing . $spacing, $link );
 	}
 
@@ -316,6 +318,7 @@ EOF;
 	 */
 	public function getHTMLTemplate() {
 		$alignStart = $this->lang->alignStart();
+
 		return <<< EOF
 <html><head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -474,6 +477,7 @@ EOF;
 	 */
 	public function getHTMLTemplate() {
 		$alignStart = $this->lang->alignStart();
+
 		return <<< EOF
 <html><head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -627,11 +631,11 @@ class EchoTextEmailDecorator implements EchoEmailDecorator {
 		$result = array();
 
 		// build the text section for each category
-		foreach( $digestList as $category => $notifs ) {
+		foreach ( $digestList as $category => $notifs ) {
 			$output = EchoEmailMode::message( 'echo-category-title-' . $category, $user )->numParams( count( $notifs ) )->text()
 				. EchoEmailMode::message( 'colon-separator', $user )->text() . "\n";
 
-			foreach( $notifs as $notif ) {
+			foreach ( $notifs as $notif ) {
 				$output .= "\n " . EchoEmailMode::message( 'echo-email-batch-bullet', $user )->text() . ' ' . $notif['batch-body'];
 			}
 			$result[] = $output;
@@ -652,11 +656,11 @@ class EchoTextEmailDecorator implements EchoEmailDecorator {
 	 * {@inheritDoc}
 	 */
 	public function decorateDigestAction( $title, User $user ) {
-		return EchoEmailMode::message( 'echo-email-batch-link-text-view-all-notifications', $user )->text()
-			. EchoEmailMode::message( 'colon-separator', $user )->text()
-			. '<'
-			. $title->getFullURL( '', false, PROTO_CANONICAL )
-			. '>';
+		return EchoEmailMode::message( 'echo-email-batch-link-text-view-all-notifications', $user )->text() .
+			EchoEmailMode::message( 'colon-separator', $user )->text() .
+			'<' .
+			$title->getFullURL( '', false, PROTO_CANONICAL ) .
+			'>';
 	}
 
 	/**
@@ -664,11 +668,11 @@ class EchoTextEmailDecorator implements EchoEmailDecorator {
 	 */
 	public function decorateFooter( $address, User $user ) {
 		return EchoEmailMode::message( 'echo-email-footer-default', $user )
-				->params(
-					$address,
-					EchoEmailMode::message( 'echo-email-batch-separator', $user )->text()
-				)
-				->text();
+			->params(
+				$address,
+				EchoEmailMode::message( 'echo-email-batch-separator', $user )->text()
+			)
+			->text();
 	}
 
 	/**
@@ -677,11 +681,11 @@ class EchoTextEmailDecorator implements EchoEmailDecorator {
 	public function decorateSingleAction( $notifFormatter, EchoEvent $event, User $user, $rank, $message ) {
 		$url = $notifFormatter->getLink( $event, $user, $rank, false, true );
 
-		return EchoEmailMode::message( $message, $user )->text()
-			. EchoEmailMode::message( 'colon-separator', $user )->text()
-			. '<'
-			. $notifFormatter->sanitizeEmailLink( $url )
-			. '>';
+		return EchoEmailMode::message( $message, $user )->text() .
+			EchoEmailMode::message( 'colon-separator', $user )->text() .
+			'<' .
+			$notifFormatter->sanitizeEmailLink( $url ) .
+			'>';
 	}
 
 	/**
@@ -719,13 +723,13 @@ class EchoHTMLEmailDecorator implements EchoEmailDecorator {
 	public function decorateDigestList( $digestList, User $user ) {
 		$result = array();
 		// build the html section for each category
-		foreach( $digestList as $category => $notifs ) {
+		foreach ( $digestList as $category => $notifs ) {
 			$output = $this->applyStyleToCategory(
 				EchoEmailMode::message( 'echo-category-title-' . $category, $user )
 					->numParams( count( $notifs ) )
 					->escaped()
 			);
-			foreach( $notifs as $notif ) {
+			foreach ( $notifs as $notif ) {
 				$output .= "\n" . $this->applyStyleToEvent( $notif );
 			}
 			$result[] = '<table border="0" width="100%">' . $output . '</table>';
@@ -765,10 +769,11 @@ class EchoHTMLEmailDecorator implements EchoEmailDecorator {
 	public function decorateFooter( $address, User $user ) {
 		$title = SpecialPage::getTitleFor( 'Preferences' );
 		$title->setFragment( "#mw-prefsection-echo" );
+
 		return EchoEmailMode::message( 'echo-email-footer-default-html', $user )
-				->params( $address )
-				->rawParams( $title->getFullURL( '', false, PROTO_HTTPS ) )
-				->text();
+			->params( $address )
+			->rawParams( $title->getFullURL( '', false, PROTO_HTTPS ) )
+			->text();
 	}
 
 	/**

@@ -35,7 +35,8 @@ class EchoTargetPage extends EchoAbstractEntity {
 	/**
 	 * Only allow creating instance internally
 	 */
-	protected function __construct() {}
+	protected function __construct() {
+	}
 
 	/**
 	 * Create a EchoTargetPage instance from User, Title and EchoEvent
@@ -56,6 +57,7 @@ class EchoTargetPage extends EchoAbstractEntity {
 		$obj->eventId = $event->getId();
 		$obj->title = $title;
 		$obj->pageId = $title->getArticleID();
+
 		return $obj;
 	}
 
@@ -67,7 +69,7 @@ class EchoTargetPage extends EchoAbstractEntity {
 	 * @throws MWException
 	 */
 	public static function newFromRow( $row ) {
-		$requiredFields = array (
+		$requiredFields = array(
 			'etp_user',
 			'etp_page',
 			'etp_event'
@@ -81,6 +83,7 @@ class EchoTargetPage extends EchoAbstractEntity {
 		$obj->user = User::newFromId( $row->etp_user );
 		$obj->pageId = $row->etp_page;
 		$obj->eventId = $row->etp_event;
+
 		return $obj;
 	}
 
@@ -98,6 +101,7 @@ class EchoTargetPage extends EchoAbstractEntity {
 		if ( !$this->title ) {
 			$this->title = Title::newFromId( $this->pageId );
 		}
+
 		return $this->title;
 	}
 
@@ -115,6 +119,7 @@ class EchoTargetPage extends EchoAbstractEntity {
 		if ( !$this->event ) {
 			$this->event = EchoEvent::newFromID( $this->eventId );
 		}
+
 		return $this->event;
 	}
 
@@ -130,7 +135,7 @@ class EchoTargetPage extends EchoAbstractEntity {
 	 * @return array
 	 */
 	public function toDbArray() {
-		return array (
+		return array(
 			'etp_user' => $this->user->getId(),
 			'etp_page' => $this->pageId,
 			'etp_event' => $this->eventId

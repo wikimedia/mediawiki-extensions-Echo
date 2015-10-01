@@ -5,6 +5,7 @@ class MWEchoDbFactoryTest extends MediaWikiTestCase {
 	public function testNewFromDefault() {
 		$db = MWEchoDbFactory::newFromDefault();
 		$this->assertInstanceOf( 'MWEchoDbFactory', $db );
+
 		return $db;
 	}
 

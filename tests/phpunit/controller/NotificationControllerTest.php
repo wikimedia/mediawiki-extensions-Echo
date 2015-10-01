@@ -25,7 +25,9 @@ class NotificationControllerTest extends MediaWikiTestCase {
 				// expected result
 				array( array( 123 ) ),
 				// event user locator config
-				function() { return array( 123 => 123 ); }
+				function () {
+					return array( 123 => 123 );
+				}
 			),
 
 			array(
@@ -34,8 +36,12 @@ class NotificationControllerTest extends MediaWikiTestCase {
 				array( array( 123 ), array( 456 ) ),
 				// event user locator config
 				array(
-					function() { return array( 123 => 123 ); },
-					function() { return array( 456 => 456 ); },
+					function () {
+						return array( 123 => 123 );
+					},
+					function () {
+						return array( 456 => 456 );
+					},
 				),
 			),
 
@@ -48,7 +54,7 @@ class NotificationControllerTest extends MediaWikiTestCase {
 					array( 'EchoUserLocator::locateFromEventExtra', array( 'other-user' ) ),
 				),
 				// additional setup
-				function( $test, $event ) {
+				function ( $test, $event ) {
 					$event->expects( $test->any() )
 						->method( 'getExtraParam' )
 						->with( 'other-user' )
@@ -87,7 +93,7 @@ class NotificationControllerTest extends MediaWikiTestCase {
 
 	public function testEvaluateUserLocatorPassesParameters() {
 		$test = $this;
-		$callback = function( $event, $firstOption, $secondOption ) use( $test ) {
+		$callback = function ( $event, $firstOption, $secondOption ) use ( $test ) {
 			$test->assertInstanceOf( 'EchoEvent', $event );
 			$test->assertEquals( 'first', $firstOption );
 			$test->assertEquals( 'second', $secondOption );
@@ -141,7 +147,9 @@ class NotificationControllerTest extends MediaWikiTestCase {
 		$this->setMwGlobals( array(
 			'wgEchoNotifications' => array(
 				'unit-test' => array(
-					'user-locators' => function() use( $users ) { return $users; },
+					'user-locators' => function () use ( $users ) {
+						return $users;
+					},
 				),
 			),
 		) );

@@ -40,10 +40,11 @@ class EchoNotificationDeleteJob extends Job {
 				$jobs[] = new EchoNotificationDeleteJob( $this->title, array( 'userIds' => array( $userId ) ) );
 			}
 			JobQueueGroup::singleton()->push( $jobs );
+
 			return true;
 		}
 
-		$notifMapper  = new EchoNotificationMapper();
+		$notifMapper = new EchoNotificationMapper();
 		$targetMapper = new EchoTargetPageMapper();
 
 		// Back-compat for older jobs which used array( $userId => $userId );
@@ -65,6 +66,7 @@ class EchoNotificationDeleteJob extends Job {
 				$notifUser->resetNotificationCount( DB_MASTER );
 			}
 		}
+
 		return true;
 	}
 

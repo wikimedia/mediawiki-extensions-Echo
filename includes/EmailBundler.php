@@ -67,6 +67,7 @@ class MWEchoEmailBundler {
 		if ( !$hash || !preg_match( '/^[a-f0-9]{32}$/', $hash ) ) {
 			return false;
 		}
+
 		return new self( $user, $hash );
 	}
 
@@ -90,6 +91,7 @@ class MWEchoEmailBundler {
 		if ( !$this->baseEvent && $this->shouldSendEmailNow() ) {
 			$this->timestamp = wfTimestampNow();
 			$this->updateEmailMetadata();
+
 			return false;
 		} else {
 			// add to email batch queue
@@ -103,6 +105,7 @@ class MWEchoEmailBundler {
 			// always push the job to job queue in case the previous job
 			// was lost, job queue will ignore duplicate
 			$this->pushToJobQueue( $this->getDelayTime() );
+
 			return true;
 		}
 	}
@@ -143,6 +146,7 @@ class MWEchoEmailBundler {
 		if ( $delay <= 0 ) {
 			$delay = 0;
 		}
+
 		return $delay;
 	}
 
@@ -186,6 +190,7 @@ class MWEchoEmailBundler {
 			return false;
 		}
 		$this->baseEvent = EchoEvent::newFromId( $res->eeb_event_id );
+
 		return true;
 	}
 
@@ -260,6 +265,7 @@ class MWEchoEmailBundler {
 			return '';
 		}
 		$this->baseEvent->setBundleHash( $this->bundleHash );
+
 		return EchoNotificationController::formatNotification( $this->baseEvent, $this->mUser, 'email', 'email' );
 	}
 

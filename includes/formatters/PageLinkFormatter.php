@@ -147,8 +147,8 @@ class EchoPageLinkFormatter extends EchoBasicFormatter {
 				if ( $this->bundleData['link-from-page-other-count'] > $wgEchoMaxNotificationCount ) {
 					$message->params(
 						$this->getMessage( 'echo-notification-count' )
-						->numParams( $wgEchoMaxNotificationCount )
-						->text()
+							->numParams( $wgEchoMaxNotificationCount )
+							->text()
 					);
 				} else {
 					$message->numParams( $this->bundleData['link-from-page-other-count'] );
@@ -194,6 +194,7 @@ class EchoPageLinkFormatter extends EchoBasicFormatter {
 			default:
 				return parent::getLinkParams( $event, $user, $destination );
 		}
+
 		return array( $target, $query );
 	}
 }

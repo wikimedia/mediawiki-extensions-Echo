@@ -18,6 +18,7 @@ class SuppressionMaintenanceTest extends MediaWikiTestCase {
 			'event_extra' => null,
 			'event_page_id' => null,
 		);
+
 		return array(
 			array( 'Unrelated row must result in no update', array(), $input ),
 
@@ -99,7 +100,7 @@ class SuppressionMaintenanceTest extends MediaWikiTestCase {
 	}
 
 	protected static function attachTitleFor( $id, $providedText, $providedNamespace ) {
-		return function( $test, $gen ) use ( $id, $providedText, $providedNamespace ) {
+		return function ( $test, $gen ) use ( $id, $providedText, $providedNamespace ) {
 			$title = $test->getMock( 'Title' );
 			$title->expects( $test->any() )
 				->method( 'getArticleId' )
@@ -107,10 +108,11 @@ class SuppressionMaintenanceTest extends MediaWikiTestCase {
 
 			$titles = array( $providedNamespace => array( $providedText => $title ) );
 
-			$gen->setNewTitleFromText( function( $text, $defaultNamespace ) use( $titles ) {
+			$gen->setNewTitleFromText( function ( $text, $defaultNamespace ) use ( $titles ) {
 				if ( isset( $titles[$defaultNamespace][$text] ) ) {
 					return $titles[$defaultNamespace][$text];
 				}
+
 				return Title::newFromText( $text, $defaultNamespace );
 			} );
 		};
@@ -124,7 +126,7 @@ class SuppressionMaintenanceTest extends MediaWikiTestCase {
 		if ( $callable ) {
 			call_user_func( $callable, $this, $gen );
 		}
-		$update = $gen->update( (object) $input );
+		$update = $gen->update( (object)$input );
 		$this->assertEquals( $expected, $update, $message );
 	}
 }

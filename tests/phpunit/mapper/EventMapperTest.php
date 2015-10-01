@@ -3,20 +3,20 @@
 class EchoEventMapperTest extends MediaWikiTestCase {
 
 	public function provideDataTestInsert() {
-		return array (
-			array (
+		return array(
+			array(
 				'successful insert with next sequence = 1',
-				array ( 'nextSequenceValue' => 1, 'insert' => true, 'insertId' => 2 ),
+				array( 'nextSequenceValue' => 1, 'insert' => true, 'insertId' => 2 ),
 				1
 			),
-			array (
+			array(
 				'successful insert with insert id = 2',
-				array ( 'nextSequenceValue' => null, 'insert' => true, 'insertId' => 2 ),
+				array( 'nextSequenceValue' => null, 'insert' => true, 'insertId' => 2 ),
 				2
 			),
-			array (
+			array(
 				'unsuccessful insert',
-				array ( 'nextSequenceValue' => null, 'insert' => false, 'insertId' => 2 ),
+				array( 'nextSequenceValue' => null, 'insert' => false, 'insertId' => 2 ),
 				false
 			),
 		);
@@ -38,7 +38,7 @@ class EchoEventMapperTest extends MediaWikiTestCase {
 		$eventMapper = new EchoEventMapper(
 			$this->mockMWEchoDbFactory(
 				array(
-					'selectRow' => (object)array (
+					'selectRow' => (object)array(
 						'event_id' => 1,
 						'event_type' => 'test',
 						'event_variant' => '',
@@ -72,14 +72,14 @@ class EchoEventMapperTest extends MediaWikiTestCase {
 	public function testFetchByUserBundleHash() {
 		// Unsuccessful select
 		$event = $this->mockEchoEvent();
-		$eventMapper = new EchoEventMapper( $this->mockMWEchoDbFactory( array ( 'select' => false ) ) );
+		$eventMapper = new EchoEventMapper( $this->mockMWEchoDbFactory( array( 'select' => false ) ) );
 		$res = $eventMapper->fetchByUserBundleHash( User::newFromId( 1 ), 'testhash', 'web', 'DESC', 250 );
 		$this->assertFalse( $res );
 
 		// Successful select
 		$event = $this->mockEchoEvent();
-		$dbResult = array (
-			(object)array (
+		$dbResult = array(
+			(object)array(
 				'event_id' => 1,
 				'event_type' => 'test',
 				'event_variant' => '',
@@ -88,7 +88,7 @@ class EchoEventMapperTest extends MediaWikiTestCase {
 				'event_agent_id' => '',
 				'event_agent_ip' => ''
 			),
-			(object)array (
+			(object)array(
 				'event_id' => 2,
 				'event_type' => 'test2',
 				'event_variant' => '',
@@ -98,7 +98,7 @@ class EchoEventMapperTest extends MediaWikiTestCase {
 				'event_agent_ip' => ''
 			)
 		);
-		$eventMapper = new EchoEventMapper( $this->mockMWEchoDbFactory( array ( 'select' => $dbResult ) ) );
+		$eventMapper = new EchoEventMapper( $this->mockMWEchoDbFactory( array( 'select' => $dbResult ) ) );
 		$res = $eventMapper->fetchByUserBundleHash( User::newFromId( 1 ), 'testhash', 'web', 'DESC', 250 );
 		$this->assertTrue( is_array( $res ) );
 		foreach ( $res as $row ) {
@@ -116,6 +116,7 @@ class EchoEventMapperTest extends MediaWikiTestCase {
 		$event->expects( $this->any() )
 			->method( 'toDbArray' )
 			->will( $this->returnValue( array() ) );
+
 		return $event;
 	}
 
@@ -129,6 +130,7 @@ class EchoEventMapperTest extends MediaWikiTestCase {
 		$dbFactory->expects( $this->any() )
 			->method( 'getEchoDb' )
 			->will( $this->returnValue( $this->mockDb( $dbResult ) ) );
+
 		return $dbFactory;
 	}
 
@@ -161,6 +163,7 @@ class EchoEventMapperTest extends MediaWikiTestCase {
 		$db->expects( $this->any() )
 			->method( 'selectRow' )
 			->will( $this->returnValue( $dbResult['selectRow'] ) );
+
 		return $db;
 	}
 

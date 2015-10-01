@@ -92,6 +92,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 				$user, $sectionEvents, $limit, $continue, $format, $unreadFirst
 			);
 		}
+
 		return $result;
 	}
 
@@ -182,6 +183,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 				$result[$section]['count'] = EchoNotificationController::formatNotificationCount( $rawCount );
 			}
 		}
+
 		return $result;
 	}
 
@@ -198,6 +200,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 				$result[] = $key;
 			}
 		}
+
 		return $result;
 	}
 
@@ -249,6 +252,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 				ApiBase::PARAM_DFLT => false,
 			);
 		}
+
 		return $params;
 	}
 

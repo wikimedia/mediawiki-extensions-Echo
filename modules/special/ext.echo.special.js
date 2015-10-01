@@ -80,7 +80,7 @@
 				unread = [];
 
 				$.each( notifications.index, function ( index, id ) {
-					data = notifications.list[id];
+					data = notifications.list[ id ];
 
 					if ( that.header !== data.timestamp.date ) {
 						that.header = data.timestamp.date;
@@ -116,7 +116,7 @@
 					);
 				} );
 
-				that.notcontinue = notifications['continue'];
+				that.notcontinue = notifications[ 'continue' ];
 				if ( unread.length > 0 ) {
 					that.markAsRead( unread );
 				} else {

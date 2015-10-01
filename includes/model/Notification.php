@@ -52,7 +52,8 @@ class EchoNotification extends EchoAbstractEntity {
 	/**
 	 * Do not use this constructor.
 	 */
-	protected function __construct() {}
+	protected function __construct() {
+	}
 
 	/**
 	 * Creates an EchoNotification object based on event and user
@@ -137,7 +138,7 @@ class EchoNotification extends EchoAbstractEntity {
 		$user = $this->user;
 		$targetPages = self::resolveTargetPages( $event->getExtraParam( 'target-page' ) );
 		if ( $targetPages ) {
-			$notifMapper->attachListener( 'insert', 'add-target-page', function() use ( $event, $user, $eventIds, $targetPages ) {
+			$notifMapper->attachListener( 'insert', 'add-target-page', function () use ( $event, $user, $eventIds, $targetPages ) {
 				$targetMapper = new EchoTargetPageMapper();
 				if ( $eventIds ) {
 					$targetMapper->deleteByUserEvents( $user, $eventIds );
@@ -156,7 +157,7 @@ class EchoNotification extends EchoAbstractEntity {
 
 		// Add listener to refresh notification count upon insert
 		$notifMapper->attachListener( 'insert', 'refresh-notif-count',
-			function() use ( $notifUser, $section ) {
+			function () use ( $notifUser, $section ) {
 				$notifUser->resetNotificationCount( DB_MASTER );
 				if ( $section === EchoAttributeManager::MESSAGE && !$notifUser->hasMessages() ) {
 					$notifUser->cacheHasMessages();
@@ -195,6 +196,7 @@ class EchoNotification extends EchoAbstractEntity {
 				$result[] = $title;
 			}
 		}
+
 		return $result;
 	}
 
@@ -225,6 +227,7 @@ class EchoNotification extends EchoAbstractEntity {
 		$notification->bundleBase = $row->notification_bundle_base;
 		$notification->bundleHash = $row->notification_bundle_hash;
 		$notification->bundleDisplayHash = $row->notification_bundle_display_hash;
+
 		return $notification;
 	}
 

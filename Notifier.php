@@ -75,6 +75,7 @@ class EchoNotifier {
 					$bundleHash = md5( $event->getType() . '-' . $event->getId() );
 				}
 				MWEchoEmailBatch::addToQueue( $user->getId(), $event->getId(), $priority, $bundleHash );
+
 				return true;
 			}
 

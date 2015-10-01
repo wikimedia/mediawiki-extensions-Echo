@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @group Echo
  * @group DataBase
@@ -29,7 +30,7 @@ class EchoTalkPageFunctionalTest extends ApiTestCase {
 		);
 
 		$messageCount = 0;
-		$this->assertCount($messageCount, $this->fetchAllEvents() );
+		$this->assertCount( $messageCount, $this->fetchAllEvents() );
 
 		// Start a talkpage
 		$content = "== Section 8 ==\n\n" . $this->signedMessage( $editor, $messages[$messageCount] );
@@ -37,7 +38,7 @@ class EchoTalkPageFunctionalTest extends ApiTestCase {
 
 		// Ensure the proper event was created
 		$events = $this->fetchAllEvents();
-		$this->assertCount(1 + $messageCount, $events, 'After initial edit a single event must exist.'); // +1 is due to 0 index
+		$this->assertCount( 1 + $messageCount, $events, 'After initial edit a single event must exist.' ); // +1 is due to 0 index
 		$row = array_shift( $events );
 		$this->assertEquals( 'edit-user-talk', $row->event_type );
 		$this->assertEventSectionTitle( 'Section 8', $row );
@@ -49,7 +50,7 @@ class EchoTalkPageFunctionalTest extends ApiTestCase {
 
 		// Ensure another event was created
 		$events = $this->fetchAllEvents();
-		$this->assertCount(1 + $messageCount, $events);
+		$this->assertCount( 1 + $messageCount, $events );
 		$row = array_shift( $events );
 		$this->assertEquals( 'edit-user-talk', $row->event_type );
 		$this->assertEventSectionTitle( 'Section 8', $row );
@@ -61,7 +62,7 @@ class EchoTalkPageFunctionalTest extends ApiTestCase {
 
 		// Ensure this event has the new section title
 		$events = $this->fetchAllEvents();
-		$this->assertCount(1 + $messageCount, $events);
+		$this->assertCount( 1 + $messageCount, $events );
 		$row = array_pop( $events );
 		$this->assertEquals( 'edit-user-talk', $row->event_type );
 		$this->assertEventSectionTitle( 'EE', $row );
@@ -84,7 +85,7 @@ class EchoTalkPageFunctionalTest extends ApiTestCase {
 	}
 
 	protected function signedMessage( $name, $content = 'Moar cowbell', $depth = 1 ) {
-		return str_repeat(':', $depth)." $content [[User:$name|$name]] ([[User talk:$name|$name]]) 00:17, 7 May 2013 (UTC)\n";
+		return str_repeat( ':', $depth ) . " $content [[User:$name|$name]] ([[User talk:$name|$name]]) 00:17, 7 May 2013 (UTC)\n";
 	}
 
 }

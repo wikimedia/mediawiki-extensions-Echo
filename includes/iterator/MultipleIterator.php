@@ -48,6 +48,7 @@ class EchoMultipleIterator implements RecursiveIterator {
 		foreach ( $this->active as $it ) {
 			$result[] = $it->current();
 		}
+
 		return $result;
 	}
 

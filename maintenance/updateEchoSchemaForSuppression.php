@@ -5,7 +5,7 @@
  *
  * @ingroup Maintenance
  */
-require_once ( getenv( 'MW_INSTALL_PATH' ) !== false
+require_once( getenv( 'MW_INSTALL_PATH' ) !== false
 	? getenv( 'MW_INSTALL_PATH' ) . '/maintenance/Maintenance.php'
 	: __DIR__ . '/../../../maintenance/Maintenance.php' );
 
@@ -59,4 +59,4 @@ class UpdateEchoSchemaForSuppression extends Maintenance {
 }
 
 $maintClass = 'UpdateEchoSchemaForSuppression'; // Tells it to run the class
-require_once ( RUN_MAINTENANCE_IF_MAIN );
+require_once( RUN_MAINTENANCE_IF_MAIN );

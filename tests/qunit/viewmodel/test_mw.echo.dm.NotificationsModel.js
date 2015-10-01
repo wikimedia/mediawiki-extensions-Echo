@@ -5,7 +5,7 @@
 		var j, jlen;
 
 		for ( j = 0, jlen = testPrepare.length; j < jlen; j++ ) {
-			model[ testPrepare[j].method ].apply( model, testPrepare[j].params );
+			model[ testPrepare[ j ].method ].apply( model, testPrepare[ j ].params );
 		}
 	}
 
@@ -18,7 +18,10 @@
 							method: 'addItems',
 							params: [
 								[
-									new mw.echo.dm.NotificationItem( 1, { content: '1', timestamp: '20150828172900' } ),
+									new mw.echo.dm.NotificationItem( 1, {
+										content: '1',
+										timestamp: '20150828172900'
+									} ),
 									new mw.echo.dm.NotificationItem( 2, { content: '2', timestamp: '20150828172900' } )
 								]
 							]
@@ -36,7 +39,10 @@
 							method: 'addItems',
 							params: [
 								[
-									new mw.echo.dm.NotificationItem( 1, { content: '1', timestamp: '20150828172900' } ),
+									new mw.echo.dm.NotificationItem( 1, {
+										content: '1',
+										timestamp: '20150828172900'
+									} ),
 									new mw.echo.dm.NotificationItem( 2, { content: '2', timestamp: '20150828172900' } )
 									// TODO: This should actually work, but due to a bug in List, the 'don't add items twice'
 									// only works when we explicitly request to add the item a separate second time.
@@ -72,14 +78,14 @@
 				userLang: 'en'
 			} );
 
-			test = cases[i];
+			test = cases[ i ];
 
 			// Run preparation
 			runPreparation( model, test.prepare );
 
 			// Test
-			actual = model[ test.run.method ].apply( model, cases[i].run.params );
-			assert.equal( actual, cases[i].expect, cases[i].message );
+			actual = model[ test.run.method ].apply( model, cases[ i ].run.params );
+			assert.equal( actual, cases[ i ].expect, cases[ i ].message );
 		}
 	} );
 
@@ -109,7 +115,7 @@
 		assert.equal( model.getItemCount(), 10, 'Added initial number of notifications' );
 
 		// Remove notifications
-		model.removeItems( [ items[0], items[1], items[5] ] );
+		model.removeItems( [ items[ 0 ], items[ 1 ], items[ 5 ] ] );
 
 		// Test
 		assert.equal( model.getItemCount(), 7, 'Successfully deleted notifications' );
@@ -124,7 +130,10 @@
 							method: 'addItems',
 							params: [
 								[
-									new mw.echo.dm.NotificationItem( 1, { content: '1', timestamp: '20150828172900' } ),
+									new mw.echo.dm.NotificationItem( 1, {
+										content: '1',
+										timestamp: '20150828172900'
+									} ),
 									new mw.echo.dm.NotificationItem( 2, { content: '2', timestamp: '20150828172900' } )
 								]
 							]
@@ -150,14 +159,14 @@
 				userLang: 'en'
 			} );
 
-			test = cases[i];
+			test = cases[ i ];
 
 			// Run preparation
 			runPreparation( model, test.prepare );
 
 			// Test
-			actual = model[ test.run.method ].apply( model, cases[i].run.params );
-			assert.equal( actual, cases[i].expect, cases[i].message );
+			actual = model[ test.run.method ].apply( model, cases[ i ].run.params );
+			assert.equal( actual, cases[ i ].expect, cases[ i ].message );
 		}
 	} );
 

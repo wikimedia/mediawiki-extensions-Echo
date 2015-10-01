@@ -158,7 +158,7 @@
 
 		// Support adding existing items at new locations
 		for ( i = 0, len = items.length; i < len; i++ ) {
-			item = items[i];
+			item = items[ i ];
 			existingItem = this.getItemById( item.getId() );
 
 			// Check if item exists then remove it first, effectively "moving" it
@@ -181,7 +181,7 @@
 			}
 
 			// Add by reference
-			this.itemsById[ item.getId() ] = items[i];
+			this.itemsById[ item.getId() ] = items[ i ];
 		}
 
 		if ( index === undefined || index < 0 || index >= this.items.length ) {
@@ -220,8 +220,7 @@
 			index = this.items.indexOf( item );
 			if ( index !== -1 ) {
 				if (
-					item.connect && item.disconnect &&
-					!$.isEmptyObject( this.aggregateItemEvents )
+					item.connect && item.disconnect && !$.isEmptyObject( this.aggregateItemEvents )
 				) {
 					remove = {};
 					if ( Object.prototype.hasOwnProperty.call( this.aggregateItemEvents, itemEvent ) ) {
@@ -251,8 +250,7 @@
 		for ( i = 0, len = this.items.length; i < len; i++ ) {
 			item = this.items[ i ];
 			if (
-				item.connect && item.disconnect &&
-				!$.isEmptyObject( this.aggregateItemEvents )
+				item.connect && item.disconnect && !$.isEmptyObject( this.aggregateItemEvents )
 			) {
 				remove = {};
 				if ( Object.prototype.hasOwnProperty.call( this.aggregateItemEvents, itemEvent ) ) {

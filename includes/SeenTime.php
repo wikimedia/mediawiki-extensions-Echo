@@ -48,6 +48,7 @@ class EchoSeenTime {
 			foreach ( self::$allowedTypes as $allowed ) {
 				$vals[] = $this->getTime( $allowed );
 			}
+
 			return max( $vals );
 		}
 
@@ -72,6 +73,7 @@ class EchoSeenTime {
 		} else {
 			if ( $this->validateType( $type ) ) {
 				$key = wfMemcKey( 'echo', 'seen', $type, 'time', $this->user->getId() );
+
 				return $this->cache->set( $key, $time );
 			}
 		}

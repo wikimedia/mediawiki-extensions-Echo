@@ -54,7 +54,7 @@ class EchoAttributeManagerTest extends MediaWikiTestCase {
 	/**
 	 * @dataProvider getUserLocatorsProvider
 	 */
-	public function testGetUserLocators( $message, $expect, $type, $notifications) {
+	public function testGetUserLocators( $message, $expect, $type, $notifications ) {
 		$manager = new EchoAttributeManager( $notifications, array() );
 
 		$result = $manager->getUserLocators( $type );
@@ -63,19 +63,19 @@ class EchoAttributeManagerTest extends MediaWikiTestCase {
 
 	public function testGetCategoryEligibility() {
 		$notif = array(
-			'event_one' => array (
+			'event_one' => array(
 				'category' => 'category_one'
 			),
 		);
 		$category = array(
-			'category_one' => array (
+			'category_one' => array(
 				'priority' => 10
 			)
 		);
 		$manager = new EchoAttributeManager( $notif, $category );
 		$this->assertTrue( $manager->getCategoryEligibility( $this->mockUser(), 'category_one' ) );
 		$category = array(
-			'category_one' => array (
+			'category_one' => array(
 				'priority' => 10,
 				'usergroups' => array(
 					'sysop'
@@ -88,12 +88,12 @@ class EchoAttributeManagerTest extends MediaWikiTestCase {
 
 	public function testGetNotificationCategory() {
 		$notif = array(
-			'event_one' => array (
+			'event_one' => array(
 				'category' => 'category_one'
 			),
 		);
 		$category = array(
-			'category_one' => array (
+			'category_one' => array(
 				'priority' => 10
 			)
 		);
@@ -104,12 +104,12 @@ class EchoAttributeManagerTest extends MediaWikiTestCase {
 		$this->assertEquals( $manager->getNotificationCategory( 'event_one' ), 'other' );
 
 		$notif = array(
-			'event_one' => array (
+			'event_one' => array(
 				'category' => 'category_two'
 			),
 		);
 		$category = array(
-			'category_one' => array (
+			'category_one' => array(
 				'priority' => 10
 			)
 		);
@@ -119,21 +119,21 @@ class EchoAttributeManagerTest extends MediaWikiTestCase {
 
 	public function testGetCategoryPriority() {
 		$notif = array(
-			'event_one' => array (
+			'event_one' => array(
 				'category' => 'category_two'
 			),
 		);
 		$category = array(
-			'category_one' => array (
+			'category_one' => array(
 				'priority' => 6
 			),
-			'category_two' => array (
+			'category_two' => array(
 				'priority' => 100
 			),
-			'category_three' => array (
+			'category_three' => array(
 				'priority' => -10
 			),
-			'category_four' => array ()
+			'category_four' => array()
 		);
 		$manager = new EchoAttributeManager( $notif, $category );
 		$this->assertEquals( 6, $manager->getCategoryPriority( 'category_one' ) );
@@ -144,30 +144,30 @@ class EchoAttributeManagerTest extends MediaWikiTestCase {
 
 	public function testGetNotificationPriority() {
 		$notif = array(
-			'event_one' => array (
+			'event_one' => array(
 				'category' => 'category_one'
 			),
-			'event_two' => array (
+			'event_two' => array(
 				'category' => 'category_two'
 			),
-			'event_three' => array (
+			'event_three' => array(
 				'category' => 'category_three'
 			),
-			'event_four' => array (
+			'event_four' => array(
 				'category' => 'category_four'
 			)
 		);
 		$category = array(
-			'category_one' => array (
+			'category_one' => array(
 				'priority' => 6
 			),
-			'category_two' => array (
+			'category_two' => array(
 				'priority' => 100
 			),
-			'category_three' => array (
+			'category_three' => array(
 				'priority' => -10
 			),
-			'category_four' => array ()
+			'category_four' => array()
 		);
 		$manager = new EchoAttributeManager( $notif, $category );
 		$this->assertEquals( 6, $manager->getNotificationPriority( 'event_one' ) );
@@ -178,23 +178,23 @@ class EchoAttributeManagerTest extends MediaWikiTestCase {
 
 	public function testGetMessageEvents() {
 		$notif = array(
-			'event_one' => array (
+			'event_one' => array(
 				'category' => 'category_one',
 				'section' => 'message'
 			),
-			'event_two' => array (
+			'event_two' => array(
 				'category' => 'category_two'
 			),
-			'event_three' => array (
+			'event_three' => array(
 				'category' => 'category_three',
 				'section' => 'message'
 			),
-			'event_four' => array (
+			'event_four' => array(
 				'category' => 'category_four'
 			)
 		);
 		$category = array(
-			'category_one' => array (
+			'category_one' => array(
 				'priority' => 6
 			)
 		);
@@ -204,23 +204,23 @@ class EchoAttributeManagerTest extends MediaWikiTestCase {
 
 	public function testGetAlertEvents() {
 		$notif = array(
-			'event_one' => array (
+			'event_one' => array(
 				'category' => 'category_one',
 				'section' => 'message'
 			),
-			'event_two' => array (
+			'event_two' => array(
 				'category' => 'category_two'
 			),
-			'event_three' => array (
+			'event_three' => array(
 				'category' => 'category_three',
 				'section' => 'alert'
 			),
-			'event_four' => array (
+			'event_four' => array(
 				'category' => 'category_four'
 			)
 		);
 		$category = array(
-			'category_one' => array (
+			'category_one' => array(
 				'priority' => 6
 			)
 		);
@@ -230,30 +230,30 @@ class EchoAttributeManagerTest extends MediaWikiTestCase {
 
 	public function testGetUserEnabledEvents() {
 		$notif = array(
-			'event_one' => array (
+			'event_one' => array(
 				'category' => 'category_one'
 			),
-			'event_two' => array (
+			'event_two' => array(
 				'category' => 'category_two'
 			),
-			'event_three' => array (
+			'event_three' => array(
 				'category' => 'category_three'
 			),
 		);
 		$category = array(
-			'category_one' => array (
+			'category_one' => array(
 				'priority' => 10,
 				'usergroups' => array(
 					'sysop'
 				)
 			),
-			'category_two' => array (
+			'category_two' => array(
 				'priority' => 10,
 				'usergroups' => array(
 					'echo_group'
 				)
 			),
-			'category_three' => array (
+			'category_three' => array(
 				'priority' => 10,
 			),
 		);
@@ -263,29 +263,29 @@ class EchoAttributeManagerTest extends MediaWikiTestCase {
 
 	public function testGetUserEnabledEventsbySections() {
 		$notif = array(
-			'event_one' => array (
+			'event_one' => array(
 				'category' => 'category_one'
 			),
-			'event_two' => array (
+			'event_two' => array(
 				'category' => 'category_two',
 				'section' => 'message'
 			),
-			'event_three' => array (
+			'event_three' => array(
 				'category' => 'category_three',
 				'section' => 'alert'
 			),
-			'event_four' => array (
+			'event_four' => array(
 				'category' => 'category_three',
 			),
 		);
 		$category = array(
-			'category_one' => array (
+			'category_one' => array(
 				'priority' => 10,
 			),
-			'category_two' => array (
+			'category_two' => array(
 				'priority' => 10,
 			),
-			'category_three' => array (
+			'category_three' => array(
 				'priority' => 10
 			),
 		);
@@ -325,6 +325,7 @@ class EchoAttributeManagerTest extends MediaWikiTestCase {
 		$user->expects( $this->any() )
 			->method( 'getGroups' )
 			->will( $this->returnValue( array( 'echo_group' ) ) );
+
 		return $user;
 	}
 }

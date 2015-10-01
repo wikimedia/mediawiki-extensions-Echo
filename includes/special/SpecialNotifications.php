@@ -29,6 +29,7 @@ class SpecialNotifications extends SpecialPage {
 				SpecialPage::getTitleFor( 'Userlogin' )->getFullURL( $returnTo )
 			)->parse();
 			$out->addHTML( Html::rawElement( 'span', array( 'class' => 'plainlinks' ), $anonMsgHtml ) );
+
 			return;
 		}
 
@@ -56,6 +57,7 @@ class SpecialNotifications extends SpecialPage {
 		// If there are no notifications, display a message saying so
 		if ( !$notif ) {
 			$out->addWikiMsg( 'echo-none' );
+
 			return;
 		}
 
@@ -115,8 +117,8 @@ class SpecialNotifications extends SpecialPage {
 				'a',
 				array(
 					'href' => SpecialPage::getTitleFor( 'Notifications' )->getLinkURL(
-								array( 'continue' => $nextContinue )
-							),
+						array( 'continue' => $nextContinue )
+					),
 					'class' => 'mw-ui-button mw-ui-primary',
 					'id' => 'mw-echo-more'
 				),
@@ -136,7 +138,7 @@ class SpecialNotifications extends SpecialPage {
 		// For no-js support
 		$out->addModuleStyles( array( 'ext.echo.styles.notifications', 'ext.echo.styles.special' ) );
 
-		DeferredUpdates::addCallableUpdate( function() use ( $user, $echoSeenTime, $unread ) {
+		DeferredUpdates::addCallableUpdate( function () use ( $user, $echoSeenTime, $unread ) {
 			// Mark items as read
 			if ( $unread ) {
 				MWEchoNotifUser::newFromUser( $user )->markRead( $unread );
@@ -177,6 +179,7 @@ class SpecialNotifications extends SpecialPage {
 			),
 			$this->msg( 'preferences' )->text()
 		);
+
 		return $lang->pipeList( $subtitleLinks );
 	}
 

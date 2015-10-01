@@ -36,6 +36,7 @@ class MWEchoDbFactory {
 	 */
 	public static function newFromDefault() {
 		global $wgEchoCluster;
+
 		return new self( $wgEchoCluster );
 	}
 
@@ -88,7 +89,6 @@ class MWEchoDbFactory {
 		}
 
 		return $lb->getConnection( $db, $groups, $wiki );
-
 	}
 
 	/**

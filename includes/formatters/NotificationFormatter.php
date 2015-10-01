@@ -122,6 +122,7 @@ abstract class EchoNotificationFormatter {
 	protected function formatTimestamp( $ts ) {
 		$timestamp = new MWTimestamp( $ts );
 		$ts = $timestamp->getHumanTimestamp();
+
 		return $ts;
 	}
 

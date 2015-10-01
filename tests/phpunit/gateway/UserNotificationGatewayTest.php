@@ -74,6 +74,7 @@ class EchoUserNotificationGatewayTest extends MediaWikiTestCase {
 		$user->expects( $this->any() )
 			->method( 'getGroups' )
 			->will( $this->returnValue( array( $group ) ) );
+
 		return $user;
 	}
 
@@ -87,6 +88,7 @@ class EchoUserNotificationGatewayTest extends MediaWikiTestCase {
 		$dbFactory->expects( $this->any() )
 			->method( 'getEchoDb' )
 			->will( $this->returnValue( $this->mockDb( $dbResult ) ) );
+
 		return $dbFactory;
 	}
 
@@ -114,6 +116,7 @@ class EchoUserNotificationGatewayTest extends MediaWikiTestCase {
 		$db->expects( $this->any() )
 			->method( 'numRows' )
 			->will( $this->returnValue( count( $dbResult['select'] ) ) );
+
 		return $db;
 	}
 

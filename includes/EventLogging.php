@@ -46,7 +46,7 @@ class MWEchoEventLogging {
 		} else {
 			$group = 'neutral';
 		}
-		$data = array (
+		$data = array(
 			'version' => $wgEchoConfig['version'],
 			'eventId' => $event->getId(),
 			'notificationType' => $event->getType(),
@@ -60,7 +60,7 @@ class MWEchoEventLogging {
 		if ( isset( $extra['source'] ) ) {
 			$data['eventSource'] = (string)$extra['source'];
 		}
-		if( $deliveryMethod == 'email' ) {
+		if ( $deliveryMethod == 'email' ) {
 			$data['deliveryMethod'] = 'email';
 		} else {
 			// whitelist valid delivery methods so it is always valid
@@ -88,7 +88,7 @@ class MWEchoEventLogging {
 			return;
 		}
 
-		$data = array (
+		$data = array(
 			'version' => $wgEchoConfig['version'],
 			'recipientUserId' => $user->getId(),
 			'emailDeliveryMode' => $emailDeliveryMode
