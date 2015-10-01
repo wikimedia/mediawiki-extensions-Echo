@@ -133,6 +133,11 @@
 		}
 	};
 
+	/**
+	 * Count the unread messages that originate from the user talk page.
+	 *
+	 * @return {number} Number of unread talk page messages
+	 */
 	mw.echo.dm.NotificationsModel.prototype.countUnreadTalkPageNotifications = function () {
 		var i, len,
 			talk = 0,
