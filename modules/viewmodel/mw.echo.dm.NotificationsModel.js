@@ -127,6 +127,23 @@
 		if ( this.unreadNotifications.isEmpty() ) {
 			this.emit( 'allRead' );
 		}
+
+		if ( !this.countUnreadTalkPageNotifications() ) {
+			this.emit( 'allTalkRead' );
+		}
+	};
+
+	mw.echo.dm.NotificationsModel.prototype.countUnreadTalkPageNotifications = function () {
+		var i, len,
+			talk = 0,
+			items = this.unreadNotifications.getItems();
+
+		for ( i = 0, len = items.length; i < len; i++ ) {
+			if ( items[i].getCategory() === 'edit-user-talk' ) {
+				talk++;
+			}
+		}
+		return talk;
 	};
 
 	/**
