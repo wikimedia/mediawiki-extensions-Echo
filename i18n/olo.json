@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mashoi7"
+			"Mashoi7",
+			"Ilja.mos"
 		]
 	},
 	"echo-pref-send-me": "Työnnä minule:",
@@ -27,17 +28,17 @@
 	"notification-link-text-view-page": "Ozuta sivu",
 	"notification-link-text-view-edit": "Ozuta kohendus",
 	"notification-edit-talk-page2": "[[User:$1|$1]] {{GENDER:$1|kirjutti}} viestin [[User talk:$2#$3|sinun paginsivule]].",
-	"notification-edit-talk-page-with-section": "[[User:$1|$1]] {{GENDER:$1|jätti}} viestin sinun paginsivule sektah \"[[User talk:$2#$3|$4]]\".",
+	"notification-edit-talk-page-with-section": "[[User:$1|$1]] {{GENDER:$1|jätti}} viestin sinun paginsivule sektsieh \"[[User talk:$2#$3|$4]]\".",
 	"notification-edit-talk-page-flyout2": "$1 {{GENDER:$1|kirjutti}} viestin [[User talk:$2#$3|sinun paginsivule]].",
-	"notification-edit-talk-page-flyout-with-section": "$1 {{GENDER:$1|jätti}} viestin sinun paginsivule sektah \"[[User talk:$2#$3|$4]]\".",
-	"notification-page-linked": "Sivule [[:$2]] {{GENDER:$1|on nygöi linku}} sivulpäi [[:$3]].[[Special:WhatLinksHere/$2|Kačo kai kohteheh ohjuajat linkat]].",
-	"notification-page-linked-flyout": "Sivule [[:$2]] {{GENDER:$1|ohjuau nygöi linku}} sivulpäi [[:$3]].",
-	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|kommentiiruičči}} tiemua \"[[$3|$2]]\" paginsivul \"$4\"",
-	"notification-add-talkpage-topic2": "[[User:$1|$1]] {{GENDER:$1|ližäi}} uvven tieman \"$2\" sivule [[$3]].",
+	"notification-edit-talk-page-flyout-with-section": "$1 {{GENDER:$1|jätti}} viestin sinun paginsivule sektsieh \"[[User talk:$2#$3|$4]]\".",
+	"notification-page-linked": "Sivule [[:$2]] {{GENDER:$1|on nygöi linki}} sivulpäi [[:$3]].[[Special:WhatLinksHere/$2|Kačo kai kohteheh ohjuajat linkat]].",
+	"notification-page-linked-flyout": "Sivule [[:$2]] {{GENDER:$1|ohjuau nygöi linki}} sivulpäi [[:$3]].",
+	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|kommentiiruičči}} teemua \"[[$3|$2]]\" paginsivul \"$4\"",
+	"notification-add-talkpage-topic2": "[[User:$1|$1]] {{GENDER:$1|ližäi}} uvven teeman \"$2\" sivule [[$3]].",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] {{GENDER:$1|työndi}} sinule viestin: \"[[$3#$2|$2]]\".",
-	"notification-add-comment-yours2": "[[User:$1|$1]] {{GENDER:$1|kommentiiruičči}} tiemua \"[[$3#$2|$2]]\" sinun paginsivul.",
-	"notification-mention": "[[User:$1|$1]] {{GENDER:$1|mainicči}} sinut kohtehen $5 paginas sektas \"[[:$3#$2|$4]]\".",
-	"notification-mention-flyout": "$1 {{GENDER:$1|mainičči}} sinut kohtehen $5 paginas sektas \"[[:$3#$2|$4]]\".",
+	"notification-add-comment-yours2": "[[User:$1|$1]] {{GENDER:$1|kommentiiruičči}} teemua \"[[$3#$2|$2]]\" sinun paginsivul.",
+	"notification-mention": "[[User:$1|$1]] {{GENDER:$1|mainicči}} sinut kohtehen $5 paginas sektsies\"[[:$3#$2|$4]]\".",
+	"notification-mention-flyout": "$1 {{GENDER:$1|mainičči}} sinut kohtehen $5 paginas sektsieh\"[[:$3#$2|$4]]\".",
 	"notification-mention-nosection": "[[User:$1|$1]] {{GENDER:$1|mainičči}} sinut [[:$3|$2 paginsivul]].",
 	"notification-mention-nosection-flyout": "$1 {{GENDER:$1|mainičči}} sinut [[:$3|$2 paginsivul]].",
 	"notification-user-rights": "[[User:$1|$1]] [[Special:Log/rights/$1|{{GENDER:$1|muutti}}]] sinun käyttöoigevuksii. $2. [[Special:ListGroupRights|Ližätieduo]]",
@@ -70,6 +71,6 @@
 	"notification-page-linked-bundle": "Sivule $2 {{GENDER:$1|on luajittu linku}} sivulpäi $3 da {{PLURAL:$5|yhtel toizel sivulpäi|$4 toizel sivulpäi}}. [[Special:WhatLinksHere/$2|Kačo kai kohteheh ohjuajat linkat]]",
 	"notification-edit-user-talk-email-batch-bundle-body": "$1 da {{PLURAL:$3|yksi toine jätettih|$2 muudu ollah jätetty}} viestin sinun paginsivule.",
 	"notification-page-linked-email-batch-bundle-body": "Sivu $2 {{GENDER:$1|linkitettih}} sivulpäi $3 da {{PLURAL:$5|yhtel toizel sivulpäi|$4 toizel sivulpäi}}",
-	"echo-email-batch-body-intro-daily": "Terveh $1.\nTäs on sinule yhtehvedotämän päivän tapahtumis saital {{SITENAME}}.",
+	"echo-email-batch-body-intro-daily": "Terveh $1.\nTäs on sinule yhtehvedo tämän päivän tapahtumis saital {{SITENAME}}.",
 	"echo-email-batch-body-intro-weekly": "Terveh $1.\nTäs on sinule yhtehvedo tämän nedälin tapahtumis saital {{SITENAME}}."
 }

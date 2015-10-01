@@ -5,6 +5,8 @@
 			"HalanTul"
 		]
 	},
+	"tooltip-pt-notifications-alert": "{{GENDER:|Эйиэхэ}} биллэриилэр",
+	"tooltip-pt-notifications-message": "{{GENDER:|Эн}} суруктарыҥ",
 	"notification-reverted2": "{{PLURAL:$4|1=Эн көннөрүүгүн|Эн көннөрүүлэргин}} [[:$2]] сирэйгэ [[$5|$1]] {{GENDER:$1|көтүрбүт}}. $3",
 	"notification-reverted-flyout2": "{{PLURAL:$4|1=Эн көннөрүүгүн|Эн көннөрүүлэргин}} $2 сирэйгэ $1 {{GENDER:$1|көтүрбүт}}. $3",
 	"notification-reverted-email-subject2": "{{GENDER:$1|Ким эрэ}} {{PLURAL:$3|1=эн көннөрүүгүн|эн көннөрүүлэргин}} «{{SITENAME}}» ситим-сиргэ көтүрбүт",

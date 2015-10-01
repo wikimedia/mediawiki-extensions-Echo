@@ -43,7 +43,7 @@
 	"notification-link-text-view-changes": "بدلونونه کتل",
 	"notification-link-text-view-page": "مخ کتل",
 	"notification-link-text-view-edit": "سمون کتل",
-	"notification-edit-talk-page2": "[[User:$1|$1]] ستاسې د [[User talk:$2#$3|خبرو اترو په مخ]] يو پيغام {{GENDER:$1|پرېښوه}}.",
+	"notification-edit-talk-page2": "[[User:$1|$1]] ستاسې د [[User talk:$2#$3|خبرو اترو په مخ]] يو پيغام {{GENDER:$1|پرېښوده}}.",
 	"notification-edit-talk-page-with-section": "[[User:$1|$1]] ستاسې د خبرو اترو پر مخ يو پيغام په \"[[User talk:$2#$3|$4]]\" کې {{GENDER:$1|پرېښوده}} .",
 	"notification-edit-talk-page-flyout2": "$1 ستاسې د [[User talk:$2#$3|خبرو اترو په مخ]] يو پيغام {{GENDER:$1|پرېښوده}}.",
 	"notification-edit-talk-page-flyout-with-section": "$1 ستاسې د خبرو اترو پر مخ يو پيغام په \"[[User talk:$2#$3|$4]]\" کې {{GENDER:$1|پرېښود}}.",
