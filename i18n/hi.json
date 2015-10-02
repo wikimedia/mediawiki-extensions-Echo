@@ -8,7 +8,8 @@
 			"Shubhamkanodia",
 			"Siddhartha Ghai",
 			"NehalDaveND",
-			"राम प्रसाद जोशी"
+			"राम प्रसाद जोशी",
+			"Angpradesh"
 		]
 	},
 	"echo-desc": "अधिसूचना प्रणाली",
@@ -46,6 +47,7 @@
 	"echo-no-title": "[कोई पृष्ठ नहीं]",
 	"echo-error-no-formatter": "अधिसूचना के लिए कोई स्वरूपण परिभाषित नहीं है।",
 	"notifications": "अधिसूचनाएँ",
+	"tooltip-pt-notifications-alert": "{{GENDER:|आपका}} जागरूकता संदेश",
 	"tooltip-pt-notifications-message": "{{GENDER:|आप के}} संदेश",
 	"echo-specialpage": "अधिसूचनाएँ",
 	"echo-anon": "अधिसूचनाएँ पाने के लिये, [$1 खाता बनाएँ] या [$2 लॉग इन करें]।",
