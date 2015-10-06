@@ -321,12 +321,25 @@
 		// the case where the promise is already underway.
 		this.populateNotifications()
 			.then( function () {
+				var i,
+					items = widget.notificationsWidget.getItems();
+
 				if ( widget.popup.isVisible() ) {
 					// Update seen time
 					widget.notificationsModel.updateSeenTime();
 					// Mark notifications as 'read' if markReadWhenSeen is set to true
 					if ( widget.markReadWhenSeen ) {
 						widget.notificationsModel.markAllRead();
+					}
+
+					// Log impressions
+					for ( i = 0; i < items.length; i++ ) {
+						mw.echo.logger.logInteraction(
+							mw.echo.Logger.static.actions.notificationImpression,
+							'flyout',
+							widget.getModel().getId(),
+							items[ i ].getModel().getCategory()
+						);
 					}
 				}
 			} );

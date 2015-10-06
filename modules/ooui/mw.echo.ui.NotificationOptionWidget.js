@@ -10,6 +10,7 @@
 	 * @cfg {boolean} [markReadWhenSeen=false] This option is marked as read when it is viewed
 	 */
 	mw.echo.ui.NotificationOptionWidget = function MwEchoUiNotificationOptionWidget( model, config ) {
+		var widget = this;
 		config = config || {};
 
 		this.model = model;
@@ -53,6 +54,15 @@
 						this.markAsReadButton.$element,
 						this.$label
 					)
+					.on( 'click', function () {
+						// Log notification click
+						mw.echo.logger.logInteraction(
+							mw.echo.Logger.static.actions.notificationClick,
+							'flyout',
+							widget.getModel().getId(),
+							widget.getModel().getCategory()
+						);
+					} )
 			);
 
 		this.$element.toggleClass( 'mw-echo-ui-notificationOptionWidget-initiallyUnseen', !this.model.isSeen() );
