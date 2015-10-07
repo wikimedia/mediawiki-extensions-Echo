@@ -337,7 +337,7 @@
 						mw.echo.logger.logInteraction(
 							mw.echo.Logger.static.actions.notificationImpression,
 							'flyout',
-							widget.getModel().getId(),
+							items[ i ].getModel().getId(),
 							items[ i ].getModel().getCategory()
 						);
 					}
