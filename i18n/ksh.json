@@ -41,6 +41,7 @@
 	"echo-no-title": "[Kein Sigg]",
 	"echo-error-no-formatter": "Mer künne di Meddeilong nit aanzeije.\nMer weße de Manier nit, wih.",
 	"notifications": "Meddeilonge",
+	"tooltip-pt-notifications-alert": "Ding Benohreeschtejonge",
 	"tooltip-pt-notifications-message": "Ding Nohreeschte{{GENDER:|}}",
 	"echo-specialpage": "Meddeilonge",
 	"echo-anon": "Do moß Desch [$1 aanmälde] udder [$2 enlogge], öm Meddeilonge krijje ze künne.",

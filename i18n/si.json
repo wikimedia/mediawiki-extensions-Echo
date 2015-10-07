@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"පසිඳු කාවින්ද"
+			"පසිඳු කාවින්ද",
+			"Susith Chandira Gts"
 		]
 	},
 	"echo-desc": "නිවේදන පද්ධතිය",
@@ -15,11 +16,16 @@
 	"echo-no-title": "[පිටුවක් නොමැත]",
 	"echo-error-no-formatter": "නිවේදනය සඳහා කිසිදු ආකෘතියක් දක්වා නොමැත",
 	"notifications": "නිවේදන",
-	"tooltip-pt-notifications": "ඔබේ නිවේදන",
 	"echo-specialpage": "නිවේදන",
 	"echo-anon": "නිවේදන ලබා ගැනීම සඳහා, [$1 ගිණුමක් තනන්න] හෝ [$2 ප්‍රවිෂ්ට වන්න].",
 	"echo-none": "ඔබට නිවේදන කිසිවක් නොමැත.",
+	"notification-edit-talk-page2": "[[User:$1|$1]] විසින් ඔබේ [[User talk:$2#$3|සාකච්ඡා පිටුවෙහි]] පණිවුඩයක් {{GENDER:$1|තබා ඇත}}.",
+	"notification-edit-talk-page-flyout-with-section": "$1 විසින් ඔබේ සාකච්ඡා පිටුවෙහි \"[[User talk:$2#$3|$4]]\" කොටසෙහි පණිවුඩයක් {{GENDER:$1|තබා ඇත}}.",
 	"notification-new-user": "{{SITENAME}} වෙත පිළිගනිමු, $1!",
+	"notification-edit-talk-page-email-subject2": "$1 විසින් ඔබ හට {{SITENAME}} හි පණිවුඩයක් {{GENDER:$1|තබා ඇත}}.",
+	"notification-edit-talk-page-email-batch-body2": "$1 විසින් ඔබ හට ඔබේ සාකච්ඡා පිටුවෙහි පණිවුඩයක් {{GENDER:$1|තබා ඇත}}.",
+	"notification-mention-email-subject": "$1 විසින් ඔබව {{SITENAME}} හි {{GENDER:$1|සඳහන් කර}} ඇත.",
+	"echo-notification-count": "$1+",
 	"echo-email-subject-default": "{{SITENAME}} හී නව නිවේදනයක්",
 	"echo-email-body-default": "ඔබට {{SITENAME}} හීදී නව නිවේදනයක් ඇත:\n\n$1",
 	"echo-overlay-link": "සියලුම නිවේදන",
