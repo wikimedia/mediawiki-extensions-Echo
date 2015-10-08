@@ -89,7 +89,7 @@
 	 * @param {boolean} [mobile] True if interaction was on a mobile device
 	 */
 	mw.echo.Logger.prototype.logInteraction = function ( action, context, eventId, eventType, mobile ) {
-		if ( !this.constructor.clickThroughEnabled ) {
+		if ( !this.constructor.static.clickThroughEnabled ) {
 			return;
 		}
 

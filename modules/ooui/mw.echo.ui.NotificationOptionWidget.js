@@ -58,7 +58,7 @@
 						// Log notification click
 						mw.echo.logger.logInteraction(
 							mw.echo.Logger.static.actions.notificationClick,
-							'flyout',
+							mw.echo.Logger.static.context.popup,
 							widget.getModel().getId(),
 							widget.getModel().getCategory()
 						);

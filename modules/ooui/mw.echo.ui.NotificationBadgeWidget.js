@@ -303,7 +303,7 @@
 		// Log the click event
 		mw.echo.logger.logInteraction(
 			'ui-badge-link-click',
-			mw.echo.Logger.static.context,
+			mw.echo.Logger.static.context.badge,
 			null,
 			this.type
 		);
@@ -337,7 +337,7 @@
 						if ( items[ i ].getModel ) {
 							mw.echo.logger.logInteraction(
 								mw.echo.Logger.static.actions.notificationImpression,
-								'flyout',
+								mw.echo.Logger.static.context.popup,
 								items[ i ].getModel().getId(),
 								items[ i ].getModel().getCategory()
 							);
