@@ -45,6 +45,8 @@
 	"echo-no-title": "[Ingen side]",
 	"echo-error-no-formatter": "Der er ikke defineret et format for meddelelsen",
 	"notifications": "Meddelelser",
+	"tooltip-pt-notifications-alert": "{{GENDER:|Dine}} alarmer",
+	"tooltip-pt-notifications-message": "{{GENDER:|Dine}} beskeder",
 	"echo-specialpage": "Meddelelser",
 	"echo-anon": "For at modtage meddelelser skal du [$1 oprette en konto] eller [$2 logge ind].",
 	"echo-none": "Du har ingen meddelelser.",
