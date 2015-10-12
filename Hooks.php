@@ -1051,7 +1051,10 @@ class EchoHooks {
 
 	public static function onMergeAccountFromTo( User &$oldUser, User &$newUser ) {
 		MWEchoNotifUser::newFromUser( $oldUser )->resetNotificationCount( DB_MASTER );
-		MWEchoNotifUser::newFromUser( $newUser )->resetNotificationCount( DB_MASTER );
+
+		if ( !$newUser->isAnon() ) {
+			MWEchoNotifUser::newFromUser( $newUser )->resetNotificationCount( DB_MASTER );
+		}
 
 		return true;
 	}
