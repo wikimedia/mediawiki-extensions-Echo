@@ -25,18 +25,19 @@ mw-vagrant-guest:
 local:
   mediawiki_user: Admin
   mediawiki_password: vagrant
-  mediawiki_user_b: Selenium Flow user 2
+  mediawiki_user_b: Selenium Echo user 2
   mediawiki_url: http://127.0.0.1:8080/wiki/
 
 beta:
   mediawiki_url: http://en.wikipedia.beta.wmflabs.org/wiki/
   mediawiki_user: Selenium_user
-  mediawiki_user_b: Selenium Flow user 2
+  mediawiki_user_b: Selenium Echo user 2
   # mediawiki_password: SET THIS IN THE ENVIRONMENT!
 
 test2:
   mediawiki_url: http://test2.wikipedia.org/wiki/
   mediawiki_user: Selenium_user
+  mediawiki_user_b: Selenium Echo user 2
   # mediawiki_password: SET THIS IN THE ENVIRONMENT!
 
 integration:

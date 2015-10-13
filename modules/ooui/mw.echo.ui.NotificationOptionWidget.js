@@ -40,7 +40,7 @@
 		} );
 
 		this.$element
-			.addClass( 'mw-echo-ui-notificationOptionWidget' )
+			.addClass( 'mw-echo-ui-notificationOptionWidget mw-echo-ui-notificationOptionWidget-' + this.model.getType() )
 			.append(
 				// HACK: Wrap the entire option with a link that takes
 				// the user to the primary url. This is not perfect,
