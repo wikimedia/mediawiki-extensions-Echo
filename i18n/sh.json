@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kolega2357"
+			"Kolega2357",
+			"OC Ripper"
 		]
 	},
 	"echo-desc": "Obavještajni sistem",
@@ -38,6 +39,8 @@
 	"echo-no-title": "[Nema stranice]",
 	"echo-error-no-formatter": "Nema formatiranja određenog za obavještavanje.",
 	"notifications": "Obavještenja",
+	"tooltip-pt-notifications-alert": "{{GENDER:|Vaša}} obavještenja",
+	"tooltip-pt-notifications-message": "{{GENDER:|Vaše}} poruke",
 	"echo-specialpage": "Obavještenja",
 	"echo-anon": "Da biste primili obaveštenja, morate se [[Special:UserLogin|prijaviti]] ili [[Special:Userlogin/signup|napraviti račun]].",
 	"echo-none": "Nemate obavještenja",
