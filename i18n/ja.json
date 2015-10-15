@@ -57,7 +57,7 @@
 	"echo-feedback": "フィードバック",
 	"echo-quotation-marks": "「$1」",
 	"echo-api-failure": "通知を取得できませんでした。もう一度、やりなおしてください。(エラー $1)",
-	"echo-notification-placeholder": "通知は無し。",
+	"echo-notification-placeholder": "通知はありません。",
 	"notification-link-text-view-message": "メッセージを閲覧",
 	"notification-link-text-view-mention": "言及を閲覧",
 	"notification-link-text-view-changes": "差分を閲覧",
@@ -84,6 +84,8 @@
 	"notification-new-user": "$1さん、{{SITENAME}}へようこそおいでくださいました。",
 	"notification-reverted2": "{{PLURAL:$4|[[:$2]] でのあなたの編集}}を [[$5|$1]] が{{GENDER:$1|差し戻しました}}。$3",
 	"notification-reverted-flyout2": "{{PLURAL:$4|$2 でのあなたの編集}}を $1 が{{GENDER:$1|差し戻しました}}。$3",
+	"notification-emailuser": "[[User:$1|$1]]があなたに電子メールを{{GENDER:$1|送りました}}。",
+	"notification-emailuser-flyout": "$1があなたに電子メールを{{GENDER:$1|送りました}}",
 	"notification-edit-talk-page-email-subject2": "{{SITENAME}}で $1 があなたのトークページにメッセージを{{GENDER:$1|投稿しました}}",
 	"notification-edit-talk-page-email-batch-body2": "$1 があなたのトークページにメッセージを{{GENDER:$1|投稿しました}}。",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 があなたのトークページの「$2」にメッセージを{{GENDER:$1|投稿しました}}。",
@@ -122,7 +124,9 @@
 	"echo-email-batch-body-intro-weekly": "こんにちは、$1 さん。\nこれが {{SITENAME}} での今週の出来事をあなたのために要約したものです。",
 	"echo-email-batch-link-text-view-all-notifications": "すべての通知を閲覧",
 	"echo-rev-deleted-text-view": "ページのこの版は秘匿されています。",
-	"apihelp-echomarkread-description": "現在のユーザーについては通知を既読にする",
+	"apihelp-echomarkread-description": "現在の利用者への通知を既読にする。",
+	"apihelp-echomarkread-param-list": "既読にする通知IDのリスト。",
+	"apihelp-echomarkread-param-all": "設定すると、すべての通知を既読にします。",
 	"apihelp-query+notifications-example-1": "通知を一覧表示する",
 	"apihelp-query+notifications-example-2": "通知をセクションによりグループ化し、カウントで一覧表示する"
 }
