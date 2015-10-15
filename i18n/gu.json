@@ -29,7 +29,7 @@
 	"echo-new-messages": "તમારા માટે નવા સંદેશાઓ છે",
 	"echo-category-title-edit-user-talk": "ચર્ચા પાનું {{PLURAL:$1|સંદેશ|સંદેશાઓ}}",
 	"echo-category-title-article-linked": "પાનું {{PLURAL:$1|કડી|કડીઓ}}",
-	"echo-category-title-reverted": "{{PLURAL:$1|ઉલટાવેલ|ઉલટાવેલા}} ફેરફાર કરો",
+	"echo-category-title-reverted": "{{PLURAL:$1|ઉલટાવેલ|ઉલટાવેલા}} ફેરફાર",
 	"echo-category-title-mention": "{{PLURAL:$1|ઉલ્લેખ|ઉલ્લેખો}}",
 	"echo-category-title-other": "{{PLURAL:$1|અન્ય}}",
 	"echo-category-title-system": "{{PLURAL:$1|સિસ્ટમ}}",

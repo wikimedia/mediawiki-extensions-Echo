@@ -5,7 +5,6 @@
 		]
 	},
 	"notifications": "अधिसूचना",
-	"tooltip-pt-notifications": "आप कय अधिसूचना",
 	"echo-email-subject-default": "{{SITENAME}} पे नँवा अधिसूचना",
 	"echo-email-body-default": "आप कय लिए {{SITENAME}} पे नँवा अधिसूचना है:\n\n$1",
 	"echo-email-batch-body-default": "आप कय लिए नँवा अधिसूचना है।",

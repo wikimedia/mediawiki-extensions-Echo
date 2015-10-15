@@ -4,7 +4,6 @@
 			"Siebrand"
 		]
 	},
-	"tooltip-pt-notifications": "Jouw meldingen",
 	"echo-none": "Je hebt geen meldingen.",
 	"echo-email-body-default": "Je hebt een nieuwe melding op {{SITENAME}}:\n\n$1",
 	"echo-email-footer-default": "$2\n\nVolg de volgende koppeling om je e-mailvoorkeuren te wijzigen of om je uit te schrijven:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",

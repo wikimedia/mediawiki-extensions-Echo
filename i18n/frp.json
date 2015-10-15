@@ -10,7 +10,6 @@
 	"echo-no-agent": "[Nion]",
 	"echo-no-title": "[Niona pâge]",
 	"notifications": "Notificacions",
-	"tooltip-pt-notifications": "Voutres notificacions",
 	"echo-specialpage": "Mes notificacions",
 	"echo-none": "Vos éd reçu gins de notificacion.",
 	"notification-new-user": "Benvegnua sur {{SITENAME}}, $1 !",

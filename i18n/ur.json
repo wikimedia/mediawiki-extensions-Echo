@@ -12,7 +12,6 @@
 	"echo-new-messages": "آپ کے لیے نئے پیغامات",
 	"echo-category-title-other": "دیگر",
 	"notifications": "اطلاعات",
-	"tooltip-pt-notifications": "آپ کے نوٹیفیکیشن",
 	"echo-specialpage": "میری اطلاعات",
 	"echo-feedback": "آپ کی رائے",
 	"notification-user-rights-flyout": "آپ کے صارفانہ حقوق ہوگئے  {{GENDER:$1| تبدیل}} <b> $1 </b>کے ذریعے ۔ $2. [[Special:ListGroupRights|مزید دیکھیں]]",
