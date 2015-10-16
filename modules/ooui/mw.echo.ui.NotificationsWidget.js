@@ -12,16 +12,20 @@
 	 *  marked as read when they are seen.
 	 * @cfg {jQuery} [$overlay] A jQuery element functioning as an overlay
 	 *  for popups.
+	 * @cfg {boolean} [bundle=false] This notification is part of a bundled notification
+	 *  group. This affects the rendering of the items.
 	 */
 	mw.echo.ui.NotificationsWidget = function MwEchoUiNotificationsWidget( model, config ) {
 		config = config || {};
 
+		// Parent constructor
+		mw.echo.ui.NotificationsWidget.parent.call( this, config );
+
 		this.model = model;
 
 		this.markReadWhenSeen = !!config.markReadWhenSeen;
-
-		// Parent constructor
-		mw.echo.ui.NotificationsWidget.parent.call( this, config );
+		this.bundle = !!config.bundle;
+		this.$overlay = config.$overlay || this.$element;
 
 		// Dummy 'loading' option widget
 		this.loadingOptionWidget = new mw.echo.ui.PlaceholderItemWidget();
@@ -31,11 +35,13 @@
 		this.model.connect( this, {
 			add: 'onModelNotificationAdd',
 			remove: 'onModelNotificationRemove',
-			clear: 'onModelNotificationClear'
+			clear: 'onModelNotificationClear',
+			done: 'onModelNotificationDone'
 		} );
 
 		this.$element
-			.addClass( 'mw-echo-ui-notificationsWidget' );
+			.addClass( 'mw-echo-ui-notificationsWidget' )
+			.toggleClass( 'mw-echo-ui-notificationsWidget-bundle', this.bundle );
 	};
 
 	/* Initialization */
@@ -45,19 +51,53 @@
 	/* Methods */
 
 	/**
+	 * Handle done event from the model
+	 *
+	 * @param {boolean} isSuccess The operation was successful
+	 * @param {Object} result Result object from the API
+	 */
+	mw.echo.ui.NotificationsWidget.prototype.onModelNotificationDone = function ( isSuccess, result ) {
+		if ( this.model.isEmpty() ) {
+			this.resetLoadingOption(
+				isSuccess ?
+				mw.msg( 'echo-notification-placeholder' ) :
+				mw.msg( 'echo-api-failure', result.errCode )
+			);
+		}
+
+		if ( isSuccess ) {
+			// Log impressions
+			mw.echo.logger.logNotificationImpressions( this.type, result.ids, mw.echo.Logger.static.context.popup );
+		}
+	};
+
+	/**
 	 * Respond to model add event
 	 *
 	 * @param {mw.echo.dm.NotificationItem} Added notification item
 	 * @param {number} index Index to add the item
 	 */
 	mw.echo.ui.NotificationsWidget.prototype.onModelNotificationAdd = function ( notificationItem, index ) {
-		var widget = new mw.echo.ui.NotificationItemWidget(
+		var widget;
+
+		if ( notificationItem instanceof mw.echo.dm.NotificationGroupItem ) {
+			widget = new mw.echo.ui.NotificationGroupItemWidget(
+				notificationItem,
+				{
+					bundle: this.bundle,
+					$overlay: this.$overlay
+				}
+			);
+		} else {
+			widget = new mw.echo.ui.NotificationItemWidget(
 				notificationItem,
 				{
 					$overlay: this.$overlay,
+					bundle: this.bundle,
 					markReadWhenSeen: this.markReadWhenSeen
 				}
 			);
+		}
 
 		// Fire hook for gadgets to update the option list
 		mw.hook( 'ext.echo.overlay.beforeShowingOverlay' ).fire( widget.$element );
@@ -104,7 +144,6 @@
 			// Destroy all widgets that can be destroyed
 			widget.destroy();
 		}
-
 		this.removeItems( [ widget ] );
 
 		items = this.getItems();
@@ -139,4 +178,14 @@
 		this.loadingOptionWidget.setLabel( label || '' );
 		this.addItems( [ this.loadingOptionWidget ] );
 	};
+
+	/**
+	 * Get the model associated with this widget
+	 *
+	 * @return {mw.echo.dm.NotificationsModel} Notifications model
+	 */
+	mw.echo.ui.NotificationsWidget.prototype.getModel = function () {
+		return this.model;
+	};
+
 } )( mediaWiki );

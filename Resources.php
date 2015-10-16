@@ -34,8 +34,11 @@ $wgResourceModules += array(
 		'scripts' => array(
 			'ooui/mw.echo.ui.js',
 			'ooui/mw.echo.ui.PlaceholderItemWidget.js',
-			'ooui/mw.echo.ui.NotificationsWidget.js',
 			'ooui/mw.echo.ui.NotificationItemWidget.js',
+			'ooui/mw.echo.ui.NotificationGroupItemWidget.js',
+			'ooui/mw.echo.ui.NotificationsWidget.js',
+			'ooui/mw.echo.ui.BundledNotificationGroupWidget.js',
+			'ooui/mw.echo.ui.ActionMenuPopupWidget.js',
 			'ooui/mw.echo.ui.BadgeLinkWidget.js',
 			'ooui/mw.echo.ui.NotificationBadgeWidget.js'
 		),
@@ -43,6 +46,8 @@ $wgResourceModules += array(
 			'ooui/styles/mw.echo.ui.overlay.less',
 			'ooui/styles/mw.echo.ui.NotificationsWidget.less',
 			'ooui/styles/mw.echo.ui.NotificationItemWidget.less',
+			'ooui/styles/mw.echo.ui.NotificationGroupItemWidget.less',
+			'ooui/styles/mw.echo.ui.BundledNotificationGroupWidget.less',
 			'ooui/styles/mw.echo.ui.NotificationBadgeWidget.less'
 		),
 		'skinStyles' => array(
@@ -55,6 +60,7 @@ $wgResourceModules += array(
 				'ooui/styles/mw.echo.ui.NotificationBadgeWidget.modern.less'
 			),
 			'vector' => array(
+				'ooui/styles/mw.echo.ui.overlay.vector.less',
 				'ooui/styles/mw.echo.ui.NotificationBadgeWidget.vector.less'
 			),
 		),
@@ -63,9 +69,16 @@ $wgResourceModules += array(
 			'ext.echo.styles.notifications',
 			'ext.echo.dm',
 			'oojs-ui',
+			'moment',
 			'ext.echo.logger',
 			'mediawiki.jqueryMsg',
 			'mediawiki.language',
+			// OOJS-UI icons
+			// TODO: We are only using 1-2 icons from each
+			// bundle; split them up to our own bundle so we
+			// don't load heavy icons all the time
+			'oojs-ui.styles.icons-user',
+			'oojs-ui.styles.icons-alerts',
 		),
 		'messages' => array(
 			'echo-overlay-link',
@@ -74,6 +87,10 @@ $wgResourceModules += array(
 			'echo-feedback',
 			'echo-notification-alert',
 			'echo-notification-message',
+			'notification-link-text-collapse-all',
+			"notification-link-text-expand-alert-count",
+			"notification-link-text-expand-message-count",
+			"notification-link-text-expand-all-count",
 			'echo-notification-alert-text-only',
 			'echo-notification-message-text-only',
 			'echo-email-batch-bullet',
@@ -92,13 +109,16 @@ $wgResourceModules += array(
 			'viewmodel/mw.echo.dm.SortedList.js',
 			'viewmodel/handlers/mw.echo.dm.APIHandler.js',
 			'viewmodel/handlers/mw.echo.dm.LocalAPIHandler.js',
+			'viewmodel/handlers/mw.echo.dm.ForeignAPIHandler.js',
 			'viewmodel/handlers/mw.echo.dm.NetworkHandler.js',
 			'viewmodel/mw.echo.dm.NotificationItem.js',
+			'viewmodel/mw.echo.dm.NotificationGroupItem.js',
 			'viewmodel/mw.echo.dm.NotificationList.js',
 			'viewmodel/mw.echo.dm.NotificationsModel.js',
 		),
 		'dependencies' => array(
 			'mediawiki.api',
+			'mediawiki.ForeignApi',
 			'oojs'
 		),
 		'messages' => array(

@@ -11,7 +11,7 @@
 		// TODO: Fix the API.
 		notgroupbysection: 1,
 		notmessageunreadfirst: 1,
-		notformat: 'flyout',
+		notformat: 'model',
 		notlimit: 25,
 		notprop: 'index|list|count',
 		uselang: mw.config.get( 'wgUserLanguage' )
@@ -111,6 +111,7 @@
 						unseen: 'bellOn'
 					},
 					links: links,
+					$overlay: mw.echo.ui.$overlay,
 					href: $existingAlertLink.attr( 'href' )
 				} );
 				// HACK: avoid late debouncedUpdateThemeClasses
