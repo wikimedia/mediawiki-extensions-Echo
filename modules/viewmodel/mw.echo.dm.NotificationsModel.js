@@ -6,12 +6,13 @@
 	 * @mixins OO.EventEmitter
 	 *
 	 * @constructor
+	 * @param {mw.echo.dm.AbstractAPIHandler} apiHandler API handler
 	 * @param {Object} [config] Configuration object
 	 * @cfg {string} [type='alert'] Notification type 'alert', 'message' or 'all'
 	 * @cfg {number} [limit=25] Notification limit
 	 * @cfg {string} [userLang] User language
 	 */
-	mw.echo.dm.NotificationsModel = function MwEchoDmNotificationsModel( config ) {
+	mw.echo.dm.NotificationsModel = function MwEchoDmNotificationsModel( apiHandler, config ) {
 		config = config || {};
 
 		// Mixin constructor
@@ -21,14 +22,10 @@
 		mw.echo.dm.List.call( this );
 
 		this.type = config.type || 'alert';
-		this.limit = config.limit || 25;
-		this.userLang = config.userLang || 'en';
 
-		this.api = new mw.Api( { ajax: { cache: false } } );
-		this.fetchNotificationsPromise = null;
-		this.apiErrorState = false;
+		this.apiHandler = apiHandler;
 
-		this.seenTime = mw.config.get( 'wgEchoSeenTime' );
+		this.seenTime = mw.config.get( 'wgEchoSeenTime' ) || {};
 
 		// Store references to unseen and unread notifications
 		this.unseenNotifications = new mw.echo.dm.NotificationList();
@@ -199,33 +196,6 @@
 	};
 
 	/**
-	 * Check whether the model is fetching notifications from the API
-	 *
-	 * @return {boolean} The model is in the process of fetching from the API
-	 */
-	mw.echo.dm.NotificationsModel.prototype.isFetchingNotifications = function () {
-		return !!this.fetchNotificationsPromise;
-	};
-
-	/**
-	 * Check whether the model has an api error state flagged
-	 *
-	 * @return {boolean} The model is in api error state
-	 */
-	mw.echo.dm.NotificationsModel.prototype.isFetchingErrorState = function () {
-		return !!this.apiErrorState;
-	};
-
-	/**
-	 * Return the fetch notifications promise
-	 * @return {jQuery.Promise} Promise that is resolved when notifications were
-	 *  fetched from the API.
-	 */
-	mw.echo.dm.NotificationsModel.prototype.getFetchNotificationPromise = function () {
-		return this.fetchNotificationsPromise;
-	};
-
-	/**
 	 * Update the seen timestamp
 	 *
 	 * @return {jQuery.Promise} A promise that resolves with the seen timestamp
@@ -233,7 +203,6 @@
 	 */
 	mw.echo.dm.NotificationsModel.prototype.updateSeenTime = function () {
 		var i, len,
-			model = this,
 			items = this.unseenNotifications.getItems();
 
 		// Update the notifications seen status
@@ -242,16 +211,8 @@
 		}
 		this.emit( 'updateSeenTime' );
 
-		return this.api.postWithToken( 'edit', {
-			action: 'echomarkseen',
-			type: this.type
-		} )
-			.then( function ( data ) {
-				var time = data.query.echomarkseen.timestamp;
-
-				// Update seen time from the server
-				model.setSeenTime( time );
-			} );
+		return this.apiHandler.updateSeenTime()
+			.then( this.setSeenTime.bind( this ) );
 	};
 
 	/**
@@ -261,21 +222,13 @@
 	 * were marked as read.
 	 */
 	mw.echo.dm.NotificationsModel.prototype.markAllRead = function () {
-		var model = this,
-			data = {
-				action: 'echomarkread',
-				uselang: this.userLang,
-				sections: this.type
-			};
+		var model = this;
 
 		if ( !this.unreadNotifications.getItemCount() ) {
 			return $.Deferred().resolve( 0 ).promise();
 		}
 
-		return this.api.postWithToken( 'edit', data )
-			.then( function ( result ) {
-				return result.query.echomarkread[model.type].rawcount || 0;
-			} )
+		return this.apiHandler.markAllRead()
 			.then( function () {
 				var i, len,
 					items = model.unreadNotifications.getItems();
@@ -296,21 +249,11 @@
 	 * were marked as read.
 	 */
 	mw.echo.dm.NotificationsModel.prototype.markItemReadInApi = function ( itemId ) {
-		var model = this,
-			data = {
-				action: 'echomarkread',
-				uselang: this.userLang,
-				list: itemId
-			};
-
 		if ( !this.unreadNotifications.getItemCount() ) {
 			return $.Deferred().resolve( 0 ).promise();
 		}
 
-		return this.api.postWithToken( 'edit', data )
-			.then( function ( result ) {
-				return result.query.echomarkread[model.type].rawcount || 0;
-			} );
+		return this.apiHandler.markItemRead( itemId );
 	};
 
 	/**
@@ -324,65 +267,49 @@
 	 *  id's.
 	 */
 	mw.echo.dm.NotificationsModel.prototype.fetchNotifications = function ( apiPromise ) {
-		var model = this,
-			params = $.extend( { notsections: this.type }, mw.echo.apiCallParams );
+		var model = this;
 
 		// Rebuild the notifications promise either when it is null or when
 		// it exists in a failed state
-		if ( !this.fetchNotificationsPromise || this.isFetchingErrorState() ) {
-			this.apiErrorState = false;
-			this.fetchNotificationsPromise = ( apiPromise || this.api.get( params ) )
-				.then( function ( result ) {
-					var notifData, i, len, $content, wasSeen, wasRead, notificationModel,
-						optionItems = [],
-						idArray = [],
-						data = result.query.notifications[model.type];
+		return this.apiHandler.fetchNotifications( apiPromise )
+			.then( function ( result ) {
+				var notifData, i, len, $content, notificationModel,
+					optionItems = [],
+					idArray = [],
+					data = OO.getProp( result.query, 'notifications', model.type ) || { index: [] };
 
-					for ( i = 0, len = data.index.length; i < len; i++ ) {
-						notifData = data.list[ data.index[i] ];
-						if ( model.getItemById( notifData.id ) ) {
-							// Skip if we already have the item
-							continue;
-						}
-						// TODO: This should really be formatted better, and the OptionWidget
-						// should be the one that displays whatever icon relates to this notification
-						// according to its type.
-						$content = $( $.parseHTML( notifData['*'] ) );
-
-						wasRead = !!notifData.read;
-						wasSeen = notifData.timestamp.mw <= model.getSeenTime();
-						notificationModel = new mw.echo.dm.NotificationItem(
-							notifData.id,
-							{
-								read: wasRead,
-								seen: wasRead || wasSeen,
-								timestamp: notifData.timestamp.mw,
-								category: notifData.category,
-								content: $content,
-								type: model.getType(),
-								// Hack: Get the primary link from the $content
-								primaryUrl: $content.find( '.mw-echo-notification-primary-link' ).attr( 'href' )
-							}
-						);
-
-						idArray.push( notifData.id );
-						optionItems.push( notificationModel );
+				for ( i = 0, len = data.index.length; i < len; i++ ) {
+					notifData = data.list[ data.index[i] ];
+					if ( model.getItemById( notifData.id ) ) {
+						// Skip if we already have the item
+						continue;
 					}
-					model.addItems( optionItems, 0 );
+					// TODO: This should really be formatted better, and the OptionWidget
+					// should be the one that displays whatever icon relates to this notification
+					// according to its type.
+					$content = $( $.parseHTML( notifData['*'] ) );
 
-					return idArray;
-				} )
-				.fail( function () {
-					// Mark API error state
-					model.apiErrorState = true;
-				} )
-				.always( function ( idArray ) {
-					model.fetchNotificationsPromise = null;
+					notificationModel = new mw.echo.dm.NotificationItem(
+						notifData.id,
+						{
+							read: !!notifData.read,
+							seen: !!notifData.read || notifData.timestamp.mw <= model.getSeenTime(),
+							timestamp: notifData.timestamp.mw,
+							category: notifData.category,
+							content: $content,
+							type: model.getType(),
+							// Hack: Get the primary link from the $content
+							primaryUrl: $content.find( '.mw-echo-notification-primary-link' ).attr( 'href' )
+						}
+					);
 
-					return idArray;
-				} );
-		}
-		return this.fetchNotificationsPromise;
+					idArray.push( notifData.id );
+					optionItems.push( notificationModel );
+				}
+				model.addItems( optionItems, 0 );
+
+				return idArray;
+			} );
 	};
 
 	/**
@@ -443,19 +370,33 @@
 	 *  and the badge label is updated.
 	 */
 	mw.echo.dm.NotificationsModel.prototype.fetchUnreadCountFromApi = function () {
-		var apiData = {
-				action: 'query',
-				meta: 'notifications',
-				notsections: this.getType(),
-				notmessageunreadfirst: 1,
-				notlimit: this.limit,
-				notprop: 'index|count',
-				uselang: this.userLang
-			};
+		return this.apiHandler.fetchUnreadCount();
+	};
 
-		return this.api.get( apiData )
-			.then( function ( result ) {
-				return OO.getProp( result.query, 'notifications', 'rawcount' ) || 0;
-			} );
+	/**
+	 * Check whether the model is fetching notifications from the API
+	 *
+	 * @return {boolean} The model is in the process of fetching from the API
+	 */
+	mw.echo.dm.NotificationsModel.prototype.isFetchingNotifications = function () {
+		return this.apiHandler.isFetchingNotifications();
+	};
+
+	/**
+	 * Check whether the model has an api error state flagged
+	 *
+	 * @return {boolean} The model is in api error state
+	 */
+	mw.echo.dm.NotificationsModel.prototype.isFetchingErrorState = function () {
+		return this.apiHandler.isFetchingErrorState();
+	};
+
+	/**
+	 * Return the fetch notifications promise
+	 * @return {jQuery.Promise} Promise that is resolved when notifications were
+	 *  fetched from the API.
+	 */
+	mw.echo.dm.NotificationsModel.prototype.getFetchNotificationPromise = function () {
+		return this.apiHandler.getFetchNotificationPromise();
 	};
 } )( mediaWiki, jQuery );
