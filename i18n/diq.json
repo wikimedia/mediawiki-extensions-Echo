@@ -34,6 +34,8 @@
 	"echo-no-agent": "[Kesek]",
 	"echo-no-title": "[Pele Çıniya]",
 	"notifications": "Mengene",
+	"tooltip-pt-notifications-alert": "İqazé {{GENDER:|şıma}}",
+	"tooltip-pt-notifications-message": "Mesacé {{GENDER:|şıma}}",
 	"echo-specialpage": "Mengeney",
 	"echo-none": "Beyanatê to çıniyê.",
 	"echo-more-info": "Zêde (vêşi) melumat",

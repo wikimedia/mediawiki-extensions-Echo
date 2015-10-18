@@ -9,7 +9,8 @@
 			"TheGabrielZaum",
 			"Rodrigo codignoli",
 			"Dianakc",
-			"He7d3r"
+			"He7d3r",
+			"Almondega"
 		]
 	},
 	"echo-desc": "Sistema de notificações",
@@ -46,6 +47,8 @@
 	"echo-no-title": "[Nenhuma página]",
 	"echo-error-no-formatter": "Nenhum formato definido para notificações",
 	"notifications": "Notificações",
+	"tooltip-pt-notifications-alert": "{{GENDER:|Seus}} alertas",
+	"tooltip-pt-notifications-message": "{{GENDER:|Suas}} mensagens",
 	"echo-specialpage": "Notificações",
 	"echo-anon": "Para receber notificações, [$1 crie uma conta] ou [$2 registre-se].",
 	"echo-none": "Você não tem notificações.",
