@@ -44,6 +44,8 @@
 	"echo-no-title": "[Tidak ada halaman]",
 	"echo-error-no-formatter": "Tidak ada pemformatan yang ditetapkan untuk pemberitahuan.",
 	"notifications": "Notifikasi (Pemberitahuan)",
+	"tooltip-pt-notifications-alert": "Peringatan-peringatan Anda",
+	"tooltip-pt-notifications-message": "Pesan-pesan Anda",
 	"echo-specialpage": "Pemberitahuan",
 	"echo-anon": "Untuk menerima pemberitahuan, [$1 buat sebuah akun] atau [$2 masuk log].",
 	"echo-none": "Anda tidak memiliki pemberitahuan.",
