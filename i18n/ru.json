@@ -93,6 +93,8 @@
 	"notification-new-user": "Добро пожаловать в {{SITENAME}}, $1! Мы рады, что вы здесь.",
 	"notification-reverted2": "{{PLURAL:$4|1=Вашу правку|Ваши правки}} на странице [[:$2]] {{GENDER:$1|отменил|отменила}} [[$5|$1]]. $3",
 	"notification-reverted-flyout2": "{{PLURAL:$4|1=Вашу правку|Ваши правки}} на странице $2 {{GENDER:$1|отменил|отменила}} $1. $3",
+	"notification-emailuser": "[[User:$1|$1]] отправил{{GENDER:$1||а}} вам письмо.",
+	"notification-emailuser-flyout": "$1 отправил{{GENDER:$1||а}} вам письмо.",
 	"notification-edit-talk-page-email-subject2": "{{GENDER:$1|Участник|Участница}} $1 {{GENDER:$1|оставил|оставила}} вам сообщение на сайте «{{SITENAME}}»",
 	"notification-edit-talk-page-email-batch-body2": "Участни{{GENDER:$1|к|ца}} $1 оставил{{GENDER:$1||а}} сообщение на вашей странице обсуждения.",
 	"notification-edit-talk-page-email-batch-body-with-section": "{{GENDER:$1|Участник|Участница}} $1 {{GENDER:$1|оставил|оставила}} вам сообщение на вашей странице обсуждения в разделе (теме) «$2»",
