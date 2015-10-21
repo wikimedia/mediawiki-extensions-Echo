@@ -48,7 +48,7 @@ class MWEchoEventLogging {
 		}
 		$data = array(
 			'version' => $wgEchoConfig['version'],
-			'eventId' => $event->getId(),
+			'eventId' => (int)$event->getId(),
 			'notificationType' => $event->getType(),
 			'notificationGroup' => $group,
 			'sender' => (string)$sender,
