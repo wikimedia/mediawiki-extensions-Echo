@@ -3,5 +3,7 @@
 		"authors": [
 			"JinJian"
 		]
-	}
+	},
+	"tooltip-pt-notifications-alert": "{{GENDER:|Your}} mga alerto",
+	"tooltip-pt-notifications-message": "{{GENDER:|Imo}} mga mensahe"
 }
