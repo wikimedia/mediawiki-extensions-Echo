@@ -1,7 +1,6 @@
 require 'mediawiki_selenium'
 
-require 'mediawiki_selenium/cucumber'
-require 'mediawiki_selenium/pages'
+require 'mediawiki_selenium/support'
 require 'mediawiki_selenium/step_definitions'
 
 def env_or_default(key, default)
