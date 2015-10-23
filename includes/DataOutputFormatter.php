@@ -6,6 +6,13 @@
 class EchoDataOutputFormatter {
 
 	/**
+	 * @var array type => class
+	 */
+	static $formatters = array(
+		'flyout' => 'EchoFlyoutFormatter'
+	);
+
+	/**
 	 * Format a notification for a user in the format specified
 	 *
 	 * @param EchoNotification $notification
@@ -106,10 +113,26 @@ class EchoDataOutputFormatter {
 		}
 
 		if ( $format ) {
-			$output['*'] = EchoNotificationController::formatNotification( $event, $user, $format );
+			$output['*'] = self::formatNotification( $event, $user, $format );
 		}
 
 		return $output;
+	}
+
+	protected static function formatNotification( EchoEvent $event, User $user, $format ) {
+		global $wgLang;
+		if ( isset( self::$formatters[$format] )
+			&& EchoEventPresentationModel::supportsPresentationModel( $event->getType() )
+		) {
+			// FIXME don't use $wgLang. It's ok because this is only used for the API or Special page, and not
+			// emails yet.
+			/** @var EchoEventFormatter $formatter */
+			$formatter = new self::$formatters[$format]( $user, $wgLang );
+			return $formatter->format( $event );
+		} else {
+			// Legacy b/c
+			return EchoNotificationController::formatNotification( $event, $user, $format );
+		}
 	}
 
 	/**
