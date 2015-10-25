@@ -74,7 +74,7 @@
 	"notification-mention-nosection": "[[User:$1|$1]] mencionou você na [[:$3|página de discussão de $2]].",
 	"notification-mention-nosection-flyout": "$1 mencionou você na [[:$3|página de discussão de $2]].",
 	"notification-user-rights": "Seus direitos de usuário [[Special:Log/rights/$1|foram alterados]] {{GENDER:$1|pelo|pela|por}} [[User:$1|$1]]. $2. [[Special:ListGroupRights|Saiba mais]]",
-	"notification-user-rights-flyout": "Seus direitos de usuário foram alterados {{GENDER:$1|pelo|pela|por}} $1. $2. [[Special:ListGroupRights|Saiba mais]]",
+	"notification-header-user-rights": "Seus direitos de usuário foram alterados {{GENDER:$2|pelo|pela|por}} $1. $3. [[Special:ListGroupRights|Saiba mais]]",
 	"notification-user-rights-add": "Você agora é membro {{PLURAL:$2|deste grupo|destes grupos}}: $1",
 	"notification-user-rights-remove": "Você não é mais membro {{PLURAL:$2|deste grupo|destes grupos}}: $1",
 	"notification-new-user": "Bem-vindo(a) ao site {{SITENAME}}, $1! Estamos felizes por você estar aqui.",

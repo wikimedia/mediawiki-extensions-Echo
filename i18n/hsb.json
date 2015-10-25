@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Michawiki"
+			"Michawiki",
+			"J budissin"
 		]
 	},
 	"echo-desc": "Zdźělenski system",
@@ -38,6 +39,8 @@
 	"echo-no-title": "[Žana strona]",
 	"echo-error-no-formatter": "Za zdźělenje njeje so formatowanje definowało.",
 	"notifications": "Zdźělenki",
+	"tooltip-pt-notifications-alert": "{{GENDER:|Twoje}} powěsće",
+	"tooltip-pt-notifications-message": "{{GENDER:|Twoje}} powěsće",
 	"echo-specialpage": "Zdźělenki",
 	"echo-anon": "Zo by zdźělenki dóstał, dyrbiš [$1 konto załožić] abo [$2 so přizjewić].",
 	"echo-none": "Nimaš zdźělenki.",
@@ -64,7 +67,7 @@
 	"notification-mention-nosection": "[[User:$1|$1]] je će na [[:$3|diskusijnej stronje $2]] {{GENDER:$1|naspomnił|naspomniła}}.",
 	"notification-mention-nosection-flyout": "$1 je će na [[:$3|diskusijnej stronje $2]] {{GENDER:$1|naspomnił|naspomniła}}.",
 	"notification-user-rights": "Twoje wužiwarske prawa [[Special:Log/rights/$1|su so wot [[User:$1|$1]] {{GENDER:$1|změnili}}]] . $2. [[Special:ListGroupRights|Dalše informacije]]",
-	"notification-user-rights-flyout": "Twoje wužiwarske prawa su so wot $1 {{GENDER:$1|změnili}}. $2. [[Special:ListGroupRights|Dalše informacije]]",
+	"notification-header-user-rights": "Twoje wužiwarske prawa su so wot $1 {{GENDER:$2|změnili}}. $3. [[Special:ListGroupRights|Dalše informacije]]",
 	"notification-user-rights-add": "Sy nětko čłon {{PLURAL:$2|tuteje skupiny|tuteju skupinow|tutych skupinow}}: $1",
 	"notification-user-rights-remove": "Njejsy hižo čłon {{PLURAL:$2|tuteje skupiny|tuteju skupinow|tutych skupinow}}: $1",
 	"notification-new-user": "Witaj do {{GRAMMAR:genitiw|{{SITENAME}}}}, $1! Wjeselimy so, zo sy tu.",

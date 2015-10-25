@@ -5,7 +5,8 @@
 			"Farras",
 			"William Surya Permana",
 			"පසිඳු කාවින්ද",
-			"Bennylin"
+			"Bennylin",
+			"WongKentir"
 		]
 	},
 	"echo-desc": "Sistem pemberitahuan",
@@ -44,8 +45,8 @@
 	"echo-no-title": "[Tidak ada halaman]",
 	"echo-error-no-formatter": "Tidak ada pemformatan yang ditetapkan untuk pemberitahuan.",
 	"notifications": "Notifikasi (Pemberitahuan)",
-	"tooltip-pt-notifications-alert": "Peringatan-peringatan Anda",
-	"tooltip-pt-notifications-message": "Pesan-pesan Anda",
+	"tooltip-pt-notifications-alert": "Pemberitahuan {{GENDER:|Anda}}",
+	"tooltip-pt-notifications-message": "Pesan {{GENDER:|Anda}}",
 	"echo-specialpage": "Pemberitahuan",
 	"echo-anon": "Untuk menerima pemberitahuan, [$1 buat sebuah akun] atau [$2 masuk log].",
 	"echo-none": "Anda tidak memiliki pemberitahuan.",
@@ -72,7 +73,7 @@
 	"notification-mention-nosection": "[[User:$1|$1]] {{GENDER:$1|menyebut}} Anda pada [[:$3|halaman pembicaraan $2]].",
 	"notification-mention-nosection-flyout": "$1 {{GENDER:$1|menyebut}} Anda pada [[:$3|halaman pembicaraan $2]].",
 	"notification-user-rights": "Hak pengguna Anda [[Special:Log/rights/$1|telah {{GENDER:$1|diubah}}]] oleh [[User:$1|$1]]. $2. [[Special:ListGroupRights|Pelajari selengkapnya]]",
-	"notification-user-rights-flyout": "Hak pengguna Anda telah {{GENDER:$1|diubah}} oleh $1. $2. [[Special:ListGroupRights|Pelajari selengkapnya]]",
+	"notification-header-user-rights": "Hak pengguna Anda telah {{GENDER:$2|diubah}} oleh $1. $3. [[Special:ListGroupRights|Pelajari selengkapnya]]",
 	"notification-user-rights-add": "Anda sekarang adalah anggota dari {{PLURAL:$2|kelompok berikut}}: $1",
 	"notification-user-rights-remove": "Anda tidak lagi menjadi anggota dari {{PLURAL:$2|kelompok berikut}}: $1",
 	"notification-new-user": "Selamat datang di {{SITENAME}}, $1! Kami senang Anda hadir di sini.",
