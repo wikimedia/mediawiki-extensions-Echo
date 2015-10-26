@@ -7,24 +7,24 @@
 class MWEchoDbFactory {
 
 	/**
-	 * The wiki to access the database for
-	 * @var string|bool
-	 */
-	protected $wiki;
-
-	/**
 	 * The cluster for the database
 	 * @var string|bool
 	 */
-	protected $cluster;
+	private $cluster;
+
+	private $shared;
+
+	private $sharedCluster;
 
 	/**
-	 * @param string|bool
-	 * @param string|bool
+	 * @param string|bool $cluster
+	 * @param string|bool $shared
+	 * @param string|bool $sharedCluster
 	 */
-	public function __construct( $cluster = false, $wiki = false ) {
+	public function __construct( $cluster = false, $shared = false, $sharedCluster = false ) {
 		$this->cluster = $cluster;
-		$this->wiki = $wiki;
+		$this->shared = $shared;
+		$this->sharedCluster = $sharedCluster;
 	}
 
 	/**
@@ -35,22 +35,34 @@ class MWEchoDbFactory {
 	 * @return MWEchoDbFactory
 	 */
 	public static function newFromDefault() {
-		global $wgEchoCluster;
+		global $wgEchoCluster, $wgEchoSharedTrackingDB, $wgEchoSharedTrackingCluster;
 
-		return new self( $wgEchoCluster );
+		return new self( $wgEchoCluster, $wgEchoSharedTrackingDB, $wgEchoSharedTrackingCluster );
 	}
 
 	/**
 	 * Get the database load balancer
-	 * @param $wiki string|bool The wiki ID, or false for the current wiki
 	 * @return LoadBalancer
 	 */
 	protected function getLB() {
 		// Use the external db defined for Echo
 		if ( $this->cluster ) {
-			$lb = wfGetLBFactory()->getExternalLB( $this->cluster, $this->wiki );
+			$lb = wfGetLBFactory()->getExternalLB( $this->cluster );
 		} else {
-			$lb = wfGetLB( $this->wiki );
+			$lb = wfGetLB();
+		}
+
+		return $lb;
+	}
+
+	/**
+	 * @return LoadBalancer
+	 */
+	protected function getSharedLB() {
+		if ( $this->sharedCluster ) {
+			$lb = wfGetLBFactory()->getExternalLB( $this->sharedCluster );
+		} else {
+			$lb = wfGetLB();
 		}
 
 		return $lb;
@@ -63,8 +75,23 @@ class MWEchoDbFactory {
 	 * @return DatabaseBase
 	 */
 	public function getEchoDb( $db, $groups = array() ) {
-		return $this->getLB()->getConnection( $db, $groups, $this->wiki );
+		return $this->getLB()->getConnection( $db, $groups );
 	}
+
+	/**
+	 * @param $db int Index of the connection to get
+	 * @param array $groups Query groups
+	 * @return bool|DatabaseBase false if no shared db is configured
+	 */
+	public function getSharedDb( $db, $groups = array() ) {
+		if ( !$this->shared ) {
+			return false;
+		}
+
+		return $this->getSharedLB()->getConnection( $db, $groups, $this->shared );
+	}
+
+
 
 	/**
 	 * Wrapper function for wfGetDB, some extensions like MobileFrontend is

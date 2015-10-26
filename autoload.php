@@ -86,6 +86,7 @@ $wgAutoloadClasses += array(
 	'EchoTextEmailFormatter' => __DIR__ . '/includes/EmailFormatter.php',
 	'EchoTitleLocalCache' => __DIR__ . '/includes/cache/TitleLocalCache.php',
 	'EchoTitleLocalCacheTest' => __DIR__ . '/tests/phpunit/cache/TitleLocalCacheTest.php',
+	'EchoUnreadWikis' => __DIR__ . '/includes/UnreadWikis.php',
 	'EchoUserLocator' => __DIR__ . '/includes/UserLocator.php',
 	'EchoUserLocatorTest' => __DIR__ . '/tests/phpunit/UserLocatorTest.php',
 	'EchoUserNotificationGateway' => __DIR__ . '/includes/gateway/UserNotificationGateway.php',
