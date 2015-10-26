@@ -23,7 +23,8 @@
 			"Mattho69",
 			"Wladek92",
 			"Momo50WM",
-			"Orlodrim"
+			"Orlodrim",
+			"Jules78120"
 		]
 	},
 	"echo-desc": "Système pour avertir les utilisateurs sur les événements et les messages",
@@ -55,7 +56,7 @@
 	"echo-category-title-user-rights": "{{PLURAL:$1|Modification de droits utilisateur|Modifications de droits utilisateur}}",
 	"echo-category-title-emailuser": "{{PLURAL:$1|Courriel d’un autre utilisateur|Courriels d’autres utilisateurs}}",
 	"echo-pref-tooltip-edit-user-talk": "Me prévenir quand quelqu’un publie un message ou répond sur ma page de discussion.",
-	"echo-pref-tooltip-article-linked": "Me prévenir quand quelqu’un fait référence à une page que j’ai créée à partir d’une page d’article.",
+	"echo-pref-tooltip-article-linked": "Me prévenir quand quelqu’un fait référence à une page que j’ai créée depuis un article.",
 	"echo-pref-tooltip-reverted": "Me prévenir quand quelqu’un annule une modification que j’ai faite, en utilisant l’outil annulation ou révocation",
 	"echo-pref-tooltip-mention": "Me prévenir quand quelqu’un fait référence à ma page utilisateur.",
 	"echo-pref-tooltip-user-rights": "Me notifier quand quelqu’un modifie mes droits utilisateur.",
@@ -94,7 +95,7 @@
 	"notification-mention-nosection": "[[User:$1|$1]] a fait mention de vous sur la [[:$3|page de discussion de $2]].",
 	"notification-mention-nosection-flyout": "$1 a fait mention de vous sur la [[:$3|page de discussion de $2]].",
 	"notification-user-rights": "Vos droits d’utilisateur [[Special:Log/rights/$1|ont été modifiés]] par [[User:$1|$1]]. $2. [[Special:ListGroupRights|En savoir plus]]",
-	"notification-user-rights-flyout": "Vos droits d’utilisateur {{GENDER:$1|ont été modifiés}} par $1. $2. [[Special:ListGroupRights|En savoir plus]]",
+	"notification-header-user-rights": "Vos droits d’utilisateur {{GENDER:$2|ont été modifiés}} par $1. $3. [[Special:ListGroupRights|En savoir plus]]",
 	"notification-user-rights-add": "Vous êtes maintenant membre de {{PLURAL:$2|ce groupe|ces groupes}} : $1",
 	"notification-user-rights-remove": "Vous n’êtes plus membre de {{PLURAL:$2|ce groupe|ces groupes}} : $1",
 	"notification-new-user": "Bienvenue sur {{SITENAME}}, $1 ! Nous sommes heureux de vous voir ici.",
