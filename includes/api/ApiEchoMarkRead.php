@@ -66,18 +66,6 @@ class ApiEchoMarkRead extends ApiBase {
 		);
 	}
 
-	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getParamDescription() {
-		return array(
-			'list' => 'A list of notification IDs to mark as read',
-			'all' => "If set to true, marks all of a user's notifications as read",
-			'sections' => 'A list of sections to mark as read',
-			'token' => 'edit token',
-		);
-	}
-
 	public function needsToken() {
 		return 'csrf';
 	}
@@ -92,23 +80,6 @@ class ApiEchoMarkRead extends ApiBase {
 
 	public function isWriteMode() {
 		return true;
-	}
-
-	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getDescription() {
-		return 'Mark notifications as read for the current user';
-	}
-
-	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getExamples() {
-		return array(
-			'api.php?action=echomarkread&list=8',
-			'api.php?action=echomarkread&all=true'
-		);
 	}
 
 	/**
