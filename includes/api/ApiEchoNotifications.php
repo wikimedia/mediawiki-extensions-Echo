@@ -78,7 +78,6 @@ class ApiEchoNotifications extends ApiQueryBase {
 	 * @return array
 	 */
 	protected function getSectionPropList( User $user, $section, $limit, $continue, $format, $unreadFirst = false ) {
-		$notifUser = MWEchoNotifUser::newFromUser( $user );
 		$attributeManager = EchoAttributeManager::newFromGlobalVars();
 		$sectionEvents = $attributeManager->getUserEnabledEventsbySections( $user, 'web', array( $section ) );
 
