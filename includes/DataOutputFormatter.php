@@ -17,18 +17,13 @@ class EchoDataOutputFormatter {
 	 *
 	 * @param EchoNotification $notification
 	 * @param string|bool $format specifify output format, false to not format any notifications
-	 * @param User|null $user the target user viewing the notification
+	 * @param User $user the target user viewing the notification
 	 * @return array
 	 */
-	public static function formatOutput( EchoNotification $notification, $format = false, User $user = null ) {
+	public static function formatOutput( EchoNotification $notification, $format = false, User $user ) {
 		$event = $notification->getEvent();
 		$timestamp = $notification->getTimestamp();
 		$utcTimestampUnix = wfTimestamp( TS_UNIX, $timestamp );
-
-		// Default to notification user if user is not specified
-		if ( !$user ) {
-			$user = $notification->getUser();
-		}
 
 		if ( $notification->getBundleBase() && $notification->getBundleDisplayHash() ) {
 			$event->setBundleHash( $notification->getBundleDisplayHash() );
