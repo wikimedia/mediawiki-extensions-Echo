@@ -34,15 +34,6 @@ class ApiEchoMarkSeen extends ApiBase {
 		);
 	}
 
-	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getParamDescription() {
-		return array(
-			'token' => 'edit token',
-		);
-	}
-
 	public function needsToken() {
 		return 'csrf';
 	}
@@ -57,22 +48,6 @@ class ApiEchoMarkSeen extends ApiBase {
 
 	public function isWriteMode() {
 		return true;
-	}
-
-	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getDescription() {
-		return 'Mark notifications as seen for the current user';
-	}
-
-	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getExamples() {
-		return array(
-			'api.php?action=echomarkseen',
-		);
 	}
 
 	/**

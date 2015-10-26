@@ -242,8 +242,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 			),
 			'index' => false,
 			'continue' => array(
-				/** @todo Once support for MediaWiki < 1.25 is dropped, just use ApiBase::PARAM_HELP_MSG directly */
-				constant( 'ApiBase::PARAM_HELP_MSG' ) ?: '' => 'api-help-param-continue',
+				ApiBase::PARAM_HELP_MSG => 'api-help-param-continue',
 			),
 		);
 		foreach ( $sections as $section ) {
@@ -255,42 +254,6 @@ class ApiEchoNotifications extends ApiQueryBase {
 		}
 
 		return $params;
-	}
-
-	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getParamDescription() {
-		return array(
-			'prop' => 'Details to request.',
-			'sections' => 'The notification sections to query (i.e. some combination of \'alert\' and \'message\').',
-			'groupbysection' => 'Whether to group the result by section, each section is fetched separately if set',
-			'format' => 'If specified, notifications will be returned formatted this way.',
-			'index' => 'If specified, a list of notification IDs, in order, will be returned.',
-			'limit' => 'The maximum number of notifications to return.',
-			'continue' => 'When more results are available, use this to continue, this is used only when groupbysection is not set.',
-			'alertcontinue' => 'When more alert results are available, use this to continue.',
-			'messagecontinue' => 'When more message results are available, use this to continue.',
-			'alertunreadfirst' => 'Whether to show unread message notifications first',
-			'messageunreadfirst' => 'Whether to show unread alert notifications first'
-		);
-	}
-
-	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getDescription() {
-		return 'Get notifications waiting for the current user';
-	}
-
-	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getExamples() {
-		return array(
-			'api.php?action=query&meta=notifications',
-			'api.php?action=query&meta=notifications&notprop=count&notsections=alert|message&notgroupbysection=1',
-		);
 	}
 
 	/**
