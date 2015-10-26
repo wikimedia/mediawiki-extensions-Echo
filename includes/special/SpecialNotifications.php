@@ -51,7 +51,7 @@ class SpecialNotifications extends SpecialPage {
 			$attributeManager->getUserEnabledEvents( $user, 'web' )
 		);
 		foreach ( $notifications as $notification ) {
-			$notif[] = EchoDataOutputFormatter::formatOutput( $notification, 'html', $user );
+			$notif[] = EchoDataOutputFormatter::formatOutput( $notification, 'html', $user, $this->getLanguage() );
 		}
 
 		// If there are no notifications, display a message saying so

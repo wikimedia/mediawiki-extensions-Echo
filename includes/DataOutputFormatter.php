@@ -18,9 +18,10 @@ class EchoDataOutputFormatter {
 	 * @param EchoNotification $notification
 	 * @param string|bool $format specifify output format, false to not format any notifications
 	 * @param User $user the target user viewing the notification
+	 * @param Language $lang Language to format the notification in
 	 * @return array
 	 */
-	public static function formatOutput( EchoNotification $notification, $format = false, User $user ) {
+	public static function formatOutput( EchoNotification $notification, $format = false, User $user, Language $lang ) {
 		$event = $notification->getEvent();
 		$timestamp = $notification->getTimestamp();
 		$utcTimestampUnix = wfTimestamp( TS_UNIX, $timestamp );
@@ -108,21 +109,18 @@ class EchoDataOutputFormatter {
 		}
 
 		if ( $format ) {
-			$output['*'] = self::formatNotification( $event, $user, $format );
+			$output['*'] = self::formatNotification( $event, $user, $format, $lang );
 		}
 
 		return $output;
 	}
 
-	protected static function formatNotification( EchoEvent $event, User $user, $format ) {
-		global $wgLang;
+	protected static function formatNotification( EchoEvent $event, User $user, $format, $lang ) {
 		if ( isset( self::$formatters[$format] )
 			&& EchoEventPresentationModel::supportsPresentationModel( $event->getType() )
 		) {
-			// FIXME don't use $wgLang. It's ok because this is only used for the API or Special page, and not
-			// emails yet.
 			/** @var EchoEventFormatter $formatter */
-			$formatter = new self::$formatters[$format]( $user, $wgLang );
+			$formatter = new self::$formatters[$format]( $user, $lang );
 			return $formatter->format( $event );
 		} else {
 			// Legacy b/c
