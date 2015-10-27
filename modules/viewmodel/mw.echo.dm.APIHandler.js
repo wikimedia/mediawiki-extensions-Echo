@@ -46,10 +46,14 @@
 	/**
 	 * @inheritdoc
 	 */
-	mw.echo.dm.APIHandler.prototype.updateSeenTime = function () {
+	mw.echo.dm.APIHandler.prototype.updateSeenTime = function ( type ) {
+		type = type || this.type;
+
 		return this.api.postWithToken( 'edit', {
 			action: 'echomarkseen',
-			type: this.type
+			// TODO: The API should also work with piped types like
+			// getting notification lists
+			type: $.isArray( type ) ? 'all' : type
 		} )
 			.then( function ( data ) {
 				return data.query.echomarkseen.timestamp;
