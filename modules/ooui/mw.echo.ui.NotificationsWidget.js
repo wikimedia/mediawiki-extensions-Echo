@@ -1,4 +1,4 @@
-( function ( mw, $ ) {
+( function ( mw ) {
 	/**
 	 * Notification widget for echo popup.
 	 *
@@ -45,32 +45,24 @@
 	/**
 	 * Respond to model add event
 	 *
-	 * @param {mw.echo.dm.NotificationItem[]} Added notification items
+	 * @param {mw.echo.dm.NotificationItem} Added notification item
+	 * @param {number} index Index to add the item
 	 */
-	mw.echo.ui.NotificationsWidget.prototype.onModelNotificationAdd = function ( notificationItems, index ) {
-		var i, len, widget,
-			$elements = $(),
-			optionWidgets = [];
-
-		for ( i = 0, len = notificationItems.length; i < len; i++ ) {
-			widget = new mw.echo.ui.NotificationOptionWidget(
-				notificationItems[ i ],
+	mw.echo.ui.NotificationsWidget.prototype.onModelNotificationAdd = function ( notificationItem, index ) {
+		var widget = new mw.echo.ui.NotificationOptionWidget(
+				notificationItem,
 				{
 					markReadWhenSeen: this.markReadWhenSeen
 				}
 			);
-			optionWidgets.push( widget );
-			// Collect the elements for the hook firing
-			$elements = $elements.add( widget.$element );
-		}
 
 		// Fire hook for gadgets to update the option list
-		mw.hook( 'ext.echo.overlay.beforeShowingOverlay' ).fire( $elements );
+		mw.hook( 'ext.echo.overlay.beforeShowingOverlay' ).fire( widget.$element );
 
 		// Remove dummy option
 		this.removeItems( [ this.loadingOptionWidget ] );
 
-		this.addItems( optionWidgets, index );
+		this.addItems( [ widget ], index );
 	};
 
 	/**
@@ -99,22 +91,18 @@
 	/**
 	 * Respond to model add event
 	 *
-	 * @param {mw.echo.dm.NotificationItem[]} Removed notification items
+	 * @param {mw.echo.dm.NotificationItem} notificationItem Removed notification items
 	 */
-	mw.echo.ui.NotificationsWidget.prototype.onModelNotificationRemove = function ( notificationItems ) {
-		var i, len, widget, items,
-			removalWidgets = [];
+	mw.echo.ui.NotificationsWidget.prototype.onModelNotificationRemove = function ( notificationItem ) {
+		var widget, items;
 
-		for ( i = 0, len = notificationItems.length; i < len; i++ ) {
-			widget = this.getItemById( notificationItems[ i ].getId() );
-			if ( widget && typeof widget.destroy === 'function' ) {
-				// Destroy all widgets that can be destroyed
-				widget.destroy();
-			}
-			removalWidgets.push( widget );
+		widget = this.getItemFromData( notificationItem.getId() );
+		if ( widget && typeof widget.destroy === 'function' ) {
+			// Destroy all widgets that can be destroyed
+			widget.destroy();
 		}
 
-		this.removeItems( removalWidgets );
+		this.removeItems( [ widget ] );
 
 		items = this.getItems();
 		if ( !items.length ) {
@@ -148,4 +136,4 @@
 		this.loadingOptionWidget.setLabel( label || '' );
 		this.addItems( [ this.loadingOptionWidget ] );
 	};
-} )( mediaWiki, jQuery );
+} )( mediaWiki );

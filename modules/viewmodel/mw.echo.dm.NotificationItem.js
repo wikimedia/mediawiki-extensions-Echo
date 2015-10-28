@@ -32,7 +32,7 @@
 		// Mixin constructor
 		OO.EventEmitter.call( this );
 
-		this.id = id || null;
+		this.id = id !== undefined ? id : null;
 
 		// TODO: We should work on the API to release and work with actual
 		// data here, rather than getting a pre-made html content of the
@@ -45,7 +45,7 @@
 		this.toggleRead( !!config.read );
 		this.toggleSeen( !!config.seen );
 
-		this.setTimestamp( config.timestamp || fallbackMWDate );
+		this.timestamp = config.timestamp || fallbackMWDate;
 		this.setPrimaryUrl( config.primaryUrl );
 	};
 
@@ -129,6 +129,7 @@
 		if ( this.read !== read ) {
 			this.read = read;
 			this.emit( 'read', this.read );
+			this.emit( 'sortChange' );
 		}
 	};
 
@@ -153,6 +154,7 @@
 	 */
 	mw.echo.dm.NotificationItem.prototype.setTimestamp = function ( timestamp ) {
 		this.timestamp = Number( timestamp );
+		this.emit( 'sortChange' );
 	};
 
 	/**

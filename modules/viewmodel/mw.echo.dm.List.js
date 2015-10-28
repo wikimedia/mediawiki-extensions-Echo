@@ -22,18 +22,31 @@
 	/* Events */
 
 	/**
-	 * @event add Items have been added
-	 * @param {mw.echo.dm.NotificationItem[]} items Added items
+	 * Item has been added
+	 *
+	 * @event add
+	 * @param {OO.EventEmitter} item Added item
 	 * @param {number} index Index items were added at
 	 */
 
 	/**
-	 * @event remove Items have been removed
-	 * @param {mw.echo.dm.NotificationItem[]} items Removed items
+	 * Item has been moved to a new index
+	 *
+	 * @event move
+	 * @param {OO.EventEmitter} item Moved item
+	 * @param {number} index Index item was moved to
 	 */
 
 	/**
-	 * @event clear All items have been removed
+	 * Item has been removed
+	 *
+	 * @event remove
+	 * @param {OO.EventEmitter} item Removed item
+	 * @param {number} index Index the item was removed from
+	 */
+
+	/**
+	 * @event clear The list has been cleared of items
 	 */
 
 	/* Methods */
@@ -100,7 +113,7 @@
 	 * @throws {Error} An error is thrown if aggregation already exists.
 	 */
 	mw.echo.dm.List.prototype.aggregate = function ( events ) {
-		var i, len, item, add, remove, itemEvent, groupEvent;
+		var i, item, add, remove, itemEvent, groupEvent;
 
 		for ( itemEvent in events ) {
 			groupEvent = events[ itemEvent ];
@@ -112,7 +125,7 @@
 					throw new Error( 'Duplicate item event aggregation for ' + itemEvent );
 				}
 				// Remove event aggregation from existing items
-				for ( i = 0, len = this.items.length; i < len; i++ ) {
+				for ( i = 0; i < this.items.length; i++ ) {
 					item = this.items[ i ];
 					if ( item.connect && item.disconnect ) {
 						remove = {};
@@ -129,7 +142,7 @@
 				// Make future items aggregate event
 				this.aggregateItemEvents[ itemEvent ] = groupEvent;
 				// Add event aggregation to existing items
-				for ( i = 0, len = this.items.length; i < len; i++ ) {
+				for ( i = 0; i < this.items.length; i++ ) {
 					item = this.items[ i ];
 					if ( item.connect && item.disconnect ) {
 						add = {};
@@ -142,61 +155,119 @@
 	};
 
 	/**
-	 * Add items
+	 * Add items.
 	 *
-	 * @param {mw.echo.dm.NotificationItem[]} items Items to add
-	 * @param {number} index Index to add items at
+	 * @param {mw.echo.dm.NotificationItem|mw.echo.dm.NotificationItem[]} items Item to add or
+	 *  an array of items to add
+	 * @param {number} [index] Index to add items at. If no index is
+	 *  given, or if the index that is given is invalid, the item
+	 *  will be added at the end of the list.
 	 * @chainable
 	 * @fires add
+	 * @fires move
 	 */
 	mw.echo.dm.List.prototype.addItems = function ( items, index ) {
-		var i, len, item, event, events, currentIndex, existingItem, at;
+		var i;
+
+		if ( !Array.isArray( items ) ) {
+			items = [ items ];
+		}
 
 		if ( items.length === 0 ) {
 			return this;
 		}
 
-		// Support adding existing items at new locations
-		for ( i = 0, len = items.length; i < len; i++ ) {
-			item = items[ i ];
-			existingItem = this.getItemById( item.getId() );
-
-			// Check if item exists then remove it first, effectively "moving" it
-			currentIndex = this.items.indexOf( existingItem );
-			if ( currentIndex >= 0 ) {
-				this.removeItems( [ existingItem ] );
-				// Adjust index to compensate for removal
-				if ( currentIndex < index ) {
-					index--;
-				}
+		index = this.normalizeIndex( index );
+		for ( i = 0; i < items.length; i++ ) {
+			if ( this.items.indexOf( items[ i ] ) !== -1 ) {
+				// Move item to new index
+				index = this.moveItem( items[ i ], index );
+				this.emit( 'move', items[ i ], index );
+			} else {
+				// insert item at index
+				index = this.insertItem( items[ i ], index );
+				this.emit( 'add', items[ i ], index );
 			}
-
-			// Add the item
-			if ( item.connect && item.disconnect && !$.isEmptyObject( this.aggregateItemEvents ) ) {
-				events = {};
-				for ( event in this.aggregateItemEvents ) {
-					events[ event ] = [ 'emit', this.aggregateItemEvents[ event ], item ];
-				}
-				item.connect( this, events );
-			}
-
-			// Add by reference
-			this.itemsById[ item.getId() ] = items[ i ];
+			index++;
 		}
-
-		if ( index === undefined || index < 0 || index >= this.items.length ) {
-			at = this.items.length;
-			this.items.push.apply( this.items, items );
-		} else if ( index === 0 ) {
-			at = 0;
-			this.items.unshift.apply( this.items, items );
-		} else {
-			at = index;
-			this.items.splice.apply( this.items, [ index, 0 ].concat( items ) );
-		}
-		this.emit( 'add', items, at );
 
 		return this;
+	};
+
+	/**
+	 * Move an item from its current position to a new index.
+	 *
+	 * @param {mw.echo.dm.NotificationItem} item Items to add
+	 * @param {number} newIndex Index to move the item to
+	 * @private
+	 * @return {number} The index the item was moved to
+	 */
+	mw.echo.dm.List.prototype.moveItem = function ( item, newIndex ) {
+		var existingIndex = this.items.indexOf( item );
+
+		newIndex = this.normalizeIndex( newIndex );
+
+		if ( existingIndex === -1 ) {
+			return this;
+		}
+
+		// Remove the item from the current index
+		this.items.splice( existingIndex, 1 );
+
+		// Adjust new index after removal
+		newIndex--;
+
+		// Move the item to the new index
+		this.items.splice( newIndex, 0, item );
+
+		return newIndex;
+	};
+
+	/**
+	 * Normalize requested index to fit into the array.
+	 *
+	 * @private
+	 * @param {number} index Requested index
+	 * @return {number} Normalized index
+	 */
+	mw.echo.dm.List.prototype.normalizeIndex = function ( index ) {
+		return ( index === undefined || index < 0 || index >= this.items.length ) ?
+			this.items.length :
+			index;
+	};
+
+	/**
+	 * Utility method to insert an item into the list, and
+	 * connect it to aggregate events.
+	 *
+	 * Don't call this directly unless you know what you're doing.
+	 * Use #addItems instead.
+	 *
+	 * @param {mw.echo.dm.NotificationItem} item Items to add
+	 * @param {number} index Index to add items at
+	 * @private
+	 * @return {number} The index the item was added at
+	 */
+	mw.echo.dm.List.prototype.insertItem = function ( item, index ) {
+		var events, event;
+
+		// Add the item to event aggregation
+		if ( item.connect && item.disconnect ) {
+			events = {};
+			for ( event in this.aggregateItemEvents ) {
+				events[ event ] = [ 'emit', this.aggregateItemEvents[ event ], item ];
+			}
+			item.connect( this, events );
+		}
+
+		index = this.normalizeIndex( index );
+
+		// Insert into items array
+		this.items.splice( index, 0, item );
+
+		// Store by id
+		this.itemsById[ item.getId() ] = item;
+		return index;
 	};
 
 	/**
@@ -207,33 +278,32 @@
 	 * @fires remove
 	 */
 	mw.echo.dm.List.prototype.removeItems = function ( items ) {
-		var i, len, item, index, remove, itemEvent,
-			removed = [];
+		var i, item, index;
+
+		if ( !Array.isArray( items ) ) {
+			items = [ items ];
+		}
 
 		if ( items.length === 0 ) {
 			return this;
 		}
 
 		// Remove specific items
-		for ( i = 0, len = items.length; i < len; i++ ) {
+		for ( i = 0; i < items.length; i++ ) {
 			item = items[ i ];
 			index = this.items.indexOf( item );
 			if ( index !== -1 ) {
-				if (
-					item.connect && item.disconnect && !$.isEmptyObject( this.aggregateItemEvents )
-				) {
-					remove = {};
-					if ( Object.prototype.hasOwnProperty.call( this.aggregateItemEvents, itemEvent ) ) {
-						remove[ itemEvent ] = [ 'emit', this.aggregateItemEvents[ itemEvent ], item ];
-					}
-					item.disconnect( this, remove );
+				if ( item.connect && item.disconnect ) {
+					// Disconnect all listeners from the item
+					item.disconnect( this );
 				}
+				// Remove from id cache
+				delete this.itemsById[ index ];
+				// Remove from items
 				this.items.splice( index, 1 );
-				// Remove reference by Id
-				delete this.itemsById[ item.getId() ];
+				this.emit( 'remove', item, index );
 			}
 		}
-		this.emit( 'remove', removed );
 
 		return this;
 	};
@@ -244,23 +314,17 @@
 	 * @fires clear
 	 */
 	mw.echo.dm.List.prototype.clearItems = function () {
-		var i, len, item, remove, itemEvent;
+		var i, item,
+			items = this.items.splice( 0, this.items.length );
 
 		// Remove all items
-		for ( i = 0, len = this.items.length; i < len; i++ ) {
-			item = this.items[ i ];
-			if (
-				item.connect && item.disconnect && !$.isEmptyObject( this.aggregateItemEvents )
-			) {
-				remove = {};
-				if ( Object.prototype.hasOwnProperty.call( this.aggregateItemEvents, itemEvent ) ) {
-					remove[ itemEvent ] = [ 'emit', this.aggregateItemEvents[ itemEvent ], item ];
-				}
-				item.disconnect( this, remove );
+		for ( i = 0; i < items.length; i++ ) {
+			item = items[ i ];
+			if ( item.connect && item.disconnect ) {
+				item.disconnect( this );
 			}
 		}
 
-		this.items = [];
 		this.itemsById = {};
 
 		this.emit( 'clear' );

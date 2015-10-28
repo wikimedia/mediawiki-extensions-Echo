@@ -20,7 +20,7 @@
 		OO.EventEmitter.call( this );
 
 		// Mixin constructor
-		mw.echo.dm.List.call( this );
+		mw.echo.dm.SortedList.call( this );
 
 		this.type = config.type || 'alert';
 
@@ -42,13 +42,32 @@
 			itemSeen: 'onItemSeen',
 			itemRead: 'onItemRead'
 		} );
+
+		this.setSortingCallback( function ( a, b ) {
+			var diff;
+
+			if ( !a.isRead() && b.isRead() ) {
+				return -1; // Unread items are always above read items
+			} else if ( a.isRead() && !b.isRead() ) {
+				return 1;
+			} else {
+				// Reverse sorting
+				diff = b.getTimestamp() - a.getTimestamp();
+				if ( diff !== 0 ) {
+					return diff;
+				}
+
+				// Fallback on IDs
+				return b.getId() - a.getId();
+			}
+		} );
 	};
 
 	/* Initialization */
 
 	OO.initClass( mw.echo.dm.NotificationsModel );
 	OO.mixinClass( mw.echo.dm.NotificationsModel, OO.EventEmitter );
-	OO.mixinClass( mw.echo.dm.NotificationsModel, mw.echo.dm.List );
+	OO.mixinClass( mw.echo.dm.NotificationsModel, mw.echo.dm.SortedList );
 
 	/* Events */
 
@@ -112,6 +131,7 @@
 		var id = item && item.getId(),
 			unreadItem = id && this.unreadNotifications.getItemById( id );
 
+		// Update unread status and emit events
 		if ( unreadItem ) {
 			if ( isRead ) {
 				this.markItemReadInApi( id );
@@ -337,9 +357,8 @@
 	 * Update the unread and unseen tracking lists when we add items
 	 *
 	 * @param {mw.echo.dm.NotificationItem[]} items Items to add
-	 * @param {number} index Index to add items at
 	 */
-	mw.echo.dm.NotificationsModel.prototype.addItems = function ( items, index ) {
+	mw.echo.dm.NotificationsModel.prototype.addItems = function ( items ) {
 		var i, len;
 
 		for ( i = 0, len = items.length; i < len; i++ ) {
@@ -352,7 +371,7 @@
 		}
 
 		// Parent
-		mw.echo.dm.List.prototype.addItems.call( this, items, index );
+		mw.echo.dm.SortedList.prototype.addItems.call( this, items );
 	};
 
 	/**
@@ -370,7 +389,7 @@
 		}
 
 		// Parent
-		mw.echo.dm.List.prototype.removeItems.call( this, items );
+		mw.echo.dm.SortedList.prototype.removeItems.call( this, items );
 	};
 
 	/**
@@ -381,7 +400,7 @@
 		this.unseenNotifications.clearItems();
 
 		// Parent
-		mw.echo.dm.List.prototype.clearItems.call( this );
+		mw.echo.dm.SortedList.prototype.clearItems.call( this );
 	};
 
 	/**
