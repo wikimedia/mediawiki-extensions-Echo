@@ -27,6 +27,10 @@ class EchoMentionPresentationModel extends EchoEventPresentationModel {
 		return $this->sectionTitle;
 	}
 
+	public function canRender() {
+		return (bool)$this->event->getTitle();
+	}
+
 	/**
 	 * Override to switch the message key to -nosection
 	 * if no section title was detected

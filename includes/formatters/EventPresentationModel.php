@@ -125,6 +125,18 @@ abstract class EchoEventPresentationModel {
 	}
 
 	/**
+	 * To be overridden by subclasses if they are unable to render the
+	 * notification, for example when a page is deleted.
+	 * If this function returns false, no other methods will be called
+	 * on the object.
+	 *
+	 * @return bool
+	 */
+	public function canRender() {
+		return true;
+	}
+
+	/**
 	 * @return string Message key that will be used in getHeaderMessage
 	 */
 	protected function getHeaderMessageKey() {

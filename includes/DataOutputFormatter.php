@@ -19,7 +19,7 @@ class EchoDataOutputFormatter {
 	 * @param string|bool $format specifify output format, false to not format any notifications
 	 * @param User $user the target user viewing the notification
 	 * @param Language $lang Language to format the notification in
-	 * @return array
+	 * @return array|bool false if it could not be formatted
 	 */
 	public static function formatOutput( EchoNotification $notification, $format = false, User $user, Language $lang ) {
 		$event = $notification->getEvent();
@@ -109,12 +109,25 @@ class EchoDataOutputFormatter {
 		}
 
 		if ( $format ) {
-			$output['*'] = self::formatNotification( $event, $user, $format, $lang );
+			$formatted = self::formatNotification( $event, $user, $format, $lang );
+			if ( $formatted === false ) {
+				// Can't display it, so mark it as read
+				EchoDeferredMarkAsReadUpdate::add( $event, $user );
+				return false;
+			}
+			$output['*'] = $formatted;
 		}
 
 		return $output;
 	}
 
+	/**
+	 * @param EchoEvent $event
+	 * @param User $user
+	 * @param $format
+	 * @param Language $lang
+	 * @return string|bool false if it could not be formatted
+	 */
 	protected static function formatNotification( EchoEvent $event, User $user, $format, $lang ) {
 		if ( isset( self::$formatters[$format] )
 			&& EchoEventPresentationModel::supportsPresentationModel( $event->getType() )
