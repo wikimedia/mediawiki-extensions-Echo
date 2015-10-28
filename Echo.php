@@ -381,7 +381,8 @@ $wgEchoNotifications = array(
 		'category' => 'mention',
 		'group' => 'interactive',
 		'section' => 'alert',
-		'presentation-model' => 'EchoMentionPresentationModel',
+		// Commented out because EchoMentionPresentationModel fatals (T116888)
+		//'presentation-model' => 'EchoMentionPresentationModel',
 		'formatter-class' => 'EchoMentionFormatter',
 		'title-message' => 'notification-mention',
 		'title-params' => array( 'agent', 'subject-anchor', 'title', 'section-title', 'main-title-text' ),
