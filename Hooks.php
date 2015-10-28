@@ -548,8 +548,9 @@ class EchoHooks {
 	 * @return bool
 	 */
 	public static function onLinksUpdateAfterInsert( $linksUpdate, $table, $insertions ) {
-		global $wgRequest, $wgUser;
+		global $wgRequest;
 
+		// FIXME: This doesn't work in 1.27+
 		// Rollback or undo should not trigger link notification
 		// @Todo Implement a better solution so it doesn't depend on the checking of
 		// a specific set of request variables
@@ -568,6 +569,13 @@ class EchoHooks {
 			return true;
 		}
 
+		if ( is_callable( array( $linksUpdate, 'getTriggeringUser' ) ) ) {
+			$user = $linksUpdate->getTriggeringUser();
+		} else {
+			global $wgUser;
+			$user = $wgUser;
+		}
+
 		// link notification is boundless as you can include infinite number of links in a page
 		// db insert is expensive, limit it to a reasonable amount, we can increase this limit
 		// once the storage is on Redis
@@ -584,7 +592,7 @@ class EchoHooks {
 				EchoEvent::create( array(
 					'type' => 'page-linked',
 					'title' => $title,
-					'agent' => $wgUser,
+					'agent' => $user,
 					'extra' => array(
 						'link-from-page-id' => $linksUpdate->mTitle->getArticleId(),
 					)
