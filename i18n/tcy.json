@@ -1,7 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"VASANTH S.N."
+			"VASANTH S.N.",
+			"Vishwanatha Badikana"
 		]
-	}
+	},
+	"tooltip-pt-notifications-alert": "{{GENDER:|ಈರೆನ}}ಎಚ್ಚರಿಕೆ",
+	"tooltip-pt-notifications-message": "{{GENDER:|ಈರೆನ}} ಸುದ್ದಿ"
 }
