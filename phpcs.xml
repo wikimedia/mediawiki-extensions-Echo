@@ -3,7 +3,6 @@
 	<file>.</file>
 	<rule ref="vendor/mediawiki/mediawiki-codesniffer/MediaWiki">
 		<exclude name="Generic.Files.LineLength"/>
-		<exclude name="Generic.PHP.ForbiddenFunctions.FoundWithAlternative"/>
 		<exclude name="MediaWiki.NamingConventions.PrefixedGlobalFunctions.wfPrefix"/>
 		<exclude name="MediaWiki.Usage.DirUsage.FunctionFound"/>
 		<exclude name="MediaWiki.VariableAnalysis.UnusedGlobalVariables"/>

@@ -1,5 +1,5 @@
 <?php
-if ( sizeof( $argv ) < 3 ) {
+if ( count( $argv ) < 3 ) {
 	print "Call with 2 arguments: the path to the load url and the file to output to";
 	exit();
 }
