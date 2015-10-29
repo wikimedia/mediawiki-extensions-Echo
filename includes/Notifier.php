@@ -98,7 +98,10 @@ class EchoNotifier {
 				// Since we are sending a single email, should set the bundle hash to null
 				// if it is set with a value from somewhere else
 				$event->setBundleHash( null );
-				$email = EchoNotificationController::formatNotification( $event, $user, 'email', 'email' );
+				$email = self::generateEmail( $event, $user );
+				if ( !$email ) {
+					return false;
+				}
 				$subject = $email['subject'];
 				$body = $email['body'];
 				$options = array( 'replyTo' => $replyAddress );
@@ -109,5 +112,22 @@ class EchoNotifier {
 		}
 
 		return true;
+	}
+
+	/**
+	 * @param EchoEvent $event
+	 * @param User $user
+	 * @return bool|array An array of 'subject' and 'body', or false if things went wrong
+	 */
+	private static function generateEmail( EchoEvent $event, User $user ) {
+		$emailFormat = MWEchoNotifUser::newFromUser( $user )->getEmailFormat();
+		if ( $emailFormat === EchoHooks::EMAIL_FORMAT_PLAIN_TEXT ) {
+			$lang = wfGetLangObj( $user->getOption( 'language' ) );
+			$formatter = new EchoPlainTextEmailFormatter( $user, $lang );
+			return $formatter->format( $event );
+		} else {
+			// @todo get rid of this
+			return EchoNotificationController::formatNotification( $event, $user, 'email', 'email' );
+		}
 	}
 }

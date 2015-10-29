@@ -62,12 +62,12 @@ class EchoEventMapper extends EchoAbstractMapper {
 	 *
 	 * @param $user User
 	 * @param $bundleHash string the bundle hash
-	 * @param $type string distribution type
+	 * @param $distributionType string distribution medium: 'web' or 'email'
 	 * @param $order string 'ASC'/'DESC'
 	 * @param $limit int
 	 * @return EchoEvent[]
 	 */
-	public function fetchByUserBundleHash( User $user, $bundleHash, $type = 'web', $order = 'DESC', $limit = 250 ) {
+	public function fetchByUserBundleHash( User $user, $bundleHash, $distributionType = 'web', $order = 'DESC', $limit = 250 ) {
 		$dbr = $this->dbFactory->getEchoDb( DB_SLAVE );
 
 		// We only display 99+ if the number is over 100, we can do limit 250, this should
@@ -76,7 +76,7 @@ class EchoEventMapper extends EchoAbstractMapper {
 		// 1. it will not scale for large volume data
 		// 2. notification may have random grouping iterator
 		// 3. agent may be anonymous, can't do distinct over two columns: event_agent_id and event_agent_ip
-		if ( $type == 'web' ) {
+		if ( $distributionType == 'web' ) {
 			$res = $dbr->select(
 				array( 'echo_notification', 'echo_event' ),
 				array( 'event_agent_id', 'event_agent_ip', 'event_extra',

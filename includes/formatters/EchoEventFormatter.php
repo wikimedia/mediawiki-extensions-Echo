@@ -18,8 +18,24 @@ abstract class EchoEventFormatter {
 	}
 
 	/**
+	 * Equivalent to IContextSource::msg for the current
+	 * language
+	 *
+	 * @return Message
+	 */
+	protected function msg( /* ,,, */ ) {
+		/**
+		 * @var Message $msg
+		 */
+		$msg = call_user_func_array( 'wfMessage', func_get_args() );
+		$msg->inLanguage( $this->language );
+
+		return $msg;
+	}
+
+	/**
 	 * @param EchoEvent $event
-	 * @return string|bool Output format depends on implementation, false if it cannot be formatted
+	 * @return string|array|bool Output format depends on implementation, false if it cannot be formatted
 	 */
 	final public function format( EchoEvent $event ) {
 		$model = EchoEventPresentationModel::factory( $event, $this->language, $this->user );
@@ -32,7 +48,7 @@ abstract class EchoEventFormatter {
 
 	/**
 	 * @param EchoEventPresentationModel $model
-	 * @return string
+	 * @return string|array
 	 */
 	abstract protected function formatModel( EchoEventPresentationModel $model );
 }

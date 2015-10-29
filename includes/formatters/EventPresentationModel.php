@@ -57,15 +57,22 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 	private $bundledEvents;
 
 	/**
+	 * @var string 'web' or 'email'
+	 */
+	private $distributionType;
+
+	/**
 	 * @param EchoEvent $event
 	 * @param Language|string $language
 	 * @param User $user Only used for permissions checking and GENDER
+	 * @param string $distributionType
 	 */
-	protected function __construct( EchoEvent $event, $language, User $user ) {
+	protected function __construct( EchoEvent $event, $language, User $user, $distributionType ) {
 		$this->event = $event;
 		$this->type = $event->getType();
 		$this->language = wfGetLangObj( $language );
 		$this->user = $user;
+		$this->distributionType = $distributionType;
 	}
 
 	/**
@@ -84,14 +91,33 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 	 * @param EchoEvent $event
 	 * @param Language|string $language
 	 * @param User $user
+	 * @param string $distributionType 'web' or 'email'
 	 * @return EchoEventPresentationModel
 	 */
-	public static function factory( EchoEvent $event, $language, User $user ) {
+	public static function factory( EchoEvent $event, $language, User $user, $distributionType = 'web' ) {
 		global $wgEchoNotifications;
 		// @todo don't depend upon globals
 
 		$class = $wgEchoNotifications[$event->getType()]['presentation-model'];
-		return new $class( $event, $language, $user );
+		return new $class( $event, $language, $user, $distributionType );
+	}
+
+	/**
+	 * Get the type of event
+	 *
+	 * @return string
+	 */
+	final public function getType() {
+		return $this->type;
+	}
+
+	/**
+	 * Get the category of event
+	 *
+	 * @return string
+	 */
+	final public function getCategory() {
+		return $this->event->getCategory();
 	}
 
 	/**
@@ -126,9 +152,22 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 		$eventMapper = new EchoEventMapper();
 		$this->bundledEvents = $eventMapper->fetchByUserBundleHash(
 			$this->user,
-			$this->event->getBundleHash()
+			$this->event->getBundleHash(),
+			$this->distributionType
 			// default params: web, DESC, limit=250
 		);
+
+		// Filter out the current event.
+		// This should go away with T120153 when we externalize the fetching of bundled events.
+		if ( $this->distributionType === 'email' ) {
+			$currentEventId = $this->event->getId();
+			$this->bundledEvents = array_filter(
+				$this->bundledEvents,
+				function ( EchoEvent $event ) use ( $currentEventId ) {
+					return $currentEventId !== $event->getId();
+				}
+			);
+		}
 
 		return $this->bundledEvents;
 	}
@@ -307,6 +346,30 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 	 */
 	public function getHeaderMessage() {
 		return $this->getMessageWithAgent( $this->getHeaderMessageKey() );
+	}
+
+	/**
+	 * @return string Message key that will be used in getSubjectMessage
+	 */
+	protected function getSubjectMessageKey() {
+		return "notification-subject-{$this->type}";
+	}
+
+	/**
+	 * Get a message object and add the performer's name as
+	 * a parameter. It is expected that subclasses will override
+	 * this. The output of the message should be plaintext.
+	 *
+	 * @return Message
+	 */
+	public function getSubjectMessage() {
+		$msg = $this->getMessageWithAgent( $this->getSubjectMessageKey() );
+		if ( $msg->isDisabled() ) {
+			// Back-compat for models that haven't been updated yet
+			$msg = $this->getHeaderMessage();
+		}
+
+		return $msg;
 	}
 
 	/**

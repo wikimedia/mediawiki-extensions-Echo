@@ -5,18 +5,35 @@
  */
 class MWEchoEmailBatch {
 
-	// the user to be notified
+	/**
+	 * @var User the user to be notified
+	 */
 	protected $mUser;
 
-	// list of email content
-	protected $content = array();
-	// the last notification event of this batch
+	/**
+	 * @var Language
+	 */
+	protected $language;
+
+	/**
+	 * @var EchoEvent[] events included in this email
+	 */
+	protected $events = array();
+
+	/**
+	 * @var EchoEvent the last notification event of this batch
+	 */
 	protected $lastEvent;
-	// the event count, this count is supported up to self::$displaySize + 1
+
+	/**
+	 * @var int the event count, this count is supported up to self::$displaySize + 1
+	 */
 	protected $count = 0;
 
-	// number of bundle events to include in an email, we couldn't include
-	// all events in a batch email
+	/**
+	 * @var int number of bundle events to include in an email,
+	 * we cannot include all events in a batch email
+	 */
 	protected static $displaySize = 20;
 
 	/**
@@ -24,6 +41,7 @@ class MWEchoEmailBatch {
 	 */
 	public function __construct( User $user ) {
 		$this->mUser = $user;
+		$this->language = wfGetLangObj( $this->mUser->getOption( 'language' ) );
 	}
 
 	/**
@@ -104,7 +122,8 @@ class MWEchoEmailBatch {
 					break;
 				}
 				$event = EchoEvent::newFromRow( $row );
-				$this->appendContent( $event, $row->eeb_event_hash );
+				$event->setBundleHash( $row->eeb_event_hash );
+				$this->events[] = $event;
 			}
 
 			$this->sendEmail();
@@ -201,21 +220,6 @@ class MWEchoEmailBatch {
 	}
 
 	/**
-	 * Add individual event template to the big email content
-	 *
-	 * @param EchoEvent $event
-	 * @param string $hash
-	 */
-	protected function appendContent( EchoEvent $event, $hash ) {
-		// get the category for this event
-		$category = $event->getCategory();
-		$event->setBundleHash( $hash );
-		$email = EchoNotificationController::formatNotification( $event, $this->mUser, 'email', 'emaildigest' );
-
-		$this->content[$category][] = $email;
-	}
-
-	/**
 	 * Clear "processed" events in the queue, processed could be: email sent, invalid, users do not want to receive emails
 	 */
 	public function clearProcessedEvent() {
@@ -250,34 +254,34 @@ class MWEchoEmailBatch {
 			$emailDeliveryMode = 'daily_digest';
 		}
 
-		// Echo digest email mode
-		$emailDigest = new EchoEmailDigest( $this->mUser, $this->content, $frequency );
-
-		$textEmailFormatter = new EchoTextEmailFormatter( $emailDigest );
-
-		$body = $textEmailFormatter->formatEmail();
+		$textEmailDigestFormatter = new EchoPlainTextDigestEmailFormatter( $this->mUser, $this->language, $frequency );
+		$content = $textEmailDigestFormatter->format( $this->events, 'email' );
 
 		$format = MWEchoNotifUser::newFromUser( $this->mUser )->getEmailFormat();
 		if ( $format == EchoHooks::EMAIL_FORMAT_HTML ) {
-			$htmlEmailFormatter = new EchoHTMLEmailFormatter( $emailDigest );
-			$body = array(
-				'text' => $body,
-				'html' => $htmlEmailFormatter->formatEmail()
-			);
-		}
 
-		// Give grep a chance to find the usages:
-		// echo-email-batch-subject-daily, echo-email-batch-subject-weekly
-		$subject = wfMessage( 'echo-email-batch-subject-' . $frequency )
-			->inLanguage( $this->mUser->getOption( 'language' ) )
-			->params( $this->count, $this->count )->text();
+			$formattedEvents = array();
+			foreach ( $this->events as $event ) {
+				$category = $event->getCategory();
+				$formatted = EchoNotificationController::formatNotification( $event, $this->mUser, 'email', 'emaildigest' );
+				$formattedEvents[ $category ][] = $formatted;
+			}
+
+			$emailDigest = new EchoEmailDigest( $this->mUser, $formattedEvents, $frequency );
+			$htmlEmailFormatter = new EchoHTMLEmailFormatter( $emailDigest );
+			$multipartBody = array(
+				'text' => $content['body'],
+				'html' => $htmlEmailFormatter->formatEmail(),
+			);
+			$content['body'] = $multipartBody;
+		}
 
 		$toAddress = MailAddress::newFromUser( $this->mUser );
 		$fromAddress = new MailAddress( $wgNotificationSender, EchoHooks::getNotificationSenderName() );
 		$replyTo = new MailAddress( $wgNotificationSender, $wgNotificationReplyName );
 
 		// @Todo Push the email to job queue or just send it out directly?
-		UserMailer::send( $toAddress, $fromAddress, $subject, $body, array( 'replyTo' => $replyTo ) );
+		UserMailer::send( $toAddress, $fromAddress, $content['subject'], $content['body'], array( 'replyTo' => $replyTo ) );
 		MWEchoEventLogging::logSchemaEchoMail( $this->mUser, $emailDeliveryMode );
 	}
 
