@@ -4,7 +4,6 @@
 	<rule ref="vendor/mediawiki/mediawiki-codesniffer/MediaWiki">
 		<exclude name="Generic.Files.LineLength"/>
 		<exclude name="MediaWiki.NamingConventions.PrefixedGlobalFunctions.wfPrefix"/>
-		<exclude name="MediaWiki.Usage.DirUsage.FunctionFound"/>
 		<exclude name="MediaWiki.VariableAnalysis.UnusedGlobalVariables"/>
 		<exclude name="MediaWiki.WhiteSpace.SpaceAfterControlStructure.Incorrect"/>
 		<exclude name="MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment"/>
