@@ -8,7 +8,9 @@
 class NotificationsTest extends MediaWikiTestCase {
 
 	/** @var User $sysop */
+	// @codingStandardsIgnoreStart
 	var $sysop;
+	// @codingStandardsIgnoreEnd
 
 	public function setUp() {
 		parent::setUp();

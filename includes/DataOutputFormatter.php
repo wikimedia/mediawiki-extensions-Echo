@@ -8,7 +8,7 @@ class EchoDataOutputFormatter {
 	/**
 	 * @var array type => class
 	 */
-	static $formatters = array(
+	protected static $formatters = array(
 		'flyout' => 'EchoFlyoutFormatter'
 	);
 
