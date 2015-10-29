@@ -28,7 +28,7 @@ class EchoFlyoutFormatter extends EchoEventFormatter {
 				$model->getHeaderMessage()->parse()
 			) . "\n";
 
-		//@todo body text
+		// @todo body text
 
 		$ts = $this->language->getHumanTimestamp(
 			new MWTimestamp( $event->getTimestamp() ),

@@ -193,8 +193,8 @@ class EchoBatchRowWriter {
 		$this->db->begin();
 
 		foreach ( $updates as $update ) {
-			//echo "Updating: ";var_dump( $update['primaryKey'] );
-			//echo "With values: ";var_dump( $update['changes'] );
+			// echo "Updating: ";var_dump( $update['primaryKey'] );
+			// echo "With values: ";var_dump( $update['changes'] );
 			$this->db->update(
 				$this->table,
 				$update['changes'],

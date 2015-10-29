@@ -69,7 +69,7 @@ class SuppressionMaintenanceTest extends MediaWikiTestCase {
 				array( // expected update
 					'event_extra' => serialize( array( 'link-from-page-id' => 99 ) ),
 				),
-				array( //input row
+				array( // input row
 					'event_type' => 'page-linked',
 					'event_extra' => serialize( array(
 						'link-from-title' => 'Horse',
@@ -85,7 +85,7 @@ class SuppressionMaintenanceTest extends MediaWikiTestCase {
 					'event_extra' => serialize( array( 'link-from-page-id' => 8675309 ) ),
 					'event_page_id' => 8675309,
 				),
-				array( //input row
+				array( // input row
 					'event_type' => 'page-linked',
 					'event_extra' => serialize( array(
 						'link-from-title' => 'Jenny',

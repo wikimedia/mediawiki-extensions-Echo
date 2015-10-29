@@ -245,14 +245,11 @@ $echoIconPath = "Echo/modules/icons";
 // extensions can define their own icons with the same structure.  It is recommended that
 // extensions prefix their icon key. An example is myextension-name.  This will help
 // avoid namespace conflicts.
-//
-// You can use either a path or a url, but not both.
-// The value of 'path' is relative to $wgExtensionAssetsPath.
-//
-// The value of 'url' should be a URL.
-//
-// You should customize the site icon URL, which is:
-// $wgEchoNotificationIcons['site']['url']
+// * You can use either a path or a url, but not both.
+//   The value of 'path' is relative to $wgExtensionAssetsPath.
+// * The value of 'url' should be a URL.
+// * You should customize the site icon URL, which is:
+//   $wgEchoNotificationIcons['site']['url']
 $wgEchoNotificationIcons = array(
 	'placeholder' => array(
 		'path' => "$echoIconPath/Generic.png",
@@ -382,7 +379,7 @@ $wgEchoNotifications = array(
 		'group' => 'interactive',
 		'section' => 'alert',
 		// Commented out because EchoMentionPresentationModel fatals (T116888)
-		//'presentation-model' => 'EchoMentionPresentationModel',
+		// 'presentation-model' => 'EchoMentionPresentationModel',
 		'formatter-class' => 'EchoMentionFormatter',
 		'title-message' => 'notification-mention',
 		'title-params' => array( 'agent', 'subject-anchor', 'title', 'section-title', 'main-title-text' ),

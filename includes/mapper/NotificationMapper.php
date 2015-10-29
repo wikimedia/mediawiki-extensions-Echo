@@ -157,7 +157,6 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 		// notifications.  We should have some cron job to remove old notifications so
 		// the notification volume is in a reasonable amount for such case.  The other option
 		// is to denormalize notification table with event_type and lookup index.
-		//
 		// Look for notifications with base = 1
 		$conds = array(
 			'notification_user' => $user->getID(),

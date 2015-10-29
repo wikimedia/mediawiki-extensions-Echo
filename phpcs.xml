@@ -6,7 +6,6 @@
 		<exclude name="MediaWiki.NamingConventions.PrefixedGlobalFunctions.wfPrefix"/>
 		<exclude name="MediaWiki.VariableAnalysis.UnusedGlobalVariables"/>
 		<exclude name="MediaWiki.WhiteSpace.SpaceAfterControlStructure.Incorrect"/>
-		<exclude name="MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment"/>
 		<exclude name="PSR2.Classes.PropertyDeclaration.ScopeMissing"/>
 		<exclude name="PSR2.Classes.PropertyDeclaration.VarUsed"/>
 		<exclude name="PSR2.Methods.MethodDeclaration.AbstractAfterVisibility"/>

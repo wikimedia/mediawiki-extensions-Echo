@@ -101,7 +101,6 @@ $wgResourceModules += array(
 		// Most extensions that require ext.echo.base actually need
 		// the logger. They will have to be adjusted to use the new
 		// logger functionality, however.
-		//
 		// This module is mainly here to make sure other extensions
 		// that rely on ext.echo.base don't explode, and that CI lets
 		// us merge this while fixing the main extensions that require

@@ -90,7 +90,7 @@ class EchoNotification extends EchoAbstractEntity {
 			$obj->timestamp = wfTimestampNow();
 		}
 
-		//@Todo - Database insert logic should not be inside the model
+		// @Todo - Database insert logic should not be inside the model
 		$obj->insert();
 
 		return $obj;
