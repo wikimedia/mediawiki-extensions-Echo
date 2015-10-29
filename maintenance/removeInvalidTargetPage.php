@@ -14,7 +14,7 @@ require_once ( getenv( 'MW_INSTALL_PATH' ) !== false
  *
  * @ingroup Maintenance
  */
-class removeInvalidTargetPage extends Maintenance {
+class RemoveInvalidTargetPage extends Maintenance {
 
 	public function __construct() {
 		parent::__construct();
@@ -109,5 +109,5 @@ class removeInvalidTargetPage extends Maintenance {
 	}
 }
 
-$maintClass = 'removeInvalidTargetPage'; // Tells it to run the class
+$maintClass = 'RemoveInvalidTargetPage'; // Tells it to run the class
 require_once ( RUN_MAINTENANCE_IF_MAIN );
