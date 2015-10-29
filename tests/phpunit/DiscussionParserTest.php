@@ -415,7 +415,7 @@ line 2
 line 3
 line 4
 TEXT
-				,
+,
 				<<<TEXT
 line 1
 line c
@@ -831,7 +831,7 @@ Well well well. [[User:DarTar|DarTar]] ([[User talk:DarTar|talk]]) $ts
 == Section 3 ==
 Hai [[User:Bsitu|Bsitu]] ([[User talk:Bsitu|talk]]) $ts
 TEXT
-					,
+,
 					<<<TEXT
 == Section 1 ==
 I do not like you. [[User:Jorm|Jorm]] ([[User talk:Jorm|talk]]) $ts
@@ -878,7 +878,7 @@ TEXT
 
 ''The Boston Post'' source that was used in the reception section has a couple of problems. First, it's actually a repost of ''The Washington Post'', but ''The Washington Post'' doesn't allow the Internet Archive to preserve it. Should it still be sourced to Boston or to Washington? Second, it seems to be a lot of analysis that can't be summed up easily without trimming it out, and doesn't really fit with the reception section and should probably moved next to Wilson's testimony. Any suggestions? --[[User:RAN1|RAN1]] ([[User talk:RAN1|talk]]) 01:44, 11 December 2014 (UTC)
 TEXT
-					,
+,
 					<<<TEXT
 == Washington Post Reception Source ==
 
