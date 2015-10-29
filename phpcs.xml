@@ -3,7 +3,6 @@
 	<file>.</file>
 	<rule ref="vendor/mediawiki/mediawiki-codesniffer/MediaWiki">
 		<exclude name="Generic.Files.LineLength"/>
-		<exclude name="MediaWiki.NamingConventions.PrefixedGlobalFunctions.wfPrefix"/>
 		<exclude name="MediaWiki.VariableAnalysis.UnusedGlobalVariables"/>
 		<exclude name="MediaWiki.WhiteSpace.SpaceAfterControlStructure.Incorrect"/>
 		<exclude name="Squiz.Classes.ValidClassName.NotCamelCaps"/>

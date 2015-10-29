@@ -2,7 +2,9 @@
 
 require_once __DIR__ . '/../../../includes/utils/AutoloadGenerator.php';
 
+// @codingStandardsIgnoreStart
 function main() {
+// @codingStandardsIgnoreEnd
 	$base = dirname( __DIR__ );
 	$generator = new AutoloadGenerator( $base );
 	$dirs = array(
