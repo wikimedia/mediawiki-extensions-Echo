@@ -28,7 +28,7 @@ class EchoUserRightsPresentationModel extends EchoEventPresentationModel {
 
 				// Get the localized group names, bug 55338
 				$groups = array();
-				foreach( $extra[$action] as $group ) {
+				foreach ( $extra[$action] as $group ) {
 					$msg = $this->msg( 'group-' . $group );
 					$groups[] = $msg->isBlank() ? $group : $msg->text();
 				}
