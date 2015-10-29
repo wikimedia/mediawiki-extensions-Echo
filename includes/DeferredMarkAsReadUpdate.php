@@ -14,7 +14,20 @@ class EchoDeferredMarkAsReadUpdate implements DeferrableUpdate {
 	 * @param EchoEvent $event
 	 * @param User $user
 	 */
-	public function add( EchoEvent $event, User $user ) {
+	public static function add( EchoEvent $event, User $user ) {
+		static $update;
+		if ( $update === null ) {
+			$update = new self();
+			DeferredUpdates::addUpdate( $update );
+		}
+		$update->addInternal( $event, $user );
+	}
+
+	/**
+	 * @param EchoEvent $event
+	 * @param User $user
+	 */
+	private function addInternal( EchoEvent $event, User $user ) {
 		$uid = $user->getId();
 		if ( isset( $this->events[$uid] ) ) {
 			$this->events[$uid]['eventIds'][] = $event->getId();

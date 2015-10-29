@@ -145,9 +145,10 @@ class ApiEchoNotifications extends ApiQueryBase {
 
 		wfProfileIn( __METHOD__ . '-formatting' );
 		foreach ( $notifs as $notif ) {
-			$result['list'][$notif->getEvent()->getID()] = EchoDataOutputFormatter::formatOutput(
-				$notif, $format, $user, $this->getLanguage()
-			);
+			$output = EchoDataOutputFormatter::formatOutput( $notif, $format, $user, $this->getLanguage() );
+			if ( $output !== false ) {
+				$result['list'][$notif->getEvent()->getID()] = $output;
+			}
 		}
 		wfProfileOut( __METHOD__ . '-formatting' );
 

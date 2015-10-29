@@ -10,6 +10,9 @@
 class EchoFlyoutFormatter extends EchoEventFormatter {
 	public function format( EchoEvent $event ) {
 		$model = EchoEventPresentationModel::factory( $event, $this->language, $this->user );
+		if ( !$model->canRender() ) {
+			return false;
+		}
 
 		$icon = Html::element(
 			'img',

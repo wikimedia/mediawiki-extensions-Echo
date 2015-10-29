@@ -22,13 +22,6 @@ class EchoNotificationController {
 	static protected $userWhitelist;
 
 	/**
-	 * Queue's that failed formatting and marks them as read at end of request.
-	 *
-	 * @var EchoDeferredMarkAsReadUpdate|null
-	 */
-	static protected $markAsRead;
-
-	/**
 	 * Format the notification count with Language::formatNum().  In addition, for large count,
 	 * return abbreviated version, e.g. 99+
 	 *
@@ -410,12 +403,8 @@ class EchoNotificationController {
 		// FIXME: The only issue is that the badge count won't be up to date
 		// till you refresh the page.  Probably we could do this in the browser
 		// so that if the formatting is empty and the notif is unread, put it
-		// in the auto-mark-read API
-		if ( self::$markAsRead === null ) {
-			self::$markAsRead = new EchoDeferredMarkAsReadUpdate();
-			DeferredUpdates::addUpdate( self::$markAsRead );
-		}
-		self::$markAsRead->add( $event, $user );
+		// in the auto-mark-read APIs
+		EchoDeferredMarkAsReadUpdate::add( $event, $user );
 	}
 
 	/**
