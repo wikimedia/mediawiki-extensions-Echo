@@ -3,5 +3,7 @@
 		"authors": [
 			"Hugo.arg"
 		]
-	}
+	},
+	"tooltip-pt-notifications-alert": "Pertarėmā Tamstā",
+	"tooltip-pt-notifications-message": "Pranešėmā Tamstā"
 }
