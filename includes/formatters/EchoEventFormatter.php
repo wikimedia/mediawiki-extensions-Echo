@@ -19,7 +19,20 @@ abstract class EchoEventFormatter {
 
 	/**
 	 * @param EchoEvent $event
-	 * @return string HTML
+	 * @return string|bool Output format depends on implementation, false if it cannot be formatted
 	 */
-	abstract public function format( EchoEvent $event );
+	final public function format( EchoEvent $event ) {
+		$model = EchoEventPresentationModel::factory( $event, $this->language, $this->user );
+		if ( !$model->canRender() ) {
+			return false;
+		}
+
+		return $this->formatModel( $model );
+	}
+
+	/**
+	 * @param EchoEventPresentationModel $model
+	 * @return string
+	 */
+	abstract protected function formatModel( EchoEventPresentationModel $model );
 }

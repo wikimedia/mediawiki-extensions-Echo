@@ -8,12 +8,7 @@
  * sending HTML for backwards compatibility.
  */
 class EchoFlyoutFormatter extends EchoEventFormatter {
-	public function format( EchoEvent $event ) {
-		$model = EchoEventPresentationModel::factory( $event, $this->language, $this->user );
-		if ( !$model->canRender() ) {
-			return false;
-		}
-
+	protected function formatModel( EchoEventPresentationModel $model ) {
 		$icon = Html::element(
 			'img',
 			array(
@@ -31,7 +26,7 @@ class EchoFlyoutFormatter extends EchoEventFormatter {
 		// @todo body text
 
 		$ts = $this->language->getHumanTimestamp(
-			new MWTimestamp( $event->getTimestamp() ),
+			new MWTimestamp( $model->getTimestamp() ),
 			null,
 			$this->user
 		);

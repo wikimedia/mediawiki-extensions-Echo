@@ -86,6 +86,13 @@ abstract class EchoEventPresentationModel {
 	abstract public function getIconType();
 
 	/**
+	 * @return string Timestamp the event occurred at
+	 */
+	final public function getTimestamp() {
+		return $this->event->getTimestamp();
+	}
+
+	/**
 	 * Helper for EchoEvent::userCan
 	 *
 	 * @param int $type Revision::DELETED_* constant
