@@ -5,7 +5,6 @@
 		<exclude name="Generic.Files.LineLength"/>
 		<exclude name="MediaWiki.VariableAnalysis.UnusedGlobalVariables"/>
 		<exclude name="MediaWiki.WhiteSpace.SpaceAfterControlStructure.Incorrect"/>
-		<exclude name="Squiz.Classes.ValidClassName.NotCamelCaps"/>
 	</rule>
 	<arg name="encoding" value="utf8"/>
 	<arg name="extensions" value="php,php5,inc"/>

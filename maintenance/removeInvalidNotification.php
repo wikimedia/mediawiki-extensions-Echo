@@ -13,7 +13,7 @@ require_once ( getenv( 'MW_INSTALL_PATH' ) !== false
  *
  * @ingroup Maintenance
  */
-class removeInvalidNotification extends Maintenance {
+class RemoveInvalidNotification extends Maintenance {
 
 	protected $batchSize = 500;
 	protected $invalidEventType = array( 'article-linked' );
@@ -78,5 +78,5 @@ class removeInvalidNotification extends Maintenance {
 	}
 }
 
-$maintClass = 'removeInvalidNotification'; // Tells it to run the class
+$maintClass = 'RemoveInvalidNotification'; // Tells it to run the class
 require_once ( RUN_MAINTENANCE_IF_MAIN );
