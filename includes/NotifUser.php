@@ -181,7 +181,6 @@ class MWEchoNotifUser {
 	 * @return boolean User has received messages
 	 */
 	public function hasMessages( $cached = true ) {
-		global $wgEchoConfig;
 		$section = EchoAttributeManager::MESSAGE;
 
 		$memcKey = $this->getHasMessagesKey();
