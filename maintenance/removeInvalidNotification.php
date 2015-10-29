@@ -4,7 +4,7 @@
  *
  * @ingroup Maintenance
  */
-require_once( getenv( 'MW_INSTALL_PATH' ) !== false
+require_once ( getenv( 'MW_INSTALL_PATH' ) !== false
 	? getenv( 'MW_INSTALL_PATH' ) . '/maintenance/Maintenance.php'
 	: dirname( __FILE__ ) . '/../../../maintenance/Maintenance.php' );
 
@@ -79,4 +79,4 @@ class removeInvalidNotification extends Maintenance {
 }
 
 $maintClass = 'removeInvalidNotification'; // Tells it to run the class
-require_once( RUN_MAINTENANCE_IF_MAIN );
+require_once ( RUN_MAINTENANCE_IF_MAIN );

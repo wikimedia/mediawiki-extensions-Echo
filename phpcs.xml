@@ -15,7 +15,6 @@
 		<exclude name="PSR2.Methods.MethodDeclaration.AbstractAfterVisibility"/>
 		<exclude name="PSR2.Methods.MethodDeclaration.StaticBeforeVisibility"/>
 		<exclude name="Squiz.Classes.ValidClassName.NotCamelCaps"/>
-		<exclude name="Squiz.WhiteSpace.LanguageConstructSpacing.Incorrect"/>
 	</rule>
 	<arg name="encoding" value="utf8"/>
 	<arg name="extensions" value="php,php5,inc"/>

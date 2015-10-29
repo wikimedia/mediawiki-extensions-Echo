@@ -15,5 +15,5 @@ if ( $IP === false ) {
 	}
 }
 
-require_once( $IP . "/tests/phpunit/bootstrap.php" );
+require_once ( $IP . "/tests/phpunit/bootstrap.php" );
 
