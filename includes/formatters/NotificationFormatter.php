@@ -54,7 +54,7 @@ abstract class EchoNotificationFormatter {
 	 * @return Mixed; depends on output format
 	 * @see EchoNotificationFormatter::setOutputFormat
 	 */
-	public abstract function format( $event, $user, $type );
+	abstract public function format( $event, $user, $type );
 
 	/**
 	 * Set the output format that the notification will be displayed in.

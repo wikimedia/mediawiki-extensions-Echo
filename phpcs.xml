@@ -8,7 +8,6 @@
 		<exclude name="MediaWiki.WhiteSpace.SpaceAfterControlStructure.Incorrect"/>
 		<exclude name="PSR2.Classes.PropertyDeclaration.ScopeMissing"/>
 		<exclude name="PSR2.Classes.PropertyDeclaration.VarUsed"/>
-		<exclude name="PSR2.Methods.MethodDeclaration.AbstractAfterVisibility"/>
 		<exclude name="PSR2.Methods.MethodDeclaration.StaticBeforeVisibility"/>
 		<exclude name="Squiz.Classes.ValidClassName.NotCamelCaps"/>
 	</rule>
