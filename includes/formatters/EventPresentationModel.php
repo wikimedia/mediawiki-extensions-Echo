@@ -177,7 +177,7 @@ abstract class EchoEventPresentationModel {
 	/**
 	 * Possibly-relative URLs to the secondary links
 	 *
-	 * @return array URL => link text
+	 * @return array URL => link text (non-escaped)
 	 */
 	public function getSecondaryLinks() {
 		return array();
