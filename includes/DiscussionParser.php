@@ -596,7 +596,7 @@ abstract class EchoDiscussionParser {
 	 *  and contribution pages
 	 * @return array Array of users; empty array for none detected
 	 */
-	static public function extractUsersFromLine( $line ) {
+	public static function extractUsersFromLine( $line ) {
 		/*
 		 * Signatures can look like anything (as defined by i18n messages
 		 * "signature" & "signature-anon").
@@ -649,7 +649,7 @@ abstract class EchoDiscussionParser {
 	 * - First element is the position of the signature.
 	 * - Second element is the normalised user name.
 	 */
-	static public function getUserFromLine( $line, Title $title = null ) {
+	public static function getUserFromLine( $line, Title $title = null ) {
 		global $wgParser;
 
 		/*

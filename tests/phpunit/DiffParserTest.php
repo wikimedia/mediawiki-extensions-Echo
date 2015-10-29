@@ -14,7 +14,7 @@ class EchoDiffParserTest extends MediaWikiTestCase {
 		$this->assertEquals( $expect, $changeSet, $message );
 	}
 
-	static public function provider_getChangeSet() {
+	public static function provider_getChangeSet() {
 		return array(
 
 			array(
@@ -163,7 +163,7 @@ class EchoDiffParserTest extends MediaWikiTestCase {
 		);
 	}
 
-	static protected function mockAction( $action, $content, $left, $right = null ) {
+	protected static function mockAction( $action, $content, $left, $right = null ) {
 		if ( $right === null ) {
 			$right = $left;
 		}
@@ -176,7 +176,7 @@ class EchoDiffParserTest extends MediaWikiTestCase {
 		);
 	}
 
-	static public function mockChange( $oldContent, $newContent, $left, $right = null ) {
+	public static function mockChange( $oldContent, $newContent, $left, $right = null ) {
 		if ( $right === null ) {
 			$right = $left;
 		}

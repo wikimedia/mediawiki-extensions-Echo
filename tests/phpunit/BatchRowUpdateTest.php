@@ -24,7 +24,7 @@ class BatchRowUpdateTest extends MediaWikiTestCase {
 		$writer->write( $updates );
 	}
 
-	static protected function mockUpdate( array $changes ) {
+	protected static function mockUpdate( array $changes ) {
 		static $i = 0;
 
 		return array(
@@ -56,7 +56,7 @@ class BatchRowUpdateTest extends MediaWikiTestCase {
 		$this->assertEquals( count( $response ) - 1, $pos );
 	}
 
-	static public function provider_readerGetPrimaryKey() {
+	public static function provider_readerGetPrimaryKey() {
 		$row = array(
 			'id_field' => 42,
 			'some_col' => 'dvorak',
@@ -88,7 +88,7 @@ class BatchRowUpdateTest extends MediaWikiTestCase {
 		$this->assertEquals( $expected, $reader->extractPrimaryKeys( (object)$row ), $message );
 	}
 
-	static public function provider_readerSetFetchColumns() {
+	public static function provider_readerSetFetchColumns() {
 		return array(
 
 			array(
@@ -140,7 +140,7 @@ class BatchRowUpdateTest extends MediaWikiTestCase {
 		$reader->rewind();
 	}
 
-	static public function provider_readerSelectConditions() {
+	public static function provider_readerSelectConditions() {
 		return array(
 
 			array(

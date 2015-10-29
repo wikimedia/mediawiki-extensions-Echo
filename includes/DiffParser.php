@@ -88,7 +88,7 @@ class EchoDiffParser {
 	 * Duplicates the check from the global wfDiff function to determine
 	 * if we are using internal or external diff utilities
 	 */
-	static protected function usingInternalDiff() {
+	protected static function usingInternalDiff() {
 		global $wgDiff;
 
 		wfSuppressWarnings();

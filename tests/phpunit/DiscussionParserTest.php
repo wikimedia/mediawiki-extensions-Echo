@@ -920,7 +920,7 @@ TEXT
 		return $exemplarTimestamp;
 	}
 
-	static public function provider_detectSectionTitleAndText() {
+	public static function provider_detectSectionTitleAndText() {
 		$name = 'Werdna'; // See EchoDiscussionParserTest::$testusers
 		$comment = self::signedMessage( $name );
 
@@ -1046,7 +1046,7 @@ $comment
 		return 'foo';
 	}
 
-	static public function provider_getFullSection() {
+	public static function provider_getFullSection() {
 		$tests = array(
 			array(
 				'Extracts full section',
