@@ -23,8 +23,6 @@ class RemoveInvalidTargetPage extends Maintenance {
 	}
 
 	public function execute() {
-		global $wgEchoCluster;
-
 		$dbFactory = MWEchoDbFactory::newFromDefault();
 		$dbw = $dbFactory->getEchoDb( DB_MASTER );
 		$dbr = $dbFactory->getEchoDb( DB_SLAVE );

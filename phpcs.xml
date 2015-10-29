@@ -3,7 +3,6 @@
 	<file>.</file>
 	<rule ref="vendor/mediawiki/mediawiki-codesniffer/MediaWiki">
 		<exclude name="Generic.Files.LineLength"/>
-		<exclude name="MediaWiki.VariableAnalysis.UnusedGlobalVariables"/>
 	</rule>
 	<arg name="encoding" value="utf8"/>
 	<arg name="extensions" value="php,php5,inc"/>
