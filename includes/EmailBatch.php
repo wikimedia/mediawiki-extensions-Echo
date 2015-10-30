@@ -226,12 +226,11 @@ class MWEchoEmailBatch {
 			$conds[] = 'eeb_event_id <= ' . intval( $this->lastEvent );
 		}
 
-		$dbw = MWEchoDbFactory::getDB( DB_MASTER );
+		$dbw = MWEchoDbFactory::newFromDefault()->getEchoDb( DB_MASTER );
 		$dbw->delete(
 			'echo_email_batch',
 			$conds,
-			__METHOD__,
-			array()
+			__METHOD__
 		);
 	}
 
