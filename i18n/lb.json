@@ -68,6 +68,7 @@
 	"notification-add-comment-yours2": "[[User:$1|$1]] {{GENDER:$1|huet}} op \"[[$3#$2|$2]]\" op Ärer Diskussiounssäit eng Bemierkung gemaach",
 	"notification-mention": "[[User:$1|$1]] {{GENDER:$1|huet}} Iech op der $5 Diskussiounssäit bei \"[[:$3#$2|$4]]\" ernimmt.",
 	"notification-mention-flyout": "$1 {{GENDER:$1|huet}} Iech op der $5 Diskussiounssäit bei \"[[:$3#$2|$4]]\" ernimmt.",
+	"notification-header-mention": "$1 {{GENDER:$2|huet}} Iech op der $3 Diskussiounssäit ernimmt bei \"$4\".",
 	"notification-mention-nosection": "[[User:$1|$1]] {{GENDER:$1|huet}} Iech op der [[:$3|$2 Diskussiounssäit]] ernimmt.",
 	"notification-mention-nosection-flyout": "$1 {{GENDER:$1|huet}} Iech op der [[:$3|$2 Diskussiounssäit]] ernimmt.",
 	"notification-header-mention-nosection": "$1 {{GENDER:$2|huet}} Iech op der [[:$4|Diskussiounssäit $3]] ernimmt.",
