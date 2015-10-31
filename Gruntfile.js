@@ -10,16 +10,21 @@ module.exports = function ( grunt ) {
 	grunt.initConfig( {
 		jshint: {
 			options: {
-				jshintrc: true
+				jshintrc: true,
+				ignores: [
+					'tests/externals/**'
+				]
 			},
 			all: [
-				'*.js',
-				'modules/**/*.js',
-				'tests/qunit/**/*.js'
+				'**/*.js',
+				'!node_modules/**'
 			]
 		},
 		jscs: {
-			src: '<%= jshint.all %>'
+			src: [
+				'<%= jshint.all %>',
+				'!tests/externals/**'
+			]
 		},
 		csslint: {
 			options: {
@@ -46,7 +51,7 @@ module.exports = function ( grunt ) {
 		}
 	} );
 
-	grunt.registerTask( 'lint', [ 'jscs', 'jshint', 'csslint', 'jsonlint', 'banana' ] );
+	grunt.registerTask( 'lint', [ 'jshint', 'jscs', 'csslint', 'jsonlint', 'banana' ] );
 	grunt.registerTask( 'test', 'lint' );
 	grunt.registerTask( 'default', 'test' );
 };
