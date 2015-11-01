@@ -88,10 +88,10 @@ class MWEchoNotifUser {
 		if ( $user->isAnon() ) {
 			throw new MWException( 'User must be logged in to view notification!' );
 		}
-		global $wgMemc;
 
 		return new MWEchoNotifUser(
-			$user, $wgMemc,
+			$user,
+			ObjectCache::getMainStashInstance(),
 			new EchoUserNotificationGateway( $user, MWEchoDbFactory::newFromDefault() ),
 			new EchoNotificationMapper(),
 			new EchoTargetPageMapper()
