@@ -175,9 +175,11 @@ abstract class EchoEventPresentationModel {
 	}
 
 	/**
-	 * Possibly-relative URL to the primary link for this
+	 * Possibly-relative URL to the primary link for this,
+	 * if it has one
 	 *
-	 * @return array [URL, link text (non-escaped)]
+	 * @return array|bool [URL, link text (non-escaped)], false
+	 *                    for no link
 	 */
 	abstract public function getPrimaryLink();
 

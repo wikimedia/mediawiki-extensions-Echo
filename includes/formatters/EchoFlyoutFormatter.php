@@ -41,13 +41,16 @@ class EchoFlyoutFormatter extends EchoEventFormatter {
 			$this->language->pipeList( $footerItems )
 		) . "\n";
 
-		// Add the primary link afterwards???
-		list( $primaryUrl, $primaryText ) = $model->getPrimaryLink();
-		$html .= Html::element(
-			'a',
-			array( 'class' => 'mw-echo-notification-primary-link', 'href' => $primaryUrl ),
-			$primaryText
-		) . "\n";
+		// Add the primary link afterwards, if it has one
+		$primaryLink = $model->getPrimaryLink();
+		if ( $primaryLink !== false ) {
+			list( $primaryUrl, $primaryText ) = $primaryLink;
+			$html .= Html::element(
+				'a',
+				array( 'class' => 'mw-echo-notification-primary-link', 'href' => $primaryUrl ),
+				$primaryText
+			) . "\n";
+		}
 
 		// Wrap everything in mw-echo-content class
 		$html = Xml::tags( 'div', array( 'class' => 'mw-echo-content' ), $html );
