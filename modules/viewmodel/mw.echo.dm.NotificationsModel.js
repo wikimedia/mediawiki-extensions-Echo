@@ -355,7 +355,7 @@
 							notifData.id,
 							{
 								read: wasRead,
-								seen: wasSeen,
+								seen: wasRead || wasSeen,
 								timestamp: notifData.timestamp.mw,
 								category: notifData.category,
 								content: $content,
