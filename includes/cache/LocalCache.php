@@ -90,7 +90,7 @@ abstract class EchoLocalCache {
 	}
 
 	/**
-	 * @return array
+	 * @return MapCacheLRU
 	 */
 	public function getTargets() {
 		return $this->targets;
