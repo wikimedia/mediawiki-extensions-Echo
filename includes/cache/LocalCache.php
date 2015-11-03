@@ -15,7 +15,7 @@ abstract class EchoLocalCache {
 
 	/**
 	 * Target object cache
-	 * @var MapCacheLRU
+	 * @var HashBagOStuff
 	 */
 	protected $targets;
 
@@ -34,7 +34,7 @@ abstract class EchoLocalCache {
 	 * Use Factory method like EchoTitleLocalCache::create()
 	 */
 	protected function __construct() {
-		$this->targets = new MapCacheLRU( self::TARGET_MAX_NUM );
+		$this->targets = new HashBagOStuff( array( 'maxKeys' => self::TARGET_MAX_NUM ) );
 	}
 
 	/**
@@ -90,7 +90,7 @@ abstract class EchoLocalCache {
 	}
 
 	/**
-	 * @return MapCacheLRU
+	 * @return BagOStuff
 	 */
 	public function getTargets() {
 		return $this->targets;

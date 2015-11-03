@@ -23,24 +23,25 @@ class EchoTitleLocalCacheTest extends MediaWikiTestCase {
 	 * @depends testCreate
 	 */
 	public function testGet( $cache ) {
-		$lruMap = new MapCacheLRU( EchoLocalCache::TARGET_MAX_NUM );
+		$map = new HashBagOStuff( array( 'maxKeys' => EchoLocalCache::TARGET_MAX_NUM ) );
 		$titleIds = array();
-		$res = $this->insertPage( "EchoTitleLocalCacheTest_testGet" );
-		$titleIds[$res['id']] = $res['id'];
-		// First title included in cache
-		$lruMap->set( $res['id'], $res['title'] );
 
-		// second title not in internal cache, resolves from db.
-		$res = $this->insertPage( "EchoTitleLocalCacheTest_testGet2" );
+		// First title included in cache
+		$res = $this->insertPage( 'EchoTitleLocalCacheTest_testGet' );
+		$titleIds[$res['id']] = $res['id'];
+		$map->set( $res['id'], $res['title'] );
+
+		// Second title not in internal cache, resolves from db.
+		$res = $this->insertPage( 'EchoTitleLocalCacheTest_testGet2' );
 		$titleIds[$res['id']] = $res['id'];
 
 		$object = new \ReflectionObject( $cache );
 
-		// Load our generated MapCacheLRU in as the targets(known mapping from
+		// Load our generated map in as the targets (known mapping from
 		// title id to title object) into $cache
 		$targets = $object->getProperty( 'targets' );
 		$targets->setAccessible( true );
-		$targets->setValue( $cache, $lruMap );
+		$targets->setValue( $cache, $map );
 
 		// Load both of the titles we are curious about into the list of titles
 		// to be looked up
@@ -63,20 +64,20 @@ class EchoTitleLocalCacheTest extends MediaWikiTestCase {
 	 * @depends testCreate
 	 */
 	public function testClearAll( $cache ) {
+		$map = new HashBagOStuff( array( 'maxKeys' => EchoLocalCache::TARGET_MAX_NUM ) );
+		$map->set( 1, $this->mockTitle() );
 		$object = new \ReflectionObject( $cache );
 		$targets = $object->getProperty( 'targets' );
 		$targets->setAccessible( true );
-		$lruMap = new MapCacheLRU( EchoLocalCache::TARGET_MAX_NUM );
-		$lruMap->set( 1, $this->mockTitle() );
-		$targets->setValue( $cache, $lruMap );
+		$targets->setValue( $cache, $map );
 		$lookups = $object->getProperty( 'lookups' );
 		$lookups->setAccessible( true );
 		$lookups->setValue( $cache, array( '1' => '1', '2' => '2' ) );
 
 		$cache->clearAll();
 		$this->assertTrue( count( $cache->getLookups() ) == 0 );
-		$this->assertNull( $cache->getTargets()->get( 1 ) );
-		$this->assertNull( $cache->getTargets()->get( '1' ) );
+		$this->assertEquals( false, $cache->getTargets()->get( 1 ) );
+		$this->assertEquals( false, $cache->getTargets()->get( '1' ) );
 	}
 
 	/**
