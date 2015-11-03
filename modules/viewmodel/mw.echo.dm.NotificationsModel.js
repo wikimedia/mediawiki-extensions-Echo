@@ -62,14 +62,14 @@
 
 	/**
 	 * @event unseenChange
-	 * @param {number} count Number of unseen items
+	 * @param {mw.echo.dm.NotificationItem} items An array of the unseen items
 	 *
 	 * Items' seen status has changed
 	 */
 
 	/**
 	 * @event unreadChange
-	 * @param {number} count Number of unread items
+	 * @param {mw.echo.dm.NotificationItem} items An array of the unread items
 	 *
 	 * Items' read status has changed
 	 */

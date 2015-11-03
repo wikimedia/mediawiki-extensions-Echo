@@ -81,7 +81,7 @@ $wgResourceModules += array(
 			'mytalk',
 			'mypreferences'
 		),
-		'targets' => array( 'desktop' ),
+		'targets' => array( 'desktop', 'mobile' ),
 	),
 	'ext.echo.dm' => $echoResourceTemplate + array(
 		'scripts' => array(
