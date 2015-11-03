@@ -296,6 +296,7 @@ $wgEchoNotifications = array(
 		'category' => 'system',
 		'group' => 'positive',
 		'section' => 'alert',
+		'presentation-model' => 'EchoWelcomePresentationModel',
 		'title-message' => 'notification-new-user',
 		'title-params' => array( 'agent' ),
 		'icon' => 'site',
