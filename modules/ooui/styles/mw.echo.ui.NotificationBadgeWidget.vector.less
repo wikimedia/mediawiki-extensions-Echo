@@ -1,0 +1,12 @@
+@import '../../echo.variables';
+@import '../../echo.variables.vector';
+
+// These rules are outside of the LESS nesting because they don't work inside
+// the nested rule. These should be very strong so as to override the base styles
+#pt-notifications-alert .mw-echo-notifications-badge.oo-ui-flaggedElement-unseen {
+	background-color: @badge-background-unseen-alert;
+}
+
+#pt-notifications-message .mw-echo-notifications-badge.oo-ui-flaggedElement-unseen {
+	background-color: @badge-background-unseen-message;
+}

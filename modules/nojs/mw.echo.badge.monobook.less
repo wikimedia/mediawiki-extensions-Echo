@@ -1,0 +1,30 @@
+@import '../echo.variables';
+@import '../echo.variables.monobook';
+
+/* We have to include the #pt-notifications selector due to monobook */
+.mw-echo-notifications-badge {
+	#pt-notifications-alert &,
+	#pt-notifications-message & {
+		color: @badge-text-color-idle;
+		opacity: 0.6;
+
+		&:hover,
+		&:active,
+		&:focus {
+			background-color: transparent;
+		}
+
+		&-dimmed {
+			opacity: 0.2;
+		}
+	}
+
+	&.mw-echo-unseen-notifications {
+		#pt-notifications-alert & {
+			background-color: @badge-background-unseen-alert;
+		}
+		#pt-notifications-message & {
+			background-color: @badge-background-unseen-message;
+		}
+	}
+}

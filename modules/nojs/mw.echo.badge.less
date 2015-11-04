@@ -4,11 +4,7 @@
 .mw-echo-notifications-badge {
 	#pt-notifications-alert &,
 	#pt-notifications-message & {
-		border-radius: 0.2em;
-		background-color: #d2d2d2;
-		font-size: 1.125em;
 		font-weight: bold;
-		color: white;
 		cursor: pointer;
 		text-decoration: none;
 		margin-top: -0.2em;
@@ -32,7 +28,6 @@
 		&:hover,
 		&:active,
 		&:focus {
-			background-color: #c2c2c2;
 			outline: none;
 			-moz-outline-style: none;
 		}
@@ -54,15 +49,6 @@
 			// which doesn't affect the positioning of the anchor and hence
 			// doesn't require a correction.
 			left: (1em + @badge-distance-adjustment);
-		}
-	}
-
-	&.mw-echo-unseen-notifications {
-		#pt-notifications-alert & {
-			background-color: @badge-background-unseen-alert;
-		}
-		#pt-notifications-message & {
-			background-color: @badge-background-unseen-message;
 		}
 	}
 }

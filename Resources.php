@@ -52,7 +52,10 @@ $wgResourceModules += array(
 			'modern' => array(
 				'ooui/styles/mw.echo.ui.NotificationOptionWidget.modern.less',
 				'ooui/styles/mw.echo.ui.NotificationBadgeWidget.modern.less'
-			)
+			),
+			'vector' => array(
+				'ooui/styles/mw.echo.ui.NotificationBadgeWidget.vector.less'
+			),
 		),
 		'dependencies' => array(
 			'ext.echo.styles.badge',
@@ -120,6 +123,14 @@ $wgResourceModules += array(
 		'position' => 'top',
 		'styles' => array(
 			'nojs/mw.echo.badge.less',
+		),
+		'skinStyles' => array(
+			'monobook' => array(
+				'nojs/mw.echo.badge.monobook.less',
+			),
+			'vector' => array(
+				'nojs/mw.echo.badge.vector.less',
+			),
 		),
 		'targets' => array( 'desktop', 'mobile' ),
 	),
