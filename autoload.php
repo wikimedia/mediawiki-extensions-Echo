@@ -92,6 +92,7 @@ $wgAutoloadClasses += array(
 	'EchoUserNotificationGatewayTest' => __DIR__ . '/tests/phpunit/gateway/UserNotificationGatewayTest.php',
 	'EchoUserRightsFormatter' => __DIR__ . '/includes/formatters/UserRightsFormatter.php',
 	'EchoUserRightsPresentationModel' => __DIR__ . '/includes/formatters/UserRightsPresentationModel.php',
+	'EchoWelcomePresentationModel' => __DIR__ . '/includes/formatters/WelcomePresentationModel.php',
 	'FilteredSequentialIteratorTest' => __DIR__ . '/tests/phpunit/iterator/FilteredSequentialIteratorTest.php',
 	'MWEchoDbFactory' => __DIR__ . '/includes/EchoDbFactory.php',
 	'MWEchoDbFactoryTest' => __DIR__ . '/tests/phpunit/EchoDbFactoryTest.php',
