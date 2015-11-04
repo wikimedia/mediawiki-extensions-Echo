@@ -166,11 +166,11 @@ abstract class EchoEventPresentationModel {
 	}
 
 	/**
-	 * Get the body text, false if notification has no body
+	 * Get a message for the notification's body, false if it has no body
 	 *
 	 * @return bool|Message
 	 */
-	public function getBodyText() {
+	public function getBodyMessage() {
 		return false;
 	}
 

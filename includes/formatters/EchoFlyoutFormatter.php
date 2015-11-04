@@ -23,7 +23,14 @@ class EchoFlyoutFormatter extends EchoEventFormatter {
 				$model->getHeaderMessage()->parse()
 			) . "\n";
 
-		// @todo body text
+		$body = $model->getBodyMessage();
+		if ( $body ) {
+			$html .= Xml::tags(
+					'div',
+					null,
+					$body->parse()
+				) . "\n";
+		}
 
 		$ts = $this->language->getHumanTimestamp(
 			new MWTimestamp( $model->getTimestamp() ),
