@@ -84,6 +84,7 @@
 	"notification-user-rights-add": "Du bist jetzt Mitglied dieser {{PLURAL:$2|Benutzergruppe|Benutzergruppen}}: $1",
 	"notification-user-rights-remove": "Du bist nicht länger Mitglied dieser {{PLURAL:$2|Benutzergruppe|Benutzergruppen}}: $1",
 	"notification-new-user": "Willkommen bei {{SITENAME}}, $1! Wir freuen uns, dass du hier bist.",
+	"notification-header-welcome": "{{GENDER:$2|Willkommen}} bei {{SITENAME}}, $1! Wir sind froh, dass {{GENDER:$2|du}} da bist.",
 	"notification-reverted2": "Deine {{PLURAL:$4|Bearbeitung an der Seite [[:$2]] wurde|Bearbeitungen an der Seite [[:$2]] wurden}} von [[$5|$1]] {{GENDER:$1|rückgängig}} gemacht. $3",
 	"notification-reverted-flyout2": "Deine {{PLURAL:$4|Bearbeitung an der Seite $2 wurde|Bearbeitungen an der Seite $2 wurden}} von $1 {{GENDER:$1|rückgängig}} gemacht. $3",
 	"notification-emailuser": "[[User:$1|$1]] {{GENDER:$1|sandte}} dir eine E-Mail.",
