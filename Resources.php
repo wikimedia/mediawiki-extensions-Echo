@@ -60,7 +60,6 @@ $wgResourceModules += array(
 			'ext.echo.dm',
 			'oojs-ui',
 			'ext.echo.logger',
-			'mediawiki.api',
 			'mediawiki.jqueryMsg',
 			'mediawiki.language',
 		),
@@ -74,7 +73,6 @@ $wgResourceModules += array(
 			'echo-notification-alert-text-only',
 			'echo-notification-message-text-only',
 			'echo-email-batch-bullet',
-			'echo-api-failure',
 			'echo-notification-placeholder',
 			'tooltip-pt-notifications-alert',
 			'tooltip-pt-notifications-message',
@@ -87,12 +85,18 @@ $wgResourceModules += array(
 		'scripts' => array(
 			'viewmodel/mw.echo.dm.js',
 			'viewmodel/mw.echo.dm.NotificationItem.js',
+			'viewmodel/mw.echo.dm.AbstractAPIHandler.js',
+			'viewmodel/mw.echo.dm.APIHandler.js',
 			'viewmodel/mw.echo.dm.List.js',
 			'viewmodel/mw.echo.dm.NotificationList.js',
 			'viewmodel/mw.echo.dm.NotificationsModel.js',
 		),
 		'dependencies' => array(
+			'mediawiki.api',
 			'oojs'
+		),
+		'messages' => array(
+			'echo-api-failure',
 		),
 		'targets' => array( 'desktop', 'mobile' ),
 	),

@@ -58,12 +58,17 @@
 		} );
 
 		// View model
-		this.notificationsModel = new mw.echo.dm.NotificationsModel( {
-			type: this.type,
-			limit: 25,
-			userLang: mw.config.get( 'wgUserLanguage' ),
-			apiData: mw.echo.apiCallParams
-		} );
+		this.notificationsModel = new mw.echo.dm.NotificationsModel(
+			new mw.echo.dm.APIHandler( {
+				type: this.type,
+				limit: 25,
+				userLang: mw.config.get( 'wgUserLanguage' ),
+				baseParams: mw.echo.apiCallParams
+			} ),
+			{
+				type: this.type
+			}
+		);
 
 		// Notifications widget
 		this.notificationsWidget = new mw.echo.ui.NotificationsWidget(
