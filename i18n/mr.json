@@ -84,6 +84,7 @@
 	"notification-user-rights-add": "आपण आता {{PLURAL:$2|या गटाचे|या गटांचे}} सदस्य आहात:$1",
 	"notification-user-rights-remove": "आपण यापुढे {{PLURAL:$2|या गटाचे|या गटांचे}} सदस्य नाहीत:\n$1",
 	"notification-new-user": "$1! या {{SITENAME}}वर आपले स्वागत. आपण येथे आल्यामुळे आम्हास आनंद झाला.",
+	"notification-header-welcome": "{{SITENAME}} वर {{GENDER:$2|आपले स्वागत}}$1! {{GENDER:$2|आपण}} येथे आल्यामुळे आम्हास आनंद झाला.",
 	"notification-reverted2": "{{PLURAL:$4|आपले [[:$2]]वरील संपादन|आपली[[:$2]] वरील संपादने }} [[$5|$1]]ने {{GENDER:$1|उलटवली}}.$3",
 	"notification-reverted-flyout2": "आपले/ली {{PLURAL:$4|$2वरील संपादन|$2वरील संपादने}} $1ने {{GENDER:$1|उलटविलीत}}. $3",
 	"notification-emailuser": "[[User:$1|$1]] ने आपणास एक विपत्र {{GENDER:$1|पाठविले}}.",

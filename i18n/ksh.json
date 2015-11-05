@@ -77,6 +77,7 @@
 	"notification-user-rights-add": "Do bes jäz en heh dä {{PLURAL:$2|Jropp|Jroppe|Jropp}}: $1",
 	"notification-user-rights-remove": "Do bes jäz nit mih en heh dä {{PLURAL:$2|Jropp|Jroppe|Jropp}}: $1",
 	"notification-new-user": "$1, welkumme op {{GENDER:Dative|{{SITENAME}}}}.\nMer freue ons, dat De doh bes!",
+	"notification-header-welcome": "Wellkomme, $1, {{GRAMMAR:em|{{SITENAME}}}}! Mer sin fruh, dat De derbei beß.{{GENDER:$2|}}",
 	"notification-reverted2": "{{GENDER:$1|Dä|Dat|Dä Metmaacher|De|Dat}} „[[$5|$1]]“ hät {{PLURAL:$4|Dinge Beijdraach|Ding Beijdrähsch|keine Beijdraach vun Der}} op dä Sigg „[[:$2]]“ retuhr jemaht. $3",
 	"notification-reverted-flyout2": "{{GENDER:$1|Dä|Dat|Dä Metmaacher|De|Dat}} „$1“ hät {{PLURAL:$4|Dinge Beijdraach|Ding Beijdrähsch|keine Beijdraach vun Der}} op dä Sigg „$2“ retuhr jemaht. $3",
 	"notification-edit-talk-page-email-subject2": "{{GENDER:$1|Dä|Dat|Dä Metmaacher|De|Dat}} „$1“ hät Der op {{GENDER:Dative|{{SITENAME}}}} en Metdeilong jeschek.",

@@ -85,6 +85,7 @@
 	"notification-user-rights-add": "צורפת {{PLURAL:$2|לקבוצה הבאה|לקבוצות הבאות}}: $1",
 	"notification-user-rights-remove": "נמחקת {{PLURAL:$2|מהקבוצה הבאה|מהקבוצות הבאות}}: $1",
 	"notification-new-user": "ברוך בואך ל{{GRAMMAR:תחילית|{{SITENAME}}}}&rlm;, $1! אנחנו שמחים לראות אותך כאן.",
+	"notification-header-welcome": "{{GENDER:$2|ברוך הבא|ברוכה הבאה|ברוך בואך}} ל{{GRAMMAR:תחילית|{{SITENAME}}}}, $1! אנחנו שמחים {{GENDER:$2|שאתה פה|שאת פה|שבאת}}.",
 	"notification-reverted2": "[[$5|$1]] {{GENDER:$1|ביטל|ביטלה}} {{PLURAL:$4|עריכה שלך|עריכות שלך}} בדף [[:$2]] $3",
 	"notification-reverted-flyout2": "$1 {{GENDER:$1|ביטל|ביטלה}} {{PLURAL:$4|עריכה שלך|עריכות שלך}} בדף $2 $3",
 	"notification-emailuser": "[[User:$1|$1]] {{GENDER:$1|שלח|שלחה}} לך דוא\"ל.",
