@@ -81,14 +81,16 @@ class EchoEvent extends EchoAbstractEntity {
 	 * extra: Event-specific extra information (e.g. post content)
 	 *
 	 * @throws MWException
-	 * @return EchoEvent|bool false if aborted via hook
+	 * @return EchoEvent|bool false if aborted via hook or Echo DB is read-only
 	 */
 	public static function create( $info = array() ) {
 		global $wgEchoNotifications;
 
 		// Do not create event and notifications if write access is locked
-		if ( wfReadOnly() ) {
-			throw new ReadOnlyError();
+		if ( wfReadOnly()
+			|| MWEchoDbFactory::newFromDefault()->getEchoDb( DB_MASTER )->isReadOnly()
+		) {
+			return false;
 		}
 
 		$obj = new EchoEvent;
