@@ -103,6 +103,7 @@
 	"notification-user-rights-add": "您被添加至该{{PLURAL:$2|用户组}}：$1",
 	"notification-user-rights-remove": "您被从该{{PLURAL:$2|用户组}}中移除：$1",
 	"notification-new-user": "欢迎来到{{SITENAME}}，$1！",
+	"notification-header-welcome": "{{GENDER:$2|欢迎}}来到{{SITENAME}}，$1！我们很高兴{{GENDER:$2|您}}来到这里。",
 	"notification-reverted2": "您对[[:$2]]的{{PLURAL:$4|编辑}}被[[$5|$1]]{{GENDER:$1|还原了}}。$3",
 	"notification-reverted-flyout2": "您对$2的{{PLURAL:$4|编辑}}被$1{{GENDER:$1|还原了}}。$3",
 	"notification-emailuser": "[[User:$1|$1]]向您{{GENDER:$1|发送}}了电子邮件。",
