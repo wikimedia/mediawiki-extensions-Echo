@@ -42,7 +42,7 @@
 	"notification-mention-nosection": "[[User:$1|$1]] {{GENDER:$1|mainičči}} sinut [[:$3|$2 paginsivul]].",
 	"notification-mention-nosection-flyout": "$1 {{GENDER:$1|mainičči}} sinut [[:$3|$2 paginsivul]].",
 	"notification-user-rights": "[[User:$1|$1]] [[Special:Log/rights/$1|{{GENDER:$1|muutti}}]] sinun käyttöoigevuksii. $2. [[Special:ListGroupRights|Ližätieduo]]",
-	"notification-user-rights-flyout": "$1 {{GENDER:$1|muutti}} sinun käyttöoigevuksii. $2. [[Special:ListGroupRights|Ližätieduo]]",
+	"notification-header-user-rights": "$1 {{GENDER:$2|muutti}} sinun käyttöoigevuksii. $3. [[Special:ListGroupRights|Ližätieduo]]",
 	"notification-user-rights-add": "Olet nygöi {{PLURAL:$2|tämän joukon|nämmien joukkoloin}} jäzen: $1",
 	"notification-user-rights-remove": "Et ole enämbiä {{PLURAL:$2|tämän joukon|nämmien joukkoloin}} jäzen: $1",
 	"notification-new-user": "Tule terveh sivule {{SITENAME}}, $1! Olemmo hyväs mieles ku olet tiä.",

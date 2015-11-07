@@ -1,7 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Poiuyt"
+			"Poiuyt",
+			"飞舞回堂前"
 		]
-	}
+	},
+	"tooltip-pt-notifications-alert": "{{GENDER:|侬个}}提醒",
+	"tooltip-pt-notifications-message": "{{GENDER:|侬个}}留言消息"
 }
