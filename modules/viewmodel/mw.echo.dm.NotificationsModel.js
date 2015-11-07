@@ -8,7 +8,8 @@
 	 * @constructor
 	 * @param {mw.echo.dm.AbstractAPIHandler} apiHandler API handler
 	 * @param {Object} [config] Configuration object
-	 * @cfg {string} [type='alert'] Notification type 'alert', 'message' or 'all'
+	 * @cfg {string|string[]} [type='alert'] Notification type 'alert', 'message'
+	 *  or an array [ 'alert', 'message' ]
 	 * @cfg {number} [limit=25] Notification limit
 	 * @cfg {string} [userLang] User language
 	 */
@@ -150,9 +151,9 @@
 
 	/**
 	 * Get the type of the notifications that this model deals with.
-	 * Notifications type are given from the API: 'alert', 'message', 'all'
+	 * Notifications types can be 'alert', 'message' or an array of both.
 	 *
-	 * @return {string} Notifications type
+	 * @return {string|string[]} Notifications type
 	 */
 	mw.echo.dm.NotificationsModel.prototype.getType = function () {
 		return this.type;
@@ -183,27 +184,39 @@
 	 * @param {string} Mediawiki seen timestamp in Mediawiki timestamp format
 	 */
 	mw.echo.dm.NotificationsModel.prototype.setSeenTime = function ( time ) {
-		this.seenTime[ this.type ] = time;
+		var i,
+			type = $.isArray( this.type ) ? this.type : [ this.type ];
+
+		for ( i = 0; i < type.length; i++ ) {
+			// Update all types
+			this.seenTime[ type[ i ] ] = time;
+		}
 	};
 
 	/**
 	 * Get the system seen time
 	 *
+	 * @param {string} [type] Notification type
 	 * @return {string} Mediawiki seen timestamp in Mediawiki timestamp format
 	 */
-	mw.echo.dm.NotificationsModel.prototype.getSeenTime = function () {
-		return this.seenTime[ this.type ];
+	mw.echo.dm.NotificationsModel.prototype.getSeenTime = function ( type ) {
+		type = type || ( $.isArray( this.type ) ? this.type[ 0 ] : this.type );
+
+		return this.seenTime[ type ];
 	};
 
 	/**
 	 * Update the seen timestamp
 	 *
+	 * @param {string|string[]} [type] Notification type
 	 * @return {jQuery.Promise} A promise that resolves with the seen timestamp
 	 * @fires updateSeenTime
 	 */
-	mw.echo.dm.NotificationsModel.prototype.updateSeenTime = function () {
+	mw.echo.dm.NotificationsModel.prototype.updateSeenTime = function ( type ) {
 		var i, len,
 			items = this.unseenNotifications.getItems();
+
+		type = type || this.type;
 
 		// Update the notifications seen status
 		for ( i = 0, len = items.length; i < len; i++ ) {
@@ -211,7 +224,7 @@
 		}
 		this.emit( 'updateSeenTime' );
 
-		return this.apiHandler.updateSeenTime()
+		return this.apiHandler.updateSeenTime( type )
 			.then( this.setSeenTime.bind( this ) );
 	};
 
@@ -273,39 +286,47 @@
 		// it exists in a failed state
 		return this.apiHandler.fetchNotifications( apiPromise )
 			.then( function ( result ) {
-				var notifData, i, len, $content, notificationModel,
+				var notifData, i, len, t, tlen, $content,
+					notificationModel, types,
 					optionItems = [],
 					idArray = [],
 					data = OO.getProp( result.query, 'notifications', model.type ) || { index: [] };
 
-				for ( i = 0, len = data.index.length; i < len; i++ ) {
-					notifData = data.list[ data.index[i] ];
-					if ( model.getItemById( notifData.id ) ) {
-						// Skip if we already have the item
-						continue;
-					}
-					// TODO: This should really be formatted better, and the OptionWidget
-					// should be the one that displays whatever icon relates to this notification
-					// according to its type.
-					$content = $( $.parseHTML( notifData['*'] ) );
+				types = $.isArray( model.type ) ? model.type : [ model.type ];
 
-					notificationModel = new mw.echo.dm.NotificationItem(
-						notifData.id,
-						{
-							read: !!notifData.read,
-							seen: !!notifData.read || notifData.timestamp.mw <= model.getSeenTime(),
-							timestamp: notifData.timestamp.mw,
-							category: notifData.category,
-							content: $content,
-							type: model.getType(),
-							// Hack: Get the primary link from the $content
-							primaryUrl: $content.find( '.mw-echo-notification-primary-link' ).attr( 'href' )
+				for ( t = 0, tlen = types.length; t < tlen; t++ ) {
+					data = OO.getProp( result.query, 'notifications', types[ t ] ) || { index: [] };
+					for ( i = 0, len = data.index.length; i < len; i++ ) {
+						notifData = data.list[ data.index[i] ];
+						if ( model.getItemById( notifData.id ) ) {
+							// Skip if we already have the item
+							continue;
 						}
-					);
+						// TODO: This should really be formatted better, and the OptionWidget
+						// should be the one that displays whatever icon relates to this notification
+						// according to its type.
+						$content = $( $.parseHTML( notifData['*'] ) );
 
-					idArray.push( notifData.id );
-					optionItems.push( notificationModel );
+						notificationModel = new mw.echo.dm.NotificationItem(
+							notifData.id,
+							{
+								read: !!notifData.read,
+								seen: !!notifData.read || notifData.timestamp.mw <= model.getSeenTime(),
+								timestamp: notifData.timestamp.mw,
+								category: notifData.category,
+								content: $content,
+								type: model.getType(),
+								// Hack: Get the primary link from the $content
+								primaryUrl: $content.find( '.mw-echo-notification-primary-link' ).attr( 'href' )
+							}
+						);
+
+						idArray.push( notifData.id );
+						optionItems.push( notificationModel );
+					}
 				}
+
+				// Add to the model
 				model.addItems( optionItems, 0 );
 
 				return idArray;

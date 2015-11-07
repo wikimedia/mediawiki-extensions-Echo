@@ -51,6 +51,8 @@
 	/**
 	 * Update the seen timestamp
 	 *
+	 * @param {string|string[]} [type] Notification type 'message', 'alert' or
+	 *  an array of both.
 	 * @return {jQuery.Promise} A promise that resolves with the seen timestamp
 	 */
 	mw.echo.dm.AbstractAPIHandler.prototype.updateSeenTime = null;
