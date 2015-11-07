@@ -88,6 +88,7 @@ $wgResourceModules += array(
 			'viewmodel/mw.echo.dm.AbstractAPIHandler.js',
 			'viewmodel/mw.echo.dm.APIHandler.js',
 			'viewmodel/mw.echo.dm.List.js',
+			'viewmodel/mw.echo.dm.SortedList.js',
 			'viewmodel/mw.echo.dm.NotificationList.js',
 			'viewmodel/mw.echo.dm.NotificationsModel.js',
 		),
