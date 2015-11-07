@@ -6,8 +6,8 @@
 	 * @extends OO.ui.ButtonWidget
 	 *
 	 * @constructor
+	 * @param {mw.echo.dm.NotificationsModel} model Notifications view model
 	 * @param {Object} [config] Configuration object
-	 * @cfg {string} [type='alert'] Notification type 'alert' or 'message'
 	 * @cfg {number} [numItems=0] How many items are in the button display
 	 * @cfg {boolean} [hasUnseen=false] Whether there are unseen items
 	 * @cfg {boolean} [markReadWhenSeen=false] Mark all notifications as read on open
@@ -22,7 +22,7 @@
 	 *  } }
 	 * @cfg {string} [href] URL the badge links to
 	 */
-	mw.echo.ui.NotificationBadgeWidget = function MwEchoUiNotificationBadgeButtonPopupWidget( config ) {
+	mw.echo.ui.NotificationBadgeWidget = function MwEchoUiNotificationBadgeButtonPopupWidget( model, config ) {
 		var buttonFlags, allNotificationsButton, preferencesButton, footerButtonGroupWidget, $footer;
 
 		config = config || {};
@@ -34,7 +34,10 @@
 		// Mixin constructors
 		OO.ui.mixin.PendingElement.call( this, config );
 
-		this.type = config.type || 'alert';
+		// View model
+		this.notificationsModel = model;
+		this.type = this.notificationsModel.getType();
+
 		this.numItems = config.numItems || 0;
 		this.markReadWhenSeen = !!config.markReadWhenSeen;
 		this.badgeIcon = config.badgeIcon || {};
@@ -56,19 +59,6 @@
 			title: mw.msg( 'tooltip-pt-notifications-' + this.type ),
 			href: config.href
 		} );
-
-		// View model
-		this.notificationsModel = new mw.echo.dm.NotificationsModel(
-			new mw.echo.dm.APIHandler( {
-				type: this.type,
-				limit: 25,
-				userLang: mw.config.get( 'wgUserLanguage' ),
-				baseParams: mw.echo.apiCallParams
-			} ),
-			{
-				type: this.type
-			}
-		);
 
 		// Notifications widget
 		this.notificationsWidget = new mw.echo.ui.NotificationsWidget(

@@ -53,10 +53,22 @@
 
 			// Load the ui
 			mw.loader.using( 'ext.echo.ui', function () {
+				var messageNotificationsModel, alertNotificationsModel;
+
 				// Load message button and popup if messages exist
 				if ( $existingMessageLink.length ) {
-					mw.echo.ui.messageWidget = new mw.echo.ui.NotificationBadgeWidget( {
-						type: 'message',
+					messageNotificationsModel = new mw.echo.dm.NotificationsModel(
+						new mw.echo.dm.APIHandler( {
+							type: 'message',
+							limit: 25,
+							userLang: mw.config.get( 'wgUserLanguage' ),
+							baseParams: mw.echo.apiCallParams
+						} ),
+						{
+							type: 'message'
+						}
+					);
+					mw.echo.ui.messageWidget = new mw.echo.ui.NotificationBadgeWidget( messageNotificationsModel, {
 						markReadWhenSeen: false,
 						numItems: numMessages,
 						hasUnseen: hasUnseenMessages,
@@ -78,8 +90,18 @@
 				}
 
 				// Load alerts popup and button
-				mw.echo.ui.alertWidget = new mw.echo.ui.NotificationBadgeWidget( {
-					type: 'alert',
+				alertNotificationsModel = new mw.echo.dm.NotificationsModel(
+					new mw.echo.dm.APIHandler( {
+						type: 'alert',
+						limit: 25,
+						userLang: mw.config.get( 'wgUserLanguage' ),
+						baseParams: mw.echo.apiCallParams
+					} ),
+					{
+						type: 'alert'
+					}
+				);
+				mw.echo.ui.alertWidget = new mw.echo.ui.NotificationBadgeWidget( alertNotificationsModel, {
 					markReadWhenSeen: true,
 					numItems: numAlerts,
 					hasUnseen: hasUnseenAlerts,
