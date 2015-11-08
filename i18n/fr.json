@@ -25,7 +25,8 @@
 			"Momo50WM",
 			"Orlodrim",
 			"Jules78120",
-			"Jdforrester"
+			"Jdforrester",
+			"Thibaut120094"
 		]
 	},
 	"echo-desc": "Système pour avertir les utilisateurs sur les événements et les messages",
@@ -93,10 +94,10 @@
 	"notification-add-comment-yours2": "[[User:$1|$1]] {{GENDER:$1|a fait un commentaire}} dans ''[[$3#$2|$2]]'' sur votre page de discussion",
 	"notification-mention": "[[User:$1|$1]] vous a mentionné sur la page de discussion de $5 dans la [[:$3#$2|section ''$4'']].",
 	"notification-mention-flyout": "$1 vous a mentionné sur la page de discussion de $5 dans la [[:$3#$2|section ''$4'']].",
-	"notification-header-mention": "{{GENDER:$2|$1}} vous a mentionné sur le page de discussion de $3 en « $4 ».",
+	"notification-header-mention": "{{GENDER:$2|$1}} vous a mentionné sur la page de discussion de $3 en « $4 ».",
 	"notification-mention-nosection": "[[User:$1|$1]] a fait mention de vous sur la [[:$3|page de discussion de $2]].",
 	"notification-mention-nosection-flyout": "$1 a fait mention de vous sur la [[:$3|page de discussion de $2]].",
-	"notification-header-mention-nosection": "{{GENDER:$2|$1}} vous a mentionné sur le [[:$4|$3 page de discussion]].",
+	"notification-header-mention-nosection": "{{GENDER:$2|$1}} vous a mentionné sur la [[:$4|$3 page de discussion]].",
 	"notification-user-rights": "Vos droits d’utilisateur [[Special:Log/rights/$1|ont été modifiés]] par [[User:$1|$1]]. $2. [[Special:ListGroupRights|En savoir plus]]",
 	"notification-header-user-rights": "Vos droits d’utilisateur {{GENDER:$2|ont été modifiés}} par $1. $3. [[Special:ListGroupRights|En savoir plus]]",
 	"notification-user-rights-add": "Vous êtes maintenant membre de {{PLURAL:$2|ce groupe|ces groupes}} : $1",
