@@ -94,6 +94,7 @@
 	"notification-user-rights-add": "Ahora eres miembro de {{PLURAL:$2|este grupo|estos grupos}}: $1",
 	"notification-user-rights-remove": "Has dejado de pertenecer {{PLURAL:$2|al siguiente grupo|a los siguientes grupos}}: $1",
 	"notification-new-user": "¡Te damos la bienvenida a {{SITENAME}}, $1! Nos alegra que estés aquí.",
+	"notification-header-welcome": "{{GENDER:$2|Bienvenido|Bienvenida}} a {{SITENAME}}, $1. Nos alegra que estés aquí.",
 	"notification-reverted2": "{{PLURAL:$4|Tu edición en [[:$2]] ha sido revertida|Tus ediciones en [[:$2]] han sido revertidas}} por [[$5|{{GENDER:$1|$1}}]]. $3",
 	"notification-reverted-flyout2": "{{PLURAL:$4|Tu edición en $2 ha sido revertida|Tus ediciones en $2 han sido revertidas}} por $1. $3",
 	"notification-emailuser": "[[User:$1|$1]] te ha {{GENDER:$1|enviado}} un correo electrónico.",
