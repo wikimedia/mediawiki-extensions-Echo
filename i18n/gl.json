@@ -80,6 +80,7 @@
 	"notification-user-rights-add": "Agora pertence a {{PLURAL:$2|este grupo|estes grupos}}: $1",
 	"notification-user-rights-remove": "Xa non pertence a {{PLURAL:$2|este grupo|estes grupos}}: $1",
 	"notification-new-user": "Dámoslle a benvida a {{SITENAME}}, $1! Alegrámonos de que estea aquí.",
+	"notification-header-welcome": "{{GENDER:$2|Benvido|Benvida}} a {{SITENAME}}, $1. Alégranos que esteas aquí.",
 	"notification-reverted2": "[[$5|$1]] {{GENDER:$1|reverteu}} {{PLURAL:$4|a súa edición|as súas edicións}} en \"[[:$2]]\" $3",
 	"notification-reverted-flyout2": "$1 {{GENDER:$1|reverteu}} {{PLURAL:$4|a súa edición|as súas edicións}} en \"$2\" $3",
 	"notification-emailuser": "[[User:$1|$1]] {{GENDER:$1|envioulle}} un correo electrónico.",
