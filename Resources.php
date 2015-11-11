@@ -87,11 +87,12 @@ $wgResourceModules += array(
 	'ext.echo.dm' => $echoResourceTemplate + array(
 		'scripts' => array(
 			'viewmodel/mw.echo.dm.js',
-			'viewmodel/mw.echo.dm.NotificationItem.js',
-			'viewmodel/mw.echo.dm.AbstractAPIHandler.js',
-			'viewmodel/mw.echo.dm.APIHandler.js',
 			'viewmodel/mw.echo.dm.List.js',
 			'viewmodel/mw.echo.dm.SortedList.js',
+			'viewmodel/handlers/mw.echo.dm.APIHandler.js',
+			'viewmodel/handlers/mw.echo.dm.LocalAPIHandler.js',
+			'viewmodel/handlers/mw.echo.dm.NetworkHandler.js',
+			'viewmodel/mw.echo.dm.NotificationItem.js',
 			'viewmodel/mw.echo.dm.NotificationList.js',
 			'viewmodel/mw.echo.dm.NotificationsModel.js',
 		),
