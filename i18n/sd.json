@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Aursani"
+			"Aursani",
+			"Mehtab ahmed"
 		]
 	},
+	"tooltip-pt-notifications-alert": "{{GENDER:|توهان جو}} خبرون",
 	"tooltip-pt-notifications-message": "{{GENDER:|توهان جا}} نياپا"
 }
