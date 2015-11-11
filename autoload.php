@@ -109,5 +109,6 @@ $wgAutoloadClasses += array(
 	'NotificationControllerTest' => __DIR__ . '/tests/phpunit/controller/NotificationControllerTest.php',
 	'NotificationsTest' => __DIR__ . '/tests/NotificationsTest.php',
 	'SpecialNotifications' => __DIR__ . '/includes/special/SpecialNotifications.php',
+	'SpecialNotificationsFormatter' => __DIR__ . '/includes/formatters/SpecialNotificationsFormatter.php',
 	'SuppressionMaintenanceTest' => __DIR__ . '/tests/phpunit/maintenance/SupressionMaintenanceTest.php',
 );

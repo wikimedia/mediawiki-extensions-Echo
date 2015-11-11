@@ -11,6 +11,15 @@ class EchoDataOutputFormatter {
 	protected static $formatters = array(
 		'flyout' => 'EchoFlyoutFormatter',
 		'model' => 'EchoModelFormatter',
+		'special' => 'SpecialNotificationsFormatter',
+	);
+
+	/**
+	 * @var array Mapping of new formatter to old formatter type
+	 */
+	protected static $legacyMapping = array(
+		'flyout' => 'flyout',
+		'special' => 'html',
 	);
 
 	/**
@@ -137,8 +146,9 @@ class EchoDataOutputFormatter {
 			$formatter = new self::$formatters[$format]( $user, $lang );
 			return $formatter->format( $event );
 		} else {
+			$legacyFormat = self::$legacyMapping[$format];
 			// Legacy b/c
-			return EchoNotificationController::formatNotification( $event, $user, $format );
+			return EchoNotificationController::formatNotification( $event, $user, $legacyFormat );
 		}
 	}
 

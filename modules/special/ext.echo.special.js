@@ -67,7 +67,7 @@
 				apiData = {
 					action: 'query',
 					meta: 'notifications',
-					notformat: 'html',
+					notformat: 'special',
 					notprop: 'index|list',
 					notcontinue: this.notcontinue,
 					notlimit: mw.config.get( 'wgEchoDisplayNum' ),

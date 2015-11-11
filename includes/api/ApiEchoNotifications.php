@@ -221,6 +221,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 					'flyout',
 					'html',
 					'model',
+					'special',
 				),
 			),
 			'limit' => array(
