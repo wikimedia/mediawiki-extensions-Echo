@@ -73,10 +73,6 @@ class MWEchoNotifUserTest extends MediaWikiTestCase {
 	}
 
 	public function testGetEmailFormat() {
-		global $wgAllowHTMLEmail;
-
-		$format = $wgAllowHTMLEmail;
-
 		$user = User::newFromId( 2 );
 		$notifUser = MWEchoNotifUser::newFromUser( $user );
 
@@ -84,8 +80,6 @@ class MWEchoNotifUserTest extends MediaWikiTestCase {
 		$this->assertEquals( $notifUser->getEmailFormat(), $user->getOption( 'echo-email-format' ) );
 		$this->setMwGlobals( 'wgAllowHTMLEmail', false );
 		$this->assertEquals( $notifUser->getEmailFormat(), EchoHooks::EMAIL_FORMAT_PLAIN_TEXT );
-
-		$this->setMwGlobals( 'wgAllowHTMLEmail', $format );
 	}
 
 	public function testMarkRead() {
