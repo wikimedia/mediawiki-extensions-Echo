@@ -29,7 +29,7 @@ abstract class EchoEventPresentationModel {
 	/**
 	 * @param EchoEvent $event
 	 * @param Language|string $language
-	 * @param User $user Only used for permissions checking
+	 * @param User $user Only used for permissions checking and GENDER
 	 */
 	protected function __construct( EchoEvent $event, $language, User $user ) {
 		$this->event = $event;
@@ -129,6 +129,15 @@ abstract class EchoEventPresentationModel {
 			// HACK: Pass an invalid username to GENDER to force the default
 			return array( '<span class="history-deleted">' . $msg . '</span>', '[]' );
 		}
+	}
+
+	/**
+	 * Get the viewing user's name for usage in GENDER
+	 *
+	 * @return string
+	 */
+	final protected function getViewingUserForGender() {
+		return $this->user->getName();
 	}
 
 	/**
