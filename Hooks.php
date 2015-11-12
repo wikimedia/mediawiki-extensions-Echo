@@ -812,17 +812,12 @@ class EchoHooks {
 	 * @return bool true in all cases
 	 */
 	public static function makeGlobalVariablesScript( &$vars, OutputPage $outputPage ) {
-		global $wgEchoHelpPage, $wgEchoMaxNotificationCount, $wgEchoConfig;
+		global $wgEchoConfig;
 		$user = $outputPage->getUser();
 
 		// Provide info for the Overlay
 
-		if ( !$user->isAnon() ) {
-			$vars['wgEchoOverlayConfiguration'] = array(
-				'notification-count' => MWEchoNotifUser::newFromUser( $user )->getFormattedNotificationCount(),
-				'max-notification-count' => $wgEchoMaxNotificationCount,
-			);
-			$vars['wgEchoHelpPage'] = $wgEchoHelpPage;
+		if ( $user->isLoggedIn() ) {
 			$vars['wgEchoConfig'] = $wgEchoConfig;
 		} elseif (
 			$outputPage->getTitle()->equals( SpecialPage::getTitleFor( 'JavaScriptTest', 'qunit' ) ) ||
