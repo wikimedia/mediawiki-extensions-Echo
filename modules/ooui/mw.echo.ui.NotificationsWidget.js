@@ -22,7 +22,7 @@
 		mw.echo.ui.NotificationsWidget.parent.call( this, config );
 
 		// Dummy 'loading' option widget
-		this.loadingOptionWidget = new mw.echo.ui.PlaceholderOptionWidget();
+		this.loadingOptionWidget = new mw.echo.ui.PlaceholderItemWidget();
 		this.addItems( [ this.loadingOptionWidget ] );
 
 		// Events
@@ -49,7 +49,7 @@
 	 * @param {number} index Index to add the item
 	 */
 	mw.echo.ui.NotificationsWidget.prototype.onModelNotificationAdd = function ( notificationItem, index ) {
-		var widget = new mw.echo.ui.NotificationOptionWidget(
+		var widget = new mw.echo.ui.NotificationItemWidget(
 				notificationItem,
 				{
 					markReadWhenSeen: this.markReadWhenSeen

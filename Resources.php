@@ -33,15 +33,15 @@ $wgResourceModules += array(
 	'ext.echo.ui' => $echoResourceTemplate + array(
 		'scripts' => array(
 			'ooui/mw.echo.ui.js',
-			'ooui/mw.echo.ui.PlaceholderOptionWidget.js',
+			'ooui/mw.echo.ui.PlaceholderItemWidget.js',
 			'ooui/mw.echo.ui.NotificationsWidget.js',
-			'ooui/mw.echo.ui.NotificationOptionWidget.js',
+			'ooui/mw.echo.ui.NotificationItemWidget.js',
 			'ooui/mw.echo.ui.BadgeLinkWidget.js',
 			'ooui/mw.echo.ui.NotificationBadgeWidget.js'
 		),
 		'styles' => array(
 			'ooui/styles/mw.echo.ui.NotificationsWidget.less',
-			'ooui/styles/mw.echo.ui.NotificationOptionWidget.less',
+			'ooui/styles/mw.echo.ui.NotificationItemWidget.less',
 			'ooui/styles/mw.echo.ui.NotificationBadgeWidget.less'
 		),
 		'skinStyles' => array(
@@ -50,7 +50,7 @@ $wgResourceModules += array(
 				'ooui/styles/mw.echo.ui.NotificationBadgeWidget.monobook.less'
 			),
 			'modern' => array(
-				'ooui/styles/mw.echo.ui.NotificationOptionWidget.modern.less',
+				'ooui/styles/mw.echo.ui.NotificationItemWidget.modern.less',
 				'ooui/styles/mw.echo.ui.NotificationBadgeWidget.modern.less'
 			),
 			'vector' => array(

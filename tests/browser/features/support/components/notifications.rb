@@ -14,6 +14,6 @@ class Notifications
   end
 
   def num_unread_notifications
-    div_elements(css: '.mw-echo-ui-notificationOptionWidget-unread').size
+    div_elements(css: '.mw-echo-ui-notificationItemWidget-unread').size
   end
 end
