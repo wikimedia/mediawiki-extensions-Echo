@@ -74,7 +74,7 @@
 	"notification-mention-nosection": "[[User:$1|$1]] ने [[:$3|$2 वार्ता पृष्ठ]] में आपका {{GENDER:$1|उल्लेख}} किया है।",
 	"notification-mention-nosection-flyout": "$1 ने [[:$3|$2 वार्ता पृष्ठ]] में आपका {{GENDER:$1|उल्लेख}} किया है।",
 	"notification-user-rights": "आपके सदस्य अधिकार [[User:$1|$1]] द्वारा [[Special:Log/rights/$1|{{GENDER:$1|बदले गये}}]]। $2। [[Special:ListGroupRights|अधिक जानिये]]",
-	"notification-user-rights-flyout": "आपके सदस्य अधिकार $1 द्वारा {{GENDER:$1|बदले गये}}। $2। [[Special:ListGroupRights|अधिक जानिये]]",
+	"notification-header-user-rights": "आपके सदस्य अधिकार $1 द्वारा {{GENDER:$2|बदले गये}}। $3। [[Special:ListGroupRights|अधिक जानिये]]",
 	"notification-user-rights-add": "आप अब {{PLURAL:$2|इस समूह|इन समूहों}} के सदस्य हैं: $1",
 	"notification-user-rights-remove": "आप अब {{PLURAL:$2|इस समूह|इन समूहों}} के सदस्य नहीं रहे: $1",
 	"notification-new-user": "आपका {{SITENAME}} पर स्वागत है, $1! हमे ख़ुशी है आप यहाँ आये।",

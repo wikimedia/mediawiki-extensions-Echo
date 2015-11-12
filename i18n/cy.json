@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Lloffiwr"
+			"Lloffiwr",
+			"Robin Owain"
 		]
 	},
 	"echo-desc": "Sustem hysbysu",
@@ -60,10 +61,12 @@
 	"notification-add-comment-yours2": "{{GENDER:$1|Gosododd}} [[User:$1|$1]] sylw am \"[[$3#$2|$2]]\" ar eich tudalen sgwrs.",
 	"notification-mention": "{{GENDER:$1|Cyfeiriodd}} [[User:$1|$1]] atoch ar dudalen sgwrs $5 yn yr adran \"[[:$3#$2|$4]]\".",
 	"notification-mention-flyout": "{{GENDER:$1|Cyfeiriodd}} $1 atoch ar dudalen sgwrs $5 yn yr adran \"[[:$3#$2|$4]]\".",
+	"notification-header-mention": "$1 Soniodd {{GENDER:$2|amdanoch}} ar dudalen Sgwrs $3 yn \"$4\".",
 	"notification-mention-nosection": "{{GENDER:$1|Cyfeiriodd}} [[User:$1|$1]] atoch ar [[:$3|dudalen sgwrs $2]].",
 	"notification-mention-nosection-flyout": "{{GENDER:$1|Cyfeiriodd}} $1 atoch ar [[:$3|dudalen sgwrs $2]].",
+	"notification-header-mention-nosection": "$1 Soniodd {{GENDER:$2|amdanoch}} ar dudalen Sgwrs [[:$4|$3]].",
 	"notification-user-rights": "[[Special:Log/rights/$1|{{GENDER:$1|Newidiwyd}}]] eich galluoedd defnyddiwr gan [[User:$1|$1]]. $2. [[Special:ListGroupRights|Darllen mwy]]",
-	"notification-user-rights-flyout": "{{GENDER:$1|Newidiwyd}} eich galluoedd defnyddiwr gan $1. $2. [[Special:ListGroupRights|Darllen mwy]]",
+	"notification-header-user-rights": "{{GENDER:$2|Newidiwyd}} eich galluoedd defnyddiwr gan $1. $3. [[Special:ListGroupRights|Darllen mwy]]",
 	"notification-user-rights-add": "Rydych nawr yn aelod o'r {{PLURAL:$2|grŵp hwn|grŵp hwn|grwpiau hyn}}: $1",
 	"notification-user-rights-remove": "Nid ydych bellach yn aelod o'r {{PLURAL:$2|grŵp hwn|grŵp hwn|grwpiau hyn}}: $1",
 	"notification-new-user": "Croeso i {{SITENAME}}, $1! Rydym yn falch eich bod wedi cyrraedd.",

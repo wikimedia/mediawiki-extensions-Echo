@@ -53,7 +53,7 @@
 	"echo-none": "Du har ingen varsler.",
 	"echo-more-info": "Mer informasjon",
 	"echo-feedback": "Tilbakemelding",
-	"echo-api-failure": "Kunne ikke hente varsler. Prøv igjen. (Feil $1)",
+	"echo-api-failure": "Klarte ikke hente varsler. Prøv igjen. (Feil $1)",
 	"echo-notification-placeholder": "Ingen varsler.",
 	"notification-link-text-view-message": "Vis melding",
 	"notification-link-text-view-mention": "Vis omtale",

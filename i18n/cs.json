@@ -118,7 +118,7 @@
 	"echo-load-more-error": "Při načítání dalších výsledků došlo k chybě.",
 	"notification-edit-talk-page-bundle": "$1 a $3 {{PLURAL:$4|další}} vám napsali na [[User talk:$2|vaši diskusní stránku]].",
 	"notification-page-linked-bundle": "Do stránky $3 a $4 {{PLURAL:$5|další stránky|dalších stránek}} {{GENDER:$1|byly přidány}} odkazy na stránku $2: [[Special:WhatLinksHere/$2|Zobrazit všechny odkazy na tuto stránku]]",
-	"notification-edit-user-talk-email-batch-bundle-body": "$1 a $2 {{PLURAL:$3|další}} vám napsali na vaši diskusní stránku",
+	"notification-edit-user-talk-email-batch-bundle-body": "$1 a $2 {{PLURAL:$3|další|další|dalších}} vám napsali na vaši diskusní stránku.",
 	"notification-page-linked-email-batch-bundle-body": "Do stránky $3 a $4 {{PLURAL:$5|další stránky|dalších stránek}} {{GENDER:$1|byly přidány}} odkazy na stránku $2",
 	"echo-email-batch-subject-daily": "Na {{grammar:6sg|{{SITENAME}}}} dnes máte {{PLURAL:$2|nové|nová}} upozornění",
 	"echo-email-batch-subject-weekly": "Na {{grammar:6sg|{{SITENAME}}}} máte tento týden {{PLURAL:$2|nové|nová}} upozornění",

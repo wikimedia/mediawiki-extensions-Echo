@@ -97,7 +97,7 @@
 	"notification-header-mention": "{{GENDER:$2|$1}} vous a mentionné sur la page de discussion de $3 en « $4 ».",
 	"notification-mention-nosection": "[[User:$1|$1]] a fait mention de vous sur la [[:$3|page de discussion de $2]].",
 	"notification-mention-nosection-flyout": "$1 a fait mention de vous sur la [[:$3|page de discussion de $2]].",
-	"notification-header-mention-nosection": "{{GENDER:$2|$1}} vous a mentionné sur la [[:$4|$3 page de discussion]].",
+	"notification-header-mention-nosection": "{{GENDER:$2|$1}} vous a mentionné{{GENDER:||e|(e)}} sur la [[:$4|page de discussion de $3]].",
 	"notification-user-rights": "Vos droits d’utilisateur [[Special:Log/rights/$1|ont été modifiés]] par [[User:$1|$1]]. $2. [[Special:ListGroupRights|En savoir plus]]",
 	"notification-header-user-rights": "Vos droits d’utilisateur {{GENDER:$2|ont été modifiés}} par $1. $3. [[Special:ListGroupRights|En savoir plus]]",
 	"notification-user-rights-add": "Vous êtes maintenant membre de {{PLURAL:$2|ce groupe|ces groupes}} : $1",
