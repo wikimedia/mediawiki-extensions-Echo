@@ -423,19 +423,6 @@ class MWEchoNotifUser {
 	}
 
 	/**
-	 * Retrieves formatted number of unread notifications that a user has.
-	 * @param boolean $cached Set to false to bypass the cache. (Optional. Defaults to true)
-	 * @param int $dbSource Use master or slave database to pull count (Optional. Defaults to DB_SLAVE)
-	 * @param string $section
-	 * @return string
-	 */
-	public function getFormattedNotificationCount( $cached = true, $dbSource = DB_SLAVE, $section = EchoAttributeManager::ALL ) {
-		return EchoNotificationController::formatNotificationCount(
-			$this->getNotificationCount( $cached, $dbSource, $section )
-		);
-	}
-
-	/**
 	 * Get the user's email notification format
 	 * @return string
 	 */
