@@ -18,7 +18,7 @@ abstract class EchoAbstractMapper {
 	protected $listeners;
 
 	/**
-	 * @param MWEchoDbFactory|null
+	 * @param MWEchoDbFactory|null $dbFactory
 	 */
 	public function __construct( MWEchoDbFactory $dbFactory = null ) {
 		if ( $dbFactory === null ) {
@@ -33,6 +33,7 @@ abstract class EchoAbstractMapper {
 	 * @param string $method Method name
 	 * @param string $key Identification of the callable
 	 * @param callable $callable
+	 * @throws MWException
 	 */
 	public function attachListener( $method, $key, $callable ) {
 		if ( !method_exists( $this, $method ) ) {
@@ -61,6 +62,7 @@ abstract class EchoAbstractMapper {
 	 * Get the listener for a method
 	 *
 	 * @return array
+	 * @throws MWException
 	 */
 	public function getMethodListeners( $method ) {
 		if ( !method_exists( $this, $method ) ) {
