@@ -2,9 +2,9 @@
 # Work in both nojs and js version
 
 Given(/^I click the alert badge$/) do
-  on(ArticlePage).notifications_badge_alert
+  on(ArticlePage).alerts.badge
 end
 
 Given(/^I click the message badge$/) do
-  on(ArticlePage).notifications_badge_message
+  on(ArticlePage).messages.badge
 end

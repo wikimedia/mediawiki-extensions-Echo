@@ -13,9 +13,9 @@ Given(/^another user mentions me$/) do
     ']] in this page to test Echo notifications. ~~~~'
   as_user(:b) do
     api.create_page(
-    @data_manager.get('Echo_test_page'),
-    message
-  )
+      @data_manager.get('Echo_test_page'),
+      message
+    )
   end
 end
 
@@ -31,7 +31,7 @@ end
 Given(/^the alert badge is showing unseen notifications$/) do
   on(ArticlePage) do |page|
     page.refresh_until do
-      page.notifications_badge_alert_unseen_element.visible?
+      page.alerts.badge_unseen_element.visible?
     end
   end
 end
@@ -39,7 +39,7 @@ end
 Given(/^the message badge is showing unseen notifications$/) do
   on(ArticlePage) do |page|
     page.refresh_until do
-      page.notifications_badge_message_unseen_element.visible?
+      page.messages.badge_unseen_element.visible?
     end
   end
 end
@@ -47,7 +47,7 @@ end
 Given(/^the alert badge value is "(.+)"$/) do |num|
   on(ArticlePage) do |page|
     page.refresh_until do
-      page.notifications_badge_alert_element.text == num
+      page.alerts.badge_element.text == num
     end
   end
 end
@@ -55,14 +55,14 @@ end
 Given(/^the message badge value is "(.+)"$/) do |num|
   on(ArticlePage) do |page|
     page.refresh_until do
-      page.notifications_badge_message_element.text == num
+      page.messages.badge_element.text == num
     end
   end
 end
 
 Given(/^there are "(.+)" unread notifications in the message popup$/) do |num|
   on(ArticlePage) do |page|
-    page.popup_title(page.popup_message_element)
-    expect(page.num_unread_message_notifications).to eq(num.to_i)
+    page.messages.when_loaded
+    expect(page.messages.num_unread_notifications).to eq(num.to_i)
   end
 end

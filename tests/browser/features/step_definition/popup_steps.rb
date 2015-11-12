@@ -1,11 +1,11 @@
 Given(/^I see the alert popup$/) do
   on(ArticlePage) do |page|
-    expect(page.popup_title(page.popup_alert_element).text).to match('Alerts')
+    expect(page.alerts.title_element.when_present.text).to match('Alerts')
   end
 end
 
 Given(/^I see the message popup$/) do
   on(ArticlePage) do |page|
-    expect(page.popup_title(page.popup_message_element).text).to match('Messages')
+    expect(page.messages.title_element.when_present.text).to match('Messages')
   end
 end
