@@ -79,6 +79,7 @@
 	"notification-user-rights-remove": "Повеќе не членувате во {{PLURAL:$2|оваа група|овие групи}}: $1",
 	"notification-new-user": "Добре дојдовте на {{SITENAME}}, $1! Драго ни е што сте тука.",
 	"notification-header-welcome": "{{GENDER:$2|Добре дојдовте}} на {{SITENAME}}, $1! Драго ни е {{GENDER:$2|што сте}} тука.",
+	"notification-welcome-linktext": "Добре дојдовте",
 	"notification-reverted2": "[[$5|$1]] {{PLURAL:$4|го|ги}} {{GENDER:$1|врати}} {{PLURAL:$4|вашето уредување на [[:$2]]|вашите уредувања на [[:$2]]}} $3",
 	"notification-reverted-flyout2": "$1 {{PLURAL:$4|го|ги}} {{GENDER:$1|врати}} {{PLURAL:$4|вашето уредување на $2|вашите уредувања на $2}} $3",
 	"notification-emailuser": "[[User:$1|$1]] {{GENDER:$1|ви испрати}} е-пошта.",

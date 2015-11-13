@@ -2,7 +2,9 @@
 	"@metadata": {
 		"authors": [
 			"පසිඳු කාවින්ද",
-			"Susith Chandira Gts"
+			"Susith Chandira Gts",
+			"SusithCM",
+			"හරිත"
 		]
 	},
 	"echo-desc": "නිවේදන පද්ධතිය",
@@ -16,6 +18,8 @@
 	"echo-no-title": "[පිටුවක් නොමැත]",
 	"echo-error-no-formatter": "නිවේදනය සඳහා කිසිදු ආකෘතියක් දක්වා නොමැත",
 	"notifications": "නිවේදන",
+	"tooltip-pt-notifications-alert": "{{GENDER:|ඔබේ}} දැනුම්දීම්",
+	"tooltip-pt-notifications-message": "{{GENDER:|ඔබේ}} පණිවිඩ",
 	"echo-specialpage": "නිවේදන",
 	"echo-anon": "නිවේදන ලබා ගැනීම සඳහා, [$1 ගිණුමක් තනන්න] හෝ [$2 ප්‍රවිෂ්ට වන්න].",
 	"echo-none": "ඔබට නිවේදන කිසිවක් නොමැත.",
