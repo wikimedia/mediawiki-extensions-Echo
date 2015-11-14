@@ -82,6 +82,7 @@
 	"notification-user-rights-remove": "Jūs nebesate {{PLURAL:$2|šios grupės|šių grupių}} narys: $1",
 	"notification-new-user": "Sveiki atvykę į {{SITENAME}}, $1! Džiaugiamės, kad esate čia.",
 	"notification-header-welcome": "{{GENDER:$2|Sveiki atvykę}} į {{SITENAME}}, $1! Me džiaugiamės, kad {{GENDER:$2|jūs esate}} čia.",
+	"notification-welcome-linktext": "Sveiki",
 	"notification-reverted2": "Jūsų {{PLURAL:$4|keitimas puslapyje [[:$2]]|keitimai [[:$2]] puslapyje}} buvo {{PLURAL:$4|atmestas|atmesti}} naudotojo [[$5|$1]]. $3",
 	"notification-reverted-flyout2": "Jūsų {{PLURAL:$4|keitimas puslapyje $2|keitimai $2 puslapyje}} buvo {{PLURAL:$4|atmestas|atmesti}} naudotojo $1. $3",
 	"notification-emailuser": "[[User:$1|$1]] {{GENDER:$1|atsiuntė}} jums el. laišką.",

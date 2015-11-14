@@ -50,6 +50,7 @@
 	"notification-page-linked": "[[:$2]] له [[:$3]] سره {{GENDER:$1|تړل شوی}}. [[Special:WhatLinksHere/$2|دې مخ سره ټولې تړنې وگورئ]].",
 	"notification-page-linked-flyout": "[[:$2]] له [[:$3]] سره {{GENDER:$1|وتړل شو}}.",
 	"notification-new-user": "$1 {{SITENAME}} ته ښه راغلې!، موږ خوښ يو چې تاسې دلته ياست.",
+	"notification-welcome-linktext": "ښه راغلئ",
 	"notification-edit-talk-page-email-batch-body2": "$1 ستاسې د خبرو اترو په مخ يو پيغام {{GENDER:$1|پرېښوده}}.",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 ستاسې د خبرو اترو پر مخ يو پيغام په \"$2\" کې {{GENDER:$1|پرېښود}}.",
 	"notification-page-linked-email-subject": "يو مخ چې تاسې جوړ کړی، په {{SITENAME}} يې تړنه جوړه شوه",

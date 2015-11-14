@@ -79,6 +79,7 @@
 	"notification-user-rights-remove": "Mo' nun site cchiù membre 'e {{PLURAL:$2|stu gruppo|sti gruppe}}: $1",
 	"notification-new-user": "Bemmenuto/a a {{SITENAME}}, $1! Nuje simmo cuntente 'e te veré ccà.",
 	"notification-header-welcome": "{{GENDER:$2|Bemmenuto|Bemmenuta}} ncopp' 'a {{SITENAME}}, $1! Simmo cuntente {{GENDER:$2|ca state}} ccà.",
+	"notification-welcome-linktext": "Bemmenute",
 	"notification-reverted2": "{{PLURAL:$4|'O cagnamiento vuosto ncopp'a [[:$2]] è stato|'E cagnamiente vuoste ncopp' 'a [[:$2]] so' state}} {{GENDER:$1|annullate}} 'a [[$5|$1]]. $3",
 	"notification-reverted-flyout2": "{{PLURAL:$4|'O cagnamiento ncopp'a $2 vuosto è stato|'E cagnamiente vuoste ncopp' 'a $2 so state}} {{GENDER:$1|annullate}} 'a $1. $3",
 	"notification-emailuser": "[[User:$1|$1]] {{GENDER:$1|te lassaje}} na mmasciata email.",
