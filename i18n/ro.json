@@ -82,6 +82,8 @@
 	"notification-user-rights-add": "Sunteți acum membru al {{PLURAL:$2|acestui grup|acestor grupuri}}: $1",
 	"notification-user-rights-remove": "Nu mai sunteți membru al {{PLURAL:$2|acestui grup|acestor grupuri}}: $1",
 	"notification-new-user": "Bine ați venit la {{SITENAME}}, $1! Ne bucurăm că sunteți aici.",
+	"notification-header-welcome": "{{GENDER:$2|Bun venit}} la {{SITENAME}}, $1! Ne bucurăm să {{GENDER:$2|vă avem}} printre noi.",
+	"notification-welcome-linktext": "Bun venit",
 	"notification-reverted2": "{{PLURAL:$4|Modificarea dumneavoastră asupra paginii [[:$2]] a|Modificările dumneavoastră asupra paginii [[:$2]] au}} fost {{GENDER:$1|înlăturat}}{{PLURAL:$4|ă|e}} de către [[$5|$1]]. $3",
 	"notification-reverted-flyout2": "{{PLURAL:$4|Modificarea dumneavoastră asupra paginii $2 a|Modificările dumneavoastră asupra paginii $2 au}} fost {{GENDER:$1|înlăturat}}{{PLURAL:$4|ă|e}} de către $1. $3",
 	"notification-emailuser": "[[User:$1|$1]] {{GENDER:$1|v-a trimis}} un e-mail.",

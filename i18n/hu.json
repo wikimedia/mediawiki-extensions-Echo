@@ -11,7 +11,7 @@
 			"Bináris"
 		]
 	},
-	"echo-desc": "Értesítési rendszer",
+	"echo-desc": "Értesíti a felhasználókat az eseményekről és üzenetekről",
 	"prefs-echo": "Értesítések",
 	"prefs-emailsettings": "E-mail beállítások",
 	"prefs-displaynotifications": "Megjelenítési beállítások",
@@ -85,6 +85,7 @@
 	"notification-user-rights-remove": "Kikerültél {{PLURAL:$2|ebből a csoportból|ezekből a csoportokból}}: $1",
 	"notification-new-user": "Kedves $1! Üdvözlünk a {{SITENAME}} oldalon. Örülünk, hogy csatlakoztál hozzánk.",
 	"notification-header-welcome": "{{GENDER:$2|Üdvözlünk}} a(z) {{SITENAME}} wikin, $1! Örülünk, hogy itt {{GENDER:$2|vagy}}.",
+	"notification-welcome-linktext": "Üdvözlet",
 	"notification-reverted2": "[[$5|$1]] visszavonta a {{PLURAL:$4|szerkesztésedet|szerkesztéseidet}} a(z) [[:$2]] cikkben. $3",
 	"notification-reverted-flyout2": "$1 visszavonta a {{PLURAL:$4|szerkesztésedet|szerkesztéseidet}} a(z) $2 cikkben. $3",
 	"notification-emailuser": "[[User:$1|$1]] {{GENDER:$1|küldött}} neked egy e-mailt.",
@@ -126,5 +127,17 @@
 	"echo-email-batch-body-intro-daily": "Kedves $1,\nösszefoglaltuk, mi történt ma a(z) {{SITENAME}} wikin.",
 	"echo-email-batch-body-intro-weekly": "Kedves $1,\nösszefoglaltuk, mi történt a héten a(z) {{SITENAME}} wikin.",
 	"echo-email-batch-link-text-view-all-notifications": "Nézd meg az összes értesítést",
-	"echo-rev-deleted-text-view": "Ezt a lapváltozatot elrejtették."
+	"echo-rev-deleted-text-view": "Ezt a lapváltozatot elrejtették.",
+	"apihelp-echomarkread-description": "Értesítések olvasottnak jelölése az aktuális felhasználó számára.",
+	"apihelp-echomarkread-param-list": "Az olvasottnak jelölendő értesítések ID-inek listája.",
+	"apihelp-echomarkread-param-all": "Ha meg van adva, az adott felhasználó összes értesítését olvasottnak jelöli.",
+	"apihelp-echomarkread-param-sections": "Az olvasottnak jelölendő szakaszok listája.",
+	"apihelp-echomarkread-example-1": "A 8-as számú értesítés olvasottnak jelölése",
+	"apihelp-echomarkread-example-2": "Az összes értesítés olvasottnak jelölése",
+	"apihelp-echomarkseen-description": "Értesítések látottnak jelölése az aktuális felhasználó számára.",
+	"apihelp-echomarkseen-example-1": "Az összes fajta értesítés látottnak jelölése.",
+	"apihelp-echomarkseen-param-type": "A látottnak jelölendő értesítések típusa: 'alert', 'message' vagy 'all'.",
+	"apihelp-query+notifications-description": "Az aktuális felhasználónak szóló értesítések lekérdezése.",
+	"apihelp-query+notifications-param-prop": "A lekérdezendő részletek.",
+	"apihelp-query+notifications-param-sections": "A lekérdezendő szakaszok ('alert' és/vagy 'message')."
 }
