@@ -86,6 +86,8 @@ abstract class EchoDiscussionParser {
 		$header = $snippet = '';
 		$found = false;
 
+		StubObject::unstub( $wgLang );
+
 		foreach ( $interpretation as $action ) {
 			switch ( $action['type'] ) {
 				case 'add-comment':
