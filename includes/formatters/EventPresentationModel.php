@@ -4,6 +4,7 @@
  * Class that returns structured data based
  * on the provided event.
  */
+// @todo: once PHP5.3 is no longer supported, this can implement JsonSerializable
 abstract class EchoEventPresentationModel {
 
 	/**
@@ -209,5 +210,23 @@ abstract class EchoEventPresentationModel {
 	 */
 	public function getSecondaryLinks() {
 		return array();
+	}
+
+	/**
+	 * @return array
+	 * @throws TimestampException
+	 */
+	public function jsonSerialize() {
+		$body = $this->getBodyMessage();
+
+		return array(
+			'header' => $this->getHeaderMessage()->parse(),
+			'body' => $body ? $body->parse() : '',
+			'icon' => $this->getIconType(),
+			'links' => array(
+				'primary' => $this->getPrimaryLink() ?: array(),
+				'secondary' => $this->getSecondaryLinks(),
+			),
+		);
 	}
 }

@@ -9,7 +9,8 @@ class EchoDataOutputFormatter {
 	 * @var array type => class
 	 */
 	protected static $formatters = array(
-		'flyout' => 'EchoFlyoutFormatter'
+		'flyout' => 'EchoFlyoutFormatter',
+		'model' => 'EchoModelFormatter',
 	);
 
 	/**
@@ -100,7 +101,7 @@ class EchoDataOutputFormatter {
 
 		// This is only meant for unread notifications, if a notification has a target
 		// page, then it shouldn't be auto marked as read unless the user visits
-		// the target page or a user marks it as read manully ( coming soon )
+		// the target page or a user marks it as read manually ( coming soon )
 		$output['targetpages'] = array();
 		if ( $notification->getTargetPages() ) {
 			foreach ( $notification->getTargetPages() as $targetPage ) {
