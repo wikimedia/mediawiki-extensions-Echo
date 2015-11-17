@@ -132,6 +132,20 @@ abstract class EchoEventPresentationModel {
 	}
 
 	/**
+	 * Return a message with the given key and the agent's
+	 * formatted name and name for GENDER as 1st and
+	 * 2nd parameters.
+	 * @param string $key
+	 * @return Message
+	 */
+	final protected function getMessageWithAgent( $key ) {
+		$msg = $this->msg( $key );
+		list( $formattedName, $genderName ) = $this->getAgentForOutput();
+		$msg->params( $formattedName, $genderName );
+		return $msg;
+	}
+
+	/**
 	 * Get the viewing user's name for usage in GENDER
 	 *
 	 * @return string
@@ -167,11 +181,7 @@ abstract class EchoEventPresentationModel {
 	 * @return Message
 	 */
 	public function getHeaderMessage() {
-		$msg = $this->msg( $this->getHeaderMessageKey() );
-		list( $formattedName, $genderName ) = $this->getAgentForOutput();
-		$msg->params( $formattedName, $genderName );
-
-		return $msg;
+		return $this->getMessageWithAgent( $this->getHeaderMessageKey() );
 	}
 
 	/**
