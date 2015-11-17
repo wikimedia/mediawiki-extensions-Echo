@@ -328,6 +328,7 @@ $wgEchoNotifications = array(
 		'immediate' => true,
 	),
 	'reverted' => array(
+		'presentation-model' => 'EchoRevertedPresentationModel',
 		'user-locators' => array(
 			array( 'EchoUserLocator::locateFromEventExtra', array( 'reverted-user-id' ) ),
 		),
@@ -338,8 +339,6 @@ $wgEchoNotifications = array(
 		'formatter-class' => 'EchoEditFormatter',
 		'title-message' => 'notification-reverted2',
 		'title-params' => array( 'agent', 'title', 'difflink', 'number', 'userpage-contributions' ),
-		'flyout-message' => 'notification-reverted-flyout2',
-		'flyout-params' => array( 'agent', 'title', 'difflink', 'number' ),
 		'email-subject-message' => 'notification-reverted-email-subject2',
 		'email-subject-params' => array( 'agent', 'title', 'number' ),
 		'email-body-batch-message' => 'notification-reverted-email-batch-body2',
