@@ -69,7 +69,6 @@
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] us {{GENDER:$1|ha enviat}} un missatge: «[[$3#$2|$2]]».",
 	"notification-add-comment-yours2": "[[User:$1|$1]] {{GENDER:$1|ha fet un comentari}} sobre «[[$3#$2|$2]]» a la vostra pàgina de discussió.",
 	"notification-mention": "[[User:$1|$1]] us {{GENDER:$1|ha mencionat}} a $5 en la seva pàgina de discussió sobre «[[:$3#$2|$4]]».",
-	"notification-mention-flyout": "$1 us {{GENDER:$1|ha mencionat}} en la pàgina de discussió de $5 sobre «[[:$3#$2|$4]]».",
 	"notification-header-mention": "$1 us ha {{GENDER:$2|mencionat}} en la pàgina de discussió $3 sobre «$4».",
 	"notification-mention-nosection": "[[User:$1|$1]] us ha {{GENDER:$1|mencionat}} en la [[:$3|pàgina de discussió $2]].",
 	"notification-header-mention-nosection": "$1 us ha {{GENDER:$2|mencionat}} en la [[:$4|pàgina de discussió $3]].",

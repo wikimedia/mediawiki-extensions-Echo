@@ -66,7 +66,6 @@
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] మీకు {{GENDER:$1|పంపిన సందేశం}}: \"[[$3#$2|$2]]\".",
 	"notification-add-comment-yours2": "[[User:$1|$1]] మీ చర్చాపేజీలో \"[[$3#$2|$2]]\" వద్ద {{GENDER:$1|వ్యాఖ్యానించారు}}.",
 	"notification-mention": "[[User:$1|$1]] మిమ్మల్ని   $5 చర్చా పేజీ  పై \"[[:$3#$2|$4]]\"వద్ద {{GENDER:$1|పేర్కొన్నారు}}.",
-	"notification-mention-flyout": "$1 మిమ్మల్ని  $5 చర్చా పేజీపై  \"[[:$3#$2|$4]]\" వద్ద{{GENDER:$1|పేర్కొన్నారు}}.",
 	"notification-user-rights": "మీ [[Special:Log/rights/$1|వాడుకరి హక్కులు ]] [[User:$1|$1]].$2 ద్వారా  {{GENDER:$1|మార్చబడ్డాయి}}. [[Special:ListGroupRights|మరింత తెలుసుకోండి]]",
 	"notification-header-user-rights": "మీ వాడుకరి హక్కులను $1($3) {{GENDER:$2|మార్చారు}}. [[Special:ListGroupRights|మరింత తెలుసుకోండి]]",
 	"notification-user-rights-add": "మీరిప్పుడు {{PLURAL:$2|ఈ సమూహం|ఈ సమూహాలలో}} సభ్యులు:$1",
