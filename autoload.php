@@ -44,6 +44,7 @@ $wgAutoloadClasses += array(
 	'EchoEmailFormatterTest' => __DIR__ . '/tests/phpunit/EmailFormatterTest.php',
 	'EchoEmailMode' => __DIR__ . '/includes/EmailFormatter.php',
 	'EchoEmailSingle' => __DIR__ . '/includes/EmailFormatter.php',
+	'EchoEmailUserPresentationModel' => __DIR__ . '/includes/formatters/EmailUserPresentationModel.php',
 	'EchoEvent' => __DIR__ . '/includes/model/Event.php',
 	'EchoEventFormatter' => __DIR__ . '/includes/formatters/EchoEventFormatter.php',
 	'EchoEventMapper' => __DIR__ . '/includes/mapper/EventMapper.php',
