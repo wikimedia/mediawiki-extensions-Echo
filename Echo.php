@@ -311,6 +311,7 @@ $wgEchoNotifications = array(
 		'icon' => 'site',
 	),
 	'edit-user-talk' => array(
+		'presentation-model' => 'EchoEditUserTalkPresentationModel',
 		'user-locators' => array(
 			'EchoUserLocator::locateTalkPageOwner',
 		),
@@ -325,8 +326,6 @@ $wgEchoNotifications = array(
 		'title-params' => array( 'agent', 'user', 'subject-anchor' ),
 		'bundle-message' => 'notification-edit-talk-page-bundle',
 		'bundle-params' => array( 'agent', 'user', 'agent-other-display', 'agent-other-count' ),
-		'flyout-message' => 'notification-edit-talk-page-flyout2',
-		'flyout-params' => array( 'agent', 'user', 'subject-anchor' ),
 		'email-subject-message' => 'notification-edit-talk-page-email-subject2',
 		'email-subject-params' => array( 'agent' ),
 		'email-body-batch-message' => 'notification-edit-talk-page-email-batch-body2',

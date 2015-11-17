@@ -46,30 +46,6 @@ class EchoNotificationFormatterTest extends MediaWikiTestCase {
 		$this->assertEquals( '', $mainPageCached->getFragment() );
 	}
 
-	public static function provider_editUserTalk() {
-		return array(
-			// if there is a section-title, the message should be '[[User:user_name|user_name]] left a message on
-			// your talk page in '[[User talk:user_name#section_title|section_title]]'
-			array( '/[[User talk:[^#]+#moar_cowbell|moar_cowbell]]/', 'moar_cowbell', 'text' ),
-			array( '/#moar_cowbell/', 'moar_cowbell', 'html' ),
-			array( '/#moar_cowbell/', 'moar_cowbell', 'flyout' ),
-		);
-	}
-
-	/**
-	 * @dataProvider provider_editUserTalk
-	 */
-	public function testEditUserTalkFlyoutSectionLinkFragment( $pattern, $sectionTitle, $format ) {
-		// Required hack so parser doesnt turn the links into redlinks which contain no fragment
-		global $wgUser;
-		LinkCache::singleton()->addGoodLinkObj( 42, $wgUser->getTalkPage() );
-
-		$event = $this->mockEvent( 'edit-user-talk', array(
-			'section-title' => $sectionTitle,
-		) );
-		$this->assertRegExp( $pattern, $this->format( $event, $format ) );
-	}
-
 	public function provider_formatterDoesntFail() {
 		// Remove events from this array once they have specific tests for their formatting
 		$untested = array(

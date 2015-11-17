@@ -38,6 +38,7 @@ $wgAutoloadClasses += array(
 	'EchoDiscussionParserTest' => __DIR__ . '/tests/phpunit/DiscussionParserTest.php',
 	'EchoEditFormatter' => __DIR__ . '/includes/formatters/EditFormatter.php',
 	'EchoEditUserTalkFormatter' => __DIR__ . '/includes/formatters/EditUserTalkFormatter.php',
+	'EchoEditUserTalkPresentationModel' => __DIR__ . '/includes/formatters/EditUserTalkPresentationModel.php',
 	'EchoEmailDecorator' => __DIR__ . '/includes/EmailFormatter.php',
 	'EchoEmailDigest' => __DIR__ . '/includes/EmailFormatter.php',
 	'EchoEmailFormatter' => __DIR__ . '/includes/EmailFormatter.php',
