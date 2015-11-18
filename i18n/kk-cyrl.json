@@ -77,7 +77,7 @@
 	"notification-reverted2": "Сіздің {{PLURAL:$4|[[:$2]] бетіндегі өңдемеңізді|[[:$2]] бетіндегі өңдемелеріңізді}} [[$5|$1]] {{GENDER:$1|жоққа шығарды}}. $3",
 	"notification-reverted-flyout2": "Сіздің {{PLURAL:$4|$2 бетіндегі өңдемеңізді|$2 бетіндегі өңдемелеріңізді}} $1 есімді қатысушы {{GENDER:$1|жоққа шығарыды}}. $3",
 	"notification-emailuser": "[[User:$1|$1]] сізге электронды хат {{GENDER:$1|жіберді}}.",
-	"notification-emailuser-flyout": "$1 сізге электронды хат {{GENDER:$1|жіберді}}",
+	"notification-header-emailuser": "$1 сізге электронды хат {{GENDER:$2|жіберді}}",
 	"notification-edit-talk-page-email-subject2": "$1 {{SITENAME}} сайтында сізге хабарлама {{GENDER:$1|қалдырды}}",
 	"notification-edit-talk-page-email-batch-body2": "$1 талқылау бетіңізге хабарлама {{GENDER:$1|қалдырды}}.",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 талқылау бетіңіздегі  «$2» бөліміне хабарлама {{GENDER:$1|қалдырды}}.",

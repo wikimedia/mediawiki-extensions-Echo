@@ -85,7 +85,7 @@
 	"notification-reverted2": "[[$5|$1]] đã lùi lại {{PLURAL:$4|sửa đổi|các sửa đổi}} của bạn tại [[:$2]] $3",
 	"notification-reverted-flyout2": "$1 đã lùi lại {{PLURAL:$4|sửa đổi|các sửa đổi}} của bạn tại $2 $3",
 	"notification-emailuser": "[[User:$1|$1]] {{GENDER:$1}}đã gửi bạn bức thư điện tử.",
-	"notification-emailuser-flyout": "$1 {{GENDER:$1}}đã gửi bạn bức thư điện tử",
+	"notification-header-emailuser": "$1 {{GENDER:$1}}đã gửi bạn bức thư điện tử",
 	"notification-edit-talk-page-email-subject2": "$1 đã {{GENDER:$1}}nhắn tin cho bạn trên {{SITENAME}}",
 	"notification-edit-talk-page-email-batch-body2": "$1 đã nhắn tin vào trang thảo luận của bạn.",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 đã {{GENDER:$1}}nhắn tin cho bạn trong “$2”.",

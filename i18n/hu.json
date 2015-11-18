@@ -87,7 +87,7 @@
 	"notification-reverted2": "[[$5|$1]] visszavonta a {{PLURAL:$4|szerkesztésedet|szerkesztéseidet}} a(z) [[:$2]] cikkben. $3",
 	"notification-reverted-flyout2": "$1 visszavonta a {{PLURAL:$4|szerkesztésedet|szerkesztéseidet}} a(z) $2 cikkben. $3",
 	"notification-emailuser": "[[User:$1|$1]] {{GENDER:$1|küldött}} neked egy e-mailt.",
-	"notification-emailuser-flyout": "$1 {{GENDER:$1|küldött}} neked egy e-mailt",
+	"notification-header-emailuser": "$1 {{GENDER:$2|küldött}} neked egy e-mailt",
 	"notification-edit-talk-page-email-subject2": "$1 üzenetet hagyott neked a(z) {{SITENAME}} wikin",
 	"notification-edit-talk-page-email-batch-body2": "$1 üzenetet hagyott a vitalapodon.",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 üzenetet hagyott a vitalapodon a(z) „$2” szakaszban.",

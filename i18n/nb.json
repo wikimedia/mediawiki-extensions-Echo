@@ -82,7 +82,7 @@
 	"notification-reverted2": "{{PLURAL:$4|Redigeringen din|Redigeringene dine}} på [[:$2]] har blitt {{GENDER:$1|tilbakestilt}} av [[$5|$1]] $3",
 	"notification-reverted-flyout2": "{{PLURAL:$4|Redigeringen din|Redigeringene dine}} på $2 har blitt {{GENDER:$1|tilbakestilt}} av $1. $3",
 	"notification-emailuser": "[[User:$1|$1]] {{GENDER:$1|sendte}} deg en epost.",
-	"notification-emailuser-flyout": "$1 {{GENDER:$1|sendte}} deg en epost",
+	"notification-header-emailuser": "$1 {{GENDER:$2|sendte}} deg en epost",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|skrev}} en melding til deg på {{SITENAME}}",
 	"notification-edit-talk-page-email-batch-body2": "$1 {{GENDER:$1|skrev}} en melding på diskusjonssiden din.",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 {{GENDER:$1|skrev}} en melding til deg under overskriften «$2» på diskussjonssiden din.",

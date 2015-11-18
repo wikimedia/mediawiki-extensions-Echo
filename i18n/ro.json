@@ -85,7 +85,7 @@
 	"notification-reverted2": "{{PLURAL:$4|Modificarea dumneavoastră asupra paginii [[:$2]] a|Modificările dumneavoastră asupra paginii [[:$2]] au}} fost {{GENDER:$1|înlăturat}}{{PLURAL:$4|ă|e}} de către [[$5|$1]]. $3",
 	"notification-reverted-flyout2": "{{PLURAL:$4|Modificarea dumneavoastră asupra paginii $2 a|Modificările dumneavoastră asupra paginii $2 au}} fost {{GENDER:$1|înlăturat}}{{PLURAL:$4|ă|e}} de către $1. $3",
 	"notification-emailuser": "[[User:$1|$1]] {{GENDER:$1|v-a trimis}} un e-mail.",
-	"notification-emailuser-flyout": "$1 {{GENDER:$1|v-a trimis}} un e-mail",
+	"notification-header-emailuser": "$1 {{GENDER:$2|v-a trimis}} un e-mail",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|v-a lăsat}} un mesaj la {{SITENAME}}",
 	"notification-edit-talk-page-email-batch-body2": "$1 {{GENDER:$1|a lăsat}} un mesaj pe pagina dumneavoastră de discuții.",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 {{GENDER:$1|a lăsat}} un mesaj pe pagina dumneavoastră de discuții, în cadrul secțiunii „$2”.",

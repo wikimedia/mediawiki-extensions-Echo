@@ -89,7 +89,7 @@
 	"notification-reverted2": "{{PLURAL:$4|[[:$2]]에 대한 내 편집}}을 [[$5|$1]]님이 {{GENDER:$1|되돌렸습니다}}. $3",
 	"notification-reverted-flyout2": "{{PLURAL:$4|$2에 대한 내 편집}}을 $1님이 {{GENDER:$1|되돌렸습니다}}. $3",
 	"notification-emailuser": "[[User:$1|$1]] 사용자가 당신에게 이메일을 {{GENDER:$1|보냈습니다}}.",
-	"notification-emailuser-flyout": "$1 사용자가 당신에게 이메일을 {{GENDER:$1|보냈습니다}}",
+	"notification-header-emailuser": "$1 사용자가 당신에게 이메일을 {{GENDER:$2|보냈습니다}}",
 	"notification-edit-talk-page-email-subject2": "$1님이 {{SITENAME}}에서 당신에게 글을 {{GENDER:$1|남겼습니다}}",
 	"notification-edit-talk-page-email-batch-body2": "$1님이 당신의 토론 문서에 글을 {{GENDER:$1|남겼습니다}}.",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1님이 당신의 토론 문서의 \"$2\" 문단에 글을 {{GENDER:$1|남겼습니다}}.",
