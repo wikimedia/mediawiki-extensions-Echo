@@ -411,6 +411,7 @@ $wgEchoNotifications = array(
 		'icon' => 'site',
 	),
 	'emailuser' => array(
+		'presentation-model' => 'EchoEmailUserPresentationModel',
 		'user-locators' => array(
 			array( 'EchoUserLocator::locateFromEventExtra', array( 'to-user-id' ) ),
 		),
@@ -419,8 +420,6 @@ $wgEchoNotifications = array(
 		'section' => 'alert',
 		'title-message' => 'notification-emailuser',
 		'title-params' => array( 'agent' ),
-		'flyout-message' => 'notification-emailuser-flyout',
-		'flyout-params' => array( 'agent' ),
 		'icon' => 'site',
 	),
 );
