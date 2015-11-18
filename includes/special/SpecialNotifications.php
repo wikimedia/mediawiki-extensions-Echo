@@ -50,6 +50,14 @@ class SpecialNotifications extends SpecialPage {
 			$continue,
 			$attributeManager->getUserEnabledEvents( $user, 'web' )
 		);
+
+		// If there are no notifications, display a message saying so
+		if ( !$notifications ) {
+			$out->addWikiMsg( 'echo-none' );
+
+			return;
+		}
+
 		foreach ( $notifications as $notification ) {
 			$output = EchoDataOutputFormatter::formatOutput( $notification, 'html', $user, $this->getLanguage() );
 			if ( $output ) {
@@ -57,15 +65,8 @@ class SpecialNotifications extends SpecialPage {
 			}
 		}
 
-		// If there are no notifications, display a message saying so
-		if ( !$notif ) {
-			$out->addWikiMsg( 'echo-none' );
-
-			return;
-		}
-
 		// Check if there is more data to load for next request
-		if ( count( $notif ) > self::DISPLAY_NUM ) {
+		if ( count( $notifications ) > self::DISPLAY_NUM ) {
 			$lastItem = array_pop( $notif );
 			$nextContinue = $lastItem['timestamp']['utcunix'] . '|' . $lastItem['id'];
 		} else {
