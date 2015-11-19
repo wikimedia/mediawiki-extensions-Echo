@@ -195,18 +195,25 @@ abstract class EchoEventPresentationModel {
 	}
 
 	/**
-	 * Possibly-relative URL to the primary link for this,
-	 * if it has one
+	 * Array of primary link details, with possibly-relative URL & label.
 	 *
-	 * @return array|bool [URL, link text (non-escaped)], false
-	 *                    for no link
+	 * @return array|bool Array of link data, or false for no link:
+	 *                    ['url' => url, 'label' => link text (non-escaped)]
 	 */
 	abstract public function getPrimaryLink();
 
 	/**
-	 * Possibly-relative URLs to the secondary links
+	 * Array of secondary link details, including possibly-relative URLs, label,
+	 * description & icon name.
 	 *
-	 * @return array URL => link text (non-escaped)
+	 * @return array Array of links in the format of:
+	 *               [['url' => url,
+	 *                 'label' => link text (non-escaped),
+	 *                 'description' => descriptive text (non-escaped),
+	 *                 'icon' => symbolic icon name (or false if there is none),
+	 *                 'prioritized' => true if the link should be outside the
+	 *                                  action menu, false for inside)],
+	 *                ...]
 	 */
 	public function getSecondaryLinks() {
 		return array();
