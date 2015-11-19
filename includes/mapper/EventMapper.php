@@ -65,7 +65,7 @@ class EchoEventMapper extends EchoAbstractMapper {
 	 * @param $type string distribution type
 	 * @param $order string 'ASC'/'DESC'
 	 * @param $limit int
-	 * @return EchoEvent[]|bool
+	 * @return EchoEvent[]
 	 */
 	public function fetchByUserBundleHash( User $user, $bundleHash, $type = 'web', $order = 'DESC', $limit = 250 ) {
 		$dbr = $this->dbFactory->getEchoDb( DB_SLAVE );
@@ -107,16 +107,12 @@ class EchoEventMapper extends EchoAbstractMapper {
 			);
 		}
 
-		if ( $res ) {
-			$data = array();
-			foreach ( $res as $row ) {
-				$data[] = EchoEvent::newFromRow( $row );
-			}
-
-			return $data;
-		} else {
-			return false;
+		$data = array();
+		foreach ( $res as $row ) {
+			$data[] = EchoEvent::newFromRow( $row );
 		}
+
+		return $data;
 	}
 
 }

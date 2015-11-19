@@ -70,14 +70,7 @@ class EchoEventMapperTest extends MediaWikiTestCase {
 	}
 
 	public function testFetchByUserBundleHash() {
-		// Unsuccessful select
-		$event = $this->mockEchoEvent();
-		$eventMapper = new EchoEventMapper( $this->mockMWEchoDbFactory( array( 'select' => false ) ) );
-		$res = $eventMapper->fetchByUserBundleHash( User::newFromId( 1 ), 'testhash', 'web', 'DESC', 250 );
-		$this->assertFalse( $res );
-
 		// Successful select
-		$event = $this->mockEchoEvent();
 		$dbResult = array(
 			(object)array(
 				'event_id' => 1,
