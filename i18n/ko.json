@@ -87,7 +87,7 @@
 	"notification-header-welcome": "{{SITENAME}} 에 오신 것을 {{GENDER:$2|환영}}합니다, $1 님! 당신을 만나게 되어 기쁩니다.",
 	"notification-welcome-linktext": "환영합니다",
 	"notification-reverted2": "{{PLURAL:$4|[[:$2]]에 대한 내 편집}}을 [[$5|$1]]님이 {{GENDER:$1|되돌렸습니다}}. $3",
-	"notification-reverted-flyout2": "{{PLURAL:$4|$2에 대한 내 편집}}을 $1님이 {{GENDER:$1|되돌렸습니다}}. $3",
+	"notification-header-reverted": "{{PLURAL:$4|$3에 대한 내 편집}}을 $1님이 {{GENDER:$2|되돌렸습니다}}.",
 	"notification-emailuser": "[[User:$1|$1]] 사용자가 당신에게 이메일을 {{GENDER:$1|보냈습니다}}.",
 	"notification-header-emailuser": "$1 사용자가 당신에게 이메일을 {{GENDER:$2|보냈습니다}}",
 	"notification-edit-talk-page-email-subject2": "$1님이 {{SITENAME}}에서 당신에게 글을 {{GENDER:$1|남겼습니다}}",

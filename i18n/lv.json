@@ -73,7 +73,7 @@
 	"notification-user-rights-remove": "Jūs vairs neesat {{PLURAL:$2|šo grupu|šīs grupas|šo grupu}} dalībnieks: $1",
 	"notification-new-user": "Laipni lūdzam {{SITENAME}}, $1! Mēs priecājamies jūs te redzēt.",
 	"notification-reverted2": "Jūsu {{PLURAL:$4|labojumus lapā [[:$2]]|labojumu lapā [[:$2]]|labojumus lapā [[:$2]]}} {{GENDER:$1|atcēla}} [[$5|$1]]. $3",
-	"notification-reverted-flyout2": "Jūsu {{PLURAL:$4|labojumus lapā $2|labojumu lapā $2|labojumus lapā $2}} {{GENDER:$1|atcēla}} $1. $3",
+	"notification-header-reverted": "Jūsu {{PLURAL:$4|labojumus lapā $3|labojumu lapā $3|labojumus lapā $3}} {{GENDER:$2|atcēla}} $1.",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|atstāja}} tev ziņojumu {{SITENAME}}",
 	"notification-edit-talk-page-email-batch-body2": "$1 {{GENDER:$1|atstāja}} paziņojumu jūsu diskusiju lapā:",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 {{GENDER:$1|atstāja}} paziņojumu jūsu diskusiju lapā \"$2\".",

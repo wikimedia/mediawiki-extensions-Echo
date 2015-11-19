@@ -74,7 +74,7 @@
 	"notification-user-rights-remove": "No ge sì cchiù 'nu membre de {{PLURAL:$2|stu gruppe|ste gruppe}}: $1",
 	"notification-new-user": "Bovègne jndr'à {{SITENAME}}, $1! Nuje sime cundende ca ste aqquà.",
 	"notification-reverted2": "{{PLURAL:$4|'U cangiamende tune sus a [[:$2]] ha|Le cangiaminde sus a [[:$2]] onne}} state {{GENDER:$1|annullate}} da [[$5|$1]]. $3",
-	"notification-reverted-flyout2": "Your {{PLURAL:$4|'U cangiamende tune sus a $2 ha|Le cangiaminde tune sus a $2 onne}} state {{GENDER:$1|annullate}} by $1. $3",
+	"notification-header-reverted": "Your {{PLURAL:$4|'U cangiamende tune sus a $3 ha|Le cangiaminde tune sus a $3 onne}} state {{GENDER:$2|annullate}} by $1.",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|t'ha lassate}} 'nu messàgge sus a {{SITENAME}}",
 	"notification-edit-talk-page-email-batch-body2": "$1 {{GENDER:$1|t'ha lassate}} 'nu messàgge sus 'a pàgene de le 'ngazzaminde tune.",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 {{GENDER:$1|t'ha lassate}} 'nu messàgge sus 'a pàgene de le 'ngazzaminde tune jndr'à \"$2\".",

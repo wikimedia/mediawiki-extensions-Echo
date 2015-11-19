@@ -85,7 +85,7 @@
 	"notification-user-rights-remove": "Artık {{PLURAL:$2|bu grubun|bu grupların}} üyesi değilsiniz: $1",
 	"notification-new-user": "Hoş geldin $1! Sizi burada görmekten memnun olduk.",
 	"notification-reverted2": "{{PLURAL:$4|[[:$2]] sayfasındaki değişikliğiniz|[[:$2]] sayfasındaki değişiklikleriniz}} [[$5|$1]] tarafından {{GENDER:$1|geri alındı}}. $3",
-	"notification-reverted-flyout2": "{{PLURAL:$4|$2 sayfasındaki değişikliğiniz|$2 sayfasındaki değişiklikleriniz}}, $1 tarafından {{GENDER:$1|geri alındı}}. $3",
+	"notification-header-reverted": "{{PLURAL:$4|$3 sayfasındaki değişikliğiniz|$3 sayfasındaki değişiklikleriniz}}, $1 tarafından {{GENDER:$2|geri alındı}}.",
 	"notification-edit-talk-page-email-subject2": "$1, {{SITENAME}} sayfasında size bir mesaj {{GENDER:$1|bıraktı}}",
 	"notification-edit-talk-page-email-batch-body2": "$1, mesaj sayfanıza bir mesaj {{GENDER:$1|bıraktı}}.",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1, mesaj sayfanızın \"$2\" başlığında bir mesaj {{GENDER:$1|bıraktı}}.",

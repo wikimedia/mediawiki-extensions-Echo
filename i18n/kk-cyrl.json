@@ -75,7 +75,7 @@
 	"notification-new-user": "$1 {{SITENAME}} сайтына қош келдіңіз! Сіз осында болғаныңызға біз қуаныштымыз.",
 	"notification-header-welcome": "{{SITENAME}} жобасына {{GENDER:$2|қош келдіңіз}}, $1! {{GENDER:$2|Сіздің}} осында болғаныңызға қуаныштымыз.",
 	"notification-reverted2": "Сіздің {{PLURAL:$4|[[:$2]] бетіндегі өңдемеңізді|[[:$2]] бетіндегі өңдемелеріңізді}} [[$5|$1]] {{GENDER:$1|жоққа шығарды}}. $3",
-	"notification-reverted-flyout2": "Сіздің {{PLURAL:$4|$2 бетіндегі өңдемеңізді|$2 бетіндегі өңдемелеріңізді}} $1 есімді қатысушы {{GENDER:$1|жоққа шығарыды}}. $3",
+	"notification-header-reverted": "Сіздің {{PLURAL:$4|$3 бетіндегі өңдемеңізді|$3 бетіндегі өңдемелеріңізді}} $1 есімді қатысушы {{GENDER:$2|жоққа шығарыды}}.",
 	"notification-emailuser": "[[User:$1|$1]] сізге электронды хат {{GENDER:$1|жіберді}}.",
 	"notification-header-emailuser": "$1 сізге электронды хат {{GENDER:$2|жіберді}}",
 	"notification-edit-talk-page-email-subject2": "$1 {{SITENAME}} сайтында сізге хабарлама {{GENDER:$1|қалдырды}}",

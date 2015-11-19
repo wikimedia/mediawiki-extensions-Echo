@@ -78,7 +78,7 @@
 	"notification-header-welcome": "{{GENDER:$2|Wëllkomm}} op {{SITENAME}}, $1! Mir si frou, datt {{GENDER:$2|Dir}} do sidd.",
 	"notification-welcome-linktext": "Wëllkomm",
 	"notification-reverted2": "Är {{PLURAL:$4|Ännerung vu(n) [[:$2]] gouf|Ännerunge vu(n) [[:$2]] goufe}} vum [[$5|$1]] {{GENDER:$1|zréckgesat}}. $3",
-	"notification-reverted-flyout2": "Är {{PLURAL:$4|Ännerung op $2 gouf|Ännerungen op $2 goufe}} vum $1 {{GENDER:$1|zréckgesat}} $3.",
+	"notification-header-reverted": "Är {{PLURAL:$4|Ännerung op $3 gouf|Ännerungen op $3 goufe}} vum $1 {{GENDER:$2|zréckgesat}} .",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|huet}} Iech en neie Message op Ärer Diskussiounssäit op {{SITENAME}} hannerlooss",
 	"notification-edit-talk-page-email-batch-body2": "$1 {{GENDER:$1|huet}} ee Message op Är Diskussiounssäit geschriwwen.",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 {{GENDER:$1|huet}} ee Message op Är Diskussiounssäit op \"$2\" geschriwwen.",

@@ -79,7 +79,7 @@
 	"notification-header-welcome": "{{GENDER:$2|Bemmenuto|Bemmenuta}} ncopp' 'a {{SITENAME}}, $1! Simmo cuntente {{GENDER:$2|ca state}} ccà.",
 	"notification-welcome-linktext": "Bemmenute",
 	"notification-reverted2": "{{PLURAL:$4|'O cagnamiento vuosto ncopp'a [[:$2]] è stato|'E cagnamiente vuoste ncopp' 'a [[:$2]] so' state}} {{GENDER:$1|annullate}} 'a [[$5|$1]]. $3",
-	"notification-reverted-flyout2": "{{PLURAL:$4|'O cagnamiento ncopp'a $2 vuosto è stato|'E cagnamiente vuoste ncopp' 'a $2 so state}} {{GENDER:$1|annullate}} 'a $1. $3",
+	"notification-header-reverted": "{{PLURAL:$4|'O cagnamiento ncopp'a $3 vuosto è stato|'E cagnamiente vuoste ncopp' 'a $3 so state}} {{GENDER:$2|annullate}} 'a $1.",
 	"notification-emailuser": "[[User:$1|$1]] {{GENDER:$1|te lassaje}} na mmasciata email.",
 	"notification-header-emailuser": "$1 {{GENDER:$2|te mannaje}} na mmasciata email",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|t'ha lassato}} na mmasciata {{SITENAME}}",

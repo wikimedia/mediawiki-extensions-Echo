@@ -81,7 +81,7 @@
 	"notification-header-welcome": "{{GENDER:$2|Benvido|Benvida}} a {{SITENAME}}, $1. Alégranos que esteas aquí.",
 	"notification-welcome-linktext": "Benvido",
 	"notification-reverted2": "[[$5|$1]] {{GENDER:$1|reverteu}} {{PLURAL:$4|a súa edición|as súas edicións}} en \"[[:$2]]\" $3",
-	"notification-reverted-flyout2": "$1 {{GENDER:$1|reverteu}} {{PLURAL:$4|a súa edición|as súas edicións}} en \"$2\" $3",
+	"notification-header-reverted": "{{PLURAL:$4|A súa edición en $3 foi |As súas edicións en $3 foron}} {{GENDER:$2|revertidas}} por $1.",
 	"notification-emailuser": "[[User:$1|$1]] {{GENDER:$1|envioulle}} un correo electrónico.",
 	"notification-header-emailuser": "$1 {{GENDER:$2|envioulle}} un correo electrónico",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|deixoulle}} unha mensaxe en {{SITENAME}}",

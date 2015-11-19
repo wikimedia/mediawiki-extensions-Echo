@@ -86,7 +86,7 @@
 	"notification-new-user": "Tervetuloa sivustolle {{SITENAME}}, $1! Olemme iloisia että olet täällä.",
 	"notification-header-welcome": "{{GENDER:$2|Tervetuloa}} sivustolle {{SITENAME}}, $1! Olemme iloisia {{GENDER:$2|saapumisestasi}}.",
 	"notification-reverted2": "[[$5|$1]] {{GENDER:$1|kumosi}} {{PLURAL:$4|muokkauksesi}} sivulla [[:$2]]. $3",
-	"notification-reverted-flyout2": "Käyttäjä $1 on {{GENDER:$1|kumonnut}} {{PLURAL:$4|muokkauksesi sivulla $2|muokkauksiasi sivulla $2}}. $3",
+	"notification-header-reverted": "Käyttäjä $1 on {{GENDER:$2|kumonnut}} {{PLURAL:$4|muokkauksesi sivulla $3|muokkauksiasi sivulla $3}}.",
 	"notification-emailuser": "[[User:$1|$1]] {{GENDER:$1|lähetti}} sinulle sähköpostia.",
 	"notification-header-emailuser": "$1 {{GENDER:$2|lähetti}} sinulle sähköpostia",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|jätti}} sinulle viestin sivustolla {{SITENAME}}",

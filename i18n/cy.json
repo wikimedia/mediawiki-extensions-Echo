@@ -69,7 +69,7 @@
 	"notification-user-rights-remove": "Nid ydych bellach yn aelod o'r {{PLURAL:$2|grŵp hwn|grŵp hwn|grwpiau hyn}}: $1",
 	"notification-new-user": "Croeso i {{SITENAME}}, $1! Rydym yn falch eich bod wedi cyrraedd.",
 	"notification-reverted2": "{{GENDER:$1|Dadwneuthpwyd}} eich {{PLURAL:$4||golygiad ar [[:$2]]|golygiadau ar [[:$2]]}} gan [[$5|$1]]. $3",
-	"notification-reverted-flyout2": "{{GENDER:$1|Dadwneuthpwyd}} eich {{PLURAL:$4||golygiad ar $2|golygiadau ar $2}} gan $1. $3",
+	"notification-header-reverted": "{{GENDER:$2|Dadwneuthpwyd}} eich {{PLURAL:$4||golygiad ar $3|golygiadau ar $3}} gan $1.",
 	"notification-edit-talk-page-email-subject2": "{{GENDER:$1|Gosododd}} $1 neges i chi ar {{SITENAME}}",
 	"notification-edit-talk-page-email-batch-body2": "{{GENDER:$1|Gosododd}} $1 neges ar eich tudalen sgwrs:",
 	"notification-edit-talk-page-email-batch-body-with-section": "{{GENDER:$1|Gosododd}} $1 neges ar eich tudalen sgwrs yn \"$2\".",

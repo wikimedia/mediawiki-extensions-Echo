@@ -72,7 +72,7 @@
 	"notification-user-rights-remove": "మీరికపై {{PLURAL:$2|ఈ సమూహం|ఈ సమూహాలలో}} సభ్యులు కారు:$1",
 	"notification-new-user": "{{SITENAME}}కు స్వాగతం, $1! మీ రాక మాకెంతో సంతోషం సుమండీ.",
 	"notification-reverted2": "{{PLURAL:$4|[[:$2]] పై మీరు చేసిన మార్పు|[[:$2]] పై మీరు చేసిన మార్పులు}} [[$5|$1]]  ద్వారా {{GENDER:$1|రద్దు చేయబడ్డాయి}}.$3",
-	"notification-reverted-flyout2": "{{PLURAL:$4|$2 పై మీ మార్పు|$2 పై మీ మార్పులు}} $1 ద్వారా {{GENDER:$1|రద్దు చేయబడ్డాయి}}. $3",
+	"notification-header-reverted": "{{PLURAL:$4|$3 పై మీ మార్పు|$3 పై మీ మార్పులు}} $1 ద్వారా {{GENDER:$2|రద్దు చేయబడ్డాయి}}.",
 	"notification-edit-talk-page-email-subject2": "$1 {{SITENAME}} వద్ద మీకొక సందేశం {{GENDER:$1|రాశారు}}.",
 	"notification-edit-talk-page-email-batch-body2": "$1 మీ చర్చా పేజీ పై ఒక సందేశాన్ని {{GENDER:$1|రాసారు}}:",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 మీ చర్చా పేజీలోని \"$2\" పై ఒక సందేశం {{GENDER:$1|రాసారు}}.",

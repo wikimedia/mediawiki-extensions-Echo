@@ -104,7 +104,7 @@
 	"notification-header-welcome": "{{GENDER:$2|欢迎}}来到{{SITENAME}}，$1！我们很高兴{{GENDER:$2|您}}来到这里。",
 	"notification-welcome-linktext": "欢迎",
 	"notification-reverted2": "您对[[:$2]]的{{PLURAL:$4|编辑}}被[[$5|$1]]{{GENDER:$1|还原了}}。$3",
-	"notification-reverted-flyout2": "您对$2的{{PLURAL:$4|编辑}}被$1{{GENDER:$1|还原了}}。$3",
+	"notification-header-reverted": "您对$3的{{PLURAL:$4|编辑}}被$1{{GENDER:$2|还原了}}。",
 	"notification-emailuser": "[[User:$1|$1]]向您{{GENDER:$1|发送}}了电子邮件。",
 	"notification-header-emailuser": "$1向您{{GENDER:$2|发送}}了电子邮件",
 	"notification-edit-talk-page-email-subject2": "$1在{{SITENAME}}给您{{GENDER:$1|留言}}了",

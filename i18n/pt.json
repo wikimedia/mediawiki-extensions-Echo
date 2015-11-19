@@ -86,7 +86,7 @@
 	"notification-new-user": "Bem-vindo(a) a {{SITENAME}}, $1! Estamos contentes por se ter juntado a nós.",
 	"notification-header-welcome": "{{GENDER:$2|Bem-vindo|Bem-vinda|Bem-vindo(a)}} a {{SITENAME}}, $1! Ficamos satisfeitos por {{GENDER:$2|tê-lo|tê-la|tê-lo(a)}} aqui.",
 	"notification-reverted2": "{{PLURAL:$4|A sua edição em [[:$2]] foi revertida|As suas edições em [[:$2]] foram revertidas}} por [[$5|$1]] $3",
-	"notification-reverted-flyout2": "{{PLURAL:$4|A sua edição em $2 foi revertida|As suas edições em $2 foram revertidas}} {{GENDER:$1|pelo|pela|por}} $1. $3",
+	"notification-header-reverted": "{{PLURAL:$4|A sua edição em $3 foi revertida|As suas edições em $3 foram revertidas}} {{GENDER:$2|pelo|pela|por}} $1.",
 	"notification-emailuser": "[[User:$1|$1]] {{GENDER:$1|enviou-lhe}} um e-mail.",
 	"notification-header-emailuser": "$1 {{GENDER:$2|enviou-lhe}} um e-mail",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|deixou-lhe}} uma mensagem em {{SITENAME}}",

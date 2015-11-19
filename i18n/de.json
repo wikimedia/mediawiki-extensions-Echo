@@ -85,7 +85,7 @@
 	"notification-header-welcome": "{{GENDER:$2|Willkommen}} bei {{SITENAME}}, $1! Wir sind froh, dass {{GENDER:$2|du}} da bist.",
 	"notification-welcome-linktext": "Willkommen",
 	"notification-reverted2": "Deine {{PLURAL:$4|Bearbeitung an der Seite [[:$2]] wurde|Bearbeitungen an der Seite [[:$2]] wurden}} von [[$5|$1]] {{GENDER:$1|rückgängig}} gemacht. $3",
-	"notification-reverted-flyout2": "Deine {{PLURAL:$4|Bearbeitung an der Seite $2 wurde|Bearbeitungen an der Seite $2 wurden}} von $1 {{GENDER:$1|rückgängig}} gemacht. $3",
+	"notification-header-reverted": "Deine {{PLURAL:$4|Bearbeitung an der Seite $3 wurde|Bearbeitungen an der Seite $3 wurden}} von $1 {{GENDER:$2|rückgängig}} gemacht.",
 	"notification-emailuser": "[[User:$1|$1]] {{GENDER:$1|sandte}} dir eine E-Mail.",
 	"notification-header-emailuser": "$1 {{GENDER:$2|sandte}} dir eine E-Mail",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|hinterließ}} dir eine Nachricht auf {{SITENAME}}",

@@ -83,7 +83,7 @@
 	"notification-new-user": "$1, dobro došli na {{GRAMMAR:akuzativ|{{SITENAME}}}}! Drago nam je što ste ovdje.",
 	"notification-header-welcome": "{{GENDER:$2|Dobro došli}} na {{GRAMMAR:akuzativ|{{SITENAME}}}}, $1! Drago nam je što {{GENDER:$2|ste}} ovdje.",
 	"notification-reverted2": "{{PLURAL:$4|Vaša izmjena na [[:$2]] je poništena|Vaše izmjene na [[:$2]] su poništene}} {{GENDER:$1|od}} strane [[$5|$1]]. $3",
-	"notification-reverted-flyout2": "{{PLURAL:$4|Vaša izmjena na $2 je poništena|Vaše izmjene na $2 su poništene}} {{GENDER:$1|od}} strane $1. $3",
+	"notification-header-reverted": "{{PLURAL:$4|Vaša izmjena na $3 je poništena|Vaše izmjene na $3 su poništene}} {{GENDER:$2|od}} strane $1.",
 	"notification-emailuser": "[[User:$1|$1]] Vam je {{GENDER:$1|poslao|poslala}} e-poruku.",
 	"notification-header-emailuser": "$1 Vam je {{GENDER:$2|poslao|poslala}} e-poruku",
 	"notification-edit-talk-page-email-subject2": "$1 Vam je {{GENDER:$1|ostavio|ostavila}} poruku na {{GRAMMAR:dativ|{{SITENAME}}}}",
