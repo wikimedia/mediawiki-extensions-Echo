@@ -74,6 +74,7 @@ $wgAutoloadClasses += array(
 	'EchoNotifier' => __DIR__ . '/Notifier.php',
 	'EchoOnWikiList' => __DIR__ . '/includes/ContainmentSet.php',
 	'EchoPageLinkFormatter' => __DIR__ . '/includes/formatters/PageLinkFormatter.php',
+	'EchoRevertedPresentationModel' => __DIR__ . '/includes/formatters/RevertedPresentationModel.php',
 	'EchoRevisionLocalCache' => __DIR__ . '/includes/cache/RevisionLocalCache.php',
 	'EchoRowUpdateGenerator' => __DIR__ . '/includes/BatchRowUpdate.php',
 	'EchoSeenTime' => __DIR__ . '/includes/SeenTime.php',
