@@ -4,7 +4,8 @@
 			"AnakngAraw",
 			"Sky Harbor",
 			"TheSleepyhollow02",
-			"Jojit fb"
+			"Jojit fb",
+			"Leeheonjin"
 		]
 	},
 	"echo-desc": "Sistema ng pagpapabatid",
@@ -59,12 +60,14 @@
 	"notification-add-talkpage-topic-yours2": "{{GENDER:$1|Ipinadala}} ka ni [[User:$1|$1]] ng mensahe: \"[[$3#$2|$2]]\".",
 	"notification-add-comment-yours2": "{{GENDER:$1|Nagkomento}} si [[User:$1|$1]] sa seksiyong \"[[$3#$2|$2]]\" sa iyong pahinang usapan.",
 	"notification-mention": "{{GENDER:$1|Binanggit}} ka ni [[User:$1|$1]] sa pahinang usapan ng $5 sa seksiyong \"[[:$3#$2|$4]]\".",
-	"notification-mention-flyout": "{{GENDER:$1|Binanggit}} ka ni $1 sa pahinang usapan ng $5 sa seksiyong \"[[:$3#$2|$4]]\".",
 	"notification-user-rights": "[[Special:Log/rights/$1|{{GENDER:$1|Binago}}]] ni [[User:$1|$1]] ang iyong mga karapatang pantagagamit. $2. [[Special:ListGroupRights|Matuto pa]]",
-	"notification-user-rights-flyout": "{{GENDER:$1|Binago}} ni $1 ang iyong mga karapatang pantagagamit. $2. [[Special:ListGroupRights|Matuto pa]]",
+	"notification-header-user-rights": "{{GENDER:$2|Binago}} ni $1 ang iyong mga karapatang pang-tagagamit. $3.",
 	"notification-user-rights-add": "Kasapi ka na ng {{PLURAL:$2|grupong ito|mga grupong ito}}: $1",
 	"notification-user-rights-remove": "Hindi ka na kasapi ng {{PLURAL:$2|grupong ito|mga grupong ito}}: $1",
 	"notification-new-user": "Maligayang pagdating sa {{SITENAME}}, $1!  Masaya kami na nandito ka.",
+	"notification-header-welcome": "{{GENDER:$2|Maligayang pagdating}} sa {{SITENAME}}, $1! Ikinalulugod naming {{GENDER:$2|ikaw ay}} narito.",
+	"notification-welcome-linktext": "Maligayang pagdating",
+	"notification-header-reverted": "Ang iyong {{PLURAL:$4|edit noong $3 ay|mga edit noong $3 ay}} {{GENDER:$2|ipinanumbalik}} ni $1.",
 	"notification-edit-talk-page-email-subject2": "{{GENDER:$1|Nag-iwan}} si $1 ng mensahe para sa iyo sa {{SITENAME}}",
 	"notification-edit-talk-page-email-batch-body2": "{{GENDER:$1|Nag-iwan}} si $1 ng mensahe sa iyong pahinang usapan:",
 	"notification-edit-talk-page-email-batch-body-with-section": "{{GENDER:$1|Nag-iwan}} si $1 ng mensahe sa iyong pahinang usapan sa \"$2\".",
