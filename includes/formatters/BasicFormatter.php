@@ -337,6 +337,9 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			return wfGetLangObj( $this->language );
 		}
 
+		// Make sure we unstub first
+		StubObject::unstub( $wgLang );
+
 		return $wgLang;
 	}
 
