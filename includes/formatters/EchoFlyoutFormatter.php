@@ -27,7 +27,7 @@ class EchoFlyoutFormatter extends EchoEventFormatter {
 		if ( $body ) {
 			$html .= Xml::tags(
 					'div',
-					null,
+					array( 'class' => 'mw-echo-payload' ),
 					$body->parse()
 				) . "\n";
 		}
