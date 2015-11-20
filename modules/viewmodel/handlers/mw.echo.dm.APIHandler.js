@@ -14,7 +14,7 @@
 	 * @cfg {string} [type='alert'] Notification type
 	 * @cfg {string} [userLang='en'] User language
 	 */
-	mw.echo.dm.AbstractAPIHandler = function MwEchoDmAPIHandler( config ) {
+	mw.echo.dm.APIHandler = function MwEchoDmAPIHandler( config ) {
 		config = config || {};
 
 		// Mixin constructor
@@ -33,8 +33,8 @@
 
 	/* Setup */
 
-	OO.initClass( mw.echo.dm.AbstractAPIHandler );
-	OO.mixinClass( mw.echo.dm.AbstractAPIHandler, OO.EventEmitter );
+	OO.initClass( mw.echo.dm.APIHandler );
+	OO.mixinClass( mw.echo.dm.APIHandler, OO.EventEmitter );
 
 	/**
 	 * Fetch notifications from the API.
@@ -46,7 +46,7 @@
 	 * @return {jQuery.Promise} A promise that resolves with an object containing the
 	 *  notification items
 	 */
-	mw.echo.dm.AbstractAPIHandler.prototype.fetchNotifications = null;
+	mw.echo.dm.APIHandler.prototype.fetchNotifications = null;
 
 	/**
 	 * Update the seen timestamp
@@ -55,7 +55,7 @@
 	 *  an array of both.
 	 * @return {jQuery.Promise} A promise that resolves with the seen timestamp
 	 */
-	mw.echo.dm.AbstractAPIHandler.prototype.updateSeenTime = null;
+	mw.echo.dm.APIHandler.prototype.updateSeenTime = null;
 
 	/**
 	 * Mark all notifications as read
@@ -63,7 +63,7 @@
 	 * @return {jQuery.Promise} A promise that resolves when all notifications
 	 *  are marked as read.
 	 */
-	mw.echo.dm.AbstractAPIHandler.prototype.markAllRead = null;
+	mw.echo.dm.APIHandler.prototype.markAllRead = null;
 
 	/**
 	 * Update the read status of a notification item in the API
@@ -72,7 +72,7 @@
 	 * @return {jQuery.Promise} A promise that resolves when the notifications
 	 *  are marked as read.
 	 */
-	mw.echo.dm.AbstractAPIHandler.prototype.markItemRead = null;
+	mw.echo.dm.APIHandler.prototype.markItemRead = null;
 
 	/**
 	 * Query the API for unread count of the notifications in this model
@@ -80,14 +80,14 @@
 	 * @return {jQuery.Promise} jQuery promise that's resolved when the unread count is fetched
 	 *  and the badge label is updated.
 	 */
-	mw.echo.dm.AbstractAPIHandler.prototype.fetchUnreadCount = null;
+	mw.echo.dm.APIHandler.prototype.fetchUnreadCount = null;
 
 	/**
 	 * Check whether the model is fetching notifications from the API
 	 *
 	 * @return {boolean} The model is in the process of fetching from the API
 	 */
-	mw.echo.dm.AbstractAPIHandler.prototype.isFetchingNotifications = function () {
+	mw.echo.dm.APIHandler.prototype.isFetchingNotifications = function () {
 		return !!this.fetchNotificationsPromise;
 	};
 
@@ -96,7 +96,7 @@
 	 *
 	 * @return {boolean} The model is in API error state
 	 */
-	mw.echo.dm.AbstractAPIHandler.prototype.isFetchingErrorState = function () {
+	mw.echo.dm.APIHandler.prototype.isFetchingErrorState = function () {
 		return !!this.apiErrorState;
 	};
 
@@ -105,7 +105,7 @@
 	 * @return {jQuery.Promise} Promise that is resolved when notifications are
 	 *  fetched from the API.
 	 */
-	mw.echo.dm.AbstractAPIHandler.prototype.getFetchNotificationPromise = function () {
+	mw.echo.dm.APIHandler.prototype.getFetchNotificationPromise = function () {
 		return this.fetchNotificationsPromise;
 	};
 
@@ -114,7 +114,7 @@
 	 *
 	 * @return {Object} Base API params
 	 */
-	mw.echo.dm.AbstractAPIHandler.prototype.getBaseParams = function () {
+	mw.echo.dm.APIHandler.prototype.getBaseParams = function () {
 		return this.baseParams;
 	};
 } )( mediaWiki );

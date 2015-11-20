@@ -46,10 +46,10 @@
 
 			// Fire the notification API requests
 			apiRequest = new mw.Api( { ajax: { cache: false } } ).get( $.extend( { notsections: myType }, mw.echo.apiCallParams ) )
-					.then( function ( data ) {
-						mw.track( 'timing.MediaWiki.echo.overlay.api', mw.now() - time );
-						return data;
-					} );
+				.then( function ( data ) {
+					mw.track( 'timing.MediaWiki.echo.overlay.api', mw.now() - time );
+					return data;
+				} );
 
 			// Load the ui
 			mw.loader.using( 'ext.echo.ui', function () {
@@ -58,10 +58,9 @@
 				// Load message button and popup if messages exist
 				if ( $existingMessageLink.length ) {
 					messageNotificationsModel = new mw.echo.dm.NotificationsModel(
-						new mw.echo.dm.APIHandler( {
+						// Create a network handler
+						new mw.echo.dm.NetworkHandler( {
 							type: 'message',
-							limit: 25,
-							userLang: mw.config.get( 'wgUserLanguage' ),
 							baseParams: mw.echo.apiCallParams
 						} ),
 						{
@@ -88,13 +87,11 @@
 							.text( mw.msg( 'mytalk' ) );
 					} );
 				}
-
 				// Load alerts popup and button
 				alertNotificationsModel = new mw.echo.dm.NotificationsModel(
-					new mw.echo.dm.APIHandler( {
+					// Create a network handler
+					new mw.echo.dm.NetworkHandler( {
 						type: 'alert',
-						limit: 25,
-						userLang: mw.config.get( 'wgUserLanguage' ),
 						baseParams: mw.echo.apiCallParams
 					} ),
 					{

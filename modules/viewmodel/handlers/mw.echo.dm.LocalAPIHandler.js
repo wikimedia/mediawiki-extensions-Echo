@@ -3,28 +3,28 @@
 	 * Notification API handler
 	 *
 	 * @class
-	 * @extends mw.echo.dm.AbstractAPIHandler
+	 * @extends mw.echo.dm.APIHandler
 	 *
 	 * @constructor
 	 * @param {Object} [config] Configuration object
 	 */
-	mw.echo.dm.APIHandler = function MwEchoDmAPIHandler( config ) {
+	mw.echo.dm.LocalAPIHandler = function MwEchoDmLocalAPIHandler( config ) {
 		config = config || {};
 
 		// Parent constructor
-		mw.echo.dm.APIHandler.parent.call( this, config );
+		mw.echo.dm.LocalAPIHandler.parent.call( this, config );
 
 		this.api = new mw.Api( { ajax: { cache: false } } );
 	};
 
 	/* Setup */
 
-	OO.inheritClass( mw.echo.dm.APIHandler, mw.echo.dm.AbstractAPIHandler );
+	OO.inheritClass( mw.echo.dm.LocalAPIHandler, mw.echo.dm.APIHandler );
 
 	/**
 	 * @inheritdoc
 	 */
-	mw.echo.dm.APIHandler.prototype.fetchNotifications = function ( apiPromise ) {
+	mw.echo.dm.LocalAPIHandler.prototype.fetchNotifications = function ( apiPromise ) {
 		var helper = this,
 			params = $.extend( { notsections: this.type }, this.getBaseParams() );
 
@@ -46,7 +46,7 @@
 	/**
 	 * @inheritdoc
 	 */
-	mw.echo.dm.APIHandler.prototype.updateSeenTime = function ( type ) {
+	mw.echo.dm.LocalAPIHandler.prototype.updateSeenTime = function ( type ) {
 		type = type || this.type;
 
 		return this.api.postWithToken( 'edit', {
@@ -63,12 +63,12 @@
 	/**
 	 * @inheritdoc
 	 */
-	mw.echo.dm.APIHandler.prototype.markAllRead = function () {
+	mw.echo.dm.LocalAPIHandler.prototype.markAllRead = function () {
 		var model = this,
 			data = {
 				action: 'echomarkread',
 				uselang: this.userLang,
-				sections: this.type
+				sections: $.isArray( this.type ) ? this.type.join( '|' ) : this.type
 			};
 
 		return this.api.postWithToken( 'edit', data )
@@ -80,7 +80,7 @@
 	/**
 	 * @inheritdoc
 	 */
-	mw.echo.dm.APIHandler.prototype.markItemRead = function ( itemId ) {
+	mw.echo.dm.LocalAPIHandler.prototype.markItemRead = function ( itemId ) {
 		var model = this,
 			data = {
 				action: 'echomarkread',
@@ -97,11 +97,11 @@
 	/**
 	 * @inheritdoc
 	 */
-	mw.echo.dm.APIHandler.prototype.fetchUnreadCount = function () {
+	mw.echo.dm.LocalAPIHandler.prototype.fetchUnreadCount = function () {
 		var apiData = {
 				action: 'query',
 				meta: 'notifications',
-				notsections: this.type,
+				notsections: $.isArray( this.type ) ? this.type.join( '|' ) : this.type,
 				notmessageunreadfirst: 1,
 				notlimit: this.limit,
 				notprop: 'index|count',

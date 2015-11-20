@@ -22,7 +22,7 @@
 		TestApiHandler.parent.call( this );
 	}
 	/* Setup */
-	OO.inheritClass( TestApiHandler, mw.echo.dm.AbstractAPIHandler );
+	OO.inheritClass( TestApiHandler, mw.echo.dm.APIHandler );
 	// Override api call
 	TestApiHandler.prototype.markItemRead = function () {
 		return $.Deferred().resolve( 0 );
@@ -88,12 +88,15 @@
 
 		cases.forEach( function ( test ) {
 			var r, runCase, runItem,
-				model = new mw.echo.dm.NotificationsModel( new TestApiHandler(), {
+				networkHandler = new mw.echo.dm.NetworkHandler(),
+				model = new mw.echo.dm.NotificationsModel( networkHandler, {
 					type: 'alert',
+					source: 'test',
 					limit: 25,
 					userLang: 'en'
 				} );
 
+			networkHandler.addCustomApiHandler( 'test', new TestApiHandler() );
 			model.addItems( test.items );
 
 			if ( test.add ) {
@@ -112,8 +115,10 @@
 	} );
 
 	QUnit.test( 'Deleting notifications', 2, function ( assert ) {
-		var model = new mw.echo.dm.NotificationsModel( new TestApiHandler(), {
+		var networkHandler = new mw.echo.dm.NetworkHandler(),
+			model = new mw.echo.dm.NotificationsModel( networkHandler, {
 				type: 'alert',
+				source: 'test',
 				limit: 25,
 				userLang: 'en'
 			} ),
@@ -130,6 +135,7 @@
 				new mw.echo.dm.NotificationItem( 10, { content: '10', timestamp: '20150828172900' } )
 			];
 
+		networkHandler.addCustomApiHandler( 'test', new TestApiHandler() );
 		// Add initial notifications
 		model.addItems( items );
 
@@ -145,6 +151,7 @@
 
 	QUnit.test( 'Clearing notifications', function ( assert ) {
 		var i, ilen, model, actual, test,
+			networkHandler = new mw.echo.dm.NetworkHandler(),
 			cases = [
 				{
 					prepare: [
@@ -175,11 +182,14 @@
 		assert.expect( cases.length );
 
 		for ( i = 0, ilen = cases.length; i < ilen; i++ ) {
-			model = new mw.echo.dm.NotificationsModel( new TestApiHandler(), {
+			model = new mw.echo.dm.NotificationsModel( networkHandler, {
 				type: 'alert',
+				source: 'test',
 				limit: 25,
 				userLang: 'en'
 			} );
+
+			networkHandler.addCustomApiHandler( 'test', new TestApiHandler() );
 
 			test = cases[ i ];
 
@@ -194,6 +204,7 @@
 
 	QUnit.test( 'Changing read/unread status', function ( assert ) {
 		var i,
+			networkHandler = new mw.echo.dm.NetworkHandler(),
 			initialItems = [
 				new mw.echo.dm.NotificationItem( 0, { timestamp: '20150828173000', read: false } ),
 				new mw.echo.dm.NotificationItem( 1, { timestamp: '20150828173100', read: false } ),
@@ -220,13 +231,14 @@
 		QUnit.expect( cases.length );
 
 		cases.forEach( function ( test ) {
-			var apiHandler = new TestApiHandler(),
-				model = new mw.echo.dm.NotificationsModel( apiHandler, {
+			var model = new mw.echo.dm.NotificationsModel( networkHandler, {
 					type: 'alert',
+					source: 'test',
 					limit: 25,
 					userLang: 'en'
 				} );
 
+			networkHandler.addCustomApiHandler( 'test', new TestApiHandler() );
 			model.addItems( test.items );
 
 			if ( test.markRead ) {

@@ -6,14 +6,16 @@
 	 * @mixins OO.EventEmitter
 	 *
 	 * @constructor
-	 * @param {mw.echo.dm.AbstractAPIHandler} apiHandler API handler
+	 * @param {mw.echo.dm.NetworkHandler} networkHandler Network handler
 	 * @param {Object} [config] Configuration object
 	 * @cfg {string|string[]} [type='alert'] Notification type 'alert', 'message'
 	 *  or an array [ 'alert', 'message' ]
+	 * @cfg {string} [source='local'] Model source, 'local' or some symbolic name identifying
+	 *  the source of the notification items for the network handler.
 	 * @cfg {number} [limit=25] Notification limit
 	 * @cfg {string} [userLang] User language
 	 */
-	mw.echo.dm.NotificationsModel = function MwEchoDmNotificationsModel( apiHandler, config ) {
+	mw.echo.dm.NotificationsModel = function MwEchoDmNotificationsModel( networkHandler, config ) {
 		config = config || {};
 
 		// Mixin constructor
@@ -23,8 +25,9 @@
 		mw.echo.dm.SortedList.call( this );
 
 		this.type = config.type || 'alert';
+		this.source = config.source || 'local';
 
-		this.apiHandler = apiHandler;
+		this.networkHandler = networkHandler;
 
 		this.seenTime = mw.config.get( 'wgEchoSeenTime' ) || {};
 
@@ -244,7 +247,7 @@
 		}
 		this.emit( 'updateSeenTime' );
 
-		return this.apiHandler.updateSeenTime( type )
+		return this.getApi().updateSeenTime( type )
 			.then( this.setSeenTime.bind( this ) );
 	};
 
@@ -261,7 +264,7 @@
 			return $.Deferred().resolve( 0 ).promise();
 		}
 
-		return this.apiHandler.markAllRead()
+		return this.getApi().markAllRead()
 			.then( function () {
 				var i, len,
 					items = model.unreadNotifications.getItems();
@@ -286,7 +289,7 @@
 			return $.Deferred().resolve( 0 ).promise();
 		}
 
-		return this.apiHandler.markItemRead( itemId );
+		return this.getApi().markItemRead( itemId );
 	};
 
 	/**
@@ -304,7 +307,7 @@
 
 		// Rebuild the notifications promise either when it is null or when
 		// it exists in a failed state
-		return this.apiHandler.fetchNotifications( apiPromise )
+		return this.getApi().fetchNotifications( apiPromise )
 			.then( function ( result ) {
 				var notifData, i, len, t, tlen, $content,
 					notificationModel, types,
@@ -410,7 +413,7 @@
 	 *  and the badge label is updated.
 	 */
 	mw.echo.dm.NotificationsModel.prototype.fetchUnreadCountFromApi = function () {
-		return this.apiHandler.fetchUnreadCount();
+		return this.getApi().fetchUnreadCount();
 	};
 
 	/**
@@ -419,7 +422,7 @@
 	 * @return {boolean} The model is in the process of fetching from the API
 	 */
 	mw.echo.dm.NotificationsModel.prototype.isFetchingNotifications = function () {
-		return this.apiHandler.isFetchingNotifications();
+		return this.getApi().isFetchingNotifications();
 	};
 
 	/**
@@ -428,7 +431,7 @@
 	 * @return {boolean} The model is in api error state
 	 */
 	mw.echo.dm.NotificationsModel.prototype.isFetchingErrorState = function () {
-		return this.apiHandler.isFetchingErrorState();
+		return this.getApi().isFetchingErrorState();
 	};
 
 	/**
@@ -437,6 +440,16 @@
 	 *  fetched from the API.
 	 */
 	mw.echo.dm.NotificationsModel.prototype.getFetchNotificationPromise = function () {
-		return this.apiHandler.getFetchNotificationPromise();
+		return this.getApi().getFetchNotificationPromise();
 	};
+
+	/**
+	 * Get the API handler associated with this model's source
+	 *
+	 * @return {mw.echo.dm.APIHandler} API handler
+	 */
+	mw.echo.dm.NotificationsModel.prototype.getApi = function () {
+		return this.networkHandler.getApiHandler( this.source );
+	};
+
 } )( mediaWiki, jQuery );
