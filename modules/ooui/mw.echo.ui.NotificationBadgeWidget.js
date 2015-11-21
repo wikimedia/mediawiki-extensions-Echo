@@ -21,6 +21,8 @@
 	 *    seen: 'bell'
 	 *  } }
 	 * @cfg {string} [href] URL the badge links to
+	 * @cfg {jQuery} [$overlay] A jQuery element functioning as an overlay
+	 *  for popups.
 	 */
 	mw.echo.ui.NotificationBadgeWidget = function MwEchoUiNotificationBadgeButtonPopupWidget( model, config ) {
 		var buttonFlags, allNotificationsButton, preferencesButton, footerButtonGroupWidget, $footer;
@@ -33,6 +35,8 @@
 
 		// Mixin constructors
 		OO.ui.mixin.PendingElement.call( this, config );
+
+		this.$overlay = config.$overlay || this.$element;
 
 		// View model
 		this.notificationsModel = model;
@@ -65,6 +69,7 @@
 			this.notificationsModel,
 			{
 				type: this.type,
+				$overlay: this.$overlay,
 				markReadWhenSeen: this.markReadWhenSeen
 			}
 		);

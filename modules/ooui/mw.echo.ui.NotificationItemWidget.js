@@ -8,12 +8,15 @@
 	 * @constructor
 	 * @param {Object} [config] Configuration object
 	 * @cfg {boolean} [markReadWhenSeen=false] This option is marked as read when it is viewed
+	 * @cfg {jQuery} [$overlay] A jQuery element functioning as an overlay
+	 *  for popups.
 	 */
 	mw.echo.ui.NotificationItemWidget = function MwEchoUiNotificationItemWidget( model, config ) {
 		var widget = this;
 		config = config || {};
 
 		this.model = model;
+		this.$overlay = config.$overlay || this.$element;
 
 		// Parent constructor
 		mw.echo.ui.NotificationItemWidget.parent.call( this, $.extend( { data: this.model.getId() }, config ) );
