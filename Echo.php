@@ -135,6 +135,14 @@ $wgNotificationReplyName = 'No Reply';
 // use any key defined in $wgExternalServers
 $wgEchoCluster = false;
 
+// Shared database to use for keeping track of cross-wiki unread notifications
+// false to not keep track of it at all
+$wgEchoSharedTrackingDB = false;
+
+// Cluster the shared tracking database is located on, false if it is on the
+// main one. Must be a key defined in $wgExternalServers
+$wgEchoSharedTrackingCluster = false;
+
 // The max notification count showed in badge
 // The max number showed in bundled message, eg, <user> and 99+ others <action>
 $wgEchoMaxNotificationCount = 99;

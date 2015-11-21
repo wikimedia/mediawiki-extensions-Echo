@@ -412,14 +412,22 @@ class MWEchoNotifUser {
 	public function resetNotificationCount( $dbSource = DB_SLAVE ) {
 		// Reset notification count for all sections as well
 		$this->getNotificationCount( false, $dbSource, EchoAttributeManager::ALL );
-		$this->getNotificationCount( false, $dbSource, EchoAttributeManager::ALERT );
-		$this->getNotificationCount( false, $dbSource, EchoAttributeManager::MESSAGE );
+		$alertCount = $this->getNotificationCount( false, $dbSource, EchoAttributeManager::ALERT );
+		$msgCount = $this->getNotificationCount( false, $dbSource, EchoAttributeManager::MESSAGE );
+
+		$user = $this->mUser;
 		// when notification count needs to be updated, last notification may have
 		// changed too, so we need to invalidate that cache too
 		$this->getLastUnreadNotificationTime( false, $dbSource, EchoAttributeManager::ALL );
-		$this->getLastUnreadNotificationTime( false, $dbSource, EchoAttributeManager::ALERT );
-		$this->getLastUnreadNotificationTime( false, $dbSource, EchoAttributeManager::MESSAGE );
+		$alertUnread = $this->getLastUnreadNotificationTime( false, $dbSource, EchoAttributeManager::ALERT );
+		$msgUnread = $this->getLastUnreadNotificationTime( false, $dbSource, EchoAttributeManager::MESSAGE );
 		$this->mUser->invalidateCache();
+		DeferredUpdates::addCallableUpdate( function () use ( $user, $alertCount, $alertUnread, $msgCount, $msgUnread ) {
+			$uw = EchoUnreadWikis::newFromUser( $user );
+			if ( $uw ) {
+				$uw->updateCount( wfWikiID(), $alertCount, $alertUnread, $msgCount, $msgUnread );
+			}
+		} );
 	}
 
 	/**
