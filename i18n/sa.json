@@ -41,6 +41,8 @@
 	"echo-no-title": "[न किञ्चित् पृष्ठं विद्यते]",
 	"echo-error-no-formatter": "सूचनानां प्रारूपः न रचितः |",
 	"notifications": "सूचनाः",
+	"tooltip-pt-notifications-alert": "{{GENDER:|भवतः/भवत्याः}} जागरूकतासन्देशाः",
+	"tooltip-pt-notifications-message": "{{GENDER:|भवतः/भवत्याः}} सन्देशाः",
 	"echo-specialpage": "सूचनाः",
 	"echo-none": "भवते सूचनाः न विद्यन्ते |",
 	"echo-more-info": "अधिकं विवरणम्",

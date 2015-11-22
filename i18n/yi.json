@@ -69,6 +69,7 @@
 	"notification-user-rights-remove": "איר זענט מער נישט קיין מיטגליד פון {{PLURAL:$2|דער גרופע|די גרופעס}}: $1",
 	"notification-new-user": "ברוך הבא צו {{SITENAME}}, $1! מיר פרייען זיך אז איר זענט דא.",
 	"notification-header-welcome": "{{GENDER:$2|ברוך הבא}} צו {{SITENAME}}, $1! מיר פֿרייען זיך אז {{GENDER:$2|איר}} זענט דא.",
+	"notification-welcome-linktext": "ברוך הבא!",
 	"notification-reverted2": " {{PLURAL:$4|אייער רעדאקטירונג אויף  [[:$2]] |אייערע רעדאקטירונגען אויף  [[:$2]] }} האט  [[$5|$1]]  {{GENDER:$1|צוריקגעדרייט}}. $3",
 	"notification-header-reverted": " {{PLURAL:$4|אייער רעדאקטירונג אויף $3 איז|אייערע רעדאקטירונגען אויף $3 זענען}} געווארן {{GENDER:$2|צוריקגעשטעלט}} דורך $1.",
 	"notification-emailuser": "[[User:$1|$1]] {{GENDER:$1|האט אייך געשיקט}} א בליצבריוו.",

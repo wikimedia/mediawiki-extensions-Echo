@@ -72,7 +72,7 @@
 	"notification-mention-nosection": "[[User:$1|$1]] {{GENDER:$1|ave fatto 'o nomme}} vuoto int' 'a [[:$3|$2 paggena 'e chiacchiera]].",
 	"notification-header-mention-nosection": "$1 {{GENDER:$2|ha fatto 'o nomme}} vuosto dint' 'a [[:$4|$3 paggena 'e chiacchiera]].",
 	"notification-user-rights": "'E deritte 'utente [[Special:Log/rights/$1|so' state {{GENDER:$1|cagnate}}]] 'a [[User:$1|$1]]. $2. [[Special:ListGroupRights|Mparate 'e cchiù]]",
-	"notification-header-user-rights": "'E deritte vuoste so' state {{GENDER:$2|cagnate}} 'a $1. $3. [[Special:ListGroupRights|Mpara 'e cchiù]]",
+	"notification-header-user-rights": "'E deritte vuoste so' state {{GENDER:$2|cagnate}} 'a $1. $3.",
 	"notification-user-rights-add": "Mo' site membre 'e {{PLURAL:$2|stu gruppo|sti gruppe}}: $1",
 	"notification-user-rights-remove": "Mo' nun site cchiù membre 'e {{PLURAL:$2|stu gruppo|sti gruppe}}: $1",
 	"notification-new-user": "Bemmenuto/a a {{SITENAME}}, $1! Nuje simmo cuntente 'e te veré ccà.",

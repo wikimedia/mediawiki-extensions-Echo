@@ -80,7 +80,7 @@
 	"notification-mention-nosection": "[[User:$1|$1]]님이 [[:$3|$2 토론 문서]]에서 당신을 언급했습니다.",
 	"notification-header-mention-nosection": "$1 님이 [[:$4|$3 토론 문서]]에서 당신을 {{GENDER:$2|언급했습니다}}.",
 	"notification-user-rights": "[[User:$1|$1]]님이 당신의 [[Special:Log/rights/$1|사용자 권한을 {{GENDER:$1|바꾸었습니다}}]]. $2. [[Special:ListGroupRights|더 알아보기]]",
-	"notification-header-user-rights": "$1님이 당신의 사용자 권한을 {{GENDER:$2|바꾸었습니다}}. $3. [[Special:ListGroupRights|더 알아보기]]",
+	"notification-header-user-rights": "$1님이 당신의 사용자 권한을 {{GENDER:$2|바꾸었습니다}}. $3.",
 	"notification-user-rights-add": "당신은 이제 {{PLURAL:$2|다음 권한}}을 갖습니다: $1",
 	"notification-user-rights-remove": "당신은 더 이상 {{PLURAL:$2|다음 권한}}을 갖지 않습니다: $1",
 	"notification-new-user": "$1님, {{SITENAME}}에 온 것을 환영합니다! 당신이 여기에 오신 걸 매우 기쁘게 생각합니다.",
