@@ -82,6 +82,26 @@ abstract class EchoEventPresentationModel {
 	}
 
 	/**
+	 * @return EchoEvent[]
+	 */
+	final protected function getBundledEvents() {
+		if ( !$this->event->getBundleHash() ) {
+			return array();
+		}
+
+		// FIXME: We really shouldn't be making db queries like this
+		// in the presentation model
+		$eventMapper = new EchoEventMapper();
+		$events = $eventMapper->fetchByUserBundleHash(
+			$this->user,
+			$this->event->getBundleHash()
+			// default params: web, DESC, limit=250
+		);
+
+		return $events;
+	}
+
+	/**
 	 * @return string The symbolic icon name as defined in $wgEchoNotificationIcons
 	 */
 	abstract public function getIconType();
