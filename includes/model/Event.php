@@ -356,10 +356,10 @@ class EchoEvent extends EchoAbstractEntity {
 	 * @param $field Integer:one of Revision::DELETED_TEXT,
 	 *                              Revision::DELETED_COMMENT,
 	 *                              Revision::DELETED_USER
-	 * @param $user User object to check, or null to use $wgUser
+	 * @param $user User object to check
 	 * @return Boolean
 	 */
-	public function userCan( $field, User $user = null ) {
+	public function userCan( $field, User $user ) {
 		$revision = $this->getRevision();
 		// User is handled specially
 		if ( $field === Revision::DELETED_USER ) {
@@ -374,11 +374,6 @@ class EchoEvent extends EchoAbstractEntity {
 				return $revision->userCan( $field, $user );
 			} else {
 				// Use User::isHidden()
-				if ( !$user ) {
-					// @FIXME Require a user object for this function
-					global $wgUser;
-					$user = $wgUser;
-				}
 				return $user->isAllowedAny( 'viewsuppressed', 'hideuser' ) || !$agent->isHidden();
 			}
 		} elseif ( $revision ) {
