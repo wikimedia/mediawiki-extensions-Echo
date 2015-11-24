@@ -10,6 +10,8 @@
 	 * @param {Object} [config] Configuration object
 	 * @cfg {boolean} [markReadWhenSeen=false] State whether the notifications are all
 	 *  marked as read when they are seen.
+	 * @cfg {jQuery} [$overlay] A jQuery element functioning as an overlay
+	 *  for popups.
 	 */
 	mw.echo.ui.NotificationsWidget = function MwEchoUiNotificationsWidget( model, config ) {
 		config = config || {};
@@ -52,6 +54,7 @@
 		var widget = new mw.echo.ui.NotificationItemWidget(
 				notificationItem,
 				{
+					$overlay: this.$overlay,
 					markReadWhenSeen: this.markReadWhenSeen
 				}
 			);

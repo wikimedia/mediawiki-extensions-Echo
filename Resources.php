@@ -40,6 +40,7 @@ $wgResourceModules += array(
 			'ooui/mw.echo.ui.NotificationBadgeWidget.js'
 		),
 		'styles' => array(
+			'ooui/styles/mw.echo.ui.overlay.less',
 			'ooui/styles/mw.echo.ui.NotificationsWidget.less',
 			'ooui/styles/mw.echo.ui.NotificationItemWidget.less',
 			'ooui/styles/mw.echo.ui.NotificationBadgeWidget.less'

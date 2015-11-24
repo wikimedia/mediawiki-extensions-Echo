@@ -55,6 +55,9 @@
 			mw.loader.using( 'ext.echo.ui', function () {
 				var messageNotificationsModel, alertNotificationsModel;
 
+				// Overlay
+				$( 'body' ).append( mw.echo.ui.$overlay );
+
 				// Load message button and popup if messages exist
 				if ( $existingMessageLink.length ) {
 					messageNotificationsModel = new mw.echo.dm.NotificationsModel(
@@ -69,6 +72,7 @@
 					);
 					mw.echo.ui.messageWidget = new mw.echo.ui.NotificationBadgeWidget( messageNotificationsModel, {
 						markReadWhenSeen: false,
+						$overlay: mw.echo.ui.$overlay,
 						numItems: numMessages,
 						hasUnseen: hasUnseenMessages,
 						badgeIcon: 'speechBubble',
