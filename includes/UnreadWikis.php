@@ -35,7 +35,7 @@ class EchoUnreadWikis {
 	 * @return EchoUnreadWikis|bool
 	 */
 	public static function newFromUser( User $user ) {
-		if ( class_exists( 'CentralAuth' ) ) {
+		if ( class_exists( 'CentralAuthUser' ) ) {
 			// @todo don't be CA specific (see T111302/CentralIdLookup)
 			$caUser = CentralAuthUser::getInstance( $user );
 			if ( $caUser->isAttached() ) {
