@@ -434,6 +434,16 @@ $wgEchoNotifications = array(
 		'title-params' => array( 'agent' ),
 		'icon' => 'site',
 	),
+	'foreign' => array(
+		'presentation-model' => 'EchoForeignPresentationModel',
+		'user-locators' => array(
+			'EchoUserLocator::locateEventAgent'
+		),
+		'category' => 'foreign',
+		'group' => 'positive',
+		'section' => 'alert',
+		'icon' => 'site',
+	),
 );
 
 // Enable new talk page messages alert for all logged in users by default

@@ -21,8 +21,8 @@
 	 * @cfg {boolean} [seen=false] State the seen state of the option
 	 * @cfg {string} [timestamp] Notification timestamp in Mediawiki timestamp format
 	 * @cfg {string} [primaryUrl] Notification primary link in raw url format
-	 * @cfg {boolean} [external=false] This notification is from an external source
-	 * @cfg {string} [source] The source this notification is coming from, if it is external
+	 * @cfg {boolean} [foreign=false] This notification is from a foreign source
+	 * @cfg {string} [source] The source this notification is coming from, if it is foreign
 	 * @cfg {Object[]} [secondaryUrls] An array of objects defining the secondary URLs
 	 *  for this notification. The secondary URLs are expected to have this structure:
 	 *  	{
@@ -55,7 +55,7 @@
 
 		this.category = config.category || '';
 		this.type = config.type || 'alert';
-		this.external = !!config.external;
+		this.foreign = !!config.foreign;
 		this.source = config.source || '';
 		this.iconType = config.iconType;
 		this.iconURL = config.iconURL;
@@ -146,11 +146,11 @@
 	};
 
 	/**
-	 * Check whether this notification item is external
-	 * @return {boolean} Notification item is external
+	 * Check whether this notification item is foreign
+	 * @return {boolean} Notification item is foreign
 	 */
-	mw.echo.dm.NotificationItem.prototype.isExternal = function () {
-		return this.external;
+	mw.echo.dm.NotificationItem.prototype.isForeign = function () {
+		return this.foreign;
 	};
 
 	/**

@@ -18,7 +18,7 @@
 	 *  the source of the notification items for the network handler.
 	 * @cfg {number} [limit=25] Notification limit
 	 * @cfg {string} [userLang] User language
-	 * @cfg {boolean} [external] The model's source is external
+	 * @cfg {boolean} [foreign] The model's source is foreign
 	 * @cfg {boolean} [removeReadNotifications=false] Remove read notifications completely. This
 	 *  means the model will only contain unread notifications. This is useful for
 	 *  cross-wiki bundled notifications.
@@ -39,7 +39,7 @@
 
 		this.markingAllAsRead = false;
 		this.removeReadNotifications = !!config.removeReadNotifications;
-		this.external = !!config.external;
+		this.foreign = !!config.foreign;
 
 		this.networkHandler = networkHandler;
 
@@ -329,7 +329,7 @@
 		this.emit( 'updateSeenTime' );
 
 		// Only update seenTime in the API locally
-		if ( !this.isExternal() ) {
+		if ( !this.isForeign() ) {
 			promise = this.getApi().updateSeenTime( type );
 		} else {
 			promise = $.Deferred().resolve();
@@ -365,7 +365,7 @@
 
 		this.markingAllAsRead = true;
 		for ( i = 0, len = items.length; i < len; i++ ) {
-			if ( !items[ i ].isExternal() ) {
+			if ( !items[ i ].isForeign() ) {
 				items[ i ].toggleRead( true );
 				items[ i ].toggleSeen( true );
 			}
@@ -448,13 +448,13 @@
 								iconURL: content.iconUrl,
 								iconType: content.icon,
 								type: model.getType(),
-								external: model.isExternal(),
+								foreign: model.isForeign(),
 								source: model.getSource(),
 								primaryUrl: OO.getProp( content.links, 'primary', 'url' ),
 								secondaryUrls: OO.getProp( content.links, 'secondary' ) || []
 							};
 
-							if ( notifData.type === 'external' ) {
+							if ( notifData.type === 'foreign' ) {
 								// Define sources
 								sources = {};
 								for ( s = 0; s < notifData.sources.length; s++ ) {
@@ -471,11 +471,11 @@
 										// type. Some types don't have read messages, but
 										// some do
 										removeReadNotifications: true,
-										// Override the external flag to 'true' for cross-wiki
+										// Override the foreign flag to 'true' for cross-wiki
 										// notifications.
-										// For bundles that are not external (like regular
+										// For bundles that are not foreign (like regular
 										// bundles of notifications) this flag should be false
-										external: true,
+										foreign: true,
 										count: notifData.count
 									} )
 								);
@@ -654,12 +654,12 @@
 	};
 
 	/**
-	 * This model is external
+	 * This model is foreign
 	 *
-	 * @return {boolean} Model is external
+	 * @return {boolean} Model is foreign
 	 */
-	mw.echo.dm.NotificationsModel.prototype.isExternal = function () {
-		return this.external;
+	mw.echo.dm.NotificationsModel.prototype.isForeign = function () {
+		return this.foreign;
 	};
 
 } )( mediaWiki, jQuery );

@@ -40,7 +40,7 @@
 	 * Fetch notifications from the API.
 	 *
 	 * @param {jQuery.Promise} [apiPromise] An existing promise querying the API for notifications.
-	 *  This allows us to send an API request external to the DM and have the model
+	 *  This allows us to send an API request foreign to the DM and have the model
 	 *  handle the operation as if it asked for the request itself, updating all that
 	 *  needs to be updated and emitting all proper events.
 	 * @return {jQuery.Promise} A promise that resolves with an object containing the

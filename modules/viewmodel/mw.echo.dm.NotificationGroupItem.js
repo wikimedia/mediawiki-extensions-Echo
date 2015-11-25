@@ -54,8 +54,8 @@
 
 		// Create notification models for each source
 		for ( source in this.sources ) {
-			// Add external API handler
-			this.networkHandler.addApiHandler( source, { url: this.sources[ source ].url }, true );
+			// Add foreign API handler
+			this.networkHandler.addApiHandler( source, { url: this.sources[ source ].url, baseParams: { notnoforn: 1, notfilter: '!read' } }, true );
 
 			// Create a notifications model
 			item = new mw.echo.dm.NotificationsModel(
@@ -63,7 +63,7 @@
 				{
 					type: this.getType(),
 					source: source,
-					external: this.external,
+					foreign: this.foreign,
 					title: this.sources[ source ].title,
 					removeReadNotifications: this.removeReadNotifications
 				}

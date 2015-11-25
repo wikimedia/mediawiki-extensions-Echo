@@ -95,18 +95,18 @@
 	 *
 	 * @param {string} name Symbolic name
 	 * @param {Object} config Configuration details
-	 * @param {boolean} isExternal Is an external API
+	 * @param {boolean} isForeign Is a foreign API
 	 * @throws {Error} If no URL was given for a foreign API
 	 */
-	mw.echo.dm.NetworkHandler.prototype.addApiHandler = function ( name, config, isExternal ) {
+	mw.echo.dm.NetworkHandler.prototype.addApiHandler = function ( name, config, isForeign ) {
 		var apiConfig;
 
 		if ( !this.handlers[ name ] ) {
 			apiConfig = $.extend( true, {}, { baseParams: this.baseParams, type: this.getType() }, config );
 
-			if ( isExternal ) {
+			if ( isForeign ) {
 				if ( !config.url ) {
-					throw new Error( 'External APIs must have a valid url.' );
+					throw new Error( 'Foreign APIs must have a valid url.' );
 				}
 				this.addCustomApiHandler( name, new mw.echo.dm.ForeignAPIHandler( config.url, apiConfig ) );
 			} else {

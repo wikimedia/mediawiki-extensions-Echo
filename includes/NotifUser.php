@@ -36,6 +36,11 @@ class MWEchoNotifUser {
 	private $targetPageMapper;
 
 	/**
+	 * @var EchoForeignNotifications
+	 */
+	private $foreignNotifications;
+
+	/**
 	 * Usually client code doesn't need to initialize the object directly
 	 * because it could be obtained from factory method newFromUser()
 	 * @param User $user
@@ -56,6 +61,7 @@ class MWEchoNotifUser {
 		$this->cache = $cache;
 		$this->notifMapper = $notifMapper;
 		$this->targetPageMapper = $targetPageMapper;
+		$this->foreignNotifications = new EchoForeignNotifications( $user );
 	}
 
 	/**
@@ -150,7 +156,10 @@ class MWEchoNotifUser {
 	 * @return int
 	 */
 	public function getMessageCount( $cached = true, $dbSource = DB_SLAVE ) {
-		return $this->getNotificationCount( $cached, $dbSource, EchoAttributeManager::MESSAGE );
+		$count = $this->getNotificationCount( $cached, $dbSource, EchoAttributeManager::MESSAGE );
+		$count += $this->foreignNotifications->getCount( EchoAttributeManager::MESSAGE );
+
+		return $count;
 	}
 
 	/**
@@ -161,7 +170,10 @@ class MWEchoNotifUser {
 	 * @return int
 	 */
 	public function getAlertCount( $cached = true, $dbSource = DB_SLAVE ) {
-		return $this->getNotificationCount( $cached, $dbSource, EchoAttributeManager::ALERT );
+		$count = $this->getNotificationCount( $cached, $dbSource, EchoAttributeManager::ALERT );
+		$count += $this->foreignNotifications->getCount( EchoAttributeManager::ALERT );
+
+		return $count;
 	}
 
 	/**
@@ -256,10 +268,18 @@ class MWEchoNotifUser {
 	 *
 	 * @param boolean $cached Set to false to bypass the cache. (Optional. Defaults to true)
 	 * @param int $dbSource Use master or slave database to pull count (Optional. Defaults to DB_SLAVE)
-	 * @return int
+	 * @return bool|MWTimestamp
 	 */
 	public function getLastUnreadAlertTime( $cached = true, $dbSource = DB_SLAVE ) {
-		return $this->getLastUnreadNotificationTime( $cached, $dbSource, EchoAttributeManager::ALERT );
+		$time = $this->getLastUnreadNotificationTime( $cached, $dbSource, EchoAttributeManager::ALERT );
+
+		$foreignTime = $this->foreignNotifications->getTimestamp( EchoAttributeManager::ALERT );
+		if ( $foreignTime !== false ) {
+			$max = max( $time ? $time->getTimestamp( TS_MW ) : 0, $foreignTime->getTimestamp( TS_MW ) );
+			$time = new MWTimestamp( $max );
+		}
+
+		return $time;
 	}
 
 	/**
@@ -267,10 +287,18 @@ class MWEchoNotifUser {
 	 *
 	 * @param boolean $cached Set to false to bypass the cache. (Optional. Defaults to true)
 	 * @param int $dbSource Use master or slave database to pull count (Optional. Defaults to DB_SLAVE)
-	 * @return int
+	 * @return bool|MWTimestamp
 	 */
 	public function getLastUnreadMessageTime( $cached = true, $dbSource = DB_SLAVE ) {
-		return $this->getLastUnreadNotificationTime( $cached, $dbSource, EchoAttributeManager::MESSAGE );
+		$time = $this->getLastUnreadNotificationTime( $cached, $dbSource, EchoAttributeManager::MESSAGE );
+
+		$foreignTime = $this->foreignNotifications->getTimestamp( EchoAttributeManager::MESSAGE );
+		if ( $foreignTime !== false ) {
+			$max = max( $time ? $time->getTimestamp( TS_MW ) : 0, $foreignTime->getTimestamp( TS_MW ) );
+			$time = new MWTimestamp( $max );
+		}
+
+		return $time;
 	}
 
 	/**
