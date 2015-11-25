@@ -28,6 +28,11 @@ abstract class EchoEventPresentationModel {
 	private $user;
 
 	/**
+	 * @var EchoEvent[]|null
+	 */
+	private $bundledEvents;
+
+	/**
 	 * @param EchoEvent $event
 	 * @param Language|string $language
 	 * @param User $user Only used for permissions checking and GENDER
@@ -88,17 +93,20 @@ abstract class EchoEventPresentationModel {
 		if ( !$this->event->getBundleHash() ) {
 			return array();
 		}
+		if ( $this->bundledEvents !== null ) {
+			return $this->bundledEvents;
+		}
 
 		// FIXME: We really shouldn't be making db queries like this
 		// in the presentation model
 		$eventMapper = new EchoEventMapper();
-		$events = $eventMapper->fetchByUserBundleHash(
+		$this->bundledEvents = $eventMapper->fetchByUserBundleHash(
 			$this->user,
 			$this->event->getBundleHash()
 			// default params: web, DESC, limit=250
 		);
 
-		return $events;
+		return $this->bundledEvents;
 	}
 
 	/**
