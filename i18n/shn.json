@@ -1,7 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Saosukham"
+			"Saosukham",
+			"Saimawnkham"
 		]
-	}
+	},
+	"tooltip-pt-notifications-alert": "{{GENDER:|ၸဝ်ႈၵဝ်ႇ}} ဢၼ်ၽၢင်ႉ",
+	"tooltip-pt-notifications-message": "{{GENDER:|ၸဝ်ႈၵဝ်ႇ}} လိၵ်ႈပွတ်း"
 }

@@ -76,7 +76,7 @@
 	"notification-mention-nosection": "[[User:$1|$1]] {{GENDER:$1}}đã nói đến bạn trên [[:$3|trang thảo luận $2]].",
 	"notification-header-mention-nosection": "$1 {{GENDER:$2}}đã nhắc đến bạn tại [[:$4|trang thảo luận $3]].",
 	"notification-user-rights": "[[User:$1|$1]] {{GENDER:$1}}đã [[Special:Log/rights/$1|thay đổi]] các quyền người dùng của bạn. $2. [[Special:ListGroupRights|Tìm hiểu thêm]]",
-	"notification-header-user-rights": "$1 {{GENDER:$2}}đã thay đổi các quyền người dùng của bạn. $3. [[Special:ListGroupRights|Tìm hiểu thêm]]",
+	"notification-header-user-rights": "$1 {{GENDER:$2}}đã thay đổi các quyền người dùng của bạn. $3.",
 	"notification-user-rights-add": "Bạn mới là thành viên của {{PLURAL:$2|nhóm|các nhóm}} này: $1",
 	"notification-user-rights-remove": "Bạn không còn là thành viên của {{PLURAL:$2|nhóm|các nhóm}} này: $1",
 	"notification-new-user": "Chào mừng $1 đã đến với {{SITENAME}}!",
