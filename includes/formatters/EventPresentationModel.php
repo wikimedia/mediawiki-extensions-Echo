@@ -110,6 +110,46 @@ abstract class EchoEventPresentationModel {
 	}
 
 	/**
+	 * @return bool Whether there is other notifications bundled with this one.
+	 */
+	final protected function isBundled() {
+		return $this->getBundleCount() > 1;
+	}
+
+	/**
+	 * @param bool $includeCurrent
+	 * @return int Number of bundled events, potentially capped to $cap
+	 */
+	final protected function getBundleCount( $includeCurrent = true ) {
+		$count = count( $this->getBundledEvents() );
+		if ( $includeCurrent ) {
+			$count++;
+		}
+		return $count;
+	}
+
+	/**
+	 * Return the count of notifications bundled together.
+	 * @param bool $includeCurrent
+	 * @return array ['number for display', 'number for PLURAL']
+	 */
+	final protected function getNotificationCountForOutput( $includeCurrent = true ) {
+		global $wgEchoMaxNotificationCount;
+		$count = $this->getBundleCount( $includeCurrent );
+		if ( $count > $wgEchoMaxNotificationCount ) {
+			return array(
+				$this->msg( 'echo-notification-count' )->numParams( $wgEchoMaxNotificationCount )->text(),
+				$wgEchoMaxNotificationCount
+			);
+		} else {
+			return array(
+				$this->language->formatNum( $count ),
+				$count
+			);
+		}
+	}
+
+	/**
 	 * @return string The symbolic icon name as defined in $wgEchoNotificationIcons
 	 */
 	abstract public function getIconType();
