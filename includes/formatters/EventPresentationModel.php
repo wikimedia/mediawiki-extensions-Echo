@@ -110,32 +110,60 @@ abstract class EchoEventPresentationModel {
 	}
 
 	/**
-	 * @return bool Whether there is other notifications bundled with this one.
+	 * This method returns true when there are bundled notifications, even if they are all
+	 * in the same group according to getBundleGrouping(). For presentation purposes, you may
+	 * want to check if getBundleCount( true, $yourCallback ) > 1 instead.
+	 *
+	 * @return bool Whether there are other notifications bundled with this one.
 	 */
 	final protected function isBundled() {
 		return $this->getBundleCount() > 1;
 	}
 
 	/**
-	 * @param bool $includeCurrent
-	 * @return int Number of bundled events, potentially capped to $cap
+	 * Count the number of event groups in this bundle.
+	 *
+	 * By default, each event is in its own group, and this method returns the number of events.
+	 * To group events differently, pass $groupCallback. For example, to group events with the
+	 * same title together, use $callback = function ( $event ) { return $event->getTitle()->getPrefixedText(); }
+	 *
+	 * If $includeCurrent is false, all events in the same group as the current one will be ignored.
+	 *
+	 * @param bool $includeCurrent Include the current event (and its group)
+	 * @param callable $groupCallback Callback that takes an EchoEvent and returns a grouping value
+	 * @return int Number of bundled events or groups
 	 */
-	final protected function getBundleCount( $includeCurrent = true ) {
-		$count = count( $this->getBundledEvents() );
-		if ( $includeCurrent ) {
-			$count++;
+	final protected function getBundleCount( $includeCurrent = true, $groupCallback = null ) {
+		$events = array_merge( $this->getBundledEvents(), array( $this->event ) );
+		if ( $groupCallback ) {
+			if ( !is_callable( $groupCallback ) ) {
+				// If we pass an invalid callback to array_map(), it'll just throw a warning
+				// and return NULL, so $count ends up being 0 or -1. Instead of doing that,
+				// throw an exception.
+				throw new MWException( 'Invalid callback passed to getBundleCount' );
+			}
+			$events = array_unique( array_map( $groupCallback, $events ) );
+		}
+		$count = count( $events );
+
+		if ( !$includeCurrent ) {
+			$count--;
 		}
 		return $count;
 	}
 
 	/**
 	 * Return the count of notifications bundled together.
+	 *
+	 * For parameters, see getBundleCount().
+	 *
 	 * @param bool $includeCurrent
+	 * @param callable $groupCallback
 	 * @return array ['number for display', 'number for PLURAL']
 	 */
-	final protected function getNotificationCountForOutput( $includeCurrent = true ) {
+	final protected function getNotificationCountForOutput( $includeCurrent = true, $groupCallback = null ) {
 		global $wgEchoMaxNotificationCount;
-		$count = $this->getBundleCount( $includeCurrent );
+		$count = $this->getBundleCount( $includeCurrent, $groupCallback );
 		if ( $count > $wgEchoMaxNotificationCount ) {
 			return array(
 				$this->msg( 'echo-notification-count' )->numParams( $wgEchoMaxNotificationCount )->text(),
