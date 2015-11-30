@@ -59,7 +59,7 @@ class SpecialNotifications extends SpecialPage {
 		}
 
 		foreach ( $notifications as $notification ) {
-			$output = EchoDataOutputFormatter::formatOutput( $notification, 'html', $user, $this->getLanguage() );
+			$output = EchoDataOutputFormatter::formatOutput( $notification, 'special', $user, $this->getLanguage() );
 			if ( $output ) {
 				$notif[] = $output;
 			}
