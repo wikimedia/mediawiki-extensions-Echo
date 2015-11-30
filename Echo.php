@@ -106,6 +106,9 @@ $wgHooks['SendWatchlistEmailNotification'][] = 'EchoHooks::onSendWatchlistEmailN
 $wgHooks['GetNewMessagesAlert'][] = 'EchoHooks::abortNewMessagesAlert';
 $wgHooks['LinksUpdateAfterInsert'][] = 'EchoHooks::onLinksUpdateAfterInsert';
 
+// Beta features
+$wgHooks['GetBetaFeaturePreferences'][] = 'EchoHooks::getBetaFeaturePreferences';
+
 // Configuration
 
 // Whether to turn on email batch function
@@ -196,6 +199,9 @@ $wgEchoOnWikiBlacklist = 'Echo-blacklist';
 
 // sprintf format of per-user notification agent whitelists. Set to null to disable.
 $wgEchoPerUserWhitelistFormat = '%s/Echo-whitelist';
+
+// Feature flag for the cross-wiki notifications beta feature
+$wgEchoUseCrossWikiBetaFeature = false;
 
 // Define the categories that notifications can belong to. Categories can be
 // assigned the following parameters: priority, nodismiss, tooltip, and usergroups.

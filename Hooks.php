@@ -205,6 +205,36 @@ class EchoHooks {
 	}
 
 	/**
+	 * Handler for the GetBetaFeaturePreferences hook.
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/GetBetaFeaturePreferences
+	 *
+	 * @param $user User to get preferences for
+	 * @param &$preferences Preferences array
+	 *
+	 * @return bool true in all cases
+	 */
+	public static function getBetaFeaturePreferences( User $user, array &$preferences ) {
+		global $wgExtensionAssetsPath, $wgEchoUseCrossWikiBetaFeature;
+
+		if ( $wgEchoUseCrossWikiBetaFeature ) {
+			$preferences['echo-cross-wiki-notifications'] = array(
+				'label-message' => 'echo-pref-beta-feature-cross-wiki-message',
+				'desc-message' => 'echo-pref-beta-feature-cross-wiki-description',
+				// Paths to images that represents the feature.
+				'screenshot' => array(
+					'rtl' => "$wgExtensionAssetsPath/Echo/images/betafeatures-icon-notifications-rtl.svg",
+					'ltr' => "$wgExtensionAssetsPath/Echo/images/betafeatures-icon-notifications-ltr.svg",
+				),
+				'info-link' => 'https://www.mediawiki.org/wiki/Extension:Echo',
+				// Link to discussion about the feature - talk pages might work
+				'discussion-link' => 'https://www.mediawiki.org/wiki/Extension_talk:Echo',
+			);
+		}
+
+		return true;
+	}
+
+	/**
 	 * Handler for GetPreferences hook.
 	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/GetPreferences
 	 *
