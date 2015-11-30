@@ -36,7 +36,7 @@
 	"echo-category-title-other": "{{PLURAL:$1|jinou událost|jiné události}}",
 	"echo-category-title-system": "{{PLURAL:$1|systémovou událost|systémové události}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|změnu|změny}} uživatelských práv",
-	"echo-category-title-emailuser": "{{PLURAL:$1|E-mail od jiného uživatele|E-maily od ostatních uživatelů}}",
+	"echo-category-title-emailuser": "{{PLURAL:$1|e-mail od jiného uživatele|e-maily od ostatních uživatelů}}",
 	"echo-pref-tooltip-edit-user-talk": "Upozorněte mě, když mi někdo na mé diskusní stránce napíše zprávu nebo odpoví.",
 	"echo-pref-tooltip-article-linked": "Upozorněte mě, když někdo na stránku, kterou jsem založil, odkáže z článku.",
 	"echo-pref-tooltip-reverted": "Upozorněte mě, když někdo úpravu, kterou jsem provedl, vrátí pomocí nástrojů pro zrušení editace nebo vrácení zpět.",
