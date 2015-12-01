@@ -90,7 +90,7 @@
 	"notification-user-rights-add": "Należysz teraz do {{PLURAL:$2|tej grupy|tych grup}}: $1",
 	"notification-user-rights-remove": "Od teraz nie należysz już do {{PLURAL:$2|tej grupy|tych grup}}: $1",
 	"notification-new-user": "Witaj w {{grammar:MS.lp|{{SITENAME}}}}, $1! Cieszymy się, że tu jesteś.",
-	"notification-header-welcome": "{{GENDER:$2|Witaj}} w projekcie {{SITENAME}}, $1! Cieszymy się, że {{GENDER:$2|jesteś}} tutaj.",
+	"notification-header-welcome": "{{GENDER:$2|Witaj}} w {{GRAMMAR:MS.lp|{{SITENAME}}}}, $1! Cieszymy się, że {{GENDER:$2|jesteś}} tutaj.",
 	"notification-welcome-linktext": "Witaj",
 	"notification-reverted2": "[[$5|$1]] {{GENDER:$1|wycofał|wycofała}} {{PLURAL:$4|Twoją edycję|Twoje edycje}} na stronie [[:$2]] $3",
 	"notification-header-reverted": "$1 {{GENDER:$2|wycofał|wycofała}} {{PLURAL:$4|Twoją edycję|Twoje edycje}} na stronie $3",
