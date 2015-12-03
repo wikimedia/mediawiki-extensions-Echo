@@ -1,4 +1,5 @@
 <?php
+use EchoLinkNormalizer;
 
 /**
  * A formatter for the notification flyout popup
@@ -39,7 +40,7 @@ class EchoFlyoutFormatter extends EchoEventFormatter {
 		);
 
 		$footerItems = array( $ts );
-		$secondaryLinks = $this->normalizeSecondaryLinks( $model->getSecondaryLinks() );
+		$secondaryLinks = EchoLinkNormalizer::normalizeSecondaryLinks( $model->getSecondaryLinks() );
 		foreach ( $secondaryLinks as $link ) {
 			$footerItems[] = Html::element( 'a', array( 'href' => $link['url'] ), $link['label'] );
 		}
@@ -52,7 +53,7 @@ class EchoFlyoutFormatter extends EchoEventFormatter {
 		// Add the primary link afterwards, if it has one
 		$primaryLink = $model->getPrimaryLink();
 		if ( $primaryLink !== false ) {
-			$primaryLink = $this->normalizePrimaryLink( $primaryLink );
+			$primaryLink = EchoLinkNormalizer::normalizePrimaryLink( $primaryLink );
 			$html .= Html::element(
 				'a',
 				array( 'class' => 'mw-echo-notification-primary-link', 'href' => $primaryLink['url'] ),
@@ -76,52 +77,4 @@ class EchoFlyoutFormatter extends EchoEventFormatter {
 		);
 	}
 
-	/**
-	 * Utility method to ensure B/C compat with previous getPrimaryLink return
-	 * types, until all of them have been fixed.
-	 *
-	 * @deprecated
-	 * @param string|array|bool $link
-	 * @return string|bool
-	 */
-	protected function normalizePrimaryLink( $link ) {
-		// B/C for old format: [url, label]
-		if ( !isset( $link['url'] ) ) {
-			return array(
-				'url' => $link[0],
-				'label' => $link[1],
-			);
-		}
-
-		// current primary link format: ['url' => ..., 'label' => ...]
-		return $link;
-	}
-
-	/**
-	 * Utility method to ensure B/C compat with previous getSecondaryLinks
-	 * return types, until all of them have been fixed.
-	 *
-	 * @deprecated
-	 * @param array $link
-	 * @return array
-	 */
-	protected function normalizeSecondaryLinks( array $link ) {
-		// B/C for old secondary links format: [url => label, ...]
-		if ( !isset( $link[0] ) || !isset( $link[0]['url'] ) ) {
-			$links = array();
-			foreach ( $link as $url => $text ) {
-				$links[] = array(
-					'url' => $url,
-					'label' => $text,
-					'description' => '',
-					'icon' => false,
-					'prioritized' => false,
-				);
-			}
-			return $links;
-		}
-
-		// current secondary links format: [['url' => ..., 'label' => ..., ...], ...]
-		return $link;
-	}
 }
