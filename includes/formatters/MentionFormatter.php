@@ -12,7 +12,7 @@ class EchoMentionFormatter extends EchoCommentFormatter {
 		if ( !$this->getSectionTitle( $event, $user ) ) {
 			$this->title = array(
 				'message' => 'notification-mention-nosection',
-				'params' => array( 'agent', 'main-title-text', 'title' )
+				'params' => array( 'agent', 'main-title-text', 'title', 'user' )
 			);
 			$this->flyoutTitle = array(
 				'message' => 'notification-mention-nosection-flyout',
@@ -20,7 +20,7 @@ class EchoMentionFormatter extends EchoCommentFormatter {
 			);
 			$this->email['batch-body'] = array(
 				'message' => 'notification-mention-nosection-email-batch-body',
-				'params' => array( 'agent', 'main-title-text' )
+				'params' => array( 'agent', 'main-title-text', 'user' )
 			);
 		}
 	}

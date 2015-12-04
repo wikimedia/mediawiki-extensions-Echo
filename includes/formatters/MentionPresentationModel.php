@@ -70,6 +70,7 @@ class EchoMentionPresentationModel extends EchoEventPresentationModel {
 			// For the -nosection message
 			$msg->params( $sectionTitle->getPrefixedText() );
 		}
+		$msg->params( $this->getViewingUserForGender() );
 
 		return $msg;
 	}
