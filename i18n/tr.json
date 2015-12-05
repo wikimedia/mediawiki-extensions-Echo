@@ -53,7 +53,7 @@
 	"echo-no-title": "[Sayfa yok]",
 	"echo-error-no-formatter": "Hiçbir bildirim için biçim tanımlanmamış.",
 	"notifications": "Bildirimler",
-	"tooltip-pt-notifications-alert": "{{GENDER:|Uyarılarınız}}",
+	"tooltip-pt-notifications-alert": "{{GENDER:|Bildirimleriniz}}",
 	"tooltip-pt-notifications-message": "{{GENDER:|Mesajlarınız}}",
 	"echo-specialpage": "Bildirimler",
 	"echo-anon": "Bildirimlere ulaşabilmek için, [$1 hesap oluşturun] ya da [$2 giriş yapın].",
