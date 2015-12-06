@@ -4,7 +4,8 @@
 			"Aceofhearts1968",
 			"DCLXVI",
 			"Termininja",
-			"Borislav"
+			"Borislav",
+			"Лорд Бъмбъри"
 		]
 	},
 	"echo-desc": "Система за известия",
@@ -43,6 +44,8 @@
 	"echo-no-title": "[Няма страница]",
 	"echo-error-no-formatter": "Не е посочено форматиране на известията.",
 	"notifications": "Известия",
+	"tooltip-pt-notifications-alert": "{{GENDER:|Вашите}} известия",
+	"tooltip-pt-notifications-message": "{{GENDER:|Вашите}} съобщения",
 	"echo-specialpage": "Известия",
 	"echo-anon": "За получаване на известия е необходимо да [$1 регистрирате сметка] или [$2 влезте] в системата.",
 	"echo-none": "Нямате известия.",
@@ -58,9 +61,7 @@
 	"notification-edit-talk-page-flyout2": "$1 {{GENDER:$1|остави}} съобщение на Вашата [[User talk:$2#$3|беседа]].",
 	"notification-edit-talk-page-flyout-with-section": "$1 {{GENDER:$1|остави}} съобщение на Вашата беседа „[[User talk:$2#$3|$4]]“.",
 	"notification-mention": "[[User:$1|$1]] Ви {{GENDER:$1|спомена}} на беседата на страницата $5 в раздела \"[[:$3#$2|$4]]\".",
-	"notification-mention-flyout": "$1 Ви {{GENDER:$1|спомена}} на беседата на страницата $5 в раздела \"[[:$3#$2|$4]]\".",
 	"notification-mention-nosection": "[[User:$1|$1]] Ви {{GENDER:$1|спомена}} на [[:$3|беседата на страницата $2]].",
-	"notification-mention-nosection-flyout": "$1 Ви {{GENDER:$1|спомена}} на [[:$3|беседата на страницата $2]].",
 	"notification-new-user": "Добре дошли в {{SITENAME}}, $1! Радостно е, че сте сред нас.",
 	"notification-mention-email-batch-body": "$1 Ви {{GENDER:$1|спомена}} на беседата на страницата $4 в раздела \"$3\".",
 	"notification-user-rights-email-subject": "Потребителските ви права в {{SITENAME}} бяха променени",
