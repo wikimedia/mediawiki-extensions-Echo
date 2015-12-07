@@ -44,6 +44,11 @@ $specialPageAliases['ce'] = array(
 	'Notifications' => array( 'ДӀахаийтар' ),
 );
 
+/** Czech (čeština) */
+$specialPageAliases['cs'] = array(
+	'Notifications' => array( 'Upozornění' ),
+);
+
 /** German (Deutsch) */
 $specialPageAliases['de'] = array(
 	'Notifications' => array( 'Benachrichtigungen' ),
