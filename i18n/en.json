@@ -52,6 +52,7 @@
 	"echo-quotation-marks": "\"$1\"",
 	"echo-api-failure": "Could not retrieve notifications. Please try again. (Error $1)",
 	"echo-notification-placeholder": "There are no notifications.",
+	"echo-notification-loginrequired": "You must login to see your notifications.",
 	"notification-link-text-view-message": "View message",
 	"notification-link-text-view-mention": "View mention",
 	"notification-link-text-view-changes": "View changes",

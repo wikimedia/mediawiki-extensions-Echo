@@ -20,16 +20,8 @@ class SpecialNotifications extends SpecialPage {
 
 		$user = $this->getUser();
 		if ( $user->isAnon() ) {
-			// return to this title upon login
-			$returnTo = array( 'returnto' => $this->getPageTitle()->getPrefixedDBkey() );
-			// the html message for anon users
-			$anonMsgHtml = $this->msg(
-				'echo-anon',
-				SpecialPage::getTitleFor( 'Userlogin', 'signup' )->getFullURL( $returnTo ),
-				SpecialPage::getTitleFor( 'Userlogin' )->getFullURL( $returnTo )
-			)->parse();
-			$out->addHTML( Html::rawElement( 'span', array( 'class' => 'plainlinks' ), $anonMsgHtml ) );
-
+			// Redirect to login page and inform user of the need to login
+			$this->requireLogin( 'echo-notification-loginrequired' );
 			return;
 		}
 
