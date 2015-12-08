@@ -80,6 +80,7 @@
 	"echo-quotation-marks": "« $1 »",
 	"echo-api-failure": "Impossible d’obtenir les notifications. Veuillez réessayez. (Erreur $1)",
 	"echo-notification-placeholder": "Il n’y a aucune notification.",
+	"echo-notification-loginrequired": "Vous devez vous connecter pour voir vos notifications.",
 	"notification-link-text-view-message": "Afficher le message",
 	"notification-link-text-view-mention": "Afficher la mention",
 	"notification-link-text-view-changes": "Afficher les modifications",

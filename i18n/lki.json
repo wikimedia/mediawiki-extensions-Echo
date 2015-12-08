@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Hosseinblue"
+		]
+	},
+	"tooltip-pt-notifications-alert": "{{GENDER:|Your}} alerts",
+	"tooltip-pt-notifications-message": "{{GENDER:|Your}} messages"
+}

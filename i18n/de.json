@@ -58,6 +58,7 @@
 	"echo-feedback": "Rückmeldung",
 	"echo-api-failure": "Benachrichtigungen konnten nicht abgerufen werden. Bitte erneut versuchen. (Fehler $1)",
 	"echo-notification-placeholder": "Es gibt keine Benachrichtigungen.",
+	"echo-notification-loginrequired": "Du musst dich anmelden, um deine Benachrichtigungen zu sehen.",
 	"notification-link-text-view-message": "Nachricht ansehen",
 	"notification-link-text-view-mention": "Erwähnung ansehen",
 	"notification-link-text-view-changes": "Änderungen ansehen",
