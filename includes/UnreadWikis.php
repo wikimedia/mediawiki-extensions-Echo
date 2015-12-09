@@ -28,24 +28,19 @@ class EchoUnreadWikis {
 	}
 
 	/**
-	 * If CentralAuth is installed, use that. Otherwise
-	 * assume they're using shared user tables.
+	 * Use the user id provided by the CentralIdLookup
 	 *
 	 * @param User $user
 	 * @return EchoUnreadWikis|bool
 	 */
 	public static function newFromUser( User $user ) {
-		if ( class_exists( 'CentralAuthUser' ) ) {
-			// @todo don't be CA specific (see T111302/CentralIdLookup)
-			$caUser = CentralAuthUser::getInstance( $user );
-			if ( $caUser->isAttached() ) {
-				return new self( $caUser->getId() );
-			} else {
-				return false;
-			}
+		$lookup = CentralIdLookup::factory();
+		$id = $lookup->centralIdFromLocalUser( $user, CentralIdLookup::AUDIENCE_RAW );
+		if ( !$id ) {
+			return false;
 		}
 
-		return new self( $user->getId() );
+		return new self( $id );
 	}
 
 	/**
