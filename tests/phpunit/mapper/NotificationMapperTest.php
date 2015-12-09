@@ -12,7 +12,7 @@ class EchoNotificationMapperTest extends MediaWikiTestCase {
 	public function fetchUnreadByUser( User $user, $limit, array $eventTypes = array() ) {
 		// Unsuccessful select
 		$notifMapper = new EchoNotificationMapper( $this->mockMWEchoDbFactory( array( 'select' => false ) ) );
-		$res = $notifMapper->fetchUnreadByUser( $this->mockUser(), 10, '' );
+		$res = $notifMapper->fetchUnreadByUser( $this->mockUser(), 10, null, '' );
 		$this->assertEmpty( $res );
 
 		// Successful select
@@ -34,11 +34,11 @@ class EchoNotificationMapperTest extends MediaWikiTestCase {
 			)
 		);
 		$notifMapper = new EchoNotificationMapper( $this->mockMWEchoDbFactory( array( 'select' => $dbResult ) ) );
-		$res = $notifMapper->fetchUnreadByUser( $this->mockUser(), 10, '', array() );
+		$res = $notifMapper->fetchUnreadByUser( $this->mockUser(), 10, null, '', array() );
 		$this->assertEmpty( $res );
 
 		$notifMapper = new EchoNotificationMapper( $this->mockMWEchoDbFactory( array( 'select' => $dbResult ) ) );
-		$res = $notifMapper->fetchUnreadByUser( $this->mockUser(), 10, '', array( 'test_event' ) );
+		$res = $notifMapper->fetchUnreadByUser( $this->mockUser(), 10, null, '', array( 'test_event' ) );
 		$this->assertTrue( is_array( $res ) );
 		$this->assertGreaterThan( 0, count( $res ) );
 		foreach ( $res as $row ) {

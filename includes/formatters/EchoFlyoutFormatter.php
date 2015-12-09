@@ -1,5 +1,4 @@
 <?php
-use EchoLinkNormalizer;
 
 /**
  * A formatter for the notification flyout popup

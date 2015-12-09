@@ -111,17 +111,46 @@ class ApiEchoNotifications extends ApiQueryBase {
 
 		// Prefer unread notifications. We don't care about next offset in this case
 		if ( $unreadFirst ) {
-			$notifs = $notifMapper->fetchUnreadByUser( $user, $limit, $eventTypes );
+			// query for unread notifications past 'continue' (offset)
+			$notifs = $notifMapper->fetchUnreadByUser( $user, $limit + 1, $continue, $eventTypes );
+
+			/*
+			 * 'continue' has a timestamp & id (to start with, in case there
+			 * would be multiple events with that same timestamp)
+			 * Unread notifications should always load first, but may be older
+			 * than read ones, but we can work with current 'continue' format:
+			 * * if there is no continue, first load unread notifications
+			 * * if there is a continue, fetch unread notifications first:
+			 * * if there are no unread ones, continue must've been about read:
+			 *   fetch 'em
+			 * * if there are unread ones but first one doesn't match continue
+			 *   id, it must've been about read: discard unread & fetch read
+			 */
+			if ( $notifs && $continue ) {
+				/** @var EchoNotification $first */
+				$first = reset( $notifs );
+				$continueId = intval( trim( strrchr( $continue, '|' ), '|' ) );
+				if ( $first->getEvent()->getID() !== $continueId ) {
+					// notification doesn't match continue id, it must've been
+					// about read notifications: discard all unread ones
+					$notifs = array();
+				}
+			}
+
 			// If there are less unread notifications than we requested,
 			// then fill the result with some read notifications
 			$count = count( $notifs );
-			if ( $count < $limit ) {
+			// we need 1 more than $limit, so we can respond 'continue'
+			if ( $count <= $limit ) {
 				// Query planner should be smart enough that passing a short list of ids to exclude
 				// will only visit at most that number of extra rows.
 				$mixedNotifs = $notifMapper->fetchByUser(
 					$user,
-					$limit - $count,
-					null,
+					$limit - $count + 1,
+					// if there were unread notifications, 'continue' was for
+					// unread notifications and we should start fetching read
+					// notifications from start
+					$count > 0 ? null : $continue,
 					$eventTypes,
 					array_keys( $notifs )
 				);
@@ -141,11 +170,9 @@ class ApiEchoNotifications extends ApiQueryBase {
 		}
 
 		// Generate offset if necessary
-		if ( !$unreadFirst ) {
-			if ( count( $result['list'] ) > $limit ) {
-				$lastItem = array_pop( $result['list'] );
-				$result['continue'] = $lastItem['timestamp']['utcunix'] . '|' . $lastItem['id'];
-			}
+		if ( count( $result['list'] ) > $limit ) {
+			$lastItem = array_pop( $result['list'] );
+			$result['continue'] = $lastItem['timestamp']['utcunix'] . '|' . $lastItem['id'];
 		}
 
 		return $result;
