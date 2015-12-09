@@ -41,8 +41,6 @@
 	"notification-link-text-view-edit": "Үзгәртүне карау",
 	"notification-edit-talk-page2": "[[User:$1|$1]] сезнең [[User talk:$2#$3|бәхәс битегездә]] хат {{GENDER:$1|калдырды}}.",
 	"notification-edit-talk-page-with-section": "[[User:$1|$1]] сезнең бәхәс битегездә \"[[User talk:$2#$3|$4]]\" хат {{GENDER:$1|калдырды}}.",
-	"notification-edit-talk-page-flyout2": "$1 сезнең [[User talk:$2#$3|бәхәс битегездә]] хат {{GENDER:$1|калдырды}}.",
-	"notification-edit-talk-page-flyout-with-section": "$1 сезнең бәхәс битегездә \"[[User talk:$2#$3|$4]]\" хат {{GENDER:$1|калдырды}}.",
 	"notification-mention": "[[User:$1|$1]] $5 бәхәс битенең \"[[:$3#$2|$4]]\" бүлегендә сезне искә алды.",
 	"notification-mention-nosection": "[[User:$1|$1]] сезне [[:$3|$2 бәхәс битендә]] искә алды.",
 	"notification-reverted2": "[[$5|$1]] сезнең [[:$2]] битендә ясаган {{PLURAL:$4|кертемегезне}} {{GENDER:$1|кире какты}}. $3",
