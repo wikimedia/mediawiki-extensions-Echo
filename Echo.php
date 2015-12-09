@@ -355,6 +355,7 @@ $wgEchoNotifications = array(
 		'icon' => 'revert',
 	),
 	'page-linked' => array(
+		'presentation-model' => 'EchoPageLinkedPresentationModel',
 		'user-locators' => array(
 			'EchoUserLocator::locateArticleCreator',
 		),
@@ -368,8 +369,6 @@ $wgEchoNotifications = array(
 		'title-params' => array( 'agent', 'title', 'link-from-page' ),
 		'bundle-message' => 'notification-page-linked-bundle',
 		'bundle-params' => array( 'agent', 'title', 'link-from-page', 'link-from-page-other-display', 'link-from-page-other-count' ),
-		'flyout-message' => 'notification-page-linked-flyout',
-		'flyout-params' => array( 'agent', 'title', 'link-from-page' ),
 		'email-subject-message' => 'notification-page-linked-email-subject',
 		'email-subject-params' => array(),
 		'email-body-batch-message' => 'notification-page-linked-email-batch-body',
