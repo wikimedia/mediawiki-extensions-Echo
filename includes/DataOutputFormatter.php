@@ -171,7 +171,7 @@ class EchoDataOutputFormatter {
 	 *
 	 * @param User
 	 * @param string
-	 * @param int output format
+	 * @param int $format output format
 	 *
 	 * @return string
 	 */
