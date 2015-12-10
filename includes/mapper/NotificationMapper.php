@@ -105,6 +105,23 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	}
 
 	/**
+	 * Get read notifications by user in the amount specified by limit order by
+	 * notification timestamp in descending order.  We have an index to retrieve
+	 * unread notifications but it's not optimized for ordering by timestamp.  The
+	 * descending order is only allowed if we keep the notification in low volume,
+	 * which is done via a deleteJob
+	 * @param User $user
+	 * @param int $limit
+	 * @param string $continue Used for offset
+	 * @param string[] $eventTypes
+	 * @param int $dbSource Use master or slave database
+	 * @return EchoNotification[]
+	 */
+	public function fetchReadByUser( User $user, $limit, $continue, array $eventTypes = array(), $dbSource = DB_SLAVE ) {
+		return $this->fetchByUserInternal( $user, $limit, $continue, $eventTypes, array( 'notification_read_timestamp IS NOT NULL' ), $dbSource );
+	}
+
+	/**
 	 * Get Notification by user in batch along with limit, offset etc
 	 *
 	 * @param User $user the user to get notifications for

@@ -24,7 +24,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 			if ( $params['groupbysection'] ) {
 				foreach ( $params['sections'] as $section ) {
 					$result[$section] = $this->getSectionPropList(
-						$user, $section, $params['limit'],
+						$user, $section, $params['filter'], $params['limit'],
 						$params[$section . 'continue'], $params['format'], $params[$section . 'unreadfirst']
 					);
 					$this->getResult()->setIndexedTagName( $result[$section]['list'], 'notification' );
@@ -39,7 +39,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 				$result = $this->getPropList(
 					$user,
 					$attributeManager->getUserEnabledEventsbySections( $user, 'web', $params['sections'] ),
-					$params['limit'], $params['continue'], $params['format']
+					$params['filter'], $params['limit'], $params['continue'], $params['format']
 				);
 				$this->getResult()->setIndexedTagName( $result['list'], 'notification' );
 				// 'index' is built on top of 'list'
@@ -65,13 +65,14 @@ class ApiEchoNotifications extends ApiQueryBase {
 	 * Internal method for getting the property 'list' data for individual section
 	 * @param User $user
 	 * @param string $section 'alert' or 'message'
+	 * @param string $filter 'all', 'read' or 'unread'
 	 * @param int $limit
 	 * @param string $continue
 	 * @param string $format
 	 * @param boolean $unreadFirst
 	 * @return array
 	 */
-	protected function getSectionPropList( User $user, $section, $limit, $continue, $format, $unreadFirst = false ) {
+	protected function getSectionPropList( User $user, $section, $filter, $limit, $continue, $format, $unreadFirst = false ) {
 		$attributeManager = EchoAttributeManager::newFromGlobalVars();
 		$sectionEvents = $attributeManager->getUserEnabledEventsbySections( $user, 'web', array( $section ) );
 
@@ -82,7 +83,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 			);
 		} else {
 			$result = $this->getPropList(
-				$user, $sectionEvents, $limit, $continue, $format, $unreadFirst
+				$user, $sectionEvents, $filter, $limit, $continue, $format, $unreadFirst
 			);
 		}
 
@@ -95,13 +96,14 @@ class ApiEchoNotifications extends ApiQueryBase {
 	 * of a set of sections or a single section
 	 * @param User $user
 	 * @param string[] $eventTypes
+	 * @param string $filter 'all', 'read' or 'unread'
 	 * @param int $limit
 	 * @param string $continue
 	 * @param string $format
 	 * @param boolean $unreadFirst
 	 * @return array
 	 */
-	protected function getPropList( User $user, array $eventTypes, $limit, $continue, $format, $unreadFirst = false ) {
+	protected function getPropList( User $user, array $eventTypes, $filter, $limit, $continue, $format, $unreadFirst = false ) {
 		$result = array(
 			'list' => array(),
 			'continue' => null
@@ -109,57 +111,66 @@ class ApiEchoNotifications extends ApiQueryBase {
 
 		$notifMapper = new EchoNotificationMapper();
 
-		// Prefer unread notifications. We don't care about next offset in this case
-		if ( $unreadFirst ) {
-			// query for unread notifications past 'continue' (offset)
+		// check if we want both read & unread...
+		if ( in_array( 'read', $filter ) && in_array( '!read', $filter ) ) {
+			// Prefer unread notifications. We don't care about next offset in this case
+			if ( $unreadFirst ) {
+				// query for unread notifications past 'continue' (offset)
+				$notifs = $notifMapper->fetchUnreadByUser( $user, $limit + 1, $continue, $eventTypes );
+
+				/*
+				 * 'continue' has a timestamp & id (to start with, in case
+				 * there would be multiple events with that same timestamp)
+				 * Unread notifications should always load first, but may be
+				 * older than read ones, but we can work with current
+				 * 'continue' format:
+				 * * if there's no continue, first load unread notifications
+				 * * if there's a continue, fetch unread notifications first
+				 * * if there are no unread ones, continue must've been
+				 *   about read notifications: fetch 'em
+				 * * if there are unread ones but first one doesn't match
+				 *   continue id, it must've been about read notifications:
+				 *   discard unread & fetch read
+				 */
+				if ( $notifs && $continue ) {
+					/** @var EchoNotification $first */
+					$first = reset( $notifs );
+					$continueId = intval( trim( strrchr( $continue, '|' ), '|' ) );
+					if ( $first->getEvent()->getID() !== $continueId ) {
+						// notification doesn't match continue id, it must've been
+						// about read notifications: discard all unread ones
+						$notifs = array();
+					}
+				}
+
+				// If there are less unread notifications than we requested,
+				// then fill the result with some read notifications
+				$count = count( $notifs );
+				// we need 1 more than $limit, so we can respond 'continue'
+				if ( $count <= $limit ) {
+					// Query planner should be smart enough that passing a short list of ids to exclude
+					// will only visit at most that number of extra rows.
+					$mixedNotifs = $notifMapper->fetchByUser(
+						$user,
+						$limit - $count + 1,
+						// if there were unread notifications, 'continue' was for
+						// unread notifications and we should start fetching read
+						// notifications from start
+						$count > 0 ? null : $continue,
+						$eventTypes,
+						array_keys( $notifs )
+					);
+					foreach ( $mixedNotifs as $notif ) {
+						$notifs[$notif->getEvent()->getId()] = $notif;
+					}
+				}
+			} else {
+				$notifs = $notifMapper->fetchByUser( $user, $limit + 1, $continue, $eventTypes );
+			}
+		} elseif ( in_array( 'read', $filter ) ) {
+			$notifs = $notifMapper->fetchReadByUser( $user, $limit + 1, $continue, $eventTypes );
+		} else { // = if ( in_array( '!read', $filter ) ) {
 			$notifs = $notifMapper->fetchUnreadByUser( $user, $limit + 1, $continue, $eventTypes );
-
-			/*
-			 * 'continue' has a timestamp & id (to start with, in case there
-			 * would be multiple events with that same timestamp)
-			 * Unread notifications should always load first, but may be older
-			 * than read ones, but we can work with current 'continue' format:
-			 * * if there is no continue, first load unread notifications
-			 * * if there is a continue, fetch unread notifications first:
-			 * * if there are no unread ones, continue must've been about read:
-			 *   fetch 'em
-			 * * if there are unread ones but first one doesn't match continue
-			 *   id, it must've been about read: discard unread & fetch read
-			 */
-			if ( $notifs && $continue ) {
-				/** @var EchoNotification $first */
-				$first = reset( $notifs );
-				$continueId = intval( trim( strrchr( $continue, '|' ), '|' ) );
-				if ( $first->getEvent()->getID() !== $continueId ) {
-					// notification doesn't match continue id, it must've been
-					// about read notifications: discard all unread ones
-					$notifs = array();
-				}
-			}
-
-			// If there are less unread notifications than we requested,
-			// then fill the result with some read notifications
-			$count = count( $notifs );
-			// we need 1 more than $limit, so we can respond 'continue'
-			if ( $count <= $limit ) {
-				// Query planner should be smart enough that passing a short list of ids to exclude
-				// will only visit at most that number of extra rows.
-				$mixedNotifs = $notifMapper->fetchByUser(
-					$user,
-					$limit - $count + 1,
-					// if there were unread notifications, 'continue' was for
-					// unread notifications and we should start fetching read
-					// notifications from start
-					$count > 0 ? null : $continue,
-					$eventTypes,
-					array_keys( $notifs )
-				);
-				foreach ( $mixedNotifs as $notif ) {
-					$notifs[$notif->getEvent()->getId()] = $notif;
-				}
-			}
-		} else {
-			$notifs = $notifMapper->fetchByUser( $user, $limit + 1, $continue, $eventTypes );
 		}
 
 		foreach ( $notifs as $notif ) {
@@ -224,6 +235,14 @@ class ApiEchoNotifications extends ApiQueryBase {
 	public function getAllowedParams() {
 		$sections = EchoAttributeManager::$sections;
 		$params = array(
+			'filter' => array(
+				ApiBase::PARAM_ISMULTI => true,
+				ApiBase::PARAM_DFLT => 'read|!read',
+				ApiBase::PARAM_TYPE => array(
+					'read',
+					'!read',
+				),
+			),
 			'prop' => array(
 				ApiBase::PARAM_ISMULTI => true,
 				ApiBase::PARAM_TYPE => array(
