@@ -72,7 +72,7 @@
 	"notification-mention": "[[User:$1|$1]] Vas je {{GENDER:$1|spomenuо|spomenula}} na stranici za razgovor $5 u \"[[:$3#$2|$4]]\".",
 	"notification-header-mention": "$1 Vas je {{GENDER:$2|spomenuo|spomenula}} na stranici za razgovor $3 u odlomku \"$4\".",
 	"notification-mention-nosection": "[[User:$1|$1]] vas je {{GENDER:$1|spomenuo|spomenula}} na [[:$3|stranici za razgovor $2]].",
-	"notification-header-mention-nosection": "$1 Vas je {{GENDER:$2|spomenuo|spomenula}} na [[:$4|stranici za razgovor $3]].",
+	"notification-header-mention-nosection": "$1 {{GENDER:$2|spomenuo|spomenula}} {{GENDER:$5|vas}} na [[:$4|stranici za razgovor $3]].",
 	"notification-user-rights": "Vaša korisnička prava [[Special:Log/rights/$1|{{GENDER:$1|promijenio|promijenila}}]] je [[User:$1|$1]]. $2. [[Special:ListGroupRights|Saznajte više]]",
 	"notification-header-user-rights": "Vaša korisnička prava je {{GENDER:$2|promijenio|promijenila}} $1. $3.",
 	"notification-user-rights-add": "Od sad ste član {{PLURAL:$2|ove grupe|ovih grupa}}: $1",

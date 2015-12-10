@@ -77,6 +77,7 @@
 	"notification-link-text-view-edit": "Просмотр правки",
 	"notification-edit-talk-page2": "[[User:$1|$1]] {{GENDER:$1|оставил|оставила}} сообщение на вашей [[User talk:$2#$3|странице обсуждения]].",
 	"notification-edit-talk-page-with-section": "[[User:$1|$1]] {{GENDER:$1|оставил|оставила}} сообщение на вашей странице обсуждения \"[[User talk:$2#$3|$4]]\".",
+	"notification-body-edit-user-talk-with-section": "$1",
 	"notification-page-linked": "На [[:$2]] {{GENDER:$1|сослались}} из [[:$3]]. [[Special:WhatLinksHere/$2|См. все ссылки на эту страницу]].",
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|прокомментировал|прокомментировала}} тему \"[[$3|$2]]\" на странице обсуждения \"$4\".",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] {{GENDER:$1|добавил|добавила}} новую тему \"$2\" на странице [[$3]].",
