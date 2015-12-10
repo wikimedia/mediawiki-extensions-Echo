@@ -466,7 +466,7 @@ $wgEchoConfig = array(
 		 */
 		'Echo' => array(
 			'enabled' => false,
-			'revision' => 7572295,
+			'revision' => 7731316,
 			'client' => false,
 		),
 		'EchoMail' => array(
