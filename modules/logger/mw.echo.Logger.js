@@ -87,8 +87,9 @@
 	 * @param {int} [eventId] Notification event id
 	 * @param {string} [eventType] notification type
 	 * @param {boolean} [mobile] True if interaction was on a mobile device
+	 * @param {string} [notifWiki] Wiki the notification came from
 	 */
-	mw.echo.Logger.prototype.logInteraction = function ( action, context, eventId, eventType, mobile ) {
+	mw.echo.Logger.prototype.logInteraction = function ( action, context, eventId, eventType, mobile, notifWiki ) {
 		if ( !this.constructor.static.clickThroughEnabled ) {
 			return;
 		}
@@ -109,6 +110,10 @@
 		}
 		if ( mobile ) {
 			myEvt.mobile = mobile;
+		}
+
+		if ( notifWiki && notifWiki !== mw.config.get( 'wgDBname' ) ) {
+			myEvt.notifWiki = notifWiki;
 		}
 
 		this.deferred.done( function () {
