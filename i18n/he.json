@@ -71,7 +71,7 @@
 	"notification-header-edit-user-talk-with-section": "$1 {{GENDER:$2|השאיר|השאירה}} הודעה בדף השיחה {{GENDER:$3|שלך}} בפסקה \"$4\".",
 	"notification-page-linked": "{{GENDER:$1|נוסף קישור}} אל הדף [[:$2]] מהדף [[:$3]]. [[Special:WhatLinksHere/$2|כל הקישורים אל הדף הזה]].",
 	"notification-header-page-linked": "{{GENDER:$2|מישהו קישר|מישהי קישרה}} לדף $3 מהדף $4.",
-	"notification-bundle-header-page-linked": "{{GENDER:$3|מישהו קישר|מישהי קישרה}} לדף $3 מ{{GRAMMAR:תחילית|$4}} ומעוד {{PLURAL:$6|דף אחד|$5 דפים}}.",
+	"notification-bundle-header-page-linked": "{{GENDER:$2|מישהו קישר|מישהי קישרה}} לדף $3 מ{{GRAMMAR:תחילית|$4}} ומעוד {{PLURAL:$6|דף אחד|$5 דפים}}.",
 	"notification-link-text-what-links-here": "הצגת כל הקישורים לדף הזה",
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|העיר|העירה}} על הנושא \"[[$3|$2]]\" בדף השיחה של \"$4\".",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] {{GENDER:$1|והוסיף|הוסיפה}} את נושא החדש \"$2\" לדף [[$3]]",
