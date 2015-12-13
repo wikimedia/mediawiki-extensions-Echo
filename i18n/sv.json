@@ -75,7 +75,7 @@
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] {{GENDER:$1|la in}} ett nytt ämne \"$2\" på [[$3]].",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] {{GENDER:$1|skickade}} ett meddelande till dig: \"[[$3#$2|$2]]\".",
 	"notification-add-comment-yours2": "[[User:$1|$1]] {{GENDER:$1|kommenterade}} om \"[[$3#$2|$2]]\" på din diskussionssida.",
-	"notification-mention": "[[User:$1|$1]] {{GENDER:$1|nämnde}} {{GENDER:$6|dig}} på $5 i avsnittet \"[[:$3#$2|$4]]\".",
+	"notification-mention": "[[User:$1|$1]] {{GENDER:$1|nämnde}} {{GENDER:$6|dig}} på $5 diskussionssida på \"[[:$3#$2|$4]]\".",
 	"notification-header-mention": "$1 {{GENDER:$2|nämnde}} {{GENDER:$5|dig}} på diskussionssidan för $3 i \"$4\".",
 	"notification-mention-nosection": "[[User:$1|$1]] {{GENDER:$1|nämnde}} {{GENDER:$4|dig}} på [[:$3|$2]].",
 	"notification-header-mention-nosection": "$1 {{GENDER:$2|nämnde}} {{GENDER:$5|dig}} på [[:$4|$3 diskussionssida]].",

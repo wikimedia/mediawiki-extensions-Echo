@@ -61,6 +61,7 @@
 	"notification-edit-talk-page-with-section": "[[User:$1|$1]] {{GENDER:$1|huet}} e Message op Ärer Diskussiounssäit ënner \"[[User talk:$2#$3|$4]]\" hannerlooss.",
 	"notification-body-edit-user-talk-with-section": "$1",
 	"notification-page-linked": "[[:$2]] gouf vun [[:$3]] {{GENDER:$1|verlinkt}}. [[Special:WhatLinksHere/$2|Kuckt all Linken op dës Säit]].",
+	"notification-header-page-linked": "$3 gouf vu(n) $4 {{GENDER:$2|verlinkt}}.",
 	"notification-link-text-what-links-here": "All Linken op dës Säit weisen",
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|huet}} eng Bemierkung iwwer \"[[$3|$2]]\" op der \"$4\" Diskussiounssäit geschriwwen.",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] {{GENDER:$1|huet}} en neit Thema \"$2\" op [[$3]] ugefaang.",

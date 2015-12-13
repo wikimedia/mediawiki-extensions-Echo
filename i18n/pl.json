@@ -77,6 +77,7 @@
 	"notification-header-edit-user-talk": "$1 {{GENDER:$2|zostawił|zostawiła|zostawił(a)}} wiadomość na {{GENDER:$3|Twojej}} stronie dyskusji.",
 	"notification-body-edit-user-talk-with-section": "$1",
 	"notification-page-linked": "W artykule [[:$3]] {{GENDER:$1|umieszczono}} link do artykułu [[:$2]]. [[Special:WhatLinksHere/$2|Pokaż wszystkie linkujące do artykułu $2]].",
+	"notification-link-text-what-links-here": "Zobacz wszystkie linki do tej strony",
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|umieścił|umieściła}} komentarz do „[[$3|$2]]” na stronie dyskusji „$4”",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] {{GENDER:$1|umieścił|umieściła}} komentarz w nowym wątku „$2” na stronie [[$3]]",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] {{GENDER:$1|wysłał|wysłała}} ci wiadomość: „[[$3#$2|$2]]”",

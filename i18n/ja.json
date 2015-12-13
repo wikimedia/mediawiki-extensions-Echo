@@ -7,7 +7,8 @@
 			"Penn Station",
 			"Sujiniku",
 			"2nd-player",
-			"Takot"
+			"Takot",
+			"Otokoume"
 		]
 	},
 	"echo-desc": "イベントおよびメッセージについて、ユーザーに通知するシステム",
@@ -58,6 +59,7 @@
 	"echo-quotation-marks": "「$1」",
 	"echo-api-failure": "通知を取得できませんでした。もう一度、やりなおしてください。(エラー $1)",
 	"echo-notification-placeholder": "通知はありません。",
+	"echo-notification-loginrequired": "通知を表示するにはログインしてください。",
 	"notification-link-text-view-message": "メッセージを閲覧",
 	"notification-link-text-view-mention": "言及を閲覧",
 	"notification-link-text-view-changes": "差分を閲覧",
@@ -65,7 +67,12 @@
 	"notification-link-text-view-edit": "編集内容を閲覧",
 	"notification-edit-talk-page2": "[[User:$1|$1]] があなたの[[User talk:$2#$3|トークページ]]にメッセージを{{GENDER:$1|投稿しました}}。",
 	"notification-edit-talk-page-with-section": "[[User:$1|$1]] があなたのトークページの「[[User talk:$2#$3|$4]]」にメッセージを{{GENDER:$1|投稿しました}}。",
+	"notification-header-edit-user-talk": "$1 が{{GENDER:$3|あなたの}}トークページにメッセージを{{GENDER:$2|残しました}}。",
+	"notification-header-edit-user-talk-with-section": "$1 が「$4」で{{GENDER:$3|あなたの}}トークページにメッセージを{{GENDER:$2|残しました}}。",
 	"notification-page-linked": "[[:$2]] が [[:$3]] から{{GENDER:$1|リンクされました}}。[[Special:WhatLinksHere/$2|このページのリンク元]]",
+	"notification-header-page-linked": "$3 が $4 から{{GENDER:$2|リンクされました}}。",
+	"notification-bundle-header-page-linked": "$3 が $4 と他$5件の{{PLURAL:$6|ページ}}から{{GENDER:$2|リンクされました}}。",
+	"notification-link-text-what-links-here": "このページへリンクしているすべてのページを参照",
 	"notification-add-comment2": "[[User:$1|$1]] が「$4」のトークページの「[[$3|$2]]」に{{GENDER:$1|コメントしました}}。",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] が [[$3]] に新しい話題「$2」を{{GENDER:$1|投稿しました}}。",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] があなたにメッセージを{{GENDER:$1|送信しました}}:「[[$3#$2|$2]]」",
@@ -113,6 +120,7 @@
 	"echo-date-yesterday": "昨日",
 	"echo-load-more-error": "結果の続きを取得する際にエラーが発生しました。",
 	"notification-edit-talk-page-bundle": "$1 と他 $3 {{PLURAL:$4|人}}があなたの[[User talk:$2|トークページ]]にメッセージを{{GENDER:$1|投稿しました}}。",
+	"notification-bundle-header-edit-user-talk": "$1 と{{PLURAL:$5|他}}$4人が{{GENDER:$3|あなたの}}トークページにメッセージを{{GENDER:$2|残しました}}。",
 	"notification-edit-user-talk-email-batch-bundle-body": "$1 と他 $2 {{PLURAL:$3|人}}があなたのトークページにメッセージを{{GENDER:$1|投稿しました}}。",
 	"notification-page-linked-email-batch-bundle-body": "$2 が $3 と他 $4 {{PLURAL:$5|件のページ}}から{{GENDER:$1|リンクされました}}。",
 	"echo-email-batch-subject-daily": "{{SITENAME}}で{{PLURAL:$2|新たな通知}}が届いています",
