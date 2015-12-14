@@ -12,13 +12,13 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 
 	/**
 	 * Notification title data for archive page
-	 * @param array
+	 * @var array
 	 */
 	protected $title;
 
 	/**
 	 * Notification title data for flyout
-	 * @param array
+	 * @var array
 	 */
 	protected $flyoutTitle;
 
@@ -29,13 +29,13 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 
 	/**
 	 * Notification email data
-	 * @param array
+	 * @var array
 	 */
 	protected $email;
 
 	/**
 	 * Notification icon for each type
-	 * @param string
+	 * @var string
 	 */
 	protected $icon;
 
@@ -43,7 +43,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	 * @todo make this private
 	 * The language to format a message, default language
 	 * is the current language
-	 * @param mixed Language code or Language object
+	 * @var mixed Language code or Language object
 	 */
 	protected $language;
 
