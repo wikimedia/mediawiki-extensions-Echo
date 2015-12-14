@@ -7,5 +7,5 @@ def env_or_default(key, default)
   ENV[key].nil? ? default : ENV[key].to_i
 end
 
-PageObject.default_page_wait = env_or_default 'PAGE_WAIT_TIMEOUT', 10
-PageObject.default_element_wait = env_or_default 'ELEMENT_WAIT_TIMEOUT', 30
+PageObject.default_page_wait = env_or_default 'PAGE_WAIT_TIMEOUT', 60
+PageObject.default_element_wait = env_or_default 'ELEMENT_WAIT_TIMEOUT', 60
