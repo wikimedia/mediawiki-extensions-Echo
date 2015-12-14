@@ -17,12 +17,12 @@ require_once ( getenv( 'MW_INSTALL_PATH' ) !== false
 class UpdateEchoSchemaForSuppression extends Maintenance {
 
 	/**
-	 * @var $table string The table to update
+	 * @var string The table to update
 	 */
 	protected $table = 'echo_event';
 
 	/**
-	 * @var $idField string The primary key column of the table to update
+	 * @var string The primary key column of the table to update
 	 */
 	protected $idField = 'event_id';
 
