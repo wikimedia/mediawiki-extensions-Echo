@@ -8,7 +8,7 @@ class EchoEmailFormatterTest extends MediaWikiTestCase {
 	private $emailSingle;
 	private $emailDigest;
 
-	public function setUp() {
+	protected function setUp() {
 		parent::setUp();
 
 		$this->setMwGlobals( 'wgAllowHTMLEmail', true );

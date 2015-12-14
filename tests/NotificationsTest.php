@@ -12,7 +12,7 @@ class NotificationsTest extends MediaWikiTestCase {
 	var $sysop;
 	// @codingStandardsIgnoreEnd
 
-	public function setUp() {
+	protected function setUp() {
 		parent::setUp();
 		$this->sysop = User::newFromName( 'UTSysop' );
 		$this->setMwGlobals( 'wgUser', $this->sysop );

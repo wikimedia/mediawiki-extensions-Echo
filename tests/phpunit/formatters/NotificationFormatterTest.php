@@ -5,7 +5,7 @@
  */
 class EchoNotificationFormatterTest extends MediaWikiTestCase {
 
-	public function setUp() {
+	protected function setUp() {
 		parent::setUp();
 		$user = new User();
 		$user->setName( 'Notification-formatter-test' );
