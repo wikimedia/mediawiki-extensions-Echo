@@ -3,7 +3,8 @@
 		"authors": [
 			"Avjoska",
 			"Kyng",
-			"Pikne"
+			"Pikne",
+			"Игорь Бродский"
 		]
 	},
 	"echo-desc": "Süsteem, millega teavitatakse kasutajaid sündmustest ja sõnumitest",
@@ -44,7 +45,7 @@
 	"echo-no-title": "[Lehekülge pole]",
 	"echo-error-no-formatter": "Teavituse vormindusviis on määramata.",
 	"notifications": "Teavitused",
-	"tooltip-pt-notifications-alert": "Sinu märguanded",
+	"tooltip-pt-notifications-alert": "Teiden tedotused",
 	"tooltip-pt-notifications-message": "{{GENDER:|Sinu}} sõnumid",
 	"echo-specialpage": "Teavitused",
 	"echo-anon": "Et teavitusi saada, [$1 loo konto] või [$2 logi sisse].",
