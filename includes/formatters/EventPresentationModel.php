@@ -132,6 +132,7 @@ abstract class EchoEventPresentationModel {
 	 * @param bool $includeCurrent Include the current event (and its group)
 	 * @param callable $groupCallback Callback that takes an EchoEvent and returns a grouping value
 	 * @return int Number of bundled events or groups
+	 * @throws InvalidArgumentException
 	 */
 	final protected function getBundleCount( $includeCurrent = true, $groupCallback = null ) {
 		$events = array_merge( $this->getBundledEvents(), array( $this->event ) );
@@ -140,7 +141,7 @@ abstract class EchoEventPresentationModel {
 				// If we pass an invalid callback to array_map(), it'll just throw a warning
 				// and return NULL, so $count ends up being 0 or -1. Instead of doing that,
 				// throw an exception.
-				throw new MWException( 'Invalid callback passed to getBundleCount' );
+				throw new InvalidArgumentException( 'Invalid callback passed to getBundleCount' );
 			}
 			$events = array_unique( array_map( $groupCallback, $events ) );
 		}
