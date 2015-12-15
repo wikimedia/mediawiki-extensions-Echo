@@ -31,7 +31,54 @@
 	OO.initClass( mw.echo.dm.NetworkHandler );
 	OO.mixinClass( mw.echo.dm.NetworkHandler, OO.EventEmitter );
 
+	/* Static methods */
+	/**
+	 * Wait for all promises to finish either with a resolve or reject and
+	 * return them to the caller once they do.
+	 *
+	 * @param {jQuery.Promise[]} promiseArray An array of promises
+	 * @return {jQuery.Promise} A promise that resolves when all the promises
+	 *  finished with some resolution or rejection.
+	 */
+	mw.echo.dm.NetworkHandler.static.waitForAllPromises = function ( promiseArray ) {
+		var i,
+			promises = promiseArray.slice( 0 ),
+			counter = 0,
+			deferred = $.Deferred(),
+			countPromises = function () {
+				counter++;
+				if ( counter === promises.length ) {
+					deferred.resolve( promises );
+				}
+			};
+
+		for ( i = 0; i < promises.length; i++ ) {
+			promises[ i ].always( countPromises );
+		}
+
+		return deferred.promise();
+	};
+
 	/* Methods */
+
+	/**
+	 * Fetch notifications from several sources
+	 *
+	 * @param {string[]} sourceArray Sources
+	 * @return {jQuery.Promise} A promise that resolves with an array of promises for
+	 *  fetchNotifications per each given source in the source array.
+	 */
+	mw.echo.dm.NetworkHandler.prototype.fetchNotificationGroups = function ( sourceArray ) {
+		var i, promise,
+			promises = [];
+
+		for ( i = 0; i < sourceArray.length; i++ ) {
+			promise = this.getApiHandler( sourceArray[ i ] ).fetchNotifications();
+			promises.push( promise );
+		}
+
+		return this.constructor.static.waitForAllPromises( promises );
+	};
 
 	/**
 	 * Get the API handler that matches the symbolic name

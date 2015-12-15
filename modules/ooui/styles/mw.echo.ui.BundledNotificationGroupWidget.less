@@ -1,0 +1,33 @@
+.mw-echo-ui-bundledNotificationGroupWidget {
+
+	&:not(:first-child) {
+		margin-top: 0.5em;
+	}
+
+	&-title {
+		font-weight: bold;
+		color: #666666;
+	}
+
+	.mw-echo-ui-notificationItemWidget {
+		padding: 0.5em;
+		border: 1px solid #DDDDDD;
+
+		&:not(:last-child) {
+			border-bottom: 0;
+		}
+
+		&-icon img {
+			height: 1.5em;
+			width: 1.5em;
+		}
+
+		&-content {
+			padding-left: 2em;
+		}
+
+		&-markAsReadButton {
+			padding-top: 0;
+		}
+	}
+}

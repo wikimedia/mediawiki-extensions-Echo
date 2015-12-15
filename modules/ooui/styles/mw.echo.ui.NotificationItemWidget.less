@@ -1,15 +1,16 @@
 @import '../../echo.variables';
+@import '../../echo.mixins';
 
 .mw-echo-ui-notificationItemWidget {
-	padding: 0.5em;
+	padding: 1em 0.5em;
 	background-color: #F1F1F1;
 	border-bottom: 1px solid #DDDDDD;
 	white-space: normal;
-	font-size: 13px;
 	line-height: 16px;
 
 	&:hover > a {
 		text-decoration: none;
+		color: #666666;
 	}
 
 	&:not(:hover) a,
@@ -21,20 +22,95 @@
 		border-bottom: none;
 	}
 
-	.oo-ui-labelElement-label {
-		// We have to override this with !important because OOUI's rules for
-		// the label element are extremely strong and cannot be overridden
-		white-space: normal !important;
+	&-icon {
+		img {
+			height: 2.5em;
+			width: 2.5em;
+		}
+
+		position: absolute;
+	}
+
+	&-content {
+		display: inline-block;
+		// The icon is 2.5em and has a 1em right margin
+		padding-left: 2.5em + 1em;
+		box-sizing: border-box;
+		width: 100%;
+
+		// Only for bundled items
+		&-message {
+			.mw-echo-ui-notificationItemWidget-bundle & {
+				float: left;
+				display: inline-block;
+
+				&-header {
+					width: 18em;
+				}
+			}
+		}
+
+		&-actions {
+			margin-top: 0.5em;
+			font-size: 0.8em;
+
+			.mw-echo-ui-notificationItemWidget-bundle & {
+				display: inline;
+			}
+
+			&-button .oo-ui-buttonElement-button {
+				.mw-echo-ui-mixin-hover-opacity;
+
+				.oo-ui-labelElement-label {
+					// We have to override oojs-ui's color, which uses
+					// a very specific selector
+					font-weight: normal !important;
+					color: #000 !important;
+				}
+			}
+
+			&-menu {
+				.mw-echo-ui-notificationItemWidget-bundle & {
+					float: right;
+					margin-right: 0.5em;
+				}
+
+				.oo-ui-buttonElement-button {
+					.mw-echo-ui-mixin-hover-opacity;
+				}
+
+				.oo-ui-popupWidget-popup {
+					font-size: 1 / 0.8em;
+					padding: 0.5em;
+				}
+			}
+
+			&-timestamp {
+				float: right;
+				color: black;
+				opacity: @opacity-low;
+				.mw-echo-ui-notificationItemWidget-bundle & {
+					margin-top: 0.2em;
+				}
+			}
+
+		}
 	}
 
 	&-markAsReadButton {
+		.mw-echo-ui-mixin-hover-opacity;
 		float: right;
 		font-size: 1em;
-		opacity: 0.5;
-		padding: 0.5em;
+		margin-top: -0.5em;
+		padding: 0;
 
-		&:hover {
-			opacity: 1;
+		.mw-echo-ui-notificationItemWidget-bundle & {
+			font-size: 0.8em;
+			margin-top: 0;
+		}
+
+		&.oo-ui-buttonWidget {
+			margin-right: 0;
 		}
 	}
 

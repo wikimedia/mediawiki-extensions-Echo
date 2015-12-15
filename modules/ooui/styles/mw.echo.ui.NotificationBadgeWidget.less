@@ -3,7 +3,7 @@
 .mw-echo-ui-notificationBadgeButtonPopupWidget {
 	position: relative;
 
-	.oo-ui-popupWidget-footer {
+	&-popup > .oo-ui-popupWidget-popup > .oo-ui-popupWidget-footer {
 		border-top: 1px solid #DDDDDD;
 		width: 100%;
 
@@ -39,7 +39,7 @@
 		}
 	}
 
-	.oo-ui-popupWidget {
+	> .oo-ui-popupWidget {
 		// #p-personal li has a font-size of 0.75em, but we want the
 		// font size here to be exactly 0.875em, so we must override
 		// the parent em sizing by dividing.
@@ -48,24 +48,34 @@
 		// Align the popup with the center of the button
 		/* @noflip */
 		left: 1em;
+
+		> .oo-ui-popupWidget-popup {
+			> .oo-ui-popupWidget-head {
+				height: 3.5em;
+				border-bottom: 1px solid #dddddd;
+
+				> .oo-ui-iconWidget {
+					margin: 0.7em 0 1em 1em;
+					float: left;
+				}
+
+				> .oo-ui-labelElement-label {
+					font-size: 1.2em;
+					padding: 0.3em;
+					margin-left: 0;
+					font-weight: bold;
+				}
+
+				.mw-echo-ui-notificationsWidget-markAllReadButton {
+					margin: 1.25em 1em;
+				}
+			}
+
+			> .oo-ui-popupWidget-body {
+				// Work around scrollbar rendering bug in Chrome
+				overflow: visible;
+			}
+		}
 	}
 
-	.oo-ui-popupWidget-head {
-		height: 3.5em;
-		> .oo-ui-iconWidget {
-			float: left;
-			margin: 0.7em 0 1em 1em;
-		}
-
-		> .oo-ui-labelElement-label {
-			font-size: 1.2em;
-			padding: 0.3em;
-			margin-left: 0;
-			font-weight: bold;
-		}
-
-		.mw-echo-ui-notificationsWidget-markAllReadButton {
-			margin: 1.25em 1em;
-		}
-	}
 }

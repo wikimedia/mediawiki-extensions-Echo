@@ -8,12 +8,20 @@
 	 * @constructor
 	 * @param {mw.echo.dm.NetworkHandler} networkHandler Network handler
 	 * @param {Object} [config] Configuration object
+	 * @cfg {string} [id] Model id, used to refer to the model specifically.
+	 *  Falls back to the model's unique source
+	 * @cfg {string} [title=''] An optional title for the model. This is mostly used
+	 *  for nested bundled models inside group items.
 	 * @cfg {string|string[]} [type='alert'] Notification type 'alert', 'message'
 	 *  or an array [ 'alert', 'message' ]
 	 * @cfg {string} [source='local'] Model source, 'local' or some symbolic name identifying
 	 *  the source of the notification items for the network handler.
 	 * @cfg {number} [limit=25] Notification limit
 	 * @cfg {string} [userLang] User language
+	 * @cfg {boolean} [external] The model's source is external
+	 * @cfg {boolean} [removeReadNotifications=false] Remove read notifications completely. This
+	 *  means the model will only contain unread notifications. This is useful for
+	 *  cross-wiki bundled notifications.
 	 */
 	mw.echo.dm.NotificationsModel = function MwEchoDmNotificationsModel( networkHandler, config ) {
 		config = config || {};
@@ -26,6 +34,12 @@
 
 		this.type = config.type || 'alert';
 		this.source = config.source || 'local';
+		this.id = config.id || this.source;
+		this.title = config.title || '';
+
+		this.markingAllAsRead = false;
+		this.removeReadNotifications = !!config.removeReadNotifications;
+		this.external = !!config.external;
 
 		this.networkHandler = networkHandler;
 
@@ -38,12 +52,14 @@
 		// Events
 		this.aggregate( {
 			seen: 'itemSeen',
-			read: 'itemRead'
+			read: 'itemRead',
+			empty: 'itemGroupEmpty'
 		} );
 
 		this.connect( this, {
 			itemSeen: 'onItemSeen',
-			itemRead: 'onItemRead'
+			itemRead: 'onItemRead',
+			itemGroupEmpty: 'onItemGroupEmpty'
 		} );
 
 		this.setSortingCallback( function ( a, b ) {
@@ -55,7 +71,7 @@
 				return 1;
 			} else {
 				// Reverse sorting
-				diff = b.getTimestamp() - a.getTimestamp();
+				diff = Number( b.getTimestamp() ) - Number( a.getTimestamp() );
 				if ( diff !== 0 ) {
 					return diff;
 				}
@@ -100,6 +116,28 @@
 	 * All items are marked as read
 	 */
 
+	/**
+	 * @event empty
+	 *
+	 * The model is empty
+	 */
+
+	/**
+	 * @event done
+	 * @param {boolean} success The operation is successful
+	 * @param {Object} result The result of the operation. For success, the
+	 *  result includes the ids of the items. For failures, the result
+	 *  includes the error code from the failed API request
+	 * @param {string[]} [result.ids] An array of notification IDs that were
+	 *  fetched from the API. This only appears on success.
+	 * @param {string} [result.errCode] The error code from the API.
+	 *  This only appears on failure.
+	 * @param {Object} [result.errObj] The error object from the API.
+	 *  This only appears on failure.
+	 *
+	 * The process of fetching notifications from the API has finished
+	 */
+
 	/* Methods */
 
 	/**
@@ -137,8 +175,14 @@
 		// Update unread status and emit events
 		if ( unreadItem ) {
 			if ( isRead ) {
-				this.markItemReadInApi( id );
 				this.unreadNotifications.removeItems( [ unreadItem ] );
+				if ( !this.markingAllAsRead ) {
+					this.markItemReadInApi( id );
+				}
+				if ( this.removeReadNotifications ) {
+					// Remove this notification from the model
+					this.removeItems( [ unreadItem ] );
+				}
 			} else {
 				this.unreadNotifications.addItems( [ unreadItem ] );
 			}
@@ -152,6 +196,19 @@
 		if ( !this.countUnreadTalkPageNotifications() ) {
 			this.emit( 'allTalkRead' );
 		}
+	};
+
+	/**
+	 * Respond to grouped item being empty
+	 *
+	 * @param {mw.echo.dm.NotificationItem} item Group item
+	 */
+	mw.echo.dm.NotificationsModel.prototype.onItemGroupEmpty = function ( item ) {
+		// TODO: When we have other types of bundles, we should check how to handle
+		// empty bundles (and bundles with only 1 item left)
+		// In this case, the notification is a "cross wiki" notification, which
+		// goes away when it is empty
+		this.removeItems( [ item ] );
 	};
 
 	/**
@@ -198,6 +255,27 @@
 	 */
 	mw.echo.dm.NotificationsModel.prototype.getUnreadCount = function () {
 		return this.unreadNotifications.getItemCount();
+	};
+
+	/**
+	 * Get the counter of how many regular, non bundled notifications are unread
+	 *
+	 * @return {number} Number of non bundled unread notifications
+	 */
+	mw.echo.dm.NotificationsModel.prototype.getNonbundledUnreadCount = function () {
+		var i,
+			nonBundleItems = 0,
+			items = this.getItems();
+
+		for ( i = 0; i < items.length; i++ ) {
+			if (
+				!( items[ i ] instanceof mw.echo.dm.NotificationGroupItem ) &&
+				!items[ i ].isRead()
+			) {
+				nonBundleItems++;
+			}
+		}
+		return nonBundleItems;
 	};
 
 	/**
@@ -256,25 +334,36 @@
 	 *
 	 * @return {jQuery.Promise} A promise that resolves when all notifications
 	 * were marked as read.
+	 * @fires empty
 	 */
 	mw.echo.dm.NotificationsModel.prototype.markAllRead = function () {
-		var model = this;
+		var i, len,
+			items = this.unreadNotifications.getItems(),
+			length = items.length;
 
-		if ( !this.unreadNotifications.getItemCount() ) {
+		// In some cases our model is empty out of technicalities -- that is,
+		// we didn't fetch its items yet. In that case, when markAllRead is
+		// called, we should emit the empty event (that would have been
+		// emitted if there were items that were then marked as read and removed)
+		// and return a resolved promise
+		if ( length === 0 ) {
+			if ( this.removeReadNotifications ) {
+				this.emit( 'empty' );
+			}
 			return $.Deferred().resolve( 0 ).promise();
 		}
 
-		return this.getApi().markAllRead()
-			.then( function () {
-				var i, len,
-					items = model.unreadNotifications.getItems();
+		this.markingAllAsRead = true;
+		for ( i = 0, len = items.length; i < len; i++ ) {
+			if ( !items[ i ].isExternal() ) {
+				items[ i ].toggleRead( true );
+				items[ i ].toggleSeen( true );
+			}
+		}
+		this.unreadNotifications.clearItems();
+		this.markingAllAsRead = false;
 
-				for ( i = 0, len = items.length; i < len; i++ ) {
-					items[i].toggleRead( true );
-					items[i].toggleSeen( true );
-				}
-				model.unreadNotifications.clearItems();
-			} );
+		return this.getApi().markAllRead();
 	};
 
 	/**
@@ -307,53 +396,101 @@
 
 		// Rebuild the notifications promise either when it is null or when
 		// it exists in a failed state
-		return this.getApi().fetchNotifications( apiPromise )
-			.then( function ( result ) {
-				var notifData, i, len, t, tlen, $content,
-					notificationModel, types,
-					optionItems = [],
-					idArray = [],
-					data = OO.getProp( result.query, 'notifications', model.type ) || { index: [] };
+		return ( apiPromise || this.getApi().fetchNotifications() )
+			.then(
+				// Success
+				function ( result ) {
+					var notifData, id, t, tlen, s,
+						notificationModel, types, content,
+						newNotifData = {},
+						sources = {},
+						optionItems = [],
+						idArray = [],
+						data = OO.getProp( result.query, 'notifications', model.type ) || { index: [] },
+						sourceDefinitions = OO.getProp( result.query, 'notifications', 'sources' ) || {};
 
-				types = $.isArray( model.type ) ? model.type : [ model.type ];
+					types = $.isArray( model.type ) ? model.type : [ model.type ];
 
-				for ( t = 0, tlen = types.length; t < tlen; t++ ) {
-					data = OO.getProp( result.query, 'notifications', types[ t ] ) || { index: [] };
-					for ( i = 0, len = data.index.length; i < len; i++ ) {
-						notifData = data.list[ data.index[i] ];
-						if ( model.getItemById( notifData.id ) ) {
-							// Skip if we already have the item
-							continue;
-						}
-						// TODO: This should really be formatted better, and the OptionWidget
-						// should be the one that displays whatever icon relates to this notification
-						// according to its type.
-						$content = $( $.parseHTML( notifData['*'] ) );
+					for ( t = 0, tlen = types.length; t < tlen; t++ ) {
+						data = OO.getProp( result.query, 'notifications', types[ t ] ) || { list: [] };
+						for ( id in data.list ) {
+							notifData = data.list[ id ];
+							content = notifData['*'] || {};
 
-						notificationModel = new mw.echo.dm.NotificationItem(
-							notifData.id,
-							{
+							if ( model.getItemById( id ) ) {
+								// Skip if we already have the item
+								// TODO: Instead of skipping, we should consider repopulating
+								// the item, in case there are any changes that would result
+								// in repositioning/resorting in the future.
+								continue;
+							}
+
+							// Collect common data
+							newNotifData = {
 								read: !!notifData.read,
 								seen: !!notifData.read || notifData.timestamp.mw <= model.getSeenTime(),
 								timestamp: notifData.timestamp.mw,
 								category: notifData.category,
-								content: $content,
+								content: {
+									header: content.header,
+									body: content.body
+								},
+								iconURL: content.iconUrl,
+								iconType: content.icon,
 								type: model.getType(),
-								// Hack: Get the primary link from the $content
-								primaryUrl: $content.find( '.mw-echo-notification-primary-link' ).attr( 'href' )
+								external: model.isExternal(),
+								primaryUrl: OO.getProp( content.links, 'primary', 'url' ),
+								secondaryUrls: OO.getProp( content.links, 'secondary' ) || []
+							};
+
+							if ( notifData.type === 'external' ) {
+								// Define sources
+								sources = {};
+								for ( s = 0; s < notifData.sources.length; s++ ) {
+									sources[ notifData.sources[ s ] ] = sourceDefinitions[ notifData.sources[ s ] ];
+								}
+
+								// Create model
+								notificationModel = new mw.echo.dm.NotificationGroupItem(
+									model.networkHandler,
+									sources,
+									id,
+									$.extend( true, {}, newNotifData, {
+										// This should probably be separated by bundled
+										// type. Some types don't have read messages, but
+										// some do
+										removeReadNotifications: true,
+										// Override the external flag to 'true' for cross-wiki
+										// notifications.
+										// For bundles that are not external (like regular
+										// bundles of notifications) this flag should be false
+										external: true,
+										count: notifData.count
+									} )
+								);
+							} else {
+								notificationModel = new mw.echo.dm.NotificationItem(
+									id,
+									newNotifData
+								);
 							}
-						);
 
-						idArray.push( notifData.id );
-						optionItems.push( notificationModel );
+							idArray.push( notifData.id );
+							optionItems.push( notificationModel );
+						}
 					}
+
+					// Add to the model
+					model.addItems( optionItems, 0 );
+
+					model.emit( 'done', true, { ids: idArray } );
+					return idArray;
+				},
+				// Failure
+				function ( promise, errCode, errObj ) {
+					model.emit( 'done', false, { errCode: errCode, errObj: errObj } );
 				}
-
-				// Add to the model
-				model.addItems( optionItems, 0 );
-
-				return idArray;
-			} );
+			);
 	};
 
 	/**
@@ -372,7 +509,6 @@
 				this.unseenNotifications.addItems( [ items[ i ] ] );
 			}
 		}
-
 		// Parent
 		mw.echo.dm.SortedList.prototype.addItems.call( this, items );
 	};
@@ -393,6 +529,10 @@
 
 		// Parent
 		mw.echo.dm.SortedList.prototype.removeItems.call( this, items );
+
+		if ( this.isEmpty() ) {
+			this.emit( 'empty' );
+		}
 	};
 
 	/**
@@ -404,6 +544,7 @@
 
 		// Parent
 		mw.echo.dm.SortedList.prototype.clearItems.call( this );
+		this.emit( 'empty' );
 	};
 
 	/**
@@ -444,12 +585,70 @@
 	};
 
 	/**
+	 * Get the timestamp of the latest unread item
+	 *
+	 * @return {mw.echo.dm.APIHandler} API handler
+	 */
+	mw.echo.dm.NotificationsModel.prototype.getTimestamp = function () {
+		var items = this.getItems();
+
+		// This is a sorted list, so the top (first) item is also the 'latest'
+		// item for this purpose.
+		return items[ 0 ] && items[ 0 ].getTimestamp();
+	};
+
+	/**
 	 * Get the API handler associated with this model's source
 	 *
 	 * @return {mw.echo.dm.APIHandler} API handler
 	 */
 	mw.echo.dm.NotificationsModel.prototype.getApi = function () {
 		return this.networkHandler.getApiHandler( this.source );
+	};
+
+	/**
+	 * Get the network handler
+	 *
+	 * @return {mw.echo.dm.NetworkHandler} Network handler
+	 */
+	mw.echo.dm.NotificationsModel.prototype.getNetworkHandler = function () {
+		return this.networkHandler;
+	};
+
+	/**
+	 * Get the source this model is associated with
+	 *
+	 * @return {string} Symbolic name for the APIHandler source
+	 */
+	mw.echo.dm.NotificationsModel.prototype.getSource = function () {
+		return this.source;
+	};
+
+	/**
+	 * Get the title of this model
+	 *
+	 * @return {string} Title
+	 */
+	mw.echo.dm.NotificationsModel.prototype.getTitle = function () {
+		return this.title;
+	};
+
+	/**
+	 * Get the id of this model
+	 *
+	 * @return {string} id
+	 */
+	mw.echo.dm.NotificationsModel.prototype.getId = function () {
+		return this.id;
+	};
+
+	/**
+	 * This model is external
+	 *
+	 * @return {boolean} Model is external
+	 */
+	mw.echo.dm.NotificationsModel.prototype.isExternal = function () {
+		return this.external;
 	};
 
 } )( mediaWiki, jQuery );

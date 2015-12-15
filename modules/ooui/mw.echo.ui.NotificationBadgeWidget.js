@@ -37,6 +37,10 @@
 		OO.ui.mixin.PendingElement.call( this, config );
 
 		this.$overlay = config.$overlay || this.$element;
+		// Create a menu overlay
+		this.$menuOverlay = $( '<div>' )
+			.addClass( 'mw-echo-ui-NotificationBadgeWidget-overlay-menu' );
+		this.$overlay.append( this.$menuOverlay );
 
 		// View model
 		this.notificationsModel = model;
@@ -69,7 +73,7 @@
 			this.notificationsModel,
 			{
 				type: this.type,
-				$overlay: this.$overlay,
+				$overlay: this.$menuOverlay,
 				markReadWhenSeen: this.markReadWhenSeen
 			}
 		);
@@ -101,7 +105,9 @@
 			$footer: $footer,
 			width: config.popupWidth || 450,
 			autoClose: true,
-			$autoCloseIgnore: this.$element,
+			// Also ignore clicks from the nested action menu items, that
+			// actually exist in the overlay
+			$autoCloseIgnore: this.$element.add( this.$menuOverlay ),
 			head: true,
 			// The following messages can be used here:
 			// echo-notification-alert-text-only
@@ -201,7 +207,8 @@
 	 */
 	mw.echo.ui.NotificationBadgeWidget.prototype.updateBadge = function () {
 		var unseenCount = this.notificationsModel.getUnseenCount(),
-			unreadCount = this.notificationsModel.getUnreadCount();
+			unreadCount = this.notificationsModel.getUnreadCount(),
+			nonBundledUnreadCount = this.notificationsModel.getNonbundledUnreadCount();
 
 		// Update numbers and seen/unseen state
 		// If the popup is open, only allow a "demotion" of the badge
@@ -222,7 +229,7 @@
 		}
 
 		// Check if we need to display the 'mark all unread' button
-		this.markAllReadButton.toggle( !this.markReadWhenSeen && !!unreadCount );
+		this.markAllReadButton.toggle( !this.markReadWhenSeen && nonBundledUnreadCount > 0 );
 		this.currentUnreadCountInBadge = unreadCount;
 	};
 
@@ -261,22 +268,6 @@
 					// Log impressions
 					mw.echo.logger.logNotificationImpressions( this.type, idArray, mw.echo.Logger.static.context.popup );
 				} )
-				.then(
-					// Success
-					function () {
-						// Display the message only if there are no notifications
-						if ( widget.notificationsModel.isEmpty() ) {
-							widget.notificationsWidget.resetLoadingOption( mw.msg( 'echo-notification-placeholder' ) );
-						}
-					},
-					// Fail
-					function ( errCode ) {
-						// Display the message only if there are no notifications
-						if ( widget.notificationsModel.isEmpty() ) {
-							widget.notificationsWidget.resetLoadingOption( mw.msg( 'echo-api-failure', errCode ) );
-						}
-					}
-				)
 				.always( function () {
 					// Pop pending
 					widget.popPending();
