@@ -95,12 +95,13 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	 * which is done via a deleteJob
 	 * @param User $user
 	 * @param int $limit
+	 * @param string $continue Used for offset
 	 * @param string[] $eventTypes
 	 * @param int $dbSource Use master or slave database
 	 * @return EchoNotification[]
 	 */
-	public function fetchUnreadByUser( User $user, $limit, array $eventTypes = array(), $dbSource = DB_SLAVE ) {
-		return $this->fetchByUserInternal( $user, $limit, $eventTypes, array( 'notification_read_timestamp' => null ), $dbSource );
+	public function fetchUnreadByUser( User $user, $limit, $continue, array $eventTypes = array(), $dbSource = DB_SLAVE ) {
+		return $this->fetchByUserInternal( $user, $limit, $continue, $eventTypes, array( 'notification_read_timestamp' => null ), $dbSource );
 	}
 
 	/**
@@ -121,27 +122,19 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 			$conds[] = 'event_id NOT IN ( ' . $dbr->makeList( $excludeEventIds ) . ' ) ';
 		}
 
-		$offset = $this->extractQueryOffset( $continue );
-
-		// Start points are specified
-		if ( $offset['timestamp'] && $offset['offset'] ) {
-			$ts = $dbr->addQuotes( $dbr->timestamp( $offset['timestamp'] ) );
-			// The offset and timestamp are those of the first notification we want to return
-			$conds[] = "notification_timestamp < $ts OR ( notification_timestamp = $ts AND notification_event <= " . $offset['offset'] . " )";
-		}
-
-		return $this->fetchByUserInternal( $user, $limit, $eventTypes, $conds );
+		return $this->fetchByUserInternal( $user, $limit, $continue, $eventTypes, $conds );
 	}
 
 	/**
 	 * @param User $user the user to get notifications for
 	 * @param int $limit The maximum number of notifications to return
+	 * @param string $continue Used for offset
 	 * @param array $eventTypes Event types to load
 	 * @param array $conds Additional query conditions.
 	 * @param int $dbSource Use master or slave database
 	 * @return EchoNotification[]
 	 */
-	protected function fetchByUserInternal( User $user, $limit, array $eventTypes = array(), array $conds = array(), $dbSource = DB_SLAVE ) {
+	protected function fetchByUserInternal( User $user, $limit, $continue, array $eventTypes = array(), array $conds = array(), $dbSource = DB_SLAVE ) {
 		$dbr = $this->dbFactory->getEchoDb( $dbSource );
 
 		if ( !$eventTypes ) {
@@ -160,6 +153,15 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 			'event_type' => $eventTypes,
 			'notification_bundle_base' => 1
 		) + $conds;
+
+		$offset = $this->extractQueryOffset( $continue );
+
+		// Start points are specified
+		if ( $offset['timestamp'] && $offset['offset'] ) {
+			$ts = $dbr->addQuotes( $dbr->timestamp( $offset['timestamp'] ) );
+			// The offset and timestamp are those of the first notification we want to return
+			$conds[] = "notification_timestamp < $ts OR ( notification_timestamp = $ts AND notification_event <= " . $offset['offset'] . " )";
+		}
 
 		$res = $dbr->select(
 			array( 'echo_notification', 'echo_event', 'echo_target_page' ),
