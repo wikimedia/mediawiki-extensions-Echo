@@ -16,7 +16,7 @@ class EchoUserLocator {
 			return array();
 		}
 
-		$it = new EchoBatchRowIterator(
+		$it = new BatchRowIterator(
 			wfGetDB( DB_SLAVE, 'watchlist' ),
 			/* $table = */ 'watchlist',
 			/* $primaryKeys = */ array( 'wl_user' ),
