@@ -3,7 +3,8 @@
 		"authors": [
 			"Amire80",
 			"Autokrator",
-			"UV"
+			"UV",
+			"Laurentianus"
 		]
 	},
 	"echo-desc": "Modus nuntiorum mittendarum",
@@ -36,7 +37,7 @@
 	"echo-no-title": "[Nulla pagina]",
 	"notifications": "Nuntia",
 	"echo-specialpage": "Nuntia",
-	"echo-anon": "Ut nuntia accipias, [$1 rationem crees] aut [$2 conventum aperias] rogamus.",
+	"echo-anon": "Ut nuntia accipere possis, [$1 rationem crees] aut [$2 nomen tuum des] rogamus.",
 	"echo-none": "Nulla nuntia.",
 	"echo-more-info": "Plura legere",
 	"echo-feedback": "Responsa",
@@ -45,7 +46,6 @@
 	"notification-link-text-view-changes": "Mutata ostendere",
 	"notification-link-text-view-page": "Vide paginam",
 	"notification-link-text-view-edit": "Vide recensionem",
-	"notification-page-linked-flyout": "[[:$2]] nectum est a pagina [[:$3]].",
 	"notification-user-rights-add": "Nunc es sodalis {{PLURAL:$2|eius gregis|eorum gregium}}: $1",
 	"notification-user-rights-remove": "Non iam es sodalis {{PLURAL:$2|eius gregis|eorum gregium}}: $1",
 	"notification-new-user": "Salve ad {{grammar:accusative|{{SITENAME}}}}, $1!",
@@ -64,7 +64,6 @@
 	"echo-date-today": "Hodie",
 	"echo-date-yesterday": "Heri",
 	"echo-load-more-error": "Error in plura eventa quaerendo.",
-	"notification-page-linked-bundle": "$2 nectum est a $3 et $4 {{PLURAL:$5|alia pagina|aliis paginis}}. [[Special:WhatLinksHere/$2|Omnes nexus ad hanc paginam spectare]]",
 	"echo-email-batch-subject-daily": "Habes {{PLURAL:$2|novum nuntium|nova nuntia}} apud {{grammar:accusative|{{SITENAME}}}}",
 	"echo-email-batch-subject-weekly": "Habes {{PLURAL:$2|novum nuntium|nova nuntia}} apud {{grammar:accusative|{{SITENAME}}}} hac hebdomada",
 	"echo-email-batch-body-intro-daily": "Salve $1,\nHoc est summarium actionum hodiernarum apud {{grammar:accusative|{{SITENAME}}}}.",
