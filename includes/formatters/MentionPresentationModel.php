@@ -94,8 +94,8 @@ class EchoMentionPresentationModel extends EchoEventPresentationModel {
 
 	public function getPrimaryLink() {
 		return array(
-			$this->getTitleWithSection()->getLocalURL(),
-			$this->msg( 'notification-link-text-view-mention' )->text()
+			'url' => $this->getTitleWithSection()->getLocalURL(),
+			'label' => $this->msg( 'notification-link-text-view-mention' )->text()
 		);
 	}
 
@@ -105,7 +105,13 @@ class EchoMentionPresentationModel extends EchoEventPresentationModel {
 			'diff' => $this->event->getExtraParam( 'revid' )
 		) );
 		return array(
-			$url => $this->msg( 'notification-link-text-view-changes' )->text()
+			array(
+				'url' => $url,
+				'label' => $this->msg( 'notification-link-text-view-changes' )->text(),
+				'description' => '',
+				'icon' => false,
+				'prioritized' => true,
+			),
 		);
 	}
 }

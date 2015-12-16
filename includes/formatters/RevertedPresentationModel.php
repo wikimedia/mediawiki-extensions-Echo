@@ -23,7 +23,8 @@ class EchoRevertedPresentationModel extends EchoEventPresentationModel {
 			'diff' => $this->event->getExtraParam( 'revid' )
 		) );
 		return array(
-			$url, $this->msg( 'notification-link-text-view-changes' )->text()
+			'url' => $url,
+			'label' => $this->msg( 'notification-link-text-view-changes' )->text()
 		);
 	}
 
