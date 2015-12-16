@@ -75,7 +75,7 @@
 						$overlay: mw.echo.ui.$overlay,
 						numItems: numMessages,
 						hasUnseen: hasUnseenMessages,
-						badgeIcon: 'speechBubble',
+						badgeIcon: 'speechBubbles',
 						links: links,
 						href: $existingMessageLink.attr( 'href' )
 					} );

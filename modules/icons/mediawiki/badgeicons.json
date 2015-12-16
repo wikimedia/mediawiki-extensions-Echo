@@ -16,10 +16,10 @@
 				"rtl": "../bellOn-rtl.svg"
 			}
 		},
-		"speechBubble": {
+		"speechBubbles": {
 			"file": {
-				"ltr": "../speechBubble-ltr.svg",
-				"rtl": "../speechBubble-rtl.svg"
+				"ltr": "../speechBubbles-ltr.svg",
+				"rtl": "../speechBubbles-rtl.svg"
 			}
 		}
 	}
