@@ -47,8 +47,8 @@ class EchoUserRightsPresentationModel extends EchoEventPresentationModel {
 
 	public function getPrimaryLink() {
 		return array(
-			SpecialPage::getTitleFor( 'Listgrouprights' )->getLocalURL(),
-			$this->msg( 'echo-learn-more' )->text()
+			'url' => SpecialPage::getTitleFor( 'Listgrouprights' )->getLocalURL(),
+			'label' => $this->msg( 'echo-learn-more' )->text()
 		);
 	}
 }
