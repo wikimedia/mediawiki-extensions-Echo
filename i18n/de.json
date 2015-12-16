@@ -8,7 +8,8 @@
 			"ChrisiPK",
 			"Suriyaa Kudo",
 			"Purodha",
-			"Tiin"
+			"Tiin",
+			"Predatorix"
 		]
 	},
 	"echo-desc": "Stellt ein System zur Benachrichtigung von Benutzern über Ereignisse und Nachrichten bereit",
@@ -59,6 +60,11 @@
 	"echo-api-failure": "Benachrichtigungen konnten nicht abgerufen werden. Bitte erneut versuchen. (Fehler $1)",
 	"echo-notification-placeholder": "Es gibt keine Benachrichtigungen.",
 	"echo-notification-loginrequired": "Du musst dich anmelden, um deine Benachrichtigungen zu sehen.",
+	"notification-link-text-expand-all": "Alle aufklappen",
+	"notification-link-text-expand-alert-count": "{{PLURAL:$1|Eine Meldung|$1 Meldungen}} aufklappen",
+	"notification-link-text-expand-message-count": "{{PLURAL:$1|Eine Nachricht|$1 Nachrichten}} aufklappen",
+	"notification-link-text-expand-all-count": "{{PLURAL:$1|Eine Benachrichtigung|$1 Benachrichtigungen}} aufklappen",
+	"notification-link-text-collapse-all": "Alle einklappen",
 	"notification-link-text-view-message": "Nachricht ansehen",
 	"notification-link-text-view-mention": "Erwähnung ansehen",
 	"notification-link-text-view-changes": "Änderungen ansehen",

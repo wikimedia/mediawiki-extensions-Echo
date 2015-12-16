@@ -67,6 +67,8 @@
 	"echo-api-failure": "Nie udało się pobrać powiadomień. Spróbuj ponownie. (Błąd $1)",
 	"echo-notification-placeholder": "Nie ma powiadomień.",
 	"echo-notification-loginrequired": "Aby zobaczyć powiadomienia, musisz się zalogować.",
+	"notification-link-text-expand-all": "Rozwiń wszystkie",
+	"notification-link-text-collapse-all": "Zwiń wszystkie",
 	"notification-link-text-view-message": "Zobacz wiadomość",
 	"notification-link-text-view-mention": "Zobacz wzmiankę",
 	"notification-link-text-view-changes": "Zobacz zmiany",

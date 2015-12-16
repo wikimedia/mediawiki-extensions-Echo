@@ -9,7 +9,8 @@
 			"Siddhartha Ghai",
 			"NehalDaveND",
 			"राम प्रसाद जोशी",
-			"Angpradesh"
+			"Angpradesh",
+			"Sfic"
 		]
 	},
 	"echo-desc": "अधिसूचना प्रणाली",
@@ -54,6 +55,7 @@
 	"echo-none": "आपके लिये कोई अधिसूचना नहीं है।",
 	"echo-more-info": "अधिक जानकारी",
 	"echo-feedback": "आपके सुझाव",
+	"echo-notification-loginrequired": "सूचनाओं को देखने हेतु आपको प्रवेश करना होगा।",
 	"notification-link-text-view-message": "संदेश देखें",
 	"notification-link-text-view-mention": "उल्लेख देखें",
 	"notification-link-text-view-changes": "बदलाव देखें",
@@ -61,10 +63,7 @@
 	"notification-link-text-view-edit": "सम्पादन देखें",
 	"notification-edit-talk-page2": "[[User:$1|$1]] ने आपके [[User talk:$2#$3|वार्ता पृष्ठ]] पर एक नया सन्देश {{GENDER:$1|छोड़ा}} है।",
 	"notification-edit-talk-page-with-section": "[[User:$1|$1]] ने आपके वार्ता पृष्ठ पर \"[[User talk:$2#$3|$4]]\" भाग में एक नया सन्देश {{GENDER:$1|छोड़ा}} है।",
-	"notification-edit-talk-page-flyout2": "$1 ने आपके [[User talk:$2#$3|वार्ता पृष्ठ]] पर एक सन्देश {{GENDER:$1|छोड़ा}} है।",
-	"notification-edit-talk-page-flyout-with-section": "$1 ने आपके वार्ता पृष्ठ पर \"[[User talk:$2#$3|$4]]\" भाग में एक सन्देश {{GENDER:$1|छोड़ा}} है।",
 	"notification-page-linked": "[[:$3]] पर [[:$2]] की कड़ी {{GENDER:$1|जोड़ी}} गयी थी। [[Special:WhatLinksHere/$2|इस पृष्ठ से जुड़ने वाले सभी पृष्ठ देखें]]।",
-	"notification-page-linked-flyout": "[[:$3]] पर [[:$2]] की कड़ी {{GENDER:$1|जोड़ी}} गयी।",
 	"notification-add-comment2": "[[User:$1|$1]] ने \"$4\" वार्ता पृष्ठ पर \"[[$3|$2]]\" भाग में {{GENDER:$1|टिप्पणी की है}}।",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] ने [[$3]] पर \"$2\" विषय पर चर्चा शुरू {{GENDER:$1|की}} है।",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] ने आपको एक नया सन्देश {{GENDER:$1|भेजा}} है: \"[[$3#$2|$2]]\"।",
@@ -105,7 +104,6 @@
 	"echo-date-yesterday": "कल",
 	"echo-load-more-error": "अधिक परिणाम प्राप्त करते समय एक त्रुटि हुई।",
 	"notification-edit-talk-page-bundle": "$1 और $3 {{PLURAL:$4|अन्य}} ने आपके [[User talk:$2|वार्ता पृष्ठ]] पर सन्देश छोड़े हैं।",
-	"notification-page-linked-bundle": "$2 की कड़ी $3 और $4 अन्य {{PLURAL:$5|पृष्ठ|पृष्ठों}} पर {{GENDER:$1|जोड़ी}} गयी। [[Special:WhatLinksHere/$2|इस पृष्ठ से जुड़ने वाले सभी पृष्ठ देखें]]",
 	"notification-edit-user-talk-email-batch-bundle-body": "$1 और $2 {{PLURAL:$3|अन्य}} ने आपके वार्ता पृष्ठ पर सन्देश छोड़े हैं।",
 	"notification-page-linked-email-batch-bundle-body": "$2 की कड़ी $3 और $4 अन्य {{PLURAL:$5|पृष्ठ|पृष्ठों}} में {{GENDER:$1|जोड़ी}} गयी।",
 	"echo-email-batch-subject-daily": "आपके लिये {{SITENAME}} पर नई {{PLURAL:$2|अधिसूचना है|अधिसूचनाएँ हैं}}।",
