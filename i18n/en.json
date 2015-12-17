@@ -79,7 +79,7 @@
 	"notification-mention": "[[User:$1|$1]] {{GENDER:$1|mentioned}} {{GENDER:$6|you}} on the $5 talk page in \"[[:$3#$2|$4]]\".",
 	"notification-header-mention": "$1 {{GENDER:$2|mentioned}} {{GENDER:$5|you}} on the $3 talk page in \"$4\".",
 	"notification-mention-nosection": "[[User:$1|$1]] {{GENDER:$1|mentioned}} {{GENDER:$4|you}} on the [[:$3|$2 talk page]].",
-	"notification-header-mention-nosection": "$1 {{GENDER:$2|mentioned}} {{GENDER:$5|you}} on the [[:$4|$3 talk page]].",
+	"notification-header-mention-nosection": "$1 {{GENDER:$2|mentioned}} {{GENDER:$5|you}} on the $3 talk page.",
 	"notification-user-rights": "Your user rights [[Special:Log/rights/$1|were {{GENDER:$1|changed}}]] by [[User:$1|$1]]. $2. [[Special:ListGroupRights|Learn more]]",
 	"notification-header-user-rights": "Your user rights were {{GENDER:$2|changed}} by $1. $3.",
 	"notification-user-rights-add": "You are now a member of {{PLURAL:$2|this group|these groups}}: $1",
