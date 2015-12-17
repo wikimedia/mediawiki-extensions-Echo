@@ -60,6 +60,8 @@
 	"echo-api-failure": "通知を取得できませんでした。もう一度、やりなおしてください。(エラー $1)",
 	"echo-notification-placeholder": "通知はありません。",
 	"echo-notification-loginrequired": "通知を表示するにはログインしてください。",
+	"notification-link-text-expand-all": "すべて展開",
+	"notification-link-text-collapse-all": "すべて折り畳む",
 	"notification-link-text-view-message": "メッセージを閲覧",
 	"notification-link-text-view-mention": "言及を閲覧",
 	"notification-link-text-view-changes": "差分を閲覧",
