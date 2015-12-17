@@ -270,7 +270,7 @@ $wgEchoNotificationIcons = array(
 		'path' => "$echoIconPath/Talk.png",
 	),
 	'linked' => array(
-		'path' => "$echoIconPath/CrossReferenced.png",
+		'path' => "$echoIconPath/link-blue.svg",
 	),
 	'featured' => array(
 		'path' => "$echoIconPath/Featured.png",
@@ -282,7 +282,7 @@ $wgEchoNotificationIcons = array(
 		'path' => "$echoIconPath/ReviewedWithTags.png",
 	),
 	'revert' => array(
-		'path' => "$echoIconPath/Revert.png",
+		'path' => "$echoIconPath/revert.svg",
 	),
 	'checkmark' => array(
 		'path' => "$echoIconPath/Reviewed.png",

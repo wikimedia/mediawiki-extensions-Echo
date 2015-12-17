@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.1"
+   width="27"
+   height="26"
+   viewBox="0 0 27 26"
+   id="svg2">
+  <title
+     id="title4">eraser</title>
+  <desc
+     id="desc6">Created with Sketch.</desc>
+  <metadata
+     id="metadata20">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>eraser</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs8" />
+  <g
+     id="Page-1"
+     style="fill:none;stroke:none">
+    <g
+       id="eraser"
+       style="fill:#555555">
+      <rect
+         width="11"
+         height="1"
+         rx="0.5"
+         ry="0.5"
+         x="0.5"
+         y="25"
+         id="Rectangle-45" />
+      <g
+         transform="matrix(0.78801075,0.61566148,-0.61566148,0.78801075,18.755715,0.5715582)"
+         id="Rectangle-31-+-Rectangle-31-Copy-+-Rectangle-31-Copy-2-Copy-Copy">
+        <rect
+           width="10"
+           height="7"
+           rx="1"
+           x="0"
+           y="18"
+           id="Rectangle-31" />
+        <rect
+           width="10"
+           height="1"
+           x="0"
+           y="14"
+           id="Rectangle-31-Copy" />
+        <rect
+           width="10"
+           height="1"
+           x="0"
+           y="16"
+           id="Rectangle-31-Copy-4" />
+        <path
+           d="M 0,0 10,0 10,13 0,13 0,0 z M 2,0 4,0 4,11 2,11 2,0 z"
+           id="Rectangle-31-Copy-2" />
+      </g>
+    </g>
+  </g>
+</svg>
