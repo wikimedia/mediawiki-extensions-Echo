@@ -146,6 +146,7 @@
 	"apihelp-query+notifications-param-prop": "Details to request.",
 	"apihelp-query+notifications-param-sections": "The notification sections to query (i.e. some combination of 'alert' and 'message').",
 	"apihelp-query+notifications-param-groupbysection": "Whether to group the result by section. Each section is fetched separately if set.",
+	"apihelp-query+notifications-param-filter": "Filter notifications returned.",
 	"apihelp-query+notifications-param-format": "If specified, notifications will be returned formatted this way.",
 	"apihelp-query+notifications-param-limit": "The maximum number of notifications to return.",
 	"apihelp-query+notifications-param-index": "If specified, a list of notification IDs, in order, will be returned.",

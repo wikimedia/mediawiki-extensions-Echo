@@ -167,6 +167,7 @@
 	"apihelp-query+notifications-param-prop": "{{doc-apihelp-param|query+notifications|prop}}",
 	"apihelp-query+notifications-param-sections": "{{doc-apihelp-param|query+notifications|sections}}",
 	"apihelp-query+notifications-param-groupbysection": "{{doc-apihelp-param|query+notifications|groupbysection}}",
+	"apihelp-query+notifications-param-filter": "{{doc-apihelp-param|query+notifications|filter}}",
 	"apihelp-query+notifications-param-format": "{{doc-apihelp-param|query+notifications|format}}",
 	"apihelp-query+notifications-param-limit": "{{doc-apihelp-param|query+notifications|limit}}",
 	"apihelp-query+notifications-param-index": "{{doc-apihelp-param|query+notifications|index}}",
