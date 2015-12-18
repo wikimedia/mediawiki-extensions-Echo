@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Hosseinblue"
+			"Hosseinblue",
+			"Reza1615"
 		]
 	},
 	"echo-desc": "سامانهٔ آگاه‌سازی کاربران از رویدادها و پیام‌ها",
@@ -117,7 +118,7 @@
 	"apihelp-echomarkread-example-2": "علامت‌گذاری تمامی اعلان‌ها به عنوان خوانده شده",
 	"apihelp-echomarkseen-description": "علامت گذاری به عنوان اطلاعیه خوانده شده برای کاربر فعلی",
 	"apihelp-echomarkseen-example-1": "علامت‌گذاری همهٔ انواع اعلان‌ها به عنوان دیده‌شده",
-	"apihelp-echomarkseen-param-type": "نوع اعلان‌هایی که خوانده‌شده علامت زده شوند: «بهوش»، «پیام»، یا «همه»",
+	"apihelp-echomarkseen-param-type": "نوع اعلان‌هایی که خوانده‌شده علامت زده شوند: «آگاه‌سازی»، «پیام»، یا «همه»",
 	"apihelp-query+notifications-description": "دریافت اعلان‌های منتظر کاربر کنونی.",
 	"apihelp-query+notifications-param-prop": "جزئیات به درخواست.",
 	"apihelp-query+notifications-example-1": "اعلان‌ها را فهرست کن",
