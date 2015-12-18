@@ -10,12 +10,12 @@
 
 	&:hover > a {
 		text-decoration: none;
-		color: #666666;
+		color: @notification-text-color;
 	}
 
 	&:not(:hover) a,
 	#p-personal &:not(:hover) a.new {
-		color: #666666;
+		color: @notification-text-color;
 	}
 
 	&:last-child {
@@ -38,8 +38,12 @@
 		box-sizing: border-box;
 		width: 100%;
 
-		// Only for bundled items
 		&-message {
+			&-body {
+				color: @notification-body-color;
+			}
+
+			// Only for bundled items
 			.mw-echo-ui-notificationItemWidget-bundle & {
 				float: left;
 				display: inline-block;

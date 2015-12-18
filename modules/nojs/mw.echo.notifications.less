@@ -1,3 +1,5 @@
+@import '../echo.variables';
+
 // This needs to be outside the upper selector 'NotificationItemWidget'
 // because the same styles also apply (for the moment, at least) to the notification
 // objects in the Special:Notifications page, which are, individually
@@ -50,9 +52,16 @@
 		overflow: hidden;
 		display: block;
 
+		.mw-echo-title {
+			color: @notification-text-color;
+		}
+
+		.mw-echo-payload {
+			color: @notification-body-color;
+		}
+
 		.mw-echo-title,
 		.mw-echo-payload {
-			color: #666666;
 			font-size: 1em;
 			line-height: 1.4em;
 
