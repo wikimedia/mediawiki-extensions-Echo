@@ -54,21 +54,17 @@ class EchoMentionPresentationModel extends EchoEventPresentationModel {
 		// @fixme this message should not say "xx talk page"
 		$msg->params( $this->event->getTitle()->getText() );
 		$section = $this->getSection();
-		$sectionTitle = $this->getTitleWithSection();
 		if ( $section ) {
-			$msg->rawParams(
-				Linker::link(
-					$sectionTitle,
-					htmlspecialchars( EchoDiscussionParser::getTextSnippet(
-							$section,
-							$this->language,
-							30
-					) )
+			$msg->params(
+				EchoDiscussionParser::getTextSnippet(
+						$section,
+						$this->language,
+						30
 				)
 			);
 		} else {
 			// For the -nosection message
-			$msg->params( $sectionTitle->getPrefixedText() );
+			$msg->params( $this->event->getTitle()->getPrefixedText() );
 		}
 		$msg->params( $this->getViewingUserForGender() );
 
