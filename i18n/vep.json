@@ -4,5 +4,6 @@
 			"Sebranik"
 		]
 	},
-	"tooltip-pt-notifications-message": "Sinun tedotused"
+	"tooltip-pt-notifications-alert": "Teiden tedotamižed",
+	"tooltip-pt-notifications-message": "Teiden tedotused"
 }

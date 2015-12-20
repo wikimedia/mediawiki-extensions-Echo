@@ -26,7 +26,8 @@
 			"乌拉跨氪",
 			"Mywood",
 			"Impersonator 1",
-			"EagerLin"
+			"EagerLin",
+			"范"
 		]
 	},
 	"echo-desc": "用于通知用户有关活动和消息的系统",
@@ -101,9 +102,9 @@
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]]给您发来一则信息：“[[$3#$2|$2]]”。",
 	"notification-add-comment-yours2": "[[User:$1|$1]]在您的讨论页的“[[$3#$2|$2]]”段落{{GENDER:$1|发表意见}}。",
 	"notification-mention": "[[User:$1|$1]]在$5的讨论页的“[[:$3#$2|$4]]”段落{{GENDER:$1|提到}}了{{GENDER:$6|您}}。",
-	"notification-header-mention": "$1在“$4”中的$3讨论页{{GENDER:$2|提到}}了{{GENDER:$5|您}}。",
+	"notification-header-mention": "$1在$3讨论页中的“$4”段落{{GENDER:$2|提到}}了{{GENDER:$5|您}}。",
 	"notification-mention-nosection": "[[User:$1|$1]]在[[:$3|$2的讨论页]]提到了{{GENDER:$4|您}}。",
-	"notification-header-mention-nosection": "$1在[[:$4|$3讨论页]]{{GENDER:$2|提到}}了{{GENDER:$5|您}}。",
+	"notification-header-mention-nosection": "$1在$3讨论页{{GENDER:$2|提到}}了{{GENDER:$5|您}}。",
 	"notification-user-rights": "您的用户权限被[[User:$1|$1]][[Special:Log/rights/$1|更改了]]。$2。[[Special:ListGroupRights|了解更多]]",
 	"notification-header-user-rights": "您的用户权限被$1{{GENDER:$2|更改了}}。$3。",
 	"notification-user-rights-add": "您被添加至该{{PLURAL:$2|用户组}}：$1",
@@ -114,7 +115,7 @@
 	"notification-reverted2": "您对[[:$2]]的{{PLURAL:$4|编辑}}被[[$5|$1]]{{GENDER:$1|还原了}}。$3",
 	"notification-header-reverted": "您对$3的{{PLURAL:$4|编辑}}被$1{{GENDER:$2|还原了}}。",
 	"notification-emailuser": "[[User:$1|$1]]向您{{GENDER:$1|发送}}了电子邮件。",
-	"notification-header-emailuser": "$1向您{{GENDER:$2|发送}}了电子邮件",
+	"notification-header-emailuser": "$1向您{{GENDER:$2|发送}}了电子邮件。",
 	"notification-edit-talk-page-email-subject2": "$1在{{SITENAME}}给您{{GENDER:$1|留言}}了",
 	"notification-edit-talk-page-email-batch-body2": "$1在您的讨论页{{GENDER:$1|留言}}了。",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1在您的讨论页的“$2”段落{{GENDER:$1|留言}}了。",
@@ -166,6 +167,7 @@
 	"apihelp-query+notifications-param-prop": "请求的细节。",
 	"apihelp-query+notifications-param-sections": "要查询的通知部分（也就是说“alert”和“message”的一些结合）。",
 	"apihelp-query+notifications-param-groupbysection": "是否按章节分组结果。如果设置，将分别获取每个章节。",
+	"apihelp-query+notifications-param-filter": "过滤返回的通知。",
 	"apihelp-query+notifications-param-format": "如果指定，通知将以此格式返回。",
 	"apihelp-query+notifications-param-limit": "返回通知的最大数量。",
 	"apihelp-query+notifications-param-index": "如果指定，将返回一个按顺序的通知ID列表。",

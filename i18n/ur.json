@@ -6,7 +6,8 @@
 			"Amire80",
 			"Fauzan",
 			"عثمان خان شاہ",
-			"Muhammad Shuaib"
+			"Muhammad Shuaib",
+			"Obaid Raza"
 		]
 	},
 	"echo-desc": "نظام برائے اطلاع صارفین دربارہ تقریبات و پیغامات",
@@ -23,6 +24,8 @@
 	"echo-new-messages": "آپ کے لیے نئے پیغامات",
 	"echo-category-title-other": "{{PLURAL:$1|دیگر}}",
 	"notifications": "اطلاعات",
+	"tooltip-pt-notifications-alert": "{{GENDER:|آپ}}کی اطلاعات",
+	"tooltip-pt-notifications-message": "{{GENDER:|آپ}} کے پیغامات",
 	"echo-specialpage": "اطلاعات",
 	"echo-feedback": "آپ کی رائے",
 	"notification-header-user-rights": "آپ کے صارفانہ حقوق ہوگئے  {{GENDER:$2| تبدیل}} <b> $1 </b>کے ذریعے ۔ $3. [[Special:ListGroupRights|مزید دیکھیں]]",

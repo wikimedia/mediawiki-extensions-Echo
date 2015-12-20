@@ -80,7 +80,7 @@
 	"notification-reverted-email-subject2": "$1 {{GENDER:$1|скасаваў|скасавала}} {{PLURAL:$3|1=Вашую праўку|Вашыя праўкі}} на сайце {{SITENAME}}",
 	"notification-reverted-email-batch-body2": "$1 {{GENDER:$1|скасаваў|скасавала}} {{PLURAL:$3|1=Вашую праўку|Вашыя праўкі}} на старонцы «$2».",
 	"notification-mention-email-subject": "$1 {{GENDER:$1|згадаў|згадала}} {{GENDER:$2|Вас}} у {{GRAMMAR:месны|{{SITENAME}}}}",
-	"notification-mention-email-batch-body": "$1 {{GENDER:$1|згадаў|згадала}} Вас на старонцы абмеркаваньня $4 у «$3».",
+	"notification-mention-email-batch-body": "$1 {{GENDER:$1|згадаў|згадала}} {{GENDER:$5|Вас}} на старонцы абмеркаваньня $4 у «$3».",
 	"notification-user-rights-email-subject": "Вашыя правы ў {{GRAMMAR:месны|{{SITENAME}}}} былі зьмененыя",
 	"notification-user-rights-email-batch-body": "$1 {{GENDER:$1|зьмяніў|зьмяніла}} Вашыя правы. $2",
 	"echo-email-subject-default": "Новая абвестка ад {{GRAMMAR:родны|{{SITENAME}}}}",

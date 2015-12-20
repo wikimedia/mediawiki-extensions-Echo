@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Lloffiwr",
-			"Robin Owain"
+			"Robin Owain",
+			"Diafol"
 		]
 	},
 	"echo-desc": "Sustem hysbysu",
@@ -39,6 +40,8 @@
 	"echo-no-title": "[Dim tudalen]",
 	"echo-error-no-formatter": "Ni phenwyd unrhyw fformat i'r hysbysiad.",
 	"notifications": "Hysbysiadau",
+	"tooltip-pt-notifications-alert": "Eich hysbysiadau",
+	"tooltip-pt-notifications-message": "Eich negeseuon",
 	"echo-specialpage": "Hysbysiadau",
 	"echo-anon": "Er mwyn derbyn hysbysiadau, [$1 dechreuwch gyfrif] neu [$2 mewngofnodwch].",
 	"echo-none": "Nid oes unrhyw hysbysiadau gennych.",
@@ -51,10 +54,7 @@
 	"notification-link-text-view-edit": "Gweld y golygiad",
 	"notification-edit-talk-page2": "{{GENDER:$1|Gadawodd}} [[User:$1|$1]] neges ar eich [[User talk:$2#$3|tudalen sgwrs]].",
 	"notification-edit-talk-page-with-section": "{{GENDER:$1|Gadawodd}} [[User:$1|$1]] neges ar eich tudalen sgwrs yn yr adran \"[[User talk:$2#$3|$4]]\".",
-	"notification-edit-talk-page-flyout2": "{{GENDER:$1|Gadawodd}} $1 neges ar eich [[User talk:$2#$3|tudalen sgwrs]].",
-	"notification-edit-talk-page-flyout-with-section": "{{GENDER:$1|Gadawodd}} $1 neges ar eich tudalen sgwrs yn yr adran \"[[User talk:$2#$3|$4]]\".",
 	"notification-page-linked": "{{GENDER:$1|Cysylltwyd}} [[:$2]] o [[:$3]]. [[Special:WhatLinksHere/$2|Gweler yr holl gysylltau i'r dudalen hon]].",
-	"notification-page-linked-flyout": "{{GENDER:$1|Cysylltwyd}} [[:$2]] o [[:$3]].",
 	"notification-add-comment2": "{{GENDER:$1|Gadawodd}} [[User:$1|$1]] sylw am \"[[$3|$2]]\" ar y dudalen sgwrs \"$4\".",
 	"notification-add-talkpage-topic2": "{{GENDER:$1|Gosododd}} [[User:$1|$1]] sylw ar y pwnc newydd \"$2\" ar [[$3]].",
 	"notification-add-talkpage-topic-yours2": "{{GENDER:$1|Anfonodd}} [[User:$1|$1]] neges atoch: \"[[$3#$2|$2]]\".",
@@ -95,7 +95,6 @@
 	"echo-date-yesterday": "Ddoe",
 	"echo-load-more-error": "Cafwyd gwall wrth nôl rhagor o ganlyniadau.",
 	"notification-edit-talk-page-bundle": "{{GENDER:$1|Gadawodd}} $1 a $3 {{PLURAL:$4|a $3 arall|ac $3 arall|a $3 eraill}} negeseuon ar eich [[User talk:$2|tudalen defnyddiwr]].",
-	"notification-page-linked-bundle": "{{GENDER:$1|Gosodwyd}} cysylltiad at $2 o $3 {{PLURAL:$5||ac $4 dudalen arall|a $4 dudalen arall|a $4 o dudalennau eraill}}. [[Special:WhatLinksHere/$2|Gweler yr holl gysylltiadau i'r dudalen hon]]",
 	"notification-edit-user-talk-email-batch-bundle-body": "{{GENDER:$1|Gadawodd}} $1 {{PLURAL:$3||ac $2 arall||a $2 arall| a $2 eraill}} negeseuon ar eich tudalen sgwrs.",
 	"notification-page-linked-email-batch-bundle-body": "{{GENDER:$1|Gosodwyd}} gyswllt i $2 oddi wrth $3 {{PLURAL:$5||ac $4 dudalen arall|a $2 dudalen arall|a $2 o dudalennau eraill}}.",
 	"echo-email-batch-subject-daily": "Mae {{PLURAL:$2||hysbysiad|hysbysiadau}} newydd gennych ar {{SITENAME}}",

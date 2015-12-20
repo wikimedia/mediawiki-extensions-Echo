@@ -4,7 +4,8 @@
 			"Interfase",
 			"Khan27",
 			"Wertuose",
-			"Dağlı95"
+			"Dağlı95",
+			"Serkanland"
 		]
 	},
 	"echo-desc": "Bildiriş sistemi",
@@ -42,13 +43,11 @@
 	"notification-link-text-view-edit": "Redaktəyə bax",
 	"notification-edit-talk-page2": "[[User:$1|$1]] sizin [[User talk:$2#$3|müzakirə səhifənizdə]] məktub {{GENDER:$1|qoyub}} .",
 	"notification-edit-talk-page-with-section": "[[User:$1|$1]] sizin müzakirə səhifənizdə \"[[User talk:$2#$3|$4]]\" başlıqlı mesaj {{GENDER:$1|qoyub}}.",
-	"notification-edit-talk-page-flyout2": "Sizin [[User talk:$2#$3|müzakirə səhifənizdə]] mesaj $1 {{GENDER:$1|qoyub}}.",
 	"notification-page-linked": "[[:$2]] səhifəsinə [[:$3]] səhifəsindən {{GENDER:$1|keçid verilib}}. [[Special:WhatLinksHere/$2|Bu səhifəyə olan bütün keçidlərə bax]].",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] [[$3]] səhifəsində yeni \"$2\" başlıqlı mövzu {{GENDER:$1|əlavə edib|əlavə edib}}.",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] tərəfindən sizə mesaj {{GENDER:$1|göndərilib|göndərilib}}: \"[[$3#$2|$2]]\"",
 	"notification-add-comment-yours2": "[[User:$2|$2]] sizin müzakirə səhifənizindəki «[[$4#$3|$3]]» başlıqlı mövzuya {{GENDER:$1|fikir bildirdi|fikir bildirdi}}.",
 	"notification-mention": "[[User:$1|$1]] sizin adınızı $5 danışıq səhifəsinin \"[[:$3#$2|$4]]\" bölməsində $1 qeyd edib.",
-	"notification-mention-flyout": "[[User:$1|$1]] sizin adınızı $5 danışıq səhifəsinin \"[[:$3#$2|$4]]\" bölməsində $1 qeyd edib.",
 	"notification-mention-nosection": "[[User:$1|$1]] sizin adınızı [[:$3|müzakirə səhifəsind $2]] qeyd edib.",
 	"notification-new-user": "'''$1''' {{SITENAME}} saytına xoş gəlmisiniz! Sizi burada görməyimizə çox şadıq. Uğurlar!",
 	"notification-edit-talk-page-email-subject2": "İstifadəçi $1 \"{{SITENAME}}\" saytındakı müzakirə səhifənizdə sizə mesaj yazıb",
@@ -60,6 +59,7 @@
 	"echo-email-subject-default": "«{{SITENAME}}» saytında yeni bildiriş var",
 	"echo-email-body-default": "Sizə {{SITENAME}} səhifəsində yeni bildiriş var :\n\n$1",
 	"echo-email-batch-body-default": "Sizə yeni bildiriş var",
+	"echo-notification-alert-text-only": "Bildirişlər",
 	"echo-overlay-link": "Bütün bildirişlər",
 	"echo-overlay-title": "<b>Bildirişlər</b>",
 	"echo-overlay-title-overflow": "<b>Bildirişlər</b> $2 {{PLURAL|$2|oxunmamış|oxunmamışlar}})dan $1 ({{PLURAL|$1|göstərilib|göstəriliblər}}",
