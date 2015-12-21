@@ -74,6 +74,7 @@
 	"echo-api-failure": "Label for the text that notes an error in retrieving notifications for the Echo popup.\n$1 - The api error code.",
 	"echo-notification-placeholder": "Label for the text that appears if there are no notifications in the Echo popup.",
 	"echo-notification-loginrequired": "Message that displays when an anonymous user attempts to view notifications and gets redirect to the login page.",
+	"echo-notification-popup-loginrequired": "Message that displays when an anonymous user attempts to view notifications in their popup after a session expired.",
 	"notification-link-text-expand-all": "Label for the button that expands a bundled notification.\n{{Identical|Expand}}",
 	"notification-link-text-expand-alert-count": "Label for the button that expands a bundled alert notification.\n\nParameters:\n* $1 - The count of messages that the bundle holds.\n{{Identical|View message}}",
 	"notification-link-text-expand-message-count": "Label for the button that expands a bundled message notification.\n\nParameters:\n* $1 - The count of messages that the bundle holds.\n{{Identical|View message}}",

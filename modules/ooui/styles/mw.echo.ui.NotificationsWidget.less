@@ -1,9 +1,27 @@
+@import '../../echo.variables';
+
 .mw-echo-ui-notificationsWidget {
 	&-loadingOption {
 		padding: 2em;
+		background-color: @notification-background-read;
+
+		&-notLinked,
+		&-notLinked a {
+			cursor: default;
+		}
 
 		.mw-echo-ui-notificationsWidget-bundle & {
 			padding: 0;
+		}
+
+		&:hover > a {
+			text-decoration: none;
+			color: #666666;
+		}
+
+		&:not(:hover) a,
+		#p-personal &:not(:hover) a.new {
+			color: #666666;
 		}
 
 		&.oo-ui-optionWidget.oo-ui-labelElement .oo-ui-labelElement-label {

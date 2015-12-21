@@ -487,8 +487,8 @@
 					return idArray;
 				},
 				// Failure
-				function ( promise, errCode, errObj ) {
-					model.emit( 'done', false, { errCode: errCode, errObj: errObj } );
+				function ( errCode, errObj ) {
+					model.emit( 'done', false, { errCode: errCode, errInfo: OO.getProp( errObj, 'error', 'info' ) } );
 				}
 			);
 	};
