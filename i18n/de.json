@@ -149,6 +149,7 @@
 	"apihelp-query+notifications-param-prop": "Einzelheiten der Anfrage.",
 	"apihelp-query+notifications-param-sections": "Die abzufragenden Benachrichtigungsabschnitte (z.&nbsp;B. eine Kombination aus „alert“ und „message“).",
 	"apihelp-query+notifications-param-groupbysection": "Ob das Ergebnis nach Abschnitt gruppiert werden soll. Jeder Abschnitt wird separat abgerufen, wenn es eingestellt wird.",
+	"apihelp-query+notifications-param-filter": "Filtert zurückgegebene Benachrichtigungen.",
 	"apihelp-query+notifications-param-format": "Falls angegeben, werden die zurückgegebenen Benachrichtigungen auf diese Weise formatiert.",
 	"apihelp-query+notifications-param-limit": "Die maximale Anzahl zurückzugebender Benachrichtigungen.",
 	"apihelp-query+notifications-param-index": "Falls angegeben, wird eine Liste von Benachrichtigungskennungen in der Reihenfolge zurückgegeben.",

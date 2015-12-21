@@ -36,6 +36,8 @@
 	"echo-no-agent": "[Nemo]",
 	"echo-no-title": "[Nulla pagina]",
 	"notifications": "Nuntia",
+	"tooltip-pt-notifications-alert": "Conclamationes ad te pertinentes",
+	"tooltip-pt-notifications-message": "Nuntia ad te pertinentia",
 	"echo-specialpage": "Nuntia",
 	"echo-anon": "Ut nuntia accipere possis, [$1 nomen tibi impones] aut [$2 nomen tuum des] rogamus.",
 	"echo-none": "Nulla nuntia.",
