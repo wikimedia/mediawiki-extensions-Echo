@@ -175,7 +175,6 @@
 		// Update unread status and emit events
 		if ( unreadItem ) {
 			if ( isRead ) {
-				this.unreadNotifications.removeItems( [ unreadItem ] );
 				if ( !this.markingAllAsRead ) {
 					this.markItemReadInApi( id );
 				}
@@ -183,6 +182,10 @@
 					// Remove this notification from the model
 					this.removeItems( [ unreadItem ] );
 				}
+				// Remove the item from the counter after all other operations
+				// finished, since some of the operations check if there are any
+				// unread notifications to begin with.
+				this.unreadNotifications.removeItems( [ unreadItem ] );
 			} else {
 				this.unreadNotifications.addItems( [ unreadItem ] );
 			}
