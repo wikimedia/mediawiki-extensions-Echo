@@ -42,25 +42,11 @@
 			&-body {
 				color: @notification-body-color;
 			}
-
-			// Only for bundled items
-			.mw-echo-ui-notificationItemWidget-bundle & {
-				float: left;
-				display: inline-block;
-
-				&-header {
-					width: 18em;
-				}
-			}
 		}
 
 		&-actions {
 			margin-top: 0.5em;
 			font-size: 0.8em;
-
-			.mw-echo-ui-notificationItemWidget-bundle & {
-				display: inline;
-			}
 
 			&-button {
 				&:not(:last-child) {
@@ -80,11 +66,6 @@
 			}
 
 			&-menu {
-				.mw-echo-ui-notificationItemWidget-bundle & {
-					float: right;
-					margin-right: 0.5em;
-				}
-
 				.oo-ui-buttonElement-button {
 					.mw-echo-ui-mixin-hover-opacity;
 				}
@@ -99,11 +80,72 @@
 				float: right;
 				color: black;
 				opacity: @opacity-low;
-				.mw-echo-ui-notificationItemWidget-bundle & {
-					margin-top: 0.2em;
-				}
 			}
 
+		}
+	}
+
+	// Table layout only for the content inside bundles
+	&-bundle {
+		display: table;
+		width: ~"calc( 100% - " @bundle-group-padding ~");";
+
+		.mw-echo-ui-notificationItemWidget-content {
+			display: table-row;
+
+			.mw-echo-ui-notificationItemWidget {
+				// CSS table layout
+				&-icon,
+				&-content-message,
+				&-content-actions,
+				&-markAsReadButton {
+					display: table-cell;
+					vertical-align: top;
+				}
+
+				// Positioning fixes for bundled items
+				&-icon {
+					position: relative;
+					padding-right: 0.5em;
+				}
+
+				&-content-message {
+					display: inline-block;
+
+					&-header {
+						width: 18em;
+					}
+				}
+
+				&-content-actions {
+					&-row {
+						display: table-row;
+					}
+
+					&-buttons {
+						display: table-cell;
+						vertical-align: middle;
+					}
+
+					&-menu {
+						display: table-cell;
+						vertical-align: middle;
+					}
+
+					&-timestamp {
+						float: none;
+						display: table-cell;
+						vertical-align: middle;
+						padding-right: 0.5em;
+					}
+				}
+
+				&-markAsReadButton {
+					width: 1em;
+					float: none;
+				}
+
+			}
 		}
 	}
 
