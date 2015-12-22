@@ -5,7 +5,7 @@
  *   Updates event_page_id based on event_page_title and event_page_namespace
  *   Updates extra data for page-linked events to contain page id's
  */
-class EchoSuppressionRowUpdateGenerator implements EchoRowUpdateGenerator {
+class EchoSuppressionRowUpdateGenerator implements RowUpdateGenerator {
 	/**
 	 * @var callable Hack to allow replacing Title::newFromText in tests
 	 */

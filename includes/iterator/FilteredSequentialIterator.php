@@ -13,7 +13,7 @@
  *   $users = new EchoFilteredSequentialIterator;
  *   $users->add( array( $userA, $userB, $userC ) );
  *
- *   $it = new EchoBatchRowIterator( ... );
+ *   $it = new BatchRowIterator( ... );
  *   ...
  *   $it = new RecursiveIteratorIterator( $it );
  *   $users->add( new EchoCallbackIterator( $it, function( $row ) {
@@ -25,7 +25,7 @@
  *    ...
  *   }
  *
- * By default the EchoBatchRowIterator returns an array of rows, this class
+ * By default the BatchRowIterator returns an array of rows, this class
  * expects a stream of user objects.  To bridge that gap the
  * RecursiveIteratorIterator is used to flatten and the EchoCallbackIterator
  * is used to transform each database $row into a User object.

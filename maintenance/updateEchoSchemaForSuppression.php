@@ -34,15 +34,15 @@ class UpdateEchoSchemaForSuppression extends Maintenance {
 	public function execute() {
 		global $wgEchoCluster;
 
-		$reader = new EchoBatchRowIterator( MWEchoDbFactory::getDB( DB_SLAVE ), $this->table, $this->idField, $this->mBatchSize );
+		$reader = new BatchRowIterator( MWEchoDbFactory::getDB( DB_SLAVE ), $this->table, $this->idField, $this->mBatchSize );
 		$reader->addConditions( array(
 			"event_page_title IS NOT NULL",
 			"event_page_id" => null,
 		) );
 
-		$updater = new EchoBatchRowUpdate(
+		$updater = new BatchRowUpdate(
 			$reader,
-			new EchoBatchRowWriter( MWEchoDbFactory::getDB( DB_MASTER ), $this->table, $wgEchoCluster ),
+			new BatchRowWriter( MWEchoDbFactory::getDB( DB_MASTER ), $this->table, $wgEchoCluster ),
 			new EchoSuppressionRowUpdateGenerator
 		);
 		$updater->setOutput( array( $this, '__internalOutput' ) );
