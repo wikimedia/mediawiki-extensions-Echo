@@ -34,6 +34,7 @@ class EchoDataOutputFormatter {
 		$event = $notification->getEvent();
 		$timestamp = $notification->getTimestamp();
 		$utcTimestampUnix = wfTimestamp( TS_UNIX, $timestamp );
+		$utcTimestampMW = wfTimestamp( TS_MW, $timestamp );
 
 		if ( $notification->getBundleBase() && $notification->getBundleDisplayHash() ) {
 			$event->setBundleHash( $notification->getBundleDisplayHash() );
@@ -68,6 +69,7 @@ class EchoDataOutputFormatter {
 				// UTC timestamp in UNIX format used for loading more notification
 				'utcunix' => $utcTimestampUnix,
 				'unix' => self::getUserLocalTime( $user, $timestamp, TS_UNIX ),
+				'utcmw' => $utcTimestampMW,
 				'mw' => $timestampMw,
 				'date' => $date
 			),

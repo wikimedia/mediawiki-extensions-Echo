@@ -89,7 +89,7 @@
 		// Timestamp
 		this.timestampWidget = new OO.ui.LabelWidget( {
 			classes: [ 'mw-echo-ui-notificationItemWidget-content-actions-timestamp' ],
-			label: moment( this.model.getTimestamp(), 'YYYYMMDDHHmmss Z' ).fromNow()
+			label: moment.utc( this.model.getTimestamp(), 'YYYYMMDDHHmmss' ).fromNow()
 		} );
 
 		// Build the actions line
