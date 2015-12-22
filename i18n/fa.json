@@ -104,7 +104,7 @@
 	"notification-header-welcome": "$1، به {{SITENAME}} {{GENDER:$2|خوش آمدید}}. خوشحالیم که {{GENDER:$2|شما}} اینجایید.",
 	"notification-welcome-linktext": "خوش‌آمدید",
 	"notification-reverted2": "ویرایش(های) شما در [[:$2]] توسط [[$5|$1]] {{PLURAL:$4|خنثی‌سازی|واگردانی}} شده است. $3",
-	"notification-header-reverted": "{{PLURAL:$4|ویرایش|ویرایش‌های}}تان بر $3 را $1 {{GENDER:$2|واگردانی}} کرده‌است.",
+	"notification-header-reverted": "ویرایش(های) شما بر روی $3 توسط $1 {{PLURAL:$4|خنثی‌سازی|واگردانی}} شده است.",
 	"notification-emailuser": "[[User:$1|$1]] به شما ایمیل {{GENDER:$1|زد}}.",
 	"notification-header-emailuser": "$1 به شما ایمیل {{GENDER:$2|زد}}.",
 	"notification-edit-talk-page-email-subject2": "شما یک پیام تازه از طرف $1 در صفحهٔ بحث {{SITENAME}} دارید.",
