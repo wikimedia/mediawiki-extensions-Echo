@@ -28,6 +28,9 @@ class EchoRevertedPresentationModel extends EchoEventPresentationModel {
 		);
 	}
 
+	public function getSecondaryLinks() {
+		return array( $this->getAgentLink() );
+	}
 
 	/**
 	 * Return a number that represents if one or multiple edits

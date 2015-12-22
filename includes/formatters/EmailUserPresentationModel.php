@@ -9,4 +9,8 @@ class EchoEmailUserPresentationModel extends EchoEventPresentationModel {
 	public function getPrimaryLink() {
 		return false;
 	}
+
+	public function getSecondaryLinks() {
+		return array( $this->getAgentLink() );
+	}
 }

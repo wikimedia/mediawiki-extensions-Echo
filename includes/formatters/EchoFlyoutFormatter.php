@@ -39,7 +39,7 @@ class EchoFlyoutFormatter extends EchoEventFormatter {
 		);
 
 		$footerItems = array( $ts );
-		$secondaryLinks = EchoLinkNormalizer::normalizeSecondaryLinks( $model->getSecondaryLinks() );
+		$secondaryLinks = EchoLinkNormalizer::normalizeSecondaryLinks( array_filter( $model->getSecondaryLinks() ) );
 		foreach ( $secondaryLinks as $link ) {
 			$footerItems[] = Html::element( 'a', array( 'href' => $link['url'] ), $link['label'] );
 		}

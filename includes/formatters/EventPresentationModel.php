@@ -253,6 +253,37 @@ abstract class EchoEventPresentationModel {
 	}
 
 	/**
+	 * @return array|null Link object to the user's page or Special:Contributions for anon users.
+	 *               Can be used for primary or secondary links.
+	 *               Same format as secondary link.
+	 *               Returns null if the current user cannot see the agent.
+	 */
+	final protected function getAgentLink() {
+		$agent = $this->event->getAgent();
+
+		if ( !$this->userCan( Revision::DELETED_USER ) ) {
+			return null;
+		}
+
+		if ( !$agent ) {
+			throw new DomainException(
+				"No agent associated with notification with id '{$this->event->getId()}' of type '{$this->type}'" );
+		}
+
+		$url = $agent->isAnon()
+			? SpecialPage::getTitleFor( 'Contributions', $agent->getName() )->getFullURL()
+			: $agent->getUserPage()->getFullURL();
+
+		return array(
+			'url' => $url,
+			'label' => $agent->getName(),
+			'description' => null,
+			'icon' => 'userAvatar',
+			'prioritized' => true,
+		);
+	}
+
+	/**
 	 * To be overridden by subclasses if they are unable to render the
 	 * notification, for example when a page is deleted.
 	 * If this function returns false, no other methods will be called
@@ -311,6 +342,9 @@ abstract class EchoEventPresentationModel {
 	 *                 'prioritized' => true if the link should be outside the
 	 *                                  action menu, false for inside)],
 	 *                ...]
+	 *
+	 *               Note that you should call array_values(array_filter()) on the
+	 *               result of this function (FIXME).
 	 */
 	public function getSecondaryLinks() {
 		return array();
@@ -329,7 +363,7 @@ abstract class EchoEventPresentationModel {
 			'icon' => $this->getIconType(),
 			'links' => array(
 				'primary' => $this->getPrimaryLink() ?: array(),
-				'secondary' => $this->getSecondaryLinks(),
+				'secondary' => array_values( array_filter( $this->getSecondaryLinks() ) ),
 			),
 		);
 	}
