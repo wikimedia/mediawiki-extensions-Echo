@@ -44,6 +44,7 @@ $wgResourceModules += array(
 		),
 		'styles' => array(
 			'ooui/styles/mw.echo.ui.overlay.less',
+			'ooui/styles/mw.echo.ui.icons.less',
 			'ooui/styles/mw.echo.ui.NotificationsWidget.less',
 			'ooui/styles/mw.echo.ui.NotificationItemWidget.less',
 			'ooui/styles/mw.echo.ui.NotificationGroupItemWidget.less',

@@ -31,7 +31,7 @@ class EchoPageLinkedPresentationModel extends EchoEventPresentationModel {
 			'url' => SpecialPage::getTitleFor( 'Whatlinkshere', $this->event->getTitle()->getPrefixedText() )->getFullURL(),
 			'label' => $this->msg( 'notification-link-text-what-links-here' )->text(),
 			'description' => '',
-			'icon' => false,
+			'icon' => 'linked',
 			'prioritized' => true
 		);
 		return array( $whatLinksHereLink );
