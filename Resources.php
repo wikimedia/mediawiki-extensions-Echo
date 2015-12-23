@@ -87,6 +87,8 @@ $wgResourceModules += array(
 			'echo-feedback',
 			'echo-notification-alert',
 			'echo-notification-message',
+			'echo-notification-loginrequired',
+			'echo-notification-popup-loginrequired',
 			'notification-link-text-collapse-all',
 			"notification-link-text-expand-alert-count",
 			"notification-link-text-expand-message-count",

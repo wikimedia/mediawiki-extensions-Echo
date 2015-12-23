@@ -1,4 +1,4 @@
-( function ( mw ) {
+( function ( mw, $ ) {
 	/**
 	 * Notification widget for echo popup.
 	 *
@@ -55,14 +55,33 @@
 	 *
 	 * @param {boolean} isSuccess The operation was successful
 	 * @param {Object} result Result object from the API
+	 * @param {string} result.errCode The API error code
+	 * @param {string} result.errInfo The API error info string
 	 */
 	mw.echo.ui.NotificationsWidget.prototype.onModelNotificationDone = function ( isSuccess, result ) {
+		var loginPageTitle = mw.Title.newFromText( 'Special:UserLogin' );
 		if ( this.model.isEmpty() ) {
-			this.resetLoadingOption(
-				isSuccess ?
-				mw.msg( 'echo-notification-placeholder' ) :
-				mw.msg( 'echo-api-failure', result.errCode )
-			);
+			if ( isSuccess ) {
+				this.resetLoadingOption( mw.msg( 'echo-notification-placeholder' ) );
+			} else {
+				// If failure, check if the failure is due to login
+				// so we can display a more complrehensive error
+				// message in that case
+				if ( result.errCode === 'notlogin-required' ) {
+					// Login error
+					this.resetLoadingOption(
+						// This message has a link inside it, so it must be
+						// given to the OO.ui.LabelWidget as a jQuery object, otherwise
+						// the LabelWidget parses it as a raw string.
+						$( '<span>' ).text( mw.message( 'echo-notification-popup-loginrequired' ) ),
+						// Set the option link to the login page
+						loginPageTitle.getUrl()
+					);
+				} else {
+					// General error
+					this.resetLoadingOption( mw.msg( 'echo-api-failure', result.errInfo ) );
+				}
+			}
 		}
 
 		if ( isSuccess ) {
@@ -173,9 +192,11 @@
 	 * Reset the loading 'dummy' option widget
 	 *
 	 * @param {string} [label] Label for the option widget
+	 * @param {string} [link] Link for the option widget
 	 */
-	mw.echo.ui.NotificationsWidget.prototype.resetLoadingOption = function ( label ) {
+	mw.echo.ui.NotificationsWidget.prototype.resetLoadingOption = function ( label, link ) {
 		this.loadingOptionWidget.setLabel( label || '' );
+		this.loadingOptionWidget.setLink( link || '' );
 		this.addItems( [ this.loadingOptionWidget ] );
 	};
 
@@ -188,4 +209,4 @@
 		return this.model;
 	};
 
-} )( mediaWiki );
+} )( mediaWiki, jQuery );
