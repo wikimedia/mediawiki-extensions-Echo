@@ -62,14 +62,20 @@
 				display: inline;
 			}
 
-			&-button .oo-ui-buttonElement-button {
-				.mw-echo-ui-mixin-hover-opacity;
+			&-button {
+				&:not(:last-child) {
+					margin-right: 0.5em;
+				}
 
-				.oo-ui-labelElement-label {
-					// We have to override oojs-ui's color, which uses
-					// a very specific selector
-					font-weight: normal !important;
-					color: #000 !important;
+				.oo-ui-buttonElement-button {
+					.mw-echo-ui-mixin-hover-opacity;
+
+					.oo-ui-labelElement-label {
+						// We have to override oojs-ui's color, which uses
+						// a very specific selector
+						font-weight: normal !important;
+						color: #000 !important;
+					}
 				}
 			}
 
