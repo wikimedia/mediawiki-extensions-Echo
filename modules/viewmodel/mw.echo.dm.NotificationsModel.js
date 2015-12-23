@@ -442,6 +442,7 @@
 								iconType: content.icon,
 								type: model.getType(),
 								external: model.isExternal(),
+								source: model.getSource(),
 								primaryUrl: OO.getProp( content.links, 'primary', 'url' ),
 								secondaryUrls: OO.getProp( content.links, 'secondary' ) || []
 							};
