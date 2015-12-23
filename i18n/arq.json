@@ -1,7 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Oldstoneage"
+			"Oldstoneage",
+			"GeekEmad"
 		]
-	}
+	},
+	"tooltip-pt-notifications-alert": "إخطاراتك",
+	"tooltip-pt-notifications-message": "رسايلك"
 }

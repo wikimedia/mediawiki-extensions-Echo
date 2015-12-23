@@ -16,7 +16,8 @@
 			"LNDDYL",
 			"Cwlin0416",
 			"EagerLin",
-			"Shizhao"
+			"Shizhao",
+			"Bowleerin"
 		]
 	},
 	"echo-desc": "用來通知使用者事件及訊息的系統",
@@ -66,6 +67,7 @@
 	"echo-feedback": "意見回饋",
 	"echo-api-failure": "無法擷取通知。請再試一次。 (Error $1)",
 	"echo-notification-placeholder": "無通知。",
+	"notification-link-text-collapse-all": "全部摺疊",
 	"notification-link-text-view-message": "檢視訊息",
 	"notification-link-text-view-mention": "檢視提到",
 	"notification-link-text-view-changes": "檢視變更",
@@ -73,10 +75,7 @@
 	"notification-link-text-view-edit": "檢視編輯",
 	"notification-edit-talk-page2": "[[User:$1|$1]] 在您的[[User talk:$2#$3|對話頁面]]中{{GENDER:$1|留下了}}一則訊息。",
 	"notification-edit-talk-page-with-section": "[[User:$1|$1]] 在您的對話頁面段落 \"[[User talk:$2#$3|$4]]\" 中{{GENDER:$1|留下了}}一則訊息。",
-	"notification-edit-talk-page-flyout2": "$1 在您的[[User talk:$2#$3|對話頁面]]中{{GENDER:$1|留下了}}一則訊息。",
-	"notification-edit-talk-page-flyout-with-section": "$1 在您的對話頁面段落 \"[[User talk:$2#$3|$4]]\" 中{{GENDER:$1|留下了}}一則訊息。",
 	"notification-page-linked": "[[:$2]] 已從 [[:$3]] 頁面{{GENDER:$1|連入了}}。詳情請見[[Special:WhatLinksHere/$2|此頁面的所有連結]]。",
-	"notification-page-linked-flyout": "[[:$2]] 已從 [[:$3]] 頁面{{GENDER:$1|連入了}}。",
 	"notification-add-comment2": "[[User:$1|$1]] 在 \"$4\" 對話頁面段落 \"[[$3|$2]]\" 中{{GENDER:$1|發表了意見}}。",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] 在 [[$3]] 的頁面中{{GENDER:$1|張貼了}}新主題 \"$2\"。",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] 傳送了一則訊息給您：\"[[$3#$2|$2]]\"。",
@@ -122,7 +121,6 @@
 	"echo-date-yesterday": "昨日",
 	"echo-load-more-error": "擷取更多結果的時候發生錯誤。",
 	"notification-edit-talk-page-bundle": "$1 與{{PLURAL:$4|另外}} $3 位使用者在您的[[User talk:$2|對話頁面]]裡面{{GENDER:$1|留下了}}一則訊息。",
-	"notification-page-linked-bundle": "$2 已由 $3 及另外 $4 個{{PLURAL:$5|頁面}}{{GENDER:$1|連入}}了。詳情請見[[Special:WhatLinksHere/$2|所有的連入頁面]]",
 	"notification-edit-user-talk-email-batch-bundle-body": "$1 與{{PLURAL:$3|另外}} $2 位使用者在您的對話頁面裡面{{GENDER:$1|留下了}}訊息。",
 	"notification-page-linked-email-batch-bundle-body": "$2 已由 $3 頁面及另外 $4 個{{PLURAL:$5|頁面}}{{GENDER:$1|連入了}}。",
 	"echo-email-batch-subject-daily": "您在 {{SITENAME}} 有{{PLURAL:$2|一則新通知}}",

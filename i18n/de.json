@@ -126,7 +126,7 @@
 	"echo-date-today": "Heute",
 	"echo-date-yesterday": "Gestern",
 	"echo-load-more-error": "Beim Abrufen weiterer Ergebnisse ist ein Fehler aufgetreten.",
-	"notification-edit-talk-page-bundle": "$1 und {{PLURAL:$4|ein weiterer Benutzer|$3 weitere Benutzer}} {{GENDER:$1|hinterließen}} eine Nachricht auf deiner [[User talk:$2|Diskussionsseite]].",
+	"notification-edit-talk-page-bundle": "$1 und {{PLURAL:$4|ein weiterer Benutzer hinterließ|$3 weitere Benutzer hinterließen}} {{GENDER:$1|Nachrichten}} auf deiner [[User talk:$2|Diskussionsseite]].",
 	"notification-bundle-header-edit-user-talk": "$1 und {{PLURAL:$5|ein anderer hinterließ|$4 andere hinterließen}} {{GENDER:$2|eine}} Nachricht auf {{GENDER:$3|deiner}} Diskussionsseite.",
 	"notification-edit-user-talk-email-batch-bundle-body": "$1 und {{PLURAL:$3|ein weiterer Benutzer|$2 weitere Benutzer}} {{GENDER:$1|hinterließen}} eine Nachricht auf deiner Diskussionsseite",
 	"notification-page-linked-email-batch-bundle-body": "$2 wurde von $3 und {{PLURAL:$5|einer weiteren Seite|$4 weiteren Seiten}} {{GENDER:$1|verlinkt}}",
