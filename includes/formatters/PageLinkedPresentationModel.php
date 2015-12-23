@@ -28,7 +28,7 @@ class EchoPageLinkedPresentationModel extends EchoEventPresentationModel {
 
 	public function getSecondaryLinks() {
 		$whatLinksHereLink = array(
-			'url' => SpecialPage::getTitleFor( 'WhatLinkshere', $this->event->getTitle()->getPrefixedText() )->getFullURL(),
+			'url' => SpecialPage::getTitleFor( 'Whatlinkshere', $this->event->getTitle()->getPrefixedText() )->getFullURL(),
 			'label' => $this->msg( 'notification-link-text-what-links-here' )->text(),
 			'description' => '',
 			'icon' => false,
