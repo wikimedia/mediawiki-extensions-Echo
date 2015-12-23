@@ -432,7 +432,7 @@
 							newNotifData = {
 								read: !!notifData.read,
 								seen: !!notifData.read || notifData.timestamp.mw <= model.getSeenTime(),
-								timestamp: notifData.timestamp.mw,
+								timestamp: notifData.timestamp.utcmw,
 								category: notifData.category,
 								content: {
 									header: content.header,
