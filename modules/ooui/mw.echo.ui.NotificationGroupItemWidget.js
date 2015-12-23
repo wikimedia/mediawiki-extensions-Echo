@@ -128,6 +128,14 @@
 				.then( function ( /* Groups */ ) {
 					widget.popPending();
 				} );
+
+			// Log the expand action
+			mw.echo.logger.logInteraction(
+				mw.echo.Logger.static.actions.notificationBundleExpand,
+				mw.echo.Logger.static.context.popup,
+				widget.getModel().getId(),
+				widget.getModel().getCategory()
+			);
 		}
 	};
 
