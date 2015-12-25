@@ -60,6 +60,7 @@
 	"echo-api-failure": "Benachrichtigungen konnten nicht abgerufen werden. Bitte erneut versuchen. (Fehler $1)",
 	"echo-notification-placeholder": "Es gibt keine Benachrichtigungen.",
 	"echo-notification-loginrequired": "Du musst dich anmelden, um deine Benachrichtigungen zu sehen.",
+	"echo-notification-popup-loginrequired": "Bitte melde dich an, um deine Benachrichtigungen anzusehen.",
 	"notification-link-text-expand-all": "Alle aufklappen",
 	"notification-link-text-expand-alert-count": "{{PLURAL:$1|Eine Meldung|$1 Meldungen}} aufklappen",
 	"notification-link-text-expand-message-count": "{{PLURAL:$1|Eine Nachricht|$1 Nachrichten}} aufklappen",

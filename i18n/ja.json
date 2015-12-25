@@ -82,7 +82,7 @@
 	"notification-mention": "[[User:$1|$1]] が $5 のトークページの「[[:$3#$2|$4]]」で{{GENDER:$6|あなた}}に{{GENDER:$1|言及しました}}。",
 	"notification-header-mention": "$3 のトークページ上の「$4」で $1 が{{GENDER:$5|あなた}}に{{GENDER:$2|言及しました}}。",
 	"notification-mention-nosection": "[[User:$1|$1]] が [[:$3|$2 のトークページ]]で{{GENDER:$4|あなた}}に{{GENDER:$1|言及しました}}。",
-	"notification-header-mention-nosection": "[[:$4|$3 のトークページ]]で $1 が{{GENDER:$5|あなた}}に{{GENDER:$2|言及しました}}。",
+	"notification-header-mention-nosection": "$3 のトークページで $1 が{{GENDER:$5|あなた}}に{{GENDER:$2|言及しました}}。",
 	"notification-user-rights": "あなたの権限を[[User:$1|$1]]が[[Special:Log/rights/$1|{{GENDER:$1|変更しました}}]]。$2。[[Special:ListGroupRights|詳細はこちら]]",
 	"notification-header-user-rights": "あなたの権限を $1 が{{GENDER:$2|変更しました}}。$3。",
 	"notification-user-rights-add": "あなたは{{PLURAL:$2|以下のグループ}}に所属になりました: $1",

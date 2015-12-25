@@ -62,7 +62,7 @@
 	"notification-add-comment2": "[[User:$1|$1]] لە «[[$3|$2]]»ی پەڕەی لێدوانی «$4»دا بۆچۆنی نووسی.",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] بابەتی نوێی «$2»ی لە [[$3]]دا نووسی.",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] پەیامێکی بۆ ناردی: «[[$3#$2|$2]]».",
-	"notification-add-comment-yours2": "[[User:$1|$1]] لە «[[$3#$2|$2]]»ی پەڕەی لێدوانتدا بۆچۆنی نووسی.",
+	"notification-add-comment-yours2": "[[User:$1|$1]] لەسەر «[[$3#$2|$2]]» لە پەڕەی لێدوانتدا {{GENDER:$1|بۆچوونی نووسی}}.",
 	"notification-mention": "[[User:$1|$1]] لە پەڕەی لێدوانی $5 لە «[[:$3#$2|$4]]»دا ئاماژەی پێ‌کردی.",
 	"notification-header-mention": "$1 {{GENDER:$2|ناوی لێ بردی}} لە «$4»ی پەڕەی وتووێژی $3.",
 	"notification-mention-nosection": "[[User:$1|$1]]  لە [[:$3|پەڕەی لێدوانی $2]]دا ئاماژەی {{GENDER:$1| پێ‌کردی}}.",

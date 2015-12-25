@@ -55,6 +55,7 @@
 	"echo-api-failure": "Non se puideron recuperar as notificacións. Inténteo de novo. (Erro $1)",
 	"echo-notification-placeholder": "Non hai notificacións.",
 	"echo-notification-loginrequired": "Debe conectarse para ver as súas notificacións.",
+	"echo-notification-popup-loginrequired": "Por favor, conéctese ó sistema para ver as súas notificacións.",
 	"notification-link-text-expand-all": "Expandir todo",
 	"notification-link-text-expand-alert-count": "Expandir {{PLURAL:$1|$1 alerta|$1 alertas}}",
 	"notification-link-text-expand-message-count": "Expandir {{PLURAL:$1|$1 mensaxe|$1 mensaxes}}",
