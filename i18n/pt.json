@@ -126,7 +126,7 @@
 	"echo-date-today": "Hoje",
 	"echo-date-yesterday": "Ontem",
 	"echo-load-more-error": "Ocorreu um erro ao carregar mais resultados.",
-	"notification-edit-talk-page-bundle": "$1 e $3 {{PLURAL:$4|outro|outros}} {{GENDER:$1|deixaram}} uma mensagem na sua [[User talk:$2|página de discussão]].",
+	"notification-edit-talk-page-bundle": "$1 e $3 {{PLURAL:$4|outro|outros}} {{GENDER:$1|deixaram}} mensagens na sua [[User talk:$2|página de discussão]].",
 	"notification-bundle-header-edit-user-talk": "$1 e $4 {{PLURAL:$5|outro|outros}} {{GENDER:$2|deixaram}} uma mensagem na {{GENDER:$3|sua}} página de discussão.",
 	"notification-edit-user-talk-email-batch-bundle-body": "$1 e $2 {{PLURAL:$3|outro|outros}} {{GENDER:$1|deixaram}} uma mensagem na sua página de discussão.",
 	"notification-page-linked-email-batch-bundle-body": "$2 foi {{GENDER:$1|ligada}} a partir de $3 e $4 para {{PLURAL:$5|outra página|outras páginas}}.",
