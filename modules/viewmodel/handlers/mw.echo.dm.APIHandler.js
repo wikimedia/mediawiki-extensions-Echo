@@ -66,6 +66,16 @@
 	mw.echo.dm.APIHandler.prototype.markAllRead = null;
 
 	/**
+	 * Mark multiple notification items as read using specific IDs
+	 *
+	 * @abstract
+	 * @param {string[]} itemIdArray An array of notification item IDs
+	 * @return {jQuery.Promise} A promise that resolves when all given notifications
+	 *  are marked as read.
+	 */
+	mw.echo.dm.APIHandler.prototype.markMultipleItemsRead = null;
+
+	/**
 	 * Update the read status of a notification item in the API
 	 *
 	 * @param {string} itemId Item id

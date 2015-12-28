@@ -320,7 +320,7 @@
 					widget.notificationsModel.updateSeenTime();
 					// Mark notifications as 'read' if markReadWhenSeen is set to true
 					if ( widget.markReadWhenSeen ) {
-						widget.notificationsModel.markAllRead();
+						widget.notificationsModel.autoMarkAllRead();
 					}
 
 					// Log impressions

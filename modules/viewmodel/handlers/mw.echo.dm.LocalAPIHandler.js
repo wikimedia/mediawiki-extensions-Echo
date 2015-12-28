@@ -80,6 +80,23 @@
 	/**
 	 * @inheritdoc
 	 */
+	mw.echo.dm.LocalAPIHandler.prototype.markMultipleItemsRead = function ( itemIdArray ) {
+		var model = this,
+			data = {
+				action: 'echomarkread',
+				uselang: this.userLang,
+				list: itemIdArray.join( '|' )
+			};
+
+		return this.api.postWithToken( 'edit', data )
+			.then( function ( result ) {
+				return OO.getProp( result.query, 'echomarkread', model.type, 'rawcount' ) || 0;
+			} );
+	};
+
+	/**
+	 * @inheritdoc
+	 */
 	mw.echo.dm.LocalAPIHandler.prototype.markItemRead = function ( itemId ) {
 		var model = this,
 			data = {

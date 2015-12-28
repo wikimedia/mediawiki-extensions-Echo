@@ -52,6 +52,10 @@
 				}
 			};
 
+		if ( !promiseArray.length ) {
+			deferred.resolve();
+		}
+
 		for ( i = 0; i < promises.length; i++ ) {
 			promises[ i ].always( countPromises );
 		}
