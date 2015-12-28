@@ -62,6 +62,7 @@
 	"echo-api-failure": "Non è stato possibile recuperare le notifiche. Riprova. (Errore $1)",
 	"echo-notification-placeholder": "Non ci sono notifiche.",
 	"echo-notification-loginrequired": "Devi effettuare l'accesso per vedere le tue notifiche.",
+	"echo-notification-popup-loginrequired": "Effettua l'accesso per visualizzare le tue notifiche.",
 	"notification-link-text-expand-all": "Espandi tutto",
 	"notification-link-text-expand-alert-count": "Espandi {{PLURAL:$1|$1 avviso|$1 avvisi}}",
 	"notification-link-text-expand-message-count": "Espandi {{PLURAL:$1|$1 messaggio|$1 messaggi}}",

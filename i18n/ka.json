@@ -4,7 +4,8 @@
 			"David1010",
 			"MIKHEIL",
 			"Nodar Kherkheulidze",
-			"Tokoko"
+			"Tokoko",
+			"Otogi"
 		]
 	},
 	"echo-desc": "შეტყობინებების სისტემა",
@@ -48,13 +49,10 @@
 	"notification-link-text-view-edit": "რედაქტირების ნახვა",
 	"notification-edit-talk-page2": "მომხმარებელმა [[User:$1|$1]] {{GENDER:$1|დატოვა}} შეტყობინება თქვენი [[User talk:$2#$3|განხილვის გვერდზე]].",
 	"notification-edit-talk-page-with-section": "მომხმარებელმა [[User:$1|$1]] {{GENDER:$1|დატოვა}} შეტყობინება თქვენი განხილვის გვერდზე განყოფილებაში „[[User talk:$2#$3|$4]]“.",
-	"notification-edit-talk-page-flyout2": "მომხმარებელმა $1 {{GENDER:$1|დატოვა}} შეტყობინება თქვენი [[User talk:$2#$3|განხილვის გვერდზე]].",
-	"notification-edit-talk-page-flyout-with-section": "მომხმარებელმა $1 {{GENDER:$1|დატოვა}} შეტყობინება თქვენი განხილვის გვერდზე განყოფილებაში „[[User talk:$2#$3|$4]]“.",
+	"notification-header-edit-user-talk-with-section": "$1 {{GENDER:$2|მომხმარებელმა}} დატოვა შეტყობინება {{GENDER:$3|თქვენი}} განხილვის გვერდზე „$4“.",
 	"notification-page-linked": "[[:$2]] {{GENDER:$1|ბმული}} გაკეთდა სტატიაში [[:$3]]. [[Special:WhatLinksHere/$2|იხილეთ ამ გვერდის ყველა ბმული]].",
 	"notification-mention": "[[User:$1|$1]] {{GENDER:$1|მოგნიშნათ}} განხილვის გვერდზე „$5“ სექციაში „[[:$3#$2|$4]]“.",
-	"notification-mention-flyout": "$1 {{GENDER:$1|მოგნიშნათ}} განხილვის გვერდზე „$5“ სექციაში „[[:$3#$2|$4]]“.",
 	"notification-mention-nosection": "[[User:$1|$1]] {{GENDER:$1|მოგნიშნათ}} [[:$3|$2 განხილვის გვერდზე]].",
-	"notification-mention-nosection-flyout": "$1 {{GENDER:$1|მოგნიშნათ}} [[:$3|$2 განხილვის გვერდზე]].",
 	"notification-user-rights-add": "თქვენ გაწევრიანებული ხართ {{PLURAL:$2|ამ ჯგუფში|ამ ჯგუფებში}}: $1",
 	"notification-user-rights-remove": "თქვენ აღარ ხართ გაწევრიანებული {{PLURAL:$2|ამ ჯგუფში|ამ ჯგუფებში}}: $1",
 	"notification-new-user": "კეთილი იყოს თქვენი მობრძანება საიტზე {{SITENAME}}, $1! ჩვენ მოხარული ვართ თქვენი აქ ყოფნით.",

@@ -61,6 +61,7 @@
 	"echo-api-failure": "알림을 받아올 수 없었습니다. 다시 시도해 주세요. (에러 $1)",
 	"echo-notification-placeholder": "알림이 없습니다.",
 	"echo-notification-loginrequired": "알림을 보려면 로그인해야 합니다.",
+	"echo-notification-popup-loginrequired": "알림을 보려면 로그인하세요.",
 	"notification-link-text-view-message": "메시지 보기",
 	"notification-link-text-view-mention": "언급된 내용 보기",
 	"notification-link-text-view-changes": "차이 보기",
@@ -142,5 +143,6 @@
 	"apihelp-echomarkseen-param-type": "모두 읽은 것으로 표시할 알림의 종류: '알림', '메시지' 또는 '모두'.",
 	"apihelp-query+notifications-description": "현재 사용자를 기다리고 있는 알림을 얻어옵니다.",
 	"apihelp-query+notifications-param-prop": "상세한 요청 내용.",
+	"apihelp-query+notifications-param-filter": "필터 알림 반환됨.",
 	"apihelp-query+notifications-example-1": "알림 리스트"
 }
