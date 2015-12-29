@@ -14,6 +14,6 @@
     "grunt-contrib-watch": "0.6.1",
     "grunt-banana-checker": "0.4.0",
     "grunt-jscs": "1.8.0",
-    "grunt-jsonlint": "1.0.6"
+    "grunt-jsonlint": "1.0.7"
   }
 }
