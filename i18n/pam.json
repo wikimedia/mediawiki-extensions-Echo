@@ -1,9 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Leeheonjin"
+			"Leeheonjin",
+			"Amiel Guanlao"
 		]
 	},
-	"echo-notification-loginrequired": "Kelangan mu maglagda (login) bang akit mu la reng kekang notipikasyon.",
+	"echo-notification-loginrequired": "Dapot kang mibuklat ba mong akit ding pakiwari keka.",
 	"notification-welcome-linktext": "Malawus ko pu"
 }
