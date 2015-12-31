@@ -53,7 +53,7 @@ class RemoveInvalidNotification extends Maintenance {
 			};
 
 			if ( $event ) {
-				$dbw->begin();
+				$this->beginTransaction( $dbw, __METHOD__ );
 
 				$dbw->delete(
 					'echo_event',
@@ -66,7 +66,7 @@ class RemoveInvalidNotification extends Maintenance {
 					__METHOD__
 				);
 
-				$dbw->commit();
+				$this->commitTransaction( $dbw, __METHOD__ );
 
 				$this->output( "processing " . count( $event ) . " invalid events\n" );
 				wfWaitForSlaves( false, false, $wgEchoCluster );
