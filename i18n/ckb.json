@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Calak",
-			"Asoxor"
+			"Asoxor",
+			"Macofe"
 		]
 	},
 	"echo-desc": "سیستەمی ئاگادارکردنەوەی بەکارھێنەران سەبارەت بە ڕووداوەکان و پەیامەکان",
@@ -77,7 +78,7 @@
 	"notification-reverted2": "{{PLURAL:$4|دەستکارییەکەت|دەستکارییەکانت}} لە [[:$2]]دا لە لایەن [[$5|$1]]ەوە {{GENDER:$1|گەڕێنرایەوە}}. $3",
 	"notification-header-reverted": "{{PLURAL:$4|دەستکارییەکەت|دەستکارییەکانت}} لە $3دا لە لایەن $1ەوە {{GENDER:$2|گەڕێنرایەوە}}.",
 	"notification-emailuser": "[[User:$1|$1]] ئیمێلێکی بۆ {{GENDER:$1|ناردی}}.",
-	"notification-header-emailuser": "$1 ئیمێلێکی بۆ {{GENDER:$2|ناردی}}",
+	"notification-header-emailuser": "$1 ئیمێلێکی بۆ {{GENDER:$2|ناردی}}.",
 	"notification-edit-talk-page-email-subject2": "$1 لە {{SITENAME}}دا پەیامێکی بۆ ناردی.",
 	"notification-edit-talk-page-email-batch-body2": "$1 لە پەڕەی لێدوانتدا پەیامێکی {{GENDER:$1|دانا}}.",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 لە پەڕەی لێدوانت لە «$2»دا پەیامێکی نارد.",

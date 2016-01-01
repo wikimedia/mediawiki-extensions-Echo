@@ -6,7 +6,8 @@
 			"Reception123",
 			"Stelistcristi",
 			"ImGelu",
-			"Wintereu"
+			"Wintereu",
+			"Macofe"
 		]
 	},
 	"echo-desc": "Sistem de notificare a utilizatorilor cu privire la evenimente și mesaje",
@@ -63,10 +64,7 @@
 	"notification-link-text-view-edit": "Vezi modificarea",
 	"notification-edit-talk-page2": "[[User:$1|$1]] {{GENDER:$1|a lăsat}} un mesaj pe [[User talk:$2#$3|pagina dumneavoastră de discuții]].",
 	"notification-edit-talk-page-with-section": "[[User:$1|$1]] {{GENDER:$1|a lăsat}} un mesaj pe pagina dumneavoastră de discuții, în cadrul secțiunii „[[User talk:$2#$3|$4]]”.",
-	"notification-edit-talk-page-flyout2": "$1 {{GENDER:$1|a lăsat}} un mesaj pe [[User talk:$2#$3|pagina dumneavoastră de discuții]].",
-	"notification-edit-talk-page-flyout-with-section": "$1 {{GENDER:$1|a lăsat}} un mesaj pe pagina dumneavoastră de discuții, în cadrul secțiunii „[[User talk:$2#$3|$4]]”.",
 	"notification-page-linked": "[[:$2]] a fost {{GENDER:$1|menționată}} în [[:$3]]: [[Special:WhatLinksHere/$2|Vedeți toate legăturile către această pagină]].",
-	"notification-page-linked-flyout": "[[:$2]] a fost {{GENDER:$1|menționată}} în [[:$3]].",
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|a comentat}} subiectul „[[$3|$2]]” din pagina de discuție „$4”.",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] {{GENDER:$1|a pornit}} un nou subiect („$2”) pe [[$3]].",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] {{GENDER:$1|v-a trimis}} un mesaj: „[[$3#$2|$2]]”.",
@@ -85,7 +83,7 @@
 	"notification-reverted2": "{{PLURAL:$4|Modificarea dumneavoastră asupra paginii [[:$2]] a|Modificările dumneavoastră asupra paginii [[:$2]] au}} fost {{GENDER:$1|înlăturat}}{{PLURAL:$4|ă|e}} de către [[$5|$1]]. $3",
 	"notification-header-reverted": "{{PLURAL:$4|Modificarea dumneavoastră asupra paginii $3 a|Modificările dumneavoastră asupra paginii $3 au}} fost {{GENDER:$2|înlăturat}}{{PLURAL:$4|ă|e}} de către $1.",
 	"notification-emailuser": "[[User:$1|$1]] {{GENDER:$1|v-a trimis}} un e-mail.",
-	"notification-header-emailuser": "$1 {{GENDER:$2|v-a trimis}} un e-mail",
+	"notification-header-emailuser": "$1 {{GENDER:$2|v-a trimis}} un e-mail.",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|v-a lăsat}} un mesaj la {{SITENAME}}",
 	"notification-edit-talk-page-email-batch-body2": "$1 {{GENDER:$1|a lăsat}} un mesaj pe pagina dumneavoastră de discuții.",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 {{GENDER:$1|a lăsat}} un mesaj pe pagina dumneavoastră de discuții, în cadrul secțiunii „$2”.",
@@ -115,7 +113,6 @@
 	"echo-date-yesterday": "Ieri",
 	"echo-load-more-error": "A apărut o eroare în timpul obținerii mai multor rezultate.",
 	"notification-edit-talk-page-bundle": "$1 și încă {{PLURAL:$4|altcineva|alți $3}} {{GENDER:$1|au lăsat}} un mesaj pe [[User talk:$2|pagina dumneavoastră de discuții]].",
-	"notification-page-linked-bundle": "$2 a fost {{GENDER:$1|menționată}} în $3 și încă {{PLURAL:$5|o pagină|alte $4 pagini}}. [[Special:WhatLinksHere/$2|Vedeți toate legăturile către această pagină]]",
 	"notification-edit-user-talk-email-batch-bundle-body": "$1 și încă {{PLURAL:$3|altcineva|alți $2}} {{GENDER:$1|au lăsat}} un mesaj pe pagina dumneavoastră de discuții.",
 	"notification-page-linked-email-batch-bundle-body": "$2 a fost {{GENDER:$1|menționată}} în $3 și încă {{PLURAL:$5|o pagină|alte $4 pagini}}.",
 	"echo-email-batch-subject-daily": "Aveți {{PLURAL:$2|o notificare nouă|notificări noi}} la {{SITENAME}}",

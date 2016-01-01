@@ -17,7 +17,8 @@
 			"Cwlin0416",
 			"EagerLin",
 			"Shizhao",
-			"Bowleerin"
+			"Bowleerin",
+			"Macofe"
 		]
 	},
 	"echo-desc": "用來通知使用者事件及訊息的系統",
@@ -91,7 +92,7 @@
 	"notification-reverted2": "您{{PLURAL:$4|在 [[:$2]] 頁面的編輯}}已由 [[$5|$1]] {{GENDER:$1|還原了}}。$3",
 	"notification-header-reverted": "您{{PLURAL:$4|在 $3 頁面的編輯}}已由 $1 給還原了。",
 	"notification-emailuser": "[[User:$1|$1]] 向您{{GENDER:$1|傳送了}}一封郵件。",
-	"notification-header-emailuser": "$1 向您{{GENDER:$2|傳送了}}一封郵件",
+	"notification-header-emailuser": "$1 向您{{GENDER:$2|傳送了}}一封郵件。",
 	"notification-edit-talk-page-email-subject2": "$1 在 {{SITENAME}} {{GENDER:$1|留下了}}一則訊息給您。",
 	"notification-edit-talk-page-email-batch-body2": "$1 在您的對話頁面中{{GENDER:$1|留下了}}一則訊息。",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 在您的對話頁面 \"$2\" 中{{GENDER:$1|留下了}}一則訊息。",

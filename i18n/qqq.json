@@ -79,7 +79,7 @@
 	"notification-link-text-expand-alert-count": "Label for the button that expands a bundled alert notification.\n\nParameters:\n* $1 - The count of messages that the bundle holds.\n{{Identical|View message}}",
 	"notification-link-text-expand-message-count": "Label for the button that expands a bundled message notification.\n\nParameters:\n* $1 - The count of messages that the bundle holds.\n{{Identical|View message}}",
 	"notification-link-text-expand-all-count": "Label for the button that expands a bundled notification.\n\nParameters:\n* $1 - The count of messages that the bundle holds.\n{{Identical|View message}}",
-	"notification-link-text-collapse-all": "Label for the button that collapses a bundled notification.\n{{Identical|View message}}",
+	"notification-link-text-collapse-all": "Label for the button that collapses a bundled notification.\n{{Identical|Collapse}}",
 	"notification-link-text-view-message": "Label for button that links to a message on your talk page.\n{{Identical|View message}}",
 	"notification-link-text-view-mention": "Label for button that links to a discussion where you were mentioned.",
 	"notification-link-text-view-changes": "Label for button that links to a \"diff\" view showing changes made to a page. This is an alternative to the wording in {{msg-mw|notification-link-text-view-edit}}, which serves essentially the same function.\n{{Identical|View changes}}",

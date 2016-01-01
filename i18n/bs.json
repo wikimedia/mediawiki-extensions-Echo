@@ -7,7 +7,8 @@
 			"Palapa",
 			"KWiki",
 			"Semso98",
-			"Srdjan m"
+			"Srdjan m",
+			"Macofe"
 		]
 	},
 	"echo-desc": "Sistem za obavještavanje korisnika o dešavanjima i porukama",
@@ -83,7 +84,7 @@
 	"notification-reverted2": "{{PLURAL:$4|Vaša izmjena na [[:$2]] je poništena|Vaše izmjene na [[:$2]] su poništene}} {{GENDER:$1|od}} strane [[$5|$1]]. $3",
 	"notification-header-reverted": "{{PLURAL:$4|Vašu izmjenu na $3|Vaše izmjene na $3}} {{GENDER:$2|poništio|poništila}} je $1.",
 	"notification-emailuser": "[[User:$1|$1]] Vam je {{GENDER:$1|poslao|poslala}} e-poruku.",
-	"notification-header-emailuser": "$1 Vam je {{GENDER:$2|poslao|poslala}} e-poruku",
+	"notification-header-emailuser": "$1 Vam je {{GENDER:$2|poslao|poslala}} e-poruku.",
 	"notification-edit-talk-page-email-subject2": "$1 Vam je {{GENDER:$1|ostavio|ostavila}} poruku na {{GRAMMAR:dativ|{{SITENAME}}}}",
 	"notification-edit-talk-page-email-batch-body2": "$1 Vam je {{GENDER:$1|ostavio|ostavila}} poruku na vašoj stranici za razgovor.",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 Vam je {{GENDER:$1|ostavio|ostavila}} poruku na vašoj stranici za razgovor u \"$2\".",

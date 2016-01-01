@@ -67,6 +67,7 @@
 	"notification-link-text-what-links-here": "Vidi sve poveznice na ovu stranicu",
 	"notification-mention": "[[User:$1|$1]] Vas je {{GENDER:$1|spomenuо|spomenula}} na stranici za razgovor $5, u odlomku [[:$3#$2|$4]].",
 	"notification-header-mention": "$1 Vas je {{GENDER:$1|spomenuo|spomenula}} na stranici za razgovor $3, u odlomku $4.",
+	"notification-mention-nosection": "[[User:$1|$1]] Vas je {{GENDER:$1|spomenuo|spolenula}} na [[:$3|$2 stranici za razgovor]].",
 	"notification-header-mention-nosection": "$1 Vas je {{GENDER:$2|spomenuo|spomenula}} na stranici za razgovor $3.",
 	"notification-user-rights": "Vaša suradnička prava [[Special:Log/rights/$1|{{GENDER:$1|promijenio|promijenila}}]] je {{GENDER:$1|suradnik|suradnica}} [[User:$1|$1]]. $2. [[Special:ListGroupRights|Saznajte više]]",
 	"notification-header-user-rights": "Vaša suradnička prava {{GENDER:$1|promijenio|promijenila}} je $1. $2. $3.",
