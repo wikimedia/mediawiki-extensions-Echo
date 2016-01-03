@@ -123,6 +123,7 @@
 	"notification-edit-talk-page-bundle": "$1 และผู้อื่นอีก $3 คนส่งสารทาง[[User talk:$2|หน้าพูดคุย]]ของคุณ",
 	"notification-bundle-header-edit-user-talk": "$1 และผู้อื่นอีก $4 คนส่งสารทางหน้าพูดคุยของคุณ",
 	"notification-edit-user-talk-email-batch-bundle-body": "$1 และผู้อื่นอีก $2 คนส่งสารทางหน้าพูดคุยของคุณ",
+	"notification-page-linked-email-batch-bundle-body": "$2 ถูกโยงจาก $3 และหน้าอื่นอีก $4 หน้า",
 	"echo-email-batch-subject-daily": "คุณมีการแจ้งใหม่ที่{{SITENAME}}",
 	"echo-email-batch-subject-weekly": "คุณมีการแจ้งใหม่ที่{{SITENAME}}สัปดาห์นี้",
 	"echo-email-batch-body-intro-daily": "สวัสดี $1\nนี่คือสรุปกิจกรรมของวันนี้ใน{{SITENAME}}สำหรับคุณ",
