@@ -61,7 +61,7 @@ class EchoEditUserTalkPresentationModel extends EchoEventPresentationModel {
 	public function getBodyMessage() {
 		if ( $this->getBundleCount( true, array( $this,'getEventUser' ) ) === 1 && $this->hasSection() ) {
 			$msg = $this->msg( 'notification-body-edit-user-talk-with-section' );
-			$msg->params( $this->getRevisionSnippet() );
+			$msg->params( wfEscapeWikiText( $this->getRevisionSnippet() ) );
 			return $msg;
 		} else {
 			return false;
