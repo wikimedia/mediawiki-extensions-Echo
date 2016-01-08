@@ -5,10 +5,11 @@
 			"DCLXVI",
 			"Termininja",
 			"Borislav",
-			"Лорд Бъмбъри"
+			"Лорд Бъмбъри",
+			"Vodnokon4e"
 		]
 	},
-	"echo-desc": "Система за известия",
+	"echo-desc": "Система за уведомяване на потребителите за събития и съобщения",
 	"prefs-echo": "Известия",
 	"prefs-emailsettings": "Настройки за е-поща",
 	"prefs-displaynotifications": "Настройки за показване",
