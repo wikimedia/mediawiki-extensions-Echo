@@ -1,12 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ninjastrikers"
+			"Ninjastrikers",
+			"9.sinistra"
 		]
 	},
 	"prefs-echo": "အသိပေးချက်များ",
 	"notifications": "အသိပေးချက်များ",
-	"tooltip-pt-notifications-alert": "{{GENDER:|သင်၏}} နှိုးဆော်ချက်များ",
+	"tooltip-pt-notifications-alert": "{{GENDER:|သင်၏}} သတိပေးချက်များ",
 	"tooltip-pt-notifications-message": "{{GENDER:|သင်၏}} စာလွှာများ",
 	"echo-specialpage": "အသိပေးချက်များ",
 	"notification-header-edit-user-talk": "{{GENDER:$3|သင်၏}} ဆွေးနွေးချက် စာမျက်နှာတွင် စာလွှာတစ်ခုကို $1 {{GENDER:$2|ချန်ထားခဲ့သည်}}။",
