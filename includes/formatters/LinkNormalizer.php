@@ -12,7 +12,7 @@ class EchoLinkNormalizer {
 	 */
 	public static function normalizePrimaryLink( $link ) {
 		// B/C for old format: [url, label]
-		if ( !isset( $link['url'] ) ) {
+		if ( $link && !isset( $link['url'] ) ) {
 			return array(
 				'url' => $link[0],
 				'label' => $link[1],
@@ -33,7 +33,7 @@ class EchoLinkNormalizer {
 	 */
 	public static function normalizeSecondaryLinks( array $link ) {
 		// B/C for old secondary links format: [url => label, ...]
-		if ( !isset( $link[0] ) || !isset( $link[0]['url'] ) ) {
+		if ( isset( $link[0] ) && !isset( $link[0]['url'] ) ) {
 			$links = array();
 			foreach ( $link as $url => $text ) {
 				$links[] = array(

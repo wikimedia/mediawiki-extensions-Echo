@@ -100,14 +100,13 @@ class EchoMentionPresentationModel extends EchoEventPresentationModel {
 			'oldid' => 'prev',
 			'diff' => $this->event->getExtraParam( 'revid' )
 		) );
-		return array(
-			array(
-				'url' => $url,
-				'label' => $this->msg( 'notification-link-text-view-changes' )->text(),
-				'description' => '',
-				'icon' => false,
-				'prioritized' => true,
-			),
+		$viewChangesLink = array(
+			'url' => $url,
+			'label' => $this->msg( 'notification-link-text-view-changes' )->text(),
+			'description' => '',
+			'icon' => false,
+			'prioritized' => true,
 		);
+		return array( $this->getAgentLink(), $viewChangesLink );
 	}
 }

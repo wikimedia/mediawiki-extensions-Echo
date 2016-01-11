@@ -34,7 +34,7 @@ class EchoEditUserTalkPresentationModel extends EchoEventPresentationModel {
 			'icon' => false,
 			'prioritized' => true
 		);
-		return array( $diffLink );
+		return array( $this->getAgentLink(), $diffLink );
 	}
 
 	public function getHeaderMessage() {

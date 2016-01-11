@@ -51,4 +51,8 @@ class EchoUserRightsPresentationModel extends EchoEventPresentationModel {
 			'label' => $this->msg( 'echo-learn-more' )->text()
 		);
 	}
+
+	public function getSecondaryLinks() {
+		return array( $this->getAgentLink() );
+	}
 }
