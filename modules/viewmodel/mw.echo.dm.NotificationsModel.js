@@ -317,7 +317,7 @@
 	 * @fires updateSeenTime
 	 */
 	mw.echo.dm.NotificationsModel.prototype.updateSeenTime = function ( type ) {
-		var i, len,
+		var i, len, promise,
 			items = this.unseenNotifications.getItems();
 
 		type = type || this.type;
@@ -328,7 +328,14 @@
 		}
 		this.emit( 'updateSeenTime' );
 
-		return this.getApi().updateSeenTime( type )
+		// Only update seenTime in the API locally
+		if ( !this.isExternal() ) {
+			promise = this.getApi().updateSeenTime( type );
+		} else {
+			promise = $.Deferred().resolve();
+		}
+
+		return promise
 			.then( this.setSeenTime.bind( this ) );
 	};
 
