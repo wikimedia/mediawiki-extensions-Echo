@@ -43,8 +43,8 @@
 		this.actionsButtonSelectWidget.addItems( [ this.toggleExpandButton ] );
 
 		// Events
-		this.toggleExpandButton.connect( this, { click: 'onToggleExpandButtonClick' } );
-
+		this.toggleExpandButton.connect( this, { click: 'expand' } );
+		this.$element.on( 'click', this.expand.bind( this ) );
 		this.model.connect( this, {
 			add: 'onModelAddGroup',
 			remove: 'onModelRemoveGroup',
@@ -62,7 +62,7 @@
 
 		// Initialization
 		this.populateFromModel();
-		this.toggleExpand( false );
+		this.toggleExpanded( false );
 		this.$element
 			.addClass( 'mw-echo-ui-notificationGroupItemWidget' )
 			.append(
@@ -111,12 +111,12 @@
 	};
 
 	/**
-	 * Respond to toggle expand button click
+	 * Expand the notification group
 	 */
-	mw.echo.ui.NotificationGroupItemWidget.prototype.onToggleExpandButtonClick = function () {
+	mw.echo.ui.NotificationGroupItemWidget.prototype.expand = function () {
 		var widget = this;
 
-		this.toggleExpand( !this.expanded );
+		this.toggleExpanded( !this.expanded );
 		this.updateExpandButton();
 
 		if ( this.expanded ) {
@@ -193,7 +193,7 @@
 	 *
 	 * @param {boolean} show Show the widget expanded
 	 */
-	mw.echo.ui.NotificationGroupItemWidget.prototype.toggleExpand = function ( show ) {
+	mw.echo.ui.NotificationGroupItemWidget.prototype.toggleExpanded = function ( show ) {
 		this.expanded = show !== undefined ? !!show : !this.expanded;
 
 		if ( show ) {
