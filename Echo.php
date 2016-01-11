@@ -38,7 +38,7 @@ $wgExtensionCredits['specialpage'][] = array(
 	'path' => __FILE__,
 	'name' => 'Echo',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:Echo',
-	'author' => array( 'Andrew Garrett', 'Ryan Kaldari', 'Benny Situ', 'Luke Welling' ),
+	'author' => array( 'Andrew Garrett', 'Ryan Kaldari', 'Benny Situ', 'Luke Welling', 'Kunal Mehta', 'Moriel Schottlender', 'Jon Robson' ),
 	'descriptionmsg' => 'echo-desc',
 	'license-name' => 'MIT',
 );
