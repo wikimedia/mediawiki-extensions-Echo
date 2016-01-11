@@ -74,6 +74,7 @@
 	 */
 	mw.echo.Logger.static.actions = {
 		notificationClick: 'notification-link-click',
+		notificationBundleExpand: 'notification-bundle-expand',
 		notificationImpression: 'notification-impression'
 	};
 
