@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Hosseinblue",
-			"Reza1615"
+			"Reza1615",
+			"Lakzon"
 		]
 	},
 	"echo-desc": "سامانهٔ آگاه‌سازی کاربران از رویدادها و پیام‌ها",
@@ -56,7 +57,7 @@
 	"notification-link-text-view-mention": "نمایش اشاره",
 	"notification-link-text-view-changes": "نمایش تغییرةل/پالانةل",
 	"notification-link-text-view-page": "مشاهده وةڵگة",
-	"notification-link-text-view-edit": "نمایش دةسکاری",
+	"notification-link-text-view-edit": "نمایش دەسکاری",
 	"notification-edit-talk-page2": "[[User:$1|$1]] در [[User talk:$2#$3|وةڵگة گةپ]] شما پیامی {{GENDER:$1|گذاشت}}.",
 	"notification-edit-talk-page-with-section": "[[User:$1|$1]] در وةڵگة گةپ هؤمة در «[[User talk:$2#$3|$4]]» پیامی {{GENDER:$1|گذاشت}}.",
 	"notification-page-linked": "[[:$2]] از [[:$3]] {{GENDER:$1|پیوند گرفته‌است}}. [[Special:WhatLinksHere/$2|همهٔ پیوندها به این صفحه را ببینید]].",

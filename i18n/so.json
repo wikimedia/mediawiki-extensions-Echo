@@ -12,6 +12,7 @@
 	"echo-specialpage": "Wargelin",
 	"echo-none": "Malahan wax wargelin ah.",
 	"echo-more-info": "Dheeraad",
+	"notification-link-text-view-changes": "Itus isbedelada",
 	"notification-edit-talk-page2": "[[User:$1|$1]] {{GENDER:$1|kuugu reebay|kuugu reebtay}} farriin [[User talk:$2#$3|bogga wadahadalka]].",
 	"notification-edit-talk-page-with-section": "[[User:$1|$1]] kuugu {{GENDER:$1|dhaafay|dhaaftay}} farriin boggada wadahadalka ee \"[[User talk:$2#$3|$4]]\".",
 	"notification-mention": "[[User:$1|$1]] {{GENDER:$1|xusid}} kugula sameeyey $5 bogaa wadahadalka ee \"[[:$3#$2|$4]]\".",
