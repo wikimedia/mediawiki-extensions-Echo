@@ -39,7 +39,7 @@ class EchoFlyoutFormatter extends EchoEventFormatter {
 		);
 
 		$footerItems = array( $ts );
-		$secondaryLinks = EchoLinkNormalizer::normalizeSecondaryLinks( array_filter( $model->getSecondaryLinks() ) );
+		$secondaryLinks = array_filter( $model->getSecondaryLinks() );
 		foreach ( $secondaryLinks as $link ) {
 			$footerItems[] = Html::element( 'a', array( 'href' => $link['url'] ), $link['label'] );
 		}
@@ -52,7 +52,6 @@ class EchoFlyoutFormatter extends EchoEventFormatter {
 		// Add the primary link afterwards, if it has one
 		$primaryLink = $model->getPrimaryLink();
 		if ( $primaryLink !== false ) {
-			$primaryLink = EchoLinkNormalizer::normalizePrimaryLink( $primaryLink );
 			$html .= Html::element(
 				'a',
 				array( 'class' => 'mw-echo-notification-primary-link', 'href' => $primaryLink['url'] ),
