@@ -4,7 +4,7 @@
  * A formatter for the notification flyout popup. Just the bare data needed to
  * render everything client-side.
  */
-class EchoModelFormatter extends EchoFlyoutFormatter {
+class EchoModelFormatter extends EchoEventFormatter {
 	/**
 	 * @param EchoEventPresentationModel $model
 	 * @return array
