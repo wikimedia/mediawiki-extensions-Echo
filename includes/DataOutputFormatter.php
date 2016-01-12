@@ -15,13 +15,6 @@ class EchoDataOutputFormatter {
 	);
 
 	/**
-	 * @var array Mapping of new formatter to old formatter type
-	 */
-	protected static $legacyMapping = array(
-		'special' => 'html',
-	);
-
-	/**
 	 * Format a notification for a user in the format specified
 	 *
 	 * @param EchoNotification $notification
@@ -147,13 +140,8 @@ class EchoDataOutputFormatter {
 			$formatter = new self::$formatters[$format]( $user, $lang );
 			return $formatter->format( $event );
 		} else {
-			if ( isset( self::$legacyMapping[$format] ) ) {
-				$legacyFormat = self::$legacyMapping[$format];
-			} else {
-				$legacyFormat = $format;
-			}
 			// Legacy b/c
-			return EchoNotificationController::formatNotification( $event, $user, $legacyFormat );
+			return EchoNotificationController::formatNotification( $event, $user, $format );
 		}
 	}
 
