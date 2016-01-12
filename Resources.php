@@ -73,6 +73,7 @@ $wgResourceModules += array(
 			'ext.echo.logger',
 			'mediawiki.jqueryMsg',
 			'mediawiki.language',
+			'mediawiki.Title',
 			// OOJS-UI icons
 			// TODO: We are only using 1-2 icons from each
 			// bundle; split them up to our own bundle so we
