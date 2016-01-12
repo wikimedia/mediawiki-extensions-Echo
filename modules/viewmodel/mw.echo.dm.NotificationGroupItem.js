@@ -114,6 +114,7 @@
 	mw.echo.dm.NotificationGroupItem.prototype.fetchAllNotificationsInGroups = function () {
 		var notifModel,
 			model = this,
+			fetchPromises = [],
 			sourceKeys = Object.keys( this.sources );
 
 		return this.networkHandler.fetchNotificationGroups( sourceKeys )
@@ -123,11 +124,12 @@
 				for ( i = 0; i < sourceKeys.length; i++ ) {
 					notifModel = model.getItemById( sourceKeys[ i ] );
 					if ( notifModel ) {
-						notifModel.fetchNotifications( promises[ i ] );
+						fetchPromises.push( notifModel.fetchNotifications( promises[ i ] ) );
 					}
 				}
 
-				return promises;
+				// Wait for all fetch processes to finish before we resolve this promise
+				return mw.echo.dm.NetworkHandler.static.waitForAllPromises( fetchPromises );
 			} );
 	};
 
@@ -178,6 +180,25 @@
 	 */
 	mw.echo.dm.NotificationGroupItem.prototype.getCount = function () {
 		return this.count;
+	};
+
+	/**
+	 * Get the array of sources for this group
+	 *
+	 * @return {string[]} Sources
+	 */
+	mw.echo.dm.NotificationGroupItem.prototype.getSources = function () {
+		return this.sources;
+	};
+
+	/**
+	 * Get all the sub-notification models for this group
+	 *
+	 * @return {Object} A keyed object containing mw.echo.dm.NotificationModel
+	 *  objects keyed by their source name.
+	 */
+	mw.echo.dm.NotificationGroupItem.prototype.getSubModels = function () {
+		return this.notifModels;
 	};
 
 } )( mediaWiki );

@@ -22,6 +22,7 @@
 	 * @cfg {string} [timestamp] Notification timestamp in Mediawiki timestamp format
 	 * @cfg {string} [primaryUrl] Notification primary link in raw url format
 	 * @cfg {boolean} [external=false] This notification is from an external source
+	 * @cfg {string} [source] The source this notification is coming from, if it is external
 	 * @cfg {Object[]} [secondaryUrls] An array of objects defining the secondary URLs
 	 *  for this notification. The secondary URLs are expected to have this structure:
 	 *  	{
@@ -55,6 +56,7 @@
 		this.category = config.category || '';
 		this.type = config.type || 'alert';
 		this.external = !!config.external;
+		this.source = config.source || '';
 		this.iconType = config.iconType;
 		this.iconURL = config.iconURL;
 
@@ -252,5 +254,14 @@
 	 */
 	mw.echo.dm.NotificationItem.prototype.getSecondaryUrls = function () {
 		return this.secondaryUrls;
+	};
+
+	/**
+	 * Get the notification's source
+	 *
+	 * @return {string} Notification source
+	 */
+	mw.echo.dm.NotificationItem.prototype.getSource = function () {
+		return this.source;
 	};
 }( mediaWiki, jQuery ) );

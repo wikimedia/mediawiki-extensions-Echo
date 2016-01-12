@@ -126,7 +126,25 @@
 			// Query all sources
 			this.model.fetchAllNotificationsInGroups()
 				.then( function ( /* Groups */ ) {
+					var source, items, i,
+						models = widget.model.getSubModels();
+
 					widget.popPending();
+
+					// Log impressions of all items from each group
+					for ( source in models ) {
+						items = models[source].getItems();
+						for ( i = 0; i < items.length; i++ ) {
+							mw.echo.logger.logInteraction(
+								mw.echo.Logger.static.actions.notificationImpression,
+								mw.echo.Logger.static.context.popup,
+								items[ i ].getId(),
+								items[ i ].getCategory(),
+								false,
+								source
+							);
+						}
+					}
 				} );
 
 			// Log the expand action

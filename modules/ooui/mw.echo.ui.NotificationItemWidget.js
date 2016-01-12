@@ -166,7 +166,10 @@
 								mw.echo.Logger.static.actions.notificationClick,
 								mw.echo.Logger.static.context.popup,
 								widget.getModel().getId(),
-								widget.getModel().getCategory()
+								widget.getModel().getCategory(),
+								false,
+								// Source of this notification if it is cross-wiki
+								widget.bundle ? widget.getModel().getSource() : ''
 							);
 						} )
 				);
