@@ -277,7 +277,7 @@ abstract class EchoEventPresentationModel {
 		return array(
 			'url' => $url,
 			'label' => $agent->getName(),
-			'description' => null,
+			'description' => '',
 			'icon' => 'userAvatar',
 			'prioritized' => true,
 		);
@@ -326,7 +326,7 @@ abstract class EchoEventPresentationModel {
 	 * Array of primary link details, with possibly-relative URL & label.
 	 *
 	 * @return array|bool Array of link data, or false for no link:
-	 *                    ['url' => url, 'label' => link text (non-escaped)]
+	 *                    ['url' => (string) url, 'label' => (string) link text (non-escaped)]
 	 */
 	abstract public function getPrimaryLink();
 
@@ -335,11 +335,11 @@ abstract class EchoEventPresentationModel {
 	 * description & icon name.
 	 *
 	 * @return array Array of links in the format of:
-	 *               [['url' => url,
-	 *                 'label' => link text (non-escaped),
-	 *                 'description' => descriptive text (non-escaped),
-	 *                 'icon' => symbolic icon name (or false if there is none),
-	 *                 'prioritized' => true if the link should be outside the
+	 *               [['url' => (string) url,
+	 *                 'label' => (string) link text (non-escaped),
+	 *                 'description' => (string) descriptive text (non-escaped),
+	 *                 'icon' => (bool|string) symbolic icon name (or false if there is none),
+	 *                 'prioritized' => (bool) true if the link should be outside the
 	 *                                  action menu, false for inside)],
 	 *                ...]
 	 *
