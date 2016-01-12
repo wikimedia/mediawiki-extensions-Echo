@@ -12,8 +12,6 @@ class EchoModelFormatter extends EchoFlyoutFormatter {
 	protected function formatModel( EchoEventPresentationModel $model ) {
 		$data = $model->jsonSerialize();
 		$data['iconUrl'] = EchoNotificationFormatter::getIconUrl( $model->getIconType(), $this->language->getDir() );
-		$data['links']['primary'] = EchoLinkNormalizer::normalizePrimaryLink( $data['links']['primary'] );
-		$data['links']['secondary'] = EchoLinkNormalizer::normalizeSecondaryLinks( $data['links']['secondary'] );
 		return $data;
 	}
 }

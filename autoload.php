@@ -54,7 +54,6 @@ $wgAutoloadClasses += array(
 	'EchoHTMLEmailFormatter' => __DIR__ . '/includes/EmailFormatter.php',
 	'EchoHooks' => __DIR__ . '/Hooks.php',
 	'EchoIteratorDecorator' => __DIR__ . '/includes/iterator/IteratorDecorator.php',
-	'EchoLinkNormalizer' => __DIR__ . '/includes/formatters/LinkNormalizer.php',
 	'EchoLocalCache' => __DIR__ . '/includes/cache/LocalCache.php',
 	'EchoMentionFormatter' => __DIR__ . '/includes/formatters/MentionFormatter.php',
 	'EchoMentionPresentationModel' => __DIR__ . '/includes/formatters/MentionPresentationModel.php',

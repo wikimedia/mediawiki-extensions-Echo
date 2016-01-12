@@ -40,9 +40,9 @@ class SpecialNotificationsFormatter extends EchoEventFormatter {
 		$links = array();
 		$primaryLink = $model->getPrimaryLink();
 		if ( $primaryLink !== false ) {
-			$links[] = EchoLinkNormalizer::normalizePrimaryLink( $primaryLink );
+			$links[] = $primaryLink;
 		}
-		$links = array_merge( $links, EchoLinkNormalizer::normalizeSecondaryLinks( array_filter( $model->getSecondaryLinks() ) ) );
+		$links = array_merge( $links, array_filter( $model->getSecondaryLinks() ) );
 		foreach ( $links as $link ) {
 			$footerItems[] = Html::element( 'a', array( 'href' => $link['url'] ), $link['label'] );
 		}
