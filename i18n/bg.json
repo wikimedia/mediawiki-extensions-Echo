@@ -62,11 +62,13 @@
 	"notification-mention": "[[User:$1|$1]] Ви {{GENDER:$1|спомена}} на беседата на страницата $5 в раздела \"[[:$3#$2|$4]]\".",
 	"notification-mention-nosection": "[[User:$1|$1]] Ви {{GENDER:$1|спомена}} на [[:$3|беседата на страницата $2]].",
 	"notification-new-user": "Добре дошли в {{SITENAME}}, $1! Радостно е, че сте сред нас.",
+	"notification-welcome-linktext": "Добре дошли!",
 	"notification-mention-email-batch-body": "$1 Ви {{GENDER:$1|спомена}} на беседата на страницата $4 в раздела \"$3\".",
 	"notification-user-rights-email-subject": "Потребителските ви права в {{SITENAME}} бяха променени",
 	"echo-email-subject-default": "Ново известие в {{SITENAME}}",
 	"echo-email-body-default": "Имате ново известие в {{SITENAME}}:\n\n$1",
 	"echo-email-batch-body-default": "Имате ново известие.",
+	"echo-notification-message-text-only": "Съобщения",
 	"echo-overlay-link": "Всички известия",
 	"echo-overlay-title": "<b>Известия</b>",
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Известия}}</b> (показване на $1 от $2 непрочетени))",
@@ -80,5 +82,6 @@
 	"echo-email-batch-subject-weekly": "Имате {{PLURAL:$2|ново известие|нови известия}} в {{SITENAME}} от тази седмица",
 	"echo-email-batch-body-intro-daily": "Здравейте $1,\nПо-долу е показано резюме на активността в {{SITENAME}} за днес.",
 	"echo-email-batch-body-intro-weekly": "Здравейте $1,\nПо-долу е показано резюме на активността в {{SITENAME}} през седмицата.",
-	"echo-email-batch-link-text-view-all-notifications": "Преглед на всички известия"
+	"echo-email-batch-link-text-view-all-notifications": "Преглед на всички известия",
+	"apihelp-echomarkread-example-2": "Отбележи всички съобщения като прочетени"
 }

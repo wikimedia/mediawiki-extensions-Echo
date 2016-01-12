@@ -128,7 +128,7 @@
 	"echo-date-yesterday": "אתמול",
 	"echo-load-more-error": "אירעה שגיאה בעת אחזור תוצאות נוספות.",
 	"notification-edit-talk-page-bundle": "$1 ועוד {{PLURAL:$4|אדם אחד|$3 אנשים}} כתבו הודעות ב[[User talk:$2|דף השיחה]] שלך.",
-	"notification-bundle-header-edit-user-talk": "$1 ועוד {{PLURAL:$5|מישהו|$4 אנשים}} {{GENDER:$2|השאירו}} הודעה בדף השיחה {{GENDER:$3|שלך}}.",
+	"notification-bundle-header-edit-user-talk": "$1 ועוד {{PLURAL:$5|מישהו|$4 אנשים}} {{GENDER:$2|השאירו}} הודעות בדף השיחה {{GENDER:$3|שלך}}.",
 	"notification-edit-user-talk-email-batch-bundle-body": "$1 ועוד {{PLURAL:$3|אדם אחד|$2 אנשים}} כתבו הודעות בדף השיחה שלך.",
 	"notification-page-linked-email-batch-bundle-body": "אל הדף $2 {{GENDER:$1|נוסף קישור}} מהדף $3 ומעוד {{PLURAL:$5|דף|$4 דפים אחרים}}.",
 	"echo-email-batch-subject-daily": "קיבלת {{PLURAL:$2|התראה חדשה|התראות חדשות}} באתר {{SITENAME}}",

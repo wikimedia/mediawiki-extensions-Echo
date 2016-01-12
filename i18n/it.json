@@ -129,7 +129,7 @@
 	"echo-date-yesterday": "Ieri",
 	"echo-load-more-error": "Si è verificato un errore nel recupero di ulteriori risultati.",
 	"notification-edit-talk-page-bundle": "$1 e {{PLURAL:$4|un altro utente|altri $3 utenti}} {{GENDER:$1|hanno lasciato}} messaggi nella tua [[User talk:$2|pagina di discussione]].",
-	"notification-bundle-header-edit-user-talk": "$1 e {{PLURAL:$5|un altro|altri $4}} {{GENDER:$2|hanno lasciato}} un messaggio sulla {{GENDER:$3|tua}} pagina di discussione.",
+	"notification-bundle-header-edit-user-talk": "$1 e {{PLURAL:$5|un altro|altri $4}} {{GENDER:$2|hanno lasciato}} messaggi sulla {{GENDER:$3|tua}} pagina di discussione.",
 	"notification-edit-user-talk-email-batch-bundle-body": "$1 e {{PLURAL:$3|un altro|altri $2}} {{GENDER:$1|hanno lasciato}} un messaggio sulla tua pagina di discussione",
 	"notification-page-linked-email-batch-bundle-body": "$2 è stata {{GENDER:$1|collegata}} da $3 ed {{PLURAL:$5|un'altra pagina|altre $4 pagine}}.",
 	"echo-email-batch-subject-daily": "Hai {{PLURAL:$2|una nuova notifica|nuove notifiche}} su {{SITENAME}}",
