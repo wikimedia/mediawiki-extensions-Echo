@@ -7,7 +7,10 @@
 @notification-background-read: #f1f1f1;
 
 @notification-text-color: #666;
-@notification-body-color: #888;
+// HACK: Temporarily make body-color the same as text-color until
+// Flow notifications have been redone (T121950)
+//@notification-body-color: #888;
+@notification-body-color: #666;
 
 @notification-popup-width: 450px;
 
