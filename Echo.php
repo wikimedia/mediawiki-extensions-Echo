@@ -275,8 +275,14 @@ $wgEchoNotificationIcons = array(
 	'chat' => array(
 		'path' => "$echoIconPath/Talk.png",
 	),
+	'edit-user-talk' => array(
+		'path' => "$echoIconPath/edit-user-talk.svg",
+	),
 	'linked' => array(
 		'path' => "$echoIconPath/link-blue.svg",
+	),
+	'mention' => array(
+		'path' => "$echoIconPath/mention.svg",
 	),
 	'featured' => array(
 		'path' => "$echoIconPath/Featured.png",
@@ -295,6 +301,12 @@ $wgEchoNotificationIcons = array(
 	),
 	'gratitude' => array(
 		'path' => "$echoIconPath/Gratitude.png",
+	),
+	'user-rights' => array(
+		'path' => "$echoIconPath/user-rights.svg",
+	),
+	'emailuser' => array(
+		'path' => "$echoIconPath/emailuser.svg",
 	),
 	'site' => array(
 		'url' => false
@@ -338,7 +350,7 @@ $wgEchoNotifications = array(
 		'email-body-batch-params' => array( 'agent' ),
 		'email-body-batch-bundle-message' => 'notification-edit-user-talk-email-batch-bundle-body',
 		'email-body-batch-bundle-params' => array( 'agent', 'agent-other-display', 'agent-other-count' ),
-		'icon' => 'chat',
+		'icon' => 'edit-user-talk',
 		'immediate' => true,
 	),
 	'reverted' => array(
@@ -399,7 +411,7 @@ $wgEchoNotifications = array(
 		'email-subject-params' => array( 'agent', 'user' ),
 		'email-body-batch-message' => 'notification-mention-email-batch-body',
 		'email-body-batch-params' => array( 'agent', 'title', 'section-title', 'main-title-text', 'user' ),
-		'icon' => 'chat',
+		'icon' => 'mention',
 	),
 	'user-rights' => array(
 		'user-locators' => array(
@@ -420,7 +432,7 @@ $wgEchoNotifications = array(
 		'email-subject-params' => array(),
 		'email-body-batch-message' => 'notification-user-rights-email-batch-body',
 		'email-body-batch-params' => array( 'agent', 'user-rights-list' ),
-		'icon' => 'site',
+		'icon' => 'user-rights',
 	),
 	'emailuser' => array(
 		'presentation-model' => 'EchoEmailUserPresentationModel',
@@ -432,7 +444,7 @@ $wgEchoNotifications = array(
 		'section' => 'alert',
 		'title-message' => 'notification-emailuser',
 		'title-params' => array( 'agent' ),
-		'icon' => 'site',
+		'icon' => 'emailuser',
 	),
 );
 

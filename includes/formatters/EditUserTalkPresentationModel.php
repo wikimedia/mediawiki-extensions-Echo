@@ -7,7 +7,7 @@ class EchoEditUserTalkPresentationModel extends EchoEventPresentationModel {
 	}
 
 	public function getIconType() {
-		return 'chat';
+		return 'edit-user-talk';
 	}
 
 	public function getPrimaryLink() {
