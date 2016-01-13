@@ -30,6 +30,8 @@
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Nur Text",
 	"echo-pref-new-message-indicator": "Hinweise zu neuen Nachrichten in meiner Benutzerleiste anzeigen",
+	"echo-pref-beta-feature-cross-wiki-message": "Erweiterte Benachrichtigungen",
+	"echo-pref-beta-feature-cross-wiki-description": "Betrachte und organisiere deine Benachrichtigungen einfacher. Beinhaltet wikiübergreifende Benachrichtigungen, die dich Nachrichten von anderen Wikis sehen lassen.",
 	"echo-learn-more": "Mehr erfahren",
 	"echo-new-messages": "Du hast neue Nachrichten",
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Diskussionsseitennachricht|Diskussionsseitennachrichten}}",

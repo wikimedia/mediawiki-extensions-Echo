@@ -75,7 +75,7 @@
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] сізге хабарлама {{GENDER:$1|жіберді}}: \"[[$3#$2|$2]]\".",
 	"notification-add-comment-yours2": "[[User:$1|$1]] талқылау бетіндегі \"[[$3#$2|$2]]\" бөліміне {{GENDER:$1|пікірін білдірді}}.",
 	"notification-mention": "[[User:$1|$1]] $5 талқылау бетінің «[[:$3#$2|$4]]» бөлімінде {{GENDER:$6|сізді}} {{GENDER:$1|атап өтті}}.",
-	"notification-header-mention": "$1 $4 талқылау бетінің «$3» бөлімінде {{GENDER:$5|сізді}} {{GENDER:$2|атап өтті}}.",
+	"notification-header-mention": "$1 $3 талқылау бетінің «$4» бөлімінде {{GENDER:$5|сізді}} {{GENDER:$2|атап өтті}}.",
 	"notification-mention-nosection": "[[User:$1|$1]] [[:$3|$2 талқылау бетінде]] {{GENDER:$4|сізді}} {{GENDER:$1|атап өтті}}.",
 	"notification-header-mention-nosection": "$1 $3 талқылау бетінде {{GENDER:$5|сізді}} {{GENDER:$2|атап өтті}}.",
 	"notification-user-rights": "Сіздің қатысушы құқықтарыңызды [[User:$1|$1]] [[Special:Log/rights/$1|{{GENDER:$1|өзгертті}}]]. $2. [[Special:ListGroupRights|Толығырақ біліңіз]]",
