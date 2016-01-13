@@ -22,6 +22,8 @@
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Plain text",
 	"echo-pref-new-message-indicator": "Show talk page message indicator in my toolbar",
+	"echo-pref-beta-feature-cross-wiki-message": "Enhanced notifications",
+	"echo-pref-beta-feature-cross-wiki-description": "View and organize notifications more easily. Includes cross-wiki notifications, which lets you see messages from other wikis.",
 	"echo-learn-more": "Learn more",
 	"echo-new-messages": "You have new messages",
 	"echo-category-title-edit-user-talk": "Talk page {{PLURAL:$1|message|messages}}",
