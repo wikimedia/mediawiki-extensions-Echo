@@ -14,10 +14,6 @@ class EchoMentionFormatter extends EchoCommentFormatter {
 				'message' => 'notification-mention-nosection',
 				'params' => array( 'agent', 'main-title-text', 'title', 'user' )
 			);
-			$this->flyoutTitle = array(
-				'message' => 'notification-mention-nosection-flyout',
-				'params' => array( 'agent', 'main-title-text', 'title' )
-			);
 			$this->email['batch-body'] = array(
 				'message' => 'notification-mention-nosection-email-batch-body',
 				'params' => array( 'agent', 'main-title-text', 'user' )

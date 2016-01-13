@@ -25,10 +25,6 @@ class EchoEditUserTalkFormatter extends EchoEditFormatter {
 				'message' => 'notification-edit-talk-page-with-section',
 				'params' => array( 'agent', 'user', 'subject-anchor', 'section-title' )
 			);
-			$this->flyoutTitle = array(
-				'message' => 'notification-edit-talk-page-flyout-with-section',
-				'params' => array( 'agent', 'user', 'subject-anchor', 'section-title' )
-			);
 			$this->email['batch-body'] = array(
 				'message' => 'notification-edit-talk-page-email-batch-body-with-section',
 				'params' => array( 'agent', 'section-title' )
