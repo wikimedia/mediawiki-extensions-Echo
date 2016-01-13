@@ -2,7 +2,7 @@
 @import '../../echo.mixins';
 
 .mw-echo-ui-notificationItemWidget {
-	padding: 1em 0.5em;
+	padding: 0.8em;
 	background-color: #F1F1F1;
 	border-bottom: 1px solid #DDDDDD;
 	white-space: normal;
@@ -33,8 +33,8 @@
 
 	&-content {
 		display: inline-block;
-		// The icon is 30px and has a 1em right margin
-		padding-left: ~"calc(30px + 1em)";
+		// The icon is 30px and has a 0.8em right margin
+		padding-left: ~"calc(30px + 0.8em)";
 		box-sizing: border-box;
 		width: 100%;
 
@@ -45,12 +45,12 @@
 		}
 
 		&-actions {
-			margin-top: 0.5em;
-			font-size: 0.8em;
+			margin-top: 0.8em;
+			font-size: 0.9em;
 
 			&-button {
 				&:not(:last-child) {
-					margin-right: 0.5em;
+					margin-right: 1em;
 				}
 
 				.oo-ui-buttonElement-button {
@@ -61,6 +61,13 @@
 						// a very specific selector
 						font-weight: normal !important;
 						color: #000 !important;
+					}
+
+					.oo-ui-iconElement-icon {
+						// We have to override oojs-ui's width/height, which uses
+						// a very specific selector
+						width: 1.5em !important;
+						height: 1.5em !important;
 					}
 				}
 			}
@@ -154,15 +161,12 @@
 		float: right;
 		font-size: 1em;
 		margin-top: -0.5em;
+		margin-right: -0.5em;
 		padding: 0;
 
 		.mw-echo-ui-notificationItemWidget-bundle & {
 			font-size: 0.8em;
 			margin-top: 0;
-		}
-
-		&.oo-ui-buttonWidget {
-			margin-right: 0;
 		}
 	}
 

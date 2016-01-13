@@ -103,7 +103,7 @@
 		this.popup = new OO.ui.PopupWidget( {
 			$content: this.notificationsWidget.$element,
 			$footer: $footer,
-			width: config.popupWidth || 450,
+			width: config.popupWidth || 500,
 			autoClose: true,
 			// Also ignore clicks from the nested action menu items, that
 			// actually exist in the overlay

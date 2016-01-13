@@ -7,15 +7,15 @@
 	padding-bottom: 0;
 
 	> .mw-echo-ui-notificationItemWidget {
-		// Compensate for the 0.5em of left padding we removed
+		// Compensate for the 0.8em of left/right padding and 0.5em of bottom padding that we removed
 		&-icon {
-			margin-left: 0.5em;
+			margin-left: 0.8em;
 		}
 
 		&-content {
 			margin-bottom: 0.5em;
-			padding-right: 0.5em;
-			padding-left: ~"calc(30px + 1.5em)"; // 30px+1em from ItemWidget, plus 0.5em
+			padding-right: 0.8em;
+			padding-left: ~"calc(30px + 1.6em)"; // 30px+0.8em from ItemWidget, plus 0.8em
 		}
 	}
 
