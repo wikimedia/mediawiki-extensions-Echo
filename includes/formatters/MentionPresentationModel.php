@@ -5,7 +5,7 @@ class EchoMentionPresentationModel extends EchoEventPresentationModel {
 
 
 	public function getIconType() {
-		return 'chat';
+		return 'mention';
 	}
 
 	private function getSection() {

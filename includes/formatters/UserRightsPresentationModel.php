@@ -6,7 +6,7 @@
 class EchoUserRightsPresentationModel extends EchoEventPresentationModel {
 
 	public function getIconType() {
-		return 'site';
+		return 'user-rights';
 	}
 
 	public function getHeaderMessage() {

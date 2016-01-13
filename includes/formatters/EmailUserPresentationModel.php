@@ -3,7 +3,7 @@
 class EchoEmailUserPresentationModel extends EchoEventPresentationModel {
 
 	public function getIconType() {
-		return 'site';
+		return 'emailuser';
 	}
 
 	public function getPrimaryLink() {
