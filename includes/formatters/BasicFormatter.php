@@ -492,7 +492,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			$title->setFragment( "#$fragment" );
 		}
 
-		if ( in_array( $this->outputFormat, array( 'html', 'flyout', 'htmlemail' ) ) ) {
+		if ( in_array( $this->outputFormat, array( 'flyout', 'htmlemail' ) ) ) {
 			$attribs = array();
 			if ( isset( $props['attribs'] ) ) {
 				$attribs = (array)$props['attribs'];

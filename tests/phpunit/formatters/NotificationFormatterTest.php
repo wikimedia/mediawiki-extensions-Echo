@@ -71,7 +71,7 @@ class EchoNotificationFormatterTest extends MediaWikiTestCase {
 				'remove' => array( 'other' ),
 			),
 		);
-		$formats = array( 'html', 'flyout', 'email', 'text' );
+		$formats = array( 'flyout', 'email', 'text' );
 		$tests = array();
 		$loggedUser = User::newFromName( 'Notification-formatter-test' );
 		$anonUser = new User();
@@ -113,9 +113,9 @@ class EchoNotificationFormatterTest extends MediaWikiTestCase {
 			new Revision( compact( 'deleted' ) )
 		);
 		if ( $deleted === Revision::DELETED_TEXT ) {
-			$this->assertNotContains( $text, $this->format( $event, 'html' ) );
+			$this->assertNotContains( $text, $this->format( $event, 'htmlemail' ) );
 		} else {
-			$this->assertContains( $text, $this->format( $event, 'html' ) );
+			$this->assertContains( $text, $this->format( $event, 'htmlemail' ) );
 		}
 	}
 
@@ -149,7 +149,7 @@ class EchoNotificationFormatterTest extends MediaWikiTestCase {
 			->method( 'getAgent' )
 			->will( $this->returnValue( $user ) );
 
-		$this->assertContains( $expect, $this->format( $event, 'html' ) );
+		$this->assertContains( $expect, $this->format( $event, 'text' ) );
 	}
 
 	public static function provider_sectionTitle() {
@@ -192,7 +192,7 @@ class EchoNotificationFormatterTest extends MediaWikiTestCase {
 			new Revision( compact( 'deleted' ) )
 		);
 
-		$this->assertContains( $expect, $this->format( $event, 'html' ) );
+		$this->assertContains( $expect, $this->format( $event, 'text' ) );
 	}
 
 	protected function format( EchoEvent $event, $format, $user = false, $type = 'web' ) {
