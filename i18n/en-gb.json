@@ -1,7 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Shirayuki"
+			"Shirayuki",
+			"Mhutti1"
 		]
-	}
+	},
+	"echo-pref-beta-feature-cross-wiki-message": "Enhanced notifications"
 }

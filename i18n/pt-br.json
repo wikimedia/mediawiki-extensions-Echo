@@ -11,7 +11,8 @@
 			"Dianakc",
 			"He7d3r",
 			"Almondega",
-			"TheEduGobi"
+			"TheEduGobi",
+			"Macofe"
 		]
 	},
 	"echo-desc": "Sistema para notificar usuários sobre eventos e mensagens",
@@ -80,7 +81,7 @@
 	"notification-page-linked": "[[:$2]] foi {{GENDER:$1|ligada}} da página [[:$3]]. [[Special:WhatLinksHere/$2|Veja todas as ligações para esta página]].",
 	"notification-header-page-linked": "$3 foi {{GENDER:$2|ligada}} da página $4.",
 	"notification-bundle-header-page-linked": "$3 foi {{GENDER:$2|ligada}} de $4 e {{PLURAL:$6|1 outra página|$5 outras páginas}}.",
-	"notification-link-text-what-links-here": "Ver todas as ligações para esta página",
+	"notification-link-text-what-links-here": "Todas as ligações para esta página",
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|comentou}} em “[[$3|$2]]” na página de discussão “$4”.",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] {{GENDER:$1|adicionou}} um novo tópico “$2” em [[$3]].",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] {{GENDER:$1|enviou-lhe}} uma mensagem: “[[$3#$2|$2]]”.",

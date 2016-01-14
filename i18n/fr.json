@@ -50,6 +50,8 @@
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Texte brut",
 	"echo-pref-new-message-indicator": "Afficher dans ma barre d’outils l’indicateur de nouveau message sur ma page de discussion",
+	"echo-pref-beta-feature-cross-wiki-message": "Notifications améliorées",
+	"echo-pref-beta-feature-cross-wiki-description": "Afficher et organiser plus facilement les notifications. Inclut les notifications inter-wiki, qui vous laissent voir les messages des autres wikis.",
 	"echo-learn-more": "En savoir plus",
 	"echo-new-messages": "Vous avez de nouveaux messages",
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Message|Messages}} de la page de discussion",

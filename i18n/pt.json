@@ -10,7 +10,8 @@
 			"Vitorvicentevalente",
 			"He7d3r",
 			"Fúlvio",
-			"Jkb8"
+			"Jkb8",
+			"Macofe"
 		]
 	},
 	"echo-desc": "Sistema de notificações sobre eventos e mensagens para utilizadores",
@@ -79,7 +80,7 @@
 	"notification-page-linked": "[[:$2]] foi {{GENDER:$1|ligada}} a partir de [[:$3]]. [[Special:WhatLinksHere/$2|Ver todas as páginas afluentes a esta]].",
 	"notification-header-page-linked": "$3 foi {{GENDER:$2|ligada}} a partir de $4.",
 	"notification-bundle-header-page-linked": "$3 foi {{GENDER:$2|ligada}} a partir de $4 e $5 {{PLURAL:$6|outra página|outras páginas}}.",
-	"notification-link-text-what-links-here": "Ver todas as páginas afluentes desta",
+	"notification-link-text-what-links-here": "Todas as páginas afluentes desta",
 	"notification-add-comment2": "[[User:$1|$1]] comentou em \"[[$3|$2]]\" na página de discussão de \"$4\".",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] criou o novo tópico \"$2\" em [[$3]].",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] enviou-lhe uma mensagem: \"[[$3#$2|$2]]\".",
