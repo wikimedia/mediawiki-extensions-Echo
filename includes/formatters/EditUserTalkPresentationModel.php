@@ -12,7 +12,7 @@ class EchoEditUserTalkPresentationModel extends EchoEventPresentationModel {
 
 	public function getPrimaryLink() {
 		$title = $this->event->getTitle();
-		if ( $this->hasSection() ) {
+		if ( !$this->isBundled() && $this->hasSection() ) {
 			$title = Title::makeTitle(
 				$title->getNamespace(),
 				$title->getDBkey(),
@@ -34,17 +34,21 @@ class EchoEditUserTalkPresentationModel extends EchoEventPresentationModel {
 			'icon' => 'changes',
 			'prioritized' => true
 		);
-		return array( $this->getAgentLink(), $diffLink );
+
+		if ( $this->isBundled() ) {
+			return array( $diffLink );
+		} else {
+			return array( $this->getAgentLink(), $diffLink );
+		}
 	}
 
 	public function getHeaderMessage() {
-		if ( $this->getBundleCount( true, array( $this,'getEventUser' ) ) > 1 ) {
-			$msg = $this->getMessageWithAgent( "notification-bundle-header-{$this->type}" );
-			list( $formattedCount, $countForPlural ) =
-				$this->getNotificationCountForOutput( false, array( $this, 'getEventUser' ) );
-			$msg->params( $this->getViewingUserForGender() );
+		if ( $this->isBundled() ) {
+			$msg = $this->msg( "notification-bundle-header-{$this->type}-v2" );
+			list( $formattedCount, $countForPlural ) = $this->getNotificationCountForOutput();
 			$msg->params( $formattedCount );
 			$msg->params( $countForPlural );
+			$msg->params( $this->getViewingUserForGender() );
 			return $msg;
 		} elseif ( $this->hasSection() ) {
 			$msg = $this->getMessageWithAgent( "notification-header-{$this->type}-with-section" );
@@ -59,18 +63,13 @@ class EchoEditUserTalkPresentationModel extends EchoEventPresentationModel {
 	}
 
 	public function getBodyMessage() {
-		if ( $this->getBundleCount( true, array( $this,'getEventUser' ) ) === 1 && $this->hasSection() ) {
+		if ( !$this->isBundled() && $this->hasSection() ) {
 			$msg = $this->msg( 'notification-body-edit-user-talk-with-section' );
 			$msg->params( wfEscapeWikiText( $this->getRevisionSnippet() ) );
 			return $msg;
 		} else {
 			return false;
 		}
-	}
-
-	public static function getEventUser( EchoEvent $event ) {
-		$agent = $event->getAgent();
-		return $agent->isAnon() ? $agent->getName() : $agent->getId();
 	}
 
 	private function hasSection() {
