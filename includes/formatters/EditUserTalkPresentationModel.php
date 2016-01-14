@@ -134,7 +134,8 @@ class EchoEditUserTalkPresentationModel extends EchoEventPresentationModel {
 	}
 
 	private function getRevBeforeFirstNotification() {
-		$firstNotificationRevId = end( $this->getBundledEvents() )->getExtraParam( 'revid' );
+		$events = $this->getBundledEvents();
+		$firstNotificationRevId = end( $events )->getExtraParam( 'revid' );
 		return $this->event->getTitle()->getPreviousRevisionID( $firstNotificationRevId );
 	}
 }

@@ -17,6 +17,26 @@ class EchoRevertedPresentationModel extends EchoEventPresentationModel {
 		return $msg;
 	}
 
+	public function getBodyMessage() {
+		$summary = $this->event->getExtraParam( 'summary' );
+		if ( !$this->isAutomaticSummary( $summary ) && $this->userCan( Revision::DELETED_COMMENT ) ) {
+			$msg = $this->msg( "notification-body-{$this->type}" );
+			$msg->params( $this->formatSummary( $summary ) );
+			return $msg;
+		} else {
+			return false;
+		}
+	}
+
+	private function formatSummary( $wikitext ) {
+		$html = Linker::formatLinksInComment( Sanitizer::escapeHtmlAllowEntities( $wikitext ) );
+		return EchoDiscussionParser::getTextSnippet(
+			$html,
+			$this->language,
+			30
+		);
+	}
+
 	public function getPrimaryLink() {
 		$url = $this->event->getTitle()->getLocalURL( array(
 			'oldid' => 'prev',
@@ -29,7 +49,7 @@ class EchoRevertedPresentationModel extends EchoEventPresentationModel {
 	}
 
 	public function getSecondaryLinks() {
-		return array( $this->getAgentLink() );
+		return array( $this->getAgentLink(), $this->getTitleLink() );
 	}
 
 	/**
@@ -44,5 +64,25 @@ class EchoRevertedPresentationModel extends EchoEventPresentationModel {
 		} else {
 			return 1;
 		}
+	}
+
+	private function getTitleLink() {
+		$talkpage = $this->event->getTitle()->getTalkPage();
+		return array(
+			'label' => $talkpage->getPrefixedText(),
+			'url' => $talkpage->getFullURL(),
+			'icon' => 'speechBubbles',
+			'prioritized' => true,
+			'description' => null,
+		);
+	}
+
+	private function isAutomaticSummary( $summary ) {
+		$autoSummaryMsg = wfMessage( 'undo-summary' )->inContentLanguage();
+		$autoSummaryMsg->params( $this->event->getExtraParam( 'reverted-revision-id' ) );
+		$autoSummaryMsg->params( $this->getViewingUserForGender() );
+		$autoSummary = $autoSummaryMsg->text();
+
+		return $summary === $autoSummary;
 	}
 }
