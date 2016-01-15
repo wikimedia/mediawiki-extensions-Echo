@@ -308,6 +308,9 @@ $wgEchoNotificationIcons = array(
 	'emailuser' => array(
 		'path' => "$echoIconPath/emailuser.svg",
 	),
+	'global' => array(
+		'path' => "$echoIconPath/global.svg"
+	),
 	'site' => array(
 		'url' => false
 	),
@@ -454,7 +457,7 @@ $wgEchoNotifications = array(
 		'category' => 'foreign',
 		'group' => 'positive',
 		'section' => 'alert',
-		'icon' => 'site',
+		'icon' => 'global',
 	),
 );
 

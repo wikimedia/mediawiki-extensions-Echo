@@ -2,7 +2,7 @@
 
 class EchoForeignPresentationModel extends EchoEventPresentationModel {
 	public function getIconType() {
-		return 'site';
+		return 'global';
 	}
 
 	public function getPrimaryLink() {
