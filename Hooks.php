@@ -225,9 +225,9 @@ class EchoHooks {
 					'rtl' => "$wgExtensionAssetsPath/Echo/images/betafeatures-icon-notifications-rtl.svg",
 					'ltr' => "$wgExtensionAssetsPath/Echo/images/betafeatures-icon-notifications-ltr.svg",
 				),
-				'info-link' => 'https://www.mediawiki.org/wiki/Extension:Echo',
+				'info-link' => 'https://www.mediawiki.org/wiki/Special:Mylanguage/Help:Notifications/Cross-wiki',
 				// Link to discussion about the feature - talk pages might work
-				'discussion-link' => 'https://www.mediawiki.org/wiki/Extension_talk:Echo',
+				'discussion-link' => 'https://www.mediawiki.org/wiki/Help_talk:Notifications',
 			);
 		}
 
