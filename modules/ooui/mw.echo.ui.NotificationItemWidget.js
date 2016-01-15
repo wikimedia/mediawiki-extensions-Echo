@@ -105,7 +105,7 @@
 			urlObj = secondaryUrls[ i ];
 
 			linkButton = new OO.ui.ButtonOptionWidget( {
-				icon: urlObj.icon,
+				icon: urlObj.icon || 'next',
 				framed: false,
 				label: urlObj.label,
 				classes: [ 'mw-echo-ui-notificationItemWidget-content-actions-button' ]
