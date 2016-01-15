@@ -288,7 +288,7 @@ $wgEchoNotificationIcons = array(
 		'path' => "$echoIconPath/Featured.png",
 	),
 	'reviewed' => array(
-		'path' => "$echoIconPath/Reviewed.png",
+		'path' => "$echoIconPath/reviewed.svg",
 	),
 	'tagged' => array(
 		'path' => "$echoIconPath/ReviewedWithTags.png",
