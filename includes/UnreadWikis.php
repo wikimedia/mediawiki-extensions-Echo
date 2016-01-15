@@ -5,10 +5,6 @@
  *
  */
 class EchoUnreadWikis {
-
-	const ALERT = 'alert';
-	const MESSAGE = 'message';
-
 	/**
 	 * @var int
 	 */
@@ -78,11 +74,11 @@ class EchoUnreadWikis {
 				continue;
 			}
 			$wikis[$row->euw_wiki] = array(
-				self::ALERT => array(
+				EchoAttributeManager::ALERT => array(
 					'count' => $row->euw_alerts,
 					'ts' => $row->euw_alerts_ts,
 				),
-				self::MESSAGE => array(
+				EchoAttributeManager::MESSAGE => array(
 					'count' => $row->euw_messages,
 					'ts' => $row->euw_messages_ts,
 				),
