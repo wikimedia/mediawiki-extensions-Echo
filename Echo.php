@@ -273,7 +273,7 @@ $wgEchoNotificationIcons = array(
 		'path' => "$echoIconPath/Deletion.png",
 	),
 	'chat' => array(
-		'path' => "$echoIconPath/Talk.png",
+		'path' => "$echoIconPath/chat.svg",
 	),
 	'edit-user-talk' => array(
 		'path' => "$echoIconPath/edit-user-talk.svg",
