@@ -130,14 +130,16 @@ class EchoForeignNotifications {
 	 */
 	public function getApiEndpoints( array $wikis ) {
 		global $wgConf;
+		$wgConf->loadFullData();
 
 		$data = array();
 		foreach ( $wikis as $wiki ) {
+			list( $major, $minor ) = $wgConf->siteFromDB( $wiki );
+			$server = $wgConf->get( 'wgServer', $wiki, $major, array( 'lang' => $minor, 'site' => $major ) );
+			$scriptPath = $wgConf->get( 'wgScriptPath', $wiki, $major, array( 'lang' => $minor, 'site' => $major ) );
 			$data[$wiki] = array(
 				'title' => $wiki,
-				'url' => $wgConf->get( 'wgServer', $wiki ) .
-					$wgConf->get( 'wgScriptPath', $wiki ) .
-					'/api.php'
+				'url' => $server . $scriptPath . '/api.php',
 			);
 		}
 
