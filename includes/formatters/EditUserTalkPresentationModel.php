@@ -31,7 +31,7 @@ class EchoEditUserTalkPresentationModel extends EchoEventPresentationModel {
 			'url' => $this->getDiffLinkUrl(),
 			'label' => $this->msg( 'notification-link-text-view-changes' )->text(),
 			'description' => '',
-			'icon' => false,
+			'icon' => 'changes',
 			'prioritized' => true
 		);
 		return array( $this->getAgentLink(), $diffLink );
