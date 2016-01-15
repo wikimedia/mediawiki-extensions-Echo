@@ -104,7 +104,7 @@ class EchoMentionPresentationModel extends EchoEventPresentationModel {
 			'url' => $url,
 			'label' => $this->msg( 'notification-link-text-view-changes' )->text(),
 			'description' => '',
-			'icon' => false,
+			'icon' => 'changes',
 			'prioritized' => true,
 		);
 		return array( $this->getAgentLink(), $viewChangesLink );
