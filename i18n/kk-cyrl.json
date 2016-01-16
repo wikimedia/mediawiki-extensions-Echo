@@ -69,7 +69,7 @@
 	"notification-page-linked": "[[:$2]] [[:$3]] бетінен {{GENDER:$1|сілтенді}}. [[Special:WhatLinksHere/$2|Бұл бетке барлық сілтенгендерді көріңіз]].",
 	"notification-header-page-linked": "$3 $4 дегеннен {{GENDER:$2|сілтенді}}.",
 	"notification-bundle-header-page-linked": "$3 $4 және басқа $5 {{PLURAL:$6|беттен|беттен}} {{GENDER:$2|сілтенді}}.",
-	"notification-link-text-what-links-here": "Бұл бетке сілтенген барлық сілтемелерді көру",
+	"notification-link-text-what-links-here": "Бұл бетке сілтенгендер",
 	"notification-add-comment2": "[[User:$1|$1]] \"$4\" талқылау бетіндегі \"[[$3|$2]]\" бөліміне {{GENDER:$1|пікір жазды}}.",
 	"notification-add-talkpage-topic2": "[[$3]] бетінде [[User:$1|$1]] \"$2\" деген жаңа тақырып  {{GENDER:$1|қосты}}.",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] сізге хабарлама {{GENDER:$1|жіберді}}: \"[[$3#$2|$2]]\".",

@@ -68,6 +68,8 @@
 	"notification-link-text-view-edit": "Değişikliği görüntüle",
 	"notification-edit-talk-page2": "[[User:$1|$1]], [[User talk:$2#$3|mesaj sayfanıza]] yeni bir mesaj {{GENDER:$1|bıraktı}}.",
 	"notification-edit-talk-page-with-section": "[[User:$1|$1]], mesaj sayfanızın \"[[User talk:$2#$3|$4]]\" başlığına bir mesaj {{GENDER:$1|bıraktı}}.",
+	"notification-header-edit-user-talk": "$1, mesaj sayfanıza bir mesaj {{GENDER:$2|bıraktı}}.",
+	"notification-header-edit-user-talk-with-section": "$1, mesaj sayfanızdaki \"$4\" başlığına bir mesaj {{GENDER:$2|bıraktı}}.",
 	"notification-page-linked": "[[:$2]] sayfasına [[:$3]] sayfasından {{GENDER:$1|bağlantı verildi}}. [[Special:WhatLinksHere/$2|Bu sayfaya bağlantı veren tüm sayfaları görüntüleyin]].",
 	"notification-link-text-what-links-here": "Bu sayfaya verilen tüm bağlantıları görüntüle",
 	"notification-add-comment2": "[[User:$1|$1]], \"$4\" mesaj sayfasındaki \"[[$3|$2]]\" bölümüne {{GENDER:$1|yorum yaptı}}.",

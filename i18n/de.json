@@ -139,6 +139,8 @@
 	"echo-email-batch-body-intro-weekly": "Hallo $1,\nHier ist für dich eine Zusammenfassung der Aktivitäten auf {{SITENAME}} von dieser Woche.",
 	"echo-email-batch-link-text-view-all-notifications": "Alle Benachrichtigungen ansehen",
 	"echo-rev-deleted-text-view": "Diese Seitenversion wurde unterdrückt",
+	"notification-header-foreign-alert": "Weitere Meldungen von $3 {{PLURAL:$4|und einem anderen Wiki|und $4 anderen Wikis|0=}}",
+	"notification-header-foreign-message": "Weitere Nachrichten von $3 {{PLURAL:$4|und einem anderen Wiki|und $4 anderen Wikis|0=}}",
 	"apihelp-echomarkread-description": "Benachrichtigungen für den aktuellen Benutzer als gelesen markieren.",
 	"apihelp-echomarkread-param-list": "Eine Liste von Benachrichtigungskennungen, um sie als gelesen zu markieren.",
 	"apihelp-echomarkread-param-all": "Falls festgelegt, markiert alle Benutzerbenachrichtigungen als gelesen.",

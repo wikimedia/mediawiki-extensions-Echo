@@ -71,5 +71,7 @@
 	"notification-edit-talk-page-bundle": "$1 һәм тагын $3 {{PLURAL:$4|1=башка кулланучы|башка кулланучылар}} сезнең [[User talk:$2|бәхәс битегездә]] хат калдырдылар.",
 	"echo-email-batch-link-text-view-all-notifications": "Барлык белдерүләрне карау",
 	"echo-rev-deleted-text-view": "Битнең бу юрамасы ябык",
+	"apihelp-echomarkread-description": "Кулланучы өчен барлык белдерүләрне укылган дип билгеләү",
+	"apihelp-echomarkread-example-2": "Барлык белдерүләрне укылган дип билгеләү",
 	"apihelp-query+notifications-example-1": "Белдерүләр исәбе"
 }
