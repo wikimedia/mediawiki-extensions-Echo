@@ -1,6 +1,5 @@
 /*jshint node:true */
 module.exports = function ( grunt ) {
-	grunt.loadNpmTasks( 'grunt-contrib-csslint' );
 	grunt.loadNpmTasks( 'grunt-contrib-jshint' );
 	grunt.loadNpmTasks( 'grunt-contrib-watch' );
 	grunt.loadNpmTasks( 'grunt-jsonlint' );
@@ -26,12 +25,6 @@ module.exports = function ( grunt ) {
 				'!tests/externals/**'
 			]
 		},
-		csslint: {
-			options: {
-				csslintrc: '.csslintrc'
-			},
-			all: 'modules/**/*.css'
-		},
 		banana: {
 			all: 'i18n/'
 		},
@@ -51,7 +44,7 @@ module.exports = function ( grunt ) {
 		}
 	} );
 
-	grunt.registerTask( 'lint', [ 'jshint', 'jscs', 'csslint', 'jsonlint', 'banana' ] );
+	grunt.registerTask( 'lint', [ 'jshint', 'jscs', 'jsonlint', 'banana' ] );
 	grunt.registerTask( 'test', 'lint' );
 	grunt.registerTask( 'default', 'test' );
 };
