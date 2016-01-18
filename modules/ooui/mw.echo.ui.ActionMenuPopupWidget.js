@@ -33,7 +33,8 @@
 		// Menu
 		this.menu = new OO.ui.FloatingMenuSelectWidget( {
 			$container: this.$element,
-			classes: [ 'mw-echo-ui-actionMenuPopupWidget-menu' ]
+			classes: [ 'mw-echo-ui-actionMenuPopupWidget-menu' ],
+			widget: this
 		} );
 		this.$overlay.append( this.menu.$element );
 
