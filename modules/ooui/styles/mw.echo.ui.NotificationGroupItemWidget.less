@@ -1,9 +1,11 @@
 .mw-echo-ui-notificationGroupItemWidget {
+	// Remove the padding that ItemWidget puts in
 	padding-left: 0;
 	padding-right: 0;
 	padding-bottom: 0;
 
 	> .mw-echo-ui-notificationItemWidget {
+		// Compensate for the 0.5em of left padding we removed
 		&-icon {
 			margin-left: 0.5em;
 		}
@@ -11,6 +13,7 @@
 		&-content {
 			margin-bottom: 0.5em;
 			padding-right: 0.5em;
+			padding-left: 4em; // 3.5em from ItemWidget + 0.5em
 		}
 	}
 
