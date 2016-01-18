@@ -239,7 +239,7 @@
 	 */
 	mw.echo.ui.NotificationGroupItemWidget.prototype.toggleRead = function ( read ) {
 		// Parent method
-		mw.echo.ui.NotificationGroupItemWidget.parent.toggleRead.call( this, read );
+		mw.echo.ui.NotificationGroupItemWidget.parent.prototype.toggleRead.call( this, read );
 
 		if ( this.getModel().isForeign() ) {
 			// Never show the [x] mark-all-unread button for foreign bundles
