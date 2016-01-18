@@ -462,6 +462,7 @@ class EchoHooks {
 								'reverted-user-id' => $victimId,
 								'reverted-revision-id' => $undidRevId,
 								'method' => 'undo',
+								'summary' => $summary,
 							),
 							'agent' => $user,
 						) );
