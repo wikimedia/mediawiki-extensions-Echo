@@ -38,6 +38,8 @@
 		this.title = config.title || '';
 
 		this.markingAllAsRead = false;
+		this.autoMarkReadInProcess = false;
+
 		this.removeReadNotifications = !!config.removeReadNotifications;
 		this.foreign = !!config.foreign;
 
@@ -175,6 +177,9 @@
 		// Update unread status and emit events
 		if ( unreadItem ) {
 			if ( isRead ) {
+				// We are skipping "mark as read" when the operation is "mark all read"
+				// because the API takes a single request to mark all notifications
+				// as read, and we don't need to send multiple individual requests.
 				if ( !this.markingAllAsRead ) {
 					this.markItemReadInApi( id );
 				}
@@ -351,6 +356,12 @@
 			items = this.unreadNotifications.getItems(),
 			length = items.length;
 
+		// Skip if this is an automatic "mark as read" and this model is
+		// external
+		if ( this.external && this.autoMarkReadInProcess ) {
+			return $.Deferred().resolve( 0 ).promise();
+		}
+
 		// In some cases our model is empty out of technicalities -- that is,
 		// we didn't fetch its items yet. In that case, when markAllRead is
 		// called, we should emit the empty event (that would have been
@@ -365,15 +376,36 @@
 
 		this.markingAllAsRead = true;
 		for ( i = 0, len = items.length; i < len; i++ ) {
-			if ( !items[ i ].isForeign() ) {
+			// Skip items that are external if we are in automatic 'mark all as read'
+			if ( !items[ i ].isForeign() || !this.autoMarkReadInProcess ) {
 				items[ i ].toggleRead( true );
 				items[ i ].toggleSeen( true );
+				this.unreadNotifications.removeItems( [ items[ i ] ] );
 			}
 		}
-		this.unreadNotifications.clearItems();
 		this.markingAllAsRead = false;
 
 		return this.getApi().markAllRead();
+	};
+
+	/**
+	 * Trigger an automatic mark all notifications as read. It's important to mark
+	 * this process as an automatic one, because there are several cases where we
+	 * don't want to mark specific notifications as automatically read (like external
+	 * group items)
+	 *
+	 * @return {jQuery.Promise} A promise that resolves when all notifications
+	 * were marked as read.
+	 * @fires empty
+	 */
+	mw.echo.dm.NotificationsModel.prototype.autoMarkAllRead = function () {
+		var model = this;
+
+		this.autoMarkReadInProcess = true;
+		this.markAllRead()
+			.then( function () {
+				model.autoMarkReadInProcess = false;
+			} );
 	};
 
 	/**
@@ -392,14 +424,45 @@
 	};
 
 	/**
+	 * Update the read status in the API only for the existing items in this model.
+	 * If an item id array is given, those items will be updated. Otherwise, all items
+	 * in the model are updated.
+	 *
+	 * @param {string[]} [itemIds] Array of item ids
+	 * @return {jQuery.Promise} A promise that resolves when the notifications
+	 * were marked as read.
+	 */
+	mw.echo.dm.NotificationsModel.prototype.markExistingItemsReadInApi = function ( itemIds ) {
+		itemIds = itemIds || this.getAllItemIds();
+
+		return this.getApi().markMultipleItemsRead( itemIds );
+	};
+
+	/**
+	 * Get an array of the notification IDs of the items in this model
+	 *
+	 * @return {string[]} Array of notification IDs
+	 */
+	mw.echo.dm.NotificationsModel.prototype.getAllItemIds = function () {
+		var i,
+			items = this.getItems(),
+			result = [];
+
+		for ( i = 0; i < items.length; i++ ) {
+			result.push( items[ i ].getId() );
+		}
+
+		return result;
+	};
+
+	/**
 	 * Fetch notifications from the API and update the notifications list.
 	 *
 	 * @param {jQuery.Promise} An existing promise querying the API for notifications.
 	 *  This allows us to send an API request external to the DM and have the model
 	 *  handle the operation as if it asked for the request itself, updating all that
 	 *  needs to be updated and emitting all proper events.
-	 * @return {jQuery.Promise} A promise that resolves with an array of notification
-	 *  id's.
+	 * @return {jQuery.Promise} A promise that resolves with an array of notification IDs
 	 */
 	mw.echo.dm.NotificationsModel.prototype.fetchNotifications = function ( apiPromise ) {
 		var model = this;
