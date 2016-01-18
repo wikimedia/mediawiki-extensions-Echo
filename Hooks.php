@@ -438,16 +438,39 @@ class EchoHooks {
 		if ( !$revision ) {
 			return true;
 		}
+		$title = $article->getTitle();
 
 		// Try to do this after the HTTP response
 		DeferredUpdates::addCallableUpdate( function () use ( $revision ) {
 			EchoDiscussionParser::generateEventsForRevision( $revision );
 		} );
 
+		// If the user is not an IP and this is not a null edit,
+		// test for them reaching a congratulatory threshold
+		$thresholds = array( 1, 10, 100, 1000 );
+		if ( $user->isLoggedIn() && $status->value['revision'] ) {
+			// This edit hasn't been added to the edit count yet
+			$editCount = $user->getEditCount() + 1;
+			if ( in_array( $editCount, $thresholds ) ) {
+				DeferredUpdates::addCallableUpdate( function () use ( $user, $title, $editCount ) {
+					EchoEvent::create( array(
+							'type' => 'thank-you-edit',
+							'title' => $title,
+							'agent' => $user,
+							// Edit threshold notifications are sent to the agent
+							'extra' => array(
+								'notifyAgent' => true,
+								'editCount' => $editCount,
+							)
+						)
+					);
+				} );
+			}
+		}
+
 		// Handle the case of someone undoing an edit, either through the
 		// 'undo' link in the article history or via the API.
 		if ( isset( $wgEchoNotifications['reverted'] ) ) {
-			$title = $article->getTitle();
 			$undidRevId = $wgRequest->getVal( 'wpUndidRevision' );
 			if ( $undidRevId ) {
 				$undidRevision = Revision::newFromId( $undidRevId );
@@ -516,7 +539,7 @@ class EchoHooks {
 		EchoEvent::create( array(
 			'type' => 'welcome',
 			'agent' => $user,
-			// welcome email is sent to agent
+			// Welcome notification is sent to the agent
 			'extra' => array(
 				'notifyAgent' => true
 			)

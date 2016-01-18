@@ -175,6 +175,10 @@ $wgEchoDefaultNotificationTypes = array(
 	'welcome' => array(
 		'email' => false,
 	),
+	// … and for edit threshold events
+	'thank-you-edit' => array(
+		'email' => false,
+	),
 	// No need to get a email when another user sends to me
 	'emailuser' => array(
 		'web' => true,
@@ -274,6 +278,12 @@ $wgEchoNotificationIcons = array(
 	),
 	'chat' => array(
 		'path' => "$echoIconPath/chat.svg",
+	),
+	'edit' => array(
+		'path' => array(
+			'ltr' => "$echoIconPath/ooui-edit-ltr-progressive.svg",
+			'rtl' => "$echoIconPath/ooui-edit-rtl-progressive.svg",
+		),
 	),
 	'edit-user-talk' => array(
 		'path' => "$echoIconPath/edit-user-talk.svg",
@@ -458,6 +468,16 @@ $wgEchoNotifications = array(
 		'group' => 'positive',
 		'section' => 'alert',
 		'icon' => 'global',
+	),
+	'thank-you-edit' => array(
+		'user-locators' => array(
+			'EchoUserLocator::locateEventAgent'
+		),
+		'category' => 'system',
+		'group' => 'positive',
+		'presentation-model' => 'EchoEditThresholdPresentationModel',
+		'section' => 'alert',
+		'icon' => 'edit',
 	),
 );
 

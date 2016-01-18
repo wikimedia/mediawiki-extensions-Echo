@@ -33,6 +33,7 @@ $wgAutoloadClasses += array(
 	'EchoDiscussionParser' => __DIR__ . '/includes/DiscussionParser.php',
 	'EchoDiscussionParserTest' => __DIR__ . '/tests/phpunit/DiscussionParserTest.php',
 	'EchoEditFormatter' => __DIR__ . '/includes/formatters/EditFormatter.php',
+	'EchoEditThresholdPresentationModel' => __DIR__ . '/includes/formatters/EditThresholdPresentationModel.php',
 	'EchoEditUserTalkFormatter' => __DIR__ . '/includes/formatters/EditUserTalkFormatter.php',
 	'EchoEditUserTalkPresentationModel' => __DIR__ . '/includes/formatters/EditUserTalkPresentationModel.php',
 	'EchoEmailDecorator' => __DIR__ . '/includes/EmailFormatter.php',
