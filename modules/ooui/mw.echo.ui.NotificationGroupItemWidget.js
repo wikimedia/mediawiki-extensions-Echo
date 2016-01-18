@@ -22,6 +22,11 @@
 		OO.ui.mixin.GroupWidget.call( this, config );
 		OO.ui.mixin.PendingElement.call( this, config );
 
+		// Hide the [x] mark as read button for foreign notifications
+		if ( this.getModel().isForeign() ) {
+			this.markAsReadButton.toggle( false );
+		}
+
 		this.setPendingElement( this.$group );
 		this.$group
 			.addClass( 'mw-echo-ui-notificationGroupItemWidget-group' )
@@ -226,6 +231,19 @@
 			this.$group.slideDown();
 		} else {
 			this.$group.slideUp();
+		}
+	};
+
+	/**
+	 * @inheritdoc
+	 */
+	mw.echo.ui.NotificationGroupItemWidget.prototype.toggleRead = function ( read ) {
+		// Parent method
+		mw.echo.ui.NotificationGroupItemWidget.parent.toggleRead.call( this, read );
+
+		if ( this.getModel().isForeign() ) {
+			// Never show the [x] mark-all-unread button for foreign bundles
+			this.markAsReadButton.toggle( false );
 		}
 	};
 
