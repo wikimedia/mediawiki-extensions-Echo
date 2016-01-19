@@ -22,6 +22,7 @@ class BackfillUnreadWikis extends Maintenance {
 		$iterator = new BatchRowIterator( $dbr, 'user', 'user_id', $this->mBatchSize );
 		$iterator->setFetchColumns( User::selectFields() );
 
+		$processed = 0;
 		foreach ( $iterator as $batch ) {
 			foreach ( $batch as $row ) {
 				$user = User::newFromRow( $row );
@@ -39,6 +40,8 @@ class BackfillUnreadWikis extends Maintenance {
 				}
 			}
 
+			$processed += count( $batch );
+			$this->output( "Updated $processed users.\n" );
 			wfWaitForSlaves( false, false, $wgEchoSharedTrackingCluster );
 		}
 	}
