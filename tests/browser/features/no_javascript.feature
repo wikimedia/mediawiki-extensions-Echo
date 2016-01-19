@@ -1,5 +1,5 @@
 @firefox
-@en.wikipedia.beta.wmflabs.org
+@en.wikipedia.beta.wmflabs.org @integration
 Feature: Basic features for no-js functionality
 
   Background:
