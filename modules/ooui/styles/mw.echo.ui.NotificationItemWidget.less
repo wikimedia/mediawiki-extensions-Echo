@@ -10,12 +10,6 @@
 
 	&:hover > a {
 		text-decoration: none;
-		color: @notification-text-color;
-	}
-
-	&:not(:hover) a,
-	#p-personal &:not(:hover) a.new {
-		color: @notification-text-color;
 	}
 
 	&:last-child {
@@ -39,6 +33,9 @@
 		width: 100%;
 
 		&-message {
+			&-header {
+				color: @notification-text-color;
+			}
 			&-body {
 				color: @notification-body-color;
 			}
