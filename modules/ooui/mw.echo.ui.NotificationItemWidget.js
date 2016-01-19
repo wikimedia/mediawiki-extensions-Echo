@@ -93,11 +93,26 @@
 		} );
 
 		// Build the actions line
-		this.$actions.append(
-			this.actionsButtonSelectWidget.$element,
-			this.menuPopupButtonWidget.$element,
-			this.timestampWidget.$element
-		);
+		if ( this.bundle ) {
+			// In a bundled item, the timestamp should go before the menu
+			this.$actions.append(
+				$( '<div>' )
+					// We are wrapping the actions in a 'row' div so that the
+					// internal pieces are also a table layout
+					.addClass( 'mw-echo-ui-notificationItemWidget-content-actions-row' )
+					.append(
+						this.actionsButtonSelectWidget.$element,
+						this.timestampWidget.$element,
+						this.menuPopupButtonWidget.$element
+					)
+			);
+		} else {
+			this.$actions.append(
+				this.actionsButtonSelectWidget.$element,
+				this.menuPopupButtonWidget.$element,
+				this.timestampWidget.$element
+			);
+		}
 
 		// Actions
 		secondaryUrls = this.model.getSecondaryUrls();
@@ -130,18 +145,30 @@
 		}
 		this.menuPopupButtonWidget.toggle( !this.menuPopupButtonWidget.getMenu().isEmpty() );
 
+		if ( this.bundle ) {
+			// In a bundle, we have table layout, so the icon is
+			// inserted into the content, and the 'mark as read'
+			// button is not floating, and should be at the end
+			$content.append(
+				$icon,
+				$message,
+				this.$actions,
+				this.markAsReadButton.$element
+			);
+			this.$element.append( $content );
+		} else {
+			$content.append(
+				this.markAsReadButton.$element,
+				$message,
+				this.$actions
+			);
+			this.$element.append( $icon, $content );
+		}
+
 		this.$element
 			.addClass( 'mw-echo-ui-notificationItemWidget mw-echo-ui-notificationItemWidget-' + this.model.getType() )
 			.toggleClass( 'mw-echo-ui-notificationItemWidget-initiallyUnseen', !this.model.isSeen() && !this.bundle )
-			.toggleClass( 'mw-echo-ui-notificationItemWidget-bundle', this.bundle )
-			.append(
-				$icon,
-				$content.append(
-					this.markAsReadButton.$element,
-					$message,
-					this.$actions
-				)
-			);
+			.toggleClass( 'mw-echo-ui-notificationItemWidget-bundle', this.bundle );
 
 		if ( this.model.getPrimaryUrl() ) {
 			this.$element.contents()
