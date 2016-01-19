@@ -126,7 +126,6 @@
 	"echo-date-yesterday": "Tegnap",
 	"echo-load-more-error": "Hiba történt a további eredmények lekérdezése során.",
 	"notification-edit-talk-page-bundle": "$1 és még {{PLURAL:$4|egy|$3}} szerkesztő üzenetet {{GENDER:$1|hagyott}} [[User talk:$2|a vitalapodon]].",
-	"notification-bundle-header-edit-user-talk": "$1 és még {{PLURAL:$5|egy|$4}} szerkesztő üzenetet {{GENDER:$2|hagyott}} {{GENDER:$3|a vitalapodon}}.",
 	"notification-edit-user-talk-email-batch-bundle-body": "$1 és {{PLURAL:$3|egy másik|még $2}} szerkesztő üzenetet hagyott a vitalapodon.",
 	"notification-page-linked-email-batch-bundle-body": "A(z) $2 lapra {{GENDER:$1|hivatkoztak}} a(z) $3 lapról és {{PLURAL:$5|egy|még $4}} másikról",
 	"echo-email-batch-subject-daily": "Új {{PLURAL:$2|értesítést|értesítéseket}} kaptál a(z) {{SITENAME}} wikin",

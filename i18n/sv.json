@@ -131,7 +131,6 @@
 	"echo-date-yesterday": "Igår",
 	"echo-load-more-error": "Ett fel uppstod när fler resultat skulle hämtas.",
 	"notification-edit-talk-page-bundle": "$1 och $3 {{PLURAL:$4|andra}} {{GENDER:$1|lämnade}} meddelanden på din [[User talk:$2|diskussionssida]].",
-	"notification-bundle-header-edit-user-talk": "$1 och $4 {{PLURAL:$5|annan|andra}} {{GENDER:$2|lämnade}} meddelanden på {{GENDER:$3|din}} diskussionssida.",
 	"notification-edit-user-talk-email-batch-bundle-body": "$1 och $2 {{PLURAL:$3|annan|andra}} {{GENDER:$1|lämnade}} ett meddelande på din diskussionssida.",
 	"notification-page-linked-email-batch-bundle-body": "$2 {{GENDER:$1|länkades}} från $3 och $4 {{PLURAL:$5|annan sida|andra sidor}}.",
 	"echo-email-batch-subject-daily": "Du har {{PLURAL:$2|en ny avisering|nya aviseringar}} på {{SITENAME}}",

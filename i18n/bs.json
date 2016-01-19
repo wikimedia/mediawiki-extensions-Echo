@@ -126,7 +126,6 @@
 	"echo-date-yesterday": "Jučer",
 	"echo-load-more-error": "Greška se pojavila za vrijeme dobavljanja više rezultata.",
 	"notification-edit-talk-page-bundle": "$1 i još $3 {{PLURAL:$4|korisnik|korisnika}} {{GENDER:$1|ostavili}} su poruke na Vašoj [[User talk:$2|stranici za razgovor]].",
-	"notification-bundle-header-edit-user-talk": "$1 i još $4 {{PLURAL:$5|korisnik|korisnika}} {{GENDER:$2|su}} ostavili poruku na {{GENDER:$3|Vašoj}} stranici za razgovor.",
 	"notification-edit-user-talk-email-batch-bundle-body": "$1 i $2 {{PLURAL:$3|ostali|ostalih}} {{GENDER:$1|ostavili}} su poruku na vašoj stranici za razgovor.",
 	"notification-page-linked-email-batch-bundle-body": "Stranica $2 {{GENDER:$1|povezana}} je sa $3 i $4 {{PLURAL:$5|druge stranice|drugih stranica}}.",
 	"echo-email-batch-subject-daily": "Imate {{PLURAL:$2|novo obavještenje|nova obavještenja}} na {{GRAMMAR:dativ|{{SITENAME}}}}",

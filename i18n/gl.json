@@ -125,7 +125,6 @@
 	"echo-date-yesterday": "Onte",
 	"echo-load-more-error": "Houbo un erro ao procurar máis resultados.",
 	"notification-edit-talk-page-bundle": "$1 e {{PLURAL:$4|outra persoa|$3 persoas máis}} {{GENDER:$1|deixaron}} mensaxes na súa [[User talk:$2|páxina de conversa]].",
-	"notification-bundle-header-edit-user-talk": "$1 e {{PLURAL:$5|outra persoa|$4 persoas máis}} {{GENDER:$2|deixaron}} mensaxes na {{GENDER:$3|súa}} páxina de conversa",
 	"notification-edit-user-talk-email-batch-bundle-body": "$1 e {{PLURAL:$3|outra persoa|$2 persoas máis}} {{GENDER:$1|deixaron}} mensaxes na súa páxina de conversa",
 	"notification-page-linked-email-batch-bundle-body": "\"$2\" foi {{GENDER:$1|ligada}} desde \"$3\" e {{PLURAL:$5|outra páxina|$4 páxinas máis}}",
 	"echo-email-batch-subject-daily": "Ten {{PLURAL:$2|unha nova notificación|novas notificacións}} en {{SITENAME}}",

@@ -124,7 +124,6 @@
 	"echo-date-yesterday": "Vakar",
 	"echo-load-more-error": "Įvyko klaida gaunant daugiau rezultatų.",
 	"notification-edit-talk-page-bundle": "$1 ir $3 {{PLURAL:$4|kitas|kiti}} {{GENDER:$1|paliko}} žinutę jūsų [[User talk:$2|aptarimo puslapyje]].",
-	"notification-bundle-header-edit-user-talk": "$1 ir $4 {{PLURAL:$5|kitas|kiti}} {{GENDER:$2|paliko}} žinutes {{GENDER:$3|jūsų}} aptarimo puslapyje.",
 	"notification-edit-user-talk-email-batch-bundle-body": "$1 ir $2 {{PLURAL:$3|kitas|kiti|kitų}} {{GENDER:$1|paliko}} žinutę jūsų aptarimų puslapyje.",
 	"notification-page-linked-email-batch-bundle-body": "$2 buvo {{GENDER:$1|susietas}} $3 puslapyje ir $4  {{PLURAL:$5|kitame puslapyje|kituose puslapiuose}}.",
 	"echo-email-batch-subject-daily": "Jūs gavote {{PLURAL:$2|naują pranešimą|naujų pranešimų}} {{SITENAME}} tinklapyje",

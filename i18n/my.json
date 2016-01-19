@@ -15,6 +15,5 @@
 	"notification-header-mention-nosection": "$3 ဆွေးနွေးချက်စာမျက်နှာတွင် {{GENDER:$5|သင့်အား}} $1 {{GENDER:$2|ရည်ညွှန်းခဲ့သည်}}။",
 	"echo-overlay-link": "အသိပေးချက်များ အားလုံး",
 	"notification-edit-talk-page-bundle": "သင်၏ [[User talk:$2|ဆွေးနွေးချက် စာမျက်နှာ]]တွင် $1 နှင့် {{PLURAL:$4|အခြား|အခြား}} $3 ဦးတို့ စာလွှာများ {{GENDER:$1|ချန်ထားခဲ့သည်}}။",
-	"notification-bundle-header-edit-user-talk": "{{GENDER:$3|သင်၏}} ဆွေးနွေးချက်စာမျက်နှာတွင် $1 နှင့် {{PLURAL:$5|အခြား|အခြား}} $4 ဦးတို့ စာလွှာတစ်ခု {{GENDER:$2|ချန်ထားခဲ့သည်}}။",
 	"echo-email-batch-link-text-view-all-notifications": "အသိပေးချက်များ အားလုံးကို ကြည့်ရန်"
 }

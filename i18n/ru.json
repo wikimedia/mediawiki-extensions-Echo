@@ -138,7 +138,6 @@
 	"echo-date-yesterday": "Вчера",
 	"echo-load-more-error": "Произошла ошибка при получении дополнительных результатов.",
 	"notification-edit-talk-page-bundle": "$1 и $3 {{PLURAL:$4|1=другой участник|других участников|других участника}} оставили сообщения на вашей [[User talk:$2|странице обсуждения]].",
-	"notification-bundle-header-edit-user-talk": "$1 и $4 {{PLURAL:$5|другой участник|других участников|других участника}} {{GENDER:$2|оставили}} сообщения на {{GENDER:$3|вашей}} странице обсуждения.",
 	"notification-edit-user-talk-email-batch-bundle-body": "$1 и $2 {{PLURAL:$3|другой участник|других участникa|других участников}} оставили сообщения на вашей странице обсуждения.",
 	"notification-page-linked-email-batch-bundle-body": "На страницу «$2» есть {{GENDER:$1|ссылка}} со страницы «$3» и ещё {{PLURAL:$5|$4 страницы|$4 страниц|1=одной страницы}}",
 	"echo-email-batch-bullet": "•",

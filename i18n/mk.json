@@ -123,7 +123,6 @@
 	"echo-date-yesterday": "Вчера",
 	"echo-load-more-error": "Се појави грешка при обидот да добијам повеќе резултати.",
 	"notification-edit-talk-page-bundle": "$1 и {{PLURAL:$4|уште еден друг|уште $3 други}} {{GENDER:$1|оставија}} пораки на вашата [[User talk:$2|страница за разговор]].",
-	"notification-bundle-header-edit-user-talk": "$1 и уште {{PLURAL:$5|еден|$4 корисници}} {{GENDER:$2|оставија}} пораки на {{GENDER:$3|вашата}} страница за разговор.",
 	"notification-edit-user-talk-email-batch-bundle-body": "$1 и уште {{PLURAL:$3|еден|$2 корисници}} {{GENDER:$1|оставија}} порака на вашата страница за разговор",
 	"notification-page-linked-email-batch-bundle-body": "$2 беше {{GENDER:$1|наведена}} од $3 и уште {{PLURAL:$5|една страница|$4 страници}}",
 	"echo-email-batch-subject-daily": "Имате {{PLURAL:$2|ново известување|нови известувања}} на {{SITENAME}}",

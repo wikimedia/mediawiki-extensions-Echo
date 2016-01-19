@@ -127,7 +127,6 @@
 	"echo-date-yesterday": "काल",
 	"echo-load-more-error": "अधिक निकाल देण्यापोटी एक त्रुटी घडली.",
 	"notification-edit-talk-page-bundle": "$1 व $3 {{PLURAL:$4|इतरानी|इतरांनी}} आपल्या [[User talk:$2|चर्चा पानावर]] संदेश {{GENDER:$1|टाकलेत}}.",
-	"notification-bundle-header-edit-user-talk": "$1 व {{PLURAL:$5|इतर}} $4 यांनी {{GENDER:$3|आपल्या}} चर्चा पानावर संदेश {{GENDER:$2|टाकलेत}}",
 	"notification-edit-user-talk-email-batch-bundle-body": "$1 व $2 {{PLURAL:$3|इतरानी|इतरांनी}} आपल्या चर्चा पानावर एक संदेश  {{GENDER:$1|टाकला}}.",
 	"notification-page-linked-email-batch-bundle-body": " $2 हे, $3 व $4 इतर {{PLURAL:$5|पानाशी|पानांशी}}{{GENDER:$1|दुव्याने जोडल्या गेले}}.",
 	"echo-email-batch-bullet": "•",

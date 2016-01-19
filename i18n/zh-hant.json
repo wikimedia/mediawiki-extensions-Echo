@@ -47,7 +47,7 @@
 	"echo-category-title-mention": "{{PLURAL:$1|提到}}",
 	"echo-category-title-other": "{{PLURAL:$1|其他}}",
 	"echo-category-title-system": "{{PLURAL:$1|系統}}",
-	"echo-category-title-user-rights": "{{PLURAL:$1|使用者權限更改}}",
+	"echo-category-title-user-rights": "{{PLURAL:$1|使用者權限變更}}",
 	"echo-category-title-emailuser": "{{PLURAL:$1|來自其他使用者的郵件}}",
 	"echo-pref-tooltip-edit-user-talk": "有人在我的對話頁面上留下訊息或是回覆留言時，請通知我。",
 	"echo-pref-tooltip-article-linked": "有人從文章頁面連結到我建立的頁面時，請通知我。",
