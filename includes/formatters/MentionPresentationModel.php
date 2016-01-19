@@ -31,17 +31,28 @@ class EchoMentionPresentationModel extends EchoEventPresentationModel {
 		return (bool)$this->event->getTitle();
 	}
 
-	/**
-	 * Override to switch the message key to -nosection
-	 * if no section title was detected
-	 *
-	 * @return string
-	 */
 	protected function getHeaderMessageKey() {
 		// Messages used:
-		// notification-header-mention
-		// notification-header-mention-nosection
-		$key = parent::getHeaderMessageKey();
+		// notification-header-mention-other
+		// notification-header-mention-other-nosection
+		// notification-header-mention-article-talkpage
+		// notification-header-mention-article-talkpage-nosection
+		// notification-header-mention-agent-talkpage
+		// notification-header-mention-agent-talkpage-nosection
+		// notification-header-mention-user-talkpage
+		// notification-header-mention-user-talkpage-nosection
+		$key = 'notification-header-mention';
+
+		if ( $this->onArticleTalkpage() ) {
+			$key .= '-article-talkpage';
+		} elseif ( $this->onAgentTalkpage() ) {
+			$key .= '-agent-talkpage';
+		} elseif ( $this->onUserTalkpage() ) {
+			$key .= '-user-talkpage';
+		} else {
+			$key .= '-other';
+		}
+
 		if ( !$this->getSection() ) {
 			$key .= '-nosection';
 		}
@@ -50,9 +61,21 @@ class EchoMentionPresentationModel extends EchoEventPresentationModel {
 	}
 
 	public function getHeaderMessage() {
-		$msg = parent::getHeaderMessage();
-		// @fixme this message should not say "xx talk page"
-		$msg->params( $this->event->getTitle()->getText() );
+		$msg = $this->getMessageWithAgent( $this->getHeaderMessageKey() );
+		$msg->params( $this->getViewingUserForGender() );
+
+		if ( $this->onArticleTalkpage() ) {
+			$msg->params( $this->event->getTitle()->getText() );
+		} elseif ( $this->onAgentTalkpage() ) {
+			// No params to add here.
+			// If we remove this check, onUserTalkpage() has to
+			// make sure it is a user talk page but NOT the agent's talk page.
+		} elseif ( $this->onUserTalkpage() ) {
+			$msg->params( $this->event->getTitle()->getText() );
+		} else {
+			$msg->params( $this->event->getTitle()->getPrefixedText() );
+		}
+
 		$section = $this->getSection();
 		if ( $section ) {
 			$msg->params(
@@ -62,11 +85,7 @@ class EchoMentionPresentationModel extends EchoEventPresentationModel {
 						30
 				)
 			);
-		} else {
-			// For the -nosection message
-			$msg->params( $this->event->getTitle()->getPrefixedText() );
 		}
-		$msg->params( $this->getViewingUserForGender() );
 
 		return $msg;
 	}
@@ -97,7 +116,9 @@ class EchoMentionPresentationModel extends EchoEventPresentationModel {
 	}
 
 	public function getSecondaryLinks() {
-		$url = $this->event->getTitle()->getLocalURL( array(
+		$title = $this->event->getTitle();
+
+		$url = $title->getLocalURL( array(
 			'oldid' => 'prev',
 			'diff' => $this->event->getExtraParam( 'revid' )
 		) );
@@ -108,6 +129,36 @@ class EchoMentionPresentationModel extends EchoEventPresentationModel {
 			'icon' => 'changes',
 			'prioritized' => true,
 		);
-		return array( $this->getAgentLink(), $viewChangesLink );
+
+		$pageLink = array(
+			'url' => $title->getFullURL(),
+			'label' => $this->isArticle() ?  $title->getText() : $title->getPrefixedText(),
+			'description' => '',
+			'icon' => $this->isTalk() ? 'speechBubbles' : 'article',
+			'prioritized' => true,
+		);
+
+		return array( $this->getAgentLink(), $pageLink, $viewChangesLink );
+	}
+
+	private function onArticleTalkpage() {
+		return $this->event->getTitle()->getNamespace() === NS_TALK;
+	}
+
+	private function onAgentTalkpage() {
+		return $this->event->getTitle()->getPrefixedText() === $this->event->getAgent()->getTalkPage()->getPrefixedText();
+	}
+
+	private function onUserTalkpage() {
+		return $this->event->getTitle()->getNamespace() === NS_USER_TALK;
+	}
+
+	private function isTalk() {
+		return $this->event->getTitle()->isTalkPage();
+	}
+
+	private function isArticle() {
+		$ns = $this->event->getTitle()->getNamespace();
+		return $ns === NS_MAIN || $ns === NS_TALK;
 	}
 }

@@ -81,6 +81,7 @@ $wgResourceModules += array(
 			// don't load heavy icons all the time
 			'oojs-ui.styles.icons-user',
 			'oojs-ui.styles.icons-alerts',
+			'oojs-ui.styles.icons-content',
 		),
 		'messages' => array(
 			'echo-overlay-link',
