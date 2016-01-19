@@ -90,7 +90,8 @@ class EchoMentionPresentationModel extends EchoEventPresentationModel {
 
 	public function getPrimaryLink() {
 		return array(
-			'url' => $this->getTitleWithSection()->getLocalURL(),
+			// Need FullURL so the section is included
+			'url' => $this->getTitleWithSection()->getFullURL(),
 			'label' => $this->msg( 'notification-link-text-view-mention' )->text()
 		);
 	}
