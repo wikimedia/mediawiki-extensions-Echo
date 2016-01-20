@@ -79,6 +79,7 @@
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] {{GENDER:$1|posted}} a new topic \"$2\" on [[$3]].",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] {{GENDER:$1|sent}} you a message: \"[[$3#$2|$2]]\".",
 	"notification-add-comment-yours2": "[[User:$1|$1]] {{GENDER:$1|commented}} on \"[[$3#$2|$2]]\" on your talk page.",
+	"notification-body-mention": "$1",
 	"notification-mention": "[[User:$1|$1]] {{GENDER:$1|mentioned}} {{GENDER:$6|you}} on the $5 talk page in \"[[:$3#$2|$4]]\".",
 	"notification-header-mention": "$1 {{GENDER:$2|mentioned}} {{GENDER:$5|you}} on the $3 talk page in \"$4\".",
 	"notification-mention-nosection": "[[User:$1|$1]] {{GENDER:$1|mentioned}} {{GENDER:$4|you}} on the [[:$3|$2 talk page]].",

@@ -88,6 +88,22 @@ class EchoMentionPresentationModel extends EchoEventPresentationModel {
 		return $title;
 	}
 
+	public function getBodyMessage() {
+		$content = $this->event->getExtraParam( 'content' );
+		if ( $content && $this->userCan( Revision::DELETED_TEXT ) ) {
+			$msg = $this->msg( 'notification-body-mention' );
+			$msg->params(
+				EchoDiscussionParser::getTextSnippet(
+					$content,
+					$this->language
+				)
+			);
+			return $msg;
+		} else {
+			return false;
+		}
+	}
+
 	public function getPrimaryLink() {
 		return array(
 			// Need FullURL so the section is included
