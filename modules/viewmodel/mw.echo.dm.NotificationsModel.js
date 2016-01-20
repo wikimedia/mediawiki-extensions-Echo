@@ -296,11 +296,14 @@
 	 * Set the system seen time - the last time we've marked notification as seen
 	 *
 	 * @private
-	 * @param {string} Mediawiki seen timestamp in Mediawiki timestamp format
+	 * @param {string} type Notification type; 'alert', 'message' or 'all'
+	 * @param {string} time Mediawiki seen timestamp in Mediawiki timestamp format
 	 */
-	mw.echo.dm.NotificationsModel.prototype.setSeenTime = function ( time ) {
-		var i,
-			type = $.isArray( this.type ) ? this.type : [ this.type ];
+	mw.echo.dm.NotificationsModel.prototype.setSeenTime = function ( type, time ) {
+		var i, types;
+
+		// Normalize if using 'all'
+		types = type === 'all' ? [ 'alert', 'message' ] : [ type ];
 
 		for ( i = 0; i < type.length; i++ ) {
 			// Update all types
@@ -315,23 +318,30 @@
 	 * @return {string} Mediawiki seen timestamp in Mediawiki timestamp format
 	 */
 	mw.echo.dm.NotificationsModel.prototype.getSeenTime = function ( type ) {
-		type = type || ( $.isArray( this.type ) ? this.type[ 0 ] : this.type );
+		var normalizedType;
 
-		return this.seenTime[ type ];
+		type = type || this.type;
+
+		normalizedType = type === 'all' ?
+			[ 'alert', 'message' ] : [ type ];
+
+		return this.seenTime[ normalizedType[ 0 ] ];
 	};
 
 	/**
 	 * Update the seen timestamp
 	 *
 	 * @param {string|string[]} [type] Notification type
-	 * @return {jQuery.Promise} A promise that resolves with the seen timestamp
 	 * @fires updateSeenTime
 	 */
 	mw.echo.dm.NotificationsModel.prototype.updateSeenTime = function ( type ) {
-		var i, len, promise,
+		var i, len, types,
 			items = this.unseenNotifications.getItems();
 
 		type = type || this.type;
+
+		// If type is "all" or is not given, update both
+		types = type === 'all' ? [ 'alert', 'message' ] : [ type || this.type ];
 
 		// Update the notifications seen status
 		for ( i = 0, len = items.length; i < len; i++ ) {
@@ -341,13 +351,11 @@
 
 		// Only update seenTime in the API locally
 		if ( !this.isForeign() ) {
-			promise = this.api.updateSeenTime( this.getSource(), type );
-		} else {
-			promise = $.Deferred().resolve();
+			for ( i = 0; i < types.length; i++ ) {
+				this.api.updateSeenTime( this.getSource(), types[ i ] )
+					.then( this.setSeenTime.bind( this, types[ i ] ) );
+			}
 		}
-
-		return promise
-			.then( this.setSeenTime.bind( this ) );
 	};
 
 	/**

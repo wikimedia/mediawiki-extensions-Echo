@@ -30,6 +30,40 @@ $echoResourceTemplate = array(
 );
 
 $wgResourceModules += array(
+	'ext.echo.ui.desktop' => $echoResourceTemplate + array(
+		'scripts' => array(
+			'ooui/mw.echo.ui.BadgeLinkWidget.js',
+			'ooui/mw.echo.ui.NotificationBadgeWidget.js',
+		),
+		'styles' => array(
+			'ooui/styles/mw.echo.ui.NotificationBadgeWidget.less',
+		),
+		'skinStyles' => array(
+			'monobook' => array(
+				'ooui/styles/mw.echo.ui.NotificationBadgeWidget.monobook.less'
+			),
+			'modern' => array(
+				'ooui/styles/mw.echo.ui.NotificationBadgeWidget.modern.less'
+			),
+			'vector' => array(
+				'ooui/styles/mw.echo.ui.NotificationBadgeWidget.vector.less'
+			),
+		),
+		'dependencies' => array(
+			'ext.echo.ui',
+			'ext.echo.styles.badge',
+		),
+		'targets' => array( 'desktop' ),
+	),
+	'ext.echo.ui.mobile' => $echoResourceTemplate + array(
+		'scripts' => array(
+			'ooui/mobile/mw.echo.ui.MobileNotificationsWrapper.js',
+		),
+		'dependencies' => array(
+			'ext.echo.ui',
+		),
+		'targets' => array( 'mobile', 'desktop' ),
+	),
 	'ext.echo.ui' => $echoResourceTemplate + array(
 		'scripts' => array(
 			'ooui/mw.echo.ui.js',
@@ -40,8 +74,6 @@ $wgResourceModules += array(
 			'ooui/mw.echo.ui.BundledNotificationGroupWidget.js',
 			'ooui/mw.echo.ui.ActionMenuPopupWidget.js',
 			'ooui/mw.echo.ui.MenuItemWidget.js',
-			'ooui/mw.echo.ui.BadgeLinkWidget.js',
-			'ooui/mw.echo.ui.NotificationBadgeWidget.js'
 		),
 		'styles' => array(
 			'ooui/styles/mw.echo.ui.overlay.less',
@@ -51,24 +83,19 @@ $wgResourceModules += array(
 			'ooui/styles/mw.echo.ui.NotificationGroupItemWidget.less',
 			'ooui/styles/mw.echo.ui.BundledNotificationGroupWidget.less',
 			'ooui/styles/mw.echo.ui.MenuItemWidget.less',
-			'ooui/styles/mw.echo.ui.NotificationBadgeWidget.less'
 		),
 		'skinStyles' => array(
 			'monobook' => array(
 				'ooui/styles/mw.echo.ui.NotificationsWidget.monobook.less',
-				'ooui/styles/mw.echo.ui.NotificationBadgeWidget.monobook.less'
 			),
 			'modern' => array(
 				'ooui/styles/mw.echo.ui.NotificationItemWidget.modern.less',
-				'ooui/styles/mw.echo.ui.NotificationBadgeWidget.modern.less'
 			),
 			'vector' => array(
 				'ooui/styles/mw.echo.ui.overlay.vector.less',
-				'ooui/styles/mw.echo.ui.NotificationBadgeWidget.vector.less'
 			),
 		),
 		'dependencies' => array(
-			'ext.echo.styles.badge',
 			'ext.echo.styles.notifications',
 			'ext.echo.dm',
 			'oojs-ui-core',
@@ -227,7 +254,7 @@ $wgResourceModules += array(
 		'dependencies' => array(
 			'mediawiki.ui.button',
 			'mediawiki.api',
-			'ext.echo.ui',
+			'ext.echo.ui.desktop',
 		),
 		'messages' => array(
 			'echo-load-more-error',

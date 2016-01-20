@@ -40,7 +40,7 @@
 				} );
 
 			// Load the ui
-			mw.loader.using( 'ext.echo.ui', function () {
+			mw.loader.using( 'ext.echo.ui.desktop', function () {
 				var messageNotificationsModel, alertNotificationsModel,
 					momentOrigLocale = moment.locale();
 
