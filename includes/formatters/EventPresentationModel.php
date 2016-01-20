@@ -8,6 +8,21 @@
 abstract class EchoEventPresentationModel {
 
 	/**
+	 * Recommended length of usernames included in messages
+	 */
+	const USERNAME_RECOMMENDED_LENGTH = 30;
+
+	/**
+	 * Recommended length of page names included in messages
+	 */
+	const PAGE_NAME_RECOMMENDED_LENGTH = 50;
+
+	/**
+	 * Recommended length of section titles included in messages
+	 */
+	const SECTION_TITLE_RECOMMENDED_LENGTH = 30;
+
+	/**
 	 * @var EchoEvent
 	 */
 	protected $event;
@@ -220,7 +235,7 @@ abstract class EchoEventPresentationModel {
 
 		if ( $this->userCan( Revision::DELETED_USER ) ) {
 			// Not deleted
-			return array( $agent->getName(), $agent->getName() );
+			return array( $this->getTruncatedUsername( $agent ), $agent->getName() );
 		} else {
 			// Deleted/hidden
 			$msg = $this->msg( 'rev-deleted-user' )->plain();
@@ -366,5 +381,14 @@ abstract class EchoEventPresentationModel {
 				'secondary' => array_values( array_filter( $this->getSecondaryLinks() ) ),
 			),
 		);
+	}
+
+	protected function getTruncatedUsername( User $user ) {
+		return $this->language->truncate( $user->getName(), self::USERNAME_RECOMMENDED_LENGTH );
+	}
+
+	protected function getTruncatedTitleText( Title $title, $includeNamespace = false ) {
+		$text = $includeNamespace ? $title->getPrefixedText() : $title->getText();
+		return $this->language->truncate( $text, self::PAGE_NAME_RECOMMENDED_LENGTH );
 	}
 }

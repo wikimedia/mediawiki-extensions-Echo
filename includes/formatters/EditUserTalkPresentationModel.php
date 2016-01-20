@@ -85,7 +85,7 @@ class EchoEditUserTalkPresentationModel extends EchoEventPresentationModel {
 			return EchoDiscussionParser::getTextSnippet(
 				$this->event->getExtraParam( 'section-title' ),
 				$this->language,
-				30
+				self::SECTION_TITLE_RECOMMENDED_LENGTH
 			);
 		} else {
 			return $this->msg( 'echo-rev-deleted-text-view' )->text();

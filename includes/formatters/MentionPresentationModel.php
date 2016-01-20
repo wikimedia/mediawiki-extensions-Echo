@@ -65,15 +65,15 @@ class EchoMentionPresentationModel extends EchoEventPresentationModel {
 		$msg->params( $this->getViewingUserForGender() );
 
 		if ( $this->onArticleTalkpage() ) {
-			$msg->params( $this->event->getTitle()->getText() );
+			$msg->params( $this->getTruncatedTitleText( $this->event->getTitle() ) );
 		} elseif ( $this->onAgentTalkpage() ) {
 			// No params to add here.
 			// If we remove this check, onUserTalkpage() has to
 			// make sure it is a user talk page but NOT the agent's talk page.
 		} elseif ( $this->onUserTalkpage() ) {
-			$msg->params( $this->event->getTitle()->getText() );
+			$msg->params( $this->getTruncatedTitleText( $this->event->getTitle() ) );
 		} else {
-			$msg->params( $this->event->getTitle()->getPrefixedText() );
+			$msg->params( $this->getTruncatedTitleText( $this->event->getTitle(), true ) );
 		}
 
 		$section = $this->getSection();
@@ -82,7 +82,7 @@ class EchoMentionPresentationModel extends EchoEventPresentationModel {
 				EchoDiscussionParser::getTextSnippet(
 						$section,
 						$this->language,
-						30
+						self::SECTION_TITLE_RECOMMENDED_LENGTH
 				)
 			);
 		}

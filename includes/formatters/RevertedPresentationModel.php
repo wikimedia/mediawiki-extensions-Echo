@@ -12,7 +12,7 @@ class EchoRevertedPresentationModel extends EchoEventPresentationModel {
 
 	public function getHeaderMessage() {
 		$msg = parent::getHeaderMessage();
-		$msg->params( $this->event->getTitle()->getPrefixedText() );
+		$msg->params( $this->getTruncatedTitleText( $this->event->getTitle(), true ) );
 		$msg->params( $this->getNumberOfEdits() );
 		return $msg;
 	}
@@ -32,8 +32,7 @@ class EchoRevertedPresentationModel extends EchoEventPresentationModel {
 		$html = Linker::formatLinksInComment( Sanitizer::escapeHtmlAllowEntities( $wikitext ) );
 		return EchoDiscussionParser::getTextSnippet(
 			$html,
-			$this->language,
-			30
+			$this->language
 		);
 	}
 

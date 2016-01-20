@@ -34,7 +34,7 @@ class SpecialNotificationsFormatter extends EchoEventFormatter {
 			$this->user
 		);
 
-		$footerItems = array( $ts );
+		$footerItems = array( Html::element( 'span', array( 'class' => 'mw-echo-notification-footer-element' ), $ts ) );
 
 		// Add links to the footer, primary goes first, then secondary ones
 		$links = array();
@@ -44,13 +44,14 @@ class SpecialNotificationsFormatter extends EchoEventFormatter {
 		}
 		$links = array_merge( $links, array_filter( $model->getSecondaryLinks() ) );
 		foreach ( $links as $link ) {
-			$footerItems[] = Html::element( 'a', array( 'href' => $link['url'] ), $link['label'] );
+			$footerItems[] = Html::element( 'a', array( 'href' => $link['url'], 'class' => 'mw-echo-notification-footer-element' ), $link['label'] );
 		}
 
+		$pipe = wfMessage( 'pipe-separator' )->inLanguage( $this->language )->escaped();
 		$html .= Xml::tags(
 			'div',
 			array( 'class' => 'mw-echo-notification-footer' ),
-			$this->language->pipeList( $footerItems )
+			implode( Html::element( 'span', array( 'class' => 'mw-echo-notification-footer-element' ), $pipe ), $footerItems )
 		) . "\n";
 
 		// Wrap everything in mw-echo-content class
