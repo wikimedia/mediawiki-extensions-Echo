@@ -179,7 +179,7 @@
 	"apihelp-query+notifications-param-format": "Si spécifié, les notifications seront renvoyées dans ce format.",
 	"apihelp-query+notifications-param-limit": "Le nombre maximal de notifications à renvoyer.",
 	"apihelp-query+notifications-param-index": "Si spécifié, une liste ordonnée d’IDs de notification sera renvoyée.",
-	"apihelp-query+notifications-param-noforn": "Vrai pour se désengager des notifications de wikis étrangers",
+	"apihelp-query+notifications-param-noforn": "Vrai pour se désabonner des notifications de wikis étrangers",
 	"apihelp-query+notifications-param-alertcontinue": "Quand plus d’alertes sont disponibles, utiliser cela pour continuer.",
 	"apihelp-query+notifications-param-alertunreadfirst": "S’il faut afficher d’abord les notifications de message non lu.",
 	"apihelp-query+notifications-param-messagecontinue": "Quand plus de résultats de message sont disponibles, utiliser cela pour continuer.",
