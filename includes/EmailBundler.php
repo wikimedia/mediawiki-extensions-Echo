@@ -252,7 +252,13 @@ class MWEchoEmailBundler {
 		$replyAddress = new MailAddress( $wgNotificationSender, $wgNotificationReplyName );
 
 		// Schedule a email job or just send the email directly?
-		UserMailer::send( $toAddress, $fromAddress, $content['subject'], $content['body'], $replyAddress );
+		UserMailer::send(
+			$toAddress,
+			$fromAddress,
+			$content['subject'],
+			$content['body'],
+			array( 'replyTo' => $replyAddress )
+		);
 		MWEchoEventLogging::logSchemaEchoMail( $this->mUser, 'bundle' );
 	}
 
