@@ -130,7 +130,7 @@
 	"echo-date-yesterday": "Gestern",
 	"echo-load-more-error": "Beim Abrufen weiterer Ergebnisse ist ein Fehler aufgetreten.",
 	"notification-edit-talk-page-bundle": "$1 und {{PLURAL:$4|ein weiterer Benutzer hinterließ|$3 weitere Benutzer hinterließen}} {{GENDER:$1|Nachrichten}} auf deiner [[User talk:$2|Diskussionsseite]].",
-	"notification-bundle-header-edit-user-talk-v2": "$1 neue {{PLURAL:$2|Nachrichten}} auf {{GENDER:$3|deiner}} Diskussionsseite.",
+	"notification-bundle-header-edit-user-talk-v2": "{{PLURAL:$2|Eine neue Nachricht|$1 neue Nachrichten}} auf {{GENDER:$3|deiner}} Diskussionsseite.",
 	"notification-edit-user-talk-email-batch-bundle-body": "$1 und {{PLURAL:$3|ein weiterer Benutzer|$2 weitere Benutzer}} {{GENDER:$1|hinterließen}} eine Nachricht auf deiner Diskussionsseite",
 	"notification-page-linked-email-batch-bundle-body": "$2 wurde von $3 und {{PLURAL:$5|einer weiteren Seite|$4 weiteren Seiten}} {{GENDER:$1|verlinkt}}",
 	"echo-email-batch-subject-daily": "Du hast {{PLURAL:$2|eine neue Benachrichtigung|neue Benachrichtigungen}} auf {{SITENAME}}",

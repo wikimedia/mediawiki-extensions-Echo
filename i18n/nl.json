@@ -139,6 +139,7 @@
 	"echo-date-yesterday": "Gisteren",
 	"echo-load-more-error": "Er is een fout opgetreden tijdens het ophalen van meer resultaten.",
 	"notification-edit-talk-page-bundle": "$1 en $3 {{PLURAL:$4|andere|anderen}} hebben berichten {{GENDER:$1|geplaatst}} op uw [[User talk:$2|overlegpagina]].",
+	"notification-bundle-header-edit-user-talk-v2": "$1 nieuw {{PLURAL:$2|bericht|berichten}} op {{GENDER:$3|uw}} overlegpagina.",
 	"notification-edit-user-talk-email-batch-bundle-body": "$1 and $2 {{PLURAL:$3|andere gebruiker|andere gebruikers}} {{GENDER:$1|hebben}} een bericht op uw overlegpagina geplaatst.",
 	"notification-page-linked-email-batch-bundle-body": "$2 is {{GENDER:$1|gekoppeld}} vanaf $3 en $4 andere pagina{{PLURAL:$5||'s}}.",
 	"echo-email-batch-subject-daily": "U heeft vandaag {{PLURAL:$2|een nieuwe melding|nieuwe meldingen}} op {{SITENAME}} ontvangen",
