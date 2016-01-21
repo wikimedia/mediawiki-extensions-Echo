@@ -95,6 +95,7 @@ $wgResourceModules += array(
 			"notification-link-text-expand-alert-count",
 			"notification-link-text-expand-message-count",
 			"notification-link-text-expand-all-count",
+			'echo-notification-markasread',
 			'echo-notification-alert-text-only',
 			'echo-notification-message-text-only',
 			'echo-email-batch-bullet',
