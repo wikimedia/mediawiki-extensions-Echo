@@ -53,6 +53,7 @@
 	"echo-feedback": "Feedback",
 	"echo-quotation-marks": "\"$1\"",
 	"echo-api-failure": "Could not retrieve notifications. Please try again. (Error $1)",
+	"echo-api-failure-cross-wiki": "Access to the remote domain was denied.",
 	"echo-notification-placeholder": "There are no notifications.",
 	"echo-notification-loginrequired": "You must login to see your notifications.",
 	"echo-notification-popup-loginrequired": "Please log in to view your notifications.",

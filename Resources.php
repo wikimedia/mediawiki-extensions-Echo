@@ -127,6 +127,7 @@ $wgResourceModules += array(
 		),
 		'messages' => array(
 			'echo-api-failure',
+			'echo-api-failure-cross-wiki',
 		),
 		'targets' => array( 'desktop', 'mobile' ),
 	),

@@ -562,7 +562,17 @@
 				},
 				// Failure
 				function ( errCode, errObj ) {
-					model.emit( 'done', false, { errCode: errCode, errInfo: OO.getProp( errObj, 'error', 'info' ) } );
+					// TODO: The 'analysis' of which error we are working with should
+					// be in the network layer of Echo's frontend code
+					model.emit(
+						'done',
+						false,
+						{
+							errCode: errCode,
+							errInfo: errCode === 'http' ?
+								mw.msg( 'echo-api-failure-cross-wiki' ) :
+								OO.getProp( errObj, 'error', 'info' )
+						} );
 				}
 			);
 	};
