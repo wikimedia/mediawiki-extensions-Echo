@@ -71,7 +71,7 @@
 	"notification-user-rights-remove": "Niste več član {{PLURAL:$2|naslednje skupine|naslednjih skupin}}: $1",
 	"notification-new-user": "Pozdravljeni v {{GRAMMAR:dajalnik|{{SITENAME}}}}, $1! Veseli smo, da ste tu.",
 	"notification-reverted2": "{{PLURAL:$4|Vaše urejanje strani »[[:$2]]« je|Vaša urejanja strani »[[:$2]]« je}} {{GENDER:$1|uporabnik|uporabnica}} [[$5|$1]] {{GENDER:$1|vrnil|vrnila}}. $3.",
-	"notification-header-reverted": "{{PLURAL:$4|Vaše urejanje strani »$3«|Vaša urejanja strani »$3«}} je {{GENDER:$2|vrnil uporabnik|vrnila uporabnica}} $1.",
+	"notification-header-reverted": "{{PLURAL:$4|Vaše urejanje strani »$3« je bilo|Vaša urejanja strani »$3« so bila}} {{GENDER:$2|vrnjena}}",
 	"notification-edit-talk-page-email-subject2": "V projektu {{SITENAME}} vam je {{GENDER:$1|uporabnik|uporabnica}} {{GENDER:$1|pustil|pustila}} sporočilo.",
 	"notification-edit-talk-page-email-batch-body2": "{{GENDER:$1|Uporabnik|Uporabnica}} vam je na pogovorni strani {{GENDER:$1|pustil|pustila}} sporočilo.",
 	"notification-edit-talk-page-email-batch-body-with-section": "{{GENDER:$1|Uporabnik|Uporabnica}} vam je {{GENDER:$1|pustil|pustila}} sporočilo na pogovorni strani v razdelku »$2«.",

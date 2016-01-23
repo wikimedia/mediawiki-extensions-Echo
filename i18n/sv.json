@@ -13,7 +13,8 @@
 			"MagnusA",
 			"Paracel63",
 			"Hangsna",
-			"NH"
+			"NH",
+			"Frisko"
 		]
 	},
 	"echo-desc": "System för att meddela användare om händelser och meddelanden",
@@ -80,7 +81,7 @@
 	"notification-header-edit-user-talk": "$1 {{GENDER:$2|lämnade}} ett meddelande på {{GENDER:$3|din}} diskussionssida.",
 	"notification-header-edit-user-talk-with-section": "$1 {{GENDER:$2|lämnade}} ett meddelande på {{GENDER:$3|din}} diskussionssida i \"$4\".",
 	"notification-page-linked": "[[:$2]] {{GENDER:$1|länkades}} från [[:$3]]. [[Special:WhatLinksHere/$2|Se alla länkar till denna sida]].",
-	"notification-header-page-linked": "En länkning gjordes from $4 till $3.",
+	"notification-header-page-linked": "En länkning gjordes från $4 till $3.",
 	"notification-bundle-header-page-linked": "$4 och $5 {{PLURAL:$6|annan sida|andra sidor}} länkas nu till $3.",
 	"notification-link-text-what-links-here": "Alla länkar till denna sida",
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|kommenterade}} \"[[$3|$2]]\" på diskussionssidan för \"$4\".",
@@ -99,7 +100,7 @@
 	"notification-header-welcome": "{{GENDER:$2|Välkommen}} till {{SITENAME}}, $1! Vi är glada över att {{GENDER:$2|du är}} här.",
 	"notification-welcome-linktext": "Välkommen",
 	"notification-reverted2": "{{PLURAL:$4|Din redigering|Dina redigeringar}} på [[:$2]] har {{GENDER:$1|återställts}} av [[$5|$1]]. $3",
-	"notification-header-reverted": "{{PLURAL:$4|Din redigering|Dina redigeringar}} på $3 har {{GENDER:$2|återställts}} av $1.",
+	"notification-header-reverted": "{{PLURAL:$4|Din redigering|Dina redigeringar}} på $3 har {{GENDER:$2|återställts}}.",
 	"notification-emailuser": "[[User:$1|$1]] {{GENDER:$1|skickade}} e-post till dig.",
 	"notification-header-emailuser": "$1 {{GENDER:$2|skickade}} e-post till dig.",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|lämnade}} ett meddelande till dig på {{SITENAME}}",

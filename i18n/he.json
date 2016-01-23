@@ -60,6 +60,7 @@
 	"echo-more-info": "מידע נוסף",
 	"echo-feedback": "משוב",
 	"echo-api-failure": "לא היה אפשר לאחזר הודעות. נא לנסות שוב. (שגיאה $1)",
+	"echo-api-failure-cross-wiki": "לא ניתנה גישה למתחם המרוחק.",
 	"echo-notification-placeholder": "אין התראות.",
 	"echo-notification-loginrequired": "יש להיכנס לחשבון כדי לראות הודעות.",
 	"echo-notification-popup-loginrequired": "נא להיכנס כדי לראות את ההתראות שלך.",

@@ -106,7 +106,7 @@
 	"echo-date-today": "Danas",
 	"echo-date-yesterday": "Jučer",
 	"notification-edit-talk-page-bundle": "$1 i još $3 {{PLURAL:$4|suradnik|suradnika}} {{GENDER:$1|ostavili}} su poruku na Vašoj [[User talk:$2|stranici za razgovor]].",
-	"notification-bundle-header-edit-user-talk": "$1 i još $4 {{PLURAL:$5|suradnik|suradnika}} {{GENDER:$2|ostavili}} su poruku na Vašoj [[User talk:$3|stranici za razgovor]].",
+	"notification-bundle-header-edit-user-talk-v2": "$1 {{PLURAL:$2|nova poruka|nove poruke|novih poruka}} na {{GENDER:$3|Vašoj}} stranici za razgovor.",
 	"notification-edit-user-talk-email-batch-bundle-body": "$1 i još $2 {{PLURAL:$3|suradnik|suradnika}} {{GENDER:$1|ostavili}} su poruku na Vašoj stranici za razgovor.",
 	"notification-page-linked-email-batch-bundle-body": "Članak $2 je {{GENDER:$1|povezan}} s člankom $3 i još $4 {{PLURAL:$5|člankom|članka|članaka}}.",
 	"echo-email-batch-subject-daily": "Imate {{PLURAL:$2|novu obavijest|nove obavijesti}} na projektu {{SITENAME}}",

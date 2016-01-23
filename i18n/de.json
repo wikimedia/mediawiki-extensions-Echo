@@ -60,6 +60,7 @@
 	"echo-more-info": "Mehr Informationen",
 	"echo-feedback": "Rückmeldung",
 	"echo-api-failure": "Benachrichtigungen konnten nicht abgerufen werden. Bitte erneut versuchen. (Fehler $1)",
+	"echo-api-failure-cross-wiki": "Der Zugriff auf die Remote-Domäne wurde abgelehnt.",
 	"echo-notification-placeholder": "Es gibt keine Benachrichtigungen.",
 	"echo-notification-loginrequired": "Du musst dich anmelden, um deine Benachrichtigungen zu sehen.",
 	"echo-notification-popup-loginrequired": "Bitte melde dich an, um deine Benachrichtigungen anzusehen.",

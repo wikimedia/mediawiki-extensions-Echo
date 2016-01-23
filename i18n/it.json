@@ -62,6 +62,7 @@
 	"echo-more-info": "Altre informazioni",
 	"echo-feedback": "Commenti",
 	"echo-api-failure": "Non è stato possibile recuperare le notifiche. Riprova. (Errore $1)",
+	"echo-api-failure-cross-wiki": "L'accesso al dominio remoto è stato negato.",
 	"echo-notification-placeholder": "Non ci sono notifiche.",
 	"echo-notification-loginrequired": "Devi effettuare l'accesso per vedere le tue notifiche.",
 	"echo-notification-popup-loginrequired": "Effettua l'accesso per visualizzare le tue notifiche.",
