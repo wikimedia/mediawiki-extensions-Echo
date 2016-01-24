@@ -66,6 +66,7 @@
 	"echo-api-failure": "تعذّر إظهار الإشعارات. فضلًا حاول مرة أخرى. (خطأ $1)",
 	"echo-notification-placeholder": "لا توجد أية إخطارات.",
 	"echo-notification-loginrequired": "يجب عليك تسجيل الدخول للاطلاع على إشعاراتك.",
+	"echo-notification-popup-loginrequired": "من فضلك سجل الدخول لعرض إشعاراتك.",
 	"notification-link-text-expand-all": "وسع الكل",
 	"notification-link-text-collapse-all": "اطو الكل",
 	"notification-link-text-view-message": "اعرض الرسالة",
