@@ -183,7 +183,16 @@ class MWEchoNotifUser {
 	private function getHasMessagesKey() {
 		global $wgEchoConfig;
 
-		return wfMemcKey( 'echo', 'user', 'had', 'messages', $this->mUser->getId(), $wgEchoConfig['version'] );
+		$lookup = CentralIdLookup::factory();
+		$id = $lookup->centralIdFromLocalUser( $this->mUser, CentralIdLookup::AUDIENCE_RAW );
+		if ( !$id ) {
+			// local user
+			return wfMemcKey( 'echo', 'user', 'had', 'messages', $this->mUser->getId(), $wgEchoConfig['version'] );
+		} else {
+			// central user: we don't want a per-wiki cache key: as soon as the user
+			// gets a message on another wiki, this cache key should be altered
+			return wfGlobalCacheKey( 'echo', 'user', 'had', 'messages', $id, $wgEchoConfig['version'] );
+		}
 	}
 
 	/**
@@ -206,11 +215,37 @@ class MWEchoNotifUser {
 		$eventTypesToLoad = $attributeManager->getUserEnabledEventsbySections( $this->mUser, 'web', array( $section ) );
 
 		$count = count( $this->notifMapper->fetchByUser( $this->mUser, 1, 0, $eventTypesToLoad ) );
-
-		$result = (int)( $count > 0 );
+		$result = (int)( $count > 0 ) || $this->hasForeignMessages();
 		$this->cache->set( $memcKey, $result, 86400 );
 
 		return (bool)$result;
+	}
+
+	protected function hasForeignMessages() {
+		if ( !$this->mUser->getOption( 'echo-cross-wiki-notifications' ) ) {
+			return false;
+		}
+
+		$uw = EchoUnreadWikis::newFromUser( $this->mUser );
+		if ( $uw === false ) {
+			return false;
+		}
+
+		$counts = $uw->getUnreadCounts();
+		foreach ( $counts as $wiki => $data ) {
+			if ( $data[EchoAttributeManager::MESSAGE]['count'] > 0 ) {
+				// currently has unread notifications
+				return true;
+			}
+
+			if ( $data[EchoAttributeManager::MESSAGE]['ts'] !== EchoUnreadWikis::DEFAULT_TS ) {
+				// a timestamp at which notifications were read was recorded,
+				// which means the user must've had messages somewhere, at some point
+				return true;
+			}
+		}
+
+		return false;
 	}
 
 	/**
