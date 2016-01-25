@@ -59,6 +59,7 @@
 	"notification-edit-talk-page2": "Декъашхочо [[User:$1|$1]] хьан [[User talk:$2#$3|дийцаре агӀонехь]] {{GENDER:$1|битина}}. хаам.",
 	"notification-edit-talk-page-with-section": "Хьан дийцаре агӀонехь [[User:$1|$1]] {{GENDER:$1|битина}} хаам \"[[User talk:$2#$3|$4]]\".",
 	"notification-page-linked": "[[:$2]] и {{GENDER:$1|йихкина}} оцу [[:$3]]. [[Special:WhatLinksHere/$2|Хьажа. ХӀокху агӀона массо хьажоргаш]].",
+	"notification-link-text-what-links-here": "ХӀокху агӀонна тӀе массо хьажоргаш",
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|хаам биттина}} темехь \"[[$3|$2]]\" \"$4\" дийцаре агӀонехь.",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] {{GENDER:$1|тӀетоьхна}} керла тем \"$2\" [[$3]] агӀонехь.",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] хьога хаам {{GENDER:$1|хьажийна}}: \"[[$3#$2|$2]]\".",

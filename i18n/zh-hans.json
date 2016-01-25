@@ -29,7 +29,8 @@
 			"EagerLin",
 			"范",
 			"Apflu",
-			"Cosine02"
+			"Cosine02",
+			"LNDDYL"
 		]
 	},
 	"echo-desc": "用于通知用户有关活动和消息的系统",
@@ -83,7 +84,7 @@
 	"echo-api-failure": "无法检索通知。请重试。（错误$1）",
 	"echo-api-failure-cross-wiki": "对远程域名的访问已拒绝。",
 	"echo-notification-placeholder": "这里没有通知。",
-	"echo-notification-loginrequired": "您必须登陆才能查看您的通知。",
+	"echo-notification-loginrequired": "您必须登录才能查看您的通知。",
 	"echo-notification-popup-loginrequired": "请登录来查看您的通知。",
 	"notification-link-text-expand-all": "展开全部",
 	"notification-link-text-expand-alert-count": "展开{{PLURAL:$1|$1条提醒}}",

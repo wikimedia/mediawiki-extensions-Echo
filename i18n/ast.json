@@ -53,6 +53,7 @@
 	"echo-more-info": "Más información",
 	"echo-feedback": "La so opinión",
 	"echo-api-failure": "Nun pudieron recuperase les notificaciones. Inténtalo otra vuelta. (Error $1)",
+	"echo-api-failure-cross-wiki": "Refugóse l'accesu al dominiu remotu.",
 	"echo-notification-placeholder": "Nun hai notificaciones.",
 	"echo-notification-loginrequired": "Tienes d'aniciar sesión pa ver los avisos.",
 	"echo-notification-popup-loginrequired": "Anicia sesión pa ver los tos avisos.",

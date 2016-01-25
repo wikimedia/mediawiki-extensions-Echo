@@ -68,6 +68,8 @@
 	"echo-feedback": "意見回饋",
 	"echo-api-failure": "無法擷取通知。請再試一次。 (Error $1)",
 	"echo-notification-placeholder": "無通知。",
+	"echo-notification-loginrequired": "您必須登入方可查閱通知。",
+	"echo-notification-popup-loginrequired": "請登入以檢視您的通知。",
 	"notification-link-text-collapse-all": "全部摺疊",
 	"notification-link-text-view-message": "檢視訊息",
 	"notification-link-text-view-mention": "檢視提到",
