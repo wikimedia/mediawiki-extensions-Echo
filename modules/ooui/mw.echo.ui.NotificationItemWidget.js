@@ -38,18 +38,7 @@
 			classes: [ 'mw-echo-ui-notificationItemWidget-markAsReadButton' ]
 		} );
 
-		this.toggleRead( this.model.isRead() );
-		this.toggleSeen( this.model.isSeen() );
-
 		this.markReadWhenSeen = !!config.markReadWhenSeen;
-		this.markAsReadButton.toggle( !this.markReadWhenSeen && !this.model.isRead() );
-
-		// Events
-		this.markAsReadButton.connect( this, { click: 'onMarkAsReadButtonClick' } );
-		this.model.connect( this, {
-			seen: 'toggleSeen',
-			read: 'toggleRead'
-		} );
 
 		// Icon
 		if ( this.model.getIconURL() ) {
@@ -143,7 +132,16 @@
 				this.menuPopupButtonWidget.getMenu().addItems( [ linkButton ] );
 			}
 		}
-		this.menuPopupButtonWidget.toggle( !this.menuPopupButtonWidget.getMenu().isEmpty() );
+		// Add a "mark as read" secondary action
+		this.markAsReadSecondary = new OO.ui.ButtonOptionWidget( {
+			icon: 'check',
+			framed: false,
+			data: 'markAsRead',
+			label: mw.msg( 'echo-notification-markasread' ),
+			classes: [ 'mw-echo-ui-notificationItemWidget-content-actions-button' ]
+		} );
+		// Toggle 'mark as read' functionality
+		this.toggleMarkAsReadButtons( !this.markReadWhenSeen && !this.model.isRead() );
 
 		if ( this.bundle ) {
 			// In a bundle, we have table layout, so the icon is
@@ -202,6 +200,18 @@
 				);
 		}
 
+		// Events
+		this.markAsReadButton.connect( this, { click: 'onMarkAsReadButtonClick' } );
+		this.menuPopupButtonWidget.getMenu().connect( this, { choose: 'onPopupButtonWidgetChoose' } );
+		this.model.connect( this, {
+			seen: 'toggleSeen',
+			read: 'toggleRead'
+		} );
+
+		// Initialize state
+		this.toggleRead( this.model.isRead() );
+		this.toggleSeen( this.model.isSeen() );
+
 		// HACK: We have to remove the built-in label. When this
 		// widget is switched to a standalone widget rather than
 		// an OptionWidget we can get rid of this
@@ -235,6 +245,37 @@
 	};
 
 	/**
+	 * Respond to selecting an item from the popup button widget
+	 */
+	mw.echo.ui.NotificationItemWidget.prototype.onPopupButtonWidgetChoose = function ( item ) {
+		var action = item && item.getData();
+
+		if ( action === 'markAsRead' ) {
+			this.model.toggleRead( true );
+		}
+	};
+
+	/**
+	 * Toggle the visibility of the 'mark as read' buttons and update the visibility
+	 * of the secondary menu accordingly.
+	 *
+	 * @param {boolean} [show] Show the 'mark as read' buttons
+	 */
+	mw.echo.ui.NotificationItemWidget.prototype.toggleMarkAsReadButtons = function ( show ) {
+		show = show !== undefined ? show : !this.model.isRead();
+
+		this.markAsReadButton.toggle( show );
+		this.markAsReadSecondary.toggle( show );
+
+		if ( show ) {
+			this.menuPopupButtonWidget.getMenu().addItems( [ this.markAsReadSecondary ] );
+		} else {
+			this.menuPopupButtonWidget.getMenu().removeItems( [ this.markAsReadSecondary ] );
+		}
+		this.menuPopupButtonWidget.toggle( !this.menuPopupButtonWidget.getMenu().isEmpty() );
+	};
+
+	/**
 	 * Reset the status of the notification without touching its user-controlled status.
 	 * For one, remove 'initiallyUnseen' which exists only for the animation to work.
 	 * This is called when new notifications are added to the parent widget, having to
@@ -254,7 +295,7 @@
 		this.read = read !== undefined ? read : !this.read;
 
 		this.$element.toggleClass( 'mw-echo-ui-notificationItemWidget-unread', !this.read );
-		this.markAsReadButton.toggle( !this.read );
+		this.toggleMarkAsReadButtons( !this.read );
 	};
 
 	/**

@@ -57,6 +57,7 @@
 	"echo-notification-placeholder": "There are no notifications.",
 	"echo-notification-loginrequired": "You must login to see your notifications.",
 	"echo-notification-popup-loginrequired": "Please log in to view your notifications.",
+	"echo-notification-markasread": "Mark as read",
 	"notification-link-text-expand-all": "Expand all",
 	"notification-link-text-expand-alert-count": "Expand {{PLURAL:$1|$1 alert|$1 alerts}}",
 	"notification-link-text-expand-message-count": "Expand {{PLURAL:$1|$1 message|$1 messages}}",

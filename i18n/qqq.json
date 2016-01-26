@@ -78,6 +78,7 @@
 	"echo-notification-placeholder": "Label for the text that appears if there are no notifications in the Echo popup.",
 	"echo-notification-loginrequired": "Message that displays when an anonymous user attempts to view notifications and gets redirect to the login page.",
 	"echo-notification-popup-loginrequired": "Message that displays when an anonymous user attempts to view notifications in their popup after a session expired.",
+	"echo-notification-markasread": "Label for the button to mark the notification as read.",
 	"notification-link-text-expand-all": "Label for the button that expands a bundled notification.\n{{Identical|Expand}}",
 	"notification-link-text-expand-alert-count": "Label for the button that expands a bundled alert notification.\n\nParameters:\n* $1 - The count of messages that the bundle holds.\n{{Identical|View message}}",
 	"notification-link-text-expand-message-count": "Label for the button that expands a bundled message notification.\n\nParameters:\n* $1 - The count of messages that the bundle holds.\n{{Identical|View message}}",
