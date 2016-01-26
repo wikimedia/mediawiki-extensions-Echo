@@ -5,7 +5,7 @@
 	},
 	"scripts": {
 		"test": [
-			"parallel-lint . --exclude vendor --exclude includes/iterator/CallbackFilterIterator.php",
+			"parallel-lint . --exclude vendor",
 			"phpcs"
 		]
 	}
