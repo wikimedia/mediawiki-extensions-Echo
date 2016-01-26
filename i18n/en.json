@@ -157,6 +157,7 @@
 	"echo-rev-deleted-text-view": "This page revision has been suppressed.",
 	"notification-header-foreign-alert": "More alerts from $3 {{PLURAL:$4|and one other wiki|and $4 other wikis|0=}}",
 	"notification-header-foreign-message": "More messages from $3 {{PLURAL:$4|and one other wiki|and $4 other wikis|0=}}",
+	"echo-foreign-wiki-lang": "$1 - $2",
 	"apihelp-echomarkread-description": "Mark notifications as read for the current user.",
 	"apihelp-echomarkread-param-list": "A list of notification IDs to mark as read.",
 	"apihelp-echomarkread-param-all": "If set, marks all of a user's notifications as read.",

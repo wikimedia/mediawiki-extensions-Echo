@@ -20,9 +20,15 @@ class EchoForeignPresentationModel extends EchoEventPresentationModel {
 		$msg = parent::getHeaderMessage();
 
 		$data = $this->event->getExtra();
-		$msg->params( reset( $data['wikis'] ) );
+		$msg->params( $this->getWikiName( reset( $data['wikis'] ) ) );
 		$msg->numParams( count( $data['wikis'] ) - 1 );
 
 		return $msg;
+	}
+
+	protected function getWikiName( $wiki ) {
+		$foreign = new EchoForeignNotifications( new User );
+		$data = $foreign->getApiEndpoints( array( $wiki ) );
+		return $data[$wiki]['title'];
 	}
 }
