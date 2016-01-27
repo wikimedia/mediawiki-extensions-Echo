@@ -85,6 +85,7 @@
 	"echo-notification-placeholder": "Il n’y a aucune notification.",
 	"echo-notification-loginrequired": "Vous devez vous connecter pour voir vos notifications.",
 	"echo-notification-popup-loginrequired": "Veuillez vous connecter pour voir vos notifications.",
+	"echo-notification-markasread": "Marquer comme lu",
 	"notification-link-text-expand-all": "Tout agrandir",
 	"notification-link-text-expand-alert-count": "Agrandir {{PLURAL:$1|$1 alerte|$1 alertes}}",
 	"notification-link-text-expand-message-count": "Agrandir {{PLURAL:$1|un message|$1 messages}}",

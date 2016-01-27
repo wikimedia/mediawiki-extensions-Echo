@@ -5,7 +5,8 @@
 			"Nirjal stha",
 			"NehalDaveND",
 			"राम प्रसाद जोशी",
-			"बिप्लब आनन्द"
+			"बिप्लब आनन्द",
+			"जनक राज भट्ट"
 		]
 	},
 	"echo-desc": "प्रयोगकर्तालाई सम्मेलन तथा सन्देश सूचना दिने जानकारी प्रणाली",
@@ -52,6 +53,7 @@
 	"echo-more-info": "थप जानकारी",
 	"echo-feedback": "प्रतिक्रिया",
 	"echo-notification-placeholder": "तपाईंको लागि कुनै सुचना छैन ।",
+	"echo-notification-markasread": "पढेकोमा चिह्नित गर्ने",
 	"notification-link-text-view-message": "सन्देश हेर्ने",
 	"notification-link-text-view-mention": "नाम लिइएको हेर्ने",
 	"notification-link-text-view-changes": "परिवर्तन हेर्ने",
@@ -59,10 +61,7 @@
 	"notification-link-text-view-edit": "सम्पादन हेर्ने",
 	"notification-edit-talk-page2": "[[User:$1|$1]] ले तपाईँको [[User talk:$2#$3|वार्ता पृष्ठ]]मा एउटा सन्देश {{GENDER:$1|छोड्नुभएको छ}}।",
 	"notification-edit-talk-page-with-section": "[[User:$1|$1]] ले तपाईँको वार्ता पृष्ठमा \"[[User talk:$2#$3|$4]]\"मा एउटा सन्देश {{GENDER:$1|छोड्नुभएको छ}}।",
-	"notification-edit-talk-page-flyout2": "$1ले तपाईँको [[User talk:$2#$3|वार्ता पृष्ठ]]मा सन्देश  {{GENDER:$1|छोड्नुभएको छ}} ।",
-	"notification-edit-talk-page-flyout-with-section": "$1 ले तपाईँको वार्ता पृष्ठमा \"[[User talk:$2#$3|$4]]\" मा एउटा सन्देश {{GENDER:$1|छोड्नुभएको छ}}।",
 	"notification-page-linked": "[[:$2]] [[:$3]] बाट {{GENDER:$1|लिङ्क भयो}}। [[Special:WhatLinksHere/$2|यस पृष्ठसँग भएको सबै लिङ्कहरू हेर्नुहोस्]]।",
-	"notification-page-linked-flyout": "[[:$3]] मा [[:$2]] {{GENDER:$1|जोडियो}}।",
 	"notification-add-comment2": "[[User:$1|$1]]ले \"[[$3|$2]]\" मा \"$4\" वार्तालाप पृष्ठमा {{GENDER:$1|टिप्पणी गर्नुभयो}}।",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]]ले [[$3]] मा एउटा नयाँ विषय \"$2\" {{GENDER:$1|पोस्ट गर्नुभयो}}।",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]]ले तपाईँलाई एउटा सन्देश: \"[[$3#$2|$2]]\" {{GENDER:$1|पठाउनुभयो}}।",
@@ -105,7 +104,6 @@
 	"echo-date-yesterday": "हिजो",
 	"echo-load-more-error": "थप नतिजाहरू प्राप्त गर्दा त्रुटि हुन गयो ।",
 	"notification-edit-talk-page-bundle": "$1 र $3 {{PLURAL:$4|अन्य}} ले तपाईँको [[User talk:$2|वार्ता पृष्ठ]] मा एउटा सन्देश {{GENDER:$1|छोड्नुभएको छ}}।",
-	"notification-page-linked-bundle": "$2 $3 र $4 अन्य {{PLURAL:$5|पृष्ठ|पृष्ठहरू}}बाट {{GENDER:$1|जोडियो}}। [[Special:WhatLinksHere/$2|यस पृष्ठसँग जोडिएका सबै हेर्नुहोस्]]",
 	"notification-edit-user-talk-email-batch-bundle-body": "$1 र $2 {{PLURAL:$3|अन्य}} ले तपाईँको वार्ता पृष्ठमा एउटा सन्देश {{GENDER:$1|छोड्नुभएको छ}}।",
 	"notification-page-linked-email-batch-bundle-body": "$2 $3 र $4 अन्य {{PLURAL:$5|पृष्ठ|पृष्ठहरू}} बाट {{GENDER:$1|जोडियो}}।",
 	"echo-email-batch-subject-daily": "तपाईँसँग {{SITENAME}} मा {{PLURAL:$2|नयाँ सूचना|नयाँ सूचनाहरू}} छ",

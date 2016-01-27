@@ -86,6 +86,7 @@
 	"echo-notification-placeholder": "这里没有通知。",
 	"echo-notification-loginrequired": "您必须登录才能查看您的通知。",
 	"echo-notification-popup-loginrequired": "请登录来查看您的通知。",
+	"echo-notification-markasread": "标记为已读",
 	"notification-link-text-expand-all": "展开全部",
 	"notification-link-text-expand-alert-count": "展开{{PLURAL:$1|$1条提醒}}",
 	"notification-link-text-expand-message-count": "展开{{PLURAL:$1|$1条消息}}",

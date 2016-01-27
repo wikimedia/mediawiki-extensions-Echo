@@ -62,6 +62,7 @@
 	"echo-more-info": "Mais informações",
 	"echo-feedback": "Comentários",
 	"echo-api-failure": "Não foi possível recuperar as notificações. Por favor tente novamente. (Erro $1)",
+	"echo-api-failure-cross-wiki": "O acesso para o domínio remoto foi negado.",
 	"echo-notification-placeholder": "Não há notificações.",
 	"echo-notification-loginrequired": "Deve iniciar sessão para ver as suas notificações.",
 	"echo-notification-popup-loginrequired": "Inicie sessão para ver as suas notificações.",
