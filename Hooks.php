@@ -350,7 +350,7 @@ class EchoHooks {
 			$categoryMessage = wfMessage( 'echo-category-title-' . $category )->numParams( 1 )->escaped();
 			$rows[$categoryMessage] = $category;
 			if ( isset( $wgEchoNotificationCategories[$category]['tooltip'] ) ) {
-				$tooltips[$categoryMessage] = wfMessage( $wgEchoNotificationCategories[$category]['tooltip'] )->text();
+				$tooltips[$categoryMessage] = wfMessage( $wgEchoNotificationCategories[$category]['tooltip'], $user->getName() )->text();
 			}
 		}
 
