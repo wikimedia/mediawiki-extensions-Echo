@@ -64,6 +64,7 @@
 	"echo-notification-placeholder": "אין התראות.",
 	"echo-notification-loginrequired": "יש להיכנס לחשבון כדי לראות הודעות.",
 	"echo-notification-popup-loginrequired": "נא להיכנס כדי לראות את ההתראות שלך.",
+	"echo-notification-markasread": "סימון כהודעה שנקראה",
 	"notification-link-text-expand-all": "להרחיב הכול",
 	"notification-link-text-expand-alert-count": "להרחיב {{PLURAL:$1|התראה אחת|$1 התראות}}",
 	"notification-link-text-expand-message-count": "להרחיב {{PLURAL:$1|הודעה אחת|$1 הודעות}}",

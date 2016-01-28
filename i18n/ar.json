@@ -88,7 +88,7 @@
 	"notification-mention": "{{GENDER:$1|أشار|أشارت}} [[User:$1|$1]] {{GENDER:$6|إليك}} في قسم \"[[:$3#$2|$4]]\" من صفحة نقاش $5.",
 	"notification-header-mention": "{{GENDER:$2|أشار|أشارت}} $1 {{GENDER:$5|إليك}} في قسم \"$4\" من صفحة نقاش $3.",
 	"notification-mention-nosection": "{{GENDER:$1|أشار|أشارت}} [[User:$1|$1]] {{GENDER:$4|إليك}} في [[:$3|صفحة نقاش $2]].",
-	"notification-header-mention-nosection": "{{GENDER:$2|أشار|أشارت}} $1 {{GENDER:$5|إليك}} في [[:$4|صفحة نقاش $3]].",
+	"notification-header-mention-nosection": "{{GENDER:$2|أشار|أشارت}} $1 {{GENDER:$5|إليك}} في صفحة نقاش $3.",
 	"notification-user-rights": "[[Special:Log/rights/$1|{{GENDER:$1|غير|غيرت}}]]  [[User:$1|$1]] صلاحياتك. $2. [[Special:ListGroupRights|المزيد]]",
 	"notification-header-user-rights": "{{GENDER:$2|غير|غيرت}} $1 صلاحياتك. $3.",
 	"notification-user-rights-add": "أنت الآن عضو في {{PLURAL:$2|مجموعة|مجموعات}}: $1",

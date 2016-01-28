@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Wisdom"
+			"Wisdom",
+			"Munkhzaya.E"
 		]
 	},
+	"echo-notification-markasread": "Уншсанаар тэмдэглэх",
 	"echo-notification-alert": "{{PLURAL:$1|Сануулга ($1)|Сануулга ($1)|100=Сануулга (99+)}}",
 	"echo-notification-message": "{{PLURAL:$1|Мэдээ ($1)|Мэдээ ($1)|100=Мэдээ (99+)}}"
 }

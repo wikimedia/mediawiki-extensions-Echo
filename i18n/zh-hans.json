@@ -103,7 +103,7 @@
 	"notification-header-edit-user-talk-with-section": "$1在{{GENDER:$3|您}}的讨论页的“$4”段落{{GENDER:$2|留言}}了。",
 	"notification-page-linked": "[[:$3]]{{GENDER:$1|链接}}了[[:$2]]。[[Special:WhatLinksHere/$2|查看所有链至该页的页面]]。",
 	"notification-header-page-linked": "已从$4链接到$3。",
-	"notification-bundle-header-page-linked": "$4和另外$5个{{PLURAL:$6|页面}}现已链接至$3。",
+	"notification-bundle-header-page-linked": "已从$4和$5个其他{{PLURAL:$6|页面}}链接至$3。",
 	"notification-link-text-what-links-here": "所有链入页面",
 	"notification-add-comment2": "[[User:$1|$1]]在“$4”的讨论页面的“[[$3|$2]]”段落{{GENDER:$1|发表意见}}。",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]]在[[$3]]上发起了新话题“$2”",

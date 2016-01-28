@@ -79,7 +79,7 @@
 	"notification-body-edit-user-talk-with-section": "$1",
 	"notification-page-linked": "Do stránky [[:$3]] {{GENDER:$1|byl přidán}} odkaz na stránku [[:$2]]. [[Special:WhatLinksHere/$2|Zobrazit všechny odkazy na tuto stránku]].",
 	"notification-header-page-linked": "Ze stránky $4 byl vytvořen odkaz na stránku $3.",
-	"notification-bundle-header-page-linked": "Stránka $4 a $5 {{PLURAL:$6|další|další|dalších}} nyní odkazují na stránku $3.",
+	"notification-bundle-header-page-linked": "Ze stránky $4 a $5 {{PLURAL:$6|další|dalších}} byly vytvořeny odkazy na stránku $3.",
 	"notification-link-text-what-links-here": "Všechny odkazy na tuto stránku",
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|přidal|přidala}} komentář k „[[$3|$2]]“ na stránce „$4“.",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] {{GENDER:$1|přidal|přidala}} nové téma „$2“ na stránce „[[$3]]“.",

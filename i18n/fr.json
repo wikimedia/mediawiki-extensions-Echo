@@ -103,7 +103,7 @@
 	"notification-body-edit-user-talk-with-section": "$1",
 	"notification-page-linked": "[[:$2]] a été {{GENDER:$1|référencé}} depuis [[:$3]]. [[Special:WhatLinksHere/$2|Voir tous les liens vers cette page]].",
 	"notification-header-page-linked": "Un lien a été créé de $4 vers $3.",
-	"notification-bundle-header-page-linked": "$4 et $5 {{PLURAL:$6|autre page|autres pages}} pointent désormais vers $3.",
+	"notification-bundle-header-page-linked": "Des liens ont été faits de $4 et $5 {{PLURAL:$6|autre page|autres pages}} vers $3.",
 	"notification-link-text-what-links-here": "Tous les liens vers cette page",
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|a fait un commentaire}} dans « [[$3|$2]] » sur la page de discussion « $4 »",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] {{GENDER:$1|a publié}} un nouveau sujet \"$2\" sur [[$3]]",

@@ -83,7 +83,7 @@
 	"notification-header-edit-user-talk-with-section": "$1 {{GENDER:$2|ha lasciato}} un messaggio sulla {{GENDER:$3|tua}} pagina di discussione in \"$4\".",
 	"notification-page-linked": "[[:$2]] è stata {{GENDER:$1|collegata}} da [[:$3]]. [[Special:WhatLinksHere/$2|Vedi tutti i collegamenti a questa pagina]].",
 	"notification-header-page-linked": "È stato creato un collegamento da $4 a $3.",
-	"notification-bundle-header-page-linked": "$4 ed {{PLURAL:$6|un'altra pagina|altre $5 pagine}} ora collega a $3.",
+	"notification-bundle-header-page-linked": "I collegamenti sono stati fatti da $4 ed {{PLURAL:$6|un'altra pagina|altre $5 pagine}} a $3.",
 	"notification-link-text-what-links-here": "Tutti i collegamenti a questa pagina",
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|ha lasciato un commento}} riguardo a \"[[$3|$2]]\" nella pagina di discussione di \"$4\"",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] {{GENDER:$1|ha aggiunto}} un nuovo argomento \"$2\" su [[$3]]",

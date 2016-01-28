@@ -54,6 +54,7 @@
 	"echo-notification-placeholder": "Et si keng Notifikatiounen do.",
 	"echo-notification-loginrequired": "Dir musst Iech alogge fir Är Notifikatiounen ze gesinn.",
 	"echo-notification-popup-loginrequired": "Loggt Iech w.e.g. a fir Är Notifikatiounen ze gesinn.",
+	"echo-notification-markasread": "Als geliest markéieren",
 	"notification-link-text-expand-all": "Alles opklappen",
 	"notification-link-text-expand-message-count": "{{PLURAL:$1|Ee Message|$1 Messagen}} opklappen",
 	"notification-link-text-collapse-all": "Alles zouklappen",
