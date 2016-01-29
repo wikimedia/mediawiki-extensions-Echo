@@ -32,32 +32,25 @@ class EchoMentionPresentationModel extends EchoEventPresentationModel {
 	}
 
 	protected function getHeaderMessageKey() {
-		// Messages used:
-		// notification-header-mention-other
-		// notification-header-mention-other-nosection
-		// notification-header-mention-article-talkpage
-		// notification-header-mention-article-talkpage-nosection
-		// notification-header-mention-agent-talkpage
-		// notification-header-mention-agent-talkpage-nosection
-		// notification-header-mention-user-talkpage
-		// notification-header-mention-user-talkpage-nosection
-		$key = 'notification-header-mention';
+		$noSection = !$this->getSection();
 
 		if ( $this->onArticleTalkpage() ) {
-			$key .= '-article-talkpage';
+			return $noSection ?
+				'notification-header-mention-article-talkpage-nosection' :
+				'notification-header-mention-article-talkpage';
 		} elseif ( $this->onAgentTalkpage() ) {
-			$key .= '-agent-talkpage';
+			return $noSection ?
+				'notification-header-mention-agent-talkpage-nosection' :
+				'notification-header-mention-agent-talkpage';
 		} elseif ( $this->onUserTalkpage() ) {
-			$key .= '-user-talkpage';
+			return $noSection ?
+				'notification-header-mention-user-talkpage-nosection' :
+				'notification-header-mention-user-talkpage-v2';
 		} else {
-			$key .= '-other';
+			return $noSection ?
+				'notification-header-mention-other-nosection' :
+				'notification-header-mention-other';
 		}
-
-		if ( !$this->getSection() ) {
-			$key .= '-nosection';
-		}
-
-		return $key;
 	}
 
 	public function getHeaderMessage() {
@@ -71,7 +64,9 @@ class EchoMentionPresentationModel extends EchoEventPresentationModel {
 			// If we remove this check, onUserTalkpage() has to
 			// make sure it is a user talk page but NOT the agent's talk page.
 		} elseif ( $this->onUserTalkpage() ) {
-			$msg->params( $this->getTruncatedTitleText( $this->event->getTitle() ) );
+			$username = $this->event->getTitle()->getText();
+			$msg->params( $this->language->truncate( $username, self::USERNAME_RECOMMENDED_LENGTH ) );
+			$msg->params( $username );
 		} else {
 			$msg->params( $this->getTruncatedTitleText( $this->event->getTitle(), true ) );
 		}
