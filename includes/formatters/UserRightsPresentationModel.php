@@ -10,39 +10,37 @@ class EchoUserRightsPresentationModel extends EchoEventPresentationModel {
 	}
 
 	public function getHeaderMessage() {
-		$msg = parent::getHeaderMessage();
-		// @todo fix lego message
-		$msg->params( $this->getChangedGroups() );
-
-		return $msg;
+		list( $formattedName, $genderName ) = $this->getAgentForOutput();
+		$add = $this->getLocalizedGroupNames( $this->event->getExtraParam( 'add', array() ) );
+		$remove = $this->getLocalizedGroupNames( $this->event->getExtraParam( 'remove', array() ) );
+		if ( $add && !$remove ) {
+			$msg = $this->msg( 'notification-header-user-rights-add-only' );
+			$msg->params( $genderName );
+			$msg->params( $this->language->listToText( $add ) );
+			$msg->params( count( $add ) );
+			return $msg;
+		} elseif ( !$add && $remove ) {
+			$msg = $this->msg( 'notification-header-user-rights-remove-only' );
+			$msg->params( $genderName );
+			$msg->params( $this->language->listToText( $remove ) );
+			$msg->params( count( $remove ) );
+			return $msg;
+		} else {
+			$msg = $this->msg( 'notification-header-user-rights-add-and-remove' );
+			$msg->params( $genderName );
+			$msg->params( $this->language->listToText( $add ) );
+			$msg->params( count( $add ) );
+			$msg->params( $this->language->listToText( $remove ) );
+			$msg->params( count( $remove ) );
+			return $msg;
+		}
 	}
 
-	/**
-	 * @return string
-	 */
-	private function getChangedGroups() {
-		$list = array();
-		$extra = $this->event->getExtra();
-		foreach ( array( 'add', 'remove' ) as $action ) {
-			if ( isset( $extra[$action] ) && $extra[$action] ) {
-
-				// Get the localized group names, bug 55338
-				$groups = array();
-				foreach ( $extra[$action] as $group ) {
-					$msg = $this->msg( 'group-' . $group );
-					$groups[] = $msg->isBlank() ? $group : $msg->text();
-				}
-
-				// Messages that can be used here:
-				// * notification-user-rights-add
-				// * notification-user-rights-remove
-				$list[] = $this->msg( 'notification-user-rights-' . $action )
-					->params( $this->language->commaList( $groups ), count( $groups ) )
-					->text();
-			}
-		}
-
-		return $this->language->semicolonList( $list );
+	private function getLocalizedGroupNames( $names ) {
+		return array_map( function( $name ) {
+			$msg = $this->msg( 'group-' . $name );
+			return $msg->isBlank() ? $name : $msg->text();
+		}, $names );
 	}
 
 	public function getPrimaryLink() {
