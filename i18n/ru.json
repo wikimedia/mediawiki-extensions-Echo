@@ -22,7 +22,8 @@
 			"Macofe",
 			"Iniquity",
 			"MaxBioHazard",
-			"Sealle"
+			"Sealle",
+			"Исмаил Садуев"
 		]
 	},
 	"echo-desc": "Система уведомления участников о событиях и сообщениях",
@@ -87,7 +88,7 @@
 	"notification-header-edit-user-talk-with-section": "$1 оставил{{GENDER:$2||а}} сообщение на {{GENDER:$3|вашей}} странице обсуждения в разделе «$4».",
 	"notification-body-edit-user-talk-with-section": "$1",
 	"notification-page-linked": "На [[:$2]] {{GENDER:$1|сослались}} из [[:$3]]. [[Special:WhatLinksHere/$2|См. все ссылки на эту страницу]].",
-	"notification-header-page-linked": "Была сделана ссылка с $4 на $3.",
+	"notification-header-page-linked": "Хьажорг йина хилла $4 $3 тӀе.",
 	"notification-bundle-header-page-linked": "$4 и $5 {{PLURAL:$6|другая страница|других страниц|другие страницы}} теперь ссылаются на $3.",
 	"notification-link-text-what-links-here": "Все ссылки на эту страницу",
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|прокомментировал|прокомментировала}} тему \"[[$3|$2]]\" на странице обсуждения \"$4\".",
@@ -95,13 +96,8 @@
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] {{GENDER:$1|отправил|отправила}} вам сообщение: \"[[$3#$2|$2]]\".",
 	"notification-add-comment-yours2": "[[User:$1|$1]] {{GENDER:$1|прокомментировал|прокомментировала}} тему \"[[$3#$2|$2]]\" на вашей странице обсуждения.",
 	"notification-mention": "[[User:$1|$1]] {{GENDER:$1|упомянул|упомянула}} {{GENDER:$6|вас}} на странице обсуждения $5 в разделе «[[:$3#$2|$4]]».",
-	"notification-header-mention": "$1 упомянул{{GENDER:$2||а}} {{GENDER:$5|вас}} на странице обсуждения $3 в разделе «$4».",
 	"notification-mention-nosection": "[[User:$1|$1]] упомянул{{GENDER:$1||а}} {{GENDER:$4|вас}} на [[:$3|странице обсуждения $2]].",
-	"notification-header-mention-nosection": "$1 упомянул{{GENDER:$2||а}} {{GENDER:$5|вас}} на странице обсуждения $3.",
 	"notification-user-rights": "Ваши права пользователя [[Special:Log/rights/$1|{{GENDER:$1|изменил|изменила}}]] [[User:$1|$1]]. $2. [[Special:ListGroupRights|Подробнее]]",
-	"notification-header-user-rights": "Права участника {{GENDER:$2|изменил|изменила}} $1. $3.",
-	"notification-user-rights-add": "Теперь вы входите в {{PLURAL:$2|1=следующую группу|следующие группы}}: $1",
-	"notification-user-rights-remove": "Вы больше не входите в {{PLURAL:$2|1=следующую группу|следующие группы}}: $1",
 	"notification-new-user": "Добро пожаловать в {{SITENAME}}, $1! Мы рады, что вы здесь.",
 	"notification-header-welcome": "{{GENDER:$2|Добро пожаловать}} на сайт {{SITENAME}}, $1! Мы рады приветствовать {{GENDER:$2|вас}} здесь.",
 	"notification-welcome-linktext": "Добро пожаловать!",

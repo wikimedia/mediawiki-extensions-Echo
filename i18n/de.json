@@ -9,7 +9,8 @@
 			"Suriyaa Kudo",
 			"Purodha",
 			"Tiin",
-			"Predatorix"
+			"Predatorix",
+			"FriedhelmW"
 		]
 	},
 	"echo-desc": "Stellt ein System zur Benachrichtigung von Benutzern über Ereignisse und Nachrichten bereit",
@@ -81,7 +82,7 @@
 	"notification-header-edit-user-talk-with-section": "$1 {{GENDER:$2|hinterließ}} eine Nachricht auf {{GENDER:$3|deiner}} Diskussionsseite in „$4“.",
 	"notification-body-edit-user-talk-with-section": "$1",
 	"notification-page-linked": "[[:$2]] wurde von der Seite [[:$3]] {{GENDER:$1|verlinkt}}. [[Special:WhatLinksHere/$2|Alle Links auf diese Seite ansehen]].",
-	"notification-header-page-linked": "Ein Link wurde von $4 auf $3 erstellt.",
+	"notification-header-page-linked": "Ein Link von $4 auf $3 wurde erstellt.",
 	"notification-bundle-header-page-linked": "Links von $4 und {{PLURAL:$6|einer anderen Seite|$5 anderen Seiten}} verlinken jetzt auf $3.",
 	"notification-link-text-what-links-here": "Alle Links auf diese Seite",
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|kommentierte}} auf „[[$3|$2]]“ auf der Diskussionsseite von „$4“",
