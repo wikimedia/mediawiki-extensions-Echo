@@ -46,37 +46,13 @@
 			margin-top: 0.8em;
 			font-size: 0.9em;
 
-			&-button {
+			.mw-echo-ui-menuItemWidget {
 				&:not(:last-child) {
 					margin-right: 1em;
-				}
-
-				.oo-ui-buttonElement-button {
-					.mw-echo-ui-mixin-hover-opacity;
-
-					.oo-ui-labelElement-label {
-						// We have to override oojs-ui's color, which uses
-						// a very specific selector
-						font-weight: normal !important;
-						color: #000 !important;
-						// Set max-width so buttons are truncated
-						max-width: 15em;
-					}
-
-					.oo-ui-iconElement-icon {
-						// We have to override oojs-ui's width/height, which uses
-						// a very specific selector
-						width: 1.5em !important;
-						height: 1.5em !important;
-					}
 				}
 			}
 
 			&-menu {
-				.oo-ui-buttonElement-button {
-					.mw-echo-ui-mixin-hover-opacity;
-				}
-
 				.oo-ui-popupWidget-popup {
 					font-size: 1 / 0.8em;
 					padding: 0.5em;

@@ -14,7 +14,7 @@
 	 * @cfg {boolean} [bundle=false] This notification item is part of a bundle.
 	 */
 	mw.echo.ui.NotificationItemWidget = function MwEchoUiNotificationItemWidget( model, config ) {
-		var i, secondaryUrls, urlObj, linkButton, $icon,
+		var i, secondaryUrls, urlObj, linkButton, $icon, isInsideMenu,
 			$content = $( '<div>' ).addClass( 'mw-echo-ui-notificationItemWidget-content' ),
 			$message = $( '<div>' ).addClass( 'mw-echo-ui-notificationItemWidget-content-message' ),
 			widget = this;
@@ -108,25 +108,17 @@
 		for ( i = 0; i < secondaryUrls.length; i++ ) {
 			urlObj = secondaryUrls[ i ];
 
-			linkButton = new OO.ui.ButtonOptionWidget( {
-				icon: urlObj.icon || 'next',
-				framed: false,
-				label: urlObj.label,
-				classes: [ 'mw-echo-ui-notificationItemWidget-content-actions-button' ]
-			} );
-			if ( urlObj.url ) {
-				linkButton.$element.find( 'a.oo-ui-buttonElement-button' )
-					// HACK: We need to use ButtonOptionWidgets because both SelectWidgets expect an OptionWidget
-					// However, the optionwidgets do not support href for buttons, because they listen to 'choose'
-					// and 'select' events and do their own thing.
-					// We could solve this by reimplementing/extending the ActionMenuPopupWidget *and* the SelectWidget
-					// or we can do the simpler thing, which is to wrap our buttons with a link.
-					// Since we do the latter in the notifications anyways (see below) this seemed to be the
-					// best course of action.
-					.attr( 'href', urlObj.url );
-			}
+			isInsideMenu = !this.bundle && urlObj.prioritized !== undefined;
 
-			if ( !this.bundle && urlObj.prioritized !== undefined ) {
+			linkButton = new mw.echo.ui.MenuItemWidget( {
+				icon: urlObj.icon || 'next',
+				label: urlObj.label,
+				description: urlObj.description,
+				url: urlObj.url,
+				prioritized: isInsideMenu
+			} );
+
+			if ( isInsideMenu ) {
 				this.actionsButtonSelectWidget.addItems( [ linkButton ] );
 			} else {
 				this.menuPopupButtonWidget.getMenu().addItems( [ linkButton ] );
