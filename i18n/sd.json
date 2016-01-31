@@ -6,5 +6,6 @@
 		]
 	},
 	"tooltip-pt-notifications-alert": "{{GENDER:|توهان جو}} خبرون",
-	"tooltip-pt-notifications-message": "{{GENDER:|توهان جا}} نياپا"
+	"tooltip-pt-notifications-message": "{{GENDER:|توهان جا}} نياپا",
+	"echo-notification-markasread": "پڙھيل طور نشان لڳايو"
 }
