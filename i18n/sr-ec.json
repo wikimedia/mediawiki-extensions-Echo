@@ -78,6 +78,7 @@
 	"notification-mention": "[[User:$1|$1]] Вас је {{GENDER:$1|споменуо|споменула}} {{GENDER:$6|на}} страници за разговор $5 у „[[:$3#$2|$4]]“.",
 	"notification-mention-nosection": "[[User:$1|$1]] Вас је {{GENDER:$1|споменуо|споменула}} {{GENDER:$4|на}} [[:$3|страници за разговор $2]].",
 	"notification-user-rights": "[[User:$1|$1]] је [[Special:Log/rights/$1|{{GENDER:$1|променио|променила}}]] ваша корисничка права. $2. [[Special:ListGroupRights|Сазнајте више]]",
+	"notification-header-user-rights-remove-only": "{{GENDER:$4|Ваша}} корисничка права су {{GENDER:$1|промењена}}: Више нисте члан {{PLURAL:$3|1=следеће групе|следећих група}}: $2.",
 	"notification-new-user": "$1, добро дошли на пројекат {{SITENAME}}! Драго нам је што сте овде.",
 	"notification-header-welcome": "{{GENDER:$2|Добро дошли}} на {{SITENAME}}, $1! Драго нам {{GENDER:$2|је}} што сте овде.",
 	"notification-welcome-linktext": "Добро дошли",
