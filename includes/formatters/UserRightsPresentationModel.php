@@ -11,8 +11,8 @@ class EchoUserRightsPresentationModel extends EchoEventPresentationModel {
 
 	public function getHeaderMessage() {
 		list( $formattedName, $genderName ) = $this->getAgentForOutput();
-		$add = $this->getLocalizedGroupNames( $this->event->getExtraParam( 'add', array() ) );
-		$remove = $this->getLocalizedGroupNames( $this->event->getExtraParam( 'remove', array() ) );
+		$add = $this->getLocalizedGroupNames( array_values( $this->event->getExtraParam( 'add', array() ) ) );
+		$remove = $this->getLocalizedGroupNames( array_values( $this->event->getExtraParam( 'remove', array() ) ) );
 		if ( $add && !$remove ) {
 			$msg = $this->msg( 'notification-header-user-rights-add-only' );
 			$msg->params( $genderName );
