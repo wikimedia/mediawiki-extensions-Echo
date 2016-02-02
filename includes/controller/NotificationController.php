@@ -257,16 +257,17 @@ class EchoNotificationController {
 
 	/**
 	 * Returns an array each element of which is the result of a
-	 * user-locator attached to the event type.
+	 * user-locator|user-filters attached to the event type.
 	 *
 	 * @param EchoEvent $event
+	 * @param string $locator Either EchoAttributeManager::ATTR_LOCATORS or EchoAttributeManager::ATTR_FILTERS
 	 * @return array
 	 */
-	public static function evaluateUserLocators( EchoEvent $event ) {
+	public static function evaluateUserCallable( EchoEvent $event, $locator = EchoAttributeManager::ATTR_LOCATORS ) {
 		$attributeManager = EchoAttributeManager::newFromGlobalVars();
 		$type = $event->getType();
 		$result = array();
-		foreach ( $attributeManager->getUserLocators( $type ) as $callable ) {
+		foreach ( $attributeManager->getUserCallable( $type, $locator ) as $callable ) {
 			// locator options can be set per-event by using an array with
 			// name as first parameter.
 			if ( is_array( $callable ) ) {
@@ -279,7 +280,7 @@ class EchoNotificationController {
 			if ( is_callable( $callable ) ) {
 				$result[] = call_user_func_array( $callable, $options );
 			} else {
-				wfDebugLog( __CLASS__, __FUNCTION__ . ": Invalid user-locator returned for $type" );
+				wfDebugLog( __CLASS__, __FUNCTION__ . ": Invalid $locator returned for $type" );
 			}
 		}
 
@@ -294,7 +295,7 @@ class EchoNotificationController {
 	 */
 	public static function getUsersToNotifyForEvent( EchoEvent $event ) {
 		$notify = new EchoFilteredSequentialIterator;
-		foreach ( self::evaluateUserLocators( $event ) as $users ) {
+		foreach ( self::evaluateUserCallable( $event, EchoAttributeManager::ATTR_LOCATORS ) as $users ) {
 			$notify->add( $users );
 		}
 
@@ -304,6 +305,15 @@ class EchoNotificationController {
 		Hooks::run( 'EchoGetDefaultNotifiedUsers', array( $event, &$users ) );
 		if ( $users ) {
 			$notify->add( $users );
+		}
+
+		// Exclude certain users
+		foreach ( self::evaluateUserCallable( $event, EchoAttributeManager::ATTR_FILTERS ) as $users ) {
+			// the result of the callback can be both an iterator or array
+			$users = is_array( $users ) ? $users : iterator_to_array( $users );
+			$notify->addFilter( function ( $user ) use ( $users ) {
+				return !in_array( $user, $users );
+			} );
 		}
 
 		// Filter non-User, anon and duplicate users

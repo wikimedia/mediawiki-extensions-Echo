@@ -320,7 +320,7 @@ $wgEchoNotificationIcons = array(
 // If formatter-class isn't specified, defaults to EchoBasicFormatter.
 $wgEchoNotifications = array(
 	'welcome' => array(
-		'user-locators' => array(
+		EchoAttributeManager::ATTR_LOCATORS => array(
 			'EchoUserLocator::locateEventAgent'
 		),
 		'category' => 'system',
@@ -333,7 +333,7 @@ $wgEchoNotifications = array(
 	),
 	'edit-user-talk' => array(
 		'presentation-model' => 'EchoEditUserTalkPresentationModel',
-		'user-locators' => array(
+		EchoAttributeManager::ATTR_LOCATORS => array(
 			'EchoUserLocator::locateTalkPageOwner',
 		),
 		'primary-link' => array( 'message' => 'notification-link-text-view-message', 'destination' => 'section' ),
@@ -358,7 +358,7 @@ $wgEchoNotifications = array(
 	),
 	'reverted' => array(
 		'presentation-model' => 'EchoRevertedPresentationModel',
-		'user-locators' => array(
+		EchoAttributeManager::ATTR_LOCATORS => array(
 			array( 'EchoUserLocator::locateFromEventExtra', array( 'reverted-user-id' ) ),
 		),
 		'primary-link' => array( 'message' => 'notification-link-text-view-edit', 'destination' => 'diff' ),
@@ -376,7 +376,7 @@ $wgEchoNotifications = array(
 	),
 	'page-linked' => array(
 		'presentation-model' => 'EchoPageLinkedPresentationModel',
-		'user-locators' => array(
+		EchoAttributeManager::ATTR_LOCATORS => array(
 			'EchoUserLocator::locateArticleCreator',
 		),
 		'primary-link' => array( 'message' => 'notification-link-text-view-page', 'destination' => 'link-from-page' ),
@@ -398,7 +398,7 @@ $wgEchoNotifications = array(
 		'icon' => 'linked',
 	),
 	'mention' => array(
-		'user-locators' => array(
+		EchoAttributeManager::ATTR_LOCATORS => array(
 			array( 'EchoUserLocator::locateFromEventExtra', array( 'mentioned-users' ) ),
 		),
 		'primary-link' => array( 'message' => 'notification-link-text-view-mention', 'destination' => 'section' ),
@@ -417,7 +417,7 @@ $wgEchoNotifications = array(
 		'icon' => 'mention',
 	),
 	'user-rights' => array(
-		'user-locators' => array(
+		EchoAttributeManager::ATTR_LOCATORS => array(
 			array( 'EchoUserLocator::locateFromEventExtra', array( 'user' ) ),
 		),
 		'primary-link' => array( 'message' => 'echo-learn-more', 'destination' => 'user-rights-list' ),
@@ -439,7 +439,7 @@ $wgEchoNotifications = array(
 	),
 	'emailuser' => array(
 		'presentation-model' => 'EchoEmailUserPresentationModel',
-		'user-locators' => array(
+		EchoAttributeManager::ATTR_LOCATORS => array(
 			array( 'EchoUserLocator::locateFromEventExtra', array( 'to-user-id' ) ),
 		),
 		'category' => 'emailuser',
@@ -451,7 +451,7 @@ $wgEchoNotifications = array(
 	),
 	'foreign' => array(
 		'presentation-model' => 'EchoForeignPresentationModel',
-		'user-locators' => array(
+		EchoAttributeManager::ATTR_LOCATORS => array(
 			'EchoUserLocator::locateEventAgent'
 		),
 		'category' => 'foreign',

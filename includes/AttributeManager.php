@@ -33,6 +33,12 @@ class EchoAttributeManager {
 	);
 
 	/**
+	 * Names for keys in $wgEchoNotifications notification config
+	 */
+	const ATTR_LOCATORS = 'user-locators';
+	const ATTR_FILTERS = 'user-filters';
+
+	/**
 	 * An EchoAttributeManager instance created from global variables
 	 * @param EchoAttributeManager
 	 */
@@ -71,14 +77,15 @@ class EchoAttributeManager {
 	}
 
 	/**
-	 * Get the user-locators related to the provided event type
+	 * Get the user-locators|user-filters related to the provided event type
 	 *
 	 * @param string $type
+	 * @param string $locator Either self::ATTR_LOCATORS or self::ATTR_FILTERS
 	 * @return array
 	 */
-	public function getUserLocators( $type ) {
-		if ( isset( $this->notifications[$type]['user-locators'] ) ) {
-			return (array)$this->notifications[$type]['user-locators'];
+	public function getUserCallable( $type, $locator = self::ATTR_LOCATORS ) {
+		if ( isset( $this->notifications[$type][$locator] ) ) {
+			return (array)$this->notifications[$type][$locator];
 		} else {
 			return array();
 		}

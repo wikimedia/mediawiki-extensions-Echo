@@ -27,10 +27,10 @@ class EchoAttributeManagerTest extends MediaWikiTestCase {
 				// notification configuration
 				array(
 					'foo' => array(
-						'user-locators' => array( 'frown' ),
+						EchoAttributeManager::ATTR_LOCATORS => array( 'frown' ),
 					),
 					'magic' => array(
-						'user-locators' => array( 'woot!' ),
+						EchoAttributeManager::ATTR_LOCATORS => array( 'woot!' ),
 					),
 				),
 			),
@@ -44,7 +44,7 @@ class EchoAttributeManagerTest extends MediaWikiTestCase {
 				// notification configuration
 				array(
 					'challah' => array(
-						'user-locators' => 'sagen',
+						EchoAttributeManager::ATTR_LOCATORS => 'sagen',
 					),
 				),
 			),
@@ -57,7 +57,7 @@ class EchoAttributeManagerTest extends MediaWikiTestCase {
 	public function testGetUserLocators( $message, $expect, $type, $notifications ) {
 		$manager = new EchoAttributeManager( $notifications, array() );
 
-		$result = $manager->getUserLocators( $type );
+		$result = $manager->getUserCallable( $type, EchoAttributeManager::ATTR_LOCATORS );
 		$this->assertEquals( $expect, $result, $message );
 	}
 

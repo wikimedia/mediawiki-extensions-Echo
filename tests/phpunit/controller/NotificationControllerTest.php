@@ -71,7 +71,7 @@ class NotificationControllerTest extends MediaWikiTestCase {
 		$this->setMwGlobals( array(
 			'wgEchoNotifications' => array(
 				'unit-test' => array(
-					'user-locators' => $locatorConfigForEventType
+					EchoAttributeManager::ATTR_LOCATORS => $locatorConfigForEventType
 				),
 			),
 		) );
@@ -87,7 +87,7 @@ class NotificationControllerTest extends MediaWikiTestCase {
 			$setup( $this, $event );
 		}
 
-		$result = EchoNotificationController::evaluateUserLocators( $event );
+		$result = EchoNotificationController::evaluateUserCallable( $event, EchoAttributeManager::ATTR_LOCATORS );
 		$this->assertEquals( $expect, array_map( 'array_keys', $result ), $message );
 	}
 
@@ -147,7 +147,7 @@ class NotificationControllerTest extends MediaWikiTestCase {
 		$this->setMwGlobals( array(
 			'wgEchoNotifications' => array(
 				'unit-test' => array(
-					'user-locators' => function () use ( $users ) {
+					EchoAttributeManager::ATTR_LOCATORS => function () use ( $users ) {
 						return $users;
 					},
 				),
