@@ -92,6 +92,8 @@
 	"notification-header-mention-agent-talkpage-nosection": "$1 {{GENDER:$2|mentioned}} {{GENDER:$3|you}} on {{GENDER:$2|his|her|their}} talk page.",
 	"notification-header-mention-article-talkpage": "$1 {{GENDER:$2|mentioned}} {{GENDER:$3|you}} on the '''$4''' talk page in \"$5\".",
 	"notification-header-mention-article-talkpage-nosection": "$1 {{GENDER:$2|mentioned}} {{GENDER:$3|you}} on the '''$4''' talk page.",
+	"notification-user-rights-add": "You are now a member of {{PLURAL:$2|this group|these groups}}: $1",
+	"notification-user-rights-remove": "You are no longer a member of {{PLURAL:$2|this group|these groups}}: $1",
 	"notification-user-rights": "Your user rights [[Special:Log/rights/$1|were {{GENDER:$1|changed}}]] by [[User:$1|$1]]. $2. [[Special:ListGroupRights|Learn more]]",
 	"notification-header-user-rights-add-only": "{{GENDER:$4|Your}} user rights were {{GENDER:$1|changed}}: You are now a member of the $2 {{PLURAL:$3|group|groups}}.",
 	"notification-header-user-rights-remove-only": "{{GENDER:$4|Your}} user rights were {{GENDER:$1|changed}}: You are no longer a member of the $2 {{PLURAL:$3|group|groups}}.",
