@@ -65,7 +65,7 @@
 	"notification-header-welcome": "{{GENDER:$2|Velkominn|Velkomin|Velkomin(n)}} á {{SITENAME}}, $1! Við erum ánægð með að {{GENDER:$2|þú}} sért hér.",
 	"notification-welcome-linktext": "Velkomin(n)",
 	"notification-reverted2": "{{PLURAL:$4|Breyting þín|Breytingar þínar}} á [[:$2]] {{PLURAL:$4|hefur verið {{GENDER:$1|tekin aftur}}|hafa verið {{GENDER:$1|teknar aftur}}}} af [[$5|$1]]. $3",
-	"notification-header-reverted": "{{PLURAL:$4|Breyting þín|Breytingar þínar}} á $3 {{PLURAL:$4|hefur verið {{GENDER:$2|tekin aftur}}|hafa verið {{GENDER:$2|teknar aftur}}}} af $1.",
+	"notification-header-reverted": "{{PLURAL:$4|Breyting þín|Breytingar þínar}} á $3 {{PLURAL:$4|var tekin|voru teknar}} {{GENDER:$2|aftur}}.",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|skildi}} eftir skilaboð handa þér á {{SITENAME}}",
 	"notification-edit-talk-page-email-batch-body2": "$1 {{GENDER:$1|skildi}} eftir skilaboð á spjallsíðu þinni.",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 {{GENDER:$1|skildi}} eftir skilaboð á spjallsíðu þinni undir \"$2\".",

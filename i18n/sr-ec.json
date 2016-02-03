@@ -34,7 +34,7 @@
 	"echo-category-title-other": "{{PLURAL:$1|Остало}}",
 	"echo-category-title-system": "{{PLURAL:$1|Систем}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|Промена корисничких права}}",
-	"echo-category-title-emailuser": "{{PLURAL:$1|Имејл од других корисника}}",
+	"echo-category-title-emailuser": "{{PLURAL:$1|Имејлови од других корисника}}",
 	"echo-pref-tooltip-edit-user-talk": "Обавештава вас када неко остави поруку на Вашој страници за разговор.",
 	"echo-pref-tooltip-article-linked": "Обавештава вас када неко повеже чланак који сте ви направили са неком другом страницом.",
 	"echo-pref-tooltip-reverted": "Обавештава вас када неко поништи измену коју сте ви начинили.",

@@ -89,7 +89,7 @@
 	"notification-body-edit-user-talk-with-section": "$1",
 	"notification-page-linked": "На [[:$2]] {{GENDER:$1|сослались}} из [[:$3]]. [[Special:WhatLinksHere/$2|См. все ссылки на эту страницу]].",
 	"notification-header-page-linked": "Хьажорг йина хилла $4 $3 тӀе.",
-	"notification-bundle-header-page-linked": "$4 и $5 {{PLURAL:$6|другая страница|других страниц|другие страницы}} теперь ссылаются на $3.",
+	"notification-bundle-header-page-linked": "Со страницы $4 и $5 {{PLURAL:$6|другой страницы|других страниц}} сослались на $3.",
 	"notification-link-text-what-links-here": "Все ссылки на эту страницу",
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|прокомментировал|прокомментировала}} тему \"[[$3|$2]]\" на странице обсуждения \"$4\".",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] {{GENDER:$1|добавил|добавила}} новую тему \"$2\" на странице [[$3]].",

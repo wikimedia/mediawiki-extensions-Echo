@@ -93,6 +93,8 @@
 	"notification-header-mention-article-talkpage-nosection": "$1 {{GENDER:$2|ha fatto 'o nomme}} {{GENDER:$3|vuosto}} dint' 'a paggena 'e chiacchiera '''$4'''.",
 	"notification-user-rights": "'E deritte 'utente [[Special:Log/rights/$1|so' state {{GENDER:$1|cagnate}}]] 'a [[User:$1|$1]]. $2. [[Special:ListGroupRights|Mparate 'e cchiù]]",
 	"notification-header-user-rights-add-only": "'E deritte 'utente {{GENDER:$4|vuoste}} so' state {{GENDER:$1|cagnate}}: mo' site nu membro d'  {{PLURAL:$3|'o gruppo|'e gruppe}} $2.",
+	"notification-header-user-rights-remove-only": "'E deritte utente {{GENDER:$4|vuoste}} so' state  {{GENDER:$1|cagnate}}: Vuje nun site cchiù nu membro d' $2 {{PLURAL:$3|'o gruppo|'e gruppe}}.",
+	"notification-header-user-rights-add-and-remove": "'E deritte utente {{GENDER:$6|vuoste}} so state {{GENDER:$1|cagnate}}: Vuje site mò nu membro d' {{PLURAL:$3|'o gruppo|'e gruppe}} $2. Vuje nun site cchiù nu membro d' {{PLURAL:$5|'o gruppo|'e gruppe}} $4.",
 	"notification-new-user": "Bemmenuto/a a {{SITENAME}}, $1! Nuje simmo cuntente 'e te veré ccà.",
 	"notification-header-welcome": "{{GENDER:$2|Bemmenuto|Bemmenuta}} ncopp' 'a {{SITENAME}}, $1! Simmo cuntente {{GENDER:$2|ca state}} ccà.",
 	"notification-welcome-linktext": "Bemmenute",
