@@ -138,13 +138,8 @@ class GenerateSampleNotifications extends Maintenance {
 	}
 
 	private function generatePageLink( User $user, User $agent ) {
-		$pageBeingMentioned = $this->generateNewPageTitle();
-		$this->addToPageContent( $pageBeingMentioned, $user, "this is a new page" );
-
-		$pageMentioning = $this->generateNewPageTitle();
-		$content = "checkout [[{$pageBeingMentioned->getPrefixedText()}]]!";
-		$this->output( "{$agent->getName()} is linking to {$pageBeingMentioned->getPrefixedText()} from {$pageMentioning->getPrefixedText()}\n" );
-		$this->addToPageContent( $pageMentioning, $agent, $content );
+		$this->generateOnePageLink( $user, $agent );
+		$this->generateMultiplePageLinks( $user, $agent );
 	}
 
 	private function generateNewPageTitle() {
@@ -256,7 +251,27 @@ class GenerateSampleNotifications extends Maintenance {
 				),
 			)
 		);
+	}
 
+	private function generateOnePageLink( User $user, User $agent ) {
+		$pageBeingLinked = $this->generateNewPageTitle();
+		$this->addToPageContent( $pageBeingLinked, $user, "this is a new page" );
+
+		$pageLinking = $this->generateNewPageTitle();
+		$content = "checkout [[{$pageBeingLinked->getPrefixedText()}]]!";
+		$this->output( "{$agent->getName()} is linking to {$pageBeingLinked->getPrefixedText()} from {$pageLinking->getPrefixedText()}\n" );
+		$this->addToPageContent( $pageLinking, $agent, $content );
+	}
+
+	private function generateMultiplePageLinks( User $user, User $agent ) {
+		$pageBeingLinked = $this->generateNewPageTitle();
+		$this->addToPageContent( $pageBeingLinked, $user, "this is a new page" );
+
+		$content = "checkout [[{$pageBeingLinked->getPrefixedText()}]]!";
+		$this->output( "{$agent->getName()} is linking to {$pageBeingLinked->getPrefixedText()} from multiple pages\n" );
+		$this->addToPageContent( $this->generateNewPageTitle(), $agent, $content );
+		$this->addToPageContent( $this->generateNewPageTitle(), $agent, $content );
+		$this->addToPageContent( $this->generateNewPageTitle(), $agent, $content );
 	}
 }
 
