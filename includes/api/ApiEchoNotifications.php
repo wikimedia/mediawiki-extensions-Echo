@@ -18,6 +18,20 @@ class ApiEchoNotifications extends ApiQueryBase {
 		$params = $this->extractRequestParams();
 		$prop = $params['prop'];
 
+		/* @deprecated */
+		if ( $params['format'] === 'flyout' ) {
+			$this->setWarning(
+				"notformat=flyout has been deprecated and will be removed soon.\n".
+				"Use notformat=model to get the raw data or notformat=special\n".
+				"for pre-rendered HTML."
+			);
+		} elseif ( $params['format'] === 'html' ) {
+			$this->setWarning(
+				"notformat=html has been deprecated and will be removed soon.\n".
+				"Use notformat=special instead."
+			);
+		}
+
 		if ( $params['noforn'] ) {
 			$foreignNotifications = null;
 		} else {
@@ -335,11 +349,12 @@ class ApiEchoNotifications extends ApiQueryBase {
 			'format' => array(
 				ApiBase::PARAM_TYPE => array(
 					'text',
-					'flyout',
-					'html',
 					'model',
 					'special',
+					'flyout', /* @deprecated */
+					'html', /* @deprecated */
 				),
+				ApiBase::PARAM_HELP_MSG_PER_VALUE => array(),
 			),
 			'noforn' => false,
 			'limit' => array(
