@@ -95,6 +95,8 @@
 	"notification-header-mention-agent-talkpage-nosection": "$1 {{GENDER:$2|তাঁর}} আলাপ পাতায় {{GENDER:$3|আপনাকে}} {{GENDER:$2|উল্লেখ করেছেন}}।",
 	"notification-header-mention-article-talkpage": "$1 ''$4'''-এর আলাপ পাতায় \"$5\"-এ {{GENDER:$3|আপনাকে}} {{GENDER:$2|উল্লেখ করেছেন}}।",
 	"notification-header-mention-article-talkpage-nosection": "$1 ''$4'''-এর আলাপ পাতায় {{GENDER:$3|আপনাকে}} {{GENDER:$2|উল্লেখ করেছেন}}।",
+	"notification-user-rights-add": "আপনি এখন থেকে {{PLURAL:$2|এই দলের|এই দলসমূহের}} একজন সদস্য: $1",
+	"notification-user-rights-remove": "আপনি আর {{PLURAL:$2|এই দলের|এই দলসমূহের}} সদস্য নন।: $1",
 	"notification-user-rights": "[[User:$1|$1]] আপনার ব্যবহারকারী অধিকার [[Special:Log/rights/$1|{{GENDER:$1|পরিবর্তন করেছেন}}]]। $2। [[Special:ListGroupRights|আরও জানুন]]",
 	"notification-header-user-rights-add-only": "{{GENDER:$4|আপনার}} ব্যবহারকারী অধিকার {{GENDER:$1|পরিবর্তিত হয়েছে}}: আপনি এখন $2 {{PLURAL:$3|দলের|দলসমূহের}} একজন সদস্য।",
 	"notification-header-user-rights-remove-only": "{{GENDER:$4|আপনার}} ব্যবহারকারী অধিকার {{GENDER:$1|পরিবর্তিত হয়েছে}}: আপনি এখন আর $2 {{PLURAL:$3|দলের|দলসমূহের}} একজন সদস্য নন।",

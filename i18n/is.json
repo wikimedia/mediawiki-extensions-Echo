@@ -60,6 +60,8 @@
 	"notification-add-comment-yours2": "[[User:$1|$1]] {{GENDER:$1|tjáði sig}} í \"[[$3#$2|$2]]\" á spjallsíðu þinni.",
 	"notification-mention": "[[User:$1|$1]] {{GENDER:$1|minntist á}} {{GENDER:$6|þig}} á spjallsíðu $5 í „[[:$3#$2|$4]]“.",
 	"notification-mention-nosection": "[[User:$1|$1]] {{GENDER:$1|minntist á}} {{GENDER:$4|þig}} á [[:$3|spjallsíðu $2]].",
+	"notification-user-rights-add": "Þú ert nú meðlimur {{PLURAL:$2|þessa hóps|þessara hópa}}: $1",
+	"notification-user-rights-remove": "Þú ert ekki lengur meðlimur {{PLURAL:$2|þessa hóps|þessara hópa}}: $1",
 	"notification-user-rights": "Notendaréttindum þínum [[Special:Log/rights/$1|var {{GENDER:$1|breytt}}]] af [[User:$1|$1]]. $2. [[Special:ListGroupRights|Læra meira]]",
 	"notification-new-user": "Velkomin til {{SITENAME}}, $1! Við erum ánægð með að sjá þig hér.",
 	"notification-header-welcome": "{{GENDER:$2|Velkominn|Velkomin|Velkomin(n)}} á {{SITENAME}}, $1! Við erum ánægð með að {{GENDER:$2|þú}} sért hér.",

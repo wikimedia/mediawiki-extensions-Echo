@@ -85,6 +85,8 @@
 	"notification-add-comment-yours2": "[[User:$1|$1]] {{GENDER:$1|a comentat}} subiectul „[[$3#$2|$2]]” de pe pagina dumneavoastră de discuții.",
 	"notification-mention": "[[User:$1|$1]] {{GENDER:$6|v}}{{GENDER:$1|-a menționat}} pe pagina de discuții a paginii $5, în cadrul secțiunii „[[:$3#$2|$4]]”.",
 	"notification-mention-nosection": "[[User:$1|$1]] {{GENDER:$4|v}}{{GENDER:$1|-a menționat}} pe [[:$3|pagina de discuție a paginii $2]].",
+	"notification-user-rights-add": "Sunteți acum membru al {{PLURAL:$2|acestui grup|acestor grupuri}}: $1",
+	"notification-user-rights-remove": "Nu mai sunteți membru al {{PLURAL:$2|acestui grup|acestor grupuri}}: $1",
 	"notification-user-rights": "Drepturile dumneavoastră de utilizator [[Special:Log/rights/$1|au fost {{GENDER:$1|schimbate}}]] de către [[User:$1|$1]]. $2. [[Special:ListGroupRights|Aflați mai multe]]",
 	"notification-new-user": "Bine ați venit la {{SITENAME}}, $1! Ne bucurăm că sunteți aici.",
 	"notification-header-welcome": "{{GENDER:$2|Bun venit}} la {{SITENAME}}, $1! Ne bucurăm să {{GENDER:$2|vă avem}} printre noi.",

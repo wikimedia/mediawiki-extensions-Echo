@@ -98,6 +98,8 @@
 	"notification-add-comment-yours2": "[[User:$1|$1]] در «[[$3#$2|$2]]» در صفحه بحث شما نظری داده است.",
 	"notification-mention": "[[User:$1|$1]] به {{GENDER:$6|شما}} در بحث $5  در «[[:$3#$2|$4]]» {{GENDER:$1|اشاره کرد}}.",
 	"notification-mention-nosection": "[[User:$1|$1]] در [[:$3|صفحهٔ بحث $2]] به {{GENDER:$4|شما}} {{GENDER:$1|اشاره}} کرده‌ است.",
+	"notification-user-rights-add": "شما در حال حاضر عضو  {{PLURAL:$2| این گروه|این گروه‌ها}} هستید:$1",
+	"notification-user-rights-remove": "شما دیگر عضو {{PLURAL:$2|این گروه|این گروه‌ها}} نیستید: $1",
 	"notification-user-rights": "دسترسی‌های شما توسط [[User:$1|$1]] [[Special:Log/rights/$1|تغییر یافته است]] . $2. [[Special:ListGroupRights|بیشتر بخوانید]]",
 	"notification-new-user": "به {{SITENAME}} خوش‌آمدید، $1! خوشحالیم که شما اینجا هستید.",
 	"notification-header-welcome": "$1، به {{SITENAME}} {{GENDER:$2|خوش آمدید}}. خوشحالیم که {{GENDER:$2|شما}} اینجایید.",

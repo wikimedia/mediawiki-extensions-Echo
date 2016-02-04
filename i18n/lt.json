@@ -86,6 +86,8 @@
 	"notification-mention": "[[User:$1|$1]] {{GENDER:$1|paminėjo}} {{GENDER:$6|jus}} $5 aptarimo puslapyje \"[[:$3#$2|$4]]\".",
 	"notification-mention-nosection": "[[User:$1|$1]] {{GENDER:$1|paminėjo}} {{GENDER:$4|jus}} čia [[:$3|$2 aptarimo puslapis]].",
 	"notification-header-mention-other-nosection": "$1 {{GENDER:$2|paminėjo}} {{GENDER:$3|jus}} čia '''$4'''.",
+	"notification-user-rights-add": "Jūs dabar esate {{PLURAL:$2|šios grupės|šių grupių}} narys: $1",
+	"notification-user-rights-remove": "Jūs nebesate {{PLURAL:$2|šios grupės|šių grupių}} narys: $1",
 	"notification-user-rights": "Jūsų naudotojo teisės [[Special:Log/rights/$1|buvo {{GENDER:$1|pakeistos}}]] naudotojo [[User:$1|$1]]. $2. [[Special:ListGroupRights|Sužinoti daugiau]]",
 	"notification-new-user": "Sveiki atvykę į {{SITENAME}}, $1! Džiaugiamės, kad esate čia.",
 	"notification-header-welcome": "{{GENDER:$2|Sveiki atvykę}} į {{SITENAME}}, $1! Me džiaugiamės, kad {{GENDER:$2|jūs esate}} čia.",

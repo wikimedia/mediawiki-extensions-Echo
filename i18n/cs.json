@@ -95,6 +95,8 @@
 	"notification-header-mention-agent-talkpage-nosection": "$1 {{GENDER:$3|vás}} {{GENDER:$2|zmínil|zmínila}} na své diskusní stránce.",
 	"notification-header-mention-article-talkpage": "$1 {{GENDER:$3|vás}} {{GENDER:$2|zmínil|zmínila}} v diskusi k článku '''$4''' u „$5“.",
 	"notification-header-mention-article-talkpage-nosection": "$1 {{GENDER:$3|vás}} {{GENDER:$2|zmínil|zmínila}} v diskusi k článku '''$4'''.",
+	"notification-user-rights-add": "Nyní patříte do {{PLURAL:$2|této skupiny|těchto skupin}}: $1",
+	"notification-user-rights-remove": "Nadále už nepatříte do {{PLURAL:$2|této skupiny|těchto skupin}}: $1",
 	"notification-user-rights": "[[User:$1|$1]] [[Special:Log/rights/$1|{{GENDER:$1|změnil|změnila}}]] vaše uživatelská práva. $2. [[Special:ListGroupRights|Více informací]]",
 	"notification-header-user-rights-add-only": "Vaše uživatelská práva byla {{GENDER:$1|změněna}}: Nyní jste {{GENDER:$4|členem|členkou}} {{PLURAL:$3|skupiny|skupin}} $2.",
 	"notification-header-user-rights-remove-only": "Vaše uživatelská práva byla {{GENDER:$1|změněna}}: Už nejste {{GENDER:$4|členem|členkou}} {{PLURAL:$3|skupiny|skupin}} $2.",

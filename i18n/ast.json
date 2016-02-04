@@ -82,6 +82,8 @@
 	"notification-add-comment-yours2": "[[User:$1|$1]] {{GENDER:$1|comentó}} sobro \"[[$3#$2|$2]]\" na so páxina d'alderique",
 	"notification-mention": "[[User:$1|$1]] {{GENDER:$6|fíxote}} una {{GENDER:$1|mención}} nel alderique de $5 en «[[:$3#$2|$4]]».",
 	"notification-mention-nosection": "[[User:$1|$1]] {{GENDER:$4|te}} {{GENDER:$1|mentó}} na [[:$3|páxina d'alderique de $2]].",
+	"notification-user-rights-add": "Agora ye miembru d'{{PLURAL:$2|esti grupu|estos grupos}}: $1",
+	"notification-user-rights-remove": "Dexó de ser miembru d'{{PLURAL:$2|esti grupu|estos grupos}}: $1",
 	"notification-user-rights": "[[User:$1|$1]] [[Special:Log/rights/$1|{{GENDER:$1|camudó}}]] los sos permisos d'usuariu. $2. [[Special:ListGroupRights|Más información]]",
 	"notification-new-user": "¡Dámoste la bienvenida a {{SITENAME}}, $1! Préstanos que teas equí.",
 	"notification-header-welcome": "¡{{GENDER:$2|Bienveníu|Bienvenida}} a {{SITENAME}}, $1! Préstanos que {{GENDER:$2|teas}} equí.",

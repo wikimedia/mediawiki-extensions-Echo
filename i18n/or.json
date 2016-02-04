@@ -52,7 +52,6 @@
 	"notification-link-text-view-edit": "ସମ୍ପାଦନା ଦେଖନ୍ତୁ",
 	"notification-edit-talk-page2": "[[User:$1|$1]] {{GENDER:$1|left}}  ଆପଣଙ୍କ ପାଇଁ ଗୋଟିଏ ବାର୍ତ୍ତ ଅଛି [[User talk:$2#$3|ଆଲୋଚନା ପୃଷ୍ଠାରେ]].",
 	"notification-edit-talk-page-with-section": "[[User:$1|$1]] {{GENDER:$1|left}} ଆପଣଙ୍କ ପାଇଁ ଗୋଟିଏ ବାର୍ତ୍ତା ଅଛି ଆପଣଙ୍କ ଆଲୋଚନା ପୃଷ୍ଠାରେ \"[[User talk:$2#$3|$4]]\".",
-	"notification-edit-talk-page-flyout2": "$1 {{GENDER:$1|left}} ଗୋଟିଏ ବାର୍ତ୍ତ ଆପଣଙ୍କ [[User talk:$2#$3|ଆଲୋଚନା ପୃଷ୍ଠା]]ରେ.",
 	"echo-overlay-link": "ସମସ୍ତ ସୂଚନା",
 	"echo-overlay-title": "<b>ସୂଚନାବଳୀ</b>",
 	"echo-mark-all-as-read": "ସବୁ ପଢ଼ା ସରିଛି ବୋଲି ଚିହ୍ନ ଦିଅନ୍ତୁ",

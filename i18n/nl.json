@@ -107,6 +107,8 @@
 	"notification-header-mention-agent-talkpage-nosection": "$1 heeft {{GENDER:$3|u}} {{GENDER:$2|genoemd}} op {{GENDER:$2|zijn|haar|zijn/haar}} overlegpagina.",
 	"notification-header-mention-article-talkpage": "$1 heeft {{GENDER:$3|u}} {{GENDER:$2|genoemd}} op de overlegpagina van '''$4''' onder ''$5''.",
 	"notification-header-mention-article-talkpage-nosection": "$1 heeft {{GENDER:$3|u}} {{GENDER:$2|genoemd}} op de overlegpagina van '''$4'''.",
+	"notification-user-rights-add": "U bent nu lid van deze groep{{PLURAL:$2||en}}: $1",
+	"notification-user-rights-remove": "U bent niet langer lid van deze groep{{PLURAL:$2||en}}: $1",
 	"notification-user-rights": "Uw gebruikersrechten [[Special:Log/rights/$1|zijn {{GENDER:$1|gewijzigd}}]] door [[User:$1|$1]]. $2. [[Special:ListGroupRights|Meer informatie]]",
 	"notification-header-user-rights-add-only": "{{GENDER:$4|Uw}} gebruikersrechten zijn {{GENDER:$1|veranderd}}: u bent lid van de {{PLURAL:$3|groep|groepen}} $2.",
 	"notification-header-user-rights-remove-only": "{{GENDER:$4|Uw}} gebruikersrechten zijn {{GENDER:$1|veranderd}}: u bent niet langer lid meer van de {{PLURAL:$3|groep|groepen}} $2.",

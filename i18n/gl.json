@@ -93,6 +93,8 @@
 	"notification-header-mention-agent-talkpage-nosection": "$1 {{GENDER:$2|mencionou}}{{GENDER:$3|no|na}} na {{GENDER:$2|súa}} páxina de conversa.",
 	"notification-header-mention-article-talkpage": "$1 {{GENDER:$2|mencionou}}{{GENDER:$3|no|na}} na páxina de conversa \"$4\" na sección \"$5\".",
 	"notification-header-mention-article-talkpage-nosection": "$1 {{GENDER:$2|mencionou}}{{GENDER:$3|no|na}} na páxina de conversa \"$4\".",
+	"notification-user-rights-add": "Agora pertence a {{PLURAL:$2|este grupo|estes grupos}}: $1",
+	"notification-user-rights-remove": "Xa non pertence a {{PLURAL:$2|este grupo|estes grupos}}: $1",
 	"notification-user-rights": "[[User:$1|$1]] [[Special:Log/rights/$1|{{GENDER:$1|mudou}} os seus dereitos de usuario]]. $2. [[Special:ListGroupRights|Máis información]]",
 	"notification-header-user-rights-add-only": "Os {{GENDER:$4|seus}} dereitos de usuario foron {{GENDER:$1|modificados}}: Pertence agora {{PLURAL:$3|ó grupo|ós grupos}} $2.",
 	"notification-header-user-rights-remove-only": "Os {{GENDER:$4|seus}} dereitos de usuario foron {{GENDER:$1|modificados}}: Xa non pertence {{PLURAL:$3|ó grupo|ó grupos}} $2.",

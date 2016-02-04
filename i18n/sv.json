@@ -102,6 +102,8 @@
 	"notification-header-mention-agent-talkpage-nosection": "$1 {{GENDER:$2|nämnde}} {{GENDER:$3|dig}} på {{GENDER:$2|hans|hennes|sin}} diskussionssida.",
 	"notification-header-mention-article-talkpage": "$1 {{GENDER:$2|nämnde}} {{GENDER:$3|dig}} på diskussionssidan '''$4''' i \"$5\".",
 	"notification-header-mention-article-talkpage-nosection": "$1 {{GENDER:$2|nämnde}} {{GENDER:$3|dig}} på diskussionssidan '''$4'''.",
+	"notification-user-rights-add": "Du är nu medlem i {{PLURAL:$2|denna grupp|dessa grupper}}: $1",
+	"notification-user-rights-remove": "Du är inte längre medlem i {{PLURAL:$2|denna grupp|dessa grupper}}: $1",
 	"notification-user-rights": "Dina användarrättigheter [[Special:Log/rights/$1|{{GENDER:$1|ändrades}}]] av [[User:$1|$1]]. $2. [[Special:ListGroupRights|Läs mer]]",
 	"notification-header-user-rights-add-only": "Dina användarrättigheter har {{GENDER:$1|ändrats}}: Du är nu medlem i {{PLURAL:$3|gruppen|grupperna}} $2.",
 	"notification-header-user-rights-remove-only": "Dina användarrättigheter har {{GENDER:$1|ändrats}}: Du är inte längre medlem i {{PLURAL:$3|gruppen|grupperna}} $2.",
