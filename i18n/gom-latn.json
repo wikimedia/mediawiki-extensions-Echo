@@ -4,5 +4,6 @@
 			"The Discoverer"
 		]
 	},
-	"tooltip-pt-notifications-alert": "{{GENDER:|Tujeo}} chotraio"
+	"tooltip-pt-notifications-alert": "{{GENDER:|Tujeo}} chotraio",
+	"tooltip-pt-notifications-message": "{{GENDER:|Tujeo}} sondex"
 }

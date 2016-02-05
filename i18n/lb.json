@@ -80,7 +80,7 @@
 	"notification-user-rights-add": "Dir sidd elo Member vun {{PLURAL:$2|dësem Grupp|dëse Gruppen}}: $1",
 	"notification-user-rights-remove": "Dir sidd net méi Member vun {{PLURAL:$2|dësem Grupp|dëse Gruppen}}: $1",
 	"notification-user-rights": "Är Benotzerrechter [[Special:Log/rights/$1|goufe vum [[User:$1|$1]] {{GENDER:$1|geännert}}]]. $2. [[Special:ListGroupRights|Fir méi ze wëssen]]",
-	"notification-header-user-rights-remove-only": "Är Benotzerrechter goufe {{GENDER:$1|geännert}}: Dir sidd net méi Member vun {{PLURAL:$3|der $2 Grupp|de(n) $2 Gruppen}}.",
+	"notification-header-user-rights-remove-only": "{{GENDER:$4|Är}} Benotzerrechter goufe {{GENDER:$1|geännert}}: Dir sidd net méi Member vun: $2.",
 	"notification-new-user": "Wëllkomm op {{SITENAME}}, $1! Mir si frou Iech begréissen ze kënnen.",
 	"notification-header-welcome": "{{GENDER:$2|Wëllkomm}} op {{SITENAME}}, $1! Mir si frou, datt {{GENDER:$2|Dir}} do sidd.",
 	"notification-welcome-linktext": "Wëllkomm",

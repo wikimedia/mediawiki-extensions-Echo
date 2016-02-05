@@ -86,6 +86,8 @@
 	"notification-add-comment-yours2": "[[User:$1|$1]] hozzászólt a „[[$3#$2|$2]]” témához a vitalapodon",
 	"notification-mention": "[[User:$1|$1]] {{GENDER:$1|megemlített|}} {{GENDER:$6|téged}} $5 vitalapján a(z) „[[:$3#$2|$4]]” szakaszban.",
 	"notification-mention-nosection": "[[User:$1|$1]] {{GENDER:$1|megemlített}} {{GENDER:$4|téged}} [[:$3|$2 vitalapján]].",
+	"notification-user-rights-add": "Tagja lettél {{PLURAL:$2|ennek a csoportnak|ezeknek a csoportoknak}}: $1",
+	"notification-user-rights-remove": "Kikerültél {{PLURAL:$2|ebből a csoportból|ezekből a csoportokból}}: $1",
 	"notification-user-rights": "[[User:$1|$1]] [[Special:Log/rights/$1|megváltoztatta a jogosultságaidat]]. $2. [[Special:ListGroupRights|Információ a jogosultságokról]]",
 	"notification-new-user": "Kedves $1! Üdvözlünk a {{SITENAME}} oldalon. Örülünk, hogy csatlakoztál hozzánk.",
 	"notification-header-welcome": "{{GENDER:$2|Üdvözlünk}} a(z) {{SITENAME}} wikin, $1! Örülünk, hogy itt {{GENDER:$2|vagy}}.",

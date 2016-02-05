@@ -41,6 +41,7 @@
 	"echo-none": "تاسې هېڅ يادگيرنې نه لرئ.",
 	"echo-more-info": "نور مالومات",
 	"echo-feedback": "غبرگون",
+	"echo-notification-markasread": "ټول لوستی په نخښه کول",
 	"notification-link-text-expand-all": "ټول غځول",
 	"notification-link-text-collapse-all": "ټول پرځول",
 	"notification-link-text-view-message": "پيغام کتل",
