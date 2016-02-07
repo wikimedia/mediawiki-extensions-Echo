@@ -187,6 +187,8 @@
 	"apihelp-query+notifications-param-groupbysection": "S’il faut grouper les résultats par section. Chaque section est analysée séparément, s’il est défini.",
 	"apihelp-query+notifications-param-filter": "Filtrer les notifications renvoyées.",
 	"apihelp-query+notifications-param-format": "Si spécifié, les notifications seront renvoyées dans ce format.",
+	"apihelp-query+notifications-paramvalue-format-special": "Formaté pour la page Special:Notifications (et seulement pour elle!) Ne vous fiez pas au code HTML, car il peut changer à tout moment.",
+	"apihelp-query+notifications-paramvalue-format-flyout": "<span class=\"apihelp-deprecated\">Obsolète</span>. Utiliser <kbd>$1format=model</kbd> pour les données brutes",
 	"apihelp-query+notifications-param-limit": "Le nombre maximal de notifications à renvoyer.",
 	"apihelp-query+notifications-param-index": "Si spécifié, une liste ordonnée d’IDs de notification sera renvoyée.",
 	"apihelp-query+notifications-param-noforn": "Vrai pour se désabonner des notifications de wikis étrangers",

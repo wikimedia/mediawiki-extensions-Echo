@@ -150,5 +150,6 @@
 	"echo-email-batch-body-intro-weekly": "Olá $1,\nAqui está um resumo da actividade desta semana em {{SITENAME}} para si.",
 	"echo-email-batch-link-text-view-all-notifications": "Ver todas as notificações",
 	"echo-rev-deleted-text-view": "A revisão desta página foi suprimida.",
-	"notification-header-foreign-alert": "Mais alertas de $3 {{PLURAL:$4|e uma outra wiki|e $4 outras wikis|0=}}"
+	"notification-header-foreign-alert": "Mais alertas de $3 {{PLURAL:$4|e uma outra wiki|e $4 outras wikis|0=}}",
+	"notification-header-foreign-message": "Mais mensagens a partir de $3 {{PLURAL:$4|e uma outra wiki|e $4 outras wikis|0=}}"
 }

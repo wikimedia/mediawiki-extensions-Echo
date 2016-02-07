@@ -1,7 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Tulsi Bhagat"
+			"Tulsi Bhagat",
+			"बिप्लब आनन्द"
 		]
-	}
+	},
+	"tooltip-pt-notifications-alert": "{{GENDER:|अहाँक}} खबरदार",
+	"tooltip-pt-notifications-message": "{{GENDER:|अहाँक}} सन्देश"
 }

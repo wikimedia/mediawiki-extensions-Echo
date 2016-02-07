@@ -5,7 +5,8 @@
 			"Jeblad",
 			"Laaknor",
 			"Njardarlogar",
-			"Chameleon222"
+			"Chameleon222",
+			"SuperPotato"
 		]
 	},
 	"echo-desc": "System for å gi brukere beskjed om hendelser og meldinger",
@@ -96,9 +97,9 @@
 	"notification-user-rights-add": "Du er nå medlem av {{PLURAL:$2|denne gruppa|disse gruppene}}: $1",
 	"notification-user-rights-remove": "Du er ikke lenger medlem av {{PLURAL:$2|denne gruppa|disse gruppene}}: $1",
 	"notification-user-rights": "Brukerrettighetene dine [[Special:Log/rights/$1|ble {{GENDER:$1|endret}}]] av [[User:$1|$1]]. $2. [[Special:ListGroupRights|Lær mer]]",
-	"notification-header-user-rights-add-only": "{{GENDER:$4|Dine}} brukerrettigheter ble {{GENDER:$1|endret}}: Du er nå medlem av {{PLURAL:$3|gruppen|gruppene}} $2.",
-	"notification-header-user-rights-remove-only": "{{GENDER:$4|Dine}} brukerrettigheter ble {{GENDER:$1|endret}}: Du er ikke lengre medlem av {{PLURAL:$3|gruppen|gruppene}} $2.",
-	"notification-header-user-rights-add-and-remove": "{{GENDER:$6|Dine}} brukerrettigheter ble {{GENDER:$1|endret}}: Du er nå medlem av {{PLURAL:$3|gruppen|gruppene}} $2. Du er ikke lengre medlem av {{PLURAL:$5|gruppen|gruppene}} $4.",
+	"notification-header-user-rights-add-only": "{{GENDER:$4|Dine}} brukerrettigheter ble {{GENDER:$1|endret}}: Du er nå medlem av: $2.",
+	"notification-header-user-rights-remove-only": "{{GENDER:$4|Dine}} brukerrettigheter ble {{GENDER:$1|endret}}: Du er ikke lengre medlem av: $2.",
+	"notification-header-user-rights-add-and-remove": "{{GENDER:$6|Dine}} brukerrettigheter ble {{GENDER:$1|endret}}: Du er nå medlem av: $2. Du er ikke lengre medlem av: $4.",
 	"notification-new-user": "Velkommen til {{SITENAME}}, $1! Hyggelig å se deg her.",
 	"notification-header-welcome": "{{GENDER:$2|Velkommen}} til {{SITENAME}}, $1! Vi er glade for at {{GENDER:$2|du}} er her.",
 	"notification-welcome-linktext": "Velkommen",

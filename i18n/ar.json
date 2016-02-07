@@ -64,6 +64,7 @@
 	"echo-more-info": "المزيد",
 	"echo-feedback": "تعليقات",
 	"echo-api-failure": "تعذّر إظهار الإشعارات. فضلًا حاول مرة أخرى. (خطأ $1)",
+	"echo-api-failure-cross-wiki": "رُفض الوصول إلى النطاق البعيد.",
 	"echo-notification-placeholder": "لا توجد أية إخطارات.",
 	"echo-notification-loginrequired": "يجب عليك تسجيل الدخول للاطلاع على إشعاراتك.",
 	"echo-notification-popup-loginrequired": "من فضلك سجل الدخول لعرض إشعاراتك.",
@@ -87,6 +88,8 @@
 	"notification-add-comment-yours2": "{{GENDER:$1|علق|علقت}} [[User:$1|$1]] على \"[[$3#$2|$2]]\" في صفحة نقاشك.",
 	"notification-mention": "{{GENDER:$1|أشار|أشارت}} [[User:$1|$1]] {{GENDER:$6|إليك}} في قسم \"[[:$3#$2|$4]]\" من صفحة نقاش $5.",
 	"notification-mention-nosection": "{{GENDER:$1|أشار|أشارت}} [[User:$1|$1]] {{GENDER:$4|إليك}} في [[:$3|صفحة نقاش $2]].",
+	"notification-user-rights-add": "أنت الآن عضو في {{PLURAL:$2|مجموعة|مجموعات}}: $1",
+	"notification-user-rights-remove": "ألغيت عضويتك في {{PLURAL:$2|مجموعة|مجموعات}}: $1",
 	"notification-user-rights": "[[Special:Log/rights/$1|{{GENDER:$1|غير|غيرت}}]]  [[User:$1|$1]] صلاحياتك. $2. [[Special:ListGroupRights|المزيد]]",
 	"notification-new-user": "$1، مرحبا بك في {{SITENAME}}. أسعدنا بلقياك.",
 	"notification-header-welcome": "{{GENDER:$2|مرحبًا بك|مرحبًا بكِ}} في {{SITENAME}}، $1! نحن سعداءٌ {{GENDER:$2|بتواجدك|بتواجدكِ}} هنا.",
@@ -135,6 +138,8 @@
 	"apihelp-echomarkseen-param-type": "نوع الإشعارت  لتحديد كما تبدو على أنها: 'تنبيه' 'رسالة'  أو 'كل'.",
 	"apihelp-query+notifications-param-prop": "طلب تفاصيل.",
 	"apihelp-query+notifications-param-sections": "اقسام الأشعار للأستعلام (أي بمعنى بعض الثنائي من \"تنبيه\" و \"رسالة\").",
+	"apihelp-query+notifications-paramvalue-format-text": "صيغة نص عادي",
+	"apihelp-query+notifications-paramvalue-format-model": "بيانات إشعارات خام",
 	"apihelp-query+notifications-param-limit": "العدد الأقصى للإخطارات في النتائج.",
 	"apihelp-query+notifications-example-1": "قائمة الإشعارات"
 }
