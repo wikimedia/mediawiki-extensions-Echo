@@ -16,23 +16,23 @@ class EchoUserRightsPresentationModel extends EchoEventPresentationModel {
 		if ( $add && !$remove ) {
 			$msg = $this->msg( 'notification-header-user-rights-add-only' );
 			$msg->params( $genderName );
-			$msg->params( $this->language->listToText( $add ) );
+			$msg->params( $this->language->commaList( $add ) );
 			$msg->params( count( $add ) );
 			$msg->params( $this->getViewingUserForGender() );
 			return $msg;
 		} elseif ( !$add && $remove ) {
 			$msg = $this->msg( 'notification-header-user-rights-remove-only' );
 			$msg->params( $genderName );
-			$msg->params( $this->language->listToText( $remove ) );
+			$msg->params( $this->language->commaList( $remove ) );
 			$msg->params( count( $remove ) );
 			$msg->params( $this->getViewingUserForGender() );
 			return $msg;
 		} else {
 			$msg = $this->msg( 'notification-header-user-rights-add-and-remove' );
 			$msg->params( $genderName );
-			$msg->params( $this->language->listToText( $add ) );
+			$msg->params( $this->language->commaList( $add ) );
 			$msg->params( count( $add ) );
-			$msg->params( $this->language->listToText( $remove ) );
+			$msg->params( $this->language->commaList( $remove ) );
 			$msg->params( count( $remove ) );
 			$msg->params( $this->getViewingUserForGender() );
 			return $msg;
