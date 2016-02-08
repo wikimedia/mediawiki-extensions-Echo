@@ -39,6 +39,11 @@ class EchoUserRightsPresentationModel extends EchoEventPresentationModel {
 		}
 	}
 
+	public function getBodyMessage() {
+		$reason = $this->event->getExtraParam( 'reason' );
+		return $reason ? $this->msg( 'notification-body-user-rights' )->params( $reason ) : false;
+	}
+
 	private function getLocalizedGroupNames( $names ) {
 		return array_map( function( $name ) {
 			$msg = $this->msg( 'group-' . $name );
