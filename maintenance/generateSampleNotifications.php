@@ -51,6 +51,7 @@ class GenerateSampleNotifications extends Maintenance {
 		$this->generateReverted( $user, $agent );
 		$this->generateEmail( $user, $agent );
 		$this->generateUserRights( $user, $agent );
+		$this->generateContentTranslation( $user );
 
 		$this->output( "Completed \n" );
 	}
@@ -226,6 +227,35 @@ class GenerateSampleNotifications extends Maintenance {
 				'agent' => $agent,
 			)
 		);
+	}
+
+	private function generateContentTranslation( User $user ) {
+		if ( !class_exists( 'ContentTranslationHooks' ) ) {
+			return;
+		}
+
+		$this->output( "Generating CX notifications\n" );
+		foreach ( array( 'cx-first-translation', 'cx-tenth-translation', 'cx-hundredth-translation' ) as $eventType ) {
+			EchoEvent::create(
+				array(
+					'type' => $eventType,
+					'extra' => array(
+						'recipient' => $user->getId(),
+					),
+				)
+			);
+		}
+
+		EchoEvent::create(
+			array(
+				'type' => 'cx-suggestions-available',
+				'extra' => array(
+					'recipient' => $user->getId(),
+					'lastTranslationTitle' => 'History of the People\'s Republic of China'
+				),
+			)
+		);
+
 	}
 }
 
