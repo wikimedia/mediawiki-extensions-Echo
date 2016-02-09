@@ -270,7 +270,7 @@ $wgEchoNotificationIcons = array(
 		'path' => "$echoIconPath/Generic.png",
 	),
 	'trash' => array(
-		'path' => "$echoIconPath/Deletion.png",
+		'path' => "$echoIconPath/trash.svg",
 	),
 	'chat' => array(
 		'path' => "$echoIconPath/chat.svg",
