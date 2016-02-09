@@ -12,6 +12,7 @@ class EchoDataOutputFormatter {
 		'flyout' => 'EchoFlyoutFormatter',
 		'model' => 'EchoModelFormatter',
 		'special' => 'SpecialNotificationsFormatter',
+		'html' => 'SpecialNotificationsFormatter',
 	);
 
 	/**
