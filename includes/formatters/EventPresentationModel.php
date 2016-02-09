@@ -10,7 +10,7 @@ abstract class EchoEventPresentationModel {
 	/**
 	 * Recommended length of usernames included in messages
 	 */
-	const USERNAME_RECOMMENDED_LENGTH = 30;
+	const USERNAME_RECOMMENDED_LENGTH = 20;
 
 	/**
 	 * Recommended length of page names included in messages
