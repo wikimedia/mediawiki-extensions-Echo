@@ -71,7 +71,7 @@ class EchoNotificationFormatterTest extends MediaWikiTestCase {
 				'remove' => array( 'other' ),
 			),
 		);
-		$formats = array( 'flyout', 'email', 'text' );
+		$formats = array( 'email', 'text' );
 		$tests = array();
 		$loggedUser = User::newFromName( 'Notification-formatter-test' );
 		$anonUser = new User();

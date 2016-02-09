@@ -17,13 +17,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	protected $title;
 
 	/**
-	 * Notification title data for flyout
-	 * @var array
-	 */
-	protected $flyoutTitle;
-
-	/**
-	 * Notification title data for bundling ( flyout and archive page )
+	 * Notification title data for bundling ( archive page )
 	 */
 	protected $bundleTitle;
 
@@ -82,13 +76,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			'params' => $params['title-params']
 		);
 
-		// Title for the flyout
-		$this->flyoutTitle = array(
-			'message' => $params['flyout-message'],
-			'params' => $params['flyout-params']
-		);
-
-		// Bundle title for both archive page and flyout
+		// Bundle title for both archive page
 		$this->bundleTitle = array(
 			'message' => $params['bundle-message'],
 			'params' => $params['bundle-params']
@@ -137,9 +125,6 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			'icon' => 'placeholder'
 		);
 
-		// default flyout-message to title-message if not defined
-		$params += array( 'flyout-message' => $params['title-message'], 'flyout-params' => $params['title-params'] );
-
 		return $params;
 	}
 
@@ -156,7 +141,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 		// Use the bundle message if use-bundle is true and there is a bundle message
 		$this->generateBundleData( $event, $user, $type );
 		if ( $this->bundleData['use-bundle'] && $this->bundleTitle['message'] ) {
-			$this->title = $this->flyoutTitle = $this->bundleTitle;
+			$this->title = $this->bundleTitle;
 		}
 	}
 
@@ -211,11 +196,6 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 		// Add footer (timestamp and secondary link)
 		$content .= $this->formatFooter( $event, $user );
 
-		// Add the primary link (hidden)
-		if ( $this->outputFormat === 'flyout' ) {
-			$content .= $this->getLink( $event, $user, 'primary' );
-		}
-
 		$output .= Xml::tags( 'div', array( 'class' => 'mw-echo-content' ), $content ) . "\n";
 
 		// The state div is used to visually indicate read or unread status. This is
@@ -232,11 +212,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 	 * @return string
 	 */
 	protected function formatNotificationTitle( $event, $user ) {
-		if ( $this->outputFormat === 'flyout' ) {
-			return $this->formatFragment( $this->flyoutTitle, $event, $user );
-		} else {
-			return $this->formatFragment( $this->title, $event, $user );
-		}
+		return $this->formatFragment( $this->title, $event, $user );
 	}
 
 	/**
@@ -492,7 +468,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			$title->setFragment( "#$fragment" );
 		}
 
-		if ( in_array( $this->outputFormat, array( 'flyout', 'htmlemail' ) ) ) {
+		if ( in_array( $this->outputFormat, array( 'htmlemail' ) ) ) {
 			$attribs = array();
 			if ( isset( $props['attribs'] ) ) {
 				$attribs = (array)$props['attribs'];
