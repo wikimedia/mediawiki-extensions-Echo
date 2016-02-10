@@ -201,6 +201,7 @@ class GenerateSampleNotifications extends Maintenance {
 			'type' => 'emailuser',
 			'extra' => array(
 				'to-user-id' => $user->getId(),
+				'subject' => 'Long time no see',
 			),
 			'agent' => $agent,
 		) );

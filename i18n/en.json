@@ -107,6 +107,7 @@
 	"notification-body-reverted": "$1",
 	"notification-emailuser": "[[User:$1|$1]] {{GENDER:$1|sent}} you an email.",
 	"notification-header-emailuser": "$1 {{GENDER:$2|sent}} you an email.",
+	"notification-body-email-user": "$1",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|left}} you a message on {{SITENAME}}",
 	"notification-edit-talk-page-email-batch-body2": "$1 {{GENDER:$1|left}} a message on your talk page.",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 {{GENDER:$1|left}} a message on your talk page in \"$2\".",
