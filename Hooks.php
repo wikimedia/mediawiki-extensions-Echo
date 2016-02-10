@@ -1059,6 +1059,7 @@ class EchoHooks {
 			'type' => 'emailuser',
 			'extra' => array(
 				'to-user-id' => $userTo->getId(),
+				'subject' => $subject,
 			),
 			'agent' => $userFrom,
 		) );
