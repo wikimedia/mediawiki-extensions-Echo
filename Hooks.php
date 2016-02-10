@@ -1050,6 +1050,8 @@ class EchoHooks {
 	 * @return bool true in all cases
 	 */
 	public static function onEmailUserComplete( $address, $from, $subject, $text ) {
+		global $wgContLang;
+
 		if ( $from->name === $address->name ) {
 			// nothing to notify
 			return true;
@@ -1057,11 +1059,18 @@ class EchoHooks {
 		$userTo = User::newFromName( $address->name );
 		$userFrom = User::newFromName( $from->name );
 
+		$autoSubject = wfMessage( 'defemailsubject', $from->name )->inContentLanguage()->text();
+		if ( $subject === $autoSubject ) {
+			$preview = $wgContLang->truncate( $text, 125 );
+		} else {
+			$preview = $subject;
+		}
+
 		EchoEvent::create( array(
 			'type' => 'emailuser',
 			'extra' => array(
 				'to-user-id' => $userTo->getId(),
-				'subject' => $subject,
+				'preview' => $preview,
 			),
 			'agent' => $userFrom,
 		) );

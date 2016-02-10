@@ -15,7 +15,7 @@ class EchoEmailUserPresentationModel extends EchoEventPresentationModel {
 	}
 
 	public function getBodyMessage() {
-		$subject = $this->event->getExtraParam( 'subject' );
-		return $subject ? $this->msg( 'notification-body-email-user' )->plaintextParams( $subject ) : false;
+		$preview = $this->event->getExtraParam( 'preview' );
+		return $preview ? $this->msg( 'notification-body-emailuser' )->plaintextParams( $preview ) : false;
 	}
 }

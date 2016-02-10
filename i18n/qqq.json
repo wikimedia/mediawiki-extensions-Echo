@@ -128,7 +128,7 @@
 	"notification-body-reverted": "{{notranslate}}",
 	"notification-emailuser": "Format for displaying notifications of a user has sent an email to another user. Parameters:\n* $1 - the username of the person the email, plain text. Can be used for GENDER.",
 	"notification-header-emailuser": "Flyout-specific format for displaying notifications of user has sent an email to another user.\n\nParameters:\n* $1 - the formatted username of the person who sent the email.\n* $2 - the username for GENDER.",
-	"notification-body-email-user": "{{notranslate}}",
+	"notification-body-emailuser": "{{notranslate}}",
 	"notification-edit-talk-page-email-subject2": "Email subject. Parameters:\n* $1 - a username which can be used for gender support",
 	"notification-edit-talk-page-email-batch-body2": "First line of the email notification for a talk page edit. The following line completes it with the description of the message in question, that is its edit summary.\n\nParameters:\n* $1 - a username (which also links to the userpage of the user in question, in the HTML version)\nSee also:\n* {{msg-mw|Notification-edit-talk-page2}}\n* {{msg-mw|Notification-edit-talk-page-email-subject2}}\n* {{msg-mw|Notification-edit-talk-page-flyout2}}",
 	"notification-edit-talk-page-email-batch-body-with-section": "Email notification for talk page edit with new section or new comment. Parameters:\n* $1 - a username\n* $2 - the raw section title text",
