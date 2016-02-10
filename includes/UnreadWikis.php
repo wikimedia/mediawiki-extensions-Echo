@@ -2,9 +2,13 @@
 
 /**
  * Manages what wikis a user has unread notifications on
- *
  */
 class EchoUnreadWikis {
+	/**
+	 * @var string
+	 */
+	const DEFAULT_TS = '00000000000000';
+
 	/**
 	 * @var int
 	 */
@@ -48,7 +52,7 @@ class EchoUnreadWikis {
 	}
 
 	/**
-	 * @return array
+	 * @return array Note that also wikis with 0 notifications and/or messages may be included
 	 */
 	public function getUnreadCounts() {
 		$dbr = $this->getDB( DB_SLAVE );
@@ -69,10 +73,6 @@ class EchoUnreadWikis {
 
 		$wikis = array();
 		foreach ( $rows as $row ) {
-			if ( !$row->euw_alerts && !$row->euw_messages ) {
-				// This shouldn't happen, but lets be safe...
-				continue;
-			}
 			$wikis[$row->euw_wiki] = array(
 				EchoAttributeManager::ALERT => array(
 					'count' => $row->euw_alerts,
@@ -101,18 +101,16 @@ class EchoUnreadWikis {
 			return;
 		}
 
-		$defaultTS = '00000000000000';
-
 		if ( $alertCount || $msgCount ) {
 			$values = array(
 				'euw_alerts' => $alertCount,
 				'euw_alerts_ts' => $alertCount
 					? $alertTime->getTimestamp( TS_MW )
-					: $defaultTS,
+					: static::DEFAULT_TS,
 				'euw_messages' => $msgCount,
 				'euw_messages_ts' => $msgCount
 					? $msgTime->getTimestamp( TS_MW )
-					: $defaultTS,
+					: static::DEFAULT_TS,
 			);
 			$dbw->upsert(
 				'echo_unread_wikis',
@@ -125,12 +123,11 @@ class EchoUnreadWikis {
 				__METHOD__
 			);
 		} else {
-			// No unread notifications, delete the row
-			$dbw->delete(
-				'echo_unread_wikis',
-				array( 'euw_user' => $this->id, 'euw_wiki' => $wiki ),
-				__METHOD__
-			);
+			// Even if there are no unread notifications, don't delete the row!
+			// That (empty) row helps us tell the difference between "has had
+			// notifications but all have been seen" (0 count, non-0 timestamp)
+			// and "has never had a notifications before" (row with 0 count and
+			// 000 timestamp or no row at all)
 		}
 	}
 }
