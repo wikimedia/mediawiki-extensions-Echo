@@ -1,0 +1,42 @@
+@import '../../echo.variables';
+@import '../../echo.mixins';
+
+.mw-echo-ui-menuItemWidget {
+	.mw-echo-ui-mixin-hover-opacity;
+
+	&-icon {
+		display: inline-block;
+		// We have to override oojs-ui's width/height, which uses
+		// a very specific selector
+		width: 1.5em !important;
+		height: 1.5em !important;
+
+		position: absolute;
+		top: 0;
+	}
+
+	&-content {
+		display: inline-block;
+		margin-left: 1.5em + 0.5em; // Icon width + 0.5em spacing
+
+		// We have to override oojs-ui's color, which uses
+		// a very specific selector
+		font-weight: normal !important;
+		color: #000 !important;
+		// Set max-width so buttons are truncated
+		max-width: 15em;
+
+		&-description {
+			color: #666666 !important;
+		}
+	}
+
+	// Correct for when inside the menu
+	.mw-echo-ui-notificationItemWidget-content-actions-menu & {
+		display: block;
+	}
+
+	&-prioritized {
+		display: inline-block;
+	}
+}

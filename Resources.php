@@ -39,6 +39,7 @@ $wgResourceModules += array(
 			'ooui/mw.echo.ui.NotificationsWidget.js',
 			'ooui/mw.echo.ui.BundledNotificationGroupWidget.js',
 			'ooui/mw.echo.ui.ActionMenuPopupWidget.js',
+			'ooui/mw.echo.ui.MenuItemWidget.js',
 			'ooui/mw.echo.ui.BadgeLinkWidget.js',
 			'ooui/mw.echo.ui.NotificationBadgeWidget.js'
 		),
@@ -49,6 +50,7 @@ $wgResourceModules += array(
 			'ooui/styles/mw.echo.ui.NotificationItemWidget.less',
 			'ooui/styles/mw.echo.ui.NotificationGroupItemWidget.less',
 			'ooui/styles/mw.echo.ui.BundledNotificationGroupWidget.less',
+			'ooui/styles/mw.echo.ui.MenuItemWidget.less',
 			'ooui/styles/mw.echo.ui.NotificationBadgeWidget.less'
 		),
 		'skinStyles' => array(
