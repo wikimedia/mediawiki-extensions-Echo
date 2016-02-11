@@ -4,5 +4,7 @@
 			"Kandar"
 		]
 	},
+	"tooltip-pt-notifications-alert": "Iber {{GENDER:|anjeun}}",
+	"tooltip-pt-notifications-message": "Obrolan {{GENDER:|anjeun}}",
 	"notification-edit-talk-page-email-batch-body2": "$1 {{GENDER:$1|nulis}} surat dina kaca obrolan anjeun."
 }
