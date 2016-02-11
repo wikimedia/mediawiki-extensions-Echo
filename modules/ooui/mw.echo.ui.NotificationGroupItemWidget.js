@@ -24,7 +24,7 @@
 
 		// Hide the [x] mark as read button for foreign notifications
 		if ( this.getModel().isForeign() ) {
-			this.markAsReadButton.toggle( false );
+			this.toggleMarkAsReadButtons( false );
 		}
 
 		this.setPendingElement( this.$group );
@@ -243,7 +243,7 @@
 
 		if ( this.getModel().isForeign() ) {
 			// Never show the [x] mark-all-unread button for foreign bundles
-			this.markAsReadButton.toggle( false );
+			this.toggleMarkAsReadButtons( false );
 		}
 	};
 
