@@ -311,8 +311,14 @@ class EchoNotificationController {
 		foreach ( self::evaluateUserCallable( $event, EchoAttributeManager::ATTR_FILTERS ) as $users ) {
 			// the result of the callback can be both an iterator or array
 			$users = is_array( $users ) ? $users : iterator_to_array( $users );
-			$notify->addFilter( function ( $user ) use ( $users ) {
-				return !in_array( $user, $users );
+			$notify->addFilter( function ( User $user ) use ( $users ) {
+				// we need to check if $user is in $users, but they're not
+				// guaranteed to be the same object, so I'll compare ids.
+				$userId = $user->getId();
+				$userIds = array_map( function ( User $user ) {
+					return $user->getId();
+				}, $users );
+				return !in_array( $userId, $userIds );
 			} );
 		}
 
