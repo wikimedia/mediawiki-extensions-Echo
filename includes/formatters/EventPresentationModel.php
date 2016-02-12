@@ -4,8 +4,7 @@
  * Class that returns structured data based
  * on the provided event.
  */
-// @todo: once PHP5.3 is no longer supported, this can implement JsonSerializable
-abstract class EchoEventPresentationModel {
+abstract class EchoEventPresentationModel implements JsonSerializable {
 
 	/**
 	 * Recommended length of usernames included in messages
