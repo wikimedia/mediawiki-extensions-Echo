@@ -18,7 +18,8 @@
 			"Calak",
 			"Americophile",
 			"Hosseinblue",
-			"Huji"
+			"Huji",
+			"Arian Ar"
 		]
 	},
 	"echo-desc": "سامانهٔ آگاه‌سازی کاربران از رویدادها و پیام‌ها",
@@ -111,8 +112,8 @@
 	"notification-user-rights-remove": "شما دیگر عضو {{PLURAL:$2|این گروه|این گروه‌ها}} نیستید: $1",
 	"notification-user-rights": "دسترسی‌های شما توسط [[User:$1|$1]] [[Special:Log/rights/$1|تغییر یافته است]] . $2. [[Special:ListGroupRights|بیشتر بخوانید]]",
 	"notification-header-user-rights-add-only": "دسترسی {{GENDER:$4|شما}} تغییر {{GENDER:$1|کرده‌است}}. اضافه شدید به: $2.",
-	"notification-header-user-rights-remove-only": "دسترسی {{GENDER:$4|شما}} تغییر {{GENDER:$1|کرده‌است}}. دیگر عضو نیستید در : $2.",
-	"notification-header-user-rights-add-and-remove": "دسترسی {{GENDER:$6|شما}} تغییر {{GENDER:$1|کرده‌است}}. اضافه شدید به: $2. دیگر عضو نیستید در : $4.",
+	"notification-header-user-rights-remove-only": "دسترسی {{GENDER:$4|شما}} تغییر {{GENDER:$1|کرده‌است}}. دیگر در $2 عضو نیستید.",
+	"notification-header-user-rights-add-and-remove": "دسترسی {{GENDER:$6|شما}} تغییر {{GENDER:$1|کرده‌است}}. اضافه شدید به: $2. دیگر در $4 عضو نیستید.",
 	"notification-new-user": "به {{SITENAME}} خوش‌آمدید، $1! خوشحالیم که شما اینجا هستید.",
 	"notification-header-welcome": "$1، به {{SITENAME}} {{GENDER:$2|خوش آمدید}}. خوشحالیم که {{GENDER:$2|شما}} اینجایید.",
 	"notification-welcome-linktext": "خوش‌آمدید",
