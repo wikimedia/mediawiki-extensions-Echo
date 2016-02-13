@@ -9,7 +9,6 @@ $wgAutoloadClasses += array(
 	'ApiEchoMarkSeen' => __DIR__ . '/includes/api/ApiEchoMarkSeen.php',
 	'ApiEchoNotifications' => __DIR__ . '/includes/api/ApiEchoNotifications.php',
 	'ApiEchoNotificationsTest' => __DIR__ . '/tests/phpunit/api/ApiEchoNotificationsTest.php',
-	'CallbackFilterIterator' => __DIR__ . '/includes/iterator/CallbackFilterIterator.php',
 	'ContainmentSetTest' => __DIR__ . '/tests/phpunit/ContainmentSetTest.php',
 	'EchoAbstractEntity' => __DIR__ . '/includes/model/AbstractEntity.php',
 	'EchoAbstractMapper' => __DIR__ . '/includes/mapper/AbstractMapper.php',
