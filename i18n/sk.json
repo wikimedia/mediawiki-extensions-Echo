@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Sudo77(new)",
-			"Teslaton"
+			"Teslaton",
+			"Macofe"
 		]
 	},
 	"echo-desc": "Notifikačný systém",
@@ -62,7 +63,7 @@
 	"notification-header-edit-user-talk": "$1 {{GENDER:$3|vám}} {{GENDER:$2|napísal|napísala}} na vašu diskusnú stránku.",
 	"notification-header-edit-user-talk-with-section": "$1 {{GENDER:$3|vám}} {{GENDER:$2|napísal|napísala}} na vašu diskusnú stránku v sekcii „$4“.",
 	"notification-page-linked": "Na stránku [[:$3]] {{GENDER:$1|bol pridaný}} odkaz na stránku [[:$2]]. [[Special:WhatLinksHere/$2|Zobraziť všetky odkazy na túto stránku]].",
-	"notification-header-page-linked": "Zo stránky $4 bol vytvorený odkaz na stránku $3.",
+	"notification-header-page-linked": "Zo stránky '''$4''' bol vytvorený odkaz na stránku '''$3'''.",
 	"notification-bundle-header-page-linked": "Zo stránky $4 a $5 {{PLURAL:$6|ďalšej|ďalších}} boli vytvorené odkazy na stránku $3.",
 	"notification-link-text-what-links-here": "Všetky odkazy na túto stránku",
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|pridal|pridala}} komentár k „[[$3|$2]]“ na stránke „$4“",

@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Умар"
+			"Умар",
+			"Macofe"
 		]
 	},
 	"echo-desc": "Декъашхойн хиларг а, хаамаш а болу дӀахаийтаран система",
@@ -68,7 +69,7 @@
 	"notification-header-edit-user-talk": "$1 {{GENDER:$2|битина}} хаам {{GENDER:$3|хьан}} дийцаре агӀонгахь.",
 	"notification-header-edit-user-talk-with-section": "$1 {{GENDER:$2|хаам битина}} {{GENDER:$3|хьан}} дийцаре агӀонгара «$4» дакъа тӀехь.",
 	"notification-page-linked": "[[:$2]] и {{GENDER:$1|йихкина}} оцу [[:$3]]. [[Special:WhatLinksHere/$2|Хьажа. ХӀокху агӀона массо хьажоргаш]].",
-	"notification-header-page-linked": "Хьажорг йина $4 → $3.",
+	"notification-header-page-linked": "Хьажорг йина '''$4''' → '''$3'''.",
 	"notification-bundle-header-page-linked": "$4 а, $5 а агӀонаш {{PLURAL:$6|кхечу агӀон тӀера|кхечу агӀонаш тӀера}} $3 тӀе хьажийна.",
 	"notification-link-text-what-links-here": "ХӀокху агӀонна тӀе массо хьажоргаш",
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|хаам биттина}} темехь \"[[$3|$2]]\" \"$4\" дийцаре агӀонехь.",

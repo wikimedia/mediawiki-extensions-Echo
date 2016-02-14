@@ -3,7 +3,8 @@
 		"authors": [
 			"Дзяніс Тутэйшы",
 			"Чаховіч Уладзіслаў",
-			"Mikalai Udodau"
+			"Mikalai Udodau",
+			"Macofe"
 		]
 	},
 	"echo-desc": "Сістэма апавяшчэння ўдзельнікаў пра падзеі і паведамленні",
@@ -70,13 +71,15 @@
 	"notification-header-edit-user-talk": "$1 {{GENDER:$2|пакінуў|пакінула}} паведамленне на {{GENDER:$3|вашай}} старонцы размоў.",
 	"notification-header-edit-user-talk-with-section": "$1 {{GENDER:$2|пакінуў|пакінула}} паведамленне на {{GENDER:$3|вашай}} старонцы размоў у \"$4\".",
 	"notification-page-linked": "[[:$2]] была {{GENDER:$1|звязана}} з [[:$3]]. [[Special:WhatLinksHere/$2|Гл. усе спасылкі на гэту старонку]].",
-	"notification-header-page-linked": "Зроблена спасылка з $4 на $3.",
+	"notification-header-page-linked": "Зроблена спасылка з '''$4''' на '''$3'''.",
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|пракаментаваў|пракаментавала}} тэму \"[[$3|$2]]\" на старонцы размоў \"$4\".",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] {{GENDER:$1|дадаў|дадала}} новую тэму \"$2\" на старонцы [[$3]].",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] {{GENDER:$1|адправіў|адправіла}} вам паведамленне: \"[[$3#$2|$2]]\".",
 	"notification-add-comment-yours2": "[[User:$1|$1]] {{GENDER:$1|пракаментаваў|пракаментавала}} тэму \"[[$3#$2|$2]]\" на вашай старонцы размоў.",
 	"notification-mention": "[[User:$1|$1]] {{GENDER:$1|згадаў|згадала}} вас на старонцы размоў $5 у раздзеле \"[[:$3#$2|$4]]\".",
 	"notification-mention-nosection": "[[User:$1|$1]] {{GENDER:$1|згадаў|згадала}} вас на [[:$3|$2 старонцы размоў]].",
+	"notification-user-rights-add": "Вы цяпер удзельнік {{PLURAL:$2|1=наступнай групы|наступных груп}}: $1",
+	"notification-user-rights-remove": "Вы больш не ўваходзіце ў {{PLURAL:$2|1=наступную групу|наступныя групы}}: $1",
 	"notification-user-rights": "Вашы правы карыстальніка [[Special:Log/rights/$1|{{GENDER:$1|змяніў|змяніла}}]] [[User:$1|$1]]. $2. [[Special:ListGroupRights|Падрабязней]]",
 	"notification-new-user": "Вітаем у {{GRAMMAR:месны|{{SITENAME}}}}, $1! Рады бачыць вас.",
 	"notification-reverted2": "{{PLURAL:$4|1=Вашу праўку на старонцы [[:$2]]|Вашы праўкі на старонцы [[:$2]]}} {{GENDER:$1|скасаваў|скасавала}} [[$5|$1]]. $3",

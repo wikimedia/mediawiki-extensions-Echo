@@ -7,7 +7,8 @@
 			"Prabodh1987",
 			"Sankoswal",
 			"V.narsikar",
-			"संतोष दहिवळ"
+			"संतोष दहिवळ",
+			"Macofe"
 		]
 	},
 	"echo-desc": "सदस्यास घटना व संदेश देणारी अधिसूचना प्रणाली",
@@ -75,7 +76,7 @@
 	"notification-edit-talk-page2": "[[User:$1|$1]] {{GENDER:$1|ने}} आपल्या [[User talk:$2#$3|चर्चा पानावर]] संदेश टाकला.",
 	"notification-edit-talk-page-with-section": "[[User:$1|$1]] {{GENDER:$1|ने}} एक संदेश आपल्या चर्चा पानावर \"[[User talk:$2#$3|$4]]\" या मथळ्याखाली टाकला.",
 	"notification-page-linked": "[[:$2]] ला [[:$3]] वरून {{GENDER:$1|दुवा दिल्या गेला}}. [[Special:WhatLinksHere/$2|या पानाचे सर्व दुवे बघा]].",
-	"notification-header-page-linked": "$4 हून $3 ला दुवा तयार केल्या गेला.",
+	"notification-header-page-linked": "'''$4''' हून '''$3''' ला दुवा तयार केल्या गेला.",
 	"notification-bundle-header-page-linked": "$4 व $5 इतर {{PLURAL:$6|पान|पाने}} आता $3 शी जुळली आहेत.",
 	"notification-link-text-what-links-here": "या पानास असणारे सर्व दुवे",
 	"notification-add-comment2": "[[User:$1|$1]] ने \"[[$3|$2]]\" वर, \"$4\" चर्चा पानावर{{GENDER:$1|शेरा टाकला}}.",
@@ -83,13 +84,10 @@
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]]ने आपणास एक संदेश {{GENDER:$1|पाठविला}}:\"[[$3#$2|$2]]\".",
 	"notification-add-comment-yours2": "[[User:$1|$1]]ने \"[[$3#$2|$2]]\" बाबत आपल्या चर्चापानावर {{GENDER:$1|शेरा टाकला}}.",
 	"notification-mention": "[[User:$1|$1]]ने  \"[[:$3#$2|$4]]\" मध्ये $5 चर्चापानावर आपला {{GENDER:$1|उल्लेख केला}}.",
-	"notification-header-mention": "$1 ने आपला, \"$4\" मध्ये $3 चर्चापानावर {{GENDER:$2|उल्लेख केला}}.",
 	"notification-mention-nosection": "[[User:$1|$1]] ने [[:$3|$2 चर्चा पानावर]] आपला {{GENDER:$1|उल्लेख केला}} .",
-	"notification-header-mention-nosection": "$1 ने $3 चर्चा पानावर {{GENDER:$5|आपला}} {{GENDER:$2|उल्लेख केला}}.",
-	"notification-user-rights": "आपले सदस्य अधिकार [[User:$1|$1]]द्वारा [[Special:Log/rights/$1| {{GENDER:$1|बदलविण्यात आले}}]]. $2. [[Special:ListGroupRights|अधिक माहिती घ्या]]",
-	"notification-header-user-rights": "आपले सदस्य अधिकार $1 द्वारा {{GENDER:$2|बदलविण्यात आलेत}}. $3.",
 	"notification-user-rights-add": "आपण आता {{PLURAL:$2|या गटाचे|या गटांचे}} सदस्य आहात:$1",
 	"notification-user-rights-remove": "आपण यापुढे {{PLURAL:$2|या गटाचे|या गटांचे}} सदस्य नाहीत:\n$1",
+	"notification-user-rights": "आपले सदस्य अधिकार [[User:$1|$1]]द्वारा [[Special:Log/rights/$1| {{GENDER:$1|बदलविण्यात आले}}]]. $2. [[Special:ListGroupRights|अधिक माहिती घ्या]]",
 	"notification-new-user": "$1! या {{SITENAME}}वर आपले स्वागत. आपण येथे आल्यामुळे आम्हास आनंद झाला.",
 	"notification-header-welcome": "{{SITENAME}} वर {{GENDER:$2|आपले स्वागत}}$1! {{GENDER:$2|आपण}} येथे आल्यामुळे आम्हास आनंद झाला.",
 	"notification-welcome-linktext": "स्वागत",

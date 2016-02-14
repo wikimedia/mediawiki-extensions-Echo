@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Milicevic01",
-			"Srdjan m"
+			"Srdjan m",
+			"Macofe"
 		]
 	},
 	"echo-desc": "Sistem za obaveštavanje korisnika o dešavanjima i porukama",
@@ -66,7 +67,7 @@
 	"notification-header-edit-user-talk": "$1 Vam je {{GENDER:$2|ostavio|ostavila}} poruku {{GENDER:$3|na}} Vašoj stranici za razgovor.",
 	"notification-header-edit-user-talk-with-section": "$1 Vam je {{GENDER:$2|ostavio|ostavila}} poruku na {{GENDER:$3|Vašoj}} stranici za razgovor u „$4“.",
 	"notification-page-linked": "Stranica [[:$2]] je {{GENDER:$1|povezana}} sa stranicom [[:$3]]. [[Special:WhatLinksHere/$2|Pogledajte sve veze prema ovoj stranici]].",
-	"notification-header-page-linked": "Stranica $3 je povezana sa $4.",
+	"notification-header-page-linked": "Stranica '''$3''' je povezana sa '''$4'''.",
 	"notification-bundle-header-page-linked": "Stranica $3 je povezana sa $4 i još $5 {{PLURAL:$6|1=stranicom|stranice|stranica}}.",
 	"notification-link-text-what-links-here": "Sve veze ka ovoj stranici",
 	"notification-add-comment2": "[[User:$1|$1]] je {{GENDER:$1|prokomentarisao|prokomentarisala}} temu „[[$3|$2]]“ na stranici za razgovor „$4“.",
@@ -89,7 +90,7 @@
 	"notification-header-welcome": "{{GENDER:$2|Dobro došli}} na {{SITENAME}}, $1! Drago nam {{GENDER:$2|je}} što ste ovde.",
 	"notification-welcome-linktext": "Dobro došli",
 	"notification-reverted2": "{{PLURAL:$4|1=Vaša izmena na stranici [[:$2]] je poništena|Vaše izmene na stranici [[:$2]] su poništene}} od strane {{GENDER:$1|korisnika|korisnice}} [[$5|$1]]. $3",
-	"notification-header-reverted": "{{PLURAL:$4|Vaša izmena na stranici $3 je poništena|Vaše izmene na {{GENDER:$2|stranici}} $3 su poništene}}.",
+	"notification-header-reverted": "{{PLURAL:$4|Vaša izmena na stranici '''$3''' je poništena|Vaše izmene na {{GENDER:$2|stranici}} '''$3''' su poništene}}.",
 	"notification-emailuser": "[[User:$1|$1]] Vam je {{GENDER:$1|poslao|poslala}} imejl.",
 	"notification-header-emailuser": "$1 Vam je {{GENDER:$2|poslao|poslala}} imejl.",
 	"notification-edit-talk-page-email-subject2": "$1 Vam je {{GENDER:$1|ostavio|ostavila}} poruku na projektu {{SITENAME}}",

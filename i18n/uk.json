@@ -12,7 +12,8 @@
 			"Piramidion",
 			"NickK",
 			"Lxlalexlxl",
-			"Максим Підліснюк"
+			"Максим Підліснюк",
+			"Macofe"
 		]
 	},
 	"echo-desc": "Система сповіщення користувачів про події і повідомлення",
@@ -80,7 +81,7 @@
 	"notification-header-edit-user-talk-with-section": "$1 {{GENDER:$2|залишив|залишила}} повідомлення на {{GENDER:$3|Вашій}} сторінці обговорення у «$4».",
 	"notification-body-edit-user-talk-with-section": "$1",
 	"notification-page-linked": "На [[:$3]] $1 {{GENDER:$1|додав|додала}} посилання на [[:$2]]. [[Special:WhatLinksHere/$2|Див. усі посилання на цю сторінку]]",
-	"notification-header-page-linked": "На сторінці «$4» додали посилання на «$3».",
+	"notification-header-page-linked": "На сторінці '''$4''' додали посилання на '''$3'''.",
 	"notification-bundle-header-page-linked": "На $3 було {{GENDER:$2|додано посилання}} з $4 та $5 {{PLURAL:$6|іншої сторінки|інших сторінок}}.",
 	"notification-link-text-what-links-here": "Переглянути усі посилання на цю сторінку",
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|прокоментував|прокоментувала}} \"[[$3|$2]]\" на сторінці обговорення \"$4\".",

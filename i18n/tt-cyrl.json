@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Ilnur efende",
-			"Ильнар"
+			"Ильнар",
+			"Macofe"
 		]
 	},
 	"prefs-echo": "Белдерүләр",
@@ -53,7 +54,7 @@
 	"notification-new-user": "{{SITENAME}} сәхифәсенә рәхим итегез, $1! Сезнең монда булуыгыз белән без бик шат.",
 	"notification-welcome-linktext": "Рәхим итегез!",
 	"notification-reverted2": "[[$5|$1]] сезнең [[:$2]] битендә ясаган {{PLURAL:$4|кертемегезне}} {{GENDER:$1|кире какты}}. $3",
-	"notification-header-reverted": "{{PLURAL:$4|1=Сезнең}} $3 битендә ясалган төзәтмәләрегез {{GENDER:$2|{{PLURAL:$4|кире кагылды}}}}",
+	"notification-header-reverted": "{{PLURAL:$4|1=Сезнең}} '''$3''' битендә ясалган төзәтмәләрегез {{GENDER:$2|{{PLURAL:$4|кире кагылды}}}}",
 	"notification-edit-talk-page-email-batch-body2": "{{GENDER:$1|Кулланучы}} $1 сезнең бәхәс битегездә хат {{GENDER:$1|калдырды}}.",
 	"notification-edit-talk-page-email-batch-body-with-section": "{{GENDER:$1|Кулланучы}} $1 сезгә «$2» темасының бәхәс битендә хат {{GENDER:$1|калдырды}}",
 	"notification-mention-email-subject": "$1 {{GENDER:$2|сезне}} на сайте «{{SITENAME}}» сәхтфәсендә {{GENDER:$1|искә алды}}",

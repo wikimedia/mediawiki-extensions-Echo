@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Robby",
-			"Soued031"
+			"Soued031",
+			"Macofe"
 		]
 	},
 	"echo-desc": "System fir Benotzer iwwer Evenementer a Messagen z'informéieren",
@@ -65,9 +66,10 @@
 	"notification-link-text-view-edit": "Ännerung weisen",
 	"notification-edit-talk-page2": "[[User:$1|$1]] {{GENDER:$1|huet}} op Är [[User talk:$2#$3|Diskussiounssäit]] geschriwwen.",
 	"notification-edit-talk-page-with-section": "[[User:$1|$1]] {{GENDER:$1|huet}} e Message op Ärer Diskussiounssäit ënner \"[[User talk:$2#$3|$4]]\" hannerlooss.",
+	"notification-header-edit-user-talk": "$1 {{GENDER:$2|huet}} e Message op '''{{GENDER:$3|Är}} Diskussiounssäit''' gesat.",
 	"notification-body-edit-user-talk-with-section": "$1",
 	"notification-page-linked": "[[:$2]] gouf vun [[:$3]] {{GENDER:$1|verlinkt}}. [[Special:WhatLinksHere/$2|Kuckt all Linken op dës Säit]].",
-	"notification-header-page-linked": "Et gouf et Link vu(n) $4 op $3 gemaacht.",
+	"notification-header-page-linked": "Et gouf et Link vu(n) '''$4''' op '''$3''' gemaacht.",
 	"notification-bundle-header-page-linked": "$4 a(n) $5 aner {{PLURAL:$6|Säit|Säite}} linken elo op $3.",
 	"notification-link-text-what-links-here": "All Linken op dës Säit",
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|huet}} eng Bemierkung iwwer \"[[$3|$2]]\" op der \"$4\" Diskussiounssäit geschriwwen.",
@@ -77,6 +79,7 @@
 	"notification-mention": "[[User:$1|$1]] {{GENDER:$1|huet}} {{GENDER:$6|Iech}} op der $5 Diskussiounssäit bei \"[[:$3#$2|$4]]\" ernimmt.",
 	"notification-mention-nosection": "[[User:$1|$1]] {{GENDER:$1|huet}} {{GENDER:$4|Iech}} op der [[:$3|$2 Diskussiounssäit]] ernimmt.",
 	"notification-header-mention-other-nosection": "$1 huet {{GENDER:$3|Iech}} op '''$4''' {{GENDER:$2|ernimmt}}",
+	"notification-header-mention-agent-talkpage": "$1 {{GENDER:$2|huet}} {{GENDER:$3|Iech}} op '''{{GENDER:$2|senger|hirer}} Diskussiounssäit''' iwwer '''''$4''''' ernimmt.",
 	"notification-user-rights-add": "Dir sidd elo Member vun {{PLURAL:$2|dësem Grupp|dëse Gruppen}}: $1",
 	"notification-user-rights-remove": "Dir sidd net méi Member vun {{PLURAL:$2|dësem Grupp|dëse Gruppen}}: $1",
 	"notification-user-rights": "Är Benotzerrechter [[Special:Log/rights/$1|goufe vum [[User:$1|$1]] {{GENDER:$1|geännert}}]]. $2. [[Special:ListGroupRights|Fir méi ze wëssen]]",
@@ -84,8 +87,13 @@
 	"notification-new-user": "Wëllkomm op {{SITENAME}}, $1! Mir si frou Iech begréissen ze kënnen.",
 	"notification-header-welcome": "{{GENDER:$2|Wëllkomm}} op {{SITENAME}}, $1! Mir si frou, datt {{GENDER:$2|Dir}} do sidd.",
 	"notification-welcome-linktext": "Wëllkomm",
+	"notification-header-thank-you-1-edit": "{{GENDER:$2|Dir}} hutt elo grad  {{GENDER:$2|Är}} éischt Ännerung op {{SITENAME}}gemaach; Villmools {{GENDER:$2|Merci}}, a wëllkomm!",
+	"notification-header-thank-you-10-edit": "{{GENDER:$2|Dir}} hutt elo grad  {{GENDER:$2|Är}} zéngst Ännerung op {{SITENAME}}gemaach; Villmools {{GENDER:$2|Merci}}, a fuert esou weider!",
+	"notification-header-thank-you-100-edit": "{{GENDER:$2|Dir}} hutt elo grad  {{GENDER:$2|Är}} honnertst Ännerung op {{SITENAME}}gemaach; Villmools {{GENDER:$2|Merci}}!",
+	"notification-header-thank-you-1000-edit": "{{GENDER:$2|Dir}} hutt elo grad  {{GENDER:$2|Är}} dausendst Ännerung op {{SITENAME}}gemaach; Villmools {{GENDER:$2|Merci}}! Dir sidd e gudde Mataarbechter!",
+	"notification-link-thank-you-edit": "{{GENDER:$1|Är}} Ännerung",
 	"notification-reverted2": "Är {{PLURAL:$4|Ännerung vu(n) [[:$2]] gouf|Ännerunge vu(n) [[:$2]] goufe}} vum [[$5|$1]] {{GENDER:$1|zréckgesat}}. $3",
-	"notification-header-reverted": "Är {{PLURAL:$4|Ännerung op $3 gouf|Ännerungen op $3 goufen}} {{GENDER:$2|zréckgesat}} .",
+	"notification-header-reverted": "Är {{PLURAL:$4|Ännerung op '''$3''' gouf|Ännerungen op '''$3''' goufen}} {{GENDER:$2|zréckgesat}} .",
 	"notification-header-emailuser": "$1 huet {{GENDER:$2|Iech}} eng E-Mail geschéckt.",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|huet}} Iech en neie Message op Ärer Diskussiounssäit op {{SITENAME}} hannerlooss",
 	"notification-edit-talk-page-email-batch-body2": "$1 {{GENDER:$1|huet}} ee Message op Är Diskussiounssäit geschriwwen.",

@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Bjankuloski06"
+			"Bjankuloski06",
+			"Macofe"
 		]
 	},
 	"echo-desc": "Систем за известување на корисници во врска со настани и пораки",
@@ -74,7 +75,7 @@
 	"notification-header-edit-user-talk-with-section": "$1 {{GENDER:$2|остави}} порака на {{GENDER:$3|вашата}} страница за разговор на „$4“.",
 	"notification-body-edit-user-talk-with-section": "$1",
 	"notification-page-linked": "[[:$2]] е {{GENDER:$1|наведена}} од [[:$3]].  [[Special:WhatLinksHere/$2|Погл. сите врски до страницава]].",
-	"notification-header-page-linked": "Направена е врска од $4 до $3.",
+	"notification-header-page-linked": "Направена е врска од '''$4''' до '''$3'''.",
 	"notification-bundle-header-page-linked": "Направени се врски од $4 и уште $5 {{PLURAL:$6|страница|страници}} до $3.",
 	"notification-link-text-what-links-here": "Сите врски до страницава",
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|коментираше}} на „[[$3|$2]]“ на страницата за разговор „$4“",
@@ -101,7 +102,7 @@
 	"notification-header-welcome": "{{GENDER:$2|Добре дојдовте}} на {{SITENAME}}, $1! Драго ни е {{GENDER:$2|што сте}} тука.",
 	"notification-welcome-linktext": "Добре дојдовте",
 	"notification-reverted2": "[[$5|$1]] {{PLURAL:$4|го|ги}} {{GENDER:$1|врати}} {{PLURAL:$4|вашето уредување на [[:$2]]|вашите уредувања на [[:$2]]}} $3",
-	"notification-header-reverted": "{{PLURAL:$4|Вашето уредување на $3 е {{GENDER:$2|отповикано}}|Вашите уредувања на $3 се {{GENDER:$2|отповикани}}}}",
+	"notification-header-reverted": "{{PLURAL:$4|Вашето уредување на '''$3''' е {{GENDER:$2|отповикано}}|Вашите уредувања на '''$3''' се {{GENDER:$2|отповикани}}}}",
 	"notification-emailuser": "[[User:$1|$1]] {{GENDER:$1|ви испрати}} е-пошта.",
 	"notification-header-emailuser": "$1 {{GENDER:$2|ви испрати}} е-пошта.",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|ви остави}} порака на {{SITENAME}}",

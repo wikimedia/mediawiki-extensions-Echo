@@ -7,7 +7,8 @@
 			"Tokoko",
 			"Otogi",
 			"BRUTE",
-			"Dawid Deutschland"
+			"Dawid Deutschland",
+			"Macofe"
 		]
 	},
 	"echo-desc": "შეტყობინებებისა და მოვლენების სისტემა",
@@ -61,7 +62,7 @@
 	"notification-header-edit-user-talk": "მომხმარებელმა $1 {{GENDER:$2|დატოვა}} შეტყობინება {{GENDER:$3|თქვენი}} განხილვის გვერდზე.",
 	"notification-header-edit-user-talk-with-section": "მომხმარებელმა $1 {{GENDER:$2|}} დატოვა შეტყობინება {{GENDER:$3|თქვენი}} განხილვის გვერდზე „$4“.",
 	"notification-page-linked": "[[:$2]] {{GENDER:$1|ბმული}} გაკეთდა სტატიაში [[:$3]]. [[Special:WhatLinksHere/$2|იხილეთ ამ გვერდის ყველა ბმული]].",
-	"notification-header-page-linked": "გაკეთდა ბმული $4-დან $3-ზე.",
+	"notification-header-page-linked": "გაკეთდა ბმული '''$4'''-დან '''$3'''-ზე.",
 	"notification-link-text-what-links-here": "ყველა ბმული ამ გვერდზე",
 	"notification-mention": "[[User:$1|$1]]-მა {{GENDER:$1|მოგნიშნათ}} განხილვის გვერდზე „$5“ სექციაში „[[:$3#$2|$4]]“.",
 	"notification-mention-nosection": "[[User:$1|$1]]-მა {{GENDER:$1|მოგნიშნათ}} [[:$3|$2 განხილვის გვერდზე]].",

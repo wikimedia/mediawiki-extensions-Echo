@@ -5,7 +5,8 @@
 			"Hugo.arg",
 			"Mantak111",
 			"Albertas",
-			"Zygimantus"
+			"Zygimantus",
+			"Macofe"
 		]
 	},
 	"echo-desc": "Sistema, skirta naudotojų informavimui apie įvykius ir žinutes",
@@ -76,7 +77,7 @@
 	"notification-header-edit-user-talk": "$1 {{GENDER:$2|paliko}} žinutę {{GENDER:$3|jūsų}} aptarimo puslapyje.",
 	"notification-header-edit-user-talk-with-section": "$1 {{GENDER:$2|paliko}} žinutę {{GENDER:$3|jūsų}} aptarimo puslapyje \"$4\".",
 	"notification-page-linked": "[[:$2]] buvo {{GENDER:$1|susietas}} čia [[:$3]]. [[Special:WhatLinksHere/$2|Pamatyti visas nuorodas į šį puslapį]].",
-	"notification-header-page-linked": "Buvo sukurta nuoroda iš $4 į $3.",
+	"notification-header-page-linked": "Buvo sukurta nuoroda iš '''$4''' į '''$3'''.",
 	"notification-bundle-header-page-linked": "$4 ir $5 kiti {{PLURAL:$6|puslapis|puslapiai}} dabar nurodo į $3.",
 	"notification-link-text-what-links-here": "Visos nuorodos į šį puslapį",
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|pakomentavo}} \"[[$3|$2]]\"  \"$4\" aptarimo puslapyje.",

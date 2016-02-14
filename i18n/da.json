@@ -7,7 +7,8 @@
 			"Sarrus",
 			"Tjernobyl",
 			"Thomsen",
-			"Cgtdk"
+			"Cgtdk",
+			"Macofe"
 		]
 	},
 	"echo-desc": "Meddelelsessystem",
@@ -67,10 +68,12 @@
 	"notification-add-comment-yours2": "[[User:$1|$1]] kommenterede om \"[[$3#$2|$2]]\" på din diskussionsside",
 	"notification-mention": "[[User:$1|$1]] omtalte dig på diskussionssiden $5 i \"[[:$3#$2|$4]]\".",
 	"notification-mention-nosection": "[[User:$1|$1]] {{GENDER:$1|nævnte}} dig på [[:$3|diskussionssiden for \"$2\"]].",
+	"notification-user-rights-add": "Du er nu medlem af {{PLURAL:$2|denne gruppe|disse grupper}}: $1",
+	"notification-user-rights-remove": "du er ikke længere medlem af {{PLURAL:$2|denne gruppe|disse grupper}}: $1",
 	"notification-user-rights": "Dine brugerrettigheder [[Special:Log/rights/$1|blev  ændret]] af [[User:$1|$1]]. $2. [[Special:ListGroupRights|Find ud af mere]]",
 	"notification-new-user": "Velkommen til {{SITENAME}}, $1! Vi er glade for at du er her.",
 	"notification-reverted2": "{{PLURAL:$4|Din redigering af [[:$2]] er blevet tilbagestillet|Dine redigeringer af [[:$2]] er blevet tilbagestillede}} af [[$5|$1]] $3",
-	"notification-header-reverted": "{{PLURAL:$4|Din redigering af $3 er blevet tilbagestillet|Dine redigeringer af $3 er blevet tilbagestillede}} af $2",
+	"notification-header-reverted": "{{PLURAL:$4|Din redigering af '''$3''' er blevet tilbagestillet|Dine redigeringer af '''$3''' er blevet tilbagestillede}} af $2",
 	"notification-edit-talk-page-email-subject2": "$1 lagde en besked til dig på {{SITENAME}}",
 	"notification-edit-talk-page-email-batch-body2": "$1 skrev et indlæg på din diskussionsside",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 lagde en besked på din diskussionsside i \"$2\".",

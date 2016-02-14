@@ -19,7 +19,8 @@
 			"Americophile",
 			"Hosseinblue",
 			"Huji",
-			"Arian Ar"
+			"Arian Ar",
+			"Macofe"
 		]
 	},
 	"echo-desc": "سامانهٔ آگاه‌سازی کاربران از رویدادها و پیام‌ها",
@@ -91,7 +92,7 @@
 	"notification-header-edit-user-talk": "$1 پیامی بر روی صفحهٔ بحث {{GENDER:$3|شما}} {{GENDER:$2|گذاشته‌است}}.",
 	"notification-header-edit-user-talk-with-section": "$1 یک پیام در بحث {{GENDER:$3|شما}} در «$4» {{GENDER:$2|گذاشته‌است}}.",
 	"notification-page-linked": "[[:$2]] از [[:$3]] {{GENDER:$1|پیوند گرفته‌است}}. [[Special:WhatLinksHere/$2|همهٔ پیوندها به این صفحه را ببینید]].",
-	"notification-header-page-linked": "پیوندی از $4 به $3 داده شده‌است.",
+	"notification-header-page-linked": "پیوندی از '''$4''' به '''$3''' داده شده‌است.",
 	"notification-bundle-header-page-linked": "پیوندهای ایجاد شده از $4 و $5 و سایر  {{PLURAL:$6|صفحه|صفحات}} به $3.",
 	"notification-link-text-what-links-here": "همهٔ پیوندها به این صفحه",
 	"notification-add-comment2": "[[User:$1|$1]] در «[[$3|$2]]» در صفحه بحث «$4» نظری افزود.",
@@ -118,7 +119,7 @@
 	"notification-header-welcome": "$1، به {{SITENAME}} {{GENDER:$2|خوش آمدید}}. خوشحالیم که {{GENDER:$2|شما}} اینجایید.",
 	"notification-welcome-linktext": "خوش‌آمدید",
 	"notification-reverted2": "ویرایش(های) شما در [[:$2]] توسط [[$5|$1]] {{PLURAL:$4|خنثی‌سازی|واگردانی}} شده است. $3",
-	"notification-header-reverted": "{{PLURAL:$4|ویرایش شما بر روی $3|ویرایش‌های شما بر روی $3}}  {{GENDER:$2|برگردانده شده‌است.}}",
+	"notification-header-reverted": "{{PLURAL:$4|ویرایش شما بر روی '''$3'''|ویرایش‌های شما بر روی '''$3'''}}  {{GENDER:$2|برگردانده شده‌است.}}",
 	"notification-emailuser": "[[User:$1|$1]] به شما ایمیل {{GENDER:$1|زد}}.",
 	"notification-header-emailuser": "$1 به شما ایمیل {{GENDER:$2|زد}}.",
 	"notification-edit-talk-page-email-subject2": "شما یک پیام تازه از طرف $1 در صفحهٔ بحث {{SITENAME}} دارید.",

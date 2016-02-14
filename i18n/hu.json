@@ -8,7 +8,9 @@
 			"Tgr",
 			"Tacsipacsi",
 			"Samat",
-			"Bináris"
+			"Bináris",
+			"Macofe",
+			"R-Joe"
 		]
 	},
 	"echo-desc": "Értesíti a felhasználókat az eseményekről és üzenetekről",
@@ -58,7 +60,7 @@
 	"echo-more-info": "További információ",
 	"echo-feedback": "Visszajelzés",
 	"echo-api-failure": "Nem sikerült lekérni az értesítéseket. Kérjük, próbálja újra. (Hiba $1)",
-	"echo-api-failure-cross-wiki": "A hozzáférést a távoli szerver elutasította.",
+	"echo-api-failure-cross-wiki": "A hozzáférés a távoli tartományhoz elutasítva.",
 	"echo-notification-placeholder": "Nincsenek értesítések.",
 	"echo-notification-loginrequired": "Be kell jelentkezned, hogy lásd az értesítéseidet.",
 	"echo-notification-popup-loginrequired": "Az értesítéseid megtekintéséhez jelentkezz be.",
@@ -78,7 +80,7 @@
 	"notification-header-edit-user-talk": "$1 üzenetet {{GENDER:$2|hagyott}} {{GENDER:$3|a vitalapodon}}.",
 	"notification-header-edit-user-talk-with-section": "$1 üzenetet {{GENDER:$2|hagyott}} {{GENDER:$3|a vitalapodon}} a(z) „$4” szakaszban.",
 	"notification-page-linked": "A(z) [[:$2]] szócikkedre {{GENDER:$1|hivatkoztak}} a(z) [[:$3]] cikkben. [[Special:WhatLinksHere/$2|Kilistázhatod az összes hivatkozást a szócikkre]].",
-	"notification-header-page-linked": "A(z) $3 lapra hivatkoztak a(z) $4 lapról.",
+	"notification-header-page-linked": "A(z) '''$3''' lapra hivatkoztak a(z) '''$4''' lapról.",
 	"notification-bundle-header-page-linked": "Hivatkozás készült a(z) $4 és {{PLURAL:$6|egy|$5}} másik lapról a(z) $3 lapra.",
 	"notification-link-text-what-links-here": "Összes hivatkozás erre a lapra",
 	"notification-add-comment2": "[[User:$1|$1]] hozzászólt a(z) „[[$3|$2]]” témához a(z) „$4” vitalapon",
@@ -105,7 +107,7 @@
 	"notification-header-welcome": "{{GENDER:$2|Üdvözlünk}} a(z) {{SITENAME}} wikin, $1! Örülünk, hogy itt {{GENDER:$2|vagy}}.",
 	"notification-welcome-linktext": "Üdvözlet",
 	"notification-reverted2": "[[$5|$1]] visszavonta a {{PLURAL:$4|szerkesztésedet|szerkesztéseidet}} a(z) [[:$2]] cikkben. $3",
-	"notification-header-reverted": "{{GENDER:$2|Visszavonták}} a {{PLURAL:$4|szerkesztésedet|szerkesztéseidet}} a(z) $3 cikkben.",
+	"notification-header-reverted": "{{GENDER:$2|Visszavonták}} a {{PLURAL:$4|szerkesztésedet|szerkesztéseidet}} a(z) '''$3''' cikkben.",
 	"notification-emailuser": "[[User:$1|$1]] {{GENDER:$1|küldött}} neked egy e-mailt.",
 	"notification-header-emailuser": "$1 {{GENDER:$2|küldött}} neked egy e-mailt",
 	"notification-edit-talk-page-email-subject2": "$1 üzenetet hagyott neked a(z) {{SITENAME}} wikin",

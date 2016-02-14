@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Arystanbek"
+			"Arystanbek",
+			"Macofe"
 		]
 	},
 	"echo-desc": "Оқиғалар мен хабарламалар туралы қатысушыларға ескерту \nжүйесі",
@@ -71,7 +72,7 @@
 	"notification-header-edit-user-talk": "$1 талқылау {{GENDER:$3|бетіңізге}} хабарлама {{GENDER:$2|қалдырды}}.",
 	"notification-header-edit-user-talk-with-section": "$1 талқылау {{GENDER:$3|бетіңіздегі}}  «$4» бөліміне хабарлама {{GENDER:$2|қалдырды}}.",
 	"notification-page-linked": "[[:$2]] [[:$3]] бетінен {{GENDER:$1|сілтенді}}. [[Special:WhatLinksHere/$2|Бұл бетке барлық сілтенгендерді көріңіз]].",
-	"notification-header-page-linked": "$4 дегеннен $3 дегенге сілтеме жасалды.",
+	"notification-header-page-linked": "'''$4''' дегеннен '''$3''' дегенге сілтеме жасалды.",
 	"notification-bundle-header-page-linked": "$4 және басқа $5 {{PLURAL:$6|бет|бет}} $3 бетіне сілтенді.",
 	"notification-link-text-what-links-here": "Бұл бетке сілтенгендер",
 	"notification-add-comment2": "[[User:$1|$1]] \"$4\" талқылау бетіндегі \"[[$3|$2]]\" бөліміне {{GENDER:$1|пікір жазды}}.",
@@ -87,7 +88,7 @@
 	"notification-header-welcome": "{{SITENAME}} жобасына {{GENDER:$2|қош келдіңіз}}, $1! {{GENDER:$2|Сіздің}} осында болғаныңызға қуаныштымыз.",
 	"notification-welcome-linktext": "Қош келдіңіз!",
 	"notification-reverted2": "Сіздің {{PLURAL:$4|[[:$2]] бетіндегі өңдемеңізді|[[:$2]] бетіндегі өңдемелеріңізді}} [[$5|$1]] {{GENDER:$1|жоққа шығарды}}. $3",
-	"notification-header-reverted": "Сіздің {{PLURAL:$4|$3 бетіндегі өңдемеңіз|$3 бетіндегі өңдемелеріңіз}} {{GENDER:$2|жоққа шығарылды}}.",
+	"notification-header-reverted": "Сіздің {{PLURAL:$4|'''$3''' бетіндегі өңдемеңіз|'''$3''' бетіндегі өңдемелеріңіз}} {{GENDER:$2|жоққа шығарылды}}.",
 	"notification-emailuser": "[[User:$1|$1]] сізге электронды хат {{GENDER:$1|жіберді}}.",
 	"notification-header-emailuser": "$1 сізге электронды хат {{GENDER:$2|жіберді}}.",
 	"notification-edit-talk-page-email-subject2": "$1 {{SITENAME}} сайтында сізге хабарлама {{GENDER:$1|қалдырды}}",

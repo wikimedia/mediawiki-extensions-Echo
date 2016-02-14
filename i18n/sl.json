@@ -5,7 +5,8 @@
 			"Eleassar",
 			"Matej1234",
 			"Pinky sl",
-			"Yerpo"
+			"Yerpo",
+			"Macofe"
 		]
 	},
 	"echo-desc": "Sistem za obveščanje uporabnikov o dogodkih in sporočilih",
@@ -65,10 +66,12 @@
 	"notification-add-comment-yours2": "[[User:$1|$1]] je na vaši pogovorni strani {{GENDER:$1|komentiral|komentirala}} o temi »[[$3#$2|$2]]«.",
 	"notification-mention": "[[User:$1|$1]] {{GENDER:$6|vas}} je {{GENDER:$1|omenil|omenila}} na pogovorni strani strani »$5« v razdelku »[[:$3#$2|$4]]«.",
 	"notification-mention-nosection": "[[User:$1|$1]] {{GENDER:$4|vas}} je {{GENDER:$1|omenil|omenila|omenil(-a)}} na [[:$3|pogovorni strani $2]].",
+	"notification-user-rights-add": "Odslej ste član {{PLURAL:$2|naslednje skupine|naslednjih skupin}}: $1",
+	"notification-user-rights-remove": "Niste več član {{PLURAL:$2|naslednje skupine|naslednjih skupin}}: $1",
 	"notification-user-rights": "Vaše uporabniške pravice [[Special:Log/rights/$1|je {{GENDER:$1|spremenil|spremenila}}]] {{GENDER:$1|uporabnik|uporabnica}} [[User:$1|$1]]. $2. [[Special:ListGroupRights|Več o tem]].",
 	"notification-new-user": "Pozdravljeni v {{GRAMMAR:dajalnik|{{SITENAME}}}}, $1! Veseli smo, da ste tu.",
 	"notification-reverted2": "{{PLURAL:$4|Vaše urejanje strani »[[:$2]]« je|Vaša urejanja strani »[[:$2]]« je}} {{GENDER:$1|uporabnik|uporabnica}} [[$5|$1]] {{GENDER:$1|vrnil|vrnila}}. $3.",
-	"notification-header-reverted": "{{PLURAL:$4|Vaše urejanje strani »$3« je bilo|Vaša urejanja strani »$3« so bila}} {{GENDER:$2|vrnjena}}",
+	"notification-header-reverted": "{{PLURAL:$4|Vaše urejanje strani '''$3''' je bilo|Vaša urejanja strani '''$3''' so bila}} {{GENDER:$2|vrnjena}}",
 	"notification-edit-talk-page-email-subject2": "V projektu {{SITENAME}} vam je {{GENDER:$1|uporabnik|uporabnica}} {{GENDER:$1|pustil|pustila}} sporočilo.",
 	"notification-edit-talk-page-email-batch-body2": "{{GENDER:$1|Uporabnik|Uporabnica}} vam je na pogovorni strani {{GENDER:$1|pustil|pustila}} sporočilo.",
 	"notification-edit-talk-page-email-batch-body-with-section": "{{GENDER:$1|Uporabnik|Uporabnica}} vam je {{GENDER:$1|pustil|pustila}} sporočilo na pogovorni strani v razdelku »$2«.",

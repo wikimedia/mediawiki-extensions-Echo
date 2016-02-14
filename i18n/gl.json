@@ -4,7 +4,8 @@
 			"Elisardojm",
 			"Toliño",
 			"Vivaelcelta",
-			"Banjo"
+			"Banjo",
+			"Macofe"
 		]
 	},
 	"echo-desc": "Sistema para notificar ós usuarios sobre eventos e mensaxes",
@@ -72,11 +73,11 @@
 	"notification-link-text-view-edit": "Mostrar a edición",
 	"notification-edit-talk-page2": "[[User:$1|$1]] {{GENDER:$1|deixou}} unha mensaxe na súa [[User talk:$2#$3|páxina de conversa]].",
 	"notification-edit-talk-page-with-section": "[[User:$1|$1]] {{GENDER:$1|deixou}} unha mensaxe na súa páxina de conversa na sección \"[[User talk:$2#$3|$4]]\".",
-	"notification-header-edit-user-talk": "$1 {{GENDER:$2|deixou}} unha mensaxe na {{GENDER:$3|súa}} páxina de conversa.",
-	"notification-header-edit-user-talk-with-section": "$1 {{GENDER:$2|deixou}} unha mensaxe na {{GENDER:$3|súa}} páxina de conversa en \"$4\".",
+	"notification-header-edit-user-talk": "$1 {{GENDER:$2|deixou}} unha mensaxe na '''{{GENDER:$3|súa}} páxina de conversa'''.",
+	"notification-header-edit-user-talk-with-section": "$1 {{GENDER:$2|deixou}} unha mensaxe na '''{{GENDER:$3|súa}} páxina de conversa''' en \"'''$4'''\".",
 	"notification-body-edit-user-talk-with-section": "$1",
 	"notification-page-linked": "\"[[:$2]]\" foi {{GENDER:$1|ligada}} desde \"[[:$3]]\". [[Special:WhatLinksHere/$2|Ollar todas as ligazóns cara a esta páxina]].",
-	"notification-header-page-linked": "Fíxose unha ligazón desde $4 a $3.",
+	"notification-header-page-linked": "Fíxose unha ligazón desde '''$4''' a '''$3'''.",
 	"notification-bundle-header-page-linked": "Fixéronse ligazóns de $4 e $5 {{PLURAL:$6|outra páxina|outras páxinas}} a $3.",
 	"notification-link-text-what-links-here": "Todas as ligazóns a esta páxina",
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|comentou}} en \"[[$3|$2]]\" na páxina de conversa \"$4\"",
@@ -103,7 +104,7 @@
 	"notification-header-welcome": "{{GENDER:$2|Benvido|Benvida}} a {{SITENAME}}, $1. Alégranos que esteas aquí.",
 	"notification-welcome-linktext": "Benvido",
 	"notification-reverted2": "[[$5|$1]] {{GENDER:$1|reverteu}} {{PLURAL:$4|a súa edición|as súas edicións}} en \"[[:$2]]\" $3",
-	"notification-header-reverted": "{{PLURAL:$4|A súa edición en $3 foi |As súas edicións en $3 foron}} {{GENDER:$2|revertidas}}.",
+	"notification-header-reverted": "{{PLURAL:$4|A súa edición en '''$3''' foi |As súas edicións en '''$3''' foron}} {{GENDER:$2|revertidas}}.",
 	"notification-emailuser": "[[User:$1|$1]] {{GENDER:$1|envioulle}} un correo electrónico.",
 	"notification-header-emailuser": "$1 {{GENDER:$2|envioulle}} un correo electrónico.",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|deixoulle}} unha mensaxe en {{SITENAME}}",
