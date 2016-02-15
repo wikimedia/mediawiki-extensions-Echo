@@ -52,6 +52,7 @@ class GenerateSampleNotifications extends Maintenance {
 		$this->generateEmail( $user, $agent );
 		$this->generateUserRights( $user, $agent );
 		$this->generateContentTranslation( $user );
+		$this->generateOpenStackManager( $user, $agent );
 
 		$this->output( "Completed \n" );
 	}
@@ -272,6 +273,34 @@ class GenerateSampleNotifications extends Maintenance {
 		$this->addToPageContent( $this->generateNewPageTitle(), $agent, $content );
 		$this->addToPageContent( $this->generateNewPageTitle(), $agent, $content );
 		$this->addToPageContent( $this->generateNewPageTitle(), $agent, $content );
+	}
+
+	private function generateOpenStackManager( User $user, User $agent ) {
+		if ( !class_exists( 'OpenStackManagerHooks' ) ) {
+			return;
+		}
+
+		$this->output( "Generating OpenStackManager notifications\n" );
+
+		foreach ( array( 'build-completed', 'reboot-completed', 'deleted' ) as $action ) {
+			EchoEvent::create( array(
+				'type' => "osm-instance-$action",
+				'title' => Title::newFromText( "Moai" ),
+				'agent' => $user,
+				'extra' => array(
+					'instanceName' => 'instance1',
+					'projectName' => 'TheProject',
+					'notifyAgent' => true,
+				)
+			) );
+		}
+
+		EchoEvent::create( array(
+			'type' => 'osm-projectmembers-add',
+			'title' => Title::newFromText( "Moai" ),
+			'agent' => $agent,
+			'extra' => array( 'userAdded' => $user->getId() ),
+		) );
 	}
 }
 
