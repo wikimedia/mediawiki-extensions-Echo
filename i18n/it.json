@@ -108,6 +108,7 @@
 	"notification-new-user": "Benvenuto su {{SITENAME}}, $1! Siamo felici che tu sia qui.",
 	"notification-header-welcome": "{{GENDER:$2|Benvenuto|Benvenuta|Benvenuto/a}} su {{SITENAME}}, $1! Siamo lieti che {{GENDER:$2|tu sia}} qui.",
 	"notification-welcome-linktext": "Benvenuto",
+	"notification-header-thank-you-1-edit": "Hai appena fatto la tua prima modifica; grazie e {{GENDER:$2|benvenuto|benvenuta|benvenuto/a}}!",
 	"notification-reverted2": "{{PLURAL:$4|La tua modifica|Le tue modifiche}} su [[:$2]] {{PLURAL:$4|è stata annullata|sono state annullate}} {{GENDER:$1|da}} [[$5|$1]] $3",
 	"notification-header-reverted": "{{PLURAL:$4|La tua modifica|Le tue modifiche}} su '''$3''' {{PLURAL:$4|è stata annullata|sono state annullate}}{{GENDER:$2|}}",
 	"notification-emailuser": "[[User:$1|$1]] {{GENDER:$1|ti ha inviato}} una email.",

@@ -117,6 +117,7 @@
 	"echo-date-yesterday": "Dün",
 	"echo-load-more-error": "Daha fazla sonuç oluşturma esnasında bir hata oluştu.",
 	"notification-edit-talk-page-bundle": "$1 ve diğer $3 {{PLURAL:$4|kullanıcı}}, [[User talk:$2|mesaj sayfanıza]] bir mesaj {{GENDER:$1|bıraktı}}.",
+	"notification-bundle-header-edit-user-talk-v2": "Mesaj sayfanızda $1 yeni mesajınız var.",
 	"notification-edit-user-talk-email-batch-bundle-body": "$1 ve diğer $2 {{PLURAL:$3|kullanıcı}} mesaj sayfanıza bir mesaj {{GENDER:$1|bıraktı}}.",
 	"notification-page-linked-email-batch-bundle-body": "$2 sayfasına $3 sayfası ve diğer $4 {{PLURAL:$5|sayfadan|sayfadan}} {{GENDER:$1|bağlantı verildi}}.",
 	"echo-email-batch-subject-daily": "{{SITENAME}} sitesinde {{PLURAL:$2|yeni bir bildiriminiz|yeni bildirimleriniz}} var",

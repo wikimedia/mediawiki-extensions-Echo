@@ -91,6 +91,8 @@
 	"notification-mention": "[[User:$1|$1]] {{GENDER:$1|згадав|згадала}} {{GENDER:$6|Вас}} на сторінці обговорення $5 у «[[:$3#$2|$4]]».",
 	"notification-mention-nosection": "[[User:$1|$1]] {{GENDER:$1|згадав|згадала}} {{GENDER:$4|Вас}} на [[:$3|сторінці обговорення $2]].",
 	"notification-header-mention-other": "$1 згада{{GENDER:$2|в|ла}} {{GENDER:$3|Вас}} на сторінці '''$4''' у «$5».",
+	"notification-header-mention-user-talkpage-v2": "$1 згада{{GENDER:$2|в|ла}} {{GENDER:$3|Вас}} на '''сторінці обговорення користувач{{GENDER:$5|а|ки}} $4''' у «'''$6'''».",
+	"notification-header-mention-article-talkpage": "$1 згада{{GENDER:$2|в|ла}} {{GENDER:$3|Вас}} на сторінці обговорення '''$4''' у «'''$5'''».",
 	"notification-user-rights-add": "Зараз Ви член {{PLURAL:$2|1=такої групи|таких груп}}: $1",
 	"notification-user-rights-remove": "Ви більше не є членом {{PLURAL:$2|1=цієї групи|таких груп}}: $1",
 	"notification-user-rights": "Ваші права користувача [[Special:Log/rights/$1|було змінено]] {{GENDER:$1|користувачем|користувачкою}} [[User:$1|$1]]. $2. [[Special:ListGroupRights|Дізнатися більше]]",
