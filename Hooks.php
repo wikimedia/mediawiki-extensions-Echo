@@ -556,10 +556,11 @@ class EchoHooks {
 	 * @param string[] $add strings corresponding to groups added
 	 * @param string[] $remove strings corresponding to groups removed
 	 * @param User|bool $performer
+	 * @param string|bool $reason Reason given by the user changing the rights
 	 *
 	 * @return bool
 	 */
-	public static function onUserGroupsChanged( $user, $add, $remove, $performer ) {
+	public static function onUserGroupsChanged( $user, $add, $remove, $performer, $reason ) {
 		if ( !$performer ) {
 			// TODO: Implement support for autopromotion
 			return true;
@@ -583,7 +584,8 @@ class EchoHooks {
 					'extra' => array(
 						'user' => $user->getID(),
 						'add' => $add,
-						'remove' => $remove
+						'remove' => $remove,
+						'reason' => $reason,
 					),
 					'agent' => $performer,
 				)
