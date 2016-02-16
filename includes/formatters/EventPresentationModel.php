@@ -19,7 +19,7 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 	/**
 	 * Recommended length of section titles included in messages
 	 */
-	const SECTION_TITLE_RECOMMENDED_LENGTH = 30;
+	const SECTION_TITLE_RECOMMENDED_LENGTH = 50;
 
 	/**
 	 * @var EchoEvent
