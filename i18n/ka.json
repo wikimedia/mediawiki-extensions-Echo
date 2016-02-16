@@ -34,6 +34,8 @@
 	"echo-category-title-edit-user-talk": "განხილვის გვერდის {{PLURAL:$1|შეტყობინება}}",
 	"echo-category-title-article-linked": "გვერდის {{PLURAL:$1|ბმული|ბმულები}}",
 	"echo-category-title-mention": "{{PLURAL:$1|მონიშვნა|მონიშვნები}}",
+	"echo-category-title-other": "{{PLURAL:$1|სხვა}}",
+	"echo-category-title-system": "{{PLURAL:$1|სისტემა}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|მომხმარებლის უფლებების ცვლილება|მომხმარებლის უფლებების ცვლილებები}}",
 	"echo-category-title-emailuser": "{{PLURAL:$1|იმეილი სხვა მომხმარებლისაგან|იმეილი სხვა მომხმარებლებისაგან}}",
 	"echo-pref-tooltip-edit-user-talk": "შემატყობინე, როდესაც ვინმე დაარედაქტირებს ჩემს განხილვის გვერდს.",
