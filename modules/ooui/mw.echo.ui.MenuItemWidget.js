@@ -57,6 +57,7 @@
 					$( '<a>' )
 						.addClass( 'mw-echo-ui-menuItemWidget-linkWrapper' )
 						.attr( 'href', config.url )
+						.attr( 'title', config.tooltip )
 				);
 		}
 	};

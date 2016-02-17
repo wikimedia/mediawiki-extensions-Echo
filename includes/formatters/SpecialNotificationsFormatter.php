@@ -44,7 +44,15 @@ class SpecialNotificationsFormatter extends EchoEventFormatter {
 		}
 		$links = array_merge( $links, array_filter( $model->getSecondaryLinks() ) );
 		foreach ( $links as $link ) {
-			$footerItems[] = Html::element( 'a', array( 'href' => $link['url'], 'class' => 'mw-echo-notification-footer-element' ), $link['label'] );
+			$footerItems[] = Html::element(
+				'a',
+				array(
+					'href' => $link['url'],
+					'title' => $link['tooltip'],
+					'class' => 'mw-echo-notification-footer-element',
+				),
+				$link['label']
+			);
 		}
 
 		$pipe = wfMessage( 'pipe-separator' )->inLanguage( $this->language )->escaped();

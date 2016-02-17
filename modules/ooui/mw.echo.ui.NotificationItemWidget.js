@@ -113,6 +113,7 @@
 			linkButton = new mw.echo.ui.MenuItemWidget( {
 				icon: urlObj.icon || 'next',
 				label: urlObj.label,
+				tooltip: urlObj.tooltip,
 				description: urlObj.description,
 				url: urlObj.url,
 				prioritized: isInsideMenu

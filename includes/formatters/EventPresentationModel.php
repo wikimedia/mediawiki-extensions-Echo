@@ -12,9 +12,19 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 	const USERNAME_RECOMMENDED_LENGTH = 20;
 
 	/**
+	 * Recommended length of usernames used as link label
+	 */
+	const USERNAME_AS_LABEL_RECOMMENDED_LENGTH = 15;
+
+	/**
 	 * Recommended length of page names included in messages
 	 */
 	const PAGE_NAME_RECOMMENDED_LENGTH = 50;
+
+	/**
+	 * Recommended length of page names used as link label
+	 */
+	const PAGE_NAME_AS_LABEL_RECOMMENDED_LENGTH = 15;
 
 	/**
 	 * Recommended length of section titles included in messages
@@ -273,28 +283,7 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 	 *               Returns null if the current user cannot see the agent.
 	 */
 	final protected function getAgentLink() {
-		$agent = $this->event->getAgent();
-
-		if ( !$this->userCan( Revision::DELETED_USER ) ) {
-			return null;
-		}
-
-		if ( !$agent ) {
-			throw new DomainException(
-				"No agent associated with notification with id '{$this->event->getId()}' of type '{$this->type}'" );
-		}
-
-		$url = $agent->isAnon()
-			? SpecialPage::getTitleFor( 'Contributions', $agent->getName() )->getFullURL()
-			: $agent->getUserPage()->getFullURL();
-
-		return array(
-			'url' => $url,
-			'label' => $agent->getName(),
-			'description' => '',
-			'icon' => 'userAvatar',
-			'prioritized' => true,
-		);
+		return $this->getUserLink( $this->event->getAgent() );
 	}
 
 	/**
@@ -389,5 +378,58 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 	protected function getTruncatedTitleText( Title $title, $includeNamespace = false ) {
 		$text = $includeNamespace ? $title->getPrefixedText() : $title->getText();
 		return $this->language->truncate( $text, self::PAGE_NAME_RECOMMENDED_LENGTH );
+	}
+
+	/**
+	 * @param User $user
+	 * @return array|null
+	 */
+	final protected function getUserLink( User $user ) {
+		if ( !$this->userCan( Revision::DELETED_USER ) ) {
+			return null;
+		}
+
+		$url = $user->isAnon()
+			? SpecialPage::getTitleFor( 'Contributions', $user->getName() )->getFullURL()
+			: $user->getUserPage()->getFullURL();
+
+		$label = $user->getName();
+		$truncatedLabel = $this->language->truncate( $label, self::USERNAME_AS_LABEL_RECOMMENDED_LENGTH );
+		$isTruncated = $label !== $truncatedLabel;
+
+		return array(
+			'url' => $url,
+			'label' => $truncatedLabel,
+			'tooltip' => $isTruncated ? $label : '',
+			'description' => '',
+			'icon' => 'userAvatar',
+			'prioritized' => true,
+		);
+	}
+
+	/**
+	 * @param Title $title
+	 * @param string $description
+	 * @param bool $prioritized
+	 * @param array $query
+	 * @return array
+	 */
+	final protected function getPageLink( Title $title, $description, $prioritized, $query = array() ) {
+		$ns = $title->getNamespace();
+		if ( $ns === NS_USER_TALK ) {
+			$icon = 'userSpeechBubble';
+		} elseif ( $ns === NS_TALK ) {
+			$icon = 'speechBubbles';
+		} else {
+			$icon = 'article';
+		}
+		return array(
+			'url' => $title->getFullURL( $query ),
+			'label' => $this->language->truncate( $title->getText(), self::PAGE_NAME_AS_LABEL_RECOMMENDED_LENGTH ),
+			'tooltip' => $title->getPrefixedText(),
+			'description' => $description,
+			'icon' => $icon,
+			'prioritized' => $prioritized,
+		);
 	}
 }
