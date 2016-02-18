@@ -43,7 +43,7 @@
 	"echo-pref-beta-feature-cross-wiki-message": "Uitgebreide meldingen",
 	"echo-pref-beta-feature-cross-wiki-description": "Bekijk en organiseer uw meldingen efficiënter. Ontvang daarnaast cross-wikimeldingen, waarmee uw meldingen ontvangt over berichten op andere wiki's.",
 	"echo-learn-more": "Meer lezen",
-	"echo-new-messages": "U heeft nieuwe berichten",
+	"echo-new-messages": "U hebt nieuwe berichten",
 	"echo-category-title-edit-user-talk": "Bericht{{PLURAL:$1||en}} op mijn overlegpagina",
 	"echo-category-title-article-linked": "Paginakoppeling{{PLURAL:$1||en}}",
 	"echo-category-title-reverted": "Bewerking{{PLURAL:$1||en}} teruggedraaid",
