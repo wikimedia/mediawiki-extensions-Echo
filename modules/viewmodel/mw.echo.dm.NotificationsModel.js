@@ -55,7 +55,8 @@
 		this.aggregate( {
 			seen: 'itemSeen',
 			read: 'itemRead',
-			empty: 'itemGroupEmpty'
+			empty: 'itemGroupEmpty',
+			groupItemRead: 'unreadChange'
 		} );
 
 		this.connect( this, {
@@ -221,6 +222,7 @@
 		// In this case, the notification is a "cross wiki" notification, which
 		// goes away when it is empty
 		this.removeItems( [ item ] );
+		this.emit( 'unreadChange' );
 	};
 
 	/**
@@ -257,7 +259,7 @@
 	 * @return {number} Number of unseen notifications
 	 */
 	mw.echo.dm.NotificationsModel.prototype.getUnseenCount = function () {
-		return this.unseenNotifications.getItemCount();
+		return this.unseenNotifications.getNotificationCount();
 	};
 
 	/**
@@ -266,7 +268,7 @@
 	 * @return {number} Number of unread notifications
 	 */
 	mw.echo.dm.NotificationsModel.prototype.getUnreadCount = function () {
-		return this.unreadNotifications.getItemCount();
+		return this.unreadNotifications.getNotificationCount();
 	};
 
 	/**

@@ -1160,4 +1160,10 @@ class EchoHooks {
 		return true;
 	}
 
+	public static function onResourceLoaderGetConfigVars( &$vars ) {
+		global $wgEchoMaxNotificationCount;
+		$vars['wgEchoMaxNotificationCount'] = $wgEchoMaxNotificationCount;
+		return true;
+	}
+
 }

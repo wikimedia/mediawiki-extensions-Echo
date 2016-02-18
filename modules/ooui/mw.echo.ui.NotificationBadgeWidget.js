@@ -208,7 +208,9 @@
 	mw.echo.ui.NotificationBadgeWidget.prototype.updateBadge = function () {
 		var unseenCount = this.notificationsModel.getUnseenCount(),
 			unreadCount = this.notificationsModel.getUnreadCount(),
-			nonBundledUnreadCount = this.notificationsModel.getNonbundledUnreadCount();
+			nonBundledUnreadCount = this.notificationsModel.getNonbundledUnreadCount(),
+			wgEchoMaxNotificationCount,
+			badgeLabel;
 
 		// Update numbers and seen/unseen state
 		// If the popup is open, only allow a "demotion" of the badge
@@ -225,7 +227,13 @@
 
 		// Update badge count
 		if ( !this.markReadWhenSeen || !this.popup.isVisible() || unreadCount < this.currentUnreadCountInBadge ) {
-			this.badgeButton.setLabel( mw.language.convertNumber( unreadCount ) );
+			wgEchoMaxNotificationCount = mw.config.get( 'wgEchoMaxNotificationCount' );
+			if ( unreadCount > wgEchoMaxNotificationCount ) {
+				badgeLabel = mw.message( 'echo-notification-count', wgEchoMaxNotificationCount ).text();
+			} else {
+				badgeLabel = mw.language.convertNumber( unreadCount );
+			}
+			this.badgeButton.setLabel( badgeLabel );
 		}
 
 		// Check if we need to display the 'mark all unread' button

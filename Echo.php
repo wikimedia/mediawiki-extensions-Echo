@@ -110,6 +110,9 @@ $wgHooks['LinksUpdateAfterInsert'][] = 'EchoHooks::onLinksUpdateAfterInsert';
 // Beta features
 $wgHooks['GetBetaFeaturePreferences'][] = 'EchoHooks::getBetaFeaturePreferences';
 
+// Global config vars
+$wgHooks['ResourceLoaderGetConfigVars'][] = 'EchoHooks::onResourceLoaderGetConfigVars';
+
 // Configuration
 
 // Whether to turn on email batch function
