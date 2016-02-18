@@ -101,33 +101,39 @@ class EchoUnreadWikis {
 			return;
 		}
 
-		if ( $alertCount || $msgCount ) {
-			$values = array(
-				'euw_alerts' => $alertCount,
-				'euw_alerts_ts' => $alertCount
-					? $alertTime->getTimestamp( TS_MW )
-					: static::DEFAULT_TS,
-				'euw_messages' => $msgCount,
-				'euw_messages_ts' => $msgCount
-					? $msgTime->getTimestamp( TS_MW )
-					: static::DEFAULT_TS,
+		$values = array(
+			'euw_alerts' => $alertCount,
+			'euw_alerts_ts' => $alertCount
+				? $alertTime->getTimestamp( TS_MW )
+				: static::DEFAULT_TS,
+			'euw_messages' => $msgCount,
+			'euw_messages_ts' => $msgCount
+				? $msgTime->getTimestamp( TS_MW )
+				: static::DEFAULT_TS,
+		);
+
+		$conditions = array(
+			'euw_user' => $this->id,
+			'euw_wiki' => $wiki,
+		);
+
+		if ( $alertCount === 0 && $msgCount === 0 ) {
+			// when they're both 0, update the existing row but don't create a new one
+			$dbw->update(
+				'echo_unread_wikis',
+				$values,
+				$conditions,
+				__METHOD__
 			);
+		} else {
+			// when there is unread alert(s) and/or message(s), upsert the row
 			$dbw->upsert(
 				'echo_unread_wikis',
-				array(
-					'euw_user' => $this->id,
-					'euw_wiki' => $wiki,
-				) + $values,
+				$conditions + $values,
 				array( 'euw_user', 'euw_wiki' ),
 				$values,
 				__METHOD__
 			);
-		} else {
-			// Even if there are no unread notifications, don't delete the row!
-			// That (empty) row helps us tell the difference between "has had
-			// notifications but all have been seen" (0 count, non-0 timestamp)
-			// and "has never had a notifications before" (row with 0 count and
-			// 000 timestamp or no row at all)
 		}
 	}
 }
