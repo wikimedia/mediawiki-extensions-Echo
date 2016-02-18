@@ -141,12 +141,8 @@ class EchoMentionPresentationModel extends EchoEventPresentationModel {
 			'prioritized' => true,
 		);
 
-		$pageLink = array(
-			'url' => $title->getFullURL(),
-			'label' => $this->isArticle() ?  $title->getText() : $title->getPrefixedText(),
-			'description' => '',
-			'icon' => $this->isTalk() ? 'speechBubbles' : 'article',
-			'prioritized' => true,
+		$pageLink = $this->getPageLink(
+			$title, '', true
 		);
 
 		return array( $this->getAgentLink(), $pageLink, $viewChangesLink );

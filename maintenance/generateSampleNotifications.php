@@ -39,6 +39,7 @@ class GenerateSampleNotifications extends Maintenance {
 		$user = $this->getOptionUser( 'user' );
 		$agent = $this->getOptionUser( 'agent' );
 		$otherUser = $this->getOptionUser( 'other' );
+		$title = Title::newFromText( 'This is a pretty long page title lets see if it is going to be truncated' );
 
 		$this->confirm();
 
@@ -46,7 +47,7 @@ class GenerateSampleNotifications extends Maintenance {
 
 		$this->generateWelcome( $user );
 		$this->generateEditUserTalk( $user, $agent );
-		$this->generateMention( $user, $agent, $otherUser );
+		$this->generateMention( $user, $agent, $otherUser, $title );
 		$this->generatePageLink( $user, $agent );
 		$this->generateReverted( $user, $agent );
 		$this->generateEmail( $user, $agent );
@@ -117,13 +118,12 @@ class GenerateSampleNotifications extends Maintenance {
 		}
 	}
 
-	private function generateMention( User $user, User $agent, User $otherUser ) {
-		$moai = Title::newFromText( 'Moai' );
+	private function generateMention( User $user, User $agent, User $otherUser, Title $title ) {
 		$mention = "== section {$this->generateRandomString()} ==\nHello [[User:{$user->getName()}]] \n~~~~\n";
 
 		// article talk
-		$this->output( "{$agent->getName()} is mentioning {$user->getName()} on {$moai->getTalkPage()->getPrefixedText()}\n" );
-		$this->addToPageContent( $moai->getTalkPage(), $agent, $mention );
+		$this->output( "{$agent->getName()} is mentioning {$user->getName()} on {$title->getTalkPage()->getPrefixedText()}\n" );
+		$this->addToPageContent( $title->getTalkPage(), $agent, $mention );
 
 		// agent tak
 		$this->output( "{$agent->getName()} is mentioning {$user->getName()} on {$agent->getTalkPage()->getPrefixedText()}\n" );
@@ -134,8 +134,8 @@ class GenerateSampleNotifications extends Maintenance {
 		$this->addToPageContent( $otherUser->getTalkPage(), $agent, $mention );
 
 		// any other page
-		$this->output( "{$agent->getName()} is mentioning {$user->getName()} on {$moai->getPrefixedText()}\n" );
-		$this->addToPageContent( $moai, $agent, $mention );
+		$this->output( "{$agent->getName()} is mentioning {$user->getName()} on {$title->getPrefixedText()}\n" );
+		$this->addToPageContent( $title, $agent, $mention );
 	}
 
 	private function generatePageLink( User $user, User $agent ) {

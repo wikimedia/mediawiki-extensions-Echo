@@ -48,7 +48,11 @@ class EchoRevertedPresentationModel extends EchoEventPresentationModel {
 	}
 
 	public function getSecondaryLinks() {
-		return array( $this->getAgentLink(), $this->getTitleLink() );
+		$revertedTitleLink = $this->getPageLink(
+			$this->event->getTitle()->getTalkPage(), null, true
+		);
+
+		return array( $this->getAgentLink(), $revertedTitleLink );
 	}
 
 	/**
@@ -63,17 +67,6 @@ class EchoRevertedPresentationModel extends EchoEventPresentationModel {
 		} else {
 			return 1;
 		}
-	}
-
-	private function getTitleLink() {
-		$talkpage = $this->event->getTitle()->getTalkPage();
-		return array(
-			'label' => $talkpage->getPrefixedText(),
-			'url' => $talkpage->getFullURL(),
-			'icon' => 'speechBubbles',
-			'prioritized' => true,
-			'description' => null,
-		);
 	}
 
 	private function isAutomaticSummary( $summary ) {
