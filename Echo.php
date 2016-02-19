@@ -505,7 +505,7 @@ $wgDefaultUserOptions['echo-subscriptions-web-emailuser'] = false;
 
 // Echo Configuration for EventLogging
 $wgEchoConfig = array(
-	'version' => '1.5',
+	'version' => '1.6',
 	'eventlogging' => array(
 		/**
 		 * Properties:
