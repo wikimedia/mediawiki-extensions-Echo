@@ -10,9 +10,8 @@
 	"tooltip-pt-notifications-alert": "{{GENDER:|သင်၏}} သတိပေးချက်များ",
 	"tooltip-pt-notifications-message": "{{GENDER:|သင်၏}} စာလွှာများ",
 	"echo-specialpage": "အသိပေးချက်များ",
-	"notification-header-edit-user-talk": "{{GENDER:$3|သင်၏}} ဆွေးနွေးချက် စာမျက်နှာတွင် စာလွှာတစ်ခုကို $1 {{GENDER:$2|ချန်ထားခဲ့သည်}}။",
-	"notification-header-edit-user-talk-with-section": "{{GENDER:$3|သင်၏}} ဆွေးနွေးချက်စာမျက်နှာရှိ \"$4\" တွင် စာလွှာတစ်ခုကို $1 {{GENDER:$2|ချန်ထားခဲ့သည်}}။",
-	"notification-header-mention-nosection": "$3 ဆွေးနွေးချက်စာမျက်နှာတွင် {{GENDER:$5|သင့်အား}} $1 {{GENDER:$2|ရည်ညွှန်းခဲ့သည်}}။",
+	"notification-header-edit-user-talk": "'''{{GENDER:$3|သင်၏}} ဆွေးနွေးချက် စာမျက်နှာ'''တွင် စာလွှာတစ်ခုကို $1 {{GENDER:$2|ချန်ထားခဲ့သည်}}။",
+	"notification-header-edit-user-talk-with-section": "'''{{GENDER:$3|သင်၏}} ဆွေးနွေးချက်စာမျက်နှာ'''ရှိ '''\"$4'''\" တွင် စာလွှာတစ်ခုကို $1 {{GENDER:$2|ချန်ထားခဲ့သည်}}။",
 	"echo-overlay-link": "အသိပေးချက်များ အားလုံး",
 	"notification-edit-talk-page-bundle": "သင်၏ [[User talk:$2|ဆွေးနွေးချက် စာမျက်နှာ]]တွင် $1 နှင့် {{PLURAL:$4|အခြား|အခြား}} $3 ဦးတို့ စာလွှာများ {{GENDER:$1|ချန်ထားခဲ့သည်}}။",
 	"echo-email-batch-link-text-view-all-notifications": "အသိပေးချက်များ အားလုံးကို ကြည့်ရန်"

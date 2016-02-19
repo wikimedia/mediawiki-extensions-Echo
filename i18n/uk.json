@@ -182,6 +182,7 @@
 	"apihelp-query+notifications-paramvalue-format-html": "<span class=\"apihelp-deprecated\">Застаріло</span>. Використовуйте <kbd>$1format=model</kbd> для необроблений даних",
 	"apihelp-query+notifications-param-limit": "Максимальне число сповіщень для повернення.",
 	"apihelp-query+notifications-param-index": "Якщо вказано, буде повернено список ідентифікаторів сповіщень у порядку.",
+	"apihelp-query+notifications-param-noforn": "Значення true, аби відмовитись від даних про сповіщення в інших вікі.",
 	"apihelp-query+notifications-param-alertcontinue": "Коли доступно більше попереджень, використовуйте це, щоб продовжити.",
 	"apihelp-query+notifications-param-alertunreadfirst": "Чи показувати спершу непрочитані сповіщення про повідомлення.",
 	"apihelp-query+notifications-param-messagecontinue": "Коли доступно більше повідомлень, використовуйте це, щоб продовжити.",

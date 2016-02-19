@@ -113,6 +113,8 @@
 	"notification-user-rights-add": "Теперь вы входите в {{PLURAL:$2|1=следующую группу|следующие группы}}: $1",
 	"notification-user-rights-remove": "Вы больше не входите в {{PLURAL:$2|1=следующую группу|следующие группы}}: $1",
 	"notification-user-rights": "Ваши права пользователя [[Special:Log/rights/$1|{{GENDER:$1|изменил|изменила}}]] [[User:$1|$1]]. $2. [[Special:ListGroupRights|Подробнее]]",
+	"notification-header-user-rights-add-only": "{{GENDER:$4|Ваши}} права пользователя были {{GENDER:$1|изменены}}. Вы добавлены в группу: $2.",
+	"notification-header-user-rights-remove-only": "{{GENDER:$4|Ваши}} права пользователя были {{GENDER:$1|изменены}}. Вы больше не входите в группу: $2.",
 	"notification-new-user": "Добро пожаловать в {{SITENAME}}, $1! Мы рады, что вы здесь.",
 	"notification-header-welcome": "{{GENDER:$2|Добро пожаловать}} на сайт {{SITENAME}}, $1! Мы рады приветствовать {{GENDER:$2|вас}} здесь.",
 	"notification-welcome-linktext": "Добро пожаловать!",
