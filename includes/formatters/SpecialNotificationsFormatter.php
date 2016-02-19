@@ -44,13 +44,18 @@ class SpecialNotificationsFormatter extends EchoEventFormatter {
 		}
 		$links = array_merge( $links, array_filter( $model->getSecondaryLinks() ) );
 		foreach ( $links as $link ) {
+			$footerAttributes = array(
+				'href' => $link['url'],
+				'class' => 'mw-echo-notification-footer-element',
+			);
+
+			if ( isset( $link['tooltip'] ) ) {
+				$footerAttributes['title'] = $link['tooltip'];
+			}
+
 			$footerItems[] = Html::element(
 				'a',
-				array(
-					'href' => $link['url'],
-					'title' => $link['tooltip'],
-					'class' => 'mw-echo-notification-footer-element',
-				),
+				$footerAttributes,
 				$link['label']
 			);
 		}
