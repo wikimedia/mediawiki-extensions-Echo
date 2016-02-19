@@ -198,47 +198,82 @@ class MWEchoNotifUser {
 	/**
 	 * Check whether the user has ever had messages.
 	 *
-	 * @param boolean $cached Set to false to bypass the cache. (Optional. Defaults to true)
 	 * @return boolean User has received messages
 	 */
-	public function hasMessages( $cached = true ) {
+	public function hasMessages() {
 		$section = EchoAttributeManager::MESSAGE;
 
-		$memcKey = $this->getHasMessagesKey();
-		if ( $cached ) {
+		/*
+		 * This is a temp "hack" for as long as cross-wiki is in beta. The "real
+		 * data" stored to cache should be global, so a change in a wiki where
+		 * cross-wiki is disabled is still visible in wikis where it is enabled.
+		 * So if cross-wiki is disabled, we can't trust/use the result that is
+		 * in getHasMessagesKey.
+		 */
+		if ( !$this->mUser->getOption( 'echo-cross-wiki-notifications' ) ) {
+			global $wgEchoConfig;
+			// key is the same as getHasMessagesKey's single-user case, which is
+			// ok (if there's no centralized user, there'll only be local data
+			// anyway - same as when cross-wiki is disabled)
+			$memcKey = wfMemcKey( 'echo', 'user', 'had', 'messages', $this->mUser->getId(), $wgEchoConfig['version'] );
 			$data = $this->cache->get( $memcKey );
 			if ( $data !== false && $data !== null ) {
-				return (bool)$data;
+				return $data;
 			}
-		}
-		$attributeManager = EchoAttributeManager::newFromGlobalVars();
-		$eventTypesToLoad = $attributeManager->getUserEnabledEventsbySections( $this->mUser, 'web', array( $section ) );
 
-		$count = count( $this->notifMapper->fetchByUser( $this->mUser, 1, 0, $eventTypesToLoad ) );
-		$result = (int)( $count > 0 ) || $this->hasForeignMessages();
+			$result = $this->hasLocal( $section );
+			$this->cache->set( $memcKey, $result, 86400 );
+
+			return $result;
+		}
+
+		$memcKey = $this->getHasMessagesKey();
+		$data = $this->cache->get( $memcKey );
+		if ( $data !== false && $data !== null ) {
+			return (bool) $data;
+		}
+
+		$result = $this->hasGlobal( $section );
 		$this->cache->set( $memcKey, $result, 86400 );
 
-		return (bool)$result;
+		return $result;
 	}
 
-	protected function hasForeignMessages() {
-		if ( !$this->mUser->getOption( 'echo-cross-wiki-notifications' ) ) {
-			return false;
-		}
+	/**
+	 * Check if user has ever had alerts/messages on this local wiki.
+	 *
+	 * @param string $section
+	 * @return bool
+	 */
+	protected function hasLocal( $section ) {
+		$attributeManager = EchoAttributeManager::newFromGlobalVars();
+		$eventTypesToLoad = $attributeManager->getUserEnabledEventsbySections( $this->mUser, 'web', array( $section ) );
+		$count = count( $this->notifMapper->fetchByUser( $this->mUser, 1, 0, $eventTypesToLoad ) );
 
+		return $count > 0;
+	}
+
+	/**
+	 * Check if user has ever had alerts/messages on any wiki (local & foreign).
+	 *
+	 * @param string $section
+	 * @return bool
+	 */
+	protected function hasGlobal( $section ) {
 		$uw = EchoUnreadWikis::newFromUser( $this->mUser );
 		if ( $uw === false ) {
-			return false;
+			// there is no centralized user, fall back to checking local wiki
+			return $this->hasLocal( $section );
 		}
 
 		$counts = $uw->getUnreadCounts();
 		foreach ( $counts as $wiki => $data ) {
-			if ( $data[EchoAttributeManager::MESSAGE]['count'] > 0 ) {
+			if ( $data[$section]['count'] > 0 ) {
 				// currently has unread notifications
 				return true;
 			}
 
-			if ( $data[EchoAttributeManager::MESSAGE]['ts'] !== EchoUnreadWikis::DEFAULT_TS ) {
+			if ( $data[$section]['ts'] !== EchoUnreadWikis::DEFAULT_TS ) {
 				// a timestamp at which notifications were read was recorded,
 				// which means the user must've had messages somewhere, at some point
 				return true;
