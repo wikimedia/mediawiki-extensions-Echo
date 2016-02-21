@@ -71,7 +71,8 @@ $wgResourceModules += array(
 			'ext.echo.styles.badge',
 			'ext.echo.styles.notifications',
 			'ext.echo.dm',
-			'oojs-ui',
+			'oojs-ui-core',
+			'oojs-ui-widgets', // Only needed for ButtonSelectWidget :(
 			'moment',
 			'ext.echo.logger',
 			'mediawiki.jqueryMsg',
