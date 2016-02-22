@@ -3,7 +3,7 @@
 	 * Echo notification group item model
 	 *
 	 * @class
-	 * @inherits mw.echo.dm.NotificationItem
+	 * @extends mw.echo.dm.NotificationItem
 	 * @mixins mw.echo.dm.SortedList
 	 *
 	 * @constructor
