@@ -63,7 +63,7 @@
 	"notification-user-rights": "Vòstres dreches d’utilizaire [[Special:Log/rights/$1|son estats {{GENDER:$1|modificats}}]] per [[User:$1|$1]]. $2. [[Special:ListGroupRights|Ne saber mai]]",
 	"notification-new-user": "Benvenguda sus {{SITENAME}}, $1 ! Sèm uroses de vos veire aicí.",
 	"notification-reverted2": "{{PLURAL:$4|Vòstra modificacion sus [[:$2]] es estada|Vòstras modificacions sus [[:$2]] son estadas}} {{GENDER:$1|anullada}}{{PLURAL:$4||s}} per [[$5|$1]] $3",
-	"notification-header-reverted": "{{PLURAL:$4|Vòstra modificacion sus $3 es estada|Vòstras modificacions sus $3 son estadas}} {{GENDER:$2|anullada}}{{PLURAL:$4||s}} per $1",
+	"notification-header-reverted": "{{PLURAL:$4|Vòstra modificacion sus '''$3''' es estada|Vòstras modificacions sus '''$3''' son estadas}} {{GENDER:$2|anullada}}{{PLURAL:$4||s}}",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|a daissat}} un messatge sus vòstra pagina de discussion sus {{SITENAME}}",
 	"notification-edit-talk-page-email-batch-body2": "$1 {{GENDER:$1|a daissat}} un messatge sus vòstra pagina de discussion :",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 a daissat un messatge sus vòstra pagina de discussion dins ''$2''.",
