@@ -1,5 +1,4 @@
-@firefox
-@en.wikipedia.beta.wmflabs.org @integration
+@chrome @en.wikipedia.beta.wmflabs.org @firefox @integration @vagrant
 Feature: Basic features for no-js functionality
 
   Background:
