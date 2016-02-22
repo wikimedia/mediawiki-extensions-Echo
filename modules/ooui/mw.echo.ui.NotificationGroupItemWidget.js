@@ -49,7 +49,7 @@
 
 		// Events
 		this.toggleExpandButton.connect( this, { click: 'expand' } );
-		this.$element.on( 'click', this.expand.bind( this ) );
+		this.$content.on( 'click', this.expand.bind( this ) );
 		this.model.connect( this, {
 			add: 'onModelAddGroup',
 			remove: 'onModelRemoveGroup',

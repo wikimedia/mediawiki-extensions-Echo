@@ -15,7 +15,6 @@
 	 */
 	mw.echo.ui.NotificationItemWidget = function MwEchoUiNotificationItemWidget( model, config ) {
 		var i, secondaryUrls, urlObj, linkButton, $icon, isInsideMenu,
-			$content = $( '<div>' ).addClass( 'mw-echo-ui-notificationItemWidget-content' ),
 			$message = $( '<div>' ).addClass( 'mw-echo-ui-notificationItemWidget-content-message' ),
 			widget = this;
 
@@ -28,6 +27,7 @@
 		this.$overlay = config.$overlay || this.$element;
 		this.bundle = !!config.bundle;
 
+		this.$content = $( '<div>' ).addClass( 'mw-echo-ui-notificationItemWidget-content' );
 		this.$actions = $( '<div>' )
 			.addClass( 'mw-echo-ui-notificationItemWidget-content-actions' );
 
@@ -140,20 +140,20 @@
 			// In a bundle, we have table layout, so the icon is
 			// inserted into the content, and the 'mark as read'
 			// button is not floating, and should be at the end
-			$content.append(
+			this.$content.append(
 				$icon,
 				$message,
 				this.$actions,
 				this.markAsReadButton.$element
 			);
-			this.$element.append( $content );
+			this.$element.append( this.$content );
 		} else {
-			$content.append(
+			this.$content.append(
 				this.markAsReadButton.$element,
 				$message,
 				this.$actions
 			);
-			this.$element.append( $icon, $content );
+			this.$element.append( $icon, this.$content );
 		}
 
 		this.$element
