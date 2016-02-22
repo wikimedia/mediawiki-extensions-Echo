@@ -178,6 +178,7 @@
 	"echo-rev-deleted-text-view": "Short message displayed instead of edit content when revision text is suppressed.",
 	"notification-header-foreign-alert": "Flyout-specific format for displaying notification header of having alert notifications on foreign wikis.\n\nParameters:\n* $1 - the formatted username of the current user.\n* $2 - the username for GENDER\n* $3 - 1 of the foreign wikis you have notifications on\n* $4 - the amount of remaining other wikis you have notifications on",
 	"notification-header-foreign-message": "Flyout-specific format for displaying notification header of having message notifications on foreign wikis.\n\nParameters:\n* $1 - the formatted username of the current user.\n* $2 - the username for GENDER\n* $3 - 1 of the foreign wikis you have notifications on\n* $4 - the amount of remaining other wikis you have notifications on",
+	"echo-foreign-wiki-lang": "Title of the wiki for which you're seeing foreign notifications:\n\nParameters:\n* $1 - the name of the site (e.g. 'Wikipedia', 'Wikiversity', ...)\n* $2 - the language of the website (e.g. 'English', 'Deutsch', ...)",
 	"apihelp-echomarkread-description": "{{doc-apihelp-description|echomarkread}}",
 	"apihelp-echomarkread-param-list": "{{doc-apihelp-param|echomarkread|list}}",
 	"apihelp-echomarkread-param-all": "{{doc-apihelp-param|echomarkread|all}}",

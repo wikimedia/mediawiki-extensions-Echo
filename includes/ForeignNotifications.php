@@ -134,15 +134,53 @@ class EchoForeignNotifications {
 
 		$data = array();
 		foreach ( $wikis as $wiki ) {
-			list( $major, $minor ) = $wgConf->siteFromDB( $wiki );
+			$siteFromDB = $wgConf->siteFromDB( $wiki );
+			list( $major, $minor ) = $siteFromDB;
 			$server = $wgConf->get( 'wgServer', $wiki, $major, array( 'lang' => $minor, 'site' => $major ) );
 			$scriptPath = $wgConf->get( 'wgScriptPath', $wiki, $major, array( 'lang' => $minor, 'site' => $major ) );
+
 			$data[$wiki] = array(
-				'title' => $wiki,
+				'title' => $this->getWikiTitle( $wiki, $siteFromDB ),
 				'url' => $server . $scriptPath . '/api.php',
 			);
 		}
 
 		return $data;
+	}
+
+	/**
+	 * @param string $wikiId
+	 * @param array $siteFromDB $wgConf->siteFromDB( $wikiId ) result
+	 * @return mixed|string
+	 */
+	protected function getWikiTitle( $wikiId, array $siteFromDB = null ) {
+		global $wgConf, $wgLang;
+
+		$msg = wfMessage( 'project-localized-name-'.$wikiId );
+		// check if WikimediaMessages localized project names are available
+		if ( $msg->exists() ) {
+			return $msg->text();
+		} else {
+			// don't fetch $site, $langCode if known already
+			if ( $siteFromDB === null ) {
+				$siteFromDB = $wgConf->siteFromDB( $wikiId );
+			}
+			list( $site, $langCode ) = $siteFromDB;
+
+			// try to fetch site name for this specific wiki, or fallback to the
+			// general project's sitename if there is no override
+			$wikiName = $wgConf->get( 'wgSitename', $wikiId ) ?: $wgConf->get( 'wgSitename', $site );
+			$langName = $wgLang->fetchLanguageName( $langCode, $wgLang->getCode() );
+
+			if ( !$langName ) {
+				// if we can't find a language name (in language-agnostic
+				// project like mediawikiwiki), including the language name
+				// doesn't make much sense
+				return $wikiName;
+			}
+
+			// ... or use generic fallback
+			return wfMessage( 'echo-foreign-wiki-lang', $wikiName, $langName )->text();
+		}
 	}
 }
