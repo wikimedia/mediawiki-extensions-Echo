@@ -12,6 +12,15 @@ class EchoModelFormatter extends EchoEventFormatter {
 	protected function formatModel( EchoEventPresentationModel $model ) {
 		$data = $model->jsonSerialize();
 		$data['iconUrl'] = EchoNotificationFormatter::getIconUrl( $model->getIconType(), $this->language->getDir() );
+
+		if ( isset( $data['links']['primary']['url'] ) ) {
+			$data['links']['primary']['url'] = wfExpandUrl( $data['links']['primary']['url'] );
+		}
+
+		foreach ( $data['links']['secondary'] as &$link ) {
+			$link['url'] = wfExpandUrl( $link['url'] );
+		}
+
 		return $data;
 	}
 }
