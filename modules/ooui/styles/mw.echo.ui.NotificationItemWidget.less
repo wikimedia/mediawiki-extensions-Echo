@@ -2,7 +2,7 @@
 @import '../../echo.mixins';
 
 .mw-echo-ui-notificationItemWidget {
-	padding: 0.8em;
+	padding: 0.8em 1em;
 	background-color: #F1F1F1;
 	border-bottom: 1px solid #DDDDDD;
 	white-space: normal;
@@ -43,9 +43,21 @@
 			}
 		}
 
-		&-actions {
+		&-table {
+			display: table;
+			width: 100%;
 			margin-top: 0.8em;
+		}
+
+		&-actions {
+			display: table-row;
 			font-size: 0.9em;
+
+			& > &-buttons.oo-ui-buttonSelectWidget {
+				display: table-cell;
+				vertical-align: top;
+				width: 100%;
+			}
 
 			.mw-echo-ui-menuItemWidget {
 				&:not(:last-child) {
@@ -54,6 +66,10 @@
 			}
 
 			&-menu {
+				display: table-cell;
+				vertical-align: top;
+				padding: 0 0.5em;
+
 				.oo-ui-popupWidget-popup {
 					font-size: 1 / 0.8em;
 					padding: 0.5em;
@@ -61,9 +77,11 @@
 			}
 
 			&-timestamp {
-				float: right;
+				display: table-cell;
+				vertical-align: top;
 				color: black;
 				opacity: @opacity-low;
+				white-space: nowrap;
 			}
 
 		}
@@ -95,6 +113,7 @@
 
 				&-content-message {
 					display: table-cell;
+					padding-right: 0.5em;
 					width: 100%;
 				}
 
