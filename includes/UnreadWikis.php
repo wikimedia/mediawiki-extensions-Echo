@@ -52,7 +52,7 @@ class EchoUnreadWikis {
 	}
 
 	/**
-	 * @return array Note that also wikis with 0 notifications and/or messages may be included
+	 * @return array
 	 */
 	public function getUnreadCounts() {
 		$dbr = $this->getDB( DB_SLAVE );
@@ -73,6 +73,10 @@ class EchoUnreadWikis {
 
 		$wikis = array();
 		foreach ( $rows as $row ) {
+			if ( !$row->euw_alerts && !$row->euw_messages ) {
+				// This shouldn't happen, but lets be safe...
+				continue;
+			}
 			$wikis[$row->euw_wiki] = array(
 				EchoAttributeManager::ALERT => array(
 					'count' => $row->euw_alerts,
@@ -101,37 +105,36 @@ class EchoUnreadWikis {
 			return;
 		}
 
-		$values = array(
-			'euw_alerts' => $alertCount,
-			'euw_alerts_ts' => $alertCount
-				? $alertTime->getTimestamp( TS_MW )
-				: static::DEFAULT_TS,
-			'euw_messages' => $msgCount,
-			'euw_messages_ts' => $msgCount
-				? $msgTime->getTimestamp( TS_MW )
-				: static::DEFAULT_TS,
-		);
-
 		$conditions = array(
 			'euw_user' => $this->id,
 			'euw_wiki' => $wiki,
 		);
 
-		if ( $alertCount === 0 && $msgCount === 0 ) {
-			// when they're both 0, update the existing row but don't create a new one
-			$dbw->update(
-				'echo_unread_wikis',
-				$values,
-				$conditions,
-				__METHOD__
+		if ( $alertCount || $msgCount ) {
+			$values = array(
+				'euw_alerts' => $alertCount,
+				'euw_alerts_ts' => $alertCount
+					? $alertTime->getTimestamp( TS_MW )
+					: static::DEFAULT_TS,
+				'euw_messages' => $msgCount,
+				'euw_messages_ts' => $msgCount
+					? $msgTime->getTimestamp( TS_MW )
+					: static::DEFAULT_TS,
 			);
-		} else {
+
 			// when there is unread alert(s) and/or message(s), upsert the row
 			$dbw->upsert(
 				'echo_unread_wikis',
 				$conditions + $values,
 				array( 'euw_user', 'euw_wiki' ),
 				$values,
+				__METHOD__
+			);
+		} else {
+			// No unread notifications, delete the row
+			$dbw->delete(
+				'echo_unread_wikis',
+				$conditions,
 				__METHOD__
 			);
 		}
