@@ -65,7 +65,7 @@
 	"notification-link-text-collapse-all": "Collapse all",
 	"notification-link-text-view-message": "View message",
 	"notification-link-text-view-mention": "View mention",
-	"notification-link-text-view-changes": "View changes",
+	"notification-link-text-view-changes": "{{GENDER:$1|View}} changes",
 	"notification-link-text-view-page": "View page",
 	"notification-link-text-view-edit": "View edit",
 	"notification-edit-talk-page2": "[[User:$1|$1]] {{GENDER:$1|left}} a message on your [[User talk:$2#$3|talk page]].",
