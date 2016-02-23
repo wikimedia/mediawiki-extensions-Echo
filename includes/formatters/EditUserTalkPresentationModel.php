@@ -29,7 +29,7 @@ class EchoEditUserTalkPresentationModel extends EchoEventPresentationModel {
 	public function getSecondaryLinks() {
 		$diffLink = array(
 			'url' => $this->getDiffLinkUrl(),
-			'label' => $this->msg( 'notification-link-text-view-changes' )->text(),
+			'label' => $this->msg( 'notification-link-text-view-changes', $this->getViewingUserForGender() )->text(),
 			'description' => '',
 			'icon' => 'changes',
 			'prioritized' => true
