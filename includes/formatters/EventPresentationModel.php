@@ -415,10 +415,9 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 	 * @return array
 	 */
 	final protected function getPageLink( Title $title, $description, $prioritized, $query = array() ) {
-		$ns = $title->getNamespace();
-		if ( $ns === NS_USER_TALK ) {
+		if ( $title->getNamespace() === NS_USER_TALK ) {
 			$icon = 'userSpeechBubble';
-		} elseif ( $ns === NS_TALK ) {
+		} elseif ( $title->isTalkPage() ) {
 			$icon = 'speechBubbles';
 		} else {
 			$icon = 'article';
