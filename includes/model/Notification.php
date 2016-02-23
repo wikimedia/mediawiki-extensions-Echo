@@ -159,9 +159,6 @@ class EchoNotification extends EchoAbstractEntity {
 		$notifMapper->attachListener( 'insert', 'refresh-notif-count',
 			function () use ( $notifUser, $section ) {
 				$notifUser->resetNotificationCount( DB_MASTER );
-				if ( $section === EchoAttributeManager::MESSAGE && !$notifUser->hasMessages() ) {
-					$notifUser->cacheHasMessages();
-				}
 			}
 		);
 

@@ -778,18 +778,14 @@ class EchoHooks {
 			'notifications-alert' => $alertLink,
 		);
 
-		// hasMessages() checks if the user has ever had (local) messages, or if they
-		// have any currently unread message at all (including on foreign wikis)
-		if ( $notifUser->hasMessages() ) {
-			$msgLink = array(
-				'href' => $url,
-				'text' => $msgText,
-				'active' => ( $url == $title->getLocalUrl() ),
-				'class' => $msgLinkClasses,
-			);
+		$msgLink = array(
+			'href' => $url,
+			'text' => $msgText,
+			'active' => ( $url == $title->getLocalUrl() ),
+			'class' => $msgLinkClasses,
+		);
 
-			$insertUrls['notifications-message'] = $msgLink;
-		}
+		$insertUrls['notifications-message'] = $msgLink;
 
 		$personal_urls = wfArrayInsertAfter( $personal_urls, $insertUrls, 'userpage' );
 
