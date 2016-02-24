@@ -58,6 +58,9 @@
 				$( '<div>' )
 					.addClass( 'mw-echo-ui-notificationItemWidget-content-message-body' )
 					.append( this.model.getContentBody() )
+					// dir=auto has a similar effect to wrapping the content in <bdi>, but
+					// makes text-overflow: ellipsis; behave less strangely
+					.attr( 'dir', 'auto' )
 			);
 		}
 
