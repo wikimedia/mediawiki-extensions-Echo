@@ -74,7 +74,7 @@
 	"notification-link-text-collapse-all": "Comprimi tutto",
 	"notification-link-text-view-message": "Vedi messaggio",
 	"notification-link-text-view-mention": "Vedi menzione",
-	"notification-link-text-view-changes": "Vedi modifiche",
+	"notification-link-text-view-changes": "{{GENDER:$1|Vedi}} modifiche",
 	"notification-link-text-view-page": "Vedi pagina",
 	"notification-link-text-view-edit": "Vedi modifica",
 	"notification-edit-talk-page2": "[[User:$1|$1]] {{GENDER:$1|ha lasciato}} un messaggio sulla tua [[User talk:$2#$3|pagina di discussione]].",

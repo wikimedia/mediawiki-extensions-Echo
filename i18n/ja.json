@@ -66,7 +66,7 @@
 	"notification-link-text-collapse-all": "すべて折り畳む",
 	"notification-link-text-view-message": "メッセージを閲覧",
 	"notification-link-text-view-mention": "言及を閲覧",
-	"notification-link-text-view-changes": "差分を閲覧",
+	"notification-link-text-view-changes": "差分を{{GENDER:$1|閲覧}}",
 	"notification-link-text-view-page": "ページを閲覧",
 	"notification-link-text-view-edit": "編集内容を閲覧",
 	"notification-edit-talk-page2": "[[User:$1|$1]] があなたの[[User talk:$2#$3|トークページ]]にメッセージを{{GENDER:$1|投稿しました}}。",

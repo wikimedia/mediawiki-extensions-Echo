@@ -94,6 +94,8 @@
 	"notification-mention": "{{GENDER:$1|أشار|أشارت}} [[User:$1|$1]] {{GENDER:$6|إليك}} في قسم \"[[:$3#$2|$4]]\" من صفحة نقاش $5.",
 	"notification-mention-nosection": "{{GENDER:$1|أشار|أشارت}} [[User:$1|$1]] {{GENDER:$4|إليك}} في [[:$3|صفحة نقاش $2]].",
 	"notification-header-mention-other-nosection": "$1 {{GENDER:$2|ذكرك|ذكرتك}} في '''$4'''.",
+	"notification-header-mention-user-talkpage-v2": "{{GENDER:$2|أشار|أشارت}} $1 {{GENDER:$3|لك|لكِ}} في '''صفحة نقاش $4''' في \"'''$6'''\".",
+	"notification-header-mention-user-talkpage-nosection": "{{GENDER:$2|أشار|أشارت}} $1 {{GENDER:$3|لك|لكِ}} في '''صفحة نقاش $4'''.",
 	"notification-header-mention-article-talkpage": "{{GENDER:$2|أشار|أشارت}} $1 {{GENDER:$3|إليك|إليكِ}} في صفحة نقاش $4 في قسم '''$5'''.",
 	"notification-user-rights-add": "أنت الآن عضو في {{PLURAL:$2|مجموعة|مجموعات}}: $1",
 	"notification-user-rights-remove": "ألغيت عضويتك في {{PLURAL:$2|مجموعة|مجموعات}}: $1",

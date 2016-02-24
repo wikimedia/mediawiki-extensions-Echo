@@ -94,7 +94,7 @@
 	"notification-link-text-collapse-all": "全部折叠",
 	"notification-link-text-view-message": "查看留言",
 	"notification-link-text-view-mention": "查看提及",
-	"notification-link-text-view-changes": "查看更改",
+	"notification-link-text-view-changes": "{{GENDER:$1|查看}}更改",
 	"notification-link-text-view-page": "查看页面",
 	"notification-link-text-view-edit": "查看编辑",
 	"notification-edit-talk-page2": "[[User:$1|$1]]在您的[[User talk:$2#$3|讨论页]]留言了。",

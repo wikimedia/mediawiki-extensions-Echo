@@ -94,7 +94,7 @@
 	"notification-link-text-collapse-all": "Tout réduire",
 	"notification-link-text-view-message": "Afficher le message",
 	"notification-link-text-view-mention": "Afficher la mention",
-	"notification-link-text-view-changes": "Afficher les modifications",
+	"notification-link-text-view-changes": "{{GENDER:$1|Afficher}} les modifications",
 	"notification-link-text-view-page": "Afficher la page",
 	"notification-link-text-view-edit": "Afficher la modification",
 	"notification-edit-talk-page2": "[[User:$1|$1]] {{GENDER:$1|a laissé}} un message sur votre [[User talk:$2#$3|page de discussion]].",

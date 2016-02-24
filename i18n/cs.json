@@ -7,7 +7,8 @@
 			"Vks",
 			"Matěj Suchánek",
 			"Cvanca",
-			"Teslaton"
+			"Teslaton",
+			"Kvetoslav47"
 		]
 	},
 	"echo-desc": "Systém pro upozorňování uživatelů na události a zprávy",
@@ -70,7 +71,7 @@
 	"notification-link-text-collapse-all": "Sbalit vše",
 	"notification-link-text-view-message": "Zobrazit zprávu",
 	"notification-link-text-view-mention": "Zobrazit zmínku",
-	"notification-link-text-view-changes": "Zobrazit změny",
+	"notification-link-text-view-changes": "{{GENDER:$1|Zobrazit}} změny",
 	"notification-link-text-view-page": "Zobrazit stránku",
 	"notification-link-text-view-edit": "Zobrazit editaci",
 	"notification-edit-talk-page2": "[[User:$1|$1]] vám {{GENDER:$1|napsal|napsala}} na [[User talk:$2#$3|vaši diskusní stránku]].",

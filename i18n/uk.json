@@ -76,7 +76,7 @@
 	"notification-link-text-collapse-all": "Згорнути усі",
 	"notification-link-text-view-message": "Переглянути повідомлення",
 	"notification-link-text-view-mention": "Переглянути згадку",
-	"notification-link-text-view-changes": "Переглянути зміни",
+	"notification-link-text-view-changes": "{{GENDER:$1|Переглянути}} зміни",
 	"notification-link-text-view-page": "Переглянути сторінку",
 	"notification-link-text-view-edit": "Переглянути редагування",
 	"notification-edit-talk-page2": "[[User:$1|$1]] {{GENDER:$1|залишив|залишила}} повідомлення на Вашій [[User talk:$2#$3|сторінці обговорення]].",

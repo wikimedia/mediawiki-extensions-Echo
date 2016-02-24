@@ -78,7 +78,7 @@
 	"notification-link-text-collapse-all": "Zwiń wszystkie",
 	"notification-link-text-view-message": "Zobacz wiadomość",
 	"notification-link-text-view-mention": "Zobacz wzmiankę",
-	"notification-link-text-view-changes": "Zobacz zmiany",
+	"notification-link-text-view-changes": "{{GENDER:$1|Zobacz}} zmiany",
 	"notification-link-text-view-page": "Zobacz stronę",
 	"notification-link-text-view-edit": "Zobacz edycję",
 	"notification-edit-talk-page2": "[[User:$1|$1]] {{GENDER:$1|napisał|napisała}} do ciebie na twojej [[User talk:$2#$3|stronie dyskusji]].",
