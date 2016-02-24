@@ -438,6 +438,13 @@ class EchoHooks {
 		if ( !$revision ) {
 			return true;
 		}
+
+		// unless status is "good" (not only ok, also no warnings or errors), we
+		// probably shouldn't process it at all (e.g. null edits)
+		if ( !$status->isGood() ) {
+			return true;
+		}
+
 		$title = $article->getTitle();
 
 		// Try to do this after the HTTP response
