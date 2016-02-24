@@ -1082,7 +1082,9 @@ class EchoHooks {
 
 		$autoSubject = wfMessage( 'defemailsubject', $from->name )->inContentLanguage()->text();
 		if ( $subject === $autoSubject ) {
-			$preview = $wgContLang->truncate( $text, 125 );
+			$autoFooter = "\n\n-- \n" . wfMessage( 'emailuserfooter', $from->name, $address->name )->inContentLanguage()->text();
+			$textWithoutFooter = preg_replace( '/' . preg_quote( $autoFooter, '/' ) . '$/', '', $text );
+			$preview = $wgContLang->truncate( $textWithoutFooter, 125 );
 		} else {
 			$preview = $subject;
 		}
