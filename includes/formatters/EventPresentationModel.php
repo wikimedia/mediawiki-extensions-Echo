@@ -381,10 +381,14 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 	}
 
 	/**
-	 * @param User $user
+	 * @param User|null $user
 	 * @return array|null
 	 */
-	final protected function getUserLink( User $user ) {
+	final protected function getUserLink( $user ) {
+		if ( !$user ) {
+			return null;
+		}
+
 		if ( !$this->userCan( Revision::DELETED_USER ) ) {
 			return null;
 		}
