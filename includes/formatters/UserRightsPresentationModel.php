@@ -59,6 +59,22 @@ class EchoUserRightsPresentationModel extends EchoEventPresentationModel {
 	}
 
 	public function getSecondaryLinks() {
-		return array( $this->getAgentLink() );
+		return array( $this->getAgentLink(), $this->getLogLink() );
+	}
+
+	private function getLogLink() {
+		$affectedUserPage = User::newFromId( $this->event->getExtraParam( 'user' ) )->getUserPage();
+		$query = array(
+			'type' => 'rights',
+			'page' => $affectedUserPage->getPrefixedText(),
+			'user' => $this->event->getAgent()->getName(),
+		);
+		return array(
+			'label' => $this->msg( 'echo-log' )->text(),
+			'url' => SpecialPage::getTitleFor( 'Log' )->getFullURL( $query ),
+			'description' => '',
+			'icon' => false,
+			'prioritized' => true,
+		);
 	}
 }
