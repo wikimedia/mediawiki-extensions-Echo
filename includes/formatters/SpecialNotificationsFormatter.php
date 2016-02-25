@@ -24,7 +24,7 @@ class SpecialNotificationsFormatter extends EchoEventFormatter {
 			$html .= Xml::tags(
 					'div',
 					array( 'class' => 'mw-echo-payload' ),
-					$body->parse()
+					$body->escaped()
 				) . "\n";
 		}
 
