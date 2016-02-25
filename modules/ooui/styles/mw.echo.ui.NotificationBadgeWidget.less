@@ -3,43 +3,6 @@
 .mw-echo-ui-notificationBadgeButtonPopupWidget {
 	position: relative;
 
-	&-popup > .oo-ui-popupWidget-popup > .oo-ui-popupWidget-footer {
-		border-top: 1px solid #DDDDDD;
-		width: 100%;
-
-		> .oo-ui-buttonGroupWidget {
-			display: block;
-		}
-
-		.oo-ui-buttonElement {
-			display: table-cell;
-			white-space: normal;
-			font-weight: bold;
-			width: @notification-popup-width / 2;
-			box-sizing: border-box;
-
-			&:last-child {
-				border-left: 1px solid #DDDDDD;
-			}
-
-			> .oo-ui-buttonElement-button {
-				display: block;
-				line-height: 2.6em;
-				margin: 0;
-				border: 0;
-				padding: 0.5em;
-
-				.oo-ui-iconElement-icon {
-					// HACK: these are absolutely positioned in OOUI, and our line-height: 4em;
-					// rule breaks that.
-					// FIXME: We should really use a different widget here
-					position: static;
-					opacity: @opacity-mid;
-				}
-			}
-		}
-	}
-
 	> .oo-ui-popupWidget {
 		// #p-personal li has a font-size of 0.75em, but we want the
 		// font size here to be exactly 0.875em, so we must override
@@ -76,6 +39,43 @@
 			> .oo-ui-popupWidget-body {
 				// Work around scrollbar rendering bug in Chrome
 				overflow: visible;
+			}
+
+			> .oo-ui-popupWidget-footer {
+				border-top: 1px solid #DDDDDD;
+				width: 100%;
+
+				> .oo-ui-buttonGroupWidget {
+					display: block;
+				}
+
+				.oo-ui-buttonElement {
+					display: table-cell;
+					white-space: normal;
+					font-weight: bold;
+					width: @notification-popup-width / 2;
+					box-sizing: border-box;
+
+					&:last-child {
+						border-left: 1px solid #DDDDDD;
+					}
+
+					> .oo-ui-buttonElement-button {
+						display: block;
+						line-height: 2.6em;
+						margin: 0;
+						border: 0;
+						padding: 0.5em;
+
+						.oo-ui-iconElement-icon {
+							// HACK: these are absolutely positioned in OOUI, and our line-height: 4em;
+							// rule breaks that.
+							// FIXME: We should really use a different widget here
+							position: static;
+							opacity: @opacity-mid;
+						}
+					}
+				}
 			}
 		}
 	}
