@@ -19,7 +19,8 @@
 			"Macofe",
 			"Amitie 10g",
 			"Peter Bowman",
-			"Allan Aguilar"
+			"Allan Aguilar",
+			"Mgpena"
 		]
 	},
 	"echo-desc": "Sistema para notificar a los usuarios sobre eventos y mensajes",
@@ -82,7 +83,7 @@
 	"notification-link-text-collapse-all": "Contraer todo",
 	"notification-link-text-view-message": "Ver mensaje",
 	"notification-link-text-view-mention": "Ver la mención",
-	"notification-link-text-view-changes": "{{GENDER:$1|Ver}} los cambios",
+	"notification-link-text-view-changes": "{{GENDER:$1|Ver}} cambios",
 	"notification-link-text-view-page": "Ver página",
 	"notification-link-text-view-edit": "Ver edición",
 	"notification-edit-talk-page2": "[[User:$1|$1]] te {{GENDER:$1|dejó}} un mensaje en tu [[User talk:$2#$3|página de discusión]].",

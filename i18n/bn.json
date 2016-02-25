@@ -71,7 +71,7 @@
 	"notification-link-text-collapse-all": "সব সঙ্কুচিত করুন",
 	"notification-link-text-view-message": "বার্তা দেখাও",
 	"notification-link-text-view-mention": "উল্লেখণ দেখাও",
-	"notification-link-text-view-changes": "পরিবর্তনসমূহ দেখাও",
+	"notification-link-text-view-changes": "{{GENDER:$1|পরিবর্তন}} দেখুন",
 	"notification-link-text-view-page": "পাতা দেখাও",
 	"notification-link-text-view-edit": "সম্পাদনা দেখাও",
 	"notification-edit-talk-page2": "[[User:$1|$1]]  আপনার [[User talk:$2#$3|আলাপ পাতায়]] একটি বার্তা {{GENDER:$1|রেখেছেন}}।",

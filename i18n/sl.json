@@ -54,7 +54,7 @@
 	"echo-feedback": "Povratne informacije",
 	"notification-link-text-view-message": "Ogled sporočila",
 	"notification-link-text-view-mention": "Ogled omembe",
-	"notification-link-text-view-changes": "Ogled sprememb",
+	"notification-link-text-view-changes": "{{GENDER:$1|Ogled}} sprememb",
 	"notification-link-text-view-page": "Ogled strani",
 	"notification-link-text-view-edit": "Ogled urejanja",
 	"notification-edit-talk-page2": "[[User:$1|$1]] je na vaši [[User talk:$2#$3|pogovorni strani]] {{GENDER:$1|pustil|pustila}} sporočilo.",

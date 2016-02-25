@@ -61,7 +61,7 @@
 	"notification-link-text-collapse-all": "Alles zouklappen",
 	"notification-link-text-view-message": "Message weisen",
 	"notification-link-text-view-mention": "Mentioun weisen",
-	"notification-link-text-view-changes": "Ännerunge weisen",
+	"notification-link-text-view-changes": "Ännerunge {{GENDER:$1|weisen}}",
 	"notification-link-text-view-page": "Säit weisen",
 	"notification-link-text-view-edit": "Ännerung weisen",
 	"notification-edit-talk-page2": "[[User:$1|$1]] {{GENDER:$1|huet}} op Är [[User talk:$2#$3|Diskussiounssäit]] geschriwwen.",

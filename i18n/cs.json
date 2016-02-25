@@ -32,6 +32,7 @@
 	"echo-pref-beta-feature-cross-wiki-message": "Vylepšená upozornění",
 	"echo-pref-beta-feature-cross-wiki-description": "Prohlížejte si a organizujte upozornění snadněji. Zahrnuje upozornění napříč wikiprojekty, což vám umožňuje vidět zprávy z jiných wiki.",
 	"echo-learn-more": "Další informace",
+	"echo-log": "Veřejný záznam",
 	"echo-new-messages": "Máte nové zprávy",
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1|příspěvek|příspěvky}} v diskusi",
 	"echo-category-title-article-linked": "{{PLURAL:$1|odkaz|odkazy}} na stránku",

@@ -84,7 +84,7 @@
 	"notification-link-text-collapse-all": "Свернуть все",
 	"notification-link-text-view-message": "Просмотр сообщения",
 	"notification-link-text-view-mention": "Просмотр упоминания",
-	"notification-link-text-view-changes": "Просмотр изменений",
+	"notification-link-text-view-changes": "{{GENDER:$1|Просмотр}} изменений",
 	"notification-link-text-view-page": "Просмотр страницы",
 	"notification-link-text-view-edit": "Просмотр правки",
 	"notification-edit-talk-page2": "[[User:$1|$1]] {{GENDER:$1|оставил|оставила}} сообщение на вашей [[User talk:$2#$3|странице обсуждения]].",

@@ -33,6 +33,7 @@
 	"echo-pref-beta-feature-cross-wiki-message": "הודעות מורחבות",
 	"echo-pref-beta-feature-cross-wiki-description": "הצגה וארגון של הודעות יותר בקלות. כולל הצגת הודעות מאתרי ויקי שונים, שמאפשרת לך לראות הודעות דף שיחה מאתרים אחרים.",
 	"echo-learn-more": "מידע נוסף",
+	"echo-log": "יומן ציבורי",
 	"echo-new-messages": "יש לך הודעות חדשות",
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1|הודעה|הודעות}} בדף שיחה",
 	"echo-category-title-article-linked": "{{PLURAL:$1|קישור לדף|קישורים לדפים}}",

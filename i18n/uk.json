@@ -37,6 +37,7 @@
 	"echo-pref-beta-feature-cross-wiki-message": "Розширені сповіщення",
 	"echo-pref-beta-feature-cross-wiki-description": "Переглядайте і сортуйте сповіщення простіше. Містить крос-вікі сповіщення, які дають змогу бачити повідомлення з інших вікі.",
 	"echo-learn-more": "Дізнатися більше",
+	"echo-log": "Публічний журнал",
 	"echo-new-messages": "У Вас є нові повідомлення",
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Повідомлення|Повідомлення|Повідомлень}} на сторінці обговорення",
 	"echo-category-title-article-linked": "{{PLURAL:$1|Посилання}} на сторінку",

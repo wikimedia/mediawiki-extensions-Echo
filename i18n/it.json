@@ -35,6 +35,7 @@
 	"echo-pref-beta-feature-cross-wiki-message": "Notifiche migliorate",
 	"echo-pref-beta-feature-cross-wiki-description": "Visualizza e organizza le notifiche più facilmente. Include notifiche cross-wiki, che ti permette di visualizzare i messaggi provenienti da altri wiki.",
 	"echo-learn-more": "Ulteriori informazioni",
+	"echo-log": "Registro pubblico",
 	"echo-new-messages": "Hai nuovi messaggi",
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Messaggio|Messaggi}} sulla pagina di discussione",
 	"echo-category-title-article-linked": "{{PLURAL:$1|Collegamento|Collegamenti}} a una pagina",
