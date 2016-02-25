@@ -244,7 +244,10 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 
 		if ( $this->userCan( Revision::DELETED_USER ) ) {
 			// Not deleted
-			return array( $this->getTruncatedUsername( $agent ), $agent->getName() );
+			return array(
+				$this->language->embedBidi( $this->getTruncatedUsername( $agent ) ),
+				$agent->getName()
+			);
 		} else {
 			// Deleted/hidden
 			$msg = $this->msg( 'rev-deleted-user' )->plain();
