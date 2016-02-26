@@ -1,12 +1,19 @@
+@import '../../echo.variables';
+
 .mw-echo-ui-bundledNotificationGroupWidget {
 
 	&:not(:first-child) {
-		margin-top: 0.5em;
+		margin-top: @bundle-group-padding;
 	}
 
 	&-title {
 		font-weight: bold;
 		color: #666666;
+		margin-bottom: @bundle-group-padding;
+	}
+
+	.mw-echo-ui-notificationsWidget {
+		margin-bottom: @bundle-group-padding / 2;
 	}
 
 	.mw-echo-ui-notificationItemWidget {
