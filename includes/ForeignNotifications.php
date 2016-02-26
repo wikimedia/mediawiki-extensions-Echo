@@ -116,7 +116,19 @@ class EchoForeignNotifications {
 				if ( $data['count'] > 0 ) {
 					$this->counts[$section] += $data['count'];
 					$this->wikis[$section][] = $wiki;
-					$this->timestamps[$section] = new MWTimestamp( $data['ts'] );
+
+					$timestamp = new MWTimestamp( $data['ts'] );
+					// We need $this->timestamp[$section] to be the max timestamp
+					// across all wikis.
+					// $timestamp < $this->timestamps[$section] = invert 0
+					// $timestamp > $this->timestamps[$section] = invert 1
+					if (
+						$this->timestamps[$section] === false ||
+						$timestamp->diff( $this->timestamps[$section] )->invert === 1
+					) {
+						$this->timestamps[$section] = new MWTimestamp( $data['ts'] );
+					}
+
 				}
 			}
 		}
