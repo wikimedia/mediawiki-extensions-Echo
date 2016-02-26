@@ -71,6 +71,10 @@
 				return -1; // Unread items are always above read items
 			} else if ( a.isRead() && !b.isRead() ) {
 				return 1;
+			} else if ( !a.isForeign() && b.isForeign() ) {
+				return -1;
+			} else if ( a.isForeign() && !b.isForeign() ) {
+				return 1;
 			} else {
 				// Reverse sorting
 				diff = Number( b.getTimestamp() ) - Number( a.getTimestamp() );
