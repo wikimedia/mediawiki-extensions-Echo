@@ -113,7 +113,7 @@
 	"notification-add-comment-yours2": "[[User:$1|$1]] {{GENDER:$1|a fait un commentaire}} dans ''[[$3#$2|$2]]'' sur votre page de discussion",
 	"notification-mention": "[[User:$1|$1]] vous a mentionné{{GENDER:$6||e}} sur la page de discussion de $5 dans la [[:$3#$2|section ''$4'']].",
 	"notification-mention-nosection": "[[User:$1|$1]] vous a mentionné{{GENDER:$4||e}} sur la [[:$3|page de discussion de $2]].",
-	"notification-header-mention-other": "$1 {{GENDER:$2|vous}}{{GENDER:$3|a mentionné|a mentionnée}} sur '''$4''' dans '''' $5''''.",
+	"notification-header-mention-other": "$1 {{GENDER:$2|vous}} {{GENDER:$3|a mentionné|a mentionnée}} sur '''$4''' dans « ''' $5''' ».",
 	"notification-header-mention-other-nosection": "$1 {{GENDER:$2|vous}} {{GENDER:$3|a mentionné|a mentionnée}} sur '''$4'''.",
 	"notification-header-mention-user-talkpage-v2": "$1 {{GENDER:$2|vous}} {{GENDER:$3|a mentionné|a mentionnée}} sur la '''page de discussion {{GENDER:$5|de}} $4''' dans « '''$6''' ».",
 	"notification-header-mention-user-talkpage-nosection": "$1 {{GENDER:$2|vous}} {{GENDER:$3|a mentionné|a mentionnée}} sur la '''page de discussion {{GENDER:$5|de}}  $4'''.",

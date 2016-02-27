@@ -11,7 +11,8 @@
 			"Vituzzu",
 			"Horcrux92",
 			"Alexmar983",
-			"Fringio"
+			"Fringio",
+			"Catrope"
 		]
 	},
 	"echo-desc": "Sistema per notificare agli utenti messaggi ed eventi",
@@ -156,8 +157,8 @@
 	"echo-email-batch-body-intro-weekly": "Ciao $1,\neccoti una sintesi delle attività di questa settimana su {{SITENAME}}.",
 	"echo-email-batch-link-text-view-all-notifications": "Vedi tutte le notifiche",
 	"echo-rev-deleted-text-view": "Questa versione della pagina è stata soppressa",
-	"notification-header-foreign-alert": "Altri avvisi da $3{{PLURAL:$4| e un altro wiki| e altri $4 wiki|0=}}",
-	"notification-header-foreign-message": "Altri messaggi da $3{{PLURAL:$4| e un altro wiki| e altri $4 wiki|0=}}",
+	"notification-header-foreign-alert": "Altri avvisi da $3 {{PLURAL:$4|e un altro wiki|e altri $4 wiki|0=}}",
+	"notification-header-foreign-message": "Altri messaggi da $3 {{PLURAL:$4|e un altro wiki|e altri $4 wiki|0=}}",
 	"apihelp-echomarkread-description": "Contrassegna tutte le notifiche come lette per l'utente attuale.",
 	"apihelp-echomarkread-param-list": "Un elenco di ID notifiche da contrassegnare come lette.",
 	"apihelp-echomarkread-param-all": "Se impostato, contrassegna tutte le notifiche dell'utente come lette.",

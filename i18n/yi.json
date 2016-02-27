@@ -62,7 +62,7 @@
 	"notification-link-text-collapse-all": "רעדוצירן אלץ",
 	"notification-link-text-view-message": "באקוקן מעלדונג",
 	"notification-link-text-view-mention": "ווײַזן ציטאט",
-	"notification-link-text-view-changes": "באקוקן ענדערונגען",
+	"notification-link-text-view-changes": "{{GENDER:$1|באקוקן}} ענדערונגען",
 	"notification-link-text-view-page": "באקוקן בלאט",
 	"notification-link-text-view-edit": "באקוקן רעדאקטירונג",
 	"notification-edit-talk-page2": "[[User:$1|$1]] {{GENDER:$1|האט געלאזט}} א מעלדונג אויף אײַער [[User talk:$2#$3|שמועס בלאט]].",
