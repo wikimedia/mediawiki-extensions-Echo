@@ -14,7 +14,7 @@
 	 * @cfg {boolean} [bundle=false] This notification item is part of a bundle.
 	 */
 	mw.echo.ui.NotificationItemWidget = function MwEchoUiNotificationItemWidget( model, config ) {
-		var i, secondaryUrls, urlObj, linkButton, $icon, isInsideMenu,
+		var i, secondaryUrls, urlObj, linkButton, $icon, isInsideMenu, echoMoment,
 			$message = $( '<div>' ).addClass( 'mw-echo-ui-notificationItemWidget-content-message' ),
 			widget = this;
 
@@ -76,9 +76,15 @@
 		} );
 
 		// Timestamp
+		// We want to use extra-short timestamp strings; we change the locale
+		// to our echo-defined one and use that instead of the normal moment locale
+		echoMoment = moment.utc( this.model.getTimestamp(), 'YYYYMMDDHHmmss' );
+		echoMoment.locale( 'echo-shortRelativeTime' );
+
 		this.timestampWidget = new OO.ui.LabelWidget( {
 			classes: [ 'mw-echo-ui-notificationItemWidget-content-actions-timestamp' ],
-			label: moment.utc( this.model.getTimestamp(), 'YYYYMMDDHHmmss' ).fromNow()
+			// Get the time 'fromNow' without the suffix 'ago'
+			label: echoMoment.fromNow( true )
 		} );
 
 		// Build the actions line
