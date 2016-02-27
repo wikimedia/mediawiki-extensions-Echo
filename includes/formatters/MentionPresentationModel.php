@@ -141,11 +141,7 @@ class EchoMentionPresentationModel extends EchoEventPresentationModel {
 			'prioritized' => true,
 		);
 
-		$pageLink = $this->getPageLink(
-			$title, '', true
-		);
-
-		return array( $this->getAgentLink(), $pageLink, $viewChangesLink );
+		return array( $this->getAgentLink(), $viewChangesLink );
 	}
 
 	private function onArticleTalkpage() {
