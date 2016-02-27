@@ -18,6 +18,8 @@
 	 *  the source of the notification items for the network handler.
 	 * @cfg {number} [limit=25] Notification limit
 	 * @cfg {string} [userLang] User language
+	 * @cfg {number} [timestamp] Timestamp (in MW format) to return from #getTimestamp when
+	 *  there are no items; use this if the timestamp is known ahead of time (before population).
 	 * @cfg {boolean} [foreign] The model's source is foreign
 	 * @cfg {boolean} [removeReadNotifications=false] Remove read notifications completely. This
 	 *  means the model will only contain unread notifications. This is useful for
@@ -36,6 +38,7 @@
 		this.source = config.source || 'local';
 		this.id = config.id || this.source;
 		this.title = config.title || '';
+		this.fallbackTimestamp = config.timestamp;
 
 		this.markingAllAsRead = false;
 		this.autoMarkReadInProcess = false;
@@ -475,13 +478,12 @@
 			.then(
 				// Success
 				function ( data ) {
-					var notifData, id, s,
+					var notifData, id,
 						notificationModel, content,
 						newNotifData = {},
 						sources = {},
 						optionItems = [],
-						idArray = [],
-						sourceDefinitions = data.sources || {};
+						idArray = [];
 
 					data = data || {};
 
@@ -517,10 +519,9 @@
 						};
 
 						if ( notifData.type === 'foreign' ) {
-							// Define sources
-							for ( s = 0; s < notifData.sources.length; s++ ) {
-								sources[ notifData.sources[ s ] ] = sourceDefinitions[ notifData.sources[ s ] ];
-							}
+							// Register sources
+							sources = notifData.sources;
+							model.api.registerForeignSources( sources );
 
 							// Create model
 							notificationModel = new mw.echo.dm.NotificationGroupItem(
@@ -666,7 +667,7 @@
 
 		// This is a sorted list, so the top (first) item is also the 'latest'
 		// item for this purpose.
-		return items[ 0 ] && items[ 0 ].getTimestamp();
+		return ( items[ 0 ] && items[ 0 ].getTimestamp() ) || this.fallbackTimestamp;
 	};
 
 	/**

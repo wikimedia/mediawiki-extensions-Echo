@@ -13,6 +13,18 @@
 	OO.initClass( mw.echo.api.EchoApi );
 
 	/**
+	 * Register a set of sources.
+	 *
+	 * @param {Object} sources Object mapping source names to config objects
+	 */
+	mw.echo.api.EchoApi.prototype.registerForeignSources = function ( sources ) {
+		var s;
+		for ( s in sources ) {
+			this.network.addApiHandler( s, sources[ s ], true );
+		}
+	};
+
+	/**
 	 * Fetch notifications from the server based on type
 	 *
 	 * @param {string} types An array of notification types to fetch: 'alert', 'message', 'all'
@@ -22,34 +34,11 @@
 	 *  requested types.
 	 */
 	mw.echo.api.EchoApi.prototype.fetchNotifications = function ( type, source, isForced ) {
-		var api = this;
-
 		source = source || 'local';
 
 		return this.network.getApiHandler( source ).fetchNotifications( type, isForced )
 			.then( function ( result ) {
-				var id, s,
-					sources = {},
-					rawData = OO.getProp( result.query, 'notifications' ),
-					sourceDefinitions = rawData.sources;
-
-				for ( source in sourceDefinitions ) {
-					api.network.addApiHandler( source, sourceDefinitions[ source ], true );
-				}
-
-				for ( id in rawData.list ) {
-					if ( rawData.list[ id ].type === 'external' ) {
-						// Define sources
-						sources = {};
-						for ( s = 0; s < rawData.list[ id ].sources.length; s++ ) {
-							sources[ rawData.list[ id ].sources[ s ] ] = sourceDefinitions[ rawData.list[ id ].sources[ s ] ].title;
-						}
-						rawData.list[ id ].sources = sources;
-					}
-
-				}
-
-				return rawData;
+				return OO.getProp( result.query, 'notifications' );
 			} );
 	};
 
