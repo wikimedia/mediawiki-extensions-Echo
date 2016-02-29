@@ -1,7 +1,6 @@
 {
 	"preset": "wikimedia",
 	"disallowDanglingUnderscores": null,
-	"requireVarDeclFirst": null,
 	"jsDoc": {
 		"checkAnnotations": {
 			"preset": "jsduck5",

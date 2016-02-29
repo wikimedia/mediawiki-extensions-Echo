@@ -1,4 +1,6 @@
 ( function ( mw, $ ) {
+	var echoApi;
+
 	QUnit.module( 'ext.echo.dm mw.echo.dm.NotificationsModel' );
 
 	function runPreparation( model, testPrepare ) {
@@ -29,7 +31,7 @@
 	};
 
 	// Create an Echo API instance
-	var echoApi = new mw.echo.api.EchoApi();
+	echoApi = new mw.echo.api.EchoApi();
 	// HACK: Reach into the EchoAPI to create a test handler
 	echoApi.network.addCustomApiHandler( 'test', new TestApiHandler() );
 

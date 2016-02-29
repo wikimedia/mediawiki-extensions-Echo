@@ -91,11 +91,13 @@
 	 * @param {string} [notifWiki] Wiki the notification came from
 	 */
 	mw.echo.Logger.prototype.logInteraction = function ( action, context, eventId, eventType, mobile, notifWiki ) {
+		var myEvt;
+
 		if ( !this.constructor.static.clickThroughEnabled ) {
 			return;
 		}
 
-		var myEvt = {
+		myEvt = {
 			action: action
 		};
 

@@ -221,10 +221,11 @@
 	 * @return {number} count
 	 */
 	mw.echo.dm.NotificationGroupItem.prototype.getCount = function () {
+		var sum;
 		if ( this.anticipatedCount !== null ) {
 			return this.anticipatedCount;
 		}
-		var sum = 0;
+		sum = 0;
 		this.getItems().forEach( function ( notificationsModel ) {
 			sum += notificationsModel.getUnreadCount();
 		} );
