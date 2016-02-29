@@ -406,7 +406,7 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 
 		return array(
 			'url' => $url,
-			'label' => $truncatedLabel,
+			'label' => $this->language->embedBidi( $truncatedLabel ),
 			'tooltip' => $isTruncated ? $label : '',
 			'description' => '',
 			'icon' => 'userAvatar',
@@ -429,9 +429,12 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 		} else {
 			$icon = 'article';
 		}
+
 		return array(
 			'url' => $title->getFullURL( $query ),
-			'label' => $this->language->truncate( $title->getText(), self::PAGE_NAME_AS_LABEL_RECOMMENDED_LENGTH ),
+			'label' => $this->language->embedBidi(
+				$this->language->truncate( $title->getText(), self::PAGE_NAME_AS_LABEL_RECOMMENDED_LENGTH )
+			),
 			'tooltip' => $title->getPrefixedText(),
 			'description' => $description,
 			'icon' => $icon,
