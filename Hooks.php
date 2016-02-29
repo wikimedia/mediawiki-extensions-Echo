@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\Logger\LoggerFactory;
+
 class EchoHooks {
 	const EMAIL_NEVER = -1; // Never send email notifications
 	const EMAIL_IMMEDIATELY = 0; // Send email notificaitons immediately as they come in
@@ -459,6 +461,14 @@ class EchoHooks {
 			// This edit hasn't been added to the edit count yet
 			$editCount = $user->getEditCount() + 1;
 			if ( in_array( $editCount, $thresholds ) ) {
+				LoggerFactory::getInstance( 'Echo' )->debug(
+					'Thanking {user} (id: {id}) for their {count} edit',
+					array(
+						'user' => $user->getName(),
+						'id' => $user->getId(),
+						'count' => $editCount,
+					)
+				);
 				DeferredUpdates::addCallableUpdate( function () use ( $user, $title, $editCount ) {
 					EchoEvent::create( array(
 							'type' => 'thank-you-edit',
