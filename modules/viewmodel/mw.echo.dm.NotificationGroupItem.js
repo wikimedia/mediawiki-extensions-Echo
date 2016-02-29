@@ -70,7 +70,7 @@
 				}
 			);
 			items.push( item );
-			this.notifModels[source] = item;
+			this.notifModels[ source ] = item;
 		}
 
 		this.addItems( items );
