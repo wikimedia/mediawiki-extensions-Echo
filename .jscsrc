@@ -1,4 +1,18 @@
 {
 	"preset": "wikimedia",
-	"disallowDanglingUnderscores": null
+	"disallowDanglingUnderscores": null,
+	"requireSpacesInsideBrackets": null,
+	"requireVarDeclFirst": null,
+	"jsDoc": {
+		"checkAnnotations": {
+			"preset": "jsduck5",
+			"extra": {
+				"mixin": false
+			}
+		},
+		"requireParamTypes": true,
+		"checkReturnTypes": true,
+		"requireReturnTypes": true,
+		"checkRedundantAccess": true
+	}
 }
