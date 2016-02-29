@@ -96,7 +96,7 @@
 							'data-notification-event': data.id,
 							'data-notification-type': data.type
 						} )
-						.append( data['*'] )
+						.append( data[ '*' ] )
 						.appendTo( container );
 
 					if ( !data.read ) {

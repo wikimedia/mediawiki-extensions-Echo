@@ -234,7 +234,7 @@
 			items = this.unreadNotifications.getItems();
 
 		for ( i = 0, len = items.length; i < len; i++ ) {
-			if ( items[i].getCategory() === 'edit-user-talk' ) {
+			if ( items[ i ].getCategory() === 'edit-user-talk' ) {
 				talk++;
 			}
 		}
@@ -492,7 +492,7 @@
 						data = OO.getProp( result.query, 'notifications', types[ t ] ) || { list: [] };
 						for ( id in data.list ) {
 							notifData = data.list[ id ];
-							content = notifData['*'] || {};
+							content = notifData[ '*' ] || {};
 
 							if ( model.getItemById( id ) ) {
 								// Skip if we already have the item
