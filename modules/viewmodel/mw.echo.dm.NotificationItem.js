@@ -264,4 +264,13 @@
 	mw.echo.dm.NotificationItem.prototype.getSource = function () {
 		return this.source;
 	};
+
+	/**
+	 * Get the number of notifications represented by this object
+	 *
+	 * @return {number} Notification count
+	 */
+	mw.echo.dm.NotificationItem.prototype.getCount = function () {
+		return 1;
+	};
 }( mediaWiki, jQuery ) );

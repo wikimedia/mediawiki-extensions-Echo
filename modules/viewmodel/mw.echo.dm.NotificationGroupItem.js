@@ -40,7 +40,8 @@
 			return b.getId() - a.getId();
 		} );
 		this.aggregate( {
-			empty: 'groupEmpty'
+			empty: 'groupEmpty',
+			itemRead: 'groupItemRead'
 		} );
 		this.connect( this, {
 			groupEmpty: 'onGroupEmpty'
@@ -50,7 +51,7 @@
 		this.sources = sources;
 		this.networkHandler = networkHandler;
 		this.notifModels = {};
-		this.count = config.count || 0;
+		this.anticipatedCount = config.count || 0;
 
 		// Create notification models for each source
 		for ( source in this.sources ) {
@@ -88,12 +89,18 @@
 	 * @event empty
 	 */
 
+	/**
+	 * The number of item read in a group changed
+	 *
+	 * @event groupItemRead
+	 */
+
 	/* Methods */
 
 	/**
 	 * Respond to notification model being empty
 	 *
-	 * @param {mw.echo.dm.NotificationModel} notifModel Notification model
+	 * @param {mw.echo.dm.NotificationsModel} notifModel Notifications model
 	 */
 	mw.echo.dm.NotificationGroupItem.prototype.onGroupEmpty = function ( notifModel ) {
 		if ( this.removeReadNotifications ) {
@@ -130,6 +137,9 @@
 
 				// Wait for all fetch processes to finish before we resolve this promise
 				return mw.echo.dm.NetworkHandler.static.waitForAllPromises( fetchPromises );
+			} )
+			.then( function () {
+				model.anticipatedCount = null;
 			} );
 	};
 
@@ -208,12 +218,20 @@
 	};
 
 	/**
-	 * Get the anticipated count of items in this group item
+	 * Get the anticipated count of items in this group item,
+	 * or actual count if is has been loaded.
 	 *
-	 * @return {number} Anticipated item count
+	 * @return {number} count
 	 */
 	mw.echo.dm.NotificationGroupItem.prototype.getCount = function () {
-		return this.count;
+		if ( this.anticipatedCount !== null ) {
+			return this.anticipatedCount;
+		}
+		var sum = 0;
+		this.getItems().forEach( function ( notificationsModel ) {
+			sum += notificationsModel.getUnreadCount();
+		} );
+		return sum;
 	};
 
 	/**

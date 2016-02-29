@@ -65,7 +65,7 @@
 				this.resetLoadingOption( mw.msg( 'echo-notification-placeholder' ) );
 			} else {
 				// If failure, check if the failure is due to login
-				// so we can display a more complrehensive error
+				// so we can display a more comprehensive error
 				// message in that case
 				if ( result.errCode === 'notlogin-required' ) {
 					// Login error

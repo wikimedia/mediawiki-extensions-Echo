@@ -87,6 +87,7 @@ $wgResourceModules += array(
 			'oojs-ui.styles.icons-content',
 		),
 		'messages' => array(
+			'echo-notification-count',
 			'echo-overlay-link',
 			'echo-mark-all-as-read',
 			'echo-more-info',
