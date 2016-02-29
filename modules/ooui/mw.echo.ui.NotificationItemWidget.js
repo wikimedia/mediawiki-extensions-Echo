@@ -151,7 +151,9 @@
 			this.$content.append(
 				this.markAsReadButton.$element,
 				$message,
-				this.$actions
+				$( '<div>' )
+					.addClass( 'mw-echo-ui-notificationItemWidget-content-table' )
+					.append( this.$actions )
 			);
 			this.$element.append( $icon, this.$content );
 		}
