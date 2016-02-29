@@ -2,8 +2,6 @@
 @import '../../echo.mixins';
 
 .mw-echo-ui-menuItemWidget {
-	.mw-echo-ui-mixin-hover-opacity;
-
 	&-icon {
 		display: inline-block;
 		// We have to override oojs-ui's width/height, which uses
@@ -22,7 +20,7 @@
 		// We have to override oojs-ui's color, which uses
 		// a very specific selector
 		font-weight: normal !important;
-		color: #000 !important;
+		color: #333333 !important;
 		// Set max-width so buttons are truncated
 		max-width: 15em;
 
@@ -31,12 +29,41 @@
 		}
 	}
 
-	// Correct for when inside the menu
-	.mw-echo-ui-notificationItemWidget-content-actions-menu & {
-		display: block;
-	}
-
 	&-prioritized {
 		display: inline-block;
 	}
+
+	// Correct for when inside the popup menu
+	.mw-echo-ui-actionMenuPopupWidget-menu & {
+		display: block;
+		padding: 0.7em;
+
+		&:hover {
+			background: #eeeeee;
+		}
+
+		&-icon {
+			// The icon should be 15px, which is 1.1em. However,
+			// ooui icons are surrounded by whitespace. In this case,
+			// the whitespace is about 6px out of the original 24px
+			// so the non-whitespace dimensions are 3/4 of the total.
+			// So to compensate, the new size should be 1.1em*4/3 = 1.4em
+			width: 1.4em !important;
+			height: 1.4em !important;
+			// Take into account the padding and subtract half of
+			// the whitespace adjustment of the icon
+			top: 0.7em - 0.3em / 2;
+		}
+
+		&-content {
+			margin-left: 1.4em + 0.7em; // Icon width + 0.7em spacing
+			font-weight: bold !important;
+
+			span.oo-ui-labelElement-label {
+				line-height: 1em;
+			}
+		}
+
+	}
+
 }

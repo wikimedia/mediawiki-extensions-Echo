@@ -126,10 +126,10 @@
 			}
 		}
 		// Add a "mark as read" secondary action
-		this.markAsReadSecondary = new OO.ui.ButtonOptionWidget( {
+		this.markAsReadSecondary = new mw.echo.ui.MenuItemWidget( {
 			icon: 'check',
-			framed: false,
 			data: 'markAsRead',
+			prioritized: false,
 			label: mw.msg( 'echo-notification-markasread' ),
 			classes: [ 'mw-echo-ui-notificationItemWidget-content-actions-button' ]
 		} );
