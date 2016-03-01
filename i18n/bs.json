@@ -90,6 +90,7 @@
 	"notification-new-user": "$1, dobro došli na {{GRAMMAR:akuzativ|{{SITENAME}}}}! Drago nam je što ste ovdje.",
 	"notification-header-welcome": "{{GENDER:$2|Dobro došli}} na {{GRAMMAR:akuzativ|{{SITENAME}}}}, $1! Drago nam je što {{GENDER:$2|ste}} ovdje.",
 	"notification-welcome-linktext": "Dobro došli",
+	"notification-header-thank-you-1-edit": "Upravo {{GENDER:$2|ste}} napravili prvu izmjenu; hvala {{GENDER:$2|Vam}} i dobro došli!",
 	"notification-reverted2": "{{PLURAL:$4|Vaša izmjena na [[:$2]] je poništena|Vaše izmjene na [[:$2]] su poništene}} {{GENDER:$1|od}} strane [[$5|$1]]. $3",
 	"notification-header-reverted": "{{PLURAL:$4|Vašu izmjenu na $3|Vaše izmjene na $3}} {{GENDER:$2|poništio|poništila}} je $1.",
 	"notification-emailuser": "[[User:$1|$1]] Vam je {{GENDER:$1|poslao|poslala}} e-poruku.",

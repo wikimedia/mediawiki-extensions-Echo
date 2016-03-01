@@ -16,7 +16,8 @@
 			"Hiba Alshawi",
 			"Shbib Al-Subaie",
 			"Macofe",
-			"Sonic N800"
+			"Sonic N800",
+			"Maroen1990"
 		]
 	},
 	"echo-desc": "نظام لإخطار المستخدمين عن الأحداث والرسائل",
@@ -159,5 +160,8 @@
 	"apihelp-query+notifications-paramvalue-format-text": "صيغة نص عادي",
 	"apihelp-query+notifications-paramvalue-format-model": "بيانات إشعارات خام",
 	"apihelp-query+notifications-param-limit": "العدد الأقصى للإخطارات في النتائج.",
-	"apihelp-query+notifications-example-1": "قائمة الإشعارات"
+	"apihelp-query+notifications-param-messagecontinue": "عندما تكون المزيد من النتائج الرسائل المتاحة، واستخدم هذا للمتابعة.",
+	"apihelp-query+notifications-param-messageunreadfirst": "اذا اردت اظهار إخطارات التنبيه غير مقروء أولا.",
+	"apihelp-query+notifications-example-1": "قائمة الإشعارات",
+	"apihelp-query+notifications-example-2": "إخطارات القائمة، التي تم تجميعها حسب القسم، مع احصاء"
 }

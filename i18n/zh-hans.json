@@ -30,7 +30,8 @@
 			"范",
 			"Apflu",
 			"Cosine02",
-			"LNDDYL"
+			"LNDDYL",
+			"飞舞回堂前"
 		]
 	},
 	"echo-desc": "用于通知用户有关活动和消息的系统",
@@ -116,7 +117,7 @@
 	"notification-header-mention-other-nosection": "$1在'''$4'''{{GENDER:$2|提到}}了{{GENDER:$3|您}}。",
 	"notification-header-mention-user-talkpage-v2": "$1在'''$4{{GENDER:$5|的}}用户讨论页'''的“'''$6'''”中{{GENDER:$2|提到}}了{{GENDER:$3|您}}。",
 	"notification-header-mention-user-talkpage-nosection": "$1在'''$4{{GENDER:$5|的}}用户讨论页'''{{GENDER:$2|提到}}了{{GENDER:$3|您}}。",
-	"notification-header-mention-agent-talkpage": "$1在'''{{GENDER:$2|他|她|他们}}的讨论页'''的“'''$4'''”里{{GENDER:$2|提到}}了{{GENDER:$3|您}}。",
+	"notification-header-mention-agent-talkpage": "$1在'''{{GENDER:$2|他|她|他}}的讨论页'''的“'''$4'''”里{{GENDER:$2|提到}}了{{GENDER:$3|您}}。",
 	"notification-header-mention-agent-talkpage-nosection": "$1在'''{{GENDER:$1|他|她|他们}}的讨论页'''{{GENDER:$2|提到}}了{{GENDER:$3|您}}。",
 	"notification-header-mention-article-talkpage": "$1在'''$4'''的讨论页的“'''$5'''”段落{{GENDER:$2|提到}}了{{GENDER:$3|您}}。",
 	"notification-header-mention-article-talkpage-nosection": "$1在'''$4'''的讨论页{{GENDER:$2|提到}}了{{GENDER:$3|您}}。",
