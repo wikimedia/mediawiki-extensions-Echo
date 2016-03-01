@@ -47,6 +47,7 @@
 			);
 
 		if ( config.url ) {
+			this.hasLink = true;
 			this.$element.contents()
 				.wrapAll(
 					// HACK: Wrap the entire item with a link that takes
@@ -69,9 +70,15 @@
 
 	/* Static Properties */
 
-	mw.echo.ui.MenuItemWidget.static.selectable = false;
 	mw.echo.ui.MenuItemWidget.static.highlightable = false;
 	mw.echo.ui.MenuItemWidget.static.pressable = false;
+
+	/* Methods */
+
+	mw.echo.ui.MenuItemWidget.prototype.isSelectable = function () {
+		// If we have a link, force selectability to false, otherwise defer to parent method
+		return !this.hasLink && mw.echo.ui.MenuItemWidget.parent.prototype.isSelectable.apply( this, arguments );
+	};
 
 } )( mediaWiki, jQuery );
 
