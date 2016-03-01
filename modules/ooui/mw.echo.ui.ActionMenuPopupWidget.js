@@ -61,6 +61,9 @@
 		// which in our case is not the point at all. We need the menu
 		// to be larger, so force this setting:
 		this.menu.$element.css( 'width', this.menuWidth );
+		// HACK: Prevent ClippableElement from overwriting this width value on scroll
+		// or window resize
+		this.menu.toggleClipping( false );
 	};
 
 	/**
