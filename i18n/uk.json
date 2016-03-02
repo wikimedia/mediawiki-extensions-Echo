@@ -162,8 +162,8 @@
 	"echo-email-batch-body-intro-weekly": "Привіт $1!\nОсь підсумок тижневої активності на сайті {{SITENAME}} для вас.",
 	"echo-email-batch-link-text-view-all-notifications": "Переглянути усі сповіщення",
 	"echo-rev-deleted-text-view": "Цю версію сторінки було приховано.",
-	"notification-header-foreign-alert": "Більше сповіщень з {{GRAMMAR:genitive|$3}} {{PLURAL:$4|та однієї іншої вікі|та $4 інших вікі|0=}}",
-	"notification-header-foreign-message": "Більше повідомлень з {{GRAMMAR:genitive|$3}} {{PLURAL:$4|та однієї іншої вікі|та $4 інших вікі|0=}}",
+	"notification-header-foreign-alert": "Більше сповіщень з {{PLURAL:$5|$5 іншої вікі|$5 інших вікі}}",
+	"notification-header-foreign-message": "Більше повідомлень з {{PLURAL:$5|$5 іншої вікі|$5 інших вікі}}",
 	"apihelp-echomarkread-description": "Позначити для поточного користувача сповіщення як прочитані.",
 	"apihelp-echomarkread-param-list": "Список ідентифікаторів сповіщень, які позначити як прочитані.",
 	"apihelp-echomarkread-param-all": "Якщо встановлено, позначає всі сповіщення користувача прочитаними.",
@@ -188,9 +188,10 @@
 	"apihelp-query+notifications-param-index": "Якщо вказано, буде повернено список ідентифікаторів сповіщень у порядку.",
 	"apihelp-query+notifications-param-noforn": "Значення true, аби відмовитись від даних про сповіщення в інших вікі.",
 	"apihelp-query+notifications-param-alertcontinue": "Коли доступно більше попереджень, використовуйте це, щоб продовжити.",
-	"apihelp-query+notifications-param-alertunreadfirst": "Чи показувати спершу непрочитані сповіщення про повідомлення.",
+	"apihelp-query+notifications-param-unreadfirst": "Чи показувати непрочитані сповіщення першими (використовується лише якщо не встановлено groupbysection).",
+	"apihelp-query+notifications-param-alertunreadfirst": "Чи показувати спершу непрочитані сповіщення про повідомлення (використовується лише якщо встановлено groupbysection).",
 	"apihelp-query+notifications-param-messagecontinue": "Коли доступно більше повідомлень, використовуйте це, щоб продовжити.",
-	"apihelp-query+notifications-param-messageunreadfirst": "Чи показувати спершу непрочитані сповіщення.",
+	"apihelp-query+notifications-param-messageunreadfirst": "Чи показувати спершу непрочитані сповіщення (використовується лише якщо встановлено groupbysection).",
 	"apihelp-query+notifications-example-1": "Список сповіщень",
 	"apihelp-query+notifications-example-2": "Список сповіщень, згрупованих за розділами, із зазначенням кількостей"
 }

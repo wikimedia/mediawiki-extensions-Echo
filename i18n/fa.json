@@ -169,8 +169,8 @@
 	"echo-email-batch-body-intro-weekly": "سلام $1،\nدر اینجا خلاصهٔ فعالیت این هفتهٔ شما در {{SITENAME}} وجود دارد.",
 	"echo-email-batch-link-text-view-all-notifications": "دیدن همهٔ آگاه‌سازی‌ها",
 	"echo-rev-deleted-text-view": "بازنگری این صفحه متوقف شده‌است.",
-	"notification-header-foreign-alert": "هشدارهای بیشتر از $3 {{PLURAL:$4|و ویکی دیگر|و $4 ویکی دیگر|0=}}",
-	"notification-header-foreign-message": "پیام‌های بیشتر از $3 {{PLURAL:$4|و ویکی دیگر|و $4 ویکی دیگر|0=}}",
+	"notification-header-foreign-alert": "هشدارهای بیشتر از {{PLURAL:$5|و ویکی دیگر|و $5 ویکی دیگر|0=}}",
+	"notification-header-foreign-message": "پیام‌های بیشتر از {{PLURAL:$5|و ویکی دیگر|و $5 ویکی دیگر|0=}}",
 	"apihelp-echomarkread-description": "آگهی‌ها برای کاربر کنونی به عنوان خوانده‌شده نشانه‌گذاری شوند.",
 	"apihelp-echomarkread-param-list": "فهرستی از شناسه های آگاه سازی به عنوان خوانده شده",
 	"apihelp-echomarkread-param-all": "اگر تنظیم شده‌باشد، همهٔ آگهی‌های یک کاربر به عنوان خوانده‌شده نشانه‌گذاری شوند.",
@@ -195,9 +195,10 @@
 	"apihelp-query+notifications-param-index": "در صورت تخصیص دادن، فهرستی از شناسه‌های آگاه‌سازی‌ها به ترتیب بازگردانده می‌شوند.",
 	"apihelp-query+notifications-param-noforn": "True to opt out of data about notifications on foreign wikis.",
 	"apihelp-query+notifications-param-alertcontinue": "زمانی که هشدارهای زیادی موجود هست، از این برای ادامه دادن استفاده کنید.",
-	"apihelp-query+notifications-param-alertunreadfirst": "برای نمایش آگاه‌سازی‌های خوانده نشده در ابتدای کار.",
+	"apihelp-query+notifications-param-unreadfirst": "برای نمایش آگاه‌سازی‌های مطالعه نشده در ابتدا (فقط اگر گروه بندی بر پایهٔ بخش تنظیم نشده‌باشد، استفاده می‌شود).",
+	"apihelp-query+notifications-param-alertunreadfirst": "برای نمایش آگاه‌سازی‌های خوانده نشده در ابتدای کار (فقط اگر گروه بندی بر پایهٔ بخش تنظیم نشده‌باشد، استفاده می‌شود).",
 	"apihelp-query+notifications-param-messagecontinue": "زمانی که هشدارهای زیادی موجود هست، از این برای ادامه دادن استفاده کنید.",
-	"apihelp-query+notifications-param-messageunreadfirst": "برای نمایش آگاه‌سازی‌های خوانده نشده در ابتدای کار.",
+	"apihelp-query+notifications-param-messageunreadfirst": "برای نمایش آگاه‌سازی‌های خوانده نشده در ابتدای کار (فقط اگر گروه بندی بر پایهٔ بخش تنظیم نشده‌باشد، استفاده می‌شود).",
 	"apihelp-query+notifications-example-1": "اعلان‌ها را فهرست کن",
 	"apihelp-query+notifications-example-2": "فهرست اعلان‌ها، بخش بندیش شده، همراه با شمار آن‌ها."
 }

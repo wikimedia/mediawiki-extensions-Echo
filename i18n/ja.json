@@ -29,6 +29,7 @@
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "プレーンテキスト",
 	"echo-pref-new-message-indicator": "トークページのメッセージの未読数をツールバーに表示",
+	"echo-pref-beta-feature-cross-wiki-description": "通知の表示と構成を簡単に。クロス・ウィキの通知。他のウィキからのメッセージを見れます。",
 	"echo-learn-more": "詳細",
 	"echo-new-messages": "新着メッセージがあります",
 	"echo-category-title-edit-user-talk": "トークページヘの{{PLURAL:$1|メッセージ}}",

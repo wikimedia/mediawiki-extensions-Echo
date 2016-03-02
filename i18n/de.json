@@ -159,8 +159,8 @@
 	"echo-email-batch-body-intro-weekly": "Hallo $1,\nHier ist für dich eine Zusammenfassung der Aktivitäten auf {{SITENAME}} von dieser Woche.",
 	"echo-email-batch-link-text-view-all-notifications": "Alle Benachrichtigungen ansehen",
 	"echo-rev-deleted-text-view": "Diese Seitenversion wurde unterdrückt",
-	"notification-header-foreign-alert": "Weitere Meldungen von $3 {{PLURAL:$4|und einem anderen Wiki|und $4 anderen Wikis|0=}}",
-	"notification-header-foreign-message": "Weitere Nachrichten von $3 {{PLURAL:$4|und einem anderen Wiki|und $4 anderen Wikis|0=}}",
+	"notification-header-foreign-alert": "Weitere Meldungen von {{PLURAL:$5|einem anderen Wiki|$5 anderen Wikis}}",
+	"notification-header-foreign-message": "Weitere Nachrichten von {{PLURAL:$5|einem anderen Wiki|$5 anderen Wikis}}",
 	"echo-foreign-wiki-lang": "$1 – $2",
 	"apihelp-echomarkread-description": "Benachrichtigungen für den aktuellen Benutzer als gelesen markieren.",
 	"apihelp-echomarkread-param-list": "Eine Liste von Benachrichtigungskennungen, um sie als gelesen zu markieren.",
@@ -184,9 +184,10 @@
 	"apihelp-query+notifications-param-limit": "Die maximale Anzahl zurückzugebender Benachrichtigungen.",
 	"apihelp-query+notifications-param-index": "Falls angegeben, wird eine Liste von Benachrichtigungskennungen in der Reihenfolge zurückgegeben.",
 	"apihelp-query+notifications-param-alertcontinue": "Falls mehr Alarmergebnisse verfügbar sind, dies zum Fortfahren verwenden.",
-	"apihelp-query+notifications-param-alertunreadfirst": "Ob ungelesene Nachrichten zuerst angezeigt werden sollen.",
+	"apihelp-query+notifications-param-unreadfirst": "Ob ungelesene Benachrichtigungen zuerst angezeigt werden sollen (wird nur verwendet, wenn groupbysection nicht festgelegt ist).",
+	"apihelp-query+notifications-param-alertunreadfirst": "Ob ungelesene Nachrichten zuerst angezeigt werden sollen (wird nur verwendet, wenn groupbysection festgelegt ist).",
 	"apihelp-query+notifications-param-messagecontinue": "Falls mehrere Nachrichtenergebnisse verfügbar sind, dies zum Fortfahren verwenden.",
-	"apihelp-query+notifications-param-messageunreadfirst": "Ob ungelesene Meldungen zuerst angezeigt werden sollen.",
+	"apihelp-query+notifications-param-messageunreadfirst": "Ob ungelesene Meldungen zuerst angezeigt werden sollen (wird nur verwendet, wenn groupbysection festgelegt ist).",
 	"apihelp-query+notifications-example-1": "Benachrichtigungen auflisten",
 	"apihelp-query+notifications-example-2": "Benachrichtigungen auflisten, gruppiert nach Abschnitt, mit Zählern"
 }

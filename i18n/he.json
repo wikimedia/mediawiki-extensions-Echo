@@ -158,8 +158,8 @@
 	"echo-email-batch-body-intro-weekly": "שלום $1,\nלהלן תקציר של פעילויות שקשורות אליך באתר {{SITENAME}} השבוע.",
 	"echo-email-batch-link-text-view-all-notifications": "הצגת כל ההודעות",
 	"echo-rev-deleted-text-view": "הגרסה הזאת של הדף הועלמה.",
-	"notification-header-foreign-alert": "עוד התראות מ{{GRAMMAR:תחילית|$3}} {{PLURAL:$4|ומעוד אתר ויקי אחד|ומעוד $4 אתרי ויקי|0=}}",
-	"notification-header-foreign-message": "עוד הודעות מ{{GRAMMAR:תחילית|$3}} {{PLURAL:$4|ומעוד אתר ויקי|ומעוד $4 אתרי ויקי|0=}}",
+	"notification-header-foreign-alert": "עוד התראות {{PLURAL:$5|מאתר ויקי אחר|מ־$5 אתרי ויקי אחרים}}",
+	"notification-header-foreign-message": "עוד הודעות {{PLURAL:$5|מאתר ויקי אחר|מ־$5 אתרי ויקי אחרים}}",
 	"apihelp-echomarkread-description": "סימון שכל ההודעות נקראו עבור המשתמש הנוכחי.",
 	"apihelp-echomarkread-param-list": "רשימת מזהי התראות שצריך לסמן שהן נקראו.",
 	"apihelp-echomarkread-param-all": "אם זה מוגדר, כל ההודעות של המשתמש תסומנה בתור הודעות שנקראו.",
@@ -184,9 +184,10 @@
 	"apihelp-query+notifications-param-index": "אם זה מצוין, תוחזר רשימת מזני התראות לפי הסדר.",
 	"apihelp-query+notifications-param-noforn": "ערך True כדי לא לקבל נתונים על הודעות באתרי ויקי זרים.",
 	"apihelp-query+notifications-param-alertcontinue": "כשזמינות עוד תוצאות התראה, יש להשתמש בזה כדי להמשיך.",
-	"apihelp-query+notifications-param-alertunreadfirst": "האם להציג מונה הודעות מסר שלא נקראו תחילה.",
+	"apihelp-query+notifications-param-unreadfirst": "האם להציג הודעות שלא נקראו קודם (משמש רק אם groupbysection לא הוגדר).",
+	"apihelp-query+notifications-param-alertunreadfirst": "האם להציג מונה הודעות מסר שלא נקראו תחילה (משמש רק אם groupbysection לא הוגדר).",
 	"apihelp-query+notifications-param-messagecontinue": "כשזמינות עוד תוצאות הודעות, יש להשתמש בזה כדי להמשיך.",
-	"apihelp-query+notifications-param-messageunreadfirst": "האם להציג הודעות התראה שלא נקראו תחילה.",
+	"apihelp-query+notifications-param-messageunreadfirst": "האם להציג הודעות התראה שלא נקראו תחילה (משמש רק אם groupbysection לא הוגדר).",
 	"apihelp-query+notifications-example-1": "רשימת הודעות",
 	"apihelp-query+notifications-example-2": "רשימת הודעות, מקובצות לפי פסקה, עם מונים"
 }

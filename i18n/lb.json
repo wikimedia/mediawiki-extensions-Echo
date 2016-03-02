@@ -133,7 +133,7 @@
 	"echo-email-batch-body-intro-weekly": "Salut $1,\n\nHei ass e Resumé vun den Aktivitéite vun dëser Woch op {{SITENAME}} fir Iech.",
 	"echo-email-batch-link-text-view-all-notifications": "All Notifikatioune weisen",
 	"echo-rev-deleted-text-view": "Dës Versioun vun der Säit gouf geläscht.",
-	"notification-header-foreign-message": "Méi Message vu(n) $3 {{PLURAL:$4|an enger anerer Wiki|a(n) $4 anere Wikien|0=}}",
+	"notification-header-foreign-message": "Méi Message vu(n) {{PLURAL:$4|enger anerer Wiki|$4 anere Wikien|0=}}",
 	"apihelp-echomarkread-param-sections": "Eng Lëscht vun den Abschnitter déi als geliest markéiert solle ginn.",
 	"apihelp-echomarkseen-description": "Notifikatioune fir den aktuelle Benotzer als geliest markéieren.",
 	"apihelp-echomarkseen-example-1": "Notifikatiounen vun all Typ als geliest markéieren",
