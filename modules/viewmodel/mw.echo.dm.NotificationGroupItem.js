@@ -61,7 +61,7 @@
 				{
 					type: this.getType(),
 					source: source,
-					foreign: this.foreign,
+					foreign: this.isForeign(),
 					title: this.sources[ source ].title,
 					removeReadNotifications: this.removeReadNotifications
 				}
