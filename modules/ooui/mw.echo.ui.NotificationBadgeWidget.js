@@ -300,9 +300,6 @@
 		// the case where the promise is already underway.
 		this.notificationsModel.fetchNotifications()
 			.then( function () {
-				var i,
-					items = widget.notificationsWidget.getItems();
-
 				if ( widget.popup.isVisible() ) {
 					widget.popup.clip();
 
@@ -311,20 +308,6 @@
 					// Mark notifications as 'read' if markReadWhenSeen is set to true
 					if ( widget.markReadWhenSeen ) {
 						widget.notificationsModel.autoMarkAllRead();
-					}
-
-					// Log impressions
-					// TODO: Only log the impressions of notifications that
-					// are actually visible
-					for ( i = 0; i < items.length; i++ ) {
-						if ( items[ i ].getModel ) {
-							mw.echo.logger.logInteraction(
-								mw.echo.Logger.static.actions.notificationImpression,
-								mw.echo.Logger.static.context.popup,
-								items[ i ].getModel().getId(),
-								items[ i ].getModel().getCategory()
-							);
-						}
 					}
 				}
 

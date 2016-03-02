@@ -86,7 +86,12 @@
 
 		if ( isSuccess ) {
 			// Log impressions
-			mw.echo.logger.logNotificationImpressions( this.type, result.ids, mw.echo.Logger.static.context.popup );
+			mw.echo.logger.logNotificationImpressions(
+				undefined, // type: we don't know
+				result.ids,
+				mw.echo.Logger.static.context.popup,
+				this.getModel().getSource()
+			);
 		}
 	};
 

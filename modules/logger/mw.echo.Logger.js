@@ -88,7 +88,7 @@
 	 * @param {int} [eventId] Notification event id
 	 * @param {string} [eventType] notification type
 	 * @param {boolean} [mobile] True if interaction was on a mobile device
-	 * @param {string} [notifWiki] Wiki the notification came from
+	 * @param {string} [notifWiki] Foreign wiki the notification came from
 	 */
 	mw.echo.Logger.prototype.logInteraction = function ( action, context, eventId, eventType, mobile, notifWiki ) {
 		var myEvt;
@@ -115,7 +115,7 @@
 			myEvt.mobile = mobile;
 		}
 
-		if ( notifWiki && notifWiki !== mw.config.get( 'wgDBname' ) ) {
+		if ( notifWiki && notifWiki !== mw.config.get( 'wgDBname' ) && notifWiki !== 'local' ) {
 			myEvt.notifWiki = notifWiki;
 		}
 
@@ -130,17 +130,22 @@
 	 * @param {string} type Notification type; 'alert' or 'message'
 	 * @param {number[]} notificationIds Array of notification ids
 	 * @param {string} context 'flyout'/'archive' or undefined for the badge
-	 * @param {boolean} [mobile] True if interaction was on a mobile device
+	 * @param {string} [notifWiki='local'] Foreign wiki the notifications came from
+	 * @param {boolean} [mobile=false] True if interaction was on a mobile device
 	 */
-	mw.echo.Logger.prototype.logNotificationImpressions = function ( type, notificationIds, context, mobile ) {
-		var i, len;
+	mw.echo.Logger.prototype.logNotificationImpressions = function ( type, notificationIds, context, notifWiki, mobile ) {
+		var i, len, key;
 
 		for ( i = 0, len = notificationIds.length; i < len; i++ ) {
-			if ( !this.notificationsIdCache[ notificationIds[ i ] ] ) {
+			key = notifWiki && notifWiki !== mw.config.get( 'wgDBname' ) && notifWiki !== 'local' ?
+				notificationIds[ i ] + '-' + notifWiki :
+				notificationIds[ i ];
+
+			if ( !this.notificationsIdCache[ key ] ) {
 				// Log notification impression
-				this.logInteraction( 'notification-impression', context, notificationIds[ i ], type, mobile );
+				this.logInteraction( 'notification-impression', context, notificationIds[ i ], type, mobile, notifWiki );
 				// Cache
-				this.notificationsIdCache[ notificationIds[ i ] ] = true;
+				this.notificationsIdCache[ key ] = true;
 			}
 		}
 	};
