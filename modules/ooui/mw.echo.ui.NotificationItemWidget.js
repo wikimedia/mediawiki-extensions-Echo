@@ -180,11 +180,6 @@
 						.on( 'click', function () {
 							// Log notification click
 
-							// TODO: In order to properly log a click of an item that
-							// is part of a bundled cross-wiki notification, we will
-							// need to add 'source' to the logging schema. Otherwise,
-							// the logger will log item ID as if it is local, which
-							// is wrong.
 							mw.echo.logger.logInteraction(
 								mw.echo.Logger.static.actions.notificationClick,
 								mw.echo.Logger.static.context.popup,
