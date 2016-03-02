@@ -187,9 +187,10 @@
 	"apihelp-query+notifications-param-index": "If specified, a list of notification IDs, in order, will be returned.",
 	"apihelp-query+notifications-param-noforn": "True to opt out of data about notifications on foreign wikis.",
 	"apihelp-query+notifications-param-alertcontinue": "When more alert results are available, use this to continue.",
-	"apihelp-query+notifications-param-alertunreadfirst": "Whether to show unread message notifications first.",
+	"apihelp-query+notifications-param-unreadfirst": "Whether to show unread notifications first (only used if groupbysection is not set).",
+	"apihelp-query+notifications-param-alertunreadfirst": "Whether to show unread message notifications first (only used if groupbysection is set).",
 	"apihelp-query+notifications-param-messagecontinue": "When more message results are available, use this to continue.",
-	"apihelp-query+notifications-param-messageunreadfirst": "Whether to show unread alert notifications first.",
+	"apihelp-query+notifications-param-messageunreadfirst": "Whether to show unread alert notifications first (only used if groupbysection is set).",
 	"apihelp-query+notifications-example-1": "List notifications",
 	"apihelp-query+notifications-example-2": "List notifications, grouped by section, with counts"
 }
