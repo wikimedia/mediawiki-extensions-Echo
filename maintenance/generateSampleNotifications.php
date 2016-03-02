@@ -11,24 +11,47 @@ require_once ( "$IP/maintenance/Maintenance.php" );
  */
 class GenerateSampleNotifications extends Maintenance {
 
+	private $supportedNotificationTypes = array(
+		'welcome',
+		'edit-user-talk',
+		'mention',
+		'page-linked',
+		'reverted',
+		'email',
+		'user-rights',
+		'cx',
+		'osm',
+	);
+
 	public function __construct() {
 		parent::__construct();
 		$this->mDescription = "Generate sample notifications";
 
 		$this->addOption(
-			"user",
-			"Name of the user receiving the notifications",
-			true, true, "u" );
+			'force',
+			'Bypass confirmation',
+			false, false, 'f' );
+
+		$allTypes = implode( ',', $this->supportedNotificationTypes );
+		$this->addOption(
+			'types',
+			"Comma-separated list of notification types to generate ($allTypes)",
+			false, true, 't' );
 
 		$this->addOption(
-			"agent",
-			"Name of the user creating the notifications",
-			true, true, "a" );
+			'user',
+			'Name of the user receiving the notifications',
+			true, true, 'u' );
 
 		$this->addOption(
-			"other",
-			"Name of another user involved with the notifications",
-			true, true, "o" );
+			'agent',
+			'Name of the user creating the notifications',
+			true, true, 'a' );
+
+		$this->addOption(
+			'other',
+			'Name of another user involved with the notifications',
+			true, true, 'o' );
 	}
 
 	public function execute() {
@@ -41,19 +64,52 @@ class GenerateSampleNotifications extends Maintenance {
 		$otherUser = $this->getOptionUser( 'other' );
 		$title = Title::newFromText( 'This is a pretty long page title lets see if it is going to be truncated' );
 
+		$types = $this->getOption( 'types' );
+		if ( $types ) {
+			$types = explode( ',', $types );
+		} else {
+			$types = $this->supportedNotificationTypes;
+		}
+
 		$this->confirm();
 
 		$this->output( "Started processing...\n" );
 
-		$this->generateWelcome( $user );
-		$this->generateEditUserTalk( $user, $agent );
-		$this->generateMention( $user, $agent, $otherUser, $title );
-		$this->generatePageLink( $user, $agent );
-		$this->generateReverted( $user, $agent );
-		$this->generateEmail( $user, $agent );
-		$this->generateUserRights( $user, $agent );
-		$this->generateContentTranslation( $user );
-		$this->generateOpenStackManager( $user, $agent );
+		if ( $this->shouldGenerate( 'welcome', $types ) ) {
+			$this->generateWelcome( $user );
+		}
+
+		if ( $this->shouldGenerate( 'edit-user-talk', $types ) ) {
+			$this->generateEditUserTalk( $user, $agent );
+		}
+
+		if ( $this->shouldGenerate( 'mention', $types ) ) {
+			$this->generateMention( $user, $agent, $otherUser, $title );
+		}
+
+		if ( $this->shouldGenerate( 'page-linked', $types ) ) {
+			$this->generatePageLink( $user, $agent );
+		}
+
+		if ( $this->shouldGenerate( 'reverted', $types ) ) {
+			$this->generateReverted( $user, $agent );
+		}
+
+		if ( $this->shouldGenerate( 'email', $types ) ) {
+			$this->generateEmail( $user, $agent );
+		}
+
+		if ( $this->shouldGenerate( 'user-rights', $types ) ) {
+			$this->generateUserRights( $user, $agent );
+		}
+
+		if ( $this->shouldGenerate( 'cx', $types ) ) {
+			$this->generateContentTranslation( $user );
+		}
+
+		if ( $this->shouldGenerate( 'osm', $types ) ) {
+			$this->generateOpenStackManager( $user, $agent );
+		}
 
 		$this->output( "Completed \n" );
 	}
@@ -79,6 +135,9 @@ class GenerateSampleNotifications extends Maintenance {
 	}
 
 	protected function confirm() {
+		if ( $this->getOption( 'force', false ) ) {
+			return;
+		}
 		$this->output( "===   WARNING   ===\n" );
 		$this->output( "This script modifies the content of several pages,\n" );
 		$this->output( "including user's talk pages.\n" );
@@ -301,6 +360,10 @@ class GenerateSampleNotifications extends Maintenance {
 			'agent' => $agent,
 			'extra' => array( 'userAdded' => $user->getId() ),
 		) );
+	}
+
+	private function shouldGenerate( $type, $types ) {
+		return array_search( $type, $types ) !== false;
 	}
 }
 
