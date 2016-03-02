@@ -70,7 +70,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 
 				if ( $foreignNotifications ) {
 					// insert fake notifications for foreign notifications
-					foreach ( EchoAttributeManager::$sections as $i => $section ) {
+					foreach ( $params['sections'] as $i => $section ) {
 						if ( $foreignNotifications->getCount( $section ) > 0 ) {
 							$result['list'][-$i-1] = $this->makeForeignNotification( $user, $params['format'], $foreignNotifications, $section );
 						}
