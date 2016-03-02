@@ -65,7 +65,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 				$result = $this->getPropList(
 					$user,
 					$attributeManager->getUserEnabledEventsbySections( $user, 'web', $params['sections'] ),
-					$params['filter'], $params['limit'], $params['continue'], $params['format']
+					$params['filter'], $params['limit'], $params['continue'], $params['format'], $params['unreadfirst']
 				);
 
 				if ( $foreignNotifications ) {
@@ -367,6 +367,10 @@ class ApiEchoNotifications extends ApiQueryBase {
 			'index' => false,
 			'continue' => array(
 				ApiBase::PARAM_HELP_MSG => 'api-help-param-continue',
+			),
+			'unreadfirst' => array(
+				ApiBase::PARAM_TYPE => 'boolean',
+				ApiBase::PARAM_DFLT => false,
 			),
 		);
 		foreach ( $sections as $section ) {
