@@ -168,7 +168,7 @@
 				} else {
 					// Create a fake resolved promise for models that already
 					// have items in them
-					promise = $.Deferred().resolve();
+					promise = $.Deferred().resolve( notifModels[ i ].getAllItemIds() );
 				}
 
 				// For each of those, mark items as read in the UI and API
