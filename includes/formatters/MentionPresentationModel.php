@@ -65,7 +65,7 @@ class EchoMentionPresentationModel extends EchoEventPresentationModel {
 			// make sure it is a user talk page but NOT the agent's talk page.
 		} elseif ( $this->onUserTalkpage() ) {
 			$username = $this->event->getTitle()->getText();
-			$msg->params( $this->language->truncate( $username, self::USERNAME_RECOMMENDED_LENGTH ) );
+			$msg->params( $this->language->truncate( $username, self::USERNAME_RECOMMENDED_LENGTH, '...', false ) );
 			$msg->params( $username );
 		} else {
 			$msg->params( $this->getTruncatedTitleText( $this->event->getTitle(), true ) );

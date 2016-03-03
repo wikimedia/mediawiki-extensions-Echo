@@ -375,12 +375,12 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 	}
 
 	protected function getTruncatedUsername( User $user ) {
-		return $this->language->truncate( $user->getName(), self::USERNAME_RECOMMENDED_LENGTH );
+		return $this->language->truncate( $user->getName(), self::USERNAME_RECOMMENDED_LENGTH, '...', false );
 	}
 
 	protected function getTruncatedTitleText( Title $title, $includeNamespace = false ) {
 		$text = $includeNamespace ? $title->getPrefixedText() : $title->getText();
-		return $this->language->truncate( $text, self::PAGE_NAME_RECOMMENDED_LENGTH );
+		return $this->language->truncate( $text, self::PAGE_NAME_RECOMMENDED_LENGTH, '...', false );
 	}
 
 	/**
@@ -401,7 +401,7 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 			: $user->getUserPage()->getFullURL();
 
 		$label = $user->getName();
-		$truncatedLabel = $this->language->truncate( $label, self::USERNAME_AS_LABEL_RECOMMENDED_LENGTH );
+		$truncatedLabel = $this->language->truncate( $label, self::USERNAME_AS_LABEL_RECOMMENDED_LENGTH, '...', false );
 		$isTruncated = $label !== $truncatedLabel;
 
 		return array(
@@ -433,7 +433,7 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 		return array(
 			'url' => $title->getFullURL( $query ),
 			'label' => $this->language->embedBidi(
-				$this->language->truncate( $title->getText(), self::PAGE_NAME_AS_LABEL_RECOMMENDED_LENGTH )
+				$this->language->truncate( $title->getText(), self::PAGE_NAME_AS_LABEL_RECOMMENDED_LENGTH, '...', false )
 			),
 			'tooltip' => $title->getPrefixedText(),
 			'description' => $description,
