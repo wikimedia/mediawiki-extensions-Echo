@@ -6,7 +6,6 @@
 	background-color: #F1F1F1;
 	border-bottom: 1px solid #DDDDDD;
 	white-space: normal;
-	line-height: 16px;
 
 	&:hover > a {
 		text-decoration: none;
@@ -33,6 +32,7 @@
 		width: 100%;
 
 		&-message {
+			line-height: 16px;
 			&-header {
 				color: @notification-text-color;
 			}
@@ -55,20 +55,18 @@
 
 			& > &-buttons.oo-ui-buttonSelectWidget {
 				display: table-cell;
-				vertical-align: top;
-				width: 100%;
+				vertical-align: middle;
 			}
 
 			.mw-echo-ui-menuItemWidget {
-				&:not(:last-child) {
-					margin-right: 1em;
-				}
+				margin-right: 1.2em;
 			}
 
 			&-menu {
+				.mw-echo-ui-mixin-hover-opacity();
 				display: table-cell;
-				vertical-align: top;
-				padding: 0 0.5em;
+				vertical-align: middle;
+				padding: 0;
 
 				.oo-ui-popupWidget-popup {
 					font-size: 1 / 0.8em;
@@ -78,10 +76,12 @@
 
 			&-timestamp {
 				display: table-cell;
-				vertical-align: top;
+				vertical-align: middle;
+				text-align: right;
 				color: black;
 				opacity: @opacity-low;
 				white-space: nowrap;
+				width: 100%;
 			}
 
 		}
@@ -155,7 +155,7 @@
 		float: right;
 		font-size: 1em;
 		margin-top: -0.5em;
-		margin-right: -0.5em;
+		margin-right: -0.4em;
 		padding: 0;
 
 		.mw-echo-ui-notificationItemWidget-bundle & {
