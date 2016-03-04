@@ -7,7 +7,7 @@
 	 * @mixins mw.echo.dm.SortedList
 	 *
 	 * @constructor
-	 * @param {mw.echo.dm.NetworkHandler} networkHandler The network handler
+	 * @param {mw.echo.api.EchoApi} api Echo API
 	 * @param {Object[]} sources An array of objects defining the sources
 	 *  of its item's sub-items.
 	 * @param {number} id Notification id,
@@ -17,7 +17,7 @@
 	 * @cfg {number} [count=0] The number of items this group contains. This is used for both the
 	 *  'expand' label and also to potentially update the badge counters for local bundles.
 	 */
-	mw.echo.dm.NotificationGroupItem = function mwEchoDmNotificationGroupItem( networkHandler, sources, id, config ) {
+	mw.echo.dm.NotificationGroupItem = function mwEchoDmNotificationGroupItem( api, sources, id, config ) {
 		var source, item,
 			items = [];
 
@@ -49,18 +49,15 @@
 		this.removeReadNotifications = !!config.removeReadNotifications;
 
 		this.sources = sources;
-		this.networkHandler = networkHandler;
+		this.api = api;
 		this.notifModels = {};
 		this.anticipatedCount = config.count || 0;
 
 		// Create notification models for each source
 		for ( source in this.sources ) {
-			// Add foreign API handler
-			this.networkHandler.addApiHandler( source, { url: this.sources[ source ].url, baseParams: { notnoforn: 1, notfilter: '!read' } }, true );
-
 			// Create a notifications model
 			item = new mw.echo.dm.NotificationsModel(
-				this.networkHandler,
+				this.api,
 				{
 					type: this.getType(),
 					source: source,
@@ -124,19 +121,19 @@
 			fetchPromises = [],
 			sourceKeys = Object.keys( this.sources );
 
-		return this.networkHandler.fetchNotificationGroups( sourceKeys )
-			.then( function ( promises ) {
+		return this.api.fetchNotificationGroups( sourceKeys, this.getType() )
+			.then( function () {
 				var i;
 
 				for ( i = 0; i < sourceKeys.length; i++ ) {
 					notifModel = model.getItemById( sourceKeys[ i ] );
 					if ( notifModel ) {
-						fetchPromises.push( notifModel.fetchNotifications( promises[ i ] ) );
+						fetchPromises.push( notifModel.fetchNotifications() );
 					}
 				}
 
 				// Wait for all fetch processes to finish before we resolve this promise
-				return mw.echo.dm.NetworkHandler.static.waitForAllPromises( fetchPromises );
+				return mw.echo.api.NetworkHandler.static.waitForAllPromises( fetchPromises );
 			} )
 			.then( function () {
 				model.anticipatedCount = null;
@@ -180,9 +177,9 @@
 					.then( ( function ( model ) {
 						return function ( idArray ) {
 							// Mark sub items as read in the UI
-							model.markAllRead();
+							model.markAllRead( model.getSource(), model.getType() );
 							// Mark all existing items as read in the API
-							model.markExistingItemsReadInApi( idArray );
+							model.markItemsReadInApi( idArray );
 						};
 					} )( notifModels[ i ] ) );
 			}

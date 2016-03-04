@@ -117,23 +117,34 @@ $wgResourceModules += array(
 			'viewmodel/mw.echo.dm.js',
 			'viewmodel/mw.echo.dm.List.js',
 			'viewmodel/mw.echo.dm.SortedList.js',
-			'viewmodel/handlers/mw.echo.dm.APIHandler.js',
-			'viewmodel/handlers/mw.echo.dm.LocalAPIHandler.js',
-			'viewmodel/handlers/mw.echo.dm.ForeignAPIHandler.js',
-			'viewmodel/handlers/mw.echo.dm.NetworkHandler.js',
 			'viewmodel/mw.echo.dm.NotificationItem.js',
 			'viewmodel/mw.echo.dm.NotificationGroupItem.js',
 			'viewmodel/mw.echo.dm.NotificationList.js',
 			'viewmodel/mw.echo.dm.NotificationsModel.js',
 		),
 		'dependencies' => array(
-			'mediawiki.api',
-			'mediawiki.ForeignApi',
-			'oojs'
+			'oojs',
+			'ext.echo.api',
 		),
 		'messages' => array(
 			'echo-api-failure',
 			'echo-api-failure-cross-wiki',
+		),
+		'targets' => array( 'desktop', 'mobile' ),
+	),
+	'ext.echo.api' => $echoResourceTemplate + array(
+		'scripts' => array(
+			'api/mw.echo.api.js',
+			'api/mw.echo.api.EchoApi.js',
+			'api/mw.echo.api.APIHandler.js',
+			'api/mw.echo.api.LocalAPIHandler.js',
+			'api/mw.echo.api.ForeignAPIHandler.js',
+			'api/mw.echo.api.NetworkHandler.js',
+		),
+		'dependencies' => array(
+			'mediawiki.api',
+			'mediawiki.ForeignApi',
+			'oojs'
 		),
 		'targets' => array( 'desktop', 'mobile' ),
 	),
@@ -154,6 +165,7 @@ $wgResourceModules += array(
 		'scripts' => array(
 			'ext.echo.init.js',
 		),
+		'dependencies' => array( 'ext.echo.api' ),
 		'targets' => array( 'desktop' ),
 	),
 	// Base no-js styles

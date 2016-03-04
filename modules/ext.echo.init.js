@@ -3,23 +3,9 @@
 
 	mw.echo = mw.echo || {};
 
-	mw.echo.apiCallParams = {
-		action: 'query',
-		meta: 'notifications',
-		// We have to send the API 'groupbysection' otherwise
-		// the 'messageunreadfirst' doesn't do anything.
-		// TODO: Fix the API.
-		notgroupbysection: 1,
-		notmessageunreadfirst: 1,
-		notformat: 'model',
-		notlimit: 25,
-		notprop: 'index|list|count',
-		uselang: mw.config.get( 'wgUserLanguage' )
-	};
-
 	// Activate ooui
 	$( document ).ready( function () {
-		var apiRequest, myWidget,
+		var myWidget, echoApi,
 			$existingAlertLink = $( '#pt-notifications-alert a' ),
 			$existingMessageLink = $( '#pt-notifications-message a' ),
 			numAlerts = $existingAlertLink.text(),
@@ -45,7 +31,8 @@
 			$( this ).addClass( 'mw-echo-notifications-badge-dimmed' );
 
 			// Fire the notification API requests
-			apiRequest = new mw.Api( { ajax: { cache: false } } ).get( $.extend( { notsections: myType }, mw.echo.apiCallParams ) )
+			echoApi = new mw.echo.api.EchoApi();
+			echoApi.fetchNotifications( myType )
 				.then( function ( data ) {
 					mw.track( 'timing.MediaWiki.echo.overlay.api', mw.now() - time );
 					return data;
@@ -61,11 +48,7 @@
 				// Load message button and popup if messages exist
 				if ( $existingMessageLink.length ) {
 					messageNotificationsModel = new mw.echo.dm.NotificationsModel(
-						// Create a network handler
-						new mw.echo.dm.NetworkHandler( {
-							type: 'message',
-							baseParams: mw.echo.apiCallParams
-						} ),
+						echoApi,
 						{
 							type: 'message'
 						}
@@ -93,11 +76,7 @@
 				}
 				// Load alerts popup and button
 				alertNotificationsModel = new mw.echo.dm.NotificationsModel(
-					// Create a network handler
-					new mw.echo.dm.NetworkHandler( {
-						type: 'alert',
-						baseParams: mw.echo.apiCallParams
-					} ),
+					echoApi,
 					{
 						type: 'alert'
 					}
@@ -121,11 +100,8 @@
 
 				// HACK: Now that the module loaded, show the popup
 				myWidget = myType === 'alert' ? mw.echo.ui.alertWidget : mw.echo.ui.messageWidget;
-				myWidget.populateNotifications( apiRequest ).then( function () {
+				myWidget.once( 'finishLoading', function () {
 					// Log timing after notifications are shown
-					// FIXME: The notifications might not be shown yet if the API
-					// request finished before the UI loads, in which case it will
-					// only be shown after the toggle( true ) call below.
 					mw.track( 'timing.MediaWiki.echo.overlay', mw.now() - time );
 				} );
 				myWidget.popup.toggle( true );

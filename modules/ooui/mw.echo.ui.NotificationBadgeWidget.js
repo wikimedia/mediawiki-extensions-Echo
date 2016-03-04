@@ -179,12 +179,22 @@
 	 * All notifications were marked as read
 	 */
 
+	/**
+	 * @event finishLoading
+	 * Notifications have successfully finished being processed and are fully loaded
+	 */
+
 	/* Methods */
 
 	/**
 	 * Respond to badge button click
 	 */
 	mw.echo.ui.NotificationBadgeWidget.prototype.onBadgeButtonClick = function () {
+		if ( !this.popup.isVisible() ) {
+			// Force a new API request for notifications
+			this.notificationsModel.fetchNotifications( true );
+		}
+
 		this.popup.toggle();
 	};
 
@@ -249,49 +259,15 @@
 	};
 
 	/**
-	 * Populate notifications from the API.
-	 *
-	 * @param {jQuery.Promise} [fetchingApiRequest] An existing promise for fetching
-	 *  notifications from the API. This allows us to start fetching notifications
-	 *  externally.
-	 * @return {jQuery.Promise} Promise that is resolved when the notifications populate
-	 */
-	mw.echo.ui.NotificationBadgeWidget.prototype.populateNotifications = function ( fetchingApiRequest ) {
-		var widget = this;
-
-		// The model retrieves the ongoing promise or returns the existing one that it
-		// has. When the promise is completed successfuly, it nullifies itself so we can
-		// request for it to be rebuilt and the request to the API resent.
-		// However, in the case of an API failure, the promise does not nullify itself.
-		// In that case we also want the model to rebuild the request, so in this condition
-		// we must check both cases.
-		if ( !this.notificationsModel.isFetchingNotifications() || this.notificationsModel.isFetchingErrorState() ) {
-			this.pushPending();
-			this.markAllReadButton.toggle( false );
-			return this.notificationsModel.fetchNotifications( fetchingApiRequest )
-				.then( function ( idArray ) {
-					// Clip again
-					widget.popup.clip();
-
-					// Log impressions
-					mw.echo.logger.logNotificationImpressions( this.type, idArray, mw.echo.Logger.static.context.popup );
-				} )
-				.always( function () {
-					// Pop pending
-					widget.popPending();
-					// Nullify the promise; let the user fetch again
-					widget.fetchNotificationsPromise = null;
-				} );
-		} else {
-			return this.notificationsModel.getFetchNotificationPromise();
-		}
-	};
-
-	/**
 	 * Extend the response to button click so we can also update the notification list.
+	 * @fires finishLoading
 	 */
 	mw.echo.ui.NotificationBadgeWidget.prototype.onPopupToggle = function ( isVisible ) {
 		var widget = this;
+
+		if ( this.promiseRunning ) {
+			return;
+		}
 
 		if ( !isVisible ) {
 			// If the popup is closing, remove "initiallyUnseen" and leave
@@ -316,14 +292,20 @@
 			this.popup.$clippable.css( 'height', '1px' );
 			this.popup.clip();
 		}
+
+		this.pushPending();
+		this.markAllReadButton.toggle( false );
+		this.promiseRunning = true;
 		// Always populate on popup open. The model and widget should handle
 		// the case where the promise is already underway.
-		this.populateNotifications()
+		this.notificationsModel.fetchNotifications()
 			.then( function () {
 				var i,
 					items = widget.notificationsWidget.getItems();
 
 				if ( widget.popup.isVisible() ) {
+					widget.popup.clip();
+
 					// Update seen time
 					widget.notificationsModel.updateSeenTime();
 					// Mark notifications as 'read' if markReadWhenSeen is set to true
@@ -332,6 +314,8 @@
 					}
 
 					// Log impressions
+					// TODO: Only log the impressions of notifications that
+					// are actually visible
 					for ( i = 0; i < items.length; i++ ) {
 						if ( items[ i ].getModel ) {
 							mw.echo.logger.logInteraction(
@@ -343,6 +327,13 @@
 						}
 					}
 				}
+
+				widget.emit( 'finishLoading' );
+			} )
+			.always( function () {
+				// Pop pending
+				widget.popPending();
+				widget.promiseRunning = false;
 			} );
 		this.hasRunFirstTime = true;
 	};
