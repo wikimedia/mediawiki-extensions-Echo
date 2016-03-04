@@ -360,6 +360,7 @@
 	mw.echo.dm.NotificationsModel.prototype.markAllRead = function () {
 		var i, len,
 			items = this.unreadNotifications.getItems(),
+			itemIds = [],
 			length = items.length;
 
 		// Skip if this is an automatic "mark as read" and this model is
@@ -383,15 +384,16 @@
 		this.markingAllAsRead = true;
 		for ( i = 0, len = items.length; i < len; i++ ) {
 			// Skip items that are foreign if we are in automatic 'mark all as read'
-			if ( !items[ i ].isForeign() || !this.autoMarkReadInProcess ) {
+			if ( !items[ i ].isForeign() ) {
 				items[ i ].toggleRead( true );
 				items[ i ].toggleSeen( true );
 				this.unreadNotifications.removeItems( [ items[ i ] ] );
+				itemIds.push( items[ i ].getId() );
 			}
 		}
 		this.markingAllAsRead = false;
 
-		return this.api.markAllRead( this.getSource(), this.getType() );
+		return this.api.markItemsRead( itemIds, this.getSource(), this.getType() );
 	};
 
 	/**
