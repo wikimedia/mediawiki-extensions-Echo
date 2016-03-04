@@ -157,7 +157,7 @@
 	"echo-email-batch-body-intro-weekly": "Ahoj, uživateli $1,\n\nzde pro vás máme shrnutí aktivity na {{grammar:6sg|{{SITENAME}}}} za tento týden",
 	"echo-email-batch-link-text-view-all-notifications": "Zobrazit všechna upozornění",
 	"echo-rev-deleted-text-view": "Tato verze stránky byla utajena.",
-	"notification-header-foreign-alert": "Více upozornění z {{grammar:2sg|$3}} {{PLURAL:$4|a jedné další wiki|a $4 dalších wiki|0=}}",
-	"notification-header-foreign-message": "Více zpráv z {{grammar:2sg|$3}} {{PLURAL:$4|a jedné další wiki|a $4 dalších wiki|0=}}",
+	"notification-header-foreign-alert": "Více upozornění z {{PLURAL:$5|další wiki|$5 dalších wiki}}",
+	"notification-header-foreign-message": "Více zpráv z {{PLURAL:$5|další wiki|$5 dalších wiki}}",
 	"apihelp-echomarkseen-example-1": "Označit oznámení všech typů jako přečtená"
 }

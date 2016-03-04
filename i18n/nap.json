@@ -153,8 +153,8 @@
 	"echo-email-batch-body-intro-weekly": "Cià $1,\nCcà sta nu riepilogo 'e ll'attività 'e sta semmana ncopp'a {{SITENAME}} pe' vuje.",
 	"echo-email-batch-link-text-view-all-notifications": "Vide tutte 'e notifiche",
 	"echo-rev-deleted-text-view": "Sta verziona d' 'a paggena è stata scancellata.",
-	"notification-header-foreign-alert": "Ati avvise 'a $3 {{PLURAL:$4|e n'atu wiki|e n'ati $4 wiki|0=}}",
-	"notification-header-foreign-message": "Ati mmasciate 'a $3 {{PLURAL:$4|'e n'atu wiki|'e n'ati $4 wiki|0=}}",
+	"notification-header-foreign-alert": "Ati avvise {{PLURAL:$5|'a n'atu wiki|'e n'ati $4 wiki}}",
+	"notification-header-foreign-message": "Ati mmasciate {{PLURAL:$4|'a n'atu wiki|'e n'ati $4 wiki}}",
 	"apihelp-echomarkread-description": "Nzegna tutt' 'e notifiche comm'a fossero liggiute 'a ll'utente.",
 	"apihelp-echomarkread-param-list": "N'elenco 'e ll'ID notifiche 'a nzegnare comme fossero lette.",
 	"apihelp-echomarkread-param-all": "Si mpustato, contrassegna tutte 'e notifiche 'e ll'utente comme fossero lette.",
@@ -179,9 +179,10 @@
 	"apihelp-query+notifications-param-index": "Si specificato, n'elenco 'e ID 'e notifica, ordinato, sarrà turnato.",
 	"apihelp-query+notifications-param-noforn": "Overo (True) pe' scegliere 'e rummanè fòre 'e date ncopp' 'e notifiche 'e wiki 'e fore.",
 	"apihelp-query+notifications-param-alertcontinue": "Quanno stessero cchiù risultate ccà a disposizione, facite stu prucesso pe cuntinuà.",
-	"apihelp-query+notifications-param-alertunreadfirst": "Si s'avess'a mmusta na mmasciata nun liggiuta 'e notifiche apprimma.",
+	"apihelp-query+notifications-param-unreadfirst": "Si vulite fà vedé 'e notifiche nun liggiute primma (ausato surtanto si groupbysection fosse mpustato).",
+	"apihelp-query+notifications-param-alertunreadfirst": "Si s'avess'a mmusta na mmasciata nun liggiuta 'e notifiche apprimma (ausato surtanto si groupbysection fosse mpustato).",
 	"apihelp-query+notifications-param-messagecontinue": "Quanno cchiù mmasciate sarranno a disposiziona, ausa chesto pe' cuntinuà.",
-	"apihelp-query+notifications-param-messageunreadfirst": "Si vulite mmustà notifiche senza lieggere primma.",
+	"apihelp-query+notifications-param-messageunreadfirst": "Si vulite mmustà notifiche senza lieggere primma (ausato surtanto si groupbysection fosse mpustato).",
 	"apihelp-query+notifications-example-1": "Elenca notifiche",
 	"apihelp-query+notifications-example-2": "Elenca notifiche, raggruppate pe' seziona, cu 'e cuntegge"
 }

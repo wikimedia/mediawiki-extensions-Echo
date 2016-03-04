@@ -94,7 +94,7 @@
 	"notification-user-rights-remove": "Bạn không còn là thành viên của {{PLURAL:$2|nhóm|các nhóm}} này: $1",
 	"notification-user-rights": "[[User:$1|$1]] {{GENDER:$1}}đã [[Special:Log/rights/$1|thay đổi]] các quyền người dùng của bạn. $2. [[Special:ListGroupRights|Tìm hiểu thêm]]",
 	"notification-new-user": "Chào mừng $1 đã đến với {{SITENAME}}!",
-	"notification-header-welcome": "{{GENDER:$2}}Chào mừng $1 đã đến với {{SITENAME}}! Chúng ta rất mừng bạn tham gia.",
+	"notification-header-welcome": "{{GENDER:$2}}Chào mừng $1 đã đến với {{SITENAME}}! Chúng tôi rất vui vì bạn đã tham gia.",
 	"notification-welcome-linktext": "Chào mừng",
 	"notification-reverted2": "[[$5|$1]] đã lùi lại {{PLURAL:$4|sửa đổi|các sửa đổi}} của bạn tại [[:$2]] $3",
 	"notification-header-reverted": "$1 {{GENDER:$2}}đã lùi lại {{PLURAL:$4|sửa đổi|các sửa đổi}} của bạn tại $3.",
