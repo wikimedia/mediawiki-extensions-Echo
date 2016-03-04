@@ -179,7 +179,7 @@
 							// Mark sub items as read in the UI
 							model.markAllRead( model.getSource(), model.getType() );
 							// Mark all existing items as read in the API
-							model.markItemsReadInApi( idArray );
+							model.toggleItemsReadInApi( idArray, read );
 						};
 					} )( notifModels[ i ] ) );
 			}

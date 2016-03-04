@@ -105,6 +105,8 @@
 	 *
 	 * @abstract
 	 * @param {string[]} itemIdArray An array of notification item IDs
+	 * @param {boolean} [isRead] Item's new read state; true for marking the item
+	 *  as read, false for marking the item as unread
 	 * @return {jQuery.Promise} A promise that resolves when all given notifications
 	 *  are marked as read.
 	 */
@@ -114,11 +116,13 @@
 	 * Update the read status of a notification item in the API
 	 *
 	 * @param {string} itemId Item id
+	 * @param {boolean} [isRead] Item's new read state; true for marking the item
+	 *  as read, false for marking the item as unread
 	 * @return {jQuery.Promise} A promise that resolves when the notifications
 	 *  are marked as read.
 	 */
-	mw.echo.api.APIHandler.prototype.markItemRead = function ( itemId ) {
-		this.markItemsRead( [ itemId ] );
+	mw.echo.api.APIHandler.prototype.markItemRead = function ( itemId, isRead ) {
+		this.markItemsRead( [ itemId ], isRead );
 	};
 
 	/**

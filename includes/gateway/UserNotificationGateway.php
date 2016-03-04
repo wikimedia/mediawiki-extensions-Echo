@@ -57,6 +57,30 @@ class EchoUserNotificationGateway {
 	}
 
 	/**
+	 * Mark notifications as unread
+	 * @param $eventIDs array
+	 * @return boolean
+	 */
+	public function markUnRead( array $eventIDs ) {
+		if ( !$eventIDs ) {
+			return;
+		}
+
+		$dbw = $this->dbFactory->getEchoDb( DB_MASTER );
+
+		return $dbw->update(
+			self::$notificationTable,
+			array( 'notification_read_timestamp' => null ),
+			array(
+				'notification_user' => $this->user->getId(),
+				'notification_event' => $eventIDs,
+				'notification_read_timestamp IS NOT NULL'
+			),
+			__METHOD__
+		);
+	}
+
+	/**
 	 * Mark all notification as read, use MWEchoNotifUer::markAllRead() instead
 	 * @deprecated may need this when running in a job or revive this when we
 	 * have updateJoin()

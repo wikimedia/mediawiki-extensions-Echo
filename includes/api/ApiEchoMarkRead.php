@@ -29,6 +29,12 @@ class ApiEchoMarkRead extends ApiBase {
 			}
 		}
 
+		// Mark as unread
+		if ( count( $params['unreadlist'] ) > 0 ) {
+			// Make sure there is a limit to the update
+			$notifUser->markUnRead( array_slice( $params['unreadlist'], 0, ApiBase::LIMIT_SML2 ) );
+		}
+
 		$result = array(
 			'result' => 'success'
 		);
@@ -50,6 +56,9 @@ class ApiEchoMarkRead extends ApiBase {
 	public function getAllowedParams() {
 		return array(
 			'list' => array(
+				ApiBase::PARAM_ISMULTI => true,
+			),
+			'unreadlist' => array(
 				ApiBase::PARAM_ISMULTI => true,
 			),
 			'all' => array(
@@ -91,6 +100,8 @@ class ApiEchoMarkRead extends ApiBase {
 				=> 'apihelp-echomarkread-example-1',
 			'action=echomarkread&all=true'
 				=> 'apihelp-echomarkread-example-2',
+			'action=echomarkread&unreadlist=1'
+				=> 'apihelp-echomarkread-example-3',
 		);
 	}
 

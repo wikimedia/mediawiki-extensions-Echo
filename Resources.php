@@ -85,6 +85,7 @@ $wgResourceModules += array(
 			'oojs-ui.styles.icons-user',
 			'oojs-ui.styles.icons-alerts',
 			'oojs-ui.styles.icons-content',
+			'oojs-ui.styles.icons-interactions',
 		),
 		'messages' => array(
 			'echo-notification-count',
@@ -107,6 +108,7 @@ $wgResourceModules += array(
 			"notification-timestamp-ago-months",
 			"notification-timestamp-ago-years",
 			'echo-notification-markasread',
+			'echo-notification-markasunread',
 			'echo-notification-alert-text-only',
 			'echo-notification-message-text-only',
 			'echo-email-batch-bullet',

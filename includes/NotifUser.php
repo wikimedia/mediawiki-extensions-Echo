@@ -337,6 +337,35 @@ class MWEchoNotifUser {
 	}
 
 	/**
+	 * Mark one or more notifications unread for a user.
+	 * @param $eventIds Array of event IDs to mark unread
+	 * @return boolean
+	 */
+	public function markUnRead( $eventIds ) {
+		$eventIds = array_filter( (array)$eventIds, 'is_numeric' );
+		if ( !$eventIds || wfReadOnly() ) {
+			return false;
+		}
+
+		$res = $this->userNotifGateway->markUnRead( $eventIds );
+		if ( $res ) {
+			// Update notification count in cache
+			$this->resetNotificationCount( DB_MASTER );
+
+			// After this 'mark unread', is there any unread edit-user-talk?
+			// If so, we should add the edit-user-talk flag
+			if ( !$this->mUser->getNewtalk() ) {
+				$unreadEditUserTalk = $this->notifMapper->fetchUnreadByUser( $this->mUser, 1, null, array( 'edit-user-talk' ), DB_MASTER );
+				if ( count( $unreadEditUserTalk ) > 0 ) {
+					$this->mUser->setNewtalk( true );
+				}
+			}
+		}
+
+		return $res;
+	}
+
+	/**
 	 * Attempt to mark all or sections of notifications as read, this only
 	 * updates up to $wgEchoMaxUpdateCount records per request, see more
 	 * detail about this in Echo.php, the other reason is that mediawiki
