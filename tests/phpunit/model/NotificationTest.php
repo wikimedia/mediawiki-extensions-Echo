@@ -70,7 +70,8 @@ class EchoNotificationTest extends MediaWikiTestCase {
 			'event_extra' => '',
 			'event_page_id' => '',
 			'event_agent_id' => '',
-			'event_agent_ip' => ''
+			'event_agent_ip' => '',
+			'event_deleted' => 0,
 		);
 	}
 

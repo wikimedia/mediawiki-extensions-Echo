@@ -202,11 +202,10 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 		// notifications.  We should have some cron job to remove old notifications so
 		// the notification volume is in a reasonable amount for such case.  The other option
 		// is to denormalize notification table with event_type and lookup index.
-		// Look for notifications with base = 1
 		$conds = array(
 			'notification_user' => $user->getID(),
 			'event_type' => $eventTypes,
-			'notification_bundle_base' => 1
+			'event_deleted' => 0,
 		) + $conds;
 
 		$offset = $this->extractQueryOffset( $continue );
@@ -237,35 +236,24 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 			return array();
 		}
 
-		$events = array();
+		$allNotifications = array();
 		foreach ( $res as $row ) {
-			$events[$row->event_id] = $row;
-		}
-
-		// query returned no events
-		if ( !$events ) {
-			return array();
-		}
-
-		$targetPages = $this->targetPageMapper->fetchByUserPageId( $user, array_keys( $events ) );
-
-		$data = array();
-		foreach ( $events as $eventId => $row ) {
 			try {
-				if ( isset( $targetPages[$row->event_id] ) ) {
-					$targets = $targetPages[$row->event_id];
-				} else {
-					$targets = null;
-				}
-				$notif = EchoNotification::newFromRow( $row, $targets );
-				if ( $notif ) {
-					$data[$row->event_id] = $notif;
+				$notification = EchoNotification::newFromRow( $row );
+				if ( $notification ) {
+					$allNotifications[] = $notification;
 				}
 			} catch ( Exception $e ) {
 				$id = isset( $row->event_id ) ? $row->event_id : 'unknown event';
 				wfDebugLog( 'Echo', __METHOD__ . ": Failed initializing event: $id" );
 				MWExceptionHandler::logException( $e );
 			}
+		}
+
+		$data = array();
+		/** @var EchoNotification $notification */
+		foreach ( $allNotifications as $notification ) {
+			$data[ $notification->getEvent()->getId() ] = $notification;
 		}
 
 		return $data;
@@ -350,7 +338,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 			array( '*' ),
 			array(
 				'notification_user' => $user->getId(),
-				'notification_bundle_base' => 1
+				'event_deleted' => 0,
 			),
 			__METHOD__,
 			array(
@@ -388,6 +376,35 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 		);
 
 		return $res;
+	}
+
+	/**
+	 * Fetch ids of users that have notifications for certain events
+	 *
+	 * @param int[] $eventIds
+	 * @return int[]|false
+	 */
+	public function fetchUsersWithNotificationsForEvents( $eventIds ) {
+		$dbr = $this->dbFactory->getEchoDb( DB_SLAVE );
+
+		$res = $dbr->select(
+			array( 'echo_notification' ),
+			array( 'userId' => 'notification_user' ),
+			array(
+				'notification_event' => $eventIds
+			),
+			__METHOD__
+		);
+
+		if ( $res ) {
+			$userIds = array();
+			foreach ( $res as $row ) {
+				$userIds[] = $row->userId;
+			}
+			return $userIds;
+		} else {
+			return false;
+		}
 	}
 
 }

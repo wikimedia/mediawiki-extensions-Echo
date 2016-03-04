@@ -29,7 +29,6 @@ class NotificationPager extends ReverseChronologicalPager {
 			'fields' => '*',
 			'conds' => array(
 				'notification_user' => $this->getUser()->getId(),
-				'notification_bundle_base' => 1,
 				'event_type' => $eventTypes,
 			),
 			'options' => array(),

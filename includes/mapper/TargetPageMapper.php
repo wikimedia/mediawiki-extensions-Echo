@@ -51,6 +51,35 @@ class EchoTargetPageMapper extends EchoAbstractMapper {
 	}
 
 	/**
+	 * Fetch ids of events associated with a page
+	 *
+	 * @param int $pageId
+	 * @return int[]|false
+	 */
+	public function fetchEventIdsByPageId( $pageId ) {
+		$dbr = $this->dbFactory->getEchoDb( DB_SLAVE );
+
+		$res = $dbr->select(
+			array( 'echo_target_page' ),
+			array( 'eventId' => 'DISTINCT etp_event' ),
+			array(
+				'etp_page' => $pageId
+			),
+			__METHOD__
+		);
+		if ( $res ) {
+			$eventIds = array();
+			foreach ( $res as $row ) {
+				$eventIds[] = $row->eventId;
+			}
+
+			return $eventIds;
+		} else {
+			return false;
+		}
+	}
+
+	/**
 	 * Insert an EchoTargetPage instance into the database
 	 *
 	 * @param EchoTargetPage $targetPage
@@ -89,32 +118,6 @@ class EchoTargetPageMapper extends EchoAbstractMapper {
 	}
 
 	/**
-	 * Delete multiple EchoTargetPage records by user & set of event_id
-	 *
-	 * @param User $user
-	 * @param int[] $eventIds
-	 * @return boolean
-	 */
-	public function deleteByUserEvents( User $user, array $eventIds ) {
-		if ( !$eventIds ) {
-			return true;
-		}
-
-		$dbw = $this->dbFactory->getEchoDb( DB_MASTER );
-
-		$res = $dbw->delete(
-			'echo_target_page',
-			array(
-				'etp_user' => $user->getId(),
-				'etp_event' => $eventIds
-			),
-			__METHOD__
-		);
-
-		return $res;
-	}
-
-	/**
 	 * Delete multiple EchoTargetPage records by user & event_id offset
 	 *
 	 * @param User $user
@@ -129,26 +132,6 @@ class EchoTargetPageMapper extends EchoAbstractMapper {
 			array(
 				'etp_user' => $user->getId(),
 				'etp_event < ' . (int)$eventId
-			),
-			__METHOD__
-		);
-
-		return $res;
-	}
-
-	/**
-	 * Delete multiple EchoTargetPage records by user
-	 *
-	 * @param User $user
-	 * @return boolean
-	 */
-	public function deleteByUser( User $user ) {
-		$dbw = $this->dbFactory->getEchoDb( DB_MASTER );
-
-		$res = $dbw->delete(
-			'echo_target_page',
-			array(
-				'etp_user' => $user->getId()
 			),
 			__METHOD__
 		);

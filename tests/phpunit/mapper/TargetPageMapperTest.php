@@ -69,34 +69,6 @@ class EchoTargetPageMapperTest extends MediaWikiTestCase {
 		$this->assertFalse( $targetMapper->delete( $this->mockEchoTargetPage() ) );
 	}
 
-	public function provideDataTestDeleteByUserEvents() {
-		return array(
-			array( true, array( 1 ), true ),
-			array( false, array( 1 ), false ),
-			array( true, array(), true ),
-			array( false, array(), true ),
-		);
-	}
-
-	/**
-	 * @dataProvider provideDataTestDeleteByUserEvents
-	 */
-	public function testDeleteByUserEvents( $deleteResult, $eventIds, $result ) {
-		$dbResult = array( 'delete' => $deleteResult );
-		$targetMapper = new EchoTargetPageMapper( $this->mockMWEchoDbFactory( $dbResult ) );
-		$this->assertSame( $targetMapper->deleteByUserEvents( User::newFromId( 1 ), $eventIds ), $result );
-	}
-
-	public function testDeleteByUser() {
-		$dbResult = array( 'delete' => true );
-		$targetMapper = new EchoTargetPageMapper( $this->mockMWEchoDbFactory( $dbResult ) );
-		$this->assertSame( $targetMapper->deleteByUser( User::newFromId( 1 ) ), true );
-
-		$dbResult = array( 'delete' => false );
-		$targetMapper = new EchoTargetPageMapper( $this->mockMWEchoDbFactory( $dbResult ) );
-		$this->assertSame( $targetMapper->deleteByUser( User::newFromId( 1 ) ), false );
-	}
-
 	public function testDeleteByUserEventOffset() {
 		$dbResult = array( 'delete' => true );
 		$targetMapper = new EchoTargetPageMapper( $this->mockMWEchoDbFactory( $dbResult ) );

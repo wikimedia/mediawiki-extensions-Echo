@@ -269,6 +269,7 @@
 	"apihelp-query+notifications-param-messagecontinue": "When more message results are available, use this to continue.",
 	"apihelp-query+notifications-param-messageunreadfirst": "Whether to show unread alert notifications first (only used if groupbysection is set).",
 	"apihelp-query+notifications-param-titles": "Only return notifications for these pages. To get notifications not associated with any page, use [] as a title.",
+	"apihelp-query+notifications-param-bundle": "Whether to show bundle compatible unread notifications according to notification types bundling rules.",
 	"apihelp-query+notifications-example-1": "List notifications",
 	"apihelp-query+notifications-example-2": "List notifications, grouped by section, with counts",
 	"apihelp-query+unreadnotificationpages-description": "Get pages for which there are unread notifications for the current user.",

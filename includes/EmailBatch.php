@@ -129,6 +129,9 @@ class MWEchoEmailBatch {
 				$this->events[] = $event;
 			}
 
+			$bundler = new Bundler();
+			$this->events = $bundler->bundle( $this->events );
+
 			$this->sendEmail();
 		}
 
@@ -206,7 +209,6 @@ class MWEchoEmailBatch {
 				array(
 					'ORDER BY' => 'eeb_event_priority',
 					'LIMIT' => self::$displaySize + 1,
-					'GROUP BY' => 'eeb_event_hash'
 				)
 			);
 

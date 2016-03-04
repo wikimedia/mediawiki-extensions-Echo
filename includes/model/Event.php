@@ -4,7 +4,7 @@
  * Immutable class to represent an event.
  * In Echo nomenclature, an event is a single occurrence.
  */
-class EchoEvent extends EchoAbstractEntity {
+class EchoEvent extends EchoAbstractEntity implements Bundleable {
 
 	protected $type = null;
 	protected $id = null;
@@ -43,6 +43,20 @@ class EchoEvent extends EchoAbstractEntity {
 	 * @var string
 	 */
 	protected $bundleHash;
+
+	/**
+	 * Other events bundled with this one
+	 *
+	 * @var EchoEvent[]
+	 */
+	protected $bundledEvents;
+
+	/**
+	 * Deletion flag
+	 *
+	 * @var int
+	 */
+	protected $deleted = 0;
 
 	/**
 	 * You should not call the constructor.
@@ -165,6 +179,7 @@ class EchoEvent extends EchoAbstractEntity {
 		$data = array(
 			'event_type' => $this->type,
 			'event_variant' => $this->variant,
+			'event_deleted' => $this->deleted,
 			'event_extra' => $this->serializeExtra()
 		);
 		if ( $this->id ) {
@@ -241,6 +256,7 @@ class EchoEvent extends EchoAbstractEntity {
 			return false;
 		}
 		$this->pageId = $row->event_page_id;
+		$this->deleted = $row->event_deleted;
 
 		if ( $row->event_agent_id ) {
 			$this->agent = User::newFromID( $row->event_agent_id );
@@ -291,6 +307,7 @@ class EchoEvent extends EchoAbstractEntity {
 		$this->pageId = $event->pageId;
 		$this->agent = $event->agent;
 		$this->title = $event->title;
+		$this->deleted = $event->deleted;
 		// Don't overwrite timestamp if it exists already
 		if ( !$this->timestamp ) {
 			$this->timestamp = $event->timestamp;
@@ -460,7 +477,7 @@ class EchoEvent extends EchoAbstractEntity {
 				return $this->title = $title;
 			}
 
-			return $this->title = Title::newFromId( $this->pageId );
+			return $this->title = Title::newFromID( $this->pageId );
 		} elseif ( isset( $this->extra['page_title'], $this->extra['page_namespace'] ) ) {
 			return $this->title = Title::makeTitleSafe(
 				$this->extra['page_namespace'],
@@ -537,11 +554,11 @@ class EchoEvent extends EchoAbstractEntity {
 
 	public function setTitle( Title $title ) {
 		$this->title = $title;
-		$pageId = $title->getArticleId();
+		$pageId = $title->getArticleID();
 		if ( $pageId ) {
 			$this->pageId = $pageId;
 		} else {
-			$this->extra['page_title'] = $title->getDBKey();
+			$this->extra['page_title'] = $title->getDBkey();
 			$this->extra['page_namespace'] = $title->getNamespace();
 		}
 	}
@@ -594,5 +611,48 @@ class EchoEvent extends EchoAbstractEntity {
 	 */
 	public function setBundleHash( $hash ) {
 		$this->bundleHash = $hash;
+	}
+
+	/**
+	 * @return bool
+	 */
+	public function isDeleted() {
+		return $this->deleted === 1;
+	}
+
+	public function setBundledEvents( $events ) {
+		$this->bundledEvents = $events;
+	}
+
+	public function getBundledEvents() {
+		return $this->bundledEvents;
+	}
+
+	/**
+	 * @inheritdoc
+	 */
+	public function canBeBundled() {
+		return true;
+	}
+
+	/**
+	 * @inheritdoc
+	 */
+	public function getBundlingKey() {
+		return $this->getBundleHash();
+	}
+
+	/**
+	 * @inheritdoc
+	 */
+	public function setBundledElements( $bundleables ) {
+		$this->setBundledEvents( $bundleables );
+	}
+
+	/**
+	 * @inheritdoc
+	 */
+	public function getSortingKey() {
+		return $this->getTimestamp();
 	}
 }

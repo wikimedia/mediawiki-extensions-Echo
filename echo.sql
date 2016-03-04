@@ -9,7 +9,8 @@ CREATE TABLE /*_*/echo_event (
 	event_page_namespace int unsigned null,
 	event_page_title varchar(255) binary null,
 	event_extra BLOB NULL,
-	event_page_id int unsigned null
+	event_page_id int unsigned null,
+	event_deleted tinyint unsigned not null default 0
 ) /*$wgDBTableOptions*/;
 
 CREATE INDEX /*i*/echo_event_type ON /*_*/echo_event (event_type);
@@ -31,6 +32,7 @@ CREATE INDEX /*i*/echo_notification_user_base_timestamp ON /*_*/echo_notificatio
 CREATE INDEX /*i*/echo_notification_user_hash_timestamp ON /*_*/echo_notification (notification_user, notification_bundle_hash, notification_timestamp);
 CREATE INDEX /*i*/echo_notification_user_hash_base_timestamp ON /*_*/echo_notification (notification_user, notification_bundle_display_hash, notification_bundle_base, notification_timestamp);
 CREATE INDEX /*i*/echo_notification_event ON /*_*/echo_notification (notification_event);
+CREATE INDEX /*i*/echo_notification_user_read_timestamp ON /*_*/echo_notification (notification_user, notification_read_timestamp);
 
 CREATE TABLE /*_*/echo_email_batch (
 	eeb_id int unsigned not null primary key auto_increment,
@@ -52,3 +54,4 @@ CREATE TABLE /*_*/echo_target_page (
 
 CREATE INDEX /*i*/echo_target_page_user_event ON /*_*/echo_target_page (etp_user, etp_event);
 CREATE INDEX /*i*/echo_target_page_user_page_event ON /*_*/echo_target_page (etp_user, etp_page, etp_event);
+CREATE INDEX /*i*/echo_target_page_page_event ON /*_*/echo_target_page (etp_page, etp_event);

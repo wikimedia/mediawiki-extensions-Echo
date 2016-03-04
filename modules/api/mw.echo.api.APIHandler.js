@@ -121,6 +121,7 @@
 				notlimit: this.limit,
 				notunreadfirst: 1,
 				notprop: 'list|count',
+				notbundle: true,
 				uselang: this.userLang
 			}, this.getTypeParams( type ) );
 

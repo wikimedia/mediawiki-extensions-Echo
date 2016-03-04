@@ -45,7 +45,8 @@ class EchoEventMapperTest extends MediaWikiTestCase {
 						'event_extra' => '',
 						'event_page_id' => '',
 						'event_agent_id' => '',
-						'event_agent_ip' => ''
+						'event_agent_ip' => '',
+						'event_deleted' => 0,
 					)
 				)
 			)
@@ -79,7 +80,8 @@ class EchoEventMapperTest extends MediaWikiTestCase {
 				'event_extra' => '',
 				'event_page_id' => '',
 				'event_agent_id' => '',
-				'event_agent_ip' => ''
+				'event_agent_ip' => '',
+				'event_deleted' => 0,
 			),
 			(object)array(
 				'event_id' => 2,
@@ -88,7 +90,8 @@ class EchoEventMapperTest extends MediaWikiTestCase {
 				'event_extra' => '',
 				'event_page_id' => '',
 				'event_agent_id' => '',
-				'event_agent_ip' => ''
+				'event_agent_ip' => '',
+				'event_deleted' => 0,
 			)
 		);
 		$eventMapper = new EchoEventMapper( $this->mockMWEchoDbFactory( array( 'select' => $dbResult ) ) );
