@@ -461,15 +461,22 @@ class EchoHooks {
 			// This edit hasn't been added to the edit count yet
 			$editCount = $user->getEditCount() + 1;
 			if ( in_array( $editCount, $thresholds ) ) {
-				LoggerFactory::getInstance( 'Echo' )->debug(
-					'Thanking {user} (id: {id}) for their {count} edit',
-					array(
-						'user' => $user->getName(),
-						'id' => $user->getId(),
-						'count' => $editCount,
-					)
-				);
-				DeferredUpdates::addCallableUpdate( function () use ( $user, $title, $editCount ) {
+				$id = $user->getId();
+				DeferredUpdates::addCallableUpdate( function () use ( $id, $title, $editCount ) {
+					// Fresh User object
+					$user = User::newFromId( $id );
+					if ( $user->getEditCount() !== $editCount ) {
+						// Race condition with multiple simultaneous requests, skip
+						return;
+					}
+					LoggerFactory::getInstance( 'Echo' )->debug(
+						'Thanking {user} (id: {id}) for their {count} edit',
+						array(
+							'user' => $user->getName(),
+							'id' => $user->getId(),
+							'count' => $editCount,
+						)
+					);
 					EchoEvent::create( array(
 							'type' => 'thank-you-edit',
 							'title' => $title,
