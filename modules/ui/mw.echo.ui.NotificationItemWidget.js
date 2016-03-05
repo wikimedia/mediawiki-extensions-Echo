@@ -16,7 +16,8 @@
 	 * @cfg {boolean} [bundle=false] This notification item is part of a bundle.
 	 */
 	mw.echo.ui.NotificationItemWidget = function MwEchoUiNotificationItemWidget( controller, model, config ) {
-		var i, secondaryUrls, urlObj, linkButton, $icon, isInsideMenu, echoMoment,
+		var i, secondaryUrls, urlObj, linkButton, $icon, isOutsideMenu, echoMoment,
+			outsideMenuItemCounter = 0,
 			$message = $( '<div>' ).addClass( 'mw-echo-ui-notificationItemWidget-content-message' );
 
 		config = config || {};
@@ -120,7 +121,11 @@
 		for ( i = 0; i < secondaryUrls.length; i++ ) {
 			urlObj = secondaryUrls[ i ];
 
-			isInsideMenu = !this.bundle && urlObj.prioritized !== undefined;
+			// Items are placed outside the dotdotdot menu if they are
+			// prioritized explicitly, *except* for items inside a bundle
+			// (where all actions are inside the menu) or there are more than
+			// two prioritized actions (all others go into the menu)
+			isOutsideMenu = !this.bundle && urlObj.prioritized !== undefined && outsideMenuItemCounter < 2;
 
 			linkButton = new mw.echo.ui.MenuItemWidget( {
 				icon: urlObj.icon || 'next',
@@ -128,15 +133,18 @@
 				tooltip: urlObj.tooltip,
 				description: urlObj.description,
 				url: urlObj.url,
-				prioritized: isInsideMenu
+				prioritized: isOutsideMenu
 			} );
 
-			if ( isInsideMenu ) {
+			// Limit to 2 items outside the menu
+			if ( isOutsideMenu ) {
 				this.actionsButtonSelectWidget.addItems( [ linkButton ] );
+				outsideMenuItemCounter++;
 			} else {
 				this.menuPopupButtonWidget.getMenu().addItems( [ linkButton ] );
 			}
 		}
+
 		// Add a "mark as read" secondary action
 		this.toggleReadSecondaryButton = new mw.echo.ui.MenuItemWidget( {
 			data: 'toggleRead',
