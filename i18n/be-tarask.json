@@ -26,6 +26,7 @@
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Просты тэкст",
 	"echo-pref-new-message-indicator": "Паказваць індыкатар паведамленьняў на старонцы гутарак у маёй панэлі",
+	"echo-pref-beta-feature-cross-wiki-message": "Пашыраныя апавяшчэньні",
 	"echo-learn-more": "Даведацца болей",
 	"echo-new-messages": "Вы маеце новыя паведамленьні",
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1|1=Паведамленьне|Паведамленьні}} ў гутарках",
