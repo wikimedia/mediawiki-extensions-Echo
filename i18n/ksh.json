@@ -55,7 +55,8 @@
 	"echo-notification-loginrequired": "Mer moß ennlogge, öm sing Nohreeschte belohre ze künne.",
 	"echo-notification-popup-loginrequired": "Donn ennlogge, öm ding Nohreeschte ze belohre.",
 	"echo-notification-markasread": "Als „jelässe“ makehre",
-	"notification-link-text-expand-all": "Alle opfallde",
+	"notification-link-text-expand-all": "Alle belohre",
+	"notification-link-text-expand-all-count": "{{PLURAL:$1|Meddejlong|$1 Meddejlong|Nix}} aanzeije",
 	"notification-link-text-collapse-all": "Alle zohklappe",
 	"notification-link-text-view-message": "De Nohreesch belohre",
 	"notification-link-text-view-mention": "De Äwähnong belohre",
@@ -145,9 +146,10 @@
 	"apihelp-query+notifications-param-limit": "Nit mih, wi esu vill Meddeilonge ußjävve.",
 	"apihelp-query+notifications-param-index": "Wann ußjewählt, küdd_en zottehrte Leß met Kännonge för Meddeilonge.",
 	"apihelp-query+notifications-param-alertcontinue": "Wann mih Meddeilonge ze holle sin, nemm dat för wigger ze maache.",
-	"apihelp-query+notifications-param-alertunreadfirst": "Ov de unjelässe Meddeilonge am Aanfang schtonn sulle.",
+	"apihelp-query+notifications-param-unreadfirst": "Ov de unjelässe Meddeilonge am Aanfang schtonn sulle. Bedügg nix, wann et Jroppehre aanjeschalld es.",
+	"apihelp-query+notifications-param-alertunreadfirst": "Ov de unjelässe Meddeilonge övver Nohreeschte am Aanfang schtonn sulle. Bedügg nix, wann et Jroppehre ußjeschalld es.",
 	"apihelp-query+notifications-param-messagecontinue": "Wann mih Nohreeschte ze holle sin, nemm dat för wigger ze maache.",
-	"apihelp-query+notifications-param-messageunreadfirst": "Ov de unjelässe Nohreeschte övver Meddeilonge am Aanfang schtonn sulle.",
+	"apihelp-query+notifications-param-messageunreadfirst": "Ov de unjelässe Nohreeschte övver Meddeilonge am Aanfang schtonn sulle. Bedügg nix, wann et Jroppehre aanjeschalld es.",
 	"apihelp-query+notifications-example-1": "Meddeilonge opleßte",
 	"apihelp-query+notifications-example-2": "Meddeilonge opleßte, noh Affschnedde, met der Aanzahl"
 }

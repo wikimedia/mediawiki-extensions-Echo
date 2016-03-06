@@ -70,7 +70,7 @@
 	"echo-notification-popup-loginrequired": "Inicie sessão para ver as suas notificações.",
 	"echo-notification-markasread": "Marcar como lido",
 	"notification-link-text-expand-all": "Ver tudo",
-	"notification-link-text-expand-alert-count": "Expandir {{PLURAL:$1|$1 alerta|$1 alertas}}",
+	"notification-link-text-expand-alert-count": "Ver {{PLURAL:$1|$1 alerta|$1 alertas}}",
 	"notification-link-text-expand-message-count": "Ver {{PLURAL:$1|$1 mensagem|$1 mensagens}}",
 	"notification-link-text-expand-all-count": "Ver {{PLURAL:$1|$1 notificação|$1 notificações}}",
 	"notification-link-text-collapse-all": "Ocultar tudo",
@@ -134,7 +134,9 @@
 	"notification-mention-nosection-email-batch-body": "$1 {{GENDER:$1|mencionou}} você na página de discussão $2.",
 	"notification-user-rights-email-subject": "Os seus privilégios de utilizador foram alterados em {{SITENAME}}",
 	"notification-user-rights-email-batch-body": "Os seus privilégios de utilizador foram {{GENDER:$1|alterados}} por $1. $2.",
+	"notification-timestamp-ago-seconds": "{{PLURAL:$1|$1 s}}",
 	"notification-timestamp-ago-minutes": "{{PLURAL:$1|$1 m}}",
+	"notification-timestamp-ago-hours": "{{PLURAL:$1|$1 h}}",
 	"notification-timestamp-ago-days": "{{PLURAL:$1|$1 d}}",
 	"notification-timestamp-ago-months": "{{PLURAL:$1|$1 mês}}",
 	"notification-timestamp-ago-years": "{{PLURAL:$1|$1 ano}}",
@@ -164,7 +166,7 @@
 	"echo-email-batch-body-intro-weekly": "Olá $1,\nAqui está um resumo da actividade desta semana em {{SITENAME}} para si.",
 	"echo-email-batch-link-text-view-all-notifications": "Ver todas as notificações",
 	"echo-rev-deleted-text-view": "A revisão desta página foi suprimida.",
-	"notification-header-foreign-alert": "Mais alertas de $3 {{PLURAL:$4|e uma outra wiki|e $4 outras wikis|0=}}",
-	"notification-header-foreign-message": "Mais mensagens a partir de $3 {{PLURAL:$4|e uma outra wiki|e $4 outras wikis|0=}}",
+	"notification-header-foreign-alert": "Mais alertas de {{PLURAL:$5|uma outra wiki|$5 outras wikis}}",
+	"notification-header-foreign-message": "Mais mensagens de {{PLURAL:$5|uma outra wiki|$5 outras wikis}}",
 	"apihelp-query+notifications-paramvalue-format-text": "Texto sem formatação"
 }
