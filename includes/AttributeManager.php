@@ -247,7 +247,7 @@ class EchoAttributeManager {
 	/**
 	 * Get notification section for a notification type
 	 * @todo add a unit test case
-	 * @parm string
+	 * @param string $notificationType
 	 * @return string
 	 */
 	public function getNotificationSection( $notificationType ) {
