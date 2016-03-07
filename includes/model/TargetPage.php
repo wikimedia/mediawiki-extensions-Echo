@@ -13,9 +13,9 @@ class EchoTargetPage extends EchoAbstractEntity {
 	protected $user;
 
 	/**
-	 * @var Title|null
+	 * @var Title|null|bool false if not initialized yet
 	 */
-	protected $title;
+	protected $title = false;
 
 	/**
 	 * @var int
@@ -107,7 +107,7 @@ class EchoTargetPage extends EchoAbstractEntity {
 	 * @return Title|null
 	 */
 	public function getTitle() {
-		if ( !$this->title ) {
+		if ( $this->title === false ) {
 			$this->title = Title::newFromId( $this->pageId );
 		}
 
