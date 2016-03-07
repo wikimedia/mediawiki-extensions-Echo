@@ -11,6 +11,7 @@
 		"requireParamTypes": true,
 		"checkReturnTypes": true,
 		"requireReturnTypes": true,
-		"checkRedundantAccess": true
+		"checkRedundantAccess": true,
+		"requireNewlineAfterDescription": true
 	}
 }

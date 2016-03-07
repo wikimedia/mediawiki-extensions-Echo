@@ -62,6 +62,7 @@
 
 	/**
 	 * Get an item by its id
+	 *
 	 * @param {string} id Item id
 	 * @return {mw.echo.dm.NotificationItem} Item
 	 */

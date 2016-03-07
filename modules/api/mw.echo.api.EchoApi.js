@@ -14,6 +14,7 @@
 
 	/**
 	 * Fetch notifications from the server based on type
+	 *
 	 * @param {string} types An array of notification types to fetch: 'alert', 'message', 'all'
 	 * @param {string} [source="local"] The source from which to fetch the notifications
 	 * @param {boolean} [isForced] Force a refresh on the fetch notifications promise

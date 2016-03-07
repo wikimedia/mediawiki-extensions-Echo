@@ -92,6 +92,7 @@
 
 	/**
 	 * Get NotificationItem id
+	 *
 	 * @return {string} NotificationItem Id
 	 */
 	mw.echo.dm.NotificationItem.prototype.getId = function () {
@@ -100,6 +101,7 @@
 
 	/**
 	 * Get NotificationItem content header
+	 *
 	 * @return {string} NotificationItem content
 	 */
 	mw.echo.dm.NotificationItem.prototype.getContentHeader = function () {
@@ -108,6 +110,7 @@
 
 	/**
 	 * Get NotificationItem content body
+	 *
 	 * @return {string} NotificationItem content body
 	 */
 	mw.echo.dm.NotificationItem.prototype.getContentBody = function () {
@@ -116,6 +119,7 @@
 
 	/**
 	 * Get NotificationItem category
+	 *
 	 * @return {string} NotificationItem category
 	 */
 	mw.echo.dm.NotificationItem.prototype.getCategory = function () {
@@ -123,6 +127,7 @@
 	};
 	/**
 	 * Get NotificationItem type
+	 *
 	 * @return {string} NotificationItem type
 	 */
 	mw.echo.dm.NotificationItem.prototype.getType = function () {
@@ -131,6 +136,7 @@
 
 	/**
 	 * Check whether this notification item is read
+	 *
 	 * @return {boolean} Notification item is read
 	 */
 	mw.echo.dm.NotificationItem.prototype.isRead = function () {
@@ -139,6 +145,7 @@
 
 	/**
 	 * Check whether this notification item is seen
+	 *
 	 * @return {boolean} Notification item is seen
 	 */
 	mw.echo.dm.NotificationItem.prototype.isSeen = function () {
@@ -147,6 +154,7 @@
 
 	/**
 	 * Check whether this notification item is foreign
+	 *
 	 * @return {boolean} Notification item is foreign
 	 */
 	mw.echo.dm.NotificationItem.prototype.isForeign = function () {
