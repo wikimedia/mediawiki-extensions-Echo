@@ -467,6 +467,16 @@ class EchoHooks {
 					$user = User::newFromId( $id );
 					if ( $user->getEditCount() !== $editCount ) {
 						// Race condition with multiple simultaneous requests, skip
+						LoggerFactory::getInstance( 'Echo' )->debug(
+							'thank-you-edit race condition detected: {user} (id: {id}) should ' .
+							'have had {expectedCount} edits but has {actualCount}',
+							array(
+								'user' => $user->getName(),
+								'id' => $user->getId(),
+								'expectedCount' => $editCount,
+								'actualCount' => $user->getEditCount(),
+							)
+						);
 						return;
 					}
 					LoggerFactory::getInstance( 'Echo' )->debug(
