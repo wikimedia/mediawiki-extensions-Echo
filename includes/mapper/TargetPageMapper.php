@@ -28,15 +28,13 @@ class EchoTargetPageMapper extends EchoAbstractMapper {
 		$dbr = $this->dbFactory->getEchoDb( DB_SLAVE );
 
 		$res = $dbr->select(
-			array( 'echo_target_page', 'echo_event' ),
-			array_merge( self::$fields, array( 'event_type' ) ),
+			array( 'echo_target_page' ),
+			self::$fields,
 			array(
 				'etp_user' => $user->getId(),
 				'etp_page' => $pageId
 			),
-			__METHOD__,
-			array(),
-			array( 'echo_event' => array( 'JOIN', 'etp_event=event_id' ) )
+			__METHOD__
 		);
 		if ( $res ) {
 			$targetPages = array();
