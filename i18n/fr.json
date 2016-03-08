@@ -120,7 +120,7 @@
 	"notification-header-mention-user-talkpage-v2": "$1 {{GENDER:$2|vous}} {{GENDER:$3|a mentionné|a mentionnée}} sur la '''page de discussion {{GENDER:$5|de}} $4''' dans « '''$6''' ».",
 	"notification-header-mention-user-talkpage-nosection": "$1 {{GENDER:$2|vous}} {{GENDER:$3|a mentionné|a mentionnée}} sur la '''page de discussion {{GENDER:$5|de}}  $4'''.",
 	"notification-header-mention-agent-talkpage": "$1 {{GENDER:$2|vous}} {{GENDER:$3|a mentionné|a mentionnée}} sur {{GENDER:$2|sa|sa|sa}} page de discussion dans « $4 ».",
-	"notification-header-mention-agent-talkpage-nosection": "$1 {{GENDER:$2|vous}} {{GENDER:$3|a mentionné|a mentionnée}} sur '''{{GENDER:$2|sa|sa|leur}}''' page de discussion.",
+	"notification-header-mention-agent-talkpage-nosection": "$1 {{GENDER:$2|vous}} {{GENDER:$3|a mentionné|a mentionnée}} sur '''sa page de discussion'''.",
 	"notification-header-mention-article-talkpage": "$1 {{GENDER:$2|vous}} {{GENDER:$3|a mentionné|a mentionnée}} sur la page page de discussion de '''$4''' dans '''' $5''''.",
 	"notification-header-mention-article-talkpage-nosection": "$1 {{GENDER:$2|vous}} {{GENDER:$3|a mentionné|a mentionnée}} sur la page de discussion de '''$4'''.",
 	"notification-user-rights-add": "Vous êtes maintenant membre de {{PLURAL:$2|ce groupe|ces groupes}} : $1",
