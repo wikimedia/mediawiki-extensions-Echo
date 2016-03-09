@@ -459,13 +459,14 @@ class EchoHooks {
 		$thresholds = [ 1, 10, 100, 1000, 10000, 100000, 1000000 ];
 		if ( $user->isLoggedIn() && $status->value['revision'] ) {
 			// This edit hasn't been added to the edit count yet
-			$editCount = $user->getEditCount() + 1;
-			if ( in_array( $editCount, $thresholds ) ) {
+			$thresholdCount = $user->getEditCount() + 1;
+			if ( in_array( $thresholdCount, $thresholds ) ) {
 				$id = $user->getId();
-				DeferredUpdates::addCallableUpdate( function () use ( $id, $title, $editCount ) {
+				DeferredUpdates::addCallableUpdate( function () use ( $id, $title, $thresholdCount ) {
 					// Fresh User object
 					$user = User::newFromId( $id );
-					if ( $user->getEditCount() !== $editCount ) {
+					$userEditCount = $user->getEditCount();
+					if ( $userEditCount !== $thresholdCount ) {
 						// Race condition with multiple simultaneous requests, skip
 						LoggerFactory::getInstance( 'Echo' )->debug(
 							'thank-you-edit race condition detected: {user} (id: {id}) should ' .
@@ -473,8 +474,8 @@ class EchoHooks {
 							array(
 								'user' => $user->getName(),
 								'id' => $user->getId(),
-								'expectedCount' => $editCount,
-								'actualCount' => $user->getEditCount(),
+								'expectedCount' => $thresholdCount,
+								'actualCount' => $userEditCount,
 							)
 						);
 						return;
@@ -484,7 +485,7 @@ class EchoHooks {
 						array(
 							'user' => $user->getName(),
 							'id' => $user->getId(),
-							'count' => $editCount,
+							'count' => $thresholdCount,
 						)
 					);
 					EchoEvent::create( array(
@@ -494,7 +495,7 @@ class EchoHooks {
 							// Edit threshold notifications are sent to the agent
 							'extra' => array(
 								'notifyAgent' => true,
-								'editCount' => $editCount,
+								'thresholdCount' => $thresholdCount,
 							)
 						)
 					);
