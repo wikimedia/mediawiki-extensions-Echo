@@ -150,10 +150,6 @@ $wgEchoSharedTrackingDB = false;
 // main one. Must be a key defined in $wgExternalServers
 $wgEchoSharedTrackingCluster = false;
 
-// The max notification count showed in badge
-// The max number showed in bundled message, eg, <user> and 99+ others <action>
-$wgEchoMaxNotificationCount = 99;
-
 // The max number of notifications allowed for a user to do a live update,
 // this is also the number of max notifications allowed for a user to have
 // @FIXME - the name is not intuitive, probably change it when the deleteJob patch
@@ -400,8 +396,6 @@ $wgEchoNotifications = array(
 		'formatter-class' => 'EchoPageLinkFormatter',
 		'title-message' => 'notification-page-linked',
 		'title-params' => array( 'agent', 'title', 'link-from-page' ),
-		'bundle-message' => 'notification-page-linked-bundle',
-		'bundle-params' => array( 'agent', 'title', 'link-from-page', 'link-from-page-other-display', 'link-from-page-other-count' ),
 		'email-subject-message' => 'notification-page-linked-email-subject',
 		'email-subject-params' => array(),
 		'email-body-batch-message' => 'notification-page-linked-email-batch-body',

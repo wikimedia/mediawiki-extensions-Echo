@@ -44,11 +44,9 @@ class MWEchoNotifUserTest extends MediaWikiTestCase {
 	}
 
 	public function testNotifCountHasReachedMax() {
-		global $wgEchoMaxNotificationCount;
-
 		$notifUser = MWEchoNotifUser::newFromUser( User::newFromId( 2 ) );
 
-		if ( $notifUser->getNotificationCount() > $wgEchoMaxNotificationCount ) {
+		if ( $notifUser->getNotificationCount() > MWEchoNotifUser::MAX_BADGE_COUNT ) {
 			$this->assertTrue( $notifUser->notifCountHasReachedMax() );
 		} else {
 			$this->assertFalse( $notifUser->notifCountHasReachedMax() );

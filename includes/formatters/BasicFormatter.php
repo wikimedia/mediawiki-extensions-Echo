@@ -847,21 +847,12 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 				}
 			}
 		// example: {7} others, {99+} others
-		} elseif ( $param === 'agent-other-display' ) {
-			global $wgEchoMaxNotificationCount;
-
-			if ( $this->bundleData['agent-other-count'] > $wgEchoMaxNotificationCount ) {
-				$message->params(
-					$this->getMessage( 'echo-notification-count' )
-						->numParams( $wgEchoMaxNotificationCount )
-						->text()
-				);
-			} else {
-				$message->numParams( $this->bundleData['agent-other-count'] );
-			}
-		// the number used for plural support
-		} elseif ( $param === 'agent-other-count' ) {
-			$message->params( $this->bundleData['agent-other-count'] );
+		// agent-other-display is no longer needed for new messags, but kept for
+		// backwards compatibility.
+		} elseif ( $param === 'agent-other-count' || $param === 'agent-other-display' ) {
+			$message->numParams(
+				EchoNotificationController::getCappedNotificationCount( $this->bundleData['agent-other-count'] )
+			);
 		} elseif ( $param === 'user' ) {
 			$message->params( $user->getName() );
 		} elseif ( $param === 'title' ) {

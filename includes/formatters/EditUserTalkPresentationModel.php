@@ -45,9 +45,10 @@ class EchoEditUserTalkPresentationModel extends EchoEventPresentationModel {
 	public function getHeaderMessage() {
 		if ( $this->isBundled() ) {
 			$msg = $this->msg( "notification-bundle-header-{$this->type}-v2" );
-			list( $formattedCount, $countForPlural ) = $this->getNotificationCountForOutput();
-			$msg->params( $formattedCount );
-			$msg->params( $countForPlural );
+			$count = $this->getNotificationCountForOutput();
+
+			// Repeat is B/C until unused parameter is removed from translations
+			$msg->numParams( $count, $count );
 			$msg->params( $this->getViewingUserForGender() );
 			return $msg;
 		} elseif ( $this->hasSection() ) {

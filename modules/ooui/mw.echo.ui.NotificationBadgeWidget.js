@@ -46,6 +46,7 @@
 		this.notificationsModel = model;
 		this.type = this.notificationsModel.getType();
 
+		this.maxNotificationCount = mw.config.get( 'wgEchoMaxNotificationCount' );
 		this.numItems = config.numItems || 0;
 		this.markReadWhenSeen = !!config.markReadWhenSeen;
 		this.badgeIcon = config.badgeIcon || {};
@@ -212,14 +213,30 @@
 		this.popupHeadIcon.setIcon( icon );
 	};
 
+	// Client-side version of NotificationController::getCappedNotificationCount.
+	/**
+	 * Gets the count to use for display
+	 *
+	 * @param {number} count Count before cap is applied
+	 *
+	 * @return {number} Count with cap applied
+	 */
+	mw.echo.ui.NotificationBadgeWidget.prototype.getCappedNotificationCount = function ( count ) {
+		if ( count <= this.maxNotificationCount ) {
+			return count;
+		} else {
+			return this.maxNotificationCount + 1;
+		}
+	};
+
 	/**
 	 * Update the badge state and label based on changes to the model
 	 */
 	mw.echo.ui.NotificationBadgeWidget.prototype.updateBadge = function () {
 		var unseenCount = this.notificationsModel.getUnseenCount(),
 			unreadCount = this.notificationsModel.getUnreadCount(),
+			cappedUnreadCount,
 			nonBundledUnreadCount = this.notificationsModel.getNonbundledUnreadCount(),
-			wgEchoMaxNotificationCount,
 			badgeLabel;
 
 		// Update numbers and seen/unseen state
@@ -237,12 +254,9 @@
 
 		// Update badge count
 		if ( !this.markReadWhenSeen || !this.popup.isVisible() || unreadCount < this.currentUnreadCountInBadge ) {
-			wgEchoMaxNotificationCount = mw.config.get( 'wgEchoMaxNotificationCount' );
-			if ( unreadCount > wgEchoMaxNotificationCount ) {
-				badgeLabel = mw.message( 'echo-notification-count', wgEchoMaxNotificationCount ).text();
-			} else {
-				badgeLabel = mw.language.convertNumber( unreadCount );
-			}
+			cappedUnreadCount = this.getCappedNotificationCount( unreadCount );
+			cappedUnreadCount = mw.language.convertNumber( cappedUnreadCount );
+			badgeLabel = mw.message( 'echo-badge-count', cappedUnreadCount ).text();
 			this.badgeButton.setLabel( badgeLabel );
 		}
 

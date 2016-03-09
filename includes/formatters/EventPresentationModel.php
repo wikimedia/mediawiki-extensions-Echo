@@ -184,22 +184,12 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 	 *
 	 * @param bool $includeCurrent
 	 * @param callable $groupCallback
-	 * @return array ['number for display', 'number for PLURAL']
+	 * @return count
 	 */
 	final protected function getNotificationCountForOutput( $includeCurrent = true, $groupCallback = null ) {
-		global $wgEchoMaxNotificationCount;
 		$count = $this->getBundleCount( $includeCurrent, $groupCallback );
-		if ( $count > $wgEchoMaxNotificationCount ) {
-			return array(
-				$this->msg( 'echo-notification-count' )->numParams( $wgEchoMaxNotificationCount )->text(),
-				$wgEchoMaxNotificationCount
-			);
-		} else {
-			return array(
-				$this->language->formatNum( $count ),
-				$count
-			);
-		}
+		$cappedCount = EchoNotificationController::getCappedNotificationCount( $count );
+		return $cappedCount;
 	}
 
 	/**

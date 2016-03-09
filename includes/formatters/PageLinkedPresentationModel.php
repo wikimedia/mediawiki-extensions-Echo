@@ -48,10 +48,11 @@ class EchoPageLinkedPresentationModel extends EchoEventPresentationModel {
 		$msg = parent::getHeaderMessage();
 		$msg->params( $this->getTruncatedTitleText( $this->event->getTitle(), true ) );
 		$msg->params( $this->getTruncatedTitleText( $this->getPageFrom(), true ) );
-		list( $formattedCount, $countForPlural ) =
+		$count =
 			$this->getNotificationCountForOutput( false, array( $this, 'getLinkedPageId' ) );
-		$msg->params( $formattedCount );
-		$msg->params( $countForPlural );
+
+		// Repeat is B/C until unused parameter is removed from translations
+		$msg->numParams( $count, $count );
 		return $msg;
 	}
 

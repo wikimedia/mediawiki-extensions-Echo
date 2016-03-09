@@ -40,6 +40,15 @@ class MWEchoNotifUser {
 	 */
 	private $foreignNotifications;
 
+	// The max notification count shown in badge
+
+	// The max number shown in bundled message, eg, <user> and 99+ others <action>.
+	// This is really a totally separate thing, and could be its own constant.
+
+	// WARNING: If you change this, you should also change all references in the
+	// i18n messages (100 and 99) in all repositories using Echo.
+	const MAX_BADGE_COUNT = 99;
+
 	/**
 	 * Usually client code doesn't need to initialize the object directly
 	 * because it could be obtained from factory method newFromUser()
@@ -139,9 +148,7 @@ class MWEchoNotifUser {
 	 * @return bool
 	 */
 	public function notifCountHasReachedMax() {
-		global $wgEchoMaxNotificationCount;
-
-		if ( $this->getNotificationCount() > $wgEchoMaxNotificationCount ) {
+		if ( $this->getNotificationCount() >= self::MAX_BADGE_COUNT ) {
 			return true;
 		} else {
 			return false;
@@ -178,7 +185,7 @@ class MWEchoNotifUser {
 
 	/**
 	 * Retrieves number of unread notifications that a user has, would return
-	 * $wgEchoMaxNotificationCount + 1 at most
+	 * MWEchoNotifUser::MAX_BADGE_COUNT + 1 at most
 	 *
 	 * @param boolean $cached Set to false to bypass the cache. (Optional. Defaults to true)
 	 * @param int $dbSource Use master or slave database to pull count (Optional. Defaults to DB_SLAVE)
