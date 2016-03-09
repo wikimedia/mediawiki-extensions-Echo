@@ -94,6 +94,7 @@ class SpecialNotifications extends SpecialPage {
 			if ( $dateHeader !== $row['timestamp']['date'] ) {
 				$dateHeader = $row['timestamp']['date'];
 				$notifArray[ $dateHeader ] = array(
+					'unread' => array(),
 					'notices' => array()
 				);
 			}
@@ -117,8 +118,18 @@ class SpecialNotifications extends SpecialPage {
 
 		// Build the HTML
 		$notices = '';
+		$markReadSpecialPage = SpecialPage::getTitleFor( 'NotificationsMarkRead' );
 		foreach ( $notifArray as $section => $data ) {
 			$sectionTitle = Html::element( 'span', array( 'class' => 'mw-echo-date-section-text' ), $section );
+			if ( count( $data[ 'unread' ] ) > 0 ) {
+				// There are unread notices. Add the 'mark section as read' button
+				$markSectionAsReadButton = new OOUI\ButtonWidget( array(
+					'label' => $this->msg( 'echo-specialpage-section-markread' )->text(),
+					'href' => $markReadSpecialPage->getLocalURL() . '/' . join( ',', $data[ 'unread' ] ),
+					'classes' => array( 'mw-echo-markAsReadSectionButton' ),
+				) );
+				$sectionTitle .= $markSectionAsReadButton;
+			}
 
 			// Heading
 			$notices .= Html::rawElement( 'li', array( 'class' => 'mw-echo-date-section' ), $sectionTitle );
