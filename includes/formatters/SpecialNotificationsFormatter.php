@@ -2,9 +2,15 @@
 
 /**
  * A formatter for Special:Notifications
+ *
+ * This formatter uses OOUI libraries. Any calls to this formatter must
+ * also call OutputPage::enableOOUI() before calling this formatter.
  */
 class SpecialNotificationsFormatter extends EchoEventFormatter {
 	protected function formatModel( EchoEventPresentationModel $model ) {
+		$markReadSpecialPage = SpecialPage::getTitleFor( 'NotificationsMarkRead' );
+		$id = $model->getEventId();
+
 		$icon = Html::element(
 			'img',
 			array(
@@ -12,6 +18,15 @@ class SpecialNotificationsFormatter extends EchoEventFormatter {
 				'src' => $this->getIconURL( $model ),
 			)
 		);
+
+		OutputPage::setupOOUI();
+		$markAsReadButton = new OOUI\ButtonWidget( array(
+			'icon' => 'close',
+			'framed' => false,
+			'href' => $markReadSpecialPage->getLocalUrl() . '/' . $id,
+			'classes' => array( 'mw-echo-markAsReadButton' ),
+			'title' => wfMessage( 'echo-notification-markasread' )
+		) );
 
 		$html = Xml::tags(
 				'div',
@@ -70,8 +85,10 @@ class SpecialNotificationsFormatter extends EchoEventFormatter {
 		// Wrap everything in mw-echo-content class
 		$html = Xml::tags( 'div', array( 'class' => 'mw-echo-content' ), $html );
 
-		// And then add the icon in front and wrap with mw-echo-state class.
-		$html = Xml::tags( 'div', array( 'class' => 'mw-echo-state' ), $icon . $html );
+		// And then add the mark as read button
+		// and the icon in front and wrap with
+		// mw-echo-state class.
+		$html = Xml::tags( 'div', array( 'class' => 'mw-echo-state' ), $markAsReadButton . $icon . $html );
 
 		return $html;
 	}

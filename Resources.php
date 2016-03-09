@@ -257,22 +257,6 @@ $wgResourceModules += array(
 		),
 		'targets' => array( 'desktop', 'mobile' ),
 	),
-	'ext.echo.special' => $echoResourceTemplate + array(
-		'scripts' => array(
-			'special/ext.echo.special.js',
-		),
-		'dependencies' => array(
-			'mediawiki.ui.button',
-			'mediawiki.api',
-			'ext.echo.ui',
-		),
-		'messages' => array(
-			'echo-load-more-error',
-			'echo-more-info',
-			'echo-feedback',
-		),
-	),
-
 	// HACK: OOUI has an icon pack for these, but it's unhelpfully large and we don't
 	// want to load more as render-blocking CSS than we have to (T112401)
 	'ext.echo.badgeicons' => $echoResourceTemplate + array(

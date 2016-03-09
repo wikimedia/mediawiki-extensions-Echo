@@ -423,6 +423,14 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 	}
 
 	/**
+	 * Get the ID of the associated event
+	 * @return int Event id
+	 */
+	public function getEventId() {
+		return $this->event->getId();
+	}
+
+	/**
 	 * @return array
 	 * @throws TimestampException
 	 */
