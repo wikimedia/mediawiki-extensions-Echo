@@ -734,40 +734,24 @@ class EchoHooks {
 			return true;
 		}
 
-		// Attempt to mark a notification as read when visiting a page
-		// @todo should this really be here?
-		$subtractAlerts = 0;
-		$subtractMessages = 0;
+		// Attempt to mark a notification as read when visiting a page,
+		// ideally this should be deferred to end of request and update
+		// the notification count accordingly
+		// @Fixme - Find a better place to put this code
 		if ( $title->getArticleID() ) {
 			$mapper = new EchoTargetPageMapper();
 			$targetPages = $mapper->fetchByUserPageId( $user, $title->getArticleID() );
 			if ( $targetPages ) {
-				$eventIds = array();
-				$attribManager = EchoAttributeManager::newFromGlobalVars();
-				/* @var EchoTargetPage $targetPage */
-				foreach ( $targetPages as $id => $targetPage ) {
-					$section = $attribManager->getNotificationSection(
-						$targetPage->getEventType()
-					);
-					if ( $section === EchoAttributeManager::MESSAGE ) {
-						$subtractMessages += 1;
-					} else {
-						// ALERT
-						$subtractAlerts += 1;
-					}
-					$eventIds[] = $id;
-				}
-				DeferredUpdates::addCallableUpdate( function () use ( $user, $eventIds ) {
-					$notifUser = MWEchoNotifUser::newFromUser( $user );
-					$notifUser->markRead( $eventIds );
-				} );
+				$eventIds = array_keys( $targetPages );
+				$notifUser = MWEchoNotifUser::newFromUser( $user );
+				$notifUser->markRead( $eventIds );
 			}
 		}
 
 		// Add a "My notifications" item to personal URLs
 		$notifUser = MWEchoNotifUser::newFromUser( $user );
-		$msgCount = $notifUser->getMessageCount() - $subtractMessages;
-		$alertCount = $notifUser->getAlertCount() - $subtractAlerts;
+		$msgCount = $notifUser->getMessageCount();
+		$alertCount = $notifUser->getAlertCount();
 
 		$msgNotificationTimestamp = $notifUser->getLastUnreadMessageTime();
 		$alertNotificationTimestamp = $notifUser->getLastUnreadAlertTime();

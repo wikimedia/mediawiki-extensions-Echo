@@ -33,11 +33,6 @@ class EchoTargetPage extends EchoAbstractEntity {
 	protected $eventId;
 
 	/**
-	 * @var string
-	 */
-	protected $eventType;
-
-	/**
 	 * Only allow creating instance internally
 	 */
 	protected function __construct() {
@@ -49,7 +44,7 @@ class EchoTargetPage extends EchoAbstractEntity {
 	 * @param User $user
 	 * @param Title $title
 	 * @param EchoEvent $event
-	 * @return EchoTargetPage|null
+	 * @return TargetPage|null
 	 */
 	public static function create( User $user, Title $title, EchoEvent $event ) {
 		// This only support title with a page_id
@@ -60,7 +55,6 @@ class EchoTargetPage extends EchoAbstractEntity {
 		$obj->user = $user;
 		$obj->event = $event;
 		$obj->eventId = $event->getId();
-		$obj->eventType = $event->getType();
 		$obj->title = $title;
 		$obj->pageId = $title->getArticleID();
 
@@ -89,9 +83,6 @@ class EchoTargetPage extends EchoAbstractEntity {
 		$obj->user = User::newFromId( $row->etp_user );
 		$obj->pageId = $row->etp_page;
 		$obj->eventId = $row->etp_event;
-		if ( isset( $row->event_type ) ) {
-			$obj->eventType = $row->event_type;
-		}
 
 		return $obj;
 	}
@@ -137,17 +128,6 @@ class EchoTargetPage extends EchoAbstractEntity {
 	 */
 	public function getEventId() {
 		return $this->eventId;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getEventType() {
-		if ( !$this->eventType ) {
-			$this->eventType = $this->getEvent()->getType();
-		}
-
-		return $this->eventType;
 	}
 
 	/**
