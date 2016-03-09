@@ -735,24 +735,42 @@ class EchoHooks {
 			return true;
 		}
 
-		// Attempt to mark a notification as read when visiting a page,
-		// ideally this should be deferred to end of request and update
-		// the notification count accordingly
-		// @Fixme - Find a better place to put this code
+		// Attempt to mark a notification as read when visiting a page
+		// @todo should this really be here?
+		$subtractAlerts = 0;
+		$subtractMessages = 0;
 		if ( $title->getArticleID() ) {
 			$mapper = new EchoTargetPageMapper();
-			$targetPages = $mapper->fetchByUserPageId( $user, $title->getArticleID() );
-			if ( $targetPages ) {
-				$eventIds = array_keys( $targetPages );
-				$notifUser = MWEchoNotifUser::newFromUser( $user );
-				$notifUser->markRead( $eventIds );
+			$fetchedTargetPages = $mapper->fetchByUserPageId( $user, $title->getArticleID() );
+			if ( $fetchedTargetPages ) {
+				$eventIds = array();
+				$attribManager = EchoAttributeManager::newFromGlobalVars();
+				/* @var EchoTargetPage[] $targetPages */
+				foreach ( $fetchedTargetPages as $id => $targetPages ) {
+					// Only look at the first target page since they'll
+					// all point to the same event
+					$section = $attribManager->getNotificationSection(
+						$targetPages[0]->getEventType()
+					);
+					if ( $section === EchoAttributeManager::MESSAGE ) {
+						$subtractMessages += 1;
+					} else {
+						// ALERT
+						$subtractAlerts += 1;
+					}
+					$eventIds[] = $id;
+				}
+				DeferredUpdates::addCallableUpdate( function () use ( $user, $eventIds ) {
+					$notifUser = MWEchoNotifUser::newFromUser( $user );
+					$notifUser->markRead( $eventIds );
+				} );
 			}
 		}
 
 		// Add a "My notifications" item to personal URLs
 		$notifUser = MWEchoNotifUser::newFromUser( $user );
-		$msgCount = $notifUser->getMessageCount();
-		$alertCount = $notifUser->getAlertCount();
+		$msgCount = $notifUser->getMessageCount() - $subtractMessages;
+		$alertCount = $notifUser->getAlertCount() - $subtractAlerts;
 
 		$msgNotificationTimestamp = $notifUser->getLastUnreadMessageTime();
 		$alertNotificationTimestamp = $notifUser->getLastUnreadAlertTime();
