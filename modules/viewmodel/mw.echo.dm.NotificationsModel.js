@@ -641,6 +641,7 @@
 
 	/**
 	 * Return the fetch notifications promise
+	 *
 	 * @return {jQuery.Promise} Promise that is resolved when notifications were
 	 *  fetched from the API.
 	 */

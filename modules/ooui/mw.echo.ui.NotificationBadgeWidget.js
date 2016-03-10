@@ -260,6 +260,7 @@
 
 	/**
 	 * Extend the response to button click so we can also update the notification list.
+	 *
 	 * @fires finishLoading
 	 */
 	mw.echo.ui.NotificationBadgeWidget.prototype.onPopupToggle = function ( isVisible ) {

@@ -30,6 +30,7 @@
 	 * Count the number of notifications by asking all contained objects
 	 * how many notifications they each represent. Some are single, some
 	 * are groups.
+	 *
 	 * @return {number}
 	 */
 	mw.echo.dm.NotificationList.prototype.getNotificationCount = function () {
