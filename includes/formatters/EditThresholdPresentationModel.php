@@ -16,4 +16,8 @@ class EchoEditThresholdPresentationModel extends EchoEventPresentationModel {
 			'label' => $this->msg( 'notification-link-thank-you-edit', $this->getViewingUserForGender() )->text()
 		);
 	}
+
+	public function canRender() {
+		return $this->event->getTitle() !== null;
+	}
 }
