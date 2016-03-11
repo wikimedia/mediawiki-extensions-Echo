@@ -240,8 +240,9 @@ class MWEchoEmailBatch {
 	public function sendEmail() {
 		global $wgNotificationSender, $wgNotificationReplyName;
 
-		// @Todo - replace them with the CONSTANT in 33810 once it is merged
-		if ( $this->mUser->getOption( 'echo-email-frequency' ) == 7 ) {
+		if ( $this->mUser->getOption( 'echo-email-frequency' )
+			== EchoHooks::EMAIL_WEEKLY_DIGEST
+		) {
 			$frequency = 'weekly';
 			$emailDeliveryMode = 'weekly_digest';
 		} else {
@@ -265,10 +266,11 @@ class MWEchoEmailBatch {
 			);
 		}
 
+		$userLangCode = $this->mUser->getOption( 'language' );
 		// email subject
 		if ( $this->count > self::$displaySize ) {
 			$count = wfMessage( 'echo-notification-count' )
-				->inLanguage( $this->mUser->getOption( 'language' ) )
+				->inLanguage( $userLangCode )
 				->params( self::$displaySize )->text();
 		} else {
 			$count = $this->count;
@@ -276,7 +278,7 @@ class MWEchoEmailBatch {
 		// Give grep a chance to find the usages:
 		// echo-email-batch-subject-daily, echo-email-batch-subject-weekly
 		$subject = wfMessage( 'echo-email-batch-subject-' . $frequency )
-			->inLanguage( $this->mUser->getOption( 'language' ) )
+			->inLanguage( $userLangCode )
 			->params( $count, $this->count )->text();
 
 		$toAddress = MailAddress::newFromUser( $this->mUser );
