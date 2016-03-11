@@ -245,7 +245,7 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 		if ( $this->userCan( Revision::DELETED_USER ) ) {
 			// Not deleted
 			return array(
-				$this->language->embedBidi( $this->getTruncatedUsername( $agent ) ),
+				$this->getTruncatedUsername( $agent ),
 				$agent->getName()
 			);
 		} else {
@@ -375,12 +375,12 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 	}
 
 	protected function getTruncatedUsername( User $user ) {
-		return $this->language->truncate( $user->getName(), self::USERNAME_RECOMMENDED_LENGTH, '...', false );
+		return $this->language->embedBidi( $this->language->truncate( $user->getName(), self::USERNAME_RECOMMENDED_LENGTH, '...', false ) );
 	}
 
 	protected function getTruncatedTitleText( Title $title, $includeNamespace = false ) {
 		$text = $includeNamespace ? $title->getPrefixedText() : $title->getText();
-		return $this->language->truncate( $text, self::PAGE_NAME_RECOMMENDED_LENGTH, '...', false );
+		return $this->language->embedBidi( $this->language->truncate( $text, self::PAGE_NAME_RECOMMENDED_LENGTH, '...', false ) );
 	}
 
 	/**
