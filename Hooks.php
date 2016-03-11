@@ -466,7 +466,7 @@ class EchoHooks {
 					// Fresh User object
 					$user = User::newFromId( $id );
 					$userEditCount = $user->getEditCount();
-					if ( $userEditCount !== $thresholdCount ) {
+					if ( (int)$userEditCount !== (int)$thresholdCount ) {
 						// Race condition with multiple simultaneous requests, skip
 						LoggerFactory::getInstance( 'Echo' )->debug(
 							'thank-you-edit race condition detected: {user} (id: {id}) should ' .
