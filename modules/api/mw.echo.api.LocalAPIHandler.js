@@ -64,11 +64,16 @@
 	/**
 	 * @inheritdoc
 	 */
-	mw.echo.api.LocalAPIHandler.prototype.markItemsRead = function ( itemIdArray ) {
+	mw.echo.api.LocalAPIHandler.prototype.markItemsRead = function ( itemIdArray, isRead ) {
 		var data = {
-				action: 'echomarkread',
-				list: itemIdArray.join( '|' )
+				action: 'echomarkread'
 			};
+
+		if ( isRead ) {
+			data.list = itemIdArray.join( '|' );
+		} else {
+			data.unreadlist = itemIdArray.join( '|' );
+		}
 
 		return this.api.postWithToken( 'edit', data );
 	};

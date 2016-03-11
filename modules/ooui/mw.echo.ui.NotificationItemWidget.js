@@ -135,13 +135,13 @@
 			}
 		}
 		// Add a "mark as read" secondary action
-		this.markAsReadSecondary = new mw.echo.ui.MenuItemWidget( {
-			icon: 'check',
-			data: 'markAsRead',
+		this.toggleReadSecondaryButton = new mw.echo.ui.MenuItemWidget( {
+			data: 'toggleRead',
 			prioritized: false,
-			label: mw.msg( 'echo-notification-markasread' ),
 			classes: [ 'mw-echo-ui-notificationItemWidget-content-actions-button' ]
 		} );
+		this.menuPopupButtonWidget.getMenu().addItems( [ this.toggleReadSecondaryButton ] );
+
 		// Toggle 'mark as read' functionality
 		this.toggleMarkAsReadButtons( !this.markReadWhenSeen && !this.model.isRead() );
 
@@ -249,27 +249,35 @@
 	mw.echo.ui.NotificationItemWidget.prototype.onPopupButtonWidgetChoose = function ( item ) {
 		var action = item && item.getData();
 
-		if ( action === 'markAsRead' ) {
-			this.model.toggleRead( true );
+		if ( action === 'toggleRead' ) {
+			this.model.toggleRead();
 		}
 	};
 
 	/**
-	 * Toggle the visibility of the 'mark as read' buttons and update the visibility
-	 * of the secondary menu accordingly.
+	 * Toggle the function of the 'mark as read' secondary button from 'mark as read' to
+	 * 'mark as unread' and update the visibility of the primary 'mark as read' X button.
+	 *
 	 *
 	 * @param {boolean} [show] Show the 'mark as read' buttons
+	 *  - "false" means that the item is marked as read, whereby we show the user 'mark unread'
+	 *    and hide the primary 'x' button
+	 *  - "true" means that the item is marked as unread and we show the user 'mark as read'
+	 *    primary and secondary buttons.
 	 */
 	mw.echo.ui.NotificationItemWidget.prototype.toggleMarkAsReadButtons = function ( show ) {
 		show = show !== undefined ? show : !this.model.isRead();
 
 		this.markAsReadButton.toggle( show );
-		this.markAsReadSecondary.toggle( show );
 
 		if ( show ) {
-			this.menuPopupButtonWidget.getMenu().addItems( [ this.markAsReadSecondary ] );
+			// Mark read
+			this.toggleReadSecondaryButton.setLabel( mw.msg( 'echo-notification-markasread' ) );
+			this.toggleReadSecondaryButton.setIcon( 'check' );
 		} else {
-			this.menuPopupButtonWidget.getMenu().removeItems( [ this.markAsReadSecondary ] );
+			// Mark unread
+			this.toggleReadSecondaryButton.setLabel( mw.msg( 'echo-notification-markasunread' ) );
+			this.toggleReadSecondaryButton.setIcon( 'sun' );
 		}
 		this.menuPopupButtonWidget.toggle( !this.menuPopupButtonWidget.getMenu().isEmpty() );
 	};

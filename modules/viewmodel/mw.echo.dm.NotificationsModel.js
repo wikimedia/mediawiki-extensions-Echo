@@ -176,31 +176,30 @@
 	 * @fires unreadChange
 	 */
 	mw.echo.dm.NotificationsModel.prototype.onItemRead = function ( item, isRead ) {
-		var id = item && item.getId(),
-			unreadItem = id && this.unreadNotifications.getItemById( id );
+		var id = item && item.getId();
 
 		// Update unread status and emit events
-		if ( unreadItem ) {
-			if ( isRead ) {
-				// We are skipping "mark as read" when the operation is "mark all read"
-				// because the API takes a single request to mark all notifications
-				// as read, and we don't need to send multiple individual requests.
-				if ( !this.markingAllAsRead ) {
-					this.markItemsReadInApi( id );
-				}
-				if ( this.removeReadNotifications ) {
-					// Remove this notification from the model
-					this.removeItems( [ unreadItem ] );
-				}
-				// Remove the item from the counter after all other operations
-				// finished, since some of the operations check if there are any
-				// unread notifications to begin with.
-				this.unreadNotifications.removeItems( [ unreadItem ] );
-			} else {
-				this.unreadNotifications.addItems( [ unreadItem ] );
+		if ( isRead ) {
+			// We are skipping "mark as read" when the operation is "mark all read"
+			// because the API takes a single request to mark all notifications
+			// as read, and we don't need to send multiple individual requests.
+			if ( !this.markingAllAsRead ) {
+				this.toggleItemsReadInApi( id, isRead );
 			}
-			this.emit( 'unreadChange', this.unreadNotifications.getItems() );
+			if ( this.removeReadNotifications ) {
+				// Remove this notification from the model
+				this.removeItems( [ item ] );
+			}
+			// Remove the item from the counter after all other operations
+			// finished, since some of the operations check if there are any
+			// unread notifications to begin with.
+			this.unreadNotifications.removeItems( [ item ] );
+		} else {
+			this.toggleItemsReadInApi( id, isRead );
+			this.unreadNotifications.addItems( [ item ] );
 		}
+
+		this.emit( 'unreadChange', this.unreadNotifications.getItems() );
 
 		if ( this.unreadNotifications.isEmpty() ) {
 			this.emit( 'allRead' );
@@ -423,14 +422,14 @@
 	 * @return {jQuery.Promise} A promise that resolves when the notifications
 	 * were marked as read.
 	 */
-	mw.echo.dm.NotificationsModel.prototype.markItemsReadInApi = function ( itemIds ) {
-		if ( !this.unreadNotifications.getItemCount() ) {
+	mw.echo.dm.NotificationsModel.prototype.toggleItemsReadInApi = function ( itemIds, isRead ) {
+		itemIds = $.isArray( itemIds ) ? itemIds : [ itemIds ];
+
+		if ( isRead && !this.unreadNotifications.getItemCount() ) {
 			return $.Deferred().resolve( 0 ).promise();
 		}
 
-		itemIds = $.isArray( itemIds ) ? itemIds : [ itemIds ];
-
-		return this.api.markItemsRead( itemIds, this.getSource(), this.getType() );
+		return this.api.markItemsRead( itemIds, this.getSource(), isRead );
 	};
 
 	/**

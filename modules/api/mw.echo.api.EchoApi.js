@@ -78,13 +78,14 @@
 	 *
 	 * @param {string[]} itemIds An array of item IDs to mark as read
 	 * @param {string} source The source that these items belong to
-	 * @param {string} type Notification type
+	 * @param {boolean} [isRead] The read state of the item; true for marking the
+	 *  item as read, false for marking the item as unread
 	 * @return {jQuery.Promise} A promise that is resolved when the operation
 	 *  is complete, with the number of unread notifications still remaining
 	 *  for that type in the given source
 	 */
-	mw.echo.api.EchoApi.prototype.markItemsRead = function ( itemIds, source, type ) {
-		return this.network.getApiHandler( source ).markItemsRead( itemIds, type );
+	mw.echo.api.EchoApi.prototype.markItemsRead = function ( itemIds, source, isRead ) {
+		return this.network.getApiHandler( source ).markItemsRead( itemIds, isRead );
 	};
 
 	/**
