@@ -73,7 +73,7 @@ class EchoMentionPresentationModel extends EchoEventPresentationModel {
 
 		$section = $this->getSection();
 		if ( $section ) {
-			$msg->params( $this->language->bidiEmbed(
+			$msg->params( $this->language->embedBidi(
 				EchoDiscussionParser::getTextSnippet(
 						$section,
 						$this->language,
