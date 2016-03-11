@@ -9,7 +9,8 @@
 			"Ypnypn",
 			"דולב",
 			"חיים",
-			"ערן"
+			"ערן",
+			"Ijon"
 		]
 	},
 	"echo-desc": "מערכת לשליחת הודעות למשתמשים על אירועים והודעות דף שיחה",
@@ -81,8 +82,8 @@
 	"notification-header-edit-user-talk": "$1 {{GENDER:$2|השאיר|השאירה}} הודעה ב'''דף השיחה {{GENDER:$3|שלך}}'''.",
 	"notification-header-edit-user-talk-with-section": "$1 {{GENDER:$2|השאיר|השאירה}} הודעה ב'''דף השיחה {{GENDER:$3|שלך}}''' בפסקה \"'''$4'''\".",
 	"notification-page-linked": "{{GENDER:$1|נוסף קישור}} אל הדף [[:$2]] מהדף [[:$3]]. [[Special:WhatLinksHere/$2|כל הקישורים אל הדף הזה]].",
-	"notification-header-page-linked": "נוצר קישור מ'''{{GRAMMAR:תחילית|$4}}''' ל'''{{GRAMMAR:תחילית|$3}}'''.",
-	"notification-bundle-header-page-linked": "נוצרו קישורים מ'''{{GRAMMAR:תחילית|$4}}''' ועוד {{PLURAL:$6|דף אחד|$5 דפים}} ל'''{{GRAMMAR:תחילית|$3}}'''.",
+	"notification-header-page-linked": "נוצר קישור מ'''$4''' ל'''$3'''.",
+	"notification-bundle-header-page-linked": "נוצרו קישורים מ'''$4''' ועוד {{PLURAL:$6|דף אחד|$5 דפים}} ל'''$3'''.",
 	"notification-link-text-what-links-here": "כל הקישורים לדף הזה",
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|העיר|העירה}} על הנושא \"[[$3|$2]]\" בדף השיחה של \"$4\".",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] {{GENDER:$1|והוסיף|הוסיפה}} את נושא החדש \"$2\" לדף [[$3]]",
