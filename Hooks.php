@@ -495,7 +495,7 @@ class EchoHooks {
 							// Edit threshold notifications are sent to the agent
 							'extra' => array(
 								'notifyAgent' => true,
-								'thresholdCount' => $thresholdCount,
+								'editCount' => $thresholdCount,
 							)
 						)
 					);
