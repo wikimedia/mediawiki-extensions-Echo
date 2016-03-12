@@ -32,7 +32,8 @@
 			"PifyZ",
 			"Macofe",
 			"Cedric31",
-			"Trizek"
+			"Trizek",
+			"GeekEmad"
 		]
 	},
 	"echo-desc": "Système pour avertir les utilisateurs sur les événements et les messages",
@@ -90,6 +91,7 @@
 	"echo-notification-loginrequired": "Vous devez vous connecter pour voir vos notifications.",
 	"echo-notification-popup-loginrequired": "Veuillez vous connecter pour voir vos notifications.",
 	"echo-notification-markasread": "Marquer comme lu",
+	"echo-notification-markasunread": "Marquer comme non lu",
 	"notification-link-text-expand-all": "Afficher tout",
 	"notification-link-text-expand-alert-count": "Afficher {{PLURAL:$1|$1 alerte|$1 alertes}}",
 	"notification-link-text-expand-message-count": "Afficher {{PLURAL:$1|un message|$1 messages}}",
@@ -192,10 +194,12 @@
 	"notification-header-foreign-message": "Davantage de messages {{PLURAL:$5|d’un autre wiki|de $5 autres wikis}}",
 	"apihelp-echomarkread-description": "Marquer les notifications comme lues pour l’utilisateur actuel.",
 	"apihelp-echomarkread-param-list": "Une liste des IDs de notification à marquer comme lues.",
+	"apihelp-echomarkread-param-unreadlist": "Une liste des IDs de notification à marquer comme lues.",
 	"apihelp-echomarkread-param-all": "Si défini, marque toutes les notifications de l’utilisateur comme lues.",
 	"apihelp-echomarkread-param-sections": "Une liste des sections à marquer comme lues.",
 	"apihelp-echomarkread-example-1": "Marquer la notification 8 comme lue",
 	"apihelp-echomarkread-example-2": "Marquer toutes les notifications comme lues",
+	"apihelp-echomarkread-example-3": "Marquer la notification 1 comme non lue",
 	"apihelp-echomarkseen-description": "Marquer les notifications comme lues pour l’utilisateur actuel.",
 	"apihelp-echomarkseen-example-1": "Marquer les notifications de tous types comme lues.",
 	"apihelp-echomarkseen-param-type": "Type de notifications à marquer comme vues : 'alert', 'message' ou 'all'.",
