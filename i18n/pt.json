@@ -12,7 +12,8 @@
 			"Fúlvio",
 			"Jkb8",
 			"Macofe",
-			"Önni"
+			"Önni",
+			"Diniscoelho"
 		]
 	},
 	"echo-desc": "Sistema de notificações sobre eventos e mensagens para utilizadores",
@@ -69,6 +70,7 @@
 	"echo-notification-loginrequired": "Deve iniciar sessão para ver as suas notificações.",
 	"echo-notification-popup-loginrequired": "Inicie sessão para ver as suas notificações.",
 	"echo-notification-markasread": "Marcar como lido",
+	"echo-notification-markasunread": "Marcar como não lida",
 	"notification-link-text-expand-all": "Ver tudo",
 	"notification-link-text-expand-alert-count": "Ver {{PLURAL:$1|$1 alerta|$1 alertas}}",
 	"notification-link-text-expand-message-count": "Ver {{PLURAL:$1|$1 mensagem|$1 mensagens}}",
@@ -76,7 +78,7 @@
 	"notification-link-text-collapse-all": "Ocultar tudo",
 	"notification-link-text-view-message": "Ver mensagem",
 	"notification-link-text-view-mention": "Ver menção",
-	"notification-link-text-view-changes": "{{GENDER:$1|Ver}} mudanças",
+	"notification-link-text-view-changes": "{{GENDER:$1|Ver}} alterações",
 	"notification-link-text-view-page": "Ver página",
 	"notification-link-text-view-edit": "Ver edição",
 	"notification-edit-talk-page2": "[[User:$1|$1]] deixou uma mensagem na sua [[User talk:$2#$3|página de discussão]].",
@@ -138,8 +140,8 @@
 	"notification-timestamp-ago-minutes": "{{PLURAL:$1|$1 m}}",
 	"notification-timestamp-ago-hours": "{{PLURAL:$1|$1 h}}",
 	"notification-timestamp-ago-days": "{{PLURAL:$1|$1 d}}",
-	"notification-timestamp-ago-months": "{{PLURAL:$1|$1 mês}}",
-	"notification-timestamp-ago-years": "{{PLURAL:$1|$1 ano}}",
+	"notification-timestamp-ago-months": "{{PLURAL:$1|$1 mês|$1 meses}}",
+	"notification-timestamp-ago-years": "{{PLURAL:$1|$1 ano|$1 anos}}",
 	"echo-email-subject-default": "Nova notificação em {{SITENAME}}",
 	"echo-email-body-default": "Tem uma nova notificação em {{SITENAME}}:\n\n$1",
 	"echo-email-batch-body-default": "Tem uma nova notificação.",
@@ -168,5 +170,6 @@
 	"echo-rev-deleted-text-view": "A revisão desta página foi suprimida.",
 	"notification-header-foreign-alert": "Mais alertas de {{PLURAL:$5|uma outra wiki|$5 outras wikis}}",
 	"notification-header-foreign-message": "Mais mensagens de {{PLURAL:$5|uma outra wiki|$5 outras wikis}}",
+	"apihelp-echomarkread-example-3": "Marcar a notificação 1 como não lida",
 	"apihelp-query+notifications-paramvalue-format-text": "Texto sem formatação"
 }

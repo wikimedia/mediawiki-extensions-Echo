@@ -194,7 +194,7 @@
 	"notification-header-foreign-message": "Davantage de messages {{PLURAL:$5|d’un autre wiki|de $5 autres wikis}}",
 	"apihelp-echomarkread-description": "Marquer les notifications comme lues pour l’utilisateur actuel.",
 	"apihelp-echomarkread-param-list": "Une liste des IDs de notification à marquer comme lues.",
-	"apihelp-echomarkread-param-unreadlist": "Une liste des IDs de notification à marquer comme lues.",
+	"apihelp-echomarkread-param-unreadlist": "Une liste des IDs de notification à marquer comme non lue.",
 	"apihelp-echomarkread-param-all": "Si défini, marque toutes les notifications de l’utilisateur comme lues.",
 	"apihelp-echomarkread-param-sections": "Une liste des sections à marquer comme lues.",
 	"apihelp-echomarkread-example-1": "Marquer la notification 8 comme lue",

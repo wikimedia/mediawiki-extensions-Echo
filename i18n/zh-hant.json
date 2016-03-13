@@ -80,6 +80,7 @@
 	"notification-link-text-view-edit": "檢視編輯",
 	"notification-edit-talk-page2": "[[User:$1|$1]] 在您的[[User talk:$2#$3|對話頁面]]中{{GENDER:$1|留下了}}一則訊息。",
 	"notification-edit-talk-page-with-section": "[[User:$1|$1]] 在您的對話頁面段落 \"[[User talk:$2#$3|$4]]\" 中{{GENDER:$1|留下了}}一則訊息。",
+	"notification-header-edit-user-talk": "$1在'''{{GENDER:$3|您}}的使用者討論頁'''{{GENDER:$2|留下了}}一則訊息。",
 	"notification-page-linked": "[[:$2]] 已從 [[:$3]] 頁面{{GENDER:$1|連入了}}。詳情請見[[Special:WhatLinksHere/$2|此頁面的所有連結]]。",
 	"notification-add-comment2": "[[User:$1|$1]] 在 \"$4\" 對話頁面段落 \"[[$3|$2]]\" 中{{GENDER:$1|發表了意見}}。",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] 在 [[$3]] 的頁面中{{GENDER:$1|張貼了}}新主題 \"$2\"。",

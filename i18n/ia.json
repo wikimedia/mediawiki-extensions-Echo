@@ -46,6 +46,7 @@
 	"echo-none": "Tu non ha notificationes.",
 	"echo-more-info": "Plus info",
 	"echo-feedback": "Commentario",
+	"echo-notification-markasunread": "Marcar como non legite",
 	"notification-link-text-view-message": "Vider message",
 	"notification-link-text-view-mention": "Vider mention",
 	"notification-link-text-view-changes": "Vider modificationes",
@@ -98,5 +99,7 @@
 	"echo-email-batch-body-intro-daily": "Salute $1,\nEcce un summario del activitate de hodie in {{SITENAME}} pro te.",
 	"echo-email-batch-body-intro-weekly": "Salute $1,\nEcce un summario del activitate de iste septimana in {{SITENAME}} pro te.",
 	"echo-email-batch-link-text-view-all-notifications": "Vider tote le notificationes",
-	"echo-rev-deleted-text-view": "Iste version del pagina ha essite supprimite."
+	"echo-rev-deleted-text-view": "Iste version del pagina ha essite supprimite.",
+	"apihelp-echomarkread-param-unreadlist": "Un lista de IDs de notification a marcar como non legite.",
+	"apihelp-echomarkread-example-3": "Marcar le notification 1 como non legite"
 }
