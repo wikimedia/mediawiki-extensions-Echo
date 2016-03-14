@@ -62,7 +62,7 @@ class EchoAttributeManager {
 		global $wgEchoNotifications, $wgEchoNotificationCategories;
 
 		// Unit test may alter the global data for test purpose
-		if ( defined( 'MW_PHPUNIT_TEST' ) && MW_PHPUNIT_TEST ) {
+		if ( defined( 'MW_PHPUNIT_TEST' ) ) {
 			return new self( $wgEchoNotifications, $wgEchoNotificationCategories );
 		}
 
