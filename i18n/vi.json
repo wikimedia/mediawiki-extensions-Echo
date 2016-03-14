@@ -74,7 +74,7 @@
 	"notification-link-text-view-page": "Xem trang",
 	"notification-link-text-view-edit": "Xem sửa đổi",
 	"notification-edit-talk-page2": "[[User:$1|$1]] đã nhắn tin vào [[User talk:$2#$3|trang thảo luận]] của bạn.",
-	"notification-edit-talk-page-with-section": "[[User:$1|$1]] đã {{GENDER:$1}}nhắn tin cho bạn trong \"[[User talk:$2#$3|$4]]\".",
+	"notification-edit-talk-page-with-section": "[[User:$1|$1]] đã {{GENDER:$1}}nhắn tin cho bạn trong “[[User talk:$2#$3|$4]]”.",
 	"notification-header-edit-user-talk": "$1 {{GENDER:$2|đã để lại}} một tin nhắn trên '''trang thảo luận {{GENDER:$3|của bạn}}'''.",
 	"notification-header-edit-user-talk-with-section": "$1 {{GENDER:$2|đã để lại}} một tin nhắn trên '''trang thảo luận {{GENDER:$3|của bạn}}''' trong \"'''$4'''\".",
 	"notification-page-linked": "[[:$3]] mới {{GENDER:$1}}có liên kết đến [[:$2]]. [[Special:WhatLinksHere/$2|Xem tất cả các liên kết đến trang này]].",

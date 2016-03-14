@@ -72,5 +72,5 @@
 	"echo-email-batch-body-intro-daily": "Salve $1,\nHoc est summarium actionum hodiernarum apud {{grammar:accusative|{{SITENAME}}}}.",
 	"echo-email-batch-body-intro-weekly": "Salve $1,\nHoc est summarium actionum hebdomadum apud {{grammar:accusative|{{SITENAME}}}}.",
 	"echo-email-batch-link-text-view-all-notifications": "Omnia nuntia spectare",
-	"echo-rev-deleted-text-view": "Haec emendatio paginae oppressa est."
+	"echo-rev-deleted-text-view": "Haec redactio paginae suppressa est."
 }

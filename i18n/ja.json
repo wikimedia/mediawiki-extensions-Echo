@@ -8,7 +8,8 @@
 			"Sujiniku",
 			"2nd-player",
 			"Takot",
-			"Otokoume"
+			"Otokoume",
+			"Vigorous action"
 		]
 	},
 	"echo-desc": "イベントおよびメッセージについて、ユーザーに通知するシステム",
@@ -129,11 +130,11 @@
 	"notification-user-rights-email-subject": "{{SITENAME}}での利用者権限が変更されました",
 	"notification-user-rights-email-batch-body": "あなたの権限が $1 により{{GENDER:$1|変更されました}}。$2",
 	"notification-timestamp-ago-seconds": "{{PLURAL:$1|$1s}}秒前",
-	"notification-timestamp-ago-minutes": "{{PLURAL:$1|$1m}}分前",
-	"notification-timestamp-ago-hours": "{{PLURAL:$1|$1h}}時間前",
-	"notification-timestamp-ago-days": "{{PLURAL:$1|$1d}}日前",
-	"notification-timestamp-ago-months": "{{PLURAL:$1|$1mo}}ヶ月前",
-	"notification-timestamp-ago-years": "{{PLURAL:$1|$1yr}}年前",
+	"notification-timestamp-ago-minutes": "{{PLURAL:$1|$1}}分前",
+	"notification-timestamp-ago-hours": "{{PLURAL:$1|$1}}時間前",
+	"notification-timestamp-ago-days": "{{PLURAL:$1|$1}}日前",
+	"notification-timestamp-ago-months": "{{PLURAL:$1|$1}}ヶ月前",
+	"notification-timestamp-ago-years": "{{PLURAL:$1|$1}}年前",
 	"echo-email-subject-default": "{{SITENAME}}での新しい通知",
 	"echo-email-body-default": "{{SITENAME}}で新しい通知があります:\n\n$1",
 	"echo-email-batch-body-default": "新しい通知があります。",
