@@ -22,7 +22,8 @@
 			"రహ్మానుద్దీన్",
 			"Liuxinyu970226",
 			"Purodha",
-			"Umherirrender"
+			"Umherirrender",
+			"Mattflaschen"
 		]
 	},
 	"echo-desc": "{{desc|name=Echo|url=https://www.mediawiki.org/wiki/Extension:Echo}} The [https://www.mediawiki.org/wiki/Help:Notifications Mediawiki help] page gives notes on the terminology in this extension.",
@@ -201,10 +202,10 @@
 	"apihelp-echomarkread-example-3": "{{doc-apihelp-example|echomarkread}}",
 	"apihelp-echomarkseen-description": "{{doc-apihelp-description|echomarkseen}}",
 	"apihelp-echomarkseen-example-1": "{{doc-apihelp-example|echomarkseen}}",
-	"apihelp-echomarkseen-param-type": "{{doc-apihelp-param|query+notifications|type}}",
+	"apihelp-echomarkseen-param-type": "{{doc-apihelp-param|query+notifications|type}} Do not translate the quoted strings.",
 	"apihelp-query+notifications-description": "{{doc-apihelp-description|query+notifications}}",
 	"apihelp-query+notifications-param-prop": "{{doc-apihelp-param|query+notifications|prop}}",
-	"apihelp-query+notifications-param-sections": "{{doc-apihelp-param|query+notifications|sections}}",
+	"apihelp-query+notifications-param-sections": "{{doc-apihelp-param|query+notifications|sections}} Do not translate the quoted strings.",
 	"apihelp-query+notifications-param-groupbysection": "{{doc-apihelp-param|query+notifications|groupbysection}}",
 	"apihelp-query+notifications-param-filter": "{{doc-apihelp-param|query+notifications|filter}}",
 	"apihelp-query+notifications-param-format": "{{doc-apihelp-param|query+notifications|format}}",
