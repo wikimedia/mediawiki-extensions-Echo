@@ -122,7 +122,7 @@
 	 *  are marked as read.
 	 */
 	mw.echo.api.APIHandler.prototype.markItemRead = function ( itemId, isRead ) {
-		this.markItemsRead( [ itemId ], isRead );
+		return this.markItemsRead( [ itemId ], isRead );
 	};
 
 	/**
