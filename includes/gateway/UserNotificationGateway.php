@@ -102,11 +102,12 @@ class EchoUserNotificationGateway {
 
 	/**
 	 * Get notification count for the types specified
-	 * @param int use master or slave storage to pull count
-	 * @param array event types to retrieve
+	 * @param int $dbSource use master or slave storage to pull count
+	 * @param array $eventTypesToLoad event types to retrieve
+	 * @param int $cap Max count
 	 * @return int
 	 */
-	public function getNotificationCount( $dbSource, array $eventTypesToLoad = array() ) {
+	public function getCappedNotificationCount( $dbSource, array $eventTypesToLoad = array(), $cap = MWEchoNotifUser::MAX_BADGE_COUNT ) {
 		// double check
 		if ( !in_array( $dbSource, array( DB_SLAVE, DB_MASTER ) ) ) {
 			$dbSource = DB_SLAVE;
@@ -117,12 +118,12 @@ class EchoUserNotificationGateway {
 		}
 
 		$db = $this->dbFactory->getEchoDb( $dbSource );
-		$res = $db->select(
+		return $db->selectRowCount(
 			array(
 				self::$notificationTable,
 				self::$eventTable
 			),
-			array( 'notification_event' ),
+			array( '1' ),
 			array(
 				'notification_user' => $this->user->getId(),
 				'notification_bundle_base' => 1,
@@ -130,16 +131,11 @@ class EchoUserNotificationGateway {
 				'event_type' => $eventTypesToLoad,
 			),
 			__METHOD__,
-			array( 'LIMIT' => MWEchoNotifUser::MAX_BADGE_COUNT + 1 ),
+			array( 'LIMIT' => $cap ),
 			array(
 				'echo_event' => array( 'LEFT JOIN', 'notification_event=event_id' ),
 			)
 		);
-		if ( $res ) {
-			return $db->numRows( $res );
-		} else {
-			return 0;
-		}
 	}
 
 	/**
