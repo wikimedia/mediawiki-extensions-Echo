@@ -173,6 +173,7 @@
 	"notification-header-foreign-message": "Fler meddelanden från {{PLURAL:$5|en till wiki|$5 andra wikis|0=}}",
 	"apihelp-echomarkread-description": "Markera aviseringar som lästa för den aktuella användaren.",
 	"apihelp-echomarkread-param-list": "En lista över aviserings-ID att markera som lästa.",
+	"apihelp-echomarkread-param-unreadlist": "En lista över aviserings-ID att markera som olästa.",
 	"apihelp-echomarkread-param-all": "Om angiven, markerar en användares alla aviseringar som lästa.",
 	"apihelp-echomarkread-param-sections": "En lista över avsnitt att markera som lästa.",
 	"apihelp-echomarkread-example-1": "Markera avisering 8 som läst",

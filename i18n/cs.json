@@ -66,6 +66,7 @@
 	"echo-notification-loginrequired": "Musíte se přihlásit, abyste mohli vidět svá upozornění.",
 	"echo-notification-popup-loginrequired": "Pro prohlížení svých oznámení se prosím přihlaste.",
 	"echo-notification-markasread": "Označit jako přečtené",
+	"echo-notification-markasunread": "Označit jako nepřečtené",
 	"notification-link-text-expand-all": "Rozbalit vše",
 	"notification-link-text-expand-alert-count": "Zobrazit {{PLURAL:$1|$1 upozornění}}",
 	"notification-link-text-expand-message-count": "Zobrazit {{PLURAL:$1|$1 zprávu|$1 zprávy|$1 zpráv}}",
