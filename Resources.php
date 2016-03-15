@@ -149,6 +149,7 @@ $wgResourceModules += array(
 			'viewmodel/mw.echo.dm.js',
 			'viewmodel/mw.echo.dm.List.js',
 			'viewmodel/mw.echo.dm.SortedList.js',
+			'viewmodel/mw.echo.dm.UnreadNotificationCounter.js',
 			'viewmodel/mw.echo.dm.NotificationItem.js',
 			'viewmodel/mw.echo.dm.NotificationGroupItem.js',
 			'viewmodel/mw.echo.dm.NotificationList.js',

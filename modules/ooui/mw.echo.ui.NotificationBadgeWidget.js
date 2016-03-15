@@ -7,7 +7,8 @@
 	 *
 	 * @constructor
 	 * @param {mw.echo.dm.NotificationsModel} model Notifications view model
-	 * @param {Object} [config] Configuration object
+	 * @param {mw.echo.dm.UnreadNotificationCounter} unreadCounter Counter of unread notifications
+ 	 * @param {Object} [config] Configuration object
 	 * @cfg {number} [numItems=0] How many items are in the button display
 	 * @cfg {boolean} [hasUnseen=false] Whether there are unseen items
 	 * @cfg {boolean} [markReadWhenSeen=false] Mark all notifications as read on open
@@ -24,7 +25,7 @@
 	 * @cfg {jQuery} [$overlay] A jQuery element functioning as an overlay
 	 *  for popups.
 	 */
-	mw.echo.ui.NotificationBadgeWidget = function MwEchoUiNotificationBadgeButtonPopupWidget( model, config ) {
+	mw.echo.ui.NotificationBadgeWidget = function MwEchoUiNotificationBadgeButtonPopupWidget( model, unreadCounter, config ) {
 		var buttonFlags, allNotificationsButton, preferencesButton, footerButtonGroupWidget, $footer,
 			initialNotifCount, notice;
 
@@ -45,6 +46,7 @@
 
 		// View model
 		this.notificationsModel = model;
+		this.unreadCounter = unreadCounter;
 		this.type = this.notificationsModel.getType();
 
 		this.maxNotificationCount = mw.config.get( 'wgEchoMaxNotificationCount' );
@@ -52,7 +54,6 @@
 		this.markReadWhenSeen = !!config.markReadWhenSeen;
 		this.badgeIcon = config.badgeIcon || {};
 		this.hasRunFirstTime = false;
-		this.currentUnreadCountInBadge = 0;
 
 		buttonFlags = [ 'primary' ];
 		if ( !!config.hasUnseen ) {
@@ -161,10 +162,9 @@
 		this.markAllReadButton.connect( this, { click: 'onMarkAllReadButtonClick' } );
 		this.notificationsModel.connect( this, {
 			updateSeenTime: 'updateBadge',
-			add: 'updateBadge',
-			unseenChange: 'updateBadge',
-			unreadChange: 'updateBadge'
+			unseenChange: 'updateBadge'
 		} );
+		this.unreadCounter.connect( this, { countChange: 'updateBadge' } );
 		this.popup.connect( this, { toggle: 'onPopupToggle' } );
 		this.badgeButton.connect( this, {
 			click: 'onBadgeButtonClick'
@@ -265,9 +265,9 @@
 	 */
 	mw.echo.ui.NotificationBadgeWidget.prototype.updateBadge = function () {
 		var unseenCount = this.notificationsModel.getUnseenCount(),
-			unreadCount = this.notificationsModel.getUnreadCount(),
-			cappedUnreadCount,
+			unreadCount = this.unreadCounter.getCount(),
 			nonBundledUnreadCount = this.notificationsModel.getNonbundledUnreadCount(),
+			cappedUnreadCount,
 			badgeLabel;
 
 		// Update numbers and seen/unseen state
@@ -284,16 +284,13 @@
 		}
 
 		// Update badge count
-		if ( !this.markReadWhenSeen || !this.popup.isVisible() || unreadCount < this.currentUnreadCountInBadge ) {
-			cappedUnreadCount = this.getCappedNotificationCount( unreadCount );
-			cappedUnreadCount = mw.language.convertNumber( cappedUnreadCount );
-			badgeLabel = mw.message( 'echo-badge-count', cappedUnreadCount ).text();
-			this.badgeButton.setLabel( badgeLabel );
-		}
+		cappedUnreadCount = this.getCappedNotificationCount( unreadCount );
+		cappedUnreadCount = mw.language.convertNumber( cappedUnreadCount );
+		badgeLabel = mw.message( 'echo-badge-count', cappedUnreadCount ).text();
+		this.badgeButton.setLabel( badgeLabel );
 
 		// Check if we need to display the 'mark all unread' button
 		this.markAllReadButton.toggle( !this.markReadWhenSeen && nonBundledUnreadCount > 0 );
-		this.currentUnreadCountInBadge = unreadCount;
 	};
 
 	/**

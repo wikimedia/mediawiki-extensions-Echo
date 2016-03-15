@@ -8,6 +8,7 @@
 	 *
 	 * @constructor
 	 * @param {mw.echo.api.EchoApi} api Echo API
+	 * @param {mw.echo.dm.UnreadNotificationCounter} unreadCounter Counter of unread notifications
 	 * @param {Object[]} sources An array of objects defining the sources
 	 *  of its item's sub-items.
 	 * @param {number} id Notification id,
@@ -17,7 +18,7 @@
 	 * @cfg {number} [count=0] The number of items this group contains. This is used for both the
 	 *  'expand' label and also to potentially update the badge counters for local bundles.
 	 */
-	mw.echo.dm.NotificationGroupItem = function mwEchoDmNotificationGroupItem( api, sources, id, config ) {
+	mw.echo.dm.NotificationGroupItem = function mwEchoDmNotificationGroupItem( api, unreadCounter, sources, id, config ) {
 		var source, item,
 			items = [];
 
@@ -48,16 +49,18 @@
 		} );
 		this.removeReadNotifications = !!config.removeReadNotifications;
 
+		this.unreadCounter = unreadCounter;
 		this.sources = sources;
 		this.api = api;
 		this.notifModels = {};
-		this.anticipatedCount = config.count || 0;
+		this.count = config.count || 0;
 
 		// Create notification models for each source
 		for ( source in this.sources ) {
 			// Create a notifications model
 			item = new mw.echo.dm.NotificationsModel(
 				this.api,
+				this.unreadCounter,
 				{
 					type: this.getType(),
 					source: source,
@@ -135,9 +138,6 @@
 
 				// Wait for all fetch processes to finish before we resolve this promise
 				return mw.echo.api.NetworkHandler.static.waitForAllPromises( fetchPromises );
-			} )
-			.then( function () {
-				model.anticipatedCount = null;
 			} );
 	};
 
@@ -159,7 +159,7 @@
 				// getting all items without the need to query the API. Even so,
 				// this should happen to any notification that is empty to make
 				// sure that we are only marking the correct items as read and not
-				// all items indiscriminently.
+				// all items indiscriminately.
 				if ( notifModels[ i ].isEmpty() ) {
 					// Fetch the notifications so we know what to mark as read
 					promise = notifModels[ i ].fetchNotifications();
@@ -178,9 +178,12 @@
 					.then( ( function ( model ) {
 						return function ( idArray ) {
 							// Mark sub items as read in the UI
-							model.markAllRead( model.getSource(), model.getType() );
+							model.markAllRead();
 							// Mark all existing items as read in the API
-							model.toggleItemsReadInApi( idArray, read );
+							model.unreadCounter.estimateChange( -idArray.length );
+							model.toggleItemsReadInApi( idArray, read ).then( function () {
+								model.unreadCounter.update();
+							} );
 						};
 					} )( notifModels[ i ] ) );
 			}
@@ -216,21 +219,12 @@
 	};
 
 	/**
-	 * Get the anticipated count of items in this group item,
-	 * or actual count if is has been loaded.
+	 * Get the item count.
 	 *
 	 * @return {number} count
 	 */
 	mw.echo.dm.NotificationGroupItem.prototype.getCount = function () {
-		var sum;
-		if ( this.anticipatedCount !== null ) {
-			return this.anticipatedCount;
-		}
-		sum = 0;
-		this.getItems().forEach( function ( notificationsModel ) {
-			sum += notificationsModel.getUnreadCount();
-		} );
-		return sum;
+		return this.count;
 	};
 
 	/**
