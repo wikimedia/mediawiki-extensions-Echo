@@ -2,7 +2,7 @@
 @import '../../echo.mixins';
 
 .mw-echo-ui-notificationItemWidget {
-	padding: 0.8em 1em;
+	padding: 0.8em 1em 0.5em 1em;
 	background-color: #F1F1F1;
 	border-bottom: 1px solid #DDDDDD;
 	white-space: normal;
@@ -55,7 +55,7 @@
 
 			& > &-buttons.oo-ui-buttonSelectWidget {
 				display: table-cell;
-				vertical-align: middle;
+				vertical-align: bottom;
 			}
 
 			&-button,
@@ -66,7 +66,7 @@
 			&-menu {
 				.mw-echo-ui-mixin-hover-opacity();
 				display: table-cell;
-				vertical-align: middle;
+				vertical-align: bottom;
 				padding: 0;
 
 				.oo-ui-popupWidget-popup {
@@ -77,7 +77,7 @@
 
 			&-timestamp {
 				display: table-cell;
-				vertical-align: middle;
+				vertical-align: bottom;
 				text-align: right;
 				color: black;
 				opacity: @opacity-low;
