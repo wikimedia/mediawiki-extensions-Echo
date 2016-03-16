@@ -10,11 +10,11 @@
 	 * @param {mw.echo.dm.NotificationsModel} model Notifications view model
 	 * @param {Object} [config] Configuration object
 	 */
-	mw.echo.ui.MobileNotificationsWrapper = function MwEchoUiMobileNotificationsWrapper( model, config ) {
+	mw.echo.ui.NotificationsWrapper = function MwEchoUiNotificationsWrapper( model, config ) {
 		config = config || {};
 
 		// Parent constructor
-		mw.echo.ui.MobileNotificationsWrapper.parent.call( this, config );
+		mw.echo.ui.NotificationsWrapper.parent.call( this, config );
 
 		// Mixin constructor
 		OO.ui.mixin.PendingElement.call( this, config );
@@ -44,8 +44,8 @@
 
 	/* Initialization */
 
-	OO.inheritClass( mw.echo.ui.MobileNotificationsWrapper, OO.ui.Widget );
-	OO.mixinClass( mw.echo.ui.MobileNotificationsWrapper, OO.ui.mixin.PendingElement );
+	OO.inheritClass( mw.echo.ui.NotificationsWrapper, OO.ui.Widget );
+	OO.mixinClass( mw.echo.ui.NotificationsWrapper, OO.ui.mixin.PendingElement );
 
 	/* Events */
 
@@ -68,7 +68,7 @@
 	 * @return {jQuery.Promise} A promise that is resolved when all notifications
 	 *  were fetched from the API and added to the model and UI.
 	 */
-	mw.echo.ui.MobileNotificationsWrapper.prototype.populate = function () {
+	mw.echo.ui.NotificationsWrapper.prototype.populate = function () {
 		var widget = this;
 
 		this.pushPending();

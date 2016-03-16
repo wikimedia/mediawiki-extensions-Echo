@@ -55,9 +55,11 @@ $wgResourceModules += array(
 		),
 		'targets' => array( 'desktop' ),
 	),
+	// TODO: Delete this module and the file. It's only needed for MobileFrontend
+	// to not crash while we are renaming NotificationsWrapper
 	'ext.echo.ui.mobile' => $echoResourceTemplate + array(
 		'scripts' => array(
-			'ooui/mobile/mw.echo.ui.MobileNotificationsWrapper.js',
+			'ooui/mobile/mw.echo.ui.MobileNotificationsWrapper.js'
 		),
 		'dependencies' => array(
 			'ext.echo.ui',
@@ -75,6 +77,7 @@ $wgResourceModules += array(
 			'ooui/mw.echo.ui.ActionMenuPopupWidget.js',
 			'ooui/mw.echo.ui.MenuItemWidget.js',
 			'ooui/mw.echo.ui.FooterNoticeWidget.js',
+			'ooui/mw.echo.ui.NotificationsWrapper.js',
 		),
 		'styles' => array(
 			'ooui/styles/mw.echo.ui.overlay.less',
@@ -261,7 +264,7 @@ $wgResourceModules += array(
 		'dependencies' => array(
 			'mediawiki.ui.button',
 			'mediawiki.api',
-			'ext.echo.ui.desktop',
+			'ext.echo.ui',
 		),
 		'messages' => array(
 			'echo-load-more-error',
