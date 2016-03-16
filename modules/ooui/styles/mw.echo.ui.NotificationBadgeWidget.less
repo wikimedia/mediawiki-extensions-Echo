@@ -38,7 +38,9 @@
 
 			> .oo-ui-popupWidget-body {
 				// Work around scrollbar rendering bug in Chrome
-				overflow: visible;
+				overflow-y: visible;
+				// Work around OO.ui.FloatableElement bug (T130153)
+				overflow-x: auto;
 			}
 
 			> .oo-ui-popupWidget-footer {
