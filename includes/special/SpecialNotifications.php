@@ -127,7 +127,17 @@ class SpecialNotifications extends SpecialPage {
 		$html .= Html::rawElement( 'ul', array( 'class' => 'mw-echo-special-notifications' ), $notices );
 		$html .= Html::rawElement( 'div', array( 'class' => 'mw-echo-special-navbar-bottom' ), $navBar );
 
-		$out->addHTML( Html::rawElement( 'div', array( 'class' => 'mw-echo-special-container' ), $html ) );
+		$html = Html::rawElement( 'div', array( 'class' => 'mw-echo-special-container' ), $html );
+		$out->addHTML( Html::rawElement( 'div', array( 'class' => 'mw-echo-special-nojs' ), $html ) );
+
+		$out->addJsConfigVars(
+			array(
+				'wgEchoNextContinue' => $nextContinue,
+			)
+		);
+
+		$out->addModules( array( 'ext.echo.special' ) );
+		// For no-js support
 		$out->addModuleStyles( array( 'ext.echo.styles.notifications', 'ext.echo.styles.special' ) );
 	}
 

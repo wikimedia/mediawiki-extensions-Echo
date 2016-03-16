@@ -1,0 +1,66 @@
+.mw-echo-ui-notificationsInboxWidget {
+	&.oo-ui-pendingElement-pending .mw-echo-ui-datedSubGroupListWidget {
+		opacity: 0.5;
+	}
+
+	&-toolbar {
+		&-row {
+			display: table-row;
+		}
+
+		&-top {
+			display: table;
+			margin-bottom: 2em;
+
+
+			&-placeholder {
+				display: table-cell;
+				width: 100%;
+			}
+		}
+
+		&-bottom {
+			display: table;
+			width: inherit;
+			margin-left: auto;
+			margin-right: auto;
+			margin-top: 2em;
+		}
+
+		&-pagination {
+			&-buttons,
+			&-start,
+			&-label {
+				display: table-cell;
+			}
+
+			&-buttons {
+				vertical-align: middle;
+
+				.oo-ui-buttonOptionWidget .oo-ui-buttonElement-button {
+					// This is needed so the height of the buttons with icons
+					// is the same as the height of the button with label text
+					// See https://phabricator.wikimedia.org/T136024
+					height: 1.6em;
+
+					.oo-ui-iconElement-icon {
+						top: 0.4em;
+					}
+				}
+			}
+
+			&-start {
+				vertical-align: middle;
+			}
+
+			&-label {
+				padding: 0 0.5em;
+				vertical-align: middle;
+				span {
+					white-space: nowrap;
+				}
+			}
+		}
+
+	}
+}

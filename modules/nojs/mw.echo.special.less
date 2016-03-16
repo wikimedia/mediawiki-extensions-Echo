@@ -1,10 +1,24 @@
 /* Echo specific CSS */
 @import '../echo.variables';
 
+.client-js .mw-echo-special-nojs {
+	min-height: 5em;
+	/* @embed */
+	background-image: url(../../images/pending.gif);
+
+	.mw-echo-special-container {
+		display: none;
+	}
+}
+
 /* Custom header styling for Vector and Monobook skins */
 .mw-special-Notifications.skin-vector #firstHeading,
 .mw-special-Notifications.skin-monobook #firstHeading {
 	max-width: 600px;
+}
+
+.mw-echo-special-markAllReadButton {
+	float: right;
 }
 
 /* Special styles to use if we're converting subtitle links into header icons */
@@ -63,11 +77,8 @@
 	font-weight: 800;
 }
 
-.mw-echo-special-container {
+ul.mw-echo-special-notifications {
 	max-width: 600px;
-}
-
-.mw-echo-special-notifications {
 	list-style: none none;
 	padding: 0;
 	margin: 0;
@@ -105,7 +116,9 @@
 	}
 }
 
-.mw-echo-special-container {
+.mw-echo-special-notifications {
+	overflow-y: auto;
+
 	.mw-echo-notification {
 		background-color: #F1F1F1;
 

@@ -36,7 +36,8 @@
 		this.types = Array.isArray( this.types ) ?
 			config.type : [ this.types ];
 
-		this.models = {};
+		this.notificationModels = {};
+		this.paginationModel = new mw.echo.dm.PaginationModel();
 
 		// Properties
 		this.seenTime = mw.config.get( 'wgEchoSeenTime' ) || {};
@@ -49,7 +50,7 @@
 
 	/**
 	 * @event update
-	 * @param {Object[]} Current available models
+	 * @param {Object[]} Current available notifications
 	 *
 	 * The model has been rebuilt or has been updated
 	 */
@@ -76,12 +77,12 @@
 	/* Methods */
 
 	/**
-	 * Get the models
+	 * Get the notifications
 	 *
-	 * @return {Object} Object of models and their symbolic names
+	 * @return {Object} Object of notification models and their symbolic names
 	 */
-	mw.echo.dm.ModelManager.prototype.getAllModels = function () {
-		return this.models;
+	mw.echo.dm.ModelManager.prototype.getAllNotificationModels = function () {
+		return this.notificationModels;
 	};
 
 	/**
@@ -94,23 +95,23 @@
 	 * 		...
 	 * }
 	 */
-	mw.echo.dm.ModelManager.prototype.setModels = function ( modelDefinitions ) {
+	mw.echo.dm.ModelManager.prototype.setNotificationModels = function ( modelDefinitions ) {
 		var modelId,
 			localModel;
 
-		this.resetModels();
+		this.resetNotificationModels();
 
 		for ( modelId in modelDefinitions ) {
-			this.models[ modelId ] = modelDefinitions[ modelId ];
+			this.notificationModels[ modelId ] = modelDefinitions[ modelId ];
 		}
 
-		localModel = this.getModel( 'local' );
+		localModel = this.getNotificationModel( 'local' );
 		if ( localModel ) {
 			localModel.aggregate( { update: 'itemUpdate' } );
 			localModel.connect( this, { itemUpdate: 'checkLocalUnreadTalk' } );
 		}
 
-		this.emit( 'update', this.getAllModels() );
+		this.emit( 'update', this.getAllNotificationModels() );
 	};
 
 	/**
@@ -119,8 +120,17 @@
 	 * @param {string} modelName Unique model name
 	 * @return {mw.echo.dm.SortedList} Notifications model
 	 */
-	mw.echo.dm.ModelManager.prototype.getModel = function ( modelName ) {
-		return this.models[ modelName ];
+	mw.echo.dm.ModelManager.prototype.getNotificationModel = function ( modelName ) {
+		return this.notificationModels[ modelName ];
+	};
+
+	/**
+	 * Get the pagination model
+	 *
+	 * @return {mw.echo.dm.PaginationModel} Pagination model
+	 */
+	mw.echo.dm.ModelManager.prototype.getPaginationModel = function () {
+		return this.paginationModel;
 	};
 
 	/**
@@ -129,8 +139,8 @@
 	 * @param {string} modelName Symbolic name of the model
 	 * @fires remove
 	 */
-	mw.echo.dm.ModelManager.prototype.removeModel = function ( modelName ) {
-		delete this.models[ modelName ];
+	mw.echo.dm.ModelManager.prototype.removeNotificationModel = function ( modelName ) {
+		delete this.notificationModels[ modelName ];
 		this.emit( 'remove', modelName );
 	};
 
@@ -139,13 +149,13 @@
 	 *
 	 * @private
 	 */
-	mw.echo.dm.ModelManager.prototype.resetModels = function () {
+	mw.echo.dm.ModelManager.prototype.resetNotificationModels = function () {
 		var model;
 
-		for ( model in this.models ) {
-			if ( this.models.hasOwnProperty( model ) ) {
-				this.models[ model ].disconnect( this );
-				delete this.models[ model ];
+		for ( model in this.notificationModels ) {
+			if ( this.notificationModels.hasOwnProperty( model ) ) {
+				this.notificationModels[ model ].disconnect( this );
+				delete this.notificationModels[ model ];
 			}
 		}
 	};
@@ -165,7 +175,7 @@
 	 * @return {boolean} Local model has unread notifications.
 	 */
 	mw.echo.dm.ModelManager.prototype.hasLocalUnread = function () {
-		var localModel = this.getModel( 'local' ),
+		var localModel = this.getNotificationModel( 'local' ),
 			isUnread = function ( item ) {
 				return !item.isRead();
 			};
@@ -193,7 +203,7 @@
 	 * @return {boolean} Local model has unread talk page notifications.
 	 */
 	mw.echo.dm.ModelManager.prototype.hasLocalUnreadTalk = function () {
-		var localModel = this.getModel( 'local' ),
+		var localModel = this.getNotificationModel( 'local' ),
 			isUnreadUserTalk = function ( item ) {
 				return !item.isRead() && item.getCategory() === 'edit-user-talk';
 			};
@@ -210,7 +220,7 @@
 	 * @return {boolean} The given model has unseen notifications.
 	 */
 	mw.echo.dm.ModelManager.prototype.hasUnseenInModel = function ( modelId ) {
-		var model = this.getModel( modelId || 'local' );
+		var model = this.getNotificationModel( modelId || 'local' );
 
 		return model && model.hasUnseen();
 	};
@@ -222,7 +232,7 @@
 	 */
 	mw.echo.dm.ModelManager.prototype.hasUnseenInAnyModel = function () {
 		var model,
-			models = this.getAllModels();
+			models = this.getAllNotificationModels();
 
 		for ( model in models ) {
 			if ( models[ model ].hasUnseen() ) {
@@ -258,7 +268,7 @@
 	 * @private
 	 */
 	mw.echo.dm.ModelManager.prototype.setLocalModelItemsSeen = function () {
-		var model = this.getModel( 'local' );
+		var model = this.getNotificationModel( 'local' );
 
 		model.getItems().forEach( function ( item ) {
 			item.toggleSeen( true );
