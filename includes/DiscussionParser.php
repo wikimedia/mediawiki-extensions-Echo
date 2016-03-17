@@ -834,41 +834,10 @@ abstract class EchoDiscussionParser {
 	 * @return string
 	 */
 	static function getTextSnippet( $text, Language $lang, $length = 150 ) {
-		$text = strip_tags( $text );
-		$attempt = 0;
-
-		// 10 attempts at most, the logic here is to find the first }} and
-		// find the matching {{ for that }}
-		while ( $attempt < 10 ) {
-			$closeCurPos = strpos( $text, '}}' );
-
-			if ( $closeCurPos === false ) {
-				break;
-			}
-			$tempStr = substr( $text, 0, $closeCurPos + 2 );
-
-			$openCurPos = strrpos( $tempStr, '{{' );
-			if ( $openCurPos === false ) {
-				$text = substr_replace( $text, '', $closeCurPos, 2 );
-			} else {
-				$text = substr_replace( $text, '', $openCurPos, $closeCurPos - $openCurPos + 2 );
-			}
-			$attempt++;
-		}
-
-		// See Parser::parse() function, &#160; is replaced specifically, replace it back here
-		// with a space as this html entity won't be handled by htmlspecialchars_decode()
-		$text = str_replace( '&#160;', ' ', MessageCache::singleton()->parse( $text )->getText() );
-		$text = trim( strip_tags( htmlspecialchars_decode( $text ) ) );
-		// strip out non-useful data for snippet
-		$text = str_replace( array( '{', '}' ), '', $text );
-		$text = $lang->truncate( $text, $length );
-
-		// Return empty string if there is undecoded char left
-		if ( strpos( $text, '&#' ) !== false ) {
-			$text = '';
-		}
-
-		return $text;
+		// Parse wikitext
+		$html = MessageCache::singleton()->parse( $text )->getText();
+		// Remove HTML tags and decode HTML entities
+		$plaintext = trim( html_entity_decode( strip_tags( $html ), ENT_QUOTES ) );
+		return $lang->truncate( $plaintext, $length );
 	}
 }
