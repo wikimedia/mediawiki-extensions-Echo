@@ -149,7 +149,7 @@ class EchoMentionPresentationModel extends EchoEventPresentationModel {
 	}
 
 	private function onAgentTalkpage() {
-		return $this->event->getTitle()->getPrefixedText() === $this->event->getAgent()->getTalkPage()->getPrefixedText();
+		return $this->event->getTitle()->equals( $this->event->getAgent()->getTalkPage() );
 	}
 
 	private function onUserTalkpage() {
