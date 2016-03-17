@@ -1,7 +1,38 @@
 {
 	"@metadata": {
 		"authors": [
-			"Andrew Garrett"
+			"Andrew Garrett",
+			"Alangi Derick",
+			"Alex Monk",
+			"Amir E. Aharoni",
+			"Andrew Garrett",
+			"Benny Situ",
+			"Brad Jorsch",
+			"Erik Bernhardson",
+			"James D. Forrester",
+			"Jon Robson",
+			"Kunal Mehta",
+			"lokal-profil",
+			"lwelling",
+			"MatmaRex",
+			"Matthew Flaschen",
+			"Matthias Mullie",
+			"mhutti1",
+			"Moriel Schottlender",
+			"Nemo bis",
+			"Nischay Nahata",
+			"Raimond Spekking",
+			"Reedy",
+			"Roan Kattouw",
+			"Ryan Kaldari",
+			"Siebrand Mazeland",
+			"Stephane Bisson",
+			"theopolisme",
+			"Tony Thomas",
+			"Terry Chay",
+			"umherirrender",
+			"Yuki Shira"
+
 		]
 	},
 	"echo-desc": "System for notifying users about events and messages",
