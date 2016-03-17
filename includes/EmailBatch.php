@@ -266,20 +266,11 @@ class MWEchoEmailBatch {
 			);
 		}
 
-		$userLangCode = $this->mUser->getOption( 'language' );
-		// email subject
-		if ( $this->count > self::$displaySize ) {
-			$count = wfMessage( 'echo-notification-count' )
-				->inLanguage( $userLangCode )
-				->params( self::$displaySize )->text();
-		} else {
-			$count = $this->count;
-		}
 		// Give grep a chance to find the usages:
 		// echo-email-batch-subject-daily, echo-email-batch-subject-weekly
 		$subject = wfMessage( 'echo-email-batch-subject-' . $frequency )
-			->inLanguage( $userLangCode )
-			->params( $count, $this->count )->text();
+			->inLanguage( $this->mUser->getOption( 'language' ) )
+			->params( $this->count, $this->count )->text();
 
 		$toAddress = MailAddress::newFromUser( $this->mUser );
 		$fromAddress = new MailAddress( $wgNotificationSender, EchoHooks::getNotificationSenderName() );

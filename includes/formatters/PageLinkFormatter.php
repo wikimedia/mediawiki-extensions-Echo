@@ -41,8 +41,6 @@ class EchoPageLinkFormatter extends EchoBasicFormatter {
 	 * @param $type string deprecated
 	 */
 	protected function generateBundleData( $event, $user, $type ) {
-		global $wgEchoMaxNotificationCount;
-
 		$data = $this->getRawBundleData( $event, $user, $type );
 
 		if ( !$data ) {
@@ -73,7 +71,7 @@ class EchoPageLinkFormatter extends EchoBasicFormatter {
 					$count++;
 				}
 			}
-			if ( $count > $wgEchoMaxNotificationCount + 1 ) {
+			if ( $count > MWEchoNotifUser::MAX_BADGE_COUNT + 1 ) {
 				break;
 			}
 		}
@@ -140,24 +138,13 @@ class EchoPageLinkFormatter extends EchoBasicFormatter {
 				}
 				break;
 
-			// example: {7} other page, {99+} other pages
+			// example: {7} other pages, {99+} other pages
+			// link-from-page-other-display is no longer needed for new messages, but kept for backwards-compatibility
 			case 'link-from-page-other-display':
-				global $wgEchoMaxNotificationCount;
-
-				if ( $this->bundleData['link-from-page-other-count'] > $wgEchoMaxNotificationCount ) {
-					$message->params(
-						$this->getMessage( 'echo-notification-count' )
-							->numParams( $wgEchoMaxNotificationCount )
-							->text()
-					);
-				} else {
-					$message->numParams( $this->bundleData['link-from-page-other-count'] );
-				}
-				break;
-
-			// the number used for plural support
 			case 'link-from-page-other-count':
-				$message->params( $this->bundleData['link-from-page-other-count'] );
+				$message->numParams(
+					EchoNotificationController::getCappedNotificationCount( $this->bundleData['link-from-page-other-count'] )
+				);
 				break;
 
 			default:

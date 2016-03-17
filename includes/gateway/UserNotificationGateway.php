@@ -116,8 +116,6 @@ class EchoUserNotificationGateway {
 			return 0;
 		}
 
-		global $wgEchoMaxNotificationCount;
-
 		$db = $this->dbFactory->getEchoDb( $dbSource );
 		$res = $db->select(
 			array(
@@ -132,7 +130,7 @@ class EchoUserNotificationGateway {
 				'event_type' => $eventTypesToLoad,
 			),
 			__METHOD__,
-			array( 'LIMIT' => $wgEchoMaxNotificationCount + 1 ),
+			array( 'LIMIT' => MWEchoNotifUser::MAX_BADGE_COUNT + 1 ),
 			array(
 				'echo_event' => array( 'LEFT JOIN', 'notification_event=event_id' ),
 			)
@@ -147,7 +145,7 @@ class EchoUserNotificationGateway {
 	/**
 	 * IMPORTANT: should only call this function if the number of unread notification
 	 * is reasonable, for example, unread notification count is less than the max
-	 * display defined in $wgEchoMaxNotificationCount
+	 * display defined in MWEchoNotifUser::MAX_BADGE_COUNT
 	 * @param string
 	 * @return int[]
 	 */

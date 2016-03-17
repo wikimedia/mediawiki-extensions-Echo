@@ -22,25 +22,34 @@ class EchoNotificationController {
 	static protected $userWhitelist;
 
 	/**
-	 * Format the notification count with Language::formatNum().  In addition, for large count,
-	 * return abbreviated version, e.g. 99+
+	 * Returns the count passed in, or MWEchoNotifUser::MAX_BADGE_COUNT + 1,
+	 * whichever is less.
 	 *
 	 * @param int $count
-	 * @return string
+	 * @return int Notification count, with ceiling applied
 	 */
-	public static function formatNotificationCount( $count ) {
-		global $wgLang, $wgEchoMaxNotificationCount;
-
-		if ( $count > $wgEchoMaxNotificationCount ) {
-			$count = wfMessage(
-				'echo-notification-count',
-				$wgLang->formatNum( $wgEchoMaxNotificationCount )
-			)->escaped();
+	public static function getCappedNotificationCount( $count ) {
+		if ( $count <= MWEchoNotifUser::MAX_BADGE_COUNT ) {
+			return $count;
 		} else {
-			$count = $wgLang->formatNum( $count );
+			return MWEchoNotifUser::MAX_BADGE_COUNT + 1;
 		}
+	}
 
-		return $count;
+	/**
+	* Format the notification count as a string.  This should only be used for an
+	* isolated string count, e.g. as displayed in personal tools or returned by the API.
+	*
+	* If using it in sentence context, pass the value from getCappedNotificationCount
+	* into a message and use PLURAL.  Example: notification-bundle-header-page-linked
+	*
+	* @param int count Notification count
+	* @return string Formatted count, after applying cap then formatting to string
+	*/
+	public static function formatNotificationCount( $count ) {
+		$cappedCount = self::getCappedNotificationCount( $count );
+
+		return wfMessage( 'echo-badge-count' )->numParams( $cappedCount )->text();
 	}
 
 	/**
