@@ -13,7 +13,8 @@
 			"NickK",
 			"Lxlalexlxl",
 			"Максим Підліснюк",
-			"Macofe"
+			"Macofe",
+			"Green Zero"
 		]
 	},
 	"echo-desc": "Система сповіщення користувачів про події і повідомлення",
@@ -21,6 +22,7 @@
 	"prefs-emailsettings": "Параметри електронної пошти",
 	"prefs-displaynotifications": "Опції відображення",
 	"prefs-echosubscriptions": "Повідомляти мене про ці події",
+	"prefs-echocrosswiki": "Крос-вікі сповіщення",
 	"prefs-newmessageindicator": "Індикатор нових повідомлень",
 	"echo-pref-send-me": "Надіслати мені:",
 	"echo-pref-send-to": "Надіслати до:",
@@ -33,6 +35,7 @@
 	"echo-pref-email-frequency-weekly": "Щомісячна збірка сповіщень",
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Простий текст",
+	"echo-pref-cross-wiki-notifications": "Показувати сповіщення з інших вікі",
 	"echo-pref-new-message-indicator": "Показувати індикатор повідомлень на сторінці обговорення у моїй панелі інструментів",
 	"echo-pref-beta-feature-cross-wiki-message": "Розширені сповіщення",
 	"echo-pref-beta-feature-cross-wiki-description": "Переглядайте і сортуйте сповіщення простіше. Містить крос-вікі сповіщення, які дають змогу бачити повідомлення з інших вікі.",
