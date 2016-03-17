@@ -249,7 +249,7 @@ class EchoHooks {
 	public static function getPreferences( $user, &$preferences ) {
 		global $wgEchoDefaultNotificationTypes, $wgAuth, $wgEchoEnableEmailBatch,
 			$wgEchoNotifiers, $wgEchoNotificationCategories, $wgEchoNotifications,
-			$wgEchoNewMsgAlert, $wgAllowHTMLEmail;
+			$wgEchoNewMsgAlert, $wgAllowHTMLEmail, $wgEchoUseCrossWikiBetaFeature;
 
 		// Show email frequency options
 		$never = wfMessage( 'echo-pref-email-frequency-never' )->plain();
@@ -395,6 +395,14 @@ class EchoHooks {
 			'force-options-on' => $forceOptionsOn,
 			'tooltips' => $tooltips,
 		);
+
+		if ( !$wgEchoUseCrossWikiBetaFeature ) {
+			$preferences['echo-cross-wiki-notifications'] = array(
+				'type' => 'toggle',
+				'label-message' => 'echo-pref-cross-wiki-notifications',
+				'section' => 'echo/echocrosswiki'
+			);
+		}
 
 		if ( $wgEchoNewMsgAlert ) {
 			$preferences['echo-show-alert'] = array(

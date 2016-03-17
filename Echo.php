@@ -209,6 +209,10 @@ $wgEchoOnWikiBlacklist = 'Echo-blacklist';
 $wgEchoPerUserWhitelistFormat = '%s/Echo-whitelist';
 
 // Feature flag for the cross-wiki notifications beta feature
+// If this is true, the cross-wiki notifications preference will appear in the BetaFeatures section;
+// if this is false, it'll appear in the Notifications section instead.
+// This does not control whether cross-wiki notifications are enabled by default. For that,
+// use $wgDefaultUserOptions['echo-cross-wiki-notifications'] = true;
 $wgEchoUseCrossWikiBetaFeature = false;
 
 // Define the categories that notifications can belong to. Categories can be
