@@ -183,7 +183,7 @@
 	"apihelp-echomarkread-example-3": "Marca la notificación 1 como no leída",
 	"apihelp-echomarkseen-description": "Marca las notificaciones como vistas para el usuario actual.",
 	"apihelp-echomarkseen-example-1": "Marca las notificaciones de todos los tipos como vistas",
-	"apihelp-echomarkseen-param-type": "Tipo de notificaciones para marcar como leídas: 'alert' (alerta), 'message' (mensaje) o 'all' (todas).",
+	"apihelp-echomarkseen-param-type": "Tipo de notificaciones para marcar como vistas: «alerta», «mensaje» o «todas».",
 	"apihelp-query+notifications-description": "Recibe notificaciones que esperan al usuario actual.",
 	"apihelp-query+notifications-param-prop": "Detalles que solicitar.",
 	"apihelp-query+notifications-param-sections": "Las secciones de notificación para consultar (o sea, alguna combinación de «alerta» y «mensaje»).",

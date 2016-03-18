@@ -189,7 +189,6 @@
 	"apihelp-query+notifications-param-index": "Si se especifica, devolverase unha lista ordenada de identificadores de notificación.",
 	"apihelp-query+notifications-param-noforn": "True (verdadeiro) para excluír os datos sobre notificacións en wikis foráneas.",
 	"apihelp-query+notifications-param-alertcontinue": "Cando estean dispoñibles alertas adicionais, use esta opción para continuar.",
-	"apihelp-query+notifications-param-unreadfirst": "Decidir se mostrar as notificacións non vistas primeiro (só empregado se groupbysection non está definido).",
 	"apihelp-query+notifications-param-alertunreadfirst": "Mostra as notificacións de mensaxes sen ler primeiro (só usado se está activado groupbysection).",
 	"apihelp-query+notifications-param-messagecontinue": "Cando novos mensaxes estean dispoñibles, use esta opción para continuar.",
 	"apihelp-query+notifications-param-messageunreadfirst": "Mostra as notificacións de alertas sen ler primeiro (só usado se está activado groupbysection).",
