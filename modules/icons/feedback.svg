@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.6.1 (26313) - http://www.bohemiancoding.com/sketch -->
+    <title>feedback</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path id="path-1" d="M8.35406072,21.387126 L9.34667097,24.9542505 C9.6941685,26.2511317 11.2009455,27.025063 12.4978239,26.6775654 C13.7181068,26.3505929 14.4656449,25.0094214 14.1181419,23.712543 L13.4521761,21.3856056 L29,21.3867213 L24.1497187,3 L1.27068388,15.9869465 C0.5243271,17.2796767 1.42475534,20.6506872 2.71201112,21.3871862 L8.35406072,21.387126 Z"></path>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="feedback">
+            <g id="Page-1">
+                <use fill="#165CA0" fill-rule="evenodd" xlink:href="#path-1"></use>
+                <use fill="none" xlink:href="#path-1"></use>
+            </g>
+        </g>
+    </g>
+</svg>

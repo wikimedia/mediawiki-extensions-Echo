@@ -25,7 +25,8 @@
 	 *  for popups.
 	 */
 	mw.echo.ui.NotificationBadgeWidget = function MwEchoUiNotificationBadgeButtonPopupWidget( model, config ) {
-		var buttonFlags, allNotificationsButton, preferencesButton, footerButtonGroupWidget, $footer;
+		var buttonFlags, allNotificationsButton, preferencesButton, footerButtonGroupWidget, $footer,
+			initialNotifCount, notice;
 
 		config = config || {};
 		config.links = config.links || {};
@@ -95,11 +96,31 @@
 		} );
 
 		footerButtonGroupWidget = new OO.ui.ButtonGroupWidget( {
-			items: [ allNotificationsButton, preferencesButton ]
+			items: [ allNotificationsButton, preferencesButton ],
+			classes: [ 'mw-echo-ui-notificationBadgeButtonPopupWidget-footer-buttons' ]
 		} );
 		$footer = $( '<div>' )
 			.addClass( 'mw-echo-ui-notificationBadgeButtonPopupWidget-footer' )
 			.append( footerButtonGroupWidget.$element );
+
+		// Footer notice
+		initialNotifCount = mw.config.get( 'wgEchoInitialNotifCount' );
+		initialNotifCount = this.type === 'all' ? ( initialNotifCount.alert + initialNotifCount.message ) : initialNotifCount[ this.type ];
+		if (
+			mw.config.get( 'wgEchoShowFooterNotice' ) &&
+			!mw.user.options.get( 'echo-dismiss-feedback-alert' ) &&
+			initialNotifCount >= 5
+		) {
+			notice = new mw.echo.ui.FooterNoticeWidget( {
+				// This is probably not the right way of doing this
+				iconUrl: mw.config.get( 'wgExtensionAssetsPath' ) + '/Echo/modules/icons/feedback.svg',
+				url: mw.config.get( 'wgEchoFooterNoticeURL' )
+			} );
+			// Event
+			notice.connect( this, { dismiss: 'onFooterNoticeDismiss' } );
+			// Prepend to the footer
+			$footer.prepend( notice.$element );
+		}
 
 		this.popup = new OO.ui.PopupWidget( {
 			$content: this.notificationsWidget.$element,
@@ -186,6 +207,16 @@
 	 */
 
 	/* Methods */
+
+	mw.echo.ui.NotificationBadgeWidget.prototype.onFooterNoticeDismiss = function () {
+		// Clip again to recalculate height
+		this.popup.clip();
+
+		// Save the preference in general
+		new mw.Api().saveOption( 'echo-dismiss-feedback-alert', 1 );
+		// Save the preference for this session
+		mw.user.options.set( 'echo-dismiss-feedback-alert', 1 );
+	};
 
 	/**
 	 * Respond to badge button click

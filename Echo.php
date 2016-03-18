@@ -164,6 +164,13 @@ $wgEchoBundleEmailInterval = 0;
 // Whether or not to enable a new talk page message alert for logged in users
 $wgEchoNewMsgAlert = true;
 
+// Whether or not to show the footer feedback notice in the notifications popup
+$wgEchoShowFooterNotice = false;
+
+// A URL for the survey that appears in the footer feedback notice in the
+// notification popup
+$wgEchoFooterNoticeURL = '';
+
 // Define which output formats are available for each notification category
 $wgEchoDefaultNotificationTypes = array(
 	'all' => array(
@@ -485,6 +492,9 @@ $wgDefaultUserOptions['echo-show-alert'] = true;
 
 // By default, send emails for each notification as they come in
 $wgDefaultUserOptions['echo-email-frequency'] = 0; /*EchoHooks::EMAIL_IMMEDIATELY*/
+
+// By default, do not dismiss the feedback alert
+$wgDefaultUserOptions['echo-dismiss-feedback-alert' ] = 0;
 
 if ( $wgAllowHTMLEmail ) {
 	$wgDefaultUserOptions['echo-email-format'] = 'html'; /*EchoHooks::EMAIL_FORMAT_HTML*/
