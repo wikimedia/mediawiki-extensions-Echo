@@ -10,7 +10,8 @@
 			"NehalDaveND",
 			"राम प्रसाद जोशी",
 			"Angpradesh",
-			"Sfic"
+			"Sfic",
+			"चक्रपाणी"
 		]
 	},
 	"echo-desc": "अधिसूचना प्रणाली",
@@ -18,6 +19,7 @@
 	"prefs-emailsettings": "ईमेल विकल्प",
 	"prefs-displaynotifications": "प्रदर्शन विकल्प",
 	"prefs-echosubscriptions": "मुझे इन घटनाओं के बारे में सूचित करें",
+	"prefs-echocrosswiki": "क्रॉस-विकी नोटिफिकेशन",
 	"prefs-newmessageindicator": "नए संदेश का संकेतक",
 	"echo-pref-send-me": "मुझे भेजिए:",
 	"echo-pref-send-to": "यहाँ भेजिए:",
@@ -30,6 +32,7 @@
 	"echo-pref-email-frequency-weekly": "अधिसूचनाओं का साप्ताहिक सारांश",
 	"echo-pref-email-format-html": "एच॰टी॰एम॰एल॰",
 	"echo-pref-email-format-plain-text": "सादा पाठ",
+	"echo-pref-cross-wiki-notifications": "दूसरे विकीज़ से नोटिफिकेशन दिखाएँ",
 	"echo-pref-new-message-indicator": "वार्ता पृष्ठ संदेश संकेतक मेरी उपकरण पट्टी में दिखाएँ",
 	"echo-learn-more": "अधिक जानिए",
 	"echo-new-messages": "आपके लिए नए संदेश हैं",
@@ -70,10 +73,9 @@
 	"notification-add-comment-yours2": "[[User:$1|$1]] ने आपके वार्ता पृष्ठ पर \"[[$3#$2|$2]]\" भाग में टिप्पणी की है।",
 	"notification-mention": "[[User:$1|$1]] ने $5 के वार्ता पृष्ठ पर \"[[:$3#$2|$4]]\" भाग में आपका उल्लेख {{GENDER:$1|किया}} है।",
 	"notification-mention-nosection": "[[User:$1|$1]] ने [[:$3|$2 वार्ता पृष्ठ]] में आपका {{GENDER:$1|उल्लेख}} किया है।",
-	"notification-user-rights": "आपके सदस्य अधिकार [[User:$1|$1]] द्वारा [[Special:Log/rights/$1|{{GENDER:$1|बदले गये}}]]। $2। [[Special:ListGroupRights|अधिक जानिये]]",
-	"notification-header-user-rights": "आपके सदस्य अधिकार $1 द्वारा {{GENDER:$2|बदले गये}}। $3। [[Special:ListGroupRights|अधिक जानिये]]",
 	"notification-user-rights-add": "आप अब {{PLURAL:$2|इस समूह|इन समूहों}} के सदस्य हैं: $1",
 	"notification-user-rights-remove": "आप अब {{PLURAL:$2|इस समूह|इन समूहों}} के सदस्य नहीं रहे: $1",
+	"notification-user-rights": "आपके सदस्य अधिकार [[User:$1|$1]] द्वारा [[Special:Log/rights/$1|{{GENDER:$1|बदले गये}}]]। $2। [[Special:ListGroupRights|अधिक जानिये]]",
 	"notification-new-user": "आपका {{SITENAME}} पर स्वागत है, $1! हमे ख़ुशी है आप यहाँ आये।",
 	"notification-reverted2": "[[:$2]] पर आपके {{PLURAL:$4|सम्पादन|सम्पादनों}} को [[$5|$1]] द्वारा {{GENDER:$1|पूर्ववत}} कर दिया गया है। $3",
 	"notification-header-reverted": "$3 पर आपके {{PLURAL:$4|सम्पादन|सम्पादनों}} को $1 द्वारा {{GENDER:$2|पूर्ववत}} कर दिया गया है।",
