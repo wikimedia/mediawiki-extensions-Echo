@@ -97,7 +97,7 @@
 	"notification-link-text-expand-alert-count": "View {{PLURAL:$1|$1 alert|$1 alerts}}",
 	"notification-link-text-expand-message-count": "View {{PLURAL:$1|$1 message|$1 messages}}",
 	"notification-link-text-expand-all-count": "View {{PLURAL:$1|$1 notification|$1 notifications}}",
-	"notification-link-text-collapse-all": "Collapse all",
+	"notification-link-text-collapse-all": "Collapse",
 	"notification-link-text-view-message": "View message",
 	"notification-link-text-view-mention": "View mention",
 	"notification-link-text-view-changes": "{{GENDER:$1|View}} changes",
