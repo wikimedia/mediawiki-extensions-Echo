@@ -4,7 +4,8 @@
 			"Ләйсән",
 			"Sagan",
 			"Азат Хәлилов",
-			"Танзиля Кутлугильдина"
+			"Танзиля Кутлугильдина",
+			"Вильданова Гюзель"
 		]
 	},
 	"echo-desc": "Ҡатнашыусыларҙың ваҡиғалар һәм хәбәрҙәр тураһында белдереүҙәр системаһы",
@@ -68,7 +69,7 @@
 	"notification-link-text-expand-alert-count": "{{PLURAL:$1|$1 киҫәтеүҙе}} ҡарарға",
 	"notification-link-text-expand-message-count": "{{PLURAL:$1|$1 хәбәрҙе}} күрһәтергә",
 	"notification-link-text-expand-all-count": "{{PLURAL:$1|$1 белдереүҙе}} күрһәтергә",
-	"notification-link-text-collapse-all": "барыһын да төрөргә",
+	"notification-link-text-collapse-all": "Ҡапыл ябылыу",
 	"notification-link-text-view-message": "Яңы хәбәрҙәр",
 	"notification-link-text-view-mention": "Иҫкәртеүҙе ҡарарға",
 	"notification-link-text-view-changes": "Үҙгәртеүҙәрҙе {{GENDER:$1|ҡарарға}}",

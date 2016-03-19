@@ -60,7 +60,7 @@
 	"echo-notification-markasunread": "Als net-geliest markéieren",
 	"notification-link-text-expand-all": "All weisen",
 	"notification-link-text-expand-message-count": "{{PLURAL:$1|Ee Message|$1 Message}} weisen",
-	"notification-link-text-collapse-all": "Alles zouklappen",
+	"notification-link-text-collapse-all": "Zesummeklappen",
 	"notification-link-text-view-message": "Message weisen",
 	"notification-link-text-view-mention": "Mentioun weisen",
 	"notification-link-text-view-changes": "Ännerunge {{GENDER:$1|weisen}}",

@@ -73,7 +73,7 @@
 	"notification-link-text-expand-alert-count": "Zobrazit {{PLURAL:$1|$1 upozornění}}",
 	"notification-link-text-expand-message-count": "Zobrazit {{PLURAL:$1|$1 zprávu|$1 zprávy|$1 zpráv}}",
 	"notification-link-text-expand-all-count": "Zobrazit {{PLURAL:$1|$1 oznámení}}",
-	"notification-link-text-collapse-all": "Sbalit vše",
+	"notification-link-text-collapse-all": "Sbalit",
 	"notification-link-text-view-message": "Zobrazit zprávu",
 	"notification-link-text-view-mention": "Zobrazit zmínku",
 	"notification-link-text-view-changes": "{{GENDER:$1|Zobrazit}} změny",
