@@ -327,7 +327,7 @@ $echoIconPath = "Echo/modules/icons";
 //   $wgEchoNotificationIcons['site']['url']
 $wgEchoNotificationIcons = array(
 	'placeholder' => array(
-		'path' => "$echoIconPath/Generic.png",
+		'path' => "$echoIconPath/generic.svg",
 	),
 	'trash' => array(
 		'path' => "$echoIconPath/trash.svg",
