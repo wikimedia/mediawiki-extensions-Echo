@@ -62,7 +62,7 @@
 	"notification-link-text-expand-alert-count": "Espander {{PLURAL:$1|l'alerta|$1 alertes}}",
 	"notification-link-text-expand-message-count": "Espander {{PLURAL:$1|el mensaxe|$1 mensaxes}}",
 	"notification-link-text-expand-all-count": "Espander {{PLURAL:$1|l'avisu|$1 avisos}}",
-	"notification-link-text-collapse-all": "Anubrir too",
+	"notification-link-text-collapse-all": "Anubrir",
 	"notification-link-text-view-message": "Ver el mensaxe",
 	"notification-link-text-view-mention": "Ver la mención",
 	"notification-link-text-view-changes": "Ver los cambios",

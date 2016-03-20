@@ -68,7 +68,7 @@
 	"notification-link-text-expand-alert-count": "Expandir {{PLURAL:$1|$1 alerta|$1 alertas}}",
 	"notification-link-text-expand-message-count": "Expandir {{PLURAL:$1|$1 mensagem|$1 mensagens}}",
 	"notification-link-text-expand-all-count": "Expandir {{PLURAL:$1|$1 notificação|$1 notificações}}",
-	"notification-link-text-collapse-all": "Recolher tudo",
+	"notification-link-text-collapse-all": "Recolher",
 	"notification-link-text-view-message": "Ver mensagem",
 	"notification-link-text-view-mention": "Ver menção",
 	"notification-link-text-view-changes": "Ver mudanças",

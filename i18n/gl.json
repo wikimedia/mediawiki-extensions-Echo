@@ -69,7 +69,7 @@
 	"notification-link-text-expand-alert-count": "Ver {{PLURAL:$1|$1 alerta|$1 alertas}}",
 	"notification-link-text-expand-message-count": "Ver {{PLURAL:$1|$1 mensaxe|$1 mensaxes}}",
 	"notification-link-text-expand-all-count": "Ver {{PLURAL:$1|$1 notificación|$1 notificacións}}",
-	"notification-link-text-collapse-all": "Contraer todo",
+	"notification-link-text-collapse-all": "Contraer",
 	"notification-link-text-view-message": "Mostrar a mensaxe",
 	"notification-link-text-view-mention": "Mostrar a mención",
 	"notification-link-text-view-changes": "{{GENDER:$1|Ver}} os cambios",

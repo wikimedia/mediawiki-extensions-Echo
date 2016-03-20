@@ -5,7 +5,8 @@
 			"Sagan",
 			"Азат Хәлилов",
 			"Танзиля Кутлугильдина",
-			"Вильданова Гюзель"
+			"Вильданова Гюзель",
+			"Айсар"
 		]
 	},
 	"echo-desc": "Ҡатнашыусыларҙың ваҡиғалар һәм хәбәрҙәр тураһында белдереүҙәр системаһы",
@@ -81,6 +82,20 @@
 	"notification-header-edit-user-talk-with-section": "$1 '''{{GENDER:$3|Һеҙҙең}} фекер алашыу битендә''' \"'''$4'''\" хәбәр {{GENDER:$2|ҡалдырҙы}}.",
 	"notification-page-linked": "[[:$2]] битендә {{GENDER:$1|һылтандылар}}  [[:$3]]. [[Special:WhatLinksHere/$2|Был биткә һылтанған бөтә биттәр]].",
 	"notification-header-page-linked": " <strong>$4</strong> битенән  <strong>$3</strong>битенә һылтанма яһалды.",
+	"notification-bundle-header-page-linked": "Шул биттән <strong>$4</strong> һәм {{PLURAL:$5|$5 башҡа биттән|100=99+ башҡа биттән}} һылтанма эшләнеләр <strong>$3</strong>.",
+	"notification-header-mention-other": "$1 һеҙҙе{{GENDER:$2||телгә}} {{GENDER:$3|алды}} фекерләшеү битендә <strong>$4</strong> бүлектә «<strong>$5</strong>».",
+	"notification-header-mention-other-nosection": "$1 һеҙҙе{{GENDER:$2||фекерләшеү}} {{GENDER:$3|битендә}} телгә алды «$4».",
+	"notification-header-mention-user-talkpage-v2": "$1 һеҙҙе{{GENDER:$2||фекерләшеү}} {{GENDER:$3|битендә}} телгә<strong>алды {{GENDER:$5|$4}}</strong> бүлектә «<strong>$6</strong>».",
+	"notification-header-mention-user-talkpage-nosection": "$1 һеҙҙе{{GENDER:$2||фекерләшеү}} {{GENDER:$3|битендә}} телгә<strong>алды {{GENDER:$5|$4}}</strong> бүлегендә.",
+	"notification-header-mention-agent-talkpage": "$1 һеҙҙе{{GENDER:$2||үҙенең}} {{GENDER:$3|вас}} фекерләшеү <strong>{{GENDER:$2|битендә}} телгә алды</strong>.",
+	"notification-header-mention-agent-talkpage-nosection": "$1 һеҙҙе{{GENDER:$2||үҙенең}} {{GENDER:$3|вас}} фекерләшеү <strong>{{GENDER:$2|битендә}} телгә алды</strong>.",
+	"notification-header-mention-article-talkpage": "$1 һеҙҙе{{GENDER:$2||телгә}} {{GENDER:$3|алды}} фекерләшеү битендә <strong>$4</strong> бүлектә «<strong>$5</strong>».",
+	"notification-header-mention-article-talkpage-nosection": "$1 һеҙҙе{{GENDER:$2||фекерләшеү}} {{GENDER:$3|битендә}} телгә алды «$4».",
+	"notification-header-reverted": "{{PLURAL:$4|1=Һеҙҙең}} <strong>$3</strong> битендәге төҙәтмә {{GENDER:$2|{{PLURAL:$4|кире ҡағылды}}}}",
 	"echo-overlay-link": "Бөтә белдереүҙәр",
-	"echo-overlay-title": "Минең белдереүҙәр"
+	"echo-overlay-title": "Минең белдереүҙәр",
+	"notification-edit-talk-page-bundle": "$1 и $3 {{PLURAL:$3|1=башҡа ҡатнашыусы ҡалдырҙы|100=99+ башҡа ҡатнашыусы ҡалдырҙы}} белдереү һеҙҙең [[User talk:$2|фекерләшеү битендә]].",
+	"notification-bundle-header-edit-user-talk-v2": "$1 {{PLURAL:$1|яңы хәбәр|100=99+ яңы хәбәр}} һеҙҙең {{GENDER:$3|фекерләшеү}} битендә.",
+	"notification-edit-user-talk-email-batch-bundle-body": "$1 и $2 {{PLURAL:$2|башҡа ҡатнашыусы|100=99+ башҡа ҡатнашыусы}} {{GENDER:$1|һеҙҙең фекерләшеү битендә}} хәбәр ҡалдырҙы.",
+	"notification-page-linked-email-batch-bundle-body": "Был биткә «$2» һылтанма {{GENDER:$1|бар}} «$3» битенән һәм тағы ла $4 {{PLURAL:$4|башҡа биттән|100=99+ башҡа биттән}}"
 }

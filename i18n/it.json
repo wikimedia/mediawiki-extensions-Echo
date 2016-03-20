@@ -76,7 +76,7 @@
 	"notification-link-text-expand-alert-count": "Vedi {{PLURAL:$1|$1 avviso|$1 avvisi}}",
 	"notification-link-text-expand-message-count": "Vedi {{PLURAL:$1|$1 messaggio|$1 messaggi}}",
 	"notification-link-text-expand-all-count": "Vedi {{PLURAL:$1|$1 notifica|$1 notifiche}}",
-	"notification-link-text-collapse-all": "Comprimi tutto",
+	"notification-link-text-collapse-all": "Comprimi",
 	"notification-link-text-view-message": "Vedi messaggio",
 	"notification-link-text-view-mention": "Vedi menzione",
 	"notification-link-text-view-changes": "{{GENDER:$1|Vedi}} modifiche",
