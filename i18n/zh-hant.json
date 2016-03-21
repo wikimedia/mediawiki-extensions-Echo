@@ -115,6 +115,7 @@
 	"notification-user-rights-email-subject": "您在 {{SITENAME}} 的使用者權限已變更",
 	"notification-user-rights-email-batch-body": "$1 已修改你的使用者權限。$2",
 	"notification-timestamp-ago-minutes": "{{PLURAL:$1|$1 分鐘}}",
+	"notification-timestamp-ago-days": "{{PLURAL:$1|$1 天}}",
 	"echo-email-subject-default": "{{SITENAME}} 的新通知",
 	"echo-email-body-default": "你在 {{SITENAME}} 有一則新訊息：\n\n\n$1",
 	"echo-email-batch-body-default": "你有一則新通知訊息。",

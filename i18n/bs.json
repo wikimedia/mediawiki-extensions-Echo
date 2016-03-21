@@ -72,7 +72,7 @@
 	"notification-link-text-expand-alert-count": "Prikaži {{PLURAL:$1|obavještenje|$1 obavještenja}}",
 	"notification-link-text-expand-message-count": "Prikaži {{PLURAL:$1|poruku|$1 poruke|$1 poruka}}",
 	"notification-link-text-expand-all-count": "Prikaži {{PLURAL:$1|obavještenje|$1 obavještenja}}",
-	"notification-link-text-collapse-all": "Sakrij sve",
+	"notification-link-text-collapse-all": "Sakrij",
 	"notification-link-text-view-message": "Prikaži poruku",
 	"notification-link-text-view-mention": "Prikaži spominjanje",
 	"notification-link-text-view-changes": "{{GENDER:$1|Prikaži}} izmjene",
