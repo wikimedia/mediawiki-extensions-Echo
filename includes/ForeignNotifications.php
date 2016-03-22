@@ -22,6 +22,11 @@ class EchoForeignNotifications {
 	protected $timestamps = array( EchoAttributeManager::ALERT => false, EchoAttributeManager::MESSAGE => false );
 
 	/**
+	 * @var array [(str) wiki => [ (str) section => (MWTimestamp) timestamp, ...], ...]
+	 */
+	protected $wikiTimestamps = array();
+
+	/**
 	 * @var bool
 	 */
 	protected $populated = false;
@@ -92,6 +97,25 @@ class EchoForeignNotifications {
 		return isset( $this->wikis[$section] ) ? $this->wikis[$section] : array();
 	}
 
+	public function getWikiTimestamp( $wiki, $section = null ) {
+		$this->populate();
+		if ( !isset( $this->wikiTimestamps[$wiki] ) ) {
+			return false;
+		}
+		if ( $section === null ) {
+			$max = false;
+			foreach ( $this->wikiTimestamps[$wiki] as $section => $ts ) {
+				// $ts < $max = invert 0
+				// $ts > $max = invert 1
+				if ( $max === false || $ts->diff( $max )->invert === 1 ) {
+					$max = $ts;
+				}
+			}
+			return $max;
+		}
+		return isset( $this->wikiTimestamps[$wiki][$section] ) ? $this->wikiTimestamps[$wiki][$section] : false;
+	}
+
 	protected function populate() {
 		if ( $this->populated ) {
 			return;
@@ -118,6 +142,8 @@ class EchoForeignNotifications {
 					$this->wikis[$section][] = $wiki;
 
 					$timestamp = new MWTimestamp( $data['ts'] );
+					$this->wikiTimestamps[$wiki][$section] = $timestamp;
+
 					// We need $this->timestamp[$section] to be the max timestamp
 					// across all wikis.
 					// $timestamp < $this->timestamps[$section] = invert 0

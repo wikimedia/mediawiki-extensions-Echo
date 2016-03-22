@@ -84,12 +84,6 @@ class ApiEchoNotifications extends ApiQueryBase {
 					$this->getResult()->setIndexedTagName( $result['index'], 'id' );
 				}
 			}
-
-			// add API endpoint for each of the wikis where notification data
-			// can be queried from
-			if ( $foreignNotifications ) {
-				$result['sources'] = $foreignNotifications->getApiEndpoints( $foreignNotifications->getWikis() );
-			}
 		}
 
 		if ( in_array( 'count', $prop ) ) {
@@ -285,6 +279,13 @@ class ApiEchoNotifications extends ApiQueryBase {
 		$wikis = $foreignNotifications->getWikis( $section );
 		$count = $foreignNotifications->getCount( $section );
 
+		// Sort wikis by timestamp, in descending order (newest first)
+		usort( $wikis, function ( $a, $b ) use ( $foreignNotifications, $section ) {
+			$aTimestamp = $foreignNotifications->getWikiTimestamp( $a, $section ) ?: new MWTimestamp( 0 );
+			$bTimestamp = $foreignNotifications->getWikiTimestamp( $b, $section ) ?: new MWTimestamp( 0 );
+			return $bTimestamp->getTimestamp( TS_UNIX ) - $aTimestamp->getTimestamp( TS_UNIX );
+		} );
+
 		$row = new StdClass;
 		$row->event_id = -1;
 		$row->event_type = 'foreign';
@@ -307,13 +308,17 @@ class ApiEchoNotifications extends ApiQueryBase {
 		$row->notification_bundle_hash = md5( 'bogus' );
 		$row->notification_bundle_display_hash = md5( 'also-bogus' );
 
-		// format output like any other notification
+		// Format output like any other notification
 		$notif = EchoNotification::newFromRow( $row );
 		$output = EchoDataOutputFormatter::formatOutput( $notif, $format, $user, $this->getLanguage() );
 
-		// add cross-wiki-specific data
-		$output['sources'] = $wikis;
+		// Add cross-wiki-specific data
 		$output['count'] = $count;
+		$output['sources'] = $foreignNotifications->getApiEndpoints( $wikis );
+		// Add timestamp information
+		foreach ( $output['sources'] as $wiki => &$data ) {
+			$data['ts'] = $foreignNotifications->getWikiTimestamp( $wiki, $section )->getTimestamp( TS_MW );
+		}
 		return $output;
 	}
 

@@ -63,7 +63,8 @@
 					source: source,
 					foreign: this.isForeign(),
 					title: this.sources[ source ].title,
-					removeReadNotifications: this.removeReadNotifications
+					removeReadNotifications: this.removeReadNotifications,
+					timestamp: this.sources[ source ].ts
 				}
 			);
 			items.push( item );
