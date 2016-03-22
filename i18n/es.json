@@ -40,6 +40,7 @@
 	"echo-pref-email-frequency-weekly": "Resumen semanal de notificaciones",
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Texto sin formato",
+	"echo-pref-cross-wiki-notifications": "Mostrar notificaciones de otras wikis",
 	"echo-pref-new-message-indicator": "Mostrar en la barra de herramientas el indicador de mensajes en mi página de discusión",
 	"echo-pref-beta-feature-cross-wiki-message": "Notificaciones mejoradas",
 	"echo-pref-beta-feature-cross-wiki-description": "Ver y organizar las notificaciones más fácilmente. Incluye las notificaciones entre wikis, que te permite ver los mensajes de otros wikis.",
