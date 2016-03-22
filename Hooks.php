@@ -249,7 +249,8 @@ class EchoHooks {
 	public static function getPreferences( $user, &$preferences ) {
 		global $wgEchoDefaultNotificationTypes, $wgAuth, $wgEchoEnableEmailBatch,
 			$wgEchoNotifiers, $wgEchoNotificationCategories, $wgEchoNotifications,
-			$wgEchoNewMsgAlert, $wgAllowHTMLEmail, $wgEchoUseCrossWikiBetaFeature;
+			$wgEchoNewMsgAlert, $wgAllowHTMLEmail, $wgEchoUseCrossWikiBetaFeature,
+			$wgEchoShowFooterNotice;
 
 		// Show email frequency options
 		$never = wfMessage( 'echo-pref-email-frequency-never' )->plain();
@@ -422,6 +423,12 @@ class EchoHooks {
 		if ( isset( $wgEchoNotifications['edit-user-talk'] ) ) {
 			$preferences['enotifusertalkpages']['type'] = 'hidden';
 			unset( $preferences['enotifusertalkpages']['section'] );
+		}
+
+		if ( $wgEchoShowFooterNotice ) {
+			$preferences['echo-dismiss-feedback-alert'] = array(
+				'type' => 'api',
+			);
 		}
 
 		return true;
@@ -785,6 +792,11 @@ class EchoHooks {
 
 		$seenAlertTime = EchoSeenTime::newFromUser( $user )->getTime( 'alert' );
 		$seenMsgTime = EchoSeenTime::newFromUser( $user )->getTime( 'message' );
+
+		$sk->getOutput()->addJsConfigVars( 'wgEchoInitialNotifCount', array(
+			'alert' => $alertCount,
+			'message' => $msgCount
+		) );
 
 		$sk->getOutput()->addJsConfigVars( 'wgEchoSeenTime', array(
 			'alert' => $seenAlertTime,
@@ -1205,7 +1217,12 @@ class EchoHooks {
 	}
 
 	public static function onResourceLoaderGetConfigVars( &$vars ) {
+	global $wgEchoShowFooterNotice, $wgEchoFooterNoticeURL;
+
 		$vars['wgEchoMaxNotificationCount'] = MWEchoNotifUser::MAX_BADGE_COUNT;
+		$vars['wgEchoShowFooterNotice'] = $wgEchoShowFooterNotice;
+		$vars['wgEchoFooterNoticeURL'] = $wgEchoFooterNoticeURL;
+
 		return true;
 	}
 

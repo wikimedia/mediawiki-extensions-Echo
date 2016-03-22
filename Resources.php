@@ -74,6 +74,7 @@ $wgResourceModules += array(
 			'ooui/mw.echo.ui.BundledNotificationGroupWidget.js',
 			'ooui/mw.echo.ui.ActionMenuPopupWidget.js',
 			'ooui/mw.echo.ui.MenuItemWidget.js',
+			'ooui/mw.echo.ui.FooterNoticeWidget.js',
 		),
 		'styles' => array(
 			'ooui/styles/mw.echo.ui.overlay.less',
@@ -83,6 +84,7 @@ $wgResourceModules += array(
 			'ooui/styles/mw.echo.ui.NotificationGroupItemWidget.less',
 			'ooui/styles/mw.echo.ui.BundledNotificationGroupWidget.less',
 			'ooui/styles/mw.echo.ui.MenuItemWidget.less',
+			'ooui/styles/mw.echo.ui.FooterNoticeWidget.less',
 		),
 		'skinStyles' => array(
 			'monobook' => array(
@@ -124,6 +126,9 @@ $wgResourceModules += array(
 			'echo-notification-message',
 			'echo-notification-loginrequired',
 			'echo-notification-popup-loginrequired',
+			'echo-popup-footer-feedback',
+			'echo-popup-footer-feedback-survey',
+			'echo-popup-footer-feedback-info',
 			'notification-link-text-collapse-all',
 			"notification-link-text-expand-alert-count",
 			"notification-link-text-expand-message-count",
