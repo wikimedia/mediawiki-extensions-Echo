@@ -11,6 +11,7 @@
 	"prefs-emailsettings": "Электронан поштан гӀирс нисбар",
 	"prefs-displaynotifications": "Гуш болу гӀирсаш",
 	"prefs-echosubscriptions": "ХӀокху хиларах лаьцна хаийта",
+	"prefs-echocrosswiki": "Кросс-вики дӀахаийтарш",
 	"prefs-newmessageindicator": "Керлачу хааман индикатор",
 	"echo-pref-send-me": "Баийта соьга:",
 	"echo-pref-send-to": "Хаам баийта тӀе:",
@@ -23,8 +24,10 @@
 	"echo-pref-email-frequency-weekly": "ХӀор кӀиранах хаам",
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Цхьалхе йоза",
+	"echo-pref-cross-wiki-notifications": "Кхечу викиш чура хаамаш гайта",
 	"echo-pref-new-message-indicator": "Сан панелан тӀехь гайта хааман индикатор",
 	"echo-pref-beta-feature-cross-wiki-message": "Дика дина дӀахаийтарш",
+	"echo-pref-beta-feature-cross-wiki-description": "Жим атта хьажар а, дӀахаийтарийн организаци а. Цуьнца ю кросс-вики-дӀахаийтарш, оцо кхечу викиш чура хаамаш гойту.",
 	"echo-learn-more": "Цул совнаха хаа",
 	"echo-log": "Массо тӀекхочу тептар",
 	"echo-new-messages": "Хьуна кхаьчна керла хаам",
@@ -155,6 +158,7 @@
 	"apihelp-echomarkseen-description": "Билгалде хӀокху декъашхочун дӀахаийтарш дешна сана.",
 	"apihelp-echomarkseen-example-1": "Билгалде массо тайпа долу дӀахаийтарш дешна санна",
 	"apihelp-query+notifications-param-prop": "Дехарна ма-дарра.",
+	"apihelp-query+notifications-param-filter": "Юхадирзина дӀахаийтарш литта.",
 	"apihelp-query+notifications-paramvalue-format-text": "Йозанан формат",
 	"apihelp-query+notifications-example-1": "ДӀахаийтарийн могӀам"
 }

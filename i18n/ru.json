@@ -25,7 +25,8 @@
 			"Sealle",
 			"Исмаил Садуев",
 			"Putnik",
-			"Ole Yves"
+			"Ole Yves",
+			"Лилиә"
 		]
 	},
 	"echo-desc": "Система уведомления участников о событиях и сообщениях",
@@ -33,6 +34,7 @@
 	"prefs-emailsettings": "Настройки эл. почты",
 	"prefs-displaynotifications": "Настройки отображения",
 	"prefs-echosubscriptions": "Сообщать мне об этих событиях",
+	"prefs-echocrosswiki": "Кросс-вики белдереүҙәре",
 	"prefs-newmessageindicator": "Индикатор нового сообщения",
 	"echo-pref-send-me": "Присылать мне:",
 	"echo-pref-send-to": "Отправлять в:",
@@ -45,6 +47,7 @@
 	"echo-pref-email-frequency-weekly": "Еженедельная сводка уведомлений",
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Простой текст",
+	"echo-pref-cross-wiki-notifications": "Икенсе викиларҙың белдереүҙәрен күрһәтергә",
 	"echo-pref-new-message-indicator": "Показать в моей панели инструментов индикатор сообщений на странице обсуждения",
 	"echo-pref-beta-feature-cross-wiki-message": "Улучшенные уведомления",
 	"echo-pref-beta-feature-cross-wiki-description": "Более простой просмотр и организации уведомлений. Включает кросс-вики-уведомления, которые позволяют видеть сообщения из других вики.",
@@ -76,6 +79,7 @@
 	"echo-none": "Вы не получали уведомлений.",
 	"echo-more-info": "Подробнее",
 	"echo-feedback": "Обратная связь",
+	"echo-popup-footer-feedback": "Бәйләнеште тәьмин итеү",
 	"echo-quotation-marks": "«$1»",
 	"echo-api-failure": "Не удалось получить уведомления. Пожалуйста, попробуйте ещё раз. (Ошибка $1)",
 	"echo-api-failure-cross-wiki": "В доступе к удаленному домену было отказано.",
