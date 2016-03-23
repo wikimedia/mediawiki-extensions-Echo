@@ -153,7 +153,9 @@ class EchoMentionPresentationModel extends EchoEventPresentationModel {
 	}
 
 	private function onUserTalkpage() {
-		return $this->event->getTitle()->getNamespace() === NS_USER_TALK;
+		return $this->event->getTitle()->getNamespace() === NS_USER_TALK &&
+			$this->event->getTitle()->isTalkPage() &&
+			!$this->event->getTitle()->isSubpage();
 	}
 
 	private function isTalk() {
