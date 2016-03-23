@@ -55,17 +55,6 @@ $wgResourceModules += array(
 		),
 		'targets' => array( 'desktop' ),
 	),
-	// TODO: Delete this module and the file. It's only needed for MobileFrontend
-	// to not crash while we are renaming NotificationsWrapper
-	'ext.echo.ui.mobile' => $echoResourceTemplate + array(
-		'scripts' => array(
-			'ooui/mobile/mw.echo.ui.MobileNotificationsWrapper.js'
-		),
-		'dependencies' => array(
-			'ext.echo.ui',
-		),
-		'targets' => array( 'mobile', 'desktop' ),
-	),
 	'ext.echo.ui' => $echoResourceTemplate + array(
 		'scripts' => array(
 			'ooui/mw.echo.ui.js',
