@@ -7,7 +7,8 @@
 			"Танзиля Кутлугильдина",
 			"Вильданова Гюзель",
 			"Айсар",
-			"Янмурза Баки"
+			"Янмурза Баки",
+			"Lizalizaufa"
 		]
 	},
 	"echo-desc": "Ҡатнашыусыларҙың ваҡиғалар һәм хәбәрҙәр тураһында белдереүҙәр системаһы",
@@ -119,6 +120,17 @@
 	"notification-reverted2": "[[$5|$1]] һеҙҙең [[:$2]] битендә яһаған {{PLURAL:$4|үҙгәртеүҙе}} {{GENDER:$1|кире ҡаҡты}}. $3",
 	"notification-header-reverted": "{{PLURAL:$4|1=Һеҙҙең}} <strong>$3</strong> битендәге төҙәтмә {{GENDER:$2|{{PLURAL:$4|кире ҡағылды}}}}",
 	"notification-emailuser": " Һеҙгә {{GENDER:$1||}} хат [[User:$1|$1]] ебәрҙе.",
+	"notification-header-emailuser": "$1{{GENDER:$2|ебәргән}} һеҙгә электрон почта аша ебәрелгән.",
+	"notification-edit-talk-page-email-subject2": "$1{{GENDER:$1|һулда}}һеҙгә {{SITENAME}} тураһында хәбәр",
+	"notification-edit-talk-page-email-batch-body2": "$1 {{GENDER:$1|һулда}}һеҙҙең менән әңгәмә битендәге хәбәр.",
+	"notification-edit-talk-page-email-batch-body-with-section": "$1 {{GENDER:$1|һулда}} һеҙҙең менән әңгәмәнең \"$2\" битендәге хәбәр.",
+	"notification-page-linked-email-subject": "Һеҙ яһаған биткә «{{SITENAME}}» сайтында һылтанма күренде",
+	"notification-page-linked-email-batch-body": "{{GENDER:$1|ҡатнашыусы}} $1 $3-тән $2-гә {{GENDER:$1|һылтанды}}",
+	"notification-reverted-email-subject2": "«{{SITENAME}}» Сайттағы {{PLURAL:$3|1=һеҙҙең үҙгәртеүҙәрҙе}} {{GENDER:$1|кемдер}} кире алды.",
+	"notification-reverted-email-batch-body2": " {{GENDER:$1|Ҡатнашыусы}} $1 {{PLURAL:$3|1=«$2»-се биттәге һеҙҙең үҙгәртеүҙәре кире алды}}",
+	"notification-mention-email-subject": "«{{SITENAME}}» сайтында {{GENDER:$2|һеҙҙе}} $1 иҫкә алды {{GENDER:$1}}",
+	"notification-mention-email-batch-body": "«$3»-сө бүлектең $4 әңгәмә битендә $1 {{GENDER:$5|һеҙҙе}} {{GENDER:$1|иҫкә алды}}.",
+	"notification-mention-nosection-email-batch-body": " $2 әңгәмә битендә һеҙе $1 {{GENDER:$1||а}} иҫкә алды",
 	"notification-user-rights-email-subject": "Һеҙҙең хоҡуҡтарығыҙ сайтта «{{SITENAME}}» үҙгәртелде",
 	"notification-user-rights-email-batch-body": "Һеҙҙең хоҡуҡтарығыҙ {{GENDER:$1|ҡатнашыусы|ҡатнашыусы ҡатын кеше}} $1. $2. менән үҙгәртелде",
 	"notification-timestamp-ago-seconds": "{{PLURAL:$1|Системалы}}",
@@ -167,9 +179,14 @@
 	"apihelp-query+notifications-description": "Ағымдағы ҡатнашыусыны көткән, белдереүҙәрҙе алырға",
 	"apihelp-query+notifications-param-prop": "Ихтыяж ваҡлыҡтары",
 	"apihelp-query+notifications-param-sections": "Талаптар өсөн белдереү бүлектәр (йәки ниндәйҙер тура килеү 'alert' һәм 'message')",
+	"apihelp-query+notifications-param-groupbysection": "Бүлектәр буйынса алынған һөҙөмтәне төркөмгә айырыу кәрәкме. Алдан күрһәтелһә, һәр бүлек айырым сығарыла.",
+	"apihelp-query+notifications-param-filter": "Кире ҡайтарылған белдереүҙәрҙе һөҙөргә.",
 	"apihelp-query+notifications-paramvalue-format-text": "Текст форматы",
 	"apihelp-query+notifications-paramvalue-format-model": "Эшкәртелмәгән белдереү мәғлүмәттәре",
 	"apihelp-query+notifications-paramvalue-format-flyout": "<span class=\"apihelp-deprecated\">Иҫкергән</span>. Тәүге күрһәткестәргә <kbd>$1format=model</kbd> ҡулланығыҙ",
+	"apihelp-query+notifications-paramvalue-format-html": "<span class=\"apihelp-deprecated\">Иҫкергән</span>. Тәүге күрһәткестәргә <kbd>$1format=model</kbd> ҡулланығыҙ",
 	"apihelp-query+notifications-param-limit": "Кире ҡайтарылған белдереүҙәрҙең иң күп һаны",
+	"apihelp-query+notifications-param-index": "Күрһәтелгән осраҡта, ID белдереүҙәрҙең исемлеге эҙмә-эҙ кире ҡайтарыласаҡ.",
+	"apihelp-query+notifications-param-noforn": "Дөрөҫ, икенсе викиларҙа белдереү мәғлүмәттәрен кире ҡағыу өсөн.",
 	"apihelp-query+notifications-example-1": "Белдерүҙәр исемлеге"
 }

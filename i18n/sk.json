@@ -3,7 +3,8 @@
 		"authors": [
 			"Sudo77(new)",
 			"Teslaton",
-			"Macofe"
+			"Macofe",
+			"Urbanecm"
 		]
 	},
 	"echo-desc": "Notifikačný systém",
@@ -24,6 +25,8 @@
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Obyčajný text",
 	"echo-pref-new-message-indicator": "Zobraziť indikátor diskusných správ v mojom paneli nástrojov",
+	"echo-pref-beta-feature-cross-wiki-message": "Vylepšené upozornenia",
+	"echo-pref-beta-feature-cross-wiki-description": "Prezerajte si a organizujte upozornenia jednoduchšie. Zahŕňa upozornenia naprieč wikiprojektami, čo vám umožní vidieť správy z iných wiki.",
 	"echo-learn-more": "Ďalšie informácie",
 	"echo-new-messages": "Máte nové správy",
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1|správu|správy}} v diskusii",

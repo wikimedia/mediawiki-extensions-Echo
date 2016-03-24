@@ -4,5 +4,7 @@
 			"Srtxg"
 		]
 	},
-	"prefs-echo": "Notifiaedjes"
+	"prefs-echo": "Notifiaedjes",
+	"tooltip-pt-notifications-alert": "Vos abranles",
+	"tooltip-pt-notifications-message": "Vos messaedjes"
 }
