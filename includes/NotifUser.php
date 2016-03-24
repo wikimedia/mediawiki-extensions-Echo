@@ -218,10 +218,10 @@ class MWEchoNotifUser {
 			$eventTypesToLoad = $attributeManager->getUserEnabledEventsbySections( $this->mUser, 'web', array( $section ) );
 		}
 
-		$count = $this->userNotifGateway->getNotificationCount( $dbSource, $eventTypesToLoad );
+		$count = (int) $this->userNotifGateway->getCappedNotificationCount( $dbSource, $eventTypesToLoad, MWEchoNotifUser::MAX_BADGE_COUNT + 1 );
 		$this->cache->set( $memcKey, $count, 86400 );
 
-		return (int)$count;
+		return $count;
 	}
 
 	/**
