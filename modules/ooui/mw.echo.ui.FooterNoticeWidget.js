@@ -47,7 +47,7 @@
 		} );
 
 		infoIcon = new OO.ui.ButtonWidget( {
-			icon: 'info',
+			icon: 'help',
 			framed: false,
 			title: mw.msg( 'echo-popup-footer-feedback-info' ),
 			classes: [ 'mw-echo-ui-footerNoticeWidget-info' ]

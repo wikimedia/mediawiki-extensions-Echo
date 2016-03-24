@@ -1,4 +1,5 @@
 @import '../../echo.variables';
+@import '../../echo.mixins';
 
 .mw-echo-ui-footerNoticeWidget {
 	padding: 0.5em;
@@ -20,5 +21,15 @@
 
 	&-icon {
 		padding-right: 0.5em;
+	}
+
+	&-dismiss,
+	&-info {
+		.mw-echo-ui-mixin-hover-opacity();
+
+		.oo-ui-iconElement-icon {
+			width: 1.3em !important;
+			height: 1.3em !important;
+		}
 	}
 }

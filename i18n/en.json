@@ -85,7 +85,7 @@
 	"echo-none": "You have no notifications.",
 	"echo-more-info": "More info",
 	"echo-feedback": "Feedback",
-	"echo-popup-footer-feedback": "Provide feedback. [$2 $1]",
+	"echo-popup-footer-feedback": "<strong>Provide feedback</strong>. [$2 $1]",
 	"echo-popup-footer-feedback-survey": "Take this quick survey about notifications.",
 	"echo-popup-footer-feedback-info": "This feedback link is designed to help the developers learn more about how people use Notifications so we continue to improve the tool. Clicking the survey link will send you to a third-party website.",
 	"echo-quotation-marks": "\"$1\"",
