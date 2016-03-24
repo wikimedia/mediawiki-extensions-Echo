@@ -40,6 +40,11 @@ class MWEchoNotifUser {
 	 */
 	private $foreignNotifications;
 
+	/**
+	 * @var array
+	 */
+	private $cached;
+
 	// The max notification count shown in badge
 
 	// The max number shown in bundled message, eg, <user> and 99+ others <action>.
@@ -193,19 +198,13 @@ class MWEchoNotifUser {
 	 * @return int
 	 */
 	public function getNotificationCount( $cached = true, $dbSource = DB_SLAVE, $section = EchoAttributeManager::ALL ) {
-		global $wgEchoConfig;
-
 		if ( $this->mUser->isAnon() ) {
 			return 0;
 		}
 
-		$memcKey = wfMemcKey(
-			'echo-notification-count' . ( $section === EchoAttributeManager::ALL ? '' : ( '-' . $section ) ),
-			$this->mUser->getId(),
-			$wgEchoConfig['version']
-		);
+		$memcKey = $this->getMemcKey( 'echo-notification-count' . ( $section === EchoAttributeManager::ALL ? '' : ( '-' . $section ) ) );
 		if ( $cached ) {
-			$data = $this->cache->get( $memcKey );
+			$data = $this->getFromCache( $memcKey );
 			if ( $data !== false && $data !== null ) {
 				return (int)$data;
 			}
@@ -271,21 +270,15 @@ class MWEchoNotifUser {
 	 * @return bool|MWTimestamp Timestamp of last notification, or false if there is none
 	 */
 	public function getLastUnreadNotificationTime( $cached = true, $dbSource = DB_SLAVE, $section = EchoAttributeManager::ALL ) {
-		global $wgEchoConfig;
-
 		if ( $this->mUser->isAnon() ) {
 			return false;
 		}
 
-		$memcKey = wfMemcKey(
-			'echo-notification-timestamp' . ( $section === EchoAttributeManager::ALL ? '' : ( '-' . $section ) ),
-			$this->mUser->getId(),
-			$wgEchoConfig['version']
-		);
+		$memcKey = $this->getMemcKey( 'echo-notification-timestamp' . ( $section === EchoAttributeManager::ALL ? '' : ( '-' . $section ) ) );
 
 		// read from cache, if allowed
 		if ( $cached ) {
-			$timestamp = $this->cache->get( $memcKey );
+			$timestamp = $this->getFromCache( $memcKey );
 			if ( $timestamp !== false ) {
 				return new MWTimestamp( $timestamp );
 			}
@@ -460,6 +453,45 @@ class MWEchoNotifUser {
 		} else {
 			return EchoHooks::EMAIL_FORMAT_PLAIN_TEXT;
 		}
+	}
+
+	protected function getFromCache( $memcKey ) {
+		if ( $this->cached === null ) {
+			$keys = $this->preloadKeys();
+			$this->cached = $this->cache->getMulti( $keys );
+			// also keep track of cache values that couldn't be found (getMulti
+			// omits them...)
+			$this->cached += array_fill_keys( $keys, false );
+		}
+
+		if ( isset( $this->cached[$memcKey] ) ) {
+			return $this->cached[$memcKey];
+		}
+
+		return $this->cache->get( $memcKey );
+	}
+
+	/**
+	 * Array of memcached keys to load at once.
+	 *
+	 * @return array
+	 */
+	protected function preloadKeys() {
+		$keys = array(
+			'echo-notification-timestamp',
+			'echo-notification-timestamp-' . EchoAttributeManager::MESSAGE,
+			'echo-notification-timestamp-' . EchoAttributeManager::ALERT,
+			'echo-notification-count',
+			'echo-notification-count-' . EchoAttributeManager::MESSAGE,
+			'echo-notification-count-' . EchoAttributeManager::ALERT,
+		);
+
+		return array_map( array( $this, 'getMemcKey' ), $keys );
+	}
+
+	protected function getMemcKey( $key ) {
+		global $wgEchoConfig;
+		return wfMemcKey( $key, $this->mUser->getId(), $wgEchoConfig['version'] );
 	}
 
 }
