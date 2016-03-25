@@ -30,7 +30,7 @@
 	 * @param {string} types An array of notification types to fetch: 'alert', 'message', 'all'
 	 * @param {string} [source="local"] The source from which to fetch the notifications
 	 * @param {boolean} [isForced] Force a refresh on the fetch notifications promise
-	 * @return {[type]} Promise that is resolved with all notifications for the
+	 * @return {jQuery.Promise} Promise that is resolved with all notifications for the
 	 *  requested types.
 	 */
 	mw.echo.api.EchoApi.prototype.fetchNotifications = function ( type, source, isForced ) {
@@ -80,8 +80,8 @@
 	/**
 	 * Mark all notifications for a given type as read in the given source.
 	 *
-	 * @param {[type]} source Notifications source
-	 * @param {[type]} type Notifications type
+	 * @param {string} source Symbolic name of notifications source
+	 * @param {string} type Notifications type
 	 * @return {jQuery.Promise} A promise that is resolved when the operation
 	 *  is complete, with the number of unread notifications still remaining
 	 *  for that type in the given source
@@ -126,7 +126,7 @@
 	 *
 	 * @param {string} source Notification source.
 	 * @param {string} type Notification type
-	 * @return {Boolean} The API response for fetching notification has
+	 * @return {boolean} The API response for fetching notification has
 	 *  resolved in an error state, or is rejected.
 	 */
 	mw.echo.api.EchoApi.prototype.isFetchingErrorState = function ( source, type ) {
