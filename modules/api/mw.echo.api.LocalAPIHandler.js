@@ -96,7 +96,11 @@
 
 		return this.api.get( apiData )
 			.then( function ( result ) {
-				return OO.getProp( result.query, 'notifications', normalizedType, 'rawcount' ) || 0;
+				if ( type === 'message' || type === 'alert' ) {
+					return OO.getProp( result.query, 'notifications', normalizedType, 'rawcount' ) || 0;
+				} else {
+					return OO.getProp( result.query, 'notifications', 'rawcount' ) || 0;
+				}
 			} );
 	};
 } )( mediaWiki );

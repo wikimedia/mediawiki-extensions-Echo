@@ -1,5 +1,7 @@
 ( function ( mw, $ ) {
-	var echoApi;
+	var echoApi,
+		mockCounter,
+		noop = function () {};
 
 	QUnit.module( 'ext.echo.dm mw.echo.dm.NotificationsModel' );
 
@@ -29,6 +31,8 @@
 	TestApiHandler.prototype.markItemsRead = function () {
 		return $.Deferred().resolve( 0 );
 	};
+
+	mockCounter = { estimateChange: noop, update: noop };
 
 	// Create an Echo API instance
 	echoApi = new mw.echo.api.EchoApi();
@@ -95,7 +99,7 @@
 
 		cases.forEach( function ( test ) {
 			var r, runCase, runItem,
-				model = new mw.echo.dm.NotificationsModel( echoApi, {
+				model = new mw.echo.dm.NotificationsModel( echoApi, mockCounter, {
 					type: 'alert',
 					source: 'test',
 					limit: 25,
@@ -120,7 +124,7 @@
 	} );
 
 	QUnit.test( 'Deleting notifications', 2, function ( assert ) {
-		var model = new mw.echo.dm.NotificationsModel( echoApi, {
+		var model = new mw.echo.dm.NotificationsModel( echoApi, mockCounter, {
 				type: 'alert',
 				source: 'test',
 				limit: 25,
@@ -184,7 +188,7 @@
 		assert.expect( cases.length );
 
 		for ( i = 0, ilen = cases.length; i < ilen; i++ ) {
-			model = new mw.echo.dm.NotificationsModel( echoApi, {
+			model = new mw.echo.dm.NotificationsModel( echoApi, mockCounter, {
 				type: 'alert',
 				source: 'test',
 				limit: 25,
@@ -230,7 +234,7 @@
 		QUnit.expect( cases.length );
 
 		cases.forEach( function ( test ) {
-			var model = new mw.echo.dm.NotificationsModel( echoApi, {
+			var model = new mw.echo.dm.NotificationsModel( echoApi, mockCounter, {
 					type: 'alert',
 					source: 'test',
 					limit: 25,

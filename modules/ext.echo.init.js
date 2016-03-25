@@ -41,8 +41,12 @@
 
 			// Load the ui
 			mw.loader.using( 'ext.echo.ui.desktop', function () {
-				var messageNotificationsModel, alertNotificationsModel,
-					momentOrigLocale = moment.locale();
+				var messageNotificationsModel,
+					alertNotificationsModel,
+					unreadMessageCounter,
+					unreadAlertCounter,
+					momentOrigLocale = moment.locale(),
+					maxNotificationCount = mw.config.get( 'wgEchoMaxNotificationCount' );
 
 				// Set up new 'short relative time' locale strings for momentjs
 				moment.defineLocale( 'echo-shortRelativeTime', {
@@ -70,13 +74,15 @@
 
 				// Load message button and popup if messages exist
 				if ( $existingMessageLink.length ) {
+					unreadMessageCounter = new mw.echo.dm.UnreadNotificationCounter( echoApi, 'message', maxNotificationCount );
 					messageNotificationsModel = new mw.echo.dm.NotificationsModel(
 						echoApi,
+						unreadMessageCounter,
 						{
 							type: 'message'
 						}
 					);
-					mw.echo.ui.messageWidget = new mw.echo.ui.NotificationBadgeWidget( messageNotificationsModel, {
+					mw.echo.ui.messageWidget = new mw.echo.ui.NotificationBadgeWidget( messageNotificationsModel, unreadMessageCounter, {
 						markReadWhenSeen: false,
 						$overlay: mw.echo.ui.$overlay,
 						numItems: numMessages,
@@ -98,13 +104,15 @@
 					} );
 				}
 				// Load alerts popup and button
+				unreadAlertCounter = new mw.echo.dm.UnreadNotificationCounter( echoApi, 'alert', maxNotificationCount );
 				alertNotificationsModel = new mw.echo.dm.NotificationsModel(
 					echoApi,
+					unreadAlertCounter,
 					{
 						type: 'alert'
 					}
 				);
-				mw.echo.ui.alertWidget = new mw.echo.ui.NotificationBadgeWidget( alertNotificationsModel, {
+				mw.echo.ui.alertWidget = new mw.echo.ui.NotificationBadgeWidget( alertNotificationsModel, unreadAlertCounter, {
 					markReadWhenSeen: true,
 					numItems: numAlerts,
 					hasUnseen: hasUnseenAlerts,

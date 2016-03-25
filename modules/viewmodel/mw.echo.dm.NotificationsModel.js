@@ -7,6 +7,7 @@
 	 *
 	 * @constructor
 	 * @param {mw.echo.api.EchoApi} api Network handler
+	 * @param {mw.echo.dm.UnreadNotificationCounter} unreadCounter Counter of unread notifications
 	 * @param {Object} [config] Configuration object
 	 * @cfg {string} [id] Model id, used to refer to the model specifically.
 	 *  Falls back to the model's unique source
@@ -25,7 +26,7 @@
 	 *  means the model will only contain unread notifications. This is useful for
 	 *  cross-wiki bundled notifications.
 	 */
-	mw.echo.dm.NotificationsModel = function MwEchoDmNotificationsModel( api, config ) {
+	mw.echo.dm.NotificationsModel = function MwEchoDmNotificationsModel( api, unreadCounter, config ) {
 		config = config || {};
 
 		// Mixin constructor
@@ -33,6 +34,8 @@
 
 		// Mixin constructor
 		mw.echo.dm.SortedList.call( this );
+
+		this.unreadCounter = unreadCounter;
 
 		this.type = config.type || 'alert';
 		this.source = config.source || 'local';
@@ -50,16 +53,14 @@
 
 		this.seenTime = mw.config.get( 'wgEchoSeenTime' ) || {};
 
-		// Store references to unseen and unread notifications
+		// Store references to unseen notifications
 		this.unseenNotifications = new mw.echo.dm.NotificationList();
-		this.unreadNotifications = new mw.echo.dm.NotificationList();
 
 		// Events
 		this.aggregate( {
 			seen: 'itemSeen',
 			read: 'itemRead',
-			empty: 'itemGroupEmpty',
-			groupItemRead: 'unreadChange'
+			empty: 'itemGroupEmpty'
 		} );
 
 		this.connect( this, {
@@ -111,13 +112,6 @@
 	 * @param {mw.echo.dm.NotificationItem} items An array of the unseen items
 	 *
 	 * Items' seen status has changed
-	 */
-
-	/**
-	 * @event unreadChange
-	 * @param {mw.echo.dm.NotificationItem} items An array of the unread items
-	 *
-	 * Items' read status has changed
 	 */
 
 	/**
@@ -176,10 +170,17 @@
 	 *
 	 * @param {mw.echo.dm.NotificationItem} item Notification item
 	 * @param {boolean} isRead Notification is read
-	 * @fires unreadChange
 	 */
 	mw.echo.dm.NotificationsModel.prototype.onItemRead = function ( item, isRead ) {
-		var id = item && item.getId();
+		var model = this,
+			id = item && item.getId();
+
+		// The event 'itemRead' has different meanings depending on who fires it.
+		// When fired by NotificationItem, it means: "please call the API to mark me as read"
+		// When fired by NotificationsGroupItem, it means: "I've already called the API to do the work"
+		if ( item instanceof mw.echo.dm.NotificationGroupItem ) {
+			return;
+		}
 
 		// Update unread status and emit events
 		if ( isRead ) {
@@ -187,25 +188,21 @@
 			// because the API takes a single request to mark all notifications
 			// as read, and we don't need to send multiple individual requests.
 			if ( !this.markingAllAsRead ) {
-				this.toggleItemsReadInApi( id, isRead );
+				this.unreadCounter.estimateChange( -1 );
+				this.toggleItemsReadInApi( id, isRead ).then( function () {
+					model.unreadCounter.update();
+				} );
 			}
 			if ( this.removeReadNotifications ) {
 				// Remove this notification from the model
 				this.removeItems( [ item ] );
 			}
-			// Remove the item from the counter after all other operations
-			// finished, since some of the operations check if there are any
-			// unread notifications to begin with.
-			this.unreadNotifications.removeItems( [ item ] );
+
 		} else {
-			this.toggleItemsReadInApi( id, isRead );
-			this.unreadNotifications.addItems( [ item ] );
-		}
-
-		this.emit( 'unreadChange', this.unreadNotifications.getItems() );
-
-		if ( this.unreadNotifications.isEmpty() ) {
-			this.emit( 'allRead' );
+			this.unreadCounter.estimateChange( 1 );
+			this.toggleItemsReadInApi( id, isRead ).then( function () {
+				model.unreadCounter.update();
+			} );
 		}
 
 		if ( !this.countUnreadTalkPageNotifications() ) {
@@ -224,7 +221,6 @@
 		// In this case, the notification is a "cross wiki" notification, which
 		// goes away when it is empty
 		this.removeItems( [ item ] );
-		this.emit( 'unreadChange' );
 	};
 
 	/**
@@ -235,10 +231,12 @@
 	mw.echo.dm.NotificationsModel.prototype.countUnreadTalkPageNotifications = function () {
 		var i, len,
 			talk = 0,
-			items = this.unreadNotifications.getItems();
+			item,
+			items = this.getItems();
 
 		for ( i = 0, len = items.length; i < len; i++ ) {
-			if ( items[ i ].getCategory() === 'edit-user-talk' ) {
+			item = items[ i ];
+			if ( !item.isRead() && item.getCategory() === 'edit-user-talk' ) {
 				talk++;
 			}
 		}
@@ -261,16 +259,7 @@
 	 * @return {number} Number of unseen notifications
 	 */
 	mw.echo.dm.NotificationsModel.prototype.getUnseenCount = function () {
-		return this.unseenNotifications.getNotificationCount();
-	};
-
-	/**
-	 * Get the counter of how many notifications are unread
-	 *
-	 * @return {number} Number of unread notifications
-	 */
-	mw.echo.dm.NotificationsModel.prototype.getUnreadCount = function () {
-		return this.unreadNotifications.getNotificationCount();
+		return this.unseenNotifications.getItemCount();
 	};
 
 	/**
@@ -368,8 +357,9 @@
 	 * @fires empty
 	 */
 	mw.echo.dm.NotificationsModel.prototype.markAllRead = function () {
-		var i, len,
-			items = this.unreadNotifications.getItems(),
+		var model = this,
+			i, len, item,
+			items = this.getItems(),
 			itemIds = [],
 			length = items.length;
 
@@ -393,17 +383,22 @@
 
 		this.markingAllAsRead = true;
 		for ( i = 0, len = items.length; i < len; i++ ) {
+			item = items[ i ];
 			// Skip items that are foreign if we are in automatic 'mark all as read'
-			if ( !items[ i ].isForeign() ) {
-				items[ i ].toggleRead( true );
-				items[ i ].toggleSeen( true );
-				this.unreadNotifications.removeItems( [ items[ i ] ] );
+			if ( !item.isForeign() && !item.isRead() ) {
+				item.toggleRead( true );
+				item.toggleSeen( true );
 				itemIds.push( items[ i ].getId() );
 			}
 		}
 		this.markingAllAsRead = false;
 
-		return this.api.markItemsRead( itemIds, this.getSource(), this.getType() );
+		if ( itemIds ) {
+			this.unreadCounter.estimateChange( -itemIds.length );
+			return this.api.markItemsRead( itemIds, this.getSource(), true ).then( function () {
+				model.unreadCounter.update();
+			} );
+		}
 	};
 
 	/**
@@ -420,7 +415,7 @@
 		var model = this;
 
 		this.autoMarkReadInProcess = true;
-		this.markAllRead( this.getSource(), this.getType() )
+		this.markAllRead()
 			.then( function () {
 				model.autoMarkReadInProcess = false;
 			} );
@@ -435,10 +430,6 @@
 	 */
 	mw.echo.dm.NotificationsModel.prototype.toggleItemsReadInApi = function ( itemIds, isRead ) {
 		itemIds = $.isArray( itemIds ) ? itemIds : [ itemIds ];
-
-		if ( isRead && !this.unreadNotifications.getItemCount() ) {
-			return $.Deferred().resolve( 0 ).promise();
-		}
 
 		return this.api.markItemsRead( itemIds, this.getSource(), isRead );
 	};
@@ -471,6 +462,10 @@
 	 */
 	mw.echo.dm.NotificationsModel.prototype.fetchNotifications = function ( isForced ) {
 		var model = this;
+
+		if ( !this.isForeign() ) {
+			this.unreadCounter.update();
+		}
 
 		// Rebuild the notifications promise either when it is null or when
 		// it exists in a failed state
@@ -526,6 +521,7 @@
 							// Create model
 							notificationModel = new mw.echo.dm.NotificationGroupItem(
 								model.api,
+								model.unreadCounter,
 								sources,
 								id,
 								$.extend( true, {}, newNotifData, {
@@ -576,7 +572,7 @@
 	};
 
 	/**
-	 * Update the unread and unseen tracking lists when we add items
+	 * Update the unseen tracking lists when we add items
 	 *
 	 * @param {mw.echo.dm.NotificationItem[]} items Items to add
 	 */
@@ -584,9 +580,6 @@
 		var i, len;
 
 		for ( i = 0, len = items.length; i < len; i++ ) {
-			if ( !items[ i ].isRead() ) {
-				this.unreadNotifications.addItems( [ items[ i ] ] );
-			}
 			if ( !items[ i ].isSeen() ) {
 				this.unseenNotifications.addItems( [ items[ i ] ] );
 			}
@@ -596,7 +589,7 @@
 	};
 
 	/**
-	 * Update the unread and unseen tracking lists when we remove items
+	 * Update the unseen tracking lists when we remove items
 	 *
 	 * @param {mw.echo.dm.NotificationItem[]} items Items to remove
 	 * @param {number} index Index to add items at
@@ -605,7 +598,6 @@
 		var i, len;
 
 		for ( i = 0, len = items.length; i < len; i++ ) {
-			this.unreadNotifications.removeItems( [ items[ i ] ] );
 			this.unseenNotifications.removeItems( [ items[ i ] ] );
 		}
 
@@ -618,10 +610,9 @@
 	};
 
 	/**
-	 * Update the unread and unseen tracking lists when we clear items
+	 * Update the unseen tracking lists when we clear items
 	 */
 	mw.echo.dm.NotificationsModel.prototype.clearItems = function () {
-		this.unreadNotifications.clearItems();
 		this.unseenNotifications.clearItems();
 
 		// Parent

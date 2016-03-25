@@ -31,12 +31,6 @@
 			}
 		);
 
-		// Events
-		this.model.connect( this, {
-			unreadChange: [ 'emit', 'unreadChange' ],
-			allRead: [ 'emit', 'unreadChange', 0 ]
-		} );
-
 		// Initialize
 		this.$element
 			.append( this.notificationsWidget.$element );
@@ -52,12 +46,6 @@
 	/**
 	 * @event finishLoading
 	 * Notifications have successfully finished being processed and are fully loaded
-	 */
-
-	/**
-	 * @event unreadChange
-	 * @param {number} Number of unread messages
-	 * There was a change in the number of unread notifications
 	 */
 
 	/* Methods */
