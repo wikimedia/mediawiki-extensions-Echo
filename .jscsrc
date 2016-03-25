@@ -10,6 +10,7 @@
 		},
 		"requireParamTypes": true,
 		"checkReturnTypes": true,
+		"checkParamNames": true,
 		"checkTypes": "strictNativeCase",
 		"requireReturnTypes": true,
 		"checkRedundantAccess": true,

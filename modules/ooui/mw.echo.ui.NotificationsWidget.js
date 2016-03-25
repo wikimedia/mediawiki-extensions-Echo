@@ -98,7 +98,7 @@
 	/**
 	 * Respond to model add event
 	 *
-	 * @param {mw.echo.dm.NotificationItem} Added notification item
+	 * @param {mw.echo.dm.NotificationItem} notificationItem Added notification item
 	 * @param {number} index Index to add the item
 	 */
 	mw.echo.ui.NotificationsWidget.prototype.onModelNotificationAdd = function ( notificationItem, index ) {
