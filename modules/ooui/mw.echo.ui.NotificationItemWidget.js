@@ -7,6 +7,7 @@
 	 * @extends OO.ui.OptionWidget
 	 *
 	 * @constructor
+	 * @param {mw.echo.dm.NotificationItem} model Notification item model
 	 * @param {Object} [config] Configuration object
 	 * @cfg {boolean} [markReadWhenSeen=false] This option is marked as read when it is viewed
 	 * @cfg {jQuery} [$overlay] A jQuery element functioning as an overlay
