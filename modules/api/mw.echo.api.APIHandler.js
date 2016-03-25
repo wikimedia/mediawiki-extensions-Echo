@@ -58,8 +58,6 @@
 	 * the cached promise.
 	 *
 	 * @param {string} type Notification type
-	 * @return {jQuery.Promise} A promise that resolves with an object containing the
-	 *  notification items
 	 */
 	mw.echo.api.APIHandler.prototype.createNewFetchNotificationPromise = function ( type ) {
 		var me = this,

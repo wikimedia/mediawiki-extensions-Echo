@@ -412,8 +412,6 @@
 	 * don't want to mark specific notifications as automatically read (like external
 	 * group items)
 	 *
-	 * @return {jQuery.Promise} A promise that resolves when all notifications
-	 * were marked as read.
 	 * @fires empty
 	 */
 	mw.echo.dm.NotificationsModel.prototype.autoMarkAllRead = function () {
