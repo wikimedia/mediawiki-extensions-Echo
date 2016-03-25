@@ -38,7 +38,7 @@
 	 * is enabled
 	 *
 	 * @static
-	 * @property {[type]}
+	 * @property {boolean}
 	 */
 	mw.echo.Logger.static.clickThroughEnabled = OO.getProp(
 		mw.config.get( 'wgEchoConfig' ),
