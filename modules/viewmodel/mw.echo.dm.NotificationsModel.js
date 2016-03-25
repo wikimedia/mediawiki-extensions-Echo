@@ -590,7 +590,6 @@
 	 * Update the unseen tracking lists when we remove items
 	 *
 	 * @param {mw.echo.dm.NotificationItem[]} items Items to remove
-	 * @param {number} index Index to add items at
 	 */
 	mw.echo.dm.NotificationsModel.prototype.removeItems = function ( items ) {
 		var i, len;

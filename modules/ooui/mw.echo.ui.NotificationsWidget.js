@@ -134,8 +134,6 @@
 
 	/**
 	 * Respond to model add event
-	 *
-	 * @param {mw.echo.dm.NotificationItem[]} Removed notification items
 	 */
 	mw.echo.ui.NotificationsWidget.prototype.onModelNotificationClear = function () {
 		var i, len,
