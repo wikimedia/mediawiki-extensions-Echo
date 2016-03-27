@@ -46,6 +46,7 @@
 	"echo-none": "Tu non ha notificationes.",
 	"echo-more-info": "Plus info",
 	"echo-feedback": "Commentario",
+	"echo-popup-footer-feedback": "<strong>Fornir opinion</strong>. [$2 $1]",
 	"echo-notification-markasunread": "Marcar como non legite",
 	"notification-link-text-view-message": "Vider message",
 	"notification-link-text-view-mention": "Vider mention",

@@ -13,7 +13,8 @@
 			"Almondega",
 			"TheEduGobi",
 			"Macofe",
-			"Luk3"
+			"Luk3",
+			"Anderson Costa"
 		]
 	},
 	"echo-desc": "Sistema para notificar usuários sobre eventos e mensagens",
@@ -61,7 +62,7 @@
 	"echo-none": "Você não tem notificações.",
 	"echo-more-info": "Mais informações",
 	"echo-feedback": "Comentários",
-	"echo-popup-footer-feedback": "Fazer comentários. [$2 $1]",
+	"echo-popup-footer-feedback": "<strong>Fazer comentários</strong>. [$2 $1]",
 	"echo-popup-footer-feedback-survey": "Participe nesta pesquisa de avaliação sobre notificações.",
 	"echo-popup-footer-feedback-info": "Esse link de comentário foi projetado para ajudar aos desenvolvedores a aprender mais sobre como as pessoas usam Notificações, para que nós continuemos a melhorar a ferramenta. Clicando no link da pesquisa de avaliação irá enviar você a um site de terceiros.",
 	"echo-api-failure": "Não foi possível recuperar as notificações. Tente novamente. (Erro $1)",
@@ -130,7 +131,7 @@
 	"echo-date-today": "Hoje",
 	"echo-date-yesterday": "Ontem",
 	"echo-load-more-error": "Um erro ocorreu ao carregar mais resultados.",
-	"notification-edit-talk-page-bundle": "$1 e $3 {{PLURAL:$4|outro|outros}} {{GENDER:$1|deixaram}} mensagens em sua [[User talk:$2|página de discussão]].",
+	"notification-edit-talk-page-bundle": "$1 e {{PLURAL:$3|um outro|$3 outros|100=99+ outros}} {{GENDER:$1|deixaram}} mensagens em sua [[User talk:$2|página de discussão]].",
 	"notification-edit-user-talk-email-batch-bundle-body": "$1 e $2 {{PLURAL:$3|outro|outros}} deixaram uma mensagem em sua página de discussão.",
 	"notification-page-linked-email-batch-bundle-body": "Foram criados {{GENDER:$1|links}} à página $2 em $3 e $4 {{PLURAL:$5|outra página|outras páginas}}.",
 	"echo-email-batch-subject-daily": "Você tem {{PLURAL:$2|uma nova notificação|novas notificações}} em {{SITENAME}}",

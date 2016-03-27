@@ -57,7 +57,7 @@
 	"echo-notification-placeholder": "Няма апавяшчэньняў.",
 	"notification-link-text-view-message": "Праглядзець паведамленьне",
 	"notification-link-text-view-mention": "Праглядзець згадваньне",
-	"notification-link-text-view-changes": "Праглядзець зьмены",
+	"notification-link-text-view-changes": "{{GENDER:$1|Праглядзець}} зьмены",
 	"notification-link-text-view-page": "Праглядзець старонку",
 	"notification-link-text-view-edit": "Праглядзець праўку",
 	"notification-edit-talk-page2": "[[User:$1|$1]] {{GENDER:$1|пакінуў|пакінула}} паведамленьне на Вашай [[User talk:$2#$3|старонцы гутарак]].",

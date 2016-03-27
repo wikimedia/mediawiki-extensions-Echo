@@ -70,7 +70,7 @@
 	"notification-link-text-expand-alert-count": "{{PLURAL:$1|$1件のアラート}}を表示",
 	"notification-link-text-expand-message-count": "{{PLURAL:$1|$1件のメッセージ}}を表示",
 	"notification-link-text-expand-all-count": "{{PLURAL:$1|$1件の通知}}を表示",
-	"notification-link-text-collapse-all": "すべて折り畳む",
+	"notification-link-text-collapse-all": "折り畳む",
 	"notification-link-text-view-message": "メッセージを閲覧",
 	"notification-link-text-view-mention": "言及を閲覧",
 	"notification-link-text-view-changes": "差分を{{GENDER:$1|閲覧}}",

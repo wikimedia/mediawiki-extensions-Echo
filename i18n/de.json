@@ -63,7 +63,7 @@
 	"echo-none": "Du hast keine Benachrichtigungen.",
 	"echo-more-info": "Mehr Informationen",
 	"echo-feedback": "Rückmeldung",
-	"echo-popup-footer-feedback": "Rückmeldung geben. [$2 $1]",
+	"echo-popup-footer-feedback": "<strong>Rückmeldung geben</strong>. [$2 $1]",
 	"echo-popup-footer-feedback-survey": "Nimm an dieser schnellen Umfrage zu Benachrichtigungen teil.",
 	"echo-popup-footer-feedback-info": "Dieser Rückmeldungslink wurde gestaltet, um den Entwicklern dabei zu helfen, mehr darüber zu erfahren, wie Menschen Benachrichtigungen verwenden, so dass wir weiterhin das Werkzeug verbessern können. Das Anklicken des Umfragelinks bringt dich auf eine Drittanbieter-Website.",
 	"echo-api-failure": "Benachrichtigungen konnten nicht abgerufen werden. Bitte erneut versuchen. (Fehler $1)",

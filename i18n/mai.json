@@ -5,6 +5,29 @@
 			"बिप्लब आनन्द"
 		]
 	},
-	"tooltip-pt-notifications-alert": "{{GENDER:|अहाँक}} खबरदार",
-	"tooltip-pt-notifications-message": "{{GENDER:|अहाँक}} सन्देश"
+	"prefs-echo": "सूचनासभ",
+	"prefs-emailsettings": "इमेल विकल्प",
+	"prefs-displaynotifications": "प्रदर्शन विकल्पसभ",
+	"prefs-echosubscriptions": "हमरा ई घटनासभक बारेमे सूचित करी",
+	"prefs-echocrosswiki": "क्रस-विकी सूचना",
+	"prefs-newmessageindicator": "नव सन्देशक सङ्केतक",
+	"echo-pref-send-me": "हमरा भेजी:",
+	"echo-pref-send-to": "यतयँ भेजी:",
+	"echo-pref-email-format": "इमेल प्रारूप:",
+	"echo-pref-web": "वेब",
+	"echo-pref-email": "इमेल",
+	"tooltip-pt-notifications-alert": "{{GENDER:|अहाँक}} सूचना",
+	"tooltip-pt-notifications-message": "{{GENDER:|अहाँक}} सन्देश",
+	"notification-new-user": "अहाँक {{SITENAME}} पर स्वागत अछि, $1! हमसभ ख़ुशी छी जे अहाँ यतयँ अएलौ।",
+	"notification-welcome-linktext": "सुस्वागतम्‌!",
+	"notification-header-thank-you-1-edit": "{{GENDER:$2|अहाँ}} अखने अखन {{GENDER:$2|अपन}} पहिल सम्पादन केनए छी; {{GENDER:$2|अहाँक}} धन्यवाद, आ स्वागत अछि!",
+	"echo-notification-alert-text-only": "चेतावनी",
+	"echo-notification-message-text-only": "सन्देशसभ",
+	"echo-overlay-link": "सब सूचनासभ",
+	"echo-overlay-title": "<b>सूचनासभ</b>",
+	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|सूचना|सूचनासभ}}</b>($2 अपठितमे सँ $1 प्रदर्शित कएल जा रहल अछि)",
+	"echo-mark-all-as-read": "सब पढि लेल गएल चिन्हित करी",
+	"echo-date-today": "आई",
+	"echo-date-yesterday": "काल्हि",
+	"echo-load-more-error": "अधिक परिणाम प्राप्त करैत समय एक त्रुटि भेल।"
 }

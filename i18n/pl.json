@@ -16,7 +16,8 @@
 			"Tsca",
 			"Peter Bowman",
 			"The Polish",
-			"Rzuwig"
+			"Rzuwig",
+			"Sethakill"
 		]
 	},
 	"echo-desc": "System powiadomień użytkowników o wydarzeniach i komunikatach",
@@ -77,7 +78,7 @@
 	"notification-link-text-expand-alert-count": "Pokaż {{PLURAL:$1|$1 powiadomienie|$1 powiadomienia|$1 powiadomień}}",
 	"notification-link-text-expand-message-count": "Pokaż {{PLURAL:$1|$1 wiadomość|$1 wiadomości}}",
 	"notification-link-text-expand-all-count": "Pokaż {{PLURAL:$1|$1 powiadomienie|$1 powiadomienia|$1 powiadomień}}",
-	"notification-link-text-collapse-all": "Zwiń wszystkie",
+	"notification-link-text-collapse-all": "Zwiń",
 	"notification-link-text-view-message": "Zobacz wiadomość",
 	"notification-link-text-view-mention": "Zobacz wzmiankę",
 	"notification-link-text-view-changes": "{{GENDER:$1|Zobacz}} zmiany",
@@ -86,11 +87,11 @@
 	"notification-edit-talk-page2": "[[User:$1|$1]] {{GENDER:$1|napisał|napisała}} do ciebie na twojej [[User talk:$2#$3|stronie dyskusji]].",
 	"notification-edit-talk-page-with-section": "[[User:$1|$1]] {{GENDER:$1|napisał|napisała}} do Ciebie na Twojej stronie dyskusji, w wątku „[[User talk:$2#$3|$4]]”.",
 	"notification-header-edit-user-talk": "$1 {{GENDER:$2|zostawił|zostawiła|zostawił(a)}} wiadomość na <strong>{{GENDER:$3|twojej}} stronie dyskusji</strong>.",
-	"notification-header-edit-user-talk-with-section": "$1 {{GENDER:$2|zostawił|zostawiła|zostawił(a)}} wiadomość na '''{{GENDER:$3|twojej}} stronie dyskusji''' w „'''$4'''”.",
+	"notification-header-edit-user-talk-with-section": "$1 {{GENDER:$2|zostawił|zostawiła|zostawił(a)}} wiadomość na <strong>{{GENDER:$3|twojej}} stronie dyskusji</strong> w „<strong>$4</strong>”.",
 	"notification-body-edit-user-talk-with-section": "$1",
 	"notification-page-linked": "W artykule [[:$3]] {{GENDER:$1|umieszczono}} link do artykułu [[:$2]]. [[Special:WhatLinksHere/$2|Pokaż wszystkie linkujące do artykułu $2]].",
 	"notification-header-page-linked": "Utworzono link z <strong>$4</strong> do <strong>$3</strong>.",
-	"notification-bundle-header-page-linked": "Utworzono linki z '''$4''' i $5 {{PLURAL:$6|innej strony|innych stron}} do '''$3'''.",
+	"notification-bundle-header-page-linked": "Utworzono linki z <strong>$4</strong> i {{PLURAL:$5|jednej innej strony|$5 innych stron|100=99+ innych stron}} do <strong>$3</strong>.",
 	"notification-link-text-what-links-here": "Wszystkie linki do tej strony",
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|umieścił|umieściła}} komentarz do „[[$3|$2]]” na stronie dyskusji „$4”",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] {{GENDER:$1|umieścił|umieściła}} komentarz w nowym wątku „$2” na stronie [[$3]]",
