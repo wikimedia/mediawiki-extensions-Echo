@@ -110,7 +110,8 @@
 		if (
 			mw.config.get( 'wgEchoShowFooterNotice' ) &&
 			!mw.user.options.get( 'echo-dismiss-feedback-alert' ) &&
-			initialNotifCount >= 5
+			initialNotifCount >= 2 &&
+			mw.config.get( 'wgUserEditCount', 0 ) >= 100
 		) {
 			notice = new mw.echo.ui.FooterNoticeWidget( {
 				// This is probably not the right way of doing this
