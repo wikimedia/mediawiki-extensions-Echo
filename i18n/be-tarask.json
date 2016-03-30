@@ -100,7 +100,7 @@
 	"echo-date-yesterday": "Учора",
 	"echo-load-more-error": "Узьнікла памылка ў час атрыманьня дадатковых вынікаў.",
 	"notification-edit-talk-page-bundle": "$1 і {{PLURAL:$3|$3 іншы ўдзельнік|$3 іншыя ўдзельнікі|$3 іншых удзельнікаў|100=99+ іншых удзельнікаў}} {{GENDER:$1|пакінулі}} паведамленьні на Вашай [[User talk:$2|старонцы гутарак]].",
-	"notification-edit-user-talk-email-batch-bundle-body": "$1 і $2 {{PLURAL:$3|1=іншы|іншых}} пакінулі паведамленьне на Вашай старонцы гутарак.",
+	"notification-edit-user-talk-email-batch-bundle-body": "$1 і {{PLURAL:$2|$2 іншы|$2 іншыя|$2 іншых|100=99+ іншых}} {{GENDER:$1|пакінулі}} паведамленьне на Вашай старонцы гутарак.",
 	"notification-page-linked-email-batch-bundle-body": "$1 {{GENDER:$1|дадаў|дадала}} спасылку на $2 на старонцы $3 і яшчэ $4 {{PLURAL:$5|старонцы|старонках}}.",
 	"echo-email-batch-subject-daily": "Вы атрымалі {{PLURAL:$2|новую абвестку|новыя абвесткі|новых абвестак}} на {{SITENAME}}",
 	"echo-email-batch-subject-weekly": "На гэтым тыдні Вы атрымалі {{PLURAL:$2|новую абвестку|новыя абвесткі|новых абвестак}} на {{SITENAME}}",

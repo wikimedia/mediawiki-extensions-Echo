@@ -67,7 +67,7 @@
 	"echo-email-body-default": "Դուք ունեք նոր ծանուցումներ «{{SITENAME}}» կայքից:\n\n$1",
 	"echo-email-batch-body-default": "Դուք ունեք նոր ծանուցում։",
 	"echo-notification-alert-text-only": "Ծանուցումներ",
-	"echo-notification-message-text-only": "Հողորդագրություններ",
+	"echo-notification-message-text-only": "Հաղորդագրություններ",
 	"echo-overlay-link": "Բոլոր ծանուցումները",
 	"echo-overlay-title": "<b>Ծանուցումներ</b>",
 	"echo-mark-all-as-read": "Ամենը ընթերցված նշել",
