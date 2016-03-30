@@ -29,11 +29,7 @@ class EchoRevertedPresentationModel extends EchoEventPresentationModel {
 	}
 
 	private function formatSummary( $wikitext ) {
-		$html = Linker::formatLinksInComment( Sanitizer::escapeHtmlAllowEntities( $wikitext ) );
-		return EchoDiscussionParser::getTextSnippet(
-			$html,
-			$this->language
-		);
+		return EchoDiscussionParser::getTextSnippetFromSummary( $wikitext, $this->language );
 	}
 
 	public function getPrimaryLink() {

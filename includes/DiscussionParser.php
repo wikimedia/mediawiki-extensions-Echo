@@ -826,8 +826,7 @@ abstract class EchoDiscussionParser {
 	}
 
 	/**
-	 * This function returns plain text snippet, it also removes html tag,
-	 * template from text content
+	 * Parse wikitext into truncated plain text.
 	 * @param $text string
 	 * @param Language $lang
 	 * @param $length int default 150
@@ -836,6 +835,21 @@ abstract class EchoDiscussionParser {
 	static function getTextSnippet( $text, Language $lang, $length = 150 ) {
 		// Parse wikitext
 		$html = MessageCache::singleton()->parse( $text )->getText();
+		// Remove HTML tags and decode HTML entities
+		$plaintext = trim( html_entity_decode( strip_tags( $html ), ENT_QUOTES ) );
+		return $lang->truncate( $plaintext, $length );
+	}
+
+	/**
+	 * Parse an edit summary into truncated plain text.
+	 * @param $text string
+	 * @param Language $lang
+	 * @param $length int default 150
+	 * @return string
+	 */
+	static function getTextSnippetFromSummary( $text, Language $lang, $length = 150 ) {
+		// Parse wikitext with summary parser
+		$html = Linker::formatLinksInComment( Sanitizer::escapeHtmlAllowEntities( $text ) );
 		// Remove HTML tags and decode HTML entities
 		$plaintext = trim( html_entity_decode( strip_tags( $html ), ENT_QUOTES ) );
 		return $lang->truncate( $plaintext, $length );
