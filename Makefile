@@ -16,7 +16,7 @@ remotes:
 gerrit: remotes
 	@scripts/remotes/gerrit.py --project 'mediawiki/extensions/Echo' --gtscore -1 --ignorepattern 'WIP'
 
-# interactively make sure en.json and qqq.json have all the 
+# interactively make sure en.json and qqq.json have all the
 # same message keys
 message: remotes
 	@python scripts/remotes/message.py
@@ -56,15 +56,11 @@ csscss: gems
 ###
 # Testing
 ###
-test: phpunit qunit
+test: phpunit
 
 # Run the projects phpunit tests
 phpunit:
 	cd ${MW_INSTALL_PATH}/tests/phpunit && ${PHP} phpunit.php --configuration ${MW_INSTALL_PATH}/extensions/Echo/tests/echo.suite.xml --group=Echo
-
-# Run the projects qunit tests
-qunit:
-	@scripts/qunit.sh
 
 ###
 # Update this repository for csscss dependencies
