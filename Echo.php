@@ -304,23 +304,11 @@ $wgEchoNotificationIcons = array(
 	'mention' => array(
 		'path' => "$echoIconPath/mention.svg",
 	),
-	'featured' => array(
-		'path' => "$echoIconPath/Featured.png",
-	),
 	'reviewed' => array(
 		'path' => "$echoIconPath/reviewed.svg",
 	),
-	'tagged' => array(
-		'path' => "$echoIconPath/ReviewedWithTags.png",
-	),
 	'revert' => array(
 		'path' => "$echoIconPath/revert.svg",
-	),
-	'checkmark' => array(
-		'path' => "$echoIconPath/Reviewed.png",
-	),
-	'gratitude' => array(
-		'path' => "$echoIconPath/Gratitude.png",
 	),
 	'user-rights' => array(
 		'path' => "$echoIconPath/user-rights.svg",
