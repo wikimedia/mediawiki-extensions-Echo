@@ -313,6 +313,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 		$output = EchoDataOutputFormatter::formatOutput( $notif, $format, $user, $this->getLanguage() );
 
 		// Add cross-wiki-specific data
+		$output['section'] = $section;
 		$output['count'] = $count;
 		$output['sources'] = $foreignNotifications->getApiEndpoints( $wikis );
 		// Add timestamp information

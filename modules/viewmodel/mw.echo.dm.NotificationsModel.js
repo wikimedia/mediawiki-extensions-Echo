@@ -532,6 +532,7 @@
 									// For bundles that are not foreign (like regular
 									// bundles of notifications) this flag should be false
 									foreign: true,
+									type: notifData.section,
 									count: notifData.count
 								} )
 							);
