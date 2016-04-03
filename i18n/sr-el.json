@@ -107,6 +107,7 @@
 	"notification-mention-nosection-email-batch-body": "$1 Vas je {{GENDER:$1|spomenuo|spomenula}} na stranici za razgovor $2.",
 	"notification-user-rights-email-subject": "Vaša korisnička prava na projektu {{SITENAME}} su promenjena.",
 	"notification-user-rights-email-batch-body": "$1 je {{GENDER:$1|promenio|promenila}} vaša korisnička prava. $2.",
+	"notification-timestamp-ago-minutes": "{{PLURAL:$1|$1 min.}}",
 	"echo-email-subject-default": "Novo obaveštenje na {{SITENAME}}",
 	"echo-email-body-default": "Imate novo obaveštenje na {{SITENAME}}: \n\n$1",
 	"echo-email-batch-body-default": "Imate novo obaveštenje.",

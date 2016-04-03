@@ -118,7 +118,7 @@
 	"notification-user-rights-email-subject": "Ваша корисничка права на пројекту {{SITENAME}} су промењена.",
 	"notification-user-rights-email-batch-body": "$1 је {{GENDER:$1|променио|променила}} ваша корисничка права. $2.",
 	"notification-timestamp-ago-seconds": "{{PLURAL:$1|$1 сек.}}",
-	"notification-timestamp-ago-minutes": "{{PLURAL:$1|$1m мин.}}",
+	"notification-timestamp-ago-minutes": "{{PLURAL:$1|$1 мин.}}",
 	"notification-timestamp-ago-hours": "{{PLURAL:$1|$1 h}}",
 	"notification-timestamp-ago-days": "{{PLURAL:$1|$1 д.}}",
 	"notification-timestamp-ago-months": "{{PLURAL:$1|$1 мес.}}",
