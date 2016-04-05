@@ -70,7 +70,7 @@
 	"echo-api-failure-cross-wiki": "Юйылған доменға инеү тыйылды.",
 	"echo-notification-placeholder": "Белдереү юҡ.",
 	"echo-notification-loginrequired": "Белдереүҙе ҡарау өсөн һеҙ танылырға тейеш.",
-	"echo-notification-popup-loginrequired": "Белдереүҙе ҡарау өсөн, зинһар өсөн, танылығыҙ.",
+	"echo-notification-popup-loginrequired": "Белдереүҙе ҡарау өсөн танылығыҙ.",
 	"echo-notification-markasread": "Уҡылған тип билдәләргә",
 	"echo-notification-markasunread": "Уҡылмағаған тип билдәләргә",
 	"notification-link-text-expand-all": "Барыһын да ҡарарға",
