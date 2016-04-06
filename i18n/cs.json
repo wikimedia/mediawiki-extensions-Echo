@@ -63,7 +63,7 @@
 	"echo-feedback": "Názor",
 	"echo-popup-footer-feedback": "<strong>Poskytnout zpětnou vazbu</strong>. [$2 $1]",
 	"echo-popup-footer-feedback-survey": "Zúčastněte se průzkumu ohledně upozornění.",
-	"echo-popup-footer-feedback-info": "Tento odkaz na zpětnou vazbu má za cíl pomoci vývojářům porozumět, jak se upozornění využívají, a my mohli tento nástroj dále vylepšovat. Kliknutí na odkaz vás dovede na web třetí strany.",
+	"echo-popup-footer-feedback-info": "Tento odkaz na zpětnou vazbu má za cíl pomoci vývojářům porozumět, jak se upozornění využívají, abychom mohli tento nástroj dále vylepšovat. Kliknutí na odkaz vás dovede na web třetí strany.",
 	"echo-quotation-marks": "„$1“",
 	"echo-api-failure": "Nebylo možné načíst oznámení. Prosím, zkuste to znovu. (Chyba $1)",
 	"echo-api-failure-cross-wiki": "Přístup ke vzdálené doméně byl odepřen.",
