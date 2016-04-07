@@ -45,6 +45,7 @@
 
 		this.markingAllAsRead = false;
 		this.autoMarkReadInProcess = false;
+		this.fetchingNotifications = false;
 
 		this.removeReadNotifications = !!config.removeReadNotifications;
 		this.foreign = !!config.foreign;
@@ -484,14 +485,6 @@
 						notifData = data.list[ id ];
 						content = notifData[ '*' ] || {};
 
-						if ( model.getItemById( id ) ) {
-							// Skip if we already have the item
-							// TODO: Instead of skipping, we should consider repopulating
-							// the item, in case there are any changes that would result
-							// in repositioning/resorting in the future.
-							continue;
-						}
-
 						// Collect common data
 						newNotifData = {
 							read: !!notifData.read,
@@ -547,7 +540,16 @@
 						optionItems.push( notificationModel );
 					}
 
-					// Add to the model
+					// Empty current items
+					// HACK: We're turning on a 'fetchingNotifications' flag
+					// so the x-wiki "empty" event is suppressed while
+					// we clear items just to fill them back up.
+					// Otherwise, the x-wiki notification bundle will be
+					// removed from the general list before it is refilled.
+					model.fetchingNotifications = true;
+					model.clearItems();
+					model.fetchingNotifications = false;
+					// Add again to the model
 					model.addItems( optionItems, 0 );
 
 					model.emit( 'done', true, { ids: idArray } );
@@ -602,7 +604,7 @@
 		// Parent
 		mw.echo.dm.SortedList.prototype.removeItems.call( this, items );
 
-		if ( this.isEmpty() ) {
+		if ( this.isEmpty() && !this.fetchingNotifications ) {
 			this.emit( 'empty' );
 		}
 	};
@@ -615,7 +617,10 @@
 
 		// Parent
 		mw.echo.dm.SortedList.prototype.clearItems.call( this );
-		this.emit( 'empty' );
+
+		if ( !this.fetchingNotifications ) {
+			this.emit( 'empty' );
+		}
 	};
 
 	/**
