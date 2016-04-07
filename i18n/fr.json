@@ -33,7 +33,8 @@
 			"Macofe",
 			"Cedric31",
 			"Trizek",
-			"GeekEmad"
+			"GeekEmad",
+			"Mattflaschen"
 		]
 	},
 	"echo-desc": "Système pour avertir les utilisateurs sur les événements et les messages",
@@ -71,7 +72,7 @@
 	"echo-category-title-emailuser": "{{PLURAL:$1|Courriel d’un autre utilisateur|Courriels d’autres utilisateurs}}",
 	"echo-pref-tooltip-edit-user-talk": "Me prévenir quand quelqu’un publie un message ou répond sur ma page de discussion.",
 	"echo-pref-tooltip-article-linked": "Me prévenir quand quelqu’un fait référence à une page que j’ai créée depuis une page d'article.",
-	"echo-pref-tooltip-reverted": "Me prévenir quand quelqu’un annule une modification que j’ai faite, en utilisant l’outil d'annulation ou de révocation",
+	"echo-pref-tooltip-reverted": "Me prévenir quand quelqu’un annule une modification que j’ai faite, en utilisant l’outil d’annulation ou de révocation.",
 	"echo-pref-tooltip-mention": "Me prévenir quand quelqu’un fait référence à ma page utilisateur.",
 	"echo-pref-tooltip-user-rights": "Me notifier quand quelqu’un modifie mes droits utilisateur.",
 	"echo-pref-tooltip-emailuser": "Me notifier quand quelqu’un m’envoie un courriel.",
@@ -86,9 +87,9 @@
 	"echo-none": "Vous n'avez reçu aucune notification.",
 	"echo-more-info": "Plus d’informations",
 	"echo-feedback": "Avis",
-	"echo-popup-footer-feedback": "<strong>Donner un avis</strong>. [$2 $1]",
-	"echo-popup-footer-feedback-survey": "Répondre à ce sondage rapide sur les notifications.",
-	"echo-popup-footer-feedback-info": "Ce lien d’avis est conçu pour aider les développeurs à en savoir plus sur comment les gens utilisent les notifications, afin que nous puissions continuer à améliorer l’outil. Cliquer sur le lien du sondage vous amènera sur le site web d’un tiers.",
+	"echo-popup-footer-feedback": "<strong>Donnez-nous votre avis</strong>. [$2 <bdi>$1</bdi>]",
+	"echo-popup-footer-feedback-survey": "Merci de participer à ce sondage sur les notifications.",
+	"echo-popup-footer-feedback-info": "Ce sondage a pour but d’aider les développeurs à en savoir plus sur la manière dont les contributeurs se servent des notifications, et ce afin d’améliorer cet outil. En cliquant sur le lien, vous serez redirigé vers le site d’un prestataire.",
 	"echo-quotation-marks": "« $1 »",
 	"echo-api-failure": "Impossible d’obtenir les notifications. Veuillez réessayez. (Erreur $1)",
 	"echo-api-failure-cross-wiki": "L'accès au domaine distant a été refusé.",

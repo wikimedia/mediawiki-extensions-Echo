@@ -141,7 +141,7 @@
 	"echo-load-more-error": "Дошло је до грешке при добављању више резултата.",
 	"notification-edit-talk-page-bundle": "$1 и још {{PLURAL:$3|1=један корисник|$3 корисника|100=99+ других корисника}} {{GENDER:$1|оставили}} су поруке на Вашој [[User talk:$2|страници за разговор]].",
 	"notification-bundle-header-edit-user-talk-v2": "{{PLURAL:$1|Једна нова порука|$1 нове поруке|100=99+ нових порука}} на {{GENDER:$3|Вашој}} страници за разговор.",
-	"notification-edit-user-talk-email-batch-bundle-body": "$1 и још $2 {{PLURAL:$3|1=корисник|корисника}} {{GENDER:$1|оставили}} су поруке на Вашој страници за разговор.",
+	"notification-edit-user-talk-email-batch-bundle-body": "$1 и још {{PLURAL:$2|један корисник|$2 корисника|100=99+ корисника}} {{GENDER:$1|оставили}} су поруке на Вашој страници за разговор.",
 	"notification-page-linked-email-batch-bundle-body": "Страница $2 је {{GENDER:$1|повезана}} са $3 и $4 {{PLURAL:$5|друге странице|других страница}}.",
 	"echo-email-batch-subject-daily": "Имате {{PLURAL:$2|ново обавештење|нова обавештења}} на пројекту {{SITENAME}}",
 	"echo-email-batch-subject-weekly": "Имате {{PLURAL:$2|ново обавештење|нова обавештења}} на пројекту {{SITENAME}} ове седмице",
