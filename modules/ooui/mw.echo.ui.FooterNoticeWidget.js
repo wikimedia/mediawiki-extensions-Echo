@@ -11,7 +11,7 @@
 	 * @cfg {string} [url] The URL for the survey
 	 */
 	mw.echo.ui.FooterNoticeWidget = function MwEchoUiFooterNoticeWidget( config ) {
-		var $icon, label, dismissButton, infoIcon,
+		var $icon, label, dismissButton, infoPopup,
 			$row = $( '<div>' )
 				.addClass( 'mw-echo-ui-footerNoticeWidget-row' );
 
@@ -46,12 +46,25 @@
 			classes: [ 'mw-echo-ui-footerNoticeWidget-dismiss' ]
 		} );
 
-		infoIcon = new OO.ui.ButtonWidget( {
-			icon: 'help',
+		infoPopup = new OO.ui.PopupButtonWidget( {
+			classes: [ 'mw-echo-ui-footerNoticeWidget-info' ],
 			framed: false,
-			title: mw.msg( 'echo-popup-footer-feedback-info' ),
-			classes: [ 'mw-echo-ui-footerNoticeWidget-info' ]
+			icon: 'help',
+			popup: {
+				align: 'backwards',
+				$content: $( '<p>' ).text( mw.msg( 'echo-popup-footer-feedback-info' ) ),
+				padded: true,
+				width: 450
+			}
 		} );
+		infoPopup.$element.hover(
+			function () {
+				infoPopup.getPopup().toggle( true );
+			},
+			function () {
+				infoPopup.getPopup().toggle( false );
+			}
+		);
 
 		// Events
 		dismissButton.connect( this, { click: 'onDismissButtonClick' } );
@@ -62,7 +75,7 @@
 				$row
 					.append(
 						label.$element,
-						infoIcon.$element,
+						infoPopup.$element,
 						dismissButton.$element
 					)
 			);
