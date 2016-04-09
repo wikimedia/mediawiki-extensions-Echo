@@ -23,7 +23,7 @@
 		if ( config.iconUrl ) {
 			$icon = $( '<div>' )
 				.addClass( 'mw-echo-ui-footerNoticeWidget-icon' )
-				.append( $( '<img>' ).attr( 'src', config.iconUrl ) );
+				.append( $( '<img>' ).attr( { src: config.iconUrl, width: 30, height: 30 } ) );
 
 			$row.append( $icon );
 		}
