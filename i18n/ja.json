@@ -163,6 +163,7 @@
 	"echo-email-batch-body-intro-weekly": "こんにちは、$1 さん。\nこれが {{SITENAME}} での今週の出来事をあなたのために要約したものです。",
 	"echo-email-batch-link-text-view-all-notifications": "すべての通知を閲覧",
 	"echo-rev-deleted-text-view": "ページのこの版は秘匿されています。",
+	"notification-header-foreign-alert": "{{PLURAL:$5|他のウィキ|$5件のウィキ}}からの通知があります",
 	"apihelp-echomarkread-description": "現在の利用者への通知を既読にする。",
 	"apihelp-echomarkread-param-list": "既読にする通知IDのリスト。",
 	"apihelp-echomarkread-param-unreadlist": "未読にする通知IDのリスト。",

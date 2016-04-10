@@ -172,6 +172,7 @@
 	"echo-rev-deleted-text-view": "הגרסה הזאת של הדף הועלמה.",
 	"notification-header-foreign-alert": "עוד התראות {{PLURAL:$5|מאתר ויקי אחר|מ־$5 אתרי ויקי אחרים}}",
 	"notification-header-foreign-message": "עוד הודעות {{PLURAL:$5|מאתר ויקי אחר|מ־$5 אתרי ויקי אחרים}}",
+	"echo-foreign-wiki-lang": "$1 – $2",
 	"apihelp-echomarkread-description": "סימון שכל ההודעות נקראו עבור המשתמש הנוכחי.",
 	"apihelp-echomarkread-param-list": "רשימת מזהי התראות שצריך לסמן שהן נקראו.",
 	"apihelp-echomarkread-param-unreadlist": "רשימת מזהי הודעה לסימון כהודעות שלא נקראו.",
