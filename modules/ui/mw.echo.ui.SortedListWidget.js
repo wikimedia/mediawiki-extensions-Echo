@@ -1,0 +1,208 @@
+( function ( mw ) {
+	/**
+	 * Sorted list widget. This is a group widget that sorts its items
+	 * according to a given sorting callback.
+	 *
+	 * @class
+	 * @extends OO.ui.Widget
+	 * @mixins OO.SortedEmitterList
+	 *
+	 * @constructor
+	 * @param {Function} sortingCallback Callback that compares two items.
+	 * @param {Object} [config] Configuration options
+	 * @cfg {jQuery} [$group] The container element created by the class. If this configuration
+	 *  is omitted, the group element will use a generated `<div>`.
+	 * @cfg {jQuery} [$overlay] A jQuery element functioning as an overlay
+	 *  for popups.
+	 * @cfg {number} [timestamp=0] A fallback timestamp for the list, usually representing
+	 *  the timestamp of the latest item.
+	 */
+	mw.echo.ui.SortedListWidget = function MwEchoUiSortedListWidget( sortingCallback, config ) {
+		config = config || {};
+
+		// Parent constructor
+		mw.echo.ui.SortedListWidget.parent.call( this, config );
+		// Mixin constructor
+		OO.SortedEmitterList.call( this, sortingCallback );
+
+		// Properties
+		this.$group = null;
+		this.$overlay = config.$overlay;
+		this.timestamp = config.timestamp || 0;
+
+		// Initialization
+		this.setGroupElement( config.$group || this.$element );
+
+		this.$element
+			.addClass( 'mw-echo-ui-sortedListWidget' );
+	};
+
+	/* Initialization */
+
+	OO.inheritClass( mw.echo.ui.SortedListWidget, OO.ui.Widget );
+	OO.mixinClass( mw.echo.ui.SortedListWidget, OO.SortedEmitterList );
+
+	/* Methods */
+
+	/**
+	 * Set the group element.
+	 *
+	 * If an element is already set, items will be moved to the new element.
+	 *
+	 * @param {jQuery} $group Element to use as group
+	 */
+	mw.echo.ui.SortedListWidget.prototype.setGroupElement = function ( $group ) {
+		var i, len;
+
+		this.$group = $group;
+		for ( i = 0, len = this.items.length; i < len; i++ ) {
+			this.$group.append( this.items[ i ].$element );
+		}
+	};
+
+	/**
+	 * Get an item by its id.
+	 *
+	 * @param {number} id Item id to search for
+	 * @return {OO.ui.Element|null} Item with equivalent data, `null` if none exists
+	 */
+	mw.echo.ui.SortedListWidget.prototype.getItemFromId = function ( id ) {
+		var i, len, item,
+			hash = OO.getHash( id );
+
+		for ( i = 0, len = this.items.length; i < len; i++ ) {
+			item = this.items[ i ];
+			if ( hash === OO.getHash( item.getId() ) ) {
+				return item;
+			}
+		}
+
+		return null;
+	};
+
+	/**
+	 * Remove items.
+	 *
+	 * @param {OO.EventEmitter[]} items Items to remove
+	 * @chainable
+	 * @fires remove
+	 */
+	mw.echo.ui.SortedListWidget.prototype.removeItems = function ( items ) {
+		var i, item, index;
+
+		if ( !Array.isArray( items ) ) {
+			items = [ items ];
+		}
+
+		if ( items.length > 0 ) {
+			// Remove specific items
+			for ( i = 0; i < items.length; i++ ) {
+				item = items[ i ];
+				index = this.items.indexOf( item );
+				if ( index !== -1 ) {
+					item.setElementGroup( null );
+					item.$element.detach();
+				}
+			}
+		}
+
+		return OO.SortedEmitterList.prototype.removeItems.call( this, items );
+	};
+
+	/**
+	 * Utility method to insert an item into the list, and
+	 * connect it to aggregate events.
+	 *
+	 * Don't call this directly unless you know what you're doing.
+	 * Use #addItems instead.
+	 *
+	 * @private
+	 * @param {OO.EventEmitter} item Items to add
+	 * @param {number} index Index to add items at
+	 * @return {number} The index the item was added at
+	 */
+	mw.echo.ui.SortedListWidget.prototype.insertItem = function ( item, index ) {
+		// Call parent and get the normalized index
+		index = OO.SortedEmitterList.prototype.insertItem.call( this, item, index );
+
+		item.setElementGroup( this );
+
+		this.attachItemToDom( item, index );
+
+		return index;
+	};
+
+	/**
+	 * Move an item from its current position to a new index.
+	 *
+	 * The item is expected to exist in the list. If it doesn't,
+	 * the method will throw an exception.
+	 *
+	 * @private
+	 * @param {OO.EventEmitter} item Items to add
+	 * @param {number} index Index to move the item to
+	 * @return {number} The index the item was moved to
+	 * @throws {Error} If item is not in the list
+	 */
+	mw.echo.ui.SortedListWidget.prototype.moveItem = function ( item, index ) {
+		// Call parent and get the normalized index
+		index = OO.SortedEmitterList.prototype.moveItem.call( this, item, index );
+
+		this.attachItemToDom( item, index );
+
+		return index;
+	};
+
+	/**
+	 * Attach the item to the Dom in its intended position, based
+	 * on the given index.
+	 *
+	 * @param {OO.EventEmitter} item Item
+	 * @param {number} index Index to insert the item into
+	 */
+	mw.echo.ui.SortedListWidget.prototype.attachItemToDom = function ( item, index ) {
+		if ( index === undefined || index < 0 || index >= this.items.length - 1 ) {
+			this.$group.append( item.$element.get( 0 ) );
+		} else if ( index === 0 ) {
+			this.$group.prepend( item.$element.get( 0 ) );
+		} else {
+			this.items[ index + 1 ].$element.before( item.$element.get( 0 ) );
+		}
+	};
+
+	/**
+	 * Clear all items
+	 *
+	 * @chainable
+	 * @fires clear
+	 */
+	mw.echo.ui.SortedListWidget.prototype.clearItems = function () {
+		var i, len, item;
+
+		for ( i = 0, len = this.items.length; i < len; i++ ) {
+			item = this.items[ i ];
+			item.setElementGroup( null );
+			item.$element.detach();
+		}
+
+		// Mixin method
+		return OO.SortedEmitterList.prototype.clearItems.call( this );
+	};
+
+	/**
+	 * Get the timestamp of the list by taking the latest notification
+	 * timestamp.
+	 *
+	 * @return {string} Latest timestamp
+	 */
+	mw.echo.ui.SortedListWidget.prototype.getTimestamp = function () {
+		var items = this.getItems();
+
+		return (
+			items.length > 0 ?
+				items[ 0 ].getTimestamp() :
+				this.timestamp
+		);
+	};
+
+} )( mediaWiki );

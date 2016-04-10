@@ -7,10 +7,11 @@
 	 * @mixins OO.ui.mixin.PendingElement
 	 *
 	 * @constructor
-	 * @param {mw.echo.dm.NotificationsModel} model Notifications view model
+	 * @param {mw.echo.Controller} controller Echo controller
+	 * @param {mw.echo.dm.ModelManager} model Notifications model manager
 	 * @param {Object} [config] Configuration object
 	 */
-	mw.echo.ui.NotificationsWrapper = function MwEchoUiNotificationsWrapper( model, config ) {
+	mw.echo.ui.NotificationsWrapper = function MwEchoUiNotificationsWrapper( controller, model, config ) {
 		config = config || {};
 
 		// Parent constructor
@@ -19,13 +20,16 @@
 		// Mixin constructor
 		OO.ui.mixin.PendingElement.call( this, config );
 
+		this.controller = controller;
 		this.model = model;
 
-		this.notificationsWidget = new mw.echo.ui.NotificationsWidget(
+		this.notificationsWidget = new mw.echo.ui.NotificationsListWidget(
+			this.controller,
 			this.model,
 			{
 				markReadWhenSeen: false,
 				$overlay: config.$overlay,
+				types: this.controller.getTypes(),
 				label: mw.msg( 'notifications' ),
 				icon: 'bell'
 			}
@@ -60,7 +64,7 @@
 		var widget = this;
 
 		this.pushPending();
-		return this.model.fetchNotifications( true )
+		return this.controller.fetchLocalNotifications( true )
 			.always( function () {
 				widget.popPending();
 				widget.emit( 'finishLoading' );

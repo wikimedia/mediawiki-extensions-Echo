@@ -27,8 +27,8 @@
 
 		// Respond to click on the notification button and load the UI on demand
 		$( '.mw-echo-notification-badge-nojs' ).click( function ( e ) {
-			var myType = $( this ).parent().prop( 'id' ) === 'pt-notifications-alert' ? 'alert' : 'message',
-				time = mw.now();
+			var time = mw.now(),
+				myType = $( this ).parent().prop( 'id' ) === 'pt-notifications-alert' ? 'alert' : 'message';
 
 			if ( e.which !== 1 ) {
 				return;
@@ -47,67 +47,80 @@
 
 			// Load the ui
 			mw.loader.using( 'ext.echo.ui.desktop', function () {
-				var messageNotificationsModel,
-					alertNotificationsModel,
+				var messageController,
+					alertController,
+					messageModelManager,
+					alertModelManager,
 					unreadMessageCounter,
 					unreadAlertCounter,
 					maxNotificationCount = mw.config.get( 'wgEchoMaxNotificationCount' );
 
 				// Overlay
 				$( 'body' ).append( mw.echo.ui.$overlay );
-
 				// Load message button and popup if messages exist
 				if ( $existingMessageLink.length ) {
 					unreadMessageCounter = new mw.echo.dm.UnreadNotificationCounter( echoApi, 'message', maxNotificationCount );
-					messageNotificationsModel = new mw.echo.dm.NotificationsModel(
+					messageModelManager = new mw.echo.dm.ModelManager( unreadMessageCounter, { type: 'message' } );
+					messageController = new mw.echo.Controller(
 						echoApi,
-						unreadMessageCounter,
+						messageModelManager,
 						{
-							type: 'message'
+							type: [ 'message' ]
 						}
 					);
-					mw.echo.ui.messageWidget = new mw.echo.ui.NotificationBadgeWidget( messageNotificationsModel, unreadMessageCounter, {
-						markReadWhenSeen: false,
-						$overlay: mw.echo.ui.$overlay,
-						numItems: numMessages,
-						hasUnseen: hasUnseenMessages,
-						badgeIcon: 'speechBubbles',
-						links: links,
-						href: $existingMessageLink.attr( 'href' )
-					} );
+
+					mw.echo.ui.messageWidget = new mw.echo.ui.NotificationBadgeWidget(
+						messageController,
+						messageModelManager,
+						{
+							markReadWhenSeen: false,
+							$overlay: mw.echo.ui.$overlay,
+							numItems: numMessages,
+							hasUnseen: hasUnseenMessages,
+							badgeIcon: 'speechBubbles',
+							links: links,
+							href: $existingMessageLink.attr( 'href' )
+						}
+					);
 					// HACK: avoid late debouncedUpdateThemeClasses
 					mw.echo.ui.messageWidget.badgeButton.debouncedUpdateThemeClasses();
 					// Replace the link button with the ooui button
 					$existingMessageLink.parent().replaceWith( mw.echo.ui.messageWidget.$element );
 
-					mw.echo.ui.messageWidget.getModel().on( 'allTalkRead', function () {
+					messageModelManager.on( 'allTalkRead', function () {
 						// If there was a talk page notification, get rid of it
 						$( '#pt-mytalk a' )
 							.removeClass( 'mw-echo-alert' )
 							.text( mw.msg( 'mytalk' ) );
 					} );
 				}
-				// Load alerts popup and button
 				unreadAlertCounter = new mw.echo.dm.UnreadNotificationCounter( echoApi, 'alert', maxNotificationCount );
-				alertNotificationsModel = new mw.echo.dm.NotificationsModel(
+				alertModelManager = new mw.echo.dm.ModelManager( unreadAlertCounter, { type: 'alert' } );
+				alertController = new mw.echo.Controller(
 					echoApi,
-					unreadAlertCounter,
+					alertModelManager,
 					{
-						type: 'alert'
+						type: [ 'alert' ]
 					}
 				);
-				mw.echo.ui.alertWidget = new mw.echo.ui.NotificationBadgeWidget( alertNotificationsModel, unreadAlertCounter, {
-					markReadWhenSeen: true,
-					numItems: numAlerts,
-					hasUnseen: hasUnseenAlerts,
-					badgeIcon: {
-						seen: 'bell',
-						unseen: 'bellOn'
-					},
-					links: links,
-					$overlay: mw.echo.ui.$overlay,
-					href: $existingAlertLink.attr( 'href' )
-				} );
+
+				mw.echo.ui.alertWidget = new mw.echo.ui.NotificationBadgeWidget(
+					alertController,
+					alertModelManager,
+					{
+						markReadWhenSeen: true,
+						numItems: numAlerts,
+						hasUnseen: hasUnseenAlerts,
+						badgeIcon: {
+							seen: 'bell',
+							unseen: 'bellOn'
+						},
+						links: links,
+						$overlay: mw.echo.ui.$overlay,
+						href: $existingAlertLink.attr( 'href' )
+					}
+				);
+
 				// HACK: avoid late debouncedUpdateThemeClasses
 				mw.echo.ui.alertWidget.badgeButton.debouncedUpdateThemeClasses();
 				// Replace the link button with the ooui button

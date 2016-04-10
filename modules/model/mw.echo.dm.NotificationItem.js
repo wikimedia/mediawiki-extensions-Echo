@@ -1,9 +1,10 @@
 ( function ( mw, $ ) {
 	/**
-	 * Echo notification NotificationItem model
+	 * Notification item data structure.
 	 *
 	 * @class
 	 * @mixins OO.EventEmitter
+	 * @mixins OO.SortedEmitterList
 	 *
 	 * @constructor
 	 * @param {number} id Notification id,
@@ -16,7 +17,7 @@
 	 * @cfg {string} [content.body=''] The body text of the notification
 	 * @cfg {string} [category] The category of this notification. The category identifies
 	 *  where the notification originates from.
-	 * @cfg {string} [type] The notification type 'message' or 'alert'
+	 * @cfg {string} [type='message'] The notification type 'message' or 'alert'
 	 * @cfg {boolean} [read=false] State the read state of the option
 	 * @cfg {boolean} [seen=false] State the seen state of the option
 	 * @cfg {string} [timestamp] Notification timestamp in Mediawiki timestamp format
@@ -34,7 +35,7 @@
 	 *  		"url": "..." // The url for the secondary link
 	 *  	}
 	 */
-	mw.echo.dm.NotificationItem = function mwEchoDmNotificationItem( id, config ) {
+	mw.echo.dm.NotificationItem = function MwEchoDmNotificationItem( id, config ) {
 		var date = new Date(),
 			normalizeNumber = function ( number ) {
 				return ( number < 10 ? '0' : '' ) + String( number );
@@ -46,15 +47,16 @@
 				normalizeNumber( date.getUTCMinutes() ) +
 				normalizeNumber( date.getUTCSeconds() );
 
+		config = config || {};
+
 		// Mixin constructor
 		OO.EventEmitter.call( this );
 
-		this.id = id !== undefined ? id : null;
-
+		// Properties
+		this.id = id;
 		this.content = $.extend( { header: '', body: '' }, config.content );
-
 		this.category = config.category || '';
-		this.type = config.type || 'alert';
+		this.type = config.type || 'message';
 		this.foreign = !!config.foreign;
 		this.source = config.source || '';
 		this.iconType = config.iconType;
@@ -68,24 +70,17 @@
 		this.setSecondaryUrls( config.secondaryUrls );
 	};
 
-	/* Inheritance */
+	/* Initialization */
 
+	OO.initClass( mw.echo.dm.NotificationItem );
 	OO.mixinClass( mw.echo.dm.NotificationItem, OO.EventEmitter );
 
 	/* Events */
 
 	/**
-	 * @event seen
-	 * @param {boolean} [seen] Notification is seen
+	 * @event update
 	 *
-	 * Seen status of the notification has changed
-	 */
-
-	/**
-	 * @event read
-	 * @param {boolean} [read] Notification is read
-	 *
-	 * Read status of the notification has changed
+	 * Item details have changed or were updated
 	 */
 
 	/* Methods */
@@ -125,6 +120,7 @@
 	mw.echo.dm.NotificationItem.prototype.getCategory = function () {
 		return this.category;
 	};
+
 	/**
 	 * Get NotificationItem type
 	 *
@@ -162,16 +158,26 @@
 	};
 
 	/**
+	 * Set this notification item as foreign
+	 *
+	 * @param {boolean} isForeign Notification item is foreign
+	 */
+	mw.echo.dm.NotificationItem.prototype.setForeign = function ( isForeign ) {
+		this.foreign = isForeign;
+	};
+
+	/**
 	 * Toggle the read state of the widget
 	 *
 	 * @param {boolean} [read] The current read state. If not given, the state will
 	 *  become the opposite of its current state.
+	 * @fires update
 	 */
 	mw.echo.dm.NotificationItem.prototype.toggleRead = function ( read ) {
 		read = read !== undefined ? read : !this.read;
 		if ( this.read !== read ) {
 			this.read = read;
-			this.emit( 'read', this.read );
+			this.emit( 'update' );
 			this.emit( 'sortChange' );
 		}
 	};
@@ -181,23 +187,14 @@
 	 *
 	 * @param {boolean} [seen] The current seen state. If not given, the state will
 	 *  become the opposite of its current state.
+	 * @fires update
 	 */
 	mw.echo.dm.NotificationItem.prototype.toggleSeen = function ( seen ) {
 		seen = seen !== undefined ? seen : !this.seen;
 		if ( this.seen !== seen ) {
 			this.seen = seen;
-			this.emit( 'seen', this.seen );
+			this.emit( 'update' );
 		}
-	};
-
-	/**
-	 * Set the notification timestamp
-	 *
-	 * @param {number} timestamp Notification timestamp in Mediawiki timestamp format
-	 */
-	mw.echo.dm.NotificationItem.prototype.setTimestamp = function ( timestamp ) {
-		this.timestamp = Number( timestamp );
-		this.emit( 'sortChange' );
 	};
 
 	/**
@@ -272,13 +269,4 @@
 	mw.echo.dm.NotificationItem.prototype.getSource = function () {
 		return this.source;
 	};
-
-	/**
-	 * Get the number of notifications represented by this object
-	 *
-	 * @return {number} Notification count
-	 */
-	mw.echo.dm.NotificationItem.prototype.getCount = function () {
-		return 1;
-	};
-}( mediaWiki, jQuery ) );
+} )( mediaWiki, jQuery );

@@ -6,9 +6,12 @@
 	 * @extends OO.ui.ButtonWidget
 	 *
 	 * @constructor
-	 * @param {mw.echo.dm.NotificationsModel} model Notifications view model
-	 * @param {mw.echo.dm.UnreadNotificationCounter} unreadCounter Counter of unread notifications
- 	 * @param {Object} [config] Configuration object
+	 * @param {mw.echo.Controller} controller Echo notifications controller
+	 * @param {mw.echo.dm.ModelManager} manager Model manager
+	 * @param {Object} [config] Configuration object
+	 * @cfg {string|string[]} [type='message'] The type or array of types of
+	 *  notifications that are in this model. They can be 'alert', 'message' or
+	 *  an array of both. Defaults to 'message'
 	 * @cfg {number} [numItems=0] How many items are in the button display
 	 * @cfg {boolean} [hasUnseen=false] Whether there are unseen items
 	 * @cfg {boolean} [markReadWhenSeen=false] Mark all notifications as read on open
@@ -25,7 +28,7 @@
 	 * @cfg {jQuery} [$overlay] A jQuery element functioning as an overlay
 	 *  for popups.
 	 */
-	mw.echo.ui.NotificationBadgeWidget = function MwEchoUiNotificationBadgeButtonPopupWidget( model, unreadCounter, config ) {
+	mw.echo.ui.NotificationBadgeWidget = function MwEchoUiNotificationBadgeButtonPopupWidget( controller, manager, config ) {
 		var buttonFlags, allNotificationsButton, preferencesButton, footerButtonGroupWidget, $footer,
 			initialNotifCount, notice;
 
@@ -44,10 +47,12 @@
 			.addClass( 'mw-echo-ui-NotificationBadgeWidget-overlay-menu' );
 		this.$overlay.append( this.$menuOverlay );
 
-		// View model
-		this.notificationsModel = model;
-		this.unreadCounter = unreadCounter;
-		this.type = this.notificationsModel.getType();
+		// Controller
+		this.controller = controller;
+		this.manager = manager;
+
+		// Properties
+		this.types = this.manager.getTypes();
 
 		this.maxNotificationCount = mw.config.get( 'wgEchoMaxNotificationCount' );
 		this.numItems = config.numItems || 0;
@@ -67,15 +72,16 @@
 			// The following messages can be used here:
 			// tooltip-pt-notifications-alert
 			// tooltip-pt-notifications-message
-			title: mw.msg( 'tooltip-pt-notifications-' + this.type ),
+			title: mw.msg( 'tooltip-pt-notifications-' + this.controller.getTypeString() ),
 			href: config.href
 		} );
 
-		// Notifications widget
-		this.notificationsWidget = new mw.echo.ui.NotificationsWidget(
-			this.notificationsModel,
+		// Notifications list widget
+		this.notificationsWidget = new mw.echo.ui.NotificationsListWidget(
+			this.controller,
+			this.manager,
 			{
-				type: this.type,
+				type: this.types,
 				$overlay: this.$menuOverlay,
 				markReadWhenSeen: this.markReadWhenSeen
 			}
@@ -106,7 +112,10 @@
 
 		// Footer notice
 		initialNotifCount = mw.config.get( 'wgEchoInitialNotifCount' );
-		initialNotifCount = this.type === 'all' ? ( initialNotifCount.alert + initialNotifCount.message ) : initialNotifCount[ this.type ];
+		initialNotifCount = this.types === 'all' ?
+			( initialNotifCount.alert + initialNotifCount.message ) :
+			initialNotifCount[ this.type ];
+
 		if (
 			mw.config.get( 'wgEchoShowBetaInvitation' ) &&
 			!mw.user.options.get( 'echo-dismiss-beta-invitation' )
@@ -114,7 +123,7 @@
 			notice = new mw.echo.ui.FooterNoticeWidget( {
 				// This is probably not the right way of doing this
 				iconUrl: mw.config.get( 'wgExtensionAssetsPath' ) + '/Echo/modules/icons/feedback.svg',
-				url: mw.util.getUrl( 'Special:Preferences' ) + '#mw-prefsection-betafeatures'
+				url: mw.util.getUrl( 'Special:Preferences' ) + '#mw-prefsection-beta-features'
 			} );
 			// Event
 			notice.connect( this, { dismiss: 'onFooterNoticeDismiss' } );
@@ -134,7 +143,7 @@
 			// The following messages can be used here:
 			// echo-notification-alert-text-only
 			// echo-notification-message-text-only
-			label: mw.msg( 'echo-notification-' + this.type + '-text-only' ),
+			label: mw.msg( 'echo-notification-' + this.controller.getTypeString() + '-text-only' ),
 			classes: [ 'mw-echo-ui-notificationBadgeButtonPopupWidget-popup' ]
 		} );
 		// HACK: Add an icon to the popup head label
@@ -159,24 +168,24 @@
 
 		// Events
 		this.markAllReadButton.connect( this, { click: 'onMarkAllReadButtonClick' } );
-		this.notificationsModel.connect( this, {
-			updateSeenTime: 'updateBadge',
-			unseenChange: 'updateBadge'
+		this.manager.connect( this, {
+			update: 'updateBadge',
+			seen: [ 'updateBadgeSeenState', false ]
 		} );
-		this.unreadCounter.connect( this, { countChange: 'updateBadge' } );
+		this.manager.getUnreadCounter().connect( this, { countChange: 'updateBadge' } );
 		this.popup.connect( this, { toggle: 'onPopupToggle' } );
 		this.badgeButton.connect( this, {
 			click: 'onBadgeButtonClick'
 		} );
 
 		this.$element
-			.prop( 'id', 'pt-notifications-' + this.type )
+			.prop( 'id', 'pt-notifications-' + this.controller.getTypeString() )
 			// The following classes can be used here:
 			// mw-echo-ui-notificationBadgeButtonPopupWidget-alert
 			// mw-echo-ui-notificationBadgeButtonPopupWidget-message
 			.addClass(
 				'mw-echo-ui-notificationBadgeButtonPopupWidget ' +
-				'mw-echo-ui-notificationBadgeButtonPopupWidget-' + this.type
+				'mw-echo-ui-notificationBadgeButtonPopupWidget-' + this.controller.getTypeString()
 			)
 			.append(
 				this.badgeButton.$element,
@@ -221,11 +230,6 @@
 	 * Respond to badge button click
 	 */
 	mw.echo.ui.NotificationBadgeWidget.prototype.onBadgeButtonClick = function () {
-		if ( !this.popup.isVisible() ) {
-			// Force a new API request for notifications
-			this.notificationsModel.fetchNotifications( true );
-		}
-
 		this.popup.toggle();
 	};
 
@@ -260,43 +264,44 @@
 	};
 
 	/**
+	 * Update the badge style to match whether it contains unseen notifications.
+	 *
+	 * @param {boolean} hasUnseen There are unseen notifications
+	 */
+	mw.echo.ui.NotificationBadgeWidget.prototype.updateBadgeSeenState = function ( hasUnseen ) {
+		this.badgeButton.setFlags( { unseen: !!hasUnseen } );
+		this.updateIcon( !!hasUnseen );
+	};
+
+	/**
 	 * Update the badge state and label based on changes to the model
 	 */
 	mw.echo.ui.NotificationBadgeWidget.prototype.updateBadge = function () {
-		var unseenCount = this.notificationsModel.getUnseenCount(),
-			unreadCount = this.unreadCounter.getCount(),
-			nonBundledUnreadCount = this.notificationsModel.getNonbundledUnreadCount(),
-			cappedUnreadCount,
-			badgeLabel;
+		var unreadCount, cappedUnreadCount, badgeLabel, localUnread;
 
-		// Update numbers and seen/unseen state
-		// If the popup is open, only allow a "demotion" of the badge
-		// to grey; ignore change of color to 'unseen'
-		if ( this.popup.isVisible() ) {
-			if ( !unseenCount ) {
-				this.badgeButton.setFlags( { unseen: false } );
-				this.updateIcon( false );
-			}
-		} else {
-			this.badgeButton.setFlags( { unseen: !!unseenCount } );
-			this.updateIcon( !!unseenCount );
-		}
-
-		// Update badge count
+		unreadCount = this.manager.getUnreadCounter().getCount();
 		cappedUnreadCount = this.getCappedNotificationCount( unreadCount );
 		cappedUnreadCount = mw.language.convertNumber( cappedUnreadCount );
 		badgeLabel = mw.message( 'echo-badge-count', cappedUnreadCount ).text();
 		this.badgeButton.setLabel( badgeLabel );
 
+		// Update seen state only if the counter is 0
+		// so we don't run into inconsistencies and have an unseen state
+		// for the badge with 0 unread notifications
+		if ( unreadCount === 0 ) {
+			this.updateBadgeSeenState( false );
+		}
+
 		// Check if we need to display the 'mark all unread' button
-		this.markAllReadButton.toggle( !this.markReadWhenSeen && nonBundledUnreadCount > 0 );
+		localUnread = this.manager.hasLocalUnread();
+		this.markAllReadButton.toggle( !this.markReadWhenSeen && localUnread );
 	};
 
 	/**
 	 * Respond to 'mark all as read' button click
 	 */
 	mw.echo.ui.NotificationBadgeWidget.prototype.onMarkAllReadButtonClick = function () {
-		this.notificationsModel.markAllRead();
+		this.controller.markEntireListModelRead( 'local' );
 	};
 
 	/**
@@ -312,8 +317,7 @@
 		}
 
 		if ( !isVisible ) {
-			// If the popup is closing, remove "initiallyUnseen" and leave
-			this.notificationsWidget.resetNotificationItems();
+			widget.notificationsWidget.resetInitiallyUnseenItems();
 			return;
 		}
 
@@ -322,7 +326,7 @@
 			'ui-badge-link-click',
 			mw.echo.Logger.static.context.badge,
 			null,
-			this.type
+			this.controller.getTypeString()
 		);
 
 		if ( this.hasRunFirstTime ) {
@@ -338,23 +342,31 @@
 		this.pushPending();
 		this.markAllReadButton.toggle( false );
 		this.promiseRunning = true;
+
 		// Always populate on popup open. The model and widget should handle
 		// the case where the promise is already underway.
-		this.notificationsModel.fetchNotifications()
-			.then( function () {
-				if ( widget.popup.isVisible() ) {
-					widget.popup.clip();
+		this.controller.fetchLocalNotifications( this.hasRunFirstTime )
+			.then(
+				// Success
+				function () {
+					if ( widget.popup.isVisible() ) {
+						widget.popup.clip();
 
-					// Update seen time
-					widget.notificationsModel.updateSeenTime();
-					// Mark notifications as 'read' if markReadWhenSeen is set to true
-					if ( widget.markReadWhenSeen ) {
-						widget.notificationsModel.autoMarkAllRead();
+						// Mark notifications as 'read' if markReadWhenSeen is set to true
+						if ( widget.markReadWhenSeen ) {
+							widget.controller.markEntireListModelRead( 'local', true );
+						}
+
+						// Update seen time
+						return widget.controller.updateLocalSeenTime();
 					}
+				},
+				// Failure
+				function ( errObject ) {
+					widget.notificationsWidget.resetLoadingOption( errObject.errInfo );
 				}
-
-				widget.emit( 'finishLoading' );
-			} )
+			)
+			.then( this.emit.bind( this, 'finishLoading' ) )
 			.always( function () {
 				// Pop pending
 				widget.popPending();
@@ -362,14 +374,4 @@
 			} );
 		this.hasRunFirstTime = true;
 	};
-
-	/**
-	 * Get the notifications model attached to this widget
-	 *
-	 * @return {mw.echo.dm.NotificationsModel} Notifications model
-	 */
-	mw.echo.ui.NotificationBadgeWidget.prototype.getModel = function () {
-		return this.notificationsModel;
-	};
-
 } )( mediaWiki, jQuery );
