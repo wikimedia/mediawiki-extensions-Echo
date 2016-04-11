@@ -787,6 +787,10 @@ class EchoHooks {
 		$msgCount = $notifUser->getMessageCount() - $subtractMessages;
 		$alertCount = $notifUser->getAlertCount() - $subtractAlerts;
 
+		// But make sure we never show a negative number (T130853)
+		$msgCount = max( 0, $msgCount );
+		$alertCount = max( 0, $alertCount );
+
 		$msgNotificationTimestamp = $notifUser->getLastUnreadMessageTime();
 		$alertNotificationTimestamp = $notifUser->getLastUnreadAlertTime();
 
