@@ -132,12 +132,9 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 			$this->setMwGlobals( array( 'wgDiff' => false ) );
 		}
 
-		// we only need to add these users once, we won't (can't) tear them down anyway
-		static $executed = false;
-		if ( $executed === true ) {
-			return;
-		}
-
+		// users need to be added for each test, resetDB() removes them
+		// TODO: Only add users needed for each test, instead of adding them
+		// all for every one.
 		foreach ( $this->testUsers as $username => $preferences ) {
 			$user = User::createNew( $username );
 
@@ -149,8 +146,6 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 				$user->saveSettings();
 			}
 		}
-
-		$executed = true;
 	}
 
 	protected function tearDown() {
