@@ -50,7 +50,7 @@
 	"notification-link-text-view-mention": "Lihat sebutan",
 	"notification-link-text-view-changes": "Tuduhna pangowahan",
 	"notification-link-text-view-page": "Tuduhna kaca",
-	"notification-link-text-view-edit": "Tuduhna pangowahan",
+	"notification-link-text-view-edit": "Tuduhaké besutan",
 	"notification-edit-talk-page2": "[[User:$1|$1]] {{GENDER:$1|meninggalkan}} sebuah pesan pada [[User talk:$2#$3|halaman pembicaraan]] Anda.",
 	"notification-edit-talk-page-with-section": "[[User:$1|$1]] {{GENDER:$1|meninggalkan}} sebuah pesan pada halaman pembicaraan Anda di [[User talk:$2#$3|$4]].",
 	"notification-page-linked": "Pranala ke [[:$2]] {{GENDER:$1|ditambahkan}} di [[:$3]]. [[Special:WhatLinksHere/$2|Lihat semua pranala balik ke halaman ini]].",
