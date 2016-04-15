@@ -192,7 +192,7 @@
 	"echo-date-yesterday": "Yesterday",
 	"echo-load-more-error": "An error occurred while fetching more results.",
 	"notification-edit-talk-page-bundle": "$1 and {{PLURAL:$3|one other|$3 others|100=99+ others}} {{GENDER:$1|left}} messages on your [[User talk:$2|talk page]].",
-	"notification-bundle-header-edit-user-talk-v2": "{{PLURAL:$1|One new message|$1 new messages|100=99+ new messages}} on {{GENDER:$3|your}} talk page.",
+	"notification-bundle-header-edit-user-talk-v2": "{{PLURAL:$1|One new message|$1 new messages|100=99+ new messages}} on <strong>{{GENDER:$3|your}} talk page</strong>.",
 	"notification-edit-user-talk-email-batch-bundle-body": "$1 and {{PLURAL:$2|one other|$2 others|100=99+ others}} {{GENDER:$1|left}} a message on your talk page.",
 	"notification-page-linked-email-batch-bundle-body": "$2 was {{GENDER:$1|linked}} from $3 and {{PLURAL:$4|one other page|$4 other pages|100=99+ other pages}}.",
 	"echo-email-batch-separator": "--",
