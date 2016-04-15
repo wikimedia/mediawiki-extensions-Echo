@@ -32,10 +32,11 @@
 		this.$actions = $( '<div>' )
 			.addClass( 'mw-echo-ui-notificationItemWidget-content-actions' );
 
-		// Mark unread
+		// Mark as read
 		this.markAsReadButton = new OO.ui.ButtonWidget( {
 			icon: 'close',
 			framed: false,
+			title: mw.msg( 'echo-notification-markasread-tooltip' ),
 			classes: [ 'mw-echo-ui-notificationItemWidget-markAsReadButton' ]
 		} );
 
@@ -76,6 +77,7 @@
 			icon: 'ellipsis',
 			$overlay: this.$overlay,
 			menuWidth: 200,
+			title: mw.msg( 'echo-notification-more-options-tooltip' ),
 			classes: [ 'mw-echo-ui-notificationItemWidget-content-actions-menu' ]
 		} );
 

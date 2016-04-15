@@ -87,6 +87,8 @@
 	"echo-notification-popup-loginrequired": "Message that displays when an anonymous user attempts to view notifications in their popup after a session expired.",
 	"echo-notification-markasread": "Label for the button to mark the notification as read.",
 	"echo-notification-markasunread": "Label for the button to mark the notification as unread.",
+	"echo-notification-markasread-tooltip": "Tooltip for the button to mark the notification as read.",
+	"echo-notification-more-options-tooltip": "Tooltip for the button to show the hidden secondary actions.",
 	"notification-link-text-expand-all": "Label for the button that expands a bundled notification.\n{{Identical|View all}}",
 	"notification-link-text-expand-alert-count": "Label for the button that expands a bundled alert notification.\n\nParameters:\n* $1 - The count of messages that the bundle holds.\n{{Identical|View alert}}",
 	"notification-link-text-expand-message-count": "Label for the button that expands a bundled message notification.\n\nParameters:\n* $1 - The count of messages that the bundle holds.\n{{Identical|View message}}",

@@ -133,6 +133,8 @@ $wgResourceModules += array(
 			"notification-timestamp-ago-years",
 			'echo-notification-markasread',
 			'echo-notification-markasunread',
+			'echo-notification-markasread-tooltip',
+			'echo-notification-more-options-tooltip',
 			'echo-notification-alert-text-only',
 			'echo-notification-message-text-only',
 			'echo-email-batch-bullet',

@@ -96,6 +96,8 @@
 	"echo-notification-popup-loginrequired": "Please log in to view your notifications.",
 	"echo-notification-markasread": "Mark as read",
 	"echo-notification-markasunread": "Mark as unread",
+	"echo-notification-markasread-tooltip": "Mark as read",
+	"echo-notification-more-options-tooltip": "More options",
 	"notification-link-text-expand-all": "View all",
 	"notification-link-text-expand-alert-count": "View {{PLURAL:$1|$1 alert|$1 alerts}}",
 	"notification-link-text-expand-message-count": "View {{PLURAL:$1|$1 message|$1 messages}}",
