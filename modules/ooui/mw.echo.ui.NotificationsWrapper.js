@@ -1,6 +1,6 @@
 ( function ( mw ) {
 	/**
-	 * Wapper for the notifications widget, for view outside the popup.
+	 * Wrapper for the notifications widget, for view outside the popup.
 	 *
 	 * @class
 	 * @extends OO.ui.Widget

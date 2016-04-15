@@ -69,11 +69,12 @@ class ApiEchoNotifications extends ApiQueryBase {
 				);
 
 				if ( $foreignNotifications ) {
-					// insert fake notifications for foreign notifications
-					foreach ( $params['sections'] as $i => $section ) {
-						if ( $foreignNotifications->getCount( $section ) > 0 ) {
-							$result['list'][-$i-1] = $this->makeForeignNotification( $user, $params['format'], $foreignNotifications, $section );
-						}
+					// if exactly 1 section is specified, we consider only that section, otherwise
+					// we pass 'null' to consider all foreign notifications
+					$section = count( $params['sections'] ) === 1 ? reset( $params['sections'] ) : null;
+
+					if ( $foreignNotifications->getCount( $section ) > 0 ) {
+						$result['list'][-1] = $this->makeForeignNotification( $user, $params['format'], $foreignNotifications, $section );
 					}
 				}
 
@@ -275,7 +276,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 		return $result;
 	}
 
-	protected function makeForeignNotification( User $user, $format, EchoForeignNotifications $foreignNotifications, $section ) {
+	protected function makeForeignNotification( User $user, $format, EchoForeignNotifications $foreignNotifications, $section = null ) {
 		$wikis = $foreignNotifications->getWikis( $section );
 		$count = $foreignNotifications->getCount( $section );
 
@@ -296,7 +297,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 		$row->event_page_namespace = null;
 		$row->event_page_title = null;
 		$row->event_extra = serialize( array(
-			'section' => $section,
+			'section' => $section ?: 'all',
 			'wikis' => $wikis,
 			'count' => $count
 		) );
@@ -313,7 +314,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 		$output = EchoDataOutputFormatter::formatOutput( $notif, $format, $user, $this->getLanguage() );
 
 		// Add cross-wiki-specific data
-		$output['section'] = $section;
+		$output['section'] = $section ?: 'all';
 		$output['count'] = $count;
 		$output['sources'] = $foreignNotifications->getApiEndpoints( $wikis );
 		// Add timestamp information
