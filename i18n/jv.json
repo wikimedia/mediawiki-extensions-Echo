@@ -23,7 +23,7 @@
 	"echo-pref-email-frequency-weekly": "Ringkasan mingguan dari beberapa pemberitahuan",
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "aksara nglegena",
-	"echo-pref-new-message-indicator": "Tampilkan penanda pesan halaman pembicaraan pada bilah alat saya",
+	"echo-pref-new-message-indicator": "Tuduhaké pracihna nawala saka parembugan ing wilah pirantiku",
 	"echo-learn-more": "Sinau luwih",
 	"echo-new-messages": "Panjenengan olèh pesen-pesen anyar",
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Pesan}} halaman pembicaraan",
@@ -95,6 +95,6 @@
 	"echo-email-batch-subject-weekly": "Anda memiliki {{PLURAL:$2|sebuah|beberapa}} pemberitahuan baru di {{SITENAME}} pekan ini",
 	"echo-email-batch-body-intro-daily": "Hai $1,\nIni adalah ringkasan aktivitas kegiatan hari ini di {{SITENAME}} untuk Anda.",
 	"echo-email-batch-body-intro-weekly": "Hai $1,\nIni adalah ringkasan aktivitas kegiatan pekan ini di {{SITENAME}} untuk Anda.",
-	"echo-email-batch-link-text-view-all-notifications": "Tampilkan semua pemberitahuan",
+	"echo-email-batch-link-text-view-all-notifications": "Tuduhaké kabèh pèlingan",
 	"echo-rev-deleted-text-view": "Revisi halaman ini telah ditekan."
 }

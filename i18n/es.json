@@ -21,7 +21,8 @@
 			"Peter Bowman",
 			"Allan Aguilar",
 			"Mgpena",
-			"Ciencia Al Poder"
+			"Ciencia Al Poder",
+			"Lemondoge"
 		]
 	},
 	"echo-desc": "Sistema para notificar a los usuarios sobre eventos y mensajes",
@@ -29,6 +30,7 @@
 	"prefs-emailsettings": "Opciones de correo electrónico",
 	"prefs-displaynotifications": "Opciones de visualización",
 	"prefs-echosubscriptions": "Notificarme sobre estos eventos",
+	"prefs-echocrosswiki": "Cruz-wiki notificaciones",
 	"prefs-newmessageindicator": "Indicador de mensajes nuevos",
 	"echo-pref-send-me": "Enviarme:",
 	"echo-pref-send-to": "Enviar a:",
@@ -128,6 +130,9 @@
 	"notification-header-thank-you-10-edit": "Acabas de hacer {{GENDER:$2|tu}} décima edición en. Gracias y ¡continúa!",
 	"notification-header-thank-you-100-edit": "Acabas de hacer {{GENDER:$2|tu}} centésima edición. ¡Muchas gracias!",
 	"notification-header-thank-you-1000-edit": "Acabas de hacer {{GENDER:$2|tu}} milésima edición. ¡Gracias por ser {{GENDER:$2|un gran colaborador|una gran colaboradora}}!",
+	"notification-header-thank-you-10000-edit": "{{GENDER:$2|Usted}} acaba de hacer {{GENDER:$2|su}} diez milésima de edición; gracias {{GENDER:$2|usted}} muchísimo!",
+	"notification-header-thank-you-100000-edit": "{{GENDER:$2|Usted}} acaba de hacer {{GENDER:$2|su}} cien milésima de edición; gracias {{GENDER:$2|usted}} para una increíble contribución!",
+	"notification-header-thank-you-1000000-edit": "{{GENDER:$2|Usted}} acaba de hacer {{GENDER:$2|su}} millonésima de edición; gracias {{GENDER:$2|usted}} para una asombrosa contribución!",
 	"notification-link-thank-you-edit": "{{GENDER:$1|Tu}} edición",
 	"notification-reverted2": "{{PLURAL:$4|Tu edición en [[:$2]] ha sido {{GENDER:$1|revertida}}|Tus ediciones en [[:$2]] han sido {{GENDER:$1|revertidas}}}} por [[$5|$1]]. $3",
 	"notification-header-reverted": "{{PLURAL:$4|Tu edición en <strong>$3</strong> fue {{GENDER:$2|revertida}}|Tus ediciones en <strong>$3</strong> fueron {{GENDER:$2|revertidas}}}}",
@@ -206,7 +211,7 @@
 	"apihelp-query+notifications-param-alertcontinue": "Cuando haya más resultados de alerta disponibles, utiliza esto para continuar.",
 	"apihelp-query+notifications-param-alertunreadfirst": "Si se muestran las notificaciones de mensajes sin leer primero.",
 	"apihelp-query+notifications-param-messagecontinue": "Cuando haya más resultados de mensajes disponibles, utiliza esto para continuar.",
-	"apihelp-query+notifications-param-messageunreadfirst": "Si se muestran las notificaciones de alertas sin leer primero.",
+	"apihelp-query+notifications-param-messageunreadfirst": "Si mostrar o no leído las notificaciones de alerta de primera (sólo se utiliza si groupbysection se establece).",
 	"apihelp-query+notifications-example-1": "Lista de notificaciones",
 	"apihelp-query+notifications-example-2": "Lista notificaciones, agrupadas por sección, incluyendo contadores"
 }

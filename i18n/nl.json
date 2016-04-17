@@ -19,7 +19,8 @@
 			"HanV",
 			"Valhallasw",
 			"Macofe",
-			"Mbch331"
+			"Mbch331",
+			"Dinosaur918"
 		]
 	},
 	"echo-desc": "Systeem voor het informeren van gebruikers over evenementen en berichten",
@@ -75,6 +76,7 @@
 	"echo-notification-loginrequired": "U moet zich aanmelden om uw meldingen te bekijken.",
 	"echo-notification-popup-loginrequired": "Meld u aan om uw notificaties te weergeven.",
 	"echo-notification-markasread": "Als gelezen markeren",
+	"echo-notification-markasunread": "Als ongelezen markeren",
 	"notification-link-text-expand-all": "Alles uitvouwen",
 	"notification-link-text-expand-alert-count": "{{PLURAL:$1|$1 melding|$1 meldingen}} uitvouwen",
 	"notification-link-text-expand-message-count": "{{PLURAL:$1|$1 bericht|$1 berichten}} uitvouwen",
