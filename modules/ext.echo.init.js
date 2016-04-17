@@ -64,7 +64,7 @@
 							y: 'years',
 							yy: 'years'
 						};
-						return mw.msg( 'notification-timestamp-ago-' + keymap[ key ], number );
+						return mw.msg( 'notification-timestamp-ago-' + keymap[ key ], mw.language.convertNumber( number ) );
 					} } );
 				// Reset back to original locale
 				moment.locale( momentOrigLocale );
