@@ -211,7 +211,7 @@
 	"apihelp-query+notifications-param-alertcontinue": "Cuando haya más resultados de alerta disponibles, utiliza esto para continuar.",
 	"apihelp-query+notifications-param-alertunreadfirst": "Si se muestran las notificaciones de mensajes sin leer primero.",
 	"apihelp-query+notifications-param-messagecontinue": "Cuando haya más resultados de mensajes disponibles, utiliza esto para continuar.",
-	"apihelp-query+notifications-param-messageunreadfirst": "Si mostrar o no leído las notificaciones de alerta de primera (sólo se utiliza si groupbysection se establece).",
+	"apihelp-query+notifications-param-messageunreadfirst": "Si se muestran las notificaciones de alertas sin leer primero (sólo se utiliza si se establece groupbysection).",
 	"apihelp-query+notifications-example-1": "Lista de notificaciones",
 	"apihelp-query+notifications-example-2": "Lista notificaciones, agrupadas por sección, incluyendo contadores"
 }
