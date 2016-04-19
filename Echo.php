@@ -171,21 +171,19 @@ $wgEchoShowFooterNotice = false;
 // notification popup
 $wgEchoFooterNoticeURL = '';
 
-// Define which output formats are available for each notification category
-$wgEchoDefaultNotificationTypes = array(
-	'all' => array(
-		'web' => true,
-		'email' => true,
-	),
-	// Only send web notification for welcome event
-	'welcome' => array(
-		'email' => false,
-	),
-	// … and for edit threshold events
-	'thank-you-edit' => array(
-		'email' => false,
-	),
-	// No need to get a email when another user sends to me
+// Allowed notify types for all notifications and categories, unless overriden
+// on a per-category or per-type basis.
+// All of the keys from $wgEchoNotifiers must also be keys here.
+$wgDefaultNotifyTypeAvailability = array(
+	'web' => true,
+	'email' => true,
+);
+
+// Define which notify types are available for each notification category
+// If any notify types are omitted, it defaults to $wgDefaultNotifyTypeAvailability.
+$wgNotifyTypeAvailabilityByCategory = array(
+	// Otherwise, a user->user email could trigger an additional redundant
+	// notification email.
 	'emailuser' => array(
 		'web' => true,
 		'email' => false,
@@ -219,20 +217,26 @@ $wgEchoPerUserWhitelistFormat = '%s/Echo-whitelist';
 $wgEchoUseCrossWikiBetaFeature = false;
 
 // Define the categories that notifications can belong to. Categories can be
-// assigned the following parameters: priority, nodismiss, tooltip, and usergroups.
+// assigned the following parameters: priority, no-dismiss, tooltip, and usergroups.
+
 // All parameters are optional.
+
 // If a notifications type doesn't have a category parameter, it is
 // automatically assigned to the 'other' category which is lowest priority and
 // has no preferences or dismissibility.
+
 // The priority parameter controls the order in which notifications are
 // displayed in preferences and batch emails. Priority ranges from 1 to 10. If
 // the priority is not specified, it defaults to 10, which is the lowest.
+
 // The usergroups param specifies an array of usergroups eligible to recieve the
 // notifications in the category. If no usergroups parameter is specified, all
 // groups are eligible.
-// The nodismiss parameter disables the dismissability of notifications in the
-// category. It can either be set to an array of output formats (see
-// $wgEchoNotifiers) or an array containing 'all'.
+
+// The no-dismiss parameter disables the dismissability of notifications in the
+// category. It can either be set to an array of notify types (see
+// $wgEchoNotifiers) or an array containing 'all'.  If no-dismiss is 'all',
+// it will not appear in preferences.
 $wgEchoNotificationCategories = array(
 	'system' => array(
 		'priority' => 9,
@@ -326,6 +330,19 @@ $wgEchoNotificationIcons = array(
 
 // Definitions of the notification event types built into Echo.
 // If formatter-class isn't specified, defaults to EchoBasicFormatter.
+
+// 'notify-type-availabilty' - Defines which notifier (e.g. web/email) types are available
+//   for each notification type (e.g. welcome).  Notification types are the keys of
+//   $wgEchoNotificationCategories.
+
+//   This is *ONLY* considered if the category is 'no-dismiss'.  Otherwise,
+//   use $wgNotifyTypeAvailabilityByCategory
+
+//   Without this constraint, we would have no way to display this information
+//   on Special:Preferences in a non-misleading way.
+
+//   If any notify types are omitted, it defaults to $wgNotifyTypeAvailabilityByCategory
+//   which itself defaults to $wgDefaultNotifyTypeAvailability.
 $wgEchoNotifications = array(
 	'welcome' => array(
 		EchoAttributeManager::ATTR_LOCATORS => array(
@@ -334,6 +351,10 @@ $wgEchoNotifications = array(
 		'category' => 'system',
 		'group' => 'positive',
 		'section' => 'alert',
+		// Only send web notification for welcome event
+		'notify-type-availability' => array(
+			'email' => false,
+		),
 		'presentation-model' => 'EchoWelcomePresentationModel',
 		'title-message' => 'notification-new-user',
 		'title-params' => array( 'agent' ),
@@ -468,6 +489,10 @@ $wgEchoNotifications = array(
 			'EchoUserLocator::locateEventAgent'
 		),
 		'category' => 'system',
+		// Only send 'web' notification
+		'notify-type-availability' => array(
+			'email' => false,
+		),
 		'group' => 'positive',
 		'presentation-model' => 'EchoEditThresholdPresentationModel',
 		'section' => 'alert',

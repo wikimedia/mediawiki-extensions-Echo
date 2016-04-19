@@ -247,10 +247,12 @@ class EchoHooks {
 	 * @return bool true in all cases
 	 */
 	public static function getPreferences( $user, &$preferences ) {
-		global $wgEchoDefaultNotificationTypes, $wgAuth, $wgEchoEnableEmailBatch,
+		global $wgAuth, $wgEchoEnableEmailBatch,
 			$wgEchoNotifiers, $wgEchoNotificationCategories, $wgEchoNotifications,
 			$wgEchoNewMsgAlert, $wgAllowHTMLEmail, $wgEchoUseCrossWikiBetaFeature,
 			$wgEchoShowFooterNotice;
+
+		$attributeManager = EchoAttributeManager::newFromGlobalVars();
 
 		// Show email frequency options
 		$never = wfMessage( 'echo-pref-email-frequency-never' )->plain();
@@ -316,13 +318,12 @@ class EchoHooks {
 
 		// Sort notification categories by priority
 		$categoriesAndPriorities = array();
-		foreach ( $wgEchoNotificationCategories as $category => $categoryData ) {
-			// See if the category is not dismissable at all. Must do strict
-			// comparison to true since no-dismiss can also be an array
-			if ( isset( $categoryData['no-dismiss'] ) && in_array( 'all', $categoryData['no-dismiss'] ) ) {
+		foreach ( $attributeManager->getInternalCategoryNames() as $category ) {
+			// See if the category should be hidden from preferences.
+			if ( !$attributeManager->isCategoryDisplayedInPreferences( $category ) ) {
 				continue;
 			}
-			$attributeManager = EchoAttributeManager::newFromGlobalVars();
+
 			// See if user is eligible to recieve this notification (per user group restrictions)
 			if ( $attributeManager->getCategoryEligibility( $user, $category ) ) {
 				$categoriesAndPriorities[$category] = $attributeManager->getCategoryPriority( $category );
@@ -339,7 +340,7 @@ class EchoHooks {
 		// new wikis or Echo is disabled and re-enabled for some reason.  We can update the name
 		// if Echo is ever merged to core
 
-		// Build the columns (output formats)
+		// Build the columns (notify types)
 		$columns = array();
 		foreach ( $wgEchoNotifiers as $notifierType => $notifierData ) {
 			$formatMessage = wfMessage( 'echo-pref-' . $notifierType )->escaped();
@@ -361,19 +362,12 @@ class EchoHooks {
 		$forceOptionsOff = $forceOptionsOn = array();
 		foreach ( $wgEchoNotifiers as $notifierType => $notifierData ) {
 			foreach ( $validSortedCategories as $category ) {
-				// See if this output format is non-dismissable
-				if ( isset( $wgEchoNotificationCategories[$category]['no-dismiss'] )
-					&& in_array( $notifierType, $wgEchoNotificationCategories[$category]['no-dismiss'] )
-				) {
+				// See if this notify type is non-dismissable
+				if ( !$attributeManager->isNotifyTypeDismissableForCategory( $category, $notifierType ) ) {
 					$forceOptionsOn[] = "$notifierType-$category";
 				}
 
-				// Make sure this output format is possible for this notification category
-				if ( isset( $wgEchoDefaultNotificationTypes[$category] ) ) {
-					if ( !$wgEchoDefaultNotificationTypes[$category][$notifierType] ) {
-						$forceOptionsOff[] = "$notifierType-$category";
-					}
-				} elseif ( !$wgEchoDefaultNotificationTypes['all'][$notifierType] ) {
+				if ( !$attributeManager->isNotifyTypeAvailableForCategory( $category, $notifierType ) ) {
 					$forceOptionsOff[] = "$notifierType-$category";
 				}
 			}
@@ -570,6 +564,22 @@ class EchoHooks {
 	}
 
 	/**
+	 * Get overrides for new users.  This allows changes that only apply going forward,
+	 * without affecting existing users.
+	 *
+	 * @return Associative array mapping key to boolean for whether it should be enabled
+	 */
+	public static function getNewUserPreferenceOverrides() {
+		return array(
+			'echo-subscriptions-web-reverted' => false,
+			'echo-subscriptions-email-reverted' => false,
+			'echo-subscriptions-web-article-linked' => true,
+			'echo-subscriptions-email-mention' => true,
+			'echo-subscriptions-email-article-linked' => true,
+		);
+	}
+
+	/**
 	 * Handler for AddNewAccount hook.
 	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/AddNewAccount
 	 * @param $user User object that was created.
@@ -577,13 +587,11 @@ class EchoHooks {
 	 * @return bool
 	 */
 	public static function onAccountCreated( $user, $byEmail ) {
+		$overrides = self::getNewUserPreferenceOverrides();
+		foreach ( $overrides as $prefKey => $value ) {
+			$user->setOption( $prefKey, $value );
+		}
 
-		// new users get echo preferences set that are not the default settings for existing users
-		$user->setOption( 'echo-subscriptions-web-reverted', false );
-		$user->setOption( 'echo-subscriptions-email-reverted', false );
-		$user->setOption( 'echo-subscriptions-web-article-linked', true );
-		$user->setOption( 'echo-subscriptions-email-mention', true );
-		$user->setOption( 'echo-subscriptions-email-article-linked', true );
 		$user->saveSettings();
 
 		EchoEvent::create( array(

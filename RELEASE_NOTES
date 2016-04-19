@@ -1,3 +1,11 @@
+April, 2016
+-----------
+* BREAKING CHANGE: $wgEchoDefaultNotificationTypes has been split into
+  three variables.  See Echo.php for documentation:
+** $wgDefaultNotifyTypeAvailability
+** $wgNotifyTypeAvailabilityByCategory
+** $wgEchoNotifications[$notificationType]['notify-type-availability']
+
 March, 2015
 -----------
 

@@ -17,6 +17,26 @@ class EchoAttributeManager {
 	protected $categories;
 
 	/**
+	 * @var array
+	 */
+	protected $defaultNotifyTypeAvailability;
+
+	/**
+	 * @var array
+	 */
+	protected $notifyTypeAvailabilityByCategory;
+
+	/**
+	 * @var array
+	 */
+	protected $dismissabilityByCategory;
+
+	/**
+	 * @var array
+	 */
+	protected $notifiers;
+
+	/**
 	 * Notification section constant
 	 */
 	const ALERT = 'alert';
@@ -45,13 +65,27 @@ class EchoAttributeManager {
 	protected static $globalVarInstance = null;
 
 	/**
-	 * @param array $notifications notification attributes
-	 * @param array $categories notification categories
+	 * @param array $notifications Notification attributes
+	 * @param array $categories Notification categories
+	 * @param array $defaultNotifyTypeAvailability Associative array with output
+	 *   formats as keys and whether they are available as boolean values.
+	 * @param array $notifyTypeAvailabilityByCategory Associative array with
+	 *   categories as keys and value an associative array as with
+	 *   $defaultNotifyTypeAvailability.
+	 * @param array $notifiers Associative array mapping notify types to notifier
+	 *   that handles them
 	 */
-	public function __construct( array $notifications, array $categories ) {
+	public function __construct( array $notifications, array $categories, array $defaultNotifyTypeAvailability, array $notifyTypeAvailabilityByCategory, array $notifiers ) {
 		// Extensions can define their own notifications and categories
 		$this->notifications = $notifications;
 		$this->categories = $categories;
+
+		$this->defaultNotifyTypeAvailability = $defaultNotifyTypeAvailability;
+		$this->notifyTypeAvailabilityByCategory = $notifyTypeAvailabilityByCategory;
+
+		$this->dismissabilityByCategory = null;
+
+		$this->notifiers = $notifiers;
 	}
 
 	/**
@@ -59,17 +93,20 @@ class EchoAttributeManager {
 	 * @return EchoAttributeManager
 	 */
 	public static function newFromGlobalVars() {
-		global $wgEchoNotifications, $wgEchoNotificationCategories;
+		global $wgEchoNotifications, $wgEchoNotificationCategories, $wgDefaultNotifyTypeAvailability, $wgNotifyTypeAvailabilityByCategory, $wgEchoNotifiers;
 
 		// Unit test may alter the global data for test purpose
 		if ( defined( 'MW_PHPUNIT_TEST' ) ) {
-			return new self( $wgEchoNotifications, $wgEchoNotificationCategories );
+			return new self( $wgEchoNotifications, $wgEchoNotificationCategories, $wgDefaultNotifyTypeAvailability, $wgNotifyTypeAvailabilityByCategory, $wgEchoNotifiers );
 		}
 
 		if ( self::$globalVarInstance === null ) {
 			self::$globalVarInstance = new self(
 				$wgEchoNotifications,
-				$wgEchoNotificationCategories
+				$wgEchoNotificationCategories,
+				$wgDefaultNotifyTypeAvailability,
+				$wgNotifyTypeAvailabilityByCategory,
+				$wgEchoNotifiers
 			);
 		}
 
@@ -98,7 +135,7 @@ class EchoAttributeManager {
 	 * @param string web/email
 	 * @return string[]
 	 */
-	public function getUserEnabledEvents( User $user, $outputFormat ) {
+	public function getUserEnabledEvents( User $user, $notifyType ) {
 		$eventTypesToLoad = $this->notifications;
 		foreach ( $eventTypesToLoad as $eventType => $eventData ) {
 			$category = $this->getNotificationCategory( $eventType );
@@ -106,7 +143,7 @@ class EchoAttributeManager {
 			if ( !$this->getCategoryEligibility( $user, $category ) ) {
 				unset( $eventTypesToLoad[$eventType] );
 			}
-			if ( !$user->getOption( 'echo-subscriptions-' . $outputFormat . '-' . $category ) ) {
+			if ( !$user->getOption( 'echo-subscriptions-' . $notifyType . '-' . $category ) ) {
 				unset( $eventTypesToLoad[$eventType] );
 			}
 		}
@@ -122,7 +159,7 @@ class EchoAttributeManager {
 	 * @param string[]
 	 * @return string[]
 	 */
-	public function getUserEnabledEventsbySections( User $user, $outputFormat, array $sections ) {
+	public function getUserEnabledEventsbySections( User $user, $notifyType, array $sections ) {
 		$events = array();
 		foreach ( $sections as $section ) {
 			$events = array_merge(
@@ -134,7 +171,7 @@ class EchoAttributeManager {
 		}
 
 		return array_intersect(
-			$this->getUserEnabledEvents( $user, $outputFormat ),
+			$this->getUserEnabledEvents( $user, $notifyType ),
 			$events
 		);
 	}
@@ -175,6 +212,15 @@ class EchoAttributeManager {
 		}
 
 		return $events;
+	}
+
+	/**
+	 * Gets array of internal category names
+	 *
+	 * @return All internal names
+	 */
+	public function getInternalCategoryNames() {
+		return array_keys( $this->categories );
 	}
 
 	/**
@@ -242,6 +288,81 @@ class EchoAttributeManager {
 		}
 
 		return 'other';
+	}
+
+	/**
+	 * Gets an associative array mapping categories to the notification types in
+	 * the category
+	 *
+	 * @return array Associative array with category as key
+	 */
+	public function getEventsByCategory() {
+		$eventsByCategory = array();
+
+		foreach ( $this->categories as $category => $categoryDetails ) {
+			$eventsByCategory[$category] = array();
+		}
+
+		foreach ( $this->notifications as $notificationType => $notificationDetails ) {
+			$category = $notificationDetails['category'];
+			if ( isset( $eventsByCategory[$category] ) ) {
+				// Only real categories.  Currently, this excludes the 'foreign'
+				// psuedo-category.
+				$eventsByCategory[$category][] = $notificationType;
+			}
+		}
+
+		return $eventsByCategory;
+	}
+
+	/**
+	 * Checks whether the specified notify type is available for the specified
+	 * category.
+	 *
+	 * This means whether users *can* turn notifications for this category and format
+	 * on, regardless of the default or a particular user's preferences.
+	 *
+	 * @param string $category Category name
+	 * @param string $notifyType notify type, e.g. email/web.
+	 */
+	public function isNotifyTypeAvailableForCategory( $category, $notifyType ) {
+		if ( isset( $this->notifyTypeAvailabilityByCategory[$category][$notifyType] ) ) {
+			return $this->notifyTypeAvailabilityByCategory[$category][$notifyType];
+		} else {
+			return $this->defaultNotifyTypeAvailability[$notifyType];
+		}
+	}
+
+	/**
+	 * Checks whether category is displayed in preferences
+	 *
+	 * @param string $category Category name
+	 */
+	public function isCategoryDisplayedInPreferences( $category ) {
+		return !(
+			isset( $this->categories[$category]['no-dismiss'] ) &&
+			in_array( 'all', $this->categories[$category]['no-dismiss'] )
+		);
+	}
+
+	/**
+	 * Checks whether the specified notify type is dismissable for the specified
+	 * category.
+	 *
+	 * This means whether the user is allowed to opt out of receiving notifications
+	 * for this category and format.
+	 *
+	 * @param string $category Name of category
+	 * @param string $notifyType notify type, e.g. email/web.
+	 */
+	public function isNotifyTypeDismissableForCategory( $category, $notifyType ) {
+		return !(
+			isset( $this->categories[$category]['no-dismiss'] ) &&
+			(
+				in_array( 'all', $this->categories[$category]['no-dismiss'] ) ||
+				in_array( $notifyType, $this->categories[$category]['no-dismiss'] )
+			)
+		);
 	}
 
 	/**
