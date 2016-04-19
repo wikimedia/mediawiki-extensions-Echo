@@ -68,6 +68,8 @@
 	"echo-notification-popup-loginrequired": "Por favor, conéctese ó sistema para ver as súas notificacións.",
 	"echo-notification-markasread": "Marcar como lido",
 	"echo-notification-markasunread": "Marcar como non lido",
+	"echo-notification-markasread-tooltip": "Marcar como lido",
+	"echo-notification-more-options-tooltip": "Máis opcións",
 	"notification-link-text-expand-all": "Ver todo",
 	"notification-link-text-expand-alert-count": "Ver {{PLURAL:$1|$1 alerta|$1 alertas}}",
 	"notification-link-text-expand-message-count": "Ver {{PLURAL:$1|$1 mensaxe|$1 mensaxes}}",

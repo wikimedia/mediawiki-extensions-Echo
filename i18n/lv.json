@@ -51,6 +51,7 @@
 	"echo-feedback": "Atsauksmes",
 	"echo-notification-placeholder": "Nav paziņojumu.",
 	"echo-notification-markasunread": "Atzīmēt kā nelasītu",
+	"echo-notification-markasread-tooltip": "Atzīmēt kā lasītu",
 	"notification-link-text-view-message": "Apskatīt ziņojumu",
 	"notification-link-text-view-mention": "Apskatīt pieminēšanu",
 	"notification-link-text-view-changes": "{{GENDER:$1|Apskatīt}} izmaiņas",

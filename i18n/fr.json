@@ -98,6 +98,8 @@
 	"echo-notification-popup-loginrequired": "Veuillez vous connecter pour voir vos notifications.",
 	"echo-notification-markasread": "Marquer comme lu",
 	"echo-notification-markasunread": "Marquer comme non lu",
+	"echo-notification-markasread-tooltip": "Marquer comme lu",
+	"echo-notification-more-options-tooltip": "Plus d’options",
 	"notification-link-text-expand-all": "Afficher tout",
 	"notification-link-text-expand-alert-count": "Afficher {{PLURAL:$1|$1 alerte|$1 alertes}}",
 	"notification-link-text-expand-message-count": "Afficher {{PLURAL:$1|un message|$1 messages}}",

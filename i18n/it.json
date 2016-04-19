@@ -75,6 +75,8 @@
 	"echo-notification-popup-loginrequired": "Effettua l'accesso per visualizzare le tue notifiche.",
 	"echo-notification-markasread": "Segna come già letto",
 	"echo-notification-markasunread": "Segna come non letto",
+	"echo-notification-markasread-tooltip": "Segna come già letto",
+	"echo-notification-more-options-tooltip": "Altre opzioni",
 	"notification-link-text-expand-all": "Mostra tutto",
 	"notification-link-text-expand-alert-count": "Vedi {{PLURAL:$1|$1 avviso|$1 avvisi}}",
 	"notification-link-text-expand-message-count": "Vedi {{PLURAL:$1|$1 messaggio|$1 messaggi}}",
