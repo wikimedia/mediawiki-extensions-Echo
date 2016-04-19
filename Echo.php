@@ -62,6 +62,7 @@ $wgAPIModules['echomarkseen'] = 'ApiEchoMarkSeen';
 
 // Special page
 $wgSpecialPages['Notifications'] = 'SpecialNotifications';
+$wgSpecialPages['DisplayNotificationsConfiguration'] = 'SpecialDisplayNotificationsConfiguration';
 
 // Housekeeping hooks
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'EchoHooks::onLoadExtensionSchemaUpdates';
