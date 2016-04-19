@@ -205,6 +205,7 @@
 	"echo-rev-deleted-text-view": "This page revision has been suppressed.",
 	"notification-header-foreign-alert": "More alerts from {{PLURAL:$5|another wiki|$5 other wikis}}",
 	"notification-header-foreign-message": "More messages from {{PLURAL:$5|another wiki|$5 other wikis}}",
+	"notification-header-foreign-all": "More notifications from {{PLURAL:$5|another wiki|$5 other wikis}}",
 	"notification-body-foreign": "$1",
 	"echo-foreign-wiki-lang": "$1 - $2",
 	"echo-badge-count": "{{PLURAL:$1|$1|100=99+}}",
