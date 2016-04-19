@@ -73,7 +73,7 @@ class EchoMentionPresentationModel extends EchoEventPresentationModel {
 
 		$section = $this->getSection();
 		if ( $section ) {
-			$msg->params( $this->language->embedBidi(
+			$msg->plaintextParams( $this->language->embedBidi(
 				EchoDiscussionParser::getTextSnippet(
 						$section,
 						$this->language,
@@ -106,7 +106,7 @@ class EchoMentionPresentationModel extends EchoEventPresentationModel {
 		$content = $this->event->getExtraParam( 'content' );
 		if ( $content && $this->userCan( Revision::DELETED_TEXT ) ) {
 			$msg = $this->msg( 'notification-body-mention' );
-			$msg->params(
+			$msg->plaintextParams(
 				EchoDiscussionParser::getTextSnippet(
 					$content,
 					$this->language
