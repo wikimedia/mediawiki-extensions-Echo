@@ -158,7 +158,7 @@
 	"echo-date-yesterday": "Wczoraj",
 	"echo-load-more-error": "Wystąpił błąd przy pobieraniu kolejnych wyników.",
 	"notification-edit-talk-page-bundle": "$1 i {{PLURAL:$4|ktoś inny|$3 inni|$3 innych}} napisali do Ciebie na Twojej [[User talk:$2|stronie dyskusji]].",
-	"notification-bundle-header-edit-user-talk-v2": "{{PLURAL:$1|Jedna nowa wiadomość|$1 nowe wiadomości|$1 nowych wiadomości|100=99+ nowych wiadomości}} na {{GENDER:$3|Twojej}} stronie dyskusji.",
+	"notification-bundle-header-edit-user-talk-v2": "{{PLURAL:$1|Jedna nowa wiadomość|$1 nowe wiadomości|$1 nowych wiadomości|100=99+ nowych wiadomości}} na <strong>{{GENDER:$3|twojej}} stronie dyskusji</strong>.",
 	"notification-edit-user-talk-email-batch-bundle-body": "$1 i {{PLURAL:$3|ktoś inny|$2 inni|$2 innych}} {{GENDER:$1|napisali}} do Ciebie na Twojej stronie dyskusji.",
 	"notification-page-linked-email-batch-bundle-body": "Na stronie $3 i na {{PLURAL:$5|innej stronie|$4 innych stronach}} {{GENDER:$1|umieszczono}} link do strony $2",
 	"echo-email-batch-subject-daily": "Masz {{PLURAL:$2|nowe powiadomienie|nowe powiadomienia}} w {{grammar:MS.lp|{{SITENAME}}}}",

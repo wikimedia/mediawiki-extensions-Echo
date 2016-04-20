@@ -40,6 +40,7 @@
 	"echo-no-title": "[Ora ana kaca]",
 	"echo-error-no-formatter": "Tidak ada pemformatan yang ditetapkan untuk pemberitahuan.",
 	"notifications": "Wara-wara",
+	"tooltip-pt-notifications-alert": "Pangawasing {{GENDER:|sampéyan}}",
 	"tooltip-pt-notifications-message": "Nawalaning {{GENDER:|sampéyan}}",
 	"echo-specialpage": "Wara-wara",
 	"echo-anon": "Kanggo nampa wara-wara [$1 gawé akun] utawa [$2 mlebu log].",

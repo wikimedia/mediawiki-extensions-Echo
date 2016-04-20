@@ -175,7 +175,7 @@
 	"echo-rev-deleted-text-view": "Diese Seitenversion wurde unterdrückt",
 	"notification-header-foreign-alert": "Weitere Meldungen von {{PLURAL:$5|einem anderen Wiki|$5 anderen Wikis}}",
 	"notification-header-foreign-message": "Weitere Nachrichten von {{PLURAL:$5|einem anderen Wiki|$5 anderen Wikis}}",
-	"notification-header-foreign-all": "Weitere Benachrichtigungen von {{PLURAL:$5|einem weiteren Wiki|$5 anderen Wikis}}",
+	"notification-header-foreign-all": "Weitere Benachrichtigungen von {{PLURAL:$5|einem weiteren Wiki|$5 weiteren Wikis}}",
 	"echo-foreign-wiki-lang": "$1 – $2",
 	"apihelp-echomarkread-description": "Benachrichtigungen für den aktuellen Benutzer als gelesen markieren.",
 	"apihelp-echomarkread-param-list": "Eine Liste von Benachrichtigungskennungen, um sie als gelesen zu markieren.",

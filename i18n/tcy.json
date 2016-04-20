@@ -2,9 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"VASANTH S.N.",
-			"Vishwanatha Badikana"
+			"Vishwanatha Badikana",
+			"BHARATHESHA ALASANDEMAJALU"
 		]
 	},
 	"tooltip-pt-notifications-alert": "{{GENDER:|ಈರೆನ}}ಎಚ್ಚರಿಕೆ",
-	"tooltip-pt-notifications-message": "{{GENDER:|ಈರೆನ}} ಸುದ್ದಿ"
+	"tooltip-pt-notifications-message": "{{GENDER:|ಈರೆನ}} ಸುದ್ದಿ",
+	"echo-notification-markasread-tooltip": "ಓದುತೆಂದು ಗುರ್ತ ಪಾಡ್ಲೆ"
 }

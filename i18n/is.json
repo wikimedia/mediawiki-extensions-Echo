@@ -4,7 +4,8 @@
 			"Snævar",
 			"පසිඳු කාවින්ද",
 			"Sveinki",
-			"Macofe"
+			"Macofe",
+			"Hjalmtyr"
 		]
 	},
 	"echo-desc": "Kerfi til að tilkynna notendum um viðburði og skilaboð",
@@ -99,5 +100,6 @@
 	"echo-email-batch-subject-daily": "Þú hefur {{PLURAL:$2|nýja tilkynningu|nýjar tilkynningar}} á {{SITENAME}}",
 	"echo-email-batch-subject-weekly": "Þú hefur {{PLURAL:$2|nýja tilkynningu|nýjar tilkynningar}} á {{SITENAME}} í þessari viku",
 	"echo-rev-deleted-text-view": "Þessi útgáfa síðunnar hefur verið falin.",
+	"notification-header-foreign-all": "Fleiri skilaboð frá {{PLURAL:$5|öðru wiki|$5 öðrum wiki-um}}",
 	"apihelp-echomarkseen-example-1": "Merkja tilkynningar af öllum gerðum sem lesnar"
 }

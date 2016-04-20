@@ -77,6 +77,7 @@
 	"echo-notification-popup-loginrequired": "Meld u aan om uw notificaties te weergeven.",
 	"echo-notification-markasread": "Als gelezen markeren",
 	"echo-notification-markasunread": "Als ongelezen markeren",
+	"echo-notification-markasread-tooltip": "Als gelezen markeren",
 	"notification-link-text-expand-all": "Alles uitvouwen",
 	"notification-link-text-expand-alert-count": "{{PLURAL:$1|$1 melding|$1 meldingen}} uitvouwen",
 	"notification-link-text-expand-message-count": "{{PLURAL:$1|$1 bericht|$1 berichten}} uitvouwen",
