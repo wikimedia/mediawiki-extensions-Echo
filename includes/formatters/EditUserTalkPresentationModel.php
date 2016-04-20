@@ -54,7 +54,7 @@ class EchoEditUserTalkPresentationModel extends EchoEventPresentationModel {
 		} elseif ( $this->hasSection() ) {
 			$msg = $this->getMessageWithAgent( "notification-header-{$this->type}-with-section" );
 			$msg->params( $this->getViewingUserForGender() );
-			$msg->params( $this->language->embedBidi( $this->getSectionTitleSnippet() ) );
+			$msg->plaintextParams( $this->language->embedBidi( $this->getSectionTitleSnippet() ) );
 			return $msg;
 		} else {
 			$msg = parent::getHeaderMessage();
@@ -66,7 +66,7 @@ class EchoEditUserTalkPresentationModel extends EchoEventPresentationModel {
 	public function getBodyMessage() {
 		if ( !$this->isBundled() && $this->hasSection() ) {
 			$msg = $this->msg( 'notification-body-edit-user-talk-with-section' );
-			$msg->params( wfEscapeWikiText( $this->getRevisionSnippet() ) );
+			$msg->plaintextParams( $this->getRevisionSnippet() );
 			return $msg;
 		} else {
 			return false;

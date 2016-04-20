@@ -21,7 +21,7 @@ class EchoRevertedPresentationModel extends EchoEventPresentationModel {
 		$summary = $this->event->getExtraParam( 'summary' );
 		if ( !$this->isAutomaticSummary( $summary ) && $this->userCan( Revision::DELETED_COMMENT ) ) {
 			$msg = $this->msg( "notification-body-{$this->type}" );
-			$msg->params( $this->formatSummary( $summary ) );
+			$msg->plaintextParams( $this->formatSummary( $summary ) );
 			return $msg;
 		} else {
 			return false;
