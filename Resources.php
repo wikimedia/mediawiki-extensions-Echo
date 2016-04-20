@@ -67,6 +67,7 @@ $wgResourceModules += array(
 			'ooui/mw.echo.ui.MenuItemWidget.js',
 			'ooui/mw.echo.ui.FooterNoticeWidget.js',
 			'ooui/mw.echo.ui.NotificationsWrapper.js',
+			'ext.echo.moment-hack.js',
 		),
 		'styles' => array(
 			'ooui/styles/mw.echo.ui.overlay.less',
