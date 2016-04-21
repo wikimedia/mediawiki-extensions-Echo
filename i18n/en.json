@@ -244,6 +244,7 @@
 	"apihelp-query+notifications-paramvalue-format-flyout": "<span class=\"apihelp-deprecated\">Deprecated</span>. Use <kbd>$1format=model</kbd> for raw data",
 	"apihelp-query+notifications-paramvalue-format-html": "<span class=\"apihelp-deprecated\">Deprecated</span>. Use <kbd>$1format=model</kbd> for raw data",
 	"apihelp-query+notifications-param-limit": "The maximum number of notifications to return.",
+	"apihelp-query+notifications-param-wikis": "List of wikis to fetch notifications from (defaults to only current wiki).",
 	"apihelp-query+notifications-param-crosswikisummary": "True to opt in to a summary notification of notifications on foreign wikis.",
 	"apihelp-query+notifications-param-alertcontinue": "When more alert results are available, use this to continue.",
 	"apihelp-query+notifications-param-unreadfirst": "Whether to show unread notifications first (only used if groupbysection is not set).",

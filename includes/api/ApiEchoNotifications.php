@@ -19,13 +19,11 @@ class ApiEchoNotifications extends ApiQueryBase {
 		// To avoid API warning, register the parameter used to bust browser cache
 		$this->getMain()->getVal( '_' );
 
-		$user = $this->getUser();
-		if ( $user->isAnon() ) {
+		if ( $this->getUser()->isAnon() ) {
 			$this->dieUsage( 'Login is required', 'login-required' );
 		}
 
 		$params = $this->extractRequestParams();
-		$prop = $params['prop'];
 
 		/* @deprecated */
 		if ( $params['format'] === 'flyout' ) {
@@ -41,8 +39,52 @@ class ApiEchoNotifications extends ApiQueryBase {
 			);
 		}
 
-		$this->foreignNotifications = new EchoForeignNotifications( $user );
+		$this->foreignNotifications = new EchoForeignNotifications( $this->getUser() );
 		$this->crossWikiSummary = $params['crosswikisummary'];
+
+		$results = array();
+		if ( in_array( wfWikiId(), $params['wikis'] ) ) {
+			$results[wfWikiId()] = $this->getLocalNotifications( $params );
+		}
+
+		$foreignWikis = array_diff( $params['wikis'], array( wfWikiId() ) );
+		if ( !empty( $foreignWikis ) ) {
+			// get original request params, to forward them to individual wikis
+			$requestParams = $this->getRequest()->getValues();
+			if ( !isset( $requestParams['centralauthtoken'] ) ) {
+				$requestParams['centralauthtoken'] = $this->getCentralAuthToken( $this->getUser() );
+			}
+			$results += $this->getForeignNotifications( $foreignWikis, $requestParams );
+		}
+
+		if ( !$results ) {
+			return;
+		}
+
+		// after getting local & foreign results, merge them all together
+		$result = $this->mergeResults( $results, $params );
+		$this->getResult()->setIndexedTagName( $result, 'notification' );
+		if ( $params['groupbysection'] ) {
+			foreach ( $params['sections'] as $section ) {
+				if ( in_array( 'list', $params['prop'] ) ) {
+					$this->getResult()->setIndexedTagName( $result[$section]['list'], 'notification' );
+				}
+			}
+		} else {
+			if ( in_array( 'list', $params['prop'] ) ) {
+				$this->getResult()->setIndexedTagName( $result['list'], 'notification' );
+			}
+		}
+		$this->getResult()->addValue( 'query', $this->getModuleName(), $result );
+	}
+
+	/**
+	 * @param array $params
+	 * @return array
+	 */
+	protected function getLocalNotifications( array $params ) {
+		$user = $this->getUser();
+		$prop = $params['prop'];
 
 		$result = array();
 		if ( in_array( 'list', $prop ) ) {
@@ -58,8 +100,6 @@ class ApiEchoNotifications extends ApiQueryBase {
 						// insert fake notification for foreign notifications
 						array_unshift( $result[$section]['list'], $this->makeForeignNotification( $user, $params['format'], $section ) );
 					}
-
-					$this->getResult()->setIndexedTagName( $result[$section]['list'], 'notification' );
 				}
 			} else {
 				$attributeManager = EchoAttributeManager::newFromGlobalVars();
@@ -75,8 +115,6 @@ class ApiEchoNotifications extends ApiQueryBase {
 				if ( $this->crossWikiSummary && $this->foreignNotifications->getCount( $section ) > 0 ) {
 					array_unshift( $result['list'], $this->makeForeignNotification( $user, $params['format'], $section ) );
 				}
-
-				$this->getResult()->setIndexedTagName( $result['list'], 'notification' );
 			}
 		}
 
@@ -87,8 +125,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 			);
 		}
 
-		$this->getResult()->setIndexedTagName( $result, 'notification' );
-		$this->getResult()->addValue( 'query', $this->getModuleName(), $result );
+		return $result;
 	}
 
 	/**
@@ -213,6 +250,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 		// Generate offset if necessary
 		if ( count( $result['list'] ) > $limit ) {
 			$lastItem = array_pop( $result['list'] );
+			// @todo: what to do with this when fetching from multiple wikis?
 			$result['continue'] = $lastItem['timestamp']['utcunix'] . '|' . $lastItem['id'];
 		}
 
@@ -294,7 +332,152 @@ class ApiEchoNotifications extends ApiQueryBase {
 		return $output;
 	}
 
+	/**
+	 * @param User $user
+	 * @return string
+	 */
+	protected function getCentralAuthToken( User $user ) {
+		$context = new RequestContext;
+		$context->setRequest( new FauxRequest( array( 'action' => 'centralauthtoken' ) ) );
+		$context->setUser( $user );
+
+		$api = new ApiMain( $context );
+		$api->execute();
+
+		return $api->getResult()->getResultData( array( 'centralauthtoken', 'centralauthtoken' ) );
+	}
+
+	/**
+	 * @param array $wikis
+	 * @param array $params
+	 * @return array
+	 */
+	protected function getForeignNotifications( array $wikis, array $params ) {
+		$apis = $this->foreignNotifications->getApiEndpoints( $wikis );
+		if ( !$apis ) {
+			return array();
+		}
+
+		$multi = curl_multi_init();
+		$curls = array();
+
+		foreach ( $apis as $wiki => $api ) {
+			// only request data from that specific wiki, or they'd all spawn
+			// cross-wiki api requests...
+			$params['notwikis'] = $wiki;
+			unset( $params['notcrosswikisummary'] );
+
+			// get data in an easy-to-process format here
+			$params['format'] = 'php';
+
+			$curl = curl_init( $api['url'] );
+			curl_setopt( $curl, CURLOPT_RETURNTRANSFER, true );
+			curl_setopt( $curl, CURLOPT_POSTFIELDS, $params );
+
+			curl_multi_add_handle( $multi, $curl );
+			$curls[$wiki] = $curl;
+		}
+
+		do {
+			curl_multi_exec( $multi, $running );
+			curl_multi_select( $multi );
+		} while ( $running > 0 );
+
+		$results = array();
+		foreach ( $curls as $wiki => $curl ) {
+			$content = curl_multi_getcontent( $curl );
+			curl_multi_remove_handle( $multi, $curl );
+
+			if ( $content !== null ) {
+				$results[$wiki] = unserialize( $content );
+				$results[$wiki] = $results[$wiki]['query']['notifications'];
+			}
+		}
+
+		curl_multi_close( $multi );
+
+		return $results;
+	}
+
+	/**
+	 * @param array $results
+	 * @param array $params
+	 * @return mixed
+	 */
+	protected function mergeResults( array $results, array $params ) {
+		$master = array_shift( $results );
+
+		if ( in_array( 'list', $params['prop'] ) ) {
+			$master = $this->mergeList( $master, $results, $params['groupbysection'] );
+		}
+
+		if ( in_array( 'count', $params['prop'] ) && !$this->crossWikiSummary ) {
+			// if crosswiki data was requested, the count in $master
+			// is accurate already
+			// otherwise, we'll want to combine counts for all wikis
+			$master = $this->mergeCount( $master, $results, $params['groupbysection'] );
+		}
+
+		return $master;
+	}
+
+	/**
+	 * @param array $master
+	 * @param array $results
+	 * @param bool $groupBySection
+	 * @return array
+	 */
+	protected function mergeList( array $master, array $results, $groupBySection ) {
+		// sort all notifications by timestamp: most recent first
+		$sort = function( $a, $b ) {
+			return $a['timestamp']['utcunix'] - $b['timestamp']['utcunix'];
+		};
+
+		if ( $groupBySection ) {
+			foreach ( EchoAttributeManager::$sections as $section ) {
+				foreach ( $results as $result ) {
+					$master[$section]['list'] = array_merge( $master[$section]['list'], $result[$section]['list'] );
+				}
+				usort( $master[$section]['list'], $sort );
+			}
+		} else {
+			foreach ( $results as $result ) {
+				$master['list'] = array_merge( $master['list'], $result['list'] );
+			}
+			usort( $master['list'], $sort );
+		}
+
+		return $master;
+	}
+
+	/**
+	 * @param array $master
+	 * @param array $results
+	 * @param bool $groupBySection
+	 * @return array
+	 */
+	protected function mergeCount( array $master, array $results, $groupBySection ) {
+		if ( $groupBySection ) {
+			foreach ( EchoAttributeManager::$sections as $section ) {
+				foreach ( $results as $result ) {
+					$master[$section]['rawcount'] += $result[$section]['rawcount'];
+				}
+				$master[$section]['count'] = EchoNotificationController::formatNotificationCount( $master[$section]['rawcount'] );
+			}
+		}
+
+		foreach ( $results as $result ) {
+			// regardless of groupbysection, totals are always included
+			$master['rawcount'] += $result['rawcount'];
+		}
+		$master['count'] = EchoNotificationController::formatNotificationCount( $master['rawcount'] );
+
+		return $master;
+	}
+
 	public function getAllowedParams() {
+		global $wgConf;
+
 		$sections = EchoAttributeManager::$sections;
 		$params = array(
 			'filter' => array(
@@ -331,6 +514,12 @@ class ApiEchoNotifications extends ApiQueryBase {
 					'html', /* @deprecated */
 				),
 				ApiBase::PARAM_HELP_MSG_PER_VALUE => array(),
+			),
+			// fetch notifications from multiple wikis
+			'wikis' => array(
+				ApiBase::PARAM_ISMULTI => true,
+				ApiBase::PARAM_DFLT => wfWikiId(),
+				ApiBase::PARAM_TYPE => array_unique( array_merge( $wgConf->wikis, array( wfWikiId() ) ) ),
 			),
 			// create "x notifications from y wikis" notification bundle &
 			// include unread counts from other wikis in prop=count results
