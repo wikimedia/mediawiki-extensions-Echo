@@ -65,6 +65,8 @@
 	"echo-notification-loginrequired": "सूचनाओं को देखने हेतु आपको प्रवेश करना होगा।",
 	"echo-notification-markasread": "पढ़ा गया चिन्हित करें",
 	"echo-notification-markasunread": "न पढ़ा चिन्हित करें",
+	"echo-notification-markasread-tooltip": "पढ़ा गया चिन्हित करें",
+	"echo-notification-more-options-tooltip": "अन्य विकल्प",
 	"notification-link-text-expand-all": "सभी देखें",
 	"notification-link-text-expand-alert-count": "{{PLURAL:$1|$1 सूचना|$1 सूचनाएँ}} देखें",
 	"notification-link-text-expand-message-count": "{{PLURAL:$1|$1 संदेश|$1 संदेशों को}} देखें",

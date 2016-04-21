@@ -161,7 +161,7 @@
 	"echo-date-yesterday": "Včera",
 	"echo-load-more-error": "Při načítání dalších výsledků došlo k chybě.",
 	"notification-edit-talk-page-bundle": "$1 a {{PLURAL:$3|$3 další|$3 další|$3 dalších|100=více než 99 dalších}} vám napsali na [[User talk:$2|vaši diskusní stránku]].",
-	"notification-bundle-header-edit-user-talk-v2": "{{PLURAL:$1|$1 nová zpráva|$1 nové zprávy|$1 nových zpráv|100=Více než 99 nových zpráv}} na {{GENDER:$3|vaší}} diskusní stránce.",
+	"notification-bundle-header-edit-user-talk-v2": "{{PLURAL:$1|$1 nová zpráva|$1 nové zprávy|$1 nových zpráv|100=Více než 99 nových zpráv}} na <strong>{{GENDER:$3|vaší}} diskusní stránce</strong>.",
 	"notification-edit-user-talk-email-batch-bundle-body": "$1 a {{PLURAL:$2|$2 další|$2 další|$2 dalších|100=více než 99 dalších}} vám napsali na vaši diskusní stránku.",
 	"notification-page-linked-email-batch-bundle-body": "Do stránky $3 a {{PLURAL:$4|jedné další|$4 dalších |100=více než 99 dalších}} {{GENDER:$1|byly přidány}} odkazy na stránku $2.",
 	"echo-email-batch-subject-daily": "Na {{grammar:6sg|{{SITENAME}}}} dnes máte {{PLURAL:$2|nové|nová}} upozornění",

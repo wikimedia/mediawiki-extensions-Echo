@@ -26,7 +26,8 @@
 			"Исмаил Садуев",
 			"Putnik",
 			"Ole Yves",
-			"Лилиә"
+			"Лилиә",
+			"Alexandr Efremov"
 		]
 	},
 	"echo-desc": "Система уведомления участников о событиях и сообщениях",
@@ -89,6 +90,7 @@
 	"echo-notification-popup-loginrequired": "Пожалуйста, войдите, чтобы просмотреть уведомления.",
 	"echo-notification-markasread": "Пометить как прочитанное",
 	"echo-notification-markasunread": "Пометить как непрочитанное",
+	"echo-notification-markasread-tooltip": "Отметить как прочитанное",
 	"notification-link-text-expand-all": "Посмотреть все",
 	"notification-link-text-expand-alert-count": "Показать {{PLURAL:$1|$1 предупреждение|$1 предупреждений|$1 предупреждения}}",
 	"notification-link-text-expand-message-count": "Показать {{PLURAL:$1|$1 сообщение|$1 сообщений|$1 сообщения}}",
@@ -178,7 +180,7 @@
 	"echo-date-yesterday": "Вчера",
 	"echo-load-more-error": "Произошла ошибка при получении дополнительных результатов.",
 	"notification-edit-talk-page-bundle": "$1 и $3 {{PLURAL:$3|1=другой участник оставил|других участников оставили|других участника оставили|100=99+ других участников оставили}} сообщения на вашей [[User talk:$2|странице обсуждения]].",
-	"notification-bundle-header-edit-user-talk-v2": "$1 {{PLURAL:$1|новое сообщение|новых сообщений|новых сообщения|100=99+ новых сообщений}} на {{GENDER:$3|вашей}} странице обсуждения.",
+	"notification-bundle-header-edit-user-talk-v2": "{{PLURAL:$1|новое сообщение|$1 новых сообщений|100=99+ новых сообщения|100=99+ новых сообщений}} на <strong>{{GENDER:$3|вашей}} странице обсуждения</strong>.",
 	"notification-edit-user-talk-email-batch-bundle-body": "$1 и $2 {{PLURAL:$2|другой участник|других участникa|других участников|100=99+ других участников}} {{GENDER:$1|оставили}} сообщения на вашей странице обсуждения.",
 	"notification-page-linked-email-batch-bundle-body": "На страницу «$2» есть {{GENDER:$1|ссылка}} со страницы «$3» и ещё $4 {{PLURAL:$4|другой страницы|других страниц|100=99+ других страниц}}",
 	"echo-email-batch-bullet": "•",

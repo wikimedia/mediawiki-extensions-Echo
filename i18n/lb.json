@@ -3,7 +3,8 @@
 		"authors": [
 			"Robby",
 			"Soued031",
-			"Macofe"
+			"Macofe",
+			"Les Meloures"
 		]
 	},
 	"echo-desc": "System fir Benotzer iwwer Evenementer a Messagen z'informéieren",
@@ -59,7 +60,7 @@
 	"echo-notification-popup-loginrequired": "Loggt Iech w.e.g. a fir Är Notifikatiounen ze gesinn.",
 	"echo-notification-markasread": "Als geliest markéieren",
 	"echo-notification-markasunread": "Als net-geliest markéieren",
-	"echo-notification-markasread-tooltip": "Als geliest markéieren",
+	"echo-notification-markasread-tooltip": "Als gelies markéieren",
 	"echo-notification-more-options-tooltip": "Méi Optiounen",
 	"notification-link-text-expand-all": "All weisen",
 	"notification-link-text-expand-message-count": "{{PLURAL:$1|Ee Message|$1 Message}} weisen",

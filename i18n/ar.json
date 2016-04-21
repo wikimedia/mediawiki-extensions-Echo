@@ -78,6 +78,7 @@
 	"echo-notification-popup-loginrequired": "من فضلك سجل الدخول لعرض إشعاراتك.",
 	"echo-notification-markasread": "علّم كمقروءة",
 	"echo-notification-markasunread": "أبقها غير مقروءة",
+	"echo-notification-more-options-tooltip": "المزيد من الخيارات",
 	"notification-link-text-expand-all": "اعرض الكل",
 	"notification-link-text-expand-alert-count": "أظهر {{PLURAL:$1|تنبيهًا واحدًا|تنبيهين|$1 تنبيهات|$1 تنبيهًا}}",
 	"notification-link-text-expand-message-count": "اظهر {{PLURAL:$1 |رسالة$1|$1 رسالات}}",
