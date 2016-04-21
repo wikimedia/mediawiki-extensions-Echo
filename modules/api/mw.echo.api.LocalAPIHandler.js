@@ -1,4 +1,4 @@
-( function ( mw ) {
+( function ( mw, $ ) {
 	/**
 	 * Notification API handler
 	 *
@@ -91,6 +91,7 @@
 				notmessageunreadfirst: 1,
 				notlimit: this.limit,
 				notprop: 'count',
+				notcrosswikisummary: 1,
 				uselang: this.userLang
 			};
 
@@ -103,4 +104,13 @@
 				}
 			} );
 	};
-} )( mediaWiki );
+
+	/**
+	 * @inheritdoc
+	 */
+	mw.echo.api.LocalAPIHandler.prototype.getTypeParams = function ( type ) {
+		return $.extend( {}, this.typeParams[ type ], {
+			notcrosswikisummary: 1
+		} );
+	};
+} )( mediaWiki, jQuery );
