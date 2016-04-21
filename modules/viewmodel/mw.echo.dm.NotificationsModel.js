@@ -472,7 +472,7 @@
 			.then(
 				// Success
 				function ( data ) {
-					var notifData, id,
+					var i, notifData,
 						notificationModel, content,
 						newNotifData = {},
 						sources = {},
@@ -481,8 +481,8 @@
 
 					data = data || {};
 
-					for ( id in data.list ) {
-						notifData = data.list[ id ];
+					for ( i = 0; i < data.list.length; i++ ) {
+						notifData = data.list[ i ];
 						content = notifData[ '*' ] || {};
 
 						// Collect common data
@@ -514,7 +514,7 @@
 								model.api,
 								model.unreadCounter,
 								sources,
-								id,
+								notifData.id,
 								$.extend( true, {}, newNotifData, {
 									// This should probably be separated by bundled
 									// type. Some types don't have read messages, but
@@ -531,7 +531,7 @@
 							);
 						} else {
 							notificationModel = new mw.echo.dm.NotificationItem(
-								id,
+								notifData.id,
 								newNotifData
 							);
 						}

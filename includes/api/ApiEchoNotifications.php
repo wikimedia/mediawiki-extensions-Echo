@@ -50,7 +50,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 
 					if ( $foreignNotifications && $foreignNotifications->getCount( $section ) > 0 ) {
 						// insert fake notification for foreign notifications
-						$result[$section]['list'][-1] = $this->makeForeignNotification( $user, $params['format'], $foreignNotifications, $section );
+						array_unshift( $result[$section]['list'], $this->makeForeignNotification( $user, $params['format'], $foreignNotifications, $section ) );
 					}
 
 					$this->getResult()->setIndexedTagName( $result[$section]['list'], 'notification' );
@@ -69,7 +69,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 					$section = count( $params['sections'] ) === 1 ? reset( $params['sections'] ) : null;
 
 					if ( $foreignNotifications->getCount( $section ) > 0 ) {
-						$result['list'][-1] = $this->makeForeignNotification( $user, $params['format'], $foreignNotifications, $section );
+						array_unshift( $result['list'], $this->makeForeignNotification( $user, $params['format'], $foreignNotifications, $section ) );
 					}
 				}
 
@@ -203,7 +203,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 		foreach ( $notifs as $notif ) {
 			$output = EchoDataOutputFormatter::formatOutput( $notif, $format, $user, $this->getLanguage() );
 			if ( $output !== false ) {
-				$result['list'][$notif->getEvent()->getID()] = $output;
+				$result['list'][] = $output;
 			}
 		}
 
