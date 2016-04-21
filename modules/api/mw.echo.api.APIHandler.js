@@ -68,7 +68,7 @@
 				notformat: 'model',
 				notlimit: this.limit,
 				notunreadfirst: 1,
-				notprop: 'index|list|count',
+				notprop: 'list|count',
 				uselang: this.userLang
 			}, this.getTypeParams( type ) );
 
