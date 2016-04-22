@@ -154,9 +154,7 @@ class MWEchoEmailBundler {
 	 * Get the timestamp of last email
 	 */
 	protected function retrieveLastEmailTimestamp() {
-		global $wgMemc;
-
-		$data = $wgMemc->get( $this->getMemcacheKey() );
+		$data = ObjectCache::getMainStashInstance()->get( $this->getMemcacheKey() );
 		if ( $data !== false ) {
 			$this->timestamp = $data['timestamp'];
 		}
@@ -279,12 +277,10 @@ class MWEchoEmailBundler {
 	 * Update bundle email metadata for user/hash pair
 	 */
 	protected function updateEmailMetadata() {
-		global $wgMemc;
-
 		$key = $this->getMemcacheKey();
 
 		// Store new data and make it expire in 7 days
-		$wgMemc->set(
+		ObjectCache::getMainStashInstance()->set(
 			$key,
 			array(
 				'timestamp' => $this->timestamp

@@ -190,8 +190,7 @@ class EchoNotificationController {
 		}
 
 		if ( self::$blacklist === null ) {
-			global $wgEchoAgentBlacklist, $wgEchoOnWikiBlacklist,
-				$wgMemc;
+			global $wgEchoAgentBlacklist, $wgEchoOnWikiBlacklist;
 
 			self::$blacklist = new EchoContainmentSet;
 			self::$blacklist->addArray( $wgEchoAgentBlacklist );
@@ -199,7 +198,7 @@ class EchoNotificationController {
 				self::$blacklist->addOnWiki(
 					NS_MEDIAWIKI,
 					$wgEchoOnWikiBlacklist,
-					$wgMemc,
+					ObjectCache::getLocalClusterInstance(),
 					wfMemcKey( "echo_on_wiki_blacklist" )
 				);
 			}
@@ -216,7 +215,7 @@ class EchoNotificationController {
 	 * @return boolean True when the event agent is in the user whitelist
 	 */
 	public static function isWhitelistedByUser( EchoEvent $event, User $user ) {
-		global $wgEchoPerUserWhitelistFormat, $wgMemc;
+		global $wgEchoPerUserWhitelistFormat;
 
 		if ( $wgEchoPerUserWhitelistFormat === null || !$event->getAgent() ) {
 			return false;
@@ -232,7 +231,7 @@ class EchoNotificationController {
 			self::$userWhitelist[$userId]->addOnWiki(
 				NS_USER,
 				sprintf( $wgEchoPerUserWhitelistFormat, $user->getName() ),
-				$wgMemc,
+				ObjectCache::getLocalClusterInstance(),
 				wfMemcKey( "echo_on_wiki_whitelist_" . $userId )
 			);
 		}
