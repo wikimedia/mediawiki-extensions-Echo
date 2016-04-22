@@ -22,9 +22,10 @@ interface EchoContainmentList {
  * from multiple sources like global variables, wiki pages, etc.
  *
  * Initialize:
+ *   $cache = ObjectCache::getLocalClusterIntance();
  *   $set = new EchoContainmentSet;
  *   $set->addArray( $wgSomeGlobalParameter );
- *   $set->addOnWiki( NS_USER, 'Foo/bar-baz', $wgMemc, 'some_user_specific_cache_key' );
+ *   $set->addOnWiki( NS_USER, 'Foo/bar-baz', $cache, 'some_user_specific_cache_key' );
  *
  * Usage:
  *   if ( $set->contains( 'SomeUser' ) ) {
