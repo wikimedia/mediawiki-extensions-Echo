@@ -223,7 +223,7 @@
 	"apihelp-query+notifications-paramvalue-format-flyout": "<span class=\"apihelp-deprecated\">Deprecated</span>",
 	"apihelp-query+notifications-paramvalue-format-html": "<span class=\"apihelp-deprecated\">Deprecated</span>",
 	"apihelp-query+notifications-param-limit": "{{doc-apihelp-param|query+notifications|limit}}",
-	"apihelp-query+notifications-param-noforn": "{{doc-apihelp-param|query+notifications|noforn}}",
+	"apihelp-query+notifications-param-crosswikisummary": "{{doc-apihelp-param|query+notifications|crosswikisummary}}",
 	"apihelp-query+notifications-param-alertcontinue": "{{doc-apihelp-param|query+notifications|alertcontinue}}",
 	"apihelp-query+notifications-param-unreadfirst": "{{doc-apihelp-param|query+notifications|unreadfirst}}",
 	"apihelp-query+notifications-param-alertunreadfirst": "{{doc-apihelp-param|query+notifications|alertunreadfirst}}",

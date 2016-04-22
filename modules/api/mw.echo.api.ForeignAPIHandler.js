@@ -16,26 +16,19 @@
 		// Parent constructor
 		mw.echo.api.ForeignAPIHandler.parent.call( this, config );
 
-		// Add 'noforn' setting to foreign APIs
-		$.extend( true, this.typeParams, {
-			message: {
-				notnoforn: 1,
-				notfilter: '!read'
-			},
-			alert: {
-				notnoforn: 1,
-				notfilter: '!read'
-			},
-			all: {
-				notnoforn: 1,
-				notfilter: '!read'
-			}
-		} );
-
 		this.api = new mw.ForeignApi( apiUrl );
 	};
 
 	/* Setup */
 
 	OO.inheritClass( mw.echo.api.ForeignAPIHandler, mw.echo.api.LocalAPIHandler );
+
+	/**
+	 * @inheritdoc
+	 */
+	mw.echo.api.ForeignAPIHandler.prototype.getTypeParams = function ( type ) {
+		return $.extend( {}, this.typeParams[ type ], {
+			notfilter: '!read'
+		} );
+	};
 } )( mediaWiki, jQuery );

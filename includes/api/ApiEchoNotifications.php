@@ -1,6 +1,15 @@
 <?php
 
 class ApiEchoNotifications extends ApiQueryBase {
+	/**
+	 * @var EchoForeignNotifications
+	 */
+	protected $foreignNotifications;
+
+	/**
+	 * @var bool
+	 */
+	protected $crossWikiSummary = false;
 
 	public function __construct( $query, $moduleName ) {
 		parent::__construct( $query, $moduleName, 'not' );
@@ -32,11 +41,8 @@ class ApiEchoNotifications extends ApiQueryBase {
 			);
 		}
 
-		if ( $params['noforn'] ) {
-			$foreignNotifications = null;
-		} else {
-			$foreignNotifications = new EchoForeignNotifications( $user );
-		}
+		$this->foreignNotifications = new EchoForeignNotifications( $this->getUser() );
+		$this->crossWikiSummary = $params['crosswikisummary'];
 
 		$result = array();
 		if ( in_array( 'list', $prop ) ) {
@@ -48,9 +54,9 @@ class ApiEchoNotifications extends ApiQueryBase {
 						$params[$section . 'continue'], $params['format'], $params[$section . 'unreadfirst']
 					);
 
-					if ( $foreignNotifications && $foreignNotifications->getCount( $section ) > 0 ) {
+					if ( $this->crossWikiSummary && $this->foreignNotifications->getCount( $section ) > 0 ) {
 						// insert fake notification for foreign notifications
-						array_unshift( $result[$section]['list'], $this->makeForeignNotification( $user, $params['format'], $foreignNotifications, $section ) );
+						array_unshift( $result[$section]['list'], $this->makeForeignNotification( $user, $params['format'], $section ) );
 					}
 
 					$this->getResult()->setIndexedTagName( $result[$section]['list'], 'notification' );
@@ -63,14 +69,11 @@ class ApiEchoNotifications extends ApiQueryBase {
 					$params['filter'], $params['limit'], $params['continue'], $params['format'], $params['unreadfirst']
 				);
 
-				if ( $foreignNotifications ) {
-					// if exactly 1 section is specified, we consider only that section, otherwise
-					// we pass 'null' to consider all foreign notifications
-					$section = count( $params['sections'] ) === 1 ? reset( $params['sections'] ) : null;
-
-					if ( $foreignNotifications->getCount( $section ) > 0 ) {
-						array_unshift( $result['list'], $this->makeForeignNotification( $user, $params['format'], $foreignNotifications, $section ) );
-					}
+				// if exactly 1 section is specified, we consider only that section, otherwise
+				// we pass 'null' to consider all foreign notifications
+				$section = count( $params['sections'] ) === 1 ? reset( $params['sections'] ) : null;
+				if ( $this->crossWikiSummary && $this->foreignNotifications->getCount( $section ) > 0 ) {
+					array_unshift( $result['list'], $this->makeForeignNotification( $user, $params['format'], $section ) );
 				}
 
 				$this->getResult()->setIndexedTagName( $result['list'], 'notification' );
@@ -80,7 +83,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 		if ( in_array( 'count', $prop ) ) {
 			$result = array_merge_recursive(
 				$result,
-				$this->getPropCount( $user, $params['sections'], $params['groupbysection'], $foreignNotifications )
+				$this->getPropCount( $user, $params['sections'], $params['groupbysection'] )
 			);
 		}
 
@@ -221,16 +224,15 @@ class ApiEchoNotifications extends ApiQueryBase {
 	 * @param User $user
 	 * @param string[] $sections
 	 * @param boolean $groupBySection
-	 * @param EchoForeignNotifications|null $foreignNotifications
 	 * @return array
 	 */
-	protected function getPropCount( User $user, array $sections, $groupBySection, EchoForeignNotifications $foreignNotifications = null ) {
+	protected function getPropCount( User $user, array $sections, $groupBySection ) {
 		$result = array();
 		$notifUser = MWEchoNotifUser::newFromUser( $user );
 		// Always get total count
 		$rawCount = $notifUser->getNotificationCount();
-		if ( $foreignNotifications ) {
-			$rawCount += $foreignNotifications->getCount();
+		if ( $this->crossWikiSummary ) {
+			$rawCount += $this->foreignNotifications->getCount();
 		}
 		$result['rawcount'] = $rawCount;
 		$result['count'] = EchoNotificationController::formatNotificationCount( $rawCount );
@@ -238,8 +240,8 @@ class ApiEchoNotifications extends ApiQueryBase {
 		if ( $groupBySection ) {
 			foreach ( $sections as $section ) {
 				$rawCount = $notifUser->getNotificationCount( /* $tryCache = */true, DB_SLAVE, $section );
-				if ( $foreignNotifications ) {
-					$rawCount += $foreignNotifications->getCount( $section );
+				if ( $this->crossWikiSummary ) {
+					$rawCount += $this->foreignNotifications->getCount( $section );
 				}
 				$result[$section]['rawcount'] = $rawCount;
 				$result[$section]['count'] = EchoNotificationController::formatNotificationCount( $rawCount );
@@ -249,14 +251,14 @@ class ApiEchoNotifications extends ApiQueryBase {
 		return $result;
 	}
 
-	protected function makeForeignNotification( User $user, $format, EchoForeignNotifications $foreignNotifications, $section = null ) {
-		$wikis = $foreignNotifications->getWikis( $section );
-		$count = $foreignNotifications->getCount( $section );
+	protected function makeForeignNotification( User $user, $format, $section = null ) {
+		$wikis = $this->foreignNotifications->getWikis( $section );
+		$count = $this->foreignNotifications->getCount( $section );
 
 		// Sort wikis by timestamp, in descending order (newest first)
-		usort( $wikis, function ( $a, $b ) use ( $foreignNotifications, $section ) {
-			$aTimestamp = $foreignNotifications->getWikiTimestamp( $a, $section ) ?: new MWTimestamp( 0 );
-			$bTimestamp = $foreignNotifications->getWikiTimestamp( $b, $section ) ?: new MWTimestamp( 0 );
+		usort( $wikis, function ( $a, $b ) use ( $section ) {
+			$aTimestamp = $this->foreignNotifications->getWikiTimestamp( $a, $section ) ?: new MWTimestamp( 0 );
+			$bTimestamp = $this->foreignNotifications->getWikiTimestamp( $b, $section ) ?: new MWTimestamp( 0 );
 			return $bTimestamp->getTimestamp( TS_UNIX ) - $aTimestamp->getTimestamp( TS_UNIX );
 		} );
 
@@ -276,7 +278,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 		) );
 
 		$row->notification_user = $user->getId();
-		$row->notification_timestamp = $foreignNotifications->getTimestamp( $section );
+		$row->notification_timestamp = $this->foreignNotifications->getTimestamp( $section );
 		$row->notification_read_timestamp = null;
 		$row->notification_bundle_base = 1;
 		$row->notification_bundle_hash = md5( 'bogus' );
@@ -289,10 +291,10 @@ class ApiEchoNotifications extends ApiQueryBase {
 		// Add cross-wiki-specific data
 		$output['section'] = $section ?: 'all';
 		$output['count'] = $count;
-		$output['sources'] = $foreignNotifications->getApiEndpoints( $wikis );
+		$output['sources'] = $this->foreignNotifications->getApiEndpoints( $wikis );
 		// Add timestamp information
 		foreach ( $output['sources'] as $wiki => &$data ) {
-			$data['ts'] = $foreignNotifications->getWikiTimestamp( $wiki, $section )->getTimestamp( TS_MW );
+			$data['ts'] = $this->foreignNotifications->getWikiTimestamp( $wiki, $section )->getTimestamp( TS_MW );
 		}
 		return $output;
 	}
@@ -335,7 +337,12 @@ class ApiEchoNotifications extends ApiQueryBase {
 				),
 				ApiBase::PARAM_HELP_MSG_PER_VALUE => array(),
 			),
-			'noforn' => false,
+			// create "x notifications from y wikis" notification bundle &
+			// include unread counts from other wikis in prop=count results
+			'crosswikisummary' => array(
+				ApiBase::PARAM_TYPE => 'boolean',
+				ApiBase::PARAM_DFLT => false,
+			),
 			'limit' => array(
 				ApiBase::PARAM_TYPE => 'limit',
 				ApiBase::PARAM_DFLT => 20,
