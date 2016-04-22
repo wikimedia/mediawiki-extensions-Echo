@@ -1,8 +1,7 @@
 <?php
 
 class EchoEditUserTalkPresentationModel extends EchoEventPresentationModel {
-
-	private $sectionTitle = null;
+	use EchoPresentationModelSectionTrait;
 
 	public function canRender() {
 		return (bool)$this->event->getTitle();
@@ -13,18 +12,9 @@ class EchoEditUserTalkPresentationModel extends EchoEventPresentationModel {
 	}
 
 	public function getPrimaryLink() {
-		$title = $this->event->getTitle();
-		if ( !$this->isBundled() && $this->hasSection() ) {
-			$title = Title::makeTitle(
-				$title->getNamespace(),
-				$title->getDBkey(),
-				$this->getSection()
-			);
-		}
-
 		return array(
 			// Need FullURL so the section is included
-			'url' => $title->getFullURL(),
+			'url' => $this->getTitleWithSection()->getFullURL(),
 			'label' => $this->msg( 'notification-link-text-view-message' )->text()
 		);
 	}
@@ -75,29 +65,6 @@ class EchoEditUserTalkPresentationModel extends EchoEventPresentationModel {
 		} else {
 			return false;
 		}
-	}
-
-	private function hasSection() {
-		return (bool)$this->getSection();
-	}
-
-	private function getSection() {
-		if ( $this->sectionTitle !== null ) {
-			return $this->sectionTitle;
-		}
-		$sectionTitle = $this->event->getExtraParam( 'section-title' );
-		if ( !$sectionTitle ) {
-			$this->sectionTitle = false;
-			return false;
-		}
-		// Check permissions
-		if ( !$this->userCan( Revision::DELETED_TEXT ) ) {
-			$this->sectionTitle = false;
-			return false;
-		}
-
-		$this->sectionTitle = $sectionTitle;
-		return $this->sectionTitle;
 	}
 
 	private function getDiffLinkUrl() {
