@@ -54,11 +54,6 @@ class ApiEchoNotifications extends ApiQueryBase {
 					}
 
 					$this->getResult()->setIndexedTagName( $result[$section]['list'], 'notification' );
-					// 'index' is built on top of 'list'
-					if ( in_array( 'index', $prop ) ) {
-						$result[$section]['index'] = $this->getPropIndex( $result[$section]['list'] );
-						$this->getResult()->setIndexedTagName( $result[$section]['index'], 'id' );
-					}
 				}
 			} else {
 				$attributeManager = EchoAttributeManager::newFromGlobalVars();
@@ -79,11 +74,6 @@ class ApiEchoNotifications extends ApiQueryBase {
 				}
 
 				$this->getResult()->setIndexedTagName( $result['list'], 'notification' );
-				// 'index' is built on top of 'list'
-				if ( in_array( 'index', $prop ) ) {
-					$result['index'] = $this->getPropIndex( $result['list'] );
-					$this->getResult()->setIndexedTagName( $result['index'], 'id' );
-				}
 			}
 		}
 
@@ -259,23 +249,6 @@ class ApiEchoNotifications extends ApiQueryBase {
 		return $result;
 	}
 
-	/**
-	 * Internal helper method for getting property 'index' data
-	 * @param array $list
-	 * @return array
-	 */
-	protected function getPropIndex( $list ) {
-		$result = array();
-		foreach ( array_keys( $list ) as $key ) {
-			// Don't include the XML tag name ('_element' key)
-			if ( $key != '_element' ) {
-				$result[] = $key;
-			}
-		}
-
-		return $result;
-	}
-
 	protected function makeForeignNotification( User $user, $format, EchoForeignNotifications $foreignNotifications, $section = null ) {
 		$wikis = $foreignNotifications->getWikis( $section );
 		$count = $foreignNotifications->getCount( $section );
@@ -340,7 +313,6 @@ class ApiEchoNotifications extends ApiQueryBase {
 				ApiBase::PARAM_TYPE => array(
 					'list',
 					'count',
-					'index',
 				),
 				ApiBase::PARAM_DFLT => 'list',
 			),
@@ -371,7 +343,6 @@ class ApiEchoNotifications extends ApiQueryBase {
 				ApiBase::PARAM_MAX => ApiBase::LIMIT_SML1,
 				ApiBase::PARAM_MAX2 => ApiBase::LIMIT_SML2,
 			),
-			'index' => false,
 			'continue' => array(
 				ApiBase::PARAM_HELP_MSG => 'api-help-param-continue',
 			),

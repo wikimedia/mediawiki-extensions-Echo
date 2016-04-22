@@ -15,7 +15,7 @@ class ApiEchoNotificationsTest extends ApiTestCase {
 			'notsections' => 'alert|message',
 			'notgroupbysection' => 1,
 			'notlimit' => 10,
-			'notprop' => 'index|list|count' ) );
+			'notprop' => 'list|count' ) );
 
 		$this->assertArrayHasKey( 'query', $data[0] );
 		$this->assertArrayHasKey( 'notifications', $data[0]['query'] );
@@ -31,7 +31,6 @@ class ApiEchoNotificationsTest extends ApiTestCase {
 		$alert = $result['alert'];
 		$this->assertArrayHasKey( 'list', $alert );
 		$this->assertArrayHasKey( 'continue', $alert );
-		$this->assertArrayHasKey( 'index', $alert );
 		$this->assertArrayHasKey( 'rawcount', $alert );
 		$this->assertArrayHasKey( 'count', $alert );
 
@@ -40,7 +39,6 @@ class ApiEchoNotificationsTest extends ApiTestCase {
 		$message = $result['message'];
 		$this->assertArrayHasKey( 'list', $message );
 		$this->assertArrayHasKey( 'continue', $message );
-		$this->assertArrayHasKey( 'index', $message );
 		$this->assertArrayHasKey( 'rawcount', $message );
 		$this->assertArrayHasKey( 'count', $message );
 	}
@@ -51,7 +49,7 @@ class ApiEchoNotificationsTest extends ApiTestCase {
 			'meta' => 'notifications',
 			'notsections' => 'alert|message',
 			'notlimit' => 10,
-			'notprop' => 'index|list|count' ) );
+			'notprop' => 'list|count' ) );
 
 		$this->assertArrayHasKey( 'query', $data[0] );
 		$this->assertArrayHasKey( 'notifications', $data[0]['query'] );
@@ -62,7 +60,6 @@ class ApiEchoNotificationsTest extends ApiTestCase {
 		$this->assertArrayHasKey( 'rawcount', $result );
 		$this->assertArrayHasKey( 'list', $result );
 		$this->assertArrayHasKey( 'continue', $result );
-		$this->assertArrayHasKey( 'index', $result );
 
 		$this->assertTrue( !isset( $result['alert'] ) );
 		$this->assertTrue( !isset( $result['message'] ) );
