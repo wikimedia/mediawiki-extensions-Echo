@@ -2,6 +2,8 @@
 
 class EchoEditUserTalkPresentationModel extends EchoEventPresentationModel {
 
+	private $sectionTitle = null;
+
 	public function canRender() {
 		return (bool)$this->event->getTitle();
 	}
@@ -16,11 +18,12 @@ class EchoEditUserTalkPresentationModel extends EchoEventPresentationModel {
 			$title = Title::makeTitle(
 				$title->getNamespace(),
 				$title->getDBkey(),
-				$this->formatSubjectAnchor()
+				$this->getSection()
 			);
 		}
 
 		return array(
+			// Need FullURL so the section is included
 			'url' => $title->getFullURL(),
 			'label' => $this->msg( 'notification-link-text-view-message' )->text()
 		);
@@ -54,7 +57,7 @@ class EchoEditUserTalkPresentationModel extends EchoEventPresentationModel {
 		} elseif ( $this->hasSection() ) {
 			$msg = $this->getMessageWithAgent( "notification-header-{$this->type}-with-section" );
 			$msg->params( $this->getViewingUserForGender() );
-			$msg->plaintextParams( $this->language->embedBidi( $this->getSectionTitleSnippet() ) );
+			$msg->plaintextParams( $this->getTruncatedSectionTitle( $this->getSection() ) );
 			return $msg;
 		} else {
 			$msg = parent::getHeaderMessage();
@@ -66,7 +69,8 @@ class EchoEditUserTalkPresentationModel extends EchoEventPresentationModel {
 	public function getBodyMessage() {
 		if ( !$this->isBundled() && $this->hasSection() ) {
 			$msg = $this->msg( 'notification-body-edit-user-talk-with-section' );
-			$msg->plaintextParams( $this->getRevisionSnippet() );
+			// section-text is safe to use here, because hasSection() returns false if the revision is deleted
+			$msg->plaintextParams( $this->event->getExtraParam( 'section-text' ) );
 			return $msg;
 		} else {
 			return false;
@@ -74,53 +78,26 @@ class EchoEditUserTalkPresentationModel extends EchoEventPresentationModel {
 	}
 
 	private function hasSection() {
-		return (bool)$this->event->getExtraParam( 'section-title' );
+		return (bool)$this->getSection();
 	}
 
-	/**
-	 * Get the section title for a talk page post
-	 * @return string
-	 */
-	private function getSectionTitleSnippet() {
-		if ( $this->userCan( Revision::DELETED_TEXT ) ) {
-			return EchoDiscussionParser::getTextSnippet(
-				$this->event->getExtraParam( 'section-title' ),
-				$this->language,
-				self::SECTION_TITLE_RECOMMENDED_LENGTH
-			);
-		} else {
-			return $this->msg( 'echo-rev-deleted-text-view' )->text();
-		}
-	}
-
-	private function getRevisionSnippet() {
-		$sectionText = $this->event->getExtraParam( 'section-text' );
-		if ( $sectionText === null || !$this->userCan( Revision::DELETED_TEXT ) ) {
-			return '';
-		}
-
-		return trim( $sectionText );
-	}
-
-	/**
-	 * Extract the subject anchor (linkable portion of the edited page) from
-	 * the event.
-	 *
-	 * @return string The anchor on page, or an empty string
-	 */
-	private function formatSubjectAnchor() {
-		global $wgParser;
-
-		if ( !$this->userCan( Revision::DELETED_TEXT ) ) {
-			return $this->msg( 'echo-rev-deleted-text-view' )->text();
+	private function getSection() {
+		if ( $this->sectionTitle !== null ) {
+			return $this->sectionTitle;
 		}
 		$sectionTitle = $this->event->getExtraParam( 'section-title' );
-		if ( $sectionTitle === null ) {
-			return '';
+		if ( !$sectionTitle ) {
+			$this->sectionTitle = false;
+			return false;
+		}
+		// Check permissions
+		if ( !$this->userCan( Revision::DELETED_TEXT ) ) {
+			$this->sectionTitle = false;
+			return false;
 		}
 
-		// Strip out #
-		return substr( $wgParser->guessLegacySectionNameFromWikiText( $sectionTitle ), 1 );
+		$this->sectionTitle = $sectionTitle;
+		return $this->sectionTitle;
 	}
 
 	private function getDiffLinkUrl() {

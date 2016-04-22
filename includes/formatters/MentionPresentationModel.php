@@ -73,13 +73,7 @@ class EchoMentionPresentationModel extends EchoEventPresentationModel {
 
 		$section = $this->getSection();
 		if ( $section ) {
-			$msg->plaintextParams( $this->language->embedBidi(
-				EchoDiscussionParser::getTextSnippet(
-						$section,
-						$this->language,
-						self::SECTION_TITLE_RECOMMENDED_LENGTH
-				)
-			) );
+			$msg->plaintextParams( $this->getTruncatedSectionTitle( $section ) );
 		}
 
 		return $msg;
@@ -119,9 +113,18 @@ class EchoMentionPresentationModel extends EchoEventPresentationModel {
 	}
 
 	public function getPrimaryLink() {
+		$title = $this->event->getTitle();
+		$section = $this->getSection();
+		if ( $section ) {
+			$title = Title::makeTitle(
+				$title->getNamespace(),
+				$title->getDBkey(),
+				$section
+			);
+		}
 		return array(
 			// Need FullURL so the section is included
-			'url' => $this->getTitleWithSection()->getFullURL(),
+			'url' => $title->getFullURL(),
 			'label' => $this->msg( 'notification-link-text-view-mention' )->text()
 		);
 	}
