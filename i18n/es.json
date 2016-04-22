@@ -206,8 +206,6 @@
 	"apihelp-query+notifications-paramvalue-format-flyout": "<span class=\"apihelp-deprecated\">Desaconsejado</span>. Usa <kbd>$1format=model</kbd> para datos en crudo",
 	"apihelp-query+notifications-paramvalue-format-html": "<span class=\"apihelp-deprecated\">Desaconsejado</span>. Usa <kbd>$1format=model</kbd> para datos en crudo",
 	"apihelp-query+notifications-param-limit": "Número máximo de notificaciones a recibir.",
-	"apihelp-query+notifications-param-index": "Si se especifica, se recibirá una lista ordenada de identificaciones de notificación.",
-	"apihelp-query+notifications-param-noforn": "True (verdadero) para excluir los datos sobre notificaciones en wikis foráneos.",
 	"apihelp-query+notifications-param-alertcontinue": "Cuando haya más resultados de alerta disponibles, utiliza esto para continuar.",
 	"apihelp-query+notifications-param-alertunreadfirst": "Si se muestran las notificaciones de mensajes sin leer primero.",
 	"apihelp-query+notifications-param-messagecontinue": "Cuando haya más resultados de mensajes disponibles, utiliza esto para continuar.",

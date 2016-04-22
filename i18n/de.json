@@ -199,7 +199,6 @@
 	"apihelp-query+notifications-paramvalue-format-flyout": "<span class=\"apihelp-deprecated\">Veraltet</span>. Für rohe Daten <kbd>$1format=model</kbd> verwenden.",
 	"apihelp-query+notifications-paramvalue-format-html": "<span class=\"apihelp-deprecated\">Veraltet</span>. Für rohe Daten <kbd>$1format=model</kbd> verwenden.",
 	"apihelp-query+notifications-param-limit": "Die maximale Anzahl zurückzugebender Benachrichtigungen.",
-	"apihelp-query+notifications-param-index": "Falls angegeben, wird eine Liste von Benachrichtigungskennungen in der Reihenfolge zurückgegeben.",
 	"apihelp-query+notifications-param-alertcontinue": "Falls mehr Alarmergebnisse verfügbar sind, dies zum Fortfahren verwenden.",
 	"apihelp-query+notifications-param-unreadfirst": "Ob ungelesene Benachrichtigungen zuerst angezeigt werden sollen (wird nur verwendet, wenn groupbysection nicht festgelegt ist).",
 	"apihelp-query+notifications-param-alertunreadfirst": "Ob ungelesene Nachrichten zuerst angezeigt werden sollen (wird nur verwendet, wenn groupbysection festgelegt ist).",

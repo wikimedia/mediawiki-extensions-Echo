@@ -220,8 +220,6 @@
 	"apihelp-query+notifications-paramvalue-format-flyout": "<span class=\"apihelp-deprecated\">已弃用</span>。使用<kbd>$1format=model</kbd>用于原始数据",
 	"apihelp-query+notifications-paramvalue-format-html": "<span class=\"apihelp-deprecated\">已弃用</span>。使用<kbd>$1format=model</kbd>用于原始数据",
 	"apihelp-query+notifications-param-limit": "返回通知的最大数量。",
-	"apihelp-query+notifications-param-index": "如果指定，将返回一个按顺序的通知ID列表。",
-	"apihelp-query+notifications-param-noforn": "当值为真时，退出有关外部wiki上通知的数据。",
 	"apihelp-query+notifications-param-alertcontinue": "当更多提醒结果可用时，使用这个继续。",
 	"apihelp-query+notifications-param-unreadfirst": "是否首先显示未读通知（只当groupbysection未设置时使用）。",
 	"apihelp-query+notifications-param-alertunreadfirst": "是否首先显示未读的消息通知（只当groupbysection已设置时使用）。",

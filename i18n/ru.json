@@ -215,8 +215,6 @@
 	"apihelp-query+notifications-paramvalue-format-flyout": "<span class=\"apihelp-deprecated\">Устарело</span>. Используйте <kbd>$1format=model</kbd> для исходных данных",
 	"apihelp-query+notifications-paramvalue-format-html": "<span class=\"apihelp-deprecated\">Устарело</span>. Используйте <kbd>$1format=model</kbd> для исходных данных",
 	"apihelp-query+notifications-param-limit": "Максимальное количество возвращаемых уведомлений.",
-	"apihelp-query+notifications-param-index": "Если указан, будет возвращён список ID уведомлений по порядку.",
-	"apihelp-query+notifications-param-noforn": "True, чтобы отказаться от данных об уведомлениях в других вики.",
 	"apihelp-query+notifications-param-alertcontinue": "Когда доступно больше результатов для предупреждений, используйте это для продолжения.",
 	"apihelp-query+notifications-param-unreadfirst": "Нужно ли показывать непрочитанные уведомления вначале (используется только если groupbysection не установлен).",
 	"apihelp-query+notifications-param-alertunreadfirst": "Нужно ли показывать непрочитанные уведомления о сообщениях в первую очередь (используется только если указан groupbysection).",

@@ -195,8 +195,6 @@
 	"apihelp-query+notifications-paramvalue-format-flyout": "<span class=\"apihelp-deprecated\">Иҫкергән</span>. Тәүге күрһәткестәргә <kbd>$1format=model</kbd> ҡулланығыҙ",
 	"apihelp-query+notifications-paramvalue-format-html": "<span class=\"apihelp-deprecated\">Иҫкергән</span>. Тәүге күрһәткестәргә <kbd>$1format=model</kbd> ҡулланығыҙ",
 	"apihelp-query+notifications-param-limit": "Кире ҡайтарылған белдереүҙәрҙең иң күп һаны",
-	"apihelp-query+notifications-param-index": "Күрһәтелгән осраҡта, ID белдереүҙәрҙең исемлеге эҙмә-эҙ кире ҡайтарыласаҡ.",
-	"apihelp-query+notifications-param-noforn": "Дөрөҫ, икенсе викиларҙа белдереү мәғлүмәттәрен кире ҡағыу өсөн.",
 	"apihelp-query+notifications-param-alertcontinue": "Иғтибарлыраҡ булһағыҙ, һөҙөмтәләрегеҙ күберәк буласаҡ, был функцияны дауам итеү өсөн файҙаланығыҙ.",
 	"apihelp-query+notifications-param-unreadfirst": "Уҡылмаған иҫкәртеүҙәрҙе беренсе сиратта күрһәтергә кәрәкме (groupbysection булған осраҡта ғына ҡулланыла).",
 	"apihelp-query+notifications-param-alertunreadfirst": "Уҡылмаған иҫкәртеүҙәрҙе беренсе сиратта күрһәтергә кәрәкме (groupbysection булған осраҡта ғына ҡулланыла).",

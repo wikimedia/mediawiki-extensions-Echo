@@ -199,8 +199,6 @@
 	"apihelp-query+notifications-paramvalue-format-flyout": "<span class=\"apihelp-deprecated\">מיושן</span>. נא להשתמש ב־<kbd dir=\"ltr\">$1format=model</kbd> לנתונים גולמיים",
 	"apihelp-query+notifications-paramvalue-format-html": "<span class=\"apihelp-deprecated\">מיושן</span>. נא להשתמש ב־<kbd dir=\"ltr\">$1format=model</kbd> לנתונים גולמיים",
 	"apihelp-query+notifications-param-limit": "המספר המרבי של ההודעות להחזיר.",
-	"apihelp-query+notifications-param-index": "אם זה מצוין, תוחזר רשימת מזני התראות לפי הסדר.",
-	"apihelp-query+notifications-param-noforn": "ערך True כדי לא לקבל נתונים על הודעות באתרי ויקי זרים.",
 	"apihelp-query+notifications-param-alertcontinue": "כשזמינות עוד תוצאות התראה, יש להשתמש בזה כדי להמשיך.",
 	"apihelp-query+notifications-param-unreadfirst": "האם להציג הודעות שלא נקראו קודם (משמש רק אם groupbysection לא הוגדר).",
 	"apihelp-query+notifications-param-alertunreadfirst": "האם להציג מונה הודעות מסר שלא נקראו תחילה (משמש רק אם groupbysection לא הוגדר).",

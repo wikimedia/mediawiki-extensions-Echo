@@ -179,7 +179,6 @@
 	"apihelp-query+notifications-param-filter": "De opgevraagde meldingen filteren.",
 	"apihelp-query+notifications-param-format": "Indien opgegeven, worden meldingen teruggegeven met deze opmaak.",
 	"apihelp-query+notifications-param-limit": "Het maximum aantal opgevraagde meldingen beperken.",
-	"apihelp-query+notifications-param-index": "Als opgegeven, wordt op volgorde een lijst met notificatie-ID's teruggegeven.",
 	"apihelp-query+notifications-param-alertcontinue": "Gebruik dit voor continueren als er meer waarschuwingen beschikbaar zijn.",
 	"apihelp-query+notifications-param-alertunreadfirst": "Of ongelezen meldingen over berichten als eerste moeten worden weergeven.",
 	"apihelp-query+notifications-param-messagecontinue": "Gebruik dit voor continueren als er meer berichten beschikbaar zijn.",

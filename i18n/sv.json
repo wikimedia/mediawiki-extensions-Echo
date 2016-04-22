@@ -202,8 +202,6 @@
 	"apihelp-query+notifications-paramvalue-format-flyout": "<span class=\"apihelp-deprecated\">Föråldrad</span>. Använd <kbd>$1format=model</kbd> för rå data",
 	"apihelp-query+notifications-paramvalue-format-html": "<span class=\"apihelp-deprecated\">Föråldrad</span>. Använd <kbd>$1format=model</kbd> för rå data",
 	"apihelp-query+notifications-param-limit": "Det maximala antalet aviseringar som ska returneras.",
-	"apihelp-query+notifications-param-index": "Om angivet, en lista över aviserings-ID, i ordning, kommer att returneras.",
-	"apihelp-query+notifications-param-noforn": "Sant för att avregistrera från aviseringar på främmande wikis.",
 	"apihelp-query+notifications-param-alertcontinue": "När fler resultat finns för systemmeddelande, använd detta för att fortsätta.",
 	"apihelp-query+notifications-param-unreadfirst": "Om du vill visa olästa aviseringar först (används endast om groupbysection inte är inställd).",
 	"apihelp-query+notifications-param-alertunreadfirst": "Om du vill visa olästa meddelandeaviseringar först (används endast om groupbysection inte är inställd).",

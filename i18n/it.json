@@ -200,8 +200,6 @@
 	"apihelp-query+notifications-paramvalue-format-flyout": "<span class=\"apihelp-deprecated\">Deprecato</span>. Usa <kbd>$1format=model</kbd> per dati grezzi",
 	"apihelp-query+notifications-paramvalue-format-html": "<span class=\"apihelp-deprecated\">Deprecato</span>. Usa <kbd>$1format=model</kbd> per dati grezzi",
 	"apihelp-query+notifications-param-limit": "Il numero massimo di notifiche da recuperare.",
-	"apihelp-query+notifications-param-index": "Se specificato, un elenco di ID notifiche, in ordine, sarà restituito.",
-	"apihelp-query+notifications-param-noforn": "Seleziona per escludere dati sulle notifiche dai wiki esterni.",
 	"apihelp-query+notifications-param-alertcontinue": "Quando più risultati 'avviso' sono disponibili, usa questo per continuare.",
 	"apihelp-query+notifications-param-unreadfirst": "Se mostrare le notifiche non lette prima (usato solo se groupbysection è impostato).",
 	"apihelp-query+notifications-param-alertunreadfirst": "Se mostrare le notifiche dei messaggi non letti prima (usato solo se groupbysection è impostato).",
