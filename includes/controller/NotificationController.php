@@ -141,22 +141,38 @@ class EchoNotificationController {
 	}
 
 	/**
-	 * @param string $type Event type
-	 * @return string[] List of notification types to send for
+	 * Get the notify types for this event, eg, web/email
+	 *
+	 * @param string $eventType Event type
+	 * @return string[] List of notify types that apply for
 	 *  this event type
 	 */
-	public static function getEventNotifyTypes( $type ) {
-		// Get the notification types for this event, eg, web/email
-		global $wgEchoDefaultNotificationTypes;
+	public static function getEventNotifyTypes( $eventType ) {
+		global $wgDefaultNotifyTypeAvailability,
+			$wgEchoNotifications;
 
-		$notifyTypes = $wgEchoDefaultNotificationTypes['all'];
-		if ( isset( $wgEchoDefaultNotificationTypes[$type] ) ) {
+		$notifyTypes = array();
+
+		$attributeManager = EchoAttributeManager::newFromGlobalVars();
+
+		$category = $attributeManager->getNotificationCategory( $eventType );
+
+		// If the category is displayed in preferences, we should go by that, rather
+		// than overrides that are inconsistent with what the user saw in preferences.
+		$isTypeSpecificConsidered = !$attributeManager->isCategoryDisplayedInPreferences(
+			$category
+		);
+
+		$notifyTypes = $wgDefaultNotifyTypeAvailability;
+
+		if ( $isTypeSpecificConsidered && isset( $wgEchoNotifications[$eventType]['notify-type-availability'] ) ) {
 			$notifyTypes = array_merge(
 				$notifyTypes,
-				$wgEchoDefaultNotificationTypes[$type]
+				$wgEchoNotifications[$eventType]['notify-type-availability']
 			);
 		}
 
+		// Category settings for availability are considered in EchoNotifier
 		return array_keys( array_filter( $notifyTypes ) );
 	}
 

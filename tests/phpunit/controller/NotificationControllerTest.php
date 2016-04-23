@@ -193,9 +193,12 @@ class NotificationControllerTest extends MediaWikiTestCase {
 				// event type
 				'bar',
 				// default notification types configuration
+				array( 'web' => true ),
+				// type-specific
 				array(
-					'all' => array( 'web' => true ),
-					'foo' => array( 'email' => true ),
+					'foo' => array(
+						'notify-type-availability' => array( 'email' => true ),
+					),
 				),
 			),
 
@@ -206,21 +209,41 @@ class NotificationControllerTest extends MediaWikiTestCase {
 				// event type
 				'foo',
 				// default notification types configuration
+				array( 'web' => true, 'email' => true ),
+				// type-specific
 				array(
-					'all' => array( 'web' => true, 'email' => true ),
-					'foo' => array( 'email' => false ),
-					'bar' => array( 'sms' => true ),
+					'foo' => array(
+						'notify-type-availability' => array( 'email' => false ),
+					),
+					'bar' => array(
+						'notify-type-availability' => array( 'sms' => true ),
+					),
 				),
 			),
+
+			array(
+				'Uses all configuration when notify-type-availability not set at all',
+				// expected result
+				array( 'web', 'email' ),
+				// event type
+				'baz',
+				// default notification types configuration
+				array( 'web' => true, 'email' => true ),
+				// type-specific
+				array(
+					'baz' => array(),
+				),
+			)
 		);
 	}
 
 	/**
 	 * @dataProvider getEventNotifyTypesProvider
 	 */
-	public function testGetEventNotifyTypes( $message, $expect, $type, array $notificationTypes ) {
+	public function testGetEventNotifyTypes( $message, $expect, $type, array $defaultNotifyTypeAvailability, array $notifications ) {
 		$this->setMwGlobals( array(
-			'wgEchoDefaultNotificationTypes' => $notificationTypes,
+			'wgDefaultNotifyTypeAvailability' => $defaultNotifyTypeAvailability,
+			'wgEchoNotifications' => $notifications,
 		) );
 		$result = EchoNotificationController::getEventNotifyTypes( $type );
 		$this->assertEquals( $expect, $result, $message );

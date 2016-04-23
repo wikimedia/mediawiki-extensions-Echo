@@ -55,7 +55,7 @@ class EchoAttributeManagerTest extends MediaWikiTestCase {
 	 * @dataProvider getUserLocatorsProvider
 	 */
 	public function testGetUserLocators( $message, $expect, $type, $notifications ) {
-		$manager = new EchoAttributeManager( $notifications, array() );
+		$manager = new EchoAttributeManager( $notifications, array(), array(), array(), array() );
 
 		$result = $manager->getUserCallable( $type, EchoAttributeManager::ATTR_LOCATORS );
 		$this->assertEquals( $expect, $result, $message );
@@ -72,7 +72,7 @@ class EchoAttributeManagerTest extends MediaWikiTestCase {
 				'priority' => 10
 			)
 		);
-		$manager = new EchoAttributeManager( $notif, $category );
+		$manager = new EchoAttributeManager( $notif, $category, array(), array(), array() );
 		$this->assertTrue( $manager->getCategoryEligibility( $this->mockUser(), 'category_one' ) );
 		$category = array(
 			'category_one' => array(
@@ -82,7 +82,7 @@ class EchoAttributeManagerTest extends MediaWikiTestCase {
 				)
 			)
 		);
-		$manager = new EchoAttributeManager( $notif, $category );
+		$manager = new EchoAttributeManager( $notif, $category, array(), array(), array() );
 		$this->assertFalse( $manager->getCategoryEligibility( $this->mockUser(), 'category_one' ) );
 	}
 
@@ -97,10 +97,10 @@ class EchoAttributeManagerTest extends MediaWikiTestCase {
 				'priority' => 10
 			)
 		);
-		$manager = new EchoAttributeManager( $notif, $category );
+		$manager = new EchoAttributeManager( $notif, $category, array(), array(), array() );
 		$this->assertEquals( $manager->getNotificationCategory( 'event_one' ), 'category_one' );
 
-		$manager = new EchoAttributeManager( $notif, array() );
+		$manager = new EchoAttributeManager( $notif, array(), array(), array(), array() );
 		$this->assertEquals( $manager->getNotificationCategory( 'event_one' ), 'other' );
 
 		$notif = array(
@@ -113,7 +113,7 @@ class EchoAttributeManagerTest extends MediaWikiTestCase {
 				'priority' => 10
 			)
 		);
-		$manager = new EchoAttributeManager( $notif, $category );
+		$manager = new EchoAttributeManager( $notif, $category, array(), array(), array() );
 		$this->assertEquals( $manager->getNotificationCategory( 'event_one' ), 'other' );
 	}
 
@@ -135,7 +135,7 @@ class EchoAttributeManagerTest extends MediaWikiTestCase {
 			),
 			'category_four' => array()
 		);
-		$manager = new EchoAttributeManager( $notif, $category );
+		$manager = new EchoAttributeManager( $notif, $category, array(), array(), array() );
 		$this->assertEquals( 6, $manager->getCategoryPriority( 'category_one' ) );
 		$this->assertEquals( 10, $manager->getCategoryPriority( 'category_two' ) );
 		$this->assertEquals( 10, $manager->getCategoryPriority( 'category_three' ) );
@@ -169,7 +169,7 @@ class EchoAttributeManagerTest extends MediaWikiTestCase {
 			),
 			'category_four' => array()
 		);
-		$manager = new EchoAttributeManager( $notif, $category );
+		$manager = new EchoAttributeManager( $notif, $category, array(), array(), array() );
 		$this->assertEquals( 6, $manager->getNotificationPriority( 'event_one' ) );
 		$this->assertEquals( 10, $manager->getNotificationPriority( 'event_two' ) );
 		$this->assertEquals( 10, $manager->getNotificationPriority( 'event_three' ) );
@@ -198,7 +198,7 @@ class EchoAttributeManagerTest extends MediaWikiTestCase {
 				'priority' => 6
 			)
 		);
-		$manager = new EchoAttributeManager( $notif, $category );
+		$manager = new EchoAttributeManager( $notif, $category, array(), array(), array() );
 		$this->assertEquals( $manager->getMessageEvents(), array( 'event_one', 'event_three' ) );
 	}
 
@@ -224,7 +224,7 @@ class EchoAttributeManagerTest extends MediaWikiTestCase {
 				'priority' => 6
 			)
 		);
-		$manager = new EchoAttributeManager( $notif, $category );
+		$manager = new EchoAttributeManager( $notif, $category, array(), array(), array() );
 		$this->assertEquals( $manager->getAlertEvents(), array( 'event_two', 'event_three', 'event_four' ) );
 	}
 
@@ -257,7 +257,7 @@ class EchoAttributeManagerTest extends MediaWikiTestCase {
 				'priority' => 10,
 			),
 		);
-		$manager = new EchoAttributeManager( $notif, $category );
+		$manager = new EchoAttributeManager( $notif, $category, array(), array(), array() );
 		$this->assertEquals( $manager->getUserEnabledEvents( $this->mockUser(), 'web' ), array( 'event_two', 'event_three' ) );
 	}
 
@@ -289,7 +289,7 @@ class EchoAttributeManagerTest extends MediaWikiTestCase {
 				'priority' => 10
 			),
 		);
-		$manager = new EchoAttributeManager( $notif, $category );
+		$manager = new EchoAttributeManager( $notif, $category, array(), array(), array() );
 		$expected = array( 'event_one', 'event_three', 'event_four' );
 		$actual = $manager->getUserEnabledEventsBySections( $this->mockUser(), 'web', array( 'alert' ) );
 		sort( $expected );
@@ -308,6 +308,151 @@ class EchoAttributeManagerTest extends MediaWikiTestCase {
 		sort( $actual );
 		$this->assertEquals( $actual, $expected );
 	}
+
+	public static function getEventsByCategoryProvider() {
+		return array(
+			array(
+				'Mix of populated and empty categories handled appropriately',
+				array(
+					'category_one' => array(
+						'event_two',
+						'event_five',
+					),
+					'category_two' => array(
+						'event_one',
+						'event_three',
+						'event_four',
+					),
+					'category_three' => array(),
+				),
+				array(
+					'category_one' => array(),
+					'category_two' => array(),
+					'category_three' => array(),
+				),
+				array(
+					'event_one' => array(
+						'category' => 'category_two',
+					),
+					'event_two' => array(
+						'category' => 'category_one',
+					),
+					'event_three' => array(
+						'category' => 'category_two',
+					),
+					'event_four' => array(
+						'category' => 'category_two',
+					),
+					'event_five' => array(
+						'category' => 'category_one',
+					),
+				)
+			)
+		);
+	}
+
+	/**
+	 * @dataProvider getEventsByCategoryProvider
+	 */
+	public function testGetEventsByCategory( $message, $expectedMapping, $categories, $notifications ) {
+		$am = new EchoAttributeManager( $notifications, $categories, array(), array(), array() );
+		$actualMapping = $am->getEventsByCategory();
+		$this->assertEquals( $expectedMapping, $actualMapping, $message );
+	}
+
+	public static function isNotifyTypeAvailableForCategoryProvider() {
+		return array(
+			array(
+				'Fallback to default entirely',
+				true,
+				'category_one',
+				'web',
+				array( 'web' => true, 'email' => true ),
+				array()
+			),
+			array(
+				'Fallback to default for single type',
+				false,
+				'category_two',
+				'email',
+				array( 'web' => true, 'email' => false ),
+				array(
+					'category_two' => array(
+						'web' => true,
+					),
+				)
+			),
+			array(
+				'Use override',
+				false,
+				'category_three',
+				'web',
+				array( 'web' => true, 'email' => true ),
+				array(
+					'category_three' => array(
+						'web' => false,
+					),
+				),
+			),
+		);
+	}
+
+	/**
+	   @dataProvider isNotifyTypeAvailableForCategoryProvider
+	*/
+	public function testIsNotifyTypeAvailableForCategory( $message, $expected, $categoryName, $notifyType, $defaultNotifyTypeAvailability, $notifyTypeAvailabilityByCategory ) {
+		$am = new EchoAttributeManager( array(), array(), $defaultNotifyTypeAvailability, $notifyTypeAvailabilityByCategory, array() );
+		$actual = $am->isNotifyTypeAvailableForCategory( $categoryName, $notifyType );
+		$this->assertEquals( $expected, $actual, $message );
+	}
+
+	public static function isNotifyTypeDismissableForCategoryProvider() {
+		return array(
+			array(
+				'Not dismissable because of all',
+				false,
+				array(
+					'category_one' => array(
+						'no-dismiss' => array( 'all' ),
+					)
+				),
+				'category_one',
+				'web',
+			),
+			array(
+				'Not dismissable because of specific notify type',
+				false,
+				array(
+					'category_two' => array(
+						'no-dismiss' => array( 'email' ),
+					)
+				),
+				'category_two',
+				'email',
+			),
+			array(
+				'Dismissable because of different affected notify type',
+				true,
+				array(
+					'category_three' => array(
+						'no-dismiss' => array( 'web' ),
+					)
+				),
+				'category_three',
+				'email',
+			),
+		);
+	}
+
+	/**
+	 * @dataProvider isNotifyTypeDismissableForCategoryProvider
+	 */
+	public function testIsNotifyTypeDismissableForCategory( $message, $expected, $categories, $categoryName, $notifyType ) {
+		$am = new EchoAttributeManager( array(), $categories, array(), array(), array() );
+		$actual = $am->isNotifyTypeDismissableForCategory( $categoryName, $notifyType );
+		$this->assertEquals( $expected, $actual, $message );
+	}
+
 
 	/**
 	 * Mock object of User
