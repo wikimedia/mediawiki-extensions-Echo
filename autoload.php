@@ -107,6 +107,7 @@ $wgAutoloadClasses += array(
 	'MWEchoNotificationEmailBundleJob' => __DIR__ . '/includes/jobs/NotificationEmailBundleJob.php',
 	'NotificationControllerTest' => __DIR__ . '/tests/phpunit/controller/NotificationControllerTest.php',
 	'NotificationsTest' => __DIR__ . '/tests/NotificationsTest.php',
+	'SpecialDisplayNotificationsConfiguration' => __DIR__ . '/includes/special/SpecialDisplayNotificationsConfiguration.php',
 	'SpecialNotifications' => __DIR__ . '/includes/special/SpecialNotifications.php',
 	'SpecialNotificationsFormatter' => __DIR__ . '/includes/formatters/SpecialNotificationsFormatter.php',
 	'SuppressionMaintenanceTest' => __DIR__ . '/tests/phpunit/maintenance/SupressionMaintenanceTest.php',

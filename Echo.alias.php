@@ -12,6 +12,7 @@ $specialPageAliases = array();
 /** English (English) */
 $specialPageAliases['en'] = array(
 	'Notifications' => array( 'Notifications' ),
+	'DisplayNotificationsConfiguration' => array( 'DisplayNotificationsConfiguration' ),
 );
 
 /** Arabic (العربية) */

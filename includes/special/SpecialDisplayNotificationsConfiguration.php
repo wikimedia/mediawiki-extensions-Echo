@@ -1,0 +1,268 @@
+<?Php
+
+class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
+	/**
+	 * EchoAttributeManager to access notification configuration
+	 *
+	 * @var EchoAttributeManager $attributeManager;
+	 */
+	protected $attributeManager;
+
+	/**
+	 * Notification controller
+	 *
+	 * @var EchoNotificationController $notificationController;
+	 */
+	protected $notificationController;
+
+	/**
+	 * Category names, mapping internal name to HTML-formatted name
+	 *
+	 * @var array $categoryNames
+	 */
+	protected $categoryNames;
+
+	/**
+	 * Notify types, mapping internal name to text name
+	 *
+	 * @var array $notifyTypes
+	 */
+	protected $notifyTypes;
+
+	// Due to how HTMLForm works, it's convenient to have both directions
+	/**
+	 * Category names, mapping HTML-formatted name to internal name
+	 *
+	 * @var array $flippedCategoryNames
+	 */
+	protected $flippedCategoryNames;
+
+	/**
+	 * Notify types, mapping text name to internal name
+	 *
+	 * @var array $flippedNotifyTypes
+	 */
+	protected $flippedNotifyTypes;
+
+	public function __construct() {
+		parent::__construct( 'DisplayNotificationsConfiguration' );
+
+		$this->attributeManager = EchoAttributeManager::newFromGlobalVars();
+		$this->notificationController = new EchoNotificationController();
+	}
+
+	public function execute( $subPage ) {
+		global $wgEchoNotifiers;
+
+		$this->setHeaders();
+		$this->checkPermissions();
+
+		$internalCategoryNames = $this->attributeManager->getInternalCategoryNames();
+		$this->categoryNames = array();
+
+		foreach ( $internalCategoryNames as $internalCategoryName ) {
+			$formattedFriendlyCategoryName = Html::element(
+				'strong',
+				array(),
+				$this->msg( 'echo-category-title-' . $internalCategoryName )->numParams( 1 )->text()
+			);
+
+			$formattedInternalCategoryName = $this->msg( 'parentheses' )->rawParams(
+				Html::element(
+					'em',
+					array(),
+					$internalCategoryName
+				)
+			)->parse();
+
+			$this->categoryNames[$internalCategoryName] = $formattedFriendlyCategoryName . ' ' . $formattedInternalCategoryName;
+		}
+
+		$this->flippedCategoryNames = array_flip( $this->categoryNames );
+
+		$this->notifyTypes = array();
+		foreach ( $wgEchoNotifiers as $notifyType => $notifier ) {
+			$this->notifyTypes[$notifyType] = $this->msg( 'echo-pref-' . $notifyType )->text();
+		}
+
+		$this->flippedNotifyTypes = array_flip( $this->notifyTypes );
+
+		$this->getOutput()->setPageTitle( $this->msg( 'echo-displaynotificationsconfiguration' )->text() );
+		$this->outputHeader( 'echo-displaynotificationsconfiguration-summary' );
+		$this->outputConfiguration();
+	}
+
+	/**
+	 * Outputs the Echo configuration
+	 */
+	protected function outputConfiguration() {
+		$this->outputNotificationsInCategories();
+		$this->outputAvailability();
+		$this->outputMandatory();
+		$this->outputEnabledDefault();
+	}
+
+	/**
+	 * Displays a checkbox matrix, using an HTMLForm
+	 *
+	 * @param string $id Arbitrary ID
+	 * @param string $legendMsgKey Message key for an explanatory legend.  For example,
+	 *   "We wrote this feature because in the days of yore, there was but one notification badge"
+	 * @param array $rowLabelMapping Associative array mapping label to tag
+	 * @param array $columnLabelMapping Associative array mapping label to tag
+	 * @param array $value Array consisting of strings in the format '$columnTag-$rowTag'
+	 */
+	protected function outputCheckMatrix( $id, $legendMsgKey, array $rowLabelMapping, array $columnLabelMapping, array $value ) {
+		$form = new HTMLForm(
+			array(
+				$id => array(
+					'type' => 'checkmatrix',
+					'rows' => $rowLabelMapping,
+					'columns' => $columnLabelMapping,
+					'default' => $value,
+					'disabled' => true,
+				)
+			),
+			$this
+		);
+
+		$form->setTitle( $this->getTitle() )
+			->prepareForm()
+			->suppressDefaultSubmit()
+			->setWrapperLegendMsg( $legendMsgKey )
+			->displayForm( false );
+	}
+
+	/**
+	 * Outputs the notification types in each category
+	 */
+	protected function outputNotificationsInCategories() {
+		$notificationsByCategory = $this->attributeManager->getEventsByCategory();
+
+		$out = $this->getOutput();
+		$out->addHTML(
+			Html::element(
+				'h2',
+				array(),
+				$this->msg( 'echo-displaynotificationsconfiguration-notifications-by-category-header' )->text()
+			)
+		);
+
+		$out->addHTML( Html::openElement( 'ul' ) );
+		foreach ( $notificationsByCategory as $categoryName => $notificationTypes ) {
+			$implodedTypes = Html::element(
+				'span',
+				array(),
+				implode( $this->msg( 'comma-separator' )->text(), $notificationTypes )
+			);
+
+			$out->addHTML(
+				Html::rawElement(
+					'li',
+					array(),
+					$this->categoryNames[$categoryName] . $this->msg( 'colon-separator' )->text() . ' ' . $implodedTypes
+				)
+			);
+		}
+		$out->addHTML( Html::closeElement( 'ul' ) );
+	}
+
+	/**
+	 * Output which notify types are available for each category
+	 */
+	protected function outputAvailability() {
+		global $wgEchoNotifications;
+
+		$this->getOutput()->addHTML( Html::element( 'h2', array(), $this->msg( 'echo-displaynotificationsconfiguration-available-notification-methods-header' )->text() ) );
+
+		$byCategoryValue = array();
+
+		foreach ( $this->notifyTypes as $notifyType => $displayNotifyType ) {
+			foreach ( $this->categoryNames as $category => $displayCategory ) {
+				if ( $this->attributeManager->isNotifyTypeAvailableForCategory( $category, $notifyType ) ) {
+					$byCategoryValue[] = "$notifyType-$category";
+				}
+			}
+		}
+
+		$this->outputCheckMatrix( 'availability-by-category', 'echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend', $this->flippedCategoryNames, $this->flippedNotifyTypes, $byCategoryValue );
+
+		$byTypeValue = array();
+
+		$specialNotificationTypes = array_keys( array_filter( $wgEchoNotifications, function ( $val ) {
+			return isset( $val['notify-type-availability'] );
+		} ) );
+		foreach ( $specialNotificationTypes as $notificationType ) {
+			$allowedNotifyTypes = $this->notificationController->getEventNotifyTypes( $notificationType );
+			foreach ( $allowedNotifyTypes as $notifyType ) {
+				$byTypeValue[] = "$notifyType-$notificationType";
+			}
+		}
+
+		// No user-friendly label for rows yet
+		$this->outputCheckMatrix( 'availability-by-type', 'echo-displaynotificationsconfiguration-available-notification-methods-by-type-legend', array_combine( $specialNotificationTypes, $specialNotificationTypes ), $this->flippedNotifyTypes, $byTypeValue );
+	}
+
+	/**
+	 * Output which notification categories are turned on by default, for each notify type
+	 */
+	protected function outputEnabledDefault() {
+		$this->getOutput()->addHTML( Html::element( 'h2', array(), $this->msg( 'echo-displaynotificationsconfiguration-enabled-default-header' )->text() ) );
+
+		// In reality, anon users are not relevant to Echo, but this lets us easily query default options.
+		$anonUser = new User;
+
+		$byCategoryValueExisting = array();
+		foreach ( $this->notifyTypes as $notifyType => $displayNotifyType ) {
+			foreach ( $this->categoryNames as $category => $displayCategory ) {
+				$tag = "$notifyType-$category";
+				if ( $anonUser->getOption( "echo-subscriptions-$tag" ) ) {
+					$byCategoryValueExisting[] = "$notifyType-$category";
+				}
+			}
+		}
+
+		$this->outputCheckMatrix( 'enabled-by-default-generic', 'echo-displaynotificationsconfiguration-enabled-default-existing-users-legend', $this->flippedCategoryNames, $this->flippedNotifyTypes, $byCategoryValueExisting );
+
+		$loggedInUser = new User;
+		// This might not catch if there are other hooks that do similar.
+		// We can't run the actual hook, to avoid side effects.
+		$overrides = EchoHooks::getNewUserPreferenceOverrides();
+		foreach ( $overrides as $prefKey => $value ) {
+			$loggedInUser->setOption( $prefKey, $value );
+		}
+
+		$byCategoryValueNew = array();
+		foreach ( $this->notifyTypes as $notifyType => $displayNotifyType ) {
+			foreach ( $this->categoryNames as $category => $displayCategory ) {
+				$tag = "$notifyType-$category";
+				if ( $loggedInUser->getOption( "echo-subscriptions-$tag" ) ) {
+					$byCategoryValueNew[] = "$notifyType-$category";
+				}
+			}
+		}
+
+		$this->outputCheckMatrix( 'enabled-by-default-new', 'echo-displaynotificationsconfiguration-enabled-default-new-users-legend', $this->flippedCategoryNames, $this->flippedNotifyTypes, $byCategoryValueNew );
+
+	}
+
+	/**
+	 * Output which notify types are mandatory for each category
+	 */
+	protected function outputMandatory() {
+		$byCategoryValue = array();
+
+		$this->getOutput()->addHTML( Html::element( 'h2', array(), $this->msg( 'echo-displaynotificationsconfiguration-mandatory-notification-methods-header' )->text() ) );
+
+		foreach ( $this->notifyTypes as $notifyType => $displayNotifyType ) {
+			foreach ( $this->categoryNames as $category => $displayCategory ) {
+				if ( !$this->attributeManager->isNotifyTypeDismissableForCategory( $category, $notifyType ) ) {
+					$byCategoryValue[] = "$notifyType-$category";
+				}
+			}
+		}
+
+		$this->outputCheckMatrix( 'mandatory', 'echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend', $this->flippedCategoryNames, $this->flippedNotifyTypes, $byCategoryValue );
+
+	}
+}
