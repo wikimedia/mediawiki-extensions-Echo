@@ -130,7 +130,7 @@
 	"notification-edit-talk-page-email-batch-body2": "$1 {{GENDER:$1|һулда}}һеҙҙең менән әңгәмә битендәге хәбәр.",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 {{GENDER:$1|һулда}} һеҙҙең менән әңгәмәнең \"$2\" битендәге хәбәр.",
 	"notification-page-linked-email-subject": "Һеҙ яһаған биткә «{{SITENAME}}» сайтында һылтанма күренде",
-	"notification-page-linked-email-batch-body": "{{GENDER:$1|ҡатнашыусы}} $1 $3-тән $2-гә {{GENDER:$1|һылтанды}}",
+	"notification-page-linked-email-batch-body": "{{GENDER:$1|Ҡатнашыусы}} $1 $3 битенән $2 битенә {{GENDER:$1|һылтанды}}",
 	"notification-reverted-email-subject2": "«{{SITENAME}}» Сайттағы {{PLURAL:$3|1=һеҙҙең үҙгәртеүҙәрҙе}} {{GENDER:$1|кемдер}} кире алды.",
 	"notification-reverted-email-batch-body2": " {{GENDER:$1|Ҡатнашыусы}} $1 {{PLURAL:$3|1=«$2»-се биттәге һеҙҙең үҙгәртеүҙәре кире алды}}",
 	"notification-mention-email-subject": "«{{SITENAME}}» сайтында {{GENDER:$2|һеҙҙе}} $1 иҫкә алды {{GENDER:$1}}",

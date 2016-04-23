@@ -79,7 +79,7 @@
 	"echo-date-today": "Бүген",
 	"echo-date-yesterday": "Кичә",
 	"notification-edit-talk-page-bundle": "$1 һәм тагын $3 {{PLURAL:$3|1=башка кулланучы|башка кулланучылар|100=99+ башка кулланучылар}} сезнең [[User talk:$2|бәхәс битегездә]] хат калдырдылар.",
-	"notification-bundle-header-edit-user-talk-v2": "{{GENDER:$3|Сезнең}} бәхәс битегездә $1 {{PLURAL:$1|яңа хат}}.",
+	"notification-bundle-header-edit-user-talk-v2": "<strong>{{GENDER:$3|Сезнең}} бәхәс битегездә</strong> {{PLURAL:$1|яңа хат|$1 яңа хат|100=99+ яңа хат}}.",
 	"echo-email-batch-link-text-view-all-notifications": "Барлык белдерүләрне карау",
 	"echo-rev-deleted-text-view": "Битнең бу юрамасы ябык",
 	"apihelp-echomarkread-description": "Кулланучы өчен барлык белдерүләрне укылган дип билгеләү",

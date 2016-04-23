@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": [
+			"SolidBlock"
+		]
+	},
+	"echo-displaynotificationsconfiguration": "显示通知配置",
+	"echo-displaynotificationsconfiguration-notifications-by-category-header": "嗯类通知",
+	"echo-displaynotificationsconfiguration-available-notification-methods-by-type-legend": "杂杂类型搞得的通知方法；只搞得参数设置中藏噶的分类的类型",
+	"echo-displaynotificationsconfiguration-enabled-default-header": "冇港就是开噶",
+	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "现成滴用户",
+	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "新用户"
+}

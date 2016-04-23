@@ -13,7 +13,8 @@
 			"Jkb8",
 			"Macofe",
 			"Önni",
-			"Diniscoelho"
+			"Diniscoelho",
+			"Gato Preto"
 		]
 	},
 	"echo-desc": "Sistema de notificações sobre eventos e mensagens para utilizadores",
@@ -61,6 +62,17 @@
 	"notifications": "Notificações",
 	"tooltip-pt-notifications-alert": "Os {{GENDER:|seus}} alertas",
 	"tooltip-pt-notifications-message": "As {{GENDER:|suas}} mensagens",
+	"echo-displaynotificationsconfiguration": "Mostrar a Configuração de Notificações",
+	"echo-displaynotificationsconfiguration-summary": "Esta é uma visão geral de como as Notificações são configurados em este wiki.",
+	"echo-displaynotificationsconfiguration-notifications-by-category-header": "Notificações por categoria",
+	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Permitido métodos de notificação",
+	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Que métodos de notificação são suportadas para cada categoria",
+	"echo-displaynotificationsconfiguration-available-notification-methods-by-type-legend": "Que métodos de notificação são suportadas para cada tipo; só se aplica a tipos de categorias que estão escondidos das preferências",
+	"echo-displaynotificationsconfiguration-enabled-default-header": "Habilitado por padrão",
+	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Usuários existentes",
+	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Novos usuários",
+	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "Necessários métodos de notificação",
+	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "Que métodos de notificação são obrigatórias para cada categoria",
 	"echo-specialpage": "Notificações",
 	"echo-anon": "Para receber notificações, [$1 crie uma conta] ou [$2 entre] na sua.",
 	"echo-none": "Não tem notificações.",
