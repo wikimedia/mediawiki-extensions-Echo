@@ -48,6 +48,7 @@
 	"notifications": "Notifikatiounen",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Är}} Warnungen",
 	"tooltip-pt-notifications-message": "{{GENDER:|Är}} Messagen",
+	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Nei Benotzer",
 	"echo-specialpage": "Notifikatiounen",
 	"echo-anon": "Fir Notifikatiounen ze kréien, [$1 maacht e Benotzerkont op] oder [$2 loggt Iech an]",
 	"echo-none": "Dir hutt keng Notifikatiounen.",

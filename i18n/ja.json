@@ -9,7 +9,8 @@
 			"2nd-player",
 			"Takot",
 			"Otokoume",
-			"Vigorous action"
+			"Vigorous action",
+			"Thibaut120094"
 		]
 	},
 	"echo-desc": "イベントおよびメッセージについて、ユーザーに通知するシステム",
@@ -54,6 +55,7 @@
 	"notifications": "通知",
 	"tooltip-pt-notifications-alert": "あなたへの通知",
 	"tooltip-pt-notifications-message": "あなたへのメッセージ",
+	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "新しい利用者",
 	"echo-specialpage": "通知",
 	"echo-anon": "通知を受け取るには、[$1 アカウント作成]または[$2 ログイン]をしてください。",
 	"echo-none": "通知はありません。",

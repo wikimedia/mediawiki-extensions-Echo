@@ -2,12 +2,15 @@
 	"@metadata": {
 		"authors": [
 			"Yanteng3",
-			"Jason924tw"
+			"Jason924tw",
+			"SolidBlock"
 		]
 	},
 	"prefs-emailsettings": "傳書",
 	"prefs-echosubscriptions": "訊事",
 	"echo-new-messages": "子有新訊息",
 	"notifications": "訊",
+	"tooltip-pt-notifications-alert": "{{GENDER:|君}}鳴",
+	"tooltip-pt-notifications-message": "{{GENDER:|君之}}訊",
 	"echo-notification-alert": "{{PLURAL:$1|訊 ($1)|訊 ($1)|100=訊 (九九+)}}"
 }
