@@ -65,6 +65,8 @@
 	"notifications": "Meldingen",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Uw}} meldingen",
 	"tooltip-pt-notifications-message": "{{GENDER:|Uw}} berichten",
+	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Bestaande gebruikers",
+	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Nieuwe gebruikers",
 	"echo-specialpage": "Meldingen",
 	"echo-anon": "[$1 Maak een account aan] of [$2 meld u aan] als u meldingen wilt ontvangen.",
 	"echo-none": "U hebt geen meldingen.",
