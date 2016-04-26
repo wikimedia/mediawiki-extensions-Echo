@@ -7,6 +7,5 @@
 	<arg name="encoding" value="utf8"/>
 	<arg name="extensions" value="php,php5,inc"/>
 	<arg name="colors"/>
-	<arg value="p"/>
 	<exclude-pattern>vendor</exclude-pattern>
 </ruleset>
