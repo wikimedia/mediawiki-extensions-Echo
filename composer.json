@@ -6,7 +6,7 @@
 	"scripts": {
 		"test": [
 			"parallel-lint . --exclude vendor",
-			"phpcs"
+			"phpcs -p"
 		]
 	}
 }
