@@ -28,7 +28,9 @@
 	 */
 	mw.echo.api.ForeignAPIHandler.prototype.getTypeParams = function ( type ) {
 		return $.extend( {}, this.typeParams[ type ], {
-			notfilter: '!read'
+			notfilter: '!read',
+			// Backwards compatibility
+			notnoforn: 1
 		} );
 	};
 } )( mediaWiki, jQuery );
