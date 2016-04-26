@@ -83,7 +83,7 @@
 	"tooltip-pt-notifications-alert": "Vos alertes",
 	"tooltip-pt-notifications-message": "Vos messages",
 	"echo-displaynotificationsconfiguration": "Configuration d’affichage des notifications",
-	"echo-displaynotificationsconfiguration-summary": "Ceci est un aperçu de comment les notification sont configurées sur ce wiki.",
+	"echo-displaynotificationsconfiguration-summary": "Ceci est un aperçu de comment les notifications sont configurées sur ce wiki.",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "Notifications par catégorie",
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Méthodes de notification autorisées",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Quelles méthodes de notification sont supportées pour chaque catégorie",

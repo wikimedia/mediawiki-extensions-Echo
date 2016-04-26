@@ -75,6 +75,8 @@
 	"notifications": "Уведомления",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Ваши}} оповещения",
 	"tooltip-pt-notifications-message": "{{GENDER:|Ваши}} сообщения",
+	"echo-displaynotificationsconfiguration-enabled-default-header": "Включено по умолчанию",
+	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Новые участники",
 	"echo-specialpage": "Уведомления",
 	"echo-anon": "Чтобы получать уведомления, [$1 создайте учётную запись] или [$2 представьтесь].",
 	"echo-none": "Вы не получали уведомлений.",

@@ -87,7 +87,7 @@
 	"notification-link-text-collapse-all": "Alles samenvouwen",
 	"notification-link-text-view-message": "Bericht bekijken",
 	"notification-link-text-view-mention": "Vermelding bekijken",
-	"notification-link-text-view-changes": "Wijzigingen bekijken",
+	"notification-link-text-view-changes": "Wijzigingen {{GENDER:$1|bekijken}}",
 	"notification-link-text-view-page": "Pagina bekijken",
 	"notification-link-text-view-edit": "Bewerking bekijken",
 	"notification-edit-talk-page2": "[[User:$1|$1]] {{GENDER:$1|heeft een bericht geplaatst}} op uw [[User talk:$2#$3|overlegpagina]].",
