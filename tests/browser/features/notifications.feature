@@ -11,6 +11,7 @@ Feature: Testing notification types
     Then the alert badge is showing unseen notifications
     And the alert badge value is "1"
 
+  @skip
   Scenario: Someone writes on my talk page
     Given another user writes on my talk page
     When I refresh the page
