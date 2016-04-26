@@ -11,7 +11,7 @@
 	 * @cfg {string} [url] The URL for the survey
 	 */
 	mw.echo.ui.FooterNoticeWidget = function MwEchoUiFooterNoticeWidget( config ) {
-		var $icon, label, dismissButton, infoPopup,
+		var $icon, label, dismissButton,
 			$row = $( '<div>' )
 				.addClass( 'mw-echo-ui-footerNoticeWidget-row' );
 
@@ -30,9 +30,9 @@
 
 		label = new OO.ui.LabelWidget( {
 			label: $( '<span>' ).append(
-				mw.message( 'echo-popup-footer-feedback',
+				mw.message( 'echo-popup-footer-beta-invitation',
 					// Text
-					mw.msg( 'echo-popup-footer-feedback-survey' ),
+					mw.msg( 'echo-popup-footer-beta-invitation-link' ),
 					// Link
 					config.url
 				).parse()
@@ -46,26 +46,6 @@
 			classes: [ 'mw-echo-ui-footerNoticeWidget-dismiss' ]
 		} );
 
-		infoPopup = new OO.ui.PopupButtonWidget( {
-			classes: [ 'mw-echo-ui-footerNoticeWidget-info' ],
-			framed: false,
-			icon: 'help',
-			popup: {
-				align: 'backwards',
-				$content: $( '<p>' ).text( mw.msg( 'echo-popup-footer-feedback-info' ) ),
-				padded: true,
-				width: 450
-			}
-		} );
-		infoPopup.$element.hover(
-			function () {
-				infoPopup.getPopup().toggle( true );
-			},
-			function () {
-				infoPopup.getPopup().toggle( false );
-			}
-		);
-
 		// Events
 		dismissButton.connect( this, { click: 'onDismissButtonClick' } );
 
@@ -75,7 +55,6 @@
 				$row
 					.append(
 						label.$element,
-						infoPopup.$element,
 						dismissButton.$element
 					)
 			);

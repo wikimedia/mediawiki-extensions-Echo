@@ -420,7 +420,7 @@ class EchoHooks {
 		}
 
 		if ( $wgEchoShowFooterNotice ) {
-			$preferences['echo-dismiss-feedback-alert'] = array(
+			$preferences['echo-dismiss-beta-invitation'] = array(
 				'type' => 'api',
 			);
 		}
@@ -752,7 +752,7 @@ class EchoHooks {
 	 * @return bool true in all cases
 	 */
 	static function onPersonalUrls( &$personal_urls, &$title, $sk ) {
-		global $wgEchoNewMsgAlert;
+		global $wgEchoNewMsgAlert, $wgEchoShowFooterNotice;
 		$user = $sk->getUser();
 		if ( $user->isAnon() ) {
 			return true;
@@ -814,6 +814,18 @@ class EchoHooks {
 			'alert' => $seenAlertTime,
 			'message' => $seenMsgTime
 		) );
+
+		if (
+			$wgEchoShowFooterNotice &&
+			!$user->getOption( 'echo-cross-wiki-notifications' ) &&
+			!$user->getOption( 'echo-dismiss-beta-invitation' )
+		) {
+			$unreadWikis = EchoUnreadWikis::newFromUser( $user );
+			$counts = $unreadWikis->getUnreadCounts();
+			if ( count( $counts ) > 1 ) {
+				$sk->getOutput()->addJsConfigVars( 'wgEchoShowBetaInvitation', true );
+			}
+		}
 
 		$msgText = EchoNotificationController::formatNotificationCount( $msgCount );
 		$alertText = EchoNotificationController::formatNotificationCount( $alertCount );
@@ -1229,10 +1241,9 @@ class EchoHooks {
 	}
 
 	public static function onResourceLoaderGetConfigVars( &$vars ) {
-	global $wgEchoShowFooterNotice, $wgEchoFooterNoticeURL;
+	global $wgEchoFooterNoticeURL;
 
 		$vars['wgEchoMaxNotificationCount'] = MWEchoNotifUser::MAX_BADGE_COUNT;
-		$vars['wgEchoShowFooterNotice'] = $wgEchoShowFooterNotice;
 		$vars['wgEchoFooterNoticeURL'] = $wgEchoFooterNoticeURL;
 
 		return true;

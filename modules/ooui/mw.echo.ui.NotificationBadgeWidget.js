@@ -108,15 +108,13 @@
 		initialNotifCount = mw.config.get( 'wgEchoInitialNotifCount' );
 		initialNotifCount = this.type === 'all' ? ( initialNotifCount.alert + initialNotifCount.message ) : initialNotifCount[ this.type ];
 		if (
-			mw.config.get( 'wgEchoShowFooterNotice' ) &&
-			!mw.user.options.get( 'echo-dismiss-feedback-alert' ) &&
-			initialNotifCount >= 1 &&
-			mw.config.get( 'wgUserEditCount', 0 ) >= 100
+			mw.config.get( 'wgEchoShowBetaInvitation' ) &&
+			!mw.user.options.get( 'echo-dismiss-beta-invitation' )
 		) {
 			notice = new mw.echo.ui.FooterNoticeWidget( {
 				// This is probably not the right way of doing this
 				iconUrl: mw.config.get( 'wgExtensionAssetsPath' ) + '/Echo/modules/icons/feedback.svg',
-				url: mw.config.get( 'wgEchoFooterNoticeURL' )
+				url: mw.util.getUrl( 'Special:Preferences' ) + '#mw-prefsection-betafeatures'
 			} );
 			// Event
 			notice.connect( this, { dismiss: 'onFooterNoticeDismiss' } );
@@ -214,9 +212,9 @@
 		this.popup.clip();
 
 		// Save the preference in general
-		new mw.Api().saveOption( 'echo-dismiss-feedback-alert', 1 );
+		new mw.Api().saveOption( 'echo-dismiss-beta-invitation', 1 );
 		// Save the preference for this session
-		mw.user.options.set( 'echo-dismiss-feedback-alert', 1 );
+		mw.user.options.set( 'echo-dismiss-beta-invitation', 1 );
 	};
 
 	/**

@@ -41,7 +41,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 			);
 		}
 
-		$this->foreignNotifications = new EchoForeignNotifications( $this->getUser() );
+		$this->foreignNotifications = new EchoForeignNotifications( $user );
 		$this->crossWikiSummary = $params['crosswikisummary'];
 
 		$result = array();
