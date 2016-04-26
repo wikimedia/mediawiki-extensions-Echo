@@ -481,7 +481,8 @@
 
 					data = data || {};
 
-					for ( i = 0; i < data.list.length; i++ ) {
+					// Backwards compatibility: data.list used to be an object
+					for ( i in data.list ) {
 						notifData = data.list[ i ];
 						content = notifData[ '*' ] || {};
 
