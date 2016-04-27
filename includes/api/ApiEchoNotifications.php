@@ -291,7 +291,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 		// Add cross-wiki-specific data
 		$output['section'] = $section ?: 'all';
 		$output['count'] = $count;
-		$output['sources'] = $this->foreignNotifications->getApiEndpoints( $wikis );
+		$output['sources'] = EchoForeignNotifications::getApiEndpoints( $wikis );
 		// Add timestamp information
 		foreach ( $output['sources'] as $wiki => &$data ) {
 			$data['ts'] = $this->foreignNotifications->getWikiTimestamp( $wiki, $section )->getTimestamp( TS_MW );
