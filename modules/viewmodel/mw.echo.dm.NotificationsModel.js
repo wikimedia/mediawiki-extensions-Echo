@@ -483,6 +483,9 @@
 
 					// Backwards compatibility: data.list used to be an object
 					for ( i in data.list ) {
+						if ( !data.list.hasOwnProperty( i ) ) {
+							continue;
+						}
 						notifData = data.list[ i ];
 						content = notifData[ '*' ] || {};
 
