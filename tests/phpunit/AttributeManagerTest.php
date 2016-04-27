@@ -176,56 +176,54 @@ class EchoAttributeManagerTest extends MediaWikiTestCase {
 		$this->assertEquals( 10, $manager->getNotificationPriority( 'event_four' ) );
 	}
 
-	public function testGetMessageEvents() {
-		$notif = array(
+	public static function getEventsForSectionProvider() {
+		$notifications = array(
 			'event_one' => array(
 				'category' => 'category_one',
-				'section' => 'message'
+				'section' => 'message',
 			),
 			'event_two' => array(
-				'category' => 'category_two'
+				'category' => 'category_two',
+				'section' => 'invalid',
 			),
 			'event_three' => array(
 				'category' => 'category_three',
-				'section' => 'message'
+				'section' => 'message',
 			),
 			'event_four' => array(
-				'category' => 'category_four'
-			)
+				'category' => 'category_four',
+				// Omitted
+			),
+			'event_five' => array(
+				'category' => 'category_two',
+				'section' => 'alert',
+			),
 		);
-		$category = array(
-			'category_one' => array(
-				'priority' => 6
-			)
+
+		return array(
+			array(
+				array( 'event_one', 'event_three' ),
+				$notifications,
+				'message',
+				'Messages',
+			),
+
+			array(
+				array( 'event_two', 'event_four', 'event_five' ),
+				$notifications,
+				'alert',
+				'Alerts',
+			),
 		);
-		$manager = new EchoAttributeManager( $notif, $category, array(), array(), array() );
-		$this->assertEquals( $manager->getMessageEvents(), array( 'event_one', 'event_three' ) );
 	}
 
-	public function testGetAlertEvents() {
-		$notif = array(
-			'event_one' => array(
-				'category' => 'category_one',
-				'section' => 'message'
-			),
-			'event_two' => array(
-				'category' => 'category_two'
-			),
-			'event_three' => array(
-				'category' => 'category_three',
-				'section' => 'alert'
-			),
-			'event_four' => array(
-				'category' => 'category_four'
-			)
-		);
-		$category = array(
-			'category_one' => array(
-				'priority' => 6
-			)
-		);
-		$manager = new EchoAttributeManager( $notif, $category, array(), array(), array() );
-		$this->assertEquals( $manager->getAlertEvents(), array( 'event_two', 'event_three', 'event_four' ) );
+	/**
+	 * @dataProvider getEventsForSectionProvider
+	 */
+	public function testGetEventsForSection( $expected, $notificationTypes, $section, $message ) {
+		$am = new EchoAttributeManager( $notificationTypes, array(), array(), array(), array() );
+		$actual = $am->getEventsForSection( $section );
+		$this->assertEquals( $expected, $actual, $message );
 	}
 
 	public function testGetUserEnabledEvents() {

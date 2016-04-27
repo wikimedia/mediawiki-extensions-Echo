@@ -43,6 +43,8 @@ class EchoAttributeManager {
 	const MESSAGE = 'message';
 	const ALL = 'all';
 
+	protected static $DEFAULT_SECTION = self::ALERT;
+
 	/**
 	 * Notifications are broken down to two sections, default is alert
 	 * @var array
@@ -164,9 +166,7 @@ class EchoAttributeManager {
 		foreach ( $sections as $section ) {
 			$events = array_merge(
 				$events,
-				call_user_func(
-					array( $this, 'get' . ucfirst( $section ) . 'Events' )
-				)
+				$this->getEventsForSection( $section )
 			);
 		}
 
@@ -177,35 +177,33 @@ class EchoAttributeManager {
 	}
 
 	/**
-	 * Get alert notification event.  Notifications without a section attributes
-	 * default to section alert
-	 * @return array
+	 * Gets events (notification types) for a given section
+	 *
+	 * @param string $section Internal section name, one of the values from self::$sections
+	 *
+	 * @return array Array of notification types in this section
 	 */
-	public function getAlertEvents() {
+	public function getEventsForSection( $section ) {
 		$events = array();
+
+		$isDefault = ( $section === self::$DEFAULT_SECTION );
+
 		foreach ( $this->notifications as $event => $attribs ) {
 			if (
-				!isset( $attribs['section'] )
-				|| !in_array( $attribs['section'], self::$sections )
-				|| $attribs['section'] === 'alert'
-			) {
-				$events[] = $event;
-			}
-		}
+				(
+					isset( $attribs['section'] ) &&
+					$attribs['section'] === $section
+				) ||
+				(
+					$isDefault &&
+					(
+						!isset( $attribs['section'] ) ||
 
-		return $events;
-	}
+						// Invalid section
+						!in_array( $attribs['section'], self::$sections )
+					)
+				)
 
-	/**
-	 * Get message notification event
-	 * @return array
-	 */
-	public function getMessageEvents() {
-		$events = array();
-		foreach ( $this->notifications as $event => $attribs ) {
-			if (
-				isset( $attribs['section'] )
-				&& $attribs['section'] === 'message'
 			) {
 				$events[] = $event;
 			}

@@ -83,6 +83,8 @@
 	"echo-displaynotificationsconfiguration": "Display Notifications configuration",
 	"echo-displaynotificationsconfiguration-summary": "This is an overview of how Notifications are configured on this wiki.",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "Notifications by category",
+	"echo-displaynotificationsconfiguration-sorting-by-section-header": "Sorting of types",
+	"echo-displaynotificationsconfiguration-sorting-by-section-legend": "Which section each notification type is sorted into",
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Allowed notification methods",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Which notification methods are supported for each category",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-type-legend": "Which notification methods are supported for each type; only applies to types within categories that are hidden from preferences",
