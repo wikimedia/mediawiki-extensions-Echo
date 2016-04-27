@@ -166,7 +166,7 @@ class EchoForeignNotifications {
 	 * @param string[] $wikis
 	 * @return array[] [(string) wiki => (array) data]
 	 */
-	public function getApiEndpoints( array $wikis ) {
+	public static function getApiEndpoints( array $wikis ) {
 		global $wgConf;
 		$wgConf->loadFullData();
 
@@ -178,7 +178,7 @@ class EchoForeignNotifications {
 			$scriptPath = $wgConf->get( 'wgScriptPath', $wiki, $major, array( 'lang' => $minor, 'site' => $major ) );
 
 			$data[$wiki] = array(
-				'title' => $this->getWikiTitle( $wiki, $siteFromDB ),
+				'title' => static::getWikiTitle( $wiki, $siteFromDB ),
 				'url' => $server . $scriptPath . '/api.php',
 			);
 		}
@@ -191,7 +191,7 @@ class EchoForeignNotifications {
 	 * @param array $siteFromDB $wgConf->siteFromDB( $wikiId ) result
 	 * @return mixed|string
 	 */
-	protected function getWikiTitle( $wikiId, array $siteFromDB = null ) {
+	protected static function getWikiTitle( $wikiId, array $siteFromDB = null ) {
 		global $wgConf, $wgLang;
 
 		$msg = wfMessage( 'project-localized-name-'.$wikiId );
