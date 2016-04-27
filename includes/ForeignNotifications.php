@@ -1,10 +1,23 @@
 <?php
 
+/**
+ * Caches the result of EchoUnreadWikis::getUnreadCounts() and interprets the results in various useful ways.
+ *
+ * If the user has disabled cross-wiki notifications in their preferences (see isEnabledByUser()), this class
+ * won't do anything and will behave as if the user has no foreign notifications. For example, getCount() will
+ * return 0. If you need to get foreign notification information for a user even though they may not have
+ * enabled the preference, set $forceEnable=true in the constructor.
+ */
 class EchoForeignNotifications {
 	/**
-	 * @var bool|EchoUnreadWikis
+	 * @var User
 	 */
-	protected $unreadWikis = false;
+	protected $user;
+
+	/**
+	 * @var bool
+	 */
+	protected $enabled = false;
 
 	/**
 	 * @var array [(str) section => (int) count, ...]
@@ -33,11 +46,19 @@ class EchoForeignNotifications {
 
 	/**
 	 * @param User $user
+	 * @param bool $forceEnable Ignore the user's preferences and act as if they've enabled cross-wiki notifications
 	 */
-	public function __construct( User $user ) {
-		if ( $user->getOption( 'echo-cross-wiki-notifications' ) ) {
-			$this->unreadWikis = EchoUnreadWikis::newFromUser( $user );
-		}
+	public function __construct( User $user, $forceEnable = false ) {
+		$this->user = $user;
+		$this->enabled = $forceEnable || $this->isEnabledByUser();
+	}
+
+	/**
+	 * Whether the user has enabled cross-wiki notifications.
+	 * @return bool
+	 */
+	public function isEnabledByUser() {
+		return (bool)$this->user->getOption( 'echo-cross-wiki-notifications' );
 	}
 
 	/**
@@ -121,11 +142,15 @@ class EchoForeignNotifications {
 			return;
 		}
 
-		if ( $this->unreadWikis === false ) {
+		if ( !$this->enabled ) {
 			return;
 		}
 
-		$unreadCounts = $this->unreadWikis->getUnreadCounts();
+		$unreadWikis = EchoUnreadWikis::newFromUser( $this->user );
+		if ( !$unreadWikis ) {
+			return;
+		}
+		$unreadCounts = $unreadWikis->getUnreadCounts();
 		if ( !$unreadCounts ) {
 			return;
 		}
