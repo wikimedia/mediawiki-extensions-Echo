@@ -52,6 +52,13 @@ $wgResourceModules += array(
 		'dependencies' => array(
 			'ext.echo.ui',
 			'ext.echo.styles.badge',
+			'mediawiki.util',
+		),
+		'messages' => array(
+			'echo-popup-footer-beta-invitation',
+			'echo-popup-footer-beta-invitation-link',
+			// echo-popup-footer-beta-invitation uses this message with {{int:}}:
+			'echo-pref-beta-feature-cross-wiki-message',
 		),
 		'targets' => array( 'desktop' ),
 	),
@@ -119,9 +126,6 @@ $wgResourceModules += array(
 			'echo-notification-message',
 			'echo-notification-loginrequired',
 			'echo-notification-popup-loginrequired',
-			'echo-popup-footer-feedback',
-			'echo-popup-footer-feedback-survey',
-			'echo-popup-footer-feedback-info',
 			'notification-link-text-collapse-all',
 			"notification-link-text-expand-alert-count",
 			"notification-link-text-expand-message-count",

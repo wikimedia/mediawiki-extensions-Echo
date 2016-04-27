@@ -507,8 +507,8 @@ $wgDefaultUserOptions['echo-show-alert'] = true;
 // By default, send emails for each notification as they come in
 $wgDefaultUserOptions['echo-email-frequency'] = 0; /*EchoHooks::EMAIL_IMMEDIATELY*/
 
-// By default, do not dismiss the feedback alert
-$wgDefaultUserOptions['echo-dismiss-feedback-alert' ] = 0;
+// By default, do not dismiss the beta feature invitation
+$wgDefaultUserOptions['echo-dismiss-beta-invitation' ] = 0;
 
 if ( $wgAllowHTMLEmail ) {
 	$wgDefaultUserOptions['echo-email-format'] = 'html'; /*EchoHooks::EMAIL_FORMAT_HTML*/
