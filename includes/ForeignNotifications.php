@@ -41,13 +41,13 @@ class EchoForeignNotifications {
 	}
 
 	/**
-	 * @param string|null $section Name of section or null for all
+	 * @param string $section Name of section
 	 * @return int
 	 */
-	public function getCount( $section = null ) {
+	public function getCount( $section = EchoAttributeManager::ALL ) {
 		$this->populate();
 
-		if ( $section === null ) {
+		if ( $section === EchoAttributeManager::ALL ) {
 			return array_sum( $this->counts );
 		}
 
@@ -55,13 +55,13 @@ class EchoForeignNotifications {
 	}
 
 	/**
-	 * @param string|null $section Name of section or null for all
+	 * @param string $section Name of section
 	 * @return MWTimestamp|false
 	 */
-	public function getTimestamp( $section = null ) {
+	public function getTimestamp( $section = EchoAttributeManager::ALL ) {
 		$this->populate();
 
-		if ( $section === null ) {
+		if ( $section === EchoAttributeManager::ALL ) {
 			$max = false;
 			/** @var MWTimestamp $timestamp */
 			foreach ( $this->timestamps as $timestamp ) {
@@ -79,13 +79,13 @@ class EchoForeignNotifications {
 	}
 
 	/**
-	 * @param string|null $section Name of section or null for all
+	 * @param string $section Name of section
 	 * @return string[]
 	 */
-	public function getWikis( $section = null ) {
+	public function getWikis( $section = EchoAttributeManager::ALL ) {
 		$this->populate();
 
-		if ( $section === null ) {
+		if ( $section === EchoAttributeManager::ALL ) {
 			$all = array();
 			foreach ( $this->wikis as $wikis ) {
 				$all = array_merge( $all, $wikis );
@@ -97,12 +97,12 @@ class EchoForeignNotifications {
 		return isset( $this->wikis[$section] ) ? $this->wikis[$section] : array();
 	}
 
-	public function getWikiTimestamp( $wiki, $section = null ) {
+	public function getWikiTimestamp( $wiki, $section = EchoAttributeManager::ALL ) {
 		$this->populate();
 		if ( !isset( $this->wikiTimestamps[$wiki] ) ) {
 			return false;
 		}
-		if ( $section === null ) {
+		if ( $section === EchoAttributeManager::ALL ) {
 			$max = false;
 			foreach ( $this->wikiTimestamps[$wiki] as $section => $ts ) {
 				// $ts < $max = invert 0
