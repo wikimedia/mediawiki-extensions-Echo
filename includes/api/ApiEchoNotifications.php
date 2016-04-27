@@ -70,8 +70,8 @@ class ApiEchoNotifications extends ApiQueryBase {
 				);
 
 				// if exactly 1 section is specified, we consider only that section, otherwise
-				// we pass 'null' to consider all foreign notifications
-				$section = count( $params['sections'] ) === 1 ? reset( $params['sections'] ) : null;
+				// we pass ALL to consider all foreign notifications
+				$section = count( $params['sections'] ) === 1 ? reset( $params['sections'] ) : EchoAttributeManager::ALL;
 				if ( $this->crossWikiSummary && $this->foreignNotifications->getCount( $section ) > 0 ) {
 					array_unshift( $result['list'], $this->makeForeignNotification( $user, $params['format'], $section ) );
 				}
@@ -251,7 +251,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 		return $result;
 	}
 
-	protected function makeForeignNotification( User $user, $format, $section = null ) {
+	protected function makeForeignNotification( User $user, $format, $section = EchoAttributeManager::ALL ) {
 		$wikis = $this->foreignNotifications->getWikis( $section );
 		$count = $this->foreignNotifications->getCount( $section );
 
