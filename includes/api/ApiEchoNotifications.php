@@ -229,20 +229,15 @@ class ApiEchoNotifications extends ApiQueryBase {
 	protected function getPropCount( User $user, array $sections, $groupBySection ) {
 		$result = array();
 		$notifUser = MWEchoNotifUser::newFromUser( $user );
+		$global = $this->crossWikiSummary ? 'preference' : false;
 		// Always get total count
-		$rawCount = $notifUser->getNotificationCount();
-		if ( $this->crossWikiSummary ) {
-			$rawCount += $this->foreignNotifications->getCount();
-		}
+		$rawCount = $notifUser->getNotificationCount( true, DB_SLAVE, EchoAttributeManager::ALL, $global );
 		$result['rawcount'] = $rawCount;
 		$result['count'] = EchoNotificationController::formatNotificationCount( $rawCount );
 
 		if ( $groupBySection ) {
 			foreach ( $sections as $section ) {
-				$rawCount = $notifUser->getNotificationCount( /* $tryCache = */true, DB_SLAVE, $section );
-				if ( $this->crossWikiSummary ) {
-					$rawCount += $this->foreignNotifications->getCount( $section );
-				}
+				$rawCount = $notifUser->getNotificationCount( /* $tryCache = */true, DB_SLAVE, $section, $global );
 				$result[$section]['rawcount'] = $rawCount;
 				$result[$section]['count'] = EchoNotificationController::formatNotificationCount( $rawCount );
 			}

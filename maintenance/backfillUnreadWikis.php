@@ -30,11 +30,11 @@ class BackfillUnreadWikis extends Maintenance {
 				$notifUser = MWEchoNotifUser::newFromUser( $user );
 				$uw = EchoUnreadWikis::newFromUser( $user );
 				if ( $uw ) {
-					$alertCount = $notifUser->getNotificationCount( false, DB_SLAVE, EchoAttributeManager::ALERT );
-					$alertUnread = $notifUser->getLastUnreadNotificationTime( false, DB_SLAVE, EchoAttributeManager::ALERT );
+					$alertCount = $notifUser->getNotificationCount( false, DB_SLAVE, EchoAttributeManager::ALERT, false );
+					$alertUnread = $notifUser->getLastUnreadNotificationTime( false, DB_SLAVE, EchoAttributeManager::ALERT, false );
 
-					$msgCount = $notifUser->getNotificationCount( false, DB_SLAVE, EchoAttributeManager::MESSAGE );
-					$msgUnread = $notifUser->getLastUnreadNotificationTime( false, DB_SLAVE, EchoAttributeManager::MESSAGE );
+					$msgCount = $notifUser->getNotificationCount( false, DB_SLAVE, EchoAttributeManager::MESSAGE, false );
+					$msgUnread = $notifUser->getLastUnreadNotificationTime( false, DB_SLAVE, EchoAttributeManager::MESSAGE, false );
 
 					$uw->updateCount( wfWikiID(), $alertCount, $alertUnread, $msgCount, $msgUnread );
 				}

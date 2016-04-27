@@ -820,9 +820,9 @@ class EchoHooks {
 			!$user->getOption( 'echo-cross-wiki-notifications' ) &&
 			!$user->getOption( 'echo-dismiss-beta-invitation' )
 		) {
-			$unreadWikis = EchoUnreadWikis::newFromUser( $user );
-			$counts = $unreadWikis->getUnreadCounts();
-			if ( count( $counts ) > 1 ) {
+			$globalCount = $notifUser->getNotificationCount( true, DB_SLAVE, EchoAttributeManager::ALL, true );
+			$localCount = $notifUser->getNotificationCount( true, DB_SLAVE, EchoAttributeManager::ALL, false );
+			if ( $globalCount - $localCount > 0 ) {
 				$sk->getOutput()->addJsConfigVars( 'wgEchoShowBetaInvitation', true );
 			}
 		}
