@@ -54,7 +54,6 @@
 	"echo-none": "Dir hutt keng Notifikatiounen.",
 	"echo-more-info": "Méi Informatiounen",
 	"echo-feedback": "Feedback",
-	"echo-popup-footer-feedback": "<strong>Feedback ginn</strong>. [$2 $1]",
 	"echo-api-failure": "D'Notifikatioune konnten net ofgeruff  ginn.Probéiert nach eng Kéier. (Feeler $1)",
 	"echo-notification-placeholder": "Et si keng Notifikatiounen do.",
 	"echo-notification-loginrequired": "Dir musst Iech alogge fir Är Notifikatiounen ze gesinn.",

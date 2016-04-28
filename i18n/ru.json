@@ -82,8 +82,6 @@
 	"echo-none": "Вы не получали уведомлений.",
 	"echo-more-info": "Подробнее",
 	"echo-feedback": "Обратная связь",
-	"echo-popup-footer-feedback": "<strong>Обратная связь</strong>. [$2 $1]",
-	"echo-popup-footer-feedback-survey": "Примите участие в этом коротком опросе об уведомлениях.",
 	"echo-quotation-marks": "«$1»",
 	"echo-api-failure": "Не удалось получить уведомления. Пожалуйста, попробуйте ещё раз. (Ошибка $1)",
 	"echo-api-failure-cross-wiki": "В доступе к удаленному домену было отказано.",
