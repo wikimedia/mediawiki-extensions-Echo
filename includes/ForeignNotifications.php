@@ -88,7 +88,7 @@ class EchoForeignNotifications {
 			foreach ( $this->timestamps as $timestamp ) {
 				// $timestamp < $max = invert 0
 				// $timestamp > $max = invert 1
-				if ( $max === false || $timestamp->diff( $max )->invert === 1 ) {
+				if ( $timestamp !== false && ( $max === false || $timestamp->diff( $max )->invert === 1 ) ) {
 					$max = $timestamp;
 				}
 			}
