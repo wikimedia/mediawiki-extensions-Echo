@@ -93,7 +93,7 @@ class EchoForeignNotifications {
 				}
 			}
 
-			return $timestamp;
+			return $max;
 		}
 
 		return isset( $this->timestamps[$section] ) ? $this->timestamps[$section] : false;
