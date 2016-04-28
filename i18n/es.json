@@ -96,7 +96,6 @@
 	"echo-notification-popup-loginrequired": "Inicia sesión para ver tus notificaciones.",
 	"echo-notification-markasread": "Marcar como leí­do",
 	"echo-notification-markasunread": "Marcar como no leído",
-	"echo-notification-more-options-tooltip": "Más opciones",
 	"notification-link-text-expand-all": "Ver todas",
 	"notification-link-text-expand-alert-count": "Ver {{PLURAL:$1|$1 alerta|$1 alertas}}",
 	"notification-link-text-expand-message-count": "Ver {{PLURAL:$1|$1 mensaje|$1 mesajes}}",
