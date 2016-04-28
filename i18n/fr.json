@@ -34,8 +34,7 @@
 			"Cedric31",
 			"Trizek",
 			"GeekEmad",
-			"Mattflaschen",
-			"Trizek (WMF)"
+			"Mattflaschen"
 		]
 	},
 	"echo-desc": "Système pour avertir les utilisateurs sur les événements et les messages",
@@ -99,8 +98,9 @@
 	"echo-none": "Vous n'avez reçu aucune notification.",
 	"echo-more-info": "Plus d’informations",
 	"echo-feedback": "Avis",
-	"echo-popup-footer-beta-invitation": "<strong>Obtenir des notifications des autres wikis ici</strong>. [$2 $1]",
-	"echo-popup-footer-beta-invitation-link": "Essayez les «&nbsp;{{int:echo-pref-beta-feature-cross-wiki-message}}&nbsp;» en version bêta.",
+	"echo-popup-footer-feedback": "<strong>Donnez-nous votre avis</strong>. [$2 <bdi>$1</bdi>]",
+	"echo-popup-footer-feedback-survey": "Merci de participer à ce sondage sur les notifications.",
+	"echo-popup-footer-feedback-info": "Ce sondage a pour but d’aider les développeurs à en savoir plus sur la manière dont les contributeurs se servent des notifications, et ce afin d’améliorer cet outil. En cliquant sur le lien, vous serez redirigé vers le site d’un prestataire.",
 	"echo-quotation-marks": "« $1 »",
 	"echo-api-failure": "Impossible d’obtenir les notifications. Veuillez réessayez. (Erreur $1)",
 	"echo-api-failure-cross-wiki": "L'accès au domaine distant a été refusé.",

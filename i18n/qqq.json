@@ -74,6 +74,8 @@
 	"echo-displaynotificationsconfiguration": "{{doc-special|DisplayNotificationsConfiguration}}\n\nThis could be rephrased as \"Display the configuration of Notifications\".",
 	"echo-displaynotificationsconfiguration-summary": "Summary of the DisplayNotificationsConfiguration special page",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "Header on DisplayNotificationsConfiguration for a list of which notifications are in each category",
+	"echo-displaynotificationsconfiguration-sorting-by-section-header": "Header on DisplayNotificationsConfiguration for a table of which section (alert/message) each type is in",
+	"echo-displaynotificationsconfiguration-sorting-by-section-legend": "Legend on DisplayNotificationsConfiguration for a table of which section (alert/message) each type is in",
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Header on DisplayNotificationsConfiguration for section regarding methods the user can use to receive different kinds of notifications",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Explanatory text on DisplayNotificationsConfiguration regarding which notification methods are available for each category",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-type-legend": "Explanatory text on DisplayNotificationsConfiguration regarding which notification methods are available for each type",

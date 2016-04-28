@@ -70,6 +70,7 @@
 	"echo-none": "ليس لديك أي إشعارات",
 	"echo-more-info": "المزيد",
 	"echo-feedback": "تعليقات",
+	"echo-popup-footer-feedback": "<strong>تقديم تعليق</strong>. [$2 $1]",
 	"echo-api-failure": "تعذّر إظهار الإشعارات. فضلًا حاول مرة أخرى. (خطأ $1)",
 	"echo-api-failure-cross-wiki": "رُفض الوصول إلى النطاق البعيد.",
 	"echo-notification-placeholder": "لا توجد أية إخطارات.",
