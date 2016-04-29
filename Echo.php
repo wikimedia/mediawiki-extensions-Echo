@@ -526,7 +526,6 @@ foreach ( $wgEchoNotificationCategories as $category => $categoryData ) {
 $wgDefaultUserOptions['echo-subscriptions-email-system'] = true;
 $wgDefaultUserOptions['echo-subscriptions-email-user-rights'] = true;
 $wgDefaultUserOptions['echo-subscriptions-web-article-linked'] = false;
-$wgDefaultUserOptions['echo-subscriptions-web-emailuser'] = false;
 
 // Echo Configuration for EventLogging
 $wgEchoConfig = array(
