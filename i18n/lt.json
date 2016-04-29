@@ -67,6 +67,7 @@
 	"echo-notification-popup-loginrequired": "Prašome prisijungti, kad peržiūrėtumėte pranešimus.",
 	"echo-notification-markasread": "Žymėti kaip perskaitytą",
 	"echo-notification-markasunread": "Žymėti neskaitytu",
+	"echo-notification-markasread-tooltip": "Žymėti skaitytu",
 	"notification-link-text-expand-all": "Rodyti visus",
 	"notification-link-text-expand-alert-count": "Išplėsti {{PLURAL:$1|$1 įspėjimą|$1 įspėjimus}}",
 	"notification-link-text-expand-message-count": "Išplėsti {{PLURAL:$1|$1 žinutę|$1 žinutes}}",

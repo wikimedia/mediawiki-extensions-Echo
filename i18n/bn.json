@@ -62,8 +62,6 @@
 	"echo-none": "আপনার কোন বিজ্ঞপ্তি নাই।",
 	"echo-more-info": "আরও তথ্য",
 	"echo-feedback": "প্রতিক্রিয়া",
-	"echo-popup-footer-feedback": "<strong>মতামত প্রদান করুন</strong>। [$2 $1]",
-	"echo-popup-footer-feedback-survey": "বিজ্ঞপ্তি সম্পর্কে এই দ্রুত জরিপে অংশগ্রহণ করুন।",
 	"echo-quotation-marks": "“$1”",
 	"echo-api-failure": "বিজ্ঞপ্তি পুনরুদ্ধার করা যায়নি। অনুগ্রহ করে আবার চেষ্টা করুন। (ত্রুটি $1)",
 	"echo-api-failure-cross-wiki": "রিমোট ডোমেইনে প্রবেশ অস্বীকৃত হয়েছে।",
