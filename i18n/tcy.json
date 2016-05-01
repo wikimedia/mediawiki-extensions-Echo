@@ -8,5 +8,7 @@
 	},
 	"tooltip-pt-notifications-alert": "{{GENDER:|ಈರೆನ}}ಎಚ್ಚರಿಕೆ",
 	"tooltip-pt-notifications-message": "{{GENDER:|ಈರೆನ}} ಸುದ್ದಿ",
-	"echo-notification-markasread-tooltip": "ಓದುತೆಂದು ಗುರ್ತ ಪಾಡ್ಲೆ"
+	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "ಅಸ್ತಿತ್ವೋಡು ಉಪ್ಪಿ ಗಳಸುನಾರ್",
+	"echo-notification-markasread-tooltip": "ಓದುತೆಂದು ಗುರ್ತ ಪಾಡ್ಲೆ",
+	"echo-notification-more-options-tooltip": "ಮಸ್ತ್ ಆಯ್ಕೆಲೂ"
 }

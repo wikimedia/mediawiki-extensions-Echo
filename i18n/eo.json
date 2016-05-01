@@ -4,7 +4,8 @@
 			"KuboF",
 			"Tlustulimu",
 			"Yekrats",
-			"Robin van der Vliet"
+			"Robin van der Vliet",
+			"Lucas"
 		]
 	},
 	"echo-desc": "Sistemo por sciigado uzantojn pri okazaĵoj kaj mesaĝoj",
@@ -46,6 +47,7 @@
 	"notifications": "Sciigoj",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Viaj}} sciigoj",
 	"tooltip-pt-notifications-message": "{{GENDER:|Viaj}} mesaĝoj",
+	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Novaj uzantoj",
 	"echo-specialpage": "Sciigoj",
 	"echo-anon": "Po ricevadi sciigojn oni bezonas [$1 krei konton] aŭ [$2 ensaluti].",
 	"echo-none": "Vi ne havas sciigojn.",

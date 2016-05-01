@@ -12,7 +12,8 @@
 			"IRTC1015",
 			"Hwangjy9",
 			"HDNua",
-			"Bluemersen"
+			"Bluemersen",
+			"Ykhwong"
 		]
 	},
 	"echo-desc": "이벤트와 메시지를 사용자에게 알리는 시스템",
@@ -83,7 +84,7 @@
 	"notification-page-linked": "[[:$2]] 문서가 [[:$3]]에 {{GENDER:$1|링크되었습니다}}. [[Special:WhatLinksHere/$2|이 문서를 가리키는 모든 링크를 봅니다]].",
 	"notification-header-page-linked": "$3 문서가 $4 문서에 {{GENDER:$2|링크되었습니다}}.",
 	"notification-bundle-header-page-linked": "$3 문서가 $4, $5, 그리고 다른 {{PLURAL:$6|문서}}에서 {{GENDER:$2|링크되었습니다}}.",
-	"notification-link-text-what-links-here": "이 문서로 향하는 모든 링크 보기",
+	"notification-link-text-what-links-here": "이 문서로 향하는 모든 링크",
 	"notification-add-comment2": "[[User:$1|$1]]님이 \"$4\" 토론 문서의 \"[[$3|$2]]\" 문단에 {{GENDER:$1|댓글을 남겼습니다}}.",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]]님이 [[$3]]에 새 주제 \"$2\"을(를) {{GENDER:$1|게시했습니다}}.",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]]님이 당신에게 메시지를 {{GENDER:$1|보냈습니다}}: \"[[$3#$2|$2]]\"",
