@@ -56,7 +56,7 @@
 	"echo-pref-cross-wiki-notifications": "Show notifications from other wikis",
 	"echo-pref-new-message-indicator": "Show talk page message indicator in my toolbar",
 	"echo-pref-beta-feature-cross-wiki-message": "Enhanced notifications",
-	"echo-pref-beta-feature-cross-wiki-description": "View and organize notifications more easily. Includes cross-wiki notifications, which lets you see messages from other wikis.",
+	"echo-pref-beta-feature-cross-wiki-description": "View and organize notifications more easily. Includes cross-wiki notifications, which lets you see messages from other wikis. (To receive cross-wiki notifications on a given wiki, you must activate the beta feature on that wiki.)",
 	"echo-learn-more": "Learn more",
 	"echo-log": "Public log",
 	"echo-new-messages": "You have new messages",
