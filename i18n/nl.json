@@ -87,7 +87,7 @@
 	"echo-none": "U hebt geen meldingen.",
 	"echo-more-info": "Meer info",
 	"echo-feedback": "Terugkoppeling",
-	"echo-popup-footer-beta-invitation": "<strong>Krijg hier ook meldingen van andere wiki's</strong> [$2 $1]",
+	"echo-popup-footer-beta-invitation": "<strong>Krijg hier ook meldingen van andere wiki's</strong>. [$2 $1]",
 	"echo-popup-footer-beta-invitation-link": "Probeer de betafunctie voor \"{{int:echo-pref-beta-feature-cross-wiki-message}}\" uit.",
 	"echo-api-failure": "Kan meldingen niet ophalen. Probeer het later opnieuw. (Fout $1)",
 	"echo-api-failure-cross-wiki": "Toegang tot het externe domein is geweigerd.",

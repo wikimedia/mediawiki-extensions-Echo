@@ -7,7 +7,8 @@
 			"Borislav",
 			"Лорд Бъмбъри",
 			"Vodnokon4e",
-			"V111P"
+			"V111P",
+			"Spiritia"
 		]
 	},
 	"echo-desc": "Система за уведомяване на потребителите за събития и съобщения",
@@ -28,6 +29,8 @@
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "обикновен текст",
 	"echo-pref-new-message-indicator": "Показване на индикатор за съобщения на беседата в лентата с моите инструменти",
+	"echo-pref-beta-feature-cross-wiki-message": "Подобрени известявания",
+	"echo-pref-beta-feature-cross-wiki-description": "Виждайте и организирайте по-лесно известията си. Включва „cross-wiki“ известия, които ви позволяват да видите съобщенията си от други уикипроекти на едно място.",
 	"echo-learn-more": "Повече подробности",
 	"echo-new-messages": "Имате нови съобщения",
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Съобщение|Съобщения}} на беседата",
@@ -37,6 +40,7 @@
 	"echo-category-title-other": "{{PLURAL:$1|Други}}",
 	"echo-category-title-system": "{{PLURAL:$1|Системни известия}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|Промяна|Промени}} на потребителските права",
+	"echo-category-title-emailuser": "{{PLURAL:$1|Писмо от друг потребител|Писма от други потребители}}",
 	"echo-pref-tooltip-edit-user-talk": "Известяване, когато някой остави съобщение или отговор на беседата ми.",
 	"echo-pref-tooltip-article-linked": "Известяване, когато някой постави препратка в статия към създадена от мен страница.",
 	"echo-pref-tooltip-reverted": "Известяване, когато някой премахне или отмени моя редакция чрез инструмента за връщане.",
