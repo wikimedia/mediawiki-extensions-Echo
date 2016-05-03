@@ -38,7 +38,7 @@ class SpecialNotificationsFormatter extends EchoEventFormatter {
 
 		// Add links to the footer, primary goes first, then secondary ones
 		$links = array();
-		$primaryLink = $model->getPrimaryLink();
+		$primaryLink = $model->getPrimaryLinkWithMarkAsRead();
 		if ( $primaryLink !== false ) {
 			$links[] = $primaryLink;
 		}

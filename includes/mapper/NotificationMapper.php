@@ -261,6 +261,34 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	}
 
 	/**
+	 * Create an EchoNotification by user and event ID.
+	 *
+	 * @param User $user
+	 * @param int $eventID
+	 * @return EchoNotification|bool
+	 */
+	public function fetchByUserEvent( User $user, $eventId ) {
+		$dbr = $this->dbFactory->getEchoDb( DB_SLAVE );
+
+		$row = $dbr->selectRow(
+			array( 'echo_notification', 'echo_event' ),
+			'*',
+			array(
+				'notification_user' => $user->getId(),
+				'notification_event' => $eventId
+			),
+			 __METHOD__
+		 );
+
+		if ( $row ) {
+			return EchoNotification::newFromRow( $row );
+		} else {
+			return false;
+		}
+	}
+
+
+	/**
 	 * Fetch a notification by user in the specified offset.  The caller should
 	 * know that passing a big number for offset is NOT going to work
 	 * @param User $user

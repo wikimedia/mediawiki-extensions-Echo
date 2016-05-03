@@ -198,9 +198,6 @@
 								// Source of this notification if it is cross-wiki
 								widget.bundle ? widget.getModel().getSource() : ''
 							);
-
-							// Toggle the notification as read
-							widget.model.toggleRead( true );
 						} )
 				);
 		}

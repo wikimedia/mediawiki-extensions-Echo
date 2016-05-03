@@ -205,7 +205,10 @@ $wgResourceModules += array(
 		'scripts' => array(
 			'ext.echo.init.js',
 		),
-		'dependencies' => array( 'ext.echo.api' ),
+		'dependencies' => array(
+			'ext.echo.api',
+			'mediawiki.Uri',
+		 ),
 		'targets' => array( 'desktop' ),
 	),
 	// Base no-js styles

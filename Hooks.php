@@ -762,11 +762,11 @@ class EchoHooks {
 		// @todo should this really be here?
 		$subtractAlerts = 0;
 		$subtractMessages = 0;
+		$eventIds = array();
 		if ( $title->getArticleID() ) {
-			$mapper = new EchoTargetPageMapper();
-			$fetchedTargetPages = $mapper->fetchByUserPageId( $user, $title->getArticleID() );
+			$targetPageMapper = new EchoTargetPageMapper();
+			$fetchedTargetPages = $targetPageMapper->fetchByUserPageId( $user, $title->getArticleID() );
 			if ( $fetchedTargetPages ) {
-				$eventIds = array();
 				$attribManager = EchoAttributeManager::newFromGlobalVars();
 				/* @var EchoTargetPage[] $targetPages */
 				foreach ( $fetchedTargetPages as $id => $targetPages ) {
@@ -776,18 +776,34 @@ class EchoHooks {
 						$targetPages[0]->getEventType()
 					);
 					if ( $section === EchoAttributeManager::MESSAGE ) {
-						$subtractMessages += 1;
+						$subtractMessages++;
 					} else {
 						// ALERT
-						$subtractAlerts += 1;
+						$subtractAlerts++;
 					}
 					$eventIds[] = $id;
 				}
-				DeferredUpdates::addCallableUpdate( function () use ( $user, $eventIds ) {
-					$notifUser = MWEchoNotifUser::newFromUser( $user );
-					$notifUser->markRead( $eventIds );
-				} );
 			}
+		}
+		// Attempt to mark as read the event ID in the ?markasread= parameter, if present
+		$markAsReadId = $sk->getOutput()->getRequest()->getInt( 'markasread' );
+		if ( $markAsReadId !== 0 && !in_array( $markAsReadId, $eventIds ) ) {
+			$notifMapper = new EchoNotificationMapper();
+			$notif = $notifMapper->fetchByUserEvent( $user, $markAsReadId );
+			if ( $notif && !$notif->getReadTimestamp() ) {
+				if ( $notif->getEvent()->getSection() === EchoAttributeManager::MESSAGE ) {
+					$subtractMessages++;
+				} else {
+					$subtractAlerts++;
+				}
+				$eventIds[] = $markAsReadId;
+			}
+		}
+		if ( $eventIds ) {
+			DeferredUpdates::addCallableUpdate( function () use ( $user, $eventIds ) {
+				$notifUser = MWEchoNotifUser::newFromUser( $user );
+				$notifUser->markRead( $eventIds );
+			} );
 		}
 
 		// Add a "My notifications" item to personal URLs

@@ -1,6 +1,13 @@
 ( function ( mw, $ ) {
 	'use strict';
 
+	// Remove ?markasread=XYZ from the URL
+	var uri = new mw.Uri();
+	if ( uri.query.markasread !== undefined ) {
+		delete uri.query.markasread;
+		window.history.replaceState( null, document.title, uri );
+	}
+
 	mw.echo = mw.echo || {};
 
 	// Activate ooui
