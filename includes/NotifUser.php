@@ -440,30 +440,48 @@ class MWEchoNotifUser {
 	 * @param $dbSource int use master or slave database to pull count
 	 */
 	public function resetNotificationCount( $dbSource = DB_SLAVE ) {
-		// TODO: Reuse information while recomputing these values. all=alert+messages and global=local+foreign
-
-		// Reset notification count for all sections
-		$this->getNotificationCount( false, $dbSource, EchoAttributeManager::ALL, false );
 		// Reset alert and message counts, and store them for later
 		$alertCount = $this->getNotificationCount( false, $dbSource, EchoAttributeManager::ALERT, false );
 		$msgCount = $this->getNotificationCount( false, $dbSource, EchoAttributeManager::MESSAGE, false );
-		// Reset global notification counts too
-		// We're going to update echo_unread_wikis in a DeferredUpdate below, but that doesn't
-		// affect the results of this computation, because we're only updating the echo_unread_wikis
-		// row for the current wiki, which is ignored by the recomputation code
-		$this->getNotificationCount( false, $dbSource, EchoAttributeManager::ALL, true );
-		$this->getNotificationCount( false, $dbSource, EchoAttributeManager::ALERT, true );
-		$this->getNotificationCount( false, $dbSource, EchoAttributeManager::MESSAGE, true );
+		// For performance, compute the ALL count by adding alerts and messages
+		$allCount = $alertCount + $msgCount;
+
+		// For performance, compute the global counts by adding foreign counts to the above
+		$globalAlertCount = $alertCount + $this->getForeignNotifications()->getCount( EchoAttributeManager::ALERT );
+		$globalMsgCount = $msgCount + $this->getForeignNotifications()->getCount( EchoAttributeManager::MESSAGE );
+		$globalAllCount = $globalAlertCount + $globalMsgCount;
 
 		// When notification counts need to be updated, the last notification may have changed,
 		// so we also need to recompute the cached timestamp values.
-		$this->getLastUnreadNotificationTime( false, $dbSource, EchoAttributeManager::ALL, false );
 		$alertUnread = $this->getLastUnreadNotificationTime( false, $dbSource, EchoAttributeManager::ALERT, false );
 		$msgUnread = $this->getLastUnreadNotificationTime( false, $dbSource, EchoAttributeManager::MESSAGE, false );
-		// Also recompute the global timestamps
-		$this->getLastUnreadNotificationTime( false, $dbSource, EchoAttributeManager::ALL, true );
-		$this->getLastUnreadNotificationTime( false, $dbSource, EchoAttributeManager::ALERT, true );
-		$this->getLastUnreadNotificationTime( false, $dbSource, EchoAttributeManager::MESSAGE, true );
+		// For performance, compute the ALL count as the highest of these two
+		$allUnread = $alertUnread !== false &&
+			( $msgUnread === false || $alertUnread->diff( $msgUnread )->invert === 1 ) ?
+			$alertUnread : $msgUnread;
+
+		// For performance, compute the global timestamps as max( localTimestamp, foreignTimestamp )
+		$foreignAlertUnread = $this->getForeignNotifications()->getTimestamp( EchoAttributeManager::ALERT );
+		$globalAlertUnread = $alertUnread !== false &&
+			( $foreignAlertUnread === false || $alertUnread->diff( $foreignAlertUnread )->invert === 1 ) ?
+			$alertUnread : $foreignAlertUnread;
+		$foreignMsgUnread = $this->getForeignNotifications()->getTimestamp( EchoAttributeManager::MESSAGE );
+		$globalMsgUnread = $msgUnread !== false &&
+			( $foreignMsgUnread === false || $msgUnread->diff( $foreignMsgUnread )->invert === 1 ) ?
+			$msgUnread : $foreignMsgUnread;
+		$globalAllUnread = $globalAlertUnread !== false &&
+			( $globalMsgUnread === false || $globalAlertUnread->diff( $globalMsgUnread )->invert === 1 ) ?
+			$globalAlertUnread : $globalMsgUnread;
+
+		// Write computed values to cache
+		$this->cache->set( $this->getMemcKey( 'echo-notification-count' ), $allCount, 86400 );
+		$this->cache->set( $this->getGlobalMemcKey( 'echo-notification-count-alert' ), $globalAlertCount, 86400 );
+		$this->cache->set( $this->getGlobalMemcKey( 'echo-notification-count-message' ), $globalMsgCount, 86400 );
+		$this->cache->set( $this->getGlobalMemcKey( 'echo-notification-count' ), $globalAllCount, 86400 );
+		$this->cache->set( $this->getMemcKey( 'echo-notification-timestamp', $allUnread === false ? -1 : $allUnread->getTimestamp( TS_MW ) ), 86400 );
+		$this->cache->set( $this->getGlobalMemcKey( 'echo-notification-timestamp-alert' ), $globalAlertUnread === false ? -1 : $globalAlertUnread->getTimestamp( TS_MW ), 86400 );
+		$this->cache->set( $this->getGlobalMemcKey( 'echo-notification-timestamp-message' ), $globalMsgUnread === false ? -1 : $globalMsgUnread->getTimestamp( TS_MW ), 86400 );
+		$this->cache->set( $this->getGlobalMemcKey( 'echo-notification-timestamp' ), $globalAllUnread === false ? -1 : $globalAllUnread->getTimestamp( TS_MW ), 86400 );
 
 		// Invalidate the user's cache
 		$user = $this->mUser;
