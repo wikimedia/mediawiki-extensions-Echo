@@ -358,43 +358,33 @@ class ApiEchoNotifications extends ApiQueryBase {
 			return array();
 		}
 
-		$multi = curl_multi_init();
-		$curls = array();
+		// Don't request cross-wiki notifications
+		unset( $params['notcrosswikisummary'] );
+		$params['format'] = 'php';
 
+		$reqs = array();
 		foreach ( $apis as $wiki => $api ) {
-			// only request data from that specific wiki, or they'd all spawn
-			// cross-wiki api requests...
-			$params['notwikis'] = $wiki;
-			unset( $params['notcrosswikisummary'] );
-
-			// get data in an easy-to-process format here
-			$params['format'] = 'php';
-
-			$curl = curl_init( $api['url'] );
-			curl_setopt( $curl, CURLOPT_RETURNTRANSFER, true );
-			curl_setopt( $curl, CURLOPT_POSTFIELDS, $params );
-
-			curl_multi_add_handle( $multi, $curl );
-			$curls[$wiki] = $curl;
+			$reqs[$wiki] = array(
+				'method' => 'GET',
+				'url' => $api['url'],
+				// Only request data from that specific wiki, or they'd all spawn
+				// cross-wiki api requests...
+				'query' => array_merge( $params, array( 'notwikis' => $wiki ) ),
+			);
 		}
 
-		do {
-			curl_multi_exec( $multi, $running );
-			curl_multi_select( $multi );
-		} while ( $running > 0 );
+		$http = new MultiHttpClient( array() );
+		$responses = $http->runMulti( $reqs );
 
-		$results = array();
-		foreach ( $curls as $wiki => $curl ) {
-			$content = curl_multi_getcontent( $curl );
-			curl_multi_remove_handle( $multi, $curl );
-
-			if ( $content !== null ) {
-				$results[$wiki] = unserialize( $content );
-				$results[$wiki] = $results[$wiki]['query']['notifications'];
+		foreach ( $responses as $wiki => $response ) {
+			$statusCode = $response['response']['code'];
+			if ( $statusCode >= 200 && $statusCode <= 299 ) {
+				$parsed = unserialize( $response['response']['body'] );
+				if ( $parsed ) {
+					$results[$wiki] = $parsed['query']['notifications'];
+				}
 			}
 		}
-
-		curl_multi_close( $multi );
 
 		return $results;
 	}
