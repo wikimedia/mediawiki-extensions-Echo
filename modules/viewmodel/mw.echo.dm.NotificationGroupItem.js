@@ -122,23 +122,39 @@
 	mw.echo.dm.NotificationGroupItem.prototype.fetchAllNotificationsInGroups = function () {
 		var notifModel,
 			model = this,
-			fetchPromises = [],
 			sourceKeys = Object.keys( this.sources );
 
 		return this.api.fetchNotificationGroups( sourceKeys, this.getType() )
-			.then( function () {
-				var i;
+			.then(
+				function ( itemsData ) {
+					var i, notifData, source,
+						modelItems = {};
 
-				for ( i = 0; i < sourceKeys.length; i++ ) {
-					notifModel = model.getItemById( sourceKeys[ i ] );
-					if ( notifModel ) {
-						fetchPromises.push( notifModel.fetchNotifications() );
+					for ( i = 0; i < itemsData.length; i++ ) {
+						notifData = itemsData[ i ];
+
+						// Split notifications into groups per source
+						modelItems[ notifData.wiki ] = modelItems[ notifData.wiki ] || [];
+						modelItems[ notifData.wiki ].push( notifData );
+					}
+
+					// Process all models
+					for ( source in modelItems ) {
+						notifModel = model.getItemById( source );
+						notifModel.processAPIData( modelItems[ source ] );
+					}
+				},
+				// Failure
+				function ( errCode, errObj ) {
+					var i;
+					// This means something went wrong fetching the remote notifications
+					// from the local API. We need to trigger the error handler in all
+					// of the relevant models
+					for ( i = 0; i < sourceKeys.length; i++ ) {
+						model.getItemById( sourceKeys[ i ] ).handleApiFetchError( errCode, errObj );
 					}
 				}
-
-				// Wait for all fetch processes to finish before we resolve this promise
-				return mw.echo.api.NetworkHandler.static.waitForAllPromises( fetchPromises );
-			} );
+			);
 	};
 
 	/**

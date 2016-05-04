@@ -24,13 +24,13 @@
 	/**
 	 * @inheritdoc
 	 */
-	mw.echo.api.LocalAPIHandler.prototype.fetchNotifications = function ( type, isForced ) {
-		if ( isForced || this.isFetchingErrorState( type ) ) {
+	mw.echo.api.LocalAPIHandler.prototype.fetchNotifications = function ( type, source, isForced ) {
+		if ( isForced || this.isFetchingErrorState( type, source ) ) {
 			// Force new promise
-			this.createNewFetchNotificationPromise( type );
+			this.createNewFetchNotificationPromise( type, source );
 		}
 
-		return this.getFetchNotificationPromise( type );
+		return this.getFetchNotificationPromise( type, source );
 	};
 
 	/**

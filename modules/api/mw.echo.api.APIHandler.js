@@ -58,9 +58,11 @@
 	 * the cached promise.
 	 *
 	 * @param {string} type Notification type
+	 * @param {string[]} [sources] An array of sources to query
 	 */
-	mw.echo.api.APIHandler.prototype.createNewFetchNotificationPromise = function ( type ) {
-		var me = this,
+	mw.echo.api.APIHandler.prototype.createNewFetchNotificationPromise = function ( type, sources ) {
+		var fetchingSource = 'local',
+			me = this,
 			params = $.extend( {
 				action: 'query',
 				meta: 'notifications',
@@ -72,11 +74,19 @@
 				uselang: this.userLang
 			}, this.getTypeParams( type ) );
 
-		this.apiErrorState[ type ] = false;
-		this.fetchNotificationsPromise[ type ] = this.api.get( params )
+		if ( Array.isArray( sources ) && sources.indexOf( 'local' ) === -1 ) {
+			params.notwikis = sources.join( '|' );
+			params.notfilter = '!read';
+			fetchingSource = 'foreign';
+		}
+
+		this.apiErrorState[ type ] = this.apiErrorState[ type ] || {};
+		this.apiErrorState[ type ][ fetchingSource ] = false;
+		this.fetchNotificationsPromise[ type ] = this.fetchNotificationsPromise[ type ] || {};
+		this.fetchNotificationsPromise[ type ][ fetchingSource ] = this.api.get( params )
 			.fail( function () {
 				// Mark API error state
-				me.apiErrorState[ type ] = true;
+				me.apiErrorState[ type ][ fetchingSource ] = true;
 			} );
 
 	};
@@ -138,8 +148,13 @@
 	 * @param {string} type Notification type, 'alert', 'message' or 'all'
 	 * @return {boolean} The model is in API error state
 	 */
-	mw.echo.api.APIHandler.prototype.isFetchingErrorState = function ( type ) {
-		return !!this.apiErrorState[ type ];
+	mw.echo.api.APIHandler.prototype.isFetchingErrorState = function ( type, sources ) {
+		var fetchingSource = 'local';
+
+		if ( Array.isArray( sources ) && sources.indexOf( 'local' ) === -1 ) {
+			fetchingSource = 'foreign';
+		}
+		return !!( this.apiErrorState[ type ] && this.apiErrorState[ type ][ fetchingSource ] );
 	};
 
 	/**
@@ -149,11 +164,16 @@
 	 * @return {jQuery.Promise} Promise that is resolved when notifications are
 	 *  fetched from the API.
 	 */
-	mw.echo.api.APIHandler.prototype.getFetchNotificationPromise = function ( type ) {
-		if ( !this.fetchNotificationsPromise[ type ] ) {
-			this.createNewFetchNotificationPromise( type );
+	mw.echo.api.APIHandler.prototype.getFetchNotificationPromise = function ( type, sources ) {
+		var fetchingSource = 'local';
+
+		if ( Array.isArray( sources ) && sources.indexOf( 'local' ) === -1 ) {
+			fetchingSource = 'foreign';
 		}
-		return this.fetchNotificationsPromise[ type ];
+		if ( !this.fetchNotificationsPromise[ type ] || !this.fetchNotificationsPromise[ type ][ fetchingSource ] ) {
+			this.createNewFetchNotificationPromise( type, sources );
+		}
+		return this.fetchNotificationsPromise[ type ][ fetchingSource ];
 	};
 
 	/**

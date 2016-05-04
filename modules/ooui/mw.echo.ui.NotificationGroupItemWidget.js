@@ -125,7 +125,7 @@
 
 			// Query all sources
 			this.model.fetchAllNotificationsInGroups()
-				.then( function () {
+				.always( function () {
 					widget.popPending();
 				} );
 

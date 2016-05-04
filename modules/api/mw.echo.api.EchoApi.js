@@ -28,15 +28,20 @@
 	 * Fetch notifications from the server based on type
 	 *
 	 * @param {string} type Notification type to fetch: 'alert', 'message', or 'all'
-	 * @param {string} [source="local"] The source from which to fetch the notifications
+	 * @param {string|string[]} [sources] The source from which to fetch the notifications.
+	 *  If not given, the local notifications will be fetched.
 	 * @param {boolean} [isForced] Force a refresh on the fetch notifications promise
 	 * @return {jQuery.Promise} Promise that is resolved with all notifications for the
 	 *  requested types.
 	 */
-	mw.echo.api.EchoApi.prototype.fetchNotifications = function ( type, source, isForced ) {
-		source = source || 'local';
+	mw.echo.api.EchoApi.prototype.fetchNotifications = function ( type, sources, isForced ) {
+		sources = Array.isArray( sources ) ?
+			sources :
+			sources ?
+				[ sources ] :
+				null;
 
-		return this.network.getApiHandler( source ).fetchNotifications( type, isForced )
+		return this.network.getApiHandler( 'local' ).fetchNotifications( type, sources, isForced )
 			.then( function ( result ) {
 				return OO.getProp( result.query, 'notifications' );
 			} );
@@ -51,15 +56,10 @@
 	 *  fetchNotifications per each given source in the source array.
 	 */
 	mw.echo.api.EchoApi.prototype.fetchNotificationGroups = function ( sourceArray, type ) {
-		var i, promise,
-			promises = [];
-
-		for ( i = 0; i < sourceArray.length; i++ ) {
-			promise = this.network.getApiHandler( sourceArray[ i ] ).fetchNotifications( type );
-			promises.push( promise );
-		}
-
-		return mw.echo.api.NetworkHandler.static.waitForAllPromises( promises );
+		return this.network.getApiHandler( 'local' ).fetchNotifications( type, sourceArray )
+			.then( function ( result ) {
+				return OO.getProp( result, 'query', 'notifications', 'list' );
+			} );
 	};
 
 	/**
@@ -130,7 +130,7 @@
 	 *  resolved in an error state, or is rejected.
 	 */
 	mw.echo.api.EchoApi.prototype.isFetchingErrorState = function ( source, type ) {
-		return this.network.getApiHandler( source ).isFetchingErrorState( type );
+		return this.network.getApiHandler( source ).isFetchingErrorState( type, [ source ] );
 	};
 
 	/**

@@ -450,6 +450,107 @@
 		return result;
 	};
 
+	mw.echo.dm.NotificationsModel.prototype.normalizeNotifData = function ( apiData ) {
+		var content = apiData[ '*' ] || {},
+			// Collect common data
+			notifData = {
+				read: !!apiData.read,
+				seen: !!apiData.read || apiData.timestamp.mw <= this.getSeenTime(),
+				timestamp: apiData.timestamp.utcmw,
+				category: apiData.category,
+				content: {
+					header: content.header,
+					body: content.body
+				},
+				iconURL: content.iconUrl,
+				iconType: content.icon,
+				type: this.getType(),
+				foreign: this.isForeign(),
+				source: this.getSource(),
+				primaryUrl: OO.getProp( content.links, 'primary', 'url' ),
+				secondaryUrls: OO.getProp( content.links, 'secondary' ) || []
+			};
+
+		if ( apiData.type === 'foreign' ) {
+			notifData = $.extend( notifData, {
+				// This should probably be separated by bundled
+				// type. Some types don't have read messages, but
+				// some do
+				removeReadNotifications: true,
+				// Override the foreign flag to 'true' for cross-wiki
+				// notifications.
+				// For bundles that are not foreign (like regular
+				// bundles of notifications) this flag should be false
+				foreign: true,
+				type: apiData.section,
+				count: apiData.count
+			} );
+		}
+
+		return notifData;
+	};
+
+	/**
+	 * Process notifications list API data.
+	 *
+	 * @param {Object[]} notifList Notifications list API data
+	 * @return {number[]} Array of notification IDs
+	 * @fires done
+	 */
+	mw.echo.dm.NotificationsModel.prototype.processAPIData = function ( notifList ) {
+		var i, notifData,
+			notificationModel,
+			newNotifData = {},
+			sources = {},
+			items = [],
+			idArray = [];
+
+		notifList = notifList || {};
+
+		for ( i = 0; i < notifList.length; i++ ) {
+			notifData = notifList[ i ];
+
+			newNotifData = this.normalizeNotifData( notifData );
+
+			if ( notifData.type === 'foreign' ) {
+				// Register sources
+				sources = notifData.sources;
+				this.api.registerForeignSources( sources );
+
+				// Create model
+				notificationModel = new mw.echo.dm.NotificationGroupItem(
+					this.api,
+					this.unreadCounter,
+					sources,
+					notifData.id,
+					newNotifData
+				);
+			} else {
+				notificationModel = new mw.echo.dm.NotificationItem(
+					notifData.id,
+					newNotifData
+				);
+			}
+
+			idArray.push( notifData.id );
+			items.push( notificationModel );
+		}
+
+		// Empty current items
+		// HACK: We're turning on a 'fetchingNotifications' flag
+		// so the x-wiki "empty" event is suppressed while
+		// we clear items just to fill them back up.
+		// Otherwise, the x-wiki notification bundle will be
+		// removed from the general list before it is refilled.
+		this.fetchingNotifications = true;
+		this.clearItems();
+		this.fetchingNotifications = false;
+		// Add again to the model
+		this.addItems( items, 0 );
+
+		this.emit( 'done', true, { ids: idArray } );
+		return idArray;
+	};
 	/**
 	 * Fetch notifications from the API and update the notifications list.
 	 *
@@ -472,110 +573,33 @@
 			.then(
 				// Success
 				function ( data ) {
-					var i, notifData,
-						notificationModel, content,
-						newNotifData = {},
-						sources = {},
-						optionItems = [],
-						idArray = [];
-
-					data = data || {};
-
-					// Backwards compatibility: data.list used to be an object
-					for ( i in data.list ) {
-						if ( !data.list.hasOwnProperty( i ) ) {
-							continue;
-						}
-						notifData = data.list[ i ];
-						content = notifData[ '*' ] || {};
-
-						// Collect common data
-						newNotifData = {
-							read: !!notifData.read,
-							seen: !!notifData.read || notifData.timestamp.mw <= model.getSeenTime(),
-							timestamp: notifData.timestamp.utcmw,
-							category: notifData.category,
-							content: {
-								header: content.header,
-								body: content.body
-							},
-							iconURL: content.iconUrl,
-							iconType: content.icon,
-							type: model.getType(),
-							foreign: model.isForeign(),
-							source: model.getSource(),
-							primaryUrl: OO.getProp( content.links, 'primary', 'url' ),
-							secondaryUrls: OO.getProp( content.links, 'secondary' ) || []
-						};
-
-						if ( notifData.type === 'foreign' ) {
-							// Register sources
-							sources = notifData.sources;
-							model.api.registerForeignSources( sources );
-
-							// Create model
-							notificationModel = new mw.echo.dm.NotificationGroupItem(
-								model.api,
-								model.unreadCounter,
-								sources,
-								notifData.id,
-								$.extend( true, {}, newNotifData, {
-									// This should probably be separated by bundled
-									// type. Some types don't have read messages, but
-									// some do
-									removeReadNotifications: true,
-									// Override the foreign flag to 'true' for cross-wiki
-									// notifications.
-									// For bundles that are not foreign (like regular
-									// bundles of notifications) this flag should be false
-									foreign: true,
-									type: notifData.section,
-									count: notifData.count
-								} )
-							);
-						} else {
-							notificationModel = new mw.echo.dm.NotificationItem(
-								notifData.id,
-								newNotifData
-							);
-						}
-
-						idArray.push( notifData.id );
-						optionItems.push( notificationModel );
-					}
-
-					// Empty current items
-					// HACK: We're turning on a 'fetchingNotifications' flag
-					// so the x-wiki "empty" event is suppressed while
-					// we clear items just to fill them back up.
-					// Otherwise, the x-wiki notification bundle will be
-					// removed from the general list before it is refilled.
-					model.fetchingNotifications = true;
-					model.clearItems();
-					model.fetchingNotifications = false;
-					// Add again to the model
-					model.addItems( optionItems, 0 );
-
-					model.emit( 'done', true, { ids: idArray } );
-					return idArray;
+					model.processAPIData( OO.getProp( data, 'list' ) );
 				},
 				// Failure
-				function ( errCode, errObj ) {
-					// TODO: The 'analysis' of which error we are working with should
-					// be in the network layer of Echo's frontend code
-					model.emit(
-						'done',
-						false,
-						{
-							errCode: errCode,
-							errInfo: errCode === 'http' ?
-								mw.msg( 'echo-api-failure-cross-wiki' ) :
-								OO.getProp( errObj, 'error', 'info' )
-						} );
-				}
+				this.handleApiFetchError.bind( this )
 			);
 	};
 
+	/**
+	 * Handle API errors on fetching operations.
+	 *
+	 * @param {string} errCode Error code
+	 * @param {Object} errObj Error object
+	 * @fires done
+	 */
+	mw.echo.dm.NotificationsModel.prototype.handleApiFetchError = function ( errCode, errObj ) {
+		// TODO: The 'analysis' of which error we are working with should
+		// be in the network layer of Echo's frontend code
+		this.emit(
+			'done',
+			false,
+			{
+				errCode: errCode,
+				errInfo: errCode === 'http' ?
+					mw.msg( 'echo-api-failure-cross-wiki' ) :
+					OO.getProp( errObj, 'error', 'info' )
+			} );
+	};
 	/**
 	 * Update the unseen tracking lists when we add items
 	 *
