@@ -118,7 +118,6 @@
 	"echo-email-subject-default": "Naujas pranešimas {{SITENAME}} tinklapyje",
 	"echo-email-body-default": "Turite naują pranešimą {{SITENAME}} tinklapyje:\n\n$1",
 	"echo-email-batch-body-default": "Jūs turite naują pranešimą",
-	"echo-email-footer-default": "$2\n\nKontroliuoti, kuriuos el. laiškus Jums siunčiame, galite savo nustatymuose:\n{{canonicalurl:{{#special:Nustatymai}}#mw-prefsection-echo}}\n\n$1",
 	"echo-email-footer-default-html": "Kontroliuoti, kuriuos el. laiškus Jums siunčiame,  <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">galite savo nustatymuose</a>.<br />\n$1",
 	"echo-notification-alert": "{{PLURAL:$1|Įspėjimas ($1)|Įspėjimai ($1)|100=Įspėjimų (99+)}}",
 	"echo-notification-message": "{{PLURAL:$1|Žinutė ($1)|Žinutės ($1)|100=Žinučių (99+)}}",

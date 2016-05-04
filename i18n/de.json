@@ -162,7 +162,7 @@
 	"echo-email-subject-default": "Neue Benachrichtigung auf {{SITENAME}}",
 	"echo-email-body-default": "Es gibt eine neue Benachrichtigung auf {{SITENAME}}:\n\n$1",
 	"echo-email-batch-body-default": "Du hast eine neue Benachrichtigung",
-	"echo-email-footer-default": "$2\n\nUm zu steuern, welche E-Mails wir dir senden, nutze deine Einstellungen:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
+	"echo-email-plain-footer": "Um zu kontrollieren, welche E-Mails wir dir senden, überprüfe deine Einstellungen:",
 	"echo-email-footer-default-html": "Um zu steuern, welche E-Mails wir dir senden, <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">nutze deine Einstellungen</a>.<br />\n$1",
 	"echo-notification-alert": "{{PLURAL:$1|Eine Meldung|$1 Meldungen|100=99+ Meldungen}}",
 	"echo-notification-message": "{{PLURAL:$1|Eine Nachricht|$1 Nachrichten|100=99+ Nachrichten}}",

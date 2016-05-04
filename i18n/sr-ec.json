@@ -131,7 +131,6 @@
 	"echo-email-subject-default": "Ново обавештење на {{SITENAME}}",
 	"echo-email-body-default": "Имате ново обавештење на пројекту {{SITENAME}}:\n\n$1",
 	"echo-email-batch-body-default": "Имате ново обавештење.",
-	"echo-email-footer-default": "$2\n\nДа бисте променили које поруке примате од нас идите у подешавања:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
 	"echo-email-footer-default-html": "Да бисте променили које поруке примате од нас идите у <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">подешавања</a>.<br />\n$1",
 	"echo-notification-alert": "{{PLURAL:$1|Обавештење ($1)|Обавештања ($1)|100=Обавештања (99+)}}",
 	"echo-notification-message": "{{PLURAL:$1|Порука ($1)|Поруке ($1)|100=Поруке (99+)}}",
