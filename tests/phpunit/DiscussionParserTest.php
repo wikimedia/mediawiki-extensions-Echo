@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 /**
  * @group Echo
  * @group Database
@@ -309,13 +311,27 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 			}
 		}
 
+		$langObj = Language::factory( $lang );
 		$this->setMwGlobals( array(
 			// this global is used by the code that interprets the namespace part of
 			// titles (Title::getTitleParser), so should be the fake language ;)
-			'wgContLang' => Language::factory( $lang ),
+			'wgContLang' => $langObj,
 			// this one allows Mediawiki:xyz pages to be set as messages
 			'wgUseDatabaseMessages' => true
 		) );
+
+		// Since we reset the $wgContLang global, reset the TitleParser service
+		$services = MediaWikiServices::getInstance();
+		if ( is_callable( [ $services, 'getTitleParser' ] ) ) {
+			$this->setService(
+				'TitleParser',
+				new MediaWikiTitleCodec(
+					$langObj,
+					new GenderCache(),
+					$services->getMainConfig()->get( 'LocalInterwikis' )
+				)
+			);
+		}
 
 		// pages to be created: templates may be used to ping users (e.g.
 		// {{u|...}}) but if we don't have that template, it just won't work!
