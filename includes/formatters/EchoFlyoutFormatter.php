@@ -50,7 +50,7 @@ class EchoFlyoutFormatter extends EchoEventFormatter {
 		) . "\n";
 
 		// Add the primary link afterwards, if it has one
-		$primaryLink = $model->getPrimaryLink();
+		$primaryLink = $model->getPrimaryLinkWithMarkAsRead();
 		if ( $primaryLink !== false ) {
 			$html .= Html::element(
 				'a',
