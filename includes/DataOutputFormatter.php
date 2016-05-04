@@ -56,6 +56,7 @@ class EchoDataOutputFormatter {
 		// End creating date section header
 
 		$output = array(
+			'wiki' => wfWikiID(),
 			'id' => $event->getId(),
 			'type' => $event->getType(),
 			'category' => $event->getCategory(),

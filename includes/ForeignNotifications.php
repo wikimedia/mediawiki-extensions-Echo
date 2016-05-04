@@ -204,7 +204,7 @@ class EchoForeignNotifications {
 
 			$data[$wiki] = array(
 				'title' => static::getWikiTitle( $wiki, $siteFromDB ),
-				'url' => $server . $scriptPath . '/api.php',
+				'url' => wfExpandUrl( $server . $scriptPath . '/api.php', PROTO_INTERNAL ),
 			);
 		}
 
