@@ -376,6 +376,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 		$http = new MultiHttpClient( array() );
 		$responses = $http->runMulti( $reqs );
 
+		$results = array();
 		foreach ( $responses as $wiki => $response ) {
 			$statusCode = $response['response']['code'];
 			if ( $statusCode >= 200 && $statusCode <= 299 ) {
