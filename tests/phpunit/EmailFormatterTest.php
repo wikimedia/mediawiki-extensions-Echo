@@ -23,7 +23,7 @@ class EchoEmailFormatterTest extends MediaWikiTestCase {
 
 		$user = User::newFromId( 1 );
 		$user->setName( 'Test' );
-		$user->setOption( 'echo-email-format', EchoHooks::EMAIL_FORMAT_HTML );
+		$user->setOption( 'echo-email-format', EchoEmailFormat::HTML );
 
 		$this->emailSingle = new EchoEmailSingle( $formatter, $event, $user );
 
@@ -39,7 +39,7 @@ class EchoEmailFormatterTest extends MediaWikiTestCase {
 		$this->assertRegExp( $pattern, $this->emailSingle->getTextTemplate() );
 		$this->assertEquals( 0, preg_match( $pattern, $textFormatter->formatEmail() ) );
 
-		$htmlFormatter = new EchoHTMLEmailFormatter( $this->emailSingle );
+		$htmlFormatter = new LegacyEchoHTMLEmailFormatter( $this->emailSingle );
 		$this->assertRegExp( $pattern, $this->emailSingle->getHTMLTemplate() );
 		$this->assertEquals( 0, preg_match( $pattern, $htmlFormatter->formatEmail() ) );
 
@@ -48,7 +48,7 @@ class EchoEmailFormatterTest extends MediaWikiTestCase {
 		$this->assertRegExp( $pattern, $this->emailSingle->getTextTemplate() );
 		$this->assertEquals( 0, preg_match( $pattern, $textFormatter->formatEmail() ) );
 
-		$htmlFormatter = new EchoHTMLEmailFormatter( $this->emailDigest );
+		$htmlFormatter = new LegacyEchoHTMLEmailFormatter( $this->emailDigest );
 		$this->assertRegExp( $pattern, $this->emailSingle->getHTMLTemplate() );
 		$this->assertEquals( 0, preg_match( $pattern, $htmlFormatter->formatEmail() ) );
 	}

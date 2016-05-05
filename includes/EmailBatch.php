@@ -244,9 +244,7 @@ class MWEchoEmailBatch {
 	public function sendEmail() {
 		global $wgNotificationSender, $wgNotificationReplyName;
 
-		if ( $this->mUser->getOption( 'echo-email-frequency' )
-			== EchoHooks::EMAIL_WEEKLY_DIGEST
-		) {
+		if ( $this->mUser->getOption( 'echo-email-frequency' ) == EchoEmailFrequency::WEEKLY_DIGEST ) {
 			$frequency = 'weekly';
 			$emailDeliveryMode = 'weekly_digest';
 		} else {
@@ -258,22 +256,18 @@ class MWEchoEmailBatch {
 		$content = $textEmailDigestFormatter->format( $this->events, 'email' );
 
 		$format = MWEchoNotifUser::newFromUser( $this->mUser )->getEmailFormat();
-		if ( $format == EchoHooks::EMAIL_FORMAT_HTML ) {
+		if ( $format == EchoEmailFormat::HTML ) {
 
-			$formattedEvents = array();
-			foreach ( $this->events as $event ) {
-				$category = $event->getCategory();
-				$formatted = EchoNotificationController::formatNotification( $event, $this->mUser, 'email', 'emaildigest' );
-				$formattedEvents[ $category ][] = $formatted;
-			}
+			$htmlEmailDigestFormatter = new EchoHtmlDigestEmailFormatter( $this->mUser, $this->language, $frequency );
+			$htmlContent = $htmlEmailDigestFormatter->format( $this->events, 'email' );
 
-			$emailDigest = new EchoEmailDigest( $this->mUser, $formattedEvents, $frequency );
-			$htmlEmailFormatter = new EchoHTMLEmailFormatter( $emailDigest );
-			$multipartBody = array(
-				'text' => $content['body'],
-				'html' => $htmlEmailFormatter->formatEmail(),
+			$content = array(
+				'body' => array(
+					'text' => $content['body'],
+					'html' => $htmlContent['body'],
+				),
+				'subject' => $htmlContent['subject'],
 			);
-			$content['body'] = $multipartBody;
 		}
 
 		$toAddress = MailAddress::newFromUser( $this->mUser );

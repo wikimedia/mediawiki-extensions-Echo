@@ -3,13 +3,6 @@
 use MediaWiki\Logger\LoggerFactory;
 
 class EchoHooks {
-	const EMAIL_NEVER = -1; // Never send email notifications
-	const EMAIL_IMMEDIATELY = 0; // Send email notificaitons immediately as they come in
-	const EMAIL_DAILY_DIGEST = 1; // Send daily email digests
-	const EMAIL_WEEKLY_DIGEST = 7; // Send weekly email digests
-	const EMAIL_FORMAT_HTML = 'html';
-	const EMAIL_FORMAT_PLAIN_TEXT = 'plain-text';
-
 	/**
 	 * Initialize Echo extension with necessary data, this function is invoked
 	 * from $wgExtensionFunctions
@@ -258,16 +251,16 @@ class EchoHooks {
 		$never = wfMessage( 'echo-pref-email-frequency-never' )->plain();
 		$immediately = wfMessage( 'echo-pref-email-frequency-immediately' )->plain();
 		$freqOptions = array(
-			$never => self::EMAIL_NEVER,
-			$immediately => self::EMAIL_IMMEDIATELY,
+			$never => EchoEmailFrequency::NEVER,
+			$immediately => EchoEmailFrequency::IMMEDIATELY,
 		);
 		// Only show digest options if email batch is enabled
 		if ( $wgEchoEnableEmailBatch ) {
 			$daily = wfMessage( 'echo-pref-email-frequency-daily' )->plain();
 			$weekly = wfMessage( 'echo-pref-email-frequency-weekly' )->plain();
 			$freqOptions += array(
-				$daily => self::EMAIL_DAILY_DIGEST,
-				$weekly => self::EMAIL_WEEKLY_DIGEST
+				$daily => EchoEmailFrequency::DAILY_DIGEST,
+				$weekly => EchoEmailFrequency::WEEKLY_DIGEST,
 			);
 		}
 		$preferences['echo-email-frequency'] = array(
@@ -310,8 +303,8 @@ class EchoHooks {
 				'label-message' => 'echo-pref-email-format',
 				'section' => 'echo/emailsettings',
 				'options' => array(
-					wfMessage( 'echo-pref-email-format-html' )->plain() => self::EMAIL_FORMAT_HTML,
-					wfMessage( 'echo-pref-email-format-plain-text' )->plain() => self::EMAIL_FORMAT_PLAIN_TEXT
+					wfMessage( 'echo-pref-email-format-html' )->plain() => EchoEmailFormat::HTML,
+					wfMessage( 'echo-pref-email-format-plain-text' )->plain() => EchoEmailFormat::PLAIN_TEXT,
 				)
 			);
 		}

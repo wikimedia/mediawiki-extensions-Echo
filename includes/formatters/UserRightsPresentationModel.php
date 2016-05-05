@@ -83,4 +83,8 @@ class EchoUserRightsPresentationModel extends EchoEventPresentationModel {
 			'prioritized' => true,
 		);
 	}
+
+	protected function getSubjectMessageKey() {
+		return 'notification-user-rights-email-subject';
+	}
 }

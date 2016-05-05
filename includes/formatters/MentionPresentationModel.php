@@ -120,4 +120,8 @@ class EchoMentionPresentationModel extends EchoEventPresentationModel {
 		$ns = $this->event->getTitle()->getNamespace();
 		return $ns === NS_MAIN || $ns === NS_TALK;
 	}
+
+	protected function getSubjectMessageKey() {
+		return 'notification-mention-email-subject';
+	}
 }

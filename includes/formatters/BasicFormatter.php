@@ -251,8 +251,8 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 			'body' => $textEmailFormatter->formatEmail(),
 		);
 		$format = MWEchoNotifUser::newFromUser( $user )->getEmailFormat();
-		if ( $format == EchoHooks::EMAIL_FORMAT_HTML ) {
-			$htmlEmailFormatter = new EchoHTMLEmailFormatter( $emailSingle );
+		if ( $format == EchoEmailFormat::HTML ) {
+			$htmlEmailFormatter = new LegacyEchoHTMLEmailFormatter( $emailSingle );
 			$outputFormat = $this->outputFormat;
 			$this->setOutputFormat( 'htmlemail' );
 			// Add single email html body if user prefers html format
@@ -282,7 +282,7 @@ class EchoBasicFormatter extends EchoNotificationFormatter {
 		// Email digest text body
 		$content = array( 'batch-body' => $this->formatFragment( $key, $event, $user )->text() );
 		$format = MWEchoNotifUser::newFromUser( $user )->getEmailFormat();
-		if ( $format == EchoHooks::EMAIL_FORMAT_HTML ) {
+		if ( $format == EchoEmailFormat::HTML ) {
 			$outputFormat = $this->outputFormat;
 			$this->setOutputFormat( 'htmlemail' );
 			$content['batch-body-html'] = $this->formatFragment( $key, $event, $user )->parse();
