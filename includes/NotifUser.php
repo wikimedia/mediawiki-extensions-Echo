@@ -225,7 +225,7 @@ class MWEchoNotifUser {
 			$count += $this->getForeignNotifications()->getCount( $section );
 		}
 
-		$this->cache->set( $memcKey, $count, 86400 );
+		$this->setInCache( $memcKey, $count, 86400 );
 		return $count;
 	}
 
@@ -320,7 +320,7 @@ class MWEchoNotifUser {
 			$cacheValue = $timestamp->getTimestamp( TS_MW );
 		}
 
-		$this->cache->set( $memcKey, $cacheValue, 86400 );
+		$this->setInCache( $memcKey, $cacheValue, 86400 );
 		return $returnValue;
 	}
 
@@ -474,14 +474,14 @@ class MWEchoNotifUser {
 			$globalAlertUnread : $globalMsgUnread;
 
 		// Write computed values to cache
-		$this->cache->set( $this->getMemcKey( 'echo-notification-count' ), $allCount, 86400 );
-		$this->cache->set( $this->getGlobalMemcKey( 'echo-notification-count-alert' ), $globalAlertCount, 86400 );
-		$this->cache->set( $this->getGlobalMemcKey( 'echo-notification-count-message' ), $globalMsgCount, 86400 );
-		$this->cache->set( $this->getGlobalMemcKey( 'echo-notification-count' ), $globalAllCount, 86400 );
-		$this->cache->set( $this->getMemcKey( 'echo-notification-timestamp', $allUnread === false ? -1 : $allUnread->getTimestamp( TS_MW ) ), 86400 );
-		$this->cache->set( $this->getGlobalMemcKey( 'echo-notification-timestamp-alert' ), $globalAlertUnread === false ? -1 : $globalAlertUnread->getTimestamp( TS_MW ), 86400 );
-		$this->cache->set( $this->getGlobalMemcKey( 'echo-notification-timestamp-message' ), $globalMsgUnread === false ? -1 : $globalMsgUnread->getTimestamp( TS_MW ), 86400 );
-		$this->cache->set( $this->getGlobalMemcKey( 'echo-notification-timestamp' ), $globalAllUnread === false ? -1 : $globalAllUnread->getTimestamp( TS_MW ), 86400 );
+		$this->setInCache( $this->getMemcKey( 'echo-notification-count' ), $allCount, 86400 );
+		$this->setInCache( $this->getGlobalMemcKey( 'echo-notification-count-alert' ), $globalAlertCount, 86400 );
+		$this->setInCache( $this->getGlobalMemcKey( 'echo-notification-count-message' ), $globalMsgCount, 86400 );
+		$this->setInCache( $this->getGlobalMemcKey( 'echo-notification-count' ), $globalAllCount, 86400 );
+		$this->setInCache( $this->getMemcKey( 'echo-notification-timestamp' ), $allUnread === false ? -1 : $allUnread->getTimestamp( TS_MW ), 86400 );
+		$this->setInCache( $this->getGlobalMemcKey( 'echo-notification-timestamp-alert' ), $globalAlertUnread === false ? -1 : $globalAlertUnread->getTimestamp( TS_MW ), 86400 );
+		$this->setInCache( $this->getGlobalMemcKey( 'echo-notification-timestamp-message' ), $globalMsgUnread === false ? -1 : $globalMsgUnread->getTimestamp( TS_MW ), 86400 );
+		$this->setInCache( $this->getGlobalMemcKey( 'echo-notification-timestamp' ), $globalAllUnread === false ? -1 : $globalAllUnread->getTimestamp( TS_MW ), 86400 );
 
 		// Invalidate the user's cache
 		$user = $this->mUser;
@@ -510,7 +510,18 @@ class MWEchoNotifUser {
 		}
 	}
 
+	/**
+	 * Get a cache entry from the cache, using a preloaded instance cache.
+	 * @param  string|false $memcKey Cache key returned by getMemcKey()
+	 * @return mixed Cache value
+	 */
 	protected function getFromCache( $memcKey ) {
+		// getMemcKey() can return false
+		if ( $memcKey === false ) {
+			return false;
+		}
+
+		// Populate the instance cache
 		if ( $this->cached === null ) {
 			$keys = $this->preloadKeys();
 			$this->cached = $this->cache->getMulti( $keys );
@@ -524,6 +535,27 @@ class MWEchoNotifUser {
 		}
 
 		return $this->cache->get( $memcKey );
+	}
+
+	/**
+	 * Set a cache entry both in the cache and in the instance cache.
+	 * Use this to write to keys that were loaded with getFromCache().
+	 * @param string|false $memcKey Cache key returned by getMemcKey()
+	 * @param mixed $value Cache value to set
+	 * @param int $expiry Expiry, see BagOStuff::set()
+	 */
+	protected function setInCache( $memcKey, $value, $expiry ) {
+		// getMemcKey() can return false
+		if ( $memcKey === false ) {
+			return;
+		}
+
+		// Update the instance cache if it's already been populated
+		if ( $this->cached !== null ) {
+			$this->cached[$memcKey] = $value;
+		}
+
+		$this->cache->set( $memcKey, $value, $expiry );
 	}
 
 	/**
@@ -551,14 +583,21 @@ class MWEchoNotifUser {
 	 * Build a memcached key.
 	 * @param string $key Key, typically prefixed with echo-notification-
 	 * @param bool $global If true, return a global memc key; if false, return one local to this wiki
-	 * @return string Memcached key
+	 * @return string|false Memcached key, or false if one could not be generated
 	 */
 	protected function getMemcKey( $key, $global = false ) {
 		global $wgEchoConfig;
-		if ( $global ) {
-			return wfGlobalCacheKey( $key, $this->mUser->getId(), $wgEchoConfig['version'] );
+		if ( !$global ) {
+			return wfMemcKey( $key, $this->mUser->getId(), $wgEchoConfig['version'] );
 		}
-		return wfMemcKey( $key, $this->mUser->getId(), $wgEchoConfig['version'] );
+
+		$lookup = CentralIdLookup::factory();
+		$globalId = $lookup->centralIdFromLocalUser( $this->mUser, CentralIdLookup::AUDIENCE_RAW );
+		if ( !$globalId ) {
+			return false;
+		}
+		return wfGlobalCacheKey( $key, $globalId, $wgEchoConfig['version'] );
+
 	}
 
 	protected function getGlobalMemcKey( $key ) {

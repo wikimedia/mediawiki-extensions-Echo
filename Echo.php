@@ -529,7 +529,7 @@ $wgDefaultUserOptions['echo-subscriptions-web-article-linked'] = false;
 
 // Echo Configuration for EventLogging
 $wgEchoConfig = array(
-	'version' => '1.6',
+	'version' => '1.7',
 	'eventlogging' => array(
 		/**
 		 * Properties:
