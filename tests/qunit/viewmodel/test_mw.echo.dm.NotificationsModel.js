@@ -37,7 +37,7 @@
 	// Create an Echo API instance
 	echoApi = new mw.echo.api.EchoApi();
 	// HACK: Reach into the EchoAPI to create a test handler
-	echoApi.network.addCustomApiHandler( 'test', new TestApiHandler() );
+	echoApi.network.setApiHandler( 'test', new TestApiHandler() );
 
 	QUnit.test( 'Adding notifications', function ( assert ) {
 		var initialItems = [

@@ -11,7 +11,7 @@
 		this.handlers = {};
 
 		// Add initial local handler
-		this.addApiHandler( 'local', {} );
+		this.setApiHandler( 'local', new mw.echo.api.LocalAPIHandler() );
 	};
 
 	/* Setup */
@@ -63,39 +63,13 @@
 	};
 
 	/**
-	 * Add an API handler
-	 *
-	 * @param {string} name Symbolic name
-	 * @param {Object} config Configuration details
-	 * @param {boolean} isForeign Is a foreign API
-	 * @throws {Error} If no URL was given for a foreign API
-	 */
-	mw.echo.api.NetworkHandler.prototype.addApiHandler = function ( name, config, isForeign ) {
-		// This must be here so that it short-circuits the object construction below
-		if ( this.handlers[ name ] ) {
-			return;
-		}
-
-		if ( isForeign ) {
-			if ( !config.url ) {
-				throw new Error( 'Foreign APIs must have a valid url.' );
-			}
-			this.addCustomApiHandler( name, new mw.echo.api.ForeignAPIHandler( config.url, config ) );
-		} else {
-			this.addCustomApiHandler( name, new mw.echo.api.LocalAPIHandler( config ) );
-		}
-	};
-
-	/**
-	 * Add a custom API handler by passing in an instance of an mw.echo.api.APIHandler subclass directly.
+	 * Sets an API handler by passing in an instance of an mw.echo.api.APIHandler subclass directly.
 	 *
 	 * @param {string} name Symbolic name
 	 * @param {mw.echo.api.APIHandler} handler Handler object
+	 * @throws {Error} If handler already exists
 	 */
-	mw.echo.api.NetworkHandler.prototype.addCustomApiHandler = function ( name, handler ) {
-		if ( !this.handlers[ name ] ) {
-			this.handlers[ name ] = handler;
-		}
+	mw.echo.api.NetworkHandler.prototype.setApiHandler = function ( name, handler ) {
+		this.handlers[ name ] = handler;
 	};
-
 } )( mediaWiki, jQuery );
