@@ -12,9 +12,10 @@
 		config = config || {};
 
 		// Parent constructor
-		mw.echo.api.LocalAPIHandler.parent.call( this, config );
-
-		this.api = new mw.Api( { ajax: { cache: false } } );
+		mw.echo.api.LocalAPIHandler.parent.call( this,
+			new mw.Api( { ajax: { cache: false } } ),
+			config
+		);
 	};
 
 	/* Setup */

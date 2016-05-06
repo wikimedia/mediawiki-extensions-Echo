@@ -6,12 +6,13 @@
 	 * @class
 	 *
 	 * @constructor
+	 * @param {mw.Api} api
 	 * @param {Object} [config] Configuration object
 	 * @cfg {number} [limit=25] The limit on how many notifications to fetch
 	 * @cfg {string} [userLang=mw.config.get( 'wgUserLanguage' )] User language. Defaults
 	 *  to the default user language configuration settings.
 	 */
-	mw.echo.api.APIHandler = function MwEchoApiAPIHandler( config ) {
+	mw.echo.api.APIHandler = function MwEchoApiAPIHandler( api, config ) {
 		config = config || {};
 
 		this.fetchNotificationsPromise = {};
@@ -20,7 +21,7 @@
 		this.limit = config.limit || 25;
 		this.userLang = config.userLang || mw.config.get( 'wgUserLanguage' );
 
-		this.api = null;
+		this.api = api;
 
 		// Map the logical type to the type
 		// that the API recognizes
@@ -88,7 +89,6 @@
 				// Mark API error state
 				me.apiErrorState[ type ][ fetchingSource ] = true;
 			} );
-
 	};
 
 	/**
