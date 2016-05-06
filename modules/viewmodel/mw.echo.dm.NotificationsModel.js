@@ -386,10 +386,12 @@
 		for ( i = 0, len = items.length; i < len; i++ ) {
 			item = items[ i ];
 			// Skip items that are foreign if we are in automatic 'mark all as read'
-			if ( !item.isForeign() && !item.isRead() ) {
+			if ( !item.isRead() ) {
+				itemIds.push( item.getId() );
+			}
+			if ( !item.isForeign() ) {
 				item.toggleRead( true );
 				item.toggleSeen( true );
-				itemIds.push( items[ i ].getId() );
 			}
 		}
 		this.markingAllAsRead = false;
@@ -431,23 +433,6 @@
 		itemIds = $.isArray( itemIds ) ? itemIds : [ itemIds ];
 
 		return this.api.markItemsRead( itemIds, this.getSource(), isRead );
-	};
-
-	/**
-	 * Get an array of the notification IDs of the items in this model
-	 *
-	 * @return {string[]} Array of notification IDs
-	 */
-	mw.echo.dm.NotificationsModel.prototype.getAllItemIds = function () {
-		var i,
-			items = this.getItems(),
-			result = [];
-
-		for ( i = 0; i < items.length; i++ ) {
-			result.push( items[ i ].getId() );
-		}
-
-		return result;
 	};
 
 	mw.echo.dm.NotificationsModel.prototype.normalizeNotifData = function ( apiData ) {

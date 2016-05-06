@@ -1,4 +1,4 @@
-( function ( mw, $ ) {
+( function ( mw ) {
 	/**
 	 * Echo notification group item model
 	 *
@@ -161,56 +161,13 @@
 	 * @inheritdoc
 	 */
 	mw.echo.dm.NotificationGroupItem.prototype.toggleRead = function ( read ) {
-		var i, promise,
-			notifModels = this.getItems();
+		this.fetchAllNotificationsInGroups().then( function () {
+			var promises = this.getItems().map( function ( foreignSourceModel ) {
+				return foreignSourceModel.markAllRead();
+			} );
+			return mw.echo.api.NetworkHandler.static.waitForAllPromises( promises );
+		}.bind( this ) );
 
-		read = read !== undefined ? read : !this.read;
-
-		if ( this.read !== read ) {
-			for ( i = 0; i < notifModels.length; i++ ) {
-				// Verify that we have items in the models. The models may still
-				// be empty in the case where the group was marked as read before
-				// it was expanded and the notifications were fetched.
-				// NOTE: Local groups should never be empty, as we are
-				// getting all items without the need to query the API. Even so,
-				// this should happen to any notification that is empty to make
-				// sure that we are only marking the correct items as read and not
-				// all items indiscriminately.
-				if ( notifModels[ i ].isEmpty() ) {
-					// Fetch the notifications so we know what to mark as read
-					promise = notifModels[ i ].fetchNotifications();
-				} else {
-					// Create a fake resolved promise for models that already
-					// have items in them
-					promise = $.Deferred().resolve( notifModels[ i ].getAllItemIds() );
-				}
-
-				// For each of those, mark items as read in the UI and API
-				// Note that the promise for the notification models that
-				// were already full will resolve immediately, and hence be
-				// synchronous.
-				/*jshint loopfunc:true */
-				promise
-					.then( ( function ( model ) {
-						return function ( idArray ) {
-							// Mark sub items as read in the UI
-							model.markAllRead();
-							// Mark all existing items as read in the API
-							model.unreadCounter.estimateChange( -idArray.length );
-							model.toggleItemsReadInApi( idArray, read ).then( function () {
-								model.unreadCounter.update();
-							} );
-						};
-					} )( notifModels[ i ] ) );
-			}
-		}
-
-		// Parent method
-		// Note: The parent method will mark this item as read, synchronously.
-		// In cases where the notification is external and empty, we are fetching
-		// the items (above) asynchronously, but the process of visually tagging
-		// the entire group as read in the UI should not wait for that API request
-		// to finish. Despite the async methods above, this is synchronous by design.
 		mw.echo.dm.NotificationGroupItem.parent.prototype.toggleRead.call( this, read );
 	};
 
@@ -262,4 +219,4 @@
 		return this.notifModels;
 	};
 
-} )( mediaWiki, jQuery );
+} )( mediaWiki );
