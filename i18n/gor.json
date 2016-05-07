@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Marwan Mohamad"
+		]
+	},
+	"tooltip-pt-notifications-alert": "Mopo'ota {{GENDER:|Yi'o}}",
+	"tooltip-pt-notifications-message": "Tahuli {{GENDER:|Yi'o}}"
+}
