@@ -4,7 +4,8 @@
 			"Fohanno",
 			"Fulup",
 			"Y-M D",
-			"Gwenn-Ael"
+			"Gwenn-Ael",
+			"Pymouss"
 		]
 	},
 	"echo-desc": "Reizhiad kemennoù",
@@ -32,6 +33,7 @@
 	"echo-category-title-mention": "{{PLURAL:$1|Meneg}}",
 	"echo-category-title-other": "{{PLURAL:$1|All}}",
 	"echo-category-title-system": "{{PLURAL:$1|Sistem}}",
+	"echo-category-title-emailuser": "{{PLURAL:$1|Postel eus implijer all|Posteloù eus implijerien all}}",
 	"echo-pref-tooltip-edit-user-talk": "Kemenn din pa vez postet ur gemennadenn gant unan bennak pe pa respont war ma fajenn gaozeal.",
 	"echo-pref-tooltip-article-linked": "Ma c'hemenn pa vez graet ul liamm war-du ur bajennn am eus krouet gant unan bennak adalek pajenn ur pennad.",
 	"echo-pref-tooltip-mention": "Kelaouiñ ac'hanon pa vez menneget va fajenn implijer gant unan bennak.",
@@ -53,12 +55,8 @@
 	"notification-link-text-view-edit": "Gwelet ar c'hemm",
 	"notification-edit-talk-page2": "[[User:$1|$1]] {{GENDER:$1|en deus|he deus}} lezet ur gemennadenn war ho [[User talk:$2#$3|pajenn gaozeal]].",
 	"notification-edit-talk-page-with-section": "[[User:$1|$1]] {{GENDER:$1|en deus|he deus}} lezet ur gemennadenn war ho pajenn kaozeal e-barzh \"[[User talk:$2#$3|$4]]\".",
-	"notification-edit-talk-page-flyout2": "$1 {{GENDER:$1|en deus|he deus}} lezet ur gemennadenn war ho [[User talk:$2#$3|pajenn gaozeal]].",
-	"notification-edit-talk-page-flyout-with-section": "$1 {{GENDER:$1|en deus|he deus}} lezet ur gemennadenn war ho pajenn gaozeal e-barzh \"[[User talk:$2#$3|$4]]\".",
 	"notification-add-talkpage-topic-yours2": "[[User:$1|$1]] {{GENDER:$1|en deus|he deus}} kaset ur gemennadenn deoc'h: \"[[$3#$2|$2]]\".",
 	"notification-mention": "[[User:$1|$1]] {{GENDER:$1|en deus|he deus}} meneget ac'hanoc'h war ar bajenn gaozeal $5 e-barzh \"[[:$3#$2|$4]]\".",
-	"notification-mention-flyout": "$1 {{GENDER:$1|en deus|he deus}} meneget ac'hanoc'h war ar bajenn gaozeal $5 e-barzh \"[[:$3#$2|$4]]\".",
-	"notification-mention-nosection-flyout": "$1 {{GENDER:$1|en deus|he deus}} meneget ac'hanoc'h war [[:$3|pajenn gaozeal $2]].",
 	"notification-user-rights-add": "Bremañ ez oc'h un ezel eus {{PLURAL:$2|ar strollad-mañ|ar strolladoù-mañ}}: $1",
 	"notification-user-rights-remove": "N'oc'h ket ken un ezel eus ar {{PLURAL:$2|strollad|strolladoù}}-mañ : $1",
 	"notification-new-user": "Degemer mat er {{SITENAME}}, $1!",
@@ -74,7 +72,6 @@
 	"echo-email-subject-default": "Kemenn nevez e {{SITENAME}}",
 	"echo-email-body-default": "Ur c'hemenn nevez ho peus war {{SITENAME}}:\n\n$1",
 	"echo-email-batch-body-default": "Ur c'hemenn nevez ho peus resevet.",
-	"echo-email-footer-default": "$2\n\nEvit kontrollañ peseurt posteloù a gasomp deoc'h, gwiriit ho penndibaboù : {{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
 	"echo-email-footer-default-html": "Evit kontrollañ peseurt posteloù a gasomp deoc'h, <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">gwiriit ho tibaboù</a>.<br />\n$1",
 	"echo-notification-message": "{{PLURAL:$1|Kemennadenn ($1)|Kemennadennoù ($1)|100=Kemennadennoù (99+)}}",
 	"echo-notification-message-text-only": "Kemennadennoù",

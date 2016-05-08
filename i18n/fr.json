@@ -202,7 +202,7 @@
 	"echo-date-yesterday": "Hier",
 	"echo-load-more-error": "Une erreur s'est produite en recherchant plus de résultats.",
 	"notification-edit-talk-page-bundle": "$1 et {{PLURAL:$3|un autre|$3 autres|100=plus de 100 autres}} ont laissé des messages sur votre [[User talk:$2|page de discussion]].",
-	"notification-bundle-header-edit-user-talk-v2": "{{PLURAL:$1|Un nouveau message|$1 nouveaux messages|100=plus de 100 nouveaux messages}} sur <strong>{{GENDER:$3|votre}}</strong> page de discussion.",
+	"notification-bundle-header-edit-user-talk-v2": "{{PLURAL:$1|Un nouveau message|$1 nouveaux messages|100=plus de 100 nouveaux messages}} sur <strong>{{GENDER:$3|votre}} page de discussion</strong> .",
 	"notification-edit-user-talk-email-batch-bundle-body": "$1 et {{PLURAL:$2|un autre|$2 autres|100=plus de 100 autres}} ont {{GENDER:$1|laissé}} un message sur votre page de discussion.",
 	"notification-page-linked-email-batch-bundle-body": "$2 a été {{GENDER:$1|lié}} depuis $3 et {{PLURAL:$4|une autre page|$4 autres pages|100=plus de 100 autres pages}}.",
 	"echo-email-batch-subject-daily": "Vous avez {{PLURAL:$2|une nouvelle notification|de nouvelles notifications}} aujourd'hui sur {{SITENAME}}",
