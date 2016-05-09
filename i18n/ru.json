@@ -189,7 +189,7 @@
 	"echo-email-batch-body-intro-weekly": "Привет, $1!\nВот краткий недельный обзор деятельности в {{SITENAME}} для вас.",
 	"echo-email-batch-link-text-view-all-notifications": "Посмотреть все уведомления",
 	"echo-rev-deleted-text-view": "Эта версия страницы была скрыта",
-	"notification-header-foreign-alert": "Больше предупреждений из {{PLURAL:$5|другой вики|$5 других вики}}",
+	"notification-header-foreign-alert": "Больше уведомлений из {{PLURAL:$5|другой вики|$5 других вики}}",
 	"notification-header-foreign-message": "Больше сообщений из {{PLURAL:$5|другой вики|$5 других вики}}",
 	"apihelp-echomarkread-description": "Отметить уведомления как прочитанные для текущего пользователя.",
 	"apihelp-echomarkread-param-list": "Список ID уведомлений для отметки прочитанными.",
