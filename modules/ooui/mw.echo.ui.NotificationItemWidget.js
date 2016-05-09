@@ -140,8 +140,7 @@
 		// Add a "mark as read" secondary action
 		this.toggleReadSecondaryButton = new mw.echo.ui.MenuItemWidget( {
 			data: 'toggleRead',
-			prioritized: false,
-			classes: [ 'mw-echo-ui-notificationItemWidget-content-actions-button' ]
+			prioritized: false
 		} );
 		this.menuPopupButtonWidget.getMenu().addItems( [ this.toggleReadSecondaryButton ] );
 
