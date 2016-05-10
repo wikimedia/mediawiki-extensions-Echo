@@ -57,13 +57,8 @@ class ApiEchoNotifications extends ApiQueryBase {
 			$results += $this->getForeignNotifications( $foreignWikis, $requestParams );
 		}
 
-		if ( !$results ) {
-			return;
-		}
-
 		// after getting local & foreign results, merge them all together
 		$result = $this->mergeResults( $results, $params );
-		$this->getResult()->setIndexedTagName( $result, 'notification' );
 		if ( $params['groupbysection'] ) {
 			foreach ( $params['sections'] as $section ) {
 				if ( in_array( 'list', $params['prop'] ) ) {
@@ -397,6 +392,9 @@ class ApiEchoNotifications extends ApiQueryBase {
 	 */
 	protected function mergeResults( array $results, array $params ) {
 		$master = array_shift( $results );
+		if ( !$master ) {
+			$master = array();
+		}
 
 		if ( in_array( 'list', $params['prop'] ) ) {
 			$master = $this->mergeList( $master, $results, $params['groupbysection'] );
@@ -426,12 +424,18 @@ class ApiEchoNotifications extends ApiQueryBase {
 
 		if ( $groupBySection ) {
 			foreach ( EchoAttributeManager::$sections as $section ) {
+				if ( !isset( $master[$section]['list'] ) ) {
+					$master[$section]['list'] = array();
+				}
 				foreach ( $results as $result ) {
 					$master[$section]['list'] = array_merge( $master[$section]['list'], $result[$section]['list'] );
 				}
 				usort( $master[$section]['list'], $sort );
 			}
 		} else {
+			if ( !isset( $master['list'] ) ) {
+				$master['list'] = array();
+			}
 			foreach ( $results as $result ) {
 				$master['list'] = array_merge( $master['list'], $result['list'] );
 			}
@@ -450,6 +454,9 @@ class ApiEchoNotifications extends ApiQueryBase {
 	protected function mergeCount( array $master, array $results, $groupBySection ) {
 		if ( $groupBySection ) {
 			foreach ( EchoAttributeManager::$sections as $section ) {
+				if ( !isset( $master[$section]['rawcount'] ) ) {
+					$master[$section]['rawcount'] = 0;
+				}
 				foreach ( $results as $result ) {
 					$master[$section]['rawcount'] += $result[$section]['rawcount'];
 				}
@@ -457,6 +464,9 @@ class ApiEchoNotifications extends ApiQueryBase {
 			}
 		}
 
+		if ( !isset( $master['rawcount'] ) ) {
+			$master['rawcount'] = 0;
+		}
 		foreach ( $results as $result ) {
 			// regardless of groupbysection, totals are always included
 			$master['rawcount'] += $result['rawcount'];
