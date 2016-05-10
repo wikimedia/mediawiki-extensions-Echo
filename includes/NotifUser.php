@@ -483,17 +483,48 @@ class MWEchoNotifUser {
 		$this->setInCache( $this->getGlobalMemcKey( 'echo-notification-timestamp-message' ), $globalMsgUnread === false ? -1 : $globalMsgUnread->getTimestamp( TS_MW ), 86400 );
 		$this->setInCache( $this->getGlobalMemcKey( 'echo-notification-timestamp' ), $globalAllUnread === false ? -1 : $globalAllUnread->getTimestamp( TS_MW ), 86400 );
 
-		// Invalidate the user's cache
-		$user = $this->mUser;
-		$user->invalidateCache();
+		$this->invalidateCache();
 
 		// Schedule an update to the echo_unread_wikis table
+		$user = $this->mUser;
 		DeferredUpdates::addCallableUpdate( function () use ( $user, $alertCount, $alertUnread, $msgCount, $msgUnread ) {
 			$uw = EchoUnreadWikis::newFromUser( $user );
 			if ( $uw ) {
 				$uw->updateCount( wfWikiID(), $alertCount, $alertUnread, $msgCount, $msgUnread );
 			}
 		} );
+	}
+
+	/**
+	 * Get the timestamp of the last time the global notification counts/timestamps were updated, if available.
+	 *
+	 * If the timestamp of the last update is not known, this will return the current timestamp.
+	 * If the user is not attached, this will return false.
+	 *
+	 * @return string|false MW timestamp of the last update, or false if the user is not attached
+	 */
+	public function getGlobalUpdateTime() {
+		$key = $this->getGlobalMemcKey( 'echo-notification-updated' );
+		if ( $key === false ) {
+			return false;
+		}
+		return wfTimestamp( TS_MW, ObjectCache::getMainWANInstance()->getCheckKeyTime( $key ) );
+	}
+
+	/**
+	 * Invalidate user caches related to notification counts/timestamps.
+	 *
+	 * This bumps the local user's touched timestamp as well as the timestamp returned by getGlobalUpdateTime().
+	 */
+	protected function invalidateCache() {
+		// Update the user touched timestamp for the local user
+		$this->mUser->invalidateCache();
+
+		// Update the global touched timestamp
+		$key = $this->getGlobalMemcKey( 'echo-notification-updated' );
+		if ( $key ) {
+			ObjectCache::getMainWANInstance()->touchCheckKey( $key );
+		}
 	}
 
 	/**

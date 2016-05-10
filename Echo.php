@@ -81,6 +81,7 @@ $wgHooks['UserClearNewTalkNotification'][] = 'EchoHooks::onUserClearNewTalkNotif
 $wgHooks['ParserTestTables'][] = 'EchoHooks::onParserTestTables';
 $wgHooks['EmailUserComplete'][] = 'EchoHooks::onEmailUserComplete';
 $wgHooks['LoginFormValidErrorMessages'][] = 'EchoHooks::onLoginFormValidErrorMessages';
+$wgHooks['OutputPageCheckLastModified'][] = 'EchoHooks::onOutputPageCheckLastModified';
 
 // Extension:UserMerge support
 $wgHooks['UserMergeAccountFields'][] = 'EchoHooks::onUserMergeAccountFields';

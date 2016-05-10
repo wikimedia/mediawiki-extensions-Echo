@@ -1002,6 +1002,18 @@ class EchoHooks {
 		return true;
 	}
 
+	public static function onOutputPageCheckLastModified( array &$modifiedTimes ) {
+		// HACK: this hook doesn't pass in a ContextSource
+		$user = RequestContext::getMain()->getUser();
+		if ( $user->isLoggedIn() ) {
+			$notifUser = MWEchoNotifUser::newFromUser( $user );
+			$lastUpdate = $notifUser->getGlobalUpdateTime();
+			if ( $lastUpdate !== false ) {
+				$modifiedTimes['notifications'] = $lastUpdate;
+			}
+		}
+	}
+
 	/**
 	 * Handler for UnitTestsList hook.
 	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/UnitTestsList
