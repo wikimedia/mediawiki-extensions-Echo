@@ -2,6 +2,12 @@
 	'use strict';
 	var useLang = mw.config.get( 'wgUserLanguage' );
 
+	/**
+	 * @class mw.echo.special
+	 * Defines the behavior of the Special:Notifications page
+	 *
+	 * @singleton
+	 */
 	mw.echo.special = {
 
 		notcontinue: null,
@@ -10,6 +16,8 @@
 
 		/**
 		 * Initialize the property in special notification page.
+		 *
+		 * @method
 		 */
 		initialize: function () {
 			var skin = mw.config.get( 'skin' );
@@ -57,6 +65,8 @@
 
 		/**
 		 * Load more notification records.
+		 *
+		 * @method
 		 */
 		loadMore: function () {
 			var notifications, container, $li,

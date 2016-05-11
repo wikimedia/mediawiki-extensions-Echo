@@ -85,7 +85,7 @@
 	 *
 	 * @param {string} action The interaction
 	 * @param {string} [context] 'flyout'/'archive' or undefined for the badge
-	 * @param {int} [eventId] Notification event id
+	 * @param {number} [eventId] Notification event id
 	 * @param {string} [eventType] notification type
 	 * @param {boolean} [mobile] True if interaction was on a mobile device
 	 * @param {string} [notifWiki] Foreign wiki the notification came from

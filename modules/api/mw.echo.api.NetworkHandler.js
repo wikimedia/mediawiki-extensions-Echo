@@ -56,7 +56,7 @@
 	 * Get the API handler that matches the symbolic name
 	 *
 	 * @param {string} name Symbolic name of the API handler
-	 * @return {mw.echo.dm.APIHandler|undefined} API handler, if exists
+	 * @return {mw.echo.api.APIHandler|undefined} API handler, if exists
 	 */
 	mw.echo.api.NetworkHandler.prototype.getApiHandler = function ( name ) {
 		return this.handlers[ name ];

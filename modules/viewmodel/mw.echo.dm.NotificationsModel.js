@@ -667,7 +667,7 @@
 	/**
 	 * Get the timestamp of the latest unread item
 	 *
-	 * @return {mw.echo.dm.APIHandler} API handler
+	 * @return {mw.echo.api.APIHandler} API handler
 	 */
 	mw.echo.dm.NotificationsModel.prototype.getTimestamp = function () {
 		var items = this.getItems();
