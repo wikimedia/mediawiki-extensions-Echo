@@ -57,7 +57,7 @@
 	"echo-date-today": "بوگون",
 	"echo-date-yesterday": "دونن",
 	"echo-load-more-error": "آرتیق نتیجه‌لری گتیرنده بیر خطا قاباغا گلدی.",
-	"notification-bundle-header-edit-user-talk-v2": "{{PLURAL:$1|بیر یئنی مساژ|$1 new messages|100=۹۹-دان چوْخ یئنی مساژ}} دانیشیق صفحه‌نیزده دۇرور.",
+	"notification-bundle-header-edit-user-talk-v2": "{{PLURAL:$1|بیر یئنی مساژ|$1 یئنی مساژ|100=99+ یئنی مساژ}} <strong>{{GENDER:$3|سیزین}} دانیشیق صفحه‌نیزده</strong> دۇرور.",
 	"echo-email-batch-subject-daily": "سیزین بوگون $1 {{PLURAL:$2|بیلدیرینیز}} واردیر",
 	"echo-email-batch-subject-weekly": "سیزین بو هفته $1 {{PLURAL:$2|بیلدیرینیز}} واردیر"
 }
