@@ -5,7 +5,10 @@
 		"checkAnnotations": {
 			"preset": "jsduck5",
 			"extra": {
-				"mixin": false
+				"mixin": false,
+				"source": true,
+				"todo": true,
+				"see": true
 			}
 		},
 		"requireParamTypes": true,

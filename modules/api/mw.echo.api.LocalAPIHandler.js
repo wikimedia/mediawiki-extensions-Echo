@@ -3,7 +3,7 @@
 	 * Notification API handler
 	 *
 	 * @class
-	 * @extends mw.echo.dm.APIHandler
+	 * @extends mw.echo.api.APIHandler
 	 *
 	 * @constructor
 	 * @param {Object} [config] Configuration object
