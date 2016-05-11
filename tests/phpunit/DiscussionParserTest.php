@@ -323,14 +323,20 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 		// Since we reset the $wgContLang global, reset the TitleParser service
 		$services = MediaWikiServices::getInstance();
 		if ( is_callable( [ $services, 'getTitleParser' ] ) ) {
-			$this->setService(
-				'TitleParser',
-				new MediaWikiTitleCodec(
+			// TODO: All of this should use $this->setService()
+			$services->resetServiceForTesting( 'TitleParser' );
+			$services->redefineService( 'TitleParser', function () use ( $langObj ) {
+				global $wgLocalInterwikis;
+				return new MediaWikiTitleCodec(
 					$langObj,
 					new GenderCache(),
-					$services->getMainConfig()->get( 'LocalInterwikis' )
-				)
-			);
+					$wgLocalInterwikis
+				);
+			} );
+			// Cleanup
+			$lock = new ScopedCallback( function() use ( $services ) {
+				$services->resetServiceForTesting( 'TitleParser' );
+			} );
 		}
 
 		// pages to be created: templates may be used to ping users (e.g.
