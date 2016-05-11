@@ -27,6 +27,8 @@ class SpecialNotifications extends SpecialPage {
 
 		$out->addSubtitle( $this->buildSubtitle() );
 
+		$out->enableOOUI();
+
 		// The continue parameter to pull current set of data from, this
 		// would be used for browsers with javascript disabled
 		$continue = $this->getRequest()->getVal( 'continue', null );
@@ -67,34 +69,41 @@ class SpecialNotifications extends SpecialPage {
 
 		// Add the notifications to the page (interspersed with date headers)
 		$dateHeader = '';
-		$notices = '';
 		$unread = array();
 		$echoSeenTime = EchoSeenTime::newFromUser( $user );
 		$seenTime = $echoSeenTime->getTime();
+		$notifArray = array();
 		foreach ( $notif as $row ) {
 			$class = 'mw-echo-notification';
-
 			if ( !isset( $row['read'] ) ) {
-				$class .= ' mw-echo-unread';
+				$class .= ' mw-echo-notification-unread';
 				if ( !$row['targetpages'] ) {
 					$unread[] = $row['id'];
 				}
 			}
 
 			if ( $seenTime !== null && $row['timestamp']['mw'] > $seenTime ) {
-				$class .= ' mw-echo-unseen';
+				$class .= ' mw-echo-notification-unseen';
 			}
 
 			if ( !$row['*'] ) {
 				continue;
 			}
+
 			// Output the date header if it has not been displayed
 			if ( $dateHeader !== $row['timestamp']['date'] ) {
 				$dateHeader = $row['timestamp']['date'];
-				$notices .= Html::rawElement( 'li', array( 'class' => 'mw-echo-date-section' ), $dateHeader );
+				$notifArray[ $dateHeader ] = array(
+					'notices' => array()
+				);
 			}
 
-			$notices .= Html::rawElement(
+			// Collect unread IDs
+			if ( !isset( $row['read'] ) ) {
+				$notifArray[ $dateHeader ][ 'unread' ][] = $row['id'];
+			}
+
+			$notifArray[ $dateHeader ][ 'notices' ][] = Html::rawElement(
 				'li',
 				array(
 					'class' => $class,
@@ -105,6 +114,19 @@ class SpecialNotifications extends SpecialPage {
 				$row['*']
 			);
 		}
+
+		// Build the HTML
+		$notices = '';
+		foreach ( $notifArray as $section => $data ) {
+			$sectionTitle = Html::element( 'span', array( 'class' => 'mw-echo-date-section-text' ), $section );
+
+			// Heading
+			$notices .= Html::rawElement( 'li', array( 'class' => 'mw-echo-date-section' ), $sectionTitle );
+
+			// Notices
+			$notices .= join( "\n", $data[ 'notices' ] );
+		}
+
 		$html = Html::rawElement( 'ul', array( 'id' => 'mw-echo-special-container' ), $notices );
 
 		// Build the more link
@@ -123,7 +145,6 @@ class SpecialNotifications extends SpecialPage {
 		}
 
 		$out->addHTML( $html );
-		$out->addModules( 'ext.echo.special' );
 		$out->addJsConfigVars(
 			array(
 				'wgEchoDisplayNum' => self::DISPLAY_NUM,
@@ -133,15 +154,6 @@ class SpecialNotifications extends SpecialPage {
 		);
 		// For no-js support
 		$out->addModuleStyles( array( 'ext.echo.styles.notifications', 'ext.echo.styles.special' ) );
-
-		DeferredUpdates::addCallableUpdate( function () use ( $user, $echoSeenTime, $unread ) {
-			// Mark items as read
-			if ( $unread ) {
-				MWEchoNotifUser::newFromUser( $user )->markRead( $unread );
-			}
-			// Record time notifications have been seen
-			$echoSeenTime->setTime( wfTimestamp( TS_MW ) );
-		} );
 	}
 
 	/**
@@ -153,7 +165,7 @@ class SpecialNotifications extends SpecialPage {
 		$lang = $this->getLanguage();
 		$subtitleLinks = array();
 		// More info link
-		$subtitleLinks[] = Html::rawElement(
+		$subtitleLinks[] = Html::element(
 			'a',
 			array(
 				'href' => $wgEchoHelpPage,
@@ -165,7 +177,7 @@ class SpecialNotifications extends SpecialPage {
 			$this->msg( 'echo-more-info' )->text()
 		);
 		// Preferences link
-		$subtitleLinks[] = Html::rawElement(
+		$subtitleLinks[] = Html::element(
 			'a',
 			array(
 				'href' => SpecialPage::getTitleFor( 'Preferences' )->getLinkURL() . '#mw-prefsection-echo',

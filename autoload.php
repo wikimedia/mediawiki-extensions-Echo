@@ -3,7 +3,7 @@
 // @codingStandardsIgnoreFile
 global $wgAutoloadClasses;
 
-$wgAutoloadClasses += array(
+$wgAutoloadClasses += [
 	'ApiEchoMarkRead' => __DIR__ . '/includes/api/ApiEchoMarkRead.php',
 	'ApiEchoMarkReadTest' => __DIR__ . '/tests/phpunit/api/ApiEchoMarkReadTest.php',
 	'ApiEchoMarkSeen' => __DIR__ . '/includes/api/ApiEchoMarkSeen.php',
@@ -114,5 +114,6 @@ $wgAutoloadClasses += array(
 	'SpecialDisplayNotificationsConfiguration' => __DIR__ . '/includes/special/SpecialDisplayNotificationsConfiguration.php',
 	'SpecialNotifications' => __DIR__ . '/includes/special/SpecialNotifications.php',
 	'SpecialNotificationsFormatter' => __DIR__ . '/includes/formatters/SpecialNotificationsFormatter.php',
+	'SpecialNotificationsMarkRead' => __DIR__ . '/includes/special/SpecialNotificationsMarkRead.php',
 	'SuppressionMaintenanceTest' => __DIR__ . '/tests/phpunit/maintenance/SupressionMaintenanceTest.php',
-);
+];

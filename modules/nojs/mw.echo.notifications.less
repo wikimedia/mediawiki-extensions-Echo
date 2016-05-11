@@ -7,7 +7,8 @@
 // not wrapped with a NotificationItemWidget.
 .mw-echo-state {
 	display: block;
-	padding: 15px 40px 10px 10px;
+	width: 100%;
+	box-sizing: border-box;
 
 	.mw-echo-notification-primary-link {
 		display: none;
@@ -34,10 +35,6 @@
 		/* Force container to expand to height of floated contents */
 		overflow: hidden;
 		zoom: 1;
-
-		&.mw-echo-unread {
-			color: #252525;
-		}
 
 		span.autocomment {
 			color: inherit;
