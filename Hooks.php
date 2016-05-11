@@ -1002,9 +1002,8 @@ class EchoHooks {
 		return true;
 	}
 
-	public static function onOutputPageCheckLastModified( array &$modifiedTimes ) {
-		// HACK: this hook doesn't pass in a ContextSource
-		$user = RequestContext::getMain()->getUser();
+	public static function onOutputPageCheckLastModified( array &$modifiedTimes, OutputPage $out ) {
+		$user = $out->getUser();
 		if ( $user->isLoggedIn() ) {
 			$notifUser = MWEchoNotifUser::newFromUser( $user );
 			$lastUpdate = $notifUser->getGlobalUpdateTime();
