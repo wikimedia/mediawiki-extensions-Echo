@@ -285,8 +285,9 @@ class EchoHooks {
 			array(),
 			array( 'returnto' => $prefsTitle->getFullText() )
 		);
-		$emailAddress = $user->getEmail() ? htmlspecialchars( $user->getEmail() ) : '';
-		if ( $wgAuth->allowPropChange( 'emailaddress' ) ) {
+		$emailAddress = $user->getEmail() && $user->isAllowed( 'viewmyprivateinfo' )
+			? htmlspecialchars( $user->getEmail() ) : '';
+		if ( $user->isAllowed( 'editmyprivateinfo' ) && $wgAuth->allowPropChange( 'emailaddress' ) ) {
 			if ( $emailAddress === '' ) {
 				$emailAddress .= $link;
 			} else {
