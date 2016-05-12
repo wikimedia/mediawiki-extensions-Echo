@@ -72,6 +72,7 @@
 	"echo-more-info": "更多資訊",
 	"echo-feedback": "意見回饋",
 	"echo-api-failure": "無法擷取通知。請再試一次。 (Error $1)",
+	"echo-api-failure-cross-wiki": "已拒絕存取遠端網域。",
 	"echo-notification-placeholder": "無通知。",
 	"echo-notification-loginrequired": "您必須登入方可查閱通知。",
 	"echo-notification-popup-loginrequired": "請登入以檢視您的通知。",

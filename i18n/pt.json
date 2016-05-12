@@ -172,7 +172,7 @@
 	"echo-date-yesterday": "Ontem",
 	"echo-load-more-error": "Ocorreu um erro ao carregar mais resultados.",
 	"notification-edit-talk-page-bundle": "$1 e {{PLURAL:$3|$3 outro|$3 outros|100=+99 outros}} {{GENDER:$1|deixaram}} mensagens na sua [[User talk:$2|página de discussão]].",
-	"notification-bundle-header-edit-user-talk-v2": "{{PLURAL:$1|Uma nova mensagem|$1 novas mensagens|100=+99 novas mensagens}} na {{GENDER:$3|sua}} página de discussão.",
+	"notification-bundle-header-edit-user-talk-v2": "{{PLURAL:$1|Uma nova mensagem|$1 novas mensagens|100=+99 novas mensagens}} na <strong>{{GENDER:$3|sua}} página de discussão</strong>.",
 	"notification-edit-user-talk-email-batch-bundle-body": "$1 e {{PLURAL:$2|$2 outro|$2 outros|100=+99 outros}} {{GENDER:$1|deixaram}} uma mensagem na sua página de discussão.",
 	"notification-page-linked-email-batch-bundle-body": "$2 foi {{GENDER:$1|ligada}} a partir de $3 e {{PLURAL:$4|$4 outra página|$4 outras páginas|100=+99 outras páginas}}.",
 	"echo-email-batch-subject-daily": "Tem {{PLURAL:$2|uma nova notificação|novas notificações}} em {{SITENAME}}",

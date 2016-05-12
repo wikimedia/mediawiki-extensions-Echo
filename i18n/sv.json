@@ -65,6 +65,8 @@
 	"echo-displaynotificationsconfiguration": "Visa aviseringskonfiguration",
 	"echo-displaynotificationsconfiguration-summary": "Detta är en översikt av hur aviseringar är konfigurerade på denna wiki.",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "Aviseringar efter kategori",
+	"echo-displaynotificationsconfiguration-sorting-by-section-header": "Sortering av typer",
+	"echo-displaynotificationsconfiguration-sorting-by-section-legend": "Vilket avsnitt varje aviseringstyp sorteras i",
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Tillåtna aviseringsmetoder",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Vilka aviseringsmetoder som stöds för varje kategori",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Aktiverad som standard",

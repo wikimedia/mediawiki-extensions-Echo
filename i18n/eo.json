@@ -5,7 +5,8 @@
 			"Tlustulimu",
 			"Yekrats",
 			"Robin van der Vliet",
-			"Lucas"
+			"Lucas",
+			"Macofe"
 		]
 	},
 	"echo-desc": "Sistemo por sciigado uzantojn pri okazaĵoj kaj mesaĝoj",
@@ -143,7 +144,7 @@
 	"echo-date-yesterday": "Hieraŭ",
 	"echo-load-more-error": "Okazis eraro dum venigo de pliaj rezultoj.",
 	"notification-edit-talk-page-bundle": "$1 kaj {{PLURAL:$3|alia uzanto|$3 aliaj uzantoj|100=pli ol 99 aliaj uzantoj}} {{GENDER:$1|lasis}} mesaĝon sur via [[User talk:$2|diskutopaĝo]].",
-	"notification-bundle-header-edit-user-talk-v2": "{{PLURAL:$1|Nova mesaĝo|$1 novaj mesaĝoj|100=pli ol 99 novaj mesaĝoj}} sur {{GENDER:$3|via}} diskutopaĝo.",
+	"notification-bundle-header-edit-user-talk-v2": "{{PLURAL:$1|Nova mesaĝo|$1 novaj mesaĝoj|100=pli ol 99 novaj mesaĝoj}} sur <strong>{{GENDER:$3|via}} diskutopaĝo</strong>.",
 	"notification-edit-user-talk-email-batch-bundle-body": "$1 kaj {{PLURAL:$2|alia uzanto|$2 aliaj uzantoj|100=pli ol 99 aliaj uzantoj}} {{GENDER:$1|lasis}} mesaĝon sur via diskutopaĝo.",
 	"notification-page-linked-email-batch-bundle-body": "$2 estis {{GENDER:$1|ligita}} de $3 kaj {{PLURAL:$4|plia paĝo|$4 pliaj paĝoj|100=pli ol 99 pliaj paĝoj}}.",
 	"echo-email-batch-subject-daily": "Vi havas {{PLURAL:$2|novan sciigon|novajn sciigojn}} sur {{SITENAME}}",

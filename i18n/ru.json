@@ -27,7 +27,8 @@
 			"Putnik",
 			"Ole Yves",
 			"Лилиә",
-			"Alexandr Efremov"
+			"Alexandr Efremov",
+			"Jack who built the house"
 		]
 	},
 	"echo-desc": "Система уведомления участников о событиях и сообщениях",
@@ -92,7 +93,7 @@
 	"echo-notification-markasunread": "Пометить как непрочитанное",
 	"echo-notification-markasread-tooltip": "Отметить как прочитанное",
 	"notification-link-text-expand-all": "Посмотреть все",
-	"notification-link-text-expand-alert-count": "Показать {{PLURAL:$1|$1 предупреждение|$1 предупреждений|$1 предупреждения}}",
+	"notification-link-text-expand-alert-count": "Показать {{PLURAL:$1|$1 оповещение|$1 оповещений|$1 оповещения}}",
 	"notification-link-text-expand-message-count": "Показать {{PLURAL:$1|$1 сообщение|$1 сообщений|$1 сообщения}}",
 	"notification-link-text-expand-all-count": "Показать {{PLURAL:$1|$1 уведомление|$1 уведомлений|$1 уведомления}}",
 	"notification-link-text-collapse-all": "Свернуть",
