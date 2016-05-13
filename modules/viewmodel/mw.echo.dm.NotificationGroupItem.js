@@ -141,8 +141,17 @@
 					// Process all models
 					for ( source in modelItems ) {
 						notifModel = model.getItemById( source );
-						notifModel.processAPIData( modelItems[ source ] );
+						if ( notifModel ) {
+							notifModel.processAPIData( modelItems[ source ] );
+						}
 					}
+
+					// hack: after loading the foreign notifications, get rid of the empty models
+					model.getItems().forEach( function ( foreignModel ) {
+						if ( foreignModel.isEmpty() ) {
+							foreignModel.emit( 'empty' );
+						}
+					} );
 				},
 				// Failure
 				function ( errCode, errObj ) {
