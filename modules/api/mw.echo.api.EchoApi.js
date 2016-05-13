@@ -20,7 +20,7 @@
 	mw.echo.api.EchoApi.prototype.registerForeignSources = function ( sources ) {
 		var s;
 		for ( s in sources ) {
-			this.network.setApiHandler( s, new mw.echo.api.ForeignAPIHandler( sources[ s ] ) );
+			this.network.setApiHandler( s, new mw.echo.api.ForeignAPIHandler( sources[ s ].url ) );
 		}
 	};
 
