@@ -57,10 +57,11 @@ class EchoEditUserTalkPresentationModel extends EchoEventPresentationModel {
 	}
 
 	public function getBodyMessage() {
-		if ( !$this->isBundled() && $this->hasSection() ) {
+		$sectionText = $this->event->getExtraParam( 'section-text' );
+		if ( !$this->isBundled() && $this->hasSection() && $sectionText !== null ) {
 			$msg = $this->msg( 'notification-body-edit-user-talk-with-section' );
 			// section-text is safe to use here, because hasSection() returns false if the revision is deleted
-			$msg->plaintextParams( $this->event->getExtraParam( 'section-text' ) );
+			$msg->plaintextParams( $sectionText );
 			return $msg;
 		} else {
 			return false;
