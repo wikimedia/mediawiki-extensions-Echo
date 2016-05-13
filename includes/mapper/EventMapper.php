@@ -40,7 +40,7 @@ class EchoEventMapper extends EchoAbstractMapper {
 	 *
 	 * @param int
 	 * @param boolean
-	 * @return EchoEvent
+	 * @return EchoEvent|bool false if it wouldn't load/unserialize
 	 * @throws MWException
 	 */
 	public function fetchById( $id, $fromMaster = false ) {
@@ -109,7 +109,10 @@ class EchoEventMapper extends EchoAbstractMapper {
 
 		$data = array();
 		foreach ( $res as $row ) {
-			$data[] = EchoEvent::newFromRow( $row );
+			$event = EchoEvent::newFromRow( $row );
+			if ( $event ) {
+				$data[] = $event;
+			}
 		}
 
 		return $data;
