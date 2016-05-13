@@ -360,7 +360,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 
 		// Don't request cross-wiki notifications
 		unset( $params['notcrosswikisummary'] );
-		$params['format'] = 'php';
+		$params['format'] = 'json';
 
 		$reqs = array();
 		foreach ( $apis as $wiki => $api ) {
@@ -383,7 +383,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 		foreach ( $responses as $wiki => $response ) {
 			$statusCode = $response['response']['code'];
 			if ( $statusCode >= 200 && $statusCode <= 299 ) {
-				$parsed = unserialize( $response['response']['body'] );
+				$parsed = json_decode( $response['response']['body'], true );
 				if ( $parsed && isset( $parsed['query']['notifications'] ) ) {
 					$results[$wiki] = $parsed['query']['notifications'];
 				}
