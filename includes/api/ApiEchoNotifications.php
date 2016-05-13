@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\Logger\LoggerFactory;
+
 class ApiEchoNotifications extends ApiQueryBase {
 	/**
 	 * @var EchoForeignNotifications
@@ -379,6 +381,14 @@ class ApiEchoNotifications extends ApiQueryBase {
 				if ( $parsed && isset( $parsed['query']['notifications'] ) ) {
 					$results[$wiki] = $parsed['query']['notifications'];
 				}
+			} else {
+				LoggerFactory::getInstance( 'Echo' )->warning(
+					"Failed to fetch notifications from {wiki}. Response: {response}",
+					array(
+						'wiki' => $wiki,
+						'response' => $response['response']['body'],
+					)
+				);
 			}
 		}
 
