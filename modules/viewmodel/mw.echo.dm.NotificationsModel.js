@@ -297,9 +297,9 @@
 		// Normalize if using 'all'
 		types = type === 'all' ? [ 'alert', 'message' ] : [ type ];
 
-		for ( i = 0; i < type.length; i++ ) {
+		for ( i = 0; i < types.length; i++ ) {
 			// Update all types
-			this.seenTime[ type[ i ] ] = time;
+			this.seenTime[ types[ i ] ] = time;
 		}
 	};
 
