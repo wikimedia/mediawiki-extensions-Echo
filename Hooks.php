@@ -216,9 +216,9 @@ class EchoHooks {
 	 * @return bool true in all cases
 	 */
 	public static function getBetaFeaturePreferences( User $user, array &$preferences ) {
-		global $wgExtensionAssetsPath, $wgEchoUseCrossWikiBetaFeature;
+		global $wgExtensionAssetsPath, $wgEchoUseCrossWikiBetaFeature, $wgEchoCrossWikiNotifications;
 
-		if ( $wgEchoUseCrossWikiBetaFeature ) {
+		if ( $wgEchoUseCrossWikiBetaFeature && $wgEchoCrossWikiNotifications ) {
 			$preferences['echo-cross-wiki-notifications'] = array(
 				'label-message' => 'echo-pref-beta-feature-cross-wiki-message',
 				'desc-message' => 'echo-pref-beta-feature-cross-wiki-description',
@@ -250,7 +250,7 @@ class EchoHooks {
 		global $wgAuth, $wgEchoEnableEmailBatch,
 			$wgEchoNotifiers, $wgEchoNotificationCategories, $wgEchoNotifications,
 			$wgEchoNewMsgAlert, $wgAllowHTMLEmail, $wgEchoUseCrossWikiBetaFeature,
-			$wgEchoShowFooterNotice;
+			$wgEchoShowFooterNotice, $wgEchoCrossWikiNotifications;
 
 		$attributeManager = EchoAttributeManager::newFromGlobalVars();
 
@@ -392,7 +392,7 @@ class EchoHooks {
 			'tooltips' => $tooltips,
 		);
 
-		if ( !$wgEchoUseCrossWikiBetaFeature ) {
+		if ( !$wgEchoUseCrossWikiBetaFeature && $wgEchoCrossWikiNotifications ) {
 			$preferences['echo-cross-wiki-notifications'] = array(
 				'type' => 'toggle',
 				'label-message' => 'echo-pref-cross-wiki-notifications',

@@ -16,6 +16,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 	}
 
 	public function execute() {
+		global $wgEchoCrossWikiNotifications;
 		// To avoid API warning, register the parameter used to bust browser cache
 		$this->getMain()->getVal( '_' );
 
@@ -39,15 +40,20 @@ class ApiEchoNotifications extends ApiQueryBase {
 			);
 		}
 
-		$this->foreignNotifications = new EchoForeignNotifications( $this->getUser() );
-		$this->crossWikiSummary = $params['crosswikisummary'];
+		if ( $wgEchoCrossWikiNotifications ) {
+			$this->foreignNotifications = new EchoForeignNotifications( $this->getUser() );
+			$this->crossWikiSummary = $params['crosswikisummary'];
+			$wikis = $params['wikis'];
+		} else {
+			$wikis = array( wfWikiId() );
+		}
 
 		$results = array();
-		if ( in_array( wfWikiId(), $params['wikis'] ) ) {
+		if ( in_array( wfWikiId(), $wikis ) ) {
 			$results[wfWikiId()] = $this->getLocalNotifications( $params );
 		}
 
-		$foreignWikis = array_diff( $params['wikis'], array( wfWikiId() ) );
+		$foreignWikis = array_diff( $wikis, array( wfWikiId() ) );
 		if ( !empty( $foreignWikis ) ) {
 			// get original request params, to forward them to individual wikis
 			$requestParams = $this->getRequest()->getValues();
@@ -477,7 +483,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 	}
 
 	public function getAllowedParams() {
-		global $wgConf;
+		global $wgConf, $wgEchoCrossWikiNotifications;
 
 		$sections = EchoAttributeManager::$sections;
 		$params = array(
@@ -516,18 +522,6 @@ class ApiEchoNotifications extends ApiQueryBase {
 				),
 				ApiBase::PARAM_HELP_MSG_PER_VALUE => array(),
 			),
-			// fetch notifications from multiple wikis
-			'wikis' => array(
-				ApiBase::PARAM_ISMULTI => true,
-				ApiBase::PARAM_DFLT => wfWikiId(),
-				ApiBase::PARAM_TYPE => array_unique( array_merge( $wgConf->wikis, array( wfWikiId() ) ) ),
-			),
-			// create "x notifications from y wikis" notification bundle &
-			// include unread counts from other wikis in prop=count results
-			'crosswikisummary' => array(
-				ApiBase::PARAM_TYPE => 'boolean',
-				ApiBase::PARAM_DFLT => false,
-			),
 			'limit' => array(
 				ApiBase::PARAM_TYPE => 'limit',
 				ApiBase::PARAM_DFLT => 20,
@@ -548,6 +542,23 @@ class ApiEchoNotifications extends ApiQueryBase {
 			$params[$section . 'unreadfirst'] = array(
 				ApiBase::PARAM_TYPE => 'boolean',
 				ApiBase::PARAM_DFLT => false,
+			);
+		}
+
+		if ( $wgEchoCrossWikiNotifications ) {
+			$params += array(
+				// fetch notifications from multiple wikis
+				'wikis' => array(
+					ApiBase::PARAM_ISMULTI => true,
+					ApiBase::PARAM_DFLT => wfWikiId(),
+					ApiBase::PARAM_TYPE => array_unique( array_merge( $wgConf->wikis, array( wfWikiId() ) ) ),
+				),
+				// create "x notifications from y wikis" notification bundle &
+				// include unread counts from other wikis in prop=count results
+				'crosswikisummary' => array(
+					ApiBase::PARAM_TYPE => 'boolean',
+					ApiBase::PARAM_DFLT => false,
+				),
 			);
 		}
 

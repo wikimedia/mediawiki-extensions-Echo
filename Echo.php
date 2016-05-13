@@ -212,6 +212,12 @@ $wgEchoOnWikiBlacklist = 'Echo-blacklist';
 // sprintf format of per-user notification agent whitelists. Set to null to disable.
 $wgEchoPerUserWhitelistFormat = '%s/Echo-whitelist';
 
+// Whether to enable the cross-wiki notifications feature. To enable this feature you need to:
+// - have a global user system (e.g. CentralAuth or a shared user table)
+// - have $wgMainStash and $wgMainWANCache shared between wikis
+// - configure $wgEchoSharedTrackingDB
+$wgEchoCrossWikiNotifications = false;
+
 // Feature flag for the cross-wiki notifications beta feature
 // If this is true, the cross-wiki notifications preference will appear in the BetaFeatures section;
 // if this is false, it'll appear in the Notifications section instead.
