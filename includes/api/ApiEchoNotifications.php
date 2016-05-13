@@ -59,9 +59,6 @@ class ApiEchoNotifications extends ApiQueryBase {
 		if ( !empty( $foreignWikis ) ) {
 			// get original request params, to forward them to individual wikis
 			$requestParams = $this->getRequest()->getValues();
-			if ( !isset( $requestParams['centralauthtoken'] ) ) {
-				$requestParams['centralauthtoken'] = $this->getCentralAuthToken( $this->getUser() );
-			}
 			$results += $this->getForeignNotifications( $foreignWikis, $requestParams );
 		}
 
@@ -372,7 +369,10 @@ class ApiEchoNotifications extends ApiQueryBase {
 				'url' => $api['url'],
 				// Only request data from that specific wiki, or they'd all spawn
 				// cross-wiki api requests...
-				'query' => array_merge( $params, array( 'notwikis' => $wiki ) ),
+				'query' => array_merge( $params, array(
+					'notwikis' => $wiki,
+					'centralauthtoken' => $this->getCentralAuthToken( $this->getUser() )
+				) ),
 			);
 		}
 
