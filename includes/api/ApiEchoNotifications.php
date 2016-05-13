@@ -376,7 +376,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 			$statusCode = $response['response']['code'];
 			if ( $statusCode >= 200 && $statusCode <= 299 ) {
 				$parsed = unserialize( $response['response']['body'] );
-				if ( $parsed ) {
+				if ( $parsed && isset( $parsed['query']['notifications'] ) ) {
 					$results[$wiki] = $parsed['query']['notifications'];
 				}
 			}
@@ -433,7 +433,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 				usort( $master[$section]['list'], $sort );
 			}
 		} else {
-			if ( !isset( $master['list'] ) ) {
+			if ( !isset( $master['list'] ) || !is_array( $master['list'] ) ) {
 				$master['list'] = array();
 			}
 			foreach ( $results as $result ) {
