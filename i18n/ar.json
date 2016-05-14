@@ -17,7 +17,8 @@
 			"Shbib Al-Subaie",
 			"Macofe",
 			"Sonic N800",
-			"Maroen1990"
+			"Maroen1990",
+			"Catrope"
 		]
 	},
 	"echo-desc": "نظام لإخطار المستخدمين عن الأحداث والرسائل",
@@ -85,7 +86,7 @@
 	"echo-notification-more-options-tooltip": "المزيد من الخيارات",
 	"notification-link-text-expand-all": "اعرض الكل",
 	"notification-link-text-expand-alert-count": "أظهر {{PLURAL:$1|تنبيهًا واحدًا|تنبيهين|$1 تنبيهات|$1 تنبيهًا}}",
-	"notification-link-text-expand-message-count": "اظهر {{PLURAL:$1 |رسالة$1|$1 رسالات}}",
+	"notification-link-text-expand-message-count": "اظهر {{PLURAL:$1|رسالة$1|$1 رسالات}}",
 	"notification-link-text-expand-all-count": "اعرض {{PLURAL:$1|إشعارًا واحدًا|إشعارين اثنين|$1 إشعارات|$1 إشعارًا}}",
 	"notification-link-text-collapse-all": "اطو",
 	"notification-link-text-view-message": "اعرض الرسالة",
@@ -150,7 +151,7 @@
 	"echo-email-subject-default": "إشعار جديد في {{SITENAME}}",
 	"echo-email-body-default": "لديك إشعار جديد في {{SITENAME}}:\n\n$1",
 	"echo-email-batch-body-default": "لديك إشعار جديد.",
-	"echo-email-footer-default-html": "للتحكم في رسائل الإلكترونية التي نرسلها لك، <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">انظر التفضيلات</a>.<br />\n$1",
+	"echo-email-html-footer": "للتحكم في رسائل الإلكترونية التي نرسلها لك، <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">انظر التفضيلات</a>.<br />\n$1",
 	"echo-notification-alert": "{{PLURAL:$1|إخطار|إخطاران|إخطارات ($1)|100=إخطارات (أكثر من 99)}}",
 	"echo-notification-message": "{{PLURAL:$1|رسالة|رسالتان|رسائل ($1)|100=رسائل (+99)}}",
 	"echo-notification-alert-text-only": "تنبيهات",

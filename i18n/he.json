@@ -166,7 +166,7 @@
 	"echo-email-body-default": "יש לך הודעה חדשה באתר {{SITENAME}}:\n\n$1",
 	"echo-email-batch-body-default": "יש לך הודעה חדשה.",
 	"echo-email-plain-footer": "כדי לשלוט בדואר האלקטרוני שאנחנו שולחים אליך, יש לבדוק את ההעדפות שלך:",
-	"echo-email-footer-default-html": "כדי לשלוט בסוגי המכתבים שאנחנו שולחים לך <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">נא להתאים את ההעדפות שלך</a><br />\n$1",
+	"echo-email-html-footer": "כדי לשלוט בסוגי המכתבים שאנחנו שולחים לך <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">נא להתאים את ההעדפות שלך</a><br />\n$1",
 	"echo-notification-alert": "{{PLURAL:$1|התראות ($1)|100=התראות (99+)}}",
 	"echo-notification-message": "{{PLURAL:$1|הודעה ($1)|הודעות ($1)|100=הודעות (99+)}}",
 	"echo-notification-alert-text-only": "התראות",

@@ -168,7 +168,7 @@
 	"echo-email-body-default": "Hai una nuova notifica su {{SITENAME}}:\n\n$1",
 	"echo-email-batch-body-default": "Hai una nuova notifica",
 	"echo-email-plain-footer": "Per controllare quali email ti vengono inviate, verifica le tue preferenze:",
-	"echo-email-footer-default-html": "Per controllare quali email ti vengono inviate, <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">verifica le tue preferenze</a>.<br />\n$1",
+	"echo-email-html-footer": "Per controllare quali email ti vengono inviate, <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">verifica le tue preferenze</a>.<br />\n$1",
 	"echo-notification-alert": "{{PLURAL:$1|Avviso ($1)|Avvisi ($1)|100=Avvisi (99+)}}",
 	"echo-notification-message": "{{PLURAL:$1|Messaggio ($1)|Messaggi ($1)|100=Messaggi (99+)}}",
 	"echo-notification-alert-text-only": "Avvisi",
