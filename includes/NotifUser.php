@@ -561,7 +561,7 @@ class MWEchoNotifUser {
 		if ( $wgAllowHTMLEmail ) {
 			return $this->mUser->getOption( 'echo-email-format' );
 		} else {
-			return EchoHooks::EMAIL_FORMAT_PLAIN_TEXT;
+			return EchoEmailFormat::PLAIN_TEXT;
 		}
 	}
 

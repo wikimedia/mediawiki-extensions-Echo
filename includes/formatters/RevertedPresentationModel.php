@@ -73,4 +73,8 @@ class EchoRevertedPresentationModel extends EchoEventPresentationModel {
 
 		return $summary === $autoSummary;
 	}
+
+	protected function getSubjectMessageKey() {
+		return 'notification-reverted-email-subject2';
+	}
 }

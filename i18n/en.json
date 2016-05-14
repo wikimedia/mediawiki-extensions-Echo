@@ -195,7 +195,7 @@
 	"echo-email-body-default": "You have a new notification at {{SITENAME}}:\n\n$1",
 	"echo-email-batch-body-default": "You have a new notification.",
 	"echo-email-plain-footer": "To control which emails we send you, check your preferences:",
-	"echo-email-footer-default-html": "To control which emails we send you, <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">check your preferences</a>.<br />\n$1",
+	"echo-email-html-footer": "To control which emails we send you, <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">check your preferences</a>.<br />\n$1",
 	"echo-notification-alert": "{{PLURAL:$1|Alert ($1)|Alerts ($1)|100=Alerts (99+)}}",
 	"echo-notification-message": "{{PLURAL:$1|Message ($1)|Messages ($1)|100=Messages (99+)}}",
 	"echo-notification-alert-text-only": "Alerts",

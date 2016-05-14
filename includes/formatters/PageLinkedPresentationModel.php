@@ -79,4 +79,8 @@ class EchoPageLinkedPresentationModel extends EchoEventPresentationModel {
 	private function getPageFrom() {
 		return Title::newFromId( $this->getLinkedPageId( $this->event ) );
 	}
+
+	protected function getSubjectMessageKey() {
+		return 'notification-page-linked-email-subject';
+	}
 }

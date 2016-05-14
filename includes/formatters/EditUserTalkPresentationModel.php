@@ -83,4 +83,8 @@ class EchoEditUserTalkPresentationModel extends EchoEventPresentationModel {
 		$firstNotificationRevId = end( $events )->getExtraParam( 'revid' );
 		return $this->event->getTitle()->getPreviousRevisionID( $firstNotificationRevId );
 	}
+
+	protected function getSubjectMessageKey() {
+		return 'notification-edit-talk-page-email-subject2';
+	}
 }

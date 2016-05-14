@@ -66,7 +66,7 @@ class EchoTextEmailFormatter extends EchoEmailFormatter {
 /**
  * Formatter class for formatting HTML email notification
  */
-class EchoHTMLEmailFormatter extends EchoEmailFormatter {
+class LegacyEchoHTMLEmailFormatter extends EchoEmailFormatter {
 
 	/**
 	 * @param $emailMode EchoEmailMode

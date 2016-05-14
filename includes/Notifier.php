@@ -121,13 +121,20 @@ class EchoNotifier {
 	 */
 	private static function generateEmail( EchoEvent $event, User $user ) {
 		$emailFormat = MWEchoNotifUser::newFromUser( $user )->getEmailFormat();
-		if ( $emailFormat === EchoHooks::EMAIL_FORMAT_PLAIN_TEXT ) {
-			$lang = wfGetLangObj( $user->getOption( 'language' ) );
-			$formatter = new EchoPlainTextEmailFormatter( $user, $lang );
-			return $formatter->format( $event );
-		} else {
-			// @todo get rid of this
-			return EchoNotificationController::formatNotification( $event, $user, 'email', 'email' );
+		$lang = wfGetLangObj( $user->getOption( 'language' ) );
+		$formatter = new EchoPlainTextEmailFormatter( $user, $lang );
+		$content = $formatter->format( $event );
+
+		if ( $emailFormat === EchoEmailFormat::HTML ) {
+			$htmlEmailFormatter = new EchoHtmlEmailFormatter( $user, $lang );
+			$htmlContent = $htmlEmailFormatter->format( $event );
+			$multipartBody = array(
+				'text' => $content['body'],
+				'html' => $htmlContent['body']
+			);
+			$content['body'] = $multipartBody;
 		}
+
+		return $content;
 	}
 }
