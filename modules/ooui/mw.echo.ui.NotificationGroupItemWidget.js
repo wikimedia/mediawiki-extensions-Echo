@@ -30,7 +30,7 @@
 			// work
 			.css( 'display', 'none' );
 
-		this.showTitles = false;
+		this.showTitles = true;
 		this.expanded = false;
 
 		// Add "expand" button
@@ -63,6 +63,8 @@
 		// Initialization
 		this.populateFromModel();
 		this.toggleExpanded( false );
+		this.toggleTitles( true );
+
 		this.$element
 			.addClass( 'mw-echo-ui-notificationGroupItemWidget' )
 			.append(
@@ -106,8 +108,6 @@
 			],
 			index
 		);
-
-		this.checkShowTitles();
 	};
 
 	/**
@@ -180,7 +180,6 @@
 		}
 
 		this.addItems( widgets );
-		this.checkShowTitles();
 	};
 
 	/**
@@ -212,20 +211,29 @@
 	};
 
 	/**
+	 * Toggle the visibility of the titles
+	 *
+	 * @param {boolean} [show] Show titles
+	 */
+	mw.echo.ui.NotificationGroupItemWidget.prototype.toggleTitles = function ( show ) {
+		var i,
+			items = this.getItems();
+
+		show = show === undefined ? !this.showTitles : show;
+
+		if ( this.showTitles !== show ) {
+			this.showTitles = show;
+			for ( i = 0; i < items.length; i++ ) {
+				items[ i ].toggleTitle( show );
+			}
+		}
+	};
+
+	/**
 	 * Check whether the titles should be shown and toggle them in the items.
 	 */
 	mw.echo.ui.NotificationGroupItemWidget.prototype.checkShowTitles = function () {
-		var i,
-			items = this.getItems(),
-			numItems = items.length,
-			showTitles = numItems > 1;
-
-		if ( this.showTitles !== showTitles ) {
-			this.showTitles = showTitles;
-			for ( i = 0; i < numItems; i++ ) {
-				items[ i ].toggleTitle( showTitles );
-			}
-		}
+		this.toggleTitles( this.getItemCount() > 1 );
 	};
 
 } )( mediaWiki, jQuery );

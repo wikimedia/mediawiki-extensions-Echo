@@ -34,8 +34,10 @@
 			}
 		);
 
-		this.title = new OO.ui.LabelWidget( {
-			classes: [ 'mw-echo-ui-bundledNotificationGroupWidget-title' ]
+		this.title = new OO.ui.ButtonWidget( {
+			framed: false,
+			classes: [ 'mw-echo-ui-bundledNotificationGroupWidget-title' ],
+			href: this.model.getSourceArticleUrl().replace( '$1', 'Special:Notifications' )
 		} );
 
 		if ( this.model.getTitle() ) {

@@ -201,10 +201,13 @@ class EchoForeignNotifications {
 			list( $major, $minor ) = $siteFromDB;
 			$server = $wgConf->get( 'wgServer', $wiki, $major, array( 'lang' => $minor, 'site' => $major ) );
 			$scriptPath = $wgConf->get( 'wgScriptPath', $wiki, $major, array( 'lang' => $minor, 'site' => $major ) );
+			$articlePath = $wgConf->get( 'wgArticlePath', $wiki, $major, array( 'lang' => $minor, 'site' => $major ) );
 
 			$data[$wiki] = array(
 				'title' => static::getWikiTitle( $wiki, $siteFromDB ),
 				'url' => wfExpandUrl( $server . $scriptPath . '/api.php', PROTO_INTERNAL ),
+				// We need this to link to Special:Notifications page
+				'base' => wfExpandUrl( $server . $articlePath, PROTO_INTERNAL ),
 			);
 		}
 
