@@ -217,6 +217,7 @@ class EchoEvent extends EchoAbstractEntity {
 	 * Loads data from the provided $row into this object.
 	 *
 	 * @param $row stdClass row object from echo_event
+	 * @return bool Whether loading was successful
 	 */
 	public function loadFromRow( $row ) {
 		$this->id = $row->event_id;
@@ -232,7 +233,13 @@ class EchoEvent extends EchoAbstractEntity {
 		}
 
 		$this->variant = $row->event_variant;
-		$this->extra = $row->event_extra ? unserialize( $row->event_extra ) : array();
+		try {
+			$this->extra = $row->event_extra ? unserialize( $row->event_extra ) : array();
+		} catch ( Exception $e ) {
+			// T73489: unserializing can fail for old notifications
+			MWExceptionHandler::logException( $e );
+			return false;
+		}
 		$this->pageId = $row->event_page_id;
 
 		if ( $row->event_agent_id ) {
@@ -259,16 +266,22 @@ class EchoEvent extends EchoAbstractEntity {
 			$revisionCache = EchoRevisionLocalCache::create();
 			$revisionCache->add( $this->extra['revid'] );
 		}
+
+		return true;
 	}
 
 	/**
 	 * Loads data from the database into this object, given the event ID.
 	 * @param $id int Event ID
 	 * @param $fromMaster bool
+	 * @return bool Whether it loaded successfully
 	 */
 	public function loadFromID( $id, $fromMaster = false ) {
 		$eventMapper = new EchoEventMapper();
 		$event = $eventMapper->fetchById( $id, $fromMaster );
+		if ( !$event ) {
+			return false;
+		}
 
 		// Copy over the attribute
 		$this->id = $event->id;
@@ -282,32 +295,34 @@ class EchoEvent extends EchoAbstractEntity {
 		if ( !$this->timestamp ) {
 			$this->timestamp = $event->timestamp;
 		}
+
+		return true;
 	}
 
 	/**
 	 * Creates an EchoEvent from a row object
 	 *
 	 * @param $row stdClass row object from echo_event
-	 * @return EchoEvent object.
+	 * @return EchoEvent|bool
 	 */
 	public static function newFromRow( $row ) {
 		$obj = new EchoEvent();
-		$obj->loadFromRow( $row );
-
-		return $obj;
+		return $obj->loadFromRow( $row )
+			? $obj
+			: false;
 	}
 
 	/**
 	 * Creates an EchoEvent from the database by ID
 	 *
 	 * @param $id int Event ID
-	 * @return EchoEvent
+	 * @return EchoEvent|bool
 	 */
 	public static function newFromID( $id ) {
 		$obj = new EchoEvent();
-		$obj->loadFromID( $id );
-
-		return $obj;
+		return $obj->loadFromID( $id )
+			? $obj
+			: false;
 	}
 
 	/**

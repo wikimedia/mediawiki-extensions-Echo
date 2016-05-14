@@ -220,7 +220,10 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 				} else {
 					$targets = null;
 				}
-				$data[$row->event_id] = EchoNotification::newFromRow( $row, $targets );
+				$notif = EchoNotification::newFromRow( $row, $targets );
+				if ( $notif ) {
+					$data[$row->event_id] = $notif;
+				}
 			} catch ( Exception $e ) {
 				$id = isset( $row->event_id ) ? $row->event_id : 'unknown event';
 				wfDebugLog( 'Echo', __METHOD__ . ": Failed initializing event: $id" );

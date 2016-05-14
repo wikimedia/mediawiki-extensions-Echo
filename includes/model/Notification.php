@@ -201,7 +201,7 @@ class EchoNotification extends EchoAbstractEntity {
 	 * Load a notification record from std class
 	 * @param stdClass
 	 * @param EchoTargetPage[]|null An array of EchoTargetPage instances, or null if not loaded.
-	 * @return EchoNotification
+	 * @return EchoNotification|bool false if failed to load/unserialize
 	 */
 	public static function newFromRow( $row, $targetPages = null ) {
 		$notification = new EchoNotification();
@@ -210,6 +210,10 @@ class EchoNotification extends EchoAbstractEntity {
 			$notification->event = EchoEvent::newFromRow( $row );
 		} else {
 			$notification->event = EchoEvent::newFromID( $row->notification_event );
+		}
+
+		if ( $notification->event === false ) {
+			return false;
 		}
 
 		$notification->targetPages = $targetPages;

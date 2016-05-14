@@ -122,6 +122,9 @@ class MWEchoEmailBatch {
 					break;
 				}
 				$event = EchoEvent::newFromRow( $row );
+				if ( !$event ) {
+					continue;
+				}
 				$event->setBundleHash( $row->eeb_event_hash );
 				$this->events[] = $event;
 			}
