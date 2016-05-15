@@ -166,7 +166,7 @@
 	"echo-email-batch-body-intro-weekly": "Сәләм, $1!\nБына һеҙгә ҡыҫҡаса аҙналыҡ эшмәкәрлеккә күҙәтеү {{SITENAME}}.",
 	"echo-email-batch-link-text-view-all-notifications": "Бөтә белдереүҙәрҙе ҡарарға",
 	"echo-rev-deleted-text-view": "Биттең был юрауы ябылған",
-	"notification-header-foreign-alert": "{{PLURAL:$5|Башҡа викинан|$5 Башҡа викиларҙан}} киҫәтеүҙәр бар",
+	"notification-header-foreign-alert": "{{PLURAL:$5|Башҡа викинан|$5 Башҡа викиларҙан}} белдереүҙәр бар",
 	"notification-header-foreign-message": "{{PLURAL:$5|икенсе викинан|$5 башҡа викиларҙан}}  күбрәк белдереүҙәр",
 	"apihelp-echomarkread-description": "Ҡулланыусы өсөн барлыҡ белдереүҙәрҙее уҡылған тип билдәләү",
 	"apihelp-echomarkread-param-list": "Уҡылмағандар тип билдәләү өсөн ID белдереүҙәр исемлеге",
