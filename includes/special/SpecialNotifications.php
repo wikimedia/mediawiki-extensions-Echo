@@ -29,21 +29,10 @@ class SpecialNotifications extends SpecialPage {
 
 		$out->enableOOUI();
 
-		// The continue parameter to pull current set of data from, this
-		// would be used for browsers with javascript disabled
-		$continue = $this->getRequest()->getVal( 'continue', null );
-
-		// Pull the notifications
-		$notif = array();
-		$notificationMapper = new EchoNotificationMapper();
-
-		$attributeManager = EchoAttributeManager::newFromGlobalVars();
-		$notifications = $notificationMapper->fetchByUser(
-			$user,
-			/* $limit = */self::DISPLAY_NUM + 1,
-			$continue,
-			$attributeManager->getUserEnabledEvents( $user, 'web' )
-		);
+		$pager = new NotificationPager( $this->getContext() );
+		$pager->setOffset( $this->getRequest()->getVal( 'offset' ) );
+		$pager->setLimit( $this->getRequest()->getVal( 'limit', self::DISPLAY_NUM ) );
+		$notifications = $pager->getNotifications();
 
 		// If there are no notifications, display a message saying so
 		if ( !$notifications ) {
@@ -52,19 +41,12 @@ class SpecialNotifications extends SpecialPage {
 			return;
 		}
 
+		$notif = array();
 		foreach ( $notifications as $notification ) {
 			$output = EchoDataOutputFormatter::formatOutput( $notification, 'special', $user, $this->getLanguage() );
 			if ( $output ) {
 				$notif[] = $output;
 			}
-		}
-
-		// Check if there is more data to load for next request
-		if ( count( $notifications ) > self::DISPLAY_NUM ) {
-			$lastItem = array_pop( $notif );
-			$nextContinue = $lastItem['timestamp']['utcunix'] . '|' . $lastItem['id'];
-		} else {
-			$nextContinue = null;
 		}
 
 		// Add the notifications to the page (interspersed with date headers)
@@ -138,32 +120,13 @@ class SpecialNotifications extends SpecialPage {
 			$notices .= join( "\n", $data[ 'notices' ] );
 		}
 
-		$html = Html::rawElement( 'ul', array( 'id' => 'mw-echo-special-container' ), $notices );
+		$navBar = $pager->getNavigationBar();
 
-		// Build the more link
-		if ( $nextContinue ) {
-			$html .= Html::element(
-				'a',
-				array(
-					'href' => SpecialPage::getTitleFor( 'Notifications' )->getLinkURL(
-						array( 'continue' => $nextContinue )
-					),
-					'class' => 'mw-ui-button mw-ui-primary',
-					'id' => 'mw-echo-more'
-				),
-				$this->msg( 'moredotdotdot' )->text()
-			);
-		}
+		$html = Html::rawElement( 'div', array( 'class' => 'mw-echo-special-navbar-top' ), $navBar );
+		$html .= Html::rawElement( 'ul', array( 'class' => 'mw-echo-special-notifications' ), $notices );
+		$html .= Html::rawElement( 'div', array( 'class' => 'mw-echo-special-navbar-bottom' ), $navBar );
 
-		$out->addHTML( $html );
-		$out->addJsConfigVars(
-			array(
-				'wgEchoDisplayNum' => self::DISPLAY_NUM,
-				'wgEchoNextContinue' => $nextContinue,
-				'wgEchoDateHeader' => $dateHeader
-			)
-		);
-		// For no-js support
+		$out->addHTML( Html::rawElement( 'div', array( 'class' => 'mw-echo-special-container' ), $html ) );
 		$out->addModuleStyles( array( 'ext.echo.styles.notifications', 'ext.echo.styles.special' ) );
 	}
 

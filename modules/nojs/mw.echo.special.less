@@ -1,11 +1,5 @@
 /* Echo specific CSS */
-
-#mw-echo-more {
-	display: block;
-	text-align: center;
-	font-size: 13px;
-	max-width: 600px;
-}
+@import '../echo.variables';
 
 /* Custom header styling for Vector and Monobook skins */
 .mw-special-Notifications.skin-vector #firstHeading,
@@ -59,25 +53,37 @@
 	font-size: 1.1em;
 	text-transform: uppercase;
 	border-bottom: 1px solid #C9C9C9;
-	margin: 30px 0 5px 0;
+	margin: 20px 0 5px 0;
 	color: #686868;
-	max-width: 550px;
 	display: inline-block;
 	width: 100%;
 	padding-bottom: 0.5em;
 
 }
 
-ul#mw-echo-special-container {
+.mw-echo-special-container {
+	max-width: 600px;
+}
+
+.mw-echo-special-notifications {
 	list-style: none none;
 	padding: 0;
-	margin: 30px 0 0 0;
-	max-width: 600px;
+	margin: 0;
+	width: 100%;
+}
+
+.mw-echo-special-navbar-top {
+	margin-bottom: 10px;
+}
+
+.mw-echo-special-navbar-bottom {
+	margin-top: 20px;
+	padding-top: 10px;
+	border-top: solid 1px #C9C9C9;
 }
 
 .mw-echo-notification {
 	padding: 30px 40px 15px 10px;
-	margin-right: 40px;
 
 	.mw-echo-markAsReadButton {
 		display: none;
@@ -88,7 +94,7 @@ ul#mw-echo-special-container {
 	float: right;
 }
 
-#mw-echo-special-container {
+.mw-echo-special-container {
 	.mw-echo-notification {
 		background-color: #F1F1F1;
 
