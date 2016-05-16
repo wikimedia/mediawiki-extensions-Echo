@@ -39,6 +39,7 @@
 
 		this.type = config.type || 'alert';
 		this.source = config.source || 'local';
+		this.sourceArticleURL = config.sourceArticleURL;
 		this.id = config.id || this.source;
 		this.title = config.title || '';
 		this.fallbackTimestamp = config.timestamp;
@@ -684,6 +685,15 @@
 	 */
 	mw.echo.dm.NotificationsModel.prototype.getSource = function () {
 		return this.source;
+	};
+
+	/**
+	 * Get the article path for this source
+	 *
+	 * @return {string} URL for the article path
+	 */
+	mw.echo.dm.NotificationsModel.prototype.getSourceArticleUrl = function () {
+		return this.sourceArticleURL;
 	};
 
 	/**

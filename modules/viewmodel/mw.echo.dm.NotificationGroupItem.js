@@ -64,6 +64,7 @@
 				{
 					type: this.getType(),
 					source: source,
+					sourceArticleURL: this.sources[ source ].base,
 					foreign: this.isForeign(),
 					title: this.sources[ source ].title,
 					removeReadNotifications: this.removeReadNotifications,
