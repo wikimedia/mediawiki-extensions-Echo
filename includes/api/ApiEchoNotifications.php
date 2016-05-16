@@ -387,11 +387,13 @@ class ApiEchoNotifications extends ApiQueryBase {
 				if ( $parsed && isset( $parsed['query']['notifications'] ) ) {
 					$results[$wiki] = $parsed['query']['notifications'];
 				}
-			} else {
+			}
+			if ( !isset( $results[$wiki] ) ) {
 				LoggerFactory::getInstance( 'Echo' )->warning(
-					"Failed to fetch notifications from {wiki}. Response: {response}",
+					"Failed to fetch notifications from {wiki}. Response: {code} {response}",
 					array(
 						'wiki' => $wiki,
+						'code' => $response['response']['code'],
 						'response' => $response['response']['body'],
 					)
 				);
