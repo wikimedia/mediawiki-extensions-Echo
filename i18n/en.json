@@ -94,7 +94,7 @@
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "Required notification methods",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "Which notification methods are mandatory for each category",
 	"echo-specialpage": "Notifications",
-	"echo-specialpage-section-markread": "Mark section as read",
+	"echo-specialpage-section-markread": "Mark group as read",
 	"echo-specialpage-markasread": "Notification: Mark as read",
 	"echo-specialpage-markasread-invalid-id": "Invalid event ID",
 	"notificationsmarkread-legend": "Mark notification as read",

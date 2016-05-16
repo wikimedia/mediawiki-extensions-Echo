@@ -109,6 +109,7 @@ class SpecialNotifications extends SpecialPage {
 					'label' => $this->msg( 'echo-specialpage-section-markread' )->text(),
 					'href' => $markReadSpecialPage->getLocalURL() . '/' . join( ',', $data[ 'unread' ] ),
 					'classes' => array( 'mw-echo-markAsReadSectionButton' ),
+					'icon' => 'doubleCheck',
 				) );
 				$sectionTitle .= $markSectionAsReadButton;
 			}
