@@ -16,13 +16,15 @@ module.exports = function ( grunt ) {
 			},
 			all: [
 				'**/*.js',
-				'!node_modules/**'
+				'!node_modules/**',
+				'!docs/**'
 			]
 		},
 		jscs: {
 			src: [
 				'<%= jshint.all %>',
-				'!tests/externals/**'
+				'!tests/externals/**',
+				'!docs/**'
 			]
 		},
 		banana: {
@@ -39,7 +41,8 @@ module.exports = function ( grunt ) {
 		jsonlint: {
 			all: [
 				'**/*.json',
-				'!node_modules/**'
+				'!node_modules/**',
+				'!docs/**'
 			]
 		}
 	} );
