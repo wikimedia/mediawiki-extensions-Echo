@@ -127,7 +127,8 @@ EOF;
 
 		return $this->msg( 'echo-email-html-footer' )
 			->params( $wgEchoEmailFooterAddress, $prefsUrl )
-			->parse();
+			// This is a raw HTML message, so we need text() instead of parse() here
+			->text();
 	}
 
 	private function renderLink( $link, $style ) {
