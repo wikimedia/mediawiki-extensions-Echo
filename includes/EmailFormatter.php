@@ -667,7 +667,7 @@ class EchoTextEmailDecorator implements EchoEmailDecorator {
 	 * {@inheritDoc}
 	 */
 	public function decorateFooter( $address, User $user ) {
-		return EchoEmailMode::message( 'echo-email-plain-footer', $user )
+		return EchoEmailMode::message( 'echo-email-footer-default', $user )
 			->params(
 				$address,
 				EchoEmailMode::message( 'echo-email-batch-separator', $user )->text()
@@ -770,7 +770,7 @@ class EchoHTMLEmailDecorator implements EchoEmailDecorator {
 		$title = SpecialPage::getTitleFor( 'Preferences' );
 		$title->setFragment( "#mw-prefsection-echo" );
 
-		return EchoEmailMode::message( 'echo-email-html-footer', $user )
+		return EchoEmailMode::message( 'echo-email-footer-default-html', $user )
 			->params( $address )
 			->rawParams( $title->getFullURL( '', false, PROTO_HTTPS ) )
 			->text();
