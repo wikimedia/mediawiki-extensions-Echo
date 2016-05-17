@@ -121,6 +121,7 @@
 	"echo-email-subject-default": "{{SITENAME}} पर नई अधिसूचना",
 	"echo-email-body-default": "आपके लिए {{SITENAME}} पर नई अधिसूचना है:\n\n$1",
 	"echo-email-batch-body-default": "आपके लिए नई अधिसूचना है।",
+	"echo-email-footer-default": "$2\n\nहमारी ओर से भेजे जाने वाले ईमेलों पर नियंत्रण करने के लिये कृपया अपनी पसन्द देखिए:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
 	"echo-email-html-footer": "हमारी ओर से भेजे जाने वाले ईमेलों पर नियंत्रण करने के लिये <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">अपनी पसन्द देखिए</a>।<br />\n\n$1",
 	"echo-notification-alert": "{{PLURAL:$1|सूचना ($1)|सूचना ($1)|100=सूचना (99+)}}",
 	"echo-notification-message": "{{PLURAL:$1|संदेश ($1)|संदेश ($1)|100=संदेश (99+)}}",

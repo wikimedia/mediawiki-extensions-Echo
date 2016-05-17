@@ -159,6 +159,7 @@
 	"echo-email-subject-default": "Nova notificação em {{SITENAME}}",
 	"echo-email-body-default": "Tem uma nova notificação em {{SITENAME}}:\n\n$1",
 	"echo-email-batch-body-default": "Tem uma nova notificação.",
+	"echo-email-footer-default": "$2\n\nPara controlar quais os e-mails que deseja receber, consulte as suas preferências: {{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
 	"echo-email-html-footer": "Para controlar quais os e-mails que deseja receber, <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">consulte as suas preferências</a>.<br />\n$1",
 	"echo-notification-alert": "{{PLURAL:$1|Alerta ($1)|Alertas ($1)|100=Alertas (+99)}}",
 	"echo-notification-message": "{{PLURAL:$1|Mensagem ($1)|Mensagens ($1)|100=Mensagens (+99)}}",

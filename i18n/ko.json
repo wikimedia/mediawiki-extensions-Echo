@@ -144,6 +144,7 @@
 	"echo-email-subject-default": "{{SITENAME}}의 새 알림",
 	"echo-email-body-default": "{{SITENAME}}에 새 알림이 있습니다:\n\n$1",
 	"echo-email-batch-body-default": "새 알림이 있습니다",
+	"echo-email-footer-default": "$2\n\n발송되는 이메일을 관리하려면, 환경 설정을 확인하세요:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
 	"echo-email-html-footer": "발송되는 이메일을 제어하려면, <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">사용자 환경 설정을 확인하세요</a>.<br />\n$1",
 	"echo-notification-alert": "{{PLURAL:$1|알림 ($1)|알림 ($1)|100=알림 (99+)}}",
 	"echo-notification-message": "{{PLURAL:$1|메시지 ($1)|메시지 ($1)|100=메시지 (99+)}}",

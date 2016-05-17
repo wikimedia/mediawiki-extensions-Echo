@@ -26,7 +26,7 @@
 	"notification-edit-talk-page-email-batch-body2": "$1 sutiyuq {{GENDER:$1|ruraqqa}} rimanakuy p'anqaykipi willasqantam saqirqan:",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 sutiyuq {{GENDER:$1|ruraqqa}} rimanakuy p'anqaykipi willasqantam saqisurqanki \"$2\" nisqapi.",
 	"echo-email-footer-default": "$2\n\nKachasunayku e-chaski qillqakunata kamachinaykipaqqa, allinkachinaykikunata llanchiy:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
-	"echo-email-footer-default-html": "Kachasunayku e-chaski qillqakunata kamachinaykipaqqa, <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">allinkachinaykikunata llanchiy</a>.<br />\n$1",
+	"echo-email-html-footer": "Kachasunayku e-chaski qillqakunata kamachinaykipaqqa, <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">allinkachinaykikunata llanchiy</a>.<br />\n$1",
 	"echo-overlay-link": "Tukuy qampaq willaykuykuna",
 	"echo-overlay-title": "<b>Willaykuykuna</b>",
 	"notification-edit-talk-page-bundle": "$1, $3 {{PLURAL:$4|wakinpas|wakinkunapas}} qampaq {{GENDER:$1|willaynintam}} [[User talk:$2|rimanakuy p'anqaykipi]] saqisurqanki.",

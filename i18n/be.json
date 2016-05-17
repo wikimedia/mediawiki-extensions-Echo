@@ -100,7 +100,7 @@
 	"echo-email-body-default": "У вас ёсць новае паведамленне на сайце «{{SITENAME}}»: $1",
 	"echo-email-batch-body-default": "У вас ёсць новае паведамленне",
 	"echo-email-footer-default": "$2 Для кантролю за тым, якія паведамленні адпраўляюцца вам па эл. пошце, праверце свае персанальныя настройкі: {{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}} $1",
-	"echo-email-footer-default-html": "Для кантролю за тым, якія паведамленні адпраўляюцца вам па эл. пошце, <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">праверце свае персанальныя настройкі</a><br /> $1",
+	"echo-email-html-footer": "Для кантролю за тым, якія паведамленні адпраўляюцца вам па эл. пошце, <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">праверце свае персанальныя настройкі</a><br /> $1",
 	"echo-overlay-link": "Усе паведамленні",
 	"echo-overlay-title": "<b>Паведамленні</b>",
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Паведамленні}}</b> ({{PLURAL|$1|паказана|паказаны}} $1 з $2 {{PLURAL|$2|непрачытанага|непрачытаных}})",
