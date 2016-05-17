@@ -89,6 +89,7 @@
 	"echo-email-subject-default": "Jauns paziņojums par {{SITENAME}}",
 	"echo-email-body-default": "Jums ir jauns paziņojums par {{SITENAME}}:\n\n$1",
 	"echo-email-batch-body-default": "Jums ir jauns paziņojums.",
+	"echo-email-footer-default": "$2\n\nLai kontrolētu, kurus e-pastus mēs Jums sūtām, pārbaudiet savus uzstādījumus:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
 	"echo-email-html-footer": "Lai kontrolētu, kurus e-pastus mēs Jums sūtām, <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">pārbaudiet savus iestatījumus</a>.<br />\n$1",
 	"echo-notification-alert-text-only": "Brīdinājumi",
 	"echo-notification-message-text-only": "Ziņojumi",

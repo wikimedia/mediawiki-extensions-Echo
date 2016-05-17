@@ -50,6 +50,7 @@
 	"notification-header-reverted": "<strong>$3</strong> صفحه‌سینده {{PLURAL:$4|ائتدیگینیز دییشیک‌لیک|ائتدیگینیز دییشیک‌لیک‌لر}} {{GENDER:$2|قایتاریلیبدیر}}.",
 	"echo-email-subject-default": "{{SITENAME}}-ده یئنی بیلدیری",
 	"echo-email-body-default": "سیزین {{SITENAME}}-ده یئنی بیلدیرینیز واردیر:\n\n$1",
+	"echo-email-footer-default": "$2\n\nسیزه هانکی ایمیل‌لرین گله بیله‌جگینی دَییشمگه، باخین:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
 	"echo-notification-alert-text-only": "بیلدیری‌لر",
 	"echo-overlay-link": "بوتون بیلدیریلر",
 	"echo-overlay-title": "منیم بیلدیریلریم",

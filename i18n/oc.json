@@ -79,7 +79,7 @@
 	"echo-email-body-default": "Avètz una novèla notificacion sus {{SITENAME}} :\n\n$1",
 	"echo-email-batch-body-default": "Avètz una novèla notificacion",
 	"echo-email-footer-default": "$2\n\nPer verificar quines corrièrs electronics vos mandam, anatz dins vòstras preferéncias :\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
-	"echo-email-footer-default-html": "Per contrarotlar los corrièrs electronics que vos mandam, <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">verificatz vòstras preferéncias</a><br />\n$1",
+	"echo-email-html-footer": "Per contrarotlar los corrièrs electronics que vos mandam, <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">verificatz vòstras preferéncias</a><br />\n$1",
 	"echo-notification-alert": "{{PLURAL:$1|Alèrtas ($1)|100=Alèrtas (99+)}}",
 	"echo-overlay-link": "Totas las notificacions",
 	"echo-overlay-title": "<b>Notificacions</b>",

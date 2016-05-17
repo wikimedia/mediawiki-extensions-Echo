@@ -131,6 +131,7 @@
 	"echo-email-subject-default": "Nova sciigo en {{SITENAME}}",
 	"echo-email-body-default": "Vi havas novan noton ĉe {{SITENAME}}:\n\n$1",
 	"echo-email-batch-body-default": "Vi havas novajn sciigojn.",
+	"echo-email-footer-default": "$2\n\nPor kontroli kiujn retpoŝtaĵojn ni sendas al vi, kontrolu viajn preferojn:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
 	"echo-email-html-footer": "Por kontroli kiujn retpoŝtaĵojn ni sendas al vi, <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">kontrolu viajn preferojn</a>.<br />\n$1",
 	"echo-notification-alert": "{{PLURAL:$1|Atentigo ($1)|Atentigoj ($1)|100=Atentigoj (99+)}}",
 	"echo-notification-message": "{{PLURAL:$1|Mesaĝo ($1)|Mesaĝoj ($1)|100=Mesaĝoj (99+)}}",

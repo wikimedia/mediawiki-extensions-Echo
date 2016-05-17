@@ -90,7 +90,7 @@
 	"echo-email-body-default": "Der er en ny meddelelse til dig på {{SITENAME}}\n\n$1",
 	"echo-email-batch-body-default": "Der er en ny meddelelse til dig",
 	"echo-email-footer-default": "$2\n\nTjek dine indstillinger for at se hvilke e-mails vi sender til dig:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
-	"echo-email-footer-default-html": "For at styre hvilke e-mails, vi sender til dig, <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">tjek dine indstillinger</a><br />\n$1",
+	"echo-email-html-footer": "For at styre hvilke e-mails, vi sender til dig, <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">tjek dine indstillinger</a><br />\n$1",
 	"echo-overlay-link": "Alle meddelelser",
 	"echo-overlay-title": "<b>Meddelelser</b>",
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Meddelelser}}<b> (viser $1 af $2 ulæste)",
