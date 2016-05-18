@@ -125,13 +125,23 @@ EOF;
 	public function getFooter() {
 		global $wgEchoEmailFooterAddress;
 
-		$prefsUrl = SpecialPage::getTitleFor( 'Preferences', false, 'mw-prefsection-echo' )
-			->getFullURL( '', false, PROTO_CANONICAL );
+		$preferenceLink = $this->renderLink(
+			array(
+				'label' => $this->msg( 'echo-email-html-footer-preference-link-text' )->text(),
+				'url' => SpecialPage::getTitleFor( 'Preferences', false, 'mw-prefsection-echo' )->getFullURL( '', false, PROTO_CANONICAL ),
+			),
+			'text-decoration: none; color: #3868B0;'
+		);
 
-		return $this->msg( 'echo-email-html-footer' )
-			->params( $wgEchoEmailFooterAddress, $prefsUrl )
-			// This is a raw HTML message, so we need text() instead of parse() here
-			->text();
+		$footer = $this->msg( 'echo-email-html-footer-with-link' )
+			->rawParams( $preferenceLink )
+			->parse();
+
+		if ( $wgEchoEmailFooterAddress ) {
+			$footer .= '<br />' . $wgEchoEmailFooterAddress;
+		}
+
+		return $footer;
 	}
 
 	private function renderLink( $link, $style ) {
