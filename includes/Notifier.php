@@ -50,7 +50,7 @@ class EchoNotifier {
 		$userEmailNotifications = $attributeManager->getUserEnabledEvents( $user, 'email' );
 		// See if the user wants to receive emails for this category or the user is eligible to receive this email
 		if ( in_array( $event->getType(), $userEmailNotifications ) ) {
-			global $wgEchoEnableEmailBatch, $wgEchoNotifications, $wgNotificationSender, $wgNotificationReplyName, $wgEchoBundleEmailInterval;
+			global $wgEchoEnableEmailBatch, $wgEchoNotifications, $wgNotificationSender, $wgNotificationReplyName;
 
 			$priority = $attributeManager->getNotificationPriority( $event->getType() );
 
@@ -79,36 +79,23 @@ class EchoNotifier {
 				return true;
 			}
 
-			$addedToQueue = false;
-
-			// only send bundle email if email bundling is on
-			if ( $wgEchoBundleEmailInterval && $bundleHash && !empty( $wgEchoNotifications[$event->getType()]['bundle']['email'] ) ) {
-				$bundler = MWEchoEmailBundler::newFromUserHash( $user, $bundleHash );
-				if ( $bundler ) {
-					$addedToQueue = $bundler->addToEmailBatch( $event->getId(), $priority );
-				}
+			// instant email notification
+			$toAddress = MailAddress::newFromUser( $user );
+			$fromAddress = new MailAddress( $wgNotificationSender, EchoHooks::getNotificationSenderName() );
+			$replyAddress = new MailAddress( $wgNotificationSender, $wgNotificationReplyName );
+			// Since we are sending a single email, should set the bundle hash to null
+			// if it is set with a value from somewhere else
+			$event->setBundleHash( null );
+			$email = self::generateEmail( $event, $user );
+			if ( !$email ) {
+				return false;
 			}
+			$subject = $email['subject'];
+			$body = $email['body'];
+			$options = array( 'replyTo' => $replyAddress );
 
-			// send single notification if the email wasn't added to queue for bundling
-			if ( !$addedToQueue ) {
-				// instant email notification
-				$toAddress = MailAddress::newFromUser( $user );
-				$fromAddress = new MailAddress( $wgNotificationSender, EchoHooks::getNotificationSenderName() );
-				$replyAddress = new MailAddress( $wgNotificationSender, $wgNotificationReplyName );
-				// Since we are sending a single email, should set the bundle hash to null
-				// if it is set with a value from somewhere else
-				$event->setBundleHash( null );
-				$email = self::generateEmail( $event, $user );
-				if ( !$email ) {
-					return false;
-				}
-				$subject = $email['subject'];
-				$body = $email['body'];
-				$options = array( 'replyTo' => $replyAddress );
-
-				UserMailer::send( $toAddress, $fromAddress, $subject, $body, $options );
-				MWEchoEventLogging::logSchemaEchoMail( $user, 'single' );
-			}
+			UserMailer::send( $toAddress, $fromAddress, $subject, $body, $options );
+			MWEchoEventLogging::logSchemaEchoMail( $user, 'single' );
 		}
 
 		return true;
