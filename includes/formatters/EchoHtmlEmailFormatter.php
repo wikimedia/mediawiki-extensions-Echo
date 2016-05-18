@@ -25,7 +25,10 @@ class EchoHtmlEmailFormatter extends EchoEventFormatter {
 			$actions[] = $this->renderLink( $secondaryLink, self::SECONDARY_LINK_STYLE );
 		}
 
-		$iconUrl = EchoNotificationFormatter::getIconUrl( $model->getIconType(), $this->language->getDir() );
+		$iconUrl = wfExpandUrl(
+			EchoNotificationFormatter::getIconUrl( $model->getIconType(), $this->language->getDir() ),
+			PROTO_CANONICAL
+		);
 
 		$body = $this->renderBody(
 			$this->language,
@@ -135,7 +138,7 @@ EOF;
 		return Html::element(
 			'a',
 			array(
-				'href' => $link['url'],
+				'href' => wfExpandUrl( $link['url'], PROTO_CANONICAL ),
 				'style' => $style,
 			),
 			$link['label']
