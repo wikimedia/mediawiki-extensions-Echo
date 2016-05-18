@@ -38,7 +38,7 @@
 	 * @inheritdoc
 	 */
 	mw.echo.api.LocalAPIHandler.prototype.updateSeenTime = function ( type ) {
-		return this.api.postWithToken( 'edit', {
+		return this.api.postWithToken( 'csrf', {
 			action: 'echomarkseen',
 			type: this.normalizedType[ type ]
 		} )
@@ -56,7 +56,7 @@
 				sections: this.normalizedType[ type ]
 			};
 
-		return this.api.postWithToken( 'edit', data )
+		return this.api.postWithToken( 'csrf', data )
 			.then( function ( result ) {
 				return OO.getProp( result.query, 'echomarkread', type, 'rawcount' ) || 0;
 			} );
@@ -76,7 +76,7 @@
 			data.unreadlist = itemIdArray.join( '|' );
 		}
 
-		return this.api.postWithToken( 'edit', data );
+		return this.api.postWithToken( 'csrf', data );
 	};
 
 	/**

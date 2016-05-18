@@ -32,21 +32,21 @@ $echoResourceTemplate = array(
 $wgResourceModules += array(
 	'ext.echo.ui.desktop' => $echoResourceTemplate + array(
 		'scripts' => array(
-			'ooui/mw.echo.ui.BadgeLinkWidget.js',
-			'ooui/mw.echo.ui.NotificationBadgeWidget.js',
+			'ui/mw.echo.ui.BadgeLinkWidget.js',
+			'ui/mw.echo.ui.NotificationBadgeWidget.js',
 		),
 		'styles' => array(
-			'ooui/styles/mw.echo.ui.NotificationBadgeWidget.less',
+			'styles/mw.echo.ui.NotificationBadgeWidget.less',
 		),
 		'skinStyles' => array(
 			'monobook' => array(
-				'ooui/styles/mw.echo.ui.NotificationBadgeWidget.monobook.less'
+				'styles/mw.echo.ui.NotificationBadgeWidget.monobook.less'
 			),
 			'modern' => array(
-				'ooui/styles/mw.echo.ui.NotificationBadgeWidget.modern.less'
+				'styles/mw.echo.ui.NotificationBadgeWidget.modern.less'
 			),
 			'vector' => array(
-				'ooui/styles/mw.echo.ui.NotificationBadgeWidget.vector.less'
+				'styles/mw.echo.ui.NotificationBadgeWidget.vector.less'
 			),
 		),
 		'dependencies' => array(
@@ -64,46 +64,51 @@ $wgResourceModules += array(
 	),
 	'ext.echo.ui' => $echoResourceTemplate + array(
 		'scripts' => array(
-			'ooui/mw.echo.ui.js',
-			'ooui/mw.echo.ui.PlaceholderItemWidget.js',
-			'ooui/mw.echo.ui.NotificationItemWidget.js',
-			'ooui/mw.echo.ui.NotificationGroupItemWidget.js',
-			'ooui/mw.echo.ui.NotificationsWidget.js',
-			'ooui/mw.echo.ui.BundledNotificationGroupWidget.js',
-			'ooui/mw.echo.ui.ActionMenuPopupWidget.js',
-			'ooui/mw.echo.ui.MenuItemWidget.js',
-			'ooui/mw.echo.ui.FooterNoticeWidget.js',
-			'ooui/mw.echo.ui.NotificationsWrapper.js',
+			'ui/mw.echo.ui.js',
+
+			'ui/mw.echo.ui.SortedListWidget.js',
+			'ui/mw.echo.ui.SubGroupListWidget.js',
+			'ui/mw.echo.ui.NotificationsListWidget.js',
+			'ui/mw.echo.ui.PlaceholderItemWidget.js',
+			'ui/mw.echo.ui.NotificationItemWidget.js',
+			'ui/mw.echo.ui.SingleNotificationItemWidget.js',
+			'ui/mw.echo.ui.CrossWikiNotificationItemWidget.js',
+
+			'ui/mw.echo.ui.ActionMenuPopupWidget.js',
+			'ui/mw.echo.ui.MenuItemWidget.js',
+			'ui/mw.echo.ui.FooterNoticeWidget.js',
+			'ui/mw.echo.ui.NotificationsWrapper.js',
 			'ext.echo.moment-hack.js',
 		),
 		'styles' => array(
-			'ooui/styles/mw.echo.ui.overlay.less',
-			'ooui/styles/mw.echo.ui.icons.less',
-			'ooui/styles/mw.echo.ui.NotificationsWidget.less',
-			'ooui/styles/mw.echo.ui.NotificationItemWidget.less',
-			'ooui/styles/mw.echo.ui.NotificationGroupItemWidget.less',
-			'ooui/styles/mw.echo.ui.BundledNotificationGroupWidget.less',
-			'ooui/styles/mw.echo.ui.MenuItemWidget.less',
-			'ooui/styles/mw.echo.ui.FooterNoticeWidget.less',
+			'styles/mw.echo.ui.overlay.less',
+			'styles/mw.echo.ui.icons.less',
+			'styles/mw.echo.ui.NotificationItemWidget.less',
+			'styles/mw.echo.ui.CrossWikiNotificationItemWidget.less',
+			'styles/mw.echo.ui.NotificationsListWidget.less',
+			'styles/mw.echo.ui.PlaceholderItemWidget.less',
+			'styles/mw.echo.ui.SubGroupListWidget.less',
+			'styles/mw.echo.ui.MenuItemWidget.less',
+			'styles/mw.echo.ui.FooterNoticeWidget.less',
 		),
 		'skinStyles' => array(
 			'monobook' => array(
-				'ooui/styles/mw.echo.ui.NotificationsWidget.monobook.less',
+				'styles/mw.echo.ui.NotificationsListWidget.monobook.less',
 			),
 			'modern' => array(
-				'ooui/styles/mw.echo.ui.NotificationItemWidget.modern.less',
+				'styles/mw.echo.ui.NotificationItemWidget.modern.less',
 			),
 			'vector' => array(
-				'ooui/styles/mw.echo.ui.overlay.vector.less',
+				'styles/mw.echo.ui.overlay.vector.less',
 			),
 		),
 		'dependencies' => array(
+			'ext.echo.logger',
 			'ext.echo.styles.notifications',
-			'ext.echo.dm',
+			'ext.echo.controller',
 			'oojs-ui-core',
 			'oojs-ui-widgets', // Only needed for ButtonSelectWidget :(
 			'moment',
-			'ext.echo.logger',
 			'mediawiki.jqueryMsg',
 			'mediawiki.language',
 			'mediawiki.Title',
@@ -153,18 +158,19 @@ $wgResourceModules += array(
 	),
 	'ext.echo.dm' => $echoResourceTemplate + array(
 		'scripts' => array(
-			'viewmodel/mw.echo.dm.js',
-			'viewmodel/mw.echo.dm.List.js',
-			'viewmodel/mw.echo.dm.SortedList.js',
-			'viewmodel/mw.echo.dm.UnreadNotificationCounter.js',
-			'viewmodel/mw.echo.dm.NotificationItem.js',
-			'viewmodel/mw.echo.dm.NotificationGroupItem.js',
-			'viewmodel/mw.echo.dm.NotificationList.js',
-			'viewmodel/mw.echo.dm.NotificationsModel.js',
+			'mw.echo.js',
+			'model/mw.echo.dm.js',
+			'model/mw.echo.dm.ModelManager.js',
+			'model/mw.echo.dm.SortedList.js',
+			'model/mw.echo.dm.NotificationItem.js',
+			'model/mw.echo.dm.CrossWikiNotificationItem.js',
+			'model/mw.echo.dm.NotificationsList.js',
+			'model/mw.echo.dm.NotificationGroupsList.js',
+			'model/mw.echo.dm.UnreadNotificationCounter.js',
+			// 'controller/mw.echo.Controller.js',
 		),
 		'dependencies' => array(
 			'oojs',
-			'ext.echo.api',
 		),
 		'messages' => array(
 			'echo-api-failure',
@@ -185,6 +191,17 @@ $wgResourceModules += array(
 			'mediawiki.api',
 			'mediawiki.ForeignApi',
 			'oojs'
+		),
+		'targets' => array( 'desktop', 'mobile' ),
+	),
+	'ext.echo.controller' => $echoResourceTemplate + array(
+		'scripts' => array(
+			'controller/mw.echo.Controller.js',
+		),
+		'dependencies' => array(
+			'oojs',
+			'ext.echo.api',
+			'ext.echo.dm',
 		),
 		'targets' => array( 'desktop', 'mobile' ),
 	),

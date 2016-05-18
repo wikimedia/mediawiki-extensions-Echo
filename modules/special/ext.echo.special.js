@@ -141,7 +141,7 @@
 		markAsRead: function ( unread ) {
 			var api = new mw.Api(),
 				that = this;
-			api.postWithToken( 'edit', {
+			api.postWithToken( 'csrf', {
 				action: 'echomarkread',
 				list: unread.join( '|' ),
 				uselang: useLang

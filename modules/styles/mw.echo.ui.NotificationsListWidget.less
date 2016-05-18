@@ -1,0 +1,22 @@
+@import '../echo.variables';
+
+.mw-echo-ui-notificationsListWidget {
+	.mw-echo-ui-notificationsListWidget-bundle & {
+		padding: 0;
+	}
+
+	> a,
+	&:hover > a {
+		text-decoration: none;
+		color: #666666;
+	}
+
+	&:not(:hover) a,
+	#p-personal &:not(:hover) a.new {
+		color: #666666;
+	}
+
+	&.oo-ui-optionWidget.oo-ui-labelElement .oo-ui-labelElement-label {
+		white-space: normal;
+	}
+}

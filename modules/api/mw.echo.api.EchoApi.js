@@ -52,13 +52,23 @@
 	 *
 	 * @param {string[]} sourceArray An array of sources to fetch from the group
 	 * @param {string} type Notification type
-	 * @return {jQuery.Promise} A promise that resolves with an array of promises for
-	 *  fetchNotifications per each given source in the source array.
+	 * @return {jQuery.Promise} A promise that resolves with an object that maps wiki
+	 *  names to an array of their items' API data objects.
 	 */
 	mw.echo.api.EchoApi.prototype.fetchNotificationGroups = function ( sourceArray, type ) {
 		return this.network.getApiHandler( 'local' ).fetchNotifications( type, sourceArray )
 			.then( function ( result ) {
-				return OO.getProp( result, 'query', 'notifications', 'list' );
+				var i,
+					items = OO.getProp( result, 'query', 'notifications', 'list' ),
+					groups = {};
+
+				// Split the items to groups
+				for ( i = 0; i < items.length; i++ ) {
+					groups[ items[ i ].wiki ] = groups[ items[ i ].wiki ] || [];
+					groups[ items[ i ].wiki ].push( items[ i ] );
+				}
+
+				return groups;
 			} );
 	};
 
