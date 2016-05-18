@@ -47,7 +47,7 @@
 	"echo-pref-tooltip-reverted": "Báo cho tôi khi nào người ta lùi lại một sửa đổi của tôi dùng chức năng Lùi sửa hoặc Lùi tất cả.",
 	"echo-pref-tooltip-mention": "Báo cho tôi biết khi có người đặt liên kết đến trang thành viên của tôi.",
 	"echo-pref-tooltip-user-rights": "Báo cho tôi biết khi có người thay đổi quyền người dùng của tôi.",
-	"echo-pref-tooltip-emailuser": "Báo cho tôi biết khi có người gửi email cho tôi.",
+	"echo-pref-tooltip-emailuser": "Báo cho tôi biết khi có người gửi thư cho tôi.",
 	"echo-no-agent": "[Không ai]",
 	"echo-no-title": "[Không có trang]",
 	"echo-error-no-formatter": "Thông báo không có định rõ định dạng",

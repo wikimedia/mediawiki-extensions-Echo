@@ -165,6 +165,7 @@
 	"echo-email-subject-default": "Nové upozornění na {{grammar:6sg|{{SITENAME}}}}",
 	"echo-email-body-default": "Na {{grammar:6sg|{{SITENAME}}}} máte nové upozornění:\n\n$1",
 	"echo-email-batch-body-default": "Máte nové upozornění",
+	"echo-email-footer-default-html": "Posílání e-mailů si můžete přizpůsobit v <a href=\"$2\" style=\"text-decoration: none; color: #3868B0;\">nastavení</a>.<br />\n$1",
 	"echo-email-footer-default": "$2\n\nPosílání e-mailů si můžete přizpůsobit v nastavení:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
 	"echo-email-plain-footer": "Posílání e-mailů si můžete přizpůsobit v nastavení:",
 	"echo-email-html-footer": "Posílání e-mailů si můžete přizpůsobit <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">v nastavení</a>.<br />\n$1",

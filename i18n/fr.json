@@ -195,6 +195,7 @@
 	"echo-email-subject-default": "Nouvelle notification sur {{SITENAME}}",
 	"echo-email-body-default": "Vous avez une nouvelle notification sur {{SITENAME}} :\n\n$1",
 	"echo-email-batch-body-default": "Vous avez une nouvelle notification",
+	"echo-email-footer-default-html": "Pour contrôler les courriels que nous vous envoyons, <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">vérifier vos préférences</a>.<br />\n$1",
 	"echo-email-footer-default": "$2\n\nPour contrôler les courriels que nous vous envoyons, vérifiez vos préférences :\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
 	"echo-email-plain-footer": "Pour choisir quels courriels recevoir, modifiez vos préférences :",
 	"echo-email-html-footer": "Pour choisir quels courriels recevoir, <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">modifiez vos préférences</a>.<br />\n$1",

@@ -8,7 +8,8 @@
 			"Лорд Бъмбъри",
 			"Vodnokon4e",
 			"V111P",
-			"Spiritia"
+			"Spiritia",
+			"Ket"
 		]
 	},
 	"echo-desc": "Система за уведомяване на потребителите за събития и съобщения",
@@ -16,7 +17,7 @@
 	"prefs-emailsettings": "Настройки за е-поща",
 	"prefs-displaynotifications": "Настройки за показване",
 	"prefs-echosubscriptions": "Получаване на известие за следните събития",
-	"prefs-echocrosswiki": "Известия от други уиките",
+	"prefs-echocrosswiki": "Известия от други уикита",
 	"prefs-newmessageindicator": "Индикатор за ново съобщение",
 	"echo-pref-send-me": "Съдържание на е-писмата:",
 	"echo-pref-send-to": "Адрес за получаване:",
