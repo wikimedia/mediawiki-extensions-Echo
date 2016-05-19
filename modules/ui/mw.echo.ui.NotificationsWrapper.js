@@ -37,6 +37,7 @@
 
 		// Initialize
 		this.$element
+			.addClass( 'mw-echo-notificationsWrapper' )
 			.append( this.notificationsWidget.$element );
 	};
 

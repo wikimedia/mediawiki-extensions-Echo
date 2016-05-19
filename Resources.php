@@ -90,6 +90,7 @@ $wgResourceModules += array(
 			'styles/mw.echo.ui.SubGroupListWidget.less',
 			'styles/mw.echo.ui.MenuItemWidget.less',
 			'styles/mw.echo.ui.FooterNoticeWidget.less',
+			'styles/mw.echo.ui.NotificationsWrapper.less',
 		),
 		'skinStyles' => array(
 			'monobook' => array(
