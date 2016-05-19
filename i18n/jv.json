@@ -81,7 +81,6 @@
 	"echo-email-body-default": "Sampéyan nduwé wara-wara anyar nèng {{SITENAME}}:\n\n$1",
 	"echo-email-batch-body-default": "Sampéyan nampa wara-wara anyar.",
 	"echo-email-footer-default": "$2\n\nUntuk mengendalikan surel mana saja yang akan kami kirimkan kepada Anda, periksa preferensi Anda:\n{{canonicalurl: {{#special:Preferences}} #mw-prefsection-echo}}\n\n$1",
-	"echo-email-html-footer": "Untuk mengendalikan surel mana saja yang akan kami kirimkan kepada Anda, <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">periksa preferensi Anda</a>.<br />\n$1",
 	"echo-overlay-link": "Kabèh wara-wara",
 	"echo-overlay-title": "<b>Wara-wara</b>",
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Pemberitahuan}}</b> (menampilkan $1 dari $2 yang belum dibaca)",

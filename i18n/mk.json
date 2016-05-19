@@ -121,7 +121,6 @@
 	"echo-email-body-default": "Имате ново известување на {{SITENAME}}:\n\n$1",
 	"echo-email-batch-body-default": "Имате ново известување",
 	"echo-email-footer-default": "$2\n\nАко сакате да изберете какви пораки да добивате, појдете на страницата:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}} $1\n\n$1",
-	"echo-email-html-footer": "За да изберете какви писма да примате од нас, <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">појдете во вашите нагодувања</a><br />\n$1",
 	"echo-notification-alert": "{{PLURAL:$1|Напомена ($1)|Напомени ($1)|100=Напомени (99+)}}",
 	"echo-notification-message": "{{PLURAL:$1|Порака ($1)|Пораки ($1)|100=Пораки (99+)}}",
 	"echo-notification-alert-text-only": "Напомени",

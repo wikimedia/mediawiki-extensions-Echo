@@ -126,7 +126,6 @@
 	"echo-email-body-default": "Сайтехь «{{SITENAME}}» хьога керла хаам бу:\n\n$1",
 	"echo-email-batch-body-default": "Хьан керла хаам бу",
 	"echo-email-footer-default": "$2\n\nЭлектронан поште муьлха хаамаш богӀуш бу хьажа а уьш дӀанисбан а декъашхочун гӀирсе хьажа :\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
-	"echo-email-html-footer": "Электронан поште муьлха хаамаш кхоьхуьтуш бу хьажа а уьш дӀанисбан а <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">Википедин поштан гӀирсе хьажа </a><br />\n$1",
 	"echo-notification-alert": "{{PLURAL:$1|ДӀахьедар ($1)|100=ДӀахьедар (99+)}}",
 	"echo-notification-message": "{{PLURAL:$1|Хаам ($1)|100=Хаам (99+)}}",
 	"echo-notification-alert-text-only": "ДӀахаийтарш",

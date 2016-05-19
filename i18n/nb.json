@@ -164,7 +164,6 @@
 	"echo-email-batch-body-default": "Du har en ny beskjed.",
 	"echo-email-footer-default": "$2\n\nFor å styre hva slags e-poster vi sender deg, sjekk innstillingene dine: {{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
 	"echo-email-plain-footer": "For å kontrollere hvilken e-poster vi sender til deg, sjekk dine innstillinger:",
-	"echo-email-html-footer": "For å kontrollere hvilke e-poster vi kan sende deg, <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">sjekk innstillingene dine</a>.<br />\n$1",
 	"echo-notification-alert": "{{PLURAL:$1|Varsel ($1)|Varsler ($1)|100=Varsler (99+)}}",
 	"echo-notification-message": "{{PLURAL:$1|Melding ($1)|Meldinger ($1)|100=Meldinger (99+)}}",
 	"echo-notification-alert-text-only": "Varsler",

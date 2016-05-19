@@ -134,7 +134,6 @@
 	"echo-email-body-default": "Sinulle on uusi ilmoitus sivustolla {{SITENAME}}:\n\n$1",
 	"echo-email-batch-body-default": "Sinulla on uusi ilmoitus.",
 	"echo-email-footer-default": "$2\n\nMäärittele, mitä sähköposteja lähetämme sinulle, tarkistamalla asetuksesi:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
-	"echo-email-html-footer": "Määrittele, mitä sähköpostiviestejä lähetämme sinulle, <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">tarkistamalla asetuksesi</a>.<br />\n$1",
 	"echo-notification-alert": "{{PLURAL:$1|Hälytysilmoitukset ($1)|100=Hälytysilmoitukset (yli 99)}}",
 	"echo-notification-message": "{{PLURAL:$1|Viesti ($1)|Viestit ($1)|100=Viestit (99+)}}",
 	"echo-notification-alert-text-only": "Hälytysilmoitukset",

@@ -106,7 +106,6 @@
 	"echo-email-body-default": "Võrgukohas {{SITENAME}} on sulle uus teavitus:\n\n$1",
 	"echo-email-batch-body-default": "Sulle on uus teavitus.",
 	"echo-email-footer-default": "$2\n\nEt valida, milliseid e-kirju sulle saadetakse, sea oma eelistusi:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
-	"echo-email-html-footer": "Et valida, milliseid e-kirju sulle saadetakse, <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">sea oma eelistusi</a>.<br />\n$1",
 	"echo-notification-alert": "{{PLURAL:$1|Üks märguanne|$1 märguannet|0=Märguandeid pole.|100=Üle 99 märguande}}",
 	"echo-notification-message": "{{PLURAL:$1|Üks sõnum|$1 sõnumit|0=Sõnumeid pole.|100=Üle 99 sõnumi}}",
 	"echo-notification-alert-text-only": "Märguanded",

@@ -83,7 +83,6 @@
 	"echo-email-body-default": "Mae hysbysiad newydd gennych ar {{SITENAME}}:\n\n$1",
 	"echo-email-batch-body-default": "Mae hysbysiad newydd gennych.",
 	"echo-email-footer-default": "$2\n\nOs am reoli yr ebyst y cewch gennym, ewch i'ch dewisiadau:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
-	"echo-email-html-footer": "I reoli'r ebyst i'w hanfon atoch, <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">ewch i'ch dewisiadau</a>.<br />\n$1",
 	"echo-overlay-link": "Pob hysbysiad",
 	"echo-overlay-title": "<b>Hysbysiadau</b>",
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Hysbysiadau}}</b> (yn dangos $1 o $2 heb eu darllen)",

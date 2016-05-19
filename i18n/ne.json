@@ -92,7 +92,6 @@
 	"echo-email-body-default": "तपाईँका लागि  {{SITENAME}} मा नयाँ सूचनाहरू छन्:\n\n$1",
 	"echo-email-batch-body-default": "तपाईँको लागि नयाँ सूचना छ ।",
 	"echo-email-footer-default": "$2\n\nहामीले तपाईँलाई कुन इमेलहरू पठाउने नियन्त्रण गर्न, आफ्नो प्राथमिकताहरू जाँच्नुहोस्:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
-	"echo-email-html-footer": "हामीले तपाईँलाई कुन इमेलहरू पठाउने नियन्त्रण गर्न, <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">check your preferences</a>.<br />\n$1",
 	"echo-notification-alert-text-only": "सुचनाहरू",
 	"echo-notification-message-text-only": "सन्देशहरू",
 	"echo-overlay-link": "सबै जानकारीहरु",

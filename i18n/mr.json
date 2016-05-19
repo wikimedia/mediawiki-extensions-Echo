@@ -111,7 +111,6 @@
 	"echo-email-body-default": "{{SITENAME}}वर आपणासाठी एक नविन अधिसूचना आहे:\n\n$1",
 	"echo-email-batch-body-default": "आपणासाठी एक नविन अधिसूचना आहे.",
 	"echo-email-footer-default": "$2\n\nआम्ही आपणास पाठविण्याच्या विपत्रांवर नियंत्रणासाठी, आपला पसंतीक्रम तपासा:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
-	"echo-email-html-footer": "आम्ही आपणास पाठविलेल्या विपत्रांवर नियंत्रणासाठी, <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">आपला पसंतीक्रम तपासा</a>.<br />\n$1",
 	"echo-notification-alert": "{{PLURAL:$1|सजगता ($1)|100=(99+)सजगता}}",
 	"echo-notification-message": "{{PLURAL:$1|संदेश ($1)|100=(99+)संदेश}}",
 	"echo-notification-alert-text-only": "सजगता",

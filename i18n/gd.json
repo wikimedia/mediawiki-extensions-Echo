@@ -84,7 +84,6 @@
 	"echo-email-body-default": "Tha brath-naidheachd ùr agad air {{SITENAME}}:\n\n$1",
 	"echo-email-batch-body-default": "Tha brath-naidheachd ùr agad.",
 	"echo-email-footer-default": "$2\n\nThoir sùil air na roghainnean agad gus taghadh dè na puist-d a chuireas sinn thugad:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
-	"echo-email-html-footer": "<a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">Thoir sùil air na roghainnean agad</a> gus taghadh dè na puist-d a chuireas sinn thugad.<br />\n$1",
 	"echo-overlay-link": "A h-uile brath-naidheachd",
 	"echo-overlay-title": "<b>Brathan-naidheachd</b>",
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Brath-naidheachd|Brathan-naidheachd}}</b> (a' sealltainn $1 à $2 gun leughadh)",

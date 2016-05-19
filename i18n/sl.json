@@ -88,7 +88,6 @@
 	"echo-email-body-default": "V {{GRAMMAR:dajalnik|{{SITENAME}}}} imate novo obvestilo:\n\n$1",
 	"echo-email-batch-body-default": "Imate novo obvestilo.",
 	"echo-email-footer-default": "$2\n\nZa izbiro e-poštnih sporočil, ki jih želite prejemati, prilagodite svoje nastavitve:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
-	"echo-email-html-footer": "Za izbiro e-poštnih sporočil, ki naj vam jih pošiljamo, <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">preverite svoje nastavitve</a>.<br />\n$1",
 	"echo-overlay-link": "Vsa obvestila",
 	"echo-overlay-title": "<b>Obvestila</b>",
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Obvestila}}</b> ({{PLURAL:$1|prikazano|prikazani|prikazana|prikazanih}} $1 od $2 {{PLURAL:$2|neprebranega|neprebranih}})",

@@ -153,7 +153,6 @@
 	"echo-email-body-default": "Masz nowe powiadomienie w {{grammar:MS.lp|{{SITENAME}}}}:\n\n$1",
 	"echo-email-batch-body-default": "Masz nowe powiadomienie",
 	"echo-email-footer-default": "$2\n\nMożesz wybrać, jakie e-maile chcesz otrzymywać, w swoich preferencjach: {{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
-	"echo-email-html-footer": "Możesz wybrać, jakie e-maile chcesz otrzymywać <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">w swoich preferencjach</a>.<br />\n$1",
 	"echo-notification-alert": "{{PLURAL:$1|Powiadomienie ($1)|Powiadomienia ($1)|100=Powiadomienia (99+)}}",
 	"echo-notification-message": "{{PLURAL:$1|Wiadomość ($1)|Wiadomości ($1)|100=Wiadomości (ponad 99)}}",
 	"echo-notification-alert-text-only": "Powiadomienia",

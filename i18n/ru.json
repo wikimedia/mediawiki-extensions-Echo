@@ -168,7 +168,6 @@
 	"echo-email-body-default": "У вас есть новое уведомление на сайте «{{SITENAME}}»:\n\n$1",
 	"echo-email-batch-body-default": "У вас есть новое уведомление",
 	"echo-email-footer-default": "$2\n\nДля контроля за тем, какие сообщения отправляются вам по эл. почте, проверьте свои персональные настройки:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
-	"echo-email-html-footer": "Для контроля за тем, какие сообщения отправляются вам по эл. почте, <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">проверьте свои персональные настройки</a><br />\n$1",
 	"echo-notification-alert": "{{PLURAL:$1|Оповещение ($1)|Оповещения ($1)|100=Оповещения (99+)}}",
 	"echo-notification-message": "{{PLURAL:$1|Сообщение ($1)|Сообщения ($1)|100=Сообщения (99+)}}",
 	"echo-notification-alert-text-only": "Оповещения",

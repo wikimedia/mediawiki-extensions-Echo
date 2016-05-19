@@ -143,7 +143,6 @@
 	"echo-email-body-default": "Imate novo obavještenje na {{GRAMMAR:dativ|{{SITENAME}}}}: \n\n$1",
 	"echo-email-batch-body-default": "Imate novo obavještenje.",
 	"echo-email-footer-default": "$2\n\nAko želite prilagoditi primanje e-pošte, provjerite svoje postavke:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
-	"echo-email-html-footer": "Ako želite prilagoditi primanje e-pošte, <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">provjerite vaše postavke</a>.<br />\n$1",
 	"echo-notification-alert": "{{PLURAL:$1|Obavještenje ($1)|Obavještenja ($1)|100=Obavještenja (99+)}}",
 	"echo-notification-message": "{{PLURAL:$1|Poruka ($1)|Poruke ($1)|100=Poruke (99+)}}",
 	"echo-notification-alert-text-only": "Obavještenja",

@@ -79,7 +79,6 @@
 	"echo-email-body-default": "汝敆{{SITENAME}}懸頂有新其通知：\n\n$1",
 	"echo-email-batch-body-default": "汝有蜀萆新其通知。",
 	"echo-email-footer-default": "為𡅏控制儂家發給汝其底蜀種電子郵件，檢查汝其喜好：\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$2：$1",
-	"echo-email-html-footer": "為𡅏控制儂家發給汝底蜀種電批，起動<a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">檢查蜀下汝其喜好</a>。<br />\n$1",
 	"echo-overlay-link": "全部通知",
 	"echo-overlay-title": "<b>通知</b>",
 	"echo-overlay-title-overflow": "<b>通知</b>（未讀其通知顯示出$1條，共總有$2條）",

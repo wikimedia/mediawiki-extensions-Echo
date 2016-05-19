@@ -122,7 +122,6 @@
 	"echo-email-body-default": "Tien un nuevu avisu en {{SITENAME}}:\n\n$1",
 	"echo-email-batch-body-default": "Tien un nuevu avisu",
 	"echo-email-footer-default": "$2\n\nPa controlar los correos que-y unviamos, compruebe les sos preferencies:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
-	"echo-email-html-footer": "Pa controlar los correos electrónicos que-y unviamos, <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">compruebe les sos preferencies</a>.<br />\n$1",
 	"echo-notification-alert": "{{PLURAL:$1|($1) alerta|($1) alertes|100=(99+) alertes}}",
 	"echo-notification-message": "{{PLURAL:$1|($1) mensaxe|($1) mensaxes|100=(99+) mensaxes}}",
 	"echo-notification-alert-text-only": "Alertes",

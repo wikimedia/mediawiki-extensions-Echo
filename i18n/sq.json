@@ -83,7 +83,6 @@
 	"echo-email-body-default": "Keni një njoftim të ri në {{SITENAME}}:\n\n$1",
 	"echo-email-batch-body-default": "Keni një njoftim të ri.",
 	"echo-email-footer-default": "$2\n\nPër të kontrolluar se cili email do t'iu dërgohet, kontrolloni parapëlqimet tuaja:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
-	"echo-email-html-footer": "Për të kontrolluar se cili email do t'iu dërgohet, <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">kontrolloni parapëlqimet tuaja</a>.<br />\n$1",
 	"echo-overlay-link": "Të gjitha njoftimet",
 	"echo-overlay-title": "<b>Njoftimet</b>",
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Njoftime}}</b> (duke shfaqur $1 nga $2 të pa lexuara)",

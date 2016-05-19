@@ -154,7 +154,6 @@
 	"echo-email-body-default": "Teniu una nova notificació a {{SITENAME}}:\n\n$1",
 	"echo-email-batch-body-default": "Teniu una nova notificació.",
 	"echo-email-footer-default": "$2\n\nPer a controlar quins correus us enviem, reviseu les vostres preferències:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
-	"echo-email-html-footer": "Per a controlar quins correus us enviem, <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">reviseu les vostres preferències</a>.<br />\n$1",
 	"echo-notification-alert": "{{PLURAL:$1|Alertes ($1)|100=Alertes (+99)}}",
 	"echo-notification-message": "{{PLURAL:$1|Missatges ($1)|100=Missatges (+99)}}",
 	"echo-notification-alert-text-only": "Alertes",

@@ -89,7 +89,6 @@
 	"echo-email-body-default": "Anda memiliki pemberitahuan baru di {{SITENAME}}:\n\n$1",
 	"echo-email-batch-body-default": "Anda memiliki pemberitahuan baru.",
 	"echo-email-footer-default": "$2\n\nUntuk mengendalikan surel mana saja yang akan kami kirimkan kepada Anda, periksa preferensi Anda:\n{{canonicalurl: {{#special:Preferences}} #mw-prefsection-echo}}\n\n$1",
-	"echo-email-html-footer": "Untuk mengendalikan surel mana saja yang akan kami kirimkan kepada Anda, <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">periksa preferensi Anda</a>.<br />\n$1",
 	"echo-notification-alert": "{{PLURAL:$1|Penanda ($1)|100=Penanda (99+)}}",
 	"echo-notification-message": "{{PLURAL:$1|Pesan ($1)|100=Pesan (99+)}}",
 	"echo-notification-alert-text-only": "Penanda",

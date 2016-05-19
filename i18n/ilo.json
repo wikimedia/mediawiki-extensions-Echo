@@ -83,7 +83,6 @@
 	"echo-email-body-default": "Adda baro a pakaammom idiay {{SITENAME}}:\n\n$1",
 	"echo-email-batch-body-default": "Adda baro a pakaammom.",
 	"echo-email-footer-default": "$2\n\nTi mangtengngel no ania dagiti esurat nga ipatulodmi kenka, kitaem dagiti kakaykayatam:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
-	"echo-email-html-footer": "Ti mangtengngel no ania dagiti esurat nga ipatulodmi kenka, <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">kitaem dagiti kakaykayatam</a>.<br />\n$1",
 	"echo-overlay-link": "Dagiti amin a pakaaammo",
 	"echo-overlay-title": "<b>Dagiti pakaammo</b>",
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Dagiti pakaammo}}</b> (agipakpakita ti $1 iti $2 a saan pay a nabasa)",

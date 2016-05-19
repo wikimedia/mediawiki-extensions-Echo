@@ -56,7 +56,6 @@
 	"echo-email-subject-default": "{{SITENAME}} ಜಾಲತಾಣದಲ್ಲಿ ಹೊಸ ಸೂಚನೆ ಇದೆ",
 	"echo-email-body-default": "{{SITENAME}} ಜಾಲತಾಣದಲ್ಲಿ ನಿಮಗೆ ಈ ಸೂಚನೆ ಇದೆ: $1",
 	"echo-email-batch-body-default": "ನಿಮಗೆ ಹೊಸ ಸೂಚನೆ ಇದೆ.",
-	"echo-email-html-footer": "ನಿಮಗೆ ನಾವು ಯಾವ ಇಮೈಲ್‌ಗಳನ್ನು ಕಳುಹಿಸಬಹುದೆಂಬುದನ್ನು ನಿಯಂತ್ರಿಸಲು, <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">ನಿಮ್ಮ ಪ್ರಾಶಸ್ತ್ಯಗಳನ್ನು ಪರಿಶೀಲಿಸಿ</a>.<br /> $1",
 	"echo-overlay-link": "ಎಲ್ಲ ಸೂಚನೆಗಳು",
 	"echo-overlay-title": "<b>ಸೂಚನೆಗಳು</b>",
 	"echo-overlay-title-overflow": "<b>ಸೂಚನೆಗಳು</b> ($2 ರಲ್ಲಿ $1 ಓದದವುಗಳನ್ನು ತೋರಿಸಲಾಗುತ್ತಿದೆ)",
