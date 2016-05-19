@@ -37,4 +37,15 @@
 		border-bottom: 1px #dddddd solid;
 		margin-bottom: 0.4em;
 	}
+
+	.mw-echo-ui-subGroupListWidget-header {
+		margin-bottom: @bundle-group-padding;
+
+		&-row-title {
+			// Override OOUI's line height for labels
+			line-height: 1em !important;
+			font-weight: bold;
+			color: #666666;
+		}
+	}
 }

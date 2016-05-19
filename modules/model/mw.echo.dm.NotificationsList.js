@@ -72,13 +72,29 @@
 	/**
 	 * Set the items in this list
 	 *
-	 * @param {mw.echo.dm.NotificationItem} items Items to insert into the list
+	 * @param {mw.echo.dm.NotificationItem[]} items Items to insert into the list
 	 * @fires update
 	 */
 	mw.echo.dm.NotificationsList.prototype.setItems = function ( items ) {
 		this.clearItems();
 		this.addItems( items );
 		this.emit( 'update', this.getItems() );
+	};
+
+	/**
+	 * Discard items from the list.
+	 *
+	 * This is a more precise operation than 'removeItems' because when
+	 * the list is resorting the position of a single item, it removes
+	 * the item and reinserts it, which makes the 'remove' event unhelpful
+	 * to differentiate between actually discarding items, and only
+	 * temporarily moving them.
+	 *
+	 * @param {mw.echo.dm.NotificationItem[]} items Items to insert into the list
+	 */
+	mw.echo.dm.NotificationsList.prototype.discardItems = function ( items ) {
+		this.removeItems( items );
+		this.emit( 'discard', items );
 	};
 
 	/**
@@ -176,4 +192,5 @@
 	mw.echo.dm.NotificationsList.prototype.isGroup = function () {
 		return false;
 	};
+
 } )( mediaWiki );

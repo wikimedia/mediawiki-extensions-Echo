@@ -8,11 +8,14 @@
 	 * @param {mw.echo.dm.SortedList} listModel Notifications list model for this source
 	 * @param {Object} config Configuration object
 	 * @cfg {boolean} [showTitle=false] Show the title of this group
+	 * @cfg {boolean} [showMarkAllRead=false] Show a mark all read button for this group
 	 * @cfg {jQuery} [$overlay] A jQuery element functioning as an overlay
 	 *  for popups.
 	 */
 	mw.echo.ui.SubGroupListWidget = function MwEchoUiSubGroupListWidget( controller, listModel, config ) {
-		var sourceURL;
+		var sourceURL,
+			$header = $( '<div>' )
+				.addClass( 'mw-echo-ui-subGroupListWidget-header' );
 
 		config = config || {};
 
@@ -23,6 +26,7 @@
 		mw.echo.ui.SubGroupListWidget.parent.call( this, $.extend( { data: this.getSource() }, config ) );
 
 		this.showTitle = !!config.showTitle;
+		this.showMarkAllRead = !!config.showMarkAllRead;
 		this.$overlay = config.$overlay || this.$element;
 
 		this.listWidget = new mw.echo.ui.SortedListWidget(
@@ -45,28 +49,60 @@
 		sourceURL = this.model.getSourceURL() ?
 			this.model.getSourceURL().replace( '$1', 'Special:Notifications' ) :
 			null;
-		this.title = new OO.ui.ButtonWidget( {
-			framed: false,
-			classes: [ 'mw-echo-ui-subGroupListWidget-title' ],
-			href: sourceURL
-		} );
+		if ( sourceURL ) {
+			this.title = new OO.ui.ButtonWidget( {
+				framed: false,
+				classes: [ 'mw-echo-ui-subGroupListWidget-header-row-title' ],
+				href: sourceURL
+			} );
+		} else {
+			this.title = new OO.ui.LabelWidget( {
+				classes: [ 'mw-echo-ui-subGroupListWidget-header-row-title' ]
+			} );
+		}
+
 		if ( this.model.getTitle() ) {
 			this.title.setLabel( this.model.getTitle() );
 		}
 		this.title.toggle( this.showTitle );
 
-		// Events
-		this.model.connect( this, {
-			// We really only need to listen to 'remove' item here
-			// There is no other update event worthwhile in this list.
-			remove: 'onModelRemoveItem',
-			update: 'onModelUpdate' // Adding all items
+		// Mark all as read button
+		this.markAllReadButton = new OO.ui.ButtonWidget( {
+			framed: true,
+			label: mw.msg( 'echo-mark-all-as-read' ),
+			classes: [ 'mw-echo-ui-subGroupListWidget-header-row-markAllReadButton' ]
 		} );
 
+		// Events
+		this.model.connect( this, {
+			// Cross-wiki items can be discarded when marked as read.
+			// We need to differentiate this explicit action from the
+			// action of 'remove' because 'remove' is also used when
+			// an item is resorted by OO.SortedEmitterWidget before
+			// it is re-added again
+			discard: 'onModelDiscardItems',
+			// Update all items
+			update: 'resetItemsFromModel'
+		} );
+		this.markAllReadButton.connect( this, { click: 'onMarkAllReadButtonClick' } );
+		// We must aggregate on item update, so we know when and if all
+		// items are read and can hide/show the 'mark all read' button
+		this.model.aggregate( { update: 'itemUpdate' } );
+		this.model.connect( this, { itemUpdate: 'toggleMarkAllReadButton' } );
+
+		// Initialize
+		this.toggleMarkAllReadButton();
 		this.$element
 			.addClass( 'mw-echo-ui-subGroupListWidget' )
 			.append(
-				this.title.$element,
+				$header.append(
+					$( '<div>' )
+						.addClass( 'mw-echo-ui-subGroupListWidget-header-row' )
+						.append(
+							this.title.$element,
+							this.markAllReadButton.$element
+						)
+				),
 				this.listWidget.$element
 			);
 	};
@@ -78,13 +114,45 @@
 	/* Methods */
 
 	/**
-	 * Respond to model update event
-	 *
-	 * @param {mw.echo.dm.NotificationItem[]} items Item models that are added
+	 * Toggle the visibility of the mark all read button for this group
+	 * based on whether there are unread notifications
 	 */
-	mw.echo.ui.SubGroupListWidget.prototype.onModelUpdate = function ( items ) {
+	mw.echo.ui.SubGroupListWidget.prototype.toggleMarkAllReadButton = function () {
+		this.markAllReadButton.toggle( this.hasUnread() );
+	};
+
+	/**
+	 * Respond to 'mark all as read' button click
+	 */
+	mw.echo.ui.SubGroupListWidget.prototype.onMarkAllReadButtonClick = function () {
+		this.controller.markEntireListModelRead( this.model.getSource() );
+	};
+
+	/**
+	 * Check whether this sub group list has any unread notifications
+	 *
+	 * @return {boolean} Sub group has unread notifications
+	 */
+	mw.echo.ui.SubGroupListWidget.prototype.hasUnread = function () {
+		var isUnread = function ( item ) {
+				return !item.isRead();
+			},
+			items = this.model.getItems();
+
+		return items.some( isUnread );
+	};
+
+	/**
+	 * Reset the items and rebuild them according to the model.
+	 *
+	 * @param {mw.echo.dm.NotificationItem[]} [items] Item models that are added.
+	 *  If this is empty, the widget will request all the items from the model.
+	 */
+	mw.echo.ui.SubGroupListWidget.prototype.resetItemsFromModel = function ( items ) {
 		var i,
 			itemWidgets = [];
+
+		items = items || this.model.getItems();
 
 		for ( i = 0; i < items.length; i++ ) {
 			itemWidgets.push(
@@ -93,7 +161,7 @@
 					items[ i ],
 					{
 						$overlay: this.$overlay,
-						bundle: true
+						bundle: items[ i ].isBundled()
 					}
 				)
 			);
@@ -106,13 +174,19 @@
 	};
 
 	/**
-	 * Respond to mode remove event. This may happen when an item
+	 * Respond to model remove event. This may happen when an item
 	 * is marked as read.
 	 *
-	 * @param {mw.echo.dm.NotificationItem} item Notification item model
+	 * @param {mw.echo.dm.NotificationItem[]} items Notification item models
 	 */
-	mw.echo.ui.SubGroupListWidget.prototype.onModelRemoveItem = function ( item ) {
-		this.listWidget.removeItems( [ this.listWidget.getItemFromId( item.getId() ) ] );
+	mw.echo.ui.SubGroupListWidget.prototype.onModelDiscardItems = function ( items ) {
+		var i,
+			itemWidgets = [];
+
+		for ( i = 0; i < items.length; i++ ) {
+			itemWidgets.push( this.listWidget.getItemFromId( items[ i ].getId() ) );
+		}
+		this.listWidget.removeItems( itemWidgets );
 	};
 
 	/**
@@ -155,6 +229,35 @@
 	 */
 	mw.echo.ui.SubGroupListWidget.prototype.getSource = function () {
 		return this.model.getSource();
+	};
+
+	/**
+	 * Get an array of IDs of all of the items in this group
+	 *
+	 * @return {number[]} Array of item IDs
+	 */
+	mw.echo.ui.SubGroupListWidget.prototype.getAllItemIDs = function () {
+		return this.model.getAllItemIds();
+	};
+
+	/**
+	 * Get an array of IDs of all of the items in this group that
+	 * correspond to a specific type
+	 *
+	 * @param {string} type Item type
+	 * @return {number[]} Array of item IDs
+	 */
+	mw.echo.ui.SubGroupListWidget.prototype.getAllItemIDsByType = function ( type ) {
+		return this.model.getAllItemIdsByType( type );
+	};
+
+	/**
+	 * Check whether this group is foreign
+	 *
+	 * @return {boolean} This group is foreign
+	 */
+	mw.echo.ui.SubGroupListWidget.prototype.isForeign = function () {
+		return this.model.isForeign();
 	};
 
 	/**

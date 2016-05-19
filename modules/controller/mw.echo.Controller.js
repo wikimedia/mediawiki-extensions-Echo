@@ -202,7 +202,7 @@
 							items.push(
 								new mw.echo.dm.NotificationItem( groupItems[ i ].id, $.extend( notifData, {
 									source: group,
-									bundle: true,
+									bundled: true,
 									foreign: true
 								} ) )
 							);
@@ -293,7 +293,7 @@
 
 		sourceModel = xwikiModel.getList().getGroupBySource( modelSource );
 		notifs = sourceModel.findByIds( itemIds );
-		sourceModel.removeItems( notifs );
+		sourceModel.discardItems( notifs );
 
 		return this.api.markItemsRead( itemIds, modelSource, true )
 			.then( this.refreshUnreadCount.bind( this ) );

@@ -23,6 +23,7 @@
 	 * @cfg {string} [timestamp] Notification timestamp in Mediawiki timestamp format
 	 * @cfg {string} [primaryUrl] Notification primary link in raw url format
 	 * @cfg {boolean} [foreign=false] This notification is from a foreign source
+	 * @cfg {boolean} [bundled=false] This notification is part of a bundle
 	 * @cfg {string} [source] The source this notification is coming from, if it is foreign
 	 * @cfg {Object[]} [secondaryUrls] An array of objects defining the secondary URLs
 	 *  for this notification. The secondary URLs are expected to have this structure:
@@ -58,6 +59,7 @@
 		this.category = config.category || '';
 		this.type = config.type || 'message';
 		this.foreign = !!config.foreign;
+		this.bundled = !!config.bundled;
 		this.source = config.source || '';
 		this.iconType = config.iconType;
 		this.iconURL = config.iconURL;
@@ -155,6 +157,15 @@
 	 */
 	mw.echo.dm.NotificationItem.prototype.isForeign = function () {
 		return this.foreign;
+	};
+
+	/**
+	 * Check whether this notification item is part of a bundle
+	 *
+	 * @return {boolean} Notification item is part of a bundle
+	 */
+	mw.echo.dm.NotificationItem.prototype.isBundled = function () {
+		return this.bundled;
 	};
 
 	/**
