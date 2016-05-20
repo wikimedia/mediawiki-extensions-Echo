@@ -55,12 +55,17 @@
 		} );
 		this.bottomPaginationButtons = this.createPaginationButtons();
 
+		// Filter by read state
+		this.readStateSelectWidget = new mw.echo.ui.ReadStateButtonSelectWidget();
+
 		// Events
 		this.topPaginationButtons.connect( this, { choose: 'onPaginationChoose' } );
 		this.bottomPaginationButtons.connect( this, { choose: 'onPaginationChoose' } );
 		this.topPaginationStart.connect( this, { click: 'onPaginationStart' } );
 		this.bottomPaginationStart.connect( this, { click: 'onPaginationStart' } );
+		this.readStateSelectWidget.connect( this, { filter: 'onReadStateFilter' } );
 		this.manager.connect( this, { update: 'updatePaginationLabel' } );
+		this.manager.getFiltersModel().connect( this, { update: 'updateReadStateSelectWidget' } );
 
 		this.disablePagination();
 		// Initialization
@@ -73,6 +78,9 @@
 						$( '<div>' )
 							.addClass( 'mw-echo-ui-notificationsInboxWidget-toolbar-row' )
 							.append(
+								$( '<div>' )
+									.addClass( 'mw-echo-ui-notificationsInboxWidget-toolbar-readState' )
+									.append( this.readStateSelectWidget.$element ),
 								$( '<div>' )
 									.addClass( 'mw-echo-ui-notificationsInboxWidget-toolbar-top-placeholder' ),
 								$( '<div>' )
@@ -106,6 +114,7 @@
 					)
 			);
 
+		this.updateReadStateSelectWidget();
 		this.populateNotifications();
 	};
 
@@ -115,6 +124,15 @@
 	OO.mixinClass( mw.echo.ui.NotificationsInboxWidget, OO.ui.mixin.PendingElement );
 
 	/* Methods */
+
+	/**
+	 * Respond to filters update
+	 */
+	mw.echo.ui.NotificationsInboxWidget.prototype.updateReadStateSelectWidget = function () {
+		this.readStateSelectWidget
+			.getItemFromData( this.manager.getFiltersModel().getReadState() )
+			.setSelected( true );
+	};
 
 	/**
 	 * Respond to pagination start button click event
@@ -135,6 +153,16 @@
 			this.populateNotifications( direction );
 			item.setSelected( false );
 		}
+	};
+
+	/**
+	 * Respond to read state filter event
+	 *
+	 * @param {string} readState Read state 'all', 'read' or 'unread'
+	 */
+	mw.echo.ui.NotificationsInboxWidget.prototype.onReadStateFilter = function ( readState ) {
+		this.controller.setFilter( 'readState', readState );
+		this.populateNotifications();
 	};
 
 	/**
@@ -178,6 +206,8 @@
 
 		this.topPaginationLabel.toggle( !isDisabled );
 		this.bottomPaginationLabel.toggle( !isDisabled );
+
+		this.readStateSelectWidget.setDisabled( isDisabled );
 	};
 
 	/**
