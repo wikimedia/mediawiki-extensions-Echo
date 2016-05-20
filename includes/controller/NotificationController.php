@@ -151,8 +151,6 @@ class EchoNotificationController {
 		global $wgDefaultNotifyTypeAvailability,
 			$wgEchoNotifications;
 
-		$notifyTypes = array();
-
 		$attributeManager = EchoAttributeManager::newFromGlobalVars();
 
 		$category = $attributeManager->getNotificationCategory( $eventType );
