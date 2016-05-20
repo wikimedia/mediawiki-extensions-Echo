@@ -4,5 +4,8 @@
 			"Silovan"
 		]
 	},
-	"echo-notification-markasread": "უკითხირო შანუა"
+	"tooltip-pt-notifications-alert": "{{GENDER:|თქვანი}} მოშინუეფი",
+	"tooltip-pt-notifications-message": "{{GENDER:|თქვანი}} გინაფეფი",
+	"echo-notification-markasread": "უკითხირო შანუა",
+	"echo-email-html-footer-preference-link-text": "გეგნაჯინით თქვანი პარამეტრეფს"
 }

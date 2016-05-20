@@ -55,6 +55,7 @@
 	"echo-notification-loginrequired": "Morate biti prijavljeni da biste vidjeli vaše obavijesti.",
 	"echo-notification-markasread": "Označi kao pročitano",
 	"echo-notification-markasunread": "Označi kao nepročitano",
+	"echo-notification-more-options-tooltip": "Više mogućnosti",
 	"notification-link-text-expand-all": "Proširi",
 	"notification-link-text-expand-alert-count": "Vidi {{PLURAL:$1|$1 obavijest|$1 obavijesti}}",
 	"notification-link-text-expand-message-count": "Vidi {{PLURAL:$1|$1 poruku|$1 poruke|$1 poruka}}",
