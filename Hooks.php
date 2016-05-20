@@ -722,7 +722,7 @@ class EchoHooks {
 	 * @param $skin Skin being used.
 	 * @return bool true in all cases
 	 */
-	static function beforePageDisplay( $out, $skin ) {
+	public static function beforePageDisplay( $out, $skin ) {
 		if ( $out->getUser()->isLoggedIn() && $skin->getSkinName() !== 'minerva' ) {
 			// Load the module for the Notifications flyout
 			$out->addModules( array( 'ext.echo.init' ) );
@@ -745,7 +745,7 @@ class EchoHooks {
 	 * @param SkinTemplate $sk
 	 * @return bool true in all cases
 	 */
-	static function onPersonalUrls( &$personal_urls, &$title, $sk ) {
+	public static function onPersonalUrls( &$personal_urls, &$title, $sk ) {
 		global $wgEchoNewMsgAlert, $wgEchoShowFooterNotice;
 		$user = $sk->getUser();
 		if ( $user->isAnon() ) {
@@ -926,7 +926,7 @@ class EchoHooks {
 	 * @param $title Title
 	 * @return bool
 	 */
-	static function onAbortTalkPageEmailNotification( $targetUser, $title ) {
+	public static function onAbortTalkPageEmailNotification( $targetUser, $title ) {
 		global $wgEchoNotifications;
 
 		// Send legacy talk page email notification if
@@ -949,7 +949,7 @@ class EchoHooks {
 	 * @param $emailNotification EmailNotification The email notification object that sends non-echo notifications
 	 * @return bool
 	 */
-	static function onSendWatchlistEmailNotification( $targetUser, $title, $emailNotification ) {
+	public static function onSendWatchlistEmailNotification( $targetUser, $title, $emailNotification ) {
 		// If a user is watching his/her own talk page, do not send talk page watchlist
 		// email notification if the user is receiving Echo talk page notification
 		if ( $title->isTalkPage() && $targetUser->getTalkPage()->equals( $title ) ) {
@@ -1013,7 +1013,7 @@ class EchoHooks {
 	 * @param &$files Array of unit test files
 	 * @return bool true in all cases
 	 */
-	static function getUnitTests( &$files ) {
+	public static function getUnitTests( &$files ) {
 		// @codeCoverageIgnoreStart
 		$directoryIterator = new RecursiveDirectoryIterator( __DIR__ . '/tests/phpunit/' );
 
@@ -1048,7 +1048,7 @@ class EchoHooks {
 	 * @return bool Should return false to prevent the new messages alert (OBOD)
 	 *     or true to allow the new messages alert
 	 */
-	static function abortNewMessagesAlert( &$newMessagesAlert, $newtalks, $user, $out ) {
+	public static function abortNewMessagesAlert( &$newMessagesAlert, $newtalks, $user, $out ) {
 		global $wgEchoNotifications;
 
 		// If the user has the notifications flyout turned on and is receiving
@@ -1073,7 +1073,7 @@ class EchoHooks {
 	 * @param $oldRevision Revision The revision of the top edit that was reverted
 	 * @return bool true in all cases
 	 */
-	static function onRollbackComplete( $page, $agent, $newRevision, $oldRevision ) {
+	public static function onRollbackComplete( $page, $agent, $newRevision, $oldRevision ) {
 		$victimId = $oldRevision->getUser();
 
 		if (
@@ -1102,7 +1102,7 @@ class EchoHooks {
 	 * @param $user User whose settings were saved
 	 * @return bool true in all cases
 	 */
-	static function onUserSaveSettings( $user ) {
+	public static function onUserSaveSettings( $user ) {
 		// Extensions like AbuseFilter might create an account, but
 		// the tables we need might not exist. Bug 57335
 		if ( !defined( 'MW_UPDATER' ) ) {
