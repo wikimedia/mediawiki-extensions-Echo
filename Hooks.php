@@ -1262,7 +1262,7 @@ class EchoHooks {
 	}
 
 	public static function onResourceLoaderGetConfigVars( &$vars ) {
-	global $wgEchoFooterNoticeURL;
+		global $wgEchoFooterNoticeURL;
 
 		$vars['wgEchoMaxNotificationCount'] = MWEchoNotifUser::MAX_BADGE_COUNT;
 		$vars['wgEchoFooterNoticeURL'] = $wgEchoFooterNoticeURL;
