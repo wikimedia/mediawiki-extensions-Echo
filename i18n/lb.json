@@ -120,6 +120,7 @@
 	"echo-email-body-default": "Dir hutt eng nei Notifikatioun op {{SITENAME}}:\n\n$1",
 	"echo-email-batch-body-default": "Dir hutt eng Notifikatioun",
 	"echo-email-footer-default": "$2\n\nFir ze kontrolléiere wat fir eng E-Maile mir Iech schécken, kuckt Är Preferenzen no:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
+	"echo-email-html-footer-preference-link-text": "kuckt Är Astellungen no",
 	"echo-notification-alert": "{{PLURAL:$1|Warnung ($1)|Warnungen ($1)|100=Warnungen (99+)}}",
 	"echo-notification-message": "{{PLURAL:$1|Message ($1)|Messagen ($1)|100=Messagen (99+)}}",
 	"echo-notification-alert-text-only": "Warnungen",

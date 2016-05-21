@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Adam-Yourist"
+		]
+	},
+	"tooltip-pt-notifications-alert": "{{GENDER:|Хьа}} дӀахейтараш",
+	"tooltip-pt-notifications-message": "{{GENDER:|Хьа}} хоамбараш"
+}

@@ -71,7 +71,7 @@
 	"echo-notification-markasread": "Уҡылған тип билдәләргә",
 	"echo-notification-markasunread": "Уҡылмағаған тип билдәләргә",
 	"notification-link-text-expand-all": "Барыһын да ҡарарға",
-	"notification-link-text-expand-alert-count": "{{PLURAL:$1|$1 киҫәтеүҙе}} ҡарарға",
+	"notification-link-text-expand-alert-count": "{{PLURAL:$1|$1 белдереүҙе}} ҡарарға",
 	"notification-link-text-expand-message-count": "{{PLURAL:$1|$1 хәбәрҙе}} күрһәтергә",
 	"notification-link-text-expand-all-count": "{{PLURAL:$1|$1 белдереүҙе}} күрһәтергә",
 	"notification-link-text-collapse-all": "Ҡапыл ябылыу",
