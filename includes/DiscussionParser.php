@@ -144,26 +144,39 @@ abstract class EchoDiscussionParser {
 		}
 		$mentionedUsers = array();
 		$count = 0;
+		$stats = RequestContext::getMain()->getStats();
 
 		foreach ( $links[NS_USER] as $dbk => $page_id ) {
 			$user = User::newFromName( $dbk );
 
 			// we should not add user to 'mention' notification list if
 			// 1. the user name is not valid
-			// 2. the user mentions themselves
-			// 3. the user is the owner of the talk page
-			// 4. user is anonymous
-			if (
-				!$user || $user->isAnon() || $user->getId() == $revision->getUser() ||
-				( $title->getNamespace() === NS_USER_TALK && $title->getDBkey() === $dbk )
-			) {
+			if ( !$user ) {
+				$stats->increment( 'echo.event.mention.error.invalidUser' );
 				continue;
 			}
+			// 2. the user mentions themselves
+			if ( $user->getId() == $revision->getUser() ) {
+				$stats->increment( 'echo.event.mention.error.sameUser' );
+				continue;
+			}
+			// 3. the user is the owner of the talk page
+			if ( $title->getNamespace() === NS_USER_TALK && $title->getDBkey() === $dbk ) {
+				$stats->increment( 'echo.event.mention.error.ownPage' );
+				continue;
+			}
+			// 4. user is anonymous
+			if ( $user->isAnon() ) {
+				$stats->increment( 'echo.event.mention.error.anonUser' );
+				continue;
+			}
+
 			$mentionedUsers[$user->getId()] = $user->getId();
 			$count++;
 			// If more than 50 users are being pinged this is likely a spam/attack vector
 			// Don't send any mention notifications.
 			if ( $count > 50 ) {
+				$stats->increment( 'echo.event.mention.error.tooMany' );
 				return;
 			}
 		}
