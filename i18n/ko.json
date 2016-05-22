@@ -102,6 +102,8 @@
 	"notification-header-mention-other": "$1님이 <strong>$4</strong>의 \"<strong>$5</strong>\"에서 당신을 언급했습니다.",
 	"notification-header-mention-user-talkpage-v2": "$1님이 <strong>$4 사용자 토론 문서</strong>의 <strong>$6 문단</strong>에서 당신을 언급했습니다.",
 	"notification-header-mention-user-talkpage-nosection": "$1님이 <strong>$4 사용자 토론 문서</strong>에서 당신을 언급했습니다.",
+	"notification-header-mention-article-talkpage": "$1님이 $4 토론 문서의 \"<strong>$5</strong>\" 문단에서 당신을 언급했습니다.",
+	"notification-header-mention-article-talkpage-nosection": "$1님이 <strong>$4</strong> 토론 문서에서 당신을 언급했습니다.",
 	"notification-user-rights-add": "당신은 이제 {{PLURAL:$2|다음 권한}}을 갖습니다: $1",
 	"notification-user-rights-remove": "당신은 더 이상 {{PLURAL:$2|다음 권한}}을 갖지 않습니다: $1",
 	"notification-user-rights": "[[User:$1|$1]]님이 당신의 [[Special:Log/rights/$1|사용자 권한을 {{GENDER:$1|바꾸었습니다}}]]. $2. [[Special:ListGroupRights|더 알아보기]]",
