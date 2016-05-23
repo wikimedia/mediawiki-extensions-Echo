@@ -53,7 +53,7 @@
 	"echo-none": "איר האט נישט קיין אנזאגן.",
 	"echo-more-info": "נאך אינפארמאציע",
 	"echo-feedback": "פֿידבעק",
-	"echo-api-failure": "נישט געווען מעגלעך קריק באקומען אנזאגן. זײט אזוי גוט און פרובירט נאכאמאל. (פעלער $1)",
+	"echo-api-failure": "נישט געווען מעגלעך באקומען אנזאגן. (פעלער: $1)",
 	"echo-notification-placeholder": "נישט פאראן קיין אנזאגן.",
 	"echo-notification-loginrequired": "איר דארפט אריינלאגירן כדי זען אייערע אנזאגן.",
 	"echo-notification-popup-loginrequired": "זייט אזוי גיט ארײַנלאגירן צו זען אייערע מודעות.",
