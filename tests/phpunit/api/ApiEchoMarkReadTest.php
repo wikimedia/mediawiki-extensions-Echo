@@ -3,6 +3,7 @@
 /**
  * @group medium
  * @group API
+ * @group Database
  * @covers ApiQuery
  */
 class ApiEchoMarkReadTest extends ApiTestCase {
