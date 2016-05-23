@@ -684,6 +684,8 @@ class EchoHooks {
 			$user = $wgUser;
 		}
 
+		$revid = $linksUpdate->getRevision() ? $linksUpdate->getRevision()->getId() : null;
+
 		// link notification is boundless as you can include infinite number of links in a page
 		// db insert is expensive, limit it to a reasonable amount, we can increase this limit
 		// once the storage is on Redis
@@ -703,6 +705,7 @@ class EchoHooks {
 					'agent' => $user,
 					'extra' => array(
 						'link-from-page-id' => $linksUpdate->mTitle->getArticleId(),
+						'revid' => $revid,
 					)
 				) );
 				$max--;
