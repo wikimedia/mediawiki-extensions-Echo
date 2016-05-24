@@ -45,6 +45,7 @@
 	"echo-none": "Je hebben gien meldingen.",
 	"echo-more-info": "Meer informasie",
 	"echo-feedback": "Kommentaar",
+	"echo-notification-placeholder": "Der bin gien berichten.",
 	"notification-link-text-view-message": "Bericht bekieken",
 	"notification-link-text-view-mention": "Vermelding bekieken",
 	"notification-link-text-view-changes": "Verschil bekieken",
