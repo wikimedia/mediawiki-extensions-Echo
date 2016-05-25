@@ -7,6 +7,10 @@ class SpecialNotificationsMarkRead extends FormSpecialPage {
 		parent::__construct( 'NotificationsMarkRead' );
 	}
 
+	public function doesWrites() {
+		return true;
+	}
+
 	public function execute( $par ) {
 		parent::execute( $par );
 
