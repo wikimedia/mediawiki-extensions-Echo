@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Auth\AuthManager;
 use MediaWiki\Logger\LoggerFactory;
 
 class EchoHooks {
@@ -240,7 +241,7 @@ class EchoHooks {
 	 * @return bool true in all cases
 	 */
 	public static function getPreferences( $user, &$preferences ) {
-		global $wgAuth, $wgEchoEnableEmailBatch,
+		global $wgEchoEnableEmailBatch,
 			$wgEchoNotifiers, $wgEchoNotificationCategories, $wgEchoNotifications,
 			$wgEchoNewMsgAlert, $wgAllowHTMLEmail, $wgEchoUseCrossWikiBetaFeature,
 			$wgEchoShowFooterNotice, $wgEchoCrossWikiNotifications;
@@ -280,7 +281,7 @@ class EchoHooks {
 		);
 		$emailAddress = $user->getEmail() && $user->isAllowed( 'viewmyprivateinfo' )
 			? htmlspecialchars( $user->getEmail() ) : '';
-		if ( $user->isAllowed( 'editmyprivateinfo' ) && $wgAuth->allowPropChange( 'emailaddress' ) ) {
+		if ( $user->isAllowed( 'editmyprivateinfo' ) && self::isEmailChangeAllowed() ) {
 			if ( $emailAddress === '' ) {
 				$emailAddress .= $link;
 			} else {
@@ -420,6 +421,20 @@ class EchoHooks {
 		}
 
 		return true;
+	}
+
+	/**
+	 * Test whether email address change is supposed to be allowed
+	 * @return boolean
+	 */
+	private static function isEmailChangeAllowed() {
+		global $wgAuth, $wgDisableAuthManager;
+
+		if ( class_exists( AuthManager::class ) && !$wgDisableAuthManager ) {
+			return AuthManager::singleton()->allowsPropertyChange( 'emailaddress' );
+		} else {
+			return $wgAuth->allowPropChange( 'emailaddress' );
+		}
 	}
 
 	/**
@@ -574,28 +589,30 @@ class EchoHooks {
 	}
 
 	/**
-	 * Handler for AddNewAccount hook.
-	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/AddNewAccount
+	 * Handler for LocalUserCreated hook.
+	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/LocalUserCreated
 	 * @param $user User object that was created.
-	 * @param $byEmail bool True when account was created "by email".
+	 * @param $autocreated bool True when account was auto-created
 	 * @return bool
 	 */
-	public static function onAccountCreated( $user, $byEmail ) {
-		$overrides = self::getNewUserPreferenceOverrides();
-		foreach ( $overrides as $prefKey => $value ) {
-			$user->setOption( $prefKey, $value );
+	public static function onLocalUserCreated( $user, $autocreated ) {
+		if ( !$autocreated ) {
+			$overrides = self::getNewUserPreferenceOverrides();
+			foreach ( $overrides as $prefKey => $value ) {
+				$user->setOption( $prefKey, $value );
+			}
+
+			$user->saveSettings();
+
+			EchoEvent::create( array(
+				'type' => 'welcome',
+				'agent' => $user,
+				// Welcome notification is sent to the agent
+				'extra' => array(
+					'notifyAgent' => true
+				)
+			) );
 		}
-
-		$user->saveSettings();
-
-		EchoEvent::create( array(
-			'type' => 'welcome',
-			'agent' => $user,
-			// Welcome notification is sent to the agent
-			'extra' => array(
-				'notifyAgent' => true
-			)
-		) );
 
 		return true;
 	}
