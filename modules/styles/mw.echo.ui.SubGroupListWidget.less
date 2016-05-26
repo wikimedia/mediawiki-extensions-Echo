@@ -6,12 +6,25 @@
 		padding-top: @bundle-group-padding;
 	}
 
-	&-title {
-		// Override OOUI's line height for labels
-		line-height: 1em !important;
-		font-weight: bold;
-		color: #666666;
-		margin-bottom: @bundle-group-padding;
+	&-header {
+		display: table;
+		width: 100%;
+
+		&-row {
+			display: table-row;
+
+			&-title {
+				display: table-cell;
+				width: 100%;
+				vertical-align: bottom;
+			}
+
+			&-markAllReadButton {
+				display: table-cell;
+				text-align: right;
+				padding-bottom: 0.5em;
+			}
+		}
 	}
 
 	.mw-echo-ui-sortedListWidget {
