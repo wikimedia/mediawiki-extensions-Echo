@@ -1,13 +1,6 @@
 <?php
 
-use MediaWiki\Logger\LoggerFactory;
-
-class ApiEchoNotifications extends ApiQueryBase {
-	/**
-	 * @var EchoForeignNotifications
-	 */
-	protected $foreignNotifications;
-
+class ApiEchoNotifications extends ApiCrossWikiBase {
 	/**
 	 * @var bool
 	 */
@@ -18,7 +11,6 @@ class ApiEchoNotifications extends ApiQueryBase {
 	}
 
 	public function execute() {
-		global $wgEchoCrossWikiNotifications;
 		// To avoid API warning, register the parameter used to bust browser cache
 		$this->getMain()->getVal( '_' );
 
@@ -42,24 +34,22 @@ class ApiEchoNotifications extends ApiQueryBase {
 			);
 		}
 
-		if ( $wgEchoCrossWikiNotifications ) {
-			$this->foreignNotifications = new EchoForeignNotifications( $this->getUser() );
+		if ( $this->allowCrossWikiNotifications() ) {
 			$this->crossWikiSummary = $params['crosswikisummary'];
-			$wikis = $params['wikis'];
-		} else {
-			$wikis = array( wfWikiId() );
 		}
 
 		$results = array();
-		if ( in_array( wfWikiId(), $wikis ) ) {
+		if ( !$this->allowCrossWikiNotifications() || in_array( wfWikiId(), $params['wikis'] ) ) {
 			$results[wfWikiId()] = $this->getLocalNotifications( $params );
 		}
 
-		$foreignWikis = array_diff( $wikis, array( wfWikiId() ) );
-		if ( !empty( $foreignWikis ) ) {
-			// get original request params, to forward them to individual wikis
-			$requestParams = $this->getRequest()->getValues();
-			$results += $this->getForeignNotifications( $foreignWikis, $requestParams );
+		if ( $this->getForeignWikis() ) {
+			$foreignResults = $this->getFromForeign();
+			foreach ( $foreignResults as $wiki => $result ) {
+				if ( isset( $result['query']['notifications'] ) ) {
+					$results[$wiki] = $result['query']['notifications'];
+				}
+			}
 		}
 
 		// after getting local & foreign results, merge them all together
@@ -333,74 +323,16 @@ class ApiEchoNotifications extends ApiQueryBase {
 	}
 
 	/**
-	 * @param User $user
-	 * @return string
-	 */
-	protected function getCentralAuthToken( User $user ) {
-		$context = new RequestContext;
-		$context->setRequest( new FauxRequest( array( 'action' => 'centralauthtoken' ) ) );
-		$context->setUser( $user );
-
-		$api = new ApiMain( $context );
-		$api->execute();
-
-		return $api->getResult()->getResultData( array( 'centralauthtoken', 'centralauthtoken' ) );
-	}
-
-	/**
-	 * @param array $wikis
-	 * @param array $params
+	 * @param string $wiki Wiki name
 	 * @return array
 	 */
-	protected function getForeignNotifications( array $wikis, array $params ) {
-		$apis = $this->foreignNotifications->getApiEndpoints( $wikis );
-		if ( !$apis ) {
-			return array();
-		}
+	protected function getForeignQueryParams( $wiki ) {
+		$params = parent::getForeignQueryParams( $wiki );
 
-		// Don't request cross-wiki notifications
+		// don't request cross-wiki notification summaries
 		unset( $params['notcrosswikisummary'] );
-		$params['format'] = 'json';
 
-		$reqs = array();
-		foreach ( $apis as $wiki => $api ) {
-			$reqs[$wiki] = array(
-				'method' => 'GET',
-				'url' => $api['url'],
-				// Only request data from that specific wiki, or they'd all spawn
-				// cross-wiki api requests...
-				'query' => array_merge( $params, array(
-					'notwikis' => $wiki,
-					'centralauthtoken' => $this->getCentralAuthToken( $this->getUser() )
-				) ),
-			);
-		}
-
-		$http = new MultiHttpClient( array() );
-		$responses = $http->runMulti( $reqs );
-
-		$results = array();
-		foreach ( $responses as $wiki => $response ) {
-			$statusCode = $response['response']['code'];
-			if ( $statusCode >= 200 && $statusCode <= 299 ) {
-				$parsed = json_decode( $response['response']['body'], true );
-				if ( $parsed && isset( $parsed['query']['notifications'] ) ) {
-					$results[$wiki] = $parsed['query']['notifications'];
-				}
-			}
-			if ( !isset( $results[$wiki] ) ) {
-				LoggerFactory::getInstance( 'Echo' )->warning(
-					"Failed to fetch notifications from {wiki}. Response: {code} {response}",
-					array(
-						'wiki' => $wiki,
-						'code' => $response['response']['code'],
-						'response' => $response['response']['body'],
-					)
-				);
-			}
-		}
-
-		return $results;
+		return $params;
 	}
 
 	/**
@@ -495,10 +427,10 @@ class ApiEchoNotifications extends ApiQueryBase {
 	}
 
 	public function getAllowedParams() {
-		global $wgConf, $wgEchoCrossWikiNotifications;
-
 		$sections = EchoAttributeManager::$sections;
-		$params = array(
+
+		$params = parent::getAllowedParams();
+		$params += array(
 			'filter' => array(
 				ApiBase::PARAM_ISMULTI => true,
 				ApiBase::PARAM_DFLT => 'read|!read',
@@ -557,14 +489,8 @@ class ApiEchoNotifications extends ApiQueryBase {
 			);
 		}
 
-		if ( $wgEchoCrossWikiNotifications ) {
+		if ( $this->allowCrossWikiNotifications() ) {
 			$params += array(
-				// fetch notifications from multiple wikis
-				'wikis' => array(
-					ApiBase::PARAM_ISMULTI => true,
-					ApiBase::PARAM_DFLT => wfWikiId(),
-					ApiBase::PARAM_TYPE => array_unique( array_merge( $wgConf->wikis, array( wfWikiId() ) ) ),
-				),
 				// create "x notifications from y wikis" notification bundle &
 				// include unread counts from other wikis in prop=count results
 				'crosswikisummary' => array(
