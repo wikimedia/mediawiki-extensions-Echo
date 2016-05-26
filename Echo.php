@@ -99,7 +99,7 @@ $wgHooks['EchoAbortEmailNotification'][] = 'EchoHooks::onEchoAbortEmailNotificat
 
 // Hook appropriate events
 $wgHooks['ArticleSaveComplete'][] = 'EchoHooks::onArticleSaved';
-$wgHooks['AddNewAccount'][] = 'EchoHooks::onAccountCreated';
+$wgHooks['LocalUserCreated'][] = 'EchoHooks::onLocalUserCreated';
 $wgHooks['ArticleRollbackComplete'][] = 'EchoHooks::onRollbackComplete';
 $wgHooks['UserSaveSettings'][] = 'EchoHooks::onUserSaveSettings';
 
