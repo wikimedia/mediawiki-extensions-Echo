@@ -156,7 +156,7 @@ abstract class EchoDiscussionParser {
 				continue;
 			}
 			// 2. the user mentions themselves
-			if ( $user->getId() == $revision->getUser() ) {
+			if ( $user->getId() == $revision->getUser( Revision::RAW ) ) {
 				$stats->increment( 'echo.event.mention.error.sameUser' );
 				continue;
 			}
