@@ -34,7 +34,20 @@ class EchoPageLinkedPresentationModel extends EchoEventPresentationModel {
 			'icon' => 'linked',
 			'prioritized' => true
 		);
-		return array( $whatLinksHereLink );
+
+		$revid = $this->event->getExtraParam( 'revid' );
+		$diffLink = null;
+		if ( $revid !== null ) {
+			$diffLink = array(
+				'url' => $this->event->getTitle()->getFullURL( array( 'diff' => $revid, 'oldid' => 'prev' ) ),
+				'label' => $this->msg( 'notification-link-text-view-changes' )->text(),
+				'description' => '',
+				'icon' => 'changes',
+				'prioritized' => true
+			);
+		}
+
+		return array( $whatLinksHereLink, $diffLink );
 	}
 
 	protected function getHeaderMessageKey() {
