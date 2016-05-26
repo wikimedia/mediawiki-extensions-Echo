@@ -277,7 +277,7 @@
 							);
 						} else {
 							// General error
-							widget.showErrorMessage( mw.msg( 'echo-api-failure', result.errInfo ) );
+							widget.showErrorMessage( mw.msg( 'echo-api-failure' ) );
 						}
 					}
 				)
