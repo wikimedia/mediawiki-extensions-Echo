@@ -25,13 +25,15 @@
 	/**
 	 * @inheritdoc
 	 */
-	mw.echo.api.LocalAPIHandler.prototype.fetchNotifications = function ( type, source, isForced ) {
-		if ( isForced || this.isFetchingErrorState( type, source ) ) {
+	mw.echo.api.LocalAPIHandler.prototype.fetchNotifications = function ( type, source, isForced, overrideParams ) {
+		if ( overrideParams ) {
+			return this.createNewFetchNotificationPromise( type, source, overrideParams );
+		} else if ( overrideParams || this.isFetchingErrorState( type, source ) ) {
 			// Force new promise
-			this.createNewFetchNotificationPromise( type, source );
+			this.createNewFetchNotificationPromise( type, source, overrideParams );
 		}
 
-		return this.getFetchNotificationPromise( type, source );
+		return this.getFetchNotificationPromise( type, source, overrideParams );
 	};
 
 	/**

@@ -49,6 +49,8 @@
 	 * Fetch notifications from the API.
 	 *
 	 * @param {string} type Notification type
+	 * @param {Object} [overrideParams] An object defining parameters to override in the API
+	 *  fetching call.
 	 * @return {jQuery.Promise} A promise that resolves with an object containing the
 	 *  notification items
 	 */
@@ -60,9 +62,14 @@
 	 *
 	 * @param {string} type Notification type
 	 * @param {string[]} [sources] An array of sources to query
+	 * @param {Object} [overrideParams] An object defining parameters to override in the API
+	 *  fetching call.
+	 * @return {jQuery.Promise} Promise that is resolved when notifications are
+	 *  fetched from the API.
 	 */
-	mw.echo.api.APIHandler.prototype.createNewFetchNotificationPromise = function ( type, sources ) {
-		var fetchingSource = 'local',
+	mw.echo.api.APIHandler.prototype.createNewFetchNotificationPromise = function ( type, sources, overrideParams ) {
+		var apiErrState, fetchNotifPromise,
+			fetchingSource = 'local',
 			me = this,
 			params = $.extend( {
 				action: 'query',
@@ -81,10 +88,24 @@
 			fetchingSource = 'foreign';
 		}
 
-		this.apiErrorState[ type ] = this.apiErrorState[ type ] || {};
-		this.apiErrorState[ type ][ fetchingSource ] = false;
+		// Initialize the nested value if it doesn't yet exist
 		this.fetchNotificationsPromise[ type ] = this.fetchNotificationsPromise[ type ] || {};
-		this.fetchNotificationsPromise[ type ][ fetchingSource ] = this.api.get( params )
+		me.apiErrorState[ type ] = me.apiErrorState[ type ] || {};
+
+		// Reset cached values
+		apiErrState = false;
+		this.fetchNotificationsPromise[ type ][ fetchingSource ] = null;
+		this.apiErrorState[ type ][ fetchingSource ] = false;
+
+		// Create the fetch promise
+		fetchNotifPromise = this.api.get( $.extend( true, params, overrideParams ) );
+
+		// Only cache promises that don't have override params in them
+		if ( !overrideParams ) {
+			this.fetchNotificationsPromise[ type ][ fetchingSource ] = fetchNotifPromise;
+		}
+
+		return fetchNotifPromise
 			.fail( function () {
 				// Mark API error state
 				me.apiErrorState[ type ][ fetchingSource ] = true;
@@ -161,17 +182,20 @@
 	 * Return the fetch notifications promise
 	 *
 	 * @param {string} type Notification type, 'alert', 'message' or 'all'
+	 * @param {string|string[]} [sources] A name of a source or an array of sources to query
+	 * @param {Object} [overrideParams] An object defining parameters to override in the API
+	 *  fetching call.
 	 * @return {jQuery.Promise} Promise that is resolved when notifications are
 	 *  fetched from the API.
 	 */
-	mw.echo.api.APIHandler.prototype.getFetchNotificationPromise = function ( type, sources ) {
+	mw.echo.api.APIHandler.prototype.getFetchNotificationPromise = function ( type, sources, overrideParams ) {
 		var fetchingSource = 'local';
 
 		if ( Array.isArray( sources ) && sources.indexOf( 'local' ) === -1 ) {
 			fetchingSource = 'foreign';
 		}
-		if ( !this.fetchNotificationsPromise[ type ] || !this.fetchNotificationsPromise[ type ][ fetchingSource ] ) {
-			this.createNewFetchNotificationPromise( type, sources );
+		if ( overrideParams || !this.fetchNotificationsPromise[ type ] || !this.fetchNotificationsPromise[ type ][ fetchingSource ] ) {
+			this.createNewFetchNotificationPromise( type, sources, overrideParams );
 		}
 		return this.fetchNotificationsPromise[ type ][ fetchingSource ];
 	};

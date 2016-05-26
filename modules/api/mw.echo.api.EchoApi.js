@@ -13,7 +13,7 @@
 	OO.initClass( mw.echo.api.EchoApi );
 
 	/**
-	 * Register a set of sources.
+	 * Register a set of foreign sources.
 	 *
 	 * @param {Object} sources Object mapping source names to config objects
 	 */
@@ -25,23 +25,39 @@
 	};
 
 	/**
+	 * Register a set of local sources.
+	 *
+	 * @param {string[]} sources An array of source names
+	 */
+	mw.echo.api.EchoApi.prototype.registerLocalSources = function ( sources ) {
+		var i,
+			localHandler = this.network.getApiHandler( 'local' );
+
+		for ( i = 0; i < sources.length; i++ ) {
+			this.network.setApiHandler( sources[ i ], localHandler );
+		}
+	};
+
+	/**
 	 * Fetch notifications from the server based on type
 	 *
 	 * @param {string} type Notification type to fetch: 'alert', 'message', or 'all'
 	 * @param {string|string[]} [sources] The source from which to fetch the notifications.
 	 *  If not given, the local notifications will be fetched.
 	 * @param {boolean} [isForced] Force a refresh on the fetch notifications promise
+	 * @param {Object} [overrideParams] An object defining parameters to override in the API
+	 *  fetching call.
 	 * @return {jQuery.Promise} Promise that is resolved with all notifications for the
 	 *  requested types.
 	 */
-	mw.echo.api.EchoApi.prototype.fetchNotifications = function ( type, sources, isForced ) {
+	mw.echo.api.EchoApi.prototype.fetchNotifications = function ( type, sources, isForced, overrideParams ) {
 		sources = Array.isArray( sources ) ?
 			sources :
 			sources ?
 				[ sources ] :
 				null;
 
-		return this.network.getApiHandler( 'local' ).fetchNotifications( type, sources, isForced )
+		return this.network.getApiHandler( 'local' ).fetchNotifications( type, sources, isForced, overrideParams )
 			.then( function ( result ) {
 				return OO.getProp( result.query, 'notifications' );
 			} );
