@@ -49,16 +49,18 @@
 }
 
 .mw-echo-date-section {
-	font-weight: 800;
-	font-size: 1.1em;
-	text-transform: uppercase;
 	border-bottom: 1px solid #C9C9C9;
 	margin: 20px 0 5px 0;
 	color: #686868;
 	display: inline-block;
 	width: 100%;
 	padding-bottom: 0.5em;
+}
 
+.mw-echo-date-section-text {
+	text-transform: uppercase;
+	font-size: 1.1em;
+	font-weight: 800;
 }
 
 .mw-echo-special-container {
@@ -92,6 +94,15 @@
 
 .mw-echo-markAsReadSectionButton {
 	float: right;
+
+	// HACK: temporary workaround for T136024
+	line-height: normal;
+
+	.oo-ui-buttonElement-button {
+		.oo-ui-labelElement-label {
+			font-weight: normal;
+		}
+	}
 }
 
 .mw-echo-special-container {

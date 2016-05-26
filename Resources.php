@@ -270,6 +270,7 @@ $wgResourceModules += array(
 	'ext.echo.styles.special' => $echoResourceTemplate + array(
 		'position' => 'top',
 		'styles' => array(
+			'nojs/mw.echo.icon.less',
 			'nojs/mw.echo.special.less',
 		),
 		'targets' => array( 'desktop', 'mobile' ),
