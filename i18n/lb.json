@@ -52,6 +52,7 @@
 	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Nei Benotzer",
 	"echo-specialpage": "Notifikatiounen",
 	"echo-specialpage-section-markread": "Abschnitt als geliest markéieren",
+	"notificationsmarkread-legend": "Notifikatioun als geliest markéieren",
 	"echo-anon": "Fir Notifikatiounen ze kréien, [$1 maacht e Benotzerkont op] oder [$2 loggt Iech an]",
 	"echo-none": "Dir hutt keng Notifikatiounen.",
 	"echo-more-info": "Méi Informatiounen",
