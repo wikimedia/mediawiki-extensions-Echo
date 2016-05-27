@@ -20,7 +20,6 @@
 				controller,
 				modelManager,
 				{
-					pageNext: mw.config.get( 'wgEchoNextContinue' ),
 					limit: limitNotifications,
 					$overlay: mw.echo.ui.$overlay
 				}
