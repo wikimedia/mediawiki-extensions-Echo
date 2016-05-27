@@ -38,37 +38,31 @@
 		this.setPendingElement( this.datedListWidget.$element );
 
 		// Pagination
-		// TODO: Separate the pagination controls and labels to
-		// its own widget
-		// Top
-		this.topPaginationLabel = new OO.ui.LabelWidget();
-		this.topPaginationStart = new OO.ui.ButtonWidget( {
-			label: mw.msg( 'notification-timestamp-today' ),
-			data: 'start'
-		} );
-		this.topPaginationButtons = this.createPaginationButtons();
-
-		// Bottom
-		this.bottomPaginationLabel = new OO.ui.LabelWidget();
-		this.bottomPaginationStart = new OO.ui.ButtonWidget( {
-			label: mw.msg( 'notification-timestamp-today' ),
-			data: 'start'
-		} );
-		this.bottomPaginationButtons = this.createPaginationButtons();
+		this.topPaginationWidget = new mw.echo.ui.PaginationWidget(
+			this.manager.getPaginationModel(),
+			{
+				itemsPerPage: this.limit
+			}
+		);
+		this.bottomPaginationWidget = new mw.echo.ui.PaginationWidget(
+			this.manager.getPaginationModel(),
+			{
+				itemsPerPage: this.limit
+			}
+		);
 
 		// Filter by read state
 		this.readStateSelectWidget = new mw.echo.ui.ReadStateButtonSelectWidget();
 
 		// Events
-		this.topPaginationButtons.connect( this, { choose: 'onPaginationChoose' } );
-		this.bottomPaginationButtons.connect( this, { choose: 'onPaginationChoose' } );
-		this.topPaginationStart.connect( this, { click: 'onPaginationStart' } );
-		this.bottomPaginationStart.connect( this, { click: 'onPaginationStart' } );
 		this.readStateSelectWidget.connect( this, { filter: 'onReadStateFilter' } );
-		this.manager.connect( this, { update: 'updatePaginationLabel' } );
 		this.manager.getFiltersModel().connect( this, { update: 'updateReadStateSelectWidget' } );
+		this.topPaginationWidget.connect( this, { change: 'populateNotifications' } );
+		this.bottomPaginationWidget.connect( this, { change: 'populateNotifications' } );
 
-		this.disablePagination();
+		this.topPaginationWidget.setDisabled( true );
+		this.bottomPaginationWidget.setDisabled( true );
+
 		// Initialization
 		this.$element
 			.addClass( 'mw-echo-ui-notificationsInboxWidget' )
@@ -81,18 +75,14 @@
 							.append(
 								$( '<div>' )
 									.addClass( 'mw-echo-ui-notificationsInboxWidget-toolbar-readState' )
+									.addClass( 'mw-echo-ui-notificationsInboxWidget-toolbar-cell' )
 									.append( this.readStateSelectWidget.$element ),
 								$( '<div>' )
 									.addClass( 'mw-echo-ui-notificationsInboxWidget-toolbar-top-placeholder' ),
 								$( '<div>' )
-									.addClass( 'mw-echo-ui-notificationsInboxWidget-toolbar-pagination-label' )
-									.append( this.topPaginationLabel.$element ),
-								$( '<div>' )
-									.addClass( 'mw-echo-ui-notificationsInboxWidget-toolbar-pagination-start' )
-									.append( this.topPaginationStart.$element ),
-								$( '<div>' )
-									.addClass( 'mw-echo-ui-notificationsInboxWidget-toolbar-pagination-buttons' )
-									.append( this.topPaginationButtons.$element )
+									.addClass( 'mw-echo-ui-notificationsInboxWidget-toolbar-pagination' )
+									.addClass( 'mw-echo-ui-notificationsInboxWidget-toolbar-cell' )
+									.append( this.topPaginationWidget.$element )
 							)
 					),
 				this.datedListWidget.$element,
@@ -103,14 +93,10 @@
 							.addClass( 'mw-echo-ui-notificationsInboxWidget-toolbar-row' )
 							.append(
 								$( '<div>' )
-									.addClass( 'mw-echo-ui-notificationsInboxWidget-toolbar-pagination-label' )
-									.append( this.bottomPaginationLabel.$element ),
-								$( '<div>' )
-									.addClass( 'mw-echo-ui-notificationsInboxWidget-toolbar-pagination-start' )
-									.append( this.bottomPaginationStart.$element ),
-								$( '<div>' )
-									.addClass( 'mw-echo-ui-notificationsInboxWidget-toolbar-pagination-buttons' )
-									.append( this.bottomPaginationButtons.$element )
+									.addClass( 'mw-echo-ui-notificationsInboxWidget-toolbar-cell' )
+									.append(
+										this.bottomPaginationWidget.$element
+									)
 							)
 					)
 			);
@@ -136,27 +122,6 @@
 	};
 
 	/**
-	 * Respond to pagination start button click event
-	 */
-	mw.echo.ui.NotificationsInboxWidget.prototype.onPaginationStart = function () {
-		this.populateNotifications( 'start' );
-	};
-
-	/**
-	 * Respond to pagination choose event
-	 *
-	 * @param {OO.ui.ButtonOptionWidget} item Chosen item
-	 */
-	mw.echo.ui.NotificationsInboxWidget.prototype.onPaginationChoose = function ( item ) {
-		var direction = item && item.getData();
-
-		if ( direction ) {
-			this.populateNotifications( direction );
-			item.setSelected( false );
-		}
-	};
-
-	/**
 	 * Respond to read state filter event
 	 *
 	 * @param {string} readState Read state 'all', 'read' or 'unread'
@@ -164,51 +129,6 @@
 	mw.echo.ui.NotificationsInboxWidget.prototype.onReadStateFilter = function ( readState ) {
 		this.controller.setFilter( 'readState', readState );
 		this.populateNotifications();
-	};
-
-	/**
-	 * Create a set of pagination buttons
-	 *
-	 * @return {OO.ui.ButtonSelectWidget} Pagination button select widget
-	 */
-	mw.echo.ui.NotificationsInboxWidget.prototype.createPaginationButtons = function () {
-		return new OO.ui.ButtonSelectWidget( {
-			classes: [ 'mw-echo-ui-notificationsInboxWidget-pagination' ],
-			items: [
-				new OO.ui.ButtonOptionWidget( {
-					icon: 'previous',
-					data: 'prev'
-				} ),
-				new OO.ui.ButtonOptionWidget( {
-					icon: 'next',
-					data: 'next'
-				} )
-			]
-		} );
-	};
-
-	/**
-	 * Toggle the pagination. If false, the pagination buttons will be
-	 * enabled depending on whether they are a valid action.
-	 *
-	 * @param {boolean} [isDisabled=true] Pagination is disabled
-	 */
-	mw.echo.ui.NotificationsInboxWidget.prototype.disablePagination = function ( isDisabled ) {
-		var pagination = this.manager.getPaginationModel();
-		isDisabled = isDisabled === undefined ? true : isDisabled;
-
-		this.topPaginationButtons.getItemFromData( 'prev' ).setDisabled( isDisabled || !pagination.hasPrevPage() );
-		this.topPaginationButtons.getItemFromData( 'next' ).setDisabled( isDisabled || !pagination.hasNextPage() );
-		this.bottomPaginationButtons.getItemFromData( 'prev' ).setDisabled( isDisabled || !pagination.hasPrevPage() );
-		this.bottomPaginationButtons.getItemFromData( 'next' ).setDisabled( isDisabled || !pagination.hasNextPage() );
-
-		this.topPaginationStart.toggle( !isDisabled && pagination.getCurrPageIndex() >= 2 );
-		this.bottomPaginationStart.toggle( !isDisabled && pagination.getCurrPageIndex() >= 2 );
-
-		this.topPaginationLabel.toggle( !isDisabled );
-		this.bottomPaginationLabel.toggle( !isDisabled );
-
-		this.readStateSelectWidget.setDisabled( isDisabled );
 	};
 
 	/**
@@ -231,25 +151,12 @@
 		}
 
 		this.pushPending();
-		this.disablePagination();
+		this.topPaginationWidget.setDisabled( true );
+		this.bottomPaginationWidget.setDisabled( true );
 		return fetchPromise
-			// Re-enable pagination
-			.then( this.disablePagination.bind( this, false ) )
+			.then( this.topPaginationWidget.setDisabled.bind( this.topPaginationWidget, false ) )
+			.then( this.bottomPaginationWidget.setDisabled.bind( this.bottomPaginationWidget, false ) )
 			// Pop pending
 			.always( this.popPending.bind( this ) );
-	};
-
-	/**
-	 * Update the pagination label according to the page number, the amount of notifications
-	 * per page, and the amount of notifications on the current page.
-	 */
-	mw.echo.ui.NotificationsInboxWidget.prototype.updatePaginationLabel = function () {
-		var firstNotifNum = ( this.manager.getPaginationModel().getCurrPageIndex() * this.limit ),
-			lastNotifNum = firstNotifNum + this.datedListWidget.getAllNotificationCount(),
-			label = ( firstNotifNum + 1 ) + ' - ' + lastNotifNum;
-
-		// Display the range
-		this.topPaginationLabel.setLabel( label );
-		this.bottomPaginationLabel.setLabel( label );
 	};
 } )( jQuery, mediaWiki );
