@@ -17,6 +17,18 @@
 	OO.initClass( mw.echo.Controller );
 
 	/**
+	 * Update a filter value
+	 *
+	 * @param {string} filter Filter name
+	 * @param {string} value Filter value
+	 */
+	mw.echo.Controller.prototype.setFilter = function ( filter, value ) {
+		if ( filter === 'readState' ) {
+			this.manager.getFiltersModel().setReadState( value );
+		}
+	};
+
+	/**
 	 * Fetch the next page by date
 	 *
 	 * @return {jQuery.Promise} A promise that resolves with an object where the keys are
@@ -61,13 +73,15 @@
 	mw.echo.Controller.prototype.fetchLocalNotificationsByDate = function ( page ) {
 		var controller = this,
 			pagination = this.manager.getPaginationModel(),
+			filters = this.manager.getFiltersModel(),
 			continueValue = pagination.getPageContinue( page || pagination.getCurrPageIndex() );
 
 		return this.api.fetchNotifications(
 			this.manager.getTypeString(),
 			'local',
 			true,
-			continueValue
+			continueValue,
+			filters.getReadState()
 		)
 			.then( function ( data ) {
 				var i, notifData, newNotifData, date, itemModel, symbolicName,

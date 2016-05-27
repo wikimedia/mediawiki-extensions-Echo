@@ -164,6 +164,7 @@ $wgResourceModules += array(
 			'mw.echo.js',
 			'model/mw.echo.dm.js',
 			'model/mw.echo.dm.PaginationModel.js',
+			'model/mw.echo.dm.FiltersModel.js',
 			'model/mw.echo.dm.ModelManager.js',
 			'model/mw.echo.dm.SortedList.js',
 			'model/mw.echo.dm.NotificationItem.js',
@@ -275,6 +276,7 @@ $wgResourceModules += array(
 		'scripts' => array(
 			'ui/mw.echo.ui.DatedSubGroupListWidget.js',
 			'ui/mw.echo.ui.DatedNotificationsWidget.js',
+			'ui/mw.echo.ui.ReadStateButtonSelectWidget.js',
 			'ui/mw.echo.ui.NotificationsInboxWidget.js',
 			'special/ext.echo.special.js',
 		),
@@ -289,6 +291,9 @@ $wgResourceModules += array(
 		),
 		'messages' => array(
 			'echo-load-more-error',
+			'notification-inbox-filter-read',
+			'notification-inbox-filter-unread',
+			'notification-inbox-filter-all',
 			'echo-more-info',
 			'echo-feedback',
 			'echo-specialpage-section-markread',

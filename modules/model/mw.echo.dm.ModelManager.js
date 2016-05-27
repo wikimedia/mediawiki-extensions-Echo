@@ -38,6 +38,7 @@
 
 		this.notificationModels = {};
 		this.paginationModel = new mw.echo.dm.PaginationModel();
+		this.filtersModel = new mw.echo.dm.FiltersModel();
 
 		// Properties
 		this.seenTime = mw.config.get( 'wgEchoSeenTime' ) || {};
@@ -131,6 +132,15 @@
 	 */
 	mw.echo.dm.ModelManager.prototype.getPaginationModel = function () {
 		return this.paginationModel;
+	};
+
+	/**
+	 * Get the filters model
+	 *
+	 * @return {mw.echo.dm.FiltersModel} Filters model
+	 */
+	mw.echo.dm.ModelManager.prototype.getFiltersModel = function () {
+		return this.filtersModel;
 	};
 
 	/**
