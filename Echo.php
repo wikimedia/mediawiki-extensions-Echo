@@ -121,9 +121,6 @@ $wgHooks['ResourceLoaderGetConfigVars'][] = 'EchoHooks::onResourceLoaderGetConfi
 // Whether to turn on email batch function
 $wgEchoEnableEmailBatch = true;
 
-// URL for more information about the Echo notification system
-$wgEchoHelpPage = '//www.mediawiki.org/wiki/Special:MyLanguage/Help:Notifications';
-
 // Whether to use job queue to process web and email notifications, bypass the queue for now
 // since it's taking more than an hour to run in mediawiki.org, this is not acceptable for the
 // purpose of testing notification.

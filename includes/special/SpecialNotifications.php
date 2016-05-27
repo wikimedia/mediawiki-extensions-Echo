@@ -18,6 +18,8 @@ class SpecialNotifications extends SpecialPage {
 		$out = $this->getOutput();
 		$out->setPageTitle( $this->msg( 'echo-specialpage' )->text() );
 
+		$this->addHelpLink( 'Help:Notifications' );
+
 		$user = $this->getUser();
 		if ( $user->isAnon() ) {
 			// Redirect to login page and inform user of the need to login
@@ -136,21 +138,8 @@ class SpecialNotifications extends SpecialPage {
 	 * @return string HTML for the subtitle
 	 */
 	public function buildSubtitle() {
-		global $wgEchoHelpPage;
 		$lang = $this->getLanguage();
 		$subtitleLinks = array();
-		// More info link
-		$subtitleLinks[] = Html::element(
-			'a',
-			array(
-				'href' => $wgEchoHelpPage,
-				'id' => 'mw-echo-moreinfo-link',
-				'class' => 'mw-echo-special-header-link',
-				'title' => $this->msg( 'echo-more-info' )->text(),
-				'target' => '_blank'
-			),
-			$this->msg( 'echo-more-info' )->text()
-		);
 		// Preferences link
 		$subtitleLinks[] = Html::element(
 			'a',
@@ -162,7 +151,7 @@ class SpecialNotifications extends SpecialPage {
 			),
 			$this->msg( 'preferences' )->text()
 		);
-
+		// using pipeList to make it easier to add some links in the future
 		return $lang->pipeList( $subtitleLinks );
 	}
 
