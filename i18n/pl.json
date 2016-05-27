@@ -71,6 +71,7 @@
 	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Nowi użytkownicy",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "Wymagane sposoby powiadamiania",
 	"echo-specialpage": "Powiadomienia",
+	"echo-specialpage-section-markread": "Oznacz grupę jako przeczytaną",
 	"notificationsmarkread-legend": "Oznacz powiadomienie jako przeczytane",
 	"echo-anon": "Aby otrzymywać powiadomienia, [$1 załóż konto] lub [$2 zaloguj się].",
 	"echo-none": "Nie masz żadnych powiadomień.",

@@ -63,7 +63,7 @@
 	"echo-none": "Һеҙ белдереүҙәр алманығыҙ.",
 	"echo-more-info": "Ентекләберәк",
 	"echo-feedback": "Кире бәйләнеш",
-	"echo-api-failure": "Белдереү алып булманы. Тағы бер мәртәбә эшләп ҡараҫыҙ. (Хата $1)",
+	"echo-api-failure": "Белдереү алып булманы.",
 	"echo-api-failure-cross-wiki": "Юйылған доменға инеү тыйылды.",
 	"echo-notification-placeholder": "Белдереү юҡ.",
 	"echo-notification-loginrequired": "Белдереүҙе ҡарау өсөн һеҙ танылырға тейеш.",
