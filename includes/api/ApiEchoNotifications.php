@@ -39,11 +39,11 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 		}
 
 		$results = array();
-		if ( !$this->allowCrossWikiNotifications() || in_array( wfWikiId(), $params['wikis'] ) ) {
+		if ( in_array( wfWikiId(), $this->getRequestedWikis() ) ) {
 			$results[wfWikiId()] = $this->getLocalNotifications( $params );
 		}
 
-		if ( $this->getForeignWikis() ) {
+		if ( $this->getRequestedForeignWikis() ) {
 			$foreignResults = $this->getFromForeign();
 			foreach ( $foreignResults as $wiki => $result ) {
 				if ( isset( $result['query']['notifications'] ) ) {

@@ -27,7 +27,7 @@ abstract class ApiCrossWikiBase extends ApiQueryBase {
 	 * @throws Exception
 	 */
 	protected function getFromForeign() {
-		$reqs = $this->getForeignRequestParams( $this->getForeignWikis() );
+		$reqs = $this->getForeignRequestParams( $this->getRequestedForeignWikis() );
 
 		return $this->foreignRequests( $reqs );
 	}
@@ -41,15 +41,47 @@ abstract class ApiCrossWikiBase extends ApiQueryBase {
 	}
 
 	/**
-	 * @return array Wiki names
+	 * This is basically equivalent to $params['wikis'], but some added checks:
+	 * - `*` will expand to "all wikis with unread notifications"
+	 * - if `$wgEchoCrossWikiNotifications` is off, foreign wikis will be excluded
+	 *
+	 * @return array
 	 */
-	protected function getForeignWikis() {
-		if ( !$this->allowCrossWikiNotifications() ) {
-			return array();
+	protected function getRequestedWikis() {
+		$params = $this->extractRequestParams();
+
+		// if wiki is omitted from params, that's because crosswiki is/was not
+		// available, and it'll default to current wiki
+		$wikis = isset( $params['wikis'] ) ? $params['wikis'] : array( wfWikiID() );
+
+		if ( array_search( '*', $wikis ) !== false ) {
+			// expand `*` to all foreign wikis with unread notifications + local
+			$wikis = array_merge(
+				array( wfWikiID() ),
+				$this->getForeignWikisWithUnreadNotifications()
+			);
 		}
 
-		$params = $this->extractRequestParams();
-		return array_diff( $params['wikis'], array( wfWikiId() ) );
+		if ( !$this->allowCrossWikiNotifications() ) {
+			// exclude foreign wikis if x-wiki is not enabled
+			$wikis = array_intersect_key( array( wfWikiID() ), $wikis );
+		}
+
+		return $wikis;
+	}
+
+	/**
+	 * @return array Wiki names
+	 */
+	protected function getRequestedForeignWikis() {
+		return array_diff( $this->getRequestedWikis(), array( wfWikiId() ) );
+	}
+
+	/**
+	 * @return array Wiki names
+	 */
+	protected function getForeignWikisWithUnreadNotifications() {
+		return $this->foreignNotifications->getWikis();
 	}
 
 	/**
@@ -133,8 +165,9 @@ abstract class ApiCrossWikiBase extends ApiQueryBase {
 
 			if ( !isset( $results[$wiki] ) ) {
 				LoggerFactory::getInstance( 'Echo' )->warning(
-					'Failed to fetch notifications from {wiki}. Response: {code} {response}',
+					'Failed to fetch {module} from {wiki}. Response: {code} {response}',
 					array(
+						'module' => $this->getModuleName(),
 						'wiki' => $wiki,
 						'code' => $response['response']['code'],
 						'response' => $response['response']['body'],
@@ -160,7 +193,9 @@ abstract class ApiCrossWikiBase extends ApiQueryBase {
 				'wikis' => array(
 					ApiBase::PARAM_ISMULTI => true,
 					ApiBase::PARAM_DFLT => wfWikiId(),
-					ApiBase::PARAM_TYPE => array_unique( array_merge( $wgConf->wikis, array( wfWikiId() ) ) ),
+					// `*` will let you immediately fetch from all wikis that have
+					// unread notifications, without having to look them up first
+					ApiBase::PARAM_TYPE => array_unique( array_merge( $wgConf->wikis, array( wfWikiId(), '*' ) ) ),
 				),
 			);
 		}
