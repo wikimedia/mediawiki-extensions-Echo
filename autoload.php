@@ -4,6 +4,7 @@
 global $wgAutoloadClasses;
 
 $wgAutoloadClasses += [
+	'ApiCrossWikiBase' => __DIR__ . '/includes/api/ApiCrossWikiBase.php',
 	'ApiEchoMarkRead' => __DIR__ . '/includes/api/ApiEchoMarkRead.php',
 	'ApiEchoMarkReadTest' => __DIR__ . '/tests/phpunit/api/ApiEchoMarkReadTest.php',
 	'ApiEchoMarkSeen' => __DIR__ . '/includes/api/ApiEchoMarkSeen.php',
