@@ -191,6 +191,8 @@
 	"notification-timestamp-ago-days": "{{PLURAL:$1|$1d}}",
 	"notification-timestamp-ago-months": "{{PLURAL:$1|$1mo}}",
 	"notification-timestamp-ago-years": "{{PLURAL:$1|$1yr}}",
+	"notification-timestamp-today": "Today",
+	"notification-timestamp-yesterday": "Yesterday",
 	"echo-email-subject-default": "New notification at {{SITENAME}}",
 	"echo-email-body-default": "You have a new notification at {{SITENAME}}:\n\n$1",
 	"echo-email-batch-body-default": "You have a new notification.",

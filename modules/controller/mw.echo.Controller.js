@@ -17,6 +17,118 @@
 	OO.initClass( mw.echo.Controller );
 
 	/**
+	 * Fetch the next page by date
+	 *
+	 * @return {jQuery.Promise} A promise that resolves with an object where the keys are
+	 *  days and the items are item IDs.
+	 */
+	mw.echo.Controller.prototype.fetchNextPageByDate = function () {
+		this.manager.getPaginationModel().forwards();
+		return this.fetchLocalNotificationsByDate();
+	};
+
+	/**
+	 * Fetch the previous page by date
+	 *
+	 * @return {jQuery.Promise} A promise that resolves with an object where the keys are
+	 *  days and the items are item IDs.
+	 */
+	mw.echo.Controller.prototype.fetchPrevPageByDate = function () {
+		this.manager.getPaginationModel().backwards();
+		return this.fetchLocalNotificationsByDate();
+	};
+
+	/**
+	 * Fetch the first page by date
+	 *
+	 * @return {jQuery.Promise} A promise that resolves with an object where the keys are
+	 *  days and the items are item IDs.
+	 */
+	mw.echo.Controller.prototype.fetchFirstPageByDate = function () {
+		this.manager.getPaginationModel().setCurrPageIndex( 0 );
+		return this.fetchLocalNotificationsByDate();
+	};
+
+	/**
+	 * Fetch notifications from the local API and sort them by date.
+	 * This method ignores cross-wiki notifications and bundles.
+	 *
+	 * @param {number} [page] Page number. If not given, it defaults to the current
+	 *  page.
+	 * @return {jQuery.Promise} A promise that resolves with an object where the keys are
+	 *  days and the items are item IDs.
+	 */
+	mw.echo.Controller.prototype.fetchLocalNotificationsByDate = function ( page ) {
+		var controller = this,
+			pagination = this.manager.getPaginationModel(),
+			continueValue = pagination.getPageContinue( page || pagination.getCurrPageIndex() );
+
+		return this.api.fetchNotifications(
+			this.manager.getTypeString(),
+			'local',
+			true,
+			continueValue
+		)
+			.then( function ( data ) {
+				var i, notifData, newNotifData, date, itemModel, symbolicName,
+					dateItemIds = {},
+					dateItems = {},
+					models = {};
+
+				data = data || { list: [] };
+
+				// Go over the data
+				for ( i = 0; i < data.list.length; i++ ) {
+					notifData = data.list[ i ];
+
+					// Collect common data
+					newNotifData = controller.createNotificationData( notifData );
+					if ( notifData.type !== 'foreign' ) {
+						date = newNotifData.timestamp.substring( 0, 8 );
+						newNotifData.source = 'local_' + date;
+
+						// Single notifications
+						itemModel = new mw.echo.dm.NotificationItem(
+							notifData.id,
+							newNotifData
+						);
+
+						dateItems[ date ] = dateItems[ date ] || [];
+						dateItems[ date ].push( itemModel );
+
+						dateItemIds[ date ] = dateItemIds[ date ] || [];
+						dateItemIds[ date ].push( notifData.id );
+					}
+				}
+
+				// Fill in the models
+				for ( date in dateItems ) {
+					symbolicName = 'local_' + date;
+
+					// Set up model
+					models[ symbolicName ] = new mw.echo.dm.NotificationsList( {
+						type: controller.manager.getTypes(),
+						source: symbolicName,
+						title: date,
+						timestamp: date
+					} );
+
+					models[ symbolicName ].setItems( dateItems[ date ] );
+				}
+
+				// Register local sources
+				controller.api.registerLocalSources( Object.keys( models ) );
+
+				// Update the manager
+				controller.manager.setNotificationModels( models );
+
+				// Update the pagination
+				controller.manager.getPaginationModel().setNextPageContinue( data.continue );
+
+				return dateItemIds;
+			} );
+	};
+	/**
 	 * Fetch notifications from the local API and update the notifications list.
 	 *
 	 * @param {boolean} [isForced] Force a renewed fetching promise. If set to false, the
@@ -90,15 +202,15 @@
 					localListModel.addItems( localItems );
 
 					// Update the controller
-					controller.manager.setModels( allModels );
+					controller.manager.setNotificationModels( allModels );
 
 					return idArray;
 				},
 				// Failure
 				function ( errCode, errObj ) {
-					if ( !controller.manager.getModel( 'local' ) ) {
+					if ( !controller.manager.getNotificationModel( 'local' ) ) {
 						// Update the controller
-						controller.manager.setModels( { local: localListModel } );
+						controller.manager.setNotificationModels( { local: localListModel } );
 					}
 					return {
 						errCode: errCode,
@@ -152,7 +264,7 @@
 	mw.echo.Controller.prototype.markEntireListModelRead = function ( modelName ) {
 		var i, items,
 			itemIds = [],
-			model = this.manager.getModel( modelName || 'local' );
+			model = this.manager.getNotificationModel( modelName || 'local' );
 
 		if ( !model ) {
 			// Model doesn't exist
@@ -178,7 +290,7 @@
 	 */
 	mw.echo.Controller.prototype.fetchCrossWikiNotifications = function () {
 		var controller = this,
-			xwikiModel = this.manager.getModel( 'xwiki' );
+			xwikiModel = this.manager.getNotificationModel( 'xwiki' );
 
 		if ( !xwikiModel ) {
 			// There is no xwiki notifications model, so we can't
@@ -261,7 +373,7 @@
 		// Default to true
 		isRead = isRead === undefined ? true : isRead;
 
-		this.manager.getModel( modelSource ).findByIds( itemIds ).forEach( function ( notification ) {
+		this.manager.getNotificationModel( modelSource ).findByIds( itemIds ).forEach( function ( notification ) {
 			notification.toggleRead( isRead );
 		} );
 
@@ -282,7 +394,7 @@
 	mw.echo.Controller.prototype.markCrossWikiItemsRead = function ( itemIds, modelSource ) {
 		var sourceModel,
 			notifs = [],
-			xwikiModel = this.manager.getModel( 'xwiki' );
+			xwikiModel = this.manager.getNotificationModel( 'xwiki' );
 
 		if ( !xwikiModel ) {
 			return $.Deferred().reject().promise();
@@ -307,7 +419,7 @@
 	 */
 	mw.echo.Controller.prototype.markEntireCrossWikiItemAsRead = function () {
 		var controller = this,
-			xwikiModel = this.manager.getModel( 'xwiki' );
+			xwikiModel = this.manager.getNotificationModel( 'xwiki' );
 
 		if ( !xwikiModel ) {
 			return $.Deferred().reject().promise();
@@ -348,7 +460,7 @@
 	 * Remove the entire cross-wiki model.
 	 */
 	mw.echo.Controller.prototype.removeCrossWikiItem = function () {
-		this.manager.removeModel( 'xwiki' );
+		this.manager.removeNotificationModel( 'xwiki' );
 	};
 
 	/**

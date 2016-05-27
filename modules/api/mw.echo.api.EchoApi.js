@@ -2,12 +2,19 @@
 	/**
 	 * A class defining Echo API instructions and network operations
 	 *
+	 * @class
+	 *
 	 * @constructor
+	 * @param {Object} config Configuration options
+	 * @cfg {number} [limit=25] Number of notifications to fetch
 	 */
-	mw.echo.api.EchoApi = function MwEchoApiEchoApi() {
-		this.network = new mw.echo.api.NetworkHandler();
+	mw.echo.api.EchoApi = function MwEchoApiEchoApi( config ) {
+		config = config || {};
+
+		this.network = new mw.echo.api.NetworkHandler( config );
 
 		this.fetchingPromise = null;
+		this.limit = config.limit || 25;
 	};
 
 	OO.initClass( mw.echo.api.EchoApi );
@@ -45,17 +52,28 @@
 	 * @param {string|string[]} [sources] The source from which to fetch the notifications.
 	 *  If not given, the local notifications will be fetched.
 	 * @param {boolean} [isForced] Force a refresh on the fetch notifications promise
-	 * @param {Object} [overrideParams] An object defining parameters to override in the API
-	 *  fetching call.
+	 * @param {string} [continueValue] A value for the continue parameter, defining a page
+	 * @param {string} [readStatus='all'] Read status of the notifications: 'read', 'unread' or 'all'
 	 * @return {jQuery.Promise} Promise that is resolved with all notifications for the
 	 *  requested types.
 	 */
-	mw.echo.api.EchoApi.prototype.fetchNotifications = function ( type, sources, isForced, overrideParams ) {
+	mw.echo.api.EchoApi.prototype.fetchNotifications = function ( type, sources, isForced, continueValue, readStatus ) {
+		var overrideParams = {};
 		sources = Array.isArray( sources ) ?
 			sources :
 			sources ?
 				[ sources ] :
 				null;
+
+		if ( continueValue ) {
+			overrideParams.notcontinue = continueValue;
+		}
+
+		if ( readStatus && readStatus !== 'all' ) {
+			overrideParams.notfilter = readStatus === 'read' ?
+				'read' :
+				'!read';
+		}
 
 		return this.network.getApiHandler( 'local' ).fetchNotifications( type, sources, isForced, overrideParams )
 			.then( function ( result ) {

@@ -142,6 +142,8 @@ $wgResourceModules += array(
 			"notification-timestamp-ago-days",
 			"notification-timestamp-ago-months",
 			"notification-timestamp-ago-years",
+			'notification-timestamp-today',
+			'notification-timestamp-yesterday',
 			'echo-notification-markasread',
 			'echo-notification-markasunread',
 			'echo-notification-markasread-tooltip',
@@ -161,6 +163,7 @@ $wgResourceModules += array(
 		'scripts' => array(
 			'mw.echo.js',
 			'model/mw.echo.dm.js',
+			'model/mw.echo.dm.PaginationModel.js',
 			'model/mw.echo.dm.ModelManager.js',
 			'model/mw.echo.dm.SortedList.js',
 			'model/mw.echo.dm.NotificationItem.js',
@@ -265,6 +268,30 @@ $wgResourceModules += array(
 			'modern' => array(
 				'nojs/mw.echo.alert.modern.less',
 			),
+		),
+		'targets' => array( 'desktop', 'mobile' ),
+	),
+	'ext.echo.special' => $echoResourceTemplate + array(
+		'scripts' => array(
+			'ui/mw.echo.ui.DatedSubGroupListWidget.js',
+			'ui/mw.echo.ui.DatedNotificationsWidget.js',
+			'ui/mw.echo.ui.NotificationsInboxWidget.js',
+			'special/ext.echo.special.js',
+		),
+		'styles' => array(
+			'styles/mw.echo.ui.DatedSubGroupListWidget.less',
+			'styles/mw.echo.ui.DatedNotificationsWidget.less',
+			'styles/mw.echo.ui.NotificationsInboxWidget.less',
+		),
+		'dependencies' => array(
+			'ext.echo.ui',
+			'ext.echo.styles.special'
+		),
+		'messages' => array(
+			'echo-load-more-error',
+			'echo-more-info',
+			'echo-feedback',
+			'echo-specialpage-section-markread',
 		),
 		'targets' => array( 'desktop', 'mobile' ),
 	),

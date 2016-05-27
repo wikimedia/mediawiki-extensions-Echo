@@ -182,6 +182,8 @@
 	"notification-timestamp-ago-days": "Label for the amount of time since a notification has arrived in the case where it is in order of days. This should be a very short string. $1 - Number of days",
 	"notification-timestamp-ago-months": "Label for the amount of time since a notification has arrived in the case where it is in order of months. This should be a very short string. $1 - Number of months",
 	"notification-timestamp-ago-years": "Label for the amount of time since a notification has arrived in the case where it is in order of years. This should be a very short string. $1 - Number of years",
+	"notification-timestamp-today": "Label for a group of notifications that arrived today.",
+	"notification-timestamp-yesterday": "Label for a group of notifications that arrived yesterday.",
 	"echo-email-subject-default": "Default subject for Echo e-mail notifications",
 	"echo-email-body-default": "Default message content for Echo email notifications. Parameters:\n* $1 - a plain text description of the notification",
 	"echo-email-batch-body-default": "Default message for Echo e-mail digest notifications",

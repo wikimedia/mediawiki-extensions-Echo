@@ -6,12 +6,16 @@
 	 * @class
 	 *
 	 * @constructor
+	 * @param {Object} config Configuration options
+	 * @cfg {number} limit Number of notifications to fetch
 	 */
-	mw.echo.api.NetworkHandler = function MwEchoApiNetworkHandler() {
+	mw.echo.api.NetworkHandler = function MwEchoApiNetworkHandler( config ) {
+		config = config || {};
+
 		this.handlers = {};
 
 		// Add initial local handler
-		this.setApiHandler( 'local', new mw.echo.api.LocalAPIHandler() );
+		this.setApiHandler( 'local', new mw.echo.api.LocalAPIHandler( { limit: config.limit } ) );
 	};
 
 	/* Setup */
@@ -63,7 +67,7 @@
 	};
 
 	/**
-	 * Sets an API handler by passing in an instance of an mw.echo.api.APIHandler subclass directly.
+	 * Set an API handler by passing in an instance of an mw.echo.api.APIHandler subclass directly.
 	 *
 	 * @param {string} name Symbolic name
 	 * @param {mw.echo.api.APIHandler} handler Handler object

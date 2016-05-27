@@ -115,6 +115,26 @@
 	};
 
 	/**
+	 * Get an array of all items' IDs for a given type
+	 *
+	 * @param {string} type Notification type
+	 * @return {number[]} Item IDs
+	 */
+	mw.echo.dm.NotificationsList.prototype.getAllItemIdsByType = function ( type ) {
+		var i,
+			idArray = [],
+			items = this.getItems();
+
+		for ( i = 0; i < items.length; i++ ) {
+			if ( items[ i ].getType() === type ) {
+				idArray.push( items[ i ].getId() );
+			}
+		}
+
+		return idArray;
+	};
+
+	/**
 	 * Get the title associated with this list.
 	 *
 	 * @return {string} List title

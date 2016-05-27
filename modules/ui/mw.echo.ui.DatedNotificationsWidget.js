@@ -1,0 +1,158 @@
+( function ( $, mw ) {
+	/**
+	 * A notifications list organized and separated by dates
+	 *
+	 * @class
+	 * @extends OO.ui.Widget
+	 * @mixins OO.ui.mixin.PendingElement
+	 *
+	 * @constructor
+	 * @param {mw.echo.Controller} controller Echo controller
+	 * @param {mw.echo.dm.ModelManager} modelManager Model manager
+	 * @param {Object} [config] Configuration object
+	 * @cfg {jQuery} [$overlay] An overlay for the popup menus
+	 */
+	mw.echo.ui.DatedNotificationsWidget = function MwEchoUiDatedNotificationsListWidget( controller, modelManager, config ) {
+		config = config || {};
+
+		// Parent constructor
+		mw.echo.ui.DatedNotificationsWidget.parent.call( this, config );
+		// Mixin constructors
+		OO.ui.mixin.PendingElement.call( this, config );
+
+		this.manager = modelManager;
+		this.controller = controller;
+		this.models = {};
+
+		this.$overlay = config.$overlay || this.$element;
+
+		this.listWidget = new mw.echo.ui.SortedListWidget(
+			// Sorting callback
+			function ( a, b ) {
+				// Reverse sorting
+				return Number( b.getTimestamp() ) - Number( a.getTimestamp() );
+			},
+			// Config
+			{
+				classes: [ 'mw-echo-ui-datedNotificationsWidget-group' ],
+				$overlay: this.$overlay
+			}
+		);
+
+		// Events
+		this.manager.connect( this, {
+			update: 'populateFromModel',
+			removeSource: 'onModelRemoveSource'
+		} );
+
+		this.$element
+			.addClass( 'mw-echo-ui-datedNotificationsWidget' )
+			.append( this.listWidget.$element );
+
+		// Initialization
+		this.populateFromModel();
+	};
+	/* Initialization */
+
+	OO.inheritClass( mw.echo.ui.DatedNotificationsWidget, OO.ui.Widget );
+	OO.mixinClass( mw.echo.ui.DatedNotificationsWidget, OO.ui.mixin.PendingElement );
+
+	/**
+	 * Respond to model removing source group
+	 *
+	 * @param {string} source Symbolic name of the source group
+	 */
+	mw.echo.ui.DatedNotificationsWidget.prototype.onModelRemoveSource = function ( source ) {
+		var list = this.getList(),
+			group = list.getItemFromId( source );
+
+		list.removeItems( [ group ] );
+	};
+
+	/**
+	 * Respond to model manager update event.
+	 * This event means we are repopulating the entire list and the
+	 * associated models within it.
+	 *
+	 * @param {Object} [models] Object of new models to populate the
+	 *  list. If not given, the method will request all models from the
+	 *  manager.
+	 */
+	mw.echo.ui.DatedNotificationsWidget.prototype.populateFromModel = function ( models ) {
+		var modelId, model, subgroupWidget,
+			groupWidgets = [];
+
+		models = models || this.manager.getAllNotificationModels();
+
+		// Detach all attached models
+		for ( modelId in this.models ) {
+			this.detachModel( modelId );
+		}
+
+		for ( model in models ) {
+			// Create SubGroup widgets
+			subgroupWidget = new mw.echo.ui.DatedSubGroupListWidget(
+				this.controller,
+				models[ model ],
+				{
+					showTitle: true,
+					showMarkAllRead: true,
+					$overlay: this.$overlay
+				}
+			);
+			subgroupWidget.resetItemsFromModel();
+			groupWidgets.push( subgroupWidget );
+		}
+
+		// Reset the list and re-add the items
+		this.getList().clearItems();
+		this.getList().addItems( groupWidgets );
+	};
+
+	/**
+	 * Attach a model to the widget
+	 *
+	 * @param {string} modelId Symbolic name for the model
+	 * @param {mw.echo.dm.SortedList} model Notifications list model
+	 */
+	mw.echo.ui.DatedNotificationsWidget.prototype.attachModel = function ( modelId, model ) {
+		this.models[ modelId ] = model;
+	};
+
+	/**
+	 * Detach a model from the widget
+	 *
+	 * @param {string} modelId Notifications list model
+	 */
+	mw.echo.ui.DatedNotificationsWidget.prototype.detachModel = function ( modelId ) {
+		this.models[ modelId ].disconnect( this );
+		delete this.models[ modelId ];
+	};
+
+	/**
+	 * Get the list widget contained in this item
+	 *
+	 * @return {mw.echo.ui.SortedListWidget} List widget
+	 */
+	mw.echo.ui.DatedNotificationsWidget.prototype.getList = function () {
+		return this.listWidget;
+	};
+
+	/**
+	 * Get the number of all notifications in all sections of the widget
+	 *
+	 * @return {number} The number of all notifications
+	 */
+	mw.echo.ui.DatedNotificationsWidget.prototype.getAllNotificationCount = function () {
+		var i,
+			count = 0,
+			groups = this.getList().getItems();
+
+		for ( i = 0; i < groups.length; i++ ) {
+			count += groups[ i ].getListWidget().getItemCount();
+		}
+
+		return count;
+	};
+
+} )( jQuery, mediaWiki );
