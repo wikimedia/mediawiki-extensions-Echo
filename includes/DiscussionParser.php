@@ -11,10 +11,10 @@ abstract class EchoDiscussionParser {
 	 * Given a Revision object, generates EchoEvent objects for
 	 * the discussion-related actions that occurred in that Revision.
 	 *
-	 * @param $revision Revision object
+	 * @param Revision $revision
 	 * @return null
 	 */
-	static function generateEventsForRevision( $revision ) {
+	static function generateEventsForRevision( Revision $revision ) {
 		$interpretation = self::getChangeInterpretationForRevision( $revision );
 
 		// use slave database if there is a previous revision
@@ -50,8 +50,9 @@ abstract class EchoDiscussionParser {
 			$notifyUser = User::newFromName( $title->getText() );
 			// If the recipient is a valid non-anonymous user and hasn't turned
 			// off their notifications, generate a talk page post Echo notification.
-			if ( $notifyUser && $notifyUser->getID() ) {
-				// if this is a minor edit, only notify if the agent doesn't have talk page minor edit notification blocked
+			if ( $notifyUser && $notifyUser->getId() ) {
+				// If this is a minor edit, only notify if the agent doesn't have talk page minor
+				// edit notification blocked
 				if ( !$revision->isMinor() || !$user->isAllowed( 'nominornewtalk' ) ) {
 					$section = self::detectSectionTitleAndText( $interpretation, $title );
 					if ( $section['section-text'] === '' ) {
@@ -61,7 +62,7 @@ abstract class EchoDiscussionParser {
 						'type' => 'edit-user-talk',
 						'title' => $title,
 						'extra' => array(
-							'revid' => $revision->getID(),
+							'revid' => $revision->getId(),
 							'minoredit' => $revision->isMinor(),
 							'section-title' => $section['section-title'],
 							'section-text' => $section['section-text'],
@@ -77,7 +78,7 @@ abstract class EchoDiscussionParser {
 	/**
 	 * Attempts to determine what section title the edit was performed under (if any)
 	 *
-	 * @param $interpretation array Results of self::getChangeInterpretationForRevision
+	 * @param array $interpretation Results of self::getChangeInterpretationForRevision
 	 * @return array Array containing section title and text
 	 * @param Title $title
 	 */
@@ -125,12 +126,17 @@ abstract class EchoDiscussionParser {
 	/**
 	 * For an action taken on a talk page, notify users whose user pages
 	 * are linked.
-	 * @param $header string The subject line for the discussion.
-	 * @param $content string The content of the post, as a wikitext string.
-	 * @param $revision Revision object.
-	 * @param $agent User The user who made the comment.
+	 * @param string $header The subject line for the discussion.
+	 * @param string $content The content of the post, as a wikitext string.
+	 * @param Revision $revision
+	 * @param User $agent The user who made the comment.
 	 */
-	public static function generateMentionEvents( $header, $content, $revision, $agent ) {
+	public static function generateMentionEvents(
+		$header,
+		$content,
+		Revision $revision,
+		User $agent
+	) {
 		$title = $revision->getTitle();
 		if ( !$title ) {
 			return;
@@ -203,12 +209,12 @@ abstract class EchoDiscussionParser {
 	 *  but not for editing (old wikitext usually)
 	 * Stolen from AbuseFilterVariableHolder
 	 *
-	 * @param $wikitext String
-	 * @param $article Article
+	 * @param string $wikitext
+	 * @param Article $article
 	 *
 	 * @return ParserOutput
 	 */
-	static function parseNonEditWikitext( $wikitext, $article ) {
+	static function parseNonEditWikitext( $wikitext, Article $article ) {
 		static $cache = array();
 
 		$cacheKey = md5( $wikitext ) . ':' . $article->getTitle()->getPrefixedText();
@@ -230,13 +236,13 @@ abstract class EchoDiscussionParser {
 	 * Given a Revision object, returns a talk-page-centric interpretation
 	 * of the changes made in it.
 	 *
-	 * @param $revision Revision object
+	 * @param Revision $revision
 	 * @see EchoDiscussionParser::interpretDiff
-	 * @return Array, see interpretDiff for details.
+	 * @return array see interpretDiff for details.
 	 */
-	static function getChangeInterpretationForRevision( $revision ) {
-		if ( $revision->getID() && isset( self::$revisionInterpretationCache[$revision->getID()] ) ) {
-			return self::$revisionInterpretationCache[$revision->getID()];
+	static function getChangeInterpretationForRevision( Revision $revision ) {
+		if ( $revision->getId() && isset( self::$revisionInterpretationCache[$revision->getId()] ) ) {
+			return self::$revisionInterpretationCache[$revision->getId()];
 		}
 
 		$userID = $revision->getUser();
@@ -253,7 +259,7 @@ abstract class EchoDiscussionParser {
 		$changes = self::getMachineReadableDiff( $prevText, $revision->getText() );
 		$output = self::interpretDiff( $changes, $user->getName(), $revision->getTitle() );
 
-		self::$revisionInterpretationCache[$revision->getID()] = $output;
+		self::$revisionInterpretationCache[$revision->getId()] = $output;
 
 		return $output;
 	}
@@ -263,10 +269,12 @@ abstract class EchoDiscussionParser {
 	 * in terms of discussion page actions
 	 *
 	 * @todo Expand recognisable actions.
+	 *
 	 * @param array $changes Output of EchoEvent::getMachineReadableDiff
-	 * @param string $user Username
+	 * @param string $username Username
 	 * @param Title $title
-	 * @return Array of associative arrays.
+	 * @return array[] Array of associative arrays.
+	 *
 	 * Each entry represents an action, which is classified in the 'action' field.
 	 * All types contain a 'content' field except 'unknown'
 	 *  (which instead passes through the machine-readable diff in 'details')
@@ -289,7 +297,7 @@ abstract class EchoDiscussionParser {
 	 *    These actions are not currently analysed.
 	 * - unknown: Unrecognised change type.
 	 */
-	static function interpretDiff( $changes, $user, Title $title = null ) {
+	static function interpretDiff( $changes, $username, Title $title = null ) {
 		// One extra item in $changes for _info
 		$actions = array();
 
@@ -314,7 +322,7 @@ abstract class EchoDiscussionParser {
 
 				if (
 					count( $signedUsers ) == 1 &&
-					in_array( $user, $signedUsers )
+					in_array( $username, $signedUsers )
 				) {
 					if ( $sectionCount === 0 ) {
 						$fullSection = self::getFullSection( $changes['_info']['rhs'], $change['right-pos'] );
@@ -364,17 +372,14 @@ abstract class EchoDiscussionParser {
 			}
 		}
 
-		// $actions['_diff'] = $changes;
-		// unset( $actions['_diff']['_info'] );
-
 		return $actions;
 	}
 
 	/**
 	 * Finds the section that a given line is in.
 	 *
-	 * @param $lines Array of lines in the page.
-	 * @param $offset int The line to find the full section for.
+	 * @param array $lines of lines in the page.
+	 * @param int $offset The line to find the full section for.
 	 * @return string Content of the section.
 	 */
 	static function getFullSection( $lines, $offset ) {
@@ -413,7 +418,7 @@ abstract class EchoDiscussionParser {
 	/**
 	 * Gets the number of section headers in a string.
 	 *
-	 * @param $text string The text.
+	 * @param string $text The text.
 	 * @return int Number of section headers found.
 	 */
 	static function getSectionCount( $text ) {
@@ -428,7 +433,7 @@ abstract class EchoDiscussionParser {
 	/**
 	 * Gets the title of a section or sub section
 	 *
-	 * @param $text string The text of the section.
+	 * @param string $text The text of the section.
 	 * @return string The title of the section.
 	 */
 	static function extractHeader( $text ) {
@@ -446,7 +451,7 @@ abstract class EchoDiscussionParser {
 	/**
 	 * Strips out a signature if possible.
 	 *
-	 * @param $text string The wikitext to strip
+	 * @param string $text The wikitext to strip
 	 * @param Title $title
 	 * @return string
 	 */
@@ -468,7 +473,7 @@ abstract class EchoDiscussionParser {
 	/**
 	 * Strips unnecessary indentation and so on from comments
 	 *
-	 * @param $text string The text to strip from
+	 * @param string $text The text to strip from
 	 * @return string Stripped wikitext
 	 */
 	static function stripIndents( $text ) {
@@ -489,8 +494,8 @@ abstract class EchoDiscussionParser {
 
 	/**
 	 * Strips out a section header
-	 * @param $text string The text to strip out the section header from.
-	 * @return string: The same text, with the section header stripped out.
+	 * @param string $text The text to strip out the section header from.
+	 * @return string The same text, with the section header stripped out.
 	 */
 	static function stripHeader( $text ) {
 		$text = preg_replace( '/' . self::HEADER_REGEX . '/um', '', $text );
@@ -501,11 +506,11 @@ abstract class EchoDiscussionParser {
 	/**
 	 * Determines whether the input is a signed comment.
 	 *
-	 * @param $text string The text to check.
-	 * @param $user User|bool If set, will only return true if the comment is
+	 * @param string $text The text to check.
+	 * @param User|bool $user If set, will only return true if the comment is
 	 *  signed by this user.
 	 * @param Title $title
-	 * @return bool: true or false.
+	 * @return bool
 	 */
 	static function isSignedComment( $text, $user = false, Title $title = null ) {
 		$userData = self::getUserFromLine( $text, $title );
@@ -524,7 +529,7 @@ abstract class EchoDiscussionParser {
 	/**
 	 * Finds the start position, if any, of the timestamp on a line
 	 *
-	 * @param $line string The line to search for a signature on
+	 * @param string $line The line to search for a signature on
 	 * @return int|bool Integer position
 	 */
 	static function getTimestampPosition( $line ) {
@@ -547,10 +552,10 @@ abstract class EchoDiscussionParser {
 	 * Finds differences between $oldText and $newText
 	 * and returns the result in a machine-readable format.
 	 *
-	 * @param $oldText string The "left hand side" of the diff.
-	 * @param $newText string The "right hand side" of the diff.
+	 * @param string $oldText The "left hand side" of the diff.
+	 * @param string $newText The "right hand side" of the diff.
 	 * @throws MWException
-	 * @return Array of changes.
+	 * @return array of changes.
 	 * Each change consists of:
 	 * * An 'action', one of:
 	 *   - add
@@ -571,9 +576,9 @@ abstract class EchoDiscussionParser {
 	/**
 	 * Finds and extracts signatures in $text
 	 *
-	 * @param $text string The text in which to look for signed comments.
+	 * @param string $text The text in which to look for signed comments.
 	 * @param Title $title
-	 * @return array. Associative array, the key is the username, the value
+	 * @return array Associative array, the key is the username, the value
 	 *  is the last signature that was found.
 	 */
 	static function extractSignatures( $text, Title $title = null ) {
@@ -609,14 +614,13 @@ abstract class EchoDiscussionParser {
 	 *
 	 * @param string $line Line of text potentially including linked user, user talk,
 	 *  and contribution pages
-	 * @return array Array of users; empty array for none detected
+	 * @return array of usernames, empty array for none detected
 	 */
 	public static function extractUsersFromLine( $line ) {
 		/*
 		 * Signatures can look like anything (as defined by i18n messages
 		 * "signature" & "signature-anon").
 		 * A signature can, e.g., be both a link to user & user-talk page.
-		 *
 		 */
 		// match all title-like excerpts in this line
 		if ( !preg_match_all( '/\[\[([^\[]+)\]\]/', $line, $matches ) ) {
@@ -640,7 +644,10 @@ abstract class EchoDiscussionParser {
 			$title = Title::newFromText( $match[0] );
 
 			// figure out if we the link is related to a user
-			if ( $title && ( $title->getNamespace() === NS_USER || $title->getNamespace() === NS_USER_TALK ) ) {
+			if (
+				$title &&
+				( $title->getNamespace() === NS_USER || $title->getNamespace() === NS_USER_TALK )
+			) {
 				$usernames[] = $title->getText();
 			} elseif ( $title && $title->isSpecial( 'Contributions' ) ) {
 				$parts = explode( '/', $title->getText(), 2 );
@@ -680,7 +687,12 @@ abstract class EchoDiscussionParser {
 			// discovered the signature from
 			// don't validate the username - anon (IP) is fine!
 			$user = User::newFromName( $username, false );
-			$sig = $wgParser->preSaveTransform( '~~~', $title ?: Title::newMainPage(), $user, new ParserOptions() );
+			$sig = $wgParser->preSaveTransform(
+				'~~~',
+				$title ?: Title::newMainPage(),
+				$user,
+				new ParserOptions()
+			);
 
 			// see if we can find this user's generated signature in the content
 			$pos = strrpos( $line, $sig );
@@ -697,10 +709,10 @@ abstract class EchoDiscussionParser {
 	/**
 	 * Find the last link beginning with a given prefix on a line.
 	 *
-	 * @param $line string The line to search.
-	 * @param $linkPrefix string The prefix to search for.
-	 * @param $failureOffset bool
-	 * @return bool false for failure, array for success.
+	 * @param string $line The line to search.
+	 * @param string $linkPrefix The prefix to search for.
+	 * @param bool $failureOffset
+	 * @return array|bool false for failure, array for success.
 	 * - First element is the string offset of the link.
 	 * - Second element is the user the link refers to.
 	 */
@@ -738,9 +750,9 @@ abstract class EchoDiscussionParser {
 	/**
 	 * Given text including a link, gives the user that that link refers to
 	 *
-	 * @param $text string The text to extract from.
-	 * @param $prefix string The link prefix that was used to find the link.
-	 * @param $offset int Optionally, the offset of the start of the link.
+	 * @param string $text The text to extract from.
+	 * @param string $prefix The link prefix that was used to find the link.
+	 * @param int $offset Optionally, the offset of the start of the link.
 	 * @return bool|string Type description
 	 */
 	static function extractUserFromLink( $text, $prefix, $offset = 0 ) {
@@ -776,7 +788,7 @@ abstract class EchoDiscussionParser {
 	 * Gets a regular expression fragmentmatching characters that
 	 * can appear in a line after the signature.
 	 *
-	 * @return String regular expression fragment.
+	 * @return string regular expression fragment.
 	 */
 	static function getLineEndingRegex() {
 		$ignoredEndings = array(
@@ -797,7 +809,7 @@ abstract class EchoDiscussionParser {
 	 * timestamps as given by ~~~~.
 	 *
 	 * @throws MWException
-	 * @return String regular expression fragment.
+	 * @return string regular expression fragment.
 	 */
 	static function getTimestampRegex() {
 		if ( self::$timestampRegex !== null ) {
@@ -840,9 +852,9 @@ abstract class EchoDiscussionParser {
 
 	/**
 	 * Parse wikitext into truncated plain text.
-	 * @param $text string
+	 * @param string $text
 	 * @param Language $lang
-	 * @param $length int default 150
+	 * @param int $length default 150
 	 * @return string
 	 */
 	static function getTextSnippet( $text, Language $lang, $length = 150 ) {
@@ -854,9 +866,9 @@ abstract class EchoDiscussionParser {
 
 	/**
 	 * Parse an edit summary into truncated plain text.
-	 * @param $text string
+	 * @param string $text
 	 * @param Language $lang
-	 * @param $length int default 150
+	 * @param int $length default 150
 	 * @return string
 	 */
 	static function getTextSnippetFromSummary( $text, Language $lang, $length = 150 ) {
