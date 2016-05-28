@@ -93,7 +93,7 @@
 	"echo-popup-footer-beta-invitation": "<strong>دریافت آگاه‌سازی از سایر ویکی‌ها در اینجا.</strong> [$2 $1]",
 	"echo-popup-footer-beta-invitation-link": "آزمودن خصوصیت آزمایشی «{{int:echo-pref-beta-feature-cross-wiki-message}}»",
 	"echo-quotation-marks": "«$1»",
-	"echo-api-failure": "دریافت خطا. لطفاً دوباره سعی کنید. (خطا: $1)",
+	"echo-api-failure": "دریافت خطا. لطفاً دوباره سعی کنید.",
 	"echo-api-failure-cross-wiki": "دسترسی به دامنه دوری که اجازه نداده‌است.",
 	"echo-notification-placeholder": "اعلانی ندارید.",
 	"echo-notification-loginrequired": "برای دیدن آگاه‌سازی‌هایتان باید به سامانه وارد شوید.",

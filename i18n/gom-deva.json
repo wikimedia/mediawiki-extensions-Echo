@@ -2,7 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Darshan kandolkar",
-			"The Discoverer"
+			"The Discoverer",
+			"Vaishali Parab"
 		]
-	}
+	},
+	"notification-timestamp-today": "आयज",
+	"notification-timestamp-yesterday": "काल",
+	"notification-inbox-filter-read": "वाचचें",
+	"notification-inbox-filter-unread": "वाचूंक नाशिल्ले",
+	"notification-inbox-filter-all": "सगळें"
 }

@@ -79,7 +79,7 @@
 	"echo-feedback": "Tilbakemelding",
 	"echo-popup-footer-beta-invitation": "<strong>Vis beskjeder fra andre wikier her</strong>. [$2 $1]",
 	"echo-popup-footer-beta-invitation-link": "Prøv betafunksjonen «{{int:echo-pref-beta-feature-cross-wiki-message}}».",
-	"echo-api-failure": "Feilet under henting av beskjeder. (Feil $1)",
+	"echo-api-failure": "Feilet under henting av beskjeder.",
 	"echo-api-failure-cross-wiki": "Tilgang til det eksterne domenet ble avvist.",
 	"echo-notification-placeholder": "Det er ingen beskjeder.",
 	"echo-notification-loginrequired": "Du må logge inn for å se beskjedene dine.",

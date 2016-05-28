@@ -14,7 +14,8 @@
 			"Paracel63",
 			"Hangsna",
 			"NH",
-			"Frisko"
+			"Frisko",
+			"Macofe"
 		]
 	},
 	"echo-desc": "System för att meddela användare om händelser och meddelanden",
@@ -86,7 +87,7 @@
 	"echo-feedback": "Feedback",
 	"echo-popup-footer-beta-invitation": "<strong>Få aviseringar från andra wikis här</strong>. [$2 $1]",
 	"echo-popup-footer-beta-invitation-link": "Prova betafunktionen \"{{int:echo-pref-beta-feature-cross-wiki-message}}\".",
-	"echo-api-failure": "Kunde inte hämta aviseringar. (Fel: $1)",
+	"echo-api-failure": "Kunde inte hämta aviseringar.",
 	"echo-api-failure-cross-wiki": "Åtkomst till fjärrdomänen nekades.",
 	"echo-notification-placeholder": "Det finns inga meddelanden.",
 	"echo-notification-loginrequired": "Du måste logga in för att se dina aviseringar.",

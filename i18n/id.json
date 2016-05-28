@@ -6,7 +6,8 @@
 			"William Surya Permana",
 			"පසිඳු කාවින්ද",
 			"Bennylin",
-			"WongKentir"
+			"WongKentir",
+			"Mbrt"
 		]
 	},
 	"echo-desc": "Sistem pemberitahuan",
@@ -48,6 +49,7 @@
 	"tooltip-pt-notifications-alert": "Pemberitahuan {{GENDER:|Anda}}",
 	"tooltip-pt-notifications-message": "Pesan {{GENDER:|Anda}}",
 	"echo-specialpage": "Pemberitahuan",
+	"echo-specialpage-section-markread": "Tandai grup telah dibaca",
 	"echo-anon": "Untuk menerima pemberitahuan, [$1 buat sebuah akun] atau [$2 masuk log].",
 	"echo-none": "Anda tidak memiliki pemberitahuan.",
 	"echo-more-info": "Informasi selengkapnya",

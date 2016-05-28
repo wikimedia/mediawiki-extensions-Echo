@@ -75,7 +75,7 @@
 	"echo-feedback": "Reacții",
 	"echo-popup-footer-beta-invitation": "<strong>Primiți aici notificări de la alte wikiuri</strong>. [$2 $1]",
 	"echo-popup-footer-beta-invitation-link": "Încercați funcția „{{int:echo-pref-beta-feature-cross-wiki-message}}” în versiune beta.",
-	"echo-api-failure": "Imposibil de obținut notificările. (Eroare: $1)",
+	"echo-api-failure": "Imposibil de obținut notificările.",
 	"echo-notification-placeholder": "Nu există notificări.",
 	"echo-notification-loginrequired": "Trebuie să vă autentificați pentru a vedea notificările.",
 	"echo-notification-popup-loginrequired": "Autentificați-vă pentru a vedea notificările.",
