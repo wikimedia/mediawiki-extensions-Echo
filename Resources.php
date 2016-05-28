@@ -253,7 +253,8 @@ $wgResourceModules += array(
 	'ext.echo.styles.notifications' => $echoResourceTemplate + array(
 		'position' => 'top',
 		'styles' => array(
-			'nojs/mw.echo.notifications.less'
+			'nojs/mw.echo.notifications.less',
+			'styles/LabelIconWidget.less',
 		),
 		'targets' => array( 'desktop', 'mobile' ),
 	),

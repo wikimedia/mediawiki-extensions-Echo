@@ -59,10 +59,15 @@
 	text-transform: uppercase;
 	font-size: 1.1em;
 	font-weight: 800;
+	display: inline-block;
 }
 
 ul.mw-echo-special-notifications {
 	max-width: 600px;
+
+	div.mw-htmlform-submit-buttons {
+		margin: 0;
+	}
 	list-style: none none;
 	padding: 0;
 	margin: 0;
@@ -84,11 +89,20 @@ ul.mw-echo-special-notifications {
 
 	.mw-echo-markAsReadButton {
 		display: none;
+
+		button {
+			padding: 0;
+		}
 	}
 }
 
 .mw-echo-markAsReadSectionButton {
 	float: right;
+	display: inline-block;
+
+	button.oo-ui-buttonElement-button {
+		padding: 2px 12px 2px 12px;
+	}
 
 	// HACK: temporary workaround for T136024
 	line-height: normal;
@@ -124,7 +138,7 @@ ul.mw-echo-special-notifications {
 			.mw-echo-markAsReadButton {
 				float: right;
 				display: inline-block;
-				margin-left: 1em;
+				margin: 0;
 
 				opacity: 0.5;
 				&:hover {
@@ -133,4 +147,8 @@ ul.mw-echo-special-notifications {
 			}
 		}
 	}
+}
+
+div.mw-htmlform-ooui-wrapper {
+	margin: 0;
 }

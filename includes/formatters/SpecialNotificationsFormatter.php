@@ -8,7 +8,7 @@
  */
 class SpecialNotificationsFormatter extends EchoEventFormatter {
 	protected function formatModel( EchoEventPresentationModel $model ) {
-		$markReadSpecialPage = SpecialPage::getTitleFor( 'NotificationsMarkRead' );
+		$markReadSpecialPage = new SpecialNotificationsMarkRead();
 		$id = $model->getEventId();
 
 		$icon = Html::element(
@@ -20,13 +20,24 @@ class SpecialNotificationsFormatter extends EchoEventFormatter {
 		);
 
 		OutputPage::setupOOUI();
-		$markAsReadButton = new OOUI\ButtonWidget( array(
+
+		$markAsReadIcon = new OOUI\IconWidget( array(
 			'icon' => 'close',
-			'framed' => false,
-			'href' => $markReadSpecialPage->getLocalUrl() . '/' . $id,
-			'classes' => array( 'mw-echo-markAsReadButton' ),
-			'title' => wfMessage( 'echo-notification-markasread' )
+			'title' => wfMessage( 'echo-notification-markasread' ),
 		) );
+
+		$markAsReadForm = $markReadSpecialPage->getMinimalForm(
+			$id,
+			$this->msg( 'echo-notification-markasread' )->text(),
+			false,
+			$markAsReadIcon->toString()
+		);
+
+		$markAsReadButton = Html::rawElement(
+			'div',
+			array( 'class' => 'mw-echo-markAsReadButton' ),
+			$markAsReadForm->prepareForm()->getHTML( /* First submission attempt */ false )
+		);
 
 		$html = Xml::tags(
 				'div',
