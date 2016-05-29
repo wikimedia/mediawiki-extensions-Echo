@@ -12,7 +12,8 @@
 			"Horcrux92",
 			"Alexmar983",
 			"Fringio",
-			"Catrope"
+			"Catrope",
+			"Macofe"
 		]
 	},
 	"echo-desc": "Sistema per notificare agli utenti messaggi ed eventi",
@@ -164,6 +165,8 @@
 	"notification-timestamp-ago-days": "$1 {{PLURAL:$1|g|gg}}",
 	"notification-timestamp-ago-months": "$1 {{PLURAL:$1|mese|mesi}}",
 	"notification-timestamp-ago-years": "$1 {{PLURAL:$1|anno|anni}}",
+	"notification-timestamp-today": "Oggi",
+	"notification-timestamp-yesterday": "Ieri",
 	"echo-email-subject-default": "Nuova notifica su {{SITENAME}}",
 	"echo-email-body-default": "Hai una nuova notifica su {{SITENAME}}:\n\n$1",
 	"echo-email-batch-body-default": "Hai una nuova notifica",

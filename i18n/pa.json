@@ -3,7 +3,8 @@
 		"authors": [
 			"Satdeep gill",
 			"Babanwalia",
-			"ਪ੍ਰਚਾਰਕ"
+			"ਪ੍ਰਚਾਰਕ",
+			"Jimidar"
 		]
 	},
 	"echo-desc": "ਸੂਚਨਾ ਪ੍ਰਣਾਲੀ",
@@ -77,6 +78,10 @@
 	"notification-mention-email-batch-body": "$1 ਨੇ \"$3\" ਵਿੱਚ $4 ਗੱਲ-ਬਾਤ ਪੰਨੇ ਉੱਤੇ ਤੁਹਾਡਾ {{GENDER:$1|ਜ਼ਿਕਰ ਕੀਤਾ ਹੈ}}",
 	"notification-user-rights-email-subject": "{{SITENAME}} ਉੱਤੇ ਤੁਹਾਡੇ ਵਰਤੋਂਕਾਰ ਅਧਿਕਾਰ ਬਦਲ ਗਏ ਹਨ",
 	"notification-user-rights-email-batch-body": "ਤੁਹਾਡੇ ਵਰਤੋਂਕਾਰ ਅਧਿਕਾਰ $1. $2 ਦੁਆਰਾ {{GENDER:$1|ਬਦਲੇ ਗਏ}}।",
+	"notification-timestamp-today": "ਅੱਜ",
+	"notification-timestamp-yesterday": "ਕੱਲ੍ਹ",
+	"notification-inbox-filter-read": "ਪੜ੍ਹੇ ਹੋਏ",
+	"notification-inbox-filter-all": "ਸੱਭ",
 	"echo-email-subject-default": "{{SITENAME}} ਉੱਤੇ ਨਵੀਂ ਸੂਚਨਾ",
 	"echo-email-body-default": "ਤੁਹਾਡੇ ਲਈ {{SITENAME}} ਉੱਤੇ ਨਵੀਂ ਸੂਚਨਾ ਹੈ:\n\n$1",
 	"echo-email-batch-body-default": "ਤੁਹਾਡੇ ਲਈ ਇੱਕ ਨਵੀਂ ਸੂਚਨਾ ਹੈ।",

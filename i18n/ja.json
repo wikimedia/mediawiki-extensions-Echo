@@ -18,6 +18,7 @@
 	"prefs-emailsettings": "メールの設定",
 	"prefs-displaynotifications": "表示の設定",
 	"prefs-echosubscriptions": "以下の場合に通知を受け取る",
+	"prefs-echocrosswiki": "Cross-wiki の通知",
 	"prefs-newmessageindicator": "新着メッセージの表示",
 	"echo-pref-send-me": "受け取る頻度:",
 	"echo-pref-send-to": "送信先:",

@@ -7,7 +7,8 @@
 			"Fauzan",
 			"عثمان خان شاہ",
 			"Muhammad Shuaib",
-			"Obaid Raza"
+			"Obaid Raza",
+			"Hindustanilanguage"
 		]
 	},
 	"echo-desc": "نظام برائے اطلاع صارفین دربارہ تقریبات و پیغامات",
@@ -28,7 +29,11 @@
 	"tooltip-pt-notifications-message": "{{GENDER:|آپ}} کے پیغامات",
 	"echo-specialpage": "اطلاعات",
 	"echo-feedback": "آپ کی رائے",
-	"notification-header-user-rights": "آپ کے صارفانہ حقوق ہوگئے  {{GENDER:$2| تبدیل}} <b> $1 </b>کے ذریعے ۔ $3. [[Special:ListGroupRights|مزید دیکھیں]]",
+	"notification-timestamp-today": "آج",
+	"notification-timestamp-yesterday": "گزراہؤا کل",
+	"notification-inbox-filter-read": "پڑھیں",
+	"notification-inbox-filter-unread": "غیرمطالعہ شدہ",
+	"notification-inbox-filter-all": "تمام",
 	"echo-notification-message-text-only": "پیغامات",
 	"echo-overlay-link": "جملہ اطلاعات",
 	"echo-overlay-title": "<b>اطلاعات</b>",

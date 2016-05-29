@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"AryanSogd"
+		]
+	},
+	"notification-timestamp-today": "Имрӯз",
+	"notification-timestamp-yesterday": "Дирӯз",
+	"notification-inbox-filter-read": "Хондан",
+	"notification-inbox-filter-unread": "Хонданашуда",
+	"notification-inbox-filter-all": "Ҳама"
+}
