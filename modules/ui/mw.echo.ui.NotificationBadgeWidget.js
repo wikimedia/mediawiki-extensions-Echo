@@ -362,8 +362,8 @@
 					}
 				},
 				// Failure
-				function ( errObject ) {
-					widget.notificationsWidget.resetLoadingOption( errObject.errInfo );
+				function () {
+					widget.notificationsWidget.resetLoadingOption( mw.msg( 'echo-api-failure' ) );
 				}
 			)
 			.then( this.emit.bind( this, 'finishLoading' ) )

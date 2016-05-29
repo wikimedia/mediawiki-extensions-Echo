@@ -85,4 +85,10 @@
 	mw.echo.ui.PlaceholderItemWidget.prototype.getId = function () {
 		return 0;
 	};
+
+	/**
+	 * Do nothing for resetInitiallyUnseen since it is requested by the list widget
+	 */
+	mw.echo.ui.PlaceholderItemWidget.prototype.resetInitiallyUnseen = function () {};
+
 } )( mediaWiki, jQuery );

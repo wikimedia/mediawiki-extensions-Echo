@@ -149,7 +149,12 @@
 		// Reset the current items and re-add the new item widgets
 		this.clearItems();
 		this.addItems( itemWidgets );
-		this.resetLoadingOption();
+
+		this.resetLoadingOption(
+			itemWidgets.length === 0 ?
+			mw.msg( 'echo-notification-placeholder' ) :
+			''
+		);
 	};
 
 	/**
@@ -194,9 +199,7 @@
 			itemWidgets = this.getItems();
 
 		for ( i = 0; i < itemWidgets.length; i++ ) {
-			if ( itemWidgets[ i ].resetInitiallyUnseen ) {
-				itemWidgets[ i ].resetInitiallyUnseen();
-			}
+			itemWidgets[ i ].resetInitiallyUnseen();
 		}
 	};
 } )( mediaWiki );
