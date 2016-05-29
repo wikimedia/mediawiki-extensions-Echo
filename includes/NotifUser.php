@@ -45,6 +45,11 @@ class MWEchoNotifUser {
 	 */
 	private $cached;
 
+	/**
+	 * @var array|null
+	 */
+	private $mForeignData = null;
+
 	// The max notification count shown in badge
 
 	// The max number shown in bundled message, eg, <user> and 99+ others <action>.
@@ -230,7 +235,7 @@ class MWEchoNotifUser {
 		$count = (int) $this->userNotifGateway->getCappedNotificationCount( $dbSource, $eventTypesToLoad, MWEchoNotifUser::MAX_BADGE_COUNT + 1 );
 
 		if ( $global ) {
-			$count += $this->getForeignNotifications()->getCount( $section );
+			$count += $this->getForeignCount( $section );
 		}
 
 		$this->setInCache( $memcKey, $count, 86400 );
@@ -316,7 +321,8 @@ class MWEchoNotifUser {
 
 		// Use timestamp of most recent foreign notification, if it's more recent
 		if ( $global ) {
-			$foreignTime = $this->getForeignNotifications()->getTimestamp( $section );
+			$foreignTime = $this->getForeignTimestamp( $section );
+
 			if (
 				$foreignTime !== false &&
 				// $foreignTime < $timestamp = invert 0
@@ -478,16 +484,16 @@ class MWEchoNotifUser {
 
 		if ( $wgEchoCrossWikiNotifications ) {
 			// For performance, compute the global counts by adding foreign counts to the above
-			$globalAlertCount = $alertCount + $this->getForeignNotifications()->getCount( EchoAttributeManager::ALERT );
-			$globalMsgCount = $msgCount + $this->getForeignNotifications()->getCount( EchoAttributeManager::MESSAGE );
+			$globalAlertCount = $alertCount + $this->getForeignCount( EchoAttributeManager::ALERT );
+			$globalMsgCount = $msgCount + $this->getForeignCount( EchoAttributeManager::MESSAGE );
 			$globalAllCount = $globalAlertCount + $globalMsgCount;
 
 			// For performance, compute the global timestamps as max( localTimestamp, foreignTimestamp )
-			$foreignAlertUnread = $this->getForeignNotifications()->getTimestamp( EchoAttributeManager::ALERT );
+			$foreignAlertUnread = $this->getForeignTimestamp( EchoAttributeManager::ALERT );
 			$globalAlertUnread = $alertUnread !== false &&
 				( $foreignAlertUnread === false || $alertUnread->diff( $foreignAlertUnread )->invert === 1 ) ?
 				$alertUnread : $foreignAlertUnread;
-			$foreignMsgUnread = $this->getForeignNotifications()->getTimestamp( EchoAttributeManager::MESSAGE );
+			$foreignMsgUnread = $this->getForeignTimestamp( EchoAttributeManager::MESSAGE );
 			$globalMsgUnread = $msgUnread !== false &&
 				( $foreignMsgUnread === false || $msgUnread->diff( $foreignMsgUnread )->invert === 1 ) ?
 				$msgUnread : $foreignMsgUnread;
@@ -669,5 +675,119 @@ class MWEchoNotifUser {
 			$this->foreignNotifications = new EchoForeignNotifications( $this->mUser, true );
 		}
 		return $this->foreignNotifications;
+	}
+
+	/**
+	 * Get data about foreign notifications from the foreign wikis' APIs.
+	 *
+	 * This is used when $wgEchoSectionTransition or $wgEchoBundleTransition is enabled,
+	 * to deal with untrustworthy echo_unread_wikis entries. This method fetches the list of
+	 * wikis that have any unread notifications at all from the echo_unread_wikis table, then
+	 * queries their APIs to find the per-section counts and timestamps for those wikis.
+	 *
+	 * The results of this function are cached in the NotifUser object.
+	 * @return array [ (str) wiki => [ (str) section => [ 'count' => (int) count, 'timestamp' => (str) ts ] ] ]
+	 */
+	protected function getForeignData() {
+		if ( $this->mForeignData ) {
+			return $this->mForeignData;
+		}
+
+		$potentialWikis = $this->getForeignNotifications()->getWikis( EchoAttributeManager::ALL );
+		$foreignReq = new EchoForeignWikiRequest(
+			$this->mUser,
+			array(
+				'action' => 'query',
+				'meta' => 'notifications',
+				'notprop' => 'count|list',
+				'notgroupbysection' => '1',
+				'notunreadfirst' => '1',
+			),
+			$potentialWikis,
+			'notwikis'
+		);
+		$foreignResults = $foreignReq->execute();
+
+		$this->mForeignData = array();
+		foreach ( $foreignResults as $wiki => $result ) {
+			if ( !isset( $result['query']['notifications'] ) ) {
+				continue;
+			}
+			$data = $result['query']['notifications'];
+			foreach ( EchoAttributeManager::$sections as $section ) {
+				if ( isset( $data[$section]['rawcount'] ) ) {
+					$this->mForeignData[$wiki][$section]['count'] = $data[$section]['rawcount'];
+				}
+				if ( isset( $data[$section]['list'][0] ) ) {
+					$this->mForeignData[$wiki][$section]['timestamp'] = $data[$section]['list'][0]['timestamp']['mw'];
+				}
+			}
+		}
+		return $this->mForeignData;
+	}
+
+	protected function getForeignCount( $section = EchoAttributeManager::ALL ) {
+		global $wgEchoSectionTransition, $wgEchoBundleTransition;
+		$count = 0;
+		if (
+			// In section transition mode, we don't trust the individual echo_unread_wikis rows
+			// but we do trust that alert+message=all. In bundle transition mode, we don't trust
+			// that either, but we do trust that wikis with rows in the table have unread notifications
+			// and wikis without rows in the table don't.
+			( $wgEchoSectionTransition && $section !== EchoAttributeManager::ALL ) ||
+			$wgEchoBundleTransition
+		) {
+			$foreignData = $this->getForeignData();
+			foreach ( $foreignData as $data ) {
+				if ( $section === EchoAttributeManager::ALL ) {
+					foreach ( $data as $subData ) {
+						if ( isset( $subData['count'] ) ) {
+							$count += $subData['count'];
+						}
+					}
+				} elseif ( isset( $data[$section]['count'] ) ) {
+					$count += $data[$section]['count'];
+				}
+			}
+		} else {
+			$count += $this->getForeignNotifications()->getCount( $section );
+		}
+		return $count;
+	}
+
+	protected function getForeignTimestamp( $section = EchoAttributeManager::ALL ) {
+		if (
+			// In section transition mode, we don't trust the individual echo_unread_wikis rows
+			// but we do trust that alert+message=all. In bundle transition mode, we don't trust
+			// that either, but we do trust that wikis with rows in the table have unread notifications
+			// and wikis without rows in the table don't.
+			( $wgEchoSectionTransition && $section !== EchoAttributeManager::ALL ) ||
+			$wgEchoBundleTransition
+		) {
+			$foreignTime = false;
+			$foreignData = $this->getForeignData();
+			foreach ( $foreignData as $data ) {
+				if ( $section === EchoAttributeManager::ALL ) {
+					foreach ( $data as $subData ) {
+						if ( isset( $subData['timestamp'] ) ) {
+							$wikiTime = new MWTimestamp( $data[$section]['timestamp'] );
+							// $wikiTime > $foreignTime = invert 1
+							if ( $foreignTime === false || $wikiTime->diff( $foreignTime )->invert === 1 ) {
+								$foreignTime = $wikiTime;
+							}
+						}
+					}
+				} elseif ( isset( $data[$section]['timestamp'] ) ) {
+					$wikiTime = new MWTimestamp( $data[$section]['timestamp'] );
+					// $wikiTime > $foreignTime = invert 1
+					if ( $foreignTime === false || $wikiTime->diff( $foreignTime )->invert === 1 ) {
+						$foreignTime = $wikiTime;
+					}
+				}
+			}
+		} else {
+			$foreignTime = $this->getForeignNotifications()->getTimestamp( $section );
+		}
+		return $foreignTime;
 	}
 }
