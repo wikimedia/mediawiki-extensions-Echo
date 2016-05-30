@@ -194,7 +194,9 @@
 			itemWidgets = this.getItems();
 
 		for ( i = 0; i < itemWidgets.length; i++ ) {
-			itemWidgets[ i ].resetInitiallyUnseen();
+			if ( itemWidgets[ i ].resetInitiallyUnseen ) {
+				itemWidgets[ i ].resetInitiallyUnseen();
+			}
 		}
 	};
 } )( mediaWiki );
