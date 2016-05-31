@@ -73,16 +73,10 @@
 	 * Respond to model manager update event.
 	 * This event means we are repopulating the entire list and the
 	 * associated models within it.
-	 *
-	 * @param {Object} [models] Object of new models to populate the
-	 *  list. If not given, the method will request all models from the
-	 *  manager.
 	 */
 	mw.echo.ui.DatedNotificationsWidget.prototype.populateFromModel = function ( models ) {
 		var modelId, model, subgroupWidget,
 			groupWidgets = [];
-
-		models = models || this.manager.getAllNotificationModels();
 
 		// Detach all attached models
 		for ( modelId in this.models ) {

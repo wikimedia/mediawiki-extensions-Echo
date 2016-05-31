@@ -81,6 +81,26 @@
 	};
 
 	/**
+	 * Get an item by its data.
+	 *
+	 * @param {string} data Item data to search for
+	 * @return {OO.ui.Element|null} Item with equivalent data, `null` if none exists
+	 */
+	mw.echo.ui.SortedListWidget.prototype.getItemFromData = function ( data ) {
+		var i, len, item,
+			hash = OO.getHash( data );
+
+		for ( i = 0, len = this.items.length; i < len; i++ ) {
+			item = this.items[ i ];
+			if ( hash === OO.getHash( item.getData() ) ) {
+				return item;
+			}
+		}
+
+		return null;
+	};
+
+	/**
 	 * Remove items.
 	 *
 	 * @param {OO.EventEmitter[]} items Items to remove

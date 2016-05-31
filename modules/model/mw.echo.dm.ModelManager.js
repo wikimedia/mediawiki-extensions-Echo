@@ -40,7 +40,9 @@
 
 		this.notificationModels = {};
 		this.paginationModel = new mw.echo.dm.PaginationModel();
-		this.filtersModel = new mw.echo.dm.FiltersModel();
+		this.filtersModel = new mw.echo.dm.FiltersModel( {
+			selectedSource: mw.config.get( 'wgDBname' )
+		} );
 
 		// Properties
 		this.seenTime = mw.config.get( 'wgEchoSeenTime' ) || {};

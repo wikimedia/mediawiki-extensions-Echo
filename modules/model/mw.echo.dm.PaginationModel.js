@@ -48,6 +48,18 @@
 	/* Methods */
 
 	/**
+	 * Reset pagination data
+	 *
+	 * @fires update
+	 */
+	mw.echo.dm.PaginationModel.prototype.reset = function () {
+		this.pagesContinue = [];
+		this.currPageIndex = 0;
+		this.lastPageItemCount = 0;
+
+		this.emit( 'update' );
+	};
+	/**
 	 * Set a page index with its 'continue' value, used for API fetching
 	 *
 	 * @param {number} page Page index

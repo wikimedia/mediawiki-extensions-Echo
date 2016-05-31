@@ -1,0 +1,31 @@
+@import '../echo.variables';
+
+.mw-echo-ui-pageNotificationsOptionWidget {
+	width: 100%;
+	box-sizing: border-box;
+
+	&-icon {
+		float: left;
+		.oo-ui-iconElement-icon {
+			display: inline-block;
+		}
+	}
+
+	&-title {
+		padding: 0.2em 0;
+	}
+
+	&-count {
+		float: right;
+		padding: 0.2em 0.5em;
+		margin-left: 0.5em;
+		background-color: #eee;
+		border-radius: 2px;
+		color: @grey-medium;
+
+		.oo-ui-optionWidget-selected & {
+			background-color: #bbb;
+		}
+	}
+
+}

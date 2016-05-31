@@ -28,9 +28,9 @@
 	mw.echo.api.LocalAPIHandler.prototype.fetchNotifications = function ( type, source, isForced, overrideParams ) {
 		if ( overrideParams ) {
 			return this.createNewFetchNotificationPromise( type, source, overrideParams );
-		} else if ( overrideParams || this.isFetchingErrorState( type, source ) ) {
+		} else if ( isForced || this.isFetchingErrorState( type, source ) ) {
 			// Force new promise
-			this.createNewFetchNotificationPromise( type, source, overrideParams );
+			return this.createNewFetchNotificationPromise( type, source, overrideParams );
 		}
 
 		return this.getFetchNotificationPromise( type, source, overrideParams );
