@@ -3,6 +3,7 @@
 	 * Pagination model for echo notifications pages.
 	 *
 	 * @class
+	 * @mixins OO.EventEmitter
 	 *
 	 * @constructor
 	 * @param {Object} config Configuration object
@@ -10,6 +11,9 @@
 	 */
 	mw.echo.dm.PaginationModel = function MwEchoDmPaginationModel( config ) {
 		config = config || {};
+
+		// Mixin constructor
+		OO.EventEmitter.call( this );
 
 		this.pagesContinue = [];
 
@@ -26,6 +30,15 @@
 	/* Initialization */
 
 	OO.initClass( mw.echo.dm.PaginationModel );
+	OO.mixinClass( mw.echo.dm.PaginationModel, OO.EventEmitter );
+
+	/* Events */
+
+	/**
+	 * @event update
+	 *
+	 * Pagination information was updated
+	 */
 
 	/* Methods */
 
@@ -36,8 +49,9 @@
 	 * @param {string} continueVal Continue string value
 	 */
 	mw.echo.dm.PaginationModel.prototype.setPageContinue = function ( page, continueVal ) {
-		if ( continueVal ) {
+		if ( this.pagesContinue[ page ] !== continueVal ) {
 			this.pagesContinue[ page ] = continueVal;
+			this.emit( 'update' );
 		}
 	};
 
@@ -63,6 +77,7 @@
 	/**
 	 * Set the current page index
 	 *
+	 * @private
 	 * @param {number} index Current page index
 	 */
 	mw.echo.dm.PaginationModel.prototype.setCurrPageIndex = function ( index ) {
@@ -71,19 +86,25 @@
 
 	/**
 	 * Move forward to the next page
+	 *
+	 * @fires update
 	 */
 	mw.echo.dm.PaginationModel.prototype.forwards = function () {
 		if ( this.hasNextPage() ) {
 			this.setCurrPageIndex( this.currPageIndex + 1 );
+			this.emit( 'update' );
 		}
 	};
 
 	/**
 	 * Move backwards to the previous page
+	 *
+	 * @fires update
 	 */
 	mw.echo.dm.PaginationModel.prototype.backwards = function () {
 		if ( this.hasPrevPage() ) {
 			this.setCurrPageIndex( this.currPageIndex - 1 );
+			this.emit( 'update' );
 		}
 	};
 
@@ -120,7 +141,7 @@
 	 * @param {string} cont Next page continue value
 	 */
 	mw.echo.dm.PaginationModel.prototype.setNextPageContinue = function ( cont ) {
-		this.pagesContinue[ this.currPageIndex + 1 ] = cont;
+		this.setPageContinue( this.currPageIndex + 1, cont );
 	};
 
 	/**

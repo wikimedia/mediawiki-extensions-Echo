@@ -274,6 +274,7 @@ $wgResourceModules += array(
 	),
 	'ext.echo.special' => $echoResourceTemplate + array(
 		'scripts' => array(
+			'ui/mw.echo.ui.PaginationWidget.js',
 			'ui/mw.echo.ui.DatedSubGroupListWidget.js',
 			'ui/mw.echo.ui.DatedNotificationsWidget.js',
 			'ui/mw.echo.ui.ReadStateButtonSelectWidget.js',
@@ -281,6 +282,7 @@ $wgResourceModules += array(
 			'special/ext.echo.special.js',
 		),
 		'styles' => array(
+			'styles/mw.echo.ui.PaginationWidget.less',
 			'styles/mw.echo.ui.DatedSubGroupListWidget.less',
 			'styles/mw.echo.ui.DatedNotificationsWidget.less',
 			'styles/mw.echo.ui.NotificationsInboxWidget.less',
