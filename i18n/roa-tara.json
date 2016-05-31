@@ -48,7 +48,7 @@
 	"echo-none": "Non ge tìne notifiche.",
 	"echo-more-info": "Cchiù 'mbormaziune",
 	"echo-feedback": "Segnalazione",
-	"echo-api-failure": "Non ge riesche a pigghià le notifiche. Pe piacere pruéve arrete. (Errore $1)",
+	"echo-api-failure": "Non ge riesche a pigghià le notifiche.",
 	"echo-notification-placeholder": "Non ge stonne notifiche.",
 	"notification-link-text-view-message": "'Ndruche 'u messàgge",
 	"notification-link-text-view-mention": "'Ndruche 'a menzione",

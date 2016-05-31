@@ -6,7 +6,8 @@
 			"Marmase",
 			"Mirzali",
 			"Gorizon",
-			"Sayginer"
+			"Sayginer",
+			"Kumkumuk"
 		]
 	},
 	"echo-desc": "Sistemê tebliğati",
@@ -50,6 +51,11 @@
 	"notification-reverted2": "[[$5|$1]] {{PLURAL:$4|vurnayışi [[:$2]] |vurnayışê [[:$2]] }} çımraviyarnayışanê $3 {{GENDER:$1|peyser}} gırewti.",
 	"notification-header-reverted": "$1 {{PLURAL:$4|vırnayışa $3 |vırnayışane $3 }} rewizyona  {{GENDER:$2|peyser}} grot",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1, pela werênayışê şıma de be sernameyê \"$2\" ra yew mesac {{GENDER:$1|caverda}}.",
+	"notification-timestamp-today": "Noroc",
+	"notification-timestamp-yesterday": "Vızér",
+	"notification-inbox-filter-read": "Bıwan",
+	"notification-inbox-filter-unread": "Mewan",
+	"notification-inbox-filter-all": "Pêro",
 	"echo-email-subject-default": "{{SITENAME}} de beyanato newe",
 	"echo-email-body-default": "{{SITENAME}} de beyanatê do newe esto:\n\n$1",
 	"echo-email-batch-body-default": "Yew beyanatê to esto.",

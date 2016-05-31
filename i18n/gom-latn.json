@@ -5,5 +5,10 @@
 		]
 	},
 	"tooltip-pt-notifications-alert": "{{GENDER:|Tujeo}} chotraio",
-	"tooltip-pt-notifications-message": "{{GENDER:|Tujeo}} sondex"
+	"tooltip-pt-notifications-message": "{{GENDER:|Tujeo}} sondex",
+	"notification-timestamp-today": "Aiz",
+	"notification-timestamp-yesterday": "Kal",
+	"notification-inbox-filter-read": "Vach",
+	"notification-inbox-filter-unread": "Vachunk naslele",
+	"notification-inbox-filter-all": "Sogllem"
 }
