@@ -3,18 +3,21 @@
 
 .mw-echo-ui-notificationItemWidget {
 	position: relative;
+	white-space: normal;
 	padding: 0.8em 1em 0.5em 1em;
 	background-color: #F1F1F1;
-	border-bottom: 1px solid #DDDDDD;
-	white-space: normal;
+	box-sizing: border-box;
+
+	border: 1px solid #DDDDDD;
+	border-bottom: 0;
+
+	&:last-child {
+		border-bottom: 1px solid #DDDDDD;
+	}
 
 	> a,
 	&:hover > a {
 		text-decoration: none;
-	}
-
-	&:last-child {
-		border-bottom: none;
 	}
 
 	&-icon {
@@ -91,12 +94,14 @@
 	}
 
 	// Table layout only for the content inside bundles
-	&-bundle {
+	&-bundled {
 		display: table;
 		width: 100%;
+		padding: 0.5em;
 
 		.mw-echo-ui-notificationItemWidget-content {
 			display: table-row;
+			padding-left: 0.5em + 1.5em;
 
 			.mw-echo-ui-notificationItemWidget {
 				// CSS table layout
@@ -112,6 +117,12 @@
 				&-icon {
 					position: relative;
 					padding-right: 0.5em;
+
+					img {
+						height: 1.5em;
+						width: 1.5em;
+					}
+
 				}
 
 				&-content-message {
@@ -147,6 +158,7 @@
 				&-markAsReadButton {
 					width: 1em;
 					float: none;
+					padding-top: 0;
 				}
 
 			}
