@@ -109,24 +109,22 @@
 	 * Update the state - disabled and visibility - of the sub widgets.
 	 */
 	mw.echo.ui.PaginationWidget.prototype.updateWidgetState = function () {
-		if (
-			this.dirSelectWidget &&
-			this.startButton &&
-			this.labelWidget
-		) {
-			this.dirSelectWidget.getItemFromData( 'prev' )
-				.setDisabled( this.isDisabled() || !this.model.hasPrevPage() );
-			this.dirSelectWidget.getItemFromData( 'next' )
-				.setDisabled( this.isDisabled() || !this.model.hasNextPage() );
+		this.dirSelectWidget.getItemFromData( 'prev' )
+			.setDisabled( this.isDisabled() || !this.model.hasPrevPage() );
+		this.dirSelectWidget.getItemFromData( 'next' )
+			.setDisabled( this.isDisabled() || !this.model.hasNextPage() );
 
-			this.startButton.toggle(
-				!this.isDisabled() &&
-				this.model.getCurrPageIndex() >= this.showFirstButtonAfter
-			);
+		this.startButton.toggle(
+			!this.isDisabled() &&
+			this.model.getCurrPageIndex() >= this.showFirstButtonAfter
+		);
 
-			this.updateLabel();
-			this.labelWidget.toggle( !this.isDisabled() );
-		}
+		// Only show pagination buttons if there's anywhere to go
+		this.dirSelectWidget.toggle( this.model.hasPrevPage() || this.model.hasNextPage() );
+
+		// Update label text and visibility
+		this.updateLabel();
+		this.labelWidget.toggle( !this.isDisabled() );
 	};
 	/**
 	 * Set the 'disabled' state of the widget.
@@ -137,7 +135,13 @@
 		// Parent
 		mw.echo.ui.PaginationWidget.parent.prototype.setDisabled.call( this, disabled );
 
-		this.updateWidgetState();
+		if (
+			this.dirSelectWidget &&
+			this.startButton &&
+			this.labelWidget
+		) {
+			this.updateWidgetState();
+		}
 
 		return this;
 	};
@@ -147,12 +151,20 @@
 	 * per page, and the number of notifications on the current page.
 	 */
 	mw.echo.ui.PaginationWidget.prototype.updateLabel = function () {
-		var firstNotifNum = this.model.getCurrPageIndex() * this.itemsPerPage,
-			lastNotifNum = firstNotifNum + this.itemsPerPage,
-			label = ( firstNotifNum + 1 ) + ' - ' + lastNotifNum;
+		var label,
+			itemsInPage = this.model.hasNextPage() ?
+				this.itemsPerPage : this.model.getLastPageItemCount(),
+			firstNotifNum = this.model.getCurrPageIndex() * this.itemsPerPage,
+			lastNotifNum = firstNotifNum + itemsInPage;
 
-		// Display the range
+		if ( itemsInPage === 0 ) {
+			label = '';
+		} else if ( !this.model.hasPrevPage() && !this.model.hasNextPage() ) {
+			label = mw.msg( 'echo-specialpage-pagination-numnotifications', itemsInPage );
+		} else {
+			label = mw.msg( 'echo-specialpage-pagination-range', firstNotifNum + 1, lastNotifNum );
+		}
+
 		this.labelWidget.setLabel( label );
 	};
-
 } )( jQuery, mediaWiki );

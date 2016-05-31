@@ -189,4 +189,12 @@
 		return this.network.getApiHandler( source ).getFetchNotificationPromise( type );
 	};
 
+	/**
+	 * Get the set limit for fetching notifications per request
+	 *
+	 * @return {number} Limit of notifications per request
+	 */
+	mw.echo.api.EchoApi.prototype.getLimit = function () {
+		return this.limit;
+	};
 } )( mediaWiki );

@@ -8,11 +8,12 @@
 	 *   cross wiki notification, which acts as an item but itself contains
 	 *   a list.
 	 *
-	 * All models that are managed by the manager must implement the following
-	 * methods:
+	 * All notification models that are managed by the manager must implement the
+	 * following methods:
 	 * * isGroup - This should be true for xwiki model and local bundles
 	 * * hasUnseen - This should iterate in the model's items and check whether
 	 *   there are any unseen notifications within them.
+	 * * getCount - Get a total count of available notifications currently in the model
 	 *
 	 * @class
 	 * @mixins OO.EventEmitter
@@ -115,6 +116,23 @@
 		this.emit( 'update', this.getAllNotificationModels() );
 	};
 
+	/**
+	 * Go over all the notification models and return the total number of
+	 * available notifications.
+	 *
+	 * @return {number} A count of all notifications
+	 */
+	mw.echo.dm.ModelManager.prototype.getAllNotificationCount = function () {
+		var model,
+			count = 0,
+			models = this.getAllNotificationModels();
+
+		for ( model in models ) {
+			count += models[ model ].getCount();
+		}
+
+		return count;
+	};
 	/**
 	 * Get a notification model.
 	 *

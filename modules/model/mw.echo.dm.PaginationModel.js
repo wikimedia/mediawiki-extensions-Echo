@@ -8,6 +8,9 @@
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 * @cfg {string} [pageNext] The continue value of the next page
+	 * @cfg {number} [lastPageItemCount] The number of items that are in the
+	 *  last page.
+	 * @cfg {number} [itemsPerPage] The number of items per page
 	 */
 	mw.echo.dm.PaginationModel = function MwEchoDmPaginationModel( config ) {
 		config = config || {};
@@ -16,6 +19,8 @@
 		OO.EventEmitter.call( this );
 
 		this.pagesContinue = [];
+		this.lastPageItemCount = this.lastPageItemCount || 0;
+		this.itemsPerPage = this.itemsPerPage || 25;
 
 		// Set initial page
 		this.currPageIndex = 0;
@@ -160,5 +165,41 @@
 	 */
 	mw.echo.dm.PaginationModel.prototype.hasNextPage = function () {
 		return !!this.pagesContinue[ this.currPageIndex + 1 ];
+	};
+
+	/**
+	 * Set the number of items in the last page
+	 *
+	 * @param {number} count Number of items
+	 */
+	mw.echo.dm.PaginationModel.prototype.setLastPageItemCount = function ( count ) {
+		this.lastPageItemCount = count;
+	};
+
+	/**
+	 * Get the number of items in the last page
+	 *
+	 * @return {number} Number of items
+	 */
+	mw.echo.dm.PaginationModel.prototype.getLastPageItemCount = function () {
+		return this.lastPageItemCount;
+	};
+
+	/**
+	 * Set the number of items per page
+	 *
+	 * @param {number} count Number of items per page
+	 */
+	mw.echo.dm.PaginationModel.prototype.setItemsPerPage = function ( count ) {
+		this.itemsPerPage = count;
+	};
+
+	/**
+	 * Get the number of items per page
+	 *
+	 * @return {number} Number of items per page
+	 */
+	mw.echo.dm.PaginationModel.prototype.getItemsPerPage = function () {
+		return this.itemsPerPage;
 	};
 } )( mediaWiki );
