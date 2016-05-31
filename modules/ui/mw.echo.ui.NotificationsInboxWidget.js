@@ -35,6 +35,7 @@
 				$overlay: this.$overlay
 			}
 		);
+		this.setPendingElement( this.datedListWidget.$element );
 
 		// Pagination
 		// TODO: Separate the pagination controls and labels to
