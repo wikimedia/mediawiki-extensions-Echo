@@ -57,6 +57,7 @@ $wgJobClasses['EchoNotificationDeleteJob'] = 'EchoNotificationDeleteJob';
 
 // API
 $wgAPIMetaModules['notifications'] = 'ApiEchoNotifications';
+$wgAPIMetaModules['unreadnotificationpages'] = 'ApiEchoUnreadNotificationPages';
 $wgAPIModules['echomarkread'] = 'ApiEchoMarkRead';
 $wgAPIModules['echomarkseen'] = 'ApiEchoMarkSeen';
 

@@ -264,5 +264,9 @@
 	"apihelp-query+notifications-param-messagecontinue": "When more message results are available, use this to continue.",
 	"apihelp-query+notifications-param-messageunreadfirst": "Whether to show unread alert notifications first (only used if groupbysection is set).",
 	"apihelp-query+notifications-example-1": "List notifications",
-	"apihelp-query+notifications-example-2": "List notifications, grouped by section, with counts"
+	"apihelp-query+notifications-example-2": "List notifications, grouped by section, with counts",
+	"apihelp-query+unreadnotificationpages-description": "Get pages for which there are unread notifications for the current user.",
+	"apihelp-query+unreadnotificationpages-param-limit": "The maximum number of pages to return.",
+	"apihelp-query+unreadnotificationpages-param-wikis": "List of wikis to fetch pages with unread notifications from (defaults to only current wiki).",
+	"apihelp-query+unreadnotificationpages-example-1": "List pages with (their amount of) unread notifications"
 }
