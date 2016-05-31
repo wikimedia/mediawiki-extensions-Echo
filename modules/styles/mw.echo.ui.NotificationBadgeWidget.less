@@ -41,6 +41,16 @@
 				overflow-y: visible;
 				// Work around OO.ui.FloatableElement bug (T130153)
 				overflow-x: auto;
+
+				> .mw-echo-ui-notificationsListWidget > .mw-echo-ui-notificationItemWidget {
+					// The popup body itself has a border. We need to override the notification
+					// item widget styles so that the edge borders of the items are not duplicated
+					border-left: 0;
+					border-right: 0;
+					&:last-child {
+						border-bottom: 0;
+					}
+				}
 			}
 
 			> .oo-ui-popupWidget-footer {

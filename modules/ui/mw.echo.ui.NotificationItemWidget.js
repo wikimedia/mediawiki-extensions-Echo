@@ -168,7 +168,7 @@
 		this.$element
 			.addClass( 'mw-echo-ui-notificationItemWidget' )
 			.toggleClass( 'mw-echo-ui-notificationItemWidget-initiallyUnseen', !this.model.isSeen() && !this.bundle )
-			.toggleClass( 'mw-echo-ui-notificationItemWidget-bundle', this.bundle );
+			.toggleClass( 'mw-echo-ui-notificationItemWidget-bundled', this.bundle );
 
 		// Wrap the entire item with primary url
 		if ( this.model.getPrimaryUrl() ) {
