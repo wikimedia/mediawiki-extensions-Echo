@@ -76,6 +76,7 @@
 			filters = this.manager.getFiltersModel(),
 			continueValue = pagination.getPageContinue( page || pagination.getCurrPageIndex() );
 
+		pagination.setItemsPerPage( this.api.getLimit() );
 		return this.api.fetchNotifications(
 			this.manager.getTypeString(),
 			'local',
@@ -84,7 +85,7 @@
 			filters.getReadState()
 		)
 			.then( function ( data ) {
-				var i, notifData, newNotifData, date, itemModel, symbolicName,
+				var i, notifData, newNotifData, date, itemModel, symbolicName, count,
 					dateItemIds = {},
 					dateItems = {},
 					models = {};
@@ -137,7 +138,13 @@
 				controller.manager.setNotificationModels( models );
 
 				// Update the pagination
-				controller.manager.getPaginationModel().setNextPageContinue( data.continue );
+				count = controller.manager.getAllNotificationCount();
+				if ( count < pagination.getItemsPerPage() ) {
+					pagination.setLastPageItemCount(
+						controller.manager.getAllNotificationCount()
+					);
+				}
+				pagination.setNextPageContinue( data.continue );
 
 				return dateItemIds;
 			} );

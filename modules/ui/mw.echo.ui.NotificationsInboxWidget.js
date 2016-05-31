@@ -27,6 +27,11 @@
 		this.$overlay = config.$overlay || this.$element;
 		this.limit = config.limit || 25;
 
+		// A notice or error message widget
+		this.noticeMessageWidget = new OO.ui.LabelWidget( {
+			classes: [ 'mw-echo-ui-notificationsInboxWidget-notice' ]
+		} );
+
 		// Notifications list
 		this.datedListWidget = new mw.echo.ui.DatedNotificationsWidget(
 			this.controller,
@@ -85,6 +90,7 @@
 									.append( this.topPaginationWidget.$element )
 							)
 					),
+				this.noticeMessageWidget.$element,
 				this.datedListWidget.$element,
 				$( '<div>' )
 					.addClass( 'mw-echo-ui-notificationsInboxWidget-toolbar-bottom' )
@@ -151,12 +157,64 @@
 		}
 
 		this.pushPending();
-		this.topPaginationWidget.setDisabled( true );
-		this.bottomPaginationWidget.setDisabled( true );
 		return fetchPromise
-			.then( this.topPaginationWidget.setDisabled.bind( this.topPaginationWidget, false ) )
-			.then( this.bottomPaginationWidget.setDisabled.bind( this.bottomPaginationWidget, false ) )
 			// Pop pending
 			.always( this.popPending.bind( this ) );
+	};
+
+	/**
+	 * Extend the pushPending method to disable UI elements
+	 */
+	mw.echo.ui.NotificationsInboxWidget.prototype.pushPending = function () {
+		this.noticeMessageWidget.toggle( false );
+		this.readStateSelectWidget.setDisabled( true );
+		this.topPaginationWidget.setDisabled( true );
+		this.bottomPaginationWidget.setDisabled( true );
+
+		// Mixin method
+		OO.ui.mixin.PendingElement.prototype.pushPending.call( this );
+	};
+
+	/**
+	 * Extend the popPending method to enable UI elements
+	 */
+	mw.echo.ui.NotificationsInboxWidget.prototype.popPending = function () {
+		this.resetMessageLabel();
+		this.readStateSelectWidget.setDisabled( false );
+		this.topPaginationWidget.setDisabled( false );
+		this.bottomPaginationWidget.setDisabled( false );
+
+		// Mixin method
+		OO.ui.mixin.PendingElement.prototype.popPending.call( this );
+	};
+
+	/**
+	 * Reset the the text of the error message that displays in place of the list
+	 * in case the list is empty.
+	 */
+	mw.echo.ui.NotificationsInboxWidget.prototype.resetMessageLabel = function () {
+		var label,
+			count = this.manager.getAllNotificationCount();
+
+		if ( count === 0 ) {
+			label = this.manager.getFiltersModel().getReadState() === 'all' ?
+				mw.msg( 'echo-notification-placeholder' ) :
+				mw.msg( 'echo-notification-placeholder-filters' );
+
+			this.noticeMessageWidget.setLabel( label );
+		}
+
+		this.displayMessage( count === 0 );
+	};
+
+	/**
+	 * Display the error/notice message instead of the notifications list or vise versa.
+	 *
+	 * @private
+	 * @param {boolean} displayMessage Display error message
+	 */
+	mw.echo.ui.NotificationsInboxWidget.prototype.displayMessage = function ( displayMessage ) {
+		this.noticeMessageWidget.toggle( displayMessage );
+		this.datedListWidget.toggle( !displayMessage );
 	};
 } )( jQuery, mediaWiki );

@@ -193,6 +193,15 @@
 	};
 
 	/**
+	 * A general method to get the number of notifications in this list
+	 *
+	 * @return {number} Item count
+	 */
+	mw.echo.dm.NotificationsList.prototype.getCount = function () {
+		return this.getItemCount();
+	};
+
+	/**
 	 * Check if there are unseen items in this list
 	 *
 	 * @return {boolean} There are unseen items in the list
