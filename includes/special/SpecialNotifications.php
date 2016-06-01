@@ -102,18 +102,35 @@ class SpecialNotifications extends SpecialPage {
 
 		// Build the HTML
 		$notices = '';
-		$markReadSpecialPage = SpecialPage::getTitleFor( 'NotificationsMarkRead' );
+		$markReadSpecialPage = new SpecialNotificationsMarkRead();
 		foreach ( $notifArray as $section => $data ) {
-			$sectionTitle = Html::element( 'span', array( 'class' => 'mw-echo-date-section-text' ), $section );
+			$dateSectionText = Html::element( 'span', array( 'class' => 'mw-echo-date-section-text' ), $section );
+			$sectionTitle = $dateSectionText;
 			if ( count( $data[ 'unread' ] ) > 0 ) {
-				// There are unread notices. Add the 'mark section as read' button
-				$markSectionAsReadButton = new OOUI\ButtonWidget( array(
-					'label' => $this->msg( 'echo-specialpage-section-markread' )->text(),
-					'href' => $markReadSpecialPage->getLocalURL() . '/' . join( ',', $data[ 'unread' ] ),
-					'classes' => array( 'mw-echo-markAsReadSectionButton' ),
+				$markReadSectionText = $this->msg( 'echo-specialpage-section-markread' )->text();
+
+				$markAsReadLabelIcon = new EchoOOUI\LabelIconWidget( array(
+					'label' => $markReadSectionText,
 					'icon' => 'doubleCheck',
 				) );
-				$sectionTitle .= $markSectionAsReadButton;
+
+				// There are unread notices. Add the 'mark section as read' button
+				$markSectionAsReadForm = $markReadSpecialPage->getMinimalForm(
+					$data[ 'unread' ],
+					$markReadSectionText,
+					true,
+					$markAsReadLabelIcon->toString()
+				);
+
+				$formHtml = $markSectionAsReadForm->prepareForm()->getHTML( /* First submission attempt */ false );
+				$formWrapper = Html::rawElement(
+					'div',
+					array(
+						'class' => 'mw-echo-markAsReadSectionButton',
+					),
+					$formHtml
+				);
+				$sectionTitle .= $formWrapper;
 			}
 
 			// Heading

@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * Form for marking notifications as read by ID.
+ *
+ * This uses the normal HTMLForm handling when receiving POSTs.
+ * However, for a better user no-JS user experience, we integrate
+ * a version of the form into Special:Notifications.  Thus, this
+ * page should normally not need to be visited directly.
+ */
 class SpecialNotificationsMarkRead extends FormSpecialPage {
 	protected $eventId;
 
@@ -23,6 +31,10 @@ class SpecialNotificationsMarkRead extends FormSpecialPage {
 
 	public function isListed() {
 		return false;
+	}
+
+	public function getDisplayFormat() {
+		return 'ooui';
 	}
 
 	/**
@@ -55,8 +67,59 @@ class SpecialNotificationsMarkRead extends FormSpecialPage {
 		);
 	}
 
+	/**
+	 * Gets a pre-filled version of the form; this should not have a legend or anything
+	 *   visible, except the button.
+	 *
+	 * @param int|array $idValue ID or array of IDs
+	 * @param string $submitButtonValue Value attribute for button
+	 * @param boolean $framed Whether the button should be framed
+	 * @param string Raw HTML to use for button label
+	 *
+	 * @return HTMLForm
+	 */
+	public function getMinimalForm( $idValue, $submitButtonValue, $framed, $submitLabelHtml ) {
+		if ( !is_array( $idValue ) ) {
+			$idValue = array( $idValue );
+		}
+
+		$idString = join( ',', $idValue );
+
+		$this->setParameter( $idString );
+
+		$form = HTMLForm::factory(
+			$this->getDisplayFormat(),
+			$this->getFormFields(),
+			$this->getContext(),
+			$this->getMessagePrefix()
+		);
+
+		// HTMLForm assumes that the main submit button is always 'primary',
+		// which means it is colored.  Since this form is being embedded multiple
+		// places on the page, it has to be neutral, so we make the button
+		// manually.
+		$form->suppressDefaultSubmit();
+
+		$form->setAction( $this->getPageTitle()->getLocalURL() );
+
+		$form->addButton( array(
+			'name' => 'submit',
+			'value' => $submitButtonValue,
+			'label-raw' => $submitLabelHtml,
+			'framed' => $framed,
+		) );
+
+		return $form;
+	}
+
+	/**
+	 * Sets a custom label
+	 *
+	 * This is only called when the form is actually visited directly, which is not the
+	 *   main intended use.
+	 */
 	protected function alterForm( HTMLForm $form ) {
-		$form->setSubmitText( $this->msg( 'echo-notification-markasread' ) );
+		$form->setSubmitText( $this->msg( 'echo-notification-markasread' )->text() );
 	}
 
 	/**
