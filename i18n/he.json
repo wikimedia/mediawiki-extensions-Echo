@@ -233,5 +233,9 @@
 	"apihelp-query+notifications-param-messagecontinue": "כשזמינות עוד תוצאות הודעות, יש להשתמש בזה כדי להמשיך.",
 	"apihelp-query+notifications-param-messageunreadfirst": "האם להציג הודעות התראה שלא נקראו תחילה (משמש רק אם groupbysection לא הוגדר).",
 	"apihelp-query+notifications-example-1": "רשימת הודעות",
-	"apihelp-query+notifications-example-2": "רשימת הודעות, מקובצות לפי פסקה, עם מונים"
+	"apihelp-query+notifications-example-2": "רשימת הודעות, מקובצות לפי פסקה, עם מונים",
+	"apihelp-query+unreadnotificationpages-description": "קבלת דפים שעבורם יש הודעות שלא נקראו למשתמש הנוכחי.",
+	"apihelp-query+unreadnotificationpages-param-limit": "המספר המרבי של דפים להחזיר.",
+	"apihelp-query+unreadnotificationpages-param-wikis": "רשימת אתרי ויקי שמהם יאוחזרו דפים עם הודעות שלא נקראו (אם לא נאמר אחרת, רק הוויקי הנוכחי).",
+	"apihelp-query+unreadnotificationpages-example-1": "רשימת דפים עם (כמות של) הודעות שלא נקראו"
 }

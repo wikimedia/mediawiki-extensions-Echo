@@ -77,9 +77,10 @@
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "Nödvändiga aviseringsmetoder",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "Vilka aviseringsmetoder som är obligatoriska för varje kategori",
 	"echo-specialpage": "Aviseringar",
-	"echo-specialpage-section-markread": "Markera avsnitt som läst",
+	"echo-specialpage-section-markread": "Markera grupp som läst",
 	"echo-specialpage-markasread": "Avisering: Markera som läst",
 	"echo-specialpage-markasread-invalid-id": "Ogiltigt händelse-ID",
+	"echo-specialpage-pagination-numnotifications": "$1 {{PLURAL:$1|avisering|aviseringar}}",
 	"notificationsmarkread-legend": "Markera avisering som läst",
 	"echo-anon": "För att ta emot aviseringar, [$1 skapa ett konto] eller [$2 logga in].",
 	"echo-none": "Du har inga aviseringar.",
@@ -167,6 +168,11 @@
 	"notification-timestamp-ago-days": "{{PLURAL:$1|$1d}}",
 	"notification-timestamp-ago-months": "{{PLURAL:$1|$1mo}}",
 	"notification-timestamp-ago-years": "{{PLURAL:$1|$1yr}}",
+	"notification-timestamp-today": "Idag",
+	"notification-timestamp-yesterday": "Igår",
+	"notification-inbox-filter-read": "Lästa",
+	"notification-inbox-filter-unread": "Olästa",
+	"notification-inbox-filter-all": "Alla",
 	"echo-email-subject-default": "Ny avisering på {{SITENAME}}",
 	"echo-email-body-default": "Du har en ny avisering på {{SITENAME}}:\n\n$1",
 	"echo-email-batch-body-default": "Du har en ny avisering.",
@@ -230,5 +236,6 @@
 	"apihelp-query+notifications-param-messagecontinue": "När fler meddelanden finns tillgängliga, använd detta för att fortsätta.",
 	"apihelp-query+notifications-param-messageunreadfirst": "Om du vill visa olästa systemmeddelandeaviseringar först (används endast om groupbysection inte är inställd).",
 	"apihelp-query+notifications-example-1": "Lista aviseringar",
-	"apihelp-query+notifications-example-2": "Listan aviseringar grupperade efter avsnitt, med antal"
+	"apihelp-query+notifications-example-2": "Listan aviseringar grupperade efter avsnitt, med antal",
+	"apihelp-query+unreadnotificationpages-param-limit": "Maximala antalet sidor att returnera."
 }

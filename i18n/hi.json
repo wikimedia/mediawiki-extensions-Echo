@@ -11,7 +11,8 @@
 			"राम प्रसाद जोशी",
 			"Angpradesh",
 			"Sfic",
-			"चक्रपाणी"
+			"चक्रपाणी",
+			"संजीव कुमार"
 		]
 	},
 	"echo-desc": "अधिसूचना प्रणाली",
@@ -59,7 +60,7 @@
 	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "वर्तमान सदस्य",
 	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "नये सदस्य",
 	"echo-specialpage": "अधिसूचनाएँ",
-	"echo-specialpage-section-markread": "अनुभाग को पढ़ा हुआ चिन्हित करें",
+	"echo-specialpage-section-markread": "समूह को पढ़ा हुआ चिह्नित करें",
 	"echo-specialpage-markasread": "सूचना: पढ़ा हुआ चिन्हित करें",
 	"notificationsmarkread-legend": "सूचना को पढ़ा हुआ चिन्हित करें",
 	"echo-anon": "अधिसूचनाएँ पाने के लिये, [$1 खाता बनाएँ] या [$2 लॉग इन करें]।",

@@ -78,6 +78,7 @@
 	"echo-specialpage-section-markread": "Segna gruppo come letto",
 	"echo-specialpage-markasread": "Notifica: segna come letta",
 	"echo-specialpage-markasread-invalid-id": "ID evento non valido",
+	"echo-specialpage-pagination-numnotifications": "$1 {{PLURAL:$1|notifica|notifiche}}",
 	"notificationsmarkread-legend": "Contrassegna la notifica come letta",
 	"echo-anon": "Per ricevere le notifiche, [$1 registrati] o [$2 accedi].",
 	"echo-none": "Non hai notifiche.",
@@ -88,6 +89,7 @@
 	"echo-api-failure": "Non è stato possibile recuperare le notifiche.",
 	"echo-api-failure-cross-wiki": "L'accesso al dominio remoto è stato negato.",
 	"echo-notification-placeholder": "Non ci sono notifiche.",
+	"echo-notification-placeholder-filters": "Non ci sono le notifiche che corrispondono a questi criteri.",
 	"echo-notification-loginrequired": "Devi effettuare l'accesso per vedere le tue notifiche.",
 	"echo-notification-popup-loginrequired": "Effettua l'accesso per visualizzare le tue notifiche.",
 	"echo-notification-markasread": "Segna come già letto",
@@ -232,5 +234,6 @@
 	"apihelp-query+notifications-param-messagecontinue": "Quando più risultati 'messaggio' sono disponibili, usa questo per continuare.",
 	"apihelp-query+notifications-param-messageunreadfirst": "Se mostrare le notifiche degli avvisi non letti prima (usato solo se groupbysection è impostato).",
 	"apihelp-query+notifications-example-1": "Elenco notifiche",
-	"apihelp-query+notifications-example-2": "Elenco notifiche, raggruppate per sezione, con i conteggi"
+	"apihelp-query+notifications-example-2": "Elenco notifiche, raggruppate per sezione, con i conteggi",
+	"apihelp-query+unreadnotificationpages-param-limit": "Il numero massimo di pagine da restituire."
 }

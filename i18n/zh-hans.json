@@ -96,6 +96,7 @@
 	"echo-specialpage-section-markread": "将组标记为已读",
 	"echo-specialpage-markasread": "通知：标记为已读",
 	"echo-specialpage-markasread-invalid-id": "无效的活动ID",
+	"echo-specialpage-pagination-numnotifications": "$1条{{PLURAL:$1|通知}}",
 	"notificationsmarkread-legend": "标记通知为已读",
 	"echo-anon": "想要接收通知，请[$1 创建账户]或[$2 登录]。",
 	"echo-none": "您没有通知。",
@@ -107,6 +108,7 @@
 	"echo-api-failure": "检索通知失败。",
 	"echo-api-failure-cross-wiki": "对远程域名的访问已拒绝。",
 	"echo-notification-placeholder": "这里没有通知。",
+	"echo-notification-placeholder-filters": "没有通知匹配此标准。",
 	"echo-notification-loginrequired": "您必须登录才能查看您的通知。",
 	"echo-notification-popup-loginrequired": "请登录来查看您的通知。",
 	"echo-notification-markasread": "标记为已读",
@@ -252,5 +254,9 @@
 	"apihelp-query+notifications-param-messagecontinue": "当更多消息结果可用时，使用这个继续。",
 	"apihelp-query+notifications-param-messageunreadfirst": "是否首先显示未读的提醒通知（只当groupbysection已设置时使用）。",
 	"apihelp-query+notifications-example-1": "列举通知",
-	"apihelp-query+notifications-example-2": "列出通知，按节分组，带有数量"
+	"apihelp-query+notifications-example-2": "列出通知，按节分组，带有数量",
+	"apihelp-query+unreadnotificationpages-description": "获取当前用户未读通知的相关页面。",
+	"apihelp-query+unreadnotificationpages-param-limit": "返回页面的最大数量。",
+	"apihelp-query+unreadnotificationpages-param-wikis": "要取得来自未读通知页面的wiki列表（默认仅当前wiki）。",
+	"apihelp-query+unreadnotificationpages-example-1": "列举有（对应数量）未读通知的页面"
 }

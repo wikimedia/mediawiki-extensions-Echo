@@ -114,6 +114,7 @@
 	"echo-api-failure": "Impossible de récupérer les notifications.",
 	"echo-api-failure-cross-wiki": "L'accès au domaine distant a été refusé.",
 	"echo-notification-placeholder": "Il n’y a aucune notification.",
+	"echo-notification-placeholder-filters": "Il y a aucune notification correspondant à ce critère.",
 	"echo-notification-loginrequired": "Vous devez vous connecter pour voir vos notifications.",
 	"echo-notification-popup-loginrequired": "Veuillez vous connecter pour voir vos notifications.",
 	"echo-notification-markasread": "Marquer comme lu",
@@ -260,5 +261,6 @@
 	"apihelp-query+notifications-param-messagecontinue": "Quand plus de résultats de message sont disponibles, utiliser cela pour continuer.",
 	"apihelp-query+notifications-param-messageunreadfirst": "S’il faut afficher les notifications d’alerte non lues en premier (utilisé uniquement si groupbysection est positionné).",
 	"apihelp-query+notifications-example-1": "Lister les notifications",
-	"apihelp-query+notifications-example-2": "Lister les notifications, groupées par section, avec les compteurs"
+	"apihelp-query+notifications-example-2": "Lister les notifications, groupées par section, avec les compteurs",
+	"apihelp-query+unreadnotificationpages-param-limit": "Nombre maximal de pages à renvoyer."
 }

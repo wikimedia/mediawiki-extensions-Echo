@@ -58,6 +58,7 @@
 	"tooltip-pt-notifications-message": "あなたへのメッセージ",
 	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "新しい利用者",
 	"echo-specialpage": "通知",
+	"echo-specialpage-pagination-numnotifications": "$1件の{{PLURAL:$1|通知}}",
 	"echo-anon": "通知を受け取るには、[$1 アカウント作成]または[$2 ログイン]をしてください。",
 	"echo-none": "通知はありません。",
 	"echo-more-info": "詳細情報",
