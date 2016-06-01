@@ -8,6 +8,12 @@
  * Class NotificationPager
  */
 class NotificationPager extends ReverseChronologicalPager {
+	public function __construct() {
+		$dbFactory = MWEchoDbFactory::newFromDefault();
+		$this->mDb = $dbFactory->getEchoDb( DB_SLAVE );
+
+		parent::__construct();
+	}
 
 	function formatRow( $row ) {
 		$msg = "This pager does not support row formatting. Use 'getNotifications()' to get a list of EchoNotification objects.";
