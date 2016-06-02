@@ -103,6 +103,7 @@
 	"echo-specialpage-section-markread": "Marquer la section comme lue",
 	"echo-specialpage-markasread": "Notification : Marquer comme lue",
 	"echo-specialpage-markasread-invalid-id": "ID d'événement invalide",
+	"echo-specialpage-pagination-numnotifications": "$1 {{PLURAL:$1|notification|notifications}}",
 	"notificationsmarkread-legend": "Marquer une notification comme lue",
 	"echo-anon": "Pour recevoir des notifications, [$1 créez un compte] ou [$2 connectez-vous].",
 	"echo-none": "Vous n'avez reçu aucune notification.",
@@ -195,8 +196,8 @@
 	"notification-timestamp-ago-years": "{{PLURAL:$1|$1an}}",
 	"notification-timestamp-today": "Aujourd’hui",
 	"notification-timestamp-yesterday": "Hier",
-	"notification-inbox-filter-read": "Lu",
-	"notification-inbox-filter-unread": "Non lu",
+	"notification-inbox-filter-read": "Lus",
+	"notification-inbox-filter-unread": "Non lus",
 	"notification-inbox-filter-all": "Tous",
 	"echo-email-subject-default": "Nouvelle notification sur {{SITENAME}}",
 	"echo-email-body-default": "Vous avez une nouvelle notification sur {{SITENAME}} :\n\n$1",
@@ -262,5 +263,8 @@
 	"apihelp-query+notifications-param-messageunreadfirst": "S’il faut afficher les notifications d’alerte non lues en premier (utilisé uniquement si groupbysection est positionné).",
 	"apihelp-query+notifications-example-1": "Lister les notifications",
 	"apihelp-query+notifications-example-2": "Lister les notifications, groupées par section, avec les compteurs",
-	"apihelp-query+unreadnotificationpages-param-limit": "Nombre maximal de pages à renvoyer."
+	"apihelp-query+unreadnotificationpages-description": "Obtenez les pages pour lesquelles il y a des notifications non lues pour l'utilisateur actuel.",
+	"apihelp-query+unreadnotificationpages-param-limit": "Nombre maximal de pages à renvoyer.",
+	"apihelp-query+unreadnotificationpages-param-wikis": "Liste des wikis pour télécharger les pages comportant des notifications non lues (par défaut, seulement pour le wiki courant).",
+	"apihelp-query+unreadnotificationpages-example-1": "Liste des pages avec (leur quantité) de notifications non lues"
 }

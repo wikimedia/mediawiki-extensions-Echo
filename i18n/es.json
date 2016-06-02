@@ -88,6 +88,7 @@
 	"echo-specialpage-section-markread": "Marcar sección como leída",
 	"echo-specialpage-markasread": "Notificación: marcar como leída",
 	"echo-specialpage-markasread-invalid-id": "Identificador de evento no válido",
+	"echo-specialpage-pagination-numnotifications": "$1 {{PLURAL:$1|notificación|notificaciones}}",
 	"notificationsmarkread-legend": "Marcar la notificación como leída",
 	"echo-anon": "Para recibir notificaciones, [$1 regístrate] o [$2 accede a tu cuenta].",
 	"echo-none": "No tienes notificaciones.",

@@ -13,7 +13,8 @@
 			"Alexmar983",
 			"Fringio",
 			"Catrope",
-			"Macofe"
+			"Macofe",
+			"Matteocng"
 		]
 	},
 	"echo-desc": "Sistema per notificare agli utenti messaggi ed eventi",
@@ -235,5 +236,8 @@
 	"apihelp-query+notifications-param-messageunreadfirst": "Se mostrare le notifiche degli avvisi non letti prima (usato solo se groupbysection è impostato).",
 	"apihelp-query+notifications-example-1": "Elenco notifiche",
 	"apihelp-query+notifications-example-2": "Elenco notifiche, raggruppate per sezione, con i conteggi",
-	"apihelp-query+unreadnotificationpages-param-limit": "Il numero massimo di pagine da restituire."
+	"apihelp-query+unreadnotificationpages-description": "Ottieni le pagine per le quali ci sono notifiche non lette per l'utente corrente.",
+	"apihelp-query+unreadnotificationpages-param-limit": "Il numero massimo di pagine da restituire.",
+	"apihelp-query+unreadnotificationpages-param-wikis": "Elenco di wiki da cui recuperare le pagine con notifiche non lette (predefinito solo il wiki attuale).",
+	"apihelp-query+unreadnotificationpages-example-1": "Elenca le pagine con (il loro numero di) notifiche non lette"
 }

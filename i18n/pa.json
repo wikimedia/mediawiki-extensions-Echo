@@ -41,6 +41,8 @@
 	"echo-no-title": "[ਕੋਈ ਪੰਨਾ ਨਹੀਂ]",
 	"echo-error-no-formatter": "ਸੂਚਨਾ ਲਈ ਕੋਈ ਫਾਰਮੈਟ ਨਹੀਂ ਹੈ।",
 	"notifications": "ਸੂਚਨਾਵਾਂ",
+	"tooltip-pt-notifications-alert": "ਤੁਹਾਡੀਆਂ ਸੂਚਨਾਵਾਂ",
+	"tooltip-pt-notifications-message": "ਤੁਹਾਡੇ ਸੁਨੇਹੇ",
 	"echo-specialpage": "ਸੂਚਨਾਵਾਂ",
 	"echo-anon": "ਸੂਚਨਾਵਾਂ ਪ੍ਰਾਪਤ ਕਰਨ ਲਈ, [$1 ਖਾਤਾ ਬਣਾਉ] ਜਾਂ [$2 ਲਾਗ ਇਨ ਕਰੋ]।",
 	"echo-none": "ਤੁਹਾਡੇ ਲਈ ਕੋਈ ਸੂਚਨਾ ਨਹੀਂ ਹੈ।",
