@@ -24,6 +24,7 @@
 	 * @cfg {string} [primaryUrl] Notification primary link in raw url format
 	 * @cfg {boolean} [foreign=false] This notification is from a foreign source
 	 * @cfg {boolean} [bundled=false] This notification is part of a bundle
+	 * @cfg {number[]} [bundledIds] IDs of notifications bundled with this one
 	 * @cfg {string} [source] The source this notification is coming from, if it is foreign
 	 * @cfg {Object[]} [secondaryUrls] An array of objects defining the secondary URLs
 	 *  for this notification. The secondary URLs are expected to have this structure:
@@ -70,6 +71,7 @@
 		this.timestamp = config.timestamp || fallbackMWDate;
 		this.setPrimaryUrl( config.primaryUrl );
 		this.setSecondaryUrls( config.secondaryUrls );
+		this.bundledIds = config.bundledIds;
 	};
 
 	/* Initialization */
@@ -280,4 +282,14 @@
 	mw.echo.dm.NotificationItem.prototype.getSource = function () {
 		return this.source;
 	};
+
+	/**
+	* Get the all ids contained in this notification
+	*
+	* @return {number[]}
+	*/
+	mw.echo.dm.NotificationItem.prototype.getAllIds = function () {
+		return [ this.getId() ].concat( this.bundledIds || [] );
+	};
+
 } )( mediaWiki, jQuery );

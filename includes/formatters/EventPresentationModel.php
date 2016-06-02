@@ -173,6 +173,20 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 	}
 
 	/**
+	 * Get the ids of the bundled notifications or false if it's not bundled
+	 *
+	 * @return int[]|bool
+	 */
+	public function getBundledIds() {
+		if ( $this->isBundled() ) {
+			return array_map( function ( EchoEvent $event ) {
+				return $event->getId();
+			}, $this->getBundledEvents() );
+		}
+		return false;
+	}
+
+	/**
 	 * This method returns true when there are bundled notifications, even if they are all
 	 * in the same group according to getBundleGrouping(). For presentation purposes, you may
 	 * want to check if getBundleCount( true, $yourCallback ) > 1 instead.

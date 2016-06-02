@@ -21,6 +21,11 @@ class EchoModelFormatter extends EchoEventFormatter {
 			$link['url'] = wfExpandUrl( $link['url'] );
 		}
 
+		$bundledIds = $model->getBundledIds();
+		if ( $bundledIds ) {
+			$data[ 'bundledIds' ] = $bundledIds;
+		}
+
 		return $data;
 	}
 }

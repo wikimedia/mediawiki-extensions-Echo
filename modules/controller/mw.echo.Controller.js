@@ -267,7 +267,8 @@
 			iconURL: content.iconUrl,
 			iconType: content.icon,
 			primaryUrl: OO.getProp( content.links, 'primary', 'url' ),
-			secondaryUrls: OO.getProp( content.links, 'secondary' ) || []
+			secondaryUrls: OO.getProp( content.links, 'secondary' ) || [],
+			bundledIds: content.bundledIds
 		};
 	};
 
@@ -283,7 +284,7 @@
 	 *  were marked as read.
 	 */
 	mw.echo.Controller.prototype.markEntireListModelRead = function ( modelName ) {
-		var i, items,
+		var i, items, item,
 			itemIds = [],
 			model = this.manager.getNotificationModel( modelName || 'local' );
 
@@ -294,8 +295,9 @@
 
 		items = model.getItems();
 		for ( i = 0; i < items.length; i++ ) {
-			if ( !items[ i ].isRead() ) {
-				itemIds.push( items[ i ].getId() );
+			item = items[ i ];
+			if ( !item.isRead() ) {
+				itemIds = itemIds.concat( item.getAllIds() );
 			}
 		}
 
@@ -389,18 +391,20 @@
 	 *  for the set type of this controller, in the given source.
 	 */
 	mw.echo.Controller.prototype.markItemsRead = function ( itemIds, modelSource, isRead ) {
+		var allIds = [];
 		itemIds = Array.isArray( itemIds ) ? itemIds : [ itemIds ];
 
 		// Default to true
 		isRead = isRead === undefined ? true : isRead;
 
 		this.manager.getNotificationModel( modelSource ).findByIds( itemIds ).forEach( function ( notification ) {
+			allIds = allIds.concat( notification.getAllIds() );
 			notification.toggleRead( isRead );
 		} );
 
-		this.manager.getUnreadCounter().estimateChange( isRead ? -itemIds.length : itemIds.length );
+		this.manager.getUnreadCounter().estimateChange( isRead ? -allIds.length : allIds.length );
 
-		return this.api.markItemsRead( itemIds, modelSource, isRead ).then( this.refreshUnreadCount.bind( this ) );
+		return this.api.markItemsRead( allIds, modelSource, isRead ).then( this.refreshUnreadCount.bind( this ) );
 	};
 
 	/**
@@ -459,7 +463,7 @@
 
 					idArray = [];
 					for ( i = 0; i < groupItems.length; i++ ) {
-						idArray.push( groupItems[ i ].id );
+						idArray = idArray.concat( groupItems[ i ].id ).concat( groupItems[ i ][ '*' ].bundledIds || [] );
 					}
 					itemCounter += idArray.length;
 
@@ -467,8 +471,8 @@
 					promises.push(
 						controller.markCrossWikiItemsRead( idArray, listModel.getSource() )
 					);
-
 				}
+
 				// Synchronously remove this model from the widget
 				controller.removeCrossWikiItem();
 
