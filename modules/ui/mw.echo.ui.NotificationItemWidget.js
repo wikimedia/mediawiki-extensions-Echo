@@ -4,6 +4,7 @@
 	 * A base widget for displaying notification items.
 	 *
 	 * @class
+	 * @abstract
 	 * @extends OO.ui.Widget
 	 *
 	 * @constructor
@@ -165,6 +166,10 @@
 			this.$element.append( $icon, this.$content );
 		}
 
+		// Events
+		this.menuPopupButtonWidget.getMenu().connect( this, { choose: 'onPopupButtonWidgetChoose' } );
+		this.markAsReadButton.connect( this, { click: 'onMarkAsReadButtonClick' } );
+
 		this.$element
 			.addClass( 'mw-echo-ui-notificationItemWidget' )
 			.toggleClass( 'mw-echo-ui-notificationItemWidget-initiallyUnseen', !this.model.isSeen() && !this.bundle )
@@ -198,6 +203,33 @@
 	mw.echo.ui.NotificationItemWidget.prototype.onPrimaryLinkClick = function () {
 		return true;
 	};
+
+	/**
+	 * Respond to selecting an item from the popup button widget
+	 */
+	mw.echo.ui.NotificationItemWidget.prototype.onPopupButtonWidgetChoose = function ( item ) {
+		var action = item && item.getData();
+
+		if ( action === 'toggleRead' ) {
+			this.markRead( !this.model.isRead() );
+		}
+	};
+
+	/**
+	 * Respond to mark as read button click
+	 */
+	mw.echo.ui.NotificationItemWidget.prototype.onMarkAsReadButtonClick = function () {
+		this.markRead( true );
+	};
+
+	/**
+	 * Mark this notification as read
+	 *
+	 * @method
+	 * @abstract
+	 * @param {boolean} [isRead=true] Notification is marked as read
+	 */
+	mw.echo.ui.NotificationItemWidget.prototype.markRead = null;
 
 	/**
 	 * Get the notification link
@@ -251,28 +283,6 @@
 	 */
 	mw.echo.ui.NotificationItemWidget.prototype.isForeign = function () {
 		return this.model.isForeign();
-	};
-
-	/**
-	 * Respond to selecting an item from the popup button widget
-	 */
-	mw.echo.ui.NotificationItemWidget.prototype.onPopupButtonWidgetChoose = function ( item ) {
-		var action = item && item.getData();
-
-		if ( action === 'toggleRead' ) {
-			this.markRead( !this.model.isRead() );
-		}
-	};
-
-	/**
-	 * Mark this notification as read
-	 *
-	 * @param {boolean} [isRead=true] Notification is marked as read
-	 */
-	mw.echo.ui.NotificationItemWidget.prototype.markRead = function ( isRead ) {
-		isRead = isRead !== undefined ? isRead : true;
-
-		this.controller.markSingleItemRead( this.model.getId(), this.model.getSource(), this.model.isForeign(), !!isRead );
 	};
 
 	/**

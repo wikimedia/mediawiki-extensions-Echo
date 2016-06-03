@@ -82,7 +82,6 @@
 		this.actionsButtonSelectWidget.addItems( [ this.toggleExpandButton ] );
 
 		// Events
-		this.markAsReadButton.connect( this, { click: 'onMarkAsReadButtonClick' } );
 		this.model.connect( this, { removeSource: 'onModelRemoveSource' } );
 		this.toggleExpandButton.connect( this, { click: 'expand' } );
 		this.$content.on( 'click', this.expand.bind( this ) );
@@ -137,6 +136,15 @@
 	/**
 	 * @inheritdoc
 	 */
+	mw.echo.ui.CrossWikiNotificationItemWidget.prototype.markRead = function () {
+		// Cross wiki notification is always only marked as read, never as
+		// unread. The original parameter is unneeded
+		this.controller.markEntireCrossWikiItemAsRead();
+	};
+
+	/**
+	 * @inheritdoc
+	 */
 	mw.echo.ui.CrossWikiNotificationItemWidget.prototype.onPrimaryLinkClick = function () {
 		// Log notification click
 
@@ -149,13 +157,6 @@
 			// Source of this notification if it is cross-wiki
 			this.bundle ? this.getModel().getSource() : ''
 		);
-	};
-
-	/**
-	 * Respond to mark as read button click
-	 */
-	mw.echo.ui.CrossWikiNotificationItemWidget.prototype.onMarkAsReadButtonClick = function () {
-		this.controller.markEntireCrossWikiItemAsRead();
 	};
 
 	/**
