@@ -176,5 +176,6 @@
 	"apihelp-query+notifications-param-messagecontinue": "Wann mih Nohreeschte ze holle sin, nemm dat för wigger ze maache.",
 	"apihelp-query+notifications-param-messageunreadfirst": "Ov de unjelässe Nohreeschte övver Meddeilonge am Aanfang schtonn sulle. Bedügg nix, wann et Jroppehre aanjeschalld es.",
 	"apihelp-query+notifications-example-1": "Meddeilonge opleßte",
-	"apihelp-query+notifications-example-2": "Meddeilonge opleßte, noh Affschnedde, met der Aanzahl"
+	"apihelp-query+notifications-example-2": "Meddeilonge opleßte, noh Affschnedde, met der Aanzahl",
+	"apihelp-query+unreadnotificationpages-param-limit": "De jrüüßte Zahl Sigge för ußzejävve."
 }
