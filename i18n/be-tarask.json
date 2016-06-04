@@ -89,7 +89,7 @@
 	"echo-email-subject-default": "Новая абвестка ад {{GRAMMAR:родны|{{SITENAME}}}}",
 	"echo-email-body-default": "Для Вас ёсьць новая абвестка ў {{GRAMMAR:месны|{{SITENAME}}}}:\n\n$1",
 	"echo-email-batch-body-default": "Вы маеце новую абвестку",
-	"echo-email-footer-default": "$2\n\nКаб выбраць, якія лісты мы дасылацьмем Вам, наведайце свае налады:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
+	"echo-email-footer-default": "$2\n\nКаб кантраляваць, якія лісты мы дасылацьмем Вам, наведайце свае налады:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
 	"echo-notification-alert-text-only": "Апавяшчэньні",
 	"echo-notification-message-text-only": "Паведамленьні",
 	"echo-overlay-link": "Усе абвесткі",
