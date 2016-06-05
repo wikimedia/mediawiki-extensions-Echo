@@ -96,6 +96,7 @@
 	"echo-api-failure": "Kan meldingen niet ophalen. Probeer het later opnieuw. (Fout $1)",
 	"echo-api-failure-cross-wiki": "Toegang tot het externe domein is geweigerd.",
 	"echo-notification-placeholder": "Er zijn geen meldingen.",
+	"echo-notification-placeholder-filters": "Er zijn geen meldingen binnen deze criteria.",
 	"echo-notification-loginrequired": "U moet zich aanmelden om uw meldingen te bekijken.",
 	"echo-notification-popup-loginrequired": "Meld u aan om uw notificaties te weergeven.",
 	"echo-notification-markasread": "Als gelezen markeren",

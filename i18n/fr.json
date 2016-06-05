@@ -101,7 +101,7 @@
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "Quelles méthodes de notification sont obligatoires pour chaque catégorie",
 	"echo-specialpage": "Notifications",
 	"echo-specialpage-section-markread": "Marquer la section comme lue",
-	"echo-specialpage-markasread": "Notification : Marquer comme lue",
+	"echo-specialpage-markasread": "Notification : marquer comme lue",
 	"echo-specialpage-markasread-invalid-id": "ID d'événement invalide",
 	"echo-specialpage-pagination-numnotifications": "$1 {{PLURAL:$1|notification|notifications}}",
 	"notificationsmarkread-legend": "Marquer une notification comme lue",

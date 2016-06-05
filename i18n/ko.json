@@ -144,6 +144,8 @@
 	"notification-timestamp-ago-days": "$1일 전",
 	"notification-timestamp-ago-months": "$1개월 전",
 	"notification-timestamp-ago-years": "$1년 전",
+	"notification-timestamp-today": "오늘",
+	"notification-timestamp-yesterday": "어제",
 	"echo-email-subject-default": "{{SITENAME}}의 새 알림",
 	"echo-email-body-default": "{{SITENAME}}에 새 알림이 있습니다:\n\n$1",
 	"echo-email-batch-body-default": "새 알림이 있습니다",
