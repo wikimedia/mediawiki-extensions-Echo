@@ -101,7 +101,7 @@
 	"notification-header-edit-user-talk-with-section": "{{GENDER:$2|بعث|بعثت}} $1 رسالةً إليك في <strong>{{GENDER:$3|صفحة نقاشك}}</strong> في \"<strong>$4</strong>\".",
 	"notification-page-linked": "{{GENDER:$1|وضعت}} وصلة لصفحة [[:$2]] في [[:$3]]. [[Special:WhatLinksHere/$2|انظر جميع وصلات تلك الصفحة]].",
 	"notification-header-page-linked": "أضيفت وصلة لصفحة <strong>$3</strong> في صفحة <strong>$4</strong>.",
-	"notification-bundle-header-page-linked": "أضيفت وصلات من <strong>$4</strong> و$5 {{PLURAL:$5|صفحة أخرى|صفحتين أخرتين|صفحات أخرى|100=99+ صفحة أخرى}} إلى <strong>$3</strong>.",
+	"notification-bundle-header-page-linked": "أضيفت وصلات من <strong>$4</strong> و{{PLURAL:$5||صفحة أخرى|صفحتين أخرتين|$5 صفحات أخرى|100=99+ صفحة أخرى}} إلى <strong>$3</strong>.",
 	"notification-link-text-what-links-here": "كل الوصلات إلى هذه الصفحة",
 	"notification-add-comment2": "{{GENDER:$1|علق|علقت}} [[User:$1|$1]] على \"[[$3|$2]]\" في صفحة نقاش \"$4\".",
 	"notification-add-talkpage-topic2": "{{GENDER:$1|أنشأ|أنشأت}} [[User:$1|$1]] قسما جديدا بعنوان \"$2\" في [[$3]].",

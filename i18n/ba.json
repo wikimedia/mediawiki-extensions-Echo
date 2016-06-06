@@ -123,7 +123,7 @@
 	"notification-header-reverted": "{{PLURAL:$4|1=Һеҙҙең}} <strong>$3</strong> битендәге төҙәтмә {{GENDER:$2|{{PLURAL:$4|кире ҡағылды}}}}",
 	"notification-emailuser": " Һеҙгә {{GENDER:$1||}} хат [[User:$1|$1]] ебәрҙе.",
 	"notification-header-emailuser": "$1{{GENDER:$2|ебәргән}} һеҙгә электрон почта аша ебәрелгән.",
-	"notification-edit-talk-page-email-subject2": "$1{{GENDER:$1|һулда}}һеҙгә {{SITENAME}} тураһында хәбәр",
+	"notification-edit-talk-page-email-subject2": "{{GENDER:$1|Ҡатнашыусы}} $1 «{{SITENAME}}» сайтында һеҙгә хәбәр ҡалдырҙы.",
 	"notification-edit-talk-page-email-batch-body2": "$1 {{GENDER:$1|һулда}}һеҙҙең менән әңгәмә битендәге хәбәр.",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 {{GENDER:$1|һулда}} һеҙҙең менән әңгәмәнең \"$2\" битендәге хәбәр.",
 	"notification-page-linked-email-subject": "Һеҙ төҙөгән биткә «{{SITENAME}}» сайтында һылтанма яһалды",
