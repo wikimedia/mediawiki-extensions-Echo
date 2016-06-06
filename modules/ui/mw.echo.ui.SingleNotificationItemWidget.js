@@ -36,8 +36,6 @@
 		this.toggleMarkAsReadButtons( !this.markReadWhenSeen && !this.model.isRead() );
 
 		// Events
-		this.markAsReadButton.connect( this, { click: [ 'markRead', true ] } );
-		this.menuPopupButtonWidget.getMenu().connect( this, { choose: 'onPopupButtonWidgetChoose' } );
 		this.model.connect( this, { update: 'updateDataFromModel' } );
 
 		// Update read and seen states from the model
@@ -64,6 +62,15 @@
 			// to consider changing this
 			this.bundle ? this.getModel().getSource() : ''
 		);
+	};
+
+	/**
+	 * @inheritdoc
+	 */
+	mw.echo.ui.SingleNotificationItemWidget.prototype.markRead = function ( isRead ) {
+		isRead = isRead !== undefined ? isRead : true;
+
+		this.controller.markSingleItemRead( this.model.getId(), this.model.getSource(), this.model.isForeign(), !!isRead );
 	};
 
 	/**
