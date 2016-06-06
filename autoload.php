@@ -122,4 +122,5 @@ $wgAutoloadClasses += [
 	'SpecialNotificationsFormatter' => __DIR__ . '/includes/formatters/SpecialNotificationsFormatter.php',
 	'SpecialNotificationsMarkRead' => __DIR__ . '/includes/special/SpecialNotificationsMarkRead.php',
 	'SuppressionMaintenanceTest' => __DIR__ . '/tests/phpunit/maintenance/SupressionMaintenanceTest.php',
+	'UpdateEchoSchemaForSuppression' => __DIR__ . '/maintenance/updateEchoSchemaForSuppression.php',
 ];

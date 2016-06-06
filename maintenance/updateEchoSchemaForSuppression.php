@@ -14,7 +14,7 @@ require_once ( getenv( 'MW_INSTALL_PATH' ) !== false
  *
  * @ingroup Maintenance
  */
-class UpdateEchoSchemaForSuppression extends Maintenance {
+class UpdateEchoSchemaForSuppression extends LoggedUpdateMaintenance {
 
 	/**
 	 * @var string The table to update
@@ -31,7 +31,11 @@ class UpdateEchoSchemaForSuppression extends Maintenance {
 		$this->setBatchSize( 500 );
 	}
 
-	public function execute() {
+	public function getUpdateKey() {
+		return __CLASS__;
+	}
+
+	public function doDBUpdates() {
 		global $wgEchoCluster;
 
 		$reader = new BatchRowIterator( MWEchoDbFactory::getDB( DB_SLAVE ), $this->table, $this->idField, $this->mBatchSize );
@@ -39,22 +43,18 @@ class UpdateEchoSchemaForSuppression extends Maintenance {
 			"event_page_title IS NOT NULL",
 			"event_page_id" => null,
 		) );
+		$reader->setFetchColumns( array( 'event_page_namespace', 'event_page_title', 'event_extra', 'event_type' ) );
 
 		$updater = new BatchRowUpdate(
 			$reader,
 			new BatchRowWriter( MWEchoDbFactory::getDB( DB_MASTER ), $this->table, $wgEchoCluster ),
 			new EchoSuppressionRowUpdateGenerator
 		);
-		$updater->setOutput( array( $this, '__internalOutput' ) );
+		$updater->setOutput( function ( $text ) {
+			$this->output( $text );
+		} );
 		$updater->execute();
-	}
-
-	/**
-	 * Internal use only. parent::output() is a protected method, only way to access it from
-	 * a callback in php5.3 is to make a public function. In 5.4 can replace with a Closure.
-	 */
-	public function __internalOutput( $text ) {
-		$this->output( $text );
+		return true;
 	}
 }
 
