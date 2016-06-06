@@ -736,8 +736,6 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 			'event_variant',
 			'event_agent_id',
 			'event_agent_ip',
-			'event_page_namespace',
-			'event_page_title',
 			'event_extra',
 			'event_page_id',
 			'event_deleted',

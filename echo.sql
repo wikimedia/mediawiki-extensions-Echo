@@ -15,10 +15,6 @@ CREATE TABLE /*_*/echo_event (
 	-- If the event doesn't have an agent, both fields are null.
 	event_agent_id int unsigned null,
 	event_agent_ip varchar(39) binary null,
-	-- Unused, should be removed (T136427)
-	event_page_namespace int unsigned null,
-	-- Unused, should be removed (T136427)
-	event_page_title varchar(255) binary null,
 	-- JSON blob with additional information about the event
 	event_extra BLOB NULL,
 	-- Page ID of the page the event happened on, if any (key to page_id)

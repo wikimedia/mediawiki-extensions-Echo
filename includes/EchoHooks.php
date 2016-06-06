@@ -225,6 +225,14 @@ class EchoHooks {
 			"$dir/db_patches/patch-add-event_page_id-index.sql" );
 		$updater->dropExtensionIndex( 'echo_notification', 'user_event',
 			"$dir/db_patches/patch-notification-pk.sql" );
+		// Can't use addPostDatabaseUpdateMaintenance() here because that would
+		// run the migration script after dropping the fields
+		$updater->addExtensionUpdate( [ 'runMaintenance', 'UpdateEchoSchemaForSuppression',
+			'extensions/Echo/maintenance/updateEchoSchemaForSuppression.php' ] );
+		$updater->dropExtensionField( 'echo_event', 'event_page_namespace',
+			"$dir/db_patches/patch-drop-echo_event-event_page_namespace.sql" );
+		$updater->dropExtensionField( 'echo_event', 'event_page_title',
+			"$dir/db_patches/patch-drop-echo_event-event_page_title.sql" );
 	}
 
 	/**

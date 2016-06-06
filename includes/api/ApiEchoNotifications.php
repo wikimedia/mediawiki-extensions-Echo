@@ -444,8 +444,6 @@ class ApiEchoNotifications extends ApiQueryBase {
 		$row->event_agent_id = $user->getId();
 		$row->event_agent_ip = null;
 		$row->event_page_id = null;
-		$row->event_page_namespace = null;
-		$row->event_page_title = null;
 		$row->event_extra = serialize( [
 			'section' => $section ?: 'all',
 			'wikis' => $wikis,
