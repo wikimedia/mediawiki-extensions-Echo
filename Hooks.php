@@ -165,6 +165,7 @@ class EchoHooks {
 		$updater->addExtensionField( 'echo_event', 'event_page_id', "$dir/db_patches/patch-add-echo_event-event_page_id.sql" );
 		$updater->addExtensionIndex( 'echo_event', 'echo_event_type', "$dir/db_patches/patch-alter-event_type-index.sql" );
 		$updater->addExtensionIndex( 'echo_notification', 'echo_user_timestamp', "$dir/db_patches/patch-alter-user_timestamp-index.sql" );
+		$updater->addPostDatabaseUpdateMaintenance( 'RemoveOrphanedEvents' );
 	}
 
 	/**
