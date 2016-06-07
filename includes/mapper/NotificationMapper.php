@@ -97,11 +97,19 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	 * @param int $limit
 	 * @param string $continue Used for offset
 	 * @param string[] $eventTypes
+	 * @param Title[] $titles If set, only return notifications for these pages.
 	 * @param int $dbSource Use master or slave database
 	 * @return EchoNotification[]
 	 */
-	public function fetchUnreadByUser( User $user, $limit, $continue, array $eventTypes = array(), $dbSource = DB_SLAVE ) {
-		return $this->fetchByUserInternal( $user, $limit, $continue, $eventTypes, array( 'notification_read_timestamp' => null ), $dbSource );
+	public function fetchUnreadByUser( User $user, $limit, $continue, array $eventTypes = array(), array $titles = null, $dbSource = DB_SLAVE ) {
+		$conds['notification_read_timestamp'] = null;
+		if ( $titles ) {
+			$conds['event_page_id'] = $this->getIdsForTitles( $titles );
+			if ( !$conds['event_page_id'] ) {
+				return array();
+			}
+		}
+		return $this->fetchByUserInternal( $user, $limit, $continue, $eventTypes, $conds, $dbSource );
 	}
 
 	/**
@@ -114,11 +122,19 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	 * @param int $limit
 	 * @param string $continue Used for offset
 	 * @param string[] $eventTypes
+	 * @param Title[] $titles If set, only return notifications for these pages.
 	 * @param int $dbSource Use master or slave database
 	 * @return EchoNotification[]
 	 */
-	public function fetchReadByUser( User $user, $limit, $continue, array $eventTypes = array(), $dbSource = DB_SLAVE ) {
-		return $this->fetchByUserInternal( $user, $limit, $continue, $eventTypes, array( 'notification_read_timestamp IS NOT NULL' ), $dbSource );
+	public function fetchReadByUser( User $user, $limit, $continue, array $eventTypes = array(), array $titles = null, $dbSource = DB_SLAVE ) {
+		$conds = array( 'notification_read_timestamp IS NOT NULL' );
+		if ( $titles ) {
+			$conds['event_page_id'] = $this->getIdsForTitles( $titles );
+			if ( !$conds['event_page_id'] ) {
+				return array();
+			}
+		}
+		return $this->fetchByUserInternal( $user, $limit, $continue, $eventTypes, $conds, $dbSource );
 	}
 
 	/**
@@ -129,17 +145,34 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	 * @param string $continue Used for offset
 	 * @param array $eventTypes Event types to load
 	 * @param array $excludeEventIds Event id's to exclude.
+	 * @param Title[] $titles If set, only return notifications for these pages.
 	 * @return EchoNotification[]
 	 */
-	public function fetchByUser( User $user, $limit, $continue, array $eventTypes = array(), array $excludeEventIds = array() ) {
+	public function fetchByUser( User $user, $limit, $continue, array $eventTypes = array(), array $excludeEventIds = array(), array $titles = null ) {
 		$dbr = $this->dbFactory->getEchoDb( DB_SLAVE );
 
 		$conds = array();
 		if ( $excludeEventIds ) {
 			$conds[] = 'event_id NOT IN ( ' . $dbr->makeList( $excludeEventIds ) . ' ) ';
 		}
+		if ( $titles ) {
+			$conds['event_page_id'] = $this->getIdsForTitles( $titles );
+			if ( !$conds['event_page_id'] ) {
+				return array();
+			}
+		}
 
 		return $this->fetchByUserInternal( $user, $limit, $continue, $eventTypes, $conds );
+	}
+
+	protected function getIdsForTitles( array $titles ) {
+		$ids = array();
+		foreach ( $titles as $title ) {
+			if ( $title->exists() ) {
+				$ids[] = $title->getArticleId();
+			}
+		}
+		return $ids;
 	}
 
 	/**
