@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mashoi7"
+			"Mashoi7",
+			"Varvana"
 		]
 	},
+	"tooltip-pt-notifications-alert": "{{GENDER:|Šiun}} hälytykšet",
 	"tooltip-pt-notifications-message": "{{GENDER:|Šiun}} viestit"
 }

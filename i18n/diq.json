@@ -54,7 +54,7 @@
 	"notification-timestamp-today": "Noroc",
 	"notification-timestamp-yesterday": "Vızér",
 	"notification-inbox-filter-read": "Bıwan",
-	"notification-inbox-filter-unread": "Mewan",
+	"notification-inbox-filter-unread": "Nêwaniya ya",
 	"notification-inbox-filter-all": "Pêro",
 	"echo-email-subject-default": "{{SITENAME}} de beyanato newe",
 	"echo-email-body-default": "{{SITENAME}} de beyanatê do newe esto:\n\n$1",

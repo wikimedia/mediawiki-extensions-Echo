@@ -7,7 +7,8 @@
 			"පසිඳු කාවින්ද",
 			"Bennylin",
 			"WongKentir",
-			"Mbrt"
+			"Mbrt",
+			"Rachmat.Wahidi"
 		]
 	},
 	"echo-desc": "Sistem pemberitahuan",
@@ -50,11 +51,14 @@
 	"tooltip-pt-notifications-message": "Pesan {{GENDER:|Anda}}",
 	"echo-specialpage": "Pemberitahuan",
 	"echo-specialpage-section-markread": "Tandai grup telah dibaca",
+	"echo-specialpage-pagination-numnotifications": "$1 {{PLURAL:$1|pemberitahuan|pemberitahuan}}",
 	"echo-anon": "Untuk menerima pemberitahuan, [$1 buat sebuah akun] atau [$2 masuk log].",
 	"echo-none": "Anda tidak memiliki pemberitahuan.",
 	"echo-more-info": "Informasi selengkapnya",
 	"echo-feedback": "Umpan balik",
 	"echo-quotation-marks": "\"$1\"",
+	"echo-api-failure": "Gagal mengambil pemberitahuan.",
+	"echo-notification-placeholder-filters": "Tidak ada pemberitahuan yang sesuai dengan kriteria ini.",
 	"notification-link-text-view-message": "Lihat pesan",
 	"notification-link-text-view-mention": "Lihat sebutan",
 	"notification-link-text-view-changes": "Lihat perubahan",
@@ -87,6 +91,11 @@
 	"notification-mention-nosection-email-batch-body": "$1 {{GENDER:$1|menyebut}} Anda pada halaman pembicaraan $2.",
 	"notification-user-rights-email-subject": "Hak pengguna Anda telah diubah di {{SITENAME}}",
 	"notification-user-rights-email-batch-body": "Hak pengguna Anda telah {{GENDER:$1|diubah}} oleh $1. $2.",
+	"notification-timestamp-today": "Hari ini",
+	"notification-timestamp-yesterday": "Kemarin",
+	"notification-inbox-filter-read": "Sudah dibaca",
+	"notification-inbox-filter-unread": "Belum dibaca",
+	"notification-inbox-filter-all": "Semua",
 	"echo-email-subject-default": "Pemberitahuan baru di {{SITENAME}}",
 	"echo-email-body-default": "Anda memiliki pemberitahuan baru di {{SITENAME}}:\n\n$1",
 	"echo-email-batch-body-default": "Anda memiliki pemberitahuan baru.",
@@ -128,5 +137,8 @@
 	"apihelp-query+notifications-param-messagecontinue": "Saat ada lebih banyak hasil pesan yang tersedia, gunakan ini untuk melanjutkan.",
 	"apihelp-query+notifications-param-messageunreadfirst": "Menentukan apakah harus menampilkan pemberitahuan penanda terlebih dahulu.",
 	"apihelp-query+notifications-example-1": "Daftar pemberitahuan",
-	"apihelp-query+notifications-example-2": "Daftar pemberitahuan, dikelompokkan berdasarkan bagian, dengan jumlah"
+	"apihelp-query+notifications-example-2": "Daftar pemberitahuan, dikelompokkan berdasarkan bagian, dengan jumlah",
+	"apihelp-query+unreadnotificationpages-param-limit": "Jumlah halaman maksimum yang ditampilkan.",
+	"apihelp-query+unreadnotificationpages-param-wikis": "Daftar wiki untuk mengambil halaman dengan pemberitahuan belum dibaca (baku hanya pada wiki ini).",
+	"apihelp-query+unreadnotificationpages-example-1": "Daftarkan halaman dengan (jumlah) pemberitahuan belum dibaca"
 }
