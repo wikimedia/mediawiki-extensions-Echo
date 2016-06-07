@@ -297,7 +297,7 @@
 	 * Respond to 'mark all as read' button click
 	 */
 	mw.echo.ui.NotificationBadgeWidget.prototype.onMarkAllReadButtonClick = function () {
-		this.controller.markEntireListModelRead( 'local' );
+		this.controller.markLocalNotificationsRead();
 	};
 
 	/**

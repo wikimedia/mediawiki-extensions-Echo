@@ -99,7 +99,7 @@
 	 *  list.
 	 */
 	mw.echo.ui.NotificationsListWidget.prototype.resetDataFromModel = function ( models ) {
-		var i, modelId, model, subItems,
+		var i, modelId, model, subItems, subItem,
 			itemWidgets = [];
 
 		// Detach all attached models
@@ -114,27 +114,34 @@
 
 			// Build widgets based on the data in the model
 			if ( model.isGroup() ) {
-				// TODO: For the moment, 'group' is for group
-				// of lists (x-wiki items) but when we have local
-				// bundles, we will need to separate those out to
-				// their own widgets and find a way to differentiate
-				// them from the x-wiki groups.
-
-				// One Widget to Rule Them All
-				itemWidgets.push( new mw.echo.ui.CrossWikiNotificationItemWidget(
-					this.controller,
-					model,
-					{
-						$overlay: this.$overlay
-					}
-				) );
+				if ( model.isForeign() ) {
+					// One Widget to Rule Them All
+					itemWidgets.push( new mw.echo.ui.CrossWikiNotificationItemWidget(
+						this.controller,
+						model,
+						{
+							$overlay: this.$overlay
+						}
+					) );
+				} else {
+					// local bundle
+					itemWidgets.push( new mw.echo.ui.BundleNotificationItemWidget(
+						this.controller,
+						model,
+						{
+							$overlay: this.$overlay,
+							bundle: false
+						}
+					) );
+				}
 			} else {
 				subItems = model.getItems();
 				// Separate widgets per item
 				for ( i = 0; i < subItems.length; i++ ) {
+					subItem = subItems[ i ];
 					itemWidgets.push( new mw.echo.ui.SingleNotificationItemWidget(
 						this.controller,
-						subItems[ i ],
+						subItem,
 						{
 							$overlay: this.$overlay,
 							bundle: false

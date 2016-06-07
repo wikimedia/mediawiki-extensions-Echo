@@ -93,6 +93,7 @@
 
 		// Initialize
 		this.toggleMarkAllReadButton();
+
 		this.$element
 			.addClass( 'mw-echo-ui-subGroupListWidget' )
 			.append(
@@ -119,7 +120,7 @@
 	 * based on whether there are unread notifications
 	 */
 	mw.echo.ui.SubGroupListWidget.prototype.toggleMarkAllReadButton = function () {
-		this.markAllReadButton.toggle( this.hasUnread() );
+		this.markAllReadButton.toggle( this.showMarkAllRead && this.hasUnread() );
 	};
 
 	/**

@@ -74,6 +74,7 @@ $wgResourceModules += array(
 			'ui/mw.echo.ui.NotificationItemWidget.js',
 			'ui/mw.echo.ui.SingleNotificationItemWidget.js',
 			'ui/mw.echo.ui.CrossWikiNotificationItemWidget.js',
+			'ui/mw.echo.ui.BundleNotificationItemWidget.js',
 
 			'ui/mw.echo.ui.ActionMenuPopupWidget.js',
 			'ui/mw.echo.ui.MenuItemWidget.js',
@@ -134,6 +135,7 @@ $wgResourceModules += array(
 			'echo-notification-message',
 			'echo-notification-loginrequired',
 			'echo-notification-popup-loginrequired',
+			'notification-link-text-expand-all',
 			'notification-link-text-collapse-all',
 			"notification-link-text-expand-alert-count",
 			"notification-link-text-expand-message-count",
@@ -179,6 +181,7 @@ $wgResourceModules += array(
 			'model/mw.echo.dm.SortedList.js',
 			'model/mw.echo.dm.NotificationItem.js',
 			'model/mw.echo.dm.CrossWikiNotificationItem.js',
+			'model/mw.echo.dm.BundleNotificationItem.js',
 			'model/mw.echo.dm.NotificationsList.js',
 			'model/mw.echo.dm.NotificationGroupsList.js',
 			'model/mw.echo.dm.UnreadNotificationCounter.js',

@@ -16,6 +16,7 @@
 		this.fetchingPromise = null;
 		this.limit = config.limit || 25;
 		this.fetchingPrioritizer = new mw.echo.api.PromisePrioritizer();
+		this.bundle = !!config.bundle;
 	};
 
 	OO.initClass( mw.echo.api.EchoApi );
@@ -106,6 +107,8 @@
 			overrideParams = {};
 
 		filterObject = filterObject || {};
+
+		overrideParams.notbundle = this.bundle;
 
 		if ( filterObject.continue ) {
 			overrideParams.notcontinue = filterObject.continue;
@@ -198,7 +201,8 @@
 	 *  names to an array of their items' API data objects.
 	 */
 	mw.echo.api.EchoApi.prototype.fetchNotificationGroups = function ( sourceArray, type ) {
-		return this.network.getApiHandler( 'local' ).fetchNotifications( type, sourceArray, true )
+		var overrideParams = { notbundle: this.bundle, notcrosswikisummary: false };
+		return this.network.getApiHandler( 'local' ).fetchNotifications( type, sourceArray, true, overrideParams )
 			.then( function ( result ) {
 				var i,
 					items = OO.getProp( result, 'query', 'notifications', 'list' ),

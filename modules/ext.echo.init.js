@@ -38,7 +38,7 @@
 			$( this ).addClass( 'mw-echo-notifications-badge-dimmed' );
 
 			// Fire the notification API requests
-			echoApi = new mw.echo.api.EchoApi();
+			echoApi = new mw.echo.api.EchoApi( { bundle: true } );
 			echoApi.fetchNotifications( myType )
 				.then( function ( data ) {
 					mw.track( 'timing.MediaWiki.echo.overlay.api', mw.now() - time );

@@ -304,4 +304,4 @@
 		return [ this.getId() ].concat( this.bundledIds || [] );
 	};
 
-} )( mediaWiki, jQuery );
+}( mediaWiki, jQuery ) );

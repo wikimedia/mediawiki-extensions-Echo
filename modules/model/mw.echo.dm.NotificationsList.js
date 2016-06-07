@@ -242,4 +242,8 @@
 		return false;
 	};
 
+	mw.echo.dm.NotificationsList.prototype.isForeign = function () {
+		return this.getSource() !== 'local';
+	};
+
 } )( mediaWiki );

@@ -206,14 +206,11 @@
 	 * @return {boolean} Local model has unread notifications.
 	 */
 	mw.echo.dm.ModelManager.prototype.hasLocalUnread = function () {
-		var localModel = this.getNotificationModel( 'local' ),
-			isUnread = function ( item ) {
+		var isUnread = function ( item ) {
 				return !item.isRead();
 			};
 
-		return localModel ?
-			localModel.getItems().some( isUnread ) :
-			false;
+		return this.getLocalNotifications().some( isUnread );
 	};
 
 	/**
@@ -234,14 +231,11 @@
 	 * @return {boolean} Local model has unread talk page notifications.
 	 */
 	mw.echo.dm.ModelManager.prototype.hasLocalUnreadTalk = function () {
-		var localModel = this.getNotificationModel( 'local' ),
-			isUnreadUserTalk = function ( item ) {
+		var isUnreadUserTalk = function ( item ) {
 				return !item.isRead() && item.getCategory() === 'edit-user-talk';
 			};
 
-		return localModel ?
-			localModel.getItems().some( isUnreadUserTalk ) :
-			false;
+		return this.getLocalNotifications().some( isUnreadUserTalk );
 	};
 
 	/**
@@ -299,9 +293,7 @@
 	 * @private
 	 */
 	mw.echo.dm.ModelManager.prototype.setLocalModelItemsSeen = function () {
-		var model = this.getNotificationModel( 'local' );
-
-		model.getItems().forEach( function ( item ) {
+		this.getLocalNotifications().forEach( function ( item ) {
 			item.toggleSeen( true );
 		} );
 
@@ -344,6 +336,23 @@
 				this.types[ 0 ] :
 				'all'
 		);
+	};
+
+	/**
+	 * Get all local notifications
+	 *
+	 * @return {mw.echo.dm.NotificationItem[]} all local notifications
+	 */
+	mw.echo.dm.ModelManager.prototype.getLocalNotifications = function () {
+		var notifications = [],
+			manager = this;
+		Object.keys( this.getAllNotificationModels() ).forEach( function ( modelName ) {
+			var model = manager.getNotificationModel( modelName );
+			if ( !model.isForeign() ) {
+				notifications = notifications.concat( model.getItems() );
+			}
+		} );
+		return notifications;
 	};
 
 } )( mediaWiki, jQuery );

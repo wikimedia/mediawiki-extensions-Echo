@@ -33,7 +33,7 @@ class EchoDataOutputFormatter {
 
 		$bundledNotifs = $notification->getBundledNotifications();
 		if ( $bundledNotifs ) {
-			$bundledEvents = array_map( function ( $notif ) {
+			$bundledEvents = array_map( function ( EchoNotification $notif ) {
 				return $notif->getEvent();
 			}, $bundledNotifs );
 			$event->setBundledEvents( $bundledEvents );
@@ -135,6 +135,17 @@ class EchoDataOutputFormatter {
 				return false;
 			}
 			$output['*'] = $formatted;
+
+			if ( $notification->getBundledNotifications() && self::isBundleExpandable( $event->getType() ) ) {
+				$output['bundledNotifications'] = array_filter( array_map( function ( EchoNotification $notification ) use ( $format, $user, $lang ) {
+					// remove nested notifications to
+					//   - ensure they are formatted as single notifications (not bundled)
+					//   - prevent further re-entrance on the current notification
+					$notification->setBundledNotifications( array() );
+					$notification->getEvent()->setBundledEvents( array() );
+					return self::formatOutput( $notification, $format, $user, $lang );
+				}, array_merge( array( $notification ), $notification->getBundledNotifications() ) ) );
+			}
 		}
 
 		return $output;
@@ -188,6 +199,15 @@ class EchoDataOutputFormatter {
 		$timestamp->offsetForUser( $user );
 
 		return $timestamp->getTimestamp( $format );
+	}
+
+	/**
+	 * @param string $type
+	 * @return bool Whether a notification type can be an expandable bundle
+	 */
+	public static function isBundleExpandable( $type ) {
+		global $wgEchoNotifications;
+		return isset( $wgEchoNotifications[$type]['bundle']['expandable'] ) && $wgEchoNotifications[$type]['bundle']['expandable'];
 	}
 
 }

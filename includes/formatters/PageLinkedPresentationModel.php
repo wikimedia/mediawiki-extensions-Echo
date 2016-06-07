@@ -64,10 +64,16 @@ class EchoPageLinkedPresentationModel extends EchoEventPresentationModel {
 		$msg->params( $this->getTruncatedTitleText( $this->event->getTitle(), true ) );
 		$msg->params( $this->getTruncatedTitleText( $this->getPageFrom(), true ) );
 		$count =
-			$this->getNotificationCountForOutput( false, array( $this, 'getLinkedPageId' ) );
+			$this->getNotificationCountForOutput( true, array( $this, 'getLinkedPageId' ) );
 
 		// Repeat is B/C until unused parameter is removed from translations
 		$msg->numParams( $count, $count );
+		return $msg;
+	}
+
+	public function getCompactHeaderMessage() {
+		$msg = $this->msg( parent::getCompactHeaderMessageKey() );
+		$msg->params( $this->getTruncatedTitleText( $this->getPageFrom(), true ) );
 		return $msg;
 	}
 

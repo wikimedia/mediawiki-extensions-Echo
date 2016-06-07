@@ -232,7 +232,16 @@
 				function ( data ) {
 					var i, notifData, content, newNotifData,
 						foreignListModel, source, itemModel,
-						allModels = { local: localListModel };
+						allModels = { local: localListModel },
+						createBundledNotification = function ( modelName, rawBundledNotifData ) {
+							var bundleNotifData = controller.createNotificationData( rawBundledNotifData );
+							bundleNotifData.bundled = true;
+							bundleNotifData.modelName = modelName;
+							return new mw.echo.dm.NotificationItem(
+								rawBundledNotifData.id,
+								bundleNotifData
+							);
+						};
 
 					data = data || { list: [] };
 
@@ -259,6 +268,15 @@
 									notifData.sources[ source ]
 								);
 							}
+						} else if ( newNotifData.bundledNotifications ) {
+							// local bundle
+							newNotifData.modelName = 'bundle_' + notifData.id;
+							itemModel = new mw.echo.dm.BundleNotificationItem(
+								notifData.id,
+								newNotifData.bundledNotifications.map( createBundledNotification.bind( null, newNotifData.modelName ) ),
+								newNotifData
+							);
+							allModels[ newNotifData.modelName ] = itemModel;
 						} else {
 							// Local single notifications
 							itemModel = new mw.echo.dm.NotificationItem(
@@ -315,13 +333,15 @@
 			category: apiData.category,
 			content: {
 				header: content.header,
+				compactHeader: content.compactHeader,
 				body: content.body
 			},
 			iconURL: content.iconUrl,
 			iconType: content.icon,
 			primaryUrl: OO.getProp( content.links, 'primary', 'url' ),
 			secondaryUrls: OO.getProp( content.links, 'secondary' ) || [],
-			bundledIds: apiData.bundledIds
+			bundledIds: apiData.bundledIds,
+			bundledNotifications: apiData.bundledNotifications
 		};
 	};
 
@@ -333,10 +353,11 @@
 	 * it is pre-populated or not, please see #markEntireCrossWikiItemAsRead
 	 *
 	 * @param {string} [modelName] Symbolic name for the model
+	 * @param {boolean} [isRead=true]
 	 * @return {jQuery.Promise} Promise that is resolved when all items
 	 *  were marked as read.
 	 */
-	mw.echo.Controller.prototype.markEntireListModelRead = function ( modelName ) {
+	mw.echo.Controller.prototype.markEntireListModelRead = function ( modelName, isRead ) {
 		var i, items, item,
 			itemIds = [],
 			model = this.manager.getNotificationModel( modelName || 'local' );
@@ -346,15 +367,38 @@
 			return $.Deferred().reject();
 		}
 
+		// Default to true
+		isRead = isRead === undefined ? true : isRead;
+
 		items = model.getItems();
 		for ( i = 0; i < items.length; i++ ) {
 			item = items[ i ];
-			if ( !item.isRead() ) {
+			if ( item.isRead() !== isRead ) {
 				itemIds.push( item.getId() );
 			}
 		}
 
-		return this.markItemsRead( itemIds, model.getName(), true );
+		return this.markItemsRead( itemIds, model.getName(), isRead );
+	};
+
+	/**
+	 * Mark all local notifications as read
+	 *
+	 * @return {jQuery.Promise} Promise that is resolved when all
+	 *  local notifications have been marked as read.
+	 */
+	mw.echo.Controller.prototype.markLocalNotificationsRead = function () {
+		var itemIds = [];
+
+		this.manager.getLocalNotifications().forEach( function ( notification ) {
+			if ( !notification.isRead() ) {
+				itemIds = itemIds.concat( notification.getAllIds() );
+				notification.toggleRead( true );
+			}
+		} );
+
+		this.manager.getUnreadCounter().estimateChange( -itemIds.length );
+		return this.api.markItemsRead( itemIds, 'local', true ).then( this.refreshUnreadCount.bind( this ) );
 	};
 
 	/**
@@ -444,8 +488,8 @@
 	 *  for the set type of this controller, in the given source.
 	 */
 	mw.echo.Controller.prototype.markItemsRead = function ( itemIds, modelName, isRead ) {
-		var allIds = [],
-			model = this.manager.getNotificationModel( modelName );
+		var model = this.manager.getNotificationModel( modelName ),
+			allIds = [];
 
 		itemIds = Array.isArray( itemIds ) ? itemIds : [ itemIds ];
 

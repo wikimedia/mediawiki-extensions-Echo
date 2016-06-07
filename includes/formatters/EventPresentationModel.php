@@ -328,6 +328,35 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 		return $this->getMessageWithAgent( $this->getHeaderMessageKey() );
 	}
 
+
+	/**
+	 * @return string Message key that will be used in getCompactHeaderMessage
+	 */
+	public function getCompactHeaderMessageKey() {
+		return "notification-compact-header-{$this->type}";
+	}
+
+	/**
+	 * Get a message object and add the performer's name as
+	 * a parameter. It is expected that subclasses will override
+	 * this.
+	 *
+	 * This message should be more compact than the header message
+	 * returned by getHeaderMessage. It is displayed when a
+	 * notification is part of an expanded bundle.
+	 *
+	 * @return Message
+	 */
+	public function getCompactHeaderMessage() {
+		$msg = $this->getMessageWithAgent( $this->getCompactHeaderMessageKey() );
+		if ( $msg->isDisabled() ) {
+			// Back-compat for models that haven't been updated yet
+			$msg = $this->getHeaderMessage();
+		}
+
+		return $msg;
+	}
+
 	/**
 	 * @return string Message key that will be used in getSubjectMessage
 	 */
@@ -427,6 +456,7 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 
 		return array(
 			'header' => $this->getHeaderMessage()->parse(),
+			'compactHeader' => $this->getCompactHeaderMessage()->parse(),
 			'body' => $body ? $body->escaped() : '',
 			'icon' => $this->getIconType(),
 			'links' => array(

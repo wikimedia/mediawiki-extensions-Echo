@@ -430,7 +430,7 @@ $wgEchoNotifications = array(
 		'category' => 'article-linked',
 		'group' => 'neutral',
 		'section' => 'alert',
-		'bundle' => array( 'web' => true, 'email' => true ),
+		'bundle' => array( 'web' => true, 'email' => true, 'expandable' => true ),
 		'formatter-class' => 'EchoPageLinkFormatter',
 		'title-message' => 'notification-page-linked',
 		'title-params' => array( 'agent', 'title', 'link-from-page' ),

@@ -1,6 +1,7 @@
 @import '../echo.variables';
 
-.mw-echo-ui-crossWikiNotificationItemWidget {
+.mw-echo-ui-crossWikiNotificationItemWidget,
+.mw-echo-ui-bundleNotificationItemWidget {
 	// Remove the padding that ItemWidget puts in
 	padding-left: 0;
 	padding-right: 0;
@@ -9,7 +10,7 @@
 	// This is an abbreviation for the pieces that make up
 	// the face of the cross-wiki notification item
 	// without the inner group items
-	> .mw-echo-ui-notificationItemWidget {
+	.mw-echo-ui-notificationItemWidget {
 		// Compensate for the 0.8em of left/right padding and 0.5em of bottom padding that we removed
 		&-icon {
 			margin-left: 0.8em;
