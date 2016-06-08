@@ -10,6 +10,7 @@
 	 *
 	 * All notification models that are managed by the manager must implement the
 	 * following methods:
+	 * * getName - This should retrieve the model's name for the manager to fetch
 	 * * isGroup - This should be true for xwiki model and local bundles
 	 * * hasUnseen - This should iterate in the model's items and check whether
 	 *   there are any unseen notifications within them.

@@ -25,6 +25,7 @@
 	 * @cfg {boolean} [foreign=false] This notification is from a foreign source
 	 * @cfg {boolean} [bundled=false] This notification is part of a bundle
 	 * @cfg {number[]} [bundledIds] IDs of notifications bundled with this one
+	 * @cfg {string} [modelName='local'] The name of the model this item belongs to
 	 * @cfg {string} [source] The source this notification is coming from, if it is foreign
 	 * @cfg {Object[]} [secondaryUrls] An array of objects defining the secondary URLs
 	 *  for this notification. The secondary URLs are expected to have this structure:
@@ -56,6 +57,7 @@
 
 		// Properties
 		this.id = id;
+		this.modelName = config.modelName || 'local';
 		this.content = $.extend( { header: '', body: '' }, config.content );
 		this.category = config.category || '';
 		this.type = config.type || 'message';
@@ -281,6 +283,15 @@
 	 */
 	mw.echo.dm.NotificationItem.prototype.getSource = function () {
 		return this.source;
+	};
+
+	/**
+	 * Get the notification's model name
+	 *
+	 * @return {string} Notification model name
+	 */
+	mw.echo.dm.NotificationItem.prototype.getModelName = function () {
+		return this.modelName;
 	};
 
 	/**

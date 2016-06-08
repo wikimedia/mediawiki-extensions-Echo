@@ -31,7 +31,7 @@
 
 	/**
 	 * @event removeSource
-	 * @param {string} source The symbolic name for the source that was removed
+	 * @param {string} name The symbolic name for the source that was removed
 	 *
 	 * Source list has been removed
 	 */
@@ -45,7 +45,8 @@
 	 * @fires removeSource
 	 */
 	mw.echo.dm.CrossWikiNotificationItem.prototype.onListRemove = function ( sourceModel ) {
-		this.emit( 'removeSource', sourceModel.getSource() );
+		this.emit( 'removeSource', sourceModel.getName() );
+
 	};
 
 	/**
@@ -68,7 +69,7 @@
 			sourceLists = this.list.getItems();
 
 		for ( i = 0; i < sourceLists.length; i++ ) {
-			sourceNames.push( sourceLists[ i ].getSource() );
+			sourceNames.push( sourceLists[ i ].getName() );
 		}
 
 		return sourceNames;

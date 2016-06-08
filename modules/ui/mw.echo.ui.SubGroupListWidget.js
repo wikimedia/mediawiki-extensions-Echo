@@ -126,7 +126,7 @@
 	 * Respond to 'mark all as read' button click
 	 */
 	mw.echo.ui.SubGroupListWidget.prototype.onMarkAllReadButtonClick = function () {
-		this.controller.markEntireListModelRead( this.model.getSource() );
+		this.controller.markEntireListModelRead( this.model.getName() );
 	};
 
 	/**

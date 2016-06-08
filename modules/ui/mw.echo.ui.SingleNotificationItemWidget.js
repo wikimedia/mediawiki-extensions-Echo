@@ -70,7 +70,12 @@
 	mw.echo.ui.SingleNotificationItemWidget.prototype.markRead = function ( isRead ) {
 		isRead = isRead !== undefined ? isRead : true;
 
-		this.controller.markSingleItemRead( this.model.getId(), this.model.getSource(), this.model.isForeign(), !!isRead );
+		this.controller.markSingleItemRead(
+			this.model.getId(),
+			this.model.getModelName(),
+			this.model.isForeign(),
+			!!isRead
+		);
 	};
 
 	/**
