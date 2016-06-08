@@ -54,7 +54,7 @@
 	"echo-pref-web": "Web",
 	"echo-pref-email": "Courriel",
 	"echo-pref-email-frequency-never": "Ne pas m'envoyer de notification par courriel",
-	"echo-pref-email-frequency-immediately": "Un courriel par notification",
+	"echo-pref-email-frequency-immediately": "Un courriel par notification au fil de l'eau",
 	"echo-pref-email-frequency-daily": "Un résumé quotidien des notifications",
 	"echo-pref-email-frequency-weekly": "Un résumé hebdomadaire des notifications",
 	"echo-pref-email-format-html": "HTML",

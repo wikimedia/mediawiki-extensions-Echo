@@ -24,7 +24,8 @@
 			"Ciencia Al Poder",
 			"Lemondoge",
 			"Rubentl134",
-			"2axterix2"
+			"2axterix2",
+			"Dgstranz"
 		]
 	},
 	"echo-desc": "Sistema para notificar a los usuarios sobre eventos y mensajes",
@@ -147,7 +148,7 @@
 	"notification-header-welcome": "¡{{GENDER:$2|Bienvenido|Bienvenida}} a {{SITENAME}}, $1! Nos alegra que estés aquí.",
 	"notification-welcome-linktext": "Te damos la bienvenida",
 	"notification-header-thank-you-1-edit": "Acabas de hacer {{GENDER:$2|tu}} primera edición. Gracias y ¡{{GENDER:$2|bienvenido|bienvenida}}!",
-	"notification-header-thank-you-10-edit": "Acabas de hacer {{GENDER:$2|tu}} décima edición en. Gracias y ¡continúa!",
+	"notification-header-thank-you-10-edit": "Acabas de hacer {{GENDER:$2|tu}} décima edición. Gracias y ¡sigue así!",
 	"notification-header-thank-you-100-edit": "Acabas de hacer {{GENDER:$2|tu}} centésima edición. ¡Muchas gracias!",
 	"notification-header-thank-you-1000-edit": "Acabas de hacer {{GENDER:$2|tu}} milésima edición. ¡Gracias por ser {{GENDER:$2|un gran colaborador|una gran colaboradora}}!",
 	"notification-header-thank-you-10000-edit": "Acabas de hacer {{GENDER:$2|tu}} edición número diez mil. ¡Muchas gracias!",
