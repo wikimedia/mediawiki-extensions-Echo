@@ -117,6 +117,7 @@ $wgAutoloadClasses += [
 	'NotificationControllerTest' => __DIR__ . '/tests/phpunit/controller/NotificationControllerTest.php',
 	'NotificationPager' => __DIR__ . '/includes/special/NotificationPager.php',
 	'NotificationsTest' => __DIR__ . '/tests/NotificationsTest.php',
+	'RemoveOrphanedEvents' => __DIR__ . '/maintenance/removeOrphanedEvents.php',
 	'SpecialDisplayNotificationsConfiguration' => __DIR__ . '/includes/special/SpecialDisplayNotificationsConfiguration.php',
 	'SpecialNotifications' => __DIR__ . '/includes/special/SpecialNotifications.php',
 	'SpecialNotificationsFormatter' => __DIR__ . '/includes/formatters/SpecialNotificationsFormatter.php',
