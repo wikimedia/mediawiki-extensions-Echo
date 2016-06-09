@@ -650,7 +650,6 @@ class EchoHooks {
 			EchoEvent::create(
 				array(
 					'type' => 'user-rights',
-					'title' => Title::newMainPage(),
 					'extra' => array(
 						'user' => $user->getID(),
 						'add' => $add,
