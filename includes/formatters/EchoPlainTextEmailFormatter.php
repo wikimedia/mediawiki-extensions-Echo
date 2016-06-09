@@ -14,7 +14,7 @@ class EchoPlainTextEmailFormatter extends EchoEventFormatter {
 			$text .= EchoDiscussionParser::htmlToText( $bodyMsg->parse() );
 		}
 
-		$primaryLink = $model->getPrimaryLink();
+		$primaryLink = $model->getPrimaryLinkWithMarkAsRead();
 
 		$primaryUrl = wfExpandUrl( $primaryLink['url'], PROTO_CANONICAL );
 		$colon = $this->msg( 'colon-separator' )->text();

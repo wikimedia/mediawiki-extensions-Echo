@@ -16,7 +16,7 @@ class EchoHtmlEmailFormatter extends EchoEventFormatter {
 
 		$actions = array();
 
-		$primaryLink = $model->getPrimaryLink();
+		$primaryLink = $model->getPrimaryLinkWithMarkAsRead();
 		if ( $primaryLink ) {
 			$actions[] = $this->renderLink( $primaryLink, self::PRIMARY_LINK_STYLE );
 		}
