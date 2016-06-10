@@ -10,7 +10,6 @@
 	 * @param {mw.echo.Controller} controller Echo notifications controller
 	 * @param {mw.echo.dm.ModelManager} manager Model manager
 	 * @param {Object} [config] Configuration object
-	 * @cfg {boolean} [markReadWhenSeen=false] State whether the notifications are all
 	 *  marked as read when they are seen.
 	 * @cfg {jQuery} [$overlay] A jQuery element functioning as an overlay
 	 *  for popups.
@@ -26,7 +25,6 @@
 		this.models = {};
 
 		// Properties
-		this.markReadWhenSeen = !!config.markReadWhenSeen;
 		this.$overlay = config.$overlay || this.$element;
 		this.timestamp = config.timestamp || 0;
 

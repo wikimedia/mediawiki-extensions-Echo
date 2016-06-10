@@ -27,7 +27,6 @@
 			this.controller,
 			this.model,
 			{
-				markReadWhenSeen: false,
 				$overlay: config.$overlay,
 				types: this.controller.getTypes(),
 				label: mw.msg( 'notifications' ),
