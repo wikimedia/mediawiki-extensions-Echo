@@ -1,7 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Khalid Mahmood"
+			"Khalid Mahmood",
+			"Saanvel"
 		]
-	}
+	},
+	"tooltip-pt-notifications-message": "{{GENDER:|Your}} سنیعا"
 }

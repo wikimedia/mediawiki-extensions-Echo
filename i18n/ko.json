@@ -13,7 +13,8 @@
 			"Hwangjy9",
 			"HDNua",
 			"Bluemersen",
-			"Ykhwong"
+			"Ykhwong",
+			"Jonghaya"
 		]
 	},
 	"echo-desc": "이벤트와 메시지를 사용자에게 알리는 시스템",
@@ -65,6 +66,7 @@
 	"echo-specialpage-section-markread": "문단을 읽은 것으로 표시",
 	"echo-specialpage-markasread": "알림: 읽은 것으로 표시",
 	"echo-specialpage-markasread-invalid-id": "유효하지 않은 이벤트 ID",
+	"echo-specialpage-pagination-numnotifications": "$1 {{PLURAL:$1|알림|알림�}}",
 	"notificationsmarkread-legend": "모든 알림을 읽은 것으로 표시",
 	"echo-anon": "알림을 받으려면 [$1 계정을 만들거나] [$2 로그인]하세요.",
 	"echo-none": "알림이 없습니다.",
@@ -72,6 +74,7 @@
 	"echo-feedback": "피드백 남기기",
 	"echo-api-failure": "알림을 받아올 수 없었습니다. 다시 시도해 주세요. (오류 $1)",
 	"echo-notification-placeholder": "알림이 없습니다.",
+	"echo-notification-placeholder-filters": "이 주제에 맞는 알림이 없습니다.",
 	"echo-notification-loginrequired": "알림을 보려면 로그인해야 합니다.",
 	"echo-notification-popup-loginrequired": "알림을 보려면 로그인하세요.",
 	"echo-notification-markasread": "읽은 것으로 표시",
