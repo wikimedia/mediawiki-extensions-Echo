@@ -368,7 +368,7 @@ $wgEchoNotifications = array(
 		),
 		'category' => 'system',
 		'group' => 'positive',
-		'section' => 'alert',
+		'section' => 'message',
 		// Only send web notification for welcome event
 		'notify-type-availability' => array(
 			'email' => false,
@@ -387,7 +387,7 @@ $wgEchoNotifications = array(
 		'secondary-link' => array( 'message' => 'notification-link-text-view-changes', 'destination' => 'diff' ),
 		'category' => 'edit-user-talk',
 		'group' => 'interactive',
-		'section' => 'message',
+		'section' => 'alert',
 		'bundle' => array( 'web' => true, 'email' => false ),
 		'formatter-class' => 'EchoEditUserTalkFormatter',
 		'title-message' => 'notification-edit-talk-page2',
@@ -429,7 +429,7 @@ $wgEchoNotifications = array(
 		'primary-link' => array( 'message' => 'notification-link-text-view-page', 'destination' => 'link-from-page' ),
 		'category' => 'article-linked',
 		'group' => 'neutral',
-		'section' => 'alert',
+		'section' => 'message',
 		'bundle' => array( 'web' => true, 'email' => true, 'expandable' => true ),
 		'formatter-class' => 'EchoPageLinkFormatter',
 		'title-message' => 'notification-page-linked',
@@ -513,7 +513,7 @@ $wgEchoNotifications = array(
 		),
 		'group' => 'positive',
 		'presentation-model' => 'EchoEditThresholdPresentationModel',
-		'section' => 'alert',
+		'section' => 'message',
 		'icon' => 'edit',
 	),
 );
