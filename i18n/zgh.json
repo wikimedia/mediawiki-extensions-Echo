@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Amara-Amaziɣ"
+			"Amara-Amaziɣ",
+			"Aslmad mohamed belarhzali"
 		]
 	},
-	"notification-timestamp-today": "ⴰⵙⵙⴰ"
+	"notification-timestamp-today": "ⴰⵙⵙⴰ",
+	"notification-inbox-filter-read": "ⵖⵔ"
 }
