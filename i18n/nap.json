@@ -185,7 +185,7 @@
 	"echo-load-more-error": "Ascette n'errore pe' tramente ca s'arrepigliaveno cchiù risultate.",
 	"notification-edit-talk-page-bundle": "$1 e {{PLURAL:$3|n'ato|$3 ati|100=99+ ati}} {{GENDER:$1|lassajeno}} 'e mmasciate ncopp' 'a [[User talk:$2|paggena 'e chiacchiere d' 'a toja]].",
 	"notification-bundle-header-edit-user-talk-v2": "{{PLURAL:$1|Na masciata nuova|$1 mmasciate nnove|100=99+ mmasciate nnove}} dint' 'a <strong>paggena 'e chiacchiera {{GENDER:$3|d' 'a toja}}.</strong>",
-	"notification-edit-user-talk-email-batch-bundle-body": "$1 e {{PLURAL:$3|n'ato|$3 ati|100=99+ ati}} {{GENDER:$1|lassaje|lassajeno}} na mmasciata dint' 'a paggena 'e chiacchiera r' 'a vosta.",
+	"notification-edit-user-talk-email-batch-bundle-body": "$1 e {{PLURAL:$2|n'ato|$2 ati|100=99+ ati}} {{GENDER:$1|lassaje|lassajeno}} na mmasciata dint' 'a paggena 'e chiacchiera r' 'a vosta.",
 	"notification-page-linked-email-batch-bundle-body": "$2 fuje {{GENDER:$1|linkato|linkata}} 'a $3 e {{PLURAL:$4|n'ata paggena|$3 ati paggene|100=99+ ati paggene}}.",
 	"echo-email-batch-subject-daily": "Avite {{PLURAL:$2|na notifica nova|d' 'e notifiche nnove}} dint'a {{SITENAME}}",
 	"echo-email-batch-subject-weekly": "Avite {{PLURAL:$2|na notifica nova|d' 'e notifiche nnove}} dint'a {{SITENAME}} sta semmana",
