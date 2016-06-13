@@ -29,7 +29,18 @@
 			// but entirely unhelpful
 			sameDay: '[' + mw.msg( 'notification-timestamp-today' ) + ']',
 			lastDay: '[' + mw.msg( 'notification-timestamp-yesterday' ) + ']',
-			lastWeek: 'dddd'
+			lastWeek: function () {
+				return '[' + mw.msg(
+					[
+						'sunday',
+						'monday',
+						'tuesday',
+						'wednesday',
+						'thursday',
+						'friday',
+						'saturday'
+					][ this.day() ] ) + ']';
+			}
 		}
 	} );
 	// Reset back to original locale
