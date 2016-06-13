@@ -30,6 +30,7 @@ CREATE INDEX /*i*/echo_notification_user_base_read_timestamp ON /*_*/echo_notifi
 CREATE INDEX /*i*/echo_notification_user_base_timestamp ON /*_*/echo_notification (notification_user, notification_bundle_base, notification_timestamp, notification_event);
 CREATE INDEX /*i*/echo_notification_user_hash_timestamp ON /*_*/echo_notification (notification_user, notification_bundle_hash, notification_timestamp);
 CREATE INDEX /*i*/echo_notification_user_hash_base_timestamp ON /*_*/echo_notification (notification_user, notification_bundle_display_hash, notification_bundle_base, notification_timestamp);
+CREATE INDEX /*i*/echo_notification_event ON /*_*/echo_notification (notification_event);
 
 CREATE TABLE /*_*/echo_email_batch (
 	eeb_id int unsigned not null primary key auto_increment,
