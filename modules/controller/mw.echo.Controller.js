@@ -74,6 +74,8 @@
 		var controller = this,
 			pagination = this.manager.getPaginationModel(),
 			filters = this.manager.getFiltersModel(),
+			// When we have multiple possible sources, this will change
+			currentSource = 'local',
 			continueValue = pagination.getPageContinue( page || pagination.getCurrPageIndex() );
 
 		pagination.setItemsPerPage( this.api.getLimit() );
@@ -100,7 +102,8 @@
 					newNotifData = controller.createNotificationData( notifData );
 					if ( notifData.type !== 'foreign' ) {
 						date = newNotifData.timestamp.substring( 0, 8 );
-						newNotifData.source = 'local_' + date;
+						newNotifData.modelName = 'local_' + date;
+						newNotifData.source = currentSource;
 
 						// Single notifications
 						itemModel = new mw.echo.dm.NotificationItem(
@@ -123,7 +126,8 @@
 					// Set up model
 					models[ symbolicName ] = new mw.echo.dm.NotificationsList( {
 						type: controller.manager.getTypes(),
-						source: symbolicName,
+						name: symbolicName,
+						source: currentSource,
 						title: date,
 						timestamp: date
 					} );
@@ -194,6 +198,7 @@
 						if ( notifData.type === 'foreign' ) {
 							// x-wiki notification multi-group
 							// We need to request a new list model
+							newNotifData.name = 'xwiki';
 							allModels.xwiki = foreignListModel = new mw.echo.dm.CrossWikiNotificationItem( notifData.id, newNotifData );
 							foreignListModel.setForeign( true );
 
@@ -301,7 +306,7 @@
 			}
 		}
 
-		return this.markItemsRead( itemIds, model.getSource(), true );
+		return this.markItemsRead( itemIds, model.getName(), true );
 	};
 
 	/**
@@ -336,6 +341,7 @@
 							notifData = controller.createNotificationData( groupItems[ i ] );
 							items.push(
 								new mw.echo.dm.NotificationItem( groupItems[ i ].id, $.extend( notifData, {
+									modelName: group,
 									source: group,
 									bundled: true,
 									foreign: true
@@ -362,7 +368,7 @@
 	 * that is part of an xwiki foreign list.
 	 *
 	 * @param {number} itemId Item ID
-	 * @param {string} modelSource The source that these items belong to
+	 * @param {string} modelName The name of the model that these items belong to
 	 * @param {boolean} [isForeign=false] The model is foreign, inside a cross-wiki
 	 *  bundle.
 	 * @param {boolean} [isRead=true] The read state of the item; true for marking the
@@ -371,52 +377,54 @@
 	 *  is complete, with the number of unread notifications still remaining
 	 *  for the set type of this controller, in the given source.
 	 */
-	mw.echo.Controller.prototype.markSingleItemRead = function ( itemId, modelSource, isForeign, isRead ) {
+	mw.echo.Controller.prototype.markSingleItemRead = function ( itemId, modelName, isForeign, isRead ) {
 		if ( isForeign ) {
-			return this.markCrossWikiItemsRead( [ itemId ], modelSource, isRead );
+			return this.markCrossWikiItemsRead( [ itemId ], modelName, isRead );
 		}
 
-		return this.markItemsRead( [ itemId ], modelSource, isRead );
+		return this.markItemsRead( [ itemId ], modelName, isRead );
 	};
 
 	/**
 	 * Mark local items as read in the API.
 	 *
 	 * @param {string[]|string} itemIds An array of item IDs, or a single item ID, to mark as read
-	 * @param {string} modelSource The source that these items belong to
+	 * @param {string} modelName The name of the model that these items belong to
 	 * @param {boolean} [isRead=true] The read state of the item; true for marking the
 	 *  item as read, false for marking the item as unread
 	 * @return {jQuery.Promise} A promise that is resolved when the operation
 	 *  is complete, with the number of unread notifications still remaining
 	 *  for the set type of this controller, in the given source.
 	 */
-	mw.echo.Controller.prototype.markItemsRead = function ( itemIds, modelSource, isRead ) {
-		var allIds = [];
+	mw.echo.Controller.prototype.markItemsRead = function ( itemIds, modelName, isRead ) {
+		var allIds = [],
+			model = this.manager.getNotificationModel( modelName );
+
 		itemIds = Array.isArray( itemIds ) ? itemIds : [ itemIds ];
 
 		// Default to true
 		isRead = isRead === undefined ? true : isRead;
 
-		this.manager.getNotificationModel( modelSource ).findByIds( itemIds ).forEach( function ( notification ) {
+		model.findByIds( itemIds ).forEach( function ( notification ) {
 			allIds = allIds.concat( notification.getAllIds() );
 			notification.toggleRead( isRead );
 		} );
 
 		this.manager.getUnreadCounter().estimateChange( isRead ? -allIds.length : allIds.length );
 
-		return this.api.markItemsRead( allIds, modelSource, isRead ).then( this.refreshUnreadCount.bind( this ) );
+		return this.api.markItemsRead( allIds, model.getSource(), isRead ).then( this.refreshUnreadCount.bind( this ) );
 	};
 
 	/**
 	 * Mark cross-wiki items as read in the API.
 	 *
 	 * @param {string[]|string} itemIds An array of item IDs, or a single item ID, to mark as read
-	 * @param {string} modelSource The source that these items belong to
+	 * @param {string} modelName The symbolic name for the source list that these items belong to
 	 * @return {jQuery.Promise} A promise that is resolved when the operation
 	 *  is complete, with the number of unread notifications still remaining
 	 *  for the set type of this controller, in the given source.
 	 */
-	mw.echo.Controller.prototype.markCrossWikiItemsRead = function ( itemIds, modelSource ) {
+	mw.echo.Controller.prototype.markCrossWikiItemsRead = function ( itemIds, modelName ) {
 		var sourceModel,
 			notifs = [],
 			xwikiModel = this.manager.getNotificationModel( 'xwiki' );
@@ -428,11 +436,11 @@
 
 		itemIds = Array.isArray( itemIds ) ? itemIds : [ itemIds ];
 
-		sourceModel = xwikiModel.getList().getGroupBySource( modelSource );
+		sourceModel = xwikiModel.getList().getGroupBySource( modelName );
 		notifs = sourceModel.findByIds( itemIds );
 		sourceModel.discardItems( notifs );
 
-		return this.api.markItemsRead( itemIds, modelSource, true )
+		return this.api.markItemsRead( itemIds, modelName, true )
 			.then( this.refreshUnreadCount.bind( this ) );
 	};
 

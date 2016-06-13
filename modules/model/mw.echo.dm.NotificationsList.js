@@ -11,9 +11,10 @@
 	 * @constructor
 	 * @param {Object} config Configuration options
 	 * @cfg {string} [title] An optional title for this notifications list
+	 * @cfg {string} [name='local'] Symbolic name for this list
 	 * @cfg {string} [source='local'] Symbolic name for the source of this list.
-	 *  This is used mainly for recognizing where API actions should be
-	 *  by the controller.
+	 *  This is used mainly for recognizing where API actions should be by the
+	 *  controller.
 	 * @cfg {string} [sourceURL] The URL for the article base of the remote
 	 *  group or wiki
 	 * @cfg {string} [timestamp=0] A timestamp representing the latest item in
@@ -25,6 +26,7 @@
 		// Parent constructor
 		mw.echo.dm.NotificationsList.parent.call( this );
 
+		this.name = config.name || 'local';
 		this.source = config.source || 'local';
 		this.sourceURL = config.sourceURL;
 		this.title = config.title || '';
@@ -141,6 +143,15 @@
 	 */
 	mw.echo.dm.NotificationsList.prototype.getTitle = function () {
 		return this.title;
+	};
+
+	/**
+	 * Get the name associated with this list.
+	 *
+	 * @return {string} List name
+	 */
+	mw.echo.dm.NotificationsList.prototype.getName = function () {
+		return this.name;
 	};
 
 	/**

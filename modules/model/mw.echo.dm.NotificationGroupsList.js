@@ -71,6 +71,7 @@
 	mw.echo.dm.NotificationGroupsList.prototype.addGroup = function ( groupSource, sourceData, groupItems ) {
 		var groupListModel = new mw.echo.dm.NotificationsList( {
 			title: sourceData.title,
+			name: groupSource,
 			source: groupSource,
 			sourceURL: sourceData.base,
 			timestamp: sourceData.ts
