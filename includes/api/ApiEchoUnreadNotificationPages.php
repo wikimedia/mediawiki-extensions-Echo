@@ -58,6 +58,7 @@ class ApiEchoUnreadNotificationPages extends ApiCrossWikiBase {
 			array(
 				'notification_user' => $this->getUser()->getId(),
 				'notification_read_timestamp' => null,
+				'notification_bundle_base' => 1,
 				'event_page_id IS NOT NULL',
 			),
 			__METHOD__,
