@@ -57,6 +57,7 @@ $wgAutoloadClasses += [
 	'EchoFlyoutFormatter' => __DIR__ . '/includes/formatters/EchoFlyoutFormatter.php',
 	'EchoForeignNotifications' => __DIR__ . '/includes/ForeignNotifications.php',
 	'EchoForeignPresentationModel' => __DIR__ . '/includes/formatters/EchoForeignPresentationModel.php',
+	'EchoForeignWikiRequest' => __DIR__ . '/includes/ForeignWikiRequest.php',
 	'EchoHTMLEmailDecorator' => __DIR__ . '/includes/EmailFormatter.php',
 	'EchoHooks' => __DIR__ . '/Hooks.php',
 	'EchoHtmlDigestEmailFormatter' => __DIR__ . '/includes/formatters/EchoHtmlDigestEmailFormatter.php',
