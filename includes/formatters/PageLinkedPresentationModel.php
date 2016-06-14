@@ -2,6 +2,8 @@
 
 class EchoPageLinkedPresentationModel extends EchoEventPresentationModel {
 
+	private $pageFrom;
+
 	public function getIconType() {
 		return 'linked';
 	}
@@ -39,7 +41,7 @@ class EchoPageLinkedPresentationModel extends EchoEventPresentationModel {
 		$diffLink = null;
 		if ( $revid !== null ) {
 			$diffLink = array(
-				'url' => $this->event->getTitle()->getFullURL( array( 'diff' => $revid, 'oldid' => 'prev' ) ),
+				'url' => $this->getPageFrom()->getFullURL( array( 'diff' => $revid, 'oldid' => 'prev' ) ),
 				'label' => $this->msg( 'notification-link-text-view-changes' )->text(),
 				'description' => '',
 				'icon' => 'changes',
@@ -90,7 +92,10 @@ class EchoPageLinkedPresentationModel extends EchoEventPresentationModel {
 	}
 
 	private function getPageFrom() {
-		return Title::newFromId( $this->getLinkedPageId( $this->event ) );
+		if ( !$this->pageFrom ) {
+			$this->pageFrom = Title::newFromId( $this->getLinkedPageId( $this->event ) );
+		}
+		return $this->pageFrom;
 	}
 
 	protected function getSubjectMessageKey() {
