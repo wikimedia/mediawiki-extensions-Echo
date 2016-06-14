@@ -108,7 +108,7 @@
 					alertController,
 					alertModelManager,
 					{
-						markReadWhenSeen: true,
+						markReadWhenSeen: false,
 						numItems: numAlerts,
 						hasUnseen: hasUnseenAlerts,
 						badgeIcon: {
