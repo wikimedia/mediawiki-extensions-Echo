@@ -263,27 +263,35 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	}
 
 	/**
-	 * Create an EchoNotification by user and event ID.
+	 * Fetch EchoNotifications by user and event IDs.
 	 *
 	 * @param User $user
-	 * @param int $eventID
-	 * @return EchoNotification|bool
+	 * @param int[] $eventIds
+	 * @return EchoNotification[]|bool
 	 */
-	public function fetchByUserEvent( User $user, $eventId ) {
+	public function fetchByUserEvents( User $user, $eventIds ) {
 		$dbr = $this->dbFactory->getEchoDb( DB_SLAVE );
 
-		$row = $dbr->selectRow(
+		$result = $dbr->select(
 			array( 'echo_notification', 'echo_event' ),
 			'*',
 			array(
 				'notification_user' => $user->getId(),
-				'notification_event' => $eventId
+				'notification_event' => $eventIds
 			),
-			 __METHOD__
+			 __METHOD__,
+			array(),
+			array(
+				'echo_event' => array( 'INNER JOIN', 'notification_event=event_id' ),
+			)
 		 );
 
-		if ( $row ) {
-			return EchoNotification::newFromRow( $row );
+		if ( $result ) {
+			$notifications = array();
+			foreach ( $result as $row ) {
+				$notifications[] = EchoNotification::newFromRow( $row );
+			}
+			return $notifications;
 		} else {
 			return false;
 		}

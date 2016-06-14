@@ -406,12 +406,20 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 	/**
 	 * Like getPrimaryLink(), but with the URL altered to add ?markasread=XYZ. When this link is followed,
 	 * the notification is marked as read.
+	 *
+	 * When the notification is a bundle, the notification IDs are added to the parameter value
+	 * separated by a "|".
+	 *
 	 * @return array|bool
 	 */
 	public function getPrimaryLinkWithMarkAsRead() {
 		$primaryLink = $this->getPrimaryLink();
 		if ( $primaryLink ) {
-			$primaryLink['url'] = wfAppendQuery( $primaryLink['url'], array( 'markasread' => $this->event->getId() ) );
+			$eventIds = array( $this->event->getId() );
+			if ( $this->getBundledIds() ) {
+				$eventIds = array_merge( $eventIds, $this->getBundledIds() );
+			}
+			$primaryLink['url'] = wfAppendQuery( $primaryLink['url'], array( 'markasread' => implode( '|', $eventIds ) ) );
 		}
 		return $primaryLink;
 	}

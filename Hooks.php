@@ -799,20 +799,37 @@ class EchoHooks {
 				}
 			}
 		}
-		// Attempt to mark as read the event ID in the ?markasread= parameter, if present
-		$markAsReadId = $sk->getOutput()->getRequest()->getInt( 'markasread' );
-		if ( $markAsReadId !== 0 && !in_array( $markAsReadId, $eventIds ) ) {
-			$notifMapper = new EchoNotificationMapper();
-			$notif = $notifMapper->fetchByUserEvent( $user, $markAsReadId );
-			if ( $notif && !$notif->getReadTimestamp() ) {
-				if ( $notif->getEvent()->getSection() === EchoAttributeManager::MESSAGE ) {
-					$subtractMessages++;
-				} else {
-					$subtractAlerts++;
+
+		// Attempt to mark as read the event IDs in the ?markasread= parameter, if present
+		$markAsReadIds = explode( '|', $sk->getOutput()->getRequest()->getText( 'markasread' ) );
+		if ( $markAsReadIds ) {
+			// gather the IDs that we didn't already find with target_pages
+			$eventsToMarkAsRead = array();
+			foreach ( $markAsReadIds as $markAsReadId ) {
+				$markAsReadId = intval( $markAsReadId );
+				if ( $markAsReadId !== 0 && !in_array( $markAsReadId, $eventIds ) ) {
+					$eventsToMarkAsRead[] = $markAsReadId;
 				}
-				$eventIds[] = $markAsReadId;
+			}
+
+			if ( $eventsToMarkAsRead ) {
+				// fetch the notifications to adjust the counters
+				$notifMapper = new EchoNotificationMapper();
+				$notifs = $notifMapper->fetchByUserEvents( $user, $eventsToMarkAsRead );
+
+				foreach ( $notifs as $notif ) {
+					if ( !$notif->getReadTimestamp() ) {
+						if ( $notif->getEvent()->getSection() === EchoAttributeManager::MESSAGE ) {
+							$subtractMessages++;
+						} else {
+							$subtractAlerts++;
+						}
+						$eventIds[] = intval( $notif->getEvent()->getId() );
+					}
+				}
 			}
 		}
+
 		if ( $eventIds ) {
 			DeferredUpdates::addCallableUpdate( function () use ( $user, $eventIds ) {
 				$notifUser = MWEchoNotifUser::newFromUser( $user );
