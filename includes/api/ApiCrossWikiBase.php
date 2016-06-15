@@ -29,11 +29,21 @@ abstract class ApiCrossWikiBase extends ApiQueryBase {
 	protected function getFromForeign() {
 		$foreignReq = new EchoForeignWikiRequest(
 			$this->getUser(),
-			$this->getRequest()->getValues(),
+			$this->getForeignQueryParams(),
 			$this->getRequestedForeignWikis(),
 			$this->getModulePrefix() . 'wikis'
 		);
 		return $foreignReq->execute();
+	}
+
+	/**
+	 * Get the query parameters to use for the foreign API requests.
+	 * Subclasses should override this if they need to customize the
+	 * parameters.
+	 * @return array Query parameters
+	 */
+	protected function getForeignQueryParams() {
+		return $this->getRequest()->getValues();
 	}
 
 	/**

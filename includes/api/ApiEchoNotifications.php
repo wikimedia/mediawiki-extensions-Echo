@@ -322,12 +322,8 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 		return $output;
 	}
 
-	/**
-	 * @param string $wiki Wiki name
-	 * @return array
-	 */
-	protected function getForeignQueryParams( $wiki ) {
-		$params = parent::getForeignQueryParams( $wiki );
+	protected function getForeignQueryParams() {
+		$params = parent::getForeignQueryParams();
 
 		// don't request cross-wiki notification summaries
 		unset( $params['notcrosswikisummary'] );
