@@ -147,7 +147,7 @@
 	"notification-user-rights-email-subject": "W {{grammar:MS.lp|{{SITENAME}}}} zostały zmienione twoje uprawnienia",
 	"notification-user-rights-email-batch-body": "$1 {{GENDER:$1|zmienił|zmieniła}} twoje uprawnienia. $2",
 	"notification-timestamp-ago-seconds": "{{PLURAL:$1|$1 s}}",
-	"notification-timestamp-ago-minutes": "{{PLURAL:$1|$1 min.}}",
+	"notification-timestamp-ago-minutes": "{{PLURAL:$1|$1 min}}",
 	"notification-timestamp-ago-hours": "{{PLURAL:$1|$1 godz.}}",
 	"notification-timestamp-ago-days": "{{PLURAL:$1|$1 dzień|$1 dni}}",
 	"notification-timestamp-ago-months": "{{PLURAL:$1|$1 mies.}}",
