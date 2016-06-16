@@ -75,6 +75,10 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 	protected function getLocalNotifications( array $params ) {
 		$user = $this->getUser();
 		$prop = $params['prop'];
+		$titles = null;
+		if ( $params['titles'] ) {
+			$titles = array_values( array_filter( array_map( 'Title::newFromText', $params['titles'] ) ) );
+		}
 
 		$result = array();
 		if ( in_array( 'list', $prop ) ) {
@@ -83,7 +87,8 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 				foreach ( $params['sections'] as $section ) {
 					$result[$section] = $this->getSectionPropList(
 						$user, $section, $params['filter'], $params['limit'],
-						$params[$section . 'continue'], $params['format'], $params[$section . 'unreadfirst']
+						$params[$section . 'continue'], $params['format'],
+						$titles, $params[$section . 'unreadfirst']
 					);
 
 					if ( $this->crossWikiSummary && $this->foreignNotifications->getCount( $section ) > 0 ) {
@@ -96,7 +101,8 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 				$result = $this->getPropList(
 					$user,
 					$attributeManager->getUserEnabledEventsbySections( $user, 'web', $params['sections'] ),
-					$params['filter'], $params['limit'], $params['continue'], $params['format'], $params['unreadfirst']
+					$params['filter'], $params['limit'], $params['continue'], $params['format'],
+					$titles, $params['unreadfirst']
 				);
 
 				// if exactly 1 section is specified, we consider only that section, otherwise
@@ -126,10 +132,11 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 	 * @param int $limit
 	 * @param string $continue
 	 * @param string $format
+	 * @param Title[] $titles
 	 * @param boolean $unreadFirst
 	 * @return array
 	 */
-	protected function getSectionPropList( User $user, $section, $filter, $limit, $continue, $format, $unreadFirst = false ) {
+	protected function getSectionPropList( User $user, $section, $filter, $limit, $continue, $format, array $titles = null, $unreadFirst = false ) {
 		$attributeManager = EchoAttributeManager::newFromGlobalVars();
 		$sectionEvents = $attributeManager->getUserEnabledEventsbySections( $user, 'web', array( $section ) );
 
@@ -140,7 +147,7 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 			);
 		} else {
 			$result = $this->getPropList(
-				$user, $sectionEvents, $filter, $limit, $continue, $format, $unreadFirst
+				$user, $sectionEvents, $filter, $limit, $continue, $format, $titles, $unreadFirst
 			);
 		}
 
@@ -157,10 +164,11 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 	 * @param int $limit
 	 * @param string $continue
 	 * @param string $format
+	 * @param Title[] $titles
 	 * @param boolean $unreadFirst
 	 * @return array
 	 */
-	protected function getPropList( User $user, array $eventTypes, $filter, $limit, $continue, $format, $unreadFirst = false ) {
+	protected function getPropList( User $user, array $eventTypes, $filter, $limit, $continue, $format, array $titles = null, $unreadFirst = false ) {
 		$result = array(
 			'list' => array(),
 			'continue' => null
@@ -173,7 +181,7 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 			// Prefer unread notifications. We don't care about next offset in this case
 			if ( $unreadFirst ) {
 				// query for unread notifications past 'continue' (offset)
-				$notifs = $notifMapper->fetchUnreadByUser( $user, $limit + 1, $continue, $eventTypes );
+				$notifs = $notifMapper->fetchUnreadByUser( $user, $limit + 1, $continue, $eventTypes, $titles );
 
 				/*
 				 * 'continue' has a timestamp & id (to start with, in case
@@ -215,19 +223,20 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 						// notifications from start
 						$count > 0 ? null : $continue,
 						$eventTypes,
-						array_keys( $notifs )
+						array_keys( $notifs ),
+						$titles
 					);
 					foreach ( $mixedNotifs as $notif ) {
 						$notifs[$notif->getEvent()->getId()] = $notif;
 					}
 				}
 			} else {
-				$notifs = $notifMapper->fetchByUser( $user, $limit + 1, $continue, $eventTypes );
+				$notifs = $notifMapper->fetchByUser( $user, $limit + 1, $continue, $eventTypes, array(), $titles );
 			}
 		} elseif ( in_array( 'read', $filter ) ) {
-			$notifs = $notifMapper->fetchReadByUser( $user, $limit + 1, $continue, $eventTypes );
+			$notifs = $notifMapper->fetchReadByUser( $user, $limit + 1, $continue, $eventTypes, $titles );
 		} else { // = if ( in_array( '!read', $filter ) ) {
-			$notifs = $notifMapper->fetchUnreadByUser( $user, $limit + 1, $continue, $eventTypes );
+			$notifs = $notifMapper->fetchUnreadByUser( $user, $limit + 1, $continue, $eventTypes, $titles );
 		}
 
 		foreach ( $notifs as $notif ) {
@@ -475,6 +484,9 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 			'unreadfirst' => array(
 				ApiBase::PARAM_TYPE => 'boolean',
 				ApiBase::PARAM_DFLT => false,
+			),
+			'titles' => array(
+				ApiBase::PARAM_ISMULTI => true,
 			),
 		);
 		foreach ( $sections as $section ) {

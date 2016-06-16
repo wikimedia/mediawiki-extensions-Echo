@@ -257,6 +257,7 @@
 	"apihelp-query+notifications-param-alertunreadfirst": "{{doc-apihelp-param|query+notifications|alertunreadfirst}}",
 	"apihelp-query+notifications-param-messagecontinue": "{{doc-apihelp-param|query+notifications|messagecontinue}}",
 	"apihelp-query+notifications-param-messageunreadfirst": "{{doc-apihelp-param|query+notifications|messageunreadfirst}}",
+	"apihelp-query+notifications-param-titles": "{{doc-apihelp-param|query+notifications|titles}}",
 	"apihelp-query+notifications-example-1": "{{doc-apihelp-example|query+notifications}}",
 	"apihelp-query+notifications-example-2": "{{doc-apihelp-example|query+notifications}}",
 	"apihelp-query+unreadnotificationpages-description": "{{doc-apihelp-description|query+unreadnotificationpages}}",

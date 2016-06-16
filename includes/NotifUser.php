@@ -308,7 +308,7 @@ class MWEchoNotifUser {
 		} else {
 			$eventTypesToLoad = $attributeManager->getUserEnabledEventsbySections( $this->mUser, 'web', array( $section ) );
 		}
-		$notifications = $this->notifMapper->fetchUnreadByUser( $this->mUser, 1, null, $eventTypesToLoad, $dbSource );
+		$notifications = $this->notifMapper->fetchUnreadByUser( $this->mUser, 1, null, $eventTypesToLoad, null, $dbSource );
 		if ( $notifications ) {
 			$notification = reset( $notifications );
 			$timestamp = new MWTimestamp( $notification->getTimestamp() );
@@ -361,7 +361,7 @@ class MWEchoNotifUser {
 			// After this 'mark read', is there any unread edit-user-talk
 			// remaining?  If not, we should clear the newtalk flag.
 			if ( $this->mUser->getNewtalk() ) {
-				$unreadEditUserTalk = $this->notifMapper->fetchUnreadByUser( $this->mUser, 1, null, array( 'edit-user-talk' ), DB_MASTER );
+				$unreadEditUserTalk = $this->notifMapper->fetchUnreadByUser( $this->mUser, 1, null, array( 'edit-user-talk' ), null, DB_MASTER );
 				if ( count( $unreadEditUserTalk ) === 0 ) {
 					$this->mUser->setNewtalk( false );
 				}
@@ -390,7 +390,7 @@ class MWEchoNotifUser {
 			// After this 'mark unread', is there any unread edit-user-talk?
 			// If so, we should add the edit-user-talk flag
 			if ( !$this->mUser->getNewtalk() ) {
-				$unreadEditUserTalk = $this->notifMapper->fetchUnreadByUser( $this->mUser, 1, null, array( 'edit-user-talk' ), DB_MASTER );
+				$unreadEditUserTalk = $this->notifMapper->fetchUnreadByUser( $this->mUser, 1, null, array( 'edit-user-talk' ), null, DB_MASTER );
 				if ( count( $unreadEditUserTalk ) > 0 ) {
 					$this->mUser->setNewtalk( true );
 				}
