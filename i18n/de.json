@@ -232,6 +232,7 @@
 	"apihelp-query+notifications-param-alertunreadfirst": "Ob ungelesene Nachrichten zuerst angezeigt werden sollen (wird nur verwendet, wenn groupbysection festgelegt ist).",
 	"apihelp-query+notifications-param-messagecontinue": "Falls mehrere Nachrichtenergebnisse verfügbar sind, dies zum Fortfahren verwenden.",
 	"apihelp-query+notifications-param-messageunreadfirst": "Ob ungelesene Meldungen zuerst angezeigt werden sollen (wird nur verwendet, wenn groupbysection festgelegt ist).",
+	"apihelp-query+notifications-param-titles": "Gibt nur Benachrichtigungen für diese Seiten zurück.",
 	"apihelp-query+notifications-example-1": "Benachrichtigungen auflisten",
 	"apihelp-query+notifications-example-2": "Benachrichtigungen auflisten, gruppiert nach Abschnitt, mit Zählern",
 	"apihelp-query+unreadnotificationpages-description": "Ruft Seiten ab, für die es für den aktuellen Benutzer ungelesene Benachrichtigungen gibt.",
