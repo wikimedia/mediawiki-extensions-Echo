@@ -21,6 +21,7 @@ class GenerateSampleNotifications extends Maintenance {
 		'user-rights',
 		'cx',
 		'osm',
+		'edit-thanks'
 	);
 
 	public function __construct() {
@@ -111,6 +112,10 @@ class GenerateSampleNotifications extends Maintenance {
 			$this->generateOpenStackManager( $user, $agent );
 		}
 
+		if ( $this->shouldGenerate( 'edit-thanks', $types ) ) {
+			$this->generateEditThanks( $user, $agent, $otherUser );
+		}
+
 		$this->output( "Completed \n" );
 	}
 
@@ -175,6 +180,8 @@ class GenerateSampleNotifications extends Maintenance {
 		if ( !$status->isGood() ) {
 			$this->error( "Failed to edit {$title->getPrefixedText()}: {$status->getMessage()}" );
 		}
+
+		return $status->getValue()['revision'];
 	}
 
 	private function generateMention( User $user, User $agent, User $otherUser, Title $title ) {
@@ -363,6 +370,60 @@ class GenerateSampleNotifications extends Maintenance {
 
 	private function shouldGenerate( $type, $types ) {
 		return array_search( $type, $types ) !== false;
+	}
+
+	private function generateEditThanks( User $user, User $agent, User $otherUser ) {
+		$this->generateOneEditThanks( $user, $agent );
+		$this->generateMultipleEditThanks( $user, $agent, $otherUser );
+	}
+
+	private function generateOneEditThanks( User $user, User $agent ) {
+		if ( !class_exists( 'ThanksHooks' ) ) {
+			return;
+		}
+		// make an edit, thank it once
+		$title = $this->generateNewPageTitle();
+		$revision = $this->addToPageContent( $title, $user, "an awesome edit! ~~~~" );
+		EchoEvent::create( [
+			'type' => 'edit-thank',
+			'title' => $title,
+			'extra' => [
+				'revid' => $revision->getId(),
+				'thanked-user-id' => $user->getId(),
+				'source' => 'generateSampleNotifications.php',
+			],
+			'agent' => $agent,
+		] );
+		$this->output( "{$agent->getName()} is thanking {$user->getName()} for edit {$revision->getId()} on {$title->getPrefixedText()}\n" );
+	}
+	private function generateMultipleEditThanks( User $user, User $agent, User $otherUser ) {
+		if ( !class_exists( 'ThanksHooks' ) ) {
+			return;
+		}
+		// make an edit, thank it twice
+		$title = $this->generateNewPageTitle();
+		$revision = $this->addToPageContent( $title, $user, "an even better edit! ~~~~" );
+		EchoEvent::create( [
+			'type' => 'edit-thank',
+			'title' => $title,
+			'extra' => [
+				'revid' => $revision->getId(),
+				'thanked-user-id' => $user->getId(),
+				'source' => 'generateSampleNotifications.php',
+			],
+			'agent' => $agent,
+		] );
+		EchoEvent::create( [
+			'type' => 'edit-thank',
+			'title' => $title,
+			'extra' => [
+				'revid' => $revision->getId(),
+				'thanked-user-id' => $user->getId(),
+				'source' => 'generateSampleNotifications.php',
+			],
+			'agent' => $otherUser,
+		] );
+		$this->output( "{$agent->getName()} and {$otherUser->getName()} are thanking {$user->getName()} for edit {$revision->getId()} on {$title->getPrefixedText()}\n" );
 	}
 }
 
