@@ -253,6 +253,7 @@
 	"apihelp-query+notifications-param-alertunreadfirst": "是否首先显示未读的消息通知（只当groupbysection已设置时使用）。",
 	"apihelp-query+notifications-param-messagecontinue": "当更多消息结果可用时，使用这个继续。",
 	"apihelp-query+notifications-param-messageunreadfirst": "是否首先显示未读的提醒通知（只当groupbysection已设置时使用）。",
+	"apihelp-query+notifications-param-titles": "只返回这些页面的通知。",
 	"apihelp-query+notifications-example-1": "列举通知",
 	"apihelp-query+notifications-example-2": "列出通知，按节分组，带有数量",
 	"apihelp-query+unreadnotificationpages-description": "获取当前用户未读通知的相关页面。",

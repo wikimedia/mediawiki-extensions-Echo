@@ -234,6 +234,7 @@
 	"apihelp-query+notifications-param-alertunreadfirst": "Se mostrare le notifiche dei messaggi non letti prima (usato solo se groupbysection è impostato).",
 	"apihelp-query+notifications-param-messagecontinue": "Quando più risultati 'messaggio' sono disponibili, usa questo per continuare.",
 	"apihelp-query+notifications-param-messageunreadfirst": "Se mostrare le notifiche degli avvisi non letti prima (usato solo se groupbysection è impostato).",
+	"apihelp-query+notifications-param-titles": "Restituisce solo le notifiche per queste pagine.",
 	"apihelp-query+notifications-example-1": "Elenco notifiche",
 	"apihelp-query+notifications-example-2": "Elenco notifiche, raggruppate per sezione, con i conteggi",
 	"apihelp-query+unreadnotificationpages-description": "Ottieni le pagine per le quali ci sono notifiche non lette per l'utente corrente.",

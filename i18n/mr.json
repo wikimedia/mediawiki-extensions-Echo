@@ -151,6 +151,7 @@
 	"apihelp-query+notifications-param-prop": "विनंती करावयाचा तपशिल.",
 	"apihelp-query+notifications-param-sections": "पृच्छा करावयासाठीचे विभाग  (म्हणजे - 'सजगता' व 'संदेश' यांची सरमिसळ).",
 	"apihelp-query+notifications-param-groupbysection": "निकालाचे विभागानुसार गट करावयाचे काय. जर स्थापिल्या गेले तर,प्रत्येक विभागास वेगळ्या रितीने पुरवठा होतो.",
+	"apihelp-query+notifications-param-titles": "या पानांसाठीच्या फक्त परतीच्या अधिसूचना.",
 	"apihelp-query+notifications-example-1": "अधिसूचनांची यादी करा",
 	"apihelp-query+notifications-example-2": "अधिसूचनांचे विभागानुसार गट पाडून,मोजणीसह यादी करा"
 }
