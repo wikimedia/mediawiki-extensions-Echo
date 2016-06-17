@@ -578,7 +578,7 @@ class MWEchoNotifUser {
 
 		// Populate the instance cache
 		if ( $this->cached === null ) {
-			$keys = $this->preloadKeys();
+			$keys = $this->getPreloadKeys();
 			$this->cached = $this->cache->getMulti( $keys );
 			// also keep track of cache values that couldn't be found (getMulti
 			// omits them...)
@@ -618,7 +618,7 @@ class MWEchoNotifUser {
 	 *
 	 * @return array
 	 */
-	protected function preloadKeys() {
+	protected function getPreloadKeys() {
 		$keys = array(
 			'echo-notification-timestamp',
 			'echo-notification-timestamp-' . EchoAttributeManager::MESSAGE,
@@ -628,10 +628,10 @@ class MWEchoNotifUser {
 			'echo-notification-count-' . EchoAttributeManager::ALERT,
 		);
 
-		return array_merge(
+		return array_filter( array_merge(
 			array_map( array( $this, 'getMemcKey' ), $keys ),
 			array_map( array( $this, 'getGlobalMemcKey' ), $keys )
-		);
+		) );
 	}
 
 	/**
