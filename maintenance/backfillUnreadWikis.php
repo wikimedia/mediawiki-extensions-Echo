@@ -11,30 +11,43 @@ class BackfillUnreadWikis extends Maintenance {
 		parent::__construct();
 
 		$this->mDescription = "Backfill echo_unread_wikis table";
-
+		$this->addOption( 'rebuild', 'Only recompute already-existing rows' );
 		$this->setBatchSize( 300 );
 	}
 
 	public function execute() {
-		global $wgEchoSharedTrackingCluster;
+		$dbFactory = MWEchoDbFactory::newFromDefault();
+		$lookup = CentralIdLookup::factory();
 
-		$dbr = wfGetDB( DB_SLAVE );
-		$iterator = new BatchRowIterator( $dbr, 'user', 'user_id', $this->mBatchSize );
-		$iterator->setFetchColumns( User::selectFields() );
+		$rebuild = $this->hasOption( 'rebuild' );
+		if ( $rebuild ) {
+			$iterator = new BatchRowIterator( $dbFactory->getSharedDb( DB_SLAVE ), 'echo_unread_wikis', 'euw_user', $this->mBatchSize );
+			$iterator->addConditions( array( 'euw_wiki' => wfWikiId() ) );
+		} else {
+			$iterator = new BatchRowIterator( wfGetDB( DB_SLAVE ), 'user', 'user_id', $this->mBatchSize );
+			$iterator->setFetchColumns( User::selectFields() );
+		}
 
 		$processed = 0;
 		foreach ( $iterator as $batch ) {
 			foreach ( $batch as $row ) {
-				$user = User::newFromRow( $row );
+				if ( $rebuild ) {
+					$user = $lookup->localUserFromCentralId( $row->euw_user, CentralIdLookup::AUDIENCE_RAW );
+				} else {
+					$user = User::newFromRow( $row );
+				}
+				if ( !$user ) {
+					continue;
+				}
 
 				$notifUser = MWEchoNotifUser::newFromUser( $user );
 				$uw = EchoUnreadWikis::newFromUser( $user );
 				if ( $uw ) {
-					$alertCount = $notifUser->getNotificationCount( false, DB_SLAVE, EchoAttributeManager::ALERT, false );
-					$alertUnread = $notifUser->getLastUnreadNotificationTime( false, DB_SLAVE, EchoAttributeManager::ALERT, false );
+					$alertCount = $notifUser->getNotificationCount( true, DB_SLAVE, EchoAttributeManager::ALERT, false );
+					$alertUnread = $notifUser->getLastUnreadNotificationTime( true, DB_SLAVE, EchoAttributeManager::ALERT, false );
 
-					$msgCount = $notifUser->getNotificationCount( false, DB_SLAVE, EchoAttributeManager::MESSAGE, false );
-					$msgUnread = $notifUser->getLastUnreadNotificationTime( false, DB_SLAVE, EchoAttributeManager::MESSAGE, false );
+					$msgCount = $notifUser->getNotificationCount( true, DB_SLAVE, EchoAttributeManager::MESSAGE, false );
+					$msgUnread = $notifUser->getLastUnreadNotificationTime( true, DB_SLAVE, EchoAttributeManager::MESSAGE, false );
 
 					$uw->updateCount( wfWikiID(), $alertCount, $alertUnread, $msgCount, $msgUnread );
 				}
@@ -42,7 +55,7 @@ class BackfillUnreadWikis extends Maintenance {
 
 			$processed += count( $batch );
 			$this->output( "Updated $processed users.\n" );
-			wfWaitForSlaves( false, false, $wgEchoSharedTrackingCluster );
+			$dbFactory->waitForSlaves();
 		}
 	}
 }
