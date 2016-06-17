@@ -10,7 +10,7 @@ class BackfillUnreadWikis extends Maintenance {
 	public function __construct() {
 		parent::__construct();
 
-		$this->mDescription = "Backfill echo_unread_wikis table and recache notification counts for all users";
+		$this->mDescription = "Backfill echo_unread_wikis table";
 
 		$this->setBatchSize( 300 );
 	}
@@ -28,7 +28,16 @@ class BackfillUnreadWikis extends Maintenance {
 				$user = User::newFromRow( $row );
 
 				$notifUser = MWEchoNotifUser::newFromUser( $user );
-				$notifUser->resetNotificationCount( DB_SLAVE, false );
+				$uw = EchoUnreadWikis::newFromUser( $user );
+				if ( $uw ) {
+					$alertCount = $notifUser->getNotificationCount( false, DB_SLAVE, EchoAttributeManager::ALERT, false );
+					$alertUnread = $notifUser->getLastUnreadNotificationTime( false, DB_SLAVE, EchoAttributeManager::ALERT, false );
+
+					$msgCount = $notifUser->getNotificationCount( false, DB_SLAVE, EchoAttributeManager::MESSAGE, false );
+					$msgUnread = $notifUser->getLastUnreadNotificationTime( false, DB_SLAVE, EchoAttributeManager::MESSAGE, false );
+
+					$uw->updateCount( wfWikiID(), $alertCount, $alertUnread, $msgCount, $msgUnread );
+				}
 			}
 
 			$processed += count( $batch );

@@ -454,9 +454,8 @@ class MWEchoNotifUser {
 	/**
 	 * Recalculates the number of notifications that a user has.
 	 * @param $dbSource int use master or slave database to pull count
-	 * @param $deferUpdate bool Whether to defer the update to the echo_unread_wikis table
 	 */
-	public function resetNotificationCount( $dbSource = DB_SLAVE, $deferUpdate = true ) {
+	public function resetNotificationCount( $dbSource = DB_SLAVE ) {
 		global $wgEchoCrossWikiNotifications;
 		// Reset alert and message counts, and store them for later
 		$alertCount = $this->getNotificationCount( false, $dbSource, EchoAttributeManager::ALERT, false );
@@ -506,17 +505,12 @@ class MWEchoNotifUser {
 
 			// Schedule an update to the echo_unread_wikis table
 			$user = $this->mUser;
-			$updateCallback = function () use ( $user, $alertCount, $alertUnread, $msgCount, $msgUnread ) {
+			DeferredUpdates::addCallableUpdate( function () use ( $user, $alertCount, $alertUnread, $msgCount, $msgUnread ) {
 				$uw = EchoUnreadWikis::newFromUser( $user );
 				if ( $uw ) {
 					$uw->updateCount( wfWikiID(), $alertCount, $alertUnread, $msgCount, $msgUnread );
 				}
-			};
-			if ( $deferUpdate ) {
-				DeferredUpdates::addCallableUpdate( $updateCallback );
-			} else {
-				$updateCallback();
-			}
+			} );
 		}
 
 		$this->invalidateCache();
