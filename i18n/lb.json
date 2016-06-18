@@ -81,7 +81,7 @@
 	"notification-body-edit-user-talk-with-section": "$1",
 	"notification-page-linked": "[[:$2]] gouf vun [[:$3]] {{GENDER:$1|verlinkt}}. [[Special:WhatLinksHere/$2|Kuckt all Linken op dës Säit]].",
 	"notification-header-page-linked": "Et gouf et Link vu(n) <strong>$4</strong> op <strong>$3</strong> gemaacht.",
-	"notification-bundle-header-page-linked": "Linke goufe vun <strong>$4</strong> a(n) $5 aner {{PLURAL:$5|aner Säit|aner Säite|100=méi wéi 99 aner Säite}} op $3 gemaach.",
+	"notification-bundle-header-page-linked": "Linke goufe vun <strong>$4</strong> a(n) $5 {{PLURAL:$5|eng aner Säit|aner Säiten|100=méi wéi 99 aner Säiten}} op $3 gemaach.",
 	"notification-link-text-what-links-here": "All Linken op dës Säit",
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|huet}} eng Bemierkung iwwer \"[[$3|$2]]\" op der \"$4\" Diskussiounssäit geschriwwen.",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] {{GENDER:$1|huet}} en neit Thema \"$2\" op [[$3]] ugefaang.",

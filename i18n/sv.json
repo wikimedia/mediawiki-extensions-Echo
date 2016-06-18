@@ -236,7 +236,11 @@
 	"apihelp-query+notifications-param-alertunreadfirst": "Om du vill visa olästa meddelandeaviseringar först (används endast om groupbysection inte är inställd).",
 	"apihelp-query+notifications-param-messagecontinue": "När fler meddelanden finns tillgängliga, använd detta för att fortsätta.",
 	"apihelp-query+notifications-param-messageunreadfirst": "Om du vill visa olästa systemmeddelandeaviseringar först (används endast om groupbysection inte är inställd).",
+	"apihelp-query+notifications-param-titles": "Returnera endast aviseringar för dessa sidor.",
 	"apihelp-query+notifications-example-1": "Lista aviseringar",
 	"apihelp-query+notifications-example-2": "Listan aviseringar grupperade efter avsnitt, med antal",
-	"apihelp-query+unreadnotificationpages-param-limit": "Maximala antalet sidor att returnera."
+	"apihelp-query+unreadnotificationpages-description": "Hämta sidor där det finns olästa aviseringar för aktuell användare.",
+	"apihelp-query+unreadnotificationpages-param-limit": "Maximala antalet sidor att returnera.",
+	"apihelp-query+unreadnotificationpages-param-wikis": "Lista över wikis att hämta sidor med olästa aviseringar ifrån (endast aktuell wiki är standard).",
+	"apihelp-query+unreadnotificationpages-example-1": "Lista sidor med (deras antal av) olästa aviseringar"
 }

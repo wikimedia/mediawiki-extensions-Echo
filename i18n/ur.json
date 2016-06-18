@@ -8,7 +8,8 @@
 			"عثمان خان شاہ",
 			"Muhammad Shuaib",
 			"Obaid Raza",
-			"Hindustanilanguage"
+			"Hindustanilanguage",
+			"امین اکبر"
 		]
 	},
 	"echo-desc": "نظام برائے اطلاع صارفین دربارہ تقریبات و پیغامات",
@@ -30,7 +31,7 @@
 	"echo-specialpage": "اطلاعات",
 	"echo-feedback": "آپ کی رائے",
 	"notification-timestamp-today": "آج",
-	"notification-timestamp-yesterday": "گزراہؤا کل",
+	"notification-timestamp-yesterday": "گزشتہ کل",
 	"notification-inbox-filter-read": "پڑھیں",
 	"notification-inbox-filter-unread": "غیرمطالعہ شدہ",
 	"notification-inbox-filter-all": "تمام",
