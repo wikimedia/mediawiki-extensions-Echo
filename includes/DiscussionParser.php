@@ -885,4 +885,18 @@ abstract class EchoDiscussionParser {
 	public static function htmlToText( $html ) {
 		return trim( html_entity_decode( strip_tags( $html ), ENT_QUOTES ) );
 	}
+
+	/**
+	 * Extract an edit excerpt from a revision
+	 *
+	 * @param Revision $revision
+	 * @param Language $lang
+	 * @param int $length
+	 * @return string
+	 */
+	public static function getEditExcerpt( Revision $revision, Language $lang, $length = 150 ) {
+		$interpretation = self::getChangeInterpretationForRevision( $revision );
+		$section = self::detectSectionTitleAndText( $interpretation );
+		return $lang->truncate( $section['section-title'] . ' ' . $section['section-text'], $length );
+	}
 }
