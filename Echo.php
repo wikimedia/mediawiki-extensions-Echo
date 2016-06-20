@@ -151,6 +151,17 @@ $wgEchoSharedTrackingDB = false;
 // main one. Must be a key defined in $wgExternalServers
 $wgEchoSharedTrackingCluster = false;
 
+// Enable this when you've changed the section (alert vs message) of a notification
+// type, but haven't yet finished running backfillUnreadWikis.php. This setting
+// reduces performance but prevents glitchy and inaccurate information from being
+// show to users while the unread_wikis table is being rebuilt.
+$wgEchoSectionTransition = false;
+
+// Enable this when you've changed the way bundled notifications are counted,
+// but haven't yet finished running backfillUnreadWikis.php. Like $wgEchoSectionTransition,
+// this setting reduces performance but prevents glitches.
+$wgEchoBundleTransition = false;
+
 // The max number of notifications allowed for a user to do a live update,
 // this is also the number of max notifications allowed for a user to have
 // @FIXME - the name is not intuitive, probably change it when the deleteJob patch

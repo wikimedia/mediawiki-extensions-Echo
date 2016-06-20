@@ -91,9 +91,12 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 						$titles, $params[$section . 'unreadfirst']
 					);
 
-					if ( $this->crossWikiSummary && $this->foreignNotifications->getCount( $section ) > 0 ) {
+					if ( $this->crossWikiSummary ) {
 						// insert fake notification for foreign notifications
-						array_unshift( $result[$section]['list'], $this->makeForeignNotification( $user, $params['format'], $section ) );
+						$foreignNotification = $this->makeForeignNotification( $user, $params['format'], $section );
+						if ( $foreignNotification ) {
+							array_unshift( $result[$section]['list'], $foreignNotification );
+						}
 					}
 				}
 			} else {
@@ -108,8 +111,11 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 				// if exactly 1 section is specified, we consider only that section, otherwise
 				// we pass ALL to consider all foreign notifications
 				$section = count( $params['sections'] ) === 1 ? reset( $params['sections'] ) : EchoAttributeManager::ALL;
-				if ( $this->crossWikiSummary && $this->foreignNotifications->getCount( $section ) > 0 ) {
-					array_unshift( $result['list'], $this->makeForeignNotification( $user, $params['format'], $section ) );
+				if ( $this->crossWikiSummary ) {
+					$foreignNotification = $this->makeForeignNotification( $user, $params['format'], $section );
+					if ( $foreignNotification ) {
+						array_unshift( $result['list'], $foreignNotification );
+					}
 				}
 			}
 		}
@@ -283,15 +289,73 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 		return $result;
 	}
 
+	/**
+	 * Build and format a "fake" notification to represent foreign notifications.
+	 * @param User $user
+	 * @param string $format
+	 * @param string $section
+	 * @return array|false A formatted notification, or false if there are no foreign notifications
+	 */
 	protected function makeForeignNotification( User $user, $format, $section = EchoAttributeManager::ALL ) {
-		$wikis = $this->foreignNotifications->getWikis( $section );
-		$count = $this->foreignNotifications->getCount( $section );
+		global $wgEchoSectionTransition, $wgEchoBundleTransition;
+		if (
+			( $wgEchoSectionTransition && $section !== EchoAttributeManager::ALL ) ||
+			$wgEchoBundleTransition
+		) {
+			// In section transition mode we trust that echo_unread_wikis is accurate for the total of alerts+messages,
+			// but not for each section individually (i.e. we don't trust that notifications won't be misclassified).
+			// We get all wikis that have any notifications at all according to the euw table,
+			// and query them to find out what's really there.
+			// In bundle transition mode, we trust that notifications are classified correctly, but we don't
+			// trust the counts in the table.
+			$potentialWikis = $this->foreignNotifications->getWikis( $wgEchoSectionTransition ? EchoAttributeManager::ALL : $section );
+			if ( !$potentialWikis ) {
+				return false;
+			}
+			$foreignResults = $this->getFromForeign( $potentialWikis, array( $this->getModulePrefix() . 'filter' => '!read' ) );
+
+			$countsByWiki = array();
+			$timestampsByWiki = array();
+			foreach ( $foreignResults as $wiki => $result ) {
+				if ( isset( $result['query']['notifications']['list'] ) ) {
+					$notifs = $result['query']['notifications']['list'];
+				} elseif ( isset( $result['query']['notifications'][$section]['list'] ) ) {
+					$notifs = $result['query']['notifications'][$section]['list'];
+				} else {
+					$notifs = false;
+				}
+				if ( $notifs ) {
+					$countsByWiki[$wiki] = count( $notifs );
+					$timestampsByWiki[$wiki] = max( array_map( function ( $n ) {
+						return $n['timestamp']['mw'];
+					}, $notifs ) );
+				}
+			}
+
+			$wikis = array_keys( $countsByWiki );
+			$count = array_sum( $countsByWiki );
+			$maxTimestamp = new MWTimestamp( max( $timestampsByWiki ) );
+			$timestampsByWiki = array_map( function ( $ts ) {
+				return new MWTimestamp( $ts );
+			}, $timestampsByWiki );
+		} else {
+			// In non-transition mode, or when querying all sections, we can trust the euw table
+			$wikis = $this->foreignNotifications->getWikis( $section );
+			$count = $this->foreignNotifications->getCount( $section );
+			$maxTimestamp = $this->foreignNotifications->getTimestamp( $section );
+			$timestampsByWiki = array();
+			foreach ( $wikis as $wiki ) {
+				$timestampsByWiki[$wiki] = $this->foreignNotifications->getWikiTimestamp( $wiki, $section );
+			}
+		}
+
+		if ( $count === 0 || count( $wikis ) === 0 ) {
+			return false;
+		}
 
 		// Sort wikis by timestamp, in descending order (newest first)
-		usort( $wikis, function ( $a, $b ) use ( $section ) {
-			$aTimestamp = $this->foreignNotifications->getWikiTimestamp( $a, $section ) ?: new MWTimestamp( 0 );
-			$bTimestamp = $this->foreignNotifications->getWikiTimestamp( $b, $section ) ?: new MWTimestamp( 0 );
-			return $bTimestamp->getTimestamp( TS_UNIX ) - $aTimestamp->getTimestamp( TS_UNIX );
+		usort( $wikis, function ( $a, $b ) use ( $section, $timestampsByWiki ) {
+			return $timestampsByWiki[$b]->getTimestamp( TS_UNIX ) - $timestampsByWiki[$a]->getTimestamp( TS_UNIX );
 		} );
 
 		$row = new StdClass;
@@ -310,7 +374,7 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 		) );
 
 		$row->notification_user = $user->getId();
-		$row->notification_timestamp = $this->foreignNotifications->getTimestamp( $section );
+		$row->notification_timestamp = $maxTimestamp;
 		$row->notification_read_timestamp = null;
 		$row->notification_bundle_base = 1;
 		$row->notification_bundle_hash = md5( 'bogus' );
@@ -326,7 +390,7 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 		$output['sources'] = EchoForeignNotifications::getApiEndpoints( $wikis );
 		// Add timestamp information
 		foreach ( $output['sources'] as $wiki => &$data ) {
-			$data['ts'] = $this->foreignNotifications->getWikiTimestamp( $wiki, $section )->getTimestamp( TS_MW );
+			$data['ts'] = $timestampsByWiki[$wiki]->getTimestamp( TS_MW );
 		}
 		return $output;
 	}
