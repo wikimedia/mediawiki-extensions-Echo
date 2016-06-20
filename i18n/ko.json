@@ -75,7 +75,7 @@
 	"echo-feedback": "피드백 남기기",
 	"echo-api-failure": "알림을 받아올 수 없었습니다.",
 	"echo-notification-placeholder": "알림이 없습니다.",
-	"echo-notification-placeholder-filters": "이 주제에 맞는 알림이 없습니다.",
+	"echo-notification-placeholder-filters": "이 기준에 맞는 알림이 없습니다.",
 	"echo-notification-loginrequired": "알림을 보려면 로그인해야 합니다.",
 	"echo-notification-popup-loginrequired": "알림을 보려면 로그인하세요.",
 	"echo-notification-markasread": "읽은 것으로 표시",
