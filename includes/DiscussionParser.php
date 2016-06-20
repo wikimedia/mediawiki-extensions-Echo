@@ -171,7 +171,7 @@ abstract class EchoDiscussionParser {
 				$stats->increment( 'echo.event.mention.error.ownPage' );
 				continue;
 			}
-			// 4. user is anonymous
+			// 4. user is anonymous or does not exist
 			if ( $user->isAnon() ) {
 				$stats->increment( 'echo.event.mention.error.anonUser' );
 				continue;
