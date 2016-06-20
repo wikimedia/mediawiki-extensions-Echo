@@ -42,7 +42,7 @@ class EchoPageLinkedPresentationModel extends EchoEventPresentationModel {
 		if ( $revid !== null ) {
 			$diffLink = array(
 				'url' => $this->getPageFrom()->getFullURL( array( 'diff' => $revid, 'oldid' => 'prev' ) ),
-				'label' => $this->msg( 'notification-link-text-view-changes' )->text(),
+				'label' => $this->msg( 'notification-link-text-view-changes', $this->getViewingUserForGender() )->text(),
 				'description' => '',
 				'icon' => 'changes',
 				'prioritized' => true
