@@ -35,11 +35,11 @@
 			.addClass( 'mw-echo-ui-notificationItemWidget-content-actions' );
 
 		// Mark as read
-		this.markAsReadButton = new OO.ui.ButtonWidget( {
-			icon: 'close',
+		this.markAsReadButton = new mw.echo.ui.ToggleReadCircleButtonWidget( {
 			framed: false,
 			title: mw.msg( 'echo-notification-markasread-tooltip' ),
-			classes: [ 'mw-echo-ui-notificationItemWidget-markAsReadButton' ]
+			classes: [ 'mw-echo-ui-notificationItemWidget-markAsReadButton' ],
+			markAsRead: !this.model.isRead()
 		} );
 
 		// Icon
@@ -219,7 +219,7 @@
 	 * Respond to mark as read button click
 	 */
 	mw.echo.ui.NotificationItemWidget.prototype.onMarkAsReadButtonClick = function () {
-		this.markRead( true );
+		this.markRead( !this.model.isRead() );
 	};
 
 	/**
@@ -286,21 +286,21 @@
 	};
 
 	/**
-	 * Toggle the function of the 'mark as read' secondary button from 'mark as read' to
-	 * 'mark as unread' and update the visibility of the primary 'mark as read' X button.
+	 * Toggle the function of the 'mark as read' buttons from 'mark as read' to 'mark as unread'
+	 * and vice versa.
 	 *
-	 * @param {boolean} [show] Show the 'mark as read' buttons
+	 * @param {boolean} [showMarkAsRead] Show the 'mark as read' buttons
 	 *  - "false" means that the item is marked as read, whereby we show the user 'mark unread'
-	 *    and hide the primary 'x' button
+	 *    buttons.
 	 *  - "true" means that the item is marked as unread and we show the user 'mark as read'
-	 *    primary and secondary buttons.
+	 *    buttons
 	 */
-	mw.echo.ui.NotificationItemWidget.prototype.toggleMarkAsReadButtons = function ( show ) {
-		show = show !== undefined ? show : !this.model.isRead();
+	mw.echo.ui.NotificationItemWidget.prototype.toggleMarkAsReadButtons = function ( showMarkAsRead ) {
+		showMarkAsRead = showMarkAsRead !== undefined ? showMarkAsRead : !this.model.isRead();
 
-		this.markAsReadButton.toggle( show );
+		this.markAsReadButton.toggleState( showMarkAsRead );
 
-		if ( show ) {
+		if ( showMarkAsRead ) {
 			// Mark read
 			this.toggleReadSecondaryButton.setLabel( mw.msg( 'echo-notification-markasread' ) );
 			this.toggleReadSecondaryButton.setIcon( 'check' );
