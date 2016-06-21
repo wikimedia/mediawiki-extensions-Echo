@@ -156,33 +156,24 @@
 				}
 
 				&-markAsReadButton {
-					width: 1em;
+					display: table-cell;
+					vertical-align: top;
 					float: none;
-					padding-top: 0;
 				}
-
 			}
 		}
 	}
 
 	&-markAsReadButton {
-		.mw-echo-ui-mixin-hover-opacity;
 		float: right;
 		font-size: 1em;
-		margin-top: -0.5em;
-		margin-right: -0.4em;
+		// Compensate for the padding in the item widget
+		margin-top: -0.8em;
+		margin-right: -1em;
 		padding: 0;
 
-		.mw-echo-ui-notificationItemWidget-bundle & {
-			font-size: 0.8em;
+		.mw-echo-ui-notificationItemWidget-bundled & {
 			margin-top: 0;
-		}
-
-		.oo-ui-iconElement-icon {
-			// We have to override oojs-i's width/height,
-			// which uses a very specific selector
-			width: 1.7em !important;
-			height: 1.7em !important;
 		}
 	}
 

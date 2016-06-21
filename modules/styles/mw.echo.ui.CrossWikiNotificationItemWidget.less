@@ -6,6 +6,9 @@
 	padding-right: 0;
 	padding-bottom: 0;
 
+	// This is an abbreviation for the pieces that make up
+	// the face of the cross-wiki notification item
+	// without the inner group items
 	> .mw-echo-ui-notificationItemWidget {
 		// Compensate for the 0.8em of left/right padding and 0.5em of bottom padding that we removed
 		&-icon {
@@ -20,8 +23,13 @@
 			// 0.8em from ItemWidget, plus 0.8em
 			padding-left: 1.6em;
 			padding-right: 0.8em;
+
+			.mw-echo-ui-notificationItemWidget-markAsReadButton {
+				margin-right: -0.8em;
+			}
 		}
 	}
+
 
 	&-separator {
 		display: block;
