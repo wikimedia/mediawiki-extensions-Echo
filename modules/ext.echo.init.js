@@ -73,7 +73,6 @@
 						messageController,
 						messageModelManager,
 						{
-							markReadWhenSeen: false,
 							$overlay: mw.echo.ui.$overlay,
 							numItems: numMessages,
 							hasUnseen: hasUnseenMessages,
@@ -108,7 +107,6 @@
 					alertController,
 					alertModelManager,
 					{
-						markReadWhenSeen: false,
 						numItems: numAlerts,
 						hasUnseen: hasUnseenAlerts,
 						badgeIcon: {

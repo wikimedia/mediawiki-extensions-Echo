@@ -14,7 +14,6 @@
 	 *  an array of both. Defaults to 'message'
 	 * @cfg {number} [numItems=0] How many items are in the button display
 	 * @cfg {boolean} [hasUnseen=false] Whether there are unseen items
-	 * @cfg {boolean} [markReadWhenSeen=false] Mark all notifications as read on open
 	 * @cfg {number} [popupWidth=450] The width of the popup
 	 * @cfg {string|Object} [badgeIcon] The icons to use for this button.
 	 *  If this is a string, it will be used as the icon regardless of the state.
@@ -56,7 +55,6 @@
 
 		this.maxNotificationCount = mw.config.get( 'wgEchoMaxNotificationCount' );
 		this.numItems = config.numItems || 0;
-		this.markReadWhenSeen = !!config.markReadWhenSeen;
 		this.badgeIcon = config.badgeIcon || {};
 		this.hasRunFirstTime = false;
 
@@ -82,8 +80,7 @@
 			this.manager,
 			{
 				type: this.types,
-				$overlay: this.$menuOverlay,
-				markReadWhenSeen: this.markReadWhenSeen
+				$overlay: this.$menuOverlay
 			}
 		);
 
@@ -277,7 +274,7 @@
 	 * Update the badge state and label based on changes to the model
 	 */
 	mw.echo.ui.NotificationBadgeWidget.prototype.updateBadge = function () {
-		var unreadCount, cappedUnreadCount, badgeLabel, localUnread;
+		var unreadCount, cappedUnreadCount, badgeLabel;
 
 		unreadCount = this.manager.getUnreadCounter().getCount();
 		cappedUnreadCount = this.getCappedNotificationCount( unreadCount );
@@ -293,8 +290,7 @@
 		}
 
 		// Check if we need to display the 'mark all unread' button
-		localUnread = this.manager.hasLocalUnread();
-		this.markAllReadButton.toggle( !this.markReadWhenSeen && localUnread );
+		this.markAllReadButton.toggle( this.manager.hasLocalUnread() );
 	};
 
 	/**
@@ -351,11 +347,6 @@
 				function () {
 					if ( widget.popup.isVisible() ) {
 						widget.popup.clip();
-
-						// Mark notifications as 'read' if markReadWhenSeen is set to true
-						if ( widget.markReadWhenSeen ) {
-							widget.controller.markEntireListModelRead( 'local', true );
-						}
 
 						// Update seen time
 						return widget.controller.updateLocalSeenTime();

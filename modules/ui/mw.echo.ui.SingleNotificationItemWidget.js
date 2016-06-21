@@ -10,7 +10,6 @@
 	 * @param {mw.echo.Controller} controller Echo notifications controller
 	 * @param {mw.echo.dm.NotificationItem} model Notification item model
 	 * @param {Object} [config] Configuration object
-	 * @cfg {boolean} [markReadWhenSeen=false] This option is marked as read when it is viewed
 	 * @cfg {jQuery} [$overlay] A jQuery element functioning as an overlay
 	 *  for popups.
 	 * @cfg {boolean} [bundle=false] This notification is part of a bundle
@@ -27,13 +26,10 @@
 		this.model = model;
 
 		this.bundle = !!config.bundle;
-		this.markReadWhenSeen = !!config.markReadWhenSeen;
 		this.$overlay = config.$overlay || this.$element;
 
-		this.markReadWhenSeen = !!config.markReadWhenSeen;
-
 		// Toggle 'mark as read' functionality
-		this.toggleMarkAsReadButtons( !this.markReadWhenSeen && !this.model.isRead() );
+		this.toggleMarkAsReadButtons( !this.model.isRead() );
 
 		// Events
 		this.model.connect( this, { update: 'updateDataFromModel' } );
