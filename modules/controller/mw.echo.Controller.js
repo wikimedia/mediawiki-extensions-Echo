@@ -302,7 +302,7 @@
 		for ( i = 0; i < items.length; i++ ) {
 			item = items[ i ];
 			if ( !item.isRead() ) {
-				itemIds = itemIds.concat( item.getAllIds() );
+				itemIds.push( item.getId() );
 			}
 		}
 
@@ -410,7 +410,7 @@
 			notification.toggleRead( isRead );
 		} );
 
-		this.manager.getUnreadCounter().estimateChange( isRead ? -allIds.length : allIds.length );
+		this.manager.getUnreadCounter().estimateChange( isRead ? -itemIds.length : itemIds.length );
 
 		return this.api.markItemsRead( allIds, model.getSource(), isRead ).then( this.refreshUnreadCount.bind( this ) );
 	};
@@ -484,7 +484,6 @@
 				// Synchronously remove this model from the widget
 				controller.removeCrossWikiItem();
 
-				controller.manager.counter.estimateChange( -itemCounter );
 				return mw.echo.api.NetworkHandler.static.waitForAllPromises( promises );
 			} );
 	};
