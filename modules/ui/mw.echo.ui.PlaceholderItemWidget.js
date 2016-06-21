@@ -19,31 +19,29 @@
 		// Mixin constructor
 		OO.ui.mixin.LabelElement.call( this, config );
 
-		this.$link = $( '<a>' )
-			.addClass( 'mw-echo-ui-placeholderItemWidget-link' );
-		this.setLink( config.link || '' );
+		this.$element.addClass( 'mw-echo-ui-placeholderItemWidget' );
 
-		this.$element
-			.addClass( 'mw-echo-ui-placeholderItemWidget' )
-			.append(
-				this.$link.append( this.$label )
-			);
+		this.setLink( config.link );
 	};
 
 	OO.inheritClass( mw.echo.ui.PlaceholderItemWidget, OO.ui.Widget );
 	OO.mixinClass( mw.echo.ui.PlaceholderItemWidget, OO.ui.mixin.LabelElement );
 
 	/**
-	 * Set (or unset) the main link for this widget
+	 * Set (or unset) the main link url for this widget
 	 *
-	 * @param {string} link The widget link
+	 * @param {string} url The widget url
 	 */
-	mw.echo.ui.PlaceholderItemWidget.prototype.setLink = function ( link ) {
-		this.link = link;
-
-		this.$element.toggleClass( 'mw-echo-ui-placeholderItemWidget-loadingOption-notLinked', !this.link );
-
-		this.$link.attr( 'href', this.link );
+	mw.echo.ui.PlaceholderItemWidget.prototype.setLink = function ( url ) {
+		var $link;
+		if ( url ) {
+			$link = $( '<a>' )
+				.addClass( 'mw-echo-ui-placeholderItemWidget-link' )
+				.attr( 'href', url );
+			this.$element.html( $link.append( this.$label ) );
+		} else {
+			this.$element.html( this.$label );
+		}
 	};
 
 	/**

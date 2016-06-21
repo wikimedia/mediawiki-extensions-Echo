@@ -11,6 +11,7 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 	}
 
 	public function execute() {
+
 		// To avoid API warning, register the parameter used to bust browser cache
 		$this->getMain()->getVal( '_' );
 
