@@ -10,10 +10,15 @@ class EchoHooks {
 	 */
 	public static function initEchoExtension() {
 		global $wgEchoNotifications, $wgEchoNotificationCategories, $wgEchoNotificationIcons,
-			$wgEchoConfig;
+			$wgEchoConfig, $wgEchoMentionStatusNotifications;
 
 		// allow extensions to define their own event
 		Hooks::run( 'BeforeCreateEchoEvent', array( &$wgEchoNotifications, &$wgEchoNotificationCategories, &$wgEchoNotificationIcons ) );
+
+		// Only allow mention status notifications when enabled
+		if ( !$wgEchoMentionStatusNotifications ) {
+			unset( $wgEchoNotificationCategories['mention-failure'] );
+		}
 
 		// turn schema off if eventLogging is not enabled
 		if ( !class_exists( 'EventLogging' ) ) {
@@ -200,6 +205,14 @@ class EchoHooks {
 						. '-' . $event->getTitle()->getDBkey();
 				}
 				break;
+			case 'mention-failure':
+				$bundleString = 'mention-failure';
+				if ( $event->getTitle() ) {
+					$bundleString .= '-' . $event->getTitle()->getNamespace()
+						. ':' . $event->getTitle()->getDBkey()
+						. '#' . $event->getExtraParam( 'section-title' );
+				}
+			break;
 		}
 
 		return true;
