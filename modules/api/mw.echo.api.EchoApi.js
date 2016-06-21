@@ -1,4 +1,4 @@
-( function ( mw ) {
+( function ( mw, $ ) {
 	/**
 	 * A class defining Echo API instructions and network operations
 	 *
@@ -23,11 +23,20 @@
 	 * Register a set of foreign sources.
 	 *
 	 * @param {Object} sources Object mapping source names to config objects
+	 * @param {boolean} [unreadOnly=false] Fetch only unread notifications
+	 * @param {number} [limit] Specific limit of notifications. Defaults to
+	 *  the default limit stated in the class.
 	 */
-	mw.echo.api.EchoApi.prototype.registerForeignSources = function ( sources ) {
+	mw.echo.api.EchoApi.prototype.registerForeignSources = function ( sources, unreadOnly, limit ) {
 		var s;
+
+		limit = limit || this.limit;
+
 		for ( s in sources ) {
-			this.network.setApiHandler( s, new mw.echo.api.ForeignAPIHandler( sources[ s ].url ) );
+			this.network.setApiHandler( s, new mw.echo.api.ForeignAPIHandler( sources[ s ].url, {
+				unreadOnly: !!unreadOnly,
+				limit: limit
+			} ) );
 		}
 	};
 
@@ -46,36 +55,129 @@
 	};
 
 	/**
+	 * Fetch all pages with unread notifications in them per wiki
+	 *
+	 * @param {string[]} [sources=all] Requested sources
+	 * @return {jQuery.Promise} Promise that is resolved with an object
+	 *	of pages with the number of unread notifications per wiki
+	 */
+	mw.echo.api.EchoApi.prototype.fetchUnreadNotificationPages = function ( sources ) {
+		return this.network.getApiHandler( 'local' ).fetchUnreadNotificationPages( sources )
+			.then( function ( data ) {
+				return OO.getProp( data, 'query', 'unreadnotificationpages' );
+			} );
+	};
+
+	/**
+	 * Fetch notifications from a given source with given filters
+	 *
+	 * @param {string} type Notification type to fetch: 'alert', 'message', or 'all'
+	 * @param {string} [source] The source from which to fetch the notifications.
+	 *  If not given, the local notifications will be fetched.
+	 * @param {Object} [filters] Filter values
+	 * @return {jQuery.Promise} Promise that is resolved with all notifications for the
+	 *  requested types.
+	 */
+	mw.echo.api.EchoApi.prototype.fetchFilteredNotifications = function ( type, source, filters ) {
+		source = source || 'local';
+
+		if ( source === 'local' || source === mw.config.get( 'wgDBname' ) ) {
+			return this.fetchNotifications( type, source, true, filters );
+		} else {
+			return this.fetchNotificationsFromRemoteSource( type, source, true, filters );
+		}
+	};
+
+	/**
+	 * Convert the filter object to the relevant API parameters.
+	 *
+	 * @param {Object} [filterObject] The filter object
+	 * @param {string} [filterObject.continue] A continue variable
+	 *  defining the offset to fetch notifications
+	 * @param {string} [filterObject.readState] Notification read
+	 *  state, 'all', 'read' or 'unread'
+	 * @param {string|string[]} [filterObject.titles] Requested titles
+	 * @return {Object} API parameter definitions to override
+	 */
+	mw.echo.api.EchoApi.prototype.convertFiltersToAPIParams = function ( filterObject ) {
+		var overrideParams = {};
+
+		filterObject = filterObject || {};
+
+		if ( filterObject.continue ) {
+			overrideParams.notcontinue = filterObject.continue;
+		}
+
+		if ( filterObject.readState && filterObject.readState !== 'all' ) {
+			overrideParams.notfilter = filterObject.readState === 'read' ?
+				'read' :
+				'!read';
+		}
+
+		if ( filterObject.titles ) {
+			overrideParams.nottitles = Array.isArray( filterObject.titles ) ?
+				filterObject.titles.join( '|' ) :
+				filterObject.titles;
+		}
+
+		return overrideParams;
+	};
+
+	/**
+	 * Fetch remote notifications from a given source. This skips the local fetching that is
+	 * usually done and calls the remote wiki directly.
+	 *
+	 * @param {string} type Notification type to fetch: 'alert', 'message', or 'all'
+	 * @param {string|string[]} [source] The source from which to fetch the notifications.
+	 *  If not given, the local notifications will be fetched.
+	 * @param {boolean} [isForced] Force a refresh on the fetch notifications promise
+	 * @param {Object} [filters] Filter values
+	 * @return {jQuery.Promise} Promise that is resolved with all notifications for the
+	 *  requested types.
+	 */
+	mw.echo.api.EchoApi.prototype.fetchNotificationsFromRemoteSource = function ( type, source, isForced, filters ) {
+		var handler = this.network.getApiHandler( source );
+
+		if ( !handler ) {
+			return $.Deferred().reject().promise();
+		}
+
+		return handler.fetchNotifications(
+			type,
+			// For the remote source, we are fetching 'local' notifications
+			'local',
+			!!isForced,
+			this.convertFiltersToAPIParams( filters )
+		)
+			.then( function ( result ) {
+				return OO.getProp( result.query, 'notifications' );
+			} );
+	};
+
+	/**
 	 * Fetch notifications from the server based on type
 	 *
 	 * @param {string} type Notification type to fetch: 'alert', 'message', or 'all'
 	 * @param {string|string[]} [sources] The source from which to fetch the notifications.
 	 *  If not given, the local notifications will be fetched.
 	 * @param {boolean} [isForced] Force a refresh on the fetch notifications promise
-	 * @param {string} [continueValue] A value for the continue parameter, defining a page
-	 * @param {string} [readStatus='all'] Read status of the notifications: 'read', 'unread' or 'all'
+	 * @param {Object} [filters] Filter values
 	 * @return {jQuery.Promise} Promise that is resolved with all notifications for the
 	 *  requested types.
 	 */
-	mw.echo.api.EchoApi.prototype.fetchNotifications = function ( type, sources, isForced, continueValue, readStatus ) {
-		var overrideParams = {};
+	mw.echo.api.EchoApi.prototype.fetchNotifications = function ( type, sources, isForced, filters ) {
 		sources = Array.isArray( sources ) ?
 			sources :
 			sources ?
 				[ sources ] :
-				null;
+				'local';
 
-		if ( continueValue ) {
-			overrideParams.notcontinue = continueValue;
-		}
-
-		if ( readStatus && readStatus !== 'all' ) {
-			overrideParams.notfilter = readStatus === 'read' ?
-				'read' :
-				'!read';
-		}
-
-		return this.network.getApiHandler( 'local' ).fetchNotifications( type, sources, isForced, overrideParams )
+		return this.network.getApiHandler( 'local' ).fetchNotifications(
+			type,
+			sources,
+			isForced,
+			this.convertFiltersToAPIParams( filters )
+		)
 			.then( function ( result ) {
 				return OO.getProp( result.query, 'notifications' );
 			} );
@@ -90,7 +192,7 @@
 	 *  names to an array of their items' API data objects.
 	 */
 	mw.echo.api.EchoApi.prototype.fetchNotificationGroups = function ( sourceArray, type ) {
-		return this.network.getApiHandler( 'local' ).fetchNotifications( type, sourceArray )
+		return this.network.getApiHandler( 'local' ).fetchNotifications( type, sourceArray, true )
 			.then( function ( result ) {
 				var i,
 					items = OO.getProp( result, 'query', 'notifications', 'list' ),
@@ -197,4 +299,4 @@
 	mw.echo.api.EchoApi.prototype.getLimit = function () {
 		return this.limit;
 	};
-} )( mediaWiki );
+} )( mediaWiki, jQuery );

@@ -262,13 +262,13 @@
 	};
 
 	/**
-	 * Get the group id, which is represented by its source.
+	 * Get the group id, which is represented by its model symbolic name.
 	 * This is meant for sorting callbacks that fallback on
 	 * sorting by IDs.
 	 *
 	 * @return {string} Group source
 	 */
 	mw.echo.ui.SubGroupListWidget.prototype.getId = function () {
-		return this.getSource();
+		return this.model.getName();
 	};
 } )( mediaWiki, jQuery );

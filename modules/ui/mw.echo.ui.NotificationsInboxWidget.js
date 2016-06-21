@@ -14,6 +14,8 @@
 	 * @cfg {jQuery} [$overlay] An overlay for the popup menus
 	 */
 	mw.echo.ui.NotificationsInboxWidget = function MwEchoUiNotificationsInboxWidget( controller, manager, config ) {
+		var $main, $sidebar;
+
 		config = config || {};
 
 		// Parent
@@ -59,8 +61,15 @@
 		// Filter by read state
 		this.readStateSelectWidget = new mw.echo.ui.ReadStateButtonSelectWidget();
 
+		// Sidebar filters
+		this.xwikiUnreadWidget = new mw.echo.ui.CrossWikiUnreadFilterWidget(
+			this.controller,
+			this.manager.getFiltersModel()
+		);
+
 		// Events
 		this.readStateSelectWidget.connect( this, { filter: 'onReadStateFilter' } );
+		this.xwikiUnreadWidget.connect( this, { filter: 'onSourcePageFilter' } );
 		this.manager.getFiltersModel().connect( this, { update: 'updateReadStateSelectWidget' } );
 		this.topPaginationWidget.connect( this, { change: 'populateNotifications' } );
 		this.bottomPaginationWidget.connect( this, { change: 'populateNotifications' } );
@@ -69,37 +78,41 @@
 		this.bottomPaginationWidget.setDisabled( true );
 
 		// Initialization
-		this.$element
-			.addClass( 'mw-echo-ui-notificationsInboxWidget' )
+		$sidebar = $( '<div>' )
+			.addClass( 'mw-echo-ui-notificationsInboxWidget-sidebar' )
+			.append( this.xwikiUnreadWidget.$element );
+
+		$main = $( '<div>' )
+			.addClass( 'mw-echo-ui-notificationsInboxWidget-main' )
 			.append(
 				$( '<div>' )
-					.addClass( 'mw-echo-ui-notificationsInboxWidget-toolbar-top' )
+					.addClass( 'mw-echo-ui-notificationsInboxWidget-main-toolbar-top' )
 					.append(
 						$( '<div>' )
-							.addClass( 'mw-echo-ui-notificationsInboxWidget-toolbar-row' )
+							.addClass( 'mw-echo-ui-notificationsInboxWidget-row' )
 							.append(
 								$( '<div>' )
-									.addClass( 'mw-echo-ui-notificationsInboxWidget-toolbar-readState' )
-									.addClass( 'mw-echo-ui-notificationsInboxWidget-toolbar-cell' )
+									.addClass( 'mw-echo-ui-notificationsInboxWidget-main-toolbar-readState' )
+									.addClass( 'mw-echo-ui-notificationsInboxWidget-cell' )
 									.append( this.readStateSelectWidget.$element ),
 								$( '<div>' )
-									.addClass( 'mw-echo-ui-notificationsInboxWidget-toolbar-top-placeholder' ),
+									.addClass( 'mw-echo-ui-notificationsInboxWidget-cell-placeholder' ),
 								$( '<div>' )
-									.addClass( 'mw-echo-ui-notificationsInboxWidget-toolbar-pagination' )
-									.addClass( 'mw-echo-ui-notificationsInboxWidget-toolbar-cell' )
+									.addClass( 'mw-echo-ui-notificationsInboxWidget-main-toolbar-pagination' )
+									.addClass( 'mw-echo-ui-notificationsInboxWidget-cell' )
 									.append( this.topPaginationWidget.$element )
 							)
 					),
 				this.noticeMessageWidget.$element,
 				this.datedListWidget.$element,
 				$( '<div>' )
-					.addClass( 'mw-echo-ui-notificationsInboxWidget-toolbar-bottom' )
+					.addClass( 'mw-echo-ui-notificationsInboxWidget-main-toolbar-bottom' )
 					.append(
 						$( '<div>' )
-							.addClass( 'mw-echo-ui-notificationsInboxWidget-toolbar-row' )
+							.addClass( 'mw-echo-ui-notificationsInboxWidget-row' )
 							.append(
 								$( '<div>' )
-									.addClass( 'mw-echo-ui-notificationsInboxWidget-toolbar-cell' )
+									.addClass( 'mw-echo-ui-notificationsInboxWidget-cell' )
 									.append(
 										this.bottomPaginationWidget.$element
 									)
@@ -107,7 +120,21 @@
 					)
 			);
 
+		this.$element
+			.addClass( 'mw-echo-ui-notificationsInboxWidget' )
+			.append(
+				$( '<div>' )
+					.addClass( 'mw-echo-ui-notificationsInboxWidget-row' )
+					.append(
+						$sidebar
+							.addClass( 'mw-echo-ui-notificationsInboxWidget-cell' ),
+						$main
+							.addClass( 'mw-echo-ui-notificationsInboxWidget-cell' )
+					)
+			);
+
 		this.updateReadStateSelectWidget();
+		this.xwikiUnreadWidget.populateSources();
 		this.populateNotifications();
 	};
 
@@ -125,6 +152,17 @@
 		this.readStateSelectWidget
 			.getItemFromData( this.manager.getFiltersModel().getReadState() )
 			.setSelected( true );
+	};
+
+	/**
+	 * Respond to unread page filter
+	 *
+	 * @param {string} source Source symbolic name
+	 * @param {number} pageId Page Id
+	 */
+	mw.echo.ui.NotificationsInboxWidget.prototype.onSourcePageFilter = function ( source, pageId ) {
+		this.controller.setFilter( 'sourcePage', source, pageId );
+		this.populateNotifications();
 	};
 
 	/**

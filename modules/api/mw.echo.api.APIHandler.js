@@ -57,6 +57,48 @@
 	mw.echo.api.APIHandler.prototype.fetchNotifications = null;
 
 	/**
+	 * Fetch all pages with unread notifications in them per wiki
+	 *
+	 * @param {string|string[]} [sources=*] Requested sources. If not given
+	 *  or if a '*' is given, all available sources will be queried
+	 * @return {jQuery.Promise} Promise that is resolved with an object
+	 *	of pages with the number of unread notifications per wiki
+	 */
+	mw.echo.api.APIHandler.prototype.fetchUnreadNotificationPages = function ( sources ) {
+		var params = {
+				action: 'query',
+				meta: 'unreadnotificationpages'
+			};
+
+		if ( !sources || sources === '*' ) {
+			params.unpwikis = '*';
+		} else {
+			sources = Array.isArray( sources ) ? sources : [ sources ];
+			params.unpwikis = sources.join( '|' );
+		}
+
+		return this.api.get( params );
+	};
+
+	/**
+	 * Check if the given source is local
+	 *
+	 * @param {string|string[]} sources Source names
+	 * @return {boolean} Source is local
+	 */
+	mw.echo.api.APIHandler.prototype.isSourceLocal = function ( sources ) {
+		return Array.isArray( sources ) ?
+			(
+				sources.indexOf( 'local' ) !== -1 ||
+				sources.indexOf( mw.config.get( 'wgDBname' ) ) !== -1
+			) :
+			(
+				sources === 'local' ||
+				sources === mw.config.get( 'wgDBname' )
+			);
+	};
+
+	/**
 	 * Create a new fetchNotifications promise that queries the API and overrides
 	 * the cached promise.
 	 *
@@ -82,7 +124,7 @@
 				uselang: this.userLang
 			}, this.getTypeParams( type ) );
 
-		if ( Array.isArray( sources ) && sources.indexOf( 'local' ) === -1 ) {
+		if ( !this.isSourceLocal( sources ) ) {
 			params.notwikis = sources.join( '|' );
 			params.notfilter = '!read';
 			fetchingSource = 'foreign';
@@ -172,7 +214,7 @@
 	mw.echo.api.APIHandler.prototype.isFetchingErrorState = function ( type, sources ) {
 		var fetchingSource = 'local';
 
-		if ( Array.isArray( sources ) && sources.indexOf( 'local' ) === -1 ) {
+		if ( !this.isSourceLocal( sources ) ) {
 			fetchingSource = 'foreign';
 		}
 		return !!( this.apiErrorState[ type ] && this.apiErrorState[ type ][ fetchingSource ] );
@@ -191,7 +233,7 @@
 	mw.echo.api.APIHandler.prototype.getFetchNotificationPromise = function ( type, sources, overrideParams ) {
 		var fetchingSource = 'local';
 
-		if ( Array.isArray( sources ) && sources.indexOf( 'local' ) === -1 ) {
+		if ( !this.isSourceLocal( sources ) ) {
 			fetchingSource = 'foreign';
 		}
 		if ( overrideParams || !this.fetchNotificationsPromise[ type ] || !this.fetchNotificationsPromise[ type ][ fetchingSource ] ) {

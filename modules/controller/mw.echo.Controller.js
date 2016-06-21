@@ -17,15 +17,26 @@
 	OO.initClass( mw.echo.Controller );
 
 	/**
-	 * Update a filter value
+	 * Update a filter value.
+	 * The method accepts a filter name and as many arguments
+	 * as needed.
 	 *
 	 * @param {string} filter Filter name
-	 * @param {string} value Filter value
 	 */
-	mw.echo.Controller.prototype.setFilter = function ( filter, value ) {
+	mw.echo.Controller.prototype.setFilter = function ( filter ) {
+		var filtersModel = this.manager.getFiltersModel(),
+			values = Array.prototype.slice.call( arguments );
+
+		values.shift();
+
 		if ( filter === 'readState' ) {
-			this.manager.getFiltersModel().setReadState( value );
+			filtersModel.setReadState( values[ 0 ] );
+		} else if ( filter === 'sourcePage' ) {
+			filtersModel.setCurrentSourcePage( values[ 0 ], values[ 1 ] );
 		}
+
+		// Reset pagination
+		this.manager.getPaginationModel().reset();
 	};
 
 	/**
@@ -62,6 +73,41 @@
 	};
 
 	/**
+	 * Fetch unread pages in all wikis and create foreign API sources
+	 * as needed.
+	 *
+	 * @return {jQuery.Promise} A promise that resolves when the page filter
+	 *  model is updated with the unread notification count per page per wiki
+	 */
+	mw.echo.Controller.prototype.fetchUnreadPagesByWiki = function () {
+		var controller = this,
+			filterModel = this.manager.getFiltersModel(),
+			sourcePageModel = filterModel.getSourcePagesModel();
+
+		return this.api.fetchUnreadNotificationPages()
+			.then( function ( data ) {
+				var source,
+					foreignSources = {};
+
+				for ( source in data ) {
+					if ( source !== mw.config.get( 'wgDBname' ) ) {
+						// Collect sources for API
+						foreignSources[ source ] = data[ source ].source;
+					}
+				}
+
+				// Register the foreign sources in the API
+				controller.api.registerForeignSources( foreignSources, false );
+
+				// Register local source with the wiki name
+				controller.api.registerLocalSources( [ mw.config.get( 'wgDBname' ) ] );
+
+				// Register pages
+				sourcePageModel.setAllSources( data );
+			} );
+	};
+
+	/**
 	 * Fetch notifications from the local API and sort them by date.
 	 * This method ignores cross-wiki notifications and bundles.
 	 *
@@ -74,17 +120,19 @@
 		var controller = this,
 			pagination = this.manager.getPaginationModel(),
 			filters = this.manager.getFiltersModel(),
-			// When we have multiple possible sources, this will change
-			currentSource = 'local',
+			currentSource = filters.getSourcePagesModel().getCurrentSource(),
 			continueValue = pagination.getPageContinue( page || pagination.getCurrPageIndex() );
 
 		pagination.setItemsPerPage( this.api.getLimit() );
-		return this.api.fetchNotifications(
+
+		return this.api.fetchFilteredNotifications(
 			this.manager.getTypeString(),
-			'local',
-			true,
-			continueValue,
-			filters.getReadState()
+			currentSource,
+			{
+				continue: continueValue,
+				readState: filters.getReadState(),
+				titles: filters.getSourcePagesModel().getCurrentPageTitle()
+			}
 		)
 			.then( function ( data ) {
 				var i, notifData, newNotifData, date, itemModel, symbolicName, count,
@@ -203,7 +251,7 @@
 							foreignListModel.setForeign( true );
 
 							// Register foreign sources
-							controller.api.registerForeignSources( notifData.sources );
+							controller.api.registerForeignSources( notifData.sources, true );
 							// Add the lists according to the sources
 							for ( source in notifData.sources ) {
 								foreignListModel.getList().addGroup(
@@ -341,7 +389,7 @@
 							notifData = controller.createNotificationData( groupItems[ i ] );
 							items.push(
 								new mw.echo.dm.NotificationItem( groupItems[ i ].id, $.extend( notifData, {
-									modelName: group,
+									modelName: 'xwiki',
 									source: group,
 									bundled: true,
 									foreign: true
@@ -369,16 +417,15 @@
 	 *
 	 * @param {number} itemId Item ID
 	 * @param {string} modelName The name of the model that these items belong to
-	 * @param {boolean} [isForeign=false] The model is foreign, inside a cross-wiki
-	 *  bundle.
+	 * @param {boolean} [isCrossWiki=false] The item is inside a cross-wiki bundle
 	 * @param {boolean} [isRead=true] The read state of the item; true for marking the
 	 *  item as read, false for marking the item as unread
 	 * @return {jQuery.Promise} A promise that is resolved when the operation
 	 *  is complete, with the number of unread notifications still remaining
 	 *  for the set type of this controller, in the given source.
 	 */
-	mw.echo.Controller.prototype.markSingleItemRead = function ( itemId, modelName, isForeign, isRead ) {
-		if ( isForeign ) {
+	mw.echo.Controller.prototype.markSingleItemRead = function ( itemId, modelName, isCrossWiki, isRead ) {
+		if ( isCrossWiki ) {
 			return this.markCrossWikiItemsRead( [ itemId ], modelName, isRead );
 		}
 
@@ -477,7 +524,7 @@
 
 					// Mark items as read in the API
 					promises.push(
-						controller.markCrossWikiItemsRead( idArray, listModel.getSource() )
+						controller.markCrossWikiItemsRead( idArray, listModel.getName() )
 					);
 				}
 

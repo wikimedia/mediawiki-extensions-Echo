@@ -99,6 +99,8 @@
 	"echo-specialpage-markasread-invalid-id": "Invalid event ID",
 	"echo-specialpage-pagination-numnotifications": "$1 {{PLURAL:$1|notification|notifications}}",
 	"echo-specialpage-pagination-range": "$1 - $2",
+	"echo-specialpage-pagefilters-title": "Recent activity",
+	"echo-specialpage-pagefilters-subtitle": "Pages with unread notifications",
 	"notificationsmarkread-legend": "Mark notification as read",
 	"echo-anon": "To receive notifications, [$1 create an account] or [$2 log in].",
 	"echo-none": "You have no notifications.",

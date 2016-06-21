@@ -164,6 +164,15 @@
 	};
 
 	/**
+	 * Get the name associated with this list.
+	 *
+	 * @return {string} List name
+	 */
+	mw.echo.dm.NotificationsList.prototype.getName = function () {
+		return this.name;
+	};
+
+	/**
 	 * Get the source article url associated with this list.
 	 *
 	 * @return {string} List source article url
