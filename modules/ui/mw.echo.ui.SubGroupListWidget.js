@@ -206,7 +206,7 @@
 	 * @return {number} Timestamp
 	 */
 	mw.echo.ui.SubGroupListWidget.prototype.getTimestamp = function () {
-		return this.listWidget.getTimestamp();
+		return this.model.getTimestamp();
 	};
 
 	/**
