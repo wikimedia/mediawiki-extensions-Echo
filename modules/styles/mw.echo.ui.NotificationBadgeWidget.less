@@ -61,30 +61,34 @@
 					display: block;
 				}
 
-				.mw-echo-ui-notificationBadgeButtonPopupWidget-footer-buttons .oo-ui-buttonElement {
-					display: table-cell;
-					white-space: normal;
-					font-weight: bold;
-					width: @notification-popup-width / 2;
-					box-sizing: border-box;
+				.mw-echo-ui-notificationBadgeButtonPopupWidget-footer-buttons {
+					display: table-row;
 
-					&:last-child {
-						border-left: 1px solid #DDDDDD;
-					}
+					.oo-ui-buttonElement {
+						display: table-cell;
+						white-space: normal;
+						font-weight: bold;
+						width: @notification-popup-width / 2;
+						box-sizing: border-box;
 
-					> .oo-ui-buttonElement-button {
-						display: block;
-						line-height: 2.6em;
-						margin: 0;
-						border: 0;
-						padding: 0.5em;
+						&:last-child {
+							border-left: 1px solid #DDDDDD;
+						}
 
-						.oo-ui-iconElement-icon {
-							// HACK: these are absolutely positioned in OOUI, and our line-height: 4em;
-							// rule breaks that.
-							// FIXME: We should really use a different widget here
-							position: static;
-							opacity: @opacity-mid;
+						> .oo-ui-buttonElement-button {
+							display: block;
+							line-height: 2.6em;
+							margin: 0;
+							border: 0;
+							padding: 0.5em;
+
+							.oo-ui-iconElement-icon {
+								// HACK: these are absolutely positioned in OOUI, and our line-height: 4em;
+								// rule breaks that.
+								// FIXME: We should really use a different widget here
+								position: static;
+								opacity: @opacity-mid;
+							}
 						}
 					}
 				}
