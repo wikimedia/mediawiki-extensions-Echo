@@ -45,6 +45,20 @@
 	/* Methods */
 
 	/**
+	 * @inheritdoc
+	 */
+	mw.echo.ui.SortedListWidget.prototype.onItemSortChange = function ( item ) {
+		var widget = this;
+
+		item.$element.fadeOut( 400, function () {
+			widget.removeItems( item );
+
+			item.$element.hide();
+			widget.addItems( item );
+			item.$element.fadeIn( 400 );
+		} );
+	};
+	/**
 	 * Set the group element.
 	 *
 	 * If an element is already set, items will be moved to the new element.
