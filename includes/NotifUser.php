@@ -756,6 +756,8 @@ class MWEchoNotifUser {
 	}
 
 	protected function getForeignTimestamp( $section = EchoAttributeManager::ALL ) {
+		global $wgEchoSectionTransition, $wgEchoBundleTransition;
+
 		if (
 			// In section transition mode, we don't trust the individual echo_unread_wikis rows
 			// but we do trust that alert+message=all. In bundle transition mode, we don't trust
