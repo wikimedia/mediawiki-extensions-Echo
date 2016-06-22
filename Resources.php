@@ -196,6 +196,7 @@ $wgResourceModules += array(
 	'ext.echo.api' => $echoResourceTemplate + array(
 		'scripts' => array(
 			'api/mw.echo.api.js',
+			'api/mw.echo.api.PromisePrioritizer.js',
 			'api/mw.echo.api.EchoApi.js',
 			'api/mw.echo.api.APIHandler.js',
 			'api/mw.echo.api.LocalAPIHandler.js',

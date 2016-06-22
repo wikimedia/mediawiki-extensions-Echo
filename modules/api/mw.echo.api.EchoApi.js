@@ -15,6 +15,7 @@
 
 		this.fetchingPromise = null;
 		this.limit = config.limit || 25;
+		this.fetchingPrioritizer = new mw.echo.api.PromisePrioritizer();
 	};
 
 	OO.initClass( mw.echo.api.EchoApi );
@@ -142,13 +143,13 @@
 			return $.Deferred().reject().promise();
 		}
 
-		return handler.fetchNotifications(
+		return this.fetchingPrioritizer.prioritize( handler.fetchNotifications(
 			type,
 			// For the remote source, we are fetching 'local' notifications
 			'local',
 			!!isForced,
 			this.convertFiltersToAPIParams( filters )
-		)
+		) )
 			.then( function ( result ) {
 				return OO.getProp( result.query, 'notifications' );
 			} );
@@ -172,12 +173,12 @@
 				[ sources ] :
 				'local';
 
-		return this.network.getApiHandler( 'local' ).fetchNotifications(
+		return this.fetchingPrioritizer.prioritize( this.network.getApiHandler( 'local' ).fetchNotifications(
 			type,
 			sources,
 			isForced,
 			this.convertFiltersToAPIParams( filters )
-		)
+		) )
 			.then( function ( result ) {
 				return OO.getProp( result.query, 'notifications' );
 			} );

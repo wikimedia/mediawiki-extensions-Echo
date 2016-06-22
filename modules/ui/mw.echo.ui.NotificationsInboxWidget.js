@@ -205,7 +205,6 @@
 	 */
 	mw.echo.ui.NotificationsInboxWidget.prototype.pushPending = function () {
 		this.noticeMessageWidget.toggle( false );
-		this.readStateSelectWidget.setDisabled( true );
 		this.topPaginationWidget.setDisabled( true );
 		this.bottomPaginationWidget.setDisabled( true );
 
@@ -218,7 +217,6 @@
 	 */
 	mw.echo.ui.NotificationsInboxWidget.prototype.popPending = function () {
 		this.resetMessageLabel();
-		this.readStateSelectWidget.setDisabled( false );
 		this.topPaginationWidget.setDisabled( false );
 		this.bottomPaginationWidget.setDisabled( false );
 
