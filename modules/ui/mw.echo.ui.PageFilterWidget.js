@@ -72,21 +72,18 @@
 	 * Populate the widget from the model
 	 */
 	mw.echo.ui.PageFilterWidget.prototype.populateDataFromModel = function () {
-		var i, title, widget,
+		var title, widget, isUserPage,
 			optionWidgets = [],
 			sourcePages = this.model.getSourcePages( this.source );
 
-		for ( i = 0; i < sourcePages.length; i++ ) {
+		for ( title in sourcePages ) {
+			isUserPage = sourcePages[ title ].ns === mw.config.get( 'wgNamespaceIds' ).user;
 			widget = new mw.echo.ui.PageNotificationsOptionWidget( {
-				label: sourcePages[ i ].title,
-				title: sourcePages[ i ].title,
-				// TODO: Pages that are a user page should
-				// have a user icon
-				icon: 'article',
-				unreadCount: sourcePages[ i ].count,
-				// TODO: When we group pages, this should be
-				// an array of titles
-				data: sourcePages[ i ].title,
+				label: isUserPage ? sourcePages[ title ].unprefixed : title,
+				title: isUserPage ? sourcePages[ title ].unprefixed : title,
+				icon: isUserPage ? 'userAvatar' : 'article',
+				unreadCount: sourcePages[ title ].count,
+				data: title,
 				classes: [ 'mw-echo-ui-pageFilterWidget-page' ]
 			} );
 			optionWidgets.push( widget );

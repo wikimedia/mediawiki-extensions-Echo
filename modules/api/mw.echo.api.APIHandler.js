@@ -68,7 +68,8 @@
 		var params = {
 				action: 'query',
 				meta: 'unreadnotificationpages',
-				uselang: this.userLang
+				uselang: this.userLang,
+				unpgrouppages: true
 			};
 
 		if ( !sources || sources === '*' ) {
