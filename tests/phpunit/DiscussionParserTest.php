@@ -1354,9 +1354,9 @@ TEXT
 
 	public function testGetUserMentions_ownMention() {
 		$userName = 'Admin';
-		$userId = User::newFromName( 'Admin' )->getId();
+		$userId = User::newFromName( $userName )->getId();
 		$expectedUserMentions = array(
-			'validMentions' => array(),
+			'validMentions' => array( $userId => $userId ),
 			'unknownUsers' => array(),
 			'anonymousUsers' => array(),
 		);
