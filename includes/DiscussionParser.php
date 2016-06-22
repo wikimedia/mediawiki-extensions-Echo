@@ -313,8 +313,8 @@ abstract class EchoDiscussionParser {
 
 			if ( $change['action'] == 'add' ) {
 				$content = trim( $change['content'] );
-				// The \A means the regex must match at the begining of the string.
-				// This is slightly different than ^ which matches begining of each
+				// The \A means the regex must match at the beginning of the string.
+				// This is slightly different than ^ which matches beginning of each
 				// line in multiline mode.
 				$startSection = preg_match( "/\A" . self::HEADER_REGEX . '/um', $content );
 				$sectionCount = self::getSectionCount( $content );
