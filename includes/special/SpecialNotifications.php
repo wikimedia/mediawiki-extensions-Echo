@@ -18,7 +18,7 @@ class SpecialNotifications extends SpecialPage {
 		$out = $this->getOutput();
 		$out->setPageTitle( $this->msg( 'echo-specialpage' )->text() );
 
-		$this->addHelpLink( 'Help:Notifications' );
+		$this->addHelpLink( 'Help:Notifications/Special:Notifications' );
 
 		$user = $this->getUser();
 		if ( $user->isAnon() ) {
