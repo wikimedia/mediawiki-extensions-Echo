@@ -88,7 +88,10 @@ class ApiEchoUnreadNotificationPages extends ApiCrossWikiBase {
 			);
 		}
 
-		return array( 'pages' => $result );
+		return array(
+			'pages' => $result,
+			'totalCount' => MWEchoNotifUser::newFromUser( $this->getUser() )->getLocalNotificationCount(),
+		);
 	}
 
 	/**
