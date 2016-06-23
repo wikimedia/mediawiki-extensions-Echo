@@ -12,7 +12,7 @@
 	 * @cfg {string} [title] The title of this page group, usually
 	 *  the name of the wiki that the pages belong to
 	 * @cfg {number} [unreadCount] Number of unread notifications
-	 * @cfg {number} [initialSelection] The pageId of an initial selection
+	 * @cfg {number} [initialSelection] The page title of the option to select initially
 	 */
 	mw.echo.ui.PageFilterWidget = function MwEchoUiPageFilterWidget( filterModel, source, config ) {
 		config = config || {};
