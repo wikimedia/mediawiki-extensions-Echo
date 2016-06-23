@@ -102,12 +102,12 @@
 	 */
 	mw.echo.ui.CrossWikiUnreadFilterWidget.prototype.onPageFilterChoose = function ( widget, item ) {
 		var source = widget.getSource(),
-			pageId = item && item.getData();
+			page = item && item.getData();
 
 		if ( item ) {
 			this.setItemSelected( item );
 			// Emit a choice
-			this.emit( 'filter', source, pageId );
+			this.emit( 'filter', source, page );
 		}
 	};
 

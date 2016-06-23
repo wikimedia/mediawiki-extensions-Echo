@@ -64,33 +64,12 @@
 	};
 
 	/**
-	 * Get the current page or pages' id.
-	 * Returns null if no page is selected.
-	 *
-	 * @return {number|number[]} Current page id
-	 */
-	mw.echo.dm.SourcePagesModel.prototype.getCurrentPage = function () {
-		return this.currentPage;
-	};
-	/**
-	 * Get the current source
-	 *
-	 * @return {string} Current source
-	 */
-	mw.echo.dm.SourcePagesModel.prototype.getCurrentSource = function () {
-		return this.currentSource;
-	};
-
-	/**
 	 * Get the title of the currently selected page
 	 *
 	 * @return {string} Page title
 	 */
-	mw.echo.dm.SourcePagesModel.prototype.getCurrentPageTitle = function () {
-		return this.getPageTitle(
-			this.getCurrentSource(),
-			this.getCurrentPage()
-		);
+	mw.echo.dm.SourcePagesModel.prototype.getCurrentPage = function () {
+		return this.currentPage;
 	};
 
 	/**
@@ -144,34 +123,10 @@
 	 * Get all pages in a source
 	 *
 	 * @param {string} source Symbolic name of the source
-	 * @return {Object} Page definitions in this source
+	 * @return {Object[]} Page definitions in this source
 	 */
 	mw.echo.dm.SourcePagesModel.prototype.getSourcePages = function ( source ) {
 		return this.sources[ source ] && this.sources[ source ].pages;
-	};
-
-	/**
-	 * Get a specific page's title
-	 *
-	 * @param {string} source Symbolic name for source
-	 * @param {number} pageId Page ID
-	 * @return {string} Page title
-	 */
-	mw.echo.dm.SourcePagesModel.prototype.getPageTitle = function ( source, pageId ) {
-		return this.getPageTitleById( source, pageId );
-	};
-
-	/**
-	 * Get page title by the source and page ID
-	 *
-	 * @param {string} source Symbolic name of the source
-	 * @param {number} pageId Page ID
-	 * @return {string} Page title
-	 */
-	mw.echo.dm.SourcePagesModel.prototype.getPageTitleById = function ( source, pageId ) {
-		return this.sources[ source ] &&
-			this.sources[ source ].pages[ pageId ] &&
-			this.sources[ source ].pages[ pageId ].title;
 	};
 
 	/**
@@ -189,24 +144,11 @@
 	 * @param {Object} details Details object
 	 */
 	mw.echo.dm.SourcePagesModel.prototype.setSourcePagesDetails = function ( source, details ) {
-		var id, pageDetails;
-
-		// Source information
 		this.sources[ source ] = {
 			title: details.source.title,
 			base: details.source.base,
 			totalCount: details.totalCount,
-			pages: {}
+			pages: details.pages
 		};
-
-		// Fill in pages
-		for ( id in details.pages ) {
-			pageDetails = details.pages[ id ];
-			this.sources[ source ].pages[ id ] = {
-				title: pageDetails.title,
-				count: pageDetails.count,
-				id: id
-			};
-		}
 	};
 } )( mediaWiki );

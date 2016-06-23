@@ -158,10 +158,10 @@
 	 * Respond to unread page filter
 	 *
 	 * @param {string} source Source symbolic name
-	 * @param {number} pageId Page Id
+	 * @param {string} page Page name
 	 */
-	mw.echo.ui.NotificationsInboxWidget.prototype.onSourcePageFilter = function ( source, pageId ) {
-		this.controller.setFilter( 'sourcePage', source, pageId );
+	mw.echo.ui.NotificationsInboxWidget.prototype.onSourcePageFilter = function ( source, page ) {
+		this.controller.setFilter( 'sourcePage', source, page );
 		this.populateNotifications();
 	};
 
