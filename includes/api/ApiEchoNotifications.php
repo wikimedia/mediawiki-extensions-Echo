@@ -78,6 +78,9 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 		$titles = null;
 		if ( $params['titles'] ) {
 			$titles = array_values( array_filter( array_map( 'Title::newFromText', $params['titles'] ) ) );
+			if ( in_array( '[]', $params['titles'] ) ) {
+				$titles[] = null;
+			}
 		}
 
 		$result = array();

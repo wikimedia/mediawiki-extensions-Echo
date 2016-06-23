@@ -96,11 +96,13 @@
 	 *  defining the offset to fetch notifications
 	 * @param {string} [filterObject.readState] Notification read
 	 *  state, 'all', 'read' or 'unread'
-	 * @param {string|string[]} [filterObject.titles] Requested titles
+	 * @param {string|string[]} [filterObject.titles] Requested titles. To request notifications with no title,
+	 *  use null (standalone or as an array element).
 	 * @return {Object} API parameter definitions to override
 	 */
 	mw.echo.api.EchoApi.prototype.convertFiltersToAPIParams = function ( filterObject ) {
-		var overrideParams = {};
+		var titles,
+			overrideParams = {};
 
 		filterObject = filterObject || {};
 
@@ -115,9 +117,12 @@
 		}
 
 		if ( filterObject.titles ) {
-			overrideParams.nottitles = Array.isArray( filterObject.titles ) ?
-				filterObject.titles.join( '|' ) :
-				filterObject.titles;
+			titles = Array.isArray( filterObject.titles ) ? filterObject.titles : [ filterObject.titles ];
+			if ( titles.indexOf( null ) !== -1 ) {
+				// Map null to '[]'
+				titles.splice( titles.indexOf( null ), 1, '[]' );
+			}
+			overrideParams.nottitles = titles.join( '|' );
 		}
 
 		return overrideParams;
