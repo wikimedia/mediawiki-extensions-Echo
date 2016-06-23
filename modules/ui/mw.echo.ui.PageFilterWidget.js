@@ -75,9 +75,6 @@
 			optionWidgets = [],
 			sourcePages = this.model.getSourcePages( this.source );
 
-		if ( !sourcePages ) {
-			return;
-		}
 		for ( i = 0; i < sourcePages.length; i++ ) {
 			widget = new mw.echo.ui.PageNotificationsOptionWidget( {
 				label: sourcePages[ i ].title,
