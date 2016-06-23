@@ -71,24 +71,23 @@
 	 * Populate the widget from the model
 	 */
 	mw.echo.ui.PageFilterWidget.prototype.populateDataFromModel = function () {
-		var id, title, widget,
+		var i, title, widget,
 			optionWidgets = [],
 			sourcePages = this.model.getSourcePages( this.source );
 
-		for ( id in sourcePages ) {
-			title = this.model.getPageTitle( this.source, id );
-			if ( !title ) {
-				continue;
-			}
+		if ( !sourcePages ) {
+			return;
+		}
+		for ( i = 0; i < sourcePages.length; i++ ) {
 			widget = new mw.echo.ui.PageNotificationsOptionWidget( {
-				label: title,
+				label: sourcePages[ i ].title,
 				// TODO: Pages that are a user page should
 				// have a user icon
 				icon: 'article',
-				unreadCount: sourcePages[ id ].count,
+				unreadCount: sourcePages[ i ].count,
 				// TODO: When we group pages, this should be
-				// an array of IDs
-				data: id,
+				// an array of titles
+				data: sourcePages[ i ].title,
 				classes: [ 'mw-echo-ui-pageFilterWidget-page' ]
 			} );
 			optionWidgets.push( widget );

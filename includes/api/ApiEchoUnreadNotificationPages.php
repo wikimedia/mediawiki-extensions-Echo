@@ -39,8 +39,7 @@ class ApiEchoUnreadNotificationPages extends ApiCrossWikiBase {
 		$apis = $this->foreignNotifications->getApiEndpoints( $this->getRequestedWikis() );
 		foreach ( $result as $wiki => $data ) {
 			$result[$wiki]['source'] = $apis[$wiki];
-			// StdClass to ensure empty data is json_encoded to `{}` instead of `[]`
-			$result[$wiki]['pages'] = $data['pages'] ?: new StdClass;
+			$result[$wiki]['pages'] = $data['pages'] ?: array();
 		}
 
 		$this->getResult()->addValue( 'query', $this->getModuleName(), $result );
@@ -82,7 +81,7 @@ class ApiEchoUnreadNotificationPages extends ApiCrossWikiBase {
 		$result = array();
 		$titles = Title::newFromIDs( array_keys( $pages ) );
 		foreach ( $titles as $title ) {
-			$result[$title->getArticleID()] = array(
+			$result[] = array(
 				'title' => $title->getPrefixedText(),
 				'count' => $pages[$title->getArticleID()],
 			);
