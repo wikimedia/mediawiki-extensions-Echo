@@ -108,12 +108,12 @@ class SuppressionMaintenanceTest extends MediaWikiTestCase {
 
 			$titles = array( $providedNamespace => array( $providedText => $title ) );
 
-			$gen->setNewTitleFromText( function ( $text, $defaultNamespace ) use ( $titles ) {
-				if ( isset( $titles[$defaultNamespace][$text] ) ) {
-					return $titles[$defaultNamespace][$text];
+			$gen->setNewTitleFromNsAndText( function ( $namespace, $text ) use ( $titles ) {
+				if ( isset( $titles[$namespace][$text] ) ) {
+					return $titles[$namespace][$text];
 				}
 
-				return Title::newFromText( $text, $defaultNamespace );
+				return Title::makeTitleSafe( $namespace, $text );
 			} );
 		};
 	}
