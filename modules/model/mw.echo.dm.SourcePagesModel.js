@@ -189,18 +189,17 @@
 	 * @param {Object} details Details object
 	 */
 	mw.echo.dm.SourcePagesModel.prototype.setSourcePagesDetails = function ( source, details ) {
-		var id, pageDetails, count;
+		var id, pageDetails;
 
 		// Source information
 		this.sources[ source ] = {
 			title: details.source.title,
 			base: details.source.base,
-			totalCount: 0,
+			totalCount: details.totalCount,
 			pages: {}
 		};
 
 		// Fill in pages
-		count = 0;
 		for ( id in details.pages ) {
 			pageDetails = details.pages[ id ];
 			this.sources[ source ].pages[ id ] = {
@@ -208,11 +207,6 @@
 				count: pageDetails.count,
 				id: id
 			};
-
-			count += parseInt( pageDetails.count );
 		}
-
-		// Update total count
-		this.sources[ source ].totalCount = count;
 	};
 } )( mediaWiki );
