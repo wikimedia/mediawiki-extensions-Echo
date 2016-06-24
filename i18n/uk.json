@@ -79,6 +79,9 @@
 	"echo-specialpage-section-markread": "Позначити групу прочитаною",
 	"echo-specialpage-markasread": "Сповіщення: позначити прочитаним",
 	"echo-specialpage-markasread-invalid-id": "Неправильний ідентифікатор події",
+	"echo-specialpage-pagination-numnotifications": "$1 {{PLURAL:$1|сповіщення|сповіщення|сповіщень}}",
+	"echo-specialpage-pagefilters-title": "Нещодавня активність",
+	"echo-specialpage-pagefilters-subtitle": "Сторінки з непрочитаними сповіщеннями",
 	"notificationsmarkread-legend": "Позначити сповіщення прочитаним",
 	"echo-anon": "Для отримання сповіщень [$1 створіть обліковий запис] або [$2 увійдіть].",
 	"echo-none": "У Вас немає сповіщень.",
@@ -89,6 +92,7 @@
 	"echo-api-failure": "Не вдалося отримати сповіщення.",
 	"echo-api-failure-cross-wiki": "Відмовлено в доступі до віддаленого домену.",
 	"echo-notification-placeholder": "Сповіщень немає.",
+	"echo-notification-placeholder-filters": "Немає сповіщень, що відповідають цим критеріям.",
 	"echo-notification-loginrequired": "Ви повинні увійти, щоб подивитися повідомлення.",
 	"echo-notification-popup-loginrequired": "Будь ласка, увійдіть в систему, щоб переглянути свої сповіщення.",
 	"echo-notification-markasread": "Позначити як прочитане",
@@ -233,6 +237,11 @@
 	"apihelp-query+notifications-param-alertunreadfirst": "Чи показувати спершу непрочитані сповіщення про повідомлення (використовується лише якщо встановлено groupbysection).",
 	"apihelp-query+notifications-param-messagecontinue": "Коли доступно більше повідомлень, використовуйте це, щоб продовжити.",
 	"apihelp-query+notifications-param-messageunreadfirst": "Чи показувати спершу непрочитані сповіщення (використовується лише якщо встановлено groupbysection).",
+	"apihelp-query+notifications-param-titles": "Виводити лише сповіщення для цих сторінок.",
 	"apihelp-query+notifications-example-1": "Список сповіщень",
-	"apihelp-query+notifications-example-2": "Список сповіщень, згрупованих за розділами, із зазначенням кількостей"
+	"apihelp-query+notifications-example-2": "Список сповіщень, згрупованих за розділами, із зазначенням кількостей",
+	"apihelp-query+unreadnotificationpages-description": "Отримати сторінки, для яких є непрочитані сповіщення для поточного користувача.",
+	"apihelp-query+unreadnotificationpages-param-limit": "Максимальна кількість сторінок для виведення.",
+	"apihelp-query+unreadnotificationpages-param-wikis": "Список вікі для отримання сторінок з непрочитаними сповіщеннями (за замовчуванням — тільки поточна вікі).",
+	"apihelp-query+unreadnotificationpages-example-1": "Список сторінок з непрочитаними повідомленнями (і кількістю)"
 }

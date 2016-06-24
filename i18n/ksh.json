@@ -59,6 +59,8 @@
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "Nühdejje Metohde för Meddeijlonge",
 	"echo-specialpage": "Meddeilonge",
 	"echo-specialpage-section-markread": "Makkehr di Jropp als jelässe",
+	"echo-specialpage-pagefilters-title": "Zeläz jedonn",
+	"echo-specialpage-pagefilters-subtitle": "Sigge med onjelässe Meddeijlonge",
 	"echo-anon": "Do moß Desch [$1 aanmälde] udder [$2 enlogge], öm Meddeilonge krijje ze künne.",
 	"echo-none": "De häß kein Meddeilonge.",
 	"echo-more-info": "Mih Enfommazjuhne",

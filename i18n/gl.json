@@ -71,6 +71,8 @@
 	"echo-specialpage-markasread": "Notificaciónː Marcar como lida",
 	"echo-specialpage-markasread-invalid-id": "ID de evento incorrecto",
 	"echo-specialpage-pagination-numnotifications": "$1 {{PLURAL:$1|notificación|notificacións}}",
+	"echo-specialpage-pagefilters-title": "Actividade recente",
+	"echo-specialpage-pagefilters-subtitle": "Páxinas con notificacións sen ler",
 	"notificationsmarkread-legend": "Marcar a notificación como lida",
 	"echo-anon": "Para recibir notificacións, [$1 cree unha conta] ou [$2 acceda ao sistema].",
 	"echo-none": "Non ten ningunha notificación.",

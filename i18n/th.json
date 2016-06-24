@@ -3,7 +3,8 @@
 		"authors": [
 			"Nullzero",
 			"Supasate",
-			"Horus"
+			"Horus",
+			"Bluegram"
 		]
 	},
 	"echo-desc": "ระบบสำหรับแจ้งผู้ใช้เกี่ยวกับเหตุการณ์และสาร",
@@ -101,6 +102,11 @@
 	"notification-mention-nosection-email-batch-body": "$1 กล่าวถึงคุณในหน้าอภิปราย $2",
 	"notification-user-rights-email-subject": "สิทธิผู้ใช้ของคุณถูกเปลี่ยนบน {{SITENAME}}",
 	"notification-user-rights-email-batch-body": "สิทธิผู้ใช้ของคุณถูกเปลี่ยนโดย $1 $2",
+	"notification-timestamp-today": "วันนี้",
+	"notification-timestamp-yesterday": "เมื่อวานนี้",
+	"notification-inbox-filter-read": "อ่านแล้ว",
+	"notification-inbox-filter-unread": "ยังไม่ได้อ่าน",
+	"notification-inbox-filter-all": "ทั้งหมด",
 	"echo-email-subject-default": "การแจ้งเตือนใหม่ที่ {{SITENAME}}",
 	"echo-email-body-default": "คุณมีการแจ้งเตือนใหม่ที่ {{SITENAME}}:\n\n$1",
 	"echo-email-batch-body-default": "คุณมีการแจ้งเตือนใหม่",

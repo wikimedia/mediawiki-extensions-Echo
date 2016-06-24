@@ -77,6 +77,8 @@
 	"echo-specialpage-markasread": "Benachrichtigung: Als gelesen markieren",
 	"echo-specialpage-markasread-invalid-id": "Ungültige Ereigniskennung",
 	"echo-specialpage-pagination-numnotifications": "{{PLURAL:$1|Eine Benachrichtigung|$1 Benachrichtigungen}}",
+	"echo-specialpage-pagefilters-title": "Letzte Aktivität",
+	"echo-specialpage-pagefilters-subtitle": "Seiten mit ungelesenen Benachrichtigungen",
 	"notificationsmarkread-legend": "Benachrichtigung als gelesen markieren",
 	"echo-anon": "Um Benachrichtigungen erhalten zu können, muss man ein [$1 Benutzerkonto anlegen] oder sich [$2 anmelden].",
 	"echo-none": "Du hast keine Benachrichtigungen.",

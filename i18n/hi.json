@@ -12,7 +12,8 @@
 			"Angpradesh",
 			"Sfic",
 			"चक्रपाणी",
-			"संजीव कुमार"
+			"संजीव कुमार",
+			"Shahjad ansari"
 		]
 	},
 	"echo-desc": "अधिसूचना प्रणाली",
@@ -62,6 +63,7 @@
 	"echo-specialpage": "अधिसूचनाएँ",
 	"echo-specialpage-section-markread": "समूह को पढ़ा हुआ चिह्नित करें",
 	"echo-specialpage-markasread": "सूचना: पढ़ा हुआ चिन्हित करें",
+	"echo-specialpage-pagefilters-title": "Alpkaleen karya",
 	"notificationsmarkread-legend": "सूचना को पढ़ा हुआ चिन्हित करें",
 	"echo-anon": "अधिसूचनाएँ पाने के लिये, [$1 खाता बनाएँ] या [$2 लॉग इन करें]।",
 	"echo-none": "आपके लिये कोई अधिसूचना नहीं है।",

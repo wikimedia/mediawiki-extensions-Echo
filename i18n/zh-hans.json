@@ -97,6 +97,8 @@
 	"echo-specialpage-markasread": "通知：标记为已读",
 	"echo-specialpage-markasread-invalid-id": "无效的活动ID",
 	"echo-specialpage-pagination-numnotifications": "$1条{{PLURAL:$1|通知}}",
+	"echo-specialpage-pagefilters-title": "最近活动",
+	"echo-specialpage-pagefilters-subtitle": "有未读通知的页面",
 	"notificationsmarkread-legend": "标记通知为已读",
 	"echo-anon": "想要接收通知，请[$1 创建账户]或[$2 登录]。",
 	"echo-none": "您没有通知。",

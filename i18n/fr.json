@@ -104,6 +104,8 @@
 	"echo-specialpage-markasread": "Notification : marquer comme lue",
 	"echo-specialpage-markasread-invalid-id": "ID d'événement invalide",
 	"echo-specialpage-pagination-numnotifications": "$1 {{PLURAL:$1|notification|notifications}}",
+	"echo-specialpage-pagefilters-title": "Activité récente",
+	"echo-specialpage-pagefilters-subtitle": "Pages avec des notifications non lues",
 	"notificationsmarkread-legend": "Marquer une notification comme lue",
 	"echo-anon": "Pour recevoir des notifications, [$1 créez un compte] ou [$2 connectez-vous].",
 	"echo-none": "Vous n'avez reçu aucune notification.",

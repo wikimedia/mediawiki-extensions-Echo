@@ -29,6 +29,7 @@
 	"tooltip-pt-notifications-alert": "{{GENDER:|آپ}}کی اطلاعات",
 	"tooltip-pt-notifications-message": "{{GENDER:|آپ}} کے پیغامات",
 	"echo-specialpage": "اطلاعات",
+	"echo-specialpage-pagefilters-title": "حالیہ سرگرمی",
 	"echo-feedback": "آپ کی رائے",
 	"notification-timestamp-today": "آج",
 	"notification-timestamp-yesterday": "گزشتہ کل",

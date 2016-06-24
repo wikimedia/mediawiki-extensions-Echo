@@ -78,6 +78,8 @@
 	"echo-specialpage-markasread": "הודעה: סימון כהודעה שנקראה",
 	"echo-specialpage-markasread-invalid-id": "מזהה אירוע בלתי־תקין",
 	"echo-specialpage-pagination-numnotifications": "{{PLURAL:$1|הודעה אחת|$1 הודעות}}",
+	"echo-specialpage-pagefilters-title": "פעילות אחרונה",
+	"echo-specialpage-pagefilters-subtitle": "דפים עם התראות שלא נקראו",
 	"notificationsmarkread-legend": "סימון כהודעה שנקראה",
 	"echo-anon": "כדי לקבל הודעות, [$1 יש ליצור חשבון] או [$2 להיכנס].",
 	"echo-none": "אין לך הודעות.",

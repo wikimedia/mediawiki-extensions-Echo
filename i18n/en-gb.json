@@ -2,8 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Shirayuki",
-			"Mhutti1"
+			"Mhutti1",
+			"Shahjad ansari"
 		]
 	},
-	"echo-pref-beta-feature-cross-wiki-message": "Enhanced notifications"
+	"echo-pref-beta-feature-cross-wiki-message": "Enhanced notifications",
+	"echo-specialpage-pagefilters-title": "Activity, you done little time ago.",
+	"echo-specialpage-pagefilters-subtitle": "Notification is that drag your subtitle of page filter in your special box."
 }
