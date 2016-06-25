@@ -81,6 +81,8 @@
 	"echo-specialpage-markasread": "Avisering: Markera som läst",
 	"echo-specialpage-markasread-invalid-id": "Ogiltigt händelse-ID",
 	"echo-specialpage-pagination-numnotifications": "$1 {{PLURAL:$1|avisering|aviseringar}}",
+	"echo-specialpage-pagefilters-title": "Senaste aktivitet",
+	"echo-specialpage-pagefilters-subtitle": "Sidor med olästa aviseringar",
 	"notificationsmarkread-legend": "Markera avisering som läst",
 	"echo-anon": "För att ta emot aviseringar, [$1 skapa ett konto] eller [$2 logga in].",
 	"echo-none": "Du har inga aviseringar.",

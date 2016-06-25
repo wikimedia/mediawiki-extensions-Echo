@@ -53,7 +53,7 @@
 	"echo-category-title-emailuser": "{{PLURAL:$1|다른 사용자로부터의 이메일}}",
 	"echo-pref-tooltip-edit-user-talk": "내 토론 문서에 누군가가 글이나 답글을 남길 때 내게 알립니다.",
 	"echo-pref-tooltip-article-linked": "누군가가 어느 문서에서 내가 만든 문서를 링크할 때 내게 알립니다.",
-	"echo-pref-tooltip-reverted": "누군가가 편집 취소나 되돌리기 도구를 사용하여 내 편집을 되돌릴 때 내게  알림",
+	"echo-pref-tooltip-reverted": "누군가가 편집 취소나 되돌리기 도구를 사용하여 내 편집을 되돌릴 때 내게 알림",
 	"echo-pref-tooltip-mention": "누군가가 내 사용자 문서를 링크할 때 내게 알림",
 	"echo-pref-tooltip-user-rights": "다른 사용자가 내 사용자 권한을 변경하는 경우 알림",
 	"echo-pref-tooltip-emailuser": "누군가 나에게 이메일을 보낼 때 알림",
@@ -68,6 +68,8 @@
 	"echo-specialpage-markasread": "알림: 읽은 것으로 표시",
 	"echo-specialpage-markasread-invalid-id": "유효하지 않은 이벤트 ID",
 	"echo-specialpage-pagination-numnotifications": "$1 {{PLURAL:$1|알림|알림}}",
+	"echo-specialpage-pagefilters-title": "최근 활동",
+	"echo-specialpage-pagefilters-subtitle": "읽지 않은 알림 문서",
 	"notificationsmarkread-legend": "모든 알림을 읽은 것으로 표시",
 	"echo-anon": "알림을 받으려면 [$1 계정을 만들거나] [$2 로그인]하세요.",
 	"echo-none": "알림이 없습니다.",
@@ -194,5 +196,6 @@
 	"apihelp-query+notifications-description": "현재 사용자를 기다리고 있는 알림을 얻어옵니다.",
 	"apihelp-query+notifications-param-prop": "상세한 요청 내용.",
 	"apihelp-query+notifications-param-filter": "필터 알림 반환됨.",
-	"apihelp-query+notifications-example-1": "알림 리스트"
+	"apihelp-query+notifications-example-1": "알림 리스트",
+	"apihelp-query+unreadnotificationpages-param-wikis": "읽지 않은 알림 문서를 가져올 위키 목록입니다. (기본값으로는 현재 위키만)"
 }
