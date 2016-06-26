@@ -183,7 +183,7 @@
 	"echo-email-footer-default": "$2\n\nДля контролю того, які листи ми Вам надсилаємо, перевірте свої налаштування:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
 	"echo-email-plain-footer": "Щоб визначити, які повідомлення ми Вам надсилаємо, перевірте свої налаштування:",
 	"echo-email-html-footer-preference-link-text": "перевірте свої налаштування",
-	"echo-email-html-footer-with-link": "Для контролю які листи ми Вам надсилаємо, $1.",
+	"echo-email-html-footer-with-link": "Щоб контролювати, які листи ми Вам надсилаємо, $1.",
 	"echo-notification-alert": "{{PLURAL:$1|Попередження ($1)|Попереджень ($1)|100=Попереджень (99+)}}",
 	"echo-notification-message": "{{PLURAL:$1|Повідомлення ($1)|100=Повідомлення (99+)}}",
 	"echo-notification-alert-text-only": "Сповіщення",
