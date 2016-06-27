@@ -60,12 +60,6 @@
 		this.aggregate( { choose: 'pageFilterChoose' } );
 		this.connect( this, { pageFilterChoose: 'onPageFilterChoose' } );
 
-		// Always have a local wiki
-		this.localSource = new mw.echo.ui.PageFilterWidget(
-			this.model.getSourcePagesModel(),
-			mw.config.get( 'wgDBname' )
-		);
-
 		this.$element
 			.addClass( 'mw-echo-ui-crossWikiUnreadFilterWidget' )
 			.append(
@@ -159,9 +153,6 @@
 			);
 
 			widgets.push( widget );
-			if ( source !== mw.config.get( 'wgDBname' ) ) {
-				this.localSource = widget;
-			}
 		}
 
 		this.clearItems();
