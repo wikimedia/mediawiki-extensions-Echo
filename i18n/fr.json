@@ -263,7 +263,7 @@
 	"apihelp-query+notifications-param-alertunreadfirst": "S’il faut afficher d’abord les notifications de message non lu (utilisé uniquement si groupbysection est positionné).",
 	"apihelp-query+notifications-param-messagecontinue": "Quand plus de résultats de message sont disponibles, utiliser cela pour continuer.",
 	"apihelp-query+notifications-param-messageunreadfirst": "S’il faut afficher les notifications d’alerte non lues en premier (utilisé uniquement si groupbysection est positionné).",
-	"apihelp-query+notifications-param-titles": "Retourner uniquement les notifications de ces pages.",
+	"apihelp-query+notifications-param-titles": "Retourne uniquement les notifications concernant ces pages. Pour obtenir des notifications associées à aucune page, utilisez [] en tant que titre.",
 	"apihelp-query+notifications-example-1": "Lister les notifications",
 	"apihelp-query+notifications-example-2": "Lister les notifications, groupées par section, avec les compteurs",
 	"apihelp-query+unreadnotificationpages-description": "Obtenez les pages pour lesquelles il y a des notifications non lues pour l'utilisateur actuel.",

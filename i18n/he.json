@@ -236,7 +236,7 @@
 	"apihelp-query+notifications-param-alertunreadfirst": "האם להציג מונה הודעות מסר שלא נקראו תחילה (משמש רק אם groupbysection לא הוגדר).",
 	"apihelp-query+notifications-param-messagecontinue": "כשזמינות עוד תוצאות הודעות, יש להשתמש בזה כדי להמשיך.",
 	"apihelp-query+notifications-param-messageunreadfirst": "האם להציג הודעות התראה שלא נקראו תחילה (משמש רק אם groupbysection לא הוגדר).",
-	"apihelp-query+notifications-param-titles": "להחזיר רק התראות עבור הדפים האלה.",
+	"apihelp-query+notifications-param-titles": "להחזיר רק התראות עבור הדפים האלה. כדי לקבל התראות שאינן שייכות לשום דף, יש להשתמש בטקסט [] בתור הכותרת.",
 	"apihelp-query+notifications-example-1": "רשימת הודעות",
 	"apihelp-query+notifications-example-2": "רשימת הודעות, מקובצות לפי פסקה, עם מונים",
 	"apihelp-query+unreadnotificationpages-description": "קבלת דפים שעבורם יש הודעות שלא נקראו למשתמש הנוכחי.",

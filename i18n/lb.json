@@ -53,6 +53,7 @@
 	"echo-specialpage": "Notifikatiounen",
 	"echo-specialpage-section-markread": "Grupp als geliest markéieren",
 	"echo-specialpage-pagination-numnotifications": "$1 {{PLURAL:$1|Notifikatioun|Notifikatiounen}}",
+	"echo-specialpage-pagefilters-title": "Rezent Aktivitéit",
 	"notificationsmarkread-legend": "Notifikatioun als geliest markéieren",
 	"echo-anon": "Fir Notifikatiounen ze kréien, [$1 maacht e Benotzerkont op] oder [$2 loggt Iech an]",
 	"echo-none": "Dir hutt keng Notifikatiounen.",
