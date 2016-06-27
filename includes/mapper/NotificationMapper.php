@@ -98,6 +98,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	 * @param string $continue Used for offset
 	 * @param string[] $eventTypes
 	 * @param Title[] $titles If set, only return notifications for these pages.
+	 *  To find notifications not associated with any page, add null as an element to this array.
 	 * @param int $dbSource Use master or slave database
 	 * @return EchoNotification[]
 	 */
@@ -123,6 +124,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	 * @param string $continue Used for offset
 	 * @param string[] $eventTypes
 	 * @param Title[] $titles If set, only return notifications for these pages.
+	 *  To find notifications not associated with any page, add null as an element to this array.
 	 * @param int $dbSource Use master or slave database
 	 * @return EchoNotification[]
 	 */
@@ -146,6 +148,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	 * @param array $eventTypes Event types to load
 	 * @param array $excludeEventIds Event id's to exclude.
 	 * @param Title[] $titles If set, only return notifications for these pages.
+	 *  To find notifications not associated with any page, add null as an element to this array.
 	 * @return EchoNotification[]
 	 */
 	public function fetchByUser( User $user, $limit, $continue, array $eventTypes = array(), array $excludeEventIds = array(), array $titles = null ) {
@@ -168,7 +171,9 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	protected function getIdsForTitles( array $titles ) {
 		$ids = array();
 		foreach ( $titles as $title ) {
-			if ( $title->exists() ) {
+			if ( $title === null ) {
+				$ids[] = null;
+			} elseif ( $title->exists() ) {
 				$ids[] = $title->getArticleId();
 			}
 		}
