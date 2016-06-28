@@ -84,6 +84,7 @@
 			for ( i = 0; i < items.length; i++ ) {
 				if ( items[ i ] instanceof mw.echo.ui.CrossWikiNotificationItemWidget ) {
 					this.removeItems( [ items[ i ] ] );
+					this.checkForEmptyNotificationsList();
 					return;
 				}
 			}
@@ -148,11 +149,7 @@
 		this.clearItems();
 		this.addItems( itemWidgets );
 
-		this.resetLoadingOption(
-			itemWidgets.length === 0 ?
-			mw.msg( 'echo-notification-placeholder' ) :
-			''
-		);
+		this.checkForEmptyNotificationsList();
 	};
 
 	/**
@@ -187,6 +184,14 @@
 		if ( this.isEmpty() ) {
 			this.addItems( [ this.loadingOptionWidget ] );
 		}
+	};
+
+	/**
+	 * Check if the list of notifications is empty and udpate the placeholder
+	 * widget as needed.
+	 */
+	mw.echo.ui.NotificationsListWidget.prototype.checkForEmptyNotificationsList = function () {
+		this.resetLoadingOption( this.isEmpty() ? mw.msg( 'echo-notification-placeholder' ) : '' );
 	};
 
 	/**
