@@ -258,6 +258,11 @@ class MWEchoEmailBatch {
 		$textEmailDigestFormatter = new EchoPlainTextDigestEmailFormatter( $this->mUser, $this->language, $frequency );
 		$content = $textEmailDigestFormatter->format( $this->events, 'email' );
 
+		if ( !$content ) {
+			// no event could be formatted
+			return;
+		}
+
 		$format = MWEchoNotifUser::newFromUser( $this->mUser )->getEmailFormat();
 		if ( $format == EchoEmailFormat::HTML ) {
 

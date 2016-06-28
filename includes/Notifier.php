@@ -111,6 +111,9 @@ class EchoNotifier {
 		$lang = wfGetLangObj( $user->getOption( 'language' ) );
 		$formatter = new EchoPlainTextEmailFormatter( $user, $lang );
 		$content = $formatter->format( $event );
+		if ( !$content ) {
+			return false;
+		}
 
 		if ( $emailFormat === EchoEmailFormat::HTML ) {
 			$htmlEmailFormatter = new EchoHtmlEmailFormatter( $user, $lang );

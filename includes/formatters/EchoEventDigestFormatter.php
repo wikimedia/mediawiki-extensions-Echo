@@ -42,7 +42,7 @@ abstract class EchoEventDigestFormatter {
 			}
 		}
 
-		return $this->formatModels( $models );
+		return $models ? $this->formatModels( $models ) : false;
 	}
 
 	/**
