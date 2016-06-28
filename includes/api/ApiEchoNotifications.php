@@ -92,7 +92,7 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 					$result[$section] = $this->getSectionPropList(
 						$user, $section, $params['filter'], $params['limit'],
 						$params[$section . 'continue'], $params['format'],
-						$titles, $params[$section . 'unreadfirst']
+						$titles, $params[$section . 'unreadfirst'], $params['bundle']
 					);
 
 					if ( $this->crossWikiSummary ) {
@@ -109,7 +109,7 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 					$user,
 					$attributeManager->getUserEnabledEventsbySections( $user, 'web', $params['sections'] ),
 					$params['filter'], $params['limit'], $params['continue'], $params['format'],
-					$titles, $params['unreadfirst']
+					$titles, $params['unreadfirst'], $params['bundle']
 				);
 
 				// if exactly 1 section is specified, we consider only that section, otherwise
@@ -144,9 +144,10 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 	 * @param string $format
 	 * @param Title[] $titles
 	 * @param boolean $unreadFirst
+	 * @param bool $bundle
 	 * @return array
 	 */
-	protected function getSectionPropList( User $user, $section, $filter, $limit, $continue, $format, array $titles = null, $unreadFirst = false ) {
+	protected function getSectionPropList( User $user, $section, $filter, $limit, $continue, $format, array $titles = null, $unreadFirst = false, $bundle = false ) {
 		$attributeManager = EchoAttributeManager::newFromGlobalVars();
 		$sectionEvents = $attributeManager->getUserEnabledEventsbySections( $user, 'web', array( $section ) );
 
@@ -157,7 +158,7 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 			);
 		} else {
 			$result = $this->getPropList(
-				$user, $sectionEvents, $filter, $limit, $continue, $format, $titles, $unreadFirst
+				$user, $sectionEvents, $filter, $limit, $continue, $format, $titles, $unreadFirst, $bundle
 			);
 		}
 
@@ -176,9 +177,10 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 	 * @param string $format
 	 * @param Title[] $titles
 	 * @param boolean $unreadFirst
+	 * @param bool $bundle
 	 * @return array
 	 */
-	protected function getPropList( User $user, array $eventTypes, $filter, $limit, $continue, $format, array $titles = null, $unreadFirst = false ) {
+	protected function getPropList( User $user, array $eventTypes, $filter, $limit, $continue, $format, array $titles = null, $unreadFirst = false, $bundle = false ) {
 		$result = array(
 			'list' => array(),
 			'continue' => null
@@ -249,6 +251,12 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 			$notifs = $notifMapper->fetchUnreadByUser( $user, $limit + 1, $continue, $eventTypes, $titles );
 		}
 
+		if ( $bundle ) {
+			$bundler = new Bundler();
+			$notifs = $bundler->bundle( $notifs );
+		}
+
+		/** @var EchoNotification $notif */
 		foreach ( $notifs as $notif ) {
 			$output = EchoDataOutputFormatter::formatOutput( $notif, $format, $user, $this->getLanguage() );
 			if ( $output !== false ) {
@@ -555,6 +563,10 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 			),
 			'titles' => array(
 				ApiBase::PARAM_ISMULTI => true,
+			),
+			'bundle' => array(
+				ApiBase::PARAM_TYPE => 'boolean',
+				ApiBase::PARAM_DFLT => false,
 			),
 		);
 		foreach ( $sections as $section ) {

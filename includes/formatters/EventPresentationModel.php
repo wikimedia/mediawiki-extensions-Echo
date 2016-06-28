@@ -52,11 +52,6 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 	private $user;
 
 	/**
-	 * @var EchoEvent[]|null
-	 */
-	private $bundledEvents;
-
-	/**
 	 * @var string 'web' or 'email'
 	 */
 	private $distributionType;
@@ -140,36 +135,7 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 	 * @return EchoEvent[]
 	 */
 	final protected function getBundledEvents() {
-		if ( !$this->event->getBundleHash() ) {
-			return array();
-		}
-		if ( $this->bundledEvents !== null ) {
-			return $this->bundledEvents;
-		}
-
-		// FIXME: We really shouldn't be making db queries like this
-		// in the presentation model
-		$eventMapper = new EchoEventMapper();
-		$this->bundledEvents = $eventMapper->fetchByUserBundleHash(
-			$this->user,
-			$this->event->getBundleHash(),
-			$this->distributionType
-			// default params: web, DESC, limit=250
-		);
-
-		// Filter out the current event.
-		// This should go away with T120153 when we externalize the fetching of bundled events.
-		if ( $this->distributionType === 'email' ) {
-			$currentEventId = $this->event->getId();
-			$this->bundledEvents = array_filter(
-				$this->bundledEvents,
-				function ( EchoEvent $event ) use ( $currentEventId ) {
-					return $currentEventId !== $event->getId();
-				}
-			);
-		}
-
-		return $this->bundledEvents;
+		return $this->event->getBundledEvents() ?: array();
 	}
 
 	/**

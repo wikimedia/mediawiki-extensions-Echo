@@ -94,7 +94,6 @@ class EchoUserNotificationGateway {
 			array(
 				'notification_user' => $this->user->getId(),
 				'notification_read_timestamp' => null,
-				'notification_bundle_base' => 1,
 			),
 			__METHOD__
 		);
@@ -126,8 +125,8 @@ class EchoUserNotificationGateway {
 			array( '1' ),
 			array(
 				'notification_user' => $this->user->getId(),
-				'notification_bundle_base' => 1,
 				'notification_read_timestamp' => null,
+				'event_deleted' => 0,
 				'event_type' => $eventTypesToLoad,
 			),
 			__METHOD__,
@@ -155,8 +154,8 @@ class EchoUserNotificationGateway {
 			array( 'notification_event' ),
 			array(
 				'notification_user' => $this->user->getId(),
-				'notification_bundle_base' => 1,
 				'notification_read_timestamp' => null,
+				'event_deleted' => 0,
 				'event_type' => $type,
 				'notification_event = event_id'
 			),

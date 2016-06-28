@@ -321,7 +321,7 @@
 			iconType: content.icon,
 			primaryUrl: OO.getProp( content.links, 'primary', 'url' ),
 			secondaryUrls: OO.getProp( content.links, 'secondary' ) || [],
-			bundledIds: content.bundledIds
+			bundledIds: apiData.bundledIds
 		};
 	};
 
@@ -457,7 +457,7 @@
 			notification.toggleRead( isRead );
 		} );
 
-		this.manager.getUnreadCounter().estimateChange( isRead ? -itemIds.length : itemIds.length );
+		this.manager.getUnreadCounter().estimateChange( isRead ? -allIds.length : allIds.length );
 
 		return this.api.markItemsRead( allIds, model.getSource(), isRead ).then( this.refreshUnreadCount.bind( this ) );
 	};
@@ -518,7 +518,7 @@
 
 					idArray = [];
 					for ( i = 0; i < groupItems.length; i++ ) {
-						idArray = idArray.concat( groupItems[ i ].id ).concat( groupItems[ i ][ '*' ].bundledIds || [] );
+						idArray = idArray.concat( groupItems[ i ].id ).concat( groupItems[ i ].bundledIds || [] );
 					}
 					itemCounter += idArray.length;
 

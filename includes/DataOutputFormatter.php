@@ -19,7 +19,7 @@ class EchoDataOutputFormatter {
 	 * Format a notification for a user in the format specified
 	 *
 	 * @param EchoNotification $notification
-	 * @param string|bool $format specifify output format, false to not format any notifications
+	 * @param string|bool $format output format, false to not format any notifications
 	 * @param User $user the target user viewing the notification
 	 * @param Language $lang Language to format the notification in
 	 * @return array|bool false if it could not be formatted
@@ -29,9 +29,18 @@ class EchoDataOutputFormatter {
 		$timestamp = $notification->getTimestamp();
 		$utcTimestampUnix = wfTimestamp( TS_UNIX, $timestamp );
 		$utcTimestampMW = wfTimestamp( TS_MW, $timestamp );
+		$bundledIds = null;
 
-		if ( $notification->getBundleBase() && $notification->getBundleDisplayHash() ) {
-			$event->setBundleHash( $notification->getBundleDisplayHash() );
+		$bundledNotifs = $notification->getBundledNotifications();
+		if ( $bundledNotifs ) {
+			$bundledEvents = array_map( function ( $notif ) {
+				return $notif->getEvent();
+			}, $bundledNotifs );
+			$event->setBundledEvents( $bundledEvents );
+
+			$bundledIds = array_map( function ( $event ) {
+				return (int)$event->getId();
+			}, $bundledEvents );
 		}
 
 		$timestampMw = self::getUserLocalTime( $user, $timestamp );
@@ -69,6 +78,10 @@ class EchoDataOutputFormatter {
 				'date' => $date
 			),
 		);
+
+		if ( $bundledIds ) {
+			$output['bundledIds'] = $bundledIds;
+		}
 
 		if ( $event->getVariant() ) {
 			$output['variant'] = $event->getVariant();
@@ -130,7 +143,7 @@ class EchoDataOutputFormatter {
 	/**
 	 * @param EchoEvent $event
 	 * @param User $user
-	 * @param $format
+	 * @param string $format
 	 * @param Language $lang
 	 * @return string|bool false if it could not be formatted
 	 */

@@ -167,6 +167,9 @@ class EchoHooks {
 		$updater->addExtensionIndex( 'echo_notification', 'echo_user_timestamp', "$dir/db_patches/patch-alter-user_timestamp-index.sql" );
 		$updater->addExtensionIndex( 'echo_notification', 'echo_notification_event', "$dir/db_patches/patch-add-notification_event-index.sql" );
 		$updater->addPostDatabaseUpdateMaintenance( 'RemoveOrphanedEvents' );
+		$updater->addExtensionField( 'echo_event', 'event_deleted', "$dir/db_patches/patch-add-echo_event-event_deleted.sql" );
+		$updater->addExtensionIndex( 'echo_notification', 'echo_notification_user_read_timestamp', "$dir/db_patches/patch-add-user_read_timestamp-index.sql" );
+		$updater->addExtensionIndex( 'echo_target_page', 'echo_target_page_page_event', "$dir/db_patches/patch-add-page_event-index.sql" );
 	}
 
 	/**
@@ -774,29 +777,23 @@ class EchoHooks {
 		}
 
 		// Attempt to mark a notification as read when visiting a page
-		// @todo should this really be here?
 		$subtractAlerts = 0;
 		$subtractMessages = 0;
 		$eventIds = array();
 		if ( $title->getArticleID() ) {
-			$targetPageMapper = new EchoTargetPageMapper();
-			$fetchedTargetPages = $targetPageMapper->fetchByUserPageId( $user, $title->getArticleID() );
-			if ( $fetchedTargetPages ) {
-				$attribManager = EchoAttributeManager::newFromGlobalVars();
-				/* @var EchoTargetPage[] $targetPages */
-				foreach ( $fetchedTargetPages as $id => $targetPages ) {
-					// Only look at the first target page since they'll
-					// all point to the same event
-					$section = $attribManager->getNotificationSection(
-						$targetPages[0]->getEventType()
-					);
-					if ( $section === EchoAttributeManager::MESSAGE ) {
+			$eventMapper = new EchoEventMapper();
+			$events = $eventMapper->fetchUnreadByUserAndPage( $user, $title->getArticleID() );
+
+			if ( $events ) {
+				/* @var EchoEvent $event */
+				foreach ( $events as $event ) {
+					if ( $event->getSection() === EchoAttributeManager::MESSAGE ) {
 						$subtractMessages++;
 					} else {
 						// ALERT
 						$subtractAlerts++;
 					}
-					$eventIds[] = $id;
+					$eventIds[] = $event->getId();
 				}
 			}
 		}

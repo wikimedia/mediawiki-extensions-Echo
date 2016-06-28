@@ -359,8 +359,6 @@ class MWEchoNotifUser {
 
 		$res = $this->userNotifGateway->markRead( $eventIds );
 		if ( $res ) {
-			// Delete records from echo_target_page
-			$this->targetPageMapper->deleteByUserEvents( $this->mUser, $eventIds );
 			// Update notification count in cache
 			$this->resetNotificationCount( DB_MASTER );
 
@@ -448,7 +446,10 @@ class MWEchoNotifUser {
 		$res = $this->markRead( $eventIds );
 		if ( $res ) {
 			// Delete records from echo_target_page
-			$this->targetPageMapper->deleteByUserEvents( $this->mUser, $eventIds );
+			/**
+			 * Keep the 'echo_target_page' records so they can be used for moderation.
+			 */
+			// $this->targetPageMapper->deleteByUserEvents( $this->mUser, $eventIds );
 			if ( count( $notifs ) < $wgEchoMaxUpdateCount ) {
 				$this->flagCacheWithNoTalkNotification();
 			}

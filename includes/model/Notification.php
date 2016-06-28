@@ -1,6 +1,6 @@
 <?php
 
-class EchoNotification extends EchoAbstractEntity {
+class EchoNotification extends EchoAbstractEntity implements Bundleable {
 
 	/**
 	 * @var User
@@ -48,6 +48,11 @@ class EchoNotification extends EchoAbstractEntity {
 	 * @var string
 	 */
 	protected $bundleDisplayHash = '';
+
+	/**
+	 * @var EchoNotification[]
+	 */
+	protected $bundledNotifications;
 
 	/**
 	 * Do not use this constructor.
@@ -110,10 +115,6 @@ class EchoNotification extends EchoAbstractEntity {
 			Hooks::run( 'EchoGetBundleRules', array( $this->event, &$bundleKey ) );
 		}
 
-		// The list of event ids to be removed from echo_target_page,
-		// this is mainly for bundled notifications when an event is
-		// no longer the bundle base
-		$eventIds = array();
 		if ( $bundleKey ) {
 			$hash = md5( $bundleKey );
 			$this->bundleHash = $hash;
@@ -124,10 +125,6 @@ class EchoNotification extends EchoAbstractEntity {
 			// 2. last bundle notification with the same hash was read
 			if ( $lastNotif && !$lastNotif->getReadTimestamp() ) {
 				$this->bundleDisplayHash = $lastNotif->getBundleDisplayHash();
-				$lastEvent = $lastNotif->getEvent();
-				if ( $lastEvent ) {
-					$eventIds[] = $lastEvent->getId();
-				}
 			} else {
 				$this->bundleDisplayHash = md5( $bundleKey . '-display-hash-' . wfTimestampNow() );
 			}
@@ -138,11 +135,8 @@ class EchoNotification extends EchoAbstractEntity {
 		$user = $this->user;
 		$targetPages = self::resolveTargetPages( $event->getExtraParam( 'target-page' ) );
 		if ( $targetPages ) {
-			$notifMapper->attachListener( 'insert', 'add-target-page', function () use ( $event, $user, $eventIds, $targetPages ) {
+			$notifMapper->attachListener( 'insert', 'add-target-page', function () use ( $event, $user, $targetPages ) {
 				$targetMapper = new EchoTargetPageMapper();
-				if ( $eventIds ) {
-					$targetMapper->deleteByUserEvents( $user, $eventIds );
-				}
 				foreach ( $targetPages as $title ) {
 					$targetPage = EchoTargetPage::create( $user, $title, $event );
 					if ( $targetPage ) {
@@ -280,6 +274,10 @@ class EchoNotification extends EchoAbstractEntity {
 		return $this->readTimestamp;
 	}
 
+	public function isRead() {
+		return $this->getReadTimestamp() !== null;
+	}
+
 	/**
 	 * Getter method
 	 * @return int Notification bundle base
@@ -312,5 +310,41 @@ class EchoNotification extends EchoAbstractEntity {
 	 */
 	public function getTargetPages() {
 		return $this->targetPages;
+	}
+
+	public function setBundledNotifications( $notifications ) {
+		$this->bundledNotifications = $notifications;
+	}
+
+	public function getBundledNotifications() {
+		return $this->bundledNotifications;
+	}
+
+	/**
+	 * @inheritdoc
+	 */
+	public function canBeBundled() {
+		return !$this->isRead();
+	}
+
+	/**
+	 * @inheritdoc
+	 */
+	public function getBundlingKey() {
+		return $this->getBundleHash();
+	}
+
+	/**
+	 * @inheritdoc
+	 */
+	public function setBundledElements( $bundleables ) {
+		$this->setBundledNotifications( $bundleables );
+	}
+
+	/**
+	 * @inheritdoc
+	 */
+	public function getSortingKey() {
+		return $this->getTimestamp();
 	}
 }
