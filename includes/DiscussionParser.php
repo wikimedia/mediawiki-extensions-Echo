@@ -141,6 +141,7 @@ abstract class EchoDiscussionParser {
 		if ( !$title ) {
 			return;
 		}
+		$content = self::stripHeader( $content );
 
 		$output = self::parseNonEditWikitext( $content, new Article( $title ) );
 		$links = $output->getLinks();
