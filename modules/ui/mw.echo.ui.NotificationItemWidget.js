@@ -211,6 +211,9 @@
 		var action = item && item.getData();
 
 		if ( action === 'toggleRead' ) {
+			// If we're marking read or unread, the notification was already seen.
+			// Remove the animation class
+			this.$element.removeClass( 'mw-echo-ui-notificationItemWidget-initiallyUnseen' );
 			this.markRead( !this.model.isRead() );
 		}
 	};
@@ -219,6 +222,9 @@
 	 * Respond to mark as read button click
 	 */
 	mw.echo.ui.NotificationItemWidget.prototype.onMarkAsReadButtonClick = function () {
+		// If we're marking read or unread, the notification was already seen.
+		// Remove the animation class
+		this.$element.removeClass( 'mw-echo-ui-notificationItemWidget-initiallyUnseen' );
 		this.markRead( !this.model.isRead() );
 	};
 
