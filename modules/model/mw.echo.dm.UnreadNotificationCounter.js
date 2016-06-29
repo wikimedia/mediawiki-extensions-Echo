@@ -1,4 +1,4 @@
-( function ( mw ) {
+( function ( mw, $ ) {
 	/**
 	 * Echo notification UnreadNotificationCounter model
 	 *
@@ -9,17 +9,26 @@
 	 * @param {Object} api An instance of EchoAPI.
 	 * @param {string} type The notification type 'message', 'alert', or 'all'.
 	 * @param {number} max Maximum number supported. Above this number there is no precision, we only know it is 'more than max'.
+	 * @param {Object} config Configuration object
+	 * @cfg {boolean} [localOnly=false] The update only takes into account
+	 *  local notifications and ignores the number of cross-wiki notifications.
+	 * @cfg {string} [source='local'] The source for this counter. Specifically important if the counter
+	 *  is set to be counting only local notifications
 	 */
-	mw.echo.dm.UnreadNotificationCounter = function mwEchoDmUnreadNotificationCounter( api, type, max ) {
+	mw.echo.dm.UnreadNotificationCounter = function mwEchoDmUnreadNotificationCounter( api, type, max, config ) {
+		config = config || {};
+
 		// Mixin constructor
 		OO.EventEmitter.call( this );
 
 		this.api = api;
 		this.type = type;
 		this.max = max;
+		this.prioritizer = new mw.echo.api.PromisePrioritizer();
 
 		this.count = 0;
-		this.source = 'local';
+		this.localOnly = config.localOnly === undefined ? false : !!config.localOnly;
+		this.source = config.source || 'local';
 	};
 
 	/* Inheritance */
@@ -81,12 +90,35 @@
 
 	/**
 	 * Request that this counter update itself from the API
+	 *
+	 * @return {jQuery.Promise} Promise that is resolved when the actual unread
+	 *  count is fetched, with the actual unread notification count.
 	 */
 	mw.echo.dm.UnreadNotificationCounter.prototype.update = function () {
 		var model = this;
-		this.api.fetchUnreadCount( this.source, this.type ).then( function ( actualCount ) {
+
+		if ( !this.api ) {
+			return $.Deferred().reject();
+		}
+
+		return this.prioritizer.prioritize( this.api.fetchUnreadCount(
+			this.source,
+			this.type,
+			this.localOnly
+		) ).then( function ( actualCount ) {
 			model.setCount( actualCount, false );
+
+			return actualCount;
 		} );
 	};
 
-}( mediaWiki ) );
+	/**
+	 * Set the source for this counter
+	 *
+	 * @param {string} source Source name
+	 */
+	mw.echo.dm.UnreadNotificationCounter.prototype.setSource = function ( source ) {
+		this.source = source;
+	};
+
+}( mediaWiki, jQuery ) );

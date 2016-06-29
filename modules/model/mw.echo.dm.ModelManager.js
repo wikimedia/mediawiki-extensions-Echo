@@ -50,6 +50,9 @@
 
 		// Events
 		this.seenTimeModel.connect( this, { update: 'onSeenTimeUpdate' } );
+
+		this.localCounter = config.localCounter || new mw.echo.dm.UnreadNotificationCounter();
+		this.localCounter.connect( this, { countChange: [ 'emit', 'localCountChange' ] } );
 	};
 
 	OO.initClass( mw.echo.dm.ModelManager );
@@ -91,6 +94,12 @@
 	 * @param {mw.echo.dm.NotificationItem} item Updated item
 	 *
 	 * A specific item inside a notifications model has been updated
+	 */
+
+	/**
+	 * @event localCountChange
+	 *
+	 * There was a change in the count of local unread notifications
 	 */
 
 	/* Methods */
@@ -161,14 +170,17 @@
 		this.emit( 'update', this.getAllNotificationModels() );
 	};
 
-	mw.echo.dm.ModelManager.prototype.onModelItemUpdate = function ( modelId, item ) {
-		var model = this.getNotificationModel( modelId );
+	/**
+	 * Respond to model update event
+	 *
+	 * @param {string} modelName Model name
+	 * @param {mw.echo.dm.notificationItem} item Notification item
+	 * @fires modelUpdate
+	 */
+	mw.echo.dm.ModelManager.prototype.onModelItemUpdate = function ( modelName, item ) {
+		this.checkLocalUnreadTalk();
 
-		if ( model.getSource() === 'local' ) {
-			this.checkLocalUnreadTalk();
-		}
-
-		this.emit( 'modelItemUpdate', modelId, item );
+		this.emit( 'modelItemUpdate', modelName, item );
 	};
 
 	/**
@@ -195,6 +207,7 @@
 
 		return count;
 	};
+
 	/**
 	 * Get a notification model.
 	 *
@@ -382,6 +395,15 @@
 	};
 
 	/**
+	 * Get the local counter
+	 *
+	 * @return {mw.echo.dm.UnreadNotificationCounter} Local counter
+	 */
+	mw.echo.dm.ModelManager.prototype.getLocalCounter = function () {
+		return this.localCounter;
+	};
+
+	/**
 	 * Get all local notifications
 	 *
 	 * @return {mw.echo.dm.NotificationItem[]} all local notifications
@@ -438,6 +460,7 @@
 	 */
 	mw.echo.dm.ModelManager.prototype.getSeenTimeModel = function () {
 		return this.seenTimeModel;
+
 	};
 
 } )( mediaWiki, jQuery );

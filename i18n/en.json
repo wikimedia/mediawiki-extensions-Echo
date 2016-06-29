@@ -219,6 +219,7 @@
 	"echo-overlay-title": "<b>Notifications</b>",
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Notification|Notifications}}</b> (showing $1 of $2 unread)",
 	"echo-mark-all-as-read": "Mark all as read",
+	"echo-mark-wiki-as-read": "Mark all as read in selected wiki: $1",
 	"echo-date-today": "Today",
 	"echo-date-yesterday": "Yesterday",
 	"echo-load-more-error": "An error occurred while fetching more results.",

@@ -58,6 +58,16 @@
 			}
 		);
 
+		// Settings menu
+		this.settingsMenu = new mw.echo.ui.SpecialHelpMenuWidget(
+			this.manager,
+			{
+				framed: true,
+				helpLink: config.helpLink,
+				prefLink: config.prefLink
+			}
+		);
+
 		// Filter by read state
 		this.readStateSelectWidget = new mw.echo.ui.ReadStateButtonSelectWidget();
 
@@ -70,11 +80,15 @@
 		// Events
 		this.readStateSelectWidget.connect( this, { filter: 'onReadStateFilter' } );
 		this.xwikiUnreadWidget.connect( this, { filter: 'onSourcePageFilter' } );
-		this.manager.connect( this, { modelItemUpdate: 'onManagerModelItemUpdate' } );
+		this.manager.connect( this, {
+			modelItemUpdate: 'updatePaginationLabels',
+			localCountChange: 'updatePaginationLabels'
+		} );
 		this.manager.getFiltersModel().connect( this, { update: 'updateReadStateSelectWidget' } );
-		this.manager.getPaginationModel().connect( this, { update: 'onPaginationModelUpdate' } );
+		this.manager.getPaginationModel().connect( this, { update: 'updatePaginationLabels' } );
 		this.topPaginationWidget.connect( this, { change: 'populateNotifications' } );
 		this.bottomPaginationWidget.connect( this, { change: 'populateNotifications' } );
+		this.settingsMenu.connect( this, { markAllRead: 'onSettingsMarkAllRead' } );
 
 		this.topPaginationWidget.setDisabled( true );
 		this.bottomPaginationWidget.setDisabled( true );
@@ -102,7 +116,11 @@
 								$( '<div>' )
 									.addClass( 'mw-echo-ui-notificationsInboxWidget-main-toolbar-pagination' )
 									.addClass( 'mw-echo-ui-notificationsInboxWidget-cell' )
-									.append( this.topPaginationWidget.$element )
+									.append( this.topPaginationWidget.$element ),
+								$( '<div>' )
+									.addClass( 'mw-echo-ui-notificationsInboxWidget-main-toolbar-settings' )
+									.addClass( 'mw-echo-ui-notificationsInboxWidget-cell' )
+									.append( this.settingsMenu.$element )
 							)
 					),
 				this.noticeMessageWidget.$element,
@@ -157,19 +175,22 @@
 	};
 
 	/**
-	 * Respond to pagination model update event
+	 * Update pagination messages
 	 */
-	mw.echo.ui.NotificationsInboxWidget.prototype.onPaginationModelUpdate = function () {
+	mw.echo.ui.NotificationsInboxWidget.prototype.updatePaginationLabels = function () {
 		this.resetMessageLabel();
-	};
-
-	/**
-	 * Respond to a change in model item
-	 */
-	mw.echo.ui.NotificationsInboxWidget.prototype.onManagerModelItemUpdate = function () {
 		// Update the pagination label
 		this.topPaginationWidget.updateLabel();
 		this.bottomPaginationWidget.updateLabel();
+	};
+
+	/**
+	 * Respond to mark all read for selected wiki
+	 */
+	mw.echo.ui.NotificationsInboxWidget.prototype.onSettingsMarkAllRead = function () {
+		this.pushPending();
+		this.controller.markAllRead()
+			.always( this.popPending.bind( this ) );
 	};
 
 	/**
