@@ -5,7 +5,6 @@
 	position: relative;
 	white-space: normal;
 	padding: 0.8em 1em 0.5em 1em;
-	background-color: #F1F1F1;
 	box-sizing: border-box;
 
 	border: 1px solid #DDDDDD;
@@ -194,17 +193,17 @@
 			animation-name: unseen-fadeout-to-unread;
 		}
 	}
+
+	background-color: #F1F1F1;
+	&:hover {
+		background-color: #ECECEC;
+	}
 	&-unread {
 		background-color: white;
-	}
 
-	&.oo-ui-optionWidget-selected,
-	&.oo-ui-optionWidget-highlighted {
-		background-color: #F9F9F9;
-	}
-
-	&-unread.oo-ui-optionWidget-highlighted {
-		background-color: white;
+		&:hover {
+			background-color: #FAFAFA;
+		}
 	}
 
 	// NOTE: The internal styling of the notifications is outside this file, because
