@@ -90,7 +90,7 @@ abstract class ApiCrossWikiBase extends ApiQueryBase {
 	 * @return array Wiki names
 	 */
 	protected function getRequestedForeignWikis() {
-		return array_diff( $this->getRequestedWikis(), array( wfWikiId() ) );
+		return array_diff( $this->getRequestedWikis(), array( wfWikiID() ) );
 	}
 
 	/**
@@ -113,10 +113,10 @@ abstract class ApiCrossWikiBase extends ApiQueryBase {
 				// fetch notifications from multiple wikis
 				'wikis' => array(
 					ApiBase::PARAM_ISMULTI => true,
-					ApiBase::PARAM_DFLT => wfWikiId(),
+					ApiBase::PARAM_DFLT => wfWikiID(),
 					// `*` will let you immediately fetch from all wikis that have
 					// unread notifications, without having to look them up first
-					ApiBase::PARAM_TYPE => array_unique( array_merge( $wgConf->wikis, array( wfWikiId(), '*' ) ) ),
+					ApiBase::PARAM_TYPE => array_unique( array_merge( $wgConf->wikis, array( wfWikiID(), '*' ) ) ),
 				),
 			);
 		}
