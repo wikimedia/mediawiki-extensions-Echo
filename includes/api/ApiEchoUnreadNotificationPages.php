@@ -28,7 +28,7 @@ class ApiEchoUnreadNotificationPages extends ApiCrossWikiBase {
 		$params = $this->extractRequestParams();
 
 		$result = array();
-		if ( in_array( wfWikiId(), $this->getRequestedWikis() ) ) {
+		if ( in_array( wfWikiID(), $this->getRequestedWikis() ) ) {
 			$result[wfWikiID()] = $this->getFromLocal( $params['limit'] );
 		}
 
