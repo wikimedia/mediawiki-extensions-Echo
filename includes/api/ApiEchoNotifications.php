@@ -331,13 +331,15 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 			foreach ( $foreignResults as $wiki => $result ) {
 				if ( isset( $result['query']['notifications']['list'] ) ) {
 					$notifs = $result['query']['notifications']['list'];
+					$countsByWiki[$wiki] = intval( $result['query']['notifications']['count'] );
 				} elseif ( isset( $result['query']['notifications'][$section]['list'] ) ) {
 					$notifs = $result['query']['notifications'][$section]['list'];
+					$countsByWiki[$wiki] = intval( $result['query']['notifications'][$section]['count'] );
 				} else {
 					$notifs = false;
+					$countsByWiki[$wiki] = 0;
 				}
 				if ( $notifs ) {
-					$countsByWiki[$wiki] = count( $notifs );
 					$timestampsByWiki[$wiki] = max( array_map( function ( $n ) {
 						return $n['timestamp']['mw'];
 					}, $notifs ) );
