@@ -37,6 +37,12 @@
 
 		&-message {
 			line-height: 16px;
+			// Compensate for the placement of the 'mark as read'
+			// button, so the message is not stretched past it.
+			// The 'mark as read' circle is placed with a right
+			// margin of -1em
+			padding-right: 1em;
+
 			&-header {
 				color: @notification-text-color;
 			}
