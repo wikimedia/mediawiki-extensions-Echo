@@ -346,7 +346,7 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 				}
 			}
 
-			$wikis = array_keys( $countsByWiki );
+			$wikis = array_keys( $timestampsByWiki );
 			$count = array_sum( $countsByWiki );
 			$maxTimestamp = new MWTimestamp( max( $timestampsByWiki ) );
 			$timestampsByWiki = array_map( function ( $ts ) {
