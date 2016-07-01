@@ -89,7 +89,7 @@
 	"echo-notification-markasunread": "Oznacz jako nieprzeczytane",
 	"echo-notification-markasread-tooltip": "Oznacz jako przeczytane",
 	"echo-notification-more-options-tooltip": "Więcej opcji",
-	"notification-link-text-expand-all": "Pokaż wszystkie",
+	"notification-link-text-expand-all": "Rozwiń",
 	"notification-link-text-expand-alert-count": "Pokaż {{PLURAL:$1|$1 powiadomienie|$1 powiadomienia|$1 powiadomień}}",
 	"notification-link-text-expand-message-count": "Pokaż {{PLURAL:$1|$1 wiadomość|$1 wiadomości}}",
 	"notification-link-text-expand-all-count": "Pokaż {{PLURAL:$1|$1 powiadomienie|$1 powiadomienia|$1 powiadomień}}",

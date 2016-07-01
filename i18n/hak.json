@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Hakka"
+		]
+	},
+	"tooltip-pt-notifications-alert": "{{GENDER:|ngì ke}} thì-siáng",
+	"tooltip-pt-notifications-message": "{{GENDER:|Ngì ke}} liù-ngièn sêu-sit"
+}

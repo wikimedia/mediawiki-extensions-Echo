@@ -99,7 +99,7 @@
 	"echo-notification-markasunread": "Позначити як непрочитане",
 	"echo-notification-markasread-tooltip": "Позначити як прочитане",
 	"echo-notification-more-options-tooltip": "Більше параметрів",
-	"notification-link-text-expand-all": "Переглянути всі",
+	"notification-link-text-expand-all": "Розгорнути",
 	"notification-link-text-expand-alert-count": "Переглянути {{PLURAL:$1|$1 попередження|$1 попередження|$1 попереджень}}",
 	"notification-link-text-expand-message-count": "Переглянути {{PLURAL:$1|$1 повідомлення|$1 повідомлення|$1 повідомлень}}",
 	"notification-link-text-expand-all-count": "Переглянути {{PLURAL:$1|$1 сповіщення|$1 сповіщення|$1 сповіщень}}",

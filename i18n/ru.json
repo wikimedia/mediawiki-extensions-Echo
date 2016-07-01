@@ -28,7 +28,8 @@
 			"Ole Yves",
 			"Лилиә",
 			"Alexandr Efremov",
-			"Jack who built the house"
+			"Jack who built the house",
+			"Mailman"
 		]
 	},
 	"echo-desc": "Система уведомления участников о событиях и сообщениях",
@@ -76,6 +77,11 @@
 	"notifications": "Уведомления",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Ваши}} оповещения",
 	"tooltip-pt-notifications-message": "{{GENDER:|Ваши}} сообщения",
+	"echo-displaynotificationsconfiguration": "Показать настройки уведомлений",
+	"echo-displaynotificationsconfiguration-summary": "Это обзор настроек уведомлений на этом вики-сайте.",
+	"echo-displaynotificationsconfiguration-notifications-by-category-header": "Уведомления по категориям",
+	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Разрешенные способы уведомления",
+	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Какие способы уведомления поддерживаются в каждой категории",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Включено по умолчанию",
 	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Существующие участники",
 	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Новые участники",
@@ -84,6 +90,8 @@
 	"echo-specialpage-markasread": "Уведомление: пометить как прочитанное",
 	"echo-specialpage-markasread-invalid-id": "Неверный идентификатор события",
 	"echo-specialpage-pagination-numnotifications": "$1 {{PLURAL:$1|уведомление|уведомлений|уведомления}}",
+	"echo-specialpage-pagefilters-title": "Недавние действия",
+	"echo-specialpage-pagefilters-subtitle": "Страницы с непрочитанными уведомения",
 	"notificationsmarkread-legend": "Пометить уведомление как прочитанное",
 	"echo-anon": "Чтобы получать уведомления, [$1 создайте учётную запись] или [$2 представьтесь].",
 	"echo-none": "Вы не получали уведомлений.",
@@ -230,5 +238,6 @@
 	"apihelp-query+notifications-param-messagecontinue": "Когда доступно больше результатов для сообщений, используйте это для продолжения.",
 	"apihelp-query+notifications-param-messageunreadfirst": "Нужно ли показывать непрочитанные уведомления о оповещениях в первую очередь (используется только если указан groupbysection).",
 	"apihelp-query+notifications-example-1": "Список уведомлений",
-	"apihelp-query+notifications-example-2": "Список уведомлений, сгруппированных по разделам, с указанием количества"
+	"apihelp-query+notifications-example-2": "Список уведомлений, сгруппированных по разделам, с указанием количества",
+	"apihelp-query+unreadnotificationpages-param-limit": "Максимальное количество страниц для возврата"
 }

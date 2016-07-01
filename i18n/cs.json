@@ -8,7 +8,8 @@
 			"Matěj Suchánek",
 			"Cvanca",
 			"Teslaton",
-			"Kvetoslav47"
+			"Kvetoslav47",
+			"Dvorapa"
 		]
 	},
 	"echo-desc": "Systém pro upozorňování uživatelů na události a zprávy",
@@ -74,6 +75,8 @@
 	"echo-specialpage-markasread": "Oznámení: Označit jako přečtené",
 	"echo-specialpage-markasread-invalid-id": "Chybné ID události",
 	"echo-specialpage-pagination-numnotifications": "$1 {{PLURAL:$1|upozornění}}",
+	"echo-specialpage-pagefilters-title": "Nedávná aktivita",
+	"echo-specialpage-pagefilters-subtitle": "Stránky s nepřečtenými upozorněními",
 	"notificationsmarkread-legend": "Označit oznámení jako přečtené",
 	"echo-anon": "Pro zobrazování upozornění je nutné [$1 vytvořit si účet] nebo [$2 se přihlásit].",
 	"echo-none": "Nemáte žádná upozornění.",
@@ -92,7 +95,7 @@
 	"echo-notification-markasunread": "Označit jako nepřečtené",
 	"echo-notification-markasread-tooltip": "Označit jako přečtené",
 	"echo-notification-more-options-tooltip": "Více možností",
-	"notification-link-text-expand-all": "Rozbalit vše",
+	"notification-link-text-expand-all": "Rozbalit",
 	"notification-link-text-expand-alert-count": "Zobrazit {{PLURAL:$1|$1 upozornění}}",
 	"notification-link-text-expand-message-count": "Zobrazit {{PLURAL:$1|$1 zprávu|$1 zprávy|$1 zpráv}}",
 	"notification-link-text-expand-all-count": "Zobrazit {{PLURAL:$1|$1 oznámení}}",
@@ -109,7 +112,8 @@
 	"notification-body-edit-user-talk-with-section": "$1",
 	"notification-page-linked": "Do stránky [[:$3]] {{GENDER:$1|byl přidán}} odkaz na stránku [[:$2]]. [[Special:WhatLinksHere/$2|Zobrazit všechny odkazy na tuto stránku]].",
 	"notification-header-page-linked": "Ze stránky <strong>$4</strong> byl vytvořen odkaz na stránku <strong>$3</strong>.",
-	"notification-bundle-header-page-linked": "Ze stránky <strong>$4</strong> a {{PLURAL:$5|$5 další|$5 dalších|100=více než 99 dalších}} byly vytvořeny odkazy na stránku <strong>$3</strong>.",
+	"notification-compact-header-page-linked": "Ze stránky <strong>$1</strong>.",
+	"notification-bundle-header-page-linked": "{{PLURAL:$5||Ze $5 stránek|Z $5 stránek|100=Z více než 99 stránek}} byly vytvořeny odkazy na stránku <strong>$3</strong>.",
 	"notification-link-text-what-links-here": "Všechny odkazy na tuto stránku",
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|přidal|přidala}} komentář k „[[$3|$2]]“ na stránce „$4“.",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] {{GENDER:$1|přidal|přidala}} nové téma „$2“ na stránce „[[$3]]“.",

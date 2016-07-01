@@ -73,6 +73,8 @@
 	"echo-specialpage": "إشعارات",
 	"echo-specialpage-section-markread": "علّم القسم كمقروء",
 	"echo-specialpage-pagination-numnotifications": "{{PLURAL:$1||إشعارًا واحدًا|إشعارين|$1 إشعارات|$1 إشعارًا}}",
+	"echo-specialpage-pagefilters-title": "النشاطات الحديثة",
+	"echo-specialpage-pagefilters-subtitle": "صفحات لها إشعارات غير مقروءة",
 	"echo-anon": "لتلقي الإشعارات، [$1 أنشئ حسابا] أو [$2 سجل الدخول].",
 	"echo-none": "ليس لديك أي إشعارات",
 	"echo-more-info": "المزيد",
