@@ -198,7 +198,7 @@
 	"notification-page-linked-email-batch-bundle-body": "Do stránky $3 a {{PLURAL:$4|jedné další|$4 dalších |100=více než 99 dalších}} {{GENDER:$1|byly přidány}} odkazy na stránku $2.",
 	"echo-email-batch-subject-daily": "Na {{grammar:6sg|{{SITENAME}}}} dnes máte {{PLURAL:$2|nové|nová}} upozornění",
 	"echo-email-batch-subject-weekly": "Na {{grammar:6sg|{{SITENAME}}}} máte tento týden {{PLURAL:$2|nové|nová}} upozornění",
-	"echo-email-batch-body-intro-daily": "Ahoj, uživateli $1,\n\nzde pro vás máme shrnutí dnešní aktivity na {{grammar:6sg|{{SITENAME}}}}",
+	"echo-email-batch-body-intro-daily": "Ahoj, uživateli $1,\n\nzde pro vás máme shrnutí dnešní aktivity na {{grammar:6sg|{{SITENAME}}}}.",
 	"echo-email-batch-body-intro-weekly": "Ahoj, uživateli $1,\n\nzde pro vás máme shrnutí aktivity na {{grammar:6sg|{{SITENAME}}}} za tento týden",
 	"echo-email-batch-link-text-view-all-notifications": "Zobrazit všechna upozornění",
 	"echo-rev-deleted-text-view": "Tato verze stránky byla utajena.",

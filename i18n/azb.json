@@ -39,7 +39,7 @@
 	"echo-anon": "بیلدیریلری آلماق اوچون، [$1 بیر حساب یارادین] یادا [$2 گیریش ائدین].",
 	"echo-none": "سیزین بیلدیرینیز یوخدور.",
 	"echo-more-info": "آرتیقراق بیلگی",
-	"echo-feedback": "دؤنوت",
+	"echo-feedback": "فیدبک",
 	"notification-header-edit-user-talk-with-section": "$1 <strong>{{GENDER:$3|سیزین}} دانیشیق صفحه‌نیزین \"</strong>$4\"<strong>-ده </strong> بیر مساژ {{GENDER:$2|یازیبدیر}}.",
 	"notification-mention": "[[User:$1|$1]] {{GENDER:$6|سیزه}}  $5 دانیشیغیندا   «[[:$3#$2|$4]]»-ده {{GENDER:$1|ایشاره‌ ائتدی}}.",
 	"notification-header-mention-other-nosection": "$1 {{GENDER:$3|سیزه}} <strong>$4</strong>-ده {{GENDER:$2|ایشاره ائتدی}}.",
