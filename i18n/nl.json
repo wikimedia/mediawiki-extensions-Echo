@@ -106,7 +106,7 @@
 	"echo-notification-markasunread": "Als ongelezen markeren",
 	"echo-notification-markasread-tooltip": "Als gelezen markeren",
 	"echo-notification-more-options-tooltip": "Meer opties",
-	"notification-link-text-expand-all": "Alles weergeven",
+	"notification-link-text-expand-all": "Uitvouwen",
 	"notification-link-text-expand-alert-count": "{{PLURAL:$1|$1 melding|$1 meldingen}} weergeven",
 	"notification-link-text-expand-message-count": "{{PLURAL:$1|$1 bericht|$1 berichten}} weergeven",
 	"notification-link-text-expand-all-count": "{{PLURAL:$1|$1 melding|$1 meldingen}} weergeven",
