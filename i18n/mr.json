@@ -64,7 +64,7 @@
 	"echo-notification-placeholder": "अधिसूचना नाहीत.",
 	"echo-notification-loginrequired": "आपणास आपली अधिसूचना बघण्यास सनोंद प्रवेशित असावे लागेल.",
 	"echo-notification-popup-loginrequired": "आपल्या अधिसूचना बघण्यास सनोंद प्रवेश करा.",
-	"notification-link-text-expand-all": "सर्वांचा विस्तार करा",
+	"notification-link-text-expand-all": "विस्तार करा",
 	"notification-link-text-expand-alert-count": "{{PLURAL:$1|$1 इशाऱ्याचा|$1 इशाऱ्यांचा}} विस्तार करा",
 	"notification-link-text-expand-message-count": "{{PLURAL:$1|$1 संदेशाचा|$1 संदेशांचा}} विस्तार करा",
 	"notification-link-text-expand-all-count": "{{PLURAL:$1|$1 अधिसूचनेचा|$1 अधिसूचनांचा}} विस्तार करा",
