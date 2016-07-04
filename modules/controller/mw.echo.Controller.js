@@ -456,27 +456,6 @@
 	};
 
 	/**
-	 * Mark a single item as read. The item can be a local item or an item
-	 * that is part of an xwiki foreign list.
-	 *
-	 * @param {number} itemId Item ID
-	 * @param {string} modelName The name of the model that these items belong to
-	 * @param {boolean} [isCrossWiki=false] The item is inside a cross-wiki bundle
-	 * @param {boolean} [isRead=true] The read state of the item; true for marking the
-	 *  item as read, false for marking the item as unread
-	 * @return {jQuery.Promise} A promise that is resolved when the operation
-	 *  is complete, with the number of unread notifications still remaining
-	 *  for the set type of this controller, in the given source.
-	 */
-	mw.echo.Controller.prototype.markSingleItemRead = function ( itemId, modelName, isCrossWiki, isRead ) {
-		if ( isCrossWiki ) {
-			return this.markCrossWikiItemsRead( [ itemId ], modelName, isRead );
-		}
-
-		return this.markItemsRead( [ itemId ], modelName, isRead );
-	};
-
-	/**
 	 * Mark local items as read in the API.
 	 *
 	 * @param {string[]|string} itemIds An array of item IDs, or a single item ID, to mark as read
@@ -510,14 +489,14 @@
 	 * Mark cross-wiki items as read in the API.
 	 *
 	 * @param {string[]|string} itemIds An array of item IDs, or a single item ID, to mark as read
-	 * @param {string} modelName The symbolic name for the source list that these items belong to
+	 * @param {string} source The name for the source list that these items belong to
 	 * @return {jQuery.Promise} A promise that is resolved when the operation
 	 *  is complete, with the number of unread notifications still remaining
 	 *  for the set type of this controller, in the given source.
 	 */
-	mw.echo.Controller.prototype.markCrossWikiItemsRead = function ( itemIds, modelName ) {
+	mw.echo.Controller.prototype.markCrossWikiItemsRead = function ( itemIds, source ) {
 		var sourceModel,
-			notifs = [],
+			notifs,
 			xwikiModel = this.manager.getNotificationModel( 'xwiki' );
 
 		if ( !xwikiModel ) {
@@ -527,11 +506,11 @@
 
 		itemIds = Array.isArray( itemIds ) ? itemIds : [ itemIds ];
 
-		sourceModel = xwikiModel.getList().getGroupBySource( modelName );
+		sourceModel = xwikiModel.getList().getGroupBySource( source );
 		notifs = sourceModel.findByIds( itemIds );
 		sourceModel.discardItems( notifs );
 
-		return this.api.markItemsRead( itemIds, modelName, true )
+		return this.api.markItemsRead( itemIds, source, true )
 			.then( this.refreshUnreadCount.bind( this ) );
 	};
 

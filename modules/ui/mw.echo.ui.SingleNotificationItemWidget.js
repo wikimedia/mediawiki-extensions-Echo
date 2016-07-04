@@ -64,14 +64,13 @@
 	 * @inheritdoc
 	 */
 	mw.echo.ui.SingleNotificationItemWidget.prototype.markRead = function ( isRead ) {
-		isRead = isRead !== undefined ? isRead : true;
+		isRead = isRead !== undefined ? !!isRead : true;
 
-		this.controller.markSingleItemRead(
-			this.model.getId(),
-			this.model.getModelName(),
-			this.model.isForeign(),
-			!!isRead
-		);
+		if ( this.model.isForeign() ) {
+			this.controller.markCrossWikiItemsRead( this.model.getId(), this.model.getSource() );
+		} else {
+			this.controller.markItemsRead( this.model.getId(), this.model.getModelName(), isRead );
+		}
 	};
 
 	/**
