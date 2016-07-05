@@ -456,7 +456,7 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 
 		return array(
 			'header' => $this->getHeaderMessage()->parse(),
-			'compactHeader' => $this->getCompactHeaderMessage()->parse(),
+			'compactHeader' => $this->getCompactHeaderMessage()->escaped(),
 			'body' => $body ? $body->escaped() : '',
 			'icon' => $this->getIconType(),
 			'links' => array(
