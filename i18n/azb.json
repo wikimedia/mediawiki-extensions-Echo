@@ -29,6 +29,7 @@
 	"echo-category-title-edit-user-talk": "دانیشیق صفحه‌سی پیامی",
 	"echo-category-title-article-linked": "صفحه {{PLURAL:$1|باغلانتیسی|باغلانتی‌لاری}}",
 	"echo-category-title-reverted": "دییشدیرمه قایتاریشی",
+	"echo-category-title-emailuser": "{{PLURAL:$1|آیری ایشلدندن ایمئیل|آیری ایشلدنلردن ایمئیل}}",
 	"echo-no-agent": "[هئچ کیمسه]",
 	"echo-no-title": "[هئچ صحیفه]",
 	"echo-error-no-formatter": "بیلدیری اوچون بیر فورمت تعریفی یوخدور",
