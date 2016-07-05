@@ -1,4 +1,11 @@
+@import '../echo.variables';
 .mw-echo-ui-datedSubGroupListWidget {
+	// We have to reiterate the fixed width here so that the
+	// concatenation works inside the items. This is an issue
+	// with css' table-layout, which notification items are
+	// set to
+	max-width: @specialpage-width;
+
 	&-title {
 		font-weight: normal;
 
