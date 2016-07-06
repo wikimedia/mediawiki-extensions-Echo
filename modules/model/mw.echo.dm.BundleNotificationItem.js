@@ -36,7 +36,6 @@
 		this.list = new mw.echo.dm.NotificationsList();
 		this.list.setItems( bundledNotificationModels );
 
-		this.list.aggregate( { update: 'itemUpdate' } );
 		this.list.connect( this, { itemUpdate: 'onItemUpdate' } );
 
 		// For bundles, 'read' is a computed state based on

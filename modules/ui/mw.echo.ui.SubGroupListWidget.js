@@ -85,9 +85,6 @@
 			// Update all items
 			update: 'resetItemsFromModel'
 		} );
-		// We must aggregate on item update, so we know when and if all
-		// items are read and can hide/show the 'mark all read' button
-		this.model.aggregate( { update: 'itemUpdate' } );
 		this.model.connect( this, { itemUpdate: 'toggleMarkAllReadButton' } );
 		this.markAllReadButton.connect( this, { click: 'onMarkAllReadButtonClick' } );
 

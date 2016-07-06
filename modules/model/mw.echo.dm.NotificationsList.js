@@ -55,6 +55,9 @@
 			// Fallback on IDs
 			return b.getId() - a.getId();
 		} );
+
+		// Events
+		this.aggregate( { update: 'itemUpdate' } );
 	};
 
 	/* Initialization */
@@ -67,6 +70,13 @@
 	 * @param {mw.echo.dm.NotificationItem} items Current items in the list
 	 *
 	 * The list has been updated
+	 */
+
+	/**
+	 * @event itemUpdate
+	 * @param {mw.echo.dm.NotificationItem} item Item that has changed
+	 *
+	 * An item in the list has been updated
 	 */
 
 	/* Methods */
