@@ -142,7 +142,7 @@
 	"notification-page-linked": "[[:$2]] a été {{GENDER:$1|référencé}} depuis [[:$3]]. [[Special:WhatLinksHere/$2|Voir tous les liens vers cette page]].",
 	"notification-header-page-linked": "Un lien vers <strong>$3</strong> a été créé sur <strong>$4</strong>.",
 	"notification-compact-header-page-linked": "Lié depuis <strong>$1</strong>.",
-	"notification-bundle-header-page-linked": "Des liens ont été faits depuis {{PLURAL:$5||$5 pages|100=plus de 100 pages}} vers <strong>$3</strong>.",
+	"notification-bundle-header-page-linked": "Des liens ont été faits depuis {{PLURAL:$5||$5 pages|100=au moins 100 pages}} vers <strong>$3</strong>.",
 	"notification-link-text-what-links-here": "Tous les liens vers cette page",
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|a laissé un commentaire}} dans « [[$3|$2]] » sur la page de discussion « $4 ».",
 	"notification-add-talkpage-topic2": "[[User:$1|$1]] {{GENDER:$1|a publié}} un nouveau sujet « $2 » sur [[$3]].",
