@@ -285,18 +285,18 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 		$result = array();
 		$notifUser = MWEchoNotifUser::newFromUser( $user );
 		$global = $this->crossWikiSummary ? 'preference' : false;
-		// Always get total count
-		$rawCount = $notifUser->getNotificationCount( true, DB_SLAVE, EchoAttributeManager::ALL, $global );
-		$result['rawcount'] = $rawCount;
-		$result['count'] = EchoNotificationController::formatNotificationCount( $rawCount );
 
-		if ( $groupBySection ) {
-			foreach ( $sections as $section ) {
-				$rawCount = $notifUser->getNotificationCount( /* $tryCache = */true, DB_SLAVE, $section, $global );
+		$totalRawCount = 0;
+		foreach ( $sections as $section ) {
+			$rawCount = $notifUser->getNotificationCount( /* $tryCache = */true, DB_SLAVE, $section, $global );
+			if ( $groupBySection ) {
 				$result[$section]['rawcount'] = $rawCount;
 				$result[$section]['count'] = EchoNotificationController::formatNotificationCount( $rawCount );
 			}
+			$totalRawCount += $rawCount;
 		}
+		$result['rawcount'] = $totalRawCount;
+		$result['count'] = EchoNotificationController::formatNotificationCount( $totalRawCount );
 
 		return $result;
 	}
