@@ -345,6 +345,6 @@ class EchoNotification extends EchoAbstractEntity implements Bundleable {
 	 * @inheritdoc
 	 */
 	public function getSortingKey() {
-		return $this->getTimestamp();
+		return ( $this->isRead() ? '0' : '1' ) . '_' . $this->getTimestamp();
 	}
 }
