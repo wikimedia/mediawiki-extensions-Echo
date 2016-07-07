@@ -51,7 +51,6 @@ require __DIR__ . "/autoload.php";
 
 // Queable jobs
 $wgJobClasses['EchoNotificationJob'] = 'EchoNotificationJob';
-$wgJobClasses['MWEchoNotificationEmailBundleJob'] = 'MWEchoNotificationEmailBundleJob';
 // Job to delete older notifications
 $wgJobClasses['EchoNotificationDeleteJob'] = 'EchoNotificationDeleteJob';
 
