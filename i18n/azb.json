@@ -26,7 +26,7 @@
 	"echo-pref-email-format-html": "اچ‌تی‌ام‌ال",
 	"echo-pref-email-format-plain-text": "ساده متن",
 	"echo-new-messages": "یئنی مساژلارینیز واردیر",
-	"echo-category-title-edit-user-talk": "دانیشیق صفحه‌سی پیامی",
+	"echo-category-title-edit-user-talk": "دانیشیق صفحه‌سی {{PLURAL:$1|پیامی|پیاملاری}}",
 	"echo-category-title-article-linked": "صفحه {{PLURAL:$1|باغلانتیسی|باغلانتی‌لاری}}",
 	"echo-category-title-reverted": "دییشدیرمه قایتاریشی",
 	"echo-category-title-emailuser": "{{PLURAL:$1|آیری ایشلدندن ایمئیل|آیری ایشلدنلردن ایمئیل}}",
