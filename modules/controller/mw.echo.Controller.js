@@ -323,7 +323,7 @@
 		var content = apiData[ '*' ] || {};
 
 		return {
-			// type: controller.type,
+			type: apiData.section,
 			foreign: false,
 			source: 'local',
 			count: apiData.count,
