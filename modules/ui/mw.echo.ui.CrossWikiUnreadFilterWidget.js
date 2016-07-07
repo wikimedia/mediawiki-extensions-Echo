@@ -23,9 +23,9 @@
 				var diff;
 
 				// Local source is always first
-				if ( a.getSource() === mw.config.get( 'wgDBname' ) ) {
+				if ( a.getSource() === 'local' ) {
 					return -1;
-				} else if ( b.getSource() === mw.config.get( 'wgDBname' ) ) {
+				} else if ( b.getSource() === 'local' ) {
 					return 1;
 				}
 

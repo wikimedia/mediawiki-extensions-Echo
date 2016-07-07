@@ -83,7 +83,7 @@
 	mw.echo.api.EchoApi.prototype.fetchFilteredNotifications = function ( type, source, filters ) {
 		source = source || 'local';
 
-		if ( source === 'local' || source === mw.config.get( 'wgDBname' ) ) {
+		if ( source === 'local' ) {
 			return this.fetchNotifications( type, source, true, filters );
 		} else {
 			return this.fetchNotificationsFromRemoteSource( type, source, true, filters );

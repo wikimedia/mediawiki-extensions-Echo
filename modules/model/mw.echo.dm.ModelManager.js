@@ -41,7 +41,7 @@
 		this.notificationModels = {};
 		this.paginationModel = new mw.echo.dm.PaginationModel();
 		this.filtersModel = new mw.echo.dm.FiltersModel( {
-			selectedSource: mw.config.get( 'wgDBname' )
+			selectedSource: 'local'
 		} );
 
 		// Properties
