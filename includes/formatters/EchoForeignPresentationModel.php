@@ -11,8 +11,10 @@ class EchoForeignPresentationModel extends EchoEventPresentationModel {
 
 	protected function getHeaderMessageKey() {
 		$data = $this->event->getExtra();
-		$section = $data['section'];
+		$section = $data['section'] == 'message' ? 'notice' : $data['section'];
 
+		// notification-header-foreign-alert
+		// notification-header-foreign-notice
 		return "notification-header-{$this->type}-{$section}";
 	}
 

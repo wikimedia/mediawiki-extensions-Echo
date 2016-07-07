@@ -192,8 +192,9 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 
 		foreach ( EchoAttributeManager::$sections as $section ) {
 			$types = $this->attributeManager->getEventsForSection( $section );
-			// echo-notification-alert-text-only, echo-notification-message-text-only
-			$flippedSectionNames[$this->msg( 'echo-notification-' . $section . '-text-only' )->text()] = $section;
+			// echo-notification-alert-text-only, echo-notification-notice-text-only
+			$msgSection = $section == 'message' ? 'notice' : $section;
+			$flippedSectionNames[$this->msg( 'echo-notification-' . $msgSection . '-text-only' )->text()] = $section;
 			foreach ( $types as $type ) {
 				$bySectionValue[] = "$section-$type";
 			}

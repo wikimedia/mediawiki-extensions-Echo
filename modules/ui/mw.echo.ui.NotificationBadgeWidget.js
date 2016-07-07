@@ -69,8 +69,10 @@
 			badgeIcon: config.badgeIcon,
 			// The following messages can be used here:
 			// tooltip-pt-notifications-alert
-			// tooltip-pt-notifications-message
-			title: mw.msg( 'tooltip-pt-notifications-' + this.controller.getTypeString() ),
+			// tooltip-pt-notifications-notice
+			title: mw.msg( 'tooltip-pt-notifications-' +
+				this.controller.getTypeString() === 'message' ? 'notice' : this.controller.getTypeString()
+			),
 			href: config.href
 		} );
 
@@ -140,7 +142,15 @@
 			// The following messages can be used here:
 			// echo-notification-alert-text-only
 			// echo-notification-message-text-only
-			label: mw.msg( 'echo-notification-' + this.controller.getTypeString() + '-text-only' ),
+			label: mw.msg(
+				'echo-notification-' +
+				(
+					this.controller.getTypeString() === 'message' ?
+						'notice' :
+						this.controller.getTypeString()
+				) +
+				'-text-only'
+			),
 			classes: [ 'mw-echo-ui-notificationBadgeButtonPopupWidget-popup' ]
 		} );
 		// HACK: Add an icon to the popup head label

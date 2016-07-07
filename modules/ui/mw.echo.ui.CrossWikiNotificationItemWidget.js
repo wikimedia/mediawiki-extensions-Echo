@@ -315,8 +315,13 @@
 				mw.msg( 'notification-link-text-collapse-all' ) :
 				// Messages that appear here are:
 				// notification-link-text-expand-alert-count
-				// notification-link-text-expand-message-count
-				mw.msg( 'notification-link-text-expand-' + type + '-count', this.model.getCount() )
+				// notification-link-text-expand-notice-count
+				mw.msg(
+					'notification-link-text-expand-' +
+						( type === 'message' ? 'notice' : type ) +
+						'-count',
+					this.model.getCount()
+				)
 		);
 		this.toggleExpandButton.setIcon(
 			this.expanded ?
