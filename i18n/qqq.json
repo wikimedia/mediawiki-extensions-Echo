@@ -71,6 +71,7 @@
 	"notifications": "{{doc-special|Notifications}}\n{{Identical|Notification}}",
 	"tooltip-pt-notifications-alert": "This is used for the title (mouseover text) of the alert notifications user tool.",
 	"tooltip-pt-notifications-notice": "This is used for the title (mouseover text) of the notice notifications user tool.",
+	"tooltip-pt-notifications-message": "This is used for the title (mouseover text) of the notice notifications user tool.",
 	"echo-displaynotificationsconfiguration": "{{doc-special|DisplayNotificationsConfiguration}}\n\nThis could be rephrased as \"Display the configuration of Notifications\".",
 	"echo-displaynotificationsconfiguration-summary": "Summary of the DisplayNotificationsConfiguration special page",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "Header on DisplayNotificationsConfiguration for a list of which notifications are in each category",

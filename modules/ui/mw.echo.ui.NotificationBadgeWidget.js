@@ -71,7 +71,9 @@
 			// tooltip-pt-notifications-alert
 			// tooltip-pt-notifications-notice
 			title: mw.msg( 'tooltip-pt-notifications-' +
-				this.controller.getTypeString() === 'message' ? 'notice' : this.controller.getTypeString()
+				(
+					this.controller.getTypeString() === 'message' ? 'notice' : this.controller.getTypeString()
+				)
 			),
 			href: config.href
 		} );
