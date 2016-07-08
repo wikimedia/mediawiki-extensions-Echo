@@ -18,7 +18,7 @@
 
 		this.sources = {};
 
-		this.currentSource = config.currentSource || mw.config.get( 'wgDBname' );
+		this.currentSource = config.currentSource || 'local';
 		this.currentPage = null;
 	};
 

@@ -87,6 +87,7 @@
 		return this.api.fetchUnreadNotificationPages()
 			.then( function ( data ) {
 				var source,
+					result = {},
 					foreignSources = {};
 
 				for ( source in data ) {
@@ -94,16 +95,14 @@
 						// Collect sources for API
 						foreignSources[ source ] = data[ source ].source;
 					}
+					result[ source === mw.config.get( 'wgDBname' ) ? 'local' : source ] = data[ source ];
 				}
 
 				// Register the foreign sources in the API
 				controller.api.registerForeignSources( foreignSources, false );
 
-				// Register local source with the wiki name
-				controller.api.registerLocalSources( [ mw.config.get( 'wgDBname' ) ] );
-
 				// Register pages
-				sourcePageModel.setAllSources( data );
+				sourcePageModel.setAllSources( result );
 			} );
 	};
 
