@@ -112,7 +112,6 @@
 
 		localModel = this.getNotificationModel( 'local' );
 		if ( localModel ) {
-			localModel.aggregate( { update: 'itemUpdate' } );
 			localModel.connect( this, { itemUpdate: 'checkLocalUnreadTalk' } );
 		}
 
