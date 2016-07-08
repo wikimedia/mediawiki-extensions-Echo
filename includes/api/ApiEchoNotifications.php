@@ -386,6 +386,7 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 			'wikis' => $wikis,
 			'count' => $count
 		) );
+		$row->event_deleted = 0;
 
 		$row->notification_user = $user->getId();
 		$row->notification_timestamp = $maxTimestamp;
