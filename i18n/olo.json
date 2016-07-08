@@ -57,8 +57,6 @@
 	"notification-mention-nosection-email-batch-body": "$1 {{GENDER:$1|mainičči}} sinut paginsivul $2.",
 	"notification-user-rights-email-subject": "Sinun käyttöoigevuot ollah muutunnuot saital {{SITENAME}}",
 	"notification-user-rights-email-batch-body": "$1 {{GENDER:$1|muutti}} sinun käyttöoigevuksii. $2.",
-	"echo-notification-message": "{{PLURAL:$1|Viesti ($1)|Viestit ($1)|100=Viestit (99+)}}",
-	"echo-notification-message-text-only": "Viestit",
 	"echo-mark-all-as-read": "Merkiče kai luvettuloikse",
 	"echo-date-today": "Tänäpäi",
 	"echo-date-yesterday": "Egläi",
