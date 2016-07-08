@@ -178,9 +178,9 @@
 		// Events
 		this.markAllReadButton.connect( this, { click: 'onMarkAllReadButtonClick' } );
 		this.manager.connect( this, {
-			update: 'updateBadge',
-			seen: [ 'updateBadgeSeenState', false ]
+			update: 'updateBadge'
 		} );
+		this.manager.getSeenTimeModel().connect( this, { update: 'onSeenTimeModelUpdate' } );
 		this.manager.getUnreadCounter().connect( this, { countChange: 'updateBadge' } );
 		this.popup.connect( this, { toggle: 'onPopupToggle' } );
 		this.badgeButton.connect( this, {
@@ -273,11 +273,20 @@
 	};
 
 	/**
+	 * Respond to SeenTime model update event
+	 */
+	mw.echo.ui.NotificationBadgeWidget.prototype.onSeenTimeModelUpdate = function () {
+		this.updateBadgeSeenState( this.manager.hasUnseenInSource( 'local' ) );
+	};
+
+	/**
 	 * Update the badge style to match whether it contains unseen notifications.
 	 *
 	 * @param {boolean} hasUnseen There are unseen notifications
 	 */
 	mw.echo.ui.NotificationBadgeWidget.prototype.updateBadgeSeenState = function ( hasUnseen ) {
+		hasUnseen = hasUnseen === undefined ? this.manager.hasUnseenInSource( 'local' ) : !!hasUnseen;
+
 		this.badgeButton.setFlags( { unseen: !!hasUnseen } );
 		this.updateIcon( !!hasUnseen );
 	};
@@ -359,7 +368,6 @@
 				function () {
 					if ( widget.popup.isVisible() ) {
 						widget.popup.clip();
-
 						// Update seen time
 						return widget.controller.updateLocalSeenTime();
 					}

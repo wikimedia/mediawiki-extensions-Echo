@@ -177,6 +177,7 @@ $wgResourceModules += array(
 			'model/mw.echo.dm.SourcePagesModel.js',
 			'model/mw.echo.dm.PaginationModel.js',
 			'model/mw.echo.dm.FiltersModel.js',
+			'model/mw.echo.dm.SeenTimeModel.js',
 			'model/mw.echo.dm.ModelManager.js',
 			'model/mw.echo.dm.SortedList.js',
 			'model/mw.echo.dm.NotificationItem.js',

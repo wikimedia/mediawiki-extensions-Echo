@@ -184,7 +184,8 @@
 	 *  have been fetched.
 	 */
 	mw.echo.ui.NotificationsInboxWidget.prototype.populateNotifications = function ( direction ) {
-		var fetchPromise;
+		var fetchPromise,
+			widget = this;
 
 		if ( direction === 'prev' ) {
 			fetchPromise = this.controller.fetchPrevPageByDate();
@@ -196,8 +197,16 @@
 
 		this.pushPending();
 		return fetchPromise
-			// Pop pending
-			.always( this.popPending.bind( this ) );
+			.then(
+				// Success
+				function () {
+					widget.popPending();
+					// Update seen time
+					widget.controller.updateSeenTimeForCurrentSource();
+				},
+				// Failure
+				this.popPending.bind( this )
+			);
 	};
 
 	/**
