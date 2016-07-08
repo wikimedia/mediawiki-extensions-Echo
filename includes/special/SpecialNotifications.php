@@ -39,7 +39,7 @@ class SpecialNotifications extends SpecialPage {
 		// If there are no notifications, display a message saying so
 		if ( !$notifications ) {
 			$out->addWikiMsg( 'echo-none' );
-
+			$out->addModules( array( 'ext.echo.special' ) );
 			return;
 		}
 
