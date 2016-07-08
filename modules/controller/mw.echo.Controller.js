@@ -226,7 +226,7 @@
 		// between local notifications and x-wiki notifications
 		// until the backend gives us the x-wiki notifications as
 		// part of the original response.
-		return this.api.fetchNotifications( this.manager.getTypeString(), 'local', !!isForced )
+		return this.api.fetchNotifications( this.manager.getTypeString(), 'local', !!isForced, { unreadFirst: true } /* filters */ )
 			.then(
 				// Success
 				function ( data ) {

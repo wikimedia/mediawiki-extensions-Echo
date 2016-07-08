@@ -119,7 +119,6 @@
 				notsections: this.normalizedType[ type ],
 				notformat: 'model',
 				notlimit: this.limit,
-				notunreadfirst: 1,
 				notprop: 'list|count',
 				uselang: this.userLang
 			}, this.getTypeParams( type ) );

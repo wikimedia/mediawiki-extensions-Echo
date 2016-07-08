@@ -98,6 +98,8 @@
 	 *  defining the offset to fetch notifications
 	 * @param {string} [filterObject.readState] Notification read
 	 *  state, 'all', 'read' or 'unread'
+	 * @param {boolean} [filterObject.unreadFirst] Fetch unread notifications
+	 *  first in the sorting order.
 	 * @param {string|string[]} [filterObject.titles] Requested titles. To request notifications with no title,
 	 *  use null (standalone or as an array element).
 	 * @return {Object} API parameter definitions to override
@@ -112,6 +114,10 @@
 
 		if ( filterObject.continue ) {
 			overrideParams.notcontinue = filterObject.continue;
+		}
+
+		if ( filterObject.unreadFirst ) {
+			overrideParams.notunreadfirst = 1;
 		}
 
 		if ( filterObject.readState && filterObject.readState !== 'all' ) {
