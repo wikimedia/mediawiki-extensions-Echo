@@ -108,6 +108,7 @@
 	"echo-notification-more-options-tooltip": "Meer opties",
 	"notification-link-text-expand-all": "Uitvouwen",
 	"notification-link-text-expand-alert-count": "{{PLURAL:$1|$1 melding|$1 meldingen}} weergeven",
+	"notification-link-text-expand-notice-count": "Toon {{PLURAL:$1|$1 bericht|$1 berichten}}",
 	"notification-link-text-expand-all-count": "{{PLURAL:$1|$1 melding|$1 meldingen}} weergeven",
 	"notification-link-text-collapse-all": "Samenvouwen",
 	"notification-link-text-view-message": "Bericht bekijken",

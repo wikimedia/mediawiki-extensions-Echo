@@ -67,7 +67,7 @@
 	"echo-notification-popup-loginrequired": "Најавете се за да ги погледате вашите известувања.",
 	"echo-notification-markasread": "Означи како прочитано",
 	"notification-link-text-expand-all": "Отвори сè",
-	"notification-link-text-expand-alert-count": "Отвори {{PLURAL:$1|$1 непомена|$1 напомени}}",
+	"notification-link-text-expand-alert-count": "{{PLURAL:$1|$1 непомена|$1 напомени}}",
 	"notification-link-text-expand-all-count": "Отвори {{PLURAL:$1|$1 известување|$1 известувања}}",
 	"notification-link-text-collapse-all": "Собери ги сите",
 	"notification-link-text-view-message": "Погл. порака",
