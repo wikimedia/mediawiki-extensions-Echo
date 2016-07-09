@@ -160,9 +160,16 @@
 		if ( itemsInPage === 0 ) {
 			label = '';
 		} else if ( !this.model.hasPrevPage() && !this.model.hasNextPage() ) {
-			label = mw.msg( 'echo-specialpage-pagination-numnotifications', itemsInPage );
+			label = mw.msg(
+				'echo-specialpage-pagination-numnotifications',
+				mw.language.convertNumber( itemsInPage )
+			);
 		} else {
-			label = mw.msg( 'echo-specialpage-pagination-range', firstNotifNum + 1, lastNotifNum );
+			label = mw.msg(
+				'echo-specialpage-pagination-range',
+				mw.language.convertNumber( firstNotifNum + 1 ),
+				mw.language.convertNumber( lastNotifNum )
+			);
 		}
 
 		this.labelWidget.setLabel( label );

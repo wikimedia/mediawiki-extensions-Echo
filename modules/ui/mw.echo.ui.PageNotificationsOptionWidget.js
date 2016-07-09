@@ -25,7 +25,7 @@
 
 		this.unreadCountLabel = new OO.ui.LabelWidget( {
 			classes: [ 'mw-echo-ui-pageNotificationsOptionWidget-label-count' ],
-			label: String( this.count )
+			label: mw.language.convertNumber( this.count )
 		} );
 
 		// Initialization
