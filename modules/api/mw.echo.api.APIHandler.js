@@ -67,7 +67,8 @@
 	mw.echo.api.APIHandler.prototype.fetchUnreadNotificationPages = function ( sources ) {
 		var params = {
 				action: 'query',
-				meta: 'unreadnotificationpages'
+				meta: 'unreadnotificationpages',
+				uselang: this.userLang
 			};
 
 		if ( !sources || sources === '*' ) {
