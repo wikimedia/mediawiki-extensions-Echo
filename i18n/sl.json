@@ -46,7 +46,7 @@
 	"echo-error-no-formatter": "Za obvestilo ni določeno nobeno oblikovanje.",
 	"notifications": "Obvestila",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Vaša}} opozorila",
-	"tooltip-pt-notifications-message": "{{GENDER:|Vaša}} sporočila",
+	"tooltip-pt-notifications-message": "{{GENDER:|Vaša}} obvestila",
 	"echo-specialpage": "Obvestila",
 	"echo-anon": "Za prejemanje obvestil [$1 si ustvarite račun] ali [$2 se prijavite].",
 	"echo-none": "Nimate obvestil.",

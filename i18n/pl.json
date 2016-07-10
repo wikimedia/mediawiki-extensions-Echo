@@ -185,6 +185,7 @@
 	"echo-email-batch-link-text-view-all-notifications": "Zobacz wszystkie powiadomienia",
 	"echo-rev-deleted-text-view": "Ta wersja strony została ukryta",
 	"notification-header-foreign-alert": "Więcej powiadomień z {{PLURAL:$5|innej wiki|$5 innych wiki}}",
+	"notification-header-foreign-notice": "Więcej powiadomień z {{PLURAL:$5|innej wiki|$5 innych wiki}}",
 	"apihelp-echomarkread-description": "Oznacz powiadomienia jako przeczytane dla bieżącego użytkownika.",
 	"apihelp-echomarkread-param-sections": "Lista sekcji do oznaczania jako przeczytane.",
 	"apihelp-echomarkread-example-2": "Oznacz wszystkie powiadomienia jako przeczytane",

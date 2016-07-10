@@ -33,6 +33,7 @@
 	"echo-specialpage-pagefilters-subtitle": "صفحات جن کی اطلاعات نہیں پڑھی گئیں",
 	"echo-feedback": "آپ کی رائے",
 	"echo-notification-placeholder": "کوئی اطلاع موجود نہیں۔",
+	"notification-edit-talk-page2": "[[صارف:$1|$1]] نے آپ کے [[User talk:$2#$3|تبادلۂ خیال]] پر ایک پیغام {{GENDER:$1|دیا ہے}}۔",
 	"notification-header-mention-agent-talkpage": "$1  نے {{GENDER:$3|آپ}} کا {{GENDER:$2|تذکرہ}}  <strong>{{GENDER:$2|کے|کے|کے}} تبادلۂ خیال صفحہ</strong> پر \"<strong>$4</strong>\" میں کیا۔",
 	"notification-emailuser": "[[User:$1|$1]] نے آپ کو ایک برقی پیغام {{GENDER:$1|ارسال}} کیا ہے۔",
 	"notification-timestamp-today": "آج",

@@ -29,7 +29,8 @@
 			"Лилиә",
 			"Alexandr Efremov",
 			"Jack who built the house",
-			"Mailman"
+			"Mailman",
+			"Умар"
 		]
 	},
 	"echo-desc": "Система уведомления участников о событиях и сообщениях",
@@ -186,6 +187,7 @@
 	"echo-email-footer-default": "$2\n\nДля контроля за тем, какие сообщения отправляются вам по эл. почте, проверьте свои настройки:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
 	"echo-notification-alert": "{{PLURAL:$1|Оповещение ($1)|Оповещения ($1)|100=Оповещения (99+)}}",
 	"echo-notification-alert-text-only": "Оповещения",
+	"echo-notification-notice-text-only": "Сообщения",
 	"echo-overlay-link": "Все уведомления",
 	"echo-overlay-title": "<b>Уведомления</b>",
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Уведомления}}</b> ({{PLURAL:$1|показано|показаны}} $1 из $2 {{PLURAL:$2|непрочитанного|непрочитанных}})",

@@ -50,6 +50,7 @@
 	"echo-error-no-formatter": "Хааман формат билгалйина яц",
 	"notifications": "ДӀахаийтарш",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Хьан}} дӀахаийтарш",
+	"tooltip-pt-notifications-notice": "{{GENDER:|Хьан}} дӀахаийтарш",
 	"tooltip-pt-notifications-message": "{{GENDER:|Хьан}} хаамаш",
 	"echo-displaynotificationsconfiguration": "Гайта дӀахаийтаран нисдаран гӀирс",
 	"echo-displaynotificationsconfiguration-summary": "ХӀара хӀокху вики-сайтан тӀехь дӀахаийтаран нисдаран гӀирсашка хьажар ду.",
@@ -153,6 +154,7 @@
 	"echo-email-footer-default": "$2\n\nЭлектронан поште муьлха хаамаш богӀуш бу хьажа а уьш дӀанисбан а декъашхочун гӀирсе хьажа :\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
 	"echo-notification-alert": "{{PLURAL:$1|ДӀахьедар ($1)|100=ДӀахьедар (99+)}}",
 	"echo-notification-alert-text-only": "ДӀахаийтарш",
+	"echo-notification-notice-text-only": "Хаамаш",
 	"echo-overlay-link": "Массо хаамаш",
 	"echo-overlay-title": "<b>Хаамаш</b>",
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Хаам}}</b> ({{PLURAL:$1|гайтина}} $1 царах $2 {{PLURAL:$2|беша бац}})",
@@ -183,5 +185,6 @@
 	"apihelp-query+notifications-param-filter": "Юхадирзина дӀахаийтарш литта.",
 	"apihelp-query+notifications-paramvalue-format-text": "Йозанан формат",
 	"apihelp-query+notifications-paramvalue-format-model": "Кечъбанза дӀахаийтаран хаамаш",
-	"apihelp-query+notifications-example-1": "ДӀахаийтарийн могӀам"
+	"apihelp-query+notifications-example-1": "ДӀахаийтарийн могӀам",
+	"apihelp-query+unreadnotificationpages-param-limit": "Юхаялоран агӀонийн максимале дукхалла"
 }
