@@ -10,7 +10,8 @@
 			"ZaDiak",
 			"Auslaender",
 			"Giorgos456",
-			"Tsoukali"
+			"Tsoukali",
+			"Ανώνυμος Βικιπαιδιστής"
 		]
 	},
 	"echo-desc": "Σύστημα για την ενημέρωση των χρηστών σχετικά με τα γεγονότα και τα μηνύματα",
@@ -57,7 +58,8 @@
 	"echo-error-no-formatter": "Δεν έχει οριστεί μορφοποίηση για την ειδοποίηση",
 	"notifications": "Ειδοποιήσεις",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Δικές σας}} ειδοποιήσεις",
-	"tooltip-pt-notifications-message": "{{GENDER:|Τα δικά σας}} μηνύματα",
+	"tooltip-pt-notifications-notice": "{{GENDER:|Δικές σας}} ειδοποιήσεις",
+	"tooltip-pt-notifications-message": "{{GENDER:|Δικές σας}} ειδοποιήσεις",
 	"echo-displaynotificationsconfiguration": "Εμφάνιση Ειδοποιήσεων διαμόρφωσης",
 	"echo-displaynotificationsconfiguration-summary": "Αυτή είναι μια επισκόπηση του τρόπου με τον οποίο έχουν ρυθμιστεί οι Ειδοποιήσεις σε αυτό το wiki.",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "Ειδοοποιήσεις ανά κατηγορία",
@@ -86,6 +88,7 @@
 	"echo-notification-markasread-tooltip": "Σήμανση ως διαβασμένο",
 	"echo-notification-more-options-tooltip": "Περισσότερες επιλογές",
 	"notification-link-text-expand-all": "Προβολή όλων",
+	"notification-link-text-expand-notice-count": "Δείτε {{PLURAL:$1|$1 προειδοποίηση|$1 ανακοινώσεις}}",
 	"notification-link-text-view-message": "Προβολή μηνύματος",
 	"notification-link-text-view-mention": "Προβολή αναφοράς",
 	"notification-link-text-view-changes": "Προβολή αλλαγών",
@@ -121,9 +124,9 @@
 	"echo-email-batch-body-default": "Έχετε μια νέα ειδοποίηση.",
 	"echo-email-footer-default": "$2\n\nΓια να ελέγξετε ποια μηνύματα σας στέλνουμε, πηγαίνετε στις προτιμήσεις σας:\n\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
 	"echo-notification-alert": "{{PLURAL:$1|Ειδοποιήσεις ($1)|Ειδοποιήσεις ($1)|100=Ειδοποιήσεις (99+)}}",
-	"echo-notification-message": "{{PLURAL:$1|Μήνυμα ($1)|Μηνύματα ($1)|100=Μηνύματα (99+)}}",
+	"echo-notification-notice": "{{PLURAL:$1|Προειδοποίηση ($1)|Ανακοινώσεις ($1)|100=Ανακοινώσεις (99+)}}",
 	"echo-notification-alert-text-only": "Ειδοποιήσεις",
-	"echo-notification-message-text-only": "Μηνύματα",
+	"echo-notification-notice-text-only": "Ειδοποιήσεις",
 	"echo-overlay-link": "Όλες οι ειδοποιήσεις",
 	"echo-overlay-title": "<b>Ειδοποιήσεις</b>",
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Ειδοποιήσεις}}</b> (εμφανίζονται $1 από $2 μη αναγνωσμένες)",
@@ -138,5 +141,6 @@
 	"echo-email-batch-body-intro-daily": "Γεια $1,\nΕδώ είναι μια περίληψη της σημερινής δραστηριότητας στη {{SITENAME}} για εσάς.",
 	"echo-email-batch-body-intro-weekly": "Γεια $1,\nΕδώ είναι μια περίληψη της δραστηριότητας αυτής της εβδομάδας στη {{SITENAME}} για εσάς.",
 	"echo-email-batch-link-text-view-all-notifications": "Δείτε όλες τις ειδοποιήσεις",
-	"echo-rev-deleted-text-view": "Αυτή η αναθεώρηση σελίδας έχει καταργηθεί."
+	"echo-rev-deleted-text-view": "Αυτή η αναθεώρηση σελίδας έχει καταργηθεί.",
+	"notification-header-foreign-notice": "Περισσότερες ειδοποιήσεις από {{PLURAL:$5|another wiki|$5 ακόμα βίκις}}"
 }

@@ -68,6 +68,7 @@
 	"echo-error-no-formatter": "Er is geen opmaak ingesteld voor deze melding.",
 	"notifications": "Meldingen",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Uw}} meldingen",
+	"tooltip-pt-notifications-notice": "{{GENDER:|Uw}} berichten",
 	"tooltip-pt-notifications-message": "{{GENDER:|Uw}} berichten",
 	"echo-displaynotificationsconfiguration": "Toon meldingsconfiguratie",
 	"echo-displaynotificationsconfiguration-summary": "Dit overzicht geeft aan hoe meldingen zijn geconfigureerd op deze wiki.",

@@ -35,7 +35,7 @@
 	"echo-error-no-formatter": "بیلدیری اوچون بیر فورمت تعریفی یوخدور",
 	"notifications": "بیلدیریلر",
 	"tooltip-pt-notifications-alert": "سیزین {{GENDER:|بیلدیریشلرینیز}}",
-	"tooltip-pt-notifications-message": "سیزین {{GENDER:|مساژلارینیز}}",
+	"tooltip-pt-notifications-message": "سیزین {{GENDER:|بیلدیری‌لرینیز}}",
 	"echo-specialpage": "بیلدیری‌لر",
 	"echo-anon": "بیلدیریلری آلماق اوچون، [$1 بیر حساب یارادین] یادا [$2 گیریش ائدین].",
 	"echo-none": "سیزین بیلدیرینیز یوخدور.",

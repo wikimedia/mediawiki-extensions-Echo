@@ -36,6 +36,7 @@
 	"echo-no-title": "[هېڅ مخ]",
 	"notifications": "يادگيرنې",
 	"tooltip-pt-notifications-alert": "{{GENDER:|ستاسې}} خبرونې",
+	"tooltip-pt-notifications-notice": "{{GENDER:|ستاسې}} خبرونې",
 	"tooltip-pt-notifications-message": "{{GENDER:|ستاسې}} خبرونې",
 	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "نوي کارنان",
 	"echo-specialpage": "يادگيرنې",
