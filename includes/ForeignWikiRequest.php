@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\Logger\LoggerFactory;
+use MediaWiki\Session\SessionManager;
 
 class EchoForeignWikiRequest {
 
@@ -22,7 +23,7 @@ class EchoForeignWikiRequest {
 	 * @return array [ wiki => result ]
 	 */
 	public function execute() {
-		if ( !$this->isUserGlobal() ) {
+		if ( !$this->canUseCentralAuthl() ) {
 			return array();
 		}
 
@@ -36,8 +37,12 @@ class EchoForeignWikiRequest {
 		return $id;
 	}
 
-	protected function isUserGlobal() {
-		return $this->getCentralId( $this->user ) !== 0;
+	protected function canUseCentralAuthl() {
+		global $wgFullyInitialised;
+
+		return $wgFullyInitialised &&
+			SessionManager::getGlobalSession()->getProvider() instanceof CentralAuthSessionProvider &&
+			$this->getCentralId( $this->user ) !== 0;
 	}
 
 	/**
