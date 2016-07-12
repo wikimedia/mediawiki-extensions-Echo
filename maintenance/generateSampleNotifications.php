@@ -239,11 +239,10 @@ class GenerateSampleNotifications extends Maintenance {
 		$this->addToPageContent( $moai2, $user, "\nadding a line here\n" );
 		$this->addToPageContent( $moai2, $user, "\nadding a line here\n" );
 		$details = array();
-		$token = $agent->getEditToken( array( $moai2->getPrefixedText(), $user->getName() ), null );
+		$token = $agent->getEditToken( 'rollback', null );
 		$errors = $page->doRollback( $user->getName(), 'generating reverted notification', $token, false, $details, $agent );
 		if ( $errors ) {
-			$errorAsString = serialize( $errors );
-			$this->error( $errorAsString );
+			$this->error( serialize( $errors ) );
 		}
 	}
 
