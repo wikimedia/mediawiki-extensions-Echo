@@ -51,7 +51,7 @@ class EchoForeignWikiRequest {
 	 * @param User $user
 	 * @return string|null
 	 */
-	public function getCentralAuthToken( User $user ) {
+	protected function getCentralAuthToken( User $user ) {
 		$context = new RequestContext;
 		$context->setRequest( new FauxRequest( array( 'action' => 'centralauthtoken' ) ) );
 		$context->setUser( $user );
