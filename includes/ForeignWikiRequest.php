@@ -22,8 +22,18 @@ class EchoForeignWikiRequest {
 	 * @return array [ wiki => result ]
 	 */
 	public function execute() {
+		if ( !$this->isUserGlobal() ) {
+			return array();
+		}
+
 		$reqs = $this->getRequestParams();
 		return $this->doRequests( $reqs );
+	}
+
+	protected function isUserGlobal() {
+		$lookup = CentralIdLookup::factory();
+		$id = $lookup->centralIdFromLocalUser( $this->user, CentralIdLookup::AUDIENCE_RAW );
+		return $id !== 0;
 	}
 
 	/**
