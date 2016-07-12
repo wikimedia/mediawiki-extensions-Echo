@@ -30,25 +30,49 @@ class EchoForeignWikiRequest {
 		return $this->doRequests( $reqs );
 	}
 
-	protected function isUserGlobal() {
+	protected function getCentralId( $user ) {
 		$lookup = CentralIdLookup::factory();
-		$id = $lookup->centralIdFromLocalUser( $this->user, CentralIdLookup::AUDIENCE_RAW );
-		return $id !== 0;
+		$id = $lookup->centralIdFromLocalUser( $user, CentralIdLookup::AUDIENCE_RAW );
+		return $id;
+	}
+
+	protected function isUserGlobal() {
+		return $this->getCentralId( $this->user ) !== 0;
 	}
 
 	/**
+	 * Returns CentralAuth token, or null on failure.
+	 *
 	 * @param User $user
-	 * @return string
+	 * @return string|null
 	 */
-	protected function getCentralAuthToken( User $user ) {
+	public function getCentralAuthToken( User $user ) {
 		$context = new RequestContext;
 		$context->setRequest( new FauxRequest( array( 'action' => 'centralauthtoken' ) ) );
 		$context->setUser( $user );
 
 		$api = new ApiMain( $context );
-		$api->execute();
 
-		return $api->getResult()->getResultData( array( 'centralauthtoken', 'centralauthtoken' ) );
+		try {
+			$api->execute();
+
+			return $api->getResult()->getResultData( array( 'centralauthtoken', 'centralauthtoken' ) );
+		} catch ( Exception $ex ) {
+			LoggerFactory::getInstance( 'Echo' )->debug(
+				'Exception when fetching CentralAuth token: wiki: {wiki}, userName: {userName}, userId: {userId}, centralId: {centralId}, exception: {exception}',
+				array(
+					'wiki' => wfWikiID(),
+					'userName' => $user->getName(),
+					'userId' => $user->getId(),
+					'centralId' => $this->getCentralId( $user ),
+					'exception' => $ex,
+				)
+			);
+
+			MWExceptionHandler::logException( $ex );
+
+			return null;
+		}
 	}
 
 	/**
