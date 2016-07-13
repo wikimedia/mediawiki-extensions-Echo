@@ -58,6 +58,7 @@
 	"tooltip-pt-notifications-notice": "{{GENDER:|Vaša}} obavještenja",
 	"tooltip-pt-notifications-message": "{{GENDER:|Vaša}} obavještenja",
 	"echo-specialpage": "Obavještenja",
+	"echo-specialpage-section-markread": "Označi grupu kao pročitanu",
 	"echo-specialpage-markasread": "Obavještenje: Označi kao pročitano",
 	"echo-specialpage-pagefilters-title": "Nedavna aktivnost",
 	"echo-specialpage-pagefilters-subtitle": "Stranice s nepročitanim obavještenjima",
