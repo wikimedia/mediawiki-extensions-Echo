@@ -82,7 +82,7 @@
 		this.actionsButtonSelectWidget.addItems( [ this.toggleExpandButton ] );
 
 		// Events
-		this.model.connect( this, { removeSource: 'onModelRemoveSource' } );
+		this.model.connect( this, { discard: 'onModelDiscard' } );
 		this.toggleExpandButton.connect( this, { click: 'expand' } );
 		this.$content.on( 'click', this.expand.bind( this ) );
 
@@ -120,11 +120,11 @@
 	/**
 	 * Respond to model removing source group
 	 *
-	 * @param {string} source Symbolic name of the source group
+	 * @param {string} groupName Symbolic name of the group
 	 */
-	mw.echo.ui.CrossWikiNotificationItemWidget.prototype.onModelRemoveSource = function ( source ) {
+	mw.echo.ui.CrossWikiNotificationItemWidget.prototype.onModelDiscard = function ( groupName ) {
 		var list = this.getList(),
-			group = list.getItemFromId( source );
+			group = list.getItemFromId( groupName );
 
 		list.removeItems( [ group ] );
 

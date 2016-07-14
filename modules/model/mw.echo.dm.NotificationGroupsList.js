@@ -30,32 +30,40 @@
 			}
 
 			// Fallback on Source
-			return b.getSource() - a.getSource();
+			return b.getName() - a.getName();
 		} );
 
 		this.foreign = !!config.foreign;
 		this.groups = {};
 
-		this.aggregate( { remove: 'groupRemoveItem' } );
-		this.connect( this, { groupRemoveItem: 'onGroupRemoveItem' } );
+		this.aggregate( { discard: 'groupDiscardItem' } );
+		this.connect( this, { groupDiscardItem: 'onGroupDiscardItem' } );
 	};
 
 	/* Initialization */
 	OO.inheritClass( mw.echo.dm.NotificationGroupsList, mw.echo.dm.SortedList );
 
+	/* Events */
+
+	/**
+	 * @event discard
+	 *
+	 * A group was permanently removed
+	 */
+
 	/* Methods */
 
 	/**
-	 * Handle a remove event from any list.
-	 * This means that one of the sources has removed an item.
+	 * Handle a discard event from any list.
+	 * This means that one of the sources has discarded an item.
 	 *
 	 * @param {mw.echo.dm.NotificationsList} groupList List source model for the item
 	 */
-	mw.echo.dm.NotificationGroupsList.prototype.onGroupRemoveItem = function ( groupList ) {
+	mw.echo.dm.NotificationGroupsList.prototype.onGroupDiscardItem = function ( groupList ) {
 		// Check if the list has anything at all
 		if ( groupList.isEmpty() ) {
 			// Remove it
-			this.removeItems( [ groupList ] );
+			this.removeGroup( groupList.getName() );
 		}
 	};
 
@@ -108,7 +116,7 @@
 	 * @param {mw.echo.dm.NotificationItem[]} groupItems Items to add to this group
 	 */
 	mw.echo.dm.NotificationGroupsList.prototype.addItemsToGroup = function ( groupSource, groupItems ) {
-		var group = this.getGroupBySource( groupSource );
+		var group = this.getGroupByName( groupSource );
 
 		if ( group ) {
 			group.addItems( groupItems );
@@ -118,28 +126,36 @@
 	 * Remove a group from the list. This is an easier to use alias
 	 * to 'removeItems()' method.
 	 *
-	 * @param {string} groupSource Group source name
+	 * Since this is an intentional action, we fire 'discard' event.
+	 * The main reason for this is that the event 'remove' is a general
+	 * event that is fired both when a user intends on removing an
+	 * item and also when an item is temporarily removed to be re-added
+	 * for the sake of sorting. To avoid ambiguity, we use 'discard' event.
+	 *
+	 * @param {string} groupName Group name
+	 * @fires discard
 	 */
-	mw.echo.dm.NotificationGroupsList.prototype.removeGroup = function ( groupSource ) {
-		var group = this.getGroupBySource( groupSource );
+	mw.echo.dm.NotificationGroupsList.prototype.removeGroup = function ( groupName ) {
+		var group = this.getGroupByName( groupName );
 
 		if ( group ) {
 			this.removeItems( group );
+			this.emit( 'discard', group );
 		}
 	};
 
 	/**
 	 * Get a group by its source identifier.
 	 *
-	 * @param {string} groupSource Group source
+	 * @param {string} groupName Group name
 	 * @return {mw.echo.dm.NotificationsList|null} Requested group, null if none was found.
 	 */
-	mw.echo.dm.NotificationGroupsList.prototype.getGroupBySource = function ( groupSource ) {
+	mw.echo.dm.NotificationGroupsList.prototype.getGroupByName = function ( groupName ) {
 		var i,
 			items = this.getItems();
 
 		for ( i = 0; i < items.length; i++ ) {
-			if ( items[ i ].getSource() === groupSource ) {
+			if ( items[ i ].getName() === groupName ) {
 				return items[ i ];
 			}
 		}

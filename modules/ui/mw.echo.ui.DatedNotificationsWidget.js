@@ -42,7 +42,7 @@
 		// Events
 		this.manager.connect( this, {
 			update: 'populateFromModel',
-			removeSource: 'onModelRemoveSource'
+			discard: 'onManagerDiscardModel'
 		} );
 
 		this.$element
@@ -57,6 +57,16 @@
 	OO.inheritClass( mw.echo.ui.DatedNotificationsWidget, OO.ui.Widget );
 	OO.mixinClass( mw.echo.ui.DatedNotificationsWidget, OO.ui.mixin.PendingElement );
 
+	mw.echo.ui.DatedNotificationsWidget.prototype.onManagerDiscardModel = function ( modelId ) {
+		var group,
+			model = this.models[ modelId ],
+			list = this.getList();
+
+		if ( model ) {
+			group = list.getItemFromId( model.getName() );
+			list.removeItems( [ group ] );
+		}
+	};
 	/**
 	 * Respond to model removing source group
 	 *
@@ -94,6 +104,8 @@
 					$overlay: this.$overlay
 				}
 			);
+			this.attachModel( model, models[ model ] );
+
 			subgroupWidget.resetItemsFromModel();
 			groupWidgets.push( subgroupWidget );
 		}

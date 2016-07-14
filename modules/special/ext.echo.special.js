@@ -8,13 +8,13 @@
 			$content = $( '#mw-content-text' ),
 			echoApi = new mw.echo.api.EchoApi( { limit: limitNotifications, bundle: false } ),
 			unreadCounter = new mw.echo.dm.UnreadNotificationCounter( echoApi, [ 'message', 'alert' ], limitNotifications ),
-			modelManager = new mw.echo.dm.ModelManager( unreadCounter, { type: [ 'message', 'alert' ] } ),
+			modelManager = new mw.echo.dm.ModelManager( unreadCounter, {
+				type: [ 'message', 'alert' ],
+				itemsPerPage: limitNotifications
+			} ),
 			controller = new mw.echo.Controller(
 				echoApi,
-				modelManager,
-				{
-					type: [ 'message' ]
-				}
+				modelManager
 			),
 			specialPageContainer = new mw.echo.ui.NotificationsInboxWidget(
 				controller,

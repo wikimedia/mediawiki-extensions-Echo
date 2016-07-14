@@ -152,8 +152,7 @@
 	 */
 	mw.echo.ui.PaginationWidget.prototype.updateLabel = function () {
 		var label,
-			itemsInPage = this.model.hasNextPage() ?
-				this.itemsPerPage : this.model.getLastPageItemCount(),
+			itemsInPage = this.model.getCurrentPageItemCount(),
 			firstNotifNum = this.model.getCurrPageIndex() * this.itemsPerPage,
 			lastNotifNum = firstNotifNum + itemsInPage;
 

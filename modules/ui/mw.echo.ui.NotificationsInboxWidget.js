@@ -70,7 +70,9 @@
 		// Events
 		this.readStateSelectWidget.connect( this, { filter: 'onReadStateFilter' } );
 		this.xwikiUnreadWidget.connect( this, { filter: 'onSourcePageFilter' } );
+		this.manager.connect( this, { modelItemUpdate: 'onManagerModelItemUpdate' } );
 		this.manager.getFiltersModel().connect( this, { update: 'updateReadStateSelectWidget' } );
+		this.manager.getPaginationModel().connect( this, { update: 'onPaginationModelUpdate' } );
 		this.topPaginationWidget.connect( this, { change: 'populateNotifications' } );
 		this.bottomPaginationWidget.connect( this, { change: 'populateNotifications' } );
 
@@ -152,6 +154,22 @@
 		this.readStateSelectWidget
 			.getItemFromData( this.manager.getFiltersModel().getReadState() )
 			.setSelected( true );
+	};
+
+	/**
+	 * Respond to pagination model update event
+	 */
+	mw.echo.ui.NotificationsInboxWidget.prototype.onPaginationModelUpdate = function () {
+		this.resetMessageLabel();
+	};
+
+	/**
+	 * Respond to a change in model item
+	 */
+	mw.echo.ui.NotificationsInboxWidget.prototype.onManagerModelItemUpdate = function () {
+		// Update the pagination label
+		this.topPaginationWidget.updateLabel();
+		this.bottomPaginationWidget.updateLabel();
 	};
 
 	/**
@@ -239,7 +257,7 @@
 	 */
 	mw.echo.ui.NotificationsInboxWidget.prototype.resetMessageLabel = function () {
 		var label,
-			count = this.manager.getAllNotificationCount();
+			count = this.manager.getPaginationModel().getCurrentPageItemCount();
 
 		if ( count === 0 ) {
 			label = this.manager.getFiltersModel().getReadState() === 'all' ?

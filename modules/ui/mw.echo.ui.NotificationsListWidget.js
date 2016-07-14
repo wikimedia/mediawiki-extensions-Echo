@@ -59,7 +59,7 @@
 
 		this.manager.connect( this, {
 			update: 'resetDataFromModel',
-			remove: 'onModelManagerRemove'
+			discard: 'onModelManagerDiscard'
 		} );
 
 		this.$element
@@ -72,7 +72,7 @@
 
 	/* Methods */
 
-	mw.echo.ui.NotificationsListWidget.prototype.onModelManagerRemove = function ( modelName ) {
+	mw.echo.ui.NotificationsListWidget.prototype.onModelManagerDiscard = function ( modelName ) {
 		var i,
 			items = this.getItems();
 

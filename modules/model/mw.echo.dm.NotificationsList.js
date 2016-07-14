@@ -79,6 +79,13 @@
 	 * An item in the list has been updated
 	 */
 
+	/**
+	 * @event discard
+	 * @param {mw.echo.dm.NotificationItem} item Item that was discarded
+	 *
+	 * An item was discarded
+	 */
+
 	/* Methods */
 
 	/**
