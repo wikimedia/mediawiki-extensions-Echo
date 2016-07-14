@@ -143,7 +143,7 @@
 			head: true,
 			// The following messages can be used here:
 			// echo-notification-alert-text-only
-			// echo-notification-message-text-only
+			// echo-notification-notice-text-only
 			label: mw.msg(
 				'echo-notification-' +
 				(
