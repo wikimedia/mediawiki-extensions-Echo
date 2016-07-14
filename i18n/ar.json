@@ -83,6 +83,7 @@
 	"echo-api-failure": "تعذّر إظهار الإشعارات. فضلًا حاول مرة أخرى. (خطأ $1)",
 	"echo-api-failure-cross-wiki": "رُفض الوصول إلى النطاق البعيد.",
 	"echo-notification-placeholder": "لا توجد أية إخطارات.",
+	"echo-notification-placeholder-filters": "لا إشعارات تنطبق عليها الخيارات المحددة.",
 	"echo-notification-loginrequired": "يجب عليك تسجيل الدخول للاطلاع على إشعاراتك.",
 	"echo-notification-popup-loginrequired": "من فضلك سجل الدخول لعرض إشعاراتك.",
 	"echo-notification-markasread": "علّم كمقروءة",
