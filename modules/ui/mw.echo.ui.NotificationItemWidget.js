@@ -234,6 +234,9 @@
 		// Remove the animation class
 		this.$element.removeClass( 'mw-echo-ui-notificationItemWidget-initiallyUnseen' );
 		this.markRead( !this.model.isRead() );
+		// Prevent propogation in case there's a link wrapping the content
+		// and the mark as read/unread button
+		return false;
 	};
 
 	/**
