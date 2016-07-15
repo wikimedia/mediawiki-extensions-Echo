@@ -13,7 +13,7 @@
 	"echo-new-messages": "Peyamên nû ji te re hene",
 	"echo-category-title-user-rights": "{{PLURAL:$1|Guherandina mafên bikarhêran|Guherandinan mafên bikarhêneran}}",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Agahdariyên}} te",
-	"tooltip-pt-notifications-message": "Peyamên {{GENDER:|te}}",
+	"tooltip-pt-notifications-message": "Agahdariyên {{GENDER:|te}}",
 	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Bikarhênerên hene",
 	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Bikarhênerên nû",
 	"echo-notification-placeholder": "Agahdariyên te tine nin.",
@@ -30,8 +30,6 @@
 	"notification-timestamp-yesterday": "Doh",
 	"notification-inbox-filter-read": "Bixwîne",
 	"notification-inbox-filter-all": "Hemû",
-	"echo-notification-message": "{{PLURAL:$1|Peyamek|$1 Peyam|100=99+ Peyam}}",
-	"echo-notification-message-text-only": "Peyam",
 	"echo-mark-all-as-read": "Hemûkan wek xwendî nîşan bide",
 	"echo-date-today": "Îro",
 	"echo-date-yesterday": "Doh"
