@@ -127,6 +127,7 @@
 	"notification-body-edit-user-talk-with-section": "$1",
 	"notification-page-linked": "На [[:$2]] {{GENDER:$1|сослались}} из [[:$3]]. [[Special:WhatLinksHere/$2|См. все ссылки на эту страницу]].",
 	"notification-header-page-linked": "Была сделана ссылка с <strong>$4</strong> на <strong>$3</strong>.",
+	"notification-compact-header-page-linked": "Связано с $1",
 	"notification-bundle-header-page-linked": "Были сделаны ссылки с {{PLURAL:$5||$5 страниц|100=99+ других страниц}} на <strong>$3</strong>.",
 	"notification-link-text-what-links-here": "Все ссылки на эту страницу",
 	"notification-add-comment2": "[[User:$1|$1]] {{GENDER:$1|прокомментировал|прокомментировала}} тему \"[[$3|$2]]\" на странице обсуждения \"$4\".",
