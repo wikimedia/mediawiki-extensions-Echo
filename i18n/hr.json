@@ -46,6 +46,7 @@
 	"echo-no-title": "[Nema stranice]",
 	"notifications": "Obavijesti",
 	"tooltip-pt-notifications-alert": "Vaše obavijesti",
+	"tooltip-pt-notifications-notice": "{{GENDER:|Vaše}} obavijesti",
 	"tooltip-pt-notifications-message": "Vaše poruke",
 	"echo-specialpage": "Obavijesti",
 	"echo-specialpage-section-markread": "Označi grupu kao pročitanu",
@@ -119,7 +120,9 @@
 	"echo-email-batch-body-default": "Imate novu poruku.",
 	"echo-email-footer-default": "$2\n\nUkoliko želite prilagoditi primanje e-pošte, prilagodite svoje postavke:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
 	"echo-notification-alert": "{{PLURAL:$1|Imate jednu obavijest|Imate $1 obavijesti|100=Imate više od 100 obavijesti}}",
+	"echo-notification-notice": "{{PLURAL:$1|Imate jednu obavijest|Imate $1 obavijesti|100=Imate više od 100 obavijesti}}",
 	"echo-notification-alert-text-only": "Obavijesti",
+	"echo-notification-notice-text-only": "Obavijesti",
 	"echo-overlay-link": "Sve obavijesti",
 	"echo-overlay-title": "<b>Obavijesti</b>",
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Obavijesti}}</b> (prikazano $1 od $2 {{PLURAL:$1|nepročitana|nepročitane|nepročitanih}})",
@@ -134,5 +137,7 @@
 	"echo-email-batch-subject-weekly": "Ovog tjedna imate {{PLURAL:$2|obavijest|obavijesti}} na projektu {{SITENAME}}",
 	"echo-email-batch-link-text-view-all-notifications": "Prikaži sve obavijesti",
 	"notification-header-foreign-alert": "Više obavijesti na {{PLURAL:$5|drugom wikiju|$5 druga wikija|$5 drugih wikija}}",
+	"notification-header-foreign-notice": "Više obavijesti na {{PLURAL:$5|drugom wikiju|$5 druga wikija|$5 drugih wikija}}",
+	"notification-header-foreign-all": "Više obavijesti na {{PLURAL:$5|drugom wikiju|$5 druga wikija|$5 drugih wikija}}",
 	"apihelp-query+notifications-example-1": "Popis obavijest"
 }
