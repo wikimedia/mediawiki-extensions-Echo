@@ -38,9 +38,11 @@ class EchoForeignWikiRequest {
 	}
 
 	protected function canUseCentralAuthl() {
-		global $wgFullyInitialised;
+		global $wgFullyInitialised, $wgUser;
 
 		return $wgFullyInitialised &&
+			$wgUser->isSafeToLoad() &&
+			$this->user->isSafeToLoad() &&
 			SessionManager::getGlobalSession()->getProvider() instanceof CentralAuthSessionProvider &&
 			$this->getCentralId( $this->user ) !== 0;
 	}
