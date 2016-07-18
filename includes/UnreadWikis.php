@@ -93,11 +93,13 @@ class EchoUnreadWikis {
 	}
 
 	/**
-	 * @param string $wiki
-	 * @param int $alertCount
-	 * @param MWTimestamp|bool $alertTime
-	 * @param int $msgCount
-	 * @param MWTimestamp|bool $msgTime
+	 * @param string $wiki Wiki code
+	 * @param int $alertCount Number of alerts
+	 * @param MWTimestamp|bool $alertTime Timestamp of most recent unread alert, or
+	 *   false meaning no timestamp because there are no unread alerts.
+	 * @param int $msgCount Number of messages
+	 * @param MWTimestamp|bool $msgTime Timestamp of most recent message, or
+	 *   false meaning no timestamp because there are no unread messages.
 	 */
 	public function updateCount( $wiki, $alertCount, $alertTime, $msgCount, $msgTime ) {
 		$dbw = $this->getDB( DB_MASTER );

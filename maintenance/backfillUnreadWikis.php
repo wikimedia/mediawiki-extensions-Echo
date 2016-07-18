@@ -49,6 +49,14 @@ class BackfillUnreadWikis extends Maintenance {
 					$msgCount = $notifUser->getNotificationCount( true, DB_SLAVE, EchoAttributeManager::MESSAGE, false );
 					$msgUnread = $notifUser->getLastUnreadNotificationTime( true, DB_SLAVE, EchoAttributeManager::MESSAGE, false );
 
+					if ( ( $alertCount !== 0 && $alertUnread === false ) || ( $msgCount !== 0 && $msgUnread === false ) ) {
+						// If there are alerts, there should be an alert timestamp (same for messages).
+
+						// Otherwise, there is a race condition between the two values, indicating there's already
+						// just been an updateCount call, so we can skip this user.
+						continue;
+					}
+
 					$uw->updateCount( wfWikiID(), $alertCount, $alertUnread, $msgCount, $msgUnread );
 				}
 			}
