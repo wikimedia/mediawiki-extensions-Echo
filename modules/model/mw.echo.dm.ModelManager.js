@@ -32,11 +32,12 @@
 		OO.EventEmitter.call( this );
 
 		this.counter = counter;
-
 		// Keep types in an array
 		this.types = config.type || 'message';
 		this.types = Array.isArray( this.types ) ?
 			config.type : [ this.types ];
+
+		this.seenTimeModel = new mw.echo.dm.SeenTimeModel( { types: this.types } );
 
 		this.notificationModels = {};
 		this.paginationModel = new mw.echo.dm.PaginationModel();
@@ -44,8 +45,8 @@
 			selectedSource: 'local'
 		} );
 
-		// Properties
-		this.seenTime = mw.config.get( 'wgEchoSeenTime' ) || {};
+		// Events
+		this.seenTimeModel.connect( this, { update: 'onSeenTimeUpdate' } );
 	};
 
 	OO.initClass( mw.echo.dm.ModelManager );
@@ -69,6 +70,8 @@
 
 	/**
 	 * @event seen
+	 * @param {string} source Source where seenTime was updated
+	 * @param {number} timestamp The new seen timestamp
 	 *
 	 * All local notifications are seen
 	 */
@@ -80,6 +83,20 @@
 	 */
 
 	/* Methods */
+
+	/**
+	 * Respond to seen time change for a given source
+	 *
+	 * @param {string} source Source where seen time has changed
+	 */
+	mw.echo.dm.ModelManager.prototype.onSeenTimeUpdate = function ( source, timestamp ) {
+		var notifs = this.getNotificationsBySource( source );
+		notifs.forEach( function ( notification ) {
+			notification.toggleSeen( notification.isRead() || notification.getTimestamp() < timestamp );
+		} );
+
+		this.emit( 'seen', source, timestamp );
+	};
 
 	/**
 	 * Get the notifications
@@ -250,6 +267,27 @@
 	};
 
 	/**
+	 * Check if a model has any unseen notifications.
+	 *
+	 * @param {string} [source='local'] Model source
+	 * @return {boolean} The given models has unseen notifications.
+	 */
+	mw.echo.dm.ModelManager.prototype.hasUnseenInSource = function ( source ) {
+		var i, modelNames;
+
+		source = source || 'local';
+		modelNames = this.getModelsBySource( source );
+
+		for ( i = 0; i < modelNames.length; i++ ) {
+			if ( this.getNotificationModel( modelNames[ i ] ).hasUnseen() ) {
+				return true;
+			}
+		}
+
+		return false;
+	};
+
+	/**
 	 * Check if there are unseen notifications in any of the models
 	 *
 	 * @return {boolean} Local model has unseen notifications.
@@ -268,51 +306,13 @@
 	};
 
 	/**
-	 * Update the local version of seenTime object.
-	 *
-	 * @private
-	 * @param {string|string[]} type Type of notifications; could be a single type
-	 *  or an array of types.
-	 * @param {string} time Seen time
-	 */
-	mw.echo.dm.ModelManager.prototype.updateSeenTimeObject = function ( type, time ) {
-		var i,
-			types = Array.isArray( type ) ? type : [ type ];
-
-		for ( i = 0; i < types.length; i++ ) {
-			if ( this.seenTime.hasOwnProperty( types[ i ] ) ) {
-				this.seenTime[ types[ i ] ] = time;
-			}
-		}
-	};
-
-	/**
-	 * Set items in the local model as seen
-	 *
-	 * @private
-	 */
-	mw.echo.dm.ModelManager.prototype.setLocalModelItemsSeen = function () {
-		this.getLocalNotifications().forEach( function ( item ) {
-			item.toggleSeen( true );
-		} );
-
-		this.emit( 'seen' );
-	};
-
-	/**
 	 * Get the system seen time
 	 *
-	 * @param {string|string[]} [type] Notification types
+	 * @param {string} [source='local'] Seen time source
 	 * @return {string} Mediawiki seen timestamp in Mediawiki timestamp format
 	 */
-	mw.echo.dm.ModelManager.prototype.getSeenTime = function ( type ) {
-		var types = type || this.getTypes();
-		types = Array.isArray( types ) ? types : [ types ];
-
-		// If the type that is set is an array [ 'alert', 'message' ]
-		// then the seen time will be the same to both, and we can
-		// return the value of the arbitrary first one.
-		return this.seenTime[ types[ 0 ] ];
+	mw.echo.dm.ModelManager.prototype.getSeenTime = function ( source ) {
+		return this.getSeenTimeModel().getSeenTime( source );
 	};
 
 	/**
@@ -343,15 +343,57 @@
 	 * @return {mw.echo.dm.NotificationItem[]} all local notifications
 	 */
 	mw.echo.dm.ModelManager.prototype.getLocalNotifications = function () {
+		return this.getNotificationsBySource( 'local' );
+	};
+
+	/**
+	 * Get all notifications that come from a given source
+	 *
+	 * @return {mw.echo.dm.NotificationItem[]} all notifications from that source
+	 */
+	mw.echo.dm.ModelManager.prototype.getNotificationsBySource = function ( source ) {
 		var notifications = [],
 			manager = this;
+
+		source = source || 'local';
+
 		Object.keys( this.getAllNotificationModels() ).forEach( function ( modelName ) {
 			var model = manager.getNotificationModel( modelName );
-			if ( !model.isForeign() ) {
+			if ( model.getSource() === source ) {
 				notifications = notifications.concat( model.getItems() );
 			}
 		} );
 		return notifications;
+	};
+
+	/**
+	 * Get all models that have a specific source
+	 *
+	 * @param {string} [source='local'] Given source
+	 * @return {string[]} All model IDs that use this source
+	 */
+	mw.echo.dm.ModelManager.prototype.getModelsBySource = function ( source ) {
+		var modelIds = [],
+			manager = this;
+
+		source = source || 'local';
+
+		Object.keys( this.getAllNotificationModels() ).forEach( function ( modelName ) {
+			var model = manager.getNotificationModel( modelName );
+			if ( model.getSource() === source ) {
+				modelIds.push( modelName );
+			}
+		} );
+		return modelIds;
+	};
+
+	/**
+	 * Get the SeenTime model
+	 *
+	 * @return {mw.echo.dm.SeenTimeModel} SeenTime model
+	 */
+	mw.echo.dm.ModelManager.prototype.getSeenTimeModel = function () {
+		return this.seenTimeModel;
 	};
 
 } )( mediaWiki, jQuery );

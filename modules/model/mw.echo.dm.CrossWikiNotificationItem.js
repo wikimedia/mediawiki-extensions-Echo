@@ -18,6 +18,7 @@
 		mw.echo.dm.CrossWikiNotificationItem.parent.call( this, id, config );
 
 		this.foreign = true;
+		this.source = null;
 		this.count = config.count || 0;
 
 		this.list = new mw.echo.dm.NotificationGroupsList();

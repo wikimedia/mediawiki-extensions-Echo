@@ -40,9 +40,11 @@
 	 * @inheritdoc
 	 */
 	mw.echo.api.LocalAPIHandler.prototype.updateSeenTime = function ( type ) {
+		type = Array.isArray( type ) ? type : [ type ];
+
 		return this.api.postWithToken( 'csrf', {
 			action: 'echomarkseen',
-			type: this.normalizedType[ type ]
+			type: type.length === 1 ? type[ 0 ] : 'all'
 		} )
 			.then( function ( data ) {
 				return data.query.echomarkseen.timestamp;

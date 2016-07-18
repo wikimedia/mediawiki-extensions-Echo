@@ -575,33 +575,41 @@
 	};
 
 	/**
-	 * Update local seenTime for the given types
+	 * Update seenTime for the given source
+	 *
+	 * @return {jQuery.Promise} A promise that is resolved when the
+	 *  seenTime was updated for all given types.
+	 */
+	mw.echo.Controller.prototype.updateSeenTime = function ( source ) {
+		var controller = this;
+
+		return this.api.updateSeenTime( this.getTypes(), source )
+			.then( function ( time ) {
+				controller.manager.getSeenTimeModel().setSeenTimeForSource( source, time );
+			} );
+	};
+
+	/**
+	 * Update local seen time
 	 *
 	 * @return {jQuery.Promise} A promise that is resolved when the
 	 *  seenTime was updated for all given types.
 	 */
 	mw.echo.Controller.prototype.updateLocalSeenTime = function () {
-		var controller = this,
-			promises = [],
-			types = this.manager.getTypes();
-
-		types.forEach( function ( type ) {
-			promises.push( controller.api.updateSeenTime( 'local', type ) );
-		} );
-
-		return mw.echo.api.NetworkHandler.static.waitForAllPromises( promises )
-			.then( function ( promises ) {
-				var i;
-				// Update the seen time object
-				// The promises are in the same order as the types
-				// so we can use the same iterator for both
-				for ( i = 0; i < promises.length; i++ ) {
-					promises[ i ].done( controller.manager.updateSeenTimeObject.bind( controller.manager, types[ i ] ) );
-				}
-			} )
-			.then( controller.manager.setLocalModelItemsSeen.bind( controller.manager ) );
+		return this.updateSeenTime( 'local' );
 	};
 
+	/**
+	 * Update seenTime for the currently selected source
+	 *
+	 * @return {jQuery.Promise} A promise that is resolved when the
+	 *  seenTime was updated for all given types.
+	 */
+	mw.echo.Controller.prototype.updateSeenTimeForCurrentSource = function () {
+		var currSource = this.manager.getFiltersModel().getSourcePagesModel().getCurrentSource();
+
+		return this.updateSeenTime( currSource );
+	};
 	/**
 	 * Get the types associated with the controller and model
 	 *

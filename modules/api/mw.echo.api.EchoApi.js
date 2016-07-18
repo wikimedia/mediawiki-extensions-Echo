@@ -274,11 +274,13 @@
 	/**
 	 * Update the seenTime property for the given type and source.
 	 *
-	 * @param {string} source Notification source
-	 * @param {string} type Notification type
+	 * @param {string} [type='alert,message'] Notification type
+	 * @param {string} [source='local'] Notification source
 	 * @return {jQuery.Promise} A promise that is resolved when the operation is complete.
 	 */
-	mw.echo.api.EchoApi.prototype.updateSeenTime = function ( source, type ) {
+	mw.echo.api.EchoApi.prototype.updateSeenTime = function ( type, source ) {
+		source = source || 'local';
+		type = type || [ 'alert', 'message' ];
 		return this.network.getApiHandler( source ).updateSeenTime( type );
 	};
 
