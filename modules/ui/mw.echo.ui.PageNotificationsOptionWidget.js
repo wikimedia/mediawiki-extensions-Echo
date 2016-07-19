@@ -5,6 +5,7 @@
 	 * @class
 	 * @extends OO.ui.OptionWidget
 	 * @mixins OO.ui.mixin.IconElement
+	 * @mixins OO.ui.mixin.TitledElement
 	 *
 	 * @constructor
 	 * @param {Object} [config] Configuration object
@@ -17,6 +18,7 @@
 		mw.echo.ui.PageNotificationsOptionWidget.parent.call( this, config );
 		// Mixin constructors
 		OO.ui.mixin.IconElement.call( this, config );
+		OO.ui.mixin.TitledElement.call( this, config );
 
 		this.count = config.unreadCount || 0;
 
@@ -54,6 +56,7 @@
 
 	OO.inheritClass( mw.echo.ui.PageNotificationsOptionWidget, OO.ui.OptionWidget );
 	OO.mixinClass( mw.echo.ui.PageNotificationsOptionWidget, OO.ui.mixin.IconElement );
+	OO.mixinClass( mw.echo.ui.PageNotificationsOptionWidget, OO.ui.mixin.TitledElement );
 
 	/**
 	 * Set the page count

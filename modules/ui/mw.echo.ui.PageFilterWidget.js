@@ -33,6 +33,7 @@
 		// Title option
 		this.title = new mw.echo.ui.PageNotificationsOptionWidget( {
 			label: config.title,
+			title: config.title,
 			unreadCount: this.totalCount,
 			data: null,
 			classes: [ 'mw-echo-ui-pageFilterWidget-title' ]
@@ -78,6 +79,7 @@
 		for ( i = 0; i < sourcePages.length; i++ ) {
 			widget = new mw.echo.ui.PageNotificationsOptionWidget( {
 				label: sourcePages[ i ].title,
+				title: sourcePages[ i ].title,
 				// TODO: Pages that are a user page should
 				// have a user icon
 				icon: 'article',
