@@ -23,7 +23,7 @@ class EchoForeignWikiRequest {
 	 * @return array [ wiki => result ]
 	 */
 	public function execute() {
-		if ( !$this->canUseCentralAuthl() ) {
+		if ( !$this->canUseCentralAuth() ) {
 			return array();
 		}
 
@@ -37,7 +37,7 @@ class EchoForeignWikiRequest {
 		return $id;
 	}
 
-	protected function canUseCentralAuthl() {
+	protected function canUseCentralAuth() {
 		global $wgFullyInitialised, $wgUser;
 
 		return $wgFullyInitialised &&
