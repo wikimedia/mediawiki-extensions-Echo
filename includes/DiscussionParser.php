@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 abstract class EchoDiscussionParser {
 	const HEADER_REGEX = '^(==+)\s*([^=].*)\s*\1$';
 
@@ -151,7 +153,7 @@ abstract class EchoDiscussionParser {
 		}
 		$mentionedUsers = array();
 		$count = 0;
-		$stats = RequestContext::getMain()->getStats();
+		$stats = MediaWikiServices::getInstance()->getStatsdDataFactory();
 
 		foreach ( $links[NS_USER] as $dbk => $page_id ) {
 			$user = User::newFromName( $dbk );
