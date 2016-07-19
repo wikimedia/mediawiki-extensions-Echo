@@ -243,18 +243,18 @@ class MWEchoNotifUser {
 	}
 
 	/**
-	 * Get the unread timestamp of the latest alert
+	 * Get the timestamp of the latest unread alert
 	 *
 	 * @param boolean $cached Set to false to bypass the cache. (Optional. Defaults to true)
 	 * @param int $dbSource Use master or slave database to pull count (Optional. Defaults to DB_SLAVE)
-	 * @return bool|MWTimestamp
+	 * @return bool|MWTimestamp Timestamp of latest unread alert, or false if there are no unread alerts.
 	 */
 	public function getLastUnreadAlertTime( $cached = true, $dbSource = DB_SLAVE ) {
 		return $this->getLastUnreadNotificationTime( $cached, $dbSource, EchoAttributeManager::ALERT );
 	}
 
 	/**
-	 * Get the unread timestamp of the latest message
+	 * Get the timestamp of the latest unread message
 	 *
 	 * @param boolean $cached Set to false to bypass the cache. (Optional. Defaults to true)
 	 * @param int $dbSource Use master or slave database to pull count (Optional. Defaults to DB_SLAVE)
@@ -273,7 +273,7 @@ class MWEchoNotifUser {
 	 * @param int $dbSource Use master or slave database to pull count (Optional. Defaults to DB_SLAVE)
 	 * @param string $section Notification section
 	 * @param bool|string $global Whether to include foreign notifications. If set to 'preference', uses the user's preference.
-	 * @return bool|MWTimestamp Timestamp of last notification, or false if there is none
+	 * @return bool|MWTimestamp Timestamp of latest unread message, or false if there are no unread messages.
 	 */
 	public function getLastUnreadNotificationTime( $cached = true, $dbSource = DB_SLAVE, $section = EchoAttributeManager::ALL, $global = 'preference' ) {
 		if ( $this->mUser->isAnon() ) {
