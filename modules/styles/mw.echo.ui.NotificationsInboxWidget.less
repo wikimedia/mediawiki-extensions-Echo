@@ -1,7 +1,6 @@
 @import '../echo.variables';
 .mw-echo-ui-notificationsInboxWidget {
 	width: @specialpage-width;
-
 	&-row {
 		display: table-row;
 		width: 100%;
@@ -19,6 +18,11 @@
 		width: @specialpage-sidebar-width;
 		padding-right: 1em;
 		vertical-align: top;
+
+		@media all and ( max-width: @specialpage-mobile-width-medium ) {
+			// Hide the sidebar for small screens
+			display: none;
+		}
 	}
 
 	&-main {
@@ -42,4 +46,31 @@
 		}
 	}
 
+	@media all and ( max-width: @specialpage-mobile-width-medium ) {
+		// Make narrow
+		width: @specialpage-mobile-width-small;
+
+		// Override table-layout for the top toolbar so we get
+		// filters and pagination under one another
+		&-main {
+			&-toolbar {
+				&-top {
+					display: block;
+					margin-bottom: 1em;
+
+					.mw-echo-ui-notificationsInboxWidget-row {
+						display: block;
+						text-align: center;
+					}
+				}
+				&-readState {
+					display: inline-block;
+				}
+				&-pagination {
+					display: inline-block;
+					margin-top: 1em;
+				}
+			}
+		}
+	}
 }
