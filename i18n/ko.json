@@ -100,6 +100,7 @@
 	"notification-header-edit-user-talk-with-section": "$1님이 <strong>{{GENDER:$3|당신의}} 토론 문서</strong>의 \"<strong>$4</strong>\" 문단에 글을 {{GENDER:$2|남겼습니다}}.",
 	"notification-page-linked": "[[:$2]] 문서가 [[:$3]]에 {{GENDER:$1|링크되었습니다}}. [[Special:WhatLinksHere/$2|이 문서를 가리키는 모든 링크를 봅니다]].",
 	"notification-header-page-linked": "<strong>$4</strong>에서 <strong>$3</strong>으로 연결되는 링크가 생성되었습니다.",
+	"notification-compact-header-page-linked": "<strong>$1</strong>에서 연결되었습니다.",
 	"notification-bundle-header-page-linked": "$3 문서가 <strong>$4</strong> 외 {{PLURAL:$5|1개 문서|$5 개의 문서|100=99개 이상의 문서}}에서 링크되었습니다.",
 	"notification-link-text-what-links-here": "이 문서로 향하는 모든 링크",
 	"notification-add-comment2": "[[User:$1|$1]]님이 \"$4\" 토론 문서의 \"[[$3|$2]]\" 문단에 {{GENDER:$1|댓글을 남겼습니다}}.",
