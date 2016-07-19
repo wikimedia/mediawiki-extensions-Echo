@@ -10,6 +10,7 @@ function main() {
 	$dirs = array(
 		'includes',
 		'tests',
+		'maintenance',
 	);
 	foreach ( $dirs as $dir ) {
 		$generator->readDir( $base . '/' . $dir );

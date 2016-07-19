@@ -5,6 +5,7 @@
  * only the most generic formatting functionality as it may be extended by
  * notification formatters for other extensions with unique content or
  * requirements.
+ * @deprecated
  */
 abstract class EchoNotificationFormatter {
 
@@ -43,6 +44,7 @@ abstract class EchoNotificationFormatter {
 	 * @throws MWException
 	 */
 	public function __construct( array $parameters ) {
+		wfDeprecated( __CLASS__, '1.28', 'Echo' );
 		$this->parameters = $parameters;
 	}
 

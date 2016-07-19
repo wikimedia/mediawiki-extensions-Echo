@@ -392,8 +392,10 @@ class EchoNotificationController {
 	 * @param string $type The type of notification being distributed (e.g. email, web)
 	 * @return string|array The formatted notification, or an array of subject
 	 *     and body (for emails), or an error message
+	 * @deprecated
 	 */
 	public static function formatNotification( EchoEvent $event, User $user, $format = 'text', $type = 'web' ) {
+		wfDeprecated( 'EchoNotificationController::formatNotification', '1.28', 'Echo' );
 		$eventType = $event->getType();
 
 		$res = '';
