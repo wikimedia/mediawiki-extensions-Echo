@@ -340,15 +340,16 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 					$countsByWiki[$wiki] = 0;
 				}
 				if ( $notifs ) {
-					$timestampsByWiki[$wiki] = max( array_map( function ( $n ) {
+					$timestamps = array_filter( array_map( function ( $n ) {
 						return $n['timestamp']['mw'];
 					}, $notifs ) );
+					$timestampsByWiki[$wiki] = $timestamps ? max( $timestamps ) : 0;
 				}
 			}
 
 			$wikis = array_keys( $timestampsByWiki );
 			$count = array_sum( $countsByWiki );
-			$maxTimestamp = new MWTimestamp( max( $timestampsByWiki ) );
+			$maxTimestamp = new MWTimestamp( $timestampsByWiki ? max( $timestampsByWiki ) : 0 );
 			$timestampsByWiki = array_map( function ( $ts ) {
 				return new MWTimestamp( $ts );
 			}, $timestampsByWiki );
