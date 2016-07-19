@@ -53,8 +53,12 @@
 		// Content
 		$message.append(
 			$( '<div>' )
-				.addClass( 'mw-echo-ui-notificationItemWidget-content-message-header' )
-				.append( this.model.getContentHeader() )
+				.addClass( 'mw-echo-ui-notificationItemWidget-content-message-header-wrapper' )
+				.append(
+					$( '<div>' )
+						.addClass( 'mw-echo-ui-notificationItemWidget-content-message-header' )
+						.append( this.model.getContentHeader() )
+				)
 		);
 		if ( !this.bundle && this.model.getContentBody() ) {
 			$message.append(

@@ -137,7 +137,12 @@
 
 					&-header {
 						.mw-echo-ui-mixin-one-line-truncated;
-						width: @bundled-notification-header-width;
+						width: 100%;
+						position: absolute;
+
+						&-wrapper {
+							position: relative;
+						}
 					}
 				}
 
