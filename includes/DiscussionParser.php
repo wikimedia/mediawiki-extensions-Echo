@@ -17,8 +17,6 @@ abstract class EchoDiscussionParser {
 	 * @return null
 	 */
 	static function generateEventsForRevision( Revision $revision ) {
-		$interpretation = self::getChangeInterpretationForRevision( $revision );
-
 		// use slave database if there is a previous revision
 		if ( $revision->getPrevious() ) {
 			$title = Title::newFromID( $revision->getPage() );
@@ -31,6 +29,8 @@ abstract class EchoDiscussionParser {
 		if ( !$title ) {
 			return;
 		}
+
+		$interpretation = self::getChangeInterpretationForRevision( $revision );
 
 		$userID = $revision->getUser();
 		$userName = $revision->getUserText();
@@ -402,14 +402,12 @@ abstract class EchoDiscussionParser {
 		}
 
 		// And then forwards...
-
-		$continue = true;
 		$i = $offset - 1;
-		while ( $continue && $i < count( $lines ) - 1 ) {
+		while ( $i < count( $lines ) - 1 ) {
 			++$i;
 			$line = $lines[$i];
 			if ( preg_match( $headerRegex, $line ) ) {
-				$continue = false;
+				break;
 			} else {
 				$content .= "\n$line";
 			}
