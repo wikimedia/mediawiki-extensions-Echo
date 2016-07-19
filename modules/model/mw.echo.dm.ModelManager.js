@@ -24,6 +24,7 @@
 	 * @param {Object} [config] Configuration object
 	 * @cfg {string|string[]} [type="message"] The type of the notifications in
 	 *  the models that this manager handles.
+	 * @cfg {number} [itemsPerPage=25] Number of items per page
 	 */
 	mw.echo.dm.ModelManager = function MwEchoDmModelManager( counter, config ) {
 		config = config || {};
@@ -40,7 +41,9 @@
 		this.seenTimeModel = new mw.echo.dm.SeenTimeModel( { types: this.types } );
 
 		this.notificationModels = {};
-		this.paginationModel = new mw.echo.dm.PaginationModel();
+		this.paginationModel = new mw.echo.dm.PaginationModel( {
+			itemsPerPage: config.itemsPerPage || 25
+		} );
 		this.filtersModel = new mw.echo.dm.FiltersModel( {
 			selectedSource: 'local'
 		} );
@@ -62,10 +65,10 @@
 	 */
 
 	/**
-	 * @event remove
-	 * @param {string} Removed model
+	 * @event discard
+	 * @param {string} modelId Discard model id
 	 *
-	 * A model has been removed
+	 * A model has been permanently removed
 	 */
 
 	/**
@@ -82,6 +85,14 @@
 	 * There are no more local talk page notifications
 	 */
 
+	/**
+	 * @event modelItemUpdate
+	 * @param {string} modelId Model ID
+	 * @param {mw.echo.dm.NotificationItem} item Updated item
+	 *
+	 * A specific item inside a notifications model has been updated
+	 */
+
 	/* Methods */
 
 	/**
@@ -96,6 +107,20 @@
 		} );
 
 		this.emit( 'seen', source, timestamp );
+	};
+
+	/**
+	 * Respond to a notification model discarding items.
+	 *
+	 * @param {string} modelId Model name
+	 */
+	mw.echo.dm.ModelManager.prototype.onModelDiscardItems = function ( modelId ) {
+		var model = this.getNotificationModel( modelId );
+
+		// If the model is empty, remove it
+		if ( model.isEmpty() ) {
+			this.removeNotificationModel( modelId );
+		}
 	};
 
 	/**
@@ -118,21 +143,39 @@
 	 * }
 	 */
 	mw.echo.dm.ModelManager.prototype.setNotificationModels = function ( modelDefinitions ) {
-		var modelId,
-			localModel;
+		var modelId;
 
 		this.resetNotificationModels();
 
 		for ( modelId in modelDefinitions ) {
 			this.notificationModels[ modelId ] = modelDefinitions[ modelId ];
+			this.notificationModels[ modelId ].connect( this, {
+				discard: [ 'onModelDiscardItems', modelId ],
+				itemUpdate: [ 'onModelItemUpdate', modelId ]
+			} );
 		}
 
-		localModel = this.getNotificationModel( 'local' );
-		if ( localModel ) {
-			localModel.connect( this, { itemUpdate: 'checkLocalUnreadTalk' } );
-		}
+		// Update pagination count
+		this.updateCurrentPageItemCount();
 
 		this.emit( 'update', this.getAllNotificationModels() );
+	};
+
+	mw.echo.dm.ModelManager.prototype.onModelItemUpdate = function ( modelId, item ) {
+		var model = this.getNotificationModel( modelId );
+
+		if ( model.getSource() === 'local' ) {
+			this.checkLocalUnreadTalk();
+		}
+
+		this.emit( 'modelItemUpdate', modelId, item );
+	};
+
+	/**
+	 * Update the current page item count based on available items
+	 */
+	mw.echo.dm.ModelManager.prototype.updateCurrentPageItemCount = function () {
+		this.getPaginationModel().setCurrentPageItemCount( this.getAllNotificationCount() );
 	};
 
 	/**
@@ -188,7 +231,8 @@
 	 */
 	mw.echo.dm.ModelManager.prototype.removeNotificationModel = function ( modelName ) {
 		delete this.notificationModels[ modelName ];
-		this.emit( 'remove', modelName );
+
+		this.emit( 'discard', modelName );
 	};
 
 	/**

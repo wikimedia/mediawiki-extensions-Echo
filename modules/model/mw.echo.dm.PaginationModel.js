@@ -8,9 +8,10 @@
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 * @cfg {string} [pageNext] The continue value of the next page
-	 * @cfg {number} [lastPageItemCount] The number of items that are in the
-	 *  last page.
 	 * @cfg {number} [itemsPerPage] The number of items per page
+	 * @cfg {number} [currentPageItemCount] The number of items that are in the
+	 *  current page. If not given, the initial count defaults to the total number
+	 *  of items per page.
 	 */
 	mw.echo.dm.PaginationModel = function MwEchoDmPaginationModel( config ) {
 		config = config || {};
@@ -19,8 +20,8 @@
 		OO.EventEmitter.call( this );
 
 		this.pagesContinue = [];
-		this.lastPageItemCount = this.lastPageItemCount || 0;
 		this.itemsPerPage = this.itemsPerPage || 25;
+		this.currentPageItemCount = config.currentPageItemCount || this.itemsPerPage;
 
 		// Set initial page
 		this.currPageIndex = 0;
@@ -55,7 +56,7 @@
 	mw.echo.dm.PaginationModel.prototype.reset = function () {
 		this.pagesContinue = [];
 		this.currPageIndex = 0;
-		this.lastPageItemCount = 0;
+		this.currentPageItemCount = this.itemsPerPage;
 
 		this.emit( 'update' );
 	};
@@ -180,21 +181,25 @@
 	};
 
 	/**
-	 * Set the number of items in the last page
+	 * Set the number of items in the current page
 	 *
 	 * @param {number} count Number of items
+	 * @fires update
 	 */
-	mw.echo.dm.PaginationModel.prototype.setLastPageItemCount = function ( count ) {
-		this.lastPageItemCount = count;
+	mw.echo.dm.PaginationModel.prototype.setCurrentPageItemCount = function ( count ) {
+		if ( this.currentPageItemCount !== count ) {
+			this.currentPageItemCount = count;
+			this.emit( 'update' );
+		}
 	};
 
 	/**
-	 * Get the number of items in the last page
+	 * Get the number of items in the current page
 	 *
 	 * @return {number} Number of items
 	 */
-	mw.echo.dm.PaginationModel.prototype.getLastPageItemCount = function () {
-		return this.lastPageItemCount;
+	mw.echo.dm.PaginationModel.prototype.getCurrentPageItemCount = function () {
+		return this.currentPageItemCount;
 	};
 
 	/**

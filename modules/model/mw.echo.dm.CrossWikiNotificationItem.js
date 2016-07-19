@@ -23,7 +23,7 @@
 
 		this.list = new mw.echo.dm.NotificationGroupsList();
 
-		this.list.connect( this, { remove: 'onListRemove' } );
+		this.list.connect( this, { discard: 'onListDiscard' } );
 	};
 
 	OO.inheritClass( mw.echo.dm.CrossWikiNotificationItem, mw.echo.dm.NotificationItem );
@@ -31,10 +31,10 @@
 	/* Events */
 
 	/**
-	 * @event removeSource
-	 * @param {string} name The symbolic name for the source that was removed
+	 * @event discard
+	 * @param {string} name The symbolic name for the list model that was discarded
 	 *
-	 * Source list has been removed
+	 * A sub list has been discarded
 	 */
 
 	/* Methods */
@@ -43,11 +43,10 @@
 	 * Respond to list being removed from the cross-wiki bundle.
 	 *
 	 * @param {mw.echo.dm.NotificationGroupsList} sourceModel The source model that was removed
-	 * @fires removeSource
+	 * @fires discard
 	 */
-	mw.echo.dm.CrossWikiNotificationItem.prototype.onListRemove = function ( sourceModel ) {
-		this.emit( 'removeSource', sourceModel.getName() );
-
+	mw.echo.dm.CrossWikiNotificationItem.prototype.onListDiscard = function ( sourceModel ) {
+		this.emit( 'discard', sourceModel.getName() );
 	};
 
 	/**
@@ -83,7 +82,7 @@
 	 * @return {mw.echo.dm.NotificationGroupsList} Source item
 	 */
 	mw.echo.dm.CrossWikiNotificationItem.prototype.getItemBySource = function ( sourceName ) {
-		return this.list.getGroupBySource( sourceName );
+		return this.list.getGroupByName( sourceName );
 	};
 
 	/**
@@ -127,6 +126,10 @@
 	 */
 	mw.echo.dm.CrossWikiNotificationItem.prototype.isGroup = function () {
 		return true;
+	};
+
+	mw.echo.dm.CrossWikiNotificationItem.prototype.isEmpty = function () {
+		return this.getList().isEmpty();
 	};
 
 } )( mediaWiki );

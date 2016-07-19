@@ -134,7 +134,7 @@
 			}
 		)
 			.then( function ( data ) {
-				var i, notifData, newNotifData, date, itemModel, symbolicName, count,
+				var i, notifData, newNotifData, date, itemModel, symbolicName,
 					dateItemIds = {},
 					dateItems = {},
 					models = {};
@@ -189,12 +189,6 @@
 				controller.manager.setNotificationModels( models );
 
 				// Update the pagination
-				count = controller.manager.getAllNotificationCount();
-				if ( count < pagination.getItemsPerPage() ) {
-					pagination.setLastPageItemCount(
-						controller.manager.getAllNotificationCount()
-					);
-				}
 				pagination.setNextPageContinue( data.continue );
 
 				return dateItemIds;
@@ -466,7 +460,9 @@
 	 *  for the set type of this controller, in the given source.
 	 */
 	mw.echo.Controller.prototype.markItemsRead = function ( itemIds, modelName, isRead ) {
-		var model = this.manager.getNotificationModel( modelName ),
+		var items,
+			model = this.manager.getNotificationModel( modelName ),
+			readState = this.manager.getFiltersModel().getReadState(),
 			allIds = [];
 
 		itemIds = Array.isArray( itemIds ) ? itemIds : [ itemIds ];
@@ -474,10 +470,32 @@
 		// Default to true
 		isRead = isRead === undefined ? true : isRead;
 
-		model.findByIds( itemIds ).forEach( function ( notification ) {
+		items = model.findByIds( itemIds );
+
+		// If we are only looking at specific read state,
+		// then we need to make sure the items are removed
+		// from the visible list, because they no longer
+		// correspond with the chosen state filter
+		if ( readState === 'read' && !isRead ) {
+			model.discardItems( items );
+		} else if ( readState === 'unread' && isRead ) {
+			model.discardItems( items );
+			// TODO: We should also find a way to update the pagination
+			// here properly. Do we pull more items from the next page
+			// when items are cleared? Do we set some threshhold for
+			// removed items where if it is reached, we update the list
+			// to reflect the new pagination? etc.
+		}
+
+		items.forEach( function ( notification ) {
 			allIds = allIds.concat( notification.getAllIds() );
-			notification.toggleRead( isRead );
+			if ( readState === 'all' ) {
+				notification.toggleRead( isRead );
+			}
 		} );
+
+		// Update pagination count
+		this.manager.updateCurrentPageItemCount();
 
 		this.manager.getUnreadCounter().estimateChange( isRead ? -allIds.length : allIds.length );
 
@@ -505,7 +523,7 @@
 
 		itemIds = Array.isArray( itemIds ) ? itemIds : [ itemIds ];
 
-		sourceModel = xwikiModel.getList().getGroupBySource( source );
+		sourceModel = xwikiModel.getList().getGroupByName( source );
 		notifs = sourceModel.findByIds( itemIds );
 		sourceModel.discardItems( notifs );
 
