@@ -131,6 +131,13 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 			);
 		}
 
+		if ( in_array( 'seenTime', $prop ) ) {
+			$result = array_merge_recursive(
+				$result,
+				$this->getPropSeenTime( $user, $params['sections'], $params['groupbysection'] )
+			);
+		}
+
 		return $result;
 	}
 
@@ -297,6 +304,31 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 		}
 		$result['rawcount'] = $totalRawCount;
 		$result['count'] = EchoNotificationController::formatNotificationCount( $totalRawCount );
+
+		return $result;
+	}
+
+	/**
+	 * Internal helper method for getting property 'seenTime' data
+	 * @param User $user
+	 * @param string[] $sections
+	 * @param boolean $groupBySection
+	 * @return array
+	 */
+	protected function getPropSeenTime( User $user, array $sections, $groupBySection ) {
+		$result = array();
+		$seenTimeHelper = EchoSeenTime::newFromUser( $user );
+
+		if ( $groupBySection ) {
+			foreach ( $sections as $section ) {
+				$result[$section]['seenTime'] = $seenTimeHelper->getTime( $section, /*flags*/ 0, TS_ISO_8601 );
+			}
+		} else {
+			$result['seenTime'] = array();
+			foreach ( $sections as $section ) {
+				$result['seenTime'][$section] = $seenTimeHelper->getTime( $section, /*flags*/ 0, TS_ISO_8601 );
+			}
+		}
 
 		return $result;
 	}
@@ -529,6 +561,7 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 				ApiBase::PARAM_TYPE => array(
 					'list',
 					'count',
+					'seenTime',
 				),
 				ApiBase::PARAM_DFLT => 'list',
 			),

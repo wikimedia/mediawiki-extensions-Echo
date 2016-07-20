@@ -39,10 +39,12 @@ class EchoSeenTime {
 	}
 
 	/**
+	 * @param string $type Type of seen time to get
 	 * @param int $flags BagOStuff::READ_LATEST to use the master
-	 * @return string|bool false if no stored time
+	 * @param int $format Format to return time in, defaults to TS_MW
+	 * @return string|bool Timestamp in specified format, or false if no stored time
 	 */
-	public function getTime( $type = 'all', $flags = 0 ) {
+	public function getTime( $type = 'all', $flags = 0, $format = TS_MW ) {
 		$vals = array();
 		if ( $type === 'all' ) {
 			foreach ( self::$allowedTypes as $allowed ) {
@@ -62,7 +64,13 @@ class EchoSeenTime {
 			}
 		}
 
-		return $data;
+		if ( $data !== false ) {
+			$formattedData = wfTimestamp( $format, $data );
+		} else {
+			$formattedData = $data;
+		}
+
+		return $formattedData;
 	}
 
 	public function setTime( $time, $type = 'all' ) {
