@@ -159,15 +159,12 @@ class EchoDataOutputFormatter {
 	 * @return string|bool false if it could not be formatted
 	 */
 	protected static function formatNotification( EchoEvent $event, User $user, $format, $lang ) {
-		if ( isset( self::$formatters[$format] )
-			&& EchoEventPresentationModel::supportsPresentationModel( $event->getType() )
-		) {
+		if ( isset( self::$formatters[$format] ) ) {
 			/** @var EchoEventFormatter $formatter */
 			$formatter = new self::$formatters[$format]( $user, $lang );
 			return $formatter->format( $event );
 		} else {
-			// Legacy b/c
-			return EchoNotificationController::formatNotification( $event, $user, $format );
+			return false;
 		}
 	}
 

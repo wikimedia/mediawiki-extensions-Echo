@@ -1,4 +1,5 @@
 <?php
+use MediaWiki\Logger\LoggerFactory;
 
 /**
  * Abstract class that each "formatter" should implement.
@@ -41,6 +42,16 @@ abstract class EchoEventFormatter {
 		// Deleted events should have been filtered out before getting there.
 		// This is just to be sure.
 		if ( $event->isDeleted() ) {
+			return false;
+		}
+
+		if ( !EchoEventPresentationModel::supportsPresentationModel( $event->getType() ) ) {
+			LoggerFactory::getInstance( 'Echo' )->warning(
+				"Ignoring event type \"{type}\" since it does not support Echo presentation model.",
+				array(
+					'type' => $event->getType(),
+				)
+			);
 			return false;
 		}
 

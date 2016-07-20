@@ -105,7 +105,7 @@ class SpecialNotificationsFormatter extends EchoEventFormatter {
 	}
 
 	private function getIconURL( EchoEventPresentationModel $model ) {
-		return EchoNotificationFormatter::getIconUrl(
+		return EchoIcon::getUrl(
 				$model->getIconType(),
 				$this->language->getDir()
 		);

@@ -1,7 +1,5 @@
 <?php
 
-use MediaWiki\Logger\LoggerFactory;
-
 /**
  * This class represents the controller for notifications
  */
@@ -381,55 +379,6 @@ class EchoNotificationController {
 		}
 
 		return $notify->getIterator();
-	}
-
-	/**
-	 * Formats a notification
-	 *
-	 * @param EchoEvent $event The event for a notification.
-	 * @param User $user The user to format the notification for.
-	 * @param string $format The format to show the notification in: text, html, or email
-	 * @param string $type The type of notification being distributed (e.g. email, web)
-	 * @return string|array The formatted notification, or an array of subject
-	 *     and body (for emails), or an error message
-	 * @deprecated
-	 */
-	public static function formatNotification( EchoEvent $event, User $user, $format = 'text', $type = 'web' ) {
-		wfDeprecated( 'EchoNotificationController::formatNotification', '1.28', 'Echo' );
-		$eventType = $event->getType();
-
-		$res = '';
-		try {
-			$formatter = EchoNotificationFormatter::factory( $eventType );
-			$formatter->setOutputFormat( $format );
-		} catch ( InvalidArgumentException $e ) {
-			self::failFormatting( $event, $user );
-
-			return '';
-		}
-		set_error_handler( array( __CLASS__, 'formatterErrorHandler' ), -1 );
-		try {
-			$res = $formatter->format( $event, $user, $type );
-		} catch ( Exception $e ) {
-			$context = array(
-				'id' => $event->getId(),
-				'eventType' => $eventType,
-				'format' => $format,
-				'type' => $type,
-				'user' => $user ? $user->getName() : 'no user',
-				'exceptionName' => get_class( $e ),
-				'exceptionMessage' => $e->getMessage(),
-			);
-			LoggerFactory::getInstance( 'Echo' )->error( 'Error formatting notification', $context );
-			MWExceptionHandler::logException( $e );
-		}
-		restore_error_handler();
-
-		if ( $res === '' ) {
-			self::failFormatting( $event, $user );
-		}
-
-		return $res;
 	}
 
 	/**
