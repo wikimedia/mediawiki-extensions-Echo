@@ -15,8 +15,8 @@ Feature: Testing notification types
   Scenario: Someone writes on my talk page
     Given another user writes on my talk page
     When I refresh the page
-    Then the message badge is showing unseen notifications
-    And the message badge value is "1"
-    When I click the message badge
-    And I see the message popup
-    Then there are "1" unread notifications in the message popup
+    Then the alert badge is showing unseen notifications
+    And the alert badge value is "1"
+    When I click the alert badge
+    And I see the alert popup
+    Then there are "1" unread notifications in the alert popup

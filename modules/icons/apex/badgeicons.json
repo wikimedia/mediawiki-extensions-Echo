@@ -4,17 +4,8 @@
 		"bell": {
 			"file": "../bell.svg"
 		},
-		"bellOn": {
-			"file": {
-				"ltr": "../bellOn-ltr.svg",
-				"rtl": "../bellOn-rtl.svg"
-			}
-		},
-		"speechBubbles": {
-			"file": {
-				"ltr": "../speechBubbles-ltr.svg",
-				"rtl": "../speechBubbles-rtl.svg"
-			}
+		"tray": {
+			"file": "../tray.svg"
 		}
 	}
 }

@@ -45,9 +45,6 @@ $wgResourceModules += array(
 			'modern' => array(
 				'styles/mw.echo.ui.NotificationBadgeWidget.modern.less'
 			),
-			'vector' => array(
-				'styles/mw.echo.ui.NotificationBadgeWidget.vector.less'
-			),
 		),
 		'dependencies' => array(
 			'ext.echo.ui',
@@ -261,6 +258,9 @@ $wgResourceModules += array(
 			),
 			'vector' => array(
 				'nojs/mw.echo.badge.vector.less',
+			),
+			'modern' => array(
+				'nojs/mw.echo.badge.modern.less',
 			),
 		),
 		'targets' => array( 'desktop', 'mobile' ),

@@ -3,28 +3,21 @@
 
 /* We have to include the #pt-notifications selector due to monobook */
 .mw-echo-notifications-badge {
-	#pt-notifications-alert &,
-	#pt-notifications-notice & {
-		color: @badge-text-color-idle;
-		opacity: 0.6;
-
-		&:hover,
-		&:active,
-		&:focus {
-			background-color: transparent;
-		}
-
-		&-dimmed {
-			opacity: 0.2;
-		}
-	}
-
+	&.oo-ui-flaggedElement-unseen,
 	&.mw-echo-unseen-notifications {
-		#pt-notifications-alert & {
-			background-color: @badge-background-unseen-alert;
+		#pt-notifications-alert &:after {
+			background-color: @badge-counter-background-unseen-alert;
+			color: #000;
 		}
-		#pt-notifications-notice & {
-			background-color: @badge-background-unseen-message;
+
+		#pt-notifications-notice &:after {
+			background-color: @badge-counter-background-unseen-message;
+			color: #000;
 		}
 	}
+}
+
+#p-personal #pt-notifications-alert,
+#p-personal #pt-notifications-notice {
+	display: inline-block;
 }

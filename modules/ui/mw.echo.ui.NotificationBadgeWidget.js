@@ -12,17 +12,12 @@
 	 * @cfg {string|string[]} [type='message'] The type or array of types of
 	 *  notifications that are in this model. They can be 'alert', 'message' or
 	 *  an array of both. Defaults to 'message'
-	 * @cfg {number} [numItems=0] How many items are in the button display
+	 * @cfg {number} [numItems=0] The number of items that are in the button display
+	 * @cfg {string} [badgeLabel=0] The initial label for the badge. This is the
+	 *  formatted version of the number of items in the badge.
 	 * @cfg {boolean} [hasUnseen=false] Whether there are unseen items
 	 * @cfg {number} [popupWidth=450] The width of the popup
-	 * @cfg {string|Object} [badgeIcon] The icons to use for this button.
-	 *  If this is a string, it will be used as the icon regardless of the state.
-	 *  If it is an object, it must include
-	 *  the properties 'unseen' and 'seen' with icons attached to both. For example:
-	 *  { badgeIcon: {
-	 *    unseen: 'bellOn',
-	 *    seen: 'bell'
-	 *  } }
+	 * @cfg {string} [badgeIcon] Icon to use for the popup header
 	 * @cfg {string} [href] URL the badge links to
 	 * @cfg {jQuery} [$overlay] A jQuery element functioning as an overlay
 	 *  for popups.
@@ -55,18 +50,18 @@
 
 		this.maxNotificationCount = mw.config.get( 'wgEchoMaxNotificationCount' );
 		this.numItems = config.numItems || 0;
-		this.badgeIcon = config.badgeIcon || {};
+		this.badgeLabel = config.badgeLabel || this.numItems;
 		this.hasRunFirstTime = false;
 
-		buttonFlags = [ 'primary' ];
+		buttonFlags = [];
 		if ( !!config.hasUnseen ) {
 			buttonFlags.push( 'unseen' );
 		}
 
 		this.badgeButton = new mw.echo.ui.BadgeLinkWidget( {
-			label: this.numItems,
+			label: this.badgeLabel,
+			numItems: this.numItems,
 			flags: buttonFlags,
-			badgeIcon: config.badgeIcon,
 			// The following messages can be used here:
 			// tooltip-pt-notifications-alert
 			// tooltip-pt-notifications-notice
@@ -137,6 +132,7 @@
 			$footer: $footer,
 			width: config.popupWidth || 500,
 			autoClose: true,
+			containerPadding: 20,
 			// Also ignore clicks from the nested action menu items, that
 			// actually exist in the overlay
 			$autoCloseIgnore: this.$element.add( this.$menuOverlay ),
@@ -156,11 +152,10 @@
 			classes: [ 'mw-echo-ui-notificationBadgeButtonPopupWidget-popup' ]
 		} );
 		// HACK: Add an icon to the popup head label
-		this.popupHeadIcon = new OO.ui.IconWidget();
+		this.popupHeadIcon = new OO.ui.IconWidget( { icon: config.badgeIcon } );
 		this.popup.$head.prepend( this.popupHeadIcon.$element );
 
 		this.setPendingElement( this.popup.$head );
-		this.updateIcon( !!config.hasUnseen );
 
 		// Mark all as read button
 		this.markAllReadButton = new OO.ui.ButtonWidget( {
@@ -246,20 +241,6 @@
 		this.popup.toggle();
 	};
 
-	/**
-	 * Update the badge icon with the read/unread versions if they exist.
-	 *
-	 * @param {boolean} hasUnseen Widget has unseen notifications
-	 */
-	mw.echo.ui.NotificationBadgeWidget.prototype.updateIcon = function ( hasUnseen ) {
-		var icon = typeof this.badgeIcon === 'string' ?
-			this.badgeIcon :
-			this.badgeIcon[ hasUnseen ? 'unseen' : 'seen' ];
-
-		this.badgeButton.setIcon( icon );
-		this.popupHeadIcon.setIcon( icon );
-	};
-
 	// Client-side version of NotificationController::getCappedNotificationCount.
 	/**
 	 * Gets the count to use for display
@@ -292,7 +273,6 @@
 		hasUnseen = hasUnseen === undefined ? this.manager.hasUnseenInSource( 'local' ) : !!hasUnseen;
 
 		this.badgeButton.setFlags( { unseen: !!hasUnseen } );
-		this.updateIcon( !!hasUnseen );
 	};
 
 	/**
@@ -305,8 +285,9 @@
 		cappedUnreadCount = this.getCappedNotificationCount( unreadCount );
 		cappedUnreadCount = mw.language.convertNumber( cappedUnreadCount );
 		badgeLabel = mw.message( 'echo-badge-count', cappedUnreadCount ).text();
-		this.badgeButton.setLabel( badgeLabel );
 
+		this.badgeButton.setLabel( badgeLabel );
+		this.badgeButton.setCount( unreadCount, badgeLabel );
 		// Update seen state only if the counter is 0
 		// so we don't run into inconsistencies and have an unseen state
 		// for the badge with 0 unread notifications

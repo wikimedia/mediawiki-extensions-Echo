@@ -2,5 +2,5 @@ class ArticlePage
   include PageObject
 
   page_section(:alerts, Notifications, css: '#pt-notifications-alert')
-  page_section(:messages, Notifications, css: '#pt-notifications-message')
+  page_section(:notices, Notifications, css: '#pt-notifications-notice')
 end
