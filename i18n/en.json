@@ -222,6 +222,7 @@
 	"apihelp-echomarkseen-description": "Mark notifications as seen for the current user.",
 	"apihelp-echomarkseen-example-1": "Mark notifications of all types as seen",
 	"apihelp-echomarkseen-param-type": "Type of notifications to mark as seen: 'alert', 'message' or 'all'.",
+	"apihelp-echomarkseen-param-timestampFormat": "Timestamp format to use for output, 'ISO_8601' or 'MW'.  'MW' is deprecated here, so all clients should switch to 'ISO_8601'.  This parameter will be removed, and 'ISO_8601' will become the only output format.",
 	"apihelp-query+notifications-description": "Get notifications waiting for the current user.",
 	"apihelp-query+notifications-param-prop": "Details to request.",
 	"apihelp-query+notifications-param-sections": "The notification sections to query (i.e. some combination of 'alert' and 'message').",

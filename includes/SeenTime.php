@@ -65,6 +65,12 @@ class EchoSeenTime {
 		return $data;
 	}
 
+	/**
+	 * Sets the seen time
+	 *
+	 * @param string $time Time, in TS_MW format
+	 * @param string $type Type of seen time to set
+	 */
 	public function setTime( $time, $type = 'all' ) {
 		if ( $type === 'all' ) {
 			foreach ( self::$allowedTypes as $allowed ) {

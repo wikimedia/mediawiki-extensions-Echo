@@ -214,6 +214,7 @@
 	"apihelp-echomarkseen-description": "{{doc-apihelp-description|echomarkseen}}",
 	"apihelp-echomarkseen-example-1": "{{doc-apihelp-example|echomarkseen}}",
 	"apihelp-echomarkseen-param-type": "{{doc-apihelp-param|query+notifications|type}} Do not translate the quoted strings.",
+	"apihelp-echomarkseen-param-timestampFormat": "{{doc-apihelp-param|query+notifications|timestampFormat}} Do not translate the quoted strings.",
 	"apihelp-query+notifications-description": "{{doc-apihelp-description|query+notifications}}",
 	"apihelp-query+notifications-param-prop": "{{doc-apihelp-param|query+notifications|prop}}",
 	"apihelp-query+notifications-param-sections": "{{doc-apihelp-param|query+notifications|sections}} Do not translate the quoted strings.",
