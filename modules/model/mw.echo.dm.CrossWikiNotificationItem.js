@@ -118,6 +118,20 @@
 	};
 
 	/**
+	 * Get all items in the cross wiki notification bundle
+	 *
+	 * @return {mw.echo.dm.NotificationItem[]} All items across all sources
+	 */
+	mw.echo.dm.CrossWikiNotificationItem.prototype.getItems = function () {
+		var notifications = [];
+		this.list.getItems().forEach( function ( sourceList ) {
+			notifications = notifications.concat( sourceList.getItems() );
+		} );
+
+		return notifications;
+	};
+
+	/**
 	 * This item is a group.
 	 * This method is required for all models that are managed by the
 	 * mw.echo.dm.ModelManager.

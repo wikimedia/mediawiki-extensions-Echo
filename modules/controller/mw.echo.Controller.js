@@ -33,6 +33,7 @@
 			filtersModel.setReadState( values[ 0 ] );
 		} else if ( filter === 'sourcePage' ) {
 			filtersModel.setCurrentSourcePage( values[ 0 ], values[ 1 ] );
+			this.manager.getLocalCounter().setSource( filtersModel.getSourcePagesModel().getCurrentSource() );
 		}
 
 		// Reset pagination
@@ -190,6 +191,9 @@
 
 				// Update the pagination
 				pagination.setNextPageContinue( data.continue );
+
+				// Update the local counter
+				controller.manager.getLocalCounter().update();
 
 				return dateItemIds;
 			} );
@@ -375,22 +379,84 @@
 	};
 
 	/**
+	 * Mark all notifications of a certain source as read, even those that
+	 * are not currently displayed.
+	 *
+	 * @param {string} [source] Notification source. If not given, the currently
+	 *  selected source is used.
+	 * @return {jQuery.Promise} A promise that is resolved after
+	 *  all notifications for the given source were marked as read
+	 */
+	mw.echo.Controller.prototype.markAllRead = function ( source ) {
+		var model,
+			controller = this,
+			itemIds = [],
+			readState = this.manager.getFiltersModel().getReadState(),
+			localCounter = this.manager.getLocalCounter();
+
+		source = source || this.manager.getFiltersModel().getSourcePagesModel().getCurrentSource();
+
+		this.manager.getNotificationsBySource( source ).forEach( function ( notification ) {
+			if ( !notification.isRead() ) {
+				itemIds = itemIds.concat( notification.getAllIds() );
+				notification.toggleRead( true );
+
+				if ( readState === 'unread' ) {
+					// Remove the items if we are in 'unread' filter state
+					model = controller.manager.getNotificationModel( notification.getModelName() );
+					model.discardItems( notification );
+				}
+			}
+		} );
+
+		// Update pagination count
+		this.manager.updateCurrentPageItemCount();
+
+		localCounter.estimateChange( -itemIds.length );
+		return this.api.markAllRead(
+				source,
+				this.getTypes()
+			)
+			.then( this.refreshUnreadCount.bind( this ) )
+			.then( localCounter.update.bind( localCounter, true ) );
+	};
+
+	/**
 	 * Mark all local notifications as read
 	 *
 	 * @return {jQuery.Promise} Promise that is resolved when all
 	 *  local notifications have been marked as read.
 	 */
 	mw.echo.Controller.prototype.markLocalNotificationsRead = function () {
-		var itemIds = [];
+		var modelName, model,
+			itemIds = [],
+			readState = this.manager.getFiltersModel().getReadState(),
+			modelItems = {};
 
 		this.manager.getLocalNotifications().forEach( function ( notification ) {
 			if ( !notification.isRead() ) {
 				itemIds = itemIds.concat( notification.getAllIds() );
 				notification.toggleRead( true );
+
+				modelName = notification.getModelName();
+				modelItems[ modelName ] = modelItems[ modelName ] || [];
+				modelItems[ modelName ].push( notification );
 			}
 		} );
 
+		// Remove the items if we are in 'unread' filter state
+		if ( readState === 'unread' ) {
+			for ( modelName in modelItems ) {
+				model = this.manager.getNotificationModel( modelName );
+				model.discardItems( modelItems[ modelName ] );
+			}
+		}
+
+		// Update pagination count
+		this.manager.updateCurrentPageItemCount();
+
 		this.manager.getUnreadCounter().estimateChange( -itemIds.length );
+		this.manager.getLocalCounter().estimateChange( -itemIds.length );
 		return this.api.markItemsRead( itemIds, 'local', true ).then( this.refreshUnreadCount.bind( this ) );
 	};
 
@@ -498,6 +564,11 @@
 		this.manager.updateCurrentPageItemCount();
 
 		this.manager.getUnreadCounter().estimateChange( isRead ? -allIds.length : allIds.length );
+		if ( modelName !== 'xwiki' ) {
+			// For the local counter, we should only estimate the change if the items
+			// are not cross-wiki
+			this.manager.getLocalCounter().estimateChange( isRead ? -allIds.length : allIds.length );
+		}
 
 		return this.api.markItemsRead( allIds, model.getSource(), isRead ).then( this.refreshUnreadCount.bind( this ) );
 	};
@@ -526,6 +597,8 @@
 		sourceModel = xwikiModel.getList().getGroupByName( source );
 		notifs = sourceModel.findByIds( itemIds );
 		sourceModel.discardItems( notifs );
+		// Update pagination count
+		this.manager.updateCurrentPageItemCount();
 
 		return this.api.markItemsRead( itemIds, source, true )
 			.then( this.refreshUnreadCount.bind( this ) );

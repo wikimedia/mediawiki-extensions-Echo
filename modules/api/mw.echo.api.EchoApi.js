@@ -249,12 +249,6 @@
 	 *  for that type in the given source
 	 */
 	mw.echo.api.EchoApi.prototype.markAllRead = function ( source, type ) {
-		// FIXME: This specific method sends an operation
-		// to the API that marks all notifications of the given type as read regardless
-		// of whether they were actually seen by the user.
-		// We should consider removing the use of this method and, instead,
-		// using strictly the 'markItemsRead' by giving the API only the
-		// notifications that are available to the user.
 		return this.network.getApiHandler( source ).markAllRead( type );
 	};
 
@@ -264,11 +258,13 @@
 	 *
 	 * @param {string} source Notifications source
 	 * @param {string} type Notification type
+	 * @param {boolean} [localOnly] Fetches only the count of local notifications,
+	 *  and ignores cross-wiki notifications.
 	 * @return {jQuery.Promise} A promise that is resolved with the number of
 	 *  unread notifications for the given type and source.
 	 */
-	mw.echo.api.EchoApi.prototype.fetchUnreadCount = function ( source, type ) {
-		return this.network.getApiHandler( source ).fetchUnreadCount( type );
+	mw.echo.api.EchoApi.prototype.fetchUnreadCount = function ( source, type, localOnly ) {
+		return this.network.getApiHandler( source ).fetchUnreadCount( type, localOnly );
 	};
 
 	/**

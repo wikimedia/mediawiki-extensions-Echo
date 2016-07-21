@@ -55,12 +55,12 @@
 	 * @inheritdoc
 	 */
 	mw.echo.api.LocalAPIHandler.prototype.markAllRead = function ( type ) {
-		var data = {
-				action: 'echomarkread',
-				sections: this.normalizedType[ type ]
-			};
+		type = Array.isArray( type ) ? type : [ type ];
 
-		return this.api.postWithToken( 'csrf', data )
+		return this.api.postWithToken( 'csrf', {
+			action: 'echomarkread',
+			sections: type.join( '|' )
+		} )
 			.then( function ( result ) {
 				return OO.getProp( result.query, 'echomarkread', type, 'rawcount' ) || 0;
 			} );
@@ -84,9 +84,13 @@
 	};
 
 	/**
-	 * @inheritdoc
+	 * Fetch the number of unread notifications.
+	 *
+	 * @param {string} type Notification type, 'alert', 'message' or 'all'
+	 * @param {boolean} [ignoreCrossWiki] Ignore cross-wiki notifications when fetching the count.
+	 *  If set to false (by default) it counts notifications across all wikis.
 	 */
-	mw.echo.api.LocalAPIHandler.prototype.fetchUnreadCount = function ( type ) {
+	mw.echo.api.LocalAPIHandler.prototype.fetchUnreadCount = function ( type, ignoreCrossWiki ) {
 		var normalizedType = this.normalizedType[ type ],
 			apiData = {
 				action: 'query',
@@ -96,9 +100,12 @@
 				notmessageunreadfirst: 1,
 				notlimit: this.limit,
 				notprop: 'count',
-				notcrosswikisummary: 1,
 				uselang: this.userLang
 			};
+
+		if ( !ignoreCrossWiki ) {
+			apiData.notcrosswikisummary = 1;
+		}
 
 		return this.api.get( apiData )
 			.then( function ( result ) {
