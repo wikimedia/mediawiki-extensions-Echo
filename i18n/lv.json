@@ -45,7 +45,6 @@
 	"notifications": "Paziņojumi",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Tavi}} brīdinājumi",
 	"tooltip-pt-notifications-notice": "{{GENDER:|Tavi}} paziņojumi",
-	"tooltip-pt-notifications-message": "{{GENDER:|Tavi}} paziņojumi",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "Paziņojumi pēc kategorijas",
 	"echo-specialpage": "Paziņojumi",
 	"echo-specialpage-pagefilters-title": "Nesena aktivitāte",

@@ -56,7 +56,6 @@
 	"notifications": "Notificações",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Seus}} alertas",
 	"tooltip-pt-notifications-notice": "{{GENDER:|Suas}} notificações",
-	"tooltip-pt-notifications-message": "{{GENDER:|Suas}} mensagens",
 	"echo-specialpage": "Notificações",
 	"echo-anon": "Para receber notificações, [$1 crie uma conta] ou [$2 registre-se].",
 	"echo-none": "Você não tem notificações.",

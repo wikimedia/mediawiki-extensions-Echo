@@ -49,7 +49,6 @@
 	"notifications": "Pranešimai",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Jūsų}} perspėjimai",
 	"tooltip-pt-notifications-notice": "{{GENDER:|Jūsų}} pranešimai",
-	"tooltip-pt-notifications-message": "{{GENDER:|Jūsų}} pranešimai",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "Pranešimai pagal kategoriją",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Įjungta pagal nutylėjimą",
 	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Esami naudotojai",

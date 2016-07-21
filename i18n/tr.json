@@ -60,7 +60,6 @@
 	"notifications": "Bildirimler",
 	"tooltip-pt-notifications-alert": "Uyarılarınız",
 	"tooltip-pt-notifications-notice": "Bildirimleriniz",
-	"tooltip-pt-notifications-message": "Bildirimleriniz",
 	"echo-displaynotificationsconfiguration": "Bildirim ayarlarını görüntüle",
 	"echo-displaynotificationsconfiguration-summary": "Bu, bildirimlerin bu vikide nasıl yapılandırıldığına bir genel bakıştır.",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "Kategorilerine göre bildirimler",

@@ -46,7 +46,6 @@
 	"notifications": "Notifikatiounen",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Är}} Warnungen",
 	"tooltip-pt-notifications-notice": "{{GENDER:|Är}} Notizen",
-	"tooltip-pt-notifications-message": "{{GENDER:|Är}} Notizen",
 	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Lëscht vun de Benotzer",
 	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Nei Benotzer",
 	"echo-specialpage": "Notifikatiounen",

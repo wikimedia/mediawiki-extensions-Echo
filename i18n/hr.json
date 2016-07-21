@@ -45,7 +45,6 @@
 	"notifications": "Obavijesti",
 	"tooltip-pt-notifications-alert": "Vaše obavijesti",
 	"tooltip-pt-notifications-notice": "{{GENDER:|Vaše}} obavijesti",
-	"tooltip-pt-notifications-message": "Vaše poruke",
 	"echo-specialpage": "Obavijesti",
 	"echo-specialpage-section-markread": "Označi grupu kao pročitanu",
 	"echo-specialpage-markasread": "Obavijest: označi kao pročitano",

@@ -61,7 +61,6 @@
 	"notifications": "알림",
 	"tooltip-pt-notifications-alert": "{{GENDER:|당신}}의 알림",
 	"tooltip-pt-notifications-notice": "{{GENDER:|당신의}} 알림",
-	"tooltip-pt-notifications-message": "{{GENDER:|당신}}의 메시지",
 	"echo-displaynotificationsconfiguration": "알림 표시 설정",
 	"echo-specialpage": "알림",
 	"echo-specialpage-section-markread": "그룹을 읽은 것으로 표시",

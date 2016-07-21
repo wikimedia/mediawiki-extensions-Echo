@@ -58,7 +58,6 @@
 	"notifications": "Ilmoitukset",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Hälytyksesi}}",
 	"tooltip-pt-notifications-notice": "{{GENDER:|Ilmoituksesi}}",
-	"tooltip-pt-notifications-message": "{{GENDER:|Ilmoituksesi}}",
 	"echo-displaynotificationsconfiguration": "Ilmoitusasetusten näyttö",
 	"echo-displaynotificationsconfiguration-summary": "Tässä on yleiskatsaus tämän wikin ilmoitusasetuksista.",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "Ilmoitukset luokittain",

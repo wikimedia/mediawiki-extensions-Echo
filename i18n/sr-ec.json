@@ -49,7 +49,6 @@
 	"notifications": "Обавештења",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Ваша}} обавештења",
 	"tooltip-pt-notifications-notice": "{{GENDER:|Ваша}} обавештења",
-	"tooltip-pt-notifications-message": "{{GENDER:|Ваша}} обавештења",
 	"echo-specialpage": "Обавештења",
 	"echo-specialpage-section-markread": "Означи групу као прочитану",
 	"echo-specialpage-pagination-numnotifications": "{{PLURAL:$1|Обавештења}}: $1",

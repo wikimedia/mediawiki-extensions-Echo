@@ -54,7 +54,6 @@
 	"notifications": "通知",
 	"tooltip-pt-notifications-alert": "あなたへの通知",
 	"tooltip-pt-notifications-notice": "{{GENDER:|あなた}}への通知",
-	"tooltip-pt-notifications-message": "{{GENDER:|あなた}}への通知",
 	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "新しい利用者",
 	"echo-specialpage": "通知",
 	"echo-specialpage-section-markread": "まとめて既読にする",

@@ -65,7 +65,6 @@
 	"notifications": "إشعارات",
 	"tooltip-pt-notifications-alert": "إخطاراتك",
 	"tooltip-pt-notifications-notice": "{{GENDER:|إخطاراتك}}",
-	"tooltip-pt-notifications-message": "{{GENDER:|إخطاراتك}}",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "الإشعارات حسب التصنيف",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "مفعلة افتراضيا",
 	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "المستخدمون الحاليون",
