@@ -342,7 +342,7 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 	 * this.
 	 *
 	 * This message should be more compact than the header message
-	 * returned by getHeaderMessage. It is displayed when a
+	 * ( getHeaderMessage() ). It is displayed when a
 	 * notification is part of an expanded bundle.
 	 *
 	 * @return Message
@@ -368,6 +368,12 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 	 * Get a message object and add the performer's name as
 	 * a parameter. It is expected that subclasses will override
 	 * this. The output of the message should be plaintext.
+	 *
+	 * This message is used as the subject line in
+	 * single-notification emails.
+	 *
+	 * For backward compatibility, if this is not defined,
+	 * the header message ( getHeaderMessage() ) is used instead.
 	 *
 	 * @return Message
 	 */
