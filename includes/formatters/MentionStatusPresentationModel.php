@@ -1,16 +1,19 @@
 <?php
 
 /**
- * Presenter for 'mention-failure' notifications
+ * Presenter for 'mention-failure' and 'mention-success' notifications
  *
  * @author Christoph Fischer <christoph.fischer@wikimedia.de>
  *
  * @license GNU GPL v2+
  */
-class EchoMentionFailurePresentationModel extends EchoEventPresentationModel {
+class EchoMentionStatusPresentationModel extends EchoEventPresentationModel {
 	use EchoPresentationModelSectionTrait;
 
 	public function getIconType() {
+		if ( $this->isMentionSuccess() ) {
+			return 'mention-success';
+		}
 		return 'mention-failure';
 	}
 
@@ -22,28 +25,40 @@ class EchoMentionFailurePresentationModel extends EchoEventPresentationModel {
 		}
 
 		if ( $this->isBundled() ) {
-			$msg = $this->getMessageWithAgent( 'notification-header-mention-failure-bundle' );
+			if ( $this->isMentionSuccess() ) {
+				$msgKey = 'notification-header-mention-success-bundle';
+			} else {
+				$msgKey = 'notification-header-mention-failure-bundle';
+			}
+			$msg = $this->getMessageWithAgent( $msgKey );
 			$msg->numParams( $this->getBundleCount() );
 			$msg->params( $this->getTruncatedTitleText( $this->event->getTitle() ) );
 			return $msg;
 		}
 
-		// Messages that can be used here:
-		// * notification-header-mention-failure-user-unknown
-		// * notification-header-mention-failure-user-anonymous
-		$msg = $this->getMessageWithAgent( 'notification-header-mention-failure-' . $this->getFailureType() );
+		if ( $this->isMentionSuccess() ) {
+			$msgKey = 'notification-header-mention-success';
+		} else {
+			// Messages that can be used here:
+			// * notification-header-mention-failure-user-unknown
+			// * notification-header-mention-failure-user-anonymous
+			$msgKey = 'notification-header-mention-failure-' . $this->getFailureType();
+		}
+		$msg = $this->getMessageWithAgent( $msgKey );
 		$msg->params( $this->getSubjectName() );
-
 		return $msg;
 	}
 
 	public function getCompactHeaderMessage() {
-		// Messages that can be used here:
-		// * notification-compact-header-mention-failure-user-unknown
-		// * notification-compact-header-mention-failure-user-anonymous
-		$msg = $this->msg( 'notification-compact-header-mention-failure-' . $this->getFailureType() );
+		if ( $this->isMentionSuccess() ) {
+			$msg = $this->getMessageWithAgent( 'notification-compact-header-mention-success' );
+		} else {
+			// Messages that can be used here:
+			// * notification-compact-header-mention-failure-user-unknown
+			// * notification-compact-header-mention-failure-user-anonymous
+			$msg = $this->msg( 'notification-compact-header-mention-failure-' . $this->getFailureType() );
+		}
 		$msg->params( $this->getSubjectName() );
-
 		return $msg;
 	}
 
@@ -89,6 +104,10 @@ class EchoMentionFailurePresentationModel extends EchoEventPresentationModel {
 
 	private function isTooManyMentionsFailure() {
 		return $this->getType() === 'mention-failure-too-many';
+	}
+
+	private function isMentionSuccess() {
+		return $this->getType() === 'mention-success';
 	}
 
 	private function getMaxMentions() {

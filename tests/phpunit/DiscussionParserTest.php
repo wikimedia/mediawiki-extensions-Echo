@@ -304,6 +304,49 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 				),
 				'precondition' => 'isParserFunctionsInstalled',
 			),
+		);
+	}
+
+	/**
+	 * @dataProvider generateEventsForRevisionData
+	 */
+	public function testGenerateEventsForRevision(
+		$newId, $oldId, $username, $lang, $pages, $title, $expected, $precondition = ''
+	) {
+		if ( $precondition !== '' ) {
+			$result = $this->$precondition();
+			if ( $result !== true ) {
+				$this->markTestSkipped( $result );
+
+				return;
+			}
+		}
+
+		$revision = $this->setupTestRevisionsForEventGeneration(
+			$newId, $oldId, $username, $lang, $pages, $title
+		);
+		$events = array();
+		$this->setupEventCallbackForEventGeneration(
+			function ( EchoEvent $event ) use ( &$events ) {
+				$events[] = array(
+					'type' => $event->getType(),
+					'agent' => $event->getAgent()->getName(),
+					'section-title' => $event->getExtraParam( 'section-title' ),
+				);
+				return false;
+			}
+		);
+
+		// disable mention failure and success notifications
+		$this->setMwGlobals( 'wgEchoMentionStatusNotifications', false );
+
+		EchoDiscussionParser::generateEventsForRevision( $revision );
+
+		$this->assertEquals( $expected, $events );
+	}
+
+	public function provider_generateEventsForRevision_mentionStatus() {
+		return array(
 			array(
 				'new' => 747747748,
 				'old' => 747747747,
@@ -324,24 +367,38 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 					),
 				),
 			),
+			array(
+				'new' => 747747750,
+				'old' => 747747747,
+				'username' => 'Admin',
+				'lang' => 'en',
+				'pages' => array(),
+				'title' => 'UTPage',
+				'expected' => array(
+					array(
+						'type' => 'mention',
+						'agent' => 'Admin',
+						'section-title' => 'Hello Users',
+					),
+					array(
+						'type' => 'mention-success',
+						'agent' => 'Admin',
+						'section-title' => 'Hello Users',
+					),
+				),
+			),
 		);
 	}
 
 	/**
-	 * @dataProvider generateEventsForRevisionData
+	 * @dataProvider provider_generateEventsForRevision_mentionStatus
 	 */
-	public function testGenerateEventsForRevision( $newId, $oldId, $username, $lang, $pages, $title, $expected, $precondition = '' ) {
-		if ( $precondition !== '' ) {
-			$result = $this->$precondition();
-			if ( $result !== true ) {
-				$this->markTestSkipped( $result );
-
-				return;
-			}
-		}
-
-		$revision = $this->setupTestRevisionsForEventGeneration( $newId, $oldId, $username, $lang, $pages, $title );
-
+	public function testGenerateEventsForRevision_mentionStatus(
+		$newId, $oldId, $username, $lang, $pages, $title, $expected
+	) {
+		$revision = $this->setupTestRevisionsForEventGeneration(
+			$newId, $oldId, $username, $lang, $pages, $title
+		);
 		$events = array();
 		$this->setupEventCallbackForEventGeneration(
 			function ( EchoEvent $event ) use ( &$events ) {

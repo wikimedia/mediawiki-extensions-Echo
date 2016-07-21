@@ -209,6 +209,10 @@ $wgNotifyTypeAvailabilityByCategory = array(
 		'web' => true,
 		'email' => false
 	),
+	'mention-success' => array(
+		'web' => true,
+		'email' => false
+	),
 );
 
 // Definitions of the different types of notification delivery that are possible.
@@ -297,6 +301,10 @@ $wgEchoNotificationCategories = array(
 		'priority' => 4,
 		'tooltip' => 'echo-pref-tooltip-mention-failure',
 	),
+	'mention-success' => array(
+		'priority' => 4,
+		'tooltip' => 'echo-pref-tooltip-mention-success',
+	),
 	'emailuser' => array(
 		'priority' => 9,
 		'tooltip' => 'echo-pref-tooltip-emailuser',
@@ -341,6 +349,9 @@ $wgEchoNotificationIcons = array(
 	),
 	'mention-failure' => array(
 		'path' => "$echoIconPath/mention-failure.svg",
+	),
+	'mention-success' => array(
+		'path' => "$echoIconPath/mention-success.svg",
 	),
 	'reviewed' => array(
 		'path' => "$echoIconPath/reviewed.svg",
@@ -441,7 +452,7 @@ $wgEchoNotifications = array(
 		),
 		'group' => 'negative',
 		'section' => 'alert',
-		'presentation-model' => 'EchoMentionFailurePresentationModel',
+		'presentation-model' => 'EchoMentionStatusPresentationModel',
 	),
 	'mention-failure-too-many' => array(
 		EchoAttributeManager::ATTR_LOCATORS => array(
@@ -450,7 +461,20 @@ $wgEchoNotifications = array(
 		'category' => 'mention-failure',
 		'group' => 'negative',
 		'section' => 'alert',
-		'presentation-model' => 'EchoMentionFailurePresentationModel',
+		'presentation-model' => 'EchoMentionStatusPresentationModel',
+	),
+	'mention-success' => array(
+		EchoAttributeManager::ATTR_LOCATORS => array(
+			array( 'EchoUserLocator::locateEventAgent' ),
+		),
+		'category' => 'mention-success',
+		'bundle' => array(
+			'web' => true,
+			'expandable' => true,
+		),
+		'group' => 'positive',
+		'section' => 'alert',
+		'presentation-model' => 'EchoMentionStatusPresentationModel',
 	),
 	'user-rights' => array(
 		EchoAttributeManager::ATTR_LOCATORS => array(
@@ -520,6 +544,7 @@ $wgDefaultUserOptions['echo-subscriptions-email-system'] = true;
 $wgDefaultUserOptions['echo-subscriptions-email-user-rights'] = true;
 $wgDefaultUserOptions['echo-subscriptions-web-article-linked'] = false;
 $wgDefaultUserOptions['echo-subscriptions-web-mention-failure'] = false;
+$wgDefaultUserOptions['echo-subscriptions-web-mention-success'] = false;
 
 // Echo Configuration for EventLogging
 $wgEchoConfig = array(

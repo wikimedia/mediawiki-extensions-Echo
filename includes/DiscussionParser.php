@@ -221,6 +221,22 @@ abstract class EchoDiscussionParser {
 			),
 			'agent' => $agent,
 		) );
+
+		if ( $wgEchoMentionStatusNotifications ) {
+			// TODO batch?
+			foreach ( $userMentions['validMentions'] as $mentionedUserId ) {
+				EchoEvent::create( array(
+					'type' => 'mention-success',
+					'title' => $title,
+					'extra' => array(
+						'subject-name' => User::newFromId( $mentionedUserId )->getName(),
+						'section-title' => $header,
+						'notifyAgent' => true
+					),
+					'agent' => $agent,
+				) );
+			}
+		}
 	}
 
 	private static function getOverallUserMentionsCount( $userMentions ) {

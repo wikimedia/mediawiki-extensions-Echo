@@ -18,6 +18,7 @@ class EchoHooks {
 		// Only allow mention status notifications when enabled
 		if ( !$wgEchoMentionStatusNotifications ) {
 			unset( $wgEchoNotificationCategories['mention-failure'] );
+			unset( $wgEchoNotificationCategories['mention-success'] );
 		}
 
 		// turn schema off if eventLogging is not enabled
@@ -212,7 +213,15 @@ class EchoHooks {
 						. ':' . $event->getTitle()->getDBkey()
 						. '#' . $event->getExtraParam( 'section-title' );
 				}
-			break;
+				break;
+			case 'mention-success':
+				$bundleString = 'mention-success';
+				if ( $event->getTitle() ) {
+					$bundleString .= '-' . $event->getTitle()->getNamespace()
+						. ':' . $event->getTitle()->getDBkey()
+						. '#' . $event->getExtraParam( 'section-title' );
+				}
+				break;
 		}
 
 		return true;
