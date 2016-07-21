@@ -188,13 +188,17 @@
 		} );
 
 		this.$element
-			.prop( 'id', 'pt-notifications-' + this.controller.getTypeString() )
+			.prop( 'id', 'pt-notifications-' + (
+				this.controller.getTypeString() === 'message' ? 'notice' : 'alert'
+			) )
 			// The following classes can be used here:
 			// mw-echo-ui-notificationBadgeButtonPopupWidget-alert
 			// mw-echo-ui-notificationBadgeButtonPopupWidget-message
 			.addClass(
 				'mw-echo-ui-notificationBadgeButtonPopupWidget ' +
-				'mw-echo-ui-notificationBadgeButtonPopupWidget-' + this.controller.getTypeString()
+				'mw-echo-ui-notificationBadgeButtonPopupWidget-' + (
+					this.controller.getTypeString() === 'message' ? 'notice' : 'alert'
+				)
 			)
 			.append(
 				this.badgeButton.$element,

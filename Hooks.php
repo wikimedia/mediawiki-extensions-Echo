@@ -927,7 +927,7 @@ class EchoHooks {
 			'class' => $msgLinkClasses,
 		);
 
-		$insertUrls['notifications-message'] = $msgLink;
+		$insertUrls['notifications-notice'] = $msgLink;
 
 		$personal_urls = wfArrayInsertAfter( $personal_urls, $insertUrls, 'userpage' );
 

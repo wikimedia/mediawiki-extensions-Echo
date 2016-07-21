@@ -14,7 +14,7 @@
 	$( document ).ready( function () {
 		var myWidget, echoApi,
 			$existingAlertLink = $( '#pt-notifications-alert a' ),
-			$existingMessageLink = $( '#pt-notifications-message a' ),
+			$existingMessageLink = $( '#pt-notifications-notice a' ),
 			numAlerts = $existingAlertLink.text(),
 			numMessages = $existingMessageLink.text(),
 			hasUnseenAlerts = $existingAlertLink.hasClass( 'mw-echo-unseen-notifications' ),

@@ -78,7 +78,6 @@
 	"notifications": "Notifications",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Your}} alerts",
 	"tooltip-pt-notifications-notice": "{{GENDER:|Your}} notices",
-	"tooltip-pt-notifications-message": "{{GENDER:|Your}} notices",
 	"echo-displaynotificationsconfiguration": "Display Notifications configuration",
 	"echo-displaynotificationsconfiguration-summary": "This is an overview of how Notifications are configured on this wiki.",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "Notifications by category",
