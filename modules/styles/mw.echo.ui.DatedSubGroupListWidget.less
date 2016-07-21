@@ -20,4 +20,21 @@
 			color: #777777;
 		}
 	}
+
+	@media all and ( max-width: @specialpage-mobile-width-medium ) {
+		// Make narrow
+		width: @specialpage-mobile-width-small;
+
+		.mw-echo-ui-subGroupListWidget-header-row-markAllReadButton {
+			font-size: 0.8em;
+		}
+
+		&-title-primary {
+			font-size: 1.2em;
+		}
+
+		&-title-secondary {
+			display: none;
+		}
+	}
 }
