@@ -314,6 +314,7 @@ $wgResourceModules += array(
 		),
 		'dependencies' => array(
 			'ext.echo.ui',
+			'mediawiki.Uri',
 			'ext.echo.styles.special'
 		),
 		'messages' => array(
