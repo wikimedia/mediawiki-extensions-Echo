@@ -14,6 +14,7 @@
 		// Parent constructor
 		mw.echo.ui.SpecialHelpMenuWidget.parent.call( this, $.extend( {
 			icon: 'advanced',
+			indicator: 'down',
 			popup: {
 				$content: $menu,
 				width: 300
