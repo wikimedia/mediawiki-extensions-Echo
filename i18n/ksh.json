@@ -133,6 +133,7 @@
 	"echo-overlay-title": "<b>Meddeijlonge</b>",
 	"echo-overlay-title-overflow": "<b>Meddeijlonge</b> ($1 vun $2 wähde aanjezeijsch){{PLURAL:$1|}}",
 	"echo-mark-all-as-read": "Alle als jelässe makehre",
+	"echo-mark-wiki-as-read": "Makkehr alles als jelässe em usjesöhk Wikki: $1",
 	"echo-date-today": "Hück",
 	"echo-date-yesterday": "Jäßtere",
 	"echo-load-more-error": "Ene Fähler es opjetrodde beim Versohch, mih ze holle vun dämm wadd_erus kohm.",
@@ -165,6 +166,7 @@
 	"apihelp-query+notifications-param-alertunreadfirst": "Ov de unjelässe Meddeijlonge övver Nohreeschte am Aanfang schtonn sulle. Bedügg nix, wann et Jroppehre ußjeschalld es.",
 	"apihelp-query+notifications-param-messagecontinue": "Wann mih Nohreeschte ze holle sin, nemm dat för wigger ze maache.",
 	"apihelp-query+notifications-param-messageunreadfirst": "Ov de unjelässe Nohreeschte övver Meddeijlonge am Aanfang schtonn sulle. Bedügg nix, wann et Jroppehre aanjeschalld es.",
+	"apihelp-query+notifications-param-titles": "Jiff blohß de Benohreeschtejonge för di Sigge uß. Öm Benohreeschtejonge ze krijje, di met keijne beschtemmpte Sigg zesammehange donn, jiv [] als Övverschreff en.",
 	"apihelp-query+notifications-example-1": "Meddeijlonge opleßte",
 	"apihelp-query+notifications-example-2": "Meddeijlonge opleßte, noh Affschnedde, met der Aanzahl",
 	"apihelp-query+unreadnotificationpages-param-limit": "De jrüüßte Zahl Sigge för ußzejävve."

@@ -185,6 +185,7 @@
 	"echo-overlay-title": "<b>通知</b>",
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|通知}}</b>（显示$2条未读通知中的$1条）",
 	"echo-mark-all-as-read": "标记所有为已读",
+	"echo-mark-wiki-as-read": "在选定的wiki上标记所有为已读：$1",
 	"echo-date-today": "今天",
 	"echo-date-yesterday": "昨天",
 	"echo-load-more-error": "获取更多结果时出错。",

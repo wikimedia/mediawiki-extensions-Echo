@@ -165,6 +165,7 @@
 	"echo-overlay-title": "<b>הודעות</b>",
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|הודעה|הודעות}}</b> ({{PLURAL:$1|מוצגת אחת|מוצגות $1}} מתוך $2 שלא נקראו)",
 	"echo-mark-all-as-read": "לסמן שהכול נקרא",
+	"echo-mark-wiki-as-read": "סימון כל ההודעות מאתר הוויקי שנבחר כנקראות: $1",
 	"echo-date-today": "היום",
 	"echo-date-yesterday": "אתמול",
 	"echo-load-more-error": "אירעה שגיאה בעת אחזור תוצאות נוספות.",

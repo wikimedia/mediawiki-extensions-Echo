@@ -145,6 +145,7 @@
 	"echo-overlay-title": "<b>알림</b>",
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|알림}}</b> (안 읽은 알림 $2개 중 $1개)",
 	"echo-mark-all-as-read": "모두 읽은 것으로 표시",
+	"echo-mark-wiki-as-read": "선택한 위키에서 모든 항목을 읽은 것으로 표시: $1",
 	"echo-date-today": "오늘",
 	"echo-date-yesterday": "어제",
 	"echo-load-more-error": "더 많은 결과를 가져오는 동안 오류가 발생했습니다.",

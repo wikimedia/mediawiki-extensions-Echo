@@ -114,6 +114,7 @@
 	"echo-overlay-title": "<b>Notifikatiounen</b>",
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Notifikatioun|Notifikatiounen}}</b> (weist $1 vun $2 net geliesten)",
 	"echo-mark-all-as-read": "All als geliest markéieren",
+	"echo-mark-wiki-as-read": "An der erausgesichter Wiki all als geliest markéieren: $1",
 	"echo-date-today": "Haut",
 	"echo-date-yesterday": "Gëschter",
 	"echo-load-more-error": "Am Sichen no méi Resultater ass e Feeler geschitt.",

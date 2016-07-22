@@ -97,7 +97,7 @@
 	"echo-email-footer-default": "$2\n\nPara controlar quais emails enviamos a você, confira suas preferências: {{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
 	"echo-notification-alert": "{{PLURAL:$1|Alerta ($1)|Alertas ($1)|100=Alertas (+99)}}",
 	"echo-notification-alert-text-only": "Alertas",
-	"echo-notification-notice-text-only": "Notificações",
+	"echo-notification-notice-text-only": "Avisos",
 	"echo-overlay-link": "Todas as notificações",
 	"echo-overlay-title": "<b>Notificações</b>",
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Notificação|Notificações}}</b> (exibindo $1 de $2 não lidas)",
