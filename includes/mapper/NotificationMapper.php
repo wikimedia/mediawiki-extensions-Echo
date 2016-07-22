@@ -29,39 +29,42 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	public function insert( EchoNotification $notification ) {
 		$dbw = $this->dbFactory->getEchoDb( DB_MASTER );
 
-		$fname = __METHOD__;
 		$row = $notification->toDbArray();
 		$listeners = $this->getMethodListeners( __FUNCTION__ );
 
-		$dbw->onTransactionIdle( function () use ( $dbw, $row, $fname, $listeners ) {
-			$dbw->startAtomic( $fname );
-			// reset the bundle base if this notification has a display hash
-			// the result of this operation is that all previous notifications
-			// with the same display hash are set to non-base because new record
-			// is becoming the bundle base
-			if ( $row['notification_bundle_display_hash'] ) {
-				$dbw->update(
-					'echo_notification',
-					array( 'notification_bundle_base' => 0 ),
-					array(
-						'notification_user' => $row['notification_user'],
-						'notification_bundle_display_hash' => $row['notification_bundle_display_hash'],
-						'notification_bundle_base' => 1
-					),
-					$fname
-				);
-			}
+		DeferredUpdates::addUpdate( new AtomicSectionUpdate(
+			$dbw,
+			__METHOD__,
+			function ( IDatabase $dbw, $fname ) use ( $row, $listeners ) {
+				// Reset the bundle base if this notification has a display hash
+				// the result of this operation is that all previous notifications
+				// with the same display hash are set to non-base because new record
+				// is becoming the bundle base
+				if ( $row['notification_bundle_display_hash'] ) {
+					$dbw->update(
+						'echo_notification',
+						array( 'notification_bundle_base' => 0 ),
+						array(
+							'notification_user' => $row['notification_user'],
+							'notification_bundle_display_hash' =>
+								$row['notification_bundle_display_hash'],
+							'notification_bundle_base' => 1
+						),
+						$fname
+					);
+				}
 
-			$row['notification_timestamp'] = $dbw->timestamp( $row['notification_timestamp'] );
-			$res = $dbw->insert( 'echo_notification', $row, $fname );
-			$dbw->endAtomic( $fname );
+				$row['notification_timestamp'] =
+					$dbw->timestamp( $row['notification_timestamp'] );
+				$res = $dbw->insert( 'echo_notification', $row, $fname );
 
-			if ( $res ) {
-				foreach ( $listeners as $listener ) {
-					call_user_func( $listener );
+				if ( $res ) {
+					foreach ( $listeners as $listener ) {
+						$dbw->onTransactionIdle( $listener );
+					}
 				}
 			}
-		} );
+		) );
 	}
 
 	/**
