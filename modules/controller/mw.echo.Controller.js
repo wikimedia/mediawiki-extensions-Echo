@@ -1,4 +1,5 @@
 ( function ( mw, $ ) {
+	/*global moment:false */
 	/**
 	 * Controller for Echo notifications
 	 *
@@ -135,7 +136,7 @@
 			}
 		)
 			.then( function ( data ) {
-				var i, notifData, newNotifData, date, itemModel, symbolicName,
+				var i, notifData, newNotifData, localizedDate, date, itemModel, symbolicName,
 					dateItemIds = {},
 					dateItems = {},
 					models = {};
@@ -149,8 +150,9 @@
 					// Collect common data
 					newNotifData = controller.createNotificationData( notifData );
 					if ( notifData.type !== 'foreign' ) {
-						date = newNotifData.timestamp.substring( 0, 8 );
-						newNotifData.modelName = 'local_' + date;
+						localizedDate = moment.utc( newNotifData.timestamp ).local().format( 'YYYYMMDD' );
+
+						newNotifData.modelName = 'local_' + localizedDate;
 						newNotifData.source = currentSource;
 
 						// Single notifications
@@ -159,11 +161,11 @@
 							newNotifData
 						);
 
-						dateItems[ date ] = dateItems[ date ] || [];
-						dateItems[ date ].push( itemModel );
+						dateItems[ localizedDate ] = dateItems[ localizedDate ] || [];
+						dateItems[ localizedDate ].push( itemModel );
 
-						dateItemIds[ date ] = dateItemIds[ date ] || [];
-						dateItemIds[ date ].push( notifData.id );
+						dateItemIds[ localizedDate ] = dateItemIds[ localizedDate ] || [];
+						dateItemIds[ localizedDate ].push( notifData.id );
 					}
 				}
 
@@ -317,7 +319,17 @@
 	 * @return {Object} Notification config data object
 	 */
 	mw.echo.Controller.prototype.createNotificationData = function ( apiData ) {
-		var content = apiData[ '*' ] || {};
+		var utcTimestamp, utcIsoMoment,
+			content = apiData[ '*' ] || {};
+
+		if ( apiData.timestamp.utciso8601 ) {
+			utcTimestamp = apiData.timestamp.utciso8601;
+		} else {
+			// Temporary until c05133283af0486e08c9a97a468bc075e238f2d2 rolls out to the
+			// whole WMF cluster
+			utcIsoMoment = moment.utc( apiData.timestamp.utcunix * 1000 );
+			utcTimestamp = utcIsoMoment.format( 'YYYY-MM-DD[T]HH:mm:ss[Z]' );
+		}
 
 		return {
 			type: apiData.section,
@@ -325,8 +337,8 @@
 			source: 'local',
 			count: apiData.count,
 			read: !!apiData.read,
-			seen: !!apiData.read || apiData.timestamp.mw <= this.manager.getSeenTime(),
-			timestamp: apiData.timestamp.utcmw,
+			seen: !!apiData.read || utcTimestamp <= this.manager.getSeenTime(),
+			timestamp: utcTimestamp,
 			category: apiData.category,
 			content: {
 				header: content.header,
@@ -669,7 +681,7 @@
 	 * Update seenTime for the given source
 	 *
 	 * @return {jQuery.Promise} A promise that is resolved when the
-	 *  seenTime was updated for all given types.
+	 *  seenTime was updated for all the controller's types.
 	 */
 	mw.echo.Controller.prototype.updateSeenTime = function ( source ) {
 		var controller = this;

@@ -30,7 +30,11 @@
 			// Sorting callback
 			function ( a, b ) {
 				// Reverse sorting
-				return Number( b.getTimestamp() ) - Number( a.getTimestamp() );
+				if ( b.getTimestamp() < a.getTimestamp() ) {
+					return -1;
+				} else if ( b.getTimestamp() > a.getTimestamp() ) {
+					return 1;
+				}
 			},
 			// Config
 			{

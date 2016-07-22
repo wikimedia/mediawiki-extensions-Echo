@@ -77,9 +77,9 @@
 	/**
 	 * @event seen
 	 * @param {string} source Source where seenTime was updated
-	 * @param {number} timestamp The new seen timestamp
+	 * @param {number} timestamp The new seen timestamp, as a full UTC ISO 8601 timestamp
 	 *
-	 * All local notifications are seen
+	 * All notifications in that source are seen
 	 */
 
 	/**
@@ -108,6 +108,7 @@
 	 * Respond to seen time change for a given source
 	 *
 	 * @param {string} source Source where seen time has changed
+	 * @param {string} timestamp Seen time, as a full UTC ISO 8601 timestamp
 	 */
 	mw.echo.dm.ModelManager.prototype.onSeenTimeUpdate = function ( source, timestamp ) {
 		var notifs = this.getNotificationsBySource( source );
@@ -366,7 +367,7 @@
 	 * Get the system seen time
 	 *
 	 * @param {string} [source='local'] Seen time source
-	 * @return {string} Mediawiki seen timestamp in Mediawiki timestamp format
+	 * @return {string} Seen time, as a full UTC ISO 8601 timestamp
 	 */
 	mw.echo.dm.ModelManager.prototype.getSeenTime = function ( source ) {
 		return this.getSeenTimeModel().getSeenTime( source );

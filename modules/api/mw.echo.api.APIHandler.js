@@ -158,7 +158,8 @@
 	 * Update the seen timestamp
 	 *
 	 * @param {string|string[]} [types] Notification type 'message', 'alert' or [ 'message', 'alert' ].
-	 * @return {jQuery.Promise} A promise that resolves with the seen timestamp
+	 * @return {jQuery.Promise} A promise that resolves with the seen timestamp, as a full UTC
+	 *   ISO 8601 timestamp.
 	 */
 	mw.echo.api.APIHandler.prototype.updateSeenTime = null;
 

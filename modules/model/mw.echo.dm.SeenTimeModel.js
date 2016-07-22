@@ -7,6 +7,8 @@
 	 *  that this model handles
 	 */
 	mw.echo.dm.SeenTimeModel = function MwEchoSeenTimeModel( config ) {
+		var originalSeenTime;
+
 		config = config || {};
 
 		// Mixin constructor
@@ -17,8 +19,13 @@
 			this.types = Array.isArray( config.types ) ? config.types : [ config.types ];
 		}
 
+		originalSeenTime = mw.config.get( 'wgEchoSeenTime' ) || {};
+
 		this.seenTime = {
-			local: mw.config.get( 'wgEchoSeenTime' ) || {}
+			local: {
+				alert: originalSeenTime.alert,
+				message: originalSeenTime.notice
+			}
 		};
 	};
 
@@ -32,7 +39,7 @@
 	/**
 	 * @event update
 	 * @param {string} source The source that updated its seenTime
-	 * @param {number} time Seen time
+	 * @param {string} time Seen time, as a full UTC ISO 8601 timestamp.
 	 *
 	 * Seen time has been updated for the given source
 	 */
@@ -43,7 +50,7 @@
 	 * Get the seenTime value for the source
 	 *
 	 * @param {string} source Source name
-	 * @return {number} Seen time
+	 * @return {string} Seen time, as a full UTC ISO 8601 timestamp.
 	 */
 	mw.echo.dm.SeenTimeModel.prototype.getSeenTime = function ( source ) {
 		source = source || 'local';
@@ -56,6 +63,7 @@
 	 *
 	 * @private
 	 * @param {string} [source='local'] Given source
+	 * @param {string} time Seen time, as a full UTC ISO 8601 timestamp.
 	 * @fires update
 	 */
 	mw.echo.dm.SeenTimeModel.prototype.setSeenTimeForSource = function ( source, time ) {

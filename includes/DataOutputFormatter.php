@@ -27,6 +27,7 @@ class EchoDataOutputFormatter {
 	public static function formatOutput( EchoNotification $notification, $format = false, User $user, Language $lang ) {
 		$event = $notification->getEvent();
 		$timestamp = $notification->getTimestamp();
+		$utcTimestampIso8601 = wfTimestamp( TS_ISO_8601, $timestamp );
 		$utcTimestampUnix = wfTimestamp( TS_UNIX, $timestamp );
 		$utcTimestampMW = wfTimestamp( TS_MW, $timestamp );
 		$bundledIds = null;
@@ -70,6 +71,10 @@ class EchoDataOutputFormatter {
 			'type' => $event->getType(),
 			'category' => $event->getCategory(),
 			'timestamp' => array(
+				// ISO 8601 is supposed to be the *only* format used for
+				// date output, but back-compat...
+				'utciso8601' => $utcTimestampIso8601,
+
 				// UTC timestamp in UNIX format used for loading more notification
 				'utcunix' => $utcTimestampUnix,
 				'unix' => self::getUserLocalTime( $user, $timestamp, TS_UNIX ),

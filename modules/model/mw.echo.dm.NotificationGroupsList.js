@@ -22,11 +22,11 @@
 
 		// Sorting callback
 		this.setSortingCallback( function ( a, b ) {
-			var diff;
 			// Reverse sorting
-			diff = Number( b.getTimestamp() ) - Number( a.getTimestamp() );
-			if ( diff !== 0 ) {
-				return diff;
+			if ( b.getTimestamp() < a.getTimestamp() ) {
+				return -1;
+			} else if ( b.getTimestamp() > a.getTimestamp() ) {
+				return 1;
 			}
 
 			// Fallback on Source

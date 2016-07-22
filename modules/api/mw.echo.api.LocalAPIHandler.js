@@ -44,7 +44,8 @@
 
 		return this.api.postWithToken( 'csrf', {
 			action: 'echomarkseen',
-			type: type.length === 1 ? type[ 0 ] : 'all'
+			type: type.length === 1 ? type[ 0 ] : 'all',
+			timestampFormat: 'ISO_8601'
 		} )
 			.then( function ( data ) {
 				return data.query.echomarkseen.timestamp;

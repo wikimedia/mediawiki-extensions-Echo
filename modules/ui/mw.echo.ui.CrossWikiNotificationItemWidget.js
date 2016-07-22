@@ -39,11 +39,10 @@
 				// Define the sorting order.
 				// This will go by the lists' timestamp, which in turn
 				// take the latest timestamp in their items
-				var diff;
-				// Reverse sorting
-				diff = Number( b.getTimestamp() ) - Number( a.getTimestamp() );
-				if ( diff !== 0 ) {
-					return diff;
+				if ( b.getTimestamp() < a.getTimestamp() ) {
+					return -1;
+				} else if ( b.getTimestamp() > a.getTimestamp() ) {
+					return 1;
 				}
 
 				// Fallback on IDs

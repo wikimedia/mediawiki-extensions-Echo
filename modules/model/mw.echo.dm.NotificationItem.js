@@ -1,4 +1,5 @@
 ( function ( mw, $ ) {
+	/*global moment:false */
 	/**
 	 * Notification item data structure.
 	 *
@@ -20,7 +21,7 @@
 	 * @cfg {string} [type='message'] The notification type 'message' or 'alert'
 	 * @cfg {boolean} [read=false] State the read state of the option
 	 * @cfg {boolean} [seen=false] State the seen state of the option
-	 * @cfg {string} [timestamp] Notification timestamp in Mediawiki timestamp format
+	 * @cfg {string} [timestamp] Notification timestamp in ISO 8601 format
 	 * @cfg {string} [primaryUrl] Notification primary link in raw url format
 	 * @cfg {boolean} [foreign=false] This notification is from a foreign source
 	 * @cfg {boolean} [bundled=false] This notification is part of a bundle
@@ -39,16 +40,7 @@
 	 *  	}
 	 */
 	mw.echo.dm.NotificationItem = function MwEchoDmNotificationItem( id, config ) {
-		var date = new Date(),
-			normalizeNumber = function ( number ) {
-				return ( number < 10 ? '0' : '' ) + String( number );
-			},
-			fallbackMWDate = date.getUTCFullYear() +
-				normalizeNumber( date.getMonth() ) +
-				normalizeNumber( date.getUTCDate() ) +
-				normalizeNumber( date.getUTCHours() ) +
-				normalizeNumber( date.getUTCMinutes() ) +
-				normalizeNumber( date.getUTCSeconds() );
+		var fallbackDate = moment.utc().format( 'YYYY-MM-DD[T]HH:mm:ss[Z]' );
 
 		config = config || {};
 
@@ -71,7 +63,7 @@
 		this.read = !!config.read;
 		this.seen = !!config.seen;
 
-		this.timestamp = config.timestamp || fallbackMWDate;
+		this.timestamp = config.timestamp || fallbackDate;
 		this.setPrimaryUrl( config.primaryUrl );
 		this.setSecondaryUrls( config.secondaryUrls );
 		this.bundledIds = config.bundledIds;

@@ -29,7 +29,7 @@
 	 */
 	mw.echo.ui.NotificationBadgeWidget = function MwEchoUiNotificationBadgeButtonPopupWidget( controller, manager, config ) {
 		var buttonFlags, allNotificationsButton, preferencesButton, footerButtonGroupWidget, $footer,
-			initialNotifCount, notice;
+			notice, adjustedTypeString;
 
 		config = config || {};
 		config.links = config.links || {};
@@ -49,6 +49,8 @@
 		// Controller
 		this.controller = controller;
 		this.manager = manager;
+
+		adjustedTypeString = this.controller.getTypeString() === 'message' ? 'notice' : this.controller.getTypeString();
 
 		// Properties
 		this.types = this.manager.getTypes();
@@ -70,11 +72,7 @@
 			// The following messages can be used here:
 			// tooltip-pt-notifications-alert
 			// tooltip-pt-notifications-notice
-			title: mw.msg( 'tooltip-pt-notifications-' +
-				(
-					this.controller.getTypeString() === 'message' ? 'notice' : this.controller.getTypeString()
-				)
-			),
+			title: mw.msg( 'tooltip-pt-notifications-' + adjustedTypeString ),
 			href: config.href
 		} );
 
@@ -112,11 +110,6 @@
 			.append( footerButtonGroupWidget.$element );
 
 		// Footer notice
-		initialNotifCount = mw.config.get( 'wgEchoInitialNotifCount' );
-		initialNotifCount = this.types === 'all' ?
-			( initialNotifCount.alert + initialNotifCount.message ) :
-			initialNotifCount[ this.type ];
-
 		if (
 			mw.config.get( 'wgEchoShowBetaInvitation' ) &&
 			!mw.user.options.get( 'echo-dismiss-beta-invitation' )
@@ -145,12 +138,7 @@
 			// echo-notification-alert-text-only
 			// echo-notification-notice-text-only
 			label: mw.msg(
-				'echo-notification-' +
-				(
-					this.controller.getTypeString() === 'message' ?
-						'notice' :
-						this.controller.getTypeString()
-				) +
+				'echo-notification-' + adjustedTypeString +
 				'-text-only'
 			),
 			classes: [ 'mw-echo-ui-notificationBadgeButtonPopupWidget-popup' ]
@@ -188,17 +176,13 @@
 		} );
 
 		this.$element
-			.prop( 'id', 'pt-notifications-' + (
-				this.controller.getTypeString() === 'message' ? 'notice' : 'alert'
-			) )
+			.prop( 'id', 'pt-notifications-' + adjustedTypeString )
 			// The following classes can be used here:
 			// mw-echo-ui-notificationBadgeButtonPopupWidget-alert
 			// mw-echo-ui-notificationBadgeButtonPopupWidget-message
 			.addClass(
 				'mw-echo-ui-notificationBadgeButtonPopupWidget ' +
-				'mw-echo-ui-notificationBadgeButtonPopupWidget-' + (
-					this.controller.getTypeString() === 'message' ? 'notice' : 'alert'
-				)
+				'mw-echo-ui-notificationBadgeButtonPopupWidget-' + adjustedTypeString
 			)
 			.append(
 				this.badgeButton.$element,

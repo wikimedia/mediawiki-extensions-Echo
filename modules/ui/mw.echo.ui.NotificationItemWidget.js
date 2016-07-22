@@ -89,8 +89,9 @@
 		// Timestamp
 		// We want to use extra-short timestamp strings; we change the locale
 		// to our echo-defined one and use that instead of the normal moment locale
-		echoMoment = moment.utc( this.model.getTimestamp(), 'YYYYMMDDHHmmss' );
+		echoMoment = moment.utc( this.model.getTimestamp() );
 		echoMoment.locale( 'echo-shortRelativeTime' );
+		echoMoment.local();
 
 		this.timestampWidget = new OO.ui.LabelWidget( {
 			classes: [ 'mw-echo-ui-notificationItemWidget-content-actions-timestamp' ],

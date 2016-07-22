@@ -27,9 +27,9 @@
 		// Parent constructor
 		mw.echo.ui.DatedSubGroupListWidget.parent.call( this, controller, listModel, config );
 
-		momentTimestamp = moment( this.model.getTimestamp(), 'YYYYMMDD' );
+		momentTimestamp = moment.utc( this.model.getTimestamp() );
 		diff = now.diff( momentTimestamp, 'weeks' );
-		fullDate = momentTimestamp.format( 'LL' );
+		fullDate = momentTimestamp.local().format( 'LL' );
 
 		$primaryDate.text( fullDate );
 		if ( diff === 0 ) {

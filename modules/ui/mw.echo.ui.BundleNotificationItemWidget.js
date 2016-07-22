@@ -28,9 +28,11 @@
 		this.listWidget = new mw.echo.ui.SortedListWidget(
 			// Sorting callback
 			function ( a, b ) {
-				var diff = Number( b.getTimestamp() ) - Number( a.getTimestamp() );
-				if ( diff !== 0 ) {
-					return diff;
+				// Reverse sorting
+				if ( b.getTimestamp() < a.getTimestamp() ) {
+					return -1;
+				} else if ( b.getTimestamp() > a.getTimestamp() ) {
+					return 1;
 				}
 
 				// Fallback on IDs
