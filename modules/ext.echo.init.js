@@ -119,6 +119,13 @@
 					}
 				);
 
+				alertModelManager.on( 'allTalkRead', function () {
+					// If there was a talk page notification, get rid of it
+					$( '#pt-mytalk a' )
+						.removeClass( 'mw-echo-alert' )
+						.text( mw.msg( 'mytalk' ) );
+				} );
+
 				// HACK: avoid late debouncedUpdateThemeClasses
 				mw.echo.ui.alertWidget.badgeButton.debouncedUpdateThemeClasses();
 				// Replace the link button with the ooui button
