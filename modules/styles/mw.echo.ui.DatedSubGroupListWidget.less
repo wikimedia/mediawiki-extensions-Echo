@@ -12,7 +12,10 @@
 		&-primary {
 			font-size: 1.5em;
 			margin-right: 0.5em;
-			text-transform: capitalize;
+			display: inline-block;
+			&::first-letter {
+				text-transform: uppercase;
+			}
 		}
 
 		&-secondary {
