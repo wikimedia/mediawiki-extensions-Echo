@@ -150,6 +150,11 @@ class SpecialNotifications extends SpecialPage {
 		$out->addHTML( Html::rawElement( 'div', array( 'class' => 'mw-echo-special-nojs' ), $html ) );
 
 		$out->addModules( array( 'ext.echo.special' ) );
+
+		$out->addJsConfigVars( 'wgNotificationsSpecialPageLinks', array(
+			'help' => '//www.mediawiki.org/wiki/Special:MyLanguage/Help:Notifications/Special:Notifications',
+			'preferences' => SpecialPage::getTitleFor( 'Preferences' )->getLinkURL() . '#mw-prefsection-echo',
+		) );
 		// For no-js support
 		$out->addModuleStyles( array( 'ext.echo.styles.notifications', 'ext.echo.styles.special' ) );
 	}
