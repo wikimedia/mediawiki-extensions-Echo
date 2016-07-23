@@ -164,7 +164,7 @@
 	"echo-overlay-title": "<b>Upozornění</b>",
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Upozornění}}</b> ({{PLURAL:$1|zobrazuje|zobrazují|zobrazuje}} se $1 z $2 {{PLURAL:$2|nepřečteného|nepřečtených}})",
 	"echo-mark-all-as-read": "Označit vše jako přečtené",
-	"echo-mark-wiki-as-read": "Označit všechna jako přečtená ve vybrané wiki: $1",
+	"echo-mark-wiki-as-read": "Označit všechno za přečtené ve vybrané wiki: $1",
 	"echo-date-today": "Dnes",
 	"echo-date-yesterday": "Včera",
 	"echo-load-more-error": "Při načítání dalších výsledků došlo k chybě.",
