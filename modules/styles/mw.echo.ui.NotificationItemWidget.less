@@ -143,6 +143,13 @@
 						&-wrapper {
 							position: relative;
 						}
+
+						// Bundled notifications don't have bodies, only headers,
+						// so they use <em> to designate excerpts. Use the body color
+						// for these.
+						em {
+							color: @notification-body-color;
+						}
 					}
 				}
 
