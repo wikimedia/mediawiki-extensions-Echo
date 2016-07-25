@@ -137,6 +137,7 @@
 		)
 			.then( function ( data ) {
 				var i, notifData, newNotifData, localizedDate, date, itemModel, symbolicName,
+					maxSeenTime,
 					dateItemIds = {},
 					dateItems = {},
 					models = {};
@@ -146,6 +147,21 @@
 				// Go over the data
 				for ( i = 0; i < data.list.length; i++ ) {
 					notifData = data.list[ i ];
+
+					// Set source's seenTime
+					// TODO: This query brings up mixed alert and message notifications.
+					// Regularly, each of those will have a different seenTime that is
+					// calculated for each badge, but for this page, both are fetched.
+					// For the moment, we are picking the max seenTime from
+					// either alert or notice and updating both, since the page gives
+					// us a mixed view which will update both seenTime to be the same
+					// anyways.
+					maxSeenTime = data.seenTime.alert < data.seenTime.notice ?
+						data.seenTime.notice : data.seenTime.alert;
+					controller.manager.getSeenTimeModel().setSeenTimeForSource(
+						currentSource,
+						maxSeenTime
+					);
 
 					// Collect common data
 					newNotifData = controller.createNotificationData( notifData );
@@ -320,6 +336,7 @@
 	 */
 	mw.echo.Controller.prototype.createNotificationData = function ( apiData ) {
 		var utcTimestamp, utcIsoMoment,
+			source = this.manager.getFiltersModel().getSourcePagesModel().getCurrentSource(),
 			content = apiData[ '*' ] || {};
 
 		if ( apiData.timestamp.utciso8601 ) {
@@ -337,7 +354,10 @@
 			source: 'local',
 			count: apiData.count,
 			read: !!apiData.read,
-			seen: !!apiData.read || utcTimestamp <= this.manager.getSeenTime(),
+			seen: (
+				!!apiData.read ||
+				utcTimestamp <= this.manager.getSeenTime( source )
+			),
 			timestamp: utcTimestamp,
 			category: apiData.category,
 			content: {
@@ -702,6 +722,28 @@
 		return this.updateSeenTime( 'local' );
 	};
 
+	/**
+	 * Update seen time for all sources within a cross-wiki bundle.
+	 *
+	 * @return {jQuery.Promise} A promise that is resolved when the
+	 *  seenTime was updated for all available cross-wiki sources.
+	 */
+	mw.echo.Controller.prototype.updateSeenTimeForCrossWiki = function () {
+		var model = this.manager.getNotificationModel( 'xwiki' ),
+			controller = this,
+			promises = [];
+
+		if ( !model ) {
+			// There is no xwiki notifications model
+			return $.Deferred().reject().promise();
+		}
+
+		model.getSourceNames().forEach( function ( source ) {
+			promises.push( controller.updateSeenTime( source ) );
+		} );
+
+		return mw.echo.api.NetworkHandler.static.waitForAllPromises( promises );
+	};
 	/**
 	 * Update seenTime for the currently selected source
 	 *
