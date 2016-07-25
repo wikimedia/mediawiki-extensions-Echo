@@ -35,6 +35,7 @@
 	"notification-link-text-view-page": "Orrialdea ikusi",
 	"notification-welcome-linktext": "Ongi etorri",
 	"notification-link-text-view-edit": "Ikusi aldaketa",
+	"notification-mention-email-subject": "$1(e)k {{GENDER:$1|aipatu}} {{GENDER:$2|zaitu}} {{SITENAME}} gunean",
 	"notification-timestamp-today": "Gaur",
 	"notification-timestamp-yesterday": "Atzo",
 	"notification-inbox-filter-read": "Irakurriak",
