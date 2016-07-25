@@ -160,7 +160,7 @@
 	"echo-email-html-footer-preference-link-text": "verifica le tue preferenze",
 	"echo-email-html-footer-with-link": "Per controllare quali email ti vengono inviate, $1.",
 	"echo-notification-alert": "{{PLURAL:$1|Avviso ($1)|Avvisi ($1)|100=Avvisi (99+)}}",
-	"echo-notification-notice": "{{PLURAL:$1|Comunicazione ($1)|Comunicazioni ($1)|100=Comunicazioni (99+)}}",
+	"echo-notification-notice": "{{PLURAL:$1|Notifica ($1)|Notifiche ($1)|100=Notifiche (99+)}}",
 	"echo-notification-alert-text-only": "Avvisi",
 	"echo-notification-notice-text-only": "Notifiche",
 	"echo-overlay-link": "Tutte le notifiche",

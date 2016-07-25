@@ -53,8 +53,8 @@
 	"echo-pref-tooltip-edit-user-talk": "Notificar-me quando alguém publicar na minha página de discussão.",
 	"echo-pref-tooltip-article-linked": "Notificar-me quando alguém interligar uma página criada por mim numa outra.",
 	"echo-pref-tooltip-reverted": "Notificar-me quando alguém reverter uma edição minha, ao utilizar a função desfazer ou a ferramenta de reversão.",
-	"echo-pref-tooltip-mention": "Notificar-me quando alguém mencionar a minha página de {{GENDER:$1|utilizador|utilizadora|utilizador(a)}}.",
-	"echo-pref-tooltip-user-rights": "Notificar-me quando os meus privilégios de {{GENDER:$1|utilizador|utilizadora|utilizador(a)}} forem alterados.",
+	"echo-pref-tooltip-mention": "Notificar-me quando alguém mencionar a minha página de utilizador.",
+	"echo-pref-tooltip-user-rights": "Notificar-me quando os meus privilégios de utilizador forem alterados.",
 	"echo-pref-tooltip-emailuser": "Notifique-me quando alguém me enviar um e-mail.",
 	"echo-error-no-formatter": "Sem formato definido para notificações",
 	"notifications": "Notificações",
@@ -167,6 +167,7 @@
 	"echo-overlay-title": "<b>Notificações</b>",
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Notificações}}</b> (a mostrar $1 de $2 não lidas)",
 	"echo-mark-all-as-read": "Marcar todas como lidas",
+	"echo-mark-wiki-as-read": "Marcar tudo como lido na wiki selecionada: $1",
 	"echo-date-today": "Hoje",
 	"echo-date-yesterday": "Ontem",
 	"echo-load-more-error": "Ocorreu um erro ao carregar mais resultados.",
@@ -179,6 +180,8 @@
 	"notification-header-foreign-alert": "Mais alertas de {{PLURAL:$5|uma outra wiki|$5 outras wikis}}",
 	"notification-header-foreign-notice": "Mais notificações de {{PLURAL:$5|outra wiki|$5 outras wikis}}",
 	"notification-header-foreign-all": "Mais notificações de {{PLURAL:$5|uma outra wiki|$5 outras wikis}}",
+	"apihelp-echomarkread-description": "Marcar notificações como lidas para o utilizador atual.",
+	"apihelp-echomarkread-example-2": "Marcar todas as notificações como lidas",
 	"apihelp-echomarkread-example-3": "Marcar a notificação 1 como não lida",
 	"apihelp-query+notifications-paramvalue-format-text": "Texto sem formatação"
 }

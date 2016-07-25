@@ -190,6 +190,7 @@
 	"apihelp-echomarkseen-description": "סימון הודעות כהודעות שנקראו עבור המשתמש הנוכחי.",
 	"apihelp-echomarkseen-example-1": "לסמן שהתראות מכל הסוגים נראו",
 	"apihelp-echomarkseen-param-type": "סוג ההודעות לסמן בתור הודעות שנראו: 'alert'‏, 'message' או 'all'.",
+	"apihelp-echomarkseen-param-timestampFormat": "תסדיר חותם־זמן שישמש בפלט, 'ISO_8601' או 'MW'. תסדיר 'MW' מיושן כאן, אז כל הלקוחות אמורים לעבור ל־'ISO_8601'. הפרמטר הזה יוסר ותסדיר הפלט היחיד יהיה 'ISO_8601'.",
 	"apihelp-query+notifications-description": "קבלת התראות שממתינות למשתמש הנוכחי.",
 	"apihelp-query+notifications-param-prop": "אילו פרטים לבקש.",
 	"apihelp-query+notifications-param-sections": "אזורי ההודעות שצריך לאחזר (כלומר, שילוב כלשהו של 'alert' ו־'message').",
