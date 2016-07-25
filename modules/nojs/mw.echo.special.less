@@ -17,8 +17,16 @@
 .client-js #mw-indicator-mw-helplink {
 	display: none;
 }
+
+.client-js #mw-echo-pref-link,
 .client-js #contentSub {
 	display: none;
+}
+
+@media all and ( min-width: @specialpage-mobile-width-medium ) {
+	.client-js #mw-content-text {
+		margin-top: 2em;
+	}
 }
 
 /* Custom header styling for Vector and Monobook skins */
@@ -167,5 +175,8 @@ div.mw-htmlform-ooui-wrapper {
 	.pre-content.heading-holder {
 		// Center 'preferences' in mobile special page
 		text-align: center;
+	}
+	.mw-echo-special-header-link {
+		display: none;
 	}
 }

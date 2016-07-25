@@ -4,8 +4,9 @@
 	 * Echo Special:Notifications page initialization
 	 */
 	$( document ).ready( function () {
-		var prefLink, specialPageContainer,
+		var specialPageContainer,
 			limitNotifications = 50,
+			links = mw.config.get( 'wgNotificationsSpecialPageLinks' ),
 			$content = $( '#mw-content-text' ),
 			echoApi = new mw.echo.api.EchoApi( { limit: limitNotifications, bundle: false } ),
 			unreadCounter = new mw.echo.dm.UnreadNotificationCounter( echoApi, [ 'message', 'alert' ], limitNotifications ),
@@ -27,17 +28,14 @@
 				modelManager
 			);
 
-		prefLink = new mw.Uri( $( '#pt-preferences a' ).prop( 'href' ) );
-		prefLink.fragment = 'mw-prefsection-echo';
-
 		specialPageContainer = new mw.echo.ui.NotificationsInboxWidget(
 			controller,
 			modelManager,
 			{
 				limit: limitNotifications,
 				$overlay: mw.echo.ui.$overlay,
-				prefLink: prefLink.toString(),
-				helpLink: $( '#mw-indicator-mw-helplink a' ).prop( 'href' )
+				prefLink: links.preferences,
+				helpLink: links.help
 			}
 		);
 

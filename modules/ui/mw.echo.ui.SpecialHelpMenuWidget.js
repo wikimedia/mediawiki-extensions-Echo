@@ -35,23 +35,30 @@
 		this.setPendingElement( this.$element );
 		this.markAllReadButton.toggle( false );
 
-		this.addItems( [
-			this.markAllReadButton,
-			// Preferences link
-			new OO.ui.ButtonWidget( {
-				framed: false,
-				icon: 'advanced',
-				label: mw.msg( 'mypreferences' ),
-				href: config.prefLink
-			} ),
-			// Help link
-			new OO.ui.ButtonWidget( {
-				framed: false,
-				icon: 'help',
-				label: mw.msg( 'echo-learn-more' ),
-				href: config.helpLink
-			} )
-		] );
+		this.addItems( [ this.markAllReadButton ] );
+		if ( config.prefLink ) {
+			this.addItems( [
+				// Preferences link
+				new OO.ui.ButtonWidget( {
+					framed: false,
+					icon: 'advanced',
+					label: mw.msg( 'mypreferences' ),
+					href: config.prefLink
+				} )
+			] );
+		}
+
+		if ( config.helpLink ) {
+			this.addItems( [
+				// Help link
+				new OO.ui.ButtonWidget( {
+					framed: false,
+					icon: 'help',
+					label: mw.msg( 'echo-learn-more' ),
+					href: config.helpLink
+				} )
+			] );
+		}
 
 		// Events
 		this.markAllReadButton.connect( this, { click: 'onMarkAllreadButtonClick' } );
