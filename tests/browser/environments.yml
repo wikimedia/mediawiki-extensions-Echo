@@ -26,7 +26,7 @@ local:
   mediawiki_user: Admin
   mediawiki_password: vagrant
   mediawiki_user_b: Selenium Echo user 2
-  mediawiki_url: http://127.0.0.1:8080/wiki/
+  mediawiki_url: http://dev.wiki.local.wmftest.net:8080/wiki/
 
 beta:
   mediawiki_url: http://en.wikipedia.beta.wmflabs.org/wiki/
