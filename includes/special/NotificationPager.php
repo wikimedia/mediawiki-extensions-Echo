@@ -3,7 +3,7 @@
 /**
  * This pager is used by Special:Notifications (NO-JS).
  * The heavy-lifting is done by IndexPager (grand-parent to this class).
- * It paginates on notification_event for a specific user, bundle_base=1, and the user's enabled event types.
+ * It paginates on notification_event for a specific user, only for the enabled event types.
  *
  * Class NotificationPager
  */
@@ -30,6 +30,7 @@ class NotificationPager extends ReverseChronologicalPager {
 			'conds' => array(
 				'notification_user' => $this->getUser()->getId(),
 				'event_type' => $eventTypes,
+				'event_deleted' => 0,
 			),
 			'options' => array(),
 			'join_conds' =>
