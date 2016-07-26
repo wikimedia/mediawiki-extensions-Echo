@@ -267,11 +267,16 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 			$notifs = $bundler->bundle( $notifs );
 		}
 
-		/** @var EchoNotification $notif */
-		foreach ( $notifs as $notif ) {
+		while ( count( $notifs ) ) {
+			/** @var EchoNotification $notif */
+			$notif = array_shift( $notifs );
 			$output = EchoDataOutputFormatter::formatOutput( $notif, $format, $user, $this->getLanguage() );
 			if ( $output !== false ) {
 				$result['list'][] = $output;
+			} elseif ( $bundle && $notif->getBundledNotifications() ) {
+				// when the bundle_base gets filtered out, bundled notifications
+				// have to be re-bundled and formatted
+				$notifs = array_merge( $bundler->bundle( $notif->getBundledNotifications() ), $notifs );
 			}
 		}
 
