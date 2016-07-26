@@ -159,6 +159,7 @@
 	"echo-overlay-title": "<b>Notificacións</b>",
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Notificación|Notificacións}}</b> (mostrando $1 de $2 sen ler)",
 	"echo-mark-all-as-read": "Marcar todo como lido",
+	"echo-mark-wiki-as-read": "Marcar todas como lidas na wiki seleccionada: $1",
 	"echo-date-today": "Hoxe",
 	"echo-date-yesterday": "Onte",
 	"echo-load-more-error": "Houbo un erro ao procurar máis resultados.",

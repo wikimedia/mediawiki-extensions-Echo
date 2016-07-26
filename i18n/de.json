@@ -96,7 +96,7 @@
 	"echo-notification-more-options-tooltip": "Weitere Optionen",
 	"notification-link-text-expand-all": "Ausklappen",
 	"notification-link-text-expand-alert-count": "{{PLURAL:$1|Eine Meldung|$1 Meldungen}} ansehen",
-	"notification-link-text-expand-notice-count": "{{PLURAL:$1|Eine Notiz|$1 Notizen}} ansehen",
+	"notification-link-text-expand-notice-count": "{{PLURAL:$1|Eine Mitteilung|$1 Mitteilungen}} ansehen",
 	"notification-link-text-expand-all-count": "{{PLURAL:$1|Eine Benachrichtigung|$1 Benachrichtigungen}} ansehen",
 	"notification-link-text-collapse-all": "Einklappen",
 	"notification-link-text-view-message": "Nachricht ansehen",
