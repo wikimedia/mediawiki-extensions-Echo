@@ -192,6 +192,7 @@
 	"apihelp-echomarkseen-description": "Märk aviseringar som lästa för aktuell användare.",
 	"apihelp-echomarkseen-example-1": "Märk alla sorters aviseringar som lästa",
 	"apihelp-echomarkseen-param-type": "Aviseringstypen att märka som läst: 'alert', 'message' eller 'all'.",
+	"apihelp-echomarkseen-param-timestampFormat": "Tidstämpelformat att använda som utmatning, 'ISO_8601' eller 'MW'. 'MW' är föråldrat här, så alla klienter bör byta till 'ISO_8601'. Denna parameter kommer att tas bort och 'ISO_8601' kommer att bli det enda utmatningsformatet.",
 	"apihelp-query+notifications-description": "Hämta aviseringar som väntar på aktuell användare.",
 	"apihelp-query+notifications-param-prop": "Detaljer som ska begäras.",
 	"apihelp-query+notifications-param-sections": "De aviseringsavsnitt som ska undersökas (d.v.s. en kombination av 'alert' och 'message').",
