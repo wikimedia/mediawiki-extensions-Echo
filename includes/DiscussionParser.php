@@ -139,6 +139,8 @@ abstract class EchoDiscussionParser {
 		Revision $revision,
 		User $agent
 	) {
+		global $wgEchoMaxMentionsCount, $wgEchoMentionStatusNotifications;
+
 		$title = $revision->getTitle();
 		if ( !$title ) {
 			return;
@@ -152,41 +154,103 @@ abstract class EchoDiscussionParser {
 			return;
 		}
 		$mentionedUsers = array();
+		$unknownUsers = array();
+		$anonymousUsers = array();
 		$count = 0;
 		$stats = MediaWikiServices::getInstance()->getStatsdDataFactory();
 
 		foreach ( $links[NS_USER] as $dbk => $page_id ) {
-			$user = User::newFromName( $dbk );
-
 			// we should not add user to 'mention' notification list if
-			// 1. the user name is not valid
+			// 1. the user link links to a subpage
+			if ( self::hasSubpage( $dbk ) ) {
+				continue;
+			}
+
+			// 2. user is an anonymous IP
+			if ( User::isIP( $dbk ) ) {
+				$anonymousUsers[] = $dbk;
+				$count++;
+				$stats->increment( 'echo.event.mention.error.anonUser' );
+				continue;
+			}
+
+			$user = User::newFromName( $dbk );
+			// 3. the user name is not valid
 			if ( !$user ) {
+				$unknownUsers[] = str_replace( '_', ' ', $dbk );
+				$count++;
 				$stats->increment( 'echo.event.mention.error.invalidUser' );
 				continue;
 			}
-			// 2. the user mentions themselves
+			// 4. the user mentions themselves
 			if ( $user->getId() == $revision->getUser( Revision::RAW ) ) {
 				$stats->increment( 'echo.event.mention.error.sameUser' );
 				continue;
 			}
-			// 3. the user is the owner of the talk page
+			// 5. the user is the owner of the talk page
 			if ( $title->getNamespace() === NS_USER_TALK && $title->getDBkey() === $dbk ) {
 				$stats->increment( 'echo.event.mention.error.ownPage' );
 				continue;
 			}
-			// 4. user is anonymous or does not exist
-			if ( $user->isAnon() ) {
-				$stats->increment( 'echo.event.mention.error.anonUser' );
+			// 6. user does not exist
+			if ( $user->getId() === 0 ) {
+				$unknownUsers[] = str_replace( '_', ' ', $dbk );
+				$count++;
+				$stats->increment( 'echo.event.mention.error.unknownUser' );
 				continue;
 			}
 
 			$mentionedUsers[$user->getId()] = $user->getId();
 			$count++;
-			// If more than 50 users are being pinged this is likely a spam/attack vector
+			// If more users are being pinged this is likely a spam/attack vector
 			// Don't send any mention notifications.
-			if ( $count > 50 ) {
+			if ( $count > $wgEchoMaxMentionsCount ) {
+				if ( $wgEchoMentionStatusNotifications ) {
+					EchoEvent::create( array(
+						'type' => 'mention-too-many',
+						'title' => $title,
+						'extra' => array(
+							'max-mentions' => $wgEchoMaxMentionsCount,
+							'section-title' => $header,
+							'notifyAgent' => true
+						),
+						'agent' => $agent,
+					) );
+				}
 				$stats->increment( 'echo.event.mention.error.tooMany' );
 				return;
+			}
+		}
+
+		if ( $wgEchoMentionStatusNotifications ) {
+			// TODO batch?
+			foreach ( $unknownUsers as $unknownUser ) {
+				EchoEvent::create( array(
+					'type' => 'mention-failure',
+					'title' => $title,
+					'extra' => array(
+						'failure-type' => 'user-unknown',
+						'subject-name' => $unknownUser,
+						'section-title' => $header,
+						'notifyAgent' => true
+					),
+					'agent' => $agent,
+				) );
+			}
+
+			// TODO batch?
+			foreach ( $anonymousUsers as $anonymousUser ) {
+				EchoEvent::create( array(
+					'type' => 'mention-failure',
+					'title' => $title,
+					'extra' => array(
+						'failure-type' => 'user-anonymous',
+						'subject-name' => $anonymousUser,
+						'section-title' => $header,
+						'notifyAgent' => true
+					),
+					'agent' => $agent,
+				) );
 			}
 		}
 
@@ -205,6 +269,10 @@ abstract class EchoDiscussionParser {
 			),
 			'agent' => $agent,
 		) );
+	}
+
+	private static function hasSubpage( $dbk ) {
+		return strpos( $dbk, '/' ) !== false;
 	}
 
 	/**

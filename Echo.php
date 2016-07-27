@@ -167,6 +167,12 @@ $wgEchoBundleTransition = false;
 // is deployed to both deployment branches
 $wgEchoMaxUpdateCount = 2000;
 
+// The max number of mention notifications allowed for a user to send at once
+$wgEchoMaxMentionsCount = 50;
+
+// Enable this when you want to enable mention failure notifications for the users.
+$wgEchoMentionStatusNotifications = false;
+
 // The time interval between each bundle email in seconds
 // set a small number for test wikis, should set this to 0 to disable email bundling
 // if there is no delay queue support
@@ -198,6 +204,10 @@ $wgNotifyTypeAvailabilityByCategory = array(
 	'emailuser' => array(
 		'web' => true,
 		'email' => false,
+	),
+	'mention-failure' => array(
+		'web' => true,
+		'email' => false
 	),
 );
 
@@ -283,6 +293,10 @@ $wgEchoNotificationCategories = array(
 		'priority' => 4,
 		'tooltip' => 'echo-pref-tooltip-mention',
 	),
+	'mention-failure' => array(
+		'priority' => 4,
+		'tooltip' => 'echo-pref-tooltip-mention-failure',
+	),
 	'emailuser' => array(
 		'priority' => 9,
 		'tooltip' => 'echo-pref-tooltip-emailuser',
@@ -324,6 +338,9 @@ $wgEchoNotificationIcons = array(
 	),
 	'mention' => array(
 		'path' => "$echoIconPath/mention.svg",
+	),
+	'mention-failure' => array(
+		'path' => "$echoIconPath/mention-failure.svg",
 	),
 	'reviewed' => array(
 		'path' => "$echoIconPath/reviewed.svg",
@@ -413,6 +430,28 @@ $wgEchoNotifications = array(
 		'section' => 'alert',
 		'presentation-model' => 'EchoMentionPresentationModel',
 	),
+	'mention-failure' => array(
+		EchoAttributeManager::ATTR_LOCATORS => array(
+			array( 'EchoUserLocator::locateEventAgent' ),
+		),
+		'category' => 'mention-failure',
+		'bundle' => array(
+			'web' => true,
+			'expandable' => true,
+		),
+		'group' => 'negative',
+		'section' => 'alert',
+		'presentation-model' => 'EchoMentionFailurePresentationModel',
+	),
+	'mention-too-many' => array(
+		EchoAttributeManager::ATTR_LOCATORS => array(
+			array( 'EchoUserLocator::locateEventAgent' ),
+		),
+		'category' => 'mention-failure',
+		'group' => 'negative',
+		'section' => 'alert',
+		'presentation-model' => 'EchoMentionFailurePresentationModel',
+	),
 	'user-rights' => array(
 		EchoAttributeManager::ATTR_LOCATORS => array(
 			array( 'EchoUserLocator::locateFromEventExtra', array( 'user' ) ),
@@ -480,6 +519,7 @@ foreach ( $wgEchoNotificationCategories as $category => $categoryData ) {
 $wgDefaultUserOptions['echo-subscriptions-email-system'] = true;
 $wgDefaultUserOptions['echo-subscriptions-email-user-rights'] = true;
 $wgDefaultUserOptions['echo-subscriptions-web-article-linked'] = false;
+$wgDefaultUserOptions['echo-subscriptions-web-mention-failure'] = false;
 
 // Echo Configuration for EventLogging
 $wgEchoConfig = array(

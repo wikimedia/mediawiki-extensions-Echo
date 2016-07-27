@@ -295,6 +295,25 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 				),
 				'precondition' => 'isParserFunctionsInstalled',
 			),
+			array(
+				'new' => 747747748,
+				'old' => 747747747,
+				'username' => 'Admin',
+				'lang' => 'en',
+				'pages' => array(),
+				'title' => 'UTPage',
+				'expected' => array(
+					array(
+						'type' => 'mention-failure',
+						'agent' => 'Admin',
+					),
+					array(
+						'type' => 'mention-failure',
+						'agent' => 'Admin',
+					),
+				),
+
+			),
 		);
 	}
 
@@ -311,6 +330,63 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 			}
 		}
 
+		$revision = $this->setupTestRevisionsForEventGeneration( $newId, $oldId, $username, $lang, $pages, $title );
+
+		$events = array();
+		$this->setupEventCallbackForEventGeneration(
+			function ( EchoEvent $event ) use ( &$events ) {
+				$events[] = array(
+					'type' => $event->getType(),
+					'agent' => $event->getAgent()->getName(),
+				);
+				return false;
+			}
+		);
+
+		// enable mention failure and success notifications
+		$this->setMwGlobals( 'wgEchoMentionStatusNotifications', true );
+
+		EchoDiscussionParser::generateEventsForRevision( $revision );
+
+		$this->assertEquals( $expected, $events );
+	}
+
+	public function testGenerateEventsForRevision_tooManyMentionsFailure() {
+		$expected = array(
+			array(
+				'type' => 'mention-too-many',
+				'agent' => 'Admin',
+				'max-mentions' => 5,
+			),
+		);
+
+		$revision = $this->setupTestRevisionsForEventGeneration( 747747749, 747747747, 'Admin', 'en', array(), 'UTPage' );
+
+		$events = array();
+		$this->setupEventCallbackForEventGeneration(
+			function ( EchoEvent $event ) use ( &$events ) {
+				$events[] = array(
+					'type' => $event->getType(),
+					'agent' => $event->getAgent()->getName(),
+					'max-mentions' => $event->getExtraParam( 'max-mentions' ),
+				);
+				return false;
+			}
+		);
+
+		$this->setMwGlobals( array(
+			// enable mention failure and success notifications
+			'wgEchoMentionStatusNotifications' => true,
+			// lower limit for the mention-too-many notification
+			'wgEchoMaxMentionsCount' => 5
+		) );
+
+		EchoDiscussionParser::generateEventsForRevision( $revision );
+
+		$this->assertEquals( $expected, $events );
+	}
+
+	private function setupTestRevisionsForEventGeneration( $newId, $oldId, $username, $lang, $pages, $title ) {
 		$langObj = Language::factory( $lang );
 		$this->setMwGlobals( array(
 			// this global is used by the code that interprets the namespace part of
@@ -387,31 +463,18 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 		$property = $class->getProperty( 'revisionInterpretationCache' );
 		$property->setAccessible( true );
 		$property->setValue( array( $revision->getId() => $output ) );
+		return $revision;
+	}
 
+	private function setupEventCallbackForEventGeneration( callable $callback ) {
 		// to catch the generated event, I'm going to attach a callback to the
 		// hook that's being run just prior to sending the notifications out
-		$events = array();
-		$callback = function ( EchoEvent $event ) use ( &$events ) {
-			$events[] = array(
-				'type' => $event->getType(),
-				'agent' => $event->getAgent()->getName(),
-			);
-
-			// don't let the event go out, abort from within this hook
-			return false;
-		};
-
 		// can't use setMwGlobals here, so I'll just re-attach to the same key
 		// for every dataProvider value (and don't worry, I'm removing it on
 		// tearDown too - I just felt the attaching should be happening here
 		// instead of on setUp, or code would get too messy)
 		global $wgHooks;
 		$wgHooks['BeforeEchoEventInsert'][999] = $callback;
-
-		// finally, dear god, start generating the events already!
-		EchoDiscussionParser::generateEventsForRevision( $revision );
-
-		$this->assertEquals( $expected, $events );
 	}
 
 	// TODO test cases for:

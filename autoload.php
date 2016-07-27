@@ -60,6 +60,7 @@ $wgAutoloadClasses += [
 	'EchoIteratorDecorator' => __DIR__ . '/includes/iterator/IteratorDecorator.php',
 	'EchoLocalCache' => __DIR__ . '/includes/cache/LocalCache.php',
 	'EchoMentionPresentationModel' => __DIR__ . '/includes/formatters/MentionPresentationModel.php',
+	'EchoMentionFailurePresentationModel' => __DIR__ . '/includes/formatters/MentionFailurePresentationModel.php',
 	'EchoModelFormatter' => __DIR__ . '/includes/formatters/EchoModelFormatter.php',
 	'EchoModerationController' => __DIR__ . '/includes/controller/ModerationController.php',
 	'EchoMultipleIterator' => __DIR__ . '/includes/iterator/MultipleIterator.php',
