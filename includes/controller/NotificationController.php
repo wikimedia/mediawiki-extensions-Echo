@@ -382,21 +382,6 @@ class EchoNotificationController {
 	}
 
 	/**
-	 * Event has failed to format for the given user.  Mark it as read so
-	 * we do not continue to notify them about this broken event.
-	 *
-	 * @param EchoEvent $event
-	 * @param User $user
-	 */
-	protected static function failFormatting( EchoEvent $event, $user ) {
-		// FIXME: The only issue is that the badge count won't be up to date
-		// till you refresh the page.  Probably we could do this in the browser
-		// so that if the formatting is empty and the notif is unread, put it
-		// in the auto-mark-read APIs
-		EchoDeferredMarkAsReadUpdate::add( $event, $user );
-	}
-
-	/**
 	 * INTERNAL.  Must be public to be callable by the php error handling methods.
 	 *
 	 * Converts E_RECOVERABLE_ERROR, such as passing null to a method expecting

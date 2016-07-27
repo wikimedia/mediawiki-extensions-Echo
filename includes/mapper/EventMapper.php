@@ -175,6 +175,52 @@ class EchoEventMapper extends EchoAbstractMapper {
 	}
 
 	/**
+	 * Fetch events associated with a page
+	 *
+	 * @param int $pageId
+	 * @return EchoEvent[] Events
+	 */
+	public function fetchByPage( $pageId ) {
+		$events = array();
+
+		$dbr = $this->dbFactory->getEchoDb( DB_SLAVE );
+		$res = $dbr->select(
+			array( 'echo_event', 'echo_target_page' ),
+			array( 'echo_event.*' ),
+			array(
+				'etp_page' => $pageId
+			),
+			__METHOD__,
+			array( 'GROUP BY' => 'etp_event' ),
+			array( 'echo_target_page' => array( 'JOIN', 'event_id=etp_event' ) )
+		);
+		if ( $res ) {
+			foreach ( $res as $row ) {
+				$events[] = EchoEvent::newFromRow( $row );
+			}
+		}
+
+		return $events;
+	}
+
+	/**
+	 * Fetch event IDs associated with a page
+	 *
+	 * @param int $pageId
+	 * @return int[] Event IDs
+	 */
+	public function fetchIdsByPage( $pageId ) {
+		$events = $this->fetchByPage( $pageId );
+		$eventIds = array_map(
+			function ( EchoEvent $event ) {
+				return $event->getId();
+			},
+			$events
+		);
+		return $eventIds;
+	}
+
+	/**
 	 * Fetch events unread by a user and associated with a page
 	 *
 	 * @param User $user

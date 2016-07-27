@@ -721,12 +721,14 @@ class EchoHooks {
 					continue;
 				}
 
+				$linkFromPageId = $linksUpdate->mTitle->getArticleId();
 				EchoEvent::create( array(
 					'type' => 'page-linked',
 					'title' => $title,
 					'agent' => $user,
 					'extra' => array(
-						'link-from-page-id' => $linksUpdate->mTitle->getArticleId(),
+						'target-page' => $linkFromPageId,
+						'link-from-page-id' => $linkFromPageId,
 						'revid' => $revid,
 					)
 				) );
@@ -1301,6 +1303,26 @@ class EchoHooks {
 		$vars['wgEchoMaxNotificationCount'] = MWEchoNotifUser::MAX_BADGE_COUNT;
 		$vars['wgEchoFooterNoticeURL'] = $wgEchoFooterNoticeURL;
 
+		return true;
+	}
+
+	public static function onArticleDeleteComplete( WikiPage &$article, User &$user, $reason, $articleId, Content $content = null, LogEntry $logEntry ) {
+		\DeferredUpdates::addCallableUpdate( function () use ( $articleId ) {
+			$eventMapper = new EchoEventMapper();
+			$eventIds = $eventMapper->fetchIdsByPage( $articleId );
+			EchoModerationController::moderate( $eventIds, true );
+		} );
+		return true;
+	}
+
+	public static function onArticleUndelete( Title $title, $create, $comment, $oldPageId ) {
+		if ( $create ) {
+			\DeferredUpdates::addCallableUpdate( function () use ( $oldPageId ) {
+				$eventMapper = new EchoEventMapper();
+				$eventIds = $eventMapper->fetchIdsByPage( $oldPageId );
+				EchoModerationController::moderate( $eventIds, false );
+			} );
+		}
 		return true;
 	}
 

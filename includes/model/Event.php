@@ -465,9 +465,10 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 	}
 
 	/**
-	 * @return Title|null
+	 * @param bool $fromMaster
+	 * @return null|Title
 	 */
-	public function getTitle() {
+	public function getTitle( $fromMaster = false ) {
 		if ( $this->title ) {
 			return $this->title;
 		} elseif ( $this->pageId ) {
@@ -477,7 +478,7 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 				return $this->title = $title;
 			}
 
-			return $this->title = Title::newFromID( $this->pageId );
+			return $this->title = Title::newFromID( $this->pageId, $fromMaster ? Title::GAID_FOR_UPDATE : 0 );
 		} elseif ( isset( $this->extra['page_title'], $this->extra['page_namespace'] ) ) {
 			return $this->title = Title::makeTitleSafe(
 				$this->extra['page_namespace'],

@@ -136,7 +136,7 @@ class EchoDataOutputFormatter {
 			$formatted = self::formatNotification( $event, $user, $format, $lang );
 			if ( $formatted === false ) {
 				// Can't display it, so mark it as read
-				EchoDeferredMarkAsReadUpdate::add( $event, $user );
+				EchoDeferredMarkAsDeletedUpdate::add( $event );
 				return false;
 			}
 			$output['*'] = $formatted;
