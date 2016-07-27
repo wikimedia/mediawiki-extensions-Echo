@@ -1,8 +1,12 @@
 July, 2016
 -----------
+* BREAKING CHANGE: In the cross-wiki summary in ApiEchoNotifications,
+  'ts' is now ISO 8601.
 * BREAKING CHANGE: JS variables: wgEchoSeenTime now uses ISO 8601, and
   alert/notice instead of alert/message.  wgEchoInitialNotifCount has
   been removed.
+* ApiEchoMarkSeen is moving to ISO 8601.  Adjust your client; see API
+  documentation.
 
 April, 2016
 -----------
