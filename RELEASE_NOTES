@@ -1,7 +1,8 @@
 July, 2016
 -----------
 * BREAKING CHANGE: JS variables: wgEchoSeenTime now uses ISO 8601, and
-  alert/notice instead of alert/message.
+  alert/notice instead of alert/message.  wgEchoInitialNotifCount has
+  been removed.
 
 April, 2016
 -----------
