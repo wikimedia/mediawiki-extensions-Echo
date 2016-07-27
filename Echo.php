@@ -443,7 +443,7 @@ $wgEchoNotifications = array(
 		'section' => 'alert',
 		'presentation-model' => 'EchoMentionFailurePresentationModel',
 	),
-	'mention-too-many' => array(
+	'mention-failure-too-many' => array(
 		EchoAttributeManager::ATTR_LOCATORS => array(
 			array( 'EchoUserLocator::locateEventAgent' ),
 		),

@@ -354,7 +354,7 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 	public function testGenerateEventsForRevision_tooManyMentionsFailure() {
 		$expected = array(
 			array(
-				'type' => 'mention-too-many',
+				'type' => 'mention-failure-too-many',
 				'agent' => 'Admin',
 				'max-mentions' => 5,
 			),
@@ -377,7 +377,7 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 		$this->setMwGlobals( array(
 			// enable mention failure and success notifications
 			'wgEchoMentionStatusNotifications' => true,
-			// lower limit for the mention-too-many notification
+			// lower limit for the mention-failure-too-many notification
 			'wgEchoMaxMentionsCount' => 5
 		) );
 

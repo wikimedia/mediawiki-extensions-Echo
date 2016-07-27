@@ -207,7 +207,7 @@ abstract class EchoDiscussionParser {
 			if ( $count > $wgEchoMaxMentionsCount ) {
 				if ( $wgEchoMentionStatusNotifications ) {
 					EchoEvent::create( array(
-						'type' => 'mention-too-many',
+						'type' => 'mention-failure-too-many',
 						'title' => $title,
 						'extra' => array(
 							'max-mentions' => $wgEchoMaxMentionsCount,

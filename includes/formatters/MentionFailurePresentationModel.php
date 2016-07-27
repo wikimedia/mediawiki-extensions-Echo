@@ -88,7 +88,7 @@ class EchoMentionFailurePresentationModel extends EchoEventPresentationModel {
 	}
 
 	private function isTooManyMentionsFailure() {
-		return $this->getType() === 'mention-too-many';
+		return $this->getType() === 'mention-failure-too-many';
 	}
 
 	private function getMaxMentions() {
