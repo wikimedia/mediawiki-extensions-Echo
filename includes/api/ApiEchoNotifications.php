@@ -447,7 +447,7 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 		$output['sources'] = EchoForeignNotifications::getApiEndpoints( $wikis );
 		// Add timestamp information
 		foreach ( $output['sources'] as $wiki => &$data ) {
-			$data['ts'] = $timestampsByWiki[$wiki]->getTimestamp( TS_MW );
+			$data['ts'] = $timestampsByWiki[$wiki]->getTimestamp( TS_ISO_8601 );
 		}
 		return $output;
 	}
