@@ -48,7 +48,7 @@ class EchoSeenTime {
 		$vals = array();
 		if ( $type === 'all' ) {
 			foreach ( self::$allowedTypes as $allowed ) {
-				$vals[] = $this->getTime( $allowed );
+				$vals[] = $this->getTime( $allowed, $flags, $format );
 			}
 
 			return max( $vals );
@@ -63,7 +63,6 @@ class EchoSeenTime {
 				$data = $this->user->getOption( 'echo-seen-time', false );
 			}
 		}
-
 		if ( $data !== false ) {
 			$formattedData = wfTimestamp( $format, $data );
 		} else {
