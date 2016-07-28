@@ -148,7 +148,7 @@
 	"notification-header-mention-failure-user-unknown": "{{GENDER:$2|Your}} mention for \"$3\" was not sent because the user was not found.",
 	"notification-header-mention-failure-user-anonymous": "{{GENDER:$2|Your}} mention for \"$3\" was not sent because the user is anonymous.",
 	"notification-header-mention-failure-too-many": "{{GENDER:$2|Your}} mentions were not sent because they exceeded the limit of $3.",
-	"notification-header-mention-failure-bundle": "$3 mentions {{GENDER:$2|you made}} on the <strong>$4</strong> talk page were not sent.",
+	"notification-header-mention-failure-bundle": "{{PLURAL:$3|A mention|$3 mentions}} {{GENDER:$2|you made}} on the <strong>$4</strong> talk page {{PLURAL:$3|was|were}} not sent.",
 	"notification-compact-header-mention-failure-user-unknown": "<strong>Unknown user:</strong> \"$1\"",
 	"notification-compact-header-mention-failure-user-anonymous": "<strong>Anonymous user:</strong> \"$1\"",
 	"notification-header-user-rights-add-only": "{{GENDER:$4|Your}} user rights were {{GENDER:$1|changed}}. You have been added to: $2.",
