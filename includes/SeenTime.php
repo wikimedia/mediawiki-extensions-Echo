@@ -48,10 +48,12 @@ class EchoSeenTime {
 		$vals = array();
 		if ( $type === 'all' ) {
 			foreach ( self::$allowedTypes as $allowed ) {
-				$vals[] = $this->getTime( $allowed, $flags, $format );
+				// Use TS_MW, then convert later, so max works properly for
+				// all formats.
+				$vals[] = $this->getTime( $allowed, $flags, TS_MW );
 			}
 
-			return max( $vals );
+			return wfTimestamp( $format, max( $vals ) );
 		}
 
 		if ( $this->validateType( $type ) ) {
