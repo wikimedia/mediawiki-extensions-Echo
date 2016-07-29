@@ -365,4 +365,12 @@
 		this.$element.removeClass( 'mw-echo-ui-notificationItemWidget-initiallyUnseen' );
 	};
 
+	/**
+	 * Declares whether this widget is a cloned fake.
+	 *
+	 * @return {boolean} false
+	 */
+	mw.echo.ui.NotificationItemWidget.prototype.isFake = function () {
+		return false;
+	};
 } )( mediaWiki, jQuery );

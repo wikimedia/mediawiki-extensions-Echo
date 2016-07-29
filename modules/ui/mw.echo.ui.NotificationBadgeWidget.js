@@ -82,7 +82,8 @@
 			this.manager,
 			{
 				type: this.types,
-				$overlay: this.$menuOverlay
+				$overlay: this.$menuOverlay,
+				animated: true
 			}
 		);
 

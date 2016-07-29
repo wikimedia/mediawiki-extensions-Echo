@@ -16,6 +16,7 @@
 	 * @param {mw.echo.Controller} controller Echo notifications controller
 	 * @param {mw.echo.dm.CrossWikiNotificationItem} model Notification group model
 	 * @param {Object} [config] Configuration object
+	 * @cfg {boolean} [animateSorting=false] Animate the sorting of items
 	 * @cfg {jQuery} [$overlay] A jQuery element functioning as an overlay
 	 *  for popups.
 	 */
@@ -52,7 +53,8 @@
 			{
 				classes: [ 'mw-echo-ui-crossWikiNotificationItemWidget-group' ],
 				timestamp: this.getTimestamp(),
-				$overlay: this.$overlay
+				$overlay: this.$overlay,
+				animated: config.animateSorting
 			}
 		);
 

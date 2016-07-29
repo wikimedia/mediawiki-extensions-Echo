@@ -16,6 +16,7 @@
 	 *  for popups.
 	 * @cfg {number} [timestamp=0] A fallback timestamp for the list, usually representing
 	 *  the timestamp of the latest item.
+	 * @cfg {boolean} [animated=false] Animate the sorting of items
 	 */
 	mw.echo.ui.SortedListWidget = function MwEchoUiSortedListWidget( sortingCallback, config ) {
 		config = config || {};
@@ -29,6 +30,8 @@
 		this.$group = null;
 		this.$overlay = config.$overlay;
 		this.timestamp = config.timestamp || 0;
+
+		this.animated = !!config.animated;
 
 		// Initialization
 		this.setGroupElement( config.$group || this.$element );
@@ -48,15 +51,42 @@
 	 * @inheritdoc
 	 */
 	mw.echo.ui.SortedListWidget.prototype.onItemSortChange = function ( item ) {
-		var widget = this;
+		var fakeWidget,
+			widget = this;
 
-		item.$element.fadeOut( 400, function () {
-			widget.removeItems( item );
+		if ( this.animated ) {
+			// Create a fake widget with cloned contents
+			fakeWidget = new mw.echo.ui.ClonedNotificationItemWidget(
+				item.$element.clone( true ),
+				{
+					id: item.getId() + '.42',
+					read: !item.isRead(),
+					foreign: item.isForeign(),
+					timestamp: item.getTimestamp()
+				}
+			);
 
+			// remove real item from item list, without touching the DOM
+			this.removeItems( item );
+
+			// insert real item, hidden
 			item.$element.hide();
-			widget.addItems( item );
-			item.$element.fadeIn( 400 );
-		} );
+			this.addItems( item );
+
+			// insert fake
+			this.addItems( fakeWidget );
+
+			// fade out fake
+			fakeWidget.$element.fadeOut( 400, function () {
+				// remove fake
+				widget.removeItems( fakeWidget );
+				// fade-in real item
+				item.$element.fadeIn( 400 );
+			} );
+		} else {
+			// Mixin method
+			OO.SortedEmitterList.prototype.onItemSortChange.call( this, item );
+		}
 	};
 	/**
 	 * Set the group element.

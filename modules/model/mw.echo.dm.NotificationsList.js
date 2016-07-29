@@ -10,6 +10,8 @@
 	 *
 	 * @constructor
 	 * @param {Object} config Configuration options
+	 * @cfg {Function} [sortingCallback] A function defining the sorting order
+	 *  of items in this list.
 	 * @cfg {string} [title] An optional title for this notifications list
 	 * @cfg {string} [name='local'] Symbolic name for this list
 	 * @cfg {string} [source='local'] Symbolic name for the source of this list.
@@ -33,7 +35,7 @@
 		this.fallbackTimestamp = config.timestamp || 0;
 
 		// Sorting callback
-		this.setSortingCallback( function ( a, b ) {
+		this.setSortingCallback( config.sortingCallback || function ( a, b ) {
 			if ( !a.isRead() && b.isRead() ) {
 				return -1; // Unread items are always above read items
 			} else if ( a.isRead() && !b.isRead() ) {

@@ -17,7 +17,32 @@
 	mw.echo.ui.NotificationsListWidget = function MwEchoUiNotificationsListWidget( controller, manager, config ) {
 		config = config || {};
 		// Parent constructor
-		mw.echo.ui.NotificationsListWidget.parent.call( this, config );
+		mw.echo.ui.NotificationsListWidget.parent.call(
+			this,
+			// Sorting callback
+			function ( a, b ) {
+				if ( !a.isRead() && b.isRead() ) {
+					return -1; // Unread items are always above read items
+				} else if ( a.isRead() && !b.isRead() ) {
+					return 1;
+				} else if ( !a.isForeign() && b.isForeign() ) {
+					return -1;
+				} else if ( a.isForeign() && !b.isForeign() ) {
+					return 1;
+				}
+
+				// Reverse sorting
+				if ( b.getTimestamp() < a.getTimestamp() ) {
+					return -1;
+				} else if ( b.getTimestamp() > a.getTimestamp() ) {
+					return 1;
+				}
+
+				// Fallback on IDs
+				return b.getId() - a.getId();
+			},
+			config
+		);
 
 		// Initialize models
 		this.controller = controller;
@@ -30,29 +55,6 @@
 
 		// Dummy 'loading' option widget
 		this.loadingOptionWidget = new mw.echo.ui.PlaceholderItemWidget();
-
-		// Define the sorting order
-		this.setSortingCallback( function ( a, b ) {
-			if ( !a.isRead() && b.isRead() ) {
-				return -1; // Unread items are always above read items
-			} else if ( a.isRead() && !b.isRead() ) {
-				return 1;
-			} else if ( !a.isForeign() && b.isForeign() ) {
-				return -1;
-			} else if ( a.isForeign() && !b.isForeign() ) {
-				return 1;
-			}
-
-			// Reverse sorting
-			if ( b.getTimestamp() < a.getTimestamp() ) {
-				return -1;
-			} else if ( b.getTimestamp() > a.getTimestamp() ) {
-				return 1;
-			}
-
-			// Fallback on IDs
-			return b.getId() - a.getId();
-		} );
 
 		this.resetLoadingOption();
 
@@ -120,7 +122,8 @@
 						this.controller,
 						model,
 						{
-							$overlay: this.$overlay
+							$overlay: this.$overlay,
+							animateSorting: this.animated
 						}
 					) );
 				} else {
@@ -130,7 +133,8 @@
 						model,
 						{
 							$overlay: this.$overlay,
-							bundle: false
+							bundle: false,
+							animateSorting: this.animated
 						}
 					) );
 				}
