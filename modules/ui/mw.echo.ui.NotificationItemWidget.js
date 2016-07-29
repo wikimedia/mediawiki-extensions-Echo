@@ -150,13 +150,6 @@
 			}
 		}
 
-		// Add a "mark as read" secondary action
-		this.toggleReadSecondaryButton = new mw.echo.ui.MenuItemWidget( {
-			data: 'toggleRead',
-			prioritized: false
-		} );
-		this.menuPopupButtonWidget.getMenu().addItems( [ this.toggleReadSecondaryButton ] );
-
 		if ( this.bundle ) {
 			// In a bundle, we have table layout, so the icon is
 			// inserted into the content, and the 'mark as read'
@@ -321,16 +314,6 @@
 		showMarkAsRead = showMarkAsRead !== undefined ? showMarkAsRead : !this.model.isRead();
 
 		this.markAsReadButton.toggleState( showMarkAsRead );
-
-		if ( showMarkAsRead ) {
-			// Mark read
-			this.toggleReadSecondaryButton.setLabel( mw.msg( 'echo-notification-markasread' ) );
-			this.toggleReadSecondaryButton.setIcon( 'check' );
-		} else {
-			// Mark unread
-			this.toggleReadSecondaryButton.setLabel( mw.msg( 'echo-notification-markasunread' ) );
-			this.toggleReadSecondaryButton.setIcon( 'sun' );
-		}
 		this.menuPopupButtonWidget.toggle( !this.menuPopupButtonWidget.getMenu().isEmpty() );
 	};
 
