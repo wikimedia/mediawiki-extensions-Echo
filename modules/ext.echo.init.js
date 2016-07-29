@@ -15,8 +15,10 @@
 		var myWidget, echoApi,
 			$existingAlertLink = $( '#pt-notifications-alert a' ),
 			$existingMessageLink = $( '#pt-notifications-notice a' ),
-			numAlerts = $existingAlertLink.text(),
-			numMessages = $existingMessageLink.text(),
+			numAlerts = $existingAlertLink.attr( 'data-counter-num' ),
+			numMessages = $existingMessageLink.attr( 'data-counter-num' ),
+			badgeLabelAlerts = $existingAlertLink.attr( 'data-counter-text' ),
+			badgeLabelMessages = $existingMessageLink.attr( 'data-counter-text' ),
 			hasUnseenAlerts = $existingAlertLink.hasClass( 'mw-echo-unseen-notifications' ),
 			hasUnseenMessages = $existingMessageLink.hasClass( 'mw-echo-unseen-notifications' ),
 			// Store links
@@ -74,9 +76,10 @@
 						messageModelManager,
 						{
 							$overlay: mw.echo.ui.$overlay,
-							numItems: numMessages,
+							numItems: Number( numMessages ),
 							hasUnseen: hasUnseenMessages,
-							badgeIcon: 'speechBubbles',
+							badgeIcon: 'tray',
+							badgeLabel: badgeLabelMessages,
 							links: links,
 							href: $existingMessageLink.attr( 'href' )
 						}
@@ -107,12 +110,10 @@
 					alertController,
 					alertModelManager,
 					{
-						numItems: numAlerts,
+						numItems: Number( numAlerts ),
+						badgeLabel: badgeLabelAlerts,
 						hasUnseen: hasUnseenAlerts,
-						badgeIcon: {
-							seen: 'bell',
-							unseen: 'bellOn'
-						},
+						badgeIcon: 'bell',
 						links: links,
 						$overlay: mw.echo.ui.$overlay,
 						href: $existingAlertLink.attr( 'href' )

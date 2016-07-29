@@ -888,12 +888,9 @@ class EchoHooks {
 		// HACK: inverted icons only work in the "MediaWiki" OOUI theme
 		// Avoid flashes in skins that don't use it (T111821)
 		$sk->getOutput()->setupOOUI( strtolower( $sk->getSkinName() ), $sk->getOutput()->getLanguage()->getDir() );
-		$oouiImageClass = get_class( OOUI\Theme::singleton() ) === 'OOUI\\MediaWikiTheme'
-			? 'oo-ui-image-invert'
-			: '';
 
-		$msgLinkClasses = array( "mw-echo-notifications-badge mw-echo-notification-badge-nojs $oouiImageClass oo-ui-iconElement oo-ui-iconElement-icon oo-ui-icon-speechBubbles" );
-		$alertLinkClasses = array( "mw-echo-notifications-badge mw-echo-notification-badge-nojs $oouiImageClass oo-ui-iconElement oo-ui-iconElement-icon" );
+		$msgLinkClasses = array( "mw-echo-notifications-badge", "mw-echo-notification-badge-nojs" );
+		$alertLinkClasses = array( "mw-echo-notifications-badge", "mw-echo-notification-badge-nojs" );
 
 		$hasUnseen = false;
 		if (
@@ -903,25 +900,30 @@ class EchoHooks {
 		) {
 			$msgLinkClasses[] = 'mw-echo-unseen-notifications';
 			$hasUnseen = true;
+		} elseif ( $msgCount === 0 ) {
+			$msgLinkClasses[] = 'mw-echo-notifications-badge-all-read';
 		}
 
-		$alertIcon = "bell";
 		if (
 			$alertCount != 0 && // no unread notifications
 			$alertNotificationTimestamp !== false && // should already always be false if count === 0
 			( $seenAlertTime === null || $seenAlertTime < $alertNotificationTimestamp->getTimestamp( TS_ISO_8601 ) ) // all notifications have already been seen
 		) {
 			$alertLinkClasses[] = 'mw-echo-unseen-notifications';
-			$alertIcon = "bellOn";
 			$hasUnseen = true;
+		} elseif ( $alertCount === 0 ) {
+			$alertLinkClasses[] = 'mw-echo-notifications-badge-all-read';
 		}
-		$alertLinkClasses[] = 'oo-ui-icon-' . $alertIcon;
 
 		$alertLink = array(
 			'href' => $url,
 			'text' => $alertText,
 			'active' => ( $url == $title->getLocalUrl() ),
 			'class' => $alertLinkClasses,
+			'data' => array(
+				'counter-num' => $alertCount,
+				'counter-text' => $alertText,
+			),
 		);
 
 		$insertUrls = array(
@@ -933,6 +935,10 @@ class EchoHooks {
 			'text' => $msgText,
 			'active' => ( $url == $title->getLocalUrl() ),
 			'class' => $msgLinkClasses,
+			'data' => array(
+				'counter-num' => $msgCount,
+				'counter-text' => $msgText,
+			),
 		);
 
 		$insertUrls['notifications-notice'] = $msgLink;

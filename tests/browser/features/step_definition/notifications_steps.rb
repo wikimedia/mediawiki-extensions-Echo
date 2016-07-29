@@ -36,10 +36,10 @@ Given(/^the alert badge is showing unseen notifications$/) do
   end
 end
 
-Given(/^the message badge is showing unseen notifications$/) do
+Given(/^the notice badge is showing unseen notifications$/) do
   on(ArticlePage) do |page|
     page.refresh_until do
-      page.messages.badge_unseen_element.visible?
+      page.notices.badge_unseen_element.visible?
     end
   end
 end
@@ -52,17 +52,24 @@ Given(/^the alert badge value is "(.+)"$/) do |num|
   end
 end
 
-Given(/^the message badge value is "(.+)"$/) do |num|
+Given(/^the notice badge value is "(.+)"$/) do |num|
   on(ArticlePage) do |page|
     page.refresh_until do
-      page.messages.badge_element.text == num
+      page.notices.badge_element.text == num
     end
   end
 end
 
-Given(/^there are "(.+)" unread notifications in the message popup$/) do |num|
+Given(/^there are "(.+)" unread notifications in the notice popup$/) do |num|
   on(ArticlePage) do |page|
-    page.messages.when_loaded
-    expect(page.messages.num_unread_notifications).to eq(num.to_i)
+    page.notices.when_loaded
+    expect(page.notices.num_unread_notifications).to eq(num.to_i)
+  end
+end
+
+Given(/^there are "(.+)" unread notifications in the alert popup$/) do |num|
+  on(ArticlePage) do |page|
+    page.alerts.when_loaded
+    expect(page.alerts.num_unread_notifications).to eq(num.to_i)
   end
 end
