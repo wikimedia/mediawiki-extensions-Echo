@@ -174,6 +174,7 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 					array(
 						'type' => 'mention',
 						'agent' => 'Cwobeel',
+						'section-title' => 'Grand jury no bill reception',
 						/*
 						 * I wish I could also compare EchoEvent::$extra data to
 						 * compare user ids of mentioned users. However, due to
@@ -196,6 +197,7 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 					array(
 						'type' => 'mention',
 						'agent' => 'Schnark',
+						'section-title' => 'Echo-Test',
 					),
 				),
 			),
@@ -212,6 +214,7 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 					array(
 						'type' => 'mention',
 						'agent' => 'PauloEduardo',
+						'section-title' => 'Notificações',
 					),
 				),
 			),
@@ -247,10 +250,12 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 					array(
 						'type' => 'mention',
 						'agent' => 'PatHadley',
+						'section-title' => 'Wizardry required',
 					),
 					array(
 						'type' => 'edit-user-talk',
 						'agent' => 'PatHadley',
+						'section-title' => 'Wizardry required',
 					),
 				),
 				'precondition' => 'isParserFunctionsInstalled',
@@ -268,10 +273,12 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 					array(
 						'type' => 'mention',
 						'agent' => 'Kudpung',
+						'section-title' => 'Me?',
 					),
 					array(
 						'type' => 'edit-user-talk',
 						'agent' => 'Kudpung',
+						'section-title' => 'Me?',
 					),
 				),
 			),
@@ -287,10 +294,12 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 					array(
 						'type' => 'mention',
 						'agent' => 'Admin',
+						'section-title' => 'Hi',
 					),
 					array(
 						'type' => 'edit-user-talk',
 						'agent' => 'Admin',
+						'section-title' => 'Hi',
 					),
 				),
 				'precondition' => 'isParserFunctionsInstalled',
@@ -306,13 +315,14 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 					array(
 						'type' => 'mention-failure',
 						'agent' => 'Admin',
+						'section-title' => 'Hello Users',
 					),
 					array(
 						'type' => 'mention-failure',
 						'agent' => 'Admin',
+						'section-title' => 'Hello Users',
 					),
 				),
-
 			),
 		);
 	}
@@ -338,6 +348,7 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 				$events[] = array(
 					'type' => $event->getType(),
 					'agent' => $event->getAgent()->getName(),
+					'section-title' => $event->getExtraParam( 'section-title' ),
 				);
 				return false;
 			}
@@ -356,6 +367,7 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 			array(
 				'type' => 'mention-failure-too-many',
 				'agent' => 'Admin',
+				'section-title' => 'Hello Users',
 				'max-mentions' => 5,
 			),
 		);
@@ -368,6 +380,7 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 				$events[] = array(
 					'type' => $event->getType(),
 					'agent' => $event->getAgent()->getName(),
+					'section-title' => $event->getExtraParam( 'section-title' ),
 					'max-mentions' => $event->getExtraParam( 'max-mentions' ),
 				);
 				return false;
@@ -1186,6 +1199,102 @@ TEXT
 		$this->assertEquals( 2, EchoDiscussionParser::getSectionCount( $one . $two ) );
 		$this->assertEquals( 2, EchoDiscussionParser::getSectionCount( $one . $three ) );
 		$this->assertEquals( 3, EchoDiscussionParser::getSectionCount( $one . $two . $three ) );
+	}
+
+	public function testGetOverallUserMentionsCount() {
+		$userMentions = array(
+			'validMentions' => array( 1 => 1 ),
+			'unknownUsers' => array( 'NotKnown1', 'NotKnown2' ),
+			'anonymousUsers' => array( '127.0.0.1' ),
+		);
+
+		$discussionParser = TestingAccessWrapper::newFromClass( 'EchoDiscussionParser' );
+		$this->assertEquals( 4, $discussionParser->getOverallUserMentionsCount( $userMentions ) );
+	}
+
+	public function provider_getUserMentions() {
+		return array(
+			array(
+				array( 'NotKnown1' => 0 ),
+				array(
+					'validMentions' => array(),
+					'unknownUsers' => array( 'NotKnown1' ),
+					'anonymousUsers' => array(),
+				),
+				1
+			),
+			array(
+				array( '127.0.0.1' => 0 ),
+				array(
+					'validMentions' => array(),
+					'unknownUsers' => array(),
+					'anonymousUsers' => array( '127.0.0.1' ),
+				),
+				1
+			),
+		);
+	}
+
+	/**
+	 * @dataProvider provider_getUserMentions
+	 */
+	public function testGetUserMentions( $userLinks, $expectedUserMentions, $agent ) {
+		$title = Title::newFromText( 'Test' );
+		$discussionParser = TestingAccessWrapper::newFromClass( 'EchoDiscussionParser' );
+		$this->assertEquals( $expectedUserMentions, $discussionParser->getUserMentions( $title, $agent, $userLinks ) );
+	}
+
+	public function testGetUserMentions_validMention() {
+		$userName = 'Admin';
+		$userId = User::newFromName( $userName )->getId();
+		$expectedUserMentions = array(
+			'validMentions' => array( $userId => $userId ),
+			'unknownUsers' => array(),
+			'anonymousUsers' => array(),
+		);
+		$userLinks = array( $userName => $userId );
+		$this->testGetUserMentions( $userLinks, $expectedUserMentions, 1 );
+	}
+
+	public function testGetUserMentions_ownMention() {
+		$userName = 'Admin';
+		$userId = User::newFromName( 'Admin' )->getId();
+		$expectedUserMentions = array(
+			'validMentions' => array(),
+			'unknownUsers' => array(),
+			'anonymousUsers' => array(),
+		);
+		$userLinks = array( $userName => $userId );
+		$this->testGetUserMentions( $userLinks, $expectedUserMentions, $userId );
+	}
+
+	public function testGetUserMentions_tooManyMentions() {
+		$userLinks = array(
+			'NotKnown1' => 0,
+			'NotKnown2' => 0,
+			'NotKnown3' => 0,
+			'127.0.0.1' => 0,
+			'127.0.0.2' => 0,
+		);
+
+		$this->setMwGlobals( array(
+			// lower limit for the mention-too-many notification
+			'wgEchoMaxMentionsCount' => 3
+		) );
+
+		$title = Title::newFromText( 'Test' );
+		$discussionParser = TestingAccessWrapper::newFromClass( 'EchoDiscussionParser' );
+		$this->assertEquals( 4, $discussionParser->getOverallUserMentionsCount( $discussionParser->getUserMentions( $title, 1, $userLinks ) ) );
+	}
+
+	private function generateUserIdsForValidUserMentions( $userMentions ) {
+		$validMentionsWithIds = array();
+		foreach ( $userMentions['validMentions'] as $userName ) {
+			$userId = User::newFromName( $userName )->getId();
+			$validMentionsWithIds[$userId] = $userId;
+		}
+		$userMentions['validMentions'] = $validMentionsWithIds;
+		return $userMentions;
 	}
 
 	protected function isParserFunctionsInstalled() {
