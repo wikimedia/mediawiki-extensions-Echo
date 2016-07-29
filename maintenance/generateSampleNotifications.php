@@ -21,7 +21,8 @@ class GenerateSampleNotifications extends Maintenance {
 		'user-rights',
 		'cx',
 		'osm',
-		'edit-thanks'
+		'edit-thanks',
+		'edu',
 	);
 
 	public function __construct() {
@@ -114,6 +115,10 @@ class GenerateSampleNotifications extends Maintenance {
 
 		if ( $this->shouldGenerate( 'edit-thanks', $types ) ) {
 			$this->generateEditThanks( $user, $agent, $otherUser );
+		}
+
+		if ( $this->shouldGenerate( 'edu', $types ) ) {
+			$this->generateEducationProgram( $user, $agent );
 		}
 
 		$this->output( "Completed \n" );
@@ -424,6 +429,42 @@ class GenerateSampleNotifications extends Maintenance {
 			'agent' => $otherUser,
 		] );
 		$this->output( "{$agent->getName()} and {$otherUser->getName()} are thanking {$user->getName()} for edit {$revision->getId()} on {$title->getPrefixedText()}\n" );
+	}
+
+	private function generateEducationProgram( User $user, User $agent ) {
+		if ( !class_exists( 'EducationProgram\Extension' ) ) {
+			$this->output( 'class EducationProgram\Extension not found' );
+			return;
+		}
+
+		$chem101 = Title::newFromText( 'School/Chemistry101' );
+		if ( !$chem101->exists() ) {
+			$this->addToPageContent( $chem101, $agent, "\nThis is the main page for the Chemistry 101 course\n" );
+		}
+
+		$notificationManager = EducationProgram\Extension::globalInstance()->getNotificationsManager();
+
+		$this->output( "{$agent->getName()} is adding {$user->getName()} to {$chem101->getPrefixedText()} as instructor, student, campus volunteer and online volunteer.\n" );
+
+		$types = array(
+			'ep-instructor-add-notification',
+			'ep-online-add-notification',
+			'ep-campus-add-notification',
+			'ep-student-add-notification',
+		);
+		foreach ( $types as $type ) {
+			$notificationManager->trigger(
+				$type,
+				array(
+					'role-add-title' => $chem101,
+					'agent' => $agent,
+					'users' => array( $user->getId() ),
+				)
+			);
+		}
+
+		// NOTE: Not generating 'ep-course-talk-notification' for now
+		// as it requires a full setup to actually work (institution, course, instructors, students).
 	}
 }
 
