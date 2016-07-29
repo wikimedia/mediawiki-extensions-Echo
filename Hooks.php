@@ -206,21 +206,9 @@ class EchoHooks {
 						. '-' . $event->getTitle()->getDBkey();
 				}
 				break;
-			case 'mention-failure':
-				$bundleString = 'mention-failure';
-				if ( $event->getTitle() ) {
-					$bundleString .= '-' . $event->getTitle()->getNamespace()
-						. ':' . $event->getTitle()->getDBkey()
-						. '#' . $event->getExtraParam( 'section-title' );
-				}
-				break;
 			case 'mention-success':
-				$bundleString = 'mention-success';
-				if ( $event->getTitle() ) {
-					$bundleString .= '-' . $event->getTitle()->getNamespace()
-						. ':' . $event->getTitle()->getDBkey()
-						. '#' . $event->getExtraParam( 'section-title' );
-				}
+			case 'mention-failure':
+				$bundleString = 'mention-status-' . $event->getExtraParam( 'revid' );
 				break;
 		}
 

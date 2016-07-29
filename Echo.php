@@ -353,6 +353,9 @@ $wgEchoNotificationIcons = array(
 	'mention-success' => array(
 		'path' => "$echoIconPath/mention-success.svg",
 	),
+	'mention-status-bundle' => array(
+		'path' => "$echoIconPath/mention-status-bundle.svg",
+	),
 	'reviewed' => array(
 		'path' => "$echoIconPath/reviewed.svg",
 	),

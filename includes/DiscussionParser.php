@@ -174,16 +174,31 @@ abstract class EchoDiscussionParser {
 			return;
 		}
 
+		if ( $userMentions['validMentions'] ) {
+			EchoEvent::create( array(
+				'type' => 'mention',
+				'title' => $title,
+				'extra' => array(
+					'content' => $content,
+					'section-title' => $header,
+					'revid' => $revision->getId(),
+					'mentioned-users' => $userMentions['validMentions'],
+					'notifyAgent' => true
+				),
+				'agent' => $agent,
+			) );
+		}
+
 		if ( $wgEchoMentionStatusNotifications ) {
 			// TODO batch?
-			foreach ( $userMentions['unknownUsers'] as $unknownUser ) {
+			foreach ( $userMentions['validMentions'] as $mentionedUserId ) {
 				EchoEvent::create( array(
-					'type' => 'mention-failure',
+					'type' => 'mention-success',
 					'title' => $title,
 					'extra' => array(
-						'failure-type' => 'user-unknown',
-						'subject-name' => $unknownUser,
+						'subject-name' => User::newFromId( $mentionedUserId )->getName(),
 						'section-title' => $header,
+						'revid' => $revision->getId(),
 						'notifyAgent' => true
 					),
 					'agent' => $agent,
@@ -199,39 +214,23 @@ abstract class EchoDiscussionParser {
 						'failure-type' => 'user-anonymous',
 						'subject-name' => $anonymousUser,
 						'section-title' => $header,
+						'revid' => $revision->getId(),
 						'notifyAgent' => true
 					),
 					'agent' => $agent,
 				) );
 			}
-		}
 
-		if ( !$userMentions['validMentions'] ) {
-			return;
-		}
-
-		EchoEvent::create( array(
-			'type' => 'mention',
-			'title' => $title,
-			'extra' => array(
-				'content' => $content,
-				'section-title' => $header,
-				'revid' => $revision->getId(),
-				'mentioned-users' => $userMentions['validMentions'],
-			),
-			'agent' => $agent,
-		) );
-
-		if ( $wgEchoMentionStatusNotifications ) {
 			// TODO batch?
-			foreach ( $userMentions['validMentions'] as $mentionedUserId ) {
+			foreach ( $userMentions['unknownUsers'] as $unknownUser ) {
 				EchoEvent::create( array(
-					'type' => 'mention-success',
+					'type' => 'mention-failure',
 					'title' => $title,
 					'extra' => array(
-						'subject-name' => User::newFromId( $mentionedUserId )->getName(),
+						'failure-type' => 'user-unknown',
+						'subject-name' => $unknownUser,
 						'section-title' => $header,
-						'notifyAgent' => true
+						'revid' => $revision->getId(),
 					),
 					'agent' => $agent,
 				) );

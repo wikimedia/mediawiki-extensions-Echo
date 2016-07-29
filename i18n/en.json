@@ -156,6 +156,7 @@
 	"notification-header-mention-success": "{{GENDER:$2|Your}} mention of $3 was sent.",
 	"notification-header-mention-success-bundle": "{{PLURAL:$3|A mention|$3 mentions}} {{GENDER:$2|you made}} on the <strong>$4</strong> talk page {{PLURAL:$3|were}} sent.",
 	"notification-compact-header-mention-success": "<strong>{{GENDER:$2|You mentioned}}:</strong> $3",
+	"notification-header-mention-status-bundle": "{{PLURAL:$3|A notification|$3 notifications}} about mentions {{GENDER:$2|you made}} on the <strong>$4</strong> talk page: {{PLURAL:$5|$5 not sent}}, {{PLURAL:$6|$6 sent}}.",
 	"notification-header-user-rights-add-only": "{{GENDER:$4|Your}} user rights were {{GENDER:$1|changed}}. You have been added to: $2.",
 	"notification-header-user-rights-remove-only": "{{GENDER:$4|Your}} user rights were {{GENDER:$1|changed}}. You are no longer a member of: $2.",
 	"notification-header-user-rights-add-and-remove": "{{GENDER:$6|Your}} user rights were {{GENDER:$1|changed}}. You have been added to: $2. You are no longer a member of: $4.",

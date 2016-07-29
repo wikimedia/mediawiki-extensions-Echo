@@ -11,6 +11,9 @@ class EchoMentionStatusPresentationModel extends EchoEventPresentationModel {
 	use EchoPresentationModelSectionTrait;
 
 	public function getIconType() {
+		if ( $this->isMixedBundle() ) {
+			return 'mention-status-bundle';
+		}
 		if ( $this->isMentionSuccess() ) {
 			return 'mention-success';
 		}
@@ -25,6 +28,16 @@ class EchoMentionStatusPresentationModel extends EchoEventPresentationModel {
 		}
 
 		if ( $this->isBundled() ) {
+			if ( $this->isMixedBundle() ) {
+				$successCount = $this->getBundleSuccessCount();
+
+				$msg = $this->getMessageWithAgent( 'notification-header-mention-status-bundle' );
+				$msg->numParams( $this->getBundleCount() );
+				$msg->params( $this->getTruncatedTitleText( $this->event->getTitle() ) );
+				$msg->numParams( $this->getBundleCount() - $successCount );
+				$msg->numParams( $successCount );
+				return $msg;
+			}
 			if ( $this->isMentionSuccess() ) {
 				$msgKey = 'notification-header-mention-success-bundle';
 			} else {
@@ -86,6 +99,14 @@ class EchoMentionStatusPresentationModel extends EchoEventPresentationModel {
 		return array( $talkPageLink );
 	}
 
+	public function isMentionSuccessEvent( EchoEvent $event ) {
+		return $event->getType() === 'mention-success';
+	}
+
+	private function isMentionSuccess() {
+		return $this->isMentionSuccessEvent( $this->event );
+	}
+
 	private function getSubjectName() {
 		return $this->event->getExtraParam( 'subject-name', '' );
 	}
@@ -98,12 +119,18 @@ class EchoMentionStatusPresentationModel extends EchoEventPresentationModel {
 		return $this->getType() === 'mention-failure-too-many';
 	}
 
-	private function isMentionSuccess() {
-		return $this->getType() === 'mention-success';
-	}
-
 	private function getMaxMentions() {
 		global $wgEchoMaxMentionsCount;
 		return $this->event->getExtraParam( 'max-mentions', $wgEchoMaxMentionsCount );
+	}
+
+	private function getBundleSuccessCount() {
+		return $this->getBundleCount( false, array( $this, 'isMentionSuccessEvent' ) );
+	}
+
+	private function isMixedBundle() {
+		$successCount = $this->getBundleSuccessCount();
+		$failCount = $this->getBundleCount() - $successCount;
+		return $successCount > 0 && $failCount > 0;
 	}
 }
