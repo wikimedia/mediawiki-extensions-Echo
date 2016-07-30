@@ -124,6 +124,8 @@
 	"notification-header-mention-agent-talkpage-nosection": "$1 {{GENDER:$2|wspomniał|wspomniała|wspomniał(a)}} o {{GENDER:$3|tobie}} na <strong>{{GENDER:$2|swojej}} stronie dyskusji</strong>.",
 	"notification-header-mention-article-talkpage": "$1 {{GENDER:$2|wspomniał|wspomniała|wspomniał(a)}} o {{GENDER:$3|tobie}} na stronie dyskusji strony <strong>$4</strong> w wątku „<strong>$5</strong>”.",
 	"notification-header-mention-article-talkpage-nosection": "$1 {{GENDER:$2|wspomniał|wspomniała|wspomniał(a)}} o {{GENDER:$3|Tobie}} na stronie dyskusji strony <strong>$4</strong>.",
+	"notification-compact-header-mention-failure-user-unknown": "<strong>Nazwa użytkownika nie istnieje:</strong> „$1”",
+	"notification-compact-header-mention-failure-user-anonymous": "<strong>Anonimowy użytkownik:</strong> „$1”",
 	"notification-header-user-rights-add-only": "{{GENDER:$4|Twoje}} uprawnienia zostały {{GENDER:$1|zmienione}}. {{GENDER:$4|Zostałeś dodany|Zostałaś dodana}} do: $2.",
 	"notification-header-user-rights-remove-only": "{{GENDER:$4|Twoje}} uprawnienia zostały {{GENDER:$1|zmienione}}. Nie należysz już do: $2.",
 	"notification-header-user-rights-add-and-remove": "{{GENDER:$6|Twoje}} uprawnienia zostały {{GENDER:$1|zmienione}}. {{GENDER:$6|Zostałeś dodany|Zostałaś dodana}} do: $2. Nie należysz już do: $4.",
