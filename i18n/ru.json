@@ -177,6 +177,7 @@
 	"echo-overlay-title": "<b>Уведомления</b>",
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Уведомления}}</b> ({{PLURAL:$1|показано|показаны}} $1 из $2 {{PLURAL:$2|непрочитанного|непрочитанных}})",
 	"echo-mark-all-as-read": "Отметить всё прочтённым",
+	"echo-mark-wiki-as-read": "Пометить все как прочитанные в выбранной вики: $1",
 	"echo-date-today": "Сегодня",
 	"echo-date-yesterday": "Вчера",
 	"echo-load-more-error": "Произошла ошибка при получении дополнительных результатов.",
