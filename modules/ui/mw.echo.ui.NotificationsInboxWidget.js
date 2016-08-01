@@ -39,7 +39,8 @@
 			this.controller,
 			this.manager,
 			{
-				$overlay: this.$overlay
+				$overlay: this.$overlay,
+				animateSorting: false
 			}
 		);
 		this.setPendingElement( this.datedListWidget.$element );

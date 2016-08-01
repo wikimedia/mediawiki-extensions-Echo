@@ -9,6 +9,7 @@
 	 * @param {Object} config Configuration object
 	 * @cfg {boolean} [showTitle=false] Show the title of this group
 	 * @cfg {boolean} [showMarkAllRead=false] Show a mark all read button for this group
+	 * @cfg {boolean} [animateSorting=false] Animate the sorting of items
 	 * @cfg {jQuery} [$overlay] A jQuery element functioning as an overlay
 	 *  for popups.
 	 */
@@ -31,7 +32,7 @@
 
 		this.listWidget = new mw.echo.ui.SortedListWidget(
 			// Sorting callback
-			function ( a, b ) {
+			config.sortingCallback || function ( a, b ) {
 				// Reverse sorting
 				if ( b.getTimestamp() < a.getTimestamp() ) {
 					return -1;
@@ -43,7 +44,10 @@
 				return b.getId() - a.getId();
 			},
 			// Config
-			{ $overlay: this.$overlay }
+			{
+				$overlay: this.$overlay,
+				animated: config.animateSorting
+			}
 		);
 
 		sourceURL = this.model.getSourceURL() ?

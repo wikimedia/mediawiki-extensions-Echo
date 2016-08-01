@@ -179,9 +179,21 @@
 						name: symbolicName,
 						source: currentSource,
 						title: date,
-						timestamp: date
-					} );
+						timestamp: date,
+						sortingCallback: function ( a, b ) {
+							// Reverse sorting. In the special page we want the
+							// items sorted only by timestamp, regardless of
+							// read/unread state
+							if ( b.getTimestamp() < a.getTimestamp() ) {
+								return -1;
+							} else if ( b.getTimestamp() > a.getTimestamp() ) {
+								return 1;
+							}
 
+							// Fallback on IDs
+							return b.getId() - a.getId();
+						}
+					} );
 					models[ symbolicName ].setItems( dateItems[ date ] );
 				}
 

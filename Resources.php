@@ -72,6 +72,7 @@ $wgResourceModules += array(
 			'ui/mw.echo.ui.SingleNotificationItemWidget.js',
 			'ui/mw.echo.ui.CrossWikiNotificationItemWidget.js',
 			'ui/mw.echo.ui.BundleNotificationItemWidget.js',
+			'ui/mw.echo.ui.ClonedNotificationItemWidget.js',
 
 			'ui/mw.echo.ui.ActionMenuPopupWidget.js',
 			'ui/mw.echo.ui.MenuItemWidget.js',

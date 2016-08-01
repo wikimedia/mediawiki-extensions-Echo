@@ -10,6 +10,7 @@
 	 * @param {mw.echo.Controller} controller Echo controller
 	 * @param {mw.echo.dm.ModelManager} modelManager Model manager
 	 * @param {Object} [config] Configuration object
+	 * @cfg {boolean} [animateSorting=false] Animate the sorting of items
 	 * @cfg {jQuery} [$overlay] An overlay for the popup menus
 	 */
 	mw.echo.ui.DatedNotificationsWidget = function MwEchoUiDatedNotificationsListWidget( controller, modelManager, config ) {
@@ -25,6 +26,7 @@
 		this.models = {};
 
 		this.$overlay = config.$overlay || this.$element;
+		this.animateSorting = !!config.animateSorting;
 
 		this.listWidget = new mw.echo.ui.SortedListWidget(
 			// Sorting callback
@@ -39,7 +41,8 @@
 			// Config
 			{
 				classes: [ 'mw-echo-ui-datedNotificationsWidget-group' ],
-				$overlay: this.$overlay
+				$overlay: this.$overlay,
+				animated: false
 			}
 		);
 
@@ -105,7 +108,8 @@
 				{
 					showTitle: true,
 					showMarkAllRead: true,
-					$overlay: this.$overlay
+					$overlay: this.$overlay,
+					animated: this.animateSorting
 				}
 			);
 			this.attachModel( model, models[ model ] );
