@@ -53,7 +53,7 @@ class EchoSeenTime {
 				$vals[] = $this->getTime( $allowed, $flags, TS_MW );
 			}
 
-			return wfTimestamp( $format, max( $vals ) );
+			return wfTimestamp( $format, min( $vals ) );
 		}
 
 		if ( $this->validateType( $type ) ) {
