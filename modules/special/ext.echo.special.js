@@ -1,5 +1,6 @@
 ( function ( $, mw ) {
 	'use strict';
+
 	/*!
 	 * Echo Special:Notifications page initialization
 	 */
@@ -27,6 +28,10 @@
 				echoApi,
 				modelManager
 			);
+
+		// Set default max prioritized action links per item.
+		// For general purpose we have 2, for mobile only 1
+		mw.echo.config.maxPrioritizedActions = mw.config.get( 'skin' ) === 'minerva' ? 1 : 2;
 
 		specialPageContainer = new mw.echo.ui.NotificationsInboxWidget(
 			controller,

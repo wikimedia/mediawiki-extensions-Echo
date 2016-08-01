@@ -9,6 +9,9 @@
 	}
 
 	mw.echo = mw.echo || {};
+	mw.echo.config = mw.echo.config || {};
+	// Set default max prioritized action links per item
+	mw.echo.config.maxPrioritizedActions = 2;
 
 	// Activate ooui
 	$( document ).ready( function () {

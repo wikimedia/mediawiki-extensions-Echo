@@ -130,7 +130,7 @@
 			// prioritized explicitly, *except* for items inside a bundle
 			// (where all actions are inside the menu) or there are more than
 			// two prioritized actions (all others go into the menu)
-			isOutsideMenu = !this.bundle && urlObj.prioritized !== undefined && outsideMenuItemCounter < 2;
+			isOutsideMenu = !this.bundle && urlObj.prioritized !== undefined && outsideMenuItemCounter < mw.echo.config.maxPrioritizedActions;
 
 			linkButton = new mw.echo.ui.MenuItemWidget( {
 				icon: urlObj.icon || 'next',
