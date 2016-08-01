@@ -9,6 +9,8 @@
 	 * @param {Object} [config] Configuration object
 	 * @cfg {string} [iconUrl] The source URL of the feedback icon
 	 * @cfg {string} [url] The URL for the survey
+	 * @cfg {string} [message] The message to display, in HTML or jQuery object.
+	 *  The message should already be formatted properly.
 	 */
 	mw.echo.ui.FooterNoticeWidget = function MwEchoUiFooterNoticeWidget( config ) {
 		var $icon, label, dismissButton,
@@ -29,14 +31,7 @@
 		}
 
 		label = new OO.ui.LabelWidget( {
-			label: $( '<span>' ).append(
-				mw.message( 'echo-popup-footer-beta-invitation',
-					// Text
-					mw.msg( 'echo-popup-footer-beta-invitation-link' ),
-					// Link
-					config.url
-				).parse()
-			).contents(),
+			label: $( '<span>' ).append( $.parseHTML( config.message ) ).contents(),
 			classes: [ 'mw-echo-ui-footerNoticeWidget-label' ]
 		} );
 

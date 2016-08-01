@@ -442,7 +442,7 @@ class EchoHooks {
 		}
 
 		if ( $wgEchoShowFooterNotice ) {
-			$preferences['echo-dismiss-beta-invitation'] = array(
+			$preferences['echo-dismiss-special-page-invitation'] = array(
 				'type' => 'api',
 			);
 		}
@@ -879,14 +879,9 @@ class EchoHooks {
 
 		if (
 			$wgEchoShowFooterNotice &&
-			!$user->getOption( 'echo-cross-wiki-notifications' ) &&
-			!$user->getOption( 'echo-dismiss-beta-invitation' )
+			!$user->getOption( 'echo-dismiss-special-page-invitation' )
 		) {
-			$globalCount = $notifUser->getNotificationCount( true, DB_SLAVE, EchoAttributeManager::ALL, true );
-			$localCount = $notifUser->getNotificationCount( true, DB_SLAVE, EchoAttributeManager::ALL, false );
-			if ( $globalCount - $localCount > 0 ) {
-				$sk->getOutput()->addJsConfigVars( 'wgEchoShowBetaInvitation', true );
-			}
+			$sk->getOutput()->addJsConfigVars( 'wgEchoShowSpecialPageInvitation', true );
 		}
 
 		$msgText = EchoNotificationController::formatNotificationCount( $msgCount );
