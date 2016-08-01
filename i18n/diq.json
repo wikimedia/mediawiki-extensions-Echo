@@ -49,7 +49,7 @@
 	"notification-edit-talk-page-email-batch-body-with-section": "$1, pela werênayışê şıma de be sernameyê \"$2\" ra yew mesac {{GENDER:$1|caverda}}.",
 	"notification-timestamp-today": "Noroc",
 	"notification-timestamp-yesterday": "Vızér",
-	"notification-inbox-filter-read": "Bıwan",
+	"notification-inbox-filter-read": "Bıwane",
 	"notification-inbox-filter-unread": "Nêwaniya ya",
 	"notification-inbox-filter-all": "Pêro",
 	"echo-email-body-default": "{{SITENAME}} de beyanatê do newe esto:\n\n$1",
