@@ -387,6 +387,45 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 					),
 				),
 			),
+			array(
+				'new' => 747798766,
+				'old' => 747798765,
+				'username' => 'Admin',
+				'lang' => 'en',
+				'pages' => array(),
+				'title' => 'UTPage',
+				'expected' => array(
+					array(
+						'type' => 'mention-failure',
+						'agent' => 'Admin',
+						'section-title' => 'Section 2',
+					),
+				),
+			),
+			array(
+				'new' => 747798767,
+				'old' => 747798765,
+				'username' => 'Admin',
+				'lang' => 'en',
+				'pages' => array(),
+				'title' => 'UTPage',
+				'expected' => array(
+					array(
+						'type' => 'mention-failure',
+						'agent' => 'Admin',
+						'section-title' => 'Section 2',
+					),
+				),
+			),
+			array(
+				'new' => 747798768,
+				'old' => 747798765,
+				'username' => 'Admin',
+				'lang' => 'en',
+				'pages' => array(),
+				'title' => 'UTPage',
+				'expected' => array(),
+			),
 		);
 	}
 
