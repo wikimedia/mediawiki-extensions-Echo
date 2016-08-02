@@ -31,6 +31,7 @@
 	"echo-specialpage-pagefilters-title": "حالیہ سرگرمی",
 	"echo-specialpage-pagefilters-subtitle": "صفحات جن کی اطلاعات نہیں پڑھی گئیں",
 	"echo-feedback": "آپ کی رائے",
+	"echo-api-failure": "اطلاعات حاصل کرنے میں ناکامی، دوبارہ کوشش کریں!",
 	"echo-notification-placeholder": "کوئی اطلاع موجود نہیں۔",
 	"notification-link-text-collapse-all": "چھپائیں",
 	"notification-header-edit-user-talk": "$1 نے <strong>{{GENDER:$3|آپ کے}} تبادلۂ خیال پر </strong> {{GENDER:$2|ایک}} پیغام دیا۔",
