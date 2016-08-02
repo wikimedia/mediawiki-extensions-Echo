@@ -120,7 +120,7 @@
 				notsections: this.normalizedType[ type ],
 				notformat: 'model',
 				notlimit: this.limit,
-				notprop: 'list|count',
+				notprop: 'list|count|seenTime',
 				uselang: this.userLang
 			}, this.getTypeParams( type ) );
 
