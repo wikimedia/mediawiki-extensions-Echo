@@ -3,6 +3,35 @@
 
 /* We have to include the #pt-notifications selector due to monobook */
 .mw-echo-notifications-badge {
+	#pt-notifications-notice &,
+	#pt-notifications-alert & {
+		width: 20px;
+		top: -7px;
+
+		&:before {
+			background-size: 16px 16px;
+			width: 16px;
+			height: 16px;
+			content: "";
+		}
+
+		&:after {
+			top: 5px;
+			// Font should be even smaller in monobook
+			font-size: 12px * 0.7;
+		}
+	}
+
+	#pt-notifications-notice &:before {
+		/* @embed */
+		background-image: url('../icons/tray.svg');
+	}
+
+	#pt-notifications-alert &:before {
+		/* @embed */
+		background-image: url('../icons/bell.svg');
+	}
+
 	&.oo-ui-flaggedElement-unseen,
 	&.mw-echo-unseen-notifications {
 		#pt-notifications-alert &:after {
