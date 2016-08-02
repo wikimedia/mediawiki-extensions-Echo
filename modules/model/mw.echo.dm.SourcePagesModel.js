@@ -123,10 +123,30 @@
 	 * Get all pages in a source
 	 *
 	 * @param {string} source Symbolic name of the source
-	 * @return {Object[]} Page definitions in this source
+	 * @return {Object} Page definitions in this source
 	 */
 	mw.echo.dm.SourcePagesModel.prototype.getSourcePages = function ( source ) {
 		return this.sources[ source ] && this.sources[ source ].pages;
+	};
+
+	/**
+	 * Get the list of page titles associated with one group title.
+	 *
+	 * @param {string} source Symbolic name of the source
+	 * @param {string} title Group title
+	 * @return {string[]} Page titles
+	 */
+	mw.echo.dm.SourcePagesModel.prototype.getGroupedPagesForTitle = function ( source, title ) {
+		return OO.getProp( this.sources, source, 'pages', title, 'pages' ) || [];
+	};
+
+	/**
+	 * Get the list of page titles associated with the current group title.
+	 *
+	 * @return {string[]} Page titles
+	 */
+	mw.echo.dm.SourcePagesModel.prototype.getGroupedPagesForCurrentTitle = function () {
+		return this.getGroupedPagesForTitle( this.getCurrentSource(), this.getCurrentPage() );
 	};
 
 	/**
@@ -144,11 +164,17 @@
 	 * @param {Object} details Details object
 	 */
 	mw.echo.dm.SourcePagesModel.prototype.setSourcePagesDetails = function ( source, details ) {
+		var i, page;
 		this.sources[ source ] = {
 			title: details.source.title,
 			base: details.source.base,
 			totalCount: details.totalCount,
-			pages: details.pages
+			pages: {}
 		};
+
+		for ( i = 0; i < details.pages.length; i++ ) {
+			page = details.pages[ i ];
+			this.sources[ source ].pages[ page.title ] = page;
+		}
 	};
 } )( mediaWiki );

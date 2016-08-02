@@ -28,8 +28,8 @@ class ApiEchoUnreadNotificationPages extends ApiCrossWikiBase {
 		$params = $this->extractRequestParams();
 
 		$result = array();
-		if ( in_array( wfWikiID(), $this->getRequestedWikis() ) ) {
-			$result[wfWikiID()] = $this->getFromLocal( $params['limit'] );
+		if ( in_array( wfWikiId(), $this->getRequestedWikis() ) ) {
+			$result[wfWikiID()] = $this->getFromLocal( $params['limit'], $params['grouppages'] );
 		}
 
 		if ( $this->getRequestedForeignWikis() ) {
@@ -47,10 +47,14 @@ class ApiEchoUnreadNotificationPages extends ApiCrossWikiBase {
 
 	/**
 	 * @param int $limit
+	 * @param bool $groupPages
 	 * @return array
 	 */
-	protected function getFromLocal( $limit ) {
+	protected function getFromLocal( $limit, $groupPages ) {
 		$dbr = MWEchoDbFactory::newFromDefault()->getEchoDb( DB_SLAVE );
+		// If $groupPages is true, we need to fetch all pages and apply the ORDER BY and LIMIT ourselves
+		// after grouping.
+		$extraOptions = $groupPages ? array() : array( 'ORDER BY' => 'count DESC', 'LIMIT' => $limit );
 		$rows = $dbr->select(
 			array( 'echo_event', 'echo_notification' ),
 			array( 'event_page_id', 'count' => 'COUNT(*)' ),
@@ -63,9 +67,7 @@ class ApiEchoUnreadNotificationPages extends ApiCrossWikiBase {
 			__METHOD__,
 			array(
 				'GROUP BY' => 'event_page_id',
-				'ORDER BY' => 'count DESC',
-				'LIMIT' => $limit,
-			),
+			) + $extraOptions,
 			array( 'echo_notification' => array( 'INNER JOIN', 'notification_event = event_id' ) )
 		);
 
@@ -73,17 +75,75 @@ class ApiEchoUnreadNotificationPages extends ApiCrossWikiBase {
 			return array();
 		}
 
-		$pages = array();
+		$nullCount = 0;
+		$pageCounts = array();
 		foreach ( $rows as $row ) {
-			$pages[$row->event_page_id] = $row->count;
+			if ( $row->event_page_id !== null ) {
+				$pageCounts[$row->event_page_id] = intval( $row->count );
+			} else {
+				$nullCount = intval( $row->count );
+			}
+		}
+
+		$titles = Title::newFromIDs( array_keys( $pageCounts ) );
+
+		$groupCounts = array();
+		foreach ( $titles as $title ) {
+			if ( $groupPages ) {
+				// If $title is a talk page, add its count to its subject page's count
+				$pageName = $title->getSubjectPage()->getPrefixedText();
+			} else {
+				$pageName = $title->getPrefixedText();
+			}
+
+			$count = $pageCounts[$title->getArticleId()];
+			if ( isset( $groupCounts[$pageName] ) ) {
+				$groupCounts[$pageName] += $count;
+			} else {
+				$groupCounts[$pageName] = $count;
+			}
+		}
+
+		$userPageName = $this->getUser()->getUserPage()->getPrefixedText();
+		if ( $nullCount > 0 && $groupPages ) {
+			// Add the count for NULL (not associated with any page) to the count for the user page
+			if ( isset( $groupCounts[$userPageName] ) ) {
+				$groupCounts[$userPageName] += $nullCount;
+			} else {
+				$groupCounts[$userPageName] = $nullCount;
+			}
+		}
+
+		arsort( $groupCounts );
+		if ( $groupPages ) {
+			$groupCounts = array_slice( $groupCounts, 0, $limit );
 		}
 
 		$result = array();
-		$titles = Title::newFromIDs( array_keys( $pages ) );
-		foreach ( $titles as $title ) {
+		foreach ( $groupCounts as $pageName => $count ) {
+			if ( $groupPages ) {
+				$title = Title::newFromText( $pageName );
+				$pages = array( $title->getSubjectPage()->getPrefixedText(), $title->getTalkPage()->getPrefixedText() );
+				if ( $pageName === $userPageName ) {
+					$pages[] = null;
+				}
+				$pageDescription = array(
+					'ns' => $title->getNamespace(),
+					'title' => $title->getPrefixedText(),
+					'unprefixed' => $title->getText(),
+					'pages' => $pages,
+				);
+			} else {
+				$pageDescription = array( 'title' => $pageName );
+			}
+			$result[] = $pageDescription + array(
+				'count' => $count,
+			);
+		}
+		if ( !$groupPages && $nullCount > 0 ) {
 			$result[] = array(
-				'title' => $title->getPrefixedText(),
-				'count' => $pages[$title->getArticleID()],
+				'title' => null,
+				'count' => $nullCount,
 			);
 		}
 
@@ -112,9 +172,13 @@ class ApiEchoUnreadNotificationPages extends ApiCrossWikiBase {
 		global $wgEchoMaxUpdateCount;
 
 		return parent::getAllowedParams() + array(
+			'grouppages' => array(
+				ApiBase::PARAM_TYPE => 'boolean',
+				ApiBase::PARAM_DFLT => false,
+			),
 			'limit' => array(
 				ApiBase::PARAM_TYPE => 'limit',
-				ApiBase::PARAM_DFLT => 20,
+				ApiBase::PARAM_DFLT => 10,
 				ApiBase::PARAM_MIN => 1,
 				ApiBase::PARAM_MAX => $wgEchoMaxUpdateCount,
 				ApiBase::PARAM_MAX2 => $wgEchoMaxUpdateCount,

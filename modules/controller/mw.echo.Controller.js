@@ -132,7 +132,7 @@
 			{
 				continue: continueValue,
 				readState: filters.getReadState(),
-				titles: filters.getSourcePagesModel().getCurrentPage()
+				titles: filters.getSourcePagesModel().getGroupedPagesForCurrentTitle()
 			}
 		)
 			.then( function ( data ) {
