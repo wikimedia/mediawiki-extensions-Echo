@@ -157,6 +157,23 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 		unset( $wgHooks['BeforeEchoEventInsert'][999] );
 	}
 
+	public function provideHeaderExtractions() {
+		return array(
+			array( '', false ),
+			array( '== Grand jury no bill reception ==', 'Grand jury no bill reception' ),
+			array( '=== Echo-Test ===', 'Echo-Test' ),
+			array( '==== Notificações ====', 'Notificações' ),
+			array( '=====Me?=====', 'Me?' ),
+		);
+	}
+
+	/**
+	 * @dataProvider provideHeaderExtractions
+	 */
+	public function testExtractHeader( $text, $expected ) {
+		$this->assertEquals( $expected, EchoDiscussionParser::extractHeader( $text ) );
+	}
+
 	public function generateEventsForRevisionData() {
 		return array(
 			array(
