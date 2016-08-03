@@ -257,6 +257,7 @@
 	"apihelp-query+notifications-example-1": "Lister les notifications",
 	"apihelp-query+notifications-example-2": "Lister les notifications, groupées par section, avec les compteurs",
 	"apihelp-query+unreadnotificationpages-description": "Obtenez les pages pour lesquelles il y a des notifications non lues pour l'utilisateur actuel.",
+	"apihelp-query+unreadnotificationpages-param-grouppages": "Grouper les pages de discussion ensemble avec leur page de sujet, et grouper ensemble les notifications non associées avec une page avec la page de l’utilisateur actuel.",
 	"apihelp-query+unreadnotificationpages-param-limit": "Nombre maximal de pages à renvoyer.",
 	"apihelp-query+unreadnotificationpages-param-wikis": "Liste des wikis pour télécharger les pages comportant des notifications non lues (par défaut, seulement pour le wiki courant).",
 	"apihelp-query+unreadnotificationpages-example-1": "Liste des pages avec (leur quantité) de notifications non lues"

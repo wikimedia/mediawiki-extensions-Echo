@@ -18,7 +18,8 @@
 			"EagerLin",
 			"Shizhao",
 			"Bowleerin",
-			"Macofe"
+			"Macofe",
+			"一個正常人"
 		]
 	},
 	"echo-desc": "用來通知使用者事件及訊息的系統",
@@ -58,6 +59,7 @@
 	"echo-pref-tooltip-article-linked": "有人從文章頁面連結到我建立的頁面時，請通知我。",
 	"echo-pref-tooltip-reverted": "有人使用還原或取消功能來還原我的編輯時，請通知我。",
 	"echo-pref-tooltip-mention": "當有人連結我的使用者頁面時通知我。",
+	"echo-pref-tooltip-mention-failure": "當我的編輯提及用戶失敗時通知我。",
 	"echo-pref-tooltip-user-rights": "當有人更改我的使用者權限時通知我。",
 	"echo-pref-tooltip-emailuser": "當某人向我傳送一封郵件時通知我。",
 	"echo-error-no-formatter": "沒有定義通知的格式。",
@@ -88,6 +90,7 @@
 	"notification-link-text-collapse-all": "摺疊",
 	"notification-link-text-view-message": "檢視訊息",
 	"notification-link-text-view-mention": "檢視提到",
+	"notification-link-text-view-mention-failure": "{{PLURAL:$1|查看提及}}",
 	"notification-link-text-view-changes": "{{GENDER:$1|檢視}}變更",
 	"notification-link-text-view-page": "檢視頁面",
 	"notification-header-edit-user-talk": "$1 在<strong>{{GENDER:$3|您}}的使用者對話頁面</strong>{{GENDER:$2|留下了}}一則訊息。",

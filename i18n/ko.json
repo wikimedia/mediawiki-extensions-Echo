@@ -67,7 +67,7 @@
 	"echo-specialpage-section-markread": "그룹을 읽은 것으로 표시",
 	"echo-specialpage-markasread": "알림: 읽은 것으로 표시",
 	"echo-specialpage-markasread-invalid-id": "유효하지 않은 이벤트 ID",
-	"echo-specialpage-pagination-numnotifications": "$1 {{PLURAL:$1|알림|알림}}",
+	"echo-specialpage-pagination-numnotifications": "{{PLURAL:$1|알림}} $1개",
 	"echo-specialpage-pagefilters-title": "최근 활동",
 	"echo-specialpage-pagefilters-subtitle": "읽지 않은 알림 문서",
 	"notificationsmarkread-legend": "모든 알림을 읽은 것으로 표시",
@@ -147,7 +147,7 @@
 	"notification-inbox-filter-all": "모두",
 	"echo-email-body-default": "{{SITENAME}}에 새 알림이 있습니다:\n\n$1",
 	"echo-email-footer-default": "$2\n\n발송되는 이메일을 관리하려면, 환경 설정을 확인하세요:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
-	"echo-notification-alert": "{{PLURAL:$1|알림 ($1)|알림 ($1)|100=알림 (99+)}}",
+	"echo-notification-alert": "{{PLURAL:$1|알림 ($1)|알림 ($1)|100=알림  (99+)}}",
 	"echo-notification-notice": "{{PLURAL:$1|알림 ($1)|알림 ($1)|100=알림 (99+)}}",
 	"echo-notification-alert-text-only": "알림",
 	"echo-notification-notice-text-only": "알림",
@@ -184,6 +184,7 @@
 	"apihelp-query+notifications-param-alertcontinue": "더 많은 경보 결과를 사용할 수 있을 때, 계속하려면 이것을 사용합니다.",
 	"apihelp-query+notifications-param-messageunreadfirst": "읽지 않은 경보 알림을 먼저 보여줄지 여부 (groupbysection이 설정되어 있는 경우에만 사용됨).",
 	"apihelp-query+notifications-param-titles": "이 문서들의 알림만 반환합니다. 어떠한 문서에도 속하지 않은 알림을 받으려면 제목으로 []를 사용하세요.",
+	"apihelp-query+notifications-param-bundle": "규칙을 묶는 알림 유형에 따라 묶음과 호환되는 읽지 않은 알림을 보여줄지의 여부.",
 	"apihelp-query+notifications-example-1": "알림 리스트",
 	"apihelp-query+unreadnotificationpages-param-wikis": "읽지 않은 알림 문서를 가져올 위키 목록입니다. (기본값으로는 현재 위키만)"
 }
