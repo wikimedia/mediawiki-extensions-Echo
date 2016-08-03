@@ -52,10 +52,8 @@ $wgResourceModules += array(
 			'mediawiki.util',
 		),
 		'messages' => array(
-			'echo-popup-footer-beta-invitation',
-			'echo-popup-footer-beta-invitation-link',
-			// echo-popup-footer-beta-invitation uses this message with {{int:}}:
-			'echo-pref-beta-feature-cross-wiki-message',
+			'echo-popup-footer-special-page-invitation',
+			'echo-popup-footer-special-page-invitation-link',
 		),
 		'targets' => array( 'desktop' ),
 	),

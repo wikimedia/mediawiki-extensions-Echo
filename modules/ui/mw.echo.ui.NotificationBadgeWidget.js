@@ -107,13 +107,19 @@
 
 		// Footer notice
 		if (
-			mw.config.get( 'wgEchoShowBetaInvitation' ) &&
-			!mw.user.options.get( 'echo-dismiss-beta-invitation' )
+			mw.config.get( 'wgEchoShowSpecialPageInvitation' ) &&
+			!mw.user.options.get( 'echo-dismiss-special-page-invitation' )
 		) {
 			notice = new mw.echo.ui.FooterNoticeWidget( {
 				// This is probably not the right way of doing this
 				iconUrl: mw.config.get( 'wgExtensionAssetsPath' ) + '/Echo/modules/icons/feedback.svg',
-				url: mw.util.getUrl( 'Special:Preferences' ) + '#mw-prefsection-beta-features'
+				message: mw.message(
+					'echo-popup-footer-special-page-invitation',
+						// Text
+						mw.msg( 'echo-popup-footer-special-page-invitation-link' ),
+						// Link
+						mw.util.getUrl( 'Special:Notifications' )
+					).parse()
 			} );
 			// Event
 			notice.connect( this, { dismiss: 'onFooterNoticeDismiss' } );
@@ -214,9 +220,9 @@
 		this.popup.clip();
 
 		// Save the preference in general
-		new mw.Api().saveOption( 'echo-dismiss-beta-invitation', 1 );
+		new mw.Api().saveOption( 'echo-dismiss-special-page-invitation', 1 );
 		// Save the preference for this session
-		mw.user.options.set( 'echo-dismiss-beta-invitation', 1 );
+		mw.user.options.set( 'echo-dismiss-special-page-invitation', 1 );
 	};
 
 	/**
