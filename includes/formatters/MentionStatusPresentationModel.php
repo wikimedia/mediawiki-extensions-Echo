@@ -74,15 +74,7 @@ class EchoMentionStatusPresentationModel extends EchoEventPresentationModel {
 
 	public function getSecondaryLinks() {
 		if ( $this->isBundled() ) {
-			$viewMentionsLink = array_merge(
-				$this->getPrimaryLink(),
-				array(
-					'icon' => 'speechBubbles',
-					'prioritized' => true
-				)
-			);
-
-			return array( $viewMentionsLink );
+			return false;
 		}
 
 		$talkPageLink = $this->getPageLink(
