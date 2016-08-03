@@ -1400,16 +1400,6 @@ TEXT
 		$this->assertEquals( 4, $discussionParser->getOverallUserMentionsCount( $discussionParser->getUserMentions( $title, 1, $userLinks ) ) );
 	}
 
-	private function generateUserIdsForValidUserMentions( $userMentions ) {
-		$validMentionsWithIds = array();
-		foreach ( $userMentions['validMentions'] as $userName ) {
-			$userId = User::newFromName( $userName )->getId();
-			$validMentionsWithIds[$userId] = $userId;
-		}
-		$userMentions['validMentions'] = $validMentionsWithIds;
-		return $userMentions;
-	}
-
 	protected function isParserFunctionsInstalled() {
 		if ( class_exists( 'ExtParserFunctions' ) ) {
 			return true;
