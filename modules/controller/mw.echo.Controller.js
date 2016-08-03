@@ -629,6 +629,7 @@
 	mw.echo.Controller.prototype.markCrossWikiItemsRead = function ( itemIds, source ) {
 		var sourceModel,
 			notifs,
+			allIds = [],
 			xwikiModel = this.manager.getNotificationModel( 'xwiki' );
 
 		if ( !xwikiModel ) {
@@ -644,7 +645,10 @@
 		// Update pagination count
 		this.manager.updateCurrentPageItemCount();
 
-		return this.api.markItemsRead( itemIds, source, true )
+		notifs.forEach( function ( notif ) {
+			allIds = allIds.concat( notif.getAllIds() );
+		} );
+		return this.api.markItemsRead( allIds, source, true )
 			.then( this.refreshUnreadCount.bind( this ) );
 	};
 
