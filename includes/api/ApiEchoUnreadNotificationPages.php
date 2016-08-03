@@ -33,7 +33,7 @@ class ApiEchoUnreadNotificationPages extends ApiCrossWikiBase {
 		}
 
 		if ( $this->getRequestedForeignWikis() ) {
-			$result += $this->getFromForeign();
+			$result += $this->getUnreadNotificationPagesFromForeign();
 		}
 
 		$apis = $this->foreignNotifications->getApiEndpoints( $this->getRequestedWikis() );
@@ -156,9 +156,9 @@ class ApiEchoUnreadNotificationPages extends ApiCrossWikiBase {
 	/**
 	 * @return array
 	 */
-	protected function getFromForeign() {
+	protected function getUnreadNotificationPagesFromForeign() {
 		$result = array();
-		foreach ( parent::getFromForeign() as $wiki => $data ) {
+		foreach ( $this->getFromForeign() as $wiki => $data ) {
 			$result[$wiki] = $data['query'][$this->getModuleName()][$wiki];
 		}
 
