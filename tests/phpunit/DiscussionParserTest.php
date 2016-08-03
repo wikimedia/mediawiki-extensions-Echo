@@ -1312,6 +1312,9 @@ TEXT
 		$this->assertEquals( 2, EchoDiscussionParser::getSectionCount( $one . $two ) );
 		$this->assertEquals( 2, EchoDiscussionParser::getSectionCount( $one . $three ) );
 		$this->assertEquals( 3, EchoDiscussionParser::getSectionCount( $one . $two . $three ) );
+		$this->assertEquals( 30, EchoDiscussionParser::getSectionCount(
+			file_get_contents( __DIR__ . '/revision_txt/637638133.txt' )
+		) );
 	}
 
 	public function testGetOverallUserMentionsCount() {
