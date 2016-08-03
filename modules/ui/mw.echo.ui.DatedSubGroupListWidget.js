@@ -12,7 +12,7 @@
 	 * @param {Object} [config] Configuration object
 	 */
 	mw.echo.ui.DatedSubGroupListWidget = function MwEchoUiDatedSubGroupListWidget( controller, listModel, config ) {
-		var momentTimestamp, diff, fullDate,
+		var momentTimestamp, diff, fullDate, stringTimestamp,
 			now = moment(),
 			$primaryDate = $( '<span>' )
 				.addClass( 'mw-echo-ui-datedSubGroupListWidget-title-primary' ),
@@ -42,9 +42,11 @@
 			}
 		}, config ) );
 
-		momentTimestamp = moment.utc( this.model.getTimestamp() );
+		// Round all dates to the day they're in, as if they all happened at 00:00h
+		stringTimestamp = moment.utc( this.model.getTimestamp() ).local().format( 'YYYY-MM-DD' );
+		momentTimestamp = moment( stringTimestamp );
 		diff = now.diff( momentTimestamp, 'weeks' );
-		fullDate = momentTimestamp.local().format( 'LL' );
+		fullDate = momentTimestamp.format( 'LL' );
 
 		$primaryDate.text( fullDate );
 		if ( diff === 0 ) {
