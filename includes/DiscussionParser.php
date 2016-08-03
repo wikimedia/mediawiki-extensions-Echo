@@ -566,7 +566,7 @@ abstract class EchoDiscussionParser {
 	 * Gets the title of a section or sub section
 	 *
 	 * @param string $text The text of the section.
-	 * @return string The title of the section.
+	 * @return string|false The title of the section or false if not found
 	 */
 	static function extractHeader( $text ) {
 		$text = trim( $text );
