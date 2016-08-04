@@ -91,13 +91,6 @@
 					mw.echo.ui.messageWidget.badgeButton.debouncedUpdateThemeClasses();
 					// Replace the link button with the ooui button
 					$existingMessageLink.parent().replaceWith( mw.echo.ui.messageWidget.$element );
-
-					messageModelManager.on( 'allTalkRead', function () {
-						// If there was a talk page notification, get rid of it
-						$( '#pt-mytalk a' )
-							.removeClass( 'mw-echo-alert' )
-							.text( mw.msg( 'mytalk' ) );
-					} );
 				}
 				unreadAlertCounter = new mw.echo.dm.UnreadNotificationCounter( echoApi, 'alert', maxNotificationCount );
 				alertModelManager = new mw.echo.dm.ModelManager( unreadAlertCounter, { type: 'alert' } );
