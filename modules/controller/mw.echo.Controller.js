@@ -666,6 +666,8 @@
 			return $.Deferred().reject().promise();
 		}
 
+		this.manager.getUnreadCounter().estimateChange( -xwikiModel.getCount() );
+
 		return this.api.fetchNotificationGroups( xwikiModel.getSourceNames(), this.manager.getTypeString() )
 			.then( function ( groupList ) {
 				var i, listModel, group, groupItems,
@@ -685,14 +687,15 @@
 
 					// Mark items as read in the API
 					promises.push(
-						controller.markCrossWikiItemsRead( idArray, listModel.getName() )
+						controller.api.markItemsRead( idArray, listModel.getName(), true )
 					);
 				}
 
 				// Synchronously remove this model from the widget
 				controller.removeCrossWikiItem();
 
-				return mw.echo.api.NetworkHandler.static.waitForAllPromises( promises );
+				return mw.echo.api.NetworkHandler.static.waitForAllPromises( promises )
+							.then( controller.refreshUnreadCount.bind( controller ) );
 			} );
 	};
 
