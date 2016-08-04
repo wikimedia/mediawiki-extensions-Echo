@@ -294,6 +294,14 @@
 	 * Respond to 'mark all as read' button click
 	 */
 	mw.echo.ui.NotificationBadgeWidget.prototype.onMarkAllReadButtonClick = function () {
+		// Log the click action
+		mw.echo.logger.logInteraction(
+			mw.echo.Logger.static.actions.markAllReadClick,
+			mw.echo.Logger.static.context.popup,
+			null, // Event id isn't relevant
+			this.manager.getTypeString() // The type of the list
+		);
+
 		this.controller.markLocalNotificationsRead();
 	};
 
