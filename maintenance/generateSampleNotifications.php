@@ -23,6 +23,7 @@ class GenerateSampleNotifications extends Maintenance {
 		'osm',
 		'edit-thanks',
 		'edu',
+		'page-connection',
 	);
 
 	public function __construct() {
@@ -119,6 +120,10 @@ class GenerateSampleNotifications extends Maintenance {
 
 		if ( $this->shouldGenerate( 'edu', $types ) ) {
 			$this->generateEducationProgram( $user, $agent );
+		}
+
+		if ( $this->shouldGenerate( 'page-connection', $types ) ) {
+			$this->generateWikibase( $user, $agent );
 		}
 
 		$this->output( "Completed \n" );
@@ -465,6 +470,29 @@ class GenerateSampleNotifications extends Maintenance {
 
 		// NOTE: Not generating 'ep-course-talk-notification' for now
 		// as it requires a full setup to actually work (institution, course, instructors, students).
+	}
+
+	private function generateWikibase( User $user, User $agent ) {
+		if ( !class_exists( 'Wikibase\Client\Hooks\EchoNotificationsHandlers' ) ) {
+			$this->output( 'class Wikibase\Client\Hooks\EchoNotificationsHandlers not found' );
+			return;
+		}
+
+		$title = $this->generateNewPageTitle();
+		$this->addToPageContent( $title, $user, "this is a new page" );
+		$helpPage = Title::newFromText( 'Project:Wikidata' );
+		$this->addToPageContent( $helpPage, $user, "this is the help page" );
+
+		$this->output( "{$agent->getName()} is connecting {$user->getName()}'s page {$title->getPrefixedText()} to an item\n" );
+		EchoEvent::create( [
+			'type' => Wikibase\Client\Hooks\EchoNotificationsHandlers::NOTIFICATION_TYPE,
+			'title' => $title,
+			'extra' => [
+				'url' => Title::newFromText( 'Item:Q1' )->getFullURL(),
+				'repoSiteName' => 'Wikidata'
+			],
+			'agent' => $agent,
+		] );
 	}
 }
 
