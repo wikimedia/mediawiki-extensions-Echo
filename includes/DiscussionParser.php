@@ -146,6 +146,7 @@ abstract class EchoDiscussionParser {
 			return;
 		}
 		$content = self::stripHeader( $content );
+		$content = self::stripSignature( $content, $title );
 
 		$userLinks = self::getUserLinks( $content, $title );
 		if ( !$userLinks ) {
@@ -218,6 +219,7 @@ abstract class EchoDiscussionParser {
 				'section-title' => $header,
 				'revid' => $revision->getId(),
 				'mentioned-users' => $userMentions['validMentions'],
+				'notifyAgent' => true,
 			),
 			'agent' => $agent,
 		) );
@@ -292,19 +294,13 @@ abstract class EchoDiscussionParser {
 				continue;
 			}
 
-			// 4. the user mentions themselves
-			if ( $user->getId() === $revisionUserId ) {
-				$stats->increment( 'echo.event.mention.error.sameUser' );
-				continue;
-			}
-
-			// 5. the user is the owner of the talk page
+			// 4. the user is the owner of the talk page
 			if ( $title->getNamespace() === NS_USER_TALK && $title->getDBkey() === $dbk ) {
 				$stats->increment( 'echo.event.mention.error.ownPage' );
 				continue;
 			}
 
-			// 6. user does not exist
+			// 5. user does not exist
 			if ( $user->getId() === 0 ) {
 				$userMentions['unknownUsers'][] = str_replace( '_', ' ', $dbk );
 				$count++;
