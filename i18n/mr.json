@@ -79,8 +79,6 @@
 	"echo-none": "आपल्यासाठी काहीच अधिसूचना नाहीत.",
 	"echo-more-info": "अधिक माहिती",
 	"echo-feedback": "प्रतिक्रिया",
-	"echo-popup-footer-beta-invitation": "<strong>ईतर विकिंवरील अधिसूचना येथे आणा</strong>. [$2 $1]",
-	"echo-popup-footer-beta-invitation-link": "\"{{int:echo-pref-beta-feature-cross-wiki-message}}\" हा बीटा फिचर वापरून बघा.",
 	"echo-quotation-marks": "\"$1\"",
 	"echo-api-failure": "अधिसूचना पुरविण्यात अयशस्वी.",
 	"echo-notification-placeholder": "अधिसूचना नाहीत.",

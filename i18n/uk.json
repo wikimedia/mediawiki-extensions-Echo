@@ -87,8 +87,6 @@
 	"echo-none": "У Вас немає сповіщень.",
 	"echo-more-info": "Детальніше",
 	"echo-feedback": "Зворотний зв'язок",
-	"echo-popup-footer-beta-invitation": "<strong>Отримувати тут сповіщення з інших вікі</strong>. [$2 $1]",
-	"echo-popup-footer-beta-invitation-link": "Спробуйте бета-функцію «{{int:echo-pref-beta-feature-cross-wiki-message}}».",
 	"echo-api-failure": "Не вдалося отримати сповіщення.",
 	"echo-api-failure-cross-wiki": "Відмовлено в доступі до віддаленого домену.",
 	"echo-notification-placeholder": "Сповіщень немає.",

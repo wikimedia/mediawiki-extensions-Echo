@@ -88,8 +88,6 @@
 	"echo-none": "Nie masz żadnych powiadomień.",
 	"echo-more-info": "Więcej informacji",
 	"echo-feedback": "Opinie",
-	"echo-popup-footer-beta-invitation": "<strong>Otrzymuj tutaj powiadomienia z innych wiki</strong>. [$2 $1]",
-	"echo-popup-footer-beta-invitation-link": "Wypróbuj funkcję eksperymentalną \"{{int:echo-pref-beta-feature-cross-wiki-message}}\".",
 	"echo-api-failure": "Nie udało się pobrać powiadomień.",
 	"echo-api-failure-cross-wiki": "Dostęp do zdalnej domeny jest zabroniony.",
 	"echo-notification-placeholder": "Nie ma powiadomień.",
