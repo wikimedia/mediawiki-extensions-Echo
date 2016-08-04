@@ -16,7 +16,6 @@
 		this.fetchingPromise = null;
 		this.limit = config.limit || 25;
 		this.fetchingPrioritizer = new mw.echo.api.PromisePrioritizer();
-		this.bundle = !!config.bundle;
 	};
 
 	OO.initClass( mw.echo.api.EchoApi );
@@ -100,6 +99,7 @@
 	 *  state, 'all', 'read' or 'unread'
 	 * @param {boolean} [filterObject.unreadFirst] Fetch unread notifications
 	 *  first in the sorting order.
+	 * @param {boolean} [filterObject.bundle] Bundle local notifications
 	 * @param {string|string[]} [filterObject.titles] Requested titles. To request notifications with no title,
 	 *  use null (standalone or as an array element).
 	 * @return {Object} API parameter definitions to override
@@ -110,14 +110,16 @@
 
 		filterObject = filterObject || {};
 
-		overrideParams.notbundle = this.bundle;
-
 		if ( filterObject.continue ) {
 			overrideParams.notcontinue = filterObject.continue;
 		}
 
 		if ( filterObject.unreadFirst ) {
 			overrideParams.notunreadfirst = 1;
+		}
+
+		if ( filterObject.bundle ) {
+			overrideParams.notbundle = 1;
 		}
 
 		if ( filterObject.readState && filterObject.readState !== 'all' ) {
@@ -203,11 +205,12 @@
 	 *
 	 * @param {string[]} sourceArray An array of sources to fetch from the group
 	 * @param {string} type Notification type
+	 * @param {boolean} bundle Bundle local notifications
 	 * @return {jQuery.Promise} A promise that resolves with an object that maps wiki
 	 *  names to an array of their items' API data objects.
 	 */
-	mw.echo.api.EchoApi.prototype.fetchNotificationGroups = function ( sourceArray, type ) {
-		var overrideParams = { notbundle: this.bundle, notcrosswikisummary: false };
+	mw.echo.api.EchoApi.prototype.fetchNotificationGroups = function ( sourceArray, type, bundle ) {
+		var overrideParams = { notcrosswikisummary: false, notbundle: bundle };
 		return this.network.getApiHandler( 'local' ).fetchNotifications( type, sourceArray, true, overrideParams )
 			.then( function ( result ) {
 				var i,

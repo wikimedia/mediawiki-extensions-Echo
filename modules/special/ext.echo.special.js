@@ -9,7 +9,7 @@
 			limitNotifications = 50,
 			links = mw.config.get( 'wgNotificationsSpecialPageLinks' ),
 			$content = $( '#mw-content-text' ),
-			echoApi = new mw.echo.api.EchoApi( { limit: limitNotifications, bundle: false } ),
+			echoApi = new mw.echo.api.EchoApi( { limit: limitNotifications } ),
 			unreadCounter = new mw.echo.dm.UnreadNotificationCounter( echoApi, [ 'message', 'alert' ], limitNotifications ),
 			modelManager = new mw.echo.dm.ModelManager( unreadCounter, {
 				type: [ 'message', 'alert' ],
