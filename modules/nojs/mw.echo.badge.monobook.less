@@ -6,28 +6,16 @@
 	#pt-notifications-notice &,
 	#pt-notifications-alert & {
 		width: 20px;
+		height: 16px;
 		top: -7px;
 
 		&:before {
 			background-size: 16px 16px;
-			width: 16px;
-			height: 16px;
-			content: "";
 		}
 
 		&:after {
 			top: 5px;
 		}
-	}
-
-	#pt-notifications-notice &:before {
-		/* @embed */
-		background-image: url('../icons/tray.svg');
-	}
-
-	#pt-notifications-alert &:before {
-		/* @embed */
-		background-image: url('../icons/bell.svg');
 	}
 
 	&.oo-ui-flaggedElement-unseen,
