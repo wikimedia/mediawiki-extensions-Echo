@@ -146,6 +146,8 @@
 	"notification-link-text-what-links-here": "Tous les liens vers cette page",
 	"notification-header-mention-other": "$1 {{GENDER:$2|vous}} {{GENDER:$3|a mentionné|a mentionnée}} sur <strong>$4</strong> dans « <strong>$5</strong> ».",
 	"notification-header-mention-other-nosection": "$1 {{GENDER:$2|vous}} {{GENDER:$3|a mentionné|a mentionnée}} sur <strong>$4</strong>.",
+	"notification-header-mention-self": "{{GENDER:$1|Vous vous}} {{GENDER:$1|êtes mentionné|êtes mentionnée}} {{GENDER:$1|vous-même}} sur <strong>$2</strong> dans « <strong>$3</strong> ».",
+	"notification-header-mention-self-nosection": "{{GENDER:$1|Vous vous}} {{GENDER:$1|êtes mentionné|êtes mentionnée}} {{GENDER:$1|vous-même}} sur <strong>$2</strong>.",
 	"notification-header-mention-user-talkpage-v2": "$1 {{GENDER:$2|vous}} {{GENDER:$3|a mentionné|a mentionnée}} sur la <strong>page de discussion {{GENDER:$5|de}} $4</strong> dans « <strong>$6</strong> ».",
 	"notification-header-mention-user-talkpage-nosection": "$1 {{GENDER:$2|vous}} {{GENDER:$3|a mentionné|a mentionnée}} sur la <strong>page de discussion {{GENDER:$5|de}} $4</strong>.",
 	"notification-header-mention-agent-talkpage": "$1 {{GENDER:$2|vous}} {{GENDER:$3|a mentionné|a mentionnée}} sur <strong>{{GENDER:$2|sa|sa|sa}} page de discussion</strong> dans « <strong>$4</strong> ».",

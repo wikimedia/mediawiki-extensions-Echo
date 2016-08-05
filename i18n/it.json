@@ -117,6 +117,8 @@
 	"notification-link-text-what-links-here": "Tutti i collegamenti a questa pagina",
 	"notification-header-mention-other": "$1 {{GENDER:$2|ti}} ha {{GENDER:$3|menzionato|menzionata|menzionato/a}} su <strong>$4</strong> in \"<strong>$5</strong>\".",
 	"notification-header-mention-other-nosection": "$1 {{GENDER:$2|ti}} ha {{GENDER:$3|menzionato|menzionata|menzionato/a}} su <strong>$4</strong>.",
+	"notification-header-mention-self": "{{GENDER:$1|Ti}} {{GENDER:$1|sei menzionato}} su <strong>$2</strong> in \"<strong>$3</strong>\".",
+	"notification-header-mention-self-nosection": "{{GENDER:$1|Ti}} {{GENDER:$1|sei menzionato}} su <strong>$2</strong>.",
 	"notification-header-mention-user-talkpage-v2": "$1 {{GENDER:$2|ti}} ha {{GENDER:$3|menzionato|menzionata|menzionato/a}} nella <strong>pagina di discussione utente {{GENDER:$5|di}} $4</strong> in \"<strong>$6</strong>\".",
 	"notification-header-mention-user-talkpage-nosection": "$1 {{GENDER:$2|ti}} ha {{GENDER:$3|menzionato|menzionata|menzionato/a}} nella <strong>pagina di discussione utente {{GENDER:$5|di}} $4</strong>.",
 	"notification-header-mention-agent-talkpage": "$1 {{GENDER:$2|ti}} ha {{GENDER:$3|menzionato|menzionata|menzionato/a}} nella <strong>sua pagina di discussione</strong> in \"<strong>$4</strong>\".",

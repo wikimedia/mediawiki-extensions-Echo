@@ -14,7 +14,8 @@
 			"McAang",
 			"HakanIST",
 			"Macofe",
-			"Sadrettin"
+			"Sadrettin",
+			"MrSchipunov"
 		]
 	},
 	"echo-desc": "Kullanıcıları olaylar ve mesajlar hakkında bilgilendiren sistem",
@@ -58,7 +59,7 @@
 	"echo-pref-tooltip-emailuser": "Bir kullanıcı tarafıma e-posta gönderirse bana bildirim gönder.",
 	"echo-error-no-formatter": "Hiçbir bildirim için biçim tanımlanmamış.",
 	"notifications": "Bildirimler",
-	"tooltip-pt-notifications-alert": "Uyarılarınız",
+	"tooltip-pt-notifications-alert": "{{GENDER:|Uyarılarınız}}",
 	"tooltip-pt-notifications-notice": "Bildirimleriniz",
 	"echo-displaynotificationsconfiguration": "Bildirim ayarlarını görüntüle",
 	"echo-displaynotificationsconfiguration-summary": "Bu, bildirimlerin bu vikide nasıl yapılandırıldığına bir genel bakıştır.",
@@ -85,8 +86,6 @@
 	"echo-none": "Bildiriminiz bulunmuyor.",
 	"echo-more-info": "Daha fazla bilgi",
 	"echo-feedback": "Geri bildirim",
-	"echo-popup-footer-beta-invitation": "<strong>Diğer vikilerden bildirimleri buradan alın</strong>. [$2 $1]",
-	"echo-popup-footer-beta-invitation-link": "\"{{int:echo-pref-beta-feature-cross-wiki-message}}\" beta özelliğini deneyin.",
 	"echo-api-failure": "Bildirimler getirilemedi.",
 	"echo-api-failure-cross-wiki": "Uzak etki alanı için erişim engellendi.",
 	"echo-notification-placeholder": "Hiçbir bildirim yok.",

@@ -115,6 +115,8 @@
 	"notification-link-text-what-links-here": "এই পাতার সাথে সংযুক্ত সকল সংযোগ",
 	"notification-header-mention-other": "$1 <strong>$4</strong>-এর \"<strong>$5</strong>\"-এ {{GENDER:$3|আপনাকে}} {{GENDER:$2|উল্লেখ করেছেন}}।",
 	"notification-header-mention-other-nosection": "$1 <strong>$4</strong>-এ {{GENDER:$3|আপনাকে}} {{GENDER:$2|উল্লেখ করেছেন}}।",
+	"notification-header-mention-self": "<strong>$2</strong>-এর \"<strong>$3</strong>\"-এ {{GENDER:$1|আপনি}} {{GENDER:$1|আপনাকে}} {{GENDER:$1|উল্লেখ করেছেন}}।",
+	"notification-header-mention-self-nosection": "<strong>$2</strong>-এ {{GENDER:$1|আপনি}} {{GENDER:$1|আপনাকে}} {{GENDER:$1|উল্লেখ করেছেন}}।",
 	"notification-header-mention-user-talkpage-v2": "$1 <strong>$4-{{GENDER:$5|এর}} ব্যবহারকারী আলাপ পাতায়</strong> \"<strong>$6</strong>\"-এ {{GENDER:$3|আপনাকে}} {{GENDER:$2|উল্লেখ করেছেন}}।",
 	"notification-header-mention-user-talkpage-nosection": "$1 <strong>$4-{{GENDER:$5|এর}} ব্যবহারকারী আলাপ পাতায়</strong> {{GENDER:$3|আপনাকে}} {{GENDER:$2|উল্লেখ করেছেন}}।",
 	"notification-header-mention-agent-talkpage": "$1 <strong>{{GENDER:$2|তাঁর}} আলাপ পাতায়</strong> \"<strong>$4</strong>\"-এ {{GENDER:$3|আপনাকে}} {{GENDER:$2|উল্লেখ করেছেন}}।",
