@@ -20,6 +20,11 @@ class SpecialNotifications extends SpecialPage {
 
 		$this->addHelpLink( 'Help:Notifications/Special:Notifications' );
 
+		$out->addJsConfigVars( 'wgNotificationsSpecialPageLinks', array(
+			'help' => '//www.mediawiki.org/wiki/Special:MyLanguage/Help:Notifications/Special:Notifications',
+			'preferences' => SpecialPage::getTitleFor( 'Preferences' )->getLinkURL() . '#mw-prefsection-echo',
+		) );
+
 		$user = $this->getUser();
 		if ( $user->isAnon() ) {
 			// Redirect to login page and inform user of the need to login
@@ -151,10 +156,6 @@ class SpecialNotifications extends SpecialPage {
 
 		$out->addModules( array( 'ext.echo.special' ) );
 
-		$out->addJsConfigVars( 'wgNotificationsSpecialPageLinks', array(
-			'help' => '//www.mediawiki.org/wiki/Special:MyLanguage/Help:Notifications/Special:Notifications',
-			'preferences' => SpecialPage::getTitleFor( 'Preferences' )->getLinkURL() . '#mw-prefsection-echo',
-		) );
 		// For no-js support
 		$out->addModuleStyles( array( 'ext.echo.styles.notifications', 'ext.echo.styles.special' ) );
 	}
