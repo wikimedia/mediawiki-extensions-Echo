@@ -105,6 +105,7 @@ $wgAutoloadClasses += [
 	'MWEchoEventLogging' => __DIR__ . '/includes/EventLogging.php',
 	'MWEchoNotifUser' => __DIR__ . '/includes/NotifUser.php',
 	'MWEchoNotifUserTest' => __DIR__ . '/tests/phpunit/NotifUserTest.php',
+	'MWEchoThankYouEditTest' => __DIR__ . '/tests/phpunit/ThankYouEditTest.php',
 	'NotificationControllerTest' => __DIR__ . '/tests/phpunit/controller/NotificationControllerTest.php',
 	'NotificationPager' => __DIR__ . '/includes/special/NotificationPager.php',
 	'NotificationsTest' => __DIR__ . '/tests/NotificationsTest.php',

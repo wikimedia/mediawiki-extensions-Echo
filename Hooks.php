@@ -503,28 +503,27 @@ class EchoHooks {
 		// test for them reaching a congratulatory threshold
 		$thresholds = [ 1, 10, 100, 1000, 10000, 100000, 1000000 ];
 		if ( $user->isLoggedIn() && $status->value['revision'] ) {
-			// This edit hasn't been added to the edit count yet
-			$thresholdCount = $user->getEditCount() + 1;
+			$thresholdCount = $user->getEditCount();
 			if ( in_array( $thresholdCount, $thresholds ) ) {
-				$id = $user->getId();
-				DeferredUpdates::addCallableUpdate( function () use ( $id, $title, $thresholdCount ) {
-					// Fresh User object
-					$user = User::newFromId( $id );
-					$userEditCount = $user->getEditCount();
-					if ( (int)$userEditCount !== (int)$thresholdCount ) {
-						// Race condition with multiple simultaneous requests, skip
-						LoggerFactory::getInstance( 'Echo' )->debug(
-							'thank-you-edit race condition detected: {user} (id: {id}) should ' .
-							'have had {expectedCount} edits but has {actualCount}',
-							array(
-								'user' => $user->getName(),
-								'id' => $user->getId(),
-								'expectedCount' => $thresholdCount,
-								'actualCount' => $userEditCount,
-							)
-						);
-						return;
+				DeferredUpdates::addCallableUpdate( function () use ( $user, $title, $thresholdCount ) {
+
+					$notificationMapper = new EchoNotificationMapper();
+					$notifications = $notificationMapper->fetchByUser( $user, 10, null, array( 'thank-you-edit' ) );
+					/** @var EchoNotification $notification */
+					foreach ( $notifications as $notification ) {
+						if ( $notification->getEvent()->getExtraParam( 'editCount' ) === $thresholdCount ) {
+							LoggerFactory::getInstance( 'Echo' )->debug(
+								'{user} (id: {id}) has already been thanked for their {count} edit',
+								array(
+									'user' => $user->getName(),
+									'id' => $user->getId(),
+									'count' => $thresholdCount,
+								)
+							);
+							return;
+						}
 					}
+
 					LoggerFactory::getInstance( 'Echo' )->debug(
 						'Thanking {user} (id: {id}) for their {count} edit',
 						array(
