@@ -47,4 +47,17 @@
 #p-personal #pt-notifications-alert,
 #p-personal #pt-notifications-notice {
 	display: inline-block;
+	position: relative;
+
+	// HACK for IE6-9 (T142053)
+	top: ~"-1em\9";
+}
+
+
+// HACK for IE10 and IE11 (T142053)
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+	#p-personal #pt-notifications-alert,
+	#p-personal #pt-notifications-notice {
+		top: -1em;
+	}
 }
