@@ -8,6 +8,7 @@
 		position: relative;
 		display: block;
 		width: 30px;
+		height: 24px;
 		top: -5px;
 		font-size: 0;
 		cursor: pointer;
@@ -30,11 +31,12 @@
 			display: inline-block;
 			cursor: pointer;
 			opacity: 0.8;
+			content: '';
+			background-repeat: no-repeat;
 			left: 0;
-
-			// Prevent IE from making the icon ridiculously big (T142042)
-			width: 24px;
-			height: 24px;
+			top: 0;
+			width: 100%;
+			height: 100%;
 		}
 
 		// Counter
@@ -62,12 +64,9 @@
 			color: white;
 		}
 
-		+ .oo-ui-popupWidget {
-			margin-top: 7px;
-		}
-
 		&.mw-echo-notifications-badge-all-read {
 			opacity: 0.625;
+
 			&::after {
 				visibility: hidden;
 			}
@@ -77,14 +76,14 @@
 	#pt-notifications-alert & {
 		&:before {
 			/* @embed */
-			content: url('../icons/bell.svg');
+			background-image: url('../icons/bell.svg');
 		}
 	}
 
 	#pt-notifications-notice & {
 		&:before {
 			/* @embed */
-			content: url('../icons/tray.svg');
+			background-image: url('../icons/tray.svg');
 		}
 	}
 }
