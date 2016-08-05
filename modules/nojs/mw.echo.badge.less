@@ -10,9 +10,10 @@
 		width: 30px;
 		height: 24px;
 		top: -5px;
-		font-size: 0;
 		cursor: pointer;
 		text-decoration: none;
+		// Hide the text, but keep accessible for screen-readers
+		color: transparent;
 
 		&:hover,
 		&:active,
@@ -46,15 +47,7 @@
 			cursor: pointer;
 			top: 10px;
 			left: 40%;
-			// The original font-size was 12px, we had
-			// to override it in the parent so the original
-			// number is hidden, so we rewrite it here. This
-			// is far from perfect, but it will make sure
-			// that screen-readers can still see the number that
-			// is outputted in the original <a> link while letting
-			// us style the boxed number the way we want to.
-			// We want 0.8em of the original 12px font size
-			font-size: 12px * 0.8;
+			font-size: 0.8em;
 			font-weight: bold;
 			padding: 0 0.3em;
 			border: 1px solid white;
