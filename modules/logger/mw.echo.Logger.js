@@ -76,7 +76,8 @@
 		notificationClick: 'notification-link-click',
 		notificationBundleExpand: 'notification-bundle-expand',
 		notificationImpression: 'notification-impression',
-		markAllReadClick: 'mark-all-read-click'
+		markAllReadClick: 'mark-all-read-click',
+		markXWikiReadClick: 'mark-entire-xwiki-bundle-read-click'
 	};
 
 	/* Methods */
