@@ -774,6 +774,20 @@
 
 		return this.updateSeenTime( currSource );
 	};
+
+	/**
+	 * Perform a dynamic action
+	 *
+	 * @param {Object} data Action data for the network
+	 * @param {string} [source] Requested source to query. Defaults to currently
+	 *  selected source.
+	 * @return {jQuery.Promise} jQuery promise that resolves when the action is done
+	 */
+	mw.echo.Controller.prototype.performDynamicAction = function ( data, source ) {
+		source = source || this.manager.getFiltersModel().getSourcePagesModel().getCurrentSource();
+		return this.api.queryAPI( data, source );
+	};
+
 	/**
 	 * Get the types associated with the controller and model
 	 *

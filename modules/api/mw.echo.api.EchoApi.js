@@ -284,6 +284,22 @@
 	};
 
 	/**
+	 * Send a general query to the API. This is mostly for dynamic actions
+	 * where other extensions may set up API actions that are unique and
+	 * unanticipated.
+	 *
+	 * @param {Object} params API parameters
+	 * @param {string} [source='local'] Requested source to query
+	 * @return {jQuery.Promise} Promise that is resolved when the action
+	 *  is complete
+	 */
+	mw.echo.api.EchoApi.prototype.queryAPI = function ( params, source ) {
+		source = source || 'local';
+		return this.network.getApiHandler( source )
+			.queryAPI( params );
+	};
+
+	/**
 	 * Check whether the API promise for fetch notification is in an error
 	 * state for the given source and notification type.
 	 *

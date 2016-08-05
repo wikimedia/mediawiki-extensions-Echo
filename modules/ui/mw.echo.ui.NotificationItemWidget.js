@@ -133,6 +133,8 @@
 			isOutsideMenu = !this.bundle && urlObj.prioritized !== undefined && outsideMenuItemCounter < mw.echo.config.maxPrioritizedActions;
 
 			linkButton = new mw.echo.ui.MenuItemWidget( {
+				type: urlObj.type,
+				actionData: urlObj.data,
 				icon: urlObj.icon || 'next',
 				label: urlObj.label,
 				tooltip: urlObj.tooltip,
@@ -211,17 +213,56 @@
 	};
 
 	/**
-	 * Respond to selecting an item from the popup button widget
+	 * Manage a click on a dynamic secondary link.
+	 * We can't know what the link intends us to do in the API, so we trust the 'apiParams'
+	 * to tell the controller. When the link is clicked, we will pass the information on
+	 * to the controller, which will manage whatever promise and action is needed.
+	 *
+	 * NOTE: The messages are parsed as HTML. If user-input is expected
+	 * please make sure to properly escape it.
+	 *
+	 * @param {mw.echo.ui.MenuItemWidget} item The selected item
 	 */
 	mw.echo.ui.NotificationItemWidget.prototype.onPopupButtonWidgetChoose = function ( item ) {
-		var action = item && item.getData();
+		var actionData = item && item.getActionData(),
+			messages = item && item.getConfirmationMessages(),
+			widget = this;
 
-		if ( action === 'toggleRead' ) {
-			// If we're marking read or unread, the notification was already seen.
-			// Remove the animation class
-			this.$element.removeClass( 'mw-echo-ui-notificationItemWidget-initiallyUnseen' );
-			this.markRead( !this.model.isRead() );
-		}
+		// Send to controller
+		item.pushPending();
+		this.controller.performDynamicAction( actionData, this.getModel().getSource() )
+			.then( function () {
+				var $title = $( '<p>' )
+						.addClass( 'mw-echo-ui-notificationItemWidget-notify-title' )
+						.append( $.parseHTML( messages.title ) ),
+					$description = $( '<p>' )
+						.addClass( 'mw-echo-ui-notificationItemWidget-notify-description' )
+						.append( $.parseHTML( messages.description ) ),
+					$confirmation;
+
+				// Get rid of the button
+				item.disconnect( this );
+				if ( item.isPrioritized() ) {
+					widget.actionsButtonSelectWidget.removeItems( [ item ] );
+				} else {
+					// It's inside the popup menu
+					widget.menuPopupButtonWidget.getMenu().removeItems( [ item ] );
+				}
+
+				// Make sure to hide either piece if it is empty
+				$title.toggle( !!$title.text() );
+				$description.toggle( !!$description.text() );
+
+				// Display confirmation
+				$confirmation = $( '<div>' )
+					.append( $title, $description );
+
+				// Send to mw.notify
+				mw.notify( $confirmation );
+			} );
+
+		// Prevent the click propagation
+		return false;
 	};
 
 	/**

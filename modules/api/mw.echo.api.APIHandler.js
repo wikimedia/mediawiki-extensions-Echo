@@ -57,6 +57,21 @@
 	mw.echo.api.APIHandler.prototype.fetchNotifications = null;
 
 	/**
+	 * Send a general query to the API. This is mostly for dynamic actions
+	 * where other extensions may set up API actions that are unique and
+	 * unanticipated.
+	 *
+	 * @param {Object} data Data object about the operation.
+	 * @param {string} [data.tokenType=csrf] Token type, 'csrf', 'watch', etc
+	 * @param {Object} [data.params] Parameters to pass to the API call
+	 * @return {jQuery.Promise} Promise that is resolved when the action
+	 *  is complete
+	 */
+	mw.echo.api.APIHandler.prototype.queryAPI = function ( data ) {
+		return this.api.postWithToken( data.tokenType || 'csrf', data.params );
+	};
+
+	/**
 	 * Fetch all pages with unread notifications in them per wiki
 	 *
 	 * @param {string|string[]} [sources=*] Requested sources. If not given

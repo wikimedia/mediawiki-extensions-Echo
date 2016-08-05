@@ -40,7 +40,11 @@
 
 		// Events
 		this.connect( this, { click: 'onAction' } );
-
+		this.getMenu().connect( this, {
+			remove: 'decideToggle',
+			add: 'decideToggle',
+			clear: 'decideToggle'
+		} );
 		// Initialization
 		this.$element
 			.addClass( 'mw-echo-ui-actionMenuPopupWidget' );
@@ -64,6 +68,14 @@
 		// HACK: Prevent ClippableElement from overwriting this width value on scroll
 		// or window resize
 		this.menu.toggleClipping( false );
+	};
+
+	/**
+	 * Decide whether the menu should be visible, based on whether it is
+	 * empty or not.
+	 */
+	mw.echo.ui.ActionMenuPopupWidget.prototype.decideToggle = function () {
+		this.toggle( !this.getMenu().isEmpty() );
 	};
 
 	/**

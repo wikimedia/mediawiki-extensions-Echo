@@ -37,6 +37,24 @@
 		padding: 0;
 	}
 
+	&-dynamic-action {
+		padding: 1.5em;
+		&:hover {
+			background: white;
+		}
+
+		.mw-echo-ui-menuItemWidget-content span.oo-ui-labelElement-label {
+			white-space: normal;
+			overflow: visible;
+		}
+
+		.mw-echo-ui-menuItemWidget-content {
+			&-description {
+				padding-top: 1em;
+			}
+		}
+	}
+
 	// Correct for when inside the popup menu
 	.mw-echo-ui-actionMenuPopupWidget-menu & {
 		display: block;
