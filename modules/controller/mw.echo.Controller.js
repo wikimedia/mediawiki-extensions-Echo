@@ -253,7 +253,7 @@
 		// between local notifications and x-wiki notifications
 		// until the backend gives us the x-wiki notifications as
 		// part of the original response.
-		return this.api.fetchNotifications( this.manager.getTypeString(), 'local', !!isForced, { unreadFirst: true } /* filters */ )
+		return this.api.fetchNotifications( this.manager.getTypeString(), 'local', !!isForced, { unreadFirst: true, bundle: true } /* filters */ )
 			.then(
 				// Success
 				function ( data ) {
@@ -521,7 +521,7 @@
 			return $.Deferred().reject().promise();
 		}
 
-		return this.api.fetchNotificationGroups( xwikiModel.getSourceNames(), this.manager.getTypeString() )
+		return this.api.fetchNotificationGroups( xwikiModel.getSourceNames(), this.manager.getTypeString(), true )
 			.then(
 				function ( groupList ) {
 					var i, notifData, listModel, group, groupItems,
