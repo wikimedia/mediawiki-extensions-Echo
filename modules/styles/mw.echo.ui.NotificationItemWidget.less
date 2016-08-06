@@ -136,9 +136,13 @@
 					width: 100%;
 
 					&-header {
-						.mw-echo-ui-mixin-one-line-truncated;
 						width: 100%;
-						position: absolute;
+
+						@media all and ( min-width: @specialpage-mobile-width-medium ) {
+							// On small screens, don't truncate
+							position: absolute;
+							.mw-echo-ui-mixin-one-line-truncated;
+						}
 
 						&-wrapper {
 							position: relative;
