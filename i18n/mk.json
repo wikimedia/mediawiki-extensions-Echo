@@ -110,6 +110,8 @@
 	"notification-link-text-what-links-here": "Сите врски до страницава",
 	"notification-header-mention-other": "$1 {{GENDER:$3|ве}} {{GENDER:$2|спомна}} на <strong>$4</strong> во „<strong>$5</strong>“.",
 	"notification-header-mention-other-nosection": "$1 {{GENDER:$3|ве}} {{GENDER:$2|спомна}} на <strong>$4</strong>.",
+	"notification-header-mention-self": "{{GENDER:$1|Се}} {{GENDER:$1|споменавте}} {{GENDER:$1|себеси}} на <strong>$2</strong> во „<strong>$3</strong>“",
+	"notification-header-mention-self-nosection": "{{GENDER:$1|Се}} {{GENDER:$1|споменавте}} {{GENDER:$1|себеси}} на <strong>$2</strong>",
 	"notification-header-mention-user-talkpage-v2": "$1 {{GENDER:$3|ве}} {{GENDER:$2|спомна}} на <strong>страницата за разговор {{GENDER:$5|на}} $4</strong> во „<strong>$6</strong>“.",
 	"notification-header-mention-user-talkpage-nosection": "$1 {{GENDER:$3|ве}} {{GENDER:$2|спомна}} на <strong>страницата за разговор {{GENDER:$5|на}} $4</strong>.",
 	"notification-header-mention-agent-talkpage": "$1 {{GENDER:$3|ве}} {{GENDER:$2|спомна}} на <strong>{{GENDER:$2|неговата|нејзината|својата}} страница</strong>  за разговор во „<strong>$4</strong>“.",
