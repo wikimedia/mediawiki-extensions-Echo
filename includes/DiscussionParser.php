@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Logger\LoggerFactory;
 
 abstract class EchoDiscussionParser {
 	const HEADER_REGEX = '^(==+)\s*([^=].*)\s*\1$';
@@ -45,6 +46,24 @@ abstract class EchoDiscussionParser {
 				$content = $action['content'];
 				$header = self::extractHeader( $content );
 				self::generateMentionEvents( $header, $content, $revision, $user );
+			} elseif ( $action['type'] == 'add-section-multiple' ) {
+				$content = self::stripHeader( $action['content'] );
+				$content = self::stripSignature( $content );
+				$userLinks = self::getUserLinks( $content, $title );
+				if ( $userLinks ) {
+					$diffUrl = $title->getFullURL( array(
+						'oldid' => 'prev',
+						'diff' => $revision->getId()
+					) );
+					LoggerFactory::getInstance( 'Echo' )->debug(
+						'Triggered add-section-multiple action with user links by {user} on {diff}',
+						array(
+							'user' => $user->getName(),
+							'diff' => $diffUrl,
+							'user-links' => $userLinks,
+						)
+					);
+				}
 			}
 		}
 
@@ -417,9 +436,8 @@ abstract class EchoDiscussionParser {
 	 *    existing section.
 	 * - new-section-with-comment: A new section is added, containing
 	 *    a single comment signed by the user in question.
-	 * - unknown-signed-addition: Some signed content is added, but it
-	 *    includes section headers, is signed by another user or
-	 *    otherwise confuses the interpretation engine.
+	 * - add-section-multiple: A new section or additions to a section
+	 *    while editing multiple sections at once.
 	 * - unknown-multi-signed-addition: Some signed content is added,
 	 *    but it contains multiple signatures.
 	 * - unknown-unsigned-addition: Some content is added, but it is
@@ -470,10 +488,26 @@ abstract class EchoDiscussionParser {
 							'content' => $content,
 						);
 					} else {
-						$actions[] = array(
-							'type' => 'unknown-signed-addition',
-							'content' => $content,
-						);
+						$sectionData = self::extractSections( $content );
+						foreach ( $sectionData as $section ) {
+							$sectionSignedUsers = self::extractSignatures( $section['content'], $title );
+							if ( !empty( $sectionSignedUsers ) ) {
+								if ( !$section['header'] ) {
+									$fullSection = self::getFullSection( $changes['_info']['rhs'], $change['right-pos'] );
+									$section['header'] = self::extractHeader( $fullSection );
+								}
+								$actions[] = array(
+									'type' => 'add-section-multiple',
+									'content' => $section['content'],
+									'header' => $section['header'],
+								);
+							} else {
+								$actions[] = array(
+									'type' => 'unknown-unsigned-addition',
+									'content' => $section['content'],
+								);
+							}
+						}
 					}
 				} elseif ( count( $signedUsers ) >= 1 ) {
 					$actions[] = array(
@@ -577,6 +611,49 @@ abstract class EchoDiscussionParser {
 		}
 
 		return trim( end( $matches[2] ) );
+	}
+
+	/**
+	 * Extracts sections and their contents from text.
+	 *
+	 * @param string $text The text to parse.
+	 * @return array[]
+	 * Array of arrays containing sections with header and content.
+	 * - [header]: The full header string of the section or false if there is preceding text without header.
+	 * - [content]: The content of the section including the header string.
+	 */
+	private static function extractSections( $text ) {
+		$matches = array();
+
+		if ( !preg_match_all( '/' . self::HEADER_REGEX . '/um', $text, $matches, PREG_OFFSET_CAPTURE ) ) {
+			return array( array(
+				'header' => false,
+				'content' => $text
+			) );
+		}
+
+		$sectionNum = count( $matches[0] );
+		$sections = array();
+
+		if ( $matches[0][0][1] > 1 ) { // is there text before the first headline?
+			$sections[] = array(
+				'header' => false,
+				'content' =>  substr( $text, 0, $matches[0][0][1] - 1 )
+			);
+		}
+		for ( $i = 0; $i < $sectionNum; $i++ ) {
+			if ( $i + 1 < $sectionNum ) {
+				$content = substr( $text, $matches[0][$i][1], $matches[0][$i + 1][1] - $matches[0][$i][1] );
+			} else {
+				$content = substr( $text, $matches[0][$i][1] );
+			}
+			$sections[] = array(
+				'header' => $matches[0][$i][0],
+				'content' =>  trim( $content )
+			);
+		}
+
+		return $sections;
 	}
 
 	/**

@@ -377,12 +377,14 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 						'agent' => 'Admin',
 						'section-title' => 'Hello Users',
 						'notifyAgent' => true,
+						'subject-name' => 'Ping',
 					),
 					array(
 						'type' => 'mention-failure',
 						'agent' => 'Admin',
 						'section-title' => 'Hello Users',
 						'notifyAgent' => true,
+						'subject-name' => 'Po?ng',
 					),
 				),
 			),
@@ -399,12 +401,14 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 						'agent' => 'Admin',
 						'section-title' => 'Hello Users',
 						'notifyAgent' => null,
+						'subject-name' => null,
 					),
 					array(
 						'type' => 'mention-success',
 						'agent' => 'Admin',
 						'section-title' => 'Hello Users',
 						'notifyAgent' => true,
+						'subject-name' => 'Test11',
 					),
 				),
 			),
@@ -421,6 +425,7 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 						'agent' => 'Admin',
 						'section-title' => 'Section 2',
 						'notifyAgent' => true,
+						'subject-name' => 'NoUser',
 					),
 				),
 			),
@@ -437,6 +442,7 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 						'agent' => 'Admin',
 						'section-title' => 'Section 2',
 						'notifyAgent' => true,
+						'subject-name' => 'NoUser',
 					),
 				),
 			),
@@ -468,7 +474,8 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 					'type' => $event->getType(),
 					'agent' => $event->getAgent()->getName(),
 					'section-title' => $event->getExtraParam( 'section-title' ),
-					'notifyAgent' => $event->getExtraParam( 'notifyAgent' )
+					'notifyAgent' => $event->getExtraParam( 'notifyAgent' ),
+					'subject-name' => $event->getExtraParam( 'subject-name' ),
 				);
 				return false;
 			}
@@ -480,6 +487,170 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 		EchoDiscussionParser::generateEventsForRevision( $revision );
 
 		$this->assertEquals( $expected, $events );
+	}
+
+	public function provider_extractSections() {
+		return array(
+			array(
+				'content' => 'Just Text.',
+				'result' => array(
+					array(
+						'header' => false,
+						'content' => 'Just Text.',
+					),
+				),
+			),
+			array(
+				'content' =>
+<<<TEXT
+Text and a
+== Headline ==
+with text
+TEXT
+				,
+				'result' => array(
+					array(
+						'header' => false,
+						'content' =>
+<<<TEXT
+Text and a
+TEXT
+						,
+					),
+					array(
+						'header' => '== Headline ==',
+						'content' =>
+<<<TEXT
+== Headline ==
+with text
+TEXT
+						,
+					),
+				),
+			),
+			array(
+				'content' =>
+<<<TEXT
+== Headline ==
+Text and a [[User:Test]]
+TEXT
+			,
+				'result' => array(
+					array(
+						'header' => '== Headline ==',
+						'content' =>
+<<<TEXT
+== Headline ==
+Text and a [[User:Test]]
+TEXT
+					,
+					),
+				),
+			),
+			array(
+				'content' =>
+<<<TEXT
+Content 0
+== Headline 1 ==
+Content 1
+=== Headline 2 ===
+Content 2
+TEXT
+			,
+				'result' => array(
+					array(
+						'header' => false,
+						'content' => 'Content 0',
+					),
+					array(
+						'header' => '== Headline 1 ==',
+						'content' =>
+<<<TEXT
+== Headline 1 ==
+Content 1
+TEXT
+					,
+					),
+					array(
+						'header' => '=== Headline 2 ===',
+						'content' =>
+<<<TEXT
+=== Headline 2 ===
+Content 2
+TEXT
+					,
+					),
+				),
+			),
+			array(
+				'content' =>
+<<<TEXT
+== Headline 1 ==
+مرحبا كيف حالك 
+=== Headline 2 ===
+انا بخير شكرا
+TEXT
+			,
+				'result' => array(
+					array(
+						'header' => '== Headline 1 ==',
+						'content' =>
+<<<TEXT
+== Headline 1 ==
+مرحبا كيف حالك
+TEXT
+					,
+					),
+					array(
+						'header' => '=== Headline 2 ===',
+						'content' =>
+<<<TEXT
+=== Headline 2 ===
+انا بخير شكرا
+TEXT
+					,
+					),
+				),
+			),
+			array(
+				'content' =>
+<<<TEXT
+مرحبا كيف حالك
+=== Headline 1 ===
+انا بخير شكرا
+TEXT
+			,
+				'result' => array(
+					array(
+						'header' => false,
+						'content' =>
+<<<TEXT
+مرحبا كيف حالك
+TEXT
+					,
+					),
+					array(
+						'header' => '=== Headline 1 ===',
+						'content' =>
+<<<TEXT
+=== Headline 1 ===
+انا بخير شكرا
+TEXT
+					,
+					),
+				),
+			),
+		);
+	}
+
+	/**
+	 * @dataProvider provider_extractSections
+	 */
+	public function testExtractSections( $content, $result ) {
+		$discussionParser = TestingAccessWrapper::newFromClass( 'EchoDiscussionParser' );
+		$sections = $discussionParser->extractSections( $content );
+
+		$this->assertEquals( $result, $sections );
 	}
 
 	public function testGenerateEventsForRevision_tooManyMentionsFailure() {
