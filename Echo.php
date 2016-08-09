@@ -176,6 +176,9 @@ $wgEchoMaxMentionsCount = 50;
 // Enable this when you want to enable mention failure notifications for the users.
 $wgEchoMentionStatusNotifications = false;
 
+// Disable this when you want to disable mentions for multiple section edits.
+$wgEchoMentionsOnMultipleSectionEdits = true;
+
 // The time interval between each bundle email in seconds
 // set a small number for test wikis, should set this to 0 to disable email bundling
 // if there is no delay queue support

@@ -453,6 +453,85 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 				'title' => 'UTPage',
 				'expected' => array(),
 			),
+			array(
+				'new' => 747798770,
+				'old' => 747798765,
+				'username' => 'Admin',
+				'lang' => 'en',
+				'pages' => array(),
+				'title' => 'UTPage',
+				'expected' => array(
+					array(
+						'type' => 'mention',
+						'agent' => 'Admin',
+						'section-title' => 'Section 1.5',
+						'subject-name' => null,
+						'notifyAgent' => null,
+					),
+					array(
+						'type' => 'mention-success',
+						'agent' => 'Admin',
+						'section-title' => 'Section 1.5',
+						'subject-name' => 'Test11',
+						'notifyAgent' => true,
+					),
+				),
+			),
+			array(
+				'new' => 747798771,
+				'old' => 747798765,
+				'username' => 'Admin',
+				'lang' => 'en',
+				'pages' => array(),
+				'title' => 'UTPage',
+				'expected' => array(
+					array(
+						'type' => 'mention-failure',
+						'agent' => 'Admin',
+						'section-title' => 'Section 1.5',
+						'subject-name' => 'NoUser1.5',
+						'notifyAgent' => true,
+					),
+					array(
+						'type' => 'mention-failure',
+						'agent' => 'Admin',
+						'section-title' => 'Section 2',
+						'subject-name' => 'NoUser2',
+						'notifyAgent' => true,
+					),
+				),
+			),
+			array(
+				'new' => 747798772,
+				'old' => 747798765,
+				'username' => 'Admin',
+				'lang' => 'en',
+				'pages' => array(),
+				'title' => 'UTPage',
+				'expected' => array(
+					array(
+						'type' => 'mention-failure',
+						'agent' => 'Admin',
+						'section-title' => 'Section 1',
+						'subject-name' => 'NoUser1',
+						'notifyAgent' => true,
+					),
+					array(
+						'type' => 'mention-failure',
+						'agent' => 'Admin',
+						'section-title' => 'Section 1.75',
+						'subject-name' => 'NoUser1.75',
+						'notifyAgent' => true,
+					),
+					array(
+						'type' => 'mention-failure',
+						'agent' => 'Admin',
+						'section-title' => 'Section 2',
+						'subject-name' => 'NoUser2',
+						'notifyAgent' => true,
+					),
+				),
+			),
 		);
 	}
 
@@ -481,6 +560,8 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 
 		// enable mention failure and success notifications
 		$this->setMwGlobals( 'wgEchoMentionStatusNotifications', true );
+		// enable multiple sections mentions
+		$this->setMwGlobals( 'wgEchoMentionsOnMultipleSectionEdits', true );
 
 		EchoDiscussionParser::generateEventsForRevision( $revision );
 
@@ -516,7 +597,7 @@ TEXT
 						,
 					),
 					array(
-						'header' => '== Headline ==',
+						'header' => 'Headline',
 						'content' =>
 <<<TEXT
 == Headline ==
@@ -535,7 +616,7 @@ TEXT
 			,
 				'result' => array(
 					array(
-						'header' => '== Headline ==',
+						'header' => 'Headline',
 						'content' =>
 <<<TEXT
 == Headline ==
@@ -561,7 +642,7 @@ TEXT
 						'content' => 'Content 0',
 					),
 					array(
-						'header' => '== Headline 1 ==',
+						'header' => 'Headline 1',
 						'content' =>
 <<<TEXT
 == Headline 1 ==
@@ -570,7 +651,7 @@ TEXT
 					,
 					),
 					array(
-						'header' => '=== Headline 2 ===',
+						'header' => 'Headline 2',
 						'content' =>
 <<<TEXT
 === Headline 2 ===
@@ -591,7 +672,7 @@ TEXT
 			,
 				'result' => array(
 					array(
-						'header' => '== Headline 1 ==',
+						'header' => 'Headline 1',
 						'content' =>
 <<<TEXT
 == Headline 1 ==
@@ -600,7 +681,7 @@ TEXT
 					,
 					),
 					array(
-						'header' => '=== Headline 2 ===',
+						'header' => 'Headline 2',
 						'content' =>
 <<<TEXT
 === Headline 2 ===
@@ -628,7 +709,7 @@ TEXT
 					,
 					),
 					array(
-						'header' => '=== Headline 1 ===',
+						'header' => 'Headline 1',
 						'content' =>
 <<<TEXT
 === Headline 1 ===
