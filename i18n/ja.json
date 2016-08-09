@@ -129,7 +129,7 @@
 	"notification-header-mention-failure-bundle": "<strong>$4</strong> に{{GENDER:$2|送信}}した{{PLURAL:$3|言及|$3件の言及}}を送信{{PLURAL:$3|できませんでした}}。",
 	"notification-compact-header-mention-failure-user-unknown": "<strong>そのような利用者名は存在しません:</strong> $1",
 	"notification-compact-header-mention-failure-user-anonymous": "<strong>IP利用者には言及できません:</strong> $1",
-	"notification-header-mention-success": "$3 に{{GENDER:$2|言及しました}}。",
+	"notification-header-mention-success": "$3 に言及を送信{{GENDER:$2|しました}}。",
 	"notification-header-mention-success-bundle": "<strong>$4</strong> のトークページに{{PLURAL:$3|言及|$3件の言及}}を{{GENDER:$2|送信}}しました。",
 	"notification-compact-header-mention-success": "<strong>{{GENDER:$2|言及しました}}:</strong> $3",
 	"notification-header-user-rights-add-only": "{{GENDER:$4|あなたの}}利用者権限が{{GENDER:$1|変更されました}}: $2へ追加されました。",

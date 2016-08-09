@@ -160,7 +160,7 @@
 	"notification-header-mention-failure-bundle": "$3 mention{{PLURAL:$3||s}} {{GENDER:$2|que vous avez faite}}{{PLURAL:$3||s}} sur la page de discussion de <strong>$4</strong> {{PLURAL:$3|pourrait|pourraient}} ne pas avoir été envoyée{{PLURAL:$3||s}}.",
 	"notification-compact-header-mention-failure-user-unknown": "<strong>Nom inconnu d'utilisateur :</strong> $1",
 	"notification-compact-header-mention-failure-user-anonymous": "<strong>Adresses IP ne pouvant pas être mentionnées :</strong> $1",
-	"notification-header-mention-success": "{{GENDER:$2|Vous avez mentionné}} $3.",
+	"notification-header-mention-success": "{{GENDER:$2|Votre}} mention de $3 a été envoyée.",
 	"notification-header-mention-success-bundle": "{{PLURAL:$3|Une mention|$3 mentions}} {{GENDER:$2|que vous avez faite}}{{PLURAL:$3||s}} sur la page de discussion de <strong>$4</strong> {{PLURAL:$3|a été envoyée|ont été envoyées}}.",
 	"notification-compact-header-mention-success": "<strong>{{GENDER:$2|Vous avez mentionné}}:</strong> $3",
 	"notification-header-user-rights-add-only": "{{GENDER:$4|Vos}} droits utilisateurs ont été {{GENDER:$1|modifiés}}. Vous avez été ajouté à : $2.",

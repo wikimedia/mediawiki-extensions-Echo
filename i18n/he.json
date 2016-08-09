@@ -131,7 +131,7 @@
 	"notification-header-mention-failure-bundle": "{{PLURAL:$3|אזכור אחד|$3 אזכורים}} ש{{GENDER:$2|עשית}} בדף השיחה <strong>$4</strong> לא {{PLURAL:$3|נשלח|נשלחו}}.",
 	"notification-compact-header-mention-failure-user-unknown": "<strong>משתמש לא ידוע:</strong> \"$1\"",
 	"notification-compact-header-mention-failure-user-anonymous": "<strong>לא ניתן לשלוח אזכורים עבור כתובות IP:</strong>&rlm; $1",
-	"notification-header-mention-success": "{{GENDER:$2|הזכרת}} את ה{{GENDER:$3|משתמש|משתמשת}} $3.",
+	"notification-header-mention-success": "האזכור {{GENDER:$2|שלך}} נשלח ל{{GENDER:$3|משתמש|משתמשת}} \"$3\".",
 	"notification-header-mention-success-bundle": "{{PLURAL:$3|אזכור אחד|$3 אזכורים}} ש{{GENDER:$2|עשית}} בדף השיחה <strong>$4</strong> {{PLURAL:$3|נשלח|נשלחו}} בהצלחה.",
 	"notification-compact-header-mention-success": "<strong>{{GENDER:$2|הזכרת}} את:</strong> $3",
 	"notification-header-user-rights-add-only": "הרשאות המשתמש שלך {{GENDER:$1|שונו}}. {{GENDER:$4|נוספת}} ל{{GRAMMAR:תחילית|$2}}.",

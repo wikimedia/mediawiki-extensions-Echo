@@ -134,7 +134,7 @@
 	"notification-header-mention-failure-bundle": "{{PLURAL:$3|Згадка, яку|$3 згадки, які|$3 згадок, які}} {{GENDER:$2|Ви зробили}} на сторінці обговорення <strong>$4</strong>, {{PLURAL:$3|не вдалося}} надіслати.",
 	"notification-compact-header-mention-failure-user-unknown": "<strong>Ім'я користувача не існує:</strong> $1",
 	"notification-compact-header-mention-failure-user-anonymous": "<strong>Не можна зробити згадку IP:</strong> $1",
-	"notification-header-mention-success": "{{GENDER:$2|Ви згадали}} $3.",
+	"notification-header-mention-success": "{{GENDER:$2|Вашу}} згадку $3 надіслано.",
 	"notification-header-mention-success-bundle": "{{PLURAL:$3|Згадка, здійснена|$3 згадки, здійснені}}  {{GENDER:$2|Вами}} на сторінці обговорення <strong>$4</strong>, {{PLURAL:$3|було надіслано}}.",
 	"notification-compact-header-mention-success": "<strong>{{GENDER:$2|Ви згадали}}:</strong> $3",
 	"notification-header-user-rights-add-only": "{{GENDER:$4|Ваші}} права користувача {{GENDER:$1|змінилися}}. Вас будо додано до: $2.",

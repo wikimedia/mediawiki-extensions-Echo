@@ -48,6 +48,8 @@
 	"echo-more-info": "Meir info",
 	"echo-feedback": "Attendemelding",
 	"echo-notification-placeholder": "Det er ingen meldingar eller varsel.",
+	"echo-notification-markasread": "Merk som lese(n)",
+	"echo-notification-markasunread": "Merk som ulese(n)",
 	"notification-link-text-view-message": "Sjå melding",
 	"notification-link-text-view-mention": "Sjå omtale",
 	"notification-link-text-view-changes": "{{GENDER:$1|Sjå}} endringar",
