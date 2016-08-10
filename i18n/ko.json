@@ -126,7 +126,7 @@
 	"notification-header-mention-failure-bundle": "<strong>$4</strong> 토론 문서에 {{GENDER:$2|당신이 한}} $3개의 언급은 전달되지 않았습니다.",
 	"notification-compact-header-mention-failure-user-unknown": "<strong>사용자 이름이 존재하지 않습니다:</strong> $1",
 	"notification-compact-header-mention-failure-user-anonymous": "<strong>IP는 언급할 수 없습니다:</strong> $1",
-	"notification-header-mention-success": "$3님을 {{GENDER:$2|언급했습니다}}.",
+	"notification-header-mention-success": "$3님에 대한 {{GENDER:$2|당신의 언급}}이 전달되었습니다.",
 	"notification-header-mention-success-bundle": "<strong>$4</strong> 토론 문서에 {{GENDER:$2|당신이 한}} {{PLURAL:$3|언급|$3개의 언급}}을 보냈습니다.",
 	"notification-compact-header-mention-success": "<strong>{{GENDER:$2|언급했습니다}}:</strong> $3",
 	"notification-header-user-rights-add-only": "{{GENDER:$4|당신}}의 사용자 권한이 {{GENDER:$1|바뀌었습니다}}. 당신은 $2 권한을 부여받았습니다.",

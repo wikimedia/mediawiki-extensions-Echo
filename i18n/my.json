@@ -8,15 +8,11 @@
 	"prefs-echo": "အသိပေးချက်များ",
 	"notifications": "အသိပေးချက်များ",
 	"tooltip-pt-notifications-alert": "{{GENDER:|သင်၏}} သတိပေးချက်များ",
-	"tooltip-pt-notifications-message": "{{GENDER:|သင်၏}} စာလွှာများ",
 	"echo-specialpage": "အသိပေးချက်များ",
-	"notification-header-edit-user-talk": "'''{{GENDER:$3|သင်၏}} ဆွေးနွေးချက် စာမျက်နှာ'''တွင် စာလွှာတစ်ခုကို $1 {{GENDER:$2|ချန်ထားခဲ့သည်}}။",
-	"notification-header-edit-user-talk-with-section": "'''{{GENDER:$3|သင်၏}} ဆွေးနွေးချက်စာမျက်နှာ'''ရှိ '''\"$4'''\" တွင် စာလွှာတစ်ခုကို $1 {{GENDER:$2|ချန်ထားခဲ့သည်}}။",
-	"notification-reverted2": "သင်၏ {{PLURAL:$4|[[:$2]] ပေါ်ရှိ တည်းဖြတ်မှု|[[:$2]] ပေါ်ရှိ တည်းဖြတ်မှုများ}}အား [[$5|$1]] က {{GENDER:$1|နောက်ပြန်ပြင်ခဲ့သည်}}။ $3",
+	"notification-header-edit-user-talk": "<strong>{{GENDER:$3|သင်၏}} ဆွေးနွေးချက် စာမျက်နှာ</strong>တွင် စာလွှာတစ်ခုကို $1 {{GENDER:$2|ချန်ထားခဲ့သည်}}။",
+	"notification-header-edit-user-talk-with-section": "<strong>{{GENDER:$3|သင်၏}} ဆွေးနွေးချက်စာမျက်နှာ</strong>ရှိ \"<strong>$4</strong>\" တွင် စာလွှာတစ်ခုကို $1 {{GENDER:$2|ချန်ထားခဲ့သည်}}။",
 	"notification-header-reverted": "သင်၏ {{PLURAL:$4|<strong>$3</strong> ပေါ်ရှိ တည်းဖြတ်မှု|<strong>$3</strong> ပေါ်ရှိ တည်းဖြတ်မှုများ}}သည် {{GENDER:$2|နောက်ပြန် ပြန်ပြင်ခံခဲ့ရသည်}}",
 	"notification-reverted-email-subject2": "{{SITENAME}} ရှိ သင့် {{PLURAL:$3|တည်းဖြတ်မှု|တည်းဖြတ်မှုများ}}ကို {{GENDER:$1|နောက်ပြန်ပြင်ခဲ့သည်}}",
-	"notification-reverted-email-batch-body2": "သင်၏ {{PLURAL:$3|$2 ပေါ်ရှိ တည်းဖြတ်မှု|$2 ပေါ်ရှိ တည်းဖြတ်မှုများ}}ကို $1 က {{GENDER:$1|နောက်ပြန်ပြင်ခဲ့သည်}}။",
 	"echo-overlay-link": "အသိပေးချက်များ အားလုံး",
-	"notification-edit-talk-page-bundle": "သင်၏ [[User talk:$2|ဆွေးနွေးချက် စာမျက်နှာ]]တွင် $1 နှင့် {{PLURAL:$4|အခြား|အခြား}} $3 ဦးတို့ စာလွှာများ {{GENDER:$1|ချန်ထားခဲ့သည်}}။",
 	"echo-email-batch-link-text-view-all-notifications": "အသိပေးချက်များ အားလုံးကို ကြည့်ရန်"
 }

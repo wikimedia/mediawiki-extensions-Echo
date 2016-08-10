@@ -199,6 +199,7 @@
 	"apihelp-echomarkseen-description": "Marcar notificacións coma lidas para o usuario actual.",
 	"apihelp-echomarkseen-example-1": "Marcar notificacións de todos os tipos como lidas",
 	"apihelp-echomarkseen-param-type": "Tipo de notificacións para marcar como lidas: 'alert' (alerta), 'message' (mensaxe) ou 'all' (todas).",
+	"apihelp-echomarkseen-param-timestampFormat": "Formato de selo de tempo a usar para a saída, 'ISO_8601' ou 'MW'. 'MW' está obsoleto aquí, polo que tódolos clientes deberían cambiarse a 'ISO_8601'. Este parámetro será eliminado, e 'ISO_8601' converterase no único formato de saída.",
 	"apihelp-query+notifications-description": "Obter notificacións de espera para o usuario actual.",
 	"apihelp-query+notifications-param-prop": "Detalles que solicitar.",
 	"apihelp-query+notifications-param-sections": "As seccións de notificación a consultar (p.ex. algunha combinación de 'alerta' e 'mensaxe').",
