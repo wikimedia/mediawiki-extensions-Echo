@@ -113,6 +113,7 @@ $wgAutoloadClasses += [
 	'RemoveInvalidNotification' => __DIR__ . '/maintenance/removeInvalidNotification.php',
 	'RemoveInvalidTargetPage' => __DIR__ . '/maintenance/removeInvalidTargetPage.php',
 	'RemoveOrphanedEvents' => __DIR__ . '/maintenance/removeOrphanedEvents.php',
+	'ResourceLoaderEchoImageModule' => __DIR__ . '/includes/ResourceLoaderEchoImageModule.php',
 	'SpecialDisplayNotificationsConfiguration' => __DIR__ . '/includes/special/SpecialDisplayNotificationsConfiguration.php',
 	'SpecialNotifications' => __DIR__ . '/includes/special/SpecialNotifications.php',
 	'SpecialNotificationsFormatter' => __DIR__ . '/includes/formatters/SpecialNotificationsFormatter.php',

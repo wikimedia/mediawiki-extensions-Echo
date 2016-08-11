@@ -46,4 +46,43 @@ class EchoIcon {
 		return $iconUrl;
 	}
 
+	/**
+	 * Get a link to a rasterized version of the icon
+	 *
+	 * @param string $icon Icon name
+	 * @param string $lang Language
+	 * @return string URL to the rasterized version of the icon
+	 */
+	public static function getRasterizedUrl( $icon, $lang ) {
+		global $wgEchoNotificationIcons;
+		if ( !isset( $wgEchoNotificationIcons[$icon] ) ) {
+			throw new InvalidArgumentException( "The $icon icon is not registered" );
+		}
+
+		$url = isset( $wgEchoNotificationIcons[ $icon ][ 'url' ] ) ?
+			$wgEchoNotificationIcons[ $icon ][ 'url' ] :
+			null;
+
+		// If the defined URL is explicitly false, use placeholder
+		if ( $url === false ) {
+			$icon = 'placeholder';
+		}
+
+		// If the URL is null or false call the resource loader
+		// rasterizing module
+		if ( $url === false || $url === null ) {
+			$iconUrl = wfScript( 'load' ) . '?' . wfArrayToCgi( array(
+					'modules' => 'ext.echo.emailicons',
+					'image' => $icon,
+					'lang' => $lang,
+					'format' => 'rasterized'
+				) );
+		} else {
+			// For icons that are defined by URL
+			$iconUrl = $wgEchoNotificationIcons[ $icon ][ 'url' ];
+		}
+
+		return $iconUrl;
+	}
+
 }
