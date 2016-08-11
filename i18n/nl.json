@@ -94,7 +94,7 @@
 	"echo-none": "U hebt geen meldingen.",
 	"echo-more-info": "Meer info",
 	"echo-feedback": "Terugkoppeling",
-	"echo-popup-footer-special-page-invitation": "<strogn>Probeerde de herontworpen meldingenpagina.</strong> [$2 $1]",
+	"echo-popup-footer-special-page-invitation": "<strong>Probeerde de herontworpen meldingenpagina.</strong> [$2 $1]",
 	"echo-popup-footer-special-page-invitation-link": "Alle nieuwe looks en functies.",
 	"echo-api-failure": "Kan meldingen niet ophalen.",
 	"echo-api-failure-cross-wiki": "Toegang tot het externe domein is geweigerd.",
