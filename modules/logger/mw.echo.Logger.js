@@ -75,7 +75,8 @@
 	mw.echo.Logger.static.actions = {
 		notificationClick: 'notification-link-click',
 		notificationBundleExpand: 'notification-bundle-expand',
-		notificationImpression: 'notification-impression'
+		notificationImpression: 'notification-impression',
+		markAllReadClick: 'mark-all-read-click'
 	};
 
 	/* Methods */
@@ -111,8 +112,8 @@
 		if ( eventType ) {
 			myEvt.notificationType = eventType;
 		}
-		if ( mobile ) {
-			myEvt.mobile = mobile;
+		if ( mobile !== undefined || mw.config.get( 'skin' ) === 'minerva' ) {
+			myEvt.mobile = mobile || mw.config.get( 'skin' ) === 'minerva';
 		}
 
 		if ( notifWiki && notifWiki !== mw.config.get( 'wgDBname' ) && notifWiki !== 'local' ) {

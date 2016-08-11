@@ -106,6 +106,16 @@
 	 * Respond to mark all read button click
 	 */
 	mw.echo.ui.SpecialHelpMenuWidget.prototype.onMarkAllreadButtonClick = function () {
+		// Log this action
+		mw.echo.logger.logInteraction(
+			mw.echo.Logger.static.actions.markAllReadClick,
+			mw.echo.Logger.static.context.archive,
+			null, // Notification ID is irrelevant
+			this.manager.getTypeString(), // The type of the list in general
+			null, // The Logger has logic to decide whether this is mobile or not
+			this.manager.getFiltersModel().getSourcePagesModel().getCurrentSource() // Source name
+		);
+
 		this.popup.toggle( false );
 		this.emit( 'markAllRead' );
 	};
