@@ -107,13 +107,6 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 	}
 
 	/**
-	 * @return User
-	 */
-	final public function getUser() {
-		return $this->user;
-	}
-
-	/**
 	 * Get the category of event
 	 *
 	 * @return string

@@ -12,11 +12,7 @@ class EchoMentionPresentationModel extends EchoEventPresentationModel {
 	}
 
 	protected function getHeaderMessageKey() {
-		if ( $this->isSelfMention() ) {
-			return $this->hasSection() ?
-				'notification-header-mention-self' :
-				'notification-header-mention-self-nosection';
-		} elseif ( $this->onArticleTalkpage() ) {
+		if ( $this->onArticleTalkpage() ) {
 			return $this->hasSection() ?
 				'notification-header-mention-article-talkpage' :
 				'notification-header-mention-article-talkpage-nosection';
@@ -36,11 +32,7 @@ class EchoMentionPresentationModel extends EchoEventPresentationModel {
 	}
 
 	public function getHeaderMessage() {
-		if ( $this->isSelfMention() ) {
-			$msg = $this->msg( $this->getHeaderMessageKey() );
-		} else {
-			$msg = $this->getMessageWithAgent( $this->getHeaderMessageKey() );
-		}
+		$msg = $this->getMessageWithAgent( $this->getHeaderMessageKey() );
 		$msg->params( $this->getViewingUserForGender() );
 
 		if ( $this->onArticleTalkpage() ) {
@@ -127,10 +119,6 @@ class EchoMentionPresentationModel extends EchoEventPresentationModel {
 	private function isArticle() {
 		$ns = $this->event->getTitle()->getNamespace();
 		return $ns === NS_MAIN || $ns === NS_TALK;
-	}
-
-	private function isSelfMention() {
-		return $this->getUser()->equals( $this->event->getAgent() );
 	}
 
 	protected function getSubjectMessageKey() {
