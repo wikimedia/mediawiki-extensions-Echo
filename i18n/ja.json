@@ -115,8 +115,6 @@
 	"notification-link-text-what-links-here": "このページへリンクしているすべてのページ",
 	"notification-header-mention-other": "$1 が <strong>$4</strong> のセクション「<strong>$5</strong>」で{{GENDER:$3|あなた}}に{{GENDER:$2|言及しました}}。",
 	"notification-header-mention-other-nosection": "$1 が <strong>$4</strong> で{{GENDER:$3|あなた}}に{{GENDER:$2|言及しました}}。",
-	"notification-header-mention-self": "<strong>$2</strong> のセクション「<strong>$3</strong>」で{{GENDER:$1|自身}}に{{GENDER:$1|言及しました}}。",
-	"notification-header-mention-self-nosection": "<strong>$2</strong> で{{GENDER:$1|自身}}に{{GENDER:$1|言及しました}}。",
 	"notification-header-mention-user-talkpage-v2": "$1 が <strong>$4 {{GENDER:$5|の}}利用者トークページ</strong>のセクション「<strong>$6</strong>」で{{GENDER:$3|あなた}}に{{GENDER:$2|言及しました}}。",
 	"notification-header-mention-user-talkpage-nosection": "$1 が <strong>$4 {{GENDER:$5|の}}利用者トークページ</strong>で{{GENDER:$3|あなた}}に{{GENDER:$2|言及しました}}。",
 	"notification-header-mention-agent-talkpage": "$1 が<strong>{{GENDER:$2|彼|彼女|彼ら}}のトークページ</strong>のセクション「<strong>$4</strong>」で{{GENDER:$3|あなた}}に{{GENDER:$2|言及しました}}。",

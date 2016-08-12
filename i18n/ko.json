@@ -114,8 +114,6 @@
 	"notification-link-text-what-links-here": "이 문서로 향하는 모든 링크",
 	"notification-header-mention-other": "$1님이 <strong>$4</strong>의 \"<strong>$5</strong>\"에서 당신을 언급했습니다.",
 	"notification-header-mention-other-nosection": "$1님이 <strong>$4</strong>에서 {{GENDER:$3|당신을}} {{GENDER:$2|언급했습니다}}.",
-	"notification-header-mention-self": "{{GENDER:$1|당신은}} <strong>$2</strong>의 \"<strong>$3</strong>\" 문단에서 {{GENDER:$1|자신을}} {{GENDER:$1|언급했습니다}}.",
-	"notification-header-mention-self-nosection": "{{GENDER:$1|당신은}} <strong>$2</strong>에서 {{GENDER:$1|자신을}} {{GENDER:$1|언급했습니다}}.",
 	"notification-header-mention-user-talkpage-v2": "$1님이 <strong>$4{{GENDER:$5|의}} 사용자 토론 문서</strong>의 \"<strong>$6</strong>\"에서 {{GENDER:$3|당신}}을 {{GENDER:$2|언급했습니다}}.",
 	"notification-header-mention-user-talkpage-nosection": "$1님이 <strong>$4{{GENDER:$5|의}} 사용자 토론 문서</strong>에서 {{GENDER:$3|당신}}을 {{GENDER:$2|언급했습니다}}.",
 	"notification-header-mention-article-talkpage": "$1님이 $4 토론 문서의 \"<strong>$5</strong>\" 문단에서 당신을 언급했습니다.",

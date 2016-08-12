@@ -15,7 +15,8 @@
 			"Hangsna",
 			"NH",
 			"Frisko",
-			"Macofe"
+			"Macofe",
+			"Nemo bis"
 		]
 	},
 	"echo-desc": "System för att meddela användare om händelser och meddelanden",
@@ -155,7 +156,7 @@
 	"notification-reverted-email-subject2": "{{PLURAL:$3|Din redigering blev {{GENDER:$1|återställd}}|Dina redigeringar blev {{GENDER:$1|återställda}}}} på {{SITENAME}}",
 	"notification-mention-email-subject": "$1 {{GENDER:$1|nämnde}} {{GENDER:$2|dig}} på {{SITENAME}}",
 	"notification-user-rights-email-subject": "Dina användarrättigheter har ändrats på {{SITENAME}}",
-	"notification-timestamp-ago-seconds": "{{PLURAL:$1|$1s}}",
+	"notification-timestamp-ago-seconds": "{{PLURAL:$1|$1 s}}",
 	"notification-timestamp-ago-minutes": "{{PLURAL:$1|$1m}}",
 	"notification-timestamp-ago-hours": "{{PLURAL:$1|$1h}}",
 	"notification-timestamp-ago-days": "{{PLURAL:$1|$1d}}",

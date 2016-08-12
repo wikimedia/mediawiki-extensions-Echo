@@ -116,8 +116,6 @@
 	"notification-link-text-what-links-here": "Všechny odkazy na tuto stránku",
 	"notification-header-mention-other": "$1 {{GENDER:$3|vás}} {{GENDER:$2|zmínil|zmínila}} v diskusi <strong>$4</strong> u „<strong>$5</strong>“.",
 	"notification-header-mention-other-nosection": "$1 {{GENDER:$3|vás}} {{GENDER:$2|zmínil|zmínila}} v diskusi <strong>$4</strong>.",
-	"notification-header-mention-self": "V diskusi <strong>$2</strong> u „<strong>$3</strong>“ jste {{GENDER:$1|zmínil|zmínila|zmínil(a)}} sebe.",
-	"notification-header-mention-self-nosection": "V diskusi <strong>$2</strong> jste {{GENDER:$1|zmínil|zmínila|zmínil(a)}} sebe.",
 	"notification-header-mention-user-talkpage-v2": "$1 {{GENDER:$3|vás}} {{GENDER:$2|zmínil|zmínila}} v <strong>diskusi {{GENDER:$5|uživatele|uživatelky}} $4</strong> u „<strong>$6</strong>“.",
 	"notification-header-mention-user-talkpage-nosection": "$1 {{GENDER:$3|vás}} {{GENDER:$2|zmínil|zmínila}} v <strong>diskusi {{GENDER:$5|uživatele|uživatelky}} $4</strong>.",
 	"notification-header-mention-agent-talkpage": "$1 {{GENDER:$3|vás}} {{GENDER:$2|zmínil|zmínila}} na <strong>své diskusní stránce</strong> u „<strong>$4</strong>“.",

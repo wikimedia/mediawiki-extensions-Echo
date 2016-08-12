@@ -111,8 +111,6 @@
 	"notification-link-text-what-links-here": "Todas as ligazóns a esta páxina",
 	"notification-header-mention-other": "$1 {{GENDER:$2|mencionou}}{{GENDER:$3|no|na}} en <strong>$4</strong> na sección \"<strong>$5</strong>\".",
 	"notification-header-mention-other-nosection": "$1 {{GENDER:$2|mencionou}}{{GENDER:$3|no|na}} en \"$4\".",
-	"notification-header-mention-self": "{{GENDER:$1|Mencionácheste}} a ti {{GENDER:$1|mesmo|mesma}} en <strong>$2</strong> na sección \"<strong>$3</strong>\".",
-	"notification-header-mention-self-nosection": "{{GENDER:$1|Mencionácheste}} a ti {{GENDER:$1|mesmo|mesma}} en <strong>$2</strong>.",
 	"notification-header-mention-user-talkpage-v2": "$1 {{GENDER:$2|mencionou}}{{GENDER:$3|no|na}} <strong>páxina de conversa de usuario {{GENDER:$5|de}} $4</strong> en <strong>$6</strong>.",
 	"notification-header-mention-user-talkpage-nosection": "$1 {{GENDER:$2|mencionou}}{{GENDER:$3|no|na}} <strong>páxina de conversa de usuario {{GENDER:$5|de}} $4</strong>.",
 	"notification-header-mention-agent-talkpage": "$1 {{GENDER:$2|mencionou}}{{GENDER:$3|no|na}} na <strong>{{GENDER:$2|súa}} páxina de conversa</strong> en \"<strong>$4</strong>\".",
@@ -223,6 +221,7 @@
 	"apihelp-query+notifications-example-1": "Listar notificacións",
 	"apihelp-query+notifications-example-2": "Lista de notificacións, agrupadas por sección, incluíndo contadores",
 	"apihelp-query+unreadnotificationpages-description": "Obter as páxinas para as que hai notificacións sen ler para o usuario actual.",
+	"apihelp-query+unreadnotificationpages-param-grouppages": "Agrupar as páxinas de conversa xunto coas súas páxinas asociadas, e agrupar xuntas as notificacións non asociadas cunha páxina coa páxina de usuario actual.",
 	"apihelp-query+unreadnotificationpages-param-limit": "Máximo número de páxinas a retornar.",
 	"apihelp-query+unreadnotificationpages-param-wikis": "Lista de wikis para buscar páxinas con notificacións sen ler (por defecto só na wiki actual).",
 	"apihelp-query+unreadnotificationpages-example-1": "Lista de páxinas con notificacións sen ler(co seu número)"

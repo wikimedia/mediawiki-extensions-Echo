@@ -137,8 +137,6 @@
 	"notification-link-text-what-links-here": "所有链入页面",
 	"notification-header-mention-other": "$1在<strong>$4</strong>中的“<strong>$5</strong>”{{GENDER:$2|提到}}了{{GENDER:$3|您}}。",
 	"notification-header-mention-other-nosection": "$1在<strong>$4</strong>{{GENDER:$2|提到}}了{{GENDER:$3|您}}。",
-	"notification-header-mention-self": "{{GENDER:$1|您}}在<strong>$2</strong>的“<strong>$3</strong>”上{{GENDER:$1|提及了}}{{GENDER:$1|您自己}}。",
-	"notification-header-mention-self-nosection": "{{GENDER:$1|您}}在<strong>$2</strong>上{{GENDER:$1|提及了}}{{GENDER:$1|您自己}}。",
 	"notification-header-mention-user-talkpage-v2": "$1在<strong>$4{{GENDER:$5|的}}用户讨论页</strong>的“<strong>$6</strong>”中{{GENDER:$2|提到}}了{{GENDER:$3|您}}。",
 	"notification-header-mention-user-talkpage-nosection": "$1在<strong>$4{{GENDER:$5|的}}用户讨论页</strong>{{GENDER:$2|提到}}了{{GENDER:$3|您}}。",
 	"notification-header-mention-agent-talkpage": "$1在<strong>{{GENDER:$2|他|她|他}}的讨论页</strong>的“<strong>$4</strong>”里{{GENDER:$2|提到}}了{{GENDER:$3|您}}。",

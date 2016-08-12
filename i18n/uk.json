@@ -120,8 +120,6 @@
 	"notification-link-text-what-links-here": "Усі посилання на цю сторінку",
 	"notification-header-mention-other": "$1 згада{{GENDER:$2|в|ла}} {{GENDER:$3|Вас}} на сторінці <strong>$4</strong> у «<strong>$5</strong>».",
 	"notification-header-mention-other-nosection": "$1 згада{{GENDER:$2|в|ла}} {{GENDER:$3|Вас}} на сторінці <strong>$4</strong>.",
-	"notification-header-mention-self": "{{GENDER:$1|Ви}} {{GENDER:$1|згадали}} {{GENDER:$1|себе}} на сторінці <strong>$2</strong> у «<strong>$3</strong>».",
-	"notification-header-mention-self-nosection": "{{GENDER:$1|Ви}} {{GENDER:$1|згадали}} {{GENDER:$1|себе}} на сторінці <strong>$2</strong>.",
 	"notification-header-mention-user-talkpage-v2": "$1 згада{{GENDER:$2|в|ла}} {{GENDER:$3|Вас}} на <strong>сторінці обговорення користувач{{GENDER:$5|а|ки}} $4</strong> у «<strong>$6</strong>».",
 	"notification-header-mention-user-talkpage-nosection": "$1 згада{{GENDER:$2|в|ла}} {{GENDER:$3|Вас}} на <strong>сторінці обговорення користувач{{GENDER:$5|а|ки}} $4</strong>.",
 	"notification-header-mention-agent-talkpage": "$1 згада{{GENDER:$2|в|ла}} {{GENDER:$3|Вас}} на <strong>{{GENDER:$2|своїй}} сторінці обговорення</strong> у «<strong>$4</strong>».",

@@ -128,8 +128,6 @@
 	"notification-link-text-what-links-here": "همهٔ پیوندها به این صفحه",
 	"notification-header-mention-other": "$1 به {{GENDER:$3|شما}} در <strong>$4</strong> در </strong>«$5»</strong> {{GENDER:$2|اشاره کرد}}.",
 	"notification-header-mention-other-nosection": "$1 به {{GENDER:$3|شما}} در <strong>$4</strong> {{GENDER:$2|اشاره کرد}}.",
-	"notification-header-mention-self": "{{GENDER:$1|شما}} به {{GENDER:$1|خودتان}} در <strong>$2</strong> در «<strong>$3</strong>» اشاره کردید.",
-	"notification-header-mention-self-nosection": "{{GENDER:$1|شما}} به {{GENDER:$1|خودتان}} در <strong>$2</strong> اشاره کردید.",
 	"notification-header-mention-user-talkpage-v2": "$1 به {{GENDER:$3|شما}} در <strong>صفحهٔ {{GENDER:$5|بحث}} $4</strong> در <strong>«$6»</strong> {{GENDER:$2|اشاره کرد}}.",
 	"notification-header-mention-user-talkpage-nosection": "$1 به {{GENDER:$3|شما}} در <strong>صفحهٔ {{GENDER:$5|بحث}} $4</strong>  {{GENDER:$2|اشاره کرد}}.",
 	"notification-header-mention-agent-talkpage": "$1 به {{GENDER:$3|شما}} در <strong>صفحهٔ {{GENDER:$2|بحثش|بحثش|بحثشان}}</strong> در <strong>«$4»</strong> {{GENDER:$2|اشاره کرد}}.",

@@ -117,8 +117,6 @@
 	"notification-link-text-what-links-here": "Alle Links auf diese Seite",
 	"notification-header-mention-other": "$1 {{GENDER:$2|erwähnte}} {{GENDER:$3|dich}} auf <strong>$4</strong> in „<strong>$5</strong>“.",
 	"notification-header-mention-other-nosection": "$1 {{GENDER:$2|erwähnte}} {{GENDER:$3|dich}} auf <strong>$4</strong>.",
-	"notification-header-mention-self": "{{GENDER:$1|Du}} hast dich selbst auf <strong>$2</strong> in „<strong>$3</strong>“ erwähnt.",
-	"notification-header-mention-self-nosection": "{{GENDER:$1|Du}} hast dich selbst auf <strong>$2</strong> erwähnt.",
 	"notification-header-mention-user-talkpage-v2": "$1 {{GENDER:$2|erwähnte}} {{GENDER:$3|dich}} auf der <strong>Benutzerdiskussionsseite {{GENDER:$5|von}} $4</strong> in „<strong>$6</strong>“.",
 	"notification-header-mention-user-talkpage-nosection": "$1 {{GENDER:$2|erwähnte}} {{GENDER:$3|dich}} auf der <strong>Benutzerdiskussionsseite {{GENDER:$5|von}} $4</strong>.",
 	"notification-header-mention-agent-talkpage": "$1 {{GENDER:$2|erwähnte}} {{GENDER:$3|dich}} auf <strong>{{GENDER:$2|seiner|ihrer}} Diskussionsseite</strong> in „<strong>$4</strong>“.",

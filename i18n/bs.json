@@ -65,6 +65,8 @@
 	"echo-none": "Nemate obavještenja",
 	"echo-more-info": "Više informacija",
 	"echo-feedback": "Povratna informacija",
+	"echo-popup-footer-special-page-invitation": "<strong>Isprobajte redizajnirana obavještenja.</strong> [$2 $1]",
+	"echo-popup-footer-special-page-invitation-link": "Potpuno novi izgled i funkcije.",
 	"echo-api-failure": "Ne mogu preuzeti obavještenja. Molimo, pokušajte ponovo. (Greška $1)",
 	"echo-api-failure-cross-wiki": "Odbijen pristup vanjskoj domeni.",
 	"echo-notification-placeholder": "Nema obavještenja.",

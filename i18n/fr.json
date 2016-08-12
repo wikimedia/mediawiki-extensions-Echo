@@ -39,7 +39,8 @@
 			"Pols12",
 			"Yasten",
 			"Trial",
-			"Tuxxic"
+			"Tuxxic",
+			"Nemo bis"
 		]
 	},
 	"echo-desc": "Système pour avertir les utilisateurs des événements et messages",
@@ -115,7 +116,7 @@
 	"echo-more-info": "Plus d’informations",
 	"echo-feedback": "Avis",
 	"echo-popup-footer-special-page-invitation": "<strong>Essayez la page des Notifications refaite.</strong> [$2 $1]",
-	"echo-popup-footer-special-page-invitation-link": "Tous derniers aspects et fonctionnalités.",
+	"echo-popup-footer-special-page-invitation-link": "Nouvelles présentation et fonctionnalités.",
 	"echo-quotation-marks": "« $1 »",
 	"echo-api-failure": "Impossible de récupérer les notifications.",
 	"echo-api-failure-cross-wiki": "L'accès au domaine distant a été refusé.",
@@ -146,8 +147,6 @@
 	"notification-link-text-what-links-here": "Tous les liens vers cette page",
 	"notification-header-mention-other": "$1 {{GENDER:$2|vous}} {{GENDER:$3|a mentionné|a mentionnée}} sur <strong>$4</strong> dans « <strong>$5</strong> ».",
 	"notification-header-mention-other-nosection": "$1 {{GENDER:$2|vous}} {{GENDER:$3|a mentionné|a mentionnée}} sur <strong>$4</strong>.",
-	"notification-header-mention-self": "{{GENDER:$1|Vous vous}} {{GENDER:$1|êtes mentionné|êtes mentionnée}} {{GENDER:$1|vous-même}} sur <strong>$2</strong> dans « <strong>$3</strong> ».",
-	"notification-header-mention-self-nosection": "{{GENDER:$1|Vous vous}} {{GENDER:$1|êtes mentionné|êtes mentionnée}} {{GENDER:$1|vous-même}} sur <strong>$2</strong>.",
 	"notification-header-mention-user-talkpage-v2": "$1 {{GENDER:$2|vous}} {{GENDER:$3|a mentionné|a mentionnée}} sur la <strong>page de discussion {{GENDER:$5|de}} $4</strong> dans « <strong>$6</strong> ».",
 	"notification-header-mention-user-talkpage-nosection": "$1 {{GENDER:$2|vous}} {{GENDER:$3|a mentionné|a mentionnée}} sur la <strong>page de discussion {{GENDER:$5|de}} $4</strong>.",
 	"notification-header-mention-agent-talkpage": "$1 {{GENDER:$2|vous}} {{GENDER:$3|a mentionné|a mentionnée}} sur <strong>{{GENDER:$2|sa|sa|sa}} page de discussion</strong> dans « <strong>$4</strong> ».",
@@ -185,7 +184,7 @@
 	"notification-reverted-email-subject2": "{{PLURAL:$3|Votre modification a été {{GENDER:$1|annulée}}|Vos modifications ont été {{GENDER:$1|annulées}}}} sur {{SITENAME}}",
 	"notification-mention-email-subject": "$1 vous a mentionné{{GENDER:$2||e}} sur {{SITENAME}}",
 	"notification-user-rights-email-subject": "Vos droits d’utilisateur ont été modifiés sur {{SITENAME}}",
-	"notification-timestamp-ago-seconds": "{{PLURAL:$1|$1s}}",
+	"notification-timestamp-ago-seconds": "{{PLURAL:$1|$1 s}}",
 	"notification-timestamp-ago-minutes": "{{PLURAL:$1|$1mi}}",
 	"notification-timestamp-ago-hours": "{{PLURAL:$1|$1h}}",
 	"notification-timestamp-ago-days": "{{PLURAL:$1|$1j}}",
