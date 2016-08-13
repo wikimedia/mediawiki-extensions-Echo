@@ -86,6 +86,7 @@
 	"echo-more-info": "자세한 정보",
 	"echo-feedback": "피드백 남기기",
 	"echo-popup-footer-special-page-invitation": "<strong>재설계된 알림 문서를 사용해 보세요.</strong> [$2 $1]",
+	"echo-popup-footer-special-page-invitation-link": "새로운 모든 모양과 기능.",
 	"echo-api-failure": "알림을 받아올 수 없었습니다.",
 	"echo-api-failure-cross-wiki": "원격 도메인으로의 연결은 거부되었습니다.",
 	"echo-notification-placeholder": "알림이 없습니다.",

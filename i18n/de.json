@@ -132,6 +132,7 @@
 	"notification-header-mention-success": "{{GENDER:$2|Deine}} Erwähnung von $3 wurde gesendet.",
 	"notification-header-mention-success-bundle": "{{PLURAL:$3|Eine {{GENDER:$2|durchgeführte}} Erwähnung|$3 {{GENDER:$2|durchgeführte}} Erwähnungen}} auf der Diskussionsseite <strong>$4</strong> {{PLURAL:$3|wurde|wurden}} gesendet.",
 	"notification-compact-header-mention-success": "<strong>{{GENDER:$2|Du}} hast erwähnt:</strong> $3",
+	"notification-header-mention-status-bundle": "{{PLURAL:$3|Eine {{GENDER:$2|durchgeführte}} Benachrichtigung|$3 {{GENDER:$2|durchgeführte}} Benachrichtigungen}} über Erwähnungen auf der Diskussionsseite <strong>$4</strong>: {{PLURAL:$5|Eine|$5}} nicht gesendet, {{PLURAL:$6|eine|$6}} gesendet.",
 	"notification-header-user-rights-add-only": "{{GENDER:$4|Deine}} Benutzerrechte wurden {{GENDER:$1|geändert}}. Du wurdest hinzugefügt zu: $2.",
 	"notification-header-user-rights-remove-only": "{{GENDER:$4|Deine}} Benutzerrechte wurden {{GENDER:$1|geändert}}. Du bist kein Mitglied mehr von: $2.",
 	"notification-header-user-rights-add-and-remove": "{{GENDER:$6|Deine}} Benutzerrechte wurden {{GENDER:$1|geändert}}. Du wurdest hinzugefügt zu: $2. Du bist kein Mitglied mehr von: $4.",

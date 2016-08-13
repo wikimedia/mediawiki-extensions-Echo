@@ -10,7 +10,7 @@
 			"Kumkumuk"
 		]
 	},
-	"echo-desc": "Sistemê tebliğati",
+	"echo-desc": "Karbera  heqdê weqan u mesavan malumat dayen sisten",
 	"prefs-echo": "Mengeney",
 	"prefs-emailsettings": "Opsiyona e-posta",
 	"prefs-displaynotifications": "Weçinayışa mocnayışi",
@@ -58,7 +58,7 @@
 	"notification-welcome-linktext": "Xeyr amey",
 	"notification-link-thank-you-edit": "Vurnayışê {{GENDER:$1|şıma}}",
 	"notification-link-text-view-edit": "Qaytê vırnayışi ke",
-	"notification-header-reverted": "$1 {{PLURAL:$4|vırnayışa <strong>$3</strong> |vırnayışane <strong>$3</strong>  }} rewizyona  {{GENDER:$2|peyser}} grot.",
+	"notification-header-reverted": "To {{PLURAL:$4|vırnayışa <strong>$3</strong> |vırnayışane <strong>$3</strong>  }} rewizyona  {{GENDER:$2|peyser}} grot.",
 	"notification-header-emailuser": "$1 şıma rê yew e-poste {{GENDER:$2|rışt}}.",
 	"notification-edit-talk-page-email-subject2": "$1 to rê {{SITENAME}} de yew mesac {{GENDER:$1|caverda}}",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1, pela werênayışê şıma de be sernameyê \"$2\" ra yew mesac {{GENDER:$1|caverda}}.",
