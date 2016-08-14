@@ -99,6 +99,8 @@
 	"echo-none": "Вы не получали уведомлений.",
 	"echo-more-info": "Подробнее",
 	"echo-feedback": "Обратная связь",
+	"echo-popup-footer-special-page-invitation": "<strong>Оцените обновлённую страницу уведомлений.</strong> [$2 $1]",
+	"echo-popup-footer-special-page-invitation-link": "Новый дизайн и функции.",
 	"echo-quotation-marks": "«$1»",
 	"echo-api-failure": "Не удалось получить уведомления.",
 	"echo-api-failure-cross-wiki": "В доступе к удаленному домену было отказано.",

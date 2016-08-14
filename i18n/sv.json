@@ -136,6 +136,7 @@
 	"notification-header-mention-success": "{{GENDER:$2|Ditt}} omnämnande av $3 skickades.",
 	"notification-header-mention-success-bundle": "{{PLURAL:$3|Ett omnämnande|$3 omnämnanden}} {{GENDER:$2|du gjorde}} på diskussionssidan <strong>$4</strong> skickades.",
 	"notification-compact-header-mention-success": "<strong>{{GENDER:$2|Du nämnde}}:</strong> $3",
+	"notification-header-mention-status-bundle": "{{PLURAL:$3|En avisering|$3 aviseringar}} om omnämningar {{GENDER:$2|du gjorde}} på diskussionssidan <strong>$4</strong>: {{PLURAL:$5|$5 skickades inte}}, {{PLURAL:$6|$6 skickades}}.",
 	"notification-header-user-rights-add-only": "{{GENDER:$4|Dina}} användarrättigheter har {{GENDER:$1|ändrats}}. Du har lagts till i: $2.",
 	"notification-header-user-rights-remove-only": "{{GENDER:$4|Dina}} användarrättigheter har {{GENDER:$1|ändrats}}. Du är inte längre medlem i: $2.",
 	"notification-header-user-rights-add-and-remove": "{{GENDER:$6|Dina}} användarrättigheter har {{GENDER:$1|ändrats}}. Du har lagts till i: $2. Du är inte längre medlem i: $4.",

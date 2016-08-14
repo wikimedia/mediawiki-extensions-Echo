@@ -17,7 +17,8 @@
 			"Peter Bowman",
 			"The Polish",
 			"Rzuwig",
-			"Sethakill"
+			"Sethakill",
+			"PiotrekD"
 		]
 	},
 	"echo-desc": "System powiadomień użytkowników o zdarzeniach i komunikatach",
@@ -88,7 +89,7 @@
 	"echo-none": "Nie masz żadnych powiadomień.",
 	"echo-more-info": "Więcej informacji",
 	"echo-feedback": "Opinie",
-	"echo-popup-footer-special-page-invitation": "<strong>Wypróbuj przebudowaną stronę Powiadomień.</strong> [$2 $1]",
+	"echo-popup-footer-special-page-invitation": "<strong>Wypróbuj przebudowaną stronę powiadomień.</strong> [$2 $1]",
 	"echo-popup-footer-special-page-invitation-link": "Całkowicie nowy wygląd i możliwości.",
 	"echo-api-failure": "Nie udało się pobrać powiadomień.",
 	"echo-api-failure-cross-wiki": "Dostęp do zdalnej domeny jest zabroniony.",

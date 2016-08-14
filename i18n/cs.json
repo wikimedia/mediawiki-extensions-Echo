@@ -131,6 +131,7 @@
 	"notification-header-mention-success": "{{GENDER:$2|Vaše}} zmínka {{GENDER:$3|uživatele|uživatelky}} $3 byla odeslána.",
 	"notification-header-mention-success-bundle": "{{PLURAL:$3|{{GENDER:$2|Vaše}} zmínka|$3 vaše zmínky|$3 vašich zmínek}} na diskusní stránce <strong>$4</strong> {{PLURAL:$3|byla odeslána|byly odeslány|bylo odesláno}}.",
 	"notification-compact-header-mention-success": "<strong>{{GENDER:$2|Zmínil|Zmínila|Zmínil(a)}} jste:</strong> $3",
+	"notification-header-mention-status-bundle": "{{PLURAL:$3|Upozornění|$3 upozornění}} na {{GENDER:$2|vámi}} provedené zmínky na diskusní stránce <strong>$4</strong>: {{PLURAL:$5|jedna neodeslaná|$5 neodeslané|$5 neodeslaných}}, {{PLURAL:$6|jedna odeslaná|$6 odeslané|$6 odeslaných}}.",
 	"notification-header-user-rights-add-only": "{{GENDER:$4|Vaše}} uživatelská práva byla {{GENDER:$1|změněna}}. Nyní patříte do: $2.",
 	"notification-header-user-rights-remove-only": "Vaše uživatelská práva byla {{GENDER:$1|změněna}}. Už nejste {{GENDER:$4|členem|členkou}}: $2.",
 	"notification-header-user-rights-add-and-remove": "Vaše uživatelská práva byla {{GENDER:$1|změněna}}. Nyní patříte do: $2. Už nejste {{GENDER:$6|členem|členkou}}: $4.",

@@ -135,6 +135,7 @@
 	"notification-header-mention-success": "{{GENDER:$2|Вашу}} згадку $3 надіслано.",
 	"notification-header-mention-success-bundle": "{{PLURAL:$3|Згадка, здійснена|$3 згадки, здійснені}}  {{GENDER:$2|Вами}} на сторінці обговорення <strong>$4</strong>, {{PLURAL:$3|було надіслано}}.",
 	"notification-compact-header-mention-success": "<strong>{{GENDER:$2|Ви згадали}}:</strong> $3",
+	"notification-header-mention-status-bundle": "{{PLURAL:$3|Сповіщення|$3 сповіщення|$3 сповіщень}} про згадки, здійснені {{GENDER:$2|Вами}} на сторінці обговорення <strong>$4</strong>: {{PLURAL:$5|$5 не відправлено}}, {{PLURAL:$6|$6 відправлено}}.",
 	"notification-header-user-rights-add-only": "{{GENDER:$4|Ваші}} права користувача {{GENDER:$1|змінилися}}. Вас будо додано до: $2.",
 	"notification-header-user-rights-remove-only": "{{GENDER:$4|Ваші}} права користувача {{GENDER:$1|змінилися}}. Ви більше не належите до: $2.",
 	"notification-header-user-rights-add-and-remove": "{{GENDER:$6|Ваші}} права користувача {{GENDER:$1|змінилися}}. Вас було додано до: $2. Ви більше не належите до: $4.",

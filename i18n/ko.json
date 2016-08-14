@@ -128,6 +128,7 @@
 	"notification-header-mention-success": "$3님에 대한 {{GENDER:$2|당신의 언급}}이 전달되었습니다.",
 	"notification-header-mention-success-bundle": "<strong>$4</strong> 토론 문서에 {{GENDER:$2|당신이 한}} {{PLURAL:$3|언급|$3개의 언급}}을 보냈습니다.",
 	"notification-compact-header-mention-success": "<strong>{{GENDER:$2|언급했습니다}}:</strong> $3",
+	"notification-header-mention-status-bundle": "<strong>$4</strong> 토론 문서에서 {{GENDER:$2|당신이 한}} 언급에 대한 {{PLURAL:$3|한 개의 알림|$3개의 알림}}: {{PLURAL:$5|$5개 보내지 못함}}, {{PLURAL:$6|$6개 보냄}}.",
 	"notification-header-user-rights-add-only": "{{GENDER:$4|당신}}의 사용자 권한이 {{GENDER:$1|바뀌었습니다}}. 당신은 $2 권한을 부여받았습니다.",
 	"notification-header-user-rights-remove-only": "{{GENDER:$4|당신}}의 사용자 권한이 {{GENDER:$1|바뀌었습니다}}. 당신은 더 이상 $2 권한을 갖고 있지 않습니다.",
 	"notification-header-user-rights-add-and-remove": "{{GENDER:$6|당신}}의 사용자 권한이 {{GENDER:$1|바뀌었습니다}}. 당신은 $2 권한을 받았지만, $4 권한은 더 이상 갖고 있지 않습니다.",
