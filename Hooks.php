@@ -512,14 +512,6 @@ class EchoHooks {
 						}
 					}
 
-					LoggerFactory::getInstance( 'Echo' )->debug(
-						'Thanking {user} (id: {id}) for their {count} edit',
-						array(
-							'user' => $user->getName(),
-							'id' => $user->getId(),
-							'count' => $thresholdCount,
-						)
-					);
 					EchoEvent::create( array(
 							'type' => 'thank-you-edit',
 							'title' => $title,
