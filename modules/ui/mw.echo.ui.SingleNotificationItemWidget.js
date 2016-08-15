@@ -74,16 +74,27 @@
 	};
 
 	/**
-	 * Update item state when the item model changes.
+	 * Extend 'toggleRead' to emit sortChange so the item can be sorted
+	 * when its read state was updated
 	 *
 	 * @fires sortChange
+	 */
+	mw.echo.ui.SingleNotificationItemWidget.prototype.toggleRead = function ( read ) {
+		var oldState = this.read;
+
+		// Parent
+		mw.echo.ui.SingleNotificationItemWidget.parent.prototype.toggleRead.call( this, read );
+
+		if ( oldState !== read ) {
+			this.emit( 'sortChange' );
+		}
+	};
+
+	/**
+	 * Update item state when the item model changes.
 	 */
 	mw.echo.ui.SingleNotificationItemWidget.prototype.updateDataFromModel = function () {
 		this.toggleRead( this.model.isRead() );
 		this.toggleSeen( this.model.isSeen() );
-
-		// Emit 'sortChange' so the SortedList can update this
-		// item's place in the list
-		this.emit( 'sortChange' );
 	};
 } )( mediaWiki );

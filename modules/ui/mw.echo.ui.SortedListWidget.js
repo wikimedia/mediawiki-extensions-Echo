@@ -60,6 +60,12 @@
 				item.$element.clone( true ),
 				{
 					id: item.getId() + '.42',
+					// HACK: We are assuming that the item sort change
+					// is triggered when the item is marked read/unread
+					// This is a generally correct assumption, but it may
+					// cause issues when the case is unclear. We should try
+					// and come up with a good way to measure the previous
+					// state of the item instead
 					read: !item.isRead(),
 					foreign: item.isForeign(),
 					timestamp: item.getTimestamp()

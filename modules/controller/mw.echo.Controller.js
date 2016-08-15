@@ -277,6 +277,17 @@
 						notifData = data.list[ i ];
 						content = notifData[ '*' ] || {};
 
+						// Set source's seenTime
+						controller.manager.getSeenTimeModel().setSeenTimeForSource(
+							'local',
+							controller.getTypes().length > 1 ?
+								(
+									data.seenTime.alert < data.seenTime.notice ?
+										data.seenTime.notice : data.seenTime.alert
+								) :
+								data.seenTime[ controller.getTypeString() ]
+						);
+
 						// Collect common data
 						newNotifData = controller.createNotificationData( notifData );
 						if ( notifData.type === 'foreign' ) {
