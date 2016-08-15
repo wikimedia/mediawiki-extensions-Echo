@@ -130,6 +130,7 @@
 	"notification-header-mention-success": "$3 に言及を送信{{GENDER:$2|しました}}。",
 	"notification-header-mention-success-bundle": "<strong>$4</strong> のトークページに{{PLURAL:$3|言及|$3件の言及}}を{{GENDER:$2|送信}}しました。",
 	"notification-compact-header-mention-success": "<strong>{{GENDER:$2|言及しました}}:</strong> $3",
+	"notification-header-mention-status-bundle": "<strong>$4</strong> のトークページに{{GENDER:$2|送信}}した言及について{{PLURAL:$3|通知|$3件の通知}}があります: {{PLURAL:$5|$5件が未送信}}、{{PLURAL:$6|$6件が送信済み}}",
 	"notification-header-user-rights-add-only": "{{GENDER:$4|あなたの}}利用者権限が{{GENDER:$1|変更されました}}: $2へ追加されました。",
 	"notification-header-user-rights-remove-only": "{{GENDER:$4|あなたの}}利用者権限が{{GENDER:$1|変更されました}}: $2から除外されました。",
 	"notification-header-user-rights-add-and-remove": "{{GENDER:$6|あなたの}}利用者権限が{{GENDER:$1|変更されました}}: $2へ追加され、$4から除外されました。",

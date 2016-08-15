@@ -114,7 +114,7 @@
 	"echo-email-html-footer-preference-link-text": "kuckt Är Astellungen no",
 	"echo-notification-alert": "{{PLURAL:$1|Warnung ($1)|Warnungen ($1)|100=Warnungen (99+)}}",
 	"echo-notification-alert-text-only": "Warnungen",
-	"echo-notification-notice-text-only": "Notizen",
+	"echo-notification-notice-text-only": "Notifikatiounen",
 	"echo-overlay-link": "All Notifikatiounen",
 	"echo-overlay-title": "<b>Notifikatiounen</b>",
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Notifikatioun|Notifikatiounen}}</b> (weist $1 vun $2 net geliesten)",

@@ -16,7 +16,8 @@
 			"Macofe",
 			"Sadrettin",
 			"MrSchipunov",
-			"Nemo bis"
+			"Nemo bis",
+			"Serkanland"
 		]
 	},
 	"echo-desc": "Kullanıcıları olaylar ve mesajlar hakkında bilgilendiren sistem",
@@ -164,7 +165,7 @@
 	"echo-email-body-default": "{{SITENAME}} için yeni bildiriminiz var:\n\n$1",
 	"echo-email-footer-default": "$2\n\nSize gönderdiğimiz e-postaları kontrol etmek için, tercihlerinizi kontrol edin:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
 	"echo-email-html-footer-preference-link-text": "tercihlerinizi kontrol edin",
-	"echo-notification-alert": "{{PLURAL:$1|Uayrı ($1)|Uyarılar ($1)|100=Uyarılar (99+)}}",
+	"echo-notification-alert": "{{PLURAL:$1|Uyarı ($1)|Uyarılar ($1)|100=Uyarılar (99+)}}",
 	"echo-notification-alert-text-only": "Uyarılar",
 	"echo-notification-notice-text-only": "Bildirimler",
 	"echo-overlay-link": "Bütün bildirimler",

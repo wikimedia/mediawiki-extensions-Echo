@@ -76,7 +76,7 @@
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "שיטות הודעה נדרשות",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "אילו שיטות הודעה נדרשות לכל קטגוריה",
 	"echo-specialpage": "הודעות",
-	"echo-specialpage-section-markread": "סימון קבוצה זו כקבוצה שנקראה",
+	"echo-specialpage-section-markread": "סימון כקבוצה שנקראה",
 	"echo-specialpage-markasread": "הודעה: סימון כהודעה שנקראה",
 	"echo-specialpage-markasread-invalid-id": "מזהה אירוע בלתי־תקין",
 	"echo-specialpage-pagination-numnotifications": "{{PLURAL:$1|הודעה אחת|$1 הודעות}}",
