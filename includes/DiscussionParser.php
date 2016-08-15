@@ -183,7 +183,6 @@ abstract class EchoDiscussionParser {
 					'section-title' => $header,
 					'revid' => $revision->getId(),
 					'mentioned-users' => $userMentions['validMentions'],
-					'notifyAgent' => true
 				),
 				'agent' => $agent,
 			) );
@@ -231,6 +230,7 @@ abstract class EchoDiscussionParser {
 						'subject-name' => $unknownUser,
 						'section-title' => $header,
 						'revid' => $revision->getId(),
+						'notifyAgent' => true
 					),
 					'agent' => $agent,
 				) );

@@ -376,11 +376,13 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 						'type' => 'mention-failure',
 						'agent' => 'Admin',
 						'section-title' => 'Hello Users',
+						'notifyAgent' => true,
 					),
 					array(
 						'type' => 'mention-failure',
 						'agent' => 'Admin',
 						'section-title' => 'Hello Users',
+						'notifyAgent' => true,
 					),
 				),
 			),
@@ -396,11 +398,13 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 						'type' => 'mention',
 						'agent' => 'Admin',
 						'section-title' => 'Hello Users',
+						'notifyAgent' => null,
 					),
 					array(
 						'type' => 'mention-success',
 						'agent' => 'Admin',
 						'section-title' => 'Hello Users',
+						'notifyAgent' => true,
 					),
 				),
 			),
@@ -416,6 +420,7 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 						'type' => 'mention-failure',
 						'agent' => 'Admin',
 						'section-title' => 'Section 2',
+						'notifyAgent' => true,
 					),
 				),
 			),
@@ -431,6 +436,7 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 						'type' => 'mention-failure',
 						'agent' => 'Admin',
 						'section-title' => 'Section 2',
+						'notifyAgent' => true,
 					),
 				),
 			),
@@ -462,6 +468,7 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 					'type' => $event->getType(),
 					'agent' => $event->getAgent()->getName(),
 					'section-title' => $event->getExtraParam( 'section-title' ),
+					'notifyAgent' => $event->getExtraParam( 'notifyAgent' )
 				);
 				return false;
 			}
