@@ -12,7 +12,6 @@ class SpecialNotifications extends SpecialPage {
 	}
 
 	public function execute( $par ) {
-
 		$this->setHeaders();
 
 		$out = $this->getOutput();
@@ -160,18 +159,7 @@ class SpecialNotifications extends SpecialPage {
 		$out->addModuleStyles( array( 'ext.echo.styles.notifications', 'ext.echo.styles.special' ) );
 
 		// Log visit
-		MWEchoEventLogging::actuallyLogTheEvent(
-			'EchoInteraction',
-			array(
-				'context' => 'archive',
-				'action' => 'special-page-visit',
-				'userId' => (int)$user->getId(),
-				'editCount' => (int)$user->getEditCount(),
-				'notifWiki' => wfWikiID(),
-				// Hack: Figure out if we are in the mobile skin
-				'mobile' => $out->getSkin()->getSkinName() === 'minerva',
-			)
-		);
+		MWEchoEventLogging::logEchoInteraction( $user, $out->getSkin()->getSkinName() );
 	}
 
 	/**

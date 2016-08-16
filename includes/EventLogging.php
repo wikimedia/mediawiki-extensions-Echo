@@ -97,4 +97,28 @@ class MWEchoEventLogging {
 		self::actuallyLogTheEvent( 'EchoMail', $data );
 	}
 
+	/**
+	 * @param User $user
+	 * @param string $skinName
+	 */
+	public static function logEchoInteraction( User $user, $skinName ) {
+		global $wgEchoConfig;
+		if ( !$wgEchoConfig['eventlogging']['EchoInteraction']['enabled'] ) {
+			return;
+		}
+
+		self::actuallyLogTheEvent(
+			'EchoInteraction',
+			array(
+				'context' => 'archive',
+				'action' => 'special-page-visit',
+				'userId' => (int)$user->getId(),
+				'editCount' => (int)$user->getEditCount(),
+				'notifWiki' => wfWikiID(),
+				// Hack: Figure out if we are in the mobile skin
+				'mobile' => $skinName === 'minerva',
+			)
+		);
+	}
+
 }
