@@ -112,7 +112,7 @@
 	"echo-api-failure": "检索通知失败。",
 	"echo-api-failure-cross-wiki": "对远程域名的访问已拒绝。",
 	"echo-notification-placeholder": "这里没有通知。",
-	"echo-notification-placeholder-filters": "没有通知匹配此标准。",
+	"echo-notification-placeholder-filters": "没有通知匹配这些标准。",
 	"echo-notification-loginrequired": "您必须登录才能查看您的通知。",
 	"echo-notification-popup-loginrequired": "请登录来查看您的通知。",
 	"echo-notification-markasread": "标记为已读",

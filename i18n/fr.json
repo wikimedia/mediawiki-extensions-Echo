@@ -121,7 +121,7 @@
 	"echo-api-failure": "Impossible de récupérer les notifications.",
 	"echo-api-failure-cross-wiki": "L'accès au domaine distant a été refusé.",
 	"echo-notification-placeholder": "Il n’y a aucune notification.",
-	"echo-notification-placeholder-filters": "Il y a aucune notification correspondant à ce critère.",
+	"echo-notification-placeholder-filters": "Il y a aucune notification correspondant à ces critères.",
 	"echo-notification-loginrequired": "Vous devez vous connecter pour voir vos notifications.",
 	"echo-notification-popup-loginrequired": "Veuillez vous connecter pour voir vos notifications.",
 	"echo-notification-markasread": "Marquer comme lu",
