@@ -158,6 +158,20 @@ class SpecialNotifications extends SpecialPage {
 
 		// For no-js support
 		$out->addModuleStyles( array( 'ext.echo.styles.notifications', 'ext.echo.styles.special' ) );
+
+		// Log visit
+		MWEchoEventLogging::actuallyLogTheEvent(
+			'EchoInteraction',
+			array(
+				'context' => 'archive',
+				'action' => 'special-page-visit',
+				'userId' => (int)$user->getId(),
+				'editCount' => (int)$user->getEditCount(),
+				'notifWiki' => wfWikiID(),
+				// Hack: Figure out if we are in the mobile skin
+				'mobile' => $out->getSkin()->getSkinName() === 'minerva',
+			)
+		);
 	}
 
 	/**
