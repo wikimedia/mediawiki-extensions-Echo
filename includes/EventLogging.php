@@ -7,10 +7,10 @@ class MWEchoEventLogging {
 
 	/**
 	 * This is the only function that interacts with EventLogging
-	 * @param $schema string
-	 * @param $data array
+	 * @param string $schema
+	 * @param array $data
 	 */
-	public static function actuallyLogTheEvent( $schema, $data ) {
+	public static function actuallyLogTheEvent( $schema, array $data ) {
 		global $wgEchoConfig;
 
 		EventLogging::logEvent( $schema, $wgEchoConfig['eventlogging'][$schema]['revision'], $data );
@@ -18,9 +18,9 @@ class MWEchoEventLogging {
 
 	/**
 	 * Function for logging the event for Schema:Echo
-	 * @param $user User being notified.
-	 * @param $event EchoEvent to log detail about.
-	 * @param $deliveryMethod string containing either 'web' or 'email'
+	 * @param User $user User being notified.
+	 * @param EchoEvent $event Event to log detail about.
+	 * @param string $deliveryMethod 'web' or 'email'
 	 */
 	public static function logSchemaEcho( User $user, EchoEvent $event, $deliveryMethod ) {
 		global $wgEchoConfig, $wgEchoNotifications;
@@ -77,8 +77,8 @@ class MWEchoEventLogging {
 
 	/**
 	 * Function for logging the event for Schema:EchoEmail
-	 * @param $user User
-	 * @param $emailDeliveryMode string
+	 * @param User $user
+	 * @param string $emailDeliveryMode 'single' (default), 'daily_digest', or 'weekly_digest'
 	 */
 	public static function logSchemaEchoMail( User $user, $emailDeliveryMode = 'single' ) {
 		global $wgEchoConfig;
