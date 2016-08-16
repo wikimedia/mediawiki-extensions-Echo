@@ -173,7 +173,7 @@
 	"notification-header-thank-you-1000000-edit": "{{GENDER:$2|You}} just made {{GENDER:$2|your}} millionth edit; thank {{GENDER:$2|you}} for an astonishing contribution!",
 	"notification-link-thank-you-edit": "{{GENDER:$1|Your}} edit",
 	"notification-link-text-view-edit": "View edit",
-	"notification-header-reverted": "Your {{PLURAL:$4|edit on <strong>$3</strong> was|edits on <strong>$3</strong> were}} {{GENDER:$2|reverted}}",
+	"notification-header-reverted": "Your {{PLURAL:$4|edit on <strong>$3</strong> was|edits on <strong>$3</strong> were}} {{GENDER:$2|reverted}}.",
 	"notification-body-reverted": "$1",
 	"notification-header-emailuser": "$1 {{GENDER:$2|sent}} you an email.",
 	"notification-body-emailuser": "$1",
