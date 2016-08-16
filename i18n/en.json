@@ -114,7 +114,7 @@
 	"echo-api-failure": "Failed to fetch notifications.",
 	"echo-api-failure-cross-wiki": "Access to the remote domain was denied.",
 	"echo-notification-placeholder": "There are no notifications.",
-	"echo-notification-placeholder-filters": "There are no notifications matching this criteria.",
+	"echo-notification-placeholder-filters": "There are no notifications matching these criteria.",
 	"echo-notification-loginrequired": "You must login to see your notifications.",
 	"echo-notification-popup-loginrequired": "Please log in to view your notifications.",
 	"echo-notification-markasread": "Mark as read",
