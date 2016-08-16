@@ -353,6 +353,11 @@ $wgResourceModules += array(
 		'selectorWithoutVariant' => '.oo-ui-icon-{name}',
 		'selectorWithVariant' => '.oo-ui-image-{variant}.oo-ui-icon-{name}',
 	),
+	'ext.echo.emailicons' => array(
+		'class' => 'ResourceLoaderEchoImageModule',
+		'selector' => '.mw-echo-icon-{name}',
+		'localBasePath' => $wgExtensionDirectory, // Extension path
+	) + $echoResourceTemplate,
 );
 
 unset( $echoResourceTemplate );

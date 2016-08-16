@@ -6,7 +6,6 @@ class EchoHtmlEmailFormatter extends EchoEventFormatter {
 	const SECONDARY_LINK_STYLE = 'text-decoration: none;font-size: 10px;font-family: Arial, Helvetica, sans-serif; color: #808184;';
 
 	protected function formatModel( EchoEventPresentationModel $model ) {
-
 		$subject = $model->getSubjectMessage()->parse();
 
 		$intro = $model->getHeaderMessage()->parse();
@@ -26,7 +25,7 @@ class EchoHtmlEmailFormatter extends EchoEventFormatter {
 		}
 
 		$iconUrl = wfExpandUrl(
-			EchoIcon::getUrl( $model->getIconType(), $this->language->getDir() ),
+			EchoIcon::getRasterizedUrl( $model->getIconType(), $this->language->getCode() ),
 			PROTO_CANONICAL
 		);
 
