@@ -137,6 +137,22 @@
 	/**
 	 * @inheritdoc
 	 */
+	mw.echo.ui.CrossWikiNotificationItemWidget.prototype.onMarkAsReadButtonClick = function () {
+		// Log this action
+		mw.echo.logger.logInteraction(
+			mw.echo.Logger.static.actions.markXWikiReadClick,
+			mw.echo.Logger.static.context.popup,
+			null, // Event ID is omitted
+			this.controller.getTypeString() // The type of the list in general
+		);
+
+		// Parent
+		return mw.echo.ui.CrossWikiNotificationItemWidget.parent.prototype.onMarkAsReadButtonClick.call( this );
+	};
+
+	/**
+	 * @inheritdoc
+	 */
 	mw.echo.ui.CrossWikiNotificationItemWidget.prototype.markRead = function () {
 		// Cross wiki notification is always only marked as read, never as
 		// unread. The original parameter is unneeded
