@@ -36,27 +36,45 @@ abstract class EchoDiscussionParser {
 		$userID = $revision->getUser();
 		$userName = $revision->getUserText();
 		$user = $userID != 0 ? User::newFromId( $userID ) : User::newFromName( $userName, false );
+		$logger = LoggerFactory::getInstance( 'Echo' );
+		$diffUrl = $title->getFullURL( array(
+			'oldid' => 'prev',
+			'diff' => $revision->getId()
+		) );
 
 		foreach ( $interpretation as $action ) {
 			if ( $action['type'] == 'add-comment' ) {
 				$fullSection = $action['full-section'];
 				$header = self::extractHeader( $fullSection );
-				self::generateMentionEvents( $header, $action['content'], $revision, $user );
+				$userLinks = self::getUserLinks( $action['content'], $title );
+				self::generateMentionEvents( $header, $userLinks, $action['content'], $revision, $user );
 			} elseif ( $action['type'] == 'new-section-with-comment' ) {
 				$content = $action['content'];
 				$header = self::extractHeader( $content );
-				self::generateMentionEvents( $header, $content, $revision, $user );
+				$userLinks = self::getUserLinks( $content, $title );
+				self::generateMentionEvents( $header, $userLinks, $content, $revision, $user );
 			} elseif ( $action['type'] == 'add-section-multiple' ) {
 				$content = self::stripHeader( $action['content'] );
 				$content = self::stripSignature( $content );
 				$userLinks = self::getUserLinks( $content, $title );
 				if ( $userLinks ) {
-					$diffUrl = $title->getFullURL( array(
-						'oldid' => 'prev',
-						'diff' => $revision->getId()
-					) );
-					LoggerFactory::getInstance( 'Echo' )->debug(
+					$logger->debug(
 						'Triggered add-section-multiple action with user links by {user} on {diff}',
+						array(
+							'user' => $user->getName(),
+							'diff' => $diffUrl,
+							'user-links' => $userLinks,
+						)
+					);
+				}
+			} elseif ( $action['type'] === 'unknown-signed-change' ) {
+				$userLinks = array_diff_key(
+					self::getUserLinks( $action['new_content'], $title ) ?: [],
+					self::getUserLinks( $action['old_content'], $title ) ?: []
+				);
+				if ( $userLinks ) {
+					$logger->debug(
+						'Potential mention on a change by {user} on {diff}',
 						array(
 							'user' => $user->getName(),
 							'diff' => $diffUrl,
@@ -148,12 +166,14 @@ abstract class EchoDiscussionParser {
 	 * For an action taken on a talk page, notify users whose user pages
 	 * are linked.
 	 * @param string $header The subject line for the discussion.
+	 * @param array $userLinks
 	 * @param string $content The content of the post, as a wikitext string.
 	 * @param Revision $revision
 	 * @param User $agent The user who made the comment.
 	 */
 	public static function generateMentionEvents(
 		$header,
+		$userLinks,
 		$content,
 		Revision $revision,
 		User $agent
@@ -166,7 +186,6 @@ abstract class EchoDiscussionParser {
 		}
 		$content = self::stripHeader( $content );
 
-		$userLinks = self::getUserLinks( $content, $title );
 		if ( !$userLinks ) {
 			return;
 		}
@@ -445,12 +464,13 @@ abstract class EchoDiscussionParser {
 	 * - unknown-subtraction: Some content was removed. These actions are
 	 *    not currently analysed.
 	 * - unknown-change: Some content was replaced with other content.
-	 *    These actions are not currently analysed.
+	 * - unknown-signed-change: Same as unknown-change, but signed.
 	 * - unknown: Unrecognised change type.
 	 */
 	static function interpretDiff( $changes, $username, Title $title = null ) {
 		// One extra item in $changes for _info
 		$actions = array();
+		$signedSections = array();
 
 		foreach ( $changes as $index => $change ) {
 			if ( !is_numeric( $index ) ) {
@@ -476,6 +496,7 @@ abstract class EchoDiscussionParser {
 					in_array( $username, $signedUsers )
 				) {
 					if ( $sectionCount === 0 ) {
+						$signedSections[] = self::getSectionSpan( $change['right-pos'], $changes['_info']['rhs'] );
 						$fullSection = self::getFullSection( $changes['_info']['rhs'], $change['right-pos'] );
 						$actions[] = array(
 							'type' => 'add-comment',
@@ -483,15 +504,20 @@ abstract class EchoDiscussionParser {
 							'full-section' => $fullSection,
 						);
 					} elseif ( $startSection && $sectionCount === 1 ) {
+						$signedSections[] = self::getSectionSpan( $change['right-pos'], $changes['_info']['rhs'] );
 						$actions[] = array(
 							'type' => 'new-section-with-comment',
 							'content' => $content,
 						);
 					} else {
+						$nextSectionStart = $change['right-pos'];
 						$sectionData = self::extractSections( $content );
 						foreach ( $sectionData as $section ) {
+							$sectionSpan = self::getSectionSpan( $nextSectionStart, $changes['_info']['rhs'] );
+							$nextSectionStart = $sectionSpan[1] + 1;
 							$sectionSignedUsers = self::extractSignatures( $section['content'], $title );
 							if ( !empty( $sectionSignedUsers ) ) {
+								$signedSections[] = $sectionSpan;
 								if ( !$section['header'] ) {
 									$fullSection = self::getFullSection( $changes['_info']['rhs'], $change['right-pos'] );
 									$section['header'] = self::extractHeader( $fullSection );
@@ -530,7 +556,18 @@ abstract class EchoDiscussionParser {
 					'type' => 'unknown-change',
 					'old_content' => $change['old_content'],
 					'new_content' => $change['new_content'],
+					'right-pos' => $change['right-pos'],
+					'full-section' => self::getFullSection( $changes['_info']['rhs'], $change['right-pos'] ),
 				);
+
+				if ( self::hasNewSignature(
+					$change['old_content'],
+					$change['new_content'],
+					$username,
+					$title
+				) ) {
+					$signedSections[] = self::getSectionSpan( $change['right-pos'], $changes['_info']['rhs'] );
+				}
 			} else {
 				$actions[] = array(
 					'type' => 'unknown',
@@ -539,7 +576,52 @@ abstract class EchoDiscussionParser {
 			}
 		}
 
+		if ( !empty( $signedSections ) ) {
+			$actions = self::convertToUnknownSignedChanges( $signedSections, $actions );
+		}
+
 		return $actions;
+	}
+
+	static function getSignedUsers( $content, $title ) {
+		return array_keys( self::extractSignatures( $content, $title ) );
+	}
+
+	static function hasNewSignature( $oldContent, $newContent, $username, $title ) {
+		$oldSignedUsers = self::getSignedUsers( $oldContent, $title );
+		$newSignedUsers = self::getSignedUsers( $newContent, $title );
+
+		return !in_array( $username, $oldSignedUsers ) && in_array( $username, $newSignedUsers );
+	}
+
+	/**
+	 * Converts actions of type "unknown-change" to "unknown-signed-change" if the change is in a signed section.
+	 *
+	 * @param array $signedSections Array of arrays containing first and last line number of signed sections
+	 * @param array $actions
+	 * @return array converted actions
+	 */
+	static function convertToUnknownSignedChanges( $signedSections, $actions ) {
+		return array_map( function( $action ) use( $signedSections ) {
+			if (
+				$action['type'] === 'unknown-change' &&
+				self::isInSignedSection( $action['right-pos'], $signedSections )
+			) {
+				$action['type'] = 'unknown-signed-change';
+			}
+
+			return $action;
+		}, $actions );
+	}
+
+	static function isInSignedSection( $line, $signedSections ) {
+		foreach ( $signedSections as $section ) {
+			if ( $line > $section[0] && $line <= $section[1] ) {
+				return true;
+			}
+		}
+
+		return false;
 	}
 
 	/**
@@ -550,34 +632,58 @@ abstract class EchoDiscussionParser {
 	 * @return string Content of the section.
 	 */
 	static function getFullSection( $lines, $offset ) {
-		$content = $lines[$offset - 1];
-		$headerRegex = '/' . self::HEADER_REGEX . '/um';
-
-		// Expand backwards...
-		$continue = !preg_match( $headerRegex, $lines[$offset - 1] );
-		$i = $offset - 1;
-		while ( $continue && $i > 0 ) {
-			--$i;
-			$line = $lines[$i];
-			$content = "$line\n$content";
-			if ( preg_match( $headerRegex, $line ) ) {
-				$continue = false;
-			}
-		}
-
-		// And then forwards...
-		$i = $offset - 1;
-		while ( $i < count( $lines ) - 1 ) {
-			++$i;
-			$line = $lines[$i];
-			if ( preg_match( $headerRegex, $line ) ) {
-				break;
-			} else {
-				$content .= "\n$line";
-			}
-		}
+		$start = self::getSectionStartIndex( $offset, $lines );
+		$end = self::getSectionEndIndex( $offset, $lines );
+		$content = implode( "\n", array_slice( $lines, $start, $end - $start ) );
 
 		return trim( $content, "\n" );
+	}
+
+	/**
+	 * Given a line number and a text, find the first and last line of the section the line number is in.
+	 * If there are subsections, the last line index will be the line before the beginning of the first subsection.
+	 * @param $offset line number
+	 * @param $lines
+	 * @return array tuple [$firstLine, $lastLine]
+	 */
+	static function getSectionSpan( $offset, $lines ) {
+		return array(
+			self::getSectionStartIndex( $offset, $lines ),
+			self::getSectionEndIndex( $offset, $lines )
+		);
+	}
+
+	/**
+	 * Finds the line number of the start of the section that $offset is in.
+	 * @param $offset
+	 * @param $lines
+	 * @return int
+	 */
+	static function getSectionStartIndex( $offset, $lines ) {
+		for ( $i = $offset - 1; $i >= 0; $i-- ) {
+			if ( self::getSectionCount( $lines[$i] ) ) {
+				break;
+			}
+		}
+
+		return $i;
+	}
+
+	/**
+	 * Finds the line number of the end of the section that $offset is in.
+	 * @param $offset
+	 * @param $lines
+	 * @return int
+	 */
+	static function getSectionEndIndex( $offset, $lines ) {
+		$lastLine = count( $lines );
+		for ( $i = $offset; $i < $lastLine; $i++ ) {
+			if ( self::getSectionCount( $lines[$i] ) ) {
+				break;
+			}
+		}
+
+		return $i;
 	}
 
 	/**
