@@ -1034,8 +1034,10 @@ class EchoHooks {
 			$notifUser = MWEchoNotifUser::newFromUser( $user );
 			$lastUpdate = $notifUser->getGlobalUpdateTime();
 			if ( $lastUpdate !== false ) {
-				$modifiedTimes['notifications'] = $lastUpdate;
+				$modifiedTimes['notifications-global'] = $lastUpdate;
 			}
+			$modifiedTimes['notifications-seen-alert'] = EchoSeenTime::newFromUser( $user )->getTime( 'alert' );
+			$modifiedTimes['notifications-seen-message'] = EchoSeenTime::newFromUser( $user )->getTime( 'message' );
 		}
 	}
 
