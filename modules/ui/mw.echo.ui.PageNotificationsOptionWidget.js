@@ -31,7 +31,6 @@
 		// Initialization
 		this.$element
 			.addClass( 'mw-echo-ui-pageNotificationsOptionWidget' )
-			.toggleClass( 'mw-echo-ui-pageNotificationsOptionWidget-empty', !this.count )
 			.append(
 				$( '<div>' )
 					.addClass( 'mw-echo-ui-pageNotificationsOptionWidget-count' )
