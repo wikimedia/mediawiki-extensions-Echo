@@ -42,7 +42,9 @@ class SpecialNotifications extends SpecialPage {
 
 		// If there are no notifications, display a message saying so
 		if ( !$notifications ) {
-			$out->addWikiMsg( 'echo-none' );
+			// Wrap this with nojs so it is still hidden if JS is loading
+			$msg = new OOUI\LabelWidget( [ 'label' => $this->msg( 'echo-none' ) ] );
+			$out->addHTML( Html::rawElement( 'div', array( 'class' => 'mw-echo-special-nojs' ), $msg ) );
 			$out->addModules( array( 'ext.echo.special' ) );
 			return;
 		}
