@@ -85,7 +85,7 @@
 	"echo-api-failure": "अधिसूचना पुरविण्यात अयशस्वी.",
 	"echo-api-failure-cross-wiki": "दूरवरच्या विदागारास पोहोच नाकारण्यात आली आहे.",
 	"echo-notification-placeholder": "अधिसूचना नाहीत.",
-	"echo-notification-placeholder-filters": "या निकषाशी जुळणाऱ्या कोणत्याच अधिसूचना नाहीत.",
+	"echo-notification-placeholder-filters": "या निकषांंशी जुळणाऱ्या कोणत्याच अधिसूचना नाहीत.",
 	"echo-notification-loginrequired": "आपणास आपली अधिसूचना बघण्यास सनोंद प्रवेशित असावे लागेल.",
 	"echo-notification-popup-loginrequired": "आपल्या अधिसूचना बघण्यास सनोंद प्रवेश करा.",
 	"echo-notification-markasread": "वाचले अशी खूण करा",

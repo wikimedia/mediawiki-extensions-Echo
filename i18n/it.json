@@ -131,6 +131,7 @@
 	"notification-compact-header-mention-failure-user-anonymous": "<strong>Non possono essere inviate menzioni ad IP:</strong> $1",
 	"notification-header-mention-success": "{{GENDER:$2|La tua}} menzione di $3 è stata inviata.",
 	"notification-header-mention-success-bundle": "{{PLURAL:$3|Una menzione|$3 menzioni}} che {{GENDER:$2|hai fatto}} nella pagina di discussione <strong>$4</strong> {{PLURAL:$3|è stata inviata|sono state inviate}}.",
+	"notification-header-mention-status-bundle": "{{PLURAL:$3|Una notifica|$3 notifiche}} riguardo a menzioni che {{GENDER:$2|hai fatto}} nella pagina di discussione <strong>$4</strong>: $5 non {{PLURAL:$5|inviata|inviate}}, $6 {{PLURAL:$6|inviata|inviate}}.",
 	"notification-header-user-rights-add-only": "I tuoi diritti utente sono stati {{GENDER:$1|modificati}}. Sei {{GENDER:$4|stato aggiunto|stata aggiunta}} a: $2.",
 	"notification-header-user-rights-remove-only": "I {{GENDER:$4|tuoi}} diritti utente sono stati {{GENDER:$1|modificati}}. Non sei più un membro di: $2.",
 	"notification-header-user-rights-add-and-remove": "I tuoi diritti utente sono stati {{GENDER:$1|modificati}}. Sei {{GENDER:$6|stato aggiunto|stata aggiunta}} a: $2. Non sei più un membro di: $4.",

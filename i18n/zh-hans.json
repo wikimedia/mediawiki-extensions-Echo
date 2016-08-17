@@ -167,7 +167,7 @@
 	"notification-header-thank-you-1000000-edit": "{{GENDER:$2|您}}刚刚作出了{{GENDER:$2|您}}的第100万次编辑；感谢{{GENDER:$2|您}}令人惊讶的贡献！",
 	"notification-link-thank-you-edit": "{{GENDER:$1|您}}的编辑",
 	"notification-link-text-view-edit": "查看编辑",
-	"notification-header-reverted": "您对<strong>$3</strong>的{{PLURAL:$4|编辑}}被{{GENDER:$2|回退}}了",
+	"notification-header-reverted": "您对<strong>$3</strong>的{{PLURAL:$4|编辑}}被{{GENDER:$2|回退}}了。",
 	"notification-header-emailuser": "$1向您{{GENDER:$2|发送}}了电子邮件。",
 	"notification-edit-talk-page-email-subject2": "$1在{{SITENAME}}给您{{GENDER:$1|留言}}了",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1在您的讨论页的“$2”段落{{GENDER:$1|留言}}了。",

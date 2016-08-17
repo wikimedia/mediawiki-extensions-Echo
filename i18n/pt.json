@@ -94,7 +94,7 @@
 	"echo-api-failure": "Não foi possível recuperar as notificações.",
 	"echo-api-failure-cross-wiki": "O acesso para o domínio remoto foi negado.",
 	"echo-notification-placeholder": "Não há notificações.",
-	"echo-notification-placeholder-filters": "Não existem notificações correspondentes com este critério.",
+	"echo-notification-placeholder-filters": "Não existem notificações correspondentes a estes critérios.",
 	"echo-notification-loginrequired": "Deve iniciar sessão para ver as suas notificações.",
 	"echo-notification-popup-loginrequired": "Inicie sessão para ver as suas notificações.",
 	"echo-notification-markasread": "Marcar como lido",

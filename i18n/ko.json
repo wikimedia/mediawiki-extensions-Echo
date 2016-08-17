@@ -143,7 +143,7 @@
 	"notification-header-thank-you-1000000-edit": "방금 1,000,000번째 편집을 달성했습니다. 놀라울 정도로 대단한 기여에 감사드립니다!",
 	"notification-link-thank-you-edit": "{{GENDER:$1|사용자}}의 편집",
 	"notification-link-text-view-edit": "편집 보기",
-	"notification-header-reverted": "{{PLURAL:$4|$3에 대한 내 편집}}을 $1님이 {{GENDER:$2|되돌렸습니다}}.",
+	"notification-header-reverted": "당신의 {{PLURAL:$4|<strong>$3</strong>에 대한 편집}}이 {{GENDER:$2|되돌려졌습니다}}.",
 	"notification-header-emailuser": "$1님이 당신에게 이메일을 {{GENDER:$2|보냈습니다}}.",
 	"notification-edit-talk-page-email-subject2": "$1님이 {{SITENAME}}에서 당신에게 글을 {{GENDER:$1|남겼습니다}}",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1님이 당신의 토론 문서의 \"$2\" 문단에 글을 {{GENDER:$1|남겼습니다}}.",
