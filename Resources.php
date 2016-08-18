@@ -101,6 +101,9 @@ $wgResourceModules += array(
 			'vector' => array(
 				'styles/mw.echo.ui.overlay.vector.less',
 			),
+			'minerva' => array(
+				'styles/mw.echo.ui.overlay.minerva.less',
+			),
 		),
 		'dependencies' => array(
 			'ext.echo.logger',
