@@ -7,13 +7,22 @@ class MWEchoEventLogging {
 
 	/**
 	 * This is the only function that interacts with EventLogging
+	 *
+	 * Logs if logging is enabled for the given $schema.
+	 *
 	 * @param string $schema
 	 * @param array $data
 	 */
-	public static function actuallyLogTheEvent( $schema, array $data ) {
+	protected static function logEvent( $schema, array $data ) {
 		global $wgEchoConfig;
 
-		EventLogging::logEvent( $schema, $wgEchoConfig['eventlogging'][$schema]['revision'], $data );
+		$schemaConfig = $wgEchoConfig['eventlogging'][$schema];
+		if ( !$schemaConfig['enabled'] ) {
+			// If logging for this schema is disabled, it's a no-op.
+			return;
+		}
+
+		EventLogging::logEvent( $schema, $schemaConfig['revision'], $data );
 	}
 
 	/**
@@ -24,10 +33,6 @@ class MWEchoEventLogging {
 	 */
 	public static function logSchemaEcho( User $user, EchoEvent $event, $deliveryMethod ) {
 		global $wgEchoConfig, $wgEchoNotifications;
-		if ( !$wgEchoConfig['eventlogging']['Echo']['enabled'] ) {
-			// Only attempt event logging if Echo schema is enabled
-			return;
-		}
 
 		// Notifications under system category should have -1 as sender id
 		if ( $event->getCategory() === 'system' ) {
@@ -72,7 +77,7 @@ class MWEchoEventLogging {
 			$data['revisionId'] = $rev->getId();
 		}
 
-		self::actuallyLogTheEvent( 'Echo', $data );
+		self::logEvent( 'Echo', $data );
 	}
 
 	/**
@@ -83,18 +88,13 @@ class MWEchoEventLogging {
 	public static function logSchemaEchoMail( User $user, $emailDeliveryMode = 'single' ) {
 		global $wgEchoConfig;
 
-		if ( !$wgEchoConfig['eventlogging']['EchoMail']['enabled'] ) {
-			// Only attempt event logging if EchoMail schema is enabled
-			return;
-		}
-
 		$data = array(
 			'version' => $wgEchoConfig['version'],
 			'recipientUserId' => $user->getId(),
 			'emailDeliveryMode' => $emailDeliveryMode
 		);
 
-		self::actuallyLogTheEvent( 'EchoMail', $data );
+		self::logEvent( 'EchoMail', $data );
 	}
 
 	/**
@@ -102,12 +102,7 @@ class MWEchoEventLogging {
 	 * @param string $skinName
 	 */
 	public static function logEchoInteraction( User $user, $skinName ) {
-		global $wgEchoConfig;
-		if ( !$wgEchoConfig['eventlogging']['EchoInteraction']['enabled'] ) {
-			return;
-		}
-
-		self::actuallyLogTheEvent(
+		self::logEvent(
 			'EchoInteraction',
 			array(
 				'context' => 'archive',
