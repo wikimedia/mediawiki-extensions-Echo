@@ -83,6 +83,9 @@ $wgHooks['ParserTestTables'][] = 'EchoHooks::onParserTestTables';
 $wgHooks['EmailUserComplete'][] = 'EchoHooks::onEmailUserComplete';
 $wgHooks['LoginFormValidErrorMessages'][] = 'EchoHooks::onLoginFormValidErrorMessages';
 $wgHooks['OutputPageCheckLastModified'][] = 'EchoHooks::onOutputPageCheckLastModified';
+$wgHooks['ArticleDeleteComplete'][] = 'EchoHooks::onArticleDeleteComplete';
+$wgHooks['ArticleUndelete'][] = 'EchoHooks::onArticleUndelete';
+
 
 // Extension:UserMerge support
 $wgHooks['UserMergeAccountFields'][] = 'EchoHooks::onUserMergeAccountFields';

@@ -392,7 +392,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 
 		$res = $dbr->select(
 			array( 'echo_notification' ),
-			array( 'userId' => 'notification_user' ),
+			array( 'userId' => 'DISTINCT notification_user' ),
 			array(
 				'notification_event' => $eventIds
 			),
