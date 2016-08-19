@@ -87,6 +87,7 @@ $wgResourceModules += array(
 			'styles/mw.echo.ui.NotificationsListWidget.less',
 			'styles/mw.echo.ui.PlaceholderItemWidget.less',
 			'styles/mw.echo.ui.SubGroupListWidget.less',
+			'styles/mw.echo.ui.ActionMenuPopupWidget.less',
 			'styles/mw.echo.ui.MenuItemWidget.less',
 			'styles/mw.echo.ui.FooterNoticeWidget.less',
 			'styles/mw.echo.ui.NotificationsWrapper.less',
