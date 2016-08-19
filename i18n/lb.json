@@ -103,7 +103,7 @@
 	"notification-reverted-email-subject2": "Är {{PLURAL:$3|Ännerung|Ännerungen}} op {{SITENAME}} {{PLURAL:$3|gouf|goufen}} {{GENDER:$1|zréckgesat}}",
 	"notification-mention-email-subject": "$1 {{GENDER:$1|huet}} {{GENDER:$2|Iech}} op {{SITENAME}} ernimmt",
 	"notification-user-rights-email-subject": "Är Benotzerrechter op {{SITENAME}} hu geännert",
-	"notification-timestamp-ago-minutes": "{{PLURAL:$1|$1m}}",
+	"notification-timestamp-ago-minutes": "{{PLURAL:$1|Eng Minutt|$1 Minutten}}",
 	"notification-timestamp-ago-hours": "{{PLURAL:$1|Eng Stonn|$1 Stonnen}}",
 	"notification-timestamp-ago-days": "{{PLURAL:$1|Een Dag|$1 Deeg}}",
 	"notification-timestamp-ago-months": "{{PLURAL:$1|Ee Mount|$1 Méint}}",
