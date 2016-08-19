@@ -1,5 +1,4 @@
 @import '../echo.variables';
-@import '../echo.variables.monobook';
 
 /* We have to include the #pt-notifications selector due to monobook */
 .mw-echo-notifications-badge {
@@ -22,12 +21,10 @@
 	&.mw-echo-unseen-notifications {
 		#pt-notifications-alert &:after {
 			background-color: @badge-counter-background-unseen-alert;
-			color: #000;
 		}
 
 		#pt-notifications-notice &:after {
 			background-color: @badge-counter-background-unseen-message;
-			color: #000;
 		}
 	}
 }
