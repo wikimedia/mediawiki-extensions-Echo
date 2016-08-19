@@ -185,6 +185,7 @@ abstract class EchoDiscussionParser {
 			return;
 		}
 		$content = self::stripHeader( $content );
+		$content = self::stripSignature( $content, $title );
 
 		if ( !$userLinks ) {
 			return;
