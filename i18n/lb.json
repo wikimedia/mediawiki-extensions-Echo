@@ -86,6 +86,7 @@
 	"notification-header-mention-agent-talkpage": "$1 {{GENDER:$2|huet}} {{GENDER:$3|Iech}} op <strong>{{GENDER:$2|senger|hirer}} Diskussiounssäit</strong> iwwer ''<strong>$4</strong>'' ernimmt.",
 	"notification-compact-header-mention-failure-user-unknown": "<strong>Benotzernumm gëtt et net:</strong> $1",
 	"notification-compact-header-mention-failure-user-anonymous": "<strong>Ip'e kënnen net ernimmt ginn:</strong> $1",
+	"notification-header-mention-success": "{{GENDER:$2|Är}} Mentioun vu(n) <strong>$3</strong> gouf geschéckt.",
 	"notification-header-user-rights-remove-only": "{{GENDER:$4|Är}} Benotzerrechter goufe {{GENDER:$1|geännert}}. Dir sidd net méi Member vun: $2.",
 	"notification-header-welcome": "{{GENDER:$2|Wëllkomm}} op {{SITENAME}}, $1! Mir si frou, datt {{GENDER:$2|Dir}} do sidd.",
 	"notification-welcome-linktext": "Wëllkomm",
