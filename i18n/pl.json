@@ -94,7 +94,7 @@
 	"echo-api-failure": "Nie udało się pobrać powiadomień.",
 	"echo-api-failure-cross-wiki": "Dostęp do zdalnej domeny jest zabroniony.",
 	"echo-notification-placeholder": "Nie ma powiadomień.",
-	"echo-notification-placeholder-filters": "Brak powiadomienia odpowiadającemu temu kryterium.",
+	"echo-notification-placeholder-filters": "Nie ma powiadomień, które spełniają te kryteria.",
 	"echo-notification-loginrequired": "Aby zobaczyć powiadomienia, musisz się zalogować.",
 	"echo-notification-popup-loginrequired": "Zaloguj się, aby zobaczyć swoje powiadomienia.",
 	"echo-notification-markasread": "Oznacz jako przeczytane",
