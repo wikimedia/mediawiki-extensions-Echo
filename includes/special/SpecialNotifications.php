@@ -161,7 +161,7 @@ class SpecialNotifications extends SpecialPage {
 		$out->addModuleStyles( array( 'ext.echo.styles.notifications', 'ext.echo.styles.special' ) );
 
 		// Log visit
-		MWEchoEventLogging::logEchoInteraction( $user, $out->getSkin()->getSkinName() );
+		MWEchoEventLogging::logSpecialPageVisit( $user, $out->getSkin()->getSkinName() );
 	}
 
 	/**

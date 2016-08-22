@@ -8,7 +8,7 @@ class MWEchoEventLogging {
 	/**
 	 * This is the only function that interacts with EventLogging
 	 *
-	 * Logs if logging is enabled for the given $schema.
+	 * Adds common fields, and logs if logging is enabled for the given $schema.
 	 *
 	 * @param string $schema
 	 * @param array $data
@@ -22,6 +22,8 @@ class MWEchoEventLogging {
 			return;
 		}
 
+		$data['version'] = $wgEchoConfig['version'];
+
 		EventLogging::logEvent( $schema, $schemaConfig['revision'], $data );
 	}
 
@@ -32,7 +34,7 @@ class MWEchoEventLogging {
 	 * @param string $deliveryMethod 'web' or 'email'
 	 */
 	public static function logSchemaEcho( User $user, EchoEvent $event, $deliveryMethod ) {
-		global $wgEchoConfig, $wgEchoNotifications;
+		global $wgEchoNotifications;
 
 		// Notifications under system category should have -1 as sender id
 		if ( $event->getCategory() === 'system' ) {
@@ -52,7 +54,6 @@ class MWEchoEventLogging {
 			$group = 'neutral';
 		}
 		$data = array(
-			'version' => $wgEchoConfig['version'],
 			'eventId' => (int)$event->getId(),
 			'notificationType' => $event->getType(),
 			'notificationGroup' => $group,
@@ -86,10 +87,7 @@ class MWEchoEventLogging {
 	 * @param string $emailDeliveryMode 'single' (default), 'daily_digest', or 'weekly_digest'
 	 */
 	public static function logSchemaEchoMail( User $user, $emailDeliveryMode = 'single' ) {
-		global $wgEchoConfig;
-
 		$data = array(
-			'version' => $wgEchoConfig['version'],
 			'recipientUserId' => $user->getId(),
 			'emailDeliveryMode' => $emailDeliveryMode
 		);
@@ -101,7 +99,7 @@ class MWEchoEventLogging {
 	 * @param User $user
 	 * @param string $skinName
 	 */
-	public static function logEchoInteraction( User $user, $skinName ) {
+	public static function logSpecialPageVisit( User $user, $skinName ) {
 		self::logEvent(
 			'EchoInteraction',
 			array(
