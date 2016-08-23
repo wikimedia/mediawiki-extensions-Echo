@@ -116,6 +116,7 @@ $wgResourceModules += array(
 			'mediawiki.jqueryMsg',
 			'mediawiki.language',
 			'mediawiki.Title',
+			'mediawiki.notify',
 			// OOJS-UI icons
 			// TODO: We are only using 1-2 icons from each
 			// bundle; split them up to our own bundle so we
@@ -124,6 +125,7 @@ $wgResourceModules += array(
 			'oojs-ui.styles.icons-alerts',
 			'oojs-ui.styles.icons-content',
 			'oojs-ui.styles.icons-interactions',
+			'oojs-ui.styles.icons-moderation',
 		),
 		'messages' => array(
 			'echo-badge-count',
