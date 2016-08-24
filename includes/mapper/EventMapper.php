@@ -147,34 +147,6 @@ class EchoEventMapper extends EchoAbstractMapper {
 	}
 
 	/**
-	 * Fetch events of certain types associated with a page
-	 *
-	 * @param string[] $eventTypes
-	 * @param int $pageId
-	 * @return EchoEvent[]
-	 */
-	public function fetchByTypesAndPage( $eventTypes, $pageId ) {
-		$dbr = $this->dbFactory->getEchoDb( DB_SLAVE );
-		$res = $dbr->select(
-			array( 'echo_event', 'echo_target_page' ),
-			array( 'echo_event.*' ),
-			array(
-				'event_id=etp_event',
-				'event_type' => $eventTypes,
-				'etp_page' => $pageId,
-			),
-			__METHOD__
-		);
-
-		$data = array();
-		foreach ( $res as $row ) {
-			$data[] = EchoEvent::newFromRow( $row );
-		}
-
-		return $data;
-	}
-
-	/**
 	 * Fetch events associated with a page
 	 *
 	 * @param int $pageId
@@ -186,7 +158,7 @@ class EchoEventMapper extends EchoAbstractMapper {
 		$dbr = $this->dbFactory->getEchoDb( DB_SLAVE );
 		$res = $dbr->select(
 			array( 'echo_event', 'echo_target_page' ),
-			array( 'echo_event.*' ),
+			array( '*' ),
 			array(
 				'etp_page' => $pageId
 			),
