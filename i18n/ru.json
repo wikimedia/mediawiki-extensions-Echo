@@ -148,7 +148,7 @@
 	"notification-header-thank-you-1000000-edit": "{{GENDER:$2|Вы}} только что сделали {{GENDER:$2|свою}} миллионную правку; спасибо {{GENDER:$2|вам}} за умопомрачительный вклад!",
 	"notification-link-thank-you-edit": "{{GENDER:$1|Ваша}} правка",
 	"notification-link-text-view-edit": "Просмотр правки",
-	"notification-header-reverted": "{{PLURAL:$4|1=Ваша правка|Ваши правки}} на странице <strong>$3</strong> {{GENDER:$2|{{PLURAL:$4|была отменена|были отменены}}}}",
+	"notification-header-reverted": "{{PLURAL:$4|Ваша правка|Ваши правки}} на странице <strong>$3</strong> {{GENDER:$2|{{PLURAL:$4|была отменена|были отменены}}}}.",
 	"notification-header-emailuser": "$1 отправил{{GENDER:$2||а}} вам письмо.",
 	"notification-edit-talk-page-email-subject2": "{{GENDER:$1|Участник|Участница}} $1 {{GENDER:$1|оставил|оставила}} вам сообщение на сайте «{{SITENAME}}»",
 	"notification-edit-talk-page-email-batch-body-with-section": "{{GENDER:$1|Участник|Участница}} $1 {{GENDER:$1|оставил|оставила}} вам сообщение на вашей странице обсуждения в разделе (теме) «$2»",

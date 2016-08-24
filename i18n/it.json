@@ -99,6 +99,8 @@
 	"echo-notification-markasunread": "Segna come non letto",
 	"echo-notification-markasread-tooltip": "Segna come già letto",
 	"echo-notification-more-options-tooltip": "Altre opzioni",
+	"notification-dynamic-actions-watch": "Segui le nuove attività su \"$1\"",
+	"notification-dynamic-actions-watch-confirmation": "Stai osservando la pagina \"$1\"",
 	"notification-link-text-expand-all": "Espandi",
 	"notification-link-text-expand-alert-count": "Vedi {{PLURAL:$1|$1 avviso|$1 avvisi}}",
 	"notification-link-text-expand-notice-count": "Vedi {{PLURAL:$1|$1 notizia|$1 notizie}}",
