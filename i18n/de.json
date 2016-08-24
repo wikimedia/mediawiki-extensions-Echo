@@ -98,6 +98,8 @@
 	"echo-notification-markasunread": "Als ungelesen markieren",
 	"echo-notification-markasread-tooltip": "Als gelesen markieren",
 	"echo-notification-more-options-tooltip": "Weitere Optionen",
+	"notification-dynamic-actions-unwatch": "Neue Aktivitäten zu „$1“ nicht mehr beobachten",
+	"notification-dynamic-actions-unwatch-confirmation": "Du beobachtest nicht mehr die Seite „$1“",
 	"notification-link-text-expand-all": "Ausklappen",
 	"notification-link-text-expand-alert-count": "{{PLURAL:$1|Eine Meldung|$1 Meldungen}} ansehen",
 	"notification-link-text-expand-notice-count": "{{PLURAL:$1|Eine Mitteilung|$1 Mitteilungen}} ansehen",

@@ -43,7 +43,7 @@
 	"tooltip-pt-notifications-alert": "Varsla {{GENDER:|dine}}",
 	"tooltip-pt-notifications-notice": "Notisane {{GENDER:|dine}}",
 	"echo-specialpage": "Meldingar og varsel",
-	"echo-specialpage-pagination-numnotifications": "{{PLURAL:$1|éin notis eller eitt varsel|$1 notis og varsel}}",
+	"echo-specialpage-pagination-numnotifications": "{{PLURAL:$1|éin notis eller eitt varsel|$1 notisar og varsel}}",
 	"echo-specialpage-pagefilters-title": "Nyleg aktivitet",
 	"echo-specialpage-pagefilters-subtitle": "Sider med ulesne notisar eller varsel",
 	"echo-anon": "For å få meldingar og varsel, [$1 opprett ein konto] eller [$2 logg inn].",
