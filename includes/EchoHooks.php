@@ -192,7 +192,7 @@ class EchoHooks {
 				"$dir/db_patches/patch-drop-echo_target_page-etp_user.sql" );
 		}
 
-		$updater->addExtensionField( 'echo_notification', 'notification_bundle_base',
+		$updater->addExtensionField( 'echo_notification', 'notification_bundle_hash',
 			"$dir/db_patches/patch-notification-bundling-field.sql" );
 		// This index was renamed twice, first from type_page to event_type and
 		// later from event_type to echo_event_type
@@ -202,8 +202,10 @@ class EchoHooks {
 		}
 		$updater->dropExtensionTable( 'echo_subscription',
 			"$dir/db_patches/patch-drop-echo_subscription.sql" );
-		$updater->dropExtensionField( 'echo_event', 'event_timestamp',
-			"$dir/db_patches/patch-drop-echo_event-event_timestamp.sql" );
+		if ( $updater->getDB()->getType() !== 'sqlite' ) {
+			$updater->dropExtensionField( 'echo_event', 'event_timestamp',
+				"$dir/db_patches/patch-drop-echo_event-event_timestamp.sql" );
+		}
 		$updater->addExtensionField( 'echo_email_batch', 'eeb_event_hash',
 			"$dir/db_patches/patch-email_batch-new-field.sql" );
 		$updater->addExtensionField( 'echo_event', 'event_page_id',
@@ -233,6 +235,10 @@ class EchoHooks {
 			"$dir/db_patches/patch-drop-echo_event-event_page_namespace.sql" );
 		$updater->dropExtensionField( 'echo_event', 'event_page_title',
 			"$dir/db_patches/patch-drop-echo_event-event_page_title.sql" );
+		if ( $updater->getDB()->getType() !== 'sqlite' ) {
+			$updater->dropExtensionField( 'echo_notification', 'notification_bundle_base',
+				"$dir/db_patches/patch-drop-notification_bundle_base.sql" );
+		}
 	}
 
 	/**

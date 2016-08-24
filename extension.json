@@ -917,7 +917,6 @@
 		"ApiEchoNotifications": "includes/api/ApiEchoNotifications.php",
 		"ApiEchoNotificationsTest": "tests/phpunit/api/ApiEchoNotificationsTest.php",
 		"ApiEchoUnreadNotificationPages": "includes/api/ApiEchoUnreadNotificationPages.php",
-		"BackfillReadBundles": "maintenance/backfillReadBundles.php",
 		"BackfillUnreadWikis": "maintenance/backfillUnreadWikis.php",
 		"Bundleable": "includes/Bundleable.php",
 		"Bundler": "includes/Bundler.php",

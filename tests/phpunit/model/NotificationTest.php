@@ -54,7 +54,6 @@ class EchoNotificationTest extends MediaWikiTestCase {
 			'notification_event' => 1,
 			'notification_timestamp' => time(),
 			'notification_read_timestamp' => '',
-			'notification_bundle_base' => 1,
 			'notification_bundle_hash' => 'testhash',
 			'notification_bundle_display_hash' => 'testdisplayhash'
 		];

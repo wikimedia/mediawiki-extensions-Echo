@@ -454,7 +454,6 @@ class ApiEchoNotifications extends ApiQueryBase {
 		$row->notification_user = $user->getId();
 		$row->notification_timestamp = $maxTimestamp;
 		$row->notification_read_timestamp = null;
-		$row->notification_bundle_base = 1;
 		$row->notification_bundle_hash = md5( 'bogus' );
 		$row->notification_bundle_display_hash = md5( 'also-bogus' );
 

@@ -31,13 +31,6 @@ class EchoNotification extends EchoAbstractEntity implements Bundleable {
 	protected $readTimestamp;
 
 	/**
-	 * Determine whether this is a bundle base.  Default is 1,
-	 * which means it's a bundle base
-	 * @var int
-	 */
-	protected $bundleBase = 1;
-
-	/**
 	 * The hash used to determine if a set of event could be bundled
 	 * @var string
 	 */
@@ -176,7 +169,6 @@ class EchoNotification extends EchoAbstractEntity implements Bundleable {
 		if ( $row->notification_read_timestamp ) {
 			$notification->readTimestamp = wfTimestamp( TS_MW, $row->notification_read_timestamp );
 		}
-		$notification->bundleBase = $row->notification_bundle_base;
 		$notification->bundleHash = $row->notification_bundle_hash;
 		$notification->bundleDisplayHash = $row->notification_bundle_display_hash;
 
@@ -193,7 +185,6 @@ class EchoNotification extends EchoAbstractEntity implements Bundleable {
 			'notification_user' => $this->user->getId(),
 			'notification_timestamp' => $this->timestamp,
 			'notification_read_timestamp' => $this->readTimestamp,
-			'notification_bundle_base' => $this->bundleBase,
 			'notification_bundle_hash' => $this->bundleHash,
 			'notification_bundle_display_hash' => $this->bundleDisplayHash
 		];
@@ -233,14 +224,6 @@ class EchoNotification extends EchoAbstractEntity implements Bundleable {
 
 	public function isRead() {
 		return $this->getReadTimestamp() !== null;
-	}
-
-	/**
-	 * Getter method
-	 * @return int Notification bundle base
-	 */
-	public function getBundleBase() {
-		return $this->bundleBase;
 	}
 
 	/**
@@ -316,7 +299,6 @@ class EchoNotification extends EchoAbstractEntity implements Bundleable {
 			'notification_user',
 			'notification_timestamp',
 			'notification_read_timestamp',
-			'notification_bundle_base',
 			'notification_bundle_hash',
 			'notification_bundle_display_hash',
 		] );

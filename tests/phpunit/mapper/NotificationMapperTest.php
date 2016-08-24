@@ -31,7 +31,6 @@ class EchoNotificationMapperTest extends MediaWikiTestCase {
 				'notification_user' => 1,
 				'notification_timestamp' => '20140615101010',
 				'notification_read_timestamp' => '',
-				'notification_bundle_base' => 1,
 				'notification_bundle_hash' => 'testhash',
 				'notification_bundle_display_hash' => 'testdisplayhash'
 			]
@@ -69,7 +68,6 @@ class EchoNotificationMapperTest extends MediaWikiTestCase {
 				'notification_user' => 1,
 				'notification_timestamp' => '20140615101010',
 				'notification_read_timestamp' => '20140616101010',
-				'notification_bundle_base' => 1,
 				'notification_bundle_hash' => 'testhash',
 				'notification_bundle_display_hash' => 'testdisplayhash'
 			]
@@ -123,7 +121,6 @@ class EchoNotificationMapperTest extends MediaWikiTestCase {
 			'notification_user' => 1,
 			'notification_timestamp' => '20140615101010',
 			'notification_read_timestamp' => '20140616101010',
-			'notification_bundle_base' => 1,
 			'notification_bundle_hash' => 'testhash',
 			'notification_bundle_display_hash' => 'testdisplayhash'
 		];
@@ -151,7 +148,6 @@ class EchoNotificationMapperTest extends MediaWikiTestCase {
 			'notification_user' => 1,
 			'notification_timestamp' => '20140615101010',
 			'notification_read_timestamp' => '20140616101010',
-			'notification_bundle_base' => 1,
 			'notification_bundle_hash' => 'testhash',
 			'notification_bundle_display_hash' => 'testdisplayhash'
 		];
