@@ -32,7 +32,6 @@ class EchoNotificationMapperTest extends MediaWikiTestCase {
 				'notification_timestamp' => '20140615101010',
 				'notification_read_timestamp' => '',
 				'notification_bundle_hash' => 'testhash',
-				'notification_bundle_display_hash' => 'testdisplayhash'
 			]
 		];
 		$notifMapper = new EchoNotificationMapper( $this->mockMWEchoDbFactory( [ 'select' => $dbResult ] ) );
@@ -69,7 +68,6 @@ class EchoNotificationMapperTest extends MediaWikiTestCase {
 				'notification_timestamp' => '20140615101010',
 				'notification_read_timestamp' => '20140616101010',
 				'notification_bundle_hash' => 'testhash',
-				'notification_bundle_display_hash' => 'testdisplayhash'
 			]
 		];
 
@@ -102,33 +100,6 @@ class EchoNotificationMapperTest extends MediaWikiTestCase {
 		$this->assertEmpty( $res );
 	}
 
-	public function testFetchNewestByUserBundleHash() {
-		// Unsuccessful select
-		$notifMapper = new EchoNotificationMapper( $this->mockMWEchoDbFactory( [ 'selectRow' => false ] ) );
-		$res = $notifMapper->fetchNewestByUserBundleHash( User::newFromId( 1 ), 'testhash' );
-		$this->assertFalse( $res );
-
-		// Successful select
-		$dbResult = (object)[
-			'event_id' => 1,
-			'event_type' => 'test',
-			'event_variant' => '',
-			'event_extra' => '',
-			'event_page_id' => '',
-			'event_agent_id' => '',
-			'event_agent_ip' => '',
-			'event_deleted' => 0,
-			'notification_user' => 1,
-			'notification_timestamp' => '20140615101010',
-			'notification_read_timestamp' => '20140616101010',
-			'notification_bundle_hash' => 'testhash',
-			'notification_bundle_display_hash' => 'testdisplayhash'
-		];
-		$notifMapper = new EchoNotificationMapper( $this->mockMWEchoDbFactory( [ 'selectRow' => $dbResult ] ) );
-		$row = $notifMapper->fetchNewestByUserBundleHash( User::newFromId( 1 ), 'testdisplayhash' );
-		$this->assertInstanceOf( EchoNotification::class, $row );
-	}
-
 	public function testFetchByUserOffset() {
 		// Unsuccessful select
 		$notifMapper = new EchoNotificationMapper( $this->mockMWEchoDbFactory( [ 'selectRow' => false ] ) );
@@ -149,7 +120,6 @@ class EchoNotificationMapperTest extends MediaWikiTestCase {
 			'notification_timestamp' => '20140615101010',
 			'notification_read_timestamp' => '20140616101010',
 			'notification_bundle_hash' => 'testhash',
-			'notification_bundle_display_hash' => 'testdisplayhash'
 		];
 		$notifMapper = new EchoNotificationMapper( $this->mockMWEchoDbFactory( [ 'selectRow' => $dbResult ] ) );
 		$row = $notifMapper->fetchByUserOffset( User::newFromId( 1 ), 500 );
