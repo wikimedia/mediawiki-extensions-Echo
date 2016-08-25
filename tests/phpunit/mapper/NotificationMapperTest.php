@@ -154,7 +154,7 @@ class EchoNotificationMapperTest extends MediaWikiTestCase {
 			'notification_bundle_display_hash' => 'testdisplayhash'
 		);
 		$notifMapper = new EchoNotificationMapper( $this->mockMWEchoDbFactory( array( 'selectRow' => $dbResult ) ) );
-		$row = $notifMapper->fetchNewestByUserBundleHash( User::newFromId( 1 ), 500 );
+		$row = $notifMapper->fetchByUserOffset( User::newFromId( 1 ), 500 );
 		$this->assertInstanceOf( 'EchoNotification', $row );
 	}
 
