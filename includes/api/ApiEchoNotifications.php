@@ -258,9 +258,9 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 			$notifs = $notifMapper->fetchUnreadByUser( $user, $limit + 1, $continue, $eventTypes, $titles );
 		}
 
-		// get $overfetchedItem before bundling and rendering so that the 'continue' value
+		// compute $canContinue before bundling and rendering so the count
 		// is not affected by filtering
-		$overfetchedItem = count( $notifs ) > $limit ? array_pop( $result['list'] ) : null;
+		$canContinue = count( $notifs ) > $limit;
 
 		if ( $bundle ) {
 			$bundler = new Bundler();
@@ -281,9 +281,10 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 		}
 
 		// Generate offset if necessary
-		if ( $overfetchedItem ) {
+		if ( $canContinue ) {
+			$lastItem = array_pop( $result['list'] );
 			// @todo: what to do with this when fetching from multiple wikis?
-			$result['continue'] = $overfetchedItem['timestamp']['utcunix'] . '|' . $overfetchedItem['id'];
+			$result['continue'] = $lastItem['timestamp']['utcunix'] . '|' . $lastItem['id'];
 		}
 
 		return $result;
