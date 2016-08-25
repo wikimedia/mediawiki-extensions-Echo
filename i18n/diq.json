@@ -51,7 +51,7 @@
 	"notification-link-text-view-message": "Qaytê mesaci ke",
 	"notification-link-text-view-mention": "Qayt ke, cao ke qalê to biyo",
 	"notification-link-text-view-mention-failure": "{{PLURAL:$1|Behsi bıasne|Bahsan bıasne }}",
-	"notification-link-text-view-changes": "Vurnayışa {{GENDER:$1|bıvin}}",
+	"notification-link-text-view-changes": "Vurriyayışa {{GENDER:$1|bıvin}}",
 	"notification-link-text-view-page": "Qaytê pele ke",
 	"notification-link-text-what-links-here": "Pêro linkê ena perer",
 	"notification-header-user-rights-remove-only": "Heqa karberiya {{GENDER:$4|şıma}} {{GENDER:$1|vurriye}}. Şıma ezayê ena grube niyê: $2.",

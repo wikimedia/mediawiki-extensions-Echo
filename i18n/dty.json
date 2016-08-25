@@ -3,9 +3,14 @@
 		"authors": [
 			"रमेश सिंह बोहरा",
 			"जनक राज भट्ट",
-			"राम प्रसाद जोशी"
+			"राम प्रसाद जोशी",
+			"Nirajan pant"
 		]
 	},
 	"tooltip-pt-notifications-alert": "{{GENDER:|तमरा}} अलर्टहरू",
-	"tooltip-pt-notifications-message": "{{GENDER:|तमरा}} रैबारहरू"
+	"notification-dynamic-actions-unwatch": "\"$1\"मी नौला कृयाकलाप तक्द बन्द अरअ",
+	"notification-dynamic-actions-unwatch-confirmation": "तम आब \"$1\" पान्नो नाइहेद्दार्‍याआ",
+	"notification-dynamic-actions-watch": "\"$1\"मी नौलो कृयाकलाप पछ्याआ",
+	"notification-dynamic-actions-watch-confirmation": "तम अइल \"$1\" पान्नो हेद्दाछअ",
+	"notification-dynamic-actions-watch-confirmation-description": "[$2 यो पान्नो] तक्द तम कज्याइँलै बन्द अरिसकन्छअ"
 }
