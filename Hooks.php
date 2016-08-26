@@ -176,6 +176,7 @@ class EchoHooks {
 		$updater->addExtensionField( 'echo_event', 'event_deleted', "$dir/db_patches/patch-add-echo_event-event_deleted.sql" );
 		$updater->addExtensionIndex( 'echo_notification', 'echo_notification_user_read_timestamp', "$dir/db_patches/patch-add-user_read_timestamp-index.sql" );
 		$updater->addExtensionIndex( 'echo_target_page', 'echo_target_page_page_event', "$dir/db_patches/patch-add-page_event-index.sql" );
+		$updater->addExtensionIndex( 'echo_event', 'echo_event_page_id', "$dir/db_patches/patch-add-event_page_id-index.sql" );
 	}
 
 	/**
