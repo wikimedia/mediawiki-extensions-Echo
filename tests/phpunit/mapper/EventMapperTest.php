@@ -70,38 +70,6 @@ class EchoEventMapperTest extends MediaWikiTestCase {
 		$this->assertInstanceOf( 'EchoEvent', $res );
 	}
 
-	public function testFetchByUserBundleHash() {
-		// Successful select
-		$dbResult = array(
-			(object)array(
-				'event_id' => 1,
-				'event_type' => 'test',
-				'event_variant' => '',
-				'event_extra' => '',
-				'event_page_id' => '',
-				'event_agent_id' => '',
-				'event_agent_ip' => '',
-				'event_deleted' => 0,
-			),
-			(object)array(
-				'event_id' => 2,
-				'event_type' => 'test2',
-				'event_variant' => '',
-				'event_extra' => '',
-				'event_page_id' => '',
-				'event_agent_id' => '',
-				'event_agent_ip' => '',
-				'event_deleted' => 0,
-			)
-		);
-		$eventMapper = new EchoEventMapper( $this->mockMWEchoDbFactory( array( 'select' => $dbResult ) ) );
-		$res = $eventMapper->fetchByUserBundleHash( User::newFromId( 1 ), 'testhash', 'web', 'DESC', 250 );
-		$this->assertTrue( is_array( $res ) );
-		foreach ( $res as $row ) {
-			$this->assertInstanceOf( 'EchoEvent', $row );
-		}
-	}
-
 	/**
 	 * Mock object of EchoEvent
 	 */
