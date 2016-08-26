@@ -28,24 +28,16 @@
 		this.prioritized = !!config.prioritized;
 		this.messages = this.isDynamicAction() ?
 			config.actionData.messages :
-			{
-				item: {
-					title: config.label,
-					description: config.description
-				}
-			};
+			{};
 
 		this.actionData = config.actionData || {};
-
-		// Label
-		this.setLabel( this.messages.item.title );
 
 		// Optional description
 		this.descriptionLabel = new OO.ui.LabelWidget( {
 			classes: [ 'mw-echo-ui-menuItemWidget-content-description' ],
-			label: this.messages.item.description || ''
+			label: config.description || ''
 		} );
-		this.descriptionLabel.toggle( !this.prioritized && this.messages.item.description );
+		this.descriptionLabel.toggle( !this.prioritized && config.description );
 
 		// Build the option
 		this.$element
@@ -143,4 +135,3 @@
 		return this.dynamic;
 	};
 } )( mediaWiki, jQuery );
-

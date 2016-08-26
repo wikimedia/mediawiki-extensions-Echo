@@ -441,10 +441,10 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 	 * @return array Array of links in the format of:
 	 *               [['url' => (string) url,
 	 *                 'label' => (string) link text (non-escaped),
-	 *                 'description' => (string) descriptive text (non-escaped),
+	 *                 'description' => (string) descriptive text (optional, non-escaped),
 	 *                 'icon' => (bool|string) symbolic ooui icon name (or false if there is none),
 	 *                 'type' => (string) optional action type. Used to note a dynamic action, by setting it to 'dynamic-action'
-	 *                 'data' => (array) optional array containing information about the dynamic action. It must include 'tokenType' (string), 'messages' (array) with messages supplied for the item and the confirmation dialog and 'params' (array) for the API operation needed to complete the action. For exmaple:
+	 *                 'data' => (array) optional array containing information about the dynamic action. It must include 'tokenType' (string), 'messages' (array) with messages supplied for the item and the confirmation dialog and 'params' (array) for the API operation needed to complete the action. For example:
 	 *                 'data' => [
 	 *                     'tokenType' => 'watch',
 	 *                     'params' => [
@@ -452,10 +452,6 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 	 *                         'titles' => 'Namespace:SomeTitle'
 	 *                     ],
 	 *                     'messages' => [
-	 *                         'item' => [
-	 *                         	'title' => 'message (parsed as HTML)',
-	 *                         	'description' => 'optional message (parsed as HTML)'
-	 *                         ],
 	 *                         'confirmation' => [
 	 *                         	'title' => 'message (parsed as HTML)',
 	 *                         	'description' => 'optional message (parsed as HTML)'
@@ -582,12 +578,14 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 	 *
 	 * @param Title $title Title relating to this action
 	 * @param bool $icon Optional. Symbolic name of the OOUI icon to use
+	 * @param string $label link text (non-escaped)
+	 * @param string $description descriptive text (optional, non-escaped)
 	 * @param array $data Action data
 	 * @param array $query
 	 * @return array Array compatible with the structure of
 	 *  secondary links
 	 */
-	final protected function getDynamicActionLink( Title $title, $icon, $data = array(), $query = array() ) {
+	final protected function getDynamicActionLink( Title $title, $icon, $label, $description = null, $data = array(), $query = array() ) {
 		if ( !$icon && $title->getNamespace() === NS_USER_TALK ) {
 			$icon = 'userSpeechBubble';
 		} elseif ( !$icon && $title->isTalkPage() ) {
@@ -598,6 +596,8 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 
 		return array(
 			'type' => 'dynamic-action',
+			'label' => $label,
+			'description' => $description,
 			'data' => $data,
 			'url' => $title->getFullURL( $query ),
 			'icon' => $icon,
@@ -621,16 +621,6 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 				'titles' => $title->getPrefixedText(),
 			),
 			'messages' => array(
-				'item' => array(
-					// notification-dynamic-actions-watch
-					// notification-dynamic-actions-unwatch
-					'title' => $this
-						->msg( 'notification-dynamic-actions-' . $availableAction )
-						->params(
-							$title->getPrefixedText(),
-							$title->getFullURL( $query )
-						),
-				),
 				'confirmation' => array(
 					// notification-dynamic-actions-watch-confirmation
 					// notification-dynamic-actions-unwatch-confirmation
@@ -642,7 +632,7 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 						->msg( 'notification-dynamic-actions-' . $availableAction . '-confirmation-description' )
 						->params(
 							$title->getPrefixedText(),
-							$title->getFullURL( $query )
+							$title->getFullURL()
 						),
 				),
 			),
@@ -656,6 +646,14 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 		return $this->getDynamicActionLink(
 			$title,
 			$isTitleWatched ? 'unStar' : 'star',
+			// notification-dynamic-actions-watch
+			// notification-dynamic-actions-unwatch
+			$this->msg( 'notification-dynamic-actions-' . $availableAction )
+			->params(
+				$title->getPrefixedText(),
+				$title->getFullURL( array( 'action' => $availableAction ) )
+			),
+			null,
 			$data,
 			array( 'action' => $availableAction )
 		);
