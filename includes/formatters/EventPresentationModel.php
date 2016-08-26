@@ -631,7 +631,7 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 					'description' => $this
 						->msg( 'notification-dynamic-actions-' . $availableAction . '-confirmation-description' )
 						->params(
-							$title->getPrefixedText(),
+							$this->getTruncatedTitleText( $title ),
 							$title->getFullURL()
 						),
 				),
@@ -645,14 +645,19 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 
 		return $this->getDynamicActionLink(
 			$title,
-			$isTitleWatched ? 'unStar' : 'star',
+			// Design requirements are to flip the star icons
+			// in their meaning; that is, for the 'unwatch' action
+			// we should display an empty star, and for the 'watch'
+			// action a full star. In OOUI icons, their names
+			// are reversed.
+			$isTitleWatched ? 'star' : 'unStar',
 			// notification-dynamic-actions-watch
 			// notification-dynamic-actions-unwatch
 			$this->msg( 'notification-dynamic-actions-' . $availableAction )
-			->params(
-				$title->getPrefixedText(),
-				$title->getFullURL( array( 'action' => $availableAction ) )
-			),
+				->params(
+					$this->getTruncatedTitleText( $title ),
+					$title->getFullURL( array( 'action' => $availableAction ) )
+				),
 			null,
 			$data,
 			array( 'action' => $availableAction )
