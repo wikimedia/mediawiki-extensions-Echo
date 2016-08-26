@@ -14,6 +14,7 @@ CREATE TABLE /*_*/echo_event (
 ) /*$wgDBTableOptions*/;
 
 CREATE INDEX /*i*/echo_event_type ON /*_*/echo_event (event_type);
+CREATE INDEX /*i*/echo_event_page_id ON /*_*/echo_event (event_page_id);
 
 CREATE TABLE /*_*/echo_notification (
 	notification_event int unsigned not null,
