@@ -116,13 +116,13 @@
 	"notification-header-mention-agent-talkpage-nosection": "$1 ने <strong>{{GENDER:$2|त्याच्या|तिच्या|त्यांच्या}} चर्चा पानावर </strong>{{GENDER:$3|आपला}}{{GENDER:$2|उल्लेख केला}}.",
 	"notification-header-mention-article-talkpage": "$1 ने <strong>$5</strong> मध्ये \"  <strong>$4</strong> चर्चा पानावर\"{{GENDER:$3|आपला}} {{GENDER:$2|उल्लेख केला}}.",
 	"notification-header-mention-article-talkpage-nosection": "$1 ने <strong>$4</strong> चर्चा पानावर {{GENDER:$3|आपला}}{{GENDER:$2|उल्लेख केला}}.",
-	"notification-header-mention-failure-user-unknown": "{{GENDER:$2|आपण}} उल्लेख केलेले $3 पाठविल्या गेले नाही कारण तो सदस्य सापडला नाही.",
-	"notification-header-mention-failure-user-anonymous": "{{GENDER:$2|आपण}} उल्लेख केलेले $3 पाठविल्या गेले नाही कारण तो सदस्य अनामिक आहे.",
+	"notification-header-mention-failure-user-unknown": "{{GENDER:$2|आपण}} उल्लेख केलेले<strong>$3</strong> पाठविल्या गेले नाही कारण तो सदस्य सापडला नाही.",
+	"notification-header-mention-failure-user-anonymous": "{{GENDER:$2|आपण}} उल्लेख केलेले<strong>$3</strong> पाठविल्या गेले नाही कारण तो सदस्य अनामिक आहे.",
 	"notification-header-mention-failure-too-many": "{{GENDER:$2|आपले}} उल्लेखित पाठविल्या गेले नाहीत कारण त्यांनी $3 ची मर्यादा उल्लंघिली.",
 	"notification-header-mention-failure-bundle": "{{GENDER:$2|आपण केलेला/ले}} {{PLURAL:$3|एक उल्लेख|$3 उल्लेख}}   <strong>$4</strong> चर्चा पानावर {{PLURAL:$3|पाठविल्या}} गेले नाहीत.",
 	"notification-compact-header-mention-failure-user-unknown": "<strong>सदस्यनाव अस्तित्वात नाही:</strong> $1",
 	"notification-compact-header-mention-failure-user-anonymous": "<strong>अंकपत्ते उल्लेखित केल्या जाऊ शकत नाहीत:</strong> $1",
-	"notification-header-mention-success": "{{GENDER:$2|आपला}} $3 चा उल्लेख पाठविल्या गेला.",
+	"notification-header-mention-success": "{{GENDER:$2|आपला}}<strong>$3</strong> चा उल्लेख पाठविल्या गेला.",
 	"notification-header-mention-success-bundle": "<strong>$4</strong> चर्चा पानावर {{GENDER:$2|आपण केलेला/ले}}{{PLURAL:$3|एक उल्लेख|$3 उल्लेख}} पाठविल्या {{PLURAL:$3|गेलेत}}.",
 	"notification-compact-header-mention-success": "<strong>{{GENDER:$2|आपण उल्लेख केला}}:</strong> $3",
 	"notification-header-user-rights-add-only": "{{GENDER:$4|आपले}} सदस्य अधिकार {{GENDER:$1|बदलल्या गेलेत}}. आपण जोडल्या गेले आहात: $2 शी.",
@@ -203,7 +203,9 @@
 	"apihelp-query+notifications-param-groupbysection": "निकालाचे विभागानुसार गट करावयाचे काय. जर स्थापिल्या गेले तर,प्रत्येक विभागास वेगळ्या रितीने पुरवठा होतो.",
 	"apihelp-query+notifications-param-format": "जर नमूद केले तर, अधिसूचना या प्रकारे प्रारुपण करुन पाठविल्या जातील.",
 	"apihelp-query+notifications-param-wikis": "अधिसूचना पुरवाविण्यास असलेली विकिंची यादी (फक्त सध्याच्या विकिसाठीच फक्त अविचल)",
+	"apihelp-query+notifications-param-messagecontinue": "जेंव्हा अधिक संदेश निकाल उपलब्ध असतील, याचा वापर पुढे जाण्यास करा.",
 	"apihelp-query+notifications-param-titles": "या पानांसाठीच्या फक्त परतीच्या अधिसूचना.कोणत्याही पानाशी संलग्न नसलेल्या अधिसूचना मिळविण्यास,[]शीर्षक म्हणून वापरा.",
 	"apihelp-query+notifications-example-1": "अधिसूचनांची यादी करा",
-	"apihelp-query+notifications-example-2": "अधिसूचनांचे विभागानुसार गट पाडून,मोजणीसह यादी करा"
+	"apihelp-query+notifications-example-2": "अधिसूचनांचे विभागानुसार गट पाडून,मोजणीसह यादी करा",
+	"apihelp-query+unreadnotificationpages-example-1": "पानांची यादी न वाचलेल्या अधिसूचना (त्यांच्या आकड्यांसह)"
 }
