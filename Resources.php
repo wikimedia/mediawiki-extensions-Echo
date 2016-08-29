@@ -105,6 +105,9 @@ $wgResourceModules += array(
 			'minerva' => array(
 				'styles/mw.echo.ui.overlay.minerva.less',
 			),
+			'monobook' => array(
+				'styles/mw.echo.ui.overlay.monobook.less',
+			)
 		),
 		'dependencies' => array(
 			'ext.echo.logger',
