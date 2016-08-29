@@ -199,6 +199,7 @@ $wgResourceModules += array(
 		),
 		'messages' => array(
 			'echo-api-failure',
+			'echo-notification-loginrequired',
 			'echo-api-failure-cross-wiki',
 		),
 		'targets' => array( 'desktop', 'mobile' ),
