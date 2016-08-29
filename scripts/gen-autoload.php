@@ -19,7 +19,12 @@ function main() {
 		$generator->readFile( $file );
 	}
 
-	$generator->generateAutoload( basename( __DIR__ ) . '/' . basename( __FILE__ ) );
+	$target = $generator->getTargetFileInfo();
+
+	file_put_contents(
+		$target['filename'],
+		$generator->getAutoload( basename( __DIR__ ) . '/' . basename( __FILE__ ) )
+	);
 
 	echo "Done.\n\n";
 }
