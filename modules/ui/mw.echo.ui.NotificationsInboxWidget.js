@@ -29,6 +29,8 @@
 		this.$overlay = config.$overlay || this.$element;
 		this.limit = config.limit || 25;
 
+		this.error = false;
+
 		// A notice or error message widget
 		this.noticeMessageWidget = new OO.ui.LabelWidget( {
 			classes: [ 'mw-echo-ui-notificationsInboxWidget-notice' ]
@@ -236,6 +238,7 @@
 		}
 
 		this.pushPending();
+		this.error = false;
 		return fetchPromise
 			.then(
 				// Success
@@ -245,8 +248,21 @@
 					widget.controller.updateSeenTimeForCurrentSource();
 				},
 				// Failure
-				this.popPending.bind( this )
-			);
+				function ( errObj ) {
+					var msg;
+					if ( errObj.errCode === 'notlogin-required' ) {
+						// Login required message
+						msg = mw.msg( 'echo-notification-loginrequired' );
+					} else {
+						// Generic API failure message
+						msg = mw.msg( 'echo-api-failure' );
+					}
+					widget.error = true;
+					widget.noticeMessageWidget.setLabel( msg );
+					widget.displayMessage( true );
+				}
+			)
+			.always( this.popPending.bind( this ) );
 	};
 
 	/**
@@ -265,7 +281,10 @@
 	 * Extend the popPending method to enable UI elements
 	 */
 	mw.echo.ui.NotificationsInboxWidget.prototype.popPending = function () {
-		this.resetMessageLabel();
+		if ( !this.error ) {
+			this.resetMessageLabel();
+		}
+
 		this.topPaginationWidget.setDisabled( false );
 		this.bottomPaginationWidget.setDisabled( false );
 

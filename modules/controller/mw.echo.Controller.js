@@ -226,7 +226,16 @@
 				controller.manager.getLocalCounter().update();
 
 				return dateItemIds;
-			} );
+			} )
+			.then(
+				null,
+				function ( errCode, errObj ) {
+					return {
+						errCode: errCode,
+						errInfo: OO.getProp( errObj, 'error', 'info' )
+					};
+				}
+			);
 	};
 	/**
 	 * Fetch notifications from the local API and update the notifications list.

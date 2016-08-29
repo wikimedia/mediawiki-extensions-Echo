@@ -65,6 +65,15 @@
 
 		this.pushPending();
 		return this.controller.fetchLocalNotifications( true )
+			.then( null, function ( errorObj ) {
+				if ( errorObj.errCode === 'notlogin-required' ) {
+					// Login required message
+					widget.notificationsWidget.resetLoadingOption( mw.msg( 'echo-notification-loginrequired' ) );
+				} else {
+					// Generic API failure message
+					widget.notificationsWidget.resetLoadingOption( mw.msg( 'echo-api-failure' ) );
+				}
+			} )
 			.always( function () {
 				widget.popPending();
 				widget.emit( 'finishLoading' );

@@ -357,8 +357,14 @@
 					}
 				},
 				// Failure
-				function () {
-					widget.notificationsWidget.resetLoadingOption( mw.msg( 'echo-api-failure' ) );
+				function ( errorObj ) {
+					if ( errorObj.errCode === 'notlogin-required' ) {
+						// Login required message
+						widget.notificationsWidget.resetLoadingOption( mw.msg( 'echo-notification-loginrequired' ) );
+					} else {
+						// Generic API failure message
+						widget.notificationsWidget.resetLoadingOption( mw.msg( 'echo-api-failure' ) );
+					}
 				}
 			)
 			.then( this.emit.bind( this, 'finishLoading' ) )
