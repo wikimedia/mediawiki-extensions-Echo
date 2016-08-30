@@ -319,6 +319,11 @@ $wgResourceModules += array(
 			'styles/mw.echo.ui.CrossWikiUnreadFilterWidget.less',
 			'styles/mw.echo.ui.SpecialHelpMenuWidget.less',
 		),
+		'skinStyles' => array(
+			'monobook' => array(
+				'styles/mw.echo.ui.CrossWikiUnreadFilterWidget.monobook.less',
+			),
+		),
 		'dependencies' => array(
 			'ext.echo.ui',
 			'mediawiki.Uri',
