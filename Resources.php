@@ -95,6 +95,7 @@ $wgResourceModules += array(
 		'skinStyles' => array(
 			'monobook' => array(
 				'styles/mw.echo.ui.NotificationsListWidget.monobook.less',
+				'styles/mw.echo.ui.overlay.monobook.less',
 			),
 			'modern' => array(
 				'styles/mw.echo.ui.NotificationItemWidget.modern.less',
@@ -104,9 +105,6 @@ $wgResourceModules += array(
 			),
 			'minerva' => array(
 				'styles/mw.echo.ui.overlay.minerva.less',
-			),
-			'monobook' => array(
-				'styles/mw.echo.ui.overlay.monobook.less',
 			)
 		),
 		'dependencies' => array(
