@@ -40,11 +40,16 @@ class SpecialNotifications extends SpecialPage {
 		$pager->setLimit( $this->getRequest()->getVal( 'limit', self::DISPLAY_NUM ) );
 		$notifications = $pager->getNotifications();
 
+		$noJSDiv = new OOUI\Tag();
+		$noJSDiv->addClasses( [ 'mw-echo-special-nojs' ] );
+
 		// If there are no notifications, display a message saying so
 		if ( !$notifications ) {
 			// Wrap this with nojs so it is still hidden if JS is loading
-			$msg = new OOUI\LabelWidget( [ 'label' => $this->msg( 'echo-none' )->text() ] );
-			$out->addHTML( Html::rawElement( 'div', array( 'class' => 'mw-echo-special-nojs' ), $msg ) );
+			$noJSDiv->appendContent(
+				new OOUI\LabelWidget( [ 'label' => $this->msg( 'echo-none' )->text() ] )
+			);
+			$out->addHTML( $noJSDiv );
 			$out->addModules( array( 'ext.echo.special' ) );
 			return;
 		}
@@ -64,20 +69,21 @@ class SpecialNotifications extends SpecialPage {
 		$seenTime = $echoSeenTime->getTime();
 		$notifArray = array();
 		foreach ( $notif as $row ) {
-			$class = 'mw-echo-notification';
+			if ( !$row['*'] ) {
+				continue;
+			}
+
+			$classes = array( 'mw-echo-notification' );
+
 			if ( !isset( $row['read'] ) ) {
-				$class .= ' mw-echo-notification-unread';
+				$classes[] = 'mw-echo-notification-unread';
 				if ( !$row['targetpages'] ) {
 					$unread[] = $row['id'];
 				}
 			}
 
 			if ( $seenTime !== null && $row['timestamp']['mw'] > $seenTime ) {
-				$class .= ' mw-echo-notification-unseen';
-			}
-
-			if ( !$row['*'] ) {
-				continue;
+				$classes[] = 'mw-echo-notification-unseen';
 			}
 
 			// Output the date header if it has not been displayed
@@ -94,27 +100,39 @@ class SpecialNotifications extends SpecialPage {
 				$notifArray[ $dateHeader ][ 'unread' ][] = $row['id'];
 			}
 
-			$notifArray[ $dateHeader ][ 'notices' ][] = Html::rawElement(
-				'li',
-				array(
-					'class' => $class,
+			$li = new OOUI\Tag( 'li' );
+			$li
+				->addClasses( $classes )
+				->setAttributes( [
 					'data-notification-category' => $row['category'],
 					'data-notification-event' => $row['id'],
 					'data-notification-type' => $row['type']
-				),
-				$row['*']
-			);
+				] )
+				->appendContent( new OOUI\HtmlSnippet( $row['*'] ) );
+
+			// Store
+			$notifArray[ $dateHeader ][ 'notices' ][] = $li;
 		}
 
-		// Build the HTML
-		$notices = '';
+		// Build the list
+		$notices = new OOUI\Tag( 'ul' );
+		$notices->addClasses( [ 'mw-echo-special-notifications' ] );
+
 		$markReadSpecialPage = new SpecialNotificationsMarkRead();
 		foreach ( $notifArray as $section => $data ) {
-			$dateSectionText = Html::element( 'span', array( 'class' => 'mw-echo-date-section-text' ), $section );
-			$sectionTitle = $dateSectionText;
+			// Heading
+			$heading = ( new OOUI\Tag( 'li' ) )->addClasses( [ 'mw-echo-date-section' ] );
+
+			$dateTitle = new OOUI\LabelWidget( [
+				'classes' => [ 'mw-echo-date-section-text' ],
+				'label' => $section
+			] );
+
+			$heading->appendContent( $dateTitle );
+
+			// Mark all read button
 			if ( count( $data[ 'unread' ] ) > 0 ) {
 				$markReadSectionText = $this->msg( 'echo-specialpage-section-markread' )->text();
-
 				$markAsReadLabelIcon = new EchoOOUI\LabelIconWidget( array(
 					'label' => $markReadSectionText,
 					'icon' => 'doubleCheck',
@@ -129,31 +147,48 @@ class SpecialNotifications extends SpecialPage {
 				);
 
 				$formHtml = $markSectionAsReadForm->prepareForm()->getHTML( /* First submission attempt */ false );
-				$formWrapper = Html::rawElement(
-					'div',
-					array(
-						'class' => 'mw-echo-markAsReadSectionButton',
-					),
-					$formHtml
-				);
-				$sectionTitle .= $formWrapper;
+
+				$formWrapper = new OOUI\Tag();
+				$formWrapper
+					->addClasses( [ 'mw-echo-markAsReadSectionButton' ] )
+					->appendContent( new OOUI\HtmlSnippet( $formHtml ) );
+
+				$heading->appendContent( $formWrapper );
 			}
 
-			// Heading
-			$notices .= Html::rawElement( 'li', array( 'class' => 'mw-echo-date-section' ), $sectionTitle );
-
-			// Notices
-			$notices .= join( "\n", $data[ 'notices' ] );
+			// These two must be separate, because $data[ 'notices' ]
+			// is an array
+			$notices
+				->appendContent( $heading )
+				->appendContent( $data[ 'notices' ] );
 		}
 
 		$navBar = $pager->getNavigationBar();
 
-		$html = Html::rawElement( 'div', array( 'class' => 'mw-echo-special-navbar-top' ), $navBar );
-		$html .= Html::rawElement( 'ul', array( 'class' => 'mw-echo-special-notifications' ), $notices );
-		$html .= Html::rawElement( 'div', array( 'class' => 'mw-echo-special-navbar-bottom' ), $navBar );
+		$navTop = new OOUI\Tag();
+		$navBottom = new OOUI\Tag();
+		$container = new OOUI\Tag();
 
-		$html = Html::rawElement( 'div', array( 'class' => 'mw-echo-special-container' ), $html );
-		$out->addHTML( Html::rawElement( 'div', array( 'class' => 'mw-echo-special-nojs' ), $html ) );
+		$navTop
+			->addClasses( [ 'mw-echo-special-navbar-top' ] )
+			->appendContent( new OOUI\HtmlSnippet( $navBar ) );
+		$navBottom
+			->addClasses( [ 'mw-echo-special-navbar-bottom' ] )
+			->appendContent( new OOUI\HtmlSnippet( $navBar ) );
+
+		// Put it all together
+		$container
+			->addClasses( [ 'mw-echo-special-container' ] )
+			->appendContent(
+				$navTop,
+				$notices,
+				$navBottom
+			);
+
+		// Wrap with nojs div
+		$noJSDiv->appendContent( $container );
+
+		$out->addHTML( $noJSDiv );
 
 		$out->addModules( array( 'ext.echo.special' ) );
 
