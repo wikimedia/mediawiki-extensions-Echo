@@ -6,7 +6,8 @@
 			"Yekrats",
 			"Robin van der Vliet",
 			"Lucas",
-			"Macofe"
+			"Macofe",
+			"Gamliel Fishkin"
 		]
 	},
 	"echo-desc": "Sistemo por sciigado uzantojn pri okazaĵoj kaj mesaĝoj",
@@ -37,6 +38,7 @@
 	"echo-category-title-other": "{{PLURAL:$1|Aliaj}}",
 	"echo-category-title-system": "{{PLURAL:$1|Sistemo}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|Ŝanĝo de uzanto-rajto|Ŝanĝoj de uzanto-rajtoj}}",
+	"echo-category-title-emailuser": "{{PLURAL:$1|Retpoŝta mesaĝo de alia uzanto|Retpoŝtaj mesaĝoj de aliaj uzantoj}}",
 	"echo-pref-tooltip-edit-user-talk": "Sciigu min kiam iu komencas diskuton aŭ respondas en mia diskutpaĝo.",
 	"echo-pref-tooltip-article-linked": "Sciigu min kiam iu de artikolo ligas al paĝo kiun mi kreis.",
 	"echo-pref-tooltip-reverted": "Sciigu min kiam iu malfaras mian redakton per ilo por malfari aŭ amasmalfari.",
@@ -53,6 +55,8 @@
 	"echo-none": "Vi ne havas sciigojn.",
 	"echo-more-info": "Pliaj informoj",
 	"echo-feedback": "Rimarkoj",
+	"echo-popup-footer-special-page-invitation": "<strong>Gustumu la redizajnitan paĝon Sciigoj.</strong> [$2 $1]",
+	"echo-popup-footer-special-page-invitation-link": "La tuta nova aspekto kaj ecoj.",
 	"echo-notification-placeholder": "Ne estas iuj sciigoj.",
 	"echo-notification-loginrequired": "Vi devas ensaluti por vidi viajn sciigojn.",
 	"echo-notification-popup-loginrequired": "Bonvolu ensaluti por vidi viajn sciigojn.",
