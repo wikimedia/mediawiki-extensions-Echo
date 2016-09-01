@@ -315,7 +315,9 @@
 	mw.echo.ui.CrossWikiNotificationItemWidget.prototype.toggleExpanded = function ( show ) {
 		this.expanded = show !== undefined ? !!show : !this.expanded;
 
-		if ( show ) {
+		this.$element.toggleClass( 'mw-echo-ui-crossWikiNotificationItemWidget-expanded', this.expanded );
+
+		if ( this.expanded ) {
 			this.getList().$element.slideDown();
 		} else {
 			this.getList().$element.slideUp();
