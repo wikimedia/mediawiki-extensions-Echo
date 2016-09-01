@@ -17,14 +17,15 @@
 			"Sadrettin",
 			"MrSchipunov",
 			"Nemo bis",
-			"Serkanland"
+			"Serkanland",
+			"Ece Alpdeniz"
 		]
 	},
 	"echo-desc": "Kullanıcıları olaylar ve mesajlar hakkında bilgilendiren sistem",
 	"prefs-echo": "Bildirimler",
 	"prefs-emailsettings": "E-posta seçenekleri",
 	"prefs-displaynotifications": "Görüntüleme seçenekleri",
-	"prefs-echosubscriptions": "Bu olaylar hakkında bana bildirm gönder",
+	"prefs-echosubscriptions": "Bu olaylar hakkında bana bildirim gönder",
 	"prefs-echocrosswiki": "Vikilerarası bildirimler",
 	"prefs-newmessageindicator": "Yeni ileti göstergesi",
 	"echo-pref-send-me": "E-posta bildirim tercihi:",
@@ -50,7 +51,7 @@
 	"echo-category-title-reverted": "Değişiklik {{PLURAL:$1|iptali|iptalleri}}",
 	"echo-category-title-mention": "{{PLURAL:$1|Bahsetme|Bahsetmeler}}",
 	"echo-category-title-mention-failure": "Başarısız {{PLURAL:$1|bahsetme|bahsetme}}",
-	"echo-category-title-mention-success": "Başarılı {{PLURAL:$1|bahsetme|bahsetme}}",
+	"echo-category-title-mention-success": "Başarılı {{PLURAL:$1|bahsetme|bahsetmeler}}",
 	"echo-category-title-other": "{{PLURAL:$1|Diğer}}",
 	"echo-category-title-system": "{{PLURAL:$1|Sistem}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|Kullanıcı hakları değişikliği|Kullanıcı hakları değişiklikleri}}",
