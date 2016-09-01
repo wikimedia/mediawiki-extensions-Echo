@@ -1586,4 +1586,16 @@ TEXT
 			return "ParserFunctions not enabled";
 		}
 	}
+
+	public function testGetTextSnippet() {
+		$this->assertEquals(
+			'Page001',
+			EchoDiscussionParser::getTextSnippet(
+				'[[:{{BASEPAGENAME}}]]',
+				Language::factory( 'en' ),
+				150,
+				Title::newFromText( 'Page001' )
+			)
+		);
+	}
 }
