@@ -1,14 +1,13 @@
 @import '../echo.variables';
 @import '../echo.mixins';
+@import 'mediawiki.mixins';
 
-// This needs to be outside the upper selector 'NotificationItemWidget'
-// because the same styles also apply (for the moment, at least) to the notification
-// objects in the Special:Notifications page, which are, individually
-// not wrapped with a NotificationItemWidget.
+// This is only valid for the Special:Notifications page in no-JS mode,
+// where the formatting of the notifications include the following structure
 .mw-echo-state {
 	display: block;
 	width: 100%;
-	box-sizing: border-box;
+	.box-sizing( border-box );
 
 	.mw-echo-notification-primary-link {
 		display: none;
