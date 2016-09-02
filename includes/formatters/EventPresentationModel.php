@@ -507,7 +507,7 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 
 	protected function getTruncatedSectionTitle( $section ) {
 		return $this->language->embedBidi( $this->language->truncate(
-			EchoDiscussionParser::getTextSnippet( $section, $this->language ),
+			EchoDiscussionParser::getTextSnippet( $section, $this->language, 150, $this->event->getTitle() ),
 			self::SECTION_TITLE_RECOMMENDED_LENGTH,
 			'...',
 			false

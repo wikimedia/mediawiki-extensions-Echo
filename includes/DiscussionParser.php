@@ -135,14 +135,16 @@ abstract class EchoDiscussionParser {
 					$snippet = self::getTextSnippet(
 						self::stripSignature( self::stripHeader( $action['content'] ), $title ),
 						$wgLang,
-						150 );
+						150,
+						$title );
 					break;
 				case 'new-section-with-comment':
 					$header = self::extractHeader( $action['content'] );
 					$snippet = self::getTextSnippet(
 						self::stripSignature( self::stripHeader( $action['content'] ), $title ),
 						$wgLang,
-						150 );
+						150,
+						$title );
 					break;
 			}
 			if ( $header ) {
@@ -1170,11 +1172,12 @@ abstract class EchoDiscussionParser {
 	 * @param string $text
 	 * @param Language $lang
 	 * @param int $length default 150
+	 * @param Title|null $title Page from which the text snippet is being extracted
 	 * @return string
 	 */
-	static function getTextSnippet( $text, Language $lang, $length = 150 ) {
+	static function getTextSnippet( $text, Language $lang, $length = 150, $title = null ) {
 		// Parse wikitext
-		$html = MessageCache::singleton()->parse( $text )->getText();
+		$html = MessageCache::singleton()->parse( $text, $title )->getText();
 		$plaintext = self::htmlToText( $html );
 		return $lang->truncate( $plaintext, $length );
 	}

@@ -63,7 +63,9 @@ class EchoMentionPresentationModel extends EchoEventPresentationModel {
 			$msg->plaintextParams(
 				EchoDiscussionParser::getTextSnippet(
 					$content,
-					$this->language
+					$this->language,
+					150,
+					$this->event->getTitle()
 				)
 			);
 			return $msg;
