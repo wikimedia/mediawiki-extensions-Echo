@@ -76,6 +76,7 @@ $wgResourceModules += array(
 			'ui/mw.echo.ui.MenuItemWidget.js',
 			'ui/mw.echo.ui.FooterNoticeWidget.js',
 			'ui/mw.echo.ui.NotificationsWrapper.js',
+			'ui/mw.echo.ui.ConfirmationPopupWidget.js',
 			'ext.echo.moment-hack.js',
 		),
 		'styles' => array(
@@ -91,6 +92,7 @@ $wgResourceModules += array(
 			'styles/mw.echo.ui.MenuItemWidget.less',
 			'styles/mw.echo.ui.FooterNoticeWidget.less',
 			'styles/mw.echo.ui.NotificationsWrapper.less',
+			'styles/mw.echo.ui.ConfirmationPopupWidget.less',
 		),
 		'skinStyles' => array(
 			'monobook' => array(
@@ -351,7 +353,6 @@ $wgResourceModules += array(
 	'ext.echo.styles.special' => $echoResourceTemplate + array(
 		'position' => 'top',
 		'styles' => array(
-			'nojs/mw.echo.icon.less',
 			'nojs/mw.echo.special.less',
 		),
 		'targets' => array( 'desktop', 'mobile' ),
