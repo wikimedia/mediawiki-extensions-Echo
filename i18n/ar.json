@@ -20,7 +20,8 @@
 			"Maroen1990",
 			"Catrope",
 			"علاء",
-			"بدارين"
+			"بدارين",
+			"Izoozo"
 		]
 	},
 	"echo-desc": "نظام لإخطار المستخدمين عن الأحداث والرسائل",
@@ -92,7 +93,9 @@
 	"echo-notification-markasread-tooltip": "علّم كمقروءة",
 	"echo-notification-more-options-tooltip": "المزيد من الخيارات",
 	"notification-dynamic-actions-unwatch-confirmation-description": "يمكنك مراقبة [$2 هذه الصفحة] في أي وقت.",
+	"notification-dynamic-actions-watch": "متابعة أنشطة جديدة على \"$1\"",
 	"notification-dynamic-actions-watch-confirmation": "أنت الآن تراقب الصفحة \"$1\"",
+	"notification-dynamic-actions-watch-confirmation-description": "تستطيع التوقف عن مشاهدة [$2 هذه الصفحة] في أي وقت",
 	"notification-link-text-expand-all": "اعرض الكل",
 	"notification-link-text-expand-alert-count": "أظهر {{PLURAL:$1|تنبيهًا واحدًا|تنبيهين|$1 تنبيهات|$1 تنبيهًا}}",
 	"notification-link-text-expand-notice-count": "اعرض {{PLURAL:$1|لا إخطارات|إخطارًا واحدًا|إخطارين|$1 إخطارات|$1 إخطارًا}}",
