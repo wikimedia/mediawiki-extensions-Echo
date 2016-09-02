@@ -61,7 +61,11 @@
 				color: @notification-text-color;
 			}
 			&-body {
-				.mw-echo-ui-mixin-one-line-truncated;
+				@media all and ( min-width: @specialpage-hd-width ) {
+					// Don't truncate on small screens
+					.mw-echo-ui-mixin-one-line-truncated;
+				}
+
 				color: @notification-body-color;
 				margin-top: 4px;
 			}
