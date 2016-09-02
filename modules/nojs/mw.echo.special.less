@@ -23,7 +23,7 @@
 	display: none;
 }
 
-@media all and ( min-width: @specialpage-mobile-width-medium ) {
+@media all and ( min-width: @specialpage-hd-width ) {
 	.client-js #mw-content-text {
 		margin-top: 2em;
 	}
@@ -149,7 +149,7 @@ div.mw-htmlform-ooui-wrapper {
 	margin: 0;
 }
 
-@media all and ( max-width: @specialpage-mobile-width-medium ) {
+@media all and ( max-width: ( @specialpage-hd-width - 1 ) ) {
 	.pre-content.heading-holder {
 		// Center 'preferences' in mobile special page
 		text-align: center;
