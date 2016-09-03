@@ -179,6 +179,7 @@
 	"echo-overlay-title": "<b>Известувања</b>",
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Известувања}}</b> ({{PLURAL:$1|прикажано|прикажани}} $1 од $2 непрочитани)",
 	"echo-mark-all-as-read": "Означи ги сите како прочитани",
+	"echo-mark-all-as-read-confirmation": "{{PLURAL:$1|Означено $1 известување|Означени $1 известувања}} како прочитани",
 	"echo-mark-wiki-as-read": "Означи ги сите како прочитани на избраното вики: $1",
 	"echo-date-today": "Денес",
 	"echo-date-yesterday": "Вчера",

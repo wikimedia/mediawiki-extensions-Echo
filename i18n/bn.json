@@ -180,6 +180,7 @@
 	"echo-overlay-title": "<b>বিজ্ঞপ্তি</b>",
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|বিজ্ঞপ্তি}}</b> (অপঠিত $2টির মধ্যে $1টি প্রদর্শিত হচ্ছে)",
 	"echo-mark-all-as-read": "সব পঠিত হিসেবে চিহ্নিত করুন",
+	"echo-mark-all-as-read-confirmation": "$1টি {{PLURAL:$1|বিজ্ঞপ্তি}} পঠিত হিসেবে চিহ্নিত করুন",
 	"echo-mark-wiki-as-read": "নির্বাচিত উইকিতে সব পঠিত হিসেবে চিহ্নিত করুন: $1",
 	"echo-date-today": "আজ",
 	"echo-date-yesterday": "গতকাল",

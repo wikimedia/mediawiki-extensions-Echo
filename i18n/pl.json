@@ -178,6 +178,7 @@
 	"echo-overlay-title": "<b>Powiadomienia</b>",
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Powiadomienie|Powiadomienia}}</b> (wyświetlono $1 z $2 nieprzeczytanych)",
 	"echo-mark-all-as-read": "Oznacz wszystkie jako przeczytane",
+	"echo-mark-all-as-read-confirmation": "$1 {{PLURAL:$1|powiadomienie oznaczone|powiadomienia oznaczone|powiadomień oznaczonych}} jako przeczytane",
 	"echo-mark-wiki-as-read": "Oznacz wszystko jako przeczytane w wybranej wiki: $1",
 	"echo-date-today": "Dzisiaj",
 	"echo-date-yesterday": "Wczoraj",

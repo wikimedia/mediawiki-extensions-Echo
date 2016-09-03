@@ -175,6 +175,7 @@
 	"echo-overlay-title": "<b>通知</b>",
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|通知}}</b> (未読 $2 件中 $1 件を表示中)",
 	"echo-mark-all-as-read": "すべて既読にする",
+	"echo-mark-all-as-read-confirmation": "$1件の{{PLURAL:$1|通知}}を既読にしました",
 	"echo-mark-wiki-as-read": "選択したウィキですべて既読にする: $1",
 	"echo-date-today": "今日",
 	"echo-date-yesterday": "昨日",

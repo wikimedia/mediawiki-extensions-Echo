@@ -181,6 +181,7 @@
 	"echo-overlay-title": "<b>Meldingen</b>",
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Melding|Meldingen}}</b> ($1 van $2 ongelezen)",
 	"echo-mark-all-as-read": "Alles als gelezen markeren",
+	"echo-mark-wiki-as-read": "Markeer alles als gelezen in de geselecteerde wiki: $1",
 	"echo-date-today": "Vandaag",
 	"echo-date-yesterday": "Gisteren",
 	"echo-load-more-error": "Er is een fout opgetreden tijdens het ophalen van meer resultaten.",

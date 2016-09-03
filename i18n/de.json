@@ -186,6 +186,7 @@
 	"echo-overlay-title": "<b>Benachrichtigungen</b>",
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Benachrichtigungen}}</b> ($1 von $2 ungelesenen werden angezeigt)",
 	"echo-mark-all-as-read": "Alle als gelesen markieren",
+	"echo-mark-all-as-read-confirmation": "{{PLURAL:$1|Eine Benachrichtigung|$1 Benachrichtigungen}} als gelesen markiert",
 	"echo-mark-wiki-as-read": "Alle als gelesen markieren in dem ausgewählten Wiki: $1",
 	"echo-date-today": "Heute",
 	"echo-date-yesterday": "Gestern",
