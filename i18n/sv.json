@@ -190,6 +190,7 @@
 	"echo-overlay-title": "<b>Aviseringar</b>",
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Avisering|Aviseringar}}</b> (visar $1 av $2 {{PLURAL:$2|oläst|olästa}})",
 	"echo-mark-all-as-read": "Markera alla som lästa",
+	"echo-mark-all-as-read-confirmation": "$1 {{PLURAL:$1|avisering markerad som läst|aviseringar markerade som lästa}}",
 	"echo-mark-wiki-as-read": "Markera alla som lästa på vald wiki: $1",
 	"echo-date-today": "Idag",
 	"echo-date-yesterday": "Igår",
