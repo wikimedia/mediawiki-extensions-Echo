@@ -174,6 +174,7 @@
 	"echo-overlay-title": "<b>إشعارات</b>",
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|إشعارات}}</b> (عرض $1 من $2 لم تقرأ)",
 	"echo-mark-all-as-read": "اعتبرها كلها مقروءة",
+	"echo-mark-wiki-as-read": "علّم الكل كمقروء في الويكي المحددة: $1",
 	"echo-date-today": "اليوم",
 	"echo-date-yesterday": "أمس",
 	"echo-load-more-error": "وقع خطأ في إيراد المزيد من النتائج.",

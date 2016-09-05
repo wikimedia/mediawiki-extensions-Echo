@@ -15,7 +15,8 @@
 			"Macofe",
 			"Luk3",
 			"Anderson Costa",
-			"Peter Fernando"
+			"Peter Fernando",
+			"Cristofer Alves"
 		]
 	},
 	"echo-desc": "Sistema para notificar usuários sobre eventos e mensagens",
@@ -50,6 +51,7 @@
 	"echo-pref-tooltip-article-linked": "Notifique-me quando alguém criar link para uma página que criei a partir de uma página de artigo.",
 	"echo-pref-tooltip-reverted": "Notifique-me quando alguém reverter uma edição que fiz usando desfazer ou a ferramenta de reversão.",
 	"echo-pref-tooltip-mention": "Notificar-me quando alguém criar links para a minha página de usuário.",
+	"echo-pref-tooltip-mention-success": "Notifique me quando eu enviar uma menção para alguém.",
 	"echo-pref-tooltip-user-rights": "Notificar-me quando alguém alterar minhas permissões de usuário.",
 	"echo-pref-tooltip-emailuser": "Notificar-me quando alguém me enviar um email.",
 	"echo-error-no-formatter": "Nenhum formato definido para notificações",
