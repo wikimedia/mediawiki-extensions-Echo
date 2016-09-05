@@ -1,7 +1,6 @@
 <?php
 
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Logger\LoggerFactory;
 
 abstract class EchoDiscussionParser {
 	const HEADER_REGEX = '^(==+)\s*([^=].*)\s*\1$';
@@ -19,6 +18,8 @@ abstract class EchoDiscussionParser {
 	 */
 	static function generateEventsForRevision( Revision $revision ) {
 		global $wgEchoMentionsOnMultipleSectionEdits;
+		global $wgEchoMentionOnChanges;
+
 		// use slave database if there is a previous revision
 		if ( $revision->getPrevious() ) {
 			$title = Title::newFromID( $revision->getPage() );
@@ -37,11 +38,6 @@ abstract class EchoDiscussionParser {
 		$userID = $revision->getUser();
 		$userName = $revision->getUserText();
 		$user = $userID != 0 ? User::newFromId( $userID ) : User::newFromName( $userName, false );
-		$logger = LoggerFactory::getInstance( 'Echo' );
-		$diffUrl = $title->getFullURL( array(
-			'oldid' => 'prev',
-			'diff' => $revision->getId()
-		) );
 
 		foreach ( $interpretation as $action ) {
 			if ( $action['type'] == 'add-comment' ) {
@@ -64,15 +60,10 @@ abstract class EchoDiscussionParser {
 					self::getUserLinks( $action['new_content'], $title ) ?: [],
 					self::getUserLinks( $action['old_content'], $title ) ?: []
 				);
-				if ( $userLinks ) {
-					$logger->debug(
-						'Potential mention on a change by {user} on {diff}',
-						array(
-							'user' => $user->getName(),
-							'diff' => $diffUrl,
-							'user-links' => $userLinks,
-						)
-					);
+				$header = self::extractHeader( $action['full-section'] );
+
+				if ( $wgEchoMentionOnChanges ) {
+					self::generateMentionEvents( $header, $userLinks, $action['new_content'], $revision, $user );
 				}
 			}
 		}
