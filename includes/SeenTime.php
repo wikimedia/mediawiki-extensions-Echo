@@ -27,7 +27,12 @@ class EchoSeenTime {
 	 */
 	private function __construct( User $user ) {
 		$this->user = $user;
-		$this->cache = ObjectCache::getInstance( 'db-replicated' );
+		// Use db-replicated for persistent storage, and
+		// wrap it with CachedBagOStuff for an in-process
+		// cache. (T144534)
+		$this->cache = new CachedBagOStuff(
+			ObjectCache::getInstance( 'db-replicated' )
+		);
 	}
 
 	/**
