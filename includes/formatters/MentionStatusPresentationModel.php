@@ -20,6 +20,10 @@ class EchoMentionStatusPresentationModel extends EchoEventPresentationModel {
 		return 'mention-failure';
 	}
 
+	public function canRender() {
+		return (bool)$this->event->getTitle();
+	}
+
 	public function getHeaderMessage() {
 		if ( $this->isTooManyMentionsFailure() ) {
 			$msg = $this->getMessageWithAgent( 'notification-header-mention-failure-too-many' );
