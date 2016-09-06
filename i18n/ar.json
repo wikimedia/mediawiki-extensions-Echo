@@ -65,7 +65,7 @@
 	"echo-pref-tooltip-reverted": "أعلمني عندما إلغاء تعديل أجريته، بواسطة أداة الرجوع أو الاسترجاع.",
 	"echo-pref-tooltip-mention": "أعلمني عندما يضع مستخدم ما وصلة لصفحتي.",
 	"echo-pref-tooltip-mention-failure": "الرجاء إبلاغي إذا كان تحريري فشل في ذكر مستخدمين .",
-	"echo-pref-tooltip-mention-success": "الرجاء إبلاغي إذا كان تحريري نجح في ذكر مستخدمين .",
+	"echo-pref-tooltip-mention-success": "أخطرني عند إرسال إشارة إلى شخص ما.",
 	"echo-pref-tooltip-user-rights": "أعلمني عندما يغير شخص ما صلاحياتي.",
 	"echo-pref-tooltip-emailuser": "أعلمني عندما يرسل أحد ما بريدًا إلكترونيًا إلي.",
 	"echo-error-no-formatter": "لم يحدد للإشعارات أي تنسيق.",
