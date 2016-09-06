@@ -288,6 +288,18 @@
 	};
 
 	/**
+	 * Get local unread notifications
+	 *
+	 * @return {mw.echo.dm.NotificationItem[]} Local unread notifications
+	 */
+	mw.echo.dm.ModelManager.prototype.getLocalUnread = function () {
+		var isUnread = function ( item ) {
+				return !item.isRead();
+			};
+
+		return this.getLocalNotifications().filter( isUnread );
+	};
+	/**
 	 * Check whether there are talk notifications, and emit an event
 	 * in case there aren't any left.
 	 *
