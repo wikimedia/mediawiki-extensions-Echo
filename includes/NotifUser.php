@@ -50,6 +50,11 @@ class MWEchoNotifUser {
 	 */
 	private $mForeignData = null;
 
+	/**
+	 * @var EchoSeenTime
+	 */
+	private $seenTime = null;
+
 	// The max notification count shown in badge
 
 	// The max number shown in bundled message, eg, <user> and 99+ others <action>.
@@ -73,13 +78,15 @@ class MWEchoNotifUser {
 		BagOStuff $cache,
 		EchoUserNotificationGateway $userNotifGateway,
 		EchoNotificationMapper $notifMapper,
-		EchoTargetPageMapper $targetPageMapper
+		EchoTargetPageMapper $targetPageMapper,
+		EchoSeenTime $seenTime
 	) {
 		$this->mUser = $user;
 		$this->userNotifGateway = $userNotifGateway;
 		$this->cache = $cache;
 		$this->notifMapper = $notifMapper;
 		$this->targetPageMapper = $targetPageMapper;
+		$this->seenTime = $seenTime;
 	}
 
 	/**
@@ -98,7 +105,8 @@ class MWEchoNotifUser {
 			ObjectCache::getMainStashInstance(),
 			new EchoUserNotificationGateway( $user, MWEchoDbFactory::newFromDefault() ),
 			new EchoNotificationMapper(),
-			new EchoTargetPageMapper()
+			new EchoTargetPageMapper(),
+			EchoSeenTime::newFromUser( $user )
 		);
 	}
 
@@ -459,6 +467,138 @@ class MWEchoNotifUser {
 	}
 
 	/**
+	 * Check whether a wiki has unseen notifications.
+	 *
+	 * @param string $section Notification section
+	 * @param string $wiki Wiki ID. If not given, falls back to local wiki
+	 * @return boolean There are unseen notifications in the given wiki
+	 */
+	public function hasUnseenNotificationsOnWiki( $section = EchoAttributeManager::ALL, $wiki = null ) {
+		if ( $wiki === wfWikiID() || $wiki === null ) {
+			// Local
+			$latestUnreadTimeTSObj = $this->getLastUnreadNotificationTime(
+				true,
+				DB_SLAVE,
+				$section,
+				false
+			);
+		} else {
+			// Foreign
+			$latestUnreadTimeTSObj = $this->getForeignTimestamp(
+				$section,
+				$wiki
+			);
+		}
+		$seenTime = $this->seenTime->getTime(
+			$section,
+			0/* flags */,
+			TS_UNIX,
+			$wiki
+		);
+
+		if ( $latestUnreadTimeTSObj === false ) {
+			return false;
+		}
+
+		$latestUnreadTime = $latestUnreadTimeTSObj->getTimestamp( TS_UNIX );
+
+		return $latestUnreadTime > $seenTime;
+	}
+
+	/**
+	 * Check whether the user has unseen notifications on any wiki
+	 *
+	 * @param string $section Notification section
+	 * @param boolean $onlyForeign Check only in foreign sources
+	 * @return boolean There are unseen notifications in the given wiki
+	 */
+	public function hasUnseenNotificationsAnywhere( $section = EchoAttributeManager::ALL, $onlyForeign = false ) {
+		// Check if there are unseen notifications in foreign wikis
+		$wikis = $this->getForeignNotifications()->getWikis( $section );
+		foreach ( $wikis as $wiki ) {
+			if ( $this->hasUnseenNotificationsOnWiki( $section, $wiki ) ) {
+				return true;
+			}
+		}
+
+		if ( $onlyForeign ) {
+			return false;
+		}
+
+		// Finally check if there are unseen notifications locally
+		return $this->hasUnseenNotificationsOnWiki( $section, wfWikiID() );
+	}
+
+	/**
+	 * Get a structured seen time object for a requested source.
+	 * This is a helper function of getting seen time for all
+	 * sources.
+	 *
+	 * @param string $wiki Wiki ID
+	 * @param string $section Notification section
+	 * @param string $format Timestamp format; defaults to ISO 8601
+	 * @return array Seen time values for sources
+	 */
+	protected function getSeenTimeForSource( $wiki = null, $section = EchoAttributeManager::ALL, $format = TS_ISO_8601 ) {
+		$wiki = $wiki === null ?
+			wfWikiID() : $wiki;
+
+		if ( $section === EchoAttributeManager::ALL ) {
+			return array(
+				'alert' => $this->seenTime->getTime( 'alert', /*flags*/ 0, $format, $wiki ),
+				'message' => $this->seenTime->getTime( 'message', /*flags*/ 0, $format, $wiki ),
+			);
+		} else {
+			$response = array();
+			$response[ $section ] = $this->seenTime->getTime( $section, /*flags*/ 0, $format, $wiki );
+		}
+	}
+
+	/**
+	 * Output the seen time value of the local and all foreign sources
+	 * that exist for this user.
+	 *
+	 * @param string $section Notification section
+	 * @param string $format Timestamp format; defaults to ISO 8601
+	 * @return array Seen time values for sources
+	 */
+	public function getSeenTimeForAllSources( $section = EchoAttributeManager::ALL, $format = TS_ISO_8601 ) {
+		$seenTime = array();
+
+		// Check if there are unread notifications in foreign wikis
+		$wikis = $this->getForeignNotifications()->getWikis( $section );
+		// Add local seen time
+		array_push( $wikis, wfWikiID() );
+		foreach ( $wikis as $wiki ) {
+			$seenTime[ $wiki ] = $this->getSeenTimeForSource( $wiki, $section, $format );
+		}
+
+		return $seenTime;
+	}
+
+	/**
+	 * Get the global seen time - the maximum seen time from all available sources
+	 *
+	 * @param string $section Notification section
+	 * @param string $format Timestamp format; defaults to ISO 8601
+	 * @return int Maximum seen time over all available sources
+	 */
+	public function getGlobalSeenTime( $section = EchoAttributeManager::ALL, $format = TS_ISO_8601 ) {
+		// Get all available seenTime in unix so it is easiest to compare
+		$seenTime = $this->getSeenTimeForAllSources( $section, TS_UNIX );
+
+		$max = max( array_map( function ( $data ) use ( $section ) {
+			if ( $section === EchoAttributeManager::ALL ) {
+				return max( $data );
+			}
+			return $data[ $section ];
+		}, $seenTime ) );
+
+		// Return the max in the given format
+		return wfTimestamp( $max, $format );
+	}
+
+	/**
 	 * Recalculates the number of notifications that a user has.
 	 * @param $dbSource int use master or slave database to pull count
 	 */
@@ -756,7 +896,7 @@ class MWEchoNotifUser {
 		return $count;
 	}
 
-	protected function getForeignTimestamp( $section = EchoAttributeManager::ALL ) {
+	protected function getForeignTimestamp( $section = EchoAttributeManager::ALL, $wikiId = null ) {
 		global $wgEchoSectionTransition, $wgEchoBundleTransition;
 
 		if (
@@ -769,7 +909,10 @@ class MWEchoNotifUser {
 		) {
 			$foreignTime = false;
 			$foreignData = $this->getForeignData();
-			foreach ( $foreignData as $data ) {
+			foreach ( $foreignData as $wiki => $data ) {
+				if ( $wikiId && $wiki !== $wikiId ) {
+					continue;
+				}
 				if ( $section === EchoAttributeManager::ALL ) {
 					foreach ( $data as $subData ) {
 						if ( isset( $subData['timestamp'] ) ) {
@@ -789,7 +932,11 @@ class MWEchoNotifUser {
 				}
 			}
 		} else {
-			$foreignTime = $this->getForeignNotifications()->getTimestamp( $section );
+			if ( !$wikiId ) {
+				$foreignTime = $this->getForeignNotifications()->getTimestamp( $section );
+			} else {
+				$foreignTime = $this->getForeignNotifications()->getWikiTimestamp( $wikiId, $section );
+			}
 		}
 		return $foreignTime;
 	}

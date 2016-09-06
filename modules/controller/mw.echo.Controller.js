@@ -303,6 +303,10 @@
 							// x-wiki notification multi-group
 							// We need to request a new list model
 							newNotifData.name = 'xwiki';
+							// Check if the xwiki item has any unseen notifications
+							// before we opened it at all.
+							newNotifData.hasUnseen = notifData.hasUnseen;
+
 							allModels.xwiki = foreignListModel = new mw.echo.dm.CrossWikiNotificationItem( notifData.id, newNotifData );
 							foreignListModel.setForeign( true );
 
@@ -566,6 +570,7 @@
 						// Add items
 						listModel.setItems( items );
 					}
+					xwikiModel.setPopulated( true );
 				},
 				function ( errCode, errObj ) {
 					return {
