@@ -164,6 +164,8 @@
 		this.toggleExpanded( !this.expanded );
 		this.updateExpandButton();
 
+		this.$element.toggleClass( 'mw-echo-ui-bundleNotificationItemWidget-expanded', this.expanded );
+
 		if ( !this.expanded ) {
 			return;
 		}
