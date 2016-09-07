@@ -55,7 +55,12 @@
 			// The 'mark as read' circle is placed with a right
 			// margin of -1em
 			padding-right: 1em;
+			// break-word rules are inconsistent accross browsers
+			// these three rules should cover the main use cases
+			// with major browser support
 			word-break: break-word;
+			word-wrap: break-word;
+			overflow-wrap: break-word;
 
 			&-header {
 				color: @notification-text-color;
