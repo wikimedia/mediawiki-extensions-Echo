@@ -61,11 +61,11 @@
 				color: @notification-text-color;
 			}
 			&-body {
-				@media all and ( min-width: @specialpage-hd-width ) {
-					// Don't truncate on small screens
+				// In the popup only, truncate the text to one-line
+				// with ellipses
+				.mw-echo-ui-notificationBadgeButtonPopupWidget-popup & {
 					.mw-echo-ui-mixin-one-line-truncated;
 				}
-
 				color: @notification-body-color;
 				margin-top: 4px;
 			}
