@@ -6,7 +6,9 @@ class Notifications
   link(:mark_all_as_read, css: '.mw-echo-ui-notificationsListWidget-markAllReadButton > a')
   div(:popup, css: '.mw-echo-ui-notificationBadgeButtonPopupWidget-popup')
   span(:title, css: '.oo-ui-popupWidget-head > .oo-ui-labelElement-label')
-  div(:notifications_container, css: '.mw-echo-ui-notificationsListWidget')
+  div(
+    :notifications_container,
+    css: '.mw-echo-ui-notificationsListWidget > .mw-echo-ui-notificationItemWidget')
 
   def when_loaded
     title_element.when_present

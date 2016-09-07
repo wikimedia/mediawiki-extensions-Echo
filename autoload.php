@@ -111,7 +111,6 @@ $wgAutoloadClasses += [
 	'NotificationsTest' => __DIR__ . '/tests/NotificationsTest.php',
 	'ProcessEchoEmailBatch' => __DIR__ . '/maintenance/processEchoEmailBatch.php',
 	'RemoveInvalidNotification' => __DIR__ . '/maintenance/removeInvalidNotification.php',
-	'RemoveInvalidTargetPage' => __DIR__ . '/maintenance/removeInvalidTargetPage.php',
 	'RemoveOrphanedEvents' => __DIR__ . '/maintenance/removeOrphanedEvents.php',
 	'ResourceLoaderEchoImageModule' => __DIR__ . '/includes/ResourceLoaderEchoImageModule.php',
 	'SpecialDisplayNotificationsConfiguration' => __DIR__ . '/includes/special/SpecialDisplayNotificationsConfiguration.php',

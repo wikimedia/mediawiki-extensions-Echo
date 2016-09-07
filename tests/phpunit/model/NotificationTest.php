@@ -80,7 +80,6 @@ class EchoNotificationTest extends MediaWikiTestCase {
 	 */
 	protected function mockTargetPageRow() {
 		return array(
-			'etp_user' => 1,
 			'etp_page' => 2,
 			'etp_event' => 1
 		);

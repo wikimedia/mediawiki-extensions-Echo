@@ -226,6 +226,47 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 	protected function insert() {
 		$eventMapper = new EchoEventMapper();
 		$this->id = $eventMapper->insert( $this );
+
+		$event = $this;
+		$targetPages = self::resolveTargetPages( $this->getExtraParam( 'target-page' ) );
+		if ( $targetPages ) {
+			$eventMapper->attachListener( 'insert', 'add-target-page', function () use ( $event, $targetPages ) {
+				$targetMapper = new EchoTargetPageMapper();
+				foreach ( $targetPages as $title ) {
+					$targetPage = EchoTargetPage::create( $title, $event );
+					if ( $targetPage ) {
+						$targetMapper->insert( $targetPage );
+					}
+				}
+			} );
+		}
+	}
+
+	/**
+	 * @param int[]|int|false $targetPageIds
+	 * @return Title[]
+	 */
+	protected static function resolveTargetPages( $targetPageIds ) {
+		if ( !$targetPageIds ) {
+			return array();
+		}
+		if ( !is_array( $targetPageIds ) ) {
+			$targetPageIds = array( $targetPageIds );
+		}
+		$result = array();
+		foreach ( $targetPageIds as $targetPageId ) {
+			// Make sure the target-page id is a valid id
+			$title = Title::newFromID( $targetPageId );
+			// Try master if there is no match
+			if ( !$title ) {
+				$title = Title::newFromID( $targetPageId, Title::GAID_FOR_UPDATE );
+			}
+			if ( $title ) {
+				$result[] = $title;
+			}
+		}
+
+		return $result;
 	}
 
 	/**

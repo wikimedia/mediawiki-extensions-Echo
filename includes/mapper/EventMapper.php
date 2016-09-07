@@ -29,6 +29,11 @@ class EchoEventMapper extends EchoAbstractMapper {
 				$id = $dbw->insertId();
 			}
 
+			$listeners = $this->getMethodListeners( __FUNCTION__ );
+			foreach ( $listeners as $listener ) {
+				$dbw->onTransactionIdle( $listener );
+			}
+
 			return $id;
 		} else {
 			return false;
@@ -100,7 +105,7 @@ class EchoEventMapper extends EchoAbstractMapper {
 			),
 			__METHOD__,
 			array( 'GROUP BY' => 'etp_event' ),
-			array( 'echo_target_page' => array( 'JOIN', 'event_id=etp_event' ) )
+			array( 'echo_target_page' => array( 'INNER JOIN', 'event_id=etp_event' ) )
 		);
 		if ( $res ) {
 			foreach ( $res as $row ) {
@@ -139,19 +144,19 @@ class EchoEventMapper extends EchoAbstractMapper {
 		$dbr = $this->dbFactory->getEchoDb( DB_SLAVE );
 
 		$res = $dbr->select(
-			array( 'echo_target_page', 'echo_event', 'echo_notification' ),
+			array( 'echo_event', 'echo_notification', 'echo_target_page' ),
 			'*',
 			array(
-				'etp_user' => $user->getId(),
-				'etp_page' => $pageId,
 				'event_deleted' => 0,
+				'notification_user' => $user->getId(),
 				'notification_read_timestamp' => null,
+				'etp_page' => $pageId,
 			),
 			__METHOD__,
 			null,
 			array(
-				'echo_event' => array( 'INNER JOIN', 'etp_event=event_id' ),
-				'echo_notification' => array( 'INNER JOIN', array( 'notification_event=etp_event', 'notification_user=etp_user' ) ),
+				'echo_target_page' => array( 'INNER JOIN', 'etp_event=event_id' ),
+				'echo_notification' => array( 'INNER JOIN', array( 'notification_event=event_id' ) ),
 			)
 		);
 

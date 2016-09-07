@@ -130,23 +130,7 @@ class EchoNotification extends EchoAbstractEntity implements Bundleable {
 			}
 		}
 
-		// Create a target page object if specified by event
-		$event = $this->event;
-		$user = $this->user;
-		$targetPages = self::resolveTargetPages( $event->getExtraParam( 'target-page' ) );
-		if ( $targetPages ) {
-			$notifMapper->attachListener( 'insert', 'add-target-page', function () use ( $event, $user, $targetPages ) {
-				$targetMapper = new EchoTargetPageMapper();
-				foreach ( $targetPages as $title ) {
-					$targetPage = EchoTargetPage::create( $user, $title, $event );
-					if ( $targetPage ) {
-						$targetMapper->insert( $targetPage );
-					}
-				}
-			} );
-		}
-
-		$notifUser = MWEchoNotifUser::newFromUser( $user );
+		$notifUser = MWEchoNotifUser::newFromUser( $this->user );
 		$section = $this->event->getSection();
 
 		// Add listener to refresh notification count upon insert
@@ -158,37 +142,10 @@ class EchoNotification extends EchoAbstractEntity implements Bundleable {
 
 		$notifMapper->insert( $this );
 
-		if ( $event->getType() === 'edit-user-talk' ) {
+		if ( $this->event->getType() === 'edit-user-talk' ) {
 			$notifUser->flagCacheWithNewTalkNotification();
 		}
 		Hooks::run( 'EchoCreateNotificationComplete', array( $this ) );
-	}
-
-	/**
-	 * @param int[]|int|false $targetPageIds
-	 * @return Title[]
-	 */
-	protected static function resolveTargetPages( $targetPageIds ) {
-		if ( !$targetPageIds ) {
-			return array();
-		}
-		if ( !is_array( $targetPageIds ) ) {
-			$targetPageIds = array( $targetPageIds );
-		}
-		$result = array();
-		foreach ( $targetPageIds as $targetPageId ) {
-			// Make sure the target-page id is a valid id
-			$title = Title::newFromID( $targetPageId );
-			// Try master if there is no match
-			if ( !$title ) {
-				$title = Title::newFromID( $targetPageId, Title::GAID_FOR_UPDATE );
-			}
-			if ( $title ) {
-				$result[] = $title;
-			}
-		}
-
-		return $result;
 	}
 
 	/**

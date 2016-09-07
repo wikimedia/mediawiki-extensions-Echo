@@ -6,22 +6,6 @@
 class EchoNotificationMapper extends EchoAbstractMapper {
 
 	/**
-	 * @var EchoTargetPageMapper
-	 */
-	protected $targetPageMapper;
-
-	public function __construct(
-		MWEchoDbFactory $dbFactory = null,
-		EchoTargetPageMapper $targetPageMapper = null
-	) {
-		parent::__construct( $dbFactory );
-		if ( $targetPageMapper === null ) {
-			$targetPageMapper = new EchoTargetPageMapper( $this->dbFactory );
-		}
-		$this->targetPageMapper = $targetPageMapper;
-	}
-
-	/**
 	 * Insert a notification record
 	 * @param EchoNotification
 	 * @return null
@@ -29,9 +13,9 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	public function insert( EchoNotification $notification ) {
 		$dbw = $this->dbFactory->getEchoDb( DB_MASTER );
 
-		$row = $notification->toDbArray();
 		$listeners = $this->getMethodListeners( __FUNCTION__ );
 
+		$row = $notification->toDbArray();
 		DeferredUpdates::addUpdate( new AtomicSectionUpdate(
 			$dbw,
 			__METHOD__,
@@ -57,7 +41,6 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 				$row['notification_timestamp'] =
 					$dbw->timestamp( $row['notification_timestamp'] );
 				$res = $dbw->insert( 'echo_notification', $row, $fname );
-
 				if ( $res ) {
 					foreach ( $listeners as $listener ) {
 						$dbw->onTransactionIdle( $listener );

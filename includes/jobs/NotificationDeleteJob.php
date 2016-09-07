@@ -57,11 +57,6 @@ class EchoNotificationDeleteJob extends Job {
 				$user, $notif->getEvent()->getId()
 			);
 			if ( $res ) {
-				$res = $targetMapper->deleteByUserEventOffset(
-					$user, $notif->getEvent()->getId()
-				);
-			}
-			if ( $res ) {
 				$notifUser = MWEchoNotifUser::newFromUser( $user );
 				$notifUser->resetNotificationCount( DB_MASTER );
 			}

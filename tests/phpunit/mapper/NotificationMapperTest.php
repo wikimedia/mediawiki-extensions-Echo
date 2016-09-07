@@ -74,7 +74,6 @@ class EchoNotificationMapperTest extends MediaWikiTestCase {
 
 		$tpDbResult = array(
 			(object)array(
-				'etp_user' => 1, // userid
 				'etp_page' => 7, // pageid
 				'etp_event' => 1, // eventid
 			),

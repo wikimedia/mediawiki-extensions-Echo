@@ -2,34 +2,6 @@
 
 class EchoTargetPageMapperTest extends MediaWikiTestCase {
 
-	public function testFetchByUserPageId() {
-		$targetMapper = new EchoTargetPageMapper( $this->mockMWEchoDbFactory( array( 'select' => false ) ) );
-		$res = $targetMapper->fetchByUserPageId( User::newFromId( 1 ), 1 );
-		$this->assertFalse( $res );
-
-		$dbResult = array(
-			(object)array(
-				'etp_user' => 1,
-				'etp_page' => 2,
-				'etp_event' => 3
-			),
-			(object)array(
-				'etp_user' => 1,
-				'etp_page' => 2,
-				'etp_event' => 7,
-			)
-		);
-		$targetMapper = new EchoTargetPageMapper( $this->mockMWEchoDbFactory( array( 'select' => $dbResult ) ) );
-		$res = $targetMapper->fetchByUserPageId( User::newFromId( 1 ), 2 );
-		$this->assertTrue( is_array( $res ) );
-		$this->assertCount( 2, $res );
-		foreach ( $res as $targetPages ) {
-			$this->assertTrue( is_array( $targetPages ) );
-			$this->assertCount( 1, $targetPages );
-			$this->assertInstanceOf( 'EchoTargetPage', reset( $targetPages ) );
-		}
-	}
-
 	public function provideDataTestInsert() {
 		return array(
 			array(
@@ -57,26 +29,6 @@ class EchoTargetPageMapperTest extends MediaWikiTestCase {
 		$target = $this->mockEchoTargetPage();
 		$targetMapper = new EchoTargetPageMapper( $this->mockMWEchoDbFactory( $dbResult ) );
 		$this->assertEquals( $result, $targetMapper->insert( $target ), $message );
-	}
-
-	public function testDelete() {
-		$dbResult = array( 'delete' => true );
-		$targetMapper = new EchoTargetPageMapper( $this->mockMWEchoDbFactory( $dbResult ) );
-		$this->assertTrue( $targetMapper->delete( $this->mockEchoTargetPage() ) );
-
-		$dbResult = array( 'delete' => false );
-		$targetMapper = new EchoTargetPageMapper( $this->mockMWEchoDbFactory( $dbResult ) );
-		$this->assertFalse( $targetMapper->delete( $this->mockEchoTargetPage() ) );
-	}
-
-	public function testDeleteByUserEventOffset() {
-		$dbResult = array( 'delete' => true );
-		$targetMapper = new EchoTargetPageMapper( $this->mockMWEchoDbFactory( $dbResult ) );
-		$this->assertSame( $targetMapper->deleteByUserEventOffset( User::newFromId( 1 ), 500 ), true );
-
-		$dbResult = array( 'delete' => false );
-		$targetMapper = new EchoTargetPageMapper( $this->mockMWEchoDbFactory( $dbResult ) );
-		$this->assertSame( $targetMapper->deleteByUserEventOffset( User::newFromId( 1 ), 500 ), false );
 	}
 
 	/**

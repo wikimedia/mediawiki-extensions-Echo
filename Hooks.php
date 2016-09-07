@@ -147,6 +147,7 @@ class EchoHooks {
 			$updater->modifyExtensionField( 'echo_event', 'event_agent', "$dir/db_patches/patch-event_agent-split.sqlite.sql" );
 			$updater->modifyExtensionField( 'echo_event', 'event_variant', "$dir/db_patches/patch-event_variant_nullability.sqlite.sql" );
 			$updater->addExtensionField( 'echo_target_page', 'etp_id', "$dir/db_patches/patch-multiple_target_pages.sqlite.sql" );
+			$updater->dropExtensionField( 'echo_target_page', 'etp_user', "$dir/db_patches/patch-drop-echo_target_page-etp_user.sqlite.sql" );
 			// There is no need to run the patch-event_extra-size or patch-event_agent_ip-size because
 			// sqlite ignores numeric arguments in parentheses that follow the type name (ex: VARCHAR(255))
 			// see http://www.sqlite.org/datatype3.html Section 2.2 for more info
@@ -156,6 +157,7 @@ class EchoHooks {
 			$updater->modifyExtensionField( 'echo_event', 'event_extra', "$dir/db_patches/patch-event_extra-size.sql" );
 			$updater->modifyExtensionField( 'echo_event', 'event_agent_ip', "$dir/db_patches/patch-event_agent_ip-size.sql" );
 			$updater->addExtensionField( 'echo_target_page', 'etp_id', "$dir/db_patches/patch-multiple_target_pages.sql" );
+			$updater->dropExtensionField( 'echo_target_page', 'etp_user', "$dir/db_patches/patch-drop-echo_target_page-etp_user.sql" );
 		}
 
 		$updater->addExtensionField( 'echo_notification', 'notification_bundle_base',
@@ -1275,7 +1277,6 @@ class EchoHooks {
 		$updateFields[] = array( 'echo_event', 'event_agent_id', 'db' => $dbw );
 		$updateFields[] = array( 'echo_notification', 'notification_user', 'db' => $dbw, 'options' => array( 'IGNORE' ) );
 		$updateFields[] = array( 'echo_email_batch', 'eeb_user_id', 'db' => $dbw, 'options' => array( 'IGNORE' ) );
-		$updateFields[] = array( 'echo_target_page', 'etp_user', 'db' => $dbw, 'options' => array( 'IGNORE' ) );
 
 		return true;
 	}
@@ -1294,7 +1295,6 @@ class EchoHooks {
 		$dbw = MWEchoDbFactory::newFromDefault()->getEchoDb( DB_MASTER );
 		$tables['echo_notification'] = array( 'notification_user', 'db' => $dbw );
 		$tables['echo_email_batch'] = array( 'eeb_user_id', 'db' => $dbw );
-		$tables['echo_target_page'] = array( 'etp_user', 'db' => $dbw );
 
 		return true;
 	}
