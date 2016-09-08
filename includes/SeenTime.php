@@ -18,21 +18,10 @@ class EchoSeenTime {
 	private $user;
 
 	/**
-	 * @var BagOStuff
-	 */
-	private $cache;
-
-	/**
 	 * @param User $user A logged in user
 	 */
 	private function __construct( User $user ) {
 		$this->user = $user;
-		// Use db-replicated for persistent storage, and
-		// wrap it with CachedBagOStuff for an in-process
-		// cache. (T144534)
-		$this->cache = new CachedBagOStuff(
-			ObjectCache::getInstance( 'db-replicated' )
-		);
 	}
 
 	/**
@@ -41,6 +30,27 @@ class EchoSeenTime {
 	 */
 	public static function newFromUser( User $user ) {
 		return new self( $user );
+	}
+
+	/**
+	 * Hold onto a cache for our operations. Static so it can reuse the same
+	 * in-process cache in different instances.
+	 *
+	 * @return BagOStuff
+	 */
+	private static function cache() {
+		static $c = null;
+
+		// Use db-replicated for persistent storage, and
+		// wrap it with CachedBagOStuff for an in-process
+		// cache. (T144534)
+		if ( $c === null ) {
+			$c = new CachedBagOStuff(
+				ObjectCache::getInstance( 'db-replicated' )
+			);
+		}
+
+		return $c;
 	}
 
 	/**
@@ -64,7 +74,7 @@ class EchoSeenTime {
 		if ( $this->validateType( $type ) ) {
 			$key = wfMemcKey( 'echo', 'seen', $type, 'time', $this->user->getId() );
 			$cas = 0; // Unused, but we have to pass something by reference
-			$data = $this->cache->get( $key, $cas, $flags );
+			$data = self::cache()->get( $key, $cas, $flags );
 			if ( $data === false ) {
 				// Check if the user still has it set in their preferences
 				$data = $this->user->getOption( 'echo-seen-time', false );
@@ -94,7 +104,7 @@ class EchoSeenTime {
 			if ( $this->validateType( $type ) ) {
 				$key = wfMemcKey( 'echo', 'seen', $type, 'time', $this->user->getId() );
 
-				return $this->cache->set( $key, $time );
+				return self::cache()->set( $key, $time );
 			}
 		}
 	}
