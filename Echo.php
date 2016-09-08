@@ -173,7 +173,7 @@ $wgEchoMaxUpdateCount = 2000;
 // The max number of mention notifications allowed for a user to send at once
 $wgEchoMaxMentionsCount = 50;
 
-// Enable this when you want to enable mention failure notifications for the users.
+// Enable this when you want to enable mention failure and success notifications for the users.
 $wgEchoMentionStatusNotifications = false;
 
 // The time interval between each bundle email in seconds
