@@ -11,13 +11,12 @@ class EchoEditThresholdPresentationModel extends EchoEventPresentationModel {
 	}
 
 	public function getPrimaryLink() {
+		if ( !$this->event->getTitle() ) {
+			return false;
+		}
 		return array(
 			'url' => $this->event->getTitle()->getLocalURL(),
 			'label' => $this->msg( 'notification-link-thank-you-edit', $this->getViewingUserForGender() )->text()
 		);
-	}
-
-	public function canRender() {
-		return $this->event->getTitle() !== null;
 	}
 }
