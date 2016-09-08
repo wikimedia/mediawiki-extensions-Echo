@@ -29,7 +29,7 @@ class EchoModerationController {
 		 */
 		foreach ( $affectedUserIds as $userId ) {
 			$user = User::newFromId( $userId );
-			MWEchoNotifUser::newFromUser( $user )->resetNotificationCount();
+			MWEchoNotifUser::newFromUser( $user )->resetNotificationCount( DB_MASTER );
 		}
 	}
 }
