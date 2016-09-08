@@ -1047,7 +1047,7 @@ class EchoHooks {
 				$modifiedTimes['notifications-global'] = $lastUpdate;
 			}
 
-			$modifiedTimes[ 'notifications-seen' ] = $notifUser->getGlobalMaxSeenTime();
+			$modifiedTimes[ 'notifications-seen' ] = $notifUser->getGlobalSeenTime();
 		}
 	}
 
