@@ -85,8 +85,10 @@ class EchoSeenTime {
 		}
 
 		if ( $data === false ) {
-			// There is still no time set, so set time to 'now'
-			$data = wfTimestampNow();
+			// There is still no time set, so set time to the UNIX epoch.
+			// We can't remember their real seen time, so reset everything to
+			// unseen.
+			$data = wfTimestamp( TS_MW, 1 );
 			$this->setTime( $data, $type, $sourceWiki );
 		}
 
@@ -98,6 +100,7 @@ class EchoSeenTime {
 	 *
 	 * @param string $time Time, in TS_MW format
 	 * @param string $type Type of seen time to set
+	 * @param string $sourceWiki Source wiki to set it for, defaults to current
 	 */
 	public function setTime( $time, $type = 'all', $sourceWiki = null ) {
 		$sourceWiki = $sourceWiki === null ? wfWikiID() : $sourceWiki;
