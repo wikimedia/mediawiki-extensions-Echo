@@ -191,7 +191,7 @@
 	"echo-date-today": "היום",
 	"echo-date-yesterday": "אתמול",
 	"echo-load-more-error": "אירעה שגיאה בעת אחזור תוצאות נוספות.",
-	"notification-bundle-header-edit-user-talk-v2": "{{PLURAL:$1|הודעה חדשה|$1 הודעות חדשות|100=יותר מ־99 הודעות חדשות}} ב<strong>דף השיחה {{GENDER:$3|שלך}}</strong>.",
+	"notification-bundle-header-edit-user-talk-v2": "{{PLURAL:$1|הודעה חדשה|$1 הודעות חדשות|100=99+ הודעות חדשות}} ב<strong>דף השיחה {{GENDER:$3|שלך}}</strong>.",
 	"echo-email-batch-subject-daily": "קיבלת {{PLURAL:$2|הודעה חדשה|הודעות חדשות}} באתר {{SITENAME}}",
 	"echo-email-batch-subject-weekly": "יש לך {{PLURAL:$2|הודעה חדשה|הודעות חדשות}} באתר {{SITENAME}} השבוע",
 	"echo-email-batch-body-intro-daily": "שלום $1,\nלהלן תקציר של פעילויות שקשורות אליך באתר {{SITENAME}} היום.",

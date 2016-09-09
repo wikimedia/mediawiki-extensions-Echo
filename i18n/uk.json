@@ -189,6 +189,7 @@
 	"echo-overlay-title": "<b>Сповіщення</b>",
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Сповіщення|Сповіщення|Сповіщень}}</b> (показано $1 з $2 непрочитаних)",
 	"echo-mark-all-as-read": "Позначити всі як прочитані",
+	"echo-mark-all-as-read-confirmation": "$1 {{PLURAL:$1|сповіщення позначено як прочитане|сповіщення позначені як прочитані|сповіщень позначені як прочитані}}",
 	"echo-mark-wiki-as-read": "Позначити все як прочитане в обраній вікі: $1",
 	"echo-date-today": "Сьогодні",
 	"echo-date-yesterday": "Вчора",

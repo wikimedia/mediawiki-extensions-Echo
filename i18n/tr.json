@@ -18,7 +18,8 @@
 			"MrSchipunov",
 			"Nemo bis",
 			"Serkanland",
-			"Ece Alpdeniz"
+			"Ece Alpdeniz",
+			"Kumkumuk"
 		]
 	},
 	"echo-desc": "Kullanıcıları olaylar ve mesajlar hakkında bilgilendiren sistem",
@@ -182,6 +183,7 @@
 	"echo-email-batch-body-intro-daily": "Merhaba $1,\nBurada {{SITENAME}} için bu günün etkinlik özetini bulabilirsiniz.",
 	"echo-email-batch-body-intro-weekly": "Merhaba $1,\nBurada {{SITENAME}} için bu haftaki etkinlik özetini bulabilirsiniz.",
 	"echo-email-batch-link-text-view-all-notifications": "Tüm bildirimleri göster",
+	"notification-header-foreign-notice": "{{PLURAL:$5|diğer viki|$5 diğer viki}}den daha fazla sonuç",
 	"apihelp-echomarkread-description": "Geçerli kullanıcı için okundu olarak işaretle bildirimleri.",
 	"apihelp-echomarkread-param-list": "Okundu olarak işaretlemek için bildirim Kimliklerinin bir listesini.",
 	"apihelp-echomarkread-param-all": "Set, okumak gibi bir kullanıcı Bildirimleri tüm işaretler.",
