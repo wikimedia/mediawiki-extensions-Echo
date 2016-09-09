@@ -91,7 +91,7 @@ class EchoMentionStatusPresentationModel extends EchoEventPresentationModel {
 
 	public function getSecondaryLinks() {
 		if ( $this->isBundled() ) {
-			return false;
+			return [];
 		}
 
 		$talkPageLink = $this->getPageLink(
