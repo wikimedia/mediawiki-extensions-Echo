@@ -50,6 +50,7 @@ $wgResourceModules += array(
 			'ext.echo.ui',
 			'ext.echo.styles.badge',
 			'mediawiki.util',
+			'mediawiki.api.options',
 		),
 		'messages' => array(
 			'echo-popup-footer-special-page-invitation',
