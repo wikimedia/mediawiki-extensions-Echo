@@ -554,7 +554,7 @@ $wgDefaultUserOptions['echo-subscriptions-web-mention-success'] = false;
 
 // Echo Configuration for EventLogging
 $wgEchoConfig = array(
-	'version' => '1.11',
+	'version' => '1.12',
 	'eventlogging' => array(
 		/**
 		 * Properties:

@@ -69,10 +69,12 @@ class EchoForeignNotifications {
 		$this->populate();
 
 		if ( $section === EchoAttributeManager::ALL ) {
-			return array_sum( $this->counts );
+			$count = array_sum( $this->counts );
+		} else {
+			$count = isset( $this->counts[$section] ) ? $this->counts[$section] : 0;
 		}
 
-		return isset( $this->counts[$section] ) ? $this->counts[$section] : 0;
+		return MWEchoNotifUser::capNotificationCount( $count );
 	}
 
 	/**
