@@ -27,7 +27,7 @@
 
 		this.unreadCountLabel = new OO.ui.LabelWidget( {
 			classes: [ 'mw-echo-ui-pageNotificationsOptionWidget-label-count' ],
-			label: mw.language.convertNumber( this.count )
+			label: mw.msg( 'echo-badge-count', mw.language.convertNumber( this.count ) )
 		} );
 
 		// Initialization
