@@ -243,7 +243,7 @@ class MWEchoNotifUser {
 		$count = (int) $this->userNotifGateway->getCappedNotificationCount( $dbSource, $eventTypesToLoad, MWEchoNotifUser::MAX_BADGE_COUNT + 1 );
 
 		if ( $global ) {
-			$count += $this->getForeignCount( $section );
+			$count = self::capNotificationCount( $count + $this->getForeignCount( $section ) );
 		}
 
 		$this->setInCache( $memcKey, $count, 86400 );
@@ -607,8 +607,9 @@ class MWEchoNotifUser {
 		// Reset alert and message counts, and store them for later
 		$alertCount = $this->getNotificationCount( false, $dbSource, EchoAttributeManager::ALERT, false );
 		$msgCount = $this->getNotificationCount( false, $dbSource, EchoAttributeManager::MESSAGE, false );
-		// For performance, compute the ALL count by adding alerts and messages
-		$allCount = $alertCount + $msgCount;
+
+		// Get the capped count
+		$allCount = self::capNotificationCount( $alertCount + $msgCount );
 
 		// When notification counts need to be updated, the last notification may have changed,
 		// so we also need to recompute the cached timestamp values.
@@ -625,9 +626,9 @@ class MWEchoNotifUser {
 
 		if ( $wgEchoCrossWikiNotifications ) {
 			// For performance, compute the global counts by adding foreign counts to the above
-			$globalAlertCount = $alertCount + $this->getForeignCount( EchoAttributeManager::ALERT );
-			$globalMsgCount = $msgCount + $this->getForeignCount( EchoAttributeManager::MESSAGE );
-			$globalAllCount = $globalAlertCount + $globalMsgCount;
+			$globalAlertCount = self::capNotificationCount( $alertCount + $this->getForeignCount( EchoAttributeManager::ALERT ) );
+			$globalMsgCount = self::capNotificationCount( $msgCount + $this->getForeignCount( EchoAttributeManager::MESSAGE ) );
+			$globalAllCount = self::capNotificationCount( $globalAlertCount + $globalMsgCount );
 
 			// For performance, compute the global timestamps as max( localTimestamp, foreignTimestamp )
 			$foreignAlertUnread = $this->getForeignTimestamp( EchoAttributeManager::ALERT );
@@ -893,7 +894,7 @@ class MWEchoNotifUser {
 		} else {
 			$count += $this->getForeignNotifications()->getCount( $section );
 		}
-		return $count;
+		return self::capNotificationCount( $count );
 	}
 
 	protected function getForeignTimestamp( $section = EchoAttributeManager::ALL, $wikiId = null ) {
@@ -939,5 +940,16 @@ class MWEchoNotifUser {
 			}
 		}
 		return $foreignTime;
+	}
+
+	/**
+	 * Helper function to produce the capped number of notifications
+	 * based on the value of MWEchoNotifUser::MAX_BADGE_COUNT
+	 *
+	 * @param int $number Raw notification count to cap
+	 * @return int Capped notification count
+	 */
+	public static function capNotificationCount( $number ) {
+		return min( $number, MWEchoNotifUser::MAX_BADGE_COUNT + 1 );
 	}
 }
