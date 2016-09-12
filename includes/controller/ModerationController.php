@@ -1,4 +1,5 @@
 <?php
+use MediaWiki\MediaWikiServices;
 
 /**
  * This class represents the controller for moderating notifications
@@ -23,13 +24,18 @@ class EchoModerationController {
 		$affectedUserIds = $notificationMapper->fetchUsersWithNotificationsForEvents( $eventIds );
 		$eventMapper->toggleDeleted( $eventIds, $moderate );
 
-		/**
-		 * Recompute the notification count for the
-		 * users whose notifications have been moderated.
-		 */
-		foreach ( $affectedUserIds as $userId ) {
-			$user = User::newFromId( $userId );
-			MWEchoNotifUser::newFromUser( $user )->resetNotificationCount( DB_MASTER );
-		}
+		DeferredUpdates::addCallableUpdate( function () {
+			// This udate runs after than main transaction round commits.
+			// Wait for the events deletions to be propagated to replica DBs
+			$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
+			$lbFactory->waitForReplication( [ 'timeout' => 5 ] );
+			$lbFactory->flushReplicaSnapshots( __METHOD__ );
+			// Recompute the notification count for the
+			// users whose notifications have been moderated.
+			foreach ( $affectedUserIds as $userId ) {
+				$user = User::newFromId( $userId );
+				MWEchoNotifUser::newFromUser( $user )->resetNotificationCount( DB_REPLICA );
+			}
+		} );
 	}
 }
