@@ -145,6 +145,7 @@
 	"notification-header-mention-article-talkpage": "$1 упомянул{{GENDER:$2||а}} {{GENDER:$3|вас}} на странице обсуждения «<strong>$4</strong>» в разделе «<strong>$5</strong>».",
 	"notification-header-mention-article-talkpage-nosection": "$1 упомянул{{GENDER:$2||а}} {{GENDER:$3|вас}} на странице обсуждения «$4».",
 	"notification-compact-header-mention-failure-user-unknown": "<strong>Имя участника не существует:</strong> $1",
+	"notification-compact-header-mention-failure-user-anonymous": "<strong>IP-адреса не могут быть упомянуты:</strong> $1",
 	"notification-compact-header-mention-success": "<strong>{{GENDER:$2|Вы упомянули}}:</strong> $3",
 	"notification-header-user-rights-add-only": "{{GENDER:$4|Ваши}} права пользователя были {{GENDER:$1|изменены}}. Вы добавлены в группу: $2.",
 	"notification-header-user-rights-remove-only": "{{GENDER:$4|Ваши}} права пользователя были {{GENDER:$1|изменены}}. Вы больше не входите в группу: $2.",

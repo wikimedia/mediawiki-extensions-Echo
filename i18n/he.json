@@ -158,7 +158,7 @@
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|כתב|כתבה}} לך הודעה באתר {{SITENAME}}",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 {{GENDER:$1|השאיר|השאירה}} הודעה בדף השיחה שלך בפסקה \"$2\".",
 	"notification-page-linked-email-subject": "מישהו קישר לדף שיצרת באתר {{SITENAME}}",
-	"notification-reverted-email-subject2": "{{PLURAL:$3|עריכה שלך {{GENDER:$1|שוחזרה}}|עריכות שלך {{GENDER:$1|שוחזרו}}}} באתר {{SITENAME}}",
+	"notification-reverted-email-subject2": "{{PLURAL:$3|עריכה {{GENDER:$1|שלך}}|עריכות שלך}} באתר {{SITENAME}} {{PLURAL:$3|שוחזרה|שוחזרו}}",
 	"notification-mention-email-subject": "$1 {{GENDER:$1|הזכיר|הזכירה}} {{GENDER:$2|אותך}} באתר {{SITENAME}}",
 	"notification-user-rights-email-subject": "ההרשאות שלך באתר {{SITENAME}} שונו",
 	"notification-timestamp-ago-seconds": "{{PLURAL:$1|שנייה|$1 שניות}}",
