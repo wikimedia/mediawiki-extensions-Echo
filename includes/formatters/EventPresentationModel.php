@@ -625,14 +625,20 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 					// notification-dynamic-actions-watch-confirmation
 					// notification-dynamic-actions-unwatch-confirmation
 					'title' => $this
-						->msg( 'notification-dynamic-actions-' . $availableAction . '-confirmation' ),
+						->msg( 'notification-dynamic-actions-' . $availableAction . '-confirmation' )
+						->params(
+							$this->getTruncatedTitleText( $title ),
+							$title->getFullURL(),
+							$this->getUser()->getName()
+						),
 					// notification-dynamic-actions-watch-confirmation-description
 					// notification-dynamic-actions-unwatch-confirmation-description
 					'description' => $this
 						->msg( 'notification-dynamic-actions-' . $availableAction . '-confirmation-description' )
 						->params(
 							$this->getTruncatedTitleText( $title ),
-							$title->getFullURL()
+							$title->getFullURL(),
+							$this->getUser()->getName()
 						),
 				),
 			),
@@ -656,7 +662,8 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 			$this->msg( 'notification-dynamic-actions-' . $availableAction )
 				->params(
 					$this->getTruncatedTitleText( $title ),
-					$title->getFullURL( array( 'action' => $availableAction ) )
+					$title->getFullURL( array( 'action' => $availableAction ) ),
+					$this->getUser()->getName()
 				),
 			null,
 			$data,
