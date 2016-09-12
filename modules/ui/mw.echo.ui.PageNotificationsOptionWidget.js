@@ -20,15 +20,13 @@
 		OO.ui.mixin.IconElement.call( this, config );
 		OO.ui.mixin.TitledElement.call( this, config );
 
-		this.count = config.unreadCount || 0;
-
 		this.$label
 			.addClass( 'mw-echo-ui-pageNotificationsOptionWidget-title-label' );
 
 		this.unreadCountLabel = new OO.ui.LabelWidget( {
-			classes: [ 'mw-echo-ui-pageNotificationsOptionWidget-label-count' ],
-			label: mw.msg( 'echo-badge-count', mw.language.convertNumber( this.count ) )
+			classes: [ 'mw-echo-ui-pageNotificationsOptionWidget-label-count' ]
 		} );
+		this.setCount( config.unreadCount || 0 );
 
 		// Initialization
 		this.$element
@@ -64,7 +62,7 @@
 	 */
 	mw.echo.ui.PageNotificationsOptionWidget.prototype.setCount = function ( count ) {
 		this.count = count;
-		this.unreadCountLabel.setLabel( this.count );
+		this.unreadCountLabel.setLabel( mw.language.convertNumber( this.count ) );
 	};
 
 	/**
