@@ -212,7 +212,7 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 	 *
 	 * @param bool $includeCurrent
 	 * @param callable $groupCallback
-	 * @return count
+	 * @return int count
 	 */
 	final protected function getNotificationCountForOutput( $includeCurrent = true, $groupCallback = null ) {
 		$count = $this->getBundleCount( $includeCurrent, $groupCallback );
@@ -422,7 +422,7 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 	 *
 	 * @return array|bool
 	 */
-	public function getPrimaryLinkWithMarkAsRead() {
+	final public function getPrimaryLinkWithMarkAsRead() {
 		$primaryLink = $this->getPrimaryLink();
 		if ( $primaryLink ) {
 			$eventIds = array( $this->event->getId() );
