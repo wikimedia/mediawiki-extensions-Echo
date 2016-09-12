@@ -227,18 +227,15 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 		$eventMapper = new EchoEventMapper();
 		$this->id = $eventMapper->insert( $this );
 
-		$event = $this;
 		$targetPages = self::resolveTargetPages( $this->getExtraParam( 'target-page' ) );
 		if ( $targetPages ) {
-			$eventMapper->attachListener( 'insert', 'add-target-page', function () use ( $event, $targetPages ) {
-				$targetMapper = new EchoTargetPageMapper();
-				foreach ( $targetPages as $title ) {
-					$targetPage = EchoTargetPage::create( $title, $event );
-					if ( $targetPage ) {
-						$targetMapper->insert( $targetPage );
-					}
+			$targetMapper = new EchoTargetPageMapper();
+			foreach ( $targetPages as $title ) {
+				$targetPage = EchoTargetPage::create( $title, $this );
+				if ( $targetPage ) {
+					$targetMapper->insert( $targetPage );
 				}
-			} );
+			}
 		}
 	}
 
