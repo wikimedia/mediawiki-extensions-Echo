@@ -50,7 +50,6 @@
 		// Properties
 		this.types = this.manager.getTypes();
 
-		this.maxNotificationCount = mw.config.get( 'wgEchoMaxNotificationCount' );
 		this.numItems = config.numItems || 0;
 		this.badgeLabel = config.badgeLabel || this.numItems;
 		this.hasRunFirstTime = false;
@@ -232,22 +231,6 @@
 		this.popup.toggle();
 	};
 
-	// Client-side version of NotificationController::getCappedNotificationCount.
-	/**
-	 * Gets the count to use for display
-	 *
-	 * @param {number} count Count before cap is applied
-	 *
-	 * @return {number} Count with cap applied
-	 */
-	mw.echo.ui.NotificationBadgeWidget.prototype.getCappedNotificationCount = function ( count ) {
-		if ( count <= this.maxNotificationCount ) {
-			return count;
-		} else {
-			return this.maxNotificationCount + 1;
-		}
-	};
-
 	/**
 	 * Respond to SeenTime model update event
 	 */
@@ -282,9 +265,9 @@
 		var unreadCount, cappedUnreadCount, badgeLabel;
 
 		unreadCount = this.manager.getUnreadCounter().getCount();
-		cappedUnreadCount = this.getCappedNotificationCount( unreadCount );
+		cappedUnreadCount = this.manager.getUnreadCounter().getCappedNotificationCount( unreadCount );
 		cappedUnreadCount = mw.language.convertNumber( cappedUnreadCount );
-		badgeLabel = mw.message( 'echo-badge-count', cappedUnreadCount ).text();
+		badgeLabel = mw.message( 'echo-badge-count', mw.language.convertNumber( cappedUnreadCount ) ).text();
 
 		this.badgeButton.setLabel( badgeLabel );
 		this.badgeButton.setCount( unreadCount, badgeLabel );
