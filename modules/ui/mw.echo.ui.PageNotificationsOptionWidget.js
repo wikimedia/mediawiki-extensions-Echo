@@ -9,9 +9,12 @@
 	 *
 	 * @constructor
 	 * @param {Object} [config] Configuration object
-	 * @cfg {number} [unreadCount] Number of unread notifications
+	 * @cfg {number} [count] Number of unread notifications
+	 * @cfg {boolean} [isCapped] The count for this widget is capped
 	 */
 	mw.echo.ui.PageNotificationsOptionWidget = function MwEchoUiPageNotificationsOptionWidget( config ) {
+		var countLabel;
+
 		config = config || {};
 
 		// Parent
@@ -23,10 +26,16 @@
 		this.$label
 			.addClass( 'mw-echo-ui-pageNotificationsOptionWidget-title-label' );
 
+		this.count = config.count !== undefined ? config.count : 0;
+
+		countLabel = mw.language.convertNumber( this.count );
+		countLabel = config.isCapped ?
+			mw.msg( 'echo-badge-count', countLabel ) : countLabel;
+
 		this.unreadCountLabel = new OO.ui.LabelWidget( {
-			classes: [ 'mw-echo-ui-pageNotificationsOptionWidget-label-count' ]
+			classes: [ 'mw-echo-ui-pageNotificationsOptionWidget-label-count' ],
+			label: countLabel
 		} );
-		this.setCount( config.unreadCount || 0 );
 
 		// Initialization
 		this.$element
@@ -54,16 +63,6 @@
 	OO.inheritClass( mw.echo.ui.PageNotificationsOptionWidget, OO.ui.OptionWidget );
 	OO.mixinClass( mw.echo.ui.PageNotificationsOptionWidget, OO.ui.mixin.IconElement );
 	OO.mixinClass( mw.echo.ui.PageNotificationsOptionWidget, OO.ui.mixin.TitledElement );
-
-	/**
-	 * Set the page count
-	 *
-	 * @param {number} count Page count
-	 */
-	mw.echo.ui.PageNotificationsOptionWidget.prototype.setCount = function ( count ) {
-		this.count = count;
-		this.unreadCountLabel.setLabel( mw.language.convertNumber( this.count ) );
-	};
 
 	/**
 	 * Get the page count
