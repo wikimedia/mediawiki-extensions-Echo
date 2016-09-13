@@ -47,6 +47,24 @@
 	/* Methods */
 
 	/**
+	 * Normalizes for a capped count in case the requested count
+	 * is higher than the cap.
+	 *
+	 * This is the client-side version of
+	 * NotificationController::getCappedNotificationCount.
+	 *
+	 * @param {number} count Count before cap is applied
+	 * @return {number} Count with cap applied
+	 */
+	mw.echo.dm.UnreadNotificationCounter.prototype.getCappedNotificationCount = function ( count ) {
+		if ( count <= this.max ) {
+			return count;
+		} else {
+			return this.max + 1;
+		}
+	};
+
+	/**
 	 * Get the current count
 	 *
 	 * @return {number} current count
