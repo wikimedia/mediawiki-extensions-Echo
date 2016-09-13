@@ -34,7 +34,8 @@
 		this.title = new mw.echo.ui.PageNotificationsOptionWidget( {
 			label: config.title,
 			title: config.title,
-			unreadCount: this.totalCount,
+			count: this.totalCount,
+			isCapped: true,
 			data: null,
 			classes: [ 'mw-echo-ui-pageFilterWidget-title' ]
 		} );
@@ -48,16 +49,6 @@
 	/* Initialization */
 
 	OO.inheritClass( mw.echo.ui.PageFilterWidget, OO.ui.SelectWidget );
-
-	/**
-	 * Set the total count of this group
-	 *
-	 * @param {number} count Total count
-	 */
-	mw.echo.ui.PageFilterWidget.prototype.setTotalCount = function ( count ) {
-		this.totalCount = count;
-		this.title.setCount( this.totalCount );
-	};
 
 	/**
 	 * Set the total count of this group
@@ -82,7 +73,7 @@
 				label: isUserPage ? sourcePages[ title ].unprefixed : title,
 				title: isUserPage ? sourcePages[ title ].unprefixed : title,
 				icon: isUserPage ? 'userAvatar' : 'article',
-				unreadCount: sourcePages[ title ].count,
+				count: sourcePages[ title ].count,
 				data: title,
 				classes: [ 'mw-echo-ui-pageFilterWidget-page' ]
 			} );
