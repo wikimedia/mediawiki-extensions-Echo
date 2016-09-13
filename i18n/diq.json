@@ -66,7 +66,7 @@
 	"notification-header-mention-other": "$1 zerreyê <strong>$4</strong> \"<strong>$5</strong>\" de {{GENDER:$3|şıma sero}} {{GENDER:$2|qal kerd}}.",
 	"notification-header-mention-other-nosection": "$1, per da  <strong>$4</strong> dı  {{GENDER:$3|tora}} {{GENDER:$2|bahs kerd}}.",
 	"notification-header-user-rights-remove-only": "Heqa karberiya {{GENDER:$4|şıma}} {{GENDER:$1|vurriye}}. Şıma ezayê ena grube niyê: $2.",
-	"notification-header-welcome": "{{GENDER:$2|Xeyr ame}} yê {{SITENAME}}, $1! Tiya dı giy esto {{GENDER:$2|to}} rê",
+	"notification-header-welcome": "{{GENDER:$2|Xeyr ameyê}} be {{SITENAME}}, $1! Tiya de {{GENDER:$2|biyena şıma}} ra zerreweşime.",
 	"notification-welcome-linktext": "Xeyr amey",
 	"notification-header-thank-you-1-edit": "Şıma  {{GENDER:$2|vurnayışa}} xoya sıfteyëna {{GENDER:$2|kerd a. }}; teşekur kem u şıma xeyr ameyê!",
 	"notification-header-thank-you-10-edit": "Şıma  {{GENDER:$2|vurnayışa}} 10 yi {{GENDER:$2|kerd a. }}; teşekur kem. Dewam kerê!",
