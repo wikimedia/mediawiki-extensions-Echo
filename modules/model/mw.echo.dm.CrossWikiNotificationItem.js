@@ -118,6 +118,21 @@
 	};
 
 	/**
+	 * Set all notifications in all groups to seen
+	 *
+	 * @param {number} timestamp New seen timestamp
+	 */
+	mw.echo.dm.CrossWikiNotificationItem.prototype.updateSeenState = function ( timestamp ) {
+		this.getList().getItems().forEach( function ( source ) {
+			source.getItems().forEach( function ( notification ) {
+				notification.toggleSeen(
+					notification.isRead() || notification.getTimestamp() < timestamp
+				);
+			} );
+		} );
+	};
+
+	/**
 	 * Get all items in the cross wiki notification bundle
 	 *
 	 * @return {mw.echo.dm.NotificationItem[]} All items across all sources

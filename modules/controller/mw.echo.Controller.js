@@ -158,8 +158,7 @@
 					// anyways.
 					maxSeenTime = data.seenTime.alert < data.seenTime.notice ?
 						data.seenTime.notice : data.seenTime.alert;
-					controller.manager.getSeenTimeModel().setSeenTimeForSource(
-						currentSource,
+					controller.manager.getSeenTimeModel().setSeenTime(
 						maxSeenTime
 					);
 
@@ -287,8 +286,7 @@
 						content = notifData[ '*' ] || {};
 
 						// Set source's seenTime
-						controller.manager.getSeenTimeModel().setSeenTimeForSource(
-							'local',
+						controller.manager.getSeenTimeModel().setSeenTime(
 							controller.getTypes().length > 1 ?
 								(
 									data.seenTime.alert < data.seenTime.notice ?
@@ -368,7 +366,6 @@
 	 */
 	mw.echo.Controller.prototype.createNotificationData = function ( apiData ) {
 		var utcTimestamp, utcIsoMoment,
-			source = this.manager.getFiltersModel().getSourcePagesModel().getCurrentSource(),
 			content = apiData[ '*' ] || {};
 
 		if ( apiData.timestamp.utciso8601 ) {
@@ -388,7 +385,7 @@
 			read: !!apiData.read,
 			seen: (
 				!!apiData.read ||
-				utcTimestamp <= this.manager.getSeenTime( source )
+				utcTimestamp <= this.manager.getSeenTime()
 			),
 			timestamp: utcTimestamp,
 			category: apiData.category,
@@ -737,62 +734,23 @@
 	};
 
 	/**
-	 * Update seenTime for the given source
+	 * Update global seenTime for all sources
 	 *
 	 * @return {jQuery.Promise} A promise that is resolved when the
-	 *  seenTime was updated for all the controller's types.
+	 *  seenTime was updated for all the controller's types and sources.
 	 */
-	mw.echo.Controller.prototype.updateSeenTime = function ( source ) {
+	mw.echo.Controller.prototype.updateSeenTime = function () {
 		var controller = this;
 
-		return this.api.updateSeenTime( this.getTypes(), source )
+		return this.api.updateSeenTime(
+			this.getTypes(),
+			// For consistency, use current source, though seenTime
+			// will be updated globally
+			this.manager.getFiltersModel().getSourcePagesModel().getCurrentSource()
+		)
 			.then( function ( time ) {
-				controller.manager.getSeenTimeModel().setSeenTimeForSource( source, time );
+				controller.manager.getSeenTimeModel().setSeenTime( time );
 			} );
-	};
-
-	/**
-	 * Update local seen time
-	 *
-	 * @return {jQuery.Promise} A promise that is resolved when the
-	 *  seenTime was updated for all given types.
-	 */
-	mw.echo.Controller.prototype.updateLocalSeenTime = function () {
-		return this.updateSeenTime( 'local' );
-	};
-
-	/**
-	 * Update seen time for all sources within a cross-wiki bundle.
-	 *
-	 * @return {jQuery.Promise} A promise that is resolved when the
-	 *  seenTime was updated for all available cross-wiki sources.
-	 */
-	mw.echo.Controller.prototype.updateSeenTimeForCrossWiki = function () {
-		var model = this.manager.getNotificationModel( 'xwiki' ),
-			controller = this,
-			promises = [];
-
-		if ( !model ) {
-			// There is no xwiki notifications model
-			return $.Deferred().reject().promise();
-		}
-
-		model.getSourceNames().forEach( function ( source ) {
-			promises.push( controller.updateSeenTime( source ) );
-		} );
-
-		return mw.echo.api.NetworkHandler.static.waitForAllPromises( promises );
-	};
-	/**
-	 * Update seenTime for the currently selected source
-	 *
-	 * @return {jQuery.Promise} A promise that is resolved when the
-	 *  seenTime was updated for all given types.
-	 */
-	mw.echo.Controller.prototype.updateSeenTimeForCurrentSource = function () {
-		var currSource = this.manager.getFiltersModel().getSourcePagesModel().getCurrentSource();
-
-		return this.updateSeenTime( currSource );
 	};
 
 	/**

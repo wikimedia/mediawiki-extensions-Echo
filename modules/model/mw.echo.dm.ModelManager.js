@@ -107,16 +107,18 @@
 	/**
 	 * Respond to seen time change for a given source
 	 *
-	 * @param {string} source Source where seen time has changed
 	 * @param {string} timestamp Seen time, as a full UTC ISO 8601 timestamp
+	 * @fires seen
 	 */
-	mw.echo.dm.ModelManager.prototype.onSeenTimeUpdate = function ( source, timestamp ) {
-		var notifs = this.getNotificationsBySource( source );
-		notifs.forEach( function ( notification ) {
-			notification.toggleSeen( notification.isRead() || notification.getTimestamp() < timestamp );
-		} );
+	mw.echo.dm.ModelManager.prototype.onSeenTimeUpdate = function ( timestamp ) {
+		var modelId,
+			models = this.getAllNotificationModels();
 
-		this.emit( 'seen', source, timestamp );
+		for ( modelId in models ) {
+			models[ modelId ].updateSeenState( timestamp );
+		}
+
+		this.emit( 'seen', timestamp );
 	};
 
 	/**

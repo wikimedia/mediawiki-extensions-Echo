@@ -254,6 +254,19 @@
 	};
 
 	/**
+	 * Set all notifications to seen
+	 *
+	 * @param {string} timestamp New seen timestamp
+	 */
+	mw.echo.dm.NotificationsList.prototype.updateSeenState = function ( timestamp ) {
+		this.getItems().forEach( function ( notification ) {
+			notification.toggleSeen(
+				notification.isRead() || notification.getTimestamp() < timestamp
+			);
+		} );
+	};
+
+	/**
 	 * @inheritdoc
 	 */
 	mw.echo.dm.NotificationsList.prototype.isGroup = function () {

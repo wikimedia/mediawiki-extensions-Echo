@@ -271,7 +271,10 @@
 	};
 
 	/**
-	 * Update the seenTime property for the given type and source.
+	 * Update the seenTime property for the given type.
+	 * We only need to update this in a single source for the seenTime
+	 * to be updated globally - but we will let the consumer of
+	 * this method override the choice of which source to update.
 	 *
 	 * @param {string} [type='alert,message'] Notification type
 	 * @param {string} [source='local'] Notification source
@@ -280,6 +283,7 @@
 	mw.echo.api.EchoApi.prototype.updateSeenTime = function ( type, source ) {
 		source = source || 'local';
 		type = type || [ 'alert', 'message' ];
+
 		return this.network.getApiHandler( source ).updateSeenTime( type );
 	};
 

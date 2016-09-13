@@ -245,7 +245,7 @@
 				function () {
 					widget.popPending();
 					// Update seen time
-					widget.controller.updateSeenTimeForCurrentSource();
+					widget.controller.updateSeenTime();
 				},
 				// Failure
 				function ( errObj ) {

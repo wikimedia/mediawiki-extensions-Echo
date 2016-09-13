@@ -299,7 +299,6 @@
 						}
 					}
 				)
-				.then( this.controller.updateSeenTimeForCrossWiki.bind( this.controller ) )
 				.always( this.popPending.bind( this ) );
 
 			// Only run the fetch notifications action once
