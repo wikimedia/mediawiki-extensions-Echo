@@ -623,6 +623,11 @@ class EchoHooks {
 			) );
 		}
 
+		$seenTime = EchoSeenTime::newFromUser( $user );
+
+		// Set seen time to UNIX epoch, so initially all notifications are unseen.
+		$seenTime->setTime( wfTimestamp( TS_MW, 1 ), 'all' );
+
 		return true;
 	}
 
