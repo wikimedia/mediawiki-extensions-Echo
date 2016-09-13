@@ -7,7 +7,7 @@
 	 *  that this model handles
 	 */
 	mw.echo.dm.SeenTimeModel = function MwEchoSeenTimeModel( config ) {
-		var originalSeenTime, originalSeenTimeForAll;
+		var originalSeenTime;
 
 		config = config || {};
 
@@ -20,24 +20,13 @@
 		}
 
 		originalSeenTime = mw.config.get( 'wgEchoSeenTime' ) || {};
-		originalSeenTimeForAll = mw.config.get( 'wgEchoSeenTimeSources' );
 
-		if ( originalSeenTimeForAll ) {
-			// Replace local wiki source with the 'local' tag
-			originalSeenTimeForAll.local = originalSeenTimeForAll[ mw.config.get( 'wgDBname' ) ];
-			delete originalSeenTimeForAll[ mw.config.get( 'wgDBname' ) ];
-
-			// Store for all sources
-			this.seenTime = originalSeenTimeForAll;
-		} else {
-			// Backwards compatibility
-			this.seenTime = {
-				local: {
-					alert: originalSeenTime.alert,
-					message: originalSeenTime.notice
-				}
-			};
-		}
+		this.seenTime = {
+			local: {
+				alert: originalSeenTime.alert,
+				message: originalSeenTime.notice
+			}
+		};
 	};
 
 	/* Initialization */

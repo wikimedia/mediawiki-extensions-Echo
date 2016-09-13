@@ -143,26 +143,6 @@
 	};
 
 	/**
-	 * Check if all notification models are empty.
-	 * This is either because we haven't populated them yet, or because
-	 * there are 0 notifications for this user at all.
-	 *
-	 * @return {boolean} All notification models are empty
-	 */
-	mw.echo.dm.ModelManager.prototype.areAllNotificationModelsEmpty = function () {
-		var model,
-			models = this.getAllNotificationModels();
-
-		for ( model in models ) {
-			if ( !models[ model ].isEmpty() ) {
-				return false;
-			}
-		}
-
-		return true;
-	};
-
-	/**
 	 * Set the models in the manager.
 	 *
 	 * @param {Object} modelDefinitions An object defining the models

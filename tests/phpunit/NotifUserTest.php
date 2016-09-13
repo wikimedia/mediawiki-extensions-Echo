@@ -85,8 +85,7 @@ class MWEchoNotifUserTest extends MediaWikiTestCase {
 			$this->cache,
 			$this->mockEchoUserNotificationGateway( array( 'markRead' => true ) ),
 			$this->mockEchoNotificationMapper(),
-			$this->mockEchoTargetPageMapper(),
-			EchoSeenTime::newFromUser( User::newFromId( 2 ) )
+			$this->mockEchoTargetPageMapper()
 		);
 		$this->assertFalse( $notifUser->markRead( array() ) );
 		$this->assertTrue( $notifUser->markRead( array( 1 ) ) );
@@ -96,8 +95,7 @@ class MWEchoNotifUserTest extends MediaWikiTestCase {
 			$this->cache,
 			$this->mockEchoUserNotificationGateway( array( 'markRead' => false ) ),
 			$this->mockEchoNotificationMapper(),
-			$this->mockEchoTargetPageMapper(),
-			EchoSeenTime::newFromUser( User::newFromId( 2 ) )
+			$this->mockEchoTargetPageMapper()
 		);
 		$this->assertFalse( $notifUser->markRead( array() ) );
 		$this->assertFalse( $notifUser->markRead( array( 1 ) ) );
@@ -110,8 +108,7 @@ class MWEchoNotifUserTest extends MediaWikiTestCase {
 			$this->cache,
 			$this->mockEchoUserNotificationGateway( array( 'markRead' => true ) ),
 			$this->mockEchoNotificationMapper( array( $this->mockEchoNotification() ) ),
-			$this->mockEchoTargetPageMapper(),
-			EchoSeenTime::newFromUser( User::newFromId( 2 ) )
+			$this->mockEchoTargetPageMapper()
 		);
 		$this->assertTrue( $notifUser->markAllRead() );
 
@@ -121,8 +118,7 @@ class MWEchoNotifUserTest extends MediaWikiTestCase {
 			$this->cache,
 			$this->mockEchoUserNotificationGateway( array( 'markRead' => false ) ),
 			$this->mockEchoNotificationMapper( array( $this->mockEchoNotification() ) ),
-			$this->mockEchoTargetPageMapper(),
-			EchoSeenTime::newFromUser( User::newFromId( 2 ) )
+			$this->mockEchoTargetPageMapper()
 		);
 		$this->assertFalse( $notifUser->markAllRead() );
 
@@ -132,8 +128,7 @@ class MWEchoNotifUserTest extends MediaWikiTestCase {
 			$this->cache,
 			$this->mockEchoUserNotificationGateway( array( 'markRead' => true ) ),
 			$this->mockEchoNotificationMapper(),
-			$this->mockEchoTargetPageMapper(),
-			EchoSeenTime::newFromUser( User::newFromId( 2 ) )
+			$this->mockEchoTargetPageMapper()
 		);
 		$this->assertFalse( $notifUser->markAllRead() );
 
@@ -143,8 +138,7 @@ class MWEchoNotifUserTest extends MediaWikiTestCase {
 			$this->cache,
 			$this->mockEchoUserNotificationGateway( array( 'markRead' => false ) ),
 			$this->mockEchoNotificationMapper(),
-			$this->mockEchoTargetPageMapper(),
-			EchoSeenTime::newFromUser( User::newFromId( 2 ) )
+			$this->mockEchoTargetPageMapper()
 		);
 		$this->assertFalse( $notifUser->markAllRead() );
 	}

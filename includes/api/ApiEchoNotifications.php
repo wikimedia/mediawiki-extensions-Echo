@@ -442,12 +442,9 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 		$notif = EchoNotification::newFromRow( $row );
 		$output = EchoDataOutputFormatter::formatOutput( $notif, $format, $user, $this->getLanguage() );
 
-		$notifUser = MWEchoNotifUser::newFromUser( $user );
-		$hasUnseen = $notifUser->hasUnseenNotificationsAnywhere( $section, true );
 		// Add cross-wiki-specific data
 		$output['section'] = $section ?: 'all';
 		$output['count'] = $count;
-		$output['hasUnseen'] = $hasUnseen ? 1 : 0;
 		$output['sources'] = EchoForeignNotifications::getApiEndpoints( $wikis );
 		// Add timestamp information
 		foreach ( $output['sources'] as $wiki => &$data ) {

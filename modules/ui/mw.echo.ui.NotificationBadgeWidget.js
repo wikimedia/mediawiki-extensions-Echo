@@ -235,16 +235,7 @@
 	 * Respond to SeenTime model update event
 	 */
 	mw.echo.ui.NotificationBadgeWidget.prototype.onSeenTimeModelUpdate = function () {
-		// SeenTimeModel may get updated with foreign source values before we
-		// have populated the models. In that case, a check of 'hasUnseenInAnyModel'
-		// will return false, because there are no items at all (and hence no
-		// unseen items) -- but that answer might be untrue.
-		//
-		// The state of the badge should only be updated if we already have a
-		// non-empty model
-		if ( !this.manager.areAllNotificationModelsEmpty() ) {
-			this.updateBadgeSeenState( this.manager.hasUnseenInAnyModel() );
-		}
+		this.updateBadgeSeenState( this.manager.hasUnseenInSource( 'local' ) );
 	};
 
 	/**
@@ -253,7 +244,7 @@
 	 * @param {boolean} hasUnseen There are unseen notifications
 	 */
 	mw.echo.ui.NotificationBadgeWidget.prototype.updateBadgeSeenState = function ( hasUnseen ) {
-		hasUnseen = hasUnseen === undefined ? this.manager.hasUnseenInAnyModel() : !!hasUnseen;
+		hasUnseen = hasUnseen === undefined ? this.manager.hasUnseenInSource( 'local' ) : !!hasUnseen;
 
 		this.badgeButton.setFlags( { unseen: !!hasUnseen } );
 	};

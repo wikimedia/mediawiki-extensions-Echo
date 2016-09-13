@@ -41,12 +41,12 @@ class EchoSeenTime {
 	private static function cache() {
 		static $c = null;
 
-		// Use main stash for persistent storage, and
+		// Use db-replicated for persistent storage, and
 		// wrap it with CachedBagOStuff for an in-process
 		// cache. (T144534)
 		if ( $c === null ) {
 			$c = new CachedBagOStuff(
-				ObjectCache::getMainStashInstance()
+				ObjectCache::getInstance( 'db-replicated' )
 			);
 		}
 
@@ -59,29 +59,29 @@ class EchoSeenTime {
 	 * @param int $format Format to return time in, defaults to TS_MW
 	 * @return string|bool Timestamp in specified format, or false if no stored time
 	 */
-	public function getTime( $type = 'all', $flags = 0, $format = TS_MW, $sourceWiki = null ) {
-		$sourceWiki = $sourceWiki === null ? wfWikiID() : $sourceWiki;
-		list( $db, $prefix ) = wfSplitWikiID( $sourceWiki );
-
+	public function getTime( $type = 'all', $flags = 0, $format = TS_MW ) {
 		$vals = array();
 		if ( $type === 'all' ) {
 			foreach ( self::$allowedTypes as $allowed ) {
 				// Use TS_MW, then convert later, so max works properly for
 				// all formats.
-				$vals[] = $this->getTime( $allowed, $flags, TS_MW, $sourceWiki );
+				$vals[] = $this->getTime( $allowed, $flags, TS_MW );
 			}
 
 			return wfTimestamp( $format, min( $vals ) );
 		}
 
-		if ( $this->validateType( $type ) ) {
-			$key = wfForeignMemcKey( $db, $prefix, 'echo', 'seen', $type, 'time', $this->user->getId() );
-			$cas = 0; // Unused, but we have to pass something by reference
-			$data = self::cache()->get( $key, $cas, $flags );
-			if ( $data === false ) {
-				// Check if the user still has it set in their preferences
-				$data = $this->user->getOption( 'echo-seen-time', false );
-			}
+		if ( !$this->validateType( $type ) ) {
+			return false;
+		}
+
+		$key = wfMemcKey( 'echo', 'seen', $type, 'time', $this->user->getId() );
+		$cas = 0; // Unused, but we have to pass something by reference
+		$data = self::cache()->get( $key, $cas, $flags );
+
+		if ( $data === false ) {
+			// Check if the user still has it set in their preferences
+			$data = $this->user->getOption( 'echo-seen-time', false );
 		}
 
 		if ( $data === false ) {
@@ -89,9 +89,8 @@ class EchoSeenTime {
 			// We can't remember their real seen time, so reset everything to
 			// unseen.
 			$data = wfTimestamp( TS_MW, 1 );
-			$this->setTime( $data, $type, $sourceWiki );
+			$this->setTime( $data, $type );
 		}
-
 		return wfTimestamp( $format, $data );
 	}
 
@@ -102,17 +101,14 @@ class EchoSeenTime {
 	 * @param string $type Type of seen time to set
 	 * @param string $sourceWiki Source wiki to set it for, defaults to current
 	 */
-	public function setTime( $time, $type = 'all', $sourceWiki = null ) {
-		$sourceWiki = $sourceWiki === null ? wfWikiID() : $sourceWiki;
-		list( $db, $prefix ) = wfSplitWikiID( $sourceWiki );
-
+	public function setTime( $time, $type = 'all' ) {
 		if ( $type === 'all' ) {
 			foreach ( self::$allowedTypes as $allowed ) {
 				$this->setTime( $time, $allowed );
 			}
 		} else {
 			if ( $this->validateType( $type ) ) {
-				$key = wfForeignMemcKey( $db, $prefix, 'echo', 'seen', $type, 'time', $this->user->getId() );
+				$key = wfMemcKey( 'echo', 'seen', $type, 'time', $this->user->getId() );
 
 				return self::cache()->set( $key, $time );
 			}

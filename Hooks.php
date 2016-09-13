@@ -858,20 +858,13 @@ class EchoHooks {
 		$msgNotificationTimestamp = $notifUser->getLastUnreadMessageTime();
 		$alertNotificationTimestamp = $notifUser->getLastUnreadAlertTime();
 
-		// The variable wgEchoSeenTime is being replaced, but we should keep it around
-		// as a backup for at least one deployment cycle.
-		$seenTimeForUser = EchoSeenTime::newFromUser( $user );
-		$seenAlertTime = $seenTimeForUser->getTime( 'alert', /*flags*/ 0, TS_ISO_8601 );
-		$seenMsgTime = $seenTimeForUser->getTime( 'message', /*flags*/ 0, TS_ISO_8601 );
-		// Output local seen time (backwards compatibility)
+		$seenAlertTime = EchoSeenTime::newFromUser( $user )->getTime( 'alert', /*flags*/ 0, TS_ISO_8601 );
+		$seenMsgTime = EchoSeenTime::newFromUser( $user )->getTime( 'message', /*flags*/ 0, TS_ISO_8601 );
+
 		$sk->getOutput()->addJsConfigVars( 'wgEchoSeenTime', array(
 			'alert' => $seenAlertTime,
 			'notice' => $seenMsgTime,
 		) );
-
-		// Output seen time for all sources; this is the more robust
-		// variable that the UI uses instead of the old (local-only) wgEchoSeenTime
-		$sk->getOutput()->addJsConfigVars( 'wgEchoSeenTimeSources', $notifUser->getSeenTimeForAllSources() );
 
 		if (
 			$wgEchoShowFooterNotice &&
@@ -896,7 +889,7 @@ class EchoHooks {
 		if (
 			$msgCount != 0 && // no unread notifications
 			$msgNotificationTimestamp !== false && // should already always be false if count === 0
-			( $notifUser->hasUnseenNotificationsAnywhere( EchoAttributeManager::MESSAGE ) ) // there are unseen notifications
+			( $seenMsgTime === null || $seenMsgTime < $msgNotificationTimestamp->getTimestamp( TS_ISO_8601 ) ) // there are no unseen notifications
 		) {
 			$msgLinkClasses[] = 'mw-echo-unseen-notifications';
 			$hasUnseen = true;
@@ -907,7 +900,7 @@ class EchoHooks {
 		if (
 			$alertCount != 0 && // no unread notifications
 			$alertNotificationTimestamp !== false && // should already always be false if count === 0
-			( $notifUser->hasUnseenNotificationsAnywhere( EchoAttributeManager::ALERT ) ) // there are unseen notifications
+			( $seenAlertTime === null || $seenAlertTime < $alertNotificationTimestamp->getTimestamp( TS_ISO_8601 ) ) // all notifications have already been seen
 		) {
 			$alertLinkClasses[] = 'mw-echo-unseen-notifications';
 			$hasUnseen = true;
@@ -1054,7 +1047,8 @@ class EchoHooks {
 				$modifiedTimes['notifications-global'] = $lastUpdate;
 			}
 
-			$modifiedTimes[ 'notifications-seen' ] = $notifUser->getGlobalSeenTime();
+			$modifiedTimes['notifications-seen-alert'] = EchoSeenTime::newFromUser( $user )->getTime( 'alert' );
+			$modifiedTimes['notifications-seen-message'] = EchoSeenTime::newFromUser( $user )->getTime( 'message' );
 		}
 	}
 

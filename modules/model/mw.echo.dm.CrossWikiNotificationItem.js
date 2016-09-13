@@ -11,21 +11,15 @@
 	 * @param {Object} [config] Configuration object
 	 * @cfg {number} count The initial anticipated count of notifications through all
 	 *  of the sources.
-	 * @cfg {number} hasUnseen Whether the bundle had any unseen notifications originally
-	 *  in any source
 	 */
 	mw.echo.dm.CrossWikiNotificationItem = function MwEchoDmCrossWikiNotificationItem( id, config ) {
 		config = config || {};
 
 		mw.echo.dm.CrossWikiNotificationItem.parent.call( this, id, config );
 
-		this.originallyUnseen = !!config.hasUnseen;
-		this.populated = false;
-
 		this.foreign = true;
 		this.source = null;
 		this.count = config.count || 0;
-		this.seen = !this.originallyUnseen;
 
 		this.list = new mw.echo.dm.NotificationGroupsList();
 
@@ -111,18 +105,6 @@
 		var i, j, items,
 			sourceLists = this.getList().getItems();
 
-		// If the model is not yet populated, we must fall back
-		// to what the server told us about the state of any unseen
-		// notifications inside the bundle
-		if ( !this.populated ) {
-			return this.originallyUnseen;
-		}
-
-		// In this case, we already opened the bundle; if the check
-		// for 'hasUnseen' runs now, we should check with the actual
-		// items (whose status may have changed, for example if we
-		// re-expand the bundle without reloading the page or the
-		// popup) so we get the correct response
 		for ( i = 0; i < sourceLists.length; i++ ) {
 			items = sourceLists[ i ].getItems();
 			for ( j = 0; j < items.length; j++ ) {
@@ -133,15 +115,6 @@
 		}
 
 		return false;
-	};
-
-	/**
-	 * Set the populated state of this item
-	 *
-	 * @param {boolean} isPopulated The item is populated
-	 */
-	mw.echo.dm.CrossWikiNotificationItem.prototype.setPopulated = function ( isPopulated ) {
-		this.populated = isPopulated;
 	};
 
 	/**
