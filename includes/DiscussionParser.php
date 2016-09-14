@@ -182,6 +182,8 @@ abstract class EchoDiscussionParser {
 			return;
 		}
 
+		$stats = MediaWikiServices::getInstance()->getStatsdDataFactory();
+
 		if ( $overallMentionsCount > $wgEchoMaxMentionsCount ) {
 			if ( $wgEchoMentionStatusNotifications ) {
 				EchoEvent::create( array(
@@ -194,6 +196,7 @@ abstract class EchoDiscussionParser {
 					),
 					'agent' => $agent,
 				) );
+				$stats->increment( 'echo.event.mention.notification.failure-too-many' );
 			}
 			return;
 		}
@@ -226,6 +229,7 @@ abstract class EchoDiscussionParser {
 					),
 					'agent' => $agent,
 				) );
+				$stats->increment( 'echo.event.mention.notification.success' );
 			}
 
 			// TODO batch?
@@ -242,6 +246,7 @@ abstract class EchoDiscussionParser {
 					),
 					'agent' => $agent,
 				) );
+				$stats->increment( 'echo.event.mention.notification.failure-user-anonymous' );
 			}
 
 			// TODO batch?
@@ -258,6 +263,7 @@ abstract class EchoDiscussionParser {
 					),
 					'agent' => $agent,
 				) );
+				$stats->increment( 'echo.event.mention.notification.failure-user-unknown' );
 			}
 		}
 	}
