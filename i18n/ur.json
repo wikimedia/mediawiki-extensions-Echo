@@ -42,6 +42,7 @@
 	"echo-category-title-mention-failure": "{{PLURAL:$1|تذکرہ|تذکرے}} ناکام",
 	"echo-category-title-mention-success": "{{PLURAL:$1|تذکرہ|تذکرے}} کامیاب",
 	"echo-category-title-other": "{{PLURAL:$1|دیگر}}",
+	"echo-category-title-user-rights": "{{PLURAL:$1|اختیارات صارف کی تبدیلی|اختیارات صارف کی تبدیلیاں}}",
 	"echo-category-title-emailuser": "{{PLURAL:$1|دوسرے صارف کا برقی خط|دیگر صارفین کے برقی خطوط}}",
 	"echo-pref-tooltip-edit-user-talk": "جب کوئی شخص میرے تبادلۂ خیال صفحہ پر پیغام لکھے یا کسی پیغام کا جواب دے تو مجھے آگاہ کریں۔",
 	"echo-pref-tooltip-article-linked": "جب کسی مضمون میں میرے تخلیق کردہ کسی صفحہ کا ربط دیا جائے تو مجھے آگاہ کریں۔",

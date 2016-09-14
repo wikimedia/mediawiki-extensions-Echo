@@ -14,7 +14,8 @@
 			"Fringio",
 			"Catrope",
 			"Macofe",
-			"Matteocng"
+			"Matteocng",
+			"Anto"
 		]
 	},
 	"echo-desc": "Sistema per notificare agli utenti messaggi ed eventi",
@@ -99,8 +100,12 @@
 	"echo-notification-markasunread": "Segna come non letto",
 	"echo-notification-markasread-tooltip": "Segna come già letto",
 	"echo-notification-more-options-tooltip": "Altre opzioni",
-	"notification-dynamic-actions-watch": "Segui le nuove attività su \"$1\"",
-	"notification-dynamic-actions-watch-confirmation": "Stai osservando la pagina \"$1\"",
+	"notification-dynamic-actions-unwatch": "{{GENDER:$3|Stop }}sta guardando la nuova attività su \"$1\"",
+	"notification-dynamic-actions-unwatch-confirmation": "{{GENDER:$3|}} non sta più guardando la pagina \"$1\"",
+	"notification-dynamic-actions-unwatch-confirmation-description": "{{GENDER:$3|Tu}} può guardare [$2 questa pagina] in qualsiesi momento.",
+	"notification-dynamic-actions-watch": "{{GENDER:$3|Segui}} le nuove attività su \"$1\"",
+	"notification-dynamic-actions-watch-confirmation": "{{GENDER:$3|Stai}} osservando la pagina \"$1\"",
+	"notification-dynamic-actions-watch-confirmation-description": "{{GENDER:$3|Si}} può smettere di guardare [$2 questa pagina] in qualsiasi momento.",
 	"notification-link-text-expand-all": "Espandi",
 	"notification-link-text-expand-alert-count": "Vedi {{PLURAL:$1|$1 avviso|$1 avvisi}}",
 	"notification-link-text-expand-notice-count": "Vedi {{PLURAL:$1|$1 notizia|$1 notizie}}",
