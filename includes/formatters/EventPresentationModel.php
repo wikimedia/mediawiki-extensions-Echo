@@ -137,6 +137,10 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 		$msg = call_user_func_array( 'wfMessage', func_get_args() );
 		$msg->inLanguage( $this->language );
 
+		// Notifications are considered UI (and should be in UI language, not
+		// content), and this flag is set false by inLanguage.
+		$msg->setInterfaceMessageFlag( true );
+
 		return $msg;
 	}
 
