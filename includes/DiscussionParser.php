@@ -18,6 +18,7 @@ abstract class EchoDiscussionParser {
 	 * @return null
 	 */
 	static function generateEventsForRevision( Revision $revision ) {
+		global $wgEchoMentionsOnMultipleSectionEdits;
 		// use slave database if there is a previous revision
 		if ( $revision->getPrevious() ) {
 			$title = Title::newFromID( $revision->getPage() );
@@ -53,20 +54,11 @@ abstract class EchoDiscussionParser {
 				$header = self::extractHeader( $content );
 				$userLinks = self::getUserLinks( $content, $title );
 				self::generateMentionEvents( $header, $userLinks, $content, $revision, $user );
-			} elseif ( $action['type'] == 'add-section-multiple' ) {
+			} elseif ( $action['type'] == 'add-section-multiple' && $wgEchoMentionsOnMultipleSectionEdits ) {
 				$content = self::stripHeader( $action['content'] );
 				$content = self::stripSignature( $content );
 				$userLinks = self::getUserLinks( $content, $title );
-				if ( $userLinks ) {
-					$logger->debug(
-						'Triggered add-section-multiple action with user links by {user} on {diff}',
-						array(
-							'user' => $user->getName(),
-							'diff' => $diffUrl,
-							'user-links' => $userLinks,
-						)
-					);
-				}
+				self::generateMentionEvents( $action['header'], $userLinks, $content, $revision, $user );
 			} elseif ( $action['type'] === 'unknown-signed-change' ) {
 				$userLinks = array_diff_key(
 					self::getUserLinks( $action['new_content'], $title ) ?: [],
@@ -757,7 +749,7 @@ abstract class EchoDiscussionParser {
 				$content = substr( $text, $matches[0][$i][1] );
 			}
 			$sections[] = array(
-				'header' => $matches[0][$i][0],
+				'header' => self::extractHeader( $matches[0][$i][0] ),
 				'content' =>  trim( $content )
 			);
 		}
