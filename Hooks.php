@@ -850,7 +850,6 @@ class EchoHooks {
 		$notifUser = MWEchoNotifUser::newFromUser( $user );
 		$msgCount = $notifUser->getMessageCount() - $subtractMessages;
 		$alertCount = $notifUser->getAlertCount() - $subtractAlerts;
-
 		// But make sure we never show a negative number (T130853)
 		$msgCount = max( 0, $msgCount );
 		$alertCount = max( 0, $alertCount );
@@ -858,8 +857,13 @@ class EchoHooks {
 		$msgNotificationTimestamp = $notifUser->getLastUnreadMessageTime();
 		$alertNotificationTimestamp = $notifUser->getLastUnreadAlertTime();
 
-		$seenAlertTime = EchoSeenTime::newFromUser( $user )->getTime( 'alert', /*flags*/ 0, TS_ISO_8601 );
-		$seenMsgTime = EchoSeenTime::newFromUser( $user )->getTime( 'message', /*flags*/ 0, TS_ISO_8601 );
+		$seenTime = EchoSeenTime::newFromUser( $user );
+		if ( $title->isSpecial( 'Notifications' ) ) {
+			// If this is the Special:Notifications page, seenTime to now
+			$seenTime->setTime( wfTimestamp( TS_MW ), EchoAttributeManager::ALL );
+		}
+		$seenAlertTime = $seenTime->getTime( 'alert', /*flags*/ 0, TS_ISO_8601 );
+		$seenMsgTime = $seenTime->getTime( 'message', /*flags*/ 0, TS_ISO_8601 );
 
 		$sk->getOutput()->addJsConfigVars( 'wgEchoSeenTime', array(
 			'alert' => $seenAlertTime,
