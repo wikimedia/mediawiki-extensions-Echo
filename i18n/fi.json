@@ -54,6 +54,8 @@
 	"echo-pref-tooltip-article-linked": "Ilmoita, kun joku linkittää luomaani sivuun artikkelisivulta.",
 	"echo-pref-tooltip-reverted": "Ilmoita, kun joku kumoaa tekemäni muokkauksen käyttäen kumoa- tai palauta-työkalua.",
 	"echo-pref-tooltip-mention": "Ilmoita, kun joku tekee linkin käyttäjäsivulleni.",
+	"echo-pref-tooltip-mention-failure": "Ilmoita minulle, kun mainintaa ei voitu lähettää toiselle käyttäjälle.",
+	"echo-pref-tooltip-mention-success": "Ilmoita minulle, kun maininnan lähettäminen toiselle käyttäjälle onnistui.",
 	"echo-pref-tooltip-user-rights": "Ilmoita, kun joku muuttaa käyttöoikeuksiani.",
 	"echo-pref-tooltip-emailuser": "Ilmoita, kun joku lähettää minulle sähköpostia.",
 	"echo-error-no-formatter": "Tälle ilmoitukselle ei ole määritelty esitystapaa.",

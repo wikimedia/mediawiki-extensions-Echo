@@ -132,7 +132,7 @@
 	"notification-dynamic-actions-unwatch": "Arrêter de suivre la nouvelle activité sur \"$1\"",
 	"notification-dynamic-actions-unwatch-confirmation": "Vous ne suivez plus la page \"$1\"",
 	"notification-dynamic-actions-unwatch-confirmation-description": "Vous pouvez suivre [$2 cette page] à tout moment.",
-	"notification-dynamic-actions-watch": "Suivre la nouvelle activité sur \"$1\"",
+	"notification-dynamic-actions-watch": "{{GENDER:$3|Suivre}} la nouvelle activité sur \"$1\"",
 	"notification-dynamic-actions-watch-confirmation": "Vous êtes en train de suivre la page \"$1\"",
 	"notification-dynamic-actions-watch-confirmation-description": "Vous pouvez arrêter de suivre [$2 cette page] à tout moment.",
 	"notification-link-text-expand-all": "Développer",
