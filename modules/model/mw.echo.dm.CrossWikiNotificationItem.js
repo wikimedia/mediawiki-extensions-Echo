@@ -20,6 +20,7 @@
 		this.foreign = true;
 		this.source = null;
 		this.count = config.count || 0;
+		this.modelName = config.modelName || 'xwiki';
 
 		this.list = new mw.echo.dm.NotificationGroupsList();
 
