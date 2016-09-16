@@ -69,6 +69,12 @@
 		// Events
 		this.toggleExpandButton.connect( this, { click: 'expand' } );
 
+		if ( !this.model.getPrimaryUrl() ) {
+			// If there's no primary link, make sure a click
+			// triggers the 'expand' action
+			this.$content.on( 'click', this.expand.bind( this ) );
+		}
+
 		// Initialization
 		this.populateFromModel();
 		this.toggleExpanded( false );

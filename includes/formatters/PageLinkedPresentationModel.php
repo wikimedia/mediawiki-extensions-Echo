@@ -22,10 +22,14 @@ class EchoPageLinkedPresentationModel extends EchoEventPresentationModel {
 	}
 
 	public function getPrimaryLink() {
-		return array(
-			'url' => $this->getPageFrom()->getFullURL(),
-			'label' => $this->msg( 'notification-link-text-view-page' )->text(),
-		);
+		if ( $this->isBundled() ) {
+			return false;
+		} else {
+			return array(
+				'url' => $this->getPageFrom()->getFullURL(),
+				'label' => $this->msg( 'notification-link-text-view-page' )->text(),
+			);
+		}
 	}
 
 	public function getSecondaryLinks() {
