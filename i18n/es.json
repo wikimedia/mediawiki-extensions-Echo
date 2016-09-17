@@ -189,7 +189,7 @@
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Notificación|Notificaciones}}</b> (se {{PLURAL:$1|muestra|muestran}} $1 de $2 sin leer)",
 	"echo-mark-all-as-read": "Marcar todo como leído",
 	"echo-mark-all-as-read-confirmation": "$1 {{PLURAL:$1|notificación marcada como leída|notificaciones marcadas como leídas}}",
-	"echo-mark-wiki-as-read": "Marcar todas como leídas en el wiki seleccionado wiki: $1",
+	"echo-mark-wiki-as-read": "Marcar como leídas todas las notificaciones del wiki seleccionado: $1",
 	"echo-date-today": "Hoy",
 	"echo-date-yesterday": "Ayer",
 	"echo-load-more-error": "Se ha producido un error al intentar obtener más resultados.",

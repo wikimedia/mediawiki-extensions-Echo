@@ -200,7 +200,7 @@
 	"echo-mark-wiki-as-read": "علّم الكل كمقروء في الويكي المحددة: $1",
 	"echo-date-today": "اليوم",
 	"echo-date-yesterday": "أمس",
-	"echo-load-more-error": "وقع خطأ في إيراد المزيد من النتائج.",
+	"echo-load-more-error": "وقع خطأ أثناء جلب المزيد من النتائج.",
 	"notification-bundle-header-edit-user-talk-v2": "{{PLURAL:$1|لا رسائل|رسالة جديدة|رسالتان جديدتان|$1 رسائل جديدة|$1 رسالة جديدة}} على </strong>صفحة {{GENDER:$3|نقاشك|نقاشكِ}}.<strong>",
 	"echo-email-batch-subject-daily": "لديك {{PLURAL:$2|إشعار جديد|إشعارات جديدة}} في {{SITENAME}}",
 	"echo-email-batch-subject-weekly": "لديك {{PLURAL:$2|إشعار جديد|إشعارات جديدة}} في {{SITENAME}} هذا الأسبوع",
