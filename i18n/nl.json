@@ -54,6 +54,8 @@
 	"echo-category-title-article-linked": "Paginakoppeling{{PLURAL:$1||en}}",
 	"echo-category-title-reverted": "Bewerking{{PLURAL:$1||en}} teruggedraaid",
 	"echo-category-title-mention": "{{PLURAL:$1|Genoemd}}",
+	"echo-category-title-mention-failure": "Mislukte vermelding{{PLURAL:$1||en}}",
+	"echo-category-title-mention-success": "Succesvolle vermelding{{PLURAL:$1||en}}",
 	"echo-category-title-other": "{{PLURAL:$1|Overige}}",
 	"echo-category-title-system": "{{PLURAL:$1|Systeem}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|Gebruikersrechtenwijziging|Gebruikersrechtenwijzigingen}}",

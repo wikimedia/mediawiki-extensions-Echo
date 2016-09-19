@@ -1,9 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"AlnashPiyash2"
+			"AlnashPiyash2",
+			"Kaganer"
 		]
 	},
-	"notification-edit-talk-page2": "[[User:$1|$1]] гожтӥз тӥляд [[User talk:$2#$3|вераськон бамады]].",
-	"notification-page-linked-flyout": "[[:$2]] вал {{GENDER:$1|герӟамын}} [[:$3]]."
+	"notification-inbox-filter-all": "Ваньзэ"
 }
