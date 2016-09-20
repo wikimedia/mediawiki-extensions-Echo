@@ -6,7 +6,6 @@
 			"preset": "jsduck5",
 			"extra": {
 				"mixin": false,
-				"source": true,
 				"todo": true,
 				"see": true
 			}
