@@ -104,7 +104,7 @@
 	"echo-notification-more-options-tooltip": "Mais opções",
 	"notification-dynamic-actions-unwatch": "{{GENDER:$3|Parar}} de vigiar a nova atividade em \"$1\"",
 	"notification-dynamic-actions-unwatch-confirmation": "Não {{GENDER:$3|está}} mais a vigiar a página \"$1\"",
-	"notification-dynamic-actions-unwatch-confirmation-description": "{{GENDER:$3|Poderá}} vigiar [$2 esta página] a qualquer momento.",
+	"notification-dynamic-actions-unwatch-confirmation-description": "{{GENDER:$3|Pode}} vigiar [$2 esta página] a qualquer momento.",
 	"notification-dynamic-actions-watch": "{{GENDER:$3|Seguir}} a nova atividade em \"$1\"",
 	"notification-dynamic-actions-watch-confirmation": "{{GENDER:$3|Está}} agora a vigiar a página \"$1\"",
 	"notification-dynamic-actions-watch-confirmation-description": "{{GENDER:$3|Pode}} parar de vigiar [$2 esta página] a qualquer momento.",
