@@ -24,12 +24,12 @@ class EchoModerationController {
 		$affectedUserIds = $notificationMapper->fetchUsersWithNotificationsForEvents( $eventIds );
 		$eventMapper->toggleDeleted( $eventIds, $moderate );
 
-		DeferredUpdates::addCallableUpdate( function () {
-			// This udate runs after than main transaction round commits.
-			// Wait for the events deletions to be propagated to replica DBs
+		DeferredUpdates::addCallableUpdate( function () use ( $affectedUserIds ) {
+			// This update runs after the main transaction round commits.
+			// Wait for the event deletions to be propagated to replica DBs
 			$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
 			$lbFactory->waitForReplication( [ 'timeout' => 5 ] );
-			$lbFactory->flushReplicaSnapshots( __METHOD__ );
+			$lbFactory->flushReplicaSnapshots( 'EchoModerationController::moderate' );
 			// Recompute the notification count for the
 			// users whose notifications have been moderated.
 			foreach ( $affectedUserIds as $userId ) {
