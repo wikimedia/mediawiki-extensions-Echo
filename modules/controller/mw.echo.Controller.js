@@ -315,7 +315,8 @@
 									notifData.sources[ source ]
 								);
 							}
-						} else if ( newNotifData.bundledNotifications ) {
+
+						} else if ( Array.isArray( newNotifData.bundledNotifications ) ) {
 							// local bundle
 							newNotifData.modelName = 'bundle_' + notifData.id;
 							itemModel = new mw.echo.dm.BundleNotificationItem(
@@ -333,6 +334,15 @@
 
 							idArray.push( notifData.id );
 							localItems.push( itemModel );
+
+							if ( newNotifData.bundledNotifications ) {
+								// This means that bundledNotifications is truthy
+								// but is not an array. We should log this in the console
+								mw.log.warn(
+									'newNotifData.bundledNotifications is expected to be an array,' +
+									'but instead received "' + $.type( newNotifData.bundledNotifications ) + '"'
+								);
+							}
 						}
 
 					}

@@ -142,14 +142,14 @@ class EchoDataOutputFormatter {
 			$output['*'] = $formatted;
 
 			if ( $notification->getBundledNotifications() && self::isBundleExpandable( $event->getType() ) ) {
-				$output['bundledNotifications'] = array_filter( array_map( function ( EchoNotification $notification ) use ( $format, $user, $lang ) {
+				$output['bundledNotifications'] = array_values( array_filter( array_map( function ( EchoNotification $notification ) use ( $format, $user, $lang ) {
 					// remove nested notifications to
 					//   - ensure they are formatted as single notifications (not bundled)
 					//   - prevent further re-entrance on the current notification
 					$notification->setBundledNotifications( array() );
 					$notification->getEvent()->setBundledEvents( array() );
 					return self::formatOutput( $notification, $format, $user, $lang );
-				}, array_merge( array( $notification ), $notification->getBundledNotifications() ) ) );
+				}, array_merge( array( $notification ), $notification->getBundledNotifications() ) ) ) );
 			}
 		}
 
