@@ -41,12 +41,12 @@ class EchoSeenTime {
 	private static function cache() {
 		static $c = null;
 
-		// Use db-replicated for persistent storage, and
+		// Use main stash for persistent storage, and
 		// wrap it with CachedBagOStuff for an in-process
 		// cache. (T144534)
 		if ( $c === null ) {
 			$c = new CachedBagOStuff(
-				ObjectCache::getInstance( 'db-replicated' )
+				ObjectCache::getMainStashInstance()
 			);
 		}
 
@@ -75,9 +75,8 @@ class EchoSeenTime {
 			return false;
 		}
 
-		$key = wfMemcKey( 'echo', 'seen', $type, 'time', $this->user->getId() );
 		$cas = 0; // Unused, but we have to pass something by reference
-		$data = self::cache()->get( $key, $cas, $flags );
+		$data = self::cache()->get( $this->getMemcKey( $type ), $cas, $flags );
 
 		if ( $data === false ) {
 			// Check if the user still has it set in their preferences
@@ -108,9 +107,7 @@ class EchoSeenTime {
 			}
 		} else {
 			if ( $this->validateType( $type ) ) {
-				$key = wfMemcKey( 'echo', 'seen', $type, 'time', $this->user->getId() );
-
-				return self::cache()->set( $key, $time );
+				return self::cache()->set( $this->getMemcKey( $type ), $time );
 			}
 		}
 	}
@@ -123,5 +120,29 @@ class EchoSeenTime {
 	 */
 	private function validateType( $type ) {
 		return in_array( $type, self::$allowedTypes );
+	}
+
+	/**
+	 * Build a memcached key.
+	 *
+	 * @param string $type Given notification type
+	 * @return string Memcached key
+	 */
+	protected function getMemcKey( $type = 'all' ) {
+		$localKey = wfMemcKey( 'echo', 'seen', $type, 'time', $this->user->getId() );
+
+		if ( !$this->user->getOption( 'echo-cross-wiki-notifications' ) ) {
+			return $localKey;
+		}
+
+		$lookup = CentralIdLookup::factory();
+		$globalId = $lookup->centralIdFromLocalUser( $this->user, CentralIdLookup::AUDIENCE_RAW );
+
+		if ( !$globalId ) {
+			return $localKey;
+		}
+
+		return wfGlobalCacheKey( 'echo', 'seen', $type, 'time', $globalId );
+
 	}
 }

@@ -199,7 +199,12 @@
 	 */
 	mw.echo.dm.NotificationItem.prototype.toggleSeen = function ( seen ) {
 		seen = seen !== undefined ? seen : !this.seen;
-		if ( this.seen !== seen ) {
+		if (
+			this.seen !== seen &&
+			// Do not change the state of a read item, since its
+			// seen state (never 'unseen') never changes
+			!this.isRead()
+		) {
 			this.seen = seen;
 			this.emit( 'update' );
 		}

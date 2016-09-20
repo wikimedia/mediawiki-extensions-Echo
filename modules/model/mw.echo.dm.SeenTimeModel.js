@@ -7,8 +7,6 @@
 	 *  that this model handles
 	 */
 	mw.echo.dm.SeenTimeModel = function MwEchoSeenTimeModel( config ) {
-		var originalSeenTime;
-
 		config = config || {};
 
 		// Mixin constructor
@@ -19,14 +17,7 @@
 			this.types = Array.isArray( config.types ) ? config.types : [ config.types ];
 		}
 
-		originalSeenTime = mw.config.get( 'wgEchoSeenTime' ) || {};
-
-		this.seenTime = {
-			local: {
-				alert: originalSeenTime.alert,
-				message: originalSeenTime.notice
-			}
-		};
+		this.seenTime = mw.config.get( 'wgEchoSeenTime' ) || {};
 	};
 
 	/* Initialization */
@@ -38,7 +29,6 @@
 
 	/**
 	 * @event update
-	 * @param {string} source The source that updated its seenTime
 	 * @param {string} time Seen time, as a full UTC ISO 8601 timestamp.
 	 *
 	 * Seen time has been updated for the given source
@@ -47,42 +37,34 @@
 	/* Methods */
 
 	/**
-	 * Get the seenTime value for the source
+	 * Get the global seenTime value
 	 *
-	 * @param {string} source Source name
 	 * @return {string} Seen time, as a full UTC ISO 8601 timestamp.
 	 */
-	mw.echo.dm.SeenTimeModel.prototype.getSeenTime = function ( source ) {
-		source = source || 'local';
-
-		return ( this.seenTime[ source ] && this.seenTime[ source ][ this.getTypes()[ 0 ] ] ) || 0;
+	mw.echo.dm.SeenTimeModel.prototype.getSeenTime = function () {
+		return this.seenTime[ this.getTypes()[ 0 ] ] || 0;
 	};
 
 	/**
 	 * Set the seen time value for the source
 	 *
 	 * @private
-	 * @param {string} [source='local'] Given source
 	 * @param {string} time Seen time, as a full UTC ISO 8601 timestamp.
 	 * @fires update
 	 */
-	mw.echo.dm.SeenTimeModel.prototype.setSeenTimeForSource = function ( source, time ) {
+	mw.echo.dm.SeenTimeModel.prototype.setSeenTime = function ( time ) {
 		var model = this,
 			hasChanged = false;
 
-		source = source || 'local';
-
-		this.seenTime[ source ] = this.seenTime[ source ] || {};
-
 		this.getTypes().forEach( function ( type ) {
-			if ( model.seenTime[ source ][ type ] !== time ) {
-				model.seenTime[ source ][ type ] = time;
+			if ( model.seenTime[ type ] !== time ) {
+				model.seenTime[ type ] = time;
 				hasChanged = true;
 			}
 		} );
 
 		if ( hasChanged ) {
-			this.emit( 'update', source, time );
+			this.emit( 'update', time );
 		}
 	};
 

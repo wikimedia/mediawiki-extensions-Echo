@@ -235,16 +235,16 @@
 	 * Respond to SeenTime model update event
 	 */
 	mw.echo.ui.NotificationBadgeWidget.prototype.onSeenTimeModelUpdate = function () {
-		this.updateBadgeSeenState( this.manager.hasUnseenInSource( 'local' ) );
+		this.updateBadgeSeenState( false );
 	};
 
 	/**
 	 * Update the badge style to match whether it contains unseen notifications.
 	 *
-	 * @param {boolean} hasUnseen There are unseen notifications
+	 * @param {boolean} [hasUnseen=false] There are unseen notifications
 	 */
 	mw.echo.ui.NotificationBadgeWidget.prototype.updateBadgeSeenState = function ( hasUnseen ) {
-		hasUnseen = hasUnseen === undefined ? this.manager.hasUnseenInSource( 'local' ) : !!hasUnseen;
+		hasUnseen = hasUnseen === undefined ? false : !!hasUnseen;
 
 		this.badgeButton.setFlags( { unseen: !!hasUnseen } );
 	};
@@ -336,7 +336,7 @@
 					if ( widget.popup.isVisible() ) {
 						widget.popup.clip();
 						// Update seen time
-						return widget.controller.updateLocalSeenTime();
+						return widget.controller.updateSeenTime();
 					}
 				},
 				// Failure

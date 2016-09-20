@@ -97,6 +97,19 @@
 	};
 
 	/**
+	 * Set all notifications to seen
+	 *
+	 * @param {number} timestamp New seen timestamp
+	 */
+	mw.echo.dm.BundleNotificationItem.prototype.updateSeenState = function ( timestamp ) {
+		this.list.getItems().forEach( function ( notification ) {
+			notification.toggleSeen(
+				notification.isRead() || notification.getTimestamp() < timestamp
+			);
+		} );
+	};
+
+	/**
 	 * This item is a group.
 	 * This method is required for all models that are managed by the
 	 * mw.echo.dm.ModelManager.
