@@ -43,7 +43,7 @@
 	"echo-category-title-article-linked": "{{PLURAL:$1|Seitenverlinkung|Seitenverlinkungen}}",
 	"echo-category-title-reverted": "{{PLURAL:$1|Rückgängigmachung einer Bearbeitung|Rückgängigmachungen von Bearbeitungen}}",
 	"echo-category-title-mention": "{{PLURAL:$1|Erwähnung|Erwähnungen}}",
-	"echo-category-title-mention-failure": "Fehlgeschlagene {{PLURAL:$1|Erwähnung|Erwähnungen}}",
+	"echo-category-title-mention-failure": "Erfolglose {{PLURAL:$1|Erwähnung|Erwähnungen}}",
 	"echo-category-title-mention-success": "Erfolgreiche {{PLURAL:$1|Erwähnung|Erwähnungen}}",
 	"echo-category-title-other": "{{PLURAL:$1|Andere}}",
 	"echo-category-title-system": "{{PLURAL:$1|System}}",
