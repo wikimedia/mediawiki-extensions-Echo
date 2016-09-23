@@ -76,7 +76,7 @@
 	"notification-timestamp-ago-hours": "{{PLURAL:$1|$1 сәг}}",
 	"notification-timestamp-ago-days": "{{PLURAL:$1|$1 көн}}",
 	"notification-timestamp-ago-months": "{{PLURAL:$1|$1 ай}}",
-	"notification-timestamp-ago-years": "{{PLURAL:$1|$1  ел}}",
+	"notification-timestamp-ago-years": "{{PLURAL:$1|$1 ел}}",
 	"notification-timestamp-today": "Бүген",
 	"notification-timestamp-yesterday": "Кичә",
 	"notification-inbox-filter-read": "Укылган",
