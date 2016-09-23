@@ -331,12 +331,12 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 
 		if ( $groupBySection ) {
 			foreach ( $sections as $section ) {
-				$result[$section]['seenTime'] = $seenTimeHelper->getTime( $section, /*flags*/ 0, TS_ISO_8601 );
+				$result[$section]['seenTime'] = $seenTimeHelper->getTime( $section, TS_ISO_8601 );
 			}
 		} else {
 			$result['seenTime'] = array();
 			foreach ( $sections as $section ) {
-				$result['seenTime'][$section] = $seenTimeHelper->getTime( $section, /*flags*/ 0, TS_ISO_8601 );
+				$result['seenTime'][$section] = $seenTimeHelper->getTime( $section, TS_ISO_8601 );
 			}
 		}
 

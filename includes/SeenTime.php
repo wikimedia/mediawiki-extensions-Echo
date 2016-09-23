@@ -55,17 +55,16 @@ class EchoSeenTime {
 
 	/**
 	 * @param string $type Type of seen time to get
-	 * @param int $flags BagOStuff::READ_LATEST to use the master
 	 * @param int $format Format to return time in, defaults to TS_MW
 	 * @return string|bool Timestamp in specified format, or false if no stored time
 	 */
-	public function getTime( $type = 'all', $flags = 0, $format = TS_MW ) {
+	public function getTime( $type = 'all', $format = TS_MW ) {
 		$vals = array();
 		if ( $type === 'all' ) {
 			foreach ( self::$allowedTypes as $allowed ) {
 				// Use TS_MW, then convert later, so max works properly for
 				// all formats.
-				$vals[] = $this->getTime( $allowed, $flags, TS_MW );
+				$vals[] = $this->getTime( $allowed, TS_MW );
 			}
 
 			return wfTimestamp( $format, min( $vals ) );
@@ -75,8 +74,7 @@ class EchoSeenTime {
 			return false;
 		}
 
-		$cas = 0; // Unused, but we have to pass something by reference
-		$data = self::cache()->get( $this->getMemcKey( $type ), $cas, $flags );
+		$data = self::cache()->get( $this->getMemcKey( $type ) );
 
 		if ( $data === false ) {
 			// Check if the user still has it set in their preferences
@@ -98,7 +96,6 @@ class EchoSeenTime {
 	 *
 	 * @param string $time Time, in TS_MW format
 	 * @param string $type Type of seen time to set
-	 * @param string $sourceWiki Source wiki to set it for, defaults to current
 	 */
 	public function setTime( $time, $type = 'all' ) {
 		if ( $type === 'all' ) {

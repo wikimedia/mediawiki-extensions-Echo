@@ -862,8 +862,8 @@ class EchoHooks {
 			// If this is the Special:Notifications page, seenTime to now
 			$seenTime->setTime( wfTimestamp( TS_MW ), EchoAttributeManager::ALL );
 		}
-		$seenAlertTime = $seenTime->getTime( 'alert', /*flags*/ 0, TS_ISO_8601 );
-		$seenMsgTime = $seenTime->getTime( 'message', /*flags*/ 0, TS_ISO_8601 );
+		$seenAlertTime = $seenTime->getTime( 'alert', TS_ISO_8601 );
+		$seenMsgTime = $seenTime->getTime( 'message', TS_ISO_8601 );
 
 		$sk->getOutput()->addJsConfigVars( 'wgEchoSeenTime', array(
 			'alert' => $seenAlertTime,
