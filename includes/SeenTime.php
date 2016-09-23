@@ -102,11 +102,21 @@ class EchoSeenTime {
 			foreach ( self::$allowedTypes as $allowed ) {
 				$this->setTime( $time, $allowed );
 			}
-		} else {
-			if ( $this->validateType( $type ) ) {
-				return self::cache()->set( $this->getMemcKey( $type ), $time );
-			}
+			return;
 		}
+
+		if ( !$this->validateType( $type ) ) {
+			return;
+		}
+
+		// Write to the in-memory cache immediately, and defer writing to
+		// the real cache
+		$key = $this->getMemcKey( $type );
+		$cache = self::cache();
+		$cache->set( $key, $time, 0, BagOStuff::WRITE_CACHE_ONLY );
+		DeferredUpdates::addCallableUpdate( function () use ( $key, $time, $cache ) {
+			$cache->set( $key, $time );
+		} );
 	}
 
 	/**
