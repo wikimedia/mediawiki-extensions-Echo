@@ -58,8 +58,17 @@ class EchoUserRightsPresentationModel extends EchoEventPresentationModel {
 	}
 
 	public function getPrimaryLink() {
+		$addedGroups = array_values( $this->event->getExtraParam( 'add', array() ) );
+		$removedGroups = array_values( $this->event->getExtraParam( 'remove', array() ) );
+		if ( count( $addedGroups ) >= 1 && count( $removedGroups ) === 0 ) {
+			$fragment = $addedGroups[0];
+		} elseif ( count( $addedGroups ) === 0 && count( $removedGroups ) >= 1 ) {
+			$fragment = $removedGroups[0];
+		} else {
+			$fragment = '';
+		}
 		return array(
-			'url' => SpecialPage::getTitleFor( 'Listgrouprights' )->getLocalURL(),
+			'url' => SpecialPage::getTitleFor( 'Listgrouprights', false, $fragment )->getFullURL(),
 			'label' => $this->msg( 'echo-learn-more' )->text()
 		);
 	}
