@@ -102,6 +102,7 @@
 	"notification-inbox-filter-all": "Sve",
 	"echo-email-body-default": "Imate novu obavijest na projektu {{SITENAME}}:\n\n$1",
 	"echo-email-footer-default": "$2\n\nUkoliko želite prilagoditi primanje e-pošte, prilagodite svoje postavke:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
+	"echo-email-plain-footer": "Da biste prilagodili primanje e-pošte, provjerite postavke:",
 	"echo-notification-alert": "{{PLURAL:$1|Imate jednu obavijest|Imate $1 obavijesti|100=Imate više od 100 obavijesti}}",
 	"echo-notification-notice": "{{PLURAL:$1|Imate jednu obavijest|Imate $1 obavijesti|100=Imate više od 100 obavijesti}}",
 	"echo-notification-alert-text-only": "Obavijesti",
