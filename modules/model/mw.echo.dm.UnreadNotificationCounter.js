@@ -57,7 +57,9 @@
 	 * @return {number} Count with cap applied
 	 */
 	mw.echo.dm.UnreadNotificationCounter.prototype.getCappedNotificationCount = function ( count ) {
-		if ( count <= this.max ) {
+		if ( count < 0 ) {
+			return 0;
+		} else if ( count <= this.max ) {
 			return count;
 		} else {
 			return this.max + 1;
@@ -90,6 +92,9 @@
 				return;
 			}
 		}
+
+		// Normalize
+		count = this.getCappedNotificationCount( count );
 
 		if ( count !== this.count ) {
 			this.count = count;

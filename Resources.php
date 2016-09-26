@@ -197,6 +197,7 @@ $wgResourceModules += array(
 		),
 		'dependencies' => array(
 			'oojs',
+			'ext.echo.api'
 		),
 		'messages' => array(
 			'echo-api-failure',
