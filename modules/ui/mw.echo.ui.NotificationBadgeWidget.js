@@ -61,6 +61,7 @@
 
 		this.badgeButton = new mw.echo.ui.BadgeLinkWidget( {
 			label: this.badgeLabel,
+			type: this.manager.getTypeString(),
 			numItems: this.numItems,
 			flags: buttonFlags,
 			// The following messages can be used here:
@@ -334,6 +335,9 @@
 				// Success
 				function () {
 					if ( widget.popup.isVisible() ) {
+						// Fire initialization hook
+						mw.hook( 'ext.echo.popup.onInitialize' ).fire( widget.manager.getTypeString(), widget.controller );
+
 						widget.popup.clip();
 						// Update seen time
 						return widget.controller.updateSeenTime();
