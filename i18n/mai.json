@@ -62,7 +62,7 @@
 	"notification-link-text-view-changes": "परिवर्तन {{GENDER:$1|देखी}}",
 	"notification-link-text-view-page": "पृष्ठ देखी",
 	"notification-compact-header-page-linked": "<strong>$1</strong> सँ लिङ्क भेल।",
-	"notification-link-text-what-links-here": "ई पृष्ठ सँ जुडल सभी लिङ्कसभ।",
+	"notification-link-text-what-links-here": "ई पृष्ठ सँ जुड़ल सम्पूर्ण लिङ्कसभ।",
 	"notification-header-welcome": "अहाँक {{SITENAME}} पर {{GENDER:$2|स्वागत}} अछि, $1! हमसभ ख़ुशी छी जे अहाँ {{GENDER:$2|यतयँ}} अएलौ।",
 	"notification-welcome-linktext": "सुस्वागतम्‌!",
 	"notification-header-thank-you-1-edit": "{{GENDER:$2|अहाँ}} अखने अखन {{GENDER:$2|अपन}} पहिल सम्पादन केनए छी; {{GENDER:$2|अहाँक}} धन्यवाद, आ स्वागत अछि!",
