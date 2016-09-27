@@ -45,13 +45,16 @@ trait EchoPresentationModelSectionTrait {
 	 * @return Title
 	 */
 	protected function getTitleWithSection() {
+		global $wgParser;
 		$title = $this->event->getTitle();
 		$section = $this->getSection();
+		// guessSectionNameFromWikiText() returns '#foo', strip the '#'
+		$fragment = substr( $wgParser->guessSectionNameFromWikiText( $section ), 1 );
 		if ( $section ) {
 			$title = Title::makeTitle(
 				$title->getNamespace(),
 				$title->getDBkey(),
-				$section
+				$fragment
 			);
 		}
 		return $title;
