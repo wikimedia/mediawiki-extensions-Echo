@@ -85,6 +85,7 @@
 	"notification-header-mention-agent-talkpage-nosection": "$1 {{GENDER:$2|menciis}} {{GENDER:$3|vin}} sur <strong>{{GENDER:$2|sia}} diskutopaĝo</strong>.",
 	"notification-header-mention-article-talkpage": "$1 {{GENDER:$2|menciis}} {{GENDER:$3|vin}} sur la diskutopaĝo de <strong>$4</strong> en \"<strong>$5</strong>\".",
 	"notification-header-mention-article-talkpage-nosection": "$1 {{GENDER:$2|menciis}} {{GENDER:$3|vin}} sur la diskutopaĝo de <strong>$4</strong>.",
+	"notification-header-mention-success": "{{GENDER:$2|Via}} mencio de <strong>$3</strong> estis sendita.",
 	"notification-compact-header-mention-success": "<strong>{{GENDER:$2|Vi menciis}}:</strong> $3",
 	"notification-header-user-rights-add-only": "{{GENDER:$4|Viaj}} rajtoj de uzanto estis {{GENDER:$1|ŝanĝitaj}}. Vi estis aldonita al: $2.",
 	"notification-header-user-rights-remove-only": "{{GENDER:$4|Viaj}} rajtoj de uzanto estis {{GENDER:$1|ŝanĝitaj}}. Vi ne plu estas membro de: $2.",
@@ -135,6 +136,7 @@
 	"echo-email-batch-body-intro-daily": "Saluton $1,\nĈi tie estas resumo de hodiaŭaj aktivaĵoj sur {{SITENAME}} por vi.",
 	"echo-email-batch-body-intro-weekly": "Saluton $1,\nĈi tie estas resumo de la aktivaĵoj de ĉi tiu semajno sur {{SITENAME}} por vi.",
 	"echo-email-batch-link-text-view-all-notifications": "Montri ĉiujn sciigojn",
+	"notification-header-foreign-alert": "Pliaj sciigoj el {{PLURAL:$5|alia vikio|$5 aliaj vikioj}}",
 	"apihelp-echomarkread-description": "Marki sciigojn legitaj por tiu ĉi uzanto.",
 	"apihelp-echomarkread-example-2": "Marki ĉiujn sciigojn legitaj",
 	"apihelp-query+notifications-description": "Ricevi sciigojn atentantajn por tiu ĉi uzanto."
