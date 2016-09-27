@@ -50,7 +50,7 @@ class EchoMentionPresentationModel extends EchoEventPresentationModel {
 		}
 
 		if ( $this->hasSection() ) {
-			$msg->plaintextParams( $this->getTruncatedSectionTitle( $this->getSection() ) );
+			$msg->plaintextParams( $this->getTruncatedSectionTitle() );
 		}
 
 		return $msg;

@@ -3,29 +3,52 @@
  * Trait that adds section title handling to an EchoEventPresentationModel subclass.
  */
 trait EchoPresentationModelSectionTrait {
-	private $sectionTitle = null;
+	private $rawSectionTitle = null;
+	private $parsedSectionTitle = null;
 
 	/**
-	 * Get the section title
+	 * Get the raw (unparsed) section title
 	 * @return string Section title
 	 */
-	protected function getSection() {
-		if ( $this->sectionTitle !== null ) {
-			return $this->sectionTitle;
+	protected function getRawSectionTitle() {
+		if ( $this->rawSectionTitle !== null ) {
+			return $this->rawSectionTitle;
 		}
 		$sectionTitle = $this->event->getExtraParam( 'section-title' );
 		if ( !$sectionTitle ) {
-			$this->sectionTitle = false;
+			$this->rawSectionTitle = false;
 			return false;
 		}
 		// Check permissions
 		if ( !$this->userCan( Revision::DELETED_TEXT ) ) {
-			$this->sectionTitle = false;
+			$this->rawSectionTitle = false;
 			return false;
 		}
 
-		$this->sectionTitle = $sectionTitle;
-		return $this->sectionTitle;
+		$this->rawSectionTitle = $sectionTitle;
+		return $this->rawSectionTitle;
+	}
+
+	/**
+	 * Get the section title parsed to plain text
+	 * @return string Section title (plain text)
+	 */
+	protected function getParsedSectionTitle() {
+		if ( $this->parsedSectionTitle !== null ) {
+			return $this->parsedSectionTitle;
+		}
+		$rawSectionTitle = $this->getRawSectionTitle();
+		if ( !$rawSectionTitle ) {
+			$this->parsedSectionTitle = false;
+			return false;
+		}
+		$this->parsedSectionTitle = EchoDiscussionParser::getTextSnippet(
+			$rawSectionTitle,
+			$this->language,
+			150,
+			$this->event->getTitle()
+		);
+		return $this->parsedSectionTitle;
 	}
 
 	/**
@@ -37,7 +60,7 @@ trait EchoPresentationModelSectionTrait {
 	 * @return boolean Whether there is a section
 	 */
 	protected function hasSection() {
-		return (bool)$this->getSection();
+		return (bool)$this->getRawSectionTitle();
 	}
 
 	/**
@@ -45,11 +68,13 @@ trait EchoPresentationModelSectionTrait {
 	 * @return Title
 	 */
 	protected function getTitleWithSection() {
-		global $wgParser;
 		$title = $this->event->getTitle();
-		$section = $this->getSection();
-		// guessSectionNameFromWikiText() returns '#foo', strip the '#'
-		$fragment = substr( $wgParser->guessSectionNameFromWikiText( $section ), 1 );
+		$section = $this->getParsedSectionTitle();
+		// Like Parser::guessSectionNameFromWikiText() but without the link stripping
+		$fragment = Sanitizer::escapeId(
+			Sanitizer::normalizeSectionNameWhitespace( $section ),
+			'noninitial'
+		);
 		if ( $section ) {
 			$title = Title::makeTitle(
 				$title->getNamespace(),
@@ -58,5 +83,14 @@ trait EchoPresentationModelSectionTrait {
 			);
 		}
 		return $title;
+	}
+
+	protected function getTruncatedSectionTitle() {
+		return $this->language->embedBidi( $this->language->truncate(
+			$this->getParsedSectionTitle(),
+			self::SECTION_TITLE_RECOMMENDED_LENGTH,
+			'...',
+			false
+		) );
 	}
 }
