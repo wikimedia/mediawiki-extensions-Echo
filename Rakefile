@@ -11,6 +11,11 @@ end
 require 'mediawiki_selenium/rake_task'
 MediawikiSelenium::RakeTask.new
 
+require 'rspec/core/rake_task'
+RSpec::Core::RakeTask.new do |t|
+  t.rspec_opts = 'tests/rspec/'
+end
+
 task default: [:test]
 
 desc 'Run all build/tests commands (CI entry point)'
