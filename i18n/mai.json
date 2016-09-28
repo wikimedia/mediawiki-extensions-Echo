@@ -79,7 +79,7 @@
 	"notification-edit-talk-page-email-subject2": "$1 अहाँक लेल {{SITENAME}}पर सन्देश {{GENDER:$1|छोडलक अछि}}",
 	"notification-reverted-email-subject2": "{{SITENAME}} पर अहाँक {{PLURAL:$3|सम्पादन|सम्पादनसभ}}के {{GENDER:$1|पूर्ववत}} कएल गेल।",
 	"notification-user-rights-email-subject": "{{SITENAME}} पर अहाँक प्रयोगकर्ता अधिकार परिवर्तन कएल गेल",
-	"notification-timestamp-ago-seconds": "{{PLURAL:$1|$1 से}}",
+	"notification-timestamp-ago-seconds": "{{PLURAL:$1|$1सँ}}",
 	"notification-timestamp-ago-minutes": "{{PLURAL:$1|$1 मि}}",
 	"notification-timestamp-ago-hours": "{{PLURAL:$1|$1 घ}}",
 	"notification-timestamp-ago-days": "{{PLURAL:$1|$1 दि}}",

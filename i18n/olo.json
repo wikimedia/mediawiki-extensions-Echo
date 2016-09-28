@@ -25,7 +25,7 @@
 	"notification-link-text-view-changes": "{{GENDER:$1|Ozuta}} muutokset",
 	"notification-link-text-view-page": "Ozuta sivu",
 	"notification-link-text-view-edit": "Ozuta kohendus",
-	"notification-header-reverted": "Sinun kohendus {{PLURAL:$4|oli kumottu}} {{GENDER:$2|on kumonnuh}}  {{GENDER:$2|}}",
+	"notification-header-reverted": "{{PLURAL:$4|Sinun kohendus|Sinun kohendukset}} sivul <strong>$3</strong> {{GENDER:$2|{{PLURAL:$4|on kumottu|oldih kumottu}}}}",
 	"notification-header-emailuser": "$1 {{GENDER:$2|työndi}} sinule sähköpoštan.",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|kirjutti}} sinule viestin sivul {{SITENAME}}",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 {{GENDER:$1|jätti}} viestin sinun paginsivule sektah \"$2\".",
