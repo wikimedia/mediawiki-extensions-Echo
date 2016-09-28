@@ -47,7 +47,7 @@ class EchoEditUserTalkPresentationModel extends EchoEventPresentationModel {
 		} elseif ( $this->hasSection() ) {
 			$msg = $this->getMessageWithAgent( "notification-header-{$this->type}-with-section" );
 			$msg->params( $this->getViewingUserForGender() );
-			$msg->plaintextParams( $this->getTruncatedSectionTitle( $this->getSection() ) );
+			$msg->plaintextParams( $this->getTruncatedSectionTitle() );
 			return $msg;
 		} else {
 			$msg = parent::getHeaderMessage();
