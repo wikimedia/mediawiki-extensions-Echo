@@ -163,8 +163,11 @@ class EchoOnWikiList implements EchoContainmentList {
 		if ( $article === null || !$article->exists() ) {
 			return array();
 		}
-
-		return array_filter( array_map( 'trim', explode( "\n", $article->getText() ) ) );
+		$text = ContentHandler::getContentText( $article->getContent() );
+		if ( $text === null ) {
+			return array();
+		}
+		return array_filter( array_map( 'trim', explode( "\n", $text ) ) );
 	}
 
 	/**
