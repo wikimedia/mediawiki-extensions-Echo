@@ -56,7 +56,6 @@
 		this.foreign = !!config.foreign;
 		this.bundled = !!config.bundled;
 		this.source = config.source || '';
-		this.modelName = config.modelName || 'local';
 		this.iconType = config.iconType;
 		this.iconURL = config.iconURL;
 

@@ -30,7 +30,7 @@
 
 		this.name = config.name || 'local';
 		this.source = config.source || 'local';
-		this.sourceURL = config.sourceURL;
+		this.sourceURL = config.sourceURL || '';
 		this.title = config.title || '';
 		this.fallbackTimestamp = config.timestamp || 0;
 
@@ -68,7 +68,7 @@
 
 	/**
 	 * @event update
-	 * @param {mw.echo.dm.NotificationItem} items Current items in the list
+	 * @param {mw.echo.dm.NotificationItem[]} items Current items in the list
 	 *
 	 * The list has been updated
 	 */
@@ -179,15 +179,6 @@
 	 */
 	mw.echo.dm.NotificationsList.prototype.getSource = function () {
 		return this.source;
-	};
-
-	/**
-	 * Get the name associated with this list.
-	 *
-	 * @return {string} List name
-	 */
-	mw.echo.dm.NotificationsList.prototype.getName = function () {
-		return this.name;
 	};
 
 	/**

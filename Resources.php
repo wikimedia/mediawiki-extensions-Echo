@@ -197,7 +197,8 @@ $wgResourceModules += array(
 		),
 		'dependencies' => array(
 			'oojs',
-			'ext.echo.api'
+			'ext.echo.api', // This is required by the UnreadNotificationCounter
+			'moment',
 		),
 		'messages' => array(
 			'echo-api-failure',

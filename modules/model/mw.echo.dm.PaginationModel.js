@@ -20,7 +20,7 @@
 		OO.EventEmitter.call( this );
 
 		this.pagesContinue = [];
-		this.itemsPerPage = this.itemsPerPage || 25;
+		this.itemsPerPage = config.itemsPerPage || 25;
 		this.currentPageItemCount = config.currentPageItemCount || this.itemsPerPage;
 
 		// Set initial page
@@ -132,7 +132,7 @@
 	 * @return {string} Previous page continue value
 	 */
 	mw.echo.dm.PaginationModel.prototype.getPrevPageContinue = function () {
-		return this.pagesContinue[ this.currPageIndex - 1 ];
+		return this.pagesContinue[ this.currPageIndex - 1 ] || '';
 	};
 
 	/**
@@ -141,7 +141,7 @@
 	 * @return {string} Current page continue value
 	 */
 	mw.echo.dm.PaginationModel.prototype.getCurrPageContinue = function () {
-		return this.pagesContinue[ this.currPageIndex ];
+		return this.pagesContinue[ this.currPageIndex ] || '';
 	};
 
 	/**
@@ -150,7 +150,7 @@
 	 * @return {string} Next page continue value
 	 */
 	mw.echo.dm.PaginationModel.prototype.getNextPageContinue = function () {
-		return this.pagesContinue[ this.currPageIndex + 1 ];
+		return this.pagesContinue[ this.currPageIndex + 1 ] || '';
 	};
 
 	/**
