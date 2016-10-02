@@ -132,7 +132,7 @@
 	"notification-header-mention-failure-bundle": "{{PLURAL:$3|En omtale|$3 omtaler}} {{GENDER:$2|du gjorde}} på diskusjonssiden <strong>$4</strong> {{PLURAL:$3|kunne}} ikke sendes.",
 	"notification-compact-header-mention-failure-user-unknown": "<strong>Brukernavnet eksisterer ikke:</strong> $1",
 	"notification-compact-header-mention-failure-user-anonymous": "<strong>IP-er kan ikke omtales:</strong> $1",
-	"notification-header-mention-success": "Omtalen {{GENDER:$2|din}} av <strong>$3</strong> ble ikke sendt.",
+	"notification-header-mention-success": "Omtalen {{GENDER:$2|din}} av <strong>$3</strong> ble sendt.",
 	"notification-header-mention-success-bundle": "{{PLURAL:$3|En omtale|$3 omtaler}} {{GENDER:$2|du gjorde}} på diskusjonssiden <strong>$4</strong> {{PLURAL:$3|ble}} sendt.",
 	"notification-compact-header-mention-success": "<strong>{{GENDER:$2|Du omtalte}}:</strong> $3",
 	"notification-header-mention-status-bundle": "{{PLURAL:$3|En beskjed|$3 beskjeder}} om omtaler {{GENDER:$2|du gjorde}} på diskusjonssiden <strong>$4</strong>: {{PLURAL:$5|$5 ble ikke sendt}}, {{PLURAL:$6|$6 ble sendt}}.",

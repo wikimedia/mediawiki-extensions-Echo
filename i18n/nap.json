@@ -228,6 +228,7 @@
 	"apihelp-query+notifications-example-1": "Elenca notifiche",
 	"apihelp-query+notifications-example-2": "Elenca notifiche, raggruppate pe' seziona, cu 'e cuntegge",
 	"apihelp-query+unreadnotificationpages-description": "Piglià paggene p' 'e quale ce stanno notifiche ca nun fossero ancora ligiute 'a ll'utente 'e mò.",
+	"apihelp-query+unreadnotificationpages-param-grouppages": "Paggene 'e chiacchiera 'e gruppo nziem'a ll'argomento suo, e notifiche 'e gruppo nun suòcie a na paggena nziem'a na paggena utente.",
 	"apihelp-query+unreadnotificationpages-param-limit": "'O nummero massimo 'e paggene ca s'avess'a turnà.",
 	"apihelp-query+unreadnotificationpages-param-wikis": "Elenco 'e wiki addò se piglià paggene ch' 'e notifiche nun liggiute (predefinite surtanto a 'o wiki 'e mò).",
 	"apihelp-query+unreadnotificationpages-example-1": "Elenco 'e paggene cu ('o cunto 'e) notifche senza lieggere"

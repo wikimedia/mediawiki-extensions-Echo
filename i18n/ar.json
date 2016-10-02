@@ -22,7 +22,8 @@
 			"علاء",
 			"بدارين",
 			"Izoozo",
-			"Moud hosny"
+			"Moud hosny",
+			"ديفيد"
 		]
 	},
 	"echo-desc": "نظام لإخطار المستخدمين عن الأحداث والرسائل",
@@ -67,7 +68,7 @@
 	"echo-pref-tooltip-mention-failure": "أبلغني عندما لا يمكنني إرسال إخطار لشخص ما.",
 	"echo-pref-tooltip-mention-success": "أخطرني عند إرسال إشارة إلى شخص ما.",
 	"echo-pref-tooltip-user-rights": "أعلمني عندما يغير شخص ما صلاحياتي.",
-	"echo-pref-tooltip-emailuser": "أعلمني عندما يرسل أحد ما بريدًا إلكترونيًا إلي.",
+	"echo-pref-tooltip-emailuser": "أعلمني عندما يرسل أحد ما بريدًا إلكترونيًا إليَّ.",
 	"echo-error-no-formatter": "لم يحدد للإشعارات أي تنسيق.",
 	"notifications": "إشعارات",
 	"tooltip-pt-notifications-alert": "إخطاراتك",
