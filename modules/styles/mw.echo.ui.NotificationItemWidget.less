@@ -1,3 +1,4 @@
+@import 'mediawiki.mixins';
 @import '../echo.variables';
 @import '../echo.mixins';
 
@@ -5,7 +6,7 @@
 	position: relative;
 	white-space: normal;
 	padding: 0.8em 1em 0.5em 1em;
-	box-sizing: border-box;
+	.box-sizing( border-box );
 
 	border: 1px solid #DDDDDD;
 	border-bottom: 0;
@@ -46,7 +47,7 @@
 		// The icon is 30px
 		margin-left: 30px;
 		padding-left: 0.8em;
-		box-sizing: border-box;
+		.box-sizing( border-box );
 
 		&-message {
 			line-height: 1.3em;

@@ -1,3 +1,4 @@
+@import 'mediawiki.mixins';
 @import '../echo.variables';
 
 .mw-echo-ui-notificationBadgeButtonPopupWidget {
@@ -70,7 +71,7 @@
 						white-space: normal;
 						font-weight: bold;
 						width: @notification-popup-width / 2;
-						box-sizing: border-box;
+						.box-sizing( border-box );
 
 						&:last-child {
 							border-left: 1px solid #DDDDDD;
