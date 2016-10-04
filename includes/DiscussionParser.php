@@ -415,11 +415,14 @@ abstract class EchoDiscussionParser {
 		if ( $revision->getParentId() ) {
 			$prevRevision = Revision::newFromId( $revision->getParentId() );
 			if ( $prevRevision ) {
-				$prevText = $prevRevision->getText();
+				$prevText = ContentHandler::getContentText( $prevRevision->getContent() );
 			}
 		}
 
-		$changes = self::getMachineReadableDiff( $prevText, $revision->getText() );
+		$changes = self::getMachineReadableDiff(
+			$prevText,
+			ContentHandler::getContentText( $revision->getContent() )
+		);
 		$output = self::interpretDiff( $changes, $user->getName(), $revision->getTitle() );
 
 		self::$revisionInterpretationCache[$revision->getId()] = $output;
