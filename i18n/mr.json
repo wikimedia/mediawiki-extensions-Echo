@@ -92,6 +92,8 @@
 	"echo-notification-markasunread": "न वाचलेले अशी खूण करा",
 	"echo-notification-markasread-tooltip": "वाचले अशी खूण करा",
 	"echo-notification-more-options-tooltip": "अधिक पर्याय",
+	"notification-dynamic-actions-unwatch-confirmation": "{{GENDER:$3|आपला}} \"$1\" या पानावर पहारा नाही.",
+	"notification-dynamic-actions-watch-confirmation-description": "{{GENDER:$3|आपण}} [$2 या पानावर] पहारा देणे कधीही थांबवू शकता.",
 	"notification-link-text-expand-all": "विस्तार करा",
 	"notification-link-text-expand-alert-count": "{{PLURAL:$1|$1 इशारा|$1 इशारे}} बघा",
 	"notification-link-text-expand-notice-count": "{{PLURAL:$1|$1 सूचना}} बघा",

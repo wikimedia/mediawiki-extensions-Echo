@@ -136,7 +136,7 @@
 	"notification-compact-header-mention-failure-user-unknown": "<strong>Gebruikersnaam bestaat niet:</strong> $1",
 	"notification-compact-header-mention-failure-user-anonymous": "<strong>IPs kan niet worden genoemd:</strong> $1",
 	"notification-header-mention-success": "{{GENDER:$2|U noemde}} $3.",
-	"notification-header-mention-success-bundle": "{{PLURAL:$3|Een vermelding|$3 vermeldt}} {{GENDER:$2|u maakte}} op de overlegpagina van <strong>$4</strong> {{PLURAL:$3|werd}} verzonden.",
+	"notification-header-mention-success-bundle": "{{PLURAL:$3|Een vermelding|$3 vermeldingen}} die {{GENDER:$2|u maakte}} op de overlegpagina van <strong>$4</strong> {{PLURAL:$3|zijn}} verzonden.",
 	"notification-compact-header-mention-success": "<strong>{{GENDER:$2|U noemde}}:</strong> $3",
 	"notification-header-user-rights-add-only": "{{GENDER:$4|Uw}} gebruikersrechten zijn {{GENDER:$1|veranderd}}. U bent lid van $2.",
 	"notification-header-user-rights-remove-only": "{{GENDER:$4|Uw}} gebruikersrechten zijn {{GENDER:$1|veranderd}}. U bent niet langer lid meer van $2.",
