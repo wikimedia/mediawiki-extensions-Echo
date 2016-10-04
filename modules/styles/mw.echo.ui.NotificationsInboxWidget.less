@@ -3,11 +3,18 @@
 	display: table;
 	width: 100%;
 	max-width: @specialpage-width;
+	z-index: 1;
+	position: relative;
 
 	&-row {
 		display: table-row;
 		width: 100%;
 	}
+
+	&-toolbarWrapper {
+		height: 4em;
+	}
+
 	&-cell {
 		display: table-cell;
 		vertical-align: middle;
@@ -27,15 +34,22 @@
 			display: none;
 		}
 	}
-
 	&-main {
 		vertical-align: top;
 
 		&-toolbar {
 			&-top {
 				display: table;
-				margin-bottom: 3 * @specialpage-separation-unit;
 				width: 100%;
+			}
+
+			&-affixed {
+				position: fixed;
+				z-index: 2;
+				top: 0;
+				background: #fff;
+				padding-top: 0.5em;
+				padding-bottom: 0.5em;
 			}
 
 			&-bottom {
@@ -74,13 +88,15 @@
 					display: inline-block;
 					margin-top: 1em;
 				}
-
 				&-settings {
 					.oo-ui-popupWidget-popup {
 						text-align: left;
 					}
 				}
 			}
+		}
+		&-toolbarWrapper {
+			height: 8em;
 		}
 	}
 }
