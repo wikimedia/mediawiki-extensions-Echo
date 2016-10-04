@@ -51,6 +51,9 @@ class ApiEchoUnreadNotificationPages extends ApiCrossWikiBase {
 	 * @return array
 	 */
 	protected function getFromLocal( $limit, $groupPages ) {
+		$attributeManager = EchoAttributeManager::newFromGlobalVars();
+		$enabledTypes = $attributeManager->getUserEnabledEvents( $this->getUser(), 'web' );
+
 		$dbr = MWEchoDbFactory::newFromDefault()->getEchoDb( DB_SLAVE );
 		// If $groupPages is true, we need to fetch all pages and apply the ORDER BY and LIMIT ourselves
 		// after grouping.
@@ -62,6 +65,7 @@ class ApiEchoUnreadNotificationPages extends ApiCrossWikiBase {
 				'notification_user' => $this->getUser()->getId(),
 				'notification_read_timestamp' => null,
 				'event_deleted' => 0,
+				'event_type' => $enabledTypes,
 			),
 			__METHOD__,
 			array(
