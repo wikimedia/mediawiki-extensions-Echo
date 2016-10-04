@@ -6,6 +6,22 @@
 	.box-sizing( border-box );
 	clear: both;
 
+	&.oo-ui-optionWidget {
+		// FIXME: Unlike OOjs UI's MenuOptionWidget, we don't care for icon changes right now
+		&-highlighted {
+			background-color: #eaecf0;
+		}
+
+		&-selected {
+			background-color: #eaf3ff;
+		}
+
+		&-selected&-highlighted,
+		&-pressed&-highlighted {
+			background-color: rgba( 41, 98, 204, 0.1 );
+		}
+	}
+
 	&-icon {
 		float: left;
 		.oo-ui-iconElement-icon {
@@ -29,5 +45,4 @@
 			background-color: #bbb;
 		}
 	}
-
 }
