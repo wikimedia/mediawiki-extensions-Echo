@@ -7,18 +7,22 @@
 	clear: both;
 
 	&.oo-ui-optionWidget {
-		// FIXME: Unlike OOjs UI's MenuOptionWidget, we don't care for icon changes right now
+		.transition( ~'background-color 100ms, color 100ms' );
+
 		&-highlighted {
 			background-color: #eaecf0;
+			color: #000;
 		}
 
 		&-selected {
 			background-color: #eaf3ff;
+			color: #36c;
 		}
 
 		&-selected&-highlighted,
 		&-pressed&-highlighted {
 			background-color: rgba( 41, 98, 204, 0.1 );
+			color: #36c;
 		}
 	}
 

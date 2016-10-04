@@ -73,4 +73,24 @@
 		return this.count;
 	};
 
+	mw.echo.ui.PageNotificationsOptionWidget.prototype.setPressed = function ( state ) {
+		mw.echo.ui.PageNotificationsOptionWidget.parent.prototype.setPressed.call( this, state );
+		if ( this.pressed ) {
+			this.setFlags( 'progressive' );
+		} else if ( !this.selected ) {
+			this.clearFlags();
+		}
+		return this;
+	};
+
+	mw.echo.ui.PageNotificationsOptionWidget.prototype.setSelected = function ( state ) {
+		mw.echo.ui.PageNotificationsOptionWidget.parent.prototype.setSelected.call( this, state );
+		if ( this.selected ) {
+			this.setFlags( 'progressive' );
+		} else {
+			this.clearFlags();
+		}
+		return this;
+	};
+
 } )( jQuery, mediaWiki );
