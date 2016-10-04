@@ -339,7 +339,7 @@
 					'notification-link-text-expand-' +
 						( type === 'message' ? 'notice' : type ) +
 						'-count',
-					this.model.getCount()
+					mw.language.convertNumber( this.model.getCount() )
 				)
 		);
 		this.toggleExpandButton.setIcon(
