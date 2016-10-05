@@ -3,6 +3,7 @@
 @import '../echo.mixins';
 
 .mw-echo-ui-notificationItemWidget {
+	background-color: #f1f1f1;
 	position: relative;
 	white-space: normal;
 	padding: 0.8em 1em 0.5em 1em;
@@ -11,8 +12,20 @@
 	border: 1px solid #ddd;
 	border-bottom: 0;
 
+	&:hover {
+		background-color: #ececec;
+	}
+
 	&:last-child {
 		border-bottom: 1px solid #ddd;
+	}
+
+	&-unread {
+		background-color: #fff;
+
+		&:hover {
+			background-color: #fafafa;
+		}
 	}
 
 	> a,
@@ -34,12 +47,12 @@
 	}
 
 	&-icon {
+		position: absolute;
+
 		img {
 			height: 30px;
 			width: 30px;
 		}
-
-		position: absolute;
 	}
 
 	&-content {
@@ -114,6 +127,19 @@
 				width: 100%;
 			}
 
+		}
+	}
+
+	&-markAsReadButton {
+		float: right;
+		font-size: 1em;
+		// Compensate for the padding in the item widget
+		margin-top: -0.8em;
+		margin-right: -1em;
+		padding: 0;
+
+		.mw-echo-ui-notificationItemWidget-bundled & {
+			margin-top: 0;
 		}
 	}
 
@@ -210,19 +236,6 @@
 		}
 	}
 
-	&-markAsReadButton {
-		float: right;
-		font-size: 1em;
-		// Compensate for the padding in the item widget
-		margin-top: -0.8em;
-		margin-right: -1em;
-		padding: 0;
-
-		.mw-echo-ui-notificationItemWidget-bundled & {
-			margin-top: 0;
-		}
-	}
-
 	&-initiallyUnseen {
 		-webkit-animation-name: unseen-fadeout-to-read;
 		animation-name: unseen-fadeout-to-read;
@@ -238,19 +251,6 @@
 		&.mw-echo-ui-notificationItemWidget-unread {
 			-webkit-animation-name: unseen-fadeout-to-unread;
 			animation-name: unseen-fadeout-to-unread;
-		}
-	}
-
-	background-color: #f1f1f1;
-
-	&:hover {
-		background-color: #ececec;
-	}
-	&-unread {
-		background-color: #fff;
-
-		&:hover {
-			background-color: #fafafa;
 		}
 	}
 
