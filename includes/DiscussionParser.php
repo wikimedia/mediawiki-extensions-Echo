@@ -626,7 +626,7 @@ abstract class EchoDiscussionParser {
 	 * @param int $offset The line to find the full section for.
 	 * @return string Content of the section.
 	 */
-	static function getFullSection( $lines, $offset ) {
+	static function getFullSection( array $lines, $offset ) {
 		$start = self::getSectionStartIndex( $offset, $lines );
 		$end = self::getSectionEndIndex( $offset, $lines );
 		$content = implode( "\n", array_slice( $lines, $start, $end - $start ) );
@@ -650,11 +650,11 @@ abstract class EchoDiscussionParser {
 
 	/**
 	 * Finds the line number of the start of the section that $offset is in.
-	 * @param $offset
-	 * @param $lines
+	 * @param int $offset
+	 * @param array $lines
 	 * @return int
 	 */
-	static function getSectionStartIndex( $offset, $lines ) {
+	static function getSectionStartIndex( $offset, array $lines ) {
 		for ( $i = $offset - 1; $i >= 0; $i-- ) {
 			if ( self::getSectionCount( $lines[$i] ) ) {
 				break;
@@ -666,11 +666,11 @@ abstract class EchoDiscussionParser {
 
 	/**
 	 * Finds the line number of the end of the section that $offset is in.
-	 * @param $offset
-	 * @param $lines
+	 * @param int $offset
+	 * @param array $lines
 	 * @return int
 	 */
-	static function getSectionEndIndex( $offset, $lines ) {
+	static function getSectionEndIndex( $offset, array $lines ) {
 		$lastLine = count( $lines );
 		for ( $i = $offset; $i < $lastLine; $i++ ) {
 			if ( self::getSectionCount( $lines[$i] ) ) {
