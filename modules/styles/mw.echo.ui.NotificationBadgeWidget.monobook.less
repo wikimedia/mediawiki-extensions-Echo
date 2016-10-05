@@ -3,17 +3,21 @@
 #p-personal li.mw-echo-ui-notificationBadgeButtonPopupWidget {
 	text-transform: none;
 	font-weight: normal;
-	&, .oo-ui-popupWidget a.oo-ui-buttonElement-button {
+
+	&,
+	.oo-ui-popupWidget a.oo-ui-buttonElement-button {
 		color: #333;
 	}
+
 	a {
 		background-color: initial;
 	}
+
 	// Badge
 	> .oo-ui-buttonElement-button {
 		&:hover {
 			.oo-ui-labelElement-label {
-				color: black !important;
+				color: #000 !important;
 			}
 		}
 	}
@@ -23,5 +27,4 @@
 		// Override text-align that monobook uses for #p-personal li
 		text-align: left;
 	}
-
 }

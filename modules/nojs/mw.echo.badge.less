@@ -50,17 +50,17 @@
 			font-size: 0.9em;
 			font-weight: bold;
 			padding: 0 0.3em;
-			border: 1px solid white;
+			border: 1px solid #fff;
 			border-radius: 2px;
 			background-color: @badge-counter-background-seen;
-			content: attr(data-counter-text);
-			color: white;
+			content: attr( data-counter-text );
+			color: #fff;
 		}
 
 		&.mw-echo-notifications-badge-all-read {
 			opacity: 0.625;
 
-			&::after {
+			&:after {
 				visibility: hidden;
 			}
 		}
@@ -69,14 +69,14 @@
 	#pt-notifications-alert & {
 		&:before {
 			/* @embed */
-			background-image: url('../icons/bell.svg');
+			background-image: url( ../icons/bell.svg );
 		}
 	}
 
 	#pt-notifications-notice & {
 		&:before {
 			/* @embed */
-			background-image: url('../icons/tray.svg');
+			background-image: url( ../icons/tray.svg );
 		}
 	}
 }
