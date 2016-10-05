@@ -1,6 +1,7 @@
 @import '../echo.variables';
 @import 'mediawiki.mixins';
 
+/* stylelint-disable no-descending-specificity */
 /* We have to include the #pt-notifications selector due to monobook */
 .mw-echo-notifications-badge {
 	#pt-notifications-alert &,
@@ -80,3 +81,4 @@
 		}
 	}
 }
+/* stylelint-enable no-descending-specificity */
