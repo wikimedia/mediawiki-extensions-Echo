@@ -101,7 +101,7 @@ $wgHooks['EchoGetBundleRules'][] = 'EchoHooks::onEchoGetBundleRules';
 $wgHooks['EchoAbortEmailNotification'][] = 'EchoHooks::onEchoAbortEmailNotification';
 
 // Hook appropriate events
-$wgHooks['ArticleSaveComplete'][] = 'EchoHooks::onArticleSaved';
+$wgHooks['PageContentSaveComplete'][] = 'EchoHooks::onPageContentSaveComplete';
 $wgHooks['LocalUserCreated'][] = 'EchoHooks::onLocalUserCreated';
 $wgHooks['ArticleRollbackComplete'][] = 'EchoHooks::onRollbackComplete';
 $wgHooks['UserSaveSettings'][] = 'EchoHooks::onUserSaveSettings';

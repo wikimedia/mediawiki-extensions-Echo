@@ -456,11 +456,11 @@ class EchoHooks {
 	}
 
 	/**
-	 * Handler for ArticleSaveComplete hook
+	 * Handler for PageContentSaveComplete hook
 	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/ArticleSaveComplete
 	 * @param $article Article edited
 	 * @param $user User who edited
-	 * @param $text string New article text
+	 * @param $content Content New article text
 	 * @param $summary string Edit summary
 	 * @param $minoredit bool Minor edit or not
 	 * @param $watchthis bool Watch this article?
@@ -470,7 +470,7 @@ class EchoHooks {
 	 * @param $status Status
 	 * @return bool true in all cases
 	 */
-	public static function onArticleSaved( &$article, &$user, $text, $summary, $minoredit, $watchthis, $sectionanchor, &$flags, $revision, &$status ) {
+	public static function onPageContentSaveComplete( &$article, &$user, $content, $summary, $minoredit, $watchthis, $sectionanchor, &$flags, $revision, &$status ) {
 		global $wgEchoNotifications, $wgRequest;
 
 		if ( !$revision ) {

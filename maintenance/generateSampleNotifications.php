@@ -233,7 +233,7 @@ class GenerateSampleNotifications extends Maintenance {
 		$this->output( "{$agent->getName()} is reverting {$user->getName()}'s edit on {$moai->getPrefixedText()}\n" );
 		$this->addToPageContent( $moai, $agent, "\ncreating a good revision here\n" );
 		$this->addToPageContent( $moai, $user, "\nadding a line here\n" );
-		// hack: EchoHooks::onArticleSaved depends on the request to know which revision is being reverted
+		// hack: EchoHooks::onPageContentSaveComplete depends on the request to know which revision is being reverted
 		$wgRequest->setVal( 'wpUndidRevision', $page->getRevision()->getId() );
 		$content = $page->getUndoContent( $page->getRevision(), $page->getRevision()->getPrevious() );
 		$status = $page->doEditContent( $content, 'undo', 0, false, $agent );
