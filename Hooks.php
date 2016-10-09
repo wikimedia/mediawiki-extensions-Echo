@@ -457,7 +457,7 @@ class EchoHooks {
 
 	/**
 	 * Handler for PageContentSaveComplete hook
-	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/ArticleSaveComplete
+	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/PageContentSaveComplete
 	 * @param $article Article edited
 	 * @param $user User who edited
 	 * @param $content Content New article text
