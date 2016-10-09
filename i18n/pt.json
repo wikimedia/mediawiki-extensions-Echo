@@ -15,7 +15,8 @@
 			"Önni",
 			"Diniscoelho",
 			"Gato Preto",
-			"Mansil"
+			"Mansil",
+			"Hamilton Abreu"
 		]
 	},
 	"echo-desc": "Sistema de notificações sobre eventos e mensagens para utilizadores",
@@ -74,8 +75,8 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Que métodos de notificação são suportadas para cada categoria",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-type-legend": "Que métodos de notificação são suportadas para cada tipo; só se aplica a tipos de categorias que estão escondidos das preferências",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Habilitado por padrão",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Usuários existentes",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Novos usuários",
+	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Utilizadores existentes",
+	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Novos utilizadores",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "Métodos de notificação obrigatórios",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "Que métodos de notificação são obrigatórias para cada categoria",
 	"echo-specialpage": "Notificações",

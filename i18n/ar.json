@@ -49,7 +49,7 @@
 	"echo-pref-beta-feature-cross-wiki-message": "إشعارات معززة",
 	"echo-pref-beta-feature-cross-wiki-description": "اعرض ونظّم الإشعارات بطريقة أكثر سهولة. بما في ذلك الإشعارات عبر الويكي، التي تتيح لك رؤية إشعاراتك في مواقع الويكي الأخرى. (لاستلام الإشعارات عبر الويكي، يجب عليك تفعيل خاصية البيتا على هذه الويكي.)",
 	"echo-learn-more": "معرفة المزيد",
-	"echo-log": "السجل العمومي",
+	"echo-log": "السجل العلني",
 	"echo-new-messages": "لديك رسائل جديدة",
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1|رسالة|رسائل}} صفحة النقاش",
 	"echo-category-title-article-linked": "{{PLURAL:$1|وصلة|وصلات}} صفحة",

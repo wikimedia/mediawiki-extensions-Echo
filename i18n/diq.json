@@ -7,7 +7,8 @@
 			"Mirzali",
 			"Gorizon",
 			"Sayginer",
-			"Kumkumuk"
+			"Kumkumuk",
+			"Velg"
 		]
 	},
 	"echo-desc": "Karbera  heqdê weqan u mesavan malumat dayen sisten",
@@ -77,7 +78,7 @@
 	"notification-header-thank-you-1000000-edit": "Şıma  {{GENDER:$2|vurnayışa}} milyoni {{GENDER:$2|kerd a }}; teşekur kem. Şıma ra ata kes çıni yo",
 	"notification-link-thank-you-edit": "Vurnayışê {{GENDER:$1|şıma}}",
 	"notification-link-text-view-edit": "Qaytê vırnayışi ke",
-	"notification-header-reverted": "To {{PLURAL:$4|vırnayışa <strong>$3</strong> |vırnayışane <strong>$3</strong>  }} rewizyona  {{GENDER:$2|peyser}} grot.",
+	"notification-header-reverted": "{{PLURAL:$4|Vurnayışê <strong>$3</strong> |vurnayışê <strong>$3</strong> }} şıma karber $1 {{GENDER:$2|peyser gırewt}}",
 	"notification-header-emailuser": "$1 şıma rê yew e-poste {{GENDER:$2|rışt}}.",
 	"notification-edit-talk-page-email-subject2": "$1 to rê {{SITENAME}} de yew mesac {{GENDER:$1|caverda}}",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1, pela werênayışê şıma de be sernameyê \"$2\" ra yew mesac {{GENDER:$1|caverda}}.",

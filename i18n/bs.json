@@ -101,6 +101,7 @@
 	"notification-header-mention-agent-talkpage-nosection": "$1 {{GENDER:$3|Vas}} je {{GENDER:$2|spomenuo|spomenula}} na <strong>svojoj stranici za razgovor</strong>.",
 	"notification-header-mention-article-talkpage": "$1 {{GENDER:$3|Vas}} je {{GENDER:$2|spomenuo|spomenula}} na stranici za razgovor <strong>$4</strong> u odlomku \"<strong>$5</strong>\".",
 	"notification-header-mention-article-talkpage-nosection": "$1 {{GENDER:$3|Vas}} je {{GENDER:$2|spomenuo|spomenula}} na stranici za razgovor <strong>$4</strong>.",
+	"notification-header-mention-success": "<strong>$3</strong> je {{GENDER:$3|obaviješten|obaviještena}} da {{GENDER:$2|ste}} {{GENDER:$3|ga|je}} spomenuli.",
 	"notification-header-user-rights-add-only": "{{GENDER:$4|Vaša}} korisnička prava su {{GENDER:$1|promijenjena}}. Sad ste član sljedećih grupa: $2.",
 	"notification-header-user-rights-remove-only": "{{GENDER:$4|Vaša}} korisnička prava su {{GENDER:$1|promijenjena}}. Više niste član sljedećih grupa: $2.",
 	"notification-header-user-rights-add-and-remove": "{{GENDER:$6|Vaša}} korisnička prava su {{GENDER:$1|promijenjena}}. Sad ste član sljedećih grupa: $2. Više niste član sljedećih grupa: $4.",
