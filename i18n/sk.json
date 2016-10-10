@@ -129,6 +129,7 @@
 	"echo-email-body-default": "Na {{grammar:6sg|{{SITENAME}}}} máte nové upozornenie:\n\n$1",
 	"echo-email-footer-default": "$2\n\nPosielanie e-mailov si môžete prispôsobiť v nastaveniach:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
 	"echo-notification-alert": "{{PLURAL:$1|Upozornenie ($1)|Upozornenia ($1)|100=Upozornenia (99+)}}",
+	"echo-notification-notice": "{{PLURAL:$1|Oznámenie ($1)|Oznámenia ($1)|100=Oznámení (99+)}}",
 	"echo-notification-alert-text-only": "Upozornenia",
 	"echo-notification-notice-text-only": "Oznámenia",
 	"echo-overlay-link": "Všetky upozornenia",
