@@ -957,9 +957,11 @@ class EchoHooks {
 		if ( $wgEchoNewMsgAlert && $user->getOption( 'echo-show-alert' )
 			&& $user->getNewtalk() && !$user->getTalkPage()->equals( $title )
 		) {
-			$personal_urls['mytalk']['text'] = $sk->msg( 'echo-new-messages' )->text();
-			$personal_urls['mytalk']['class'] = array( 'mw-echo-alert' );
-			$sk->getOutput()->addModuleStyles( 'ext.echo.styles.alert' );
+			if ( Hooks::run( 'BeforeDisplayOrangeAlert', array( $user, $title ) ) ) {
+				$personal_urls['mytalk']['text'] = $sk->msg( 'echo-new-messages' )->text();
+				$personal_urls['mytalk']['class'] = array( 'mw-echo-alert' );
+				$sk->getOutput()->addModuleStyles( 'ext.echo.styles.alert' );
+			}
 		}
 
 		return true;
