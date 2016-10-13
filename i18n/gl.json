@@ -191,7 +191,7 @@
 	"echo-email-batch-body-intro-daily": "Boas, $1:\nVelaquí ten un resumo da actividade de hoxe en {{SITENAME}}",
 	"echo-email-batch-body-intro-weekly": "Boas, $1:\nVelaquí ten un resumo da actividade da semana en {{SITENAME}}",
 	"echo-email-batch-link-text-view-all-notifications": "Ollar todas as notificacións",
-	"notification-header-foreign-alert": "Máis alertas {{PLURAL:$5|doutra wiki|doutras $5 wikis}}",
+	"notification-header-foreign-alert": "Máis alertas {{PLURAL:$5|doutro wiki|doutros $5 wikis}}",
 	"notification-header-foreign-notice": "Máis avisos {{PLURAL:$5|doutro wiki|doutros $5 wikis}}",
 	"notification-header-foreign-all": "Máis notificacións {{PLURAL:$5|doutra wiki|doutras $5 wikis}}",
 	"apihelp-echomarkread-description": "Marcar notificacións coma lidas para o usuario actual.",
