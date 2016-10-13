@@ -135,20 +135,7 @@
 			.append(
 					this.$toolbarWrapper,
 					this.noticeMessageWidget.$element,
-					this.datedListWidget.$element,
-				$( '<div>' )
-					.addClass( 'mw-echo-ui-notificationsInboxWidget-main-toolbar-bottom' )
-					.append(
-						$( '<div>' )
-							.addClass( 'mw-echo-ui-notificationsInboxWidget-row' )
-							.append(
-								$( '<div>' )
-									.addClass( 'mw-echo-ui-notificationsInboxWidget-cell' )
-									.append(
-										this.bottomPaginationWidget.$element
-									)
-							)
-					)
+					this.datedListWidget.$element
 			);
 
 		this.$element
