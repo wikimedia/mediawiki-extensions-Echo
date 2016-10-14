@@ -152,26 +152,31 @@
 	 *  If this is empty, the widget will request all the items from the model.
 	 */
 	mw.echo.ui.SubGroupListWidget.prototype.resetItemsFromModel = function ( items ) {
-		var i,
-			itemWidgets = [];
+		var i, widget,
+			itemWidgets = [],
+			$elements = $();
 
 		items = items || this.model.getItems();
 
 		for ( i = 0; i < items.length; i++ ) {
-			itemWidgets.push(
-				new mw.echo.ui.SingleNotificationItemWidget(
-					this.controller,
-					items[ i ],
-					{
-						$overlay: this.$overlay,
-						bundle: items[ i ].isBundled()
-					}
-				)
+			widget = new mw.echo.ui.SingleNotificationItemWidget(
+				this.controller,
+				items[ i ],
+				{
+					$overlay: this.$overlay,
+					bundle: items[ i ].isBundled()
+				}
 			);
+			itemWidgets.push( widget );
+			$elements = $elements.add( widget.$element );
 		}
 
 		// Clear the current items if any exist
 		this.getListWidget().clearItems();
+
+		// fire render hook
+		mw.hook( 'ext.echo.notifications.beforeRender' ).fire( this.$element, $elements );
+
 		// Add the new items
 		this.getListWidget().addItems( itemWidgets );
 	};

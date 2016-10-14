@@ -239,6 +239,9 @@
 			.then(
 				// Success
 				function () {
+					// Fire initialization hook
+					mw.hook( 'ext.echo.special.onInitialize' ).fire( widget.controller.manager.getTypeString(), widget.controller );
+
 					widget.popPending();
 					// Update seen time
 					widget.controller.updateSeenTime();

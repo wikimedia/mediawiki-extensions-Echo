@@ -7,6 +7,8 @@
 	 *
 	 * @constructor
 	 * @param {Object} [config] Configuration object
+	 * @cfg {string} [type] The notification types this button represents;
+	 *  'message', 'alert' or 'all'
 	 * @cfg {string} [href] URL the badge links to
 	 */
 	mw.echo.ui.BadgeLinkWidget = function MwEchoUiBadgeLinkWidget( config ) {
@@ -24,6 +26,8 @@
 		this.$element
 			.addClass( 'mw-echo-notifications-badge' );
 
+		this.count = 0;
+		this.type = config.type || 'alert';
 		this.setCount( config.numItems, config.label );
 
 		if ( config.href !== undefined && OO.ui.isSafeUrl( config.href ) ) {
@@ -47,6 +51,13 @@
 	 */
 	mw.echo.ui.BadgeLinkWidget.prototype.setCount = function ( numItems, label ) {
 		label = label || numItems;
+
+		if ( this.count !== numItems ) {
+			this.count = numItems;
+
+			// Fire badge count change hook
+			mw.hook( 'ext.echo.badge.countChange' ).fire( this.type, this.count, label );
+		}
 
 		this.$element
 			.toggleClass( 'mw-echo-notifications-badge-all-read', !numItems )
