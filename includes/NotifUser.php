@@ -148,7 +148,6 @@ class MWEchoNotifUser {
 	 */
 	public function getTalkNotificationCacheKey() {
 		global $wgEchoConfig;
-
 		return wfMemcKey( 'echo-new-talk-notification', $this->mUser->getId(), $wgEchoConfig['version'] );
 	}
 
@@ -365,7 +364,10 @@ class MWEchoNotifUser {
 			// After this 'mark read', is there any unread edit-user-talk
 			// remaining?  If not, we should clear the newtalk flag.
 			if ( $this->mUser->getNewtalk() ) {
-				$unreadEditUserTalk = $this->notifMapper->fetchUnreadByUser( $this->mUser, 1, null, array( 'edit-user-talk' ), null, DB_MASTER );
+				$attributeManager = EchoAttributeManager::newFromGlobalVars();
+				$categoryMap = $attributeManager->getEventsByCategory();
+				$usertalkTypes = $categoryMap['edit-user-talk'];
+				$unreadEditUserTalk = $this->notifMapper->fetchUnreadByUser( $this->mUser, 1, null, $usertalkTypes, null, DB_MASTER );
 				if ( count( $unreadEditUserTalk ) === 0 ) {
 					$this->mUser->setNewtalk( false );
 				}
@@ -394,7 +396,10 @@ class MWEchoNotifUser {
 			// After this 'mark unread', is there any unread edit-user-talk?
 			// If so, we should add the edit-user-talk flag
 			if ( !$this->mUser->getNewtalk() ) {
-				$unreadEditUserTalk = $this->notifMapper->fetchUnreadByUser( $this->mUser, 1, null, array( 'edit-user-talk' ), null, DB_MASTER );
+				$attributeManager = EchoAttributeManager::newFromGlobalVars();
+				$categoryMap = $attributeManager->getEventsByCategory();
+				$usertalkTypes = $categoryMap['edit-user-talk'];
+				$unreadEditUserTalk = $this->notifMapper->fetchUnreadByUser( $this->mUser, 1, null, $usertalkTypes, null, DB_MASTER );
 				if ( count( $unreadEditUserTalk ) > 0 ) {
 					$this->mUser->setNewtalk( true );
 				}

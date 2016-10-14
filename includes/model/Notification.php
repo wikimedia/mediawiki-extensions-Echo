@@ -142,8 +142,9 @@ class EchoNotification extends EchoAbstractEntity implements Bundleable {
 
 		$notifMapper->insert( $this );
 
-		if ( $this->event->getType() === 'edit-user-talk' ) {
+		if ( $this->event->getCategory() === 'edit-user-talk' ) {
 			$notifUser->flagCacheWithNewTalkNotification();
+			$this->mUser->setNewTalk( true );
 		}
 		Hooks::run( 'EchoCreateNotificationComplete', array( $this ) );
 	}
