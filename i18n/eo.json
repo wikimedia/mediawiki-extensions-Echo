@@ -36,6 +36,8 @@
 	"echo-category-title-article-linked": "{{PLURAL:$1|Ligilo|Ligiloj}} al paĝo",
 	"echo-category-title-reverted": "{{PLURAL:$1|Malfaro|Malfaroj}} de redakto",
 	"echo-category-title-mention": "{{PLURAL:$1|Mencio|Mencioj}}",
+	"echo-category-title-mention-failure": "{{PLURAL:$1|Malsukcesa mencio|Malsukcesaj mencioj}}",
+	"echo-category-title-mention-success": "{{PLURAL:$1|Sukcesa mencio|Sukcesaj mencioj}}",
 	"echo-category-title-other": "{{PLURAL:$1|Aliaj}}",
 	"echo-category-title-system": "{{PLURAL:$1|Sistemo}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|Ŝanĝo de uzanto-rajto|Ŝanĝoj de uzanto-rajtoj}}",

@@ -4,7 +4,8 @@
 			"Amire80",
 			"MaGa",
 			"Roberta F.",
-			"Ex13"
+			"Ex13",
+			"Bugoslav"
 		]
 	},
 	"echo-desc": "Sustav obavješćivanja suradnika o događajima i porukama",
@@ -80,6 +81,7 @@
 	"notification-header-page-linked": "Stranica $3 je {{GENDER:$2|povezana}} sa stranicom $4.",
 	"notification-bundle-header-page-linked": "Stranica $3 je {{GENDER:$2|povezana}} sa stranicom $4 i s još $5 {{PLURAL:$6|stranicom|stranice|stranica}}.",
 	"notification-link-text-what-links-here": "Sve poveznice na ovu stranicu",
+	"notification-header-mention-other": "$1 Vas je {{GENDER:$2|spomenuo|spomenula}} {{GENDER:$3|na}} <strong>$4</strong> u „<strong>$5</strong>”.",
 	"notification-welcome-linktext": "Dobrodošli",
 	"notification-link-text-view-edit": "Prikaži promjene",
 	"notification-header-reverted": "{{PLURAL:$4|Vaše uređivanje na stranici $3|Vaša uređivanja na stranici $3}} {{GENDER:$2|uklonio je suradnik|uklonila je suradnica}} $1.",
