@@ -81,7 +81,7 @@
 	"notification-link-text-view-changes": "{{GENDER:$1|Montri}} ŝanĝojn",
 	"notification-link-text-view-page": "Montri paĝon",
 	"notification-header-edit-user-talk": "$1 {{GENDER:$2|lasis}} mesaĝon sur <strong>{{GENDER:$3|via}} diskutpaĝo</strong>.",
-	"notification-header-edit-user-talk-with-section": "$1 {{GENDER:$2|lasis}} mesaĝon sur <strong>{{GENDER:$3|via}} diskutpaĝo</strong> en \"<strong>$4</strong>\".",
+	"notification-header-edit-user-talk-with-section": "$1 {{GENDER:$2|lasis}} mesaĝon sur <strong>{{GENDER:$3|via}} diskutpaĝo</strong> en «<strong>$4</strong>».",
 	"notification-header-page-linked": "Ligilo estis kreita de <strong>$4</strong> al <strong>$3</strong>.",
 	"notification-bundle-header-page-linked": "Ligiloj estis kreitaj de <strong>$4</strong> kaj {{PLURAL:$5|alia paĝo|$5 aliaj paĝoj|100=pli ol 99 aliaj paĝoj}} al <strong>$3</strong>.",
 	"notification-link-text-what-links-here": "Ĉiuj ligiloj al ĉi tiu paĝo",
