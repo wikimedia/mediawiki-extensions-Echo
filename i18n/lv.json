@@ -4,7 +4,8 @@
 			"Admresdeserv.",
 			"Edgars2007",
 			"Papuass",
-			"Zuiks"
+			"Zuiks",
+			"Silraks"
 		]
 	},
 	"echo-desc": "Paziņojumu sistēma",
@@ -48,6 +49,9 @@
 	"tooltip-pt-notifications-alert": "{{GENDER:|Tavi}} brīdinājumi",
 	"tooltip-pt-notifications-notice": "{{GENDER:|Tavi}} paziņojumi",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "Paziņojumi pēc kategorijas",
+	"echo-displaynotificationsconfiguration-enabled-default-header": "Iespējots pēc noklusējuma",
+	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Esošie dalībnieki",
+	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Jauni dalībnieki",
 	"echo-specialpage": "Paziņojumi",
 	"echo-specialpage-section-markread": "Atzīmēt grupu kā izlasītu",
 	"echo-specialpage-markasread": "Paziņojums: Atzīmēt kā izlasītu",
@@ -68,7 +72,9 @@
 	"echo-notification-markasunread": "Atzīmēt kā nelasītu",
 	"echo-notification-markasread-tooltip": "Atzīmēt kā lasītu",
 	"echo-notification-more-options-tooltip": "Vairāk iespēju",
+	"notification-link-text-expand-all": "Izvērst",
 	"notification-link-text-expand-notice-count": "Apskatīt {{PLURAL:$1|$1 paziņojumus|$1 paziņojumu|$1 paziņojumus}}",
+	"notification-link-text-collapse-all": "Sakļaut",
 	"notification-link-text-view-message": "Apskatīt ziņojumu",
 	"notification-link-text-view-mention": "Apskatīt pieminēšanu",
 	"notification-link-text-view-changes": "{{GENDER:$1|Apskatīt}} izmaiņas",
