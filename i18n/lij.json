@@ -115,5 +115,6 @@
 	"notification-header-mention-user-talkpage-v2": "$1 {{GENDER:$2|o|a}} t'ha {{GENDER:$3|mençunaou|mençunâ|mençunou/â}} inta <strong>paggina de discuscion utente {{GENDER:$5|de}} $4</strong> in \"<strong>$6</strong>\".",
 	"notification-header-mention-user-talkpage-nosection": "$1 {{GENDER:$2|o|a}} t'ha {{GENDER:$3|mençunou|mençunâ|mençunou/â}} inta <strong>paggina de discuscion utente {{GENDER:$5|de}} $4</strong>.",
 	"notification-header-mention-agent-talkpage": "$1 {{GENDER:$2|o|a}} t'ha {{GENDER:$3|mençunou|mençunâ|mençunou/â}} inta <strong>so pagina de discuscion</strong> in \"<strong>$4</strong>\".",
-	"notification-welcome-linktext": "Benvegnuo"
+	"notification-welcome-linktext": "Benvegnuo",
+	"echo-overlay-link": "Tutte e notiffiche"
 }
