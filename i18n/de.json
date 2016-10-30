@@ -11,7 +11,8 @@
 			"Tiin",
 			"Predatorix",
 			"FriedhelmW",
-			"MGChecker"
+			"MGChecker",
+			"Vogone"
 		]
 	},
 	"echo-desc": "Stellt ein System zur Benachrichtigung von Benutzern über Ereignisse und Nachrichten bereit",
@@ -154,7 +155,7 @@
 	"notification-link-thank-you-edit": "{{GENDER:$1|Deine}} Bearbeitung",
 	"notification-link-text-view-edit": "Bearbeitung ansehen",
 	"notification-header-reverted": "Deine {{PLURAL:$4|Bearbeitung an der Seite <strong>$3</strong> wurde|Bearbeitungen an der Seite <strong>$3</strong> wurden}} {{GENDER:$2|rückgängig}} gemacht.",
-	"notification-header-emailuser": "$1 {{GENDER:$2|sandte}} dir eine E-Mail.",
+	"notification-header-emailuser": "$1 hat dir eine E-Mail {{GENDER:$2|gesendet}}.",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|hinterließ}} dir eine Nachricht auf {{SITENAME}}",
 	"notification-edit-talk-page-email-batch-body-with-section": "„$1“ {{GENDER:$1|hinterließ}} eine Nachricht auf deiner Diskussionsseite zum Thema „$2“.",
 	"notification-page-linked-email-subject": "Eine Seite, die du erstellt hast, wurde auf {{SITENAME}} verlinkt",

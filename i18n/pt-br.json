@@ -16,7 +16,8 @@
 			"Luk3",
 			"Anderson Costa",
 			"Peter Fernando",
-			"Cristofer Alves"
+			"Cristofer Alves",
+			"Hamilton Abreu"
 		]
 	},
 	"echo-desc": "Sistema para notificar usuários sobre eventos e mensagens",
@@ -37,6 +38,7 @@
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Texto simples",
 	"echo-pref-new-message-indicator": "Exibir indicador de mensagem na página de discussão em minha barra de ferramentas",
+	"echo-pref-beta-feature-cross-wiki-description": "Confira e organize as suas notificações mais facilmente. Inclui notificações de forma global, o que lhe permite verificar as suas mensagens provenientes de outras wikis. (Para receber notificações globais deverá ativar a funcionalidade beta na respetiva wiki.)",
 	"echo-learn-more": "Saiba mais",
 	"echo-new-messages": "Você tem novas mensagens",
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Mensagem|Mensagens}} na página de discussão",
@@ -67,6 +69,7 @@
 	"echo-notification-placeholder": "Não há notificações.",
 	"echo-notification-loginrequired": "Você deve autenticar-se para ver suas notificações.",
 	"echo-notification-popup-loginrequired": "Autentique-se para ver suas notificações.",
+	"notification-dynamic-actions-unwatch-confirmation": "Não {{GENDER:$3|está}} mais a vigiar a página \"$1\"",
 	"notification-link-text-expand-all": "Ver tudo",
 	"notification-link-text-expand-alert-count": "Ver {{PLURAL:$1|$1 alerta|$1 alertas}}",
 	"notification-link-text-expand-notice-count": "Ver {{PLURAL:$1|$1 notificação|$1 notificações}}",
@@ -81,6 +84,8 @@
 	"notification-header-page-linked": "$3 foi {{GENDER:$2|ligada}} da página $4.",
 	"notification-bundle-header-page-linked": "$3 foi {{GENDER:$2|ligada}} de $4 e {{PLURAL:$6|1 outra página|$5 outras páginas}}.",
 	"notification-link-text-what-links-here": "Todas as ligações para esta página",
+	"notification-header-user-rights-remove-only": "Os {{GENDER:$4|seus}} privilégios foram {{GENDER:$1|alterados}}. Não pertence mais a: $2.",
+	"notification-header-user-rights-add-and-remove": "Os {{GENDER:$6|seus}} privilégios foram {{GENDER:$1|alterados}}. Foi {{GENDER:$6|adicionado|adicionada|adicionado(a)}} a: $2. Não pertence mais a: $4.",
 	"notification-header-welcome": "{{GENDER:$2|Bem-vindo|Bem-vinda}} ao site {{SITENAME}}, $1! Estamos contentes por ter {{GENDER:$2|você}} aqui.",
 	"notification-welcome-linktext": "Bem-vindo(a)",
 	"notification-link-text-view-edit": "Ver edição",

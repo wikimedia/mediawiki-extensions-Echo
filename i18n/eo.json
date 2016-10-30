@@ -89,7 +89,7 @@
 	"notification-header-mention-other-nosection": "$1 {{GENDER:$2|menciis}} {{GENDER:$3|vin}} sur <strong>$4</strong>.",
 	"notification-header-mention-user-talkpage-v2": "$1 {{GENDER:$2|menciis}} {{GENDER:$3|vin}} sur la <strong>uzanto-diskutopaĝo {{GENDER:$5|de}} $4</strong> en \"<strong>$6</strong>\".",
 	"notification-header-mention-user-talkpage-nosection": "$1 {{GENDER:$2|menciis}} {{GENDER:$3|vin}} sur la <strong>uzanto-diskutopaĝo {{GENDER:$5|de}} $4</strong>.",
-	"notification-header-mention-agent-talkpage": "$1 {{GENDER:$2|menciis}} {{GENDER:$3|vin}} sur <strong>{{GENDER:$2|sia}} diskutopaĝo</strong> en \"<strong>$4</strong>\".",
+	"notification-header-mention-agent-talkpage": "$1 {{GENDER:$2|menciis}} {{GENDER:$3|vin}} sur <strong>{{GENDER:$2|sia}} diskutpaĝo</strong> en «<strong>$4</strong>».",
 	"notification-header-mention-agent-talkpage-nosection": "$1 {{GENDER:$2|menciis}} {{GENDER:$3|vin}} sur <strong>{{GENDER:$2|sia}} diskutopaĝo</strong>.",
 	"notification-header-mention-article-talkpage": "$1 {{GENDER:$2|menciis}} {{GENDER:$3|vin}} sur la diskutopaĝo de <strong>$4</strong> en \"<strong>$5</strong>\".",
 	"notification-header-mention-article-talkpage-nosection": "$1 {{GENDER:$2|menciis}} {{GENDER:$3|vin}} sur la diskutopaĝo de <strong>$4</strong>.",
