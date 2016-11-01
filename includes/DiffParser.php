@@ -26,7 +26,7 @@
  * Calculates the individual sets of differences between two pieces of text
  * as individual groupings of add, subtract, and change actions. Internally
  * uses 0-indexing for positions.  All results from the class are 1 indexed
- * to stay consistent with the origional diff output and the previous diff
+ * to stay consistent with the original diff output and the previous diff
  * parsing code.
  */
 class EchoDiffParser {
