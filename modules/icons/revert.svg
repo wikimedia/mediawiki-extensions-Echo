@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
-    <g fill="#555" transform="translate(1.16 2.44) scale(.98216)">
+    <g fill="#54595d" transform="translate(1.16 2.44) scale(.98216)">
         <rect width="11" height="1" rx=".5" ry=".5" x=".5" y="25"/>
         <g transform="rotate(38 8.548 27.52)">
             <rect width="10" height="7" rx="1" y="18"/>
