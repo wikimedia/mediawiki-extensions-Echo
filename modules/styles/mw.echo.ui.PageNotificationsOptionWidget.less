@@ -2,27 +2,27 @@
 @import '../echo.variables';
 
 .mw-echo-ui-pageNotificationsOptionWidget {
+	clear: both;
 	width: 100%;
 	.box-sizing( border-box );
-	clear: both;
 
 	&.oo-ui-optionWidget {
 		.transition( ~'background-color 100ms, color 100ms' );
 
 		&-highlighted {
 			background-color: #eaecf0;
-			color: #000;
+			color: @color-base-active;
 		}
 
 		&-selected {
-			background-color: #eaf3ff;
-			color: #36c;
+			background-color: @background-color-primary;
+			color: @color-primary;
 		}
 
 		&-selected&-highlighted,
 		&-pressed&-highlighted {
 			background-color: rgba( 41, 98, 204, 0.1 );
-			color: #36c;
+			color: @color-primary;
 		}
 	}
 
@@ -38,15 +38,16 @@
 	}
 
 	&-count {
+		background-color: #eaecf0;
+		color: @grey-medium;
 		float: right;
 		padding: 0.2em 0.5em;
 		margin-left: 0.5em;
-		background-color: #eee;
 		border-radius: 2px;
-		color: @grey-medium;
 
 		.oo-ui-optionWidget-selected & {
-			background-color: #bbb;
+			background: none; // `background-color: transparent` would be the goto value, but IE 8-9 introduces a bug
+			color: @color-primary;
 		}
 	}
 }

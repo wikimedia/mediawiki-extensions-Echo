@@ -22,7 +22,7 @@
 		// We have to override oojs-ui's color, which uses
 		// a very specific selector
 		font-weight: normal !important;
-		color: #333 !important;
+		color: @color-base !important;
 		// Set max-width so buttons are truncated
 		max-width: 15em;
 
@@ -41,17 +41,17 @@
 		padding: 1.5em;
 
 		&:hover {
-			background: #fff;
-		}
-
-		.mw-echo-ui-menuItemWidget-content span.oo-ui-labelElement-label {
-			white-space: normal;
-			overflow: visible;
+			background-color: @background-color-base;
 		}
 
 		.mw-echo-ui-menuItemWidget-content {
 			&-description {
 				padding-top: 1em;
+			}
+
+			span.oo-ui-labelElement-label {
+				white-space: normal;
+				overflow: visible;
 			}
 		}
 	}
@@ -62,7 +62,7 @@
 		padding: 0.7em;
 
 		&:hover {
-			background: #eee;
+			background-color: #eaecf0;
 		}
 
 		&-icon {
