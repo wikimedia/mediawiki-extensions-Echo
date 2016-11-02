@@ -43,7 +43,7 @@
 	"echo-pref-tooltip-mention": "जब कसैले मेरो प्रयोगकर्ता पृष्ठलाई कुनै पनि वार्ता पृष्ठबाट लिङ्क गर्छ मलाई जानकारी गराउनुहोस्।",
 	"echo-error-no-formatter": "जानकारीको लागि कुनै पनि ढाँचा खुलाइएको छैन ।",
 	"notifications": "जानकारीहरू",
-	"tooltip-pt-notifications-alert": "{{GENDER:|तपाईँको}} जानकारीहरू",
+	"tooltip-pt-notifications-alert": "{{GENDER:|तपाईंको}} जानकारीहरू",
 	"echo-specialpage": "जानकारीहरू",
 	"echo-anon": "जानकारीहरू प्राप्त गर्न, [$1 एउटा खाता खोल्नुहोस्] वा [$2 प्रवेश गर्नुहोस्]",
 	"echo-none": "तपाईंको लागि कुनै नयाँ जानकारी छैन ।",
@@ -79,7 +79,7 @@
 	"echo-load-more-error": "थप नतिजाहरू प्राप्त गर्दा त्रुटि हुन गयो ।",
 	"echo-email-batch-subject-daily": "तपाईँसँग {{SITENAME}} मा {{PLURAL:$2|नयाँ सूचना|नयाँ सूचनाहरू}} छ",
 	"echo-email-batch-subject-weekly": "तपाईँसँग {{SITENAME}} मा यो हप्ता {{PLURAL:$2|नयाँ सूचना|नयाँ सूचनाहरू}} छ",
-	"echo-email-batch-body-intro-daily": "नमस्ते $1,\nयहाँ तपाईँको लागि {{SITENAME}} मा आजको गतिविधिको एउटा सारांश छ।",
+	"echo-email-batch-body-intro-daily": "नमस्ते $1,\nयहाँ तपाईंको लागि {{SITENAME}}मा आजको गतिविधिको एउटा सारांश छ।",
 	"echo-email-batch-body-intro-weekly": "नमस्ते $1,\nयहाँ तपाईँको लागि {{SITENAME}} मा यो हप्ताको गतिविधिको एउटा सारांश छ।",
 	"echo-email-batch-link-text-view-all-notifications": "सबै सूचनाहरू हेर्नुहोस्",
 	"apihelp-echomarkseen-example-1": "सूचनालाई हेरेको भनि चिन्ह लगाउने"
