@@ -16,23 +16,16 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 		$this->getMain()->getVal( '_' );
 
 		if ( $this->getUser()->isAnon() ) {
-			$this->dieUsage( 'Login is required', 'login-required' );
+			$this->dieWithError( 'apierror-mustbeloggedin-generic', 'login-required' );
 		}
 
 		$params = $this->extractRequestParams();
 
 		/* @deprecated */
 		if ( $params['format'] === 'flyout' ) {
-			$this->setWarning(
-				"notformat=flyout has been deprecated and will be removed soon.\n".
-				"Use notformat=model to get the raw data or notformat=special\n".
-				"for pre-rendered HTML."
-			);
+			$this->addDeprecation( 'apiwarn-echo-deprecation-flyout' );
 		} elseif ( $params['format'] === 'html' ) {
-			$this->setWarning(
-				"notformat=html has been deprecated and will be removed soon.\n".
-				"Use notformat=special instead."
-			);
+			$this->addDeprecation( 'apiwarn-echo-deprecation-html' );
 		}
 
 		if ( $this->allowCrossWikiNotifications() ) {

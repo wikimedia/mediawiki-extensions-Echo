@@ -8,7 +8,7 @@ class ApiEchoMarkSeen extends ApiBase {
 
 		$user = $this->getUser();
 		if ( $user->isAnon() ) {
-			$this->dieUsage( 'Login is required', 'login-required' );
+			$this->dieWithError( 'apierror-mustbeloggedin-generic', 'login-required' );
 		}
 
 		$params = $this->extractRequestParams();
@@ -20,10 +20,7 @@ class ApiEchoMarkSeen extends ApiBase {
 			$outputTimestamp = wfTimestamp( TS_ISO_8601, $timestamp );
 		} else {
 			// MW
-			$this->setWarning( 'The MW timestamp output format is deprecated' .
-				' here. In the future, ISO 8601 will always be used for ' .
-				'the output timestamp format.  Adjust your client and ' .
-				'set timestampFormat to \'ISO_8601\'.' );
+			$this->addDeprecation( 'apiwarn-echo-deprecation-timestampformat' );
 
 			$outputTimestamp = $timestamp;
 		}

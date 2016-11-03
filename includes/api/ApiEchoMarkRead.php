@@ -8,7 +8,7 @@ class ApiEchoMarkRead extends ApiBase {
 
 		$user = $this->getUser();
 		if ( $user->isAnon() ) {
-			$this->dieUsage( 'Login is required', 'login-required' );
+			$this->dieWithError( 'apierror-mustbeloggedin-generic', 'login-required' );
 		}
 
 		$notifUser = MWEchoNotifUser::newFromUser( $user );
