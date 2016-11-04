@@ -59,11 +59,11 @@
 	"notification-header-reverted": "तपाईंको {{PLURAL:$4|सम्पादन $3 मा |सम्पादनहरू $3}} द्वारा {{GENDER:$2|उल्ट्याइएको छ}}।",
 	"notification-header-emailuser": "$1 {{GENDER:$2|ले}} इमेल पठाउनुभएको छ",
 	"notification-edit-talk-page-email-subject2": "$1 ले तपाईंलाई {{SITENAME}} मा एउटा सन्देश {{GENDER:$1|छोड्नुभएको छ}}",
-	"notification-edit-talk-page-email-batch-body-with-section": "$1 तपाईँको वार्ता पृष्ठमा \"$2\" मा एउटा सन्देश {{GENDER:$1|छोड्नुभएको छ}} ।",
+	"notification-edit-talk-page-email-batch-body-with-section": "$1 तपाईंको वार्ता पृष्ठमा \"$2\" मा एउटा सन्देश {{GENDER:$1|छोड्नुभएको छ}} ।",
 	"notification-page-linked-email-subject": "तपाईँद्वारा निर्माण गरिएको पृष्ठ {{SITENAME}}मा जोडियो",
 	"notification-reverted-email-subject2": "तपाईंको {{PLURAL:$3|सम्पादन |सम्पादनहरू}} {{SITENAME}} मा {{GENDER:$1|उल्ट्याइयो}}",
 	"notification-mention-email-subject": "$1 ले {{GENDER:$2|तपाईंलाई}} {{SITENAME}} मा {{GENDER:$1|उल्लेख गर्नुभयो}}",
-	"notification-user-rights-email-subject": "तपाईँको प्रयोगकर्ता अधिकारहरू {{SITENAME}} मा परिवर्तन भएका छन्।",
+	"notification-user-rights-email-subject": "तपाईंको प्रयोगकर्ता अधिकारहरू {{SITENAME}} मा परिवर्तन भएका छन्।",
 	"notification-inbox-filter-read": "पढिएका",
 	"notification-inbox-filter-unread": "नपढिएका",
 	"notification-inbox-filter-all": "सबै",
@@ -80,7 +80,7 @@
 	"echo-email-batch-subject-daily": "तपाईँसँग {{SITENAME}} मा {{PLURAL:$2|नयाँ सूचना|नयाँ सूचनाहरू}} छ",
 	"echo-email-batch-subject-weekly": "तपाईँसँग {{SITENAME}} मा यो हप्ता {{PLURAL:$2|नयाँ सूचना|नयाँ सूचनाहरू}} छ",
 	"echo-email-batch-body-intro-daily": "नमस्ते $1,\nयहाँ तपाईंको लागि {{SITENAME}}मा आजको गतिविधिको एउटा सारांश छ।",
-	"echo-email-batch-body-intro-weekly": "नमस्ते $1,\nयहाँ तपाईँको लागि {{SITENAME}} मा यो हप्ताको गतिविधिको एउटा सारांश छ।",
+	"echo-email-batch-body-intro-weekly": "नमस्ते $1,\nयहाँ तपाईंको लागि {{SITENAME}} मा यो हप्ताको गतिविधिको निम्नानुशार सारांश छ।",
 	"echo-email-batch-link-text-view-all-notifications": "सबै सूचनाहरू हेर्नुहोस्",
 	"apihelp-echomarkseen-example-1": "सूचनालाई हेरेको भनि चिन्ह लगाउने"
 }
