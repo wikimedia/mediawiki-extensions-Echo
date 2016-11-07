@@ -204,5 +204,5 @@
 	"apihelp-query+notifications-param-messagecontinue": "Daha fazla ileti sonuçlar mevcut olduğunda, bu devam etmek için kullanın.",
 	"apihelp-query+notifications-param-messageunreadfirst": "İster okunmamış uyarı bildirimleri göstermek.",
 	"apihelp-query+notifications-example-1": "Liste bildirimleri",
-	"apihelp-query+notifications-example-2": "{{delete}}\nBildirimler, bölüm tarafından gruplandırılmış, sayıları ile listesi"
+	"apihelp-query+notifications-example-2": "Bildirimler, bölüm tarafından gruplandırılmış, sayıları ile listesi"
 }
