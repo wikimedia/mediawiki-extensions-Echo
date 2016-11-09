@@ -115,6 +115,17 @@
 	"notification-header-mention-user-talkpage-v2": "$1 {{GENDER:$2|o|a}} t'ha {{GENDER:$3|mençunaou|mençunâ|mençunou/â}} inta <strong>paggina de discuscion utente {{GENDER:$5|de}} $4</strong> in \"<strong>$6</strong>\".",
 	"notification-header-mention-user-talkpage-nosection": "$1 {{GENDER:$2|o|a}} t'ha {{GENDER:$3|mençunou|mençunâ|mençunou/â}} inta <strong>paggina de discuscion utente {{GENDER:$5|de}} $4</strong>.",
 	"notification-header-mention-agent-talkpage": "$1 {{GENDER:$2|o|a}} t'ha {{GENDER:$3|mençunou|mençunâ|mençunou/â}} inta <strong>so pagina de discuscion</strong> in \"<strong>$4</strong>\".",
+	"notification-header-mention-agent-talkpage-nosection": "$1 {{GENDER:$2|o t'}}ha {{GENDER:$3|mençunou|mençunâ|mençunou/â}} inta <strong>so paggina de discuscion</strong>.",
+	"notification-header-mention-article-talkpage": "$1 {{GENDER:$2|o|a}} t'ha {{GENDER:$3|mençunou|mençunâ|mençunou/â}} inta paggina de discuscion de <strong>$4</strong> in \"<strong>$5</strong>\".",
+	"notification-header-mention-article-talkpage-nosection": "$1 {{GENDER:$2|o|a}} t'ha {{GENDER:$3|mençunou|mençunâ|mençunou/â}} inta åaggina de discuscion de <strong>$4</strong>.",
+	"notification-header-mention-failure-user-unknown": "{{GENDER:$2|A to}} mençion de <strong>$3</strong> a no l'è stæta inviâ perchè l'utente o no l'è stæto trovou.",
+	"notification-header-mention-failure-user-anonymous": "{{GENDER:$2|A to}} mençion de <strong>$3</strong> a no l'è stæta inviâ perché l'utente o l'è anonnimo.",
+	"notification-header-mention-failure-too-many": "{{GENDER:$2|E to}} mençioin no son stæte inviæ perché han superou o limmite de $3.",
+	"notification-header-mention-failure-bundle": "{{PLURAL:$3|Una mençion|$3 mençioin}} che {{GENDER:$2|t'hæ fæto}} inta paggina de discuscion <strong>$4</strong> {{PLURAL:$3|a no poeu ese inviâ| no poeuan ese inviæ}}.",
+	"notification-compact-header-mention-failure-user-unknown": "<strong>O nomme utente o no l'existe:</strong> $1",
+	"notification-compact-header-mention-failure-user-anonymous": "<strong>I IP no poeuan ese mençunæ:</strong> $1",
+	"notification-header-mention-success": "{{GENDER:$2|A to}} mençion de <strong>$3</strong> a l'è stæta inviâ.",
+	"notification-header-mention-success-bundle": "{{PLURAL:$3|Una mençion|$3 mençioin}} che {{GENDER:$2|t'hæ fæto}} inta paggina de discuscion <strong>$4</strong> {{PLURAL:$3|a l'è stæta inviâ| son stæte inviæ}}.",
 	"notification-welcome-linktext": "Benvegnuo",
 	"echo-overlay-link": "Tutte e notiffiche"
 }
