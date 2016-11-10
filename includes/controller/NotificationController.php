@@ -6,18 +6,32 @@
 class EchoNotificationController {
 
 	/**
-	 * Echo event agent per wiki blacklist
+	 * Echo maximum number of users to cache
 	 *
-	 * @var string[]
+	 * @var int $maxRecipientCacheSize
 	 */
-	static protected $blacklist;
+	static protected $maxRecipientCacheSize = 200;
 
 	/**
-	 * Echo event agent per user whitelist, this overwrites $blacklist
+	 * Echo event agent per user blacklist
 	 *
-	 * @param string[]
+	 * @var MapCacheLRU
 	 */
-	static protected $userWhitelist;
+	static protected $blacklistByUser;
+
+	/**
+	 * Echo event agent per wiki blacklist
+	 *
+	 * @var EchoContainmentList|null
+	 */
+	static protected $wikiBlacklist;
+
+	/**
+	 * Echo event agent per user whitelist, this overwrites $blacklistByUser
+	 *
+	 * @var MapCacheLRU
+	 */
+	static protected $whitelistByUser;
 
 	/**
 	 * Returns the count passed in, or MWEchoNotifUser::MAX_BADGE_COUNT + 1,
@@ -193,30 +207,69 @@ class EchoNotificationController {
 	 * Implements blacklist per active wiki expected to be initialized
 	 * from InitializeSettings.php
 	 *
-	 * @param EchoEvent $event The event to test for exclusion via global blacklist
-	 * @return boolean True when the event agent is in the global blacklist
+	 * @param EchoEvent $event The event to test for exclusion
+	 * @param User $user recipient of the notification for per-user blacklists
+	 * @return boolean True when the event agent is blacklisted
 	 */
-	protected static function isBlacklisted( EchoEvent $event ) {
+	public static function isBlacklistedByUser( EchoEvent $event, User $user ) {
+		global $wgEchoAgentBlacklist, $wgEchoPerUserBlacklist;
+
+		$clusterCache = ObjectCache::getLocalClusterInstance();
+
 		if ( !$event->getAgent() ) {
 			return false;
 		}
 
-		if ( self::$blacklist === null ) {
-			global $wgEchoAgentBlacklist, $wgEchoOnWikiBlacklist;
-
-			self::$blacklist = new EchoContainmentSet;
-			self::$blacklist->addArray( $wgEchoAgentBlacklist );
-			if ( $wgEchoOnWikiBlacklist !== null ) {
-				self::$blacklist->addOnWiki(
-					NS_MEDIAWIKI,
-					$wgEchoOnWikiBlacklist,
-					ObjectCache::getLocalClusterInstance(),
-					wfMemcKey( "echo_on_wiki_blacklist" )
-				);
-			}
+		// Ensure we have a list of blacklists
+		if ( self::$blacklistByUser === null ) {
+			self::$blacklistByUser = new MapCacheLRU( self::$maxRecipientCacheSize );
 		}
 
-		return self::$blacklist->contains( $event->getAgent()->getName() );
+		// Ensure we have a blacklist for the user
+		if ( !self::$blacklistByUser->has( $user->getId() ) ) {
+			$blacklist = new EchoContainmentSet( $user );
+
+			// Add the config setting
+			$blacklist->addArray( $wgEchoAgentBlacklist );
+
+			// Add wiki-wide blacklist
+			$wikiBlacklist = self::getWikiBlacklist();
+			if ( $wikiBlacklist !== null ) {
+				$blacklist->add( $wikiBlacklist );
+			}
+
+			// Add to blacklist from user preference
+			if ( $wgEchoPerUserBlacklist ) {
+				$blacklist->addFromUserOption( 'echo-notifications-blacklist' );
+			}
+
+			// Add user's blacklist to dictionary if user wasn't already there
+			self::$blacklistByUser->set( $user->getId(), $blacklist );
+		} else {
+			// Just get the user's blacklist if it's already there
+			$blacklist = self::$blacklistByUser->get( $user->getId() );
+		}
+		return $blacklist->contains( $event->getAgent()->getName() );
+	}
+
+	/**
+	 * @return EchoContainmentList|null
+	 */
+	protected static function getWikiBlacklist() {
+		$clusterCache = ObjectCache::getLocalClusterInstance();
+		global $wgEchoOnWikiBlacklist;
+		if ( !$wgEchoOnWikiBlacklist ) {
+			return null;
+		}
+		if ( self::$wikiBlacklist === null ) {
+			self::$wikiBlacklist = new EchoCachedList(
+				$clusterCache,
+				$clusterCache->makeKey( "echo_on_wiki_blacklist" ),
+				new EchoOnWikiList( NS_MEDIAWIKI, $wgEchoOnWikiBlacklist )
+			);
+		}
+
+		return self::$wikiBlacklist;
 	}
 
 	/**
@@ -227,6 +280,7 @@ class EchoNotificationController {
 	 * @return boolean True when the event agent is in the user whitelist
 	 */
 	public static function isWhitelistedByUser( EchoEvent $event, User $user ) {
+		$clusterCache = ObjectCache::getLocalClusterInstance();
 		global $wgEchoPerUserWhitelistFormat;
 
 		if ( $wgEchoPerUserWhitelistFormat === null || !$event->getAgent() ) {
@@ -238,18 +292,26 @@ class EchoNotificationController {
 			return false; // anonymous user
 		}
 
-		if ( !isset( self::$userWhitelist[$userId] ) ) {
-			self::$userWhitelist[$userId] = new EchoContainmentSet;
-			self::$userWhitelist[$userId]->addOnWiki(
-				NS_USER,
-				sprintf( $wgEchoPerUserWhitelistFormat, $user->getName() ),
-				ObjectCache::getLocalClusterInstance(),
-				wfMemcKey( "echo_on_wiki_whitelist_" . $userId )
-			);
+		// Ensure we have a list of whitelists
+		if ( self::$whitelistByUser === null ) {
+			self::$whitelistByUser = new MapCacheLRU( self::$maxRecipientCacheSize );
 		}
 
-		return self::$userWhitelist[$userId]
-			->contains( $event->getAgent()->getName() );
+		// Ensure we have a whitelist for the user
+		if ( !self::$whitelistByUser->has( $userId ) ) {
+			$whitelist = new EchoContainmentSet( $user );
+			self::$whitelistByUser->set( $userId, $whitelist );
+			$whitelist->addOnWiki(
+				NS_USER,
+				sprintf( $wgEchoPerUserWhitelistFormat, $user->getName() ),
+				$clusterCache,
+				$clusterCache->makeKey( "echo_on_wiki_whitelist_" . $userId )
+			);
+		} else {
+			// Just get the user's whitelist
+			$whitelist = self::$whitelistByUser->get( $userId );
+		}
+		return $whitelist->contains( $event->getAgent()->getName() );
 	}
 
 	/**
@@ -369,14 +431,14 @@ class EchoNotificationController {
 			} );
 		}
 
-		// Apply per-wiki event blacklist and per-user whitelists
-		// of that blacklist.
-		if ( self::isBlacklisted( $event ) ) {
-			$notify->addFilter( function ( $user ) use ( $event ) {
-				// don't use self:: - PHP5.3 closures don't inherit class scope
-				return EchoNotificationController::isWhitelistedByUser( $event, $user );
-			} );
-		}
+		// Apply blacklists and whitelists.
+		$notify->addFilter( function ( $user ) use ( $event ) {
+			if ( self::isBlacklistedByUser( $event, $user ) && $event->getTitle()->getNamespace() !== NS_USER_TALK ) {
+				return self::isWhitelistedByUser( $event, $user );
+			}
+
+			return true;
+		} );
 
 		return $notify->getIterator();
 	}

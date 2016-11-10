@@ -6,7 +6,7 @@
 class ContainmentSetTest extends MediaWikiTestCase {
 
 	public function testGenericContains() {
-		$list = new EchoContainmentSet();
+		$list = new EchoContainmentSet( self::getTestUser()->getUser() );
 
 		$list->addArray( [ 'foo', 'bar' ] );
 		$this->assertTrue( $list->contains( 'foo' ) );
