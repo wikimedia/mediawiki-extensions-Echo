@@ -89,6 +89,7 @@
 	"echo-popup-footer-special-page-invitation-link": "まったく新しい外観と機能。",
 	"echo-quotation-marks": "「$1」",
 	"echo-api-failure": "通知を取得できませんでした。",
+	"echo-api-failure-cross-wiki": "リモートドメインへのアクセスが拒否されました。",
 	"echo-notification-placeholder": "通知はありません。",
 	"echo-notification-placeholder-filters": "この条件に一致する通知はありません。",
 	"echo-notification-loginrequired": "通知を表示するにはログインしてください。",
