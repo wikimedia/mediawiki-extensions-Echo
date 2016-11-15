@@ -9,7 +9,8 @@
 			"Cvanca",
 			"Teslaton",
 			"Kvetoslav47",
-			"Dvorapa"
+			"Dvorapa",
+			"Danny B."
 		]
 	},
 	"echo-desc": "Systém pro upozorňování uživatelů na události a zprávy",
@@ -41,8 +42,8 @@
 	"echo-category-title-article-linked": "{{PLURAL:$1|odkaz|odkazy}} na stránku",
 	"echo-category-title-reverted": "{{PLURAL:$1|vrácenou úpravu|vrácené úpravy}}",
 	"echo-category-title-mention": "{{PLURAL:$1|zmínku|zmínky}}",
-	"echo-category-title-mention-failure": "{{PLURAL:$1|Neprovedenou zmínku|Neprovedené zmínky}}",
-	"echo-category-title-mention-success": "{{PLURAL:$1|Úspěšnou zmínku|Úspěšné zmínky}}",
+	"echo-category-title-mention-failure": "{{PLURAL:$1|neprovedenou zmínku|neprovedené zmínky}}",
+	"echo-category-title-mention-success": "{{PLURAL:$1|úspěšnou zmínku|úspěšné zmínky}}",
 	"echo-category-title-other": "{{PLURAL:$1|jinou událost|jiné události}}",
 	"echo-category-title-system": "{{PLURAL:$1|systémovou událost|systémové události}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|změnu|změny}} uživatelských práv",
