@@ -278,4 +278,4 @@
 	mw.echo.ui.SubGroupListWidget.prototype.getId = function () {
 		return this.model.getName();
 	};
-} )( mediaWiki, jQuery );
+}( mediaWiki, jQuery ) );

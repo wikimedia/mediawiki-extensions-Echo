@@ -88,4 +88,4 @@
 		);
 	} );
 
-} )( mediaWiki, jQuery );
+}( mediaWiki, jQuery ) );

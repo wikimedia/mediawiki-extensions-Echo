@@ -219,4 +219,4 @@
 	mw.echo.dm.PaginationModel.prototype.getItemsPerPage = function () {
 		return this.itemsPerPage;
 	};
-} )( mediaWiki );
+}( mediaWiki ) );

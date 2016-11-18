@@ -50,4 +50,4 @@
 				mw.msg( 'echo-notification-markasunread' )
 		);
 	};
-} )( mediaWiki, jQuery );
+}( mediaWiki, jQuery ) );

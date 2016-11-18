@@ -85,4 +85,4 @@
 			} );
 		}
 	};
-} )( mediaWiki, jQuery );
+}( mediaWiki, jQuery ) );

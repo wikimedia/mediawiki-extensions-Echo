@@ -89,4 +89,4 @@
 	 */
 	mw.echo.ui.PlaceholderItemWidget.prototype.resetInitiallyUnseen = function () {};
 
-} )( mediaWiki, jQuery );
+}( mediaWiki, jQuery ) );

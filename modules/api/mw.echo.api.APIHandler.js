@@ -81,11 +81,11 @@
 	 */
 	mw.echo.api.APIHandler.prototype.fetchUnreadNotificationPages = function ( sources ) {
 		var params = {
-				action: 'query',
-				meta: 'unreadnotificationpages',
-				uselang: this.userLang,
-				unpgrouppages: true
-			};
+			action: 'query',
+			meta: 'unreadnotificationpages',
+			uselang: this.userLang,
+			unpgrouppages: true
+		};
 
 		if ( !sources || sources === '*' ) {
 			params.unpwikis = '*';
@@ -127,7 +127,7 @@
 	 *  fetched from the API.
 	 */
 	mw.echo.api.APIHandler.prototype.createNewFetchNotificationPromise = function ( type, sources, overrideParams ) {
-		var apiErrState, fetchNotifPromise,
+		var fetchNotifPromise,
 			fetchingSource = 'local',
 			me = this,
 			params = $.extend( {
@@ -151,7 +151,6 @@
 		me.apiErrorState[ type ] = me.apiErrorState[ type ] || {};
 
 		// Reset cached values
-		apiErrState = false;
 		this.fetchNotificationsPromise[ type ][ fetchingSource ] = null;
 		this.apiErrorState[ type ][ fetchingSource ] = false;
 
@@ -226,6 +225,7 @@
 	 * Check whether the model has an API error state flagged
 	 *
 	 * @param {string} type Notification type, 'alert', 'message' or 'all'
+	 * @param {string|string[]} sources Source names
 	 * @return {boolean} The model is in API error state
 	 */
 	mw.echo.api.APIHandler.prototype.isFetchingErrorState = function ( type, sources ) {
@@ -269,4 +269,4 @@
 	mw.echo.api.APIHandler.prototype.getTypeParams = function ( type ) {
 		return this.typeParams[ type ];
 	};
-} )( mediaWiki, jQuery );
+}( mediaWiki, jQuery ) );

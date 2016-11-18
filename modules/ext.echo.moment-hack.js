@@ -1,5 +1,5 @@
 ( function ( mw ) {
-	/*global moment:false */
+	/* global moment:false */
 	'use strict';
 
 	var momentOrigLocale = moment.locale();
@@ -45,4 +45,4 @@
 	} );
 	// Reset back to original locale
 	moment.locale( momentOrigLocale );
-} )( mediaWiki );
+}( mediaWiki ) );

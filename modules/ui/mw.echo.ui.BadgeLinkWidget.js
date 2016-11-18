@@ -64,4 +64,4 @@
 			.attr( 'data-counter-num', numItems )
 			.attr( 'data-counter-text', label );
 	};
-} )( mediaWiki, jQuery );
+}( mediaWiki, jQuery ) );

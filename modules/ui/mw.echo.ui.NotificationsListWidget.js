@@ -224,4 +224,4 @@
 			itemWidgets[ i ].resetInitiallyUnseen();
 		}
 	};
-} )( mediaWiki, jQuery );
+}( mediaWiki, jQuery ) );

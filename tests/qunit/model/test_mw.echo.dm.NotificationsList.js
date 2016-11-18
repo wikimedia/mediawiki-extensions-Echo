@@ -186,4 +186,4 @@
 		);
 	} );
 
-} )( mediaWiki, jQuery );
+}( mediaWiki, jQuery ) );

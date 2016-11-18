@@ -1,5 +1,5 @@
 ( function ( mw, $ ) {
-	/*global moment:false */
+	/* global moment:false */
 	/**
 	 * A base widget for displaying notification items.
 	 *
@@ -222,6 +222,7 @@
 	 * please make sure to properly escape it.
 	 *
 	 * @param {mw.echo.ui.MenuItemWidget} item The selected item
+	 * @return {boolean} False to prevent the native event
 	 */
 	mw.echo.ui.NotificationItemWidget.prototype.onPopupButtonWidgetChoose = function ( item ) {
 		var actionData = item && item.getActionData(),
@@ -267,6 +268,8 @@
 
 	/**
 	 * Respond to mark as read button click
+	 *
+	 * @return {boolean} False to prevent the native event
 	 */
 	mw.echo.ui.NotificationItemWidget.prototype.onMarkAsReadButtonClick = function () {
 		// If we're marking read or unread, the notification was already seen.
@@ -386,6 +389,8 @@
 
 	/**
 	 * Get the model associated with this widget.
+	 *
+	 * @return {mw.echo.dm.NotificationItem} Item model
 	 */
 	mw.echo.ui.NotificationItemWidget.prototype.getModel = function () {
 		return this.model;
@@ -414,4 +419,4 @@
 	mw.echo.ui.NotificationItemWidget.prototype.isFake = function () {
 		return false;
 	};
-} )( mediaWiki, jQuery );
+}( mediaWiki, jQuery ) );

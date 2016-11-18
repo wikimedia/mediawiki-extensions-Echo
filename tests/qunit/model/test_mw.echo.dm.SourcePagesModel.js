@@ -169,4 +169,4 @@
 		);
 
 	} );
-} )( mediaWiki );
+}( mediaWiki ) );

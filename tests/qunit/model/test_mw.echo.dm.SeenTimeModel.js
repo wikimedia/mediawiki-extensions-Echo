@@ -53,4 +53,4 @@
 			'Update event emitted'
 		);
 	} );
-} )( mediaWiki );
+}( mediaWiki ) );

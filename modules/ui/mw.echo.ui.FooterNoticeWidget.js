@@ -78,4 +78,4 @@
 		this.toggle( false );
 		this.emit( 'dismiss' );
 	};
-} )( mediaWiki, jQuery );
+}( mediaWiki, jQuery ) );

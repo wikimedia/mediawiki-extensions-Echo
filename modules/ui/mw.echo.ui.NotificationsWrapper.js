@@ -80,4 +80,4 @@
 				widget.promiseRunning = false;
 			} );
 	};
-} )( mediaWiki );
+}( mediaWiki ) );

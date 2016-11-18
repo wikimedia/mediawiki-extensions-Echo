@@ -96,4 +96,4 @@
 		return this.sourcePagesModel;
 	};
 
-} )( mediaWiki );
+}( mediaWiki ) );

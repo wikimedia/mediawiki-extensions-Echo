@@ -4,4 +4,4 @@
 		$overlay: $( '<div>' )
 			.addClass( 'mw-echo-ui-overlay' )
 	};
-} )( mediaWiki, jQuery );
+}( mediaWiki, jQuery ) );

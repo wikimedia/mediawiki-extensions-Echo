@@ -64,4 +64,4 @@
 	mw.echo.ui.ConfirmationPopupWidget.prototype.hide = function () {
 		this.$element.fadeOut();
 	};
-} )( mediaWiki, jQuery );
+}( mediaWiki, jQuery ) );

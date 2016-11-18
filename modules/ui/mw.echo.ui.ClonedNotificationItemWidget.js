@@ -1,5 +1,5 @@
 ( function ( mw ) {
-	/*global moment:false */
+	/* global moment:false */
 	/**
 	 * A wrapper widget for a fake, cloned notification. This is used
 	 * for the fade in/out effects while reordering.
@@ -78,4 +78,4 @@
 		return true;
 	};
 
-} )( mediaWiki );
+}( mediaWiki ) );

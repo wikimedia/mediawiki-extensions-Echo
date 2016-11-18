@@ -93,4 +93,4 @@
 		return this;
 	};
 
-} )( jQuery, mediaWiki );
+}( jQuery, mediaWiki ) );

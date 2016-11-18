@@ -153,4 +153,4 @@
 	};
 
 	mw.echo.logger = new mw.echo.Logger();
-} )( jQuery, mediaWiki );
+}( jQuery, mediaWiki ) );

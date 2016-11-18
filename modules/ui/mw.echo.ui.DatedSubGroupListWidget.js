@@ -1,5 +1,5 @@
 ( function ( mw, $ ) {
-	/*global moment:false */
+	/* global moment:false */
 	/**
 	 * A sub group widget that displays notifications divided by dates.
 	 *
@@ -64,4 +64,4 @@
 	/* Initialization */
 
 	OO.inheritClass( mw.echo.ui.DatedSubGroupListWidget, mw.echo.ui.SubGroupListWidget );
-} )( mediaWiki, jQuery );
+}( mediaWiki, jQuery ) );

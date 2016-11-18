@@ -357,4 +357,4 @@
 	mw.echo.ui.CrossWikiNotificationItemWidget.prototype.getList = function () {
 		return this.listWidget;
 	};
-} )( mediaWiki, jQuery );
+}( mediaWiki, jQuery ) );
