@@ -5,7 +5,8 @@
 			"Kyng",
 			"Pikne",
 			"Игорь Бродский",
-			"Macofe"
+			"Macofe",
+			"Cumbril"
 		]
 	},
 	"echo-desc": "Süsteem, millega teavitatakse kasutajaid sündmustest ja sõnumitest",
@@ -90,6 +91,8 @@
 	"notification-header-mention-agent-talkpage-nosection": "$1 {{GENDER:$2|mainis}} {{GENDER:$3|sind}} <strong>{{GENDER:$2|oma}} aruteluleheküljel</strong>.",
 	"notification-header-mention-article-talkpage": "$1 {{GENDER:$2|mainis}} {{GENDER:$3|sind}} lehekülje \"<strong>$4</strong>\" arutelu alaosas \"<strong>$5</strong>\".",
 	"notification-header-mention-article-talkpage-nosection": "$1 {{GENDER:$2|mainis}} {{GENDER:$3|sind}} lehekülje \"<strong>$4</strong>\" arutelus.",
+	"notification-header-user-rights-add-only": "{{GENDER:$4|Sinu}} kasutajaõigusi {{GENDER:$1|muudeti}}. Sind lisati rühma: $2.",
+	"notification-header-user-rights-remove-only": "{{GENDER:$4|Sinu}} kasutajaõigusi {{GENDER:$1|muudeti}}. Sa ei kuulu enam rühma: $2.",
 	"notification-header-welcome": "{{GENDER:$2|Tere}} tulemast saidile {{SITENAME}}, $1! Meil on hea meel, et siin oled.",
 	"notification-welcome-linktext": "Tere tulemast",
 	"notification-link-text-view-edit": "Vaata muudatust",
