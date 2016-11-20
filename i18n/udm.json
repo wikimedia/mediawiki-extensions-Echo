@@ -2,8 +2,10 @@
 	"@metadata": {
 		"authors": [
 			"AlnashPiyash2",
-			"Kaganer"
+			"Kaganer",
+			"Wadorgurt"
 		]
 	},
+	"tooltip-pt-notifications-alert": "{{GENDER:|Тӥляд}} ивортонъёсты",
 	"notification-inbox-filter-all": "Ваньзэ"
 }
