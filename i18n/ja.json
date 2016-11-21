@@ -10,7 +10,8 @@
 			"Takot",
 			"Otokoume",
 			"Vigorous action",
-			"Thibaut120094"
+			"Thibaut120094",
+			"Marine-Blue"
 		]
 	},
 	"echo-desc": "イベントおよびメッセージについて、ユーザーに通知するシステム",
@@ -135,7 +136,7 @@
 	"notification-header-user-rights-add-only": "{{GENDER:$4|あなたの}}利用者権限が{{GENDER:$1|変更されました}}: $2へ追加されました。",
 	"notification-header-user-rights-remove-only": "{{GENDER:$4|あなたの}}利用者権限が{{GENDER:$1|変更されました}}: $2から除外されました。",
 	"notification-header-user-rights-add-and-remove": "{{GENDER:$6|あなたの}}利用者権限が{{GENDER:$1|変更されました}}: $2へ追加され、$4から除外されました。",
-	"notification-header-welcome": "$1 さん、{{SITENAME}} へ{{GENDER:$2|ようこそ}}！{{GENDER:$2|あなた}}という存在を心より嬉しく思います。",
+	"notification-header-welcome": "$1 さん、{{SITENAME}} へ{{GENDER:$2|ようこそ}}！{{GENDER:$2|あなた}}の参加を歓迎します。",
 	"notification-welcome-linktext": "ようこそ",
 	"notification-header-thank-you-1-edit": "{{GENDER:$2|あなた}}は初めて編集を行いました。寄稿をありがとうございます。そして、ようこそ！",
 	"notification-header-thank-you-10-edit": "{{GENDER:$2|あなた}}は10回の編集を行いました。これからも頑張りましょう!",
