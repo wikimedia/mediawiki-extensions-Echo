@@ -15,14 +15,12 @@
 	"echo-learn-more": "گیشتیر بزانیت",
 	"echo-category-title-other": "{{PLURAL:$1|دیگرین}}",
 	"echo-category-title-system": "{{PLURAL:$1|سیستیم}}",
-	"echo-no-agent": "[هیچ کس]",
-	"echo-no-title": "[بیدون ورق]",
 	"notifications": "نئ مئلوماتان",
 	"tooltip-pt-notifications-alert": "{{GENDER:|شمئ}} اخطاران",
-	"tooltip-pt-notifications-message": "{{GENDER:|شمئ}} پیامان",
 	"echo-specialpage": "اعلان‌هان",
 	"notification-link-text-view-message": "پیامئ دیستین",
 	"notification-link-text-view-page": "تاکدیمی دیستین",
+	"notification-inbox-filter-all": "موچین",
 	"echo-date-today": "مروچی",
 	"echo-date-yesterday": "زئ"
 }
