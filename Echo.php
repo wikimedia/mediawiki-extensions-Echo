@@ -386,7 +386,6 @@ $wgEchoNotificationIcons = array(
 );
 
 // Definitions of the notification event types built into Echo.
-// If formatter-class isn't specified, defaults to EchoBasicFormatter.
 
 // 'notify-type-availabilty' - Defines which notifier (e.g. web/email) types are available
 //   for each notification type (e.g. welcome).  Notification types are the keys of
