@@ -336,4 +336,4 @@
 	mw.echo.api.EchoApi.prototype.getLimit = function () {
 		return this.limit;
 	};
-} )( mediaWiki, jQuery );
+}( mediaWiki, jQuery ) );

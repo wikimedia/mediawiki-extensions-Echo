@@ -61,4 +61,4 @@
 			this.emit( 'filter', data );
 		}
 	};
-} )( jQuery, mediaWiki );
+}( jQuery, mediaWiki ) );

@@ -1,20 +1,18 @@
 ( function ( mw, $ ) {
-	/*global moment:false */
+	/* global moment:false */
 	/**
 	 * Controller for Echo notifications
 	 *
 	 * @param {mw.echo.api.EchoApi} echoApi Echo API
 	 * @param {mw.echo.dm.ModelManager} manager Model manager
-	 * @param {Object} [config] Configuration
 	 */
-	mw.echo.Controller = function MwEchoController( echoApi, manager, config ) {
-		config = config || {};
-
+	mw.echo.Controller = function MwEchoController( echoApi, manager ) {
 		this.api = echoApi;
 		this.manager = manager;
 	};
 
 	/* Initialization */
+
 	OO.initClass( mw.echo.Controller );
 
 	/**
@@ -130,7 +128,7 @@
 			this.manager.getTypeString(),
 			currentSource,
 			{
-				continue: continueValue,
+				'continue': continueValue,
 				readState: filters.getReadState(),
 				titles: filters.getSourcePagesModel().getGroupedPagesForCurrentTitle()
 			}
@@ -265,7 +263,7 @@
 			.then(
 				// Success
 				function ( data ) {
-					var i, notifData, content, newNotifData,
+					var i, notifData, newNotifData,
 						foreignListModel, source, itemModel,
 						allModels = { local: localListModel },
 						createBundledNotification = function ( modelName, rawBundledNotifData ) {
@@ -283,7 +281,6 @@
 					// Go over the data
 					for ( i = 0; i < data.list.length; i++ ) {
 						notifData = data.list[ i ];
-						content = notifData[ '*' ] || {};
 
 						// Set source's seenTime
 						controller.manager.getSeenTimeModel().setSeenTime(
@@ -699,8 +696,7 @@
 			.then( function ( groupList ) {
 				var i, listModel, group, groupItems,
 					promises = [],
-					idArray = [],
-					itemCounter = 0;
+					idArray = [];
 
 				for ( group in groupList ) {
 					listModel = xwikiModel.getItemBySource( group );
@@ -710,7 +706,6 @@
 					for ( i = 0; i < groupItems.length; i++ ) {
 						idArray = idArray.concat( groupItems[ i ].id ).concat( groupItems[ i ].bundledIds || [] );
 					}
-					itemCounter += idArray.length;
 
 					// Mark items as read in the API
 					promises.push(
@@ -794,4 +789,4 @@
 	mw.echo.Controller.prototype.getTypeString = function () {
 		return this.manager.getTypeString();
 	};
-} )( mediaWiki, jQuery );
+}( mediaWiki, jQuery ) );

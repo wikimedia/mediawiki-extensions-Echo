@@ -268,4 +268,4 @@
 		return this.getSource() !== 'local';
 	};
 
-} )( mediaWiki );
+}( mediaWiki ) );

@@ -153,4 +153,4 @@
 	mw.echo.ui.PageFilterWidget.prototype.sortingFunction = function ( item, otherItem ) {
 		return Number( otherItem.getCount() ) - Number( item.getCount() );
 	};
-} )( jQuery, mediaWiki );
+}( jQuery, mediaWiki ) );

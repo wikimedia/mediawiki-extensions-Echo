@@ -1,31 +1,31 @@
 ( function ( mw, $ ) {
-	/*global moment:false */
+	/* global moment:false */
 	var fakeData = {
-			type: 'alert',
-			read: true,
-			seen: true,
-			timestamp: '2016-09-14T23:21:56Z',
-			content: {
-				header: 'Your edit on <strong>Moai</strong> was reverted.',
-				compactHeader: 'Your edit on <strong>Moai</strong> was reverted.',
-				body: 'undo'
+		type: 'alert',
+		read: true,
+		seen: true,
+		timestamp: '2016-09-14T23:21:56Z',
+		content: {
+			header: 'Your edit on <strong>Moai</strong> was reverted.',
+			compactHeader: 'Your edit on <strong>Moai</strong> was reverted.',
+			body: 'undo'
+		},
+		iconType: 'revert',
+		primaryUrl: 'http://dev.wiki.local.wmftest.net:8080/w/index.php?title=Moai&oldid=prev&diff=1978&markasread=2126',
+		secondaryUrls: [
+			{
+				url: 'http://dev.wiki.local.wmftest.net:8080/wiki/User:RandomUser',
+				label: 'RandomUser',
+				icon: 'userAvatar'
 			},
-			iconType: 'revert',
-			primaryUrl: 'http://dev.wiki.local.wmftest.net:8080/w/index.php?title=Moai&oldid=prev&diff=1978&markasread=2126',
-			secondaryUrls: [
-				{
-					url: 'http://dev.wiki.local.wmftest.net:8080/wiki/User:RandomUser',
-					label: 'RandomUser',
-					icon: 'userAvatar'
-				},
-				{
-					url: 'http://dev.wiki.local.wmftest.net:8080/wiki/Talk:Moai',
-					label: 'Moai',
-					tooltip: 'Talk:Moai',
-					icon: 'speechBubbles'
-				}
-			]
-		};
+			{
+				url: 'http://dev.wiki.local.wmftest.net:8080/wiki/Talk:Moai',
+				label: 'Moai',
+				tooltip: 'Talk:Moai',
+				icon: 'speechBubbles'
+			}
+		]
+	};
 
 	QUnit.module( 'ext.echo.dm - mw.echo.dm.NotificationItem' );
 
@@ -138,4 +138,4 @@
 		);
 	} );
 
-} )( mediaWiki, jQuery );
+}( mediaWiki, jQuery ) );

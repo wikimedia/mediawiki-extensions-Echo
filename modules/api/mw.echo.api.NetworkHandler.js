@@ -76,4 +76,4 @@
 	mw.echo.api.NetworkHandler.prototype.setApiHandler = function ( name, handler ) {
 		this.handlers[ name ] = handler;
 	};
-} )( mediaWiki, jQuery );
+}( mediaWiki, jQuery ) );

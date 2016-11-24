@@ -86,4 +86,4 @@
 	mw.echo.ui.ActionMenuPopupWidget.prototype.getMenu = function () {
 		return this.menu;
 	};
-} )( mediaWiki );
+}( mediaWiki ) );

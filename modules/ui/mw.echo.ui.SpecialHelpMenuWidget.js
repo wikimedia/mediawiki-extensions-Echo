@@ -97,6 +97,8 @@
 
 	/**
 	 * Respond to local counter update event
+	 *
+	 * @param {number} count New count
 	 */
 	mw.echo.ui.SpecialHelpMenuWidget.prototype.onLocalCountChange = function ( count ) {
 		this.markAllReadButton.toggle( count > 0 );
@@ -154,4 +156,4 @@
 		// Mixin method
 		OO.ui.mixin.PendingElement.prototype.popPending.call( this );
 	};
-} )( jQuery, mediaWiki );
+}( jQuery, mediaWiki ) );

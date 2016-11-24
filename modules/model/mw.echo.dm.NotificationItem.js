@@ -1,5 +1,5 @@
 ( function ( mw, $ ) {
-	/*global moment:false */
+	/* global moment:false */
 	/**
 	 * Notification item data structure.
 	 *

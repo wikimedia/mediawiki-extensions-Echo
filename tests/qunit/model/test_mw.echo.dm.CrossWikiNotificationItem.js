@@ -308,4 +308,4 @@
 		);
 	} );
 
-} )( mediaWiki, jQuery );
+}( mediaWiki, jQuery ) );

@@ -66,13 +66,7 @@
 				if ( $existingMessageLink.length ) {
 					unreadMessageCounter = new mw.echo.dm.UnreadNotificationCounter( echoApi, 'message', maxNotificationCount );
 					messageModelManager = new mw.echo.dm.ModelManager( unreadMessageCounter, { type: 'message' } );
-					messageController = new mw.echo.Controller(
-						echoApi,
-						messageModelManager,
-						{
-							type: [ 'message' ]
-						}
-					);
+					messageController = new mw.echo.Controller( echoApi, messageModelManager );
 
 					mw.echo.ui.messageWidget = new mw.echo.ui.NotificationBadgeWidget(
 						messageController,
@@ -94,13 +88,7 @@
 				}
 				unreadAlertCounter = new mw.echo.dm.UnreadNotificationCounter( echoApi, 'alert', maxNotificationCount );
 				alertModelManager = new mw.echo.dm.ModelManager( unreadAlertCounter, { type: 'alert' } );
-				alertController = new mw.echo.Controller(
-					echoApi,
-					alertModelManager,
-					{
-						type: [ 'alert' ]
-					}
-				);
+				alertController = new mw.echo.Controller( echoApi, alertModelManager );
 
 				mw.echo.ui.alertWidget = new mw.echo.ui.NotificationBadgeWidget(
 					alertController,
@@ -148,4 +136,4 @@
 		} );
 	} );
 
-} )( mediaWiki, jQuery );
+}( mediaWiki, jQuery ) );

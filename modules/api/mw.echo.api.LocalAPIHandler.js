@@ -72,8 +72,8 @@
 	 */
 	mw.echo.api.LocalAPIHandler.prototype.markItemsRead = function ( itemIdArray, isRead ) {
 		var data = {
-				action: 'echomarkread'
-			};
+			action: 'echomarkread'
+		};
 
 		if ( isRead ) {
 			data.list = itemIdArray.join( '|' );
@@ -90,6 +90,7 @@
 	 * @param {string} type Notification type, 'alert', 'message' or 'all'
 	 * @param {boolean} [ignoreCrossWiki] Ignore cross-wiki notifications when fetching the count.
 	 *  If set to false (by default) it counts notifications across all wikis.
+	 * @return {jQuery.Promise} Promise which resolves with the unread count
 	 */
 	mw.echo.api.LocalAPIHandler.prototype.fetchUnreadCount = function ( type, ignoreCrossWiki ) {
 		var normalizedType = this.normalizedType[ type ],
@@ -126,4 +127,4 @@
 			notcrosswikisummary: 1
 		} );
 	};
-} )( mediaWiki, jQuery );
+}( mediaWiki, jQuery ) );

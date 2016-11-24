@@ -55,7 +55,7 @@
 		this.hasRunFirstTime = false;
 
 		buttonFlags = [];
-		if ( !!config.hasUnseen ) {
+		if ( config.hasUnseen ) {
 			buttonFlags.push( 'unseen' );
 		}
 
@@ -292,6 +292,7 @@
 	/**
 	 * Extend the response to button click so we can also update the notification list.
 	 *
+	 * @param {boolean} isVisible The popup is visible
 	 * @fires finishLoading
 	 */
 	mw.echo.ui.NotificationBadgeWidget.prototype.onPopupToggle = function ( isVisible ) {
@@ -362,4 +363,4 @@
 			} );
 		this.hasRunFirstTime = true;
 	};
-} )( mediaWiki, jQuery );
+}( mediaWiki, jQuery ) );

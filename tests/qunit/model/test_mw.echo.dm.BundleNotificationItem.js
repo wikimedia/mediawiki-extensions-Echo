@@ -3,19 +3,17 @@
 
 	QUnit.test( 'Constructing the model', function ( assert ) {
 		var bundledItems = [
-			new mw.echo.dm.NotificationItem( 0, { read: false, seen: false, timestamp: '201601010000' } ),
-			new mw.echo.dm.NotificationItem( 1, { read: false, seen: false, timestamp: '201601010100' } ),
-			new mw.echo.dm.NotificationItem( 2, { read: false, seen: true, timestamp: '201601010200' } ),
-			new mw.echo.dm.NotificationItem( 3, { read: false, seen: true, timestamp: '201601010300' } ),
-			new mw.echo.dm.NotificationItem( 4, { read: false, seen: true, timestamp: '201601010400' } )
-		],
-		bundle = new mw.echo.dm.BundleNotificationItem(
-			100,
-			bundledItems,
-			{
-				modelName: 'foo'
-			}
-		);
+				new mw.echo.dm.NotificationItem( 0, { read: false, seen: false, timestamp: '201601010000' } ),
+				new mw.echo.dm.NotificationItem( 1, { read: false, seen: false, timestamp: '201601010100' } ),
+				new mw.echo.dm.NotificationItem( 2, { read: false, seen: true, timestamp: '201601010200' } ),
+				new mw.echo.dm.NotificationItem( 3, { read: false, seen: true, timestamp: '201601010300' } ),
+				new mw.echo.dm.NotificationItem( 4, { read: false, seen: true, timestamp: '201601010400' } )
+			],
+			bundle = new mw.echo.dm.BundleNotificationItem(
+				100,
+				bundledItems,
+				{ modelName: 'foo' }
+			);
 
 		assert.equal(
 			bundle.getCount(),
@@ -53,7 +51,7 @@
 				return findItems.map( function ( item ) {
 					return item.getId();
 				} );
-			} )(),
+			}() ),
 			[ 4, 1 ],
 			'findByIds fetches correct items in the default sorting order'
 		);
@@ -116,4 +114,4 @@
 			'Bundle is marked as read if all items are read'
 		);
 	} );
-} )( mediaWiki );
+}( mediaWiki ) );

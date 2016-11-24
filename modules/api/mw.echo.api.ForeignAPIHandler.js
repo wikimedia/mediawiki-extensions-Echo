@@ -41,4 +41,4 @@
 
 		return $.extend( {}, this.typeParams[ type ], params );
 	};
-} )( mediaWiki, jQuery );
+}( mediaWiki, jQuery ) );

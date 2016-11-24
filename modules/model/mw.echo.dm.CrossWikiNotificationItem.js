@@ -162,4 +162,4 @@
 		return this.getList().isEmpty();
 	};
 
-} )( mediaWiki );
+}( mediaWiki ) );

@@ -283,8 +283,8 @@
 	 */
 	mw.echo.dm.ModelManager.prototype.hasLocalUnread = function () {
 		var isUnread = function ( item ) {
-				return !item.isRead();
-			};
+			return !item.isRead();
+		};
 
 		return this.getLocalNotifications().some( isUnread );
 	};
@@ -296,8 +296,8 @@
 	 */
 	mw.echo.dm.ModelManager.prototype.getLocalUnread = function () {
 		var isUnread = function ( item ) {
-				return !item.isRead();
-			};
+			return !item.isRead();
+		};
 
 		return this.getLocalNotifications().filter( isUnread );
 	};
@@ -320,8 +320,8 @@
 	 */
 	mw.echo.dm.ModelManager.prototype.hasLocalUnreadTalk = function () {
 		var isUnreadUserTalk = function ( item ) {
-				return !item.isRead() && item.getCategory() === 'edit-user-talk';
-			};
+			return !item.isRead() && item.getCategory() === 'edit-user-talk';
+		};
 
 		return this.getLocalNotifications().some( isUnreadUserTalk );
 	};
@@ -430,7 +430,8 @@
 	/**
 	 * Get all notifications that come from a given source
 	 *
-	 * @return {mw.echo.dm.NotificationItem[]} all notifications from that source
+	 * @param {string} [source='local'] Source name
+	 * @return {mw.echo.dm.NotificationItem[]} All notifications from that source
 	 */
 	mw.echo.dm.ModelManager.prototype.getNotificationsBySource = function ( source ) {
 		var notifications = [],
@@ -478,4 +479,4 @@
 
 	};
 
-} )( mediaWiki, jQuery );
+}( mediaWiki, jQuery ) );

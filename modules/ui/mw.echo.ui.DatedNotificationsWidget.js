@@ -90,6 +90,8 @@
 	 * Respond to model manager update event.
 	 * This event means we are repopulating the entire list and the
 	 * associated models within it.
+	 *
+	 * @param {Object} models List models, indexed by ID
 	 */
 	mw.echo.ui.DatedNotificationsWidget.prototype.populateFromModel = function ( models ) {
 		var modelId, model, subgroupWidget,
@@ -169,4 +171,4 @@
 		return count;
 	};
 
-} )( jQuery, mediaWiki );
+}( jQuery, mediaWiki ) );

@@ -153,4 +153,4 @@
 		);
 	} );
 
-} )( mediaWiki );
+}( mediaWiki ) );

@@ -161,4 +161,4 @@
 		}
 		return null;
 	};
-} )( mediaWiki );
+}( mediaWiki ) );

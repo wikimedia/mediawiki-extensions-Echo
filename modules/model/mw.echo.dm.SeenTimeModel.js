@@ -78,4 +78,4 @@
 		return this.types;
 	};
 
-} )( mediaWiki );
+}( mediaWiki ) );

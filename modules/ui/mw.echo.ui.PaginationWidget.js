@@ -126,10 +126,13 @@
 		this.updateLabel();
 		this.labelWidget.toggle( !this.isDisabled() );
 	};
+
+	// eslint-disable-next-line valid-jsdoc
 	/**
 	 * Set the 'disabled' state of the widget.
 	 *
 	 * @param {boolean} disabled Disable widget
+	 * @chainable
 	 */
 	mw.echo.ui.PaginationWidget.prototype.setDisabled = function ( disabled ) {
 		// Parent
@@ -173,4 +176,4 @@
 
 		this.labelWidget.setLabel( label );
 	};
-} )( jQuery, mediaWiki );
+}( jQuery, mediaWiki ) );

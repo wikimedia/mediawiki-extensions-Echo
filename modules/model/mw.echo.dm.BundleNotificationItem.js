@@ -159,4 +159,4 @@
 		return this.getModelName();
 	};
 
-} )( mediaWiki );
+}( mediaWiki ) );

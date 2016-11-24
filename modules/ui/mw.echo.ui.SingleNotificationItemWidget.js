@@ -77,6 +77,7 @@
 	 * Extend 'toggleRead' to emit sortChange so the item can be sorted
 	 * when its read state was updated
 	 *
+	 * @inheritdoc
 	 * @fires sortChange
 	 */
 	mw.echo.ui.SingleNotificationItemWidget.prototype.toggleRead = function ( read ) {
@@ -97,4 +98,4 @@
 		this.toggleRead( this.model.isRead() );
 		this.toggleSeen( this.model.isSeen() );
 	};
-} )( mediaWiki );
+}( mediaWiki ) );

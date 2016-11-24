@@ -24,10 +24,7 @@
 					}
 				)
 			} ),
-			controller = new mw.echo.Controller(
-				echoApi,
-				modelManager
-			);
+			controller = new mw.echo.Controller( echoApi, modelManager );
 
 		// Set default max prioritized action links per item.
 		// For general purpose we have 2, for mobile only 1
@@ -50,4 +47,4 @@
 		// Notifications
 		$content.empty().append( specialPageContainer.$element );
 	} );
-} )( jQuery, mediaWiki );
+}( jQuery, mediaWiki ) );

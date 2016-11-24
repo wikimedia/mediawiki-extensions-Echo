@@ -8,12 +8,9 @@
 	 * @mixins OO.SortedEmitterList
 	 *
 	 * @constructor
-	 * @param {Object} [config] Configuration options
 	 */
-	mw.echo.dm.SortedList = function MwEchoDmSortedList( config ) {
-		config = config || {};
-
-		// Mixin constructor
+	mw.echo.dm.SortedList = function MwEchoDmSortedList() {
+		// Mixin constructors
 		OO.EventEmitter.call( this );
 		OO.SortedEmitterList.call( this );
 	};
@@ -30,4 +27,4 @@
 	 * @return {boolean} This list is a group
 	 */
 	mw.echo.dm.SortedList.prototype.isGroup = null;
-} )( mediaWiki );
+}( mediaWiki ) );

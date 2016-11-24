@@ -177,4 +177,4 @@
 			this.sources[ source ].pages[ page.title ] = page;
 		}
 	};
-} )( mediaWiki );
+}( mediaWiki ) );

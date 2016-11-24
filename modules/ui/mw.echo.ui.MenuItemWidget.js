@@ -134,4 +134,4 @@
 	mw.echo.ui.MenuItemWidget.prototype.isDynamicAction = function () {
 		return this.dynamic;
 	};
-} )( mediaWiki, jQuery );
+}( mediaWiki, jQuery ) );

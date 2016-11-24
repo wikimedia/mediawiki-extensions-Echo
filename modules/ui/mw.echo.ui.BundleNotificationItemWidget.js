@@ -224,4 +224,4 @@
 	mw.echo.ui.BundleNotificationItemWidget.prototype.getList = function () {
 		return this.listWidget;
 	};
-} )( mediaWiki, jQuery );
+}( mediaWiki, jQuery ) );

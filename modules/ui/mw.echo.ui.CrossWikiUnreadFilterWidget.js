@@ -170,4 +170,4 @@
 		this.setItemSelected( item );
 	};
 
-} )( jQuery, mediaWiki );
+}( jQuery, mediaWiki ) );

@@ -150,6 +150,7 @@
 		return null;
 	};
 
+	// eslint-disable-next-line valid-jsdoc
 	/**
 	 * Remove items.
 	 *
@@ -240,6 +241,7 @@
 		}
 	};
 
+	// eslint-disable-next-line valid-jsdoc
 	/**
 	 * Clear all items
 	 *
@@ -275,4 +277,4 @@
 		);
 	};
 
-} )( mediaWiki );
+}( mediaWiki ) );
