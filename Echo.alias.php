@@ -228,7 +228,7 @@ $specialPageAliases['sv'] = array(
 
 /** Ukrainian (українська) */
 $specialPageAliases['uk'] = array(
-	'Notifications' => array( 'Сповіщення' ),
+	'Notifications' => array( 'Сповіщення', 'Уведомления' ),
 );
 
 /** Urdu (اردو) */
