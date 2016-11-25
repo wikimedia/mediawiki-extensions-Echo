@@ -2,8 +2,8 @@
 
 class EchoHtmlEmailFormatter extends EchoEventFormatter {
 
-	const PRIMARY_LINK_STYLE = 'cursor:pointer; text-align:center; text-decoration:none; padding:.45em 0.6em .45em; color:#D9EEF7; background:#3366BB; font-family: Arial, Helvetica, sans-serif;font-size: 13px;';
-	const SECONDARY_LINK_STYLE = 'text-decoration: none;font-size: 10px;font-family: Arial, Helvetica, sans-serif; color: #808184;';
+	const PRIMARY_LINK_STYLE = 'cursor:pointer; text-align:center; text-decoration:none; padding:.45em 0.6em .45em; color:#FFF; background:#36C; font-family: Arial, Helvetica, sans-serif;font-size: 13px;';
+	const SECONDARY_LINK_STYLE = 'text-decoration: none;font-size: 10px;font-family: Arial, Helvetica, sans-serif; color: #72777D;';
 
 	protected function formatModel( EchoEventPresentationModel $model ) {
 		$subject = $model->getSubjectMessage()->parse();
@@ -63,7 +63,7 @@ class EchoHtmlEmailFormatter extends EchoEventFormatter {
 </head><body>
 <table cellspacing="0" cellpadding="0" border="0" width="100%" align="center" lang="{$langCode}" dir="{$langDir}">
 <tr>
-	<td bgcolor="#E6E7E8"><center>
+	<td bgcolor="#EAECF0"><center>
 		<br /><br />
 		<table cellspacing="0" cellpadding="0" border="0" width="600" id="email-container">
 			<tr>
@@ -74,13 +74,13 @@ class EchoHtmlEmailFormatter extends EchoEventFormatter {
 			</tr><tr>
 				<td bgcolor="#FFFFFF" rowspan="2">&nbsp;</td>
 				<td bgcolor="#FFFFFF" align="center" valign="top" rowspan="2"><img src="{$iconImgSrc}" alt="" height="30" width="30"></td>
-				<td bgcolor="#FFFFFF" align="{$alignStart}" style="font-family: Arial, Helvetica, sans-serif; font-size:13px; line-height:20px; color:#6D6E70;">{$intro}</td>
+				<td bgcolor="#FFFFFF" align="{$alignStart}" style="font-family: Arial, Helvetica, sans-serif; font-size:13px; line-height:20px; color:#72777D;">{$intro}</td>
 				<td bgcolor="#FFFFFF" rowspan="2">&nbsp;</td>
 			</tr><tr>
 				<td bgcolor="#FFFFFF" align="{$alignStart}" style="font-family: Arial, Helvetica, sans-serif; line-height: 20px; font-weight: 600;">
 					<table cellspacing="0" cellpadding="0" border="0">
 						<tr>
-							<td bgcolor="#FFFFFF" align="{$alignStart}" style="font-family: Arial, Helvetica, sans-serif; padding-top: 8px; font-size:13px; font-weight: bold; color: #58585B;">
+							<td bgcolor="#FFFFFF" align="{$alignStart}" style="font-family: Arial, Helvetica, sans-serif; padding-top: 8px; font-size:13px; font-weight: bold; color: #54595D;">
 								{$summary}
 							</td>
 						</tr>
@@ -101,7 +101,7 @@ class EchoHtmlEmailFormatter extends EchoEventFormatter {
 			</tr><tr>
 				<td>&nbsp;</td>
 				<td>&nbsp;</td>
-				<td align="{$alignStart}" style="font-family: Arial, Helvetica, sans-serif; font-size:10px; line-height:13px; color:#6D6E70; padding:10px 20px;"><br />
+				<td align="{$alignStart}" style="font-family: Arial, Helvetica, sans-serif; font-size:10px; line-height:13px; color:#72777D; padding:10px 20px;"><br />
 					{$footer}
 					<br /><br />
 				</td>
@@ -129,7 +129,7 @@ EOF;
 				'label' => $this->msg( 'echo-email-html-footer-preference-link-text' )->text(),
 				'url' => SpecialPage::getTitleFor( 'Preferences', false, 'mw-prefsection-echo' )->getFullURL( '', false, PROTO_CANONICAL ),
 			),
-			'text-decoration: none; color: #3868B0;'
+			'text-decoration: none; color: #36C;'
 		);
 
 		$footer = $this->msg( 'echo-email-html-footer-with-link' )
