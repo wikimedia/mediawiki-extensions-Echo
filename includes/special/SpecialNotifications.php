@@ -193,7 +193,12 @@ class SpecialNotifications extends SpecialPage {
 		$out->addModules( array( 'ext.echo.special' ) );
 
 		// For no-js support
-		$out->addModuleStyles( array( 'ext.echo.styles.notifications', 'ext.echo.styles.special' ) );
+		$out->addModuleStyles( array(
+			'ext.echo.styles.notifications',
+			'ext.echo.styles.special',
+			// We already load badgeicons in the BeforePageDisplay hook, but not for minerva
+			'ext.echo.badgeicons'
+		) );
 
 		// Log visit
 		MWEchoEventLogging::logSpecialPageVisit( $user, $out->getSkin()->getSkinName() );
