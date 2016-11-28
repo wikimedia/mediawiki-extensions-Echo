@@ -69,7 +69,7 @@ class EchoHtmlDigestEmailFormatter extends EchoEventDigestFormatter {
 </head><body>
 <table cellspacing="0" cellpadding="0" border="0" width="100%" align="center" lang="$langCode" dir="$langDir">
 <tr>
-	<td bgcolor="#E6E7E8"><center>
+	<td bgcolor="#EAECF0"><center>
 		<br /><br />
 		<table cellspacing="0" cellpadding="0" border="0" width="600" id="email-container">
 			<tr>
@@ -81,14 +81,14 @@ class EchoHtmlDigestEmailFormatter extends EchoEventDigestFormatter {
 			<tr>
 				<td bgcolor="#FFFFFF" rowspan="2">&nbsp;</td>
 				<td bgcolor="#FFFFFF" rowspan="2">&nbsp;</td>
-				<td bgcolor="#FFFFFF" align="center" style="font-family: Arial, Helvetica, sans-serif; font-size:13px; line-height:20px; color:#6D6E70; text-align: center;">$intro</td>
+				<td bgcolor="#FFFFFF" align="center" style="font-family: Arial, Helvetica, sans-serif; font-size:13px; line-height:20px; color:#72777D; text-align: center;">$intro</td>
 				<td bgcolor="#FFFFFF" rowspan="2">&nbsp;</td>
 			</tr>
 			<tr>
 				<td bgcolor="#FFFFFF" align="$alignStart" style="font-family: Arial, Helvetica, sans-serif; line-height: 20px; font-weight: 600;">
 					<table cellspacing="0" cellpadding="0" border="0" width="100%">
 						<tr>
-							<td bgcolor="#FFFFFF" align="$alignStart" style="font-family: Arial, Helvetica, sans-serif; font-size:13px; color: #58585B; padding-top: 25px;">
+							<td bgcolor="#FFFFFF" align="$alignStart" style="font-family: Arial, Helvetica, sans-serif; font-size:13px; color: #54595D; padding-top: 25px;">
 								$digestList
 							</td>
 						</tr>
@@ -111,7 +111,7 @@ class EchoHtmlDigestEmailFormatter extends EchoEventDigestFormatter {
 			<tr>
 				<td>&nbsp;</td>
 				<td>&nbsp;</td>
-				<td align="$alignStart" style="font-family: Arial, Helvetica, sans-serif; font-size:10px; line-height:13px; color:#6D6E70; padding: 10px 20px;"><br />
+				<td align="$alignStart" style="font-family: Arial, Helvetica, sans-serif; font-size:10px; line-height:13px; color:#72777D; padding: 10px 20px;"><br />
 					$footer
 					<br /><br />
 				</td>
@@ -160,9 +160,9 @@ EOF;
 	protected function applyStyleToCategory( $category ) {
 		return <<< EOF
 <tr>
-	<td colspan="2" style="color: #A87B4F; font-weight: normal; font-size: 13px; padding-top: 15px;">
+	<td colspan="2" style="color: #72777D; font-weight: normal; font-size: 13px; padding-top: 15px;">
 		$category <br />
-		<hr style="background-color:#FFFFFF; color:#FFFFFF; border: 1px solid #F2F2F2;" />
+		<hr style="background-color:#FFFFFF; color:#FFFFFF; border: 1px solid #EAECF0;" />
 	</td>
 </tr>
 EOF;
@@ -189,7 +189,7 @@ EOF;
 	<td width="30">
 		<img src="$imgSrc" width="30" height="30" style="vertical-align:middle;">
 	</td>
-	<td style="font-family: Arial, Helvetica, sans-serif; font-size:13px; color: #58585B;">
+	<td style="font-family: Arial, Helvetica, sans-serif; font-size:13px; color: #54595D;">
 		$text
 	</td>
 </tr>
