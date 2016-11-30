@@ -36,6 +36,13 @@ $specialPageAliases['bgn'] = array(
 	'Notifications' => array( 'آگاه_کورتینۆک_ئان' ),
 );
 
+/** Bengali (বাংলা) */
+$specialPageAliases['bn'] = array(
+	'Notifications' => array( 'বিজ্ঞপ্তি' ),
+	'DisplayNotificationsConfiguration' => array( 'বিজ্ঞপ্তি_কনফিগারেশন_প্রদর্শন' ),
+	'NotificationsMarkRead' => array( 'বিজ্ঞপ্তি_পঠিতরূপে_চিহ্নিত', 'বিজ্ঞপ্তি_পঠিত_হিসেবে_চিহ্নিত' ),
+);
+
 /** Min Dong Chinese (Mìng-dĕ̤ng-ngṳ̄) */
 $specialPageAliases['cdo'] = array(
 	'Notifications' => array( '提醒' ),
