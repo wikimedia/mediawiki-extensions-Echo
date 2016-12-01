@@ -4,6 +4,33 @@ use MediaWiki\Auth\AuthManager;
 use MediaWiki\Logger\LoggerFactory;
 
 class EchoHooks {
+	public static function registerExtension() {
+		global $wgNotificationSender, $wgPasswordSender, $wgAllowHTMLEmail,
+			$wgEchoNotificationCategories, $wgDefaultUserOptions;
+
+		$wgNotificationSender = $wgPasswordSender;
+
+		if ( $wgAllowHTMLEmail ) {
+			$wgDefaultUserOptions['echo-email-format'] = 'html'; /*EchoHooks::EMAIL_FORMAT_HTML*/
+		} else {
+			$wgDefaultUserOptions['echo-email-format'] = 'plain-text'; /*EchoHooks::EMAIL_FORMAT_PLAIN_TEXT*/
+		}
+
+		// Set all of the events to notify by web but not email by default (won't affect events that don't email)
+		foreach ( $wgEchoNotificationCategories as $category => $categoryData ) {
+			$wgDefaultUserOptions["echo-subscriptions-email-{$category}"] = false;
+			$wgDefaultUserOptions["echo-subscriptions-web-{$category}"] = true;
+		}
+
+		// most settings default to web on, email off, but override these
+		$wgDefaultUserOptions['echo-subscriptions-email-system'] = true;
+		$wgDefaultUserOptions['echo-subscriptions-email-user-rights'] = true;
+		$wgDefaultUserOptions['echo-subscriptions-web-article-linked'] = false;
+		$wgDefaultUserOptions['echo-subscriptions-web-mention-failure'] = false;
+		$wgDefaultUserOptions['echo-subscriptions-web-mention-success'] = false;
+
+	}
+
 	/**
 	 * Initialize Echo extension with necessary data, this function is invoked
 	 * from $wgExtensionFunctions
@@ -1056,32 +1083,6 @@ class EchoHooks {
 			$modifiedTimes['notifications-seen-alert'] = EchoSeenTime::newFromUser( $user )->getTime( 'alert' );
 			$modifiedTimes['notifications-seen-message'] = EchoSeenTime::newFromUser( $user )->getTime( 'message' );
 		}
-	}
-
-	/**
-	 * Handler for UnitTestsList hook.
-	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/UnitTestsList
-	 * @param &$files Array of unit test files
-	 * @return bool true in all cases
-	 */
-	public static function getUnitTests( &$files ) {
-		// @codeCoverageIgnoreStart
-		$directoryIterator = new RecursiveDirectoryIterator( __DIR__ . '/tests/phpunit/' );
-
-		/**
-		 * @var SplFileInfo $fileInfo
-		 */
-		$ourFiles = array();
-		foreach ( new RecursiveIteratorIterator( $directoryIterator ) as $fileInfo ) {
-			if ( substr( $fileInfo->getFilename(), -8 ) === 'Test.php' ) {
-				$ourFiles[] = $fileInfo->getPathname();
-			}
-		}
-
-		$files = array_merge( $files, $ourFiles );
-
-		return true;
-		// @codeCoverageIgnoreEnd
 	}
 
 	/**
