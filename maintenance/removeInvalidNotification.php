@@ -18,6 +18,11 @@ class RemoveInvalidNotification extends Maintenance {
 	protected $batchSize = 500;
 	protected $invalidEventType = array( 'article-linked' );
 
+	public function __construct() {
+		$this->mDescription = "Removes invalid notifications from the database.";
+		$this->requireExtension( 'Echo' );
+	}
+
 	public function execute() {
 		if ( !$this->invalidEventType ) {
 			$this->output( "There is nothing to process\n" );

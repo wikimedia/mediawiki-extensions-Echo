@@ -13,6 +13,8 @@ class BackfillReadBundles extends Maintenance {
 		$this->mDescription = "Backfill echo_notification.notification_read_timestamp for bundles";
 
 		$this->setBatchSize( 300 );
+
+		$this->requireExtension( 'Echo' );
 	}
 
 	public function execute() {

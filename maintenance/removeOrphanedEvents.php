@@ -21,6 +21,8 @@ class RemoveOrphanedEvents extends LoggedUpdateMaintenance {
 		$this->mDescription = "Remove rows from echo_event that don't have corresponding rows in echo_notification";
 
 		$this->setBatchSize( 500 );
+
+		$this->requireExtension( 'Echo' );
 	}
 
 	public function getUpdateKey() {

@@ -55,6 +55,8 @@ class GenerateSampleNotifications extends Maintenance {
 			'other',
 			'Name of another user involved with the notifications',
 			true, true, 'o' );
+
+		$this->requireExtension( 'Echo' );
 	}
 
 	public function execute() {

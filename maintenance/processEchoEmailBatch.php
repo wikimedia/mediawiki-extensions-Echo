@@ -25,6 +25,8 @@ class ProcessEchoEmailBatch extends Maintenance {
 			"ignoreConfiguredSchedule",
 			"Send all pending notifications immediately even if configured to be weekly or daily.",
 			false, false, "i" );
+
+		$this->requireExtension( 'Echo' );
 	}
 
 	public function execute() {
