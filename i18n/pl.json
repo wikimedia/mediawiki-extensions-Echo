@@ -143,7 +143,7 @@
 	"notification-compact-header-mention-failure-user-unknown": "<strong>Nazwa użytkownika nie istnieje:</strong> $1",
 	"notification-compact-header-mention-failure-user-anonymous": "<strong>Nie można wspominać o adresach IP:</strong> „$1”",
 	"notification-header-mention-success": "{{GENDER:$2|Twoje}} wzmiankowanie o <strong>$3</strong> zostało wysłane.",
-	"notification-header-mention-success-bundle": "{{PLURAL:$3|Wzmianka|$3 wzmianek|$3 wzmianki}}, których {{GENDER:$2|dokonałeś|dokonałaś}} na stronie dyskusji <strong>$4</strong> {{PLURAL:$3|została|zostały}} wysłane.",
+	"notification-header-mention-success-bundle": "{{PLURAL:$3|Wzmianka|$3 wzmianki|$3 wzmianek}}, których {{GENDER:$2|dokonałeś|dokonałaś}} na stronie dyskusji <strong>$4</strong> {{PLURAL:$3|została|zostały}} wysłane.",
 	"notification-compact-header-mention-success": "<strong>{{GENDER:$2|Wspomniałeś|Wspomniałaś}} o:</strong> $3",
 	"notification-header-user-rights-add-only": "{{GENDER:$4|Twoje}} uprawnienia zostały {{GENDER:$1|zmienione}}. {{GENDER:$4|Zostałeś dodany|Zostałaś dodana}} do: $2.",
 	"notification-header-user-rights-remove-only": "{{GENDER:$4|Twoje}} uprawnienia zostały {{GENDER:$1|zmienione}}. Nie należysz już do: $2.",
