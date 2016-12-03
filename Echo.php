@@ -377,6 +377,9 @@ $wgEchoNotificationIcons = array(
 	'emailuser' => array(
 		'path' => "$echoIconPath/emailuser.svg",
 	),
+	'help' => array(
+		'path' => "$echoIconPath/help.svg",
+	),
 	'global' => array(
 		'path' => "$echoIconPath/global.svg"
 	),
