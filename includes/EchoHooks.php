@@ -306,9 +306,9 @@ class EchoHooks {
 
 		// Display information about the user's currently set email address
 		$prefsTitle = SpecialPage::getTitleFor( 'Preferences', false, 'mw-prefsection-echo' );
-		$link = Linker::link(
+		$link = MediaWikiServices::getInstance()->getLinkRenderer()->makeLink(
 			SpecialPage::getTitleFor( 'ChangeEmail' ),
-			wfMessage( $user->getEmail() ? 'prefs-changeemail' : 'prefs-setemail' )->escaped(),
+			wfMessage( $user->getEmail() ? 'prefs-changeemail' : 'prefs-setemail' )->text(),
 			[],
 			[ 'returnto' => $prefsTitle->getFullText() ]
 		);
