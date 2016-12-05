@@ -34,7 +34,7 @@ abstract class EchoEventDigestFormatter {
 	 * @return array|bool|string Output format depends on implementation, false if it cannot be formatted
 	 */
 	final public function format( array $events, $distributionType ) {
-		$models = array();
+		$models = [];
 		foreach ( $events as $event ) {
 			$model = EchoEventPresentationModel::factory( $event, $this->language, $this->user, $distributionType );
 			if ( $model->canRender() ) {

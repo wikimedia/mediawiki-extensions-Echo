@@ -21,8 +21,8 @@ class Bundler {
 	 * @return Bundleable[] Grouped notifications sorted by timestamp DESC
 	 */
 	public function bundle( $bundleables ) {
-		$groups = array();
-		$bundled = array();
+		$groups = [];
+		$bundled = [];
 
 		/** @var Bundleable $element */
 		foreach ( $bundleables as $element ) {

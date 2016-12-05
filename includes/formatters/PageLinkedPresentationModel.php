@@ -25,39 +25,39 @@ class EchoPageLinkedPresentationModel extends EchoEventPresentationModel {
 		if ( $this->isBundled() ) {
 			return false;
 		} else {
-			return array(
+			return [
 				'url' => $this->getPageFrom()->getFullURL(),
 				'label' => $this->msg( 'notification-link-text-view-page' )->text(),
-			);
+			];
 		}
 	}
 
 	public function getSecondaryLinks() {
-		$whatLinksHereLink = array(
+		$whatLinksHereLink = [
 			'url' => SpecialPage::getTitleFor( 'Whatlinkshere', $this->event->getTitle()->getPrefixedText() )->getFullURL(),
 			'label' => $this->msg( 'notification-link-text-what-links-here' )->text(),
 			'description' => '',
 			'icon' => 'linked',
 			'prioritized' => true
-		);
+		];
 
 		$revid = $this->event->getExtraParam( 'revid' );
 		$diffLink = null;
 		if ( $revid !== null ) {
-			$diffLink = array(
-				'url' => $this->getPageFrom()->getFullURL( array( 'diff' => $revid, 'oldid' => 'prev' ) ),
+			$diffLink = [
+				'url' => $this->getPageFrom()->getFullURL( [ 'diff' => $revid, 'oldid' => 'prev' ] ),
 				'label' => $this->msg( 'notification-link-text-view-changes', $this->getViewingUserForGender() )->text(),
 				'description' => '',
 				'icon' => 'changes',
 				'prioritized' => true
-			);
+			];
 		}
 
-		return array( $whatLinksHereLink, $diffLink );
+		return [ $whatLinksHereLink, $diffLink ];
 	}
 
 	protected function getHeaderMessageKey() {
-		if ( $this->getBundleCount( true, array( $this, 'getLinkedPageId' ) ) > 1 ) {
+		if ( $this->getBundleCount( true, [ $this, 'getLinkedPageId' ] ) > 1 ) {
 			return "notification-bundle-header-{$this->type}";
 		}
 		return "notification-header-{$this->type}";
@@ -68,7 +68,7 @@ class EchoPageLinkedPresentationModel extends EchoEventPresentationModel {
 		$msg->params( $this->getTruncatedTitleText( $this->event->getTitle(), true ) );
 		$msg->params( $this->getTruncatedTitleText( $this->getPageFrom(), true ) );
 		$count =
-			$this->getNotificationCountForOutput( true, array( $this, 'getLinkedPageId' ) );
+			$this->getNotificationCountForOutput( true, [ $this, 'getLinkedPageId' ] );
 
 		// Repeat is B/C until unused parameter is removed from translations
 		$msg->numParams( $count, $count );

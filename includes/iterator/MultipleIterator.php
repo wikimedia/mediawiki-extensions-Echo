@@ -10,7 +10,7 @@
  * * Lots less features(e.g. simple!)
  */
 class EchoMultipleIterator implements RecursiveIterator {
-	protected $active = array();
+	protected $active = [];
 	protected $children;
 	protected $key = 0;
 
@@ -44,7 +44,7 @@ class EchoMultipleIterator implements RecursiveIterator {
 	}
 
 	public function current() {
-		$result = array();
+		$result = [];
 		foreach ( $this->active as $it ) {
 			$result[] = $it->current();
 		}

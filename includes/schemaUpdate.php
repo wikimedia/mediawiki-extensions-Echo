@@ -9,7 +9,7 @@ class EchoSuppressionRowUpdateGenerator implements RowUpdateGenerator {
 	/**
 	 * @var callable Hack to allow replacing Title::makeTitleSafe in tests
 	 */
-	protected $newTitleFromNsAndText = array( 'Title', 'makeTitleSafe' );
+	protected $newTitleFromNsAndText = [ 'Title', 'makeTitleSafe' ];
 
 	/**
 	 * {@inheritDoc}
@@ -52,7 +52,7 @@ class EchoSuppressionRowUpdateGenerator implements RowUpdateGenerator {
 	 * @return array All updates required for this row
 	 */
 	protected function updatePageIdFromTitle( $row ) {
-		$update = array();
+		$update = [];
 		$title = $this->newTitleFromNsAndText( $row->event_page_namespace, $row->event_page_title );
 		if ( $title !== null ) {
 			$pageId = $title->getArticleId();
@@ -109,14 +109,14 @@ class EchoSuppressionRowUpdateGenerator implements RowUpdateGenerator {
 	 * @param $update array Updates that need to be applied to the database row
 	 * @return array The event extra data
 	 */
-	protected function extra( $row, array $update = array() ) {
+	protected function extra( $row, array $update = [] ) {
 		if ( isset( $update['event_extra'] ) ) {
 			return unserialize( $update['event_extra'] );
 		} elseif ( $row->event_extra ) {
 			return unserialize( $row->event_extra );
 		}
 
-		return array();
+		return [];
 	}
 
 }

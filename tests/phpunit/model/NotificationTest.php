@@ -25,9 +25,9 @@ class EchoNotificationTest extends MediaWikiTestCase {
 			wfTimestamp( TS_MW, $row['notification_read_timestamp'] )
 		);
 
-		$notif = EchoNotification::newFromRow( (object)$row, array(
+		$notif = EchoNotification::newFromRow( (object)$row, [
 			EchoTargetPage::newFromRow( (object)$this->mockTargetPageRow() )
-		) );
+		] );
 		$this->assertGreaterThan( 0, count( $notif->getTargetPages() ) );
 		foreach ( $notif->getTargetPages() as $targetPage ) {
 			$this->assertInstanceOf( 'EchoTargetPage', $targetPage );
@@ -48,7 +48,7 @@ class EchoNotificationTest extends MediaWikiTestCase {
 	 * Mock a notification row from database
 	 */
 	protected function mockNotificationRow() {
-		return array(
+		return [
 			'notification_user' => 1,
 			'notification_event' => 1,
 			'notification_timestamp' => time(),
@@ -56,14 +56,14 @@ class EchoNotificationTest extends MediaWikiTestCase {
 			'notification_bundle_base' => 1,
 			'notification_bundle_hash' => 'testhash',
 			'notification_bundle_display_hash' => 'testdisplayhash'
-		);
+		];
 	}
 
 	/**
 	 * Mock an event row from database
 	 */
 	protected function mockEventRow() {
-		return array(
+		return [
 			'event_id' => 1,
 			'event_type' => 'test_event',
 			'event_variant' => '',
@@ -72,17 +72,17 @@ class EchoNotificationTest extends MediaWikiTestCase {
 			'event_agent_id' => '',
 			'event_agent_ip' => '',
 			'event_deleted' => 0,
-		);
+		];
 	}
 
 	/**
 	 * Mock a target page row
 	 */
 	protected function mockTargetPageRow() {
-		return array(
+		return [
 			'etp_page' => 2,
 			'etp_event' => 1
-		);
+		];
 	}
 
 }

@@ -68,10 +68,10 @@ class EchoTargetPage extends EchoAbstractEntity {
 	 * @throws MWException
 	 */
 	public static function newFromRow( $row ) {
-		$requiredFields = array(
+		$requiredFields = [
 			'etp_page',
 			'etp_event'
-		);
+		];
 		foreach ( $requiredFields as $field ) {
 			if ( !isset( $row->$field ) || !$row->$field ) {
 				throw new MWException( $field . ' is not set in the row!' );
@@ -139,9 +139,9 @@ class EchoTargetPage extends EchoAbstractEntity {
 	 * @return array
 	 */
 	public function toDbArray() {
-		return array(
+		return [
 			'etp_page' => $this->pageId,
 			'etp_event' => $this->eventId
-		);
+		];
 	}
 }

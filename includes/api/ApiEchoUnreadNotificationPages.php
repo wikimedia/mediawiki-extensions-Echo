@@ -27,7 +27,7 @@ class ApiEchoUnreadNotificationPages extends ApiCrossWikiBase {
 
 		$params = $this->extractRequestParams();
 
-		$result = array();
+		$result = [];
 		if ( in_array( wfWikiId(), $this->getRequestedWikis() ) ) {
 			$result[wfWikiID()] = $this->getFromLocal( $params['limit'], $params['grouppages'] );
 		}
@@ -39,7 +39,7 @@ class ApiEchoUnreadNotificationPages extends ApiCrossWikiBase {
 		$apis = $this->foreignNotifications->getApiEndpoints( $this->getRequestedWikis() );
 		foreach ( $result as $wiki => $data ) {
 			$result[$wiki]['source'] = $apis[$wiki];
-			$result[$wiki]['pages'] = $data['pages'] ?: array();
+			$result[$wiki]['pages'] = $data['pages'] ?: [];
 		}
 
 		$this->getResult()->addValue( 'query', $this->getModuleName(), $result );
@@ -57,29 +57,29 @@ class ApiEchoUnreadNotificationPages extends ApiCrossWikiBase {
 		$dbr = MWEchoDbFactory::newFromDefault()->getEchoDb( DB_SLAVE );
 		// If $groupPages is true, we need to fetch all pages and apply the ORDER BY and LIMIT ourselves
 		// after grouping.
-		$extraOptions = $groupPages ? array() : array( 'ORDER BY' => 'count DESC', 'LIMIT' => $limit );
+		$extraOptions = $groupPages ? [] : [ 'ORDER BY' => 'count DESC', 'LIMIT' => $limit ];
 		$rows = $dbr->select(
-			array( 'echo_event', 'echo_notification' ),
-			array( 'event_page_id', 'count' => 'COUNT(*)' ),
-			array(
+			[ 'echo_event', 'echo_notification' ],
+			[ 'event_page_id', 'count' => 'COUNT(*)' ],
+			[
 				'notification_user' => $this->getUser()->getId(),
 				'notification_read_timestamp' => null,
 				'event_deleted' => 0,
 				'event_type' => $enabledTypes,
-			),
+			],
 			__METHOD__,
-			array(
+			[
 				'GROUP BY' => 'event_page_id',
-			) + $extraOptions,
-			array( 'echo_notification' => array( 'INNER JOIN', 'notification_event = event_id' ) )
+			] + $extraOptions,
+			[ 'echo_notification' => [ 'INNER JOIN', 'notification_event = event_id' ] ]
 		);
 
 		if ( $rows === false ) {
-			return array();
+			return [];
 		}
 
 		$nullCount = 0;
-		$pageCounts = array();
+		$pageCounts = [];
 		foreach ( $rows as $row ) {
 			if ( $row->event_page_id !== null ) {
 				$pageCounts[$row->event_page_id] = intval( $row->count );
@@ -90,7 +90,7 @@ class ApiEchoUnreadNotificationPages extends ApiCrossWikiBase {
 
 		$titles = Title::newFromIDs( array_keys( $pageCounts ) );
 
-		$groupCounts = array();
+		$groupCounts = [];
 		foreach ( $titles as $title ) {
 			if ( $groupPages ) {
 				// If $title is a talk page, add its count to its subject page's count
@@ -122,45 +122,45 @@ class ApiEchoUnreadNotificationPages extends ApiCrossWikiBase {
 			$groupCounts = array_slice( $groupCounts, 0, $limit );
 		}
 
-		$result = array();
+		$result = [];
 		foreach ( $groupCounts as $pageName => $count ) {
 			if ( $groupPages ) {
 				$title = Title::newFromText( $pageName );
-				$pages = array( $title->getSubjectPage()->getPrefixedText(), $title->getTalkPage()->getPrefixedText() );
+				$pages = [ $title->getSubjectPage()->getPrefixedText(), $title->getTalkPage()->getPrefixedText() ];
 				if ( $pageName === $userPageName ) {
 					$pages[] = null;
 				}
-				$pageDescription = array(
+				$pageDescription = [
 					'ns' => $title->getNamespace(),
 					'title' => $title->getPrefixedText(),
 					'unprefixed' => $title->getText(),
 					'pages' => $pages,
-				);
+				];
 			} else {
-				$pageDescription = array( 'title' => $pageName );
+				$pageDescription = [ 'title' => $pageName ];
 			}
-			$result[] = $pageDescription + array(
+			$result[] = $pageDescription + [
 				'count' => $count,
-			);
+			];
 		}
 		if ( !$groupPages && $nullCount > 0 ) {
-			$result[] = array(
+			$result[] = [
 				'title' => null,
 				'count' => $nullCount,
-			);
+			];
 		}
 
-		return array(
+		return [
 			'pages' => $result,
 			'totalCount' => MWEchoNotifUser::newFromUser( $this->getUser() )->getLocalNotificationCount(),
-		);
+		];
 	}
 
 	/**
 	 * @return array
 	 */
 	protected function getUnreadNotificationPagesFromForeign() {
-		$result = array();
+		$result = [];
 		foreach ( $this->getFromForeign() as $wiki => $data ) {
 			$result[$wiki] = $data['query'][$this->getModuleName()][$wiki];
 		}
@@ -174,33 +174,33 @@ class ApiEchoUnreadNotificationPages extends ApiCrossWikiBase {
 	public function getAllowedParams() {
 		global $wgEchoMaxUpdateCount;
 
-		return parent::getAllowedParams() + array(
-			'grouppages' => array(
+		return parent::getAllowedParams() + [
+			'grouppages' => [
 				ApiBase::PARAM_TYPE => 'boolean',
 				ApiBase::PARAM_DFLT => false,
-			),
-			'limit' => array(
+			],
+			'limit' => [
 				ApiBase::PARAM_TYPE => 'limit',
 				ApiBase::PARAM_DFLT => 10,
 				ApiBase::PARAM_MIN => 1,
 				ApiBase::PARAM_MAX => $wgEchoMaxUpdateCount,
 				ApiBase::PARAM_MAX2 => $wgEchoMaxUpdateCount,
-			),
+			],
 			// there is no `offset` or `continue` value: the set of possible
 			// notifications is small enough to allow fetching all of them at
 			// once, and any sort of fetching would be unreliable because
 			// they're sorted based on count of notifications, which could
 			// change in between requests
-		);
+		];
 	}
 
 	/**
 	 * @see ApiBase::getExamplesMessages()
 	 */
 	protected function getExamplesMessages() {
-		return array(
+		return [
 			'action=query&meta=unreadnotificationpages' => 'apihelp-query+unreadnotificationpages-example-1',
-		);
+		];
 	}
 
 	public function getHelpUrls() {

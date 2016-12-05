@@ -24,23 +24,23 @@ class NotificationPager extends ReverseChronologicalPager {
 		$attributeManager = EchoAttributeManager::newFromGlobalVars();
 		$eventTypes = $attributeManager->getUserEnabledEvents( $this->getUser(), 'web' );
 
-		return array(
-			'tables' => array( 'echo_notification', 'echo_event' ),
+		return [
+			'tables' => [ 'echo_notification', 'echo_event' ],
 			'fields' => '*',
-			'conds' => array(
+			'conds' => [
 				'notification_user' => $this->getUser()->getId(),
 				'event_type' => $eventTypes,
 				'event_deleted' => 0,
-			),
-			'options' => array(),
+			],
+			'options' => [],
 			'join_conds' =>
-				array( 'echo_event' =>
-					array(
+				[ 'echo_event' =>
+					[
 						'JOIN',
 						'notification_event=event_id',
-					),
-				),
-		);
+					],
+				],
+		];
 	}
 
 	public function getNotifications() {
@@ -48,7 +48,7 @@ class NotificationPager extends ReverseChronologicalPager {
 			$this->doQuery();
 		}
 
-		$notifications = array();
+		$notifications = [];
 		foreach ( $this->mResult as $row ) {
 			$notifications[] = EchoNotification::newFromRow( $row );
 		}

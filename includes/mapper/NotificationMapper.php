@@ -27,13 +27,13 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 				if ( $row['notification_bundle_display_hash'] ) {
 					$dbw->update(
 						'echo_notification',
-						array( 'notification_bundle_base' => 0 ),
-						array(
+						[ 'notification_bundle_base' => 0 ],
+						[
 							'notification_user' => $row['notification_user'],
 							'notification_bundle_display_hash' =>
 								$row['notification_bundle_display_hash'],
 							'notification_bundle_base' => 1
-						),
+						],
 						$fname
 					);
 				}
@@ -57,10 +57,10 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	 * @return int[]
 	 */
 	protected function extractQueryOffset( $continue ) {
-		$offset = array(
+		$offset = [
 			'timestamp' => 0,
 			'offset' => 0,
-		);
+		];
 		if ( $continue ) {
 			$values = explode( '|', $continue, 3 );
 			if ( count( $values ) !== 2 ) {
@@ -88,12 +88,12 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	 * @param int $dbSource Use master or slave database
 	 * @return EchoNotification[]
 	 */
-	public function fetchUnreadByUser( User $user, $limit, $continue, array $eventTypes = array(), array $titles = null, $dbSource = DB_SLAVE ) {
+	public function fetchUnreadByUser( User $user, $limit, $continue, array $eventTypes = [], array $titles = null, $dbSource = DB_SLAVE ) {
 		$conds['notification_read_timestamp'] = null;
 		if ( $titles ) {
 			$conds['event_page_id'] = $this->getIdsForTitles( $titles );
 			if ( !$conds['event_page_id'] ) {
-				return array();
+				return [];
 			}
 		}
 		return $this->fetchByUserInternal( $user, $limit, $continue, $eventTypes, $conds, $dbSource );
@@ -114,12 +114,12 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	 * @param int $dbSource Use master or slave database
 	 * @return EchoNotification[]
 	 */
-	public function fetchReadByUser( User $user, $limit, $continue, array $eventTypes = array(), array $titles = null, $dbSource = DB_SLAVE ) {
-		$conds = array( 'notification_read_timestamp IS NOT NULL' );
+	public function fetchReadByUser( User $user, $limit, $continue, array $eventTypes = [], array $titles = null, $dbSource = DB_SLAVE ) {
+		$conds = [ 'notification_read_timestamp IS NOT NULL' ];
 		if ( $titles ) {
 			$conds['event_page_id'] = $this->getIdsForTitles( $titles );
 			if ( !$conds['event_page_id'] ) {
-				return array();
+				return [];
 			}
 		}
 		return $this->fetchByUserInternal( $user, $limit, $continue, $eventTypes, $conds, $dbSource );
@@ -137,17 +137,17 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	 *  To find notifications not associated with any page, add null as an element to this array.
 	 * @return EchoNotification[]
 	 */
-	public function fetchByUser( User $user, $limit, $continue, array $eventTypes = array(), array $excludeEventIds = array(), array $titles = null ) {
+	public function fetchByUser( User $user, $limit, $continue, array $eventTypes = [], array $excludeEventIds = [], array $titles = null ) {
 		$dbr = $this->dbFactory->getEchoDb( DB_SLAVE );
 
-		$conds = array();
+		$conds = [];
 		if ( $excludeEventIds ) {
 			$conds[] = 'event_id NOT IN ( ' . $dbr->makeList( $excludeEventIds ) . ' ) ';
 		}
 		if ( $titles ) {
 			$conds['event_page_id'] = $this->getIdsForTitles( $titles );
 			if ( !$conds['event_page_id'] ) {
-				return array();
+				return [];
 			}
 		}
 
@@ -155,7 +155,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	}
 
 	protected function getIdsForTitles( array $titles ) {
-		$ids = array();
+		$ids = [];
 		foreach ( $titles as $title ) {
 			if ( $title === null ) {
 				$ids[] = null;
@@ -175,11 +175,11 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	 * @param int $dbSource Use master or slave database
 	 * @return EchoNotification[]
 	 */
-	protected function fetchByUserInternal( User $user, $limit, $continue, array $eventTypes = array(), array $conds = array(), $dbSource = DB_SLAVE ) {
+	protected function fetchByUserInternal( User $user, $limit, $continue, array $eventTypes = [], array $conds = [], $dbSource = DB_SLAVE ) {
 		$dbr = $this->dbFactory->getEchoDb( $dbSource );
 
 		if ( !$eventTypes ) {
-			return array();
+			return [];
 		}
 
 		// There is a problem with querying by event type, if a user has only one or none
@@ -188,11 +188,11 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 		// notifications.  We should have some cron job to remove old notifications so
 		// the notification volume is in a reasonable amount for such case.  The other option
 		// is to denormalize notification table with event_type and lookup index.
-		$conds = array(
+		$conds = [
 			'notification_user' => $user->getID(),
 			'event_type' => $eventTypes,
 			'event_deleted' => 0,
-		) + $conds;
+		] + $conds;
 
 		$offset = $this->extractQueryOffset( $continue );
 
@@ -204,25 +204,25 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 		}
 
 		$res = $dbr->select(
-			array( 'echo_notification', 'echo_event' ),
+			[ 'echo_notification', 'echo_event' ],
 			'*',
 			$conds,
 			__METHOD__,
-			array(
+			[
 				'ORDER BY' => 'notification_timestamp DESC, notification_event DESC',
 				'LIMIT' => $limit,
-			),
-			array(
-				'echo_event' => array( 'LEFT JOIN', 'notification_event=event_id' ),
-			)
+			],
+			[
+				'echo_event' => [ 'LEFT JOIN', 'notification_event=event_id' ],
+			]
 		);
 
 		// query failure of some sort
 		if ( !$res ) {
-			return array();
+			return [];
 		}
 
-		$allNotifications = array();
+		$allNotifications = [];
 		foreach ( $res as $row ) {
 			try {
 				$notification = EchoNotification::newFromRow( $row );
@@ -236,7 +236,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 			}
 		}
 
-		$data = array();
+		$data = [];
 		/** @var EchoNotification $notification */
 		foreach ( $allNotifications as $notification ) {
 			$data[ $notification->getEvent()->getId() ] = $notification;
@@ -255,17 +255,17 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 		$dbr = $this->dbFactory->getEchoDb( DB_SLAVE );
 
 		$row = $dbr->selectRow(
-			array( 'echo_notification', 'echo_event' ),
-			array( '*' ),
-			array(
+			[ 'echo_notification', 'echo_event' ],
+			[ '*' ],
+			[
 				'notification_user' => $user->getId(),
 				'notification_bundle_hash' => $bundleHash
-			),
+			],
 			__METHOD__,
-			array( 'ORDER BY' => 'notification_timestamp DESC', 'LIMIT' => 1 ),
-			array(
-				'echo_event' => array( 'LEFT JOIN', 'notification_event=event_id' ),
-			)
+			[ 'ORDER BY' => 'notification_timestamp DESC', 'LIMIT' => 1 ],
+			[
+				'echo_event' => [ 'LEFT JOIN', 'notification_event=event_id' ],
+			]
 		);
 		if ( $row ) {
 			return EchoNotification::newFromRow( $row );
@@ -285,21 +285,21 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 		$dbr = $this->dbFactory->getEchoDb( DB_SLAVE );
 
 		$result = $dbr->select(
-			array( 'echo_notification', 'echo_event' ),
+			[ 'echo_notification', 'echo_event' ],
 			'*',
-			array(
+			[
 				'notification_user' => $user->getId(),
 				'notification_event' => $eventIds
-			),
+			],
 			 __METHOD__,
-			array(),
-			array(
-				'echo_event' => array( 'INNER JOIN', 'notification_event=event_id' ),
-			)
+			[],
+			[
+				'echo_event' => [ 'INNER JOIN', 'notification_event=event_id' ],
+			]
 		 );
 
 		if ( $result ) {
-			$notifications = array();
+			$notifications = [];
 			foreach ( $result as $row ) {
 				$notifications[] = EchoNotification::newFromRow( $row );
 			}
@@ -308,7 +308,6 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 			return false;
 		}
 	}
-
 
 	/**
 	 * Fetch a notification by user in the specified offset.  The caller should
@@ -320,21 +319,21 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	public function fetchByUserOffset( User $user, $offset ) {
 		$dbr = $this->dbFactory->getEchoDb( DB_SLAVE );
 		$row = $dbr->selectRow(
-			array( 'echo_notification', 'echo_event' ),
-			array( '*' ),
-			array(
+			[ 'echo_notification', 'echo_event' ],
+			[ '*' ],
+			[
 				'notification_user' => $user->getId(),
 				'event_deleted' => 0,
-			),
+			],
 			__METHOD__,
-			array(
+			[
 				'ORDER BY' => 'notification_timestamp DESC, notification_event DESC',
 				'OFFSET' => $offset,
 				'LIMIT' => 1
-			),
-			array(
-				'echo_event' => array( 'LEFT JOIN', 'notification_event=event_id' ),
-			)
+			],
+			[
+				'echo_event' => [ 'LEFT JOIN', 'notification_event=event_id' ],
+			]
 		);
 
 		if ( $row ) {
@@ -354,10 +353,10 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 		$dbw = $this->dbFactory->getEchoDb( DB_MASTER );
 		$res = $dbw->delete(
 			'echo_notification',
-			array(
+			[
 				'notification_user' => $user->getId(),
 				'notification_event < ' . (int)$eventId
-			),
+			],
 			__METHOD__
 		);
 
@@ -374,16 +373,16 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 		$dbr = $this->dbFactory->getEchoDb( DB_SLAVE );
 
 		$res = $dbr->select(
-			array( 'echo_notification' ),
-			array( 'userId' => 'DISTINCT notification_user' ),
-			array(
+			[ 'echo_notification' ],
+			[ 'userId' => 'DISTINCT notification_user' ],
+			[
 				'notification_event' => $eventIds
-			),
+			],
 			__METHOD__
 		);
 
 		if ( $res ) {
-			$userIds = array();
+			$userIds = [];
 			foreach ( $res as $row ) {
 				$userIds[] = $row->userId;
 			}

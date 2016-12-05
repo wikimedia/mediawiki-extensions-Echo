@@ -40,11 +40,11 @@ class UpdateEchoSchemaForSuppression extends LoggedUpdateMaintenance {
 		global $wgEchoCluster;
 
 		$reader = new BatchRowIterator( MWEchoDbFactory::getDB( DB_SLAVE ), $this->table, $this->idField, $this->mBatchSize );
-		$reader->addConditions( array(
+		$reader->addConditions( [
 			"event_page_title IS NOT NULL",
 			"event_page_id" => null,
-		) );
-		$reader->setFetchColumns( array( 'event_page_namespace', 'event_page_title', 'event_extra', 'event_type' ) );
+		] );
+		$reader->setFetchColumns( [ 'event_page_namespace', 'event_page_title', 'event_extra', 'event_type' ] );
 
 		$updater = new BatchRowUpdate(
 			$reader,

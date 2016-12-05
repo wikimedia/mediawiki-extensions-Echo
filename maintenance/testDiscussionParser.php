@@ -22,18 +22,18 @@ class TestDiscussionParser extends Maintenance {
 		$revisions = explode( ',', $this->getArg( 0 ) );
 
 		// Retrieve original revisions and their predecessors
-		$requestData = array(
+		$requestData = [
 			'format' => 'php',
 			'action' => 'query',
 			'prop' => 'revisions',
 			'revids' => implode( '|', $revisions ),
-		);
+		];
 
 		$originalData = Http::post(
 			$apiURL,
-			array(
+			[
 				'postData' => $requestData,
-			)
+			]
 		);
 
 		$data = unserialize( $originalData );
@@ -47,7 +47,7 @@ class TestDiscussionParser extends Maintenance {
 
 			$revid = $page['revisions'][0]['revid'];
 
-			$newRequest = array(
+			$newRequest = [
 				'format' => 'php',
 				'action' => 'query',
 				'prop' => 'revisions',
@@ -55,13 +55,13 @@ class TestDiscussionParser extends Maintenance {
 				'rvstartid' => $revid,
 				'rvlimit' => 2,
 				'rvprop' => 'ids|content|user',
-			);
+			];
 
 			$newData = Http::post(
 				$apiURL,
-				array(
+				[
 					'postData' => $newRequest,
-				)
+				]
 			);
 
 			$newData = unserialize( $newData );

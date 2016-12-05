@@ -16,7 +16,7 @@ class EchoAbstractMapperTest extends MediaWikiTestCase {
 		$this->assertArrayHasKey( 'key_a', $listeners['testMethod'] );
 		$this->assertTrue( is_callable( $listeners['testMethod']['key_a'] ) );
 
-		return array( 'mapper' => $mapper, 'property' => $property );
+		return [ 'mapper' => $mapper, 'property' => $property ];
 	}
 
 	/**

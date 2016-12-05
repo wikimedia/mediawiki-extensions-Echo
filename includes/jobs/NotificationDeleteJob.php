@@ -17,7 +17,7 @@ class EchoNotificationDeleteJob extends Job {
 	 * UserIds to be processed
 	 * @var int[]
 	 */
-	protected $userIds = array();
+	protected $userIds = [];
 
 	/**
 	 * @param Title $title
@@ -35,9 +35,9 @@ class EchoNotificationDeleteJob extends Job {
 		global $wgEchoMaxUpdateCount;
 		if ( count( $this->userIds ) > 1 ) {
 			// If there are multiple users, queue a single job for each one
-			$jobs = array();
+			$jobs = [];
 			foreach ( $this->userIds as $userId ) {
-				$jobs[] = new EchoNotificationDeleteJob( $this->title, array( 'userIds' => array( $userId ) ) );
+				$jobs[] = new EchoNotificationDeleteJob( $this->title, [ 'userIds' => [ $userId ] ] );
 			}
 			JobQueueGroup::singleton()->push( $jobs );
 

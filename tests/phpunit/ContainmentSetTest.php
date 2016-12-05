@@ -8,12 +8,12 @@ class ContainmentSetTest extends MediaWikiTestCase {
 	public function testGenericContains() {
 		$list = new EchoContainmentSet();
 
-		$list->addArray( array( 'foo', 'bar' ) );
+		$list->addArray( [ 'foo', 'bar' ] );
 		$this->assertTrue( $list->contains( 'foo' ) );
 		$this->assertTrue( $list->contains( 'bar' ) );
 		$this->assertFalse( $list->contains( 'whammo' ) );
 
-		$list->addArray( array( 'whammo' ) );
+		$list->addArray( [ 'whammo' ] );
 		$this->assertTrue( $list->contains( 'whammo' ) );
 	}
 
@@ -24,7 +24,7 @@ class ContainmentSetTest extends MediaWikiTestCase {
 		// client
 		$innerCache = new HashBagOStuff;
 
-		$inner = array( 'bing', 'bang' );
+		$inner = [ 'bing', 'bang' ];
 		// We use a mock instead of the real thing for the $this->once() assertion
 		// verifying that the cache doesn't just keep asking the inner object
 		$list = $this->getMockBuilder( 'EchoArrayList' )
@@ -54,14 +54,14 @@ class ContainmentSetTest extends MediaWikiTestCase {
 
 		$list = new EchoOnWikiList( NS_USER, "Foo/Bar-baz" );
 		$this->assertEquals(
-			array( 'abc', 'def', 'ghi' ),
+			[ 'abc', 'def', 'ghi' ],
 			$list->getValues()
 		);
 	}
 
 	public function testOnWikiListNonExistant() {
 		$list = new EchoOnWikiList( NS_USER, "Some_Non_Existant_Page" );
-		$this->assertEquals( array(), $list->getValues() );
+		$this->assertEquals( [], $list->getValues() );
 	}
 
 	protected function editPage( $pageName, $text, $summary = '', $defaultNs = NS_MAIN ) {

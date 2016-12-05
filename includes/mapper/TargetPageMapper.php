@@ -9,10 +9,10 @@ class EchoTargetPageMapper extends EchoAbstractMapper {
 	 * List of db fields used to construct an EchoTargetPage model
 	 * @var string[]
 	 */
-	protected static $fields = array(
+	protected static $fields = [
 		'etp_page',
 		'etp_event'
-	);
+	];
 
 	/**
 	 * Insert an EchoTargetPage instance into the database

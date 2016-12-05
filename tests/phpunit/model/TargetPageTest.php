@@ -20,10 +20,10 @@ class EchoTargetPageTest extends MediaWikiTestCase {
 	}
 
 	public function testNewFromRow() {
-		$row = (object)array(
+		$row = (object)[
 			'etp_page' => 2,
 			'etp_event' => 3
-		);
+		];
 		$obj = EchoTargetPage::newFromRow( $row );
 		$this->assertInstanceOf( 'EchoTargetPage', $obj );
 
@@ -34,9 +34,9 @@ class EchoTargetPageTest extends MediaWikiTestCase {
 	 * @expectedException MWException
 	 */
 	public function testNewFromRowWithException() {
-		$row = (object)array(
+		$row = (object)[
 			'etp_event' => 3
-		);
+		];
 		$this->assertInstanceOf( 'EchoTargetPage', EchoTargetPage::newFromRow( $row ) );
 	}
 

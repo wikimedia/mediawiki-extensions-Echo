@@ -42,14 +42,14 @@ class NotificationsTest extends MediaWikiTestCase {
 		$context->setUser( $this->sysop );
 		$ur = new UserrightsPage();
 		$ur->setContext( $context );
-		$ur->doSaveUserGroups( $user, array( 'sysop' ), array(), 'reason' );
+		$ur->doSaveUserGroups( $user, [ 'sysop' ], [], 'reason' );
 		$event = self::getLatestNotification( $user );
 		$this->assertEquals( $event->getType(), 'user-rights' );
 		$this->assertEquals( $this->sysop->getName(), $event->getAgent()->getName() );
 		$extra = $event->getExtra();
 		$this->assertArrayHasKey( 'add', $extra );
-		$this->assertArrayEquals( array( 'sysop' ), $extra['add'] );
-		$this->assertArrayEquals( array(), $extra['remove'] );
+		$this->assertArrayEquals( [ 'sysop' ], $extra['add'] );
+		$this->assertArrayEquals( [], $extra['remove'] );
 	}
 
 }

@@ -36,12 +36,12 @@ class EchoFilteredSequentialIterator implements IteratorAggregate {
 	/**
 	 * @var Iterator[]
 	 */
-	protected $iterators = array();
+	protected $iterators = [];
 
 	/**
 	 * @var callable[]
 	 */
-	protected $filters = array();
+	protected $filters = [];
 
 	/**
 	 * @param Iterator|IteratorAggregate|array $users

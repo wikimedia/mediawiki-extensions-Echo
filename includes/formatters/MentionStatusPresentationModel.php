@@ -80,13 +80,13 @@ class EchoMentionStatusPresentationModel extends EchoEventPresentationModel {
 	}
 
 	public function getPrimaryLink() {
-		return array(
+		return [
 			// Need FullURL so the section is included
 			'url' => $this->getTitleWithSection()->getFullURL(),
 			'label' => $this->msg( 'notification-link-text-view-mention-failure' )
 				->numParams( $this->getBundleCount() )
 				->text()
-		);
+		];
 	}
 
 	public function getSecondaryLinks() {
@@ -100,7 +100,7 @@ class EchoMentionStatusPresentationModel extends EchoEventPresentationModel {
 			true
 		);
 
-		return array( $talkPageLink );
+		return [ $talkPageLink ];
 	}
 
 	public function isMentionSuccessEvent( EchoEvent $event ) {
@@ -129,7 +129,7 @@ class EchoMentionStatusPresentationModel extends EchoEventPresentationModel {
 	}
 
 	private function getBundleSuccessCount() {
-		return $this->getBundleCount( false, array( $this, 'isMentionSuccessEvent' ) );
+		return $this->getBundleCount( false, [ $this, 'isMentionSuccessEvent' ] );
 	}
 
 	private function isMixedBundle() {

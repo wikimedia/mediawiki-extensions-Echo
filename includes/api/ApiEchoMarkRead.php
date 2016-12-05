@@ -35,9 +35,9 @@ class ApiEchoMarkRead extends ApiBase {
 			$notifUser->markUnRead( array_slice( $params['unreadlist'], 0, ApiBase::LIMIT_SML2 ) );
 		}
 
-		$result = array(
+		$result = [
 			'result' => 'success'
-		);
+		];
 		$rawCount = 0;
 		foreach ( EchoAttributeManager::$sections as $section ) {
 			$rawSectionCount = $notifUser->getNotificationCount( /* $tryCache = */true, DB_SLAVE, $section );
@@ -46,33 +46,33 @@ class ApiEchoMarkRead extends ApiBase {
 			$rawCount += $rawSectionCount;
 		}
 
-		$result += array(
+		$result += [
 			'rawcount' => $rawCount,
 			'count' => EchoNotificationController::formatNotificationCount( $rawCount ),
-		);
+		];
 		$this->getResult()->addValue( 'query', $this->getModuleName(), $result );
 	}
 
 	public function getAllowedParams() {
-		return array(
-			'list' => array(
+		return [
+			'list' => [
 				ApiBase::PARAM_ISMULTI => true,
-			),
-			'unreadlist' => array(
+			],
+			'unreadlist' => [
 				ApiBase::PARAM_ISMULTI => true,
-			),
-			'all' => array(
+			],
+			'all' => [
 				ApiBase::PARAM_REQUIRED => false,
 				ApiBase::PARAM_TYPE => 'boolean'
-			),
-			'sections' => array(
+			],
+			'sections' => [
 				ApiBase::PARAM_TYPE => EchoAttributeManager::$sections,
 				ApiBase::PARAM_ISMULTI => true,
-			),
-			'token' => array(
+			],
+			'token' => [
 				ApiBase::PARAM_REQUIRED => true,
-			),
-		);
+			],
+		];
 	}
 
 	public function needsToken() {
@@ -95,14 +95,14 @@ class ApiEchoMarkRead extends ApiBase {
 	 * @see ApiBase::getExamplesMessages()
 	 */
 	protected function getExamplesMessages() {
-		return array(
+		return [
 			'action=echomarkread&list=8'
 				=> 'apihelp-echomarkread-example-1',
 			'action=echomarkread&all=true'
 				=> 'apihelp-echomarkread-example-2',
 			'action=echomarkread&unreadlist=1'
 				=> 'apihelp-echomarkread-example-3',
-		);
+		];
 	}
 
 	public function getHelpUrls() {

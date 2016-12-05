@@ -14,9 +14,9 @@ class EchoEditThresholdPresentationModel extends EchoEventPresentationModel {
 		if ( !$this->event->getTitle() ) {
 			return false;
 		}
-		return array(
+		return [
 			'url' => $this->event->getTitle()->getLocalURL(),
 			'label' => $this->msg( 'notification-link-thank-you-edit', $this->getViewingUserForGender() )->text()
-		);
+		];
 	}
 }

@@ -228,7 +228,7 @@ class MWEchoNotifUser {
 		if ( $section === EchoAttributeManager::ALL ) {
 			$eventTypesToLoad = $attributeManager->getUserEnabledEvents( $this->mUser, 'web' );
 		} else {
-			$eventTypesToLoad = $attributeManager->getUserEnabledEventsbySections( $this->mUser, 'web', array( $section ) );
+			$eventTypesToLoad = $attributeManager->getUserEnabledEventsbySections( $this->mUser, 'web', [ $section ] );
 		}
 
 		$count = (int) $this->userNotifGateway->getCappedNotificationCount( $dbSource, $eventTypesToLoad, MWEchoNotifUser::MAX_BADGE_COUNT + 1 );
@@ -310,7 +310,7 @@ class MWEchoNotifUser {
 		if ( $section === EchoAttributeManager::ALL ) {
 			$eventTypesToLoad = $attributeManager->getUserEnabledEvents( $this->mUser, 'web' );
 		} else {
-			$eventTypesToLoad = $attributeManager->getUserEnabledEventsbySections( $this->mUser, 'web', array( $section ) );
+			$eventTypesToLoad = $attributeManager->getUserEnabledEventsbySections( $this->mUser, 'web', [ $section ] );
 		}
 		$notifications = $this->notifMapper->fetchUnreadByUser( $this->mUser, 1, null, $eventTypesToLoad, null, $dbSource );
 		if ( $notifications ) {
@@ -419,7 +419,7 @@ class MWEchoNotifUser {
 	 * @param string[] $sections
 	 * @return boolean
 	 */
-	public function markAllRead( array $sections = array( EchoAttributeManager::ALL ) ) {
+	public function markAllRead( array $sections = [ EchoAttributeManager::ALL ] ) {
 		if ( wfReadOnly() ) {
 			return false;
 		}
@@ -632,18 +632,18 @@ class MWEchoNotifUser {
 	 * @return array
 	 */
 	protected function getPreloadKeys() {
-		$keys = array(
+		$keys = [
 			'echo-notification-timestamp',
 			'echo-notification-timestamp-' . EchoAttributeManager::MESSAGE,
 			'echo-notification-timestamp-' . EchoAttributeManager::ALERT,
 			'echo-notification-count',
 			'echo-notification-count-' . EchoAttributeManager::MESSAGE,
 			'echo-notification-count-' . EchoAttributeManager::ALERT,
-		);
+		];
 
 		return array_filter( array_merge(
-			array_map( array( $this, 'getMemcKey' ), $keys ),
-			array_map( array( $this, 'getGlobalMemcKey' ), $keys )
+			array_map( [ $this, 'getMemcKey' ], $keys ),
+			array_map( [ $this, 'getGlobalMemcKey' ], $keys )
 		) );
 	}
 
@@ -703,19 +703,19 @@ class MWEchoNotifUser {
 		$potentialWikis = $this->getForeignNotifications()->getWikis( EchoAttributeManager::ALL );
 		$foreignReq = new EchoForeignWikiRequest(
 			$this->mUser,
-			array(
+			[
 				'action' => 'query',
 				'meta' => 'notifications',
 				'notprop' => 'count|list',
 				'notgroupbysection' => '1',
 				'notunreadfirst' => '1',
-			),
+			],
 			$potentialWikis,
 			'notwikis'
 		);
 		$foreignResults = $foreignReq->execute();
 
-		$this->mForeignData = array();
+		$this->mForeignData = [];
 		foreach ( $foreignResults as $wiki => $result ) {
 			if ( !isset( $result['query']['notifications'] ) ) {
 				continue;

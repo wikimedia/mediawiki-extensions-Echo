@@ -30,7 +30,7 @@ class ResourceLoaderEchoImageModule extends ResourceLoaderImageModule {
 			return;
 		}
 
-		$images = array();
+		$images = [];
 		foreach ( $wgEchoNotificationIcons as $iconName => $definition ) {
 			// FIXME: We also have a 'site' icon which is "magical"
 			// and uses witchcraft and should be handled specifically

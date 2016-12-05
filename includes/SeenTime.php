@@ -10,7 +10,7 @@ class EchoSeenTime {
 	 * Allowed notification types
 	 * @var array
 	 */
-	private static $allowedTypes = array( 'alert', 'message' );
+	private static $allowedTypes = [ 'alert', 'message' ];
 
 	/**
 	 * @var User
@@ -59,7 +59,7 @@ class EchoSeenTime {
 	 * @return string|bool Timestamp in specified format, or false if no stored time
 	 */
 	public function getTime( $type = 'all', $format = TS_MW ) {
-		$vals = array();
+		$vals = [];
 		if ( $type === 'all' ) {
 			foreach ( self::$allowedTypes as $allowed ) {
 				// Use TS_MW, then convert later, so max works properly for

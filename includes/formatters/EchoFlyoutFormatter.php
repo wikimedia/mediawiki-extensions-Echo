@@ -11,15 +11,15 @@ class EchoFlyoutFormatter extends EchoEventFormatter {
 	protected function formatModel( EchoEventPresentationModel $model ) {
 		$icon = Html::element(
 			'img',
-			array(
+			[
 				'class' => 'mw-echo-icon',
 				'src' => $this->getIconURL( $model ),
-			)
+			]
 		);
 
 		$html = Xml::tags(
 				'div',
-				array( 'class' => 'mw-echo-title' ),
+				[ 'class' => 'mw-echo-title' ],
 				$model->getHeaderMessage()->parse()
 			) . "\n";
 
@@ -27,7 +27,7 @@ class EchoFlyoutFormatter extends EchoEventFormatter {
 		if ( $body ) {
 			$html .= Xml::tags(
 					'div',
-					array( 'class' => 'mw-echo-payload' ),
+					[ 'class' => 'mw-echo-payload' ],
 					$body->parse()
 				) . "\n";
 		}
@@ -38,14 +38,14 @@ class EchoFlyoutFormatter extends EchoEventFormatter {
 			$this->user
 		);
 
-		$footerItems = array( $ts );
+		$footerItems = [ $ts ];
 		$secondaryLinks = array_filter( $model->getSecondaryLinks() );
 		foreach ( $secondaryLinks as $link ) {
-			$footerItems[] = Html::element( 'a', array( 'href' => $link['url'] ), $link['label'] );
+			$footerItems[] = Html::element( 'a', [ 'href' => $link['url'] ], $link['label'] );
 		}
 		$html .= Xml::tags(
 			'div',
-			array( 'class' => 'mw-echo-notification-footer' ),
+			[ 'class' => 'mw-echo-notification-footer' ],
 			$this->language->pipeList( $footerItems )
 		) . "\n";
 
@@ -54,16 +54,16 @@ class EchoFlyoutFormatter extends EchoEventFormatter {
 		if ( $primaryLink !== false ) {
 			$html .= Html::element(
 				'a',
-				array( 'class' => 'mw-echo-notification-primary-link', 'href' => $primaryLink['url'] ),
+				[ 'class' => 'mw-echo-notification-primary-link', 'href' => $primaryLink['url'] ],
 				$primaryLink['label']
 			) . "\n";
 		}
 
 		// Wrap everything in mw-echo-content class
-		$html = Xml::tags( 'div', array( 'class' => 'mw-echo-content' ), $html );
+		$html = Xml::tags( 'div', [ 'class' => 'mw-echo-content' ], $html );
 
 		// And then add the icon in front and wrap with mw-echo-state class.
-		$html = Xml::tags( 'div', array( 'class' => 'mw-echo-state' ), $icon . $html );
+		$html = Xml::tags( 'div', [ 'class' => 'mw-echo-state' ], $icon . $html );
 
 		return $html;
 	}

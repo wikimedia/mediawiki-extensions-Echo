@@ -13,19 +13,19 @@ class EchoUserLocator {
 	public static function locateUsersWatchingTitle( EchoEvent $event, $batchSize = 500 ) {
 		$title = $event->getTitle();
 		if ( !$title ) {
-			return array();
+			return [];
 		}
 
 		$it = new BatchRowIterator(
 			wfGetDB( DB_SLAVE, 'watchlist' ),
 			/* $table = */ 'watchlist',
-			/* $primaryKeys = */ array( 'wl_user' ),
+			/* $primaryKeys = */ [ 'wl_user' ],
 			$batchSize
 		);
-		$it->addConditions( array(
+		$it->addConditions( [
 			'wl_namespace' => $title->getNamespace(),
 			'wl_title' => $title->getDBkey(),
-		) );
+		] );
 
 		// flatten the result into a stream of rows
 		$it = new RecursiveIteratorIterator( $it );
@@ -48,14 +48,14 @@ class EchoUserLocator {
 	public static function locateTalkPageOwner( EchoEvent $event ) {
 		$title = $event->getTitle();
 		if ( !$title || $title->getNamespace() !== NS_USER_TALK ) {
-			return array();
+			return [];
 		}
 
 		$user = User::newFromName( $title->getDBkey() );
 		if ( $user && !$user->isAnon() ) {
-			return array( $user->getId() => $user );
+			return [ $user->getId() => $user ];
 		} else {
-			return array();
+			return [];
 		}
 	}
 
@@ -68,9 +68,9 @@ class EchoUserLocator {
 	public static function locateEventAgent( EchoEvent $event ) {
 		$agent = $event->getAgent();
 		if ( $agent && !$agent->isAnon() ) {
-			return array( $agent->getId() => $agent );
+			return [ $agent->getId() => $agent ];
 		} else {
-			return array();
+			return [];
 		}
 	}
 
@@ -86,30 +86,30 @@ class EchoUserLocator {
 		$title = $event->getTitle();
 
 		if ( !$title || $title->getArticleID() <= 0 ) {
-			return array();
+			return [];
 		}
 		// why?
 		if ( !$agent ) {
-			return array();
+			return [];
 		}
 
 		$dbr = wfGetDB( DB_SLAVE );
 		$res = $dbr->selectRow(
-			array( 'revision' ),
-			array( 'rev_user' ),
-			array( 'rev_page' => $title->getArticleID() ),
+			[ 'revision' ],
+			[ 'rev_user' ],
+			[ 'rev_page' => $title->getArticleID() ],
 			__METHOD__,
-			array( 'LIMIT' => 1, 'ORDER BY' => 'rev_timestamp, rev_id' )
+			[ 'LIMIT' => 1, 'ORDER BY' => 'rev_timestamp, rev_id' ]
 		);
 		if ( !$res || !$res->rev_user ) {
-			return array();
+			return [];
 		}
 
 		$user = User::newFromId( $res->rev_user );
 		if ( $user ) {
-			return array( $user->getId() => $user );
+			return [ $user->getId() => $user ];
 		} else {
-			return array();
+			return [];
 		}
 	}
 
@@ -128,13 +128,13 @@ class EchoUserLocator {
 	 * @return User[]
 	 */
 	public static function locateFromEventExtra( EchoEvent $event, array $keys ) {
-		$users = array();
+		$users = [];
 		foreach ( $keys as $key ) {
 			$userIds = $event->getExtraParam( $key );
 			if ( !$userIds ) {
 				continue;
 			} elseif ( !is_array( $userIds ) ) {
-				$userIds = array( $userIds );
+				$userIds = [ $userIds ];
 			}
 			foreach ( $userIds as $userId ) {
 				// we shouldn't receive User instances, but allow

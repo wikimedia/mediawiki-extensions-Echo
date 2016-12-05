@@ -11,7 +11,7 @@ require_once ( "$IP/maintenance/Maintenance.php" );
  */
 class GenerateSampleNotifications extends Maintenance {
 
-	private $supportedNotificationTypes = array(
+	private $supportedNotificationTypes = [
 		'welcome',
 		'edit-user-talk',
 		'mention',
@@ -24,7 +24,7 @@ class GenerateSampleNotifications extends Maintenance {
 		'edit-thanks',
 		'edu',
 		'page-connection',
-	);
+	];
 
 	public function __construct() {
 		parent::__construct();
@@ -250,7 +250,7 @@ class GenerateSampleNotifications extends Maintenance {
 		$this->addToPageContent( $moai2, $agent, "\ncreating a good revision here\n" );
 		$this->addToPageContent( $moai2, $user, "\nadding a line here\n" );
 		$this->addToPageContent( $moai2, $user, "\nadding a line here\n" );
-		$details = array();
+		$details = [];
 		$token = $agent->getEditToken( 'rollback', null );
 		$errors = $page->doRollback( $user->getName(), 'generating reverted notification', $token, false, $details, $agent );
 		if ( $errors ) {
@@ -260,46 +260,46 @@ class GenerateSampleNotifications extends Maintenance {
 
 	private function generateWelcome( User $user ) {
 		$this->output( "Welcoming {$user->getName()}\n" );
-		EchoEvent::create( array(
+		EchoEvent::create( [
 			'type' => 'welcome',
 			'agent' => $user,
-			'extra' => array(
+			'extra' => [
 				'notifyAgent' => true
-			)
-		) );
+			]
+		] );
 	}
 
 	private function generateEmail( User $user, User $agent ) {
 		$this->output( "{$agent->getName()} is emailing {$user->getName()}\n" );
-		EchoEvent::create( array(
+		EchoEvent::create( [
 			'type' => 'emailuser',
-			'extra' => array(
+			'extra' => [
 				'to-user-id' => $user->getId(),
 				'subject' => 'Long time no see',
-			),
+			],
 			'agent' => $agent,
-		) );
+		] );
 	}
 
 	private function generateUserRights( User $user, User $agent ) {
 		$this->output( "{$agent->getName()} is changing {$user->getName()}'s rights\n" );
-		$this->createUserRightsNotification( $user, $agent, array( 'OnlyAdd-1' ), null );
-		$this->createUserRightsNotification( $user, $agent, null, array( 'JustRemove-1', 'JustRemove-2' ) );
-		$this->createUserRightsNotification( $user, $agent, array( 'Add-1', 'Add-2' ), array( 'Remove-1', 'Remove-2' ) );
+		$this->createUserRightsNotification( $user, $agent, [ 'OnlyAdd-1' ], null );
+		$this->createUserRightsNotification( $user, $agent, null, [ 'JustRemove-1', 'JustRemove-2' ] );
+		$this->createUserRightsNotification( $user, $agent, [ 'Add-1', 'Add-2' ], [ 'Remove-1', 'Remove-2' ] );
 	}
 
 	private function createUserRightsNotification( User $user, User $agent, $add, $remove ) {
 		EchoEvent::create(
-			array(
+			[
 				'type' => 'user-rights',
-				'extra' => array(
+				'extra' => [
 					'user' => $user->getID(),
 					'add' => $add,
 					'remove' => $remove,
 					'reason' => 'This is the reason for changing your user rights.',
-				),
+				],
 				'agent' => $agent,
-			)
+			]
 		);
 	}
 
@@ -309,25 +309,25 @@ class GenerateSampleNotifications extends Maintenance {
 		}
 
 		$this->output( "Generating CX notifications\n" );
-		foreach ( array( 'cx-first-translation', 'cx-tenth-translation', 'cx-hundredth-translation' ) as $eventType ) {
+		foreach ( [ 'cx-first-translation', 'cx-tenth-translation', 'cx-hundredth-translation' ] as $eventType ) {
 			EchoEvent::create(
-				array(
+				[
 					'type' => $eventType,
-					'extra' => array(
+					'extra' => [
 						'recipient' => $user->getId(),
-					),
-				)
+					],
+				]
 			);
 		}
 
 		EchoEvent::create(
-			array(
+			[
 				'type' => 'cx-suggestions-available',
-				'extra' => array(
+				'extra' => [
 					'recipient' => $user->getId(),
 					'lastTranslationTitle' => 'History of the People\'s Republic of China'
-				),
-			)
+				],
+			]
 		);
 	}
 
@@ -359,25 +359,25 @@ class GenerateSampleNotifications extends Maintenance {
 
 		$this->output( "Generating OpenStackManager notifications\n" );
 
-		foreach ( array( 'build-completed', 'reboot-completed', 'deleted' ) as $action ) {
-			EchoEvent::create( array(
+		foreach ( [ 'build-completed', 'reboot-completed', 'deleted' ] as $action ) {
+			EchoEvent::create( [
 				'type' => "osm-instance-$action",
 				'title' => Title::newFromText( "Moai" ),
 				'agent' => $user,
-				'extra' => array(
+				'extra' => [
 					'instanceName' => 'instance1',
 					'projectName' => 'TheProject',
 					'notifyAgent' => true,
-				)
-			) );
+				]
+			] );
 		}
 
-		EchoEvent::create( array(
+		EchoEvent::create( [
 			'type' => 'osm-projectmembers-add',
 			'title' => Title::newFromText( "Moai" ),
 			'agent' => $agent,
-			'extra' => array( 'userAdded' => $user->getId() ),
-		) );
+			'extra' => [ 'userAdded' => $user->getId() ],
+		] );
 	}
 
 	private function shouldGenerate( $type, $types ) {
@@ -453,20 +453,20 @@ class GenerateSampleNotifications extends Maintenance {
 
 		$this->output( "{$agent->getName()} is adding {$user->getName()} to {$chem101->getPrefixedText()} as instructor, student, campus volunteer and online volunteer.\n" );
 
-		$types = array(
+		$types = [
 			'ep-instructor-add-notification',
 			'ep-online-add-notification',
 			'ep-campus-add-notification',
 			'ep-student-add-notification',
-		);
+		];
 		foreach ( $types as $type ) {
 			$notificationManager->trigger(
 				$type,
-				array(
+				[
 					'role-add-title' => $chem101,
 					'agent' => $agent,
-					'users' => array( $user->getId() ),
-				)
+					'users' => [ $user->getId() ],
+				]
 			);
 		}
 

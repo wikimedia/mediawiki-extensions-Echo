@@ -35,21 +35,21 @@ class EchoRevisionLocalCache extends EchoLocalCache {
 				Revision::selectUserFields()
 			);
 			$res = $dbr->select(
-				array( 'revision', 'page', 'user' ),
+				[ 'revision', 'page', 'user' ],
 				$fields,
-				array( 'rev_id' => $this->lookups ),
+				[ 'rev_id' => $this->lookups ],
 				__METHOD__,
-				array(),
-				array(
+				[],
+				[
 					'page' => Revision::pageJoinCond(),
 					'user' => Revision::userJoinCond()
-				)
+				]
 			);
 			if ( $res ) {
 				foreach ( $res as $row ) {
 					$this->targets->set( $row->rev_id, new Revision( $row ) );
 				}
-				$this->lookups = array();
+				$this->lookups = [];
 			}
 		}
 	}

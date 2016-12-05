@@ -24,26 +24,26 @@ class BackfillReadBundles extends Maintenance {
 		$iterator = new BatchRowIterator(
 			$dbr,
 			'echo_notification',
-			array( 'notification_user', 'notification_event' ),
+			[ 'notification_user', 'notification_event' ],
 			$this->mBatchSize
 		);
-		$iterator->setFetchColumns( array( 'notification_bundle_display_hash', 'notification_read_timestamp' ) );
+		$iterator->setFetchColumns( [ 'notification_bundle_display_hash', 'notification_read_timestamp' ] );
 
 		$unreadNonBase = $dbr->selectSQLText(
 			'echo_notification',
 			'notification_bundle_display_hash',
-			array(
+			[
 				'notification_bundle_base' => 0,
 				'notification_read_timestamp IS NULL',
 				"notification_bundle_display_hash <> ''",
-			)
+			]
 		);
 
-		$iterator->addConditions( array(
+		$iterator->addConditions( [
 			'notification_bundle_base' => 1,
 			'notification_read_timestamp IS NOT NULL',
 			"notification_bundle_display_hash IN ( $unreadNonBase )",
-		) );
+		] );
 
 		$processed = 0;
 		foreach ( $iterator as $batch ) {
@@ -54,13 +54,13 @@ class BackfillReadBundles extends Maintenance {
 
 				$result = $dbw->update(
 					'echo_notification',
-					array( 'notification_read_timestamp' => $readTimestamp ),
-					array(
+					[ 'notification_read_timestamp' => $readTimestamp ],
+					[
 						'notification_user' => $userId,
 						'notification_bundle_display_hash' => $displayHash,
 						'notification_bundle_base' => 0,
 						'notification_read_timestamp IS NULL',
-					)
+					]
 				);
 
 				if ( !$result ) {

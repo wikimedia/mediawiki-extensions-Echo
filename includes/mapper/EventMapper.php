@@ -51,7 +51,7 @@ class EchoEventMapper extends EchoAbstractMapper {
 	public function fetchById( $id, $fromMaster = false ) {
 		$db = $fromMaster ? $this->dbFactory->getEchoDb( DB_MASTER ) : $this->dbFactory->getEchoDb( DB_SLAVE );
 
-		$row = $db->selectRow( 'echo_event', '*', array( 'event_id' => $id ), __METHOD__ );
+		$row = $db->selectRow( 'echo_event', '*', [ 'event_id' => $id ], __METHOD__ );
 
 		if ( !$row && !$fromMaster ) {
 			return $this->fetchById( $id, true );
@@ -74,13 +74,13 @@ class EchoEventMapper extends EchoAbstractMapper {
 		$setDeleted = $deleted ? 1 : 0;
 		$res = $dbw->update(
 			'echo_event',
-			array(
+			[
 				'event_deleted' => $setDeleted,
-			),
-			array(
+			],
+			[
 				'event_deleted' => $selectDeleted,
 				'event_id' => $eventIds,
-			),
+			],
 			__METHOD__
 		);
 
@@ -94,18 +94,18 @@ class EchoEventMapper extends EchoAbstractMapper {
 	 * @return EchoEvent[] Events
 	 */
 	public function fetchByPage( $pageId ) {
-		$events = array();
+		$events = [];
 
 		$dbr = $this->dbFactory->getEchoDb( DB_SLAVE );
 		$res = $dbr->select(
-			array( 'echo_event', 'echo_target_page' ),
-			array( '*' ),
-			array(
+			[ 'echo_event', 'echo_target_page' ],
+			[ '*' ],
+			[
 				'etp_page' => $pageId
-			),
+			],
 			__METHOD__,
-			array( 'GROUP BY' => 'etp_event' ),
-			array( 'echo_target_page' => array( 'INNER JOIN', 'event_id=etp_event' ) )
+			[ 'GROUP BY' => 'etp_event' ],
+			[ 'echo_target_page' => [ 'INNER JOIN', 'event_id=etp_event' ] ]
 		);
 		if ( $res ) {
 			foreach ( $res as $row ) {
@@ -144,23 +144,23 @@ class EchoEventMapper extends EchoAbstractMapper {
 		$dbr = $this->dbFactory->getEchoDb( DB_SLAVE );
 
 		$res = $dbr->select(
-			array( 'echo_event', 'echo_notification', 'echo_target_page' ),
+			[ 'echo_event', 'echo_notification', 'echo_target_page' ],
 			'*',
-			array(
+			[
 				'event_deleted' => 0,
 				'notification_user' => $user->getId(),
 				'notification_read_timestamp' => null,
 				'etp_page' => $pageId,
-			),
+			],
 			__METHOD__,
 			null,
-			array(
-				'echo_target_page' => array( 'INNER JOIN', 'etp_event=event_id' ),
-				'echo_notification' => array( 'INNER JOIN', array( 'notification_event=event_id' ) ),
-			)
+			[
+				'echo_target_page' => [ 'INNER JOIN', 'etp_event=event_id' ],
+				'echo_notification' => [ 'INNER JOIN', [ 'notification_event=event_id' ] ],
+			]
 		);
 
-		$data = array();
+		$data = [];
 		foreach ( $res as $row ) {
 			$data[] = EchoEvent::newFromRow( $row );
 		}

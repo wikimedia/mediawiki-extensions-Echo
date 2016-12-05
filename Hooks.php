@@ -40,7 +40,7 @@ class EchoHooks {
 			$wgEchoEventLoggingSchemas, $wgEchoMentionStatusNotifications;
 
 		// allow extensions to define their own event
-		Hooks::run( 'BeforeCreateEchoEvent', array( &$wgEchoNotifications, &$wgEchoNotificationCategories, &$wgEchoNotificationIcons ) );
+		Hooks::run( 'BeforeCreateEchoEvent', [ &$wgEchoNotifications, &$wgEchoNotificationCategories, &$wgEchoNotificationIcons ] );
 
 		// Only allow mention status notifications when enabled
 		if ( !$wgEchoMentionStatusNotifications ) {
@@ -80,16 +80,16 @@ class EchoHooks {
 	) {
 		global $wgResourceModules;
 
-		$testModuleBoilerplate = array(
+		$testModuleBoilerplate = [
 			'localBasePath' => __DIR__,
 			'remoteExtPath' => 'Echo',
-		);
+		];
 
 		// find test files for every RL module
 		$prefix = 'ext.echo';
 		foreach ( $wgResourceModules as $key => $module ) {
 			if ( substr( $key, 0, strlen( $prefix ) ) === $prefix && isset( $module['scripts'] ) ) {
-				$testFiles = array();
+				$testFiles = [];
 				foreach ( $module['scripts'] as $script ) {
 					$testFile = 'tests/qunit/' . dirname( $script ) . '/test_' . basename( $script );
 					// if a test file exists for a given JS file, add it
@@ -99,10 +99,10 @@ class EchoHooks {
 				}
 				// if test files exist for given module, create a corresponding test module
 				if ( count( $testFiles ) > 0 ) {
-					$testModules['qunit']["$key.tests"] = $testModuleBoilerplate + array(
-						'dependencies' => array( $key ),
+					$testModules['qunit']["$key.tests"] = $testModuleBoilerplate + [
+						'dependencies' => [ $key ],
 						'scripts' => $testFiles,
-					);
+					];
 				}
 			}
 		}
@@ -127,18 +127,18 @@ class EchoHooks {
 
 		// ext.echo.logger is used by mobile notifications as well, so be sure not to add any
 		// dependencies that do not target mobile.
-		$definition = array(
+		$definition = [
 			'position' => 'top',
-			'scripts' => array(
+			'scripts' => [
 				'logger/mw.echo.Logger.js',
-			),
-			'dependencies' => array(
+			],
+			'dependencies' => [
 				'oojs'
-			),
+			],
 			'localBasePath' => __DIR__ . '/modules',
 			'remoteExtPath' => 'Echo/modules',
-			'targets' => array( 'desktop', 'mobile' ),
-		);
+			'targets' => [ 'desktop', 'mobile' ],
+		];
 
 		$hasSchemas = false;
 		foreach ( $wgEchoEventLoggingSchemas as $schema => $property ) {
@@ -259,18 +259,18 @@ class EchoHooks {
 		global $wgExtensionAssetsPath, $wgEchoUseCrossWikiBetaFeature, $wgEchoCrossWikiNotifications;
 
 		if ( $wgEchoUseCrossWikiBetaFeature && $wgEchoCrossWikiNotifications ) {
-			$preferences['echo-cross-wiki-notifications'] = array(
+			$preferences['echo-cross-wiki-notifications'] = [
 				'label-message' => 'echo-pref-beta-feature-cross-wiki-message',
 				'desc-message' => 'echo-pref-beta-feature-cross-wiki-description',
 				// Paths to images that represents the feature.
-				'screenshot' => array(
+				'screenshot' => [
 					'rtl' => "$wgExtensionAssetsPath/Echo/images/betafeatures-icon-notifications-rtl.svg",
 					'ltr' => "$wgExtensionAssetsPath/Echo/images/betafeatures-icon-notifications-ltr.svg",
-				),
+				],
 				'info-link' => 'https://www.mediawiki.org/wiki/Special:Mylanguage/Help:Notifications/Cross-wiki',
 				// Link to discussion about the feature - talk pages might work
 				'discussion-link' => 'https://www.mediawiki.org/wiki/Help_talk:Notifications',
-			);
+			];
 		}
 
 		return true;
@@ -297,33 +297,33 @@ class EchoHooks {
 		// Show email frequency options
 		$never = wfMessage( 'echo-pref-email-frequency-never' )->plain();
 		$immediately = wfMessage( 'echo-pref-email-frequency-immediately' )->plain();
-		$freqOptions = array(
+		$freqOptions = [
 			$never => EchoEmailFrequency::NEVER,
 			$immediately => EchoEmailFrequency::IMMEDIATELY,
-		);
+		];
 		// Only show digest options if email batch is enabled
 		if ( $wgEchoEnableEmailBatch ) {
 			$daily = wfMessage( 'echo-pref-email-frequency-daily' )->plain();
 			$weekly = wfMessage( 'echo-pref-email-frequency-weekly' )->plain();
-			$freqOptions += array(
+			$freqOptions += [
 				$daily => EchoEmailFrequency::DAILY_DIGEST,
 				$weekly => EchoEmailFrequency::WEEKLY_DIGEST,
-			);
+			];
 		}
-		$preferences['echo-email-frequency'] = array(
+		$preferences['echo-email-frequency'] = [
 			'type' => 'select',
 			'label-message' => 'echo-pref-send-me',
 			'section' => 'echo/emailsettings',
 			'options' => $freqOptions
-		);
+		];
 
 		// Display information about the user's currently set email address
 		$prefsTitle = SpecialPage::getTitleFor( 'Preferences', false, 'mw-prefsection-echo' );
 		$link = Linker::link(
 			SpecialPage::getTitleFor( 'ChangeEmail' ),
 			wfMessage( $user->getEmail() ? 'prefs-changeemail' : 'prefs-setemail' )->escaped(),
-			array(),
-			array( 'returnto' => $prefsTitle->getFullText() )
+			[],
+			[ 'returnto' => $prefsTitle->getFullText() ]
 		);
 		$emailAddress = $user->getEmail() && $user->isAllowed( 'viewmyprivateinfo' )
 			? htmlspecialchars( $user->getEmail() ) : '';
@@ -335,30 +335,30 @@ class EchoHooks {
 					. wfMessage( 'parentheses' )->rawParams( $link )->escaped();
 			}
 		}
-		$preferences['echo-emailaddress'] = array(
+		$preferences['echo-emailaddress'] = [
 			'type' => 'info',
 			'raw' => true,
 			'default' => $emailAddress,
 			'label-message' => 'echo-pref-send-to',
 			'section' => 'echo/emailsettings'
-		);
+		];
 
 		// Only show this option if html email is allowed, otherwise it is always plain text format
 		if ( $wgAllowHTMLEmail ) {
 			// Email format
-			$preferences['echo-email-format'] = array(
+			$preferences['echo-email-format'] = [
 				'type' => 'select',
 				'label-message' => 'echo-pref-email-format',
 				'section' => 'echo/emailsettings',
-				'options' => array(
+				'options' => [
 					wfMessage( 'echo-pref-email-format-html' )->plain() => EchoEmailFormat::HTML,
 					wfMessage( 'echo-pref-email-format-plain-text' )->plain() => EchoEmailFormat::PLAIN_TEXT,
-				)
-			);
+				]
+			];
 		}
 
 		// Sort notification categories by priority
-		$categoriesAndPriorities = array();
+		$categoriesAndPriorities = [];
 		foreach ( $attributeManager->getInternalCategoryNames() as $category ) {
 			// See if the category should be hidden from preferences.
 			if ( !$attributeManager->isCategoryDisplayedInPreferences( $category ) ) {
@@ -382,15 +382,15 @@ class EchoHooks {
 		// if Echo is ever merged to core
 
 		// Build the columns (notify types)
-		$columns = array();
+		$columns = [];
 		foreach ( $wgEchoNotifiers as $notifierType => $notifierData ) {
 			$formatMessage = wfMessage( 'echo-pref-' . $notifierType )->escaped();
 			$columns[$formatMessage] = $notifierType;
 		}
 
 		// Build the rows (notification categories)
-		$rows = array();
-		$tooltips = array();
+		$rows = [];
+		$tooltips = [];
 		foreach ( $validSortedCategories as $category ) {
 			$categoryMessage = wfMessage( 'echo-category-title-' . $category )->numParams( 1 )->escaped();
 			$rows[$categoryMessage] = $category;
@@ -400,7 +400,7 @@ class EchoHooks {
 		}
 
 		// Figure out the individual exceptions in the matrix and make them disabled
-		$forceOptionsOff = $forceOptionsOn = array();
+		$forceOptionsOff = $forceOptionsOn = [];
 		foreach ( $wgEchoNotifiers as $notifierType => $notifierData ) {
 			foreach ( $validSortedCategories as $category ) {
 				// See if this notify type is non-dismissable
@@ -421,7 +421,7 @@ class EchoHooks {
 				implode( ', ', $invalid )
 			) );
 		}
-		$preferences['echo-subscriptions'] = array(
+		$preferences['echo-subscriptions'] = [
 			'class' => 'HTMLCheckMatrix',
 			'section' => 'echo/echosubscriptions',
 			'rows' => $rows,
@@ -430,22 +430,22 @@ class EchoHooks {
 			'force-options-off' => $forceOptionsOff,
 			'force-options-on' => $forceOptionsOn,
 			'tooltips' => $tooltips,
-		);
+		];
 
 		if ( !$wgEchoUseCrossWikiBetaFeature && $wgEchoCrossWikiNotifications ) {
-			$preferences['echo-cross-wiki-notifications'] = array(
+			$preferences['echo-cross-wiki-notifications'] = [
 				'type' => 'toggle',
 				'label-message' => 'echo-pref-cross-wiki-notifications',
 				'section' => 'echo/echocrosswiki'
-			);
+			];
 		}
 
 		if ( $wgEchoNewMsgAlert ) {
-			$preferences['echo-show-alert'] = array(
+			$preferences['echo-show-alert'] = [
 				'type' => 'toggle',
 				'label-message' => 'echo-pref-new-message-indicator',
 				'section' => 'echo/newmessageindicator',
-			);
+			];
 		}
 
 		// If we're using Echo to handle user talk page post notifications,
@@ -461,9 +461,9 @@ class EchoHooks {
 		}
 
 		if ( $wgEchoShowFooterNotice ) {
-			$preferences['echo-dismiss-special-page-invitation'] = array(
+			$preferences['echo-dismiss-special-page-invitation'] = [
 				'type' => 'api',
-			);
+			];
 		}
 
 		return true;
@@ -527,32 +527,32 @@ class EchoHooks {
 				DeferredUpdates::addCallableUpdate( function () use ( $user, $title, $thresholdCount ) {
 
 					$notificationMapper = new EchoNotificationMapper();
-					$notifications = $notificationMapper->fetchByUser( $user, 10, null, array( 'thank-you-edit' ) );
+					$notifications = $notificationMapper->fetchByUser( $user, 10, null, [ 'thank-you-edit' ] );
 					/** @var EchoNotification $notification */
 					foreach ( $notifications as $notification ) {
 						if ( $notification->getEvent()->getExtraParam( 'editCount' ) === $thresholdCount ) {
 							LoggerFactory::getInstance( 'Echo' )->debug(
 								'{user} (id: {id}) has already been thanked for their {count} edit',
-								array(
+								[
 									'user' => $user->getName(),
 									'id' => $user->getId(),
 									'count' => $thresholdCount,
-								)
+								]
 							);
 							return;
 						}
 					}
 
-					EchoEvent::create( array(
+					EchoEvent::create( [
 							'type' => 'thank-you-edit',
 							'title' => $title,
 							'agent' => $user,
 							// Edit threshold notifications are sent to the agent
-							'extra' => array(
+							'extra' => [
 								'notifyAgent' => true,
 								'editCount' => $thresholdCount,
-							)
-						)
+							]
+						]
 					);
 				} );
 			}
@@ -567,18 +567,18 @@ class EchoHooks {
 				if ( $undidRevision && $undidRevision->getTitle()->equals( $title ) ) {
 					$victimId = $undidRevision->getUser();
 					if ( $victimId ) { // No notifications for anonymous users
-						EchoEvent::create( array(
+						EchoEvent::create( [
 							'type' => 'reverted',
 							'title' => $title,
-							'extra' => array(
+							'extra' => [
 								'revid' => $revision->getId(),
 								'reverted-user-id' => $victimId,
 								'reverted-revision-id' => $undidRevId,
 								'method' => 'undo',
 								'summary' => $summary,
-							),
+							],
 							'agent' => $user,
-						) );
+						] );
 					}
 				}
 			}
@@ -616,13 +616,13 @@ class EchoHooks {
 	 * @return Associative array mapping key to boolean for whether it should be enabled
 	 */
 	public static function getNewUserPreferenceOverrides() {
-		return array(
+		return [
 			'echo-subscriptions-web-reverted' => false,
 			'echo-subscriptions-email-reverted' => false,
 			'echo-subscriptions-web-article-linked' => true,
 			'echo-subscriptions-email-mention' => true,
 			'echo-subscriptions-email-article-linked' => true,
-		);
+		];
 	}
 
 	/**
@@ -641,14 +641,14 @@ class EchoHooks {
 
 			$user->saveSettings();
 
-			EchoEvent::create( array(
+			EchoEvent::create( [
 				'type' => 'welcome',
 				'agent' => $user,
 				// Welcome notification is sent to the agent
-				'extra' => array(
+				'extra' => [
 					'notifyAgent' => true
-				)
-			) );
+				]
+			] );
 		}
 
 		$seenTime = EchoSeenTime::newFromUser( $user );
@@ -689,16 +689,16 @@ class EchoHooks {
 
 		if ( $add || $remove ) {
 			EchoEvent::create(
-				array(
+				[
 					'type' => 'user-rights',
-					'extra' => array(
+					'extra' => [
 						'user' => $user->getID(),
 						'add' => $add,
 						'remove' => $remove,
 						'reason' => $reason,
-					),
+					],
 					'agent' => $performer,
-				)
+				]
 			);
 		}
 
@@ -735,7 +735,7 @@ class EchoHooks {
 			return true;
 		}
 
-		if ( is_callable( array( $linksUpdate, 'getTriggeringUser' ) ) ) {
+		if ( is_callable( [ $linksUpdate, 'getTriggeringUser' ] ) ) {
 			$user = $linksUpdate->getTriggeringUser();
 		} else {
 			global $wgUser;
@@ -758,16 +758,16 @@ class EchoHooks {
 				}
 
 				$linkFromPageId = $linksUpdate->mTitle->getArticleId();
-				EchoEvent::create( array(
+				EchoEvent::create( [
 					'type' => 'page-linked',
 					'title' => $title,
 					'agent' => $user,
-					'extra' => array(
+					'extra' => [
 						'target-page' => $linkFromPageId,
 						'link-from-page-id' => $linkFromPageId,
 						'revid' => $revid,
-					)
-				) );
+					]
+				] );
 				$max--;
 			}
 			if ( $max < 0 ) {
@@ -788,12 +788,12 @@ class EchoHooks {
 	public static function beforePageDisplay( $out, $skin ) {
 		if ( $out->getUser()->isLoggedIn() && $skin->getSkinName() !== 'minerva' ) {
 			// Load the module for the Notifications flyout
-			$out->addModules( array( 'ext.echo.init' ) );
+			$out->addModules( [ 'ext.echo.init' ] );
 			// Load the styles for the Notifications badge
-			$out->addModuleStyles( array(
+			$out->addModuleStyles( [
 				'ext.echo.styles.badge',
 				'ext.echo.badgeicons'
-			) );
+			] );
 		}
 
 		return true;
@@ -818,7 +818,7 @@ class EchoHooks {
 		// Attempt to mark a notification as read when visiting a page
 		$subtractAlerts = 0;
 		$subtractMessages = 0;
-		$eventIds = array();
+		$eventIds = [];
 		if ( $title->getArticleID() ) {
 			$eventMapper = new EchoEventMapper();
 			$events = $eventMapper->fetchUnreadByUserAndPage( $user, $title->getArticleID() );
@@ -841,7 +841,7 @@ class EchoHooks {
 		$markAsReadIds = explode( '|', $sk->getOutput()->getRequest()->getText( 'markasread' ) );
 		if ( $markAsReadIds ) {
 			// gather the IDs that we didn't already find with target_pages
-			$eventsToMarkAsRead = array();
+			$eventsToMarkAsRead = [];
 			foreach ( $markAsReadIds as $markAsReadId ) {
 				$markAsReadId = intval( $markAsReadId );
 				if ( $markAsReadId !== 0 && !in_array( $markAsReadId, $eventIds ) ) {
@@ -893,10 +893,10 @@ class EchoHooks {
 		$seenAlertTime = $seenTime->getTime( 'alert', TS_ISO_8601 );
 		$seenMsgTime = $seenTime->getTime( 'message', TS_ISO_8601 );
 
-		$sk->getOutput()->addJsConfigVars( 'wgEchoSeenTime', array(
+		$sk->getOutput()->addJsConfigVars( 'wgEchoSeenTime', [
 			'alert' => $seenAlertTime,
 			'notice' => $seenMsgTime,
-		) );
+		] );
 
 		if (
 			$wgEchoShowFooterNotice &&
@@ -914,8 +914,8 @@ class EchoHooks {
 		// Avoid flashes in skins that don't use it (T111821)
 		$sk->getOutput()->setupOOUI( strtolower( $sk->getSkinName() ), $sk->getOutput()->getLanguage()->getDir() );
 
-		$msgLinkClasses = array( "mw-echo-notifications-badge", "mw-echo-notification-badge-nojs" );
-		$alertLinkClasses = array( "mw-echo-notifications-badge", "mw-echo-notification-badge-nojs" );
+		$msgLinkClasses = [ "mw-echo-notifications-badge", "mw-echo-notification-badge-nojs" ];
+		$alertLinkClasses = [ "mw-echo-notifications-badge", "mw-echo-notification-badge-nojs" ];
 
 		$hasUnseen = false;
 		if (
@@ -940,31 +940,31 @@ class EchoHooks {
 			$alertLinkClasses[] = 'mw-echo-notifications-badge-all-read';
 		}
 
-		$alertLink = array(
+		$alertLink = [
 			'href' => $url,
 			'text' => $alertText,
 			'active' => ( $url == $title->getLocalUrl() ),
 			'class' => $alertLinkClasses,
-			'data' => array(
+			'data' => [
 				'counter-num' => $alertCount,
 				'counter-text' => $alertText,
-			),
-		);
+			],
+		];
 
-		$insertUrls = array(
+		$insertUrls = [
 			'notifications-alert' => $alertLink,
-		);
+		];
 
-		$msgLink = array(
+		$msgLink = [
 			'href' => $url,
 			'text' => $msgText,
 			'active' => ( $url == $title->getLocalUrl() ),
 			'class' => $msgLinkClasses,
-			'data' => array(
+			'data' => [
 				'counter-num' => $msgCount,
 				'counter-text' => $msgText,
-			),
-		);
+			],
+		];
 
 		$insertUrls['notifications-notice'] = $msgLink;
 
@@ -985,9 +985,9 @@ class EchoHooks {
 		if ( $wgEchoNewMsgAlert && $user->getOption( 'echo-show-alert' )
 			&& $user->getNewtalk() && !$user->getTalkPage()->equals( $title )
 		) {
-			if ( Hooks::run( 'BeforeDisplayOrangeAlert', array( $user, $title ) ) ) {
+			if ( Hooks::run( 'BeforeDisplayOrangeAlert', [ $user, $title ] ) ) {
 				$personal_urls['mytalk']['text'] = $sk->msg( 'echo-new-messages' )->text();
-				$personal_urls['mytalk']['class'] = array( 'mw-echo-alert' );
+				$personal_urls['mytalk']['class'] = [ 'mw-echo-alert' ];
 				$sk->getOutput()->addModuleStyles( 'ext.echo.styles.alert' );
 			}
 		}
@@ -1063,9 +1063,9 @@ class EchoHooks {
 			$outputPage->getTitle()->isSubpageOf( SpecialPage::getTitleFor( 'JavaScriptTest', 'qunit' ) )
 		) {
 			// For testing purposes
-			$vars['wgEchoEventLoggingSchemas'] = array(
-				'EchoInteraction' => array(),
-			);
+			$vars['wgEchoEventLoggingSchemas'] = [
+				'EchoInteraction' => [],
+			];
 		}
 
 		return true;
@@ -1132,17 +1132,17 @@ class EchoHooks {
 			$victimId && // No notifications for anonymous users
 			!$oldRevision->getContent()->equals( $newRevision->getContent() ) // No notifications for null rollbacks
 		) {
-			EchoEvent::create( array(
+			EchoEvent::create( [
 				'type' => 'reverted',
 				'title' => $page->getTitle(),
-				'extra' => array(
+				'extra' => [
 					'revid' => $page->getRevision()->getId(),
 					'reverted-user-id' => $victimId,
 					'reverted-revision-id' => $oldRevision->getId(),
 					'method' => 'rollback',
-				),
+				],
 				'agent' => $agent,
-			) );
+			] );
 		}
 
 		return true;
@@ -1259,14 +1259,14 @@ class EchoHooks {
 			$preview = $subject;
 		}
 
-		EchoEvent::create( array(
+		EchoEvent::create( [
 			'type' => 'emailuser',
-			'extra' => array(
+			'extra' => [
 				'to-user-id' => $userTo->getId(),
 				'preview' => $preview,
-			),
+			],
 			'agent' => $userFrom,
-		) );
+		] );
 
 		return true;
 	}
@@ -1280,9 +1280,9 @@ class EchoHooks {
 	public static function onUserMergeAccountFields( &$updateFields ) {
 		// array( tableName, idField, textField )
 		$dbw = MWEchoDbFactory::newFromDefault()->getEchoDb( DB_MASTER );
-		$updateFields[] = array( 'echo_event', 'event_agent_id', 'db' => $dbw );
-		$updateFields[] = array( 'echo_notification', 'notification_user', 'db' => $dbw, 'options' => array( 'IGNORE' ) );
-		$updateFields[] = array( 'echo_email_batch', 'eeb_user_id', 'db' => $dbw, 'options' => array( 'IGNORE' ) );
+		$updateFields[] = [ 'echo_event', 'event_agent_id', 'db' => $dbw ];
+		$updateFields[] = [ 'echo_notification', 'notification_user', 'db' => $dbw, 'options' => [ 'IGNORE' ] ];
+		$updateFields[] = [ 'echo_email_batch', 'eeb_user_id', 'db' => $dbw, 'options' => [ 'IGNORE' ] ];
 
 		return true;
 	}
@@ -1299,8 +1299,8 @@ class EchoHooks {
 
 	public static function onUserMergeAccountDeleteTables( &$tables ) {
 		$dbw = MWEchoDbFactory::newFromDefault()->getEchoDb( DB_MASTER );
-		$tables['echo_notification'] = array( 'notification_user', 'db' => $dbw );
-		$tables['echo_email_batch'] = array( 'eeb_user_id', 'db' => $dbw );
+		$tables['echo_notification'] = [ 'notification_user', 'db' => $dbw ];
+		$tables['echo_email_batch'] = [ 'eeb_user_id', 'db' => $dbw ];
 
 		return true;
 	}

@@ -78,7 +78,7 @@ class EchoNotificationController {
 
 		$type = $event->getType();
 		$notifyTypes = self::getEventNotifyTypes( $type );
-		$userIds = array();
+		$userIds = [];
 		$userIdsCount = 0;
 		foreach ( self::getUsersToNotifyForEvent( $event ) as $user ) {
 			$userIds[$user->getId()] = $user->getId();
@@ -91,11 +91,11 @@ class EchoNotificationController {
 					$rev = Revision::newFromID( $extra['revid'], Revision::READ_LATEST );
 
 					if ( $rev->isMinor() ) {
-						$notifyTypes = array_diff( $notifyTypes, array( 'email' ) );
+						$notifyTypes = array_diff( $notifyTypes, [ 'email' ] );
 					}
 				}
 			}
-			Hooks::run( 'EchoGetNotificationTypes', array( $user, $event, &$userNotifyTypes ) );
+			Hooks::run( 'EchoGetNotificationTypes', [ $user, $event, &$userNotifyTypes ] );
 
 			// types such as web, email, etc
 			foreach ( $userNotifyTypes as $type ) {
@@ -106,7 +106,7 @@ class EchoNotificationController {
 			// Process 1000 users per NotificationDeleteJob
 			if ( $userIdsCount > 1000 ) {
 				self::enqueueDeleteJob( $userIds, $event );
-				$userIds = array();
+				$userIds = [];
 				$userIdsCount = 0;
 			}
 		}
@@ -131,9 +131,9 @@ class EchoNotificationController {
 
 		$job = new EchoNotificationDeleteJob(
 			$event->getTitle() ?: Title::newMainPage(),
-			array(
+			[
 				'userIds' => $userIds
-			)
+			]
 		);
 		JobQueueGroup::singleton()->push( $job );
 	}
@@ -180,11 +180,11 @@ class EchoNotificationController {
 	public static function enqueueEvent( EchoEvent $event ) {
 		$job = new EchoNotificationJob(
 			$event->getTitle() ?: Title::newMainPage(),
-			array(
+			[
 				'event' => $event,
 				'masterPos' => MWEchoDbFactory::newFromDefault()
 					->getMasterPosition(),
-			)
+			]
 		);
 		JobQueueGroup::singleton()->push( $job );
 	}
@@ -272,7 +272,7 @@ class EchoNotificationController {
 			throw new MWException( "Cannot notify anonymous user: {$user->getName()}" );
 		}
 
-		call_user_func_array( $wgEchoNotifiers[$type], array( $user, $event ) );
+		call_user_func_array( $wgEchoNotifiers[$type], [ $user, $event ] );
 	}
 
 	/**
@@ -286,16 +286,16 @@ class EchoNotificationController {
 	public static function evaluateUserCallable( EchoEvent $event, $locator = EchoAttributeManager::ATTR_LOCATORS ) {
 		$attributeManager = EchoAttributeManager::newFromGlobalVars();
 		$type = $event->getType();
-		$result = array();
+		$result = [];
 		foreach ( $attributeManager->getUserCallable( $type, $locator ) as $callable ) {
 			// locator options can be set per-event by using an array with
 			// name as first parameter.
 			if ( is_array( $callable ) ) {
 				$options = $callable;
-				$spliced = array_splice( $options, 0, 1, array( $event ) );
+				$spliced = array_splice( $options, 0, 1, [ $event ] );
 				$callable = reset( $spliced );
 			} else {
-				$options = array( $event );
+				$options = [ $event ];
 			}
 			if ( is_callable( $callable ) ) {
 				$result[] = call_user_func_array( $callable, $options );
@@ -321,8 +321,8 @@ class EchoNotificationController {
 
 		// Hook for injecting more users.
 		// @deprecated
-		$users = array();
-		Hooks::run( 'EchoGetDefaultNotifiedUsers', array( $event, &$users ) );
+		$users = [];
+		Hooks::run( 'EchoGetDefaultNotifiedUsers', [ $event, &$users ] );
 		if ( $users ) {
 			$notify->add( $users );
 		}
@@ -343,7 +343,7 @@ class EchoNotificationController {
 		}
 
 		// Filter non-User, anon and duplicate users
-		$seen = array();
+		$seen = [];
 		$notify->addFilter( function ( $user ) use ( &$seen ) {
 			if ( !$user instanceof User ) {
 				wfDebugLog( __METHOD__, 'Expected all User instances, received:' .

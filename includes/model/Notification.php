@@ -70,7 +70,7 @@ class EchoNotification extends EchoAbstractEntity implements Bundleable {
 	 */
 	public static function create( array $info ) {
 		$obj = new EchoNotification();
-		static $validFields = array( 'event', 'user' );
+		static $validFields = [ 'event', 'user' ];
 
 		foreach ( $validFields as $field ) {
 			if ( isset( $info[$field] ) ) {
@@ -112,7 +112,7 @@ class EchoNotification extends EchoAbstractEntity implements Bundleable {
 		// Get the bundle key for this event if web bundling is enabled
 		$bundleKey = '';
 		if ( !empty( $wgEchoNotifications[$this->event->getType()]['bundle']['web'] ) ) {
-			Hooks::run( 'EchoGetBundleRules', array( $this->event, &$bundleKey ) );
+			Hooks::run( 'EchoGetBundleRules', [ $this->event, &$bundleKey ] );
 		}
 
 		if ( $bundleKey ) {
@@ -146,7 +146,7 @@ class EchoNotification extends EchoAbstractEntity implements Bundleable {
 			$notifUser->flagCacheWithNewTalkNotification();
 			$this->user->setNewtalk( true );
 		}
-		Hooks::run( 'EchoCreateNotificationComplete', array( $this ) );
+		Hooks::run( 'EchoCreateNotificationComplete', [ $this ] );
 	}
 
 	/**
@@ -189,7 +189,7 @@ class EchoNotification extends EchoAbstractEntity implements Bundleable {
 	 * @return array
 	 */
 	public function toDbArray() {
-		return array(
+		return [
 			'notification_event' => $this->event->getId(),
 			'notification_user' => $this->user->getId(),
 			'notification_timestamp' => $this->timestamp,
@@ -197,7 +197,7 @@ class EchoNotification extends EchoAbstractEntity implements Bundleable {
 			'notification_bundle_base' => $this->bundleBase,
 			'notification_bundle_hash' => $this->bundleHash,
 			'notification_bundle_display_hash' => $this->bundleDisplayHash
-		);
+		];
 	}
 
 	/**

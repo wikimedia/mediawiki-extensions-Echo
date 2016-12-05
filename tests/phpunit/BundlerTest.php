@@ -10,7 +10,7 @@ class BundlerTest extends MediaWikiTestCase {
 		$n3 = $this->createNotificationForBundling( 'bundle_hash_2', 'timestamp_3', $unread );
 		$n4 = $this->createNotificationForBundling( 'bundle_hash_2', 'timestamp_2', $unread );
 		$n5 = $this->createNotificationForBundling( 'bundle_hash_2', 'timestamp_5', $read );
-		$notifications = array( $n1, $n2, $n3, $n4, $n5 );
+		$notifications = [ $n1, $n2, $n3, $n4, $n5 ];
 
 		$bundler = new Bundler();
 		$bundledNotifications = $bundler->bundle( $notifications );
@@ -28,11 +28,11 @@ class BundlerTest extends MediaWikiTestCase {
 	private function createNotificationForBundling( $bundleHash, $timestamp, $readStatus ) {
 		$mock = $this->getMockBuilder( 'EchoNotification' )
 			->disableOriginalConstructor()
-			->setMethods( array(
+			->setMethods( [
 				'getBundlingKey',
 				'getSortingKey',
 				'canBeBundled',
-			) )
+			] )
 			->getMock();
 
 		$mock->method( 'getBundlingKey' )->willReturn( $bundleHash );
