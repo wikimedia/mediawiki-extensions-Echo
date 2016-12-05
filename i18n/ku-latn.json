@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"George Animal",
-			"Bikarhêner"
+			"Bikarhêner",
+			"Ghybu"
 		]
 	},
 	"prefs-emailsettings": "Vebijarkên e-nameyê",
@@ -25,6 +26,7 @@
 	"notification-timestamp-today": "Îro",
 	"notification-timestamp-yesterday": "Doh",
 	"notification-inbox-filter-read": "Bixwîne",
+	"notification-inbox-filter-unread": "Nexwendî",
 	"notification-inbox-filter-all": "Hemû",
 	"echo-mark-all-as-read": "Hemûkan wek xwendî nîşan bide",
 	"echo-date-today": "Îro",
