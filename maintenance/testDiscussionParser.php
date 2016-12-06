@@ -12,6 +12,8 @@ class TestDiscussionParser extends Maintenance {
 		$this->mDescription = "Takes enwiki revision IDs and attempts to identify interested users";
 
 		$this->addArg( 'revisions', 'Revision IDs, separated by commas', true /*required*/ );
+
+		$this->requireExtension( 'Echo' );
 	}
 
 	public function execute() {

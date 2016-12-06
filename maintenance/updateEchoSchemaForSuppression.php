@@ -29,6 +29,7 @@ class UpdateEchoSchemaForSuppression extends LoggedUpdateMaintenance {
 	public function __construct() {
 		parent::__construct();
 		$this->setBatchSize( 500 );
+		$this->requireExtension( 'Echo' );
 	}
 
 	public function getUpdateKey() {
