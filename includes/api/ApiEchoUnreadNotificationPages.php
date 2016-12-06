@@ -15,14 +15,14 @@ class ApiEchoUnreadNotificationPages extends ApiCrossWikiBase {
 	}
 
 	/**
-	 * @throws UsageException
+	 * @throws ApiUsageException
 	 */
 	public function execute() {
 		// To avoid API warning, register the parameter used to bust browser cache
 		$this->getMain()->getVal( '_' );
 
 		if ( $this->getUser()->isAnon() ) {
-			$this->dieUsage( 'Login is required', 'login-required' );
+			$this->dieWithError( 'apierror-mustbeloggedin-generic', 'login-required' );
 		}
 
 		$params = $this->extractRequestParams();
