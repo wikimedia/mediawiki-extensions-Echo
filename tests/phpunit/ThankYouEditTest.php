@@ -19,7 +19,7 @@ class MWEchoThankYouEditTest extends MediaWikiTestCase {
 
 		// assertions
 		$notificationMapper = new EchoNotificationMapper();
-		$notifications = $notificationMapper->fetchByUser( $user, 10, null, array( 'thank-you-edit' ) );
+		$notifications = $notificationMapper->fetchByUser( $user, 10, null, [ 'thank-you-edit' ] );
 		$this->assertCount( 1, $notifications );
 
 		/** @var EchoNotification $notification */
@@ -42,7 +42,7 @@ class MWEchoThankYouEditTest extends MediaWikiTestCase {
 
 		// assertions
 		$notificationMapper = new EchoNotificationMapper();
-		$notifications = $notificationMapper->fetchByUser( $user, 10, null, array( 'thank-you-edit' ) );
+		$notifications = $notificationMapper->fetchByUser( $user, 10, null, [ 'thank-you-edit' ] );
 		$this->assertCount( 2, $notifications );
 
 		/** @var EchoNotification $notification */

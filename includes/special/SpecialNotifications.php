@@ -19,10 +19,10 @@ class SpecialNotifications extends SpecialPage {
 
 		$this->addHelpLink( 'Help:Notifications/Special:Notifications' );
 
-		$out->addJsConfigVars( 'wgNotificationsSpecialPageLinks', array(
+		$out->addJsConfigVars( 'wgNotificationsSpecialPageLinks', [
 			'help' => '//www.mediawiki.org/wiki/Special:MyLanguage/Help:Notifications/Special:Notifications',
 			'preferences' => SpecialPage::getTitleFor( 'Preferences' )->getLinkURL() . '#mw-prefsection-echo',
-		) );
+		] );
 
 		$user = $this->getUser();
 		if ( $user->isAnon() ) {
@@ -50,11 +50,11 @@ class SpecialNotifications extends SpecialPage {
 				new OOUI\LabelWidget( [ 'label' => $this->msg( 'echo-none' )->text() ] )
 			);
 			$out->addHTML( $noJSDiv );
-			$out->addModules( array( 'ext.echo.special' ) );
+			$out->addModules( [ 'ext.echo.special' ] );
 			return;
 		}
 
-		$notif = array();
+		$notif = [];
 		foreach ( $notifications as $notification ) {
 			$output = EchoDataOutputFormatter::formatOutput( $notification, 'special', $user, $this->getLanguage() );
 			if ( $output ) {
@@ -64,16 +64,16 @@ class SpecialNotifications extends SpecialPage {
 
 		// Add the notifications to the page (interspersed with date headers)
 		$dateHeader = '';
-		$unread = array();
+		$unread = [];
 		$echoSeenTime = EchoSeenTime::newFromUser( $user );
 		$seenTime = $echoSeenTime->getTime();
-		$notifArray = array();
+		$notifArray = [];
 		foreach ( $notif as $row ) {
 			if ( !$row['*'] ) {
 				continue;
 			}
 
-			$classes = array( 'mw-echo-notification' );
+			$classes = [ 'mw-echo-notification' ];
 
 			if ( !isset( $row['read'] ) ) {
 				$classes[] = 'mw-echo-notification-unread';
@@ -89,10 +89,10 @@ class SpecialNotifications extends SpecialPage {
 			// Output the date header if it has not been displayed
 			if ( $dateHeader !== $row['timestamp']['date'] ) {
 				$dateHeader = $row['timestamp']['date'];
-				$notifArray[ $dateHeader ] = array(
-					'unread' => array(),
-					'notices' => array()
-				);
+				$notifArray[ $dateHeader ] = [
+					'unread' => [],
+					'notices' => []
+				];
 			}
 
 			// Collect unread IDs
@@ -133,10 +133,10 @@ class SpecialNotifications extends SpecialPage {
 			// Mark all read button
 			if ( count( $data[ 'unread' ] ) > 0 ) {
 				$markReadSectionText = $this->msg( 'echo-specialpage-section-markread' )->text();
-				$markAsReadLabelIcon = new EchoOOUI\LabelIconWidget( array(
+				$markAsReadLabelIcon = new EchoOOUI\LabelIconWidget( [
 					'label' => $markReadSectionText,
 					'icon' => 'doubleCheck',
-				) );
+				] );
 
 				// There are unread notices. Add the 'mark section as read' button
 				$markSectionAsReadForm = $markReadSpecialPage->getMinimalForm(
@@ -190,15 +190,15 @@ class SpecialNotifications extends SpecialPage {
 
 		$out->addHTML( $noJSDiv );
 
-		$out->addModules( array( 'ext.echo.special' ) );
+		$out->addModules( [ 'ext.echo.special' ] );
 
 		// For no-js support
-		$out->addModuleStyles( array(
+		$out->addModuleStyles( [
 			'ext.echo.styles.notifications',
 			'ext.echo.styles.special',
 			// We already load badgeicons in the BeforePageDisplay hook, but not for minerva
 			'ext.echo.badgeicons'
-		) );
+		] );
 
 		// Log visit
 		MWEchoEventLogging::logSpecialPageVisit( $user, $out->getSkin()->getSkinName() );
@@ -210,16 +210,16 @@ class SpecialNotifications extends SpecialPage {
 	 */
 	public function buildSubtitle() {
 		$lang = $this->getLanguage();
-		$subtitleLinks = array();
+		$subtitleLinks = [];
 		// Preferences link
 		$subtitleLinks[] = Html::element(
 			'a',
-			array(
+			[
 				'href' => SpecialPage::getTitleFor( 'Preferences' )->getLinkURL() . '#mw-prefsection-echo',
 				'id' => 'mw-echo-pref-link',
 				'class' => 'mw-echo-special-header-link',
 				'title' => $this->msg( 'preferences' )->text()
-			),
+			],
 			$this->msg( 'preferences' )->text()
 		);
 		// using pipeList to make it easier to add some links in the future

@@ -19,7 +19,7 @@ class EchoPlainTextDigestEmailFormatter extends EchoEventDigestFormatter {
 	 *                 'subject' => formatted email subject ]
 	 */
 	protected function formatModels( array $models ) {
-		$content = array();
+		$content = [];
 		foreach ( $models as $model ) {
 			$content[$model->getCategory()][] = EchoDiscussionParser::htmlToText( $model->getHeaderMessage()->parse() );
 		}
@@ -59,10 +59,10 @@ class EchoPlainTextDigestEmailFormatter extends EchoEventDigestFormatter {
 			->numParams( count( $models ), count( $models ) )
 			->text();
 
-		return array(
+		return [
 			'subject' => $subject,
 			'body' => $text,
-		);
+		];
 	}
 
 	/**

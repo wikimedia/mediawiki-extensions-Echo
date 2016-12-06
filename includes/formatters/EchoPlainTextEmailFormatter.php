@@ -28,10 +28,10 @@ class EchoPlainTextEmailFormatter extends EchoEventFormatter {
 		// Footer
 		$text .= "\n\n{$this->getFooter()}";
 
-		return array(
+		return [
 			'body' => $text,
 			'subject' => $subject,
-		);
+		];
 	}
 
 	/**

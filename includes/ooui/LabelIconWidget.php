@@ -26,9 +26,9 @@ class LabelIconWidget extends Widget {
 		parent::__construct( $config );
 
 		$this->tableRow = new Tag( 'div' );
-		$this->tableRow->setAttributes( array(
+		$this->tableRow->setAttributes( [
 			'class' => 'oo-ui-labelIconWidget-row',
-		) );
+		] );
 
 		$this->icon = new Tag( 'div' );
 		$this->label = new Tag( 'div' );

@@ -67,19 +67,19 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 		$this->checkPermissions();
 
 		$internalCategoryNames = $this->attributeManager->getInternalCategoryNames();
-		$this->categoryNames = array();
+		$this->categoryNames = [];
 
 		foreach ( $internalCategoryNames as $internalCategoryName ) {
 			$formattedFriendlyCategoryName = Html::element(
 				'strong',
-				array(),
+				[],
 				$this->msg( 'echo-category-title-' . $internalCategoryName )->numParams( 1 )->text()
 			);
 
 			$formattedInternalCategoryName = $this->msg( 'parentheses' )->rawParams(
 				Html::element(
 					'em',
-					array(),
+					[],
 					$internalCategoryName
 				)
 			)->parse();
@@ -89,7 +89,7 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 
 		$this->flippedCategoryNames = array_flip( $this->categoryNames );
 
-		$this->notifyTypes = array();
+		$this->notifyTypes = [];
 		foreach ( $wgEchoNotifiers as $notifyType => $notifier ) {
 			$this->notifyTypes[$notifyType] = $this->msg( 'echo-pref-' . $notifyType )->text();
 		}
@@ -127,15 +127,15 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 	 */
 	protected function outputCheckMatrix( $id, $legendMsgKey, array $rowLabelMapping, array $columnLabelMapping, array $value ) {
 		$form = new HTMLForm(
-			array(
-				$id => array(
+			[
+				$id => [
 					'type' => 'checkmatrix',
 					'rows' => $rowLabelMapping,
 					'columns' => $columnLabelMapping,
 					'default' => $value,
 					'disabled' => true,
-				)
-			),
+				]
+			],
 			$this
 		);
 
@@ -156,7 +156,7 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 		$out->addHTML(
 			Html::element(
 				'h2',
-				array( 'id' => 'mw-echo-displaynotificationsconfiguration-notifications-by-category' ),
+				[ 'id' => 'mw-echo-displaynotificationsconfiguration-notifications-by-category' ],
 				$this->msg( 'echo-displaynotificationsconfiguration-notifications-by-category-header' )->text()
 			)
 		);
@@ -165,14 +165,14 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 		foreach ( $notificationsByCategory as $categoryName => $notificationTypes ) {
 			$implodedTypes = Html::element(
 				'span',
-				array(),
+				[],
 				implode( $this->msg( 'comma-separator' )->text(), $notificationTypes )
 			);
 
 			$out->addHTML(
 				Html::rawElement(
 					'li',
-					array(),
+					[],
 					$this->categoryNames[$categoryName] . $this->msg( 'colon-separator' )->text() . ' ' . $implodedTypes
 				)
 			);
@@ -184,11 +184,11 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 	 * Output the notification types in each section (alert/message)
 	 */
 	protected function outputNotificationsInSections() {
-		$this->getOutput()->addHTML( Html::element( 'h2', array( 'id' => 'mw-echo-displaynotificationsconfiguration-sorting-by-section' ), $this->msg( 'echo-displaynotificationsconfiguration-sorting-by-section-header' )->text() ) );
+		$this->getOutput()->addHTML( Html::element( 'h2', [ 'id' => 'mw-echo-displaynotificationsconfiguration-sorting-by-section' ], $this->msg( 'echo-displaynotificationsconfiguration-sorting-by-section-header' )->text() ) );
 
-		$bySectionValue = array();
+		$bySectionValue = [];
 
-		$flippedSectionNames = array();
+		$flippedSectionNames = [];
 
 		foreach ( EchoAttributeManager::$sections as $section ) {
 			$types = $this->attributeManager->getEventsForSection( $section );
@@ -209,9 +209,9 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 	protected function outputAvailability() {
 		global $wgEchoNotifications;
 
-		$this->getOutput()->addHTML( Html::element( 'h2', array( 'id' => 'mw-echo-displaynotificationsconfiguration-available-notification-methods' ), $this->msg( 'echo-displaynotificationsconfiguration-available-notification-methods-header' )->text() ) );
+		$this->getOutput()->addHTML( Html::element( 'h2', [ 'id' => 'mw-echo-displaynotificationsconfiguration-available-notification-methods' ], $this->msg( 'echo-displaynotificationsconfiguration-available-notification-methods-header' )->text() ) );
 
-		$byCategoryValue = array();
+		$byCategoryValue = [];
 
 		foreach ( $this->notifyTypes as $notifyType => $displayNotifyType ) {
 			foreach ( $this->categoryNames as $category => $displayCategory ) {
@@ -223,7 +223,7 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 
 		$this->outputCheckMatrix( 'availability-by-category', 'echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend', $this->flippedCategoryNames, $this->flippedNotifyTypes, $byCategoryValue );
 
-		$byTypeValue = array();
+		$byTypeValue = [];
 
 		$specialNotificationTypes = array_keys( array_filter( $wgEchoNotifications, function ( $val ) {
 			return isset( $val['notify-type-availability'] );
@@ -243,12 +243,12 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 	 * Output which notification categories are turned on by default, for each notify type
 	 */
 	protected function outputEnabledDefault() {
-		$this->getOutput()->addHTML( Html::element( 'h2', array( 'id' => 'mw-echo-displaynotificationsconfiguration-enabled-default' ), $this->msg( 'echo-displaynotificationsconfiguration-enabled-default-header' )->text() ) );
+		$this->getOutput()->addHTML( Html::element( 'h2', [ 'id' => 'mw-echo-displaynotificationsconfiguration-enabled-default' ], $this->msg( 'echo-displaynotificationsconfiguration-enabled-default-header' )->text() ) );
 
 		// In reality, anon users are not relevant to Echo, but this lets us easily query default options.
 		$anonUser = new User;
 
-		$byCategoryValueExisting = array();
+		$byCategoryValueExisting = [];
 		foreach ( $this->notifyTypes as $notifyType => $displayNotifyType ) {
 			foreach ( $this->categoryNames as $category => $displayCategory ) {
 				$tag = "$notifyType-$category";
@@ -268,7 +268,7 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 			$loggedInUser->setOption( $prefKey, $value );
 		}
 
-		$byCategoryValueNew = array();
+		$byCategoryValueNew = [];
 		foreach ( $this->notifyTypes as $notifyType => $displayNotifyType ) {
 			foreach ( $this->categoryNames as $category => $displayCategory ) {
 				$tag = "$notifyType-$category";
@@ -286,9 +286,9 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 	 * Output which notify types are mandatory for each category
 	 */
 	protected function outputMandatory() {
-		$byCategoryValue = array();
+		$byCategoryValue = [];
 
-		$this->getOutput()->addHTML( Html::element( 'h2', array( 'id' => 'mw-echo-displaynotificationsconfiguration-mandatory-notification-methods' ), $this->msg( 'echo-displaynotificationsconfiguration-mandatory-notification-methods-header' )->text() ) );
+		$this->getOutput()->addHTML( Html::element( 'h2', [ 'id' => 'mw-echo-displaynotificationsconfiguration-mandatory-notification-methods' ], $this->msg( 'echo-displaynotificationsconfiguration-mandatory-notification-methods-header' )->text() ) );
 
 		foreach ( $this->notifyTypes as $notifyType => $displayNotifyType ) {
 			foreach ( $this->categoryNames as $category => $displayCategory ) {

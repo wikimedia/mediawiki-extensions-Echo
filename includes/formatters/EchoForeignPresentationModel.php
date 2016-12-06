@@ -23,7 +23,7 @@ class EchoForeignPresentationModel extends EchoEventPresentationModel {
 
 		$data = $this->event->getExtra();
 		$firstWiki = reset( $data['wikis'] );
-		$names = $this->getWikiNames( array( $firstWiki ) );
+		$names = $this->getWikiNames( [ $firstWiki ] );
 		$msg->params( $names[0] );
 		$msg->numParams( count( $data['wikis'] ) - 1 );
 		$msg->numParams( count( $data['wikis'] ) );
@@ -40,7 +40,7 @@ class EchoForeignPresentationModel extends EchoEventPresentationModel {
 
 	protected function getWikiNames( array $wikis ) {
 		$data = EchoForeignNotifications::getApiEndpoints( $wikis );
-		$names = array();
+		$names = [];
 		foreach ( $wikis as $wiki ) {
 			$names[] = $data[$wiki]['title'];
 		}

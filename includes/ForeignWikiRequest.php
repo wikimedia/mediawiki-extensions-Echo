@@ -24,7 +24,7 @@ class EchoForeignWikiRequest {
 	 */
 	public function execute() {
 		if ( !$this->canUseCentralAuth() ) {
-			return array();
+			return [];
 		}
 
 		$reqs = $this->getRequestParams();
@@ -55,7 +55,7 @@ class EchoForeignWikiRequest {
 	 */
 	protected function getCentralAuthToken( User $user ) {
 		$context = new RequestContext;
-		$context->setRequest( new FauxRequest( array( 'action' => 'centralauthtoken' ) ) );
+		$context->setRequest( new FauxRequest( [ 'action' => 'centralauthtoken' ] ) );
 		$context->setUser( $user );
 
 		$api = new ApiMain( $context );
@@ -63,17 +63,17 @@ class EchoForeignWikiRequest {
 		try {
 			$api->execute();
 
-			return $api->getResult()->getResultData( array( 'centralauthtoken', 'centralauthtoken' ) );
+			return $api->getResult()->getResultData( [ 'centralauthtoken', 'centralauthtoken' ] );
 		} catch ( Exception $ex ) {
 			LoggerFactory::getInstance( 'Echo' )->debug(
 				'Exception when fetching CentralAuth token: wiki: {wiki}, userName: {userName}, userId: {userId}, centralId: {centralId}, exception: {exception}',
-				array(
+				[
 					'wiki' => wfWikiID(),
 					'userName' => $user->getName(),
 					'userId' => $user->getId(),
 					'centralId' => $this->getCentralId( $user ),
 					'exception' => $ex,
-				)
+				]
 			);
 
 			MWExceptionHandler::logException( $ex );
@@ -88,16 +88,16 @@ class EchoForeignWikiRequest {
 	protected function getRequestParams() {
 		$apis = EchoForeignNotifications::getApiEndpoints( $this->wikis );
 		if ( !$apis ) {
-			return array();
+			return [];
 		}
 
-		$reqs = array();
+		$reqs = [];
 		foreach ( $apis as $wiki => $api ) {
-			$reqs[$wiki] = array(
+			$reqs[$wiki] = [
 				'method' => 'GET',
 				'url' => $api['url'],
 				'query' => $this->getQueryParams( $wiki ),
-			);
+			];
 		}
 
 		return $reqs;
@@ -108,14 +108,14 @@ class EchoForeignWikiRequest {
 	 * @return array
 	 */
 	protected function getQueryParams( $wiki ) {
-		$extraParams = array();
+		$extraParams = [];
 		if ( $this->wikiParam ) {
 			// Only request data from that specific wiki, or they'd all spawn
 			// cross-wiki api requests...
 			$extraParams[$this->wikiParam] = $wiki;
 		}
 
-		return array(
+		return [
 			'centralauthtoken' => $this->getCentralAuthToken( $this->user ),
 			// once all the results are gathered & merged, they'll be output in the
 			// user requested format
@@ -123,7 +123,7 @@ class EchoForeignWikiRequest {
 			// results in the format the user requested but in a fixed format that
 			// we can interpret here
 			'format' => 'json',
-		) + $extraParams + $this->params;
+		] + $extraParams + $this->params;
 	}
 
 	/**
@@ -132,10 +132,10 @@ class EchoForeignWikiRequest {
 	 * @throws Exception
 	 */
 	protected function doRequests( array $reqs ) {
-		$http = new MultiHttpClient( array() );
+		$http = new MultiHttpClient( [] );
 		$responses = $http->runMulti( $reqs );
 
-		$results = array();
+		$results = [];
 		foreach ( $responses as $wiki => $response ) {
 			$statusCode = $response['response']['code'];
 
@@ -149,12 +149,12 @@ class EchoForeignWikiRequest {
 			if ( !isset( $results[$wiki] ) ) {
 				LoggerFactory::getInstance( 'Echo' )->warning(
 					'Failed to fetch API response from {wiki}. Error code {code}',
-					array(
+					[
 						'wiki' => $wiki,
 						'code' => $response['response']['code'],
 						'response' => $response['response']['body'],
 						'request' => $reqs[$wiki],
-					)
+					]
 				);
 			}
 		}

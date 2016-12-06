@@ -46,12 +46,12 @@ class EchoUserNotificationGateway {
 
 		return $dbw->update(
 			self::$notificationTable,
-			array( 'notification_read_timestamp' => $dbw->timestamp( wfTimestampNow() ) ),
-			array(
+			[ 'notification_read_timestamp' => $dbw->timestamp( wfTimestampNow() ) ],
+			[
 				'notification_user' => $this->user->getId(),
 				'notification_event' => $eventIDs,
 				'notification_read_timestamp' => null,
-			),
+			],
 			__METHOD__
 		);
 	}
@@ -70,12 +70,12 @@ class EchoUserNotificationGateway {
 
 		return $dbw->update(
 			self::$notificationTable,
-			array( 'notification_read_timestamp' => null ),
-			array(
+			[ 'notification_read_timestamp' => null ],
+			[
 				'notification_user' => $this->user->getId(),
 				'notification_event' => $eventIDs,
 				'notification_read_timestamp IS NOT NULL'
-			),
+			],
 			__METHOD__
 		);
 	}
@@ -90,11 +90,11 @@ class EchoUserNotificationGateway {
 
 		return $dbw->update(
 			self::$notificationTable,
-			array( 'notification_read_timestamp' => $dbw->timestamp( wfTimestampNow() ) ),
-			array(
+			[ 'notification_read_timestamp' => $dbw->timestamp( wfTimestampNow() ) ],
+			[
 				'notification_user' => $this->user->getId(),
 				'notification_read_timestamp' => null,
-			),
+			],
 			__METHOD__
 		);
 	}
@@ -106,9 +106,9 @@ class EchoUserNotificationGateway {
 	 * @param int $cap Max count
 	 * @return int
 	 */
-	public function getCappedNotificationCount( $dbSource, array $eventTypesToLoad = array(), $cap = MWEchoNotifUser::MAX_BADGE_COUNT ) {
+	public function getCappedNotificationCount( $dbSource, array $eventTypesToLoad = [], $cap = MWEchoNotifUser::MAX_BADGE_COUNT ) {
 		// double check
-		if ( !in_array( $dbSource, array( DB_SLAVE, DB_MASTER ) ) ) {
+		if ( !in_array( $dbSource, [ DB_SLAVE, DB_MASTER ] ) ) {
 			$dbSource = DB_SLAVE;
 		}
 
@@ -118,22 +118,22 @@ class EchoUserNotificationGateway {
 
 		$db = $this->dbFactory->getEchoDb( $dbSource );
 		return $db->selectRowCount(
-			array(
+			[
 				self::$notificationTable,
 				self::$eventTable
-			),
-			array( '1' ),
-			array(
+			],
+			[ '1' ],
+			[
 				'notification_user' => $this->user->getId(),
 				'notification_read_timestamp' => null,
 				'event_deleted' => 0,
 				'event_type' => $eventTypesToLoad,
-			),
+			],
 			__METHOD__,
-			array( 'LIMIT' => $cap ),
-			array(
-				'echo_event' => array( 'LEFT JOIN', 'notification_event=event_id' ),
-			)
+			[ 'LIMIT' => $cap ],
+			[
+				'echo_event' => [ 'LEFT JOIN', 'notification_event=event_id' ],
+			]
 		);
 	}
 
@@ -147,22 +147,22 @@ class EchoUserNotificationGateway {
 	public function getUnreadNotifications( $type ) {
 		$dbr = $this->dbFactory->getEchoDb( DB_SLAVE );
 		$res = $dbr->select(
-			array(
+			[
 				self::$notificationTable,
 				self::$eventTable
-			),
-			array( 'notification_event' ),
-			array(
+			],
+			[ 'notification_event' ],
+			[
 				'notification_user' => $this->user->getId(),
 				'notification_read_timestamp' => null,
 				'event_deleted' => 0,
 				'event_type' => $type,
 				'notification_event = event_id'
-			),
+			],
 			__METHOD__
 		);
 
-		$eventIds = array();
+		$eventIds = [];
 		if ( $res ) {
 			foreach ( $res as $row ) {
 				$eventIds[$row->notification_event] = $row->notification_event;

@@ -13,7 +13,7 @@ class EchoHtmlEmailFormatter extends EchoEventFormatter {
 		$bodyMsg = $model->getBodyMessage();
 		$summary = $bodyMsg ? $bodyMsg->parse() : '';
 
-		$actions = array();
+		$actions = [];
 
 		$primaryLink = $model->getPrimaryLinkWithMarkAsRead();
 		if ( $primaryLink ) {
@@ -38,10 +38,10 @@ class EchoHtmlEmailFormatter extends EchoEventFormatter {
 			$this->getFooter()
 		);
 
-		return array(
+		return [
 			'body' => $body,
 			'subject' => $subject,
-		);
+		];
 	}
 
 	private function renderBody( Language $lang, $emailIcon, $summary, $action, $intro, $footer ) {
@@ -125,10 +125,10 @@ EOF;
 		global $wgEchoEmailFooterAddress;
 
 		$preferenceLink = $this->renderLink(
-			array(
+			[
 				'label' => $this->msg( 'echo-email-html-footer-preference-link-text' )->text(),
 				'url' => SpecialPage::getTitleFor( 'Preferences', false, 'mw-prefsection-echo' )->getFullURL( '', false, PROTO_CANONICAL ),
-			),
+			],
 			'text-decoration: none; color: #36C;'
 		);
 
@@ -146,10 +146,10 @@ EOF;
 	private function renderLink( $link, $style ) {
 		return Html::element(
 			'a',
-			array(
+			[
 				'href' => wfExpandUrl( $link['url'], PROTO_CANONICAL ),
 				'style' => $style,
-			),
+			],
 			$link['label']
 		);
 	}

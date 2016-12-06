@@ -49,10 +49,10 @@ class EchoAttributeManager {
 	 * Notifications are broken down to two sections, default is alert
 	 * @var array
 	 */
-	public static $sections = array(
+	public static $sections = [
 		self::ALERT,
 		self::MESSAGE
-	);
+	];
 
 	/**
 	 * Names for keys in $wgEchoNotifications notification config
@@ -126,7 +126,7 @@ class EchoAttributeManager {
 		if ( isset( $this->notifications[$type][$locator] ) ) {
 			return (array)$this->notifications[$type][$locator];
 		} else {
-			return array();
+			return [];
 		}
 	}
 
@@ -162,7 +162,7 @@ class EchoAttributeManager {
 	 * @return string[]
 	 */
 	public function getUserEnabledEventsbySections( User $user, $notifyType, array $sections ) {
-		$events = array();
+		$events = [];
 		foreach ( $sections as $section ) {
 			$events = array_merge(
 				$events,
@@ -184,7 +184,7 @@ class EchoAttributeManager {
 	 * @return array Array of notification types in this section
 	 */
 	public function getEventsForSection( $section ) {
-		$events = array();
+		$events = [];
 
 		$isDefault = ( $section === self::$DEFAULT_SECTION );
 
@@ -295,10 +295,10 @@ class EchoAttributeManager {
 	 * @return array Associative array with category as key
 	 */
 	public function getEventsByCategory() {
-		$eventsByCategory = array();
+		$eventsByCategory = [];
 
 		foreach ( $this->categories as $category => $categoryDetails ) {
-			$eventsByCategory[$category] = array();
+			$eventsByCategory[$category] = [];
 		}
 
 		foreach ( $this->notifications as $notificationType => $notificationDetails ) {

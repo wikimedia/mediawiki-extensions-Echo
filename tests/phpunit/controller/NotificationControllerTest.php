@@ -3,56 +3,56 @@
 class NotificationControllerTest extends MediaWikiTestCase {
 
 	public function evaluateUserLocatorsProvider() {
-		return array(
-			array(
+		return [
+			[
 				'With no options no users are notified',
 				// expected result
-				array(),
+				[],
 				// event user locator config
-				array(),
-			),
+				[],
+			],
 
-			array(
+			[
 				'Does not error when given non-existant user-locator',
 				// expected result
-				array(),
+				[],
 				// event user locator config
-				array( 'not-callable' ),
-			),
+				[ 'not-callable' ],
+			],
 
-			array(
+			[
 				'Calls selected locator and returns result',
 				// expected result
-				array( array( 123 ) ),
+				[ [ 123 ] ],
 				// event user locator config
 				function () {
-					return array( 123 => 123 );
+					return [ 123 => 123 ];
 				}
-			),
+			],
 
-			array(
+			[
 				'evaluates multiple locators',
 				// expected result
-				array( array( 123 ), array( 456 ) ),
+				[ [ 123 ], [ 456 ] ],
 				// event user locator config
-				array(
+				[
 					function () {
-						return array( 123 => 123 );
+						return [ 123 => 123 ];
 					},
 					function () {
-						return array( 456 => 456 );
+						return [ 456 => 456 ];
 					},
-				),
-			),
+				],
+			],
 
-			array(
+			[
 				'Passes parameters to locateFromEventExtra in expected manner',
 				// expected result
-				array( array( 123 ) ),
+				[ [ 123 ] ],
 				// event user locator config
-				array(
-					array( 'EchoUserLocator::locateFromEventExtra', array( 'other-user' ) ),
-				),
+				[
+					[ 'EchoUserLocator::locateFromEventExtra', [ 'other-user' ] ],
+				],
 				// additional setup
 				function ( $test, $event ) {
 					$event->expects( $test->any() )
@@ -60,21 +60,21 @@ class NotificationControllerTest extends MediaWikiTestCase {
 						->with( 'other-user' )
 						->will( $test->returnValue( 123 ) );
 				}
-			),
-		);
+			],
+		];
 	}
 
 	/**
 	 * @dataProvider evaluateUserLocatorsProvider
 	 */
 	public function testEvaluateUserLocators( $message, $expect, $locatorConfigForEventType, $setup = null ) {
-		$this->setMwGlobals( array(
-			'wgEchoNotifications' => array(
-				'unit-test' => array(
+		$this->setMwGlobals( [
+			'wgEchoNotifications' => [
+				'unit-test' => [
 					EchoAttributeManager::ATTR_LOCATORS => $locatorConfigForEventType
-				),
-			),
-		) );
+				],
+			],
+		] );
 
 		$event = $this->getMockBuilder( 'EchoEvent' )
 			->disableOriginalConstructor()
@@ -98,42 +98,42 @@ class NotificationControllerTest extends MediaWikiTestCase {
 			$test->assertEquals( 'first', $firstOption );
 			$test->assertEquals( 'second', $secondOption );
 
-			return array();
+			return [];
 		};
 
 		self::testEvaluateUserLocators(
 			__FUNCTION__,
-			array( array() ),
-			array( array( $callback, 'first', 'second' ) )
+			[ [] ],
+			[ [ $callback, 'first', 'second' ] ]
 		);
 	}
 
 	public function getUsersToNotifyForEventProvider() {
-		return array(
-			array(
+		return [
+			[
 				'Filters anonymous users',
 				// expected result
-				array(),
+				[],
 				// users returned from locator
-				array( User::newFromName( '4.5.6.7', false ) ),
-			),
+				[ User::newFromName( '4.5.6.7', false ) ],
+			],
 
-			array(
+			[
 				'Filters duplicate users',
 				// expected result
-				array( 123 ),
+				[ 123 ],
 				// users returned from locator
-				array( User::newFromId( 123 ), User::newFromId( 123 ) ),
-			),
+				[ User::newFromId( 123 ), User::newFromId( 123 ) ],
+			],
 
-			array(
+			[
 				'Filters non-user objects',
 				// expected result
-				array( 123 ),
+				[ 123 ],
 				// users returned from locator
-				array( null, 'foo', User::newFromId( 123 ), new stdClass, 456 ),
-			),
-		);
+				[ null, 'foo', User::newFromId( 123 ), new stdClass, 456 ],
+			],
+		];
 	}
 
 	/**
@@ -144,15 +144,15 @@ class NotificationControllerTest extends MediaWikiTestCase {
 		$expect,
 		$users
 	) {
-		$this->setMwGlobals( array(
-			'wgEchoNotifications' => array(
-				'unit-test' => array(
+		$this->setMwGlobals( [
+			'wgEchoNotifications' => [
+				'unit-test' => [
 					EchoAttributeManager::ATTR_LOCATORS => function () use ( $users ) {
 						return $users;
 					},
-				),
-			),
-		) );
+				],
+			],
+		] );
 
 		$event = $this->getMockBuilder( 'EchoEvent' )
 			->disableOriginalConstructor()
@@ -162,7 +162,7 @@ class NotificationControllerTest extends MediaWikiTestCase {
 			->will( $this->returnValue( 'unit-test' ) );
 
 		$result = EchoNotificationController::getUsersToNotifyForEvent( $event );
-		$ids = array();
+		$ids = [];
 		foreach ( $result as $user ) {
 			$ids[] = $user->getId();
 		}
@@ -185,66 +185,66 @@ class NotificationControllerTest extends MediaWikiTestCase {
 	}
 
 	public static function getEventNotifyTypesProvider() {
-		return array(
-			array(
+		return [
+			[
 				'Selects the `all` configuration by default',
 				// expected result
-				array( 'web' ),
+				[ 'web' ],
 				// event type
 				'bar',
 				// default notification types configuration
-				array( 'web' => true ),
+				[ 'web' => true ],
 				// type-specific
-				array(
-					'foo' => array(
-						'notify-type-availability' => array( 'email' => true ),
-					),
-				),
-			),
+				[
+					'foo' => [
+						'notify-type-availability' => [ 'email' => true ],
+					],
+				],
+			],
 
-			array(
+			[
 				'Overrides `all` configuration with event type configuration',
 				// expected result
-				array( 'web' ),
+				[ 'web' ],
 				// event type
 				'foo',
 				// default notification types configuration
-				array( 'web' => true, 'email' => true ),
+				[ 'web' => true, 'email' => true ],
 				// type-specific
-				array(
-					'foo' => array(
-						'notify-type-availability' => array( 'email' => false ),
-					),
-					'bar' => array(
-						'notify-type-availability' => array( 'sms' => true ),
-					),
-				),
-			),
+				[
+					'foo' => [
+						'notify-type-availability' => [ 'email' => false ],
+					],
+					'bar' => [
+						'notify-type-availability' => [ 'sms' => true ],
+					],
+				],
+			],
 
-			array(
+			[
 				'Uses all configuration when notify-type-availability not set at all',
 				// expected result
-				array( 'web', 'email' ),
+				[ 'web', 'email' ],
 				// event type
 				'baz',
 				// default notification types configuration
-				array( 'web' => true, 'email' => true ),
+				[ 'web' => true, 'email' => true ],
 				// type-specific
-				array(
-					'baz' => array(),
-				),
-			)
-		);
+				[
+					'baz' => [],
+				],
+			]
+		];
 	}
 
 	/**
 	 * @dataProvider getEventNotifyTypesProvider
 	 */
 	public function testGetEventNotifyTypes( $message, $expect, $type, array $defaultNotifyTypeAvailability, array $notifications ) {
-		$this->setMwGlobals( array(
+		$this->setMwGlobals( [
 			'wgDefaultNotifyTypeAvailability' => $defaultNotifyTypeAvailability,
 			'wgEchoNotifications' => $notifications,
-		) );
+		] );
 		$result = EchoNotificationController::getEventNotifyTypes( $type );
 		$this->assertEquals( $expect, $result, $message );
 	}

@@ -16,7 +16,7 @@ require_once ( getenv( 'MW_INSTALL_PATH' ) !== false
 class RemoveInvalidNotification extends Maintenance {
 
 	protected $batchSize = 500;
-	protected $invalidEventType = array( 'article-linked' );
+	protected $invalidEventType = [ 'article-linked' ];
 
 	public function __construct() {
 		$this->mDescription = "Removes invalid notifications from the database.";
@@ -39,16 +39,16 @@ class RemoveInvalidNotification extends Maintenance {
 
 		while ( $count == $this->batchSize ) {
 			$res = $dbr->select(
-				array( 'echo_event' ),
-				array( 'event_id' ),
-				array(
+				[ 'echo_event' ],
+				[ 'event_id' ],
+				[
 					'event_type' => $this->invalidEventType,
-				),
+				],
 				__METHOD__,
-				array( 'LIMIT' => $this->batchSize )
+				[ 'LIMIT' => $this->batchSize ]
 			);
 
-			$event = array();
+			$event = [];
 			$count = 0;
 			foreach ( $res as $row ) {
 				if ( !in_array( $row->event_id, $event ) ) {
@@ -62,12 +62,12 @@ class RemoveInvalidNotification extends Maintenance {
 
 				$dbw->delete(
 					'echo_event',
-					array( 'event_id' => $event ),
+					[ 'event_id' => $event ],
 					__METHOD__
 				);
 				$dbw->delete(
 					'echo_notification',
-					array( 'notification_event' => $event ),
+					[ 'notification_event' => $event ],
 					__METHOD__
 				);
 

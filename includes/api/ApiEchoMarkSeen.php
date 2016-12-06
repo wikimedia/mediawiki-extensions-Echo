@@ -28,27 +28,27 @@ class ApiEchoMarkSeen extends ApiBase {
 			$outputTimestamp = $timestamp;
 		}
 
-		$this->getResult()->addValue( 'query', $this->getModuleName(), array(
+		$this->getResult()->addValue( 'query', $this->getModuleName(), [
 			'result' => 'success',
 			'timestamp' => $outputTimestamp,
-		) );
+		] );
 	}
 
 	public function getAllowedParams() {
-		return array(
-			'token' => array(
+		return [
+			'token' => [
 				ApiBase::PARAM_REQUIRED => true,
-			),
-			'type' => array(
+			],
+			'type' => [
 				ApiBase::PARAM_REQUIRED => true,
-				ApiBase::PARAM_TYPE => array( 'alert', 'message', 'all' ),
-			),
-			'timestampFormat' => array(
+				ApiBase::PARAM_TYPE => [ 'alert', 'message', 'all' ],
+			],
+			'timestampFormat' => [
 				// Not using the TS constants, since clients can't.
 				ApiBase::PARAM_DFLT => 'MW',
-				ApiBase::PARAM_TYPE => array( 'ISO_8601', 'MW' ),
-			),
-		);
+				ApiBase::PARAM_TYPE => [ 'ISO_8601', 'MW' ],
+			],
+		];
 	}
 
 	public function needsToken() {
@@ -71,9 +71,9 @@ class ApiEchoMarkSeen extends ApiBase {
 	 * @see ApiBase::getExamplesMessages()
 	 */
 	protected function getExamplesMessages() {
-		return array(
+		return [
 			'action=echomarkseen&type=all' => 'apihelp-echomarkseen-example-1',
-		);
+		];
 	}
 
 	public function getHelpUrls() {

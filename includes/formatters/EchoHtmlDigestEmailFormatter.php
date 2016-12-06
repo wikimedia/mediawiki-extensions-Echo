@@ -46,10 +46,10 @@ class EchoHtmlDigestEmailFormatter extends EchoEventDigestFormatter {
 			->numParams( count( $models ), count( $models ) )
 			->text();
 
-		return array(
+		return [
 			'subject' => $subject,
 			'body' => $body,
-		);
+		];
 	}
 
 	private function renderBody( Language $language, $intro, $digestList, $action, $footer ) {
@@ -145,7 +145,7 @@ EOF;
 	 * @return array [ 'category name' => EchoEventPresentationModel[] ]
 	 */
 	private function groupByCategory( $models ) {
-		$eventsByCategory = array();
+		$eventsByCategory = [];
 		foreach ( $models as $model ) {
 			$eventsByCategory[$model->getCategory()][] = $model;
 		}
@@ -197,7 +197,7 @@ EOF;
 	}
 
 	private function renderDigestList( $eventsByCategory ) {
-		$result = array();
+		$result = [];
 		// build the html section for each category
 		foreach ( $eventsByCategory as $category => $models ) {
 			$output = $this->applyStyleToCategory(
@@ -215,13 +215,12 @@ EOF;
 	private function renderAction() {
 		return Html::element(
 			'a',
-			array(
+			[
 				'href' => SpecialPage::getTitleFor( 'Notifications' )->getFullURL( '', false, PROTO_CANONICAL ),
 				'style' => EchoHtmlEmailFormatter::PRIMARY_LINK_STYLE,
-			),
+			],
 			$this->msg( 'echo-email-batch-link-text-view-all-notifications' )->text()
 		);
 	}
-
 
 }

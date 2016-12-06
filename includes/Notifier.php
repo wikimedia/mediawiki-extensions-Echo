@@ -18,7 +18,7 @@ class EchoNotifier {
 			return;
 		}
 
-		EchoNotification::create( array( 'user' => $user, 'event' => $event ) );
+		EchoNotification::create( [ 'user' => $user, 'event' => $event ] );
 
 		MWEchoEventLogging::logSchemaEcho( $user, $event, 'web' );
 	}
@@ -42,7 +42,7 @@ class EchoNotifier {
 		}
 
 		// Final check on whether to send email for this user & event
-		if ( !Hooks::run( 'EchoAbortEmailNotification', array( $user, $event ) ) ) {
+		if ( !Hooks::run( 'EchoAbortEmailNotification', [ $user, $event ] ) ) {
 			return false;
 		}
 
@@ -59,7 +59,7 @@ class EchoNotifier {
 			// We should have bundling for email digest as long as either web or email bundling is on, for example, talk page
 			// email bundling is off, but if a user decides to receive email digest, we should bundle those messages
 			if ( !empty( $wgEchoNotifications[$event->getType()]['bundle']['web'] ) || !empty( $wgEchoNotifications[$event->getType()]['bundle']['email'] ) ) {
-				Hooks::run( 'EchoGetBundleRules', array( $event, &$bundleString ) );
+				Hooks::run( 'EchoGetBundleRules', [ $event, &$bundleString ] );
 			}
 			if ( $bundleString ) {
 				$bundleHash = md5( $bundleString );
@@ -92,7 +92,7 @@ class EchoNotifier {
 			}
 			$subject = $email['subject'];
 			$body = $email['body'];
-			$options = array( 'replyTo' => $replyAddress );
+			$options = [ 'replyTo' => $replyAddress ];
 
 			UserMailer::send( $toAddress, $fromAddress, $subject, $body, $options );
 			MWEchoEventLogging::logSchemaEchoMail( $user, 'single' );
@@ -118,10 +118,10 @@ class EchoNotifier {
 		if ( $emailFormat === EchoEmailFormat::HTML ) {
 			$htmlEmailFormatter = new EchoHtmlEmailFormatter( $user, $lang );
 			$htmlContent = $htmlEmailFormatter->format( $event );
-			$multipartBody = array(
+			$multipartBody = [
 				'text' => $content['body'],
 				'html' => $htmlContent['body']
-			);
+			];
 			$content['body'] = $multipartBody;
 		}
 

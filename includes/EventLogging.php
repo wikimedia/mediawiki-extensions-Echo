@@ -53,14 +53,14 @@ class MWEchoEventLogging {
 		} else {
 			$group = 'neutral';
 		}
-		$data = array(
+		$data = [
 			'eventId' => (int)$event->getId(),
 			'notificationType' => $event->getType(),
 			'notificationGroup' => $group,
 			'sender' => (string)$sender,
 			'recipientUserId' => $user->getId(),
 			'recipientEditCount' => (int)$user->getEditCount()
-		);
+		];
 		// Add the source if it exists. (This is mostly for the Thanks extension.)
 		$extra = $event->getExtra();
 		if ( isset( $extra['source'] ) ) {
@@ -87,10 +87,10 @@ class MWEchoEventLogging {
 	 * @param string $emailDeliveryMode 'single' (default), 'daily_digest', or 'weekly_digest'
 	 */
 	public static function logSchemaEchoMail( User $user, $emailDeliveryMode = 'single' ) {
-		$data = array(
+		$data = [
 			'recipientUserId' => $user->getId(),
 			'emailDeliveryMode' => $emailDeliveryMode
-		);
+		];
 
 		self::logEvent( 'EchoMail', $data );
 	}
@@ -102,7 +102,7 @@ class MWEchoEventLogging {
 	public static function logSpecialPageVisit( User $user, $skinName ) {
 		self::logEvent(
 			'EchoInteraction',
-			array(
+			[
 				'context' => 'archive',
 				'action' => 'special-page-visit',
 				'userId' => (int)$user->getId(),
@@ -110,7 +110,7 @@ class MWEchoEventLogging {
 				'notifWiki' => wfWikiID(),
 				// Hack: Figure out if we are in the mobile skin
 				'mobile' => $skinName === 'minerva',
-			)
+			]
 		);
 	}
 

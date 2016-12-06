@@ -75,29 +75,29 @@ class EchoMentionPresentationModel extends EchoEventPresentationModel {
 	}
 
 	public function getPrimaryLink() {
-		return array(
+		return [
 			// Need FullURL so the section is included
 			'url' => $this->getTitleWithSection()->getFullURL(),
 			'label' => $this->msg( 'notification-link-text-view-mention' )->text()
-		);
+		];
 	}
 
 	public function getSecondaryLinks() {
 		$title = $this->event->getTitle();
 
-		$url = $title->getLocalURL( array(
+		$url = $title->getLocalURL( [
 			'oldid' => 'prev',
 			'diff' => $this->event->getExtraParam( 'revid' )
-		) );
-		$viewChangesLink = array(
+		] );
+		$viewChangesLink = [
 			'url' => $url,
 			'label' => $this->msg( 'notification-link-text-view-changes', $this->getViewingUserForGender() )->text(),
 			'description' => '',
 			'icon' => 'changes',
 			'prioritized' => true,
-		);
+		];
 
-		return array( $this->getAgentLink(), $viewChangesLink );
+		return [ $this->getAgentLink(), $viewChangesLink ];
 	}
 
 	private function onArticleTalkpage() {

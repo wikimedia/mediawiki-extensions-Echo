@@ -23,7 +23,7 @@ abstract class EchoLocalCache {
 	 * Lookup ids that have not been resolved for a target
 	 * @param int[]
 	 */
-	protected $lookups = array();
+	protected $lookups = [];
 
 	/**
 	 * Resolve ids in lookups to targets
@@ -34,7 +34,7 @@ abstract class EchoLocalCache {
 	 * Use Factory method like EchoTitleLocalCache::create()
 	 */
 	protected function __construct() {
-		$this->targets = new HashBagOStuff( array( 'maxKeys' => self::TARGET_MAX_NUM ) );
+		$this->targets = new HashBagOStuff( [ 'maxKeys' => self::TARGET_MAX_NUM ] );
 	}
 
 	/**
@@ -79,7 +79,7 @@ abstract class EchoLocalCache {
 	 */
 	public function clearAll() {
 		$this->targets->clear();
-		$this->lookups = array();
+		$this->lookups = [];
 	}
 
 	/**

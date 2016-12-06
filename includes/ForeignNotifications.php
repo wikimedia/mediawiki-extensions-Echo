@@ -22,22 +22,22 @@ class EchoForeignNotifications {
 	/**
 	 * @var array [(str) section => (int) count, ...]
 	 */
-	protected $counts = array( EchoAttributeManager::ALERT => 0, EchoAttributeManager::MESSAGE => 0 );
+	protected $counts = [ EchoAttributeManager::ALERT => 0, EchoAttributeManager::MESSAGE => 0 ];
 
 	/**
 	 * @var array [(str) section => (string[]) wikis, ...]
 	 */
-	protected $wikis = array( EchoAttributeManager::ALERT => array(), EchoAttributeManager::MESSAGE => array() );
+	protected $wikis = [ EchoAttributeManager::ALERT => [], EchoAttributeManager::MESSAGE => [] ];
 
 	/**
 	 * @var array [(str) section => (MWTimestamp) timestamp, ...]
 	 */
-	protected $timestamps = array( EchoAttributeManager::ALERT => false, EchoAttributeManager::MESSAGE => false );
+	protected $timestamps = [ EchoAttributeManager::ALERT => false, EchoAttributeManager::MESSAGE => false ];
 
 	/**
 	 * @var array [(str) wiki => [ (str) section => (MWTimestamp) timestamp, ...], ...]
 	 */
-	protected $wikiTimestamps = array();
+	protected $wikiTimestamps = [];
 
 	/**
 	 * @var bool
@@ -109,7 +109,7 @@ class EchoForeignNotifications {
 		$this->populate();
 
 		if ( $section === EchoAttributeManager::ALL ) {
-			$all = array();
+			$all = [];
 			foreach ( $this->wikis as $wikis ) {
 				$all = array_merge( $all, $wikis );
 			}
@@ -117,7 +117,7 @@ class EchoForeignNotifications {
 			return array_unique( $all );
 		}
 
-		return isset( $this->wikis[$section] ) ? $this->wikis[$section] : array();
+		return isset( $this->wikis[$section] ) ? $this->wikis[$section] : [];
 	}
 
 	public function getWikiTimestamp( $wiki, $section = EchoAttributeManager::ALL ) {
@@ -197,20 +197,20 @@ class EchoForeignNotifications {
 		global $wgConf;
 		$wgConf->loadFullData();
 
-		$data = array();
+		$data = [];
 		foreach ( $wikis as $wiki ) {
 			$siteFromDB = $wgConf->siteFromDB( $wiki );
 			list( $major, $minor ) = $siteFromDB;
-			$server = $wgConf->get( 'wgServer', $wiki, $major, array( 'lang' => $minor, 'site' => $major ) );
-			$scriptPath = $wgConf->get( 'wgScriptPath', $wiki, $major, array( 'lang' => $minor, 'site' => $major ) );
-			$articlePath = $wgConf->get( 'wgArticlePath', $wiki, $major, array( 'lang' => $minor, 'site' => $major ) );
+			$server = $wgConf->get( 'wgServer', $wiki, $major, [ 'lang' => $minor, 'site' => $major ] );
+			$scriptPath = $wgConf->get( 'wgScriptPath', $wiki, $major, [ 'lang' => $minor, 'site' => $major ] );
+			$articlePath = $wgConf->get( 'wgArticlePath', $wiki, $major, [ 'lang' => $minor, 'site' => $major ] );
 
-			$data[$wiki] = array(
+			$data[$wiki] = [
 				'title' => static::getWikiTitle( $wiki, $siteFromDB ),
 				'url' => wfExpandUrl( $server . $scriptPath . '/api.php', PROTO_INTERNAL ),
 				// We need this to link to Special:Notifications page
 				'base' => wfExpandUrl( $server . $articlePath, PROTO_INTERNAL ),
-			);
+			];
 		}
 
 		return $data;

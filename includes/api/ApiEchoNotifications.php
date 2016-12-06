@@ -39,7 +39,7 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 			$this->crossWikiSummary = $params['crosswikisummary'];
 		}
 
-		$results = array();
+		$results = [];
 		if ( in_array( wfWikiID(), $this->getRequestedWikis() ) ) {
 			$results[wfWikiID()] = $this->getLocalNotifications( $params );
 		}
@@ -84,7 +84,7 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 			}
 		}
 
-		$result = array();
+		$result = [];
 		if ( in_array( 'list', $prop ) ) {
 			// Group notification results by section
 			if ( $params['groupbysection'] ) {
@@ -156,13 +156,13 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 	 */
 	protected function getSectionPropList( User $user, $section, $filter, $limit, $continue, $format, array $titles = null, $unreadFirst = false, $bundle = false ) {
 		$attributeManager = EchoAttributeManager::newFromGlobalVars();
-		$sectionEvents = $attributeManager->getUserEnabledEventsbySections( $user, 'web', array( $section ) );
+		$sectionEvents = $attributeManager->getUserEnabledEventsbySections( $user, 'web', [ $section ] );
 
 		if ( !$sectionEvents ) {
-			$result = array(
-				'list' => array(),
+			$result = [
+				'list' => [],
 				'continue' => null
-			);
+			];
 		} else {
 			$result = $this->getPropList(
 				$user, $sectionEvents, $filter, $limit, $continue, $format, $titles, $unreadFirst, $bundle
@@ -188,10 +188,10 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 	 * @return array
 	 */
 	protected function getPropList( User $user, array $eventTypes, $filter, $limit, $continue, $format, array $titles = null, $unreadFirst = false, $bundle = false ) {
-		$result = array(
-			'list' => array(),
+		$result = [
+			'list' => [],
 			'continue' => null
-		);
+		];
 
 		$notifMapper = new EchoNotificationMapper();
 
@@ -223,7 +223,7 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 					if ( $first->getEvent()->getID() !== $continueId ) {
 						// notification doesn't match continue id, it must've been
 						// about read notifications: discard all unread ones
-						$notifs = array();
+						$notifs = [];
 					}
 				}
 
@@ -250,7 +250,7 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 					}
 				}
 			} else {
-				$notifs = $notifMapper->fetchByUser( $user, $limit + 1, $continue, $eventTypes, array(), $titles );
+				$notifs = $notifMapper->fetchByUser( $user, $limit + 1, $continue, $eventTypes, [], $titles );
 			}
 		} elseif ( in_array( 'read', $filter ) ) {
 			$notifs = $notifMapper->fetchReadByUser( $user, $limit + 1, $continue, $eventTypes, $titles );
@@ -299,7 +299,7 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 	 * @return array
 	 */
 	protected function getPropCount( User $user, array $sections, $groupBySection ) {
-		$result = array();
+		$result = [];
 		$notifUser = MWEchoNotifUser::newFromUser( $user );
 		$global = $this->crossWikiSummary ? 'preference' : false;
 
@@ -326,7 +326,7 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 	 * @return array
 	 */
 	protected function getPropSeenTime( User $user, array $sections, $groupBySection ) {
-		$result = array();
+		$result = [];
 		$seenTimeHelper = EchoSeenTime::newFromUser( $user );
 
 		if ( $groupBySection ) {
@@ -334,7 +334,7 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 				$result[$section]['seenTime'] = $seenTimeHelper->getTime( $section, TS_ISO_8601 );
 			}
 		} else {
-			$result['seenTime'] = array();
+			$result['seenTime'] = [];
 			foreach ( $sections as $section ) {
 				$result['seenTime'][$section] = $seenTimeHelper->getTime( $section, TS_ISO_8601 );
 			}
@@ -366,10 +366,10 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 			if ( !$potentialWikis ) {
 				return false;
 			}
-			$foreignResults = $this->getFromForeign( $potentialWikis, array( $this->getModulePrefix() . 'filter' => '!read' ) );
+			$foreignResults = $this->getFromForeign( $potentialWikis, [ $this->getModulePrefix() . 'filter' => '!read' ] );
 
-			$countsByWiki = array();
-			$timestampsByWiki = array();
+			$countsByWiki = [];
+			$timestampsByWiki = [];
 			foreach ( $foreignResults as $wiki => $result ) {
 				if ( isset( $result['query']['notifications']['list'] ) ) {
 					$notifs = $result['query']['notifications']['list'];
@@ -400,7 +400,7 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 			$wikis = $this->foreignNotifications->getWikis( $section );
 			$count = $this->foreignNotifications->getCount( $section );
 			$maxTimestamp = $this->foreignNotifications->getTimestamp( $section );
-			$timestampsByWiki = array();
+			$timestampsByWiki = [];
 			foreach ( $wikis as $wiki ) {
 				$timestampsByWiki[$wiki] = $this->foreignNotifications->getWikiTimestamp( $wiki, $section );
 			}
@@ -424,11 +424,11 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 		$row->event_page_id = null;
 		$row->event_page_namespace = null;
 		$row->event_page_title = null;
-		$row->event_extra = serialize( array(
+		$row->event_extra = serialize( [
 			'section' => $section ?: 'all',
 			'wikis' => $wikis,
 			'count' => $count
-		) );
+		] );
 		$row->event_deleted = 0;
 
 		$row->notification_user = $user->getId();
@@ -470,7 +470,7 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 	protected function mergeResults( array $results, array $params ) {
 		$master = array_shift( $results );
 		if ( !$master ) {
-			$master = array();
+			$master = [];
 		}
 
 		if ( in_array( 'list', $params['prop'] ) ) {
@@ -502,7 +502,7 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 		if ( $groupBySection ) {
 			foreach ( EchoAttributeManager::$sections as $section ) {
 				if ( !isset( $master[$section]['list'] ) ) {
-					$master[$section]['list'] = array();
+					$master[$section]['list'] = [];
 				}
 				foreach ( $results as $result ) {
 					$master[$section]['list'] = array_merge( $master[$section]['list'], $result[$section]['list'] );
@@ -511,7 +511,7 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 			}
 		} else {
 			if ( !isset( $master['list'] ) || !is_array( $master['list'] ) ) {
-				$master['list'] = array();
+				$master['list'] = [];
 			}
 			foreach ( $results as $result ) {
 				$master['list'] = array_merge( $master['list'], $result['list'] );
@@ -557,82 +557,82 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 		$sections = EchoAttributeManager::$sections;
 
 		$params = parent::getAllowedParams();
-		$params += array(
-			'filter' => array(
+		$params += [
+			'filter' => [
 				ApiBase::PARAM_ISMULTI => true,
 				ApiBase::PARAM_DFLT => 'read|!read',
-				ApiBase::PARAM_TYPE => array(
+				ApiBase::PARAM_TYPE => [
 					'read',
 					'!read',
-				),
-			),
-			'prop' => array(
+				],
+			],
+			'prop' => [
 				ApiBase::PARAM_ISMULTI => true,
-				ApiBase::PARAM_TYPE => array(
+				ApiBase::PARAM_TYPE => [
 					'list',
 					'count',
 					'seenTime',
-				),
+				],
 				ApiBase::PARAM_DFLT => 'list',
-			),
-			'sections' => array(
+			],
+			'sections' => [
 				ApiBase::PARAM_DFLT => implode( '|', $sections ),
 				ApiBase::PARAM_TYPE => $sections,
 				ApiBase::PARAM_ISMULTI => true,
-			),
-			'groupbysection' => array(
+			],
+			'groupbysection' => [
 				ApiBase::PARAM_TYPE => 'boolean',
 				ApiBase::PARAM_DFLT => false,
-			),
-			'format' => array(
-				ApiBase::PARAM_TYPE => array(
+			],
+			'format' => [
+				ApiBase::PARAM_TYPE => [
 					'text',
 					'model',
 					'special',
 					'flyout', /* @deprecated */
 					'html', /* @deprecated */
-				),
-				ApiBase::PARAM_HELP_MSG_PER_VALUE => array(),
-			),
-			'limit' => array(
+				],
+				ApiBase::PARAM_HELP_MSG_PER_VALUE => [],
+			],
+			'limit' => [
 				ApiBase::PARAM_TYPE => 'limit',
 				ApiBase::PARAM_DFLT => 20,
 				ApiBase::PARAM_MIN => 1,
 				ApiBase::PARAM_MAX => ApiBase::LIMIT_SML1,
 				ApiBase::PARAM_MAX2 => ApiBase::LIMIT_SML2,
-			),
-			'continue' => array(
+			],
+			'continue' => [
 				ApiBase::PARAM_HELP_MSG => 'api-help-param-continue',
-			),
-			'unreadfirst' => array(
+			],
+			'unreadfirst' => [
 				ApiBase::PARAM_TYPE => 'boolean',
 				ApiBase::PARAM_DFLT => false,
-			),
-			'titles' => array(
+			],
+			'titles' => [
 				ApiBase::PARAM_ISMULTI => true,
-			),
-			'bundle' => array(
+			],
+			'bundle' => [
 				ApiBase::PARAM_TYPE => 'boolean',
 				ApiBase::PARAM_DFLT => false,
-			),
-		);
+			],
+		];
 		foreach ( $sections as $section ) {
 			$params[$section . 'continue'] = null;
-			$params[$section . 'unreadfirst'] = array(
+			$params[$section . 'unreadfirst'] = [
 				ApiBase::PARAM_TYPE => 'boolean',
 				ApiBase::PARAM_DFLT => false,
-			);
+			];
 		}
 
 		if ( $this->allowCrossWikiNotifications() ) {
-			$params += array(
+			$params += [
 				// create "x notifications from y wikis" notification bundle &
 				// include unread counts from other wikis in prop=count results
-				'crosswikisummary' => array(
+				'crosswikisummary' => [
 					ApiBase::PARAM_TYPE => 'boolean',
 					ApiBase::PARAM_DFLT => false,
-				),
-			);
+				],
+			];
 		}
 
 		return $params;
@@ -642,12 +642,12 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 	 * @see ApiBase::getExamplesMessages()
 	 */
 	protected function getExamplesMessages() {
-		return array(
+		return [
 			'action=query&meta=notifications'
 				=> 'apihelp-query+notifications-example-1',
 			'action=query&meta=notifications&notprop=count&notsections=alert|message&notgroupbysection=1'
 				=> 'apihelp-query+notifications-example-2',
-		);
+		];
 	}
 
 	public function getHelpUrls() {

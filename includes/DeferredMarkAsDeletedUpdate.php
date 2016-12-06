@@ -9,7 +9,7 @@ class EchoDeferredMarkAsDeletedUpdate implements DeferrableUpdate {
 	/**
 	 * @var array
 	 */
-	protected $events = array();
+	protected $events = [];
 
 	/**
 	 * @param EchoEvent $event
@@ -40,10 +40,10 @@ class EchoDeferredMarkAsDeletedUpdate implements DeferrableUpdate {
 					// Do not moderate it at this time.
 					LoggerFactory::getInstance( 'Echo' )->debug(
 						'EchoDeferredMarkAsDeletedUpdate: Event {eventId} was found unrenderable but its associated title exists on Master. Skipping.',
-						array(
+						[
 							'eventId' => $event->getId(),
 							'title' => $event->getTitle()->getPrefixedText(),
-						)
+						]
 					);
 					return false;
 				}
@@ -67,6 +67,6 @@ class EchoDeferredMarkAsDeletedUpdate implements DeferrableUpdate {
 		);
 
 		EchoModerationController::moderate( $eventIds, true );
-		$this->events = array();
+		$this->events = [];
 	}
 }

@@ -6,7 +6,7 @@ abstract class EchoDiscussionParser {
 	const HEADER_REGEX = '^(==+)\s*([^=].*)\s*\1$';
 
 	static protected $timestampRegex;
-	static protected $revisionInterpretationCache = array();
+	static protected $revisionInterpretationCache = [];
 	static protected $diffParser;
 
 	/**
@@ -80,18 +80,18 @@ abstract class EchoDiscussionParser {
 					if ( $section['section-text'] === '' ) {
 						$section['section-text'] = $revision->getComment();
 					}
-					EchoEvent::create( array(
+					EchoEvent::create( [
 						'type' => 'edit-user-talk',
 						'title' => $title,
-						'extra' => array(
+						'extra' => [
 							'revid' => $revision->getId(),
 							'minoredit' => $revision->isMinor(),
 							'section-title' => $section['section-title'],
 							'section-text' => $section['section-text'],
 							'target-page' => $title->getArticleID(),
-						),
+						],
 						'agent' => $user,
-					) );
+					] );
 				}
 			}
 		}
@@ -141,10 +141,10 @@ abstract class EchoDiscussionParser {
 			}
 		}
 		if ( $found === false ) {
-			return array( 'section-title' => '', 'section-text' => '' );
+			return [ 'section-title' => '', 'section-text' => '' ];
 		}
 
-		return array( 'section-title' => $header, 'section-text' => $snippet );
+		return [ 'section-title' => $header, 'section-text' => $snippet ];
 	}
 
 	/**
@@ -186,83 +186,83 @@ abstract class EchoDiscussionParser {
 
 		if ( $overallMentionsCount > $wgEchoMaxMentionsCount ) {
 			if ( $wgEchoMentionStatusNotifications ) {
-				EchoEvent::create( array(
+				EchoEvent::create( [
 					'type' => 'mention-failure-too-many',
 					'title' => $title,
-					'extra' => array(
+					'extra' => [
 						'max-mentions' => $wgEchoMaxMentionsCount,
 						'section-title' => $header,
 						'notifyAgent' => true
-					),
+					],
 					'agent' => $agent,
-				) );
+				] );
 				$stats->increment( 'echo.event.mention.notification.failure-too-many' );
 			}
 			return;
 		}
 
 		if ( $userMentions['validMentions'] ) {
-			EchoEvent::create( array(
+			EchoEvent::create( [
 				'type' => 'mention',
 				'title' => $title,
-				'extra' => array(
+				'extra' => [
 					'content' => $content,
 					'section-title' => $header,
 					'revid' => $revision->getId(),
 					'mentioned-users' => $userMentions['validMentions'],
-				),
+				],
 				'agent' => $agent,
-			) );
+			] );
 		}
 
 		if ( $wgEchoMentionStatusNotifications ) {
 			// TODO batch?
 			foreach ( $userMentions['validMentions'] as $mentionedUserId ) {
-				EchoEvent::create( array(
+				EchoEvent::create( [
 					'type' => 'mention-success',
 					'title' => $title,
-					'extra' => array(
+					'extra' => [
 						'subject-name' => User::newFromId( $mentionedUserId )->getName(),
 						'section-title' => $header,
 						'revid' => $revision->getId(),
 						'notifyAgent' => true
-					),
+					],
 					'agent' => $agent,
-				) );
+				] );
 				$stats->increment( 'echo.event.mention.notification.success' );
 			}
 
 			// TODO batch?
 			foreach ( $userMentions['anonymousUsers'] as $anonymousUser ) {
-				EchoEvent::create( array(
+				EchoEvent::create( [
 					'type' => 'mention-failure',
 					'title' => $title,
-					'extra' => array(
+					'extra' => [
 						'failure-type' => 'user-anonymous',
 						'subject-name' => $anonymousUser,
 						'section-title' => $header,
 						'revid' => $revision->getId(),
 						'notifyAgent' => true
-					),
+					],
 					'agent' => $agent,
-				) );
+				] );
 				$stats->increment( 'echo.event.mention.notification.failure-user-anonymous' );
 			}
 
 			// TODO batch?
 			foreach ( $userMentions['unknownUsers'] as $unknownUser ) {
-				EchoEvent::create( array(
+				EchoEvent::create( [
 					'type' => 'mention-failure',
 					'title' => $title,
-					'extra' => array(
+					'extra' => [
 						'failure-type' => 'user-unknown',
 						'subject-name' => $unknownUser,
 						'section-title' => $header,
 						'revid' => $revision->getId(),
 						'notifyAgent' => true
-					),
+					],
 					'agent' => $agent,
-				) );
+				] );
 				$stats->increment( 'echo.event.mention.notification.failure-user-unknown' );
 			}
 		}
@@ -281,11 +281,11 @@ abstract class EchoDiscussionParser {
 	 */
 	private static function getUserMentions( Title $title, $revisionUserId, array $userLinks ) {
 		global $wgEchoMaxMentionsCount;
-		$userMentions = array(
-			'validMentions' => array(),
-			'unknownUsers' => array(),
-			'anonymousUsers' => array(),
-		);
+		$userMentions = [
+			'validMentions' => [],
+			'unknownUsers' => [],
+			'anonymousUsers' => [],
+		];
 
 		$count = 0;
 		$stats = MediaWikiServices::getInstance()->getStatsdDataFactory();
@@ -378,7 +378,7 @@ abstract class EchoDiscussionParser {
 	 * @return ParserOutput
 	 */
 	static function parseNonEditWikitext( $wikitext, Article $article ) {
-		static $cache = array();
+		static $cache = [];
 
 		$cacheKey = md5( $wikitext ) . ':' . $article->getTitle()->getPrefixedText();
 
@@ -464,8 +464,8 @@ abstract class EchoDiscussionParser {
 	 */
 	static function interpretDiff( $changes, $username, Title $title = null ) {
 		// One extra item in $changes for _info
-		$actions = array();
-		$signedSections = array();
+		$actions = [];
+		$signedSections = [];
 
 		foreach ( $changes as $index => $change ) {
 			if ( !is_numeric( $index ) ) {
@@ -493,17 +493,17 @@ abstract class EchoDiscussionParser {
 					if ( $sectionCount === 0 ) {
 						$signedSections[] = self::getSectionSpan( $change['right-pos'], $changes['_info']['rhs'] );
 						$fullSection = self::getFullSection( $changes['_info']['rhs'], $change['right-pos'] );
-						$actions[] = array(
+						$actions[] = [
 							'type' => 'add-comment',
 							'content' => $content,
 							'full-section' => $fullSection,
-						);
+						];
 					} elseif ( $startSection && $sectionCount === 1 ) {
 						$signedSections[] = self::getSectionSpan( $change['right-pos'], $changes['_info']['rhs'] );
-						$actions[] = array(
+						$actions[] = [
 							'type' => 'new-section-with-comment',
 							'content' => $content,
-						);
+						];
 					} else {
 						$nextSectionStart = $change['right-pos'];
 						$sectionData = self::extractSections( $content );
@@ -517,43 +517,43 @@ abstract class EchoDiscussionParser {
 									$fullSection = self::getFullSection( $changes['_info']['rhs'], $change['right-pos'] );
 									$section['header'] = self::extractHeader( $fullSection );
 								}
-								$actions[] = array(
+								$actions[] = [
 									'type' => 'add-section-multiple',
 									'content' => $section['content'],
 									'header' => $section['header'],
-								);
+								];
 							} else {
-								$actions[] = array(
+								$actions[] = [
 									'type' => 'unknown-unsigned-addition',
 									'content' => $section['content'],
-								);
+								];
 							}
 						}
 					}
 				} elseif ( count( $signedUsers ) >= 1 ) {
-					$actions[] = array(
+					$actions[] = [
 						'type' => 'unknown-multi-signed-addition',
 						'content' => $content,
-					);
+					];
 				} else {
-					$actions[] = array(
+					$actions[] = [
 						'type' => 'unknown-unsigned-addition',
 						'content' => $content,
-					);
+					];
 				}
 			} elseif ( $change['action'] == 'subtract' ) {
-				$actions[] = array(
+				$actions[] = [
 					'type' => 'unknown-subtraction',
 					'content' => $change['content'],
-				);
+				];
 			} elseif ( $change['action'] == 'change' ) {
-				$actions[] = array(
+				$actions[] = [
 					'type' => 'unknown-change',
 					'old_content' => $change['old_content'],
 					'new_content' => $change['new_content'],
 					'right-pos' => $change['right-pos'],
 					'full-section' => self::getFullSection( $changes['_info']['rhs'], $change['right-pos'] ),
-				);
+				];
 
 				if ( self::hasNewSignature(
 					$change['old_content'],
@@ -564,10 +564,10 @@ abstract class EchoDiscussionParser {
 					$signedSections[] = self::getSectionSpan( $change['right-pos'], $changes['_info']['rhs'] );
 				}
 			} else {
-				$actions[] = array(
+				$actions[] = [
 					'type' => 'unknown',
 					'details' => $change,
-				);
+				];
 			}
 		}
 
@@ -642,10 +642,10 @@ abstract class EchoDiscussionParser {
 	 * @return array tuple [$firstLine, $lastLine]
 	 */
 	static function getSectionSpan( $offset, $lines ) {
-		return array(
+		return [
 			self::getSectionStartIndex( $offset, $lines ),
 			self::getSectionEndIndex( $offset, $lines )
-		);
+		];
 	}
 
 	/**
@@ -690,7 +690,7 @@ abstract class EchoDiscussionParser {
 	static function getSectionCount( $text ) {
 		$text = trim( $text );
 
-		$matches = array();
+		$matches = [];
 		preg_match_all( '/' . self::HEADER_REGEX . '/um', $text, $matches );
 
 		return count( $matches[0] );
@@ -705,7 +705,7 @@ abstract class EchoDiscussionParser {
 	static function extractHeader( $text ) {
 		$text = trim( $text );
 
-		$matches = array();
+		$matches = [];
 
 		if ( !preg_match_all( '/' . self::HEADER_REGEX . '/um', $text, $matches ) ) {
 			return false;
@@ -724,23 +724,23 @@ abstract class EchoDiscussionParser {
 	 * - [content]: The content of the section including the header string.
 	 */
 	private static function extractSections( $text ) {
-		$matches = array();
+		$matches = [];
 
 		if ( !preg_match_all( '/' . self::HEADER_REGEX . '/um', $text, $matches, PREG_OFFSET_CAPTURE ) ) {
-			return array( array(
+			return [ [
 				'header' => false,
 				'content' => $text
-			) );
+			] ];
 		}
 
 		$sectionNum = count( $matches[0] );
-		$sections = array();
+		$sections = [];
 
 		if ( $matches[0][0][1] > 1 ) { // is there text before the first headline?
-			$sections[] = array(
+			$sections[] = [
 				'header' => false,
 				'content' =>  substr( $text, 0, $matches[0][0][1] - 1 )
-			);
+			];
 		}
 		for ( $i = 0; $i < $sectionNum; $i++ ) {
 			if ( $i + 1 < $sectionNum ) {
@@ -748,10 +748,10 @@ abstract class EchoDiscussionParser {
 			} else {
 				$content = substr( $text, $matches[0][$i][1] );
 			}
-			$sections[] = array(
+			$sections[] = [
 				'header' => self::extractHeader( $matches[0][$i][0] ),
 				'content' =>  trim( $content )
-			);
+			];
 		}
 
 		return $sections;
@@ -791,7 +791,7 @@ abstract class EchoDiscussionParser {
 
 		// Now if there is only one list item, strip that too
 		$listRegex = '/^\s*(?:[\:#*]\s*)*[#*]/m';
-		$matches = array();
+		$matches = [];
 		if ( preg_match_all( $listRegex, $text, $matches ) ) {
 			if ( count( $matches ) == 1 ) {
 				$text = preg_replace( $listRegex, '', $text );
@@ -844,7 +844,7 @@ abstract class EchoDiscussionParser {
 	static function getTimestampPosition( $line ) {
 		$timestampRegex = self::getTimestampRegex();
 		$endOfLine = self::getLineEndingRegex();
-		$tsMatches = array();
+		$tsMatches = [];
 		if ( !preg_match(
 			"/$timestampRegex$endOfLine/mu",
 			$line,
@@ -893,7 +893,7 @@ abstract class EchoDiscussionParser {
 	static function extractSignatures( $text, Title $title = null ) {
 		$lines = explode( "\n", $text );
 
-		$output = array();
+		$output = [];
 
 		$lineNumber = 0;
 
@@ -933,12 +933,12 @@ abstract class EchoDiscussionParser {
 		 */
 		// match all title-like excerpts in this line
 		if ( !preg_match_all( '/\[\[([^\[]+)\]\]/', $line, $matches ) ) {
-			return array();
+			return [];
 		}
 
 		$matches = $matches[1];
 
-		$usernames = array();
+		$usernames = [];
 
 		foreach ( $matches as $match ) {
 			/*
@@ -1006,7 +1006,7 @@ abstract class EchoDiscussionParser {
 			// see if we can find this user's generated signature in the content
 			$pos = strrpos( $line, $sig );
 			if ( $pos !== false ) {
-				return array( $pos, $username );
+				return [ $pos, $username ];
 			}
 			// couldn't find sig, move on to next link excerpt and try there
 		}
@@ -1052,7 +1052,7 @@ abstract class EchoDiscussionParser {
 			// Look for another place.
 			return self::getLinkFromLine( $line, $linkPrefix, $linkPos );
 		} else {
-			return array( $linkPos, $linkUser );
+			return [ $linkPos, $linkUser ];
 		}
 	}
 
@@ -1067,7 +1067,7 @@ abstract class EchoDiscussionParser {
 	static function extractUserFromLink( $text, $prefix, $offset = 0 ) {
 		$userPart = substr( $text, strlen( $prefix ) + $offset );
 
-		$userMatches = array();
+		$userMatches = [];
 		if ( !preg_match(
 			'/^[^\|\]\#]+/u',
 			$userPart,
@@ -1100,13 +1100,13 @@ abstract class EchoDiscussionParser {
 	 * @return string regular expression fragment.
 	 */
 	static function getLineEndingRegex() {
-		$ignoredEndings = array(
+		$ignoredEndings = [
 			'\s*',
 			preg_quote( '}' ),
 			preg_quote( '{' ),
 			'\<[^\>]+\>',
 			preg_quote( '{{' ) . '[^}]+' . preg_quote( '}}' ),
-		);
+		];
 
 		$regex = '(?:' . implode( '|', $ignoredEndings ) . ')*';
 
@@ -1138,7 +1138,7 @@ abstract class EchoDiscussionParser {
 		// Trim off the timezone to replace at the end
 		$output = $exemplarTimestamp;
 		$tzRegex = '/\s*\(\w+\)\s*$/';
-		$tzMatches = array();
+		$tzMatches = [];
 		if ( preg_match( $tzRegex, $output, $tzMatches ) ) {
 			$output = preg_replace( $tzRegex, '', $output );
 		}

@@ -17,9 +17,9 @@ class EchoWelcomePresentationModel extends EchoEventPresentationModel {
 			return false;
 		}
 
-		return array(
+		return [
 			'url' => $title->getFullURL(),
 			'label' => $this->msg( 'notification-welcome-linktext' )->text(),
-		);
+		];
 	}
 }

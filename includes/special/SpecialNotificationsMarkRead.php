@@ -42,8 +42,8 @@ class SpecialNotificationsMarkRead extends FormSpecialPage {
 	 * @return array
 	 */
 	protected function getFormFields() {
-		return array(
-			'id' => array(
+		return [
+			'id' => [
 				'type' => 'hidden',
 				'required' => true,
 				'default' => $this->par,
@@ -63,8 +63,8 @@ class SpecialNotificationsMarkRead extends FormSpecialPage {
 					}
 					return true;
 				}
-			)
-		);
+			]
+		];
 	}
 
 	/**
@@ -80,7 +80,7 @@ class SpecialNotificationsMarkRead extends FormSpecialPage {
 	 */
 	public function getMinimalForm( $idValue, $submitButtonValue, $framed, $submitLabelHtml ) {
 		if ( !is_array( $idValue ) ) {
-			$idValue = array( $idValue );
+			$idValue = [ $idValue ];
 		}
 
 		$idString = join( ',', $idValue );
@@ -102,12 +102,12 @@ class SpecialNotificationsMarkRead extends FormSpecialPage {
 
 		$form->setAction( $this->getPageTitle()->getLocalURL() );
 
-		$form->addButton( array(
+		$form->addButton( [
 			'name' => 'submit',
 			'value' => $submitButtonValue,
 			'label-raw' => $submitLabelHtml,
 			'framed' => $framed,
-		) );
+		] );
 
 		return $form;
 	}

@@ -5,18 +5,18 @@
  */
 class EchoUserLocatorTest extends MediaWikiTestCase {
 
-	protected $tablesUsed = array( 'user', 'watchlist' );
+	protected $tablesUsed = [ 'user', 'watchlist' ];
 
 	public function testLocateUsersWatchingTitle() {
 		$title = Title::makeTitleSafe( NS_USER_TALK, 'Something_something_something' );
 		$key = $title->getDBkey();
 
 		for ( $i = 1000; $i < 1050; ++$i ) {
-			$rows[] = array(
+			$rows[] = [
 				'wl_user' => $i,
 				'wl_namespace' => NS_USER_TALK,
 				'wl_title' => $key
-			);
+			];
 		}
 		wfGetDB( DB_MASTER )->insert( 'watchlist', $rows, __METHOD__ );
 
@@ -37,24 +37,24 @@ class EchoUserLocatorTest extends MediaWikiTestCase {
 	}
 
 	public function locateTalkPageOwnerProvider() {
-		return array(
-			array(
+		return [
+			[
 				'Allows null event title',
 				// expected user id's
-				array(),
+				[],
 				// event title
 				null
-			),
+			],
 
-			array(
+			[
 				'No users selected for non-user talk namespace',
 				// expected user id's
-				array(),
+				[],
 				// event title
 				Title::newMainPage(),
-			),
+			],
 
-			array(
+			[
 				'Selects user from NS_USER_TALK',
 				// callback returning expected user ids and event title.
 				// required because database insert must be inside test.
@@ -62,13 +62,13 @@ class EchoUserLocatorTest extends MediaWikiTestCase {
 					$user = User::newFromName( 'UTUser' );
 					$user->addToDatabase();
 
-					return array(
-						array( $user->getId() ),
+					return [
+						[ $user->getId() ],
 						$user->getTalkPage(),
-					);
+					];
 				}
-			),
-		);
+			],
+		];
 	}
 
 	/**
@@ -88,21 +88,21 @@ class EchoUserLocatorTest extends MediaWikiTestCase {
 	}
 
 	public function locateArticleCreatorProvider() {
-		return array(
-			array(
+		return [
+			[
 				'Something',
 				function () {
 					$user = User::newFromName( 'UTUser' );
 					$user->addToDatabase();
 
-					return array(
-						array( $user->getId() ),
+					return [
+						[ $user->getId() ],
 						$user->getTalkPage(),
 						$user
-					);
+					];
 				}
-			),
-		);
+			],
+		];
 	}
 
 	/**
@@ -132,31 +132,31 @@ class EchoUserLocatorTest extends MediaWikiTestCase {
 	}
 
 	public static function locateEventAgentProvider() {
-		return array(
-			array(
+		return [
+			[
 				'Null event agent returns no users',
 				// expected result user id's
-				array(),
+				[],
 				// event agent
 				null,
-			),
+			],
 
-			array(
+			[
 				'Anonymous event agent returns no users',
 				// expected result user id's
-				array(),
+				[],
 				// event agent
 				User::newFromName( '4.5.6.7', /* $validate = */ false ),
-			),
+			],
 
-			array(
+			[
 				'Registed event agent returned as user',
 				// expected result user id's
-				array( 42 ),
+				[ 42 ],
 				// event agent
 				User::newFromId( 42 ),
-			),
-		);
+			],
+		];
 	}
 
 	/**
@@ -173,68 +173,68 @@ class EchoUserLocatorTest extends MediaWikiTestCase {
 	}
 
 	public function locateFromEventExtraProvider() {
-		return array(
-			array(
+		return [
+			[
 				'Event without extra data returns empty result',
 				// expected user list
-				array(),
+				[],
 				// event extra data
-				array(),
+				[],
 				// extra keys to get ids from
-				array( 'foo' ),
-			),
+				[ 'foo' ],
+			],
 
-			array(
+			[
 				'Event with specified extra data returns expected result',
 				// expected user list
-				array( 123 ),
+				[ 123 ],
 				// event extra data
-				array( 'foo' => 123 ),
+				[ 'foo' => 123 ],
 				// extra keys to get ids from
-				array( 'foo' ),
-			),
+				[ 'foo' ],
+			],
 
-			array(
+			[
 				'Accepts User objects instead of user ids',
 				// expected user list
-				array( 123 ),
+				[ 123 ],
 				// event extra data
-				array( 'foo' => User::newFromId( 123 ) ),
+				[ 'foo' => User::newFromId( 123 ) ],
 				// extra keys to get ids from
-				array( 'foo' ),
-			),
+				[ 'foo' ],
+			],
 
-			array(
+			[
 				'Allows inner key to be array of ids',
 				// expected user list
-				array( 123, 321 ),
+				[ 123, 321 ],
 				// event extra data
-				array( 'foo' => array( 123, 321 ) ),
+				[ 'foo' => [ 123, 321 ] ],
 				// extra keys to get ids from
-				array( 'foo' ),
-			),
+				[ 'foo' ],
+			],
 
-			array(
+			[
 				'Empty inner array causes no error',
 				// expected user list
-				array(),
+				[],
 				// event extra data
-				array( 'foo' => array() ),
+				[ 'foo' => [] ],
 				// extra keys to get ids from
-				array( 'foo' ),
-			),
+				[ 'foo' ],
+			],
 
-			array(
+			[
 				'Accepts User object at inner level',
 				// expected user list
-				array( 123 ),
+				[ 123 ],
 				// event extra data
-				array( 'foo' => array( User::newFromId( 123 ) ) ),
+				[ 'foo' => [ User::newFromId( 123 ) ] ],
 				// extra keys to get ids from
-				array( 'foo' ),
-			),
+				[ 'foo' ],
+			],
 
-		);
+		];
 	}
 
 	/**
@@ -254,10 +254,10 @@ class EchoUserLocatorTest extends MediaWikiTestCase {
 	}
 
 	protected static function arrayToValueMap( array $array ) {
-		$result = array();
+		$result = [];
 		foreach ( $array as $key => $value ) {
 			// EchoEvent::getExtraParam second argument defaults to null
-			$result[] = array( $key, null, $value );
+			$result[] = [ $key, null, $value ];
 		}
 
 		return $result;

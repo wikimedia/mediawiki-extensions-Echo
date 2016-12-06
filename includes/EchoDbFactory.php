@@ -75,7 +75,7 @@ class MWEchoDbFactory {
 	 * @param $groups mixed Query groups.
 	 * @return IDatabase
 	 */
-	public function getEchoDb( $db, $groups = array() ) {
+	public function getEchoDb( $db, $groups = [] ) {
 		return $this->getLB()->getConnection( $db, $groups );
 	}
 
@@ -84,7 +84,7 @@ class MWEchoDbFactory {
 	 * @param array $groups Query groups
 	 * @return bool|IDatabase false if no shared db is configured
 	 */
-	public function getSharedDb( $db, $groups = array() ) {
+	public function getSharedDb( $db, $groups = [] ) {
 		if ( !$this->shared ) {
 			return false;
 		}
@@ -104,7 +104,7 @@ class MWEchoDbFactory {
 	 * @param $wiki string|bool The wiki ID, or false for the current wiki
 	 * @return IDatabase
 	 */
-	public static function getDB( $db, $groups = array(), $wiki = false ) {
+	public static function getDB( $db, $groups = [], $wiki = false ) {
 		global $wgEchoCluster;
 
 		// Use the external db defined for Echo
@@ -131,10 +131,10 @@ class MWEchoDbFactory {
 	 * @return array
 	 */
 	public function getMasterPosition() {
-		$position = array(
+		$position = [
 			'wikiDb' => false,
 			'echoDb' => false,
-		);
+		];
 		$lb = MediaWikiServices::getInstance()->getDBLoadBalancer();
 		if ( $lb->getServerCount() > 1 ) {
 			$position['wikiDb'] = $lb->getMasterPos();

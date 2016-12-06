@@ -12,12 +12,12 @@ class EchoUserRightsPresentationModel extends EchoEventPresentationModel {
 	public function getHeaderMessage() {
 		list( $formattedName, $genderName ) = $this->getAgentForOutput();
 		$add = array_map(
-			array( $this->language, 'embedBidi' ),
-			$this->getLocalizedGroupNames( array_values( $this->event->getExtraParam( 'add', array() ) ) )
+			[ $this->language, 'embedBidi' ],
+			$this->getLocalizedGroupNames( array_values( $this->event->getExtraParam( 'add', [] ) ) )
 		);
 		$remove = array_map(
-			array( $this->language, 'embedBidi' ),
-			$this->getLocalizedGroupNames( array_values( $this->event->getExtraParam( 'remove', array() ) ) )
+			[ $this->language, 'embedBidi' ],
+			$this->getLocalizedGroupNames( array_values( $this->event->getExtraParam( 'remove', [] ) ) )
 		);
 		if ( $add && !$remove ) {
 			$msg = $this->msg( 'notification-header-user-rights-add-only' );
@@ -58,8 +58,8 @@ class EchoUserRightsPresentationModel extends EchoEventPresentationModel {
 	}
 
 	public function getPrimaryLink() {
-		$addedGroups = array_values( $this->event->getExtraParam( 'add', array() ) );
-		$removedGroups = array_values( $this->event->getExtraParam( 'remove', array() ) );
+		$addedGroups = array_values( $this->event->getExtraParam( 'add', [] ) );
+		$removedGroups = array_values( $this->event->getExtraParam( 'remove', [] ) );
 		if ( count( $addedGroups ) >= 1 && count( $removedGroups ) === 0 ) {
 			$fragment = $addedGroups[0];
 		} elseif ( count( $addedGroups ) === 0 && count( $removedGroups ) >= 1 ) {
@@ -67,30 +67,30 @@ class EchoUserRightsPresentationModel extends EchoEventPresentationModel {
 		} else {
 			$fragment = '';
 		}
-		return array(
+		return [
 			'url' => SpecialPage::getTitleFor( 'Listgrouprights', false, $fragment )->getFullURL(),
 			'label' => $this->msg( 'echo-learn-more' )->text()
-		);
+		];
 	}
 
 	public function getSecondaryLinks() {
-		return array( $this->getAgentLink(), $this->getLogLink() );
+		return [ $this->getAgentLink(), $this->getLogLink() ];
 	}
 
 	private function getLogLink() {
 		$affectedUserPage = User::newFromId( $this->event->getExtraParam( 'user' ) )->getUserPage();
-		$query = array(
+		$query = [
 			'type' => 'rights',
 			'page' => $affectedUserPage->getPrefixedText(),
 			'user' => $this->event->getAgent()->getName(),
-		);
-		return array(
+		];
+		return [
 			'label' => $this->msg( 'echo-log' )->text(),
 			'url' => SpecialPage::getTitleFor( 'Log' )->getFullURL( $query ),
 			'description' => '',
 			'icon' => false,
 			'prioritized' => true,
-		);
+		];
 	}
 
 	protected function getSubjectMessageKey() {

@@ -114,14 +114,14 @@ class EchoDiffParser {
 
 		$this->leftPos = 0;
 		$this->rightPos = 0;
-		$this->changeSet = array(
-			'_info' => array(
+		$this->changeSet = [
+			'_info' => [
 				'lhs-length' => count( $this->left ),
 				'rhs-length' => count( $this->right ),
 				'lhs' => $this->left,
 				'rhs' => $this->right,
-			),
-		);
+			],
+		];
 
 		$change = null;
 		foreach ( $diff as $line ) {
@@ -222,12 +222,12 @@ class EchoDiffGroup {
 	/**
 	 * @var array The lines that have been added
 	 */
-	protected $new = array();
+	protected $new = [];
 
 	/**
 	 * @var array The lines that have been removed
 	 */
-	protected $old = array();
+	protected $old = [];
 
 	/**
 	 * @param integer $leftPos The starting line number in the left text
@@ -235,10 +235,10 @@ class EchoDiffGroup {
 	 */
 	public function __construct( $leftPos, $rightPos ) {
 		// +1 due to the origional code use 1 indexing for this result
-		$this->position = array(
+		$this->position = [
 			'right-pos' => $rightPos + 1,
 			'left-pos' => $leftPos + 1,
-		);
+		];
 	}
 
 	/**
@@ -270,17 +270,17 @@ class EchoDiffGroup {
 		$old = implode( "\n", $this->old );
 		$new = implode( "\n", $this->new );
 		$position = $this->position;
-		$changeSet = array();
+		$changeSet = [];
 
 		// The implodes must come first because we consider array( '' ) to also be false
 		// meaning a blank link replaced with content is an addition
 		if ( $old && $new ) {
 			$min = min( count( $this->old ), count( $this->new ) );
-			$changeSet[] = $position + array(
+			$changeSet[] = $position + [
 				'action' => 'change',
 				'old_content' => implode( "\n", array_slice( $this->old, 0, $min ) ),
 				'new_content' => implode( "\n", array_slice( $this->new, 0, $min ) ),
-			);
+			];
 			$position['left-pos'] += $min;
 			$position['right-pos'] += $min;
 			$old = implode( "\n", array_slice( $this->old, $min ) );
@@ -288,15 +288,15 @@ class EchoDiffGroup {
 		}
 
 		if ( $new ) {
-			$changeSet[] = $position + array(
+			$changeSet[] = $position + [
 				'action' => 'add',
 				'content' => $new,
-			);
+			];
 		} elseif ( $old ) {
-			$changeSet[] = $position + array(
+			$changeSet[] = $position + [
 				'action' => 'subtract',
 				'content' => $old,
-			);
+			];
 		}
 
 		return $changeSet;

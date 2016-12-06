@@ -18,7 +18,7 @@ class MWEchoEmailBatch {
 	/**
 	 * @var EchoEvent[] events included in this email
 	 */
-	protected $events = array();
+	protected $events = [];
 
 	/**
 	 * @var EchoEvent the last notification event of this batch
@@ -148,9 +148,9 @@ class MWEchoEmailBatch {
 	protected function setLastEvent() {
 		$dbr = MWEchoDbFactory::getDB( DB_SLAVE );
 		$res = $dbr->selectField(
-			array( 'echo_email_batch' ),
-			array( 'MAX( eeb_event_id )' ),
-			array( 'eeb_user_id' => $this->mUser->getId() ),
+			[ 'echo_email_batch' ],
+			[ 'MAX( eeb_event_id )' ],
+			[ 'eeb_user_id' => $this->mUser->getId() ],
 			__METHOD__
 		);
 
@@ -179,7 +179,7 @@ class MWEchoEmailBatch {
 	protected function getEvents() {
 		global $wgEchoNotifications;
 
-		$events = array();
+		$events = [];
 
 		$validEvents = array_keys( $wgEchoNotifications );
 
@@ -190,11 +190,11 @@ class MWEchoEmailBatch {
 		if ( $validEvents ) {
 			$dbr = MWEchoDbFactory::getDB( DB_SLAVE );
 
-			$conds = array(
+			$conds = [
 				'eeb_user_id' => $this->mUser->getId(),
 				'event_id = eeb_event_id',
 				'event_type' => $validEvents
-			);
+			];
 
 			// See setLastEvent() for more detail for this variable
 			if ( $this->lastEvent ) {
@@ -202,14 +202,14 @@ class MWEchoEmailBatch {
 			}
 
 			$res = $dbr->select(
-				array( 'echo_email_batch', 'echo_event' ),
-				array( '*' ),
+				[ 'echo_email_batch', 'echo_event' ],
+				[ '*' ],
 				$conds,
 				__METHOD__,
-				array(
+				[
 					'ORDER BY' => 'eeb_event_priority',
 					'LIMIT' => self::$displaySize + 1,
-				)
+				]
 			);
 
 			foreach ( $res as $row ) {
@@ -228,7 +228,7 @@ class MWEchoEmailBatch {
 	 * Clear "processed" events in the queue, processed could be: email sent, invalid, users do not want to receive emails
 	 */
 	public function clearProcessedEvent() {
-		$conds = array( 'eeb_user_id' => $this->mUser->getId() );
+		$conds = [ 'eeb_user_id' => $this->mUser->getId() ];
 
 		// there is a processed cutoff point
 		if ( $this->lastEvent ) {
@@ -271,13 +271,13 @@ class MWEchoEmailBatch {
 			$htmlEmailDigestFormatter = new EchoHtmlDigestEmailFormatter( $this->mUser, $this->language, $frequency );
 			$htmlContent = $htmlEmailDigestFormatter->format( $this->events, 'email' );
 
-			$content = array(
-				'body' => array(
+			$content = [
+				'body' => [
 					'text' => $content['body'],
 					'html' => $htmlContent['body'],
-				),
+				],
 				'subject' => $htmlContent['subject'],
-			);
+			];
 		}
 
 		$toAddress = MailAddress::newFromUser( $this->mUser );
@@ -285,7 +285,7 @@ class MWEchoEmailBatch {
 		$replyTo = new MailAddress( $wgNotificationSender, $wgNotificationReplyName );
 
 		// @Todo Push the email to job queue or just send it out directly?
-		UserMailer::send( $toAddress, $fromAddress, $content['subject'], $content['body'], array( 'replyTo' => $replyTo ) );
+		UserMailer::send( $toAddress, $fromAddress, $content['subject'], $content['body'], [ 'replyTo' => $replyTo ] );
 		MWEchoEventLogging::logSchemaEchoMail( $this->mUser, $emailDeliveryMode );
 	}
 
@@ -306,12 +306,12 @@ class MWEchoEmailBatch {
 
 		$dbw = MWEchoDbFactory::getDB( DB_MASTER );
 
-		$row = array(
+		$row = [
 			'eeb_user_id' => $userId,
 			'eeb_event_id' => $eventId,
 			'eeb_event_priority' => $priority,
 			'eeb_event_hash' => $hash
-		);
+		];
 
 		$id = $dbw->nextSequenceValue( 'echo_email_batch_eeb_id' );
 
@@ -323,7 +323,7 @@ class MWEchoEmailBatch {
 			'echo_email_batch',
 			$row,
 			__METHOD__,
-			array( 'IGNORE' )
+			[ 'IGNORE' ]
 		);
 	}
 
@@ -339,11 +339,11 @@ class MWEchoEmailBatch {
 	public static function getUsersToNotify( $startUserId, $batchSize ) {
 		$dbr = MWEchoDbFactory::getDB( DB_SLAVE );
 		$res = $dbr->select(
-			array( 'echo_email_batch' ),
-			array( 'eeb_user_id' ),
-			array( 'eeb_user_id > ' . intval( $startUserId ) ),
+			[ 'echo_email_batch' ],
+			[ 'eeb_user_id' ],
+			[ 'eeb_user_id > ' . intval( $startUserId ) ],
 			__METHOD__,
-			array( 'ORDER BY' => 'eeb_user_id', 'LIMIT' => $batchSize )
+			[ 'ORDER BY' => 'eeb_user_id', 'LIMIT' => $batchSize ]
 		);
 
 		return $res;

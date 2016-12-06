@@ -12,26 +12,26 @@ class EchoEditUserTalkPresentationModel extends EchoEventPresentationModel {
 	}
 
 	public function getPrimaryLink() {
-		return array(
+		return [
 			// Need FullURL so the section is included
 			'url' => $this->getTitleWithSection()->getFullURL(),
 			'label' => $this->msg( 'notification-link-text-view-message' )->text()
-		);
+		];
 	}
 
 	public function getSecondaryLinks() {
-		$diffLink = array(
+		$diffLink = [
 			'url' => $this->getDiffLinkUrl(),
 			'label' => $this->msg( 'notification-link-text-view-changes', $this->getViewingUserForGender() )->text(),
 			'description' => '',
 			'icon' => 'changes',
 			'prioritized' => true
-		);
+		];
 
 		if ( $this->isBundled() ) {
-			return array( $diffLink );
+			return [ $diffLink ];
 		} else {
-			return array( $this->getAgentLink(), $diffLink );
+			return [ $this->getAgentLink(), $diffLink ];
 		}
 	}
 
@@ -71,10 +71,10 @@ class EchoEditUserTalkPresentationModel extends EchoEventPresentationModel {
 	private function getDiffLinkUrl() {
 		$revId = $this->event->getExtraParam( 'revid' );
 		$oldId = $this->isBundled() ? $this->getRevBeforeFirstNotification() : 'prev';
-		$query = array(
+		$query = [
 			'oldid' => $oldId,
 			'diff' => $revId,
-		);
+		];
 		return $this->event->getTitle()->getFullURL( $query );
 	}
 

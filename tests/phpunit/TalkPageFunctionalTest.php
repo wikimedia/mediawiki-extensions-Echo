@@ -23,11 +23,11 @@ class EchoTalkPageFunctionalTest extends ApiTestCase {
 		$editor = self::$users['sysop']->getUser()->getName();
 		$talkPage = self::$users['uploader']->getUser()->getName();
 		// A set of messages which will be inserted
-		$messages = array(
+		$messages = [
 			'Moar Cowbell',
 			"I can haz test\n\nplz?", // checks that the parser allows multi-line comments
 			'blah blah',
-		);
+		];
 
 		$messageCount = 0;
 		$this->assertCount( $messageCount, $this->fetchAllEvents() );
@@ -79,7 +79,7 @@ class EchoTalkPageFunctionalTest extends ApiTestCase {
 	 * @return array All events in db sorted from oldest to newest
 	 */
 	protected function fetchAllEvents() {
-		$res = $this->dbr->select( 'echo_event', array( '*' ), array(), __METHOD__, array( 'ORDER BY' => 'event_id ASC' ) );
+		$res = $this->dbr->select( 'echo_event', [ '*' ], [], __METHOD__, [ 'ORDER BY' => 'event_id ASC' ] );
 
 		return iterator_to_array( $res );
 	}

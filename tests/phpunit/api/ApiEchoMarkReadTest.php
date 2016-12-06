@@ -21,10 +21,10 @@ class ApiEchoMarkReadTest extends ApiTestCase {
 
 		$tokens = $this->getTokens();
 		// Grouping by section
-		$data = $this->doApiRequest( array(
+		$data = $this->doApiRequest( [
 			'action' => 'echomarkread',
 			'notlist' => '121|122|123',
-			'token' => $tokens['edittoken'] ) );
+			'token' => $tokens['edittoken'] ] );
 
 		$this->assertArrayHasKey( 'query', $data[0] );
 		$this->assertArrayHasKey( 'echomarkread', $data[0]['query'] );
@@ -52,10 +52,10 @@ class ApiEchoMarkReadTest extends ApiTestCase {
 
 		$tokens = $this->getTokens();
 		// Grouping by section
-		$data = $this->doApiRequest( array(
+		$data = $this->doApiRequest( [
 			'action' => 'echomarkread',
 			'notall' => '1',
-			'token' => $tokens['edittoken'] ) );
+			'token' => $tokens['edittoken'] ] );
 
 		$this->assertArrayHasKey( 'query', $data[0] );
 		$this->assertArrayHasKey( 'echomarkread', $data[0]['query'] );
@@ -83,10 +83,10 @@ class ApiEchoMarkReadTest extends ApiTestCase {
 
 		$tokens = $this->getTokens();
 		// Grouping by section
-		$data = $this->doApiRequest( array(
+		$data = $this->doApiRequest( [
 			'action' => 'echomarkread',
 			'sections' => 'alert|message',
-			'token' => $tokens['edittoken'] ) );
+			'token' => $tokens['edittoken'] ] );
 
 		$this->assertArrayHasKey( 'query', $data[0] );
 		$this->assertArrayHasKey( 'echomarkread', $data[0]['query'] );

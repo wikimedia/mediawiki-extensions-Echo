@@ -9,13 +9,13 @@ class ApiEchoNotificationsTest extends ApiTestCase {
 
 	public function testWithSectionGrouping() {
 		// Grouping by section
-		$data = $this->doApiRequest( array(
+		$data = $this->doApiRequest( [
 			'action' => 'query',
 			'meta' => 'notifications',
 			'notsections' => 'alert|message',
 			'notgroupbysection' => 1,
 			'notlimit' => 10,
-			'notprop' => 'list|count' ) );
+			'notprop' => 'list|count' ] );
 
 		$this->assertArrayHasKey( 'query', $data[0] );
 		$this->assertArrayHasKey( 'notifications', $data[0]['query'] );
@@ -44,12 +44,12 @@ class ApiEchoNotificationsTest extends ApiTestCase {
 	}
 
 	public function testWithoutSectionGrouping() {
-		$data = $this->doApiRequest( array(
+		$data = $this->doApiRequest( [
 			'action' => 'query',
 			'meta' => 'notifications',
 			'notsections' => 'alert|message',
 			'notlimit' => 10,
-			'notprop' => 'list|count' ) );
+			'notprop' => 'list|count' ] );
 
 		$this->assertArrayHasKey( 'query', $data[0] );
 		$this->assertArrayHasKey( 'notifications', $data[0]['query'] );

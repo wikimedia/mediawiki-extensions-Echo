@@ -7,11 +7,11 @@ function main() {
 // @codingStandardsIgnoreEnd
 	$base = dirname( __DIR__ );
 	$generator = new AutoloadGenerator( $base );
-	$dirs = array(
+	$dirs = [
 		'includes',
 		'tests',
 		'maintenance',
-	);
+	];
 	foreach ( $dirs as $dir ) {
 		$generator->readDir( $base . '/' . $dir );
 	}

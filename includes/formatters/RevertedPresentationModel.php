@@ -33,14 +33,14 @@ class EchoRevertedPresentationModel extends EchoEventPresentationModel {
 	}
 
 	public function getPrimaryLink() {
-		$url = $this->event->getTitle()->getLocalURL( array(
+		$url = $this->event->getTitle()->getLocalURL( [
 			'oldid' => 'prev',
 			'diff' => $this->event->getExtraParam( 'revid' )
-		) );
-		return array(
+		] );
+		return [
 			'url' => $url,
 			'label' => $this->msg( 'notification-link-text-view-changes', $this->getViewingUserForGender() )->text()
-		);
+		];
 	}
 
 	public function getSecondaryLinks() {
@@ -48,7 +48,7 @@ class EchoRevertedPresentationModel extends EchoEventPresentationModel {
 			$this->event->getTitle()->getTalkPage(), null, true
 		);
 
-		return array( $this->getAgentLink(), $revertedTitleLink );
+		return [ $this->getAgentLink(), $revertedTitleLink ];
 	}
 
 	/**

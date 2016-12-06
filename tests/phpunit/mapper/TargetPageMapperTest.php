@@ -3,23 +3,23 @@
 class EchoTargetPageMapperTest extends MediaWikiTestCase {
 
 	public function provideDataTestInsert() {
-		return array(
-			array(
+		return [
+			[
 				'successful insert with next sequence = 1',
-				array( 'nextSequenceValue' => 1, 'insert' => true, 'insertId' => 2 ),
+				[ 'nextSequenceValue' => 1, 'insert' => true, 'insertId' => 2 ],
 				1
-			),
-			array(
+			],
+			[
 				'successful insert with insert id = 2',
-				array( 'nextSequenceValue' => null, 'insert' => true, 'insertId' => 2 ),
+				[ 'nextSequenceValue' => null, 'insert' => true, 'insertId' => 2 ],
 				2
-			),
-			array(
+			],
+			[
 				'unsuccessful insert',
-				array( 'nextSequenceValue' => null, 'insert' => false, 'insertId' => 2 ),
+				[ 'nextSequenceValue' => null, 'insert' => false, 'insertId' => 2 ],
 				false
-			),
-		);
+			],
+		];
 	}
 
 	/**
@@ -40,7 +40,7 @@ class EchoTargetPageMapperTest extends MediaWikiTestCase {
 			->getMock();
 		$target->expects( $this->any() )
 			->method( 'toDbArray' )
-			->will( $this->returnValue( array() ) );
+			->will( $this->returnValue( [] ) );
 		$target->expects( $this->any() )
 			->method( 'getUser' )
 			->will( $this->returnValue( User::newFromId( 1 ) ) );
@@ -72,13 +72,13 @@ class EchoTargetPageMapperTest extends MediaWikiTestCase {
 	 * Mock object of DatabaseMysql ( DatabaseBase )
 	 */
 	protected function mockDb( array $dbResult ) {
-		$dbResult += array(
+		$dbResult += [
 			'nextSequenceValue' => '',
 			'insert' => '',
 			'insertId' => '',
 			'select' => '',
 			'delete' => ''
-		);
+		];
 		$db = $this->getMockBuilder( 'DatabaseMysql' )
 			->disableOriginalConstructor()
 			->getMock();
