@@ -19,7 +19,7 @@
 			// This should usually already be loaded, but not always
 			this.deferred = mw.loader.using( 'ext.eventLogging', function () {
 				mw.eventLog.setDefaults( 'EchoInteraction', {
-					version: mw.config.get( 'wgEchoConfig' ).version,
+					version: mw.config.get( 'wgEchoEventLoggingVersion' ),
 					userId: +mw.config.get( 'wgUserId' ),
 					editCount: +mw.config.get( 'wgUserEditCount' )
 				} );
@@ -41,8 +41,7 @@
 	 * @property {boolean}
 	 */
 	mw.echo.Logger.static.clickThroughEnabled = OO.getProp(
-		mw.config.get( 'wgEchoConfig' ),
-		'eventlogging',
+		mw.config.get( 'wgEchoEventLoggingSchemas' ),
 		'EchoInteraction',
 		'enabled'
 	);

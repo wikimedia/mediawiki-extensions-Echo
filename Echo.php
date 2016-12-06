@@ -560,30 +560,31 @@ $wgDefaultUserOptions['echo-subscriptions-web-article-linked'] = false;
 $wgDefaultUserOptions['echo-subscriptions-web-mention-failure'] = false;
 $wgDefaultUserOptions['echo-subscriptions-web-mention-success'] = false;
 
+// Echo cache version
+$wgEchoCacheVersion = '1.12';
+
 // Echo Configuration for EventLogging
-$wgEchoConfig = array(
-	'version' => '1.12',
-	'eventlogging' => array(
-		/**
-		 * Properties:
-		 * - 'enabled': Whether it should be used
-		 * - 'revision': revision id of the schema
-		 * - 'client': whether the schema is needed client-side
-		 */
-		'Echo' => array(
-			'enabled' => false,
-			'revision' => 7731316,
-			'client' => false,
-		),
-		'EchoMail' => array(
-			'enabled' => false,
-			'revision' => 5467650,
-			'client' => false,
-		),
-		'EchoInteraction' => array(
-			'enabled' => false,
-			'revision' => 15823738,
-			'client' => true,
-		),
-	)
+$wgEchoEventLoggingVersion = '1.12';
+$wgEchoEventLoggingSchemas = array(
+	/**
+	 * Properties:
+	 * - 'enabled': Whether it should be used
+	 * - 'revision': revision id of the schema
+	 * - 'client': whether the schema is needed client-side
+	 */
+	'Echo' => array(
+		'enabled' => false,
+		'revision' => 7731316,
+		'client' => false,
+	),
+	'EchoMail' => array(
+		'enabled' => false,
+		'revision' => 5467650,
+		'client' => false,
+	),
+	'EchoInteraction' => array(
+		'enabled' => false,
+		'revision' => 15823738,
+		'client' => true,
+	),
 );

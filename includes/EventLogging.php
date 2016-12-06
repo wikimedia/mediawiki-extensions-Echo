@@ -14,15 +14,15 @@ class MWEchoEventLogging {
 	 * @param array $data
 	 */
 	protected static function logEvent( $schema, array $data ) {
-		global $wgEchoConfig;
+		global $wgEchoEventLoggingSchemas, $wgEchoEventLoggingVersion;
 
-		$schemaConfig = $wgEchoConfig['eventlogging'][$schema];
+		$schemaConfig = $wgEchoEventLoggingSchemas[$schema];
 		if ( !$schemaConfig['enabled'] ) {
 			// If logging for this schema is disabled, it's a no-op.
 			return;
 		}
 
-		$data['version'] = $wgEchoConfig['version'];
+		$data['version'] = $wgEchoEventLoggingVersion;
 
 		EventLogging::logEvent( $schema, $schemaConfig['revision'], $data );
 	}

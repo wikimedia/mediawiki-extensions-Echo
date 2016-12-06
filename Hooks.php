@@ -10,7 +10,7 @@ class EchoHooks {
 	 */
 	public static function initEchoExtension() {
 		global $wgEchoNotifications, $wgEchoNotificationCategories, $wgEchoNotificationIcons,
-			$wgEchoConfig, $wgEchoMentionStatusNotifications;
+			$wgEchoEventLoggingSchemas, $wgEchoMentionStatusNotifications;
 
 		// allow extensions to define their own event
 		Hooks::run( 'BeforeCreateEchoEvent', array( &$wgEchoNotifications, &$wgEchoNotificationCategories, &$wgEchoNotificationIcons ) );
@@ -23,9 +23,9 @@ class EchoHooks {
 
 		// turn schema off if eventLogging is not enabled
 		if ( !class_exists( 'EventLogging' ) ) {
-			foreach ( $wgEchoConfig['eventlogging'] as $schema => $property ) {
+			foreach ( $wgEchoEventLoggingSchemas as $schema => $property ) {
 				if ( $property['enabled'] ) {
-					$wgEchoConfig['eventlogging'][$schema]['enabled'] = false;
+					$wgEchoEventLoggingSchemas[$schema]['enabled'] = false;
 				}
 			}
 		}
@@ -84,8 +84,8 @@ class EchoHooks {
 	}
 
 	public static function onEventLoggingRegisterSchemas( array &$schemas ) {
-		global $wgEchoConfig;
-		foreach ( $wgEchoConfig['eventlogging'] as $schema => $property ) {
+		global $wgEchoEventLoggingSchemas;
+		foreach ( $wgEchoEventLoggingSchemas as $schema => $property ) {
 			if ( $property['enabled'] && $property['client'] ) {
 				$schemas[$schema] = $property['revision'];
 			}
@@ -96,7 +96,7 @@ class EchoHooks {
 	 * Handler for ResourceLoaderRegisterModules hook
 	 */
 	public static function onResourceLoaderRegisterModules( ResourceLoader &$resourceLoader ) {
-		global $wgEchoConfig;
+		global $wgEchoEventLoggingSchemas;
 
 		// ext.echo.logger is used by mobile notifications as well, so be sure not to add any
 		// dependencies that do not target mobile.
@@ -114,7 +114,7 @@ class EchoHooks {
 		);
 
 		$hasSchemas = false;
-		foreach ( $wgEchoConfig['eventlogging'] as $schema => $property ) {
+		foreach ( $wgEchoEventLoggingSchemas as $schema => $property ) {
 			if ( $property['enabled'] && $property['client'] ) {
 				$definition['dependencies'][] = 'schema.' . $schema;
 				$hasSchemas = true;
@@ -1022,23 +1022,22 @@ class EchoHooks {
 	 * @return bool true in all cases
 	 */
 	public static function makeGlobalVariablesScript( &$vars, OutputPage $outputPage ) {
-		global $wgEchoConfig;
+		global $wgEchoEventLoggingSchemas, $wgEchoEventLoggingVersion;
 		$user = $outputPage->getUser();
 
 		// Provide info for the Overlay
 
 		if ( $user->isLoggedIn() ) {
-			$vars['wgEchoConfig'] = $wgEchoConfig;
+			$vars['wgEchoEventLoggingSchemas'] = $wgEchoEventLoggingSchemas;
+			$vars['wgEchoEventLoggingVersion'] = $wgEchoEventLoggingVersion;
 		} elseif (
 			$outputPage->getTitle()->equals( SpecialPage::getTitleFor( 'JavaScriptTest', 'qunit' ) ) ||
 			// Also if running from /plain or /export
 			$outputPage->getTitle()->isSubpageOf( SpecialPage::getTitleFor( 'JavaScriptTest', 'qunit' ) )
 		) {
 			// For testing purposes
-			$vars['wgEchoConfig'] = array(
-				'eventlogging' => array(
-					'EchoInteraction' => array(),
-				),
+			$vars['wgEchoEventLoggingSchemas'] = array(
+				'EchoInteraction' => array(),
 			);
 		}
 

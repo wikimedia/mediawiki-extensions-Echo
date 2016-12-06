@@ -147,8 +147,8 @@ class MWEchoNotifUser {
 	 * Memcache key for talk notification
 	 */
 	public function getTalkNotificationCacheKey() {
-		global $wgEchoConfig;
-		return wfMemcKey( 'echo-new-talk-notification', $this->mUser->getId(), $wgEchoConfig['version'] );
+		global $wgEchoCacheVersion;
+		return wfMemcKey( 'echo-new-talk-notification', $this->mUser->getId(), $wgEchoCacheVersion );
 	}
 
 	/**
@@ -654,9 +654,9 @@ class MWEchoNotifUser {
 	 * @return string|false Memcached key, or false if one could not be generated
 	 */
 	protected function getMemcKey( $key, $global = false ) {
-		global $wgEchoConfig;
+		global $wgEchoCacheVersion;
 		if ( !$global ) {
-			return wfMemcKey( $key, $this->mUser->getId(), $wgEchoConfig['version'] );
+			return wfMemcKey( $key, $this->mUser->getId(), $wgEchoCacheVersion );
 		}
 
 		$lookup = CentralIdLookup::factory();
@@ -664,7 +664,7 @@ class MWEchoNotifUser {
 		if ( !$globalId ) {
 			return false;
 		}
-		return wfGlobalCacheKey( $key, $globalId, $wgEchoConfig['version'] );
+		return wfGlobalCacheKey( $key, $globalId, $wgEchoCacheVersion );
 
 	}
 
