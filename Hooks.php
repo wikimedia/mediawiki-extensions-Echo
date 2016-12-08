@@ -1161,7 +1161,9 @@ class EchoHooks {
 			// Reset the notification count since it may have changed due to user
 			// option changes. This covers both explicit changes in the preferences
 			// and changes made through the options API (since both call this hook).
-			MWEchoNotifUser::newFromUser( $user )->resetNotificationCount();
+			DeferredUpdates::addCallableUpdate( function () use ( $user ) {
+				MWEchoNotifUser::newFromUser( $user )->resetNotificationCount();
+			} );
 		}
 
 		return true;
@@ -1288,11 +1290,12 @@ class EchoHooks {
 	}
 
 	public static function onMergeAccountFromTo( User &$oldUser, User &$newUser ) {
-		MWEchoNotifUser::newFromUser( $oldUser )->resetNotificationCount( DB_MASTER );
-
-		if ( !$newUser->isAnon() ) {
-			MWEchoNotifUser::newFromUser( $newUser )->resetNotificationCount( DB_MASTER );
-		}
+		DeferredUpdates::addCallableUpdate( function () use ( $oldUser, $newUser ) {
+			MWEchoNotifUser::newFromUser( $oldUser )->resetNotificationCount( DB_MASTER );
+			if ( !$newUser->isAnon() ) {
+				MWEchoNotifUser::newFromUser( $newUser )->resetNotificationCount( DB_MASTER );
+			}
+		} );
 
 		return true;
 	}

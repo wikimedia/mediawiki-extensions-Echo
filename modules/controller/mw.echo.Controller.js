@@ -659,8 +659,6 @@
 		if ( !xwikiModel ) {
 			return $.Deferred().reject().promise();
 		}
-		this.manager.getUnreadCounter().estimateChange( -itemIds.length );
-
 		itemIds = Array.isArray( itemIds ) ? itemIds : [ itemIds ];
 
 		sourceModel = xwikiModel.getList().getGroupByName( source );
@@ -672,6 +670,7 @@
 		notifs.forEach( function ( notif ) {
 			allIds = allIds.concat( notif.getAllIds() );
 		} );
+		this.manager.getUnreadCounter().estimateChange( -allIds.length );
 		return this.api.markItemsRead( allIds, source, true )
 			.then( this.refreshUnreadCount.bind( this ) );
 	};

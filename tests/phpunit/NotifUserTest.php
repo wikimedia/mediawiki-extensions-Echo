@@ -1,4 +1,5 @@
 <?php
+use MediaWiki\MediaWikiServices;
 
 /**
  * @group Echo
@@ -6,13 +7,15 @@
 class MWEchoNotifUserTest extends MediaWikiTestCase {
 
 	/**
-	 * @var BagOStuff
+	 * @var WANObjectCache
 	 */
 	private $cache;
 
 	protected function setUp() {
 		parent::setUp();
-		$this->cache = ObjectCache::getMainStashInstance();
+		$this->cache = new WANObjectCache( [
+			'cache' => MediaWikiServices::getInstance()->getMainObjectStash(),
+		] );
 	}
 
 	public function testNewFromUser() {
@@ -31,21 +34,21 @@ class MWEchoNotifUserTest extends MediaWikiTestCase {
 	}
 
 	public function testFlagCacheWithNewTalkNotification() {
-		$notifUser = MWEchoNotifUser::newFromUser( User::newFromId( 2 ) );
+		$notifUser = $this->newNotifUser();
 
 		$notifUser->flagCacheWithNewTalkNotification();
 		$this->assertEquals( '1', $this->cache->get( $notifUser->getTalkNotificationCacheKey() ) );
 	}
 
 	public function testFlagCacheWithNoTalkNotification() {
-		$notifUser = MWEchoNotifUser::newFromUser( User::newFromId( 2 ) );
+		$notifUser = $this->newNotifUser();
 
 		$notifUser->flagCacheWithNoTalkNotification();
 		$this->assertEquals( '0', $this->cache->get( $notifUser->getTalkNotificationCacheKey() ) );
 	}
 
 	public function testNotifCountHasReachedMax() {
-		$notifUser = MWEchoNotifUser::newFromUser( User::newFromId( 2 ) );
+		$notifUser = $this->newNotifUser();
 
 		if ( $notifUser->getLocalNotificationCount() > MWEchoNotifUser::MAX_BADGE_COUNT ) {
 			$this->assertTrue( $notifUser->notifCountHasReachedMax() );
@@ -55,7 +58,7 @@ class MWEchoNotifUserTest extends MediaWikiTestCase {
 	}
 
 	public function testClearTalkNotification() {
-		$notifUser = MWEchoNotifUser::newFromUser( User::newFromId( 2 ) );
+		$notifUser = $this->newNotifUser();
 
 		$notifUser->flagCacheWithNewTalkNotification();
 
@@ -199,5 +202,15 @@ class MWEchoNotifUserTest extends MediaWikiTestCase {
 			->will( $this->returnValue( 1 ) );
 
 		return $event;
+	}
+
+	protected function newNotifUser() {
+		return new MWEchoNotifUser(
+			User::newFromId( 2 ),
+			$this->cache,
+			$this->mockEchoUserNotificationGateway(),
+			$this->mockEchoNotificationMapper(),
+			$this->mockEchoTargetPageMapper()
+		);
 	}
 }
