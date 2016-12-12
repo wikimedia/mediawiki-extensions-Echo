@@ -233,5 +233,8 @@
 	"apihelp-query+unreadnotificationpages-param-grouppages": "Групните страници за разговор заедно со нивните предметни страници и групните известувања неповрзани со страница заедно со корисничката страница на тековниот корисник.",
 	"apihelp-query+unreadnotificationpages-param-limit": "Максимален број на страници за прикажување.",
 	"apihelp-query+unreadnotificationpages-param-wikis": "Список на викија од кои треба да се преземат непрочитани известувања (по основно: само тековното вики).",
-	"apihelp-query+unreadnotificationpages-example-1": "Наведи страници со (бројот на) непрочитани известувања"
+	"apihelp-query+unreadnotificationpages-example-1": "Наведи страници со (бројот на) непрочитани известувања",
+	"apiwarn-echo-deprecation-timestampformat": "Изводниот формат MW за датуми и време тука е застарен. Во иднина, за таа намена ќе се користи исклучиво ISO 8601. Прилагодете го клиентот и наместете го <var>timestampFormat</var> на <kbd>ISO_8601</kbd>.",
+	"apiwarn-echo-deprecation-flyout": "<kbd>notformat=flyout</kbd> е застаре и наскоро ќе биде отстранет. Сировите податоци ќе ги добиете со <kbd>notformat=model</kbd>, а <kbd>notformat=special</kbd> служи за предиспишан HTML.",
+	"apiwarn-echo-deprecation-html": "<kbd>notformat=html</kbd> е застарен и наскоро ќе биде отстранет. Наместо него, користете го <kbd>notformat=special</kbd>."
 }

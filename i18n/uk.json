@@ -242,5 +242,8 @@
 	"apihelp-query+unreadnotificationpages-param-grouppages": "Згрупувати сторінки обговорення з їхніми основними сторінками, та згрупувати сповіщення, не пов'язані зі сторінкою, разом зі сторінкою поточного користувача.",
 	"apihelp-query+unreadnotificationpages-param-limit": "Максимальна кількість сторінок для виведення.",
 	"apihelp-query+unreadnotificationpages-param-wikis": "Список вікі для отримання сторінок з непрочитаними сповіщеннями (за замовчуванням — тільки поточна вікі).",
-	"apihelp-query+unreadnotificationpages-example-1": "Список сторінок з непрочитаними повідомленнями (і кількістю)"
+	"apihelp-query+unreadnotificationpages-example-1": "Список сторінок з непрочитаними повідомленнями (і кількістю)",
+	"apiwarn-echo-deprecation-timestampformat": "Вихідний формат мітки часу MW є застарілим тут. У майбутньому для вихідного формату мітки часу завжди використовуватиметься ISO 8601. Налаштуйте свій клієнт і встановіть <kbd>ISO_8601</kbd> для <var>timestampFormat</var>.",
+	"apiwarn-echo-deprecation-flyout": "Параметр <kbd>notformat=flyout</kbd> є застарілим і невдовзі його буде усунуто. Використовуйте <kbd>notformat=model</kbd>, щоб отримати сирі дані, або <kbd>notformat=special</kbd>, щоб отримати попередньо оброблений HTML.",
+	"apiwarn-echo-deprecation-html": "Параметр <kbd>notformat=html</kbd> є застарілим, і невдовзі його буде усунуто. Натомість використовуйте <kbd>notformat=special</kbd>."
 }

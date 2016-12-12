@@ -54,7 +54,7 @@
 	"echo-notification-loginrequired": "Morate se prijaviti da bi videli obaveštenja.",
 	"echo-notification-popup-loginrequired": "Prijavite se da vidite Vaša obaveštenja.",
 	"notification-link-text-expand-all": "Prikaži sve",
-	"notification-link-text-expand-alert-count": "Prikaži {{PLURAL:$1|uzbune}} ($1)",
+	"notification-link-text-expand-alert-count": "Prikaži {{PLURAL:$1|obaveštenja}} ($1)",
 	"notification-link-text-collapse-all": "Sakrij sve",
 	"notification-link-text-view-message": "Pogledaj poruku",
 	"notification-link-text-view-mention": "Vidi spominjanje",

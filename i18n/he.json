@@ -240,5 +240,6 @@
 	"apihelp-query+unreadnotificationpages-param-grouppages": "לקבץ דפי שיחה יחד עם דפי התוכן המשויכים להם, ולקבץ הודעות שאינן משויכות לשום דף לדף המשתמש של המשתמש הנוכחי.",
 	"apihelp-query+unreadnotificationpages-param-limit": "המספר המרבי של דפים להחזיר.",
 	"apihelp-query+unreadnotificationpages-param-wikis": "רשימת אתרי ויקי שמהם יאוחזרו דפים עם הודעות שלא נקראו (אם לא נאמר אחרת, רק הוויקי הנוכחי).",
-	"apihelp-query+unreadnotificationpages-example-1": "רשימת דפים עם (כמות של) הודעות שלא נקראו"
+	"apihelp-query+unreadnotificationpages-example-1": "רשימת דפים עם (כמות של) הודעות שלא נקראו",
+	"apiwarn-echo-deprecation-timestampformat": "תסדיר חותם הזמן של מדיה־ויקי הוגדר כאן בתור מיושן. בעתיד, ISO 8601 תמיד ישמש לפלט של חותם הזמן. נא לתקן את הלקוח שלך ולהגדיר את <var>timestampFormat</var> לערך <kbd>ISO_8601</kbd>."
 }
