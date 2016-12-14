@@ -153,6 +153,14 @@ class EchoHooks {
 		}
 
 		$resourceLoader->register( 'ext.echo.logger', $definition );
+
+		global $wgExtensionDirectory;
+		$resourceLoader->register( 'ext.echo.emailicons', [
+			'class' => 'ResourceLoaderEchoImageModule',
+			'selector' => '.mw-echo-icon-{name}',
+			'localBasePath' => $wgExtensionDirectory,
+			'remoteExtPath' => 'Echo/modules'
+		] );
 	}
 
 	/**

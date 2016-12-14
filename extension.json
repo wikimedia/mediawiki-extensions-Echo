@@ -521,12 +521,6 @@
 			"rootPath": "icons",
 			"selectorWithoutVariant": ".oo-ui-icon-{name}",
 			"selectorWithVariant": ".oo-ui-image-{variant}.oo-ui-icon-{name}"
-		},
-		"ext.echo.emailicons": {
-			"class": "ResourceLoaderEchoImageModule",
-			"selector": ".mw-echo-icon-{name}",
-			"localBasePath": null,
-			"remoteExtPath": "Echo/modules"
 		}
 	},
 	"ResourceFileModulePaths": {
