@@ -12,7 +12,7 @@
 			"Simeondahl"
 		]
 	},
-	"echo-desc": "Meddelelsessystem",
+	"echo-desc": "System til at give brugere besked om handlinger og meddelelser",
 	"prefs-echo": "Meddelelser",
 	"prefs-emailsettings": "E-mailindstillinger",
 	"prefs-displaynotifications": "Indstillinger for visning",
