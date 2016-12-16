@@ -241,5 +241,7 @@
 	"apihelp-query+unreadnotificationpages-param-limit": "המספר המרבי של דפים להחזיר.",
 	"apihelp-query+unreadnotificationpages-param-wikis": "רשימת אתרי ויקי שמהם יאוחזרו דפים עם הודעות שלא נקראו (אם לא נאמר אחרת, רק הוויקי הנוכחי).",
 	"apihelp-query+unreadnotificationpages-example-1": "רשימת דפים עם (כמות של) הודעות שלא נקראו",
-	"apiwarn-echo-deprecation-timestampformat": "תסדיר חותם הזמן של מדיה־ויקי הוגדר כאן בתור מיושן. בעתיד, ISO 8601 תמיד ישמש לפלט של חותם הזמן. נא לתקן את הלקוח שלך ולהגדיר את <var>timestampFormat</var> לערך <kbd>ISO_8601</kbd>."
+	"apiwarn-echo-deprecation-timestampformat": "תסדיר חותם הזמן של מדיה־ויקי הוגדר כאן בתור מיושן. בעתיד, ISO 8601 תמיד ישמש לפלט של חותם הזמן. נא לתקן את הלקוח שלך ולהגדיר את <var>timestampFormat</var> לערך <kbd>ISO_8601</kbd>.",
+	"apiwarn-echo-deprecation-flyout": "<kbd>notformat=flyout</kbd> הוכרז בתור מיושן ויוסר כליל בקרוב. נא להשתמש ב־<kbd>notformat=model</kbd> כדי לקבל את הנתונים הגולמיים או ב־<kbd>notformat=special</kbd> בשביל HTML שכבר הוכן לתצוגה.",
+	"apiwarn-echo-deprecation-html": "<kbd>notformat=html</kbd> הוכרז בתור מיושן ויוסר כליל בקרוב. נא להשתמש ב־<kbd>notformat=special</kbd> במקומו."
 }

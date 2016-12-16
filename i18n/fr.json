@@ -270,5 +270,8 @@
 	"apihelp-query+unreadnotificationpages-param-grouppages": "Grouper les pages de discussion ensemble avec leur page de sujet, et grouper ensemble les notifications non associées avec une page avec la page de l’utilisateur actuel.",
 	"apihelp-query+unreadnotificationpages-param-limit": "Nombre maximal de pages à renvoyer.",
 	"apihelp-query+unreadnotificationpages-param-wikis": "Liste des wikis pour télécharger les pages comportant des notifications non lues (par défaut, seulement pour le wiki courant).",
-	"apihelp-query+unreadnotificationpages-example-1": "Liste des pages avec (leur quantité) de notifications non lues"
+	"apihelp-query+unreadnotificationpages-example-1": "Liste des pages avec (leur quantité) de notifications non lues",
+	"apiwarn-echo-deprecation-timestampformat": "Le format de sortie utilisant l'horodatage MW est obsolète ici. A l'avenir, la norme ISO 8601 sera toujours utilisée pour le format d'horodatage en sortie.  Ajuster votre client et mettre <var>timestampFormat</var> à <kbd>ISO_8601</kbd>.",
+	"apiwarn-echo-deprecation-flyout": "<kbd>notformat=flyout</kbd> est devenu obsolète et va ^tre supprimé bientôt. Utiliser <kbd>notformat=model</kbd> pour avoir le format brut ou <kbd>notformat=special</kbd> pour le html préformatté.",
+	"apiwarn-echo-deprecation-html": "<kbd>notformat=html</kbd> est obsolète et sera bientôt supprimé. Remplacer par <kbd>notformat=special</kbd>."
 }
