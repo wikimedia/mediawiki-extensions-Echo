@@ -69,7 +69,7 @@
 	"echo-pref-tooltip-article-linked": "Notificarme cuando alguien enlace en un artículo a una página creada por mí.",
 	"echo-pref-tooltip-reverted": "Notificarme cuando alguien revierta una edición mía mediante las herramientas de deshacer o revertir.",
 	"echo-pref-tooltip-mention": "Notificarme cuando alguien enlace mi página de {{GENDER:|usuario|usuaria}}.",
-	"echo-pref-tooltip-mention-failure": "Notificarme cuando no pueda una mención a alguien.",
+	"echo-pref-tooltip-mention-failure": "Notificarme cuando no pueda enviar una mención a alguien.",
 	"echo-pref-tooltip-mention-success": "Notificarme cuando envíe una mención a alguien.",
 	"echo-pref-tooltip-user-rights": "Notificarme cuando alguien cambie mis derechos de {{GENDER:|usuario|usuaria}}.",
 	"echo-pref-tooltip-emailuser": "Notificarme cuando alguien me envíe un correo electrónico.",
