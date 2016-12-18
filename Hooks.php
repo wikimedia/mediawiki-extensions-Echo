@@ -504,10 +504,13 @@ class EchoHooks {
 	 * @param $flags int Edit flags
 	 * @param $revision Revision that was created
 	 * @param $status Status
+	 * @param $baseRevId Int
+	 * @param $undidRevId Int
 	 * @return bool true in all cases
 	 */
-	public static function onPageContentSaveComplete( &$article, &$user, $content, $summary, $minoredit, $watchthis, $sectionanchor, &$flags, $revision, &$status ) {
-		global $wgEchoNotifications, $wgRequest;
+	public static function onPageContentSaveComplete( &$article, &$user, $content, $summary, $minoredit,
+		$watchthis, $sectionanchor, &$flags, $revision, &$status, $baseRevId, $undidRevId = 0 ) {
+		global $wgEchoNotifications;
 
 		if ( !$revision ) {
 			return true;
@@ -568,26 +571,23 @@ class EchoHooks {
 
 		// Handle the case of someone undoing an edit, either through the
 		// 'undo' link in the article history or via the API.
-		if ( isset( $wgEchoNotifications['reverted'] ) ) {
-			$undidRevId = $wgRequest->getVal( 'wpUndidRevision' );
-			if ( $undidRevId ) {
-				$undidRevision = Revision::newFromId( $undidRevId );
-				if ( $undidRevision && $undidRevision->getTitle()->equals( $title ) ) {
-					$victimId = $undidRevision->getUser();
-					if ( $victimId ) { // No notifications for anonymous users
-						EchoEvent::create( [
-							'type' => 'reverted',
-							'title' => $title,
-							'extra' => [
-								'revid' => $revision->getId(),
-								'reverted-user-id' => $victimId,
-								'reverted-revision-id' => $undidRevId,
-								'method' => 'undo',
-								'summary' => $summary,
-							],
-							'agent' => $user,
-						] );
-					}
+		if ( isset( $wgEchoNotifications['reverted'] ) && $undidRevId ) {
+			$undidRevision = Revision::newFromId( $undidRevId );
+			if ( $undidRevision && $undidRevision->getTitle()->equals( $title ) ) {
+				$victimId = $undidRevision->getUser();
+				if ( $victimId ) { // No notifications for anonymous users
+					EchoEvent::create( [
+						'type' => 'reverted',
+						'title' => $title,
+						'extra' => [
+							'revid' => $revision->getId(),
+							'reverted-user-id' => $victimId,
+							'reverted-revision-id' => $undidRevId,
+							'method' => 'undo',
+							'summary' => $summary,
+						],
+						'agent' => $user,
+					] );
 				}
 			}
 		}
