@@ -937,6 +937,10 @@ class EchoHooks {
 			$msgLinkClasses[] = 'mw-echo-notifications-badge-all-read';
 		}
 
+		if ( $msgCount > MWEchoNotifUser::MAX_BADGE_COUNT ) {
+			$msgLinkClasses[] = 'mw-echo-notifications-badge-long-label';
+		}
+
 		if (
 			$alertCount != 0 && // no unread notifications
 			$alertNotificationTimestamp !== false && // should already always be false if count === 0
@@ -946,6 +950,10 @@ class EchoHooks {
 			$hasUnseen = true;
 		} elseif ( $alertCount === 0 ) {
 			$alertLinkClasses[] = 'mw-echo-notifications-badge-all-read';
+		}
+
+		if ( $msgCount > MWEchoNotifUser::MAX_BADGE_COUNT ) {
+			$alertLinkClasses[] = 'mw-echo-notifications-badge-long-label';
 		}
 
 		$alertLink = [

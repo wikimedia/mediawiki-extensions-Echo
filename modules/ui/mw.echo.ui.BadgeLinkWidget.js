@@ -61,6 +61,7 @@
 
 		this.$element
 			.toggleClass( 'mw-echo-notifications-badge-all-read', !numItems )
+			.toggleClass( 'mw-echo-notifications-badge-long-label', label.length > 2 )
 			.attr( 'data-counter-num', numItems )
 			.attr( 'data-counter-text', label );
 	};
