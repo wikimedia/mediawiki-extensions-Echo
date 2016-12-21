@@ -226,7 +226,6 @@ class GenerateSampleNotifications extends Maintenance {
 	}
 
 	private function generateReverted( User $user, User $agent ) {
-		global $wgRequest;
 		$agent->addGroup( 'sysop' );
 
 		// revert (undo)
@@ -235,10 +234,8 @@ class GenerateSampleNotifications extends Maintenance {
 		$this->output( "{$agent->getName()} is reverting {$user->getName()}'s edit on {$moai->getPrefixedText()}\n" );
 		$this->addToPageContent( $moai, $agent, "\ncreating a good revision here\n" );
 		$this->addToPageContent( $moai, $user, "\nadding a line here\n" );
-		// hack: EchoHooks::onPageContentSaveComplete depends on the request to know which revision is being reverted
-		$wgRequest->setVal( 'wpUndidRevision', $page->getRevision()->getId() );
 		$content = $page->getUndoContent( $page->getRevision(), $page->getRevision()->getPrevious() );
-		$status = $page->doEditContent( $content, 'undo', 0, false, $agent );
+		$status = $page->doEditContent( $content, 'undo', 0, false, $agent, null, [], $page->getRevision()->getId() );
 		if ( !$status->isGood() ) {
 			$this->error( "Failed to undo {$moai->getPrefixedText()}: {$status->getMessage()}" );
 		}
