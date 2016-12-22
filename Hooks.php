@@ -952,7 +952,7 @@ class EchoHooks {
 			$alertLinkClasses[] = 'mw-echo-notifications-badge-all-read';
 		}
 
-		if ( $msgCount > MWEchoNotifUser::MAX_BADGE_COUNT ) {
+		if ( $alertCount > MWEchoNotifUser::MAX_BADGE_COUNT ) {
 			$alertLinkClasses[] = 'mw-echo-notifications-badge-long-label';
 		}
 
