@@ -71,7 +71,5 @@
 	"echo-email-batch-subject-weekly": "Tu ha {{PLURAL:$2|un nove notification|nove notificationes}} in {{SITENAME}} iste septimana",
 	"echo-email-batch-body-intro-daily": "Salute $1,\nEcce un summario del activitate de hodie in {{SITENAME}} pro te.",
 	"echo-email-batch-body-intro-weekly": "Salute $1,\nEcce un summario del activitate de iste septimana in {{SITENAME}} pro te.",
-	"echo-email-batch-link-text-view-all-notifications": "Vider tote le notificationes",
-	"apihelp-echomarkread-param-unreadlist": "Un lista de IDs de notification a marcar como non legite.",
-	"apihelp-echomarkread-example-3": "Marcar le notification 1 como non legite"
+	"echo-email-batch-link-text-view-all-notifications": "Vider tote le notificationes"
 }

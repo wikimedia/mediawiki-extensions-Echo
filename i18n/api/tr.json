@@ -1,0 +1,31 @@
+{
+	"@metadata": {
+		"authors": [
+			"Arystanbek",
+			"KorkmazO",
+			"McAang",
+			"Sayginer"
+		]
+	},
+	"apihelp-echomarkread-description": "Geçerli kullanıcı için okundu olarak işaretle bildirimleri.",
+	"apihelp-echomarkread-param-list": "Okundu olarak işaretlemek için bildirim Kimliklerinin bir listesini.",
+	"apihelp-echomarkread-param-all": "Set, okumak gibi bir kullanıcı Bildirimleri tüm işaretler.",
+	"apihelp-echomarkread-param-sections": "Okundu olarak işaretlemek için bölümler bir listesini.",
+	"apihelp-echomarkread-example-1": "Mark bildirim 8 gibi okumak",
+	"apihelp-echomarkread-example-2": "Tüm bildirimleri okunmuş olarak işaretle",
+	"apihelp-echomarkseen-description": "Geçerli kullanıcı için görüldüğü gibi Mark bildirimleri.",
+	"apihelp-echomarkseen-example-1": "Her tür bildirimi okundu olarak işaretle",
+	"apihelp-echomarkseen-param-type": "'Uyarı', 'mesaj' ya da 'tümü' olarak işaretlemek için bildirimlerin türü.",
+	"apihelp-query+notifications-description": "Bildirimler, geçerli kullanıcı için bekliyor.",
+	"apihelp-query+notifications-param-prop": "İstek detayları.",
+	"apihelp-query+notifications-param-sections": "Sorgu için bildirim bölümleri (örneğin bazı 'uyarı' ve 'mesaj'kombinasyonu)",
+	"apihelp-query+notifications-param-groupbysection": "Olsun bölüm sonuç grup için. Her bölüm set halinde ayrı ayrı getirildi.",
+	"apihelp-query+notifications-param-format": "Belirtilmişse, bildirimleri biçimlendirilmiş bu şekilde iade edilecektir.",
+	"apihelp-query+notifications-param-limit": "Gösterilebilecek azami bildirim sayısı.",
+	"apihelp-query+notifications-param-alertcontinue": "Daha uyanık sonuçlar mevcut olduğunda, bu devam etmek için kullanın.",
+	"apihelp-query+notifications-param-alertunreadfirst": "İster okunmamış mesaj bildirimlerini göstermek.",
+	"apihelp-query+notifications-param-messagecontinue": "Daha fazla ileti sonuçlar mevcut olduğunda, bu devam etmek için kullanın.",
+	"apihelp-query+notifications-param-messageunreadfirst": "İster okunmamış uyarı bildirimleri göstermek.",
+	"apihelp-query+notifications-example-1": "Liste bildirimleri",
+	"apihelp-query+notifications-example-2": "Bildirimler, bölüm tarafından gruplandırılmış, sayıları ile listesi"
+}
