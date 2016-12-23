@@ -119,7 +119,5 @@
 	"echo-email-batch-subject-weekly": "Jums šonedēļ ir {{PLURAL:$2|jauni paziņojumi|jauns paziņojums|jauni paziņojumi}} par {{SITENAME}}",
 	"echo-email-batch-body-intro-daily": "Sveiks $1,\nŠis ir šīsdienas {{SITENAME}} aktivitāšu saraksts.",
 	"echo-email-batch-body-intro-weekly": "Sveiks $1,\nŠis ir šīs nedēļas {{SITENAME}} aktivitāšu saraksts.",
-	"echo-email-batch-link-text-view-all-notifications": "Apskatīt visus paziņojumus",
-	"apihelp-echomarkread-example-2": "Atzīmēt visus paziņojumus kā izlasītus",
-	"apihelp-echomarkread-example-3": "Atzīmēt paziņojumu 1 kā nelasītu"
+	"echo-email-batch-link-text-view-all-notifications": "Apskatīt visus paziņojumus"
 }

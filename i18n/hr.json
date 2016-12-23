@@ -123,6 +123,5 @@
 	"echo-email-batch-link-text-view-all-notifications": "Prikaži sve obavijesti",
 	"notification-header-foreign-alert": "Više obavijesti na {{PLURAL:$5|drugom wikiju|$5 druga wikija|$5 drugih wikija}}",
 	"notification-header-foreign-notice": "Više obavijesti na {{PLURAL:$5|drugom wikiju|$5 druga wikija|$5 drugih wikija}}",
-	"notification-header-foreign-all": "Više obavijesti na {{PLURAL:$5|drugom wikiju|$5 druga wikija|$5 drugih wikija}}",
-	"apihelp-query+notifications-example-1": "Popis obavijest"
+	"notification-header-foreign-all": "Više obavijesti na {{PLURAL:$5|drugom wikiju|$5 druga wikija|$5 drugih wikija}}"
 }

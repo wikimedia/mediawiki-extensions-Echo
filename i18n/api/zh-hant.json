@@ -1,0 +1,31 @@
+{
+	"@metadata": {
+		"authors": [
+			"Cwlin0416"
+		]
+	},
+	"apihelp-echomarkread-description": "標記目前使用者的通知為已讀。",
+	"apihelp-echomarkread-param-list": "要標記為已讀的通知 ID 清單。",
+	"apihelp-echomarkread-param-all": "若設定，標記所有某個使用者的通知為已讀。",
+	"apihelp-echomarkread-param-sections": "要標記為已讀的章節清單。",
+	"apihelp-echomarkread-example-1": "標記通知 8 為已讀",
+	"apihelp-echomarkread-example-2": "標記所有通知為已讀",
+	"apihelp-echomarkread-example-3": "標記通知 8 為未讀",
+	"apihelp-echomarkseen-description": "標記目前使用者的通知為已讀",
+	"apihelp-echomarkseen-example-1": "標記所有類型的通知為已讀",
+	"apihelp-echomarkseen-param-type": "標記為已讀的通知類型：'alert'、'message' 或 'all'。",
+	"apihelp-query+notifications-description": "取得目前使用者等待的通知。",
+	"apihelp-query+notifications-param-prop": "請求的詳細資料。",
+	"apihelp-query+notifications-param-sections": "要查詢的通知章節 (例如部份 'alert' 與 'message' 的組合)。",
+	"apihelp-query+notifications-param-groupbysection": "是否要依據章節來分類查詢結果。 若開啟此功能會各別取得每個章節。",
+	"apihelp-query+notifications-param-format": "若有指定，通知將會以此指定的格式回傳結果。",
+	"apihelp-query+notifications-paramvalue-format-text": "純文字格式",
+	"apihelp-query+notifications-paramvalue-format-model": "原始通知資料",
+	"apihelp-query+notifications-param-limit": "要回傳的通知數量上限。",
+	"apihelp-query+notifications-param-alertcontinue": "當有多個警告的結果時，使用此參數來繼續。",
+	"apihelp-query+notifications-param-alertunreadfirst": "是否要先顯示未讀的訊息通知。",
+	"apihelp-query+notifications-param-messagecontinue": "當有更多訊息結果時，使用此參數來繼續。",
+	"apihelp-query+notifications-param-messageunreadfirst": "是否先顯示未讀的警告通知。",
+	"apihelp-query+notifications-example-1": "通知清單",
+	"apihelp-query+notifications-example-2": "依章節分類通知清單並顯示總數"
+}

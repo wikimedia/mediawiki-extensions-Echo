@@ -133,9 +133,5 @@
 	"echo-date-yesterday": "נעכטן",
 	"echo-email-batch-link-text-view-all-notifications": "ווײַזן אלע אנזאגן",
 	"notification-header-foreign-alert": "נאך מעלדונגען  פֿון {{PLURAL:$5|אַן אַנדער װיקי|$5 אַנדערע װיקיס}}",
-	"notification-header-foreign-all": "נאך מודעות פֿון {{PLURAL:$5|אַן אַנדער װיקי|$5 אַנדערע װיקיס}}",
-	"apihelp-echomarkread-param-sections": "א ליסטע פון אפטיילונגען צו מארקירן געלייענט.",
-	"apihelp-echomarkread-example-1": "מארקירן מודעה 8 געליינט",
-	"apihelp-echomarkread-example-2": "מארקירן אַלע מודעות געליינט",
-	"apihelp-echomarkread-example-3": "מארקירן מודעה 1נישט־געליינט"
+	"notification-header-foreign-all": "נאך מודעות פֿון {{PLURAL:$5|אַן אַנדער װיקי|$5 אַנדערע װיקיס}}"
 }

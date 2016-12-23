@@ -148,7 +148,5 @@
 	"echo-email-batch-subject-weekly": "Имате {{PLURAL:$2|ново обавештење|нова обавештења}} на пројекту {{SITENAME}} ове седмице",
 	"echo-email-batch-body-intro-daily": "Здраво $1,\nОво је дневни сажетак данашњих активности на пројекту {{SITENAME}} за вас.",
 	"echo-email-batch-body-intro-weekly": "Здраво $1,\nОво је недељни сажетак активности на пројекту {{SITENAME}} за вас.",
-	"echo-email-batch-link-text-view-all-notifications": "Погледај сва обавештења",
-	"apihelp-echomarkread-example-2": "Означи сва обавештења прочитаним",
-	"apihelp-query+notifications-example-1": "Списак обавештења"
+	"echo-email-batch-link-text-view-all-notifications": "Погледај сва обавештења"
 }

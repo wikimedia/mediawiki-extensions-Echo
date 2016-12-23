@@ -86,7 +86,5 @@
 	"echo-date-yesterday": "Atzo",
 	"echo-email-batch-link-text-view-all-notifications": "Jakinarazpen guztiak ikusi",
 	"notification-header-foreign-alert": "Alerta gehiago {{PLURAL:$5|beste wiki batean|beste $5 wikietan}}",
-	"notification-header-foreign-notice": "Mezu gehiago beste {{PLURAL:$5|wikian|$5 wikietan}}",
-	"apihelp-query+notifications-example-1": "Zerrendatu jakinarazpenak",
-	"apihelp-query+notifications-example-2": "Zerrendatu jakinarazpenak, atalka antolaturik, kontagailuekin"
+	"notification-header-foreign-notice": "Mezu gehiago beste {{PLURAL:$5|wikian|$5 wikietan}}"
 }

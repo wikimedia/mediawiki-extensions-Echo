@@ -107,6 +107,5 @@
 	"echo-date-today": "Ewro",
 	"echo-date-yesterday": "Vızér",
 	"echo-email-batch-link-text-view-all-notifications": "Qaytê beyanatan pêrine ke",
-	"notification-header-foreign-notice": "{{PLURAL:$5|juna wiki|$5 tayna wiki}} ra zeder neticey",
-	"apihelp-query+notifications-example-1": "Akerdenê liste"
+	"notification-header-foreign-notice": "{{PLURAL:$5|juna wiki|$5 tayna wiki}} ra zeder neticey"
 }

@@ -148,8 +148,5 @@
 	"echo-email-batch-body-intro-weekly": "Saluton $1,\nĈi tie estas resumo de la aktivaĵoj de ĉi tiu semajno sur {{SITENAME}} por vi.",
 	"echo-email-batch-link-text-view-all-notifications": "Montri ĉiujn sciigojn",
 	"notification-header-foreign-alert": "Pliaj sciigoj el {{PLURAL:$5|alia vikio|$5 aliaj vikioj}}",
-	"notification-header-foreign-notice": "Pliaj sciigoj el {{PLURAL:$5|alia vikio|$5 aliaj vikioj}}",
-	"apihelp-echomarkread-description": "Marki sciigojn legitaj por tiu ĉi uzanto.",
-	"apihelp-echomarkread-example-2": "Marki ĉiujn sciigojn legitaj",
-	"apihelp-query+notifications-description": "Ricevi sciigojn atentantajn por tiu ĉi uzanto."
+	"notification-header-foreign-notice": "Pliaj sciigoj el {{PLURAL:$5|alia vikio|$5 aliaj vikioj}}"
 }

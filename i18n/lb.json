@@ -140,10 +140,5 @@
 	"echo-email-batch-body-intro-daily": "Salut $1,\n\nHei ass e Resumé vun den Aktivitéite vun haut op {{SITENAME}} fir Iech.",
 	"echo-email-batch-body-intro-weekly": "Salut $1,\n\nHei ass e Resumé vun den Aktivitéite vun dëser Woch op {{SITENAME}} fir Iech.",
 	"echo-email-batch-link-text-view-all-notifications": "All Notifikatioune weisen",
-	"notification-header-foreign-notice": "Méi Notifikatiounen aus {{PLURAL:$5|enger anere Wiki|$5 anere Wikien}}",
-	"apihelp-echomarkread-param-sections": "Eng Lëscht vun den Abschnitter déi als geliest markéiert solle ginn.",
-	"apihelp-echomarkread-example-3": "Notifikatioun 1 als net geliest markéieren",
-	"apihelp-echomarkseen-description": "Notifikatioune fir den aktuelle Benotzer als geliest markéieren.",
-	"apihelp-echomarkseen-example-1": "Notifikatiounen vun all Typ als geliest markéieren",
-	"apihelp-query+notifications-param-prop": "Detailer fir unzefroen."
+	"notification-header-foreign-notice": "Méi Notifikatiounen aus {{PLURAL:$5|enger anere Wiki|$5 anere Wikien}}"
 }

@@ -36,8 +36,6 @@
 	"echo-pref-tooltip-article-linked": "ನಾನು ತಯಾರಿಸಿದ ಲೇಖನಪುಟಕ್ಕೆ ಯಾರಾದರೂ ಕೊಂಡಿ ನೀಡಿದರೆ ನನಗೆ ತಿಳಿಸಿ",
 	"echo-pref-tooltip-reverted": "ನಾನು ಮಾಡಿದ ಸಂಪಾದನೆಯನ್ನು ಯಾರಾದರು ಹಿಂದಿನಂತೆ ಮಾಡಿದರೆ ನನಗೆ ತಿಳಿಸಿ",
 	"echo-pref-tooltip-mention": "ನನ್ನ ಸದಸ್ಯ ಪುಟಕ್ಕೆ ಯಾರಾದರು ಯಾವುದಾದರು ಚರ್ಚಾಪುಟದಿಂದ ಕೊಂಡಿ ನೀಡಿದರೆ ನನಗೆ ತಿಳಿಸಿ",
-	"echo-no-agent": "[ಯಾರೂ ಇಲ್ಲ]",
-	"echo-no-title": "[ಯಾವುದೇ ಪುಟ ಇಲ್ಲ]",
 	"echo-error-no-formatter": "ಸೂಚನೆಗಳಿಗೆ ಯಾವುದೇ ನಮೂನೆ ನಿರ್ಧರಿಸಿಲ್ಲ",
 	"notifications": "ಸೂಚನೆಗಳು",
 	"echo-specialpage": "ಸೂಚನೆಗಳು",
@@ -50,12 +48,9 @@
 	"notification-link-text-view-changes": "ಬದಲಾವಣೆ ನೋಡಿ",
 	"notification-link-text-view-page": "ಪುಟ ನೋಡಿ",
 	"notification-link-text-view-edit": "ಸಂಪಾದನೆ ನೋಡಿ",
-	"notification-new-user": "{{SITENAME}} ಕ್ಕೆ ಸುಸ್ವಾಗತ, $1! ನೀವು ಇಲ್ಲಿ ಬಂದಿದ್ದು ಸಂತಸ ತಂದಿತು",
 	"notification-page-linked-email-subject": "ನಿಮ್ಮ ಪುಟವು {{SITENAME}} ಜಾಲತಾಣಕ್ಕೆ ಸಂಪರ್ಕಿಸಲ್ಪಟ್ಟಿದೆ",
 	"notification-user-rights-email-subject": "{{SITENAME}} ಜಾಲತಾಣದಲ್ಲಿ ನಿಮ್ಮ ಬಳಕೆದಾರ ಹಕ್ಕುಗಳನ್ನು ಬದಲಿಸಲಾಗಿದೆ",
-	"echo-email-subject-default": "{{SITENAME}} ಜಾಲತಾಣದಲ್ಲಿ ಹೊಸ ಸೂಚನೆ ಇದೆ",
 	"echo-email-body-default": "{{SITENAME}} ಜಾಲತಾಣದಲ್ಲಿ ನಿಮಗೆ ಈ ಸೂಚನೆ ಇದೆ: $1",
-	"echo-email-batch-body-default": "ನಿಮಗೆ ಹೊಸ ಸೂಚನೆ ಇದೆ.",
 	"echo-overlay-link": "ಎಲ್ಲ ಸೂಚನೆಗಳು",
 	"echo-overlay-title": "<b>ಸೂಚನೆಗಳು</b>",
 	"echo-overlay-title-overflow": "<b>ಸೂಚನೆಗಳು</b> ($2 ರಲ್ಲಿ $1 ಓದದವುಗಳನ್ನು ತೋರಿಸಲಾಗುತ್ತಿದೆ)",
@@ -65,6 +60,5 @@
 	"echo-load-more-error": "ಹೆಚ್ಚು ಫಲಿತಾಂಶಗಳನ್ನು ಪಡೆಯುವಾಗ ದೋಷವೊಂದು ಆಯಿತು",
 	"echo-email-batch-body-intro-daily": "ನಮಸ್ಕಾರ $1,\n{{SITENAME}} ಜಾಲತಾಣದಲ್ಲಿ ಇಂದು ನಡೆದ ಎಲ್ಲ ಪ್ರಕ್ರಿಯೆಗಳ ಸಾರಾಂಶ ನಿಮಗಾಗಿ ಇಲ್ಲಿದೆ.",
 	"echo-email-batch-body-intro-weekly": "ನಮಸ್ಕಾರ $1,\n{{SITENAME}} ಜಾಲತಾಣದಲ್ಲಿ ಈ ವಾರ ನಡೆದ ಎಲ್ಲ ಪ್ರಕ್ರಿಯೆಗಳ ಸಾರಾಂಶ ನಿಮಗಾಗಿ ಇಲ್ಲಿದೆ.",
-	"echo-email-batch-link-text-view-all-notifications": "ಎಲ್ಲ ಸೂಚನೆಗಳನ್ನು ನೋಡಿ",
-	"echo-rev-deleted-text-view": "ಈ ಪುಟದ ಪರಿಷ್ಕರಣೆಯನ್ನು ಹತ್ತಿಕ್ಕಲಾಗಿದೆ"
+	"echo-email-batch-link-text-view-all-notifications": "ಎಲ್ಲ ಸೂಚನೆಗಳನ್ನು ನೋಡಿ"
 }

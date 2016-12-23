@@ -194,11 +194,5 @@
 	"echo-email-batch-link-text-view-all-notifications": "Xem tất cả thông báo",
 	"notification-header-foreign-alert": "Thêm thông báo từ {{PLURAL:$5|một wiki|$5 wiki}} khác",
 	"notification-header-foreign-notice": "Thêm thông báo từ {{PLURAL:$5|một wiki nữa|$5 wiki nữa}}",
-	"notification-header-foreign-all": "Thêm thông báo từ {{PLURAL:$5|một wiki|$5 wiki}} khác",
-	"apihelp-echomarkread-param-list": "Danh sách các ID thông báo để đánh dấu là đã đọc.",
-	"apihelp-echomarkread-example-2": "Đánh dấu tất cả thông báo là đã đọc",
-	"apihelp-query+notifications-param-prop": "Chi tiết để yêu cầu.",
-	"apihelp-query+notifications-paramvalue-format-text": "Định dạng văn bản thuần",
-	"apihelp-query+notifications-paramvalue-format-model": "Dữ liệu thông báo thô",
-	"apihelp-query+notifications-example-1": "Danh sách thông báo"
+	"notification-header-foreign-all": "Thêm thông báo từ {{PLURAL:$5|một wiki|$5 wiki}} khác"
 }

@@ -199,6 +199,5 @@
 	"echo-email-batch-link-text-view-all-notifications": "Zobrazit všechna upozornění",
 	"notification-header-foreign-alert": "Více upozornění z {{PLURAL:$5|další wiki|$5 dalších wiki}}",
 	"notification-header-foreign-notice": "Více oznámení z {{PLURAL:$5|další wiki|$5 dalších wiki}}",
-	"notification-header-foreign-all": "Další notifikace z {{PLURAL:$5|jiné wiki|$5 jiných wiki}}",
-	"apihelp-echomarkseen-example-1": "Označit oznámení všech typů jako přečtená"
+	"notification-header-foreign-all": "Další notifikace z {{PLURAL:$5|jiné wiki|$5 jiných wiki}}"
 }

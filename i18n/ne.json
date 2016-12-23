@@ -81,6 +81,5 @@
 	"echo-email-batch-subject-weekly": "तपाईँसँग {{SITENAME}} मा यो हप्ता {{PLURAL:$2|नयाँ सूचना|नयाँ सूचनाहरू}} छ",
 	"echo-email-batch-body-intro-daily": "नमस्ते $1,\nयहाँ तपाईंको लागि {{SITENAME}}मा आजको गतिविधिको एउटा सारांश छ।",
 	"echo-email-batch-body-intro-weekly": "नमस्ते $1,\nयहाँ तपाईंको लागि {{SITENAME}} मा यो हप्ताको गतिविधिको निम्नानुशार सारांश छ।",
-	"echo-email-batch-link-text-view-all-notifications": "सबै सूचनाहरू हेर्नुहोस्",
-	"apihelp-echomarkseen-example-1": "सूचनालाई हेरेको भनि चिन्ह लगाउने"
+	"echo-email-batch-link-text-view-all-notifications": "सबै सूचनाहरू हेर्नुहोस्"
 }

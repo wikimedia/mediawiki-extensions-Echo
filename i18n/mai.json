@@ -104,11 +104,5 @@
 	"echo-email-batch-subject-weekly": "अहाँक लेल {{SITENAME}} पर ई हप्ता नव {{PLURAL:$2|अधिसूचना अछि|अधिसूचनासभ अछि}}।",
 	"echo-email-batch-body-intro-daily": "नमस्कार $1,\n{{SITENAME}} पर आजुक गतिविधिक सारांश निम्न अछि।",
 	"echo-email-batch-body-intro-weekly": "नमस्कार $1,\n{{SITENAME}} पर ई हप्ताक गतिविधिक सारांश निम्न अछि।",
-	"echo-email-batch-link-text-view-all-notifications": "सभ अधिसूचनासभ देखी",
-	"apihelp-echomarkread-example-1": "अधिसूचना ८ के पढल गेल कहि चिन्हित करी",
-	"apihelp-echomarkread-example-2": "सभ अधिसूचनासभ पढल गेल कहि चिन्हित करी",
-	"apihelp-echomarkread-example-3": "सूचना 1 के नै पढल चिन्हित करी",
-	"apihelp-echomarkseen-description": "वर्तमान प्रयोगकर्ताक अधिसूचनासभ पढल गेल रेखाङ्कित करी।",
-	"apihelp-query+notifications-example-1": "अधिसूचनासभ सूचीबद्ध करी",
-	"apihelp-query+notifications-example-2": "अधिसूचनासभ सूचीबद्ध अनुभागक अनुसार सम्मिलित करि गिनकर करी"
+	"echo-email-batch-link-text-view-all-notifications": "सभ अधिसूचनासभ देखी"
 }

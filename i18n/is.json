@@ -91,6 +91,5 @@
 	"echo-load-more-error": "Villa átti sér stað þegar fleiri niðurstöður voru sóttar.",
 	"echo-email-batch-subject-daily": "Þú hefur {{PLURAL:$2|nýja tilkynningu|nýjar tilkynningar}} á {{SITENAME}}",
 	"echo-email-batch-subject-weekly": "Þú hefur {{PLURAL:$2|nýja tilkynningu|nýjar tilkynningar}} á {{SITENAME}} í þessari viku",
-	"notification-header-foreign-all": "Fleiri skilaboð frá {{PLURAL:$5|öðru wiki|$5 öðrum wiki-um}}",
-	"apihelp-echomarkseen-example-1": "Merkja tilkynningar af öllum gerðum sem lesnar"
+	"notification-header-foreign-all": "Fleiri skilaboð frá {{PLURAL:$5|öðru wiki|$5 öðrum wiki-um}}"
 }

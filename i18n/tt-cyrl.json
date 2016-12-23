@@ -93,9 +93,5 @@
 	"echo-date-today": "Бүген",
 	"echo-date-yesterday": "Кичә",
 	"notification-bundle-header-edit-user-talk-v2": "<strong>{{GENDER:$3|Сезнең}} бәхәс битегездә</strong> {{PLURAL:$1|яңа хат|$1 яңа хат|100=99+ яңа хат}}.",
-	"echo-email-batch-link-text-view-all-notifications": "Барлык белдерүләрне карау",
-	"apihelp-echomarkread-description": "Кулланучы өчен барлык белдерүләрне укылган дип билгеләү",
-	"apihelp-echomarkread-example-2": "Барлык белдерүләрне укылган дип билгеләү",
-	"apihelp-query+notifications-paramvalue-format-text": "Текст форматы",
-	"apihelp-query+notifications-example-1": "Белдерүләр исәбе"
+	"echo-email-batch-link-text-view-all-notifications": "Барлык белдерүләрне карау"
 }

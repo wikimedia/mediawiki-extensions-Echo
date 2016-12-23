@@ -108,6 +108,5 @@
 	"echo-date-today": "დღეს",
 	"echo-date-yesterday": "გუშინ",
 	"echo-email-batch-bullet": "•",
-	"echo-email-batch-link-text-view-all-notifications": "ყველა შეტყობინების ნახვა",
-	"apihelp-query+notifications-param-prop": "მოთხოვნილი დეტალები."
+	"echo-email-batch-link-text-view-all-notifications": "ყველა შეტყობინების ნახვა"
 }

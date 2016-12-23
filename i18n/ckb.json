@@ -88,7 +88,5 @@
 	"echo-email-batch-subject-weekly": "لە {{SITENAME}}دا {{PLURAL:$2|ئاگادارییەکی نوێت|ئاگاداریی نوێت}} لەم حەفتەیەدا ھەیە",
 	"echo-email-batch-body-intro-daily": "سڵاو $1،\nئەمە کۆرتەیەکە لە چالاکییەکانی ئەمرۆی {{SITENAME}} بۆ تۆ.",
 	"echo-email-batch-body-intro-weekly": "سڵاو $1،\nئەمە کۆرتەیەکە لە چالاکییەکانی حەفتانەی {{SITENAME}} بۆ تۆ.",
-	"echo-email-batch-link-text-view-all-notifications": "ھەموو ئاگادارییەکان ببینە",
-	"apihelp-query+notifications-example-1": "پێرستی ئاگادارییەکان",
-	"apihelp-query+notifications-example-2": "پێرستی پۆلێن کراوی ئاگادارییەکان لەگەڵ ژمارەکانیان"
+	"echo-email-batch-link-text-view-all-notifications": "ھەموو ئاگادارییەکان ببینە"
 }

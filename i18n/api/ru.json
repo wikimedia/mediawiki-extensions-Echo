@@ -1,0 +1,42 @@
+{
+	"@metadata": {
+		"authors": [
+			"Mailman",
+			"Marina Melik-Adamyan",
+			"Okras",
+			"Putnik",
+			"Sunpriat"
+		]
+	},
+	"apihelp-echomarkread-description": "Отметить уведомления как прочитанные для текущего пользователя.",
+	"apihelp-echomarkread-param-list": "Список ID уведомлений для отметки прочитанными.",
+	"apihelp-echomarkread-param-unreadlist": "Список ID уведомлений для отметки непрочитанными.",
+	"apihelp-echomarkread-param-all": "Если задано, отметает все уведомления пользователя как прочитанные.",
+	"apihelp-echomarkread-param-sections": "Список разделов для пометки как прочитанных.",
+	"apihelp-echomarkread-example-1": "Пометить уведомление 8 как прочитанное",
+	"apihelp-echomarkread-example-2": "Отметить все уведомления как прочитанные",
+	"apihelp-echomarkread-example-3": "Пометить уведомление 1 как непрочитанное",
+	"apihelp-echomarkseen-description": "Отметить уведомления как прочитанные для данного пользователя.",
+	"apihelp-echomarkseen-example-1": "Отметить уведомления всех типов как прочитанные",
+	"apihelp-echomarkseen-param-type": "Тип уведомлений для отметки прочитанными: 'alert', 'message' или 'all'.",
+	"apihelp-query+notifications-description": "Получать уведомления, ожидающие текущего пользователя.",
+	"apihelp-query+notifications-param-prop": "Подробности для запроса.",
+	"apihelp-query+notifications-param-sections": "Разделы уведомлений для запроса (т. е. некое сочетание 'alert' и 'message').",
+	"apihelp-query+notifications-param-groupbysection": "Следует ли группировать результат по разделам. Если задано, каждый раздел извлекается отдельно.",
+	"apihelp-query+notifications-param-filter": "Фильтровать возвращённые уведомления.",
+	"apihelp-query+notifications-param-format": "Если определено, уведомления будут возвращены отформатированными таким образом.",
+	"apihelp-query+notifications-paramvalue-format-text": "Текстовый формат",
+	"apihelp-query+notifications-paramvalue-format-model": "Необработанные данные уведомления",
+	"apihelp-query+notifications-paramvalue-format-special": "Отформатированое для страницы Special:Notifications (и только её!) Не полагайтесь на этот HTML, так как он может измениться в любой момент.",
+	"apihelp-query+notifications-paramvalue-format-flyout": "<span class=\"apihelp-deprecated\">Устарело</span>. Используйте <kbd>$1format=model</kbd> для исходных данных",
+	"apihelp-query+notifications-paramvalue-format-html": "<span class=\"apihelp-deprecated\">Устарело</span>. Используйте <kbd>$1format=model</kbd> для исходных данных",
+	"apihelp-query+notifications-param-limit": "Максимальное количество возвращаемых уведомлений.",
+	"apihelp-query+notifications-param-alertcontinue": "Когда доступно больше результатов для предупреждений, используйте это для продолжения.",
+	"apihelp-query+notifications-param-unreadfirst": "Нужно ли показывать непрочитанные уведомления вначале (используется только если groupbysection не установлен).",
+	"apihelp-query+notifications-param-alertunreadfirst": "Нужно ли показывать непрочитанные уведомления о сообщениях в первую очередь (используется только если указан groupbysection).",
+	"apihelp-query+notifications-param-messagecontinue": "Когда доступно больше результатов для сообщений, используйте это для продолжения.",
+	"apihelp-query+notifications-param-messageunreadfirst": "Нужно ли показывать непрочитанные уведомления о оповещениях в первую очередь (используется только если указан groupbysection).",
+	"apihelp-query+notifications-example-1": "Список уведомлений",
+	"apihelp-query+notifications-example-2": "Список уведомлений, сгруппированных по разделам, с указанием количества",
+	"apihelp-query+unreadnotificationpages-param-limit": "Максимальное количество страниц для возврата"
+}
