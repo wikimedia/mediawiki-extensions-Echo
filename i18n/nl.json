@@ -22,7 +22,8 @@
 			"Mbch331",
 			"Dinosaur918",
 			"Catrope",
-			"MrLeopold"
+			"MrLeopold",
+			"Mainframe98"
 		]
 	},
 	"echo-desc": "Systeem voor het informeren van gebruikers over evenementen en berichten",
@@ -121,7 +122,7 @@
 	"notification-header-edit-user-talk-with-section": "$1 {{GENDER:$2|heeft}} een bericht op <strong>{{GENDER:$3|uw}} overlegpagina</strong> achtergelaten onder \"<strong>$4</strong>\".",
 	"notification-header-page-linked": "Er is een koppeling gemaakt van <strong>$4</strong> naar <strong>$3</strong>.",
 	"notification-compact-header-page-linked": "Koppeling van <strong>$1</strong>.",
-	"notification-bundle-header-page-linked": "Er zijn koppelingen gemaakt van <strong>$4</strong> en {{PLURAL:$5|één andere pagina|$5 andere pagina's|100=99+ andere pagina's}} naar <strong>$3</strong>.",
+	"notification-bundle-header-page-linked": "Er zijn koppelingen gemaakt {{PLURAL:$5|één andere pagina|$5 andere pagina's|100=99+ andere pagina's}} naar <strong>$3</strong>.",
 	"notification-link-text-what-links-here": "Alle links naar deze pagina",
 	"notification-header-mention-other": "$1 heeft {{GENDER:$3|u}} {{GENDER:$2|genoemd}} op <strong>$4</strong> onder \"<strong>$5</strong>\".",
 	"notification-header-mention-other-nosection": "$1 heeft {{GENDER:$3|u}} {{GENDER:$2|genoemd}} op <strong>$4</strong>.",
@@ -131,8 +132,9 @@
 	"notification-header-mention-agent-talkpage-nosection": "$1 heeft {{GENDER:$3|u}} {{GENDER:$2|genoemd}} op <strong>{{GENDER:$2|zijn|haar|zijn/haar}} overlegpagina</strong>.",
 	"notification-header-mention-article-talkpage": "$1 heeft {{GENDER:$3|u}} {{GENDER:$2|genoemd}} op de <strong>overlegpagina van $4</strong> onder \"<strong>$5</strong>\".",
 	"notification-header-mention-article-talkpage-nosection": "$1 heeft {{GENDER:$3|u}} {{GENDER:$2|genoemd}} op de overlegpagina van <strong>$4</strong>.",
-	"notification-header-mention-failure-user-unknown": "{{GENDER:$2|Uw}} vermelding voor $3 werd niet verzonden, omdat de gebruiker niet gevonden werd.",
-	"notification-header-mention-failure-user-anonymous": "{{GENDER:$2|Uw}} vermelding voor $3 werd niet verzonden, omdat de gebruiker anoniem is.",
+	"notification-header-mention-failure-user-unknown": "{{GENDER:$2|Uw}} vermelding van <strong>$3</strong> werd niet verzonden, omdat de gebruiker niet gevonden werd.",
+	"notification-header-mention-failure-user-anonymous": "{{GENDER:$2|Uw}} vermelding van <strong>$3</strong> werd niet verzonden, omdat de gebruiker anoniem is.",
+	"notification-header-mention-failure-too-many": "{{GENDER:$2|Uw}} vermeldingen werden niet verzonden omdat ze de limit $3 overschreden.",
 	"notification-compact-header-mention-failure-user-unknown": "<strong>Gebruikersnaam bestaat niet:</strong> $1",
 	"notification-compact-header-mention-failure-user-anonymous": "<strong>IPs kan niet worden genoemd:</strong> $1",
 	"notification-header-mention-success": "{{GENDER:$2|U noemde}} $3.",
