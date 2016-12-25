@@ -147,7 +147,7 @@
 	"notification-header-thank-you-1000000-edit": "Acaba de facer {{GENDER:$2|a súa}} edición número un millón. {{GENDER:$2|Grazas}} pola súa abraiante contribución!",
 	"notification-link-thank-you-edit": "{{GENDER:$1|A súa}} edición",
 	"notification-link-text-view-edit": "Mostrar a edición",
-	"notification-header-reverted": "{{PLURAL:$4|A súa edición en <strong>$3</strong> foi revertida|As súas edicións en <strong>$3</strong> foron}} {{GENDER:$2|revertidas}}.",
+	"notification-header-reverted": "{{PLURAL:$4|A túa edición en <strong>$3</strong> foi revertida|As túas edicións en <strong>$3</strong> foron {{GENDER:$2|revertidas}}}}.",
 	"notification-header-emailuser": "$1 {{GENDER:$2|envioulle}} un correo electrónico.",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|deixoulle}} unha mensaxe en {{SITENAME}}",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 {{GENDER:$1|deixou}} unha mensaxe na súa páxina de conversa na sección \"$2\"",
