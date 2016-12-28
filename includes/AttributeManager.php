@@ -133,15 +133,15 @@ class EchoAttributeManager {
 	/**
 	 * Get the enabled events for a user, which excludes user-dismissed events
 	 * from the general enabled events
-	 * @param User
-	 * @param string web/email
+	 * @param User $user
+	 * @param string $notifyType Either "web" or "email".
 	 * @return string[]
 	 */
 	public function getUserEnabledEvents( User $user, $notifyType ) {
 		$eventTypesToLoad = $this->notifications;
 		foreach ( $eventTypesToLoad as $eventType => $eventData ) {
 			$category = $this->getNotificationCategory( $eventType );
-			// Make sure the user is eligible to recieve this type of notification
+			// Make sure the user is eligible to receive this type of notification
 			if ( !$this->getCategoryEligibility( $user, $category ) ) {
 				unset( $eventTypesToLoad[$eventType] );
 			}
@@ -155,10 +155,10 @@ class EchoAttributeManager {
 	}
 
 	/**
-	 * Get the uesr enabled events for the specified sections
-	 * @param User
-	 * @param string
-	 * @param string[]
+	 * Get the user enabled events for the specified sections
+	 * @param User $user
+	 * @param string $notifyType Either "web" or "email".
+	 * @param string[] $sections
 	 * @return string[]
 	 */
 	public function getUserEnabledEventsbySections( User $user, $notifyType, array $sections ) {
@@ -222,7 +222,7 @@ class EchoAttributeManager {
 	}
 
 	/**
-	 * See if a user is eligible to recieve a certain type of notification
+	 * See if a user is eligible to receive a certain type of notification
 	 * (based on user groups, not user preferences)
 	 *
 	 * @param User

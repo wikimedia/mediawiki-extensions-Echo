@@ -373,7 +373,7 @@ class EchoHooks {
 				continue;
 			}
 
-			// See if user is eligible to recieve this notification (per user group restrictions)
+			// See if user is eligible to receive this notification (per user group restrictions)
 			if ( $attributeManager->getCategoryEligibility( $user, $category ) ) {
 				$categoriesAndPriorities[$category] = $attributeManager->getCategoryPriority( $category );
 			}

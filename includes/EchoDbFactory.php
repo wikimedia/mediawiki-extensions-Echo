@@ -151,7 +151,7 @@ class MWEchoDbFactory {
 	}
 
 	/**
-	 * Recieves the output of self::getMasterPosition. Waits
+	 * Receives the output of self::getMasterPosition. Waits
 	 * for slaves to catch up to the master position at that
 	 * point.
 	 *

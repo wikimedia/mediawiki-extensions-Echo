@@ -10,8 +10,8 @@ class EchoNotifier {
 	 * @param $event EchoEvent to notify about.
 	 */
 	public static function notifyWithNotification( $user, $event ) {
-		// Only create the notification if the user wants to recieve that type
-		// of notification and they are eligible to recieve it. See bug 47664.
+		// Only create the notification if the user wants to receive that type
+		// of notification and they are eligible to receive it. See bug 47664.
 		$attributeManager = EchoAttributeManager::newFromGlobalVars();
 		$userWebNotifications = $attributeManager->getUserEnabledEvents( $user, 'web' );
 		if ( !in_array( $event->getType(), $userWebNotifications ) ) {
