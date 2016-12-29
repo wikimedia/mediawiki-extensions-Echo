@@ -86,7 +86,7 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-type-legend": "Explanatory text on DisplayNotificationsConfiguration regarding which notification methods are available for each type",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Header on DisplayNotificationsConfiguration for section about which categories are enabled by default",
 	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Explanatory text on DisplayNotificationsConfiguration regarding which notification methods for each category are enabled by default, for existing users",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Explanatory text on DisplayNotificationsConfiguration regarding which notification methods for each category are enabled by default, for new users",
+	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Explanatory text on DisplayNotificationsConfiguration regarding which notification methods for each category are enabled by default, for new users\n{{Identical|New user}}",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "Header on DisplayNotificationsConfiguration for section about which notification methods are required",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "Explanatory text on DisplayNotificationsConfiguration regarding which notification methods are mandatory for each category",
 	"echo-specialpage": "Special page title for Special:Notifications.\n{{Identical|Notification}}",

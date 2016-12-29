@@ -77,7 +77,7 @@
 	"echo-pref-tooltip-mention-success": "当我向某人发送提及时通知我。",
 	"echo-pref-tooltip-user-rights": "当有人更新我的用户权限时通知我。",
 	"echo-pref-tooltip-emailuser": "当有人向我发送电子邮件时通知我。",
-	"echo-error-no-formatter": "未指定通知格式",
+	"echo-error-no-formatter": "未指定通知格式。",
 	"notifications": "通知",
 	"tooltip-pt-notifications-alert": "{{GENDER:|您的}}提醒",
 	"tooltip-pt-notifications-notice": "{{GENDER:|您的}}一般通知",
