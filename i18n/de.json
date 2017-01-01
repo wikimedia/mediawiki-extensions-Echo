@@ -176,7 +176,7 @@
 	"echo-email-body-default": "Es gibt eine neue Benachrichtigung auf {{SITENAME}}:\n\n$1",
 	"echo-email-footer-default-html": "Um zu steuern, welche E-Mails wir dir senden, <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">nutze deine Einstellungen</a>.<br />\n$1",
 	"echo-email-footer-default": "$2\n\nUm zu steuern, welche E-Mails wir dir senden, nutze deine Einstellungen:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
-	"echo-email-plain-footer": "Um zu kontrollieren, welche E-Mails wir {{GENDER:$1|dir}} senden, überprüfe {{GENDER:$1|deine}} Einstellungen:",
+	"echo-email-plain-footer": "Um zu steuern, welche E-Mails wir {{GENDER:$1|dir}} senden, überprüfe {{GENDER:$1|deine}} Einstellungen:",
 	"echo-email-html-footer-preference-link-text": "überprüfe {{GENDER:$1|deine}} Einstellungen",
 	"echo-email-html-footer-with-link": "Um zu steuern, welche E-Mails wir {{GENDER:$2|dir}} senden, $1.",
 	"echo-notification-alert": "{{PLURAL:$1|Eine Meldung|$1 Meldungen|100=99+ Meldungen}}",

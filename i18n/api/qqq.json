@@ -6,7 +6,8 @@
 			"Matthias Mullie",
 			"Moriel Schottlender",
 			"Roan Kattouw",
-			"Stephane Bisson"
+			"Stephane Bisson",
+			"Umherirrender"
 		]
 	},
 	"apihelp-echomarkread-description": "{{doc-apihelp-description|echomarkread}}",
@@ -30,8 +31,8 @@
 	"apihelp-query+notifications-paramvalue-format-text": "{{doc-apihelp-paramvalue|query+notifications|format|text}}",
 	"apihelp-query+notifications-paramvalue-format-model": "{{doc-apihelp-paramvalue|query+notifications|format|model}}",
 	"apihelp-query+notifications-paramvalue-format-special": "{{doc-apihelp-paramvalue|query+notifications|format|special}}",
-	"apihelp-query+notifications-paramvalue-format-flyout": "<span class=\"apihelp-deprecated\">Deprecated</span>",
-	"apihelp-query+notifications-paramvalue-format-html": "<span class=\"apihelp-deprecated\">Deprecated</span>",
+	"apihelp-query+notifications-paramvalue-format-flyout": "<span class=\"apihelp-deprecated\">Deprecated</span>\n{{doc-apihelp-paramvalue|query+notifications|format|flyout}}",
+	"apihelp-query+notifications-paramvalue-format-html": "<span class=\"apihelp-deprecated\">Deprecated</span>\n{{doc-apihelp-paramvalue|query+notifications|format|html}}",
 	"apihelp-query+notifications-param-limit": "{{doc-apihelp-param|query+notifications|limit}}",
 	"apihelp-query+notifications-param-wikis": "{{doc-apihelp-param|query+notifications|wikis}}",
 	"apihelp-query+notifications-param-crosswikisummary": "{{doc-apihelp-param|query+notifications|crosswikisummary}}",

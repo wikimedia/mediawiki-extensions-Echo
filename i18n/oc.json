@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Cedric31"
+			"Cedric31",
+			"Nicolas Eynaud"
 		]
 	},
 	"echo-desc": "Sistèma per avertir los utilizaires dels eveniments e messatges",
@@ -47,12 +48,15 @@
 	"echo-none": "Avètz pas recebut cap de notificacion.",
 	"echo-more-info": "Mai d'informacion",
 	"echo-feedback": "Vejaires",
+	"echo-notification-placeholder": "I a ges de notificacion.",
+	"echo-notification-more-options-tooltip": "Mai d'opcions",
 	"notification-link-text-view-message": "Afichar lo messatge",
 	"notification-link-text-view-mention": "Afichar la mencion",
 	"notification-link-text-view-changes": "{{GENDER:$1|Afichar}} las modificacions",
 	"notification-link-text-view-page": "Afichar la pagina",
 	"notification-header-mention-success": "{{GENDER:$2|Vòstra}} mencion de <strong>$3</strong> es estada mandada.",
 	"notification-compact-header-mention-success": "<strong>{{GENDER:$2|Avètz mencionat}}:</strong> $3",
+	"notification-welcome-linktext": "Benvengut",
 	"notification-link-text-view-edit": "Afichar la modificacion",
 	"notification-header-reverted": "{{PLURAL:$4|Vòstra modificacion sus <strong>$3</strong> es estada|Vòstras modificacions sus <strong>$3</strong> son estadas}} {{GENDER:$2|anullada}}{{PLURAL:$4||s}}",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|a daissat}} un messatge sus vòstra pagina de discussion sus {{SITENAME}}",
@@ -61,6 +65,12 @@
 	"notification-reverted-email-subject2": "{{PLURAL:$3|Vòstra modificacion es estada anullada|Vòstras modificacions son estadas anulladas}} {{GENDER:$1|}} sus {{SITENAME}}",
 	"notification-mention-email-subject": "$1 vos {{GENDER:$2|a mencionat|a mencionada}} sus {{SITENAME}}",
 	"notification-user-rights-email-subject": "Vòstres dreits d’utilizaire son estats modificats sus {{SITENAME}}",
+	"notification-timestamp-ago-seconds": "{{PLURAL:$1|$1s}}",
+	"notification-timestamp-ago-minutes": "{{PLURAL:$1|$1m}}",
+	"notification-timestamp-ago-hours": "{{PLURAL:$1|$1h}}",
+	"notification-timestamp-ago-days": "{{PLURAL:$1|$1d}}",
+	"notification-timestamp-ago-months": "{{PLURAL:$1|$1mo}}",
+	"notification-timestamp-ago-years": "{{PLURAL:$1|$1yr}}",
 	"notification-timestamp-today": "Uèi",
 	"notification-timestamp-yesterday": "Ièr",
 	"echo-email-body-default": "Avètz una novèla notificacion sus {{SITENAME}} :\n\n$1",
