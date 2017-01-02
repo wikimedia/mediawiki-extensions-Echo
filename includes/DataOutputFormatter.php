@@ -165,8 +165,9 @@ class EchoDataOutputFormatter {
 	 */
 	protected static function formatNotification( EchoEvent $event, User $user, $format, $lang ) {
 		if ( isset( self::$formatters[$format] ) ) {
+			$class = self::$formatters[$format];
 			/** @var EchoEventFormatter $formatter */
-			$formatter = new self::$formatters[$format]( $user, $lang );
+			$formatter = new $class( $user, $lang );
 			return $formatter->format( $event );
 		} else {
 			return false;
