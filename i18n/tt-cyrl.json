@@ -38,6 +38,7 @@
 	"tooltip-pt-notifications-notice": "{{GENDER:|Сезнең}} белдерүләр",
 	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Яңа кулланучылар",
 	"echo-specialpage": "Белдерүләр",
+	"echo-specialpage-section-markread": "Төркемне укылган дип санарга",
 	"echo-specialpage-pagination-numnotifications": "$1 {{PLURAL:$1|белдерү}}",
 	"echo-specialpage-pagefilters-title": "Соңгы гамәлләр",
 	"echo-specialpage-pagefilters-subtitle": "Каралмаган белдерүле битләр",
