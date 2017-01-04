@@ -1,33 +1,38 @@
 ( function ( mw, $ ) {
-	/* global moment:false */
 	var fakeData = {
-		type: 'alert',
-		read: true,
-		seen: true,
-		timestamp: '2016-09-14T23:21:56Z',
-		content: {
-			header: 'Your edit on <strong>Moai</strong> was reverted.',
-			compactHeader: 'Your edit on <strong>Moai</strong> was reverted.',
-			body: 'undo'
-		},
-		iconType: 'revert',
-		primaryUrl: 'http://dev.wiki.local.wmftest.net:8080/w/index.php?title=Moai&oldid=prev&diff=1978&markasread=2126',
-		secondaryUrls: [
-			{
-				url: 'http://dev.wiki.local.wmftest.net:8080/wiki/User:RandomUser',
-				label: 'RandomUser',
-				icon: 'userAvatar'
+			type: 'alert',
+			read: true,
+			seen: true,
+			timestamp: '2016-09-14T23:21:56Z',
+			content: {
+				header: 'Your edit on <strong>Moai</strong> was reverted.',
+				compactHeader: 'Your edit on <strong>Moai</strong> was reverted.',
+				body: 'undo'
 			},
-			{
-				url: 'http://dev.wiki.local.wmftest.net:8080/wiki/Talk:Moai',
-				label: 'Moai',
-				tooltip: 'Talk:Moai',
-				icon: 'speechBubbles'
-			}
-		]
-	};
+			iconType: 'revert',
+			primaryUrl: 'http://dev.wiki.local.wmftest.net:8080/w/index.php?title=Moai&oldid=prev&diff=1978&markasread=2126',
+			secondaryUrls: [
+				{
+					url: 'http://dev.wiki.local.wmftest.net:8080/wiki/User:RandomUser',
+					label: 'RandomUser',
+					icon: 'userAvatar'
+				},
+				{
+					url: 'http://dev.wiki.local.wmftest.net:8080/wiki/Talk:Moai',
+					label: 'Moai',
+					tooltip: 'Talk:Moai',
+					icon: 'speechBubbles'
+				}
+			]
+		},
+		now = 1234567890000,
+		nowFormatted = '2009-02-13T23:31:30Z';
 
-	QUnit.module( 'ext.echo.dm - mw.echo.dm.NotificationItem' );
+	QUnit.module( 'ext.echo.dm - mw.echo.dm.NotificationItem', QUnit.newMwEnvironment( {
+		setup: function () {
+			this.sandbox.useFakeTimers( now );
+		}
+	} ) );
 
 	QUnit.test( 'Constructing items', function ( assert ) {
 		var i, j, itemModel, checkMethods,
@@ -41,7 +46,7 @@
 				isSeen: false,
 				isForeign: false,
 				isBundled: false,
-				getTimestamp: moment.utc().format( 'YYYY-MM-DD[T]HH:mm:ss[Z]' ),
+				getTimestamp: nowFormatted,
 				getPrimaryUrl: undefined,
 				getIconURL: undefined,
 				getIconType: undefined,
