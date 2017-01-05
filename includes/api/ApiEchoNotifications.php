@@ -23,9 +23,9 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 
 		/* @deprecated */
 		if ( $params['format'] === 'flyout' ) {
-			$this->addDeprecation( 'apiwarn-echo-deprecation-flyout' );
+			$this->addDeprecation( 'apiwarn-echo-deprecation-flyout', 'action=query&meta=notifications&notformat=flyout' );
 		} elseif ( $params['format'] === 'html' ) {
-			$this->addDeprecation( 'apiwarn-echo-deprecation-html' );
+			$this->addDeprecation( 'apiwarn-echo-deprecation-html', 'action=query&meta=notifications&notformat=html' );
 		}
 
 		if ( $this->allowCrossWikiNotifications() ) {

@@ -20,7 +20,7 @@ class ApiEchoMarkSeen extends ApiBase {
 			$outputTimestamp = wfTimestamp( TS_ISO_8601, $timestamp );
 		} else {
 			// MW
-			$this->addDeprecation( 'apiwarn-echo-deprecation-timestampformat' );
+			$this->addDeprecation( 'apiwarn-echo-deprecation-timestampformat', 'action=echomarkseen&timestampFormat=MW' );
 
 			$outputTimestamp = $timestamp;
 		}
