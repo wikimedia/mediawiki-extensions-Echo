@@ -110,6 +110,7 @@
 	"echo-notification-markasunread": "Als ongelezen markeren",
 	"echo-notification-markasread-tooltip": "Als gelezen markeren",
 	"echo-notification-more-options-tooltip": "Meer opties",
+	"notification-dynamic-actions-unwatch": "{{GENDER:$3|Stop}} met het volgen van nieuwe activiteit op \"$1\"",
 	"notification-dynamic-actions-unwatch-confirmation": "{{GENDER:$3|U}} volgt de pagina \"$1\" niet meer",
 	"notification-dynamic-actions-unwatch-confirmation-description": "{{GENDER:$3|U}} kunt [$2 deze pagina] op elk moment volgen.",
 	"notification-dynamic-actions-watch": "{{GENDER:$3|Volg}} nieuwe gebeurtenissen op \"$1\"",
