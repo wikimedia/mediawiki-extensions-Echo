@@ -27,7 +27,10 @@
 if ( function_exists( 'wfLoadExtension' ) ) {
 	wfLoadExtension( 'Echo' );
 	// Keep i18n globals so mergeMessageFileList.php doesn't break
-	$wgMessagesDirs['Echo'] = __DIR__ . '/i18n';
+	$wgMessagesDirs['Echo'] = [
+		__DIR__ . '/i18n',
+		__DIR__ . '/i18n/api',
+	];
 	$wgExtensionMessagesFiles['EchoAliases'] = __DIR__ . '/Echo.alias.php';
 	/* wfWarn(
 		'Deprecated PHP entry point used for Echo extension. ' .
