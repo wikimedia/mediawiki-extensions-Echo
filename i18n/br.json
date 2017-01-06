@@ -36,6 +36,7 @@
 	"echo-category-title-emailuser": "{{PLURAL:$1|Postel eus implijer all|Posteloù eus implijerien all}}",
 	"echo-pref-tooltip-edit-user-talk": "Kemenn din pa vez postet ur gemennadenn gant unan bennak pe pa respont war ma fajenn gaozeal.",
 	"echo-pref-tooltip-article-linked": "Ma c'hemenn pa vez graet ul liamm war-du ur bajennn am eus krouet gant unan bennak adalek pajenn ur pennad.",
+	"echo-pref-tooltip-reverted": "Kemenn din pa vez distaolet ur c'hemm graet ganin, en ur ober gant an ostilh disteurel pe distreiñ.",
 	"echo-pref-tooltip-mention": "Kelaouiñ ac'hanon pa vez menneget va fajenn implijer gant unan bennak.",
 	"echo-pref-tooltip-user-rights": "Kelaouiñ ac'hanon pa vez kemmet va gwirioù implijer gant unan bennak.",
 	"notifications": "Kemennoù",
