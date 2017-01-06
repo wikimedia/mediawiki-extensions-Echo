@@ -4,7 +4,7 @@
 	/*!
 	 * Echo Special:Notifications page initialization
 	 */
-	$( document ).ready( function () {
+	$( function () {
 		var specialPageContainer,
 			limitNotifications = 50,
 			links = mw.config.get( 'wgNotificationsSpecialPageLinks' ),
