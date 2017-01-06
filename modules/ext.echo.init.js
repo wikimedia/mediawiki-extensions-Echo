@@ -14,7 +14,7 @@
 	mw.echo.config.maxPrioritizedActions = 2;
 
 	// Activate ooui
-	$( document ).ready( function () {
+	$( function () {
 		var myWidget, echoApi,
 			$existingAlertLink = $( '#pt-notifications-alert a' ),
 			$existingMessageLink = $( '#pt-notifications-notice a' ),
