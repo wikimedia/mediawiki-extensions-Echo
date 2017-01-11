@@ -208,7 +208,7 @@
 	"echo-email-batch-body-intro-daily": "سلام $1،\nهذا ملخص لنشاطات اليوم في {{SITENAME}}.",
 	"echo-email-batch-body-intro-weekly": "سلام $1،\nهذا ملخص لنشاطات الأسبوع في {{SITENAME}}.",
 	"echo-email-batch-link-text-view-all-notifications": "اعرض كل الإشعارات",
-	"notification-header-foreign-alert": "إخطارات أكثر من {{PLURAL:$5|موقع ويكي آخر|$5 مواقع ويكي أخرى}}",
+	"notification-header-foreign-alert": "إخطارات أكثر من {{PLURAL:$5|لا موقع ويكي|موقع ويكي آخر|موقعين ويكي آخرين|$5 مواقع ويكي أخرى}}",
 	"notification-header-foreign-notice": "مزيد من الإشعارات من {{PLURAL:$5|ويكي أخر|$5 ويكيات أخرى}}",
 	"notification-header-foreign-all": "المزيد من الإخطارات من {{PLURAL:$5|ويكي أخرى|$5 ويكيات أخرى}}"
 }
