@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Algentem"
+		]
+	},
+	"notification-header-thank-you-1-edit": "{{GENDER:$2|Vu}} jus facis {{GENDER:$2|vua}} unesma redakto; ni dankas {{GENDER:$2|vu}}, e bonveno!",
+	"notification-header-thank-you-10-edit": "{{GENDER:$2|Vu}} jus facis {{GENDER:$2|vua}} dekesma redakto; ni dankas {{GENDER:$2|vu}}, e voluntez durar!",
+	"notification-header-thank-you-100-edit": "{{GENDER:$2|Vu}} jus facis {{GENDER:$2|vua}} centesma redakto; ni dankas {{GENDER:$2|vu}} tre multe!",
+	"notification-header-thank-you-1000-edit": "{{GENDER:$2|Vu}} jus facis {{GENDER:$2|vua}} milesma redakto; ni dankas {{GENDER:$2|vu}} por esar bonega kontributero!",
+	"notification-header-thank-you-10000-edit": "{{GENDER:$2|Vu}} jus facis {{GENDER:$2|vua}} dekamilesma redakto; ni dankas {{GENDER:$2|vu}} tre multe!",
+	"notification-header-thank-you-100000-edit": "{{GENDER:$2|Vu}} jus facis {{GENDER:$2|vua}} centamilesma redakto; ni dankas {{GENDER:$2|vu}} por astoniva kontributo!",
+	"notification-header-thank-you-1000000-edit": "{{GENDER:$2|Vu}} jus facis {{GENDER:$2|vua}} milionesma redakto; ni dankas {{GENDER:$2|vu}} por astoniva kontributo!"
+}

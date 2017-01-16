@@ -9,7 +9,8 @@
 			"පසිඳු කාවින්ද",
 			"Fitoschido",
 			"Ssola",
-			"Nemo bis"
+			"Nemo bis",
+			"Toniher"
 		]
 	},
 	"echo-desc": "Sistema per notificar als usuaris sobre esdeveniments i missatges",
@@ -75,14 +76,16 @@
 	"echo-specialpage-pagination-numnotifications": "$1 {{PLURAL:$1|notificació|notificacions}}",
 	"echo-specialpage-pagefilters-title": "Activitat recent",
 	"echo-specialpage-pagefilters-subtitle": "Pàgines amb notificacions sense llegir",
+	"notificationsmarkread-legend": "Marca la notificació com a llegida",
 	"echo-anon": "Per a rebre notificacions, [[Special:Userlogin/signup|creeu un compte]] o [[Special:UserLogin|registreu-vos]].",
 	"echo-none": "No teniu cap notificació.",
 	"echo-more-info": "Més informació",
 	"echo-feedback": "Comentaris",
+	"echo-popup-footer-special-page-invitation-link": "Nou aspecte i funcionalitats.",
 	"echo-api-failure": "La recuperació de notificacions ha fallat.",
 	"echo-api-failure-cross-wiki": "L'accés al domini remot ha estat denegat.",
 	"echo-notification-placeholder": "No hi ha cap notificació.",
-	"echo-notification-placeholder-filters": "No hi ha cap notificació corresponent a aquest criteri.",
+	"echo-notification-placeholder-filters": "No hi ha cap notificació que coincideixi amb aquests criteris.",
 	"echo-notification-loginrequired": "Heu d'iniciar sessió per a veure les notificacions.",
 	"echo-notification-popup-loginrequired": "Inicieu la sessió per veure les notificacions.",
 	"echo-notification-markasread": "Marca com a llegit",
