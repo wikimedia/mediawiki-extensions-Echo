@@ -47,6 +47,7 @@
 	"echo-none": "N'ho peus resevet kemenn ebet.",
 	"echo-more-info": "Gouzout hiroc'h",
 	"echo-feedback": "Sonjoù",
+	"notification-link-text-expand-alert-count": "Diskouez $1 galv-diwall",
 	"notification-link-text-view-message": "Gwelet ar gemennadenn",
 	"notification-link-text-view-mention": "Gwelet ar meneg",
 	"notification-link-text-view-changes": "Diskouez ar c'hemmoù",
@@ -59,6 +60,7 @@
 	"notification-user-rights-email-subject": "Cheñchet eo ho kwirioù implijer war {{SITENAME}}",
 	"echo-email-body-default": "Ur c'hemenn nevez ho peus war {{SITENAME}}:\n\n$1",
 	"echo-email-footer-default": "$2\n\nEvit kontrollañ peseurt posteloù a gasomp deoc'h, gwiriit ho penndibaboù : {{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
+	"echo-notification-alert-text-only": "Galvoù-diwall",
 	"echo-overlay-link": "An holl gemennoù",
 	"echo-overlay-title": "<b>Kemennoù</b>",
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Kemennoù}}</b> (o tiskouez $1 diwar $2 nann-lennet)",
@@ -70,5 +72,6 @@
 	"echo-email-batch-subject-weekly": "{{PLURAL:$2|Ur c'hemenn|Kemennoù}} nevez hoc'h eus war {{SITENAME}} ar sizhun-mañ",
 	"echo-email-batch-body-intro-daily": "Demat deoc'h $1,\nSetu amañ un diverradur eus obererezh an deiz war {{SITENAME}} evidoc'h.",
 	"echo-email-batch-body-intro-weekly": "Demat deoc'h $1,\nSetu amañ un diverradur eus obererezh ar sizhun-mañ war {{SITENAME}} evidoc'h.",
-	"echo-email-batch-link-text-view-all-notifications": "Gwelet an holl gemennoù"
+	"echo-email-batch-link-text-view-all-notifications": "Gwelet an holl gemennoù",
+	"notification-header-foreign-alert": "Muioc'h a c'halvoù-diwall eus {{PLURAL:$5|ur wiki-all|$5 wiki-all}}"
 }
