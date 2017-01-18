@@ -69,6 +69,7 @@
 	"echo-notification-markasread": "Märgi loetuks",
 	"echo-notification-markasunread": "Märgi lugemata teavituseks",
 	"echo-notification-markasread-tooltip": "Märgi loetuks",
+	"echo-notification-more-options-tooltip": "Veel valikuid",
 	"notification-link-text-expand-all": "Näita",
 	"notification-link-text-expand-alert-count": "Vaata {{PLURAL:$1|üht|$1}} märguannet",
 	"notification-link-text-expand-notice-count": "Vaata {{PLURAL:$1|üht|$1}} märkust",
@@ -133,5 +134,8 @@
 	"echo-email-batch-subject-weekly": "Sulle on sellel nädalal {{GRAMMAR:inessive|{{SITENAME}}}} {{PLURAL:$2|uus teavitus|uusi teavitusi}}",
 	"echo-email-batch-body-intro-daily": "Tere, $1.\nSiin on sulle kokkuvõte võrgukohas {{SITENAME}} täna toimunust.",
 	"echo-email-batch-body-intro-weekly": "Tere, $1.\nSiin on sulle kokkuvõte võrgukohas {{SITENAME}} sellel nädalal toimunust.",
-	"echo-email-batch-link-text-view-all-notifications": "Vaata kõiki teavitusi"
+	"echo-email-batch-link-text-view-all-notifications": "Vaata kõiki teavitusi",
+	"notification-header-foreign-alert": "Veel märguandeid {{PLURAL:$5|teisest|$5 teisest}} vikist",
+	"notification-header-foreign-notice": "Veel märkusi {{PLURAL:$5|teisest|$5 teisest}} vikist",
+	"notification-header-foreign-all": "Veel teavitusi {{PLURAL:$5|teisest|$5 teisest}} vikist"
 }
