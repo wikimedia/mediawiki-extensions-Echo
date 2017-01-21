@@ -72,6 +72,7 @@
 	"echo-notification-more-options-tooltip": "Više mogućnosti",
 	"notification-link-text-expand-all": "Proširi",
 	"notification-link-text-expand-alert-count": "Vidi {{PLURAL:$1|$1 obavijest|$1 obavijesti}}",
+	"notification-link-text-expand-notice-count": "Vidi {{PLURAL:$1|$1 vijesticu|$1 vijestice|$1 vijestica}}",
 	"notification-link-text-expand-all-count": "Vidi {{PLURAL:$1|$1 obavijest|$1 obavijesti}}",
 	"notification-link-text-collapse-all": "Sažmi",
 	"notification-link-text-view-message": "Pogledajte poruku",
