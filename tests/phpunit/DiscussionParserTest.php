@@ -13,15 +13,14 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 	protected $tablesUsed = [ 'user', 'revision', 'text', 'page' ];
 
 	/**
-	 * Users used in these tests: signature extraction, mentioned users, ... all
-	 * assume a user exists.
+	 * Convenience users for use in these tests.
+	 * Can be setup one by one using the setupTestUser() method
+	 * Or all at once using the setupAllTestUsers() method
 	 *
 	 * @var array [username => [user preference => preference value]]
 	 */
 	protected $testUsers = [
-		// username
 		'Werdna' => [
-			// user preferences
 			'nickname' => '',
 			'fancysig' => '0',
 		],
@@ -129,23 +128,7 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 
 	protected function setUp() {
 		parent::setUp();
-
 		$this->setMwGlobals( [ 'wgDiff' => false ] );
-
-		// users need to be added for each test, resetDB() removes them
-		// TODO: Only add users needed for each test, instead of adding them
-		// all for every one.
-		foreach ( $this->testUsers as $username => $preferences ) {
-			$user = User::createNew( $username );
-
-			// set signature preferences
-			if ( $user ) {
-				foreach ( $preferences as $option => $value ) {
-					$user->setOption( $option, $value );
-				}
-				$user->saveSettings();
-			}
-		}
 	}
 
 	protected function tearDown() {
@@ -153,6 +136,30 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 
 		global $wgHooks;
 		unset( $wgHooks['BeforeEchoEventInsert'][999] );
+	}
+
+	private function setupAllTestUsers() {
+		foreach ( array_keys( $this->testUsers ) as $username ) {
+			$this->setupTestUser( $username );
+		}
+	}
+
+	private function setupTestUser( $username ) {
+		// Skip user creation requests that are not in the list (such as IPs)
+		if ( !array_key_exists( $username, $this->testUsers ) ) {
+			return;
+		}
+
+		$preferences = $this->testUsers[$username];
+		$user = User::createNew( $username );
+
+		// Set preferences
+		if ( $user ) {
+			foreach ( $preferences as $option => $value ) {
+				$user->setOption( $option, $value );
+			}
+			$user->saveSettings();
+		}
 	}
 
 	public function provideHeaderExtractions() {
@@ -336,6 +343,8 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 				return;
 			}
 		}
+
+		$this->setupAllTestUsers();
 
 		$revision = $this->setupTestRevisionsForEventGeneration(
 			$newId, $oldId, $username, $lang, $pages, $title
@@ -673,6 +682,8 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 	public function testGenerateEventsForRevision_mentionStatus(
 		$newId, $oldId, $username, $lang, $pages, $title, $expected
 	) {
+		$this->setupAllTestUsers();
+
 		$revision = $this->setupTestRevisionsForEventGeneration(
 			$newId, $oldId, $username, $lang, $pages, $title
 		);
@@ -874,6 +885,7 @@ TEXT
 			],
 		];
 
+		$this->setupTestUser( 'Admin' );
 		$revision = $this->setupTestRevisionsForEventGeneration( 747747749, 747747747, 'Admin', 'en', [], 'UTPage' );
 
 		$events = [];
@@ -1045,6 +1057,10 @@ TEXT
 	 * FIXME some of the app logic is in the test...
 	 */
 	public function testSigningDetection( $line, $expectedUser ) {
+		if ( is_array( $expectedUser ) ) {
+			$this->setupTestUser( $expectedUser[1] );
+		}
+
 		if ( !EchoDiscussionParser::isSignedComment( $line ) ) {
 			$this->assertEquals( $expectedUser, false );
 
@@ -1273,6 +1289,7 @@ line d',
 
 	/** @dataProvider annotationData */
 	public function testAnnotation( $message, $diff, $user, $expectedAnnotation ) {
+		$this->setupTestUser( $user );
 		$actual = EchoDiscussionParser::interpretDiff( $diff, $user );
 		$this->assertEquals( $expectedAnnotation, $actual, $message );
 	}
@@ -1616,6 +1633,8 @@ $comment
 	 * @dataProvider provider_detectSectionTitleAndText
 	 */
 	public function testDetectSectionTitleAndText( $message, $expect, $format, $name ) {
+		$this->setupTestUser( $name );
+
 		// str_replace because we want to replace multiple instances of '%s' with the same value
 		$before = str_replace( '%s', '', $format );
 		$after = str_replace( '%s', self::signedMessage( $name ), $format );
@@ -1750,6 +1769,7 @@ TEXT
 
 	public function testGetUserMentions_validMention() {
 		$userName = 'Admin';
+		$this->setupTestUser( $userName );
 		$userId = User::newFromName( $userName )->getId();
 		$expectedUserMentions = [
 			'validMentions' => [ $userId => $userId ],
@@ -1762,6 +1782,7 @@ TEXT
 
 	public function testGetUserMentions_ownMention() {
 		$userName = 'Admin';
+		$this->setupTestUser( $userName );
 		$userId = User::newFromName( 'Admin' )->getId();
 		$expectedUserMentions = [
 			'validMentions' => [],
