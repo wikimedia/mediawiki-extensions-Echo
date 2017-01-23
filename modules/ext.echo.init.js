@@ -81,8 +81,6 @@
 							href: $existingMessageLink.attr( 'href' )
 						}
 					);
-					// HACK: avoid late debouncedUpdateThemeClasses
-					mw.echo.ui.messageWidget.badgeButton.debouncedUpdateThemeClasses();
 					// Replace the link button with the ooui button
 					$existingMessageLink.parent().replaceWith( mw.echo.ui.messageWidget.$element );
 				}
@@ -111,8 +109,6 @@
 						.text( mw.msg( 'mytalk' ) );
 				} );
 
-				// HACK: avoid late debouncedUpdateThemeClasses
-				mw.echo.ui.alertWidget.badgeButton.debouncedUpdateThemeClasses();
 				// Replace the link button with the ooui button
 				$existingAlertLink.parent().replaceWith( mw.echo.ui.alertWidget.$element );
 
