@@ -640,6 +640,30 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 					],
 				],
 			],
+			[
+				'new' => 987654401,
+				'old' => 987654400,
+				'username' => 'Admin',
+				'lang' => 'en',
+				'pages' => [],
+				'title' => 'UTPage2',
+				'expected' => [
+					[
+						'type' => 'mention',
+						'agent' => 'Admin',
+						'section-title' => false,
+						'subject-name' => null,
+						'notifyAgent' => null,
+					],
+					[
+						'type' => 'mention-success',
+						'agent' => 'Admin',
+						'section-title' => false,
+						'subject-name' => 'Test11',
+						'notifyAgent' => true,
+					],
+				],
+			],
 		];
 	}
 

@@ -80,11 +80,41 @@ class EchoDiffParser {
 		$left = trim( $leftText );
 		$right = trim( $rightText );
 
+		if ( $left === '' ) {
+			// fixes T155998
+			return $this->getChangeSetFromEmptyLeft( $right );
+		}
+
 		$diffs = new Diff( explode( "\n", $left ), explode( "\n", $right ) );
 		$format = new UnifiedDiffFormatter();
 		$diff = $format->format( $diffs );
 
 		return $this->parse( $diff, $left, $right );
+	}
+
+	/**
+	 * If we add content to an empty page the changeSet can be composed straightaway
+	 *
+	 * @param string $right
+	 * @return array[] see getChangeSet()
+	 */
+	private function getChangeSetFromEmptyLeft( $right ) {
+		$rightLines = explode( "\n", $right );
+
+		return [
+			'_info' => [
+				'lhs-length' => 1,
+				'rhs-length' => count( $rightLines ),
+				'lhs' => [ '' ],
+				'rhs' => $rightLines
+			],
+			[
+				'right-pos' => 1,
+				'left-pos' => 1,
+				'action' => 'add',
+				'content' => $right,
+			]
+		];
 	}
 
 	/**

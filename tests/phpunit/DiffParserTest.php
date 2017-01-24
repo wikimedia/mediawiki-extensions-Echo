@@ -71,6 +71,16 @@ class EchoDiffParserTest extends MediaWikiTestCase {
 			],
 
 			[
+				'Additon with empty line should be one action',
+				// Expected change set
+				[ self::mockAction( 'add', "User\n\nSignature", 1 ) ],
+				// Left text
+				"",
+				// Right text
+				"User\n\nSignature",
+			],
+
+			[
 				'Extra blank lines on the edges must be trimmed',
 				// Expected change set
 				[ self::mockAction( 'add', "Zomg\nHiHiHi", 1 ) ],
