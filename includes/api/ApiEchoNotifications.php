@@ -579,7 +579,6 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 			],
 			'format' => [
 				ApiBase::PARAM_TYPE => [
-					'text',
 					'model',
 					'special',
 					'flyout', /* @deprecated */
