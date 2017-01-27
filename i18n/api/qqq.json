@@ -29,7 +29,6 @@
 	"apihelp-query+notifications-param-groupbysection": "{{doc-apihelp-param|query+notifications|groupbysection}}",
 	"apihelp-query+notifications-param-filter": "{{doc-apihelp-param|query+notifications|filter}}",
 	"apihelp-query+notifications-param-format": "{{doc-apihelp-param|query+notifications|format}}",
-	"apihelp-query+notifications-paramvalue-format-text": "{{doc-apihelp-paramvalue|query+notifications|format|text}}",
 	"apihelp-query+notifications-paramvalue-format-model": "{{doc-apihelp-paramvalue|query+notifications|format|model}}",
 	"apihelp-query+notifications-paramvalue-format-special": "{{doc-apihelp-paramvalue|query+notifications|format|special}}",
 	"apihelp-query+notifications-paramvalue-format-flyout": "{{doc-apihelp-paramvalue|query+notifications|format|flyout}}\n{{doc-important|You can translate the word \"Deprecated\", but please do not alter the <code><nowiki>class=\"apihelp-deprecated\"</nowiki></code> attribute}}",

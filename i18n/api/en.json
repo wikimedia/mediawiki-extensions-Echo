@@ -27,7 +27,6 @@
 	"apihelp-query+notifications-param-groupbysection": "Whether to group the result by section. Each section is fetched separately if set.",
 	"apihelp-query+notifications-param-filter": "Filter notifications returned.",
 	"apihelp-query+notifications-param-format": "If specified, notifications will be returned formatted this way.",
-	"apihelp-query+notifications-paramvalue-format-text": "Plaintext format",
 	"apihelp-query+notifications-paramvalue-format-model": "Raw notification data",
 	"apihelp-query+notifications-paramvalue-format-special": "Formatted for Special:Notifications page (and only that!) Do not rely on the HTML as it may change at any given time.",
 	"apihelp-query+notifications-paramvalue-format-flyout": "<span class=\"apihelp-deprecated\">Deprecated</span>. Use <kbd>$1format=model</kbd> for raw data",
