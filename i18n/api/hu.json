@@ -23,7 +23,6 @@
 	"apihelp-query+notifications-param-groupbysection": "Eredmény csoportosítása szakaszok szerint.",
 	"apihelp-query+notifications-param-filter": "Visszaadott értesítések szűrése.",
 	"apihelp-query+notifications-param-format": "Az értesítések formátuma.",
-	"apihelp-query+notifications-paramvalue-format-text": "Egyszerű szöveges formátum",
 	"apihelp-query+notifications-paramvalue-format-model": "Nyers értesítési adatok",
 	"apihelp-query+notifications-paramvalue-format-special": "Formázva a Special:Notifications lapra (és csak arra!). Ne hagyatkozz a HTML-re, mivel bármikor változhat.",
 	"apihelp-query+notifications-paramvalue-format-flyout": "<span class=\"apihelp-deprecated\">Elavult</span>. Használd a(z) <kbd>$1format=model</kbd>t nyers adatokért.",
