@@ -499,10 +499,19 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 		];
 	}
 
+	/**
+	 * @param User $user
+	 * @return string
+	 */
 	protected function getTruncatedUsername( User $user ) {
 		return $this->language->embedBidi( $this->language->truncate( $user->getName(), self::USERNAME_RECOMMENDED_LENGTH, '...', false ) );
 	}
 
+	/**
+	 * @param Title $title
+	 * @param bool $includeNamespace
+	 * @return string
+	 */
 	protected function getTruncatedTitleText( Title $title, $includeNamespace = false ) {
 		$text = $includeNamespace ? $title->getPrefixedText() : $title->getText();
 		return $this->language->embedBidi( $this->language->truncate( $text, self::PAGE_NAME_RECOMMENDED_LENGTH, '...', false ) );
