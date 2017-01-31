@@ -168,7 +168,7 @@
 	"notification-inbox-filter-all": "すべて",
 	"echo-email-body-default": "{{SITENAME}}で新しい通知があります:\n\n$1",
 	"echo-email-footer-default": "$2\n\n受け取るメールの設定を変更するには、個人設定をご確認ください:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
-	"echo-email-html-footer-preference-link-text": "自分の個人設定を確認する",
+	"echo-email-html-footer-preference-link-text": "{{GENDER:$1|自分}}の個人設定を確認する",
 	"echo-notification-alert": "{{PLURAL:$1|アラート ($1)|100=アラート (99+)}}",
 	"echo-notification-notice": "{{PLURAL:$1|通知 ($1件)|100=通知 (99件以上)}}",
 	"echo-notification-alert-text-only": "注意喚起",
