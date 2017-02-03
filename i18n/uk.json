@@ -180,7 +180,7 @@
 	"echo-email-footer-default": "$2\n\nДля контролю того, які листи ми Вам надсилаємо, перевірте свої налаштування:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
 	"echo-email-plain-footer": "Щоб визначити, які повідомлення ми {{GENDER:$1|Вам}} надсилаємо, перевірте свої налаштування:",
 	"echo-email-html-footer-preference-link-text": "перевірте {{GENDER:$1|свої}} налаштування",
-	"echo-email-html-footer-with-link": "Щоб контролювати, які листи ми {{GENDER:$1|Вам}} надсилаємо, $1.",
+	"echo-email-html-footer-with-link": "Щоб контролювати, які листи ми {{GENDER:$2|Вам}} надсилаємо, $1.",
 	"echo-notification-alert": "{{PLURAL:$1|Звістка ($1)|Звістки ($1)|100=Звістки (99+)}}",
 	"echo-notification-notice": "{{PLURAL:$1|1=Сповіщення ($1)|Сповіщення ($1)|100=Сповіщення (99+)}}",
 	"echo-notification-alert-text-only": "Звістки",
