@@ -326,6 +326,16 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 				],
 				'precondition' => 'isParserFunctionsInstalled',
 			],
+			// T154406 unintended mentions when changing content
+			[
+				'new' => 987667999,
+				'old' => 987667998,
+				'username' => 'Admin',
+				'lang' => 'en',
+				'pages' => [],
+				'title' => 'MultipleSignatureMentions',
+				'expected' => [],
+			],
 		];
 	}
 

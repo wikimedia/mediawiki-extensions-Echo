@@ -460,6 +460,8 @@ abstract class EchoDiscussionParser {
 	 *    not currently analysed.
 	 * - unknown-change: Some content was replaced with other content.
 	 * - unknown-signed-change: Same as unknown-change, but signed.
+	 * - unknown-multi-signed-change: Same as unknown-change,
+	 *    but it contains multiple signatures.
 	 * - unknown: Unrecognised change type.
 	 */
 	static function interpretDiff( $changes, $username, Title $title = null ) {
@@ -602,7 +604,12 @@ abstract class EchoDiscussionParser {
 				$action['type'] === 'unknown-change' &&
 				self::isInSignedSection( $action['right-pos'], $signedSections )
 			) {
-				$action['type'] = 'unknown-signed-change';
+				$signedUsers = self::getSignedUsers( $action['new_content'], null );
+				if ( count( $signedUsers ) === 1 ) {
+					$action['type'] = 'unknown-signed-change';
+				} else {
+					$action['type'] = 'unknown-multi-signed-change';
+				}
 			}
 
 			return $action;
