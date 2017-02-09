@@ -107,11 +107,17 @@ class MWEchoDbFactory {
 	public static function getDB( $db, $groups = [], $wiki = false ) {
 		global $wgEchoCluster;
 
+		$services = MediaWikiServices::getInstance();
+
 		// Use the external db defined for Echo
 		if ( $wgEchoCluster ) {
-			$lb = wfGetLBFactory()->getExternalLB( $wgEchoCluster, $wiki );
+			$lb = $services->getDBLoadBalancerFactory()->getExternalLB( $wgEchoCluster, $wiki );
 		} else {
-			$lb = wfGetLB( $wiki );
+			if ( $wiki === false ) {
+				$lb = $services->getDBLoadBalancer();
+			} else {
+				$lb = $services->getDBLoadBalancerFactory()->getMainLB( $wiki );
+			}
 		}
 
 		return $lb->getConnection( $db, $groups, $wiki );
