@@ -77,9 +77,12 @@ class EchoDiffParser {
 	 * 'left_pos' and 'right_pos' (in 1-indexed lines) of the change.
 	 */
 	public function getChangeSet( $leftText, $rightText ) {
-		$left = trim( $leftText ) . "\n";
-		$right = trim( $rightText ) . "\n";
-		$diff = wfDiff( $left, $right, '-u -w' );
+		$left = trim( $leftText );
+		$right = trim( $rightText );
+
+		$diffs = new Diff( explode( "\n", $left ), explode( "\n", $right ) );
+		$format = new UnifiedDiffFormatter();
+		$diff = $format->format( $diffs );
 
 		return $this->parse( $diff, $left, $right );
 	}
@@ -87,15 +90,11 @@ class EchoDiffParser {
 	/**
 	 * Duplicates the check from the global wfDiff function to determine
 	 * if we are using internal or external diff utilities
+	 *
+	 * @deprecated since 1.29, the internal diff parser is always used
 	 */
 	protected static function usingInternalDiff() {
-		global $wgDiff;
-
-		wfSuppressWarnings();
-		$haveDiff = $wgDiff && file_exists( $wgDiff );
-		wfRestoreWarnings();
-
-		return !$haveDiff;
+		return true;
 	}
 
 	/**
