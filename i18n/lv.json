@@ -44,6 +44,7 @@
 	"echo-pref-tooltip-reverted": "Paziņot man, kad kāds atceļ manis veiktu labojumu, izmanojot atcelšanas rīku.",
 	"echo-pref-tooltip-mention": "Paziņot man, kad kāds izveido saiti uz manu dalībnieka lapu.",
 	"echo-pref-tooltip-user-rights": "Paziņot man, kad kāds izmaina manas dalībnieka tiesības.",
+	"echo-pref-tooltip-emailuser": "Paziņot man, kad kāds nosūta man e-pastu.",
 	"echo-error-no-formatter": "Paziņojumam nav norādīts formatējums",
 	"notifications": "Paziņojumi",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Tavi}} brīdinājumi",

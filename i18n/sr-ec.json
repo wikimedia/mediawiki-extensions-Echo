@@ -5,14 +5,15 @@
 			"Rancher",
 			"Михајло Анђелковић",
 			"Сербијана",
-			"Macofe"
+			"Macofe",
+			"Srdjan m"
 		]
 	},
 	"echo-desc": "Систем за обавештавање корисника о дешавањима и порукама",
 	"prefs-echo": "Обавештења",
 	"prefs-emailsettings": "Поставке имејла",
 	"prefs-displaynotifications": "Поставке приказа",
-	"prefs-echosubscriptions": "Обавести ме о следећим догађајима.",
+	"prefs-echosubscriptions": "Обавести ме о следећим догађајима",
 	"prefs-echocrosswiki": "Крос-вики обавештења",
 	"prefs-newmessageindicator": "Индикатор за нове поруке",
 	"echo-pref-send-me": "Пошаљи ми:",
