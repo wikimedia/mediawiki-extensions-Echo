@@ -94,6 +94,7 @@
 	"notification-timestamp-yesterday": "Ièr",
 	"echo-email-body-default": "Avètz una novèla notificacion sus {{SITENAME}} :\n\n$1",
 	"echo-email-footer-default": "$2\n\nPer verificar quines corrièrs electronics vos mandam, anatz dins vòstras preferéncias :\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
+	"echo-email-html-footer-with-link": "Per contrarotlar quins corrièrs electronics {{GENDER:$2|vos}} mandam, $1.",
 	"echo-notification-alert": "{{PLURAL:$1|Alèrta ($1)|100=Alèrtas (99+)}}",
 	"echo-notification-notice": "{{PLURAL:$1|Notificacions ($1)|100=Notificacions (100 e mai)}}",
 	"echo-notification-alert-text-only": "Alèrtas",
