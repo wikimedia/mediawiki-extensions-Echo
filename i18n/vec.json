@@ -114,6 +114,8 @@
 	"notification-inbox-filter-unread": "Da lèzar",
 	"notification-inbox-filter-all": "Tuti",
 	"echo-email-body-default": "Te gh'è n'aviso novo su {{SITENAME}}:\n\n$1",
+	"echo-notification-alert": "{{PLURAL:$1|Aviso ($1)|Avisi ($1)|100=Avisi (99+)}}",
+	"echo-notification-alert-text-only": "Avisi",
 	"echo-notification-notice-text-only": "Notisie",
 	"echo-overlay-link": "Tuti i avisi",
 	"echo-overlay-title": "<b>Avisi</b>",

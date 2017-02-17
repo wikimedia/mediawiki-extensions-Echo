@@ -95,6 +95,7 @@
 	"notification-header-mention-failure-bundle": "{{PLURAL:$3|Spominjanje koje|$3 spominjanja koja}} ste Vi {{GENDER:$2|poslali|poslala}}, a putem razgovorne stranice <strong>$4</strong>, {{PLURAL:$3|nije bilo isporučeno|nisu bila isporučena}}.",
 	"notification-compact-header-mention-failure-user-unknown": "<strong>Suradničko ime nije pronađeno:</strong> $1",
 	"notification-compact-header-mention-failure-user-anonymous": "<strong>Neprijavljeni suradnici ne mogu biti spomenuti:</strong> $1",
+	"notification-header-mention-success": "<strong>$3</strong> je {{GENDER:$3|obaviješten|obaviještena}} da {{GENDER:$2|ste}} {{GENDER:$3|ga|je}} spomenuli.",
 	"notification-header-mention-success-bundle": "{{PLURAL:$3|Spominjanje koje|$3 spominjanja koja}} ste Vi {{GENDER:$2|poslali|poslala}}, a putem razgovorne stranice <strong>$4</strong>, {{PLURAL:$3|bilo je isporučeno|bila su isporučena}}.",
 	"notification-compact-header-mention-success": "<strong>{{GENDER:$2|Spomenuo si suradnika|Spomenula si suradnika|Spomenuli ste suradnika}}:</strong> $3",
 	"notification-welcome-linktext": "Dobro došli",
