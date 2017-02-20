@@ -2,8 +2,9 @@
 	"@metadata": {
 		"authors": [
 			"Khalid Mahmood",
-			"Saanvel"
+			"Saanvel",
+			"Abbas dhothar"
 		]
 	},
-	"tooltip-pt-notifications-message": "{{GENDER:|Your}} سنیعا"
+	"tooltip-pt-notifications-alert": "{{GENDER:|Your}} الرٹس"
 }
