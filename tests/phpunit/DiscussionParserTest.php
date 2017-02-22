@@ -994,7 +994,6 @@ TEXT
 
 	// TODO test cases for:
 	// - stripHeader
-	// - stripIndents
 	// - stripSignature
 
 	public function testDiscussionParserAcceptsInternalDiff() {

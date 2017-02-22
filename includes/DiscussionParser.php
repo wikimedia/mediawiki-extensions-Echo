@@ -780,28 +780,6 @@ abstract class EchoDiscussionParser {
 	}
 
 	/**
-	 * Strips unnecessary indentation and so on from comments
-	 *
-	 * @param string $text The text to strip from
-	 * @return string Stripped wikitext
-	 */
-	static function stripIndents( $text ) {
-		// First strip all indentation from the beginning of lines
-		$text = preg_replace( '/^\s*\:+/m', '', $text );
-
-		// Now if there is only one list item, strip that too
-		$listRegex = '/^\s*(?:[\:#*]\s*)*[#*]/m';
-		$matches = [];
-		if ( preg_match_all( $listRegex, $text, $matches ) ) {
-			if ( count( $matches ) == 1 ) {
-				$text = preg_replace( $listRegex, '', $text );
-			}
-		}
-
-		return $text;
-	}
-
-	/**
 	 * Strips out a section header
 	 * @param string $text The text to strip out the section header from.
 	 * @return string The same text, with the section header stripped out.
