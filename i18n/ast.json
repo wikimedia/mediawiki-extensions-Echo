@@ -126,6 +126,8 @@
 	"notification-compact-header-mention-failure-user-unknown": "<strong>El nome d'usuariu nun esiste:</strong> $1",
 	"notification-compact-header-mention-failure-user-anonymous": "<strong>Nun pueden mentase IP:</strong> $1",
 	"notification-header-mention-success": "Unvióse la {{GENDER:$2|to}}mención de «<strong>$3</strong>».",
+	"notification-header-mention-success-bundle": "{{PLURAL:$3|Unvióse una mención|Unviáronse $3 menciones}} que {{GENDER:$2|fixisti}} na páxina d'alderique de <strong>$4</strong>.",
+	"notification-compact-header-mention-success": "<strong>{{GENDER:$2|Mentasti a}}:</strong> $3",
 	"notification-header-welcome": "¡{{GENDER:$2|Bienveníu|Bienvenida}} a {{SITENAME}}, $1! Préstanos que {{GENDER:$2|teas}} equí.",
 	"notification-welcome-linktext": "Bienveníu/a",
 	"notification-link-thank-you-edit": "{{GENDER:$1|La to}} edición",
@@ -167,5 +169,7 @@
 	"echo-email-batch-body-intro-daily": "Hola, $1:\nEsti ye un resume personal de la actividá de güei en {{SITENAME}}.",
 	"echo-email-batch-body-intro-weekly": "Hola, $1:\nEsti ye un resume personal de la actividá selmanal en {{SITENAME}}.",
 	"echo-email-batch-link-text-view-all-notifications": "Ver toles notificaciones",
-	"notification-header-foreign-alert": "Más alertes {{PLURAL:$5|d'otra wiki|de $5 wikis más}}"
+	"notification-header-foreign-alert": "Más alertes {{PLURAL:$5|d'otra wiki|de $5 wikis más}}",
+	"notification-header-foreign-notice": "Más avisos {{PLURAL:$5|d'otra wiki|de $5 wikis más}}",
+	"notification-header-foreign-all": "Más notificaciones {{PLURAL:$5|d'otra wiki|de $5 wikis más}}"
 }

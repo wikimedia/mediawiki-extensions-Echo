@@ -58,7 +58,7 @@
 	"echo-pref-beta-feature-cross-wiki-description": "使查看与组织通知更加容易。包括跨wiki通知，这将让您看到来自其他wiki的消息。（要接收在指定wiki上的跨wiki通知，您必须在那个wiki激活测试功能。）",
 	"echo-learn-more": "了解详情",
 	"echo-log": "公共日志",
-	"echo-new-messages": "您有新留言",
+	"echo-new-messages": "您有新消息",
 	"echo-category-title-edit-user-talk": "讨论页{{PLURAL:$1|留言}}",
 	"echo-category-title-article-linked": "页面{{PLURAL:$1|链接}}",
 	"echo-category-title-reverted": "编辑{{PLURAL:$1|还原}}",
