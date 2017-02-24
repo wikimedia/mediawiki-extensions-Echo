@@ -42,6 +42,7 @@
 	"notifications": "Kemennoù",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Ho}} kemennoù diwall",
 	"tooltip-pt-notifications-notice": "Ho kemennoù",
+	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Implijerien nevez",
 	"echo-specialpage": "Kemennoù",
 	"echo-anon": "Evit resev kemennoù, [$1 krouit ur gont] pe [$2 kevreit].",
 	"echo-none": "N'ho peus resevet kemenn ebet.",

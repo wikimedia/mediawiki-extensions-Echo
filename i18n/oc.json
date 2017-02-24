@@ -118,5 +118,8 @@
 	"echo-email-batch-subject-weekly": "Avètz {{PLURAL:$2|una novèla notificacion|de novèlas notificacions}} sus {{SITENAME}} aquesta setmana",
 	"echo-email-batch-body-intro-daily": "Bonjorn $1,\nAquí per vos un resumit de l’activitat d’uèi sus {{SITENAME}}",
 	"echo-email-batch-body-intro-weekly": "Bonjorn $1,\nAquí per vos un resumit de l’activitat de la setmana sus {{SITENAME}}",
-	"echo-email-batch-link-text-view-all-notifications": "Veire totas las notificacions"
+	"echo-email-batch-link-text-view-all-notifications": "Veire totas las notificacions",
+	"notification-header-foreign-alert": "Mai d’alèrtas {{PLURAL:$5|d’un autre wiki|de $5 autres wikis}}",
+	"notification-header-foreign-notice": "Mai de notificacions {{PLURAL:$5|d’un autre wiki|de $5 autres wikis}}",
+	"notification-header-foreign-all": "Mai de notificacions {{PLURAL:$5|d’un autre wiki|de $5 autres wikis}}"
 }
