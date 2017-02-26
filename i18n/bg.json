@@ -140,7 +140,7 @@
 	"notification-header-user-rights-add-only": "{{GENDER:$4|Вашите}} потребителски права бяха {{GENDER:$1|променени}}. Бяхте добавени в група: $2.",
 	"notification-header-user-rights-remove-only": "{{GENDER:$4|Вашите}} потребителски права бяха {{GENDER:$1|променени}}. Вече не сте член на група: $2.",
 	"notification-header-user-rights-add-and-remove": "{{GENDER:$6|Вашите}} потребителски права бяха {{GENDER:$1|променени}}. Бяхте добавени в група: $2. Вече не сте член на група: $4.",
-	"notification-header-welcome": "{{GENDER:$2|Добре дойдохте}} на {{SITENAME}}, $1! Радваме се, че {{GENDER:$2|сте}} тук.",
+	"notification-header-welcome": "{{GENDER:$2|Добре дошли}} в {{SITENAME}}, $1! Радваме се, че {{GENDER:$2|сте}} тук.",
 	"notification-welcome-linktext": "Добре дошли!",
 	"notification-header-thank-you-1-edit": "Току-що {{GENDER:$2|направихте}} {{GENDER:$2|вашата}} първа редакция. {{GENDER:$2|Благодарим}} ви и добре дошли!",
 	"notification-header-thank-you-10-edit": "Току-що {{GENDER:$2|направихте}} {{GENDER:$2|вашата}} десета редакция. {{GENDER:$2|Благодарим}} ви и моля, продължавайте все така!",
