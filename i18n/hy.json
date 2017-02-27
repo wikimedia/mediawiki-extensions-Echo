@@ -51,7 +51,7 @@
 	"echo-error-no-formatter": "Ծանուցումների համար ֆորմատավորման ձև որոշված չէ:",
 	"notifications": "Ծանուցումներ",
 	"tooltip-pt-notifications-alert": "Ձեր ծանուցումները",
-	"tooltip-pt-notifications-notice": "{{GENDER:|Քո}} ծանուցումները",
+	"tooltip-pt-notifications-notice": "{{GENDER:|Ձեր}} ծանուցումները",
 	"echo-displaynotificationsconfiguration": "Ցույց տալ ծանուցումների կարգավորումները",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "Ծանուցումներ ըստ կատեգորիաների",
 	"echo-displaynotificationsconfiguration-sorting-by-section-header": "Դասավորել ըստ տեսակների",
