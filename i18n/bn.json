@@ -158,7 +158,7 @@
 	"notification-page-linked-email-subject": "আপনার তৈরিকৃত একটি পাতা {{SITENAME}} সাইটে সংযোগ করা হয়েছে।",
 	"notification-reverted-email-subject2": "{{SITENAME}}-এ আপনার {{PLURAL:$3|সম্পাদনা|সম্পাদনাগুলো}} {{GENDER:$1|পূর্বাবস্থায়}} নেয়া হয়েছে",
 	"notification-mention-email-subject": "$1 {{GENDER:$2|আপনাকে}} {{SITENAME}}-এ {{GENDER:$1|উল্লেখ করেছেন}}",
-	"notification-user-rights-email-subject": "{{SITENAME}}-এ আপনার ব্যবহারকারী অধিকার পরবর্তন হয়েছে",
+	"notification-user-rights-email-subject": "{{SITENAME}}-এ আপনার ব্যবহারকারী অধিকার পরিবর্তন হয়েছে",
 	"notification-timestamp-ago-seconds": "{{PLURAL:$1|$1 সে}}",
 	"notification-timestamp-ago-minutes": "{{PLURAL:$1|$1 মি}}",
 	"notification-timestamp-ago-hours": "{{PLURAL:$1|$1 ঘ}}",

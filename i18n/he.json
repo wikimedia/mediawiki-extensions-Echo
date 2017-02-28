@@ -149,7 +149,7 @@
 	"notification-header-thank-you-100-edit": "זה עתה {{GENDER:$2|עשית}} את העריכה המאה שלך; תודה רבה!",
 	"notification-header-thank-you-1000-edit": "זה עתה {{GENDER:$2|עשית}} את העריכה ה־1,000 שלך; תודה על כך {{GENDER:$2|שאתה תורם כה נפלא|שאת תורמת כה נפלאה}}!",
 	"notification-header-thank-you-10000-edit": "{{GENDER:$2|עשית}} את העריכה העשרת אלפים שלך; תודה רבה־רבה!",
-	"notification-header-thank-you-100000-edit": "{{GENDER:$2|עשית}} את העריכה המאה אלך שלך; תודה על התרומה המדהימה הזאת!",
+	"notification-header-thank-you-100000-edit": "{{GENDER:$2|עשית}} את העריכה המאה אלף שלך; תודה על התרומה המדהימה הזאת!",
 	"notification-header-thank-you-1000000-edit": "{{GENDER:$2|עשית}} את העריכה המיליון שלך; תודה על התרומה המדהימה הזאת!",
 	"notification-link-thank-you-edit": "עריכה {{GENDER:$1|שלך}}",
 	"notification-link-text-view-edit": "הצגת העריכה",

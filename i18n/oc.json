@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Cedric31",
-			"Nicolas Eynaud"
+			"Nicolas Eynaud",
+			"Vriullop"
 		]
 	},
 	"echo-desc": "Sistèma per avertir los utilizaires dels eveniments e messatges",
@@ -46,6 +47,8 @@
 	"tooltip-pt-notifications-alert": "{{GENDER:|Vòstras}} alèrtas",
 	"tooltip-pt-notifications-notice": "{{GENDER:|Vòstras}} notificacions",
 	"echo-specialpage": "Notificacions",
+	"echo-specialpage-section-markread": "Marcar la seccion coma legida",
+	"echo-specialpage-markasread": "Notificacion : marcar coma legida",
 	"echo-specialpage-pagefilters-subtitle": "Paginas amb de notificacions pas legidas",
 	"echo-anon": "Per recebre de notificacions, [$1 creatz un compte] o [$2 connectatz-vos].",
 	"echo-none": "Avètz pas recebut cap de notificacion.",
