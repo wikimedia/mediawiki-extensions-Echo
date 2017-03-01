@@ -290,7 +290,12 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 			$this->extra = $row->event_extra ? unserialize( $row->event_extra ) : [];
 		} catch ( Exception $e ) {
 			// T73489: unserializing can fail for old notifications
-			MWExceptionHandler::logException( $e );
+			LoggerFactory::getInstance( 'Echo' )->warning(
+				'Failed to unserialize event {id}',
+				[
+					'id' => $row->event_id
+				]
+			);
 			return false;
 		}
 		$this->pageId = $row->event_page_id;
