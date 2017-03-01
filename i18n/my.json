@@ -11,6 +11,7 @@
 	"echo-specialpage": "အသိပေးချက်များ",
 	"notification-header-edit-user-talk": "<strong>{{GENDER:$3|သင်၏}} ဆွေးနွေးချက် စာမျက်နှာ</strong>တွင် စာလွှာတစ်ခုကို $1 {{GENDER:$2|ချန်ထားခဲ့သည်}}။",
 	"notification-header-edit-user-talk-with-section": "<strong>{{GENDER:$3|သင်၏}} ဆွေးနွေးချက်စာမျက်နှာ</strong>ရှိ \"<strong>$4</strong>\" တွင် စာလွှာတစ်ခုကို $1 {{GENDER:$2|ချန်ထားခဲ့သည်}}။",
+	"notification-header-thank-you-1-edit": "{{GENDER:$2|သင့်ရဲ့}} ပထမဆုံး တည်းဖြတ်မှုကို {{GENDER:$2|သင်}} ပြုလုပ်ခဲ့ပါပြီ၊ {{GENDER:$2|ကျေးဇူးတင်ပြီး}} ကြိုဆိုလိုက်ပါတယ်!",
 	"notification-header-reverted": "သင်၏ {{PLURAL:$4|<strong>$3</strong> ပေါ်ရှိ တည်းဖြတ်မှု|<strong>$3</strong> ပေါ်ရှိ တည်းဖြတ်မှုများ}}သည် {{GENDER:$2|နောက်ပြန် ပြန်ပြင်ခံခဲ့ရသည်}}။",
 	"notification-reverted-email-subject2": "{{SITENAME}} ရှိ သင့် {{PLURAL:$3|တည်းဖြတ်မှု|တည်းဖြတ်မှုများ}}ကို {{GENDER:$1|နောက်ပြန်ပြင်ခဲ့သည်}}",
 	"echo-overlay-link": "အသိပေးချက်များ အားလုံး",
