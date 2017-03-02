@@ -8,7 +8,8 @@
 			"Gorizon",
 			"Sayginer",
 			"Kumkumuk",
-			"Velg"
+			"Velg",
+			"Gırd"
 		]
 	},
 	"echo-desc": "Karbera  heqdê weqan u mesavan malumat dayen sisten",
@@ -45,7 +46,7 @@
 	"echo-specialpage": "Mengeney",
 	"echo-specialpage-pagination-numnotifications": "$1 {{PLURAL:$1|mengene|mengeney}}",
 	"echo-specialpage-pagefilters-title": "Aktiviteya peyêne",
-	"echo-none": "Beyanatê to çıniyê.",
+	"echo-none": "Pêhesnayışê şıma çıniyê.",
 	"echo-more-info": "Tayêna melumat",
 	"echo-feedback": "Peydrışten",
 	"echo-notification-markasread": "Wanaye nışan ke",
@@ -63,7 +64,7 @@
 	"notification-link-text-view-changes": "Vurriyayışa {{GENDER:$1|bıvin}}",
 	"notification-link-text-view-page": "Qaytê pele ke",
 	"notification-compact-header-page-linked": "<strong>$1</strong> ra gıre biyo.",
-	"notification-link-text-what-links-here": "Pêro linkê ena perer",
+	"notification-link-text-what-links-here": "Ena perre rê pêro linki",
 	"notification-header-mention-other": "$1 zerreyê <strong>$4</strong> \"<strong>$5</strong>\" de {{GENDER:$3|şıma sero}} {{GENDER:$2|qal kerd}}.",
 	"notification-header-mention-other-nosection": "$1, per da  <strong>$4</strong> dı  {{GENDER:$3|tora}} {{GENDER:$2|bahs kerd}}.",
 	"notification-header-user-rights-remove-only": "Heqa karberiya {{GENDER:$4|şıma}} {{GENDER:$1|vurriye}}. Şıma ezayê ena grube niyê: $2.",
