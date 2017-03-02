@@ -219,7 +219,6 @@
 			],
 			"styles": [
 				"styles/mw.echo.ui.overlay.less",
-				"styles/mw.echo.ui.icons.less",
 				"styles/mw.echo.ui.NotificationItemWidget.less",
 				"styles/mw.echo.ui.ToggleReadCircleButtonWidget.less",
 				"styles/mw.echo.ui.CrossWikiNotificationItemWidget.less",
@@ -251,6 +250,7 @@
 				"ext.echo.logger",
 				"ext.echo.styles.notifications",
 				"ext.echo.controller",
+				"ext.echo.secondaryicons",
 				"oojs-ui-core",
 				"oojs-ui-widgets",
 				"moment",
@@ -777,6 +777,26 @@
 				},
 				"site": {
 					"url": false
+				}
+			},
+			"merge_strategy": "array_plus_2d"
+		},
+		"EchoSecondaryIcons": {
+			"value": {
+				"linked": {
+					"path": "Echo/modules/icons/link-blue.svg"
+				},
+				"changes": {
+					"path": "Echo/modules/icons/changes.svg"
+				},
+				"thanks": {
+					"path": {
+						"ltr": "Echo/modules/icons/thanks-ltr.svg",
+						"rtl": "Echo/modules/icons/thanks-rtl.svg"
+					}
+				},
+				"userSpeechBubble": {
+					"path": "Echo/modules/icons/user-speech-bubble.svg"
 				}
 			},
 			"merge_strategy": "array_plus_2d"

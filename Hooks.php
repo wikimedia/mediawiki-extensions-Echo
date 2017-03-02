@@ -154,9 +154,17 @@ class EchoHooks {
 
 		$resourceLoader->register( 'ext.echo.logger', $definition );
 
-		global $wgExtensionDirectory;
+		global $wgExtensionDirectory, $wgEchoNotificationIcons, $wgEchoSecondaryIcons;
 		$resourceLoader->register( 'ext.echo.emailicons', [
 			'class' => 'ResourceLoaderEchoImageModule',
+			'icons' => $wgEchoNotificationIcons,
+			'selector' => '.mw-echo-icon-{name}',
+			'localBasePath' => $wgExtensionDirectory,
+			'remoteExtPath' => 'Echo/modules'
+		] );
+		$resourceLoader->register( 'ext.echo.secondaryicons', [
+			'class' => 'ResourceLoaderEchoImageModule',
+			'icons' => $wgEchoSecondaryIcons,
 			'selector' => '.mw-echo-icon-{name}',
 			'localBasePath' => $wgExtensionDirectory,
 			'remoteExtPath' => 'Echo/modules'

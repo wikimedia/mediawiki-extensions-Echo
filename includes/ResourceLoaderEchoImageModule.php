@@ -24,14 +24,17 @@
  */
 class ResourceLoaderEchoImageModule extends ResourceLoaderImageModule {
 	protected function loadFromDefinition() {
-		global $wgEchoNotificationIcons;
-
 		if ( $this->definition === null ) {
 			return;
 		}
 
+		// Check to make sure icons are set
+		if ( !isset( $this->definition['icons'] ) ) {
+			throw new MWException( 'Icons must be set.' );
+		}
+
 		$images = [];
-		foreach ( $wgEchoNotificationIcons as $iconName => $definition ) {
+		foreach ( $this->definition['icons'] as $iconName => $definition ) {
 			// FIXME: We also have a 'site' icon which is "magical"
 			// and uses witchcraft and should be handled specifically
 			$paths = '';
