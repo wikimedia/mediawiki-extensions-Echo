@@ -91,6 +91,7 @@
 	"notification-header-mention-user-talkpage-v2": "$1 {{GENDER:$3|Vas}} je {{GENDER:$2|spomenuo|spomenula}} na <strong>razgovornoj stranici {{GENDER:$5|suradnika|suradnice}} $4</strong> u odlomku »<strong>$6</strong>«.",
 	"notification-header-mention-user-talkpage-nosection": "$1 {{GENDER:$3|Vas}} je {{GENDER:$2|spomenuo|spomenula}} na <strong>razgovornoj stranici {{GENDER:$5|suradnika|suradnice}} $4</strong>.",
 	"notification-header-mention-agent-talkpage": "$1 {{GENDER:$3|Vas}} je {{GENDER:$2|spomenuo|spomenula}} na <strong>{{GENDER:$2|svojoj}} razgovornoj stranici</strong> u odlomku »<strong>$4</strong>«.",
+	"notification-header-mention-article-talkpage": "$1 {{GENDER:$3|Vas}} je {{GENDER:$2|spomenuo|spomenula}} na razgovornoj stranici <strong>$4</strong> u temi \"<strong>$5</strong>\".",
 	"notification-header-mention-failure-user-unknown": "{{GENDER:$2|Vaše}} spominjanje suradnika <strong>$3</strong> nije bilo poslano, jer suradničko ime nije bilo moguće pronaći.",
 	"notification-header-mention-failure-user-anonymous": "{{GENDER:$2|Vaše}} spominjanje suradnika <strong>$3</strong> nije poslano, jer je neprijavljeni suradnik anoniman.",
 	"notification-header-mention-failure-bundle": "{{PLURAL:$3|Spominjanje koje|$3 spominjanja koja}} ste Vi {{GENDER:$2|poslali|poslala}}, a putem razgovorne stranice <strong>$4</strong>, {{PLURAL:$3|nije bilo isporučeno|nisu bila isporučena}}.",
