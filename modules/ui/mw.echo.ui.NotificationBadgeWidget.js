@@ -176,6 +176,7 @@
 		this.badgeButton.connect( this, {
 			click: 'onBadgeButtonClick'
 		} );
+		this.notificationsWidget.connect( this, { modified: 'onNotificationsListModified' } );
 
 		this.$element
 			.prop( 'id', 'pt-notifications-' + adjustedTypeString )
@@ -214,6 +215,16 @@
 	 */
 
 	/* Methods */
+
+	/**
+	 * Respond to list widget modified event.
+	 *
+	 * This means the list's actual DOM was modified and we should make sure
+	 * that the popup resizes itself.
+	 */
+	mw.echo.ui.NotificationBadgeWidget.prototype.onNotificationsListModified = function () {
+		this.popup.clip();
+	};
 
 	mw.echo.ui.NotificationBadgeWidget.prototype.onFooterNoticeDismiss = function () {
 		// Clip again to recalculate height
@@ -339,7 +350,6 @@
 						// Fire initialization hook
 						mw.hook( 'ext.echo.popup.onInitialize' ).fire( widget.manager.getTypeString(), widget.controller );
 
-						widget.popup.clip();
 						// Update seen time
 						return widget.controller.updateSeenTime();
 					}
@@ -357,6 +367,7 @@
 			)
 			.then( this.emit.bind( this, 'finishLoading' ) )
 			.always( function () {
+				widget.popup.clip();
 				// Pop pending
 				widget.popPending();
 				widget.promiseRunning = false;
