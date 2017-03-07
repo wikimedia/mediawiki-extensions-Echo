@@ -56,6 +56,7 @@
 	"echo-specialpage": "Teavitused",
 	"echo-specialpage-section-markread": "Märgi rühm loetuks",
 	"echo-specialpage-pagination-numnotifications": "{{PLURAL:$1|Üks teavitus|$1 teavitust}}",
+	"echo-specialpage-pagination-range": "$1–$2",
 	"echo-specialpage-pagefilters-title": "Viimased teavitused",
 	"echo-specialpage-pagefilters-subtitle": "Lugemata teavitustega leheküljed",
 	"echo-anon": "Et teavitusi saada, [$1 loo konto] või [$2 logi sisse].",
