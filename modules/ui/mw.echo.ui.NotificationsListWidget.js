@@ -71,6 +71,16 @@
 
 	OO.inheritClass( mw.echo.ui.NotificationsListWidget, mw.echo.ui.SortedListWidget );
 
+	/* Events */
+
+	/**
+	 * @event modified
+	 *
+	 * The content of this list has changed.
+	 * This event is to state that not only has the content changed
+	 * but the actual DOM has been manipulated.
+	 */
+
 	/* Methods */
 
 	mw.echo.ui.NotificationsListWidget.prototype.onModelManagerDiscard = function ( modelName ) {
@@ -90,6 +100,8 @@
 				}
 			}
 		}
+
+		this.emit( 'modified' );
 	};
 
 	/**
@@ -99,6 +111,7 @@
 	 *
 	 * @param {Object} models Object of new models to populate the
 	 *  list.
+	 * @fires modified
 	 */
 	mw.echo.ui.NotificationsListWidget.prototype.resetDataFromModel = function ( models ) {
 		var i, modelId, model, subItems, subItem, widget,
@@ -169,6 +182,8 @@
 		this.addItems( itemWidgets );
 
 		this.checkForEmptyNotificationsList();
+
+		this.emit( 'modified' );
 	};
 
 	/**
@@ -196,6 +211,7 @@
 	 *
 	 * @param {string} [label] Label for the option widget
 	 * @param {string} [link] Link for the option widget
+	 * @fires modified
 	 */
 	mw.echo.ui.NotificationsListWidget.prototype.resetLoadingOption = function ( label, link ) {
 		this.loadingOptionWidget.setLabel( label || '' );
@@ -203,6 +219,7 @@
 		if ( this.isEmpty() ) {
 			this.addItems( [ this.loadingOptionWidget ] );
 		}
+		this.emit( 'modified' );
 	};
 
 	/**
