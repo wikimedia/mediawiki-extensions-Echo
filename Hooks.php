@@ -921,8 +921,11 @@ class EchoHooks {
 			$sk->getOutput()->addJsConfigVars( 'wgEchoShowSpecialPageInvitation', true );
 		}
 
-		$msgText = EchoNotificationController::formatNotificationCount( $msgCount );
-		$alertText = EchoNotificationController::formatNotificationCount( $alertCount );
+		$msgFormattedCount = EchoNotificationController::formatNotificationCount( $msgCount );
+		$alertFormattedCount = EchoNotificationController::formatNotificationCount( $alertCount );
+
+		$msgText = wfMessage( 'echo-notification-notice', $msgCount );
+		$alertText = wfMessage( 'echo-notification-alert', $alertCount );
 
 		$url = SpecialPage::getTitleFor( 'Notifications' )->getLocalURL();
 
@@ -971,7 +974,7 @@ class EchoHooks {
 			'class' => $alertLinkClasses,
 			'data' => [
 				'counter-num' => $alertCount,
-				'counter-text' => $alertText,
+				'counter-text' => $alertFormattedCount,
 			],
 		];
 
@@ -986,7 +989,7 @@ class EchoHooks {
 			'class' => $msgLinkClasses,
 			'data' => [
 				'counter-num' => $msgCount,
-				'counter-text' => $msgText,
+				'counter-text' => $msgFormattedCount,
 			],
 		];
 
