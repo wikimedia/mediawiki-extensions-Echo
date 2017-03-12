@@ -84,7 +84,7 @@
 	"echo-email-body-default": "Ur gemennadenn nevez zo ganeoc'h war {{SITENAME}}:\n\n$1",
 	"echo-email-footer-default": "$2\n\nEvit kontrollañ peseurt posteloù a gasomp deoc'h, gwiriit ho penndibaboù : {{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
 	"echo-notification-alert-text-only": "Kemennoù-diwall",
-	"echo-overlay-link": "An holl gemennadennoù",
+	"echo-overlay-link": "An holl gemennoù",
 	"echo-overlay-title": "<b>Kemennoù</b>",
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Kemenn|Kemennoù}}</b> (o tiskouez $1 diwar $2 hep lenn)",
 	"echo-mark-all-as-read": "Merkañ an holl evel lennet",
