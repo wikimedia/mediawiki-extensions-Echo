@@ -7,7 +7,8 @@
 			"Stelistcristi",
 			"ImGelu",
 			"Wintereu",
-			"Macofe"
+			"Macofe",
+			"Strainu"
 		]
 	},
 	"echo-desc": "Sistem de notificare a utilizatorilor cu privire la evenimente și mesaje",
@@ -78,7 +79,7 @@
 	"echo-notification-markasunread": "Marchează ca necitită",
 	"echo-notification-markasread-tooltip": "Marchează ca citită",
 	"echo-notification-more-options-tooltip": "Mai multe opțiuni",
-	"notification-link-text-expand-all": "Arată tot",
+	"notification-link-text-expand-all": "Extinde",
 	"notification-link-text-expand-alert-count": "Arată {{PLURAL:$1|$1 alertă|$1 alerte|$1 de alerte}}",
 	"notification-link-text-expand-all-count": "Arată {{PLURAL:$1|$1 notificare|$1 notificări|$1 de notificări}}",
 	"notification-link-text-collapse-all": "Restrânge",
