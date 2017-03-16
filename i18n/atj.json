@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Dereckson"
+			"Dereckson",
+			"Benoit Rochon"
 		]
 	},
+	"echo-pref-email": "Matcetcicihikan",
 	"notification-timestamp-today": "Ke kicikak",
 	"echo-date-today": "Ke kicikak"
 }
