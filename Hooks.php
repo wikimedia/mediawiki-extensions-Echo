@@ -2,6 +2,7 @@
 
 use MediaWiki\Auth\AuthManager;
 use MediaWiki\Logger\LoggerFactory;
+use MediaWiki\MediaWikiServices;
 
 class EchoHooks {
 	public static function registerExtension() {
@@ -999,7 +1000,7 @@ class EchoHooks {
 
 		if ( $hasUnseen ) {
 			// Record that the user is going to see an indicator that they have unread notifications
-			RequestContext::getMain()->getStats()->increment( 'echo.unseen' );
+			MediaWikiServices::getInstance()->getStatsdDataFactory()->increment( 'echo.unseen' );
 		}
 
 		// If the user has new messages, display a talk page alert
