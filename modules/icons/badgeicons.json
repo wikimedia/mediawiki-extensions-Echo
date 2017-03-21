@@ -1,5 +1,4 @@
 {
-	"prefix": "oo-ui-icon",
 	"variants": {
 		"invert": {
 			"color": "#FFFFFF"
@@ -7,13 +6,13 @@
 	},
 	"images": {
 		"bell": {
-			"file": "../bell.svg"
+			"file": "icons/bell.svg"
 		},
 		"tray": {
-			"file": "../tray.svg"
+			"file": "icons/tray.svg"
 		},
 		"doubleCheck": {
-			"file": "../double-check.svg",
+			"file": "icons/double-check.svg",
 			"variants": [ "invert" ]
 		}
 	}
