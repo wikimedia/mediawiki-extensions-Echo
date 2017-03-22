@@ -519,10 +519,9 @@
 			]
 		},
 		"ext.echo.badgeicons": {
-			"class": "ResourceLoaderOOUIImageModule",
+			"class": "ResourceLoaderImageModule",
 			"position": "top",
-			"name": "badgeicons",
-			"rootPath": "icons",
+			"data": "icons/badgeicons.json",
 			"selectorWithoutVariant": ".oo-ui-icon-{name}",
 			"selectorWithVariant": ".oo-ui-image-{variant}.oo-ui-icon-{name}"
 		}
