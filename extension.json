@@ -13,9 +13,9 @@
 	"descriptionmsg": "echo-desc",
 	"license-name": "MIT",
 	"type": "specialpage",
-        "requires": {
-                "MediaWiki": ">= 1.29.0"
-        },
+	"requires": {
+		"MediaWiki": ">= 1.29.0"
+	},
 	"callback": "EchoHooks::registerExtension",
 	"APIMetaModules": {
 		"notifications": "ApiEchoNotifications",
