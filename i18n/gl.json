@@ -171,7 +171,7 @@
 	"echo-email-footer-default": "$2\n\nPara controlar os correos electrónicos que lle enviamos, comprobe as súas preferencias:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
 	"echo-email-plain-footer": "Para controlar os emais que {{GENDER:$1|lle}} mandamos, {{GENDER:$1|revise}} as súas preferenciasː",
 	"echo-email-html-footer-preference-link-text": "{{GENDER:$1|comprobe}} as súas preferencias",
-	"echo-email-html-footer-with-link": "Para controlar que correos electrónicos {{GENDER:$1|lle}} enviamos, $1.",
+	"echo-email-html-footer-with-link": "Para controlar que correos electrónicos {{GENDER:$2|lle}} enviamos, $1.",
 	"echo-notification-alert": "{{PLURAL:$1|Alertas ($1)|100=Alertas (máis de 99)}}",
 	"echo-notification-notice": "{{PLURAL:$1|Aviso ($1)|Avisos ($1)|100=Avisos (99+)}}",
 	"echo-notification-alert-text-only": "Alertas",

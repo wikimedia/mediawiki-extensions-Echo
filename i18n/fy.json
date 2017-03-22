@@ -1,7 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Robin0van0der0vliet"
+			"Robin0van0der0vliet",
+			"PiefPafPier",
+			"Robin van der Vliet"
 		]
 	},
 	"prefs-emailsettings": "E-mailynstellingen",
@@ -10,7 +12,8 @@
 	"notifications": "Meldingen",
 	"echo-specialpage": "Meldingen",
 	"echo-feedback": "Weromkeppeling",
-	"echo-notification-message-text-only": "Berjochten",
+	"notification-link-text-expand-all": "Utklappe",
+	"notification-link-text-collapse-all": "Ynklappe",
 	"echo-overlay-link": "Alle meldingen",
 	"echo-date-today": "Hjoed",
 	"echo-date-yesterday": "Juster"
