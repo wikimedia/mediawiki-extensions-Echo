@@ -83,7 +83,7 @@
 	"notification-page-linked-email-subject": "Ei side du oppretta vart lenkja til på {{SITENAME}}",
 	"notification-reverted-email-subject2": "{{PLURAL:$3|Endringa di|Endringane dine}} vart {{GENDER:$1|fjerna}} på {{SITENAME}}",
 	"notification-mention-email-subject": "$1 {{GENDER:$1|nemnde}} {{GENDER:$2|deg}} på {{SITENAME}}",
-	"notification-user-rights-email-subject": "Brukarrettane dine har endra seg på {{SITENAME}}",
+	"notification-user-rights-email-subject": "Brukarrettane dine på {{SITENAME}} har vorte endra",
 	"notification-timestamp-ago-seconds": "{{PLURAL:$1|$1 sek.}}",
 	"notification-timestamp-ago-minutes": "{{PLURAL:$1|$1 min.}}",
 	"notification-timestamp-ago-hours": "{{PLURAL:$1|$1 t.}}",
