@@ -7,10 +7,19 @@ class MWEchoThankYouEditTest extends MediaWikiTestCase {
 
 	protected function setUp() {
 		parent::setUp();
+		$this->tablesUsed[] = 'echo_event';
+		$this->tablesUsed[] = 'echo_notification';
+	}
+
+	private function deleteEchoData() {
+		$db = MWEchoDbFactory::newFromDefault()->getEchoDb( DB_MASTER );
+		$db->delete( 'echo_event', '*', __METHOD__ );
+		$db->delete( 'echo_notification', '*', __METHOD__ );
 	}
 
 	public function testFirstEdit() {
 		// setup
+		$this->deleteEchoData();
 		$user = $this->getMutableTestUser()->getUser();
 		$title = Title::newFromText( 'Help:MWEchoThankYouEditTest_testFirstEdit' );
 
@@ -29,6 +38,7 @@ class MWEchoThankYouEditTest extends MediaWikiTestCase {
 
 	public function testTenthEdit() {
 		// setup
+		$this->deleteEchoData();
 		$user = $this->getMutableTestUser()->getUser();
 		$title = Title::newFromText( 'Help:MWEchoThankYouEditTest_testTenthEdit' );
 
