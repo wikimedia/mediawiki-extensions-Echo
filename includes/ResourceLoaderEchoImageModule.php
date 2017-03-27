@@ -37,9 +37,9 @@ class ResourceLoaderEchoImageModule extends ResourceLoaderImageModule {
 		foreach ( $this->definition['icons'] as $iconName => $definition ) {
 			// FIXME: We also have a 'site' icon which is "magical"
 			// and uses witchcraft and should be handled specifically
-			$paths = '';
 			if ( isset( $definition[ 'path' ] ) ) {
 				if ( is_array( $definition[ 'path' ] ) ) {
+					$paths = [];
 					foreach ( $definition[ 'path' ] as $dir => $p ) {
 						// Has both rtl and ltr definitions
 						$paths[ $dir ] = $p;
