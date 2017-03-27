@@ -115,6 +115,7 @@
 	"notification-dynamic-actions-unwatch-confirmation-description": "{{GENDER:$3|U}} kunt [$2 deze pagina] op elk moment volgen.",
 	"notification-dynamic-actions-watch": "{{GENDER:$3|Volg}} nieuwe gebeurtenissen op \"$1\"",
 	"notification-dynamic-actions-watch-confirmation": "{{GENDER:$3|U}} volgt nu de pagina \"$1\"",
+	"notification-dynamic-actions-watch-confirmation-description": "{{GENDER:$3|U}} kunt op elk moment stoppen met het volgen van [$2 deze pagina].",
 	"notification-link-text-expand-all": "Uitvouwen",
 	"notification-link-text-expand-alert-count": "{{PLURAL:$1|$1 melding|$1 meldingen}} weergeven",
 	"notification-link-text-expand-notice-count": "Toon {{PLURAL:$1|$1 notificatie|$1 notificaties}}",
