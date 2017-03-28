@@ -10,11 +10,11 @@
 		display: block;
 		width: 24px;
 		height: 24px;
-		top: -5px;
+		// Hide the text, but keep accessible for screen-readers
+		// Later we put the icons back onscreen with an opposite offset
+		top: -@badge-offscreen-offset - 5px;
 		cursor: pointer;
 		text-decoration: none;
-		// Hide the text, but keep accessible for screen-readers
-		color: transparent;
 
 		&:hover,
 		&:active,
@@ -35,8 +35,9 @@
 			opacity: 0.8;
 			content: '';
 			background-repeat: no-repeat;
+			// Bring it back onscreen
+			top: @badge-offscreen-offset;
 			left: 0;
-			top: 0;
 			width: 100%;
 			height: 100%;
 		}
@@ -46,7 +47,8 @@
 			position: absolute;
 			display: inline-block;
 			cursor: pointer;
-			top: 9px;
+			// Bring it back onscreen
+			top: @badge-offscreen-offset + 9px;
 			left: 55%;
 			font-size: 0.9em;
 			font-weight: bold;
