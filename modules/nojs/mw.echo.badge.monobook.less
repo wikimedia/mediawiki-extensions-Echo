@@ -6,14 +6,14 @@
 	#pt-notifications-alert & {
 		width: 16px;
 		height: 16px;
-		top: -1px;
+		top: -@badge-offscreen-offset - 1px;
 
 		&:before {
 			background-size: 16px 16px;
 		}
 
 		&:after {
-			top: 3px;
+			top: @badge-offscreen-offset + 3px;
 		}
 	}
 
