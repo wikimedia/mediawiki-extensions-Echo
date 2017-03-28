@@ -78,4 +78,10 @@
 		return true;
 	};
 
+	/**
+	 * No-op
+	 */
+	mw.echo.ui.ClonedNotificationItemWidget.prototype.resetInitiallyUnseen = function () {
+	};
+
 }( mediaWiki ) );
