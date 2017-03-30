@@ -50,6 +50,7 @@
 	"tooltip-pt-notifications-alert": "{{GENDER:|Вашыя}} паведамленьні",
 	"tooltip-pt-notifications-notice": "{{GENDER:|Вашыя}} абвесткі",
 	"echo-specialpage": "Абвесткі",
+	"echo-specialpage-pagefilters-subtitle": "Старонкі зь непрачытанымі паведамленьнямі",
 	"echo-anon": "Для атрыманьня абвестак [$1 стварыце рахунак] або [$2 увайдзіце].",
 	"echo-none": "Вы ня маеце абвестак.",
 	"echo-more-info": "Болей",
