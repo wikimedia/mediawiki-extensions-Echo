@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\Logger\LoggerFactory;
+
 /**
  * Immutable class to represent an event.
  * In Echo nomenclature, an event is a single occurrence.
