@@ -52,17 +52,17 @@
 	mw.echo.ui.BadgeLinkWidget.prototype.setCount = function ( numItems, label ) {
 		label = label || numItems;
 
+		this.$element
+			.toggleClass( 'mw-echo-notifications-badge-all-read', !numItems )
+			.toggleClass( 'mw-echo-notifications-badge-long-label', label.length > 2 )
+			.attr( 'data-counter-num', numItems )
+			.attr( 'data-counter-text', label );
+
 		if ( this.count !== numItems ) {
 			this.count = numItems;
 
 			// Fire badge count change hook
 			mw.hook( 'ext.echo.badge.countChange' ).fire( this.type, this.count, label );
 		}
-
-		this.$element
-			.toggleClass( 'mw-echo-notifications-badge-all-read', !numItems )
-			.toggleClass( 'mw-echo-notifications-badge-long-label', label.length > 2 )
-			.attr( 'data-counter-num', numItems )
-			.attr( 'data-counter-text', label );
 	};
 }( mediaWiki, jQuery ) );
