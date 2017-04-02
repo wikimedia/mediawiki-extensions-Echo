@@ -20,7 +20,8 @@
 			"Bowleerin",
 			"Macofe",
 			"一個正常人",
-			"Winstonyin"
+			"Winstonyin",
+			"逆襲的天邪鬼"
 		]
 	},
 	"echo-desc": "用來通知使用者事件及訊息的系統",
@@ -147,9 +148,9 @@
 	"notification-header-mention-success-bundle": "{{PLURAL:$3|已發出}}{{GENDER:$2|您}}在<strong>$4</strong>討論頁上的{{PLURAL:$3|提及|$3個提及}}。",
 	"notification-compact-header-mention-success": "<strong>{{GENDER:$2|您提及了}}：</strong>$3",
 	"notification-header-mention-status-bundle": "有{{PLURAL:$3|$3條}}有關{{GENDER:$2|您}}在<strong>$4</strong>討論頁上所作提及的通知：{{PLURAL:$5|$5條未發送}}，{{PLURAL:$6|$6條已發送}}。",
-	"notification-header-user-rights-add-only": "{{GENDER:$4|您的}}使用著權限已被{{GENDER:$1|更改}}。您已被添加至：$2。",
-	"notification-header-user-rights-remove-only": "{{GENDER:$4|您的}}使用著權限已被{{GENDER:$1|更改}}。您已不再是$2的成員。",
-	"notification-header-user-rights-add-and-remove": "{{GENDER:$6|您的}}使用著權限已被{{GENDER:$1|更改}}。您已被添加至：$2。您已不再是$4的成員。",
+	"notification-header-user-rights-add-only": "{{GENDER:$4|您的}}使用者權限已被{{GENDER:$1|更改}}。您已被添加至：$2。",
+	"notification-header-user-rights-remove-only": "{{GENDER:$4|您的}}使用者權限已被{{GENDER:$1|更改}}。您已不再是$2的成員。",
+	"notification-header-user-rights-add-and-remove": "{{GENDER:$6|您的}}使用者權限已被{{GENDER:$1|更改}}。您已被添加至：$2。您已不再是$4的成員。",
 	"notification-header-welcome": "$1，{{GENDER:$2|歡迎}}來到{{SITENAME}}！很高興在這裡見到{{GENDER:$2|您}}。",
 	"notification-welcome-linktext": "歡迎",
 	"notification-header-thank-you-1-edit": "{{GENDER:$2|您}}剛剛作出了{{GENDER:$2|您的}}第一次編輯。謝謝您，歡迎{{GENDER:$2|您}}！",
