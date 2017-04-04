@@ -24,7 +24,7 @@
 	 */
 	mw.echo.ui.NotificationBadgeWidget = function MwEchoUiNotificationBadgeButtonPopupWidget( controller, manager, config ) {
 		var buttonFlags, allNotificationsButton, preferencesButton, footerButtonGroupWidget, $footer,
-			notice, adjustedTypeString, wrappedBadgeLabel;
+			notice, adjustedTypeString;
 
 		config = config || {};
 		config.links = config.links || {};
@@ -45,6 +45,8 @@
 		this.controller = controller;
 		this.manager = manager;
 
+		adjustedTypeString = this.controller.getTypeString() === 'message' ? 'notice' : this.controller.getTypeString();
+
 		// Properties
 		this.types = this.manager.getTypes();
 
@@ -56,12 +58,9 @@
 		if ( config.hasUnseen ) {
 			buttonFlags.push( 'unseen' );
 		}
-		adjustedTypeString = this.controller.getTypeString() === 'message' ? 'notice' : this.controller.getTypeString();
-		// Messages: echo-notification-notice, echo-notification-alert
-		wrappedBadgeLabel = mw.message( 'echo-notification-' + adjustedTypeString, this.badgeLabel ).text();
 
 		this.badgeButton = new mw.echo.ui.BadgeLinkWidget( {
-			label: wrappedBadgeLabel,
+			label: this.badgeLabel,
 			type: this.manager.getTypeString(),
 			numItems: this.numItems,
 			flags: buttonFlags,
@@ -266,18 +265,14 @@
 	 * Update the badge state and label based on changes to the model
 	 */
 	mw.echo.ui.NotificationBadgeWidget.prototype.updateBadge = function () {
-		var unreadCount, cappedUnreadCount, badgeLabel, adjustedTypeString, wrappedBadgeLabel;
+		var unreadCount, cappedUnreadCount, badgeLabel;
 
 		unreadCount = this.manager.getUnreadCounter().getCount();
 		cappedUnreadCount = this.manager.getUnreadCounter().getCappedNotificationCount( unreadCount );
 		cappedUnreadCount = mw.language.convertNumber( cappedUnreadCount );
 		badgeLabel = mw.message( 'echo-badge-count', mw.language.convertNumber( cappedUnreadCount ) ).text();
 
-		adjustedTypeString = this.controller.getTypeString() === 'message' ? 'notice' : this.controller.getTypeString();
-		// Messages: echo-notification-notice, echo-notification-alert
-		wrappedBadgeLabel = mw.message( 'echo-notification-' + adjustedTypeString, badgeLabel ).text();
-
-		this.badgeButton.setLabel( wrappedBadgeLabel );
+		this.badgeButton.setLabel( badgeLabel );
 		this.badgeButton.setCount( unreadCount, badgeLabel );
 		// Update seen state only if the counter is 0
 		// so we don't run into inconsistencies and have an unseen state

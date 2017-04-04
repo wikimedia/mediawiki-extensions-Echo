@@ -193,8 +193,6 @@
 				"mediawiki.api.options"
 			],
 			"messages": [
-				"echo-notification-notice",
-				"echo-notification-alert",
 				"echo-popup-footer-special-page-invitation",
 				"echo-popup-footer-special-page-invitation-link"
 			],
@@ -407,20 +405,19 @@
 		},
 		"ext.echo.styles.badge": {
 			"position": "top",
+			"styles": [
+				"nojs/mw.echo.badge.less"
+			],
 			"skinStyles": {
-				"default": [
-					"nojs/mw.echo.badge.less"
-				],
 				"monobook": [
-					"nojs/mw.echo.badge.less",
 					"nojs/mw.echo.badge.monobook.less"
 				],
 				"vector": [
-					"nojs/mw.echo.badge.less",
 					"nojs/mw.echo.badge.vector.less"
 				],
-				"cologneblue": [],
-				"modern": []
+				"modern": [
+					"nojs/mw.echo.badge.modern.less"
+				]
 			},
 			"targets": [
 				"desktop",
@@ -449,9 +446,6 @@
 				],
 				"modern": [
 					"nojs/mw.echo.alert.modern.less"
-				],
-				"cologneblue": [
-					"nojs/mw.echo.alert.cologneblue.less"
 				]
 			},
 			"targets": [

@@ -3,15 +3,16 @@ body #p-personal {
 }
 
 #p-personal li.mw-echo-ui-notificationBadgeButtonPopupWidget {
-	.mw-echo-ui-notificationBadgeButtonPopupWidget-popup {
-		font-variant: normal;
-		text-transform: none;
-		font-weight: normal;
-
-		// Popup buttons
-		.oo-ui-buttonElement-button:hover {
-			// In modern, the hover color is white, which is unhelpful.
-			color: #666;
-		}
+	font-variant: normal;
+	text-transform: none;
+	font-weight: normal;
+	// Badge
+	> .oo-ui-buttonElement-button {
+		border-radius: 0;
+	}
+	// Popup buttons
+	.oo-ui-buttonElement-button:hover {
+		// In modern, the hover color is white, which is unhelpful.
+		color: #666;
 	}
 }
