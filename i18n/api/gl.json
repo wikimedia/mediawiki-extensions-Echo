@@ -24,7 +24,6 @@
 	"apihelp-query+notifications-param-groupbysection": "Si se agrupan os resultados por sección. Cada sección obtense por separado si así se establece.",
 	"apihelp-query+notifications-param-filter": "Filtrar as notificacións devoltas.",
 	"apihelp-query+notifications-param-format": "Se se especifica, as notificacións devolveranse neste formato.",
-	"apihelp-query+notifications-paramvalue-format-text": "Formato de texto plano",
 	"apihelp-query+notifications-paramvalue-format-model": "Datos de notificación en bruto",
 	"apihelp-query+notifications-paramvalue-format-special": "Con formato para a páxina Special:Notifications (e só esa!) Non confíe no HTML xa que pode cambiar en calquera momento.",
 	"apihelp-query+notifications-paramvalue-format-flyout": "<span class=\"apihelp-deprecated\">Obsoleto</span>. Utilice <kbd>$1format=model</kbd> para os datos en bruto",
@@ -45,5 +44,6 @@
 	"apihelp-query+unreadnotificationpages-param-grouppages": "Agrupar as páxinas de conversa xunto coas súas páxinas asociadas, e agrupar xuntas as notificacións non asociadas cunha páxina coa páxina de usuario actual.",
 	"apihelp-query+unreadnotificationpages-param-limit": "Número máximo de páxinas a devolver.",
 	"apihelp-query+unreadnotificationpages-param-wikis": "Lista de wikis para buscar páxinas con notificacións sen ler (por defecto só na wiki actual).",
-	"apihelp-query+unreadnotificationpages-example-1": "Listar as páxinas con notificacións sen ler (xunto ao número de notificacións sen ler)"
+	"apihelp-query+unreadnotificationpages-example-1": "Listar as páxinas con notificacións sen ler (xunto ao número de notificacións sen ler)",
+	"apiwarn-echo-deprecation-html": "<kbd>notformat=html</kbd> está obsoleto e será eliminado en breve. Substituír por <kbd>notformat=special</kbd>."
 }

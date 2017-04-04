@@ -83,7 +83,7 @@
 	"notification-link-text-view-page": "Vidi stranicu",
 	"notification-header-edit-user-talk": "$1 {{GENDER:$2|Vam je ostavio|Vam je ostavila}} poruku na {{GENDER:$3|Vašoj}} stranici za razgovor.",
 	"notification-header-edit-user-talk-with-section": "$1 {{GENDER:$2|Vam je ostavio|Vam je ostavila}} poruku na {{GENDER:$3|Vašoj}} stranici za razgovor u odlomku \"$4\".",
-	"notification-header-page-linked": "Stranica $3 je {{GENDER:$2|povezana}} sa stranicom $4.",
+	"notification-header-page-linked": "{{GENDER:$2|Suradnik|Suradnica}} $1 {{GENDER:$2|načinio je|načinila je}} poveznicu na stranici <strong>$4</strong> prema <strong>$3</strong>.",
 	"notification-compact-header-page-linked": "Povezano sa stranice <strong>$1</strong>.",
 	"notification-bundle-header-page-linked": "Stranica $3 je {{GENDER:$2|povezana}} sa stranicom $4 i s još $5 {{PLURAL:$6|stranicom|stranice|stranica}}.",
 	"notification-link-text-what-links-here": "Sve poveznice na ovu stranicu",
