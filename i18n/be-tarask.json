@@ -37,6 +37,7 @@
 	"echo-category-title-reverted": "{{PLURAL:$1|1=Адкат праўкі|Адкаты правак}}",
 	"echo-category-title-mention": "{{PLURAL:$1|1=Згадваньне|Згадваньні}}",
 	"echo-category-title-mention-failure": "{{PLURAL:$1|1=Няўдалая згадка|Няўдалыя згадкі}}",
+	"echo-category-title-mention-success": "{{PLURAL:$1|1=Удалая згадка|Удалыя згадкі}}",
 	"echo-category-title-other": "{{PLURAL:$1|1=Іншае|Іншыя}}",
 	"echo-category-title-system": "{{PLURAL:$1|1=Сыстэмнае|Сыстэмныя}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|1=Зьмена|Зьмены}} правоў удзельніка",
