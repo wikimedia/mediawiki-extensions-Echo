@@ -94,7 +94,7 @@
 	"echo-email-body-default": "Imate novo obaveštenje na {{SITENAME}}: \n\n$1",
 	"echo-email-footer-default": "$2\n\nDa biste promenili koje poruke primate od nas idite u podešavanja:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
 	"echo-email-plain-footer": "Da biste promenili koje poruke primate {{GENDER:$1|od}} nas idite u podešavanja.",
-	"echo-email-html-footer-preference-link-text": "proverite {{GENDER:$1|Vaša}} podešavanja",
+	"echo-email-html-footer-preference-link-text": "{{GENDER:$1|Vaša}} podešavanja",
 	"echo-email-html-footer-with-link": "Da biste promenili koje poruke primate {{GENDER:$2|od}} nas idite u $1.",
 	"echo-notification-alert": "{{PLURAL:$1|Obaveštenje ($1)|Obaveštanja ($1)|100=Obaveštanja (99+)}}",
 	"echo-notification-alert-text-only": "Obaveštenja",

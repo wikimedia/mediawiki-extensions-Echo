@@ -53,7 +53,7 @@
 	"notification-page-linked-email-subject": "E Syte vo dir het uf {{SITENAME}} e Link übercho",
 	"notification-reverted-email-subject2": "{{GENDER:$1|Der $1|D $1|$1}} het {{PLURAL:$3|e Veränderig|Veränderige}} vo dir uf {{SITENAME}} rückgängig gmacht",
 	"notification-mention-email-subject": "{{GENDER:$1|Der $1|D $1|$1}} het di uf {{SITENAME}} erwähnt",
-	"notification-user-rights-email-subject": "Dyni Rächt uf {{SITENAME}} hei g’änderet",
+	"notification-user-rights-email-subject": "Dyni Rächt uf {{SITENAME}} hei gänderet",
 	"echo-email-body-default": "Du hesch e nöüe Hiwys uf {{SITENAME}} übercho:\n\n$1",
 	"echo-email-footer-default": "$2\n\nDu chasch i dynen Ystellige bestimme, weli Hiwyse das du per E-Mail überchunsch:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
 	"echo-notification-alert": "{{PLURAL:$1|Ei Hiwys|$1 Hiwyse|100=Hiwyse (99+)}}",
