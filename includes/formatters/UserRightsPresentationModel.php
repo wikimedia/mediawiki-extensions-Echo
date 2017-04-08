@@ -19,7 +19,18 @@ class EchoUserRightsPresentationModel extends EchoEventPresentationModel {
 			[ $this->language, 'embedBidi' ],
 			$this->getLocalizedGroupNames( array_values( $this->event->getExtraParam( 'remove', [] ) ) )
 		);
-		if ( $add && !$remove ) {
+		$expiryChanged = array_map(
+			[ $this->language, 'embedBidi' ],
+			$this->getLocalizedGroupNames( array_values( $this->event->getExtraParam( 'expiry-changed', [] ) ) )
+		);
+		if ( $expiryChanged ) {
+			$msg = $this->msg( 'notification-header-user-rights-expiry-change' );
+			$msg->params( $genderName );
+			$msg->params( $this->language->commaList( $expiryChanged ) );
+			$msg->params( count( $expiryChanged ) );
+			$msg->params( $this->getViewingUserForGender() );
+			return $msg;
+		} elseif ( $add && !$remove ) {
 			$msg = $this->msg( 'notification-header-user-rights-add-only' );
 			$msg->params( $genderName );
 			$msg->params( $this->language->commaList( $add ) );

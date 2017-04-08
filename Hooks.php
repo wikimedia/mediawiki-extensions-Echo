@@ -688,7 +688,9 @@ class EchoHooks {
 	 *
 	 * @return bool
 	 */
-	public static function onUserGroupsChanged( $user, $add, $remove, $performer, $reason ) {
+	public static function onUserGroupsChanged( $user, $add, $remove, $performer,
+		$reason, array $oldUGMs = [], array $newUGMs = [] ) {
+
 		if ( !$performer ) {
 			// TODO: Implement support for autopromotion
 			return true;
@@ -704,13 +706,41 @@ class EchoHooks {
 			return true;
 		}
 
-		if ( $add || $remove ) {
+		// If any old groups are in $add, those groups are having their expiry
+		// changed, not actually being added
+		$expiryChanged = [];
+		$reallyAdded = [];
+		foreach ( $add as $group ) {
+			if ( isset( $oldUGMs[$group] ) ) {
+				$expiryChanged[] = $group;
+			} else {
+				$reallyAdded[] = $group;
+			}
+		}
+
+		if ( $expiryChanged ) {
+			// use a separate notification for these, so the notification text doesn't
+			// get too long
 			EchoEvent::create(
 				[
 					'type' => 'user-rights',
 					'extra' => [
 						'user' => $user->getID(),
-						'add' => $add,
+						'expiry-changed' => $expiryChanged,
+						'reason' => $reason,
+					],
+					'agent' => $performer,
+				]
+			);
+		}
+
+		if ( $reallyAdded || $remove ) {
+			EchoEvent::create(
+				[
+					'type' => 'user-rights',
+					'extra' => [
+						'user' => $user->getID(),
+						'add' => $reallyAdded,
 						'remove' => $remove,
 						'reason' => $reason,
 					],
