@@ -166,6 +166,7 @@
 	"notification-header-user-rights-add-only": "{{GENDER:$4|Your}} user rights were {{GENDER:$1|changed}}. You have been added to: $2.",
 	"notification-header-user-rights-remove-only": "{{GENDER:$4|Your}} user rights were {{GENDER:$1|changed}}. You are no longer a member of: $2.",
 	"notification-header-user-rights-add-and-remove": "{{GENDER:$6|Your}} user rights were {{GENDER:$1|changed}}. You have been added to: $2. You are no longer a member of: $4.",
+	"notification-header-user-rights-expiry-change": "The expiry of {{GENDER:$4|your}} membership in the following {{PLURAL:$3|group|groups}} has been {{GENDER:$1|changed}}: $2.",
 	"notification-body-user-rights": "$1",
 	"notification-header-welcome": "{{GENDER:$2|Welcome}} to {{SITENAME}}, $1! We're glad {{GENDER:$2|you're}} here.",
 	"notification-welcome-link": "",
