@@ -162,6 +162,7 @@
 	"notification-header-user-rights-add-only": "{{GENDER:$4|您}}的用户权限已{{GENDER:$1|更改}}。您已被添加至：$2。",
 	"notification-header-user-rights-remove-only": "{{GENDER:$4|您}}的用户权限已{{GENDER:$1|更改}}。您不再属于以下用户组的成员：$2。",
 	"notification-header-user-rights-add-and-remove": "{{GENDER:$6|您}}的用户权限已{{GENDER:$1|更改}}。您已被添加至：$2。您不再属于以下用户组的成员：$4。",
+	"notification-header-user-rights-expiry-change": "{{GENDER:$4|您}}的以下{{PLURAL:$3|用户组}}的成员逾期时间已被{{GENDER:$1|更改}}：$2。",
 	"notification-header-welcome": "{{GENDER:$2|欢迎}}来到{{SITENAME}}，$1！我们很高兴{{GENDER:$2|您}}来到这里。",
 	"notification-welcome-linktext": "欢迎",
 	"notification-header-thank-you-1-edit": "{{GENDER:$2|您}}刚刚作出了{{GENDER:$2|您}}的第一次编辑；感谢{{GENDER:$2|您}}，并欢迎您！",

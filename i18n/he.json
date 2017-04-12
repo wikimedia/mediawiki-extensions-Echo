@@ -142,6 +142,7 @@
 	"notification-header-user-rights-add-only": "הרשאות המשתמש שלך {{GENDER:$1|שונו}}. {{GENDER:$4|נוספת}} ל{{GRAMMAR:תחילית|$2}}.",
 	"notification-header-user-rights-remove-only": "הרשאות המשתמש שלך {{GENDER:$1|שונו}}. {{GENDER:$4|אתה כבר לא חבר|את כבר לא חברה}} ב{{GRAMMAR:תחילית|$2}}.",
 	"notification-header-user-rights-add-and-remove": "הרשאות המשתמש שלך {{GENDER:$1|שונו}}. נוספת ל{{GRAMMAR:תחילית|$2}}. {{GENDER:$6|אתה כבר לא חבר|את כבר לא חברה}} ב{{GRAMMAR:תחילית|$4}}.",
+	"notification-header-user-rights-expiry-change": "תפוגת החברות {{GENDER:$4|שלך}} {{PLURAL:$3|בקבוצה הבאה|בקבוצות הבאות}} {{GENDER:$1|שונתה}}: $2",
 	"notification-header-welcome": "{{GENDER:$2|ברוך הבא|ברוכה הבאה|ברוך בואך}} ל{{GRAMMAR:תחילית|{{SITENAME}}}}&rlm;, $1! אנחנו שמחים {{GENDER:$2|שאתה פה|שאת פה|שבאת}}.",
 	"notification-welcome-linktext": "ברוך בואך",
 	"notification-header-thank-you-1-edit": "זה עתה {{GENDER:$2|עשית}} את העריכה הראשונה שלך; תודה ו{{GENDER:$2|ברוך הבא|ברוכה הבאה|ברוך בואך}}!",

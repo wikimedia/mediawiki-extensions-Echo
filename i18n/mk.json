@@ -135,6 +135,7 @@
 	"notification-header-user-rights-add-only": "{{GENDER:$4|Вашите}} кориснички права се {{GENDER:$1|изменети}}. Додадени сте во: $2.",
 	"notification-header-user-rights-remove-only": "{{GENDER:$4|Вашите}} кориснички права се {{GENDER:$1|изменети}}. Повеќе не членувате во $2.",
 	"notification-header-user-rights-add-and-remove": "{{GENDER:$6|Вашите}} кориснички права се {{GENDER:$1|изменети}}. Додадени сте во: $2. Повеќе не членувате во: $4.",
+	"notification-header-user-rights-expiry-change": "{{GENDER:$1|Изменет}} е истекот на {{GENDER:$4|вашето}} членство во {{PLURAL:$3|следнава група|следниве групи}}: $2.",
 	"notification-header-welcome": "{{GENDER:$2|Добре дојдовте}} на {{SITENAME}}, $1! Драго ни е {{GENDER:$2|што сте}} тука.",
 	"notification-welcome-linktext": "Добре дојдовте",
 	"notification-header-thank-you-1-edit": "Штотуку го {{GENDER:$2|направивте}} {{GENDER:$2|вашето}} прво уредување. {{GENDER:$2|Ви}} благодариме, и добре дојдовте!",

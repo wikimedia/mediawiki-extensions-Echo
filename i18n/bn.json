@@ -140,6 +140,7 @@
 	"notification-header-user-rights-add-only": "{{GENDER:$4|আপনার}} ব্যবহারকারী অধিকার {{GENDER:$1|পরিবর্তিত হয়েছে}}। আপনাকে এখানে যোগ করা হয়েছে: $2।",
 	"notification-header-user-rights-remove-only": "{{GENDER:$4|আপনার}} ব্যবহারকারী অধিকার {{GENDER:$1|পরিবর্তিত হয়েছে}}। আপনি এখন আর এই দলের সদস্য নন: $2।",
 	"notification-header-user-rights-add-and-remove": "{{GENDER:$6|আপনার}} ব্যবহারকারী অধিকার {{GENDER:$1|পরিবর্তিত হয়েছে}}। আপনাকে এখানে যোগ করা হয়েছে: $2। আপনি এখন আর এই দলের সদস্য নন: $4।",
+	"notification-header-user-rights-expiry-change": "নিন্মলিখিত {{PLURAL:$3|দলে|দলগুলিতে}} {{GENDER:$4|আপনার}} সদস্যতা শেষ হওয়ার সময়সীমা {{GENDER:$1|পরিবর্তিত হয়েছে}}: $2।",
 	"notification-header-welcome": "{{SITENAME}}-এ {{GENDER:$2|স্বাগতম}}, $1! {{GENDER:$2|আপনাকে}} এখানে দেখে আমরা আনন্দিত।",
 	"notification-welcome-linktext": "স্বাগতম",
 	"notification-header-thank-you-1-edit": "{{GENDER:$2|আপনি}} এইমাত্র {{GENDER:$2|আপনার}} প্রথম সম্পাদনা করেছেন; {{GENDER:$2|আপনাকে}} ধন্যবাদ, এবং স্বাগতম!",
