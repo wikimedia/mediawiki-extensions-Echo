@@ -18,7 +18,7 @@
 				.addClass( 'mw-echo-ui-datedSubGroupListWidget-title-primary' ),
 			$secondaryDate = $( '<span>' )
 				.addClass( 'mw-echo-ui-datedSubGroupListWidget-title-secondary' ),
-			$title = $( '<span>' )
+			$title = $( '<h2>' )
 				.addClass( 'mw-echo-ui-datedSubGroupListWidget-title' )
 				.append( $primaryDate, $secondaryDate );
 

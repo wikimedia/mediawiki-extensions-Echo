@@ -1,7 +1,14 @@
 @import '../echo.variables';
 .mw-echo-ui-datedSubGroupListWidget {
-	&-title {
-		font-weight: normal;
+	.mw-body-content &-title {
+		// Since the title is <h2> we want to specifically
+		// change the styling to bring it back to mimic a
+		// content span. We also must override the h2 rules
+		// so specificity is important
+		font-weight: inherit;
+		font-size: inherit;
+		font-family: inherit;
+		border: 0;
 
 		&-primary {
 			font-size: 1.5em;
