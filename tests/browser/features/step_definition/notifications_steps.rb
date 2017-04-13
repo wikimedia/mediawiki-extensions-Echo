@@ -31,7 +31,7 @@ end
 Given(/^the alert badge is showing unseen notifications$/) do
   on(ArticlePage) do |page|
     page.refresh_until do
-      page.alerts.badge_unseen_element.visible?
+      page.alerts.badge_unseen_element.exists?
     end
   end
 end
@@ -39,7 +39,7 @@ end
 Given(/^the notice badge is showing unseen notifications$/) do
   on(ArticlePage) do |page|
     page.refresh_until do
-      page.notices.badge_unseen_element.visible?
+      page.notices.badge_unseen_element.exists?
     end
   end
 end
@@ -47,7 +47,8 @@ end
 Given(/^the alert badge value is "(.+)"$/) do |num|
   on(ArticlePage) do |page|
     page.refresh_until do
-      page.alerts.badge_element.text == num
+      # `.text` doesn't work for invisible elements, and Selenium thinks the badge is invisible
+      page.alerts.badge_element.attribute('innerText') == num
     end
   end
 end
@@ -55,7 +56,7 @@ end
 Given(/^the notice badge value is "(.+)"$/) do |num|
   on(ArticlePage) do |page|
     page.refresh_until do
-      page.notices.badge_element.text == num
+      page.notices.badge_element.attribute('innerText') == num
     end
   end
 end
