@@ -2,10 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Dereckson",
-			"Benoit Rochon"
+			"Benoit Rochon",
+			"Ninmeka"
 		]
 	},
 	"echo-pref-email": "Matcetcicihikan",
+	"tooltip-pt-notifications-alert": "{{GENDER:|Kir}} ki mikawasimikon",
 	"notification-timestamp-today": "Ke kicikak",
 	"echo-date-today": "Ke kicikak"
 }
