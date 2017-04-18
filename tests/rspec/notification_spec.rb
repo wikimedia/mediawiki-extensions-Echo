@@ -36,4 +36,20 @@ describe 'Echo' do
     expect(welcome_notification['agent']['name']).to eq @random_username
     expect(welcome_notification['timestamp']['date']).to eq 'Today'
   end
+
+  it 'should notify user about mention on wikitext page' do
+    @client.create_account(@random_username, @random_password)
+
+    page = SecureRandom.hex(5).capitalize
+    @client.edit(title: page, text: "[[User:#{@random_username}]] ~~~~")
+
+    @client.log_in @random_username, @random_password
+    notifications = @client.query(meta: 'notifications').data['notifications']['list']
+
+    mention_notification = notifications.last
+    expect(mention_notification['type']).to eq 'mention'
+    expect(mention_notification['agent']['name']).to eq @admin_username
+    expect(mention_notification['title']['full']).to eq page
+  end
+
 end
