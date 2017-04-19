@@ -25,6 +25,7 @@
 	 * @cfg {string|string[]} [type="message"] The type of the notifications in
 	 *  the models that this manager handles.
 	 * @cfg {number} [itemsPerPage=25] Number of items per page
+	 * @cfg {string} [readState] Notifications read state. Pass through to mw.echo.dm.FiltersModel
 	 */
 	mw.echo.dm.ModelManager = function MwEchoDmModelManager( counter, config ) {
 		config = config || {};
@@ -45,7 +46,8 @@
 			itemsPerPage: config.itemsPerPage || 25
 		} );
 		this.filtersModel = new mw.echo.dm.FiltersModel( {
-			selectedSource: 'local'
+			selectedSource: 'local',
+			readState: config.readState
 		} );
 
 		// Events

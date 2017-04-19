@@ -132,6 +132,9 @@ class SpecialNotifications extends SpecialPage {
 
 			// Mark all read button
 			if ( count( $data[ 'unread' ] ) > 0 ) {
+				// tell the UI to show 'unread' notifications only (instead of 'all')
+				$out->addJsConfigVars( 'wgEchoReadState', 'unread' );
+
 				$markReadSectionText = $this->msg( 'echo-specialpage-section-markread' )->text();
 				$markAsReadLabelIcon = new EchoOOUI\LabelIconWidget( [
 					'label' => $markReadSectionText,

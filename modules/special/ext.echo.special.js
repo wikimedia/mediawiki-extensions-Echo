@@ -14,6 +14,7 @@
 			modelManager = new mw.echo.dm.ModelManager( unreadCounter, {
 				type: [ 'message', 'alert' ],
 				itemsPerPage: limitNotifications,
+				readState: mw.config.get( 'wgEchoReadState' ),
 				localCounter: new mw.echo.dm.UnreadNotificationCounter(
 					echoApi,
 					[ 'message', 'alert' ],
