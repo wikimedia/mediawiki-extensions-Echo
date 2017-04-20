@@ -10,6 +10,12 @@ Given(/^I am using a nojs browser$/) do
   browser_factory.override(browser_user_agent: 'SymbianOS,SMART-TV-SamsungBrowser')
 end
 
+Given(/^I wait for the page to load$/) do
+  # Wait for the page to load. We're technically clicking the <li> rather than <a>,
+  # so the special-case implicit wait after clicking links doesn't kick in.
+  browser.wait
+end
+
 Given(/^I am on Special Notifications page$/) do
   expect(on(SpecialNotificationsPage).firstHeading).to match('Notifications')
 end

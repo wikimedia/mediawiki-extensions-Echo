@@ -7,4 +7,5 @@ Feature: Basic features for no-js functionality
   Scenario: Clicking alerts badge goes to Special:Notifications
     Given I am logged in
     When I click the alert badge
+    And I wait for the page to load
     Then I am on Special Notifications page
