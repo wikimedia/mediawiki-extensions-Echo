@@ -17,7 +17,8 @@
 			"Anderson Costa",
 			"Peter Fernando",
 			"Cristofer Alves",
-			"Hamilton Abreu"
+			"Hamilton Abreu",
+			"Felipe L. Ewald"
 		]
 	},
 	"echo-desc": "Sistema para notificar usuários sobre eventos e mensagens",
@@ -84,6 +85,7 @@
 	"notification-header-page-linked": "Uma ligação foi criada de <strong>$4</strong> para <strong>$3</strong>.",
 	"notification-bundle-header-page-linked": "Ligações foram criadas de {{PLURAL:$5||$5 páginas|100=99+ páginas}} para <strong>$3</strong>.",
 	"notification-link-text-what-links-here": "Todas as ligações para esta página",
+	"notification-compact-header-mention-failure-user-unknown": "<strong>Nome de usuário não existe:</strong> $1",
 	"notification-header-user-rights-remove-only": "Os {{GENDER:$4|seus}} privilégios foram {{GENDER:$1|alterados}}. Não pertence mais a: $2.",
 	"notification-header-user-rights-add-and-remove": "Os {{GENDER:$6|seus}} privilégios foram {{GENDER:$1|alterados}}. Foi {{GENDER:$6|adicionado|adicionada|adicionado(a)}} a: $2. Não pertence mais a: $4.",
 	"notification-header-welcome": "{{GENDER:$2|Bem-vindo|Bem-vinda}} ao site {{SITENAME}}, $1! Estamos contentes por ter {{GENDER:$2|você}} aqui.",
@@ -99,6 +101,8 @@
 	"notification-user-rights-email-subject": "Seus direitos de usuários mudaram em {{SITENAME}}",
 	"notification-timestamp-today": "Hoje",
 	"notification-timestamp-yesterday": "Ontem",
+	"notification-inbox-filter-read": "Lidas",
+	"notification-inbox-filter-unread": "Não lidas",
 	"notification-inbox-filter-all": "Todas",
 	"echo-email-body-default": "Você tem uma nova notificação em {{SITENAME}}:\n\n$1",
 	"echo-email-footer-default": "$2\n\nPara controlar quais emails enviamos a você, confira suas preferências: \n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
