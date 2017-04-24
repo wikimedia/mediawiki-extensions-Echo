@@ -139,6 +139,7 @@
 	"notification-header-user-rights-add-only": "Brukerrettighetene {{GENDER:$4|dine}} har blitt {{GENDER:$1|endret}}. Du er nå medlem av: $2.",
 	"notification-header-user-rights-remove-only": "Brukerrettighetene {{GENDER:$4|dine}} har blitt {{GENDER:$1|endret}}. Du er ikke lengre medlem av: $2.",
 	"notification-header-user-rights-add-and-remove": "Brukerrettighetene {{GENDER:$6|dine}} har blitt {{GENDER:$1|endret}}. Du er nå medlem av: $2. Du er ikke lengre medlem av: $4.",
+	"notification-header-user-rights-expiry-change": "Utløpstiden for medlemskapet {{GENDER:$4|ditt}} i følgende {{PLURAL:$3|gruppe|grupper}} har blitt {{GENDER:$1|endret}}: $2.",
 	"notification-header-welcome": "{{GENDER:$2|Velkommen}} til {{SITENAME}}, $1! Vi er glade for at {{GENDER:$2|du}} er her.",
 	"notification-welcome-linktext": "Velkommen",
 	"notification-header-thank-you-1-edit": "{{GENDER:$2|Du}} gjorde akkurat {{GENDER:$2|din}} første redigering. {{GENDER:$2|Takk}} – og velkommen!",

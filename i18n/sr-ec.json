@@ -7,7 +7,8 @@
 			"Сербијана",
 			"Macofe",
 			"Srdjan m",
-			"Dungodung"
+			"Dungodung",
+			"Obsuser"
 		]
 	},
 	"echo-desc": "Систем за обавештавање корисника о дешавањима и порукама",
@@ -101,6 +102,7 @@
 	"notification-header-user-rights-add-only": "{{GENDER:$4|Ваша}} корисничка права су {{GENDER:$1|промењена}}. Сада сте члан следећих група: $2.",
 	"notification-header-user-rights-remove-only": "{{GENDER:$4|Ваша}} корисничка права су {{GENDER:$1|промењена}}. Више нисте члан следећих група: $2.",
 	"notification-header-user-rights-add-and-remove": "{{GENDER:$6|Ваша}} корисничка права су {{GENDER:$1|промењена}}. Додати сте у $2 а уклоњени из $4.",
+	"notification-header-user-rights-expiry-change": "Истек {{GENDER:$4|Вашег}} чланства у {{PLURAL:$3|следећој групи|следећим групама}} је {{GENDER:$1|промењен}}: $2.",
 	"notification-header-welcome": "{{GENDER:$2|Добро дошли}} на {{SITENAME}}, $1! Драго нам {{GENDER:$2|је}} што сте овде.",
 	"notification-welcome-linktext": "Добро дошли",
 	"notification-header-thank-you-1-edit": "Управо {{GENDER:$2|сте}} направили прву измену, хвала {{GENDER:$2|Вам}} и добро дошли!",

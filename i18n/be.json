@@ -94,6 +94,7 @@
 	"echo-overlay-title": "<b>Паведамленні</b>",
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Паведамленні}}</b> ({{PLURAL|$1|паказана|паказаны}} $1 з $2 {{PLURAL|$2|непрачытанага|непрачытаных}})",
 	"echo-mark-all-as-read": "Пазначыць усе як прачытаныя",
+	"echo-mark-wiki-as-read": "Пазначыць усе як прачытаныя ў выбранай вікі: $1",
 	"echo-date-today": "Сёння",
 	"echo-date-yesterday": "Учора",
 	"echo-load-more-error": "Адбылася памылка пры атрыманні дадатковых вынікаў.",
@@ -101,5 +102,6 @@
 	"echo-email-batch-subject-weekly": "На гэтым тыдні вы атрымалі $2 {{PLURAL:$2|новае паведамленне ў|новых паведамлення ў|новых паведамленняў у}} праекце «{{SITENAME}}»",
 	"echo-email-batch-body-intro-daily": "Прывітанне, $1! Вось кароткі агляд сённяшняй дзейнасці ў {{SITENAME}} для вас.",
 	"echo-email-batch-body-intro-weekly": "Прывітанне, $1! Вось кароткі тыднёвы агляд дзейнасці ў {{SITENAME}} для вас.",
-	"echo-email-batch-link-text-view-all-notifications": "Праглядзець усе паведамленні"
+	"echo-email-batch-link-text-view-all-notifications": "Праглядзець усе паведамленні",
+	"notification-header-foreign-notice": "Больш абвестак з {{PLURAL:$5|іншай вікі|$5 іншых вікі}}"
 }
