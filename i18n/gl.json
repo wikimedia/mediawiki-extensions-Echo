@@ -136,6 +136,7 @@
 	"notification-header-user-rights-add-only": "Os {{GENDER:$4|seus}} dereitos de usuario foron {{GENDER:$1|modificados}}. Pertence agora a: $2.",
 	"notification-header-user-rights-remove-only": "Os {{GENDER:$4|seus}} dereitos de usuario foron {{GENDER:$1|modificados}}. Xa non pertence a: $2.",
 	"notification-header-user-rights-add-and-remove": "Os {{GENDER:$6|seus}} dereitos de usuarios foron {{GENDER:$1|modificados}}. Foi engadido a: $2. Xa non pertence a: $4.",
+	"notification-header-user-rights-expiry-change": "A data de expiración {{GENDER:$4|da}} súa pertenza  {{PLURAL:$3|no seguinte grupo|nos seguintes grupos}} foi {{GENDER:$1|modificada}}: $2.",
 	"notification-header-welcome": "{{GENDER:$2|Benvido|Benvida}} a {{SITENAME}}, $1. Alégranos que esteas aquí.",
 	"notification-welcome-linktext": "Reciba a nosa benvida",
 	"notification-header-thank-you-1-edit": "Acaba de facer {{GENDER:$2|a súa}} primeira edición. Grazas e ¡{{GENDER:$2|benvido|benvida}}!",
