@@ -146,6 +146,7 @@
 	"notification-header-user-rights-add-only": "{{GENDER:$4|Dina}} användarrättigheter har {{GENDER:$1|ändrats}}. Du har lagts till i: $2.",
 	"notification-header-user-rights-remove-only": "{{GENDER:$4|Dina}} användarrättigheter har {{GENDER:$1|ändrats}}. Du är inte längre medlem i: $2.",
 	"notification-header-user-rights-add-and-remove": "{{GENDER:$6|Dina}} användarrättigheter har {{GENDER:$1|ändrats}}. Du har lagts till i: $2. Du är inte längre medlem i: $4.",
+	"notification-header-user-rights-expiry-change": "Utgången för {{GENDER:$4|ditt}} medlemskap i följande {{PLURAL:$3|grupp|grupper}} har {{GENDER:$1|ändrats}}: $2.",
 	"notification-header-welcome": "{{GENDER:$2|Välkommen}} till {{SITENAME}}, $1! Vi är glada över att {{GENDER:$2|du är}} här.",
 	"notification-welcome-linktext": "Välkommen",
 	"notification-header-thank-you-1-edit": "{{GENDER:$2|Du}} gjorde precis {{GENDER:$2|din}} första redigering; {{GENDER:$2|tack}} och välkommen!",
