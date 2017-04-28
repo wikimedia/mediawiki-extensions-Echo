@@ -155,7 +155,7 @@
 	"notification-header-mention-article-talkpage-nosection": "$1 {{GENDER:$2|mentioned}} {{GENDER:$3|you}} on the <strong>$4</strong> talk page.",
 	"notification-header-mention-failure-user-unknown": "{{GENDER:$2|Your}} mention of <strong>$3</strong> was not sent because the user was not found.",
 	"notification-header-mention-failure-user-anonymous": "{{GENDER:$2|Your}} mention of <strong>$3</strong> was not sent because the user is anonymous.",
-	"notification-header-mention-failure-too-many": "{{GENDER:$2|Your}} mentions were not sent because they exceeded the limit of $3.",
+	"notification-header-mention-failure-too-many": "{{GENDER:$2|You}} tried to mention more than {{PLURAL:$3|user|users}}. All mentions above that limit were not sent.",
 	"notification-header-mention-failure-bundle": "{{PLURAL:$3|A mention|$3 mentions}} {{GENDER:$2|you made}} on the <strong>$4</strong> talk page {{PLURAL:$3|could}} not be sent.",
 	"notification-compact-header-mention-failure-user-unknown": "<strong>Username does not exist:</strong> $1",
 	"notification-compact-header-mention-failure-user-anonymous": "<strong>IPs cannot be mentioned:</strong> $1",
