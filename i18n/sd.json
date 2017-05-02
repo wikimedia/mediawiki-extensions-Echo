@@ -5,6 +5,9 @@
 			"Mehtab ahmed"
 		]
 	},
+	"prefs-echo": "اطلاع",
+	"notifications": "اطلاع",
 	"tooltip-pt-notifications-alert": "{{GENDER:|توهانجون}} خبرون",
+	"echo-specialpage": "اطلاع",
 	"echo-notification-markasread": "پڙھيل طور نشان لڳايو"
 }

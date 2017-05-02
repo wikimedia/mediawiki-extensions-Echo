@@ -131,7 +131,7 @@
 	"notification-header-mention-article-talkpage-nosection": "$1 {{GENDER:$2|הזכיר|הזכירה}} {{GENDER:$3|אותך}} בדף השיחה של הדף <strong>$4</strong>.",
 	"notification-header-mention-failure-user-unknown": "האזכור ש{{GENDER:$2|עשית}} עבור <strong>$3</strong> לא נשלח כי המשתמש לא נמצא.",
 	"notification-header-mention-failure-user-anonymous": "האזכור ש{{GENDER:$2|עשית}} עבור <strong>$3</strong> לא נשלח כי המשתמש אנונימי.",
-	"notification-header-mention-failure-too-many": "האזכורים ש{{GENDER:$2|עשית}} לא נשלחו כי הם עברו את מגבלת ה־$3 אזכורים.",
+	"notification-header-mention-failure-too-many": "{{GENDER:$2|ניסית}} להזכיר יותר {{PLURAL:$3|ממשתמש אחד|מ־$3 משתמשים}}. כל האזכורים מעל המגבלה הזאת לא נשלחו.",
 	"notification-header-mention-failure-bundle": "{{PLURAL:$3|אזכור אחד|$3 אזכורים}} {{GENDER:$2|שעשית}} בדף השיחה <strong>$4</strong> לא {{PLURAL:$3|נשלח|נשלחו}}.",
 	"notification-compact-header-mention-failure-user-unknown": "<strong>משתמש לא קיים:</strong> $1",
 	"notification-compact-header-mention-failure-user-anonymous": "<strong>לא ניתן לשלוח אזכורים עבור כתובות IP:</strong>&rlm; $1",

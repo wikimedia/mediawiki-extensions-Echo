@@ -127,7 +127,7 @@
 	"notification-header-mention-article-talkpage-nosection": "$1 {{GENDER:$3|Vas}} je {{GENDER:$2|spomenuo|spomenula}} na stranici za razgovor <strong>$4</strong>.",
 	"notification-header-mention-failure-user-unknown": "{{GENDER:$2|Vaše}} spominjanje korisnika <strong>$3</strong> nije poslano jer korisničko ime nije pronađeno.",
 	"notification-header-mention-failure-user-anonymous": "{{GENDER:$2|Vaše}} spominjanje korisnika <strong>$3</strong> nije poslano jer je neprijavljeni korisnik anoniman.",
-	"notification-header-mention-failure-too-many": "Pokušali {{GENDER:$2|ste}} spomenuti više od {{PLURAL:$3|$3 korisnika}}. Spominjanja preko tog ograničenja nisu poslana.",
+	"notification-header-mention-failure-too-many": "Pokušali {{GENDER:$2|ste}} spomenuti više od $3 {{PLURAL:$3|korisnika}}. Spominjanja preko tog ograničenja nisu poslana.",
 	"notification-header-mention-failure-bundle": "{{PLURAL:$3|Spominjanje koje|$3 spominjanja koja}} {{GENDER:$2|ste poslali}} na stranici za razgovor <strong>$4</strong> {{PLURAL:$3|nije moglo biti isporučeno|nisu mogla biti isporučena}}.",
 	"notification-compact-header-mention-failure-user-unknown": "<strong>Korisničko ime ne postoji:</strong> $1",
 	"notification-compact-header-mention-failure-user-anonymous": "<strong>Ne možete spominjati IP-adrese:</strong> $1",

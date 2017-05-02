@@ -151,7 +151,7 @@
 	"notification-header-mention-article-talkpage-nosection": "$1在<strong>$4</strong>的讨论页{{GENDER:$2|提到}}了{{GENDER:$3|您}}。",
 	"notification-header-mention-failure-user-unknown": "{{GENDER:$2|您}}对<strong>$3</strong>的提及未被发送，因为找不到用户。",
 	"notification-header-mention-failure-user-anonymous": "{{GENDER:$2|您}}对<strong>$3</strong>的提及未被发送，因为用户为匿名用户。",
-	"notification-header-mention-failure-too-many": "{{GENDER:$2|您}}尝试提及了超过$3个用户。上述所有超限的提及未发送。",
+	"notification-header-mention-failure-too-many": "{{GENDER:$2|您}}尝试提及了超过$3个{{PLURAL:$3|用户}}。上述所有超限的提及未发送。",
 	"notification-header-mention-failure-bundle": "{{GENDER:$2|您}}在<strong>$4</strong>讨论页做出的{{PLURAL:$3|$3次提及}}不能被发送。",
 	"notification-compact-header-mention-failure-user-unknown": "<strong>用户名不存在：</strong>$1",
 	"notification-compact-header-mention-failure-user-anonymous": "<strong>IP不能被提及：</strong>$1",

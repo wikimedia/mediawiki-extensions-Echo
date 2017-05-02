@@ -130,7 +130,7 @@
 	"notification-header-mention-article-talkpage-nosection": "$1님이 <strong>$4</strong> 토론 문서에서 {{GENDER:$3|당신을}} {{GENDER:$2|언급했습니다}}.",
 	"notification-header-mention-failure-user-unknown": "사용자를 찾을 수 없기 때문에 <strong>$3</strong>에 대한 {{GENDER:$2|당신의}} 언급은 전달되지 않았습니다.",
 	"notification-header-mention-failure-user-anonymous": "사용자가 익명이기 때문에 <strong>$3</strong>에 대한 {{GENDER:$2|당신의}} 언급은 전달되지 않았습니다.",
-	"notification-header-mention-failure-too-many": "$3개의 제한을 초과하였기 때문에 {{GENDER:$2|당신의}} 언급은 전달되지 않았습니다.",
+	"notification-header-mention-failure-too-many": "{{GENDER:$2|당신은}} $3명 이상의 {{PLURAL:$3|사용자}}를 언급하려고 했습니다. 제한을 초과한 모든 언급은 전달되지 않았습니다.",
 	"notification-header-mention-failure-bundle": "<strong>$4</strong> 토론 문서에 {{GENDER:$2|당신이 한}} {{PLURAL:$3||$3개의}} 언급은 {{PLURAL:$3|전달되지}} 않았습니다.",
 	"notification-compact-header-mention-failure-user-unknown": "<strong>사용자 이름이 존재하지 않습니다:</strong> $1",
 	"notification-compact-header-mention-failure-user-anonymous": "<strong>IP는 언급할 수 없습니다:</strong> $1",

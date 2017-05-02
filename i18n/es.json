@@ -140,7 +140,7 @@
 	"notification-header-mention-article-talkpage-nosection": "$1 {{GENDER:$3|te}} ha {{GENDER:$2|mencionado}} en la página de discusión de <strong>$4</strong>.",
 	"notification-header-mention-failure-user-unknown": "{{GENDER:$2|Tu}} mención de <strong>$3</strong> no se envió porque el usuario no se encontró.",
 	"notification-header-mention-failure-user-anonymous": "{{GENDER:$2|Tu}} mención de <strong>$3</strong> no se envió porque el usuario es anónimo.",
-	"notification-header-mention-failure-too-many": "{{GENDER:$2|Tus}} menciones no se enviaron porque se superó el límite de $3.",
+	"notification-header-mention-failure-too-many": "{{GENDER:$2|Intentaste}} mencionar a más de $3 {{PLURAL:$3|usuario|usuarios}}. No se enviaron las menciones que superaron ese límite.",
 	"notification-header-mention-failure-bundle": "{{PLURAL:$3|Una mención|$3 menciones}} que {{GENDER:$2|hiciste}} en la página de discusión de <strong>$4</strong> no se {{PLURAL:$3|pudo|pudieron}} enviar.",
 	"notification-compact-header-mention-failure-user-unknown": "<strong>El nombre de usuario no existe:</strong> $1",
 	"notification-compact-header-mention-failure-user-anonymous": "<strong>No se pueden mencionar IP:</strong> $1",

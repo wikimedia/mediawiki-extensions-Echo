@@ -135,7 +135,7 @@
 	"notification-header-mention-article-talkpage-nosection": "$1 {{GENDER:$2|nämnde}} {{GENDER:$3|dig}} på diskussionssidan <strong>$4</strong>.",
 	"notification-header-mention-failure-user-unknown": "{{GENDER:$2|Ditt}} omnämnande av <strong>$3</strong> skickades inte eftersom användaren inte hittades.",
 	"notification-header-mention-failure-user-anonymous": "{{GENDER:$2|Ditt}} omnämnande av <strong>$3</strong> skickades inte eftersom användaren är anonym.",
-	"notification-header-mention-failure-too-many": "{{GENDER:$2|Dina}} omnämnanden skickades inte eftersom de överskred gränsen med $3.",
+	"notification-header-mention-failure-too-many": "{{GENDER:$2|Du}} försökte nämna fler än $3 {{PLURAL:$3|användare}}. Alla omnämnanden ovanför gränsen skickades inte.",
 	"notification-header-mention-failure-bundle": "{{PLURAL:$3|Ett omnämnande|$3 omnämnanden}} {{GENDER:$2|du gjorde}} på diskussionssidan <strong>$4</strong> kunde inte skickas.",
 	"notification-compact-header-mention-failure-user-unknown": "<strong>Användarnamnet finns inte:</strong> $1",
 	"notification-compact-header-mention-failure-user-anonymous": "<strong>IP-adresser kan inte nämnas:</strong> $1",

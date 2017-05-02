@@ -132,7 +132,7 @@
 	"notification-header-mention-article-talkpage-nosection": "$1 {{GENDER:$2|ti}} ha {{GENDER:$3|menzionato|menzionata|menzionato/a}} sulla pagina di discussione di <strong>$4</strong>.",
 	"notification-header-mention-failure-user-unknown": "{{GENDER:$2|La tua}} menzione di <strong>$3</strong> non è stata inviata perché l'utente non è stato trovato.",
 	"notification-header-mention-failure-user-anonymous": "{{GENDER:$2|La tua}} menzione di <strong>$3</strong> non è stata inviata perché l'utente è anonimo.",
-	"notification-header-mention-failure-too-many": "{{GENDER:$2|Le tue}} menzioni non sono state inviate perché hanno superato il limite di $3.",
+	"notification-header-mention-failure-too-many": "{{GENDER:$2|Hai menzionato}} più di $3 {{PLURAL:$3|utente|utenti}}. Tutte le menzioni che hanno superato questo limite non sono state inviate.",
 	"notification-header-mention-failure-bundle": "{{PLURAL:$3|Una menzione|$3 menzioni}} che {{GENDER:$2|hai fatto}} nella pagina di discussione <strong>$4</strong> non {{PLURAL:$3|può essere inviata|possono essere inviate}}.",
 	"notification-compact-header-mention-failure-user-unknown": "<strong>Il nome utente non esiste:</strong> $1",
 	"notification-compact-header-mention-failure-user-anonymous": "<strong>Non possono essere inviate menzioni ad IP:</strong> $1",

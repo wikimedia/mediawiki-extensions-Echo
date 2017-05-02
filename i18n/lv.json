@@ -81,6 +81,7 @@
 	"notification-link-text-view-changes": "{{GENDER:$1|Apskatīt}} izmaiņas",
 	"notification-link-text-view-page": "Apskatīt lapu",
 	"notification-link-text-what-links-here": "Visas saites uz šo lapu",
+	"notification-header-mention-failure-too-many": "{{GENDER:$2|Tu}} mēģināji pieminēt vairāk nekā $3 {{PLURAL:$3|dalībniekus|dalībnieku|dalībniekus}}. Visiem pieminētajiem aiz šīs robežas netika nosūtīts paziņojums.",
 	"notification-compact-header-mention-failure-user-unknown": "<strong>Dalībnieka vārds nepastāv:</strong> $1",
 	"notification-compact-header-mention-failure-user-anonymous": "<strong>IP adreses nevar pieminēt:</strong> $1",
 	"notification-compact-header-mention-success": "<strong>{{GENDER:$2|Tu pieminēji}}:</strong> $3",

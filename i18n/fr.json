@@ -162,7 +162,7 @@
 	"notification-header-mention-article-talkpage-nosection": "$1 {{GENDER:$2|vous}} {{GENDER:$3|a mentionné|a mentionnée}} sur la page de discussion de <strong>$4</strong>.",
 	"notification-header-mention-failure-user-unknown": "{{GENDER:$2|Votre}} mention de  <strong>$3</strong> n’a pas été envoyée parce que l’utilisateur n’a pas été trouvé.",
 	"notification-header-mention-failure-user-anonymous": "{{GENDER:$2|Votre}} mention de <strong>$3</strong> n’a pas été envoyée parce que l’utilisateur est anonyme.",
-	"notification-header-mention-failure-too-many": "{{GENDER:$2|Vous}} avez essayé de mentionner plus de  {{PLURAL:$3|utilisateur|utilisateurs}}. Toutes les mentions au-dessus de la limite n'ont pas été envoyées.",
+	"notification-header-mention-failure-too-many": "{{GENDER:$2|Vous}} avez essayé de mentionner plus de $3   {{PLURAL:$3|utilisateur|utilisateurs}}. Toutes les mentions au-dessus de la limite n'ont pas été envoyées.",
 	"notification-header-mention-failure-bundle": "$3 mention{{PLURAL:$3||s}} {{GENDER:$2|que vous avez faite}}{{PLURAL:$3||s}} sur la page de discussion de <strong>$4</strong> {{PLURAL:$3|pourrait|pourraient}} ne pas avoir été envoyée{{PLURAL:$3||s}}.",
 	"notification-compact-header-mention-failure-user-unknown": "<strong>Nom inconnu d'utilisateur :</strong> $1",
 	"notification-compact-header-mention-failure-user-anonymous": "<strong>Adresses IP ne pouvant pas être mentionnées :</strong> $1",

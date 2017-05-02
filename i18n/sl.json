@@ -126,7 +126,7 @@
 	"notification-header-mention-article-talkpage-nosection": "$1 {{GENDER:$3|te}} je {{GENDER:$2|omenil|omenila}} na pogovorni strani članka <strong>$4</strong>.",
 	"notification-header-mention-failure-user-unknown": "{{GENDER:$2|Tvoja}} omemba uporabnika <strong>$3</strong> ni bila poslana, saj uporabnik ni bil najden.",
 	"notification-header-mention-failure-user-anonymous": "{{GENDER:$2|Tvoja}} omemba uporabnika <strong>$3</strong> ni bila poslana, saj je uporabnik anonimen.",
-	"notification-header-mention-failure-too-many": "{{GENDER:$2|Tvoje}} omembe niso bile poslane zaradi omejitve števila $3.",
+	"notification-header-mention-failure-too-many": "{{GENDER:$2|Poskusil si|Poskusila si|Poskusili ste}} omeniti več kot $3 {{PLURAL:$3|uporabnika|uporabnika|uporabnike|uporabnikov}}. Vseh omemb nad to mejo nismo poslali.",
 	"notification-header-mention-failure-bundle": "{{PLURAL:$3|Omemba|$3 omembi|$3 omembe|$3 omemb}}, ki si jih {{GENDER:$2|naredil}} na uporabniški strani <strong>$4</strong> {{PLURAL:$3|niso}} niso bile poslane.",
 	"notification-compact-header-mention-failure-user-unknown": "<strong>Uporabniško ime ne obstaja:</strong> $1",
 	"notification-compact-header-mention-failure-user-anonymous": "<strong>IP-je ni mogoče omenjati:</strong> $1",

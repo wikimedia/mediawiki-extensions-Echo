@@ -124,7 +124,7 @@
 	"notification-header-mention-article-talkpage-nosection": "$1 huet {{GENDER:$3|Iech}} op der Diskussiounssäit <strong>$4</strong> {{GENDER:$2|mentionnéiert}}.",
 	"notification-header-mention-failure-user-unknown": "{{GENDER:$2|Är}} Mentioun vum <strong>$3</strong> gouf net geschéckt well de Benotzer net fonnt gouf.",
 	"notification-header-mention-failure-user-anonymous": "{{GENDER:$2|Är}} Mentioun vum <strong>$3</strong> gouf net geschéckt well de Benotzer anonym ass.",
-	"notification-header-mention-failure-too-many": "{{GENDER:$2|Är}} Mentioune goufen net geschéckt well se iwwer der Limite vu(n) $3 leien.",
+	"notification-header-mention-failure-too-many": "{{GENDER:$2|Dir}} hutt probéiert fir méi wéi $3 {{PLURAL:$3|Brnotzer}} z'ernimmen. All Mentiounen iwwer där Limite goufen net geschéckt.",
 	"notification-header-mention-failure-bundle": "{{PLURAL:$3|Eng Mentioun|$3 Mentiounen}} déi {{GENDER:$2|Dir}} op der Diskussiounssäit <strong>$4</strong> gemaach hutt {{PLURAL:$3|konnt|konnten}} net geschéckt ginn.",
 	"notification-compact-header-mention-failure-user-unknown": "<strong>Benotzernumm gëtt et net:</strong> $1",
 	"notification-compact-header-mention-failure-user-anonymous": "<strong>Ip'e kënnen net ernimmt ginn:</strong> $1",
