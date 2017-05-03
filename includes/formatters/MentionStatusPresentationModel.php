@@ -129,7 +129,8 @@ class EchoMentionStatusPresentationModel extends EchoEventPresentationModel {
 	}
 
 	private function getBundleSuccessCount() {
-		return $this->getBundleCount( false, [ $this, 'isMentionSuccessEvent' ] );
+		$events = array_merge( $this->getBundledEvents(), [ $this->event ] );
+		return count( array_filter( $events, [ $this, 'isMentionSuccessEvent' ] ) );
 	}
 
 	private function isMixedBundle() {
