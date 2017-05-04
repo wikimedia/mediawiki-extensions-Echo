@@ -24,7 +24,7 @@
 							break;
 
 						default:
-							throw 'Unrecognized post action: ' + data.action;
+							throw new Error( 'Unrecognized post action: ' + data.action );
 					}
 
 					return $.Deferred().resolve( data );
