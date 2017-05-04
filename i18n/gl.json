@@ -125,7 +125,7 @@
 	"notification-header-mention-article-talkpage-nosection": "$1 {{GENDER:$2|mencionou}}{{GENDER:$3|no|na}} na páxina de conversa de \"<strong>$4</strong>\".",
 	"notification-header-mention-failure-user-unknown": "{{GENDER:$2|A súa}} mención de <strong>$3</strong> non se enviou porque non se atopou o usuario.",
 	"notification-header-mention-failure-user-anonymous": "{{GENDER:$2|A súa}} mención de <strong>$3</strong> non se enviou porque o usuario é anónimo.",
-	"notification-header-mention-failure-too-many": "{{GENDER:$2|As súas}} mencións non se enviaron porque se superou o límite de $3.",
+	"notification-header-mention-failure-too-many": "{{GENDER:$2|Intentou}} mencionar a máis de $3 {{PLURAL:$3|usuario|usuarios}}. Non se enviaron as mencións que superaron ese límite.",
 	"notification-header-mention-failure-bundle": "{{PLURAL:$3|Unha mención|$3 mencións}} que {{GENDER:$2|fixo}} na páxina de conversa de <strong>$4</strong> poida que non se {{PLURAL:$3|enviase|enviasen}}.",
 	"notification-compact-header-mention-failure-user-unknown": "<strong>O nome de usuario non existe:</strong> $1",
 	"notification-compact-header-mention-failure-user-anonymous": "<strong>Non se poden mencionar enderezos IP:</strong> $1",
