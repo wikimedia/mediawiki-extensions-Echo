@@ -47,7 +47,7 @@
 	"echo-category-title-article-linked": "{{PLURAL:$1|Collegamento|Collegamenti}} a una pagina",
 	"echo-category-title-reverted": "{{PLURAL:$1|Modifica annullata|Modifiche annullate}}",
 	"echo-category-title-mention": "{{PLURAL:$1|Menzione|Menzioni}}",
-	"echo-category-title-mention-failure": "{{PLURAL:$1|Menzione fallita|Menzioni fallite}}",
+	"echo-category-title-mention-failure": "{{PLURAL:$1|Menzione|Menzioni}} in errore",
 	"echo-category-title-mention-success": "{{PLURAL:$1|Menzione corretta|Menzioni corrette}}",
 	"echo-category-title-other": "{{PLURAL:$1|Altro}}",
 	"echo-category-title-system": "{{PLURAL:$1|Sistema}}",
