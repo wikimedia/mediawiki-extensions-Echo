@@ -53,7 +53,8 @@ class EchoEventMapper extends EchoAbstractMapper {
 
 		$row = $db->selectRow( 'echo_event', '*', [ 'event_id' => $id ], __METHOD__ );
 
-		if ( !$row && !$fromMaster ) {
+		// If the row was not found, fall back on the master if it makes sense to do so
+		if ( !$row && !$fromMaster && $this->dbFactory->canRetryMaster() ) {
 			return $this->fetchById( $id, true );
 		} elseif ( !$row ) {
 			throw new MWException( "No EchoEvent found with ID: $id" );

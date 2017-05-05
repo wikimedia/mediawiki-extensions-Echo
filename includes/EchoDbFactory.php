@@ -171,4 +171,12 @@ class MWEchoDbFactory {
 			$this->getLB()->waitFor( $position['echoDb'] );
 		}
 	}
+
+	/**
+	 * Check whether it makes sense to retry a failed lookup on the master.
+	 * @return bool True if there are multiple servers and changes were made in this request; false otherwise
+	 */
+	public function canRetryMaster() {
+		return $this->getLB()->getServerCount() > 1 && $this->getLB()->hasOrMadeRecentMasterChanges();
+	}
 }
