@@ -1,5 +1,7 @@
 <?php
 
+use Wikimedia\Timestamp\TimestampException;
+
 /**
  * Class that returns structured data based
  * on the provided event.
