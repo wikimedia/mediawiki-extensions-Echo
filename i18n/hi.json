@@ -55,6 +55,7 @@
 	"echo-error-no-formatter": "अधिसूचना के लिए कोई स्वरूपण परिभाषित नहीं है।",
 	"notifications": "अधिसूचनाएँ",
 	"tooltip-pt-notifications-alert": "{{GENDER:|आपका}} जागरूकता संदेश",
+	"tooltip-pt-notifications-notice": "{{GENDER:|आपकी}} सूचना",
 	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "वर्तमान सदस्य",
 	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "नये सदस्य",
 	"echo-specialpage": "अधिसूचनाएँ",
