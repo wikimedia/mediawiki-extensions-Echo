@@ -9,5 +9,8 @@
 	"notifications": "اطلاع",
 	"tooltip-pt-notifications-alert": "{{GENDER:|توهانجون}} خبرون",
 	"echo-specialpage": "اطلاع",
-	"echo-notification-markasread": "پڙھيل طور نشان لڳايو"
+	"echo-notification-markasread": "پڙھيل طور نشان لڳايو",
+	"echo-notification-alert-text-only": "پيغام",
+	"echo-notification-notice-text-only": "اطلاع",
+	"echo-overlay-link": "سڀ اطلاع"
 }

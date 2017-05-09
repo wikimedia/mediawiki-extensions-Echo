@@ -128,7 +128,7 @@
 	"notification-header-mention-article-talkpage-nosection": "$1 {{GENDER:$2|omtalte}} {{GENDER:$3|deg}} på diskusjonssiden til <strong>$4</strong>.",
 	"notification-header-mention-failure-user-unknown": "Omtalen {{GENDER:$2|din}} av <strong>$3</strong> ble ikke sendt fordi brukeren ikke ble funnet.",
 	"notification-header-mention-failure-user-anonymous": "Omtalen {{GENDER:$2|din}} av <strong>$3</strong> ble ikke sendt fordi brukeren er anonym.",
-	"notification-header-mention-failure-too-many": "Omtalene {{GENDER:$2|dine}} ble ikke sendt fordi antallet mottakere oversteg grensen på $3.",
+	"notification-header-mention-failure-too-many": "Omtalene {{GENDER:$2|dine}} ble ikke sendt fordi antallet {{PLURAL:$3|mottakere}} oversteg grensen på $3.",
 	"notification-header-mention-failure-bundle": "{{PLURAL:$3|En omtale|$3 omtaler}} {{GENDER:$2|du gjorde}} på diskusjonssiden <strong>$4</strong> {{PLURAL:$3|kunne}} ikke sendes.",
 	"notification-compact-header-mention-failure-user-unknown": "<strong>Brukernavnet eksisterer ikke:</strong> $1",
 	"notification-compact-header-mention-failure-user-anonymous": "<strong>IP-er kan ikke omtales:</strong> $1",
