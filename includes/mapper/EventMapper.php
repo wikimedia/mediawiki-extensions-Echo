@@ -25,9 +25,7 @@ class EchoEventMapper extends EchoAbstractMapper {
 		$res = $dbw->insert( 'echo_event', $row, __METHOD__ );
 
 		if ( $res ) {
-			if ( !$id ) {
-				$id = $dbw->insertId();
-			}
+			$id = $dbw->insertId();
 
 			$listeners = $this->getMethodListeners( __FUNCTION__ );
 			foreach ( $listeners as $listener ) {

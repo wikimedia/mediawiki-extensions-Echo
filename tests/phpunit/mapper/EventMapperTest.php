@@ -6,7 +6,7 @@ class EchoEventMapperTest extends MediaWikiTestCase {
 		return [
 			[
 				'successful insert with next sequence = 1',
-				[ 'nextSequenceValue' => 1, 'insert' => true, 'insertId' => 2 ],
+				[ 'nextSequenceValue' => 1, 'insert' => true, 'insertId' => 1 ],
 				1
 			],
 			[
