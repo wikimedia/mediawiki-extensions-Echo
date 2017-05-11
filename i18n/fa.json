@@ -142,7 +142,7 @@
 	"notification-header-mention-article-talkpage-nosection": "$1 به {{GENDER:$3|شما}} در صفحهٔ بحث <strong>$4</strong> {{GENDER:$2|اشاره کرد}}.",
 	"notification-header-mention-failure-user-unknown": "اشارهٔ {{GENDER:$2|شما}} برای <strong>$3</strong> ارسال نشد چون کاربر یافت نشد.",
 	"notification-header-mention-failure-user-anonymous": "اشارهٔ {{GENDER:$2|شما}} برای <strong>$3</strong> ارسال نشد چون کاربر گمنام است.",
-	"notification-header-mention-failure-too-many": "اشاره‌های {{GENDER:$2|شما}} ارسال نشد چون محدودیت $3 تعداد را رد کرده‌است.",
+	"notification-header-mention-failure-too-many": "{{GENDER:$2|قصد}} آگاه‌سازی بیش از $3 {{PLURAL:$3|کاربر|کاربر}} را داشتید. همهٔ آگاه‌سازی‌هایی که بیش از آن محدودیت باشند ارسال نمی‌شوند.",
 	"notification-header-mention-failure-bundle": "{{PLURAL:$3|اشاره‌ای|$3 اشاره‌ای}} که {{GENDER:$2|شما}} در بحث <strong>$4</strong> ایجاد کردید {{PLURAL:$3|امکان}} ارسالش وجود ندارد.",
 	"notification-compact-header-mention-failure-user-unknown": "<strong>نام کاربری وجود ندارد:</strong>$1",
 	"notification-compact-header-mention-failure-user-anonymous": "<strong>امکان اشاره به آی‌پی نیست:</strong>$1",
