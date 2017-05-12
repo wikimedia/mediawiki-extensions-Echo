@@ -21,7 +21,8 @@
 			"Macofe",
 			"一個正常人",
 			"Winstonyin",
-			"逆襲的天邪鬼"
+			"逆襲的天邪鬼",
+			"Wehwei"
 		]
 	},
 	"echo-desc": "用來通知使用者事件及訊息的系統",
@@ -140,7 +141,7 @@
 	"notification-header-mention-article-talkpage-nosection": "$1在<strong>$4</strong>的討論頁上{{GENDER:$2|提到}}了{{GENDER:$3|您}}。",
 	"notification-header-mention-failure-user-unknown": "無法發送{{GENDER:$2|您}}對<strong>$3</strong>的提及，因為找不到該使用者。",
 	"notification-header-mention-failure-user-anonymous": "無法發送{{GENDER:$2|您}}對<strong>$3</strong>的提及，因為該使用者為匿名使用者。",
-	"notification-header-mention-failure-too-many": "無法發出{{GENDER:$2|您}}的提及，因為數目超過了$3條的限制。",
+	"notification-header-mention-failure-too-many": "{{GENDER:$2|您}}試著提及超過 $3 位的{{PLURAL:$3|用戶}}，但所有超過上限的提及，都不會發送。",
 	"notification-header-mention-failure-bundle": "{{PLURAL:$3|無法}}發送{{GENDER:$2|您}}在<strong>$4</strong>討論頁上的{{PLURAL:$3|提及|$3個提及}}。",
 	"notification-compact-header-mention-failure-user-unknown": "<strong>使用者名稱不存在：</strong>$1",
 	"notification-compact-header-mention-failure-user-anonymous": "<strong>IP是不能被提及的：</strong>$1",
