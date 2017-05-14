@@ -129,7 +129,7 @@
 	"notification-header-mention-article-talkpage-nosection": "$1 {{GENDER:$3|ви}} {{GENDER:$2|спомна}} на беседата на <strong>$4</strong>.",
 	"notification-header-mention-failure-user-unknown": "{{GENDER:$2|Вашето}} споменаване на <strong>$3</strong> не е изпратено, защото потребителят не бе намерен.",
 	"notification-header-mention-failure-user-anonymous": "{{GENDER:$2|Вашето}} споменаване на <strong>$3</strong> не е изпратено, защото потребителят е анонимен.",
-	"notification-header-mention-failure-too-many": "{{GENDER:$2|Вашите}} споменавания не бяха изпратени, защото превишават лимита от $3.",
+	"notification-header-mention-failure-too-many": "{{GENDER:$2|Вашите}} споменавания не бяха изпратени, защото превишават лимита от $3 {{PLURAL:$3|потребител|потребителя}}.",
 	"notification-header-mention-failure-bundle": "{{PLURAL:$3|Споменаването, което|$3 Споменаванията, които}} {{GENDER:$2|направихте}} на беседата <strong>$4</strong>, {{PLURAL:$3|не може да бъде изпратено|не могат да бъдат изпратени}}.",
 	"notification-compact-header-mention-failure-user-unknown": "<strong>Потребителското име не съществува:</strong> $1",
 	"notification-compact-header-mention-failure-user-anonymous": "<strong>IP-адреси не могат да бъдат споменавани:</strong> $1",

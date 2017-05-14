@@ -121,7 +121,7 @@
 	"notification-inbox-filter-unread": "נישט געליינט",
 	"notification-inbox-filter-all": "אַלע",
 	"echo-email-body-default": "איר האט א נײַעם אנזאג  בײַ {{SITENAME}}:\n\n$1",
-	"echo-email-html-footer-preference-link-text": "קאנטראלירן אייערע פרעפֿערענצן",
+	"echo-email-html-footer-preference-link-text": "קאנטראלירן {{GENDER:$1|אייערע}} פרעפֿערענצן",
 	"echo-notification-alert": "{{PLURAL:$1|מעלדונג ($1)|מעלדונגען ($1)|100=מעלדונגען (99+)}}",
 	"echo-notification-alert-text-only": "מעלדונגען",
 	"echo-notification-notice-text-only": "נאטיצן",
