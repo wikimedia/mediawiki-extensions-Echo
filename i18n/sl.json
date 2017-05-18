@@ -137,6 +137,7 @@
 	"notification-header-user-rights-add-only": "{{GENDER:$4|Tvoje}} uporabniške pravice so bile {{GENDER:$1|spremenjene}}. Dodan si bil k skupini: $2.",
 	"notification-header-user-rights-remove-only": "{{GENDER:$4|Tvoje}} Uporabniške pravice {{GENDER:$1|so bile spremenjene}}. Odslej nisi več v skupini: $2.",
 	"notification-header-user-rights-add-and-remove": "{{GENDER:$6|Tvoje}} uporabniške pravice {{GENDER:$1|so bile spremenjene}}. Postal si del skupine: $2. Nisi več v skupini: $4.",
+	"notification-header-user-rights-expiry-change": "Čas poteka {{GENDER:$4|tvojega}} tvojega članstva v naslednjih {{PLURAL:$3|skupini|skupinama|skupinah}} je bil {{GENDER:$1|spremenjen}}: $2.",
 	"notification-header-welcome": "{{GENDER:|Dobrodošel|Dobrodošla}} na {{SITENAME}}, $1! Veseli smo {{GENDER:$2|tvojega}} obiska.",
 	"notification-welcome-linktext": "{{GENDER:|Dobrodošel|Dobrodošla}}",
 	"notification-header-thank-you-1-edit": "Pravkar si {{GENDER:$2|naredil|naredila}} svoje prvo urejanje. Hvala {{GENDER:$2|ti}} in {{GENDER:$2|dobrodošel|dobrodošla}} še naprej!",
