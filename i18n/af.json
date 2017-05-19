@@ -2,8 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Naudefj",
-			"Servien",
-			"Fwolff"
+			"Servien"
 		]
 	},
 	"echo-desc": "Kennisgewing-stelsel",
@@ -30,16 +29,12 @@
 	"echo-category-title-edit-user-talk": "Boodskap{{PLURAL:$1||pe}} op u besprekingsblad",
 	"echo-category-title-article-linked": "Bladsyskakel{{PLURAL:$1||s}}",
 	"echo-category-title-reverted": "Wysiging {{PLURAL:$1|teruggerol}}",
-	"echo-category-title-other": "{{PLURAL:$1|Ander}}",
 	"echo-category-title-system": "{{PLURAL:$1|Stelsel}}",
 	"notifications": "Kennisgewings",
 	"tooltip-pt-notifications-alert": "{{GENDER:|U}} kennisgewings",
 	"tooltip-pt-notifications-notice": "{{GENDER:|U}} boodskappe",
 	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Nuwe gebruikers",
 	"echo-specialpage": "Kennisgewings",
-	"echo-specialpage-section-markread": "Merk groep as gelees",
-	"echo-specialpage-markasread": "Kennisgewing: Merk as gelees",
-	"echo-specialpage-pagination-numnotifications": "$1 {{PLURAL:$1|kennisgewing|kennisgewings}}",
 	"echo-specialpage-pagefilters-title": "Onlangse aktiwiteit",
 	"echo-specialpage-pagefilters-subtitle": "Bladsye met ongelees kennisgewings",
 	"notificationsmarkread-legend": "Merk kennisgewing as gelees",
@@ -66,12 +61,6 @@
 	"notification-link-text-what-links-here": "Al die skakels na hierdie bladsy",
 	"notification-welcome-linktext": "Welkom",
 	"notification-link-text-view-edit": "Wys wysiging",
-	"notification-timestamp-ago-seconds": "{{PLURAL:$1|$1s}}",
-	"notification-timestamp-ago-minutes": "{{PLURAL:$1|$1m}}",
-	"notification-timestamp-ago-hours": "{{PLURAL:$1|$1h}}",
-	"notification-timestamp-ago-days": "{{PLURAL:$1|$1d}}",
-	"notification-timestamp-ago-months": "{{PLURAL:$1|$1ma}}",
-	"notification-timestamp-ago-years": "{{PLURAL:$1|$1j}}",
 	"notification-timestamp-today": "Vandag",
 	"notification-timestamp-yesterday": "Gister",
 	"notification-inbox-filter-read": "Gelees",
@@ -83,7 +72,6 @@
 	"echo-overlay-link": "Alle kennisgewings",
 	"echo-overlay-title": "<b>Kennisgewings</b>",
 	"echo-mark-all-as-read": "Merk alles as gelees",
-	"echo-mark-all-as-read-confirmation": "$1 {{PLURAL:$1|kennisgewing|kennisgewings}} gemerk as gelees",
 	"echo-date-today": "Vandag",
 	"echo-date-yesterday": "Gister",
 	"echo-email-batch-link-text-view-all-notifications": "Wys alle kennisgewings"

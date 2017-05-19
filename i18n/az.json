@@ -55,7 +55,6 @@
 	"notification-header-page-linked": "<strong>$4</strong> səhifəsindən <strong>$3</strong> səhifəsinə keçid verildi.",
 	"notification-bundle-header-page-linked": "{{PLURAL:$5||$5 səhifə|100=99+ səhifə}}dən <strong>$3</strong> səhifəsinə keçid verildi.",
 	"notification-link-text-what-links-here": "Bu səhifəyə olan bütün keçidlər",
-	"notification-header-welcome": "{{SITENAME}} saytına {{GENDER:$2|xoş gəldiniz}}, $1! Sizi burada görməyimizə çox şadıq.",
 	"notification-link-text-view-edit": "Redaktəyə bax",
 	"notification-edit-talk-page-email-subject2": "İstifadəçi $1 \"{{SITENAME}}\" saytındakı müzakirə səhifənizdə sizə mesaj yazıb",
 	"notification-edit-talk-page-email-batch-body-with-section": "{{GENDER:$1|İstifadəçi}} sizin müzakirə səhifənizdə «$2» bölməsində məktub $1 {{GENDER:$1|yazıb}}",

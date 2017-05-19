@@ -121,7 +121,7 @@
 	"notification-header-mention-user-talkpage-nosection": "$1 {{GENDER:$2|mainitsi}} {{GENDER:$3|sinut}} <strong>{{GENDER:$5|käyttäjän}} $4 keskustelusivulla</strong>.",
 	"notification-header-mention-agent-talkpage": "$1 {{GENDER:$2|mainitsi}} {{GENDER:$3|sinut}} <strong>{{GENDER:$2|keskustelusivullansa}}</strong> osiossa <strong>$4</strong>.",
 	"notification-header-mention-agent-talkpage-nosection": "$1 {{GENDER:$2|mainitsi}} {{GENDER:$3|sinut}} <strong>{{GENDER:$2|keskustelusivullansa}}</strong>.",
-	"notification-header-mention-article-talkpage": "$1 {{GENDER:$2|mainitsi}} {{GENDER:$3|sinut}} sivun <strong>$4</strong> keskustelusivulla osiossa <strong>$5</strong>.",
+	"notification-header-mention-article-talkpage": "$1 {{GENDER:$2|mainitsi}} {{GENDER:$3|sivnut}} sivun <strong>$4</strong> keskustelusivulla osiossa <strong>$5</strong>.",
 	"notification-header-mention-article-talkpage-nosection": "$1 {{GENDER:$2|mainitsi}} {{GENDER:$3|sinut}} sivun <strong>$4</strong> keskustelusivulla.",
 	"notification-header-mention-failure-user-unknown": "{{GENDER:$2|Mainintaa}} käyttäjästä $3 ei lähetetty, koska tunnusta ei ole olemassa.",
 	"notification-header-mention-failure-user-anonymous": "{{GENDER:$2|Mainintaa}} käyttäjästä $3 ei lähetetty, koska tunnus on rekisteröimätön.",
