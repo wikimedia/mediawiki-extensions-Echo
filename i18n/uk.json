@@ -14,7 +14,8 @@
 			"Lxlalexlxl",
 			"Максим Підліснюк",
 			"Macofe",
-			"Green Zero"
+			"Green Zero",
+			"Amire80"
 		]
 	},
 	"echo-desc": "Система сповіщення користувачів про події і повідомлення",
@@ -134,7 +135,7 @@
 	"notification-header-mention-article-talkpage-nosection": "$1 згада{{GENDER:$2|в|ла}} {{GENDER:$3|Вас}} на сторінці обговорення <strong>$4</strong> .",
 	"notification-header-mention-failure-user-unknown": "{{GENDER:$2|Вашу}} згадку <strong>$3</strong> не надіслано, бо не знайдено такого користувача.",
 	"notification-header-mention-failure-user-anonymous": "{{GENDER:$2|Вашу}} згадку <strong>$3</strong> не надіслано, бо користувач — анонім.",
-	"notification-header-mention-failure-too-many": "{{GENDER:$2|Ваші}} згадки не надіслано, бо їх більше, ніж $3, що є максимумом.",
+	"notification-header-mention-failure-too-many": "{{GENDER:$2|Ви}} спробували згадати понад $3 {{PLURAL:$3|користувача|користувачі|користувачів}}. Усі згадки вище понад цей ліміт не було надіслано.",
 	"notification-header-mention-failure-bundle": "{{PLURAL:$3|Згадка, яку|$3 згадки, які|$3 згадок, які}} {{GENDER:$2|Ви зробили}} на сторінці обговорення <strong>$4</strong>, {{PLURAL:$3|не вдалося}} надіслати.",
 	"notification-compact-header-mention-failure-user-unknown": "<strong>Ім'я користувача не існує:</strong> $1",
 	"notification-compact-header-mention-failure-user-anonymous": "<strong>Не можна зробити згадку IP:</strong> $1",

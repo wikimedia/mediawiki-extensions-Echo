@@ -85,7 +85,7 @@
 	"notification-header-edit-user-talk-with-section": "$1 Вам је {{GENDER:$2|оставио|оставила}} поруку на <strong>{{GENDER:$3|Вашој}} страници за разговор</strong> у „<strong>$4</strong>“.",
 	"notification-header-page-linked": "Страница <strong>$3</strong> је повезана са <strong>$4</strong>.",
 	"notification-compact-header-page-linked": "Повезана са <strong>$1</strong>.",
-	"notification-bundle-header-page-linked": "Страница '''$3''' је повезана са '''$4''' и још $5 {{PLURAL:$6|1=страницом|странице|страница}}.",
+	"notification-bundle-header-page-linked": "Направљене су везе до <strong>$3</strong> са {{PLURAL:$5||$5 странице|$5 страница|100=>&thinsp;99 страница}}.",
 	"notification-link-text-what-links-here": "Све везе ка овој страници",
 	"notification-header-mention-other": "$1 Вас је {{GENDER:$2|поменуо|поменула}} {{GENDER:$3|на}} <strong>$4</strong> у „<strong>$5</strong>“.",
 	"notification-header-mention-other-nosection": "$1 Вас је {{GENDER:$2|поменуо|поменула}} {{GENDER:$3|на}} <strong>$4</strong>.",

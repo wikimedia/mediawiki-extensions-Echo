@@ -49,6 +49,7 @@
 	"echo-error-no-formatter": "Nije zadato oblikovanje za obaveštenja",
 	"notifications": "Obaveštenja",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Vaša}} obaveštenja",
+	"tooltip-pt-notifications-notice": "{{GENDER:|Vaša}} obaveštenja",
 	"echo-specialpage": "Obaveštenja",
 	"echo-anon": "Da biste pristupili ovoj stranici morate se [$2 prijaviti] ili [$1 otvoriti nalog].",
 	"echo-none": "Nemate obaveštenja",
