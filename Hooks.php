@@ -485,7 +485,7 @@ class EchoHooks {
 
 		if ( $wgEchoPerUserBlacklist ) {
 			$preferences['echo-notifications-blacklist'] = [
-				'type' => 'textarea',
+				'type' => 'usersmultiselect',
 				'label-message' => 'echo-pref-notifications-blacklist',
 				'section' => 'echo/blocknotificationslist',
 			];
