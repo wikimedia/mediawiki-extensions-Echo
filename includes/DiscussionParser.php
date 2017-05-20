@@ -277,7 +277,7 @@ abstract class EchoDiscussionParser {
 	 * Set of arrays containing valid mentions and possible intended but failed mentions.
 	 * - [validMentions]: An array of valid users to mention with ID => ID.
 	 * - [unknownUsers]: An array of DBKey strings representing unknown users.
-	 * - [validMentions]: An array of DBKey strings representing anonymous IP users.
+	 * - [anonymousUsers]: An array of DBKey strings representing anonymous IP users.
 	 */
 	private static function getUserMentions( Title $title, $revisionUserId, array $userLinks ) {
 		global $wgEchoMaxMentionsCount;
