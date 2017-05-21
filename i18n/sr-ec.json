@@ -95,6 +95,7 @@
 	"notification-header-mention-agent-talkpage-nosection": "$1 Вас је {{GENDER:$2|поменуо|поменула}} {{GENDER:$3|на}} <strong>својој страници за разговор</strong>.",
 	"notification-header-mention-article-talkpage": "$1 Вас је {{GENDER:$2|поменуо|поменула}} {{GENDER:$3|на}} страници за разговор <strong>$4</strong> у „<strong>$5</strong>“.",
 	"notification-header-mention-article-talkpage-nosection": "$1 Вас је {{GENDER:$2|поменуо|поменула}} {{GENDER:$3|на}} страници за разговор <strong>$4</strong>.",
+	"notification-header-mention-failure-too-many": "{{GENDER:$2|Покушали сте}} да поменете више од $3 {{PLURAL:$3|корисника}}. Сва помињања изнад лимита нису послата.",
 	"notification-compact-header-mention-failure-user-unknown": "<strong>Корисничко име не постоји:</strong> $1",
 	"notification-compact-header-mention-failure-user-anonymous": "<strong>Не можете спомињати ИП адресе:</strong> $1",
 	"notification-header-mention-success": "{{GENDER:$2|Ваше}} спомињање <strong>$3</strong> је послато.",
