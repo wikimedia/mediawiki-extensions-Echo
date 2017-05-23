@@ -41,7 +41,7 @@
 	"echo-specialpage-markasread": "Kennisgewing: Merk as gelees",
 	"echo-specialpage-pagination-numnotifications": "$1 {{PLURAL:$1|kennisgewing|kennisgewings}}",
 	"echo-specialpage-pagefilters-title": "Onlangse aktiwiteit",
-	"echo-specialpage-pagefilters-subtitle": "Bladsye met ongelees kennisgewings",
+	"echo-specialpage-pagefilters-subtitle": "Bladsye met ongelese kennisgewings",
 	"notificationsmarkread-legend": "Merk kennisgewing as gelees",
 	"echo-none": "U het geen kennisgewings nie.",
 	"echo-more-info": "Meer inligting",
@@ -58,6 +58,7 @@
 	"echo-notification-markasread-tooltip": "Merk as gelees",
 	"echo-notification-more-options-tooltip": "Meer opsies",
 	"notification-link-text-expand-all": "Vou oop",
+	"notification-link-text-expand-notice-count": "Sien {{PLURAL:$1|$1 kennisgewing|$1 kennisgewings}}",
 	"notification-link-text-collapse-all": "Vou toe",
 	"notification-link-text-view-message": "Wys boodskap",
 	"notification-link-text-view-mention": "Wys vermelding",
@@ -86,5 +87,6 @@
 	"echo-mark-all-as-read-confirmation": "$1 {{PLURAL:$1|kennisgewing|kennisgewings}} gemerk as gelees",
 	"echo-date-today": "Vandag",
 	"echo-date-yesterday": "Gister",
-	"echo-email-batch-link-text-view-all-notifications": "Wys alle kennisgewings"
+	"echo-email-batch-link-text-view-all-notifications": "Wys alle kennisgewings",
+	"notification-header-foreign-notice": "Meer kennisgewings vanaf {{PLURAL:$5|'n ander wiki|$5 ander wiki's}}"
 }
