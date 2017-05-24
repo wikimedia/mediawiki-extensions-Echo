@@ -664,6 +664,9 @@
 		"EchoOnWikiBlacklist": {
 			"value": "Echo-blacklist"
 		},
+		"EchoPerUserBlacklist": {
+			"value": false
+		},
 		"EchoPerUserWhitelistFormat": {
 			"value": "%s/Echo-whitelist"
 		},

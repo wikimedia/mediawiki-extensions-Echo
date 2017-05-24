@@ -307,7 +307,7 @@ class EchoHooks {
 		global $wgEchoEnableEmailBatch,
 			$wgEchoNotifiers, $wgEchoNotificationCategories, $wgEchoNotifications,
 			$wgEchoNewMsgAlert, $wgAllowHTMLEmail, $wgEchoUseCrossWikiBetaFeature,
-			$wgEchoShowFooterNotice, $wgEchoCrossWikiNotifications;
+			$wgEchoShowFooterNotice, $wgEchoCrossWikiNotifications, $wgEchoPerUserBlacklist;
 
 		$attributeManager = EchoAttributeManager::newFromGlobalVars();
 
@@ -480,6 +480,14 @@ class EchoHooks {
 		if ( $wgEchoShowFooterNotice ) {
 			$preferences['echo-dismiss-special-page-invitation'] = [
 				'type' => 'api',
+			];
+		}
+
+		if ( $wgEchoPerUserBlacklist ) {
+			$preferences['echo-notifications-blacklist'] = [
+				'type' => 'textarea',
+				'label-message' => 'echo-pref-notifications-blacklist',
+				'section' => 'echo/blocknotificationslist',
 			];
 		}
 

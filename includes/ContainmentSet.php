@@ -39,6 +39,15 @@ class EchoContainmentSet {
 	protected $lists = [];
 
 	/**
+	 * @var User
+	 */
+	protected $recipient;
+
+	public function __construct( User $recipient ) {
+		$this->recipient = $recipient;
+	}
+
+	/**
 	 * Add an EchoContainmentList to the set of lists checked by self::contains()
 	 *
 	 * @param $list EchoContainmentList
@@ -54,6 +63,21 @@ class EchoContainmentSet {
 	 */
 	public function addArray( array $list ) {
 		$this->add( new EchoArrayList( $list ) );
+	}
+
+	/**
+	 * Add a list from a user preference to the set of lists checked by self::contains().
+	 *
+	 * @param $preferenceName string
+	 */
+	public function addFromUserOption( $preferenceName ) {
+		$preference = $this->recipient->getOption( $preferenceName );
+
+		if ( $preference ) {
+			$items = explode( "\n", $preference );
+
+			$this->addArray( $items );
+		}
 	}
 
 	/**
