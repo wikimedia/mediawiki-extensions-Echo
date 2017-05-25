@@ -26,6 +26,7 @@
 	"prefs-echosubscriptions": "Meddela mig om dessa händelser",
 	"prefs-echocrosswiki": "Interwikiaviseringar",
 	"prefs-newmessageindicator": "Indikator för nya meddelanden",
+	"prefs-blocknotificationslist": "Blockeringslista",
 	"echo-pref-send-me": "Skicka mig:",
 	"echo-pref-send-to": "Skicka till:",
 	"echo-pref-email-format": "E-postformat:",
