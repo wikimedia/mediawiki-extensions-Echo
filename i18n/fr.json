@@ -144,7 +144,7 @@
 	"notification-link-text-collapse-all": "Réduire",
 	"notification-link-text-view-message": "Afficher le message",
 	"notification-link-text-view-mention": "Afficher la mention",
-	"notification-link-text-view-mention-failure": "{{PLURAL:$1|Afficher la mention|Afficher les mentions}}",
+	"notification-link-text-view-mention-failure": "Afficher l{{PLURAL:$1|a mention|es mentions}}",
 	"notification-link-text-view-changes": "{{GENDER:$1|Afficher}} les modifications",
 	"notification-link-text-view-page": "Afficher la page",
 	"notification-header-edit-user-talk": "$1 {{GENDER:$2|a laissé}} un message sur <strong>{{GENDER:$3|votre}} page de discussion</strong>.",
