@@ -34,7 +34,8 @@
 			"Trizek (WMF)",
 			"Gamliel Fishkin",
 			"Alex Great",
-			"Facenapalm"
+			"Facenapalm",
+			"ЛосЯш"
 		]
 	},
 	"echo-desc": "Система уведомления участников о событиях и сообщениях",
@@ -44,6 +45,7 @@
 	"prefs-echosubscriptions": "Сообщать мне об этих событиях",
 	"prefs-echocrosswiki": "Уведомления из нескольких вики-проектов («кросс-вики»)",
 	"prefs-newmessageindicator": "Индикатор нового сообщения",
+	"prefs-blocknotificationslist": "Чёрный список",
 	"echo-pref-send-me": "Присылать мне:",
 	"echo-pref-send-to": "Отправлять на адрес:",
 	"echo-pref-email-format": "Формат писем:",
