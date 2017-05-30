@@ -433,7 +433,19 @@ class EchoNotificationController {
 
 		// Apply blacklists and whitelists.
 		$notify->addFilter( function ( $user ) use ( $event ) {
-			if ( self::isBlacklistedByUser( $event, $user ) && $event->getTitle()->getNamespace() !== NS_USER_TALK ) {
+			$title = $event->getTitle();
+
+			if ( self::isBlacklistedByUser( $event, $user ) &&
+				(
+					$title === null ||
+					!(
+						// Still notify for posts anywhere in
+						// user's talk space
+						$title->getRootText() === $user->getName() &&
+						$title->getNamespace() === NS_USER_TALK
+					)
+				)
+			) {
 				return self::isWhitelistedByUser( $event, $user );
 			}
 
