@@ -15,6 +15,7 @@
 	"prefs-echosubscriptions": "Notificádeme sobre estes eventos",
 	"prefs-echocrosswiki": "Notificatións entre wikis",
 	"prefs-newmessageindicator": "Indicador de mensaxe nova",
+	"prefs-blocknotificationslist": "Lista de bloqueos",
 	"echo-pref-send-me": "Enviádeme:",
 	"echo-pref-send-to": "Enviar a:",
 	"echo-pref-email-format": "Formato do correo:",
