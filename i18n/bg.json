@@ -55,7 +55,7 @@
 	"echo-pref-tooltip-mention-failure": "Уведоми ме, когато не съм успял да изпратя споменаване на някого.",
 	"echo-pref-tooltip-mention-success": "Уведоми ме, когато изпратя споменаване на някого.",
 	"echo-pref-tooltip-user-rights": "Известяване, когато някой промени потребителските ми права.",
-	"echo-pref-tooltip-emailuser": "Уведоми ме, когато някой ми изпрати имейл.",
+	"echo-pref-tooltip-emailuser": "Известяване, когато някой ми изпрати е-поща.",
 	"echo-error-no-formatter": "Не е посочено форматиране на известията.",
 	"notifications": "Известия",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Вашите}} известия",
