@@ -606,6 +606,10 @@
 				"emailuser": {
 					"priority": 9,
 					"tooltip": "echo-pref-tooltip-emailuser"
+				},
+				"article-reminder": {
+					"priority": 1,
+					"tooltip": "echo-pref-tooltip-article-reminder"
 				}
 			},
 			"merge_strategy": "array_plus_2d"
@@ -665,6 +669,9 @@
 				},
 				"site": {
 					"url": false
+				},
+				"article-reminder": {
+					"path": "Echo/modules/icons/global.svg"
 				}
 			},
 			"merge_strategy": "array_plus_2d"
@@ -848,6 +855,15 @@
 					"group": "positive",
 					"presentation-model": "EchoEditThresholdPresentationModel",
 					"section": "message"
+				},
+				"article-reminder": {
+					"user-locators": [
+						"EchoUserLocator::locateEventAgent"
+					],
+					"category": "article-reminder",
+					"group": "positive",
+					"presentation-model": "EchoArticleReminderPresentationModel",
+					"section": "message"
 				}
 			},
 			"merge_strategy": "array_plus_2d"
@@ -877,6 +893,10 @@
 				}
 			},
 			"merge_strategy": "array_plus_2d"
+		},
+		"AllowArticleReminderNotification": {
+			"value": false,
+			"description": "This is a feature flag to the Article Reminder notification"
 		}
 	},
 	"manifest_version": 2,
@@ -915,6 +935,7 @@
 		"EchoDiscussionParserTest": "tests/phpunit/DiscussionParserTest.php",
 		"EchoEditThresholdPresentationModel": "includes/formatters/EditThresholdPresentationModel.php",
 		"EchoEditUserTalkPresentationModel": "includes/formatters/EditUserTalkPresentationModel.php",
+		"EchoArticleReminderPresentationModel": "includes/formatters/ArticleReminderPresentationModel.php",
 		"EchoEmailFormat": "includes/EmailFormat.php",
 		"EchoEmailFrequency": "includes/EmailFrequency.php",
 		"EchoEmailUserPresentationModel": "includes/formatters/EmailUserPresentationModel.php",
