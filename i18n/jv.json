@@ -177,7 +177,7 @@
 	"echo-mark-wiki-as-read": "Tengeri kabèh yèn wis diwaca ing wiki iki: $1",
 	"echo-date-today": "Dina iki",
 	"echo-date-yesterday": "Dina wingi",
-	"echo-load-more-error": "Ana kasalahan nalika njupuk luwih akèh asil.",
+	"echo-load-more-error": "Ana masalah nalika njupuk kasilé luwih akèh.",
 	"notification-bundle-header-edit-user-talk-v2": "{{PLURAL:$1|Salayang anyar|$1 layang anyar|100=99+ layang anyar}} ing <strong>kaca parembugané {{GENDER:$3|panjenengan}}</strong>.",
 	"echo-email-batch-subject-daily": "Panjenengan antuk {{PLURAL:$2|wara-wara anyar}} ing {{SITENAME}}",
 	"echo-email-batch-subject-weekly": "Panjenengan antuk {{PLURAL:$2|wara-wara anyar}} ing {{SITENAME}} minggu iki",
