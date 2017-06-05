@@ -166,9 +166,9 @@
 	mw.echo.dm.SourcePagesModel.prototype.setSourcePagesDetails = function ( source, details ) {
 		var i, page;
 		this.sources[ source ] = {
-			title: details.source.title,
+			title: details.source.title || source,
 			base: details.source.base,
-			totalCount: details.totalCount,
+			totalCount: details.totalCount || 0,
 			pages: {}
 		};
 
