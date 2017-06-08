@@ -52,7 +52,15 @@
 	"apihelp-query+unreadnotificationpages-param-limit": "The maximum number of pages to return.",
 	"apihelp-query+unreadnotificationpages-param-wikis": "List of wikis to fetch pages with unread notifications from (defaults to only current wiki).",
 	"apihelp-query+unreadnotificationpages-example-1": "List pages with (their amount of) unread notifications",
+	"apihelp-echoarticlereminder-summary": "Request a future reminder about the specified article",
+	"apihelp-echoarticlereminder-param-pageid": "ID of article to remind the user about",
+	"apihelp-echoarticlereminder-param-title": "Title of article to remind the user about",
+	"apihelp-echoarticlereminder-param-timestamp": "On which timestamp to remind the user",
+	"apihelp-echoarticlereminder-param-comment": "Optional user comment to include in the reminder",
+	"apihelp-echoarticlereminder-example-1" : "Create an article reminder notification for tomorrow with comment",
+	"apihelp-echoarticlereminder-example-2" : "Create an article reminder notification for tomorrow without comment",
 	"apiwarn-echo-deprecation-timestampformat": "The MW timestamp output format is deprecated here. In the future, ISO 8601 will always be used for the output timestamp format.  Adjust your client and set <var>timestampFormat</var> to <kbd>ISO_8601</kbd>.",
 	"apiwarn-echo-deprecation-flyout": "<kbd>notformat=flyout</kbd> has been deprecated and will be removed soon. Use <kbd>notformat=model</kbd> to get the raw data or <kbd>notformat=special</kbd> for pre-rendered HTML.",
-	"apiwarn-echo-deprecation-html": "<kbd>notformat=html</kbd> has been deprecated and will be removed soon. Use <kbd>notformat=special</kbd> instead."
+	"apiwarn-echo-deprecation-html": "<kbd>notformat=html</kbd> has been deprecated and will be removed soon. Use <kbd>notformat=special</kbd> instead.",
+	"apierror-echo-event-creation-failed": "Could not create Echo event"
 }
