@@ -31,7 +31,8 @@
 			"Apflu",
 			"Cosine02",
 			"LNDDYL",
-			"飞舞回堂前"
+			"飞舞回堂前",
+			"WhitePhosphorus"
 		]
 	},
 	"echo-desc": "用于通知用户有关活动和消息的系统",
@@ -217,7 +218,7 @@
 	"notification-bundle-header-edit-user-talk-v2": "<strong>{{GENDER:$3|您}}的讨论页</strong>上有{{PLURAL:$1|$1条|100=超过99条}}新消息。",
 	"echo-email-batch-subject-daily": "您在{{SITENAME}}有{{PLURAL:$2|新通知}}",
 	"echo-email-batch-subject-weekly": "您本周在{{SITENAME}}有{{PLURAL:$2|新通知}}",
-	"echo-email-batch-body-intro-daily": "嗨，$1，\n这是今天您在{{SITENAME}}的通知摘要。",
+	"echo-email-batch-body-intro-daily": "$1，\n这是今天您在{{SITENAME}}的通知摘要。",
 	"echo-email-batch-body-intro-weekly": "$1，\n这是本周您在{{SITENAME}}的通知摘要。",
 	"echo-email-batch-link-text-view-all-notifications": "查看所有通知",
 	"notification-header-foreign-alert": "来自{{PLURAL:$5|另一个wiki|另外$5个wiki}}上的更多提醒",

@@ -69,6 +69,7 @@
 	"echo-popup-footer-special-page-invitation-link": "Jauns izskats un iespējas.",
 	"echo-api-failure": "Neizdevās iegūt paziņojumus.",
 	"echo-notification-placeholder": "Nav paziņojumu.",
+	"echo-notification-placeholder-filters": "Nav paziņojumu, kas atbilstu šiem kritērijiem.",
 	"echo-notification-markasread": "Atzīmēt kā lasītu",
 	"echo-notification-markasunread": "Atzīmēt kā nelasītu",
 	"echo-notification-markasread-tooltip": "Atzīmēt kā lasītu",
