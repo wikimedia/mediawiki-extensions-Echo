@@ -5,265 +5,264 @@
  * @file
  * @ingroup Extensions
  */
-// @codingStandardsIgnoreFile
 
-$specialPageAliases = array();
+$specialPageAliases = [];
 
 /** English (English) */
-$specialPageAliases['en'] = array(
-	'Notifications' => array( 'Notifications' ),
-	'DisplayNotificationsConfiguration' => array( 'DisplayNotificationsConfiguration' ),
-	'NotificationsMarkRead' => array( 'NotificationsMarkRead' ),
-);
+$specialPageAliases['en'] = [
+	'Notifications' => [ 'Notifications' ],
+	'DisplayNotificationsConfiguration' => [ 'DisplayNotificationsConfiguration' ],
+	'NotificationsMarkRead' => [ 'NotificationsMarkRead' ],
+];
 
 /** Arabic (العربية) */
-$specialPageAliases['ar'] = array(
-	'Notifications' => array( 'إشعارات' ),
-);
+$specialPageAliases['ar'] = [
+	'Notifications' => [ 'إشعارات' ],
+];
 
 /** Egyptian Arabic (مصرى) */
-$specialPageAliases['arz'] = array(
-	'Notifications' => array( 'اخطارات' ),
-);
+$specialPageAliases['arz'] = [
+	'Notifications' => [ 'اخطارات' ],
+];
 
 /** Avaric (авар) */
-$specialPageAliases['av'] = array(
-	'Notifications' => array( 'Уведомления' ),
-);
+$specialPageAliases['av'] = [
+	'Notifications' => [ 'Уведомления' ],
+];
 
 /** Western Balochi (بلوچی رخشانی) */
-$specialPageAliases['bgn'] = array(
-	'Notifications' => array( 'آگاه_کورتینۆک_ئان' ),
-);
+$specialPageAliases['bgn'] = [
+	'Notifications' => [ 'آگاه_کورتینۆک_ئان' ],
+];
 
 /** Bengali (বাংলা) */
-$specialPageAliases['bn'] = array(
-	'Notifications' => array( 'বিজ্ঞপ্তি' ),
-	'DisplayNotificationsConfiguration' => array( 'বিজ্ঞপ্তি_কনফিগারেশন_প্রদর্শন' ),
-	'NotificationsMarkRead' => array( 'বিজ্ঞপ্তি_পঠিতরূপে_চিহ্নিত', 'বিজ্ঞপ্তি_পঠিত_হিসেবে_চিহ্নিত' ),
-);
+$specialPageAliases['bn'] = [
+	'Notifications' => [ 'বিজ্ঞপ্তি' ],
+	'DisplayNotificationsConfiguration' => [ 'বিজ্ঞপ্তি_কনফিগারেশন_প্রদর্শন' ],
+	'NotificationsMarkRead' => [ 'বিজ্ঞপ্তি_পঠিতরূপে_চিহ্নিত', 'বিজ্ঞপ্তি_পঠিত_হিসেবে_চিহ্নিত' ],
+];
 
 /** Min Dong Chinese (Mìng-dĕ̤ng-ngṳ̄) */
-$specialPageAliases['cdo'] = array(
-	'Notifications' => array( '提醒' ),
-);
+$specialPageAliases['cdo'] = [
+	'Notifications' => [ '提醒' ],
+];
 
 /** Chechen (нохчийн) */
-$specialPageAliases['ce'] = array(
-	'Notifications' => array( 'ДӀахаийтар' ),
-);
+$specialPageAliases['ce'] = [
+	'Notifications' => [ 'ДӀахаийтар' ],
+];
 
 /** Czech (čeština) */
-$specialPageAliases['cs'] = array(
-	'Notifications' => array( 'Upozornění' ),
-);
+$specialPageAliases['cs'] = [
+	'Notifications' => [ 'Upozornění' ],
+];
 
 /** German (Deutsch) */
-$specialPageAliases['de'] = array(
-	'Notifications' => array( 'Benachrichtigungen' ),
-);
+$specialPageAliases['de'] = [
+	'Notifications' => [ 'Benachrichtigungen' ],
+];
 
 /** Zazaki (Zazaki) */
-$specialPageAliases['diq'] = array(
-	'Notifications' => array( 'Mengeneyi' ),
-);
+$specialPageAliases['diq'] = [
+	'Notifications' => [ 'Mengeneyi' ],
+];
 
 /** Greek (Ελληνικά) */
-$specialPageAliases['el'] = array(
-	'Notifications' => array( 'Ειδοποιήσεις' ),
-);
+$specialPageAliases['el'] = [
+	'Notifications' => [ 'Ειδοποιήσεις' ],
+];
 
 /** Esperanto (Esperanto) */
-$specialPageAliases['eo'] = array(
-	'Notifications' => array( 'Atentigoj' ),
-);
+$specialPageAliases['eo'] = [
+	'Notifications' => [ 'Atentigoj' ],
+];
 
 /** Spanish (español) */
-$specialPageAliases['es'] = array(
-	'Notifications' => array( 'Notificaciones' ),
-);
+$specialPageAliases['es'] = [
+	'Notifications' => [ 'Notificaciones' ],
+];
 
 /** Estonian (eesti) */
-$specialPageAliases['et'] = array(
-	'Notifications' => array( 'Teavitused' ),
-);
+$specialPageAliases['et'] = [
+	'Notifications' => [ 'Teavitused' ],
+];
 
 /** Persian (فارسی) */
-$specialPageAliases['fa'] = array(
-	'Notifications' => array( 'آگاه‌سازی‌ها' ),
-);
+$specialPageAliases['fa'] = [
+	'Notifications' => [ 'آگاه‌سازی‌ها' ],
+];
 
 /** Finnish (suomi) */
-$specialPageAliases['fi'] = array(
-	'Notifications' => array( 'Ilmoitukset' ),
-);
+$specialPageAliases['fi'] = [
+	'Notifications' => [ 'Ilmoitukset' ],
+];
 
 /** Galician (galego) */
-$specialPageAliases['gl'] = array(
-	'Notifications' => array( 'Notificacións' ),
-);
+$specialPageAliases['gl'] = [
+	'Notifications' => [ 'Notificacións' ],
+];
 
 /** Hawaiian (Hawai`i) */
-$specialPageAliases['haw'] = array(
-	'Notifications' => array( 'Notikala' ),
-);
+$specialPageAliases['haw'] = [
+	'Notifications' => [ 'Notikala' ],
+];
 
 /** Hebrew (עברית) */
-$specialPageAliases['he'] = array(
-	'Notifications' => array( 'הודעות', 'כל_ההודעות' ),
-);
+$specialPageAliases['he'] = [
+	'Notifications' => [ 'הודעות', 'כל_ההודעות' ],
+];
 
 /** Upper Sorbian (hornjoserbsce) */
-$specialPageAliases['hsb'] = array(
-	'Notifications' => array( 'Zdźělenja' ),
-);
+$specialPageAliases['hsb'] = [
+	'Notifications' => [ 'Zdźělenja' ],
+];
 
 /** Indonesian (Bahasa Indonesia) */
-$specialPageAliases['id'] = array(
-	'Notifications' => array( 'Notifikasi' ),
-);
+$specialPageAliases['id'] = [
+	'Notifications' => [ 'Notifikasi' ],
+];
 
 /** Italian (italiano) */
-$specialPageAliases['it'] = array(
-	'Notifications' => array( 'Notifiche' ),
-);
+$specialPageAliases['it'] = [
+	'Notifications' => [ 'Notifiche' ],
+];
 
 /** Japanese (日本語) */
-$specialPageAliases['ja'] = array(
-	'Notifications' => array( '通知' ),
-);
+$specialPageAliases['ja'] = [
+	'Notifications' => [ '通知' ],
+];
 
 /** Korean (한국어) */
-$specialPageAliases['ko'] = array(
-	'Notifications' => array( '알림' ),
-);
+$specialPageAliases['ko'] = [
+	'Notifications' => [ '알림' ],
+];
 
 /** Cornish (kernowek) */
-$specialPageAliases['kw'] = array(
-	'Notifications' => array( 'Argemynow' ),
-);
+$specialPageAliases['kw'] = [
+	'Notifications' => [ 'Argemynow' ],
+];
 
 /** Luxembourgish (Lëtzebuergesch) */
-$specialPageAliases['lb'] = array(
-	'Notifications' => array( 'Notifikatiounen' ),
-);
+$specialPageAliases['lb'] = [
+	'Notifications' => [ 'Notifikatiounen' ],
+];
 
 /** Northern Luri (لۊری شومالی) */
-$specialPageAliases['lrc'] = array(
-	'Notifications' => array( 'ڤارسیاریا' ),
-);
+$specialPageAliases['lrc'] = [
+	'Notifications' => [ 'ڤارسیاریا' ],
+];
 
 /** Macedonian (македонски) */
-$specialPageAliases['mk'] = array(
-	'Notifications' => array( 'Известувања' ),
-);
+$specialPageAliases['mk'] = [
+	'Notifications' => [ 'Известувања' ],
+];
 
 /** Malayalam (മലയാളം) */
-$specialPageAliases['ml'] = array(
-	'Notifications' => array( 'അറിയിപ്പുകൾ' ),
-);
+$specialPageAliases['ml'] = [
+	'Notifications' => [ 'അറിയിപ്പുകൾ' ],
+];
 
 /** Marathi (मराठी) */
-$specialPageAliases['mr'] = array(
-	'Notifications' => array( 'संदेश' ),
-);
+$specialPageAliases['mr'] = [
+	'Notifications' => [ 'संदेश' ],
+];
 
 /** Malay (Bahasa Melayu) */
-$specialPageAliases['ms'] = array(
-	'Notifications' => array( 'Pemberitahuan' ),
-);
+$specialPageAliases['ms'] = [
+	'Notifications' => [ 'Pemberitahuan' ],
+];
 
 /** Maltese (Malti) */
-$specialPageAliases['mt'] = array(
-	'Notifications' => array( 'Notifiki' ),
-);
+$specialPageAliases['mt'] = [
+	'Notifications' => [ 'Notifiki' ],
+];
 
 /** Norwegian Bokmål (norsk bokmål) */
-$specialPageAliases['nb'] = array(
-	'Notifications' => array( 'Varsler' ),
-);
+$specialPageAliases['nb'] = [
+	'Notifications' => [ 'Varsler' ],
+];
 
 /** Dutch (Nederlands) */
-$specialPageAliases['nl'] = array(
-	'Notifications' => array( 'Meldingen' ),
-);
+$specialPageAliases['nl'] = [
+	'Notifications' => [ 'Meldingen' ],
+];
 
 /** Punjabi (ਪੰਜਾਬੀ) */
-$specialPageAliases['pa'] = array(
-	'Notifications' => array( 'ਇਤਲਾਹਾਂ' ),
-);
+$specialPageAliases['pa'] = [
+	'Notifications' => [ 'ਇਤਲਾਹਾਂ' ],
+];
 
 /** Polish (polski) */
-$specialPageAliases['pl'] = array(
-	'Notifications' => array( 'Powiadomienia' ),
-);
+$specialPageAliases['pl'] = [
+	'Notifications' => [ 'Powiadomienia' ],
+];
 
 /** Portuguese (português) */
-$specialPageAliases['pt'] = array(
-	'Notifications' => array( 'Notificações' ),
-);
+$specialPageAliases['pt'] = [
+	'Notifications' => [ 'Notificações' ],
+];
 
 /** Brazilian Portuguese (português do Brasil) */
-$specialPageAliases['pt-br'] = array(
-	'Notifications' => array( 'Notificações' ),
-);
+$specialPageAliases['pt-br'] = [
+	'Notifications' => [ 'Notificações' ],
+];
 
 /** Quechua (Runa Simi) */
-$specialPageAliases['qu'] = array(
-	'Notifications' => array( 'Willaykuykuna' ),
-);
+$specialPageAliases['qu'] = [
+	'Notifications' => [ 'Willaykuykuna' ],
+];
 
 /** Russian (русский) */
-$specialPageAliases['ru'] = array(
-	'Notifications' => array( 'Уведомления' ),
-);
+$specialPageAliases['ru'] = [
+	'Notifications' => [ 'Уведомления' ],
+];
 
 /** Sicilian (sicilianu) */
-$specialPageAliases['scn'] = array(
-	'Notifications' => array( 'Notifiche' ),
-);
+$specialPageAliases['scn'] = [
+	'Notifications' => [ 'Notifiche' ],
+];
 
 /** Serbian (Cyrillic script) (српски (ћирилица)‎) */
-$specialPageAliases['sr-ec'] = array(
-	'Notifications' => array( 'Обавештења' ),
-);
+$specialPageAliases['sr-ec'] = [
+	'Notifications' => [ 'Обавештења' ],
+];
 
 /** Swedish (svenska) */
-$specialPageAliases['sv'] = array(
-	'Notifications' => array( 'Meddelanden' ),
-);
+$specialPageAliases['sv'] = [
+	'Notifications' => [ 'Meddelanden' ],
+];
 
 /** Ukrainian (українська) */
-$specialPageAliases['uk'] = array(
-	'Notifications' => array( 'Сповіщення', 'Уведомления' ),
-);
+$specialPageAliases['uk'] = [
+	'Notifications' => [ 'Сповіщення', 'Уведомления' ],
+];
 
 /** Urdu (اردو) */
-$specialPageAliases['ur'] = array(
-	'Notifications' => array( 'اطلاعات' ),
-);
+$specialPageAliases['ur'] = [
+	'Notifications' => [ 'اطلاعات' ],
+];
 
 /** Venetian (vèneto) */
-$specialPageAliases['vec'] = array(
-	'Notifications' => array( 'Notifiche' ),
-);
+$specialPageAliases['vec'] = [
+	'Notifications' => [ 'Notifiche' ],
+];
 
 /** Vietnamese (Tiếng Việt) */
-$specialPageAliases['vi'] = array(
-	'Notifications' => array( 'Thông_báo' ),
-);
+$specialPageAliases['vi'] = [
+	'Notifications' => [ 'Thông_báo' ],
+];
 
 /** Chinese (中文) */
-$specialPageAliases['zh'] = array(
-	'Notifications' => array( '通知' ),
-);
+$specialPageAliases['zh'] = [
+	'Notifications' => [ '通知' ],
+];
 
 /** Simplified Chinese (中文（简体）‎) */
-$specialPageAliases['zh-hans'] = array(
-	'Notifications' => array( '通知' ),
-);
+$specialPageAliases['zh-hans'] = [
+	'Notifications' => [ '通知' ],
+];
 
 /** Traditional Chinese (中文（繁體）‎) */
-$specialPageAliases['zh-hant'] = array(
-	'Notifications' => array( '通知' ),
-);
+$specialPageAliases['zh-hant'] = [
+	'Notifications' => [ '通知' ],
+];
