@@ -47,7 +47,7 @@
 	"apihelp-query+unreadnotificationpages-description": "Obter as páginas que contêm notificações não lidas para o utilizador atual.",
 	"apihelp-query+unreadnotificationpages-summary": "Obter as páginas que contêm notificações não lidas para o utilizador atual.",
 	"apihelp-query+unreadnotificationpages-param-grouppages": "Agrupar as páginas de discussão com a respetiva página de conteúdo, e agrupar as notificações não associadas a uma página com a página do utilizador atual.",
-	"apihelp-query+unreadnotificationpages-param-limit": "O número máximo de páginas a devolver.",
+	"apihelp-query+unreadnotificationpages-param-limit": "O número máximo de páginas a serem devolvidas.",
 	"apihelp-query+unreadnotificationpages-param-wikis": "Lista de wikis onde obter páginas com notificações não lidas (por padrão, só a wiki atual).",
 	"apihelp-query+unreadnotificationpages-example-1": "Listar páginas com notificações não lidas e respetiva quantidade",
 	"apiwarn-echo-deprecation-timestampformat": "O formato de saída para data e hora do MediaWiki foi descontinuado. De futuro será sempre usado como formato de saída de data e hora o ISO 8601. Ajuste o seu cliente e defina o <var>timestampFormat</var> como <kbd>ISO_8601</kbd>.",
