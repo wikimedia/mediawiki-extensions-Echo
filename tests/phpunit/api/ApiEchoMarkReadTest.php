@@ -18,7 +18,6 @@ class ApiEchoMarkReadTest extends ApiTestCase {
 	}
 
 	public function testMarkReadWithList() {
-
 		$tokens = $this->getTokens();
 		// Grouping by section
 		$data = $this->doApiRequest( [
@@ -49,7 +48,6 @@ class ApiEchoMarkReadTest extends ApiTestCase {
 	}
 
 	public function testMarkReadWithAll() {
-
 		$tokens = $this->getTokens();
 		// Grouping by section
 		$data = $this->doApiRequest( [
@@ -80,7 +78,6 @@ class ApiEchoMarkReadTest extends ApiTestCase {
 	}
 
 	public function testMarkReadWithSections() {
-
 		$tokens = $this->getTokens();
 		// Grouping by section
 		$data = $this->doApiRequest( [

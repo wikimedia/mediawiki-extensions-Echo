@@ -22,7 +22,6 @@ class BundlerTest extends MediaWikiTestCase {
 		$this->assertCount( 1, $bundledNotifications[2]->getBundledNotifications() );
 		$this->assertSame( $n4, $bundledNotifications[2]->getBundledNotifications()[0] );
 		$this->assertSame( $n2, $bundledNotifications[3] );
-
 	}
 
 	private function createNotificationForBundling( $bundleHash, $timestamp, $readStatus ) {

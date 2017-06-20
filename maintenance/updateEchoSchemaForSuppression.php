@@ -5,9 +5,9 @@
  *
  * @ingroup Maintenance
  */
-require_once ( getenv( 'MW_INSTALL_PATH' ) !== false
+require_once getenv( 'MW_INSTALL_PATH' ) !== false
 	? getenv( 'MW_INSTALL_PATH' ) . '/maintenance/Maintenance.php'
-	: __DIR__ . '/../../../maintenance/Maintenance.php' );
+	: __DIR__ . '/../../../maintenance/Maintenance.php';
 
 /**
  * Maintenance script that populates the event_page_id column of echo_event
@@ -60,4 +60,4 @@ class UpdateEchoSchemaForSuppression extends LoggedUpdateMaintenance {
 }
 
 $maintClass = 'UpdateEchoSchemaForSuppression'; // Tells it to run the class
-require_once ( RUN_MAINTENANCE_IF_MAIN );
+require_once RUN_MAINTENANCE_IF_MAIN;

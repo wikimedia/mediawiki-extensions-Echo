@@ -4,7 +4,7 @@ $IP = getenv( 'MW_INSTALL_PATH' );
 if ( $IP === false ) {
 	$IP = __DIR__ . '/../../..';
 }
-require_once ( "$IP/maintenance/Maintenance.php" );
+require_once "$IP/maintenance/Maintenance.php";
 
 class BackfillReadBundles extends Maintenance {
 	public function __construct() {
@@ -77,4 +77,4 @@ class BackfillReadBundles extends Maintenance {
 }
 
 $maintClass = "BackfillReadBundles";
-require_once ( DO_MAINTENANCE );
+require_once DO_MAINTENANCE;

@@ -62,7 +62,7 @@ class EchoUserRightsPresentationModel extends EchoEventPresentationModel {
 	}
 
 	private function getLocalizedGroupNames( $names ) {
-		return array_map( function( $name ) {
+		return array_map( function ( $name ) {
 			$msg = $this->msg( 'group-' . $name );
 			return $msg->isBlank() ? $name : $msg->text();
 		}, $names );

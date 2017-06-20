@@ -948,7 +948,7 @@ TEXT
 				);
 			} );
 			// Cleanup
-			$lock = new ScopedCallback( function() use ( $services ) {
+			$lock = new ScopedCallback( function () use ( $services ) {
 				$services->resetServiceForTesting( 'TitleParser' );
 			} );
 		}
@@ -1054,7 +1054,7 @@ TEXT
 			$this->assertEquals( false, $expectedUser );
 		} elseif ( is_array( $expectedUser ) ) {
 			// Sometimes testing for correct user detection,
-			//  sometimes testing for offset detection
+			// sometimes testing for offset detection
 			$this->assertEquals( $expectedUser, $output );
 		} else {
 			$this->assertEquals( $expectedUser, $output[1] );

@@ -150,6 +150,5 @@ class EchoSeenTime {
 		}
 
 		return wfGlobalCacheKey( 'echo', 'seen', $type, 'time', $globalId );
-
 	}
 }

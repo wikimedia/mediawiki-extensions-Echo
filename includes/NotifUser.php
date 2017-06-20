@@ -232,7 +232,7 @@ class MWEchoNotifUser {
 			$eventTypesToLoad = $attributeManager->getUserEnabledEventsbySections( $this->mUser, 'web', [ $section ] );
 		}
 
-		$count = (int) $this->userNotifGateway->getCappedNotificationCount( $dbSource, $eventTypesToLoad, MWEchoNotifUser::MAX_BADGE_COUNT + 1 );
+		$count = (int)$this->userNotifGateway->getCappedNotificationCount( $dbSource, $eventTypesToLoad, MWEchoNotifUser::MAX_BADGE_COUNT + 1 );
 
 		if ( $global ) {
 			$count = self::capNotificationCount( $count + $this->getForeignCount( $section ) );
@@ -647,7 +647,6 @@ class MWEchoNotifUser {
 			return false;
 		}
 		return wfGlobalCacheKey( $key, $globalId, $wgEchoCacheVersion );
-
 	}
 
 	protected function getGlobalMemcKey( $key ) {

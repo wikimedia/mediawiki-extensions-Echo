@@ -27,4 +27,3 @@ interface Bundleable {
 	 */
 	public function getSortingKey();
 }
-

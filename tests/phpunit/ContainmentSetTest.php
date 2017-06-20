@@ -18,7 +18,6 @@ class ContainmentSetTest extends MediaWikiTestCase {
 	}
 
 	public function testCachedListInnerListIsOnlyCalledOnce() {
-
 		// the global $wgMemc during tests is an EmptyBagOStuff, so it
 		// wont do anything.  We use a HashBagOStuff to get more like a real
 		// client

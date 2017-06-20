@@ -144,8 +144,8 @@ class EchoDataOutputFormatter {
 			if ( $notification->getBundledNotifications() && self::isBundleExpandable( $event->getType() ) ) {
 				$output['bundledNotifications'] = array_values( array_filter( array_map( function ( EchoNotification $notification ) use ( $format, $user, $lang ) {
 					// remove nested notifications to
-					//   - ensure they are formatted as single notifications (not bundled)
-					//   - prevent further re-entrance on the current notification
+					// - ensure they are formatted as single notifications (not bundled)
+					// - prevent further re-entrance on the current notification
 					$notification->setBundledNotifications( [] );
 					$notification->getEvent()->setBundledEvents( [] );
 					return self::formatOutput( $notification, $format, $user, $lang );

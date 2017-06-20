@@ -29,7 +29,6 @@ class EchoHooks {
 		$wgDefaultUserOptions['echo-subscriptions-web-article-linked'] = false;
 		$wgDefaultUserOptions['echo-subscriptions-web-mention-failure'] = false;
 		$wgDefaultUserOptions['echo-subscriptions-web-mention-success'] = false;
-
 	}
 
 	/**
@@ -698,7 +697,6 @@ class EchoHooks {
 	 */
 	public static function onUserGroupsChanged( $user, $add, $remove, $performer,
 		$reason, array $oldUGMs = [], array $newUGMs = [] ) {
-
 		if ( !$performer ) {
 			// TODO: Implement support for autopromotion
 			return true;
@@ -1047,7 +1045,7 @@ class EchoHooks {
 		// * Enabled in user preferences
 		// * User actually has new messages
 		// * User is not viewing their user talk page, as user_newtalk
-		//   will not have been cleared yet. (bug T107655).
+		// will not have been cleared yet. (bug T107655).
 		if ( $wgEchoNewMsgAlert && $user->getOption( 'echo-show-alert' )
 			&& $user->getNewtalk() && !$user->getTalkPage()->equals( $title )
 		) {

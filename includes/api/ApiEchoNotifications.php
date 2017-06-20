@@ -11,7 +11,6 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 	}
 
 	public function execute() {
-
 		// To avoid API warning, register the parameter used to bust browser cache
 		$this->getMain()->getVal( '_' );
 
@@ -488,7 +487,7 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 	 */
 	protected function mergeList( array $master, array $results, $groupBySection ) {
 		// sort all notifications by timestamp: most recent first
-		$sort = function( $a, $b ) {
+		$sort = function ( $a, $b ) {
 			return $a['timestamp']['utcunix'] - $b['timestamp']['utcunix'];
 		};
 

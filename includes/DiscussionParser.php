@@ -599,7 +599,7 @@ abstract class EchoDiscussionParser {
 	 * @return array converted actions
 	 */
 	static function convertToUnknownSignedChanges( $signedSections, $actions ) {
-		return array_map( function( $action ) use( $signedSections ) {
+		return array_map( function ( $action ) use( $signedSections ) {
 			if (
 				$action['type'] === 'unknown-change' &&
 				self::isInSignedSection( $action['right-pos'], $signedSections )

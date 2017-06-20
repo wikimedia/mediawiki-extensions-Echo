@@ -109,7 +109,6 @@ class EchoUserLocatorTest extends MediaWikiTestCase {
 	 * @dataProvider locateArticleCreatorProvider
 	 */
 	public function testLocateArticleCreator( $message, $initialize ) {
-
 		list( $expect, $title, $user ) = $initialize();
 		WikiPage::factory( $title )->doEditContent(
 			/* $content = */ ContentHandler::makeContent( 'content', $title ),

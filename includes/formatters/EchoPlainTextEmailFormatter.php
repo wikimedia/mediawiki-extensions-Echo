@@ -2,7 +2,6 @@
 
 class EchoPlainTextEmailFormatter extends EchoEventFormatter {
 	protected function formatModel( EchoEventPresentationModel $model ) {
-
 		$subject = EchoDiscussionParser::htmlToText( $model->getSubjectMessage()->parse() );
 
 		$text = EchoDiscussionParser::htmlToText( $model->getHeaderMessage()->parse() );

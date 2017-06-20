@@ -2,10 +2,21 @@
 <ruleset name="MediaWiki">
 	<file>.</file>
 	<rule ref="vendor/mediawiki/mediawiki-codesniffer/MediaWiki">
-		<exclude name="Generic.Files.LineLength"/>
+		<exclude name="Generic.Files.LineLength" />
+		<exclude name="MediaWiki.Commenting.FunctionComment.ExtraParamComment" />
+		<exclude name="MediaWiki.Commenting.FunctionComment.MissingParamComment" />
+		<exclude name="MediaWiki.Commenting.FunctionComment.MissingParamName" />
+		<exclude name="MediaWiki.Commenting.FunctionComment.MissingParamTag" />
+		<exclude name="MediaWiki.Commenting.FunctionComment.MissingReturn" />
+		<exclude name="MediaWiki.Commenting.FunctionComment.ParamNameNoMatch" />
+		<exclude name="MediaWiki.Commenting.FunctionComment.WrongStyle" />
+		<exclude name="MediaWiki.FunctionComment.Missing.Protected" />
+		<exclude name="MediaWiki.FunctionComment.Missing.Public" />
+		<exclude name="MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName" />
+		<exclude name="MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment" />
 	</rule>
-	<arg name="encoding" value="utf8"/>
-	<arg name="extensions" value="php,php5,inc"/>
-	<arg name="colors"/>
+	<arg name="encoding" value="utf8" />
+	<arg name="extensions" value="php,php5,inc" />
+	<arg name="colors" />
 	<exclude-pattern>vendor</exclude-pattern>
 </ruleset>

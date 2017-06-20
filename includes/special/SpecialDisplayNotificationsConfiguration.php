@@ -279,7 +279,6 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 		}
 
 		$this->outputCheckMatrix( 'enabled-by-default-new', 'echo-displaynotificationsconfiguration-enabled-default-new-users-legend', $this->flippedCategoryNames, $this->flippedNotifyTypes, $byCategoryValueNew );
-
 	}
 
 	/**
@@ -299,6 +298,5 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 		}
 
 		$this->outputCheckMatrix( 'mandatory', 'echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend', $this->flippedCategoryNames, $this->flippedNotifyTypes, $byCategoryValue );
-
 	}
 }

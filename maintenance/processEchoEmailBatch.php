@@ -4,7 +4,7 @@ $IP = getenv( 'MW_INSTALL_PATH' );
 if ( $IP === false ) {
 	$IP = __DIR__ . '/../../..';
 }
-require_once ( "$IP/maintenance/Maintenance.php" );
+require_once "$IP/maintenance/Maintenance.php";
 
 /**
  * A maintenance script that processes email digest
@@ -77,4 +77,4 @@ class ProcessEchoEmailBatch extends Maintenance {
 }
 
 $maintClass = "ProcessEchoEmailBatch";
-require_once ( DO_MAINTENANCE );
+require_once DO_MAINTENANCE;
