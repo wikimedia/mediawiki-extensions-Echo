@@ -5,7 +5,7 @@
  *
  * @author Christoph Fischer <christoph.fischer@wikimedia.de>
  *
- * @license GNU GPL v2+
+ * @license MIT
  */
 class EchoMentionStatusPresentationModel extends EchoEventPresentationModel {
 	use EchoPresentationModelSectionTrait;
