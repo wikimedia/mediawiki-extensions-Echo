@@ -1372,7 +1372,12 @@ class EchoHooks {
 		return true;
 	}
 
-	// Sets custom login message for redirect from notification page
+	/**
+	 * Sets custom login message for redirect from notification page
+	 *
+	 * @param array $messages
+	 * @return bool
+	 */
 	public static function onLoginFormValidErrorMessages( &$messages ) {
 		$messages[] = 'echo-notification-loginrequired';
 		return true;
