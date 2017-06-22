@@ -132,7 +132,7 @@
 	"notification-header-mention-article-talkpage": "$1 {{GENDER:$2|הזכיר|הזכירה}} {{GENDER:$3|אותך}} בדף השיחה של הדף <strong>$4</strong> בפסקה \"<strong>$5</strong>\".",
 	"notification-header-mention-article-talkpage-nosection": "$1 {{GENDER:$2|הזכיר|הזכירה}} {{GENDER:$3|אותך}} בדף השיחה של הדף <strong>$4</strong>.",
 	"notification-header-mention-failure-user-unknown": "האזכור ש{{GENDER:$2|עשית}} עבור <strong>$3</strong> לא נשלח כי המשתמש לא נמצא.",
-	"notification-header-mention-failure-user-anonymous": "האזכור ש{{GENDER:$2|עשית}} עבור <strong>$3</strong> לא נשלח כי המשתמש אנונימי.",
+	"notification-header-mention-failure-user-anonymous": "האזכור {{GENDER:$2|שלך}} לא נשלח אל <strong>$3</strong> כי זה משתמש אלמוני.",
 	"notification-header-mention-failure-too-many": "{{GENDER:$2|ניסית}} להזכיר יותר {{PLURAL:$3|ממשתמש אחד|מ־$3 משתמשים}}. כל האזכורים מעל המגבלה הזאת לא נשלחו.",
 	"notification-header-mention-failure-bundle": "{{PLURAL:$3|אזכור אחד|$3 אזכורים}} {{GENDER:$2|שעשית}} בדף השיחה <strong>$4</strong> לא {{PLURAL:$3|נשלח|נשלחו}}.",
 	"notification-compact-header-mention-failure-user-unknown": "<strong>משתמש לא קיים:</strong> $1",
