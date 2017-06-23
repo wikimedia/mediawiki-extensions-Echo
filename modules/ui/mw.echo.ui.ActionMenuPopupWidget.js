@@ -4,7 +4,7 @@
 	 *
 	 * We don't currently have anything that properly answers the complete
 	 * design for our popup menus in OOUI, so this widget serves two purposes:
-	 * 1. The FloatingMenuSelectWidget is intended to deliver a menu that relates
+	 * 1. The MenuSelectWidget is intended to deliver a menu that relates
 	 *    directly to its anchor, so its sizing is dictated by whatever anchors
 	 *    it. This is not what we require, so we have to override the 'click' event
 	 *    to reset the width of the menu.
@@ -31,8 +31,8 @@
 		this.menuWidth = config.menuWidth || 300;
 
 		// Menu
-		this.menu = new OO.ui.FloatingMenuSelectWidget( {
-			$container: this.$element,
+		this.menu = new OO.ui.MenuSelectWidget( {
+			$floatableContainer: this.$element,
 			classes: [ 'mw-echo-ui-actionMenuPopupWidget-menu' ],
 			widget: this
 		} );
@@ -81,7 +81,7 @@
 	/**
 	 * Get the widget's action menu
 	 *
-	 * @return {OO.ui.FloatingMenuSelectWidget} Menu
+	 * @return {OO.ui.MenuSelectWidget} Menu
 	 */
 	mw.echo.ui.ActionMenuPopupWidget.prototype.getMenu = function () {
 		return this.menu;
