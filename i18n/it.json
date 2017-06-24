@@ -15,7 +15,8 @@
 			"Catrope",
 			"Macofe",
 			"Matteocng",
-			"Anto"
+			"Anto",
+			"Pequod76"
 		]
 	},
 	"echo-desc": "Sistema per notificare agli utenti messaggi ed eventi",
@@ -93,7 +94,7 @@
 	"echo-api-failure": "Non è stato possibile recuperare le notifiche.",
 	"echo-api-failure-cross-wiki": "L'accesso al dominio remoto è stato negato.",
 	"echo-notification-placeholder": "Non ci sono notifiche.",
-	"echo-notification-placeholder-filters": "Non ci sono le notifiche che corrispondono a questi criteri.",
+	"echo-notification-placeholder-filters": "Non ci sono notifiche che corrispondano a questi criteri.",
 	"echo-notification-loginrequired": "Devi effettuare l'accesso per vedere le tue notifiche.",
 	"echo-notification-popup-loginrequired": "Effettua l'accesso per visualizzare le tue notifiche.",
 	"echo-notification-markasread": "Segna come già letto",
