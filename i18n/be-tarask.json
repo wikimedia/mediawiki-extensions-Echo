@@ -66,6 +66,8 @@
 	"notification-header-edit-user-talk-with-section": "$1 {{GENDER:$2|пакінуў|пакінула}} паведамленьне на <strong>{{GENDER:$3|вашай}} старонцы размоваў</strong> у «<strong>$4</strong>».",
 	"notification-header-thank-you-1-edit": "{{GENDER:$2|Вы}} толькі што зрабілі {{GENDER:$2|вашую}} першую праўку; дзякуем {{GENDER:$2|вам}} і запрашаем!",
 	"notification-header-thank-you-10-edit": "{{GENDER:$2|Вы}} толькі што зрабілі {{GENDER:$2|вашую}} дзясятую праўку; дзякуем {{GENDER:$2|вам}}, так трымаць!",
+	"notification-header-thank-you-100-edit": "{{GENDER:$2|Вы}} толькі што зрабілі {{GENDER:$2|вашую}} сотую праўку; дзякуй {{GENDER:$2|вам}} вялікі!",
+	"notification-header-thank-you-1000-edit": "{{GENDER:$2|Вы}} толькі што зрабілі {{GENDER:$2|вашую}} тысячную праўку; дзякуй {{GENDER:$2|вам}} за вялікі ўнёсак!",
 	"notification-link-text-view-edit": "Праглядзець праўку",
 	"notification-header-reverted": "{{PLURAL:$4|1=Вашая праўка|Вашыя праўкі}} на старонцы <strong>$3</strong> {{GENDER:$2|{{PLURAL:$4|1=была скасаваная|былі скасаваныя}}}}.",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|пакінуў|пакінула}} Вам паведамленьне на {{SITENAME}}",
