@@ -37,7 +37,7 @@ class EchoHooks {
 	 */
 	public static function initEchoExtension() {
 		global $wgEchoNotifications, $wgEchoNotificationCategories, $wgEchoNotificationIcons,
-			$wgEchoEventLoggingSchemas, $wgEchoMentionStatusNotifications;
+			$wgEchoEventLoggingSchemas, $wgEchoMentionStatusNotifications, $wgAllowArticleReminderNotification;
 
 		// allow extensions to define their own event
 		Hooks::run( 'BeforeCreateEchoEvent', [ &$wgEchoNotifications, &$wgEchoNotificationCategories, &$wgEchoNotificationIcons ] );
@@ -46,6 +46,11 @@ class EchoHooks {
 		if ( !$wgEchoMentionStatusNotifications ) {
 			unset( $wgEchoNotificationCategories['mention-failure'] );
 			unset( $wgEchoNotificationCategories['mention-success'] );
+		}
+
+		// Only allow article reminder notifications when enabled
+		if ( !$wgAllowArticleReminderNotification ) {
+			unset( $wgEchoNotificationCategories['article-reminder'] );
 		}
 
 		// turn schema off if eventLogging is not enabled
@@ -657,6 +662,8 @@ class EchoHooks {
 	 * @return bool
 	 */
 	public static function onLocalUserCreated( $user, $autocreated ) {
+		global $wgAllowArticleReminderNotification;
+
 		if ( !$autocreated ) {
 			$overrides = self::getNewUserPreferenceOverrides();
 			foreach ( $overrides as $prefKey => $value ) {
@@ -664,6 +671,18 @@ class EchoHooks {
 			}
 
 			$user->saveSettings();
+
+			// Temporarily here, just for the POC
+			if ( $wgAllowArticleReminderNotification ) {
+				EchoEvent::create( [
+					'type' => 'article-reminder',
+					'agent' => $user,
+					'title' => Title::newMainPage(),
+					'extra' => [
+						'notifyAgent' => true
+					]
+				] );
+			}
 
 			EchoEvent::create( [
 				'type' => 'welcome',
