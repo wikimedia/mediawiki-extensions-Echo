@@ -557,7 +557,6 @@ class EchoHooks {
 			$thresholdCount = $user->getEditCount();
 			if ( in_array( $thresholdCount, $thresholds ) ) {
 				DeferredUpdates::addCallableUpdate( function () use ( $user, $title, $thresholdCount ) {
-
 					$notificationMapper = new EchoNotificationMapper();
 					$notifications = $notificationMapper->fetchByUser( $user, 10, null, [ 'thank-you-edit' ] );
 					/** @var EchoNotification $notification */
