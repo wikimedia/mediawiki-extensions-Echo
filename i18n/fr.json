@@ -187,6 +187,7 @@
 	"notification-header-thank-you-1000000-edit": "{{GENDER:$2|Vous}} venez de faire {{GENDER:$2|votre}} millionième modification, merci à {{GENDER:$2|vous}} pour votre participation exceptionnelle !",
 	"notification-link-thank-you-edit": "{{GENDER:$1|Votre}} modification",
 	"notification-link-text-view-edit": "Afficher la modification",
+	"notification-link-article-reminder": "Afficher l’article",
 	"notification-header-reverted": "{{PLURAL:$4|Votre modification sur <strong>$3</strong> a|Vos modifications sur <strong>$3</strong> ont}} été {{GENDER:$2|annulée}}{{PLURAL:$4||s}}.",
 	"notification-header-emailuser": "$1 vous {{GENDER:$2|a envoyé}} un courriel.",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|a laissé}} un message sur votre page de discussion sur {{SITENAME}}.",
