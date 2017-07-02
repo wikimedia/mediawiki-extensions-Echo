@@ -152,6 +152,7 @@
 	"notification-header-thank-you-1000000-edit": "{{GENDER:$2|আপনি}} এইমাত্র {{GENDER:$2|আপনার}} এক লক্ষতম সম্পাদনা করেছেন; একজন অসাধারণ অবদানকারী হওয়ার জন্য {{GENDER:$2|আপনাকে}} ধন্যবাদ!",
 	"notification-link-thank-you-edit": "{{GENDER:$1|আপনার}} সম্পাদনা",
 	"notification-link-text-view-edit": "সম্পাদনা দেখাও",
+	"notification-link-article-reminder": "নিবন্ধ দেখুন",
 	"notification-header-reverted": "<strong>$3</strong>-এ আপনার করা {{PLURAL:$4|সম্পাদনা|সম্পাদনাগুলো}} {{GENDER:$2|পূর্বাবস্থায় নেয়া হয়েছে}}।",
 	"notification-header-emailuser": "$1 আপনাকে একটি ইমেইল {{GENDER:$2|পাঠিয়েছেন}}।",
 	"notification-edit-talk-page-email-subject2": "$1 {{SITENAME}} এ আপনার জন্য একটি বার্তা {{GENDER:$1|রেখেছেন}}",

@@ -147,6 +147,7 @@
 	"notification-header-thank-you-1000000-edit": "{{GENDER:$2|Dir}} hutt elo grad {{GENDER:$2|Är}} milliounst Ännerung gemaach; Villmools {{GENDER:$2|Merci}}fir Ären erstaunleche Beitrag!",
 	"notification-link-thank-you-edit": "{{GENDER:$1|Är}} Ännerung",
 	"notification-link-text-view-edit": "Ännerung weisen",
+	"notification-link-article-reminder": "Artikel weisen",
 	"notification-header-reverted": "Är {{PLURAL:$4|Ännerung op <strong>$3</strong> gouf|Ännerungen op <strong>$3</strong> goufen}} {{GENDER:$2|zréckgesat}}.",
 	"notification-header-emailuser": "$1 huet {{GENDER:$2|Iech}} eng E-Mail geschéckt.",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|huet}} Iech en neie Message op Ärer Diskussiounssäit op {{SITENAME}} hannerlooss",

@@ -35,7 +35,8 @@
 			"Gamliel Fishkin",
 			"Alex Great",
 			"Facenapalm",
-			"ЛосЯш"
+			"ЛосЯш",
+			"DevilishSkull"
 		]
 	},
 	"echo-desc": "Система уведомления участников о событиях и сообщениях",
@@ -82,6 +83,7 @@
 	"echo-pref-tooltip-mention-success": "Уведомлять меня, когда я отправляю упоминание кому-либо.",
 	"echo-pref-tooltip-user-rights": "Сообщать мне, когда кто-то изменяет мои права участника.",
 	"echo-pref-tooltip-emailuser": "Сообщать мне, когда кто-то присылает мне письмо по электронной почте.",
+	"echo-pref-tooltip-article-reminder": "Сообщите мне об этой статье, когда я попрошу.",
 	"echo-error-no-formatter": "Форматирование не определено для уведомления",
 	"notifications": "Уведомления",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Ваши}} оповещения",
@@ -146,6 +148,7 @@
 	"notification-header-page-linked": "Была сделана ссылка с <strong>$4</strong> на <strong>$3</strong>.",
 	"notification-compact-header-page-linked": "Связано с $1",
 	"notification-bundle-header-page-linked": "Были сделаны ссылки с {{PLURAL:$5||$5 страниц|100=99+ других страниц}} на <strong>$3</strong>.",
+	"notification-header-article-reminder": "Статья, о которой {{GENDER:$2|вы}} попросили напоминать <strong>$3</strong>",
 	"notification-link-text-what-links-here": "Все ссылки на эту страницу",
 	"notification-header-mention-other": "$1 упомянул{{GENDER:$2||а}} {{GENDER:$3|вас}} на странице <strong>$4</strong> в разделе «<strong>$5</strong>».",
 	"notification-header-mention-other-nosection": "$1 упомянул{{GENDER:$2||а}} {{GENDER:$3|вас}} на странице <strong>$4</strong>.",
@@ -180,6 +183,7 @@
 	"notification-header-thank-you-1000000-edit": "{{GENDER:$2|Вы}} только что сделали {{GENDER:$2|свою}} миллионную правку; спасибо {{GENDER:$2|вам}} за умопомрачительный вклад!",
 	"notification-link-thank-you-edit": "{{GENDER:$1|Ваша}} правка",
 	"notification-link-text-view-edit": "Просмотр правки",
+	"notification-link-article-reminder": "Посмотреть статью",
 	"notification-header-reverted": "{{PLURAL:$4|Ваша правка|Ваши правки}} на странице <strong>$3</strong> {{GENDER:$2|{{PLURAL:$4|была отменена|были отменены}}}}.",
 	"notification-header-emailuser": "$1 отправил{{GENDER:$2||а}} вам письмо.",
 	"notification-edit-talk-page-email-subject2": "{{GENDER:$1|Участник|Участница}} $1 {{GENDER:$1|оставил|оставила}} вам сообщение на сайте «{{SITENAME}}»",

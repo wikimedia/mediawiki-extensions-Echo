@@ -124,7 +124,7 @@
 	"notification-header-page-linked": "נוצר קישור מהדף <strong>$4</strong> אל הדף <strong>$3</strong>.",
 	"notification-compact-header-page-linked": "קושר מהדף <strong>$1</strong>.",
 	"notification-bundle-header-page-linked": "נוצרו קישורים מ{{GRAMMAR:תחילית|{{PLURAL:$5||$5 דפים|100=99+ דפים}}}} אל הדף <strong>$3</strong>.",
-	"notification-header-article-reminder": "ערך שביקשת תזכורות עליו נמצא ב־<strong>$3</strong>",
+	"notification-header-article-reminder": "ערך {{GENDER:$2|שביקשת}} תזכורות עליו נמצא ב־<strong>$3</strong>",
 	"notification-link-text-what-links-here": "כל הקישורים לדף הזה",
 	"notification-header-mention-other": "$1 {{GENDER:$2|הזכיר|הזכירה}} {{GENDER:$3|אותך}} בדף <strong>$4</strong> בפסקה \"<strong>$5</strong>\".",
 	"notification-header-mention-other-nosection": "$1 {{GENDER:$2|הזכיר|הזכירה}} {{GENDER:$3|אותך}} בדף <strong>$4</strong>.",
