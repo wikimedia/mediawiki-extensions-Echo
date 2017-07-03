@@ -155,6 +155,7 @@
 	"notification-header-page-linked": "Un lien vers <strong>$3</strong> a été créé sur <strong>$4</strong>.",
 	"notification-compact-header-page-linked": "Lié depuis <strong>$1</strong>.",
 	"notification-bundle-header-page-linked": "Des liens vers « <strong>$3</strong> » ont été insérés dans {{PLURAL:$5||$5 pages|100=plus de 100 pages}}.",
+	"notification-header-article-reminder": "Un article dont {{GENDER:$2|vous}} avez demandé qu'on vous le rappelle est disponible sur <strong>$3</strong>",
 	"notification-link-text-what-links-here": "Tous les liens vers cette page",
 	"notification-header-mention-other": "$1 {{GENDER:$2|vous}} {{GENDER:$3|a mentionné|a mentionnée}} sur <strong>$4</strong> dans « <strong>$5</strong> ».",
 	"notification-header-mention-other-nosection": "$1 {{GENDER:$2|vous}} {{GENDER:$3|a mentionné|a mentionnée}} sur <strong>$4</strong>.",

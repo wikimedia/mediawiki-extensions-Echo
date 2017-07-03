@@ -129,6 +129,7 @@
 	"notification-header-thank-you-1-edit": "{{GENDER:$2|आपने}} अभी अभी {{GENDER:$2|अपना}} पहला सम्पादन किया है; {{GENDER:$2|आपका}} धन्यवाद, और स्वागत है!",
 	"notification-link-thank-you-edit": "{{GENDER:$1|आपके}} सम्पादन",
 	"notification-link-text-view-edit": "सम्पादन देखें",
+	"notification-link-article-reminder": "लेख देखें",
 	"notification-header-reverted": "$3 पर आपके {{PLURAL:$4|सम्पादन|सम्पादनों}} को $1 द्वारा {{GENDER:$2|पूर्ववत}} कर दिया गया है।",
 	"notification-header-emailuser": "$1 ने आपको ईमेल {{GENDER:$2|भेजा}} है।",
 	"notification-edit-talk-page-email-subject2": "$1 ने आपके लिए {{SITENAME}} पर संदेश {{GENDER:$1|छोड़ा है}}",
