@@ -54,7 +54,7 @@
 	"echo-category-title-emailuser": "{{PLURAL:$1|E-Mail von einem anderen Benutzer|E-Mails von anderen Benutzern}}",
 	"echo-category-title-article-reminder": "Seitenerinnerungen",
 	"echo-pref-tooltip-edit-user-talk": "Benachrichtige mich, wenn jemand eine Nachricht oder eine Antwort auf meiner Diskussionsseite hinterlässt.",
-	"echo-pref-tooltip-article-linked": "Benachrichtige mich, wenn jemand auf einer Seite auf eine andere von mir erstellten Seite verlinkt.",
+	"echo-pref-tooltip-article-linked": "Benachrichtige mich, wenn jemand auf einer Seite auf eine andere von mir erstellte Seite verlinkt.",
 	"echo-pref-tooltip-reverted": "Benachrichtige mich, wenn jemand eine von mir gemachte Bearbeitung rückgängig macht oder zurücksetzt.",
 	"echo-pref-tooltip-mention": "Benachrichtige mich, wenn jemand auf meine Benutzerseite verlinkt.",
 	"echo-pref-tooltip-mention-failure": "Benachrichtige mich, wenn ich keine Erwähnung an jemanden versenden konnte.",

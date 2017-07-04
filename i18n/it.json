@@ -55,7 +55,7 @@
 	"echo-category-title-user-rights": "{{PLURAL:$1|Modifica diritto|Modifiche diritti}} utente",
 	"echo-category-title-emailuser": "{{PLURAL:$1|Email da un altro utente|Email da altri utenti}}",
 	"echo-pref-tooltip-edit-user-talk": "Avvisami quando qualcuno mi scrive un messaggio o risponde nella mia pagina di discussione.",
-	"echo-pref-tooltip-article-linked": "Avvisami quando qualcuno collega, da una voce, una pagina che ho creato.",
+	"echo-pref-tooltip-article-linked": "Avvisami quando qualcuno collega una pagina che ho creato da un'altra pagina.",
 	"echo-pref-tooltip-reverted": "Avvisami quando qualcuno annulla una modifica che ho fatto, usando le funzioni annulla o rollback.",
 	"echo-pref-tooltip-mention": "Avvisami quando qualcuno collega la mia pagina utente.",
 	"echo-pref-tooltip-mention-failure": "Avvisami quando non ho potuto inviare una menzione a qualcuno.",
