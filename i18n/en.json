@@ -72,7 +72,7 @@
 	"echo-category-title-system": "{{PLURAL:$1|System}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|User rights change|User rights changes}}",
 	"echo-category-title-emailuser": "{{PLURAL:$1|Email from other user|Emails from other users}}",
-	"echo-category-title-article-reminder": "Page reminders",
+	"echo-category-title-article-reminder": "Page {{PLURAL:$1|reminder|reminders}}",
 	"echo-pref-tooltip-edit-user-talk": "Notify me when someone posts a message or replies on my talk page.",
 	"echo-pref-tooltip-article-linked": "Notify me when someone links to a page I created from another page.",
 	"echo-pref-tooltip-reverted": "Notify me when someone reverts an edit I made, by using the undo or rollback tool.",
