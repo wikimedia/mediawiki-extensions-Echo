@@ -49,7 +49,7 @@
 	"echo-category-title-user-rights": "{{PLURAL:$1|změnu|změny}} uživatelských práv",
 	"echo-category-title-emailuser": "{{PLURAL:$1|e-mail od jiného uživatele|e-maily od jiných uživatelů}}",
 	"echo-pref-tooltip-edit-user-talk": "Upozorněte mě, když mi někdo na mé diskusní stránce napíše zprávu nebo odpoví.",
-	"echo-pref-tooltip-article-linked": "Upozorněte mě, když někdo na stránku, kterou jsem {{GENDER:|založil|založila}}, odkáže z článku.",
+	"echo-pref-tooltip-article-linked": "Upozorněte mě, když někdo na stránku, kterou jsem {{GENDER:|založil|založila}}, odkáže z jiné stránky.",
 	"echo-pref-tooltip-reverted": "Upozorněte mě, když někdo úpravu, kterou jsem {{GENDER:|provedl|provedla}}, vrátí pomocí nástrojů pro zrušení editace nebo vrácení zpět.",
 	"echo-pref-tooltip-mention": "Upozorněte mě, když někdo odkáže na mou uživatelskou stránku.",
 	"echo-pref-tooltip-mention-failure": "Upozorněte mě, když někomu nešlo odeslat zmínku.",
