@@ -75,6 +75,7 @@
 	"notification-header-thank-you-1000000-edit": "{{GENDER:$2|Вы}} толькі што зрабілі {{GENDER:$2|вашую}} мільённую праўку; дзякуй {{GENDER:$2|вам}} за ашаламляльны ўнёсак!",
 	"notification-link-text-view-edit": "Праглядзець праўку",
 	"notification-header-reverted": "{{PLURAL:$4|1=Вашая праўка|Вашыя праўкі}} на старонцы <strong>$3</strong> {{GENDER:$2|{{PLURAL:$4|1=была скасаваная|былі скасаваныя}}}}.",
+	"notification-header-emailuser": "$1 {{GENDER:$2|даслаў|даслала}} вам ліст электроннай поштай.",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|пакінуў|пакінула}} Вам паведамленьне на {{SITENAME}}",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 {{GENDER:$1|пакінуў|пакінула}} паведамленьне на Вашай старонцы гутарак у «$2».",
 	"notification-page-linked-email-subject": "На старонку, якую вы стварылі, спаслаліся ў {{GRAMMAR:месны|{{SITENAME}}}}",

@@ -4,7 +4,8 @@
 			"Nullzero",
 			"Supasate",
 			"Horus",
-			"Bluegram"
+			"Bluegram",
+			"Ans"
 		]
 	},
 	"echo-desc": "ระบบสำหรับแจ้งผู้ใช้เกี่ยวกับเหตุการณ์และสาร",
@@ -30,11 +31,14 @@
 	"echo-category-title-edit-user-talk": "สารหน้าพูดคุย",
 	"echo-category-title-article-linked": "การโยงหน้า",
 	"echo-category-title-reverted": "การย้อนการแก้ไข",
-	"echo-category-title-mention": "การกล่าวถึง",
+	"echo-category-title-mention": "{{PLURAL:$1|การกล่าวถึง}}",
+	"echo-category-title-mention-failure": "{{PLURAL:$1|การกล่าวถึง}}ที่ไม่ประสบผลสำเร็จ",
+	"echo-category-title-mention-success": "{{PLURAL:$1|การกล่าวถึง}}ที่ประสบผลสำเร็จ",
 	"echo-category-title-other": "อื่น ๆ",
 	"echo-category-title-system": "{{PLURAL:$1|ระบบ}}",
 	"echo-category-title-user-rights": "การเปลี่ยนแปลงสิทธิผู้ใช้",
 	"echo-category-title-emailuser": "อีเมลจากผู้ใช้อื่น",
+	"echo-category-title-article-reminder": "{{PLURAL:$1|ตัวแจ้งเตือน}}หน้า",
 	"echo-pref-tooltip-edit-user-talk": "แจ้งเตือนเมื่อมีคนโพสต์ข้อความหรือตอบในหน้าพูดคุยของฉัน",
 	"echo-pref-tooltip-article-linked": "แจ้งเตือนฉันเมื่อมีคนโยงจากหน้าบทความถึงหน้าที่ฉันสร้าง",
 	"echo-pref-tooltip-reverted": "แจ้งเตือนฉันเมื่อมีคนย้อนการแก้ไขของฉัน โดยใช้เครื่องมือทำกลับหรือย้อนกลับการแก้ไข",

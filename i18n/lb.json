@@ -43,6 +43,7 @@
 	"echo-category-title-system": "{{PLURAL:$1|System}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|Ännerung vu Benotzerrechter|Ännerunge vu Benotzerrechter}}",
 	"echo-category-title-emailuser": "{{PLURAL:$1|E-Mail vun engem anere Benotzer|E-Maile vun anere Benotzer}}",
+	"echo-category-title-article-reminder": "Säit {{PLURAL:$1|Erënnerung|Erënnerungen}}",
 	"echo-pref-tooltip-edit-user-talk": "Mech informéiere wann een eppes op meng Diskussiounssäit schreift oder do äntwert.",
 	"echo-pref-tooltip-article-linked": "Mech informéiere wann een an engem Artikel op eng aner Säit verlinkt, déi ech kreéiert hunn.",
 	"echo-pref-tooltip-reverted": "Mech informéiere wann ee meng Ännerung zerécksetzt oder wann de 'Rollback'-Tool benotzt gëtt.",
