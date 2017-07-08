@@ -52,6 +52,7 @@
 	"echo-pref-tooltip-mention-success": "Mech informéieren wann ech engem eng Mentioun geschéckt hunn.",
 	"echo-pref-tooltip-user-rights": "Mech informéiere wann ee meng Benotzerrechter ännert.",
 	"echo-pref-tooltip-emailuser": "Mech informéiere wann ee mir en E-Mail schéckt.",
+	"echo-pref-tooltip-article-reminder": "Mech iwwer dës Säit notifiéieren wann ech froen.",
 	"echo-error-no-formatter": "Keng Formatéierung fir Notifikatiounen definéiert.",
 	"notifications": "Notifikatiounen",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Är}} Warnungen",

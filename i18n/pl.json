@@ -164,7 +164,7 @@
 	"notification-header-thank-you-1000000-edit": "Właśnie {{GENDER:$2|dokonałeś|dokonałaś}} swojej milionowej edycji; dziękujemy Ci za Twój zadziwiający wkład!",
 	"notification-link-thank-you-edit": "{{GENDER:$1|Twoja}} edycja",
 	"notification-link-text-view-edit": "Zobacz edycję",
-	"notification-link-article-reminder": "Zobacz artykuł",
+	"notification-link-article-reminder": "Zobacz stronę",
 	"notification-header-reverted": "{{GENDER:$2|Wycofano}} {{PLURAL:$4|twoją edycję|twoje edycje}} na stronie <strong>$3</strong>.",
 	"notification-header-emailuser": "$1 {{GENDER:$2|wysłał|wysłała|wysłał(a)}} Ci e-mail.",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|napisał|napisała}} do Ciebie w projekcie {{SITENAME}}",
