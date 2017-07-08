@@ -2,15 +2,15 @@
 
 class EchoPlainTextEmailFormatter extends EchoEventFormatter {
 	protected function formatModel( EchoEventPresentationModel $model ) {
-		$subject = EchoDiscussionParser::htmlToText( $model->getSubjectMessage()->parse() );
+		$subject = Sanitizer::stripAllTags( $model->getSubjectMessage()->parse() );
 
-		$text = EchoDiscussionParser::htmlToText( $model->getHeaderMessage()->parse() );
+		$text = Sanitizer::stripAllTags( $model->getHeaderMessage()->parse() );
 
 		$text .= "\n\n";
 
 		$bodyMsg = $model->getBodyMessage();
 		if ( $bodyMsg ) {
-			$text .= EchoDiscussionParser::htmlToText( $bodyMsg->parse() );
+			$text .= Sanitizer::stripAllTags( $bodyMsg->parse() );
 		}
 
 		$primaryLink = $model->getPrimaryLinkWithMarkAsRead();

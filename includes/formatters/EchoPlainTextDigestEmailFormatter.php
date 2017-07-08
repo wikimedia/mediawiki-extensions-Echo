@@ -21,7 +21,7 @@ class EchoPlainTextDigestEmailFormatter extends EchoEventDigestFormatter {
 	protected function formatModels( array $models ) {
 		$content = [];
 		foreach ( $models as $model ) {
-			$content[$model->getCategory()][] = EchoDiscussionParser::htmlToText( $model->getHeaderMessage()->parse() );
+			$content[$model->getCategory()][] = Sanitizer::stripAllTags( $model->getHeaderMessage()->parse() );
 		}
 
 		ksort( $content );

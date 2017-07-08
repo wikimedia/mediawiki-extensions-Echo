@@ -1155,7 +1155,7 @@ abstract class EchoDiscussionParser {
 	static function getTextSnippet( $text, Language $lang, $length = 150, $title = null ) {
 		// Parse wikitext
 		$html = MessageCache::singleton()->parse( $text, $title )->getText();
-		$plaintext = self::htmlToText( $html );
+		$plaintext = trim( Sanitizer::stripAllTags( $html ) );
 		return $lang->truncate( $plaintext, $length );
 	}
 
@@ -1169,16 +1169,8 @@ abstract class EchoDiscussionParser {
 	static function getTextSnippetFromSummary( $text, Language $lang, $length = 150 ) {
 		// Parse wikitext with summary parser
 		$html = Linker::formatLinksInComment( Sanitizer::escapeHtmlAllowEntities( $text ) );
-		$plaintext = self::htmlToText( $html );
+		$plaintext = trim( Sanitizer::stripAllTags( $html ) );
 		return $lang->truncate( $plaintext, $length );
-	}
-
-	/**
-	 * @param string $html
-	 * @return string text version of the given html string
-	 */
-	public static function htmlToText( $html ) {
-		return trim( html_entity_decode( strip_tags( $html ), ENT_QUOTES ) );
 	}
 
 	/**
