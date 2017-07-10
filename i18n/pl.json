@@ -59,6 +59,7 @@
 	"echo-category-title-system": "{{PLURAL:$1|Zdarzenie systemowe|Zdarzenia systemowe}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|Zmiana uprawnień|Zmiany uprawnień}}",
 	"echo-category-title-emailuser": "{{PLURAL:$1|E-mail od innego użytkownika|E-maile od innych użytkowników}}",
+	"echo-category-title-article-reminder": "Strona {{PLURAL:$1|reminder|reminders}}",
 	"echo-pref-tooltip-edit-user-talk": "Powiadom mnie, kiedy ktoś napisze nową wiadomość albo odpowie na mojej stronie dyskusji.",
 	"echo-pref-tooltip-article-linked": "Powiadom mnie, kiedy ktoś umieści w artykule link do strony utworzonej przeze mnie.",
 	"echo-pref-tooltip-reverted": "Powiadom mnie, kiedy ktoś wycofa moją edycję korzystając z narzędzia „anuluj” albo „cofnij”.",

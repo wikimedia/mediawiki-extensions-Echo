@@ -10,7 +10,8 @@
 			"Teslaton",
 			"Kvetoslav47",
 			"Dvorapa",
-			"Danny B."
+			"Danny B.",
+			"Meliganai"
 		]
 	},
 	"echo-desc": "Systém pro upozorňování uživatelů na události a zprávy",
@@ -48,6 +49,7 @@
 	"echo-category-title-system": "{{PLURAL:$1|systémovou událost|systémové události}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|změnu|změny}} uživatelských práv",
 	"echo-category-title-emailuser": "{{PLURAL:$1|e-mail od jiného uživatele|e-maily od jiných uživatelů}}",
+	"echo-category-title-article-reminder": "Stránka {{PLURAL:$1|upomínka|upomínky}}",
 	"echo-pref-tooltip-edit-user-talk": "Upozorněte mě, když mi někdo na mé diskusní stránce napíše zprávu nebo odpoví.",
 	"echo-pref-tooltip-article-linked": "Upozorněte mě, když někdo na stránku, kterou jsem {{GENDER:|založil|založila}}, odkáže z jiné stránky.",
 	"echo-pref-tooltip-reverted": "Upozorněte mě, když někdo úpravu, kterou jsem {{GENDER:|provedl|provedla}}, vrátí pomocí nástrojů pro zrušení editace nebo vrácení zpět.",
