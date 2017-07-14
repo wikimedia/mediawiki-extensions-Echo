@@ -68,7 +68,7 @@
 	"echo-pref-tooltip-mention-success": "Powiadom mnie, kiedy wyślę do kogoś informacje o wzmiance.",
 	"echo-pref-tooltip-user-rights": "Powiadamiaj mnie, gdy ktoś zmieni moje uprawnienia.",
 	"echo-pref-tooltip-emailuser": "Powiadom mnie, gdy ktoś wyśle mi e-mail.",
-	"echo-pref-tooltip-article-reminder": "Powiadom mnie o tym artykule, gdy zapytam.",
+	"echo-pref-tooltip-article-reminder": "Powiadom mnie o tej stronie, gdy zapytam.",
 	"echo-error-no-formatter": "Nie określono formatowania dla powiadomień",
 	"notifications": "Powiadomienia",
 	"tooltip-pt-notifications-alert": "Moje powiadomienia",

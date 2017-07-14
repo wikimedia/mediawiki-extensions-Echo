@@ -1,19 +1,23 @@
 {
 	"@metadata": {
 		"authors": [
-			"TheEduGobi"
+			"TheEduGobi",
+			"Felipe L. Ewald"
 		]
 	},
 	"apihelp-echomarkread-description": "Marcar notificações como lidas para o usuário atual.",
+	"apihelp-echomarkread-summary": "Marcar notificações como lidas para o usuário atual.",
 	"apihelp-echomarkread-param-list": "Uma lista de IDs de notificação para marcar como lidos.",
 	"apihelp-echomarkread-param-all": "Se habilitado, marca todas as notificações de um usuário como lidas.",
 	"apihelp-echomarkread-param-sections": "Uma lista de seções para marcar como lidas.",
 	"apihelp-echomarkread-example-1": "Marcar a notificação 8 como lida",
 	"apihelp-echomarkread-example-2": "Marcar todas as notificações como lidas",
 	"apihelp-echomarkseen-description": "Marcar notificações como vistas para o usuário atual.",
+	"apihelp-echomarkseen-summary": "Marcar notificações como vistas para o usuário atual.",
 	"apihelp-echomarkseen-example-1": "Marcar notificações de todos os tipos como vistas",
 	"apihelp-echomarkseen-param-type": "Tipo de notificações para marcar como vistas: 'alerta', 'mensagem' ou 'tudo'.",
 	"apihelp-query+notifications-description": "Receber notificações aguardando pelo usuário atual.",
+	"apihelp-query+notifications-summary": "Receber notificações aguardando pelo usuário atual.",
 	"apihelp-query+notifications-param-prop": "Detalhes para solicitar.",
 	"apihelp-query+notifications-param-sections": "As seções de notificação para consultar (ou seja, uma combinação de 'alerta' e 'mensagem').",
 	"apihelp-query+notifications-param-groupbysection": "Se agrupar ou não os resultados por seção. Se habilitado, cada seção será obtida separadamente.",

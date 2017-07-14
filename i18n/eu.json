@@ -88,7 +88,7 @@
 	"notification-header-thank-you-1000-edit": "{{GENDER:$2|Zure}} milagarren edizioa egin berri {{GENDER:$2|duzu}}; eskerrak {{GENDER:$2|zuri}} hain lankide oparoa izateagatik!",
 	"notification-header-thank-you-100000-edit": "{{GENDER:$2|Zure}} ehunmilagarren edizioa egin berri {{GENDER:$2|duzu}}; Eskerrak  {{GENDER:$2|zuri}} egindako ekarpen itzelagatik!",
 	"notification-link-text-view-edit": "Ikusi aldaketa",
-	"notification-link-article-reminder": "Ikusi artikulua",
+	"notification-link-article-reminder": "Orrialdea ikusi",
 	"notification-header-emailuser": "$1 lankideak email bat {{GENDER:$2|bidali}} dizu.",
 	"notification-edit-talk-page-email-subject2": "$1(e)k mezu bat {{GENDER:$1|utzi}} dizu {{SITENAME}} gunean",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1(e)k mezu bat {{GENDER:$1|utzi}} dizu zure eztabaida orriko ''$2'' atalean.",
