@@ -20,6 +20,7 @@
 	"echo-learn-more": "ស្វែងយល់បន្ថែម",
 	"echo-new-messages": "អ្នកមានសារថ្មីៗ",
 	"notifications": "ការជូនដំណឹង",
+	"tooltip-pt-notifications-alert": "ការជូនដំណឹង{{GENDER:|មកអ្នក}}",
 	"echo-anon": "ដើម្បីទទួលបានការជូនដំណឺង សូម[$1 បង្កើតគណនី] ឬ [$2 កត់ឈ្មោះចូល]។",
 	"echo-email-footer-default": "$2\n\nដើម្បីកំណត់អ៊ីមែលដែលយើងត្រូវផ្ញើអោយអ្នក សូមពិនិត្យចំណង់ចំណូលសិត្តរបស់អ្នក៖\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
 	"echo-overlay-link": "ការជូនដំណឹងទាំងអស់"

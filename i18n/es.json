@@ -69,7 +69,7 @@
 	"echo-category-title-emailuser": "{{PLURAL:$1|Correo electrónico de otro usuario|Correos electrónicos de otros usuarios}}",
 	"echo-category-title-article-reminder": "{{PLURAL:$1|Recordatorio de páginas|Recordatorios de páginas}}",
 	"echo-pref-tooltip-edit-user-talk": "Notificarme cuando alguien publique un mensaje o responda en mi página de discusión.",
-	"echo-pref-tooltip-article-linked": "Notificarme cuando alguien enlace en un artículo a una página creada por mí.",
+	"echo-pref-tooltip-article-linked": "Notificarme cuando alguien enlace a una página creada a partir de otra página.",
 	"echo-pref-tooltip-reverted": "Notificarme cuando alguien revierta una edición mía mediante las herramientas de deshacer o revertir.",
 	"echo-pref-tooltip-mention": "Notificarme cuando alguien enlace mi página de {{GENDER:|usuario|usuaria}}.",
 	"echo-pref-tooltip-mention-failure": "Notificarme cuando no pueda enviar una mención a alguien.",
