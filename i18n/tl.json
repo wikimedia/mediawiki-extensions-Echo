@@ -5,7 +5,8 @@
 			"Sky Harbor",
 			"TheSleepyhollow02",
 			"Jojit fb",
-			"Leeheonjin"
+			"Leeheonjin",
+			"Emem.calist"
 		]
 	},
 	"echo-desc": "Sistema ng pagpapabatid",
@@ -36,6 +37,7 @@
 	"echo-pref-tooltip-edit-user-talk": "Ipabatid sa akin kung may nagpaskil ng mensahe o may tumugon sa aking pahinang usapan.",
 	"echo-pref-tooltip-article-linked": "Ipabatid sa akin kung may kumawing sa pahinang inilika ko mula sa isang pahina ng artikulo.",
 	"echo-pref-tooltip-mention": "Ipabatid sa aking kung may kumawing sa aking pahina ng tagagamit mula sa anumang pahinang usapan.",
+	"echo-pref-tooltip-article-reminder": "PakiTawag-Pansin mo ako kapag ito ay naitanong.",
 	"echo-error-no-formatter": "Walang itinakdang anyo para sa pabatid.",
 	"notifications": "Mga pagpapabatid",
 	"echo-specialpage": "Mga pabatid",
@@ -52,6 +54,7 @@
 	"notification-header-welcome": "{{GENDER:$2|Maligayang pagdating}} sa {{SITENAME}}, $1! Ikinalulugod naming {{GENDER:$2|ikaw ay}} narito.",
 	"notification-welcome-linktext": "Maligayang pagdating",
 	"notification-link-text-view-edit": "Ipakita ang pagbabago",
+	"notification-link-article-reminder": "Paki-Lathala ang pahina",
 	"notification-header-reverted": "Ang iyong {{PLURAL:$4|edit noong $3 ay|mga edit noong $3 ay}} {{GENDER:$2|ipinanumbalik}} ni $1.",
 	"notification-edit-talk-page-email-subject2": "{{GENDER:$1|Nag-iwan}} si $1 ng mensahe para sa iyo sa {{SITENAME}}",
 	"notification-edit-talk-page-email-batch-body-with-section": "{{GENDER:$1|Nag-iwan}} si $1 ng mensahe sa iyong pahinang usapan sa \"$2\".",

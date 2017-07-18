@@ -76,7 +76,7 @@
 	"echo-notification-markasread": "Marcar como lida",
 	"echo-notification-markasread-tooltip": "Marcar como lida",
 	"notification-dynamic-actions-unwatch": "{{GENDER:$3|Parar}} de vigiar nova atividade em \"$1\"",
-	"notification-dynamic-actions-unwatch-confirmation": "Não {{GENDER:$3|está}} mais a vigiar a página \"$1\"",
+	"notification-dynamic-actions-unwatch-confirmation": "{{GENDER:$3|Você}} não está mais vigiando a página \"$1\"",
 	"notification-link-text-expand-all": "Expandir",
 	"notification-link-text-expand-alert-count": "Ver {{PLURAL:$1|$1 alerta|$1 alertas}}",
 	"notification-link-text-expand-notice-count": "Ver {{PLURAL:$1|$1 notificação|$1 notificações}}",
