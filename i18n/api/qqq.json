@@ -48,6 +48,13 @@
 	"apihelp-query+notifications-param-bundle": "{{doc-apihelp-param|query+notifications|bundle}}",
 	"apihelp-query+notifications-example-1": "{{doc-apihelp-example|query+notifications}}",
 	"apihelp-query+notifications-example-2": "{{doc-apihelp-example|query+notifications}}",
+	"apihelp-echoarticlereminder-summary": "{{doc-apihelp-summary|echoarticlereminder}}",
+	"apihelp-echoarticlereminder-param-pageid": "{{doc-apihelp-param|echoarticlereminder|pageid}}",
+	"apihelp-echoarticlereminder-param-title": "{{doc-apihelp-param|echoarticlereminder|title}}",
+	"apihelp-echoarticlereminder-param-timestamp": "{{doc-apihelp-param|echoarticlereminder|timestamp}}",
+	"apihelp-echoarticlereminder-param-comment": "{{doc-apihelp-param|echoarticlereminder|comment}}",
+	"apihelp-echoarticlereminder-example-1" : "{{doc-apihelp-example|echoarticlereminder}}",
+	"apihelp-echoarticlereminder-example-2" : "{{doc-apihelp-example|echoarticlereminder}}",
 	"apihelp-query+unreadnotificationpages-description": "{{doc-apihelp-description|query+unreadnotificationpages}}",
 	"apihelp-query+unreadnotificationpages-summary": "{{doc-apihelp-summary|query+unreadnotificationpages}}",
 	"apihelp-query+unreadnotificationpages-param-grouppages": "{{doc-apihelp-param|query+unreadnotificationpages|grouppages}}",
@@ -56,5 +63,6 @@
 	"apihelp-query+unreadnotificationpages-example-1": "{{doc-apihelp-example|query+unreadnotificationpages}}",
 	"apiwarn-echo-deprecation-timestampformat": "{{doc-apierror}}",
 	"apiwarn-echo-deprecation-flyout": "{{doc-apierror}}",
-	"apiwarn-echo-deprecation-html": "{{doc-apierror}}"
+	"apiwarn-echo-deprecation-html": "{{doc-apierror}}",
+	"apierror-echo-event-creation-failed": "{{doc-apierror}}"
 }
