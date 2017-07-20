@@ -34,6 +34,7 @@
 	"echo-category-title-other": "{{PLURAL:$1|Beste}}",
 	"echo-category-title-system": "{{PLURAL:$1|Sistema}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|Lankide eskubide aldaketa|Lankide eskubide aldaketak}}",
+	"echo-category-title-article-reminder": "Orrialdea {{PLURALA:$1|oroigarria|oroigarriak}}",
 	"echo-pref-tooltip-edit-user-talk": "Jakinarazi norbaitek mezu bat nire eztabaida orrian jartzen edo erantzuten duenean.",
 	"echo-pref-tooltip-article-linked": "Jakinarazi norbaitek egin dudan artikulu bati beste orri batetik loturen bat egiten duenean.",
 	"echo-pref-tooltip-reverted": "Jakinarazi norbaitek nire ekarpenen bat desegiten atzera botatzen duenean, desegin edo rollback tresnaren bidez.",

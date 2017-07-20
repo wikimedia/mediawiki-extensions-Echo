@@ -23,6 +23,7 @@
 	"apihelp-query+notifications-param-groupbysection": "Se agrupar ou não os resultados por seção. Se habilitado, cada seção será obtida separadamente.",
 	"apihelp-query+notifications-param-filter": "Filtrar notificações retornadas.",
 	"apihelp-query+notifications-param-format": "Se especificado, o retorno das notificações será formatado desta maneira.",
+	"apihelp-query+notifications-paramvalue-format-model": "Dados de notificação brutos",
 	"apihelp-query+notifications-param-limit": "O número máximo do retorno das notificações.",
 	"apihelp-query+notifications-param-alertcontinue": "Quando mais resultados de alerta estiverem disponíveis, use isto para continuar.",
 	"apihelp-query+notifications-param-alertunreadfirst": "Se exibir notificações de mensagens não lidas primeiro ou não.",

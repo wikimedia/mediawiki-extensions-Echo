@@ -48,7 +48,15 @@
 	"apihelp-query+unreadnotificationpages-param-limit": "返回页面的最大数量。",
 	"apihelp-query+unreadnotificationpages-param-wikis": "要取得来自未读通知页面的wiki列表（默认仅当前wiki）。",
 	"apihelp-query+unreadnotificationpages-example-1": "列举有（对应数量）未读通知的页面",
+	"apihelp-echoarticlereminder-summary": "请求今后有关特定条目的提醒",
+	"apihelp-echoarticlereminder-param-pageid": "要提醒用户的有关条目ID",
+	"apihelp-echoarticlereminder-param-title": "要提醒用户的有关条目标题",
+	"apihelp-echoarticlereminder-param-timestamp": "提醒用户的时间戳",
+	"apihelp-echoarticlereminder-param-comment": "包含在提醒中的可选用户注释",
+	"apihelp-echoarticlereminder-example-1": "为明天创建带注释的条目提醒通知",
+	"apihelp-echoarticlereminder-example-2": "为明天创建没有注释的条目提醒通知",
 	"apiwarn-echo-deprecation-timestampformat": "MW时间戳输出格式在此处已弃用。今后输出的时间戳格式将总是使用ISO 8601格式。请调整您的客户端，并设置<var>timestampFormat</var>为<kbd>ISO_8601</kbd>",
 	"apiwarn-echo-deprecation-flyout": "<kbd>notformat=flyout</kbd>已弃用，并将很快被移除。请使用<kbd>notformat=model</kbd>以获取原始数据，或使用<kbd>notformat=special</kbd>以获取预渲染HTML。",
-	"apiwarn-echo-deprecation-html": "<kbd>notformat=html</kbd>已弃用，并将很快被移除。请改用<kbd>notformat=special</kbd>。"
+	"apiwarn-echo-deprecation-html": "<kbd>notformat=html</kbd>已弃用，并将很快被移除。请改用<kbd>notformat=special</kbd>。",
+	"apierror-echo-event-creation-failed": "无法创建Echo活动"
 }

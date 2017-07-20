@@ -25,7 +25,6 @@
 	"apihelp-query+notifications-param-groupbysection": "Ob das Ergebnis nach Abschnitt gruppiert werden soll. Jeder Abschnitt wird separat abgerufen, wenn es eingestellt wird.",
 	"apihelp-query+notifications-param-filter": "Filtert zurückgegebene Benachrichtigungen.",
 	"apihelp-query+notifications-param-format": "Falls angegeben, werden die zurückgegebenen Benachrichtigungen auf diese Weise formatiert.",
-	"apihelp-query+notifications-paramvalue-format-text": "Klartext-Format",
 	"apihelp-query+notifications-paramvalue-format-model": "Rohe Benachrichtigungsdaten",
 	"apihelp-query+notifications-paramvalue-format-flyout": "<span class=\"apihelp-deprecated\">Veraltet</span>. Für Rohdaten <kbd>$1format=model</kbd> verwenden.",
 	"apihelp-query+notifications-paramvalue-format-html": "<span class=\"apihelp-deprecated\">Veraltet</span>. Für Rohdaten <kbd>$1format=model</kbd> verwenden.",
@@ -47,5 +46,6 @@
 	"apihelp-query+unreadnotificationpages-example-1": "Listet Seiten mit (ihre Menge der) ungelesenen Benachrichtigungen auf",
 	"apiwarn-echo-deprecation-timestampformat": "Das MW-Zeitstempel-Ausgabeformat ist hier veraltet. In Zukunft wird immer ISO 8601 für das Ausgabezeitstempelformat verwendet. Passe deinen Client an und lege <var>timestampFormat</var> auf <kbd>ISO_8601</kbd> fest.",
 	"apiwarn-echo-deprecation-flyout": "<kbd>notformat=flyout</kbd> ist veraltet und wird bald entfernt. Verwende <kbd>notformat=model</kbd>, um die Rohdaten zu erhalten oder <kbd>notformat=special</kbd> für vorgerendertes HTML.",
-	"apiwarn-echo-deprecation-html": "<kbd>notformat=html</kbd> ist veraltet und wird bald entfernt. Verwende stattdessen <kbd>notformat=special</kbd>."
+	"apiwarn-echo-deprecation-html": "<kbd>notformat=html</kbd> ist veraltet und wird bald entfernt. Verwende stattdessen <kbd>notformat=special</kbd>.",
+	"apierror-echo-event-creation-failed": "Es konnte kein Echo-Ereignis erstellt werden"
 }
