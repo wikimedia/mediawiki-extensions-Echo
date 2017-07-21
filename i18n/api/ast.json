@@ -47,7 +47,15 @@
 	"apihelp-query+unreadnotificationpages-param-limit": "Númberu máximu de páxines a devolver.",
 	"apihelp-query+unreadnotificationpages-param-wikis": "Llista de wikis de les que llograr les páxines con avisos ensin lleer (de manera predeterminada, sólo la wiki actual).",
 	"apihelp-query+unreadnotificationpages-example-1": "Llista páxines con (la cantidá de) notificaciones ensin lleer",
+	"apihelp-echoarticlereminder-summary": "Pidir un recordatoriu futuru sobre l'artículu especificáu",
+	"apihelp-echoarticlereminder-param-pageid": "ID del artículu del que recordar al usuariu",
+	"apihelp-echoarticlereminder-param-title": "Títulu del artículu del que recordar al usuariu",
+	"apihelp-echoarticlereminder-param-timestamp": "Marca de tiempu na que recordar al usuariu",
+	"apihelp-echoarticlereminder-param-comment": "Comentariu opcional del usuariu a incluir nel recordatoriu",
+	"apihelp-echoarticlereminder-example-1": "Crear un avisu recordatoriu d'artículu pa mañana con comentariu",
+	"apihelp-echoarticlereminder-example-2": "Crear un avisu recordatoriu d'artículu pa mañana ensin comentariu",
 	"apiwarn-echo-deprecation-timestampformat": "El formatu de marca de tiempu MW a usar pa la salida tá anticuáu equí. Nel futuru siempre va usase ISO_8601 pal formatu de salida de marca de tiempu. Axusta'l to cliente y configura <var>timestampFormat</var> como <kbd>ISO_8601</kbd>.",
 	"apiwarn-echo-deprecation-flyout": "<kbd>notformat=flyout</kbd> ta anticuáu y desaniciaráse ceo. Usa <kbd>notformat=model</kbd> p'algamar los datos en bruto o <kbd>notformat=special</kbd> pa HTML pre-representáu.",
-	"apiwarn-echo-deprecation-html": "<kbd>notformat=html</kbd> ta anticuáu y desaniciaráse ceo. Usa <kbd>notformat=special</kbd> nel so llugar."
+	"apiwarn-echo-deprecation-html": "<kbd>notformat=html</kbd> ta anticuáu y desaniciaráse ceo. Usa <kbd>notformat=special</kbd> nel so llugar.",
+	"apierror-echo-event-creation-failed": "Nun pudo crease una actividá d'Echo"
 }

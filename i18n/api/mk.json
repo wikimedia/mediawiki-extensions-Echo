@@ -47,7 +47,15 @@
 	"apihelp-query+unreadnotificationpages-param-limit": "Највеќе страници за прикажување.",
 	"apihelp-query+unreadnotificationpages-param-wikis": "Список на викија од кои треба да се преземат непрочитани известувања (по основно: само тековното вики).",
 	"apihelp-query+unreadnotificationpages-example-1": "Наведи страници со (бројот на) непрочитани известувања",
+	"apihelp-echoarticlereminder-summary": "Побарај потсетник за укажаната статија",
+	"apihelp-echoarticlereminder-param-pageid": "Назнака на статијата за која ќе се потсети корисникот",
+	"apihelp-echoarticlereminder-param-title": "Наслов на статијата за која ќе се потсети корисникот",
+	"apihelp-echoarticlereminder-param-timestamp": "Кога да се потсети корисникот",
+	"apihelp-echoarticlereminder-param-comment": "Корисничка прибелешка во потсетникот (по желба)",
+	"apihelp-echoarticlereminder-example-1": "Создај потсетник за статијата за утре со содржина",
+	"apihelp-echoarticlereminder-example-2": "Создај потсетник за статија за утре без содржина",
 	"apiwarn-echo-deprecation-timestampformat": "Изводниот формат MW за датуми и време тука е застарен. Во иднина, за таа намена ќе се користи исклучиво ISO 8601. Прилагодете го клиентот и наместете го <var>timestampFormat</var> на <kbd>ISO_8601</kbd>.",
 	"apiwarn-echo-deprecation-flyout": "<kbd>notformat=flyout</kbd> е застаре и наскоро ќе биде отстранет. Сировите податоци ќе ги добиете со <kbd>notformat=model</kbd>, а <kbd>notformat=special</kbd> служи за предиспишан HTML.",
-	"apiwarn-echo-deprecation-html": "<kbd>notformat=html</kbd> е застарен и наскоро ќе биде отстранет. Наместо него, користете го <kbd>notformat=special</kbd>."
+	"apiwarn-echo-deprecation-html": "<kbd>notformat=html</kbd> е застарен и наскоро ќе биде отстранет. Наместо него, користете го <kbd>notformat=special</kbd>.",
+	"apierror-echo-event-creation-failed": "Не можев да направам настан за Ехо"
 }

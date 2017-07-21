@@ -62,6 +62,7 @@
 	"echo-displaynotificationsconfiguration": "Паказаць налады паведамленьняў",
 	"echo-displaynotificationsconfiguration-summary": "Гэта агляд наладак паведамленьняў у гэтай вікі.",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "Паведамленьні паводле катэгорыяў",
+	"echo-displaynotificationsconfiguration-sorting-by-section-header": "Сартаваньне паводле тыпаў",
 	"echo-specialpage": "Абвесткі",
 	"echo-specialpage-pagefilters-subtitle": "Старонкі зь непрачытанымі паведамленьнямі",
 	"echo-anon": "Для атрыманьня абвестак [$1 стварыце рахунак] або [$2 увайдзіце].",
