@@ -30,5 +30,6 @@
 	"apihelp-query+notifications-param-messagecontinue": "Quando mais resultados de mensagem estiverem disponíveis, use isto para continuar.",
 	"apihelp-query+notifications-param-messageunreadfirst": "Se exibir notificações de alertas não lidas primeiro ou não.",
 	"apihelp-query+notifications-example-1": "Listar notificações",
-	"apihelp-query+notifications-example-2": "Listar notificações agrupadas por seção, incluindo contadores"
+	"apihelp-query+notifications-example-2": "Listar notificações agrupadas por seção, incluindo contadores",
+	"apihelp-query+unreadnotificationpages-param-limit": "O número máximo de páginas para retornar."
 }

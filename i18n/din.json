@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Dinkawiki"
+			"Dinkawiki",
+			"Amire80"
 		]
 	},
-	"tooltip-pt-notifications-alert": "Nyïïn {{GENDER:|ku}}"
+	"notifications": "Notifications",
+	"tooltip-pt-notifications-alert": "Nyïïn {{GENDER:|ku}}",
+	"echo-overlay-link": "All notifications"
 }
