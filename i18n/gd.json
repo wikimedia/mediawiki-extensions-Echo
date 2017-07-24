@@ -49,6 +49,7 @@
 	"notification-link-text-view-mention": "Seall an t-iomradh",
 	"notification-link-text-view-changes": "{{GENDER:$1|Seall}} na h-atharraichean",
 	"notification-link-text-view-page": "Seall an duilleag",
+	"notification-header-edit-user-talk": "Dh’fhàg $1 teachdaireachd dhut air <strong>an duilleag deasbaireachd agad</strong>.",
 	"notification-link-text-view-edit": "Seall an deasachadh",
 	"notification-header-reverted": "Chaidh {{PLURAL:$4|an deasachadh agad air <strong>$3</strong> |na deasachaidhean agad air <strong>$3</strong>}}  {{GENDER:$2|a thilleadh}}.",
 	"notification-edit-talk-page-email-subject2": "Dh'fhag $1 {{GENDER:$1|}} teachdaireachd dhut air {{SITENAME}}",

@@ -44,7 +44,7 @@
 	"echo-category-title-user-rights": "{{PLURAL:$1|Kasutajaõiguste muutmine|Kasutajaõiguste muutmised}}",
 	"echo-category-title-emailuser": "{{PLURAL:$1|E-kiri teiselt kasutajalt|E-kiri teistelt kasutajatelt}}",
 	"echo-pref-tooltip-edit-user-talk": "Teavita mind, kui keegi postitab või vastab minu aruteluleheküljel.",
-	"echo-pref-tooltip-article-linked": "Teavita mind, kui keegi lingib mõnest artiklist minu alustatud leheküljele.",
+	"echo-pref-tooltip-article-linked": "Teavita mind, kui keegi lingib teiselt leheküljelt minu alustatud leheküljele.",
 	"echo-pref-tooltip-reverted": "Teavita mind, kui keegi tühistab minu muudatuse, kasutades eemaldus- või tühistusfunktsiooni.",
 	"echo-pref-tooltip-mention": "Teavita mind, kui keegi lingib minu kasutajaleheküljele.",
 	"echo-pref-tooltip-mention-failure": "Teavita mind, kui mul ei õnnestunud kellelegi mainimist saata.",
