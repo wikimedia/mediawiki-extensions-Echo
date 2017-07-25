@@ -4,5 +4,6 @@
 			"Saraiki"
 		]
 	},
-	"tooltip-pt-notifications-alert": "{{GENDER:|Your}} الرٹس"
+	"tooltip-pt-notifications-alert": "{{GENDER:|Your}} الرٹس",
+	"notification-link-article-reminder": "ورقہ ݙیکھو"
 }
