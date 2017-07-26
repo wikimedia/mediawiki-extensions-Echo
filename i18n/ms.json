@@ -4,7 +4,8 @@
 			"Anakmalaysia",
 			"Pizza1016",
 			"Aviator",
-			"Kurniasan"
+			"Kurniasan",
+			"Jeluang Terluang"
 		]
 	},
 	"echo-desc": "Sistem pemberitahuan",
@@ -72,7 +73,7 @@
 	"echo-load-more-error": "Ralat berlaku ketika mengambil lebih banyak hasil.",
 	"echo-email-batch-subject-daily": "Anda ada {{PLURAL:$2|satu|beberapa}} pemberitahuan baru di {{SITENAME}}",
 	"echo-email-batch-subject-weekly": "Anda ada {{PLURAL:$2|satu|beberapa}} pemberitahuan baru di {{SITENAME}} minggu ini",
-	"echo-email-batch-body-intro-daily": "$1,\nYang berikut adalah ringkasan kegiatan hari ini di {{SITENAME}} untuk rujukan anda",
-	"echo-email-batch-body-intro-weekly": "$1,\nYang berikut adalah ringkasan kegiatan minggu ini di {{SITENAME}} untuk rujukan anda",
+	"echo-email-batch-body-intro-daily": "$1,\nYang berikut ialah ringkasan kegiatan hari ini di {{SITENAME}} untuk rujukan anda.",
+	"echo-email-batch-body-intro-weekly": "$1,\nYang berikut ialah ringkasan kegiatan minggu ini di {{SITENAME}} untuk rujukan anda.",
 	"echo-email-batch-link-text-view-all-notifications": "Baca semua pemberitahuan"
 }
