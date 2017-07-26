@@ -575,7 +575,7 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 
 	/**
 	 * Determine whether an event can use the job queue, or should be immediate
-	 * @return boolean
+	 * @return bool
 	 */
 	public function getUseJobQueue() {
 		global $wgEchoNotifications;

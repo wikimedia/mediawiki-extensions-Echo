@@ -35,7 +35,7 @@ class EchoUserNotificationGateway {
 	/**
 	 * Mark notifications as read
 	 * @param $eventIDs array
-	 * @return boolean
+	 * @return bool
 	 */
 	public function markRead( array $eventIDs ) {
 		if ( !$eventIDs ) {
@@ -59,7 +59,7 @@ class EchoUserNotificationGateway {
 	/**
 	 * Mark notifications as unread
 	 * @param $eventIDs array
-	 * @return boolean
+	 * @return bool
 	 */
 	public function markUnRead( array $eventIDs ) {
 		if ( !$eventIDs ) {

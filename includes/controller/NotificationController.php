@@ -209,7 +209,7 @@ class EchoNotificationController {
 	 *
 	 * @param EchoEvent $event The event to test for exclusion
 	 * @param User $user recipient of the notification for per-user blacklists
-	 * @return boolean True when the event agent is blacklisted
+	 * @return bool True when the event agent is blacklisted
 	 */
 	public static function isBlacklistedByUser( EchoEvent $event, User $user ) {
 		global $wgEchoAgentBlacklist, $wgEchoPerUserBlacklist;
@@ -277,7 +277,7 @@ class EchoNotificationController {
 	 *
 	 * @param EchoEvent $event The event to test for inclusion in whitelist
 	 * @param User $user The user that owns the whitelist
-	 * @return boolean True when the event agent is in the user whitelist
+	 * @return bool True when the event agent is in the user whitelist
 	 */
 	public static function isWhitelistedByUser( EchoEvent $event, User $user ) {
 		$clusterCache = ObjectCache::getLocalClusterInstance();

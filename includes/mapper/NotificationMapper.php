@@ -347,7 +347,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	 * Batch delete notifications by user and eventId offset
 	 * @param User $user
 	 * @param int $eventId
-	 * @return boolean
+	 * @return bool
 	 */
 	public function deleteByUserEventOffset( User $user, $eventId ) {
 		$dbw = $this->dbFactory->getEchoDb( DB_MASTER );
