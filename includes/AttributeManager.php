@@ -227,7 +227,7 @@ class EchoAttributeManager {
 	 *
 	 * @param User
 	 * @param string A notification category defined in $wgEchoNotificationCategories
-	 * @return boolean
+	 * @return bool
 	 */
 	public function getCategoryEligibility( $user, $category ) {
 		$usersGroups = $user->getGroups();
@@ -245,7 +245,7 @@ class EchoAttributeManager {
 	 * Get the priority for a specific notification type
 	 *
 	 * @param string A notification type defined in $wgEchoNotifications
-	 * @return integer From 1 to 10 (10 is default)
+	 * @return int From 1 to 10 (10 is default)
 	 */
 	public function getNotificationPriority( $notificationType ) {
 		$category = $this->getNotificationCategory( $notificationType );
@@ -257,7 +257,7 @@ class EchoAttributeManager {
 	 * Get the priority for a notification category
 	 *
 	 * @param string A notification category defined in $wgEchoNotificationCategories
-	 * @return integer From 1 to 10 (10 is default)
+	 * @return int From 1 to 10 (10 is default)
 	 */
 	public function getCategoryPriority( $category ) {
 		if ( isset( $this->categories[$category]['priority'] ) ) {

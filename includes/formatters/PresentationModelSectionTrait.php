@@ -57,7 +57,7 @@ trait EchoPresentationModelSectionTrait {
 	 * This also returns false if the revision is deleted,
 	 * even if there is a section, because the section can't
 	 * be viewed in that case.
-	 * @return boolean Whether there is a section
+	 * @return bool Whether there is a section
 	 */
 	protected function hasSection() {
 		return (bool)$this->getRawSectionTitle();

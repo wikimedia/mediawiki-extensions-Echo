@@ -18,7 +18,7 @@ class EchoTargetPageMapper extends EchoAbstractMapper {
 	 * Insert an EchoTargetPage instance into the database
 	 *
 	 * @param EchoTargetPage $targetPage
-	 * @return boolean
+	 * @return bool
 	 */
 	public function insert( EchoTargetPage $targetPage ) {
 		$dbw = $this->dbFactory->getEchoDb( DB_MASTER );

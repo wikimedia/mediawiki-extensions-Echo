@@ -232,7 +232,7 @@ class MWEchoNotifUser {
 			$eventTypesToLoad = $attributeManager->getUserEnabledEventsbySections( $this->mUser, 'web', [ $section ] );
 		}
 
-		$count = (int)$this->userNotifGateway->getCappedNotificationCount( $dbSource, $eventTypesToLoad, MWEchoNotifUser::MAX_BADGE_COUNT + 1 );
+		$count = (int)$this->userNotifGateway->getCappedNotificationCount( $dbSource, $eventTypesToLoad, self::MAX_BADGE_COUNT + 1 );
 
 		if ( $global ) {
 			$count = self::capNotificationCount( $count + $this->getForeignCount( $section ) );
@@ -349,7 +349,7 @@ class MWEchoNotifUser {
 	/**
 	 * Mark one or more notifications read for a user.
 	 * @param $eventIds Array of event IDs to mark read
-	 * @return boolean
+	 * @return bool
 	 */
 	public function markRead( $eventIds ) {
 		$eventIds = array_filter( (array)$eventIds, 'is_numeric' );
@@ -381,7 +381,7 @@ class MWEchoNotifUser {
 	/**
 	 * Mark one or more notifications unread for a user.
 	 * @param $eventIds Array of event IDs to mark unread
-	 * @return boolean
+	 * @return bool
 	 */
 	public function markUnRead( $eventIds ) {
 		$eventIds = array_filter( (array)$eventIds, 'is_numeric' );
@@ -418,7 +418,7 @@ class MWEchoNotifUser {
 	 * across multiple tables, we would visit this later
 	 *
 	 * @param string[] $sections
-	 * @return boolean
+	 * @return bool
 	 */
 	public function markAllRead( array $sections = [ EchoAttributeManager::ALL ] ) {
 		if ( wfReadOnly() ) {
@@ -789,6 +789,6 @@ class MWEchoNotifUser {
 	 * @return int Capped notification count
 	 */
 	public static function capNotificationCount( $number ) {
-		return min( $number, MWEchoNotifUser::MAX_BADGE_COUNT + 1 );
+		return min( $number, self::MAX_BADGE_COUNT + 1 );
 	}
 }

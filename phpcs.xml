@@ -14,8 +14,7 @@
 		<exclude name="MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName" />
 		<exclude name="MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment" />
 	</rule>
-	<arg name="encoding" value="utf8" />
+	<arg name="encoding" value="UTF-8" />
 	<arg name="extensions" value="php,php5,inc" />
 	<arg name="colors" />
-	<exclude-pattern>vendor</exclude-pattern>
 </ruleset>

@@ -107,7 +107,7 @@ class EchoContainmentSet {
 	 * Test the wrapped lists for existence of $value
 	 *
 	 * @param $value mixed The value to look for
-	 * @return boolean True when the set contains the provided value
+	 * @return bool True when the set contains the provided value
 	 */
 	public function contains( $value ) {
 		foreach ( $this->lists as $list ) {
