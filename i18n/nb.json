@@ -142,7 +142,7 @@
 	"notification-header-user-rights-expiry-change": "Utløpstiden for medlemskapet {{GENDER:$4|ditt}} i følgende {{PLURAL:$3|gruppe|grupper}} har blitt {{GENDER:$1|endret}}: $2.",
 	"notification-header-welcome": "{{GENDER:$2|Velkommen}} til {{SITENAME}}, $1! Vi er glade for at {{GENDER:$2|du}} er her.",
 	"notification-welcome-linktext": "Velkommen",
-	"notification-header-thank-you-1-edit": "{{GENDER:$2|Du}} gjorde akkurat {{GENDER:$2|din}} første redigering. {{GENDER:$2|Takk}} – og velkommen!",
+	"notification-header-thank-you-1-edit": "{{GENDER:$2|Du}} har gjort {{GENDER:$2|din}} første redigering. {{GENDER:$2|Takk}} – og velkommen hit!",
 	"notification-header-thank-you-10-edit": "{{GENDER:$2|Du}} gjorde akkurat {{GENDER:$2|din}} tiende redigering. {{GENDER:$2|Takk}}! Fortsett slik!",
 	"notification-header-thank-you-100-edit": "{{GENDER:$2|Du}} gjorde akkurat {{GENDER:$2|din}} hundrede redigering – {{GENDER:$2|tusen takk}}!",
 	"notification-header-thank-you-1000-edit": "{{GENDER:$2|Du}} gjorde akkurat {{GENDER:$2|din}} tusende redigering – {{GENDER:$2|takk}} for at du bidrar så mye!",
