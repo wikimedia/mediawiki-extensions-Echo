@@ -69,6 +69,7 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-type-legend": "Якія спосабы паведамленьняў падтрымліваюцца для кожнага тыпу; ужываецца толькі для тыпаў у катэгорыях, якія схаваныя з наладаў",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Уключана па змоўчаньні",
 	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Існыя ўдзельнікі",
+	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Новыя ўдзельнікі",
 	"echo-specialpage": "Абвесткі",
 	"echo-specialpage-pagefilters-subtitle": "Старонкі зь непрачытанымі паведамленьнямі",
 	"echo-anon": "Для атрыманьня абвестак [$1 стварыце рахунак] або [$2 увайдзіце].",
