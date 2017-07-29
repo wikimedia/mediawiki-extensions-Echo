@@ -163,7 +163,7 @@
 	"notification-header-mention-user-talkpage-nosection": "$1 {{GENDER:$2|vous}} {{GENDER:$3|a mentionné|a mentionnée}} sur la <strong>page de discussion {{GENDER:$5|de}} $4</strong>.",
 	"notification-header-mention-agent-talkpage": "$1 {{GENDER:$2|vous}} {{GENDER:$3|a mentionné|a mentionnée}} sur <strong>{{GENDER:$2|sa|sa|sa}} page de discussion</strong> dans « <strong>$4</strong> ».",
 	"notification-header-mention-agent-talkpage-nosection": "$1 {{GENDER:$2|vous}} {{GENDER:$3|a mentionné|a mentionnée}} sur <strong>sa page de discussion</strong>.",
-	"notification-header-mention-article-talkpage": "$1 {{GENDER:$2|vous}} {{GENDER:$3|a mentionné|a mentionnée}} sur la page page de discussion de <strong>$4</strong> dans « <strong> $5</strong> ».",
+	"notification-header-mention-article-talkpage": "$1 {{GENDER:$2|vous}} {{GENDER:$3|a mentionné|a mentionnée}} sur la page de discussion de <strong>$4</strong> dans « <strong> $5</strong> ».",
 	"notification-header-mention-article-talkpage-nosection": "$1 {{GENDER:$2|vous}} {{GENDER:$3|a mentionné|a mentionnée}} sur la page de discussion de <strong>$4</strong>.",
 	"notification-header-mention-failure-user-unknown": "{{GENDER:$2|Votre}} mention de  <strong>$3</strong> n’a pas été envoyée parce que l’utilisateur n’a pas été trouvé.",
 	"notification-header-mention-failure-user-anonymous": "{{GENDER:$2|Votre}} mention de <strong>$3</strong> n’a pas été envoyée parce que l’utilisateur est anonyme.",
