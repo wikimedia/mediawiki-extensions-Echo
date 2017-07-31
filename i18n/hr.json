@@ -5,7 +5,8 @@
 			"MaGa",
 			"Roberta F.",
 			"Ex13",
-			"Bugoslav"
+			"Bugoslav",
+			"Wumbolo"
 		]
 	},
 	"echo-desc": "Sustav obavješćivanja suradnika o događajima i porukama",
@@ -43,7 +44,7 @@
 	"echo-category-title-user-rights": "{{PLURAL:$1|Promjena suradničkih prava}}",
 	"echo-category-title-emailuser": "{{PLURAL:$1|E-poruka od drugog suradnika|E-poruke od drugih suradnika}}",
 	"echo-pref-tooltip-edit-user-talk": "Obavijesti me kad netko snimi poruku ili odgovori na mojoj stranici za razgovor.",
-	"echo-pref-tooltip-article-linked": "Obavijesti me kad netko doda poveznicu na stranicu koju sam započeo.",
+	"echo-pref-tooltip-article-linked": "Obavijesti me kad netko doda poveznicu na stranicu koju sam započeo s druge stranice.",
 	"echo-pref-tooltip-reverted": "Obavijesti me kad netko ukloni moje uređivanje.",
 	"echo-pref-tooltip-mention": "Obavijesti me kad netko doda poveznicu prema mojoj suradničkoj stranici.",
 	"echo-pref-tooltip-user-rights": "Obavijesti me kad netko promijeni moja suradnička prava.",
