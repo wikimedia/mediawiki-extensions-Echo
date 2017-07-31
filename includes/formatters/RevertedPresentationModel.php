@@ -44,11 +44,16 @@ class EchoRevertedPresentationModel extends EchoEventPresentationModel {
 	}
 
 	public function getSecondaryLinks() {
-		$revertedTitleLink = $this->getPageLink(
-			$this->event->getTitle()->getTalkPage(), null, true
-		);
+		$links = [ $this->getAgentLink() ];
 
-		return [ $this->getAgentLink(), $revertedTitleLink ];
+		$title = $this->event->getTitle();
+		if ( $title->canHaveTalkPage() ) {
+			$links[] = $this->getPageLink(
+				$title->getTalkPage(), null, true
+			);
+		}
+
+		return $links;
 	}
 
 	/**
