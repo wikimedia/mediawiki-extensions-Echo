@@ -74,6 +74,7 @@
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "Якія спосабы паведамленьняў зьяўляюцца абавязковымі для кожнай катэгорыі",
 	"echo-specialpage": "Абвесткі",
 	"echo-specialpage-section-markread": "Пазначыць групу як прачытаную",
+	"echo-specialpage-markasread": "Паведамленьне: пазначыць як прачытанае",
 	"echo-specialpage-pagefilters-subtitle": "Старонкі зь непрачытанымі паведамленьнямі",
 	"echo-anon": "Для атрыманьня абвестак [$1 стварыце рахунак] або [$2 увайдзіце].",
 	"echo-none": "Вы ня маеце абвестак.",
