@@ -126,7 +126,10 @@ class ApiEchoUnreadNotificationPages extends ApiCrossWikiBase {
 		foreach ( $groupCounts as $pageName => $count ) {
 			if ( $groupPages ) {
 				$title = Title::newFromText( $pageName );
-				$pages = [ $title->getSubjectPage()->getPrefixedText(), $title->getTalkPage()->getPrefixedText() ];
+				$pages = [ $title->getSubjectPage()->getPrefixedText() ];
+				if ( $title->canHaveTalkPage() ) {
+					$pages[] = $title->getTalkPage()->getPrefixedText();
+				}
 				if ( $pageName === $userPageName ) {
 					$pages[] = null;
 				}
