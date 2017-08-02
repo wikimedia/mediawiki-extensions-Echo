@@ -75,6 +75,7 @@
 	"echo-specialpage": "Абвесткі",
 	"echo-specialpage-section-markread": "Пазначыць групу як прачытаную",
 	"echo-specialpage-markasread": "Паведамленьне: пазначыць як прачытанае",
+	"echo-specialpage-markasread-invalid-id": "Няслушны ідэнтыфікатар падзеі",
 	"echo-specialpage-pagefilters-subtitle": "Старонкі зь непрачытанымі паведамленьнямі",
 	"echo-anon": "Для атрыманьня абвестак [$1 стварыце рахунак] або [$2 увайдзіце].",
 	"echo-none": "Вы ня маеце абвестак.",
