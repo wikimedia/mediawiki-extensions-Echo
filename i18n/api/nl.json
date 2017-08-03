@@ -5,10 +5,12 @@
 			"MrLeopold",
 			"Romaine",
 			"Siebrand",
-			"Sjoerddebruin"
+			"Sjoerddebruin",
+			"Mainframe98"
 		]
 	},
 	"apihelp-echomarkread-description": "Meldingen van de huidige gebruiker markeren als gelezen.",
+	"apihelp-echomarkread-summary": "Meldingen van de huidige gebruiker markeren als gelezen.",
 	"apihelp-echomarkread-param-list": "Een lijst van ID's van meldingen om te markeren als gelezen.",
 	"apihelp-echomarkread-param-unreadlist": "Lijst van meldings-ID's om die als ongelezen gemarkeerd moeten worden.",
 	"apihelp-echomarkread-param-all": "Indien ingesteld, worden alle meldingen van de gebruiker gemarkeerd als gelezen.",
@@ -17,6 +19,7 @@
 	"apihelp-echomarkread-example-2": "Alle meldingen als gelezen markeren",
 	"apihelp-echomarkread-example-3": "Markeer melding 1 als ongelezen.",
 	"apihelp-echomarkseen-description": "Aangeven dat de huidige gebruiker zijn of haar meldingen heeft gezien.",
+	"apihelp-echomarkseen-summary": "Aangeven dat de huidige gebruiker zijn of haar meldingen heeft gezien.",
 	"apihelp-echomarkseen-example-1": "Aangeven dat meldingen van alle soorten zijn gezien",
 	"apihelp-echomarkseen-param-type": "Soorten meldingen om te markeren als gezien: 'alert', 'message' of 'all'.",
 	"apihelp-query+notifications-description": "Wachtende meldingen voor de huidige gebruiker opvragen.",
@@ -25,7 +28,6 @@
 	"apihelp-query+notifications-param-groupbysection": "Of resultaat op onderdeel gegroepeerd moeten worden. Elk onderdeel wordt separaat opgehaald als dit is ingesteld.",
 	"apihelp-query+notifications-param-filter": "De opgevraagde meldingen filteren.",
 	"apihelp-query+notifications-param-format": "Indien opgegeven, worden meldingen teruggegeven met deze opmaak.",
-	"apihelp-query+notifications-paramvalue-format-text": "Platte tekst",
 	"apihelp-query+notifications-paramvalue-format-model": "Rauwe meldingsdata",
 	"apihelp-query+notifications-paramvalue-format-special": "Formaat voor gebruik op Speciaal:Meldingen (en alleen op die pagina!) Vertrouw niet op deze HTML, het formaat kan op elk moment veranderen.",
 	"apihelp-query+notifications-paramvalue-format-flyout": "<span class=\"apihelp-deprecated\">Verouderd</span>. Gebruik <kbd>$1format=model</kbd> voor rauwe data",
@@ -40,5 +42,6 @@
 	"apihelp-query+notifications-param-messageunreadfirst": "Of ongelezen meldingen als eerste moeten worden weergeven (wordt genegeerd als groupbysection niet gebruikt is).",
 	"apihelp-query+notifications-example-1": "Meldingen opvragen",
 	"apihelp-query+notifications-example-2": "Meldingen, gesorteerd op sectie en met aantal meldingen, opvragen",
-	"apihelp-query+unreadnotificationpages-param-grouppages": "Groepeer overlegpagina's samen met hun onderwerpspagina en groepsmeldingen die niet verbonden zijn aan een pagina samen met de gebruikerspagina van de huidige gebruiker."
+	"apihelp-query+unreadnotificationpages-param-grouppages": "Groepeer overlegpagina's samen met hun onderwerpspagina en groepsmeldingen die niet verbonden zijn aan een pagina samen met de gebruikerspagina van de huidige gebruiker.",
+	"apihelp-query+unreadnotificationpages-param-limit": "Het maximale aantal weer te geven pagina's."
 }
