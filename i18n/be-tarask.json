@@ -79,6 +79,7 @@
 	"echo-specialpage-pagination-numnotifications": "$1 {{PLURAL:$1|паведамленьне|паведамленьні|паведамленьняў}}",
 	"echo-specialpage-pagefilters-title": "Нядаўняя актыўнасьць",
 	"echo-specialpage-pagefilters-subtitle": "Старонкі зь непрачытанымі паведамленьнямі",
+	"notificationsmarkread-legend": "Пазначыць паведамленьне як прачытанае",
 	"echo-anon": "Для атрыманьня абвестак [$1 стварыце рахунак] або [$2 увайдзіце].",
 	"echo-none": "Вы ня маеце абвестак.",
 	"echo-more-info": "Болей",
