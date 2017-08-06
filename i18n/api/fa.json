@@ -52,7 +52,15 @@
 	"apihelp-query+unreadnotificationpages-param-limit": "حداکثر صفحاتی که برگردانده می‌شود.",
 	"apihelp-query+unreadnotificationpages-param-wikis": "فهرست ویکی‌هایی که آگاه‌سازی از آنها دریافت می‌شود (پیش‌فرض فقط این ویکی).",
 	"apihelp-query+unreadnotificationpages-example-1": "فهرست کردن صفحه‌ها همراه (مقدار) آگاه‌سازی‌های خوانده‌نشده",
+	"apihelp-echoarticlereminder-summary": "درخواست یادآور برای یک مقالهٔ خاص",
+	"apihelp-echoarticlereminder-param-pageid": "شناسهٔ مقاله برای یادآوری به کاربر",
+	"apihelp-echoarticlereminder-param-title": "عنوان مقاله برای یادآوری به کاربر",
+	"apihelp-echoarticlereminder-param-timestamp": "در چه زمانی یادآوری به کاربر انجام شد",
+	"apihelp-echoarticlereminder-param-comment": "توضیح اختیاری کاربر برای یادآوری",
+	"apihelp-echoarticlereminder-example-1": "ساخت یادآوری برای فردا همراه با توضیح",
+	"apihelp-echoarticlereminder-example-2": "ساخت یادآوری برای فردا همراه بدون توضیح",
 	"apiwarn-echo-deprecation-timestampformat": "قالب خروجی مدیاویکی در اینجا منسوخ شده‌است. در آینده، ایزو ۸۶۰۱ همواره برای قالب خروجی برچسب زمان استفاده خواهد شد. برنامهٔ خود را تنظیم کنید و <var>timestampFormat</var> را برابر <kbd>ISO_8601</kbd> قرار دهید.",
 	"apiwarn-echo-deprecation-flyout": "<kbd>notformat=flyout</kbd> منسوخ شده و به زودی حذف خواهد شد. از <kbd>notformat=model</kbd> برای گرفتن داده‌های خام و از <kbd>notformat=special</kbd> برای گرفتن اچ‌تی‌ام‌ال استفاده کنید.",
-	"apiwarn-echo-deprecation-html": "<kbd>notformat=html</kbd> منسوخ شده و به زودی حذف خواهد شد. به جای آن از  <kbd>notformat=special</kbd> استفاده کنید."
+	"apiwarn-echo-deprecation-html": "<kbd>notformat=html</kbd> منسوخ شده و به زودی حذف خواهد شد. به جای آن از  <kbd>notformat=special</kbd> استفاده کنید.",
+	"apierror-echo-event-creation-failed": "امکان ساخت رویداد سامانه آگاه‌سازی وجود ندارد"
 }
