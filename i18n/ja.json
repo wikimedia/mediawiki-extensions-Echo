@@ -11,7 +11,8 @@
 			"Otokoume",
 			"Vigorous action",
 			"Thibaut120094",
-			"Marine-Blue"
+			"Marine-Blue",
+			"Translatealcd"
 		]
 	},
 	"echo-desc": "イベントおよびメッセージについて、ユーザーに通知するシステム",
@@ -155,12 +156,12 @@
 	"notification-reverted-email-subject2": "{{SITENAME}}でのあなたの{{PLURAL:$3|編集}}が{{GENDER:$1|差し戻されました}}",
 	"notification-mention-email-subject": "$1 が{{SITENAME}}で{{GENDER:$2|あなた}}に{{GENDER:$1|言及しました}}",
 	"notification-user-rights-email-subject": "{{SITENAME}}での利用者権限が変更されました",
-	"notification-timestamp-ago-seconds": "{{PLURAL:$1|$1s}}秒前",
-	"notification-timestamp-ago-minutes": "{{PLURAL:$1|$1}}分前",
-	"notification-timestamp-ago-hours": "{{PLURAL:$1|$1}}時間前",
-	"notification-timestamp-ago-days": "{{PLURAL:$1|$1}}日前",
-	"notification-timestamp-ago-months": "{{PLURAL:$1|$1}}ヶ月前",
-	"notification-timestamp-ago-years": "{{PLURAL:$1|$1}}年前",
+	"notification-timestamp-ago-seconds": "{{PLURAL:$1|$1秒前}}",
+	"notification-timestamp-ago-minutes": "{{PLURAL:$1|$1分前}}",
+	"notification-timestamp-ago-hours": "{{PLURAL:$1|$1時間前}}",
+	"notification-timestamp-ago-days": "{{PLURAL:$1|$1日前}}",
+	"notification-timestamp-ago-months": "{{PLURAL:$1|$1ヶ月前}}",
+	"notification-timestamp-ago-years": "{{PLURAL:$1|$1年前}}",
 	"notification-timestamp-today": "今日",
 	"notification-timestamp-yesterday": "昨日",
 	"notification-inbox-filter-read": "既読",

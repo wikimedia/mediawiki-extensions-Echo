@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Translatealcd"
+			"Translatealcd",
+			"Akamycoco"
 		]
 	},
+	"prefs-emailsettings": "Zyusyo na e-meyo’ bruwiy",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Rwa su’}}gmrhuw kmayal"
 }

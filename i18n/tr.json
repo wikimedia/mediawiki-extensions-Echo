@@ -183,5 +183,6 @@
 	"echo-email-batch-body-intro-daily": "Merhaba $1,\nBurada {{SITENAME}} için bu günün etkinlik özetini bulabilirsiniz.",
 	"echo-email-batch-body-intro-weekly": "Merhaba $1,\nBurada {{SITENAME}} için bu haftaki etkinlik özetini bulabilirsiniz.",
 	"echo-email-batch-link-text-view-all-notifications": "Tüm bildirimleri göster",
+	"notification-header-foreign-alert": "{{PLURAL:$5|$5 diğer Viki projesinden}} uyarınız var",
 	"notification-header-foreign-notice": "{{PLURAL:$5|diğer viki|$5 diğer viki}}den daha fazla sonuç"
 }

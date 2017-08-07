@@ -4,6 +4,28 @@
 			"Saraiki"
 		]
 	},
+	"echo-pref-send-me": "میکوں بھیجو:",
+	"echo-pref-web": "ویب",
+	"echo-pref-email": "ای میل",
+	"echo-pref-email-format-html": "ایث ٹی ایم ایل",
+	"echo-pref-email-format-plain-text": "سادہ متن",
+	"echo-learn-more": "ٻیا سِکھو",
+	"echo-log": "عوامی لاگ",
+	"echo-new-messages": "تہاݙے کیتے نویں سنیہے ہن",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Your}} الرٹس",
-	"notification-link-article-reminder": "ورقہ ݙیکھو"
+	"echo-feedback": "تہاڈی رائے",
+	"echo-notification-markasread": "نشان لاؤ جو پڑھ گھدے",
+	"echo-notification-markasunread": "نشان لاؤ جو کائنی پڑھا",
+	"echo-notification-markasread-tooltip": "نشان لاؤ جو پڑھ گھدے",
+	"notification-link-article-reminder": "ورقہ ݙیکھو",
+	"notification-timestamp-today": "اڄ",
+	"notification-timestamp-yesterday": "کل",
+	"notification-inbox-filter-read": "پڑھو",
+	"notification-inbox-filter-unread": "کائنی پڑھا",
+	"notification-inbox-filter-all": "یکے",
+	"echo-notification-notice-text-only": "اطلاعات",
+	"echo-overlay-link": "جملہ اطلاعاں",
+	"echo-mark-all-as-read": "نشان لاؤ جو سارا پڑھ گھدے",
+	"echo-date-today": "اڄ",
+	"echo-date-yesterday": "کل"
 }

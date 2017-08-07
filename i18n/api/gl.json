@@ -53,5 +53,6 @@
 	"apihelp-echoarticlereminder-param-title": "Título do artigo a lembrar ó usuario",
 	"apihelp-echoarticlereminder-param-timestamp": "En que data e hora lembrar ó usuario",
 	"apiwarn-echo-deprecation-flyout": "<kbd>notformat=flyout</kbd> está obsoleto e será eliminado pronto. Use <kbd>notformat=model</kbd> para obter os datos en bruto ou <kbd>notformat=special</kbd> para o HTML preformatado.",
-	"apiwarn-echo-deprecation-html": "<kbd>notformat=html</kbd> está obsoleto e será eliminado en breve. Substituír por <kbd>notformat=special</kbd>."
+	"apiwarn-echo-deprecation-html": "<kbd>notformat=html</kbd> está obsoleto e será eliminado en breve. Substituír por <kbd>notformat=special</kbd>.",
+	"apierror-echo-event-creation-failed": "Non se puido crear o evento Echo"
 }
