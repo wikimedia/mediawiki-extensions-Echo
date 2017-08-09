@@ -41,6 +41,7 @@ abstract class EchoLocalCache {
 	 * Add a key to the lookup and the key is used to resolve cache target
 	 *
 	 * @param int $key
+	 * @param null $target
 	 */
 	public function add( $key, $target = null ) {
 		if (

@@ -89,7 +89,7 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 
 	/**
 	 * Creates an EchoEvent object
-	 * @param $info array Named arguments:
+	 * @param array $info Named arguments:
 	 * type (required): The event type;
 	 * variant: A variant of the type;
 	 * agent: The user who caused the event;
@@ -271,7 +271,7 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 	/**
 	 * Loads data from the provided $row into this object.
 	 *
-	 * @param $row stdClass row object from echo_event
+	 * @param stdClass $row row object from echo_event
 	 * @return bool Whether loading was successful
 	 */
 	public function loadFromRow( $row ) {
@@ -333,8 +333,8 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 
 	/**
 	 * Loads data from the database into this object, given the event ID.
-	 * @param $id int Event ID
-	 * @param $fromMaster bool
+	 * @param int $id Event ID
+	 * @param bool $fromMaster
 	 * @return bool Whether it loaded successfully
 	 */
 	public function loadFromID( $id, $fromMaster = false ) {
@@ -364,7 +364,7 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 	/**
 	 * Creates an EchoEvent from a row object
 	 *
-	 * @param $row stdClass row object from echo_event
+	 * @param stdClass $row row object from echo_event
 	 * @return EchoEvent|bool
 	 */
 	public static function newFromRow( $row ) {
@@ -377,7 +377,7 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 	/**
 	 * Creates an EchoEvent from the database by ID
 	 *
-	 * @param $id int Event ID
+	 * @param int $id Event ID
 	 * @return EchoEvent|bool
 	 */
 	public static function newFromID( $id ) {
@@ -430,11 +430,11 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 	 * field of this revision, if it's marked as deleted.  When no
 	 * revision is attached always returns true.
 	 *
-	 * @param $field Integer:one of Revision::DELETED_TEXT,
+	 * @param int $field One of Revision::DELETED_TEXT,
 	 *                              Revision::DELETED_COMMENT,
 	 *                              Revision::DELETED_USER
-	 * @param $user User object to check
-	 * @return Boolean
+	 * @param User $user User object to check
+	 * @return bool
 	 */
 	public function userCan( $field, User $user ) {
 		$revision = $this->getRevision();
@@ -616,7 +616,7 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 	/**
 	 * Get the message key of the primary or secondary link for a notification type.
 	 *
-	 * @param $rank String 'primary' or 'secondary'
+	 * @param String $rank 'primary' or 'secondary'
 	 * @return String i18n message key
 	 */
 	public function getLinkMessage( $rank ) {
@@ -632,7 +632,7 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 	/**
 	 * Get the link destination of the primary or secondary link for a notification type.
 	 *
-	 * @param $rank String 'primary' or 'secondary'
+	 * @param String $rank 'primary' or 'secondary'
 	 * @return String The link destination, e.g. 'agent'
 	 */
 	public function getLinkDestination( $rank ) {
@@ -653,7 +653,7 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 	}
 
 	/**
-	 * @param $hash string
+	 * @param string $hash
 	 */
 	public function setBundleHash( $hash ) {
 		$this->bundleHash = $hash;
@@ -675,28 +675,28 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 	}
 
 	/**
-	 * @inheritdoc
+	 * @inheritDoc
 	 */
 	public function canBeBundled() {
 		return true;
 	}
 
 	/**
-	 * @inheritdoc
+	 * @inheritDoc
 	 */
 	public function getBundlingKey() {
 		return $this->getBundleHash();
 	}
 
 	/**
-	 * @inheritdoc
+	 * @inheritDoc
 	 */
 	public function setBundledElements( $bundleables ) {
 		$this->setBundledEvents( $bundleables );
 	}
 
 	/**
-	 * @inheritdoc
+	 * @inheritDoc
 	 */
 	public function getSortingKey() {
 		return $this->getTimestamp();

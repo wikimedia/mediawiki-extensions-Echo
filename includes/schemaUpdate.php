@@ -12,7 +12,7 @@ class EchoSuppressionRowUpdateGenerator implements RowUpdateGenerator {
 	protected $newTitleFromNsAndText = [ 'Title', 'makeTitleSafe' ];
 
 	/**
-	 * {@inheritDoc}
+	 * @inheritDoc
 	 */
 	public function update( $row ) {
 		$update = $this->updatePageIdFromTitle( $row );
@@ -26,7 +26,7 @@ class EchoSuppressionRowUpdateGenerator implements RowUpdateGenerator {
 	/**
 	 * Hackish method of mocking Title::newFromText for tests
 	 *
-	 * @param $callable callable
+	 * @param callable $callable
 	 */
 	public function setNewTitleFromNsAndText( $callable ) {
 		$this->newTitleFromNsAndText = $callable;
@@ -35,8 +35,8 @@ class EchoSuppressionRowUpdateGenerator implements RowUpdateGenerator {
 	/**
 	 * Hackish method of mocking Title::makeTitleSafe for tests
 	 *
-	 * @param $namespace integer The namespace of the page to look up
-	 * @param $text string The page name to look up
+	 * @param int $namespace The namespace of the page to look up
+	 * @param string $text The page name to look up
 	 * @return Title|null The title located for the namespace + text, or null if invalid
 	 */
 	protected function newTitleFromNsAndText( $namespace, $text ) {
@@ -48,7 +48,7 @@ class EchoSuppressionRowUpdateGenerator implements RowUpdateGenerator {
 	 * to having only a page id in the table.  Any event from a page that doesn't have an
 	 * article id gets the title+namespace moved to the event extra data
 	 *
-	 * @param $row stdClass A row from the database
+	 * @param stdClass $row A row from the database
 	 * @return array All updates required for this row
 	 */
 	protected function updatePageIdFromTitle( $row ) {
@@ -77,8 +77,8 @@ class EchoSuppressionRowUpdateGenerator implements RowUpdateGenerator {
 	 * Updates the extra data for page-linked events to point to the id of the article
 	 * rather than the namespace+title combo.
 	 *
-	 * @param $row stdClass A row from the database
-	 * @param $update array
+	 * @param stdClass $row A row from the database
+	 * @param array $update
 	 *
 	 * @return array All updates required for this row
 	 */
@@ -105,8 +105,8 @@ class EchoSuppressionRowUpdateGenerator implements RowUpdateGenerator {
 	 * extra data returns that updated data rather than the origional. If
 	 * no extra data exists returns array()
 	 *
-	 * @param $row stdClass The database row being updated
-	 * @param $update array Updates that need to be applied to the database row
+	 * @param stdClass $row The database row being updated
+	 * @param array $update Updates that need to be applied to the database row
 	 * @return array The event extra data
 	 */
 	protected function extra( $row, array $update = [] ) {

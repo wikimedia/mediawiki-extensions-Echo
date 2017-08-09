@@ -37,7 +37,7 @@ class MWEchoEmailBatch {
 	protected static $displaySize = 20;
 
 	/**
-	 * @param $user User
+	 * @param User $user
 	 */
 	public function __construct( User $user ) {
 		$this->mUser = $user;
@@ -52,8 +52,8 @@ class MWEchoEmailBatch {
 	 *  0 - instant
 	 *  1 - once everyday
 	 *  7 - once every 7 days
-	 * @param $userId int
-	 * @param $enforceFrequency boolean Whether or not email sending frequency should
+	 * @param int $userId
+	 * @param bool $enforceFrequency Whether or not email sending frequency should
 	 *  be enforced.
 	 *
 	 *  When true, today's notifications won't be returned if they are
@@ -291,10 +291,10 @@ class MWEchoEmailBatch {
 	/**
 	 * Insert notification event into email queue
 	 *
-	 * @param $userId int
-	 * @param $eventId int
-	 * @param $priority int
-	 * @param $hash string
+	 * @param int $userId
+	 * @param int $eventId
+	 * @param int $priority
+	 * @param string $hash
 	 *
 	 * @throws MWException
 	 */
@@ -329,8 +329,8 @@ class MWEchoEmailBatch {
 	/**
 	 * Get a list of users to be notified for the batch
 	 *
-	 * @param $startUserId int
-	 * @param $batchSize int
+	 * @param int $startUserId
+	 * @param int $batchSize
 	 *
 	 * @throws MWException
 	 * @return ResultWrapper|bool

@@ -215,7 +215,7 @@ class EchoAttributeManager {
 	/**
 	 * Gets array of internal category names
 	 *
-	 * @return All internal names
+	 * @return array All internal names
 	 */
 	public function getInternalCategoryNames() {
 		return array_keys( $this->categories );
@@ -225,8 +225,8 @@ class EchoAttributeManager {
 	 * See if a user is eligible to receive a certain type of notification
 	 * (based on user groups, not user preferences)
 	 *
-	 * @param User
-	 * @param string A notification category defined in $wgEchoNotificationCategories
+	 * @param User $user
+	 * @param string $category A notification category defined in $wgEchoNotificationCategories
 	 * @return bool
 	 */
 	public function getCategoryEligibility( $user, $category ) {
@@ -244,7 +244,7 @@ class EchoAttributeManager {
 	/**
 	 * Get the priority for a specific notification type
 	 *
-	 * @param string A notification type defined in $wgEchoNotifications
+	 * @param string $notificationType A notification type defined in $wgEchoNotifications
 	 * @return int From 1 to 10 (10 is default)
 	 */
 	public function getNotificationPriority( $notificationType ) {
@@ -256,7 +256,7 @@ class EchoAttributeManager {
 	/**
 	 * Get the priority for a notification category
 	 *
-	 * @param string A notification category defined in $wgEchoNotificationCategories
+	 * @param string $category A notification category defined in $wgEchoNotificationCategories
 	 * @return int From 1 to 10 (10 is default)
 	 */
 	public function getCategoryPriority( $category ) {
@@ -273,7 +273,7 @@ class EchoAttributeManager {
 	/**
 	 * Get the notification category for a notification type
 	 *
-	 * @param string A notification type defined in $wgEchoNotifications
+	 * @param string $notificationType A notification type defined in $wgEchoNotifications
 	 * @return string The name of the notification category or 'other' if no
 	 *     category is explicitly assigned.
 	 */
@@ -322,6 +322,7 @@ class EchoAttributeManager {
 	 *
 	 * @param string $category Category name
 	 * @param string $notifyType notify type, e.g. email/web.
+	 * @return bool
 	 */
 	public function isNotifyTypeAvailableForCategory( $category, $notifyType ) {
 		if ( isset( $this->notifyTypeAvailabilityByCategory[$category][$notifyType] ) ) {
@@ -335,6 +336,7 @@ class EchoAttributeManager {
 	 * Checks whether category is displayed in preferences
 	 *
 	 * @param string $category Category name
+	 * @return bool
 	 */
 	public function isCategoryDisplayedInPreferences( $category ) {
 		return !(
@@ -352,6 +354,7 @@ class EchoAttributeManager {
 	 *
 	 * @param string $category Name of category
 	 * @param string $notifyType notify type, e.g. email/web.
+	 * @return bool
 	 */
 	public function isNotifyTypeDismissableForCategory( $category, $notifyType ) {
 		return !(

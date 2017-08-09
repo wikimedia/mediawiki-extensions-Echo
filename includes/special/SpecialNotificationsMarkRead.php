@@ -73,8 +73,8 @@ class SpecialNotificationsMarkRead extends FormSpecialPage {
 	 *
 	 * @param int|array $idValue ID or array of IDs
 	 * @param string $submitButtonValue Value attribute for button
-	 * @param boolean $framed Whether the button should be framed
-	 * @param string Raw HTML to use for button label
+	 * @param bool $framed Whether the button should be framed
+	 * @param string $submitLabelHtml Raw HTML to use for button label
 	 *
 	 * @return HTMLForm
 	 */
@@ -117,6 +117,7 @@ class SpecialNotificationsMarkRead extends FormSpecialPage {
 	 *
 	 * This is only called when the form is actually visited directly, which is not the
 	 *   main intended use.
+	 * @param HTMLForm $form
 	 */
 	protected function alterForm( HTMLForm $form ) {
 		$form->setSubmitText( $this->msg( 'echo-notification-markasread' )->text() );

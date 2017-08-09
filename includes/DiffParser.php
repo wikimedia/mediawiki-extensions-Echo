@@ -32,7 +32,7 @@
 class EchoDiffParser {
 
 	/**
-	 * @var integer $prefixLength The number of characters the diff prefixes a line with
+	 * @var int $prefixLength The number of characters the diff prefixes a line with
 	 */
 	protected $prefixLength = 1;
 
@@ -42,7 +42,7 @@ class EchoDiffParser {
 	protected $left;
 
 	/**
-	 * @var integer $leftPos The current position within the left text
+	 * @var int $leftPos The current position within the left text
 	 */
 	protected $leftPos;
 
@@ -52,7 +52,7 @@ class EchoDiffParser {
 	protected $right;
 
 	/**
-	 * @var integer $rightPos The current position within the right text
+	 * @var int $rightPos The current position within the right text
 	 */
 	protected $rightPos;
 
@@ -122,6 +122,7 @@ class EchoDiffParser {
 	 * if we are using internal or external diff utilities
 	 *
 	 * @deprecated since 1.29, the internal diff parser is always used
+	 * @return bool
 	 */
 	protected static function usingInternalDiff() {
 		return true;
@@ -259,8 +260,8 @@ class EchoDiffGroup {
 	protected $old = [];
 
 	/**
-	 * @param integer $leftPos The starting line number in the left text
-	 * @param integer $rightPos The starting line number in the right text
+	 * @param int $leftPos The starting line number in the left text
+	 * @param int $rightPos The starting line number in the right text
 	 */
 	public function __construct( $leftPos, $rightPos ) {
 		// +1 due to the origional code use 1 indexing for this result

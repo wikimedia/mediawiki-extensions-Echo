@@ -77,7 +77,7 @@ class EchoHooks {
 	 * ResourceLoaderTestModules hook handler
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ResourceLoaderTestModules
 	 *
-	 * @param array $testModules
+	 * @param array &$testModules
 	 * @param ResourceLoader $resourceLoader
 	 * @return bool
 	 */
@@ -127,6 +127,7 @@ class EchoHooks {
 
 	/**
 	 * Handler for ResourceLoaderRegisterModules hook
+	 * @param ResourceLoader &$resourceLoader
 	 */
 	public static function onResourceLoaderRegisterModules( ResourceLoader &$resourceLoader ) {
 		global $wgEchoEventLoggingSchemas;
@@ -178,7 +179,7 @@ class EchoHooks {
 	}
 
 	/**
-	 * @param $updater DatabaseUpdater object
+	 * @param DatabaseUpdater $updater
 	 */
 	public static function onLoadExtensionSchemaUpdates( DatabaseUpdater $updater ) {
 		global $wgEchoCluster;
@@ -234,8 +235,8 @@ class EchoHooks {
 	/**
 	 * Handler for EchoGetBundleRule hook, which defines the bundle rule for each notification
 	 *
-	 * @param $event EchoEvent
-	 * @param $bundleString string Determines how the notification should be bundled, for example,
+	 * @param EchoEvent $event
+	 * @param string &$bundleString Determines how the notification should be bundled, for example,
 	 * talk page notification is bundled based on namespace and title, the bundle string would be
 	 * 'edit-user-talk-' + namespace + title, email digest/email bundling would use this hash as
 	 * a key to identify bundle-able event.  For web bundling, we bundle further based on user's
@@ -272,8 +273,8 @@ class EchoHooks {
 	 * Handler for the GetBetaFeaturePreferences hook.
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/GetBetaFeaturePreferences
 	 *
-	 * @param $user User to get preferences for
-	 * @param &$preferences Preferences array
+	 * @param User $user User to get preferences for
+	 * @param array &$preferences Preferences array
 	 *
 	 * @return bool true in all cases
 	 */
@@ -302,8 +303,8 @@ class EchoHooks {
 	 * Handler for GetPreferences hook.
 	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/GetPreferences
 	 *
-	 * @param $user User to get preferences for
-	 * @param &$preferences Preferences array
+	 * @param User $user User to get preferences for
+	 * @param array &$preferences Preferences array
 	 *
 	 * @throws MWException
 	 * @return bool true in all cases
@@ -501,7 +502,7 @@ class EchoHooks {
 
 	/**
 	 * Test whether email address change is supposed to be allowed
-	 * @return boolean
+	 * @return bool
 	 */
 	private static function isEmailChangeAllowed() {
 		global $wgAuth, $wgDisableAuthManager;
@@ -516,18 +517,18 @@ class EchoHooks {
 	/**
 	 * Handler for PageContentSaveComplete hook
 	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/PageContentSaveComplete
-	 * @param $article Article edited
-	 * @param $user User who edited
-	 * @param $content Content New article text
-	 * @param $summary string Edit summary
-	 * @param $minoredit bool Minor edit or not
-	 * @param $watchthis bool Watch this article?
-	 * @param $sectionanchor string Section that was edited
-	 * @param $flags int Edit flags
-	 * @param $revision Revision that was created
-	 * @param $status Status
-	 * @param $baseRevId Int
-	 * @param $undidRevId Int
+	 * @param Article &$article Article edited
+	 * @param User &$user User who edited
+	 * @param Content $content New article text
+	 * @param string $summary Edit summary
+	 * @param bool $minoredit Minor edit or not
+	 * @param bool $watchthis Watch this article?
+	 * @param string $sectionanchor Section that was edited
+	 * @param int &$flags Edit flags
+	 * @param Revision $revision Revision that was created
+	 * @param Status &$status
+	 * @param int $baseRevId
+	 * @param int $undidRevId
 	 * @return bool true in all cases
 	 */
 	public static function onPageContentSaveComplete( &$article, &$user, $content, $summary, $minoredit,
@@ -618,8 +619,8 @@ class EchoHooks {
 
 	/**
 	 * Handler for EchoAbortEmailNotification hook
-	 * @param $user User
-	 * @param $event EchoEvent
+	 * @param User $user
+	 * @param EchoEvent $event
 	 * @return bool true - send email, false - do not send email
 	 */
 	public static function onEchoAbortEmailNotification( $user, $event ) {
@@ -642,7 +643,7 @@ class EchoHooks {
 	 * Get overrides for new users.  This allows changes that only apply going forward,
 	 * without affecting existing users.
 	 *
-	 * @return Associative array mapping key to boolean for whether it should be enabled
+	 * @return array Associative array mapping key to bool for whether it should be enabled
 	 */
 	public static function getNewUserPreferenceOverrides() {
 		return [
@@ -657,8 +658,8 @@ class EchoHooks {
 	/**
 	 * Handler for LocalUserCreated hook.
 	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/LocalUserCreated
-	 * @param $user User object that was created.
-	 * @param $autocreated bool True when account was auto-created
+	 * @param User $user User object that was created.
+	 * @param bool $autocreated True when account was auto-created
 	 * @return bool
 	 */
 	public static function onLocalUserCreated( $user, $autocreated ) {
@@ -695,6 +696,8 @@ class EchoHooks {
 	 * @param string[] $remove strings corresponding to groups removed
 	 * @param User|bool $performer
 	 * @param string|bool $reason Reason given by the user changing the rights
+	 * @param array $oldUGMs
+	 * @param array $newUGMs
 	 *
 	 * @return bool
 	 */
@@ -764,9 +767,9 @@ class EchoHooks {
 	/**
 	 * Handler for LinksUpdateAfterInsert hook.
 	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/LinksUpdateAfterInsert
-	 * @param $linksUpdate LinksUpdate
-	 * @param $table string
-	 * @param $insertions array
+	 * @param LinksUpdate $linksUpdate
+	 * @param string $table
+	 * @param array $insertions
 	 * @return bool
 	 */
 	public static function onLinksUpdateAfterInsert( $linksUpdate, $table, $insertions ) {
@@ -837,8 +840,8 @@ class EchoHooks {
 	/**
 	 * Handler for BeforePageDisplay hook.
 	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/BeforePageDisplay
-	 * @param $out OutputPage object
-	 * @param $skin Skin being used.
+	 * @param OutputPage $out OutputPage object
+	 * @param Skin $skin Skin being used.
 	 * @return bool true in all cases
 	 */
 	public static function beforePageDisplay( $out, $skin ) {
@@ -859,8 +862,8 @@ class EchoHooks {
 	 * Handler for PersonalUrls hook.
 	 * Add a "Notifications" item to the user toolbar ('personal URLs').
 	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/PersonalUrls
-	 * @param &$personal_urls Array of URLs to append to.
-	 * @param &$title Title of page being visited.
+	 * @param array &$personal_urls Array of URLs to append to.
+	 * @param Title &$title Title of page being visited.
 	 * @param SkinTemplate $sk
 	 * @return bool true in all cases
 	 */
@@ -1065,8 +1068,8 @@ class EchoHooks {
 	/**
 	 * Handler for AbortTalkPageEmailNotification hook.
 	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/AbortTalkPageEmailNotification
-	 * @param $targetUser User
-	 * @param $title Title
+	 * @param User $targetUser
+	 * @param Title $title
 	 * @return bool
 	 */
 	public static function onAbortTalkPageEmailNotification( $targetUser, $title ) {
@@ -1087,9 +1090,9 @@ class EchoHooks {
 	/**
 	 * Handler for AbortWatchlistEmailNotification hook.
 	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/AbortWatchlistEmailNotification
-	 * @param $targetUser User
-	 * @param $title Title
-	 * @param $emailNotification EmailNotification The email notification object that sends non-echo notifications
+	 * @param User $targetUser
+	 * @param Title $title
+	 * @param EmailNotification $emailNotification The email notification object that sends non-echo notifications
 	 * @return bool
 	 */
 	public static function onSendWatchlistEmailNotification( $targetUser, $title, $emailNotification ) {
@@ -1111,8 +1114,8 @@ class EchoHooks {
 	/**
 	 * Handler for MakeGlobalVariablesScript hook.
 	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/MakeGlobalVariablesScript
-	 * @param &$vars array Variables to be added into the output
-	 * @param $outputPage OutputPage instance calling the hook
+	 * @param array &$vars Variables to be added into the output
+	 * @param OutputPage $outputPage OutputPage instance calling the hook
 	 * @return bool true in all cases
 	 */
 	public static function makeGlobalVariablesScript( &$vars, OutputPage $outputPage ) {
@@ -1158,12 +1161,12 @@ class EchoHooks {
 	 * ArticleEditUpdateNewTalk hook since we still want the user_newtalk data
 	 * to be updated and availble to client-side tools and the API.
 	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/GetNewMessagesAlert
-	 * @param &$newMessagesAlert String An alert that the user has new messages
+	 * @param string &$newMessagesAlert An alert that the user has new messages
 	 *     or an empty string if the user does not (empty by default)
-	 * @param $newtalks Array This will be empty if the user has no new messages
+	 * @param array $newtalks This will be empty if the user has no new messages
 	 *     or an Array containing links and revisions if there are new messages
-	 * @param $user User The user who is loading the page
-	 * @param $out Output object
+	 * @param User $user The user who is loading the page
+	 * @param OutputPage $out Output object
 	 * @return bool Should return false to prevent the new messages alert (OBOD)
 	 *     or true to allow the new messages alert
 	 */
@@ -1186,10 +1189,10 @@ class EchoHooks {
 	/**
 	 * Handler for ArticleRollbackComplete hook.
 	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/ArticleRollbackComplete
-	 * @param $page WikiPage The article that was edited
-	 * @param $agent User The user who did the rollback
-	 * @param $newRevision Revision The revision the page was reverted back to
-	 * @param $oldRevision Revision The revision of the top edit that was reverted
+	 * @param WikiPage $page The article that was edited
+	 * @param User $agent The user who did the rollback
+	 * @param Revision $newRevision The revision the page was reverted back to
+	 * @param Revision $oldRevision The revision of the top edit that was reverted
 	 * @return bool true in all cases
 	 */
 	public static function onRollbackComplete( $page, $agent, $newRevision, $oldRevision ) {
@@ -1218,7 +1221,7 @@ class EchoHooks {
 	/**
 	 * Handler for UserSaveSettings hook.
 	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/UserSaveSettings
-	 * @param $user User whose settings were saved
+	 * @param User $user whose settings were saved
 	 * @return bool true in all cases
 	 */
 	public static function onUserSaveSettings( $user ) {
@@ -1239,8 +1242,8 @@ class EchoHooks {
 	/**
 	 * Handler for UserLoadOptions hook.
 	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/UserLoadOptions
-	 * @param $user User whose options were loaded
-	 * @param $options Options can be modified
+	 * @param User $user User whose options were loaded
+	 * @param array &$options Options can be modified
 	 * @return bool true in all cases
 	 */
 	public static function onUserLoadOptions( $user, &$options ) {
@@ -1255,8 +1258,8 @@ class EchoHooks {
 	/**
 	 * Handler for UserSaveOptions hook.
 	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/UserSaveOptions
-	 * @param $user User whose options are being saved
-	 * @param $options Options can be modified
+	 * @param User $user User whose options are being saved
+	 * @param array &$options Options can be modified
 	 * @return bool true in all cases
 	 */
 	public static function onUserSaveOptions( $user, &$options ) {
@@ -1273,7 +1276,7 @@ class EchoHooks {
 	/**
 	 * Handler for UserClearNewTalkNotification hook.
 	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/UserClearNewTalkNotification
-	 * @param $user User whose talk page notification should be marked as read
+	 * @param User $user User whose talk page notification should be marked as read
 	 * @return bool true in all cases
 	 */
 	public static function onUserClearNewTalkNotification( User $user ) {
@@ -1289,7 +1292,7 @@ class EchoHooks {
 	/**
 	 * Handler for ParserTestTables hook, makes sure that Echo's tables are present during tests
 	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/UserClearNewTalkNotification
-	 * @param array $tables List of DB tables to be used for parser tests
+	 * @param array &$tables List of DB tables to be used for parser tests
 	 * @return bool true in all cases
 	 */
 	public static function onParserTestTables( &$tables ) {
@@ -1303,10 +1306,10 @@ class EchoHooks {
 	/**
 	 * Handler for EmailUserComplete hook.
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/EmailUserComplete
-	 * @param $address MailAddress Adress of receiving user
-	 * @param $from MailAddress Adress of sending user
-	 * @param $subject string Subject of the mail
-	 * @param $text string Text of the mail
+	 * @param MailAddress $address Adress of receiving user
+	 * @param MailAddress $from Adress of sending user
+	 * @param string $subject Subject of the mail
+	 * @param string $text Text of the mail
 	 * @return bool true in all cases
 	 */
 	public static function onEmailUserComplete( $address, $from, $subject, $text ) {
@@ -1343,7 +1346,7 @@ class EchoHooks {
 	/**
 	 * For integration with the UserMerge extension.
 	 *
-	 * @param array $updateFields
+	 * @param array &$updateFields
 	 * @return bool
 	 */
 	public static function onUserMergeAccountFields( &$updateFields ) {
@@ -1378,7 +1381,7 @@ class EchoHooks {
 	/**
 	 * Sets custom login message for redirect from notification page
 	 *
-	 * @param array $messages
+	 * @param array &$messages
 	 * @return bool
 	 */
 	public static function onLoginFormValidErrorMessages( &$messages ) {

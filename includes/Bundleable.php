@@ -8,7 +8,7 @@
 interface Bundleable {
 
 	/**
-	 * @return boolean Whether this object can be bundled.
+	 * @return bool Whether this object can be bundled.
 	 */
 	public function canBeBundled();
 
