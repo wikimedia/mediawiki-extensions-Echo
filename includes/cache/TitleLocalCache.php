@@ -23,7 +23,7 @@ class EchoTitleLocalCache extends EchoLocalCache {
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * @inheritDoc
 	 */
 	protected function resolve() {
 		if ( $this->lookups ) {

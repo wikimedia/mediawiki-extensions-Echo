@@ -8,6 +8,7 @@ class EchoUserLocator {
 	 * heavily watched pages when this is used.
 	 *
 	 * @param EchoEvent $event
+	 * @param int $batchSize
 	 * @return User[]
 	 */
 	public static function locateUsersWatchingTitle( EchoEvent $event, $batchSize = 500 ) {
@@ -78,7 +79,7 @@ class EchoUserLocator {
 	 * Return the user that created the first revision of the
 	 * associated title.
 	 *
-	 * @param EchoEvent $evnet
+	 * @param EchoEvent $event
 	 * @return User[]
 	 */
 	public static function locateArticleCreator( EchoEvent $event ) {

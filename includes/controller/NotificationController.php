@@ -55,7 +55,7 @@ class EchoNotificationController {
 	* If using it in sentence context, pass the value from getCappedNotificationCount
 	* into a message and use PLURAL.  Example: notification-bundle-header-page-linked
 	*
-	* @param int count Notification count
+	* @param int $count Notification count
 	* @return string Formatted count, after applying cap then formatting to string
 	*/
 	public static function formatNotificationCount( $count ) {
@@ -68,7 +68,7 @@ class EchoNotificationController {
 	 * Processes notifications for a newly-created EchoEvent
 	 *
 	 * @param EchoEvent $event
-	 * @param boolean $defer Defer to job queue or not
+	 * @param bool $defer Defer to job queue or not
 	 */
 	public static function notify( $event, $defer = true ) {
 		// Defer to job queue if defer to job queue is requested and
@@ -460,6 +460,12 @@ class EchoNotificationController {
 	 *
 	 * Converts E_RECOVERABLE_ERROR, such as passing null to a method expecting
 	 * a non-null object, into exceptions.
+	 * @param int $errno
+	 * @param string $errstr
+	 * @param string $errfile
+	 * @param int $errline
+	 * @return bool
+	 * @throw EchoCatchableFatalErrorException
 	 */
 	public static function formatterErrorHandler( $errno, $errstr, $errfile, $errline ) {
 		if ( $errno !== E_RECOVERABLE_ERROR ) {

@@ -142,7 +142,7 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 	 * @param string $continue
 	 * @param string $format
 	 * @param Title[] $titles
-	 * @param boolean $unreadFirst
+	 * @param bool $unreadFirst
 	 * @param bool $bundle
 	 * @return array
 	 */
@@ -175,7 +175,7 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 	 * @param string $continue
 	 * @param string $format
 	 * @param Title[] $titles
-	 * @param boolean $unreadFirst
+	 * @param bool $unreadFirst
 	 * @param bool $bundle
 	 * @return array
 	 */
@@ -287,7 +287,7 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 	 * Internal helper method for getting property 'count' data
 	 * @param User $user
 	 * @param string[] $sections
-	 * @param boolean $groupBySection
+	 * @param bool $groupBySection
 	 * @return array
 	 */
 	protected function getPropCount( User $user, array $sections, $groupBySection ) {
@@ -314,7 +314,7 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 	 * Internal helper method for getting property 'seenTime' data
 	 * @param User $user
 	 * @param string[] $sections
-	 * @param boolean $groupBySection
+	 * @param bool $groupBySection
 	 * @return array
 	 */
 	protected function getPropSeenTime( User $user, array $sections, $groupBySection ) {
@@ -631,6 +631,7 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 
 	/**
 	 * @see ApiBase::getExamplesMessages()
+	 * @return array
 	 */
 	protected function getExamplesMessages() {
 		return [

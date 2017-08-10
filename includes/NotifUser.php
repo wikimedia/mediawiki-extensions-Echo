@@ -85,7 +85,7 @@ class MWEchoNotifUser {
 
 	/**
 	 * Factory method
-	 * @param $user User
+	 * @param User $user
 	 * @throws MWException
 	 * @return MWEchoNotifUser
 	 */
@@ -146,6 +146,7 @@ class MWEchoNotifUser {
 
 	/**
 	 * Memcache key for talk notification
+	 * @return string
 	 */
 	public function getTalkNotificationCacheKey() {
 		global $wgEchoCacheVersion;
@@ -167,7 +168,7 @@ class MWEchoNotifUser {
 	/**
 	 * Get message count for this user.
 	 *
-	 * @param boolean $cached Set to false to bypass the cache. (Optional. Defaults to true)
+	 * @param bool $cached Set to false to bypass the cache. (Optional. Defaults to true)
 	 * @param int $dbSource Use master or slave database to pull count (Optional. Defaults to DB_SLAVE)
 	 * @return int
 	 */
@@ -178,7 +179,7 @@ class MWEchoNotifUser {
 	/**
 	 * Get alert count for this user.
 	 *
-	 * @param boolean $cached Set to false to bypass the cache. (Optional. Defaults to true)
+	 * @param bool $cached Set to false to bypass the cache. (Optional. Defaults to true)
 	 * @param int $dbSource Use master or slave database to pull count (Optional. Defaults to DB_SLAVE)
 	 * @return int
 	 */
@@ -196,7 +197,7 @@ class MWEchoNotifUser {
 	 *
 	 * If $wgEchoCrossWikiNotifications is disabled, the $global parameter is ignored.
 	 *
-	 * @param boolean $cached Set to false to bypass the cache. (Optional. Defaults to true)
+	 * @param bool $cached Set to false to bypass the cache. (Optional. Defaults to true)
 	 * @param int $dbSource Use master or slave database to pull count (Optional. Defaults to DB_SLAVE)
 	 * @param string $section Notification section
 	 * @param bool|string $global Whether to include foreign notifications. If set to 'preference', uses the user's preference.
@@ -245,7 +246,7 @@ class MWEchoNotifUser {
 	/**
 	 * Get the timestamp of the latest unread alert
 	 *
-	 * @param boolean $cached Set to false to bypass the cache. (Optional. Defaults to true)
+	 * @param bool $cached Set to false to bypass the cache. (Optional. Defaults to true)
 	 * @param int $dbSource Use master or slave database to pull count (Optional. Defaults to DB_SLAVE)
 	 * @return bool|MWTimestamp Timestamp of latest unread alert, or false if there are no unread alerts.
 	 */
@@ -256,7 +257,7 @@ class MWEchoNotifUser {
 	/**
 	 * Get the timestamp of the latest unread message
 	 *
-	 * @param boolean $cached Set to false to bypass the cache. (Optional. Defaults to true)
+	 * @param bool $cached Set to false to bypass the cache. (Optional. Defaults to true)
 	 * @param int $dbSource Use master or slave database to pull count (Optional. Defaults to DB_SLAVE)
 	 * @return bool|MWTimestamp
 	 */
@@ -269,7 +270,7 @@ class MWEchoNotifUser {
 	 *
 	 * If $wgEchoCrossWikiNotifications is disabled, the $global parameter is ignored.
 	 *
-	 * @param boolean $cached Set to false to bypass the cache. (Optional. Defaults to true)
+	 * @param bool $cached Set to false to bypass the cache. (Optional. Defaults to true)
 	 * @param int $dbSource Use master or slave database to pull count (Optional. Defaults to DB_SLAVE)
 	 * @param string $section Notification section
 	 * @param bool|string $global Whether to include foreign notifications. If set to 'preference', uses the user's preference.
@@ -348,7 +349,7 @@ class MWEchoNotifUser {
 
 	/**
 	 * Mark one or more notifications read for a user.
-	 * @param $eventIds Array of event IDs to mark read
+	 * @param array $eventIds Array of event IDs to mark read
 	 * @return bool
 	 */
 	public function markRead( $eventIds ) {
@@ -380,7 +381,7 @@ class MWEchoNotifUser {
 
 	/**
 	 * Mark one or more notifications unread for a user.
-	 * @param $eventIds Array of event IDs to mark unread
+	 * @param array $eventIds Array of event IDs to mark unread
 	 * @return bool
 	 */
 	public function markUnRead( $eventIds ) {
@@ -468,7 +469,7 @@ class MWEchoNotifUser {
 	 * Invalidate cache and update echo_unread_wikis if x-wiki notifications is enabled
 	 * NOTE: Consider calling this function from a deferred update since it may access the db
 	 *
-	 * @param $dbSource int use master or replica database to pull count
+	 * @param int $dbSource Use master or replica database to pull count
 	 */
 	public function resetNotificationCount( $dbSource = DB_REPLICA ) {
 		global $wgEchoCrossWikiNotifications;

@@ -6,8 +6,8 @@ class EchoNotifier {
 	 * Record an EchoNotification for an EchoEvent
 	 * Currently used for web-based notifications.
 	 *
-	 * @param $user User to notify.
-	 * @param $event EchoEvent to notify about.
+	 * @param User $user User to notify.
+	 * @param EchoEvent $event EchoEvent to notify about.
 	 */
 	public static function notifyWithNotification( $user, $event ) {
 		// Only create the notification if the user wants to receive that type
@@ -26,8 +26,8 @@ class EchoNotifier {
 	/**
 	 * Send a Notification to a user by email
 	 *
-	 * @param $user User to notify.
-	 * @param $event EchoEvent to notify about.
+	 * @param User $user User to notify.
+	 * @param EchoEvent $event EchoEvent to notify about.
 	 * @return bool
 	 */
 	public static function notifyWithEmail( $user, $event ) {

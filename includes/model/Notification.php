@@ -62,7 +62,7 @@ class EchoNotification extends EchoAbstractEntity implements Bundleable {
 
 	/**
 	 * Creates an EchoNotification object based on event and user
-	 * @param $info array The following keys are required:
+	 * @param array $info The following keys are required:
 	 * - 'event' The EchoEvent being notified about.
 	 * - 'user' The User being notified.
 	 * @throws MWException
@@ -151,8 +151,8 @@ class EchoNotification extends EchoAbstractEntity implements Bundleable {
 
 	/**
 	 * Load a notification record from std class
-	 * @param stdClass
-	 * @param EchoTargetPage[]|null An array of EchoTargetPage instances, or null if not loaded.
+	 * @param stdClass $row
+	 * @param EchoTargetPage[]|null $targetPages An array of EchoTargetPage instances, or null if not loaded.
 	 * @return EchoNotification|bool false if failed to load/unserialize
 	 */
 	public static function newFromRow( $row, $targetPages = null ) {
@@ -279,28 +279,28 @@ class EchoNotification extends EchoAbstractEntity implements Bundleable {
 	}
 
 	/**
-	 * @inheritdoc
+	 * @inheritDoc
 	 */
 	public function canBeBundled() {
 		return !$this->isRead();
 	}
 
 	/**
-	 * @inheritdoc
+	 * @inheritDoc
 	 */
 	public function getBundlingKey() {
 		return $this->getBundleHash();
 	}
 
 	/**
-	 * @inheritdoc
+	 * @inheritDoc
 	 */
 	public function setBundledElements( $bundleables ) {
 		$this->setBundledNotifications( $bundleables );
 	}
 
 	/**
-	 * @inheritdoc
+	 * @inheritDoc
 	 */
 	public function getSortingKey() {
 		return ( $this->isRead() ? '0' : '1' ) . '_' . $this->getTimestamp();

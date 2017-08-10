@@ -154,7 +154,7 @@ EOF;
 
 	/**
 	 * Apply style to notification category header
-	 * @param string $category. Can contain HTML. Is included as-is in HTML template, is not escaped.
+	 * @param string $category Can contain HTML. Is included as-is in HTML template, is not escaped.
 	 * @return string
 	 */
 	protected function applyStyleToCategory( $category ) {

@@ -50,7 +50,7 @@ class EchoContainmentSet {
 	/**
 	 * Add an EchoContainmentList to the set of lists checked by self::contains()
 	 *
-	 * @param $list EchoContainmentList
+	 * @param EchoContainmentList $list
 	 */
 	public function add( EchoContainmentList $list ) {
 		$this->lists[] = $list;
@@ -59,7 +59,7 @@ class EchoContainmentSet {
 	/**
 	 * Add a php array to the set of lists checked by self::contains()
 	 *
-	 * @param $list array
+	 * @param array $list
 	 */
 	public function addArray( array $list ) {
 		$this->add( new EchoArrayList( $list ) );
@@ -68,7 +68,7 @@ class EchoContainmentSet {
 	/**
 	 * Add a list from a user preference to the set of lists checked by self::contains().
 	 *
-	 * @param $preferenceName string
+	 * @param string $preferenceName
 	 */
 	public function addFromUserOption( $preferenceName ) {
 		$preference = $this->recipient->getOption( $preferenceName );
@@ -85,10 +85,10 @@ class EchoContainmentSet {
 	 * from wiki pages is cached via the BagOStuff.  Caching is disabled when passing a null
 	 * $cache object.
 	 *
-	 * @param $namespace      integer   An NS_* constant representing the mediawiki namespace of the page containing the list.
-	 * @param $title          string    The title of the page containing the list.
-	 * @param $cache          BagOStuff An object to cache the page with or null for no cache.
-	 * @param $cacheKeyPrefix string    A prefix to be combined with the pages latest revision id and used as a cache key.
+	 * @param int $namespace An NS_* constant representing the mediawiki namespace of the page containing the list.
+	 * @param string $title The title of the page containing the list.
+	 * @param BagOStuff $cache An object to cache the page with or null for no cache.
+	 * @param string $cacheKeyPrefix A prefix to be combined with the pages latest revision id and used as a cache key.
 	 *
 	 * @throws MWException
 	 */
@@ -106,7 +106,7 @@ class EchoContainmentSet {
 	/**
 	 * Test the wrapped lists for existence of $value
 	 *
-	 * @param $value mixed The value to look for
+	 * @param mixed $value The value to look for
 	 * @return bool True when the set contains the provided value
 	 */
 	public function contains( $value ) {
@@ -132,21 +132,21 @@ class EchoArrayList implements EchoContainmentList {
 	protected $list;
 
 	/**
-	 * @param $list array
+	 * @param array $list
 	 */
 	public function __construct( array $list ) {
 		$this->list = $list;
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * @inheritDoc
 	 */
 	public function getValues() {
 		return $this->list;
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * @inheritDoc
 	 */
 	public function getCacheKey() {
 		return '';
@@ -165,8 +165,8 @@ class EchoOnWikiList implements EchoContainmentList {
 	protected $title;
 
 	/**
-	 * @param $titleNs     integer An NS_* constant representing the mediawiki namespace of the page
-	 * @param $titleString string  String portion of the wiki page title
+	 * @param int $titleNs An NS_* constant representing the mediawiki namespace of the page
+	 * @param string $titleString String portion of the wiki page title
 	 */
 	public function __construct( $titleNs, $titleString ) {
 		$title = Title::newFromText( $titleString, $titleNs );
@@ -176,7 +176,7 @@ class EchoOnWikiList implements EchoContainmentList {
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * @inheritDoc
 	 */
 	public function getValues() {
 		if ( !$this->title ) {
@@ -195,7 +195,7 @@ class EchoOnWikiList implements EchoContainmentList {
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * @inheritDoc
 	 */
 	public function getCacheKey() {
 		if ( !$this->title ) {
@@ -221,11 +221,11 @@ class EchoCachedList implements EchoContainmentList {
 	private $result;
 
 	/**
-	 * @param $cache           BagOStuff           Bag to stored cached data in.
-	 * @param $partialCacheKey string              Partial cache key, $nestedList->getCacheKey() will be appended to this
-	 *                                             to construct the cache key used.
-	 * @param $nestedList      EchoContainmentList The nested EchoContainmentList to cache the result of.
-	 * @param $timeout         integer             How long in seconds to cache the nested list, defaults to 1 week.
+	 * @param BagOStuff $cache Bag to stored cached data in.
+	 * @param string $partialCacheKey Partial cache key, $nestedList->getCacheKey() will be appended
+	 *   to this to construct the cache key used.
+	 * @param EchoContainmentList $nestedList The nested EchoContainmentList to cache the result of.
+	 * @param int $timeout How long in seconds to cache the nested list, defaults to 1 week.
 	 */
 	public function __construct( BagOStuff $cache, $partialCacheKey, EchoContainmentList $nestedList, $timeout = self::ONE_WEEK ) {
 		$this->cache = $cache;
@@ -235,7 +235,7 @@ class EchoCachedList implements EchoContainmentList {
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * @inheritDoc
 	 */
 	public function getValues() {
 		if ( $this->result ) {
@@ -262,7 +262,7 @@ class EchoCachedList implements EchoContainmentList {
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * @inheritDoc
 	 */
 	public function getCacheKey() {
 		return $this->partialCacheKey . '_' . $this->nestedList->getCacheKey();

@@ -9,7 +9,7 @@ class EchoEventMapper extends EchoAbstractMapper {
 	/**
 	 * Insert an event record
 	 *
-	 * @param EchoEvent
+	 * @param EchoEvent $event
 	 * @return int|bool
 	 */
 	public function insert( EchoEvent $event ) {
@@ -41,8 +41,8 @@ class EchoEventMapper extends EchoAbstractMapper {
 	/**
 	 * Create an EchoEvent by id
 	 *
-	 * @param int
-	 * @param boolean
+	 * @param int $id
+	 * @param bool $fromMaster
 	 * @return EchoEvent|bool false if it wouldn't load/unserialize
 	 * @throws MWException
 	 */
