@@ -746,7 +746,7 @@ abstract class EchoDiscussionParser {
 		if ( $matches[0][0][1] > 1 ) { // is there text before the first headline?
 			$sections[] = [
 				'header' => false,
-				'content' =>  substr( $text, 0, $matches[0][0][1] - 1 )
+				'content' => substr( $text, 0, $matches[0][0][1] - 1 )
 			];
 		}
 		for ( $i = 0; $i < $sectionNum; $i++ ) {
@@ -757,7 +757,7 @@ abstract class EchoDiscussionParser {
 			}
 			$sections[] = [
 				'header' => self::extractHeader( $matches[0][$i][0] ),
-				'content' =>  trim( $content )
+				'content' => trim( $content )
 			];
 		}
 

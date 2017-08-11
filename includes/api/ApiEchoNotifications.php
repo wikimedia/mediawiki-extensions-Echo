@@ -277,7 +277,7 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 			// @todo: what to do with this when fetching from multiple wikis?
 			$timestamp = wfTimestamp( TS_UNIX, $overfetchedItem->getTimestamp() );
 			$id = $overfetchedItem->getEvent()->getId();
-			$result['continue'] =  $timestamp . '|' . $id;
+			$result['continue'] = $timestamp . '|' . $id;
 		}
 
 		return $result;
