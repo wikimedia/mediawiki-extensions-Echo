@@ -65,6 +65,7 @@ class SpecialNotifications extends SpecialPage {
 		// Add the notifications to the page (interspersed with date headers)
 		$dateHeader = '';
 		$unread = [];
+		$anyUnread = false;
 		$echoSeenTime = EchoSeenTime::newFromUser( $user );
 		$seenTime = $echoSeenTime->getTime();
 		$notifArray = [];
@@ -97,6 +98,7 @@ class SpecialNotifications extends SpecialPage {
 
 			// Collect unread IDs
 			if ( !isset( $row['read'] ) ) {
+				$anyUnread = true;
 				$notifArray[ $dateHeader ][ 'unread' ][] = $row['id'];
 			}
 
@@ -112,6 +114,32 @@ class SpecialNotifications extends SpecialPage {
 
 			// Store
 			$notifArray[ $dateHeader ][ 'notices' ][] = $li;
+		}
+
+		$markAllAsReadFormWrapper = '';
+		// Ensure there are some unread notifications
+		if ( $anyUnread ) {
+			$markReadSpecialPage = new SpecialNotificationsMarkRead();
+
+			$markAllAsReadText = $this->msg( 'echo-mark-all-as-read' )->text();
+			$markAllAsReadLabelIcon = new EchoOOUI\LabelIconWidget( [
+				'label' => $markAllAsReadText,
+				'icon' => 'doubleCheck',
+			] );
+
+			$markAllAsReadForm = $markReadSpecialPage->getMinimalForm(
+				[ 'ALL' ],
+				$markAllAsReadText,
+				true,
+				$markAllAsReadLabelIcon->toString()
+			);
+
+			$formHtml = $markAllAsReadForm->prepareForm()->getHTML( /* First submission attempt */ false );
+
+			$markAllAsReadFormWrapper = new OOUI\Tag();
+			$markAllAsReadFormWrapper
+				->addClasses( [ 'mw-echo-special-markAllReadButton' ] )
+				->appendContent( new OOUI\HtmlSnippet( $formHtml ) );
 		}
 
 		// Build the list
@@ -184,6 +212,7 @@ class SpecialNotifications extends SpecialPage {
 			->addClasses( [ 'mw-echo-special-container' ] )
 			->appendContent(
 				$navTop,
+				$markAllAsReadFormWrapper,
 				$notices,
 				$navBottom
 			);
