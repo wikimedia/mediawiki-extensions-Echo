@@ -53,6 +53,9 @@ class SpecialNotificationsMarkRead extends FormSpecialPage {
 					return $result;
 				},
 				'validation-callback' => function ( $value, $alldata ) {
+					if ( $value === [ 'ALL' ] ) {
+						return true;
+					}
 					if ( (int)$value <= 0 ) {
 						return $this->msg( 'echo-specialpage-markasread-invalid-id' );
 					}
@@ -130,10 +133,15 @@ class SpecialNotificationsMarkRead extends FormSpecialPage {
 	 * @return bool|string|array|Status As documented for HTMLForm::trySubmit.
 	 */
 	public function onSubmit( array $data /* $form = null */ ) {
+		$notifUser = MWEchoNotifUser::newFromUser( $this->getUser() );
+
+		// Allow for all IDs
+		if ( $data['id'] === [ 'ALL' ] ) {
+			return $notifUser->markAllRead();
+		}
+
 		// Allow for multiple IDs or a single ID
 		$ids = $data['id'];
-
-		$notifUser = MWEchoNotifUser::newFromUser( $this->getUser() );
 		return $notifUser->markRead( $ids );
 	}
 
