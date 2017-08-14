@@ -1,12 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Sahran"
+			"Sahran",
+			"Uzdil"
 		]
 	},
 	"prefs-echo": "ئۇقتۇرۇشلار",
 	"prefs-displaynotifications": "كۆرسىتىش تاللانما",
 	"notifications": "ئۇقتۇرۇشلار",
+	"tooltip-pt-notifications-alert": "{{GENDER:|سىزنىڭ}} ئەسكەرتىشىڭىز",
 	"echo-date-today": "بۈگۈن",
 	"echo-date-yesterday": "تۈنۈگۈن"
 }

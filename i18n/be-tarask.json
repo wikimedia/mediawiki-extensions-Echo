@@ -90,6 +90,7 @@
 	"echo-api-failure-cross-wiki": "Доступ да аддаленага дамэну быў забаронены.",
 	"echo-notification-placeholder": "Няма паведамленьняў.",
 	"echo-notification-placeholder-filters": "Няма паведамленьняў, якія адпавядаюць гэтым крытэрам.",
+	"echo-notification-loginrequired": "Вы мусіце ўвайсьці, каб пабачыць вашыя паведамленьні.",
 	"notification-link-text-view-message": "Праглядзець паведамленьне",
 	"notification-link-text-view-mention": "Праглядзець згадваньне",
 	"notification-link-text-view-changes": "{{GENDER:$1|Праглядзець}} зьмены",

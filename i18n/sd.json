@@ -16,5 +16,6 @@
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 توھان جي بحث صفحي \"$2\" تي پيغام {{GENDER:$1|ڇڏيو}}.",
 	"echo-notification-alert-text-only": "پيغام",
 	"echo-notification-notice-text-only": "اطلاع",
-	"echo-overlay-link": "سڀ اطلاع"
+	"echo-overlay-link": "سڀ اطلاع",
+	"echo-mark-all-as-read": "سڀ پڙھيل طور نشان لڳايو"
 }
