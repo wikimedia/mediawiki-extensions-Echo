@@ -11,7 +11,7 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 	/**
 	 * @var array
 	 */
-	protected $tablesUsed = [ 'user', 'revision', 'text', 'page' ];
+	protected $tablesUsed = [ 'user', 'revision', 'ip_changes', 'text', 'page' ];
 
 	/**
 	 * Convenience users for use in these tests.
@@ -819,7 +819,7 @@ TEXT
 				'content' =>
 <<<TEXT
 == Headline 1 ==
-مرحبا كيف حالك 
+مرحبا كيف حالك
 === Headline 2 ===
 انا بخير شكرا
 TEXT
