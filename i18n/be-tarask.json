@@ -92,6 +92,8 @@
 	"echo-notification-placeholder-filters": "Няма паведамленьняў, якія адпавядаюць гэтым крытэрам.",
 	"echo-notification-loginrequired": "Вы мусіце ўвайсьці, каб пабачыць вашыя паведамленьні.",
 	"echo-notification-popup-loginrequired": "Калі ласка, увайдзіце, каб пабачыць вашыя паведамленьні.",
+	"echo-notification-markasread": "Пазначыць як прачытанае",
+	"echo-notification-markasunread": "Пазначыць як непрачытанае",
 	"notification-link-text-view-message": "Праглядзець паведамленьне",
 	"notification-link-text-view-mention": "Праглядзець згадваньне",
 	"notification-link-text-view-changes": "{{GENDER:$1|Праглядзець}} зьмены",
