@@ -15,7 +15,8 @@
 			"संजीव कुमार",
 			"Shahjad ansari",
 			"Anamdas",
-			"हिंदुस्थान वासी"
+			"हिंदुस्थान वासी",
+			"Sachinkatiyar"
 		]
 	},
 	"echo-desc": "अधिसूचना प्रणाली",
@@ -25,7 +26,7 @@
 	"prefs-echosubscriptions": "मुझे इन घटनाओं के बारे में सूचित करें",
 	"prefs-echocrosswiki": "क्रॉस-विकी नोटिफिकेशन",
 	"prefs-newmessageindicator": "नए संदेश का संकेतक",
-	"prefs-blocknotificationslist": "अवरोध सूची",
+	"prefs-blocknotificationslist": "मूक उपयोगकर्ता",
 	"echo-pref-send-me": "मुझे भेजिए:",
 	"echo-pref-send-to": "यहाँ भेजिए:",
 	"echo-pref-email-format": "ईमेल प्रारूप:",
