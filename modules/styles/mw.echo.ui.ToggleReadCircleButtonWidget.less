@@ -22,6 +22,11 @@
 		}
 	}
 
+	// Override OOUI specific rule for frameless buttons that adds a ~2.5em padding-top
+	&.oo-ui-widget.oo-ui-widget-enabled.oo-ui-buttonElement.oo-ui-buttonElement-frameless > .oo-ui-buttonElement-button {
+		padding-top: 0;
+	}
+
 	&:hover .mw-echo-ui-toggleReadCircleButtonWidget-circle {
 		// Mark as read
 		background-color: #447ff5;
