@@ -3,7 +3,8 @@
 		"authors": [
 			"Naudefj",
 			"Servien",
-			"Fwolff"
+			"Fwolff",
+			"Biggs ZA"
 		]
 	},
 	"echo-desc": "Kennisgewing-stelsel",
@@ -13,6 +14,7 @@
 	"prefs-echosubscriptions": "Hou my op hoogte oor hierdie gebeurtenisse",
 	"prefs-echocrosswiki": "Kennisgewings van ander wiki's",
 	"prefs-newmessageindicator": "Nuwe boodskap-indikator",
+	"prefs-blocknotificationslist": "Stilgebruikers",
 	"echo-pref-send-me": "Stuur my:",
 	"echo-pref-send-to": "Stuur na:",
 	"echo-pref-email-format": "E-posformaat:",

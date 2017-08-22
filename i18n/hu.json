@@ -11,7 +11,8 @@
 			"Bináris",
 			"Macofe",
 			"R-Joe",
-			"BanKris"
+			"BanKris",
+			"Bencemac"
 		]
 	},
 	"echo-desc": "Értesíti a felhasználókat az eseményekről és üzenetekről",
@@ -21,6 +22,7 @@
 	"prefs-echosubscriptions": "Értesítést kérek ezekről az eseményekről",
 	"prefs-echocrosswiki": "Wikiközi értesítések",
 	"prefs-newmessageindicator": "Új üzenet jelzése",
+	"prefs-blocknotificationslist": "Lenémított felhasználók",
 	"echo-pref-send-me": "Gyakoriság:",
 	"echo-pref-send-to": "Erre a címre:",
 	"echo-pref-email-format": "A levél formátuma:",
@@ -33,6 +35,7 @@
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Sima szöveg",
 	"echo-pref-cross-wiki-notifications": "Értesítések megjelenítése más wikikről",
+	"echo-pref-notifications-blacklist": "Értesítések megjelenítésének letiltása ezektől a felhasználóktól. ([[mw:Help:Notifications#mute|további információk]])",
 	"echo-pref-new-message-indicator": "Jelezze a vitalapi üzeneteket a lap tetején lévő menüben",
 	"echo-pref-beta-feature-cross-wiki-message": "Fejlettebb értesítések",
 	"echo-learn-more": "Tudj meg többet",
