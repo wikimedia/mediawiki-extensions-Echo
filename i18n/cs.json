@@ -11,7 +11,8 @@
 			"Kvetoslav47",
 			"Dvorapa",
 			"Danny B.",
-			"Meliganai"
+			"Meliganai",
+			"Martin Urbanec"
 		]
 	},
 	"echo-desc": "Systém pro upozorňování uživatelů na události a zprávy",
@@ -21,6 +22,7 @@
 	"prefs-echosubscriptions": "Upozorněte mě na…",
 	"prefs-echocrosswiki": "Upozornění napříč projekty",
 	"prefs-newmessageindicator": "Indikátor nových zpráv",
+	"prefs-blocknotificationslist": "Ztlumení uživatelé",
 	"echo-pref-send-me": "Posílejte mi:",
 	"echo-pref-send-to": "Posílat na:",
 	"echo-pref-email-format": "Formát e-mailu:",
@@ -33,6 +35,7 @@
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Prostý text",
 	"echo-pref-cross-wiki-notifications": "Zobrazovat upozornění z jiných wiki",
+	"echo-pref-notifications-blacklist": "Nezobrazovat notifikace od těchto uživatelů. ([[mw:Help:Notifications#mute|dozvědět se více]])",
 	"echo-pref-new-message-indicator": "Zobrazit indikátor diskusních zpráv v mém panelu nástrojů",
 	"echo-pref-beta-feature-cross-wiki-message": "Vylepšená upozornění",
 	"echo-pref-beta-feature-cross-wiki-description": "Prohlížejte si a organizujte upozornění snadněji. Zahrnuje upozornění napříč wikiprojekty, což vám umožňuje vidět zprávy z jiných wiki. (Abyste na dané wiki přijímali upozornění napříč wikiprojekty, musíte na té wiki zapnout tuto betafunkci.)",
@@ -122,6 +125,7 @@
 	"notification-header-page-linked": "Ze stránky <strong>$4</strong> byl vytvořen odkaz na stránku <strong>$3</strong>.",
 	"notification-compact-header-page-linked": "Ze stránky <strong>$1</strong>.",
 	"notification-bundle-header-page-linked": "{{PLURAL:$5||Ze $5 stránek|Z $5 stránek|100=Z více než 99 stránek}} byly vytvořeny odkazy na stránku <strong>$3</strong>.",
+	"notification-header-article-reminder": "Stránka, na kterou jste si {{GENDER:$2|přál|přála}} být upozorněn, se nachází na <strong>$</strong>.",
 	"notification-link-text-what-links-here": "Všechny odkazy na tuto stránku",
 	"notification-header-mention-other": "$1 {{GENDER:$3|vás}} {{GENDER:$2|zmínil|zmínila}} v diskusi <strong>$4</strong> u „<strong>$5</strong>“.",
 	"notification-header-mention-other-nosection": "$1 {{GENDER:$3|vás}} {{GENDER:$2|zmínil|zmínila}} v diskusi <strong>$4</strong>.",
@@ -156,6 +160,7 @@
 	"notification-header-thank-you-1000000-edit": "Právě jste {{GENDER:$2|provedl|provedla}} svou miliontou editaci. Díky za váš ohromující příspěvek!",
 	"notification-link-thank-you-edit": "{{GENDER:$1|Vaše}} editace",
 	"notification-link-text-view-edit": "Zobrazit editaci",
+	"notification-link-article-reminder": "Zobrazit stránku",
 	"notification-header-reverted": "Vaše editace stránky <strong>$3</strong> {{PLURAL:$4|byla vrácena|byly vráceny}} {{GENDER:$2|zpět}}.",
 	"notification-header-emailuser": "$1 vám {{GENDER:$2|poslal|poslala}} e-mail.",
 	"notification-edit-talk-page-email-subject2": "$1 vám na {{grammar:6sg|{{SITENAME}}}} {{GENDER:$1|napsal|napsala}} zprávu",
