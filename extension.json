@@ -1019,6 +1019,7 @@
 		"SpecialNotificationsMarkRead": "includes/special/SpecialNotificationsMarkRead.php",
 		"SuppressionMaintenanceTest": "tests/phpunit/maintenance/SupressionMaintenanceTest.php",
 		"TestDiscussionParser": "maintenance/testDiscussionParser.php",
-		"UpdateEchoSchemaForSuppression": "maintenance/updateEchoSchemaForSuppression.php"
+		"UpdateEchoSchemaForSuppression": "maintenance/updateEchoSchemaForSuppression.php",
+		"EchoUpdatePerUserBlacklist": "maintenance/updatePerUserBlacklist.php"
 	}
 }

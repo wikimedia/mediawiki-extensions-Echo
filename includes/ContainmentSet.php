@@ -71,12 +71,12 @@ class EchoContainmentSet {
 	 * @param string $preferenceName
 	 */
 	public function addFromUserOption( $preferenceName ) {
-		$preference = $this->recipient->getOption( $preferenceName );
+		$preference = $this->recipient->getOption( $preferenceName, [] );
 
 		if ( $preference ) {
-			$items = explode( "\n", $preference );
-
-			$this->addArray( $items );
+			$lookup = CentralIdLookup::factory();
+			$names = $lookup->lookupCentralIds( array_flip( $preference ), $this->recipient );
+			$this->addArray( array_values( $names ) );
 		}
 	}
 
