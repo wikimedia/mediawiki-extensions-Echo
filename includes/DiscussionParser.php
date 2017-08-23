@@ -644,8 +644,8 @@ abstract class EchoDiscussionParser {
 	/**
 	 * Given a line number and a text, find the first and last line of the section the line number is in.
 	 * If there are subsections, the last line index will be the line before the beginning of the first subsection.
-	 * @param $offset line number
-	 * @param $lines
+	 * @param int $offset line number
+	 * @param array $lines
 	 * @return array tuple [$firstLine, $lastLine]
 	 */
 	static function getSectionSpan( $offset, $lines ) {

@@ -71,8 +71,8 @@ class MWEchoDbFactory {
 
 	/**
 	 * Get the database connection for Echo
-	 * @param $db int Index of the connection to get
-	 * @param $groups mixed Query groups.
+	 * @param int $db Index of the connection to get
+	 * @param mixed $groups Query groups.
 	 * @return IDatabase
 	 */
 	public function getEchoDb( $db, $groups = [] ) {
@@ -80,7 +80,7 @@ class MWEchoDbFactory {
 	}
 
 	/**
-	 * @param $db int Index of the connection to get
+	 * @param int $db Index of the connection to get
 	 * @param array $groups Query groups
 	 * @return bool|IDatabase false if no shared db is configured
 	 */
@@ -99,9 +99,9 @@ class MWEchoDbFactory {
 	 * objects
 	 *
 	 * @deprecated Use newFromDefault() instead to create a db factory
-	 * @param $db int Index of the connection to get
-	 * @param $groups mixed Query groups.
-	 * @param $wiki string|bool The wiki ID, or false for the current wiki
+	 * @param int $db Index of the connection to get
+	 * @param mixed $groups Query groups.
+	 * @param string|bool $wiki The wiki ID, or false for the current wiki
 	 * @return IDatabase
 	 */
 	public static function getDB( $db, $groups = [], $wiki = false ) {
