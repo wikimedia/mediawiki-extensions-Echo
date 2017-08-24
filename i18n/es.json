@@ -151,7 +151,7 @@
 	"notification-header-mention-success": "Se ha enviado {{GENDER:$2|tu}} mención a <strong>$3</strong>.",
 	"notification-header-mention-success-bundle": "Se {{PLURAL:$3|ha enviado una mención|han enviado $3 menciones}} que {{GENDER:$2|hiciste}} en la página de discusión de <strong>$4</strong>.",
 	"notification-compact-header-mention-success": "<strong>{{GENDER:$2|Mencionaste a}}:</strong> $3",
-	"notification-header-mention-status-bundle": "{{PLURAL:$3|Una notificación|$3 notificaciones}} sobre menciones que {{GENDER:$2|hiciste}} en la página de discusión de <strong>$4</strong>, {{PLURAL:$5|1 no se ha|$5 no se han}} enviado y {{PLURAL:$6|1 se ha|$6 se han}} enviado.",
+	"notification-header-mention-status-bundle": "De {{PLURAL:$3|una notificación|$3 notificaciones}} sobre menciones que {{GENDER:$2|hiciste}} en la página de discusión de <strong>$4</strong>, {{PLURAL:$5|1 no se ha|$5 no se han}} enviado y {{PLURAL:$6|1 se ha|$6 se han}} enviado.",
 	"notification-header-user-rights-add-only": "{{GENDER:$4|Tus}} permisos de usuario han sido {{GENDER:$1|modificados}}. Ahora perteneces a: $2.",
 	"notification-header-user-rights-remove-only": "{{GENDER:$4|Tus}} permisos de usuario han sido {{GENDER:$1|modificados}}. Ya no eres miembro de: $2.",
 	"notification-header-user-rights-add-and-remove": "{{GENDER:$6|Tus}} permisos de usuario han sido {{GENDER:$1|modificados}}. Ahora perteneces a: $2. Ya no eres miembro de: $4.",
