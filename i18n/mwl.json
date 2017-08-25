@@ -1,0 +1,27 @@
+{
+	"@metadata": {
+		"authors": [
+			"MokaAkashiyaPT"
+		]
+	},
+	"prefs-emailsettings": "Oupçones de correio eiletrónico",
+	"prefs-displaynotifications": "Oupçones de bisualizaçon",
+	"prefs-echosubscriptions": "Notificar-me subre estes eibentos",
+	"prefs-echocrosswiki": "Notificaçones d'outras bersones de la Biquipédia",
+	"prefs-newmessageindicator": "Andicador de nuoba mensaige",
+	"echo-pref-send-me": "Ambiar-me:",
+	"echo-pref-send-to": "Ambiar pa:",
+	"echo-pref-email-format": "Formato de correio:",
+	"echo-pref-web": "Web",
+	"echo-pref-email": "Correio eiletrónico",
+	"echo-pref-email-frequency-never": "Nun me ambiar notificaçones por correio",
+	"echo-pref-email-frequency-immediately": "Notificaçones andebiduales cunforme cheguen",
+	"echo-pref-email-frequency-daily": "Un resumo diairo de notificaçones",
+	"echo-pref-email-frequency-weekly": "Un resumo semanal de notificaçones",
+	"echo-pref-email-format-html": "HTML",
+	"echo-pref-email-format-plain-text": "Testo simples",
+	"echo-pref-cross-wiki-notifications": "Amostrar notificaçones d'outras wikis",
+	"echo-pref-new-message-indicator": "Amostrar l'andicador de mensaige na páigina de cumbersa na mie barra de ferramientas",
+	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Mensaige|Mensaiges}} na páigina de cumbersa",
+	"echo-pref-tooltip-edit-user-talk": "Abisar-me quando alguien publicar na mie páigina de cumbersa."
+}
