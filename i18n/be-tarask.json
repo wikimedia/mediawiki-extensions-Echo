@@ -99,6 +99,7 @@
 	"notification-dynamic-actions-unwatch": "{{GENDER:$3|Не}} сачыць за зьменамі на старонцы «$1»",
 	"notification-dynamic-actions-unwatch-confirmation": "{{GENDER:$3|Вы}} больш не назіраеце за старонкай «$1»",
 	"notification-dynamic-actions-unwatch-confirmation-description": "{{GENDER:$3|Вы}} можаце пачаць назіраць за [$2 гэтай старонкай] у любы час.",
+	"notification-dynamic-actions-watch": "{{GENDER:$3|Сачыць}} за новай актыўнасьцю на старонцы «$1»",
 	"notification-link-text-view-message": "Праглядзець паведамленьне",
 	"notification-link-text-view-mention": "Праглядзець згадваньне",
 	"notification-link-text-view-changes": "{{GENDER:$1|Праглядзець}} зьмены",
