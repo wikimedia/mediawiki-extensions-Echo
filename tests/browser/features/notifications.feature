@@ -1,4 +1,4 @@
-@chrome @en.wikipedia.beta.wmflabs.org @firefox @integration @vagrant
+@chrome @en.wikipedia.beta.wmflabs.org @firefox @localhost @vagrant
 Feature: Testing notification types
 
   Background:
