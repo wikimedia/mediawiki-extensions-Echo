@@ -27,6 +27,7 @@
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Kloertext",
 	"echo-pref-cross-wiki-notifications": "Notifikatioune vun anere Wikie weisen",
+	"echo-pref-notifications-blacklist": "Notifikatioune vun dëse Benotzer net weisen.\n([[mw:Help:Notifications#mute|méi gewuer ginn]])",
 	"echo-pref-new-message-indicator": "Indicateur fir Messagen op menger Diskussiounssäit a menger Geschirläischt weisen",
 	"echo-pref-beta-feature-cross-wiki-message": "Erweidert Notifikatiounen",
 	"echo-pref-beta-feature-cross-wiki-description": "Notifikatioune méi einfach weisen an organiséieren.Inklusiv Cross-Wiki Notifikatiounen, déi Iech Message vun anere Wikie weisen. (Fir Cross-Wiki Notifikatioune vun enger bestëmmter Wiki ze kréie musst dir d'Beta-Funktioun op där Wiki aktivéieren.)",

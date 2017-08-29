@@ -41,6 +41,10 @@
 	"echo-pref-tooltip-emailuser": "Abisar-me quando alguien me ambiar un correio eiletrónico.",
 	"notifications": "Notificaçones",
 	"echo-specialpage": "Notificaçones",
+	"echo-specialpage-pagination-numnotifications": "$1 {{PLURAL:$1|notificaçon|notificaçones}}",
 	"notification-link-text-view-mention": "Ber mençon",
-	"notification-link-text-view-mention-failure": "{{PLURAL:$1|Ber mençon|Ber mençones}}"
+	"notification-link-text-view-mention-failure": "{{PLURAL:$1|Ber mençon|Ber mençones}}",
+	"echo-notification-notice": "{{PLURAL:$1|Notificaçon ($1)|Notificaçones ($1)|100=Notificaçones (mais de 99)}}",
+	"echo-notification-notice-text-only": "Abisos",
+	"echo-overlay-title": "<b>Notificaçones</b>"
 }
