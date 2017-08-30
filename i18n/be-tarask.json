@@ -103,6 +103,7 @@
 	"notification-dynamic-actions-watch-confirmation": "Цяпер {{GENDER:$3|вы}} назіраеце за старонкай «$1»",
 	"notification-dynamic-actions-watch-confirmation-description": "{{GENDER:$3|Вы}} можаце спыніць назіраньне за [$2 гэтай старонкай] у любы час.",
 	"notification-link-text-expand-all": "Разгарнуць",
+	"notification-link-text-expand-alert-count": "Паказаць {{PLURAL:$1|$1 папярэджаньне|$1 папярэджаньні|$1 папярэджаньняў}}",
 	"notification-link-text-view-message": "Праглядзець паведамленьне",
 	"notification-link-text-view-mention": "Праглядзець згадваньне",
 	"notification-link-text-view-changes": "{{GENDER:$1|Праглядзець}} зьмены",

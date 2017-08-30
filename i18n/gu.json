@@ -4,7 +4,8 @@
 			"Dsvyas",
 			"KartikMistry",
 			"Rangilo Gujarati",
-			"NehalDaveND"
+			"NehalDaveND",
+			"Drashti4"
 		]
 	},
 	"echo-desc": "સભ્યોને ઘટનાઓ અને સંદેશાઓનું સૂચન કરતી સેવા",
@@ -77,11 +78,11 @@
 	"notification-reverted-email-subject2": "{{SITENAME}} પર {{PLURAL:$3|તમારો ફેરફાર|તમારા ફેરફારો}} {{GENDER:$1|પાછો વાળ્યો|પાછા વાળ્યા}} છે.",
 	"notification-mention-email-subject": "$1એ {{SITENAME}} પર {{GENDER:$2|તમારો}} {{GENDER:$1|ઉલ્લેખ}} કર્યો છે",
 	"notification-user-rights-email-subject": "તમારાં {{SITENAME}} પરનાં અધિકારો બદલાયા છે",
-	"notification-timestamp-ago-seconds": "{{PLURAL:$1|$1સે}}",
-	"notification-timestamp-ago-minutes": "{{PLURAL:$1|$1મિ}}",
+	"notification-timestamp-ago-seconds": "{{PLURAL:$1|$1s}}",
+	"notification-timestamp-ago-minutes": "{{PLURAL:$1|$1m}}",
 	"notification-timestamp-ago-hours": "{{PLURAL:$1|$1કલાક}}",
 	"notification-timestamp-ago-days": "{{PLURAL:$1|$1દિવસ}}",
-	"notification-timestamp-ago-months": "{{PLURAL:$1|$1મ}}",
+	"notification-timestamp-ago-months": "{{PLURAL:$1|$1mo}}",
 	"notification-timestamp-ago-years": "{{PLURAL:$1|$1વર્ષ}}",
 	"notification-timestamp-today": "આજે",
 	"notification-timestamp-yesterday": "ગઈ કાલે",
