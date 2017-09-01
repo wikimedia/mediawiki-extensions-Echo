@@ -8,6 +8,9 @@
 		<exclude name="MediaWiki.Commenting.FunctionComment.MissingParamName" />
 		<exclude name="MediaWiki.Commenting.FunctionComment.MissingParamTag" />
 		<exclude name="MediaWiki.Commenting.FunctionComment.MissingReturn" />
+		<exclude name="MediaWiki.Files.ClassMatchesFilename.NotMatch" />
+		<exclude name="MediaWiki.Files.ClassMatchesFilename.WrongCase" />
+		<exclude name="MediaWiki.Files.OneClassPerFile.MultipleFound" />
 		<exclude name="MediaWiki.Commenting.FunctionComment.MissingDocumentationProtected" />
 		<exclude name="MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic" />
 		<exclude name="MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName" />

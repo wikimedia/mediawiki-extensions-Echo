@@ -543,7 +543,7 @@ class MWEchoNotifUser {
 
 	/**
 	 * Get a cache entry from the cache, using a preloaded instance cache.
-	 * @param  string|false $memcKey Cache key returned by getMemcKey()
+	 * @param string|false $memcKey Cache key returned by getMemcKey()
 	 * @return mixed Cache value
 	 */
 	protected function getFromCache( $memcKey ) {
