@@ -76,7 +76,7 @@
 							numItems: Number( numMessages ),
 							hasUnseen: hasUnseenMessages,
 							badgeIcon: 'tray',
-							badgeLabel: badgeLabelMessages,
+							convertedNumber: badgeLabelMessages,
 							links: links,
 							href: $existingMessageLink.attr( 'href' )
 						}
@@ -93,7 +93,7 @@
 					alertModelManager,
 					{
 						numItems: Number( numAlerts ),
-						badgeLabel: badgeLabelAlerts,
+						convertedNumber: badgeLabelAlerts,
 						hasUnseen: hasUnseenAlerts,
 						badgeIcon: 'bell',
 						links: links,
