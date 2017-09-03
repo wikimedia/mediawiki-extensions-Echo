@@ -77,6 +77,7 @@
 	"echo-pref-tooltip-mention-success": "Notificarme cuando envíe una mención a alguien.",
 	"echo-pref-tooltip-user-rights": "Notificarme cuando alguien cambie mis derechos de {{GENDER:|usuario|usuaria}}.",
 	"echo-pref-tooltip-emailuser": "Notificarme cuando alguien me envíe un correo electrónico.",
+	"echo-pref-tooltip-article-reminder": "Notificarme sobre esta página cuando lo solicite.",
 	"echo-error-no-formatter": "No se definió ningún formato para las notificaciones.",
 	"notifications": "Notificaciones",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Tus}} alertas",

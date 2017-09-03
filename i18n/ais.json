@@ -1,8 +1,18 @@
 {
 	"@metadata": {
 		"authors": [
-			"Benel"
+			"Benel",
+			"Bunukwiki"
 		]
 	},
-	"tooltip-pt-notifications-alert": "{{GENDER:|misuay}}pacekil"
+	"prefs-echo": "patakus",
+	"echo-pref-web": "calay-kasabelih(wangyei)",
+	"notifications": "patakus",
+	"tooltip-pt-notifications-alert": "{{GENDER:|misuay}}pacekil",
+	"notification-link-text-expand-all": "micuwat",
+	"notification-timestamp-today": "ayza a demiad",
+	"notification-inbox-filter-read": "asip",
+	"notification-inbox-filter-all": "hamin",
+	"echo-notification-alert-text-only": "pacekil",
+	"echo-date-today": "ayza a demiad"
 }
