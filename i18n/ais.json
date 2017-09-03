@@ -11,8 +11,10 @@
 	"tooltip-pt-notifications-alert": "{{GENDER:|misuay}}pacekil",
 	"notification-link-text-expand-all": "micuwat",
 	"notification-timestamp-today": "ayza a demiad",
-	"notification-inbox-filter-read": "asip",
+	"notification-timestamp-yesterday": "nacila",
+	"notification-inbox-filter-read": "miasip",
 	"notification-inbox-filter-all": "hamin",
 	"echo-notification-alert-text-only": "pacekil",
-	"echo-date-today": "ayza a demiad"
+	"echo-date-today": "ayza a demiad",
+	"echo-date-yesterday": "nacila"
 }
