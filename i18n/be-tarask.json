@@ -115,6 +115,7 @@
 	"notification-header-edit-user-talk": "$1 {{GENDER:$2|пакінуў|пакінула}} паведамленьне на <strong>{{GENDER:$3|вашай}} старонцы размоваў</strong>.",
 	"notification-header-edit-user-talk-with-section": "$1 {{GENDER:$2|пакінуў|пакінула}} паведамленьне на <strong>{{GENDER:$3|вашай}} старонцы размоваў</strong> у «<strong>$4</strong>».",
 	"notification-header-page-linked": "Была зробленая спасылка з <strong>$4</strong> на <strong>$3</strong>.",
+	"notification-compact-header-page-linked": "Спаслаліся з <strong>$1</strong>.",
 	"notification-header-mention-other": "$1 {{GENDER:$2|згадаў|згадала}} {{GENDER:$3|вас}} на старонцы <strong>$4</strong> у разьдзеле «<strong>$5</strong>».",
 	"notification-header-mention-agent-talkpage": "$1 {{GENDER:$2|згадаў|згадала}} {{GENDER:$3|вас}} на <strong>{{GENDER:$2|сваёй}} старонцы размоваў</strong> у разьдзеле «<strong>$4</strong>».",
 	"notification-header-thank-you-1-edit": "{{GENDER:$2|Вы}} толькі што зрабілі {{GENDER:$2|вашую}} першую праўку; дзякуем {{GENDER:$2|вам}} і запрашаем!",
