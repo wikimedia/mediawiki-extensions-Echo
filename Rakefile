@@ -19,4 +19,4 @@ end
 task default: [:test]
 
 desc 'Run all build/tests commands (CI entry point)'
-task test: [:rubocop]
+task test: [:rubocop, :spec, :selenium]
