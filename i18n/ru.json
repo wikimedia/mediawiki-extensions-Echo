@@ -148,7 +148,7 @@
 	"notification-header-page-linked": "Была сделана ссылка с <strong>$4</strong> на <strong>$3</strong>.",
 	"notification-compact-header-page-linked": "Связано с $1",
 	"notification-bundle-header-page-linked": "Были сделаны ссылки с {{PLURAL:$5||$5 страниц|100=99+ других страниц}} на <strong>$3</strong>.",
-	"notification-header-article-reminder": "Статья, о которой {{GENDER:$2|вы}} попросили напоминать <strong>$3</strong>",
+	"notification-header-article-reminder": "Страница, о которой {{GENDER:$2|вы}} попросили напоминать, <strong>$3</strong>",
 	"notification-link-text-what-links-here": "Все ссылки на эту страницу",
 	"notification-header-mention-other": "$1 упомянул{{GENDER:$2||а}} {{GENDER:$3|вас}} на странице <strong>$4</strong> в разделе «<strong>$5</strong>».",
 	"notification-header-mention-other-nosection": "$1 упомянул{{GENDER:$2||а}} {{GENDER:$3|вас}} на странице <strong>$4</strong>.",
