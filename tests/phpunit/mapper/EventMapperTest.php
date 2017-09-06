@@ -6,17 +6,17 @@ class EchoEventMapperTest extends MediaWikiTestCase {
 		return [
 			[
 				'successful insert with next sequence = 1',
-				[ 'nextSequenceValue' => 1, 'insert' => true, 'insertId' => 1 ],
+				[ 'insert' => true, 'insertId' => 1 ],
 				1
 			],
 			[
 				'successful insert with insert id = 2',
-				[ 'nextSequenceValue' => null, 'insert' => true, 'insertId' => 2 ],
+				[ 'insert' => true, 'insertId' => 2 ],
 				2
 			],
 			[
 				'unsuccessful insert',
-				[ 'nextSequenceValue' => null, 'insert' => false, 'insertId' => 2 ],
+				[ 'insert' => false, 'insertId' => 2 ],
 				false
 			],
 		];
@@ -103,7 +103,6 @@ class EchoEventMapperTest extends MediaWikiTestCase {
 	 */
 	protected function mockDb( array $dbResult ) {
 		$dbResult += [
-			'nextSequenceValue' => '',
 			'insert' => '',
 			'insertId' => '',
 			'select' => '',
@@ -112,9 +111,6 @@ class EchoEventMapperTest extends MediaWikiTestCase {
 		$db = $this->getMockBuilder( 'DatabaseMysql' )
 			->disableOriginalConstructor()
 			->getMock();
-		$db->expects( $this->any() )
-			->method( 'nextSequenceValue' )
-			->will( $this->returnValue( $dbResult['nextSequenceValue'] ) );
 		$db->expects( $this->any() )
 			->method( 'insert' )
 			->will( $this->returnValue( $dbResult['insert'] ) );

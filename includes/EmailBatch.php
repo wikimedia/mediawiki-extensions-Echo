@@ -312,12 +312,6 @@ class MWEchoEmailBatch {
 			'eeb_event_hash' => $hash
 		];
 
-		$id = $dbw->nextSequenceValue( 'echo_email_batch_eeb_id' );
-
-		if ( $id ) {
-			$row['eeb_id'] = $id;
-		}
-
 		$dbw->insert(
 			'echo_email_batch',
 			$row,

@@ -15,12 +15,7 @@ class EchoEventMapper extends EchoAbstractMapper {
 	public function insert( EchoEvent $event ) {
 		$dbw = $this->dbFactory->getEchoDb( DB_MASTER );
 
-		$id = $dbw->nextSequenceValue( 'echo_event_id' );
-
 		$row = $event->toDbArray();
-		if ( $id ) {
-			$row['event_id'] = $id;
-		}
 
 		$res = $dbw->insert( 'echo_event', $row, __METHOD__ );
 
