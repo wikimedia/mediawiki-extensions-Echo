@@ -2,9 +2,21 @@
 	"@metadata": {
 		"authors": [
 			"Translatealcd",
-			"Akamycoco"
+			"Akamycoco",
+			"Hitaypayan"
 		]
 	},
 	"prefs-emailsettings": "Zyusyo na e-meyo’ bruwiy",
-	"tooltip-pt-notifications-alert": "{{GENDER:|Rwa su’}}gmrhuw kmayal"
+	"prefs-newmessageindicator": "Kaikay na ppsbaq sa giqas na zayzyuwaw",
+	"echo-pref-email-frequency-daily": "Sbbaq ’pinkr’tung kkayal krayrax",
+	"echo-pref-email-frequency-weekly": "Sbbaq ’pinkr’tung kkayal qutux qutux rihay",
+	"echo-pref-beta-feature-cross-wiki-message": "Twangiy kinlawkah na smbbaq",
+	"tooltip-pt-notifications-alert": "{{GENDER:|Rwa su’}}gmrhuw kmayal",
+	"echo-displaynotificationsconfiguration-notifications-by-category-header": "Sbbaq sa lalu’ kwara’ gluw na mmtnaq",
+	"echo-specialpage-markasread-invalid-id": "Ungat zyuwaw nquw sinbbaq na ID qaniy",
+	"echo-notification-placeholder": "ungat ana nanu’ sinbbaq.",
+	"echo-notification-markasread": "Sinbbaq sa wayal lpgun",
+	"echo-notification-markasunread": "Sinbbaq sa ini’ lpgiy na’",
+	"echo-notification-markasread-tooltip": "Sinbbaq sa wayal lpgun",
+	"echo-notification-notice-text-only": "Ssbaq na kwara’ na"
 }

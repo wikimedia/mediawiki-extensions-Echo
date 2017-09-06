@@ -35,6 +35,8 @@
 	"echo-category-title-article-linked": "АгӀона тӀе {{PLURAL:$1|хьажорг}}",
 	"echo-category-title-reverted": "{{PLURAL:$1|нисдар юхадаккхар|нисдарш юхадаккхар}}",
 	"echo-category-title-mention": "{{PLURAL:$1|хаам|хаамаш}}",
+	"echo-category-title-mention-failure": "{{PLURAL:$1|Нисцадела хьахор|Нисцадела хьахорш}}",
+	"echo-category-title-mention-success": "{{PLURAL:$1|Кхиамца хьахор|Кхиамца хьахорш}}",
 	"echo-category-title-other": "{{PLURAL:$1|кхин долу|кхин дерш}}",
 	"echo-category-title-system": "{{PLURAL:$1|Системан}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|Декъашхочун бакъо хийцар|Декъашхочун бакъонаш хийцар}}",
