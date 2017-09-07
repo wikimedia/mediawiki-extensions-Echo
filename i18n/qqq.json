@@ -27,7 +27,8 @@
 			"Trizek (WMF)",
 			"Matěj Suchánek",
 			"McDutchie",
-			"Ans"
+			"Ans",
+			"Verdy p"
 		]
 	},
 	"echo-desc": "{{desc|name=Echo|url=https://www.mediawiki.org/wiki/Extension:Echo}} The [https://www.mediawiki.org/wiki/Help:Notifications Mediawiki help] page gives notes on the terminology in this extension.",
@@ -50,7 +51,7 @@
 	"echo-pref-email-format-html": "Option for users who want to receive HTML email notification.\n\nSee also:\n* {{msg-mw|Echo-pref-email-format}}\n{{Identical|HTML}}",
 	"echo-pref-email-format-plain-text": "Option for users who want to receive plain text email notification.\n\nSee also:\n* {{msg-mw|Echo-pref-email-format}}\n{{Identical|Plain text}}",
 	"echo-pref-cross-wiki-notifications": "Label for a preference which enables notifications from other wikis. Only used if {{msg-mw|echo-pref-beta-feature-cross-wiki-message}} is not used.",
-	"echo-pref-notifications-blacklist": "Label for a preference which allows a user to block notifications from certain users",
+	"echo-pref-notifications-blacklist": "Label for a preference which allows a user to block notifications from certain users.\n\nNote that the translatewiki.net tool may warn, if you alter the link to use an existing translated version linked from the English page at [[mw:Help:Notifications#mute]], such as [[mw:Help:Notifications/fr#mute]] for the French version.",
 	"echo-pref-new-message-indicator": "Label for a preference which enables the new talk page message alert",
 	"echo-pref-beta-feature-cross-wiki-message": "Label for the cross-wiki notifications Beta Feature. Only used if {{msg-mw|echo-pref-cross-wiki-notifications}} is not used.",
 	"echo-pref-beta-feature-cross-wiki-description": "Description for the cross-wiki notifications Beta Feature, describing the feature that will be enabled. Only used if {{msg-mw|echo-pref-cross-wiki-notifications}} is not used.",
@@ -155,8 +156,8 @@
 	"notification-header-mention-article-talkpage-nosection": "Header text for a notification when you are mentioned by another user on an article talk page.\n* $1 - user's name (not suitable for GENDER).\n* $2 - user's name for use in GENDER.\n* $3 - name of the user viewing the notification, can be used for GENDER\n* $4 - name of the article whose talk page you are mentioned in (without namespace)",
 	"notification-header-mention-failure-user-unknown": "Header text for a notification when your mention has failed because the user was not found.\n* $2 - user's name for use in GENDER.\n* $3 - username that was not found.",
 	"notification-header-mention-failure-user-anonymous": "Header text for a notification when your mention has failed because the user is an anonymous IP.\n* $2 - user's name for use in GENDER.\n* $3 - username that is anonymous.",
-	"notification-header-mention-failure-too-many": "Header text for a notification when your mention has failed because you tried to mention too many users.\n* $2 - user's name for use in GENDER.\n* $3 - max number of mentions allowed; uses standard number formatting",
-	"notification-header-mention-failure-bundle": "Header text for a bundled notification when multiple mentions failed.\n* $2 - user's name for use in GENDER.\n* $3 - number of mentions; uses standard number formatting and used for PLURAL.\n* $4 - talk page title.",
+	"notification-header-mention-failure-too-many": "Header text for a notification when your mention has failed because you tried to mention too many users.\n* $2 - user's name for use in GENDER.<br /> (not clear: is it \"you\" or the mentioned user when there's only one?)</strong>\n* $3 - max number of mentions allowed; uses standard number formatting",
+	"notification-header-mention-failure-bundle": "Header text for a bundled notification when multiple mentions failed.\n* $2 - user's name for use in GENDER. <strong><br /> (not clear: is it \"you\" or the mentioned user when there's only one?)</strong>\n* $3 - number of mentions; uses standard number formatting and used for PLURAL.\n* $4 - talk page title.",
 	"notification-compact-header-mention-failure-user-unknown": "Compact header text for a notification when your mention has failed because the user was not found.\n* $1 - username that was not found.",
 	"notification-compact-header-mention-failure-user-anonymous": "Compact header text for a notification when your mention has failed because the user is an anonymous IP.\n* $1 - username that is anonymous.",
 	"notification-header-mention-success": "Header text for a notification when your mention was successful.\n* $2 - user's name for use in GENDER.\n* $3 - username that was mentioned, can be used for GENDER.",

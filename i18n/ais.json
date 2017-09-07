@@ -14,6 +14,7 @@
 	"notification-timestamp-today": "ayza a demiad",
 	"notification-timestamp-yesterday": "nacila",
 	"notification-inbox-filter-read": "miasip",
+	"notification-inbox-filter-unread": "caay henay miasip",
 	"notification-inbox-filter-all": "hamin",
 	"echo-notification-alert-text-only": "pacekil",
 	"echo-date-today": "ayza a demiad",
