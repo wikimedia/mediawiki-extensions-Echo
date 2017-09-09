@@ -121,6 +121,7 @@
 	"notification-link-text-what-links-here": "Усе спасылкі на гэтую старонку",
 	"notification-header-mention-other": "$1 {{GENDER:$2|згадаў|згадала}} {{GENDER:$3|вас}} на старонцы <strong>$4</strong> у разьдзеле «<strong>$5</strong>».",
 	"notification-header-mention-other-nosection": "$1 {{GENDER:$2|згадаў|згадала}} {{GENDER:$3|вас}} на старонцы <strong>$4</strong>.",
+	"notification-header-mention-user-talkpage-v2": "$1 {{GENDER:$2|згадаў|згадала}} {{GENDER:$3|вас}} на <strong>старонцы гутарак {{GENDER:$5|удзельніка|удзельніцы}} $4</strong> у разьдзеле «<strong>$6</strong>».",
 	"notification-header-mention-agent-talkpage": "$1 {{GENDER:$2|згадаў|згадала}} {{GENDER:$3|вас}} на <strong>{{GENDER:$2|сваёй}} старонцы размоваў</strong> у разьдзеле «<strong>$4</strong>».",
 	"notification-header-thank-you-1-edit": "{{GENDER:$2|Вы}} толькі што зрабілі {{GENDER:$2|вашую}} першую праўку; дзякуем {{GENDER:$2|вам}} і запрашаем!",
 	"notification-header-thank-you-10-edit": "{{GENDER:$2|Вы}} толькі што зрабілі {{GENDER:$2|вашую}} дзясятую праўку; дзякуем {{GENDER:$2|вам}}, так трымаць!",
