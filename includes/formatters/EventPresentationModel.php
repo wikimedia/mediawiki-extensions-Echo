@@ -468,8 +468,13 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 	 *                         ]
 	 *                     ]
 	 *                 	]
-	 *                 'prioritized' => (bool) true if the link should be outside the
-	 *                                  action menu, false for inside)],
+	 *                 'prioritized' => (bool) true to request the link be placed outside the action menu.
+	 *                                  false or omitted for the default behavior. By default, a link will
+	 *                                  be placed inside the menu, unless there are maxPrioritizedActions
+	 *                                  or fewer secondary links. If there are maxPrioritizedActions or
+	 *                                  fewer secondary links, they will all appear outside the action menu.
+	 *                                  At most maxPrioritizedActions links will be placed outside the action menu.
+	 *                                  maxPrioritizedActions is 2 on desktop and 1 on mobile.
 	 *                ...]
 	 *
 	 *               Note that you should call array_values(array_filter()) on the
