@@ -18,6 +18,7 @@
 	"prefs-echosubscriptions": "Обавести ме о следећим догађајима",
 	"prefs-echocrosswiki": "Међувики обавештења",
 	"prefs-newmessageindicator": "Индикатор за нове поруке",
+	"prefs-blocknotificationslist": "Игнорисани корисници",
 	"echo-pref-send-me": "Пошаљи ми:",
 	"echo-pref-send-to": "Пошаљи на:",
 	"echo-pref-email-format": "Формат имејла:",
@@ -30,6 +31,7 @@
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Чист текст",
 	"echo-pref-cross-wiki-notifications": "Прикажи обавештења са других викија",
+	"echo-pref-notifications-blacklist": "Не приказуј Echo обавештења од ових корисника. ([[mw:Help:Notifications#mute|сазнај више]])",
 	"echo-pref-new-message-indicator": "Прикажи индикатор када добијем поруку на страници за разговор",
 	"echo-learn-more": "Сазнајте више",
 	"echo-log": "Дневници",
@@ -157,5 +159,6 @@
 	"echo-email-batch-subject-weekly": "Имате {{PLURAL:$2|ново обавештење|нова обавештења}} на пројекту {{SITENAME}} ове седмице",
 	"echo-email-batch-body-intro-daily": "Здраво $1,\nОво је дневни сажетак данашњих активности на пројекту {{SITENAME}} за вас.",
 	"echo-email-batch-body-intro-weekly": "Здраво $1,\nОво је недељни сажетак активности на пројекту {{SITENAME}} за вас.",
-	"echo-email-batch-link-text-view-all-notifications": "Погледај сва обавештења"
+	"echo-email-batch-link-text-view-all-notifications": "Погледај сва обавештења",
+	"notification-header-foreign-notice": "Још обавештења са {{PLURAL:$5|другог викија|$5 друга викија|$5 других викија}}"
 }

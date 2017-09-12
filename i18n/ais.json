@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Benel",
-			"Bunukwiki"
+			"Bunukwiki",
+			"Tokoabibi"
 		]
 	},
 	"prefs-echo": "patakus",
@@ -37,6 +38,7 @@
 	"echo-notification-markasread-tooltip": "silusi sanay u maasipay tu",
 	"echo-notification-more-options-tooltip": "sayadahay a mapiliay",
 	"notification-link-text-expand-all": "micuwat",
+	"notification-link-text-collapse-all": "piked",
 	"notification-link-text-view-message": "ciwsace tu palatuh",
 	"notification-link-text-view-page": "ciwsace tu kasabelih",
 	"notification-link-text-view-edit": "ciwsace tu mikawaway-kalumyiti",
