@@ -132,6 +132,7 @@
 			me = this,
 			params = $.extend( {
 				action: 'query',
+				formatversion: 2,
 				meta: 'notifications',
 				notsections: this.normalizedType[ type ],
 				notformat: 'model',
