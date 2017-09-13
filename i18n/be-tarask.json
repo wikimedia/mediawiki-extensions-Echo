@@ -126,6 +126,7 @@
 	"notification-header-mention-agent-talkpage": "$1 {{GENDER:$2|згадаў|згадала}} {{GENDER:$3|вас}} на <strong>{{GENDER:$2|сваёй}} старонцы размоваў</strong> у разьдзеле «<strong>$4</strong>».",
 	"notification-header-mention-agent-talkpage-nosection": "$1 {{GENDER:$2|згадаў|згадала}} {{GENDER:$3|вас}} на <strong>{{GENDER:$2|сваёй}} старонцы гутарак</strong>.",
 	"notification-header-mention-article-talkpage": "$1 {{GENDER:$2|згадаў|згадала}} {{GENDER:$3|вас}} на старонцы абмеркаваньня <strong>$4</strong> у разьдзеле «<strong>$5</strong>».",
+	"notification-header-mention-article-talkpage-nosection": "$1 {{GENDER:$2|згадаў|згадала}} {{GENDER:$3|вас}} на старонцы абмеркаваньня <strong>$4</strong>.",
 	"notification-header-thank-you-1-edit": "{{GENDER:$2|Вы}} толькі што зрабілі {{GENDER:$2|вашую}} першую праўку; дзякуем {{GENDER:$2|вам}} і запрашаем!",
 	"notification-header-thank-you-10-edit": "{{GENDER:$2|Вы}} толькі што зрабілі {{GENDER:$2|вашую}} дзясятую праўку; дзякуем {{GENDER:$2|вам}}, так трымаць!",
 	"notification-header-thank-you-100-edit": "{{GENDER:$2|Вы}} толькі што зрабілі {{GENDER:$2|вашую}} сотую праўку; дзякуй {{GENDER:$2|вам}} вялікі!",
