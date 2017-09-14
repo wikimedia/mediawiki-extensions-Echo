@@ -52,6 +52,10 @@
 	"apihelp-echoarticlereminder-param-pageid": "Identificador do artigo a lembrar ó usuario",
 	"apihelp-echoarticlereminder-param-title": "Título do artigo a lembrar ó usuario",
 	"apihelp-echoarticlereminder-param-timestamp": "En que data e hora lembrar ó usuario",
+	"apihelp-echoarticlereminder-param-comment": "Comentario opcional a incluír no aviso",
+	"apihelp-echoarticlereminder-example-1": "Crear unha notificación de aviso de artigo para mañá con comentario",
+	"apihelp-echoarticlereminder-example-2": "Crear unha notificación de aviso de artigo para mañá sen comentario",
+	"apiwarn-echo-deprecation-timestampformat": "O formato de saída MediaWiki de data e hora está obsoleto aquí. No futuro, sempre se usará como formato de saída de data e hora o ISO 8601. Axuste o seu cliente e defina o <var>timestampFormat</var> como <kbd>ISO_8601</kbd>.",
 	"apiwarn-echo-deprecation-flyout": "<kbd>notformat=flyout</kbd> está obsoleto e será eliminado pronto. Use <kbd>notformat=model</kbd> para obter os datos en bruto ou <kbd>notformat=special</kbd> para o HTML preformatado.",
 	"apiwarn-echo-deprecation-html": "<kbd>notformat=html</kbd> está obsoleto e será eliminado en breve. Substituír por <kbd>notformat=special</kbd>.",
 	"apierror-echo-event-creation-failed": "Non se puido crear o evento Echo"

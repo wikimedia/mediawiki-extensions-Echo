@@ -26,7 +26,7 @@
 	"prefs-echosubscriptions": "다음의 경우에 내게 알림",
 	"prefs-echocrosswiki": "여러 위키의 알림",
 	"prefs-newmessageindicator": "새 메시지 표시기",
-	"prefs-blocknotificationslist": "차단된 사용자",
+	"prefs-blocknotificationslist": "알림에서 제외된 사용자",
 	"echo-pref-send-me": "다음 방식으로 보내기:",
 	"echo-pref-send-to": "다음 주소로 보내기:",
 	"echo-pref-email-format": "이메일 형식:",
