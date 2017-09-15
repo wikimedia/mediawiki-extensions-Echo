@@ -6,17 +6,27 @@
 			"Hitaypayan"
 		]
 	},
+	"prefs-echo": "Ssbaq",
 	"prefs-emailsettings": "Zyusyo na e-meyo’ bruwiy",
 	"prefs-newmessageindicator": "Kaikay na ppsbaq sa giqas na zayzyuwaw",
 	"echo-pref-email-frequency-daily": "Sbbaq ’pinkr’tung kkayal krayrax",
 	"echo-pref-email-frequency-weekly": "Sbbaq ’pinkr’tung kkayal qutux qutux rihay",
 	"echo-pref-beta-feature-cross-wiki-message": "Twangiy kinlawkah na smbbaq",
+	"notifications": "Ssbaq",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Rwa su’}}gmrhuw kmayal",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "Sbbaq sa lalu’ kwara’ gluw na mmtnaq",
+	"echo-specialpage": "Ssbaq",
 	"echo-specialpage-markasread-invalid-id": "Ungat zyuwaw nquw sinbbaq na ID qaniy",
 	"echo-notification-placeholder": "ungat ana nanu’ sinbbaq.",
 	"echo-notification-markasread": "Sinbbaq sa wayal lpgun",
 	"echo-notification-markasunread": "Sinbbaq sa ini’ lpgiy na’",
 	"echo-notification-markasread-tooltip": "Sinbbaq sa wayal lpgun",
-	"echo-notification-notice-text-only": "Ssbaq na kwara’ na"
+	"notification-link-text-expand-all": "Psglabang",
+	"notification-timestamp-today": "Sawni’",
+	"notification-timestamp-yesterday": "Shira’",
+	"notification-inbox-filter-read": "Lpgun",
+	"notification-inbox-filter-all": "Kwara’",
+	"echo-notification-notice-text-only": "Ssbaq na kwara’ na",
+	"echo-date-today": "Sawni’",
+	"echo-date-yesterday": "Shira’"
 }
