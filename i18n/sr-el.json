@@ -110,7 +110,7 @@
 	"echo-date-today": "Danas",
 	"echo-date-yesterday": "Juče",
 	"echo-load-more-error": "Došlo je do greške pri dobavljanju više rezultata.",
-	"notification-bundle-header-edit-user-talk-v2": "{{PLURAL:$1|Jedna nova poruka|$1 nove poruke|100=99+ novih poruka}} na {{GENDER:$3|Vašoj}} stranici za razgovor.",
+	"notification-bundle-header-edit-user-talk-v2": "{{PLURAL:$1|Jedna nova poruka|$1 nove poruke|$1 novih poruka|100=≥100 novih poruka}} na <strong>{{GENDER:$3|Vašoj}} stranici za razgovor</strong>.",
 	"echo-email-batch-subject-daily": "Imate {{PLURAL:$2|novo obaveštenje|nova obaveštenja}} na {{SITENAME}}",
 	"echo-email-batch-subject-weekly": "Imate {{PLURAL:$2|novo obaveštenje|nova obaveštenja}} na projektu {{SITENAME}} ove sedmice",
 	"echo-email-batch-body-intro-daily": "Zdravo $1,\nOvo je dnevni sažetak današnjih aktivnosti na projektu {{SITENAME}} za vas.",
