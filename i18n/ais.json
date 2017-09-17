@@ -27,11 +27,14 @@
 	"echo-displaynotificationsconfiguration": "paazih patakus setin",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "paykakuniza a takus",
 	"echo-displaynotificationsconfiguration-sorting-by-section-header": "masilsilay a kakuniza",
+	"echo-displaynotificationsconfiguration-available-notification-methods-header": "mahasa mitakus sasakawawen",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "pataayaw tu kawaw  miwawah",
 	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "ayzaay a misaungayay",
 	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "baluhay misaungayay",
+	"echo-specialpage-markasread": "takus: silusi naasip tuway",
 	"echo-specialpage-markasread-invalid-id": "sikawaw ID la’cus",
 	"echo-specialpage-pagefilters-title": "capiay a saungay nu binawlan",
+	"notificationsmarkread-legend": "ya takus silusi namasiptu",
 	"echo-more-info": "sayadahay a cesyun",
 	"echo-feedback": "nabalucu’an hwidubaku",
 	"echo-notification-placeholder": "inayi’ ku hicahica a takus.",
@@ -53,5 +56,6 @@
 	"echo-notification-notice-text-only": "habutuday a patakus",
 	"echo-overlay-link": "sacahamin a takus",
 	"echo-date-today": "ayza a demiad",
-	"echo-date-yesterday": "nacila"
+	"echo-date-yesterday": "nacila",
+	"echo-email-batch-link-text-view-all-notifications": "ciwsace tu sacahamin a satakus"
 }

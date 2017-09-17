@@ -130,6 +130,7 @@
 	"notification-header-mention-failure-user-unknown": "{{GENDER:$2|Вашая}} згадка <strong>$3</strong> не была дасланая, бо такі ўдзельнік ня знойдзены.",
 	"notification-header-mention-failure-user-anonymous": "{{GENDER:$2|Вашая}} згадка <strong>$3</strong> не была дасланая, бо ўдзельнік зьяўляецца ананімам.",
 	"notification-header-mention-failure-too-many": "{{GENDER:$2|Вы}} паспрабавалі згадаць больш чым $3 {{PLURAL:$3|удзельніка|удзельнікаў}}. Усе згадкі, якія перавышаюць гэты ліміт, не былі дасланыя.",
+	"notification-header-mention-failure-bundle": "$3 {{PLURAL:$3|згадка|згадкі|згадак}}, {{PLURAL:$3|1=якую|якія}} {{GENDER:$2|вы зрабілі}} на старонцы абмеркаваньня <strong>$4</strong> ня {{PLURAL:$3|1=можа быць дасланая|могуць быць дасланыя}}.",
 	"notification-header-thank-you-1-edit": "{{GENDER:$2|Вы}} толькі што зрабілі {{GENDER:$2|вашую}} першую праўку; дзякуем {{GENDER:$2|вам}} і запрашаем!",
 	"notification-header-thank-you-10-edit": "{{GENDER:$2|Вы}} толькі што зрабілі {{GENDER:$2|вашую}} дзясятую праўку; дзякуем {{GENDER:$2|вам}}, так трымаць!",
 	"notification-header-thank-you-100-edit": "{{GENDER:$2|Вы}} толькі што зрабілі {{GENDER:$2|вашую}} сотую праўку; дзякуй {{GENDER:$2|вам}} вялікі!",
