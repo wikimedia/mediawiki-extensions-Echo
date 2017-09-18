@@ -51,7 +51,6 @@
 		this.types = this.manager.getTypes();
 
 		this.numItems = config.numItems || 0;
-		this.badgeLabel = config.badgeLabel || this.numItems;
 		this.hasRunFirstTime = false;
 
 		buttonFlags = [];
@@ -60,7 +59,7 @@
 		}
 
 		this.badgeButton = new mw.echo.ui.BadgeLinkWidget( {
-			label: this.badgeLabel,
+			convertedNumber: config.convertedNumber,
 			type: this.manager.getTypeString(),
 			numItems: this.numItems,
 			flags: buttonFlags,

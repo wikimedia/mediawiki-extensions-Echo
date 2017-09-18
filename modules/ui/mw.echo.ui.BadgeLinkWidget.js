@@ -10,6 +10,7 @@
 	 * @cfg {string} [type] The notification types this button represents;
 	 *  'message', 'alert' or 'all'
 	 * @cfg {string} [href] URL the badge links to
+	 * @cfg {string} [convertedNumber] A converted version of the initial count
 	 */
 	mw.echo.ui.BadgeLinkWidget = function MwEchoUiBadgeLinkWidget( config ) {
 		config = config || {};
@@ -28,7 +29,7 @@
 
 		this.count = 0;
 		this.type = config.type || 'alert';
-		this.setCount( config.numItems, config.label );
+		this.setCount( config.numItems, config.convertedNumber );
 
 		if ( config.href !== undefined && OO.ui.isSafeUrl( config.href ) ) {
 			this.$element.attr( 'href', config.href );
@@ -47,22 +48,30 @@
 	 * Set the count labels for this button.
 	 *
 	 * @param {number} numItems Number of items
-	 * @param {string} [label] Label of the button. Defaults to the item number.
+	 * @param {string} [convertedNumber] Label of the button. Defaults to the default message
+	 *  showing the item number.
 	 */
-	mw.echo.ui.BadgeLinkWidget.prototype.setCount = function ( numItems, label ) {
-		label = label || numItems;
+	mw.echo.ui.BadgeLinkWidget.prototype.setCount = function ( numItems, convertedNumber ) {
+		convertedNumber = convertedNumber !== undefined ? convertedNumber : numItems;
 
 		this.$element
 			.toggleClass( 'mw-echo-notifications-badge-all-read', !numItems )
-			.toggleClass( 'mw-echo-notifications-badge-long-label', label.length > 2 )
+			.toggleClass( 'mw-echo-notifications-badge-long-label', convertedNumber.length > 2 )
 			.attr( 'data-counter-num', numItems )
-			.attr( 'data-counter-text', label );
+			.attr( 'data-counter-text', convertedNumber );
+
+		this.setLabel( mw.msg(
+			this.type === 'alert' ?
+				'echo-notification-alert' :
+				'echo-notification-notice',
+			convertedNumber
+		) );
 
 		if ( this.count !== numItems ) {
 			this.count = numItems;
 
 			// Fire badge count change hook
-			mw.hook( 'ext.echo.badge.countChange' ).fire( this.type, this.count, label );
+			mw.hook( 'ext.echo.badge.countChange' ).fire( this.type, this.count, convertedNumber );
 		}
 	};
 }( mediaWiki, jQuery ) );
