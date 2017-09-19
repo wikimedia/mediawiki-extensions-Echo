@@ -190,6 +190,6 @@
 	"echo-email-batch-body-intro-weekly": "Hei $1.\nTässä on sinulle kooste tämän viikon tapahtumista sivustolla {{SITENAME}}.",
 	"echo-email-batch-link-text-view-all-notifications": "Näytä kaikki ilmoitukset",
 	"notification-header-foreign-alert": "Muita hälytysilmoituksia {{PLURAL:$5|toisesta wikistä|$5 muista wikeistä}}",
-	"notification-header-foreign-notice": "Lisää ilmoituksia {{PLURAL:$5|toisesta wikistä|$5:stä muusta wikeistä}}",
+	"notification-header-foreign-notice": "Lisää ilmoituksia {{PLURAL:$5|toisesta wikistä|$5 muusta wikistä}}",
 	"notification-header-foreign-all": "Lisää ilmoituksia {{PLURAL:$5|toisesta wikistä|$5 toisesta wikistä}}"
 }
