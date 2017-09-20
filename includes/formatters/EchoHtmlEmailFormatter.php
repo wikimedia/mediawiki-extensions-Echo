@@ -51,6 +51,7 @@ class EchoHtmlEmailFormatter extends EchoEventFormatter {
 
 		$iconImgSrc = Sanitizer::encodeAttribute( $emailIcon );
 
+		global $wgCanonicalServer;
 		return <<< EOF
 <html><head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -60,6 +61,7 @@ class EchoHtmlEmailFormatter extends EchoEventFormatter {
 			table[id="email-container"]{max-width:600px !important; width:100% !important;}
 		}
 	</style>
+	<base href="{$wgCanonicalServer}">
 </head><body>
 <table cellspacing="0" cellpadding="0" border="0" width="100%" align="center" lang="{$langCode}" dir="{$langDir}">
 <tr>
