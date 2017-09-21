@@ -15,6 +15,7 @@
 	"echo-pref-send-to": "pabahel katukuh i:",
 	"echo-pref-web": "calay-kasabelih(wangyei)",
 	"echo-pref-email": "imyiyo(email)",
+	"echo-pref-email-frequency-never": "amana pabahel amahicahica tu tigami patakus",
 	"echo-pref-email-frequency-daily": "paydemiad patakus pecu’ nu lacul",
 	"echo-pref-email-frequency-weekly": "paylipay patakus pecu’ nu lacul",
 	"echo-pref-email-format-html": "HTML",
