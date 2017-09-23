@@ -30,6 +30,7 @@
 	"echo-displaynotificationsconfiguration": "paazih patakus setin",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "paykakuniza a takus",
 	"echo-displaynotificationsconfiguration-sorting-by-section-header": "masilsilay a kakuniza",
+	"echo-displaynotificationsconfiguration-sorting-by-section-legend": "paytakus nu pakakuniza tu kakuniza",
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "mahasa mitakus sasakawawen",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "pataayaw tu kawaw  miwawah",
 	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "ayzaay a misaungayay",

@@ -104,7 +104,7 @@
 	"echo-email-footer-default": "$2\n\nآپ کو ارسال کردہ برقی خطوط کی ترتیب و تنظیم کے لیے اپنی ترجیحات ملاحظہ کریں:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
 	"echo-email-plain-footer": "{{GENDER:$1|آپ کو}} ارسال کردہ برقی خطوط کی ترتیب و تنظیم کے لیے {{GENDER:$1|اپنی}} ترجیحات ملاحظہ کریں:",
 	"echo-email-html-footer-preference-link-text": "{{GENDER:$1|اپنی}} ترجیحات ملاحظہ کریں",
-	"echo-email-html-footer-with-link": "{{GENDER:$2|آپ}} کو ہم سے مرسلہ ای میلوں پر گرفت کے لیے",
+	"echo-email-html-footer-with-link": "ہماری جانب سے {{GENDER:$2|آپ}} کو ارسال کردہ برقی خطوط کی ترتیب و تنظیم کے لیے $1۔",
 	"echo-notification-alert": "{{PLURAL:$1|انتباہ ($1)|انتباہات ($1)|100=انتباہات (99+)}}",
 	"echo-notification-notice": "{{PLURAL:$1|اطلاع ($1)|اطلاعات($1)|100=اطلاعات(99+)}}",
 	"echo-notification-alert-text-only": "انتباہات",
