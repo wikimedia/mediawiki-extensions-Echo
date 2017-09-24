@@ -1,7 +1,5 @@
 <?php
 
-use MediaWiki\Logger\LoggerFactory;
-
 abstract class ApiCrossWikiBase extends ApiQueryBase {
 	/**
 	 * @var EchoForeignNotifications

@@ -172,7 +172,7 @@ class MWEchoNotifUser {
 	 * @param int $dbSource Use master or slave database to pull count (Optional. Defaults to DB_SLAVE)
 	 * @return int
 	 */
-	public function getMessageCount( $cached = true, $dbSource = DB_SLAVE ) {
+	public function getMessageCount( $cached = true, $dbSource = DB_REPLICA ) {
 		return $this->getNotificationCount( $cached, $dbSource, EchoAttributeManager::MESSAGE );
 	}
 
@@ -183,11 +183,11 @@ class MWEchoNotifUser {
 	 * @param int $dbSource Use master or slave database to pull count (Optional. Defaults to DB_SLAVE)
 	 * @return int
 	 */
-	public function getAlertCount( $cached = true, $dbSource = DB_SLAVE ) {
+	public function getAlertCount( $cached = true, $dbSource = DB_REPLICA ) {
 		return $this->getNotificationCount( $cached, $dbSource, EchoAttributeManager::ALERT );
 	}
 
-	public function getLocalNotificationCount( $cached = true, $dbSource = DB_SLAVE, $section = EchoAttributeManager::ALL ) {
+	public function getLocalNotificationCount( $cached = true, $dbSource = DB_REPLICA, $section = EchoAttributeManager::ALL ) {
 		return $this->getNotificationCount( $cached, $dbSource, $section, false );
 	}
 
@@ -203,7 +203,7 @@ class MWEchoNotifUser {
 	 * @param bool|string $global Whether to include foreign notifications. If set to 'preference', uses the user's preference.
 	 * @return int
 	 */
-	public function getNotificationCount( $cached = true, $dbSource = DB_SLAVE, $section = EchoAttributeManager::ALL, $global = 'preference' ) {
+	public function getNotificationCount( $cached = true, $dbSource = DB_REPLICA, $section = EchoAttributeManager::ALL, $global = 'preference' ) {
 		if ( $this->mUser->isAnon() ) {
 			return 0;
 		}
@@ -250,7 +250,7 @@ class MWEchoNotifUser {
 	 * @param int $dbSource Use master or slave database to pull count (Optional. Defaults to DB_SLAVE)
 	 * @return bool|MWTimestamp Timestamp of latest unread alert, or false if there are no unread alerts.
 	 */
-	public function getLastUnreadAlertTime( $cached = true, $dbSource = DB_SLAVE ) {
+	public function getLastUnreadAlertTime( $cached = true, $dbSource = DB_REPLICA ) {
 		return $this->getLastUnreadNotificationTime( $cached, $dbSource, EchoAttributeManager::ALERT );
 	}
 
@@ -261,7 +261,7 @@ class MWEchoNotifUser {
 	 * @param int $dbSource Use master or slave database to pull count (Optional. Defaults to DB_SLAVE)
 	 * @return bool|MWTimestamp
 	 */
-	public function getLastUnreadMessageTime( $cached = true, $dbSource = DB_SLAVE ) {
+	public function getLastUnreadMessageTime( $cached = true, $dbSource = DB_REPLICA ) {
 		return $this->getLastUnreadNotificationTime( $cached, $dbSource, EchoAttributeManager::MESSAGE );
 	}
 
@@ -276,7 +276,7 @@ class MWEchoNotifUser {
 	 * @param bool|string $global Whether to include foreign notifications. If set to 'preference', uses the user's preference.
 	 * @return bool|MWTimestamp Timestamp of latest unread message, or false if there are no unread messages.
 	 */
-	public function getLastUnreadNotificationTime( $cached = true, $dbSource = DB_SLAVE, $section = EchoAttributeManager::ALL, $global = 'preference' ) {
+	public function getLastUnreadNotificationTime( $cached = true, $dbSource = DB_REPLICA, $section = EchoAttributeManager::ALL, $global = 'preference' ) {
 		if ( $this->mUser->isAnon() ) {
 			return false;
 		}

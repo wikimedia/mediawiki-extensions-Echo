@@ -20,7 +20,7 @@ class BackfillReadBundles extends Maintenance {
 	public function execute() {
 		$dbFactory = MWEchoDbFactory::newFromDefault();
 		$dbw = $dbFactory->getEchoDb( DB_MASTER );
-		$dbr = $dbFactory->getEchoDb( DB_SLAVE );
+		$dbr = $dbFactory->getEchoDb( DB_REPLICA );
 		$iterator = new BatchRowIterator(
 			$dbr,
 			'echo_notification',

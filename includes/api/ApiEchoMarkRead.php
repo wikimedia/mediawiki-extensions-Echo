@@ -40,7 +40,7 @@ class ApiEchoMarkRead extends ApiBase {
 		];
 		$rawCount = 0;
 		foreach ( EchoAttributeManager::$sections as $section ) {
-			$rawSectionCount = $notifUser->getNotificationCount( /* $tryCache = */true, DB_SLAVE, $section );
+			$rawSectionCount = $notifUser->getNotificationCount( /* $tryCache = */true, DB_REPLICA, $section );
 			$result[$section]['rawcount'] = $rawSectionCount;
 			$result[$section]['count'] = EchoNotificationController::formatNotificationCount( $rawSectionCount );
 			$rawCount += $rawSectionCount;

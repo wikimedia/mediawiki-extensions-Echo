@@ -55,7 +55,7 @@ class EchoUnreadWikis {
 	 * @return array
 	 */
 	public function getUnreadCounts() {
-		$dbr = $this->getDB( DB_SLAVE );
+		$dbr = $this->getDB( DB_REPLICA );
 		if ( $dbr === false ) {
 			return [];
 		}

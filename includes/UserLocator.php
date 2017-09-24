@@ -18,7 +18,7 @@ class EchoUserLocator {
 		}
 
 		$it = new BatchRowIterator(
-			wfGetDB( DB_SLAVE, 'watchlist' ),
+			wfGetDB( DB_REPLICA, 'watchlist' ),
 			/* $table = */ 'watchlist',
 			/* $primaryKeys = */ [ 'wl_user' ],
 			$batchSize
@@ -94,7 +94,7 @@ class EchoUserLocator {
 			return [];
 		}
 
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		$res = $dbr->selectRow(
 			[ 'revision' ],
 			[ 'rev_user' ],

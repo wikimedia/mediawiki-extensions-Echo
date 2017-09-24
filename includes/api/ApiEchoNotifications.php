@@ -297,7 +297,7 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 
 		$totalRawCount = 0;
 		foreach ( $sections as $section ) {
-			$rawCount = $notifUser->getNotificationCount( /* $tryCache = */true, DB_SLAVE, $section, $global );
+			$rawCount = $notifUser->getNotificationCount( /* $tryCache = */true, DB_REPLICA, $section, $global );
 			if ( $groupBySection ) {
 				$result[$section]['rawcount'] = $rawCount;
 				$result[$section]['count'] = EchoNotificationController::formatNotificationCount( $rawCount );

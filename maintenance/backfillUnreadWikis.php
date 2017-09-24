@@ -22,10 +22,10 @@ class BackfillUnreadWikis extends Maintenance {
 
 		$rebuild = $this->hasOption( 'rebuild' );
 		if ( $rebuild ) {
-			$iterator = new BatchRowIterator( $dbFactory->getSharedDb( DB_SLAVE ), 'echo_unread_wikis', 'euw_user', $this->mBatchSize );
+			$iterator = new BatchRowIterator( $dbFactory->getSharedDb( DB_REPLICA ), 'echo_unread_wikis', 'euw_user', $this->mBatchSize );
 			$iterator->addConditions( [ 'euw_wiki' => wfWikiID() ] );
 		} else {
-			$iterator = new BatchRowIterator( wfGetDB( DB_SLAVE ), 'user', 'user_id', $this->mBatchSize );
+			$iterator = new BatchRowIterator( wfGetDB( DB_REPLICA ), 'user', 'user_id', $this->mBatchSize );
 			$iterator->setFetchColumns( User::selectFields() );
 		}
 
@@ -44,11 +44,11 @@ class BackfillUnreadWikis extends Maintenance {
 				$notifUser = MWEchoNotifUser::newFromUser( $user );
 				$uw = EchoUnreadWikis::newFromUser( $user );
 				if ( $uw ) {
-					$alertCount = $notifUser->getNotificationCount( true, DB_SLAVE, EchoAttributeManager::ALERT, false );
-					$alertUnread = $notifUser->getLastUnreadNotificationTime( true, DB_SLAVE, EchoAttributeManager::ALERT, false );
+					$alertCount = $notifUser->getNotificationCount( true, DB_REPLICA, EchoAttributeManager::ALERT, false );
+					$alertUnread = $notifUser->getLastUnreadNotificationTime( true, DB_REPLICA, EchoAttributeManager::ALERT, false );
 
-					$msgCount = $notifUser->getNotificationCount( true, DB_SLAVE, EchoAttributeManager::MESSAGE, false );
-					$msgUnread = $notifUser->getLastUnreadNotificationTime( true, DB_SLAVE, EchoAttributeManager::MESSAGE, false );
+					$msgCount = $notifUser->getNotificationCount( true, DB_REPLICA, EchoAttributeManager::MESSAGE, false );
+					$msgUnread = $notifUser->getLastUnreadNotificationTime( true, DB_REPLICA, EchoAttributeManager::MESSAGE, false );
 
 					if ( ( $alertCount !== 0 && $alertUnread === false ) || ( $msgCount !== 0 && $msgUnread === false ) ) {
 						// If there are alerts, there should be an alert timestamp (same for messages).

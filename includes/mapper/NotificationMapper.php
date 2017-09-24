@@ -88,7 +88,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	 * @param int $dbSource Use master or slave database
 	 * @return EchoNotification[]
 	 */
-	public function fetchUnreadByUser( User $user, $limit, $continue, array $eventTypes = [], array $titles = null, $dbSource = DB_SLAVE ) {
+	public function fetchUnreadByUser( User $user, $limit, $continue, array $eventTypes = [], array $titles = null, $dbSource = DB_REPLICA ) {
 		$conds['notification_read_timestamp'] = null;
 		if ( $titles ) {
 			$conds['event_page_id'] = $this->getIdsForTitles( $titles );
@@ -114,7 +114,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	 * @param int $dbSource Use master or slave database
 	 * @return EchoNotification[]
 	 */
-	public function fetchReadByUser( User $user, $limit, $continue, array $eventTypes = [], array $titles = null, $dbSource = DB_SLAVE ) {
+	public function fetchReadByUser( User $user, $limit, $continue, array $eventTypes = [], array $titles = null, $dbSource = DB_REPLICA ) {
 		$conds = [ 'notification_read_timestamp IS NOT NULL' ];
 		if ( $titles ) {
 			$conds['event_page_id'] = $this->getIdsForTitles( $titles );
@@ -138,7 +138,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	 * @return EchoNotification[]
 	 */
 	public function fetchByUser( User $user, $limit, $continue, array $eventTypes = [], array $excludeEventIds = [], array $titles = null ) {
-		$dbr = $this->dbFactory->getEchoDb( DB_SLAVE );
+		$dbr = $this->dbFactory->getEchoDb( DB_REPLICA );
 
 		$conds = [];
 		if ( $excludeEventIds ) {
@@ -175,7 +175,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	 * @param int $dbSource Use master or slave database
 	 * @return EchoNotification[]
 	 */
-	protected function fetchByUserInternal( User $user, $limit, $continue, array $eventTypes = [], array $conds = [], $dbSource = DB_SLAVE ) {
+	protected function fetchByUserInternal( User $user, $limit, $continue, array $eventTypes = [], array $conds = [], $dbSource = DB_REPLICA ) {
 		$dbr = $this->dbFactory->getEchoDb( $dbSource );
 
 		if ( !$eventTypes ) {
@@ -252,7 +252,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	 * @return EchoNotification|bool
 	 */
 	public function fetchNewestByUserBundleHash( User $user, $bundleHash ) {
-		$dbr = $this->dbFactory->getEchoDb( DB_SLAVE );
+		$dbr = $this->dbFactory->getEchoDb( DB_REPLICA );
 
 		$row = $dbr->selectRow(
 			[ 'echo_notification', 'echo_event' ],
@@ -282,7 +282,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	 * @return EchoNotification[]|bool
 	 */
 	public function fetchByUserEvents( User $user, $eventIds ) {
-		$dbr = $this->dbFactory->getEchoDb( DB_SLAVE );
+		$dbr = $this->dbFactory->getEchoDb( DB_REPLICA );
 
 		$result = $dbr->select(
 			[ 'echo_notification', 'echo_event' ],
@@ -317,7 +317,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	 * @return EchoNotification|bool
 	 */
 	public function fetchByUserOffset( User $user, $offset ) {
-		$dbr = $this->dbFactory->getEchoDb( DB_SLAVE );
+		$dbr = $this->dbFactory->getEchoDb( DB_REPLICA );
 		$row = $dbr->selectRow(
 			[ 'echo_notification', 'echo_event' ],
 			[ '*' ],
@@ -370,7 +370,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	 * @return int[]|false
 	 */
 	public function fetchUsersWithNotificationsForEvents( $eventIds ) {
-		$dbr = $this->dbFactory->getEchoDb( DB_SLAVE );
+		$dbr = $this->dbFactory->getEchoDb( DB_REPLICA );
 
 		$res = $dbr->select(
 			[ 'echo_notification' ],

@@ -10,7 +10,7 @@
 class NotificationPager extends ReverseChronologicalPager {
 	public function __construct() {
 		$dbFactory = MWEchoDbFactory::newFromDefault();
-		$this->mDb = $dbFactory->getEchoDb( DB_SLAVE );
+		$this->mDb = $dbFactory->getEchoDb( DB_REPLICA );
 
 		parent::__construct();
 	}

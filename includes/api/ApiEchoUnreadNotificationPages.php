@@ -54,7 +54,7 @@ class ApiEchoUnreadNotificationPages extends ApiCrossWikiBase {
 		$attributeManager = EchoAttributeManager::newFromGlobalVars();
 		$enabledTypes = $attributeManager->getUserEnabledEvents( $this->getUser(), 'web' );
 
-		$dbr = MWEchoDbFactory::newFromDefault()->getEchoDb( DB_SLAVE );
+		$dbr = MWEchoDbFactory::newFromDefault()->getEchoDb( DB_REPLICA );
 		// If $groupPages is true, we need to fetch all pages and apply the ORDER BY and LIMIT ourselves
 		// after grouping.
 		$extraOptions = $groupPages ? [] : [ 'ORDER BY' => 'count DESC', 'LIMIT' => $limit ];

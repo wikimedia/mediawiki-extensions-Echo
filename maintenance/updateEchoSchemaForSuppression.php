@@ -39,7 +39,7 @@ class UpdateEchoSchemaForSuppression extends LoggedUpdateMaintenance {
 	public function doDBUpdates() {
 		global $wgEchoCluster;
 
-		$reader = new BatchRowIterator( MWEchoDbFactory::getDB( DB_SLAVE ), $this->table, $this->idField, $this->mBatchSize );
+		$reader = new BatchRowIterator( MWEchoDbFactory::getDB( DB_REPLICA ), $this->table, $this->idField, $this->mBatchSize );
 		$reader->addConditions( [
 			"event_page_title IS NOT NULL",
 			"event_page_id" => null,

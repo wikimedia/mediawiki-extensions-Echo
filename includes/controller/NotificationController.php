@@ -465,7 +465,7 @@ class EchoNotificationController {
 	 * @param string $errfile
 	 * @param int $errline
 	 * @return bool
-	 * @throw EchoCatchableFatalErrorException
+	 * @throws EchoCatchableFatalErrorException
 	 */
 	public static function formatterErrorHandler( $errno, $errstr, $errfile, $errline ) {
 		if ( $errno !== E_RECOVERABLE_ERROR ) {

@@ -28,7 +28,7 @@ class EchoRevisionLocalCache extends EchoLocalCache {
 	protected function resolve() {
 		if ( $this->lookups ) {
 			// @Todo Add newFromIds() to Revision
-			$dbr = wfGetDB( DB_SLAVE );
+			$dbr = wfGetDB( DB_REPLICA );
 			$fields = array_merge(
 				Revision::selectFields(),
 				Revision::selectPageFields(),

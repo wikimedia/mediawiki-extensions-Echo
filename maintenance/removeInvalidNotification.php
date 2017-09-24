@@ -33,7 +33,7 @@ class RemoveInvalidNotification extends Maintenance {
 		global $wgEchoCluster;
 
 		$dbw = MWEchoDbFactory::getDB( DB_MASTER );
-		$dbr = MWEchoDbFactory::getDB( DB_SLAVE );
+		$dbr = MWEchoDbFactory::getDB( DB_REPLICA );
 
 		$count = $this->batchSize;
 

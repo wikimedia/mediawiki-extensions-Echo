@@ -11,7 +11,7 @@ class EchoTalkPageFunctionalTest extends ApiTestCase {
 
 	protected function setUp() {
 		parent::setUp();
-		$this->dbr = MWEchoDbFactory::getDB( DB_SLAVE );
+		$this->dbr = MWEchoDbFactory::getDB( DB_REPLICA );
 	}
 
 	/**

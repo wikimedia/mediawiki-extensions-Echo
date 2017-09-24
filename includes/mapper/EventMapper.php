@@ -42,7 +42,7 @@ class EchoEventMapper extends EchoAbstractMapper {
 	 * @throws MWException
 	 */
 	public function fetchById( $id, $fromMaster = false ) {
-		$db = $fromMaster ? $this->dbFactory->getEchoDb( DB_MASTER ) : $this->dbFactory->getEchoDb( DB_SLAVE );
+		$db = $fromMaster ? $this->dbFactory->getEchoDb( DB_MASTER ) : $this->dbFactory->getEchoDb( DB_REPLICA );
 
 		$row = $db->selectRow( 'echo_event', '*', [ 'event_id' => $id ], __METHOD__ );
 
@@ -90,7 +90,7 @@ class EchoEventMapper extends EchoAbstractMapper {
 	public function fetchByPage( $pageId ) {
 		$events = [];
 
-		$dbr = $this->dbFactory->getEchoDb( DB_SLAVE );
+		$dbr = $this->dbFactory->getEchoDb( DB_REPLICA );
 		$res = $dbr->select(
 			[ 'echo_event', 'echo_target_page' ],
 			[ '*' ],
@@ -135,7 +135,7 @@ class EchoEventMapper extends EchoAbstractMapper {
 	 * @return EchoEvent[]
 	 */
 	public function fetchUnreadByUserAndPage( User $user, $pageId ) {
-		$dbr = $this->dbFactory->getEchoDb( DB_SLAVE );
+		$dbr = $this->dbFactory->getEchoDb( DB_REPLICA );
 
 		$res = $dbr->select(
 			[ 'echo_event', 'echo_notification', 'echo_target_page' ],

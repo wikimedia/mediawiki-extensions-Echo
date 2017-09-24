@@ -108,8 +108,8 @@ class EchoUserNotificationGateway {
 	 */
 	public function getCappedNotificationCount( $dbSource, array $eventTypesToLoad = [], $cap = MWEchoNotifUser::MAX_BADGE_COUNT ) {
 		// double check
-		if ( !in_array( $dbSource, [ DB_SLAVE, DB_MASTER ] ) ) {
-			$dbSource = DB_SLAVE;
+		if ( !in_array( $dbSource, [ DB_REPLICA, DB_MASTER ] ) ) {
+			$dbSource = DB_REPLICA;
 		}
 
 		if ( !$eventTypesToLoad ) {
@@ -145,7 +145,7 @@ class EchoUserNotificationGateway {
 	 * @return int[]
 	 */
 	public function getUnreadNotifications( $type ) {
-		$dbr = $this->dbFactory->getEchoDb( DB_SLAVE );
+		$dbr = $this->dbFactory->getEchoDb( DB_REPLICA );
 		$res = $dbr->select(
 			[
 				self::$notificationTable,
