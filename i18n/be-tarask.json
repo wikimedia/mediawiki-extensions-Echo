@@ -139,6 +139,7 @@
 	"notification-header-mention-status-bundle": "{{PLURAL:$3|$3 паведамленьне|$3 паведамленьні|$3 паведамленьняў}} пра згадкі, {{GENDER:$2|што вы зрабілі}} на старонцы абмеркаваньня <strong>$4</strong>: {{PLURAL:$5|$5 не была дасланая|$5 не былі дасланыя}}, {{PLURAL:$6|$6 дасланая|$6 дасланыя}}.",
 	"notification-header-user-rights-add-only": "Вашыя правы {{GENDER:$4|ўдзельніка|ўдзельніцы}} былі {{GENDER:$1|зьмененыя}}. Вы былі дададзеныя да: $2.",
 	"notification-header-user-rights-remove-only": "Вашыя правы {{GENDER:$4|ўдзельніка|ўдзельніцы}} былі {{GENDER:$1|зьмененыя}}. Вы больш не ўваходзіце ў групу: $2.",
+	"notification-header-user-rights-add-and-remove": "Вашыя правы {{GENDER:$6|ўдзельніка|ўдзельніцы}} былі {{GENDER:$1|зьмененыя}}. Вы былі дададзеныя да: $2. Вы больш не ўваходзіце ў: $4.",
 	"notification-header-thank-you-1-edit": "{{GENDER:$2|Вы}} толькі што зрабілі {{GENDER:$2|вашую}} першую праўку; дзякуем {{GENDER:$2|вам}} і запрашаем!",
 	"notification-header-thank-you-10-edit": "{{GENDER:$2|Вы}} толькі што зрабілі {{GENDER:$2|вашую}} дзясятую праўку; дзякуем {{GENDER:$2|вам}}, так трымаць!",
 	"notification-header-thank-you-100-edit": "{{GENDER:$2|Вы}} толькі што зрабілі {{GENDER:$2|вашую}} сотую праўку; дзякуй {{GENDER:$2|вам}} вялікі!",

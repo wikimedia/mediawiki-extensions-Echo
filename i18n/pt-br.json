@@ -18,7 +18,8 @@
 			"Peter Fernando",
 			"Cristofer Alves",
 			"Hamilton Abreu",
-			"Felipe L. Ewald"
+			"Felipe L. Ewald",
+			"Chicocvenancio"
 		]
 	},
 	"echo-desc": "Sistema para notificar usuários sobre eventos e mensagens",
@@ -52,8 +53,8 @@
 	"echo-category-title-article-linked": "{{PLURAL:$1|Ligação|Ligações}} para a página",
 	"echo-category-title-reverted": "{{PLURAL:$1|Edição revertida|Edições revertidas}}",
 	"echo-category-title-mention": "{{PLURAL:$1|Menção|Menções}}",
-	"echo-category-title-mention-failure": "{{PLURAL:$1|Mensão falhou|Menções falharam}}",
-	"echo-category-title-mention-success": "{{PLURAL:$1|Mensão realizada|Menções realizadas}}",
+	"echo-category-title-mention-failure": "{{PLURAL:$1|Menção falhou|Menções falharam}}",
+	"echo-category-title-mention-success": "{{PLURAL:$1|Menção realizada|Menções realizadas}}",
 	"echo-category-title-other": "{{PLURAL:$1|Outro|Outros}}",
 	"echo-category-title-system": "{{PLURAL:$1|Sistema|Sistemas}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|Alteração de permissões de usuário|Alterações de permissões de usuário}}",
