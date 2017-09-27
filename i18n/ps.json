@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ahmed-Najib-Biabani-Ibrahimkhel"
+			"Ahmed-Najib-Biabani-Ibrahimkhel",
+			"Baloch Khan"
 		]
 	},
 	"echo-desc": "د يادگيرنو غونډال",
@@ -55,6 +56,7 @@
 	"notification-link-text-view-page": "مخ کتل",
 	"notification-header-edit-user-talk": "$1 {{GENDER:$3|ستاسې}} د خبرو اترو په مخ يو پيغام {{GENDER:$2|پرېښوده}}.",
 	"notification-link-text-what-links-here": "همدې مخ سره ټولې تړنې",
+	"notification-header-mention-failure-user-unknown": "{{GENDER:$2|ستاسو|ستاسو}} پيغام و <strong>$3</strong> ته ونه لیږل شو ځکه چې دا کارن ونه موندل شو.",
 	"notification-header-mention-success": "{{GENDER:$2|ستاسې}} يادونه د $3 ولېږل شوه.",
 	"notification-compact-header-mention-success": "<strong>{{GENDER:$2|تاسې ياد کړی}}:</strong> $3",
 	"notification-welcome-linktext": "ښه راغلئ",
