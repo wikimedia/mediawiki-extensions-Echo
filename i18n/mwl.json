@@ -42,6 +42,7 @@
 	"echo-pref-tooltip-user-rights": "Abisar-me quando ls mius prebilégios de outelizador fúren altarados.",
 	"echo-pref-tooltip-emailuser": "Abisar-me quando alguien me ambiar un correio eiletrónico.",
 	"notifications": "Notificaçones",
+	"tooltip-pt-notifications-alert": "Ls {{GENDER:|sous}} alhertas",
 	"echo-specialpage": "Notificaçones",
 	"echo-specialpage-pagination-numnotifications": "$1 {{PLURAL:$1|notificaçon|notificaçones}}",
 	"notification-link-text-view-mention": "Ber mençon",
