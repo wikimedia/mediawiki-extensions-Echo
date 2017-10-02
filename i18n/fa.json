@@ -45,7 +45,7 @@
 	"echo-pref-email-format-html": "اچ‌تی‌ام‌ال",
 	"echo-pref-email-format-plain-text": "متن ساده",
 	"echo-pref-cross-wiki-notifications": "نمایش آگاه‌سازی از ویکی‌های دیگر",
-	"echo-pref-notifications-blacklist": "عدم نمایش آگاه‌سازی برای این کاربران. [[mw:Help:Notifications#mute|برای اطلاعات بیشتر]]",
+	"echo-pref-notifications-blacklist": "عدم نمایش آگاه‌سازی برای این کاربران. [[mw:Special:MyLanguage/Help:Notifications#mute|برای اطلاعات بیشتر]]",
 	"echo-pref-new-message-indicator": "نشانگر پیام در صفحهٔ بحث در نوار ابزار من نشان داده شود",
 	"echo-pref-beta-feature-cross-wiki-message": "آگاه‌سازی‌های بهبودیافته",
 	"echo-pref-beta-feature-cross-wiki-description": "آسان‌تر آگاه‌سازی‌ها را ببینید و مدیریت کنید. این ویژگی شامل آگاه‌سازی بین ویکی‌هاست که به شما اجازه می‌دهد پیام آگاه‌سازی از سایر ویکی‌ها هم دریافت کنید. (برای دریافت آگاه‌سازی از سایر ویکی‌ها باید نسخهٔ آزمایشی را در آن ویکی فعال کنید).",

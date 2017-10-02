@@ -35,7 +35,7 @@
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Prostý text",
 	"echo-pref-cross-wiki-notifications": "Zobrazovat upozornění z jiných wiki",
-	"echo-pref-notifications-blacklist": "Nezobrazovat notifikace od těchto uživatelů. ([[mw:Help:Notifications#mute|dozvědět se více]])",
+	"echo-pref-notifications-blacklist": "Nezobrazovat notifikace od těchto uživatelů. ([[mw:Special:MyLanguage/Help:Notifications#mute|dozvědět se více]])",
 	"echo-pref-new-message-indicator": "Zobrazit indikátor diskusních zpráv v mém panelu nástrojů",
 	"echo-pref-beta-feature-cross-wiki-message": "Vylepšená upozornění",
 	"echo-pref-beta-feature-cross-wiki-description": "Prohlížejte si a organizujte upozornění snadněji. Zahrnuje upozornění napříč wikiprojekty, což vám umožňuje vidět zprávy z jiných wiki. (Abyste na dané wiki přijímali upozornění napříč wikiprojekty, musíte na té wiki zapnout tuto betafunkci.)",

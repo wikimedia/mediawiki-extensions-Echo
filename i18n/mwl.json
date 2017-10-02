@@ -23,7 +23,7 @@
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Testo simples",
 	"echo-pref-cross-wiki-notifications": "Amostrar notificaçones d'outras bersones de la Biquipédia",
-	"echo-pref-notifications-blacklist": "Nun amostrar notificaçones destes outelizadores. ([[mw:Help:Notifications#mute|coincer mais]])",
+	"echo-pref-notifications-blacklist": "Nun amostrar notificaçones destes outelizadores. ([[mw:Special:MyLanguage/Help:Notifications#mute|coincer mais]])",
 	"echo-pref-new-message-indicator": "Amostrar l'andicador de mensaige na páigina de cumbersa na mie barra de ferramientas",
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Mensaige|Mensaiges}} na páigina de cumbersa",
 	"echo-category-title-article-linked": "{{PLURAL:$1|Lhigaçon|Lhigaçones}} pa la páigina",

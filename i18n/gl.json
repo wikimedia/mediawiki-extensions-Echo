@@ -28,7 +28,7 @@
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Texto simple",
 	"echo-pref-cross-wiki-notifications": "Mostrar as notificacións doutros wikis",
-	"echo-pref-notifications-blacklist": "Non amosar notificacións destes usuarios.\n([[mw:Help:Notifications#mute|Saber máis]])",
+	"echo-pref-notifications-blacklist": "Non amosar notificacións destes usuarios.\n([[mw:Special:MyLanguage/Help:Notifications#mute|Saber máis]])",
 	"echo-pref-new-message-indicator": "Mostrar o indicador de mensaxe na páxina de conversa na miña barra de ferramentas",
 	"echo-pref-beta-feature-cross-wiki-message": "Notificacións melloradas",
 	"echo-pref-beta-feature-cross-wiki-description": "Ver e organizar as notifiacións máis doadamente. Inclúe as notificacións entre wikis, o que lle permite ver as mensaxes doutros wikis. (Para recibir notificacións desde outros wikis, debe activar a característica beta neses wikis.)",

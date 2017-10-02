@@ -42,7 +42,7 @@
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Zwykły tekst",
 	"echo-pref-cross-wiki-notifications": "Pokazuj powiadomienia z innych wiki",
-	"echo-pref-notifications-blacklist": "Nie wyświetlaj powiadomień od tych użytkowników. ([[mw:Help:Notifications#mute|dowiedz się więcej]])",
+	"echo-pref-notifications-blacklist": "Nie wyświetlaj powiadomień od tych użytkowników. ([[mw:Special:MyLanguage/Help:Notifications#mute|dowiedz się więcej]])",
 	"echo-pref-new-message-indicator": "Pokazuj informację o nowej wiadomości w pasku osobistym",
 	"echo-pref-beta-feature-cross-wiki-message": "Rozbudowane powiadomienia",
 	"echo-pref-beta-feature-cross-wiki-description": "Łatwiej wyświetlaj i organizuj powiadomienia. Funkcja obejmuje powiadomienia ''cross-wiki'', dzięki którym widzisz powiadomienia z innych wiki. (Aby otrzymywać powiadomienia cross-wiki na danej wiki, należy włączyć funkcją eksperymentalną na tej wiki)",

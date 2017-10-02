@@ -39,7 +39,7 @@
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "일반 텍스트",
 	"echo-pref-cross-wiki-notifications": "다른 위키의 알림을 보기",
-	"echo-pref-notifications-blacklist": "이 사용자들에게서 오는 알림을 표시하지 않습니다. ([[mw:Help:Notifications#mute|더 알아보기]])",
+	"echo-pref-notifications-blacklist": "이 사용자들에게서 오는 알림을 표시하지 않습니다. ([[mw:Special:MyLanguage/Help:Notifications#mute|더 알아보기]])",
 	"echo-pref-new-message-indicator": "내 도구 모음에 토론 문서 메시지 표시기 보이기",
 	"echo-pref-beta-feature-cross-wiki-message": "향상된 알림",
 	"echo-pref-beta-feature-cross-wiki-description": "알림을 더 쉽게 확인하고 정리합니다. 위키 간 알림 기능이 포함되어, 다른 위키에서의 메시지를 볼 수 있습니다. (주어진 위키에서 다른 위키의 알림을 받으려면 해당 위키에서 베타 기능을 활성화해야 합니다.)",

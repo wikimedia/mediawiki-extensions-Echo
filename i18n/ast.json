@@ -25,7 +25,7 @@
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Testu simple",
 	"echo-pref-cross-wiki-notifications": "Amosar notificaciones d'otres wikis",
-	"echo-pref-notifications-blacklist": "Nun amosar notificaciones d'estos usuarios. ([[mw:Help:Notifications#mute|más información]])",
+	"echo-pref-notifications-blacklist": "Nun amosar notificaciones d'estos usuarios. ([[mw:Special:MyLanguage/Help:Notifications#mute|más información]])",
 	"echo-pref-new-message-indicator": "Amosar un indicador de mensaxe na páxina d'alderique na mio barra de ferramientes",
 	"echo-pref-beta-feature-cross-wiki-message": "Notificaciones enantaes",
 	"echo-pref-beta-feature-cross-wiki-description": "Ver y organizar les notificaciones más fácilmente. Incluye notificaciones ente wikis, lo que te permite ver mensaxes d'otres wikis. (Pa recibir notificaciones ente wikis nuna wiki determinada tienes d'activar la carauterística beta nesa wiki)",

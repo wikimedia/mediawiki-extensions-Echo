@@ -35,7 +35,7 @@
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Sima szöveg",
 	"echo-pref-cross-wiki-notifications": "Értesítések megjelenítése más wikikről",
-	"echo-pref-notifications-blacklist": "Értesítések megjelenítésének letiltása ezektől a felhasználóktól. ([[mw:Help:Notifications#mute|további információk]])",
+	"echo-pref-notifications-blacklist": "Értesítések megjelenítésének letiltása ezektől a felhasználóktól. ([[mw:Special:MyLanguage/Help:Notifications#mute|további információk]])",
 	"echo-pref-new-message-indicator": "Jelezze a vitalapi üzeneteket a lap tetején lévő menüben",
 	"echo-pref-beta-feature-cross-wiki-message": "Fejlettebb értesítések",
 	"echo-learn-more": "Tudj meg többet",

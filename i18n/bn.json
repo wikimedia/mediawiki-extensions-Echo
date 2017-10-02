@@ -32,7 +32,7 @@
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "সরল লেখা",
 	"echo-pref-cross-wiki-notifications": "অন্যান্য উইকিগুলি থেকে বিজ্ঞপ্তি দেখান",
-	"echo-pref-notifications-blacklist": "এই ব্যবহারকারীদের থেকে বিজ্ঞপ্তি প্রদর্শন করবেন না। ([[mw:Help:Notifications#mute|আরও জানুন]])",
+	"echo-pref-notifications-blacklist": "এই ব্যবহারকারীদের থেকে বিজ্ঞপ্তি প্রদর্শন করবেন না। ([[mw:Special:MyLanguage/Help:Notifications#mute|আরও জানুন]])",
 	"echo-pref-new-message-indicator": "আমার সরঞ্জামদণ্ডে আলাপ পাতার বার্তা নির্দেশক দেখান",
 	"echo-pref-beta-feature-cross-wiki-message": "উন্নত বিজ্ঞপ্তি",
 	"echo-pref-beta-feature-cross-wiki-description": "আরো সহজে বিজ্ঞপ্তি দেখুন ও সংগঠিত করুন। এটি আন্তঃ-উইকি বিজ্ঞপ্তিসহ, যা আপনার অন্যান্য উইকির বার্তাগুলি দেখতে দিবে। (একটি প্রদত্ত উইকিতে আন্তঃ উইকি বিজ্ঞপ্তি পেতে, আপনাকে সেই উইকিতে বেটা বৈশিষ্ট্য সক্রিয় করা আবশ্যক।)",

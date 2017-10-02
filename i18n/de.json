@@ -35,7 +35,7 @@
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Nur Text",
 	"echo-pref-cross-wiki-notifications": "Benachrichtigungen von anderen Wikis anzeigen",
-	"echo-pref-notifications-blacklist": "Benachrichtigungen von diesen Benutzern nicht anzeigen ([[mw:Help:Notifications#mute|mehr erfahren]]).",
+	"echo-pref-notifications-blacklist": "Benachrichtigungen von diesen Benutzern nicht anzeigen ([[mw:Special:MyLanguage/Help:Notifications#mute|mehr erfahren]]).",
 	"echo-pref-new-message-indicator": "Hinweise zu neuen Nachrichten in meiner Benutzerleiste anzeigen",
 	"echo-pref-beta-feature-cross-wiki-message": "Erweiterte Benachrichtigungen",
 	"echo-pref-beta-feature-cross-wiki-description": "Betrachte und organisiere deine Benachrichtigungen einfacher. Beinhaltet wikiübergreifende Benachrichtigungen, die dich Nachrichten von anderen Wikis sehen lassen. Um wikiübergreifende Benachrichtigungen auf einem angegebenen Wiki zu erhalten, musst du die entsprechende Beta-Funktion auf diesem Wiki aktivieren.",

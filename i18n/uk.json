@@ -39,7 +39,7 @@
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Простий текст",
 	"echo-pref-cross-wiki-notifications": "Показувати сповіщення з інших вікі",
-	"echo-pref-notifications-blacklist": "Не показувати сповіщень від цих користувачів. ([[mw:Help:Notifications#mute|дізнайтесь більше]])",
+	"echo-pref-notifications-blacklist": "Не показувати сповіщень від цих користувачів. ([[mw:Special:MyLanguage/Help:Notifications#mute|дізнайтесь більше]])",
 	"echo-pref-new-message-indicator": "Показувати індикатор повідомлень на сторінці обговорення у моїй панелі інструментів",
 	"echo-pref-beta-feature-cross-wiki-message": "Розширені сповіщення",
 	"echo-pref-beta-feature-cross-wiki-description": "Переглядайте і сортуйте сповіщення простіше. Містить крос-вікі сповіщення, які дають змогу бачити повідомлення з інших вікі. (Щоб отримувати крос-вікі сповіщення у певній вікі, Ви маєте активувати бета-функцію у цій вікі).",

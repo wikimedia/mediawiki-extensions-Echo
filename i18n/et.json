@@ -29,7 +29,7 @@
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Lihttekst",
 	"echo-pref-cross-wiki-notifications": "Näita teavitusi teistest vikidest",
-	"echo-pref-notifications-blacklist": "Neilt kasutajatelt teavitusi ei näidata. ([[mw:Help:Notifications#mute|lisateave]])",
+	"echo-pref-notifications-blacklist": "Neilt kasutajatelt teavitusi ei näidata. ([[mw:Special:MyLanguage/Help:Notifications#mute|lisateave]])",
 	"echo-pref-new-message-indicator": "Näita arutelulehekülje postituste indikaatorit minu tööriistaribal",
 	"echo-learn-more": "Lisateave",
 	"echo-new-messages": "Sulle on uusi sõnumeid",

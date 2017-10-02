@@ -35,7 +35,7 @@
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "プレーンテキスト",
 	"echo-pref-cross-wiki-notifications": "他のウィキからの通知を表示",
-	"echo-pref-notifications-blacklist": "以下の利用者からの通知は表示されません ([[mw:Help:Notifications#mute|詳細]])。",
+	"echo-pref-notifications-blacklist": "以下の利用者からの通知は表示されません ([[mw:Special:MyLanguage/Help:Notifications#mute|詳細]])。",
 	"echo-pref-new-message-indicator": "トークページのメッセージの未読数をツールバーに表示",
 	"echo-pref-beta-feature-cross-wiki-message": "強化型通知",
 	"echo-pref-beta-feature-cross-wiki-description": "より簡単に通知を閲覧・整理します。ウィキ横断通知により、他のウィキからのメッセージを見れます。（あるウィキでウィキ横断通知を受信するには、そのウィキでベータ版機能を有効化する必要があります。）",

@@ -36,7 +36,7 @@
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Pelkkä teksti",
 	"echo-pref-cross-wiki-notifications": "Näytä ilmoituksia muista wikeistä",
-	"echo-pref-notifications-blacklist": "Älä näytä ilmoituksia näiltä käyttäjiltä. ([[mw:Help:Notifications#mute|lisätietoja]])",
+	"echo-pref-notifications-blacklist": "Älä näytä ilmoituksia näiltä käyttäjiltä. ([[mw:Special:MyLanguage/Help:Notifications#mute|lisätietoja]])",
 	"echo-pref-new-message-indicator": "Näytä keskustelusivujen viestistä erillinen ilmoitus työkalurivilläni",
 	"echo-pref-beta-feature-cross-wiki-message": "Kehittyneet ilmoitukset",
 	"echo-pref-beta-feature-cross-wiki-description": "Tee ilmoitusten katselusta ja järjestämisestä helpompaa. Sisältää wikienväliset ilmoitukset, joiden avulla viestit muissa wikeissä eivät jää huomaamatta. (Saat wikienvälisiä ilmoituksia vain niissä wikeissä, joissa betaominaisuus on käytössä.)",

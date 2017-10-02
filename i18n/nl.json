@@ -46,7 +46,7 @@
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Tekst zonder opmaak",
 	"echo-pref-cross-wiki-notifications": "Meldingen van andere wiki's weergeven",
-	"echo-pref-notifications-blacklist": "Toon geen meldingen van deze gebruikers. ([[mw:Help:Notifications#mute|Meer lezen]])",
+	"echo-pref-notifications-blacklist": "Toon geen meldingen van deze gebruikers. ([[mw:Special:MyLanguage/Help:Notifications#mute|Meer lezen]])",
 	"echo-pref-new-message-indicator": "Overlegpaginaberichtenindicator in mijn werkbalk weergeven",
 	"echo-pref-beta-feature-cross-wiki-message": "Uitgebreide meldingen",
 	"echo-pref-beta-feature-cross-wiki-description": "Bekijk en organiseer uw meldingen efficiënter. U ziet ook meldingen over andere wiki's. (Om meldingen van andere wiki's te ontvangen op een gegeven wiki, moet u de beta-functie op de desbetreffende wiki aanzetten.)",

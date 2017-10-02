@@ -6,6 +6,7 @@
 			"Tokoabibi"
 		]
 	},
+	"echo-desc": "sapipatakus misaungayay sikawaw atu palatuh a sisetyimo",
 	"prefs-echo": "patakus",
 	"prefs-emailsettings": "imyiyo(email) mapili’ay",
 	"prefs-displaynotifications": "paazih tu mapiliay",
@@ -20,10 +21,14 @@
 	"echo-pref-email-frequency-weekly": "paylipay patakus pecu’ nu lacul",
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "sulit a dada’",
+	"echo-pref-cross-wiki-notifications": "paazih namakay zuma wiki a takus",
 	"echo-pref-beta-feature-cross-wiki-message": "pacunusen patakus sasahicaan",
 	"echo-learn-more": "sayadahay ku tineng",
 	"echo-log": "nubinawlan a nasulitan nazipa’an",
 	"echo-new-messages": "izaw baluhay palatuh kisu",
+	"echo-category-title-mention": "{{PLURAL:$1|mapatahkal}}",
+	"echo-category-title-other": "{{PLURAL:$1|zuma}}",
+	"echo-category-title-system": "{{PLURAL:$1|sisetyimo}}",
 	"echo-pref-tooltip-mention-failure": "imahini mapatahkal kaku situngusay mungangaw sa patakus takuwan",
 	"echo-pref-tooltip-emailuser": "anu izaw pabahel imyiyo(email) takuwan haw patakus takuwan.",
 	"echo-error-no-formatter": "caay henay misaheci kese nu takus.",

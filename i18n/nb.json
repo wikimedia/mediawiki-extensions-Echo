@@ -32,7 +32,7 @@
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Ren tekst",
 	"echo-pref-cross-wiki-notifications": "Vis beskjeder fra andre wikier",
-	"echo-pref-notifications-blacklist": "Ikke vis varsler fra disse brukerne. ([[mw:Help:Notifications#mute|lær mer]])",
+	"echo-pref-notifications-blacklist": "Ikke vis varsler fra disse brukerne. ([[mw:Special:MyLanguage/Help:Notifications#mute|lær mer]])",
 	"echo-pref-new-message-indicator": "Vis indikator for nye meldinger i verktøylinjen min",
 	"echo-pref-beta-feature-cross-wiki-message": "Utvidete beskjeder",
 	"echo-pref-beta-feature-cross-wiki-description": "Vis og organiser beskjeder på en enklere måte. Inkluder beskjeder fra andre wikier. (For å motta beskjeder fra en gitt wiki må du aktivere betafunksjonen på den wikien.)",

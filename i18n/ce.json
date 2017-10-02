@@ -26,7 +26,7 @@
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Цхьалхе йоза",
 	"echo-pref-cross-wiki-notifications": "Кхечу викиш чура хаамаш гайта",
-	"echo-pref-notifications-blacklist": "ХӀокху декъашхошкара хаамаш ма гайта. ([[mw:Help:Notifications#mute|мадарра]])",
+	"echo-pref-notifications-blacklist": "ХӀокху декъашхошкара хаамаш ма гайта. ([[mw:Special:MyLanguage/Help:Notifications#mute|мадарра]])",
 	"echo-pref-new-message-indicator": "Сан панелан тӀехь гайта хааман индикатор",
 	"echo-pref-beta-feature-cross-wiki-message": "Дика дина дӀахаийтарш",
 	"echo-pref-beta-feature-cross-wiki-description": "Жим атта хьажар а, дӀахаийтарийн организаци а. Цуьнца ю кросс-вики-дӀахаийтарш, оцо кхечу викиш чура хаамаш гойту.",

@@ -28,7 +28,7 @@
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Čist tekst",
 	"echo-pref-cross-wiki-notifications": "Prikaži obaveštenja sa drugih vikija",
-	"echo-pref-notifications-blacklist": "Ne prikazuj obaveštenja od ovih korisnika. ([[mw:Help:Notifications#mute|saznaj više]])",
+	"echo-pref-notifications-blacklist": "Ne prikazuj obaveštenja od ovih korisnika. ([[mw:Special:MyLanguage/Help:Notifications#mute|saznaj više]])",
 	"echo-pref-new-message-indicator": "Prikaži indikator kada dobijem poruku na stranici za razgovor",
 	"echo-learn-more": "Saznajte više",
 	"echo-new-messages": "Imate nove poruke",
