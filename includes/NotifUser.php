@@ -350,7 +350,8 @@ class MWEchoNotifUser {
 	/**
 	 * Mark one or more notifications read for a user.
 	 * @param array $eventIds Array of event IDs to mark read
-	 * @return bool
+	 * @return bool Returns true when data has been updated in DB, false on
+	 *   failure, or when there was nothing to update
 	 */
 	public function markRead( $eventIds ) {
 		$eventIds = array_filter( (array)$eventIds, 'is_numeric' );
@@ -358,8 +359,8 @@ class MWEchoNotifUser {
 			return false;
 		}
 
-		$res = $this->userNotifGateway->markRead( $eventIds );
-		if ( $res ) {
+		$updated = $this->userNotifGateway->markRead( $eventIds );
+		if ( $updated ) {
 			// Update notification count in cache
 			$this->resetNotificationCount( DB_MASTER );
 
@@ -376,13 +377,14 @@ class MWEchoNotifUser {
 			}
 		}
 
-		return $res;
+		return $updated;
 	}
 
 	/**
 	 * Mark one or more notifications unread for a user.
 	 * @param array $eventIds Array of event IDs to mark unread
-	 * @return bool
+	 * @return bool Returns true when data has been updated in DB, false on
+	 *   failure, or when there was nothing to update
 	 */
 	public function markUnRead( $eventIds ) {
 		$eventIds = array_filter( (array)$eventIds, 'is_numeric' );
@@ -390,8 +392,8 @@ class MWEchoNotifUser {
 			return false;
 		}
 
-		$res = $this->userNotifGateway->markUnRead( $eventIds );
-		if ( $res ) {
+		$updated = $this->userNotifGateway->markUnRead( $eventIds );
+		if ( $updated ) {
 			// Update notification count in cache
 			$this->resetNotificationCount( DB_MASTER );
 
@@ -408,7 +410,7 @@ class MWEchoNotifUser {
 			}
 		}
 
-		return $res;
+		return $updated;
 	}
 
 	/**
@@ -450,8 +452,8 @@ class MWEchoNotifUser {
 			}, $notifs )
 		);
 
-		$res = $this->markRead( $eventIds );
-		if ( $res ) {
+		$updated = $this->markRead( $eventIds );
+		if ( $updated ) {
 			// Delete records from echo_target_page
 			/**
 			 * Keep the 'echo_target_page' records so they can be used for moderation.
@@ -462,7 +464,7 @@ class MWEchoNotifUser {
 			}
 		}
 
-		return $res;
+		return $updated;
 	}
 
 	/**

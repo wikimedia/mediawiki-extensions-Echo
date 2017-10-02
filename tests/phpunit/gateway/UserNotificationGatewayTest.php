@@ -5,7 +5,7 @@ class EchoUserNotificationGatewayTest extends MediaWikiTestCase {
 	public function testMarkRead() {
 		// no event ids to mark
 		$gateway = new EchoUserNotificationGateway( User::newFromId( 1 ), $this->mockMWEchoDbFactory() );
-		$this->assertNull( $gateway->markRead( [] ) );
+		$this->assertFalse( $gateway->markRead( [] ) );
 
 		// successful update
 		$gateway = new EchoUserNotificationGateway( User::newFromId( 1 ), $this->mockMWEchoDbFactory( [ 'update' => true ] ) );

@@ -43,11 +43,12 @@ class EchoUserNotificationGateway {
 	/**
 	 * Mark notifications as read
 	 * @param array $eventIDs
-	 * @return bool
+	 * @return bool Returns true when data has been updated in DB, false on
+	 *   failure, or when there was nothing to update
 	 */
 	public function markRead( array $eventIDs ) {
 		if ( !$eventIDs ) {
-			return;
+			return false;
 		}
 
 		$dbw = $this->dbFactory->getEchoDb( DB_MASTER );
@@ -67,11 +68,12 @@ class EchoUserNotificationGateway {
 	/**
 	 * Mark notifications as unread
 	 * @param array $eventIDs
-	 * @return bool
+	 * @return bool Returns true when data has been updated in DB, false on
+	 *   failure, or when there was nothing to update
 	 */
 	public function markUnRead( array $eventIDs ) {
 		if ( !$eventIDs ) {
-			return;
+			return false;
 		}
 
 		$dbw = $this->dbFactory->getEchoDb( DB_MASTER );
