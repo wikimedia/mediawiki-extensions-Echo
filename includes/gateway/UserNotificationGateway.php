@@ -18,14 +18,22 @@ class EchoUserNotificationGateway {
 	protected $user;
 
 	/**
-	 * The tables for this gateway
+	 * The tables for this gateway.
+	 *
+	 * @var string
 	 */
 	protected static $eventTable = 'echo_event';
+
+	/**
+	 * The tables for this gateway.
+	 *
+	 * @var string
+	 */
 	protected static $notificationTable = 'echo_notification';
 
 	/**
-	 * @param User
-	 * @param MWEchoDbFactory
+	 * @param User $user
+	 * @param MWEchoDbFactory $dbFactory
 	 */
 	public function __construct( User $user, MWEchoDbFactory $dbFactory ) {
 		$this->user = $user;
@@ -34,7 +42,7 @@ class EchoUserNotificationGateway {
 
 	/**
 	 * Mark notifications as read
-	 * @param $eventIDs array
+	 * @param array $eventIDs
 	 * @return bool
 	 */
 	public function markRead( array $eventIDs ) {
@@ -58,7 +66,7 @@ class EchoUserNotificationGateway {
 
 	/**
 	 * Mark notifications as unread
-	 * @param $eventIDs array
+	 * @param array $eventIDs
 	 * @return bool
 	 */
 	public function markUnRead( array $eventIDs ) {
@@ -141,7 +149,7 @@ class EchoUserNotificationGateway {
 	 * IMPORTANT: should only call this function if the number of unread notification
 	 * is reasonable, for example, unread notification count is less than the max
 	 * display defined in MWEchoNotifUser::MAX_BADGE_COUNT
-	 * @param string
+	 * @param string $type
 	 * @return int[]
 	 */
 	public function getUnreadNotifications( $type ) {

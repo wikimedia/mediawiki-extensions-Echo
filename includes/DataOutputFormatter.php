@@ -191,8 +191,8 @@ class EchoDataOutputFormatter {
 	/**
 	 * Helper function for converting UTC timezone to a user's timezone
 	 *
-	 * @param User
-	 * @param string
+	 * @param User $user
+	 * @param string $ts
 	 * @param int $format output format
 	 *
 	 * @return string

@@ -7,7 +7,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 
 	/**
 	 * Insert a notification record
-	 * @param EchoNotification
+	 * @param EchoNotification $notification
 	 * @return null
 	 */
 	public function insert( EchoNotification $notification ) {
@@ -52,7 +52,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 
 	/**
 	 * Extract the offset used for notification list
-	 * @param $continue String Used for offset
+	 * @param string $continue String Used for offset
 	 * @throws MWException
 	 * @return int[]
 	 */
