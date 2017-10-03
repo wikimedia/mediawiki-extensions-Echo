@@ -34,7 +34,7 @@
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "обикновен текст",
 	"echo-pref-cross-wiki-notifications": "Показване на известия от други уикита",
-	"echo-pref-notifications-blacklist": "Да не се показват известия от следните потребители.\n([[mw:Special:MyLanguage/Help:Notifications#mute|learn more]])",
+	"echo-pref-notifications-blacklist": "Да не се показват известия от следните потребители.\n([[mw:Special:MyLanguage/Help:Notifications#mute|научете повече]])",
 	"echo-pref-new-message-indicator": "Показване на индикатор за съобщения на беседата в лентата с моите инструменти",
 	"echo-pref-beta-feature-cross-wiki-message": "Подобрени известявания",
 	"echo-pref-beta-feature-cross-wiki-description": "Наблюдавайте и организирайте по-лесно известията си. Включва „cross-wiki“ известия, които ви позволяват да видите съобщенията си от други уикипроекти на едно място. (За да получaвате тези известия в даден уикипроект, трябва да активирате бета функцията в него.)",
