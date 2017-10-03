@@ -80,12 +80,12 @@ class EchoNotification extends EchoAbstractEntity implements Bundleable {
 			}
 		}
 
-		if ( !$obj->user instanceof User && !$obj->user instanceof StubObject ) {
-			throw new MWException( 'Invalid user parameter, expected: User/StubObject object' );
+		if ( !$obj->user instanceof User ) {
+			throw new InvalidArgumentException( 'Invalid user parameter, expected: User object' );
 		}
 
 		if ( !$obj->event instanceof EchoEvent ) {
-			throw new MWException( 'Invalid event parameter, expected: EchoEvent object' );
+			throw new InvalidArgumentException( 'Invalid event parameter, expected: EchoEvent object' );
 		}
 
 		// Notification timestamp should be the same as event timestamp

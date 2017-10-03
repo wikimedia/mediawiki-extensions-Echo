@@ -105,11 +105,8 @@ abstract class EchoDiscussionParser {
 	 * @param Title $title
 	 */
 	public static function detectSectionTitleAndText( array $interpretation, Title $title = null ) {
-		global $wgLang;
 		$header = $snippet = '';
 		$found = false;
-
-		StubObject::unstub( $wgLang );
 
 		foreach ( $interpretation as $action ) {
 			switch ( $action['type'] ) {
@@ -117,7 +114,7 @@ abstract class EchoDiscussionParser {
 					$header = self::extractHeader( $action['full-section'] );
 					$snippet = self::getTextSnippet(
 						self::stripSignature( self::stripHeader( $action['content'] ), $title ),
-						$wgLang,
+						RequestContext::getMain()->getLanguage(),
 						150,
 						$title );
 					break;
@@ -125,7 +122,7 @@ abstract class EchoDiscussionParser {
 					$header = self::extractHeader( $action['content'] );
 					$snippet = self::getTextSnippet(
 						self::stripSignature( self::stripHeader( $action['content'] ), $title ),
-						$wgLang,
+						RequestContext::getMain()->getLanguage(),
 						150,
 						$title );
 					break;
