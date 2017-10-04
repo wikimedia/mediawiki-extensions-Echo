@@ -162,6 +162,7 @@
 	"notification-mention-email-subject": "$1 {{GENDER:$1|згадаў|згадала}} {{GENDER:$2|Вас}} у {{GRAMMAR:месны|{{SITENAME}}}}",
 	"notification-user-rights-email-subject": "Вашыя правы ў {{GRAMMAR:месны|{{SITENAME}}}} былі зьмененыя",
 	"notification-timestamp-ago-seconds": "{{PLURAL:$1|$1 с}}",
+	"notification-timestamp-ago-minutes": "{{PLURAL:$1|$1 хв}}",
 	"notification-inbox-filter-all": "Усе",
 	"echo-email-body-default": "Для Вас ёсьць новая абвестка ў {{GRAMMAR:месны|{{SITENAME}}}}:\n\n$1",
 	"echo-email-footer-default": "$2\n\nКаб кантраляваць, якія лісты мы дасылацьмем Вам, наведайце свае налады:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
