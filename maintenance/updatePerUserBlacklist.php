@@ -28,9 +28,8 @@ class EchoUpdatePerUserBlacklist extends LoggedUpdateMaintenance {
 	}
 
 	public function doDBUpdates() {
-		$dbFactory = MWEchoDbFactory::newFromDefault();
-		$dbw = $dbFactory->getEchoDb( DB_MASTER );
-		$dbr = $dbFactory->getEchoDb( DB_REPLICA );
+		$dbw = wfGetDB( DB_MASTER );
+		$dbr = wfGetDB( DB_REPLICA );
 		$iterator = new BatchRowIterator(
 			$dbr,
 			'user_properties',
