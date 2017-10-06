@@ -164,6 +164,7 @@
 	"notification-timestamp-ago-seconds": "{{PLURAL:$1|$1 с}}",
 	"notification-timestamp-ago-minutes": "{{PLURAL:$1|$1 хв}}",
 	"notification-timestamp-ago-hours": "{{PLURAL:$1|$1 гадз}}",
+	"notification-timestamp-ago-days": "{{PLURAL:$1|$1 дзень|$1 дні|$1 дзён}}",
 	"notification-inbox-filter-all": "Усе",
 	"echo-email-body-default": "Для Вас ёсьць новая абвестка ў {{GRAMMAR:месны|{{SITENAME}}}}:\n\n$1",
 	"echo-email-footer-default": "$2\n\nКаб кантраляваць, якія лісты мы дасылацьмем Вам, наведайце свае налады:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
