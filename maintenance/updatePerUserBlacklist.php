@@ -79,7 +79,7 @@ class EchoUpdatePerUserBlacklist extends LoggedUpdateMaintenance {
 					]
 				);
 				$processed += $dbw->affectedRows();
-				$dbFactory->waitForSlaves();
+				wfWaitForSlaves();
 			}
 
 			$this->output( "Updated $processed Users\n" );
