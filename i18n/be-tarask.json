@@ -168,6 +168,7 @@
 	"notification-timestamp-ago-months": "{{PLURAL:$1|$1 мес.}}",
 	"notification-timestamp-ago-years": "{{PLURAL:$1|$1 год|$1 гады|$1 гадоў}}",
 	"notification-timestamp-today": "Сёньня",
+	"notification-timestamp-yesterday": "Учора",
 	"notification-inbox-filter-all": "Усе",
 	"echo-email-body-default": "Для Вас ёсьць новая абвестка ў {{GRAMMAR:месны|{{SITENAME}}}}:\n\n$1",
 	"echo-email-footer-default": "$2\n\nКаб кантраляваць, якія лісты мы дасылацьмем Вам, наведайце свае налады:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
