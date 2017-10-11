@@ -32,6 +32,7 @@
 	"echo-pref-email-format-html": "ایچ ٹی ایم ایل",
 	"echo-pref-email-format-plain-text": "سادہ متن",
 	"echo-pref-cross-wiki-notifications": "دیگر ویکیوں کے اطلاع نامے دکھائیں",
+	"echo-pref-notifications-blacklist": "ان صارفین کے اطلاع نامے نہ دکھائیں۔ [[mw:Special:MyLanguage/Help:Notifications#mute|مزید تفصیلات]]",
 	"echo-pref-new-message-indicator": "میرے خانہ آلات میں تبادلۂ خیال صفحے کے پیغامات کا اشارہ نما فعال کریں",
 	"echo-learn-more": "مزید معلومات حاصل کریں",
 	"echo-log": "عوامی نوشتہ",
