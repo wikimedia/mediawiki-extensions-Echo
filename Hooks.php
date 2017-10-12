@@ -510,13 +510,7 @@ class EchoHooks {
 	 * @return bool
 	 */
 	private static function isEmailChangeAllowed() {
-		global $wgAuth, $wgDisableAuthManager;
-
-		if ( class_exists( AuthManager::class ) && !$wgDisableAuthManager ) {
-			return AuthManager::singleton()->allowsPropertyChange( 'emailaddress' );
-		} else {
-			return $wgAuth->allowPropChange( 'emailaddress' );
-		}
+		return AuthManager::singleton()->allowsPropertyChange( 'emailaddress' );
 	}
 
 	/**
