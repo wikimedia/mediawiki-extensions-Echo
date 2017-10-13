@@ -240,6 +240,8 @@ $specialPageAliases['uk'] = [
 /** Urdu (اردو) */
 $specialPageAliases['ur'] = [
 	'Notifications' => [ 'اطلاعات' ],
+	'DisplayNotificationsConfiguration' => [ 'ترتیب_نمائش_اطلاعات' ],
+	'NotificationsMarkRead' => [ 'اطلاعات_کی_خواندہ_نشان_زدگی' ],
 ];
 
 /** Venetian (vèneto) */
