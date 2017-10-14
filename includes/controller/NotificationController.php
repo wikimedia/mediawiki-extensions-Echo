@@ -49,15 +49,15 @@ class EchoNotificationController {
 	}
 
 	/**
-	* Format the notification count as a string.  This should only be used for an
-	* isolated string count, e.g. as displayed in personal tools or returned by the API.
-	*
-	* If using it in sentence context, pass the value from getCappedNotificationCount
-	* into a message and use PLURAL.  Example: notification-bundle-header-page-linked
-	*
-	* @param int $count Notification count
-	* @return string Formatted count, after applying cap then formatting to string
-	*/
+	 * Format the notification count as a string.  This should only be used for an
+	 * isolated string count, e.g. as displayed in personal tools or returned by the API.
+	 *
+	 * If using it in sentence context, pass the value from getCappedNotificationCount
+	 * into a message and use PLURAL.  Example: notification-bundle-header-page-linked
+	 *
+	 * @param int $count Notification count
+	 * @return string Formatted count, after applying cap then formatting to string
+	 */
 	public static function formatNotificationCount( $count ) {
 		$cappedCount = self::getCappedNotificationCount( $count );
 

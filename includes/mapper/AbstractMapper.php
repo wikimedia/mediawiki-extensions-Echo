@@ -61,6 +61,7 @@ abstract class EchoAbstractMapper {
 	/**
 	 * Get the listener for a method
 	 *
+	 * @param string $method
 	 * @return array
 	 * @throws MWException
 	 */
