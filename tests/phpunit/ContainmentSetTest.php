@@ -15,6 +15,9 @@ class ContainmentSetTest extends MediaWikiTestCase {
 
 		$list->addArray( [ 'whammo' ] );
 		$this->assertTrue( $list->contains( 'whammo' ) );
+
+		$list->addArray( [ 0 ] );
+		$this->assertFalse( $list->contains( 'baz' ) );
 	}
 
 	public function testCachedListInnerListIsOnlyCalledOnce() {

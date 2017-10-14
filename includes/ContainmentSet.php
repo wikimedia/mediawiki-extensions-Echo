@@ -111,7 +111,8 @@ class EchoContainmentSet {
 	 */
 	public function contains( $value ) {
 		foreach ( $this->lists as $list ) {
-			if ( array_search( $value, $list->getValues() ) !== false ) {
+			// Use strict comparison to prevent the number 0 from matching all strings (T177825)
+			if ( array_search( $value, $list->getValues(), true ) !== false ) {
 				return true;
 			}
 		}
