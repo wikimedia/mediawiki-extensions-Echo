@@ -19,7 +19,8 @@
 			"Cristofer Alves",
 			"Hamilton Abreu",
 			"Felipe L. Ewald",
-			"Chicocvenancio"
+			"Chicocvenancio",
+			"Eduardo Addad de Oliveira"
 		]
 	},
 	"echo-desc": "Sistema para notificar usuários sobre eventos e mensagens",
@@ -29,7 +30,7 @@
 	"prefs-echosubscriptions": "Notificar-me sobre estes eventos",
 	"prefs-echocrosswiki": "Notificações entre-wikis",
 	"prefs-newmessageindicator": "Indicador de nova mensagem",
-	"prefs-blocknotificationslist": "Lista de bloqueios",
+	"prefs-blocknotificationslist": "Usuários silenciados",
 	"echo-pref-send-me": "Envie-me:",
 	"echo-pref-send-to": "Envie para:",
 	"echo-pref-email-format": "Formato de e-mail:",
@@ -42,7 +43,7 @@
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Texto simples",
 	"echo-pref-cross-wiki-notifications": "Mostrar notificações de outras wikis",
-	"echo-pref-notifications-blacklist": "Lista de nomes de usuários que estão na lista negra de ativar a maioria das notificações do Echo (as edições na página de conversa do usuário ainda serão acionadas para notificações)",
+	"echo-pref-notifications-blacklist": "Não apresentar notificações destes usuários. ([[mw:Special:MyLanguage/Help:Notifications#mute|mais informações]])",
 	"echo-pref-new-message-indicator": "Exibir indicador de mensagem na página de discussão em minha barra de ferramentas",
 	"echo-pref-beta-feature-cross-wiki-message": "Notificações aprimoradas",
 	"echo-pref-beta-feature-cross-wiki-description": "Confira e organize as suas notificações mais facilmente. Inclui notificações globais, o que lhe permite verificar as suas mensagens provenientes de outras wikis. (Para receber notificações globais em uma wiki específica deverá ativar a funcionalidade beta na respetiva wiki.)",
