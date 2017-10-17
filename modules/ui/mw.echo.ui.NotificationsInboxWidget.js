@@ -92,7 +92,6 @@
 		this.topPaginationWidget.connect( this, { change: 'populateNotifications' } );
 		this.bottomPaginationWidget.connect( this, { change: 'populateNotifications' } );
 		this.settingsMenu.connect( this, { markAllRead: 'onSettingsMarkAllRead' } );
-		$( window ).on( 'scroll resize', this.onWindowScroll.bind( this ) );
 
 		this.topPaginationWidget.setDisabled( true );
 		this.bottomPaginationWidget.setDisabled( true );
@@ -319,29 +318,6 @@
 	mw.echo.ui.NotificationsInboxWidget.prototype.displayMessage = function ( displayMessage ) {
 		this.noticeMessageWidget.toggle( displayMessage );
 		this.datedListWidget.toggle( !displayMessage );
-	};
-
-	/**
-	 * Respond to window scroll
-	 */
-	mw.echo.ui.NotificationsInboxWidget.prototype.onWindowScroll = function () {
-		var scrollTop = $( window ).scrollTop(),
-			isScrolledDown = scrollTop >= this.$topToolbar.parent().offset().top;
-
-		// Fix the widget to the top when we scroll down below its original
-		// location
-		this.$topToolbar.toggleClass(
-			'mw-echo-ui-notificationsInboxWidget-main-toolbar-affixed',
-			isScrolledDown
-		);
-		if ( isScrolledDown ) {
-			// Copy width from parent, width: 100% doesn't do what we want when
-			// position: fixed; is set
-			this.$topToolbar.css( 'width', this.$topToolbar.parent().width() );
-		} else {
-			// Unset width when we no longer have position: fixed;
-			this.$topToolbar.css( 'width', '' );
-		}
 	};
 
 }( jQuery, mediaWiki ) );
