@@ -104,21 +104,21 @@
 					$( '<div>' )
 						.addClass( 'mw-echo-ui-notificationsInboxWidget-row' )
 						.append(
-						$( '<div>' )
-							.addClass( 'mw-echo-ui-notificationsInboxWidget-main-toolbar-readState' )
-							.addClass( 'mw-echo-ui-notificationsInboxWidget-cell' )
-							.append( this.readStateSelectWidget.$element ),
-						$( '<div>' )
-							.addClass( 'mw-echo-ui-notificationsInboxWidget-cell-placeholder' ),
-						$( '<div>' )
-							.addClass( 'mw-echo-ui-notificationsInboxWidget-main-toolbar-pagination' )
-							.addClass( 'mw-echo-ui-notificationsInboxWidget-cell' )
-							.append( this.topPaginationWidget.$element ),
-						$( '<div>' )
-							.addClass( 'mw-echo-ui-notificationsInboxWidget-main-toolbar-settings' )
-							.addClass( 'mw-echo-ui-notificationsInboxWidget-cell' )
-							.append( this.settingsMenu.$element )
-					)
+							$( '<div>' )
+								.addClass( 'mw-echo-ui-notificationsInboxWidget-main-toolbar-readState' )
+								.addClass( 'mw-echo-ui-notificationsInboxWidget-cell' )
+								.append( this.readStateSelectWidget.$element ),
+							$( '<div>' )
+								.addClass( 'mw-echo-ui-notificationsInboxWidget-cell-placeholder' ),
+							$( '<div>' )
+								.addClass( 'mw-echo-ui-notificationsInboxWidget-main-toolbar-pagination' )
+								.addClass( 'mw-echo-ui-notificationsInboxWidget-cell' )
+								.append( this.topPaginationWidget.$element ),
+							$( '<div>' )
+								.addClass( 'mw-echo-ui-notificationsInboxWidget-main-toolbar-settings' )
+								.addClass( 'mw-echo-ui-notificationsInboxWidget-cell' )
+								.append( this.settingsMenu.$element )
+						)
 				);
 
 		this.$toolbarWrapper =
@@ -133,9 +133,9 @@
 		$main = $( '<div>' )
 			.addClass( 'mw-echo-ui-notificationsInboxWidget-main' )
 			.append(
-					this.$toolbarWrapper,
-					this.noticeMessageWidget.$element,
-					this.datedListWidget.$element
+				this.$toolbarWrapper,
+				this.noticeMessageWidget.$element,
+				this.datedListWidget.$element
 			);
 
 		this.$element

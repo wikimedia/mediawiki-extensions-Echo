@@ -27,10 +27,10 @@
 
 	QUnit.test( 'Estimate change', function ( assert ) {
 		var model = new mw.echo.dm.UnreadNotificationCounter(
-				null,
-				'all', // type
-				99 // max
-			);
+			null,
+			'all', // type
+			99 // max
+		);
 		// Set initial
 		model.setCount( 50 );
 

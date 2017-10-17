@@ -200,10 +200,10 @@
 		var items = this.getItems();
 
 		return (
+			// In the cases where we want a single timestamp for a
+			// group, the group is usually all unread, which makes
+			// the first item its newest
 			items.length > 0 ?
-				// In the cases where we want a single timestamp for a
-				// group, the group is usually all unread, which makes
-				// the first item its newest
 				items[ 0 ].getTimestamp() :
 				this.fallbackTimestamp
 		);

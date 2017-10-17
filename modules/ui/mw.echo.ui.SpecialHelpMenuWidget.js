@@ -6,8 +6,7 @@
 	 * @param {Object} config Configuration object
 	 */
 	mw.echo.ui.SpecialHelpMenuWidget = function MwEchoUiSpecialHelpMenuWidget( manager, config ) {
-		var $menu = $( '<div>' )
-				.addClass( 'mw-echo-ui-specialHelpMenuWidget-menu' );
+		var $menu = $( '<div>' ).addClass( 'mw-echo-ui-specialHelpMenuWidget-menu' );
 
 		config = config || {};
 

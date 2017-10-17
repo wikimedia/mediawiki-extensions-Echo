@@ -482,11 +482,13 @@
 
 		localCounter.estimateChange( -itemIds.length );
 		return this.api.markAllRead(
-				source,
-				this.getTypes()
-			)
-			.then( this.refreshUnreadCount.bind( this ) )
-			.then( localCounter.update.bind( localCounter, true ) );
+			source,
+			this.getTypes()
+		).then(
+			this.refreshUnreadCount.bind( this )
+		).then(
+			localCounter.update.bind( localCounter, true )
+		);
 	};
 
 	/**
@@ -715,8 +717,9 @@
 				// Synchronously remove this model from the widget
 				controller.removeCrossWikiItem();
 
-				return mw.echo.api.NetworkHandler.static.waitForAllPromises( promises )
-							.then( controller.refreshUnreadCount.bind( controller ) );
+				return mw.echo.api.NetworkHandler.static.waitForAllPromises( promises ).then(
+					controller.refreshUnreadCount.bind( controller )
+				);
 			} );
 	};
 

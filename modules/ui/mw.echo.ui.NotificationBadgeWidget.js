@@ -114,11 +114,11 @@
 				iconUrl: mw.config.get( 'wgExtensionAssetsPath' ) + '/Echo/modules/icons/feedback.svg',
 				message: mw.message(
 					'echo-popup-footer-special-page-invitation',
-						// Text
-						mw.msg( 'echo-popup-footer-special-page-invitation-link' ),
-						// Link
-						mw.util.getUrl( 'Special:Notifications' )
-					).parse()
+					// Text
+					mw.msg( 'echo-popup-footer-special-page-invitation-link' ),
+					// Link
+					mw.util.getUrl( 'Special:Notifications' )
+				).parse()
 			} );
 			// Event
 			notice.connect( this, { dismiss: 'onFooterNoticeDismiss' } );
