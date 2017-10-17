@@ -199,6 +199,7 @@ class ApiEchoUnreadNotificationPages extends ApiCrossWikiBase {
 
 	/**
 	 * @see ApiBase::getExamplesMessages()
+	 * @return array
 	 */
 	protected function getExamplesMessages() {
 		return [

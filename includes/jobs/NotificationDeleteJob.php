@@ -30,6 +30,7 @@ class EchoNotificationDeleteJob extends Job {
 
 	/**
 	 * Run the job of finding & deleting older notifications
+	 * @return true
 	 */
 	public function run() {
 		global $wgEchoMaxUpdateCount;

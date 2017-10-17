@@ -7,6 +7,7 @@ use OOUI\LabelElement;
 use OOUI\TitledElement;
 use OOUI\Tag;
 use OOUI\Widget;
+use OOUI\HtmlSnippet;
 
 /**
  * Widget combining a label and icon
