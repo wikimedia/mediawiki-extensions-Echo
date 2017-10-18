@@ -169,7 +169,7 @@ class MWEchoNotifUser {
 	 * Get message count for this user.
 	 *
 	 * @param bool $cached Set to false to bypass the cache. (Optional. Defaults to true)
-	 * @param int $dbSource Use master or slave database to pull count (Optional. Defaults to DB_SLAVE)
+	 * @param int $dbSource Use master or slave database to pull count (Optional. Defaults to DB_REPLICA)
 	 * @return int
 	 */
 	public function getMessageCount( $cached = true, $dbSource = DB_REPLICA ) {
@@ -180,7 +180,7 @@ class MWEchoNotifUser {
 	 * Get alert count for this user.
 	 *
 	 * @param bool $cached Set to false to bypass the cache. (Optional. Defaults to true)
-	 * @param int $dbSource Use master or slave database to pull count (Optional. Defaults to DB_SLAVE)
+	 * @param int $dbSource Use master or slave database to pull count (Optional. Defaults to DB_REPLICA)
 	 * @return int
 	 */
 	public function getAlertCount( $cached = true, $dbSource = DB_REPLICA ) {
@@ -198,7 +198,7 @@ class MWEchoNotifUser {
 	 * If $wgEchoCrossWikiNotifications is disabled, the $global parameter is ignored.
 	 *
 	 * @param bool $cached Set to false to bypass the cache. (Optional. Defaults to true)
-	 * @param int $dbSource Use master or slave database to pull count (Optional. Defaults to DB_SLAVE)
+	 * @param int $dbSource Use master or slave database to pull count (Optional. Defaults to DB_REPLICA)
 	 * @param string $section Notification section
 	 * @param bool|string $global Whether to include foreign notifications. If set to 'preference', uses the user's preference.
 	 * @return int
@@ -247,7 +247,7 @@ class MWEchoNotifUser {
 	 * Get the timestamp of the latest unread alert
 	 *
 	 * @param bool $cached Set to false to bypass the cache. (Optional. Defaults to true)
-	 * @param int $dbSource Use master or slave database to pull count (Optional. Defaults to DB_SLAVE)
+	 * @param int $dbSource Use master or slave database to pull count (Optional. Defaults to DB_REPLICA)
 	 * @return bool|MWTimestamp Timestamp of latest unread alert, or false if there are no unread alerts.
 	 */
 	public function getLastUnreadAlertTime( $cached = true, $dbSource = DB_REPLICA ) {
@@ -258,7 +258,7 @@ class MWEchoNotifUser {
 	 * Get the timestamp of the latest unread message
 	 *
 	 * @param bool $cached Set to false to bypass the cache. (Optional. Defaults to true)
-	 * @param int $dbSource Use master or slave database to pull count (Optional. Defaults to DB_SLAVE)
+	 * @param int $dbSource Use master or slave database to pull count (Optional. Defaults to DB_REPLICA)
 	 * @return bool|MWTimestamp
 	 */
 	public function getLastUnreadMessageTime( $cached = true, $dbSource = DB_REPLICA ) {
@@ -271,7 +271,7 @@ class MWEchoNotifUser {
 	 * If $wgEchoCrossWikiNotifications is disabled, the $global parameter is ignored.
 	 *
 	 * @param bool $cached Set to false to bypass the cache. (Optional. Defaults to true)
-	 * @param int $dbSource Use master or slave database to pull count (Optional. Defaults to DB_SLAVE)
+	 * @param int $dbSource Use master or slave database to pull count (Optional. Defaults to DB_REPLICA)
 	 * @param string $section Notification section
 	 * @param bool|string $global Whether to include foreign notifications. If set to 'preference', uses the user's preference.
 	 * @return bool|MWTimestamp Timestamp of latest unread message, or false if there are no unread messages.

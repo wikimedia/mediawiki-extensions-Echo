@@ -7,7 +7,6 @@ use OOUI\LabelElement;
 use OOUI\TitledElement;
 use OOUI\Tag;
 use OOUI\Widget;
-use OOUI\HtmlSnippet;
 
 /**
  * Widget combining a label and icon
@@ -19,9 +18,9 @@ class LabelIconWidget extends Widget {
 
 	/**
 	 * @param array $config Configuration options
-	 * @param string|HtmlSnippet $config['label'] Label text
-	 * @param string $config['title'] Title text
-	 * @param string $config['icon'] Icon key
+	 *  - string|HtmlSnippet $config['label'] Label text
+	 *  - string $config['title'] Title text
+	 *  - string $config['icon'] Icon key
 	 */
 	public function __construct( $config ) {
 		parent::__construct( $config );
