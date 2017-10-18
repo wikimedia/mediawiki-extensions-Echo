@@ -11,7 +11,14 @@
 	}
 
 	&-toolbarWrapper {
-		height: 4em;
+		height: 3.5em;
+		position: sticky;
+		padding-top: 0.5em;
+		margin-top: -0.5em;
+		top: 0;
+		z-index: 2;
+		background: #fff;
+		box-shadow: 0 2px 0 0 rgba( 0, 0, 0, 0.1 );
 	}
 
 	&-cell {
@@ -40,16 +47,6 @@
 			&-top {
 				display: table;
 				width: 100%;
-			}
-
-			&-affixed {
-				position: fixed;
-				z-index: 2;
-				top: 0;
-				background: #fff;
-				padding-top: 0.5em;
-				padding-bottom: 0.5em;
-				box-shadow: 0 2px 0 0 rgba( 0, 0, 0, 0.1 );
 			}
 
 			&-settings {
@@ -88,7 +85,7 @@
 			}
 		}
 		&-toolbarWrapper {
-			height: 8em;
+			height: 7em;
 		}
 	}
 }
