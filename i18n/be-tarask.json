@@ -179,6 +179,7 @@
 	"echo-email-html-footer-preference-link-text": "праверце {{GENDER:$1|вашыя}} налады",
 	"echo-email-html-footer-with-link": "Для кантролю, якія лісты электроннай пошты мы дасылаем {{GENDER:$2|вам}}, $1.",
 	"echo-notification-alert": "{{PLURAL:$1|1=Паведамленьне ($1)|Паведамленьні ($1)|100=Паведамленьні (99+)}}",
+	"echo-notification-notice": "{{PLURAL:$1|1=Абвестка ($1)|Абвесткі ($1)|100=Абвесткі (99+)}}",
 	"echo-notification-alert-text-only": "Паведамленьні",
 	"echo-notification-notice-text-only": "Абвесткі",
 	"echo-overlay-link": "Усе абвесткі",
