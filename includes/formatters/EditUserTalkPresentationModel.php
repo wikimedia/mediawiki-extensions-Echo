@@ -56,6 +56,19 @@ class EchoEditUserTalkPresentationModel extends EchoEventPresentationModel {
 		}
 	}
 
+	public function getCompactHeaderMessage() {
+		$hasSection = $this->hasSection();
+		$key = $hasSection
+			? "notification-compact-header-{$this->type}-with-section"
+			: "notification-compact-header-{$this->type}";
+		$msg = $this->getMessageWithAgent( $key );
+		$msg->params( $this->getViewingUserForGender() );
+		if ( $hasSection ) {
+			$msg->params( $this->getTruncatedSectionTitle() );
+		}
+		return $msg;
+	}
+
 	public function getBodyMessage() {
 		$sectionText = $this->event->getExtraParam( 'section-text' );
 		if ( !$this->isBundled() && $this->hasSection() && $sectionText !== null ) {
