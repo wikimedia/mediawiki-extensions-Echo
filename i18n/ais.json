@@ -97,7 +97,7 @@
 	"notification-link-text-collapse-all": "piked",
 	"notification-link-text-view-message": "ciwsace tu palatuh",
 	"notification-link-text-view-mention": "ciwsace mapatahkal",
-	"notification-link-text-view-mention-failure": "{{PLURAL:$1|ciwsace mapatahkal}}",
+	"notification-link-text-view-mention-failure": "{{PLURAL:$1|ciwsac mapatahkal}}",
 	"notification-link-text-view-changes": "{{GENDER:$1|ciwsace}} misumad",
 	"notification-link-text-view-page": "ciwsace tu kasabelih",
 	"notification-compact-header-page-linked": "<strong>$1</strong> masasiket tu tina belih.",

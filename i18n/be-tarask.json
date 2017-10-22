@@ -191,9 +191,11 @@
 	"echo-date-today": "Сёньня",
 	"echo-date-yesterday": "Учора",
 	"echo-load-more-error": "Узьнікла памылка ў час атрыманьня дадатковых вынікаў.",
+	"notification-bundle-header-edit-user-talk-v2": "{{PLURAL:$1|$1 новае паведамленьне|$1 новыя паведамленьні|100=99+ новых паведамленьняў}} на <strong>{{GENDER:$3|вашай}} старонцы гутарак</strong>.",
 	"echo-email-batch-subject-daily": "Вы атрымалі {{PLURAL:$2|новую абвестку|новыя абвесткі|новых абвестак}} на {{SITENAME}}",
 	"echo-email-batch-subject-weekly": "На гэтым тыдні Вы атрымалі {{PLURAL:$2|новую абвестку|новыя абвесткі|новых абвестак}} на {{SITENAME}}",
 	"echo-email-batch-body-intro-daily": "Вітаем, $1!\nВось агляд сёньняшняй актыўнасьці ў {{GRAMMAR:месны|{{SITENAME}}}} для Вас.",
 	"echo-email-batch-body-intro-weekly": "Вітаем, $1!\nВось тыднёвы агляд актыўнасьці ў {{GRAMMAR:месны|{{SITENAME}}}} для вас.",
-	"echo-email-batch-link-text-view-all-notifications": "Праглядзець усе абвесткі"
+	"echo-email-batch-link-text-view-all-notifications": "Праглядзець усе абвесткі",
+	"notification-header-foreign-alert": "Болей паведамленьняў з {{PLURAL:$5|$5 іншай вікі|$5 іншых вікі}}"
 }
