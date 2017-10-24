@@ -128,6 +128,8 @@
 	"notification-link-text-view-page": "Zobacz stronę",
 	"notification-header-edit-user-talk": "$1 {{GENDER:$2|zostawił|zostawiła|zostawił(a)}} wiadomość na <strong>{{GENDER:$3|twojej}} stronie dyskusji</strong>.",
 	"notification-header-edit-user-talk-with-section": "$1 {{GENDER:$2|zostawił|zostawiła|zostawił(a)}} wiadomość na <strong>{{GENDER:$3|twojej}} stronie dyskusji</strong> w „<strong>$4</strong>”.",
+	"notification-compact-header-edit-user-talk": "$1 {{GENDER:$2|pozostawił|pozostawił}} {{GENDER:$3|Ci}} wiadomość.",
+	"notification-compact-header-edit-user-talk-with-section": "$1 {{GENDER:$2|pozostawił|pozostawiła}} {{GENDER:$3|Ci}} wiadomość w „<strong>$4</strong>”.",
 	"notification-body-edit-user-talk-with-section": "$1",
 	"notification-header-page-linked": "Utworzono link z <strong>$4</strong> do <strong>$3</strong>.",
 	"notification-compact-header-page-linked": "Linkowana z <strong>$1</strong>.",

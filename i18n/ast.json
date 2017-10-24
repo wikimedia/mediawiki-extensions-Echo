@@ -111,6 +111,8 @@
 	"notification-link-text-view-page": "Ver la páxina",
 	"notification-header-edit-user-talk": "$1 {{GENDER:$2|dexó}} un mensaxe na <strong>{{GENDER:$3|to}} páxina d'alderique</strong>.",
 	"notification-header-edit-user-talk-with-section": "$1 {{GENDER:$2|dexó}} un mensaxe na <strong>{{GENDER:$3|to}} páxina d'alderique</strong> en «<strong>$4</strong>».",
+	"notification-compact-header-edit-user-talk": "$1 {{GENDER:$2|dexó}}{{GENDER:$3|te}} un mensaxe.",
+	"notification-compact-header-edit-user-talk-with-section": "$1 {{GENDER:$2|dexó}}{{GENDER:$3|te}} un mensax en «<strong>$4</strong>».",
 	"notification-header-page-linked": "Féxose un enllaz dende <strong>$4</strong> a <strong>$3</strong>.",
 	"notification-compact-header-page-linked": "Enllazáu dende <strong>$1</strong>.",
 	"notification-bundle-header-page-linked": "Ficiéronse enllaces dende {{PLURAL:$5||$5 páxines|100=99+ páxines}} a <strong>$3</strong>.",
