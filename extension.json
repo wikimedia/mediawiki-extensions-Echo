@@ -721,7 +721,8 @@
 					"section": "alert",
 					"bundle": {
 						"web": true,
-						"email": false
+						"email": false,
+						"expandable": true
 					},
 					"immediate": true
 				},
