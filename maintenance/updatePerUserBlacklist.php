@@ -66,12 +66,12 @@ class EchoUpdatePerUserBlacklist extends LoggedUpdateMaintenance {
 				}
 
 				$user = User::newFromId( $row->up_user );
-				$ids = $lookup->lookupUserNames( array_flip( $names ), $user );
+				$ids = $lookup->centralIdsFromNames( $names, $user );
 
 				$dbw->update(
 					'user_properties',
 					[
-						'up_value'  => implode( "\n", array_values( $ids ) ),
+						'up_value'  => implode( "\n", $ids ),
 					],
 					[
 						'up_user' => $row->up_user,
