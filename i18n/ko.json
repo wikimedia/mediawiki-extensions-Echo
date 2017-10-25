@@ -119,6 +119,8 @@
 	"notification-link-text-view-page": "문서 보기",
 	"notification-header-edit-user-talk": "$1님이 <strong>{{GENDER:$3|당신의}} 토론 문서</strong>에 글을 {{GENDER:$2|남겼습니다}}.",
 	"notification-header-edit-user-talk-with-section": "$1님이 <strong>{{GENDER:$3|당신의}} 토론 문서</strong>의 \"<strong>$4</strong>\" 문단에 글을 {{GENDER:$2|남겼습니다}}.",
+	"notification-compact-header-edit-user-talk": "$1님이 {{GENDER:$3|당신에게}} 메시지를 {{GENDER:$2|남겼습니다}}.",
+	"notification-compact-header-edit-user-talk-with-section": "$1님이 \"<strong>$4</strong>\"에서 {{GENDER:$3|당신에게}} 메시지를 {{GENDER:$2|남겼습니다}}.",
 	"notification-header-page-linked": "<strong>$4</strong>에서 <strong>$3</strong>으로 연결되는 링크가 생성되었습니다.",
 	"notification-compact-header-page-linked": "<strong>$1</strong>에서 연결되었습니다.",
 	"notification-bundle-header-page-linked": "<strong>$3</strong> 문서가 {{PLURAL:$5||$5 개의 문서|100=99개 이상의 문서}}에서 링크되었습니다.",

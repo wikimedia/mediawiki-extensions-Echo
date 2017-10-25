@@ -121,6 +121,8 @@
 	"notification-link-text-view-page": "הצגת הדף",
 	"notification-header-edit-user-talk": "$1 {{GENDER:$2|השאיר|השאירה}} הודעה ב<strong>דף השיחה {{GENDER:$3|שלך}}</strong>.",
 	"notification-header-edit-user-talk-with-section": "$1 {{GENDER:$2|השאיר|השאירה}} הודעה ב<strong>דף השיחה {{GENDER:$3|שלך}}</strong> בפסקה \"<strong>$4</strong>\".",
+	"notification-compact-header-edit-user-talk": "$1 {{GENDER:$2|השאיר|השאירה}} {{GENDER:$3|לך}} הודעה.",
+	"notification-compact-header-edit-user-talk-with-section": "$1 {{GENDER:$2|השאיר|השאירה}} {{GENDER:$3|לך}} הודעה בפסקה \"<strong>$4</strong>\".",
 	"notification-header-page-linked": "נוצר קישור מהדף <strong>$4</strong> אל הדף <strong>$3</strong>.",
 	"notification-compact-header-page-linked": "קושר מהדף <strong>$1</strong>.",
 	"notification-bundle-header-page-linked": "נוצרו קישורים מ{{GRAMMAR:תחילית|{{PLURAL:$5||$5 דפים|100=99+ דפים}}}} אל הדף <strong>$3</strong>.",
