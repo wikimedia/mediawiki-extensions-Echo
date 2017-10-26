@@ -142,6 +142,8 @@
 	"notification-link-text-view-page": "查看页面",
 	"notification-header-edit-user-talk": "$1在<strong>{{GENDER:$3|您}}的讨论页</strong>{{GENDER:$2|留言}}了。",
 	"notification-header-edit-user-talk-with-section": "$1在<strong>{{GENDER:$3|您}}的讨论页</strong>的“<strong>$4</strong>”段落{{GENDER:$2|留言}}了。",
+	"notification-compact-header-edit-user-talk": "$1向{{GENDER:$3|您}}{{GENDER:$2|留下}}了一条消息。",
+	"notification-compact-header-edit-user-talk-with-section": "$1在“<strong>$4</strong>”向{{GENDER:$3|您}}{{GENDER:$2|留下}}了一条消息。",
 	"notification-header-page-linked": "有人在<strong>$4</strong>中加入了<strong>$3</strong>的链接。",
 	"notification-compact-header-page-linked": "链接自<strong>$1</strong>。",
 	"notification-bundle-header-page-linked": "有人在{{PLURAL:$5||$5个页面|100=超过99个页面}}中加入了指向<strong>$3</strong>的链接。",

@@ -132,6 +132,8 @@
 	"notification-link-text-view-page": "اعرض الصفحة",
 	"notification-header-edit-user-talk": "{{GENDER:$2|بعث|بعثت}} $1 رسالةً إليك في <strong>{{GENDER:$3|صفحة نقاشك}}</strong>.",
 	"notification-header-edit-user-talk-with-section": "{{GENDER:$2|بعث|بعثت}} $1 رسالةً إليك في <strong>{{GENDER:$3|صفحة نقاشك}}</strong> في \"<strong>$4</strong>\".",
+	"notification-compact-header-edit-user-talk": "$1 {{GENDER:$2|ترك|تركت}} {{GENDER:$3|لك}} رسالة.",
+	"notification-compact-header-edit-user-talk-with-section": "$1 {{GENDER:$2|ترك|تركت}} {{GENDER:$3|لك}} رسالة في \"<strong>$4</strong>\".",
 	"notification-header-page-linked": "أضيفت وصلة لصفحة <strong>$3</strong> في صفحة <strong>$4</strong>.",
 	"notification-compact-header-page-linked": "موصول من <strong>$1</strong>.",
 	"notification-bundle-header-page-linked": "أضيفت وصلات من {{PLURAL:$5||صفحة أخرى|صفحتين أخرتين|$5 صفحات أخرى|100=99+ صفحة أخرى}} إلى <strong>$3</strong>.",
