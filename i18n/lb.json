@@ -113,6 +113,7 @@
 	"notification-link-text-view-page": "Säit weisen",
 	"notification-header-edit-user-talk": "$1 {{GENDER:$2|huet}} e Message op <strong>{{GENDER:$3|Är}} Diskussiounssäit</strong> gesat.",
 	"notification-header-edit-user-talk-with-section": "$1 huet {{GENDER:$2|Iech}} e Message op <strong>{{GENDER:$3|Ärer}} Diskussiounssäit</strong> an  \"<strong>$4</strong>\" geschriwwen.",
+	"notification-compact-header-edit-user-talk": "$1 {{GENDER:$2|huet}} {{GENDER:$3|Iech}} e Message hannerlooss.",
 	"notification-body-edit-user-talk-with-section": "$1",
 	"notification-header-page-linked": "Et gouf e Link vu(n) <strong>$4</strong> op <strong>$3</strong> gemaach.",
 	"notification-compact-header-page-linked": "Vu(n) <strong>$1</strong> verlinkt.",
