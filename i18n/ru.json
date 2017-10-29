@@ -60,7 +60,7 @@
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Простой текст",
 	"echo-pref-cross-wiki-notifications": "Показывать уведомления с других вики",
-	"echo-pref-notifications-blacklist": "Не показывать уведомления от этих участников. ([[mw:Special:MyLanguage/Help:Notifications#mute|узнать больше]])",
+	"echo-pref-notifications-blacklist": "Не показывать уведомления от этих участников ([[mw:Special:MyLanguage/Help:Notifications#mute|узнать больше]]):",
 	"echo-pref-new-message-indicator": "Показать в моей панели инструментов индикатор сообщений на странице обсуждения",
 	"echo-pref-beta-feature-cross-wiki-message": "Улучшенные уведомления",
 	"echo-pref-beta-feature-cross-wiki-description": "Упрощает просмотр и организацию уведомлений. Включает «кросс-вики» уведомления, которые позволяют видеть сообщения из других вики. (Чтобы получать такие уведомления в этом вики-проекте, вы должны активировать здесь соответствующую бета-функцию.)",
