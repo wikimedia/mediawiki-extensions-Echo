@@ -122,7 +122,7 @@
 	"notification-compact-header-page-linked": "Направена е препратка от $<strong>$1</strong>.",
 	"notification-bundle-header-page-linked": "Направени са препратки от {{PLURAL:$5||$5 страници|100=чрез 99 страници}} до <strong>$3</strong>.",
 	"notification-link-text-what-links-here": "Всички връзки към страницата",
-	"notification-header-mention-other": "$1 {{GENDER:$3|ви}} {{GENDER:$2|спомена}} на беседата на <strong>$4</strong>, в раздел „$5“.",
+	"notification-header-mention-other": "$1 {{GENDER:$3|Ви}} {{GENDER:$2|спомена}} на беседата на <strong>$4</strong>, в раздел „$5“.",
 	"notification-header-mention-other-nosection": "$1 {{GENDER:$3|Ви}} {{GENDER:$2|спомена}} на беседата на <strong>$4</strong>.",
 	"notification-header-mention-user-talkpage-v2": "$1 {{GENDER:$3|Ви}} {{GENDER:$2|<strong>спомена</strong>}} на <strong>беседата</strong> {{GENDER:$5|на}} <strong>$4</strong>, в раздел „$6“.",
 	"notification-header-mention-user-talkpage-nosection": "$1 {{GENDER:$3|Ви}} {{GENDER:$2|<strong>спомена</strong>}} на <strong>беседата</strong> {{GENDER:$5|на}} <strong>$4</strong>.",
