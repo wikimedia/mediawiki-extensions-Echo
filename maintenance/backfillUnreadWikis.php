@@ -25,8 +25,12 @@ class BackfillUnreadWikis extends Maintenance {
 			$iterator = new BatchRowIterator( $dbFactory->getSharedDb( DB_REPLICA ), 'echo_unread_wikis', 'euw_user', $this->mBatchSize );
 			$iterator->addConditions( [ 'euw_wiki' => wfWikiID() ] );
 		} else {
-			$iterator = new BatchRowIterator( wfGetDB( DB_REPLICA ), 'user', 'user_id', $this->mBatchSize );
-			$iterator->setFetchColumns( User::selectFields() );
+			$userQuery = User::getQueryInfo();
+			$iterator = new BatchRowIterator(
+				wfGetDB( DB_REPLICA ), $userQuery['tables'], 'user_id', $this->mBatchSize
+			);
+			$iterator->setFetchColumns( $userQuery['fields'] );
+			$iterator->addJoinConditions( $userQuery['joins'] );
 		}
 
 		$processed = 0;
