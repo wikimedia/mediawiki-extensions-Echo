@@ -2,11 +2,15 @@
 	"@metadata": {
 		"authors": [
 			"Rachmat.Wahidi",
-			"William Surya Permana"
+			"William Surya Permana",
+			"Kenrick95",
+			"Rachmat04"
 		]
 	},
 	"apihelp-echomarkread-description": "Tandai pemberitahuan dari pengguna ini sebagai telah dibaca.",
+	"apihelp-echomarkread-summary": "Tandai pemberitahuan dari pengguna ini sebagai telah dibaca.",
 	"apihelp-echomarkread-param-list": "Daftar ID pemberitahuan yang ingin ditandai sebagai telah dibaca.",
+	"apihelp-echomarkread-param-unreadlist": "Daftar ID pemberitahuan yang ingin ditandai sebagai belum dibaca.",
 	"apihelp-echomarkread-param-all": "Jika ditetapkan, menandai semua pemberitahuan pengguna sebagai telah dibaca.",
 	"apihelp-echomarkread-param-sections": "Daftar bagian yang ingin ditandai sebagai telah dibaca.",
 	"apihelp-echomarkread-example-1": "Tandai pemberitahuan 8 sebagai telah dibaca",
