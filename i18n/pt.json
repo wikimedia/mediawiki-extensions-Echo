@@ -125,6 +125,8 @@
 	"notification-link-text-view-page": "Ver página",
 	"notification-header-edit-user-talk": "$1 {{GENDER:$2|deixou}} uma mensagem na <strong>{{GENDER:$3|sua}} página de discussão</strong>.",
 	"notification-header-edit-user-talk-with-section": "$1 {{GENDER:$2|deixou}} uma mensagem na <strong>{{GENDER:$3|sua}} página de discussão</strong>, na secção \"<strong>$4</strong>\".",
+	"notification-compact-header-edit-user-talk": "$1 {{GENDER:$2|deixou}}{{GENDER:$3|-lhe}} uma mensagem.",
+	"notification-compact-header-edit-user-talk-with-section": "$1 {{GENDER:$2|deixou}}{{GENDER:$3|-lhe}} uma mensagem em \"<strong>$4</strong>\".",
 	"notification-header-page-linked": "Foi feita ligação em <strong>$4</strong> para <strong>$3</strong>.",
 	"notification-compact-header-page-linked": "Feita ligação a partir de <strong>$1</strong>.",
 	"notification-bundle-header-page-linked": "Foram feitas ligações para <strong>$3</strong> em {{PLURAL:$5||$5 outras páginas|100=mais de 99 outras páginas}}.",
