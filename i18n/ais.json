@@ -126,6 +126,7 @@
 	"notification-inbox-filter-unread": "caay henay miasip",
 	"notification-inbox-filter-all": "hamin",
 	"echo-email-body-default": "i {{SITENAME}} kisu izaw ku baluhayay a palatuh:\n\n\n$1",
+	"echo-email-html-footer-with-link": "anu amisulimet patigami nu niyam{{GENDER:$2|misu}}a imyiyo(email), $1:",
 	"echo-notification-notice": "{{PLURAL:$1|habutud patakus ($1)|100=habutud patakus (99+)}}",
 	"echo-notification-alert-text-only": "pacekil",
 	"echo-notification-notice-text-only": "habutuday a patakus",
@@ -137,5 +138,7 @@
 	"echo-date-today": "ayza a demiad",
 	"echo-date-yesterday": "nacila",
 	"echo-load-more-error": "miala sangaleb a heci sa mungangaw.",
+	"echo-email-batch-body-intro-daily": "$1 mahica tu,\ntina sa kisu i {{SITENAME}} ayza a demiad saungay nu binawlan misulit pecu’ nu lacul",
+	"echo-email-batch-body-intro-weekly": "$1 mahica tu,\ntina sa kisu i {{SITENAME}} ayza a lipay saungay nu binawlan misulit pecu’ nu lacul",
 	"echo-email-batch-link-text-view-all-notifications": "ciwsace tu sacahamin a satakus"
 }
