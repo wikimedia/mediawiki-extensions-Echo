@@ -23,7 +23,8 @@
 			"بدارين",
 			"Izoozo",
 			"Moud hosny",
-			"ديفيد"
+			"ديفيد",
+			"Antime"
 		]
 	},
 	"echo-desc": "نظام لإخطار المستخدمين عن الأحداث والرسائل",
@@ -75,7 +76,7 @@
 	"echo-pref-tooltip-article-reminder": "أخطرني حول هذه الصفحة عندما أسأل.",
 	"echo-error-no-formatter": "لم يحدد للإشعارات أي تنسيق.",
 	"notifications": "إشعارات",
-	"tooltip-pt-notifications-alert": "{{GENDER:|إخطاراتك}}",
+	"tooltip-pt-notifications-alert": "{{GENDER:|إشعاراتك}}",
 	"tooltip-pt-notifications-notice": "{{GENDER:|إخطاراتك}}",
 	"echo-displaynotificationsconfiguration": "عرض تنبهات الإعدادات",
 	"echo-displaynotificationsconfiguration-summary": "هذا لمحة عامة عن كيفية اعداد الإخطارات في هذه الويكي.",
