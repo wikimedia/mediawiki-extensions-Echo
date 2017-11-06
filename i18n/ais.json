@@ -129,6 +129,7 @@
 	"notification-inbox-filter-unread": "caay henay miasip",
 	"notification-inbox-filter-all": "hamin",
 	"echo-email-body-default": "i {{SITENAME}} kisu izaw ku baluhayay a palatuh:\n\n\n$1",
+	"echo-email-plain-footer": "anu maydih misulimet pabahelen nu maku tisuwan ku imyiyo(email), kapikinsa {{GENDER:$1|kisuan}} setin tu kanamuhan:",
 	"echo-email-html-footer-with-link": "anu amisulimet patigami nu niyam{{GENDER:$2|misu}}a imyiyo(email), $1:",
 	"echo-notification-alert": "{{PLURAL:$1|pacekil ($1ce)|100= pacekil (99+ce)}}",
 	"echo-notification-notice": "{{PLURAL:$1|habutud patakus ($1)|100=habutud patakus (99+)}}",

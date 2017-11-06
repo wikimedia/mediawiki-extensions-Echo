@@ -76,7 +76,7 @@
 	"echo-pref-tooltip-article-reminder": "أخطرني حول هذه الصفحة عندما أسأل.",
 	"echo-error-no-formatter": "لم يحدد للإشعارات أي تنسيق.",
 	"notifications": "إشعارات",
-	"tooltip-pt-notifications-alert": "{{GENDER:|إشعاراتك}}",
+	"tooltip-pt-notifications-alert": "{{GENDER:|تنبيهاتك}}",
 	"tooltip-pt-notifications-notice": "{{GENDER:|إخطاراتك}}",
 	"echo-displaynotificationsconfiguration": "عرض تنبهات الإعدادات",
 	"echo-displaynotificationsconfiguration-summary": "هذا لمحة عامة عن كيفية اعداد الإخطارات في هذه الويكي.",
@@ -220,5 +220,6 @@
 	"echo-email-batch-link-text-view-all-notifications": "اعرض كل الإشعارات",
 	"notification-header-foreign-alert": "إخطارات أكثر من {{PLURAL:$5|لا موقع ويكي|موقع ويكي آخر|موقعين ويكي آخرين|$5 مواقع ويكي أخرى}}",
 	"notification-header-foreign-notice": "مزيد من الإشعارات من {{PLURAL:$5|ويكي أخر|$5 ويكيات أخرى}}",
-	"notification-header-foreign-all": "المزيد من الإخطارات من {{PLURAL:$5|ويكي أخرى|$5 ويكيات أخرى}}"
+	"notification-header-foreign-all": "المزيد من الإخطارات من {{PLURAL:$5|ويكي أخرى|$5 ويكيات أخرى}}",
+	"echo-badge-count": "{{PLURAL:$1|$1|100=٩٩+}}"
 }
