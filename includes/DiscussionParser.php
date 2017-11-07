@@ -270,6 +270,9 @@ abstract class EchoDiscussionParser {
 	}
 
 	/**
+	 * @param Title $title
+	 * @param int $revisionUserId
+	 * @param array $userLinks
 	 * @return array[]
 	 * Set of arrays containing valid mentions and possible intended but failed mentions.
 	 * - [validMentions]: An array of valid users to mention with ID => ID.
@@ -346,6 +349,8 @@ abstract class EchoDiscussionParser {
 	}
 
 	/**
+	 * @param string $content
+	 * @param Title $title
 	 * @return bool|array
 	 * Array of links in the user namespace with DBKey => ID.
 	 */

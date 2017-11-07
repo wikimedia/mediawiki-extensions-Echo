@@ -45,6 +45,7 @@ class EchoFilteredSequentialIterator implements IteratorAggregate {
 
 	/**
 	 * @param Iterator|IteratorAggregate|array $users
+	 * @throws MWException
 	 */
 	public function add( $users ) {
 		if ( is_array( $users ) ) {

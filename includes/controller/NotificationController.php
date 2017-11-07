@@ -134,7 +134,7 @@ class EchoNotificationController {
 	/**
 	 * Schedule a job to check and delete older notifications
 	 *
-	 * @param int $userIds
+	 * @param int[] $userIds
 	 * @param EchoEvent $event
 	 */
 	public static function enqueueDeleteJob( array $userIds, EchoEvent $event ) {
