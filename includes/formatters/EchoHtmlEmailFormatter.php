@@ -46,7 +46,7 @@ class EchoHtmlEmailFormatter extends EchoEventFormatter {
 
 	private function renderBody( Language $lang, $emailIcon, $summary, $action, $intro, $footer ) {
 		$alignStart = $lang->alignStart();
-		$langCode = $lang->getCode();
+		$langCode = $lang->getHtmlCode();
 		$langDir = $lang->getDir();
 
 		$iconImgSrc = Sanitizer::encodeAttribute( $emailIcon );
