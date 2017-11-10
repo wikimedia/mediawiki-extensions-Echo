@@ -52,6 +52,7 @@
 	"tooltip-pt-notifications-alert": "{{GENDER:|Tavi}} brīdinājumi",
 	"tooltip-pt-notifications-notice": "{{GENDER:|Tavi}} paziņojumi",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "Paziņojumi pēc kategorijas",
+	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Atļautās paziņojumu metodes",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Iespējots pēc noklusējuma",
 	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Esošie dalībnieki",
 	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Jauni dalībnieki",

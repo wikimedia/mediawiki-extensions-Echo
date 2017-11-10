@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Papuass",
+			"Zuiks"
+		]
+	},
+	"apihelp-echomarkread-example-2": "Atzīmēt visus paziņojumus kā izlasītus",
+	"apihelp-echomarkread-example-3": "Atzīmēt paziņojumu 1 kā nelasītu",
+	"apierror-echo-event-creation-failed": "Neizdevās izveidot Echo notikumu"
+}
