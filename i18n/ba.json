@@ -10,7 +10,8 @@
 			"Янмурза Баки",
 			"Lizalizaufa",
 			"Банат Валеева-Яубасарова",
-			"Лилиә"
+			"Лилиә",
+			"Рустам Нурыев"
 		]
 	},
 	"echo-desc": "Ҡатнашыусыларҙың ваҡиғалар һәм хәбәрҙәр тураһында белдереүҙәр системаһы",
@@ -54,7 +55,7 @@
 	"echo-pref-tooltip-emailuser": "Башҡалар миңә электрон хат ебәргән осраҡта миңә хәбәр итергә.",
 	"echo-error-no-formatter": "Форматлау белдереү ебәреү өсөн билдәләнмәгән.",
 	"notifications": "Белдереүҙәр",
-	"tooltip-pt-notifications-alert": "{{GENDER:|Һеҙҙең}} иҫкәртеүҙәр",
+	"tooltip-pt-notifications-alert": "{{GENDER:|Һеҙгә}} хәбәр итәләр",
 	"tooltip-pt-notifications-notice": "{{GENDER:|Һеҙҙең}} хәбәрҙәр",
 	"echo-displaynotificationsconfiguration": "Белдереү көйләүҙәрен күрһәтергә",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "Категориялар буйынса белдереүҙәр",

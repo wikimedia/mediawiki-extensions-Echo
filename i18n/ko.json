@@ -58,7 +58,7 @@
 	"echo-category-title-emailuser": "{{PLURAL:$1|다른 사용자로부터의 이메일}}",
 	"echo-pref-tooltip-edit-user-talk": "내 토론 문서에 누군가가 글이나 답글을 남길 때 내게 알립니다.",
 	"echo-pref-tooltip-article-linked": "누군가가 다른 문서에서 내가 만든 문서를 링크할 때 내게 알립니다.",
-	"echo-pref-tooltip-reverted": "누군가가 편집 취소나 되돌리기 도구를 사용하여 내 편집을 되돌릴 때 내게 알림",
+	"echo-pref-tooltip-reverted": "누군가가 편집 취소나 되돌리기 도구를 사용하여 내 편집을 되돌릴 때 내게 알립니다.",
 	"echo-pref-tooltip-mention": "누군가가 내 사용자 문서를 링크할 때 내게 알립니다.",
 	"echo-pref-tooltip-mention-failure": "내가 누군가에게 언급을 보내지 못하면 내게 알립니다.",
 	"echo-pref-tooltip-mention-success": "내가 누군가에게 언급을 보내면 내게 알립니다.",
