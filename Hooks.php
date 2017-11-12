@@ -701,7 +701,7 @@ class EchoHooks {
 	 * @return bool
 	 */
 	public static function onUserGroupsChanged( $user, $add, $remove, $performer,
-		$reason, array $oldUGMs = [], array $newUGMs = [] ) {
+		$reason = false, array $oldUGMs = [], array $newUGMs = [] ) {
 		if ( !$performer ) {
 			// TODO: Implement support for autopromotion
 			return true;
