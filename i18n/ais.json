@@ -149,5 +149,7 @@
 	"echo-email-batch-subject-weekly": "ayza a lipay, kisu i {{SITENAME}} izaw{{PLURAL:$2|cacay baluhay a takus}}",
 	"echo-email-batch-body-intro-daily": "$1 mahica tu,\ntina sa kisu i {{SITENAME}} ayza a demiad saungay nu binawlan misulit pecu’ nu lacul",
 	"echo-email-batch-body-intro-weekly": "$1 mahica tu,\ntina sa kisu i {{SITENAME}} ayza a lipay saungay nu binawlan misulit pecu’ nu lacul",
-	"echo-email-batch-link-text-view-all-notifications": "ciwsace tu sacahamin a satakus"
+	"echo-email-batch-link-text-view-all-notifications": "ciwsace tu sacahamin a satakus",
+	"notification-header-foreign-alert": "namakay {{PLURAL:$5|zumaay wiki|zuma $5 ke wiki}} a yadah patakus",
+	"notification-header-foreign-all": "namakay {{PLURAL:$5|zuma wiki|$5 zuma wiki}} a yadah patakus"
 }
