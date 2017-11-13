@@ -1252,7 +1252,7 @@ class EchoHooks {
 		}
 
 		if ( isset( $options['echo-notifications-blacklist'] ) ) {
-			$options['echo-notifications-blacklist'] = array_map( 'intval', explode( "\n", $options['echo-notifications-blacklist'] ) );
+			$options['echo-notifications-blacklist'] = self::mapToInt( explode( "\n", $options['echo-notifications-blacklist'] ) );
 		}
 
 		return true;
@@ -1287,8 +1287,16 @@ class EchoHooks {
 					$ids = $lookup->centralIdsFromNames( $names, $user );
 				}
 
-				$user->setOption( 'echo-notifications-blacklist', $ids );
-				$options['echo-notifications-blacklist'] = implode( "\n", $user->getOption( 'echo-notifications-blacklist' ) );
+				$ids = self::mapToInt( $ids );
+
+				if ( count( $ids ) > 0 ) {
+					$user->setOption( 'echo-notifications-blacklist', $ids );
+					$options['echo-notifications-blacklist'] = implode( "\n", $user->getOption( 'echo-notifications-blacklist' ) );
+				} else {
+					// If the blacklist is empty, set it to null rather than an empty
+					// string.
+					$options['echo-notifications-blacklist'] = null;
+				}
 			} else {
 				// If the blacklist is empty, set it to null rather than an empty string.
 				$options['echo-notifications-blacklist'] = null;
@@ -1296,6 +1304,27 @@ class EchoHooks {
 		}
 
 		return true;
+	}
+
+	/**
+	 * Convert all values in an array to integers and filter out zeroes.
+	 *
+	 * @param array $numbers
+	 *
+	 * @return int[]
+	 */
+	protected static function mapToInt( array $numbers ) {
+		$data = [];
+
+		foreach ( $numbers as $value ) {
+			$int = intval( $value );
+			if ( $int === 0 ) {
+				continue;
+			}
+			$data[] = $int;
+		}
+
+		return $data;
 	}
 
 	/**
