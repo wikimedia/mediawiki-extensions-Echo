@@ -54,7 +54,7 @@ class EchoHtmlDigestEmailFormatter extends EchoEventDigestFormatter {
 
 	private function renderBody( Language $language, $intro, $digestList, $action, $footer ) {
 		$alignStart = $language->alignStart();
-		$langCode = $language->getCode();
+		$langCode = $language->getHtmlCode();
 		$langDir = $language->getDir();
 
 		return <<< EOF
