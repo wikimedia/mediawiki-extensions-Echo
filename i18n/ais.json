@@ -139,6 +139,7 @@
 	"echo-notification-notice-text-only": "habutuday a patakus",
 	"echo-overlay-link": "sacahamin a takus",
 	"echo-overlay-title": "<b>patakus</b>",
+	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|patakus}}</b> (paazih $2 caay hen kaasip a latuh labu’ay $1)",
 	"echo-mark-all-as-read": "silusi sacahamin maasipay tuway",
 	"echo-mark-all-as-read-confirmation": "masilusi $1{{PLURAL:$1|patakus}} ku maasipay",
 	"echo-mark-wiki-as-read": "i mapiliay a wiki silusi sacahamin ku maasipay: $1",
