@@ -38,6 +38,7 @@
 	"tooltip-pt-notifications-notice": "{{GENDER:|ستاسې}} خبرونې",
 	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "نوي کارنان",
 	"echo-specialpage": "يادگيرنې",
+	"echo-specialpage-section-markread": "په نښه کول لکه ويل شوي",
 	"echo-specialpage-markasread": "خبرېدنه: د لوستلي په توگه په نخښه کول",
 	"echo-anon": "د يادگيرنو اخيستلو لپاره، [$1 يو گڼون جوړ کړئ] او يا هم [$2 ورننوځئ].",
 	"echo-none": "تاسې هېڅ يادگيرنې نه لرئ.",
