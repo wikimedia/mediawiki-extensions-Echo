@@ -116,6 +116,7 @@
 	"notification-header-user-rights-remove-only": "{{GENDER:$4|numisu}} misaungayay tungus mapa {{GENDER:$1|masumad}}. caaytu kisu $2 mamikawaw",
 	"notification-header-welcome": "$1, {{GENDER:$2|limulak militemuh}} tayni {{SITENAME}}! limulak miazih tisuwan itini {{GENDER:$2|kisu}}.",
 	"notification-header-thank-you-10-edit": "{{GENDER:$2|kisu}} nasawni mikawaw tu {{GENDER:$2|numisu}}saka cacay bataan  mikawaway-kalumyiti. kukay tu tisuwanan, kapalalid paicelang",
+	"notification-header-thank-you-100-edit": "{{GENDER:$2|kisu}} nasawni misaungay tuway {{GENDER:$2|misuay}} cacay a lasubu mikawaway-kalumyiti. kukay{{GENDER:$2|kisu}}",
 	"notification-link-thank-you-edit": "{{GENDER:$1|misuay}} mikawaway-kalumyiti",
 	"notification-link-text-view-edit": "ciwsace tu mikawaway-kalumyiti",
 	"notification-link-article-reminder": "ciwsace tu kasabelih",
