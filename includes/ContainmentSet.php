@@ -75,8 +75,8 @@ class EchoContainmentSet {
 
 		if ( $preference ) {
 			$lookup = CentralIdLookup::factory();
-			$names = $lookup->lookupCentralIds( array_flip( $preference ), $this->recipient );
-			$this->addArray( array_values( $names ) );
+			$names = $lookup->namesFromCentralIds( $preference, $this->recipient );
+			$this->addArray( $names );
 		}
 	}
 
