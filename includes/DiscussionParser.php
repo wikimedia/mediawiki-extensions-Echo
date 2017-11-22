@@ -1156,7 +1156,9 @@ abstract class EchoDiscussionParser {
 	 */
 	static function getTextSnippet( $text, Language $lang, $length = 150, $title = null ) {
 		// Parse wikitext
-		$html = MessageCache::singleton()->parse( $text, $title )->getText();
+		$html = MessageCache::singleton()->parse( $text, $title )->getText( [
+			'enableSectionEditLinks' => false
+		] );
 		$plaintext = trim( Sanitizer::stripAllTags( $html ) );
 		return $lang->truncate( $plaintext, $length );
 	}
