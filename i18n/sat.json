@@ -1,9 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Albinus"
+			"Albinus",
+			"Manik Soren"
 		]
 	},
-	"tooltip-pt-notifications-alert": "{{GENDER:|Amaḱ}} baḍaejoṅ",
-	"tooltip-pt-notifications-message": "{{GENDER:|Amaḱ}} kathako"
+	"tooltip-pt-notifications-alert": "{{GENDER:|ᱟᱢᱟᱜ}} ᱵᱟᱰᱟᱭᱡᱚᱝ"
 }
