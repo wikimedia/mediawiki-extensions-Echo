@@ -24,7 +24,6 @@
 	"apihelp-query+notifications-param-groupbysection": "Si se agrupan los resultados por sección. Cada sección se obtiene por separado si así se establece.",
 	"apihelp-query+notifications-param-filter": "Filtra las notificaciones recibidas.",
 	"apihelp-query+notifications-param-format": "Si se especifica, las notificaciones se recibirán en este formato.",
-	"apihelp-query+notifications-paramvalue-format-text": "Formato de texto plano",
 	"apihelp-query+notifications-paramvalue-format-model": "Datos de notificación en crudo",
 	"apihelp-query+notifications-paramvalue-format-special": "Con formato para la página Special:Notifications (¡y solo esa!) No confíes en el HTML, ya que puede cambiar en cualquier momento.",
 	"apihelp-query+notifications-paramvalue-format-flyout": "<span class=\"apihelp-deprecated\">Desaconsejado</span>. Usa <kbd>$1format=model</kbd> para datos en crudo",

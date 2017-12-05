@@ -23,7 +23,6 @@
 	"apihelp-query+notifications-param-groupbysection": "是否要依據章節來分類查詢結果。 若開啟此功能，每個章節會分開擷取。",
 	"apihelp-query+notifications-param-filter": "過濾返回的通知。",
 	"apihelp-query+notifications-param-format": "若有指定，通知將會以此指定的格式回傳結果。",
-	"apihelp-query+notifications-paramvalue-format-text": "純文字格式",
 	"apihelp-query+notifications-paramvalue-format-model": "原始通知資料",
 	"apihelp-query+notifications-paramvalue-format-special": "格式用於Special:Notifications頁面（僅限於此！）。不要依賴HTML，因為它在任何時候都可能會變化。",
 	"apihelp-query+notifications-paramvalue-format-flyout": "<span class=\"apihelp-deprecated\">棄用</span>。原始數據請用<kbd>$1format=model</kbd>",

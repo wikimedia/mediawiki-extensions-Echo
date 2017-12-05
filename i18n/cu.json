@@ -8,9 +8,7 @@
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1|напьсаниѥ|напьсании|напьсаниꙗ}} бєсѣдꙑ страницѣ",
 	"echo-category-title-system": "{{PLURAL:$1|сѷстима}}",
 	"tooltip-pt-notifications-alert": "{{GENDER:|твоѩ}} повѣщєниꙗ",
-	"notification-edit-talk-page2": "[[User:$1|$1]] {{GENDER:$1|напьса}} твоѥи [[User talk:$2#$3|бєсѣдꙑ страници]]",
 	"notification-header-edit-user-talk-with-section": "$1 {{GENDER:$2|напьса}} {{GENDER:$3|твоѥи}} бєсѣдꙑ страници въ чѧсти ⁖ $4 ⁖",
-	"notification-add-talkpage-topic2": "[[User:$1|$1]] новоу бєсѣдꙑ чѧсть имєньмь ⁖ $2 ⁖ {{GENDER:$1|почѧ}} страници ⁖ [[$3]] ⁖",
 	"echo-date-today": "дьньсь",
 	"echo-date-yesterday": "вьчєра"
 }

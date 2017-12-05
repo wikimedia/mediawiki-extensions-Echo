@@ -28,7 +28,6 @@
 	"apihelp-query+notifications-param-groupbysection": "ما إذا يتم جمع النتيجة بالقسم. كل قسم يتم جلبه بشكل مستقل لو مضبوط.",
 	"apihelp-query+notifications-param-filter": "فلترة الإخارات أرجعت.",
 	"apihelp-query+notifications-param-format": "لو محدد، فالإخطارات سيتم إرجاعها مهيئة بهذه الطريقة.",
-	"apihelp-query+notifications-paramvalue-format-text": "صيغة نص عادي",
 	"apihelp-query+notifications-paramvalue-format-model": "بيانات إشعارات خام",
 	"apihelp-query+notifications-paramvalue-format-special": "مهيئة لصفحة Special:Notifications (وفقط هذه!) لا تعتمد على HTML إذ أنه ربما يتغير في أي وقت.",
 	"apihelp-query+notifications-paramvalue-format-flyout": "<span class=\"apihelp-deprecated\">مستغنى عنه</span>. استخدم <kbd>$1format=model</kbd> للبيانات الخام",

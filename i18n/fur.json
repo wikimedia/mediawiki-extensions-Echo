@@ -4,6 +4,5 @@
 			"Tocaibon"
 		]
 	},
-	"tooltip-pt-notifications-alert": "{{GENDER:|I tiei}} avîs",
-	"tooltip-pt-notifications-message": "{{GENDER:|I tiei}} messaçs"
+	"tooltip-pt-notifications-alert": "{{GENDER:|I tiei}} avîs"
 }

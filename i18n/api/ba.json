@@ -24,7 +24,6 @@
 	"apihelp-query+notifications-param-groupbysection": "Бүлектәр буйынса алынған һөҙөмтәне төркөмгә айырыу кәрәкме. Алдан күрһәтелһә, һәр бүлек айырым сығарыла.",
 	"apihelp-query+notifications-param-filter": "Кире ҡайтарылған белдереүҙәрҙе һөҙөргә.",
 	"apihelp-query+notifications-param-format": "Бойороҡ бирелһә, хәбәрҙәр ошолай форматлаштырып кире ҡайтарыласаҡ.",
-	"apihelp-query+notifications-paramvalue-format-text": "Текст форматы",
 	"apihelp-query+notifications-paramvalue-format-model": "Эшкәртелмәгән белдереү мәғлүмәттәре",
 	"apihelp-query+notifications-paramvalue-format-special": "Ошо Special:Notifications бите өсөн генә (!) форматлаштырылған. Был HTMLға ышанмағыҙ, ул ҡапыл ғына үҙгәреүе мөмкин.",
 	"apihelp-query+notifications-paramvalue-format-flyout": "<span class=\"apihelp-deprecated\">Иҫкергән</span>. Тәүге күрһәткестәргә <kbd>$1format=model</kbd> ҡулланығыҙ",

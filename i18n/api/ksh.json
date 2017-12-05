@@ -19,7 +19,6 @@
 	"apihelp-query+notifications-param-sections": "De Afschnedde met de oot Nohreeschte zom holle, allsu esu jät wi „<kbd lang=\"en\" xml:lang=\"en\" dir=\"ltr\">alert</kbd>“ un \n„<kbd lang=\"en\" xml:lang=\"en\" dir=\"ltr\">message</kbd>“ udder beeds.",
 	"apihelp-query+notifications-param-groupbysection": "Of de Leß en Jroppe vun Afschnedde sin sull.\nJehde Affschnedd es för sesch, wann dat aanjeklegg es.",
 	"apihelp-query+notifications-param-format": "Wann aanjejovve, wähde de Nohreeschte en dä Manier daajeschtällt.",
-	"apihelp-query+notifications-paramvalue-format-text": "Eijfach Täx Fommaht",
 	"apihelp-query+notifications-paramvalue-format-model": "Rüh Dahte vun de Medeijlonge",
 	"apihelp-query+notifications-param-limit": "Nit mih, wi esu vill Meddeijlonge ußjävve.",
 	"apihelp-query+notifications-param-alertcontinue": "Wann mih Meddeijlonge ze holle sin, nemm dat för wigger ze maache.",

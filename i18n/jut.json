@@ -4,6 +4,5 @@
 			"Jyllanj"
 		]
 	},
-	"tooltip-pt-notifications-alert": "{{GENDER:|Din}} mæljenge",
-	"tooltip-pt-notifications-message": "{{GENDER:|Din}} beskede"
+	"tooltip-pt-notifications-alert": "{{GENDER:|Din}} mæljenge"
 }

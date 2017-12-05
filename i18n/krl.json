@@ -5,6 +5,5 @@
 			"Varvana"
 		]
 	},
-	"tooltip-pt-notifications-alert": "{{GENDER:|Šiun}} hälytykšet",
-	"tooltip-pt-notifications-message": "{{GENDER:|Šiun}} viestit"
+	"tooltip-pt-notifications-alert": "{{GENDER:|Šiun}} hälytykšet"
 }

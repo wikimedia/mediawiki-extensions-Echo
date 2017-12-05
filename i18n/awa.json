@@ -5,12 +5,9 @@
 		]
 	},
 	"notifications": "अधिसूचना",
-	"echo-email-subject-default": "{{SITENAME}} पे नँवा अधिसूचना",
 	"echo-email-body-default": "आप कय लिए {{SITENAME}} पे नँवा अधिसूचना है:\n\n$1",
-	"echo-email-batch-body-default": "आप कय लिए नँवा अधिसूचना है।",
 	"echo-email-footer-default": "$2\n\nहमारी ओर से भेजे जाने वाले ईमेलों पर नियंत्रण करने के लिये कृपया अपनी पसन्द देखिए:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
 	"echo-notification-alert-text-only": "एलर्ट",
-	"echo-notification-message-text-only": "सनेशा",
 	"echo-overlay-link": "कुल अधिसूचना",
 	"echo-overlay-title": "<b>अधिसूचना</b>",
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|अधिसूचना}}</b>($2 अपठित में से $1 देखाइ जात है)",

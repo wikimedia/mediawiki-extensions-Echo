@@ -6,6 +6,5 @@
 	},
 	"echo-new-messages": "আপোনালৈ নতুন বাৰ্তা আহিছে",
 	"notifications": "জাননী",
-	"tooltip-pt-notifications-alert": "{{GENDER:|আপোনাৰ}} জাননী",
-	"tooltip-pt-notifications-message": "{{GENDER:|আপোনাৰ}} বাৰ্তাসমূহ"
+	"tooltip-pt-notifications-alert": "{{GENDER:|আপোনাৰ}} জাননী"
 }

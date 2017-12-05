@@ -23,7 +23,6 @@
 	"apihelp-query+notifications-param-groupbysection": "האם לקבץ את התוצאות לפי פסקה. כל פסקה מאוחזרת בנפרד אם זה מוגדר.",
 	"apihelp-query+notifications-param-filter": "סינון ההודעות שהוחזרו.",
 	"apihelp-query+notifications-param-format": "אם זה מצוין, ההודעות תוחזרנה עם עיצוב כזה.",
-	"apihelp-query+notifications-paramvalue-format-text": "תסדיר טקסט רגיל",
 	"apihelp-query+notifications-paramvalue-format-model": "נתוני התראה גולמיים",
 	"apihelp-query+notifications-paramvalue-format-special": "מעוצב בשביל דף Special:Notifications (ורק בשביל זה!). אין לסמוך על ה־HTML היות שהוא יכול להשתנות בכל זמן.",
 	"apihelp-query+notifications-paramvalue-format-flyout": "<span class=\"apihelp-deprecated\">מיושן</span>. נא להשתמש ב־<kbd dir=\"ltr\">$1format=model</kbd> לנתונים גולמיים",

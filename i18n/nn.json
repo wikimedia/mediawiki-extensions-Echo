@@ -56,6 +56,7 @@
 	"echo-notification-placeholder-filters": "Ingen varsel eller notisar passar med desse kriteria.",
 	"echo-notification-markasread": "Merk som lese(n)",
 	"echo-notification-markasunread": "Merk som ulese(n)",
+	"notification-link-text-expand-notice-count": "Sjå {{PLURAL:$1|éin notis|$1 notisar}}",
 	"notification-link-text-view-message": "Sjå melding",
 	"notification-link-text-view-mention": "Sjå omtale",
 	"notification-link-text-view-changes": "{{GENDER:$1|Sjå}} endringar",
@@ -113,5 +114,6 @@
 	"echo-email-batch-subject-weekly": "Du har {{PLURAL:$2|ei ny melding|nye meldingar}} på {{SITENAME}} denne veka",
 	"echo-email-batch-body-intro-daily": "Hei $1.\nHer er eit samandrag av aktiviteten i dag på {{SITENAME}} for deg.",
 	"echo-email-batch-body-intro-weekly": "Hei $1.\nHer er eit samandrag av aktiviteten denne veka på {{SITENAME}} for deg.",
-	"echo-email-batch-link-text-view-all-notifications": "Sjå alle meldingar og varsel"
+	"echo-email-batch-link-text-view-all-notifications": "Sjå alle meldingar og varsel",
+	"notification-header-foreign-notice": "Fleire notisar frå {{PLURAL:$5|ein annan wiki|$5 andre wikiar}}"
 }

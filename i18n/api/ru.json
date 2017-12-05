@@ -25,7 +25,6 @@
 	"apihelp-query+notifications-param-groupbysection": "Следует ли группировать результат по разделам. Если задано, каждый раздел извлекается отдельно.",
 	"apihelp-query+notifications-param-filter": "Фильтровать возвращённые уведомления.",
 	"apihelp-query+notifications-param-format": "Если определено, уведомления будут возвращены отформатированными таким образом.",
-	"apihelp-query+notifications-paramvalue-format-text": "Текстовый формат",
 	"apihelp-query+notifications-paramvalue-format-model": "Необработанные данные уведомления",
 	"apihelp-query+notifications-paramvalue-format-special": "Отформатированое для страницы Special:Notifications (и только её!) Не полагайтесь на этот HTML, так как он может измениться в любой момент.",
 	"apihelp-query+notifications-paramvalue-format-flyout": "<span class=\"apihelp-deprecated\">Устарело</span>. Используйте <kbd>$1format=model</kbd> для исходных данных",

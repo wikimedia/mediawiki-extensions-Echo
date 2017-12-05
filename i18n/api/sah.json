@@ -15,7 +15,6 @@
 	"apihelp-query+notifications-description": "Билиҥҥи туттааччыга биллэриилэри ааҕыллыбыт курдук бэлиэтээ",
 	"apihelp-query+notifications-param-prop": "чымпык ыйытыга",
 	"apihelp-query+notifications-param-filter": "Төннөрүллүбүт биллэриилэри сиидэлээһин.",
-	"apihelp-query+notifications-paramvalue-format-text": "Тиэкис формаата",
 	"apihelp-query+notifications-paramvalue-format-model": "Көннөрүллүбэтэх биллэриилэр даннайдара",
 	"apihelp-query+notifications-param-limit": "Төннөрүллэр биллэриилэр муҥутуур ахсааннара.",
 	"apihelp-query+notifications-example-1": "Биллэриилэр испииһэктэрэ",

@@ -22,7 +22,6 @@
 	"apihelp-query+notifications-param-groupbysection": "Czy grupować wynik według sekcji. Każda sekcja jest pobierana osobno jeśli ustawiono.",
 	"apihelp-query+notifications-param-filter": "Filtruj zwrócone powiadomienia.",
 	"apihelp-query+notifications-param-format": "Jeśli określono, powiadomienia zostaną zwrócone sformatowane w taki sposób.",
-	"apihelp-query+notifications-paramvalue-format-text": "Format tekstowy",
 	"apihelp-query+notifications-paramvalue-format-model": "Surowe dane powiadomienia",
 	"apihelp-query+notifications-paramvalue-format-special": "Sformatowane dla strony Specjalna:Powiadomienia (i tylko tej!). Nie polegaj na HTML, jako że może zmienić się w dowolnym czasie.",
 	"apihelp-query+notifications-paramvalue-format-flyout": "<span class=\"apihelp-deprecated\">Zdeprecjonowane</span>. Użyj <kbd>$1format=model</kbd> dla surowych danych",

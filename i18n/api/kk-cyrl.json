@@ -21,7 +21,6 @@
 	"apihelp-query+notifications-param-groupbysection": "Бөлім бойынша нәтижені топтауы тиіс. Егер орнатса, әрбір бөлім бөлектей шығарылады.",
 	"apihelp-query+notifications-param-filter": "Оралған ескертпелерді сүзгілеу.",
 	"apihelp-query+notifications-param-format": "Егер көрсетсе, ескертпелер осылайша форматталады.",
-	"apihelp-query+notifications-paramvalue-format-text": "Текстік формат",
 	"apihelp-query+notifications-paramvalue-format-model": "Өңделмеген ескертпе дерегі",
 	"apihelp-query+notifications-paramvalue-format-special": "Special:Notifications беті үшін форматталады (және тек бұл ғана!) Бұл HTML мәтінге жауап бермеңіз, өйткені оны кез келген уақытта өзгерте аласыз.",
 	"apihelp-query+notifications-paramvalue-format-flyout": "<span class=\"apihelp-deprecated\">Ескірген</span>. Қайнар дерегі үшін <kbd>$1format=model</kbd> қолданыңыз",

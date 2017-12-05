@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Robby"
+		]
+	},
+	"apihelp-echomarkread-param-sections": "Eng Lëscht vun den Abschnitter déi als geliest markéiert solle ginn.",
+	"apihelp-echomarkread-example-3": "Notifikatioun 1 als net geliest markéieren",
+	"apihelp-echomarkseen-description": "Notifikatioune fir den aktuelle Benotzer als geliest markéieren.",
+	"apihelp-echomarkseen-example-1": "Notifikatiounen vun all Typ als geliest markéieren",
+	"apihelp-query+notifications-param-prop": "Detailer fir unzefroen."
+}
