@@ -43,7 +43,7 @@
 	"apihelp-query+notifications-example-2": "Испиши известувања, групирани по поднаслови, со бројност",
 	"apihelp-query+unreadnotificationpages-description": "Дај страници за кои постојат непрочитани известувања за тековниот корисник.",
 	"apihelp-query+unreadnotificationpages-summary": "Дај страници за кои постојат непрочитани известувања за тековниот корисник.",
-	"apihelp-query+unreadnotificationpages-param-grouppages": "Групните страници за разговор заедно со нивните предметни страници и групните известувања неповрзани со страница заедно со корисничката страница на тековниот корисник.",
+	"apihelp-query+unreadnotificationpages-param-grouppages": "Групните разговорни страници заедно со нивните предметни страници и групните известувања неповрзани со страница заедно со корисничката страница на тековниот корисник.",
 	"apihelp-query+unreadnotificationpages-param-limit": "Највеќе страници за прикажување.",
 	"apihelp-query+unreadnotificationpages-param-wikis": "Список на викија од кои треба да се преземат непрочитани известувања (по основно: само тековното вики).",
 	"apihelp-query+unreadnotificationpages-example-1": "Наведи страници со (бројот на) непрочитани известувања",
