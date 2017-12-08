@@ -1188,13 +1188,15 @@ class EchoHooks {
 	/**
 	 * Handler for ArticleRollbackComplete hook.
 	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/ArticleRollbackComplete
-	 * @param WikiPage $page The article that was edited
+	 *
+	 * @param WikiPage $wikiPage The article that was edited
 	 * @param User $agent The user who did the rollback
 	 * @param Revision $newRevision The revision the page was reverted back to
 	 * @param Revision $oldRevision The revision of the top edit that was reverted
+	 *
 	 * @return bool true in all cases
 	 */
-	public static function onRollbackComplete( $page, $agent, $newRevision, $oldRevision ) {
+	public static function onRollbackComplete( WikiPage $wikiPage, $agent, $newRevision, $oldRevision ) {
 		$victimId = $oldRevision->getUser();
 
 		if (
@@ -1203,9 +1205,9 @@ class EchoHooks {
 		) {
 			EchoEvent::create( [
 				'type' => 'reverted',
-				'title' => $page->getTitle(),
+				'title' => $wikiPage->getTitle(),
 				'extra' => [
-					'revid' => $page->getRevision()->getId(),
+					'revid' => $wikiPage->getRevision()->getId(),
 					'reverted-user-id' => $victimId,
 					'reverted-revision-id' => $oldRevision->getId(),
 					'method' => 'rollback',
