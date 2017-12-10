@@ -516,7 +516,8 @@ class EchoHooks {
 	/**
 	 * Handler for PageContentSaveComplete hook
 	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/PageContentSaveComplete
-	 * @param Article &$article Article edited
+	 *
+	 * @param WikiPage &$wikiPage modified WikiPage
 	 * @param User &$user User who edited
 	 * @param Content $content New article text
 	 * @param string $summary Edit summary
@@ -528,9 +529,10 @@ class EchoHooks {
 	 * @param Status &$status
 	 * @param int $baseRevId
 	 * @param int $undidRevId
+	 *
 	 * @return bool true in all cases
 	 */
-	public static function onPageContentSaveComplete( &$article, &$user, $content, $summary, $minoredit,
+	public static function onPageContentSaveComplete( WikiPage &$wikiPage, &$user, $content, $summary, $minoredit,
 		$watchthis, $sectionanchor, &$flags, $revision, &$status, $baseRevId, $undidRevId = 0 ) {
 		global $wgEchoNotifications;
 
@@ -544,7 +546,7 @@ class EchoHooks {
 			return true;
 		}
 
-		$title = $article->getTitle();
+		$title = $wikiPage->getTitle();
 
 		// Try to do this after the HTTP response
 		DeferredUpdates::addCallableUpdate( function () use ( $revision ) {
