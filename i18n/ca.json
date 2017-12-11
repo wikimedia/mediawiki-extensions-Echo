@@ -58,7 +58,7 @@
 	"echo-pref-tooltip-mention-success": "Notifica'm quan enviï una menció a algú.",
 	"echo-pref-tooltip-user-rights": "Avisa’m quan algú canviï els meus drets d’usuari.",
 	"echo-pref-tooltip-emailuser": "Notifica'm quan algú m'enviï un correu electrònic.",
-	"echo-pref-tooltip-article-reminder": "Notifica'm sobre aquest pàgina quan ho pregunti.",
+	"echo-pref-tooltip-article-reminder": "Notifica’m sobre aquesta pàgina quan ho pregunti.",
 	"echo-error-no-formatter": "Cap format definit per a la notificació.",
 	"notifications": "Notificacions",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Les vostres}} alertes",
