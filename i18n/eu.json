@@ -37,7 +37,7 @@
 	"echo-category-title-article-reminder": "Orrialdea {{PLURAL:$1|reminder|reminders}}",
 	"echo-pref-tooltip-edit-user-talk": "Jakinarazi norbaitek mezu bat nire eztabaida orrian jartzen edo erantzuten duenean.",
 	"echo-pref-tooltip-article-linked": "Jakinarazi norbaitek egin dudan artikulu bati beste orri batetik loturen bat egiten duenean.",
-	"echo-pref-tooltip-reverted": "Jakinarazi norbaitek nire ekarpenen bat desegiten atzera botatzen duenean, desegin edo rollback tresnaren bidez.",
+	"echo-pref-tooltip-reverted": "Jakinaraz iezadazue inork nire ekarpenen bat atzera botatzen duenean, desegite edo lehengoratze tresnaren bidez.",
 	"echo-pref-tooltip-mention": "Jakinarazi norbaitek nire lankide orrira lotura egiten duenean.",
 	"echo-pref-tooltip-user-rights": "Jakinarazi norbaitek nire lankide eskubideak aldatzean.",
 	"echo-pref-tooltip-emailuser": "Jakinarazi norbaitek niri email bat bidaltzean.",
