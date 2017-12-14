@@ -136,7 +136,7 @@
 	 * @param {string} data Item data to search for
 	 * @return {OO.ui.Element|null} Item with equivalent data, `null` if none exists
 	 */
-	mw.echo.ui.SortedListWidget.prototype.getItemFromData = function ( data ) {
+	mw.echo.ui.SortedListWidget.prototype.findItemFromData = function ( data ) {
 		var i, len, item,
 			hash = OO.getHash( data );
 
