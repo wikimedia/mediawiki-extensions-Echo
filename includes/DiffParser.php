@@ -16,7 +16,6 @@
  */
 
 /**
- *
  * @file
  * @ingroup Extensions
  * @author Erik Bernhardson

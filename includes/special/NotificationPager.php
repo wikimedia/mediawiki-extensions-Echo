@@ -4,8 +4,6 @@
  * This pager is used by Special:Notifications (NO-JS).
  * The heavy-lifting is done by IndexPager (grand-parent to this class).
  * It paginates on notification_event for a specific user, only for the enabled event types.
- *
- * Class NotificationPager
  */
 class NotificationPager extends ReverseChronologicalPager {
 	public function __construct() {
