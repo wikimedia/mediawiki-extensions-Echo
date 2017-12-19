@@ -26,8 +26,9 @@
 			hasUnseenMessages = $existingMessageLink.hasClass( 'mw-echo-unseen-notifications' ),
 			// Store links
 			links = {
-				notifications: $( '#pt-notifications-alert a' ).attr( 'href' ),
-				preferences: $( '#pt-preferences a' ).attr( 'href' ) + '#mw-prefsection-echo'
+				notifications: $( '#pt-notifications-alert a' ).attr( 'href' ) || mw.util.getUrl( 'Special:Notifications' ),
+				preferences: ( $( '#pt-preferences a' ).attr( 'href' ) || mw.util.getUrl( 'Special:Preferences' ) ) +
+					'#mw-prefsection-echo'
 			};
 
 		// Respond to click on the notification button and load the UI on demand
