@@ -5,18 +5,17 @@
 			<path d="M0 0v152l12 10 12-10 12 10 12-10 12 10 12-10 12 10 12-10 12 10 12-10 12 10 12-10 12 10 12-10 12 10 12-10 12 10 12-10 12 10 12-10 12 10 12-10V0z"/>
 		</clipPath>
 	</defs>
-	<g id="screenshot" transform="matrix(-1 0 0 1 264 0)" clip-path="url(#jagged-edge)">
-		<path id="background" fill="#fff" d="M263.5 162.25l-263-.5V.5h263z"/>
-		<path id="article" fill="#e5e5e5" d="M252 162.496V29H48v133.496z"/>
-		<path id="logo" fill="#e5e5e5" d="M11 22c0-7.732 6.268-14 14-14s14 6.268 14 14-6.268 14-14 14-14-6.268-14-14z"/>
-		<path id="sidebar" fill="#e5e5e5" d="M38 163.807V58H13v105.807h25z"/>
-		<path id="personal-tools" fill="#e5e5e5" d="M233 5h26v6h-26V5zm-24 0h22v6h-22zm-24 0h22v6h-22zm-23 0h13v6h-13zm15 0h6v6h-6zm-23 0h6v6h-6z"/>
-		<g id="search" fill="#e5e5e5">
-			<path d="M258 16v4h-92v-4h92m1-1h-94v6h94v-6z"/>
+	<g fill="#eaecf0" transform="matrix(-1 0 0 1 264 0)" clip-path="url(#jagged-edge)">
+		<path id="background" fill="#fff" d="M0 0h264v162H0"/>
+		<path id="logo" d="M11 22c0-8 6-14 14-14s14 6 14 14-6 14-14 14-14-6-14-14m27 23v-5H13v5h25"/>
+		<path id="sidebar" d="M38 163V58H13v106h25"/>
+		<path id="personal-tools" d="M233 5h26v6h-26V5zm-24 0h22v6h-22zm-24 0h22v6h-22zm-23 0h13v6h-13zm15 0h6v6h-6zm-23 0h6v6h-6z"/>
+		<g id="search">
+			<path id="input" d="M258 16v4h-92v-4h92m1-1h-94v6h94v-6z"/>
 			<path id="icon" d="M168 17h2v2h-2z"/>
 		</g>
-		<path id="sitename" fill="#e5e5e5" d="M38 45v-5H13v5h25z"/>
-		<path id="border" fill="#e5e5e5" d="M0 0v162h264V0zm1 1h262v150.533l-11 9.166-12-10-12 10-12-10-12 10-12-10-12 10-12-10-12 10-12-10-12 10-12-10-12 10-12-10-12 10-12-10-12 10-12-10-12 10-12-10-12 10-11-9.168z"/>
+		<path id="article" d="M252 162V29H48v133z"/>
+		<path id="border" d="M0 0v162h264V0zm1 1h262v150.533l-11 9.166-12-10-12 10-12-10-12 10-12-10-12 10-12-10-12 10-12-10-12 10-12-10-12 10-12-10-12 10-12-10-12 10-12-10-12 10-12-10-12 10-11-9z"/>
 		<path fill="#36c" d="M177.02 5h6v6h-6z"/>
 		<rect fill="#36c" y="18.566" x="140.812" ry=".099" rx=".106" height="93.208" width="78.835"/>
 		<path fill="#36c" d="M175.692 19l4.537-6 4.536 6"/>
