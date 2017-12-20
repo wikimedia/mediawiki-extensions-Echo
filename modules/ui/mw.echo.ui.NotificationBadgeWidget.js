@@ -132,6 +132,7 @@
 			width: config.popupWidth || 500,
 			autoClose: true,
 			containerPadding: 20,
+			$floatableContainer: this.$element,
 			// Also ignore clicks from the nested action menu items, that
 			// actually exist in the overlay
 			$autoCloseIgnore: this.$element.add( this.$menuOverlay ),
@@ -145,6 +146,9 @@
 			),
 			classes: [ 'mw-echo-ui-notificationBadgeButtonPopupWidget-popup' ]
 		} );
+		// Append the popup to the overlay
+		this.$overlay.append( this.popup.$element );
+
 		// HACK: Add an icon to the popup head label
 		this.popupHeadIcon = new OO.ui.IconWidget( { icon: config.badgeIcon } );
 		this.popup.$head.prepend( this.popupHeadIcon.$element );
@@ -186,10 +190,7 @@
 				'mw-echo-ui-notificationBadgeButtonPopupWidget ' +
 				'mw-echo-ui-notificationBadgeButtonPopupWidget-' + adjustedTypeString
 			)
-			.append(
-				this.badgeButton.$element,
-				this.popup.$element
-			);
+			.append( this.badgeButton.$element );
 	};
 
 	/* Initialization */

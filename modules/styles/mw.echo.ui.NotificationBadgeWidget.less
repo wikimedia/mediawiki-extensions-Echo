@@ -4,12 +4,7 @@
 .mw-echo-ui-notificationBadgeButtonPopupWidget {
 	position: relative;
 
-	> .oo-ui-popupWidget {
-		// #p-personal li has a font-size of 0.75em, but we want the
-		// font size here to be exactly 0.875em, so we must override
-		// the parent em sizing by dividing.
-		font-size: 0.875em / 0.75em;
-
+	&-popup {
 		> .oo-ui-popupWidget-popup {
 			> .oo-ui-popupWidget-head {
 				height: 3.5em;
