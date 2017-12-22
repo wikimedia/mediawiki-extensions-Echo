@@ -73,7 +73,7 @@ class MWEchoDbFactory {
 	 * Get the database connection for Echo
 	 * @param int $db Index of the connection to get
 	 * @param mixed $groups Query groups.
-	 * @return IDatabase
+	 * @return \Wikimedia\Rdbms\IDatabase
 	 */
 	public function getEchoDb( $db, $groups = [] ) {
 		return $this->getLB()->getConnection( $db, $groups );
@@ -82,7 +82,7 @@ class MWEchoDbFactory {
 	/**
 	 * @param int $db Index of the connection to get
 	 * @param array $groups Query groups
-	 * @return bool|IDatabase false if no shared db is configured
+	 * @return bool|\Wikimedia\Rdbms\IDatabase false if no shared db is configured
 	 */
 	public function getSharedDb( $db, $groups = [] ) {
 		if ( !$this->shared ) {
@@ -102,7 +102,7 @@ class MWEchoDbFactory {
 	 * @param int $db Index of the connection to get
 	 * @param mixed $groups Query groups.
 	 * @param string|bool $wiki The wiki ID, or false for the current wiki
-	 * @return IDatabase
+	 * @return \Wikimedia\Rdbms\IDatabase
 	 */
 	public static function getDB( $db, $groups = [], $wiki = false ) {
 		global $wgEchoCluster;

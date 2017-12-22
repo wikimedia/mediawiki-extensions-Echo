@@ -45,7 +45,7 @@ class EchoUnreadWikis {
 
 	/**
 	 * @param int $index DB_* constant
-	 * @return bool|DatabaseBase
+	 * @return bool|\Wikimedia\Rdbms\IDatabase
 	 */
 	private function getDB( $index ) {
 		return $this->dbFactory->getSharedDb( $index );

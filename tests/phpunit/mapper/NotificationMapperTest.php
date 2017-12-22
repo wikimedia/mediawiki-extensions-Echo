@@ -216,7 +216,7 @@ class EchoNotificationMapperTest extends MediaWikiTestCase {
 	}
 
 	/**
-	 * Mock object of DatabaseMysql ( DatabaseBase )
+	 * Mock object of DatabaseMysql ( \Wikimedia\Rdbms\IDatabase )
 	 */
 	protected function mockDb( array $dbResult ) {
 		$dbResult += [
