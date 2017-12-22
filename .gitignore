@@ -1,7 +1,6 @@
 .idea/
 node_modules/
 scripts/remotes/
-tests/browser/screenshots
 /vendor
 /docs
 composer.lock

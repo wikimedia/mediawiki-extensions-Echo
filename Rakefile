@@ -8,9 +8,6 @@ RuboCop::RakeTask.new(:rubocop) do |task|
   task.options = ['-c', '.rubocop.yml']
 end
 
-require 'mediawiki_selenium/rake_task'
-MediawikiSelenium::RakeTask.new
-
 require 'rspec/core/rake_task'
 RSpec::Core::RakeTask.new do |t|
   t.rspec_opts = 'tests/rspec/'
@@ -19,4 +16,4 @@ end
 task default: [:test]
 
 desc 'Run all build/tests commands (CI entry point)'
-task test: [:rubocop, :spec, :selenium]
+task test: [:rubocop, :spec]
