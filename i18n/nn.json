@@ -12,6 +12,7 @@
 	"prefs-displaynotifications": "Visingsval",
 	"prefs-echosubscriptions": "Meld meg om desse hendingane",
 	"prefs-newmessageindicator": "Ny melding-indikator",
+	"prefs-blocknotificationslist": "Ignorerte brukarar",
 	"echo-pref-send-me": "Send meg:",
 	"echo-pref-send-to": "Send til:",
 	"echo-pref-email-format": "E-postformat",
@@ -115,5 +116,6 @@
 	"echo-email-batch-body-intro-daily": "Hei $1.\nHer er eit samandrag av aktiviteten i dag på {{SITENAME}} for deg.",
 	"echo-email-batch-body-intro-weekly": "Hei $1.\nHer er eit samandrag av aktiviteten denne veka på {{SITENAME}} for deg.",
 	"echo-email-batch-link-text-view-all-notifications": "Sjå alle meldingar og varsel",
+	"notification-header-foreign-alert": "Varsel frå {{PLURAL:$5|éin annan wiki|$5 andre wikiar}}",
 	"notification-header-foreign-notice": "Fleire notisar frå {{PLURAL:$5|ein annan wiki|$5 andre wikiar}}"
 }
