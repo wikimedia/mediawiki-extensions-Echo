@@ -1,15 +1,15 @@
 @import '../echo.variables';
 @import '../echo.mixins';
 
+/* stylelint-disable no-descending-specificity */
 .mw-echo-ui-menuItemWidget {
-	&-icon {
+	// Some extra CSS classes to override OOUI styles with a very specific selector
+	&.oo-ui-iconElement &-icon {
 		display: inline-block;
-		// We have to override oojs-ui's width/height, which uses
-		// a very specific selector
-		width: 1.5em !important;
-		height: 1.5em !important;
-		min-width: 1.5em !important;
-		min-height: 1.5em !important;
+		width: 1.5em;
+		height: 1.5em;
+		min-width: 1.5em;
+		min-height: 1.5em;
 
 		position: absolute;
 		top: 0;
