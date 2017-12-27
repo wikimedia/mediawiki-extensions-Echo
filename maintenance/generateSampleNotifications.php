@@ -60,10 +60,6 @@ class GenerateSampleNotifications extends Maintenance {
 	}
 
 	public function execute() {
-		if ( !class_exists( 'EchoHooks' ) ) {
-			$this->error( "Echo isn't enabled on this wiki\n", 1 );
-		}
-
 		$user = $this->getOptionUser( 'user' );
 		$agent = $this->getOptionUser( 'agent' );
 		$otherUser = $this->getOptionUser( 'other' );
@@ -301,7 +297,7 @@ class GenerateSampleNotifications extends Maintenance {
 	}
 
 	private function generateContentTranslation( User $user ) {
-		if ( !class_exists( 'ContentTranslationHooks' ) ) {
+		if ( !ExtensionRegistry::getInstance()->isLoaded( 'ContentTranslation' ) ) {
 			return;
 		}
 
@@ -387,7 +383,7 @@ class GenerateSampleNotifications extends Maintenance {
 	}
 
 	private function generateOneEditThanks( User $user, User $agent ) {
-		if ( !class_exists( 'ThanksHooks' ) ) {
+		if ( !ExtensionRegistry::getInstance()->isLoaded( 'Thanks' ) ) {
 			return;
 		}
 		// make an edit, thank it once
@@ -406,7 +402,7 @@ class GenerateSampleNotifications extends Maintenance {
 		$this->output( "{$agent->getName()} is thanking {$user->getName()} for edit {$revision->getId()} on {$title->getPrefixedText()}\n" );
 	}
 	private function generateMultipleEditThanks( User $user, User $agent, User $otherUser ) {
-		if ( !class_exists( 'ThanksHooks' ) ) {
+		if ( !ExtensionRegistry::getInstance()->isLoaded( 'Thanks' ) ) {
 			return;
 		}
 		// make an edit, thank it twice
