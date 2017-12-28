@@ -129,7 +129,7 @@
 	"notification-compact-header-edit-user-talk-with-section": "$1 {{GENDER:$2|deixou}}{{GENDER:$3|-lhe}} uma mensagem em \"<strong>$4</strong>\".",
 	"notification-header-page-linked": "Foi feita uma hiperligação em <strong>$4</strong> para <strong>$3</strong>.",
 	"notification-compact-header-page-linked": "Hiperligação a partir de <strong>$1</strong>.",
-	"notification-bundle-header-page-linked": "Foram feitas ligações para <strong>$3</strong> em {{PLURAL:$5||$5 outras páginas|100=mais de 99 outras páginas}}.",
+	"notification-bundle-header-page-linked": "Foram criadas hiperligações para <strong>$3</strong> em {{PLURAL:$5||$5 outras páginas|100=mais de 99 outras páginas}}.",
 	"notification-header-article-reminder": "Uma página acerca da qual pediu para ser {{GENDER:$2|recordado|recordada}} está em <strong>$3</strong>",
 	"notification-link-text-what-links-here": "Todas as páginas afluentes desta",
 	"notification-header-mention-other": "$1 {{GENDER:$2|mencionou-}}{{GENDER:$3|o|a|o(a)}} em <strong>$4</strong>, na secção \"<strong>$5</strong>\".",
