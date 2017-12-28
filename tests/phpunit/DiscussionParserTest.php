@@ -1795,7 +1795,7 @@ TEXT
 	}
 
 	protected function isParserFunctionsInstalled() {
-		if ( class_exists( 'ExtParserFunctions' ) ) {
+		if ( ExtensionRegistry::getInstance()->isLoaded( 'ParserFunctions' ) ) {
 			return true;
 		} else {
 			return "ParserFunctions not enabled";

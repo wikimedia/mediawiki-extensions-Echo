@@ -32,10 +32,6 @@ class ProcessEchoEmailBatch extends Maintenance {
 	public function execute() {
 		global $wgEchoCluster;
 
-		if ( !class_exists( 'EchoHooks' ) ) {
-			$this->error( "Echo isn't enabled on this wiki\n", 1 );
-		}
-
 		$ignoreConfiguredSchedule = $this->getOption( "ignoreConfiguredSchedule", 0 );
 
 		$this->output( "Started processing... \n" );

@@ -55,7 +55,7 @@ class EchoHooks {
 		}
 
 		// turn schema off if eventLogging is not enabled
-		if ( !class_exists( 'EventLogging' ) ) {
+		if ( !ExtensionRegistry::getInstance()->isLoaded( 'EventLogging' ) ) {
 			foreach ( $wgEchoEventLoggingSchemas as $schema => $property ) {
 				if ( $property['enabled'] ) {
 					$wgEchoEventLoggingSchemas[$schema]['enabled'] = false;
