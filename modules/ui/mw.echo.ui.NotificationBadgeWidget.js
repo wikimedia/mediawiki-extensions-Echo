@@ -130,6 +130,7 @@
 			$content: this.notificationsWidget.$element,
 			$footer: $footer,
 			width: config.popupWidth || 500,
+			autoFlip: false,
 			autoClose: true,
 			containerPadding: 20,
 			$floatableContainer: this.$element,
