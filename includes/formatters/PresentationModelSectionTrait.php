@@ -70,8 +70,7 @@ trait EchoPresentationModelSectionTrait {
 	protected function getTitleWithSection() {
 		$title = $this->event->getTitle();
 		$section = $this->getParsedSectionTitle();
-		// Like Parser::guessSectionNameFromWikiText() but without the link stripping
-		$fragment = Sanitizer::normalizeSectionNameWhitespace( $section );
+		$fragment = substr( Parser::guessSectionNameFromStrippedText( $section ), 1 );
 		if ( $section ) {
 			$title = Title::makeTitle(
 				$title->getNamespace(),
