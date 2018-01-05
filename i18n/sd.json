@@ -6,8 +6,10 @@
 		]
 	},
 	"prefs-echo": "اطلاع",
+	"echo-new-messages": "توھان لاءِ نوان نياپا آھن",
 	"notifications": "اطلاع",
 	"tooltip-pt-notifications-alert": "{{GENDER:|توهانجون}} خبرون",
+	"tooltip-pt-notifications-notice": "{{GENDER:|توھان جا}} اطلاع",
 	"echo-specialpage": "اطلاع",
 	"echo-specialpage-section-markread": "گروھ کي پڙھيل طور نشان لڳايو",
 	"echo-specialpage-markasread": "اطلاع:پڙھيل طور نشان لڳايو",
@@ -15,6 +17,7 @@
 	"echo-notification-markasread": "پڙھيل طور نشان لڳايو",
 	"echo-notification-markasunread": "نه-پڙھيل طور نشان لڳايو",
 	"echo-notification-markasread-tooltip": "پڙھيل طور نشان لڳايو",
+	"notification-link-text-expand-notice-count": "{{PLURAL:$1|$1 اطلاع|$1 اطلاعَ}} ڏسو",
 	"notification-link-text-view-changes": "تبديليون {{GENDER:$1|ڏيکاريو}}",
 	"notification-header-edit-user-talk": "$1 <strong>{{GENDER:$3|توھان جي}} بحث صفحي</strong> تي ھڪ پيغام {{GENDER:$2|ڇڏيو}}.",
 	"notification-header-edit-user-talk-with-section": "$1 <strong>{{GENDER:$3|توھان جي}} بحث صفحي</strong> تي ھڪ پيغام \"<strong>$4</strong>\" ۾ {{GENDER:$2|ڇڏيو}}.",
