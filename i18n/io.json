@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Algentem"
+			"Algentem",
+			"Joao Xavier"
 		]
 	},
+	"tooltip-pt-notifications-alert": "{{GENDER:|Vua}} informi",
 	"notification-header-thank-you-1-edit": "{{GENDER:$2|Vu}} jus facis {{GENDER:$2|vua}} unesma redakto; ni dankas {{GENDER:$2|vu}}, e bonveno!",
 	"notification-header-thank-you-10-edit": "{{GENDER:$2|Vu}} jus facis {{GENDER:$2|vua}} dekesma redakto; ni dankas {{GENDER:$2|vu}}, e voluntez durar!",
 	"notification-header-thank-you-100-edit": "{{GENDER:$2|Vu}} jus facis {{GENDER:$2|vua}} centesma redakto; ni dankas {{GENDER:$2|vu}} tre multe!",
