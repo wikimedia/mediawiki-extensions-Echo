@@ -41,5 +41,6 @@
 	"apihelp-query+unreadnotificationpages-description": "Obtener las páginas para las que hay notificaciones sin leer para el usuario actual.",
 	"apihelp-query+unreadnotificationpages-param-limit": "El máximo número de páginas que se devolverán.",
 	"apihelp-query+unreadnotificationpages-param-wikis": "Lista de wikis desde las cuales obtener notificaciones sin leer (usa el wiki actual de manera predeterminada).",
-	"apihelp-query+unreadnotificationpages-example-1": "Lista páginas con (la cantidad de) notificaciones sin leer"
+	"apihelp-query+unreadnotificationpages-example-1": "Lista páginas con (la cantidad de) notificaciones sin leer",
+	"apierror-echo-event-creation-failed": "No se pudo crear el suceso de Echo"
 }
