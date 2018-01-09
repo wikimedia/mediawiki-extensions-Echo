@@ -132,6 +132,8 @@
 	"notification-link-text-view-page": "Pagina bekijken",
 	"notification-header-edit-user-talk": "$1 heeft een bericht {{GENDER:$2|achtergelaten}} op <strong>{{GENDER:$3|uw}} overlegpagina</strong>.",
 	"notification-header-edit-user-talk-with-section": "$1 {{GENDER:$2|heeft}} een bericht op <strong>{{GENDER:$3|uw}} overlegpagina</strong> achtergelaten onder \"<strong>$4</strong>\".",
+	"notification-compact-header-edit-user-talk": "$1 heeft een bericht voor {{GENDER:$3|u}} {{GENDER:$2|achtergelaten}}.",
+	"notification-compact-header-edit-user-talk-with-section": "$1 heeft een bericht voor {{GENDER:$3|u}} {{GENDER:$2|achtergelaten}} in \"<strong>$4</strong>\".",
 	"notification-header-page-linked": "Er is een koppeling gemaakt van <strong>$4</strong> naar <strong>$3</strong>.",
 	"notification-compact-header-page-linked": "Koppeling van <strong>$1</strong>.",
 	"notification-bundle-header-page-linked": "Er zijn koppelingen gemaakt {{PLURAL:$5|één andere pagina|$5 andere pagina's|100=99+ andere pagina's}} naar <strong>$3</strong>.",

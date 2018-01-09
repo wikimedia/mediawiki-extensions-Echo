@@ -5,7 +5,16 @@
 			"Mehtab ahmed"
 		]
 	},
+	"echo-desc": "واپرائيندڙن کي واقعن ۽ پيغامن جو اطلاع ڏيڻ لاءِ سرشتو",
 	"prefs-echo": "اطلاع",
+	"prefs-emailsettings": "برقٽپال چارا",
+	"prefs-displaynotifications": "نماڪار چارا",
+	"prefs-echosubscriptions": "مونکي ھنن واقعن بابت اطلاع ڏيو",
+	"prefs-echocrosswiki": "بين-الوڪي اطلاع",
+	"prefs-newmessageindicator": "نئون پيغام نشاندھي ڪار",
+	"prefs-blocknotificationslist": "بند واپرائيندڙ",
+	"echo-pref-send-me": "مون ڏي موڪليو:",
+	"echo-pref-send-to": "ڏانھن موڪليو:",
 	"echo-new-messages": "توھان لاءِ نوان نياپا آھن",
 	"notifications": "اطلاع",
 	"tooltip-pt-notifications-alert": "{{GENDER:|توهانجون}} خبرون",
