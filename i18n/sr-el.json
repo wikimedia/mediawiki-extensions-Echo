@@ -5,7 +5,8 @@
 			"Srdjan m",
 			"Macofe",
 			"Сербијана",
-			"Obsuser"
+			"Obsuser",
+			"Prevodim"
 		]
 	},
 	"echo-desc": "Sistem za obaveštavanje korisnika o dešavanjima i porukama",
@@ -109,6 +110,7 @@
 	"echo-overlay-title": "<b>Obaveštenja</b>",
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Obaveštenja}}</b> (prikaz $1 od $2 nepročitanih)",
 	"echo-mark-all-as-read": "Označi sve pročitanim",
+	"echo-mark-all-as-read-confirmation": "$1 {{PLURAL:$1|1=obaveštenje označeno kao pročitano|obaveštenja označena kao pročitana}}",
 	"echo-date-today": "Danas",
 	"echo-date-yesterday": "Juče",
 	"echo-load-more-error": "Došlo je do greške pri dobavljanju više rezultata.",
