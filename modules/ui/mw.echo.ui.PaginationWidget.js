@@ -109,9 +109,9 @@
 	 * Update the state - disabled and visibility - of the sub widgets.
 	 */
 	mw.echo.ui.PaginationWidget.prototype.updateWidgetState = function () {
-		this.dirSelectWidget.getItemFromData( 'prev' )
+		this.dirSelectWidget.findItemFromData( 'prev' )
 			.setDisabled( this.isDisabled() || !this.model.hasPrevPage() );
-		this.dirSelectWidget.getItemFromData( 'next' )
+		this.dirSelectWidget.findItemFromData( 'next' )
 			.setDisabled( this.isDisabled() || !this.model.hasNextPage() );
 
 		this.startButton.toggle(

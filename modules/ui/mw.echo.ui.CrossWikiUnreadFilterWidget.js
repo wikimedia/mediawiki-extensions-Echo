@@ -159,10 +159,10 @@
 		this.addItems( widgets );
 
 		// Select the current source
-		selectedWidget = this.getItemFromData( selectedSource );
+		selectedWidget = this.findItemFromData( selectedSource );
 		if ( selectedPage ) {
 			// Select a specific page
-			item = selectedWidget.getItemFromData( selectedPage );
+			item = selectedWidget.findItemFromData( selectedPage );
 		} else {
 			// The wiki title is selected
 			item = selectedWidget.getTitleItem();

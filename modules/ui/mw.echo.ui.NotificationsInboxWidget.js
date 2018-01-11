@@ -168,7 +168,7 @@
 	 */
 	mw.echo.ui.NotificationsInboxWidget.prototype.updateReadStateSelectWidget = function () {
 		this.readStateSelectWidget
-			.getItemFromData( this.manager.getFiltersModel().getReadState() )
+			.findItemFromData( this.manager.getFiltersModel().getReadState() )
 			.setSelected( true );
 	};
 
