@@ -8,7 +8,8 @@
 			"Macofe",
 			"Srdjan m",
 			"Dungodung",
-			"Obsuser"
+			"Obsuser",
+			"Prevodim"
 		]
 	},
 	"echo-desc": "Систем за обавештавање корисника о дешавањима и порукама",
@@ -153,7 +154,7 @@
 	"echo-overlay-title": "<b>Обавештења</b>",
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Обавештења}}</b> (приказ $1 од $2 непрочитаних)",
 	"echo-mark-all-as-read": "Означи све прочитаним",
-	"echo-mark-all-as-read-confirmation": "$1 {{PLURAL:$1|1=обавештење|обавештења}} као прочитано",
+	"echo-mark-all-as-read-confirmation": "$1 {{PLURAL:$1|1=обавештење означено као прочитано|обавештења означена као прочитана}}",
 	"echo-mark-wiki-as-read": "Означи све као прочитано у изабраном викију: $1",
 	"echo-date-today": "Данас",
 	"echo-date-yesterday": "Јуче",
