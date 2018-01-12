@@ -13,7 +13,7 @@
 	 * @cfg {boolean} [isCapped] The count for this widget is capped
 	 */
 	mw.echo.ui.PageNotificationsOptionWidget = function MwEchoUiPageNotificationsOptionWidget( config ) {
-		var countLabel;
+		var countLabel, $row;
 
 		config = config || {};
 
@@ -37,21 +37,32 @@
 			label: countLabel
 		} );
 
+		$row = $( '<div>' )
+			.addClass( 'mw-echo-ui-pageNotificationsOptionWidget-row' )
+			.append(
+				$( '<div>' )
+					.addClass( 'mw-echo-ui-pageNotificationsOptionWidget-cell' )
+					.addClass( 'mw-echo-ui-pageNotificationsOptionWidget-title' )
+					.append( this.$label ),
+				$( '<div>' )
+					.addClass( 'mw-echo-ui-pageNotificationsOptionWidget-cell' )
+					.addClass( 'mw-echo-ui-pageNotificationsOptionWidget-count' )
+					.append( this.unreadCountLabel.$element )
+			);
+
 		// Initialization
 		this.$element
 			.addClass( 'mw-echo-ui-pageNotificationsOptionWidget' )
 			.append(
 				$( '<div>' )
-					.addClass( 'mw-echo-ui-pageNotificationsOptionWidget-count' )
-					.append( this.unreadCountLabel.$element ),
-				$( '<div>' )
-					.addClass( 'mw-echo-ui-pageNotificationsOptionWidget-title' )
-					.append( this.$label )
+					.addClass( 'mw-echo-ui-pageNotificationsOptionWidget-table' )
+					.append( $row )
 			);
 
 		if ( this.getIcon() ) {
-			this.$element.prepend(
+			$row.prepend(
 				$( '<div>' )
+					.addClass( 'mw-echo-ui-pageNotificationsOptionWidget-cell' )
 					.addClass( 'mw-echo-ui-pageNotificationsOptionWidget-icon' )
 					.append( this.$icon )
 			);
