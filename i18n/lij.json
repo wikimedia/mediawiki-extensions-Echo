@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Giromin Cangiaxo"
+			"Giromin Cangiaxo",
+			"S4b1nuz E.656"
 		]
 	},
 	"echo-desc": "Scistema pe notificâ a-i utenti messaggi e eventi",
@@ -49,7 +50,7 @@
 	"echo-pref-tooltip-emailuser": "Avvixime quande quarcun o m'invia 'n'e-mail.",
 	"echo-error-no-formatter": "Nisciun-a formattaçion definia pe-e notiffiche",
 	"notifications": "Notiffiche",
-	"tooltip-pt-notifications-alert": "{{GENDER:|I teu}} avixi",
+	"tooltip-pt-notifications-alert": "{{GENDER:|I teu}} avîsi",
 	"tooltip-pt-notifications-notice": "{{GENDER:|I teu}} avixi",
 	"echo-displaynotificationsconfiguration": "Mostra a configuaçion de notiffiche",
 	"echo-displaynotificationsconfiguration-summary": "Questa a l'è 'na panorammica de comme e notiffiche son configuæ insce questo wiki.",
