@@ -216,7 +216,8 @@ class EchoNotificationMapperTest extends MediaWikiTestCase {
 	}
 
 	/**
-	 * Mock object of DatabaseMysql ( \Wikimedia\Rdbms\IDatabase )
+	 * Returns a mock database object
+	 * @return \Wikimedia\Rdbms\IDatabase
 	 */
 	protected function mockDb( array $dbResult ) {
 		$dbResult += [
@@ -226,7 +227,7 @@ class EchoNotificationMapperTest extends MediaWikiTestCase {
 			'delete' => ''
 		];
 
-		$db = $this->getMockBuilder( 'DatabaseMysql' )
+		$db = $this->getMockBuilder( 'DatabaseMysqli' )
 			->disableOriginalConstructor()
 			->getMock();
 		$db->expects( $this->any() )
