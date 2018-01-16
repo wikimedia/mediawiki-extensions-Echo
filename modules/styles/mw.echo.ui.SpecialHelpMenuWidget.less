@@ -25,6 +25,13 @@
 			padding: 0.5em;
 			margin-right: 0;
 
+			.oo-ui-buttonElement-button .oo-ui-iconElement-icon {
+				// OOUI Apex sets 'display:block;' with a huge level of specificity
+				// on this icon. We must override it otherwise it sticks on its
+				// own line
+				display: inline-block !important;
+			}
+
 			.oo-ui-labelElement-label {
 				white-space: normal;
 				// Width of the popup (300px) minus the
