@@ -93,7 +93,8 @@ class EchoUserNotificationGatewayTest extends MediaWikiTestCase {
 	}
 
 	/**
-	 * Mock object of DatabaseMysql ( \Wikimedia\Rdbms\IDatabase )
+	 * Returns a mock database object
+	 * @return \Wikimedia\Rdbms\IDatabase
 	 */
 	protected function mockDb( array $dbResult = [] ) {
 		$dbResult += [
@@ -102,7 +103,7 @@ class EchoUserNotificationGatewayTest extends MediaWikiTestCase {
 			'selectRow' => '',
 			'selectRowCount' => '',
 		];
-		$db = $this->getMockBuilder( 'DatabaseMysql' )
+		$db = $this->getMockBuilder( 'DatabaseMysqli' )
 			->disableOriginalConstructor()
 			->getMock();
 		$db->expects( $this->any() )
