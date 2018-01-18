@@ -17,7 +17,7 @@ Run both mediawiki/core and Echo tests from mediawiki/core folder:
 
 To run only Echo tests in one terminal window or tab start Chromedriver:
 
-    chromedriver --url-base=/wd/hub --port=4444
+    chromedriver --url-base=wd/hub --port=4444
 
 In another terminal tab or window go to mediawiki/core folder:
 
