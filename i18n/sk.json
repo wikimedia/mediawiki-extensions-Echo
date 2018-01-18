@@ -5,7 +5,8 @@
 			"Teslaton",
 			"Macofe",
 			"Urbanecm",
-			"Martin Urbanec"
+			"Martin Urbanec",
+			"TomášPolonec"
 		]
 	},
 	"echo-desc": "Notifikačný systém",
@@ -100,6 +101,9 @@
 	"notification-header-mention-agent-talkpage-nosection": "$1 {{GENDER:$3|vás}} {{GENDER:$2|spomenul|spomenula}} na svojej diskusnej stránke.",
 	"notification-header-mention-article-talkpage": "$1 {{GENDER:$3|vás}} {{GENDER:$2|spomenul|spomenula}} v diskusii k článku <strong>$4</strong> v sekcii „$5“.",
 	"notification-header-mention-article-talkpage-nosection": "$1 {{GENDER:$3|vás}} {{GENDER:$2|spomenul|spomenula}} v diskusii k článku <strong>$4</strong>.",
+	"notification-header-mention-failure-user-unknown": "{{GENDER:$2|Vaša}} zmienka používateľa <strong>$3</strong> nebola odoslaná, pretože daný používateľ nebol nájdený.",
+	"notification-header-mention-failure-user-anonymous": "{{GENDER:$2|Vaša}} zmienka používateľa <strong>$3</strong> nebola odoslaná, pretože daný používateľ je anonymný.",
+	"notification-header-mention-success": "{{GENDER:$2|Vaša}} zmienka {{GENDER:$3|redaktora|redaktorky}} <strong>$3</strong> sa odoslala.",
 	"notification-header-user-rights-add-only": "Vaše používateľské práva boli {{GENDER:$1|zmenené}}: Stali ste sa {{GENDER:$4|členom|členkou}} {{PLURAL:$3|skupiny|skupín}} $2.",
 	"notification-header-user-rights-remove-only": "Vaše používateľské práva boli {{GENDER:$1|zmenené}}: Už nie ste {{GENDER:$4|členom|členkou}} {{PLURAL:$3|skupiny|skupín}} $2.",
 	"notification-header-user-rights-add-and-remove": "{{GENDER:$6|Vaše}} používateľské práva boli {{GENDER:$1|zmenené}}: Stali ste sa {{GENDER:$6|členom|členkou}} {{PLURAL:$3|skupiny|skupín}} $2 a už nie ste {{GENDER:$6|členom|členkou}} {{PLURAL:$5|skupiny|skupín}} $4.",

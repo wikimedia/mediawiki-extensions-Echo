@@ -5,7 +5,8 @@
 			"පසිඳු කාවින්ද",
 			"Sveinki",
 			"Macofe",
-			"Hjalmtyr"
+			"Hjalmtyr",
+			"Sveinn í Felli"
 		]
 	},
 	"echo-desc": "Kerfi til að tilkynna notendum um viðburði og skilaboð",
@@ -36,7 +37,7 @@
 	"echo-category-title-user-rights": "{{PLURAL:$1|Réttinda breyting|Réttinda breytingar}}",
 	"echo-category-title-emailuser": "{{PLURAL:$1|Tölvupóstur frá öðrum notanda|Tölvupóstar frá öðrum notendum}}",
 	"echo-pref-tooltip-edit-user-talk": "Tilkynntu mér um þegar einhver skilur eftir skilaboð eða svarar skilaboðum á spjallsíðunni minni.",
-	"echo-pref-tooltip-article-linked": "Gefðu mér tilkynningu þegar einhver tengir í síðu, sem ég bjó til, frá annari síðu.",
+	"echo-pref-tooltip-article-linked": "Gefðu mér tilkynningu þegar einhver tengir í síðu sem ég bjó til úr annari síðu.",
 	"echo-pref-tooltip-reverted": "Gefðu mér tilkynningu þegar einhver tekur aftur breytingu sem ég gerði.",
 	"echo-pref-tooltip-mention": "Tilkynntu mér þegar einhver tengir í notendasíðuna mína.",
 	"echo-pref-tooltip-user-rights": "Tilkynntu mér þegar einhver breytir notendaréttendum mínum.",
