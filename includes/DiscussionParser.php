@@ -14,16 +14,17 @@ abstract class EchoDiscussionParser {
 	 * the discussion-related actions that occurred in that Revision.
 	 *
 	 * @param Revision $revision
+	 * @param bool $isRevert
 	 * @return null
 	 */
-	static function generateEventsForRevision( Revision $revision ) {
+	static function generateEventsForRevision( Revision $revision, $isRevert ) {
 		global $wgEchoMentionsOnMultipleSectionEdits;
 		global $wgEchoMentionOnChanges;
 
 		// use slave database if there is a previous revision
 		if ( $revision->getPrevious() ) {
 			$title = Title::newFromID( $revision->getPage() );
-		// use master database for new page
+			// use master database for new page
 		} else {
 			$title = Title::newFromID( $revision->getPage(), Title::GAID_FOR_UPDATE );
 		}
@@ -93,6 +94,44 @@ abstract class EchoDiscussionParser {
 						'agent' => $user,
 					] );
 				}
+			}
+		}
+
+		// Notify users mentioned in edit summary
+		global $wgEchoMaxMentionsInEditSummary;
+
+		if ( $wgEchoMaxMentionsInEditSummary > 0 && !$isRevert ) {
+			$summaryParser = new EchoSummaryParser();
+			$usersInSummary = $summaryParser->parse( $revision->getComment() );
+
+			// Don't allow pinging yourself
+			unset( $usersInSummary[$userName] );
+
+			$count = 0;
+			$mentionedUsers = [];
+			foreach ( $usersInSummary as $summaryUser ) {
+				if ( $summaryUser->getTalkPage()->equals( $title ) ) {
+					// Users already get a ping when their talk page is edited
+					continue;
+				}
+				if ( $count >= $wgEchoMaxMentionsInEditSummary ) {
+					break;
+				}
+				$mentionedUsers[] = $summaryUser;
+				$count++;
+			}
+
+			if ( $mentionedUsers ) {
+				$info = [
+					'type' => 'mention-summary',
+					'title' => $title,
+					'extra' => [
+						'revid' => $revision->getId(),
+						'mentioned-users' => $mentionedUsers,
+					],
+					'agent' => $user,
+				];
+				EchoEvent::create( $info );
 			}
 		}
 	}

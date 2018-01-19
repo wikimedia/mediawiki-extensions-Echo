@@ -763,6 +763,20 @@
 					"section": "alert",
 					"presentation-model": "EchoMentionPresentationModel"
 				},
+				"mention-summary": {
+					"user-locators": [
+						[
+							"EchoUserLocator::locateFromEventExtra",
+							[
+								"mentioned-users"
+							]
+						]
+					],
+					"category": "mention",
+					"group": "interactive",
+					"section": "alert",
+					"presentation-model": "EchoMentionInSummaryPresentationModel"
+				},
 				"mention-failure": {
 					"user-locators": [
 						[
@@ -894,6 +908,10 @@
 		"AllowArticleReminderNotification": {
 			"value": false,
 			"description": "This is a feature flag to the Article Reminder notification"
+		},
+		"EchoMaxMentionsInEditSummary": {
+			"value": 0,
+			"description": "Maximum nubmer of users that will be notified that they were linked from an edit summary or 0 for no notifications"
 		}
 	},
 	"manifest_version": 2,
@@ -955,6 +973,7 @@
 		"EchoIcon": "includes/formatters/EchoIcon.php",
 		"EchoIteratorDecorator": "includes/iterator/IteratorDecorator.php",
 		"EchoLocalCache": "includes/cache/LocalCache.php",
+		"EchoMentionInSummaryPresentationModel": "includes/formatters/MentionInSummaryPresentationModel.php",
 		"EchoMentionPresentationModel": "includes/formatters/MentionPresentationModel.php",
 		"EchoMentionStatusPresentationModel": "includes/formatters/MentionStatusPresentationModel.php",
 		"EchoModelFormatter": "includes/formatters/EchoModelFormatter.php",
@@ -978,6 +997,7 @@
 		"EchoRevertedPresentationModel": "includes/formatters/RevertedPresentationModel.php",
 		"EchoRevisionLocalCache": "includes/cache/RevisionLocalCache.php",
 		"EchoSeenTime": "includes/SeenTime.php",
+		"EchoSummaryParser": "includes/EchoSummaryParser.php",
 		"EchoSuppressionRowUpdateGenerator": "includes/schemaUpdate.php",
 		"EchoTalkPageFunctionalTest": "tests/phpunit/TalkPageFunctionalTest.php",
 		"EchoTargetPage": "includes/model/TargetPage.php",
