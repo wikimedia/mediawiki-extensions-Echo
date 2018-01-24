@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @covers EchoNotificationMapper
+ */
 class EchoNotificationMapperTest extends MediaWikiTestCase {
 
 	/**

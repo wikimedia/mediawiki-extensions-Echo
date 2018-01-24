@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @covers EchoTargetPage
+ */
 class EchoTargetPageTest extends MediaWikiTestCase {
 
 	public function testCreate() {

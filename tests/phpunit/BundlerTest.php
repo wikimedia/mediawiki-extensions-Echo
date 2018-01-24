@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @covers Bundler
+ */
 class BundlerTest extends MediaWikiTestCase {
 
 	public function testBundle() {

@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @covers EchoUserNotificationGateway
+ */
 class EchoUserNotificationGatewayTest extends MediaWikiTestCase {
 
 	public function testMarkRead() {

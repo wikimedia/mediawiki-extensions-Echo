@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @covers EchoHooks
+ */
 class EchoHooksTest extends MediaWikiTestCase {
 
 	/**

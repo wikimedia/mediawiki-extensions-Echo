@@ -1,7 +1,8 @@
 <?php
 
 /**
- * @Database
+ * @group Database
+ * @covers EchoUserLocator
  */
 class EchoUserLocatorTest extends MediaWikiTestCase {
 

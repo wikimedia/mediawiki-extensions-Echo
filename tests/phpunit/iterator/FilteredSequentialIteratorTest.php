@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * @covers EchoCallbackIterator
+ * @covers EchoFilteredSequentialIterator
+ */
 class FilteredSequentialIteratorTest extends MediaWikiTestCase {
 
 	public function testEchoCallbackIteratorDoesntBlowUp() {

@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @covers EchoEventMapper
+ */
 class EchoEventMapperTest extends MediaWikiTestCase {
 
 	public function provideDataTestInsert() {

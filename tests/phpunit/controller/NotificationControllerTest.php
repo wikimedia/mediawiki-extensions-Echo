@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @covers EchoNotificationController
+ */
 class NotificationControllerTest extends MediaWikiTestCase {
 
 	public function evaluateUserLocatorsProvider() {
