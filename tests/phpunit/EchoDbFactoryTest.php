@@ -3,6 +3,9 @@
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\ILoadBalancer;
 
+/**
+ * @covers MWEchoDbFactory
+ */
 class MWEchoDbFactoryTest extends MediaWikiTestCase {
 
 	public function testNewFromDefault() {

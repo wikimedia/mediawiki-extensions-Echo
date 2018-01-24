@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @covers EchoAbstractMapper
+ */
 class EchoAbstractMapperTest extends MediaWikiTestCase {
 
 	public function testAttachListener() {

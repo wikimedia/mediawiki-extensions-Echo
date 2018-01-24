@@ -2,6 +2,7 @@
 
 /**
  * @group Echo
+ * @covers EchoSuppressionRowUpdateGenerator
  */
 class SuppressionMaintenanceTest extends MediaWikiTestCase {
 

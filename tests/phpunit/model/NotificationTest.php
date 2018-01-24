@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @covers EchoNotification
+ */
 class EchoNotificationTest extends MediaWikiTestCase {
 
 	public function testNewFromRow() {

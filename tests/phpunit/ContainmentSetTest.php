@@ -1,6 +1,7 @@
 <?php
 
 /**
+ * @covers EchoContainmentSet
  * @group Echo
  */
 class ContainmentSetTest extends MediaWikiTestCase {

@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @covers EchoAttributeManager
+ */
 class EchoAttributeManagerTest extends MediaWikiTestCase {
 
 	public function testNewFromGlobalVars() {

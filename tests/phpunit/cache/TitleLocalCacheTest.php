@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @covers EchoTitleLocalCache
+ */
 class EchoTitleLocalCacheTest extends MediaWikiTestCase {
 
 	public function testCreate() {

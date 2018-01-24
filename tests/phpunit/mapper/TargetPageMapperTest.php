@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @covers EchoTargetPageMapper
+ */
 class EchoTargetPageMapperTest extends MediaWikiTestCase {
 
 	public function provideDataTestInsert() {
