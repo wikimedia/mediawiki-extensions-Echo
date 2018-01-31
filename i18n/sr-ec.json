@@ -9,13 +9,14 @@
 			"Srdjan m",
 			"Dungodung",
 			"Obsuser",
-			"Prevodim"
+			"Prevodim",
+			"Acamicamacaraca"
 		]
 	},
 	"echo-desc": "Систем за обавештавање корисника о дешавањима и порукама",
 	"prefs-echo": "Обавештења",
-	"prefs-emailsettings": "Поставке имејла",
-	"prefs-displaynotifications": "Поставке приказа",
+	"prefs-emailsettings": "Подешавања имејла",
+	"prefs-displaynotifications": "Подешавања приказа",
 	"prefs-echosubscriptions": "Обавести ме о овим догађајима",
 	"prefs-echocrosswiki": "Међувики обавештења",
 	"prefs-newmessageindicator": "Индикатор за нове поруке",

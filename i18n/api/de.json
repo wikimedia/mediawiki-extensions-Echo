@@ -29,6 +29,7 @@
 	"apihelp-query+notifications-param-filter": "Filtert zurückgegebene Benachrichtigungen.",
 	"apihelp-query+notifications-param-format": "Falls angegeben, werden die zurückgegebenen Benachrichtigungen auf diese Weise formatiert.",
 	"apihelp-query+notifications-paramvalue-format-model": "Rohe Benachrichtigungsdaten",
+	"apihelp-query+notifications-paramvalue-format-special": "Formatiert für Spezial:Benachrichtigungen (und nur diese Seite!) Die HTML-Formatierung kann sich jederzeit ändern.",
 	"apihelp-query+notifications-paramvalue-format-flyout": "<span class=\"apihelp-deprecated\">Veraltet</span>. Für Rohdaten <kbd>$1format=model</kbd> verwenden.",
 	"apihelp-query+notifications-paramvalue-format-html": "<span class=\"apihelp-deprecated\">Veraltet</span>. Für Rohdaten <kbd>$1format=model</kbd> verwenden.",
 	"apihelp-query+notifications-param-limit": "Die maximale Anzahl zurückzugebender Benachrichtigungen.",
