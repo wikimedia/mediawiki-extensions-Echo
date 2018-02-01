@@ -1,7 +1,5 @@
 <?php
 
-use MediaWiki\MediaWikiServices;
-use Wikimedia\ScopedCallback;
 use Wikimedia\TestingAccessWrapper;
 
 /**
@@ -935,25 +933,7 @@ TEXT
 			// this one allows Mediawiki:xyz pages to be set as messages
 			'wgUseDatabaseMessages' => true
 		] );
-
-		// Since we reset the $wgContLang global, reset the TitleParser service
-		$services = MediaWikiServices::getInstance();
-		if ( is_callable( [ $services, 'getTitleParser' ] ) ) {
-			// TODO: All of this should use $this->setService()
-			$services->resetServiceForTesting( 'TitleParser' );
-			$services->redefineService( 'TitleParser', function () use ( $langObj ) {
-				global $wgLocalInterwikis;
-				return new MediaWikiTitleCodec(
-					$langObj,
-					new GenderCache(),
-					$wgLocalInterwikis
-				);
-			} );
-			// Cleanup
-			$lock = new ScopedCallback( function () use ( $services ) {
-				$services->resetServiceForTesting( 'TitleParser' );
-			} );
-		}
+		$this->overrideMwServices();
 
 		// pages to be created: templates may be used to ping users (e.g.
 		// {{u|...}}) but if we don't have that template, it just won't work!
