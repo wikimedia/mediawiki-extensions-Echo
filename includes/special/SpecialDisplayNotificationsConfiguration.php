@@ -139,7 +139,7 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 			$this
 		);
 
-		$form->setTitle( $this->getTitle() )
+		$form->setTitle( $this->getPageTitle() )
 			->prepareForm()
 			->suppressDefaultSubmit()
 			->setWrapperLegendMsg( $legendMsgKey )
