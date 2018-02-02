@@ -2,12 +2,10 @@
 	/**
 	 * Confirmation overlay widget, especially for mobile display.
 	 * The behavior of this widget is to appear with a given confirmation
-	 * message and then disapear after a given interval.
+	 * message and then disappear after a given interval.
 	 *
 	 * @class
 	 * @extends OO.ui.Widget
-	 * @mixins OO.ui.mixin.LabelElement
-	 * @mixins OO.ui.mixin.IconElement
 	 *
 	 * @constructor
 	 * @param {Object} [config] Configuration object
@@ -20,10 +18,8 @@
 		// Parent constructor
 		mw.echo.ui.ConfirmationPopupWidget.parent.call( this, config );
 
-		// Mixin constructor
-		OO.ui.mixin.LabelElement.call( this, config );
-		OO.ui.mixin.IconElement.call( this, $.extend( { icon: 'doubleCheck' }, config ) );
-
+		this.labelWidget = new OO.ui.LabelWidget( config );
+		this.iconWidget = new OO.ui.IconWidget( $.extend( { icon: 'doubleCheck' }, config ) );
 		this.interval = config.interval || 2000;
 
 		this.$element
@@ -31,7 +27,7 @@
 			.append(
 				$( '<div>' )
 					.addClass( 'mw-echo-ui-confirmationPopupWidget-popup' )
-					.append( this.$icon, this.$label )
+					.append( this.iconWidget.$element, this.labelWidget.$element )
 			)
 			// We're using explicit hide here because the widget uses
 			// animated fadeOut
@@ -41,8 +37,6 @@
 	/* Initialization */
 
 	OO.inheritClass( mw.echo.ui.ConfirmationPopupWidget, OO.ui.Widget );
-	OO.mixinClass( mw.echo.ui.ConfirmationPopupWidget, OO.ui.mixin.LabelElement );
-	OO.mixinClass( mw.echo.ui.ConfirmationPopupWidget, OO.ui.mixin.IconElement );
 
 	/**
 	 * Show the widget and then animate its fade out.
@@ -51,7 +45,7 @@
 		// OOUI removes the oo-ui-image-invert class when it is initialized
 		// without explicit flag classes, so we have to re-add this when we
 		// display the icon for the icon to be inverted
-		this.$icon.addClass( 'oo-ui-image-invert' );
+		this.iconWidget.$element.addClass( 'oo-ui-image-invert' );
 		this.$element.show();
 		setTimeout( this.hide.bind( this ), this.interval );
 	};
@@ -63,5 +57,15 @@
 	 */
 	mw.echo.ui.ConfirmationPopupWidget.prototype.hide = function () {
 		this.$element.fadeOut();
+	};
+
+	/**
+	 * Delegate to labelWidget.setLabel()
+	 *
+	 * @param {jQuery|string|OO.ui.HtmlSnippet|Function|null} label Label nodes; text; a function that returns nodes or
+	 *  text; or null for no label
+	 */
+	mw.echo.ui.ConfirmationPopupWidget.prototype.setLabel = function ( label ) {
+		this.labelWidget.setLabel( label );
 	};
 }( mediaWiki, jQuery ) );
