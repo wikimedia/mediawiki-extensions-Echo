@@ -14,6 +14,7 @@
 		"grunt-contrib-watch": "1.0.0",
 		"grunt-eslint": "20.1.0",
 		"grunt-jsonlint": "1.1.0",
+		"grunt-svgmin": "5.0.0",
 		"grunt-stylelint": "0.9.0",
 		"stylelint": "8.2.0",
 		"stylelint-config-wikimedia": "0.4.2"

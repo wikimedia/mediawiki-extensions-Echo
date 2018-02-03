@@ -7,6 +7,7 @@ module.exports = function ( grunt ) {
 	grunt.loadNpmTasks( 'grunt-eslint' );
 	grunt.loadNpmTasks( 'grunt-jsonlint' );
 	grunt.loadNpmTasks( 'grunt-stylelint' );
+	grunt.loadNpmTasks( 'grunt-svgmin' );
 
 	grunt.initConfig( {
 		eslint: {
@@ -28,6 +29,40 @@ module.exports = function ( grunt ) {
 				'modules/**/*.less'
 			]
 		},
+		// SVG Optimization
+		svgmin: {
+			options: {
+				js2svg: {
+					pretty: true
+				},
+				plugins: [ {
+					cleanupIDs: false
+				}, {
+					removeDesc: false
+				}, {
+					removeRasterImages: true
+				}, {
+					removeTitle: false
+				}, {
+					removeViewBox: false
+				}, {
+					removeXMLProcInst: false
+				}, {
+					sortAttrs: true
+				} ]
+			},
+			all: {
+				files: [ {
+					expand: true,
+					cwd: 'modules/icons',
+					src: [
+						'**/*.svg'
+					],
+					dest: 'modules/icons/',
+					ext: '.svg'
+				} ]
+			}
+		},
 		banana: conf.MessagesDirs,
 		watch: {
 			files: [
@@ -48,6 +83,6 @@ module.exports = function ( grunt ) {
 	} );
 
 	grunt.registerTask( 'lint', [ 'eslint', 'stylelint', 'jsonlint', 'banana' ] );
-	grunt.registerTask( 'test', 'lint' );
+	grunt.registerTask( 'test', 'lint', 'svgmin' );
 	grunt.registerTask( 'default', 'test' );
 };
