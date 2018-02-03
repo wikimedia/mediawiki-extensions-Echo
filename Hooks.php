@@ -135,7 +135,6 @@ class EchoHooks {
 		// ext.echo.logger is used by mobile notifications as well, so be sure not to add any
 		// dependencies that do not target mobile.
 		$definition = [
-			'position' => 'top',
 			'scripts' => [
 				'logger/mw.echo.Logger.js',
 			],

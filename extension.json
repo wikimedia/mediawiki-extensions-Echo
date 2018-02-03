@@ -288,7 +288,6 @@
 			]
 		},
 		"ext.echo.styles.badge": {
-			"position": "top",
 			"styles": [
 				"nojs/mw.echo.badge.less"
 			],
@@ -309,7 +308,6 @@
 			]
 		},
 		"ext.echo.styles.notifications": {
-			"position": "top",
 			"styles": [
 				"nojs/mw.echo.notifications.less",
 				"styles/LabelIconWidget.less"
@@ -320,7 +318,6 @@
 			]
 		},
 		"ext.echo.styles.alert": {
-			"position": "top",
 			"styles": [
 				"nojs/mw.echo.alert.less"
 			],
@@ -393,7 +390,6 @@
 			]
 		},
 		"ext.echo.styles.special": {
-			"position": "top",
 			"styles": [
 				"nojs/mw.echo.special.less"
 			],
@@ -404,7 +400,6 @@
 		},
 		"ext.echo.badgeicons": {
 			"class": "ResourceLoaderImageModule",
-			"position": "top",
 			"data": "icons/badgeicons.json",
 			"selectorWithoutVariant": ".oo-ui-icon-{name}",
 			"selectorWithVariant": ".oo-ui-image-{variant}.oo-ui-icon-{name}"
