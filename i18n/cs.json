@@ -12,7 +12,8 @@
 			"Dvorapa",
 			"Danny B.",
 			"Meliganai",
-			"Martin Urbanec"
+			"Martin Urbanec",
+			"Ilimanaq29"
 		]
 	},
 	"echo-desc": "Systém pro upozorňování uživatelů na události a zprávy",
@@ -153,13 +154,13 @@
 	"notification-header-user-rights-expiry-change": "Čas vypršení {{GENDER:$4|vašeho}} členství v {{PLURAL:$3|následující skupině|následujících skupinách}} byl {{GENDER:$1|změněn}}: $2.",
 	"notification-header-welcome": "Vítejte na {{GRAMMAR:6sg|{{SITENAME}}}}, {{GENDER:$2|uživateli|uživatelko}} $1! Jsme rádi, že jste zde.",
 	"notification-welcome-linktext": "Vítejte",
-	"notification-header-thank-you-1-edit": "Právě jste {{GENDER:$2|provedl|provedla}} svou první editaci. Díky a vítejte!",
+	"notification-header-thank-you-1-edit": "Právě jste {{GENDER:$2|provedl|provedla}} svou první editaci. Děkujeme a vítejte!",
 	"notification-header-thank-you-10-edit": "Právě jste {{GENDER:$2|provedl|provedla}} svou desátou editaci. Díky a jen tak dál!",
 	"notification-header-thank-you-100-edit": "Právě jste {{GENDER:$2|provedl|provedla}} svou stou editaci. Velké díky!",
-	"notification-header-thank-you-1000-edit": "Právě jste {{GENDER:$2|provedl|provedla}} svou tisící editaci. Díky, jste {{GENDER:$2|skvělý přispěvatel|skvělá přispěvatelka}}!",
+	"notification-header-thank-you-1000-edit": "Právě jste {{GENDER:$2|provedl|provedla}} svou tisící editaci. Děkujeme, jste {{GENDER:$2|skvělý přispěvatel|skvělá přispěvatelka}}!",
 	"notification-header-thank-you-10000-edit": "Právě jste {{GENDER:$2|provedl|provedla}} svou desetitisící editaci. Velmi velké díky!",
-	"notification-header-thank-you-100000-edit": "Právě jste {{GENDER:$2|provedl|provedla}} svou stotisící editaci. Díky za váš úžasný příspěvek!",
-	"notification-header-thank-you-1000000-edit": "Právě jste {{GENDER:$2|provedl|provedla}} svou miliontou editaci. Díky za váš ohromující příspěvek!",
+	"notification-header-thank-you-100000-edit": "Právě jste {{GENDER:$2|provedl|provedla}} svou stotisící editaci. Děkujeme za váš úžasný příspěvek!",
+	"notification-header-thank-you-1000000-edit": "Právě jste {{GENDER:$2|provedl|provedla}} svou miliontou editaci. Děkujeme za váš ohromující příspěvek!",
 	"notification-link-thank-you-edit": "{{GENDER:$1|Vaše}} editace",
 	"notification-link-text-view-edit": "Zobrazit editaci",
 	"notification-link-article-reminder": "Zobrazit stránku",
