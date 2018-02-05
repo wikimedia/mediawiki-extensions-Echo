@@ -517,15 +517,18 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 			$titleCache = EchoTitleLocalCache::create();
 			$title = $titleCache->get( $this->pageId );
 			if ( $title ) {
-				return $this->title = $title;
+				$this->title = $title;
+				return $this->title;
 			}
 
-			return $this->title = Title::newFromID( $this->pageId, $fromMaster ? Title::GAID_FOR_UPDATE : 0 );
+			$this->title = Title::newFromID( $this->pageId, $fromMaster ? Title::GAID_FOR_UPDATE : 0 );
+			return $this->title;
 		} elseif ( isset( $this->extra['page_title'], $this->extra['page_namespace'] ) ) {
-			return $this->title = Title::makeTitleSafe(
+			$this->title = Title::makeTitleSafe(
 				$this->extra['page_namespace'],
 				$this->extra['page_title']
 			);
+			return $this->title;
 		}
 
 		return null;
@@ -541,10 +544,12 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 			$revisionCache = EchoRevisionLocalCache::create();
 			$revision = $revisionCache->get( $this->extra['revid'] );
 			if ( $revision ) {
-				return $this->revision = $revision;
+				$this->revision = $revision;
+				return $this->revision;
 			}
 
-			return $this->revision = Revision::newFromId( $this->extra['revid'] );
+			$this->revision = Revision::newFromId( $this->extra['revid'] );
+			return $this->revision;
 		}
 
 		return null;

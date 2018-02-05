@@ -39,7 +39,8 @@ class EchoCachedList implements EchoContainmentList {
 		$cacheKey = $this->getCacheKey();
 		$fetched = $this->cache->get( $cacheKey );
 		if ( is_array( $fetched ) ) {
-			return $this->result = $fetched;
+			$this->result = $fetched;
+			return $this->result;
 		}
 
 		$result = $this->nestedList->getValues();
@@ -52,7 +53,8 @@ class EchoCachedList implements EchoContainmentList {
 		}
 		$this->cache->set( $cacheKey, $result, $this->timeout );
 
-		return $this->result = $result;
+		$this->result = $result;
+		return $this->result;
 	}
 
 	/**
