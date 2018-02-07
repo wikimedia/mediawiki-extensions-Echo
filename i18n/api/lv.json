@@ -5,6 +5,7 @@
 			"Zuiks"
 		]
 	},
+	"apihelp-echomarkread-example-1": "Atzīmēt paziņojumu 8 kā izlasītu",
 	"apihelp-echomarkread-example-2": "Atzīmēt visus paziņojumus kā izlasītus",
 	"apihelp-echomarkread-example-3": "Atzīmēt paziņojumu 1 kā nelasītu",
 	"apihelp-echoarticlereminder-param-pageid": "Raksta ID, par ko dalībniekam atgādināt",
