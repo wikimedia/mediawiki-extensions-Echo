@@ -65,7 +65,7 @@
 
 		this.pushPending();
 		return this.controller.fetchLocalNotifications( true )
-			.then( null, function ( errorObj ) {
+			.catch( function ( errorObj ) {
 				if ( errorObj.errCode === 'notlogin-required' ) {
 					// Login required message
 					widget.notificationsWidget.resetLoadingOption( mw.msg( 'echo-notification-loginrequired' ) );
