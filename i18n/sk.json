@@ -112,7 +112,7 @@
 	"notification-header-thank-you-1-edit": "Práve ste {{GENDER:$2|vykonal|vykonala}} svoju prvú úpravu. Vďaka a vitajte!",
 	"notification-header-thank-you-10-edit": "Práve ste vykonali svoju desiatu úpravu. Vďaka a len tak ďalej!",
 	"notification-header-thank-you-100-edit": "Práve ste {{GENDER:$2|vykonal|vykonala}} svoju stú úpravu. Veľká vďaka!",
-	"notification-header-thank-you-1000-edit": "Práve ste {{GENDER:$2|vykonal|vykonala}} svoju tisícu úpravu. Vďaka, ste {{GENDER:$2|skvelý prispievatel|skvelá prispievateľka}}!",
+	"notification-header-thank-you-1000-edit": "Práve ste vykonali svoju tisícu úpravu. Vďaka, ste {{GENDER:$2|skvelý prispievateľ|skvelá prispievateľka}}!",
 	"notification-header-thank-you-10000-edit": "Práve ste {{GENDER:$2|vykonal|vykonala}} svoju desaťtisícu úpravu. Obrovská vďaka!",
 	"notification-header-thank-you-100000-edit": "Práve ste {{GENDER:$2|vykonal|vykonala}} svoju stotisícu úpravu. Vďaka za váš vynikajúci príspevok!",
 	"notification-header-thank-you-1000000-edit": "Práve ste {{GENDER:$2|vykonal|vykonala}} svoju milióntu úpravu. Vďaka za váš ohromujúci príspevok!",
