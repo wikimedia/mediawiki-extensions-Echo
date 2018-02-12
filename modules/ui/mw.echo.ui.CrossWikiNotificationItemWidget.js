@@ -279,8 +279,7 @@
 			this.toggleListDisplay( true );
 			// Query all sources
 			this.controller.fetchCrossWikiNotifications()
-				.then(
-					null,
+				.catch(
 					function ( result ) {
 						var loginPageTitle = mw.Title.newFromText( 'Special:UserLogin' );
 						// If failure, check if the failure is due to login
