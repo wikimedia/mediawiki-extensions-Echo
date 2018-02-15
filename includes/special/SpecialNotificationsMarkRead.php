@@ -86,7 +86,7 @@ class SpecialNotificationsMarkRead extends FormSpecialPage {
 			$idValue = [ $idValue ];
 		}
 
-		$idString = join( ',', $idValue );
+		$idString = implode( ',', $idValue );
 
 		$this->setParameter( $idString );
 
