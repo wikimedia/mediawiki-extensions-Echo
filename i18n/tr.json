@@ -20,7 +20,8 @@
 			"Serkanland",
 			"Ece Alpdeniz",
 			"Kumkumuk",
-			"AliceJ"
+			"AliceJ",
+			"Diyapazon"
 		]
 	},
 	"echo-desc": "Kullanıcıları olaylar ve mesajlar hakkında bilgilendiren sistem",
@@ -42,6 +43,7 @@
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Düz metin",
 	"echo-pref-cross-wiki-notifications": "Diğer vikilerden bildirimleri göster",
+	"echo-pref-notifications-blacklist": "Bu kullanıcılardan gelen bildirimleri gösterme. ([[mw:Special:MyLanguage/Help:Notifications#mute|daha fazla bilgi edin]])",
 	"echo-pref-new-message-indicator": "Mesaj göstergesini araç çubuğumda göster",
 	"echo-pref-beta-feature-cross-wiki-message": "Gelişmiş bildirimler",
 	"echo-pref-beta-feature-cross-wiki-description": "Bildirimleri daha kolay görüntüleyin ve düzenleyin. Diğer vikilerdeki mesajlarınızı görmenize imkan veren vikilerarası bildirimleri destekler. (Vikilerarası bildirimleri almak için, bulunduğunuz vikide beta özelliği etkinleştirmeniz gerekir.)",
