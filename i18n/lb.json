@@ -197,6 +197,6 @@
 	"echo-email-batch-body-intro-weekly": "Salut $1,\n\nHei ass e Resumé vun den Aktivitéite vun dëser Woch op {{SITENAME}} fir Iech.",
 	"echo-email-batch-link-text-view-all-notifications": "All Notifikatioune weisen",
 	"notification-header-foreign-alert": "Méi Meldunge {{PLURAL:$5|vun enger anerer Wiki|vu(n) $5 anere Wikien}}",
-	"notification-header-foreign-notice": "Méi Notifikatiounen aus {{PLURAL:$5|enger anere Wiki|$5 anere Wikien}}",
+	"notification-header-foreign-notice": "Méi Notifikatiounen aus {{PLURAL:$5|enger anerer Wiki|$5 anere Wikien}}",
 	"notification-header-foreign-all": "Méi Notifikatioune {{PLURAL:$5|vun enger anerer Wiki|vu(n) $5 anere Wikien}}"
 }
