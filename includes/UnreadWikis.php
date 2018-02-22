@@ -103,7 +103,7 @@ class EchoUnreadWikis {
 	 */
 	public function updateCount( $wiki, $alertCount, $alertTime, $msgCount, $msgTime ) {
 		$dbw = $this->getDB( DB_MASTER );
-		if ( $dbw === false ) {
+		if ( $dbw === false || $dbw->isReadOnly() ) {
 			return;
 		}
 

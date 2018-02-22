@@ -52,6 +52,9 @@ class EchoUserNotificationGateway {
 		}
 
 		$dbw = $this->dbFactory->getEchoDb( DB_MASTER );
+		if ( $dbw->isReadOnly() ) {
+			return false;
+		}
 
 		return $dbw->update(
 			self::$notificationTable,
