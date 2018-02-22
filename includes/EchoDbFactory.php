@@ -1,5 +1,6 @@
 <?php
 use MediaWiki\MediaWikiServices;
+use Wikimedia\Rdbms\LoadBalancer;
 
 /**
  * Database factory class, this will determine whether to use the main database
@@ -39,6 +40,13 @@ class MWEchoDbFactory {
 		global $wgEchoCluster, $wgEchoSharedTrackingDB, $wgEchoSharedTrackingCluster;
 
 		return new self( $wgEchoCluster, $wgEchoSharedTrackingDB, $wgEchoSharedTrackingCluster );
+	}
+
+	/**
+	 * @return bool
+	 */
+	public function isReadOnly() {
+		return ( $this->getLB()->getReadOnlyReason() !== false );
 	}
 
 	/**
@@ -111,7 +119,7 @@ class MWEchoDbFactory {
 
 		// Use the external db defined for Echo
 		if ( $wgEchoCluster ) {
-			$lb = $services->getDBLoadBalancerFactory()->getExternalLB( $wgEchoCluster, $wiki );
+			$lb = $services->getDBLoadBalancerFactory()->getExternalLB( $wgEchoCluster );
 		} else {
 			if ( $wiki === false ) {
 				$lb = $services->getDBLoadBalancer();
