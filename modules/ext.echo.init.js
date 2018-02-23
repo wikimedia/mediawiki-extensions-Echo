@@ -36,9 +36,11 @@
 			var time = mw.now(),
 				myType = $( this ).parent().prop( 'id' ) === 'pt-notifications-alert' ? 'alert' : 'message';
 
-			if ( e.which !== 1 ) {
-				return;
+			if ( e.which !== 1 || $( this ).data( 'clicked' ) ) {
+				return false;
 			}
+
+			$( this ).data( 'clicked', true );
 
 			// Dim the button while we load
 			$( this ).addClass( 'mw-echo-notifications-badge-dimmed' );
