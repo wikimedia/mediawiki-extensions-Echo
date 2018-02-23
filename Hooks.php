@@ -548,8 +548,8 @@ class EchoHooks {
 		$title = $wikiPage->getTitle();
 
 		// Try to do this after the HTTP response
-		DeferredUpdates::addCallableUpdate( function () use ( $revision ) {
-			EchoDiscussionParser::generateEventsForRevision( $revision );
+		DeferredUpdates::addCallableUpdate( function () use ( $revision, $undidRevId ) {
+			EchoDiscussionParser::generateEventsForRevision( $revision, !!$undidRevId );
 		} );
 
 		// If the user is not an IP and this is not a null edit,

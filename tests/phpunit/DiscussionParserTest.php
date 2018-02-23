@@ -337,6 +337,23 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 				'title' => 'MultipleSignatureMentions',
 				'expected' => [],
 			],
+			[
+				'new' => 1234,
+				'old' => 123,
+				'username' => 'Admin',
+				'lang' => 'en',
+				'pages' => [],
+				'title' => 'Pings in summary',
+				'expected' => [
+					[
+						'type' => 'mention-summary',
+						'agent' => 'Admin',
+						'section-title' => null,
+					]
+				],
+				'precondition' => '',
+				'summary' => 'Hey [[User:Werdna|Werdna]] and [[User:Jorm]], [[User:Admin]] here',
+			],
 		];
 	}
 
@@ -344,7 +361,8 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 	 * @dataProvider generateEventsForRevisionData
 	 */
 	public function testGenerateEventsForRevision(
-		$newId, $oldId, $username, $lang, $pages, $title, $expected, $precondition = ''
+		$newId, $oldId, $username, $lang, $pages, $title, $expected, $precondition = '',
+		$summary = ''
 	) {
 		if ( $precondition !== '' ) {
 			$result = $this->$precondition();
@@ -358,7 +376,7 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 		$this->setupAllTestUsers();
 
 		$revision = $this->setupTestRevisionsForEventGeneration(
-			$newId, $oldId, $username, $lang, $pages, $title
+			$newId, $oldId, $username, $lang, $pages, $title, $summary
 		);
 		$events = [];
 		$this->setupEventCallbackForEventGeneration(
@@ -372,10 +390,14 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 			}
 		);
 
-		// disable mention failure and success notifications
-		$this->setMwGlobals( 'wgEchoMentionStatusNotifications', false );
+		$this->setMwGlobals( [
+			// disable mention failure and success notifications
+			'wgEchoMentionStatusNotifications' => false,
+			// enable pings from summary
+			'wgEchoMaxMentionsInEditSummary' => 5,
+		] );
 
-		EchoDiscussionParser::generateEventsForRevision( $revision );
+		EchoDiscussionParser::generateEventsForRevision( $revision, false );
 
 		$this->assertEquals( $expected, $events );
 	}
@@ -717,7 +739,7 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 		// enable multiple sections mentions
 		$this->setMwGlobals( 'wgEchoMentionsOnMultipleSectionEdits', true );
 
-		EchoDiscussionParser::generateEventsForRevision( $revision );
+		EchoDiscussionParser::generateEventsForRevision( $revision, false );
 
 		$this->assertEquals( $expected, $events );
 	}
@@ -919,12 +941,14 @@ TEXT
 			'wgEchoMaxMentionsCount' => 5
 		] );
 
-		EchoDiscussionParser::generateEventsForRevision( $revision );
+		EchoDiscussionParser::generateEventsForRevision( $revision, false );
 
 		$this->assertEquals( $expected, $events );
 	}
 
-	private function setupTestRevisionsForEventGeneration( $newId, $oldId, $username, $lang, $pages, $title ) {
+	private function setupTestRevisionsForEventGeneration( $newId, $oldId, $username, $lang, $pages,
+		$title, $summary = ''
+	) {
 		$langObj = Language::factory( $lang );
 		$this->setMwGlobals( [
 			// this global is used by the code that interprets the namespace part of
@@ -969,6 +993,7 @@ TEXT
 			'parent_id' => $oldId,
 			'text' => $newText,
 			'title' => $title,
+			'comment' => $summary,
 		];
 		$revision = Revision::newFromRow( $row );
 
