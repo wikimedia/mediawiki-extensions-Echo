@@ -37,7 +37,8 @@
 			"Facenapalm",
 			"ЛосЯш",
 			"DevilishSkull",
-			"Smigles"
+			"Smigles",
+			"Mouse21"
 		]
 	},
 	"echo-desc": "Система уведомления участников о событиях и сообщениях",
@@ -47,7 +48,7 @@
 	"prefs-echosubscriptions": "Сообщать мне об этих событиях",
 	"prefs-echocrosswiki": "Уведомления из нескольких вики-проектов («кросс-вики»)",
 	"prefs-newmessageindicator": "Индикатор нового сообщения",
-	"prefs-blocknotificationslist": "Чёрный список",
+	"prefs-blocknotificationslist": "Отключенные участники",
 	"echo-pref-send-me": "Присылать мне:",
 	"echo-pref-send-to": "Отправлять на адрес:",
 	"echo-pref-email-format": "Формат писем:",
@@ -77,6 +78,7 @@
 	"echo-category-title-system": "{{PLURAL:$1|1=Системное|Системные}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|Изменение|Изменения}} прав участника",
 	"echo-category-title-emailuser": "Электронная почта от {{PLURAL:$1|другого участника|других участников}}",
+	"echo-category-title-article-reminder": "Страница {{PLURAL:$1|напоминание|напоминания}}",
 	"echo-pref-tooltip-edit-user-talk": "Сообщать мне, когда кто-то посылает сообщение или отвечает на моей странице обсуждения.",
 	"echo-pref-tooltip-article-linked": "Сообщать мне, когда на созданную мной страницу кто-то ссылается с другой страницы.",
 	"echo-pref-tooltip-reverted": "Сообщать мне, когда кто-то отменил мою правку, используя функцию отмены или отката.",
@@ -146,6 +148,8 @@
 	"notification-link-text-view-page": "Просмотр страницы",
 	"notification-header-edit-user-talk": "$1 оставил{{GENDER:$2||а}} сообщение на <strong>{{GENDER:$3|вашей}} странице обсуждения</strong>.",
 	"notification-header-edit-user-talk-with-section": "$1 оставил{{GENDER:$2||а}} сообщение на <strong>{{GENDER:$3|вашей}} странице обсуждения</strong> в разделе «<strong>$4</strong>».",
+	"notification-compact-header-edit-user-talk": "$1 {{GENDER:$2|оставил}} {{GENDER:$3|вы}} сообщение.",
+	"notification-compact-header-edit-user-talk-with-section": "$1 {{GENDER:$2|оставил}} {{GENDER:$3|вы}} сообщение в \"<strong>$4</strong>\".",
 	"notification-body-edit-user-talk-with-section": "$1",
 	"notification-header-page-linked": "Была сделана ссылка с <strong>$4</strong> на <strong>$3</strong>.",
 	"notification-compact-header-page-linked": "Связано с $1",

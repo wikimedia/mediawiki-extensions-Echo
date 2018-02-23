@@ -162,6 +162,7 @@
 	"notification-header-user-rights-add-and-remove": "Os {{GENDER:$6|seus}} privilégios foram {{GENDER:$1|alterados}}. Foi {{GENDER:$6|adicionado|adicionada|adicionado(a)}} a: $2. Não pertence mais a: $4.",
 	"notification-header-user-rights-expiry-change": "A expiração de {{GENDER:$4|sua}} associação {{PLURAL:$3|no seguinte grupo|nos seguintes grupos}} foi {{GENDER:$1|modificado|modificada}}: $2.",
 	"notification-header-welcome": "{{GENDER:$2|Bem-vindo|Bem-vinda}} ao site {{SITENAME}}, $1! Estamos contentes por ter {{GENDER:$2|você}} aqui.",
+	"notification-header-mention-summary": "$1 {{GENDER:$2|mencionou}} {{GENDER:$4|você}} em um resumo de edição em <strong>$3</strong>.",
 	"notification-welcome-linktext": "Bem-vindo(a)",
 	"notification-header-thank-you-1-edit": "{{GENDER:$2|Você}} acaba de fez {{GENDER:$2|sua}} primeira edição; {{GENDER:$2|Obrigado e seja bem-vindo!|Obrigada e seja bem-vinda!}}",
 	"notification-header-thank-you-10-edit": "{{GENDER:$2|Você}} acaba de fez {{GENDER:$2|sua}} décima edição; {{GENDER:$2|Obrigado|Obrigada}} e continue por aí!",
