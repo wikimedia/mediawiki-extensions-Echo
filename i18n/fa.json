@@ -163,6 +163,7 @@
 	"notification-header-user-rights-add-and-remove": "دسترسی {{GENDER:$6|شما}} تغییر {{GENDER:$1|کرده‌است}}. اضافه شدید به: $2. دیگر در $4 عضو نیستید.",
 	"notification-header-user-rights-expiry-change": "انقضای عضویت {{GENDER:$4|شما}} در این {{PLURAL:$3|گروه|گروه‌ها}}  تغییر {{GENDER:$1|یافته‌است}}: $2",
 	"notification-header-welcome": "$1، به {{SITENAME}} {{GENDER:$2|خوش آمدید}}. خوشحالیم که {{GENDER:$2|شما}} اینجایید.",
+	"notification-header-mention-summary": "$1 {{GENDER:$3|به شما}}  در خلاصه ویرایش  <strong>$4</strong> {{GENDER:$2|اشاره کرد}}.",
 	"notification-welcome-linktext": "خوش‌آمدید",
 	"notification-header-thank-you-1-edit": "{{GENDER:$2|شما}} اولین ویرایشتان را {{GENDER:$2|انجام دادید}}؛ {{GENDER:$2|ممنون}}، خوش‌آمدید!",
 	"notification-header-thank-you-10-edit": "{{GENDER:$2|شما}} دهمین ویرایشتان را {{GENDER:$2|انجام دادید}}؛ {{GENDER:$2|ممنون}}، لطفاً ادامه دهید!",

@@ -144,6 +144,7 @@
 	"notification-header-user-rights-add-and-remove": "Вашыя правы {{GENDER:$6|ўдзельніка|ўдзельніцы}} былі {{GENDER:$1|зьмененыя}}. Вы былі дададзеныя да: $2. Вы больш не ўваходзіце ў: $4.",
 	"notification-header-user-rights-expiry-change": "Тэрмін скачэньня {{GENDER:$4|вашага}} ўдзелу ў {{PLURAL:$3|1=наступнай групе|наступных групах}} быў {{GENDER:$1|зьменены}}: $2.",
 	"notification-header-welcome": "{{GENDER:$2|Вітаем}} у {{GRAMMAR:месны|{{SITENAME}}}}, $1! Мы радыя бачыць {{GENDER:$2|вас}} тут.",
+	"notification-header-mention-summary": "$1 {{GENDER:$2|згадаў|згадала}} {{GENDER:$3|вас}} у апісаньні зьменаў да <strong>$4</strong>.",
 	"notification-welcome-linktext": "Вітаем",
 	"notification-header-thank-you-1-edit": "{{GENDER:$2|Вы}} толькі што зрабілі {{GENDER:$2|вашую}} першую праўку; дзякуем {{GENDER:$2|вам}} і запрашаем!",
 	"notification-header-thank-you-10-edit": "{{GENDER:$2|Вы}} толькі што зрабілі {{GENDER:$2|вашую}} дзясятую праўку; дзякуем {{GENDER:$2|вам}}, так трымаць!",

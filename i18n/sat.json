@@ -2,8 +2,16 @@
 	"@metadata": {
 		"authors": [
 			"Albinus",
-			"Manik Soren"
+			"Manik Soren",
+			"Ramjit Tudu"
 		]
 	},
-	"tooltip-pt-notifications-alert": "{{GENDER:|ᱟᱢᱟᱜ}} ᱵᱟᱰᱟᱭᱡᱚᱝ"
+	"echo-pref-email": "ᱤᱢᱮᱞ",
+	"echo-learn-more": "ᱟᱨᱦᱚᱸ ᱪᱮᱫᱽᱢᱮ",
+	"tooltip-pt-notifications-alert": "{{GENDER:|ᱟᱢᱟᱜ}} ᱵᱟᱰᱟᱭᱡᱚᱝ",
+	"tooltip-pt-notifications-notice": "{{GENDER:|ᱟᱢᱟᱜ}} ᱧᱮᱛᱮᱞᱠᱚ",
+	"notification-link-text-expand-notice-count": "ᱧᱮᱞᱢᱮ {{PLURAL:$1|$1 ᱧᱮᱛᱮᱞ|$1 ᱧᱮᱛᱮᱞᱠᱚ}}",
+	"echo-notification-notice": "{{PLURAL:$1|ᱧᱮᱛᱮᱞ ($1)|ᱧᱮᱛᱮᱞᱠᱚ ($1)|100=ᱧᱮᱛᱮᱞᱠᱚ (᱙᱙+)}}",
+	"echo-notification-notice-text-only": "ᱧᱮᱛᱮᱞᱠᱚ",
+	"notification-header-foreign-notice": "{{PLURAL:$5|ᱟᱨᱢᱤᱫ ᱣᱤᱠᱤ|$5 ᱮᱴᱟᱜ ᱣᱤᱠᱤ ᱠᱚᱨᱮ}} ᱠᱷᱚᱱ ᱵᱟᱹᱲᱛᱤ ᱧᱮᱛᱮᱞᱠᱚ"
 }

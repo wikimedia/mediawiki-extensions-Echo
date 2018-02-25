@@ -148,6 +148,7 @@
 	"notification-header-user-rights-add-and-remove": "{{GENDER:$6|당신}}의 사용자 권한이 {{GENDER:$1|바뀌었습니다}}. 당신은 $2 권한을 받았지만, $4 권한은 더 이상 갖고 있지 않습니다.",
 	"notification-header-user-rights-expiry-change": "$2 {{PLURAL:$3|그룹|그룹들}}에서의 {{GENDER:$4|귀하}}의 멤버십 유효기간이 {{GENDER:$1|변경되었습니다}}.",
 	"notification-header-welcome": "{{SITENAME}}에 오신 것을 {{GENDER:$2|환영}}합니다, $1님! 당신을 만나게 되어 기쁩니다.",
+	"notification-header-mention-summary": "$1님이 <strong>$4</strong>의 편집 요약에서 {{GENDER:$3|당신을}} {{GENDER:$2|언급했습니다}}.",
 	"notification-welcome-linktext": "환영합니다",
 	"notification-header-thank-you-1-edit": "{{GENDER:$2|}}방금 첫 번째 편집을 달성했습니다. 기여에 감사드리며, 환영합니다!",
 	"notification-header-thank-you-10-edit": "{{GENDER:$2|}}방금 10번째 편집을 달성했습니다. 편집에 감사드리며, 앞으로도 좋은 기여 부탁드립니다!",
