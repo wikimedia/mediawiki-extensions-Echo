@@ -31,6 +31,7 @@
 	"prefs-echosubscriptions": "Bu olaylar hakkında bana bildirim gönder",
 	"prefs-echocrosswiki": "Vikilerarası bildirimler",
 	"prefs-newmessageindicator": "Yeni ileti göstergesi",
+	"prefs-blocknotificationslist": "Sessize alınmış kullanıcılar",
 	"echo-pref-send-me": "E-posta bildirim tercihi:",
 	"echo-pref-send-to": "Şuraya gönder:",
 	"echo-pref-email-format": "E-posta biçimi:",

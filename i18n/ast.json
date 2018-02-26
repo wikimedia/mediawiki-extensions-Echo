@@ -141,6 +141,7 @@
 	"notification-header-user-rights-add-and-remove": "{{GENDER:$1|Cambiáronse}} {{GENDER:$6|los tos}} permisos d'usuariu. Amestáronte a $2. Yá nun yes miembru de: $4.",
 	"notification-header-user-rights-expiry-change": "La data de caducidá de la {{GENDER:$4|to}} pertenencia {{PLURAL:$3|al siguiente grupu|a los siguientes grupos}} {{GENDER:$1|cambióse}}: $2.",
 	"notification-header-welcome": "¡{{GENDER:$2|Bienveníu|Bienvenida}} a {{SITENAME}}, $1! Préstanos que {{GENDER:$2|teas}} equí.",
+	"notification-header-mention-summary": "$1 {{GENDER:$3|te}} {{GENDER:$2|mentó}} na descripción de <strong>$4</strong>.",
 	"notification-welcome-linktext": "Bienveníu/a",
 	"notification-header-thank-you-1-edit": "Vienes de facer la {{GENDER:$2|to}} primera edición. ¡Gracies y {{GENDER:$2|bienveníu|bienvenida}}!",
 	"notification-header-thank-you-10-edit": "Vienes de facer la {{GENDER:$2|to}} décima edición. ¡Gracies y {{GENDER:$2|sigui}} col bon trabayu!",
