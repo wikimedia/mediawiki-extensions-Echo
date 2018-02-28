@@ -8,7 +8,8 @@
 			"Sankoswal",
 			"V.narsikar",
 			"संतोष दहिवळ",
-			"Macofe"
+			"Macofe",
+			"Susheelkasab"
 		]
 	},
 	"echo-desc": "सदस्यांना घडामोडी व संदेश देणारी अधिसूचना  प्रणाली",
@@ -145,6 +146,7 @@
 	"notification-header-user-rights-add-and-remove": "{{GENDER:$6|आपले}} सदस्य अधिकार {{GENDER:$1|बदललेत}}. आपण जोडल्या गेले आहात: $2. आपण सध्या सदस्य नाहीत: $4 चे.",
 	"notification-header-user-rights-expiry-change": "खालील {{PLURAL:$3|गटा|गटां}}मधील {{GENDER:$4|आपल्या}} सदस्यत्वाची समाप्ती {{GENDER:$1|बदलल्या}} गेली आहे:$2",
 	"notification-header-welcome": "{{SITENAME}} वर {{GENDER:$2|आपले स्वागत}}, $1! {{GENDER:$2|आपण}} येथे आल्यामुळे आम्हास आनंद झाला.",
+	"notification-header-mention-summary": "$1 यांनी <strong>$4</strong>च्या अद्यन्वित सारांशावर {{GENDER:$3|तुमचा}}{{GENDER:$2|उल्लेख}} केला",
 	"notification-welcome-linktext": "स्वागत",
 	"notification-header-thank-you-1-edit": "{{GENDER:$2|आपण}} {{GENDER:$2|आपले}} पहिले संपादन नुकतेच केले आहे;{{GENDER:$2|आपणास}} धन्यवाद व आपले स्वागत आहे!",
 	"notification-header-thank-you-10-edit": "{{GENDER:$2|आपण}} {{GENDER:$2|आपले}} दहावे संपादन नुकतेच केले आहे;{{GENDER:$2|आपणास}} धन्यवाद व कृपया संपादने सुरु ठेवा!",
