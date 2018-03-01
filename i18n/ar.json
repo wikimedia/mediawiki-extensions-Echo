@@ -163,6 +163,7 @@
 	"notification-header-user-rights-add-and-remove": "{{GENDER:$6|صلاحياتك}} تم {{GENDER:$1|تغييرها}}. أنت تمت إضافتك إلى: $2. أنت لم تعد عضوا في: $4.",
 	"notification-header-user-rights-expiry-change": "تاريخ انتهاء {{GENDER:$4|عضويتك}} في {{PLURAL:$3|المجموعة|المجموعات}} التالية تم {{GENDER:$1|تغييرها}}: $2.",
 	"notification-header-welcome": "{{GENDER:$2|مرحبًا بك|مرحبًا بكِ}} في {{SITENAME}}، $1! نحن سعداءٌ {{GENDER:$2|بتواجدك|بتواجدكِ}} هنا.",
+	"notification-header-mention-summary": "$1 {{GENDER:$2|ذكر|ذكرت}}{{GENDER:$3|ك}} في ملخص تعديل في <strong>$4</strong>.",
 	"notification-welcome-linktext": "أهلاً بك.",
 	"notification-header-thank-you-1-edit": "لقد {{GENDER:$2|قمت|قمتِ}} قبل قليل {{GENDER:$2|بتعديلك|بتعديلكِ}} الأول؛ شكرًا {{GENDER:$2|لك|لكِ}}، ومرحبًا بك!",
 	"notification-header-thank-you-10-edit": "لقد {{GENDER:$2|قمت|قمتِ}} {{GENDER:$2|بتعديلك|بتعديلكِ}} العاشر؛ شكرًا {{GENDER:$2|لك|لكِ}}، و{{GENDER:$2|واصل|واصلي}} العمل!",
