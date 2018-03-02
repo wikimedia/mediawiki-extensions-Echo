@@ -68,7 +68,7 @@
 	"echo-pref-tooltip-mention-failure": "Avise-me quando eu não puder enviar uma menção a alguém.",
 	"echo-pref-tooltip-mention-success": "Notifique me quando eu enviar uma menção para alguém.",
 	"echo-pref-tooltip-user-rights": "Notificar-me quando alguém alterar minhas permissões de usuário.",
-	"echo-pref-tooltip-emailuser": "Notificar-me quando alguém me enviar um email.",
+	"echo-pref-tooltip-emailuser": "Notificar-me quando alguém me enviar um e-mail.",
 	"echo-pref-tooltip-article-reminder": "Avise-me sobre esta página quando eu perguntar.",
 	"echo-error-no-formatter": "Nenhum formato definido para notificações.",
 	"notifications": "Notificações",
