@@ -156,6 +156,7 @@
 	"notification-header-user-rights-add-and-remove": "{{GENDER:$6|Ваші}} права користувача {{GENDER:$1|змінилися}}. Вас було додано до: $2. Ви більше не належите до: $4.",
 	"notification-header-user-rights-expiry-change": "Термін завершення {{GENDER:$4|Вашого}} членства у {{PLURAL:$3|поданій групі|поданих групах}} {{GENDER:$1|змінено}}: $2.",
 	"notification-header-welcome": "{{GENDER:$2|Ласкаво просимо}} до {{GRAMMAR:genitive|{{SITENAME}}}}, $1! Ми раді бачити {{GENDER:$2|Вас}} тут.",
+	"notification-header-mention-summary": "$1 {{GENDER:$2|згадав|згадала}} {{GENDER:$3|Вас}} в описі редагування сторінки <strong>$4</strong>.",
 	"notification-welcome-linktext": "Ласкаво просимо!",
 	"notification-header-thank-you-1-edit": "{{GENDER:$2|Ви}} щойно зробили {{GENDER:$2|своє}} перше редагування; дякуємо {{GENDER:$2|Вам}} і ласкаво просимо!",
 	"notification-header-thank-you-10-edit": "{{GENDER:$2|Ви}} щойно зробили {{GENDER:$2|своє}} десяте редагування; дякуємо {{GENDER:$2|Вам}}, продовжуйте!",

@@ -69,7 +69,7 @@
 	"echo-pref-tooltip-article-reminder": "Meddela mig om denna sida när jag frågar.",
 	"echo-error-no-formatter": "Ingen formatering definierad för avisering.",
 	"notifications": "Aviseringar",
-	"tooltip-pt-notifications-alert": "{{GENDER:|Dina}} systemmeddelanden",
+	"tooltip-pt-notifications-alert": "{{GENDER:|Dina}} notiser",
 	"tooltip-pt-notifications-notice": "{{GENDER:|Dina}} notiser",
 	"echo-displaynotificationsconfiguration": "Visa aviseringskonfiguration",
 	"echo-displaynotificationsconfiguration-summary": "Detta är en översikt av hur aviseringar är konfigurerade på denna wiki.",
