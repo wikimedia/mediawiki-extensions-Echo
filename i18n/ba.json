@@ -107,7 +107,7 @@
 	"notification-link-thank-you-edit": "{{GENDER:$1|Һеҙҙең}} үҙгәртеү",
 	"notification-link-text-view-edit": "Үҙгәртеүҙе ҡарарға",
 	"notification-header-reverted": "{{PLURAL:$4|1=Һеҙҙең}} <strong>$3</strong> битендәге төҙәтмә {{GENDER:$2|{{PLURAL:$4|кире ҡағылды}}}}.",
-	"notification-header-emailuser": "$1{{GENDER:$2|ебәргән}} һеҙгә электрон почта аша ебәрелгән.",
+	"notification-header-emailuser": "$1 һеҙгә хат ебәрҙе.",
 	"notification-edit-talk-page-email-subject2": "{{GENDER:$1|Ҡатнашыусы}} $1 «{{SITENAME}}» сайтында һеҙгә хәбәр ҡалдырҙы.",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 {{GENDER:$1|һулда}} һеҙҙең менән әңгәмәнең \"$2\" битендәге хәбәр.",
 	"notification-page-linked-email-subject": "Һеҙ төҙөгән биткә «{{SITENAME}}» сайтында һылтанма яһалды",

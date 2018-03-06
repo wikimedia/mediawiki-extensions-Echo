@@ -35,12 +35,13 @@
 	"echo-pref-cross-wiki-notifications": "Прикажи обавештења са других викија",
 	"echo-pref-notifications-blacklist": "Не приказуј обавештења од ових корисника. ([[mw:Special:MyLanguage/Help:Notifications#mute|сазнај више]])",
 	"echo-pref-new-message-indicator": "Прикажи индикатор када добијем поруку на страници за разговор",
+	"echo-pref-beta-feature-cross-wiki-description": "Лакши преглед и организација обавештења. Такође укључује обавештења кад добијете поруку на другим викијима. (Да бисте видели обавештења с неког викија, на том викију морате активирати ову бета могућност.)",
 	"echo-learn-more": "Сазнајте више",
 	"echo-log": "Дневници",
 	"echo-new-messages": "Имате нове поруке",
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Поруке}} на страници за разговор",
 	"echo-category-title-article-linked": "{{PLURAL:$1|Повезивање страница}}",
-	"echo-category-title-reverted": "Поништене {{PLURAL:$1|измене}}",
+	"echo-category-title-reverted": "{{PLURAL:$1|Враћање измена}}",
 	"echo-category-title-mention": "{{PLURAL:$1|Спомињања}}",
 	"echo-category-title-mention-failure": "Неуспешна {{PLURAL:$1|спомињања}}",
 	"echo-category-title-mention-success": "Успешна {{PLURAL:$1|спомињања}}",
@@ -166,5 +167,7 @@
 	"echo-email-batch-body-intro-daily": "Здраво $1,\nОво је дневни сажетак данашњих активности на пројекту {{SITENAME}} за вас.",
 	"echo-email-batch-body-intro-weekly": "Здраво $1,\nОво је недељни сажетак активности на пројекту {{SITENAME}} за вас.",
 	"echo-email-batch-link-text-view-all-notifications": "Погледај сва обавештења",
-	"notification-header-foreign-notice": "Још обавештења са {{PLURAL:$5|другог викија|$5 друга викија|$5 других викија}}"
+	"notification-header-foreign-alert": "Више обавештења са {{PLURAL:$5|другог викија|$5 друга викија|$5 других викија}}",
+	"notification-header-foreign-notice": "Више обавештења са {{PLURAL:$5|другог викија|$5 друга викија|$5 других викија}}",
+	"notification-header-foreign-all": "Више обавештења са {{PLURAL:$5|другог викија|$5 друга викија|$5 других викија}}"
 }
