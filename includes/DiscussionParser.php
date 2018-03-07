@@ -100,7 +100,7 @@ abstract class EchoDiscussionParser {
 		// Notify users mentioned in edit summary
 		global $wgEchoMaxMentionsInEditSummary;
 
-		if ( $wgEchoMaxMentionsInEditSummary > 0 && !$isRevert ) {
+		if ( $wgEchoMaxMentionsInEditSummary > 0 && !$user->isBot() && !$isRevert ) {
 			$summaryParser = new EchoSummaryParser();
 			$usersInSummary = $summaryParser->parse( $revision->getComment() );
 
