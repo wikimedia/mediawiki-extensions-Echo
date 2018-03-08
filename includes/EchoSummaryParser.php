@@ -39,7 +39,7 @@ class EchoSummaryParser {
 				$title = Title::newFromText( $match );
 				if ( $title
 					 && $title->isLocal()
-					 && ( $title->getNamespace() === NS_USER || $title->getNamespace() == NS_USER_TALK )
+					 && $title->getNamespace() === NS_USER
 				) {
 					$user = User::newFromName( $title->getText() );
 					$lookup = $this->userLookup;

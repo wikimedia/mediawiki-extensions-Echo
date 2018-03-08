@@ -50,6 +50,7 @@ class EchoSummaryParserTest extends MediaWikiTestCase {
 			[ '[[:|test]]', [] ],
 			[ '[[User:Nonexistent]]', [] ],
 			[ '/* [[User:Werdna */', [] ],
+			[ '[[User talk:Werdna]]', [] ],
 			[ '[[User:Werdna]]', [ 'Werdna' ] ],
 			[ 'this is [[ [[User:Werdna]] ]]', [ 'Werdna' ] ],
 			[ '[[User:Werdna|]]', [ 'Werdna' ] ],
