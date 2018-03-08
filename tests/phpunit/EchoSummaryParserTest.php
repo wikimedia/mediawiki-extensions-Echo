@@ -43,6 +43,11 @@ class EchoSummaryParserTest extends MediaWikiTestCase {
 			[ 'Werdna', [] ],
 			[ 'User:Werdna', [] ],
 			[ '[User:Werdna]', [] ],
+			[ '[[]]', [] ],
+			[ '[[:]]', [] ],
+			[ '[[|]]', [] ],
+			[ '[[:|]]', [] ],
+			[ '[[:|test]]', [] ],
 			[ '[[User:Nonexistent]]', [] ],
 			[ '/* [[User:Werdna */', [] ],
 			[ '[[User:Werdna]]', [ 'Werdna' ] ],
@@ -54,6 +59,9 @@ class EchoSummaryParserTest extends MediaWikiTestCase {
 			[ '/**/[[User:Werdna]][[user:jorm]]', [ 'Werdna', 'Jorm' ] ],
 			[ '/* [[User:Werdna]] */ [[ user : jim_ Carter_]]', [ 'Jim Carter' ] ],
 			[ '[[User:/* Jorm */]][[User:/* remove me */Werdna]]', [] ],
+			[ '[[:User:Werdna]]', [] ],
+			[ '[[:User:Werdna|]]', [] ],
+			[ '[[:User:Werdna|foo]]', [] ],
 		];
 	}
 }

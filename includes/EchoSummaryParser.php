@@ -33,6 +33,9 @@ class EchoSummaryParser {
 		$regex = '/\[\[([' . Title::legalChars() . ']*+)(?:\|.*?)?\]\]/';
 		if ( preg_match_all( $regex, $summary, $matches ) ) {
 			foreach ( $matches[1] as $match ) {
+				if ( preg_match( '/^:/', $match ) ) {
+					continue;
+				}
 				$title = Title::newFromText( $match );
 				if ( $title
 					 && $title->isLocal()
