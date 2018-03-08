@@ -16,6 +16,7 @@
 	"notification-header-thank-you-10000-edit": "{{GENDER:$2|Vu}} jus facis {{GENDER:$2|vua}} dekamilesma redakto; ni dankas {{GENDER:$2|vu}} tre multe!",
 	"notification-header-thank-you-100000-edit": "{{GENDER:$2|Vu}} jus facis {{GENDER:$2|vua}} centamilesma redakto; ni dankas {{GENDER:$2|vu}} por astoniva kontributo!",
 	"notification-header-thank-you-1000000-edit": "{{GENDER:$2|Vu}} jus facis {{GENDER:$2|vua}} milionesma redakto; ni dankas {{GENDER:$2|vu}} por astoniva kontributo!",
+	"notification-link-text-view-edit": "Montrez redakturo",
 	"notification-header-reverted": "Vua {{PLURAL:$4|redakto en <strong>$3</strong>|redakti en <strong>$3</strong>}} {{GENDER:$2|desfacesis}}.",
 	"notification-reverted-email-subject2": "Vua {{PLURAL:$3|redakto|redakti}} {{GENDER:$1|desfacesis}} en {{SITENAME}}"
 }

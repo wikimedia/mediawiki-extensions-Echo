@@ -12,7 +12,8 @@
 			"Predatorix",
 			"FriedhelmW",
 			"MGChecker",
-			"Vogone"
+			"Vogone",
+			"DerHexer"
 		]
 	},
 	"echo-desc": "Stellt ein System zur Benachrichtigung von Benutzern über Ereignisse und Nachrichten bereit",
@@ -157,7 +158,7 @@
 	"notification-header-thank-you-1-edit": "{{GENDER:$2|Du}} hast gerade {{GENDER:$2|deine}} erste Bearbeitung durchgeführt. {{GENDER:$2|Vielen}} Dank und willkommen!",
 	"notification-header-thank-you-10-edit": "{{GENDER:$2|Du}} hast gerade {{GENDER:$2|deine}} zehnte Bearbeitung durchgeführt. {{GENDER:$2|Vielen}} Dank! Mach weiter so!",
 	"notification-header-thank-you-100-edit": "{{GENDER:$2|Du}} hast gerade {{GENDER:$2|deine}} hundertste Bearbeitung durchgeführt. {{GENDER:$2|Vielen}} Dank!",
-	"notification-header-thank-you-1000-edit": "{{GENDER:$2|Du}} hast gerade {{GENDER:$2|deine}} tausendste Bearbeitung durchgeführt. {{GENDER:$2|Vielen}} Dank! Du bist ein großartiger Autor!",
+	"notification-header-thank-you-1000-edit": "{{GENDER:$2|Du}} hast gerade {{GENDER:$2|deine}} tausendste Bearbeitung durchgeführt. {{GENDER:$2|Vielen}} Dank! Du bist großartig!",
 	"notification-header-thank-you-10000-edit": "{{GENDER:$2|Du}} hast gerade {{GENDER:$2|deine}} zehntausendste Bearbeitung durchgeführt. {{GENDER:$2|Vielen}} herzlichen Dank!",
 	"notification-header-thank-you-100000-edit": "{{GENDER:$2|Du}} hast gerade {{GENDER:$2|deine}} hunderttausendste Bearbeitung durchgeführt. {{GENDER:$2|Vielen}} Dank für einen hervorragenden Beitrag!",
 	"notification-header-thank-you-1000000-edit": "{{GENDER:$2|Du}} hast gerade {{GENDER:$2|deine}} millionste Bearbeitung durchgeführt. {{GENDER:$2|Vielen}} Dank für einen erstaunlichen Beitrag!",

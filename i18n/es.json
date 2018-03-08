@@ -28,7 +28,8 @@
 			"Dgstranz",
 			"Hamilton Abreu",
 			"Matiia",
-			"Javiersanp"
+			"Javiersanp",
+			"MarcoAurelio"
 		]
 	},
 	"echo-desc": "Sistema para notificar a los usuarios sobre eventos y mensajes",
@@ -157,6 +158,7 @@
 	"notification-header-user-rights-remove-only": "{{GENDER:$4|Tus}} permisos de usuario han sido {{GENDER:$1|modificados}}. Ya no eres miembro de: $2.",
 	"notification-header-user-rights-add-and-remove": "{{GENDER:$6|Tus}} permisos de usuario han sido {{GENDER:$1|modificados}}. Ahora perteneces a: $2. Ya no eres miembro de: $4.",
 	"notification-header-welcome": "¡{{GENDER:$2|Bienvenido|Bienvenida}} a {{SITENAME}}, $1! Nos alegra que estés aquí.",
+	"notification-header-mention-summary": "$1 {{GENDER:$3|te}} {{GENDER:$2|mencionó}} en un resúmen de edición en <strong>$4</strong>.",
 	"notification-welcome-linktext": "Te damos la bienvenida",
 	"notification-header-thank-you-1-edit": "Acabas de hacer {{GENDER:$2|tu}} primera edición. Gracias y ¡{{GENDER:$2|bienvenido|bienvenida}}!",
 	"notification-header-thank-you-10-edit": "Acabas de hacer {{GENDER:$2|tu}} décima edición. Gracias y ¡sigue así!",
