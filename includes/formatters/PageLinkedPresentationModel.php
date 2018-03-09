@@ -91,7 +91,7 @@ class EchoPageLinkedPresentationModel extends EchoEventPresentationModel {
 		if ( isset( $extra['link-from-page-id'] ) ) {
 			return $extra['link-from-page-id'];
 		}
-		// Backwards compatiblity for events from before https://gerrit.wikimedia.org/r/#/c/63076
+		// Backwards compatibility for events from before https://gerrit.wikimedia.org/r/#/c/63076
 		if ( isset( $extra['link-from-namespace'] ) && isset( $extra['link-from-title'] ) ) {
 			$title = Title::makeTitleSafe( $extra['link-from-namespace'], $extra['link-from-title'] );
 			if ( $title ) {
