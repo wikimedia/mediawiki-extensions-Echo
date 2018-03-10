@@ -3,7 +3,8 @@
 		"authors": [
 			"Amire80",
 			"Njardarlogar",
-			"Jon Harald Søby"
+			"Jon Harald Søby",
+			"Ranveig"
 		]
 	},
 	"echo-desc": "Meldingssystem",
@@ -113,6 +114,7 @@
 	"echo-date-today": "I dag",
 	"echo-date-yesterday": "I går",
 	"echo-load-more-error": "Det oppstod ein feil under henting av fleire resultat.",
+	"notification-bundle-header-edit-user-talk-v2": "{{PLURAL:$1|Ei ny melding|$1 nye meldingar|100=99+ nye meldingar}} på <strong>diskusjonssida {{GENDER:$3|di}}</strong>.",
 	"echo-email-batch-subject-daily": "Du har {{PLURAL:$2|ei ny melding|nye meldingar}} på {{SITENAME}}",
 	"echo-email-batch-subject-weekly": "Du har {{PLURAL:$2|ei ny melding|nye meldingar}} på {{SITENAME}} denne veka",
 	"echo-email-batch-body-intro-daily": "Hei $1.\nHer er eit samandrag av aktiviteten i dag på {{SITENAME}} for deg.",

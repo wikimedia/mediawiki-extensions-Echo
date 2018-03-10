@@ -7,10 +7,12 @@
 			"Maroen1990",
 			"Meno25",
 			"بدارين",
-			"محمد أحمد عبد الفتاح"
+			"محمد أحمد عبد الفتاح",
+			"ديفيد"
 		]
 	},
 	"apihelp-echomarkread-description": "علم الإخطارات للقراءة للمستخدم الحالي.",
+	"apihelp-echomarkread-summary": "علم الإشعارات للقراءة للمستخدم الحالي.",
 	"apihelp-echomarkread-param-list": "قائمة بأرقام الإخطارات للتعليم كمقروءة.",
 	"apihelp-echomarkread-param-unreadlist": "قائمة بأرقام الإخطارات للتعليم كغير مقروءة.",
 	"apihelp-echomarkread-param-all": "لو مضبوطة؛ تعلم على كل إخطارات المستخدم كمقروءة.",
@@ -19,10 +21,12 @@
 	"apihelp-echomarkread-example-2": "تعليم جميع الإشعارات كمقروءة",
 	"apihelp-echomarkread-example-3": "علم على الإخطار 1 كمقروء",
 	"apihelp-echomarkseen-description": "التعليم على الإخطارات كمنظورة للمستخدم الحالي.",
+	"apihelp-echomarkseen-summary": "التعليم على الإخطارات كمنظورة للمستخدم الحالي.",
 	"apihelp-echomarkseen-example-1": "التعليم على الإخطارات من كل الأنواع كمنظورة",
 	"apihelp-echomarkseen-param-type": "نوع الإشعارت  لتحديد كما تبدو على أنها: 'تنبيه' 'رسالة'  أو 'كل'.",
 	"apihelp-echomarkseen-param-timestampFormat": "صيغة الطابع الزمني للاستخدام للناتج 'ISO_8601' أو 'MW'.  'MW' مستغنى عنه هنا، لذا فكل العملاء ينبغي أن يتحولوا إلى 'ISO_8601'.  هذا المعامل ستتم إزالته، و 'ISO_8601' سيصبح صيغة الناتج الوحيدة.",
 	"apihelp-query+notifications-description": "الحصول على الإخطارات قيد الانتظار للمستخدم الحالي.",
+	"apihelp-query+notifications-summary": "الحصول على إشعارات في انتظار المستخدم الحالي.",
 	"apihelp-query+notifications-param-prop": "طلب تفاصيل.",
 	"apihelp-query+notifications-param-sections": "اقسام الأشعار للأستعلام (أي بمعنى بعض الثنائي من \"تنبيه\" و \"رسالة\").",
 	"apihelp-query+notifications-param-groupbysection": "ما إذا يتم جمع النتيجة بالقسم. كل قسم يتم جلبه بشكل مستقل لو مضبوط.",
@@ -45,11 +49,20 @@
 	"apihelp-query+notifications-example-1": "قائمة الإشعارات",
 	"apihelp-query+notifications-example-2": "إخطارات القائمة، التي تم تجميعها حسب القسم، مع احصاء",
 	"apihelp-query+unreadnotificationpages-description": "الحصول على الصفحات التي لها إخطارات غير مقروءة للمستخدم الحالي.",
+	"apihelp-query+unreadnotificationpages-summary": "الحصول على الصفحات التي توجد بها إشعارات غير مقروءة للمستخدم الحالي.",
 	"apihelp-query+unreadnotificationpages-param-grouppages": "جمع صفحات النقاش مع صفحات موضوعها، وجمع الإخطارات غير المرتبطة مع صفحة مع صفحة المستخدم للمستخدم الحالي.",
 	"apihelp-query+unreadnotificationpages-param-limit": "العدد الأقصى للصفحات للإرجاع.",
 	"apihelp-query+unreadnotificationpages-param-wikis": "قائمة بالويكيات لجلب الصفحات مع الإخطارات غير المقروءة منها (افتراضيا الويكي الحالية فقط).",
 	"apihelp-query+unreadnotificationpages-example-1": "قائمة الصفحات مع (عدد) الإخطارات غير المقروءة",
+	"apihelp-echoarticlereminder-summary": "اطلب تذكيرًا مستقبليًا بالمقالة المحددة",
+	"apihelp-echoarticlereminder-param-pageid": "معرف المقالة لتذكير المستخدم بشأنها",
+	"apihelp-echoarticlereminder-param-title": "عنوان المقالة لتذكير المستخدم بشأنها",
+	"apihelp-echoarticlereminder-param-timestamp": "أي طابع زمني لتذكير المستخدم به",
+	"apihelp-echoarticlereminder-param-comment": "تعليق مستخدم اختياري لتضمينه في التذكير",
+	"apihelp-echoarticlereminder-example-1": "إنشاء إشعار تذكير مقالة للغد مع تعليق",
+	"apihelp-echoarticlereminder-example-2": "إنشاء إشعار تذكير مقالة للغد دون تعليق",
 	"apiwarn-echo-deprecation-timestampformat": "صيغة خرج MW timestamp مستغنى عنها هنا. في المستقبل، ISO 8601 سيتم استخدامها دائما لصيغة خرج الطابع الزمني. عدل عميلك واضبط  <var>timestampFormat</var> إلى <kbd>ISO_8601</kbd>.",
 	"apiwarn-echo-deprecation-flyout": "<kbd>notformat=flyout</kbd> تم الاستغناء عنها وستتم إزالتها قريبا. استخدم <kbd>notformat=model</kbd> للحصول على البيانات الخام أو <kbd>notformat=special</kbd> لHTML المهيأ مسبقا.",
-	"apiwarn-echo-deprecation-html": "<kbd>notformat=html</kbd> تم الاستغناء عنها وستتم إزالتها قريبا. استخدم <kbd>notformat=special</kbd> بدلا منها."
+	"apiwarn-echo-deprecation-html": "<kbd>notformat=html</kbd> تم الاستغناء عنها وستتم إزالتها قريبا. استخدم <kbd>notformat=special</kbd> بدلا منها.",
+	"apierror-echo-event-creation-failed": "لا يمكن إنشاء حدث إشعارات"
 }
