@@ -95,12 +95,14 @@ class EchoUserLocator {
 		}
 
 		$dbr = wfGetDB( DB_REPLICA );
+		$revQuery = Revision::getQueryInfo();
 		$res = $dbr->selectRow(
-			[ 'revision' ],
-			[ 'rev_user' ],
+			$revQuery['tables'],
+			[ 'rev_user' => $revQuery['fields']['rev_user'] ],
 			[ 'rev_page' => $title->getArticleID() ],
 			__METHOD__,
-			[ 'LIMIT' => 1, 'ORDER BY' => 'rev_timestamp, rev_id' ]
+			[ 'LIMIT' => 1, 'ORDER BY' => 'rev_timestamp, rev_id' ],
+			$revQuery['joins']
 		);
 		if ( !$res || !$res->rev_user ) {
 			return [];
