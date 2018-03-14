@@ -10,7 +10,8 @@
 			"Dungodung",
 			"Obsuser",
 			"Prevodim",
-			"Acamicamacaraca"
+			"Acamicamacaraca",
+			"BadDog"
 		]
 	},
 	"echo-desc": "Систем за обавештавање корисника о дешавањима и порукама",
@@ -31,7 +32,7 @@
 	"echo-pref-email-frequency-daily": "дневни сажетак обавештења",
 	"echo-pref-email-frequency-weekly": "седмични сажетак обавештења",
 	"echo-pref-email-format-html": "HTML",
-	"echo-pref-email-format-plain-text": "Чист текст",
+	"echo-pref-email-format-plain-text": "обичан текст",
 	"echo-pref-cross-wiki-notifications": "Прикажи обавештења са других викија",
 	"echo-pref-notifications-blacklist": "Не приказуј обавештења од ових корисника. ([[mw:Special:MyLanguage/Help:Notifications#mute|сазнај више]])",
 	"echo-pref-new-message-indicator": "Прикажи индикатор када добијем поруку на страници за разговор",
@@ -105,6 +106,8 @@
 	"notification-header-mention-agent-talkpage-nosection": "$1 Вас је {{GENDER:$2|поменуо|поменула}} {{GENDER:$3|на}} <strong>својој страници за разговор</strong>.",
 	"notification-header-mention-article-talkpage": "$1 Вас је {{GENDER:$2|поменуо|поменула}} {{GENDER:$3|на}} страници за разговор <strong>$4</strong> у „<strong>$5</strong>“.",
 	"notification-header-mention-article-talkpage-nosection": "$1 Вас је {{GENDER:$2|поменуо|поменула}} {{GENDER:$3|на}} страници за разговор <strong>$4</strong>.",
+	"notification-header-mention-failure-user-unknown": "{{GENDER:$2|Ваше}} спомињање корисника <strong>$3</strong> није послато јер корисничко име није пронађено.",
+	"notification-header-mention-failure-user-anonymous": "{{GENDER:$2$2|Ваше}} спомињање корисника <strong>$3</strong> није послано јер је корисник нерегистрован.",
 	"notification-header-mention-failure-too-many": "{{GENDER:$2|Покушали сте}} да поменете више од $3 {{PLURAL:$3|корисника}}. Сва помињања изнад лимита нису послата.",
 	"notification-compact-header-mention-failure-user-unknown": "<strong>Корисничко име не постоји:</strong> $1",
 	"notification-compact-header-mention-failure-user-anonymous": "<strong>Не можете спомињати ИП адресе:</strong> $1",
