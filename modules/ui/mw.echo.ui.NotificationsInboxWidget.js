@@ -67,7 +67,8 @@
 			{
 				framed: true,
 				helpLink: config.helpLink,
-				prefLink: config.prefLink
+				prefLink: config.prefLink,
+				$overlay: this.$overlay
 			}
 		);
 
