@@ -435,7 +435,6 @@
 		"EchoAbortEmailNotification": "EchoHooks::onEchoAbortEmailNotification",
 		"PageContentSaveComplete": "EchoHooks::onPageContentSaveComplete",
 		"LocalUserCreated": "EchoHooks::onLocalUserCreated",
-		"ArticleRollbackComplete": "EchoHooks::onRollbackComplete",
 		"UserSaveSettings": "EchoHooks::onUserSaveSettings",
 		"AbortTalkPageEmailNotification": "EchoHooks::onAbortTalkPageEmailNotification",
 		"SendWatchlistEmailNotification": "EchoHooks::onSendWatchlistEmailNotification",
