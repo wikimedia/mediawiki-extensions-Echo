@@ -28,6 +28,7 @@
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Vienkāršs teksts",
 	"echo-pref-cross-wiki-notifications": "Rādīt paziņojumus no citiem WMF projektiem",
+	"echo-pref-notifications-blacklist": "Nerādīt paziņojumus no šiem dalībniekiem. ([[mw:Special:MyLanguage/Help:Notifications#mute|uzzināt vairāk]])",
 	"echo-pref-new-message-indicator": "Rādīt diskusiju lapas ziņojumu indikatoru manā rīkjoslā",
 	"echo-learn-more": "Uzzināt vairāk",
 	"echo-log": "Publiskais žurnāls",
@@ -43,7 +44,7 @@
 	"echo-category-title-article-reminder": "{{PLURAL:$1|Lapu atgādinājumi|Lapas atgādinājums|Lapu atgādinājumi}}",
 	"echo-pref-tooltip-edit-user-talk": "Paziņot man, kad kāds pievieno ziņojumu vai atbild manā diskusiju lapā.",
 	"echo-pref-tooltip-article-linked": "Paziņot man, kad kāds citā lapā izveido saiti uz manis izveidotu lapu.",
-	"echo-pref-tooltip-reverted": "Paziņot man, kad kāds atceļ manis veiktu labojumu, izmanojot atcelšanas rīku.",
+	"echo-pref-tooltip-reverted": "Paziņot man, kad kāds atceļ manis veiktu labojumu, izmantojot saiti \"atcelt\" vai atcelšanas rīku.",
 	"echo-pref-tooltip-mention": "Paziņot man, kad kāds izveido saiti uz manu dalībnieka lapu.",
 	"echo-pref-tooltip-user-rights": "Paziņot man, kad kāds izmaina manas dalībnieka tiesības.",
 	"echo-pref-tooltip-emailuser": "Paziņot man, kad kāds nosūta man e-pastu.",
@@ -105,6 +106,11 @@
 	"notification-compact-header-mention-failure-user-unknown": "<strong>Dalībnieka vārds nepastāv:</strong> $1",
 	"notification-compact-header-mention-failure-user-anonymous": "<strong>IP adreses nevar pieminēt:</strong> $1",
 	"notification-compact-header-mention-success": "<strong>{{GENDER:$2|Tu pieminēji}}:</strong> $3",
+	"notification-header-user-rights-add-only": "{{GENDER:$4|Tavas}} lietotāja tiesības tika {{GENDER:$1|mainītas}}. Tu tiki {{GENDER:$4|pievienots|pievienota}} grupai: $2.",
+	"notification-header-user-rights-remove-only": "{{GENDER:$4|Tavas}} lietotāja tiesības tika {{GENDER:$1|mainītas}}. Tu vairs neesi grupā: $2.",
+	"notification-header-user-rights-add-and-remove": "{{GENDER:$4|Tavas}} lietotāja tiesības tika {{GENDER:$1|mainītas}}. Tu tiki {{GENDER:$6|pievienots|pievienota}} grupai: $2. Tu vairs neesi grupā: $4.",
+	"notification-header-mention-summary": "$1 {{GENDER:$2|pieminēja}} {{GENDER:$3|tevi}} <strong>$4</strong> labojuma kopsavilkumā.",
+	"notification-welcome-linktext": "Laipni lūdzam!",
 	"notification-header-thank-you-1-edit": "Tu nupat veici savu pirmo labojumu; paldies tev un laipni {{GENDER:$2|lūgts|lūgta}}!",
 	"notification-header-thank-you-10-edit": "Tu nupat veici savu desmito labojumu; paldies tev un {{GENDER:$2|lūdzu turpini}}!",
 	"notification-header-thank-you-100-edit": "Tu nupat veici savu simto labojumu; liels paldies {{GENDER:$2|tev}}!",
@@ -151,5 +157,8 @@
 	"echo-email-batch-subject-weekly": "Jums šonedēļ ir {{PLURAL:$2|jauni paziņojumi|jauns paziņojums|jauni paziņojumi}} par {{SITENAME}}",
 	"echo-email-batch-body-intro-daily": "Sveiks $1,\nŠis ir šīsdienas {{SITENAME}} aktivitāšu saraksts.",
 	"echo-email-batch-body-intro-weekly": "Sveiks $1,\nŠis ir šīs nedēļas {{SITENAME}} aktivitāšu saraksts.",
-	"echo-email-batch-link-text-view-all-notifications": "Apskatīt visus paziņojumus"
+	"echo-email-batch-link-text-view-all-notifications": "Apskatīt visus paziņojumus",
+	"notification-header-foreign-alert": "Brīdinājumi no {{PLURAL:$5|$5 citām vikivietnēm|$5 citas vikivietnes|$5 citām vikivietnēm}}",
+	"notification-header-foreign-notice": "Informācija no {{PLURAL:$5|$5 citām vikivietnēm|$5 citas vikivietnes|$5 citām vikivietnēm}}",
+	"notification-header-foreign-all": "Paziņojumi no {{PLURAL:$5|$5 citām vikivietnēm|$5 citas vikivietnes|$5 citām vikivietnēm}}"
 }

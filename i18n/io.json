@@ -5,9 +5,17 @@
 			"Joao Xavier"
 		]
 	},
+	"prefs-echo": "Avizi",
 	"prefs-emailsettings": "Selekti pri e-posto (e-mail)",
+	"prefs-echocrosswiki": "Notifiki 'Cross-wiki'",
+	"echo-pref-web": "Per reto",
+	"echo-pref-email": "Per e-posto",
+	"echo-pref-cross-wiki-notifications": "Montrez notifiki de altra Wiki",
+	"echo-pref-new-message-indicator": "Montrez indikilo pri mesaji de altra Wiki en mea menuo di utensili",
+	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Mesajo|Mesaji}} en la diskuto-pagino",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Vua}} informi",
 	"echo-specialpage-pagefilters-title": "Recenta agadi",
+	"notification-header-mention-success": "{{GENDER:$2|Vua}} menciono pri <strong>$3</strong> sendesis.",
 	"notification-header-welcome": "{{GENDER:$2|Bonveno}} a {{SITENAME}}, $1! Ni prizas havar {{GENDER:$2|vu}} hike!",
 	"notification-header-thank-you-1-edit": "{{GENDER:$2|Vu}} jus facis {{GENDER:$2|vua}} unesma redakto; ni dankas {{GENDER:$2|vu}}, e bonveno!",
 	"notification-header-thank-you-10-edit": "{{GENDER:$2|Vu}} jus facis {{GENDER:$2|vua}} dekesma redakto; ni dankas {{GENDER:$2|vu}}, e voluntez durar!",

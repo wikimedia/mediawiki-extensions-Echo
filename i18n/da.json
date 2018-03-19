@@ -10,7 +10,8 @@
 			"Cgtdk",
 			"Macofe",
 			"Simeondahl",
-			"SimmeD"
+			"SimmeD",
+			"EeveeSylveon"
 		]
 	},
 	"echo-desc": "System til at give brugere besked om handlinger og meddelelser",
@@ -72,6 +73,7 @@
 	"notification-header-user-rights-remove-only": "{{GENDER:$4|Dine}} brugerrettigheder blev {{GENDER:$1|ændret}}. Du er ikke længere medlem af: $2.",
 	"notification-header-user-rights-add-and-remove": "{{GENDER:$6|Dine}} brugerrettigheder blev {{GENDER:$1|Ændret}}. Du er blevet tilføjet til: $2. Du er ikke længere medlem af: $4.",
 	"notification-header-welcome": "{{GENDER:$2|Velkommen}} til {{SITENAME}}, $1! Vi er glade for {{GENDER:$2|du}} er her.",
+	"notification-header-mention-summary": "$1 {{GENDER:$2|nævnte}} {{GENDER:$3|dig}} i en redigeringsopsummering på <strong>$4</strong>.",
 	"notification-welcome-linktext": "Velkommen",
 	"notification-link-text-view-edit": "Se redigering",
 	"notification-header-reverted": "{{PLURAL:$4|Din redigering af <strong>$3</strong> er blevet tilbagestillet|Dine redigeringer af <strong>$3</strong> er blevet tilbagestillede}} af $2",

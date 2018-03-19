@@ -141,6 +141,7 @@
 	"notification-header-user-rights-remove-only": "{{GENDER:$4|Vaša}} korisnička prava su {{GENDER:$1|promijenjena}}. Više niste član sljedećih grupa: $2.",
 	"notification-header-user-rights-add-and-remove": "{{GENDER:$6|Vaša}} korisnička prava su {{GENDER:$1|promijenjena}}. Sad ste član sljedećih grupa: $2. Više niste član sljedećih grupa: $4.",
 	"notification-header-welcome": "{{GENDER:$2|Dobro došli}} na {{GRAMMAR:akuzativ|{{SITENAME}}}}, $1! Drago nam je što {{GENDER:$2|ste}} ovdje.",
+	"notification-header-mention-summary": "$1 {{GENDER:$3|Vas}} je {{GENDER:$2|spomenuo|spomenula}} u sažetku na stranici <strong>$4</strong>.",
 	"notification-welcome-linktext": "Dobro došli",
 	"notification-header-thank-you-1-edit": "Upravo {{GENDER:$2|ste}} napravili prvu izmjenu; hvala {{GENDER:$2|Vam}} i dobro došli!",
 	"notification-header-thank-you-10-edit": "Upravo {{GENDER:$2|ste}} napravili {{GENDER:$2|svoju}} desetu izmjenu; hvala {{GENDER:$2|Vam}} i samo tako nastavite!",

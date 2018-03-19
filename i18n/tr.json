@@ -140,6 +140,7 @@
 	"notification-header-user-rights-remove-only": "{{GENDER:$4|Kullanıcı}} haklarınız {{GENDER:$1|değiştirildi}}. Çıkarıldığınız yer: $2.",
 	"notification-header-user-rights-add-and-remove": "{{GENDER:$6|Kullanıcı}} haklarınız {{GENDER:$1|değiştirildi}}. Eklendiğiniz yer: $2. Çıkarıldığınız yer: $4.",
 	"notification-header-welcome": "{{SITENAME}}'ye {{GENDER:$2|hoş geldin}} $1! Burada olmandan çok memnunuz.",
+	"notification-header-mention-summary": "$1, <strong>$4</strong> sayfasının değişiklik özetinde sizden bahsetti.",
 	"notification-welcome-linktext": "Hoş geldiniz",
 	"notification-header-thank-you-1-edit": "İlk {{GENDER:$2|değişikliğinizi}} {{GENDER:$2|yaptınız}}; teşekkürler ve hoş geldiniz!",
 	"notification-header-thank-you-10-edit": "Onuncu {{GENDER:$2|değişikliğinizi}} {{GENDER:$2|yaptınız}}; teşekkürler, lütfen devam edin!",
