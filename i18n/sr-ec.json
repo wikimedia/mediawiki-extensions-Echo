@@ -118,7 +118,7 @@
 	"notification-header-user-rights-add-and-remove": "{{GENDER:$6|Ваша}} корисничка права су {{GENDER:$1|промењена}}. Додати сте у $2 а уклоњени из $4.",
 	"notification-header-user-rights-expiry-change": "Истек {{GENDER:$4|Вашег}} чланства у {{PLURAL:$3|следећој групи|следећим групама}} је {{GENDER:$1|промењен}}: $2.",
 	"notification-header-welcome": "{{GENDER:$2|Добро дошли}} на {{SITENAME}}, $1! Драго нам {{GENDER:$2|је}} што сте овде.",
-	"notification-header-mention-summary": "$1 {{GENDER:$2|Вас}} је {{GENDER:$3|поменуо}} у опису измене на страници <strong>$4</strong>.",
+	"notification-header-mention-summary": "$1 {{GENDER:$3|Вас}} је {{GENDER:$2|поменуо|поменула|поменуо}} у опису измене на страници <strong>$4</strong>.",
 	"notification-welcome-linktext": "Добро дошли",
 	"notification-header-thank-you-1-edit": "Управо {{GENDER:$2|сте}} направили прву измену, хвала {{GENDER:$2|Вам}} и добро дошли!",
 	"notification-header-thank-you-10-edit": "Управо {{GENDER:$2|сте}} направили {{GENDER:$2|своју}} десету измену; хвала {{GENDER:$2|Вам}} и само тако наставите!",

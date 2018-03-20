@@ -87,6 +87,7 @@
 	"notification-header-mention-success": "{{GENDER:$2|Vaše}} spominjanje {{GENDER:$3|korisnika|korisnice|korisnika}} <strong>$3</strong> je poslato.",
 	"notification-header-user-rights-remove-only": "{{GENDER:$4|Vaša}} korisnička prava su {{GENDER:$1|promenjena}}. Više niste član sledećih grupa: $2.",
 	"notification-header-welcome": "{{GENDER:$2|Dobro došli}} na {{SITENAME}}, $1! Drago nam {{GENDER:$2|je}} što ste ovde.",
+	"notification-header-mention-summary": "$1 {{GENDER:$3|Vas}} je {{GENDER:$2|pomenuo|pomenula|pomenuo}} u opisu izmene na stranici <strong>$4</strong>.",
 	"notification-welcome-linktext": "Dobro došli",
 	"notification-header-thank-you-1-edit": "Upravo {{GENDER:$2|ste}} napravili prvu izmenu, hvala {{GENDER:$2|Vam}} i dobro došli!",
 	"notification-link-text-view-edit": "Pogledaj izmenu",

@@ -29,7 +29,8 @@
 			"McDutchie",
 			"Ans",
 			"Verdy p",
-			"Mar(c)"
+			"Mar(c)",
+			"Matma Rex"
 		]
 	},
 	"echo-desc": "{{desc|name=Echo|url=https://www.mediawiki.org/wiki/Extension:Echo}} The [https://www.mediawiki.org/wiki/Help:Notifications Mediawiki help] page gives notes on the terminology in this extension.",
@@ -185,7 +186,7 @@
 	"notification-link-thank-you-edit": "Label for the link to the user's edit which triggered a threshold congratulations message.\nParameters:\n* $1 - the username for gender purposes",
 	"notification-link-text-view-edit": "Label for button that links to a \"diff\" view showing an edit made to a page. This is an alternative to the wording in {{msg-mw|notification-link-text-view-changes}}, which serves essentially the same function.",
 	"notification-link-article-reminder": "Label for the link to the article the user requested to be reminded about",
-	"notification-header-reverted": "Notification header of a user's edit being reverted.\n\nParameters:\n* $2 - the username for GENDER\n* $3 - the page that was reverted, formatted\n* $4 - the number of edits that were reverted. NOTE: This will only be set to 1 or 2, with 2 actually meaning \"an unknown number greater than 0\".\n{{Related|Notification-reverted}}",
+	"notification-header-reverted": "Notification header of a user's edit being reverted.\n\nParameters:\n* $2 - the username for GENDER\n* $3 - the page that was reverted, formatted\n* $4 - the number of edits that were reverted\n{{Related|Notification-reverted}}",
 	"notification-body-reverted": "{{notranslate}}",
 	"notification-header-emailuser": "Flyout-specific format for displaying notifications of user has sent an email to another user.\n\nParameters:\n* $1 - the formatted username of the person who sent the email.\n* $2 - the username for GENDER.",
 	"notification-body-emailuser": "{{notranslate}}",
