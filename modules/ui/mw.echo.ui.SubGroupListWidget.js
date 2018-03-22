@@ -73,7 +73,7 @@
 		// Mark all as read button
 		this.markAllReadButton = new OO.ui.ButtonWidget( {
 			framed: true,
-			icon: 'doubleCheck',
+			icon: 'checkAll',
 			label: mw.msg( 'echo-specialpage-section-markread' ),
 			classes: [ 'mw-echo-ui-subGroupListWidget-header-row-markAllReadButton' ]
 		} );

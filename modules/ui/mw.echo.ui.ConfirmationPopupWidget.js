@@ -19,7 +19,7 @@
 		mw.echo.ui.ConfirmationPopupWidget.parent.call( this, config );
 
 		this.labelWidget = new OO.ui.LabelWidget( config );
-		this.iconWidget = new OO.ui.IconWidget( $.extend( { icon: 'doubleCheck' }, config ) );
+		this.iconWidget = new OO.ui.IconWidget( $.extend( { icon: 'checkAll' }, config ) );
 		this.interval = config.interval || 2000;
 
 		this.$element

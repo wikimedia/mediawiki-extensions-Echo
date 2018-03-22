@@ -10,10 +10,6 @@
 		},
 		"tray": {
 			"file": "icons/tray.svg"
-		},
-		"doubleCheck": {
-			"file": "icons/double-check.svg",
-			"variants": [ "invert" ]
 		}
 	}
 }
