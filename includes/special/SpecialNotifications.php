@@ -124,7 +124,7 @@ class SpecialNotifications extends SpecialPage {
 			$markAllAsReadText = $this->msg( 'echo-mark-all-as-read' )->text();
 			$markAllAsReadLabelIcon = new EchoOOUI\LabelIconWidget( [
 				'label' => $markAllAsReadText,
-				'icon' => 'doubleCheck',
+				'icon' => 'checkAll',
 			] );
 
 			$markAllAsReadForm = $markReadSpecialPage->getMinimalForm(
@@ -166,7 +166,7 @@ class SpecialNotifications extends SpecialPage {
 				$markReadSectionText = $this->msg( 'echo-specialpage-section-markread' )->text();
 				$markAsReadLabelIcon = new EchoOOUI\LabelIconWidget( [
 					'label' => $markReadSectionText,
-					'icon' => 'doubleCheck',
+					'icon' => 'checkAll',
 				] );
 
 				// There are unread notices. Add the 'mark section as read' button

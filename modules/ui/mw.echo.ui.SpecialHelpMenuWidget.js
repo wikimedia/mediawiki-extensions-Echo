@@ -28,7 +28,7 @@
 
 		this.markAllReadButton = new OO.ui.ButtonWidget( {
 			framed: false,
-			icon: 'doubleCheck',
+			icon: 'checkAll',
 			label: this.getMarkAllReadButtonLabel()
 		} );
 		this.setPendingElement( this.$element );
