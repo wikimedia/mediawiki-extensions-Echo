@@ -111,7 +111,7 @@
 		) {
 			notice = new mw.echo.ui.FooterNoticeWidget( {
 				// This is probably not the right way of doing this
-				iconUrl: mw.config.get( 'wgExtensionAssetsPath' ) + '/Echo/modules/icons/feedback.svg',
+				iconUrl: mw.config.get( 'wgExtensionAssetsPath' ) + '/Echo/modules/icons/feedback-progressive.svg',
 				message: mw.message(
 					'echo-popup-footer-special-page-invitation',
 					// Text

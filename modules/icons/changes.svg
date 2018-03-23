@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="2 2 20 20">
+	<title>
+		changes
+	</title>
     <path d="M1.6 4h18.72v2H3.68v12H1.6V4zm20.8 2.998V20H4.72V6.998H22.4z"/>
 </svg>

@@ -612,25 +612,25 @@
 		"EchoNotificationIcons": {
 			"value": {
 				"placeholder": {
-					"path": "Echo/modules/icons/generic.svg"
+					"path": "Echo/modules/icons/notice.svg"
 				},
 				"chat": {
-					"path": "Echo/modules/icons/chat.svg"
-				},
-				"edit": {
 					"path": {
-						"ltr": "Echo/modules/icons/ooui-edit-ltr-progressive.svg",
-						"rtl": "Echo/modules/icons/ooui-edit-rtl-progressive.svg"
+						"ltr": "Echo/modules/icons/speechBubbles-ltr-progressive.svg",
+						"rtl": "Echo/modules/icons/speechBubbles-rtl-progressive.svg"
 					}
 				},
+				"edit": {
+					"path": "Echo/modules/icons/edit-progressive.svg"
+				},
 				"edit-user-talk": {
-					"path": "Echo/modules/icons/edit-user-talk.svg"
+					"path": "Echo/modules/icons/edit-user-talk-progressive.svg"
 				},
 				"linked": {
-					"path": "Echo/modules/icons/link-blue.svg"
+					"path": "Echo/modules/icons/link-progressive.svg"
 				},
 				"mention": {
-					"path": "Echo/modules/icons/mention.svg"
+					"path": "Echo/modules/icons/mention-progressive.svg"
 				},
 				"mention-failure": {
 					"path": "Echo/modules/icons/mention-failure.svg"
@@ -639,31 +639,31 @@
 					"path": "Echo/modules/icons/mention-success.svg"
 				},
 				"mention-status-bundle": {
-					"path": "Echo/modules/icons/mention-status-bundle.svg"
+					"path": "Echo/modules/icons/mention-status-bundle-progressive.svg"
 				},
 				"reviewed": {
-					"path": "Echo/modules/icons/reviewed.svg"
+					"path": "Echo/modules/icons/articleCheck-progressive.svg"
 				},
 				"revert": {
 					"path": "Echo/modules/icons/revert.svg"
 				},
 				"user-rights": {
-					"path": "Echo/modules/icons/user-rights.svg"
+					"path": "Echo/modules/icons/user-rights-progressive.svg"
 				},
 				"emailuser": {
-					"path": "Echo/modules/icons/emailuser.svg"
+					"path": "Echo/modules/icons/message-success.svg"
 				},
 				"help": {
 					"path": "Echo/modules/icons/help.svg"
 				},
 				"global": {
-					"path": "Echo/modules/icons/global.svg"
+					"path": "Echo/modules/icons/global-progressive.svg"
 				},
 				"site": {
 					"url": false
 				},
 				"article-reminder": {
-					"path": "Echo/modules/icons/global.svg"
+					"path": "Echo/modules/icons/global-progressive.svg"
 				}
 			},
 			"merge_strategy": "array_plus_2d"
@@ -671,15 +671,15 @@
 		"EchoSecondaryIcons": {
 			"value": {
 				"linked": {
-					"path": "Echo/modules/icons/link-blue.svg"
+					"path": "Echo/modules/icons/link-progressive.svg"
 				},
 				"changes": {
 					"path": "Echo/modules/icons/changes.svg"
 				},
 				"thanks": {
 					"path": {
-						"ltr": "Echo/modules/icons/thanks-ltr.svg",
-						"rtl": "Echo/modules/icons/thanks-rtl.svg"
+						"ltr": "Echo/modules/icons/userTalk-ltr.svg",
+						"rtl": "Echo/modules/icons/userTalk-rtl.svg"
 					}
 				},
 				"userSpeechBubble": {

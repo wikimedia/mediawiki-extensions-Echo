@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+	<title>
+		revert
+	</title>
     <g fill="#54595d" transform="translate(1.16 2.44) scale(.98216)">
         <rect width="11" height="1" x=".5" y="25" rx=".5" ry=".5"/>
         <g transform="rotate(38 8.548 27.52)">
