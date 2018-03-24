@@ -3,88 +3,47 @@
 
 /* stylelint-disable no-descending-specificity */
 .mw-echo-ui-menuItemWidget {
-	// Some extra CSS classes to override OOUI styles with a very specific selector
-	&.oo-ui-iconElement &-icon {
-		display: inline-block;
-		width: 1.5em;
-		height: 1.5em;
-		min-width: 1.5em;
-		min-height: 1.5em;
-
-		position: absolute;
-		top: 0;
+	&:hover {
+		text-decoration: none;
 	}
 
-	&-content {
-		display: inline-block;
-		margin-left: 1.5em + 0.5em; // Icon width + 0.5em spacing
-
-		// We have to override OOUI's color, which uses
-		// a very specific selector
-		font-weight: normal !important;
-		color: @color-base !important;
+	> .oo-ui-labelElement-label {
+		// Override link colour
+		color: @color-base;
 		// Set max-width so buttons are truncated
 		max-width: 15em;
-
-		&-description {
-			color: #54595d !important;
-		}
 	}
 
 	&-prioritized {
 		.mw-echo-ui-mixin-hover-opacity();
 		display: inline-block;
-		padding: 0;
+		// Remove left padding up to icon, 11/14
+		margin-left: -0.78571429em;
 	}
 
 	&-dynamic-action {
-		padding: 1.5em;
-
 		&:hover {
 			background-color: @background-color-base;
 		}
 
-		.mw-echo-ui-menuItemWidget-content {
-			&-description {
-				padding-top: 1em;
-			}
+		> .oo-ui-labelElement-label {
+			white-space: normal;
+			overflow: visible;
+		}
 
-			span.oo-ui-labelElement-label {
-				white-space: normal;
-				overflow: visible;
-			}
+		&.oo-ui-iconElement > .oo-ui-iconElement-icon {
+			// Limit to single line height, 32/14
+			height: 2.28571em;
+		}
+
+		.mw-echo-ui-menuItemWidget-description {
+			color: #54595d;
+			display: block;
+			padding-top: 1em;
 		}
 	}
 
-	// Correct for when inside the popup menu
-	.mw-echo-ui-actionMenuPopupWidget-menu & {
-		display: block;
-		padding: 0.7em;
-
-		&:hover {
-			background-color: #eaecf0;
-		}
-
-		&.oo-ui-iconElement .mw-echo-ui-menuItemWidget-icon {
-			// The icon should be 15px, which is 1.1em. However,
-			// ooui icons are surrounded by whitespace. In this case,
-			// the whitespace is about 6px out of the original 24px
-			// so the non-whitespace dimensions are 3/4 of the total.
-			// So to compensate, the new size should be 1.1em*4/3 = 1.4em
-			width: 1.4em !important;
-			height: 1.4em !important;
-			// Take into account the padding and subtract half of
-			// the whitespace adjustment of the icon
-			top: 0.7em - 0.3em / 2;
-		}
-
-		&-content {
-			margin-left: 1.4em + 0.7em; // Icon width + 0.7em spacing
-			font-weight: bold !important;
-
-			span.oo-ui-labelElement-label {
-				line-height: 1em;
-			}
-		}
+	.mw-echo-ui-actionMenuPopupWidget-menu:hover {
+		background-color: #eaecf0;
 	}
 }
