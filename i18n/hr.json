@@ -50,7 +50,7 @@
 	"echo-pref-tooltip-reverted": "Obavijesti me kad netko ukloni moje uređivanje.",
 	"echo-pref-tooltip-mention": "Obavijesti me kad netko doda poveznicu prema mojoj suradničkoj stranici.",
 	"echo-pref-tooltip-mention-failure": "Obavijesti me kad netko nije dobio obavijest nakon što sam ga spomenuo.",
-	"echo-pref-tooltip-mention-success": "Obavijesti me kad netko dobije obavijest nakon što sam ga spomenuo.",
+	"echo-pref-tooltip-mention-success": "Obavijesti me kad ikom pošaljem spominjanje.",
 	"echo-pref-tooltip-user-rights": "Obavijesti me kad netko promijeni moja suradnička prava.",
 	"echo-pref-tooltip-emailuser": "Obavijesti me kada mi netko pošalje e-poštu.",
 	"notifications": "Obavijesti",

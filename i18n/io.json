@@ -15,6 +15,7 @@
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Mesajo|Mesaji}} en la diskuto-pagino",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Vua}} informi",
 	"echo-specialpage-pagefilters-title": "Recenta agadi",
+	"notification-link-text-view-page": "Montrez pagino",
 	"notification-header-mention-success": "{{GENDER:$2|Vua}} menciono pri <strong>$3</strong> sendesis.",
 	"notification-header-welcome": "{{GENDER:$2|Bonveno}} a {{SITENAME}}, $1! Ni prizas havar {{GENDER:$2|vu}} hike!",
 	"notification-header-thank-you-1-edit": "{{GENDER:$2|Vu}} jus facis {{GENDER:$2|vua}} unesma redakto; ni dankas {{GENDER:$2|vu}}, e bonveno!",
