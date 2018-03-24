@@ -636,7 +636,7 @@
 					"path": "Echo/modules/icons/mention-failure.svg"
 				},
 				"mention-success": {
-					"path": "Echo/modules/icons/mention-success.svg"
+					"path": "Echo/modules/icons/mention-success-constructive.svg"
 				},
 				"mention-status-bundle": {
 					"path": "Echo/modules/icons/mention-status-bundle-progressive.svg"
@@ -651,7 +651,7 @@
 					"path": "Echo/modules/icons/user-rights-progressive.svg"
 				},
 				"emailuser": {
-					"path": "Echo/modules/icons/message-success.svg"
+					"path": "Echo/modules/icons/message-constructive.svg"
 				},
 				"help": {
 					"path": "Echo/modules/icons/help.svg"
