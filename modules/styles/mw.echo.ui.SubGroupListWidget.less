@@ -13,10 +13,14 @@
 		&-row {
 			display: table-row;
 
-			&-title {
+			&-cell {
 				display: table-cell;
+			}
+
+			&-title {
 				width: 100%;
 				vertical-align: bottom;
+				white-space: nowrap;
 
 				.oo-ui-labelElement-label {
 					white-space: normal;
@@ -24,7 +28,6 @@
 			}
 
 			&-markAllReadButton {
-				display: table-cell;
 				text-align: right;
 			}
 		}

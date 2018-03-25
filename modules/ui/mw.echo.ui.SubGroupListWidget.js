@@ -14,9 +14,10 @@
 	 *  for popups.
 	 */
 	mw.echo.ui.SubGroupListWidget = function MwEchoUiSubGroupListWidget( controller, listModel, config ) {
-		var sourceURL,
-			$header = $( '<div>' )
-				.addClass( 'mw-echo-ui-subGroupListWidget-header' );
+		var sourceURL;
+
+		this.$header = $( '<div>' )
+			.addClass( 'mw-echo-ui-subGroupListWidget-header' );
 
 		config = config || {};
 
@@ -56,12 +57,18 @@
 		if ( sourceURL ) {
 			this.title = new OO.ui.ButtonWidget( {
 				framed: false,
-				classes: [ 'mw-echo-ui-subGroupListWidget-header-row-title' ],
+				classes: [
+					'mw-echo-ui-subGroupListWidget-header-row-title',
+					'mw-echo-ui-subGroupListWidget-header-row-cell'
+				],
 				href: sourceURL
 			} );
 		} else {
 			this.title = new OO.ui.LabelWidget( {
-				classes: [ 'mw-echo-ui-subGroupListWidget-header-row-title' ]
+				classes: [
+					'mw-echo-ui-subGroupListWidget-header-row-title',
+					'mw-echo-ui-subGroupListWidget-header-row-cell'
+				]
 			} );
 		}
 
@@ -75,7 +82,10 @@
 			framed: true,
 			icon: 'checkAll',
 			label: mw.msg( 'echo-specialpage-section-markread' ),
-			classes: [ 'mw-echo-ui-subGroupListWidget-header-row-markAllReadButton' ]
+			classes: [
+				'mw-echo-ui-subGroupListWidget-header-row-markAllReadButton',
+				'mw-echo-ui-subGroupListWidget-header-row-cell'
+			]
 		} );
 
 		// Events
@@ -98,7 +108,7 @@
 		this.$element
 			.addClass( 'mw-echo-ui-subGroupListWidget' )
 			.append(
-				$header.append(
+				this.$header.append(
 					$( '<div>' )
 						.addClass( 'mw-echo-ui-subGroupListWidget-header-row' )
 						.append(
@@ -108,6 +118,13 @@
 				),
 				this.listWidget.$element
 			);
+
+		this.$pageContentText = $( '#mw-content-text' );
+		$( window ).resize( this.resizeHeader.bind( this ) );
+
+		// Resize the header after the stack finishes loading
+		// so the widget is attached
+		setTimeout( this.resizeHeader.bind( this ), 0 );
 	};
 
 	/* Initialization */
@@ -115,6 +132,31 @@
 	OO.inheritClass( mw.echo.ui.SubGroupListWidget, OO.ui.Widget );
 
 	/* Methods */
+
+	/**
+	 * Respond to window resize event
+	 */
+	mw.echo.ui.SubGroupListWidget.prototype.resizeHeader = function () {
+		var contentWidth = this.$pageContentText.width(),
+			screenTooNarrow = this.$header.width() > contentWidth;
+
+		// Screen too narrow, put the button under the date
+		this.title.$element.toggleClass(
+			'mw-echo-ui-subGroupListWidget-header-row-cell',
+			!screenTooNarrow
+		);
+		this.markAllReadButton.$element.toggleClass(
+			'mw-echo-ui-subGroupListWidget-header-row-cell',
+			!screenTooNarrow
+		);
+	};
+
+	/**
+	 * Destroy the widget and disconnect events
+	 */
+	mw.echo.ui.SubGroupListWidget.prototype.destroy = function () {
+		$( window ).off( 'resize' );
+	};
 
 	/**
 	 * Toggle the visibility of the mark all read button for this group
