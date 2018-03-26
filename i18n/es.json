@@ -132,6 +132,8 @@
 	"notification-link-text-view-page": "Ver página",
 	"notification-header-edit-user-talk": "$1 te {{GENDER:$2|dejó}} un mensaje en '''{{GENDER:$3|tu}} página de discusión'''.",
 	"notification-header-edit-user-talk-with-section": "$1 te {{GENDER:$2|dejó}} un mensaje en <strong>{{GENDER:$3|tu}} página de discusión</strong> en «<strong>$4</strong>».",
+	"notification-compact-header-edit-user-talk": "$1 {{GENDER:$3|te}} {{GENDER:$2|dejó}} un mensaje.",
+	"notification-compact-header-edit-user-talk-with-section": "$1 {{GENDER:$3|te}} {{GENDER:$2|dejó}} un mensaje en «<strong>$4</strong>».",
 	"notification-header-page-linked": "Se creó un enlace desde <strong>$4</strong> a <strong>$3</strong>.",
 	"notification-compact-header-page-linked": "Enlazado desde <strong>$1</strong>.",
 	"notification-bundle-header-page-linked": "Se crearon enlaces desde {{PLURAL:$5||$5 páginas|100=más de 99 páginas}} a <strong>$3</strong>.",

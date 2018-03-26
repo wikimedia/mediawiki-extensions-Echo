@@ -71,7 +71,7 @@
 	"echo-learn-more": "En savoir plus",
 	"echo-log": "Journal public",
 	"echo-new-messages": "Vous avez de nouveaux messages",
-	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Message|Messages}} de la page de discussion",
+	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Message|Messages}} sur ma page de discussion",
 	"echo-category-title-article-linked": "{{PLURAL:$1|Article lié|Article liés}}",
 	"echo-category-title-reverted": "{{PLURAL:$1|Modification annulée|Modifications annulées}}",
 	"echo-category-title-mention": "{{PLURAL:$1|Mention|Mentions}}",

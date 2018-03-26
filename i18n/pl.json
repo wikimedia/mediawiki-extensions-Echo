@@ -157,7 +157,7 @@
 	"notification-header-user-rights-add-and-remove": "{{GENDER:$6|Twoje}} uprawnienia zostały {{GENDER:$1|zmienione}}. {{GENDER:$6|Zostałeś dodany|Zostałaś dodana}} do: $2. Nie należysz już do: $4.",
 	"notification-header-user-rights-expiry-change": "{{GENDER:$1|Zmieniono}} czas wygaśnięcia {{GENDER:$4|Twojego}} członkostwa w {{PLURAL:$3|następującej grupie|następujących grupach}}: $2.",
 	"notification-header-welcome": "{{GENDER:$2|Witaj}} w {{GRAMMAR:MS.lp|{{SITENAME}}}}, $1! Cieszymy się, że {{GENDER:$2|jesteś}} tutaj.",
-	"notification-header-mention-summary": "$1 {{GENDER:$2|wspomniał|wspomniała}} {{GENDER:$3|o Tobie}} w oposie zmiany na stronie <strong>$4</strong>.",
+	"notification-header-mention-summary": "$1 {{GENDER:$2|wspomniał|wspomniała}} {{GENDER:$3|o Tobie}} w opisie zmiany na stronie <strong>$4</strong>.",
 	"notification-welcome-linktext": "Witaj",
 	"notification-header-thank-you-1-edit": "Właśnie {{GENDER:$2|dokonałeś|dokonałaś}} swojej pierwszej edycji; dziękujemy Ci i zapraszamy!",
 	"notification-header-thank-you-10-edit": "Właśnie {{GENDER:$2|dokonałeś|dokonałaś}} swojej dziesiątej edycji; dziękujemy Ci i tak trzymaj!",

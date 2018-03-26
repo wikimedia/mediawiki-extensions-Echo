@@ -48,6 +48,7 @@
 	"apihelp-query+unreadnotificationpages-param-limit": "Die maximale Anzahl der zurückzugebenden Seiten.",
 	"apihelp-query+unreadnotificationpages-param-wikis": "Listet die Wikis auf, von denen Seiten mit ungelesenen Benachrichtigungen abgerufen werden sollen (Standard: Nur das aktuelle Wiki).",
 	"apihelp-query+unreadnotificationpages-example-1": "Listet Seiten mit (ihre Menge der) ungelesenen Benachrichtigungen auf",
+	"apihelp-echoarticlereminder-summary": "Fordert eine zukünftige Erinnerung über den angegebenen Artikel an",
 	"apihelp-echoarticlereminder-param-pageid": "Kennung des Artikels, an den der Benutzer erinnert werden soll.",
 	"apihelp-echoarticlereminder-param-title": "Name des Artikels, an den der Benutzer erinnert werden soll.",
 	"apihelp-echoarticlereminder-param-timestamp": "An welchem Zeitstempel der Benutzer erinnert werden soll",
