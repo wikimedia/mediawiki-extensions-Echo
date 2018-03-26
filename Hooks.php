@@ -598,15 +598,14 @@ class EchoHooks {
 			if ( $undidRevision && $undidRevision->getTitle()->equals( $title ) ) {
 				$victimId = $undidRevision->getUser();
 				if ( $victimId ) { // No notifications for anonymous users
-					$revisionCount = self::countRevisions( $wikiPage->getId(), $baseRevId, $undidRevId );
 					EchoEvent::create( [
 						'type' => 'reverted',
 						'title' => $title,
 						'extra' => [
 							'revid' => $revision->getId(),
 							'reverted-user-id' => $victimId,
-							'reverted-revision-count' => $revisionCount,
 							'reverted-revision-id' => $undidRevId,
+							'method' => 'undo',
 							'summary' => $summary,
 						],
 						'agent' => $user,
@@ -616,32 +615,6 @@ class EchoHooks {
 		}
 
 		return true;
-	}
-
-	/**
-	 * Counts revisions int a page between two given revisions
-	 *
-	 * @param int $pageId
-	 * @param int $revIdFrom
-	 * @param int $revIdTo
-	 * @return bool|int
-	 */
-	private static function countRevisions( $pageId, $revIdFrom, $revIdTo ) {
-		// The edit has just been made, can't guarantee it's on replicas
-		$dbw = wfGetDB( DB_MASTER );
-		$count = $dbw->selectField( 'revision',
-			'COUNT(*)',
-			[
-				'rev_page' => $pageId,
-				"rev_id > {$dbw->addQuotes( $revIdFrom )}",
-				"rev_id <= {$dbw->addQuotes( $revIdTo )}",
-			],
-			__METHOD__
-		);
-		if ( $count !== false ) {
-			$count = (int)$count;
-		}
-		return $count;
 	}
 
 	/**
@@ -1211,6 +1184,40 @@ class EchoHooks {
 			// show new messages alert
 			return true;
 		}
+	}
+
+	/**
+	 * Handler for ArticleRollbackComplete hook.
+	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/ArticleRollbackComplete
+	 *
+	 * @param WikiPage $wikiPage The article that was edited
+	 * @param User $agent The user who did the rollback
+	 * @param Revision $newRevision The revision the page was reverted back to
+	 * @param Revision $oldRevision The revision of the top edit that was reverted
+	 *
+	 * @return bool true in all cases
+	 */
+	public static function onRollbackComplete( WikiPage $wikiPage, $agent, $newRevision, $oldRevision ) {
+		$victimId = $oldRevision->getUser();
+
+		if (
+			$victimId && // No notifications for anonymous users
+			!$oldRevision->getContent()->equals( $newRevision->getContent() ) // No notifications for null rollbacks
+		) {
+			EchoEvent::create( [
+				'type' => 'reverted',
+				'title' => $wikiPage->getTitle(),
+				'extra' => [
+					'revid' => $wikiPage->getRevision()->getId(),
+					'reverted-user-id' => $victimId,
+					'reverted-revision-id' => $oldRevision->getId(),
+					'method' => 'rollback',
+				],
+				'agent' => $agent,
+			] );
+		}
+
+		return true;
 	}
 
 	/**

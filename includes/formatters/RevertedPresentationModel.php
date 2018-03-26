@@ -62,18 +62,12 @@ class EchoRevertedPresentationModel extends EchoEventPresentationModel {
 	 * @return int
 	 */
 	private function getNumberOfEdits() {
-		// b/c for old notifications
 		$method = $this->event->getExtraParam( 'method' );
 		if ( $method && $method === 'rollback' ) {
 			return 2;
+		} else {
+			return 1;
 		}
-
-		$count = $this->event->getExtraParam( 'reverted-revision-count' );
-		if ( $count > 0 ) {
-			return $count;
-		}
-		// "Educated guess"
-		return 1;
 	}
 
 	private function isAutomaticSummary( $summary ) {
