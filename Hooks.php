@@ -5,6 +5,11 @@ use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 
 class EchoHooks {
+	/**
+	 * @var Revision
+	 */
+	private static $lastRevertedRevision = null;
+
 	public static function registerExtension() {
 		global $wgNotificationSender, $wgPasswordSender, $wgAllowHTMLEmail,
 			$wgEchoNotificationCategories, $wgDefaultUserOptions;
@@ -549,7 +554,12 @@ class EchoHooks {
 
 		// Try to do this after the HTTP response
 		DeferredUpdates::addCallableUpdate( function () use ( $revision, $undidRevId ) {
-			EchoDiscussionParser::generateEventsForRevision( $revision, !!$undidRevId );
+			// This check has to happen during deferred processing, otherwise $lastRevertedRevision
+			// will not be initialized.
+			$isRevert = $undidRevId > 0 ||
+				( self::$lastRevertedRevision &&
+				self::$lastRevertedRevision->getId() === $revision->getId() );
+			EchoDiscussionParser::generateEventsForRevision( $revision, $isRevert );
 		} );
 
 		// If the user is not an IP and this is not a null edit,
@@ -1199,6 +1209,8 @@ class EchoHooks {
 	 */
 	public static function onRollbackComplete( WikiPage $wikiPage, $agent, $newRevision, $oldRevision ) {
 		$victimId = $oldRevision->getUser();
+		$latestRevision = $wikiPage->getRevision();
+		self::$lastRevertedRevision = $latestRevision;
 
 		if (
 			$victimId && // No notifications for anonymous users
@@ -1208,7 +1220,7 @@ class EchoHooks {
 				'type' => 'reverted',
 				'title' => $wikiPage->getTitle(),
 				'extra' => [
-					'revid' => $wikiPage->getRevision()->getId(),
+					'revid' => $latestRevision->getId(),
 					'reverted-user-id' => $victimId,
 					'reverted-revision-id' => $oldRevision->getId(),
 					'method' => 'rollback',
