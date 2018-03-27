@@ -49,7 +49,7 @@
 	"echo-feedback": "ప్రతిస్పందన",
 	"notification-link-text-view-message": "సందేశాన్ని చూడు",
 	"notification-link-text-view-mention": "పేరెన్నికను చూడు",
-	"notification-link-text-view-changes": "మార్పులు చూడు",
+	"notification-link-text-view-changes": "మార్పులను {{GENDER:$1|చూడండి}}",
 	"notification-link-text-view-page": "పేజీని చూడు",
 	"notification-header-mention-failure-user-unknown": "$3 గురించిన {{GENDER:$2|మీ}} ప్రస్తావనను, ఆ వాడుకరి కనబడనందువలన  పంపించలేదు.",
 	"notification-header-mention-failure-user-anonymous": "$3 గురించిన {{GENDER:$2|మీ}} ప్రస్తావనను, వారు అజ్ఞాతంగా ఉన్నందున పంపించలేకపోయాం.",

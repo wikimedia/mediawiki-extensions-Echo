@@ -13,7 +13,8 @@
 			"Thibaut120094",
 			"Marine-Blue",
 			"Translatealcd",
-			"Omotecho"
+			"Omotecho",
+			"Yusuke1109"
 		]
 	},
 	"echo-desc": "イベントおよびメッセージについて、ユーザーに通知するシステム",
@@ -53,6 +54,7 @@
 	"echo-category-title-system": "{{PLURAL:$1|システム}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|利用者権限の変更}}",
 	"echo-category-title-emailuser": "{{PLURAL:$1|他の利用者からのメール}}",
+	"echo-category-title-article-reminder": "ページ{{PLURAL:$1|リマインダー}}",
 	"echo-pref-tooltip-edit-user-talk": "誰かが私のトークページでメッセージの投稿または返信をしたときに通知する。",
 	"echo-pref-tooltip-article-linked": "誰かが自分の作成したページに記事からリンクしたときに通知する。",
 	"echo-pref-tooltip-reverted": "誰かが取り消しや巻き戻しの機能で私の編集を差し戻したときに通知する。",
