@@ -1,10 +1,9 @@
-( function ( mw, $ ) {
+( function ( mw ) {
 	/**
 	 * Secondary menu item
 	 *
 	 * @class
-	 * @extends OO.ui.Widget
-	 * @mixins OO.ui.mixin.IconElement
+	 * @extends OO.ui.DecoratedOptionWidget
 	 * @mixins OO.ui.mixin.PendingElement
 	 *
 	 * @constructor
@@ -17,14 +16,17 @@
 	mw.echo.ui.MenuItemWidget = function MwEchoUiMenuItemWidget( config ) {
 		config = config || {};
 
+		this.dynamic = config.type === 'dynamic-action';
+		// Needs to be set before parent constructor is called
+		// as it changes the value of getTagName.
+		this.isLink = config.url && !this.isDynamicAction();
+
 		// Parent constructor
 		mw.echo.ui.MenuItemWidget.parent.call( this, config );
 
 		// Mixin constructors
-		OO.ui.mixin.IconElement.call( this, config );
 		OO.ui.mixin.PendingElement.call( this, config );
 
-		this.dynamic = config.type === 'dynamic-action';
 		this.prioritized = !!config.prioritized;
 		this.messages = this.isDynamicAction() ?
 			config.actionData.messages :
@@ -34,49 +36,30 @@
 
 		// Optional description
 		this.descriptionLabel = new OO.ui.LabelWidget( {
-			classes: [ 'mw-echo-ui-menuItemWidget-content-description' ],
+			classes: [ 'mw-echo-ui-menuItemWidget-description' ],
 			label: config.description || ''
 		} );
 		this.descriptionLabel.toggle( !this.prioritized && config.description );
+
+		this.$label.append( this.descriptionLabel.$element );
 
 		// Build the option
 		this.$element
 			.addClass( 'mw-echo-ui-menuItemWidget' )
 			.toggleClass( 'mw-echo-ui-menuItemWidget-prioritized', this.prioritized )
-			.toggleClass( 'mw-echo-ui-menuItemWidget-dynamic-action', this.isDynamicAction() )
-			.append(
-				this.$icon
-					.addClass( 'mw-echo-ui-menuItemWidget-icon' ),
-				$( '<div>' )
-					.addClass( 'mw-echo-ui-menuItemWidget-content' )
-					.append(
-						this.$label
-							.addClass( 'mw-echo-ui-menuItemWidget-content-label' ),
-						this.descriptionLabel.$element
-					)
-			);
+			.toggleClass( 'mw-echo-ui-menuItemWidget-dynamic-action', this.isDynamicAction() );
 
-		if ( config.url && !this.isDynamicAction() ) {
-			this.hasLink = true;
-			this.$element.contents()
-				.wrapAll(
-					// HACK: Wrap the entire item with a link that takes
-					// the user to the primary url. This is not perfect,
-					// but it makes the behavior native to the browser rather
-					// than us listening to click events and opening new
-					// windows.
-					$( '<a>' )
-						.addClass( 'mw-echo-ui-menuItemWidget-linkWrapper' )
-						.attr( 'href', config.url )
-						.attr( 'title', config.tooltip )
-				);
+		if ( this.isLink ) {
+			this.$element.attr( {
+				href: config.url,
+				title: config.tooltip
+			} );
 		}
 	};
 
 	/* Initialization */
 
-	OO.inheritClass( mw.echo.ui.MenuItemWidget, OO.ui.OptionWidget );
-	OO.mixinClass( mw.echo.ui.MenuItemWidget, OO.ui.mixin.IconElement );
+	OO.inheritClass( mw.echo.ui.MenuItemWidget, OO.ui.DecoratedOptionWidget );
 	OO.mixinClass( mw.echo.ui.MenuItemWidget, OO.ui.mixin.PendingElement );
 
 	/* Static Properties */
@@ -86,11 +69,15 @@
 
 	/* Methods */
 
+	mw.echo.ui.MenuItemWidget.prototype.getTagName = function () {
+		return this.isLink ? 'a' : 'div';
+	};
+
 	mw.echo.ui.MenuItemWidget.prototype.isSelectable = function () {
 		// If we have a link force selectability to false, otherwise defer to parent method
 		// Without a link (for dynamic actions or specific internal actions) we need this widget
 		// to be selectable so it emits the 'choose' event
-		return !this.hasLink && mw.echo.ui.MenuItemWidget.parent.prototype.isSelectable.apply( this, arguments );
+		return !this.isLink && mw.echo.ui.MenuItemWidget.parent.prototype.isSelectable.apply( this, arguments );
 	};
 
 	/**
@@ -134,4 +121,4 @@
 	mw.echo.ui.MenuItemWidget.prototype.isDynamicAction = function () {
 		return this.dynamic;
 	};
-}( mediaWiki, jQuery ) );
+}( mediaWiki ) );
