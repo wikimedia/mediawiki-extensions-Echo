@@ -10,12 +10,14 @@
 		display: block;
 		width: 20px;
 		height: 20px;
-		padding: 0 2px;
+		margin: 0 2px;
 		// Hide the text, but keep accessible for screen-readers
 		// Later we put the icons back onscreen with an opposite offset
 		top: -@badge-offscreen-offset - 5px;
 		cursor: pointer;
 		text-decoration: none;
+		line-height: normal;
+		.box-sizing( border-box );
 
 		&:hover,
 		&:active,
