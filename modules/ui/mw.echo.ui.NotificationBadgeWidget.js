@@ -24,7 +24,7 @@
 	 */
 	mw.echo.ui.NotificationBadgeWidget = function MwEchoUiNotificationBadgeButtonPopupWidget( controller, manager, config ) {
 		var buttonFlags, allNotificationsButton, preferencesButton, footerButtonGroupWidget, $footer,
-			notice, adjustedTypeString;
+			adjustedTypeString;
 
 		config = config || {};
 		config.links = config.links || {};
@@ -103,28 +103,6 @@
 		$footer = $( '<div>' )
 			.addClass( 'mw-echo-ui-notificationBadgeButtonPopupWidget-footer' )
 			.append( footerButtonGroupWidget.$element );
-
-		// Footer notice
-		if (
-			mw.config.get( 'wgEchoShowSpecialPageInvitation' ) &&
-			!mw.user.options.get( 'echo-dismiss-special-page-invitation' )
-		) {
-			notice = new mw.echo.ui.FooterNoticeWidget( {
-				// This is probably not the right way of doing this
-				iconUrl: mw.config.get( 'wgExtensionAssetsPath' ) + '/Echo/modules/icons/feedback-progressive.svg',
-				message: mw.message(
-					'echo-popup-footer-special-page-invitation',
-					// Text
-					mw.msg( 'echo-popup-footer-special-page-invitation-link' ),
-					// Link
-					mw.util.getUrl( 'Special:Notifications' )
-				).parse()
-			} );
-			// Event
-			notice.connect( this, { dismiss: 'onFooterNoticeDismiss' } );
-			// Prepend to the footer
-			$footer.prepend( notice.$element );
-		}
 
 		this.popup = new OO.ui.PopupWidget( {
 			$content: this.notificationsWidget.$element,
@@ -226,16 +204,6 @@
 	 */
 	mw.echo.ui.NotificationBadgeWidget.prototype.onNotificationsListModified = function () {
 		this.popup.clip();
-	};
-
-	mw.echo.ui.NotificationBadgeWidget.prototype.onFooterNoticeDismiss = function () {
-		// Clip again to recalculate height
-		this.popup.clip();
-
-		// Save the preference in general
-		new mw.Api().saveOption( 'echo-dismiss-special-page-invitation', 1 );
-		// Save the preference for this session
-		mw.user.options.set( 'echo-dismiss-special-page-invitation', 1 );
 	};
 
 	/**

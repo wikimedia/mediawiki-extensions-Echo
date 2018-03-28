@@ -28,8 +28,7 @@
 	},
 	"DefaultUserOptions": {
 		"echo-show-alert": true,
-		"echo-email-frequency": 0,
-		"echo-dismiss-special-page-invitation": 0
+		"echo-email-frequency": 0
 	},
 	"ExtensionFunctions": [
 		"EchoHooks::initEchoExtension"
@@ -75,10 +74,6 @@
 				"mediawiki.util",
 				"mediawiki.api.options"
 			],
-			"messages": [
-				"echo-popup-footer-special-page-invitation",
-				"echo-popup-footer-special-page-invitation-link"
-			],
 			"targets": [
 				"desktop"
 			]
@@ -98,7 +93,6 @@
 				"ui/mw.echo.ui.ClonedNotificationItemWidget.js",
 				"ui/mw.echo.ui.ActionMenuPopupWidget.js",
 				"ui/mw.echo.ui.MenuItemWidget.js",
-				"ui/mw.echo.ui.FooterNoticeWidget.js",
 				"ui/mw.echo.ui.NotificationsWrapper.js",
 				"ui/mw.echo.ui.ConfirmationPopupWidget.js",
 				"ext.echo.moment-hack.js"
@@ -113,7 +107,6 @@
 				"styles/mw.echo.ui.SubGroupListWidget.less",
 				"styles/mw.echo.ui.ActionMenuPopupWidget.less",
 				"styles/mw.echo.ui.MenuItemWidget.less",
-				"styles/mw.echo.ui.FooterNoticeWidget.less",
 				"styles/mw.echo.ui.NotificationsWrapper.less",
 				"styles/mw.echo.ui.ConfirmationPopupWidget.less"
 			],
@@ -495,12 +488,6 @@
 		},
 		"EchoNewMsgAlert": {
 			"value": true
-		},
-		"EchoShowFooterNotice": {
-			"value": false
-		},
-		"EchoFooterNoticeURL": {
-			"value": ""
 		},
 		"DefaultNotifyTypeAvailability": {
 			"value": {

@@ -317,7 +317,7 @@ class EchoHooks {
 		global $wgEchoEnableEmailBatch,
 			$wgEchoNotifiers, $wgEchoNotificationCategories, $wgEchoNotifications,
 			$wgEchoNewMsgAlert, $wgAllowHTMLEmail, $wgEchoUseCrossWikiBetaFeature,
-			$wgEchoShowFooterNotice, $wgEchoCrossWikiNotifications, $wgEchoPerUserBlacklist;
+			$wgEchoCrossWikiNotifications, $wgEchoPerUserBlacklist;
 
 		$attributeManager = EchoAttributeManager::newFromGlobalVars();
 
@@ -485,12 +485,6 @@ class EchoHooks {
 		if ( isset( $wgEchoNotifications['edit-user-talk'] ) ) {
 			$preferences['enotifusertalkpages']['type'] = 'hidden';
 			unset( $preferences['enotifusertalkpages']['section'] );
-		}
-
-		if ( $wgEchoShowFooterNotice ) {
-			$preferences['echo-dismiss-special-page-invitation'] = [
-				'type' => 'api',
-			];
 		}
 
 		if ( $wgEchoPerUserBlacklist ) {
@@ -878,7 +872,7 @@ class EchoHooks {
 	 * @return bool true in all cases
 	 */
 	public static function onPersonalUrls( &$personal_urls, &$title, $sk ) {
-		global $wgEchoNewMsgAlert, $wgEchoShowFooterNotice;
+		global $wgEchoNewMsgAlert;
 		$user = $sk->getUser();
 		if ( $user->isAnon() ) {
 			return true;
@@ -966,13 +960,6 @@ class EchoHooks {
 			'alert' => $seenAlertTime,
 			'notice' => $seenMsgTime,
 		] );
-
-		if (
-			$wgEchoShowFooterNotice &&
-			!$user->getOption( 'echo-dismiss-special-page-invitation' )
-		) {
-			$sk->getOutput()->addJsConfigVars( 'wgEchoShowSpecialPageInvitation', true );
-		}
 
 		$msgFormattedCount = EchoNotificationController::formatNotificationCount( $msgCount );
 		$alertFormattedCount = EchoNotificationController::formatNotificationCount( $alertCount );
@@ -1459,10 +1446,7 @@ class EchoHooks {
 	}
 
 	public static function onResourceLoaderGetConfigVars( &$vars ) {
-		global $wgEchoFooterNoticeURL;
-
 		$vars['wgEchoMaxNotificationCount'] = MWEchoNotifUser::MAX_BADGE_COUNT;
-		$vars['wgEchoFooterNoticeURL'] = $wgEchoFooterNoticeURL;
 
 		return true;
 	}
