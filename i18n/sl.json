@@ -86,8 +86,6 @@
 	"echo-none": "Ni obvestil.",
 	"echo-more-info": "Več informacij",
 	"echo-feedback": "Povratne informacije",
-	"echo-popup-footer-special-page-invitation": "<strong>Preizkusi prenovljeno stran obvestil.</strong> [$2 $1]",
-	"echo-popup-footer-special-page-invitation-link": "Novi izgled in funkcije.",
 	"echo-api-failure": "Pri izpisu obvestil je prišlo do napake.",
 	"echo-api-failure-cross-wiki": "Dostop do oddaljene domene je bil zavrnjen.",
 	"echo-notification-placeholder": "Ni obvestil.",

@@ -111,8 +111,6 @@
 	"echo-none": "您没有通知。",
 	"echo-more-info": "更多信息",
 	"echo-feedback": "反馈",
-	"echo-popup-footer-special-page-invitation": "<strong>尝试重新设计的通知页面。</strong>[$2 $1]",
-	"echo-popup-footer-special-page-invitation-link": "所有新外观和功能。",
 	"echo-quotation-marks": "“$1”",
 	"echo-api-failure": "检索通知失败。",
 	"echo-api-failure-cross-wiki": "对远程域名的访问已拒绝。",

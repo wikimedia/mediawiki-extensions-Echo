@@ -100,8 +100,6 @@
 	"echo-none": "Você não tem notificações.",
 	"echo-more-info": "Mais informações",
 	"echo-feedback": "Comentários",
-	"echo-popup-footer-special-page-invitation": "<strong>Experimente a página de Notificações redesenhada.</strong> [$2 $1]",
-	"echo-popup-footer-special-page-invitation-link": "Todos os novos looks e recursos.",
 	"echo-quotation-marks": "\"$1\"",
 	"echo-api-failure": "Não foi possível recuperar as notificações.",
 	"echo-api-failure-cross-wiki": "O acesso ao domínio remoto foi negado.",

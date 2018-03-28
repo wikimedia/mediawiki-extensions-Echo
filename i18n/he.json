@@ -91,8 +91,6 @@
 	"echo-none": "אין לך הודעות.",
 	"echo-more-info": "מידע נוסף",
 	"echo-feedback": "משוב",
-	"echo-popup-footer-special-page-invitation": "<strong>{{GENDER:|נסה|נסי|נסו}} את העיצוב החדש של דף ההודעות.</strong> [$2 $1]",
-	"echo-popup-footer-special-page-invitation-link": "המראה החדש וכל התכונות החדשות.",
 	"echo-api-failure": "לא ניתן היה לאחזר הודעות.",
 	"echo-api-failure-cross-wiki": "לא ניתנה גישה למתחם המרוחק.",
 	"echo-notification-placeholder": "אין הודעות.",

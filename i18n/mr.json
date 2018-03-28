@@ -85,8 +85,6 @@
 	"echo-none": "आपल्यासाठी काहीच अधिसूचना नाहीत.",
 	"echo-more-info": "अधिक माहिती",
 	"echo-feedback": "प्रतिक्रिया",
-	"echo-popup-footer-special-page-invitation": "<strong>पुनर्रचित अधिसूचनेच्या पानावर प्रयत्न करा.</strong> [$2 $1]",
-	"echo-popup-footer-special-page-invitation-link": "पूर्णपणे नविन दिखावा व फिचर्स",
 	"echo-quotation-marks": "\"$1\"",
 	"echo-api-failure": "अधिसूचना पुरविण्यात अयशस्वी.",
 	"echo-api-failure-cross-wiki": "दूरवरच्या विदागारास पोहोच नाकारण्यात आली आहे.",

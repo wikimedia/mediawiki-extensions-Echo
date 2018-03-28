@@ -90,8 +90,6 @@
 	"echo-none": "Sinulla ei ole ilmoituksia.",
 	"echo-more-info": "Lisätietoja",
 	"echo-feedback": "Palaute",
-	"echo-popup-footer-special-page-invitation": "<strong>Kokeile uusittua Ilmoitukset-sivua.</strong> [$2 $1]",
-	"echo-popup-footer-special-page-invitation-link": "Täysin uusi ilme ja uusia ominaisuuksia.",
 	"echo-api-failure": "Ilmoitusten hakeminen epäonnistui.",
 	"echo-api-failure-cross-wiki": "Pääsy etäkoneeseen on estetty.",
 	"echo-notification-placeholder": "Ei ilmoituksia.",

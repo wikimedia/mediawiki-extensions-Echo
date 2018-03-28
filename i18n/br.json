@@ -61,7 +61,6 @@
 	"echo-none": "N'ho peus resevet kemenn ebet.",
 	"echo-more-info": "Gouzout hiroc'h",
 	"echo-feedback": "Sonjoù",
-	"echo-popup-footer-special-page-invitation": "<strong>Klaskit gant ar bajenn kemennoù, un tres nevez zo ganti.</strong> [$2 $1]",
 	"echo-api-failure": "N'eus ket bet gallet mont da gerc'hat ar c'hemennadennoù.",
 	"echo-notification-placeholder": "N'eus kemenn ebet.",
 	"echo-notification-loginrequired": "Ret eo deoc'h kevreañ evit gallout lenn ho kemennoù.",

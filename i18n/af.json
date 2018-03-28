@@ -48,8 +48,6 @@
 	"echo-none": "U het geen kennisgewings nie.",
 	"echo-more-info": "Meer inligting",
 	"echo-feedback": "Terugvoer",
-	"echo-popup-footer-special-page-invitation": "<strong>Probeer die herontwerpte kennisgewingsbladsy.</strong> [$2 $1]",
-	"echo-popup-footer-special-page-invitation-link": "'n Heel nuwe uiterlik en nuwe funksies.",
 	"echo-api-failure": "Kan kennisgewings nie ophaal nie.",
 	"echo-api-failure-cross-wiki": "Toegang tot die eksterne domein is geweier.",
 	"echo-notification-placeholder": "Daar is geen kennisgewings nie.",

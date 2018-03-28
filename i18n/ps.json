@@ -81,8 +81,6 @@
 	"echo-none": "تاسې هېڅ يادگيرنې نه لرئ.",
 	"echo-more-info": "نور مالومات",
 	"echo-feedback": "غبرگون",
-	"echo-popup-footer-special-page-invitation": "<strong>تلاښ د بیرته بدلولو لپاره د خبرتیا په پاڼه کې.</strong> [$2 $1]",
-	"echo-popup-footer-special-page-invitation-link": "ټول نوي کتونکي او راتلونکي.",
 	"echo-api-failure": "د خبرتیاوو په ترلاسه کولو کې پاتې راغلي.",
 	"echo-api-failure-cross-wiki": "لرې پرتو ډومینونو ته لاسرسی رد شو.",
 	"echo-notification-placeholder": "کومې خبرونې نشته.",

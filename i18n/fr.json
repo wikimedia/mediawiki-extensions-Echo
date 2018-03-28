@@ -120,8 +120,6 @@
 	"echo-none": "Vous n'avez reçu aucune notification.",
 	"echo-more-info": "Plus d’informations",
 	"echo-feedback": "Avis",
-	"echo-popup-footer-special-page-invitation": "<strong>Essayez la page des Notifications refaite.</strong> [$2 $1]",
-	"echo-popup-footer-special-page-invitation-link": "Nouvelles présentation et fonctionnalités.",
 	"echo-quotation-marks": "« $1 »",
 	"echo-api-failure": "Impossible de récupérer les notifications.",
 	"echo-api-failure-cross-wiki": "L'accès au domaine distant a été refusé.",

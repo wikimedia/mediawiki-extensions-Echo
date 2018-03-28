@@ -91,8 +91,6 @@
 	"echo-none": "Nemáte žádná upozornění.",
 	"echo-more-info": "Více informací",
 	"echo-feedback": "Názor",
-	"echo-popup-footer-special-page-invitation": "<strong>Vyzkoušejte přepracovanou stránku s upozorněními.</strong> [$2 $1]",
-	"echo-popup-footer-special-page-invitation-link": "Včetně nového vzhledu a funkcí.",
 	"echo-quotation-marks": "„$1“",
 	"echo-api-failure": "Nepodařilo se načíst oznámení.",
 	"echo-api-failure-cross-wiki": "Přístup ke vzdálené doméně byl odepřen.",

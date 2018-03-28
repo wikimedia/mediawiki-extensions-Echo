@@ -74,8 +74,6 @@
 	"echo-none": "Panjenengan durung antuk wara-wara.",
 	"echo-more-info": "Katerangan liyané",
 	"echo-feedback": "Pamrayoga",
-	"echo-popup-footer-special-page-invitation": "<strong>Jajala kaca Wara-wara sing wis dirancang ulang.</strong> [$2 $1]",
-	"echo-popup-footer-special-page-invitation-link": "Sakèhing sesawangan lan fitur anyar.",
 	"echo-api-failure": "Wurung antuk wara-wara.",
 	"echo-api-failure-cross-wiki": "Aksès menyang dhomain adoh ora diolèhaké.",
 	"echo-notification-placeholder": "Durung ana wara-wara.",

@@ -98,8 +98,6 @@
 	"echo-none": "Bildiriminiz bulunmuyor.",
 	"echo-more-info": "Daha fazla bilgi",
 	"echo-feedback": "Geri bildirim",
-	"echo-popup-footer-special-page-invitation": "<strong>Yenilenen Bildirimler sayfasını deneyin.</strong> [$2 $1]",
-	"echo-popup-footer-special-page-invitation-link": "Tamamen yeni görünüm ve özellikler.",
 	"echo-api-failure": "Bildirimler getirilemedi.",
 	"echo-api-failure-cross-wiki": "Uzak etki alanı için erişim engellendi.",
 	"echo-notification-placeholder": "Hiçbir bildirim yok.",

@@ -81,8 +81,6 @@
 	"echo-none": "Bạn không có thông báo.",
 	"echo-more-info": "Thêm thông tin",
 	"echo-feedback": "Phản hồi",
-	"echo-popup-footer-special-page-invitation": "<strong>Hãy thử trang Thông báo được sửa sang.</strong> [$2 $1]",
-	"echo-popup-footer-special-page-invitation-link": "Có thiết kế và chức năng mới.",
 	"echo-quotation-marks": "“$1”",
 	"echo-api-failure": "Thất bại khi lấy thông báo.",
 	"echo-api-failure-cross-wiki": "Truy cập tới tên miền từ xa bị từ chối.",

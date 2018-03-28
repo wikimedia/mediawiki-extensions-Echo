@@ -22,8 +22,6 @@
 	"echo-specialpage-pagefilters-subtitle": "Bogag leh wargelinno ee aan la aqrin",
 	"echo-none": "Malahan wax wargelin ah.",
 	"echo-more-info": "Dheeraad",
-	"echo-popup-footer-special-page-invitation": "<strong>Isku day bogga wargelinnada ee lagu soo celceliyo qaabaynteedda.</strong> [$2 $1]",
-	"echo-popup-footer-special-page-invitation-link": "Dhammaan astaamaha iyo bandhigyada cusub.",
 	"echo-notification-placeholder": "Ma lahan wargelin.",
 	"echo-notification-placeholder-filters": "Ma jiraan wargelinno isleh ee xulshadaan kooban",
 	"notification-link-text-view-changes": "{{GENDER:$1|Itus}} isbedelka",

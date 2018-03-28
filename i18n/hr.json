@@ -66,8 +66,6 @@
 	"echo-none": "Nemate obavijesti.",
 	"echo-more-info": "Više informacija",
 	"echo-feedback": "Povratna informacija",
-	"echo-popup-footer-special-page-invitation": "<strong>Isprobajte redizajniranu stranicu s obavijestima.</strong> [$2 $1]",
-	"echo-popup-footer-special-page-invitation-link": "Novi izgled i mogućnosti.",
 	"echo-api-failure": "Dobavljanje obavijesti/vijestica nije bilo uspješno!",
 	"echo-notification-placeholder": "Nema obavijesti.",
 	"echo-notification-placeholder-filters": "Nema obavijesti prema zadanom kriteriju.",

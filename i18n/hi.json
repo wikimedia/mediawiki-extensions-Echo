@@ -88,8 +88,6 @@
 	"echo-none": "आपके लिये कोई अधिसूचना नहीं है।",
 	"echo-more-info": "अधिक जानकारी",
 	"echo-feedback": "आपके सुझाव",
-	"echo-popup-footer-special-page-invitation": "<strong>सूचना पन्ने का फिर से रूप बनाने का कोशिश करें।</strong> [$2 $1]",
-	"echo-popup-footer-special-page-invitation-link": "सभी नया रूप और विशेषता",
 	"echo-api-failure": "सूचना प्राप्त करने में विफल रहा।",
 	"echo-api-failure-cross-wiki": "रिमोट डोमैन ने जुड़ने से इंकार कर दिया।",
 	"echo-notification-placeholder": "कोई सूचना नहीं है।",

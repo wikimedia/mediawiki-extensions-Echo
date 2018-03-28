@@ -103,8 +103,6 @@
 	"echo-none": "ليس لديك أي إشعارات",
 	"echo-more-info": "المزيد",
 	"echo-feedback": "تعليقات",
-	"echo-popup-footer-special-page-invitation": "<strong>جرب صفحة الإخطارات المعاد تصميمها.</strong> [$2 $1]",
-	"echo-popup-footer-special-page-invitation-link": "كل الخصائص والمظاهر الجديدة.",
 	"echo-api-failure": "تعذّر إظهار الإشعارات.",
 	"echo-api-failure-cross-wiki": "رُفض الوصول إلى النطاق البعيد.",
 	"echo-notification-placeholder": "لا توجد أية إخطارات.",

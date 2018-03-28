@@ -80,8 +80,6 @@
 	"echo-none": "Nun tiene notifiche.",
 	"echo-more-info": "Cchiù nfurmaziune",
 	"echo-feedback": "Commenti",
-	"echo-popup-footer-special-page-invitation": "<strong>Pròva 'a paggena 'e Nutifiche fatta nuova.</strong> [$2 $1]",
-	"echo-popup-footer-special-page-invitation-link": "Tutt' 'e caratteristiche e nuova faccia.",
 	"echo-api-failure": "Guastaje a arrepiglià notifiche.",
 	"echo-api-failure-cross-wiki": "L'acciesso a 'o dominio remoto è stato negato.",
 	"echo-notification-placeholder": "Nun ce stanno notifiche.",

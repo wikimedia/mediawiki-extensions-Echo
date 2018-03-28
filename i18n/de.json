@@ -92,8 +92,6 @@
 	"echo-none": "Du hast keine Benachrichtigungen.",
 	"echo-more-info": "Mehr Informationen",
 	"echo-feedback": "Rückmeldungen",
-	"echo-popup-footer-special-page-invitation": "<strong>Teste die neu gestaltete Benachrichtigungsseite.</strong> [$2 $1]",
-	"echo-popup-footer-special-page-invitation-link": "Mit neuem Aussehen und neuen Funktionen.",
 	"echo-api-failure": "Benachrichtigungen konnten nicht abgerufen werden.",
 	"echo-api-failure-cross-wiki": "Der Zugriff auf die Remote-Domäne wurde abgelehnt.",
 	"echo-notification-placeholder": "Es gibt keine Benachrichtigungen.",

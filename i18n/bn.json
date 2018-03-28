@@ -88,8 +88,6 @@
 	"echo-none": "আপনার কোন বিজ্ঞপ্তি নাই।",
 	"echo-more-info": "আরও তথ্য",
 	"echo-feedback": "প্রতিক্রিয়া",
-	"echo-popup-footer-special-page-invitation": "<strong>পুনঃনকশা করা বিজ্ঞপ্তি পাতাটি ব্যবহার করে দেখুন।</strong> [$2 $1]",
-	"echo-popup-footer-special-page-invitation-link": "নতুন চেহারায় ও নতুন বৈশিষ্ট্যে।",
 	"echo-quotation-marks": "“$1”",
 	"echo-api-failure": "বিজ্ঞপ্তি আনতে ব্যর্থ হয়েছে।",
 	"echo-api-failure-cross-wiki": "রিমোট ডোমেইনে প্রবেশ অস্বীকৃত হয়েছে।",

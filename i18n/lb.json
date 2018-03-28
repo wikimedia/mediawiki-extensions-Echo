@@ -83,8 +83,6 @@
 	"echo-none": "Dir hutt keng Notifikatiounen.",
 	"echo-more-info": "Méi Informatiounen",
 	"echo-feedback": "Feedback",
-	"echo-popup-footer-special-page-invitation": "<strong>Probéiert déi nei Notifikatiouns-Säit aus.</strong> [$2 $1]",
-	"echo-popup-footer-special-page-invitation-link": "Mat neiem Look an neie Funktiounen",
 	"echo-api-failure": "D'Notifikatioune konnten net ofgeruff ginn.",
 	"echo-api-failure-cross-wiki": "Den Zougang op d'Remote-Domain gouf net erlaabt.",
 	"echo-notification-placeholder": "Et si keng Notifikatiounen do.",

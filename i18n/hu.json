@@ -87,8 +87,6 @@
 	"echo-none": "Nincsenek értesítéseid.",
 	"echo-more-info": "További információ",
 	"echo-feedback": "Visszajelzés",
-	"echo-popup-footer-special-page-invitation": "<strong>Próbáld ki az újratervezett Értesítések lapot.</strong> [$2 $1]",
-	"echo-popup-footer-special-page-invitation-link": "Teljesen új megjelenés és funkciók.",
 	"echo-api-failure": "Nem sikerült lekérni az értesítéseket.",
 	"echo-api-failure-cross-wiki": "A hozzáférés a távoli tartományhoz elutasítva.",
 	"echo-notification-placeholder": "Nincsenek értesítések.",

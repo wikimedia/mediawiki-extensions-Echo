@@ -102,8 +102,6 @@
 	"echo-none": "آگاه‌سازی ندارید.",
 	"echo-more-info": "اطلاعات بیشتر",
 	"echo-feedback": "بازخورد",
-	"echo-popup-footer-special-page-invitation": "<strong>تلاش برای طراحی مجدد صفحهٔ آگاه‌سازی.</strong> [$2 $1]",
-	"echo-popup-footer-special-page-invitation-link": "ظاهر و ویژگی‌های جدید.",
 	"echo-quotation-marks": "«$1»",
 	"echo-api-failure": "ناتوان از دریافت آگاه‌سازی‌ها.",
 	"echo-api-failure-cross-wiki": "اجازهٔ دسترسی به دامنه دور داده نشد.",

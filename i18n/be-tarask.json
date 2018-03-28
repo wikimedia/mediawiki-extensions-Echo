@@ -84,8 +84,6 @@
 	"echo-none": "Вы ня маеце абвестак.",
 	"echo-more-info": "Болей",
 	"echo-feedback": "Водгук",
-	"echo-popup-footer-special-page-invitation": "<strong>Паспрабуйце абноўленую старонку паведамленьняў.</strong> [$2 $1]",
-	"echo-popup-footer-special-page-invitation-link": "Цалкам новы выгляд і функцыі.",
 	"echo-api-failure": "Памылка пры атрыманьні паведамленьняў.",
 	"echo-api-failure-cross-wiki": "Доступ да аддаленага дамэну быў забаронены.",
 	"echo-notification-placeholder": "Няма паведамленьняў.",

@@ -83,8 +83,6 @@
 	"echo-none": "Jūs turite jokių pranešimų.",
 	"echo-more-info": "Daugiau informacijos",
 	"echo-feedback": "Atsiliepimas",
-	"echo-popup-footer-special-page-invitation": "<strong>Išbandykite naują Pranešimų puslapį.</strong> [$2 $1]",
-	"echo-popup-footer-special-page-invitation-link": "Nauja išvaizda ir galimybės.",
 	"echo-api-failure": "Nepavyko gauti pranešimų.",
 	"echo-api-failure-cross-wiki": "Prieiga prie nuotolinio domeno buvo atmesta.",
 	"echo-notification-placeholder": "Pranešimų nėra.",

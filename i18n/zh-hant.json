@@ -102,8 +102,6 @@
 	"echo-none": "您沒有任何通知。",
 	"echo-more-info": "更多資訊",
 	"echo-feedback": "意見回饋",
-	"echo-popup-footer-special-page-invitation": "<strong>試試新設計的通知頁面。</strong> [$2 $1]",
-	"echo-popup-footer-special-page-invitation-link": "全新的外觀及功能。",
 	"echo-api-failure": "擷取通知失敗。",
 	"echo-api-failure-cross-wiki": "對遠端網域的存取被拒絕。",
 	"echo-notification-placeholder": "無任何通知。",

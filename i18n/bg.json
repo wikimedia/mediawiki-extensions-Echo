@@ -90,8 +90,6 @@
 	"echo-none": "Нямате известия.",
 	"echo-more-info": "Повече информация",
 	"echo-feedback": "Обратна връзка",
-	"echo-popup-footer-special-page-invitation": "<strong>Опитайте обновената страница за известия.</strong> [$2 $1]",
-	"echo-popup-footer-special-page-invitation-link": "Нов изглед и нови възможности.",
 	"echo-api-failure": "Неуспешно извличане на известия.",
 	"echo-api-failure-cross-wiki": "Отказан е достъп до външен домейн.",
 	"echo-notification-placeholder": "Няма известия.",

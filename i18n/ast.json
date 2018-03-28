@@ -81,8 +81,6 @@
 	"echo-none": "Nun tien avisos.",
 	"echo-more-info": "Más información",
 	"echo-feedback": "La so opinión",
-	"echo-popup-footer-special-page-invitation": "<strong>Prueba la páxina de notificaciones rediseñada.</strong> [$2 $1]",
-	"echo-popup-footer-special-page-invitation-link": "Aspeutu y carauterístiques nuevos dafechu.",
 	"echo-api-failure": "Nun pudieron recuperase les notificaciones.",
 	"echo-api-failure-cross-wiki": "Refugóse l'accesu al dominiu remotu.",
 	"echo-notification-placeholder": "Nun hai notificaciones.",

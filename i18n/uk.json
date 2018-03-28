@@ -95,8 +95,6 @@
 	"echo-none": "У Вас немає сповіщень.",
 	"echo-more-info": "Детальніше",
 	"echo-feedback": "Зворотний зв'язок",
-	"echo-popup-footer-special-page-invitation": "<strong>Випробуйте оновлену сторінку сповіщень.</strong> [$2 $1]",
-	"echo-popup-footer-special-page-invitation-link": "Всі нові оновлення вигляду та функції.",
 	"echo-api-failure": "Не вдалося отримати сповіщення.",
 	"echo-api-failure-cross-wiki": "Відмовлено в доступі до віддаленого домену.",
 	"echo-notification-placeholder": "Сповіщень немає.",

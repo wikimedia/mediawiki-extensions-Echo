@@ -76,8 +76,6 @@
 	"echo-none": "Хьуна хаамаш ца беара.",
 	"echo-more-info": "Ма-дарра",
 	"echo-feedback": "ЮхагӀо зӀе",
-	"echo-popup-footer-special-page-invitation": "<strong>Мах хадабе карлаяьккхинчу дӀахаийтаран агӀона.</strong> [$2 $1]",
-	"echo-popup-footer-special-page-invitation-link": "Керла дизайн а, функцеш а.",
 	"echo-api-failure": "ДӀахаийтаршка хьажа цаделира.",
 	"echo-api-failure-cross-wiki": "ДӀаяьккхинчу доменан тӀекхача цало.",
 	"echo-notification-placeholder": "ДӀахаийтарш дац.",

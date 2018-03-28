@@ -77,8 +77,6 @@
 	"echo-none": "Notiffiche no ti ghe n'hæ .",
 	"echo-more-info": "Atre informaçioin",
 	"echo-feedback": "Commenti",
-	"echo-popup-footer-special-page-invitation": "<strong>Proeuva a noeuva paggina de notiffiche.</strong> [$2 $1]",
-	"echo-popup-footer-special-page-invitation-link": "Noeuve presentaçioin e fonçionalitæ.",
 	"echo-api-failure": "No l'è stæto poscibbile recuperâ e notiffiche.",
 	"echo-api-failure-cross-wiki": "L'accesso a-o dominnio remoto o l'è stæto negou.",
 	"echo-notification-placeholder": "Notiffiche no ghe n'è.",

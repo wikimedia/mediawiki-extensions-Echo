@@ -88,8 +88,6 @@
 	"echo-none": "No teniu cap notificació.",
 	"echo-more-info": "Més informació",
 	"echo-feedback": "Comentaris",
-	"echo-popup-footer-special-page-invitation": "<strong>Proveu el nou disseny de la pàgina de notificacions.</strong> [$2 $1]",
-	"echo-popup-footer-special-page-invitation-link": "Nou aspecte i funcionalitats.",
 	"echo-api-failure": "La recuperació de notificacions ha fallat.",
 	"echo-api-failure-cross-wiki": "L'accés al domini remot ha estat denegat.",
 	"echo-notification-placeholder": "No hi ha cap notificació.",

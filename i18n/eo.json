@@ -68,8 +68,6 @@
 	"echo-none": "Vi ne havas sciigojn.",
 	"echo-more-info": "Pliaj informoj",
 	"echo-feedback": "Rimarkoj",
-	"echo-popup-footer-special-page-invitation": "<strong>Gustumu la redizajnitan paĝon Sciigoj.</strong> [$2 $1]",
-	"echo-popup-footer-special-page-invitation-link": "La tuta nova aspekto kaj ecoj.",
 	"echo-api-failure": "Ne sukcesis akiri la sciigojn.",
 	"echo-notification-placeholder": "Ne estas iuj sciigoj.",
 	"echo-notification-placeholder-filters": "Ne estas sciigoj konformaj al ĉi tiu kriterio.",

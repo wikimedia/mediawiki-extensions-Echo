@@ -69,8 +69,6 @@
 	"echo-none": "Jums nav paziņojumu.",
 	"echo-more-info": "Vairāk informācijas",
 	"echo-feedback": "Atsauksmes",
-	"echo-popup-footer-special-page-invitation": "<strong>Izmēģini uzlaboto paziņojumu lapu.</strong> [$2 $1]",
-	"echo-popup-footer-special-page-invitation-link": "Jauns izskats un iespējas.",
 	"echo-api-failure": "Neizdevās iegūt paziņojumus.",
 	"echo-notification-placeholder": "Nav paziņojumu.",
 	"echo-notification-placeholder-filters": "Nav paziņojumu, kas atbilstu šiem kritērijiem.",

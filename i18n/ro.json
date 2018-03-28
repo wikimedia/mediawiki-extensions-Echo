@@ -79,8 +79,6 @@
 	"echo-none": "Nu aveți nicio notificare.",
 	"echo-more-info": "Mai multe informații",
 	"echo-feedback": "Reacții",
-	"echo-popup-footer-special-page-invitation": "<strong>Încercați noua pagină de notificări.</strong> [$2 $1]",
-	"echo-popup-footer-special-page-invitation-link": "Aspect și capabilităti noi.",
 	"echo-api-failure": "Imposibil de obținut notificările.",
 	"echo-notification-placeholder": "Nu există notificări.",
 	"echo-notification-loginrequired": "Trebuie să vă autentificați pentru a vedea notificările.",

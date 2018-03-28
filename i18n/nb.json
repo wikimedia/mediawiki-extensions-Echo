@@ -88,8 +88,6 @@
 	"echo-none": "Du har ingen beskjeder.",
 	"echo-more-info": "Mer informasjon",
 	"echo-feedback": "Tilbakemelding",
-	"echo-popup-footer-special-page-invitation": "<strong>Prøv den nye siden for beskjeder.</strong> [$2 $1]",
-	"echo-popup-footer-special-page-invitation-link": "Nytt utseende og ny funksjonalitet.",
 	"echo-api-failure": "Kunne ikke hente beskjeder på grunn av en feil.",
 	"echo-api-failure-cross-wiki": "Tilgang til det eksterne domenet ble avvist.",
 	"echo-notification-placeholder": "Det er ingen beskjeder.",

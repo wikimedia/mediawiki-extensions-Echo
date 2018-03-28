@@ -108,8 +108,6 @@
 	"echo-none": "No tienes notificaciones.",
 	"echo-more-info": "Más información",
 	"echo-feedback": "Comentarios",
-	"echo-popup-footer-special-page-invitation": "<strong>Prueba la página rediseñada de notificaciones.</strong> [$2 $1]",
-	"echo-popup-footer-special-page-invitation-link": "Nuevo aspecto y funcionalidades.",
 	"echo-api-failure": "Error al obtener las notificaciones.",
 	"echo-api-failure-cross-wiki": "Se denegó el acceso al dominio remoto.",
 	"echo-notification-placeholder": "No hay notificaciones.",

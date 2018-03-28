@@ -90,8 +90,6 @@
 	"echo-none": "Anda tidak memiliki pemberitahuan.",
 	"echo-more-info": "Informasi selengkapnya",
 	"echo-feedback": "Umpan balik",
-	"echo-popup-footer-special-page-invitation": "<strong>Cobalah halaman Pemberitahuan yang sudah dirancang ulang.</strong> [$2 $1]",
-	"echo-popup-footer-special-page-invitation-link": "Semua fitur dan tampilan baru",
 	"echo-quotation-marks": "\"$1\"",
 	"echo-api-failure": "Gagal mengambil pemberitahuan.",
 	"echo-api-failure-cross-wiki": "Akses ke domain jauh ditolak",

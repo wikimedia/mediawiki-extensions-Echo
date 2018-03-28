@@ -47,8 +47,6 @@
 	"echo-none": "Билдириуюгюз болмагъанды.",
 	"echo-more-info": "Толу билги",
 	"echo-feedback": "Ызына билдириу",
-	"echo-popup-footer-special-page-invitation": "<strong>Билдириулени джангыргъан бетине багъа бичигиз.</strong> [$2 $1]",
-	"echo-popup-footer-special-page-invitation-link": "Джангы дизайн эм функцияла.",
 	"notification-link-text-view-message": "Билдириуню кёр",
 	"notification-link-text-view-mention": "Сагъыныуну кёр",
 	"notification-link-text-view-changes": "Тюрлениулени кёр",

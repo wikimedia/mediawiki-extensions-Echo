@@ -69,8 +69,6 @@
 	"echo-none": "Nemáte žiadne upozornenia.",
 	"echo-more-info": "Viac informácií",
 	"echo-feedback": "Spätná väzba",
-	"echo-popup-footer-special-page-invitation": "<strong>Vyskúšajte prepracovanú stránku s upozorneniami.</strong> [$2 $1]",
-	"echo-popup-footer-special-page-invitation-link": "S novým vizuálom aj funkciami.",
 	"echo-api-failure": "Nepodarilo sa načítať upozornenia. Skúste to prosím znovu. (Chyba $1)",
 	"echo-notification-placeholder": "Nemáte žiadne upozornenia.",
 	"echo-notification-markasread": "Označiť ako prečítané",

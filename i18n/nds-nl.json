@@ -49,8 +49,6 @@
 	"echo-none": "Je hebben gien meldingen.",
 	"echo-more-info": "Meer informasie",
 	"echo-feedback": "Kommentaar",
-	"echo-popup-footer-special-page-invitation": "<strong>Probeer de herontwörpen meldingenzied.</strong> [$2 $1]",
-	"echo-popup-footer-special-page-invitation-link": "n Niej uterlik en nieje funksies.",
 	"echo-api-failure": "Kan meldingen niet ophaolen.",
 	"echo-notification-placeholder": "Der bin gien berichten.",
 	"echo-notification-markasread": "Markeer as elezen",

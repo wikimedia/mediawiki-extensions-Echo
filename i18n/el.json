@@ -89,8 +89,6 @@
 	"echo-none": "Δεν έχετε ενημερώσεις.",
 	"echo-more-info": "Περισσότερες πληροφορίες",
 	"echo-feedback": "Ανατροφοδότηση",
-	"echo-popup-footer-special-page-invitation": "<strong>Δοκιμάστε την επανασχεδιασμένη σελίδα Ενημερώσεων.</strong> [$2 $1]",
-	"echo-popup-footer-special-page-invitation-link": "Πλήρης νέα εμφάνιση και λειτουργίες.",
 	"echo-api-failure": "Δεν μπόρεσαν να ανακτηθούν ενημερώσεις.",
 	"echo-api-failure-cross-wiki": "Πρόσβαση στον απομακρυσμένο τομέα απορρίφθηκε.",
 	"echo-notification-placeholder": "Δεν υπάρχουν ενημερώσεις.",
