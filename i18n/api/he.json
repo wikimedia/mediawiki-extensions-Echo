@@ -51,7 +51,7 @@
 	"apihelp-echoarticlereminder-summary": "בקשת תזכור עתידי עבור הערך שצוין",
 	"apihelp-echoarticlereminder-param-pageid": "מזהה הערך שלגביו המשתמש יתוזכר",
 	"apihelp-echoarticlereminder-param-title": "שם הערך שלגביו המשתמש יתוזכר",
-	"apihelp-echoarticlereminder-param-timestamp": "מתי לתזכר את המשתמש (חותמת זמן)",
+	"apihelp-echoarticlereminder-param-timestamp": "מתי לתזכר את המשתמש (תאריך ושעה)",
 	"apihelp-echoarticlereminder-param-comment": "הערת משתמש אופציונלית שתיכלל בתזכור",
 	"apihelp-echoarticlereminder-example-1": "יצירת הודעת תזכור לגבי ערך למחר עם הערה",
 	"apihelp-echoarticlereminder-example-2": "יצירת הודעת תזכור לגבי ערך למחר ללא הערה",
