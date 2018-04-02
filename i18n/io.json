@@ -14,6 +14,7 @@
 	"echo-pref-new-message-indicator": "Montrez indikilo pri mesaji de altra Wiki en mea menuo di utensili",
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Mesajo|Mesaji}} en la diskuto-pagino",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Vua}} informi",
+	"tooltip-pt-notifications-notice": "{{GENDER:|Vua}} informi",
 	"echo-specialpage-pagefilters-title": "Recenta agadi",
 	"notification-link-text-view-page": "Montrez pagino",
 	"notification-header-mention-success": "{{GENDER:$2|Vua}} menciono pri <strong>$3</strong> sendesis.",

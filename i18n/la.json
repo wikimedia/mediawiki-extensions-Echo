@@ -4,7 +4,8 @@
 			"Amire80",
 			"Autokrator",
 			"UV",
-			"Laurentianus"
+			"Laurentianus",
+			"Lesgles"
 		]
 	},
 	"echo-desc": "Modus nuntiorum mittendarum",
@@ -24,7 +25,7 @@
 	"echo-pref-email-frequency-weekly": "Nuntia hebdomadatim congesta",
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Textus nudus",
-	"echo-pref-new-message-indicator": "Nova apud te disputata in arca ferramentorum indicare",
+	"echo-pref-new-message-indicator": "Novos nuntios in linea mea instrumentorum indicare",
 	"echo-learn-more": "Plura legere",
 	"echo-new-messages": "Habes nuntia nova",
 	"echo-category-title-edit-user-talk": "Paginae disputationis {{PLURAL:$1|nuntium|nuntia}}",
