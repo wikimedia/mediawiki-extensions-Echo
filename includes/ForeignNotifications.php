@@ -218,7 +218,7 @@ class EchoForeignNotifications {
 
 	/**
 	 * @param string $wikiId
-	 * @param array $siteFromDB $wgConf->siteFromDB( $wikiId ) result
+	 * @param array|null $siteFromDB $wgConf->siteFromDB( $wikiId ) result
 	 * @return mixed|string
 	 */
 	protected static function getWikiTitle( $wikiId, array $siteFromDB = null ) {

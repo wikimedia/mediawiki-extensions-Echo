@@ -21,7 +21,7 @@ abstract class EchoLocalCache {
 
 	/**
 	 * Lookup ids that have not been resolved for a target
-	 * @param int[]
+	 * @var int[]
 	 */
 	protected $lookups = [];
 

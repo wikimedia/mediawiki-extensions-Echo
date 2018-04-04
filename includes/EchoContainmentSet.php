@@ -70,7 +70,7 @@ class EchoContainmentSet {
 	 *
 	 * @param int $namespace An NS_* constant representing the mediawiki namespace of the page containing the list.
 	 * @param string $title The title of the page containing the list.
-	 * @param BagOStuff $cache An object to cache the page with or null for no cache.
+	 * @param BagOStuff|null $cache An object to cache the page with or null for no cache.
 	 * @param string $cacheKeyPrefix A prefix to be combined with the pages latest revision id and used as a cache key.
 	 *
 	 * @throws MWException

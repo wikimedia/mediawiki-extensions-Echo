@@ -141,7 +141,7 @@ abstract class EchoDiscussionParser {
 	 *
 	 * @param array $interpretation Results of self::getChangeInterpretationForRevision
 	 * @return array Array containing section title and text
-	 * @param Title $title
+	 * @param Title|null $title
 	 */
 	public static function detectSectionTitleAndText( array $interpretation, Title $title = null ) {
 		$header = $snippet = '';
@@ -479,7 +479,7 @@ abstract class EchoDiscussionParser {
 	 *
 	 * @param array $changes Output of EchoEvent::getMachineReadableDiff
 	 * @param string $username Username
-	 * @param Title $title
+	 * @param Title|null $title
 	 * @return array[] Array of associative arrays.
 	 *
 	 * Each entry represents an action, which is classified in the 'action' field.
@@ -809,7 +809,7 @@ abstract class EchoDiscussionParser {
 	 * Strips out a signature if possible.
 	 *
 	 * @param string $text The wikitext to strip
-	 * @param Title $title
+	 * @param Title|null $title
 	 * @return string
 	 */
 	static function stripSignature( $text, Title $title = null ) {
@@ -844,7 +844,7 @@ abstract class EchoDiscussionParser {
 	 * @param string $text The text to check.
 	 * @param User|bool $user If set, will only return true if the comment is
 	 *  signed by this user.
-	 * @param Title $title
+	 * @param Title|null $title
 	 * @return bool
 	 */
 	static function isSignedComment( $text, $user = false, Title $title = null ) {
@@ -912,7 +912,7 @@ abstract class EchoDiscussionParser {
 	 * Finds and extracts signatures in $text
 	 *
 	 * @param string $text The text in which to look for signed comments.
-	 * @param Title $title
+	 * @param Title|null $title
 	 * @return array Associative array, the key is the username, the value
 	 *  is the last signature that was found.
 	 */
@@ -949,7 +949,7 @@ abstract class EchoDiscussionParser {
 	 *
 	 * @param string $line Line of text potentially including linked user, user talk,
 	 *  and contribution pages
-	 * @return array of usernames, empty array for none detected
+	 * @return string[] array of usernames, empty array for none detected
 	 */
 	public static function extractUsersFromLine( $line ) {
 		/*
@@ -1001,7 +1001,7 @@ abstract class EchoDiscussionParser {
 	 *  has signed it.
 	 *
 	 * @param string $line The line.
-	 * @param Title $title
+	 * @param Title|null $title
 	 * @return bool|array false for none, Array for success.
 	 * - First element is the position of the signature.
 	 * - Second element is the normalised user name.

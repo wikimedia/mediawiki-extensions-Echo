@@ -85,7 +85,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	 * @param int $limit
 	 * @param string $continue Used for offset
 	 * @param string[] $eventTypes
-	 * @param Title[] $titles If set, only return notifications for these pages.
+	 * @param Title[]|null $titles If set, only return notifications for these pages.
 	 *  To find notifications not associated with any page, add null as an element to this array.
 	 * @param int $dbSource Use master or slave database
 	 * @return EchoNotification[]
@@ -111,7 +111,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	 * @param int $limit
 	 * @param string $continue Used for offset
 	 * @param string[] $eventTypes
-	 * @param Title[] $titles If set, only return notifications for these pages.
+	 * @param Title[]|null $titles If set, only return notifications for these pages.
 	 *  To find notifications not associated with any page, add null as an element to this array.
 	 * @param int $dbSource Use master or slave database
 	 * @return EchoNotification[]
@@ -135,7 +135,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	 * @param string $continue Used for offset
 	 * @param array $eventTypes Event types to load
 	 * @param array $excludeEventIds Event id's to exclude.
-	 * @param Title[] $titles If set, only return notifications for these pages.
+	 * @param Title[]|null $titles If set, only return notifications for these pages.
 	 *  To find notifications not associated with any page, add null as an element to this array.
 	 * @return EchoNotification[]
 	 */

@@ -62,7 +62,7 @@ class EchoAttributeManager {
 
 	/**
 	 * An EchoAttributeManager instance created from global variables
-	 * @param EchoAttributeManager
+	 * @var self
 	 */
 	protected static $globalVarInstance = null;
 

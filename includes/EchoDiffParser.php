@@ -167,7 +167,7 @@ class EchoDiffParser {
 	 * Parse the next line of the unified diff output
 	 *
 	 * @param string $line The next line of the unified diff
-	 * @param EchoDiffGroup $change Changes the the immediately previous lines
+	 * @param EchoDiffGroup|null $change Changes the the immediately previous lines
 	 *
 	 * @throws MWException
 	 * @return EchoDiffGroup Changes to this line and any changed lines immediately previous

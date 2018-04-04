@@ -141,7 +141,7 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 	 * @param int $limit
 	 * @param string $continue
 	 * @param string $format
-	 * @param Title[] $titles
+	 * @param Title[]|null $titles
 	 * @param bool $unreadFirst
 	 * @param bool $bundle
 	 * @return array
@@ -174,7 +174,7 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 	 * @param int $limit
 	 * @param string $continue
 	 * @param string $format
-	 * @param Title[] $titles
+	 * @param Title[]|null $titles
 	 * @param bool $unreadFirst
 	 * @param bool $bundle
 	 * @return array
