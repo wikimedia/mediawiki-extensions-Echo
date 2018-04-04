@@ -60,7 +60,7 @@ class MWEchoEmailBatch {
 	 *  configured to go out tonight or at the end of the week.
 	 *
 	 *  When false, all pending notifications will be returned.
-	 * @return MWEchoEmailBatch/false
+	 * @return MWEchoEmailBatch|false
 	 */
 	public static function newFromUserId( $userId, $enforceFrequency = true ) {
 		$user = User::newFromId( intval( $userId ) );
