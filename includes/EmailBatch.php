@@ -1,5 +1,7 @@
 <?php
 
+use Wikimedia\Rdbms\IResultWrapper;
+
 /**
  * Handle user email batch ( daily/ weekly )
  */
@@ -327,7 +329,7 @@ class MWEchoEmailBatch {
 	 * @param int $batchSize
 	 *
 	 * @throws MWException
-	 * @return ResultWrapper|bool
+	 * @return IResultWrapper|bool
 	 */
 	public static function getUsersToNotify( $startUserId, $batchSize ) {
 		$dbr = MWEchoDbFactory::getDB( DB_REPLICA );

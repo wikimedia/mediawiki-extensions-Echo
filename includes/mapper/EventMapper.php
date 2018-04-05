@@ -1,5 +1,7 @@
 <?php
 
+use Wikimedia\Rdbms\IResultWrapper;
+
 /**
  * Database mapper for EchoEvent model, which is an immutable class, there should
  * not be any update to it
@@ -59,7 +61,7 @@ class EchoEventMapper extends EchoAbstractMapper {
 	/**
 	 * @param int[] $eventIds
 	 * @param bool $deleted
-	 * @return bool|ResultWrapper
+	 * @return bool|IResultWrapper
 	 */
 	public function toggleDeleted( $eventIds, $deleted ) {
 		$dbw = $this->dbFactory->getEchoDb( DB_MASTER );
