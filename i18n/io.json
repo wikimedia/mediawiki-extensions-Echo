@@ -30,5 +30,6 @@
 	"notification-link-text-view-edit": "Montrez redakturo",
 	"notification-header-reverted": "Vua {{PLURAL:$4|redakto en <strong>$3</strong>|redakti en <strong>$3</strong>}} {{GENDER:$2|desfacesis}}.",
 	"notification-reverted-email-subject2": "Vua {{PLURAL:$3|redakto|redakti}} {{GENDER:$1|desfacesis}} en {{SITENAME}}",
+	"notification-timestamp-ago-days": "{{PLURAL:$1|$1d}}",
 	"echo-notification-alert": "{{PLURAL:$1|($1) avizo|($1) avizi|100=(99+) avizi}}"
 }
