@@ -92,7 +92,7 @@ class EchoHooks {
 		global $wgResourceModules;
 
 		$testModuleBoilerplate = [
-			'localBasePath' => __DIR__,
+			'localBasePath' => dirname( __DIR__ ),
 			'remoteExtPath' => 'Echo',
 		];
 
@@ -146,7 +146,7 @@ class EchoHooks {
 			'dependencies' => [
 				'oojs'
 			],
-			'localBasePath' => __DIR__ . '/modules',
+			'localBasePath' => dirname( __DIR__ ) . '/modules',
 			'remoteExtPath' => 'Echo/modules',
 			'targets' => [ 'desktop', 'mobile' ],
 		];
@@ -191,7 +191,7 @@ class EchoHooks {
 			// DatabaseUpdater does not support other databases, so skip
 			return;
 		}
-		$dir = __DIR__;
+		$dir = dirname( __DIR__ );
 		$baseSQLFile = "$dir/echo.sql";
 		$updater->addExtensionTable( 'echo_event', $baseSQLFile );
 		$updater->addExtensionTable( 'echo_email_batch', "$dir/db_patches/echo_email_batch.sql" );
