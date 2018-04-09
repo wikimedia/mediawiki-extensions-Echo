@@ -954,7 +954,7 @@
 		"EchoForeignNotifications": "includes/ForeignNotifications.php",
 		"EchoForeignPresentationModel": "includes/formatters/EchoForeignPresentationModel.php",
 		"EchoForeignWikiRequest": "includes/ForeignWikiRequest.php",
-		"EchoHooks": "Hooks.php",
+		"EchoHooks": "includes/EchoHooks.php",
 		"EchoHtmlDigestEmailFormatter": "includes/formatters/EchoHtmlDigestEmailFormatter.php",
 		"EchoHtmlEmailFormatter": "includes/formatters/EchoHtmlEmailFormatter.php",
 		"EchoIcon": "includes/formatters/EchoIcon.php",
