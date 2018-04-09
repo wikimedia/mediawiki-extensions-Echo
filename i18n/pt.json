@@ -148,7 +148,7 @@
 	"notification-header-mention-success": "A {{GENDER:$2|sua}} menção de <strong>$3</strong> foi enviada.",
 	"notification-header-mention-success-bundle": "{{PLURAL:$3|A menção|As $3 menções}} {{GENDER:$2|que fez}} na página de discussão \"<strong>$4</strong>\" {{PLURAL:$3|foi enviada|foram enviadas}}.",
 	"notification-compact-header-mention-success": "<strong>{{GENDER:$2|Mencionou}}:</strong> $3",
-	"notification-header-mention-status-bundle": "{{PLURAL:$3|Uma notificação|$3 notificações}} sobre menções {{GENDER:$2|que fez}} na página de discussão \"<strong>$4</strong>\": {{PLURAL:$5|$5 não enviadas}}, {{PLURAL:$6|$6 enviadas}}.",
+	"notification-header-mention-status-bundle": "{{PLURAL:$3|Uma notificação|$3 notificações}} sobre menções {{GENDER:$2|que fez}} na página de discussão \"<strong>$4</strong>\": $5 {{PLURAL:$5|não enviada|não enviadas}}, $6 {{PLURAL:$6|enviada|enviadas}}.",
 	"notification-header-user-rights-add-only": "Os {{GENDER:$4|seus}} privilégios foram {{GENDER:$1|alterados}}. Foi {{GENDER:$4|adicionado|adicionada|adicionado(a)}} a: $2.",
 	"notification-header-user-rights-remove-only": "Os {{GENDER:$4|seus}} privilégios foram {{GENDER:$1|alterados}}. Deixou de pertencer a: $2.",
 	"notification-header-user-rights-add-and-remove": "Os {{GENDER:$6|seus}} privilégios foram {{GENDER:$1|alterados}}. Foi {{GENDER:$6|adicionado|adicionada|adicionado(a)}} a: $2. Deixou de pertencer a: $4.",
