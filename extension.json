@@ -614,9 +614,6 @@
 				"placeholder": {
 					"path": "Echo/modules/icons/generic.svg"
 				},
-				"trash": {
-					"path": "Echo/modules/icons/trash.svg"
-				},
 				"chat": {
 					"path": "Echo/modules/icons/chat.svg"
 				},
