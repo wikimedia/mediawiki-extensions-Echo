@@ -38,15 +38,12 @@ class EchoTargetPageMapperTest extends MediaWikiTestCase {
 	 * Mock object of EchoTargetPage
 	 */
 	protected function mockEchoTargetPage() {
-		$target = $this->getMockBuilder( 'EchoTargetPage' )
+		$target = $this->getMockBuilder( EchoTargetPage::class )
 			->disableOriginalConstructor()
 			->getMock();
 		$target->expects( $this->any() )
 			->method( 'toDbArray' )
 			->will( $this->returnValue( [] ) );
-		$target->expects( $this->any() )
-			->method( 'getUser' )
-			->will( $this->returnValue( User::newFromId( 1 ) ) );
 		$target->expects( $this->any() )
 			->method( 'getPageId' )
 			->will( $this->returnValue( 2 ) );

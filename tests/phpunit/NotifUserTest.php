@@ -172,15 +172,10 @@ class MWEchoNotifUserTest extends MediaWikiTestCase {
 		return $mapper;
 	}
 
-	public function mockEchoTargetPageMapper( array $result = [] ) {
-		$mapper = $this->getMockBuilder( 'EchoTargetPageMapper' )
+	public function mockEchoTargetPageMapper() {
+		return $this->getMockBuilder( EchoTargetPageMapper::class )
 			->disableOriginalConstructor()
 			->getMock();
-		$mapper->expects( $this->any() )
-			->method( 'deleteByUserEvents' )
-			->will( $this->returnValue( $result ) );
-
-		return $mapper;
 	}
 
 	protected function mockEchoNotification() {
