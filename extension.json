@@ -602,9 +602,6 @@
 				"placeholder": {
 					"path": "Echo/modules/icons/notice.svg"
 				},
-				"trash": {
-					"path": "Echo/modules/icons/trash.svg"
-				},
 				"chat": {
 					"path": {
 						"ltr": "Echo/modules/icons/speechBubbles-ltr-progressive.svg",
