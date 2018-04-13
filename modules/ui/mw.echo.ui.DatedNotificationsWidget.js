@@ -94,7 +94,7 @@
 	 * @param {Object} models List models, indexed by ID
 	 */
 	mw.echo.ui.DatedNotificationsWidget.prototype.populateFromModel = function ( models ) {
-		var modelId, model, subgroupWidget,
+		var modelId, model, subgroupWidget, widget,
 			groupWidgets = [];
 
 		// Detach all attached models
@@ -119,6 +119,11 @@
 			subgroupWidget.resetItemsFromModel();
 			groupWidgets.push( subgroupWidget );
 		}
+
+		this.getList().getItems().forEach( function ( widget ) {
+			// Destroy all available widgets
+			widget.destroy();
+		} );
 
 		// Reset the list and re-add the items
 		this.getList().clearItems();
