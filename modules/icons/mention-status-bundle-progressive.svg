@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 241.122 168.786">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" height="20" width="20">
 	<title>
 		mention status bundle
 	</title>
-    <path fill="#36c" d="M36.168 168.786h204.954l-36.168-36.169V0H0v132.617c0 20.496 15.673 36.169 36.168 36.169z"/>
-    <path fill="#fff" d="M109.656 102.624H96.183l-2.185-68.481h17.842l-2.184 68.48zm-15.84 26.864v-13.601h17.66v13.601h-17.66z"/>
+	<path fill="#36c" d="M2 0a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm7 3h2v6H9V3zm0 8h2v2H9v-2z"/>
 </svg>
