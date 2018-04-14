@@ -123,7 +123,7 @@
 	"notification-header-thank-you-1-edit": "Управо {{GENDER:$2|сте}} начинили {{GENDER:$2|своју}} прву измену; хвала {{GENDER:$2|Вам}} и добро дошли!",
 	"notification-header-thank-you-10-edit": "Управо {{GENDER:$2|сте}} начинили {{GENDER:$2|своју}} десету измену; хвала {{GENDER:$2|Вам}} и само тако наставите!",
 	"notification-header-thank-you-100-edit": "Управо {{GENDER:$2|сте}} начинили {{GENDER:$2|своју}} стоту измену; хвала {{GENDER:$2|Вам}} пуно!",
-	"notification-header-thank-you-1000-edit": "Управо {{GENDER:$2|сте}} начинили {{GENDER:$2|своју}} хиљадиту измену; хвала {{GENDER:$2|Вам}} на фантастичном доприносу!",
+	"notification-header-thank-you-1000-edit": "Управо {{GENDER:$2|сте}} направили хиљадиту измену; хвала {{GENDER:$2|Вам}} на фантастичном доприносу!",
 	"notification-header-thank-you-10000-edit": "Управо {{GENDER:$2|сте}} начинили {{GENDER:$2|своју}} десет-хиљадиту измену; хвала {{GENDER:$2|Вам}} пуно!",
 	"notification-header-thank-you-100000-edit": "Управо {{GENDER:$2|сте}} начинили {{GENDER:$2|своју}} сто-хиљадиту измену; хвала {{GENDER:$2|Вам}} на феноменалном доприносу!",
 	"notification-header-thank-you-1000000-edit": "Управо {{GENDER:$2|сте}} начинили {{GENDER:$2|своју}} милиониту измену; хвала {{GENDER:$2|Вам}} на задивљујућем доприносу!",
