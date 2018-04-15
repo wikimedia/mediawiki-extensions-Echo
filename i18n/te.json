@@ -51,6 +51,8 @@
 	"notification-link-text-view-mention": "పేరెన్నికను చూడు",
 	"notification-link-text-view-changes": "మార్పులను {{GENDER:$1|చూడండి}}",
 	"notification-link-text-view-page": "పేజీని చూడు",
+	"notification-header-page-linked": "<strong>$4</strong> నుండి <strong>$3</strong> కు లింకు ఏర్పరచాం.",
+	"notification-bundle-header-page-linked": "{{PLURAL:$5||$5 పేజీల|100=99+ పేజీల}} నుండి <strong>$3</strong> కు లింకులు ఏర్పరచాం.",
 	"notification-header-mention-failure-user-unknown": "$3 గురించిన {{GENDER:$2|మీ}} ప్రస్తావనను, ఆ వాడుకరి కనబడనందువలన  పంపించలేదు.",
 	"notification-header-mention-failure-user-anonymous": "$3 గురించిన {{GENDER:$2|మీ}} ప్రస్తావనను, వారు అజ్ఞాతంగా ఉన్నందున పంపించలేకపోయాం.",
 	"notification-header-mention-success": "$3 గురించిన {{GENDER:$2|మీ}} ప్రస్తావనను పంపించాం.",
