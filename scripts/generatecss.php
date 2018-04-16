@@ -22,7 +22,7 @@ foreach ( $wgResourceModules as $moduleName => $def ) {
 	}
 }
 
-$url = $loadUrl . '?only=styles&skin=vector&modules=' . implode( $query, '|' );
+$url = $loadUrl . '?only=styles&skin=vector&modules=' . implode( '|', $query );
 echo $url;
 $css = file_get_contents( $url );
 file_put_contents( $outputFile, $css );
