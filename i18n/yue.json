@@ -3,7 +3,8 @@
 		"authors": [
 			"William915",
 			"Wong128hk",
-			"Ktchankt"
+			"Ktchankt",
+			"Suzukaze-c"
 		]
 	},
 	"echo-desc": "通知系統",
@@ -11,6 +12,7 @@
 	"prefs-emailsettings": "電郵選項",
 	"prefs-displaynotifications": "顯示選項",
 	"prefs-echosubscriptions": "通知選項",
+	"prefs-echocrosswiki": "跨維基通知",
 	"prefs-newmessageindicator": "新留言提示",
 	"echo-pref-send-me": "幾耐電郵通知一次",
 	"echo-pref-send-to": "發畀：",
