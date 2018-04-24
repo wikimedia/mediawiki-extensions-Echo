@@ -24,14 +24,15 @@ class NotificationsTest extends MediaWikiTestCase {
 	 * @return EchoEvent
 	 */
 	public static function getLatestNotification( $user ) {
-		$notifs = ApiEchoNotifications::getNotifications( $user );
-		$index = array_keys( $notifs );
+		$notifMapper = new EchoNotificationMapper();
+		$notifs = $notifMapper->fetchUnreadByUser( $user, 1, '', [ 'user-rights' ] );
+		$notif = array_pop( $notifs );
 
-		return EchoEvent::newFromID( $notifs[$index[0]]['id'] );
+		return $notif->getEvent();
 	}
 
 	/**
-	 * @covers EchoHooks::onUserRights
+	 * @covers EchoHooks::onUserGroupsChanged
 	 */
 	public function testUserRightsNotif() {
 		$user = new User();

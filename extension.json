@@ -1009,7 +1009,7 @@
 		"MWEchoThankYouEditTest": "tests/phpunit/ThankYouEditTest.php",
 		"NotificationControllerTest": "tests/phpunit/controller/NotificationControllerTest.php",
 		"NotificationPager": "includes/special/NotificationPager.php",
-		"NotificationsTest": "tests/NotificationsTest.php",
+		"NotificationsTest": "tests/phpunit/NotificationsTest.php",
 		"ProcessEchoEmailBatch": "maintenance/processEchoEmailBatch.php",
 		"RemoveInvalidNotification": "maintenance/removeInvalidNotification.php",
 		"RemoveOrphanedEvents": "maintenance/removeOrphanedEvents.php",
