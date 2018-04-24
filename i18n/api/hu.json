@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Tacsipacsi",
-			"Tgr"
+			"Tgr",
+			"Bencemac"
 		]
 	},
 	"apihelp-echomarkread-description": "Értesítések olvasottnak jelölése az aktuális felhasználó számára.",
@@ -36,5 +37,6 @@
 	"apihelp-query+notifications-param-messageunreadfirst": "Előrevegye-e az olvasatlan figyelmezetetéseket (csak akkor van használatban, ha a groupbysection meg van adva).",
 	"apihelp-query+notifications-param-titles": "Csak az ezen lapokhoz kapcsolódó értesítések lekérése. A laphoz nem kötődő értesítések címeként [] használható.",
 	"apihelp-query+notifications-example-1": "Értesítések listázása",
-	"apihelp-query+notifications-example-2": "Értesítések listázása, szakaszonkénti bontásban, darabszámmal"
+	"apihelp-query+notifications-example-2": "Értesítések listázása, szakaszonkénti bontásban, darabszámmal",
+	"apierror-echo-event-creation-failed": "Echo esemény létrehozása nem sikerült"
 }
