@@ -31,7 +31,7 @@
 	"echo-pref-notifications-blacklist": "Не паказваць паведамленні ад гэтых удзельнікаў ([[mw:Special:MyLanguage/Help:Notifications#mute|даведацца больш]]):",
 	"echo-pref-new-message-indicator": "Паказаць у маёй панэлі інструментаў індыкатар паведамленняў на старонцы абмеркавання",
 	"echo-learn-more": "Даведацца больш",
-	"echo-new-messages": "У вас ёсць новыя паведамленні",
+	"echo-new-messages": "У Вас ёсць новыя паведамленні",
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1|паведамленне|паведамленні}} на старонцы размоў",
 	"echo-category-title-article-linked": "{{PLURAL:$1|спасылка|спасылкі}} на старонкі",
 	"echo-category-title-reverted": "{{PLURAL:$1|адмена|адмены}} правак",
