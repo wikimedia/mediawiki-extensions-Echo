@@ -1,8 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Adam-Yourist"
+			"Adam-Yourist",
+			"Tusholi"
 		]
 	},
-	"tooltip-pt-notifications-alert": "{{GENDER:|Хьа}} дӀахейтараш"
+	"tooltip-pt-notifications-alert": "{{GENDER:|Хьога}} дéна дӀахайтар"
 }
