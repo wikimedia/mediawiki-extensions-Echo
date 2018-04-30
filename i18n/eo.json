@@ -8,7 +8,8 @@
 			"Lucas",
 			"Macofe",
 			"Gamliel Fishkin",
-			"NMaia"
+			"NMaia",
+			"Joao Xavier"
 		]
 	},
 	"echo-desc": "Sistemo por sciigado uzantojn pri okazaĵoj kaj mesaĝoj",
@@ -154,6 +155,6 @@
 	"echo-email-batch-body-intro-daily": "Saluton $1,\nĈi tie estas resumo de hodiaŭaj aktivaĵoj sur {{SITENAME}} por vi.",
 	"echo-email-batch-body-intro-weekly": "Saluton $1,\nĈi tie estas resumo de la aktivaĵoj de ĉi tiu semajno sur {{SITENAME}} por vi.",
 	"echo-email-batch-link-text-view-all-notifications": "Montri ĉiujn sciigojn",
-	"notification-header-foreign-alert": "Pliaj sciigoj el {{PLURAL:$5|alia vikio|$5 aliaj vikioj}}",
+	"notification-header-foreign-alert": "Altra informi de {{PLURAL:$5|altra Wiki|$5 altra Wiki}}",
 	"notification-header-foreign-notice": "Pliaj sciigoj el {{PLURAL:$5|alia vikio|$5 aliaj vikioj}}"
 }
