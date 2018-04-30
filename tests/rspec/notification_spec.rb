@@ -5,8 +5,8 @@ describe 'Echo' do
     if ENV['JENKINS_HOME']
       # jenkins
       @mediawiki_api = "#{ENV['MW_SERVER']}#{ENV['MW_SCRIPT_PATH']}/api.php"
-      @admin_username = 'WikiAdmin'
-      @admin_password = 'testwikijenkinspass'
+      @admin_username = "#{ENV['MEDIAWIKI_USER']}"
+      @admin_password = "#{ENV['MEDIAWIKI_PASSWORD']}"
     else
       # mediawiki-vagrant
       @mediawiki_api = 'http://127.0.0.1:8080/w/api.php'
