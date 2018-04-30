@@ -6,7 +6,7 @@ describe 'Echo' do
       # jenkins
       @mediawiki_api = "#{ENV['MW_SERVER']}#{ENV['MW_SCRIPT_PATH']}/api.php"
       @admin_username = 'WikiAdmin'
-      @admin_password = 'testpass'
+      @admin_password = 'testwikijenkinspass'
     else
       # mediawiki-vagrant
       @mediawiki_api = 'http://127.0.0.1:8080/w/api.php'
