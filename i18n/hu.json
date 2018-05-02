@@ -143,6 +143,7 @@
 	"notification-header-user-rights-remove-only": "{{GENDER:$1|Megváltoztak}} a {{GENDER:$4|jogosultságaid}}. Kikerültél {{PLURAL:$3|ebből a csoportból|ezekből a csoportokból}}: $2",
 	"notification-header-user-rights-add-and-remove": "{{GENDER:$1|Megváltoztak}} a {{GENDER:$6|jogosultságaid}}. Tagja lettél {{PLURAL:$3|ennek a csoportnak|ezeknek a csoportoknak}}: $2. Kikerültél {{PLURAL:$5|ebből a csoportból|ezekből a csoportokból}}: $4.",
 	"notification-header-welcome": "{{GENDER:$2|Üdvözlünk}} a(z) {{SITENAME}} wikin, $1! Örülünk, hogy itt {{GENDER:$2|vagy}}.",
+	"notification-header-mention-summary": "$1 {{GENDER:$2|megemlített}} {{GENDER:$3|téged}} egy szerkesztési összefoglalóban a(z) <strong>$4</strong> lapon.",
 	"notification-welcome-linktext": "Üdvözlet",
 	"notification-header-thank-you-1-edit": "{{GENDER:$2|Elkészítetted}} az első szerkesztésedet; köszönjük és üdvözlünk!",
 	"notification-header-thank-you-10-edit": "{{GENDER:$2|Elkészítetted}} a tizedik szerkesztésedet; köszönjük és csak így tovább!",
