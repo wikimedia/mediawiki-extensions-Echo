@@ -3,7 +3,7 @@
 class EchoNotificationJob extends Job {
 	function __construct( $title, $params ) {
 		parent::__construct( 'EchoNotificationJob', $title, $params );
-		$this->event = $params['event'];
+		$this->eventId = $params['eventId'];
 	}
 
 	function run() {
@@ -16,7 +16,14 @@ class EchoNotificationJob extends Job {
 		}
 
 		MWEchoDbFactory::newFromDefault()->waitFor( $masterPos );
-		EchoNotificationController::notify( $this->event, false );
+
+		// TEMPORARY: some jobs already in the queue
+		// have $this->event but not $this->eventId
+		$event = isset( $this->eventId ) ?
+			EchoEvent::loadFromID( $this->eventId ) :
+			$this->event;
+
+		EchoNotificationController::notify( $event, false );
 
 		return true;
 	}
