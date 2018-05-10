@@ -13,7 +13,8 @@
 			"Pitke",
 			"McSalama",
 			"Mikahama",
-			"01miki10"
+			"01miki10",
+			"Pyscowicz"
 		]
 	},
 	"echo-desc": "Järjestelmä jonka avulla käyttäjille voi lähettää ilmoituksia tapahtumista ja viesteistä",
@@ -39,7 +40,7 @@
 	"echo-pref-notifications-blacklist": "Älä näytä ilmoituksia näiltä käyttäjiltä. ([[mw:Special:MyLanguage/Help:Notifications#mute|lisätietoja]])",
 	"echo-pref-new-message-indicator": "Näytä keskustelusivujen viestistä erillinen ilmoitus työkalurivilläni",
 	"echo-pref-beta-feature-cross-wiki-message": "Kehittyneet ilmoitukset",
-	"echo-pref-beta-feature-cross-wiki-description": "Tee ilmoitusten katselusta ja järjestämisestä helpompaa. Sisältää wikienväliset ilmoitukset, joiden avulla viestit muissa wikeissä eivät jää huomaamatta. (Saat wikienvälisiä ilmoituksia vain niissä wikeissä, joissa betaominaisuus on käytössä.)",
+	"echo-pref-beta-feature-cross-wiki-description": "Tee ilmoitusten katselusta ja järjestämisestä helpompaa. Sisältää wikienväliset ilmoitukset, joiden avulla viestit muissa wikeissä eivät jää huomaamatta. (Saat wikienvälisiä ilmoituksia vain niissä wikeissä, joissa beetaominaisuus on käytössä.)",
 	"echo-learn-more": "Lue lisää aiheesta",
 	"echo-log": "Julkinen loki",
 	"echo-new-messages": "Sinulle on uusia viestejä",
