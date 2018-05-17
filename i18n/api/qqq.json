@@ -28,7 +28,7 @@
 	"apihelp-query+notifications-description": "{{doc-apihelp-description|query+notifications}}",
 	"apihelp-query+notifications-summary": "{{doc-apihelp-summary|query+notifications}}",
 	"apihelp-query+notifications-param-prop": "{{doc-apihelp-param|query+notifications|prop}}",
-	"apihelp-query+notifications-param-sections": "{{doc-apihelp-param|query+notifications|sections}} Do not translate the quoted strings.",
+	"apihelp-query+notifications-param-sections": "{{doc-apihelp-param|query+notifications|sections}}",
 	"apihelp-query+notifications-param-groupbysection": "{{doc-apihelp-param|query+notifications|groupbysection}}",
 	"apihelp-query+notifications-param-filter": "{{doc-apihelp-param|query+notifications|filter}}",
 	"apihelp-query+notifications-param-format": "{{doc-apihelp-param|query+notifications|format}}",

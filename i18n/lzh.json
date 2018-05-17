@@ -5,7 +5,8 @@
 			"Jason924tw",
 			"SolidBlock",
 			"Davidzdh",
-			"LNDDYL"
+			"LNDDYL",
+			"Itsmine"
 		]
 	},
 	"prefs-echo": "告示",
@@ -14,5 +15,6 @@
 	"echo-new-messages": "音書新來",
 	"notifications": "訊",
 	"tooltip-pt-notifications-alert": "{{GENDER:|君}}鳴",
+	"notification-header-thank-you-1-edit": "{{GENDER:$2|千里之行}}，始於{{GENDER:$2|足下}}，{{GENDER:$2|再接再厲}}!",
 	"echo-notification-alert": "{{PLURAL:$1|訊 ($1)|訊 ($1)|100=訊 (九九+)}}"
 }
