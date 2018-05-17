@@ -20,7 +20,7 @@ class EchoNotificationJob extends Job {
 		// TEMPORARY: some jobs already in the queue
 		// have $this->event but not $this->eventId
 		$event = isset( $this->eventId ) ?
-			EchoEvent::loadFromID( $this->eventId ) :
+			EchoEvent::newFromID( $this->eventId ) :
 			$this->event;
 
 		EchoNotificationController::notify( $event, false );
