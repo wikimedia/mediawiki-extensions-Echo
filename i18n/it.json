@@ -123,6 +123,7 @@
 	"notification-header-edit-user-talk": "$1 {{GENDER:$2|ha lasciato}} un messaggio sulla <strong>{{GENDER:$3|tua}} pagina di discussione</strong>.",
 	"notification-header-edit-user-talk-with-section": "$1 {{GENDER:$2|ha lasciato}} un messaggio sulla <strong>{{GENDER:$3|tua}} pagina di discussione</strong> in \"<strong>$4</strong>\".",
 	"notification-compact-header-edit-user-talk": "$1 {{GENDER:$3|ti}} {{GENDER:$2|ha lasciato}} un messaggio.",
+	"notification-compact-header-edit-user-talk-with-section": "$1 {{GENDER:$3|ti}} {{GENDER:$2|ha lasciato}} un messaggio in \"<strong>$4</strong>\".",
 	"notification-header-page-linked": "È stato creato un collegamento da <strong>$4</strong> a <strong>$3</strong>.",
 	"notification-compact-header-page-linked": "Collegata da <strong>$1</strong>.",
 	"notification-bundle-header-page-linked": "Sono stati creati i collegamenti da {{PLURAL:$5||$5 pagine|100=più di 99 pagine}} a <strong>$3</strong>.",
