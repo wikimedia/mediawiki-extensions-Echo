@@ -4,6 +4,8 @@
 	 *
 	 * @param {mw.echo.dm.ModelManager} manager Model manager
 	 * @param {Object} config Configuration object
+	 * @cfg {string} [helpLink] Link to help page
+	 * @cfg {string} [prefLink] Link to preferences page
 	 */
 	mw.echo.ui.SpecialHelpMenuWidget = function MwEchoUiSpecialHelpMenuWidget( manager, config ) {
 		var $menu = $( '<div>' ).addClass( 'mw-echo-ui-specialHelpMenuWidget-menu' );

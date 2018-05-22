@@ -10,6 +10,7 @@
 	 * @cfg {string} [type] The notification types this button represents;
 	 *  'message', 'alert' or 'all'
 	 * @cfg {string} [href] URL the badge links to
+	 * @cfg {string} [numItems=0] The number of items that are in the button display
 	 * @cfg {string} [convertedNumber] A converted version of the initial count
 	 */
 	mw.echo.ui.BadgeLinkWidget = function MwEchoUiBadgeLinkWidget( config ) {
@@ -29,7 +30,7 @@
 
 		this.count = 0;
 		this.type = config.type || 'alert';
-		this.setCount( config.numItems, config.convertedNumber );
+		this.setCount( config.numItems || 0, config.convertedNumber );
 
 		if ( config.href !== undefined && OO.ui.isSafeUrl( config.href ) ) {
 			this.$element.attr( 'href', config.href );

@@ -11,6 +11,8 @@
 	 * @param {mw.echo.dm.ModelManager} manager Model manager
 	 * @param {Object} [config] Configuration object
 	 *  marked as read when they are seen.
+	 * @cfg {string} [timestamp=0] A timestamp representing the latest item in
+	 *  the list.
 	 * @cfg {jQuery} [$overlay] A jQuery element functioning as an overlay
 	 *  for popups.
 	 */

@@ -12,8 +12,6 @@
 	 * @param {mw.echo.dm.BundleNotificationItem} model Notification group model
 	 * @param {Object} [config] Configuration object
 	 * @cfg {boolean} [animateSorting=false] Animate the sorting of items
-	 * @cfg {jQuery} [$overlay] A jQuery element functioning as an overlay
-	 *  for popups.
 	 */
 	mw.echo.ui.BundleNotificationItemWidget = function MwEchoUiBundleNotificationItemWidget( controller, model, config ) {
 		config = config || {};
