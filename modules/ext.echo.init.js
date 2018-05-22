@@ -74,13 +74,13 @@
 					mw.echo.ui.messageWidget = new mw.echo.ui.NotificationBadgeWidget(
 						messageController,
 						messageModelManager,
+						links,
 						{
 							$overlay: mw.echo.ui.$overlay,
 							numItems: Number( numMessages ),
 							hasUnseen: hasUnseenMessages,
 							badgeIcon: 'tray',
 							convertedNumber: badgeLabelMessages,
-							links: links,
 							href: $existingMessageLink.attr( 'href' )
 						}
 					);
@@ -94,12 +94,12 @@
 				mw.echo.ui.alertWidget = new mw.echo.ui.NotificationBadgeWidget(
 					alertController,
 					alertModelManager,
+					links,
 					{
 						numItems: Number( numAlerts ),
 						convertedNumber: badgeLabelAlerts,
 						hasUnseen: hasUnseenAlerts,
 						badgeIcon: 'bell',
-						links: links,
 						$overlay: mw.echo.ui.$overlay,
 						href: $existingAlertLink.attr( 'href' )
 					}

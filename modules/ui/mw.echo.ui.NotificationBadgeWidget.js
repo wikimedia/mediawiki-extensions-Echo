@@ -8,11 +8,13 @@
 	 * @constructor
 	 * @param {mw.echo.Controller} controller Echo notifications controller
 	 * @param {mw.echo.dm.ModelManager} manager Model manager
-	 * @param {Object} [config] Configuration object
+	 * @param {Object} links Links object, containing 'notifications' and 'preferences' URLs
+	 * @param {Object} config Configuration object
 	 * @cfg {string|string[]} [type='message'] The type or array of types of
 	 *  notifications that are in this model. They can be 'alert', 'message' or
 	 *  an array of both. Defaults to 'message'
 	 * @cfg {number} [numItems=0] The number of items that are in the button display
+	 * @cfg {string} [convertedNumber] A converted version of the initial count
 	 * @cfg {string} [badgeLabel=0] The initial label for the badge. This is the
 	 *  formatted version of the number of items in the badge.
 	 * @cfg {boolean} [hasUnseen=false] Whether there are unseen items
@@ -22,12 +24,11 @@
 	 * @cfg {jQuery} [$overlay] A jQuery element functioning as an overlay
 	 *  for popups.
 	 */
-	mw.echo.ui.NotificationBadgeWidget = function MwEchoUiNotificationBadgeButtonPopupWidget( controller, manager, config ) {
+	mw.echo.ui.NotificationBadgeWidget = function MwEchoUiNotificationBadgeButtonPopupWidget( controller, manager, links, config ) {
 		var buttonFlags, allNotificationsButton, preferencesButton, footerButtonGroupWidget, $footer,
 			adjustedTypeString;
 
 		config = config || {};
-		config.links = config.links || {};
 
 		// Parent constructor
 		mw.echo.ui.NotificationBadgeWidget.parent.call( this, config );
@@ -85,14 +86,14 @@
 		allNotificationsButton = new OO.ui.ButtonWidget( {
 			icon: 'next',
 			label: mw.msg( 'echo-overlay-link' ),
-			href: config.links.notifications,
+			href: links.notifications,
 			classes: [ 'mw-echo-ui-notificationBadgeButtonPopupWidget-footer-allnotifs' ]
 		} );
 
 		preferencesButton = new OO.ui.ButtonWidget( {
 			icon: 'advanced',
 			label: mw.msg( 'mypreferences' ),
-			href: config.links.preferences,
+			href: links.preferences,
 			classes: [ 'mw-echo-ui-notificationBadgeButtonPopupWidget-footer-preferences' ]
 		} );
 
