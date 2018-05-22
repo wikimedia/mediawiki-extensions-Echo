@@ -22,7 +22,7 @@
 		config = config || {};
 
 		// Parent constructor
-		mw.echo.ui.SortedListWidget.parent.call( this, config );
+		mw.echo.ui.SortedListWidget.super.call( this, config );
 		// Mixin constructor
 		OO.SortedEmitterList.call( this, sortingCallback );
 

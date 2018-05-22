@@ -9,10 +9,8 @@
 	 * @param {Object} [config] Configuration object
 	 */
 	mw.echo.api.LocalAPIHandler = function MwEchoApiLocalAPIHandler( config ) {
-		config = config || {};
-
 		// Parent constructor
-		mw.echo.api.LocalAPIHandler.parent.call( this,
+		mw.echo.api.LocalAPIHandler.super.call( this,
 			new mw.Api( { ajax: { cache: false } } ),
 			config
 		);

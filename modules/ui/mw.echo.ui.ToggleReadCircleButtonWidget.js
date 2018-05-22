@@ -13,8 +13,8 @@
 	mw.echo.ui.ToggleReadCircleButtonWidget = function MwEchoUiToggleReadCircleButtonWidget( config ) {
 		config = config || {};
 
-		// Parent
-		mw.echo.ui.ToggleReadCircleButtonWidget.parent.call( this, config );
+		// Parent constructor
+		mw.echo.ui.ToggleReadCircleButtonWidget.super.call( this, config );
 
 		this.$circle = $( '<div>' )
 			.addClass( 'mw-echo-ui-toggleReadCircleButtonWidget-circle' );

@@ -11,7 +11,7 @@
 		config = config || {};
 
 		// Parent constructor
-		mw.echo.ui.SpecialHelpMenuWidget.parent.call( this, $.extend( {
+		mw.echo.ui.SpecialHelpMenuWidget.super.call( this, $.extend( {
 			icon: 'advanced',
 			indicator: 'down',
 			popup: {

@@ -22,10 +22,8 @@
 				.addClass( 'mw-echo-ui-datedSubGroupListWidget-title' )
 				.append( $primaryDate, $secondaryDate );
 
-		config = config || {};
-
 		// Parent constructor
-		mw.echo.ui.DatedSubGroupListWidget.parent.call( this, controller, listModel, $.extend( {
+		mw.echo.ui.DatedSubGroupListWidget.super.call( this, controller, listModel, $.extend( {
 			// Since this widget is defined as a dated list, we sort
 			// its items according to timestamp without consideration
 			// of read state or foreignness.

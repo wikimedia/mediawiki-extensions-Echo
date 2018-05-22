@@ -17,8 +17,8 @@
 
 		config = config || {};
 
-		// Parent
-		mw.echo.ui.PageNotificationsOptionWidget.parent.call( this, config );
+		// Parent constructor
+		mw.echo.ui.PageNotificationsOptionWidget.super.call( this, config );
 		// Mixin constructors
 		OO.ui.mixin.IconElement.call( this, config );
 		OO.ui.mixin.TitledElement.call( this, config );
@@ -85,7 +85,7 @@
 	};
 
 	mw.echo.ui.PageNotificationsOptionWidget.prototype.setPressed = function ( state ) {
-		mw.echo.ui.PageNotificationsOptionWidget.parent.prototype.setPressed.call( this, state );
+		mw.echo.ui.PageNotificationsOptionWidget.super.prototype.setPressed.call( this, state );
 		if ( this.pressed ) {
 			this.setFlags( 'progressive' );
 		} else if ( !this.selected ) {
@@ -95,7 +95,7 @@
 	};
 
 	mw.echo.ui.PageNotificationsOptionWidget.prototype.setSelected = function ( state ) {
-		mw.echo.ui.PageNotificationsOptionWidget.parent.prototype.setSelected.call( this, state );
+		mw.echo.ui.PageNotificationsOptionWidget.super.prototype.setSelected.call( this, state );
 		if ( this.selected ) {
 			this.setFlags( 'progressive' );
 		} else {

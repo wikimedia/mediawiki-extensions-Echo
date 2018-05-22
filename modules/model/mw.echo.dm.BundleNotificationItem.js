@@ -12,9 +12,8 @@
 	 * @param {Object} [config] Configuration object
 	 */
 	mw.echo.dm.BundleNotificationItem = function MwEchoDmBundleNotificationItem( id, bundledNotificationModels, config ) {
-		config = config || {};
-
-		mw.echo.dm.BundleNotificationItem.parent.call( this, id, config );
+		// Parent constructor
+		mw.echo.dm.BundleNotificationItem.super.call( this, id, config );
 
 		this.getSecondaryUrls().forEach( function ( link ) {
 			// hack: put all secondary actions in the menu for now

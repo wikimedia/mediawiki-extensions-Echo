@@ -18,7 +18,7 @@
 		config = config || {};
 
 		// Parent constructor
-		mw.echo.dm.NotificationGroupsList.parent.call( this );
+		mw.echo.dm.NotificationGroupsList.super.call( this );
 
 		// Sorting callback
 		this.setSortingCallback( function ( a, b ) {

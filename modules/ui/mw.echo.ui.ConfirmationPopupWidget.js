@@ -16,7 +16,7 @@
 		config = config || {};
 
 		// Parent constructor
-		mw.echo.ui.ConfirmationPopupWidget.parent.call( this, config );
+		mw.echo.ui.ConfirmationPopupWidget.super.call( this, config );
 
 		this.labelWidget = new OO.ui.LabelWidget( config );
 		this.iconWidget = new OO.ui.IconWidget( $.extend( { icon: 'checkAll' }, config ) );

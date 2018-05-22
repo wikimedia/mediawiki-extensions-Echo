@@ -19,7 +19,7 @@
 		config = config || {};
 
 		// Parent constructor
-		mw.echo.ui.BundleNotificationItemWidget.parent.call( this, controller, model, config );
+		mw.echo.ui.BundleNotificationItemWidget.super.call( this, controller, model, config );
 
 		this.toggleMarkAsReadButtons( true );
 

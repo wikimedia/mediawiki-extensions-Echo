@@ -17,7 +17,7 @@
 		config = config || {};
 
 		// Parent constructor
-		mw.echo.ui.DatedNotificationsWidget.parent.call( this, config );
+		mw.echo.ui.DatedNotificationsWidget.super.call( this, config );
 		// Mixin constructors
 		OO.ui.mixin.PendingElement.call( this, config );
 

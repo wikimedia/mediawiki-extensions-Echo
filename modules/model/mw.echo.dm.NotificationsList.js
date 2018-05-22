@@ -26,7 +26,7 @@
 		config = config || {};
 
 		// Parent constructor
-		mw.echo.dm.NotificationsList.parent.call( this );
+		mw.echo.dm.NotificationsList.super.call( this );
 
 		this.name = config.name || 'local';
 		this.source = config.source || 'local';

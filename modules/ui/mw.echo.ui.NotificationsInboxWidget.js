@@ -18,8 +18,8 @@
 
 		config = config || {};
 
-		// Parent
-		mw.echo.ui.NotificationsInboxWidget.parent.call( this, config );
+		// Parent constructor
+		mw.echo.ui.NotificationsInboxWidget.super.call( this, config );
 		// Mixin constructors
 		OO.ui.mixin.PendingElement.call( this, config );
 

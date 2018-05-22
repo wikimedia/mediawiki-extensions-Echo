@@ -9,10 +9,8 @@
 	 * @param {Object} [config] Configuration object
 	 */
 	mw.echo.ui.ReadStateButtonSelectWidget = function MwEchoUiReadStateButtonSelectWidget( config ) {
-		config = config || {};
-
-		// Parent
-		mw.echo.ui.ReadStateButtonSelectWidget.parent.call( this, $.extend( config, {
+		// Parent constructor
+		mw.echo.ui.ReadStateButtonSelectWidget.super.call( this, $.extend( config, {
 			items: [
 				new OO.ui.ButtonOptionWidget( {
 					data: 'all',
