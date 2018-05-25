@@ -1347,7 +1347,7 @@ class EchoHooks {
 
 	/**
 	 * Handler for ParserTestTables hook, makes sure that Echo's tables are present during tests
-	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/UserClearNewTalkNotification
+	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/ParserTestTables
 	 * @param array &$tables List of DB tables to be used for parser tests
 	 * @return bool true in all cases
 	 */
