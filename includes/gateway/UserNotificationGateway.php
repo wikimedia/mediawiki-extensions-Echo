@@ -40,6 +40,10 @@ class EchoUserNotificationGateway {
 		$this->dbFactory = $dbFactory;
 	}
 
+	public function getDB( $dbSource ) {
+		return $this->dbFactory->getEchoDb( $dbSource );
+	}
+
 	/**
 	 * Mark notifications as read
 	 * @param array $eventIDs
@@ -51,7 +55,7 @@ class EchoUserNotificationGateway {
 			return false;
 		}
 
-		$dbw = $this->dbFactory->getEchoDb( DB_MASTER );
+		$dbw = $this->getDB( DB_MASTER );
 		if ( $dbw->isReadOnly() ) {
 			return false;
 		}
@@ -79,7 +83,7 @@ class EchoUserNotificationGateway {
 			return false;
 		}
 
-		$dbw = $this->dbFactory->getEchoDb( DB_MASTER );
+		$dbw = $this->getDB( DB_MASTER );
 
 		return $dbw->update(
 			self::$notificationTable,
@@ -99,7 +103,7 @@ class EchoUserNotificationGateway {
 	 * have updateJoin()
 	 */
 	public function markAllRead() {
-		$dbw = $this->dbFactory->getEchoDb( DB_MASTER );
+		$dbw = $this->getDB( DB_MASTER );
 
 		return $dbw->update(
 			self::$notificationTable,
@@ -129,7 +133,7 @@ class EchoUserNotificationGateway {
 			return 0;
 		}
 
-		$db = $this->dbFactory->getEchoDb( $dbSource );
+		$db = $this->getDB( $dbSource );
 		return $db->selectRowCount(
 			[
 				self::$notificationTable,
@@ -158,7 +162,7 @@ class EchoUserNotificationGateway {
 	 * @return int[]
 	 */
 	public function getUnreadNotifications( $type ) {
-		$dbr = $this->dbFactory->getEchoDb( DB_REPLICA );
+		$dbr = $this->getDB( DB_REPLICA );
 		$res = $dbr->select(
 			[
 				self::$notificationTable,
