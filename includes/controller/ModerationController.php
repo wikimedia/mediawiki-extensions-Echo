@@ -34,6 +34,8 @@ class EchoModerationController {
 			// users whose notifications have been moderated.
 			foreach ( $affectedUserIds as $userId ) {
 				$user = User::newFromId( $userId );
+				// TODO this looks like it's still susceptible to a race condition, if the notification count
+				// was reset from the master just before
 				MWEchoNotifUser::newFromUser( $user )->resetNotificationCount( DB_REPLICA );
 			}
 		} );

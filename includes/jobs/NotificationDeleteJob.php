@@ -59,7 +59,7 @@ class EchoNotificationDeleteJob extends Job {
 			);
 			if ( $res ) {
 				$notifUser = MWEchoNotifUser::newFromUser( $user );
-				$notifUser->resetNotificationCount( DB_MASTER );
+				$notifUser->resetNotificationCount();
 			}
 		}
 

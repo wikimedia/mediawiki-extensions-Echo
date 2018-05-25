@@ -1417,9 +1417,9 @@ class EchoHooks {
 
 	public static function onMergeAccountFromTo( User &$oldUser, User &$newUser ) {
 		DeferredUpdates::addCallableUpdate( function () use ( $oldUser, $newUser ) {
-			MWEchoNotifUser::newFromUser( $oldUser )->resetNotificationCount( DB_MASTER );
+			MWEchoNotifUser::newFromUser( $oldUser )->resetNotificationCount();
 			if ( !$newUser->isAnon() ) {
-				MWEchoNotifUser::newFromUser( $newUser )->resetNotificationCount( DB_MASTER );
+				MWEchoNotifUser::newFromUser( $newUser )->resetNotificationCount();
 			}
 		} );
 

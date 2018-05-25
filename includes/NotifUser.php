@@ -362,7 +362,7 @@ class MWEchoNotifUser {
 		$updated = $this->userNotifGateway->markRead( $eventIds );
 		if ( $updated ) {
 			// Update notification count in cache
-			$this->resetNotificationCount( DB_MASTER );
+			$this->resetNotificationCount();
 
 			// After this 'mark read', is there any unread edit-user-talk
 			// remaining?  If not, we should clear the newtalk flag.
@@ -395,7 +395,7 @@ class MWEchoNotifUser {
 		$updated = $this->userNotifGateway->markUnRead( $eventIds );
 		if ( $updated ) {
 			// Update notification count in cache
-			$this->resetNotificationCount( DB_MASTER );
+			$this->resetNotificationCount();
 
 			// After this 'mark unread', is there any unread edit-user-talk?
 			// If so, we should add the edit-user-talk flag
@@ -468,12 +468,18 @@ class MWEchoNotifUser {
 	}
 
 	/**
-	 * Invalidate cache and update echo_unread_wikis if x-wiki notifications is enabled
-	 * NOTE: Consider calling this function from a deferred update since it may access the db
+	 * Invalidate cache and update echo_unread_wikis if x-wiki notifications is enabled.
 	 *
-	 * @param int $dbSource Use master or replica database to pull count
+	 * This updates the user's touched timestamp, as well as the value returned by getGlobalUpdateTime().
+	 *
+	 * NOTE: Consider calling this function from a deferred update, since it will read from and write to
+	 * the master DB if cross-wiki notifications are enabled.
+	 *
+	 * @param int $dbSource Use master or replica database to pull count.
+	 *  Only used if $wgEchoCrossWikiNotifications is enabled.
+	 *  Do not set this to DB_REPLICA unless you know what you're doing.
 	 */
-	public function resetNotificationCount( $dbSource = DB_REPLICA ) {
+	public function resetNotificationCount( $dbSource = DB_MASTER ) {
 		global $wgEchoCrossWikiNotifications;
 		if ( $wgEchoCrossWikiNotifications ) {
 			// Schedule an update to the echo_unread_wikis table
