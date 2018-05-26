@@ -21,7 +21,7 @@ abstract class ApiCrossWikiBase extends ApiQueryBase {
 	 * This will turn the current API call (with all of it's params) and execute
 	 * it on all foreign wikis, returning an array of results per wiki.
 	 *
-	 * @param array $wikis List of wikis to query. Defaults to the result of getRequestedForeignWikis().
+	 * @param array|null $wikis List of wikis to query. Defaults to the result of getRequestedForeignWikis().
 	 * @param array $paramOverrides Request parameter overrides
 	 * @return array
 	 * @throws Exception
