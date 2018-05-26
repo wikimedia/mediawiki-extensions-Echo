@@ -115,11 +115,11 @@ class EchoUnreadWikis {
 		if ( $alertCount || $msgCount ) {
 			$values = [
 				'euw_alerts' => $alertCount,
-				'euw_alerts_ts' => $alertCount
+				'euw_alerts_ts' => $alertTime
 					? $alertTime->getTimestamp( TS_MW )
 					: static::DEFAULT_TS,
 				'euw_messages' => $msgCount,
-				'euw_messages_ts' => $msgCount
+				'euw_messages_ts' => $msgTime
 					? $msgTime->getTimestamp( TS_MW )
 					: static::DEFAULT_TS,
 			];
