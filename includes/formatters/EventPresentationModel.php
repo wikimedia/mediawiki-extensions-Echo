@@ -60,14 +60,14 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 
 	/**
 	 * @param EchoEvent $event
-	 * @param Language|string $language
+	 * @param Language $language
 	 * @param User $user Only used for permissions checking and GENDER
 	 * @param string $distributionType
 	 */
-	protected function __construct( EchoEvent $event, $language, User $user, $distributionType ) {
+	protected function __construct( EchoEvent $event, Language $language, User $user, $distributionType ) {
 		$this->event = $event;
 		$this->type = $event->getType();
-		$this->language = wfGetLangObj( $language );
+		$this->language = $language;
 		$this->user = $user;
 		$this->distributionType = $distributionType;
 	}
@@ -86,12 +86,12 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 
 	/**
 	 * @param EchoEvent $event
-	 * @param Language|string $language
+	 * @param Language $language
 	 * @param User $user
 	 * @param string $distributionType 'web' or 'email'
 	 * @return EchoEventPresentationModel
 	 */
-	public static function factory( EchoEvent $event, $language, User $user, $distributionType = 'web' ) {
+	public static function factory( EchoEvent $event, Language $language, User $user, $distributionType = 'web' ) {
 		global $wgEchoNotifications;
 		// @todo don't depend upon globals
 
