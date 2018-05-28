@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"C.R."
+			"C.R.",
+			"Ruthven"
 		]
 	},
 	"apihelp-echomarkread-description": "Nzegna tutt' 'e notifiche comm'a fossero liggiute 'a ll'utente.",
@@ -26,7 +27,7 @@
 	"apihelp-query+notifications-paramvalue-format-flyout": "<span class=\"apihelp-deprecated\">Obsoleto</span>. Ausà <kbd>$1format=model</kbd> p' 'e date 'ncruro",
 	"apihelp-query+notifications-paramvalue-format-html": "<span class=\"apihelp-deprecated\">Obsoleto</span>. Ausà <kbd>$1format=model</kbd> p' 'e date 'ncruro",
 	"apihelp-query+notifications-param-limit": "'O nummero massimo 'e notifiche ca s'avess'a turnà.",
-	"apihelp-query+notifications-param-wikis": "Elenco 'e wiki addò se piglià 'e notifiche (predefinito surtanto 'o wiki 'e mò).",
+	"apihelp-query+notifications-param-wikis": "Elenco 'e wiki addò piglià 'e nutifiche (predefinito surtanto p'o wiki 'e mo).",
 	"apihelp-query+notifications-param-crosswikisummary": "Overo (True) pe' puté dicere sì a se piglia nu riassunto 'e notifiche 'e wiki 'e fore.",
 	"apihelp-query+notifications-param-alertcontinue": "Quanno stessero cchiù risultate ccà a disposizione, facite stu prucesso pe cuntinuà.",
 	"apihelp-query+notifications-param-unreadfirst": "Si vulite fà vedé 'e notifiche nun liggiute primma (ausato surtanto si groupbysection fosse mpustato).",

@@ -5,7 +5,8 @@
 			"Chelin",
 			"Macofe",
 			"Catrope",
-			"Nemo bis"
+			"Nemo bis",
+			"Ruthven"
 		]
 	},
 	"echo-desc": "Sistema pe' notificà ll'utente ncopp'a ll'evente e li mmasciate",
@@ -138,9 +139,9 @@
 	"notification-welcome-linktext": "Bemmenute",
 	"notification-header-thank-you-1-edit": "{{GENDER:$2|Vuje}} appena avite fatto 'o primmo cagnamiento {{GENDER:$2|r' 'o vuosto}}; ve ringraziamm'assaje, e {{GENDER:$2|bemmenuto|bemmenuta}}!",
 	"notification-header-thank-you-10-edit": "{{GENDER:$2|Vuje}} appena avite fatt' 'o cagnamiento nummero diece {{GENDER:$2|r' 'o vuosto}}; ve ringraziamm'assaje assaje, pe' piacere facite semp'accussì!",
-	"notification-header-thank-you-100-edit": "{{GENDER:$2|Vuje}} avite fatto mò mò nu centenaro 'e cagnamiente; site {{GENDER:$2|nu|na}} mostro, ve ringraziamm'assaje!",
+	"notification-header-thank-you-100-edit": "{{GENDER:$2|Vuje}} avite fatto mo mmo nu centenaro 'e cagnamiente; site {{GENDER:$2|nu|na}} mostro, ve ringraziamm'assaje!",
 	"notification-header-thank-you-1000-edit": "{{GENDER:$2|Vuje}} appena avite fatto nu migliar' 'e cuntribbute; Chest'è na cosa seria, nc'amma luvà 'o cappiello annanz'a {{GENDER:$2|nu cuntribbutore|na cuntribbutrice}} accussì {{GENDER:$2|gruoss|gross}}.",
-	"notification-header-thank-you-10000-edit": "{{GENDER:$2|Vuje}} avite fatto mò mò ll'edizione {{GENDER:$2|vosta}} nummero diecimila; {{GENDER:$2|ve}} ringraziamm'assaje!",
+	"notification-header-thank-you-10000-edit": "{{GENDER:$2|Vuje}} avite fatto mo mmo ll'edizione {{GENDER:$2|vosta}} nummero diecemila; {{GENDER:$2|ve}} ringraziamm'assaje!",
 	"notification-header-thank-you-100000-edit": "{{GENDER:$2|Vuje}} appena avite fatto nu centenar' 'e migliar' 'e cuntribbute; marò, assaje! grazie a {{GENDER:$2|vuje}} pe' nu cuntribbuto accussì gruoss!",
 	"notification-header-thank-you-1000000-edit": "{{GENDER:$2|Vuje}} appena avite fatto nu melion' 'e cuntribbute; Nu melione! Oh anema ro Priatorio!!! (cit.) grazie a {{GENDER:$2|vuje}}!",
 	"notification-link-thank-you-edit": "'O cagnamiento {{GENDER:$1|vuosto}}",
