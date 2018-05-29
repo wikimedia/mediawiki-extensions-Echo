@@ -5,5 +5,15 @@
 			"Tusholi"
 		]
 	},
+	"prefs-echo": "Хоамбар",
+	"prefs-emailsettings": "Электронни пошта оттамаш",
+	"echo-pref-send-me": "Ахийта сога:",
+	"echo-pref-send-to": "Ахийта укх цIайна тIа:",
+	"echo-pref-email-format": "Хоамбара формат:",
+	"echo-pref-email-frequency-never": "Ма бе сога хоам эл. поште гIолла",
+	"echo-pref-email-frequency-immediately": "Цхьадола хоамаш шоаш хьакхаьчача",
+	"echo-pref-email-frequency-daily": "ХIара денна хоамий сводка",
+	"echo-pref-email-frequency-weekly": "ХIара кIира хоамий сводка",
+	"notifications": "Хоамбар",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Хьога}} дéна дӀахайтар"
 }
