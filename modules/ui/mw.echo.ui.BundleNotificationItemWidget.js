@@ -21,9 +21,6 @@
 		// Parent constructor
 		mw.echo.ui.BundleNotificationItemWidget.parent.call( this, controller, model, config );
 
-		this.controller = controller;
-		this.model = model;
-
 		this.toggleMarkAsReadButtons( true );
 
 		this.listWidget = new mw.echo.ui.SortedListWidget(

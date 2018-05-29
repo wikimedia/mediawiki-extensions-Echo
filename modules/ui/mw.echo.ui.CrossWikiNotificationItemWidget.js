@@ -28,9 +28,6 @@
 		// Mixin constructors
 		OO.ui.mixin.PendingElement.call( this, config );
 
-		this.controller = controller;
-		this.model = model;
-
 		// In cross-wiki groups we only have 'mark as read'
 		this.toggleMarkAsReadButtons( true );
 
