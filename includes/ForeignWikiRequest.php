@@ -9,7 +9,7 @@ class EchoForeignWikiRequest {
 	 * @param User $user User object
 	 * @param array $params Request parameters
 	 * @param array $wikis Wikis to send the request to
-	 * @param string $wikiParam Parameter name to set to the name of the wiki
+	 * @param string|null $wikiParam Parameter name to set to the name of the wiki
 	 */
 	public function __construct( User $user, array $params, array $wikis, $wikiParam = null ) {
 		$this->user = $user;

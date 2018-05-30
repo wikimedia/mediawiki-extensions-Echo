@@ -188,7 +188,7 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 	 * If $includeCurrent is false, all events in the same group as the current one will be ignored.
 	 *
 	 * @param bool $includeCurrent Include the current event (and its group)
-	 * @param callable $groupCallback Callback that takes an EchoEvent and returns a grouping value
+	 * @param callable|null $groupCallback Callback that takes an EchoEvent and returns a grouping value
 	 * @return int Number of bundled events or groups
 	 * @throws InvalidArgumentException
 	 */
@@ -217,7 +217,7 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 	 * For parameters, see getBundleCount().
 	 *
 	 * @param bool $includeCurrent
-	 * @param callable $groupCallback
+	 * @param callable|null $groupCallback
 	 * @return int count
 	 */
 	final protected function getNotificationCountForOutput( $includeCurrent = true, $groupCallback = null ) {
@@ -584,7 +584,7 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 	 * @param Title $title Title relating to this action
 	 * @param bool $icon Optional. Symbolic name of the OOUI icon to use
 	 * @param string $label link text (non-escaped)
-	 * @param string $description descriptive text (optional, non-escaped)
+	 * @param string|null $description descriptive text (optional, non-escaped)
 	 * @param array $data Action data
 	 * @param array $query
 	 * @return array Array compatible with the structure of
