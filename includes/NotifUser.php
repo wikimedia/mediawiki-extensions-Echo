@@ -412,12 +412,8 @@ class MWEchoNotifUser {
 	 *
 	 * NOTE: Consider calling this function from a deferred update, since it will read from and write to
 	 * the master DB if cross-wiki notifications are enabled.
-	 *
-	 * @param int $dbSource Use master or replica database to pull count.
-	 *  Only used if $wgEchoCrossWikiNotifications is enabled.
-	 *  Do not set this to DB_REPLICA unless you know what you're doing.
 	 */
-	public function resetNotificationCount( $dbSource = DB_MASTER ) {
+	public function resetNotificationCount() {
 		global $wgEchoCrossWikiNotifications;
 
 		// Delete cached local counts and timestamps
@@ -437,7 +433,7 @@ class MWEchoNotifUser {
 			$uw = EchoUnreadWikis::newFromUser( $this->mUser );
 			if ( $uw ) {
 				// Immediately compute new local counts and timestamps
-				$newLocalData = $this->computeLocalCountsAndTimestamps( $dbSource );
+				$newLocalData = $this->computeLocalCountsAndTimestamps( DB_MASTER );
 				// Write the new values to the echo_unread_wikis table
 				$alertTs = $newLocalData[EchoAttributeManager::ALERT]['timestamp'];
 				$messageTs = $newLocalData[EchoAttributeManager::MESSAGE]['timestamp'];
