@@ -136,7 +136,7 @@ class EchoNotification extends EchoAbstractEntity implements Bundleable {
 		// Add listener to refresh notification count upon insert
 		$notifMapper->attachListener( 'insert', 'refresh-notif-count',
 			function () use ( $notifUser, $section ) {
-				$notifUser->resetNotificationCount( DB_MASTER );
+				$notifUser->resetNotificationCount();
 			}
 		);
 
