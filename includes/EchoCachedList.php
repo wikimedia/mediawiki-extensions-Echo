@@ -35,25 +35,21 @@ class EchoCachedList implements EchoContainmentList {
 		if ( $this->result ) {
 			return $this->result;
 		}
-
-		$cacheKey = $this->getCacheKey();
-		$fetched = $this->cache->get( $cacheKey );
-		if ( is_array( $fetched ) ) {
-			$this->result = $fetched;
-			return $this->result;
-		}
-
-		$result = $this->nestedList->getValues();
-		if ( !is_array( $result ) ) {
-			throw new MWException( sprintf(
-				"Expected array but received '%s' from '%s::getValues'",
-				is_object( $result ) ? get_class( $result ) : gettype( $result ),
-				get_class( $this->nestedList )
-			) );
-		}
-		$this->cache->set( $cacheKey, $result, $this->timeout );
-
-		$this->result = $result;
+		$this->result = $this->cache->getWithSetCallback(
+			$this->getCacheKey(),
+			$this->timeout,
+			function () {
+				$result = $this->nestedList->getValues();
+				if ( !is_array( $result ) ) {
+					throw new MWException( sprintf(
+						"Expected array but received '%s' from '%s::getValues'",
+						is_object( $result ) ? get_class( $result ) : gettype( $result ),
+						get_class( $this->nestedList )
+					) );
+				}
+				return $result;
+			}
+		);
 		return $this->result;
 	}
 
