@@ -8,8 +8,11 @@
 	 *
 	 * @constructor
 	 * @param {Object} [config] Configuration object
+	 * @cfg {string} [type] Optional action type. Used to note a dynamic action, by setting it to 'dynamic-action'
+	 * @cfg {string} [url] Item URL for links
+	 * @cfg {string} [tooltip] Tooltip for links
 	 * @cfg {string} [description] An optional description for the item
-	 * @cfg {string} [icon] An optional icon for the item
+	 * @cfg {Object} [actionData] Action data
 	 * @cfg {boolean} [prioritized] The item is prioritized outside the
 	 *  popup menu.
 	 */

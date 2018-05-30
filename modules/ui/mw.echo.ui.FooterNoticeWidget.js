@@ -8,7 +8,6 @@
 	 * @constructor
 	 * @param {Object} [config] Configuration object
 	 * @cfg {string} [iconUrl] The source URL of the feedback icon
-	 * @cfg {string} [url] The URL for the survey
 	 * @cfg {string} [message] The message to display, in HTML or jQuery object.
 	 *  The message should already be formatted properly.
 	 */

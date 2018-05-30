@@ -20,7 +20,7 @@
 	 * @cfg {string} [sourceURL] The URL for the article base of the remote
 	 *  group or wiki
 	 * @cfg {string} [timestamp=0] A timestamp representing the latest item in
-	 *  then list.
+	 *  the list.
 	 */
 	mw.echo.dm.NotificationsList = function MwEchoDmNotificationsList( config ) {
 		config = config || {};

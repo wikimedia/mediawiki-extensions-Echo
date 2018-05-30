@@ -11,6 +11,8 @@
 	 * @param {mw.echo.dm.ModelManager} manager Model manager
 	 * @param {Object} [config] Configuration object
 	 * @cfg {number} [limit=25] Limit the number of notifications per page
+	 * @cfg {string} [helpLink] Link to help page
+	 * @cfg {string} [prefLink] Link to preferences page
 	 * @cfg {jQuery} [$overlay] An overlay for the popup menus
 	 */
 	mw.echo.ui.NotificationsInboxWidget = function MwEchoUiNotificationsInboxWidget( controller, manager, config ) {

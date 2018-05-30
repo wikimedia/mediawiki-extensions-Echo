@@ -17,8 +17,6 @@
 	 * @param {mw.echo.dm.CrossWikiNotificationItem} model Notification group model
 	 * @param {Object} [config] Configuration object
 	 * @cfg {boolean} [animateSorting=false] Animate the sorting of items
-	 * @cfg {jQuery} [$overlay] A jQuery element functioning as an overlay
-	 *  for popups.
 	 */
 	mw.echo.ui.CrossWikiNotificationItemWidget = function MwEchoUiCrossWikiNotificationItemWidget( controller, model, config ) {
 		config = config || {};

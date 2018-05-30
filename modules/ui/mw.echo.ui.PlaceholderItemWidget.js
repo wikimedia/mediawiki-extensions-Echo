@@ -30,7 +30,7 @@
 	/**
 	 * Set (or unset) the main link url for this widget
 	 *
-	 * @param {string} url The widget url
+	 * @param {string} [url] The widget url
 	 */
 	mw.echo.ui.PlaceholderItemWidget.prototype.setLink = function ( url ) {
 		var $link;
