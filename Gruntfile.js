@@ -36,6 +36,7 @@ module.exports = function ( grunt ) {
 					indent: '	',
 					pretty: true
 				},
+				multipass: true,
 				plugins: [ {
 					cleanupIDs: false
 				}, {
@@ -83,7 +84,8 @@ module.exports = function ( grunt ) {
 		}
 	} );
 
+	grunt.registerTask( 'minify', 'svgmin' );
 	grunt.registerTask( 'lint', [ 'eslint', 'stylelint', 'jsonlint', 'banana' ] );
-	grunt.registerTask( 'test', 'lint', 'svgmin' );
-	grunt.registerTask( 'default', 'test' );
+	grunt.registerTask( 'test', 'lint' );
+	grunt.registerTask( 'default', [ 'minify', 'test' ] );
 };
