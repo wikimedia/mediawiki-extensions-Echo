@@ -31,7 +31,7 @@
 		config = config || {};
 
 		// Parent constructor
-		mw.echo.ui.NotificationBadgeWidget.parent.call( this, config );
+		mw.echo.ui.NotificationBadgeWidget.super.call( this, config );
 
 		// Mixin constructors
 		OO.ui.mixin.PendingElement.call( this, config );

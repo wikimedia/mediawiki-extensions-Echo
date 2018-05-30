@@ -24,7 +24,7 @@
 		config = config || {};
 
 		// Parent constructor
-		mw.echo.ui.CrossWikiNotificationItemWidget.parent.call( this, controller, model, config );
+		mw.echo.ui.CrossWikiNotificationItemWidget.super.call( this, controller, model, config );
 		// Mixin constructors
 		OO.ui.mixin.PendingElement.call( this, config );
 
@@ -143,8 +143,8 @@
 			this.controller.getTypeString() // The type of the list in general
 		);
 
-		// Parent
-		return mw.echo.ui.CrossWikiNotificationItemWidget.parent.prototype.onMarkAsReadButtonClick.call( this );
+		// Parent method
+		return mw.echo.ui.CrossWikiNotificationItemWidget.super.prototype.onMarkAsReadButtonClick.call( this );
 	};
 
 	/**

@@ -15,7 +15,7 @@
 	mw.echo.dm.CrossWikiNotificationItem = function MwEchoDmCrossWikiNotificationItem( id, config ) {
 		config = config || {};
 
-		mw.echo.dm.CrossWikiNotificationItem.parent.call( this, id, config );
+		mw.echo.dm.CrossWikiNotificationItem.super.call( this, id, config );
 
 		this.foreign = true;
 		this.source = null;

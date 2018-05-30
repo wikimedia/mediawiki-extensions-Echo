@@ -16,7 +16,7 @@
 		config = config || {};
 
 		// Parent constructor
-		mw.echo.ui.BadgeLinkWidget.parent.call( this, config );
+		mw.echo.ui.BadgeLinkWidget.super.call( this, config );
 
 		// Mixin constructors
 		OO.ui.mixin.LabelElement.call( this, $.extend( { $label: this.$element }, config ) );

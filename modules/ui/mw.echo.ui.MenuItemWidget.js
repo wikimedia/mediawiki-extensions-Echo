@@ -22,7 +22,7 @@
 		this.isLink = config.url && !this.isDynamicAction();
 
 		// Parent constructor
-		mw.echo.ui.MenuItemWidget.parent.call( this, config );
+		mw.echo.ui.MenuItemWidget.super.call( this, config );
 
 		// Mixin constructors
 		OO.ui.mixin.PendingElement.call( this, config );
@@ -77,7 +77,7 @@
 		// If we have a link force selectability to false, otherwise defer to parent method
 		// Without a link (for dynamic actions or specific internal actions) we need this widget
 		// to be selectable so it emits the 'choose' event
-		return !this.isLink && mw.echo.ui.MenuItemWidget.parent.prototype.isSelectable.apply( this, arguments );
+		return !this.isLink && mw.echo.ui.MenuItemWidget.super.prototype.isSelectable.apply( this, arguments );
 	};
 
 	/**

@@ -24,7 +24,7 @@
 		config = config || {};
 
 		// Parent constructor
-		mw.echo.ui.ActionMenuPopupWidget.parent.call( this, config );
+		mw.echo.ui.ActionMenuPopupWidget.super.call( this, config );
 
 		this.$overlay = config.$overlay || this.$element;
 

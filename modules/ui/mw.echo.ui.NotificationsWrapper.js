@@ -15,7 +15,7 @@
 		config = config || {};
 
 		// Parent constructor
-		mw.echo.ui.NotificationsWrapper.parent.call( this, config );
+		mw.echo.ui.NotificationsWrapper.super.call( this, config );
 
 		// Mixin constructor
 		OO.ui.mixin.PendingElement.call( this, config );

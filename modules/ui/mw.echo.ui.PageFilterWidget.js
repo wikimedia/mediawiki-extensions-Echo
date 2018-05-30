@@ -17,8 +17,8 @@
 	mw.echo.ui.PageFilterWidget = function MwEchoUiPageFilterWidget( filterModel, source, config ) {
 		config = config || {};
 
-		// Parent
-		mw.echo.ui.PageFilterWidget.parent.call( this, config );
+		// Parent constructor
+		mw.echo.ui.PageFilterWidget.super.call( this, config );
 
 		this.model = filterModel;
 		this.source = source;

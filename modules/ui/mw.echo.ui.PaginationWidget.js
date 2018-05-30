@@ -20,8 +20,8 @@
 	mw.echo.ui.PaginationWidget = function MwEchoUiPaginationWidget( paginationModel, config ) {
 		config = config || {};
 
-		// Parent
-		mw.echo.ui.PaginationWidget.parent.call( this, config );
+		// Parent constructor
+		mw.echo.ui.PaginationWidget.super.call( this, config );
 
 		this.model = paginationModel;
 
@@ -135,8 +135,8 @@
 	 * @chainable
 	 */
 	mw.echo.ui.PaginationWidget.prototype.setDisabled = function ( disabled ) {
-		// Parent
-		mw.echo.ui.PaginationWidget.parent.prototype.setDisabled.call( this, disabled );
+		// Parent method
+		mw.echo.ui.PaginationWidget.super.prototype.setDisabled.call( this, disabled );
 
 		if (
 			this.dirSelectWidget &&

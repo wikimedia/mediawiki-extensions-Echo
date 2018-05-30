@@ -17,7 +17,7 @@
 	mw.echo.ui.NotificationsListWidget = function MwEchoUiNotificationsListWidget( controller, manager, config ) {
 		config = config || {};
 		// Parent constructor
-		mw.echo.ui.NotificationsListWidget.parent.call(
+		mw.echo.ui.NotificationsListWidget.super.call(
 			this,
 			// Sorting callback
 			function ( a, b ) {

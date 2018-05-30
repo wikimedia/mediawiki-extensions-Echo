@@ -18,7 +18,7 @@
 		config = config || {};
 
 		// Parent constructor
-		mw.echo.ui.SingleNotificationItemWidget.parent.call( this, controller, model, config );
+		mw.echo.ui.SingleNotificationItemWidget.super.call( this, controller, model, config );
 		// Mixin constructors
 		OO.ui.mixin.PendingElement.call( this, config );
 
@@ -83,8 +83,8 @@
 	mw.echo.ui.SingleNotificationItemWidget.prototype.toggleRead = function ( read ) {
 		var oldState = this.read;
 
-		// Parent
-		mw.echo.ui.SingleNotificationItemWidget.parent.prototype.toggleRead.call( this, read );
+		// Parent method
+		mw.echo.ui.SingleNotificationItemWidget.super.prototype.toggleRead.call( this, read );
 
 		if ( oldState !== read ) {
 			this.emit( 'sortChange' );

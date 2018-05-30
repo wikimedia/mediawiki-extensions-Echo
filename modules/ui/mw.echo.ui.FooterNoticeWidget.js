@@ -20,7 +20,7 @@
 		config = config || {};
 
 		// Parent constructor
-		mw.echo.ui.FooterNoticeWidget.parent.call( this, config );
+		mw.echo.ui.FooterNoticeWidget.super.call( this, config );
 
 		if ( config.iconUrl ) {
 			$icon = $( '<div>' )

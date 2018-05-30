@@ -16,8 +16,8 @@
 
 		config = config || {};
 
-		// Parent
-		mw.echo.ui.CrossWikiUnreadFilterWidget.parent.call( this,
+		// Parent constructor
+		mw.echo.ui.CrossWikiUnreadFilterWidget.super.call( this,
 			// Sorting callback
 			function ( a, b ) {
 				var diff;
