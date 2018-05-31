@@ -1266,7 +1266,7 @@ class EchoHooks {
 	public static function onUserClearNewTalkNotification( User $user ) {
 		if ( !$user->isAnon() ) {
 			DeferredUpdates::addCallableUpdate( function () use ( $user ) {
-				MWEchoNotifUser::newFromUser( $user )->clearTalkNotification();
+				MWEchoNotifUser::newFromUser( $user )->clearUserTalkNotifications();
 			} );
 		}
 
