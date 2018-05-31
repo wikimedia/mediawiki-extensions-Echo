@@ -48,11 +48,11 @@ class BackfillUnreadWikis extends Maintenance {
 				$notifUser = MWEchoNotifUser::newFromUser( $user );
 				$uw = EchoUnreadWikis::newFromUser( $user );
 				if ( $uw ) {
-					$alertCount = $notifUser->getNotificationCount( true, DB_REPLICA, EchoAttributeManager::ALERT, false );
-					$alertUnread = $notifUser->getLastUnreadNotificationTime( true, DB_REPLICA, EchoAttributeManager::ALERT, false );
+					$alertCount = $notifUser->getNotificationCount( EchoAttributeManager::ALERT, false );
+					$alertUnread = $notifUser->getLastUnreadNotificationTime( EchoAttributeManager::ALERT, false );
 
-					$msgCount = $notifUser->getNotificationCount( true, DB_REPLICA, EchoAttributeManager::MESSAGE, false );
-					$msgUnread = $notifUser->getLastUnreadNotificationTime( true, DB_REPLICA, EchoAttributeManager::MESSAGE, false );
+					$msgCount = $notifUser->getNotificationCount( EchoAttributeManager::MESSAGE, false );
+					$msgUnread = $notifUser->getLastUnreadNotificationTime( EchoAttributeManager::MESSAGE, false );
 
 					if ( ( $alertCount !== 0 && $alertUnread === false ) || ( $msgCount !== 0 && $msgUnread === false ) ) {
 						// If there are alerts, there should be an alert timestamp (same for messages).

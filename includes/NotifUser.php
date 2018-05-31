@@ -177,27 +177,30 @@ class MWEchoNotifUser {
 	/**
 	 * Get message count for this user.
 	 *
-	 * @param bool $cached Set to false to bypass the cache. (Optional. Defaults to true)
-	 * @param int $dbSource Use master or slave database to pull count (Optional. Defaults to DB_REPLICA)
 	 * @return int
 	 */
-	public function getMessageCount( $cached = true, $dbSource = DB_REPLICA ) {
-		return $this->getNotificationCount( $cached, $dbSource, EchoAttributeManager::MESSAGE );
+	public function getMessageCount() {
+		return $this->getNotificationCount( EchoAttributeManager::MESSAGE );
 	}
 
 	/**
 	 * Get alert count for this user.
 	 *
-	 * @param bool $cached Set to false to bypass the cache. (Optional. Defaults to true)
-	 * @param int $dbSource Use master or slave database to pull count (Optional. Defaults to DB_REPLICA)
 	 * @return int
 	 */
-	public function getAlertCount( $cached = true, $dbSource = DB_REPLICA ) {
-		return $this->getNotificationCount( $cached, $dbSource, EchoAttributeManager::ALERT );
+	public function getAlertCount() {
+		return $this->getNotificationCount( EchoAttributeManager::ALERT );
 	}
 
-	public function getLocalNotificationCount( $cached = true, $dbSource = DB_REPLICA, $section = EchoAttributeManager::ALL ) {
-		return $this->getNotificationCount( $cached, $dbSource, $section, false );
+	/**
+	 * Get the number of unread local notifications in a given section. This does not include
+	 * foreign notifications, even if the user has cross-wiki notifications enabled.
+	 *
+	 * @param string $section Notification section
+	 * @return int
+	 */
+	public function getLocalNotificationCount( $section = EchoAttributeManager::ALL ) {
+		return $this->getNotificationCount( $section, false );
 	}
 
 	/**
@@ -206,13 +209,11 @@ class MWEchoNotifUser {
 	 *
 	 * If $wgEchoCrossWikiNotifications is disabled, the $global parameter is ignored.
 	 *
-	 * @param bool $cached Set to false to bypass the cache. (Optional. Defaults to true)
-	 * @param int $dbSource Use master or slave database to pull count (Optional. Defaults to DB_REPLICA)
 	 * @param string $section Notification section
 	 * @param bool|string $global Whether to include foreign notifications. If set to 'preference', uses the user's preference.
 	 * @return int
 	 */
-	public function getNotificationCount( $cached = true, $dbSource = DB_REPLICA, $section = EchoAttributeManager::ALL, $global = 'preference' ) {
+	public function getNotificationCount( $section = EchoAttributeManager::ALL, $global = 'preference' ) {
 		if ( $this->mUser->isAnon() ) {
 			return 0;
 		}
@@ -235,23 +236,19 @@ class MWEchoNotifUser {
 	/**
 	 * Get the timestamp of the latest unread alert
 	 *
-	 * @param bool $cached Set to false to bypass the cache. (Optional. Defaults to true)
-	 * @param int $dbSource Use master or slave database to pull count (Optional. Defaults to DB_REPLICA)
 	 * @return bool|MWTimestamp Timestamp of latest unread alert, or false if there are no unread alerts.
 	 */
-	public function getLastUnreadAlertTime( $cached = true, $dbSource = DB_REPLICA ) {
-		return $this->getLastUnreadNotificationTime( $cached, $dbSource, EchoAttributeManager::ALERT );
+	public function getLastUnreadAlertTime() {
+		return $this->getLastUnreadNotificationTime( EchoAttributeManager::ALERT );
 	}
 
 	/**
 	 * Get the timestamp of the latest unread message
 	 *
-	 * @param bool $cached Set to false to bypass the cache. (Optional. Defaults to true)
-	 * @param int $dbSource Use master or slave database to pull count (Optional. Defaults to DB_REPLICA)
 	 * @return bool|MWTimestamp
 	 */
-	public function getLastUnreadMessageTime( $cached = true, $dbSource = DB_REPLICA ) {
-		return $this->getLastUnreadNotificationTime( $cached, $dbSource, EchoAttributeManager::MESSAGE );
+	public function getLastUnreadMessageTime() {
+		return $this->getLastUnreadNotificationTime( EchoAttributeManager::MESSAGE );
 	}
 
 	/**
@@ -259,13 +256,11 @@ class MWEchoNotifUser {
 	 *
 	 * If $wgEchoCrossWikiNotifications is disabled, the $global parameter is ignored.
 	 *
-	 * @param bool $cached Set to false to bypass the cache. (Optional. Defaults to true)
-	 * @param int $dbSource Use master or slave database to pull count (Optional. Defaults to DB_REPLICA)
 	 * @param string $section Notification section
 	 * @param bool|string $global Whether to include foreign notifications. If set to 'preference', uses the user's preference.
 	 * @return bool|MWTimestamp Timestamp of latest unread message, or false if there are no unread messages.
 	 */
-	public function getLastUnreadNotificationTime( $cached = true, $dbSource = DB_REPLICA, $section = EchoAttributeManager::ALL, $global = 'preference' ) {
+	public function getLastUnreadNotificationTime( $section = EchoAttributeManager::ALL, $global = 'preference' ) {
 		if ( $this->mUser->isAnon() ) {
 			return false;
 		}
