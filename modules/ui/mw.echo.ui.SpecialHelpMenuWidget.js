@@ -8,75 +8,79 @@
 	 * @cfg {string} [prefLink] Link to preferences page
 	 */
 	mw.echo.ui.SpecialHelpMenuWidget = function MwEchoUiSpecialHelpMenuWidget( manager, config ) {
-		var $menu = $( '<div>' ).addClass( 'mw-echo-ui-specialHelpMenuWidget-menu' );
+		var handle;
 
 		config = config || {};
 
 		// Parent constructor
 		mw.echo.ui.SpecialHelpMenuWidget.super.call( this, $.extend( {
-			icon: 'advanced',
-			indicator: 'down',
-			popup: {
-				$content: $menu,
-				width: 300
+			// Icon and indicator set on handle button instead
+			indicator: '',
+			menu: {
+				classes: [ 'mw-echo-ui-specialHelpMenuWidget-menu' ],
+				horizontalPosition: 'end',
+				width: 'auto'
 			}
 		}, config ) );
 
-		// Mixin constructors
-		OO.ui.mixin.GroupWidget.call( this, $.extend( {}, config, { $group: $menu } ) );
-		OO.ui.mixin.PendingElement.call( this, config );
+		// Replace handle with a button widget. Use this.$handle to preserve bindings.
+		this.$handle.empty().attr( 'class', '' );
+		handle = new OO.ui.ButtonWidget( {
+			$element: this.$handle,
+			icon: 'advanced',
+			indicator: 'down'
+		} );
+		this.$element.append( handle.$element );
 
 		this.manager = manager;
 
-		this.markAllReadButton = new OO.ui.ButtonWidget( {
-			framed: false,
+		this.markAllReadOption = new OO.ui.MenuOptionWidget( {
 			icon: 'checkAll',
-			label: this.getMarkAllReadButtonLabel()
+			label: this.getMarkAllReadOptionLabel(),
+			data: 'markAllRead'
 		} );
-		this.setPendingElement( this.$element );
-		this.markAllReadButton.toggle( false );
+		this.markAllReadOption.toggle( false );
 
-		this.addItems( [ this.markAllReadButton ] );
+		this.menu.addItems( [ this.markAllReadOption ] );
 		if ( config.prefLink ) {
-			this.addItems( [
+			this.menu.addItems( [
 				// Preferences link
-				new OO.ui.ButtonWidget( {
-					framed: false,
+				new OO.ui.MenuOptionWidget( {
+					// Use link for accessibility
+					$element: $( '<a>' ).attr( 'href', config.prefLink ),
 					icon: 'advanced',
 					label: mw.msg( 'mypreferences' ),
-					href: config.prefLink
+					data: { href: config.prefLink }
 				} )
 			] );
 		}
 
 		if ( config.helpLink ) {
-			this.addItems( [
+			this.menu.addItems( [
 				// Help link
-				new OO.ui.ButtonWidget( {
-					framed: false,
+				new OO.ui.MenuOptionWidget( {
+					// Use link for accessibility
+					$element: $( '<a>' ).attr( 'href', config.helpLink ),
 					icon: 'help',
 					label: mw.msg( 'echo-learn-more' ),
-					href: config.helpLink
+					data: { href: config.helpLink }
 				} )
 			] );
 		}
 
 		// Events
-		this.markAllReadButton.connect( this, { click: 'onMarkAllreadButtonClick' } );
 		this.manager.connect( this, {
 			localCountChange: 'onLocalCountChange'
 		} );
 		this.manager.getFiltersModel().getSourcePagesModel().connect( this, { update: 'onSourcePageUpdate' } );
+		this.menu.connect( this, { choose: 'onMenuChoose' } );
 
-		this.$element
-			.addClass( 'mw-echo-ui-specialHelpMenuWidget' );
+		this.$element.addClass( 'mw-echo-ui-specialHelpMenuWidget' );
 	};
 
 	/* Initialization */
 
-	OO.inheritClass( mw.echo.ui.SpecialHelpMenuWidget, OO.ui.PopupButtonWidget );
-	OO.mixinClass( mw.echo.ui.SpecialHelpMenuWidget, OO.ui.mixin.GroupElement );
-	OO.mixinClass( mw.echo.ui.SpecialHelpMenuWidget, OO.ui.mixin.PendingElement );
+	OO.inheritClass( mw.echo.ui.SpecialHelpMenuWidget, OO.ui.DropdownWidget );
 
 	/* Events */
 
@@ -92,7 +96,7 @@
 	 * Respond to source page change
 	 */
 	mw.echo.ui.SpecialHelpMenuWidget.prototype.onSourcePageUpdate = function () {
-		this.markAllReadButton.setLabel( this.getMarkAllReadButtonLabel() );
+		this.markAllReadOption.setLabel( this.getMarkAllReadOptionLabel() );
 
 	};
 
@@ -102,25 +106,32 @@
 	 * @param {number} count New count
 	 */
 	mw.echo.ui.SpecialHelpMenuWidget.prototype.onLocalCountChange = function ( count ) {
-		this.markAllReadButton.toggle( count > 0 );
+		this.markAllReadOption.toggle( count > 0 );
 	};
 
 	/**
-	 * Respond to mark all read button click
+	 * Handle dropdown menu choose events
+	 *
+	 * @param {OO.ui.MenuOptionWidget} item Chosen item
 	 */
-	mw.echo.ui.SpecialHelpMenuWidget.prototype.onMarkAllreadButtonClick = function () {
-		// Log this action
-		mw.echo.logger.logInteraction(
-			mw.echo.Logger.static.actions.markAllReadClick,
-			mw.echo.Logger.static.context.archive,
-			null, // Notification ID is irrelevant
-			this.manager.getTypeString(), // The type of the list in general
-			null, // The Logger has logic to decide whether this is mobile or not
-			this.manager.getFiltersModel().getSourcePagesModel().getCurrentSource() // Source name
-		);
-
-		this.popup.toggle( false );
-		this.emit( 'markAllRead' );
+	mw.echo.ui.SpecialHelpMenuWidget.prototype.onMenuChoose = function ( item ) {
+		var data = item.getData();
+		if ( data.href ) {
+			location.href = data.href;
+		} else if ( data === 'markAllRead' ) {
+			// Log this action
+			mw.echo.logger.logInteraction(
+				mw.echo.Logger.static.actions.markAllReadClick,
+				mw.echo.Logger.static.context.archive,
+				null, // Notification ID is irrelevant
+				this.manager.getTypeString(), // The type of the list in general
+				null, // The Logger has logic to decide whether this is mobile or not
+				this.manager.getFiltersModel().getSourcePagesModel().getCurrentSource() // Source name
+			);
+			this.emit( 'markAllRead' );
+		}
+		// Clear selection so handle doesn't change
+		this.menu.selectItem();
 	};
 
 	/**
@@ -128,7 +139,7 @@
 	 *
 	 * @return {string} Mark all read button label
 	 */
-	mw.echo.ui.SpecialHelpMenuWidget.prototype.getMarkAllReadButtonLabel = function () {
+	mw.echo.ui.SpecialHelpMenuWidget.prototype.getMarkAllReadOptionLabel = function () {
 		var pageModel = this.manager.getFiltersModel().getSourcePagesModel(),
 			source = pageModel.getCurrentSource(),
 			sourceTitle = pageModel.getSourceTitle( source );
@@ -138,23 +149,4 @@
 			mw.msg( 'echo-mark-all-as-read' );
 	};
 
-	/**
-	 * Extend the pushPending method to disable the mark all read button
-	 */
-	mw.echo.ui.SpecialHelpMenuWidget.prototype.pushPending = function () {
-		this.markAllReadButton.setDisabled( true );
-
-		// Mixin method
-		OO.ui.mixin.PendingElement.prototype.pushPending.call( this );
-	};
-
-	/**
-	 * Extend the popPending method to enable the mark all read button
-	 */
-	mw.echo.ui.SpecialHelpMenuWidget.prototype.popPending = function () {
-		this.markAllReadButton.setDisabled( false );
-
-		// Mixin method
-		OO.ui.mixin.PendingElement.prototype.popPending.call( this );
-	};
 }( jQuery, mediaWiki ) );
