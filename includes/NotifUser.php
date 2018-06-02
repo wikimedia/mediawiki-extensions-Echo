@@ -724,6 +724,12 @@ class MWEchoNotifUser {
 		return self::capNotificationCount( $count );
 	}
 
+	/**
+	 * Get the timestamp of the most recent foreign notification in a given section.
+	 * @param string $section One of EchoAttributeManager::$sections
+	 * @return MWTimestamp|false Timestamp of the most recent foreign notification, or false if
+	 *  there aren't any
+	 */
 	protected function getForeignTimestamp( $section = EchoAttributeManager::ALL ) {
 		global $wgEchoSectionTransition, $wgEchoBundleTransition;
 
@@ -735,27 +741,20 @@ class MWEchoNotifUser {
 			( $wgEchoSectionTransition && $section !== EchoAttributeManager::ALL ) ||
 			$wgEchoBundleTransition
 		) {
-			$foreignTime = false;
+			$foreignTime = -1;
 			$foreignData = $this->getForeignData();
 			foreach ( $foreignData as $data ) {
 				if ( $section === EchoAttributeManager::ALL ) {
 					foreach ( $data as $subData ) {
 						if ( isset( $subData['timestamp'] ) ) {
-							$wikiTime = new MWTimestamp( $data[$section]['timestamp'] );
-							// $wikiTime > $foreignTime = invert 1
-							if ( $foreignTime === false || $wikiTime->diff( $foreignTime )->invert === 1 ) {
-								$foreignTime = $wikiTime;
-							}
+							$foreignTime = max( $foreignTime, $subData['timestamp'] );
 						}
 					}
 				} elseif ( isset( $data[$section]['timestamp'] ) ) {
-					$wikiTime = new MWTimestamp( $data[$section]['timestamp'] );
-					// $wikiTime > $foreignTime = invert 1
-					if ( $foreignTime === false || $wikiTime->diff( $foreignTime )->invert === 1 ) {
-						$foreignTime = $wikiTime;
-					}
+					$foreignTime = max( $foreignTime, $data[$section]['timestamp'] );
 				}
 			}
+			$foreignTime = $foreignTime === -1 ? false : new MWTimestamp( $foreignTime );
 		} else {
 			$foreignTime = $this->getForeignNotifications()->getTimestamp( $section );
 		}
