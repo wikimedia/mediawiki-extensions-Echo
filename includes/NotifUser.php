@@ -42,9 +42,14 @@ class MWEchoNotifUser {
 	private $foreignNotifications = null;
 
 	/**
-	 * @var array
+	 * @var array|null
 	 */
-	private $cached;
+	private $localCountsAndTimestamps;
+
+	/**
+	 * @var array|null
+	 */
+	private $globalCountsAndTimestamps;
 
 	/**
 	 * @var array|null
@@ -59,6 +64,10 @@ class MWEchoNotifUser {
 	// WARNING: If you change this, you should also change all references in the
 	// i18n messages (100 and 99) in all repositories using Echo.
 	const MAX_BADGE_COUNT = 99;
+
+	const CACHE_TTL = 86400;
+	const CACHE_KEY = 'echo-notification-counts';
+	const CHECK_KEY = 'echo-notification-updated';
 
 	/**
 	 * Usually client code doesn't need to initialize the object directly
@@ -218,29 +227,9 @@ class MWEchoNotifUser {
 			$global = $this->getForeignNotifications()->isEnabledByUser();
 		}
 
-		$memcKey = $this->getMemcKey( 'echo-notification-count' . ( $section === EchoAttributeManager::ALL ? '' : ( '-' . $section ) ), $global );
-		if ( $cached ) {
-			$data = $this->getFromCache( $memcKey );
-			if ( $data !== false && $data !== null ) {
-				return (int)$data;
-			}
-		}
-
-		$attributeManager = EchoAttributeManager::newFromGlobalVars();
-		if ( $section === EchoAttributeManager::ALL ) {
-			$eventTypesToLoad = $attributeManager->getUserEnabledEvents( $this->mUser, 'web' );
-		} else {
-			$eventTypesToLoad = $attributeManager->getUserEnabledEventsbySections( $this->mUser, 'web', [ $section ] );
-		}
-
-		$count = (int)$this->userNotifGateway->getCappedNotificationCount( $dbSource, $eventTypesToLoad, self::MAX_BADGE_COUNT + 1 );
-
-		if ( $global ) {
-			$count = self::capNotificationCount( $count + $this->getForeignCount( $section ) );
-		}
-
-		$this->setInCache( $memcKey, $count, 86400 );
-		return $count;
+		$data = $this->getCountsAndTimestamps( $global );
+		$count = $data[$global ? 'global' : 'local'][$section]['count'];
+		return (int)$count;
 	}
 
 	/**
@@ -291,60 +280,9 @@ class MWEchoNotifUser {
 			$global = $this->getForeignNotifications()->isEnabledByUser();
 		}
 
-		$memcKey = $this->getMemcKey( 'echo-notification-timestamp' . ( $section === EchoAttributeManager::ALL ? '' : ( '-' . $section ) ), $global );
-
-		// read from cache, if allowed
-		if ( $cached ) {
-			$timestamp = $this->getFromCache( $memcKey );
-			if ( $timestamp === -1 ) {
-				// -1 means the user has no notifications
-				return false;
-			} elseif ( $timestamp !== false ) {
-				return new MWTimestamp( $timestamp );
-			}
-			// else cache miss
-		}
-
-		$timestamp = false;
-
-		// Get timestamp of most recent local notification, if there is one
-		$attributeManager = EchoAttributeManager::newFromGlobalVars();
-		if ( $section === EchoAttributeManager::ALL ) {
-			$eventTypesToLoad = $attributeManager->getUserEnabledEvents( $this->mUser, 'web' );
-		} else {
-			$eventTypesToLoad = $attributeManager->getUserEnabledEventsbySections( $this->mUser, 'web', [ $section ] );
-		}
-		$notifications = $this->notifMapper->fetchUnreadByUser( $this->mUser, 1, null, $eventTypesToLoad, null, $dbSource );
-		if ( $notifications ) {
-			$notification = reset( $notifications );
-			$timestamp = new MWTimestamp( $notification->getTimestamp() );
-		}
-
-		// Use timestamp of most recent foreign notification, if it's more recent
-		if ( $global ) {
-			$foreignTime = $this->getForeignTimestamp( $section );
-
-			if (
-				$foreignTime !== false &&
-				// $foreignTime < $timestamp = invert 0
-				// $foreignTime > $timestamp = invert 1
-				( $timestamp === false || $foreignTime->diff( $timestamp )->invert === 1 )
-			) {
-				$timestamp = $foreignTime;
-			}
-		}
-
-		if ( $timestamp === false ) {
-			// No notifications, so no timestamp
-			$returnValue = false;
-			$cacheValue = -1;
-		} else {
-			$returnValue = $timestamp;
-			$cacheValue = $timestamp->getTimestamp( TS_MW );
-		}
-
-		$this->setInCache( $memcKey, $cacheValue, 86400 );
-		return $returnValue;
+		$data = $this->getCountsAndTimestamps( $global );
+		$timestamp = $data[$global ? 'global' : 'local'][$section]['timestamp'];
+		return $timestamp === -1 ? false : new MWTimestamp( $timestamp );
 	}
 
 	/**
@@ -481,19 +419,45 @@ class MWEchoNotifUser {
 	 */
 	public function resetNotificationCount( $dbSource = DB_MASTER ) {
 		global $wgEchoCrossWikiNotifications;
+
+		// Delete cached local counts and timestamps
+		$localMemcKey = $this->getMemcKey( self::CACHE_KEY );
+		$this->cache->delete( $localMemcKey );
+
+		// Update the user touched timestamp for the local user
+		$this->mUser->invalidateCache();
+
 		if ( $wgEchoCrossWikiNotifications ) {
-			// Schedule an update to the echo_unread_wikis table
+			// Delete cached global counts and timestamps
+			$globalMemcKey = $this->getGlobalMemcKey( self::CACHE_KEY );
+			if ( $globalMemcKey !== false ) {
+				$this->cache->delete( $globalMemcKey );
+			}
+
 			$uw = EchoUnreadWikis::newFromUser( $this->mUser );
 			if ( $uw ) {
-				$alertCount = $this->getNotificationCount( false, $dbSource, EchoAttributeManager::ALERT, false );
-				$msgCount = $this->getNotificationCount( false, $dbSource, EchoAttributeManager::MESSAGE, false );
-				$alertUnread = $this->getLastUnreadNotificationTime( false, $dbSource, EchoAttributeManager::ALERT, false );
-				$msgUnread = $this->getLastUnreadNotificationTime( false, $dbSource, EchoAttributeManager::MESSAGE, false );
-				$uw->updateCount( wfWikiID(), $alertCount, $alertUnread, $msgCount, $msgUnread );
+				// Immediately compute new local counts and timestamps
+				$newLocalData = $this->computeLocalCountsAndTimestamps( $dbSource );
+				// Write the new values to the echo_unread_wikis table
+				$alertTs = $newLocalData[EchoAttributeManager::ALERT]['timestamp'];
+				$messageTs = $newLocalData[EchoAttributeManager::MESSAGE]['timestamp'];
+				$uw->updateCount(
+					wfWikiID(),
+					$newLocalData[EchoAttributeManager::ALERT]['count'],
+					$alertTs === -1 ? false : new MWTimestamp( $alertTs ),
+					$newLocalData[EchoAttributeManager::MESSAGE]['count'],
+					$messageTs === -1 ? false : new MWTimestamp( $messageTs )
+				);
+				// We could set() $newLocalData into the cache here, but we don't because that seems risky;
+				// instead we let it be recomputed on demand
+			}
+
+			// Update the global touched timestamp
+			$checkKey = $this->getGlobalMemcKey( self::CHECK_KEY );
+			if ( $checkKey ) {
+				$this->cache->touchCheckKey( $checkKey );
 			}
 		}
-
-		$this->invalidateCache();
 	}
 
 	/**
@@ -505,7 +469,7 @@ class MWEchoNotifUser {
 	 * @return string|false MW timestamp of the last update, or false if the user is not attached
 	 */
 	public function getGlobalUpdateTime() {
-		$key = $this->getGlobalMemcKey( 'echo-notification-updated' );
+		$key = $this->getGlobalMemcKey( self::CHECK_KEY );
 		if ( $key === false ) {
 			return false;
 		}
@@ -513,26 +477,124 @@ class MWEchoNotifUser {
 	}
 
 	/**
-	 * Invalidate user caches related to notification counts/timestamps.
+	 * Get the number of notifications in each section, and the timestamp of the latest notification in
+	 * each section. This returns the raw data structure that is stored in the cache; unless you want
+	 * all of this information, you're probably looking for getNotificationCount(),
+	 * getLastUnreadNotificationTime() or one of its wrappers.
 	 *
-	 * This bumps the local user's touched timestamp as well as the timestamp returned by getGlobalUpdateTime().
+	 * The returned data structure looks like:
+	 * [
+	 *   'local' => [
+	 *     'alert' => [ 'count' => N, 'timestamp' => TS ],
+	 *     'message' => [ 'count' = N, 'timestamp' => TS ],
+	 *     'all' => [ 'count' => N, 'timestamp' => TS ],
+	 *   ],
+	 *   'global' => [
+	 *     'alert' => [ 'count' => N, 'timestamp' => TS ],
+	 *     'message' => [ 'count' = N, 'timestamp' => TS ],
+	 *     'all' => [ 'count' => N, 'timestamp' => TS ],
+	 *   ],
+	 * ]
+	 * Where N is a number and TS is a timestamp in TS_MW format or -1. If $includeGlobal is false,
+	 * the 'global' key will not be present.
+	 *
+	 * @param bool $includeGlobal Whether to include cross-wiki notifications as well
+	 * @return array
 	 */
-	protected function invalidateCache() {
-		// Update the user touched timestamp for the local user
-		$this->mUser->invalidateCache();
-
-		$this->deleteFromCache( $this->getLocalKeys() );
-
-		global $wgEchoCrossWikiNotifications;
-		if ( $wgEchoCrossWikiNotifications ) {
-			$this->deleteFromCache( $this->getGlobalKeys() );
-
-			// Update the global touched timestamp
-			$key = $this->getGlobalMemcKey( 'echo-notification-updated' );
-			if ( $key ) {
-				$this->cache->touchCheckKey( $key );
-			}
+	public function getCountsAndTimestamps( $includeGlobal = false ) {
+		if ( $this->localCountsAndTimestamps === null ) {
+			$this->localCountsAndTimestamps = $this->cache->getWithSetCallback(
+				$this->getMemcKey( self::CACHE_KEY ),
+				self::CACHE_TTL,
+				function ( $oldValue, &$ttl, array &$setOpts ) {
+					$dbr = $this->userNotifGateway->getDB( DB_REPLICA );
+					$setOpts += Database::getCacheSetOptions( $dbr );
+					return $this->computeLocalCountsAndTimestamps();
+				}
+			);
 		}
+		$result = [ 'local' => $this->localCountsAndTimestamps ];
+
+		if ( $includeGlobal ) {
+			if ( $this->globalCountsAndTimestamps === null ) {
+				$memcKey = $this->getGlobalMemcKey( self::CACHE_KEY );
+				// If getGlobalMemcKey returns false, we don't have a global user ID
+				// In that case, don't compute data that we can't cache or store
+				if ( $memcKey !== false ) {
+					$this->globalCountsAndTimestamps = $this->cache->getWithSetCallback(
+						$memcKey,
+						self::CACHE_TTL,
+						function ( $oldValue, &$ttl, array &$setOpts ) {
+							$dbr = $this->userNotifGateway->getDB( DB_REPLICA );
+							$setOpts += Database::getCacheSetOptions( $dbr );
+							return $this->computeGlobalCountsAndTimestamps();
+						}
+					);
+				}
+			}
+			$result['global'] = $this->globalCountsAndTimestamps;
+		}
+		return $result;
+	}
+
+	/**
+	 * Compute the counts and timestamps for the local notifications in each section.
+	 * @param int $dbSource DB_REPLICA or DB_MASTER
+	 * @return array [ 'alert' => [ 'count' => N, 'timestamp' => TS ], ... ]
+	 */
+	protected function computeLocalCountsAndTimestamps( $dbSource = DB_REPLICA ) {
+		$attributeManager = EchoAttributeManager::newFromGlobalVars();
+		$result = [];
+		$totals = [ 'count' => 0, 'timestamp' => -1 ];
+
+		foreach ( EchoAttributeManager::$sections as $section ) {
+			$eventTypesToLoad = $attributeManager->getUserEnabledEventsbySections( $this->mUser, 'web', [ $section ] );
+
+			$count = (int)$this->userNotifGateway->getCappedNotificationCount( $dbSource, $eventTypesToLoad, self::MAX_BADGE_COUNT + 1 );
+			$result[$section]['count'] = $count;
+			$totals['count'] += $count;
+
+			$notifications = $this->notifMapper->fetchUnreadByUser( $this->mUser, 1, null, $eventTypesToLoad, null, $dbSource );
+			if ( $notifications ) {
+				$notification = reset( $notifications );
+				$timestamp = $notification->getTimestamp();
+			} else {
+				$timestamp = -1;
+			}
+			$result[$section]['timestamp'] = $timestamp;
+			$totals['timestamp'] = max( $totals['timestamp'], $timestamp );
+		}
+		$totals['count'] = self::capNotificationCount( $totals['count'] );
+		$result[EchoAttributeManager::ALL] = $totals;
+		return $result;
+	}
+
+	/**
+	 * Compute the global counts and timestamps for each section.
+	 *
+	 * This calls getCountsAndTimestamps() to get data about local notifications, which may end up
+	 * calling computeLocalCountsAndTimestamps() if there's a cache miss.
+	 * @return array [ 'alert' => [ 'count' => N, 'timestamp' => TS ], ... ]
+	 */
+	protected function computeGlobalCountsAndTimestamps() {
+		$localData = $this->getCountsAndTimestamps()['local'];
+		$result = [];
+		$totals = [ 'count' => 0, 'timestamp' => -1 ];
+		foreach ( EchoAttributeManager::$sections as $section ) {
+			$localCount = $localData[$section]['count'];
+			$globalCount = self::capNotificationCount( $localCount + $this->getForeignCount( $section ) );
+			$result[$section]['count'] = $globalCount;
+			$totals['count'] += $globalCount;
+
+			$localTimestamp = $localData[$section]['timestamp'];
+			$foreignTimestamp = $this->getForeignTimestamp( $section );
+			$globalTimestamp = max( $localTimestamp, $foreignTimestamp ? $foreignTimestamp->getTimestamp( TS_MW ) : -1 );
+			$result[$section]['timestamp'] = $globalTimestamp;
+			$totals['timestamp'] = max( $totals['timestamp'], $globalTimestamp );
+		}
+		$totals['count'] = self::capNotificationCount( $totals['count'] );
+		$result[EchoAttributeManager::ALL] = $totals;
+		return $result;
 	}
 
 	/**
@@ -550,99 +612,10 @@ class MWEchoNotifUser {
 	}
 
 	/**
-	 * Get a cache entry from the cache, using a preloaded instance cache.
-	 * @param string|false $memcKey Cache key returned by getMemcKey()
-	 * @return mixed Cache value
-	 */
-	protected function getFromCache( $memcKey ) {
-		// getMemcKey() can return false
-		if ( $memcKey === false ) {
-			return false;
-		}
-
-		// Populate the instance cache
-		if ( $this->cached === null ) {
-			$keys = $this->getPreloadKeys();
-			$this->cached = $this->cache->getMulti( $keys );
-			// also keep track of cache values that couldn't be found (getMulti
-			// omits them...)
-			$this->cached += array_fill_keys( $keys, false );
-		}
-
-		if ( isset( $this->cached[$memcKey] ) ) {
-			return $this->cached[$memcKey];
-		}
-
-		return $this->cache->get( $memcKey );
-	}
-
-	/**
-	 * Set a cache entry both in the cache and in the instance cache.
-	 * Use this to write to keys that were loaded with getFromCache().
-	 * @param string|false $memcKey Cache key returned by getMemcKey()
-	 * @param mixed $value Cache value to set
-	 * @param int $expiry Expiry, see BagOStuff::set()
-	 */
-	protected function setInCache( $memcKey, $value, $expiry ) {
-		// getMemcKey() can return false
-		if ( $memcKey === false ) {
-			return;
-		}
-
-		// Update the instance cache if it's already been populated
-		if ( $this->cached !== null ) {
-			$this->cached[$memcKey] = $value;
-		}
-
-		$this->cache->set( $memcKey, $value, $expiry );
-	}
-
-	protected function deleteFromCache( $keys ) {
-		foreach ( $keys as $key ) {
-			// Update the instance cache if it's already been populated
-			if ( $this->cached !== null ) {
-				unset( $this->cached[$key] );
-			}
-			$this->cache->delete( $key );
-		}
-	}
-
-	/**
-	 * Array of memcached keys to load at once.
-	 *
-	 * @return array
-	 */
-	protected function getPreloadKeys() {
-		return array_merge(
-			$this->getLocalKeys(),
-			$this->getGlobalKeys()
-		);
-	}
-
-	protected function getLocalKeys() {
-		return array_filter( array_map( [ $this, 'getMemcKey' ], $this->getKeySeeds() ) );
-	}
-
-	protected function getGlobalKeys() {
-		return array_filter( array_map( [ $this, 'getGlobalMemcKey' ], $this->getKeySeeds() ) );
-	}
-
-	protected function getKeySeeds() {
-		return [
-			'echo-notification-timestamp',
-			'echo-notification-timestamp-' . EchoAttributeManager::MESSAGE,
-			'echo-notification-timestamp-' . EchoAttributeManager::ALERT,
-			'echo-notification-count',
-			'echo-notification-count-' . EchoAttributeManager::MESSAGE,
-			'echo-notification-count-' . EchoAttributeManager::ALERT,
-		];
-	}
-
-	/**
 	 * Build a memcached key.
 	 * @param string $key Key, typically prefixed with echo-notification-
 	 * @param bool $global If true, return a global memc key; if false, return one local to this wiki
-	 * @return string|false Memcached key, or false if one could not be generated
+	 * @return string|false Memcached key, or false if one could not be generated (can only happen for global keys)
 	 */
 	protected function getMemcKey( $key, $global = false ) {
 		global $wgEchoCacheVersion;

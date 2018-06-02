@@ -157,6 +157,12 @@ class MWEchoNotifUserTest extends MediaWikiTestCase {
 		$gateway->expects( $this->any() )
 			->method( 'markRead' )
 			->will( $this->returnValue( $dbResult['markRead'] ) );
+		$gateway->expects( $this->any() )
+			->method( 'getDB' )
+			->will( $this->returnValue(
+				$this->getMockBuilder( Database::class )
+					->disableOriginalConstructor()->getMock()
+			) );
 
 		return $gateway;
 	}
