@@ -695,6 +695,11 @@ class MWEchoNotifUser {
 		return $this->mForeignData;
 	}
 
+	/**
+	 * Get the number of foreign notifications in a given section.
+	 * @param string $section One of EchoAttributeManager::$sections
+	 * @return int Number of foreign notifications
+	 */
 	protected function getForeignCount( $section = EchoAttributeManager::ALL ) {
 		global $wgEchoSectionTransition, $wgEchoBundleTransition;
 		$count = 0;
