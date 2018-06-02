@@ -612,27 +612,30 @@ class MWEchoNotifUser {
 	}
 
 	/**
-	 * Build a memcached key.
+	 * Build a cache key for local use (local to this wiki)
+	 *
 	 * @param string $key Key, typically prefixed with echo-notification-
-	 * @param bool $global If true, return a global memc key; if false, return one local to this wiki
-	 * @return string|false Memcached key, or false if one could not be generated (can only happen for global keys)
+	 * @return string Cache key
 	 */
-	protected function getMemcKey( $key, $global = false ) {
+	protected function getMemcKey( $key ) {
 		global $wgEchoCacheVersion;
-		if ( !$global ) {
-			return wfMemcKey( $key, $this->mUser->getId(), $wgEchoCacheVersion );
-		}
+		return wfMemcKey( $key, $this->mUser->getId(), $wgEchoCacheVersion );
+	}
 
+	/**
+	 * Build a cache key for global use
+	 *
+	 * @param string $key Key, typically prefixed with echo-notification-
+	 * @return string|false Memcached key, or false if one could not be generated
+	 */
+	protected function getGlobalMemcKey( $key ) {
+		global $wgEchoCacheVersion;
 		$lookup = CentralIdLookup::factory();
 		$globalId = $lookup->centralIdFromLocalUser( $this->mUser, CentralIdLookup::AUDIENCE_RAW );
 		if ( !$globalId ) {
 			return false;
 		}
 		return wfGlobalCacheKey( $key, $globalId, $wgEchoCacheVersion );
-	}
-
-	protected function getGlobalMemcKey( $key ) {
-		return $this->getMemcKey( $key, true );
 	}
 
 	/**
