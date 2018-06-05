@@ -43,7 +43,7 @@ class MWEchoEmailBatch {
 	 */
 	public function __construct( User $user ) {
 		$this->mUser = $user;
-		$this->language = wfGetLangObj( $this->mUser->getOption( 'language' ) );
+		$this->language = Language::factory( $this->mUser->getOption( 'language' ) );
 	}
 
 	/**
