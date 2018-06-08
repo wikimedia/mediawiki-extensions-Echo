@@ -28,7 +28,7 @@ abstract class EchoEventFormatter {
 		/**
 		 * @var Message $msg
 		 */
-		$msg = call_user_func_array( 'wfMessage', func_get_args() );
+		$msg = wfMessage( ...func_get_args() );
 		$msg->inLanguage( $this->language );
 
 		return $msg;
