@@ -5,7 +5,8 @@
 			"Чаховіч Уладзіслаў",
 			"Mikalai Udodau",
 			"Macofe",
-			"Artsiom91"
+			"Artsiom91",
+			"Matěj Suchánek"
 		]
 	},
 	"echo-desc": "Сістэма апавяшчэння ўдзельнікаў пра падзеі і паведамленні",
@@ -102,7 +103,7 @@
 	"echo-notification-notice-text-only": "Абвесткі",
 	"echo-overlay-link": "Усе паведамленні",
 	"echo-overlay-title": "<b>Паведамленні</b>",
-	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Паведамленні}}</b> ({{PLURAL|$1|паказана|паказаны}} $1 з $2 {{PLURAL|$2|непрачытанага|непрачытаных}})",
+	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Паведамленні}}</b> ({{PLURAL:$1|паказана|паказаны}} $1 з $2 {{PLURAL:$2|непрачытанага|непрачытаных}})",
 	"echo-mark-all-as-read": "Пазначыць усе як прачытаныя",
 	"echo-mark-wiki-as-read": "Пазначыць усе як прачытаныя ў выбранай вікі: $1",
 	"echo-date-today": "Сёння",

@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Iltever",
-			"Ernác"
+			"Ernác",
+			"Matěj Suchánek"
 		]
 	},
 	"echo-desc": "Къошулуучуланы болууланы юсюнден эмда джазылгъанланы юсюнден система билдириуле",
@@ -77,7 +78,7 @@
 	"echo-notification-notice-text-only": "Билдириуле",
 	"echo-overlay-link": "Бютеу билдириуле",
 	"echo-overlay-title": "<b>Билдириуле</b>",
-	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Билдириу|Билдириуле}}</b> ($2 {{PLURAL|$2|окъулмагъандан}} $1 саны {{PLURAL|$1|кёргюзюлгенди}})",
+	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Билдириу|Билдириуле}}</b> ($2 {{PLURAL:$2|окъулмагъандан}} $1 саны {{PLURAL:$1|кёргюзюлгенди}})",
 	"echo-mark-all-as-read": "Барысын да окъулгъанлача белгиле",
 	"echo-date-today": "Бюгюн",
 	"echo-date-yesterday": "Тюнене",

@@ -160,6 +160,7 @@
 	"notification-header-user-rights-add-and-remove": "{{GENDER:$6|Uw}} gebruikersrechten zijn {{GENDER:$1|veranderd}}. U bent nu lid van $2 en niet langer meer lid van $4.",
 	"notification-header-user-rights-expiry-change": "De verlooptijd van {{GENDER:$4|uw}} lidmaatschap in de volgende {{PLURAL:$3|groep|groepen}} is {{GENDER:$1|gewijzigd}}: $2",
 	"notification-header-welcome": "{{GENDER:$2|Welkom}} op {{SITENAME}}, $1! We zijn blij dat {{GENDER:$2|u}} er bent.",
+	"notification-header-mention-summary": "$1 heeft {{GENDER:$2|u}} {{GENDER:$3|genoemd}} in de bewerkingssamenvatting van <strong>$4</strong>.",
 	"notification-welcome-linktext": "Welkom",
 	"notification-header-thank-you-1-edit": "{{GENDER:$2|U}} hebt uw eerste bewerking gemaakt; dankuwel, en welkom!",
 	"notification-header-thank-you-10-edit": "{{GENDER:$2|U}} hebt uw tiende bewerking gemaakt; dankuwel, en ga door!",
