@@ -334,7 +334,7 @@ class EchoNotificationController {
 			throw new MWException( "Cannot notify anonymous user: {$user->getName()}" );
 		}
 
-		call_user_func_array( $wgEchoNotifiers[$type], [ $user, $event ] );
+		( $wgEchoNotifiers[$type] )( $user, $event );
 	}
 
 	/**
@@ -360,7 +360,7 @@ class EchoNotificationController {
 				$options = [ $event ];
 			}
 			if ( is_callable( $callable ) ) {
-				$result[] = call_user_func_array( $callable, $options );
+				$result[] = $callable( ...$options );
 			} else {
 				wfDebugLog( __CLASS__, __FUNCTION__ . ": Invalid $locator returned for $type" );
 			}
