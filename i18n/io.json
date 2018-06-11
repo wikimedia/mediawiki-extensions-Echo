@@ -18,6 +18,7 @@
 	"tooltip-pt-notifications-notice": "{{GENDER:|Vua}} informi",
 	"echo-specialpage-pagefilters-title": "Recenta agadi",
 	"echo-notification-markasunread": "Indikez quale \"ne lektita\"",
+	"notification-link-text-expand-alert-count": "Vidar {{PLURAL:$1|$1 avizo|$1 avizi}}",
 	"notification-link-text-view-changes": "{{GENDER:$1|Vidar}} modifiki",
 	"notification-link-text-view-page": "Montrez pagino",
 	"notification-header-edit-user-talk": "$1 {{GENDER:$2|lasis}} mesajo en <strong>{{GENDER:$3|vua}} debato-pagino</strong>.",
@@ -34,8 +35,10 @@
 	"notification-link-text-view-edit": "Montrez redakturo",
 	"notification-header-reverted": "Vua {{PLURAL:$4|redakto en <strong>$3</strong>|redakti en <strong>$3</strong>}} {{GENDER:$2|desfacesis}}.",
 	"notification-reverted-email-subject2": "Vua {{PLURAL:$3|redakto|redakti}} {{GENDER:$1|desfacesis}} en {{SITENAME}}",
-	"notification-timestamp-ago-hours": "{{PLURAL:$1 horo|$1 hori}}",
+	"notification-timestamp-ago-hours": "{{PLURAL:$1|horo|$1 hori}}",
 	"notification-timestamp-ago-days": "{{PLURAL:$1|$1d}}",
 	"echo-notification-alert": "{{PLURAL:$1|($1) avizo|($1) avizi|100=(99+) avizi}}",
+	"echo-notification-alert-text-only": "Avizi",
+	"notification-header-foreign-alert": "Plusa avizi de {{PLURAL:$5|altra Wiki|$5 altra Wiki}}",
 	"notification-header-foreign-notice": "Altra informi de {{PLURAL:$5|altra Wiki|$5 altra Wiki}}"
 }

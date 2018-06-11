@@ -140,7 +140,7 @@
 	"notification-header-user-rights-expiry-change": "{{GENDER:$4|ستاسو}} د پای ته رسیدني وخت په لاندې غړیتوب {{PLURAL:$3|ګروپ|ګروپونو}} کي {{GENDER:$1|بدلون}} وموند: $2.",
 	"notification-header-welcome": "$1 {{SITENAME}} ته {{GENDER:$2|ښه راغلئ}}!، موږ خوشحاله يو چي {{GENDER:$2|تاسو}} دلته ياست.",
 	"notification-welcome-linktext": "ښه راغلئ",
-	"notification-header-thank-you-1-edit": "{{GENDER:$2|تاسو}} یوازې made {{GENDER:$2|خپل}} لومړی  سمون ترسره کړ; {{GENDER:$2|مننه}}، او ښه راغلئ!",
+	"notification-header-thank-you-1-edit": "{{GENDER:$2|تاسو}} یوازې  {{GENDER:$2|خپل}} لومړی  سمون ترسره کړ; {{GENDER:$2|مننه}}، او ښه راغلئ!",
 	"notification-header-thank-you-10-edit": "{{GENDER:$2|تاسو}} یوازې {{GENDER:$2|خپل}} لس  سمونونه ترسره کړل; {{GENDER:$2|مننه}}، او مهرباني وکړئ ادامه ورکړۍ!",
 	"notification-header-thank-you-100-edit": "{{GENDER:$2|تاسو}} يوازې {{GENDER:$2|خپل}} سلم سمون ترسره کړ; ډيره زياته {{GENDER:$2|مننه}}!",
 	"notification-header-thank-you-1000-edit": "{{GENDER:$2|تاسو}} {{GENDER:$2|خپل}} زر سمونې ترسره کړي; ستاسو څخه د یو ښه مرستندویه په توګه ډيره {{GENDER:$2|مننه}} !",
