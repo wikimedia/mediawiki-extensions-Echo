@@ -1,5 +1,5 @@
 'use strict';
-const Page = require( '../../../../../tests/selenium/pageobjects/page' );
+const Page = require( 'wdio-mediawiki/Page' );
 
 class EchoPage extends Page {
 

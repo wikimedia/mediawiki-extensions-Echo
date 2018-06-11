@@ -2,7 +2,7 @@
 
 var assert = require( 'assert' ),
 	EchoPage = require( '../pageobjects/echo.page' ),
-	UserLoginPage = require( '../../../../../tests/selenium/pageobjects/userlogin.page' );
+	UserLoginPage = require( 'wdio-mediawiki/LoginPage' );
 
 describe( 'Echo', function () {
 
