@@ -15,7 +15,7 @@
 	"license-name": "MIT",
 	"type": "specialpage",
 	"requires": {
-		"MediaWiki": ">= 1.29.0"
+		"MediaWiki": ">= 1.32.0"
 	},
 	"callback": "EchoHooks::registerExtension",
 	"APIMetaModules": {
@@ -73,7 +73,7 @@
 				"ext.echo.ui",
 				"ext.echo.styles.badge",
 				"mediawiki.util",
-				"mediawiki.api.options"
+				"mediawiki.api"
 			],
 			"targets": [
 				"desktop"
