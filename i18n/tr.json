@@ -120,6 +120,7 @@
 	"notification-link-text-view-page": "Sayfayı görüntüle",
 	"notification-header-edit-user-talk": "$1, <strong>mesaj {{GENDER:$3|sayfanıza}}</strong> bir mesaj {{GENDER:$2|bıraktı}}.",
 	"notification-header-edit-user-talk-with-section": "$1, <strong>mesaj {{GENDER:$3|sayfanızdaki}}</strong> \"<strong>$4</strong>\" başlığına bir mesaj {{GENDER:$2|bıraktı}}.",
+	"notification-compact-header-edit-user-talk": "$1 {{GENDER:$3|size}} bir mesaj {{GENDER:$2|bıraktı}}.",
 	"notification-header-page-linked": "<strong>$4</strong> sayfasından <strong>$3</strong> sayfasına bağlantı verildi.",
 	"notification-compact-header-page-linked": "<strong>$1</strong> bağlantılı.",
 	"notification-bundle-header-page-linked": "'''$4''' ve $5 diğer {{ÇOĞUL:$6|sayfadan|sayfadan}}, '''$3''' sayfasına bağlantı verildi.",
