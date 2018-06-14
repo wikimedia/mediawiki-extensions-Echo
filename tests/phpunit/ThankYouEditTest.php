@@ -17,6 +17,9 @@ class MWEchoThankYouEditTest extends MediaWikiTestCase {
 		$db->delete( 'echo_notification', '*', __METHOD__ );
 	}
 
+	/**
+	 * @covers \EchoHooks::onPageContentSaveComplete
+	 */
 	public function testFirstEdit() {
 		// setup
 		$this->deleteEchoData();
@@ -36,6 +39,9 @@ class MWEchoThankYouEditTest extends MediaWikiTestCase {
 		$this->assertEquals( 1, $notification->getEvent()->getExtraParam( 'editCount', 'not found' ) );
 	}
 
+	/**
+	 * @covers \EchoHooks::onPageContentSaveComplete
+	 */
 	public function testTenthEdit() {
 		// setup
 		$this->deleteEchoData();
