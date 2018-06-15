@@ -9,27 +9,32 @@ use Wikimedia\Timestamp\TimestampException;
 abstract class EchoEventPresentationModel implements JsonSerializable {
 
 	/**
-	 * Recommended length of usernames included in messages
+	 * Recommended length of usernames included in messages, in
+	 * characters (not bytes).
 	 */
 	const USERNAME_RECOMMENDED_LENGTH = 20;
 
 	/**
-	 * Recommended length of usernames used as link label
+	 * Recommended length of usernames used as link label, in
+	 * characters (not bytes).
 	 */
 	const USERNAME_AS_LABEL_RECOMMENDED_LENGTH = 15;
 
 	/**
-	 * Recommended length of page names included in messages
+	 * Recommended length of page names included in messages, in
+	 * characters (not bytes).
 	 */
 	const PAGE_NAME_RECOMMENDED_LENGTH = 50;
 
 	/**
-	 * Recommended length of page names used as link label
+	 * Recommended length of page names used as link label, in
+	 * characters (not bytes).
 	 */
 	const PAGE_NAME_AS_LABEL_RECOMMENDED_LENGTH = 15;
 
 	/**
-	 * Recommended length of section titles included in messages
+	 * Recommended length of section titles included in messages, in
+	 * characters (not bytes).
 	 */
 	const SECTION_TITLE_RECOMMENDED_LENGTH = 50;
 
@@ -506,7 +511,7 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 	 * @return string
 	 */
 	protected function getTruncatedUsername( User $user ) {
-		return $this->language->embedBidi( $this->language->truncate( $user->getName(), self::USERNAME_RECOMMENDED_LENGTH, '...', false ) );
+		return $this->language->embedBidi( $this->language->truncateForVisual( $user->getName(), self::USERNAME_RECOMMENDED_LENGTH, '...', false ) );
 	}
 
 	/**
@@ -516,7 +521,7 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 	 */
 	protected function getTruncatedTitleText( Title $title, $includeNamespace = false ) {
 		$text = $includeNamespace ? $title->getPrefixedText() : $title->getText();
-		return $this->language->embedBidi( $this->language->truncate( $text, self::PAGE_NAME_RECOMMENDED_LENGTH, '...', false ) );
+		return $this->language->embedBidi( $this->language->truncateForVisual( $text, self::PAGE_NAME_RECOMMENDED_LENGTH, '...', false ) );
 	}
 
 	/**
@@ -537,7 +542,7 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 			: $user->getUserPage()->getFullURL();
 
 		$label = $user->getName();
-		$truncatedLabel = $this->language->truncate( $label, self::USERNAME_AS_LABEL_RECOMMENDED_LENGTH, '...', false );
+		$truncatedLabel = $this->language->truncateForVisual( $label, self::USERNAME_AS_LABEL_RECOMMENDED_LENGTH, '...', false );
 		$isTruncated = $label !== $truncatedLabel;
 
 		return [
@@ -569,7 +574,7 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 		return [
 			'url' => $title->getFullURL( $query ),
 			'label' => $this->language->embedBidi(
-				$this->language->truncate( $title->getText(), self::PAGE_NAME_AS_LABEL_RECOMMENDED_LENGTH, '...', false )
+				$this->language->truncateForVisual( $title->getText(), self::PAGE_NAME_AS_LABEL_RECOMMENDED_LENGTH, '...', false )
 			),
 			'tooltip' => $title->getPrefixedText(),
 			'description' => $description,

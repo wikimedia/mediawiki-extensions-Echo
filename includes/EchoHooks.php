@@ -1382,7 +1382,7 @@ class EchoHooks {
 		if ( $subject === $autoSubject ) {
 			$autoFooter = "\n\n-- \n" . wfMessage( 'emailuserfooter', $from->name, $address->name )->inContentLanguage()->text();
 			$textWithoutFooter = preg_replace( '/' . preg_quote( $autoFooter, '/' ) . '$/', '', $text );
-			$preview = $wgContLang->truncate( $textWithoutFooter, 125 );
+			$preview = $wgContLang->truncateForVisual( $textWithoutFooter, 125 );
 		} else {
 			$preview = $subject;
 		}
