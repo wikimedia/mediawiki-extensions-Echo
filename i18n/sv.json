@@ -17,7 +17,8 @@
 			"Frisko",
 			"Macofe",
 			"Nemo bis",
-			"Umeaboy"
+			"Umeaboy",
+			"Pipetricker"
 		]
 	},
 	"echo-desc": "System för att meddela användare om händelser och meddelanden",
@@ -50,7 +51,7 @@
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Diskussionssidemeddelande|Diskussionssidemeddelanden}}",
 	"echo-category-title-article-linked": "Sid{{PLURAL:$1|länk|länkar}}",
 	"echo-category-title-reverted": "Redigerings{{PLURAL:$1|återställning|återställningar}}",
-	"echo-category-title-mention": "{{PLURAL:$1|Omnämning|Omnämningar}}",
+	"echo-category-title-mention": "{{PLURAL:$1|Omnämnande|Omnämnanden}}",
 	"echo-category-title-mention-failure": "{{PLURAL:$1|Misslyckat omnämnande|Misslyckade omnämnanden}}",
 	"echo-category-title-mention-success": "{{PLURAL:$1|Genomfört omnämnande|Genomförda omnämnanden}}",
 	"echo-category-title-other": "{{PLURAL:$1|Annan|Andra}}",
