@@ -886,17 +886,14 @@ class EchoHooks {
 			$eventMapper = new EchoEventMapper();
 			$events = $eventMapper->fetchUnreadByUserAndPage( $user, $title->getArticleID() );
 
-			if ( $events ) {
-				/* @var EchoEvent $event */
-				foreach ( $events as $event ) {
-					if ( $event->getSection() === EchoAttributeManager::MESSAGE ) {
-						$subtractMessages++;
-					} else {
-						// ALERT
-						$subtractAlerts++;
-					}
-					$eventIds[] = $event->getId();
+			foreach ( $events as $event ) {
+				if ( $event->getSection() === EchoAttributeManager::MESSAGE ) {
+					$subtractMessages++;
+				} else {
+					// ALERT
+					$subtractAlerts++;
 				}
+				$eventIds[] = $event->getId();
 			}
 		}
 
