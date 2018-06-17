@@ -398,7 +398,7 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 			}
 		}
 
-		if ( $count === 0 || count( $wikis ) === 0 ) {
+		if ( $count === 0 || $wikis === [] ) {
 			return false;
 		}
 

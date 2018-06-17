@@ -109,7 +109,7 @@ class EchoHooks {
 					}
 				}
 				// if test files exist for given module, create a corresponding test module
-				if ( count( $testFiles ) > 0 ) {
+				if ( $testFiles !== [] ) {
 					$testModules['qunit']["$key.tests"] = $testModuleBoilerplate + [
 						'dependencies' => [ $key ],
 						'scripts' => $testFiles,
@@ -1291,7 +1291,7 @@ class EchoHooks {
 
 				$ids = self::mapToInt( $ids );
 
-				if ( count( $ids ) > 0 ) {
+				if ( $ids !== [] ) {
 					$user->setOption( 'echo-notifications-blacklist', $ids );
 					$options['echo-notifications-blacklist'] = implode( "\n", $user->getOption( 'echo-notifications-blacklist' ) );
 				} else {

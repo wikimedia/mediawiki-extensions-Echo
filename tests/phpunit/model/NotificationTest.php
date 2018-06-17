@@ -31,7 +31,7 @@ class EchoNotificationTest extends MediaWikiTestCase {
 		$notif = EchoNotification::newFromRow( (object)$row, [
 			EchoTargetPage::newFromRow( (object)$this->mockTargetPageRow() )
 		] );
-		$this->assertGreaterThan( 0, count( $notif->getTargetPages() ) );
+		$this->assertNotEmpty( $notif->getTargetPages() );
 		foreach ( $notif->getTargetPages() as $targetPage ) {
 			$this->assertInstanceOf( 'EchoTargetPage', $targetPage );
 		}
