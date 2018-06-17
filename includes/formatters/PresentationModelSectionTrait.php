@@ -82,7 +82,7 @@ trait EchoPresentationModelSectionTrait {
 	}
 
 	protected function getTruncatedSectionTitle() {
-		return $this->language->embedBidi( $this->language->truncate(
+		return $this->language->embedBidi( $this->language->truncateForVisual(
 			$this->getParsedSectionTitle(),
 			self::SECTION_TITLE_RECOMMENDED_LENGTH,
 			'...',

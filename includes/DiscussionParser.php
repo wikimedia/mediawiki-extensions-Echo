@@ -820,11 +820,14 @@ abstract class EchoDiscussionParser {
 			return substr( $text, 0, $timestampPos );
 		}
 
-		// Use truncate() instead of truncateHTML() because truncateHTML()
-		// would not strip signature if the text contains < or &
+		// Use truncateForDatabase() instead of truncateHTML() because
+		// truncateHTML() would not strip signature if the text contains
+		// < or &.  (And we can't use truncateForVisual() because
+		// self::getUserFromLine() returns byte offsets, not character
+		// offsets.)
 		global $wgContLang;
 
-		return $wgContLang->truncate( $text, $output[0], '' );
+		return $wgContLang->truncateForDatabase( $text, $output[0], '' );
 	}
 
 	/**
@@ -1189,7 +1192,7 @@ abstract class EchoDiscussionParser {
 	 * Parse wikitext into truncated plain text.
 	 * @param string $text
 	 * @param Language $lang
-	 * @param int $length default 150
+	 * @param int $length Length in characters (not bytes); default 150
 	 * @param Title|null $title Page from which the text snippet is being extracted
 	 * @return string
 	 */
@@ -1199,21 +1202,21 @@ abstract class EchoDiscussionParser {
 			'enableSectionEditLinks' => false
 		] );
 		$plaintext = trim( Sanitizer::stripAllTags( $html ) );
-		return $lang->truncate( $plaintext, $length );
+		return $lang->truncateForVisual( $plaintext, $length );
 	}
 
 	/**
 	 * Parse an edit summary into truncated plain text.
 	 * @param string $text
 	 * @param Language $lang
-	 * @param int $length default 150
+	 * @param int $length Length in characters (not bytes); default 150
 	 * @return string
 	 */
 	static function getTextSnippetFromSummary( $text, Language $lang, $length = 150 ) {
 		// Parse wikitext with summary parser
 		$html = Linker::formatLinksInComment( Sanitizer::escapeHtmlAllowEntities( $text ) );
 		$plaintext = trim( Sanitizer::stripAllTags( $html ) );
-		return $lang->truncate( $plaintext, $length );
+		return $lang->truncateForVisual( $plaintext, $length );
 	}
 
 	/**
@@ -1221,12 +1224,12 @@ abstract class EchoDiscussionParser {
 	 *
 	 * @param Revision $revision
 	 * @param Language $lang
-	 * @param int $length
+	 * @param int $length Length in characters (not bytes); default 150
 	 * @return string
 	 */
 	public static function getEditExcerpt( Revision $revision, Language $lang, $length = 150 ) {
 		$interpretation = self::getChangeInterpretationForRevision( $revision );
 		$section = self::detectSectionTitleAndText( $interpretation );
-		return $lang->truncate( $section['section-title'] . ' ' . $section['section-text'], $length );
+		return $lang->truncateForVisual( $section['section-title'] . ' ' . $section['section-text'], $length );
 	}
 }
