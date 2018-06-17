@@ -1,5 +1,7 @@
 <?php
 
+use Wikibase\Client\Hooks\EchoNotificationsHandlers;
+
 $IP = getenv( 'MW_INSTALL_PATH' );
 if ( $IP === false ) {
 	$IP = __DIR__ . '/../../..';
@@ -468,8 +470,8 @@ class GenerateSampleNotifications extends Maintenance {
 	}
 
 	private function generateWikibase( User $user, User $agent ) {
-		if ( !class_exists( 'Wikibase\Client\Hooks\EchoNotificationsHandlers' ) ) {
-			$this->output( 'class Wikibase\Client\Hooks\EchoNotificationsHandlers not found' );
+		if ( !class_exists( EchoNotificationsHandlers::class ) ) {
+			$this->output( 'Class EchoNotificationsHandlers not found' );
 			return;
 		}
 
@@ -480,7 +482,7 @@ class GenerateSampleNotifications extends Maintenance {
 
 		$this->output( "{$agent->getName()} is connecting {$user->getName()}'s page {$title->getPrefixedText()} to an item\n" );
 		EchoEvent::create( [
-			'type' => Wikibase\Client\Hooks\EchoNotificationsHandlers::NOTIFICATION_TYPE,
+			'type' => EchoNotificationsHandlers::NOTIFICATION_TYPE,
 			'title' => $title,
 			'extra' => [
 				'url' => Title::newFromText( 'Item:Q1' )->getFullURL(),

@@ -10,7 +10,7 @@ class EchoTitleLocalCacheTest extends MediaWikiTestCase {
 	 */
 	public function testCreate() {
 		$cache = EchoTitleLocalCache::create();
-		$this->assertInstanceOf( 'EchoTitleLocalCache', $cache );
+		$this->assertInstanceOf( EchoTitleLocalCache::class, $cache );
 
 		return $cache;
 	}
@@ -57,13 +57,13 @@ class EchoTitleLocalCacheTest extends MediaWikiTestCase {
 
 		// Requesting the first object, which is within the known targets, should
 		// not resolve the pending lookups.
-		$this->assertInstanceOf( 'Title', $cache->get( reset( $titleIds ) ) );
-		$this->assertGreaterThan( 0, count( $cache->getLookups() ) );
+		$this->assertInstanceOf( Title::class, $cache->get( reset( $titleIds ) ) );
+		$this->assertNotEmpty( $cache->getLookups() );
 
 		// Requesting the second object, which is not within the known targets, should
 		// resolve the pending lookups and reset the list to lookup.
-		$this->assertInstanceOf( 'Title', $cache->get( end( $titleIds ) ) );
-		$this->assertEquals( 0, count( $cache->getLookups() ) );
+		$this->assertInstanceOf( Title::class, $cache->get( end( $titleIds ) ) );
+		$this->assertEmpty( $cache->getLookups() );
 	}
 
 	/**
@@ -90,7 +90,7 @@ class EchoTitleLocalCacheTest extends MediaWikiTestCase {
 	 * @return Title
 	 */
 	protected function mockTitle() {
-		$title = $this->getMockBuilder( 'Title' )
+		$title = $this->getMockBuilder( Title::class )
 			->disableOriginalConstructor()
 			->getMock();
 
