@@ -478,7 +478,7 @@ abstract class EchoDiscussionParser {
 	 * @todo Expand recognisable actions.
 	 *
 	 * @param array $changes Output of EchoEvent::getMachineReadableDiff
-	 * @param string $username Username
+	 * @param string $username
 	 * @param Title|null $title
 	 * @return array[] Array of associative arrays.
 	 *

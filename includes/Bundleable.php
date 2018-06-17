@@ -1,8 +1,6 @@
 <?php
 
 /**
- * Interface Bundleable
- *
  * Indicates that an object can be bundled.
  */
 interface Bundleable {
