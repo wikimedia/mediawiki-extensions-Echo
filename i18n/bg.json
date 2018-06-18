@@ -11,7 +11,8 @@
 			"Spiritia",
 			"Ket",
 			"StanProg",
-			"ShockD"
+			"ShockD",
+			"Iliev"
 		]
 	},
 	"echo-desc": "Система за уведомяване на потребителите за събития и съобщения",
@@ -159,12 +160,12 @@
 	"notification-link-thank-you-edit": "{{GENDER:$1|Вашата}} редакция",
 	"notification-link-text-view-edit": "Преглед на редакцията",
 	"notification-link-article-reminder": "Преглед на страницата",
-	"notification-header-reverted": "{{PLURAL:$4|Ваша редакция|Ваши редакции}} на страница <strong>$3</strong> {{GENDER:$2|{{PLURAL:$4|е върната|са върнати}}}}.",
+	"notification-header-reverted": "{{PLURAL:$4|Ваша редакция|Ваши редакции}} на страницата <strong>$3</strong> {{GENDER:$2|{{PLURAL:$4|е върната|са върнати}}}}.",
 	"notification-header-emailuser": "$1 {{GENDER:$2|Ви изпрати}} имейл.",
 	"notification-edit-talk-page-email-subject2": "$1 ви {{GENDER:$1|остави}} съобщение на {{SITENAME}}",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 {{GENDER:$1|остави}} съобщение на вашата беседа, в раздел „$2“.",
 	"notification-page-linked-email-subject": "Страницата, създадена от вас, бе свързана с {{SITENAME}}",
-	"notification-reverted-email-subject2": "{{PLURAL:$3|Вашата редакция|Вашите редакции}} на {{SITENAME}} {{GENDER:$1|бе върната|бяха върнати}}",
+	"notification-reverted-email-subject2": "{{PLURAL:$3|Вашата редакция|Вашите редакции}} на {{SITENAME}} {{PLURAL:$3|бе върната|бяха върнати}}",
 	"notification-mention-email-subject": "$1 {{GENDER:$2|Ви}} {{GENDER:$1|спомена}} в {{SITENAME}}",
 	"notification-user-rights-email-subject": "Потребителските Ви права в {{SITENAME}} бяха променени",
 	"notification-timestamp-ago-seconds": "{{PLURAL:$1|$1 сек}}",
