@@ -5,6 +5,9 @@
  */
 class EchoTitleLocalCacheTest extends MediaWikiTestCase {
 
+	/**
+	 * @return EchoTitleLocalCache
+	 */
 	public function testCreate() {
 		$cache = EchoTitleLocalCache::create();
 		$this->assertInstanceOf( 'EchoTitleLocalCache', $cache );
@@ -15,7 +18,7 @@ class EchoTitleLocalCacheTest extends MediaWikiTestCase {
 	/**
 	 * @depends testCreate
 	 */
-	public function testAdd( $cache ) {
+	public function testAdd( EchoTitleLocalCache $cache ) {
 		$cache->clearAll();
 		$cache->add( 1 );
 		$this->assertEquals( count( $cache->getLookups() ), 1 );
@@ -25,7 +28,7 @@ class EchoTitleLocalCacheTest extends MediaWikiTestCase {
 	/**
 	 * @depends testCreate
 	 */
-	public function testGet( $cache ) {
+	public function testGet( EchoTitleLocalCache $cache ) {
 		$map = new HashBagOStuff( [ 'maxKeys' => EchoLocalCache::TARGET_MAX_NUM ] );
 		$titleIds = [];
 
@@ -66,7 +69,7 @@ class EchoTitleLocalCacheTest extends MediaWikiTestCase {
 	/**
 	 * @depends testCreate
 	 */
-	public function testClearAll( $cache ) {
+	public function testClearAll( EchoTitleLocalCache $cache ) {
 		$map = new HashBagOStuff( [ 'maxKeys' => EchoLocalCache::TARGET_MAX_NUM ] );
 		$map->set( 1, $this->mockTitle() );
 		$object = new \ReflectionObject( $cache );
@@ -84,7 +87,7 @@ class EchoTitleLocalCacheTest extends MediaWikiTestCase {
 	}
 
 	/**
-	 * Mock object of Title
+	 * @return Title
 	 */
 	protected function mockTitle() {
 		$title = $this->getMockBuilder( 'Title' )

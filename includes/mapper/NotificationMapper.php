@@ -224,6 +224,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 			return [];
 		}
 
+		/** @var EchoNotification[] $allNotifications */
 		$allNotifications = [];
 		foreach ( $res as $row ) {
 			try {
@@ -239,7 +240,6 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 		}
 
 		$data = [];
-		/** @var EchoNotification $notification */
 		foreach ( $allNotifications as $notification ) {
 			$data[ $notification->getEvent()->getId() ] = $notification;
 		}
