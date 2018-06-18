@@ -196,8 +196,6 @@ class EchoNotificationController {
 			$event->getTitle() ?: Title::newMainPage(),
 			[
 				'eventId' => $event->getId(),
-				'masterPos' => MWEchoDbFactory::newFromDefault()
-					->getMasterPosition(),
 			]
 		);
 		JobQueueGroup::singleton()->push( $job );
