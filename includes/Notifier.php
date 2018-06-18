@@ -108,7 +108,7 @@ class EchoNotifier {
 	 */
 	private static function generateEmail( EchoEvent $event, User $user ) {
 		$emailFormat = MWEchoNotifUser::newFromUser( $user )->getEmailFormat();
-		$lang = wfGetLangObj( $user->getOption( 'language' ) );
+		$lang = Language::factory( $user->getOption( 'language' ) );
 		$formatter = new EchoPlainTextEmailFormatter( $user, $lang );
 		$content = $formatter->format( $event );
 		if ( !$content ) {
