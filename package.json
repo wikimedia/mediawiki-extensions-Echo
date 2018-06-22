@@ -5,7 +5,8 @@
 	"description": "Build tools for Echo.",
 	"scripts": {
 		"test": "grunt test",
-		"doc": "jsduck"
+		"doc": "jsduck",
+    "selenium-test": "wdio tests/selenium/wdio.conf.js"
 	},
 	"devDependencies": {
 		"eslint-config-wikimedia": "0.5.0",
@@ -14,9 +15,13 @@
 		"grunt-contrib-watch": "1.0.0",
 		"grunt-eslint": "20.1.0",
 		"grunt-jsonlint": "1.1.0",
-		"grunt-svgmin": "5.0.0",
 		"grunt-stylelint": "0.9.0",
+		"grunt-svgmin": "5.0.0",
 		"stylelint": "8.2.0",
-		"stylelint-config-wikimedia": "0.4.2"
+		"stylelint-config-wikimedia": "0.4.2",
+		"wdio-mediawiki": "0.1.7",
+		"wdio-mocha-framework": "0.5.13",
+		"wdio-spec-reporter": "0.1.4",
+		"webdriverio": "4.12.0"
 	}
 }
