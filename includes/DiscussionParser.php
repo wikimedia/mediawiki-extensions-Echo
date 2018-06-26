@@ -573,7 +573,7 @@ abstract class EchoDiscussionParser {
 							}
 						}
 					}
-				} elseif ( count( $signedUsers ) >= 1 ) {
+				} elseif ( $signedUsers !== [] ) {
 					$actions[] = [
 						'type' => 'unknown-multi-signed-addition',
 						'content' => $content,

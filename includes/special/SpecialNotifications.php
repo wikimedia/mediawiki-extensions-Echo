@@ -159,7 +159,7 @@ class SpecialNotifications extends SpecialPage {
 			$heading->appendContent( $dateTitle );
 
 			// Mark all read button
-			if ( count( $data[ 'unread' ] ) > 0 ) {
+			if ( $data[ 'unread' ] !== [] ) {
 				// tell the UI to show 'unread' notifications only (instead of 'all')
 				$out->addJsConfigVars( 'wgEchoReadState', 'unread' );
 

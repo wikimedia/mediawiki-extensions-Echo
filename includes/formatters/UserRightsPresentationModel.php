@@ -75,9 +75,9 @@ class EchoUserRightsPresentationModel extends EchoEventPresentationModel {
 	public function getPrimaryLink() {
 		$addedGroups = array_values( $this->event->getExtraParam( 'add', [] ) );
 		$removedGroups = array_values( $this->event->getExtraParam( 'remove', [] ) );
-		if ( count( $addedGroups ) >= 1 && count( $removedGroups ) === 0 ) {
+		if ( $addedGroups !== [] && $removedGroups === [] ) {
 			$fragment = $addedGroups[0];
-		} elseif ( count( $addedGroups ) === 0 && count( $removedGroups ) >= 1 ) {
+		} elseif ( $addedGroups === [] && $removedGroups !== [] ) {
 			$fragment = $removedGroups[0];
 		} else {
 			$fragment = '';
