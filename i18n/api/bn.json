@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Aftabuzzaman"
+			"Aftabuzzaman",
+			"আফতাবুজ্জামান"
 		]
 	},
 	"apihelp-echomarkread-description": "বর্তমান ব্যবহারকারীর জন্য বিজ্ঞপ্তি পঠিত হিসাবে চিহ্নিত করে।",
