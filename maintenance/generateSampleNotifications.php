@@ -28,6 +28,8 @@ class GenerateSampleNotifications extends Maintenance {
 		'page-connection',
 	];
 
+	private $timestampCounter = 5;
+
 	public function __construct() {
 		parent::__construct();
 		$this->mDescription = "Generate sample notifications";
@@ -59,6 +61,11 @@ class GenerateSampleNotifications extends Maintenance {
 			true, true, 'o' );
 
 		$this->requireExtension( 'Echo' );
+
+		$this->addOption(
+			'timestamp',
+			'Add notification timestamps (Epoch time format). All notifications that are not related directly to edits will be created with a timestamp starting 5 minutes before the given timestamp, and increasing by 1 minute per notification.',
+			false, false, 'k' );
 	}
 
 	public function execute() {
@@ -127,6 +134,35 @@ class GenerateSampleNotifications extends Maintenance {
 		}
 
 		$this->output( "Completed \n" );
+	}
+
+	/**
+	 * Get the set timestamp of the event
+	 *
+	 * @param  bool [$getEpoch] Get the epoch value
+	 * @return int Timestamp for the operation
+	 */
+	private function getTimestamp( $getEpoch = false ) {
+		$startTime = $this->getOption( 'timestamp' ) ?
+			$this->getOption( 'timestamp' ) : time();
+
+		// Incrementally decrease X minutes from start time
+		$timestamp = strtotime( '-' . $this->timestampCounter++ . ' minute', $startTime );
+
+		return $getEpoch ? $timestamp : wfTimestamp( TS_MW, $timestamp );
+	}
+
+	/**
+	 * Add a timestamp string to the output, if a timestamp option was given,
+	 * to note the time of the new generated event.
+	 *
+	 * @param string $output New output message with timestamp
+	 */
+	private function addTimestampToOutput( $output ) {
+		if ( $this->getOption( 'timestamp' ) ) {
+			$output .= ' (Using timestamp: ' . date( 'Y-m-d H:i:s', $this->getTimestamp( true ) ) . ')';
+		}
+		return $output;
 	}
 
 	private function generateEditUserTalk( User $user, User $agent ) {
@@ -260,12 +296,14 @@ class GenerateSampleNotifications extends Maintenance {
 			'agent' => $user,
 			'extra' => [
 				'notifyAgent' => true
-			]
+			],
+			'timestamp' => $this->getTimestamp(),
 		] );
 	}
 
 	private function generateEmail( User $user, User $agent ) {
-		$this->output( "{$agent->getName()} is emailing {$user->getName()}\n" );
+		$output = $this->addTimestampToOutput( "{$agent->getName()} is emailing {$user->getName()}" );
+		$this->output( "$output\n" );
 		EchoEvent::create( [
 			'type' => 'emailuser',
 			'extra' => [
@@ -273,11 +311,13 @@ class GenerateSampleNotifications extends Maintenance {
 				'subject' => 'Long time no see',
 			],
 			'agent' => $agent,
+			'timestamp' => $this->getTimestamp(),
 		] );
 	}
 
 	private function generateUserRights( User $user, User $agent ) {
-		$this->output( "{$agent->getName()} is changing {$user->getName()}'s rights\n" );
+		$output = $this->addTimestampToOutput( "{$agent->getName()} is changing {$user->getName()}'s rights" );
+		$this->output( "$output\n" );
 		$this->createUserRightsNotification( $user, $agent, [ 'OnlyAdd-1' ], null );
 		$this->createUserRightsNotification( $user, $agent, null, [ 'JustRemove-1', 'JustRemove-2' ] );
 		$this->createUserRightsNotification( $user, $agent, [ 'Add-1', 'Add-2' ], [ 'Remove-1', 'Remove-2' ] );
@@ -294,6 +334,7 @@ class GenerateSampleNotifications extends Maintenance {
 					'reason' => 'This is the [[reason]] for changing your user rights.',
 				],
 				'agent' => $agent,
+				'timestamp' => $this->getTimestamp(),
 			]
 		);
 	}
@@ -311,6 +352,7 @@ class GenerateSampleNotifications extends Maintenance {
 					'extra' => [
 						'recipient' => $user->getId(),
 					],
+					'timestamp' => $this->getTimestamp(),
 				]
 			);
 		}
@@ -322,6 +364,7 @@ class GenerateSampleNotifications extends Maintenance {
 					'recipient' => $user->getId(),
 					'lastTranslationTitle' => 'History of the People\'s Republic of China'
 				],
+				'timestamp' => $this->getTimestamp(),
 			]
 		);
 	}
@@ -363,7 +406,8 @@ class GenerateSampleNotifications extends Maintenance {
 					'instanceName' => 'instance1',
 					'projectName' => 'TheProject',
 					'notifyAgent' => true,
-				]
+				],
+				'timestamp' => $this->getTimestamp(),
 			] );
 		}
 
@@ -372,6 +416,7 @@ class GenerateSampleNotifications extends Maintenance {
 			'title' => Title::newFromText( "Moai" ),
 			'agent' => $agent,
 			'extra' => [ 'userAdded' => $user->getId() ],
+			'timestamp' => $this->getTimestamp(),
 		] );
 	}
 
@@ -400,8 +445,10 @@ class GenerateSampleNotifications extends Maintenance {
 				'source' => 'generateSampleNotifications.php',
 			],
 			'agent' => $agent,
+			'timestamp' => $this->getTimestamp(),
 		] );
-		$this->output( "{$agent->getName()} is thanking {$user->getName()} for edit {$revision->getId()} on {$title->getPrefixedText()}\n" );
+		$output = $this->addTimestampToOutput( "{$agent->getName()} is thanking {$user->getName()} for edit {$revision->getId()} on {$title->getPrefixedText()}" );
+		$this->output( "$output\n" );
 	}
 	private function generateMultipleEditThanks( User $user, User $agent, User $otherUser ) {
 		if ( !ExtensionRegistry::getInstance()->isLoaded( 'Thanks' ) ) {
@@ -419,6 +466,7 @@ class GenerateSampleNotifications extends Maintenance {
 				'source' => 'generateSampleNotifications.php',
 			],
 			'agent' => $agent,
+			'timestamp' => $this->getTimestamp(),
 		] );
 		EchoEvent::create( [
 			'type' => 'edit-thank',
@@ -429,8 +477,10 @@ class GenerateSampleNotifications extends Maintenance {
 				'source' => 'generateSampleNotifications.php',
 			],
 			'agent' => $otherUser,
+			'timestamp' => $this->getTimestamp(),
 		] );
-		$this->output( "{$agent->getName()} and {$otherUser->getName()} are thanking {$user->getName()} for edit {$revision->getId()} on {$title->getPrefixedText()}\n" );
+		$output = $this->addTimestampToOutput( "{$agent->getName()} and {$otherUser->getName()} are thanking {$user->getName()} for edit {$revision->getId()} on {$title->getPrefixedText()}" );
+		$this->output( "$output\n" );
 	}
 
 	private function generateEducationProgram( User $user, User $agent ) {
@@ -446,7 +496,8 @@ class GenerateSampleNotifications extends Maintenance {
 
 		$notificationManager = EducationProgram\Extension::globalInstance()->getNotificationsManager();
 
-		$this->output( "{$agent->getName()} is adding {$user->getName()} to {$chem101->getPrefixedText()} as instructor, student, campus volunteer and online volunteer.\n" );
+		$output = $this->addTimestampToOutput( "{$agent->getName()} is adding {$user->getName()} to {$chem101->getPrefixedText()} as instructor, student, campus volunteer and online volunteer" );
+		$this->output( "$output\n" );
 
 		$types = [
 			'ep-instructor-add-notification',
@@ -480,7 +531,8 @@ class GenerateSampleNotifications extends Maintenance {
 		$helpPage = Title::newFromText( 'Project:Wikidata' );
 		$this->addToPageContent( $helpPage, $user, "this is the help page" );
 
-		$this->output( "{$agent->getName()} is connecting {$user->getName()}'s page {$title->getPrefixedText()} to an item\n" );
+		$output = $this->addTimestampToOutput( "{$agent->getName()} is connecting {$user->getName()}'s page {$title->getPrefixedText()} to an item" );
+		$this->output( "$output\n" );
 		EchoEvent::create( [
 			'type' => EchoNotificationsHandlers::NOTIFICATION_TYPE,
 			'title' => $title,
@@ -489,6 +541,7 @@ class GenerateSampleNotifications extends Maintenance {
 				'repoSiteName' => 'Wikidata'
 			],
 			'agent' => $agent,
+			'timestamp' => $this->getTimestamp(),
 		] );
 	}
 }

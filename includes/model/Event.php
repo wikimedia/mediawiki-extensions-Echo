@@ -121,7 +121,7 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 		}
 
 		$obj->id = false;
-		if ( isset( $info['timestamp'] ) ) {
+		if ( isset( $info['timestamp'] ) && $info[ 'timestamp' ] !== null ) {
 			$obj->timestamp = $info['timestamp'];
 		} else {
 			$obj->timestamp = wfTimestampNow();
