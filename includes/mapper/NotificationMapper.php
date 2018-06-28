@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
 use Wikimedia\Rdbms\IDatabase;
 
 /**
@@ -352,17 +353,39 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	 * @return bool
 	 */
 	public function deleteByUserEventOffset( User $user, $eventId ) {
+		global $wgUpdateRowsPerQuery;
+		$userId = $user->getId();
 		$dbw = $this->dbFactory->getEchoDb( DB_MASTER );
-		$res = $dbw->delete(
+		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
+		$ticket = $lbFactory->getEmptyTransactionTicket( __METHOD__ );
+		$domainId = $dbw->getDomainId();
+
+		$idsToDelete = $dbw->selectFieldValues(
 			'echo_notification',
+			'notification_event',
 			[
-				'notification_user' => $user->getId(),
+				'notification_user' => $userId,
 				'notification_event < ' . (int)$eventId
 			],
 			__METHOD__
 		);
-
-		return $res;
+		if ( !$idsToDelete ) {
+			return true;
+		}
+		$success = true;
+		foreach ( array_chunk( $idsToDelete, $wgUpdateRowsPerQuery ) as $batch ) {
+			$success = $dbw->delete(
+				'echo_notification',
+				[
+					'notification_user' => $userId,
+					'notification_event' => $batch,
+				],
+				__METHOD__
+			) && $success;
+			$lbFactory->commitAndWaitForReplication(
+				__METHOD__, $ticket, [ 'domain' => $domainId ] );
+		}
+		return $success;
 	}
 
 	/**
