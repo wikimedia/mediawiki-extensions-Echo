@@ -3,9 +3,11 @@
 		"authors": [
 			"Albinus",
 			"Manik Soren",
-			"Ramjit Tudu"
+			"Ramjit Tudu",
+			"Fagunkoyel Hansdah"
 		]
 	},
+	"echo-pref-web": "ᱣᱮᱵᱽ",
 	"echo-pref-email": "ᱤᱢᱮᱞ",
 	"echo-learn-more": "ᱟᱨᱦᱚᱸ ᱪᱮᱫᱽᱢᱮ",
 	"tooltip-pt-notifications-alert": "{{GENDER:|ᱟᱢᱟᱜ}} ᱵᱟᱰᱟᱭᱡᱚᱝ",
