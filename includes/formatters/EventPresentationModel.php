@@ -79,14 +79,15 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 
 	/**
 	 * Convenience function to detect whether the event type
-	 * has been updated to use the presentation model system
+	 * has a presentation model available for rendering
 	 *
 	 * @param string $type event type
 	 * @return bool
 	 */
 	public static function supportsPresentationModel( $type ) {
 		global $wgEchoNotifications;
-		return isset( $wgEchoNotifications[$type]['presentation-model'] );
+		return isset( $wgEchoNotifications[$type]['presentation-model'] )
+			&& class_exists( $wgEchoNotifications[$type]['presentation-model'] );
 	}
 
 	/**

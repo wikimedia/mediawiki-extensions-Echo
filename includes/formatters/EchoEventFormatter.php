@@ -46,8 +46,8 @@ abstract class EchoEventFormatter {
 		}
 
 		if ( !EchoEventPresentationModel::supportsPresentationModel( $event->getType() ) ) {
-			LoggerFactory::getInstance( 'Echo' )->warning(
-				"Ignoring event type \"{type}\" since it does not support Echo presentation model.",
+			LoggerFactory::getInstance( 'Echo' )->debug(
+				"No presentation model found for event type \"{type}\"",
 				[
 					'type' => $event->getType(),
 				]
