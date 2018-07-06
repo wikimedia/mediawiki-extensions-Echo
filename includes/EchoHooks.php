@@ -844,7 +844,7 @@ class EchoHooks {
 	/**
 	 * Handler for BeforePageDisplay hook.
 	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/BeforePageDisplay
-	 * @param OutputPage $out OutputPage object
+	 * @param OutputPage $out
 	 * @param Skin $skin Skin being used.
 	 * @return bool true in all cases
 	 */
@@ -1160,7 +1160,7 @@ class EchoHooks {
 	 * @param array $newtalks This will be empty if the user has no new messages
 	 *     or an Array containing links and revisions if there are new messages
 	 * @param User $user The user who is loading the page
-	 * @param OutputPage $out Output object
+	 * @param OutputPage $out
 	 * @return bool Should return false to prevent the new messages alert (OBOD)
 	 *     or true to allow the new messages alert
 	 */

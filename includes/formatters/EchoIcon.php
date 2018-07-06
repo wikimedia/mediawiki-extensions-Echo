@@ -50,7 +50,7 @@ class EchoIcon {
 	 * Get a link to a rasterized version of the icon
 	 *
 	 * @param string $icon Icon name
-	 * @param string $lang Language
+	 * @param string $lang
 	 * @return string URL to the rasterized version of the icon
 	 */
 	public static function getRasterizedUrl( $icon, $lang ) {

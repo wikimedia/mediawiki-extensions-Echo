@@ -6,7 +6,7 @@ use MediaWiki\Session\SessionManager;
 class EchoForeignWikiRequest {
 
 	/**
-	 * @param User $user User object
+	 * @param User $user
 	 * @param array $params Request parameters
 	 * @param array $wikis Wikis to send the request to
 	 * @param string|null $wikiParam Parameter name to set to the name of the wiki
