@@ -6,7 +6,8 @@
 	"scripts": {
 		"test": "grunt test",
 		"doc": "jsduck",
-    "selenium-test": "wdio tests/selenium/wdio.conf.js"
+		"selenium-test": "wdio tests/selenium/wdio.conf.js",
+		"selenium-daily": "MEDIAWIKI_USER='Selenium user' MW_SERVER=https://en.wikipedia.beta.wmflabs.org:443 MW_SCRIPT_PATH=/w npm run selenium-test"
 	},
 	"devDependencies": {
 		"eslint-config-wikimedia": "0.5.0",
