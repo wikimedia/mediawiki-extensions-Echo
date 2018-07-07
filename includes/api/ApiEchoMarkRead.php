@@ -32,7 +32,7 @@ class ApiEchoMarkRead extends ApiBase {
 		}
 
 		// Mark as unread
-		if ( count( $params['unreadlist'] ) > 0 ) {
+		if ( $params['unreadlist'] !== null && $params['unreadlist'] !== [] ) {
 			// Make sure there is a limit to the update
 			$notifUser->markUnRead( array_slice( $params['unreadlist'], 0, ApiBase::LIMIT_SML2 ) );
 		}
