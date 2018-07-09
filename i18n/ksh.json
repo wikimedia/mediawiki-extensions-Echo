@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Purodha"
+			"Purodha",
+			"Matěj Suchánek"
 		]
 	},
 	"echo-desc": "Süßtehm för de Metmaacher ze benohreeschteje övver wat paßehrd es un övver Meddeijlonge un Nohreeschte.",
@@ -104,10 +105,10 @@
 	"notification-link-text-view-edit": "De Veränderong belohre",
 	"notification-header-reverted": "{{GENDER:$2|Dä|Dat|Dä Metmaacher|De|Dat}} „$1“ hät {{PLURAL:$4|Dinge Beijdraach|Ding Beijdrähsch|keine Beijdraach vun Der}} op dä Sigg „$3“ retuhr jemaht.",
 	"notification-header-emailuser": "{{GENDER:$2|Dä|Dat|Dä Metmaacher|De|Dat}} „$1“ hät Der en <i lang=\"en\" xml:lang=\"en\" dir=\"ltr\" title=\"„de eläktrohnesche Poß“\">e-mail</i> jeschek.",
-	"notification-edit-talk-page-email-subject2": "{{GENDER:$1|Dä|Dat|Dä Metmaacher|De|Dat}} „$1“ hät Der op {{GENDER:Dative|{{SITENAME}}}} en Metdeilong jeschek.",
+	"notification-edit-talk-page-email-subject2": "{{GENDER:$1|Dä|Dat|Dä Metmaacher|De|Dat}} „$1“ hät Der op {{GRAMMAR:Dative|{{SITENAME}}}} en Metdeilong jeschek.",
 	"notification-edit-talk-page-email-batch-body-with-section": "{{GENDER:$1|Dä|Dat|Dä Metmaacher|De|Dat}} „$1“ hät Der op en Metdeilong op Ding Klaafsigg en dä Affschnett „$2“ jedonn.",
-	"notification-page-linked-email-subject": "Op {{GENDER:Dative|{{SITENAME}}}} wohd ene Lengk op Sigg aanjelaht, di Do aanjalaht hats.",
-	"notification-reverted-email-subject2": "{{GENDER:$1|Dä|Dat|Dä Metmaacher|De|Dat}} „$1“ häd op {{GENDER:Dative|{{SITENAME}}}} {{PLURAL:$3|en Änderong|$3 Änderonge|kein Änderonge}} vun Der retuhr jemaht.",
+	"notification-page-linked-email-subject": "Op {{GRAMMAR:Dative|{{SITENAME}}}} wohd ene Lengk op Sigg aanjelaht, di Do aanjalaht hats.",
+	"notification-reverted-email-subject2": "{{GENDER:$1|Dä|Dat|Dä Metmaacher|De|Dat}} „$1“ häd op {{GRAMMAR:Dative|{{SITENAME}}}} {{PLURAL:$3|en Änderong|$3 Änderonge|kein Änderonge}} vun Der retuhr jemaht.",
 	"notification-mention-email-subject": "{{GENDER:$1|Dä|Dat|Dä Metmaacher|De|Dat}} „$1“ hät Desch {{GRAMMAR:em|{{ucfirst:{{SITENAME}}}}}} jenannt.",
 	"notification-user-rights-email-subject": "Ding Rääschde als Metmaacher {{GRAMMAR:em|{{ucfirst:{{SITENAME}}}}}} sin verändert woode.",
 	"notification-timestamp-ago-seconds": "{{PLURAL:$1|$1 Sek.}}",
