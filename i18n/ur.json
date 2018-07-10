@@ -87,6 +87,7 @@
 	"echo-feedback": "آپ کی رائے",
 	"echo-api-failure": "اطلاعات حاصل کرنے میں ناکامی، دوبارہ کوشش کریں!",
 	"echo-notification-placeholder": "کوئی اطلاع موجود نہیں۔",
+	"echo-notification-placeholder-filters": "ایسی کوئی اطلاعات نہیں ہیں جن پر مخصوص اختیارات منطبق ہوں",
 	"echo-notification-loginrequired": "اطلاعات کو دیکھنے کے لیے آپ کو لاگ ان ہونا چاہیے۔",
 	"echo-notification-popup-loginrequired": "اطلاعات دیکھنے کے لیے براہ مہربانی لاگ ان ہوں۔",
 	"echo-notification-markasread": "بطور خواندہ شدہ نشان زد کریں",
