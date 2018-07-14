@@ -165,7 +165,7 @@
 	"echo-overlay-link": "جملہ اطلاعات",
 	"echo-overlay-title": "<b>اطلاعات</b>",
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|طلاع|اطلاعات}}</b> ($2 ناخواندہ پیغامات میں سے $1 زیر مشاہدہ)",
-	"echo-mark-all-as-read": "جملہ اطلاعات کو خواندہ نشانزد کریں",
+	"echo-mark-all-as-read": "سب کو بطور خواندہ نشان زد کریں",
 	"echo-date-today": "آج",
 	"echo-date-yesterday": "گذشتہ کل",
 	"echo-email-batch-link-text-view-all-notifications": "تمام اطلاع نامے دیکھیں",
