@@ -123,7 +123,7 @@
 	"notification-header-user-rights-add-and-remove": "{{GENDER:$6|آپ کے}} صارفی حقوق {{GENDER:$1|تبدیل}} کر کے آپ کو $2 میں شامل کر دیا گیا ہے۔ اب آپ $4 کے ایک رکن ہیں۔",
 	"notification-header-mention-summary": "$1 نے <strong>$4</strong> پر اپنے ایک خلاصہ ترمیم میں {{GENDER:$3|آپ}} کا {{GENDER:$2|ذکر کیا}}۔",
 	"notification-welcome-linktext": "خوش آمدید",
-	"notification-header-thank-you-1-edit": "شکریہ اور خوش آمدید! یہ {{GENDER:$2|آپ}} کی اردو ویکیپیڈیا پر پہلی ترمیم تھی؛ براہ مہربانی یہ سلسلہ جاری رکھیں!",
+	"notification-header-thank-you-1-edit": "شکریہ اور خوش آمدید! یہ {{GENDER:$2|آپ}} کی ویکیپیڈیا پر پہلی ترمیم تھی؛ براہ مہربانی یہ سلسلہ جاری رکھیں!",
 	"notification-header-thank-you-10-edit": "{{GENDER:$2|آپ}} نے {{GENDER:$2|اپنی}} دس ترامیم مکمل کر لی ہیں؛ براہ مہربانی تعاون جاری رکھیے {{GENDER:$2|آپ}} کا شکریہ!",
 	"notification-header-thank-you-100-edit": "یہ {{GENDER:$2|آپ}} کی سویں ترمیم تھی؛ {{GENDER:$2|آپ}} کا بہت بہت شکریہ!",
 	"notification-header-thank-you-1000-edit": "{{GENDER:$2|آپ}} نے {{GENDER:$2|اپنی}} ایک ہزار ترامیم مکمل کر لی ہیں؛ اس شاندار تعاون پر {{GENDER:$2|آپ}} کا شکریہ!",
