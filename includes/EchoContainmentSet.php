@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\Preferences\MultiUsernameFilter;
+
 /**
  * Utilizes EchoContainmentList interface to provide a fluent interface to whitelist/blacklist
  * from multiple sources like global variables, wiki pages, etc.
@@ -57,8 +59,9 @@ class EchoContainmentSet {
 		$preference = $this->recipient->getOption( $preferenceName, [] );
 
 		if ( $preference ) {
+			$ids = MultiUsernameFilter::splitIds( $preference );
 			$lookup = CentralIdLookup::factory();
-			$names = $lookup->namesFromCentralIds( $preference, $this->recipient );
+			$names = $lookup->namesFromCentralIds( $ids, $this->recipient );
 			$this->addArray( $names );
 		}
 	}

@@ -3,6 +3,7 @@
 use MediaWiki\Auth\AuthManager;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Preferences\MultiUsernameFilter;
 
 class EchoHooks {
 	/**
@@ -488,15 +489,11 @@ class EchoHooks {
 		}
 
 		if ( $wgEchoPerUserBlacklist ) {
-			$lookup = CentralIdLookup::factory();
-			$ids = $user->getOption( 'echo-notifications-blacklist', [] );
-			$names = $ids ? $lookup->namesFromCentralIds( $ids, $user ) : [];
-
 			$preferences['echo-notifications-blacklist'] = [
 				'type' => 'usersmultiselect',
 				'label-message' => 'echo-pref-notifications-blacklist',
 				'section' => 'echo/blocknotificationslist',
-				'default' => implode( "\n", $names )
+				'filter' => MultiUsernameFilter::class,
 			];
 		}
 
@@ -1250,10 +1247,6 @@ class EchoHooks {
 			$options['echo-subscriptions-email-edit-user-talk'] = $options['enotifusertalkpages'];
 		}
 
-		if ( isset( $options['echo-notifications-blacklist'] ) ) {
-			$options['echo-notifications-blacklist'] = self::mapToInt( explode( "\n", $options['echo-notifications-blacklist'] ) );
-		}
-
 		return true;
 	}
 
@@ -1270,36 +1263,6 @@ class EchoHooks {
 		if ( isset( $options['echo-subscriptions-email-edit-user-talk'] ) ) {
 			$options['enotifusertalkpages'] = $options['echo-subscriptions-email-edit-user-talk'];
 			unset( $options['echo-subscriptions-email-edit-user-talk'] );
-		}
-
-		// Convert usernames to ids.
-		if ( isset( $options['echo-notifications-blacklist'] ) ) {
-			if ( $options['echo-notifications-blacklist'] ) {
-				$value = $options['echo-notifications-blacklist'];
-				// Notification Blacklist may be an array of ids or a string of new line
-				// delimnated user names.
-				if ( is_array( $value ) ) {
-					$ids = array_filter( $value, 'is_numeric' );
-				} else {
-					$lookup = CentralIdLookup::factory();
-					$names = explode( "\n", $value );
-					$ids = $lookup->centralIdsFromNames( $names, $user );
-				}
-
-				$ids = self::mapToInt( $ids );
-
-				if ( $ids !== [] ) {
-					$user->setOption( 'echo-notifications-blacklist', $ids );
-					$options['echo-notifications-blacklist'] = implode( "\n", $user->getOption( 'echo-notifications-blacklist' ) );
-				} else {
-					// If the blacklist is empty, set it to null rather than an empty
-					// string.
-					$options['echo-notifications-blacklist'] = null;
-				}
-			} else {
-				// If the blacklist is empty, set it to null rather than an empty string.
-				$options['echo-notifications-blacklist'] = null;
-			}
 		}
 
 		return true;
