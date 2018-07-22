@@ -17,7 +17,8 @@
 			"Gato Preto",
 			"Mansil",
 			"Hamilton Abreu",
-			"Athena in Wonderland"
+			"Athena in Wonderland",
+			"Opraco"
 		]
 	},
 	"echo-desc": "Sistema de notificações a utilizadores sobre eventos e mensagens",
@@ -175,7 +176,7 @@
 	"notification-mention-email-subject": "$1 {{GENDER:$1|mencionou-}}{{GENDER:$2|o|a|o(a)}} na wiki {{SITENAME}}",
 	"notification-user-rights-email-subject": "Os seus privilégios de utilizador foram alterados na wiki {{SITENAME}}",
 	"notification-timestamp-ago-seconds": "{{PLURAL:$1|$1 s}}",
-	"notification-timestamp-ago-minutes": "{{PLURAL:$1|$1 m}}",
+	"notification-timestamp-ago-minutes": "{{PLURAL:$1|$1 min}}",
 	"notification-timestamp-ago-hours": "{{PLURAL:$1|$1 h}}",
 	"notification-timestamp-ago-days": "{{PLURAL:$1|$1 d}}",
 	"notification-timestamp-ago-months": "{{PLURAL:$1|$1 mês|$1 meses}}",

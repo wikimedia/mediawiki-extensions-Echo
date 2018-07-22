@@ -40,6 +40,7 @@
 	"echo-pref-tooltip-article-reminder": "PakiTawag-Pansin mo ako kapag ito ay naitanong.",
 	"echo-error-no-formatter": "Walang itinakdang anyo para sa pabatid.",
 	"notifications": "Mga pagpapabatid",
+	"tooltip-pt-notifications-alert": "{{GENDER:|Iyong}} mga babala",
 	"echo-specialpage": "Mga pabatid",
 	"echo-anon": "Upang makatanggap ng mga pagpapabatid, [$1 lumikha ng isang account] o [$2 lumagdang papasok].",
 	"echo-none": "Wala kang mga pabatid.",
