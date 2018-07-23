@@ -173,5 +173,6 @@
 	"echo-email-batch-body-intro-daily": "سڵاو $1،\nئەمە کۆرتەیەکە لە چالاکییەکانی ئەمرۆی {{SITENAME}} بۆ تۆ.",
 	"echo-email-batch-body-intro-weekly": "سڵاو $1،\nئەمە کۆرتەیەکە لە چالاکییەکانی حەفتانەی {{SITENAME}} بۆ تۆ.",
 	"echo-email-batch-link-text-view-all-notifications": "ھەموو ئاگادارییەکان ببینە",
+	"notification-header-foreign-alert": "ئاگاداری زیاتر لە ویکی تر",
 	"echo-foreign-wiki-lang": "$1 - $2"
 }
