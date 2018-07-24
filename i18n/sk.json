@@ -90,6 +90,7 @@
 	"notification-header-page-linked": "Zo stránky <strong>$4</strong> bol vytvorený odkaz na stránku <strong>$3</strong>.",
 	"notification-compact-header-page-linked": "Zo stránky <strong>$1</strong>.",
 	"notification-bundle-header-page-linked": "Zo stránky $4 a $5 {{PLURAL:$6|ďalšej|ďalších}} boli vytvorené odkazy na stránku $3.",
+	"notification-header-article-reminder": "Stránka, na ktorú ste si {{GENDER:$2|žiadal byť upozornený|žiadala byť upozornená}}, sa nachádza na <strong>$3</strong>",
 	"notification-link-text-what-links-here": "Všetky odkazy na túto stránku",
 	"notification-header-mention-other": "$1 {{GENDER:$3|vás}} {{GENDER:$2|spomenul|spomenula}} v diskusii <strong>$4</strong> v sekcii „$5“.",
 	"notification-header-mention-other-nosection": "$1 {{GENDER:$3|vás}} {{GENDER:$2|spomenul|spomenula}} v diskusii <strong>$4</strong>.",
