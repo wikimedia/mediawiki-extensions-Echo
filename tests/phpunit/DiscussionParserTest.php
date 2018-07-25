@@ -949,11 +949,10 @@ TEXT
 	private function setupTestRevisionsForEventGeneration( $newId, $oldId, $username, $lang, $pages,
 		$title, $summary = ''
 	) {
-		$langObj = Language::factory( $lang );
+		// Content language is used by the code that interprets the namespace part of titles
+		// (Title::getTitleParser), so should be the fake language ;)
+		$this->setContentLang( $lang );
 		$this->setMwGlobals( [
-			// this global is used by the code that interprets the namespace part of
-			// titles (Title::getTitleParser), so should be the fake language ;)
-			'wgContLang' => $langObj,
 			// this one allows Mediawiki:xyz pages to be set as messages
 			'wgUseDatabaseMessages' => true
 		] );
