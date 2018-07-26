@@ -415,6 +415,7 @@
 		"UserGroupsChanged": "EchoHooks::onUserGroupsChanged",
 		"UserLoadOptions": "EchoHooks::onUserLoadOptions",
 		"UserSaveOptions": "EchoHooks::onUserSaveOptions",
+		"UserGetDefaultOptions": "EchoHooks::onUserGetDefaultOptions",
 		"UserClearNewTalkNotification": "EchoHooks::onUserClearNewTalkNotification",
 		"ParserTestTables": "EchoHooks::onParserTestTables",
 		"EmailUserComplete": "EchoHooks::onEmailUserComplete",

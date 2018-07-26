@@ -12,29 +12,36 @@ class EchoHooks {
 	private static $lastRevertedRevision = null;
 
 	public static function registerExtension() {
-		global $wgNotificationSender, $wgPasswordSender, $wgAllowHTMLEmail,
-			$wgEchoNotificationCategories, $wgDefaultUserOptions;
+		global $wgNotificationSender, $wgPasswordSender;
 
 		$wgNotificationSender = $wgPasswordSender;
+	}
+
+	/**
+	 * @param array &$defaults
+	 */
+	public static function onUserGetDefaultOptions( array &$defaults ) {
+		global $wgAllowHTMLEmail, $wgEchoNotificationCategories;
 
 		if ( $wgAllowHTMLEmail ) {
-			$wgDefaultUserOptions['echo-email-format'] = 'html'; /*EchoHooks::EMAIL_FORMAT_HTML*/
+			$defaults['echo-email-format'] = 'html'; /*EchoHooks::EMAIL_FORMAT_HTML*/
 		} else {
-			$wgDefaultUserOptions['echo-email-format'] = 'plain-text'; /*EchoHooks::EMAIL_FORMAT_PLAIN_TEXT*/
+			$defaults['echo-email-format'] = 'plain-text'; /*EchoHooks::EMAIL_FORMAT_PLAIN_TEXT*/
 		}
 
-		// Set all of the events to notify by web but not email by default (won't affect events that don't email)
+		// Set all of the events to notify by web but not email by default
+		// (won't affect events that don't email)
 		foreach ( $wgEchoNotificationCategories as $category => $categoryData ) {
-			$wgDefaultUserOptions["echo-subscriptions-email-{$category}"] = false;
-			$wgDefaultUserOptions["echo-subscriptions-web-{$category}"] = true;
+			$defaults["echo-subscriptions-email-{$category}"] = false;
+			$defaults["echo-subscriptions-web-{$category}"] = true;
 		}
 
 		// most settings default to web on, email off, but override these
-		$wgDefaultUserOptions['echo-subscriptions-email-system'] = true;
-		$wgDefaultUserOptions['echo-subscriptions-email-user-rights'] = true;
-		$wgDefaultUserOptions['echo-subscriptions-web-article-linked'] = false;
-		$wgDefaultUserOptions['echo-subscriptions-web-mention-failure'] = false;
-		$wgDefaultUserOptions['echo-subscriptions-web-mention-success'] = false;
+		$defaults['echo-subscriptions-email-system'] = true;
+		$defaults['echo-subscriptions-email-user-rights'] = true;
+		$defaults['echo-subscriptions-web-article-linked'] = false;
+		$defaults['echo-subscriptions-web-mention-failure'] = false;
+		$defaults['echo-subscriptions-web-mention-success'] = false;
 	}
 
 	/**
