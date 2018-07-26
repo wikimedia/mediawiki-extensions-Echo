@@ -50,7 +50,7 @@ class EchoHooks {
 	 */
 	public static function initEchoExtension() {
 		global $wgEchoNotifications, $wgEchoNotificationCategories, $wgEchoNotificationIcons,
-			$wgEchoEventLoggingSchemas, $wgEchoMentionStatusNotifications, $wgAllowArticleReminderNotification, $wgAPIModules;
+			$wgEchoMentionStatusNotifications, $wgAllowArticleReminderNotification, $wgAPIModules;
 
 		// allow extensions to define their own event
 		Hooks::run( 'BeforeCreateEchoEvent', [ &$wgEchoNotifications, &$wgEchoNotificationCategories, &$wgEchoNotificationIcons ] );
@@ -65,15 +65,6 @@ class EchoHooks {
 		if ( !$wgAllowArticleReminderNotification ) {
 			unset( $wgEchoNotificationCategories['article-reminder'] );
 			unset( $wgAPIModules['echoarticlereminder'] );
-		}
-
-		// turn schema off if eventLogging is not enabled
-		if ( !ExtensionRegistry::getInstance()->isLoaded( 'EventLogging' ) ) {
-			foreach ( $wgEchoEventLoggingSchemas as $schema => $property ) {
-				if ( $property['enabled'] ) {
-					$wgEchoEventLoggingSchemas[$schema]['enabled'] = false;
-				}
-			}
 		}
 	}
 
@@ -127,15 +118,6 @@ class EchoHooks {
 		}
 
 		return true;
-	}
-
-	public static function onEventLoggingRegisterSchemas( array &$schemas ) {
-		global $wgEchoEventLoggingSchemas;
-		foreach ( $wgEchoEventLoggingSchemas as $schema => $property ) {
-			if ( $property['enabled'] && $property['client'] ) {
-				$schemas[$schema] = $property['revision'];
-			}
-		}
 	}
 
 	/**
@@ -1090,10 +1072,10 @@ class EchoHooks {
 		global $wgEchoEventLoggingSchemas, $wgEchoEventLoggingVersion;
 		$user = $outputPage->getUser();
 
-		// Provide info for the Overlay
-
+		// Provide info for ext.echo.logger
 		if ( $user->isLoggedIn() ) {
-			$vars['wgEchoEventLoggingSchemas'] = $wgEchoEventLoggingSchemas;
+			$vars['wgEchoInteractionLogging'] = $wgEchoEventLoggingSchemas['EchoInteraction']['enabled']
+				&& ExtensionRegistry::getInstance()->isLoaded( 'EventLogging' );
 			$vars['wgEchoEventLoggingVersion'] = $wgEchoEventLoggingVersion;
 		}
 
