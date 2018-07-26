@@ -143,22 +143,6 @@ class EchoHooks {
 	 * @param ResourceLoader &$resourceLoader
 	 */
 	public static function onResourceLoaderRegisterModules( ResourceLoader &$resourceLoader ) {
-		// ext.echo.logger is used by mobile notifications as well, so be sure not to add any
-		// dependencies that do not target mobile.
-		$definition = [
-			'scripts' => [
-				'logger/mw.echo.Logger.js',
-			],
-			'dependencies' => [
-				'oojs'
-			],
-			'localBasePath' => dirname( __DIR__ ) . '/modules',
-			'remoteExtPath' => 'Echo/modules',
-			'targets' => [ 'desktop', 'mobile' ],
-		];
-
-		$resourceLoader->register( 'ext.echo.logger', $definition );
-
 		global $wgExtensionDirectory, $wgEchoNotificationIcons, $wgEchoSecondaryIcons;
 		$resourceLoader->register( 'ext.echo.emailicons', [
 			'class' => 'ResourceLoaderEchoImageModule',
