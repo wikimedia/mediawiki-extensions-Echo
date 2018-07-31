@@ -84,6 +84,7 @@
 	"echo-notification-more-options-tooltip": "Више опција",
 	"notification-link-text-expand-all": "Прошири",
 	"notification-link-text-expand-alert-count": "Прикажи {{PLURAL:$1|обавештења}} ($1)",
+	"notification-link-text-expand-notice-count": "Погледај {{PLURAL:$1|$1 обавештење|$1 обавештења|$1 обавештења}}",
 	"notification-link-text-expand-all-count": "Прикажи {{PLURAL:$1|обавештења}} ($1)",
 	"notification-link-text-collapse-all": "Скупи",
 	"notification-link-text-view-message": "Погледај поруку",
