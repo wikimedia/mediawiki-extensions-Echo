@@ -65,6 +65,8 @@
 	"notification-inbox-filter-unread": "Oxunmamış",
 	"notification-inbox-filter-all": "Hamısı",
 	"echo-email-body-default": "Sizə {{SITENAME}} səhifəsində yeni bildiriş var :\n\n$1",
+	"echo-email-footer-default-html": "Sizə göndərdiyimiz e-poçtlara nəzarət etmək üçün, <a href=\"$2\" style=\"text-decoration:none; color: #3868B0;\">nizamlamalarınızı yoxlayın</a>.<br />\n$1",
+	"echo-email-footer-default": "$2\n\nSizə göndərdiyimiz e-poçtlara nəzarət etmək üçün, nizamlamalarınızı yoxlayın:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
 	"echo-notification-alert": "{{PLURAL:$1|Xəbərdarlıq ($1)|Xəbərdarlıqlar ($1)|100=Xəbərdarlıqlar (99+)}}",
 	"echo-notification-notice": "{{PLURAL:$1|Bildiri. ($1)|Bildirişlər ($1)|100=Bildirişlər (99+)}}",
 	"echo-notification-alert-text-only": "Xəbərdarlıqlar",
