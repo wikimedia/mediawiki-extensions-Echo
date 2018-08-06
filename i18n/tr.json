@@ -30,7 +30,7 @@
 	"prefs-displaynotifications": "Görüntüleme seçenekleri",
 	"prefs-echosubscriptions": "Bu olaylar hakkında bana bildirim gönder",
 	"prefs-echocrosswiki": "Vikilerarası bildirimler",
-	"prefs-newmessageindicator": "Yeni ileti göstergesi",
+	"prefs-newmessageindicator": "Yeni mesaj göstergesi",
 	"prefs-blocknotificationslist": "Sessize alınmış kullanıcılar",
 	"echo-pref-send-me": "E-posta bildirim tercihi:",
 	"echo-pref-send-to": "Şuraya gönder:",
@@ -188,5 +188,5 @@
 	"echo-email-batch-body-intro-weekly": "Merhaba $1,\nBurada {{SITENAME}} için bu haftaki etkinlik özetini bulabilirsiniz.",
 	"echo-email-batch-link-text-view-all-notifications": "Tüm bildirimleri göster",
 	"notification-header-foreign-alert": "{{PLURAL:$5|$5 diğer Viki projesinden}} uyarınız var",
-	"notification-header-foreign-notice": "{{PLURAL:$5|diğer viki|$5 diğer viki}}den daha fazla sonuç"
+	"notification-header-foreign-notice": "{{PLURAL:$5|Diğer viki|$5 diğer viki}}den daha fazla bildirim"
 }

@@ -11,7 +11,8 @@
 			"Macofe",
 			"Simeondahl",
 			"SimmeD",
-			"EeveeSylveon"
+			"EeveeSylveon",
+			"Saederup92"
 		]
 	},
 	"echo-desc": "System til at give brugere besked om handlinger og meddelelser",
@@ -83,6 +84,7 @@
 	"notification-header-mention-summary": "$1 {{GENDER:$2|nævnte}} {{GENDER:$3|dig}} i en redigeringsopsummering på <strong>$4</strong>.",
 	"notification-welcome-linktext": "Velkommen",
 	"notification-link-text-view-edit": "Se redigering",
+	"notification-link-article-reminder": "Vis side",
 	"notification-header-reverted": "{{PLURAL:$4|Din redigering af <strong>$3</strong> er blevet tilbagestillet|Dine redigeringer af <strong>$3</strong> er blevet tilbagestillede}} af $2",
 	"notification-edit-talk-page-email-subject2": "$1 lagde en besked til dig på {{SITENAME}}",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 lagde en besked på din diskussionsside i \"$2\".",
@@ -91,6 +93,7 @@
 	"notification-mention-email-subject": "$1 omtalte dig på {{SITENAME}}",
 	"notification-user-rights-email-subject": "Dine brugerrettigheder er blevet ændret på {{SITENAME}}",
 	"notification-timestamp-today": "I dag",
+	"notification-timestamp-yesterday": "I går",
 	"notification-inbox-filter-read": "Læs",
 	"echo-email-body-default": "Der er en ny meddelelse til dig på {{SITENAME}}\n\n$1",
 	"echo-email-footer-default": "$2\n\nTjek dine indstillinger for at se hvilke e-mails vi sender til dig:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",

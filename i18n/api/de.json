@@ -53,6 +53,8 @@
 	"apihelp-echoarticlereminder-param-title": "Name des Artikels, an den der Benutzer erinnert werden soll.",
 	"apihelp-echoarticlereminder-param-timestamp": "An welchem Zeitstempel der Benutzer erinnert werden soll",
 	"apihelp-echoarticlereminder-param-comment": "Optionaler Benutzerkommentar, der in der Erinnerung enthalten sein soll.",
+	"apihelp-echoarticlereminder-example-1": "Erstellt eine Artikel-Erinnerungsbenachrichtigung für morgen mit Kommentar",
+	"apihelp-echoarticlereminder-example-2": "Erstellt eine Artikel-Erinnerungsbenachrichtigung für morgen ohne Kommentar",
 	"apiwarn-echo-deprecation-timestampformat": "Das MW-Zeitstempel-Ausgabeformat ist hier veraltet. In Zukunft wird immer ISO 8601 für das Ausgabezeitstempelformat verwendet. Passe deinen Client an und lege <var>timestampFormat</var> auf <kbd>ISO_8601</kbd> fest.",
 	"apiwarn-echo-deprecation-flyout": "<kbd>notformat=flyout</kbd> ist veraltet und wird bald entfernt. Verwende <kbd>notformat=model</kbd>, um die Rohdaten zu erhalten oder <kbd>notformat=special</kbd> für vorgerendertes HTML.",
 	"apiwarn-echo-deprecation-html": "<kbd>notformat=html</kbd> ist veraltet und wird bald entfernt. Verwende stattdessen <kbd>notformat=special</kbd>.",
