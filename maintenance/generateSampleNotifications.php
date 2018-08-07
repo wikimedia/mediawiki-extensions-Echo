@@ -139,7 +139,7 @@ class GenerateSampleNotifications extends Maintenance {
 	/**
 	 * Get the set timestamp of the event
 	 *
-	 * @param  bool [$getEpoch] Get the epoch value
+	 * @param bool $getEpoch Get the epoch value
 	 * @return int Timestamp for the operation
 	 */
 	private function getTimestamp( $getEpoch = false ) {
