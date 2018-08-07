@@ -168,6 +168,7 @@
 	"echo-mark-all-as-read": "سب کو بطور خواندہ نشان زد کریں",
 	"echo-date-today": "آج",
 	"echo-date-yesterday": "گذشتہ کل",
+	"notification-bundle-header-edit-user-talk-v2": "<strong>{{GENDER:$3|آپ کے}} تبادلہ خیال صفحہ</strong> پر\n{{PLURAL:$1|ایک نیا پیغام|$1 نئے پیغامات|100=99+ نئے پیغامات}}۔",
 	"echo-email-batch-link-text-view-all-notifications": "تمام اطلاع نامے دیکھیں",
 	"notification-header-foreign-alert": "{{PLURAL:$5|دوسری ویکی|$5 دیگر ویکیوں}} کی مزید اطلاعات",
 	"notification-header-foreign-all": "{{PLURAL:$5|دوسری ویکی|$5 دیگر ویکیوں}} کے مزید اطلاع نامے"
