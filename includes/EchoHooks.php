@@ -1095,15 +1095,6 @@ class EchoHooks {
 		if ( $user->isLoggedIn() ) {
 			$vars['wgEchoEventLoggingSchemas'] = $wgEchoEventLoggingSchemas;
 			$vars['wgEchoEventLoggingVersion'] = $wgEchoEventLoggingVersion;
-		} elseif (
-			$outputPage->getTitle()->equals( SpecialPage::getTitleFor( 'JavaScriptTest', 'qunit' ) ) ||
-			// Also if running from /plain or /export
-			$outputPage->getTitle()->isSubpageOf( SpecialPage::getTitleFor( 'JavaScriptTest', 'qunit' ) )
-		) {
-			// For testing purposes
-			$vars['wgEchoEventLoggingSchemas'] = [
-				'EchoInteraction' => [],
-			];
 		}
 
 		return true;
