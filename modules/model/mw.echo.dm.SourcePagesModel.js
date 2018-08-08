@@ -34,7 +34,7 @@
 	 * The state of the source page model has changed
 	 */
 
-	/* Methds */
+	/* Methods */
 
 	/**
 	 * Set the current source and page.
