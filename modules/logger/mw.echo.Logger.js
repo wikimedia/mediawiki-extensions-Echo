@@ -15,18 +15,6 @@
 
 		this.clickThroughEnabled = config.clickThroughEnabled || this.constructor.static.clickThroughEnabled;
 		this.notificationsIdCache = [];
-		if ( this.clickThroughEnabled ) {
-			// This should usually already be loaded, but not always
-			this.deferred = mw.loader.using( 'ext.eventLogging', function () {
-				mw.eventLog.setDefaults( 'EchoInteraction', {
-					version: mw.config.get( 'wgEchoEventLoggingVersion' ),
-					userId: +mw.config.get( 'wgUserId' ),
-					editCount: +mw.config.get( 'wgUserEditCount' )
-				} );
-			} );
-		} else {
-			this.deferred = $.Deferred().resolve();
-		}
 	};
 
 	OO.initClass( mw.echo.Logger );
@@ -99,7 +87,10 @@
 		}
 
 		myEvt = {
-			action: action
+			action: action,
+			version: mw.config.get( 'wgEchoEventLoggingVersion' ),
+			userId: +mw.config.get( 'wgUserId' ),
+			editCount: +mw.config.get( 'wgUserEditCount' )
 		};
 
 		// All the fields below are optional
@@ -120,9 +111,7 @@
 			myEvt.notifWiki = notifWiki;
 		}
 
-		this.deferred.done( function () {
-			mw.eventLog.logEvent( 'EchoInteraction', myEvt );
-		} );
+		mw.track( 'event.EchoInteraction', myEvt );
 	};
 
 	/**

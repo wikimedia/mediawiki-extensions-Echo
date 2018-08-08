@@ -143,8 +143,6 @@ class EchoHooks {
 	 * @param ResourceLoader &$resourceLoader
 	 */
 	public static function onResourceLoaderRegisterModules( ResourceLoader &$resourceLoader ) {
-		global $wgEchoEventLoggingSchemas;
-
 		// ext.echo.logger is used by mobile notifications as well, so be sure not to add any
 		// dependencies that do not target mobile.
 		$definition = [
@@ -158,18 +156,6 @@ class EchoHooks {
 			'remoteExtPath' => 'Echo/modules',
 			'targets' => [ 'desktop', 'mobile' ],
 		];
-
-		$hasSchemas = false;
-		foreach ( $wgEchoEventLoggingSchemas as $schema => $property ) {
-			if ( $property['enabled'] && $property['client'] ) {
-				$definition['dependencies'][] = 'schema.' . $schema;
-				$hasSchemas = true;
-			}
-		}
-
-		if ( $hasSchemas ) {
-			$definition['dependencies'][] = 'ext.eventLogging';
-		}
 
 		$resourceLoader->register( 'ext.echo.logger', $definition );
 
