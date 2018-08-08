@@ -67,6 +67,8 @@
 	"echo-more-info": "Mere information",
 	"echo-feedback": "Feedback",
 	"echo-notification-markasread": "Mærk som læst",
+	"echo-notification-markasread-tooltip": "Marker som læst",
+	"notification-link-text-expand-all": "Udvid",
 	"notification-link-text-view-message": "Vis besked",
 	"notification-link-text-view-mention": "Se omtale",
 	"notification-link-text-view-changes": "Se ændringer",
