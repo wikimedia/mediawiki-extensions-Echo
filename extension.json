@@ -53,6 +53,18 @@
 		"EchoAliases": "Echo.alias.php"
 	},
 	"ResourceModules": {
+		"ext.echo.logger": {
+			"scripts": [
+				"logger/mw.echo.Logger.js"
+			],
+			"dependencies": [
+				"oojs"
+			],
+			"targets": [
+				"desktop",
+				"mobile"
+			]
+		},
 		"ext.echo.ui.desktop": {
 			"scripts": [
 				"ui/mw.echo.ui.BadgeLinkWidget.js",
