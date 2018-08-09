@@ -51,6 +51,7 @@ class EchoUserNotificationGateway {
 	 *   failure, or when there was nothing to update
 	 */
 	public function markRead( array $eventIDs ) {
+		global $wgUpdateRowsPerQuery;
 		if ( !$eventIDs ) {
 			return false;
 		}
@@ -60,16 +61,21 @@ class EchoUserNotificationGateway {
 			return false;
 		}
 
-		return $dbw->update(
-			self::$notificationTable,
-			[ 'notification_read_timestamp' => $dbw->timestamp( wfTimestampNow() ) ],
-			[
-				'notification_user' => $this->user->getId(),
-				'notification_event' => $eventIDs,
-				'notification_read_timestamp' => null,
-			],
-			__METHOD__
-		);
+		$success = true;
+		foreach ( array_chunk( $eventIDs, $wgUpdateRowsPerQuery ) as $batch ) {
+			$success = $dbw->update(
+				self::$notificationTable,
+				[ 'notification_read_timestamp' => $dbw->timestamp( wfTimestampNow() ) ],
+				[
+					'notification_user' => $this->user->getId(),
+					'notification_event' => $batch,
+					'notification_read_timestamp' => null,
+				],
+				__METHOD__
+			) && $success;
+		}
+
+		return $success;
 	}
 
 	/**
@@ -79,26 +85,30 @@ class EchoUserNotificationGateway {
 	 *   failure, or when there was nothing to update
 	 */
 	public function markUnRead( array $eventIDs ) {
+		global $wgUpdateRowsPerQuery;
 		if ( !$eventIDs ) {
 			return false;
 		}
 
 		$dbw = $this->getDB( DB_MASTER );
 
-		return $dbw->update(
-			self::$notificationTable,
-			[ 'notification_read_timestamp' => null ],
-			[
-				'notification_user' => $this->user->getId(),
-				'notification_event' => $eventIDs,
-				'notification_read_timestamp IS NOT NULL'
-			],
-			__METHOD__
-		);
+		foreach ( array_chunk( $eventIDs, $wgUpdateRowsPerQuery ) as $batch ) {
+			$success = $dbw->update(
+				self::$notificationTable,
+				[ 'notification_read_timestamp' => null ],
+				[
+					'notification_user' => $this->user->getId(),
+					'notification_event' => $batch,
+					'notification_read_timestamp IS NOT NULL'
+				],
+				__METHOD__
+			) && $success;
+		}
+		return $success;
 	}
 
 	/**
-	 * Mark all notification as read, use MWEchoNotifUer::markAllRead() instead
+	 * Mark all notification as read, use MWEchoNotifUser::markAllRead() instead
 	 * @deprecated may need this when running in a job or revive this when we
 	 * have updateJoin()
 	 */
