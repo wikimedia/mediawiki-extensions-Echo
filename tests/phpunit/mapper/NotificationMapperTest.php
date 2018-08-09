@@ -161,13 +161,36 @@ class EchoNotificationMapperTest extends MediaWikiTestCase {
 	}
 
 	public function testDeleteByUserEventOffset() {
-		$dbResult = [ 'delete' => true ];
-		$notifMapper = new EchoNotificationMapper( $this->mockMWEchoDbFactory( $dbResult ) );
-		$this->assertTrue( $notifMapper->deleteByUserEventOffset( User::newFromId( 1 ), 500 ) );
+		$this->setMwGlobals( [ 'wgUpdateRowsPerQuery' => 4 ] );
+		$mockDb = $this->getMockBuilder( 'DatabaseMysqli' )
+			->disableOriginalConstructor()
+			->getMock();
+		$mockDb->expects( $this->any() )
+			->method( 'selectFieldValues' )
+			->will( $this->returnValue( [ 1, 2, 3, 5, 8, 13, 21, 34, 55, 89 ] ) );
+		$mockDb->expects( $this->exactly( 3 ) )
+			->method( 'delete' )
+			->withConsecutive(
+				[
+					$this->equalTo( 'echo_notification' ),
+					$this->equalTo( [ 'notification_user' => 1, 'notification_event' => [ 1, 2, 3, 5 ] ] ),
+					$this->anything()
+				],
+				[
+					$this->equalTo( 'echo_notification' ),
+					$this->equalTo( [ 'notification_user' => 1, 'notification_event' => [ 8, 13, 21, 34 ] ] ),
+					$this->anything()
+				],
+				[
+					$this->equalTo( 'echo_notification' ),
+					$this->equalTo( [ 'notification_user' => 1, 'notification_event' => [ 55, 89 ] ] ),
+					$this->anything()
+				]
+			)
+			->will( $this->returnValue( true ) );
 
-		$dbResult = [ 'delete' => false ];
-		$notifMapper = new EchoNotificationMapper( $this->mockMWEchoDbFactory( $dbResult ) );
-		$this->assertFalse( $notifMapper->deleteByUserEventOffset( User::newFromId( 1 ), 500 ) );
+		$notifMapper = new EchoNotificationMapper( $this->mockMWEchoDbFactory( $mockDb ) );
+		$this->assertTrue( $notifMapper->deleteByUserEventOffset( User::newFromId( 1 ), 500 ) );
 	}
 
 	/**
@@ -206,14 +229,16 @@ class EchoNotificationMapperTest extends MediaWikiTestCase {
 
 	/**
 	 * Mock object of MWEchoDbFactory
+	 * @param array|\Wikimedia\Rdbms\IDatabase $dbResultOrMockDb
 	 */
-	protected function mockMWEchoDbFactory( $dbResult ) {
+	protected function mockMWEchoDbFactory( $dbResultOrMockDb ) {
+		$mockDb = is_array( $dbResultOrMockDb ) ? $this->mockDb( $dbResultOrMockDb ) : $dbResultOrMockDb;
 		$dbFactory = $this->getMockBuilder( 'MWEchoDbFactory' )
 			->disableOriginalConstructor()
 			->getMock();
 		$dbFactory->expects( $this->any() )
 			->method( 'getEchoDb' )
-			->will( $this->returnValue( $this->mockDb( $dbResult ) ) );
+			->will( $this->returnValue( $mockDb ) );
 
 		return $dbFactory;
 	}

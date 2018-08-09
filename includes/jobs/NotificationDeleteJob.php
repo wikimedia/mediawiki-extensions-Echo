@@ -54,13 +54,11 @@ class EchoNotificationDeleteJob extends Job {
 		$user = User::newFromId( $userId );
 		$notif = $notifMapper->fetchByUserOffset( $user, $wgEchoMaxUpdateCount );
 		if ( $notif ) {
-			$res = $notifMapper->deleteByUserEventOffset(
+			$notifMapper->deleteByUserEventOffset(
 				$user, $notif->getEvent()->getId()
 			);
-			if ( $res ) {
-				$notifUser = MWEchoNotifUser::newFromUser( $user );
-				$notifUser->resetNotificationCount();
-			}
+			$notifUser = MWEchoNotifUser::newFromUser( $user );
+			$notifUser->resetNotificationCount();
 		}
 
 		return true;
