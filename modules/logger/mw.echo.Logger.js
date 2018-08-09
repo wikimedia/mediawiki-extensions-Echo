@@ -28,11 +28,7 @@
 	 * @static
 	 * @property {boolean}
 	 */
-	mw.echo.Logger.static.clickThroughEnabled = !!OO.getProp(
-		mw.config.get( 'wgEchoEventLoggingSchemas' ),
-		'EchoInteraction',
-		'enabled'
-	);
+	mw.echo.Logger.static.clickThroughEnabled = !!mw.config.get( 'wgEchoInteractionLogging' );
 
 	/**
 	 * Context definitions.

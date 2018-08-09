@@ -422,7 +422,6 @@
 		"BeforePageDisplay": "EchoHooks::beforePageDisplay",
 		"MakeGlobalVariablesScript": "EchoHooks::makeGlobalVariablesScript",
 		"ResourceLoaderRegisterModules": "EchoHooks::onResourceLoaderRegisterModules",
-		"EventLoggingRegisterSchemas": "EchoHooks::onEventLoggingRegisterSchemas",
 		"ResourceLoaderTestModules": "EchoHooks::onResourceLoaderTestModules",
 		"UserGroupsChanged": "EchoHooks::onUserGroupsChanged",
 		"UserLoadOptions": "EchoHooks::onUserLoadOptions",
@@ -886,19 +885,13 @@
 		"EchoEventLoggingSchemas": {
 			"value": {
 				"Echo": {
-					"enabled": false,
-					"revision": 7731316,
-					"client": false
+					"enabled": false
 				},
 				"EchoMail": {
-					"enabled": false,
-					"revision": 5467650,
-					"client": false
+					"enabled": false
 				},
 				"EchoInteraction": {
-					"enabled": false,
-					"revision": 15823738,
-					"client": true
+					"enabled": false
 				}
 			},
 			"merge_strategy": "array_plus_2d"
@@ -910,6 +903,13 @@
 		"EchoMaxMentionsInEditSummary": {
 			"value": 0,
 			"description": "Maximum nubmer of users that will be notified that they were linked from an edit summary or 0 for no notifications"
+		}
+	},
+	"attributes": {
+		"EventLogging": {
+			"Schemas": {
+				"EchoInteraction": 15823738
+			}
 		}
 	},
 	"manifest_version": 2,

@@ -5,6 +5,14 @@
  */
 class MWEchoEventLogging {
 
+	private static $revisionIds = [
+		'Echo' => 7731316,
+		'EchoMail' => 5467650,
+		// Keep in sync with client-side revision
+		// in extension.json
+		'EchoInteraction' => 15823738
+	];
+
 	/**
 	 * This is the only function that interacts with EventLogging
 	 *
@@ -17,14 +25,17 @@ class MWEchoEventLogging {
 		global $wgEchoEventLoggingSchemas, $wgEchoEventLoggingVersion;
 
 		$schemaConfig = $wgEchoEventLoggingSchemas[$schema];
-		if ( !$schemaConfig['enabled'] ) {
+		if ( !ExtensionRegistry::getInstance()->isLoaded( 'EventLogging' )
+			|| !$schemaConfig['enabled']
+		) {
 			// If logging for this schema is disabled, it's a no-op.
 			return;
 		}
 
+		$revision = self::$revisionIds[$schema];
 		$data['version'] = $wgEchoEventLoggingVersion;
 
-		EventLogging::logEvent( $schema, $schemaConfig['revision'], $data );
+		EventLogging::logEvent( $schema, $revision, $data );
 	}
 
 	/**
