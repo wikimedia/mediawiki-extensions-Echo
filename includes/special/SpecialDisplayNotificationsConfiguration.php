@@ -136,7 +136,7 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 					'disabled' => true,
 				]
 			],
-			$this
+			$this->getContext()
 		);
 
 		$form->setTitle( $this->getPageTitle() )
