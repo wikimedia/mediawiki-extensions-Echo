@@ -113,65 +113,14 @@ class MWEchoNotifUser {
 	}
 
 	/**
-	 * Clear talk page notification when users visit their talk pages.  This
-	 * only resets if the notification count is less than max notification
-	 * count. If the user has 99+ notifications, decrementing 1 bundled talk
-	 * page notification would not really affect the count
+	 * Mark all edit-user-talk notifications as read. This is called when a user visits their user talk page.
 	 */
-	public function clearTalkNotification() {
-		// There is no new talk notification
-		if ( $this->cache->get( $this->getTalkNotificationCacheKey() ) === '0' ) {
-			return;
-		}
-
-		// Do nothing if the count display meets the max 99+
-		if ( $this->notifCountHasReachedMax() ) {
-			return;
-		}
-
-		// Mark the talk page notification as read
+	public function clearUserTalkNotifications() {
 		$this->markRead(
 			$this->userNotifGateway->getUnreadNotifications(
 				'edit-user-talk'
 			)
 		);
-
-		$this->flagCacheWithNoTalkNotification();
-	}
-
-	/**
-	 * Flag the cache with new talk notification
-	 */
-	public function flagCacheWithNewTalkNotification() {
-		$this->cache->set( $this->getTalkNotificationCacheKey(), '1', 86400 );
-	}
-
-	/**
-	 * Flag the cache with no talk notification
-	 */
-	public function flagCacheWithNoTalkNotification() {
-		$this->cache->set( $this->getTalkNotificationCacheKey(), '0', 86400 );
-	}
-
-	/**
-	 * Memcache key for talk notification
-	 * @return string
-	 */
-	public function getTalkNotificationCacheKey() {
-		global $wgEchoCacheVersion;
-		return wfMemcKey( 'echo-new-talk-notification', $this->mUser->getId(), $wgEchoCacheVersion );
-	}
-
-	/**
-	 * Check if the user has more notification count than max count display
-	 * @return bool
-	 */
-	public function notifCountHasReachedMax() {
-		if ( $this->getLocalNotificationCount() >= self::MAX_BADGE_COUNT ) {
-			return true;
-		} else {
-			return false;
-		}
 	}
 
 	/**
@@ -392,9 +341,6 @@ class MWEchoNotifUser {
 			 * Keep the 'echo_target_page' records so they can be used for moderation.
 			 */
 			// $this->targetPageMapper->deleteByUserEvents( $this->mUser, $eventIds );
-			if ( count( $notifs ) < $wgEchoMaxUpdateCount ) {
-				$this->flagCacheWithNoTalkNotification();
-			}
 		}
 
 		return $updated;

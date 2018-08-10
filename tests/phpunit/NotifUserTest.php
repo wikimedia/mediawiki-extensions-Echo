@@ -34,45 +34,6 @@ class MWEchoNotifUserTest extends MediaWikiTestCase {
 		$this->assertInstanceOf( 'MWEchoNotifUser', $notifUser );
 	}
 
-	public function testFlagCacheWithNewTalkNotification() {
-		$notifUser = $this->newNotifUser();
-
-		$notifUser->flagCacheWithNewTalkNotification();
-		$this->assertEquals( '1', $this->cache->get( $notifUser->getTalkNotificationCacheKey() ) );
-	}
-
-	public function testFlagCacheWithNoTalkNotification() {
-		$notifUser = $this->newNotifUser();
-
-		$notifUser->flagCacheWithNoTalkNotification();
-		$this->assertEquals( '0', $this->cache->get( $notifUser->getTalkNotificationCacheKey() ) );
-	}
-
-	public function testNotifCountHasReachedMax() {
-		$notifUser = $this->newNotifUser();
-
-		if ( $notifUser->getLocalNotificationCount() > MWEchoNotifUser::MAX_BADGE_COUNT ) {
-			$this->assertTrue( $notifUser->notifCountHasReachedMax() );
-		} else {
-			$this->assertFalse( $notifUser->notifCountHasReachedMax() );
-		}
-	}
-
-	public function testClearTalkNotification() {
-		$notifUser = $this->newNotifUser();
-
-		$notifUser->flagCacheWithNewTalkNotification();
-
-		$hasMax = $notifUser->notifCountHasReachedMax();
-
-		$notifUser->clearTalkNotification();
-		if ( $hasMax ) {
-			$this->assertEquals( '1', $this->cache->get( $notifUser->getTalkNotificationCacheKey() ) );
-		} else {
-			$this->assertEquals( '0', $this->cache->get( $notifUser->getTalkNotificationCacheKey() ) );
-		}
-	}
-
 	public function testGetEmailFormat() {
 		$user = User::newFromId( 2 );
 		$notifUser = MWEchoNotifUser::newFromUser( $user );
