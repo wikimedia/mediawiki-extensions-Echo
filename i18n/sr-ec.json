@@ -112,7 +112,7 @@
 	"notification-header-mention-failure-user-anonymous": "{{GENDER:$2|Ваше}} спомињање корисника <strong>$3</strong> није послано јер је корисник нерегистрован.",
 	"notification-header-mention-failure-too-many": "{{GENDER:$2|Покушали сте}} да поменете више од $3 {{PLURAL:$3|корисника}}. Сва помињања изнад лимита нису послата.",
 	"notification-compact-header-mention-failure-user-unknown": "<strong>Корисничко име не постоји:</strong> $1",
-	"notification-compact-header-mention-failure-user-anonymous": "<strong>Не можете спомињати ИП адресе:</strong> $1",
+	"notification-compact-header-mention-failure-user-anonymous": "<strong>Не можете да спомињате IP адресе:</strong> $1",
 	"notification-header-mention-success": "{{GENDER:$2|Ваше}} спомињање {{GENDER:$3|корисника|кориснице|корисника}} <strong>$3</strong> је послато.",
 	"notification-compact-header-mention-success": "<strong>{{GENDER:$2|Споменули сте}}:</strong> $3",
 	"notification-header-user-rights-add-only": "{{GENDER:$4|Ваша}} корисничка права су {{GENDER:$1|промењена}}. Сада сте члан следећих група: $2.",

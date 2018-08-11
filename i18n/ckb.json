@@ -168,6 +168,7 @@
 	"echo-date-today": "ئەمڕۆ",
 	"echo-date-yesterday": "دوێنێ",
 	"echo-load-more-error": "ھەڵەیەک لە کاتی وەرگرتنی ئاکامی زیاتر ڕووی دا.",
+	"notification-bundle-header-edit-user-talk-v2": "{{PLURAL:$1|پەیامێکی نوێ|$1 پەیامی نوێ|100=99+ پەیامی نوێ}} داندرا لەسەر <strong>پەڕەی وتووێژەکەت</strong>.",
 	"echo-email-batch-subject-daily": "لە {{SITENAME}}دا {{PLURAL:$2|ئاگادارییەکی نوێت|ئاگاداریی نوێت}} ھەیە",
 	"echo-email-batch-subject-weekly": "لە {{SITENAME}}دا {{PLURAL:$2|ئاگادارییەکی نوێت|ئاگاداریی نوێت}} لەم حەفتەیەدا ھەیە",
 	"echo-email-batch-body-intro-daily": "سڵاو $1،\nئەمە کۆرتەیەکە لە چالاکییەکانی ئەمرۆی {{SITENAME}} بۆ تۆ.",
