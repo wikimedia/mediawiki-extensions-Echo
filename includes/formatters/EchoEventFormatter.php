@@ -65,7 +65,7 @@ abstract class EchoEventFormatter {
 
 	/**
 	 * @param EchoEventPresentationModel $model
-	 * @return string|array
+	 * @return string[]|string
 	 */
 	abstract protected function formatModel( EchoEventPresentationModel $model );
 }

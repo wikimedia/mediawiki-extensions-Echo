@@ -7,22 +7,22 @@
 class EchoAttributeManager {
 
 	/**
-	 * @var array
+	 * @var array[]
 	 */
 	protected $notifications;
 
 	/**
-	 * @var array
+	 * @var array[]
 	 */
 	protected $categories;
 
 	/**
-	 * @var array
+	 * @var bool[]
 	 */
 	protected $defaultNotifyTypeAvailability;
 
 	/**
-	 * @var array
+	 * @var array[]
 	 */
 	protected $notifyTypeAvailabilityByCategory;
 
@@ -47,7 +47,7 @@ class EchoAttributeManager {
 
 	/**
 	 * Notifications are broken down to two sections, default is alert
-	 * @var array
+	 * @var string[]
 	 */
 	public static $sections = [
 		self::ALERT,
@@ -67,11 +67,11 @@ class EchoAttributeManager {
 	protected static $globalVarInstance = null;
 
 	/**
-	 * @param array $notifications Notification attributes
-	 * @param array $categories Notification categories
-	 * @param array $defaultNotifyTypeAvailability Associative array with output
+	 * @param array[] $notifications Notification attributes
+	 * @param array[] $categories Notification categories
+	 * @param bool[] $defaultNotifyTypeAvailability Associative array with output
 	 *   formats as keys and whether they are available as boolean values.
-	 * @param array $notifyTypeAvailabilityByCategory Associative array with
+	 * @param array[] $notifyTypeAvailabilityByCategory Associative array with
 	 *   categories as keys and value an associative array as with
 	 *   $defaultNotifyTypeAvailability.
 	 * @param array $notifiers Associative array mapping notify types to notifier
@@ -181,7 +181,7 @@ class EchoAttributeManager {
 	 *
 	 * @param string $section Internal section name, one of the values from self::$sections
 	 *
-	 * @return array Array of notification types in this section
+	 * @return string[] Array of notification types in this section
 	 */
 	public function getEventsForSection( $section ) {
 		$events = [];
@@ -215,7 +215,7 @@ class EchoAttributeManager {
 	/**
 	 * Gets array of internal category names
 	 *
-	 * @return array All internal names
+	 * @return string[] All internal names
 	 */
 	public function getInternalCategoryNames() {
 		return array_keys( $this->categories );
@@ -292,7 +292,7 @@ class EchoAttributeManager {
 	 * Gets an associative array mapping categories to the notification types in
 	 * the category
 	 *
-	 * @return array Associative array with category as key
+	 * @return array[] Associative array with category as key
 	 */
 	public function getEventsByCategory() {
 		$eventsByCategory = [];

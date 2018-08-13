@@ -95,7 +95,7 @@ class ApiEchoMarkRead extends ApiBase {
 
 	/**
 	 * @see ApiBase::getExamplesMessages()
-	 * @return array
+	 * @return string[]
 	 */
 	protected function getExamplesMessages() {
 		return [

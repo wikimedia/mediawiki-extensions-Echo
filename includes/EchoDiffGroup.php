@@ -26,17 +26,17 @@
  */
 class EchoDiffGroup {
 	/**
-	 * @var array The left and right position this change starts at
+	 * @var int[] The left and right position this change starts at
 	 */
 	protected $position;
 
 	/**
-	 * @var array The lines that have been added
+	 * @var string[] The lines that have been added
 	 */
 	protected $new = [];
 
 	/**
-	 * @var array The lines that have been removed
+	 * @var string[] The lines that have been removed
 	 */
 	protected $old = [];
 

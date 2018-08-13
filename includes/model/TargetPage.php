@@ -136,7 +136,7 @@ class EchoTargetPage extends EchoAbstractEntity {
 
 	/**
 	 * Convert the properties to a database row
-	 * @return array
+	 * @return int[]
 	 */
 	public function toDbArray() {
 		return [

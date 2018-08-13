@@ -20,12 +20,12 @@ class EchoForeignNotifications {
 	protected $enabled = false;
 
 	/**
-	 * @var array [(str) section => (int) count, ...]
+	 * @var int[] [(str) section => (int) count, ...]
 	 */
 	protected $counts = [ EchoAttributeManager::ALERT => 0, EchoAttributeManager::MESSAGE => 0 ];
 
 	/**
-	 * @var array [(str) section => (string[]) wikis, ...]
+	 * @var array[] [(str) section => (string[]) wikis, ...]
 	 */
 	protected $wikis = [ EchoAttributeManager::ALERT => [], EchoAttributeManager::MESSAGE => [] ];
 
@@ -35,7 +35,7 @@ class EchoForeignNotifications {
 	protected $timestamps = [ EchoAttributeManager::ALERT => false, EchoAttributeManager::MESSAGE => false ];
 
 	/**
-	 * @var array [(str) wiki => [ (str) section => (MWTimestamp) timestamp, ...], ...]
+	 * @var array[] [(str) wiki => [ (str) section => (MWTimestamp) timestamp, ...], ...]
 	 */
 	protected $wikiTimestamps = [];
 

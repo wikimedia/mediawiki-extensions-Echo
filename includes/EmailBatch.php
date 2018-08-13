@@ -176,7 +176,7 @@ class MWEchoEmailBatch {
 
 	/**
 	 * Get the events queued for the current user
-	 * @return array
+	 * @return \stdClass[]
 	 */
 	protected function getEvents() {
 		global $wgEchoNotifications;

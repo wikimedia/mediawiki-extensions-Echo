@@ -603,7 +603,7 @@ class EchoHooks {
 	 * Get overrides for new users.  This allows changes that only apply going forward,
 	 * without affecting existing users.
 	 *
-	 * @return array Associative array mapping key to bool for whether it should be enabled
+	 * @return bool[] Associative array mapping key to bool for whether it should be enabled
 	 */
 	public static function getNewUserPreferenceOverrides() {
 		return [

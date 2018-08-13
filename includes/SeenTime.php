@@ -8,7 +8,7 @@ class EchoSeenTime {
 
 	/**
 	 * Allowed notification types
-	 * @var array
+	 * @var string[]
 	 */
 	private static $allowedTypes = [ 'alert', 'message' ];
 

@@ -172,7 +172,7 @@ class ApiEchoUnreadNotificationPages extends ApiCrossWikiBase {
 	}
 
 	/**
-	 * @return array
+	 * @return array[]
 	 */
 	public function getAllowedParams() {
 		global $wgEchoMaxUpdateCount;
@@ -199,7 +199,7 @@ class ApiEchoUnreadNotificationPages extends ApiCrossWikiBase {
 
 	/**
 	 * @see ApiBase::getExamplesMessages()
-	 * @return array
+	 * @return string[]
 	 */
 	protected function getExamplesMessages() {
 		return [

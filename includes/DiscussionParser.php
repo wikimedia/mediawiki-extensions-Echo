@@ -187,7 +187,7 @@ abstract class EchoDiscussionParser {
 	 * For an action taken on a talk page, notify users whose user pages
 	 * are linked.
 	 * @param string $header The subject line for the discussion.
-	 * @param array $userLinks
+	 * @param int[] $userLinks
 	 * @param string $content The content of the post, as a wikitext string.
 	 * @param Revision $revision
 	 * @param User $agent The user who made the comment.
@@ -311,7 +311,7 @@ abstract class EchoDiscussionParser {
 	/**
 	 * @param Title $title
 	 * @param int $revisionUserId
-	 * @param array $userLinks
+	 * @param int[] $userLinks
 	 * @return array[]
 	 * Set of arrays containing valid mentions and possible intended but failed mentions.
 	 * - [validMentions]: An array of valid users to mention with ID => ID.
@@ -635,9 +635,9 @@ abstract class EchoDiscussionParser {
 	/**
 	 * Converts actions of type "unknown-change" to "unknown-signed-change" if the change is in a signed section.
 	 *
-	 * @param array $signedSections Array of arrays containing first and last line number of signed sections
-	 * @param array $actions
-	 * @return array converted actions
+	 * @param array[] $signedSections Array of arrays containing first and last line number of signed sections
+	 * @param array[] $actions
+	 * @return array[] Converted actions
 	 */
 	static function convertToUnknownSignedChanges( $signedSections, $actions ) {
 		return array_map( function ( $action ) use( $signedSections ) {
@@ -686,8 +686,8 @@ abstract class EchoDiscussionParser {
 	 * Given a line number and a text, find the first and last line of the section the line number is in.
 	 * If there are subsections, the last line index will be the line before the beginning of the first subsection.
 	 * @param int $offset line number
-	 * @param array $lines
-	 * @return array tuple [$firstLine, $lastLine]
+	 * @param string[] $lines
+	 * @return int[] Tuple [$firstLine, $lastLine]
 	 */
 	static function getSectionSpan( $offset, $lines ) {
 		return [
@@ -699,7 +699,7 @@ abstract class EchoDiscussionParser {
 	/**
 	 * Finds the line number of the start of the section that $offset is in.
 	 * @param int $offset
-	 * @param array $lines
+	 * @param string[] $lines
 	 * @return int
 	 */
 	static function getSectionStartIndex( $offset, array $lines ) {
@@ -893,7 +893,7 @@ abstract class EchoDiscussionParser {
 	 * @param string $oldText The "left hand side" of the diff.
 	 * @param string $newText The "right hand side" of the diff.
 	 * @throws MWException
-	 * @return array of changes.
+	 * @return array[] Array of changes.
 	 * Each change consists of:
 	 * * An 'action', one of:
 	 *   - add
@@ -916,7 +916,7 @@ abstract class EchoDiscussionParser {
 	 *
 	 * @param string $text The text in which to look for signed comments.
 	 * @param Title|null $title
-	 * @return array Associative array, the key is the username, the value
+	 * @return string[] Associative array, the key is the username, the value
 	 *  is the last signature that was found.
 	 */
 	static function extractSignatures( $text, Title $title = null ) {

@@ -18,7 +18,7 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 	/**
 	 * Category names, mapping internal name to HTML-formatted name
 	 *
-	 * @var array $categoryNames
+	 * @var string[] $categoryNames
 	 */
 	protected $categoryNames;
 
@@ -27,14 +27,14 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 	/**
 	 * Notification type names.  Mapping internal name to internal name
 	 *
-	 * @var array $notificationTypeNames
+	 * @var string[] $notificationTypeNames
 	 */
 	protected $notificationTypeNames;
 
 	/**
 	 * Notify types, mapping internal name to text name
 	 *
-	 * @var array $notifyTypes
+	 * @var string[] $notifyTypes
 	 */
 	protected $notifyTypes;
 
@@ -42,14 +42,14 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 	/**
 	 * Category names, mapping HTML-formatted name to internal name
 	 *
-	 * @var array $flippedCategoryNames
+	 * @var string[] $flippedCategoryNames
 	 */
 	protected $flippedCategoryNames;
 
 	/**
 	 * Notify types, mapping text name to internal name
 	 *
-	 * @var array $flippedNotifyTypes
+	 * @var string[] $flippedNotifyTypes
 	 */
 	protected $flippedNotifyTypes;
 

@@ -91,7 +91,7 @@ class ApiEchoArticleReminder extends ApiBase {
 
 	/**
 	 * @see ApiBase::getExamplesMessages()
-	 * @return array
+	 * @return string[]
 	 */
 	protected function getExamplesMessages() {
 		$todayDate = new DateTime();

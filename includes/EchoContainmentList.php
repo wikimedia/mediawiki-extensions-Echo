@@ -5,7 +5,7 @@
  */
 interface EchoContainmentList {
 	/**
-	 * @return array The values contained within this list.
+	 * @return string[] The values contained within this list.
 	 */
 	public function getValues();
 
