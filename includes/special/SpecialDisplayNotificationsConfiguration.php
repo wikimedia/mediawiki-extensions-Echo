@@ -173,7 +173,7 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 				Html::rawElement(
 					'li',
 					[],
-					$this->categoryNames[$categoryName] . $this->msg( 'colon-separator' )->text() . ' ' . $implodedTypes
+					$this->categoryNames[$categoryName] . $this->msg( 'colon-separator' )->escaped() . ' ' . $implodedTypes
 				)
 			);
 		}

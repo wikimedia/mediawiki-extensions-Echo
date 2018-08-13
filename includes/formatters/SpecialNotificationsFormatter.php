@@ -86,7 +86,7 @@ class SpecialNotificationsFormatter extends EchoEventFormatter {
 			);
 		}
 
-		$pipe = wfMessage( 'pipe-separator' )->inLanguage( $this->language )->escaped();
+		$pipe = wfMessage( 'pipe-separator' )->inLanguage( $this->language )->text();
 		$html .= Xml::tags(
 			'div',
 			[ 'class' => 'mw-echo-notification-footer' ],
