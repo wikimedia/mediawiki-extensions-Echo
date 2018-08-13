@@ -1279,8 +1279,6 @@ class EchoHooks {
 	 * @return bool true in all cases
 	 */
 	public static function onEmailUserComplete( $address, $from, $subject, $text ) {
-		global $wgContLang;
-
 		if ( $from->name === $address->name ) {
 			// nothing to notify
 			return true;
@@ -1292,7 +1290,8 @@ class EchoHooks {
 		if ( $subject === $autoSubject ) {
 			$autoFooter = "\n\n-- \n" . wfMessage( 'emailuserfooter', $from->name, $address->name )->inContentLanguage()->text();
 			$textWithoutFooter = preg_replace( '/' . preg_quote( $autoFooter, '/' ) . '$/', '', $text );
-			$preview = $wgContLang->truncateForVisual( $textWithoutFooter, 125 );
+			$preview = MediaWikiServices::getInstance()->getContentLanguage()
+				->truncateForVisual( $textWithoutFooter, 125 );
 		} else {
 			$preview = $subject;
 		}
