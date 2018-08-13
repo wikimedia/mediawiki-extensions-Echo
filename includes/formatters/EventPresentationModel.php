@@ -220,7 +220,7 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 	/**
 	 * Return the count of notifications bundled together.
 	 *
-	 * For parameters, see getBundleCount().
+	 * For parameters, see {@see EchoEventPresentationModel::getBundleCount}.
 	 *
 	 * @param bool $includeCurrent
 	 * @param callable|null $groupCallback

@@ -95,7 +95,7 @@ class EchoDiffParser {
 	 * If we add content to an empty page the changeSet can be composed straightaway
 	 *
 	 * @param string $right
-	 * @return array[] see getChangeSet()
+	 * @return array[] See {@see getChangeSet}
 	 */
 	private function getChangeSetFromEmptyLeft( $right ) {
 		$rightLines = explode( "\n", $right );

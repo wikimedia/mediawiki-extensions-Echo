@@ -139,9 +139,9 @@ abstract class EchoDiscussionParser {
 	/**
 	 * Attempts to determine what section title the edit was performed under (if any)
 	 *
-	 * @param array $interpretation Results of self::getChangeInterpretationForRevision
-	 * @return array Array containing section title and text
+	 * @param array[] $interpretation Results of {@see getChangeInterpretationForRevision}
 	 * @param Title|null $title
+	 * @return string[] Array containing section title and text
 	 */
 	public static function detectSectionTitleAndText( array $interpretation, Title $title = null ) {
 		$header = $snippet = '';
@@ -442,7 +442,7 @@ abstract class EchoDiscussionParser {
 	 *
 	 * @param Revision $revision
 	 * @see EchoDiscussionParser::interpretDiff
-	 * @return array see interpretDiff for details.
+	 * @return array[] See {@see interpretDiff} for details.
 	 */
 	static function getChangeInterpretationForRevision( Revision $revision ) {
 		if ( $revision->getId() && isset( self::$revisionInterpretationCache[$revision->getId()] ) ) {
