@@ -10,7 +10,7 @@ class MWEchoDbFactory {
 
 	/**
 	 * The cluster for the database
-	 * @var string|bool
+	 * @var string|false
 	 */
 	private $cluster;
 
@@ -19,9 +19,9 @@ class MWEchoDbFactory {
 	private $sharedCluster;
 
 	/**
-	 * @param string|bool $cluster
-	 * @param string|bool $shared
-	 * @param string|bool $sharedCluster
+	 * @param string|false $cluster
+	 * @param string|false $shared
+	 * @param string|false $sharedCluster
 	 */
 	public function __construct( $cluster = false, $shared = false, $sharedCluster = false ) {
 		$this->cluster = $cluster;

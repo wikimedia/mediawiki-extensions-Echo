@@ -36,7 +36,7 @@ abstract class EchoEventFormatter {
 
 	/**
 	 * @param EchoEvent $event
-	 * @return string|array|bool Output format depends on implementation, false if it cannot be formatted
+	 * @return string[]|string|false Output format depends on implementation, false if it cannot be formatted
 	 */
 	final public function format( EchoEvent $event ) {
 		// Deleted events should have been filtered out before getting there.

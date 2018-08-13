@@ -104,7 +104,7 @@ class EchoNotifier {
 	/**
 	 * @param EchoEvent $event
 	 * @param User $user
-	 * @return bool|array An array of 'subject' and 'body', or false if things went wrong
+	 * @return array|false An array of 'subject' and 'body', or false if things went wrong
 	 */
 	private static function generateEmail( EchoEvent $event, User $user ) {
 		$emailFormat = MWEchoNotifUser::newFromUser( $user )->getEmailFormat();

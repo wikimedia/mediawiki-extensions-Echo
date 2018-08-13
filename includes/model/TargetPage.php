@@ -8,7 +8,7 @@
 class EchoTargetPage extends EchoAbstractEntity {
 
 	/**
-	 * @var Title|null|bool false if not initialized yet
+	 * @var Title|null|false False if not initialized yet
 	 */
 	protected $title = false;
 

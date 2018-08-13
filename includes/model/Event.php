@@ -97,7 +97,7 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 	 * extra: Event-specific extra information (e.g. post content)
 	 *
 	 * @throws MWException
-	 * @return EchoEvent|bool false if aborted via hook or Echo DB is read-only
+	 * @return EchoEvent|false False if aborted via hook or Echo DB is read-only
 	 */
 	public static function create( $info = [] ) {
 		global $wgEchoNotifications;
@@ -362,7 +362,7 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 	 * Creates an EchoEvent from a row object
 	 *
 	 * @param stdClass $row row object from echo_event
-	 * @return EchoEvent|bool
+	 * @return EchoEvent|false
 	 */
 	public static function newFromRow( $row ) {
 		$obj = new EchoEvent();
@@ -375,7 +375,7 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 	 * Creates an EchoEvent from the database by ID
 	 *
 	 * @param int $id Event ID
-	 * @return EchoEvent|bool
+	 * @return EchoEvent|false
 	 */
 	public static function newFromID( $id ) {
 		$obj = new EchoEvent();

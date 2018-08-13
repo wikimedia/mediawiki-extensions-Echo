@@ -162,7 +162,7 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 	/**
 	 * Get the ids of the bundled notifications or false if it's not bundled
 	 *
-	 * @return int[]|bool
+	 * @return int[]|false
 	 */
 	public function getBundledIds() {
 		if ( $this->isBundled() ) {
@@ -255,7 +255,7 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 	}
 
 	/**
-	 * @return array|bool ['wikitext to display', 'username for GENDER'], false if no agent
+	 * @return string[]|false ['wikitext to display', 'username for GENDER'], false if no agent
 	 *
 	 * We have to display wikitext so we can add CSS classes for revision deleted user.
 	 * The goal of this function is for callers not to worry about whether
@@ -419,7 +419,7 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 	/**
 	 * Array of primary link details, with possibly-relative URL & label.
 	 *
-	 * @return array|bool Array of link data, or false for no link:
+	 * @return array|false Array of link data, or false for no link:
 	 *                    ['url' => (string) url, 'label' => (string) link text (non-escaped)]
 	 */
 	abstract public function getPrimaryLink();
@@ -431,7 +431,7 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 	 * When the notification is a bundle, the notification IDs are added to the parameter value
 	 * separated by a "|".
 	 *
-	 * @return array|bool
+	 * @return array|false
 	 */
 	final public function getPrimaryLinkWithMarkAsRead() {
 		$primaryLink = $this->getPrimaryLink();

@@ -252,7 +252,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	 * Get the last notification in a set of bundle-able notifications by a bundle hash
 	 * @param User $user
 	 * @param string $bundleHash The hash used to identify a set of bundle-able notifications
-	 * @return EchoNotification|bool
+	 * @return EchoNotification|false
 	 */
 	public function fetchNewestByUserBundleHash( User $user, $bundleHash ) {
 		$dbr = $this->dbFactory->getEchoDb( DB_REPLICA );
@@ -282,7 +282,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	 *
 	 * @param User $user
 	 * @param int[] $eventIds
-	 * @return EchoNotification[]|bool
+	 * @return EchoNotification[]|false
 	 */
 	public function fetchByUserEvents( User $user, $eventIds ) {
 		$dbr = $this->dbFactory->getEchoDb( DB_REPLICA );
@@ -317,7 +317,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	 * know that passing a big number for offset is NOT going to work
 	 * @param User $user
 	 * @param int $offset
-	 * @return EchoNotification|bool
+	 * @return EchoNotification|false
 	 */
 	public function fetchByUserOffset( User $user, $offset ) {
 		$dbr = $this->dbFactory->getEchoDb( DB_REPLICA );

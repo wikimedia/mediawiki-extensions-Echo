@@ -390,7 +390,7 @@ abstract class EchoDiscussionParser {
 	/**
 	 * @param string $content
 	 * @param Title $title
-	 * @return bool|array
+	 * @return int[]|false
 	 * Array of links in the user namespace with DBKey => ID.
 	 */
 	private static function getUserLinks( $content, Title $title ) {
@@ -868,7 +868,7 @@ abstract class EchoDiscussionParser {
 	 * Finds the start position, if any, of the timestamp on a line
 	 *
 	 * @param string $line The line to search for a signature on
-	 * @return int|bool Integer position
+	 * @return int|false Integer position
 	 */
 	static function getTimestampPosition( $line ) {
 		$timestampRegex = self::getTimestampRegex();
@@ -1005,7 +1005,7 @@ abstract class EchoDiscussionParser {
 	 *
 	 * @param string $line The line.
 	 * @param Title|null $title
-	 * @return bool|array false for none, Array for success.
+	 * @return array|false False for none, array for success.
 	 * - First element is the position of the signature.
 	 * - Second element is the normalised user name.
 	 */
@@ -1050,7 +1050,7 @@ abstract class EchoDiscussionParser {
 	 * @param string $line The line to search.
 	 * @param string $linkPrefix The prefix to search for.
 	 * @param bool $failureOffset
-	 * @return array|bool false for failure, array for success.
+	 * @return array|false False for failure, array for success.
 	 * - First element is the string offset of the link.
 	 * - Second element is the user the link refers to.
 	 */
