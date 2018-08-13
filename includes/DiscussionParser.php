@@ -825,9 +825,8 @@ abstract class EchoDiscussionParser {
 		// < or &.  (And we can't use truncateForVisual() because
 		// self::getUserFromLine() returns byte offsets, not character
 		// offsets.)
-		global $wgContLang;
-
-		return $wgContLang->truncateForDatabase( $text, $output[0], '' );
+		return MediaWikiServices::getInstance()->getContentLanguage()
+			->truncateForDatabase( $text, $output[0], '' );
 	}
 
 	/**
