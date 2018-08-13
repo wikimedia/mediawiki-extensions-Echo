@@ -639,7 +639,7 @@ abstract class EchoDiscussionParser {
 	 * @param array $actions
 	 * @return array converted actions
 	 */
-	static function convertToUnknownSignedChanges( $signedSections, $actions ) {
+	static function convertToUnknownSignedChanges( array $signedSections, array $actions ) {
 		return array_map( function ( $action ) use( $signedSections ) {
 			if (
 				$action['type'] === 'unknown-change' &&
@@ -657,7 +657,7 @@ abstract class EchoDiscussionParser {
 		}, $actions );
 	}
 
-	static function isInSignedSection( $line, $signedSections ) {
+	static function isInSignedSection( $line, array $signedSections ) {
 		foreach ( $signedSections as $section ) {
 			if ( $line > $section[0] && $line <= $section[1] ) {
 				return true;
