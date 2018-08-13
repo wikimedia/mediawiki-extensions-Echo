@@ -7,6 +7,9 @@
  */
 class EchoTalkPageFunctionalTest extends ApiTestCase {
 
+	/**
+	 * @var \Wikimedia\Rdbms\IDatabase
+	 */
 	protected $dbr;
 
 	protected function setUp() {
