@@ -27,16 +27,6 @@ class EchoAttributeManager {
 	protected $notifyTypeAvailabilityByCategory;
 
 	/**
-	 * @var array
-	 */
-	protected $dismissabilityByCategory;
-
-	/**
-	 * @var array
-	 */
-	protected $notifiers;
-
-	/**
 	 * Notification section constant
 	 */
 	const ALERT = 'alert';
@@ -74,20 +64,14 @@ class EchoAttributeManager {
 	 * @param array $notifyTypeAvailabilityByCategory Associative array with
 	 *   categories as keys and value an associative array as with
 	 *   $defaultNotifyTypeAvailability.
-	 * @param array $notifiers Associative array mapping notify types to notifier
-	 *   that handles them
 	 */
-	public function __construct( array $notifications, array $categories, array $defaultNotifyTypeAvailability, array $notifyTypeAvailabilityByCategory, array $notifiers ) {
+	public function __construct( array $notifications, array $categories, array $defaultNotifyTypeAvailability, array $notifyTypeAvailabilityByCategory ) {
 		// Extensions can define their own notifications and categories
 		$this->notifications = $notifications;
 		$this->categories = $categories;
 
 		$this->defaultNotifyTypeAvailability = $defaultNotifyTypeAvailability;
 		$this->notifyTypeAvailabilityByCategory = $notifyTypeAvailabilityByCategory;
-
-		$this->dismissabilityByCategory = null;
-
-		$this->notifiers = $notifiers;
 	}
 
 	/**
@@ -95,11 +79,11 @@ class EchoAttributeManager {
 	 * @return EchoAttributeManager
 	 */
 	public static function newFromGlobalVars() {
-		global $wgEchoNotifications, $wgEchoNotificationCategories, $wgDefaultNotifyTypeAvailability, $wgNotifyTypeAvailabilityByCategory, $wgEchoNotifiers;
+		global $wgEchoNotifications, $wgEchoNotificationCategories, $wgDefaultNotifyTypeAvailability, $wgNotifyTypeAvailabilityByCategory;
 
 		// Unit test may alter the global data for test purpose
 		if ( defined( 'MW_PHPUNIT_TEST' ) ) {
-			return new self( $wgEchoNotifications, $wgEchoNotificationCategories, $wgDefaultNotifyTypeAvailability, $wgNotifyTypeAvailabilityByCategory, $wgEchoNotifiers );
+			return new self( $wgEchoNotifications, $wgEchoNotificationCategories, $wgDefaultNotifyTypeAvailability, $wgNotifyTypeAvailabilityByCategory );
 		}
 
 		if ( self::$globalVarInstance === null ) {
@@ -107,8 +91,7 @@ class EchoAttributeManager {
 				$wgEchoNotifications,
 				$wgEchoNotificationCategories,
 				$wgDefaultNotifyTypeAvailability,
-				$wgNotifyTypeAvailabilityByCategory,
-				$wgEchoNotifiers
+				$wgNotifyTypeAvailabilityByCategory
 			);
 		}
 
