@@ -59,7 +59,7 @@ class EchoDiffParserTest extends MediaWikiTestCase {
 			],
 
 			[
-				'Adding content seperated by no change must generate multiple changes',
+				'Adding content separated by no change must generate multiple changes',
 				// Expected change set
 				[
 					self::mockAction( 'add', 'b1', 3 ),
