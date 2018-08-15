@@ -9,7 +9,6 @@
 	"prefs-emailsettings": "Электронни пошта оттамаш",
 	"prefs-echosubscriptions": "Акхарех лаьца хоамбар",
 	"prefs-echocrosswiki": "Массехк вики-проекташкара хоамбар («кросс-вики»)",
-	"prefs-newmessageindicator": "Керда бéнача хоама индикатор",
 	"prefs-blocknotificationslist": "ДIабоабаь доакъашхой («Iаьржа хьаязъяьр»)",
 	"echo-pref-send-me": "Ахийта сога:",
 	"echo-pref-send-to": "Ахийта укх цIайна тIа:",
@@ -21,7 +20,6 @@
 	"echo-pref-email-frequency-weekly": "ХIара кIира хоамий сводка",
 	"echo-pref-cross-wiki-notifications": "Хьахьувкха кхыйолча викешкара хоамбар",
 	"echo-pref-notifications-blacklist": "Ма гойта хоамаш укх доакъашхошкара ([[mw:Special:MyLanguage/Help:Notifications#mute|дукхагIа хá]])",
-	"echo-pref-new-message-indicator": "Са кечалий панель тӀа гойта хоама индикатор",
 	"notifications": "Хоамбар",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Хьога}} дéна дӀахайтар"
 }

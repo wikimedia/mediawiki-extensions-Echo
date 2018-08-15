@@ -26,7 +26,6 @@
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "óstílfærður texti",
 	"echo-pref-cross-wiki-notifications": "Sýna tilkynningar frá öðrum wiki",
-	"echo-pref-new-message-indicator": "Sýna merki um skilaboð á spjallsíðu í tólastikunni minni",
 	"echo-learn-more": "Vita meira",
 	"echo-new-messages": "Þú hefur ný skilaboð",
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Skilaboð}} á spjallsíðu",

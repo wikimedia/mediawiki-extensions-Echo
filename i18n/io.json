@@ -13,7 +13,6 @@
 	"echo-pref-email-frequency-daily": "Diala rezumo pri avizi",
 	"echo-pref-email-frequency-weekly": "Semanala rezumo pri avizi",
 	"echo-pref-cross-wiki-notifications": "Montrez notifiki de altra Wiki",
-	"echo-pref-new-message-indicator": "Montrez indikilo pri mesaji de altra Wiki en mea menuo di utensili",
 	"echo-pref-beta-feature-cross-wiki-message": "Plubonigita avizi",
 	"echo-new-messages": "Vu havas nova mesaji",
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Mesajo|Mesaji}} en la diskuto-pagino",
