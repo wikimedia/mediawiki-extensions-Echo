@@ -82,8 +82,8 @@ class EchoTitleLocalCacheTest extends MediaWikiTestCase {
 
 		$cache->clearAll();
 		$this->assertEmpty( $cache->getLookups() );
-		$this->assertEquals( false, $cache->getTargets()->get( 1 ) );
-		$this->assertEquals( false, $cache->getTargets()->get( '1' ) );
+		$this->assertEquals( null, $cache->getTargets()->get( 1 ) );
+		$this->assertEquals( null, $cache->getTargets()->get( '1' ) );
 	}
 
 	/**
