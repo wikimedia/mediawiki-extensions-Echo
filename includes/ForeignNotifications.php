@@ -3,7 +3,7 @@
 /**
  * Caches the result of EchoUnreadWikis::getUnreadCounts() and interprets the results in various useful ways.
  *
- * If the user has disabled cross-wiki notifications in their preferences (see isEnabledByUser()), this class
+ * If the user has disabled cross-wiki notifications in their preferences (see {@see EchoForeignNotifications::isEnabledByUser}), this class
  * won't do anything and will behave as if the user has no foreign notifications. For example, getCount() will
  * return 0. If you need to get foreign notification information for a user even though they may not have
  * enabled the preference, set $forceEnable=true in the constructor.
