@@ -227,6 +227,11 @@ $specialPageAliases['sr-ec'] = [
 	'Notifications' => [ 'Обавештења' ],
 ];
 
+/** Serbian (Latin script) (srpski (latinica)‎) */
+$specialPageAliases['sr-el'] = [
+	'Notifications' => [ 'Obaveštenja' ],
+];
+
 /** Swedish (svenska) */
 $specialPageAliases['sv'] = [
 	'Notifications' => [ 'Meddelanden' ],
