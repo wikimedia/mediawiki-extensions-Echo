@@ -8,7 +8,7 @@ use MediaWiki\Logger\LoggerFactory;
  */
 class EchoDeferredMarkAsDeletedUpdate implements DeferrableUpdate {
 	/**
-	 * @var array
+	 * @var EchoEvent[]
 	 */
 	protected $events = [];
 

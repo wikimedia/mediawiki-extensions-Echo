@@ -39,7 +39,7 @@ class SpecialNotificationsMarkRead extends FormSpecialPage {
 
 	/**
 	 * Get an HTMLForm descriptor array
-	 * @return array
+	 * @return array[]
 	 */
 	protected function getFormFields() {
 		return [

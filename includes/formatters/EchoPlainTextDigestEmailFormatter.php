@@ -14,7 +14,7 @@ class EchoPlainTextDigestEmailFormatter extends EchoEventDigestFormatter {
 
 	/**
 	 * @param EchoEventPresentationModel[] $models
-	 * @return array of the following format:
+	 * @return string[] Array of the following format:
 	 *               [ 'body'    => formatted email body,
 	 *                 'subject' => formatted email subject ]
 	 */

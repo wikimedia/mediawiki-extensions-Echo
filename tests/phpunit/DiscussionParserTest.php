@@ -9,7 +9,7 @@ use Wikimedia\TestingAccessWrapper;
  */
 class EchoDiscussionParserTest extends MediaWikiTestCase {
 	/**
-	 * @var array
+	 * @var string[]
 	 */
 	protected $tablesUsed = [ 'user', 'revision', 'ip_changes', 'text', 'page' ];
 
@@ -18,7 +18,7 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 	 * Can be setup one by one using the setupTestUser() method
 	 * Or all at once using the setupAllTestUsers() method
 	 *
-	 * @var array [username => [user preference => preference value]]
+	 * @var array[] [username => [user preference => preference value]]
 	 */
 	protected $testUsers = [
 		'Werdna' => [

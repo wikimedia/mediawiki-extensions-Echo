@@ -23,7 +23,7 @@ abstract class ApiCrossWikiBase extends ApiQueryBase {
 	 *
 	 * @param array|null $wikis List of wikis to query. Defaults to the result of getRequestedForeignWikis().
 	 * @param array $paramOverrides Request parameter overrides
-	 * @return array
+	 * @return array[]
 	 * @throws Exception
 	 */
 	protected function getFromForeign( $wikis = null, array $paramOverrides = [] ) {
@@ -59,7 +59,7 @@ abstract class ApiCrossWikiBase extends ApiQueryBase {
 	 * - `*` will expand to "all wikis with unread notifications"
 	 * - if `$wgEchoCrossWikiNotifications` is off, foreign wikis will be excluded
 	 *
-	 * @return array
+	 * @return string[]
 	 */
 	protected function getRequestedWikis() {
 		$params = $this->extractRequestParams();
@@ -85,21 +85,21 @@ abstract class ApiCrossWikiBase extends ApiQueryBase {
 	}
 
 	/**
-	 * @return array Wiki names
+	 * @return string[] Wiki names
 	 */
 	protected function getRequestedForeignWikis() {
 		return array_diff( $this->getRequestedWikis(), [ wfWikiID() ] );
 	}
 
 	/**
-	 * @return array Wiki names
+	 * @return string[] Wiki names
 	 */
 	protected function getForeignWikisWithUnreadNotifications() {
 		return $this->foreignNotifications->getWikis();
 	}
 
 	/**
-	 * @return array
+	 * @return array[]
 	 */
 	public function getAllowedParams() {
 		global $wgConf;

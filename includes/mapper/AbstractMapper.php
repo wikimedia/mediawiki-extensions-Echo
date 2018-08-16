@@ -13,7 +13,7 @@ abstract class EchoAbstractMapper {
 
 	/**
 	 * Event listeners for method like insert/delete
-	 * @var array
+	 * @var array[]
 	 */
 	protected $listeners;
 
@@ -62,7 +62,7 @@ abstract class EchoAbstractMapper {
 	 * Get the listener for a method
 	 *
 	 * @param string $method
-	 * @return array
+	 * @return callable[]
 	 * @throws MWException
 	 */
 	public function getMethodListeners( $method ) {

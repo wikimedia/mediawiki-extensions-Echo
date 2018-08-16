@@ -20,7 +20,7 @@ class EchoForeignWikiRequest {
 
 	/**
 	 * Execute the request
-	 * @return array [ wiki => result ]
+	 * @return array[] [ wiki => result ]
 	 */
 	public function execute() {
 		if ( !$this->canUseCentralAuth() ) {
@@ -83,7 +83,7 @@ class EchoForeignWikiRequest {
 	}
 
 	/**
-	 * @return array
+	 * @return array[]
 	 */
 	protected function getRequestParams() {
 		$apis = EchoForeignNotifications::getApiEndpoints( $this->wikis );
@@ -128,7 +128,7 @@ class EchoForeignWikiRequest {
 
 	/**
 	 * @param array $reqs API request params
-	 * @return array
+	 * @return array[]
 	 * @throws Exception
 	 */
 	protected function doRequests( array $reqs ) {

@@ -77,7 +77,7 @@ class EchoTalkPageFunctionalTest extends ApiTestCase {
 	}
 
 	/**
-	 * @return array All events in db sorted from oldest to newest
+	 * @return \stdClass[] All events in db sorted from oldest to newest
 	 */
 	protected function fetchAllEvents() {
 		$res = $this->dbr->select( 'echo_event', [ '*' ], [], __METHOD__, [ 'ORDER BY' => 'event_id ASC' ] );

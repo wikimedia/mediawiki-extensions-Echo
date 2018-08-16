@@ -36,7 +36,7 @@ class EchoDiffParser {
 	protected $prefixLength = 1;
 
 	/**
-	 * @var array $left The text of the left side of the diff operation
+	 * @var string[] $left The text of the left side of the diff operation
 	 */
 	protected $left;
 
@@ -46,7 +46,7 @@ class EchoDiffParser {
 	protected $leftPos;
 
 	/**
-	 * @var array $right The text of the right side of the diff operation
+	 * @var string[] $right The text of the right side of the diff operation
 	 */
 	protected $right;
 

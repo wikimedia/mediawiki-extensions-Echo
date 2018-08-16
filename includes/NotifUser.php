@@ -43,17 +43,17 @@ class MWEchoNotifUser {
 	private $foreignNotifications = null;
 
 	/**
-	 * @var array|null
+	 * @var array[]|null
 	 */
 	private $localCountsAndTimestamps;
 
 	/**
-	 * @var array|null
+	 * @var array[]|null
 	 */
 	private $globalCountsAndTimestamps;
 
 	/**
-	 * @var array|null
+	 * @var array[]|null
 	 */
 	private $mForeignData = null;
 
@@ -437,7 +437,7 @@ class MWEchoNotifUser {
 	 * the 'global' key will not be present.
 	 *
 	 * @param bool $includeGlobal Whether to include cross-wiki notifications as well
-	 * @return array
+	 * @return array[]
 	 */
 	public function getCountsAndTimestamps( $includeGlobal = false ) {
 		if ( $this->localCountsAndTimestamps === null ) {
@@ -478,7 +478,7 @@ class MWEchoNotifUser {
 	/**
 	 * Compute the counts and timestamps for the local notifications in each section.
 	 * @param int $dbSource DB_REPLICA or DB_MASTER
-	 * @return array [ 'alert' => [ 'count' => N, 'timestamp' => TS ], ... ]
+	 * @return array[] [ 'alert' => [ 'count' => N, 'timestamp' => TS ], ... ]
 	 */
 	protected function computeLocalCountsAndTimestamps( $dbSource = DB_REPLICA ) {
 		$attributeManager = EchoAttributeManager::newFromGlobalVars();
@@ -512,7 +512,7 @@ class MWEchoNotifUser {
 	 *
 	 * This calls getCountsAndTimestamps() to get data about local notifications, which may end up
 	 * calling computeLocalCountsAndTimestamps() if there's a cache miss.
-	 * @return array [ 'alert' => [ 'count' => N, 'timestamp' => TS ], ... ]
+	 * @return array[] [ 'alert' => [ 'count' => N, 'timestamp' => TS ], ... ]
 	 */
 	protected function computeGlobalCountsAndTimestamps() {
 		$localData = $this->getCountsAndTimestamps()['local'];
@@ -597,7 +597,7 @@ class MWEchoNotifUser {
 	 * queries their APIs to find the per-section counts and timestamps for those wikis.
 	 *
 	 * The results of this function are cached in the NotifUser object.
-	 * @return array [ (str) wiki => [ (str) section => [ 'count' => (int) count, 'timestamp' => (str) ts ] ] ]
+	 * @return array[] [ (str) wiki => [ (str) section => [ 'count' => (int) count, 'timestamp' => (str) ts ] ] ]
 	 */
 	protected function getForeignData() {
 		if ( $this->mForeignData ) {
