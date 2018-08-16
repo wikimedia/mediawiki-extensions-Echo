@@ -56,7 +56,7 @@ class EchoSeenTime {
 	/**
 	 * @param string $type Type of seen time to get
 	 * @param int $format Format to return time in, defaults to TS_MW
-	 * @return string|bool Timestamp in specified format, or false if no stored time
+	 * @return string|false Timestamp in specified format, or false if no stored time
 	 */
 	public function getTime( $type = 'all', $format = TS_MW ) {
 		$vals = [];

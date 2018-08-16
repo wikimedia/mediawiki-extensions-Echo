@@ -152,7 +152,7 @@ class EchoNotification extends EchoAbstractEntity implements Bundleable {
 	 * Load a notification record from std class
 	 * @param stdClass $row
 	 * @param EchoTargetPage[]|null $targetPages An array of EchoTargetPage instances, or null if not loaded.
-	 * @return EchoNotification|bool false if failed to load/unserialize
+	 * @return EchoNotification|false False if failed to load/unserialize
 	 */
 	public static function newFromRow( $row, $targetPages = null ) {
 		$notification = new EchoNotification();

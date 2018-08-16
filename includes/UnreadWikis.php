@@ -31,7 +31,7 @@ class EchoUnreadWikis {
 	 * Use the user id provided by the CentralIdLookup
 	 *
 	 * @param User $user
-	 * @return EchoUnreadWikis|bool
+	 * @return EchoUnreadWikis|false
 	 */
 	public static function newFromUser( User $user ) {
 		$lookup = CentralIdLookup::factory();

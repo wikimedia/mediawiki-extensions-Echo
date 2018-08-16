@@ -12,7 +12,7 @@ class EchoEventMapper extends EchoAbstractMapper {
 	 * Insert an event record
 	 *
 	 * @param EchoEvent $event
-	 * @return int|bool
+	 * @return int|false
 	 */
 	public function insert( EchoEvent $event ) {
 		$dbw = $this->dbFactory->getEchoDb( DB_MASTER );
@@ -40,7 +40,7 @@ class EchoEventMapper extends EchoAbstractMapper {
 	 *
 	 * @param int $id
 	 * @param bool $fromMaster
-	 * @return EchoEvent|bool false if it wouldn't load/unserialize
+	 * @return EchoEvent|false False if it wouldn't load/unserialize
 	 * @throws MWException
 	 */
 	public function fetchById( $id, $fromMaster = false ) {

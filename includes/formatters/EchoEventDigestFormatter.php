@@ -31,7 +31,7 @@ abstract class EchoEventDigestFormatter {
 	/**
 	 * @param EchoEvent[] $events
 	 * @param string $distributionType 'web' or 'email'
-	 * @return array|bool|string Output format depends on implementation, false if it cannot be formatted
+	 * @return string[]|false Output format depends on implementation, false if it cannot be formatted
 	 */
 	final public function format( array $events, $distributionType ) {
 		$models = [];

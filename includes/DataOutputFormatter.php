@@ -19,10 +19,10 @@ class EchoDataOutputFormatter {
 	 * Format a notification for a user in the format specified
 	 *
 	 * @param EchoNotification $notification
-	 * @param string|bool $format output format, false to not format any notifications
+	 * @param string|false $format Output format, false to not format any notifications
 	 * @param User $user the target user viewing the notification
 	 * @param Language $lang Language to format the notification in
-	 * @return array|bool false if it could not be formatted
+	 * @return array|false False if it could not be formatted
 	 */
 	public static function formatOutput( EchoNotification $notification, $format = false, User $user, Language $lang ) {
 		$event = $notification->getEvent();
@@ -161,7 +161,7 @@ class EchoDataOutputFormatter {
 	 * @param User $user
 	 * @param string $format
 	 * @param Language $lang
-	 * @return string|bool false if it could not be formatted
+	 * @return string[]|string|false False if it could not be formatted
 	 */
 	protected static function formatNotification( EchoEvent $event, User $user, $format, $lang ) {
 		if ( isset( self::$formatters[$format] ) ) {
