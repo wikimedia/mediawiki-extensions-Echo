@@ -489,7 +489,7 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 	}
 
 	/**
-	 * @return array|null
+	 * @return array
 	 */
 	public function getExtra() {
 		return $this->extra;

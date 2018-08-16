@@ -129,7 +129,7 @@ class SpecialNotificationsMarkRead extends FormSpecialPage {
 	/**
 	 * Process the form on POST submission.
 	 * @param array $data
-	 * @return bool|string|array|Status As documented for HTMLForm::trySubmit.
+	 * @return bool
 	 */
 	public function onSubmit( array $data ) {
 		$notifUser = MWEchoNotifUser::newFromUser( $this->getUser() );
