@@ -23,17 +23,22 @@ abstract class EchoLocalCache {
 	 * Lookup ids that have not been resolved for a target
 	 * @var int[]
 	 */
-	protected $lookups = [];
+	private $lookups = [];
 
 	/**
 	 * Resolve ids in lookups to targets
+	 *
+	 * @param int[] $lookups
+	 * @return Iterator
 	 */
-	abstract protected function resolve();
+	abstract protected function resolve( array $lookups );
 
 	/**
-	 * Use Factory method like EchoTitleLocalCache::create()
+	 * Use a factory method, such as EchoTitleLocalCache::create().
+	 *
+	 * @private
 	 */
-	protected function __construct() {
+	public function __construct() {
 		$this->targets = new MapCacheLRU( self::TARGET_MAX_NUM );
 	}
 
@@ -41,14 +46,13 @@ abstract class EchoLocalCache {
 	 * Add a key to the lookup and the key is used to resolve cache target
 	 *
 	 * @param int $key
-	 * @param null $target
 	 */
-	public function add( $key, $target = null ) {
+	public function add( $key ) {
 		if (
 			count( $this->lookups ) < self::TARGET_MAX_NUM
 			&& !$this->targets->get( $key )
 		) {
-			$this->lookups[$key] = $key;
+			$this->lookups[$key] = true;
 		}
 	}
 
@@ -64,8 +68,13 @@ abstract class EchoLocalCache {
 			return $target;
 		}
 
-		if ( isset( $this->lookups[$key] ) ) {
-			$this->resolve();
+		if ( isset( $this->lookups[ $key ] ) ) {
+			// Resolve the lookup batch and store results in the cache
+			$targets = $this->resolve( array_keys( $this->lookups ) );
+			foreach ( $targets as $id => $val ) {
+				$this->targets->set( $id, $val );
+			}
+			$this->lookups = [];
 			$target = $this->targets->get( $key );
 			if ( $target ) {
 				return $target;
@@ -81,22 +90,6 @@ abstract class EchoLocalCache {
 	public function clearAll() {
 		$this->targets->clear();
 		$this->lookups = [];
-	}
-
-	/**
-	 * @return int[]
-	 */
-	public function getLookups() {
-		return $this->lookups;
-	}
-
-	/**
-	 * Get the process cache for testing
-	 *
-	 * @return MapCacheLRU
-	 */
-	public function getTargets() {
-		return $this->targets;
 	}
 
 }

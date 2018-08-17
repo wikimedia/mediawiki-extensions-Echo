@@ -1,89 +1,77 @@
 <?php
 
+use Wikimedia\TestingAccessWrapper;
+
 /**
  * @covers EchoTitleLocalCache
  */
 class EchoTitleLocalCacheTest extends MediaWikiTestCase {
 
-	/**
-	 * @return EchoTitleLocalCache
-	 */
 	public function testCreate() {
 		$cache = EchoTitleLocalCache::create();
 		$this->assertInstanceOf( EchoTitleLocalCache::class, $cache );
-
-		return $cache;
 	}
 
-	/**
-	 * @depends testCreate
-	 */
-	public function testAdd( EchoTitleLocalCache $cache ) {
-		$cache->clearAll();
+	public function testAdd() {
+		$cache = $this->getMockBuilder( EchoTitleLocalCache::class )
+			->setMethods( [ 'resolve' ] )->getMock();
+
 		$cache->add( 1 );
-		$this->assertEquals( count( $cache->getLookups() ), 1 );
-		$this->assertArrayHasKey( 1, $cache->getLookups() );
+		$cache->add( 9 );
+
+		// Resolutions should be batched
+		$cache->expects( $this->exactly( 1 ) )->method( 'resolve' )
+			->with( [ 1, 9 ] )->willReturn( [] );
+
+		// Trigger
+		$cache->get( 9 );
 	}
 
-	/**
-	 * @depends testCreate
-	 */
-	public function testGet( EchoTitleLocalCache $cache ) {
-		$map = new HashBagOStuff( [ 'maxKeys' => EchoLocalCache::TARGET_MAX_NUM ] );
-		$titleIds = [];
+	public function testGet() {
+		$cache = $this->getMockBuilder( EchoTitleLocalCache::class )
+			->setMethods( [ 'resolve' ] )->getMock();
+		$cachePriv = TestingAccessWrapper::newFromObject( $cache );
 
 		// First title included in cache
-		$res = $this->insertPage( 'EchoTitleLocalCacheTest_testGet' );
-		$titleIds[$res['id']] = $res['id'];
-		$map->set( $res['id'], $res['title'] );
-
+		$res1 = $this->insertPage( 'EchoTitleLocalCacheTest_testGet1' );
+		$cachePriv->targets->set( $res1['id'], $res1['title'] );
 		// Second title not in internal cache, resolves from db.
-		$res = $this->insertPage( 'EchoTitleLocalCacheTest_testGet2' );
-		$titleIds[$res['id']] = $res['id'];
+		$res2 = $this->insertPage( 'EchoTitleLocalCacheTest_testGet2' );
+		$cache->expects( $this->exactly( 1 ) )->method( 'resolve' )
+			->with( [ $res2['id'] ] )
+			->willReturn( [ $res2['id'] => $res2['title'] ] );
 
-		$object = new \ReflectionObject( $cache );
+		// Register demand for both
+		$cache->add( $res1['id'] );
+		$cache->add( $res2['id'] );
 
-		// Load our generated map in as the targets (known mapping from
-		// title id to title object) into $cache
-		$targets = $object->getProperty( 'targets' );
-		$targets->setAccessible( true );
-		$targets->setValue( $cache, $map );
+		// Should not call resolve() for first title
+		$this->assertSame( $res1['title'], $cache->get( $res1['id'] ), 'First title' );
 
-		// Load both of the titles we are curious about into the list of titles
-		// to be looked up
-		$lookups = $object->getProperty( 'lookups' );
-		$lookups->setAccessible( true );
-		$lookups->setValue( $cache, $titleIds );
-
-		// Requesting the first object, which is within the known targets, should
-		// not resolve the pending lookups.
-		$this->assertInstanceOf( Title::class, $cache->get( reset( $titleIds ) ) );
-		$this->assertNotEmpty( $cache->getLookups() );
-
-		// Requesting the second object, which is not within the known targets, should
-		// resolve the pending lookups and reset the list to lookup.
-		$this->assertInstanceOf( Title::class, $cache->get( end( $titleIds ) ) );
-		$this->assertEmpty( $cache->getLookups() );
+		// Should resolve() for second title
+		$this->assertSame( $res2['title'], $cache->get( $res2['id'] ), 'Second title' );
 	}
 
-	/**
-	 * @depends testCreate
-	 */
-	public function testClearAll( EchoTitleLocalCache $cache ) {
-		$map = new HashBagOStuff( [ 'maxKeys' => EchoLocalCache::TARGET_MAX_NUM ] );
-		$map->set( 1, $this->mockTitle() );
-		$object = new \ReflectionObject( $cache );
-		$targets = $object->getProperty( 'targets' );
-		$targets->setAccessible( true );
-		$targets->setValue( $cache, $map );
-		$lookups = $object->getProperty( 'lookups' );
-		$lookups->setAccessible( true );
-		$lookups->setValue( $cache, [ '1' => '1', '2' => '2' ] );
+	public function testClearAll() {
+		$cache = $this->getMockBuilder( EchoTitleLocalCache::class )
+			->setMethods( [ 'resolve' ] )->getMock();
 
+		// Add 1 to cache
+		$cachePriv = TestingAccessWrapper::newFromObject( $cache );
+		$cachePriv->targets->set( 1, $this->mockTitle() );
+		// Add 2 and 3 to demand
+		$cache->add( 2 );
+		$cache->add( 3 );
 		$cache->clearAll();
-		$this->assertEmpty( $cache->getLookups() );
-		$this->assertEquals( null, $cache->getTargets()->get( 1 ) );
-		$this->assertEquals( null, $cache->getTargets()->get( '1' ) );
+
+		$this->assertSame( null, $cache->get( 1 ), 'Cache was cleared' );
+
+		// Lookups batch was cleared
+		$cache->expects( $this->exactly( 1 ) )->method( 'resolve' )
+			->with( [ 4 ] )
+			->willReturn( [] );
+		$cache->add( 4 );
+		$cache->get( 4 );
 	}
 
 	/**
