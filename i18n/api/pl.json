@@ -6,6 +6,7 @@
 		]
 	},
 	"apihelp-echomarkread-description": "Oznacz powiadomienia jako przeczytane dla bieżącego użytkownika.",
+	"apihelp-echomarkread-summary": "Oznacz powiadomienia jako przeczytane dla bieżącego użytkownika.",
 	"apihelp-echomarkread-param-list": "Lista ID powiadomień do oznaczenia jako przeczytane.",
 	"apihelp-echomarkread-param-unreadlist": "Lista ID powiadomień do oznaczenia jako nieprzeczytane.",
 	"apihelp-echomarkread-param-all": "Jeżeli ustawiono, oznacza wszystkie powiadomienia użytkownika jako przeczytane.",
@@ -29,5 +30,6 @@
 	"apihelp-query+notifications-param-limit": "Maksymalna liczba zwracanych powiadomień.",
 	"apihelp-query+notifications-param-wikis": "Lista wiki, z których pobrać powiadomienia (domyślnie tylko bieżąca wiki).",
 	"apihelp-query+notifications-example-1": "Spis powiadomień",
+	"apihelp-query+notifications-example-2": "Wypisz powiadomienia pogrupowane według sekcji z ich liczbą",
 	"apihelp-query+unreadnotificationpages-param-limit": "Maksymalna liczba zwracanych stron."
 }
