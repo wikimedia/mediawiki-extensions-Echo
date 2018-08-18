@@ -11,7 +11,6 @@ class EchoRevisionLocalCache extends EchoLocalCache {
 	private static $instance;
 
 	/**
-	 * Create a EchoRevisionLocalCache object
 	 * @return EchoRevisionLocalCache
 	 */
 	public static function create() {
@@ -25,26 +24,19 @@ class EchoRevisionLocalCache extends EchoLocalCache {
 	/**
 	 * @inheritDoc
 	 */
-	protected function resolve() {
-		if ( $this->lookups ) {
-			// @Todo Add newFromIds() to Revision
-			$dbr = wfGetDB( DB_REPLICA );
-			$revQuery = Revision::getQueryInfo( [ 'page', 'user' ] );
-			$res = $dbr->select(
-				$revQuery['tables'],
-				$revQuery['fields'],
-				[ 'rev_id' => $this->lookups ],
-				__METHOD__,
-				[],
-				$revQuery['joins']
-			);
-			if ( $res ) {
-				foreach ( $res as $row ) {
-					$this->targets->set( $row->rev_id, new Revision( $row ) );
-				}
-				$this->lookups = [];
-			}
+	protected function resolve( array $lookups ) {
+		$dbr = wfGetDB( DB_REPLICA );
+		$revQuery = Revision::getQueryInfo( [ 'page', 'user' ] );
+		$res = $dbr->select(
+			$revQuery['tables'],
+			$revQuery['fields'],
+			[ 'rev_id' => $lookups ],
+			__METHOD__,
+			[],
+			$revQuery['joins']
+		);
+		foreach ( $res as $row ) {
+			yield $row->rev_id => new Revision( $row );
 		}
 	}
-
 }

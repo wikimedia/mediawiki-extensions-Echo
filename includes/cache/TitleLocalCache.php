@@ -11,7 +11,6 @@ class EchoTitleLocalCache extends EchoLocalCache {
 	private static $instance;
 
 	/**
-	 * Create a TitleLocalCache object
 	 * @return EchoTitleLocalCache
 	 */
 	public static function create() {
@@ -25,13 +24,12 @@ class EchoTitleLocalCache extends EchoLocalCache {
 	/**
 	 * @inheritDoc
 	 */
-	protected function resolve() {
-		if ( $this->lookups ) {
-			$titles = Title::newFromIDs( $this->lookups );
+	protected function resolve( array $lookups ) {
+		if ( $lookups ) {
+			$titles = Title::newFromIDs( $lookups );
 			foreach ( $titles as $title ) {
-				$this->targets->set( $title->getArticleId(), $title );
+				yield $title->getArticleId() => $title;
 			}
-			$this->lookups = [];
 		}
 	}
 
