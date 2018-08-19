@@ -134,7 +134,7 @@
 	"notification-header-mention-success": "{{GENDER:$2|Är}} Mentioun vu(n) <strong>$3</strong> gouf geschéckt.",
 	"notification-header-mention-success-bundle": "{{PLURAL:$3|Eng Mentioun|$3 Mentiounen}} déi {{GENDER:$2|Dir}} op der Diskussiounssäit <strong>$4</strong> gemaach hutt {{PLURAL:$3|gouf|goufe}} geschéckt.",
 	"notification-compact-header-mention-success": "<strong>{{GENDER:$2|Dir}} hutt mentionnéiert:</strong> $3",
-	"notification-header-mention-status-bundle": "{{PLURAL:$3|Eng Notifikatioun|$3 Notifikatioune}} vu Mentiounen déi {{GENDER:$2|Dir}} op der Diskussiounssäit <strong>$4</strong> ge4maach hutt: {{PLURAL:$5|$5 gouf geschéckt|goufe geschéckt}}, {{PLURAL:$6|$6 geschéckt}}.",
+	"notification-header-mention-status-bundle": "{{PLURAL:$3|Eng Notifikatioun|$3 Notifikatioune}} vu Mentiounen déi {{GENDER:$2|Dir}} op der Diskussiounssäit <strong>$4</strong> gemaach hutt: {{PLURAL:$5|$5 gouf geschéckt|goufe geschéckt}}, {{PLURAL:$6|$6 geschéckt}}.",
 	"notification-header-user-rights-add-only": "{{GENDER:$4|Är}} Benotzerrechter goufe {{GENDER:$1|geännert}}. Dir sidd elo Member vun: $2.",
 	"notification-header-user-rights-remove-only": "{{GENDER:$4|Är}} Benotzerrechter goufe {{GENDER:$1|geännert}}. Dir sidd net méi Member vun: $2.",
 	"notification-header-user-rights-add-and-remove": "{{GENDER:$6|Är}} Benotzerrechter goufe {{GENDER:$1|geännert}}. Dir sidd elo Member vun: $2. Dir sidd net méi Member vun: $4.",
