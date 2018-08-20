@@ -249,7 +249,7 @@ class MWEchoEmailBatch {
 	 * Send the batch email
 	 */
 	public function sendEmail() {
-		global $wgPasswordSender, $wgNotificationReplyName;
+		global $wgPasswordSender, $wgNoReplyAddress, $wgNotificationReplyName;
 
 		if ( $this->mUser->getOption( 'echo-email-frequency' ) == EchoEmailFrequency::WEEKLY_DIGEST ) {
 			$frequency = 'weekly';
@@ -283,7 +283,7 @@ class MWEchoEmailBatch {
 
 		$toAddress = MailAddress::newFromUser( $this->mUser );
 		$fromAddress = new MailAddress( $wgPasswordSender, wfMessage( 'emailsender' )->inContentLanguage()->text() );
-		$replyTo = new MailAddress( $wgPasswordSender, $wgNotificationReplyName );
+		$replyTo = new MailAddress( $wgNoReplyAddress, $wgNotificationReplyName );
 
 		// @Todo Push the email to job queue or just send it out directly?
 		UserMailer::send( $toAddress, $fromAddress, $content['subject'], $content['body'], [ 'replyTo' => $replyTo ] );
