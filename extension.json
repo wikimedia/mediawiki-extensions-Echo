@@ -17,7 +17,6 @@
 	"requires": {
 		"MediaWiki": ">= 1.32.0"
 	},
-	"callback": "EchoHooks::registerExtension",
 	"APIMetaModules": {
 		"notifications": "ApiEchoNotifications",
 		"unreadnotificationpages": "ApiEchoUnreadNotificationPages"
