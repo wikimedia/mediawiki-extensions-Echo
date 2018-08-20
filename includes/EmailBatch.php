@@ -282,7 +282,7 @@ class MWEchoEmailBatch {
 		}
 
 		$toAddress = MailAddress::newFromUser( $this->mUser );
-		$fromAddress = new MailAddress( $wgPasswordSender, EchoHooks::getNotificationSenderName() );
+		$fromAddress = new MailAddress( $wgPasswordSender, wfMessage( 'emailsender' )->inContentLanguage()->text() );
 		$replyTo = new MailAddress( $wgPasswordSender, $wgNotificationReplyName );
 
 		// @Todo Push the email to job queue or just send it out directly?

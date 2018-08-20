@@ -63,15 +63,6 @@ class EchoHooks {
 		}
 	}
 
-	public static function getNotificationSenderName() {
-		global $wgNotificationSenderName;
-		if ( $wgNotificationSenderName === null ) {
-			$wgNotificationSenderName = wfMessage( 'emailsender' )->inContentLanguage()->text();
-		}
-
-		return $wgNotificationSenderName;
-	}
-
 	/**
 	 * ResourceLoaderTestModules hook handler
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ResourceLoaderTestModules

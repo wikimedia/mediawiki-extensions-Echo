@@ -458,9 +458,6 @@
 		"EchoEmailFooterAddress": {
 			"value": ""
 		},
-		"NotificationSenderName": {
-			"value": null
-		},
 		"NotificationReplyName": {
 			"value": "No Reply"
 		},
