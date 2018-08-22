@@ -2,8 +2,10 @@
 
 class EchoHtmlEmailFormatter extends EchoEventFormatter {
 
+	// phpcs:disable Generic.Files.LineLength
 	const PRIMARY_LINK_STYLE = 'cursor:pointer; text-align:center; text-decoration:none; padding:.45em 0.6em .45em; color:#FFF; background:#36C; font-family: Arial, Helvetica, sans-serif;font-size: 13px;';
 	const SECONDARY_LINK_STYLE = 'text-decoration: none;font-size: 10px;font-family: Arial, Helvetica, sans-serif; color: #72777D;';
+	// phpcs:enable Generic.Files.LineLength
 
 	protected function formatModel( EchoEventPresentationModel $model ) {
 		$subject = $model->getSubjectMessage()->parse();

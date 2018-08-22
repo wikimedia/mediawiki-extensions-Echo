@@ -64,7 +64,9 @@ class GenerateSampleNotifications extends Maintenance {
 
 		$this->addOption(
 			'timestamp',
-			'Add notification timestamps (Epoch time format). All notifications that are not related directly to edits will be created with a timestamp starting 5 minutes before the given timestamp, and increasing by 1 minute per notification.',
+			'Add notification timestamps (Epoch time format). All notifications that are not ' .
+				'related directly to edits will be created with a timestamp starting 5 minutes ' .
+				'before the given timestamp, and increasing by 1 minute per notification.',
 			false, false, 'k' );
 	}
 

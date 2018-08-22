@@ -455,7 +455,11 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 	 *                 'description' => (string) descriptive text (optional, non-escaped),
 	 *                 'icon' => (bool|string) symbolic ooui icon name (or false if there is none),
 	 *                 'type' => (string) optional action type. Used to note a dynamic action, by setting it to 'dynamic-action'
-	 *                 'data' => (array) optional array containing information about the dynamic action. It must include 'tokenType' (string), 'messages' (array) with messages supplied for the item and the confirmation dialog and 'params' (array) for the API operation needed to complete the action. For example:
+	 *                 'data' => (array) optional array containing information about the dynamic
+	 *                           action. It must include 'tokenType' (string), 'messages' (array)
+	 *                           with messages supplied for the item and the confirmation dialog
+	 *                           and 'params' (array) for the API operation needed to complete the
+	 *                           action. For example:
 	 *                 'data' => [
 	 *                     'tokenType' => 'watch',
 	 *                     'params' => [
