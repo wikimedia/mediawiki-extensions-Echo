@@ -31,13 +31,18 @@ class EchoNotifier {
 	 * @return bool
 	 */
 	public static function notifyWithEmail( $user, $event ) {
-		global $wgEnableEmail;
+		global $wgEnableEmail, $wgBlockDisablesLogin;
 
-		if ( !$wgEnableEmail ) {
-			return false;
-		}
-		// No valid email address or email notification
-		if ( !$user->isEmailConfirmed() || $user->getOption( 'echo-email-frequency' ) < 0 ) {
+		if (
+			// Email is globally disabled
+			!$wgEnableEmail ||
+			// User does not have a valid and confirmed email address
+			!$user->isEmailConfirmed() ||
+			// User has disabled Echo emails
+			$user->getOption( 'echo-email-frequency' ) < 0 ||
+			// User is blocked and cannot log in (T199993)
+			( $wgBlockDisablesLogin && $user->isBlocked() )
+		) {
 			return false;
 		}
 
