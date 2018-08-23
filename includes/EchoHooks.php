@@ -11,12 +11,6 @@ class EchoHooks {
 	 */
 	private static $lastRevertedRevision = null;
 
-	public static function registerExtension() {
-		global $wgNotificationSender, $wgPasswordSender;
-
-		$wgNotificationSender = $wgPasswordSender;
-	}
-
 	/**
 	 * @param array &$defaults
 	 */
