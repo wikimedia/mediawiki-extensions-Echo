@@ -91,7 +91,11 @@ class EchoUserNotificationGateway {
 		}
 
 		$dbw = $this->getDB( DB_MASTER );
+		if ( $dbw->isReadOnly() ) {
+			return false;
+		}
 
+		$success = true;
 		foreach ( array_chunk( $eventIDs, $wgUpdateRowsPerQuery ) as $batch ) {
 			$success = $dbw->update(
 				self::$notificationTable,
@@ -114,6 +118,9 @@ class EchoUserNotificationGateway {
 	 */
 	public function markAllRead() {
 		$dbw = $this->getDB( DB_MASTER );
+		if ( $dbw->isReadOnly() ) {
+			return false;
+		}
 
 		return $dbw->update(
 			self::$notificationTable,
