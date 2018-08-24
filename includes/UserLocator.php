@@ -83,14 +83,9 @@ class EchoUserLocator {
 	 * @return User[]
 	 */
 	public static function locateArticleCreator( EchoEvent $event ) {
-		$agent = $event->getAgent();
 		$title = $event->getTitle();
 
 		if ( !$title || $title->getArticleID() <= 0 ) {
-			return [];
-		}
-		// why?
-		if ( !$agent ) {
 			return [];
 		}
 
