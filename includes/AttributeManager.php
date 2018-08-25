@@ -288,7 +288,7 @@ class EchoAttributeManager {
 			$category = $notificationDetails['category'];
 			if ( isset( $eventsByCategory[$category] ) ) {
 				// Only real categories.  Currently, this excludes the 'foreign'
-				// psuedo-category.
+				// pseudo-category.
 				$eventsByCategory[$category][] = $notificationType;
 			}
 		}
