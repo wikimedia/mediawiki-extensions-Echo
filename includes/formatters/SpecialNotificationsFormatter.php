@@ -23,7 +23,7 @@ class SpecialNotificationsFormatter extends EchoEventFormatter {
 
 		$markAsReadIcon = new OOUI\IconWidget( [
 			'icon' => 'close',
-			'title' => wfMessage( 'echo-notification-markasread' ),
+			'title' => wfMessage( 'echo-notification-markasread' )->text(),
 		] );
 
 		$markAsReadForm = $markReadSpecialPage->getMinimalForm(
