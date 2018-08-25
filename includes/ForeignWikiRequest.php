@@ -66,7 +66,8 @@ class EchoForeignWikiRequest {
 			return $api->getResult()->getResultData( [ 'centralauthtoken', 'centralauthtoken' ] );
 		} catch ( Exception $ex ) {
 			LoggerFactory::getInstance( 'Echo' )->debug(
-				'Exception when fetching CentralAuth token: wiki: {wiki}, userName: {userName}, userId: {userId}, centralId: {centralId}, exception: {exception}',
+				'Exception when fetching CentralAuth token: wiki: {wiki}, userName: {userName}, ' .
+					'userId: {userId}, centralId: {centralId}, exception: {exception}',
 				[
 					'wiki' => wfWikiID(),
 					'userName' => $user->getName(),

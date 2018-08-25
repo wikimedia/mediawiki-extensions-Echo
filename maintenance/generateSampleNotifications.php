@@ -1,5 +1,7 @@
 <?php
 
+// phpcs:disable Generic.Files.LineLength -- Long html test examples
+
 use Wikibase\Client\Hooks\EchoNotificationsHandlers;
 
 $IP = getenv( 'MW_INSTALL_PATH' );

@@ -24,7 +24,12 @@ class EchoDataOutputFormatter {
 	 * @param Language $lang Language to format the notification in
 	 * @return array|false False if it could not be formatted
 	 */
-	public static function formatOutput( EchoNotification $notification, $format = false, User $user, Language $lang ) {
+	public static function formatOutput(
+		EchoNotification $notification,
+		$format = false,
+		User $user,
+		Language $lang
+	) {
 		$event = $notification->getEvent();
 		$timestamp = $notification->getTimestamp();
 		$utcTimestampIso8601 = wfTimestamp( TS_ISO_8601, $timestamp );
@@ -141,15 +146,20 @@ class EchoDataOutputFormatter {
 			}
 			$output['*'] = $formatted;
 
-			if ( $notification->getBundledNotifications() && self::isBundleExpandable( $event->getType() ) ) {
-				$output['bundledNotifications'] = array_values( array_filter( array_map( function ( EchoNotification $notification ) use ( $format, $user, $lang ) {
-					// remove nested notifications to
-					// - ensure they are formatted as single notifications (not bundled)
-					// - prevent further re-entrance on the current notification
-					$notification->setBundledNotifications( [] );
-					$notification->getEvent()->setBundledEvents( [] );
-					return self::formatOutput( $notification, $format, $user, $lang );
-				}, array_merge( [ $notification ], $notification->getBundledNotifications() ) ) ) );
+			if ( $notification->getBundledNotifications() &&
+				self::isBundleExpandable( $event->getType() )
+			) {
+				$output['bundledNotifications'] = array_values( array_filter( array_map(
+					function ( EchoNotification $notification ) use ( $format, $user, $lang ) {
+						// remove nested notifications to
+						// - ensure they are formatted as single notifications (not bundled)
+						// - prevent further re-entrance on the current notification
+						$notification->setBundledNotifications( [] );
+						$notification->getEvent()->setBundledEvents( [] );
+						return self::formatOutput( $notification, $format, $user, $lang );
+					},
+					array_merge( [ $notification ], $notification->getBundledNotifications() )
+				) ) );
 			}
 		}
 
@@ -210,7 +220,8 @@ class EchoDataOutputFormatter {
 	 */
 	public static function isBundleExpandable( $type ) {
 		global $wgEchoNotifications;
-		return isset( $wgEchoNotifications[$type]['bundle']['expandable'] ) && $wgEchoNotifications[$type]['bundle']['expandable'];
+		return isset( $wgEchoNotifications[$type]['bundle']['expandable'] )
+			&& $wgEchoNotifications[$type]['bundle']['expandable'];
 	}
 
 }

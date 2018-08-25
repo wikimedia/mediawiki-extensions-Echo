@@ -91,7 +91,14 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	 * @param int $dbSource Use master or slave database
 	 * @return EchoNotification[]
 	 */
-	public function fetchUnreadByUser( User $user, $limit, $continue, array $eventTypes = [], array $titles = null, $dbSource = DB_REPLICA ) {
+	public function fetchUnreadByUser(
+		User $user,
+		$limit,
+		$continue,
+		array $eventTypes = [],
+		array $titles = null,
+		$dbSource = DB_REPLICA
+	) {
 		$conds['notification_read_timestamp'] = null;
 		if ( $titles ) {
 			$conds['event_page_id'] = $this->getIdsForTitles( $titles );
@@ -117,7 +124,14 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	 * @param int $dbSource Use master or slave database
 	 * @return EchoNotification[]
 	 */
-	public function fetchReadByUser( User $user, $limit, $continue, array $eventTypes = [], array $titles = null, $dbSource = DB_REPLICA ) {
+	public function fetchReadByUser(
+		User $user,
+		$limit,
+		$continue,
+		array $eventTypes = [],
+		array $titles = null,
+		$dbSource = DB_REPLICA
+	) {
 		$conds = [ 'notification_read_timestamp IS NOT NULL' ];
 		if ( $titles ) {
 			$conds['event_page_id'] = $this->getIdsForTitles( $titles );
@@ -140,7 +154,14 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	 *  To find notifications not associated with any page, add null as an element to this array.
 	 * @return EchoNotification[]
 	 */
-	public function fetchByUser( User $user, $limit, $continue, array $eventTypes = [], array $excludeEventIds = [], array $titles = null ) {
+	public function fetchByUser(
+		User $user,
+		$limit,
+		$continue,
+		array $eventTypes = [],
+		array $excludeEventIds = [],
+		array $titles = null
+	) {
 		$dbr = $this->dbFactory->getEchoDb( DB_REPLICA );
 
 		$conds = [];
@@ -178,7 +199,14 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	 * @param int $dbSource Use master or slave database
 	 * @return EchoNotification[]
 	 */
-	protected function fetchByUserInternal( User $user, $limit, $continue, array $eventTypes = [], array $conds = [], $dbSource = DB_REPLICA ) {
+	protected function fetchByUserInternal(
+		User $user,
+		$limit,
+		$continue,
+		array $eventTypes = [],
+		array $conds = [],
+		$dbSource = DB_REPLICA
+	) {
 		$dbr = $this->dbFactory->getEchoDb( $dbSource );
 
 		if ( !$eventTypes ) {
@@ -203,7 +231,8 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 		if ( $offset['timestamp'] && $offset['offset'] ) {
 			$ts = $dbr->addQuotes( $dbr->timestamp( $offset['timestamp'] ) );
 			// The offset and timestamp are those of the first notification we want to return
-			$conds[] = "notification_timestamp < $ts OR ( notification_timestamp = $ts AND notification_event <= " . $offset['offset'] . " )";
+			$conds[] = "notification_timestamp < $ts OR " .
+				"( notification_timestamp = $ts AND notification_event <= " . $offset['offset'] . " )";
 		}
 
 		$res = $dbr->select(

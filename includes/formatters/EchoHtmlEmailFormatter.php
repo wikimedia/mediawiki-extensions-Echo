@@ -54,6 +54,7 @@ class EchoHtmlEmailFormatter extends EchoEventFormatter {
 		$iconImgSrc = Sanitizer::encodeAttribute( $emailIcon );
 
 		global $wgCanonicalServer;
+		// phpcs:disable Generic.Files.LineLength
 		return <<< EOF
 <html><head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -120,6 +121,7 @@ class EchoHtmlEmailFormatter extends EchoEventFormatter {
 </table>
 </body></html>
 EOF;
+		// phpcs:enable Generic.Files.LineLength
 	}
 
 	/**
@@ -130,8 +132,10 @@ EOF;
 
 		$preferenceLink = $this->renderLink(
 			[
-				'label' => $this->msg( 'echo-email-html-footer-preference-link-text', $this->user )->text(),
-				'url' => SpecialPage::getTitleFor( 'Preferences', false, 'mw-prefsection-echo' )->getFullURL( '', false, PROTO_CANONICAL ),
+				'label' => $this->msg( 'echo-email-html-footer-preference-link-text', $this->user )
+					->text(),
+				'url' => SpecialPage::getTitleFor( 'Preferences', false, 'mw-prefsection-echo' )
+					->getFullURL( '', false, PROTO_CANONICAL ),
 			],
 			'text-decoration: none; color: #36C;'
 		);

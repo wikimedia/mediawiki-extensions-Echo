@@ -47,7 +47,8 @@ class EchoHooks {
 			$wgEchoMentionStatusNotifications, $wgAllowArticleReminderNotification, $wgAPIModules;
 
 		// allow extensions to define their own event
-		Hooks::run( 'BeforeCreateEchoEvent', [ &$wgEchoNotifications, &$wgEchoNotificationCategories, &$wgEchoNotificationIcons ] );
+		Hooks::run( 'BeforeCreateEchoEvent',
+			[ &$wgEchoNotifications, &$wgEchoNotificationCategories, &$wgEchoNotificationIcons ] );
 
 		// Only allow mention status notifications when enabled
 		if ( !$wgEchoMentionStatusNotifications ) {
@@ -152,42 +153,65 @@ class EchoHooks {
 		$updater->addExtensionTable( 'echo_target_page', "$dir/db_patches/echo_target_page.sql" );
 
 		if ( $updater->getDB()->getType() === 'sqlite' ) {
-			$updater->modifyExtensionField( 'echo_event', 'event_agent', "$dir/db_patches/patch-event_agent-split.sqlite.sql" );
-			$updater->modifyExtensionField( 'echo_event', 'event_variant', "$dir/db_patches/patch-event_variant_nullability.sqlite.sql" );
-			$updater->addExtensionField( 'echo_target_page', 'etp_id', "$dir/db_patches/patch-multiple_target_pages.sqlite.sql" );
-			$updater->dropExtensionField( 'echo_target_page', 'etp_user', "$dir/db_patches/patch-drop-echo_target_page-etp_user.sqlite.sql" );
+			$updater->modifyExtensionField( 'echo_event', 'event_agent',
+				"$dir/db_patches/patch-event_agent-split.sqlite.sql" );
+			$updater->modifyExtensionField( 'echo_event', 'event_variant',
+				"$dir/db_patches/patch-event_variant_nullability.sqlite.sql" );
+			$updater->addExtensionField( 'echo_target_page', 'etp_id',
+				"$dir/db_patches/patch-multiple_target_pages.sqlite.sql" );
+			$updater->dropExtensionField( 'echo_target_page', 'etp_user',
+				"$dir/db_patches/patch-drop-echo_target_page-etp_user.sqlite.sql" );
 			// There is no need to run the patch-event_extra-size or patch-event_agent_ip-size because
 			// sqlite ignores numeric arguments in parentheses that follow the type name (ex: VARCHAR(255))
 			// see http://www.sqlite.org/datatype3.html Section 2.2 for more info
 		} else {
-			$updater->modifyExtensionField( 'echo_event', 'event_agent', "$dir/db_patches/patch-event_agent-split.sql" );
-			$updater->modifyExtensionField( 'echo_event', 'event_variant', "$dir/db_patches/patch-event_variant_nullability.sql" );
-			$updater->modifyExtensionField( 'echo_event', 'event_extra', "$dir/db_patches/patch-event_extra-size.sql" );
-			$updater->modifyExtensionField( 'echo_event', 'event_agent_ip', "$dir/db_patches/patch-event_agent_ip-size.sql" );
-			$updater->addExtensionField( 'echo_target_page', 'etp_id', "$dir/db_patches/patch-multiple_target_pages.sql" );
-			$updater->dropExtensionField( 'echo_target_page', 'etp_user', "$dir/db_patches/patch-drop-echo_target_page-etp_user.sql" );
+			$updater->modifyExtensionField( 'echo_event', 'event_agent',
+				"$dir/db_patches/patch-event_agent-split.sql" );
+			$updater->modifyExtensionField( 'echo_event', 'event_variant',
+				"$dir/db_patches/patch-event_variant_nullability.sql" );
+			$updater->modifyExtensionField( 'echo_event', 'event_extra',
+				"$dir/db_patches/patch-event_extra-size.sql" );
+			$updater->modifyExtensionField( 'echo_event', 'event_agent_ip',
+				"$dir/db_patches/patch-event_agent_ip-size.sql" );
+			$updater->addExtensionField( 'echo_target_page', 'etp_id',
+				"$dir/db_patches/patch-multiple_target_pages.sql" );
+			$updater->dropExtensionField( 'echo_target_page', 'etp_user',
+				"$dir/db_patches/patch-drop-echo_target_page-etp_user.sql" );
 		}
 
 		$updater->addExtensionField( 'echo_notification', 'notification_bundle_base',
 			"$dir/db_patches/patch-notification-bundling-field.sql" );
-		// This index was renamed twice,  first from type_page to event_type and later from event_type to echo_event_type
+		// This index was renamed twice, first from type_page to event_type and
+		// later from event_type to echo_event_type
 		if ( $updater->getDB()->indexExists( 'echo_event', 'type_page', __METHOD__ ) ) {
-			$updater->addExtensionIndex( 'echo_event', 'event_type', "$dir/db_patches/patch-alter-type_page-index.sql" );
+			$updater->addExtensionIndex( 'echo_event', 'event_type',
+				"$dir/db_patches/patch-alter-type_page-index.sql" );
 		}
-		$updater->dropExtensionTable( 'echo_subscription', "$dir/db_patches/patch-drop-echo_subscription.sql" );
-		$updater->dropExtensionField( 'echo_event', 'event_timestamp', "$dir/db_patches/patch-drop-echo_event-event_timestamp.sql" );
+		$updater->dropExtensionTable( 'echo_subscription',
+			"$dir/db_patches/patch-drop-echo_subscription.sql" );
+		$updater->dropExtensionField( 'echo_event', 'event_timestamp',
+			"$dir/db_patches/patch-drop-echo_event-event_timestamp.sql" );
 		$updater->addExtensionField( 'echo_email_batch', 'eeb_event_hash',
 			"$dir/db_patches/patch-email_batch-new-field.sql" );
-		$updater->addExtensionField( 'echo_event', 'event_page_id', "$dir/db_patches/patch-add-echo_event-event_page_id.sql" );
-		$updater->addExtensionIndex( 'echo_event', 'echo_event_type', "$dir/db_patches/patch-alter-event_type-index.sql" );
-		$updater->addExtensionIndex( 'echo_notification', 'echo_user_timestamp', "$dir/db_patches/patch-alter-user_timestamp-index.sql" );
-		$updater->addExtensionIndex( 'echo_notification', 'echo_notification_event', "$dir/db_patches/patch-add-notification_event-index.sql" );
+		$updater->addExtensionField( 'echo_event', 'event_page_id',
+			"$dir/db_patches/patch-add-echo_event-event_page_id.sql" );
+		$updater->addExtensionIndex( 'echo_event', 'echo_event_type',
+			"$dir/db_patches/patch-alter-event_type-index.sql" );
+		$updater->addExtensionIndex( 'echo_notification', 'echo_user_timestamp',
+			"$dir/db_patches/patch-alter-user_timestamp-index.sql" );
+		$updater->addExtensionIndex( 'echo_notification', 'echo_notification_event',
+			"$dir/db_patches/patch-add-notification_event-index.sql" );
 		$updater->addPostDatabaseUpdateMaintenance( 'RemoveOrphanedEvents' );
-		$updater->addExtensionField( 'echo_event', 'event_deleted', "$dir/db_patches/patch-add-echo_event-event_deleted.sql" );
-		$updater->addExtensionIndex( 'echo_notification', 'echo_notification_user_read_timestamp', "$dir/db_patches/patch-add-user_read_timestamp-index.sql" );
-		$updater->addExtensionIndex( 'echo_target_page', 'echo_target_page_page_event', "$dir/db_patches/patch-add-page_event-index.sql" );
-		$updater->addExtensionIndex( 'echo_event', 'echo_event_page_id', "$dir/db_patches/patch-add-event_page_id-index.sql" );
-		$updater->dropExtensionIndex( 'echo_notification', 'user_event', "$dir/db_patches/patch-notification-pk.sql" );
+		$updater->addExtensionField( 'echo_event', 'event_deleted',
+			"$dir/db_patches/patch-add-echo_event-event_deleted.sql" );
+		$updater->addExtensionIndex( 'echo_notification', 'echo_notification_user_read_timestamp',
+			"$dir/db_patches/patch-add-user_read_timestamp-index.sql" );
+		$updater->addExtensionIndex( 'echo_target_page', 'echo_target_page_page_event',
+			"$dir/db_patches/patch-add-page_event-index.sql" );
+		$updater->addExtensionIndex( 'echo_event', 'echo_event_page_id',
+			"$dir/db_patches/patch-add-event_page_id-index.sql" );
+		$updater->dropExtensionIndex( 'echo_notification', 'user_event',
+			"$dir/db_patches/patch-notification-pk.sql" );
 	}
 
 	/**
@@ -472,8 +496,20 @@ class EchoHooks {
 	 *
 	 * @return bool true in all cases
 	 */
-	public static function onPageContentSaveComplete( WikiPage &$wikiPage, &$user, $content, $summary, $minoredit,
-		$watchthis, $sectionanchor, &$flags, $revision, &$status, $baseRevId, $undidRevId = 0 ) {
+	public static function onPageContentSaveComplete(
+		WikiPage &$wikiPage,
+		&$user,
+		$content,
+		$summary,
+		$minoredit,
+		$watchthis,
+		$sectionanchor,
+		&$flags,
+		$revision,
+		&$status,
+		$baseRevId,
+		$undidRevId = 0
+	) {
 		global $wgEchoNotifications;
 
 		if ( !$revision ) {
@@ -909,7 +945,8 @@ class EchoHooks {
 
 		// HACK: inverted icons only work in the "MediaWiki" OOUI theme
 		// Avoid flashes in skins that don't use it (T111821)
-		$sk->getOutput()->setupOOUI( strtolower( $sk->getSkinName() ), $sk->getOutput()->getLanguage()->getDir() );
+		$sk->getOutput()->setupOOUI(
+			strtolower( $sk->getSkinName() ), $sk->getOutput()->getLanguage()->getDir() );
 
 		$msgLinkClasses = [ "mw-echo-notifications-badge", "mw-echo-notification-badge-nojs" ];
 		$alertLinkClasses = [ "mw-echo-notifications-badge", "mw-echo-notification-badge-nojs" ];
@@ -918,7 +955,9 @@ class EchoHooks {
 		if (
 			$msgCount != 0 && // no unread notifications
 			$msgNotificationTimestamp !== false && // should already always be false if count === 0
-			( $seenMsgTime === null || $seenMsgTime < $msgNotificationTimestamp->getTimestamp( TS_ISO_8601 ) ) // there are no unseen notifications
+			// there are no unseen notifications
+			( $seenMsgTime === null ||
+				$seenMsgTime < $msgNotificationTimestamp->getTimestamp( TS_ISO_8601 ) )
 		) {
 			$msgLinkClasses[] = 'mw-echo-unseen-notifications';
 			$hasUnseen = true;
@@ -933,7 +972,9 @@ class EchoHooks {
 		if (
 			$alertCount != 0 && // no unread notifications
 			$alertNotificationTimestamp !== false && // should already always be false if count === 0
-			( $seenAlertTime === null || $seenAlertTime < $alertNotificationTimestamp->getTimestamp( TS_ISO_8601 ) ) // all notifications have already been seen
+			// all notifications have already been seen
+			( $seenAlertTime === null ||
+				$seenAlertTime < $alertNotificationTimestamp->getTimestamp( TS_ISO_8601 ) )
 		) {
 			$alertLinkClasses[] = 'mw-echo-unseen-notifications';
 			$hasUnseen = true;
@@ -1269,7 +1310,8 @@ class EchoHooks {
 
 		$autoSubject = wfMessage( 'defemailsubject', $from->name )->inContentLanguage()->text();
 		if ( $subject === $autoSubject ) {
-			$autoFooter = "\n\n-- \n" . wfMessage( 'emailuserfooter', $from->name, $address->name )->inContentLanguage()->text();
+			$autoFooter = "\n\n-- \n" . wfMessage( 'emailuserfooter', $from->name, $address->name )
+				->inContentLanguage()->text();
 			$textWithoutFooter = preg_replace( '/' . preg_quote( $autoFooter, '/' ) . '$/', '', $text );
 			$preview = MediaWikiServices::getInstance()->getContentLanguage()
 				->truncateForVisual( $textWithoutFooter, 125 );
@@ -1341,7 +1383,14 @@ class EchoHooks {
 		return true;
 	}
 
-	public static function onArticleDeleteComplete( WikiPage &$article, User &$user, $reason, $articleId, Content $content = null, LogEntry $logEntry ) {
+	public static function onArticleDeleteComplete(
+		WikiPage &$article,
+		User &$user,
+		$reason,
+		$articleId,
+		Content $content = null,
+		LogEntry $logEntry
+	) {
 		\DeferredUpdates::addCallableUpdate( function () use ( $articleId ) {
 			$eventMapper = new EchoEventMapper();
 			$eventIds = $eventMapper->fetchIdsByPage( $articleId );

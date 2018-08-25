@@ -57,6 +57,7 @@ class EchoHtmlDigestEmailFormatter extends EchoEventDigestFormatter {
 		$langCode = $language->getHtmlCode();
 		$langDir = $language->getDir();
 
+		// phpcs:disable Generic.Files.LineLength
 		return <<< EOF
 <html><head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -127,6 +128,7 @@ class EchoHtmlDigestEmailFormatter extends EchoEventDigestFormatter {
 </table>
 </body></html>
 EOF;
+		// phpcs:enable Generic.Files.LineLength
 	}
 
 	/**
@@ -216,7 +218,8 @@ EOF;
 		return Html::element(
 			'a',
 			[
-				'href' => SpecialPage::getTitleFor( 'Notifications' )->getFullURL( '', false, PROTO_CANONICAL ),
+				'href' => SpecialPage::getTitleFor( 'Notifications' )
+					->getFullURL( '', false, PROTO_CANONICAL ),
 				'style' => EchoHtmlEmailFormatter::PRIMARY_LINK_STYLE,
 			],
 			$this->msg( 'echo-email-batch-link-text-view-all-notifications' )->text()
