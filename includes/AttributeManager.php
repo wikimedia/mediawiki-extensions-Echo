@@ -65,7 +65,12 @@ class EchoAttributeManager {
 	 *   categories as keys and value an associative array as with
 	 *   $defaultNotifyTypeAvailability.
 	 */
-	public function __construct( array $notifications, array $categories, array $defaultNotifyTypeAvailability, array $notifyTypeAvailabilityByCategory ) {
+	public function __construct(
+		array $notifications,
+		array $categories,
+		array $defaultNotifyTypeAvailability,
+		array $notifyTypeAvailabilityByCategory
+	) {
 		// Extensions can define their own notifications and categories
 		$this->notifications = $notifications;
 		$this->categories = $categories;
@@ -79,11 +84,17 @@ class EchoAttributeManager {
 	 * @return EchoAttributeManager
 	 */
 	public static function newFromGlobalVars() {
-		global $wgEchoNotifications, $wgEchoNotificationCategories, $wgDefaultNotifyTypeAvailability, $wgNotifyTypeAvailabilityByCategory;
+		global $wgEchoNotifications, $wgEchoNotificationCategories,
+			$wgDefaultNotifyTypeAvailability, $wgNotifyTypeAvailabilityByCategory;
 
 		// Unit test may alter the global data for test purpose
 		if ( defined( 'MW_PHPUNIT_TEST' ) ) {
-			return new self( $wgEchoNotifications, $wgEchoNotificationCategories, $wgDefaultNotifyTypeAvailability, $wgNotifyTypeAvailabilityByCategory );
+			return new self(
+				$wgEchoNotifications,
+				$wgEchoNotificationCategories,
+				$wgDefaultNotifyTypeAvailability,
+				$wgNotifyTypeAvailabilityByCategory
+			);
 		}
 
 		if ( self::$globalVarInstance === null ) {

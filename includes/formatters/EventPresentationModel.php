@@ -69,7 +69,12 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 	 * @param User $user Only used for permissions checking and GENDER
 	 * @param string $distributionType
 	 */
-	protected function __construct( EchoEvent $event, Language $language, User $user, $distributionType ) {
+	protected function __construct(
+		EchoEvent $event,
+		Language $language,
+		User $user,
+		$distributionType
+	) {
 		$this->event = $event;
 		$this->type = $event->getType();
 		$this->language = $language;
@@ -97,7 +102,12 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 	 * @param string $distributionType 'web' or 'email'
 	 * @return EchoEventPresentationModel
 	 */
-	public static function factory( EchoEvent $event, Language $language, User $user, $distributionType = 'web' ) {
+	public static function factory(
+		EchoEvent $event,
+		Language $language,
+		User $user,
+		$distributionType = 'web'
+	) {
 		global $wgEchoNotifications;
 		// @todo don't depend upon globals
 
@@ -440,7 +450,8 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 			if ( $this->getBundledIds() ) {
 				$eventIds = array_merge( $eventIds, $this->getBundledIds() );
 			}
-			$primaryLink['url'] = wfAppendQuery( $primaryLink['url'], [ 'markasread' => implode( '|', $eventIds ) ] );
+			$primaryLink['url'] = wfAppendQuery( $primaryLink['url'],
+				[ 'markasread' => implode( '|', $eventIds ) ] );
 		}
 		return $primaryLink;
 	}
@@ -454,7 +465,8 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 	 *                 'label' => (string) link text (non-escaped),
 	 *                 'description' => (string) descriptive text (optional, non-escaped),
 	 *                 'icon' => (bool|string) symbolic ooui icon name (or false if there is none),
-	 *                 'type' => (string) optional action type. Used to note a dynamic action, by setting it to 'dynamic-action'
+	 *                 'type' => (string) optional action type. Used to note a dynamic action,
+	 *                           by setting it to 'dynamic-action'
 	 *                 'data' => (array) optional array containing information about the dynamic
 	 *                           action. It must include 'tokenType' (string), 'messages' (array)
 	 *                           with messages supplied for the item and the confirmation dialog
@@ -516,7 +528,8 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 	 * @return string
 	 */
 	protected function getTruncatedUsername( User $user ) {
-		return $this->language->embedBidi( $this->language->truncateForVisual( $user->getName(), self::USERNAME_RECOMMENDED_LENGTH, '...', false ) );
+		return $this->language->embedBidi( $this->language->truncateForVisual(
+			$user->getName(), self::USERNAME_RECOMMENDED_LENGTH, '...', false ) );
 	}
 
 	/**
@@ -526,7 +539,8 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 	 */
 	protected function getTruncatedTitleText( Title $title, $includeNamespace = false ) {
 		$text = $includeNamespace ? $title->getPrefixedText() : $title->getText();
-		return $this->language->embedBidi( $this->language->truncateForVisual( $text, self::PAGE_NAME_RECOMMENDED_LENGTH, '...', false ) );
+		return $this->language->embedBidi( $this->language->truncateForVisual(
+			$text, self::PAGE_NAME_RECOMMENDED_LENGTH, '...', false ) );
 	}
 
 	/**
@@ -547,7 +561,8 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 			: $user->getUserPage()->getFullURL();
 
 		$label = $user->getName();
-		$truncatedLabel = $this->language->truncateForVisual( $label, self::USERNAME_AS_LABEL_RECOMMENDED_LENGTH, '...', false );
+		$truncatedLabel = $this->language->truncateForVisual(
+			$label, self::USERNAME_AS_LABEL_RECOMMENDED_LENGTH, '...', false );
 		$isTruncated = $label !== $truncatedLabel;
 
 		return [
@@ -579,7 +594,8 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 		return [
 			'url' => $title->getFullURL( $query ),
 			'label' => $this->language->embedBidi(
-				$this->language->truncateForVisual( $title->getText(), self::PAGE_NAME_AS_LABEL_RECOMMENDED_LENGTH, '...', false )
+				$this->language->truncateForVisual(
+					$title->getText(), self::PAGE_NAME_AS_LABEL_RECOMMENDED_LENGTH, '...', false )
 			),
 			'tooltip' => $title->getPrefixedText(),
 			'description' => $description,
@@ -600,7 +616,14 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 	 * @return array Array compatible with the structure of
 	 *  secondary links
 	 */
-	final protected function getDynamicActionLink( Title $title, $icon, $label, $description = null, $data = [], $query = [] ) {
+	final protected function getDynamicActionLink(
+		Title $title,
+		$icon,
+		$label,
+		$description = null,
+		$data = [],
+		$query = []
+	) {
 		if ( !$icon && $title->getNamespace() === NS_USER_TALK ) {
 			$icon = 'userSpeechBubble';
 		} elseif ( !$icon && $title->isTalkPage() ) {

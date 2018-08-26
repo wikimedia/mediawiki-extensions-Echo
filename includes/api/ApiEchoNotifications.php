@@ -22,9 +22,11 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 
 		/* @deprecated */
 		if ( $params['format'] === 'flyout' ) {
-			$this->addDeprecation( 'apiwarn-echo-deprecation-flyout', 'action=query&meta=notifications&notformat=flyout' );
+			$this->addDeprecation( 'apiwarn-echo-deprecation-flyout',
+				'action=query&meta=notifications&notformat=flyout' );
 		} elseif ( $params['format'] === 'html' ) {
-			$this->addDeprecation( 'apiwarn-echo-deprecation-html', 'action=query&meta=notifications&notformat=html' );
+			$this->addDeprecation( 'apiwarn-echo-deprecation-html',
+				'action=query&meta=notifications&notformat=html' );
 		}
 
 		if ( $this->allowCrossWikiNotifications() ) {
@@ -146,7 +148,17 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 	 * @param bool $bundle
 	 * @return array
 	 */
-	protected function getSectionPropList( User $user, $section, $filter, $limit, $continue, $format, array $titles = null, $unreadFirst = false, $bundle = false ) {
+	protected function getSectionPropList(
+		User $user,
+		$section,
+		$filter,
+		$limit,
+		$continue,
+		$format,
+		array $titles = null,
+		$unreadFirst = false,
+		$bundle = false
+	) {
 		$attributeManager = EchoAttributeManager::newFromGlobalVars();
 		$sectionEvents = $attributeManager->getUserEnabledEventsbySections( $user, 'web', [ $section ] );
 
@@ -179,7 +191,17 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 	 * @param bool $bundle
 	 * @return array
 	 */
-	protected function getPropList( User $user, array $eventTypes, $filter, $limit, $continue, $format, array $titles = null, $unreadFirst = false, $bundle = false ) {
+	protected function getPropList(
+		User $user,
+		array $eventTypes,
+		$filter,
+		$limit,
+		$continue,
+		$format,
+		array $titles = null,
+		$unreadFirst = false,
+		$bundle = false
+	) {
 		$result = [
 			'list' => [],
 			'continue' => null
@@ -342,7 +364,11 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 	 * @param string $section
 	 * @return array|false A formatted notification, or false if there are no foreign notifications
 	 */
-	protected function makeForeignNotification( User $user, $format, $section = EchoAttributeManager::ALL ) {
+	protected function makeForeignNotification(
+		User $user,
+		$format,
+		$section = EchoAttributeManager::ALL
+	) {
 		global $wgEchoSectionTransition, $wgEchoBundleTransition;
 		if (
 			( $wgEchoSectionTransition && $section !== EchoAttributeManager::ALL ) ||
@@ -354,11 +380,13 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 			// and query them to find out what's really there.
 			// In bundle transition mode, we trust that notifications are classified correctly, but we don't
 			// trust the counts in the table.
-			$potentialWikis = $this->foreignNotifications->getWikis( $wgEchoSectionTransition ? EchoAttributeManager::ALL : $section );
+			$potentialWikis = $this->foreignNotifications->getWikis(
+				$wgEchoSectionTransition ? EchoAttributeManager::ALL : $section );
 			if ( !$potentialWikis ) {
 				return false;
 			}
-			$foreignResults = $this->getFromForeign( $potentialWikis, [ $this->getModulePrefix() . 'filter' => '!read' ] );
+			$foreignResults = $this->getFromForeign( $potentialWikis,
+				[ $this->getModulePrefix() . 'filter' => '!read' ] );
 
 			$countsByWiki = [];
 			$timestampsByWiki = [];
@@ -529,7 +557,8 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 				foreach ( $results as $result ) {
 					$master[$section]['rawcount'] += $result[$section]['rawcount'];
 				}
-				$master[$section]['count'] = EchoNotificationController::formatNotificationCount( $master[$section]['rawcount'] );
+				$master[$section]['count'] = EchoNotificationController::formatNotificationCount(
+					$master[$section]['rawcount'] );
 			}
 		}
 
