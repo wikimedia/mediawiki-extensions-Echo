@@ -294,7 +294,7 @@
 	};
 
 	/**
-	 * Reset the the text of the error message that displays in place of the list
+	 * Reset the text of the error message that displays in place of the list
 	 * in case the list is empty.
 	 */
 	mw.echo.ui.NotificationsInboxWidget.prototype.resetMessageLabel = function () {
