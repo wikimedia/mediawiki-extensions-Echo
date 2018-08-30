@@ -1,6 +1,7 @@
 <?php
 
 class ApiEchoMarkRead extends ApiBase {
+	use ApiCrossWiki;
 
 	public function execute() {
 		// To avoid API warning, register the parameter used to bust browser cache
@@ -17,29 +18,41 @@ class ApiEchoMarkRead extends ApiBase {
 
 		$params = $this->extractRequestParams();
 
-		// There is no need to trigger markRead if all notifications are read
-		if ( $notifUser->getLocalNotificationCount() > 0 ) {
-			if ( $params['list'] ) {
+		// Mark as read/unread locally, if requested
+		if ( in_array( wfWikiID(), $this->getRequestedWikis() ) ) {
+			// There is no need to trigger markRead if all notifications are read
+			if ( $notifUser->getLocalNotificationCount() > 0 ) {
+				if ( $params['list'] ) {
+					// Make sure there is a limit to the update
+					$notifUser->markRead( array_slice( $params['list'], 0, ApiBase::LIMIT_SML2 ) );
+					// Mark all as read
+				} elseif ( $params['all'] ) {
+					$notifUser->markAllRead();
+					// Mark all as read for sections
+				} elseif ( $params['sections'] ) {
+					$notifUser->markAllRead( $params['sections'] );
+				}
+			}
+
+			// Mark as unread
+			if ( $params['unreadlist'] !== null && $params['unreadlist'] !== [] ) {
 				// Make sure there is a limit to the update
-				$notifUser->markRead( array_slice( $params['list'], 0, ApiBase::LIMIT_SML2 ) );
-				// Mark all as read
-			} elseif ( $params['all'] ) {
-				$notifUser->markAllRead();
-				// Mark all as read for sections
-			} elseif ( $params['sections'] ) {
-				$notifUser->markAllRead( $params['sections'] );
+				$notifUser->markUnRead( array_slice( $params['unreadlist'], 0, ApiBase::LIMIT_SML2 ) );
 			}
 		}
 
-		// Mark as unread
-		if ( $params['unreadlist'] !== null && $params['unreadlist'] !== [] ) {
-			// Make sure there is a limit to the update
-			$notifUser->markUnRead( array_slice( $params['unreadlist'], 0, ApiBase::LIMIT_SML2 ) );
-		}
+		$foreignResults = $this->getFromForeign();
 
 		$result = [
 			'result' => 'success'
 		];
+
+		foreach ( $foreignResults as $wiki => $foreignResult ) {
+			if ( isset( $foreignResult['error'] ) ) {
+				$result['errors'][$wiki] = $foreignResult['error'];
+			}
+		}
+
 		$rawCount = 0;
 		foreach ( EchoAttributeManager::$sections as $section ) {
 			$rawSectionCount = $notifUser->getNotificationCount( $section );
@@ -52,11 +65,12 @@ class ApiEchoMarkRead extends ApiBase {
 			'rawcount' => $rawCount,
 			'count' => EchoNotificationController::formatNotificationCount( $rawCount ),
 		];
+
 		$this->getResult()->addValue( 'query', $this->getModuleName(), $result );
 	}
 
 	public function getAllowedParams() {
-		return [
+		return $this->getCrossWikiParams() + [
 			'list' => [
 				ApiBase::PARAM_ISMULTI => true,
 			],
@@ -73,7 +87,7 @@ class ApiEchoMarkRead extends ApiBase {
 			],
 			'token' => [
 				ApiBase::PARAM_REQUIRED => true,
-			],
+			]
 		];
 	}
 
