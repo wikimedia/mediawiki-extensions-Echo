@@ -1,6 +1,8 @@
 <?php
 
-class ApiEchoUnreadNotificationPages extends ApiCrossWikiBase {
+class ApiEchoUnreadNotificationPages extends ApiQueryBase {
+	use ApiCrossWiki;
+
 	/**
 	 * @var bool
 	 */
@@ -36,7 +38,7 @@ class ApiEchoUnreadNotificationPages extends ApiCrossWikiBase {
 			$result += $this->getUnreadNotificationPagesFromForeign();
 		}
 
-		$apis = $this->foreignNotifications->getApiEndpoints( $this->getRequestedWikis() );
+		$apis = $this->getForeignNotifications()->getApiEndpoints( $this->getRequestedWikis() );
 		foreach ( $result as $wiki => $data ) {
 			$result[$wiki]['source'] = $apis[$wiki];
 			$result[$wiki]['pages'] = $data['pages'] ?: [];
@@ -177,7 +179,7 @@ class ApiEchoUnreadNotificationPages extends ApiCrossWikiBase {
 	public function getAllowedParams() {
 		global $wgEchoMaxUpdateCount;
 
-		return parent::getAllowedParams() + [
+		return $this->getCrossWikiParams() + [
 			'grouppages' => [
 				ApiBase::PARAM_TYPE => 'boolean',
 				ApiBase::PARAM_DFLT => false,
