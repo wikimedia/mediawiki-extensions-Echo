@@ -1508,9 +1508,13 @@ TEXT
 		];
 	}
 
-	public static function getExemplarTimestamp() {
-		$title = Title::newMainPage();
-		$user = User::newFromName( 'Test' );
+	public function getExemplarTimestamp() {
+		$title = $this->getMockBuilder( Title::class )
+			->getMock();
+
+		$user = $this->getMockBuilder( User::class )
+			->getMock();
+
 		$options = new ParserOptions;
 
 		global $wgParser;
