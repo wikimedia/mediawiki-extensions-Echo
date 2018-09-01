@@ -171,7 +171,7 @@
 	"notification-page-linked-email-subject": "На сайті {{SITENAME}} з'явилось посилання на сторінку, яку Ви створили",
 	"notification-reverted-email-subject2": "{{PLURAL:$3|1=Ваше редагування|Ваші редагування}} на сайті {{SITENAME}} було {{GENDER:$1|скасовано}}",
 	"notification-mention-email-subject": "$1 {{GENDER:$1|згадав|згадала}} {{GENDER:$2|Вас}} на сайті «{{SITENAME}}».",
-	"notification-user-rights-email-subject": "Змінились Ваші права користувача на {{GRAMMAR:locative|{{SITENAME}}}}.",
+	"notification-user-rights-email-subject": "Змінились Ваші права користувача на веб-сайті {{SITENAME}}.",
 	"notification-timestamp-ago-seconds": "{{PLURAL:$1|$1с}}",
 	"notification-timestamp-ago-minutes": "{{PLURAL:$1|$1хв}}",
 	"notification-timestamp-ago-hours": "{{PLURAL:$1|$1год}}",
