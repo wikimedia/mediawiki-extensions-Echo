@@ -224,7 +224,7 @@ class EchoForeignNotifications {
 	protected static function getWikiTitle( $wikiId, array $siteFromDB = null ) {
 		global $wgConf, $wgLang;
 
-		$msg = wfMessage( 'project-localized-name-'.$wikiId );
+		$msg = wfMessage( 'project-localized-name-' . $wikiId );
 		// check if WikimediaMessages localized project names are available
 		if ( $msg->exists() ) {
 			return $msg->text();
