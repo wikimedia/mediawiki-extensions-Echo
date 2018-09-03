@@ -25,14 +25,14 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 	// Should be one mapping text (friendly) name to internal name, but there
 	// is no friendly name
 	/**
-	 * Notification type names.  Mapping internal name to internal name
+	 * Notification type names.  Mapping HTML-formatted internal name to internal name
 	 *
 	 * @var string[] $notificationTypeNames
 	 */
 	protected $notificationTypeNames;
 
 	/**
-	 * Notify types, mapping internal name to text name
+	 * Notify types, mapping internal name to HTML-formatted name
 	 *
 	 * @var string[] $notifyTypes
 	 */
@@ -47,7 +47,7 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 	protected $flippedCategoryNames;
 
 	/**
-	 * Notify types, mapping text name to internal name
+	 * Notify types, mapping HTML-formatted name to internal name
 	 *
 	 * @var string[] $flippedNotifyTypes
 	 */
@@ -91,13 +91,16 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 
 		$this->notifyTypes = [];
 		foreach ( $wgEchoNotifiers as $notifyType => $notifier ) {
-			$this->notifyTypes[$notifyType] = $this->msg( 'echo-pref-' . $notifyType )->text();
+			$this->notifyTypes[$notifyType] = $this->msg( 'echo-pref-' . $notifyType )->escaped();
 		}
 
 		$this->flippedNotifyTypes = array_flip( $this->notifyTypes );
 
 		$notificationTypes = array_keys( $wgEchoNotifications );
-		$this->notificationTypeNames = array_combine( $notificationTypes, $notificationTypes );
+		$this->notificationTypeNames = array_combine(
+			array_map( 'htmlspecialchars', $notificationTypes ),
+			$notificationTypes
+		);
 
 		$this->getOutput()->setPageTitle( $this->msg( 'echo-displaynotificationsconfiguration' )->text() );
 		$this->outputHeader( 'echo-displaynotificationsconfiguration-summary' );
@@ -196,7 +199,7 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 			$types = $this->attributeManager->getEventsForSection( $section );
 			// echo-notification-alert-text-only, echo-notification-notice-text-only
 			$msgSection = $section == 'message' ? 'notice' : $section;
-			$flippedSectionNames[$this->msg( 'echo-notification-' . $msgSection . '-text-only' )->text()] = $section;
+			$flippedSectionNames[$this->msg( 'echo-notification-' . $msgSection . '-text-only' )->escaped()] = $section;
 			foreach ( $types as $type ) {
 				$bySectionValue[] = "$section-$type";
 			}
