@@ -75,6 +75,7 @@ class EchoDataOutputFormatter {
 			'id' => $event->getId(),
 			'type' => $event->getType(),
 			'category' => $event->getCategory(),
+			'section' => $event->getSection(),
 			'timestamp' => [
 				// ISO 8601 is supposed to be the *only* format used for
 				// date output, but back-compat...

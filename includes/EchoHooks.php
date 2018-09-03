@@ -826,6 +826,79 @@ class EchoHooks {
 		return true;
 	}
 
+	private static function processMarkAsRead( User $user, WebRequest $request, Title $title ) {
+		global $wgEchoCrossWikiNotifications;
+		$subtractions = [
+			EchoAttributeManager::ALERT => 0,
+			EchoAttributeManager::MESSAGE => 0
+		];
+
+		// Attempt to mark a notification as read when visiting a page
+		$eventIds = [];
+		if ( $title->getArticleID() ) {
+			$eventMapper = new EchoEventMapper();
+			$events = $eventMapper->fetchUnreadByUserAndPage( $user, $title->getArticleID() );
+
+			foreach ( $events as $event ) {
+				$subtractions[$event->getSection()]++;
+				$eventIds[] = $event->getId();
+			}
+		}
+
+		// Attempt to mark as read the event IDs in the ?markasread= parameter, if present
+		$markAsReadIds = explode( '|', $request->getText( 'markasread' ) );
+		$markAsReadWiki = $request->getText( 'markasreadwiki', wfWikiID() );
+		$markAsReadLocal = !$wgEchoCrossWikiNotifications || $markAsReadWiki === wfWikiID();
+		if ( $markAsReadIds ) {
+			if ( $markAsReadLocal ) {
+				// gather the IDs that we didn't already find with target_pages
+				$eventsToMarkAsRead = [];
+				foreach ( $markAsReadIds as $markAsReadId ) {
+					$markAsReadId = intval( $markAsReadId );
+					if ( $markAsReadId !== 0 && !in_array( $markAsReadId, $eventIds ) ) {
+						$eventsToMarkAsRead[] = $markAsReadId;
+					}
+				}
+
+				if ( $eventsToMarkAsRead ) {
+					// fetch the notifications to adjust the counters
+					$notifMapper = new EchoNotificationMapper();
+					$notifs = $notifMapper->fetchByUserEvents( $user, $eventsToMarkAsRead );
+
+					foreach ( $notifs as $notif ) {
+						if ( !$notif->getReadTimestamp() ) {
+							$subtractions[$notif->getEvent()->getSection()]++;
+							$eventIds[] = intval( $notif->getEvent()->getId() );
+						}
+					}
+				}
+			} else {
+				// Look up the notifications on the foreign wiki
+				$notifUser = MWEchoNotifUser::newFromUser( $user );
+				$notifInfo = $notifUser->getForeignNotificationInfo( $markAsReadIds, $markAsReadWiki );
+				foreach ( $notifInfo as $id => $info ) {
+					$subtractions[$info['section']]++;
+				}
+
+				// Schedule a deferred update to mark these notifications as read on the foreign wiki
+				DeferredUpdates::addCallableUpdate( function () use ( $user, $markAsReadIds, $markAsReadWiki ) {
+					$notifUser = MWEchoNotifUser::newFromUser( $user );
+					$notifUser->markReadForeign( $markAsReadIds, $markAsReadWiki );
+				} );
+			}
+		}
+
+		// Schedule a deferred update to mark local target_page and ?markasread= notifications as read
+		if ( $eventIds ) {
+			DeferredUpdates::addCallableUpdate( function () use ( $user, $eventIds ) {
+				$notifUser = MWEchoNotifUser::newFromUser( $user );
+				$notifUser->markRead( $eventIds );
+			} );
+		}
+
+		return $subtractions;
+	}
+
 	/**
 	 * Handler for PersonalUrls hook.
 	 * Add a "Notifications" item to the user toolbar ('personal URLs').
@@ -841,66 +914,12 @@ class EchoHooks {
 			return true;
 		}
 
-		// Attempt to mark a notification as read when visiting a page
-		$subtractAlerts = 0;
-		$subtractMessages = 0;
-		$eventIds = [];
-		if ( $title->getArticleID() ) {
-			$eventMapper = new EchoEventMapper();
-			$events = $eventMapper->fetchUnreadByUserAndPage( $user, $title->getArticleID() );
-
-			foreach ( $events as $event ) {
-				if ( $event->getSection() === EchoAttributeManager::MESSAGE ) {
-					$subtractMessages++;
-				} else {
-					// ALERT
-					$subtractAlerts++;
-				}
-				$eventIds[] = $event->getId();
-			}
-		}
-
-		// Attempt to mark as read the event IDs in the ?markasread= parameter, if present
-		$markAsReadIds = explode( '|', $sk->getOutput()->getRequest()->getText( 'markasread' ) );
-		if ( $markAsReadIds ) {
-			// gather the IDs that we didn't already find with target_pages
-			$eventsToMarkAsRead = [];
-			foreach ( $markAsReadIds as $markAsReadId ) {
-				$markAsReadId = intval( $markAsReadId );
-				if ( $markAsReadId !== 0 && !in_array( $markAsReadId, $eventIds ) ) {
-					$eventsToMarkAsRead[] = $markAsReadId;
-				}
-			}
-
-			if ( $eventsToMarkAsRead ) {
-				// fetch the notifications to adjust the counters
-				$notifMapper = new EchoNotificationMapper();
-				$notifs = $notifMapper->fetchByUserEvents( $user, $eventsToMarkAsRead );
-
-				foreach ( $notifs as $notif ) {
-					if ( !$notif->getReadTimestamp() ) {
-						if ( $notif->getEvent()->getSection() === EchoAttributeManager::MESSAGE ) {
-							$subtractMessages++;
-						} else {
-							$subtractAlerts++;
-						}
-						$eventIds[] = intval( $notif->getEvent()->getId() );
-					}
-				}
-			}
-		}
-
-		if ( $eventIds ) {
-			DeferredUpdates::addCallableUpdate( function () use ( $user, $eventIds ) {
-				$notifUser = MWEchoNotifUser::newFromUser( $user );
-				$notifUser->markRead( $eventIds );
-			} );
-		}
+		$subtractions = self::processMarkAsRead( $user, $sk->getOutput()->getRequest(), $title );
 
 		// Add a "My notifications" item to personal URLs
 		$notifUser = MWEchoNotifUser::newFromUser( $user );
-		$msgCount = $notifUser->getMessageCount() - $subtractMessages;
-		$alertCount = $notifUser->getAlertCount() - $subtractAlerts;
+		$msgCount = $notifUser->getMessageCount() - $subtractions[EchoAttributeManager::MESSAGE];
+		$alertCount = $notifUser->getAlertCount() - $subtractions[EchoAttributeManager::ALERT];
 		// But make sure we never show a negative number (T130853)
 		$msgCount = max( 0, $msgCount );
 		$alertCount = max( 0, $alertCount );

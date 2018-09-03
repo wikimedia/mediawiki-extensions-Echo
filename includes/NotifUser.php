@@ -348,6 +348,58 @@ class MWEchoNotifUser {
 	}
 
 	/**
+	 * Mark one of more notifications as read on a foreign wiki.
+	 *
+	 * @param int[] $eventIds Event IDs to mark as read
+	 * @param string $wiki Wiki name
+	 */
+	public function markReadForeign( array $eventIds, $wiki ) {
+		$foreignReq = new EchoForeignWikiRequest(
+			$this->mUser,
+			[
+				'action' => 'echomarkread',
+				'list' => implode( '|', $eventIds ),
+			],
+			[ $wiki ],
+			'wikis',
+			'csrf'
+		);
+		$foreignReq->execute();
+	}
+
+	/**
+	 * Get information about a set of unread notifications on a foreign wiki.
+	 *
+	 * @param int[] $eventIds Event IDs to look up. Only unread notifications can be found.
+	 * @param string $wiki Wiki name
+	 * @return array[] Array of notification data as returned by api.php, keyed by event ID
+	 */
+	public function getForeignNotificationInfo( array $eventIds, $wiki ) {
+		$foreignReq = new EchoForeignWikiRequest(
+			$this->mUser,
+			[
+				'action' => 'query',
+				'meta' => 'notifications',
+				'notprop' => 'list',
+				'notfilter' => '!read',
+				'notlimit' => 'max'
+			],
+			[ $wiki ],
+			'notwikis'
+		);
+		$foreignResults = $foreignReq->execute();
+		$list = $foreignResults[$wiki]['query']['notifications']['list'] ?? [];
+
+		$result = [];
+		foreach ( $list as $notif ) {
+			if ( in_array( $notif['id'], $eventIds ) ) {
+				$result[$notif['id']] = $notif;
+			}
+		}
+		return $result;
+	}
+
+	/**
 	 * Invalidate cache and update echo_unread_wikis if x-wiki notifications is enabled.
 	 *
 	 * This updates the user's touched timestamp, as well as the value returned by getGlobalUpdateTime().

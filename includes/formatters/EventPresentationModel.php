@@ -438,20 +438,27 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 	 * Like getPrimaryLink(), but with the URL altered to add ?markasread=XYZ. When this link is followed,
 	 * the notification is marked as read.
 	 *
-	 * When the notification is a bundle, the notification IDs are added to the parameter value
-	 * separated by a "|".
+	 * If the notification is a bundle, the notification IDs are added to the parameter value
+	 * separated by a "|". If cross-wiki notifications are enabled, a markasreadwiki parameter is
+	 * added.
 	 *
 	 * @return array|false
 	 */
 	final public function getPrimaryLinkWithMarkAsRead() {
+		global $wgEchoCrossWikiNotifications;
 		$primaryLink = $this->getPrimaryLink();
 		if ( $primaryLink ) {
 			$eventIds = [ $this->event->getId() ];
 			if ( $this->getBundledIds() ) {
 				$eventIds = array_merge( $eventIds, $this->getBundledIds() );
 			}
-			$primaryLink['url'] = wfAppendQuery( $primaryLink['url'],
-				[ 'markasread' => implode( '|', $eventIds ) ] );
+
+			$queryParams = [ 'markasread' => implode( '|', $eventIds ) ];
+			if ( $wgEchoCrossWikiNotifications ) {
+				$queryParams['markasreadwiki'] = wfWikiID();
+			}
+
+			$primaryLink['url'] = wfAppendQuery( $primaryLink['url'], $queryParams );
 		}
 		return $primaryLink;
 	}
