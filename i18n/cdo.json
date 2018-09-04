@@ -3,7 +3,8 @@
 		"authors": [
 			"Amire80",
 			"Yejianfei",
-			"唐吉訶德的侍從"
+			"唐吉訶德的侍從",
+			"Davidzdh"
 		]
 	},
 	"echo-desc": "通知系統",
@@ -36,6 +37,7 @@
 	"echo-pref-tooltip-mention": "有儂鏈接遘我其用戶頁其辰候通知我。",
 	"echo-error-no-formatter": "未規定通知其格式。",
 	"notifications": "通知",
+	"tooltip-pt-notifications-alert": "{{GENDER:|Nṳ̄ gì}} tì-sĭng",
 	"echo-specialpage": "通知",
 	"echo-anon": "卜想收遘通知，著[$1 開賬號]或者[$2 躒入]。",
 	"echo-none": "汝無通知。",

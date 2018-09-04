@@ -26,6 +26,7 @@
 	"notificationsmarkread-legend": "Markizar l'informo quale \"lektita\"",
 	"echo-notification-placeholder": "Ne existas avizi.",
 	"echo-notification-placeholder-filters": "Ne existas avizi segun ica kriterii.",
+	"echo-notification-markasread": "Indikez \"lektita\"",
 	"echo-notification-markasunread": "Indikez quale \"ne lektita\"",
 	"notification-link-text-expand-alert-count": "Vidar {{PLURAL:$1|$1 avizo|$1 avizi}}",
 	"notification-link-text-view-changes": "{{GENDER:$1|Vidar}} modifiki",
