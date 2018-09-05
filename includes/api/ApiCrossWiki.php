@@ -32,7 +32,8 @@ trait ApiCrossWiki {
 			$this->getUser(),
 			$paramOverrides + $this->getForeignQueryParams(),
 			$wikis !== null ? $wikis : $this->getRequestedForeignWikis(),
-			$this->getModulePrefix() . 'wikis'
+			$this->getModulePrefix() . 'wikis',
+			$this->needsToken() ?? null
 		);
 		return $foreignReq->execute();
 	}

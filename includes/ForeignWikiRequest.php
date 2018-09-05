@@ -10,12 +10,18 @@ class EchoForeignWikiRequest {
 	 * @param array $params Request parameters
 	 * @param array $wikis Wikis to send the request to
 	 * @param string|null $wikiParam Parameter name to set to the name of the wiki
+	 * @param string|null $postToken If set, use POST requests and inject a token of this type;
+	 *  if null, use GET requests.
 	 */
-	public function __construct( User $user, array $params, array $wikis, $wikiParam = null ) {
+	public function __construct( User $user, array $params, array $wikis, $wikiParam = null, $postToken = null ) {
 		$this->user = $user;
 		$this->params = $params;
 		$this->wikis = $wikis;
 		$this->wikiParam = $wikiParam;
+		$this->method = $postToken === null ? 'GET' : 'POST';
+		$this->tokenType = $postToken;
+
+		$this->csrfTokens = null;
 	}
 
 	/**
@@ -27,7 +33,7 @@ class EchoForeignWikiRequest {
 			return [];
 		}
 
-		$reqs = $this->getRequestParams();
+		$reqs = $this->getRequestParams( $this->method, [ $this, 'getQueryParams' ] );
 		return $this->doRequests( $reqs );
 	}
 
@@ -84,9 +90,36 @@ class EchoForeignWikiRequest {
 	}
 
 	/**
-	 * @return array[]
+	 * Get the CSRF token for a given wiki.
+	 * This method fetches the tokens for all requested wikis at once and caches the result.
+	 *
+	 * @param string $wiki Name of the wiki to get a token for
+	 * @return string Token
 	 */
-	protected function getRequestParams() {
+	protected function getCsrfToken( $wiki ) {
+		if ( $this->csrfTokens === null ) {
+			$reqs = $this->getRequestParams( 'GET', [
+				'action' => 'query',
+				'meta' => 'tokens',
+				'type' => $this->tokenType,
+				'format' => 'json',
+				'centralauthtoken' => $this->getCentralAuthToken( $this->user ),
+			] );
+			$responses = $this->doRequests( $reqs );
+			foreach ( $responses as $w => $response ) {
+				$this->csrfTokens[$w] = $response['query']['tokens']['csrftoken'];
+			}
+		}
+		return $this->csrfTokens[$wiki];
+	}
+
+	/**
+	 * @param string $method 'GET' or 'POST'
+	 * @param array|callable $params Associative array of query string / POST parameters,
+	 *  or a callback that takes a wiki name and returns such an array
+	 * @return array[] Array of request parameters to pass to doRequests(), keyed by wiki name
+	 */
+	protected function getRequestParams( $method, $params ) {
 		$apis = EchoForeignNotifications::getApiEndpoints( $this->wikis );
 		if ( !$apis ) {
 			return [];
@@ -94,10 +127,11 @@ class EchoForeignWikiRequest {
 
 		$reqs = [];
 		foreach ( $apis as $wiki => $api ) {
+			$queryKey = $method === 'POST' ? 'body' : 'query';
 			$reqs[$wiki] = [
-				'method' => 'GET',
+				'method' => $method,
 				'url' => $api['url'],
-				'query' => $this->getQueryParams( $wiki ),
+				$queryKey => is_callable( $params ) ? call_user_func( $params, $wiki ) : $params
 			];
 		}
 
@@ -114,6 +148,9 @@ class EchoForeignWikiRequest {
 			// Only request data from that specific wiki, or they'd all spawn
 			// cross-wiki api requests...
 			$extraParams[$this->wikiParam] = $wiki;
+		}
+		if ( $this->method === 'POST' ) {
+			$extraParams['token'] = $this->getCsrfToken( $wiki );
 		}
 
 		return [
