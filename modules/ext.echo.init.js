@@ -5,6 +5,7 @@
 	var uri = new mw.Uri();
 	if ( uri.query.markasread !== undefined ) {
 		delete uri.query.markasread;
+		delete uri.query.markasreadwiki;
 		window.history.replaceState( null, document.title, uri );
 	}
 
