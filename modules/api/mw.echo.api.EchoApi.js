@@ -239,7 +239,8 @@
 	 *  for that type in the given source
 	 */
 	mw.echo.api.EchoApi.prototype.markItemsRead = function ( itemIds, source, isRead ) {
-		return this.network.getApiHandler( source ).markItemsRead( itemIds, isRead );
+		// markasread is proxied via the local API
+		return this.network.getApiHandler( 'local' ).markItemsRead( source, itemIds, isRead );
 	};
 
 	/**
@@ -252,7 +253,8 @@
 	 *  for that type in the given source
 	 */
 	mw.echo.api.EchoApi.prototype.markAllRead = function ( source, type ) {
-		return this.network.getApiHandler( source ).markAllRead( type );
+		// markasread is proxied via the local API
+		return this.network.getApiHandler( 'local' ).markAllRead( source, type );
 	};
 
 	/**

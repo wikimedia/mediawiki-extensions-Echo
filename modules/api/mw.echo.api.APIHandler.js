@@ -182,6 +182,7 @@
 	/**
 	 * Mark all notifications as read
 	 *
+	 * @param {string} source Wiki name
 	 * @param {string|string[]} type Notification type 'message', 'alert' or 'all'.
 	 * @return {jQuery.Promise} A promise that resolves when all notifications
 	 *  are marked as read.
@@ -192,6 +193,7 @@
 	 * Mark multiple notification items as read using specific IDs
 	 *
 	 * @abstract
+	 * @param {string} source Wiki name
 	 * @param {string[]} itemIdArray An array of notification item IDs
 	 * @param {boolean} [isRead] Item's new read state; true for marking the item
 	 *  as read, false for marking the item as unread
