@@ -1,6 +1,8 @@
 <?php
 
-class ApiEchoNotifications extends ApiCrossWikiBase {
+class ApiEchoNotifications extends ApiQueryBase {
+	use ApiCrossWiki;
+
 	/**
 	 * @var bool
 	 */
@@ -380,7 +382,7 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 			// and query them to find out what's really there.
 			// In bundle transition mode, we trust that notifications are classified correctly, but we don't
 			// trust the counts in the table.
-			$potentialWikis = $this->foreignNotifications->getWikis(
+			$potentialWikis = $this->getForeignNotifications()->getWikis(
 				$wgEchoSectionTransition ? EchoAttributeManager::ALL : $section );
 			if ( !$potentialWikis ) {
 				return false;
@@ -417,12 +419,12 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 			}, $timestampsByWiki );
 		} else {
 			// In non-transition mode, or when querying all sections, we can trust the euw table
-			$wikis = $this->foreignNotifications->getWikis( $section );
-			$count = $this->foreignNotifications->getCount( $section );
-			$maxTimestamp = $this->foreignNotifications->getTimestamp( $section );
+			$wikis = $this->getForeignNotifications()->getWikis( $section );
+			$count = $this->getForeignNotifications()->getCount( $section );
+			$maxTimestamp = $this->getForeignNotifications()->getTimestamp( $section );
 			$timestampsByWiki = [];
 			foreach ( $wikis as $wiki ) {
-				$timestampsByWiki[$wiki] = $this->foreignNotifications->getWikiTimestamp( $wiki, $section );
+				$timestampsByWiki[$wiki] = $this->getForeignNotifications()->getWikiTimestamp( $wiki, $section );
 			}
 		}
 
@@ -474,7 +476,7 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 	}
 
 	protected function getForeignQueryParams() {
-		$params = parent::getForeignQueryParams();
+		$params = $this->getRequest()->getValues();
 
 		// don't request cross-wiki notification summaries
 		unset( $params['notcrosswikisummary'] );
@@ -577,8 +579,7 @@ class ApiEchoNotifications extends ApiCrossWikiBase {
 	public function getAllowedParams() {
 		$sections = EchoAttributeManager::$sections;
 
-		$params = parent::getAllowedParams();
-		$params += [
+		$params = $this->getCrossWikiParams() + [
 			'filter' => [
 				ApiBase::PARAM_ISMULTI => true,
 				ApiBase::PARAM_DFLT => 'read|!read',

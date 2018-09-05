@@ -903,7 +903,7 @@
 	},
 	"manifest_version": 2,
 	"AutoloadClasses": {
-		"ApiCrossWikiBase": "includes/api/ApiCrossWikiBase.php",
+		"ApiCrossWiki": "includes/api/ApiCrossWiki.php",
 		"ApiEchoArticleReminder": "includes/api/ApiEchoArticleReminder.php",
 		"ApiEchoMarkRead": "includes/api/ApiEchoMarkRead.php",
 		"ApiEchoMarkReadTest": "tests/phpunit/api/ApiEchoMarkReadTest.php",
