@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Aursani",
-			"Mehtab ahmed"
+			"Mehtab ahmed",
+			"Tweety"
 		]
 	},
 	"echo-desc": "واپرائيندڙن کي واقعن ۽ پيغامن جو اطلاع ڏيڻ لاءِ سرشتو",
@@ -14,7 +15,26 @@
 	"prefs-blocknotificationslist": "بند واپرائيندڙ",
 	"echo-pref-send-me": "مون ڏي موڪليو:",
 	"echo-pref-send-to": "ڏانھن موڪليو:",
+	"echo-pref-email-format": "برق ٽپال حليو",
+	"echo-pref-email-frequency-never": "مونکي اطلاع برق ٽپال تي نه موڪليو",
+	"echo-pref-email-frequency-immediately": "جيئن ئي اچن، الڳ الڳ موڪليو",
+	"echo-pref-email-frequency-daily": "هر روز اطلاعن جو تت موڪليو",
+	"echo-pref-email-frequency-weekly": "هر هفتي اطلاعن جو تت موڪليو",
+	"echo-pref-cross-wiki-notifications": "ٻين وڪيز جا اطلاع ڏيکاريو",
+	"echo-pref-notifications-blacklist": "هنن واپرائيندڙ جا اطلاع نه ڏيو. ([[mw:Special:MyLanguage/Help:Notifications#mute|وڌيڪ معلومات]])",
 	"echo-new-messages": "توھان لاءِ نوان نياپا آھن",
+	"echo-category-title-edit-user-talk": "بحث صفحي جا پيغام",
+	"echo-category-title-article-linked": "صفحو {{PLURAL:$1|ڳنڍڻو|ڳنڍڻا}}",
+	"echo-category-title-reverted": "ترميم {{PLURAL:$1|اڻڪريو|اڻڪريل}}",
+	"echo-category-title-mention": "{{PLURAL:$1|ذڪر|ياد}}",
+	"echo-category-title-mention-failure": "نامڪمل {{PLURAL:$1|ذڪر|ياد}}",
+	"echo-category-title-mention-success": "ڪامياب {{PLURAL:$1|ياد|يادگري}}",
+	"echo-category-title-other": "{{PLURAL:$1|ٻي}}",
+	"echo-category-title-system": "{{PLURAL:$1|سسٽم}}",
+	"echo-category-title-user-rights": "{{PLURAL:$1|واپرائيندڙ حق ۾ تبديليون|واپرائيندڙ حقن ۾ تبديلون}}",
+	"echo-category-title-emailuser": "{{PLURAL:$1|ٻي واپرائيندڙ وٽان برق ٽپال|ٻين واپرائيندڙ طرفان برق ٽپالون}}",
+	"echo-category-title-article-reminder": "صفحو {{PLURAL:$1|يادگير|ياگيريون}}",
+	"echo-pref-tooltip-edit-user-talk": "مونکي اطلاع ڏيو، جڏهن ڪير منهنجي بحث صفحي تي پيغام ڇڏي يا جواب ڏي.",
 	"notifications": "اطلاع",
 	"tooltip-pt-notifications-alert": "{{GENDER:|توهانجون}} خبرون",
 	"tooltip-pt-notifications-notice": "{{GENDER:|توھان جا}} اطلاع",
