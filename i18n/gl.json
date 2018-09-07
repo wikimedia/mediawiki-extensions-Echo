@@ -185,7 +185,7 @@
 	"echo-notification-notice-text-only": "Avisos",
 	"echo-overlay-link": "Todas as notificacións",
 	"echo-overlay-title": "<b>Notificacións</b>",
-	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Notificación|Notificacións}}</b> (mostrando $1 de $2 sen ler)",
+	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Notificación|Notificacións}}</b> (amosando $1 de $2 sen ler)",
 	"echo-mark-all-as-read": "Marcar todo como lido",
 	"echo-mark-all-as-read-confirmation": "$1 {{PLURAL:$1|notificación marcada como lida|notificacións marcadas como lidas}}",
 	"echo-mark-wiki-as-read": "Marcar todas como lidas na wiki seleccionada: $1",
