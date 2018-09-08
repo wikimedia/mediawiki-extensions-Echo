@@ -91,7 +91,7 @@
 		} );
 
 		preferencesButton = new OO.ui.ButtonWidget( {
-			icon: 'advanced',
+			icon: 'settings',
 			label: mw.msg( 'mypreferences' ),
 			href: links.preferences,
 			classes: [ 'mw-echo-ui-notificationBadgeButtonPopupWidget-footer-preferences' ]
