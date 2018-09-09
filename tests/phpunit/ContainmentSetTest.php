@@ -50,7 +50,7 @@ class ContainmentSetTest extends MediaWikiTestCase {
 	}
 
 	/**
-	 * @Database
+	 * @group Database
 	 */
 	public function testOnWikiList() {
 		$this->editPage( 'User:Foo/Bar-baz', "abc\ndef\r\nghi\n\n\n" );
