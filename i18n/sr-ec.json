@@ -38,7 +38,7 @@
 	"echo-pref-beta-feature-cross-wiki-message": "Побољшана обавештења",
 	"echo-pref-beta-feature-cross-wiki-description": "Лакши преглед и организација обавештења. Укључује међувики обавештења, што вам омогућава да видите поруке са других викија. (Да бисте примали међувики обавештења на датом викију, морате да активирате ову бета могућност.)",
 	"echo-learn-more": "Сазнајте више",
-	"echo-log": "Јавна евиденција",
+	"echo-log": "Јаван дневник",
 	"echo-new-messages": "Имате нове поруке",
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Поруке}} на страници за разговор",
 	"echo-category-title-article-linked": "{{PLURAL:$1|Линкови на страницу}}",
