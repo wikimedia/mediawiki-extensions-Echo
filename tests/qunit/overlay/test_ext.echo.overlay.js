@@ -1,6 +1,6 @@
 ( function ( $, mw ) {
 	QUnit.module( 'ext.echo.overlay', {
-		setup: function () {
+		beforeEach: function () {
 			var ApiStub;
 
 			this.$badge = $( '<a class="mw-echo-notifications-badge mw-echo-unseen-notifications">1</a>' );
@@ -198,7 +198,7 @@
 		}
 	} );
 
-	QUnit.test( 'mw.echo.overlay.buildOverlay', 7, function ( assert ) {
+	QUnit.test( 'mw.echo.overlay.buildOverlay', function ( assert ) {
 		var $overlay;
 		this.sandbox.stub( mw.echo.overlay, 'api', new this.ApiStub() );
 		mw.echo.overlay.buildOverlay( function ( $o ) {
@@ -216,7 +216,7 @@
 			false, 'The badge no longer indicates new messages.' );
 	} );
 
-	QUnit.test( 'mw.echo.overlay.buildOverlay with messages', 5, function ( assert ) {
+	QUnit.test( 'mw.echo.overlay.buildOverlay with messages', function ( assert ) {
 		var $overlay;
 		this.sandbox.stub( mw.echo.overlay, 'api', new this.ApiStub( 'no-new-messages' ) );
 		mw.echo.overlay.buildOverlay( function ( $o ) {
@@ -232,7 +232,7 @@
 			false, 'The notification button class is updated with the default switch to alert tab.' );
 	} );
 
-	QUnit.test( 'Switch tabs on overlay. 1 unread alert, no unread messages.', 7, function ( assert ) {
+	QUnit.test( 'Switch tabs on overlay. 1 unread alert, no unread messages.', function ( assert ) {
 		var $overlay, $tabs;
 
 		this.sandbox.stub( mw.echo.overlay, 'api', new this.ApiStub( 'no-new-messages' ) );
@@ -259,7 +259,7 @@
 			true, 'Second tab has active class .as it is the only clickable tab' );
 	} );
 
-	QUnit.test( 'Unread message behaviour', 5, function ( assert ) {
+	QUnit.test( 'Unread message behaviour', function ( assert ) {
 		var $overlay;
 
 		this.sandbox.stub( mw.echo.overlay, 'api', new this.ApiStub( 'with-new-messages' ) );
@@ -282,7 +282,7 @@
 			'There are no notifications now so no need for button.' );
 	} );
 
-	QUnit.test( 'Mark as read.', 8, function ( assert ) {
+	QUnit.test( 'Mark as read.', function ( assert ) {
 		var $overlay;
 		this.$badge.text( '8' );
 		this.sandbox.stub( mw.echo.overlay, 'api', new this.ApiStub( 'with-new-messages' ) );
@@ -311,7 +311,7 @@
 		assert.strictEqual( this.$badge.text(), '6', 'Now 6 unread notifications.' );
 	} );
 
-	QUnit.test( 'Tabs when there is overflow.', 2, function ( assert ) {
+	QUnit.test( 'Tabs when there is overflow.', function ( assert ) {
 		var $overlay;
 		this.sandbox.stub( mw.echo.overlay, 'api', new this.ApiStub( 'with-new-messages', 50 ) );
 		mw.echo.overlay.buildOverlay( function ( $o ) {
@@ -324,7 +324,7 @@
 		assert.strictEqual( $overlay.find( '.mw-echo-unread' ).length, 8, 'There are 8 unread notifications.' );
 	} );
 
-	QUnit.test( 'Switching tabs visibility', 4, function ( assert ) {
+	QUnit.test( 'Switching tabs visibility', function ( assert ) {
 		var $overlay;
 
 		this.sandbox.stub( mw.echo.overlay, 'api', new this.ApiStub( 'with-new-messages' ) );

@@ -83,7 +83,7 @@
 
 		this.reset();
 		for ( source in sourceData ) {
-			if ( sourceData.hasOwnProperty( source ) ) {
+			if ( Object.prototype.hasOwnProperty.call( sourceData, source ) ) {
 				this.setSourcePagesDetails( source, sourceData[ source ] );
 			}
 		}

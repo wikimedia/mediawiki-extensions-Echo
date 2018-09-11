@@ -116,7 +116,7 @@
 			[ 'baz', 'bar', 'foo' ],
 			'Model source names exist in order'
 		);
-		assert.equal(
+		assert.strictEqual(
 			model.hasUnseen(),
 			true,
 			'hasUnseen is true if there are unseen items in any group'
@@ -129,14 +129,14 @@
 			}
 		}
 		groupDefinitions[ 0 ].items[ 0 ].toggleSeen( false );
-		assert.equal(
+		assert.strictEqual(
 			model.hasUnseen(),
 			true,
 			'hasUnseen is true even if only one item in one group is unseen'
 		);
 
 		groupDefinitions[ 0 ].items[ 0 ].toggleSeen( true );
-		assert.equal(
+		assert.strictEqual(
 			model.hasUnseen(),
 			false,
 			'hasUnseen is false if there are no unseen items in any of the groups'
@@ -209,7 +209,7 @@
 		numUnseenItems = model.getItems().filter( function ( item ) {
 			return !item.isSeen();
 		} ).length;
-		assert.equal(
+		assert.strictEqual(
 			numUnseenItems,
 			numAllItems,
 			'Starting state: all items are unseen'
@@ -221,7 +221,7 @@
 		numUnseenItems = model.getItems().filter( function ( item ) {
 			return !item.isSeen();
 		} ).length;
-		assert.equal(
+		assert.strictEqual(
 			numUnseenItems,
 			numAllItems - groupDefinitions[ 0 ].items.length,
 			'Only some items are seen'
@@ -233,7 +233,7 @@
 		numUnseenItems = model.getItems().filter( function ( item ) {
 			return !item.isSeen();
 		} ).length;
-		assert.equal(
+		assert.strictEqual(
 			numUnseenItems,
 			0,
 			'All items are seen'

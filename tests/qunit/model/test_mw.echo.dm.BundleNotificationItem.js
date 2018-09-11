@@ -15,13 +15,13 @@
 				{ modelName: 'foo' }
 			);
 
-		assert.equal(
+		assert.strictEqual(
 			bundle.getCount(),
 			5,
 			'Bundled items added to internal list'
 		);
 
-		assert.equal(
+		assert.strictEqual(
 			bundle.getName(),
 			'foo',
 			'Bundle name stored'
@@ -33,13 +33,13 @@
 			'All ids present'
 		);
 
-		assert.equal(
+		assert.strictEqual(
 			bundle.isRead(),
 			false,
 			'Bundle with all unread items is unread'
 		);
 
-		assert.equal(
+		assert.strictEqual(
 			bundle.hasUnseen(),
 			true,
 			'Bundle has unseen items'
@@ -74,7 +74,7 @@
 				}
 			);
 
-		assert.equal(
+		assert.strictEqual(
 			bundle.hasUnseen(),
 			true,
 			'Bundle has unseen'
@@ -85,20 +85,20 @@
 			bundledItems[ i ].toggleSeen( true );
 		}
 
-		assert.equal(
+		assert.strictEqual(
 			bundle.hasUnseen(),
 			false,
 			'Bundle does not have unseen after all items marked as seen'
 		);
 
-		assert.equal(
+		assert.strictEqual(
 			bundle.isRead(),
 			false,
 			'Bundle is unread'
 		);
 		// Mark one item as read
 		bundledItems[ 0 ].toggleRead( true );
-		assert.equal(
+		assert.strictEqual(
 			bundle.isRead(),
 			false,
 			'Bundle is still unread if it has some unread items'
@@ -108,7 +108,7 @@
 		for ( i = 0; i < bundledItems.length; i++ ) {
 			bundledItems[ i ].toggleRead( true );
 		}
-		assert.equal(
+		assert.strictEqual(
 			bundle.isRead(),
 			true,
 			'Bundle is marked as read if all items are read'

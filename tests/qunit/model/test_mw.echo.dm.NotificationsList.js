@@ -69,24 +69,24 @@
 				new mw.echo.dm.NotificationItem( 5, { type: 'message', timestamp: '201609190500', read: true, seen: false } )
 			];
 
-		assert.equal(
+		assert.strictEqual(
 			model.getCount(),
 			0,
 			'Model list starts empty'
 		);
-		assert.equal(
+		assert.strictEqual(
 			model.getTimestamp(),
 			'200101010000',
 			'Model timestamp is its default'
 		);
 
 		model.setItems( items );
-		assert.equal(
+		assert.strictEqual(
 			model.getCount(),
 			6,
 			'Item list setup'
 		);
-		assert.equal(
+		assert.strictEqual(
 			model.getTimestamp(),
 			'201609190100',
 			'Model timestamp is the latest unread item\'s timestamp'

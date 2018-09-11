@@ -52,28 +52,28 @@
 	QUnit.test( 'Changing filters', function ( assert ) {
 		var model = new mw.echo.dm.FiltersModel();
 
-		assert.equal(
+		assert.strictEqual(
 			model.getReadState(),
 			'all',
 			'Initial value: all'
 		);
 
 		model.setReadState( 'unread' );
-		assert.equal(
+		assert.strictEqual(
 			model.getReadState(),
 			'unread',
 			'Changing state (unread)'
 		);
 
 		model.setReadState( 'read' );
-		assert.equal(
+		assert.strictEqual(
 			model.getReadState(),
 			'read',
 			'Changing state (read)'
 		);
 
 		model.setReadState( 'foo' );
-		assert.equal(
+		assert.strictEqual(
 			model.getReadState(),
 			'read',
 			'Ignoring invalid state (foo)'

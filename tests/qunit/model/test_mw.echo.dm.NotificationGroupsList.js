@@ -4,7 +4,7 @@
 	QUnit.test( 'Constructing the model', function ( assert ) {
 		var model = new mw.echo.dm.NotificationGroupsList();
 
-		assert.equal(
+		assert.strictEqual(
 			model.getTimestamp(),
 			0,
 			'Empty group has timestamp 0'
@@ -59,14 +59,14 @@
 				groupDefinitions[ i ].items
 			);
 
-			assert.equal(
+			assert.strictEqual(
 				model.getItemCount(),
 				i + 1,
 				'Group number increases after addGroup ("' + groupDefinitions[ i ].name + '")'
 			);
 
 			group = model.getGroupByName( groupDefinitions[ i ].name );
-			assert.equal(
+			assert.strictEqual(
 				group.getName(),
 				groupDefinitions[ i ].name,
 				'Group exists after addGroup ("' + groupDefinitions[ i ].name + '")'
@@ -76,12 +76,12 @@
 		// Remove group
 		model.removeGroup( groupDefinitions[ 0 ].name );
 
-		assert.equal(
+		assert.strictEqual(
 			model.getItemCount(),
 			groupDefinitions.length - 1,
 			'Group number decreased after removeGroup'
 		);
-		assert.equal(
+		assert.strictEqual(
 			model.getGroupByName( groupDefinitions[ 0 ] ),
 			null,
 			'Removed group is no longer in the list'
@@ -90,7 +90,7 @@
 		// Removing the last item from a group should remove the group
 		group = model.getGroupByName( 'baz' );
 		group.discardItems( groupDefinitions[ 2 ].items );
-		assert.equal(
+		assert.strictEqual(
 			model.getGroupByName( 'baz' ),
 			null,
 			'Empty group is no longer in the list'

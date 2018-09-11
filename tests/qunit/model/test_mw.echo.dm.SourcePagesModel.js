@@ -82,12 +82,12 @@
 
 		model.setAllSources( sources );
 
-		assert.equal(
+		assert.strictEqual(
 			model.getCurrentSource(),
 			'local',
 			'Default source is local'
 		);
-		assert.equal(
+		assert.strictEqual(
 			model.getCurrentPage(),
 			null,
 			'Default page is null'
@@ -97,12 +97,12 @@
 			[ 'local', 'hewiki' ],
 			'Source array includes all sources'
 		);
-		assert.equal(
+		assert.strictEqual(
 			model.getSourceTitle( 'hewiki' ),
 			'Hebrew Wikipedia',
 			'Source title'
 		);
-		assert.equal(
+		assert.strictEqual(
 			model.getSourceTotalCount( 'hewiki' ),
 			15,
 			'Source total count'
@@ -157,12 +157,12 @@
 		// Change source
 		model.setCurrentSourcePage( 'hewiki', 'User:Bar' );
 
-		assert.equal(
+		assert.strictEqual(
 			model.getCurrentSource(),
 			'hewiki',
 			'Source changed successfully'
 		);
-		assert.equal(
+		assert.strictEqual(
 			model.getCurrentPage(),
 			'User:Bar',
 			'Page changed successfully'

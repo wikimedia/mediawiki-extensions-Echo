@@ -262,7 +262,7 @@
 		var model;
 
 		for ( model in this.notificationModels ) {
-			if ( this.notificationModels.hasOwnProperty( model ) ) {
+			if ( Object.prototype.hasOwnProperty.call( this.notificationModels, model ) ) {
 				this.notificationModels[ model ].disconnect( this );
 				delete this.notificationModels[ model ];
 			}

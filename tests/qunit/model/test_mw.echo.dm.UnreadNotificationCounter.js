@@ -15,7 +15,7 @@
 			];
 
 		for ( i = 0; i < cases.length; i++ ) {
-			assert.equal(
+			assert.strictEqual(
 				model.getCappedNotificationCount( cases[ i ].input ),
 				cases[ i ].output,
 				'Capped notifications count: ' +
@@ -35,21 +35,21 @@
 		model.setCount( 50 );
 
 		model.estimateChange( -10 );
-		assert.equal(
+		assert.strictEqual(
 			model.getCount(),
 			40, // 50-10
 			'Estimation within range'
 		);
 
 		model.estimateChange( 70 );
-		assert.equal(
+		assert.strictEqual(
 			model.getCount(),
 			100, // Estimation reached above cap - cap is set
 			'Estimation brings count to cap'
 		);
 
 		model.estimateChange( -10 );
-		assert.equal(
+		assert.strictEqual(
 			model.getCount(),
 			100, // We are already above cap, count will not change
 			'Estimation while counter is outside of cap - no change'
