@@ -23,7 +23,7 @@
 	"echo-pref-cross-wiki-notifications": "ٻين وڪيز جا اطلاع ڏيکاريو",
 	"echo-pref-notifications-blacklist": "هنن واپرائيندڙ جا اطلاع نه ڏيو. ([[mw:Special:MyLanguage/Help:Notifications#mute|وڌيڪ معلومات]])",
 	"echo-new-messages": "توھان لاءِ نوان نياپا آھن",
-	"echo-category-title-edit-user-talk": "بحث صفحي جا پيغام",
+	"echo-category-title-edit-user-talk": "بحث صفحي {{PLURAL:$1|جو پيغام|جا پيغام}}",
 	"echo-category-title-article-linked": "صفحو {{PLURAL:$1|ڳنڍڻو|ڳنڍڻا}}",
 	"echo-category-title-reverted": "ترميم {{PLURAL:$1|اڻڪريو|اڻڪريل}}",
 	"echo-category-title-mention": "{{PLURAL:$1|ذڪر|ياد}}",
