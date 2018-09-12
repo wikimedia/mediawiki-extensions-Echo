@@ -2,6 +2,7 @@
 
 /**
  * @group Echo
+ * @group Database
  */
 class MWEchoThankYouEditTest extends MediaWikiTestCase {
 
