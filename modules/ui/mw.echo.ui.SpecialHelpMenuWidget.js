@@ -27,7 +27,7 @@
 		this.$handle.empty().attr( 'class', '' );
 		handle = new OO.ui.ButtonWidget( {
 			$element: this.$handle,
-			icon: 'advanced',
+			icon: 'settings',
 			indicator: 'down'
 		} );
 		this.$element.append( handle.$element );
@@ -48,7 +48,7 @@
 				new OO.ui.MenuOptionWidget( {
 					// Use link for accessibility
 					$element: $( '<a>' ).attr( 'href', config.prefLink ),
-					icon: 'advanced',
+					icon: 'settings',
 					label: mw.msg( 'mypreferences' ),
 					data: { href: config.prefLink }
 				} )
