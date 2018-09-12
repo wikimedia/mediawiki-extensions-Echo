@@ -47,12 +47,6 @@ jshint: nodecheck
 checkless:
 	@${PHP} ../../maintenance/checkLess.php
 
-# Check compiled less files for duplicated rules
-csscss: gems
-	echo "Generating CSS file..."
-	php scripts/generatecss.php ${MEDIAWIKI_LOAD_URL} /tmp/foo.css
-	csscss -v /tmp/foo.css --num 2 --no-match-shorthand --ignore-properties=display,position,top,bottom,left,right
-
 ###
 # Testing
 ###
@@ -61,10 +55,3 @@ test: phpunit
 # Run the projects phpunit tests
 phpunit:
 	cd ${MW_INSTALL_PATH}/tests/phpunit && ${PHP} phpunit.php --configuration ${MW_INSTALL_PATH}/extensions/Echo/tests/echo.suite.xml --group=Echo
-
-###
-# Update this repository for csscss dependencies
-###
-gems:
-	bundle install
-
