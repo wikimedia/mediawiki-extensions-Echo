@@ -18,6 +18,11 @@ class EchoDataOutputFormatter {
 	/**
 	 * Format a notification for a user in the format specified
 	 *
+	 * This method returns an array of data, some of it html
+	 * escaped, some of it not. This confuses phan-taint-check,
+	 * so mark it as safe for html and safe to be escaped again.
+	 * @return-taint onlysafefor_htmlnoent
+	 *
 	 * @param EchoNotification $notification
 	 * @param string|false $format Output format, false to not format any notifications
 	 * @param User $user the target user viewing the notification

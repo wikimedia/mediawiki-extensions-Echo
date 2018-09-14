@@ -11,6 +11,10 @@ class SpecialNotifications extends SpecialPage {
 		parent::__construct( 'Notifications' );
 	}
 
+	/**
+	 * @param string $par
+	 * @suppress SecurityCheck-DoubleEscaped Different members of $notifArray being conflated
+	 */
 	public function execute( $par ) {
 		$this->setHeaders();
 
