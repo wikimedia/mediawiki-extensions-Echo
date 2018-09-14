@@ -3,6 +3,7 @@
 /**
  * @covers EchoContainmentSet
  * @group Echo
+ * @group Database
  */
 class ContainmentSetTest extends MediaWikiTestCase {
 

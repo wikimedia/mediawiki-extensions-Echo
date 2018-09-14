@@ -4,6 +4,7 @@ use Wikimedia\TestingAccessWrapper;
 
 /**
  * @covers EchoTitleLocalCache
+ * @group Database
  */
 class EchoTitleLocalCacheTest extends MediaWikiTestCase {
 

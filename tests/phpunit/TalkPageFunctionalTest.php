@@ -2,7 +2,7 @@
 
 /**
  * @group Echo
- * @group DataBase
+ * @group Database
  * @group medium
  */
 class EchoTalkPageFunctionalTest extends ApiTestCase {
