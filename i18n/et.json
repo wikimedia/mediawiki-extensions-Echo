@@ -103,7 +103,7 @@
 	"notification-header-mention-failure-bundle": "{{PLURAL:$3|Mainimine|$3 mainimist}}, mille {{GENDER:$2|lisasid}} aruteluleheküljele \"<strong>$4</strong>\", {{PLURAL:$3|jäi|jäid}} saatmata.",
 	"notification-compact-header-mention-failure-user-unknown": "<strong>Kasutajanime pole olemas:</strong> $1",
 	"notification-compact-header-mention-failure-user-anonymous": "<strong>IP-aadresse ei saa mainida:</strong> $1",
-	"notification-header-mention-success": "Kasutaja <strong>$3</strong> mainimine {{GENDER:$2|jäi}} saatmata.",
+	"notification-header-mention-success": "{{GENDER:$2|Kasutaja}} <strong>$3</strong> mainimine on saadetud.",
 	"notification-header-mention-success-bundle": "{{PLURAL:$3|Mainimine|$3 mainimist}}, mille {{GENDER:$2|lisasid}} aruteluleheküljele \"<strong>$4</strong>\", on saadetud.",
 	"notification-compact-header-mention-success": "<strong>{{GENDER:$2|Mainisid}}:</strong> $3",
 	"notification-header-mention-status-bundle": "{{PLURAL:$3|Teavitus|$3 teavitust}} mainimistest, mille {{GENDER:$2|lisasid}} aruteluleheküljele \"<strong>$4</strong>\": {{PLURAL:$5|$5 saatmata}}, {{PLURAL:$6|$6 saadetud}}.",
