@@ -60,6 +60,7 @@
 	"echo-pref-tooltip-mention-success": "Upozorněte mě, když někomu odešlu zmínku.",
 	"echo-pref-tooltip-user-rights": "Upozorněte mě, když někdo změní moje uživatelská práva.",
 	"echo-pref-tooltip-emailuser": "Upozorněte mě, když mi někdo pošle e-mail.",
+	"echo-pref-tooltip-article-reminder": "Upozorněte mě na tuto stránku, když požádám.",
 	"echo-error-no-formatter": "Upozornění nemá definováno formátování.",
 	"notifications": "Upozornění",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Vaše}} upozornění",
