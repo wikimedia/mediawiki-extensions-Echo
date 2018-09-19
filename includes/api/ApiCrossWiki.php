@@ -28,12 +28,13 @@ trait ApiCrossWiki {
 		if ( $wikis === [] ) {
 			return [];
 		}
+		$tokenType = $this->needsToken();
 		$foreignReq = new EchoForeignWikiRequest(
 			$this->getUser(),
 			$paramOverrides + $this->getForeignQueryParams(),
 			$wikis !== null ? $wikis : $this->getRequestedForeignWikis(),
 			$this->getModulePrefix() . 'wikis',
-			$this->needsToken() ?? null
+			$tokenType !== false ? $tokenType : null
 		);
 		return $foreignReq->execute();
 	}
