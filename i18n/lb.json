@@ -141,7 +141,7 @@
 	"notification-header-welcome": "{{GENDER:$2|Wëllkomm}} op {{SITENAME}}, $1! Mir si frou, datt {{GENDER:$2|Dir}} do sidd.",
 	"notification-welcome-linktext": "Wëllkomm",
 	"notification-header-thank-you-1-edit": "{{GENDER:$2|Dir}} hutt elo grad {{GENDER:$2|Är}} éischt Ännerung op {{SITENAME}} gemaach; Villmools {{GENDER:$2|Merci}}, a wëllkomm!",
-	"notification-header-thank-you-10-edit": "{{GENDER:$2|Dir}} hutt elo grad {{GENDER:$2|Är}} zéngst Ännerung gemaach; Villmools {{GENDER:$2|Merci}}, a maacht esou weider!",
+	"notification-header-thank-you-10-edit": "{{GENDER:$2|Dir}} hutt elo grad {{GENDER:$2|Är}} zéngt Ännerung gemaach; Villmools {{GENDER:$2|Merci}}, a maacht esou weider!",
 	"notification-header-thank-you-100-edit": "{{GENDER:$2|Dir}} hutt elo grad {{GENDER:$2|Är}} honnertst Ännerung gemaach; Villmools {{GENDER:$2|Merci}}!",
 	"notification-header-thank-you-1000-edit": "{{GENDER:$2|Dir}} hutt elo grad {{GENDER:$2|Är}} dausendst Ännerung gemaach; Villmools {{GENDER:$2|Merci}}! Dir sidd e gudde Mataarbechter!",
 	"notification-header-thank-you-10000-edit": "{{GENDER:$2|Dir}} hutt elo grad {{GENDER:$2|Är}} zengdausendst Ännerung gemaach; Villmools {{GENDER:$2|Merci}}!",
