@@ -144,7 +144,7 @@
 	"notification-header-mention-summary": "$1 が <strong>$4</strong> の「編集の要約欄」で{{GENDER:$3|あなた}}に{{GENDER:$2|言及しました}} 。",
 	"notification-welcome-linktext": "ようこそ",
 	"notification-header-thank-you-1-edit": "{{GENDER:$2|あなた}}は初めて編集を行いました。寄稿をありがとうございます。そして、ようこそ！",
-	"notification-header-thank-you-10-edit": "{{GENDER:$2|あなた}}は10回の編集を行いました。これからも頑張りましょう!",
+	"notification-header-thank-you-10-edit": "{{GENDER:$2|あなた}}は10回の編集を行いました。これからも頑張りましょう！",
 	"notification-header-thank-you-100-edit": "{{GENDER:$2|あなた}}は100回の編集を行いました。ありがとうございます！",
 	"notification-header-thank-you-1000-edit": "{{GENDER:$2|あなた}}は1,000回の編集を行いました。たくさんの寄稿をありがとうございます。",
 	"notification-header-thank-you-10000-edit": "{{GENDER:$2|あなた}}は10,000回の編集を行いました。非常に多くの寄稿をありがとうございます。",
