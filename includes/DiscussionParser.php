@@ -3,7 +3,7 @@
 use MediaWiki\MediaWikiServices;
 
 abstract class EchoDiscussionParser {
-	const HEADER_REGEX = '^(==+)\s*([^=].*)\s*\1$';
+	const HEADER_REGEX = '^(==+)\h*([^=].*)\h*\1$';
 
 	static protected $timestampRegex;
 	static protected $revisionInterpretationCache = [];
@@ -1165,7 +1165,7 @@ abstract class EchoDiscussionParser {
 		// Step 2: Generalise it
 		// Trim off the timezone to replace at the end
 		$output = $exemplarTimestamp;
-		$tzRegex = '/\s*\(\w+\)\s*$/';
+		$tzRegex = '/\h*\(\w+\)\h*$/';
 		$tzMatches = [];
 		if ( preg_match( $tzRegex, $output, $tzMatches ) ) {
 			$output = preg_replace( $tzRegex, '', $output );
