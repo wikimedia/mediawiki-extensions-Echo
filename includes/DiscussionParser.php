@@ -525,7 +525,7 @@ abstract class EchoDiscussionParser {
 				// The \A means the regex must match at the beginning of the string.
 				// This is slightly different than ^ which matches beginning of each
 				// line in multiline mode.
-				$startSection = preg_match( "/\A" . self::HEADER_REGEX . '/um', $content );
+				$startSection = preg_match( '/\A' . self::HEADER_REGEX . '/um', $content );
 				$sectionCount = self::getSectionCount( $content );
 				$signedUsers = array_keys( self::extractSignatures( $content, $title ) );
 
