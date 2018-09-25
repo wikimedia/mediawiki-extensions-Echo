@@ -23,19 +23,41 @@ class EchoHooks {
 			$defaults['echo-email-format'] = 'plain-text'; /*EchoHooks::EMAIL_FORMAT_PLAIN_TEXT*/
 		}
 
-		// Set all of the events to notify by web but not email by default
-		// (won't affect events that don't email)
-		foreach ( $wgEchoNotificationCategories as $category => $categoryData ) {
-			$defaults["echo-subscriptions-email-{$category}"] = false;
-			$defaults["echo-subscriptions-web-{$category}"] = true;
-		}
+		$presets = [
+			// Set all of the events to notify by web but not email by default
+			// (won't affect events that don't email)
+			'default' => [
+				'email' => false,
+				'web' => true,
+			],
+			// most settings default to web on, email off, but override these
+			'system' => [
+				'email' => true,
+			],
+			'user-rights' => [
+				'email' => true,
+			],
+			'article-linked' => [
+				'web' => false,
+			],
+			'mention-failure' => [
+				'web' => false,
+			],
+			'mention-success' => [
+				'web' => false,
+			],
+		];
 
-		// most settings default to web on, email off, but override these
-		$defaults['echo-subscriptions-email-system'] = true;
-		$defaults['echo-subscriptions-email-user-rights'] = true;
-		$defaults['echo-subscriptions-web-article-linked'] = false;
-		$defaults['echo-subscriptions-web-mention-failure'] = false;
-		$defaults['echo-subscriptions-web-mention-success'] = false;
+		foreach ( $wgEchoNotificationCategories as $category => $categoryData ) {
+			if ( !isset( $defaults["echo-subscriptions-email-{$category}"] ) ) {
+				$defaults["echo-subscriptions-email-{$category}"] = $presets[$category]['email']
+					?? $presets['default']['email'];
+			}
+			if ( !isset( $defaults["echo-subscriptions-web-{$category}"] ) ) {
+				$defaults["echo-subscriptions-web-{$category}"] = $presets[$category]['web']
+					?? $presets['default']['web'];
+			}
+		}
 	}
 
 	/**
