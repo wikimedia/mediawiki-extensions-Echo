@@ -98,7 +98,7 @@
 	"notification-link-thank-you-edit": "{{GENDER:$1|Di}} endring",
 	"notification-link-text-view-edit": "Sjå endring",
 	"notification-header-reverted": "{{PLURAL:$4|Endringa di|Endringane dine}} på <strong>$3</strong> vart {{GENDER:$2|fjerna}}.",
-	"notification-header-emailuser": "$1 {{GENDER:$2|sendte}} deg ein e-post",
+	"notification-header-emailuser": "$1 {{GENDER:$2|sende}} deg ein e-post",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|la att}} ei melding til deg på {{SITENAME}}",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 {{GENDER:$1|la att}} ei melding på diskusjonssida di under «$2».",
 	"notification-page-linked-email-subject": "Ei side du oppretta vart lenkja til på {{SITENAME}}",
