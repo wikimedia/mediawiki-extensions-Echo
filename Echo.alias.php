@@ -222,12 +222,12 @@ $specialPageAliases['scn'] = [
 	'Notifications' => [ 'Notifiche' ],
 ];
 
-/** Serbian (Cyrillic script) (српски (ћирилица)‎) */
+/** Serbian (Cyrillic script) (српски (ћирилица)) */
 $specialPageAliases['sr-ec'] = [
 	'Notifications' => [ 'Обавештења' ],
 ];
 
-/** Serbian (Latin script) (srpski (latinica)‎) */
+/** Serbian (Latin script) (srpski (latinica)) */
 $specialPageAliases['sr-el'] = [
 	'Notifications' => [ 'Obaveštenja' ],
 ];
@@ -264,12 +264,12 @@ $specialPageAliases['zh'] = [
 	'Notifications' => [ '通知' ],
 ];
 
-/** Simplified Chinese (中文（简体）‎) */
+/** Simplified Chinese (中文（简体）) */
 $specialPageAliases['zh-hans'] = [
 	'Notifications' => [ '通知' ],
 ];
 
-/** Traditional Chinese (中文（繁體）‎) */
+/** Traditional Chinese (中文（繁體）) */
 $specialPageAliases['zh-hant'] = [
 	'Notifications' => [ '通知' ],
 ];
