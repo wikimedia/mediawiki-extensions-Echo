@@ -404,9 +404,10 @@ class EchoNotificationController {
 
 		// Filter non-User, anon and duplicate users
 		$seen = [];
-		$notify->addFilter( function ( $user ) use ( &$seen ) {
+		$fname = __METHOD__;
+		$notify->addFilter( function ( $user ) use ( &$seen, $fname ) {
 			if ( !$user instanceof User ) {
-				wfDebugLog( __METHOD__, 'Expected all User instances, received:' .
+				wfDebugLog( $fname, 'Expected all User instances, received:' .
 					( is_object( $user ) ? get_class( $user ) : gettype( $user ) )
 				);
 
