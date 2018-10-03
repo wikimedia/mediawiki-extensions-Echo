@@ -30,7 +30,8 @@
 			"Ans",
 			"Verdy p",
 			"Mar(c)",
-			"Matma Rex"
+			"Matma Rex",
+			"Tweety"
 		]
 	},
 	"echo-desc": "{{desc|name=Echo|url=https://www.mediawiki.org/wiki/Extension:Echo}} The [https://www.mediawiki.org/wiki/Help:Notifications Mediawiki help] page gives notes on the terminology in this extension.",
@@ -49,7 +50,7 @@
 	"echo-pref-email-frequency-immediately": "Option for users who want to receive email for each notification as it occurs",
 	"echo-pref-email-frequency-daily": "Option for users who want to receive a daily digest of email notifications",
 	"echo-pref-email-frequency-weekly": "Option for users who want to receive a weekly digest of email notifications",
-	"echo-pref-email-format-html": "Option for users who want to receive HTML email notification.\n\nSee also:\n* {{msg-mw|Echo-pref-email-format}}\n{{Identical|HTML}}",
+	"echo-pref-email-format-html": "ترجيات انهن واپرائيندڙن لاءِ جيڪي برق ٽپال ۾ ايڇ ٽي ايم ايل اطلاع ڏسڻ چاهين ٿا.\n\nوڌيڪ ڏسو:\n* {{msg-mw|Echo-pref-email-format}}\n{{Identical|ايڇ ٽي ايم يل}}",
 	"echo-pref-email-format-plain-text": "Option for users who want to receive plain text email notification.\n\nSee also:\n* {{msg-mw|Echo-pref-email-format}}\n{{Identical|Plain text}}",
 	"echo-pref-cross-wiki-notifications": "Label for a preference which enables notifications from other wikis. Only used if {{msg-mw|echo-pref-beta-feature-cross-wiki-message}} is not used.",
 	"echo-pref-notifications-blacklist": "Label for a preference which allows a user to block notifications from certain users.\n\nNote that the translatewiki.net tool may warn, if you alter the link to use an existing translated version linked from the English page at [[mw:Help:Notifications#mute]], such as [[mw:Help:Notifications/fr#mute]] for the French version.",

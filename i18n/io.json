@@ -48,6 +48,7 @@
 	"notification-reverted-email-subject2": "Vua {{PLURAL:$3|redakto|redakti}} {{GENDER:$1|desfacesis}} en {{SITENAME}}",
 	"notification-timestamp-ago-hours": "{{PLURAL:$1|horo|$1 hori}}",
 	"notification-timestamp-ago-days": "{{PLURAL:$1|$1d}}",
+	"notification-timestamp-ago-months": "{{PLURAL:$1|1 monato|$1 monati}}",
 	"notification-inbox-filter-all": "Omna",
 	"echo-notification-alert": "{{PLURAL:$1|($1) avizo|($1) avizi|100=(99+) avizi}}",
 	"echo-notification-alert-text-only": "Avizi",
