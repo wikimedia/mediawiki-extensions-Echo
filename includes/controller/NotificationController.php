@@ -1,4 +1,7 @@
 <?php
+use MediaWiki\Logger\LoggerFactory;
+use MediaWiki\MediaWikiServices;
+use MediaWiki\Storage\RevisionStore;
 
 /**
  * This class represents the controller for notifications
@@ -99,15 +102,11 @@ class EchoNotificationController {
 			$userNotifyTypes = $notifyTypes;
 			// Respect the enotifminoredits preference
 			// @todo should this be checked somewhere else?
-			if ( !$user->getOption( 'enotifminoredits' ) ) {
-				$extra = $event->getExtra();
-				if ( !empty( $extra['revid'] ) ) {
-					$rev = Revision::newFromID( $extra['revid'], Revision::READ_LATEST );
-
-					if ( $rev->isMinor() ) {
-						$notifyTypes = array_diff( $notifyTypes, [ 'email' ] );
-					}
-				}
+			if (
+				!$user->getOption( 'enotifminoredits' ) &&
+				self::hasMinorRevision( $event )
+			) {
+				$notifyTypes = array_diff( $notifyTypes, [ 'email' ] );
 			}
 			Hooks::run( 'EchoGetNotificationTypes', [ $user, $event, &$userNotifyTypes ] );
 
@@ -129,6 +128,35 @@ class EchoNotificationController {
 		if ( $userIds ) {
 			self::enqueueDeleteJob( $userIds, $event );
 		}
+	}
+
+	/**
+	 * Check if an event is associated with a minor revision.
+	 *
+	 * @param EchoEvent $event
+	 * @return bool
+	 */
+	private static function hasMinorRevision( EchoEvent $event ) {
+		$revId = $event->getExtraParam( 'revid' );
+		if ( !$revId ) {
+			return false;
+		}
+
+		$revisionStore = MediaWikiServices::getInstance()->getRevisionStore();
+		$rev = $revisionStore->getRevisionById( $revId, RevisionStore::READ_LATEST );
+		if ( !$rev ) {
+			$logger = LoggerFactory::getInstance( 'Echo' );
+			$logger->debug(
+				'Notifying for event {eventId}. Revision \'{revId}\' not found.',
+				[
+					'eventId' => $event->getId(),
+					'revId' => $revId,
+				]
+			);
+			return false;
+		}
+
+		return $rev->isMinor();
 	}
 
 	/**
