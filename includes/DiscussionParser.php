@@ -871,10 +871,9 @@ abstract class EchoDiscussionParser {
 	 */
 	static function getTimestampPosition( $line ) {
 		$timestampRegex = self::getTimestampRegex();
-		$endOfLine = self::getLineEndingRegex();
 		$tsMatches = [];
 		if ( !preg_match(
-			"/$timestampRegex$endOfLine/mu",
+			"/$timestampRegex/mu",
 			$line,
 			$tsMatches,
 			PREG_OFFSET_CAPTURE
@@ -1119,26 +1118,6 @@ abstract class EchoDiscussionParser {
 		}
 
 		return User::getCanonicalName( $userMatches[0], false );
-	}
-
-	/**
-	 * Gets a regular expression fragmentmatching characters that
-	 * can appear in a line after the signature.
-	 *
-	 * @return string regular expression fragment.
-	 */
-	static function getLineEndingRegex() {
-		$ignoredEndings = [
-			'\s*',
-			preg_quote( '}' ),
-			preg_quote( '{' ),
-			'\<[^\>]+\>',
-			preg_quote( '{{' ) . '[^}]+' . preg_quote( '}}' ),
-		];
-
-		$regex = '(?:' . implode( '|', $ignoredEndings ) . ')*';
-
-		return $regex;
 	}
 
 	/**
