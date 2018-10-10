@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="2 2 20 20">
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
 	<title>
 		user speech bubble
 	</title>
-	<path d="M14 16.8c-.96-.32-3.2-1.2-3.2-1.2-.72-.24-.72-.88-.8-1.6v-.08c1.12-.96 2-2.56 2-4.32 0-3.76-1.6-5.2-4-5.2-1.68 0-4 .96-4 5.2 0 1.68.88 3.28 2 4.32V14c0 .72-.08 1.36-.8 1.6 0 0-2.32.88-3.2 1.2-1.04.32-2 .8-2 2v.8h16v-.8c0-.96-.64-1.6-2-2zm.367-5.46l-1.796 2.938H24V4.4h-9.633v6.94z"/>
+	<path d="M12.4 9.3l-1.8 2.9H22V2.4h-9.6v6.9zM6 13c-5.9 0-8 3-8 5v3h16v-3c0-2-2.1-5-8-5z"/>
+	<circle cx="6" cy="7.5" r="4.5"/>
 </svg>
