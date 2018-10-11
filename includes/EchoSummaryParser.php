@@ -30,12 +30,13 @@ class EchoSummaryParser {
 		$summary = preg_replace( '#/\*.*?\*/#', ' [] ', $summary );
 
 		$users = [];
-		$regex = '/\[\[([' . Title::legalChars() . ']*+)(?:\|.*?)?\]\]/';
+		$regex = '/\[\[([' . Title::legalChars() . ']++)(?:\|.*?)?\]\]/';
 		if ( preg_match_all( $regex, $summary, $matches ) ) {
 			foreach ( $matches[1] as $match ) {
-				if ( preg_match( '/^:/', $match ) ) {
+				if ( $match[0] === ':' ) {
 					continue;
 				}
+
 				$title = Title::newFromText( $match );
 				if ( $title
 					 && $title->isLocal()
