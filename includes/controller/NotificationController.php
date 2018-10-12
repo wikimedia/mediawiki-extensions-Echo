@@ -1,7 +1,7 @@
 <?php
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Storage\RevisionStore;
+use MediaWiki\Revision\RevisionStore;
 
 /**
  * This class represents the controller for notifications
