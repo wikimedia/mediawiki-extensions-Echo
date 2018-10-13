@@ -121,9 +121,10 @@ class EchoUserNotificationGatewayTest extends MediaWikiTestCase {
 		$db->expects( $this->any() )
 			->method( 'selectRowCount' )
 			->will( $this->returnValue( $dbResult['selectRowCount'] ) );
+		$numRows = is_array( $dbResult['select'] ) ? count( $dbResult['select'] ) : 0;
 		$db->expects( $this->any() )
 			->method( 'numRows' )
-			->will( $this->returnValue( count( $dbResult['select'] ) ) );
+			->will( $this->returnValue( $numRows ) );
 
 		return $db;
 	}
