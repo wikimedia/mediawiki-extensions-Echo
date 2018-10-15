@@ -180,7 +180,7 @@
 	"echo-email-footer-default-html": "발송되는 메일을 관리하려면 <a href=\"$2\" style=\"text-decoration:none; color:#3868B0;\">환경 설정을 확인하세요</a>. <br />\n$1",
 	"echo-email-footer-default": "$2\n\n발송되는 이메일을 관리하려면, 환경 설정을 확인하세요:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
 	"echo-email-plain-footer": "저희가 {{GENDER:$1|당신}}에게 보낼 이메일을 수정하려면 {{GENDER:$1|사용자}} 환경 설정을 확인하십시오:",
-	"echo-email-html-footer-preference-link-text": "{{GENDER:$1|사용자}} 환경 설정 확인",
+	"echo-email-html-footer-preference-link-text": "{{GENDER:$1|사용자}} 환경 설정을 확인하세요",
 	"echo-email-html-footer-with-link": "{{GENDER:$2|}}발송되는 메일을 관리하려면, $1.",
 	"echo-notification-alert": "{{PLURAL:$1|경보 ($1)|경보 ($1)|100=경보 (99+)}}",
 	"echo-notification-notice": "{{PLURAL:$1|알림 ($1)|알림 ($1)|100=알림 (99+)}}",
