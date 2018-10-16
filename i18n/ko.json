@@ -55,6 +55,7 @@
 	"echo-category-title-system": "{{PLURAL:$1|시스템}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|사용자 권한 바꾸기}}",
 	"echo-category-title-emailuser": "{{PLURAL:$1|다른 사용자로부터의 이메일}}",
+	"echo-category-title-article-reminder": "문서 {{PLURAL:$1|알리미}}",
 	"echo-pref-tooltip-edit-user-talk": "내 토론 문서에 누군가가 글이나 답글을 남길 때 내게 알립니다.",
 	"echo-pref-tooltip-article-linked": "누군가가 다른 문서에서 내가 만든 문서를 링크할 때 내게 알립니다.",
 	"echo-pref-tooltip-reverted": "누군가가 편집 취소나 되돌리기 도구를 사용하여 내 편집을 되돌릴 때 내게 알립니다.",

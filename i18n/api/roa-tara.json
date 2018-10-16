@@ -4,8 +4,17 @@
 			"Joetaras"
 		]
 	},
+	"apihelp-echomarkread-description": "Signe tutte le notifeche cumme lette pe l'utende de mò.",
+	"apihelp-echomarkread-summary": "Signe tutte le notifeche cumme lette pe l'utende de mò.",
+	"apihelp-echomarkread-param-list": "'N'elenghe de ID de le notifeche da signà cumme lette.",
+	"apihelp-echomarkread-param-unreadlist": "'N'elenghe de ID de le notifeche da signà cumme none lette.",
+	"apihelp-echomarkread-param-all": "Ce 'mbostate, signe tutte le notifeche de l'utende cumme lette.",
+	"apihelp-echomarkread-param-sections": "'N'elenghe de seziune da signà cumme lette.",
 	"apihelp-echomarkread-example-1": "Signe 'a notifiche 8 cumme lette",
 	"apihelp-echomarkread-example-2": "Signe tutte le notifiche cumme lette",
 	"apihelp-echomarkread-example-3": "Signe 'a notifiche 1 cumme lette",
+	"apihelp-echomarkseen-description": "Signe tutte le notifeche cumme 'ndrucate pe l'utende de mò.",
+	"apihelp-echomarkseen-summary": "Signe tutte le notifeche cumme 'ndrucate pe l'utende de mò.",
+	"apihelp-echomarkseen-example-1": "Signe le notifeche de tutte le tipe cumme 'ndrucate",
 	"apihelp-query+notifications-example-1": "Elenghe de le notifiche"
 }
