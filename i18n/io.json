@@ -45,6 +45,7 @@
 	"notification-link-text-view-edit": "Montrez redakturo",
 	"notification-header-reverted": "Vua {{PLURAL:$4|redakto en <strong>$3</strong>|redakti en <strong>$3</strong>}} {{GENDER:$2|desfacesis}}.",
 	"notification-header-emailuser": "$1 {{GENDER:$2|sendis}} e-posto a vu.",
+	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$1|skriptis}} mesajo a vu en {{SITENAME}}",
 	"notification-reverted-email-subject2": "Vua {{PLURAL:$3|redakto|redakti}} {{GENDER:$1|desfacesis}} en {{SITENAME}}",
 	"notification-mention-email-subject": "$1 {{GENDER:$1|mencionis}} {{GENDER:$2|vu}} en {{SITENAME}}",
 	"notification-timestamp-ago-hours": "{{PLURAL:$1|horo|$1 hori}}",
