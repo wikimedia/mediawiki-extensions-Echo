@@ -41,7 +41,7 @@ class TestDiscussionParser extends Maintenance {
 		$pages = $data['query']['pages'];
 
 		foreach ( $pages as $page ) {
-			if ( count( $page['revisions'] ) != 1 ) {
+			if ( count( $page['revisions'] ) !== 1 ) {
 				continue;
 			}
 

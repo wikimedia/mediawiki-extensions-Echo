@@ -530,7 +530,7 @@ abstract class EchoDiscussionParser {
 				$signedUsers = array_keys( self::extractSignatures( $content, $title ) );
 
 				if (
-					count( $signedUsers ) == 1 &&
+					count( $signedUsers ) === 1 &&
 					in_array( $username, $signedUsers )
 				) {
 					if ( $sectionCount === 0 ) {
