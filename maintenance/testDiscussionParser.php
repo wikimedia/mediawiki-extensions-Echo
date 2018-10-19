@@ -66,21 +66,11 @@ class TestDiscussionParser extends Maintenance {
 
 			$newData = unserialize( $newData );
 
-			$oldText = '';
-			$newText = '';
-			$allData = $newData['query']['pages'];
-			$pageData = array_shift( $allData );
-			if ( count( $pageData['revisions'] ) == 2 ) {
-				$revision1 = $pageData['revisions'][0];
-				$revision2 = $pageData['revisions'][1];
-				$oldText = trim( $revision2['*'] ) . "\n";
-				$newText = trim( $revision1['*'] ) . "\n";
-			} elseif ( count( $pageData['revisions'] ) == 1 ) {
-				$revision1 = $pageData['revisions'][0];
-				$newText = trim( $revision1['*'] ) . "\n";
-				$oldText = '';
-			}
-
+			$pageData = array_shift( $newData['query']['pages'] );
+			$oldText = isset( $pageData['revisions'][1] )
+				? trim( $pageData['revisions'][1]['*'] ) . "\n"
+				: '';
+			$newText = trim( $pageData['revisions'][0]['*'] ) . "\n";
 			$user = $pageData['revisions'][0]['user'];
 
 			print "http://en.wikipedia.org/w/index.php?diff=prev&oldid=$revid\n";
