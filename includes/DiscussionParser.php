@@ -976,7 +976,7 @@ abstract class EchoDiscussionParser {
 			 * empty, but Parser::pstPass2 should have normalized that for us
 			 * already.
 			 */
-			$match = explode( '|', $match );
+			$match = explode( '|', $match, 2 );
 			$title = Title::newFromText( $match[0] );
 
 			// figure out if we the link is related to a user
