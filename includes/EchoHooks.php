@@ -296,7 +296,7 @@ class EchoHooks {
 
 	/**
 	 * Handler for GetPreferences hook.
-	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/GetPreferences
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/GetPreferences
 	 *
 	 * @param User $user User to get preferences for
 	 * @param array &$preferences Preferences array
@@ -492,7 +492,7 @@ class EchoHooks {
 
 	/**
 	 * Handler for PageContentSaveComplete hook
-	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/PageContentSaveComplete
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/PageContentSaveComplete
 	 *
 	 * @param WikiPage &$wikiPage modified WikiPage
 	 * @param User &$user User who edited
@@ -652,7 +652,7 @@ class EchoHooks {
 
 	/**
 	 * Handler for LocalUserCreated hook.
-	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/LocalUserCreated
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/LocalUserCreated
 	 * @param User $user User object that was created.
 	 * @param bool $autocreated True when account was auto-created
 	 * @return bool
@@ -684,7 +684,7 @@ class EchoHooks {
 
 	/**
 	 * Handler for UserGroupsChanged hook.
-	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/UserGroupsChanged
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/UserGroupsChanged
 	 *
 	 * @param User $user user that was changed
 	 * @param string[] $add strings corresponding to groups added
@@ -761,7 +761,7 @@ class EchoHooks {
 
 	/**
 	 * Handler for LinksUpdateAfterInsert hook.
-	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/LinksUpdateAfterInsert
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/LinksUpdateAfterInsert
 	 * @param LinksUpdate $linksUpdate
 	 * @param string $table
 	 * @param array $insertions
@@ -829,7 +829,7 @@ class EchoHooks {
 
 	/**
 	 * Handler for BeforePageDisplay hook.
-	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/BeforePageDisplay
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/BeforePageDisplay
 	 * @param OutputPage $out
 	 * @param Skin $skin Skin being used.
 	 * @return bool true in all cases
@@ -924,7 +924,7 @@ class EchoHooks {
 	/**
 	 * Handler for PersonalUrls hook.
 	 * Add a "Notifications" item to the user toolbar ('personal URLs').
-	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/PersonalUrls
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/PersonalUrls
 	 * @param array &$personal_urls Array of URLs to append to.
 	 * @param Title &$title Title of page being visited.
 	 * @param SkinTemplate $sk
@@ -1066,7 +1066,7 @@ class EchoHooks {
 
 	/**
 	 * Handler for AbortTalkPageEmailNotification hook.
-	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/AbortTalkPageEmailNotification
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/AbortTalkPageEmailNotification
 	 * @param User $targetUser
 	 * @param Title $title
 	 * @return bool
@@ -1088,7 +1088,7 @@ class EchoHooks {
 
 	/**
 	 * Handler for AbortWatchlistEmailNotification hook.
-	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/AbortWatchlistEmailNotification
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/AbortWatchlistEmailNotification
 	 * @param User $targetUser
 	 * @param Title $title
 	 * @param EmailNotification $emailNotification The email notification object that sends non-echo notifications
