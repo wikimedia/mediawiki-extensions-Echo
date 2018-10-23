@@ -55,6 +55,8 @@ class MWEchoThankYouEditTest extends MediaWikiTestCase {
 		// are not generated
 		for ( $i = 0; $i < 12; $i++ ) {
 			$this->edit( $title, $user, "this is edit #$i" );
+			// Reload to reflect deferred update
+			$user->clearInstanceCache();
 		}
 
 		// assertions
