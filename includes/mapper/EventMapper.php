@@ -68,7 +68,7 @@ class EchoEventMapper extends EchoAbstractMapper {
 
 		$selectDeleted = $deleted ? 0 : 1;
 		$setDeleted = $deleted ? 1 : 0;
-		$res = $dbw->update(
+		$dbw->update(
 			'echo_event',
 			[
 				'event_deleted' => $setDeleted,
@@ -80,7 +80,7 @@ class EchoEventMapper extends EchoAbstractMapper {
 			__METHOD__
 		);
 
-		return $res;
+		return true;
 	}
 
 	/**
