@@ -52,7 +52,7 @@ class BackfillReadBundles extends Maintenance {
 				$displayHash = $row->notification_bundle_display_hash;
 				$readTimestamp = $row->notification_read_timestamp;
 
-				$result = $dbw->update(
+				$dbw->update(
 					'echo_notification',
 					[ 'notification_read_timestamp' => $readTimestamp ],
 					[
@@ -62,10 +62,6 @@ class BackfillReadBundles extends Maintenance {
 						'notification_read_timestamp IS NULL',
 					]
 				);
-
-				if ( !$result ) {
-					$this->output( "Failed to set read_timestamp on notifications with bundle_display_hash: $displayHash\n" );
-				}
 
 				$processed += $dbw->affectedRows();
 			}
