@@ -25,8 +25,8 @@ class EchoTargetPageMapper extends EchoAbstractMapper {
 
 		$row = $targetPage->toDbArray();
 
-		$res = $dbw->insert( 'echo_target_page', $row, __METHOD__ );
+		$dbw->insert( 'echo_target_page', $row, __METHOD__ );
 
-		return $res;
+		return true;
 	}
 }

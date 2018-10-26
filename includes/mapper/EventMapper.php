@@ -19,20 +19,16 @@ class EchoEventMapper extends EchoAbstractMapper {
 
 		$row = $event->toDbArray();
 
-		$res = $dbw->insert( 'echo_event', $row, __METHOD__ );
+		$dbw->insert( 'echo_event', $row, __METHOD__ );
 
-		if ( $res ) {
-			$id = $dbw->insertId();
+		$id = $dbw->insertId();
 
-			$listeners = $this->getMethodListeners( __FUNCTION__ );
-			foreach ( $listeners as $listener ) {
-				$dbw->onTransactionIdle( $listener );
-			}
-
-			return $id;
-		} else {
-			return false;
+		$listeners = $this->getMethodListeners( __FUNCTION__ );
+		foreach ( $listeners as $listener ) {
+			$dbw->onTransactionIdle( $listener );
 		}
+
+		return $id;
 	}
 
 	/**

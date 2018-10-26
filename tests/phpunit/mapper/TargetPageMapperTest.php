@@ -17,11 +17,6 @@ class EchoTargetPageMapperTest extends MediaWikiTestCase {
 				[ 'insert' => true, 'insertId' => 2 ],
 				2
 			],
-			[
-				'unsuccessful insert',
-				[ 'insert' => false, 'insertId' => 2 ],
-				false
-			],
 		];
 	}
 
