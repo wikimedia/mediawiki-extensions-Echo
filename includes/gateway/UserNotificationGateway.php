@@ -122,7 +122,7 @@ class EchoUserNotificationGateway {
 			return false;
 		}
 
-		return $dbw->update(
+		$dbw->update(
 			self::$notificationTable,
 			[ 'notification_read_timestamp' => $dbw->timestamp( wfTimestampNow() ) ],
 			[
@@ -131,6 +131,8 @@ class EchoUserNotificationGateway {
 			],
 			__METHOD__
 		);
+
+		return true;
 	}
 
 	/**
