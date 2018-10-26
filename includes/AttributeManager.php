@@ -374,4 +374,19 @@ class EchoAttributeManager {
 		return 'alert';
 	}
 
+	/**
+	 * Get notification types that allow their own agent to be notified.
+	 *
+	 * @return string[] Notification types
+	 */
+	public function getNotifyAgentEvents() {
+		$events = [];
+		foreach ( $this->notifications as $event => $attribs ) {
+			if ( $attribs['canNotifyAgent'] ?? false ) {
+				$events[] = $event;
+			}
+		}
+		return $events;
+	}
+
 }

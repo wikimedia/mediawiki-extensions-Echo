@@ -228,7 +228,6 @@ abstract class EchoDiscussionParser {
 					'extra' => [
 						'max-mentions' => $wgEchoMaxMentionsCount,
 						'section-title' => $header,
-						'notifyAgent' => true
 					],
 					'agent' => $agent,
 				] );
@@ -261,7 +260,6 @@ abstract class EchoDiscussionParser {
 						'subject-name' => User::newFromId( $mentionedUserId )->getName(),
 						'section-title' => $header,
 						'revid' => $revision->getId(),
-						'notifyAgent' => true
 					],
 					'agent' => $agent,
 				] );
@@ -278,7 +276,6 @@ abstract class EchoDiscussionParser {
 						'subject-name' => $anonymousUser,
 						'section-title' => $header,
 						'revid' => $revision->getId(),
-						'notifyAgent' => true
 					],
 					'agent' => $agent,
 				] );
@@ -295,7 +292,6 @@ abstract class EchoDiscussionParser {
 						'subject-name' => $unknownUser,
 						'section-title' => $header,
 						'revid' => $revision->getId(),
-						'notifyAgent' => true
 					],
 					'agent' => $agent,
 				] );

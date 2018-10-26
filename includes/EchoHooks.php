@@ -577,7 +577,6 @@ class EchoHooks {
 							'agent' => $user,
 							// Edit threshold notifications are sent to the agent
 							'extra' => [
-								'notifyAgent' => true,
 								'editCount' => $thresholdCount,
 							]
 						]
@@ -667,10 +666,6 @@ class EchoHooks {
 			EchoEvent::create( [
 				'type' => 'welcome',
 				'agent' => $user,
-				// Welcome notification is sent to the agent
-				'extra' => [
-					'notifyAgent' => true
-				]
 			] );
 		}
 

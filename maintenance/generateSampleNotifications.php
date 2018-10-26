@@ -298,9 +298,6 @@ class GenerateSampleNotifications extends Maintenance {
 		EchoEvent::create( [
 			'type' => 'welcome',
 			'agent' => $user,
-			'extra' => [
-				'notifyAgent' => true
-			],
 			'timestamp' => $this->getTimestamp(),
 		] );
 	}

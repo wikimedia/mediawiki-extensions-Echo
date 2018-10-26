@@ -507,6 +507,21 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 	}
 
 	/**
+	 * Check whether this event allows its agent to be notified.
+	 *
+	 * Notifying the agent is only allowed if the event's type allows it, or if the event extra
+	 * explicity specifies 'notifyAgent' => true.
+	 *
+	 * @return bool
+	 */
+	public function canNotifyAgent() {
+		global $wgEchoNotifications;
+		$allowedInConfig = $wgEchoNotifications[$this->getType()]['canNotifyAgent'] ?? false;
+		$allowedInExtra = $this->getExtraParam( 'notifyAgent', false );
+		return $allowedInConfig || $allowedInExtra;
+	}
+
+	/**
 	 * @param bool $fromMaster
 	 * @return null|Title
 	 */
