@@ -24,9 +24,9 @@ class EchoUserNotificationGatewayTest extends MediaWikiTestCase {
 		$gateway = new EchoUserNotificationGateway( User::newFromId( 1 ), $this->mockMWEchoDbFactory( [ 'update' => true ] ) );
 		$this->assertTrue( $gateway->markAllRead( [ 2 ] ) );
 
-		// unsuccessful update
+		// null update
 		$gateway = new EchoUserNotificationGateway( User::newFromId( 1 ), $this->mockMWEchoDbFactory( [ 'update' => false ] ) );
-		$this->assertFalse( $gateway->markAllRead( [ 2 ] ) );
+		$this->assertTrue( $gateway->markAllRead( [ 2 ] ) );
 	}
 
 	public function testGetNotificationCount() {
