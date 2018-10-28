@@ -399,20 +399,19 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 		if ( !$idsToDelete ) {
 			return true;
 		}
-		$success = true;
 		foreach ( array_chunk( $idsToDelete, $wgUpdateRowsPerQuery ) as $batch ) {
-			$success = $dbw->delete(
+			$dbw->delete(
 				'echo_notification',
 				[
 					'notification_user' => $userId,
 					'notification_event' => $batch,
 				],
 				__METHOD__
-			) && $success;
+			);
 			$lbFactory->commitAndWaitForReplication(
 				__METHOD__, $ticket, [ 'domain' => $domainId ] );
 		}
-		return $success;
+		return true;
 	}
 
 	/**
