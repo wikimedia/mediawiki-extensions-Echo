@@ -16,12 +16,7 @@ class EchoEventMapperTest extends MediaWikiTestCase {
 				'successful insert with insert id = 2',
 				[ 'insert' => true, 'insertId' => 2 ],
 				2
-			],
-			[
-				'unsuccessful insert',
-				[ 'insert' => false, 'insertId' => 2 ],
-				false
-			],
+			]
 		];
 	}
 
