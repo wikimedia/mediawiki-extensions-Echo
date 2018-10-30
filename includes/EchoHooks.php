@@ -1112,7 +1112,7 @@ class EchoHooks {
 
 	/**
 	 * Handler for MakeGlobalVariablesScript hook.
-	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/MakeGlobalVariablesScript
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/MakeGlobalVariablesScript
 	 * @param array &$vars Variables to be added into the output
 	 * @param OutputPage $outputPage OutputPage instance calling the hook
 	 * @return bool true in all cases
@@ -1150,7 +1150,7 @@ class EchoHooks {
 	 * We're using the GetNewMessagesAlert hook instead of the
 	 * ArticleEditUpdateNewTalk hook since we still want the user_newtalk data
 	 * to be updated and availble to client-side tools and the API.
-	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/GetNewMessagesAlert
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/GetNewMessagesAlert
 	 * @param string &$newMessagesAlert An alert that the user has new messages
 	 *     or an empty string if the user does not (empty by default)
 	 * @param array $newtalks This will be empty if the user has no new messages
@@ -1178,7 +1178,7 @@ class EchoHooks {
 
 	/**
 	 * Handler for ArticleRollbackComplete hook.
-	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/ArticleRollbackComplete
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ArticleRollbackComplete
 	 *
 	 * @param WikiPage $wikiPage The article that was edited
 	 * @param User $agent The user who did the rollback
@@ -1214,7 +1214,7 @@ class EchoHooks {
 
 	/**
 	 * Handler for UserSaveSettings hook.
-	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/UserSaveSettings
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/UserSaveSettings
 	 * @param User $user whose settings were saved
 	 * @return bool true in all cases
 	 */
@@ -1235,7 +1235,7 @@ class EchoHooks {
 
 	/**
 	 * Handler for UserLoadOptions hook.
-	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/UserLoadOptions
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/UserLoadOptions
 	 * @param User $user User whose options were loaded
 	 * @param array &$options Options can be modified
 	 * @return bool true in all cases
@@ -1251,7 +1251,7 @@ class EchoHooks {
 
 	/**
 	 * Handler for UserSaveOptions hook.
-	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/UserSaveOptions
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/UserSaveOptions
 	 * @param User $user User whose options are being saved
 	 * @param array &$options Options can be modified
 	 * @return bool true in all cases
@@ -1290,7 +1290,7 @@ class EchoHooks {
 
 	/**
 	 * Handler for UserClearNewTalkNotification hook.
-	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/UserClearNewTalkNotification
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/UserClearNewTalkNotification
 	 * @param User $user User whose talk page notification should be marked as read
 	 * @return bool true in all cases
 	 */
@@ -1306,7 +1306,7 @@ class EchoHooks {
 
 	/**
 	 * Handler for ParserTestTables hook, makes sure that Echo's tables are present during tests
-	 * @see http://www.mediawiki.org/wiki/Manual:Hooks/ParserTestTables
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ParserTestTables
 	 * @param array &$tables List of DB tables to be used for parser tests
 	 * @return bool true in all cases
 	 */
