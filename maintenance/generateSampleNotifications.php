@@ -485,8 +485,8 @@ class GenerateSampleNotifications extends Maintenance {
 	}
 
 	private function generateEducationProgram( User $user, User $agent ) {
-		if ( !class_exists( 'EducationProgram\Extension' ) ) {
-			$this->output( 'class EducationProgram\Extension not found' );
+		if ( !ExtensionRegistry::getInstance()->isLoaded( 'EducationProgram' ) ) {
+			$this->output( "Skipping EducationProgram. Extension not installed.\n" );
 			return;
 		}
 
@@ -522,8 +522,8 @@ class GenerateSampleNotifications extends Maintenance {
 	}
 
 	private function generateWikibase( User $user, User $agent ) {
-		if ( !class_exists( EchoNotificationsHandlers::class ) ) {
-			$this->output( 'Class EchoNotificationsHandlers not found' );
+		if ( !ExtensionRegistry::getInstance()->isLoaded( 'Wikibase' ) ) {
+			$this->output( "Skipping Wikibase. Extension not installed.\n" );
 			return;
 		}
 
