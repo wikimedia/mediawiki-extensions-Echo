@@ -7,7 +7,6 @@
 		<exclude name="MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic" />
 		<exclude name="MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName" />
 		<exclude name="MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment" />
-		<exclude name="Squiz.Scope.MethodScope.Missing" />
 	</rule>
 	<rule ref="Generic.Files.LineLength">
 		<properties>

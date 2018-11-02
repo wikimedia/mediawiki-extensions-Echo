@@ -8,7 +8,7 @@
  */
 class ApiEchoMarkReadTest extends ApiTestCase {
 
-	function getTokens() {
+	public function getTokens() {
 		return $this->getTokenList( self::$users['sysop'] );
 	}
 

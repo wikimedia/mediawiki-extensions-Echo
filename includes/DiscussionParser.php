@@ -17,7 +17,7 @@ abstract class EchoDiscussionParser {
 	 * @param bool $isRevert
 	 * @return null
 	 */
-	static function generateEventsForRevision( Revision $revision, $isRevert ) {
+	public static function generateEventsForRevision( Revision $revision, $isRevert ) {
 		global $wgEchoMentionsOnMultipleSectionEdits;
 		global $wgEchoMentionOnChanges;
 
@@ -418,7 +418,7 @@ abstract class EchoDiscussionParser {
 	 *
 	 * @return ParserOutput
 	 */
-	static function parseNonEditWikitext( $wikitext, Article $article ) {
+	private static function parseNonEditWikitext( $wikitext, Article $article ) {
 		static $cache = [];
 
 		$cacheKey = md5( $wikitext ) . ':' . $article->getTitle()->getPrefixedText();
@@ -444,7 +444,7 @@ abstract class EchoDiscussionParser {
 	 * @see EchoDiscussionParser::interpretDiff
 	 * @return array[] See {@see interpretDiff} for details.
 	 */
-	static function getChangeInterpretationForRevision( Revision $revision ) {
+	private static function getChangeInterpretationForRevision( Revision $revision ) {
 		if ( $revision->getId() && isset( self::$revisionInterpretationCache[$revision->getId()] ) ) {
 			return self::$revisionInterpretationCache[$revision->getId()];
 		}
@@ -505,7 +505,7 @@ abstract class EchoDiscussionParser {
 	 *    but it contains multiple signatures.
 	 * - unknown: Unrecognised change type.
 	 */
-	static function interpretDiff( $changes, $username, Title $title = null ) {
+	public static function interpretDiff( $changes, $username, Title $title = null ) {
 		// One extra item in $changes for _info
 		$actions = [];
 		$signedSections = [];
@@ -621,11 +621,11 @@ abstract class EchoDiscussionParser {
 		return $actions;
 	}
 
-	static function getSignedUsers( $content, $title ) {
+	private static function getSignedUsers( $content, $title ) {
 		return array_keys( self::extractSignatures( $content, $title ) );
 	}
 
-	static function hasNewSignature( $oldContent, $newContent, $username, $title ) {
+	private static function hasNewSignature( $oldContent, $newContent, $username, $title ) {
 		$oldSignedUsers = self::getSignedUsers( $oldContent, $title );
 		$newSignedUsers = self::getSignedUsers( $newContent, $title );
 
@@ -639,7 +639,7 @@ abstract class EchoDiscussionParser {
 	 * @param array[] $actions
 	 * @return array[] Converted actions
 	 */
-	static function convertToUnknownSignedChanges( array $signedSections, array $actions ) {
+	private static function convertToUnknownSignedChanges( array $signedSections, array $actions ) {
 		return array_map( function ( $action ) use( $signedSections ) {
 			if (
 				$action['type'] === 'unknown-change' &&
@@ -657,7 +657,7 @@ abstract class EchoDiscussionParser {
 		}, $actions );
 	}
 
-	static function isInSignedSection( $line, array $signedSections ) {
+	private static function isInSignedSection( $line, array $signedSections ) {
 		foreach ( $signedSections as $section ) {
 			if ( $line > $section[0] && $line <= $section[1] ) {
 				return true;
@@ -674,7 +674,7 @@ abstract class EchoDiscussionParser {
 	 * @param int $offset The line to find the full section for.
 	 * @return string Content of the section.
 	 */
-	static function getFullSection( array $lines, $offset ) {
+	public static function getFullSection( array $lines, $offset ) {
 		$start = self::getSectionStartIndex( $offset, $lines );
 		$end = self::getSectionEndIndex( $offset, $lines );
 		$content = implode( "\n", array_slice( $lines, $start, $end - $start ) );
@@ -689,7 +689,7 @@ abstract class EchoDiscussionParser {
 	 * @param string[] $lines
 	 * @return int[] Tuple [$firstLine, $lastLine]
 	 */
-	static function getSectionSpan( $offset, $lines ) {
+	private static function getSectionSpan( $offset, $lines ) {
 		return [
 			self::getSectionStartIndex( $offset, $lines ),
 			self::getSectionEndIndex( $offset, $lines )
@@ -702,7 +702,7 @@ abstract class EchoDiscussionParser {
 	 * @param string[] $lines
 	 * @return int
 	 */
-	static function getSectionStartIndex( $offset, array $lines ) {
+	private static function getSectionStartIndex( $offset, array $lines ) {
 		for ( $i = $offset - 1; $i >= 0; $i-- ) {
 			if ( self::getSectionCount( $lines[$i] ) ) {
 				break;
@@ -718,7 +718,7 @@ abstract class EchoDiscussionParser {
 	 * @param array $lines
 	 * @return int
 	 */
-	static function getSectionEndIndex( $offset, array $lines ) {
+	private static function getSectionEndIndex( $offset, array $lines ) {
 		$lastLine = count( $lines );
 		for ( $i = $offset; $i < $lastLine; $i++ ) {
 			if ( self::getSectionCount( $lines[$i] ) ) {
@@ -735,7 +735,7 @@ abstract class EchoDiscussionParser {
 	 * @param string $text The text.
 	 * @return int Number of section headers found.
 	 */
-	static function getSectionCount( $text ) {
+	public static function getSectionCount( $text ) {
 		$text = trim( $text );
 
 		$matches = [];
@@ -750,7 +750,7 @@ abstract class EchoDiscussionParser {
 	 * @param string $text The text of the section.
 	 * @return string|false The title of the section or false if not found
 	 */
-	static function extractHeader( $text ) {
+	public static function extractHeader( $text ) {
 		$text = trim( $text );
 
 		$matches = [];
@@ -812,7 +812,7 @@ abstract class EchoDiscussionParser {
 	 * @param Title|null $title
 	 * @return string
 	 */
-	static function stripSignature( $text, Title $title = null ) {
+	private static function stripSignature( $text, Title $title = null ) {
 		$output = self::getUserFromLine( $text, $title );
 		if ( $output === false ) {
 			$timestampPos = self::getTimestampPosition( $text );
@@ -834,7 +834,7 @@ abstract class EchoDiscussionParser {
 	 * @param string $text The text to strip out the section header from.
 	 * @return string The same text, with the section header stripped out.
 	 */
-	static function stripHeader( $text ) {
+	private static function stripHeader( $text ) {
 		$text = preg_replace( '/' . self::HEADER_REGEX . '/um', '', $text );
 
 		return $text;
@@ -849,7 +849,7 @@ abstract class EchoDiscussionParser {
 	 * @param Title|null $title
 	 * @return bool
 	 */
-	static function isSignedComment( $text, $user = false, Title $title = null ) {
+	public static function isSignedComment( $text, $user = false, Title $title = null ) {
 		$userData = self::getUserFromLine( $text, $title );
 
 		if ( $userData === false ) {
@@ -869,7 +869,7 @@ abstract class EchoDiscussionParser {
 	 * @param string $line The line to search for a signature on
 	 * @return int|false Integer position
 	 */
-	static function getTimestampPosition( $line ) {
+	public static function getTimestampPosition( $line ) {
 		$timestampRegex = self::getTimestampRegex();
 		$tsMatches = [];
 		if ( !preg_match(
@@ -901,7 +901,7 @@ abstract class EchoDiscussionParser {
 	 *    of a change, 'old_content' and 'new_content'
 	 * * 'left_pos' and 'right_pos' (in lines) of the change.
 	 */
-	static function getMachineReadableDiff( $oldText, $newText ) {
+	public static function getMachineReadableDiff( $oldText, $newText ) {
 		if ( !isset( self::$diffParser ) ) {
 			self::$diffParser = new EchoDiffParser;
 		}
@@ -917,7 +917,7 @@ abstract class EchoDiscussionParser {
 	 * @return string[] Associative array, the key is the username, the value
 	 *  is the last signature that was found.
 	 */
-	static function extractSignatures( $text, Title $title = null ) {
+	private static function extractSignatures( $text, Title $title = null ) {
 		$lines = explode( "\n", $text );
 
 		$output = [];
@@ -1052,7 +1052,7 @@ abstract class EchoDiscussionParser {
 	 * - First element is the string offset of the link.
 	 * - Second element is the user the link refers to.
 	 */
-	static function getLinkFromLine( $line, $linkPrefix, $failureOffset = false ) {
+	private static function getLinkFromLine( $line, $linkPrefix, $failureOffset = false ) {
 		$offset = 0;
 
 		// If extraction failed at another offset, try again.
@@ -1091,7 +1091,7 @@ abstract class EchoDiscussionParser {
 	 * @param int $offset Optionally, the offset of the start of the link.
 	 * @return bool|string Type description
 	 */
-	static function extractUserFromLink( $text, $prefix, $offset = 0 ) {
+	private static function extractUserFromLink( $text, $prefix, $offset = 0 ) {
 		$userPart = substr( $text, strlen( $prefix ) + $offset );
 
 		$userMatches = [];
@@ -1127,7 +1127,7 @@ abstract class EchoDiscussionParser {
 	 * @throws MWException
 	 * @return string regular expression fragment.
 	 */
-	static function getTimestampRegex() {
+	public static function getTimestampRegex() {
 		if ( self::$timestampRegex !== null ) {
 			return self::$timestampRegex;
 		}
@@ -1174,7 +1174,7 @@ abstract class EchoDiscussionParser {
 	 * @param Title|null $title Page from which the text snippet is being extracted
 	 * @return string
 	 */
-	static function getTextSnippet( $text, Language $lang, $length = 150, $title = null ) {
+	public static function getTextSnippet( $text, Language $lang, $length = 150, $title = null ) {
 		// Parse wikitext
 		$html = MessageCache::singleton()->parse( $text, $title )->getText( [
 			'enableSectionEditLinks' => false
@@ -1190,7 +1190,7 @@ abstract class EchoDiscussionParser {
 	 * @param int $length Length in characters (not bytes); default 150
 	 * @return string
 	 */
-	static function getTextSnippetFromSummary( $text, Language $lang, $length = 150 ) {
+	public static function getTextSnippetFromSummary( $text, Language $lang, $length = 150 ) {
 		// Parse wikitext with summary parser
 		$html = Linker::formatLinksInComment( Sanitizer::escapeHtmlAllowEntities( $text ) );
 		$plaintext = trim( Sanitizer::stripAllTags( $html ) );

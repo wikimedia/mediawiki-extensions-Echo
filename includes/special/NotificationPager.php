@@ -13,12 +13,12 @@ class NotificationPager extends ReverseChronologicalPager {
 		parent::__construct();
 	}
 
-	function formatRow( $row ) {
+	public function formatRow( $row ) {
 		$msg = "This pager does not support row formatting. Use 'getNotifications()' to get a list of EchoNotification objects.";
 		throw new Exception( $msg );
 	}
 
-	function getQueryInfo() {
+	public function getQueryInfo() {
 		$attributeManager = EchoAttributeManager::newFromGlobalVars();
 		$eventTypes = $attributeManager->getUserEnabledEvents( $this->getUser(), 'web' );
 
@@ -63,7 +63,7 @@ class NotificationPager extends ReverseChronologicalPager {
 		return $notifications;
 	}
 
-	function getIndexField() {
+	public function getIndexField() {
 		return 'notification_event';
 	}
 }
