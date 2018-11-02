@@ -71,7 +71,7 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 	}
 
 	## Save the id and timestamp
-	function __sleep() {
+	public function __sleep() {
 		if ( !$this->id ) {
 			throw new MWException( "Unable to serialize an uninitialized EchoEvent" );
 		}
@@ -79,11 +79,11 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 		return [ 'id', 'timestamp' ];
 	}
 
-	function __wakeup() {
+	public function __wakeup() {
 		$this->loadFromID( $this->id );
 	}
 
-	function __toString() {
+	public function __toString() {
 		return "EchoEvent(id={$this->id}; type={$this->type})";
 	}
 
