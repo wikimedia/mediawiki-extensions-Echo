@@ -684,6 +684,7 @@
 					"user-locators": [
 						"EchoUserLocator::locateEventAgent"
 					],
+					"canNotifyAgent": true,
 					"category": "system",
 					"group": "positive",
 					"section": "message",
@@ -769,6 +770,7 @@
 							"EchoUserLocator::locateEventAgent"
 						]
 					],
+					"canNotifyAgent": true,
 					"category": "mention-failure",
 					"bundle": {
 						"web": true,
@@ -784,6 +786,7 @@
 							"EchoUserLocator::locateEventAgent"
 						]
 					],
+					"canNotifyAgent": true,
 					"category": "mention-failure",
 					"group": "negative",
 					"section": "alert",
@@ -795,6 +798,7 @@
 							"EchoUserLocator::locateEventAgent"
 						]
 					],
+					"canNotifyAgent": true,
 					"category": "mention-success",
 					"bundle": {
 						"web": true,
@@ -845,6 +849,7 @@
 					"user-locators": [
 						"EchoUserLocator::locateEventAgent"
 					],
+					"canNotifyAgent": true,
 					"category": "system",
 					"notify-type-availability": {
 						"email": false
@@ -857,6 +862,7 @@
 					"user-locators": [
 						"EchoUserLocator::locateEventAgent"
 					],
+					"canNotifyAgent": true,
 					"category": "article-reminder",
 					"group": "positive",
 					"presentation-model": "EchoArticleReminderPresentationModel",

@@ -449,9 +449,8 @@ class EchoNotificationController {
 			return true;
 		} );
 
-		// Don't notify the person who initiated the event unless the event extra says to do so
-		$extra = $event->getExtra();
-		if ( ( !isset( $extra['notifyAgent'] ) || !$extra['notifyAgent'] ) && $event->getAgent() ) {
+		// Don't notify the person who initiated the event unless the event allows it
+		if ( !$event->canNotifyAgent() && $event->getAgent() ) {
 			$agentId = $event->getAgent()->getId();
 			$notify->addFilter( function ( $user ) use ( $agentId ) {
 				return $user->getId() != $agentId;

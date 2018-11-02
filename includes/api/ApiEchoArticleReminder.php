@@ -25,7 +25,6 @@ class ApiEchoArticleReminder extends ApiBase {
 			'agent' => $user,
 			'title' => $this->getTitleFromTitleOrPageId( $params ),
 			'extra' => [
-				'notifyAgent' => true,
 				'comment' => $params['comment'],
 			],
 		] );
