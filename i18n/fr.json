@@ -221,7 +221,7 @@
 	"echo-notification-notice-text-only": "Notifications",
 	"echo-overlay-link": "Toutes les notifications",
 	"echo-overlay-title": "<b>Notifications</b>",
-	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Notification|Notifications}}</b> ($1 {{PLURAL:$1|affichée|affichées}} sur $2 {{PLURAL:$1|non lue|non lues}})",
+	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Notification|Notifications}}</b> ($1 {{PLURAL:$1|affichée|affichées}} sur $2 {{PLURAL:$2|non lue|non lues}})",
 	"echo-mark-all-as-read": "Tout marquer comme lu",
 	"echo-mark-all-as-read-confirmation": "$1 {{PLURAL:$1|notification marquée comme lue|notifications marquées comme lues}}",
 	"echo-mark-wiki-as-read": "Marquer le tout comme étant lu pour les wiki sélectionnés : $1",
