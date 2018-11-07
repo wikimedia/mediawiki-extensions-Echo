@@ -1142,15 +1142,15 @@ abstract class EchoDiscussionParser {
 		$output = $exemplarTimestamp;
 		$tzRegex = '/\h*\(\w+\)\h*$/';
 		$tzMatches = [];
-		if ( preg_match( $tzRegex, $output, $tzMatches ) ) {
-			$output = preg_replace( $tzRegex, '', $output );
+		if ( preg_match( $tzRegex, $output, $tzMatches, PREG_OFFSET_CAPTURE ) ) {
+			$output = substr( $output, 0, $tzMatches[0][1] );
 		}
 		$output = preg_quote( $output, '/' );
 		$output = preg_replace( '/[^\d\W]+/u', '[^\d\W]+', $output );
 		$output = preg_replace( '/\d+/u', '\d+', $output );
 
 		if ( $tzMatches ) {
-			$output .= preg_quote( $tzMatches[0] );
+			$output .= preg_quote( $tzMatches[0][0] );
 		}
 
 		if ( !preg_match( "/$output/u", $exemplarTimestamp ) ) {
