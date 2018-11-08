@@ -35,7 +35,7 @@
 			position: absolute;
 			display: inline-block;
 			cursor: pointer;
-			opacity: 0.8;
+			opacity: 0.87;
 			content: '';
 			background-repeat: no-repeat;
 			// Bring it back onscreen
@@ -65,13 +65,16 @@
 
 		&.mw-echo-notifications-badge-long-label {
 			margin-right: 0.5em;
+
 			&:after {
 				left: 35%;
 			}
 		}
 
 		&.mw-echo-notifications-badge-all-read {
-			opacity: 0.625;
+			&:before {
+				opacity: 0.51;
+			}
 
 			&:after {
 				visibility: hidden;
