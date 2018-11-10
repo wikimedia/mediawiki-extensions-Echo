@@ -132,7 +132,7 @@
 	"notification-compact-header-edit-user-talk-with-section": "$1 heeft een bericht voor {{GENDER:$3|u}} {{GENDER:$2|achtergelaten}} in \"<strong>$4</strong>\".",
 	"notification-header-page-linked": "Er is een koppeling gemaakt van <strong>$4</strong> naar <strong>$3</strong>.",
 	"notification-compact-header-page-linked": "Koppeling van <strong>$1</strong>.",
-	"notification-bundle-header-page-linked": "Er zijn koppelingen gemaakt {{PLURAL:$5|één andere pagina|$5 andere pagina's|100=99+ andere pagina's}} naar <strong>$3</strong>.",
+	"notification-bundle-header-page-linked": "Er zijn koppelingen gemaakt vanuit {{PLURAL:$5|één andere pagina|$5 andere pagina's|100=99+ andere pagina's}} naar <strong>$3</strong>.",
 	"notification-header-article-reminder": "Een pagina waarvoor {{GENDER:$2|u}} hebt verzocht te worden herinnerd is op <strong>$3</strong>",
 	"notification-link-text-what-links-here": "Alle links naar deze pagina",
 	"notification-header-mention-other": "$1 heeft {{GENDER:$3|u}} {{GENDER:$2|genoemd}} op <strong>$4</strong> onder \"<strong>$5</strong>\".",
