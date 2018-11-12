@@ -1,4 +1,4 @@
-( function ( $, mw ) {
+( function () {
 	/**
 	 * A filter for cross-wiki unread notifications
 	 *
@@ -170,4 +170,4 @@
 		this.setItemSelected( item );
 	};
 
-}( jQuery, mediaWiki ) );
+}() );

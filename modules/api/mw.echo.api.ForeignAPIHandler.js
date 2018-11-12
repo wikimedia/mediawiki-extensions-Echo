@@ -1,4 +1,4 @@
-( function ( mw, $ ) {
+( function () {
 	/**
 	 * Foreign notification API handler
 	 *
@@ -41,4 +41,4 @@
 
 		return $.extend( {}, this.typeParams[ type ], params );
 	};
-}( mediaWiki, jQuery ) );
+}() );

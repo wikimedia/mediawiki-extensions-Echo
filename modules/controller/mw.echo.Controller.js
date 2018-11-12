@@ -1,4 +1,4 @@
-( function ( mw, $ ) {
+( function () {
 	/* global moment:false */
 	/**
 	 * Controller for Echo notifications
@@ -791,4 +791,4 @@
 	mw.echo.Controller.prototype.getTypeString = function () {
 		return this.manager.getTypeString();
 	};
-}( mediaWiki, jQuery ) );
+}() );

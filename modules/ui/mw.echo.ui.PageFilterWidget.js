@@ -1,4 +1,4 @@
-( function ( $, mw ) {
+( function () {
 	/**
 	 * A widget that displays wikis and their pages to choose a filter
 	 *
@@ -153,4 +153,4 @@
 	mw.echo.ui.PageFilterWidget.prototype.sortingFunction = function ( item, otherItem ) {
 		return Number( otherItem.getCount() ) - Number( item.getCount() );
 	};
-}( jQuery, mediaWiki ) );
+}() );

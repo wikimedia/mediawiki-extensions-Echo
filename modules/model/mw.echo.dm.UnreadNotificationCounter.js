@@ -1,4 +1,4 @@
-( function ( mw, $ ) {
+( function () {
 	/**
 	 * Echo notification UnreadNotificationCounter model
 	 *
@@ -144,4 +144,4 @@
 		this.source = source;
 	};
 
-}( mediaWiki, jQuery ) );
+}() );

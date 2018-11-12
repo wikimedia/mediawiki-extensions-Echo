@@ -1,4 +1,4 @@
-( function ( mw ) {
+( function () {
 	/**
 	 * Bundle notification item model. Contains a list of bundled notifications.
 	 * Is expandable.
@@ -158,4 +158,4 @@
 		return this.getModelName();
 	};
 
-}( mediaWiki ) );
+}() );

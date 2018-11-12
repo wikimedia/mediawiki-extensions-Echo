@@ -1,4 +1,4 @@
-( function ( $, mw ) {
+( function () {
 	mw.echo = mw.echo || {};
 
 	/**
@@ -137,4 +137,4 @@
 	};
 
 	mw.echo.logger = new mw.echo.Logger();
-}( jQuery, mediaWiki ) );
+}() );

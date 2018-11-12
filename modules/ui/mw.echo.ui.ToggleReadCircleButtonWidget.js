@@ -1,4 +1,4 @@
-( function ( mw, $ ) {
+( function () {
 	/**
 	 * A button showing a circle that represents either 'mark as read' or 'mark as unread' states.
 	 *
@@ -50,4 +50,4 @@
 				mw.msg( 'echo-notification-markasunread' )
 		);
 	};
-}( mediaWiki, jQuery ) );
+}() );

@@ -1,4 +1,4 @@
-( function ( $, mw ) {
+( function () {
 	'use strict';
 
 	/*!
@@ -48,4 +48,4 @@
 		// Notifications
 		$content.empty().append( specialPageContainer.$element );
 	} );
-}( jQuery, mediaWiki ) );
+}() );

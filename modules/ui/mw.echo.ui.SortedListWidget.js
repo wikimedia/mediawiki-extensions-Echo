@@ -1,4 +1,4 @@
-( function ( mw ) {
+( function () {
 	/**
 	 * Sorted list widget. This is a group widget that sorts its items
 	 * according to a given sorting callback.
@@ -277,4 +277,4 @@
 		);
 	};
 
-}( mediaWiki ) );
+}() );

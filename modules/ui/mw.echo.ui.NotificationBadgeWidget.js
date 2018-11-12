@@ -1,4 +1,4 @@
-( function ( mw, $ ) {
+( function () {
 	/**
 	 * Notification badge button widget for echo popup.
 	 *
@@ -345,4 +345,4 @@
 			} );
 		this.hasRunFirstTime = true;
 	};
-}( mediaWiki, jQuery ) );
+}() );

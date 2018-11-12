@@ -1,4 +1,4 @@
-( function ( mw ) {
+( function () {
 	/**
 	 * Pagination model for echo notifications pages.
 	 *
@@ -219,4 +219,4 @@
 	mw.echo.dm.PaginationModel.prototype.getItemsPerPage = function () {
 		return this.itemsPerPage;
 	};
-}( mediaWiki ) );
+}() );

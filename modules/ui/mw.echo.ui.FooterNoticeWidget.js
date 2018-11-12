@@ -1,4 +1,4 @@
-( function ( mw, $ ) {
+( function () {
 	/**
 	 * Footer notice widget.
 	 *
@@ -77,4 +77,4 @@
 		this.toggle( false );
 		this.emit( 'dismiss' );
 	};
-}( mediaWiki, jQuery ) );
+}() );

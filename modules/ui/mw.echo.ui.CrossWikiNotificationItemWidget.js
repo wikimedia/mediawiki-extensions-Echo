@@ -1,4 +1,4 @@
-( function ( mw, $ ) {
+( function () {
 	/**
 	 * Cross-wiki notification item widget.
 	 * This widget is expandable and displays groups of
@@ -351,4 +351,4 @@
 	mw.echo.ui.CrossWikiNotificationItemWidget.prototype.getList = function () {
 		return this.listWidget;
 	};
-}( mediaWiki, jQuery ) );
+}() );

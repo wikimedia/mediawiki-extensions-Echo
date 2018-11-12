@@ -1,4 +1,4 @@
-( function ( $, mw ) {
+( function () {
 	/**
 	 * A pagination widget allowing the user to go forward, backwards,
 	 * and after a couple of pages, go back to home.
@@ -176,4 +176,4 @@
 
 		this.labelWidget.setLabel( label );
 	};
-}( jQuery, mediaWiki ) );
+}() );

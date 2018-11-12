@@ -1,4 +1,4 @@
-( function ( mw, $ ) {
+( function () {
 	var defaultValues = {
 		getReadState: 'all'
 	};
@@ -107,4 +107,4 @@
 		);
 	} );
 
-}( mediaWiki, jQuery ) );
+}() );

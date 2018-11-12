@@ -1,4 +1,4 @@
-( function ( mw ) {
+( function () {
 	/**
 	 * A container that manages all models that are involved in creating
 	 * the notification list. There are currently two types of models:
@@ -481,4 +481,4 @@
 
 	};
 
-}( mediaWiki, jQuery ) );
+}() );

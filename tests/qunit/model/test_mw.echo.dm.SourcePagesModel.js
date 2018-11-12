@@ -1,4 +1,4 @@
-( function ( mw ) {
+( function () {
 	// Mock partial API response we feed into the model
 	var sources = {
 		local: {
@@ -169,4 +169,4 @@
 		);
 
 	} );
-}( mediaWiki ) );
+}() );

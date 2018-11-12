@@ -1,4 +1,4 @@
-( function ( mw ) {
+( function () {
 	/**
 	 * Wrapper for the notifications widget, for view outside the popup.
 	 *
@@ -82,4 +82,4 @@
 				widget.promiseRunning = false;
 			} );
 	};
-}( mediaWiki ) );
+}() );

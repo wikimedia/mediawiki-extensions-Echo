@@ -1,4 +1,4 @@
-( function ( mw ) {
+( function () {
 	/* global moment:false */
 	/**
 	 * A wrapper widget for a fake, cloned notification. This is used
@@ -84,4 +84,4 @@
 	mw.echo.ui.ClonedNotificationItemWidget.prototype.resetInitiallyUnseen = function () {
 	};
 
-}( mediaWiki ) );
+}() );

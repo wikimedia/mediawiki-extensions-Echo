@@ -1,4 +1,4 @@
-( function ( mw ) {
+( function () {
 	/**
 	 * Notification groups list data structure.
 	 * It contains mw.echo.dm.NotificationsList items
@@ -161,4 +161,4 @@
 		}
 		return null;
 	};
-}( mediaWiki ) );
+}() );

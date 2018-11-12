@@ -1,4 +1,4 @@
-( function ( $, mw ) {
+( function () {
 	/**
 	 * Widget for the settings menu in the Special:Notifications page
 	 *
@@ -149,4 +149,4 @@
 			mw.msg( 'echo-mark-all-as-read' );
 	};
 
-}( jQuery, mediaWiki ) );
+}() );

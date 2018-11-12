@@ -1,4 +1,4 @@
-( function ( mw ) {
+( function () {
 	/**
 	 * Source pages model for notification filtering
 	 *
@@ -177,4 +177,4 @@
 			this.sources[ source ].pages[ page.title ] = page;
 		}
 	};
-}( mediaWiki ) );
+}() );

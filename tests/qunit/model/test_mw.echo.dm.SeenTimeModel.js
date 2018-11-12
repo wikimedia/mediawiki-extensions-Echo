@@ -1,4 +1,4 @@
-( function ( mw ) {
+( function () {
 	QUnit.module( 'ext.echo.dm - mw.echo.dm.SeenTimeModel' );
 
 	QUnit.test( 'Constructing the model', function ( assert ) {
@@ -53,4 +53,4 @@
 			'Update event emitted'
 		);
 	} );
-}( mediaWiki ) );
+}() );

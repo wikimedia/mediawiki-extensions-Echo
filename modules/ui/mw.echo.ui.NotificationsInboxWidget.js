@@ -1,4 +1,4 @@
-( function ( $, mw ) {
+( function () {
 	/**
 	 * An inbox-type widget that encompases a dated notifications list with pagination
 	 *
@@ -323,4 +323,4 @@
 		this.datedListWidget.toggle( !displayMessage );
 	};
 
-}( jQuery, mediaWiki ) );
+}() );

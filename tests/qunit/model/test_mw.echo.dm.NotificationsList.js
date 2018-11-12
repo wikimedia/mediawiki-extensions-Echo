@@ -1,4 +1,4 @@
-( function ( mw, $ ) {
+( function () {
 	var defaultValues = {
 		getAllItemIds: [],
 		getAllItemIdsByType: [],
@@ -186,4 +186,4 @@
 		);
 	} );
 
-}( mediaWiki, jQuery ) );
+}() );

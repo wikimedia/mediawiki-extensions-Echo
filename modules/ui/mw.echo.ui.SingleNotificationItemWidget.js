@@ -1,4 +1,4 @@
-( function ( mw ) {
+( function () {
 	/**
 	 * Single notification item widget for echo popup.
 	 *
@@ -98,4 +98,4 @@
 		this.toggleRead( this.model.isRead() );
 		this.toggleSeen( this.model.isSeen() );
 	};
-}( mediaWiki ) );
+}() );

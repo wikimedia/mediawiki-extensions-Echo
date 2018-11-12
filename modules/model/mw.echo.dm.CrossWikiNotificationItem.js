@@ -1,4 +1,4 @@
-( function ( mw ) {
+( function () {
 	/**
 	 * Cross-wiki notification item model. Contains a list of sources,
 	 * that each contain a list of notification items from that source.
@@ -162,4 +162,4 @@
 		return this.getList().isEmpty();
 	};
 
-}( mediaWiki ) );
+}() );

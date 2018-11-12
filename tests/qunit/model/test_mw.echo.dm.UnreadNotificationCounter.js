@@ -1,4 +1,4 @@
-( function ( mw ) {
+( function () {
 	QUnit.module( 'ext.echo.dm - mw.echo.dm.UnreadNotificationCounter' );
 
 	QUnit.test( 'Returning capped notifications count', function ( assert ) {
@@ -82,4 +82,4 @@
 			'countChange events emitted.'
 		);
 	} );
-}( mediaWiki ) );
+}() );

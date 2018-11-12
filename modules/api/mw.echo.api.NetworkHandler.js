@@ -1,4 +1,4 @@
-( function ( mw, $ ) {
+( function () {
 	/**
 	 * Network handler for echo notifications. Manages multiple APIHandlers
 	 * according to their sources.
@@ -76,4 +76,4 @@
 	mw.echo.api.NetworkHandler.prototype.setApiHandler = function ( name, handler ) {
 		this.handlers[ name ] = handler;
 	};
-}( mediaWiki, jQuery ) );
+}() );

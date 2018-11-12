@@ -1,4 +1,4 @@
-( function ( mw, $ ) {
+( function () {
 	'use strict';
 
 	// Remove ?markasread=XYZ from the URL
@@ -136,4 +136,4 @@
 		} );
 	} );
 
-}( mediaWiki, jQuery ) );
+}() );

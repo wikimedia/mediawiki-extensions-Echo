@@ -1,4 +1,4 @@
-( function ( mw ) {
+( function () {
 	/**
 	 * Action menu popup widget for echo items.
 	 *
@@ -86,4 +86,4 @@
 	mw.echo.ui.ActionMenuPopupWidget.prototype.getMenu = function () {
 		return this.menu;
 	};
-}( mediaWiki ) );
+}() );

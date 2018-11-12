@@ -1,4 +1,4 @@
-( function ( mw ) {
+( function () {
 	/* global moment:false */
 	'use strict';
 
@@ -45,4 +45,4 @@
 	} );
 	// Reset back to original locale
 	moment.locale( momentOrigLocale );
-}( mediaWiki ) );
+}() );
