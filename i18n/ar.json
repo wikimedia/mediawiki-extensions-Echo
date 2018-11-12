@@ -166,7 +166,7 @@
 	"notification-header-thank-you-100-edit": "لقد {{GENDER:$2|قمت|قمتِ}} قبل قليل {{GENDER:$2|بتعديلك|بتعديلكِ}} رقم مئة؛ شكرًا جزيلًا {{GENDER:$2|لك|لكِ}}!",
 	"notification-header-thank-you-1000-edit": "لقد {{GENDER:$2|قمت|قمتِ}} قبل قليل {{GENDER:$2|بتعديلك|بتعديلكِ}} رقم ألف؛ شكرًا {{GENDER:$2|لك|لكِ}} لكونك مساهمًا عظيمًا!",
 	"notification-header-thank-you-10000-edit": "لقد {{GENDER:$2|قمت|قمتِ}} قبل قليل {{GENDER:$2|بتعديلك|بتعديلكِ}} رقم عشرة آلاف؛ شكرًا جزيلًا {{GENDER:$2|لك|لكِ}}!",
-	"notification-header-thank-you-100000-edit": "{{GENDER:$2|أنت}} قمت حالا {{GENDER:$2|بتعديلك}} رقم مائة ألف؛ شكرا {{GENDER:$2|لك}} لمساهمة مذهلة!",
+	"notification-header-thank-you-100000-edit": "لقد قُمت حالًا {{GENDER:$2|بتعديلك}} رقم مائة ألف؛ شكرًا لمساهمتك المذهلة!",
 	"notification-header-thank-you-1000000-edit": "لقد {{GENDER:$2|قمت|قمتِ}} قبل قليل {{GENDER:$2|بتعديلك|بتعديلكِ}} رقم مليون؛ شكرًا {{GENDER:$2|لك|لكِ}} على مساهمتك المذهلة!",
 	"notification-link-thank-you-edit": "{{GENDER:$1|تعديلك|تعديلكِ}}",
 	"notification-link-text-view-edit": "اعرض التعديل",
