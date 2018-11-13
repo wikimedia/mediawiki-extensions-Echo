@@ -1,4 +1,4 @@
-( function ( mw, $ ) {
+( function () {
 	/**
 	 * Promise prioritizer for API actions. The prioritizer takes
 	 * a promise at a time, always prioritizing the latest promise and
@@ -85,4 +85,4 @@
 			} );
 		}
 	};
-}( mediaWiki, jQuery ) );
+}() );

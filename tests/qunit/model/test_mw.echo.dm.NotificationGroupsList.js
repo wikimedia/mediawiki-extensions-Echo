@@ -1,4 +1,4 @@
-( function ( mw ) {
+( function () {
 	QUnit.module( 'ext.echo.dm - mw.echo.dm.NotificationGroupsList' );
 
 	QUnit.test( 'Constructing the model', function ( assert ) {
@@ -153,4 +153,4 @@
 		);
 	} );
 
-}( mediaWiki ) );
+}() );

@@ -1,4 +1,4 @@
-( function ( mw ) {
+( function () {
 	/**
 	 * Sorted list abstract data structure.
 	 *
@@ -27,4 +27,4 @@
 	 * @return {boolean} This list is a group
 	 */
 	mw.echo.dm.SortedList.prototype.isGroup = null;
-}( mediaWiki ) );
+}() );

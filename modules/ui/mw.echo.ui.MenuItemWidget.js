@@ -1,4 +1,4 @@
-( function ( mw ) {
+( function () {
 	/**
 	 * Secondary menu item
 	 *
@@ -124,4 +124,4 @@
 	mw.echo.ui.MenuItemWidget.prototype.isDynamicAction = function () {
 		return this.dynamic;
 	};
-}( mediaWiki ) );
+}() );

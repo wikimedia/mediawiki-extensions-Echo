@@ -1,4 +1,4 @@
-( function ( mw, $ ) {
+( function () {
 	/**
 	 * A class defining Echo API instructions and network operations
 	 *
@@ -338,4 +338,4 @@
 	mw.echo.api.EchoApi.prototype.getLimit = function () {
 		return this.limit;
 	};
-}( mediaWiki, jQuery ) );
+}() );

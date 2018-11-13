@@ -1,4 +1,4 @@
-( function ( mw, $ ) {
+( function () {
 	/**
 	 * Abstract notification API handler
 	 *
@@ -272,4 +272,4 @@
 	mw.echo.api.APIHandler.prototype.getTypeParams = function ( type ) {
 		return this.typeParams[ type ];
 	};
-}( mediaWiki, jQuery ) );
+}() );

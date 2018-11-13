@@ -1,4 +1,4 @@
-( function ( mw ) {
+( function () {
 	/**
 	 * Filters model for displaying filtered notification list.
 	 *
@@ -96,4 +96,4 @@
 		return this.sourcePagesModel;
 	};
 
-}( mediaWiki ) );
+}() );

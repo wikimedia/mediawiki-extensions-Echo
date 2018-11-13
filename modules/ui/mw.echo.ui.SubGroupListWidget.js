@@ -1,4 +1,4 @@
-( function ( mw, $ ) {
+( function () {
 	/**
 	 * Sub group list widget.
 	 * This widget contains a list of notifications from a single source
@@ -320,4 +320,4 @@
 	mw.echo.ui.SubGroupListWidget.prototype.getId = function () {
 		return this.model.getName();
 	};
-}( mediaWiki, jQuery ) );
+}() );

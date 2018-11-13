@@ -1,4 +1,4 @@
-( function ( mw, $ ) {
+( function () {
 	/**
 	 * Notifications list widget.
 	 * All of its items must be of the mw.echo.ui.NotificationItem type.
@@ -243,4 +243,4 @@
 			itemWidgets[ i ].resetInitiallyUnseen();
 		}
 	};
-}( mediaWiki, jQuery ) );
+}() );

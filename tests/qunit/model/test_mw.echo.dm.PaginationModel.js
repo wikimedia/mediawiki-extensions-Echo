@@ -1,4 +1,4 @@
-( function ( mw, $ ) {
+( function () {
 	var defaultValues = {
 		getPageContinue: undefined,
 		getCurrPageIndex: 0,
@@ -88,4 +88,4 @@
 		);
 	} );
 
-}( mediaWiki, jQuery ) );
+}() );

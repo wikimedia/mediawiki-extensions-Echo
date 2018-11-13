@@ -1,4 +1,4 @@
-( function ( mw, $ ) {
+( function () {
 	/* global moment:false */
 	/**
 	 * Notification item data structure.
@@ -300,4 +300,4 @@
 		return [ this.getId() ].concat( this.bundledIds || [] );
 	};
 
-}( mediaWiki, jQuery ) );
+}() );

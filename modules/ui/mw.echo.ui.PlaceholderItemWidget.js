@@ -1,4 +1,4 @@
-( function ( mw, $ ) {
+( function () {
 	/**
 	 * Placeholder notification option widget for echo popup.
 	 *
@@ -89,4 +89,4 @@
 	 */
 	mw.echo.ui.PlaceholderItemWidget.prototype.resetInitiallyUnseen = function () {};
 
-}( mediaWiki, jQuery ) );
+}() );

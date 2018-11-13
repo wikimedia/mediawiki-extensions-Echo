@@ -1,4 +1,4 @@
-( function ( mw, $ ) {
+( function () {
 	/* global moment:false */
 	/**
 	 * A base widget for displaying notification items.
@@ -430,4 +430,4 @@
 	mw.echo.ui.NotificationItemWidget.prototype.isFake = function () {
 		return false;
 	};
-}( mediaWiki, jQuery ) );
+}() );

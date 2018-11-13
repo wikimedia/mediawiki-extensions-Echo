@@ -1,4 +1,4 @@
-( function ( mw, $ ) {
+( function () {
 	/**
 	 * Notification badge button widget for echo popup.
 	 *
@@ -75,4 +75,4 @@
 			mw.hook( 'ext.echo.badge.countChange' ).fire( this.type, this.count, convertedNumber );
 		}
 	};
-}( mediaWiki, jQuery ) );
+}() );

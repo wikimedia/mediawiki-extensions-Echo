@@ -1,4 +1,4 @@
-( function ( $, mw ) {
+( function () {
 	/**
 	 * A select widget for notification read state: 'all', 'read' or 'unread'
 	 *
@@ -59,4 +59,4 @@
 			this.emit( 'filter', data );
 		}
 	};
-}( jQuery, mediaWiki ) );
+}() );

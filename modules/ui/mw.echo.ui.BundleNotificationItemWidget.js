@@ -1,4 +1,4 @@
-( function ( mw, $ ) {
+( function () {
 	/**
 	 * Bundle notification item widget.
 	 * This widget is expandable and displays
@@ -219,4 +219,4 @@
 	mw.echo.ui.BundleNotificationItemWidget.prototype.getList = function () {
 		return this.listWidget;
 	};
-}( mediaWiki, jQuery ) );
+}() );

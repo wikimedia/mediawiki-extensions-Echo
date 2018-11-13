@@ -1,4 +1,4 @@
-( function ( mw ) {
+( function () {
 	QUnit.module( 'ext.echo.dm - mw.echo.dm.BundleNotificationItem' );
 
 	QUnit.test( 'Constructing the model', function ( assert ) {
@@ -114,4 +114,4 @@
 			'Bundle is marked as read if all items are read'
 		);
 	} );
-}( mediaWiki ) );
+}() );

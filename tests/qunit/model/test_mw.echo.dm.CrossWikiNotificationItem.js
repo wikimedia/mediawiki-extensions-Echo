@@ -1,4 +1,4 @@
-( function ( mw, $ ) {
+( function () {
 	var defaults = {
 		getModelName: 'xwiki',
 		getSourceNames: [],
@@ -308,4 +308,4 @@
 		);
 	} );
 
-}( mediaWiki, jQuery ) );
+}() );

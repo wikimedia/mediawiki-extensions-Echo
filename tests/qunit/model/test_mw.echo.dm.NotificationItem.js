@@ -1,4 +1,4 @@
-( function ( mw, $ ) {
+( function () {
 	var fakeData = {
 			type: 'alert',
 			read: true,
@@ -143,4 +143,4 @@
 		);
 	} );
 
-}( mediaWiki, jQuery ) );
+}() );

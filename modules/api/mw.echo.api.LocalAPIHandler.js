@@ -1,4 +1,4 @@
-( function ( mw, $ ) {
+( function () {
 	/**
 	 * Notification API handler
 	 *
@@ -134,4 +134,4 @@
 			notcrosswikisummary: 1
 		} );
 	};
-}( mediaWiki, jQuery ) );
+}() );

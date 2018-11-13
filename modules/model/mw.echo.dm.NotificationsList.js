@@ -1,4 +1,4 @@
-( function ( mw ) {
+( function () {
 	/**
 	 * Notifications list data structure.
 	 *
@@ -268,4 +268,4 @@
 		return this.getSource() !== 'local';
 	};
 
-}( mediaWiki ) );
+}() );

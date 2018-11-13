@@ -1,4 +1,4 @@
-( function ( mw ) {
+( function () {
 	/**
 	 * SeenTime model for Echo notifications
 	 *
@@ -78,4 +78,4 @@
 		return this.types;
 	};
 
-}( mediaWiki ) );
+}() );

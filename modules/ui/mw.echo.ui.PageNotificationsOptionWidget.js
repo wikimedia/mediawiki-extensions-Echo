@@ -1,4 +1,4 @@
-( function ( $, mw ) {
+( function () {
 	/**
 	 * An option widget for the page filter in PageFilterWidget
 	 *
@@ -104,4 +104,4 @@
 		return this;
 	};
 
-}( jQuery, mediaWiki ) );
+}() );

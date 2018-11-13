@@ -1,4 +1,4 @@
-( function ( $, mw ) {
+( function () {
 	QUnit.module( 'ext.echo.overlay', {
 		beforeEach: function () {
 			var ApiStub;
@@ -348,4 +348,4 @@
 		assert.strictEqual( $overlay.find( '.mw-echo-notifications' ).eq( 1 ).is( ':visible' ),
 			true, 'Second tab is now visible.' );
 	} );
-}( jQuery, mediaWiki ) );
+}() );

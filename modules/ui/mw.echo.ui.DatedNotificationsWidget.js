@@ -1,4 +1,4 @@
-( function ( $, mw ) {
+( function () {
 	/**
 	 * A notifications list organized and separated by dates
 	 *
@@ -176,4 +176,4 @@
 		return count;
 	};
 
-}( jQuery, mediaWiki ) );
+}() );

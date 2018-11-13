@@ -1,4 +1,4 @@
-( function ( mw, $ ) {
+( function () {
 	/**
 	 * Confirmation overlay widget, especially for mobile display.
 	 * The behavior of this widget is to appear with a given confirmation
@@ -68,4 +68,4 @@
 	mw.echo.ui.ConfirmationPopupWidget.prototype.setLabel = function ( label ) {
 		this.labelWidget.setLabel( label );
 	};
-}( mediaWiki, jQuery ) );
+}() );
