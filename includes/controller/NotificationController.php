@@ -80,8 +80,7 @@ class EchoNotificationController {
 			// defer job insertion till end of request when all primary db transactions
 			// have been committed
 			DeferredUpdates::addCallableUpdate( function () use ( $event ) {
-				// can't use self::, php 5.3 doesn't inherit class scope
-				EchoNotificationController::enqueueEvent( $event );
+				self::enqueueEvent( $event );
 			} );
 
 			return;
