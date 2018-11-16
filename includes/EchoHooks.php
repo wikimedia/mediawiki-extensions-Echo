@@ -1144,7 +1144,7 @@ class EchoHooks {
 	 * Handler for GetNewMessagesAlert hook.
 	 * We're using the GetNewMessagesAlert hook instead of the
 	 * ArticleEditUpdateNewTalk hook since we still want the user_newtalk data
-	 * to be updated and availble to client-side tools and the API.
+	 * to be updated and available to client-side tools and the API.
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/GetNewMessagesAlert
 	 * @param string &$newMessagesAlert An alert that the user has new messages
 	 *     or an empty string if the user does not (empty by default)
