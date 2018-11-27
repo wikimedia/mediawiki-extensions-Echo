@@ -60,7 +60,7 @@
 	 *
 	 * @param {string[]} [sources=all] Requested sources
 	 * @return {jQuery.Promise} Promise that is resolved with an object
-	 *	of pages with the number of unread notifications per wiki
+	 *  of pages with the number of unread notifications per wiki
 	 */
 	mw.echo.api.EchoApi.prototype.fetchUnreadNotificationPages = function ( sources ) {
 		return this.network.getApiHandler( 'local' ).fetchUnreadNotificationPages( sources )

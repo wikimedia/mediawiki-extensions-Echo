@@ -77,7 +77,7 @@
 	 * @param {string|string[]} [sources=*] Requested sources. If not given
 	 *  or if a '*' is given, all available sources will be queried
 	 * @return {jQuery.Promise} Promise that is resolved with an object
-	 *	of pages with the number of unread notifications per wiki
+	 *  of pages with the number of unread notifications per wiki
 	 */
 	mw.echo.api.APIHandler.prototype.fetchUnreadNotificationPages = function ( sources ) {
 		var params = {

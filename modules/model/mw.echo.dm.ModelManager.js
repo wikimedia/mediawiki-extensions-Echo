@@ -152,8 +152,8 @@
 	 * @param {Object} modelDefinitions An object defining the models
 	 * The format for the definition object is:
 	 * {
-	 * 		'modelId': {mw.echo.dm.SortedList},
-	 * 		...
+	 *   'modelId': {mw.echo.dm.SortedList},
+	 *   ...
 	 * }
 	 */
 	mw.echo.dm.ModelManager.prototype.setNotificationModels = function ( modelDefinitions ) {

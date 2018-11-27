@@ -59,8 +59,9 @@
 	 * @return {boolean} Whether this bundle is completely read
 	 */
 	mw.echo.dm.BundleNotificationItem.prototype.isRead = function () {
-		var itemIsRead = function ( item ) { return item.isRead(); };
-		return this.list.getItems().every( itemIsRead );
+		return this.list.getItems().every( function ( item ) {
+			return item.isRead();
+		} );
 	};
 
 	/**

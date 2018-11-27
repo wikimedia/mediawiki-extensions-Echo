@@ -30,14 +30,14 @@
 	 * @cfg {string} [source] The source this notification is coming from, if it is foreign
 	 * @cfg {Object[]} [secondaryUrls] An array of objects defining the secondary URLs
 	 *  for this notification. The secondary URLs are expected to have this structure:
-	 *  	{
-	 *  		"iconType": "userAvatar", // A symbolic name for the icon.
-	 *  		                          // Will render as oo-ui-icon-* class.
-	 *  		"label": "", // The label for the link
-	 *  		"prioritized": true/false, // Prioritized links are outside of the popup
-	 *  		                        // menu, whenever possible.
-	 *  		"url": "..." // The url for the secondary link
-	 *  	}
+	 *    {
+	 *      "iconType": "userAvatar", // A symbolic name for the icon.
+	 *                                // Will render as oo-ui-icon-* class.
+	 *      "label": "", // The label for the link
+	 *      "prioritized": true/false, // Prioritized links are outside of the popup
+	 *                                 // menu, whenever possible.
+	 *      "url": "..." // The url for the secondary link
+	 *    }
 	 */
 	mw.echo.dm.NotificationItem = function MwEchoDmNotificationItem( id, config ) {
 		var fallbackDate = moment.utc().format( 'YYYY-MM-DD[T]HH:mm:ss[Z]' );
