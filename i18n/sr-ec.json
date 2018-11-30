@@ -146,7 +146,7 @@
 	"notification-header-user-rights-remove-only": "{{GENDER:$4|Ваша}} корисничка права су {{GENDER:$1|промењена}}. Више нисте члан следећих група: $2.",
 	"notification-header-user-rights-add-and-remove": "{{GENDER:$6|Ваша}} корисничка права су {{GENDER:$1|промењена}}. Додати сте у следеће групе: $2. Више нисте члан следећи група: $4.",
 	"notification-header-user-rights-expiry-change": "Истек {{GENDER:$4|вашег}} чланства у {{PLURAL:$3|следећој групи|следећим групама}} је {{GENDER:$1|промењен}}: $2.",
-	"notification-header-welcome": "{{GENDER:$2|Добро дошли}} на пројекат {{SITENAME}}, $1! Драго нам што {{GENDER:$2|сте}} овде.",
+	"notification-header-welcome": "{{GENDER:$2|Добро дошли}} на {{GRAMMAR:акузатив|{{SITENAME}}}}, $1! Драго нам што {{GENDER:$2|сте}} овде.",
 	"notification-header-mention-summary": "$1 {{GENDER:$3|вас}} је {{GENDER:$2|поменуо|поменула}} у резимеу измене на страници <strong>$4</strong>.",
 	"notification-welcome-linktext": "Добро дошли",
 	"notification-header-thank-you-1-edit": "Управо {{GENDER:$2|сте}} направили {{GENDER:$2|своју}} прву измену. Хвала {{GENDER:$2|вам}} и добро дошли.",
