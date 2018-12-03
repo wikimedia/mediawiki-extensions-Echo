@@ -5,7 +5,8 @@
 			"Khan27",
 			"Wertuose",
 			"Dağlı95",
-			"Serkanland"
+			"Serkanland",
+			"Zoranzoki21"
 		]
 	},
 	"echo-desc": "Bildiriş sistemi",
@@ -71,7 +72,7 @@
 	"echo-notification-notice-text-only": "Bildirişlər",
 	"echo-overlay-link": "Bütün bildirişlər",
 	"echo-overlay-title": "<b>Bildirişlər</b>",
-	"echo-overlay-title-overflow": "<b>Bildirişlər</b> $2 {{PLURAL|$2|oxunmamış|oxunmamışlar}})dan $1 ({{PLURAL|$1|göstərilib|göstəriliblər}}",
+	"echo-overlay-title-overflow": "<b>Bildirişlər</b> $2 {{PLURAL:$2|oxunmamış|oxunmamışlar}} dan $1 ({{PLURAL:$1|göstərilib|göstəriliblər}})",
 	"echo-mark-all-as-read": "Hamısını oxunmuş kimi qeyd et",
 	"echo-date-today": "Bu gün",
 	"echo-date-yesterday": "Dünən",

@@ -4,5 +4,7 @@
 			"Si Gam Acèh"
 		]
 	},
-	"tooltip-pt-notifications-alert": "Beuneuri thèe"
+	"echo-new-messages": "Droeneuh na peusan barô",
+	"tooltip-pt-notifications-alert": "Beuneuri thèe",
+	"notification-bundle-header-edit-user-talk-v2": "{{PLURAL:$1|Saboh peusan barô|$1 peusan barô|100=99+ peusan barô}} bak <strong>ôn marit {{GENDER:$3|droeneuh}}</strong>."
 }
