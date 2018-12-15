@@ -60,6 +60,7 @@
 	"echo-notification-placeholder-filters": "Ingen varsel eller notisar passar med desse kriteria.",
 	"echo-notification-markasread": "Merk som lese(n)",
 	"echo-notification-markasunread": "Merk som ulese(n)",
+	"echo-notification-more-options-tooltip": "Fleire val",
 	"notification-link-text-expand-all": "Vis",
 	"notification-link-text-expand-notice-count": "Sjå {{PLURAL:$1|éin notis|$1 notisar}}",
 	"notification-link-text-collapse-all": "Gøym",
