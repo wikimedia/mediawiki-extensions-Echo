@@ -12,7 +12,8 @@
 			"Simeondahl",
 			"SimmeD",
 			"EeveeSylveon",
-			"Saederup92"
+			"Saederup92",
+			"Weblars"
 		]
 	},
 	"echo-desc": "System til at give brugere besked om handlinger og meddelelser",
@@ -76,9 +77,11 @@
 	"notification-link-text-view-changes": "{{GENDER:$1|Se}} ændringer",
 	"notification-link-text-view-page": "Se side",
 	"notification-header-edit-user-talk": "$1 {{GENDER:$2|efterlod}} en meddelelse på <strong>{{GENDER:$3|din}} diskussionsside</strong>.",
+	"notification-header-edit-user-talk-with-section": "$1 {{GENDER:$2|skrev}} en besked på <strong>{{GENDER:$3|din}} diskussionsside</strong> under \"<strong>$4</strong>\".",
 	"notification-header-page-linked": "Der blev oprettet et link fra <strong>$4</strong> til <strong>$3</strong>",
 	"notification-header-mention-other": "$1 {{GENDER:$2|nævnte}} {{GENDER:$3|dig}} på <strong>$4</strong> i \"<strong>$5</strong>\".",
 	"notification-header-mention-other-nosection": "$1 {{GENDER:$2|nævnte}} {{GENDER:$3|dig}} på <strong>$4</strong>.",
+	"notification-header-mention-agent-talkpage": "$1 {{GENDER:$2|nævnte}} {{GENDER:$3|dig}} på <strong>{{GENDER:$2|sin|sin|deres}} diskussionsside</strong> under \"<strong>$4</strong>\".",
 	"notification-header-mention-agent-talkpage-nosection": "$1 {{GENDER:$2|nævnte}} {{GENDER:$3|dig}} på <strong>{{GENDER:$2|sin|sin|sin}} diskussionsside</strong>.",
 	"notification-header-mention-article-talkpage": "$1 {{GENDER:$2|nævnte}} {{GENDER:$3|dig}} på <strong>$4</strong>s diskussionsside i \"<strong>$5</strong>\".",
 	"notification-header-user-rights-add-only": "{{GENDER:$4|Dine}} brugerrettigheder blev {{GENDER:$1|ændret}}. Du er blevet tilføjet til: $2.",
@@ -113,6 +116,8 @@
 	"echo-email-body-default": "Der er en ny meddelelse til dig på {{SITENAME}}\n\n$1",
 	"echo-email-footer-default": "$2\n\nTjek dine indstillinger for at se hvilke e-mails vi sender til dig:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
 	"echo-notification-alert": "{{PLURAL:$1|Meddelelse ($1)|Meddelelser ($1)|100=Meddelelser (99+)}}",
+	"echo-notification-alert-text-only": "Alarmer",
+	"echo-notification-notice-text-only": "Meddelelser",
 	"echo-overlay-link": "Alle meddelelser",
 	"echo-overlay-title": "<b>Meddelelser</b>",
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Meddelelser}}<b> (viser $1 af $2 ulæste)",
