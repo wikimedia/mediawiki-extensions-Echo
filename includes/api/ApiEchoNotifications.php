@@ -485,9 +485,9 @@ class ApiEchoNotifications extends ApiQueryBase {
 	}
 
 	/**
-	 * @param array $results
+	 * @param array[] $results
 	 * @param array $params
-	 * @return mixed
+	 * @return array
 	 */
 	protected function mergeResults( array $results, array $params ) {
 		$master = array_shift( $results );
@@ -511,7 +511,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 
 	/**
 	 * @param array $master
-	 * @param array $results
+	 * @param array[] $results
 	 * @param bool $groupBySection
 	 * @return array
 	 */
@@ -546,7 +546,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 
 	/**
 	 * @param array $master
-	 * @param array $results
+	 * @param array[] $results
 	 * @param bool $groupBySection
 	 * @return array
 	 */
