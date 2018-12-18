@@ -103,6 +103,7 @@
 	"echo-overlay-title": "<b>Notifiche</b>",
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Notifiche}}</b> (face 'ndrucà $1 de $2 non lette)",
 	"echo-mark-all-as-read": "Signe tutte cumme a lette",
+	"echo-mark-wiki-as-read": "Signe tutte cumme lette jndr'à uicchi scacchiate: $1",
 	"echo-date-today": "Osce",
 	"echo-date-yesterday": "Ajere",
 	"echo-load-more-error": "Ha assute 'n'errore mendre analizzave le resultate.",
