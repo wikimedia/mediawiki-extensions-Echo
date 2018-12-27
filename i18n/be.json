@@ -101,7 +101,7 @@
 	"notification-header-user-rights-add-only": "{{GENDER:$4|Вашы}} правы ўдзельніка былі {{GENDER:$1|зменены}}. Вы былі дададзены ў: $2.",
 	"notification-header-user-rights-remove-only": "{{GENDER:$4|Вашы}} правы ўдзельніка былі {{GENDER:$1|зменены}}. Вы больш не ўваходзіце ў: $2.",
 	"notification-header-user-rights-add-and-remove": "{{GENDER:$6|Вашы}} правы ўдзельніка былі {{GENDER:$1|зменены}}. Вы былі дададзены ў: $2. Вы больш не ўваходзіце ў: $4.",
-	"notification-header-welcome": "{{GENDER:$2|Вітаем}} у {{SITENAME}}, $1! Рады {{GENDER:$2|Вас}} тут бачыць.",
+	"notification-header-welcome": "{{GENDER:$2|Вітаем}} на сайце {{SITENAME}}, $1! Рады {{GENDER:$2|Вас}} тут бачыць.",
 	"notification-header-mention-summary": "$1 {{GENDER:$2|згадаў|згадала}} {{GENDER:$3|Вас}} у кароткім апісанні змен старонкі <strong>$4</strong>.",
 	"notification-header-thank-you-1-edit": "{{GENDER:$2|Вы}} толькі што зрабілі {{GENDER:$2|сваю}} першую праўку; дзякуй {{GENDER:$2|Вам}} за гэта, і вітаем!",
 	"notification-header-thank-you-10-edit": "{{GENDER:$2|Вы}} толькі што зрабілі {{GENDER:$2|сваю}} дзясятую праўку; дзякуй {{GENDER:$2|Вам}} за гэта, працягвайце ў тым жа духу!",
