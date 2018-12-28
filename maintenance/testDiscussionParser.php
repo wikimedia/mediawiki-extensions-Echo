@@ -66,7 +66,7 @@ class TestDiscussionParser extends Maintenance {
 
 			$newData = unserialize( $newData );
 
-			$pageData = array_shift( $newData['query']['pages'] );
+			$pageData = reset( $newData['query']['pages'] );
 			$oldText = isset( $pageData['revisions'][1] )
 				? trim( $pageData['revisions'][1]['*'] ) . "\n"
 				: '';
