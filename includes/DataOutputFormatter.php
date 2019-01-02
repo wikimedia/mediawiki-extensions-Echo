@@ -31,7 +31,7 @@ class EchoDataOutputFormatter {
 	 */
 	public static function formatOutput(
 		EchoNotification $notification,
-		$format = false,
+		$format,
 		User $user,
 		Language $lang
 	) {
