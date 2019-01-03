@@ -16,6 +16,7 @@
 	"apihelp-echomarkread-example-2": "Contrassegna tutte le notifiche come lette",
 	"apihelp-echomarkread-example-3": "Contrassegna la notifica 1 come non letta",
 	"apihelp-echomarkseen-description": "Contrassegna le notifiche come viste per l'utente attuale.",
+	"apihelp-echomarkseen-summary": "Contrassegna le notifiche come viste per l'utente attuale.",
 	"apihelp-echomarkseen-example-1": "Contrassegna le notifiche di tutti i tipi come viste",
 	"apihelp-echomarkseen-param-type": "Tipo di notifiche da contrassegnare come viste: 'alert', 'message' or 'all'.",
 	"apihelp-query+notifications-description": "Ottieni le notifiche in attesa per l'utente attuale.",

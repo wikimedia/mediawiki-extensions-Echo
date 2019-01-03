@@ -193,6 +193,7 @@
 	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Notifica|Notifiche}}</b> (mostrate $1 di $2 non lette)",
 	"echo-mark-all-as-read": "Segna tutte come lette",
 	"echo-mark-all-as-read-confirmation": "$1 {{PLURAL:$1|notifica contrassegnata come letta|notifiche contrassegnate come lette}}",
+	"echo-mark-wiki-as-read": "Contrassegna tutte come lette nel wiki selezionato: $1",
 	"echo-date-today": "Oggi",
 	"echo-date-yesterday": "Ieri",
 	"echo-load-more-error": "Si è verificato un errore nel recupero di ulteriori risultati.",
