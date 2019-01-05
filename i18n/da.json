@@ -74,10 +74,13 @@
 	"echo-none": "Du har ingen meddelelser.",
 	"echo-more-info": "Mere information",
 	"echo-feedback": "Feedback",
-	"echo-notification-markasread": "Mærk som læst",
+	"echo-notification-markasread": "Marker som læst",
 	"echo-notification-markasunread": "Marker som ulæst",
 	"echo-notification-markasread-tooltip": "Marker som læst",
 	"notification-link-text-expand-all": "Udvid",
+	"notification-link-text-expand-alert-count": "Vis {{PLURAL:$1|$1 alarm|$1 alarmer}}",
+	"notification-link-text-expand-notice-count": "Vis {{PLURAL:$1|$1 meddelelse|$1 meddelelser}}",
+	"notification-link-text-expand-all-count": "Vis {{PLURAL:$1|$1 meddelelse|$1 meddelelser}}",
 	"notification-link-text-collapse-all": "Sammenfold",
 	"notification-link-text-view-message": "Vis besked",
 	"notification-link-text-view-mention": "Se omtale",
@@ -147,5 +150,6 @@
 	"echo-email-batch-subject-weekly": "Du har {{PLURAL:$2|en ny meddelelse|$2 nye meddelelser}} på {{SITENAME}} i denne uge",
 	"echo-email-batch-body-intro-daily": "Hej $1,\nHer er en oversigt over dagens aktivitet på {{SITENAME}} for dig.",
 	"echo-email-batch-body-intro-weekly": "Hej $1,\nHer er et resumé af denne uges aktivitet på {{SITENAME}} for dig.",
-	"echo-email-batch-link-text-view-all-notifications": "Se alle meddelelser"
+	"echo-email-batch-link-text-view-all-notifications": "Se alle meddelelser",
+	"notification-header-foreign-alert": "Flere alarmer fra {{PLURAL:$5|en anden wiki|$5 andre wikier}}"
 }
