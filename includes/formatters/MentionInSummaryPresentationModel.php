@@ -13,7 +13,7 @@ class EchoMentionInSummaryPresentationModel extends EchoEventPresentationModel {
 	public function getHeaderMessage() {
 		$msg = $this->getMessageWithAgent( 'notification-header-mention-summary' );
 		$msg->params( $this->getViewingUserForGender() );
-		$msg->params( $this->getTruncatedTitleText( $this->event->getTitle() ) );
+		$msg->params( $this->getTruncatedTitleText( $this->event->getTitle(), true ) );
 
 		return $msg;
 	}
