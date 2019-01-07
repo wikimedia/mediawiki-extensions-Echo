@@ -313,26 +313,22 @@ class EchoHooks {
 		$attributeManager = EchoAttributeManager::newFromGlobalVars();
 
 		// Show email frequency options
-		$never = wfMessage( 'echo-pref-email-frequency-never' )->escaped();
-		$immediately = wfMessage( 'echo-pref-email-frequency-immediately' )->escaped();
 		$freqOptions = [
-			$never => EchoEmailFrequency::NEVER,
-			$immediately => EchoEmailFrequency::IMMEDIATELY,
+			'echo-pref-email-frequency-never' => EchoEmailFrequency::NEVER,
+			'echo-pref-email-frequency-immediately' => EchoEmailFrequency::IMMEDIATELY,
 		];
 		// Only show digest options if email batch is enabled
 		if ( $wgEchoEnableEmailBatch ) {
-			$daily = wfMessage( 'echo-pref-email-frequency-daily' )->escaped();
-			$weekly = wfMessage( 'echo-pref-email-frequency-weekly' )->escaped();
 			$freqOptions += [
-				$daily => EchoEmailFrequency::DAILY_DIGEST,
-				$weekly => EchoEmailFrequency::WEEKLY_DIGEST,
+				'echo-pref-email-frequency-daily' => EchoEmailFrequency::DAILY_DIGEST,
+				'echo-pref-email-frequency-weekly' => EchoEmailFrequency::WEEKLY_DIGEST,
 			];
 		}
 		$preferences['echo-email-frequency'] = [
 			'type' => 'select',
 			'label-message' => 'echo-pref-send-me',
 			'section' => 'echo/emailsettings',
-			'options' => $freqOptions
+			'options-messages' => $freqOptions
 		];
 
 		// Display information about the user's currently set email address
@@ -368,9 +364,9 @@ class EchoHooks {
 				'type' => 'select',
 				'label-message' => 'echo-pref-email-format',
 				'section' => 'echo/emailsettings',
-				'options' => [
-					wfMessage( 'echo-pref-email-format-html' )->escaped() => EchoEmailFormat::HTML,
-					wfMessage( 'echo-pref-email-format-plain-text' )->escaped() => EchoEmailFormat::PLAIN_TEXT,
+				'options-messages' => [
+					'echo-pref-email-format-html' => EchoEmailFormat::HTML,
+					'echo-pref-email-format-plain-text' => EchoEmailFormat::PLAIN_TEXT,
 				]
 			];
 		}
