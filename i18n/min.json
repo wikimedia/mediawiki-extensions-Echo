@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Iwan Novirion"
+			"Iwan Novirion",
+			"Ardzun"
 		]
 	},
-	"echo-new-messages": "Sanak ado pasan baru"
+	"echo-new-messages": "Sanak ado pasan baru",
+	"tooltip-pt-notifications-alert": "Pambaritahuan {{GENDER:|Sanak}}"
 }

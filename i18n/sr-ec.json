@@ -15,7 +15,7 @@
 			"Matěj Suchánek"
 		]
 	},
-	"echo-desc": "Систем за обавештавање корисника о дешавањима и порукама",
+	"echo-desc": "Систем за обавештавање корисника о догађајима и порукама",
 	"prefs-echo": "Обавештења",
 	"prefs-emailsettings": "Опције имејла",
 	"prefs-displaynotifications": "Опције приказа",
@@ -33,7 +33,7 @@
 	"echo-pref-email-frequency-weekly": "Седмични резиме обавештења",
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Чист текст",
-	"echo-pref-cross-wiki-notifications": "Обавештења са других викија",
+	"echo-pref-cross-wiki-notifications": "Приказуј обавештења са других викија",
 	"echo-pref-notifications-blacklist": "Не приказуј обавештења од ових корисника. ([[mw:Special:MyLanguage/Help:Notifications#mute|сазнајте више]])",
 	"echo-pref-beta-feature-cross-wiki-message": "Побољшана обавештења",
 	"echo-pref-beta-feature-cross-wiki-description": "Лакши преглед и организација обавештења. Укључује међувики обавештења, што вам омогућава да видите поруке са других викија. (Да бисте примали међувики обавештења на датом викију, морате да активирате ову бета могућност.)",
