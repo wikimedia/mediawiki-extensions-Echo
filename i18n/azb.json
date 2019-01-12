@@ -40,6 +40,7 @@
 	"echo-none": "سیزین بیلدیرینیز یوخدور.",
 	"echo-more-info": "آرتیقراق بیلگی",
 	"echo-feedback": "فیدبک",
+	"notification-link-text-view-changes": "دییشیکلره {{GENDER:$1|باخ}}",
 	"notification-header-edit-user-talk-with-section": "$1 <strong>{{GENDER:$3|سیزین}} دانیشیق صفحه‌نیزین \"</strong>$4\"<strong>-ده </strong> بیر مساژ {{GENDER:$2|یازیبدیر}}.",
 	"notification-header-mention-other-nosection": "$1 {{GENDER:$3|سیزه}} <strong>$4</strong>-ده {{GENDER:$2|ایشاره ائتدی}}.",
 	"notification-header-mention-user-talkpage-nosection": "$1, '''$4 {{GENDER:$5|-نین}} دانیشیق صفحه‌سینده''' {{GENDER:$3|سیزه}} {{GENDER:$2|ایشاره ائتدی}}.",
