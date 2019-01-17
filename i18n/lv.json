@@ -52,6 +52,7 @@
 	"notifications": "Paziņojumi",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Tavi}} brīdinājumi",
 	"tooltip-pt-notifications-notice": "{{GENDER:|Tavi}} paziņojumi",
+	"echo-displaynotificationsconfiguration": "Rādāmo paziņojumu konfigurācija",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "Paziņojumi pēc kategorijas",
 	"echo-displaynotificationsconfiguration-sorting-by-section-header": "Veidu šķirošana",
 	"echo-displaynotificationsconfiguration-sorting-by-section-legend": "Kurā sadaļā katrs paziņojuma veids tiek ievietots",
