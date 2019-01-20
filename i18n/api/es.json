@@ -5,11 +5,12 @@
 			"Fitoschido",
 			"Jduranboger",
 			"Macofe",
-			"Dgstranz"
+			"Dgstranz",
+			"Tiberius1701"
 		]
 	},
 	"apihelp-echomarkread-description": "Marcar notificaciones como leídas para el usuario actual.",
-	"apihelp-echomarkread-summary": "Marcar notificaciones como leídas para el usuario actual.",
+	"apihelp-echomarkread-summary": "Marcar las notificaciones del usuario actual como leídas.",
 	"apihelp-echomarkread-param-list": "Lista de identificaciones de notificación para marcar como leídas.",
 	"apihelp-echomarkread-param-unreadlist": "Una lista de identificadores de notificación para marcar como leídas.",
 	"apihelp-echomarkread-param-all": "Si se establece, marca todas las notificaciones de un usuario como leídas.",
@@ -23,7 +24,7 @@
 	"apihelp-echomarkseen-param-type": "Tipo de notificaciones para marcar como leídas: 'alert' (alerta), 'message' (mensaje) o 'all' (todas).",
 	"apihelp-echomarkseen-param-timestampFormat": "Formato de fecha y hora que utilizar para la salida, «ISO_8601» o «MW». «MW» aquí está desusado, por lo que todos los clientes deben cambiar a «ISO_8601». Este parámetro desaparecerá y el único formato de salida será «ISO_8601».",
 	"apihelp-query+notifications-description": "Recibe notificaciones en espera para el usuario actual.",
-	"apihelp-query+notifications-summary": "Recibir notificaciones pendientes para el usuario actual.",
+	"apihelp-query+notifications-summary": "Recibir notificaciones pendientes del usuario actual.",
 	"apihelp-query+notifications-param-prop": "Detalles que solicitar.",
 	"apihelp-query+notifications-param-sections": "Las secciones de notificación para consultar (o sea, alguna combinación de «alerta» y «mensaje»).",
 	"apihelp-query+notifications-param-groupbysection": "Si se agrupan los resultados por sección. Cada sección se obtiene por separado si así se establece.",
