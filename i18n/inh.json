@@ -21,5 +21,6 @@
 	"echo-pref-cross-wiki-notifications": "Хьахьувкха кхыйолча викешкара хоамбар",
 	"echo-pref-notifications-blacklist": "Ма гойта хоамаш укх доакъашхошкара ([[mw:Special:MyLanguage/Help:Notifications#mute|дукхагIа хá]])",
 	"notifications": "Хоамбар",
-	"tooltip-pt-notifications-alert": "{{GENDER:|Хьога}} дéна дӀахайтар"
+	"tooltip-pt-notifications-alert": "{{GENDER:|Хьога}} дéна дӀахайтар",
+	"echo-notification-alert-text-only": "Хабар дáр"
 }
