@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kurdbuddha"
+			"Kurdbuddha",
+			"Paraw2"
 		]
 	},
 	"echo-pref-web": "وێب",
-	"echo-pref-email": "ئیمەیل"
+	"echo-pref-email": "ئیمەیل",
+	"tooltip-pt-notifications-alert": "{{GENDER:|ھوشدارەگانت}}"
 }
