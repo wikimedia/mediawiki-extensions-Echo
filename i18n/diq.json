@@ -56,7 +56,7 @@
 	"notification-link-text-expand-alert-count": "{{PLURAL:$1|$1 iqazi|$1 iqazan}} bıvin",
 	"notification-link-text-expand-notice-count": "{{PLURAL:$1|$1 beyanati|$1 beyanatan}} bıvin",
 	"notification-link-text-expand-all-count": "$1 {{PLURAL:$1|mengene|mengeneyan}} bıvin",
-	"notification-link-text-collapse-all": "Teng kı",
+	"notification-link-text-collapse-all": "Teng ke",
 	"notification-link-text-view-message": "Qaytê mesaci ke",
 	"notification-link-text-view-mention": "Qayt ke, cao ke qalê to biyo",
 	"notification-link-text-view-mention-failure": "{{PLURAL:$1|Behsi bıasne|Bahsan bıasne }}",
