@@ -11,7 +11,8 @@
 			"Auslaender",
 			"Giorgos456",
 			"Tsoukali",
-			"Ανώνυμος Βικιπαιδιστής"
+			"Ανώνυμος Βικιπαιδιστής",
+			"Nikosgranturismogt"
 		]
 	},
 	"echo-desc": "Σύστημα για την ενημέρωση των χρηστών σχετικά με τα γεγονότα και τα μηνύματα",
@@ -128,6 +129,7 @@
 	"notification-compact-header-mention-failure-user-anonymous": "<strong>Οι IP δεν μπορούν να αναφερθούν:</strong> $1",
 	"notification-header-mention-success": "Η {{GENDER:$2|αναφορά}} σου {{GENDER:$3|στον|στην}} <strong>$3</strong> έχει σταλεί.",
 	"notification-compact-header-mention-success": "<strong>{{GENDER:$2|Αναφέρατε}}:</strong> $3",
+	"notification-header-welcome": "{{GENDER:$2|Καλωσήρθατε}} στο {{SITENAME}}, $1! Είμαστε χαρούμενοι {{GENDER:$2|που είστε}} εδώ.",
 	"notification-header-mention-summary": "{{GENDER:$2|Ο|Η}} $1 {{GENDER:$3|σας}} ανάφερε στη σύνοψη επεξεργασίας στην <strong>$4</strong>.",
 	"notification-welcome-linktext": "Καλώς ήρθατε",
 	"notification-header-thank-you-1-edit": "Μόλις {{GENDER:$2|έκανες}} την πρώτη σου επεξεργασία. Σε ευχαριστούμε, και καλώς ήρθες!",
