@@ -9,7 +9,8 @@
 			"Sayginer",
 			"Kumkumuk",
 			"Velg",
-			"Gırd"
+			"Gırd",
+			"Orbot707"
 		]
 	},
 	"echo-desc": "Karbera  heqdê weqan u mesavan malumat dayen sisten",
@@ -52,7 +53,7 @@
 	"echo-notification-markasunread": "Nêwanaye nışan ke",
 	"echo-notification-markasread-tooltip": "Wanaye nışan ke",
 	"echo-notification-more-options-tooltip": "Dehana zaf weçenegi",
-	"notification-link-text-expand-all": "Hera ke",
+	"notification-link-text-expand-all": "Hera kerê",
 	"notification-link-text-expand-alert-count": "{{PLURAL:$1|$1 iqazi|$1 iqazan}} bıvin",
 	"notification-link-text-expand-notice-count": "{{PLURAL:$1|$1 beyanati|$1 beyanatan}} bıvin",
 	"notification-link-text-expand-all-count": "$1 {{PLURAL:$1|mengene|mengeneyan}} bıvin",

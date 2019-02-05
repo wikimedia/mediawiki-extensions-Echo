@@ -50,6 +50,8 @@
 	"notification-header-user-rights-remove-only": "ایشلدن حاقلارینیز دَییشیلیبدیر. بۇنلاردا آرتیق عۆضو دئییلسینیز: $2.",
 	"notification-header-user-rights-add-and-remove": "ایشلدن حاقلارینیز دَییشیلیبدیر. بۇنلارا آرتیریلمیشسینیز: $2. بۇنلاردا آرتیق عۆضو دئییلسینیز: $4.",
 	"notification-header-mention-summary": "$1 {{GENDER:$3|سیزه}}    <strong>$4</strong> دییشیک قیساسیندا {{GENDER:$2|ایشاره ائتدی}}.",
+	"notification-header-thank-you-1-edit": "{{GENDER:$2|سیز}} بیرینجی دییشدیرمه‌نیزی {{GENDER:$2|ائتدینیز}}؛ {{GENDER:$2|چوخ ساغولون}} و خوش‌ گلدینیز!",
+	"notification-header-thank-you-1000-edit": "{{GENDER:$2|سیز}} مینیمجی دییشدیرمه‌نیزی {{GENDER:$2|ائتدینیز}}؛ بؤیوک چالیشمالارینیز اۆچون {{GENDER:$2|ساغ اولون}}.",
 	"notification-header-reverted": "<strong>$3</strong> صفحه‌سینده {{PLURAL:$4|ائتدیگینیز دییشیک‌لیک|ائتدیگینیز دییشیک‌لیک‌لر}} {{GENDER:$2|قایتاریلیبدیر}}.",
 	"notification-inbox-filter-read": "اوْخونموش",
 	"notification-inbox-filter-unread": "اوْخونمامیش",
