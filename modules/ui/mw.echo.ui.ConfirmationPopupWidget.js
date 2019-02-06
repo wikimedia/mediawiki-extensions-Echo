@@ -56,6 +56,8 @@
 	 * @private
 	 */
 	mw.echo.ui.ConfirmationPopupWidget.prototype.hide = function () {
+		// FIXME: Use CSS transition
+		// eslint-disable-next-line jquery/no-fade
 		this.$element.fadeOut();
 	};
 

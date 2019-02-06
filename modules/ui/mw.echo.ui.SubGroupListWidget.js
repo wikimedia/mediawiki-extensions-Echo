@@ -119,8 +119,9 @@
 				this.listWidget.$element
 			);
 
+		// eslint-disable-next-line jquery/no-global-selector
 		this.$pageContentText = $( '#mw-content-text' );
-		$( window ).resize( this.resizeHeader.bind( this ) );
+		$( window ).on( 'resize', this.resizeHeader.bind( this ) );
 
 		// Resize the header after the stack finishes loading
 		// so the widget is attached

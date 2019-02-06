@@ -1,3 +1,4 @@
+/* eslint-disable jquery/no-global-selector */
 ( function () {
 	'use strict';
 
@@ -33,7 +34,7 @@
 			};
 
 		// Respond to click on the notification button and load the UI on demand
-		$( '.mw-echo-notification-badge-nojs' ).click( function ( e ) {
+		$( '.mw-echo-notification-badge-nojs' ).on( 'click', function ( e ) {
 			var time = mw.now(),
 				myType = $( this ).parent().prop( 'id' ) === 'pt-notifications-alert' ? 'alert' : 'message';
 

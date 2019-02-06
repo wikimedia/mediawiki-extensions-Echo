@@ -189,8 +189,11 @@
 		this.expanded = show !== undefined ? !!show : !this.expanded;
 
 		if ( show ) {
+			// FIXME: Use CSS transition
+			// eslint-disable-next-line jquery/no-slide
 			this.getList().$element.slideDown();
 		} else {
+			// eslint-disable-next-line jquery/no-slide
 			this.getList().$element.slideUp();
 		}
 	};

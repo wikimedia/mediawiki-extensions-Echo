@@ -128,7 +128,7 @@
 			this.manager.getTypeString(),
 			currentSource,
 			{
-				'continue': continueValue,
+				continue: continueValue,
 				readState: filters.getReadState(),
 				titles: filters.getSourcePagesModel().getGroupedPagesForCurrentTitle()
 			}
@@ -335,7 +335,7 @@
 								// but is not an array. We should log this in the console
 								mw.log.warn(
 									'newNotifData.bundledNotifications is expected to be an array,' +
-									'but instead received "' + $.type( newNotifData.bundledNotifications ) + '"'
+									'but instead received "' + typeof newNotifData.bundledNotifications + '"'
 								);
 							}
 						}

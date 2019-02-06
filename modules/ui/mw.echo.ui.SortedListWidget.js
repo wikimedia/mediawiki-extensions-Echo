@@ -83,10 +83,13 @@
 			this.addItems( fakeWidget );
 
 			// fade out fake
+			// FIXME: Use CSS transition
+			// eslint-disable-next-line jquery/no-fade
 			fakeWidget.$element.fadeOut( 400, function () {
 				// remove fake
 				widget.removeItems( fakeWidget );
 				// fade-in real item
+				// eslint-disable-next-line jquery/no-fade
 				item.$element.fadeIn( 400 );
 			} );
 		} else {

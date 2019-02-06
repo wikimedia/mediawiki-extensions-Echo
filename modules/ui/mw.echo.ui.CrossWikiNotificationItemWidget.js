@@ -311,8 +311,11 @@
 		this.$element.toggleClass( 'mw-echo-ui-crossWikiNotificationItemWidget-expanded', this.expanded );
 
 		if ( this.expanded ) {
+			// FIXME: Use CSS transition
+			// eslint-disable-next-line jquery/no-slide
 			this.getList().$element.slideDown();
 		} else {
+			// eslint-disable-next-line jquery/no-slide
 			this.getList().$element.slideUp();
 		}
 	};
