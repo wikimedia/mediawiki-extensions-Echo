@@ -5,9 +5,9 @@ use MediaWiki\MediaWikiServices;
 abstract class EchoDiscussionParser {
 	const HEADER_REGEX = '^(==+)\h*([^=].*)\h*\1$';
 
-	static protected $timestampRegex;
-	static protected $revisionInterpretationCache = [];
-	static protected $diffParser;
+	protected static $timestampRegex;
+	protected static $revisionInterpretationCache = [];
+	protected static $diffParser;
 
 	/**
 	 * Given a Revision object, generates EchoEvent objects for

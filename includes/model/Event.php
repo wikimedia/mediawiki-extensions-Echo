@@ -150,7 +150,7 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 			$obj->setTitle( $obj->title );
 		}
 
-		if ( $obj->agent && ! $obj->agent instanceof User ) {
+		if ( $obj->agent && !$obj->agent instanceof User ) {
 			throw new InvalidArgumentException( "Invalid user parameter" );
 		}
 

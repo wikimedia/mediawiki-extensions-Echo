@@ -13,28 +13,28 @@ class EchoNotificationController {
 	 *
 	 * @var int $maxRecipientCacheSize
 	 */
-	static protected $maxRecipientCacheSize = 200;
+	protected static $maxRecipientCacheSize = 200;
 
 	/**
 	 * Echo event agent per user blacklist
 	 *
 	 * @var MapCacheLRU
 	 */
-	static protected $blacklistByUser;
+	protected static $blacklistByUser;
 
 	/**
 	 * Echo event agent per wiki blacklist
 	 *
 	 * @var EchoContainmentList|null
 	 */
-	static protected $wikiBlacklist;
+	protected static $wikiBlacklist;
 
 	/**
 	 * Echo event agent per user whitelist, this overwrites $blacklistByUser
 	 *
 	 * @var MapCacheLRU
 	 */
-	static protected $whitelistByUser;
+	protected static $whitelistByUser;
 
 	/**
 	 * Returns the count passed in, or MWEchoNotifUser::MAX_BADGE_COUNT + 1,
