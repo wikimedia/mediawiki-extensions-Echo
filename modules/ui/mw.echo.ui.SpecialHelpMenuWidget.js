@@ -8,29 +8,18 @@
 	 * @cfg {string} [prefLink] Link to preferences page
 	 */
 	mw.echo.ui.SpecialHelpMenuWidget = function MwEchoUiSpecialHelpMenuWidget( manager, config ) {
-		var handle;
-
 		config = config || {};
 
 		// Parent constructor
 		mw.echo.ui.SpecialHelpMenuWidget.super.call( this, $.extend( {
-			// Icon and indicator set on handle button instead
-			indicator: '',
+			icon: 'settings',
+			indicator: 'down',
 			menu: {
 				classes: [ 'mw-echo-ui-specialHelpMenuWidget-menu' ],
 				horizontalPosition: 'end',
 				width: 'auto'
 			}
 		}, config ) );
-
-		// Replace handle with a button widget. Use this.$handle to preserve bindings.
-		this.$handle.empty().attr( 'class', '' );
-		handle = new OO.ui.ButtonWidget( {
-			$element: this.$handle,
-			icon: 'settings',
-			indicator: 'down'
-		} );
-		this.$element.append( handle.$element );
 
 		this.manager = manager;
 
