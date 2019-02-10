@@ -92,7 +92,7 @@
 	"notification-timestamp-ago-years": "{{PLURAL:$1|$1ser}}",
 	"notification-timestamp-today": "Noroc",
 	"notification-timestamp-yesterday": "Vızér",
-	"notification-inbox-filter-read": "Bıwanê",
+	"notification-inbox-filter-read": "Bıwane",
 	"notification-inbox-filter-unread": "Nêwaniya ya",
 	"notification-inbox-filter-all": "Pêro",
 	"echo-email-body-default": "{{SITENAME}} de beyanatê do newe esto:\n\n$1",
