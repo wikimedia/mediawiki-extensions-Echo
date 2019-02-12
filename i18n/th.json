@@ -33,7 +33,7 @@
 	"echo-pref-beta-feature-cross-wiki-message": "การแจ้งเตือนที่ได้รับการปรับปรุงแล้ว",
 	"echo-pref-beta-feature-cross-wiki-description": "ดูและจัดระเบียบการแจ้งเตือนได้อย่างง่ายขึ้น รวมการแจ้งเตือนข้ามวิกิ ซึ่งอนุญาตให้คุณเห็นข้อความจากวิกิอื่นได้ (คุณต้องเปิดใช้งานคุณลักษณะเบต้าในวิกินั้นก่อนเพื่อรับการแจ้งเตือนข้ามวิกิในวิกินั้นๆ)",
 	"echo-learn-more": "เรียนรู้เพิ่มเติม",
-	"echo-log": "รายการบันทึกสาธารณะ",
+	"echo-log": "ปูมสาธารณะ",
 	"echo-new-messages": "คุณมีข้อความใหม่",
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1|ข้อความ}}หน้าพูดคุย",
 	"echo-category-title-article-linked": "{{PLURAL:$1|การเชื่อมโยง}}หน้า",

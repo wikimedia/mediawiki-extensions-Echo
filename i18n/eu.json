@@ -71,7 +71,7 @@
 	"notification-link-text-view-page": "Orrialdea ikusi",
 	"notification-header-edit-user-talk": "$1(e)k mezu bat {{GENDER:$2|utzi}} dizu <strong>{{GENDER:$3|zure}} eztabaida orrian</strong>.",
 	"notification-header-edit-user-talk-with-section": "$1(e)k mezu bat {{GENDER:$2|utzi}} dizu <strong>{{GENDER:$3|zure}} eztabaida orrian</strong>, \"<strong>$4</strong>\" atalean.",
-	"notification-header-article-reminder": "Orrialde batek {{GENDER:$2|you}} <strong>$3</strong> gogoraraztea eskatu du.",
+	"notification-header-article-reminder": "{{GENDER:$2|Zeuk}} gogoraraztea eskatutako orri bat duzu hemen: <strong>$3</strong>",
 	"notification-header-mention-other": "$1(e)k {{GENDER:$2|aipamena}} egin {{GENDER:$3|dizu}} <strong>$4</strong>(e)an \"<strong>$5</strong>\" harian.",
 	"notification-header-mention-other-nosection": "$1 {{GENDER:$2|lankideak}} aipatu {{GENDER:$3|zaitu}} <strong>$4</strong> orrian.",
 	"notification-header-mention-user-talkpage-v2": "$1(e)k {{GENDER:$2|aipamena}} egin {{GENDER:$3|dizu}} <strong>$4{{GENDER:$5|ren}} lankide eztabaida orrian</strong>, \"<strong>$6</strong>\" atalean.",
