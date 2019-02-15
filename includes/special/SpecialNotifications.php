@@ -124,6 +124,7 @@ class SpecialNotifications extends SpecialPage {
 		// Ensure there are some unread notifications
 		if ( $anyUnread ) {
 			$markReadSpecialPage = new SpecialNotificationsMarkRead();
+			$markReadSpecialPage->setContext( $this->getContext() );
 
 			$markAllAsReadText = $this->msg( 'echo-mark-all-as-read' )->text();
 			$markAllAsReadLabelIcon = new EchoOOUI\LabelIconWidget( [
@@ -151,6 +152,7 @@ class SpecialNotifications extends SpecialPage {
 		$notices->addClasses( [ 'mw-echo-special-notifications' ] );
 
 		$markReadSpecialPage = new SpecialNotificationsMarkRead();
+		$markReadSpecialPage->setContext( $this->getContext() );
 		foreach ( $notifArray as $section => $data ) {
 			// Heading
 			$heading = ( new OOUI\Tag( 'li' ) )->addClasses( [ 'mw-echo-date-section' ] );

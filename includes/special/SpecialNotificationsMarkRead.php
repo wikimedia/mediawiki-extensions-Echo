@@ -103,7 +103,9 @@ class SpecialNotificationsMarkRead extends FormSpecialPage {
 		// manually.
 		$form->suppressDefaultSubmit();
 
-		$form->setAction( $this->getPageTitle()->getLocalURL() );
+		$pageTitle = $this->getPageTitle();
+		$form->setTitle( $pageTitle );
+		$form->setAction( $pageTitle->getLocalURL() );
 
 		$form->addButton( [
 			'name' => 'submit',

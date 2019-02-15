@@ -6,11 +6,14 @@
  * It paginates on notification_event for a specific user, only for the enabled event types.
  */
 class NotificationPager extends ReverseChronologicalPager {
-	public function __construct() {
+	/**
+	 * @param IContextSource $context
+	 */
+	public function __construct( IContextSource $context ) {
 		$dbFactory = MWEchoDbFactory::newFromDefault();
 		$this->mDb = $dbFactory->getEchoDb( DB_REPLICA );
 
-		parent::__construct();
+		parent::__construct( $context );
 	}
 
 	public function formatRow( $row ) {
