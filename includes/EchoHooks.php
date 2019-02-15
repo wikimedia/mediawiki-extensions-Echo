@@ -1379,7 +1379,7 @@ class EchoHooks {
 						'notification_user' => $newUser->getId(),
 						'notification_event = event_id',
 						'notification_user = event_agent_id',
-						'event_type NOT IN (' . $dbr->makeList( $attributeManager->getNotifyAgentEvents() ) . ')'
+						'event_type NOT IN (' . $dbw->makeList( $attributeManager->getNotifyAgentEvents() ) . ')'
 					],
 					$method
 				) ?: [];
