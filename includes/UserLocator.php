@@ -9,7 +9,7 @@ class EchoUserLocator {
 	 *
 	 * @param EchoEvent $event
 	 * @param int $batchSize
-	 * @return User[]
+	 * @return User[]|Iterator<User>
 	 */
 	public static function locateUsersWatchingTitle( EchoEvent $event, $batchSize = 500 ) {
 		$title = $event->getTitle();

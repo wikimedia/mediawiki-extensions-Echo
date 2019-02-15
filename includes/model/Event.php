@@ -8,34 +8,39 @@ use MediaWiki\Logger\LoggerFactory;
  */
 class EchoEvent extends EchoAbstractEntity implements Bundleable {
 
+	/** @var string|null */
 	protected $type = null;
+	/** @var string|null|false */
 	protected $id = null;
+	/** @var string|null */
 	protected $variant = null;
 	/**
-	 * @var User
+	 * @var User|null
 	 */
 	protected $agent = null;
 
 	/**
 	 * Loaded dynamically on request
 	 *
-	 * @var Title
+	 * @var Title|null
 	 */
 	protected $title = null;
+	/** @var int|null */
 	protected $pageId = null;
 
 	/**
 	 * Loaded dynamically on request
 	 *
-	 * @var Revision
+	 * @var Revision|null
 	 */
 	protected $revision = null;
 
+	/** @var array */
 	protected $extra = [];
 
 	/**
 	 * Notification timestamp
-	 * @var string
+	 * @var string|null
 	 */
 	protected $timestamp = null;
 
