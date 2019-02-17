@@ -171,7 +171,7 @@
 	"notification-link-thank-you-edit": "{{GENDER:$1|تعديلك|تعديلكِ}}",
 	"notification-link-text-view-edit": "اعرض التعديل",
 	"notification-link-article-reminder": "عرض الصفحة",
-	"notification-header-reverted": "{{PLURAL:$4|تعديلك في <strong>$3</strong>|تعديلاك في <strong>$3</strong>|تعديلاتك في <strong>$3</strong>}} {{GENDER:$2|ألغيت|ألغيت}}",
+	"notification-header-reverted": "{{PLURAL:$4|تعديلك|تعديلاتك}} في <strong>$3</strong> {{GENDER:$2|أُلغِي|أُلغِيت}}",
 	"notification-header-emailuser": "{{GENDER:$2|أرسل|أرسلت}} $1 بريدا إلكترونيا إليك.",
 	"notification-edit-talk-page-email-subject2": "{{GENDER:$1|بعث|بعثت}} لك $1 برسالة في {{SITENAME}}",
 	"notification-edit-talk-page-email-batch-body-with-section": "{{GENDER:$1|بعث|بعثت}} لك $1 برسالة في صفحة نقاشك في \"$2\".",
