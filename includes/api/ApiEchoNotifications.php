@@ -141,7 +141,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 	 * Internal method for getting the property 'list' data for individual section
 	 * @param User $user
 	 * @param string $section 'alert' or 'message'
-	 * @param string $filter 'all', 'read' or 'unread'
+	 * @param string[] $filter 'all', 'read' or 'unread'
 	 * @param int $limit
 	 * @param string $continue
 	 * @param string $format
@@ -184,7 +184,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 	 * of a set of sections or a single section
 	 * @param User $user
 	 * @param string[] $eventTypes
-	 * @param string $filter 'all', 'read' or 'unread'
+	 * @param string[] $filter 'all', 'read' or 'unread'
 	 * @param int $limit
 	 * @param string $continue
 	 * @param string $format

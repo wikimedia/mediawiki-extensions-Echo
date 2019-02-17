@@ -1,6 +1,7 @@
 <?php
 
 class EchoNotificationJob extends Job {
+	/** @var int */
 	private $eventId;
 
 	public function __construct( $title, $params ) {
