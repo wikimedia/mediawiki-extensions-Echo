@@ -66,7 +66,7 @@ class EchoEventMapperTest extends MediaWikiTestCase {
 	}
 
 	/**
-	 * Mock object of EchoEvent
+	 * @return EchoEvent
 	 */
 	protected function mockEchoEvent() {
 		$event = $this->getMockBuilder( EchoEvent::class )
@@ -80,7 +80,7 @@ class EchoEventMapperTest extends MediaWikiTestCase {
 	}
 
 	/**
-	 * Mock object of MWEchoDbFactory
+	 * @return MWEchoDbFactory
 	 */
 	protected function mockMWEchoDbFactory( $dbResult ) {
 		$dbFactory = $this->getMockBuilder( MWEchoDbFactory::class )
@@ -94,7 +94,6 @@ class EchoEventMapperTest extends MediaWikiTestCase {
 	}
 
 	/**
-	 * Returns a mock database object
 	 * @return \Wikimedia\Rdbms\IDatabase
 	 */
 	protected function mockDb( array $dbResult ) {

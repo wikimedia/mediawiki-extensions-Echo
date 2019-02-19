@@ -22,6 +22,9 @@ class EchoTargetPageTest extends MediaWikiTestCase {
 		);
 	}
 
+	/**
+	 * @return EchoTargetPage
+	 */
 	public function testNewFromRow() {
 		$row = (object)[
 			'etp_page' => 2,
@@ -44,7 +47,7 @@ class EchoTargetPageTest extends MediaWikiTestCase {
 	/**
 	 * @depends testNewFromRow
 	 */
-	public function testToDbArray( $obj ) {
+	public function testToDbArray( EchoTargetPage $obj ) {
 		$row = $obj->toDbArray();
 		$this->assertTrue( is_array( $row ) );
 
@@ -57,7 +60,7 @@ class EchoTargetPageTest extends MediaWikiTestCase {
 	}
 
 	/**
-	 * Mock object of Title
+	 * @return Title
 	 */
 	protected function mockTitle( $pageId ) {
 		$event = $this->getMockBuilder( Title::class )
@@ -71,7 +74,7 @@ class EchoTargetPageTest extends MediaWikiTestCase {
 	}
 
 	/**
-	 * Mock object of EchoEvent
+	 * @return EchoEvent
 	 */
 	protected function mockEchoEvent( $eventId = 1 ) {
 		$event = $this->getMockBuilder( EchoEvent::class )

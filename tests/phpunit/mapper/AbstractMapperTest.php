@@ -5,6 +5,9 @@
  */
 class EchoAbstractMapperTest extends MediaWikiTestCase {
 
+	/**
+	 * @return array [ 'mapper' => EchoAbstractMapper, 'property' => ReflectionProperty ]
+	 */
 	public function testAttachListener() {
 		$mapper = new EchoAbstractMapperStub();
 		$mapper->attachListener( 'testMethod', 'key_a', function () {
@@ -33,8 +36,8 @@ class EchoAbstractMapperTest extends MediaWikiTestCase {
 	 * @depends testAttachListener
 	 */
 	public function testGetMethodListeners( $data ) {
+		/** @var EchoAbstractMapper $mapper */
 		$mapper = $data['mapper'];
-		$property = $data['property'];
 
 		$listeners = $mapper->getMethodListeners( 'testMethod' );
 		$this->assertArrayHasKey( 'key_a', $listeners );
@@ -45,8 +48,8 @@ class EchoAbstractMapperTest extends MediaWikiTestCase {
 	 * @depends testAttachListener
 	 */
 	public function testGetMethodListenersWithException( $data ) {
+		/** @var EchoAbstractMapper $mapper */
 		$mapper = $data['mapper'];
-		$property = $data['property'];
 
 		$this->expectException( MWException::class );
 		$mapper->getMethodListeners( 'nonExistingMethod' );
@@ -56,7 +59,9 @@ class EchoAbstractMapperTest extends MediaWikiTestCase {
 	 * @depends testAttachListener
 	 */
 	public function testDetachListener( $data ) {
+		/** @var EchoAbstractMapper $mapper */
 		$mapper = $data['mapper'];
+		/** @var ReflectionProperty $property */
 		$property = $data['property'];
 
 		$mapper->detachListener( 'testMethod', 'key_a' );
