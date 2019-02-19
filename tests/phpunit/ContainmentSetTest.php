@@ -31,7 +31,7 @@ class ContainmentSetTest extends MediaWikiTestCase {
 		$inner = [ 'bing', 'bang' ];
 		// We use a mock instead of the real thing for the $this->once() assertion
 		// verifying that the cache doesn't just keep asking the inner object
-		$list = $this->getMockBuilder( 'EchoArrayList' )
+		$list = $this->getMockBuilder( EchoArrayList::class )
 			->disableOriginalConstructor()
 			->getMock();
 		$list->expects( $this->once() )

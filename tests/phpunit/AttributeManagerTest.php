@@ -6,7 +6,7 @@
 class EchoAttributeManagerTest extends MediaWikiTestCase {
 
 	public function testNewFromGlobalVars() {
-		$this->assertInstanceOf( 'EchoAttributeManager', EchoAttributeManager::newFromGlobalVars() );
+		$this->assertInstanceOf( EchoAttributeManager::class, EchoAttributeManager::newFromGlobalVars() );
 	}
 
 	public static function getUserLocatorsProvider() {
@@ -479,7 +479,7 @@ class EchoAttributeManagerTest extends MediaWikiTestCase {
 	 * Mock object of User
 	 */
 	protected function mockUser() {
-		$user = $this->getMockBuilder( 'User' )
+		$user = $this->getMockBuilder( User::class )
 			->disableOriginalConstructor()
 			->getMock();
 		$user->expects( $this->any() )

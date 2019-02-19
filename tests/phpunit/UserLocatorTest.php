@@ -21,7 +21,7 @@ class EchoUserLocatorTest extends MediaWikiTestCase {
 		}
 		wfGetDB( DB_MASTER )->insert( 'watchlist', $rows, __METHOD__ );
 
-		$event = $this->getMockBuilder( 'EchoEvent' )
+		$event = $this->getMockBuilder( EchoEvent::class )
 			->disableOriginalConstructor()
 			->getMock();
 		$event->expects( $this->any() )
@@ -264,7 +264,7 @@ class EchoUserLocatorTest extends MediaWikiTestCase {
 	}
 
 	protected function mockEchoEvent() {
-		return $this->getMockBuilder( 'EchoEvent' )
+		return $this->getMockBuilder( EchoEvent::class )
 			->disableOriginalConstructor()
 			->getMock();
 	}

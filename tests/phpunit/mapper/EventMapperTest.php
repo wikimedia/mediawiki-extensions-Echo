@@ -50,7 +50,7 @@ class EchoEventMapperTest extends MediaWikiTestCase {
 			)
 		);
 		$res = $eventMapper->fetchById( 1 );
-		$this->assertInstanceOf( 'EchoEvent', $res );
+		$this->assertInstanceOf( EchoEvent::class, $res );
 	}
 
 	/**
@@ -72,7 +72,7 @@ class EchoEventMapperTest extends MediaWikiTestCase {
 	 * Mock object of EchoEvent
 	 */
 	protected function mockEchoEvent() {
-		$event = $this->getMockBuilder( 'EchoEvent' )
+		$event = $this->getMockBuilder( EchoEvent::class )
 			->disableOriginalConstructor()
 			->getMock();
 		$event->expects( $this->any() )
@@ -86,7 +86,7 @@ class EchoEventMapperTest extends MediaWikiTestCase {
 	 * Mock object of MWEchoDbFactory
 	 */
 	protected function mockMWEchoDbFactory( $dbResult ) {
-		$dbFactory = $this->getMockBuilder( 'MWEchoDbFactory' )
+		$dbFactory = $this->getMockBuilder( MWEchoDbFactory::class )
 			->disableOriginalConstructor()
 			->getMock();
 		$dbFactory->expects( $this->any() )
@@ -107,7 +107,7 @@ class EchoEventMapperTest extends MediaWikiTestCase {
 			'select' => '',
 			'selectRow' => ''
 		];
-		$db = $this->getMockBuilder( 'DatabaseMysqli' )
+		$db = $this->getMockBuilder( DatabaseMysqli::class )
 			->disableOriginalConstructor()
 			->getMock();
 		$db->expects( $this->any() )

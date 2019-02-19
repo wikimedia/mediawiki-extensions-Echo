@@ -53,7 +53,7 @@ class EchoTargetPageMapperTest extends MediaWikiTestCase {
 	 * Mock object of MWEchoDbFactory
 	 */
 	protected function mockMWEchoDbFactory( $dbResult ) {
-		$dbFactory = $this->getMockBuilder( 'MWEchoDbFactory' )
+		$dbFactory = $this->getMockBuilder( MWEchoDbFactory::class )
 			->disableOriginalConstructor()
 			->getMock();
 		$dbFactory->expects( $this->any() )
@@ -74,7 +74,7 @@ class EchoTargetPageMapperTest extends MediaWikiTestCase {
 			'select' => '',
 			'delete' => ''
 		];
-		$db = $this->getMockBuilder( 'DatabaseMysqli' )
+		$db = $this->getMockBuilder( DatabaseMysqli::class )
 			->disableOriginalConstructor()
 			->getMock();
 		$db->expects( $this->any() )

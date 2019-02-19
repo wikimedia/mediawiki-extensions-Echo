@@ -878,7 +878,7 @@ TEXT
 	 * @dataProvider provider_extractSections
 	 */
 	public function testExtractSections( $content, $result ) {
-		$discussionParser = TestingAccessWrapper::newFromClass( 'EchoDiscussionParser' );
+		$discussionParser = TestingAccessWrapper::newFromClass( EchoDiscussionParser::class );
 		$sections = $discussionParser->extractSections( $content );
 
 		$this->assertEquals( $result, $sections );
@@ -979,7 +979,7 @@ TEXT
 		// store diff in some local cache var, to circumvent
 		// EchoDiscussionParser::getChangeInterpretationForRevision's attempt to
 		// retrieve parent revision from DB
-		$class = new ReflectionClass( 'EchoDiscussionParser' );
+		$class = new ReflectionClass( EchoDiscussionParser::class );
 		$property = $class->getProperty( 'revisionInterpretationCache' );
 		$property->setAccessible( true );
 		$property->setValue( [ $revision->getId() => $output ] );
@@ -1698,7 +1698,7 @@ TEXT
 			'anonymousUsers' => [ '127.0.0.1' ],
 		];
 
-		$discussionParser = TestingAccessWrapper::newFromClass( 'EchoDiscussionParser' );
+		$discussionParser = TestingAccessWrapper::newFromClass( EchoDiscussionParser::class );
 		$this->assertEquals( 4, $discussionParser->getOverallUserMentionsCount( $userMentions ) );
 	}
 
@@ -1730,7 +1730,7 @@ TEXT
 	 */
 	public function testGetUserMentions( $userLinks, $expectedUserMentions, $agent ) {
 		$title = Title::newFromText( 'Test' );
-		$discussionParser = TestingAccessWrapper::newFromClass( 'EchoDiscussionParser' );
+		$discussionParser = TestingAccessWrapper::newFromClass( EchoDiscussionParser::class );
 		$this->assertEquals( $expectedUserMentions, $discussionParser->getUserMentions( $title, $agent, $userLinks ) );
 	}
 
@@ -1775,7 +1775,7 @@ TEXT
 		] );
 
 		$title = Title::newFromText( 'Test' );
-		$discussionParser = TestingAccessWrapper::newFromClass( 'EchoDiscussionParser' );
+		$discussionParser = TestingAccessWrapper::newFromClass( EchoDiscussionParser::class );
 		$this->assertEquals( 4, $discussionParser->getOverallUserMentionsCount( $discussionParser->getUserMentions( $title, 1, $userLinks ) ) );
 	}
 

@@ -10,7 +10,7 @@ class EchoAbstractMapperTest extends MediaWikiTestCase {
 		$mapper->attachListener( 'testMethod', 'key_a', function () {
 		} );
 
-		$class = new ReflectionClass( 'EchoAbstractMapperStub' );
+		$class = new ReflectionClass( EchoAbstractMapperStub::class );
 		$property = $class->getProperty( 'listeners' );
 		$property->setAccessible( true );
 		$listeners = $property->getValue( $mapper );

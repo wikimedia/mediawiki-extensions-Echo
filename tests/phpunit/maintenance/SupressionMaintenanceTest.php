@@ -102,7 +102,7 @@ class SuppressionMaintenanceTest extends MediaWikiTestCase {
 
 	protected static function attachTitleFor( $id, $providedText, $providedNamespace ) {
 		return function ( $test, $gen ) use ( $id, $providedText, $providedNamespace ) {
-			$title = $test->getMock( 'Title' );
+			$title = $test->getMock( Title::class );
 			$title->expects( $test->any() )
 				->method( 'getArticleId' )
 				->will( $test->returnValue( $id ) );

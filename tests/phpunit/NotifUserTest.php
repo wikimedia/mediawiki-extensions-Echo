@@ -32,7 +32,7 @@ class MWEchoNotifUserTest extends MediaWikiTestCase {
 		$this->assertTrue( $exception, "Got exception" );
 
 		$notifUser = MWEchoNotifUser::newFromUser( User::newFromId( 2 ) );
-		$this->assertInstanceOf( 'MWEchoNotifUser', $notifUser );
+		$this->assertInstanceOf( MWEchoNotifUser::class, $notifUser );
 	}
 
 	public function testGetEmailFormat() {
@@ -113,7 +113,7 @@ class MWEchoNotifUserTest extends MediaWikiTestCase {
 		$dbResult += [
 			'markRead' => true
 		];
-		$gateway = $this->getMockBuilder( 'EchoUserNotificationGateway' )
+		$gateway = $this->getMockBuilder( EchoUserNotificationGateway::class )
 			->disableOriginalConstructor()
 			->getMock();
 		$gateway->expects( $this->any() )
@@ -130,7 +130,7 @@ class MWEchoNotifUserTest extends MediaWikiTestCase {
 	}
 
 	public function mockEchoNotificationMapper( array $result = [] ) {
-		$mapper = $this->getMockBuilder( 'EchoNotificationMapper' )
+		$mapper = $this->getMockBuilder( EchoNotificationMapper::class )
 			->disableOriginalConstructor()
 			->getMock();
 		$mapper->expects( $this->any() )
@@ -147,7 +147,7 @@ class MWEchoNotifUserTest extends MediaWikiTestCase {
 	}
 
 	protected function mockEchoNotification() {
-		$notification = $this->getMockBuilder( 'EchoNotification' )
+		$notification = $this->getMockBuilder( EchoNotification::class )
 			->disableOriginalConstructor()
 			->getMock();
 		$notification->expects( $this->any() )
@@ -158,7 +158,7 @@ class MWEchoNotifUserTest extends MediaWikiTestCase {
 	}
 
 	protected function mockEchoEvent() {
-		$event = $this->getMockBuilder( 'EchoEvent' )
+		$event = $this->getMockBuilder( EchoEvent::class )
 			->disableOriginalConstructor()
 			->getMock();
 		$event->expects( $this->any() )

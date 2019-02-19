@@ -65,7 +65,7 @@ class EchoUserNotificationGatewayTest extends MediaWikiTestCase {
 	 * Mock object of User
 	 */
 	protected function mockUser( $group = 'echo_group' ) {
-		$user = $this->getMockBuilder( 'User' )
+		$user = $this->getMockBuilder( User::class )
 			->disableOriginalConstructor()
 			->getMock();
 		$user->expects( $this->any() )
@@ -85,7 +85,7 @@ class EchoUserNotificationGatewayTest extends MediaWikiTestCase {
 	 * Mock object of MWEchoDbFactory
 	 */
 	protected function mockMWEchoDbFactory( array $dbResult = [] ) {
-		$dbFactory = $this->getMockBuilder( 'MWEchoDbFactory' )
+		$dbFactory = $this->getMockBuilder( MWEchoDbFactory::class )
 			->disableOriginalConstructor()
 			->getMock();
 		$dbFactory->expects( $this->any() )
@@ -106,7 +106,7 @@ class EchoUserNotificationGatewayTest extends MediaWikiTestCase {
 			'selectRow' => '',
 			'selectRowCount' => '',
 		];
-		$db = $this->getMockBuilder( 'DatabaseMysqli' )
+		$db = $this->getMockBuilder( DatabaseMysqli::class )
 			->disableOriginalConstructor()
 			->getMock();
 		$db->expects( $this->any() )

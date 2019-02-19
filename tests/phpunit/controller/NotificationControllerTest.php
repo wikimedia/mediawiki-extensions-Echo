@@ -54,7 +54,7 @@ class NotificationControllerTest extends MediaWikiTestCase {
 				[ [ 123 ] ],
 				// event user locator config
 				[
-					[ 'EchoUserLocator::locateFromEventExtra', [ 'other-user' ] ],
+					[ [ EchoUserLocator::class, 'locateFromEventExtra' ], [ 'other-user' ] ],
 				],
 				// additional setup
 				function ( $test, $event ) {
@@ -79,7 +79,7 @@ class NotificationControllerTest extends MediaWikiTestCase {
 			],
 		] );
 
-		$event = $this->getMockBuilder( 'EchoEvent' )
+		$event = $this->getMockBuilder( EchoEvent::class )
 			->disableOriginalConstructor()
 			->getMock();
 		$event->expects( $this->any() )
@@ -97,7 +97,7 @@ class NotificationControllerTest extends MediaWikiTestCase {
 	public function testEvaluateUserLocatorPassesParameters() {
 		$test = $this;
 		$callback = function ( $event, $firstOption, $secondOption ) use ( $test ) {
-			$test->assertInstanceOf( 'EchoEvent', $event );
+			$test->assertInstanceOf( EchoEvent::class, $event );
 			$test->assertEquals( 'first', $firstOption );
 			$test->assertEquals( 'second', $secondOption );
 
@@ -157,7 +157,7 @@ class NotificationControllerTest extends MediaWikiTestCase {
 			],
 		] );
 
-		$event = $this->getMockBuilder( 'EchoEvent' )
+		$event = $this->getMockBuilder( EchoEvent::class )
 			->disableOriginalConstructor()
 			->getMock();
 		$event->expects( $this->any() )
@@ -173,7 +173,7 @@ class NotificationControllerTest extends MediaWikiTestCase {
 	}
 
 	public function testDoesNotDeliverDisabledEvent() {
-		$event = $this->getMockBuilder( 'EchoEvent' )
+		$event = $this->getMockBuilder( EchoEvent::class )
 			->disableOriginalConstructor()
 			->getMock();
 		$event->expects( $this->any() )

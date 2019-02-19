@@ -45,7 +45,7 @@ class EchoNotificationMapperTest extends MediaWikiTestCase {
 		$this->assertInternalType( 'array', $res );
 		$this->assertNotEmpty( $res );
 		foreach ( $res as $row ) {
-			$this->assertInstanceOf( 'EchoNotification', $row );
+			$this->assertInstanceOf( EchoNotification::class, $row );
 		}
 	}
 
@@ -96,7 +96,7 @@ class EchoNotificationMapperTest extends MediaWikiTestCase {
 		$this->assertInternalType( 'array', $res );
 		$this->assertNotEmpty( $res );
 		foreach ( $res as $row ) {
-			$this->assertInstanceOf( 'EchoNotification', $row );
+			$this->assertInstanceOf( EchoNotification::class, $row );
 		}
 
 		$notifMapper = new EchoNotificationMapper( $this->mockMWEchoDbFactory( [] ) );
@@ -129,7 +129,7 @@ class EchoNotificationMapperTest extends MediaWikiTestCase {
 		];
 		$notifMapper = new EchoNotificationMapper( $this->mockMWEchoDbFactory( [ 'selectRow' => $dbResult ] ) );
 		$row = $notifMapper->fetchNewestByUserBundleHash( User::newFromId( 1 ), 'testdisplayhash' );
-		$this->assertInstanceOf( 'EchoNotification', $row );
+		$this->assertInstanceOf( EchoNotification::class, $row );
 	}
 
 	public function testFetchByUserOffset() {
@@ -157,12 +157,12 @@ class EchoNotificationMapperTest extends MediaWikiTestCase {
 		];
 		$notifMapper = new EchoNotificationMapper( $this->mockMWEchoDbFactory( [ 'selectRow' => $dbResult ] ) );
 		$row = $notifMapper->fetchByUserOffset( User::newFromId( 1 ), 500 );
-		$this->assertInstanceOf( 'EchoNotification', $row );
+		$this->assertInstanceOf( EchoNotification::class, $row );
 	}
 
 	public function testDeleteByUserEventOffset() {
 		$this->setMwGlobals( [ 'wgUpdateRowsPerQuery' => 4 ] );
-		$mockDb = $this->getMockBuilder( 'DatabaseMysqli' )
+		$mockDb = $this->getMockBuilder( DatabaseMysqli::class )
 			->disableOriginalConstructor()
 			->getMock();
 		$mockDb->expects( $this->any() )
@@ -197,7 +197,7 @@ class EchoNotificationMapperTest extends MediaWikiTestCase {
 	 * Mock object of User
 	 */
 	protected function mockUser() {
-		$user = $this->getMockBuilder( 'User' )
+		$user = $this->getMockBuilder( User::class )
 			->disableOriginalConstructor()
 			->getMock();
 		$user->expects( $this->any() )
@@ -217,7 +217,7 @@ class EchoNotificationMapperTest extends MediaWikiTestCase {
 	 * Mock object of EchoNotification
 	 */
 	protected function mockEchoNotification() {
-		$event = $this->getMockBuilder( 'EchoNotification' )
+		$event = $this->getMockBuilder( EchoNotification::class )
 			->disableOriginalConstructor()
 			->getMock();
 		$event->expects( $this->any() )
@@ -233,7 +233,7 @@ class EchoNotificationMapperTest extends MediaWikiTestCase {
 	 */
 	protected function mockMWEchoDbFactory( $dbResultOrMockDb ) {
 		$mockDb = is_array( $dbResultOrMockDb ) ? $this->mockDb( $dbResultOrMockDb ) : $dbResultOrMockDb;
-		$dbFactory = $this->getMockBuilder( 'MWEchoDbFactory' )
+		$dbFactory = $this->getMockBuilder( MWEchoDbFactory::class )
 			->disableOriginalConstructor()
 			->getMock();
 		$dbFactory->expects( $this->any() )
@@ -255,7 +255,7 @@ class EchoNotificationMapperTest extends MediaWikiTestCase {
 			'delete' => ''
 		];
 
-		$db = $this->getMockBuilder( 'DatabaseMysqli' )
+		$db = $this->getMockBuilder( DatabaseMysqli::class )
 			->disableOriginalConstructor()
 			->getMock();
 		$db->expects( $this->any() )

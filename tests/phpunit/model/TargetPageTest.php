@@ -14,7 +14,7 @@ class EchoTargetPageTest extends MediaWikiTestCase {
 		);
 
 		$this->assertInstanceOf(
-			'EchoTargetPage',
+			EchoTargetPage::class,
 			EchoTargetPage::create(
 				$this->mockTitle( 1 ),
 				$this->mockEchoEvent()
@@ -28,7 +28,7 @@ class EchoTargetPageTest extends MediaWikiTestCase {
 			'etp_event' => 3
 		];
 		$obj = EchoTargetPage::newFromRow( $row );
-		$this->assertInstanceOf( 'EchoTargetPage', $obj );
+		$this->assertInstanceOf( EchoTargetPage::class, $obj );
 
 		return $obj;
 	}
@@ -62,7 +62,7 @@ class EchoTargetPageTest extends MediaWikiTestCase {
 	 * Mock object of Title
 	 */
 	protected function mockTitle( $pageId ) {
-		$event = $this->getMockBuilder( 'Title' )
+		$event = $this->getMockBuilder( Title::class )
 			->disableOriginalConstructor()
 			->getMock();
 		$event->expects( $this->any() )
@@ -76,7 +76,7 @@ class EchoTargetPageTest extends MediaWikiTestCase {
 	 * Mock object of EchoEvent
 	 */
 	protected function mockEchoEvent( $eventId = 1 ) {
-		$event = $this->getMockBuilder( 'EchoEvent' )
+		$event = $this->getMockBuilder( EchoEvent::class )
 			->disableOriginalConstructor()
 			->getMock();
 		$event->expects( $this->any() )

@@ -9,14 +9,14 @@ class EchoNotificationTest extends MediaWikiTestCase {
 		$row = $this->mockNotificationRow() + $this->mockEventRow();
 
 		$notif = EchoNotification::newFromRow( (object)$row );
-		$this->assertInstanceOf( 'EchoNotification', $notif );
+		$this->assertInstanceOf( EchoNotification::class, $notif );
 		// getReadTimestamp() should return null
 		$this->assertNull( $notif->getReadTimestamp() );
 		$this->assertEquals(
 			$notif->getTimestamp(),
 			wfTimestamp( TS_MW, $row['notification_timestamp'] )
 		);
-		$this->assertInstanceOf( 'EchoEvent', $notif->getEvent() );
+		$this->assertInstanceOf( EchoEvent::class, $notif->getEvent() );
 		$this->assertNull( $notif->getTargetPages() );
 
 		// Provide a read timestamp
@@ -33,7 +33,7 @@ class EchoNotificationTest extends MediaWikiTestCase {
 		] );
 		$this->assertNotEmpty( $notif->getTargetPages() );
 		foreach ( $notif->getTargetPages() as $targetPage ) {
-			$this->assertInstanceOf( 'EchoTargetPage', $targetPage );
+			$this->assertInstanceOf( EchoTargetPage::class, $targetPage );
 		}
 	}
 

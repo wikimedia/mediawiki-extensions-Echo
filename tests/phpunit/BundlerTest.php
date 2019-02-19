@@ -28,7 +28,7 @@ class BundlerTest extends MediaWikiTestCase {
 	}
 
 	private function createNotificationForBundling( $bundleHash, $timestamp, $readStatus ) {
-		$mock = $this->getMockBuilder( 'EchoNotification' )
+		$mock = $this->getMockBuilder( EchoNotification::class )
 			->disableOriginalConstructor()
 			->setMethods( [
 				'getBundlingKey',
