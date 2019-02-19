@@ -734,10 +734,7 @@ abstract class EchoDiscussionParser {
 	public static function getSectionCount( $text ) {
 		$text = trim( $text );
 
-		$matches = [];
-		preg_match_all( '/' . self::HEADER_REGEX . '/um', $text, $matches );
-
-		return count( $matches[0] );
+		return (int)preg_match_all( '/' . self::HEADER_REGEX . '/um', $text );
 	}
 
 	/**

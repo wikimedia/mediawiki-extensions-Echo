@@ -44,7 +44,7 @@ class EchoPlainTextEmailFormatter extends EchoEventFormatter {
 			->getFullURL( '', false, PROTO_CANONICAL );
 		$text = "--\n\n$footerMsg\n$prefsUrl";
 
-		if ( strlen( $wgEchoEmailFooterAddress ) ) {
+		if ( $wgEchoEmailFooterAddress !== '' ) {
 			$text .= "\n\n$wgEchoEmailFooterAddress";
 		}
 
