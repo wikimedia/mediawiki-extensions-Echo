@@ -147,8 +147,7 @@ class GenerateSampleNotifications extends Maintenance {
 	 * @return int Timestamp for the operation
 	 */
 	private function getTimestamp( $getEpoch = false ) {
-		$startTime = $this->getOption( 'timestamp' ) ?
-			$this->getOption( 'timestamp' ) : time();
+		$startTime = $this->getOption( 'timestamp' ) ?: time();
 
 		// Incrementally decrease X minutes from start time
 		$timestamp = strtotime( '-' . $this->timestampCounter++ . ' minute', $startTime );
