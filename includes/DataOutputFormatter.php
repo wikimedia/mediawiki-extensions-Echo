@@ -9,10 +9,10 @@ class EchoDataOutputFormatter {
 	 * @var string[] type => class
 	 */
 	protected static $formatters = [
-		'flyout' => 'EchoFlyoutFormatter',
-		'model' => 'EchoModelFormatter',
-		'special' => 'SpecialNotificationsFormatter',
-		'html' => 'SpecialNotificationsFormatter',
+		'flyout' => EchoFlyoutFormatter::class,
+		'model' => EchoModelFormatter::class,
+		'special' => SpecialNotificationsFormatter::class,
+		'html' => SpecialNotificationsFormatter::class,
 	];
 
 	/**

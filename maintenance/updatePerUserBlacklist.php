@@ -89,5 +89,5 @@ class EchoUpdatePerUserBlacklist extends LoggedUpdateMaintenance {
 	}
 }
 
-$maintClass = 'EchoUpdatePerUserBlacklist';
+$maintClass = EchoUpdatePerUserBlacklist::class;
 require_once RUN_MAINTENANCE_IF_MAIN;
