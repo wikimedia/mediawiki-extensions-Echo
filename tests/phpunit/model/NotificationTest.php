@@ -37,14 +37,12 @@ class EchoNotificationTest extends MediaWikiTestCase {
 		}
 	}
 
-	/**
-	 * @expectedException MWException
-	 */
 	public function testNewFromRowWithException() {
 		$row = $this->mockNotificationRow();
 		// Provide an invalid event id
 		$row['notification_event'] = -1;
-		$noitf = EchoNotification::newFromRow( (object)$row );
+		$this->expectException( MWException::class );
+		EchoNotification::newFromRow( (object)$row );
 	}
 
 	/**

@@ -22,11 +22,9 @@ class EchoAbstractMapperTest extends MediaWikiTestCase {
 		return [ 'mapper' => $mapper, 'property' => $property ];
 	}
 
-	/**
-	 * @expectedException MWException
-	 */
 	public function testAttachListenerWithException() {
 		$mapper = new EchoAbstractMapperStub();
+		$this->expectException( MWException::class );
 		$mapper->attachListener( 'nonExistingMethod', 'key_a', function () {
 		} );
 	}
@@ -45,13 +43,13 @@ class EchoAbstractMapperTest extends MediaWikiTestCase {
 
 	/**
 	 * @depends testAttachListener
-	 * @expectedException MWException
 	 */
 	public function testGetMethodListenersWithException( $data ) {
 		$mapper = $data['mapper'];
 		$property = $data['property'];
 
-		$listeners = $mapper->getMethodListeners( 'nonExistingMethod' );
+		$this->expectException( MWException::class );
+		$mapper->getMethodListeners( 'nonExistingMethod' );
 	}
 
 	/**
