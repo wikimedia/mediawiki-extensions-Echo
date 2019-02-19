@@ -33,14 +33,12 @@ class EchoTargetPageTest extends MediaWikiTestCase {
 		return $obj;
 	}
 
-	/**
-	 * @expectedException MWException
-	 */
 	public function testNewFromRowWithException() {
 		$row = (object)[
 			'etp_event' => 3
 		];
-		$this->assertInstanceOf( 'EchoTargetPage', EchoTargetPage::newFromRow( $row ) );
+		$this->expectException( MWException::class );
+		EchoTargetPage::newFromRow( $row );
 	}
 
 	/**

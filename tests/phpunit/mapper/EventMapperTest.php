@@ -53,9 +53,6 @@ class EchoEventMapperTest extends MediaWikiTestCase {
 		$this->assertInstanceOf( EchoEvent::class, $res );
 	}
 
-	/**
-	 * @expectedException MWException
-	 */
 	public function testUnsuccessfulFetchById() {
 		$eventMapper = new EchoEventMapper(
 			$this->mockMWEchoDbFactory(
@@ -64,8 +61,8 @@ class EchoEventMapperTest extends MediaWikiTestCase {
 				]
 			)
 		);
-		$res = $eventMapper->fetchById( 1 );
-		$this->assertInstanceOf( 'EchoEvent', $res );
+		$this->expectException( MWException::class );
+		$eventMapper->fetchById( 1 );
 	}
 
 	/**
