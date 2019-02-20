@@ -95,5 +95,16 @@
 			background-image: url( ../icons/tray.svg );
 		}
 	}
+
+	&.oo-ui-flaggedElement-unseen,
+	&.mw-echo-unseen-notifications {
+		#pt-notifications-alert &:after {
+			background-color: @badge-counter-background-unseen-alert;
+		}
+
+		#pt-notifications-notice &:after {
+			background-color: @badge-counter-background-unseen-message;
+		}
+	}
 }
 /* stylelint-enable no-descending-specificity */

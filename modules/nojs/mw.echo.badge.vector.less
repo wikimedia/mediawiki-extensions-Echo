@@ -1,19 +1,5 @@
 @import '../echo.variables';
 
-/* We have to include the #pt-notifications selector due to monobook */
-.mw-echo-notifications-badge {
-	&.oo-ui-flaggedElement-unseen,
-	&.mw-echo-unseen-notifications {
-		#pt-notifications-alert &:after {
-			background-color: @badge-counter-background-unseen-alert;
-		}
-
-		#pt-notifications-notice &:after {
-			background-color: @badge-counter-background-unseen-message;
-		}
-	}
-}
-
 #p-personal #pt-notifications-alert,
 #p-personal #pt-notifications-notice {
 	margin-right: 0.4em;
