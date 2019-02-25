@@ -34,7 +34,7 @@
 	"echo-category-title-reverted": "Timara {{PLURAL:$1|terknayış|terknayışi}}",
 	"echo-category-title-mention": "{{PLURAL:$1|Bahs kerden|Bahs kerdeni}}",
 	"echo-category-title-mention-failure": "{{PLURAL:$1|Bahs kerden|Bahs kerdeni}} xeta bı",
-	"echo-category-title-other": "{{PLURAL:$1|Zewbi}}",
+	"echo-category-title-other": "{{PLURAL:$1|Sewbi}}",
 	"echo-category-title-system": "{{PLURAL:$1|sistem}}",
 	"notifications": "Tebliği",
 	"tooltip-pt-notifications-alert": "Hayê {{GENDER:|şıma}}",

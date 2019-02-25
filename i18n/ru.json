@@ -50,7 +50,7 @@
 	"prefs-displaynotifications": "Настройки отображения",
 	"prefs-echosubscriptions": "Сообщать мне об этих событиях",
 	"prefs-echocrosswiki": "Уведомления из нескольких вики-проектов («кросс-вики»)",
-	"prefs-blocknotificationslist": "Отключенные участники",
+	"prefs-blocknotificationslist": "Игнорируемые участники",
 	"echo-pref-send-me": "Присылать мне:",
 	"echo-pref-send-to": "Отправлять на адрес:",
 	"echo-pref-email-format": "Формат писем:",
