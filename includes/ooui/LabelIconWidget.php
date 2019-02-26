@@ -25,20 +25,20 @@ class LabelIconWidget extends Widget {
 	public function __construct( $config ) {
 		parent::__construct( $config );
 
-		$this->tableRow = new Tag( 'div' );
-		$this->tableRow->setAttributes( [
+		$tableRow = new Tag( 'div' );
+		$tableRow->setAttributes( [
 			'class' => 'oo-ui-labelIconWidget-row',
 		] );
 
-		$this->icon = new Tag( 'div' );
-		$this->label = new Tag( 'div' );
+		$icon = new Tag( 'div' );
+		$label = new Tag( 'div' );
 
-		$this->initializeIconElement( array_merge( $config, [ 'iconElement' => $this->icon ] ) );
-		$this->initializeLabelElement( array_merge( $config, [ 'labelElement' => $this->label ] ) );
+		$this->initializeIconElement( array_merge( $config, [ 'iconElement' => $icon ] ) );
+		$this->initializeLabelElement( array_merge( $config, [ 'labelElement' => $label ] ) );
 		$this->initializeTitledElement( $config );
 
 		$this->addClasses( [ 'oo-ui-labelIconWidget' ] );
-		$this->tableRow->appendContent( $this->icon, $this->label );
-		$this->appendContent( $this->tableRow );
+		$tableRow->appendContent( $icon, $label );
+		$this->appendContent( $tableRow );
 	}
 }
