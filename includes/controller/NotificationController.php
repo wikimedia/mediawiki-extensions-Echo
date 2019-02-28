@@ -239,8 +239,6 @@ class EchoNotificationController {
 	public static function isBlacklistedByUser( EchoEvent $event, User $user ) {
 		global $wgEchoAgentBlacklist, $wgEchoPerUserBlacklist;
 
-		$clusterCache = ObjectCache::getLocalClusterInstance();
-
 		if ( !$event->getAgent() ) {
 			return false;
 		}
@@ -281,7 +279,7 @@ class EchoNotificationController {
 	 * @return EchoContainmentList|null
 	 */
 	protected static function getWikiBlacklist() {
-		$clusterCache = ObjectCache::getLocalClusterInstance();
+		$clusterCache = MediaWikiServices::getInstance()->getMainWANObjectCache();
 		global $wgEchoOnWikiBlacklist;
 		if ( !$wgEchoOnWikiBlacklist ) {
 			return null;
@@ -305,7 +303,7 @@ class EchoNotificationController {
 	 * @return bool True when the event agent is in the user whitelist
 	 */
 	public static function isWhitelistedByUser( EchoEvent $event, User $user ) {
-		$clusterCache = ObjectCache::getLocalClusterInstance();
+		$clusterCache = MediaWikiServices::getInstance()->getMainWANObjectCache();
 		global $wgEchoPerUserWhitelistFormat;
 
 		if ( $wgEchoPerUserWhitelistFormat === null || !$event->getAgent() ) {

@@ -73,12 +73,14 @@ class EchoContainmentSet {
 	 *
 	 * @param int $namespace An NS_* constant representing the mediawiki namespace of the page containing the list.
 	 * @param string $title The title of the page containing the list.
-	 * @param BagOStuff|null $cache An object to cache the page with or null for no cache.
+	 * @param WANObjectCache|null $cache An object to cache the page with or null for no cache.
 	 * @param string $cacheKeyPrefix A prefix to be combined with the pages latest revision id and used as a cache key.
 	 *
 	 * @throws MWException
 	 */
-	public function addOnWiki( $namespace, $title, BagOStuff $cache = null, $cacheKeyPrefix = '' ) {
+	public function addOnWiki(
+		$namespace, $title, WANObjectCache $cache = null, $cacheKeyPrefix = ''
+	) {
 		$list = new EchoOnWikiList( $namespace, $title );
 		if ( $cache ) {
 			if ( $cacheKeyPrefix === '' ) {
