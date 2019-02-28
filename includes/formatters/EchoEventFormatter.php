@@ -14,6 +14,13 @@ use MediaWiki\Logger\LoggerFactory;
  * arguments passed in the constructor (user and language)
  */
 abstract class EchoEventFormatter {
+
+	/** @var User */
+	protected $user;
+
+	/** @var Language */
+	protected $language;
+
 	public function __construct( User $user, Language $language ) {
 		$this->user = $user;
 		$this->language = $language;

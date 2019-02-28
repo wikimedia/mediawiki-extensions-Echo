@@ -5,6 +5,27 @@ use MediaWiki\Session\SessionManager;
 
 class EchoForeignWikiRequest {
 
+	/** @var User */
+	protected $user;
+
+	/** @var array */
+	protected $params;
+
+	/** @var array */
+	protected $wikis;
+
+	/** @varstring|null */
+	protected $wikiParam;
+
+	/** @var string */
+	protected $method;
+
+	/** @var string|null */
+	protected $tokenType;
+
+	/** @var string[]|null */
+	protected $csrfTokens;
+
 	/**
 	 * @param User $user
 	 * @param array $params Request parameters
