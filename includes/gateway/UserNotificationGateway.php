@@ -158,7 +158,7 @@ class EchoUserNotificationGateway {
 				self::$notificationTable,
 				self::$eventTable
 			],
-			[ '1' ],
+			'1',
 			[
 				'notification_user' => $this->user->getId(),
 				'notification_read_timestamp' => null,

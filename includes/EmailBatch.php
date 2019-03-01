@@ -151,7 +151,7 @@ class MWEchoEmailBatch {
 		$dbr = MWEchoDbFactory::getDB( DB_REPLICA );
 		$res = $dbr->selectField(
 			[ 'echo_email_batch' ],
-			[ 'MAX( eeb_event_id )' ],
+			'MAX( eeb_event_id )',
 			[ 'eeb_user_id' => $this->mUser->getId() ],
 			__METHOD__
 		);
