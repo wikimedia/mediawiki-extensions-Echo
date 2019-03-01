@@ -55,7 +55,7 @@ class EchoSuppressionRowUpdateGenerator implements RowUpdateGenerator {
 		$update = [];
 		$title = $this->newTitleFromNsAndText( $row->event_page_namespace, $row->event_page_title );
 		if ( $title !== null ) {
-			$pageId = $title->getArticleId();
+			$pageId = $title->getArticleID();
 			if ( $pageId ) {
 				// If the title has a proper id from the database, store it
 				$update['event_page_id'] = $pageId;
@@ -90,8 +90,8 @@ class EchoSuppressionRowUpdateGenerator implements RowUpdateGenerator {
 			unset( $extra['link-from-title'], $extra['link-from-namespace'] );
 			// Link from page is always from a content page, if null or no article id it was
 			// somehow invalid
-			if ( $title !== null && $title->getArticleId() ) {
-				$extra['link-from-page-id'] = $title->getArticleId();
+			if ( $title !== null && $title->getArticleID() ) {
+				$extra['link-from-page-id'] = $title->getArticleID();
 			}
 
 			$update['event_extra'] = serialize( $extra );
@@ -112,7 +112,9 @@ class EchoSuppressionRowUpdateGenerator implements RowUpdateGenerator {
 	protected function extra( $row, array $update = [] ) {
 		if ( isset( $update['event_extra'] ) ) {
 			return unserialize( $update['event_extra'] );
-		} elseif ( $row->event_extra ) {
+		}
+
+		if ( $row->event_extra ) {
 			return unserialize( $row->event_extra );
 		}
 

@@ -39,9 +39,9 @@ class MWEchoNotifUser {
 	private $targetPageMapper;
 
 	/**
-	 * @var EchoForeignNotifications
+	 * @var EchoForeignNotifications|null
 	 */
-	private $foreignNotifications = null;
+	private $foreignNotifications;
 
 	/**
 	 * @var array[]|null
@@ -56,7 +56,7 @@ class MWEchoNotifUser {
 	/**
 	 * @var array[]|null
 	 */
-	private $mForeignData = null;
+	private $mForeignData;
 
 	// The max notification count shown in badge
 
@@ -330,9 +330,8 @@ class MWEchoNotifUser {
 				// such case so to keep the code running
 				if ( $notif->getEvent() ) {
 					return $notif->getEvent()->getId();
-				} else {
-					return 0;
 				}
+				return 0;
 			}, $notifs )
 		);
 
@@ -597,9 +596,9 @@ class MWEchoNotifUser {
 
 		if ( $wgAllowHTMLEmail ) {
 			return $this->mUser->getOption( 'echo-email-format' );
-		} else {
-			return EchoEmailFormat::PLAIN_TEXT;
 		}
+
+		return EchoEmailFormat::PLAIN_TEXT;
 	}
 
 	/**
@@ -657,7 +656,7 @@ class MWEchoNotifUser {
 			return $this->mForeignData;
 		}
 
-		$potentialWikis = $this->getForeignNotifications()->getWikis( EchoAttributeManager::ALL );
+		$potentialWikis = $this->getForeignNotifications()->getWikis();
 		$foreignReq = new EchoForeignWikiRequest(
 			$this->mUser,
 			[

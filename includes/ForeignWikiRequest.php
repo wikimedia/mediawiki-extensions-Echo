@@ -152,7 +152,7 @@ class EchoForeignWikiRequest {
 			$reqs[$wiki] = [
 				'method' => $method,
 				'url' => $api['url'],
-				$queryKey => is_callable( $params ) ? call_user_func( $params, $wiki ) : $params
+				$queryKey => is_callable( $params ) ? $params( $wiki ) : $params
 			];
 		}
 

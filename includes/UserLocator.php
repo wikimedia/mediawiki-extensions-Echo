@@ -55,9 +55,9 @@ class EchoUserLocator {
 		$user = User::newFromName( $title->getDBkey() );
 		if ( $user && !$user->isAnon() ) {
 			return [ $user->getId() => $user ];
-		} else {
-			return [];
 		}
+
+		return [];
 	}
 
 	/**
@@ -70,9 +70,9 @@ class EchoUserLocator {
 		$agent = $event->getAgent();
 		if ( $agent && !$agent->isAnon() ) {
 			return [ $agent->getId() => $agent ];
-		} else {
-			return [];
 		}
+
+		return [];
 	}
 
 	/**
@@ -106,9 +106,9 @@ class EchoUserLocator {
 		$user = User::newFromId( $res->rev_user );
 		if ( $user ) {
 			return [ $user->getId() => $user ];
-		} else {
-			return [];
 		}
+
+		return [];
 	}
 
 	/**
@@ -131,7 +131,8 @@ class EchoUserLocator {
 			$userIds = $event->getExtraParam( $key );
 			if ( !$userIds ) {
 				continue;
-			} elseif ( !is_array( $userIds ) ) {
+			}
+			if ( !is_array( $userIds ) ) {
 				$userIds = [ $userIds ];
 			}
 			foreach ( $userIds as $userId ) {

@@ -153,7 +153,7 @@ class MWEchoDbFactory {
 		$lb = MediaWikiServices::getInstance()->getDBLoadBalancer();
 		if ( $lb->getServerCount() > 1 ) {
 			$position['wikiDb'] = $lb->getMasterPos();
-		};
+		}
 
 		if ( $this->cluster ) {
 			$lb = $this->getLB();

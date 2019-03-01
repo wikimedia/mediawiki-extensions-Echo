@@ -77,7 +77,7 @@ class MWEchoEventLogging {
 		if ( isset( $extra['source'] ) ) {
 			$data['eventSource'] = (string)$extra['source'];
 		}
-		if ( $deliveryMethod == 'email' ) {
+		if ( $deliveryMethod === 'email' ) {
 			$data['deliveryMethod'] = 'email';
 		} else {
 			// whitelist valid delivery methods so it is always valid

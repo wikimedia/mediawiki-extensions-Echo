@@ -54,7 +54,7 @@ class EchoAttributeManager {
 	 * An EchoAttributeManager instance created from global variables
 	 * @var self
 	 */
-	protected static $globalVarInstance = null;
+	protected static $globalVarInstance;
 
 	/**
 	 * @param array[] $notifications Notification attributes
@@ -119,9 +119,9 @@ class EchoAttributeManager {
 	public function getUserCallable( $type, $locator = self::ATTR_LOCATORS ) {
 		if ( isset( $this->notifications[$type][$locator] ) ) {
 			return (array)$this->notifications[$type][$locator];
-		} else {
-			return [];
 		}
+
+		return [];
 	}
 
 	/**
@@ -143,9 +143,8 @@ class EchoAttributeManager {
 				unset( $eventTypesToLoad[$eventType] );
 			}
 		}
-		$eventTypes = array_keys( $eventTypesToLoad );
 
-		return $eventTypes;
+		return array_keys( $eventTypesToLoad );
 	}
 
 	/**
@@ -321,9 +320,9 @@ class EchoAttributeManager {
 	public function isNotifyTypeAvailableForCategory( $category, $notifyType ) {
 		if ( isset( $this->notifyTypeAvailabilityByCategory[$category][$notifyType] ) ) {
 			return $this->notifyTypeAvailabilityByCategory[$category][$notifyType];
-		} else {
-			return $this->defaultNotifyTypeAvailability[$notifyType];
 		}
+
+		return $this->defaultNotifyTypeAvailability[$notifyType];
 	}
 
 	/**

@@ -65,9 +65,9 @@ class MWEchoEmailBatch {
 	 * @return MWEchoEmailBatch|false
 	 */
 	public static function newFromUserId( $userId, $enforceFrequency = true ) {
-		$user = User::newFromId( intval( $userId ) );
+		$user = User::newFromId( (int)$userId );
 
-		$userEmailSetting = intval( $user->getOption( 'echo-email-frequency' ) );
+		$userEmailSetting = (int)$user->getOption( 'echo-email-frequency' );
 
 		// clear all existing events if user decides not to receive emails
 		if ( $userEmailSetting == -1 ) {
@@ -160,9 +160,9 @@ class MWEchoEmailBatch {
 			$this->lastEvent = $res;
 
 			return true;
-		} else {
-			return false;
 		}
+
+		return false;
 	}
 
 	/**
@@ -200,7 +200,7 @@ class MWEchoEmailBatch {
 
 			// See setLastEvent() for more detail for this variable
 			if ( $this->lastEvent ) {
-				$conds[] = 'eeb_event_id <= ' . intval( $this->lastEvent );
+				$conds[] = 'eeb_event_id <= ' . (int)$this->lastEvent;
 			}
 			$fields = array_merge( EchoEvent::selectFields(), [
 				'eeb_id',
@@ -241,7 +241,7 @@ class MWEchoEmailBatch {
 
 		// there is a processed cutoff point
 		if ( $this->lastEvent ) {
-			$conds[] = 'eeb_event_id <= ' . intval( $this->lastEvent );
+			$conds[] = 'eeb_event_id <= ' . (int)$this->lastEvent;
 		}
 
 		$dbw = MWEchoDbFactory::newFromDefault()->getEchoDb( DB_MASTER );
@@ -304,8 +304,6 @@ class MWEchoEmailBatch {
 	 * @param int $eventId
 	 * @param int $priority
 	 * @param string $hash
-	 *
-	 * @throws MWException
 	 */
 	public static function addToQueue( $userId, $eventId, $priority, $hash ) {
 		if ( !$userId || !$eventId ) {
@@ -335,7 +333,6 @@ class MWEchoEmailBatch {
 	 * @param int $startUserId
 	 * @param int $batchSize
 	 *
-	 * @throws MWException
 	 * @return IResultWrapper|bool
 	 */
 	public static function getUsersToNotify( $startUserId, $batchSize ) {
@@ -343,7 +340,7 @@ class MWEchoEmailBatch {
 		$res = $dbr->select(
 			[ 'echo_email_batch' ],
 			[ 'eeb_user_id' ],
-			[ 'eeb_user_id > ' . intval( $startUserId ) ],
+			[ 'eeb_user_id > ' . (int)$startUserId ],
 			__METHOD__,
 			[ 'ORDER BY' => 'eeb_user_id', 'LIMIT' => $batchSize ]
 		);

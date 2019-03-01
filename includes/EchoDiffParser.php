@@ -158,9 +158,9 @@ class EchoDiffParser {
 		}
 		if ( $change === null ) {
 			return $this->changeSet;
-		} else {
-			return array_merge( $this->changeSet, $change->getChangeSet() );
 		}
+
+		return array_merge( $this->changeSet, $change->getChangeSet() );
 	}
 
 	/**
