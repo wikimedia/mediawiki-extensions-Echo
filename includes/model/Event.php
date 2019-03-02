@@ -723,4 +723,25 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 	public function getSortingKey() {
 		return $this->getTimestamp();
 	}
+
+	/**
+	 * Return the list of fields that should be selected to create
+	 * a new event with EchoEvent::newFromRow
+	 * @return string[]
+	 */
+	public static function selectFields() {
+		return [
+			'event_id',
+			'event_type',
+			'event_variant',
+			'event_agent_id',
+			'event_agent_ip',
+			'event_page_namespace',
+			'event_page_title',
+			'event_extra',
+			'event_page_id',
+			'event_deleted',
+		];
+	}
+
 }
