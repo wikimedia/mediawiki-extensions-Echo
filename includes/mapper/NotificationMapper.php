@@ -235,7 +235,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 
 		$res = $dbr->select(
 			[ 'echo_notification', 'echo_event' ],
-			'*',
+			EchoNotification::selectFields(),
 			$conds,
 			__METHOD__,
 			[
@@ -286,7 +286,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 
 		$row = $dbr->selectRow(
 			[ 'echo_notification', 'echo_event' ],
-			[ '*' ],
+			EchoNotification::selectFields(),
 			[
 				'notification_user' => $user->getId(),
 				'notification_bundle_hash' => $bundleHash
@@ -316,7 +316,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 
 		$result = $dbr->select(
 			[ 'echo_notification', 'echo_event' ],
-			'*',
+			EchoNotification::selectFields(),
 			[
 				'notification_user' => $user->getId(),
 				'notification_event' => $eventIds
@@ -350,7 +350,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 		$dbr = $this->dbFactory->getEchoDb( DB_REPLICA );
 		$row = $dbr->selectRow(
 			[ 'echo_notification', 'echo_event' ],
-			[ '*' ],
+			EchoNotification::selectFields(),
 			[
 				'notification_user' => $user->getId(),
 				'event_deleted' => 0,
