@@ -4,6 +4,7 @@
 			"Mogoeilor"
 		]
 	},
+	"prefs-echo": "ڤارسیاریٱل",
 	"prefs-emailsettings": "گوزیناْیٱل ٱنجوماناماْ",
 	"prefs-displaynotifications": "گوزیناْیٱل نشوݩ داڌئن",
 	"echo-pref-send-me": "بیٛسی کو سیم:",
@@ -28,6 +29,7 @@
 	"echo-displaynotificationsconfiguration-sorting-by-section-header": "میزوݩ کردن ری جۊر",
 	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "کاریارٱلی کاْ هڌسوݩ",
 	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "کاریارٱل تازاْ",
+	"echo-specialpage-pagination-numnotifications": "$1 {{PLURAL:$1|ڤارسیاری|ڤارسیاریٱل}}",
 	"echo-specialpage-pagefilters-title": "کونشتکاریٱل ایسنی",
 	"echo-notification-more-options-tooltip": "گوزیناْیٱل بیشتر",
 	"notification-link-text-expand-all": "گٱپ کلوݩ کردن",
@@ -44,6 +46,7 @@
 	"notification-link-text-view-edit": "دیڌن آلشدکاری",
 	"notification-link-article-reminder": "دیڌن بٱلگاْ",
 	"notification-header-emailuser": "$1 {{GENDER:$2|یٱ ٱنجوماناماْ}} سی ایسا بیٛسی ڤابیڌ.",
+	"notification-user-rights-email-subject": "هوقۊق کاریاری ایسا میٛن {{SITENAME}} آلشد ڤابی",
 	"notification-timestamp-ago-seconds": "{{PLURAL:$1|$1s}}",
 	"notification-timestamp-ago-minutes": "{{PLURAL:$1|$1m}}",
 	"notification-timestamp-ago-hours": "{{PLURAL:$1|$1h}}",
