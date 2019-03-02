@@ -46,7 +46,6 @@ class EchoNotificationDeleteJob extends Job {
 		}
 
 		$notifMapper = new EchoNotificationMapper();
-		$targetMapper = new EchoTargetPageMapper();
 
 		// Back-compat for older jobs which used array( $userId => $userId );
 		$userIds = array_values( $this->userIds );
