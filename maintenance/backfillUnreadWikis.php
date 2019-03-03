@@ -73,5 +73,5 @@ class BackfillUnreadWikis extends Maintenance {
 	}
 }
 
-$maintClass = "BackfillUnreadWikis";
+$maintClass = BackfillUnreadWikis::class;
 require_once RUN_MAINTENANCE_IF_MAIN;

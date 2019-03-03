@@ -72,5 +72,5 @@ class ProcessEchoEmailBatch extends Maintenance {
 	}
 }
 
-$maintClass = "ProcessEchoEmailBatch";
+$maintClass = ProcessEchoEmailBatch::class;
 require_once RUN_MAINTENANCE_IF_MAIN;

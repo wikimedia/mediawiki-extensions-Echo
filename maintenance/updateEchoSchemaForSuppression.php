@@ -59,5 +59,5 @@ class UpdateEchoSchemaForSuppression extends LoggedUpdateMaintenance {
 	}
 }
 
-$maintClass = 'UpdateEchoSchemaForSuppression'; // Tells it to run the class
+$maintClass = UpdateEchoSchemaForSuppression::class; // Tells it to run the class
 require_once RUN_MAINTENANCE_IF_MAIN;

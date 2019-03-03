@@ -391,7 +391,7 @@ class GenerateSampleNotifications extends Maintenance {
 	}
 
 	private function generateOpenStackManager( User $user, User $agent ) {
-		if ( !class_exists( 'OpenStackManagerHooks' ) ) {
+		if ( !class_exists( OpenStackManagerHooks::class ) ) {
 			return;
 		}
 
@@ -546,5 +546,5 @@ class GenerateSampleNotifications extends Maintenance {
 	}
 }
 
-$maintClass = "GenerateSampleNotifications";
+$maintClass = GenerateSampleNotifications::class;
 require_once RUN_MAINTENANCE_IF_MAIN;

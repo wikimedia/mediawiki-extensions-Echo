@@ -68,5 +68,5 @@ class RemoveOrphanedEvents extends LoggedUpdateMaintenance {
 	}
 }
 
-$maintClass = 'RemoveOrphanedEvents';
+$maintClass = RemoveOrphanedEvents::class;
 require_once RUN_MAINTENANCE_IF_MAIN;

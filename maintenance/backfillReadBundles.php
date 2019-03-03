@@ -72,5 +72,5 @@ class BackfillReadBundles extends Maintenance {
 	}
 }
 
-$maintClass = "BackfillReadBundles";
+$maintClass = BackfillReadBundles::class;
 require_once RUN_MAINTENANCE_IF_MAIN;

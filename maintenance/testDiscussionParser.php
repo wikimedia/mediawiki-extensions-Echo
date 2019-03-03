@@ -79,5 +79,5 @@ class TestDiscussionParser extends Maintenance {
 	}
 }
 
-$maintClass = "TestDiscussionParser";
+$maintClass = TestDiscussionParser::class;
 require_once RUN_MAINTENANCE_IF_MAIN;
