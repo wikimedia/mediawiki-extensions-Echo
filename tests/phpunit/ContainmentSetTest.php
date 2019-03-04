@@ -23,10 +23,8 @@ class ContainmentSetTest extends MediaWikiTestCase {
 	}
 
 	public function testCachedListInnerListIsOnlyCalledOnce() {
-		// the global $wgMemc during tests is an EmptyBagOStuff, so it
-		// wont do anything.  We use a HashBagOStuff to get more like a real
-		// client
-		$innerCache = new HashBagOStuff;
+		$innerCache = new HashBagOStuff; // simulate caching
+		$wanCache = new WANObjectCache( [ 'cache' => $innerCache ] );
 
 		$inner = [ 'bing', 'bang' ];
 		// We use a mock instead of the real thing for the $this->once() assertion
@@ -38,7 +36,7 @@ class ContainmentSetTest extends MediaWikiTestCase {
 			->method( 'getValues' )
 			->will( $this->returnValue( $inner ) );
 
-		$cached = new EchoCachedList( $innerCache, 'test_key', $list );
+		$cached = new EchoCachedList( $wanCache, 'test_key', $list );
 
 		// First run through should hit the main list, and save to innerCache
 		$this->assertEquals( $inner, $cached->getValues() );
@@ -46,7 +44,7 @@ class ContainmentSetTest extends MediaWikiTestCase {
 
 		// Reinitialize to get a fresh instance that will pull directly from
 		// innerCache without hitting the $list
-		$freshCached = new EchoCachedList( $innerCache, 'test_key', $list );
+		$freshCached = new EchoCachedList( $wanCache, 'test_key', $list );
 		$this->assertEquals( $inner, $freshCached->getValues() );
 	}
 
