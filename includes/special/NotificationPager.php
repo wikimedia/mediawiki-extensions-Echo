@@ -24,7 +24,7 @@ class NotificationPager extends ReverseChronologicalPager {
 
 		return [
 			'tables' => [ 'echo_notification', 'echo_event' ],
-			'fields' => '*',
+			'fields' => EchoNotification::selectFields(),
 			'conds' => [
 				'notification_user' => $this->getUser()->getId(),
 				'event_type' => $eventTypes,

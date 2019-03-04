@@ -202,10 +202,17 @@ class MWEchoEmailBatch {
 			if ( $this->lastEvent ) {
 				$conds[] = 'eeb_event_id <= ' . intval( $this->lastEvent );
 			}
+			$fields = array_merge( EchoEvent::selectFields(), [
+				'eeb_id',
+				'eeb_user_id',
+				'eeb_event_priority',
+				'eeb_event_id',
+				'eeb_event_hash',
+			] );
 
 			$res = $dbr->select(
 				[ 'echo_email_batch', 'echo_event' ],
-				[ '*' ],
+				$fields,
 				$conds,
 				__METHOD__,
 				[

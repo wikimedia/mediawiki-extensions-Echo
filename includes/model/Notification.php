@@ -304,4 +304,21 @@ class EchoNotification extends EchoAbstractEntity implements Bundleable {
 	public function getSortingKey() {
 		return ( $this->isRead() ? '0' : '1' ) . '_' . $this->getTimestamp();
 	}
+
+	/**
+	 * Return the list of fields that should be selected to create
+	 * a new event with EchoNotification::newFromRow
+	 * @return string[]
+	 */
+	public static function selectFields() {
+		return array_merge( EchoEvent::selectFields(), [
+			'notification_event',
+			'notification_user',
+			'notification_timestamp',
+			'notification_read_timestamp',
+			'notification_bundle_base',
+			'notification_bundle_hash',
+			'notification_bundle_display_hash',
+		] );
+	}
 }

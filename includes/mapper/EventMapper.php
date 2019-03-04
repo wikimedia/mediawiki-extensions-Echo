@@ -42,7 +42,7 @@ class EchoEventMapper extends EchoAbstractMapper {
 	public function fetchById( $id, $fromMaster = false ) {
 		$db = $fromMaster ? $this->dbFactory->getEchoDb( DB_MASTER ) : $this->dbFactory->getEchoDb( DB_REPLICA );
 
-		$row = $db->selectRow( 'echo_event', '*', [ 'event_id' => $id ], __METHOD__ );
+		$row = $db->selectRow( 'echo_event', EchoEvent::selectFields(), [ 'event_id' => $id ], __METHOD__ );
 
 		// If the row was not found, fall back on the master if it makes sense to do so
 		if ( !$row && !$fromMaster && $this->dbFactory->canRetryMaster() ) {
@@ -91,7 +91,7 @@ class EchoEventMapper extends EchoAbstractMapper {
 		$dbr = $this->dbFactory->getEchoDb( DB_REPLICA );
 		$res = $dbr->select(
 			[ 'echo_event', 'echo_target_page' ],
-			[ '*' ],
+			EchoEvent::selectFields(),
 			[
 				'etp_page' => $pageId
 			],
@@ -134,10 +134,11 @@ class EchoEventMapper extends EchoAbstractMapper {
 	 */
 	public function fetchUnreadByUserAndPage( User $user, $pageId ) {
 		$dbr = $this->dbFactory->getEchoDb( DB_REPLICA );
+		$fields = array_merge( EchoEvent::selectFields(), [ 'notification_timestamp' ] );
 
 		$res = $dbr->select(
 			[ 'echo_event', 'echo_notification', 'echo_target_page' ],
-			'*',
+			$fields,
 			[
 				'event_deleted' => 0,
 				'notification_user' => $user->getId(),
