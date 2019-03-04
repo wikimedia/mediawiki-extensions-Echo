@@ -547,7 +547,7 @@ class EchoHooks {
 		// test for them reaching a congratulatory threshold
 		$thresholds = [ 1, 10, 100, 1000, 10000, 100000, 1000000 ];
 		if ( $user->isLoggedIn() && $status->value['revision'] ) {
-			$thresholdCount = $user->getEditCount();
+			$thresholdCount = self::getEditCount( $user );
 			if ( in_array( $thresholdCount, $thresholds ) ) {
 				DeferredUpdates::addCallableUpdate( function () use ( $user, $title, $thresholdCount ) {
 					$notificationMapper = new EchoNotificationMapper();
@@ -605,6 +605,20 @@ class EchoHooks {
 		}
 
 		return true;
+	}
+
+	/**
+	 * @param User $user
+	 * @return int
+	 */
+	private static function getEditCount( User $user ) {
+		// When this code runs from a maintenance script or unit tests
+		// the deferred update incrementing edit count runs right away
+		// so the edit count is right. Otherwise it lags by one.
+		if ( wfIsCLI() ) {
+			return $user->getEditCount();
+		}
+		return $user->getEditCount() + 1;
 	}
 
 	/**
