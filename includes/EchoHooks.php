@@ -1405,7 +1405,7 @@ class EchoHooks {
 				$thankYouIds = [];
 				$thankYouRows = $dbw->select(
 					[ 'echo_notification', 'echo_event' ],
-					'echo_event.*',
+					EchoEvent::selectFields(),
 					[
 						'notification_user' => $newUser->getId(),
 						'notification_event = event_id',
