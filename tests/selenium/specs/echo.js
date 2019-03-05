@@ -2,7 +2,9 @@
 
 var assert = require( 'assert' ),
 	EchoPage = require( '../pageobjects/echo.page' ),
-	UserLoginPage = require( 'wdio-mediawiki/LoginPage' );
+	UserLoginPage = require( 'wdio-mediawiki/LoginPage' ),
+	Util = require( 'wdio-mediawiki/Util' ),
+	Api = require( 'wdio-mediawiki/Api' );
 
 describe( 'Echo', function () {
 
@@ -32,6 +34,23 @@ describe( 'Echo', function () {
 		EchoPage.flyout.waitForVisible();
 
 		assert( EchoPage.flyout.isExisting() );
+
+	} );
+
+	it( 'checks for welcome message after signup', function () {
+
+		var username = Util.getTestString( 'NewUser-' );
+		var password = Util.getTestString();
+		browser.call( function () {
+			return Api.createAccount( username, password );
+		} );
+		UserLoginPage.login( username, password );
+
+		EchoPage.notices.click();
+
+		EchoPage.welcomeNotice.waitForVisible();
+		let regexp = /Welcome to .*, .*‬! We're glad you're here./;
+		assert( regexp.test( EchoPage.welcomeNotice.getText() ) );
 
 	} );
 
