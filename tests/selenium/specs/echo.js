@@ -15,4 +15,14 @@ describe( 'Echo', function () {
 
 	} );
 
+	it( 'flyout for alert appears when clicked', function () {
+
+		UserLoginPage.login( browser.options.username, browser.options.password );
+		EchoPage.alerts.click();
+		EchoPage.flyout.waitForVisible();
+
+		assert( EchoPage.flyout.isExisting() );
+
+	} );
+
 } );
