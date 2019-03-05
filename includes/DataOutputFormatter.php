@@ -107,7 +107,7 @@ class EchoDataOutputFormatter {
 		if ( $title ) {
 			$output['title'] = [
 				'full' => $title->getPrefixedText(),
-				'namespace' => $title->getNSText(),
+				'namespace' => $title->getNsText(),
 				'namespace-key' => $title->getNamespace(),
 				'text' => $title->getText(),
 			];
@@ -185,9 +185,9 @@ class EchoDataOutputFormatter {
 			/** @var EchoEventFormatter $formatter */
 			$formatter = new $class( $user, $lang );
 			return $formatter->format( $event );
-		} else {
-			return false;
 		}
+
+		return false;
 	}
 
 	/**

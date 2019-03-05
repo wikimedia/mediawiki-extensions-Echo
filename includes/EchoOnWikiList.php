@@ -17,7 +17,7 @@ class EchoOnWikiList implements EchoContainmentList {
 	 */
 	public function __construct( $titleNs, $titleString ) {
 		$title = Title::newFromText( $titleString, $titleNs );
-		if ( $title !== null && $title->getArticleId() ) {
+		if ( $title !== null && $title->getArticleID() ) {
 			$this->title = $title;
 		}
 	}
@@ -30,7 +30,7 @@ class EchoOnWikiList implements EchoContainmentList {
 			return [];
 		}
 
-		$article = WikiPage::newFromID( $this->title->getArticleId() );
+		$article = WikiPage::newFromID( $this->title->getArticleID() );
 		if ( $article === null || !$article->exists() ) {
 			return [];
 		}
