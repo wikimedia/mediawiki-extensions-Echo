@@ -44,8 +44,6 @@ CREATE TABLE /*_*/echo_notification (
 	-- Hash for bundling together similar notifications. Notifications that can be bundled together
 	-- will have the same hash
 	notification_bundle_hash varchar(32) binary not null,
-	-- No longer used, should be removed (T143763)
-	notification_bundle_display_hash varchar(32) binary not null,
 	PRIMARY KEY (notification_user, notification_event)
 ) /*$wgDBTableOptions*/;
 

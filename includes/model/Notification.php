@@ -37,12 +37,6 @@ class EchoNotification extends EchoAbstractEntity implements Bundleable {
 	protected $bundleHash = '';
 
 	/**
-	 * The hash used to bundle events to display
-	 * @var string
-	 */
-	protected $bundleDisplayHash = '';
-
-	/**
 	 * @var EchoNotification[]
 	 */
 	protected $bundledNotifications;
@@ -111,16 +105,6 @@ class EchoNotification extends EchoAbstractEntity implements Bundleable {
 		if ( $bundleKey ) {
 			$hash = md5( $bundleKey );
 			$this->bundleHash = $hash;
-			$lastNotif = $notifMapper->fetchNewestByUserBundleHash( $this->user, $hash );
-
-			// Use a new display hash if:
-			// 1. there was no last bundle notification
-			// 2. last bundle notification with the same hash was read
-			if ( $lastNotif && !$lastNotif->getReadTimestamp() ) {
-				$this->bundleDisplayHash = $lastNotif->getBundleDisplayHash();
-			} else {
-				$this->bundleDisplayHash = md5( $bundleKey . '-display-hash-' . wfTimestampNow() );
-			}
 		}
 
 		$notifUser = MWEchoNotifUser::newFromUser( $this->user );
@@ -170,7 +154,6 @@ class EchoNotification extends EchoAbstractEntity implements Bundleable {
 			$notification->readTimestamp = wfTimestamp( TS_MW, $row->notification_read_timestamp );
 		}
 		$notification->bundleHash = $row->notification_bundle_hash;
-		$notification->bundleDisplayHash = $row->notification_bundle_display_hash;
 
 		return $notification;
 	}
@@ -186,7 +169,6 @@ class EchoNotification extends EchoAbstractEntity implements Bundleable {
 			'notification_timestamp' => $this->timestamp,
 			'notification_read_timestamp' => $this->readTimestamp,
 			'notification_bundle_hash' => $this->bundleHash,
-			'notification_bundle_display_hash' => $this->bundleDisplayHash
 		];
 	}
 
@@ -232,14 +214,6 @@ class EchoNotification extends EchoAbstractEntity implements Bundleable {
 	 */
 	public function getBundleHash() {
 		return $this->bundleHash;
-	}
-
-	/**
-	 * Getter method
-	 * @return string|null Notification bundle display hash
-	 */
-	public function getBundleDisplayHash() {
-		return $this->bundleDisplayHash;
 	}
 
 	/**
@@ -300,7 +274,6 @@ class EchoNotification extends EchoAbstractEntity implements Bundleable {
 			'notification_timestamp',
 			'notification_read_timestamp',
 			'notification_bundle_hash',
-			'notification_bundle_display_hash',
 		] );
 	}
 }

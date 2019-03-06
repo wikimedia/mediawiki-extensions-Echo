@@ -258,35 +258,6 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	}
 
 	/**
-	 * Get the last notification in a set of bundle-able notifications by a bundle hash
-	 * @param User $user
-	 * @param string $bundleHash The hash used to identify a set of bundle-able notifications
-	 * @return EchoNotification|false
-	 */
-	public function fetchNewestByUserBundleHash( User $user, $bundleHash ) {
-		$dbr = $this->dbFactory->getEchoDb( DB_REPLICA );
-
-		$row = $dbr->selectRow(
-			[ 'echo_notification', 'echo_event' ],
-			EchoNotification::selectFields(),
-			[
-				'notification_user' => $user->getId(),
-				'notification_bundle_hash' => $bundleHash
-			],
-			__METHOD__,
-			[ 'ORDER BY' => 'notification_timestamp DESC', 'LIMIT' => 1 ],
-			[
-				'echo_event' => [ 'LEFT JOIN', 'notification_event=event_id' ],
-			]
-		);
-		if ( $row ) {
-			return EchoNotification::newFromRow( $row );
-		} else {
-			return false;
-		}
-	}
-
-	/**
 	 * Fetch EchoNotifications by user and event IDs.
 	 *
 	 * @param User $user

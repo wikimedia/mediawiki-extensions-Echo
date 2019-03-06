@@ -238,7 +238,11 @@ class EchoHooks {
 		if ( $updater->getDB()->getType() !== 'sqlite' ) {
 			$updater->dropExtensionField( 'echo_notification', 'notification_bundle_base',
 				"$dir/db_patches/patch-drop-notification_bundle_base.sql" );
+			$updater->dropExtensionField( 'echo_notification', 'notification_bundle_display_hash',
+				"$dir/db_patches/patch-drop-notification_bundle_display_hash.sql" );
 		}
+		$updater->dropExtensionIndex( 'echo_notification', 'echo_notification_user_hash_timestamp',
+			"$dir/db_patches/patch-drop-user-hash-timestamp-index.sql" );
 	}
 
 	/**
