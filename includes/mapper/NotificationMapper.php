@@ -23,24 +23,6 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 			$dbw,
 			__METHOD__,
 			function ( IDatabase $dbw, $fname ) use ( $row, $listeners ) {
-				// Reset the bundle base if this notification has a display hash
-				// the result of this operation is that all previous notifications
-				// with the same display hash are set to non-base because new record
-				// is becoming the bundle base
-				if ( $row['notification_bundle_display_hash'] ) {
-					$dbw->update(
-						'echo_notification',
-						[ 'notification_bundle_base' => 0 ],
-						[
-							'notification_user' => $row['notification_user'],
-							'notification_bundle_display_hash' =>
-								$row['notification_bundle_display_hash'],
-							'notification_bundle_base' => 1
-						],
-						$fname
-					);
-				}
-
 				$row['notification_timestamp'] =
 					$dbw->timestamp( $row['notification_timestamp'] );
 				$dbw->insert( 'echo_notification', $row, $fname );

@@ -41,8 +41,6 @@ CREATE TABLE /*_*/echo_notification (
 	notification_timestamp binary(14) not null,
 	-- Timestamp when the user read the notification, or null if unread
 	notification_read_timestamp binary(14) null,
-	-- No longer used, should be removed (T143763)
-	notification_bundle_base boolean not null default 1,
 	-- Hash for bundling together similar notifications. Notifications that can be bundled together
 	-- will have the same hash
 	notification_bundle_hash varchar(32) binary not null,
@@ -53,14 +51,8 @@ CREATE TABLE /*_*/echo_notification (
 
 -- Index to get a user's notifications in chronological order
 CREATE INDEX /*i*/echo_user_timestamp ON /*_*/echo_notification (notification_user,notification_timestamp);
--- No longer used, should be removed
-CREATE INDEX /*i*/echo_notification_user_base_read_timestamp ON /*_*/echo_notification (notification_user, notification_bundle_base, notification_read_timestamp);
--- No longer used, should be removed
-CREATE INDEX /*i*/echo_notification_user_base_timestamp ON /*_*/echo_notification (notification_user, notification_bundle_base, notification_timestamp, notification_event);
 -- Used by NotificationMapper::fetchNewestByUserBundleHash()
 CREATE INDEX /*i*/echo_notification_user_hash_timestamp ON /*_*/echo_notification (notification_user, notification_bundle_hash, notification_timestamp);
--- No longer used, should be removed
-CREATE INDEX /*i*/echo_notification_user_hash_base_timestamp ON /*_*/echo_notification (notification_user, notification_bundle_display_hash, notification_bundle_base, notification_timestamp);
 -- Used to get all notifications for a given event
 CREATE INDEX /*i*/echo_notification_event ON /*_*/echo_notification (notification_event);
 -- Used to get read/unread notifications for a user
