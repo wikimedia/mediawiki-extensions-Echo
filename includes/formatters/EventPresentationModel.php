@@ -146,13 +146,14 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 	 * Equivalent to IContextSource::msg for the current
 	 * language
 	 *
+	 * @param string ...$args
 	 * @return Message
 	 */
-	protected function msg( /* ,,, */ ) {
+	protected function msg( ...$args ) {
 		/**
 		 * @var Message $msg
 		 */
-		$msg = wfMessage( ...func_get_args() );
+		$msg = wfMessage( ...$args );
 		$msg->inLanguage( $this->language );
 
 		// Notifications are considered UI (and should be in UI language, not
