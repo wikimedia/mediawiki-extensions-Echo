@@ -40,7 +40,7 @@ class EchoUserLocator {
 	}
 
 	/**
-	 * If the event occured on the talk page of a registered
+	 * If the event occurred on the talk page of a registered
 	 * user return that user.
 	 *
 	 * @param EchoEvent $event
