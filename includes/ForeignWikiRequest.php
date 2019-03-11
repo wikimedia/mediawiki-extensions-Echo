@@ -115,6 +115,7 @@ class EchoForeignWikiRequest {
 	 * This method fetches the tokens for all requested wikis at once and caches the result.
 	 *
 	 * @param string $wiki Name of the wiki to get a token for
+	 * @suppress PhanTypeInvalidCallableArraySize getRequestParams can take an array, too (phan bug)
 	 * @return string Token
 	 */
 	protected function getCsrfToken( $wiki ) {

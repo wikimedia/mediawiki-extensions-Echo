@@ -18,6 +18,7 @@ class EchoModelFormatter extends EchoEventFormatter {
 		}
 
 		foreach ( $data['links']['secondary'] as &$link ) {
+			// @phan-suppress-next-line PhanTypeMismatchDimAssignment
 			$link['url'] = wfExpandUrl( $link['url'] );
 		}
 
