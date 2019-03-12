@@ -69,7 +69,7 @@ trait ApiCrossWiki {
 
 		// if wiki is omitted from params, that's because crosswiki is/was not
 		// available, and it'll default to current wiki
-		$wikis = isset( $params['wikis'] ) ? $params['wikis'] : [ wfWikiID() ];
+		$wikis = $params['wikis'] ?? [ wfWikiID() ];
 
 		if ( array_search( '*', $wikis ) !== false ) {
 			// expand `*` to all foreign wikis with unread notifications + local

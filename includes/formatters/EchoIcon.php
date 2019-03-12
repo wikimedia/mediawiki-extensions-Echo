@@ -59,9 +59,7 @@ class EchoIcon {
 			throw new InvalidArgumentException( "The $icon icon is not registered" );
 		}
 
-		$url = isset( $wgEchoNotificationIcons[ $icon ][ 'url' ] ) ?
-			$wgEchoNotificationIcons[ $icon ][ 'url' ] :
-			null;
+		$url = $wgEchoNotificationIcons[ $icon ][ 'url' ] ?? null;
 
 		// If the defined URL is explicitly false, use placeholder
 		if ( $url === false ) {
