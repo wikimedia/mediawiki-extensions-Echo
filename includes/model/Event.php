@@ -501,7 +501,7 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 	}
 
 	public function getExtraParam( $key, $default = null ) {
-		return isset( $this->extra[$key] ) ? $this->extra[$key] : $default;
+		return $this->extra[$key] ?? $default;
 	}
 
 	/**

@@ -71,7 +71,7 @@ class EchoForeignNotifications {
 		if ( $section === EchoAttributeManager::ALL ) {
 			$count = array_sum( $this->counts );
 		} else {
-			$count = isset( $this->counts[$section] ) ? $this->counts[$section] : 0;
+			$count = $this->counts[$section] ?? 0;
 		}
 
 		return MWEchoNotifUser::capNotificationCount( $count );
@@ -98,7 +98,7 @@ class EchoForeignNotifications {
 			return $max;
 		}
 
-		return isset( $this->timestamps[$section] ) ? $this->timestamps[$section] : false;
+		return $this->timestamps[$section] ?? false;
 	}
 
 	/**
@@ -117,7 +117,7 @@ class EchoForeignNotifications {
 			return array_unique( $all );
 		}
 
-		return isset( $this->wikis[$section] ) ? $this->wikis[$section] : [];
+		return $this->wikis[$section] ?? [];
 	}
 
 	public function getWikiTimestamp( $wiki, $section = EchoAttributeManager::ALL ) {
@@ -136,7 +136,7 @@ class EchoForeignNotifications {
 			}
 			return $max;
 		}
-		return isset( $this->wikiTimestamps[$wiki][$section] ) ? $this->wikiTimestamps[$wiki][$section] : false;
+		return $this->wikiTimestamps[$wiki][$section] ?? false;
 	}
 
 	protected function populate() {
