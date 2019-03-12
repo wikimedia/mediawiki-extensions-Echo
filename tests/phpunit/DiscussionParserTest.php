@@ -1124,14 +1124,6 @@ TEXT
 					'Reverta-me',
 				],
 			],
-			// Bug: T87852
-			[
-				"Test --[[Benutzer:Schnark]] ([[Benutzer:Schnark/js|js]])",
-				[
-					strlen( "Test --" ),
-					'Schnark',
-				],
-			],
 			// when adding additional tests, make sure to add the non-anon users
 			// to EchoDiscussionParserTest::$testusers - the DiscussionParser
 			// needs the users to exist, because it'll generate a comparison
