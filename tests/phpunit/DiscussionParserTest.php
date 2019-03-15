@@ -7,6 +7,7 @@ use Wikimedia\TestingAccessWrapper;
 /**
  * @covers EchoDiscussionParser
  * @group Echo
+ * @group Broken
  * @group Database
  */
 class EchoDiscussionParserTest extends MediaWikiTestCase {
