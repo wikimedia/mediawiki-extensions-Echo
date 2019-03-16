@@ -216,7 +216,7 @@ class EchoHooks {
 			"$dir/db_patches/patch-alter-user_timestamp-index.sql" );
 		$updater->addExtensionIndex( 'echo_notification', 'echo_notification_event',
 			"$dir/db_patches/patch-add-notification_event-index.sql" );
-		$updater->addPostDatabaseUpdateMaintenance( 'RemoveOrphanedEvents' );
+		$updater->addPostDatabaseUpdateMaintenance( RemoveOrphanedEvents::class );
 		$updater->addExtensionField( 'echo_event', 'event_deleted',
 			"$dir/db_patches/patch-add-echo_event-event_deleted.sql" );
 		$updater->addExtensionIndex( 'echo_notification', 'echo_notification_user_read_timestamp',
@@ -229,7 +229,7 @@ class EchoHooks {
 			"$dir/db_patches/patch-notification-pk.sql" );
 		// Can't use addPostDatabaseUpdateMaintenance() here because that would
 		// run the migration script after dropping the fields
-		$updater->addExtensionUpdate( [ 'runMaintenance', 'UpdateEchoSchemaForSuppression',
+		$updater->addExtensionUpdate( [ 'runMaintenance', UpdateEchoSchemaForSuppression::class,
 			'extensions/Echo/maintenance/updateEchoSchemaForSuppression.php' ] );
 		$updater->dropExtensionField( 'echo_event', 'event_page_namespace',
 			"$dir/db_patches/patch-drop-echo_event-event_page_namespace.sql" );
