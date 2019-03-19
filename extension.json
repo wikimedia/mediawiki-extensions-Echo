@@ -206,7 +206,6 @@
 		},
 		"ext.echo.dm": {
 			"scripts": [
-				"mw.echo.js",
 				"model/mw.echo.dm.js",
 				"model/mw.echo.dm.SourcePagesModel.js",
 				"model/mw.echo.dm.PaginationModel.js",
@@ -223,6 +222,7 @@
 			],
 			"dependencies": [
 				"oojs",
+				"ext.echo.init",
 				"ext.echo.api",
 				"moment"
 			],
@@ -288,7 +288,8 @@
 				"mediawiki.Uri"
 			],
 			"targets": [
-				"desktop"
+				"desktop",
+				"mobile"
 			]
 		},
 		"ext.echo.styles.badge": {
