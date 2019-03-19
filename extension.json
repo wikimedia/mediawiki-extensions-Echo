@@ -91,6 +91,7 @@
 		},
 		"ext.echo.ui": {
 			"scripts": [
+				"controller/mw.echo.Controller.js",
 				"ui/mw.echo.ui.js",
 				"ui/mw.echo.ui.SortedListWidget.js",
 				"ui/mw.echo.ui.SubGroupListWidget.js",
@@ -137,10 +138,12 @@
 				]
 			},
 			"dependencies": [
+				"ext.echo.api",
+				"ext.echo.dm",
 				"ext.echo.logger",
 				"ext.echo.styles.notifications",
-				"ext.echo.controller",
 				"ext.echo.secondaryicons",
+				"oojs",
 				"oojs-ui-core",
 				"oojs-ui-widgets",
 				"moment",
@@ -250,20 +253,6 @@
 				"mediawiki.api",
 				"mediawiki.ForeignApi",
 				"oojs"
-			],
-			"targets": [
-				"desktop",
-				"mobile"
-			]
-		},
-		"ext.echo.controller": {
-			"scripts": [
-				"controller/mw.echo.Controller.js"
-			],
-			"dependencies": [
-				"oojs",
-				"ext.echo.api",
-				"ext.echo.dm"
 			],
 			"targets": [
 				"desktop",
