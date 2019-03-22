@@ -215,7 +215,7 @@ class GenerateSampleNotifications extends Maintenance {
 		if ( $revision ) {
 			$content = $revision->getContent( Revision::FOR_PUBLIC );
 			if ( $content instanceof WikitextContent ) {
-				$previousContent = $content->getNativeData();
+				$previousContent = $content->getText();
 			}
 		}
 		$status = $page->doEditContent(
