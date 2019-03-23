@@ -6,7 +6,8 @@
 			"Okras",
 			"Putnik",
 			"Sunpriat",
-			"Mouse21"
+			"Mouse21",
+			"Diralik"
 		]
 	},
 	"apihelp-echomarkread-description": "Отметить уведомления как прочитанные для текущего пользователя.",
@@ -22,7 +23,7 @@
 	"apihelp-echomarkseen-summary": "Отметить уведомления как прочитанные для данного пользователя.",
 	"apihelp-echomarkseen-example-1": "Отметить уведомления всех типов как прочитанные",
 	"apihelp-echomarkseen-param-type": "Тип уведомлений для отметки прочитанными: 'alert', 'message' или 'all'.",
-	"apihelp-echomarkseen-param-timestampFormat": "Формат временной отметки для вывода на печать, 'ISO_8601' или 'MW'.  'MW' устарел здесь, поэтому все клиенты должны переключиться на 'ISO_8601'. Этот параметр будет удален, а 'ISO_8601' станет единственным выходным форматом.",
+	"apihelp-echomarkseen-param-timestampFormat": "Формат временной отметки для вывода на печать, 'ISO_8601' или 'MW'.  'MW' устарел здесь, поэтому все клиенты должны переключиться на 'ISO_8601'. Этот параметр будет удалён, а 'ISO_8601' станет единственным выходным форматом.",
 	"apihelp-query+notifications-description": "Получать уведомления, ожидающие текущего пользователя.",
 	"apihelp-query+notifications-summary": "Получать уведомления, ожидающие текущего пользователя.",
 	"apihelp-query+notifications-param-prop": "Подробности для запроса.",
@@ -60,7 +61,7 @@
 	"apihelp-echoarticlereminder-example-1": "Создайте уведомление о напоминаниях статьи на завтра с комментарием",
 	"apihelp-echoarticlereminder-example-2": "Создайте уведомление о напоминаниях статьи на завтра без комментариев",
 	"apiwarn-echo-deprecation-timestampformat": "Формат выходных данных временной шкалы MW устарел. В будущем ISO 8601 всегда будет использоваться для формата временной метки вывода. Отрегулируйте клиента и установите <var>timestampFormat</var> в <kbd>ISO_8601</kbd>.",
-	"apiwarn-echo-deprecation-flyout": "<kbd>notformat=flyout</kbd> устарел и скоро будет удален. Использование <kbd>notformat=model</kbd> для получения необработанных данных или <kbd>notformat=special</kbd> для предварительно обработанного HTML.",
-	"apiwarn-echo-deprecation-html": "<kbd>notformat=html</kbd> устарел и скоро будет удален. Использование <kbd>notformat=special</kbd> вместо.",
+	"apiwarn-echo-deprecation-flyout": "<kbd>notformat=flyout</kbd> устарел и скоро будет удалён. Используйте <kbd>notformat=model</kbd> для получения необработанных данных или <kbd>notformat=special</kbd> для предварительно обработанного HTML.",
+	"apiwarn-echo-deprecation-html": "<kbd>notformat=html</kbd> устарел и скоро будет удалён. Используйте <kbd>notformat=special</kbd> вместо.",
 	"apierror-echo-event-creation-failed": "Не удалось создать событие Echo"
 }
