@@ -10,7 +10,7 @@ class BackfillUnreadWikis extends Maintenance {
 	public function __construct() {
 		parent::__construct();
 
-		$this->mDescription = "Backfill echo_unread_wikis table";
+		$this->addDescription( "Backfill echo_unread_wikis table" );
 		$this->addOption( 'rebuild', 'Only recompute already-existing rows' );
 		$this->setBatchSize( 300 );
 		$this->requireExtension( 'Echo' );

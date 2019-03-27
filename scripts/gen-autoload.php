@@ -13,7 +13,7 @@ require_once getenv( 'MW_INSTALL_PATH' ) !== false
 class GenerateEchoAutoload extends Maintenance {
 	public function __construct() {
 		parent::__construct();
-		$this->mDescription = 'Generates Echo autoload data';
+		$this->addDescription( 'Generates Echo autoload data' );
 	}
 
 	public function execute() {

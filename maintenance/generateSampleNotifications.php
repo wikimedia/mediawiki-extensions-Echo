@@ -34,7 +34,7 @@ class GenerateSampleNotifications extends Maintenance {
 
 	public function __construct() {
 		parent::__construct();
-		$this->mDescription = "Generate sample notifications";
+		$this->addDescription( "Generate sample notifications" );
 
 		$this->addOption(
 			'force',

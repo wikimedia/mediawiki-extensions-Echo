@@ -19,7 +19,7 @@ class ProcessEchoEmailBatch extends Maintenance {
 
 	public function __construct() {
 		parent::__construct();
-		$this->mDescription = "Process email digest";
+		$this->addDescription( "Process email digest" );
 
 		$this->addOption(
 			"ignoreConfiguredSchedule",
