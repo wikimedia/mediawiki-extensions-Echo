@@ -7,7 +7,6 @@ use Wikimedia\TestingAccessWrapper;
 /**
  * @covers EchoDiscussionParser
  * @group Echo
- * @group Broken
  * @group Database
  */
 class EchoDiscussionParserTest extends MediaWikiTestCase {
@@ -1123,6 +1122,14 @@ TEXT
 				[
 					strlen( "{{U|He7d3r}}, xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxã? " ),
 					'Reverta-me',
+				],
+			],
+			// Bug: T87852
+			[
+				"Test --[[Benutzer:Schnark]] ([[Benutzer:Schnark/js|js]])",
+				[
+					strlen( "Test --" ),
+					'Schnark',
 				],
 			],
 			// when adding additional tests, make sure to add the non-anon users
