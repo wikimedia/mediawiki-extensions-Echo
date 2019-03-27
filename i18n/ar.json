@@ -155,7 +155,7 @@
 	"notification-header-mention-success-bundle": "{{PLURAL:$3|تذكير|$3 تذكير}} {{GENDER:$2|قمت بها}} على صفحة النقاش <strong>$4</strong> {{PLURAL:$3|تم}} إرسالها.",
 	"notification-compact-header-mention-success": "<strong>لقد {{GENDER:$2|أشرت|أشرتِ}} إلى:</strong> $3",
 	"notification-header-mention-status-bundle": "{{PLURAL:$3|إخطار|$3 إخطار}} حول التذكيرات {{GENDER:$2|التي قمت بها}} على صفحة النقاش <strong>$4</strong> talk page: {{PLURAL:$5|$5 لم يتم إرسالها}}، {{PLURAL:$6|$6 أرسلت}}.",
-	"notification-header-user-rights-add-only": "{{GENDER:$1|غُيرت|غُيرت}} صلاحيات المستخدم الخاصة {{GENDER:$4|بك|بكِ}}. أضفت إلى: $2.",
+	"notification-header-user-rights-add-only": "صلاحيات المستخدم الخاصة {{GENDER:$4|بك}} تم {{GENDER:$1|تغييرها}}. تمت إضافتك إلى: $2.",
 	"notification-header-user-rights-remove-only": "{{GENDER:$4|صلاحياتك}} تم {{GENDER:$1|تغييرها}}. أنت لم تعد عضوا في: $2.",
 	"notification-header-user-rights-add-and-remove": "{{GENDER:$6|صلاحياتك}} تم {{GENDER:$1|تغييرها}}. أنت تمت إضافتك إلى: $2. أنت لم تعد عضوا في: $4.",
 	"notification-header-user-rights-expiry-change": "تاريخ انتهاء {{GENDER:$4|عضويتك}} في {{PLURAL:$3|المجموعة|المجموعات}} التالية تم {{GENDER:$1|تغييرها}}: $2.",
