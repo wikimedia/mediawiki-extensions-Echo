@@ -730,6 +730,9 @@
 					"category": "article-linked",
 					"group": "neutral",
 					"section": "message",
+					"notify-type-availability": {
+						"email": false
+					},
 					"bundle": {
 						"web": true,
 						"email": true,
