@@ -634,7 +634,10 @@
 					"path": "Echo/modules/icons/message-constructive.svg"
 				},
 				"help": {
-					"path": "Echo/modules/icons/help.svg"
+					"path": {
+						"ltr": "Echo/modules/icons/helpNotice-ltr.svg",
+						"rtl": "Echo/modules/icons/helpNotice-rtl.svg"
+					}
 				},
 				"global": {
 					"path": "Echo/modules/icons/global-progressive.svg"
