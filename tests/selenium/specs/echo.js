@@ -25,4 +25,14 @@ describe( 'Echo', function () {
 
 	} );
 
+	it( 'flyout for notices appears when clicked', function () {
+
+		UserLoginPage.login( browser.options.username, browser.options.password );
+		EchoPage.notices.click();
+		EchoPage.flyout.waitForVisible();
+
+		assert( EchoPage.flyout.isExisting() );
+
+	} );
+
 } );
