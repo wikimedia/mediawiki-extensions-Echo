@@ -39,8 +39,7 @@
 			{
 				limit: limitNotifications,
 				$overlay: mw.echo.ui.$overlay,
-				prefLink: links.preferences,
-				helpLink: links.help
+				prefLink: links.preferences
 			}
 		);
 
