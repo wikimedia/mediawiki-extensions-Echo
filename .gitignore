@@ -4,6 +4,7 @@ scripts/remotes/
 /vendor
 /docs
 composer.lock
+.eslintcache
 
 # Editors
 *.kate-swp

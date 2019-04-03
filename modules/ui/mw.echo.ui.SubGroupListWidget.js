@@ -119,7 +119,7 @@
 				this.listWidget.$element
 			);
 
-		// eslint-disable-next-line jquery/no-global-selector
+		// eslint-disable-next-line no-jquery/no-global-selector
 		this.$pageContentText = $( '#mw-content-text' );
 		$( window ).on( 'resize', this.resizeHeader.bind( this ) );
 

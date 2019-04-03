@@ -12,7 +12,8 @@ module.exports = function ( grunt ) {
 	grunt.initConfig( {
 		eslint: {
 			options: {
-				reportUnusedDisableDirectives: true
+				reportUnusedDisableDirectives: true,
+				cache: true
 			},
 			src: [
 				'**/*.js',

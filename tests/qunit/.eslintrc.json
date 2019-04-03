@@ -4,7 +4,7 @@
 		"../../.eslintrc.json"
 	],
 	"rules": {
-		"jquery/no-parse-html-literal": "off",
-		"jquery/no-global-selector": "off"
+		"no-jquery/no-parse-html-literal": "off",
+		"no-jquery/no-global-selector": "off"
 	}
 }

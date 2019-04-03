@@ -9,7 +9,7 @@
 			limitNotifications = 50,
 			links = mw.config.get( 'wgNotificationsSpecialPageLinks' ),
 			// FIXME: Use CSS transition
-			// eslint-disable-next-line jquery/no-global-selector
+			// eslint-disable-next-line no-jquery/no-global-selector
 			$content = $( '#mw-content-text' ),
 			echoApi = new mw.echo.api.EchoApi( { limit: limitNotifications } ),
 			unreadCounter = new mw.echo.dm.UnreadNotificationCounter( echoApi, [ 'message', 'alert' ], limitNotifications ),
