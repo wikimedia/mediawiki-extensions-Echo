@@ -71,7 +71,7 @@
 	"notification-link-article-reminder": "Битне карау",
 	"notification-header-reverted": "Сезнең <strong>$3</strong> битендә ясалган {{PLURAL:$4|1=төзәтмәләгез|төзәтмәләрегез}} {{GENDER:$2|{{PLURAL:$4|кире кагылды}}}}.",
 	"notification-edit-talk-page-email-batch-body-with-section": "{{GENDER:$1|Кулланучы}} $1 сезгә «$2» темасының бәхәс битендә хат {{GENDER:$1|калдырды}}",
-	"notification-mention-email-subject": "$1 {{GENDER:$2|сезне}} на сайте «{{SITENAME}}» сәхтфәсендә {{GENDER:$1|искә алды}}",
+	"notification-mention-email-subject": "$1 {{GENDER:$3|сезне}} на сайте «{{SITENAME}}» сәхтфәсендә {{GENDER:$2|искә алды}}",
 	"notification-timestamp-ago-seconds": "{{PLURAL:$1|$1 с}}",
 	"notification-timestamp-ago-minutes": "{{PLURAL:$1|$1 мин}}",
 	"notification-timestamp-ago-hours": "{{PLURAL:$1|$1 сәг}}",

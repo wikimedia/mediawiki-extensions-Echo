@@ -60,7 +60,7 @@
 	"notification-link-text-view-edit": "Redaktəyə bax",
 	"notification-edit-talk-page-email-subject2": "İstifadəçi $1 \"{{SITENAME}}\" saytındakı müzakirə səhifənizdə sizə mesaj yazıb",
 	"notification-edit-talk-page-email-batch-body-with-section": "{{GENDER:$1|İstifadəçi}} sizin müzakirə səhifənizdə «$2» bölməsində məktub $1 {{GENDER:$1|yazıb}}",
-	"notification-mention-email-subject": "{{GENDER:$1|İstifadəçi}} sizin adınızı «{{SITENAME}}» səhifəsində $1 {{GENDER:$1|qeyd edib}}",
+	"notification-mention-email-subject": "{{GENDER:$2|İstifadəçi}} sizin adınızı «{{SITENAME}}» səhifəsində $1 {{GENDER:$2|qeyd edib}}",
 	"notification-timestamp-today": "Bu gün",
 	"notification-inbox-filter-read": "Oxunmuş",
 	"notification-inbox-filter-unread": "Oxunmamış",

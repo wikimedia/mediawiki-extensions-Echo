@@ -103,7 +103,7 @@
 	"notification-link-thank-you-edit": "{{GENDER:$1|თქვენი}} რედაქტირება",
 	"notification-link-text-view-edit": "რედაქტირების ნახვა",
 	"notification-header-emailuser": "მომხმარებელმა $1 {{GENDER:$2|გამოგიგზავნათ}} ელექტრონული წერილი.",
-	"notification-edit-talk-page-email-subject2": "$1-მ {{GENDER:$1|მოგწერათ}} {{SITENAME}}-ზე",
+	"notification-edit-talk-page-email-subject2": "$1-მ {{GENDER:$2|მოგწერათ}} {{SITENAME}}-ზე",
 	"notification-edit-talk-page-email-batch-body-with-section": "მომხმარებელმა $1 {{GENDER:$1|დატოვა}} შეტყობინება თქვენი განხილვის გვერდზე განყოფილებაში „$2“.",
 	"notification-user-rights-email-subject": "თქვენი მომხარებლის უფლებები შეიცვალა {{SITENAME}}-ზე",
 	"notification-timestamp-ago-seconds": "{{PLURAL:$1|$1 წამ.}}",

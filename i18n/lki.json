@@ -60,7 +60,7 @@
 	"notification-edit-talk-page-email-subject2": "شما یک پیام تازه از طرف $1 در وةڵگة  گةپ {{SITENAME}} دارید.",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 یک پیام در گةپ هؤمة در «$2» {{GENDER:$1|گذاشته‌است}}.",
 	"notification-page-linked-email-subject": "صفحه‌ای که شما آغازگر آن بودید در {{SITENAME}} پیوند شد.",
-	"notification-reverted-email-subject2": "{{PLURAL:$3|ویرایش|ویرایش‌های}} شما در {{SITENAME}} {{GENDER:$1|واگردانی شده‌است}}",
+	"notification-reverted-email-subject2": "{{PLURAL:$4|ویرایش|ویرایش‌های}} شما در {{SITENAME}} {{GENDER:$2|واگردانی شده‌است}}",
 	"notification-user-rights-email-subject": "دسترسی‌های شما در {{SITENAME}} تغییر یافته‌است",
 	"echo-email-body-default": "شما در {{SITENAME}} آگاه‌سازی تازه‌ای دارید:\n\n$1",
 	"echo-email-footer-default": "$2\n\nبرای کنترل ایمیل‌های ارسالی به شما، ترجیحات‌تان را بررسی کنید:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",

@@ -81,7 +81,7 @@
 	"notification-link-text-view-edit": "Qaytê vırnayışi ke",
 	"notification-header-reverted": "{{PLURAL:$4|Vurnayışê <strong>$3</strong> |vurnayışê <strong>$3</strong> }} şıma karber $1 {{GENDER:$2|peyser gırewt}}",
 	"notification-header-emailuser": "$1 şıma rê yew e-poste {{GENDER:$2|rışt}}.",
-	"notification-edit-talk-page-email-subject2": "$1 to rê {{SITENAME}} de yew mesac {{GENDER:$1|caverda}}",
+	"notification-edit-talk-page-email-subject2": "$1 to rê {{SITENAME}} de yew mesac {{GENDER:$2|caverda}}",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1, pela werênayışê şıma de be sernameyê \"$2\" ra yew mesac {{GENDER:$1|caverda}}.",
 	"notification-page-linked-email-subject": "Perer rê {{SITENAME}} ra gıre deya yo",
 	"notification-timestamp-ago-seconds": "{{PLURAL:$1|$1s}}",

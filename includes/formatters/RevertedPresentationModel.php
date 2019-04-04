@@ -82,4 +82,8 @@ class EchoRevertedPresentationModel extends EchoEventPresentationModel {
 	protected function getSubjectMessageKey() {
 		return 'notification-reverted-email-subject2';
 	}
+
+	public function getSubjectMessage() {
+		return parent::getSubjectMessage()->params( $this->getNumberOfEdits() );
+	}
 }
