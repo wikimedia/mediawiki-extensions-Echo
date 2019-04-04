@@ -410,6 +410,7 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 	 */
 	public function getSubjectMessage() {
 		$msg = $this->getMessageWithAgent( $this->getSubjectMessageKey() );
+		$msg->params( $this->getViewingUserForGender() );
 		if ( $msg->isDisabled() ) {
 			// Back-compat for models that haven't been updated yet
 			$msg = $this->getHeaderMessage();

@@ -137,7 +137,7 @@
 	"notification-edit-talk-page-email-subject2": "$1 لە {{SITENAME}}دا پەیامێکی بۆ ناردی.",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 لە پەڕەی لێدوانت لە «$2»دا پەیامێکی نارد.",
 	"notification-page-linked-email-subject": "پەڕەکەت لە {{SITENAME}}دا بەستەر درا.",
-	"notification-reverted-email-subject2": "{{PLURAL:$3|دەستکارییەکەت|دەستکارییەکانت}} لە {{SITENAME}}دا {{GENDER:$1|گەڕێنرایەوە}}",
+	"notification-reverted-email-subject2": "{{PLURAL:$4|دەستکارییەکەت|دەستکارییەکانت}} لە {{SITENAME}}دا {{GENDER:$2|گەڕێنرایەوە}}",
 	"notification-mention-email-subject": "$1 لە {{SITENAME}}دا ئاماژەی پێ‌کردی.",
 	"notification-user-rights-email-subject": "مافەکانی بەکارھێنەریت لە {{SITENAME}}دا گۆڕدرا.",
 	"notification-timestamp-ago-seconds": "$1چ",

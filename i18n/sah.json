@@ -81,7 +81,7 @@
 	"notification-link-text-view-edit": "Көннөрүүнү көр",
 	"notification-header-reverted": "<strong>$3</strong> сирэйгэ оҥорбут {{PLURAL:$4|1=Эн көннөрүүҥ|Эн көннөрүүлэриҥ}} {{GENDER:$2|{{PLURAL:$4|ууратылынна|ууратылыннылар}}}}",
 	"notification-header-emailuser": "$1 {{GENDER:$2|sent}} эйиэхэ сурук ыытта.",
-	"notification-reverted-email-subject2": "{{GENDER:$1|Ким эрэ}} {{PLURAL:$3|1=эн көннөрүүгүн|эн көннөрүүлэргин}} «{{SITENAME}}» ситим-сиргэ көтүрбүт",
+	"notification-reverted-email-subject2": "{{GENDER:$2|Ким эрэ}} {{PLURAL:$4|1=эн көннөрүүгүн|эн көннөрүүлэргин}} «{{SITENAME}}» ситим-сиргэ көтүрбүт",
 	"notification-user-rights-email-subject": "{{SITENAME}}  сайтка эhиги быраапкыт уларыйда",
 	"notification-timestamp-ago-seconds": "{{PLURAL:$1|Систиэмнэй}}",
 	"notification-timestamp-ago-minutes": "{{PLURAL:$1|$1 мүн}}",

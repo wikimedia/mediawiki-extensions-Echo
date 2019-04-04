@@ -17,7 +17,7 @@
 	"notification-link-text-view-message": "Willasqata qhaway",
 	"notification-link-text-view-changes": "Hukchasqakunata qhaway",
 	"notification-header-reverted": "$1 sutiyuq ruraqqa $3 nisqapi qampa {{PLURAL:$4|llamk'apusqaykita|llamk'apusqaykikunata}} {{GENDER:$2|kutichirqanmi}}.",
-	"notification-edit-talk-page-email-subject2": "$1 sutiyuq {{GENDER:$1|ruraqqa}} willasqantam saqisurqanki {{SITENAME}} nisqapi.",
+	"notification-edit-talk-page-email-subject2": "$1 sutiyuq {{GENDER:$2|ruraqqa}} willasqantam saqisurqanki {{SITENAME}} nisqapi.",
 	"notification-edit-talk-page-email-batch-body-with-section": "$1 sutiyuq {{GENDER:$1|ruraqqa}} rimanakuy p'anqaykipi willasqantam saqisurqanki \"$2\" nisqapi.",
 	"echo-email-footer-default": "$2\n\nKachasunayku e-chaski qillqakunata kamachinaykipaqqa, allinkachinaykikunata llanchiy:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
 	"echo-overlay-link": "Tukuy qampaq willaykuykuna",

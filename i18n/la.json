@@ -46,7 +46,7 @@
 	"notification-link-text-view-page": "Vide paginam",
 	"notification-link-text-view-edit": "Vide recensionem",
 	"notification-page-linked-email-subject": "Pagina tua annexa est apud {{grammar:accusative|{{SITENAME}}}}",
-	"notification-mention-email-subject": "$1 tui {{GENDER:$1|mentionem fecit}} apud {{grammar:accusative|{{SITENAME}}}}",
+	"notification-mention-email-subject": "$1 tui {{GENDER:$2|mentionem fecit}} apud {{grammar:accusative|{{SITENAME}}}}",
 	"echo-email-body-default": "Habes nova nuntia apud {{grammar:accusative|{{SITENAME}}}}:\n\n$1",
 	"echo-email-footer-default": "$2\n\nAd deligendum, quales litterae electronicae tibi mittantur, vide modos tuos:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1",
 	"echo-overlay-link": "Omnia nuntia",
