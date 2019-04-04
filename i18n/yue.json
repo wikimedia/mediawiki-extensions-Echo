@@ -4,7 +4,8 @@
 			"William915",
 			"Wong128hk",
 			"Ktchankt",
-			"Suzukaze-c"
+			"Suzukaze-c",
+			"Deryck Chan"
 		]
 	},
 	"echo-desc": "通知系統",
@@ -34,7 +35,7 @@
 	"echo-category-title-system": "{{PLURAL:$1|系統}}",
 	"echo-pref-tooltip-edit-user-talk": "有人喺我傾偈版留信或者回覆，話我知。",
 	"echo-pref-tooltip-article-linked": "有人喺文章連過去我開嘅版，話我知",
-	"echo-pref-tooltip-reverted": "有人將我嘅修改打回頭，話我知。",
+	"echo-pref-tooltip-reverted": "有人用「還原」或者「反轉」將我嘅修改打回頭，就話我知。",
 	"echo-pref-tooltip-mention": "有人喺任何傾偈頁提及我嘅用戶頁，話我知。",
 	"echo-error-no-formatter": "無預定通知格式",
 	"notifications": "通知",
