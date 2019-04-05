@@ -521,7 +521,8 @@ class GenerateSampleNotifications extends Maintenance {
 	}
 
 	private function generateWikibase( User $user, User $agent ) {
-		if ( !ExtensionRegistry::getInstance()->isLoaded( 'Wikibase' ) ) {
+		if ( !class_exists( EchoNotificationsHandlers::class ) ) {
+			// should use !ExtensionRegistry::getInstance()->isLoaded( 'Wikibase' ) when possible
 			$this->output( "Skipping Wikibase. Extension not installed.\n" );
 			return;
 		}
@@ -538,7 +539,8 @@ class GenerateSampleNotifications extends Maintenance {
 			'title' => $title,
 			'extra' => [
 				'url' => Title::newFromText( 'Item:Q1' )->getFullURL(),
-				'repoSiteName' => 'Wikidata'
+				'repoSiteName' => 'Wikidata',
+				'entity' => 'Q1',
 			],
 			'agent' => $agent,
 			'timestamp' => $this->getTimestamp(),
