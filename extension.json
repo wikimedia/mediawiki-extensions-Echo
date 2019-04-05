@@ -981,7 +981,7 @@
 		"EchoPageLinkedPresentationModel": "includes/formatters/PageLinkedPresentationModel.php",
 		"EchoPlainTextDigestEmailFormatter": "includes/formatters/EchoPlainTextDigestEmailFormatter.php",
 		"EchoPlainTextEmailFormatter": "includes/formatters/EchoPlainTextEmailFormatter.php",
-		"EchoPresentationModelSectionTrait": "includes/formatters/PresentationModelSectionTrait.php",
+		"EchoPresentationModelSection": "includes/formatters/PresentationModelSection.php",
 		"EchoRevertedPresentationModel": "includes/formatters/RevertedPresentationModel.php",
 		"EchoRevisionLocalCache": "includes/cache/RevisionLocalCache.php",
 		"EchoSeenTime": "includes/SeenTime.php",

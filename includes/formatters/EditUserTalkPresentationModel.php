@@ -1,7 +1,19 @@
 <?php
 
 class EchoEditUserTalkPresentationModel extends EchoEventPresentationModel {
-	use EchoPresentationModelSectionTrait;
+
+	/**
+	 * @var EchoPresentationModelSection
+	 */
+	private $section;
+
+	/**
+	 * @inheritDoc
+	 */
+	protected function __construct( EchoEvent $event, Language $language, User $user, $distributionType ) {
+		parent::__construct( $event, $language, $user, $distributionType );
+		$this->section = new EchoPresentationModelSection( $event, $user, $language );
+	}
 
 	public function canRender() {
 		return (bool)$this->event->getTitle();
@@ -14,7 +26,7 @@ class EchoEditUserTalkPresentationModel extends EchoEventPresentationModel {
 	public function getPrimaryLink() {
 		return [
 			// Need FullURL so the section is included
-			'url' => $this->getTitleWithSection()->getFullURL(),
+			'url' => $this->section->getTitleWithSection()->getFullURL(),
 			'label' => $this->msg( 'notification-link-text-view-message' )->text()
 		];
 	}
@@ -44,10 +56,10 @@ class EchoEditUserTalkPresentationModel extends EchoEventPresentationModel {
 			$msg->numParams( $count, $count );
 			$msg->params( $this->getViewingUserForGender() );
 			return $msg;
-		} elseif ( $this->hasSection() ) {
+		} elseif ( $this->section->exists() ) {
 			$msg = $this->getMessageWithAgent( "notification-header-{$this->type}-with-section" );
 			$msg->params( $this->getViewingUserForGender() );
-			$msg->plaintextParams( $this->getTruncatedSectionTitle() );
+			$msg->plaintextParams( $this->section->getTruncatedSectionTitle() );
 			return $msg;
 		} else {
 			$msg = parent::getHeaderMessage();
@@ -57,21 +69,21 @@ class EchoEditUserTalkPresentationModel extends EchoEventPresentationModel {
 	}
 
 	public function getCompactHeaderMessage() {
-		$hasSection = $this->hasSection();
+		$hasSection = $this->section->exists();
 		$key = $hasSection
 			? "notification-compact-header-{$this->type}-with-section"
 			: "notification-compact-header-{$this->type}";
 		$msg = $this->getMessageWithAgent( $key );
 		$msg->params( $this->getViewingUserForGender() );
 		if ( $hasSection ) {
-			$msg->params( $this->getTruncatedSectionTitle() );
+			$msg->params( $this->section->getTruncatedSectionTitle() );
 		}
 		return $msg;
 	}
 
 	public function getBodyMessage() {
 		$sectionText = $this->event->getExtraParam( 'section-text' );
-		if ( !$this->isBundled() && $this->hasSection() && $sectionText !== null ) {
+		if ( !$this->isBundled() && $this->section->exists() && $sectionText !== null ) {
 			$msg = $this->msg( 'notification-body-edit-user-talk-with-section' );
 			// section-text is safe to use here, because hasSection() returns false if the revision is deleted
 			$msg->plaintextParams( $sectionText );

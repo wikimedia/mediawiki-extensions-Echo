@@ -1,7 +1,19 @@
 <?php
 
 class EchoMentionPresentationModel extends EchoEventPresentationModel {
-	use EchoPresentationModelSectionTrait;
+
+	/**
+	 * @var EchoPresentationModelSection
+	 */
+	private $section;
+
+	/**
+	 * @inheritDoc
+	 */
+	protected function __construct( EchoEvent $event, Language $language, User $user, $distributionType ) {
+		parent::__construct( $event, $language, $user, $distributionType );
+		$this->section = new EchoPresentationModelSection( $event, $user, $language );
+	}
 
 	public function getIconType() {
 		return 'mention';
@@ -12,20 +24,21 @@ class EchoMentionPresentationModel extends EchoEventPresentationModel {
 	}
 
 	protected function getHeaderMessageKey() {
+		$hasSection = $this->section->exists();
 		if ( $this->onArticleTalkpage() ) {
-			return $this->hasSection() ?
+			return $hasSection ?
 				'notification-header-mention-article-talkpage' :
 				'notification-header-mention-article-talkpage-nosection';
 		} elseif ( $this->onAgentTalkpage() ) {
-			return $this->hasSection() ?
+			return $hasSection ?
 				'notification-header-mention-agent-talkpage' :
 				'notification-header-mention-agent-talkpage-nosection';
 		} elseif ( $this->onUserTalkpage() ) {
-			return $this->hasSection() ?
+			return $hasSection ?
 				'notification-header-mention-user-talkpage-v2' :
 				'notification-header-mention-user-talkpage-nosection';
 		} else {
-			return $this->hasSection() ?
+			return $hasSection ?
 				'notification-header-mention-other' :
 				'notification-header-mention-other-nosection';
 		}
@@ -49,8 +62,8 @@ class EchoMentionPresentationModel extends EchoEventPresentationModel {
 			$msg->params( $this->getTruncatedTitleText( $this->event->getTitle(), true ) );
 		}
 
-		if ( $this->hasSection() ) {
-			$msg->plaintextParams( $this->getTruncatedSectionTitle() );
+		if ( $this->section->exists() ) {
+			$msg->plaintextParams( $this->section->getTruncatedSectionTitle() );
 		}
 
 		return $msg;
@@ -77,7 +90,7 @@ class EchoMentionPresentationModel extends EchoEventPresentationModel {
 	public function getPrimaryLink() {
 		return [
 			// Need FullURL so the section is included
-			'url' => $this->getTitleWithSection()->getFullURL(),
+			'url' => $this->section->getTitleWithSection()->getFullURL(),
 			'label' => $this->msg( 'notification-link-text-view-mention' )->text()
 		];
 	}
@@ -112,15 +125,6 @@ class EchoMentionPresentationModel extends EchoEventPresentationModel {
 		return $this->event->getTitle()->getNamespace() === NS_USER_TALK &&
 			$this->event->getTitle()->isTalkPage() &&
 			!$this->event->getTitle()->isSubpage();
-	}
-
-	private function isTalk() {
-		return $this->event->getTitle()->isTalkPage();
-	}
-
-	private function isArticle() {
-		$ns = $this->event->getTitle()->getNamespace();
-		return $ns === NS_MAIN || $ns === NS_TALK;
 	}
 
 	protected function getSubjectMessageKey() {

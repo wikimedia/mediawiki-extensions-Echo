@@ -8,7 +8,19 @@
  * @license MIT
  */
 class EchoMentionStatusPresentationModel extends EchoEventPresentationModel {
-	use EchoPresentationModelSectionTrait;
+
+	/**
+	 * @var EchoPresentationModelSection
+	 */
+	private $section;
+
+	/**
+	 * @inheritDoc
+	 */
+	protected function __construct( EchoEvent $event, Language $language, User $user, $distributionType ) {
+		parent::__construct( $event, $language, $user, $distributionType );
+		$this->section = new EchoPresentationModelSection( $event, $user, $language );
+	}
 
 	public function getIconType() {
 		if ( $this->isMixedBundle() ) {
@@ -82,7 +94,7 @@ class EchoMentionStatusPresentationModel extends EchoEventPresentationModel {
 	public function getPrimaryLink() {
 		return [
 			// Need FullURL so the section is included
-			'url' => $this->getTitleWithSection()->getFullURL(),
+			'url' => $this->section->getTitleWithSection()->getFullURL(),
 			'label' => $this->msg( 'notification-link-text-view-mention-failure' )
 				->numParams( $this->getBundleCount() )
 				->text()
@@ -95,7 +107,7 @@ class EchoMentionStatusPresentationModel extends EchoEventPresentationModel {
 		}
 
 		$talkPageLink = $this->getPageLink(
-			$this->getTitleWithSection(),
+			$this->section->getTitleWithSection(),
 			'',
 			true
 		);
