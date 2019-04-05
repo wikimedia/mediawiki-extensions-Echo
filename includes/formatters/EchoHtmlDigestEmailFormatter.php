@@ -176,10 +176,7 @@ EOF;
 	 * @return string
 	 */
 	protected function applyStyleToEvent( EchoEventPresentationModel $model ) {
-		$iconUrl = wfExpandUrl(
-			EchoIcon::getRasterizedUrl( $model->getIconType(), $this->language->getCode() ),
-			PROTO_CANONICAL
-		);
+		$iconUrl = EchoIcon::getUrlForEmail( $model->getIconType(), $this->language->getDir() );
 
 		$imgSrc = Sanitizer::encodeAttribute( $iconUrl );
 
