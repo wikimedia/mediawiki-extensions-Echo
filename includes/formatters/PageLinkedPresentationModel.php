@@ -58,9 +58,9 @@ class EchoPageLinkedPresentationModel extends EchoEventPresentationModel {
 
 	protected function getHeaderMessageKey() {
 		if ( $this->getBundleCount( true, [ $this, 'getLinkedPageId' ] ) > 1 ) {
-			return "notification-bundle-header-{$this->type}";
+			return 'notification-bundle-header-page-linked';
 		}
-		return "notification-header-{$this->type}";
+		return 'notification-header-page-linked';
 	}
 
 	public function getHeaderMessage() {
