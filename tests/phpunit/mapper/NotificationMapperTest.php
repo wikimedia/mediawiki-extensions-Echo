@@ -128,9 +128,7 @@ class EchoNotificationMapperTest extends MediaWikiTestCase {
 
 	public function testDeleteByUserEventOffset() {
 		$this->setMwGlobals( [ 'wgUpdateRowsPerQuery' => 4 ] );
-		$mockDb = $this->getMockBuilder( DatabaseMysqli::class )
-			->disableOriginalConstructor()
-			->getMock();
+		$mockDb = $this->getMock( IDatabase::class );
 		$mockDb->expects( $this->any() )
 			->method( 'selectFieldValues' )
 			->will( $this->returnValue( [ 1, 2, 3, 5, 8, 13, 21, 34, 55, 89 ] ) );
@@ -153,7 +151,7 @@ class EchoNotificationMapperTest extends MediaWikiTestCase {
 					$this->anything()
 				]
 			)
-			->will( $this->returnValue( true ) );
+			->willReturn( true );
 
 		$notifMapper = new EchoNotificationMapper( $this->mockMWEchoDbFactory( $mockDb ) );
 		$this->assertTrue( $notifMapper->deleteByUserEventOffset( User::newFromId( 1 ), 500 ) );
@@ -221,9 +219,7 @@ class EchoNotificationMapperTest extends MediaWikiTestCase {
 			'delete' => ''
 		];
 
-		$db = $this->getMockBuilder( DatabaseMysqli::class )
-			->disableOriginalConstructor()
-			->getMock();
+		$db = $this->getMock( IDatabase::class );
 		$db->expects( $this->any() )
 			->method( 'insert' )
 			->will( $this->returnValue( $dbResult['insert'] ) );
