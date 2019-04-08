@@ -151,7 +151,7 @@
 	"notification-edit-talk-page-email-batch-body-with-section": "താങ്കളുടെ സംവാദത്താളിൽ, \"$2\" എന്നതിൽ ഒരു സന്ദേശം $1 {{GENDER:$1|ചേർത്തിട്ടുണ്ട്}}.",
 	"notification-page-linked-email-subject": "താങ്കൾ സൃഷ്ടിച്ച ഒരു താൾ {{SITENAME}} സംരംഭത്തിൽ കണ്ണിചേർക്കപ്പെട്ടിരിക്കുന്നു",
 	"notification-reverted-email-subject2": "{{SITENAME}} സംരംഭത്തിൽ താങ്കൾ വരുത്തിയ {{PLURAL:$4|തിരുത്ത്|തിരുത്തുകൾ}} {{GENDER:$2|മുൻപ്രാപനം ചെയ്തിരിക്കുന്നു}}",
-	"notification-mention-email-subject": "$1 {{GENDER:$3|താങ്കളെ}} {{SITENAME}} സംരംഭത്തിൽ {{GENDER:$2|പരാമർശിച്ചിരിക്കുന്നു}}",
+	"notification-mention-email-subject": "{{GENDER:$3|താങ്കളെ}} {{SITENAME}} സംരംഭത്തിൽ $1 {{GENDER:$2|പരാമർശിച്ചിരിക്കുന്നു}}",
 	"notification-user-rights-email-subject": "{{SITENAME}} സംരംഭത്തിൽ താങ്കളുടെ അവകാശങ്ങളിൽ മാറ്റമുണ്ടായിരിക്കുന്നു",
 	"notification-timestamp-ago-seconds": "{{PLURAL:$1|$1 സെ.}}",
 	"notification-timestamp-ago-minutes": "{{PLURAL:$1|$1 മി.}}",

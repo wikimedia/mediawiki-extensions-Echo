@@ -34,6 +34,7 @@
 	"notification-link-text-view-page": "Montrez pagino",
 	"notification-header-edit-user-talk": "$1 {{GENDER:$2|lasis}} mesajo en <strong>{{GENDER:$3|vua}} debato-pagino</strong>.",
 	"notification-header-edit-user-talk-with-section": "$1 {{GENDER:$2|lasis}} mesajo en <strong>{{GENDER:$3|vua}} debato-pagino</strong> en \"<strong>$4</strong>\".",
+	"notification-link-text-what-links-here": "Omna ligili a ca pagino",
 	"notification-header-mention-agent-talkpage": "$1 {{GENDER:$2|mencionis}} {{GENDER:$3|vu}} che <strong>{{GENDER:$2|ilua|elua|lia}} diskuto-pagino</strong> en \"<strong>$4</strong>\".",
 	"notification-header-mention-success": "{{GENDER:$2|Vua}} menciono pri <strong>$3</strong> sendesis.",
 	"notification-header-user-rights-add-only": "{{GENDER:$4|Vua}} uzero-yuri {{GENDER:$1|modifikesis}}. Vu nun esas $2.",
