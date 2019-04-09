@@ -106,9 +106,7 @@ class EchoUserNotificationGatewayTest extends MediaWikiTestCase {
 			'selectRow' => '',
 			'selectRowCount' => '',
 		];
-		$db = $this->getMockBuilder( DatabaseMysqli::class )
-			->disableOriginalConstructor()
-			->getMock();
+		$db = $this->getMock( IDatabase::class );
 		$db->expects( $this->any() )
 			->method( 'update' )
 			->will( $this->returnValue( $dbResult['update'] ) );

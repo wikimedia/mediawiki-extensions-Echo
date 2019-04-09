@@ -122,7 +122,7 @@ class MWEchoNotifUserTest extends MediaWikiTestCase {
 		$gateway->expects( $this->any() )
 			->method( 'getDB' )
 			->will( $this->returnValue(
-				$this->getMockBuilder( Database::class )
+				$this->getMockBuilder( IDatabase::class )
 					->disableOriginalConstructor()->getMock()
 			) );
 

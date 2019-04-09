@@ -74,9 +74,7 @@ class EchoTargetPageMapperTest extends MediaWikiTestCase {
 			'select' => '',
 			'delete' => ''
 		];
-		$db = $this->getMockBuilder( DatabaseMysqli::class )
-			->disableOriginalConstructor()
-			->getMock();
+		$db = $this->getMock( IDatabase::class );
 		$db->expects( $this->any() )
 			->method( 'insert' )
 			->will( $this->returnValue( $dbResult['insert'] ) );
