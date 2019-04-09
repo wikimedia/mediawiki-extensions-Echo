@@ -4,7 +4,6 @@
 	 *
 	 * @param {mw.echo.dm.ModelManager} manager Model manager
 	 * @param {Object} config Configuration object
-	 * @cfg {string} [helpLink] Link to help page
 	 * @cfg {string} [prefLink] Link to preferences page
 	 */
 	mw.echo.ui.SpecialHelpMenuWidget = function MwEchoUiSpecialHelpMenuWidget( manager, config ) {
@@ -40,19 +39,6 @@
 					icon: 'settings',
 					label: mw.msg( 'mypreferences' ),
 					data: { href: config.prefLink }
-				} )
-			] );
-		}
-
-		if ( config.helpLink ) {
-			this.menu.addItems( [
-				// Help link
-				new OO.ui.MenuOptionWidget( {
-					// Use link for accessibility
-					$element: $( '<a>' ).attr( 'href', config.helpLink ),
-					icon: 'help',
-					label: mw.msg( 'echo-learn-more' ),
-					data: { href: config.helpLink }
 				} )
 			] );
 		}

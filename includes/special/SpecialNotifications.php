@@ -24,7 +24,6 @@ class SpecialNotifications extends SpecialPage {
 		$this->addHelpLink( 'Help:Notifications/Special:Notifications' );
 
 		$out->addJsConfigVars( 'wgNotificationsSpecialPageLinks', [
-			'help' => '//www.mediawiki.org/wiki/Special:MyLanguage/Help:Notifications/Special:Notifications',
 			'preferences' => SpecialPage::getTitleFor( 'Preferences' )->getLinkURL() . '#mw-prefsection-echo',
 		] );
 
