@@ -7,6 +7,5 @@
 	"echo-new-messages": "Sie haben neue Nachrichten",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Ihre}} Meldungen",
 	"echo-none": "Sie haben in letzter Zeit keine Benachrichtigungen erhalten.",
-	"notification-user-rights-email-subject": "Ihre Benutzerrechte auf „{{SITENAME}}“ wurden geändert.",
-	"echo-email-footer-default": "$2\n\nUm zu steuern, welche E-Mails wir Ihnen senden, nutzen Sie Ihre Einstellungen:\n{{canonicalurl:{{#special:Preferences}}#mw-prefsection-echo}}\n\n$1"
+	"notification-user-rights-email-subject": "Ihre Benutzerrechte auf „{{SITENAME}}“ wurden geändert."
 }

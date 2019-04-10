@@ -7,7 +7,6 @@
 	"echo-desc": "Fráboðanarskipan",
 	"prefs-echo": "Fráboðanir",
 	"prefs-emailsettings": "T-post innstillingar",
-	"prefs-displaynotifications": "Innstillingar fyri sýning",
 	"prefs-echosubscriptions": "Gev mær boð um hesar hendingar",
 	"echo-pref-send-me": "Send mær:",
 	"echo-pref-send-to": "Send til:",
@@ -19,7 +18,6 @@
 	"notification-link-text-view-edit": "Vís rætting",
 	"echo-overlay-link": "Allar fráboðanir",
 	"echo-overlay-title": "<b>Fráboðanir</b>",
-	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Fráboðanir}}</b> (vísir $1 av $2 ólisnum)",
 	"echo-mark-all-as-read": "Merk alt sum lisið",
 	"echo-date-today": "Í dag",
 	"echo-date-yesterday": "Í gjár"

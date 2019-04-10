@@ -63,9 +63,7 @@
 	"echo-notification-notice-text-only": "Avizi",
 	"echo-overlay-link": "Omna avizi",
 	"echo-overlay-title": "<b>Avizi</b>",
-	"echo-overlay-title-overflow": "<b>{{PLURAL:$1|Avizo|Avizi}}</b> (montrante $1 de $2 nelektita)",
 	"echo-mark-all-as-read": "Indikez omna mesaji quale \"lektita\"",
-	"echo-load-more-error": "Eventis eroro probante trovar plusa rezulti.",
 	"notification-header-foreign-alert": "Plusa avizi de {{PLURAL:$5|altra Wiki|$5 altra Wiki}}",
 	"notification-header-foreign-notice": "Altra avizi de {{PLURAL:$5|altra Wiki|$5 altra Wiki}}"
 }

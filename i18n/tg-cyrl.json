@@ -11,6 +11,5 @@
 	"notification-timestamp-yesterday": "Дирӯз",
 	"notification-inbox-filter-read": "Хондан",
 	"notification-inbox-filter-unread": "Хонданашуда",
-	"notification-inbox-filter-all": "Ҳама",
-	"echo-email-body-default": "Шумо дар сомонаи {{SITENAME}} паёми огаҳсозии нав доред:\n\n$1"
+	"notification-inbox-filter-all": "Ҳама"
 }

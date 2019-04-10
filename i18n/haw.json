@@ -7,7 +7,6 @@
 	"echo-desc": "‘Ōnaehana notikala",
 	"prefs-echo": "Notikala",
 	"prefs-emailsettings": "Koho leka uila",
-	"prefs-displaynotifications": "Koho hō‘ike",
 	"echo-pref-send-me": "Ho‘ouna ia‘u:",
 	"echo-pref-send-to": "Ho‘ouna iā:",
 	"echo-pref-email-format": "Hulu leka uila:",
@@ -21,6 +20,5 @@
 	"notifications": "Notikala",
 	"echo-specialpage": "Notikala",
 	"echo-none": "‘A‘ohe notikala.",
-	"echo-more-info": "‘Ike ‘ē a‘e",
 	"notification-link-text-view-message": "Nānā memo"
 }
