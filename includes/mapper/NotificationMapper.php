@@ -79,7 +79,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 		array $titles = null,
 		$dbSource = DB_REPLICA
 	) {
-		$conds['notification_read_timestamp'] = null;
+		$conds = [ 'notification_read_timestamp' => null ];
 		if ( $titles ) {
 			$conds['event_page_id'] = $this->getIdsForTitles( $titles );
 			if ( !$conds['event_page_id'] ) {

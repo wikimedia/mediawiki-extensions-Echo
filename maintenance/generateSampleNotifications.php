@@ -1,6 +1,6 @@
 <?php
-
 // phpcs:disable Generic.Files.LineLength -- Long html test examples
+// @phan-file-suppress PhanUndeclaredClassMethod, PhanUndeclaredClassConstant Other extensions used for testing purposes
 
 use Wikibase\Client\Hooks\EchoNotificationsHandlers;
 
@@ -391,7 +391,7 @@ class GenerateSampleNotifications extends Maintenance {
 	}
 
 	private function generateOpenStackManager( User $user, User $agent ) {
-		if ( !class_exists( OpenStackManagerHooks::class ) ) {
+		if ( !ExtensionRegistry::getInstance()->isLoaded( 'OpenStackManager' ) ) {
 			return;
 		}
 

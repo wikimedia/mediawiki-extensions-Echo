@@ -1,5 +1,5 @@
 <?php
-
+// @phan-file-suppress PhanUndeclaredMethod This is a trait, and phan is confused by $this
 /**
  * Trait that adds cross-wiki functionality to an API module. For mixing into ApiBase subclasses.
  *

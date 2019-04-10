@@ -1506,6 +1506,15 @@ class EchoHooks {
 		return true;
 	}
 
+	/**
+	 * @param WikiPage &$article
+	 * @param User &$user
+	 * @param string $reason
+	 * @param int $articleId
+	 * @param Content|null $content
+	 * @param LogEntry $logEntry
+	 * @suppress PhanParamReqAfterOpt
+	 */
 	public static function onArticleDeleteComplete(
 		WikiPage &$article,
 		User &$user,
@@ -1519,7 +1528,6 @@ class EchoHooks {
 			$eventIds = $eventMapper->fetchIdsByPage( $articleId );
 			EchoModerationController::moderate( $eventIds, true );
 		} );
-		return true;
 	}
 
 	public static function onArticleUndelete( Title $title, $create, $comment, $oldPageId ) {
