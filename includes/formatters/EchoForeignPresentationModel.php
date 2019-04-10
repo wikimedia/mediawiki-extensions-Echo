@@ -15,6 +15,7 @@ class EchoForeignPresentationModel extends EchoEventPresentationModel {
 
 		// notification-header-foreign-alert
 		// notification-header-foreign-notice
+		// notification-header-foreign-all
 		return "notification-header-foreign-{$section}";
 	}
 
