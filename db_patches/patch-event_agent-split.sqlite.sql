@@ -13,16 +13,15 @@ CREATE TABLE /*_*/echo_event (
     event_variant varchar(64) binary null,
     event_agent_id int unsigned null, -- The user who triggered it, if any
     event_agent_ip varchar(39) binary null, -- IP address who triggered it, if any
-    event_page_namespace int unsigned null,
     event_page_title varchar(255) binary null,
     event_extra BLOB NULL
 ) /*$wgDBTableOptions*/;
 
 -- Copy over all the old data into the new table
 INSERT INTO /*_*/echo_event
-    (event_id, event_type, event_variant, event_agent_id, event_page_namespace, event_page_title, event_extra)
+    (event_id, event_type, event_variant, event_agent_id, event_page_title, event_extra)
 SELECT
-    event_id, event_type, event_variant, event_agent, event_page_namespace, event_page_title, event_extra
+    event_id, event_type, event_variant, event_agent, event_page_title, event_extra
 FROM
     /*_*/temp_echo_event_split_event_agent;
 
