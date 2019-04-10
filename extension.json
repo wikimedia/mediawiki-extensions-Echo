@@ -163,8 +163,6 @@
 				"echo-overlay-link",
 				"echo-mark-all-as-read",
 				"echo-mark-wiki-as-read",
-				"echo-more-info",
-				"echo-feedback",
 				"echo-notification-alert",
 				"echo-notification-notice",
 				"echo-notification-loginrequired",
@@ -362,7 +360,6 @@
 				"ext.echo.styles.special"
 			],
 			"messages": [
-				"echo-load-more-error",
 				"notification-inbox-filter-read",
 				"notification-inbox-filter-unread",
 				"notification-inbox-filter-all",
@@ -372,10 +369,8 @@
 				"echo-specialpage-pagefilters-title",
 				"echo-specialpage-pagefilters-subtitle",
 				"echo-mark-all-as-read",
-				"echo-more-info",
 				"echo-learn-more",
 				"mypreferences",
-				"echo-feedback",
 				"echo-specialpage-section-markread"
 			],
 			"targets": [
