@@ -49,7 +49,7 @@ class EchoEditUserTalkPresentationModel extends EchoEventPresentationModel {
 
 	public function getHeaderMessage() {
 		if ( $this->isBundled() ) {
-			$msg = $this->msg( "notification-bundle-header-{$this->type}-v2" );
+			$msg = $this->msg( 'notification-bundle-header-edit-user-talk-v2' );
 			$count = $this->getNotificationCountForOutput();
 
 			// Repeat is B/C until unused parameter is removed from translations
@@ -57,7 +57,7 @@ class EchoEditUserTalkPresentationModel extends EchoEventPresentationModel {
 			$msg->params( $this->getViewingUserForGender() );
 			return $msg;
 		} elseif ( $this->section->exists() ) {
-			$msg = $this->getMessageWithAgent( "notification-header-{$this->type}-with-section" );
+			$msg = $this->getMessageWithAgent( 'notification-header-edit-user-talk-with-section' );
 			$msg->params( $this->getViewingUserForGender() );
 			$msg->plaintextParams( $this->section->getTruncatedSectionTitle() );
 			return $msg;
@@ -71,8 +71,8 @@ class EchoEditUserTalkPresentationModel extends EchoEventPresentationModel {
 	public function getCompactHeaderMessage() {
 		$hasSection = $this->section->exists();
 		$key = $hasSection
-			? "notification-compact-header-{$this->type}-with-section"
-			: "notification-compact-header-{$this->type}";
+			? 'notification-compact-header-edit-user-talk-with-section'
+			: 'notification-compact-header-edit-user-talk';
 		$msg = $this->getMessageWithAgent( $key );
 		$msg->params( $this->getViewingUserForGender() );
 		if ( $hasSection ) {
