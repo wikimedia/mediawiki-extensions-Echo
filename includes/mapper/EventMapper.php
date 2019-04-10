@@ -87,14 +87,34 @@ class EchoEventMapper extends EchoAbstractMapper {
 	 */
 	public function fetchByPage( $pageId ) {
 		$events = [];
-
+		$seenEventIds = [];
 		$dbr = $this->dbFactory->getEchoDb( DB_REPLICA );
+
+		// From echo_event
+		$res = $dbr->select(
+			[ 'echo_event' ],
+			EchoEvent::selectFields(),
+			[ 'event_page_id' => $pageId ]
+		);
+		if ( $res ) {
+			foreach ( $res as $row ) {
+				$event = EchoEvent::newFromRow( $row );
+				$events[] = $event;
+				$seenEventIds[] = $event->getId();
+			}
+		}
+
+		// From echo_target_page
+		$conds = [ 'etp_page' => $pageId ];
+		if ( $seenEventIds ) {
+			// Some events have both a title and target page(s).
+			// Skip the events that were already found in the echo_event table (the query above).
+			$conds[] = 'event_id NOT IN ( ' . $dbr->makeList( $seenEventIds ) . ' )';
+		}
 		$res = $dbr->select(
 			[ 'echo_event', 'echo_target_page' ],
 			EchoEvent::selectFields(),
-			[
-				'etp_page' => $pageId
-			],
+			$conds,
 			__METHOD__,
 			[ 'GROUP BY' => 'etp_event' ],
 			[ 'echo_target_page' => [ 'INNER JOIN', 'event_id=etp_event' ] ]

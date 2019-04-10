@@ -277,7 +277,7 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 	 * @return bool Whether loading was successful
 	 */
 	public function loadFromRow( $row ) {
-		$this->id = $row->event_id;
+		$this->id = (int)$row->event_id;
 		$this->type = $row->event_type;
 
 		// If the object is loaded from __sleep(), timestamp should be already set

@@ -1,9 +1,17 @@
 <?php
 
 /**
+ * @group Database
  * @covers EchoEventMapper
  */
 class EchoEventMapperTest extends MediaWikiTestCase {
+
+	protected function setUp() {
+		parent::setUp();
+		$this->tablesUsed[] = 'echo_event';
+		$this->tablesUsed[] = 'echo_notification';
+		$this->tablesUsed[] = 'echo_target_page';
+	}
 
 	public function provideDataTestInsert() {
 		return [
@@ -118,6 +126,41 @@ class EchoEventMapperTest extends MediaWikiTestCase {
 			->will( $this->returnValue( $dbResult['selectRow'] ) );
 
 		return $db;
+	}
+
+	/**
+	 * @covers EchoEventMapper::fetchIdsByPage
+	 */
+	public function testFetchByPage() {
+		$user = $this->getTestUser()->getUser();
+		$page = $this->getExistingTestPage();
+
+		// Create a notification that is not associated with any page
+		EchoEvent::create( [
+			'type' => 'welcome',
+			'agent' => $user,
+		] );
+
+		// Create a notification with a title
+		$eventWithTitle = EchoEvent::create( [
+			'type' => 'welcome',
+			'agent' => $user,
+			'title' => $page->getTitle(),
+		] );
+
+		// Create a notification with a target-page
+		$eventWithTargetPage = EchoEvent::create( [
+			'type' => 'welcome',
+			'agent' => $user,
+			'extra' => [ 'target-page' => $page->getId() ]
+		] );
+
+		$eventMapper = new EchoEventMapper();
+
+		$this->assertArrayEquals(
+			[ $eventWithTitle->getId(), $eventWithTargetPage->getId() ],
+			$eventMapper->fetchIdsByPage( $page->getId() )
+		);
 	}
 
 }
