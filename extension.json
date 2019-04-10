@@ -492,6 +492,10 @@
 				"mention-success": {
 					"web": true,
 					"email": false
+				},
+				"thank-you-edit": {
+					"web": true,
+					"email": false
 				}
 			},
 			"merge_strategy": "array_plus_2d"
@@ -574,6 +578,10 @@
 				"article-reminder": {
 					"priority": 1,
 					"tooltip": "echo-pref-tooltip-article-reminder"
+				},
+				"thank-you-edit": {
+					"priority": 9,
+					"tooltip": "echo-pref-tooltip-thank-you-edit"
 				}
 			},
 			"merge_strategy": "array_plus_2d"
@@ -832,10 +840,7 @@
 						"EchoUserLocator::locateEventAgent"
 					],
 					"canNotifyAgent": true,
-					"category": "system",
-					"notify-type-availability": {
-						"email": false
-					},
+					"category": "thank-you-edit",
 					"group": "positive",
 					"presentation-model": "EchoEditThresholdPresentationModel",
 					"section": "message"
