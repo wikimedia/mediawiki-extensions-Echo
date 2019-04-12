@@ -44,5 +44,6 @@
 	"apihelp-query+unreadnotificationpages-summary": "Ottieni le pagine per le quali ci sono notifiche non lette per l'utente attuale.",
 	"apihelp-query+unreadnotificationpages-param-limit": "Il numero massimo di pagine da restituire.",
 	"apihelp-query+unreadnotificationpages-param-wikis": "Elenco di wiki da cui recuperare le pagine con notifiche non lette (predefinito solo il wiki attuale).",
-	"apihelp-query+unreadnotificationpages-example-1": "Elenca le pagine con (il loro numero di) notifiche non lette"
+	"apihelp-query+unreadnotificationpages-example-1": "Elenca le pagine con (il loro numero di) notifiche non lette",
+	"apierror-echo-event-creation-failed": "Impossibile creare evento Echo"
 }
