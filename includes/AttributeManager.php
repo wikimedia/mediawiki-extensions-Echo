@@ -132,19 +132,15 @@ class EchoAttributeManager {
 	 * @return string[]
 	 */
 	public function getUserEnabledEvents( User $user, $notifyType ) {
-		$eventTypesToLoad = $this->notifications;
-		foreach ( $eventTypesToLoad as $eventType => $eventData ) {
-			$category = $this->getNotificationCategory( $eventType );
-			// Make sure the user is eligible to receive this type of notification
-			if ( !$this->getCategoryEligibility( $user, $category ) ) {
-				unset( $eventTypesToLoad[$eventType] );
+		return array_values( array_filter(
+			array_keys( $this->notifications ),
+			function ( $eventType ) use ( $user, $notifyType ) {
+				$category = $this->getNotificationCategory( $eventType );
+				return $this->isNotifyTypeAvailableForCategory( $category, $notifyType ) &&
+					$this->getCategoryEligibility( $user, $category ) &&
+					$user->getOption( "echo-subscriptions-$notifyType-$category" );
 			}
-			if ( !$user->getOption( 'echo-subscriptions-' . $notifyType . '-' . $category ) ) {
-				unset( $eventTypesToLoad[$eventType] );
-			}
-		}
-
-		return array_keys( $eventTypesToLoad );
+		) );
 	}
 
 	/**
