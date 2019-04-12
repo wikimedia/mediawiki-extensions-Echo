@@ -1,17 +1,14 @@
 <?php
 
 class EchoNotificationJob extends Job {
-	/** @var int */
-	private $eventId;
 
 	public function __construct( $title, $params ) {
 		parent::__construct( 'EchoNotificationJob', $title, $params );
-		$this->eventId = $params['eventId'];
 	}
 
 	public function run() {
-		MWEchoDbFactory::newFromDefault()->waitForSlaves();
-		$event = EchoEvent::newFromID( $this->eventId );
+		$eventMapper = new EchoEventMapper();
+		$event = $eventMapper->fetchById( $this->params['eventId'], true );
 		EchoNotificationController::notify( $event, false );
 
 		return true;
