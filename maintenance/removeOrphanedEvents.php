@@ -1,6 +1,6 @@
 <?php
 /**
- * Remove rows from echo_event that don't have corresponding rows in echo_notification.
+ * Remove rows from echo_event that don't have corresponding rows in echo_notification or echo_email_batch.
  *
  * @ingroup Maintenance
  */
@@ -18,7 +18,7 @@ class RemoveOrphanedEvents extends LoggedUpdateMaintenance {
 	public function __construct() {
 		parent::__construct();
 
-		$this->addDescription( "Remove rows from echo_event that don't have corresponding rows in echo_notification" );
+		$this->addDescription( "Remove rows from echo_event that don't have corresponding rows in echo_notification or echo_email_batch" );
 
 		$this->setBatchSize( 500 );
 
@@ -35,15 +35,17 @@ class RemoveOrphanedEvents extends LoggedUpdateMaintenance {
 		$dbr = $dbFactory->getEchoDb( DB_REPLICA );
 		$iterator = new BatchRowIterator(
 			$dbr,
-			[ 'echo_event', 'echo_notification' ],
+			[ 'echo_event', 'echo_notification', 'echo_email_batch' ],
 			'event_id',
 			$this->mBatchSize
 		);
 		$iterator->addJoinConditions( [
-			'echo_notification' => [ 'LEFT JOIN', 'notification_event=event_id' ]
+			'echo_notification' => [ 'LEFT JOIN', 'notification_event=event_id' ],
+			'echo_email_batch' => [ 'LEFT JOIN', 'eeb_event_id=event_id' ],
 		] );
 		$iterator->addConditions( [
-			'notification_user' => null
+			'notification_user' => null,
+			'eeb_user_id' => null,
 		] );
 
 		$this->output( "Removing orphaned echo_event rows...\n" );
