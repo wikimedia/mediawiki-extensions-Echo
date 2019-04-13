@@ -1009,6 +1009,7 @@
 		"NotificationPager": "includes/special/NotificationPager.php",
 		"NotificationsTest": "tests/phpunit/NotificationsTest.php",
 		"ProcessEchoEmailBatch": "maintenance/processEchoEmailBatch.php",
+		"RecomputeNotifCounts": "maintenance/recomputeNotifCounts.php",
 		"RemoveInvalidNotification": "maintenance/removeInvalidNotification.php",
 		"RemoveOrphanedEvents": "maintenance/removeOrphanedEvents.php",
 		"ResourceLoaderEchoImageModule": "includes/ResourceLoaderEchoImageModule.php",
