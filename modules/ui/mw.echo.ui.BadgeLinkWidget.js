@@ -35,6 +35,13 @@
 		if ( config.href !== undefined && OO.ui.isSafeUrl( config.href ) ) {
 			this.$element.attr( 'href', config.href );
 		}
+		if ( this.type === 'alert' ) {
+			this.$element
+				.addClass( 'oo-ui-icon-bell' );
+		} else {
+			this.$element
+				.addClass( 'oo-ui-icon-tray' );
+		}
 	};
 
 	OO.inheritClass( mw.echo.ui.BadgeLinkWidget, OO.ui.Widget );
