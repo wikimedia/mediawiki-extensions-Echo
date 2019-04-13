@@ -488,6 +488,10 @@
 					"web": true,
 					"email": false
 				},
+				"article-linked": {
+					"web": true,
+					"email": false
+				},
 				"mention-failure": {
 					"web": true,
 					"email": false
@@ -718,9 +722,6 @@
 					"category": "article-linked",
 					"group": "neutral",
 					"section": "message",
-					"notify-type-availability": {
-						"email": false
-					},
 					"bundle": {
 						"web": true,
 						"email": true,
