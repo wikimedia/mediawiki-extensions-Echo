@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 /**
  * A small wrapper around ObjectCache to manage
  * storing the last time a user has seen notifications
@@ -46,7 +48,7 @@ class EchoSeenTime {
 		// cache. (T144534)
 		if ( $c === null ) {
 			$c = new CachedBagOStuff(
-				ObjectCache::getMainStashInstance()
+				MediaWikiServices::getInstance()->getMainObjectStash()
 			);
 		}
 
@@ -136,7 +138,9 @@ class EchoSeenTime {
 	 * @return string Memcached key
 	 */
 	protected function getMemcKey( $type = 'all' ) {
-		$localKey = wfMemcKey( 'echo', 'seen', $type, 'time', $this->user->getId() );
+		$localKey = self::cache()->makeKey(
+			'echo', 'seen', $type, 'time', $this->user->getId()
+		);
 
 		if ( !$this->user->getOption( 'echo-cross-wiki-notifications' ) ) {
 			return $localKey;
@@ -149,6 +153,8 @@ class EchoSeenTime {
 			return $localKey;
 		}
 
-		return wfGlobalCacheKey( 'echo', 'seen', $type, 'time', $globalId );
+		return self::cache()->makeGlobalKey(
+			'echo', 'seen', $type, 'time', $globalId
+		);
 	}
 }

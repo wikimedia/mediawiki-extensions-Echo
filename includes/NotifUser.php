@@ -609,7 +609,7 @@ class MWEchoNotifUser {
 	 */
 	protected function getMemcKey( $key ) {
 		global $wgEchoCacheVersion;
-		return wfMemcKey( $key, $this->mUser->getId(), $wgEchoCacheVersion );
+		return $this->cache->makeKey( $key, $this->mUser->getId(), $wgEchoCacheVersion );
 	}
 
 	/**
@@ -625,7 +625,7 @@ class MWEchoNotifUser {
 		if ( !$globalId ) {
 			return false;
 		}
-		return wfGlobalCacheKey( $key, $globalId, $wgEchoCacheVersion );
+		return $this->cache->makeGlobalKey( $key, $globalId, $wgEchoCacheVersion );
 	}
 
 	/**
