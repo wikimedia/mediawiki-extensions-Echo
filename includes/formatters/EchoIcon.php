@@ -2,91 +2,85 @@
 
 class EchoIcon {
 
-	const URL = 'url';
-	const PATH = 'path';
-
 	/**
 	 * @param string $icon Name of icon as registered in BeforeCreateEchoEvent hook
-	 * @param string $directionality 'ltr' or 'rtl'
-	 * @return string Web URL of the icon
+	 * @param string $dir either 'ltr' or 'rtl'
+	 * @return string
 	 */
-	public static function getUrl( $icon, $directionality ) {
-		global $wgExtensionAssetsPath;
-		list( $location, $locationType ) = self::getIconLocation( $icon, $directionality );
-
-		// If it's a path, stick the assets path in front
-		if ( $locationType === self::PATH ) {
-			$location = "$wgExtensionAssetsPath/$location";
-		}
-
-		return $location;
-	}
-
-	/**
-	 * @param string $icon Name of icon as registered in BeforeCreateEchoEvent hook
-	 * @param string $directionality 'ltr' or 'rtl'
-	 * @return string Data or web URL for the icon
-	 * @throws Exception
-	 */
-	public static function getUrlForEmail( $icon, $directionality ) {
-		// phpcs:ignore MediaWiki.NamingConventions.ValidGlobalName.allowedPrefix
-		global $IP;
-		list( $location, $locationType ) = self::getIconLocation( $icon, $directionality );
-
-		// If it's a path, build a data uri
-		if ( $locationType === self::PATH ) {
-			$format = substr( $location, -3 );
-			if ( $format === 'svg' ) {
-				$format = 'svg+xml';
-			}
-			$fullPath = "$IP/extensions/$location";
-			return "data:image/$format;base64," . base64_encode( file_get_contents( $fullPath ) );
-		}
-
-		// Fallback to a web URL when we don't know the file's location on disk
-		return wfExpandUrl( $location, PROTO_CANONICAL );
-	}
-
-	/**
-	 * @param string $icon Name of icon as registered in BeforeCreateEchoEvent hook
-	 * @param string $directionality 'ltr' or 'rtl'
-	 * @return array [ Icon location, Location type: 'url' or 'path' ]
-	 */
-	private static function getIconLocation( $icon, $directionality ) {
-		global $wgEchoNotificationIcons;
+	public static function getUrl( $icon, $dir ) {
+		global $wgEchoNotificationIcons, $wgExtensionAssetsPath;
 		if ( !isset( $wgEchoNotificationIcons[$icon] ) ) {
 			throw new InvalidArgumentException( "The $icon icon is not registered" );
 		}
 
 		$iconInfo = $wgEchoNotificationIcons[$icon];
+		$needsPrefixing = true;
 
 		// Now we need to check it has a valid url/path
-		if ( isset( $iconInfo[self::URL] ) && $iconInfo[self::URL] ) {
-			$location = $iconInfo[self::URL];
-			$locationType = self::URL;
-		} elseif ( isset( $iconInfo[self::PATH] ) && $iconInfo[self::PATH] ) {
-			$location = $iconInfo[self::PATH];
-			$locationType = self::PATH;
+		if ( isset( $iconInfo['url'] ) && $iconInfo['url'] ) {
+			$iconUrl = $iconInfo['url'];
+			$needsPrefixing = false;
+		} elseif ( isset( $iconInfo['path'] ) && $iconInfo['path'] ) {
+			$iconUrl = $iconInfo['path'];
 		} else {
 			// Fallback to hardcoded 'placeholder'. This is used if someone
 			// doesn't configure the 'site' icon for example.
 			$icon = 'placeholder';
-			$location = $wgEchoNotificationIcons['placeholder'][self::PATH];
-			$locationType = self::PATH;
+			$iconUrl = $wgEchoNotificationIcons['placeholder']['path'];
 		}
 
 		// Might be an array with different icons for ltr/rtl
-		if ( is_array( $location ) ) {
-			if ( !isset( $location[$directionality] ) ) {
-				throw new UnexpectedValueException(
-					"Icon type $icon doesn't have an icon for $directionality directionality"
-				);
+		if ( is_array( $iconUrl ) ) {
+			if ( !isset( $iconUrl[$dir] ) ) {
+				throw new UnexpectedValueException( "Icon type $icon doesn't have an icon for $dir directionality" );
 			}
 
-			$location = $location[$directionality];
+			$iconUrl = $iconUrl[$dir];
 		}
 
-		return [ $location, $locationType ];
+		// And if it was a 'path', stick the assets path in front
+		if ( $needsPrefixing ) {
+			$iconUrl = "$wgExtensionAssetsPath/$iconUrl";
+		}
+
+		return $iconUrl;
+	}
+
+	/**
+	 * Get a link to a rasterized version of the icon
+	 *
+	 * @param string $icon Icon name
+	 * @param string $lang
+	 * @return string URL to the rasterized version of the icon
+	 */
+	public static function getRasterizedUrl( $icon, $lang ) {
+		global $wgEchoNotificationIcons;
+		if ( !isset( $wgEchoNotificationIcons[$icon] ) ) {
+			throw new InvalidArgumentException( "The $icon icon is not registered" );
+		}
+
+		$url = $wgEchoNotificationIcons[ $icon ][ 'url' ] ?? null;
+
+		// If the defined URL is explicitly false, use placeholder
+		if ( $url === false ) {
+			$icon = 'placeholder';
+		}
+
+		// If the URL is null or false call the resource loader
+		// rasterizing module
+		if ( $url === false || $url === null ) {
+			$iconUrl = wfScript( 'load' ) . '?' . wfArrayToCgi( [
+					'modules' => 'ext.echo.emailicons',
+					'image' => $icon,
+					'lang' => $lang,
+					'format' => 'rasterized'
+				] );
+		} else {
+			// For icons that are defined by URL
+			$iconUrl = $wgEchoNotificationIcons[ $icon ][ 'url' ];
+		}
+
+		return $iconUrl;
 	}
 
 }
