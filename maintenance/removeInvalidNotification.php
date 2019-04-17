@@ -4,6 +4,7 @@
  *
  * @ingroup Maintenance
  */
+
 require_once getenv( 'MW_INSTALL_PATH' ) !== false
 	? getenv( 'MW_INSTALL_PATH' ) . '/maintenance/Maintenance.php'
 	: __DIR__ . '/../../../maintenance/Maintenance.php';
@@ -24,16 +25,15 @@ class RemoveInvalidNotification extends Maintenance {
 	}
 
 	public function execute() {
+		$lbFactory = MWEchoDbFactory::newFromDefault();
 		if ( !$this->invalidEventType ) {
 			$this->output( "There is nothing to process\n" );
 
 			return;
 		}
 
-		global $wgEchoCluster;
-
-		$dbw = MWEchoDbFactory::getDB( DB_MASTER );
-		$dbr = MWEchoDbFactory::getDB( DB_REPLICA );
+		$dbw = $lbFactory->getEchoDb( DB_MASTER );
+		$dbr = $lbFactory->getEchoDb( DB_REPLICA );
 
 		$count = $this->batchSize;
 
@@ -74,7 +74,7 @@ class RemoveInvalidNotification extends Maintenance {
 				$this->commitTransaction( $dbw, __METHOD__ );
 
 				$this->output( "processing " . count( $event ) . " invalid events\n" );
-				wfWaitForSlaves( false, false, $wgEchoCluster );
+				$lbFactory->waitForSlaves();
 			}
 
 			// Cleanup is not necessary for

@@ -38,9 +38,10 @@ class UpdateEchoSchemaForSuppression extends LoggedUpdateMaintenance {
 
 	public function doDBUpdates() {
 		global $wgEchoCluster;
+		$lbFactory = MWEchoDbFactory::newFromDefault();
 
-		$dbr = MWEchoDbFactory::getDB( DB_REPLICA );
-		$dbw = MWEchoDbFactory::getDB( DB_MASTER );
+		$dbr = $lbFactory->getEchoDb( DB_REPLICA );
+		$dbw = $lbFactory->getEchoDb( DB_MASTER );
 
 		if ( !$dbw->fieldExists( 'echo_event', 'event_page_title' ) ) {
 			$this->output( "No event_page_title field, skipping migration from event_page_title to event_page_id\n" );

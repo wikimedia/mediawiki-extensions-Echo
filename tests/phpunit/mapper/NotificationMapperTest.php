@@ -270,7 +270,7 @@ class EchoNotificationMapperTest extends MediaWikiTestCase {
 			->method( 'selectRow' )
 			->will( $this->returnValue( $dbResult['selectRow'] ) );
 		$db->expects( $this->any() )
-			->method( 'onTransactionIdle' )
+			->method( 'onTransactionCommitOrIdle' )
 			->will( new EchoExecuteFirstArgumentStub );
 
 		return $db;

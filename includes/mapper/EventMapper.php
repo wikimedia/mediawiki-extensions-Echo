@@ -25,7 +25,7 @@ class EchoEventMapper extends EchoAbstractMapper {
 
 		$listeners = $this->getMethodListeners( __FUNCTION__ );
 		foreach ( $listeners as $listener ) {
-			$dbw->onTransactionIdle( $listener );
+			$dbw->onTransactionCommitOrIdle( $listener );
 		}
 
 		return $id;

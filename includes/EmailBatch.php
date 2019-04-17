@@ -149,7 +149,7 @@ class MWEchoEmailBatch {
 	 * @return bool true if event exists false otherwise
 	 */
 	protected function setLastEvent() {
-		$dbr = MWEchoDbFactory::getDB( DB_REPLICA );
+		$dbr = MWEchoDbFactory::newFromDefault()->getEchoDb( DB_REPLICA );
 		$res = $dbr->selectField(
 			[ 'echo_email_batch' ],
 			'MAX( eeb_event_id )',
@@ -191,7 +191,7 @@ class MWEchoEmailBatch {
 		// composite index, favor insert performance, storage space over read
 		// performance in this case
 		if ( $validEvents ) {
-			$dbr = MWEchoDbFactory::getDB( DB_REPLICA );
+			$dbr = MWEchoDbFactory::newFromDefault()->getEchoDb( DB_REPLICA );
 
 			$conds = [
 				'eeb_user_id' => $this->mUser->getId(),
@@ -330,7 +330,7 @@ class MWEchoEmailBatch {
 			return;
 		}
 
-		$dbw = MWEchoDbFactory::getDB( DB_MASTER );
+		$dbw = MWEchoDbFactory::newFromDefault()->getEchoDb( DB_MASTER );
 
 		$row = [
 			'eeb_user_id' => $userId,
@@ -356,7 +356,7 @@ class MWEchoEmailBatch {
 	 * @return IResultWrapper|bool
 	 */
 	public static function getUsersToNotify( $startUserId, $batchSize ) {
-		$dbr = MWEchoDbFactory::getDB( DB_REPLICA );
+		$dbr = MWEchoDbFactory::newFromDefault()->getEchoDb( DB_REPLICA );
 		$res = $dbr->select(
 			[ 'echo_email_batch' ],
 			[ 'eeb_user_id' ],

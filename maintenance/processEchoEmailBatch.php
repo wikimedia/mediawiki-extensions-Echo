@@ -30,8 +30,7 @@ class ProcessEchoEmailBatch extends Maintenance {
 	}
 
 	public function execute() {
-		global $wgEchoCluster;
-
+		$lbFactory = MWEchoDbFactory::newFromDefault();
 		$ignoreConfiguredSchedule = $this->getOption( "ignoreConfiguredSchedule", 0 );
 
 		$this->output( "Started processing... \n" );
@@ -58,9 +57,7 @@ class ProcessEchoEmailBatch extends Maintenance {
 				}
 				$count++;
 			}
-			wfWaitForSlaves( false, false, $wgEchoCluster );
-			// This is required since we are updating user properties in main wikidb
-			wfWaitForSlaves();
+			$lbFactory->waitForSlaves();
 
 			// double check to make sure that the id is updated
 			if ( !$updated ) {
