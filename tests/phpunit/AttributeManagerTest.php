@@ -240,6 +240,9 @@ class EchoAttributeManagerTest extends MediaWikiTestCase {
 			'event_three' => [
 				'category' => 'category_three'
 			],
+			'event_four' => [
+				'category' => 'category_four'
+			]
 		];
 		$category = [
 			'category_one' => [
@@ -257,10 +260,22 @@ class EchoAttributeManagerTest extends MediaWikiTestCase {
 			'category_three' => [
 				'priority' => 10,
 			],
+			'category_four' => [
+				'priority' => 10,
+			]
 		];
-		$manager = new EchoAttributeManager( $notif, $category, [], [] );
-		$this->assertEquals( $manager->getUserEnabledEvents( $this->mockUser(), 'web' ),
-			[ 'event_two', 'event_three' ] );
+		$defaultNotifyTypeAvailability = [
+			'web' => true,
+			'email' => true,
+		];
+		$notifyTypeAvailabilityByCategory = [
+			'category_three' => [
+				'web' => false,
+				'email' => true,
+			]
+		];
+		$manager = new EchoAttributeManager( $notif, $category, $defaultNotifyTypeAvailability, $notifyTypeAvailabilityByCategory );
+		$this->assertEquals( [ 'event_two', 'event_four' ], $manager->getUserEnabledEvents( $this->mockUser(), 'web' ) );
 	}
 
 	public function testGetUserEnabledEventsbySections() {
@@ -279,6 +294,9 @@ class EchoAttributeManagerTest extends MediaWikiTestCase {
 			'event_four' => [
 				'category' => 'category_three',
 			],
+			'event_five' => [
+				'category' => 'category_five'
+			]
 		];
 		$category = [
 			'category_one' => [
@@ -290,26 +308,39 @@ class EchoAttributeManagerTest extends MediaWikiTestCase {
 			'category_three' => [
 				'priority' => 10
 			],
+			'category_five' => [
+				'priority' => 10
+			]
 		];
-		$manager = new EchoAttributeManager( $notif, $category, [], [] );
+		$defaultNotifyTypeAvailability = [
+			'web' => true,
+			'email' => true,
+		];
+		$notifyTypeAvailabilityByCategory = [
+			'category_five' => [
+				'web' => false,
+				'email' => true,
+			]
+		];
+		$manager = new EchoAttributeManager( $notif, $category, $defaultNotifyTypeAvailability, $notifyTypeAvailabilityByCategory );
 		$expected = [ 'event_one', 'event_three', 'event_four' ];
 		$actual = $manager->getUserEnabledEventsBySections( $this->mockUser(), 'web', [ 'alert' ] );
 		sort( $expected );
 		sort( $actual );
-		$this->assertEquals( $actual, $expected );
+		$this->assertEquals( $expected, $actual );
 
 		$expected = [ 'event_two' ];
 		$actual = $manager->getUserEnabledEventsBySections( $this->mockUser(), 'web', [ 'message' ] );
 		sort( $expected );
 		sort( $actual );
-		$this->assertEquals( $actual, $expected );
+		$this->assertEquals( $expected, $actual );
 
 		$expected = [ 'event_one', 'event_two', 'event_three', 'event_four' ];
 		$actual = $manager->getUserEnabledEventsBySections( $this->mockUser(), 'web',
 			[ 'message', 'alert' ] );
 		sort( $expected );
 		sort( $actual );
-		$this->assertEquals( $actual, $expected );
+		$this->assertEquals( $expected, $actual );
 	}
 
 	public static function getEventsByCategoryProvider() {
