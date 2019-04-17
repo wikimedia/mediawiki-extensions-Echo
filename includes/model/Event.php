@@ -1,6 +1,8 @@
 <?php
 
 use MediaWiki\Logger\LoggerFactory;
+use MediaWiki\Revision\RevisionRecord;
+use MediaWiki\MediaWikiServices;
 
 /**
  * Immutable class to represent an event.
@@ -31,7 +33,7 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 	/**
 	 * Loaded dynamically on request
 	 *
-	 * @var Revision|null
+	 * @var RevisionRecord|null
 	 */
 	protected $revision = null;
 
@@ -200,7 +202,7 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 		if ( $this->pageId ) {
 			$data['event_page_id'] = $this->pageId;
 		} elseif ( $this->title ) {
-			$pageId = $this->title->getArticleId();
+			$pageId = $this->title->getArticleID();
 			// Don't need any special handling for title with no id
 			// as they are already stored in extra data array
 			if ( $pageId ) {
@@ -306,7 +308,7 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 		$this->deleted = $row->event_deleted;
 
 		if ( $row->event_agent_id ) {
-			$this->agent = User::newFromID( $row->event_agent_id );
+			$this->agent = User::newFromId( $row->event_agent_id );
 		} elseif ( $row->event_agent_ip ) {
 			$this->agent = User::newFromName( $row->event_agent_ip, false );
 		}
@@ -432,32 +434,35 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 	 * field of this revision, if it's marked as deleted.  When no
 	 * revision is attached always returns true.
 	 *
-	 * @param int $field One of Revision::DELETED_TEXT,
-	 *                              Revision::DELETED_COMMENT,
-	 *                              Revision::DELETED_USER
+	 * @param int $field One of RevisionRecord::DELETED_TEXT,
+	 *                              RevisionRecord::DELETED_COMMENT,
+	 *                              RevisionRecord::DELETED_USER
 	 * @param User $user User object to check
 	 * @return bool
 	 */
 	public function userCan( $field, User $user ) {
 		$revision = $this->getRevision();
 		// User is handled specially
-		if ( $field === Revision::DELETED_USER ) {
+		if ( $field === RevisionRecord::DELETED_USER ) {
 			$agent = $this->getAgent();
 			if ( !$agent ) {
 				// No user associated, so they can see it.
 				return true;
-			} elseif ( $revision
-				&& $agent->getName() === $revision->getUserText( Revision::RAW )
+			}
+
+			if (
+				$revision
+				&& $agent->getName() === $revision->getUser( RevisionRecord::RAW )->getName()
 			) {
 				// If the agent and the revision user are the same, use rev_deleted
-				return $revision->userCan( $field, $user );
+				return $revision->audienceCan( $field, RevisionRecord::FOR_THIS_USER, $user );
 			} else {
 				// Use User::isHidden()
 				return $user->isAllowedAny( 'viewsuppressed', 'hideuser' ) || !$agent->isHidden();
 			}
 		} elseif ( $revision ) {
 			// A revision is set, use rev_deleted
-			return $revision->userCan( $field, $user );
+			return $revision->audienceCan( $field, RevisionRecord::FOR_THIS_USER, $user );
 		} else {
 			// Not a user, and there is no associated revision, so the user can see it
 			return true;
@@ -555,12 +560,14 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 	}
 
 	/**
-	 * @return Revision|null
+	 * @return RevisionRecord|null
 	 */
 	public function getRevision() {
 		if ( $this->revision ) {
 			return $this->revision;
-		} elseif ( isset( $this->extra['revid'] ) ) {
+		}
+
+		if ( isset( $this->extra['revid'] ) ) {
 			$revisionCache = EchoRevisionLocalCache::create();
 			$revision = $revisionCache->get( $this->extra['revid'] );
 			if ( $revision ) {
@@ -568,7 +575,8 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 				return $this->revision;
 			}
 
-			$this->revision = Revision::newFromId( $this->extra['revid'] );
+			$store = MediaWikiServices::getInstance()->getRevisionStore();
+			$this->revision = $store->getRevisionById( $this->extra['revid'] );
 			return $this->revision;
 		}
 

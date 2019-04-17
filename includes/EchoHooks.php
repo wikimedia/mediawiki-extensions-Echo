@@ -4,10 +4,11 @@ use MediaWiki\Auth\AuthManager;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Preferences\MultiUsernameFilter;
+use MediaWiki\Revision\RevisionRecord;
 
 class EchoHooks {
 	/**
-	 * @var Revision
+	 * @var RevisionRecord
 	 */
 	private static $lastRevertedRevision = null;
 
@@ -478,7 +479,7 @@ class EchoHooks {
 	 * Handler for PageContentSaveComplete hook
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/PageContentSaveComplete
 	 *
-	 * @param WikiPage &$wikiPage modified WikiPage
+	 * @param WikiPage $wikiPage modified WikiPage
 	 * @param User &$user User who edited
 	 * @param Content $content New article text
 	 * @param string $summary Edit summary
@@ -494,7 +495,7 @@ class EchoHooks {
 	 * @return bool true in all cases
 	 */
 	public static function onPageContentSaveComplete(
-		WikiPage &$wikiPage,
+		WikiPage $wikiPage,
 		&$user,
 		$content,
 		$summary,
@@ -528,7 +529,7 @@ class EchoHooks {
 			$isRevert = $undidRevId > 0 ||
 				( self::$lastRevertedRevision &&
 				self::$lastRevertedRevision->getId() === $revision->getId() );
-			EchoDiscussionParser::generateEventsForRevision( $revision, $isRevert );
+			EchoDiscussionParser::generateEventsForRevision( $revision->getRevisionRecord(), $isRevert );
 		} );
 
 		// If the user is not an IP and this is not a null edit,
@@ -572,8 +573,12 @@ class EchoHooks {
 		// Handle the case of someone undoing an edit, either through the
 		// 'undo' link in the article history or via the API.
 		if ( isset( $wgEchoNotifications['reverted'] ) && $undidRevId ) {
-			$undidRevision = Revision::newFromId( $undidRevId );
-			if ( $undidRevision && $undidRevision->getTitle()->equals( $title ) ) {
+			$store = MediaWikiServices::getInstance()->getRevisionStore();
+			$undidRevision = $store->getRevisionById( $undidRevId );
+			if (
+				$undidRevision &&
+				Title::newFromLinkTarget( $undidRevision->getPageAsLinkTarget() )->equals( $title )
+			) {
 				$victimId = $undidRevision->getUser();
 				if ( $victimId ) { // No notifications for anonymous users
 					EchoEvent::create( [
@@ -1182,7 +1187,7 @@ class EchoHooks {
 	 */
 	public static function onRollbackComplete( WikiPage $wikiPage, $agent, $newRevision, $oldRevision ) {
 		$victimId = $oldRevision->getUser();
-		$latestRevision = $wikiPage->getRevision();
+		$latestRevision = $wikiPage->getRevisionRecord();
 		self::$lastRevertedRevision = $latestRevision;
 
 		if (

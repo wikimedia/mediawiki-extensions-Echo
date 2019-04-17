@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 class EchoUserLocator {
 	/**
 	 * Return all users watching the event title.
@@ -90,7 +92,7 @@ class EchoUserLocator {
 		}
 
 		$dbr = wfGetDB( DB_REPLICA );
-		$revQuery = Revision::getQueryInfo();
+		$revQuery = MediaWikiServices::getInstance()->getRevisionStore()->getQueryInfo();
 		$res = $dbr->selectRow(
 			$revQuery['tables'],
 			[ 'rev_user' => $revQuery['fields']['rev_user'] ],

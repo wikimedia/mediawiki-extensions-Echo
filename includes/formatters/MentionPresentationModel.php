@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\Revision\RevisionRecord;
+
 class EchoMentionPresentationModel extends EchoEventPresentationModel {
 
 	/**
@@ -71,7 +73,7 @@ class EchoMentionPresentationModel extends EchoEventPresentationModel {
 
 	public function getBodyMessage() {
 		$content = $this->event->getExtraParam( 'content' );
-		if ( $content && $this->userCan( Revision::DELETED_TEXT ) ) {
+		if ( $content && $this->userCan( RevisionRecord::DELETED_TEXT ) ) {
 			$msg = $this->msg( 'notification-body-mention' );
 			$msg->plaintextParams(
 				EchoDiscussionParser::getTextSnippet(

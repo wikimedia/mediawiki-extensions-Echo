@@ -145,7 +145,7 @@ class EchoEventMapperTest extends MediaWikiTestCase {
 		$eventWithTitle = EchoEvent::create( [
 			'type' => 'welcome',
 			'agent' => $user,
-			'title' => $page->getTitle(),
+			'title' => $page->getTitle()
 		] );
 
 		// Create a notification with a target-page

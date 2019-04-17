@@ -1,6 +1,8 @@
 <?php
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Revision\RevisionRecord;
+use MediaWiki\Revision\SlotRecord;
 
 abstract class EchoDiscussionParser {
 	const HEADER_REGEX = '^(==+)\h*([^=].*)\h*\1$';
@@ -10,23 +12,24 @@ abstract class EchoDiscussionParser {
 	protected static $diffParser;
 
 	/**
-	 * Given a Revision object, generates EchoEvent objects for
+	 * Given a RevisionRecord object, generates EchoEvent objects for
 	 * the discussion-related actions that occurred in that Revision.
 	 *
-	 * @param Revision $revision
+	 * @param RevisionRecord $revision
 	 * @param bool $isRevert
 	 * @return null
 	 */
-	public static function generateEventsForRevision( Revision $revision, $isRevert ) {
+	public static function generateEventsForRevision( RevisionRecord $revision, $isRevert ) {
 		global $wgEchoMentionsOnMultipleSectionEdits;
 		global $wgEchoMentionOnChanges;
+		$store = MediaWikiServices::getInstance()->getRevisionStore();
 
 		// use slave database if there is a previous revision
-		if ( $revision->getPrevious() ) {
-			$title = Title::newFromID( $revision->getPage() );
+		if ( $store->getPreviousRevision( $revision ) ) {
+			$title = Title::newFromID( $revision->getPageId() );
 			// use master database for new page
 		} else {
-			$title = Title::newFromID( $revision->getPage(), Title::GAID_FOR_UPDATE );
+			$title = Title::newFromID( $revision->getPageId(), Title::GAID_FOR_UPDATE );
 		}
 
 		// not a valid title
@@ -36,8 +39,8 @@ abstract class EchoDiscussionParser {
 
 		$interpretation = self::getChangeInterpretationForRevision( $revision );
 
-		$userID = $revision->getUser();
-		$userName = $revision->getUserText();
+		$userID = $revision->getUser()->getId();
+		$userName = $revision->getUser()->getName();
 		$user = $userID != 0 ? User::newFromId( $userID ) : User::newFromName( $userName, false );
 
 		foreach ( $interpretation as $action ) {
@@ -102,7 +105,7 @@ abstract class EchoDiscussionParser {
 
 		if ( $wgEchoMaxMentionsInEditSummary > 0 && !$user->isBot() && !$isRevert ) {
 			$summaryParser = new EchoSummaryParser();
-			$usersInSummary = $summaryParser->parse( $revision->getComment() );
+			$usersInSummary = $summaryParser->parse( $revision->getComment()->text );
 
 			// Don't allow pinging yourself
 			unset( $usersInSummary[$userName] );
@@ -189,19 +192,19 @@ abstract class EchoDiscussionParser {
 	 * @param string $header The subject line for the discussion.
 	 * @param int[] $userLinks
 	 * @param string $content The content of the post, as a wikitext string.
-	 * @param Revision $revision
+	 * @param RevisionRecord $revision
 	 * @param User $agent The user who made the comment.
 	 */
 	public static function generateMentionEvents(
 		$header,
 		$userLinks,
 		$content,
-		Revision $revision,
+		RevisionRecord $revision,
 		User $agent
 	) {
 		global $wgEchoMaxMentionsCount, $wgEchoMentionStatusNotifications;
 
-		$title = $revision->getTitle();
+		$title = Title::newFromLinkTarget( $revision->getPageAsLinkTarget() );
 		if ( !$title ) {
 			return;
 		}
@@ -212,7 +215,9 @@ abstract class EchoDiscussionParser {
 			return;
 		}
 
-		$userMentions = self::getUserMentions( $title, $revision->getUser( Revision::RAW ), $userLinks );
+		$userMentions = self::getUserMentions(
+			$title, $revision->getUser( RevisionRecord::RAW )->getId(), $userLinks
+		);
 		$overallMentionsCount = self::getOverallUserMentionsCount( $userMentions );
 		if ( $overallMentionsCount === 0 ) {
 			return;
@@ -436,31 +441,46 @@ abstract class EchoDiscussionParser {
 	 * Given a Revision object, returns a talk-page-centric interpretation
 	 * of the changes made in it.
 	 *
-	 * @param Revision $revision
+	 * @param RevisionRecord|Revision $revision Keeping Revision for back-compat with other extension that
+	 *   may need Revision before the full migration.
 	 * @see EchoDiscussionParser::interpretDiff
 	 * @return array[] See {@see interpretDiff} for details.
 	 */
-	private static function getChangeInterpretationForRevision( Revision $revision ) {
+	private static function getChangeInterpretationForRevision( $revision ) {
 		if ( $revision->getId() && isset( self::$revisionInterpretationCache[$revision->getId()] ) ) {
 			return self::$revisionInterpretationCache[$revision->getId()];
 		}
 
-		$userID = $revision->getUser();
-		$userName = $revision->getUserText();
+		if ( $revision instanceof RevisionRecord ) {
+			$userIdentity = $revision->getUser();
+			if ( $userIdentity !== null ) {
+				$userID = $userIdentity->getId();
+				$userName = $userIdentity->getName();
+			}
+		} else {
+			$userID = $revision->getUser();
+			$userName = $revision->getUserText();
+		}
 		$user = $userID != 0 ? User::newFromId( $userID ) : User::newFromName( $userName, false );
+
 		$prevText = '';
 		if ( $revision->getParentId() ) {
-			$prevRevision = Revision::newFromId( $revision->getParentId() );
+			$store = MediaWikiServices::getInstance()->getRevisionStore();
+			$prevRevision = $store->getRevisionById( $revision->getParentId() );
 			if ( $prevRevision ) {
-				$prevText = ContentHandler::getContentText( $prevRevision->getContent() );
+				$prevText = ContentHandler::getContentText( $prevRevision->getContent( SlotRecord::MAIN ) );
 			}
 		}
 
 		$changes = self::getMachineReadableDiff(
 			$prevText,
-			ContentHandler::getContentText( $revision->getContent() )
+			ContentHandler::getContentText( $revision->getContent( SlotRecord::MAIN ) )
 		);
-		$output = self::interpretDiff( $changes, $user->getName(), $revision->getTitle() );
+		$output = self::interpretDiff(
+			$changes,
+			$user->getName(),
+			Title::newFromLinkTarget( $revision->getPageAsLinkTarget() )
+		);
 
 		self::$revisionInterpretationCache[$revision->getId()] = $output;
 
@@ -1193,12 +1213,13 @@ abstract class EchoDiscussionParser {
 	/**
 	 * Extract an edit excerpt from a revision
 	 *
-	 * @param Revision $revision
+	 * @param Revision|RevisionRecord $revision Keeping Revision for back-compat with other extension that
+	 *   may need Revision before the full migration.
 	 * @param Language $lang
 	 * @param int $length Length in characters (not bytes); default 150
 	 * @return string
 	 */
-	public static function getEditExcerpt( Revision $revision, Language $lang, $length = 150 ) {
+	public static function getEditExcerpt( $revision, Language $lang, $length = 150 ) {
 		$interpretation = self::getChangeInterpretationForRevision( $revision );
 		$section = self::detectSectionTitleAndText( $interpretation );
 		return $lang->truncateForVisual( $section['section-title'] . ' ' . $section['section-text'], $length );

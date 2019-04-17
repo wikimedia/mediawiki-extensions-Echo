@@ -2,6 +2,7 @@
 
 // phpcs:disable Generic.Files.LineLength -- Long html test examples
 
+use MediaWiki\MediaWikiServices;
 use Wikimedia\TestingAccessWrapper;
 
 /**
@@ -925,6 +926,7 @@ TEXT
 	private function setupTestRevisionsForEventGeneration( $newId, $oldId, $username, $lang, $pages,
 		$title, $summary = ''
 	) {
+		$store = MediaWikiServices::getInstance()->getRevisionStore();
 		// Content language is used by the code that interprets the namespace part of titles
 		// (Title::getTitleParser), so should be the fake language ;)
 		$this->setContentLang( $lang );
@@ -960,7 +962,7 @@ TEXT
 		$property->setAccessible( true );
 		$property->setValue( $title, $lang );
 
-		// create stub Revision object
+		// create stub MutableRevisionRecord object
 		$row = [
 			'id' => $newId,
 			'user_text' => $username,
@@ -970,11 +972,12 @@ TEXT
 			'title' => $title,
 			'comment' => $summary,
 		];
-		$revision = Revision::newFromRow( $row );
+		$revision = $store->newMutableRevisionFromArray( $row );
+		$userName = $revision->getUser()->getName();
 
 		// generate diff between 2 revisions
 		$changes = EchoDiscussionParser::getMachineReadableDiff( $oldText, $newText );
-		$output = EchoDiscussionParser::interpretDiff( $changes, $revision->getUserText(), $title );
+		$output = EchoDiscussionParser::interpretDiff( $changes, $userName, $title );
 
 		// store diff in some local cache var, to circumvent
 		// EchoDiscussionParser::getChangeInterpretationForRevision's attempt to

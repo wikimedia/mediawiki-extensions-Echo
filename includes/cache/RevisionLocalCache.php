@@ -1,7 +1,9 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 /**
- * Cache class that maps revision id to Revision object
+ * Cache class that maps revision id to RevisionStore object
  */
 class EchoRevisionLocalCache extends EchoLocalCache {
 
@@ -25,8 +27,9 @@ class EchoRevisionLocalCache extends EchoLocalCache {
 	 * @inheritDoc
 	 */
 	protected function resolve( array $lookups ) {
+		$store = MediaWikiServices::getInstance()->getRevisionStore();
 		$dbr = wfGetDB( DB_REPLICA );
-		$revQuery = Revision::getQueryInfo( [ 'page', 'user' ] );
+		$revQuery = $store->getQueryInfo( [ 'page', 'user' ] );
 		$res = $dbr->select(
 			$revQuery['tables'],
 			$revQuery['fields'],
@@ -36,7 +39,7 @@ class EchoRevisionLocalCache extends EchoLocalCache {
 			$revQuery['joins']
 		);
 		foreach ( $res as $row ) {
-			yield $row->rev_id => new Revision( $row );
+			yield $row->rev_id => $store->newRevisionFromRow( $row );
 		}
 	}
 }

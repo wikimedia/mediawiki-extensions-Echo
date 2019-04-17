@@ -2,6 +2,7 @@
 // phpcs:disable Generic.Files.LineLength -- Long html test examples
 // @phan-file-suppress PhanUndeclaredClassMethod, PhanUndeclaredClassConstant Other extensions used for testing purposes
 
+use MediaWiki\Revision\RevisionRecord;
 use Wikibase\Client\Hooks\EchoNotificationsHandlers;
 
 $IP = getenv( 'MW_INSTALL_PATH' );
@@ -213,7 +214,7 @@ class GenerateSampleNotifications extends Maintenance {
 		$page->loadPageData( 'fromdbmaster' );
 		$revision = $page->getRevision();
 		if ( $revision ) {
-			$content = $revision->getContent( Revision::FOR_PUBLIC );
+			$content = $revision->getContent( RevisionRecord::FOR_PUBLIC );
 			if ( $content instanceof WikitextContent ) {
 				$previousContent = $content->getText();
 			}

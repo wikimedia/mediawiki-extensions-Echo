@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Revision\RevisionRecord;
 use Wikimedia\Timestamp\TimestampException;
 
 /**
@@ -259,7 +260,7 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 	/**
 	 * Helper for EchoEvent::userCan
 	 *
-	 * @param int $type Revision::DELETED_* constant
+	 * @param int $type RevisionRecord::DELETED_* constant
 	 * @return bool
 	 */
 	final protected function userCan( $type ) {
@@ -284,7 +285,7 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 			return false;
 		}
 
-		if ( $this->userCan( Revision::DELETED_USER ) ) {
+		if ( $this->userCan( RevisionRecord::DELETED_USER ) ) {
 			// Not deleted
 			return [
 				$this->getTruncatedUsername( $agent ),
@@ -567,7 +568,7 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 			return null;
 		}
 
-		if ( !$this->userCan( Revision::DELETED_USER ) ) {
+		if ( !$this->userCan( RevisionRecord::DELETED_USER ) ) {
 			return null;
 		}
 
