@@ -452,12 +452,6 @@
 		"EchoSharedTrackingCluster": {
 			"value": false
 		},
-		"EchoSectionTransition": {
-			"value": false
-		},
-		"EchoBundleTransition": {
-			"value": false
-		},
 		"EchoMaxUpdateCount": {
 			"value": 2000
 		},

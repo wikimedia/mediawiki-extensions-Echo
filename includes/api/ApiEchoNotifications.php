@@ -371,61 +371,12 @@ class ApiEchoNotifications extends ApiQueryBase {
 		$format,
 		$section = EchoAttributeManager::ALL
 	) {
-		global $wgEchoSectionTransition, $wgEchoBundleTransition;
-		if (
-			( $wgEchoSectionTransition && $section !== EchoAttributeManager::ALL ) ||
-			$wgEchoBundleTransition
-		) {
-			// In section transition mode we trust that echo_unread_wikis is accurate for the total of alerts+messages,
-			// but not for each section individually (i.e. we don't trust that notifications won't be misclassified).
-			// We get all wikis that have any notifications at all according to the euw table,
-			// and query them to find out what's really there.
-			// In bundle transition mode, we trust that notifications are classified correctly, but we don't
-			// trust the counts in the table.
-			$potentialWikis = $this->getForeignNotifications()->getWikis(
-				$wgEchoSectionTransition ? EchoAttributeManager::ALL : $section );
-			if ( !$potentialWikis ) {
-				return false;
-			}
-			$foreignResults = $this->getFromForeign( $potentialWikis,
-				[ $this->getModulePrefix() . 'filter' => '!read' ] );
-
-			$countsByWiki = [];
-			$timestampsByWiki = [];
-			foreach ( $foreignResults as $wiki => $result ) {
-				if ( isset( $result['query']['notifications']['list'] ) ) {
-					$notifs = $result['query']['notifications']['list'];
-					$countsByWiki[$wiki] = intval( $result['query']['notifications']['count'] );
-				} elseif ( isset( $result['query']['notifications'][$section]['list'] ) ) {
-					$notifs = $result['query']['notifications'][$section]['list'];
-					$countsByWiki[$wiki] = intval( $result['query']['notifications'][$section]['count'] );
-				} else {
-					$notifs = false;
-					$countsByWiki[$wiki] = 0;
-				}
-				if ( $notifs ) {
-					$timestamps = array_filter( array_map( function ( $n ) {
-						return $n['timestamp']['mw'];
-					}, $notifs ) );
-					$timestampsByWiki[$wiki] = $timestamps ? max( $timestamps ) : 0;
-				}
-			}
-
-			$wikis = array_keys( $timestampsByWiki );
-			$count = array_sum( $countsByWiki );
-			$maxTimestamp = new MWTimestamp( $timestampsByWiki ? max( $timestampsByWiki ) : 0 );
-			$timestampsByWiki = array_map( function ( $ts ) {
-				return new MWTimestamp( $ts );
-			}, $timestampsByWiki );
-		} else {
-			// In non-transition mode, or when querying all sections, we can trust the euw table
-			$wikis = $this->getForeignNotifications()->getWikis( $section );
-			$count = $this->getForeignNotifications()->getCount( $section );
-			$maxTimestamp = $this->getForeignNotifications()->getTimestamp( $section );
-			$timestampsByWiki = [];
-			foreach ( $wikis as $wiki ) {
-				$timestampsByWiki[$wiki] = $this->getForeignNotifications()->getWikiTimestamp( $wiki, $section );
-			}
+		$wikis = $this->getForeignNotifications()->getWikis( $section );
+		$count = $this->getForeignNotifications()->getCount( $section );
+		$maxTimestamp = $this->getForeignNotifications()->getTimestamp( $section );
+		$timestampsByWiki = [];
+		foreach ( $wikis as $wiki ) {
+			$timestampsByWiki[$wiki] = $this->getForeignNotifications()->getWikiTimestamp( $wiki, $section );
 		}
 
 		if ( $count === 0 || $wikis === [] ) {
