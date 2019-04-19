@@ -283,36 +283,6 @@ class EchoHooks {
 	}
 
 	/**
-	 * Handler for the GetBetaFeaturePreferences hook.
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/GetBetaFeaturePreferences
-	 *
-	 * @param User $user User to get preferences for
-	 * @param array &$preferences Preferences array
-	 *
-	 * @return bool true in all cases
-	 */
-	public static function getBetaFeaturePreferences( User $user, array &$preferences ) {
-		global $wgExtensionAssetsPath, $wgEchoUseCrossWikiBetaFeature, $wgEchoCrossWikiNotifications;
-
-		if ( $wgEchoUseCrossWikiBetaFeature && $wgEchoCrossWikiNotifications ) {
-			$preferences['echo-cross-wiki-notifications'] = [
-				'label-message' => 'echo-pref-beta-feature-cross-wiki-message',
-				'desc-message' => 'echo-pref-beta-feature-cross-wiki-description',
-				// Paths to images that represents the feature.
-				'screenshot' => [
-					'rtl' => "$wgExtensionAssetsPath/Echo/images/betafeatures-icon-notifications-rtl.svg",
-					'ltr' => "$wgExtensionAssetsPath/Echo/images/betafeatures-icon-notifications-ltr.svg",
-				],
-				'info-link' => 'https://www.mediawiki.org/wiki/Special:Mylanguage/Help:Notifications/Cross-wiki',
-				// Link to discussion about the feature - talk pages might work
-				'discussion-link' => 'https://www.mediawiki.org/wiki/Help_talk:Notifications',
-			];
-		}
-
-		return true;
-	}
-
-	/**
 	 * Handler for GetPreferences hook.
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/GetPreferences
 	 *
@@ -325,7 +295,7 @@ class EchoHooks {
 	public static function getPreferences( $user, &$preferences ) {
 		global $wgEchoEnableEmailBatch,
 			$wgEchoNotifiers, $wgEchoNotificationCategories, $wgEchoNotifications,
-			$wgAllowHTMLEmail, $wgEchoUseCrossWikiBetaFeature,
+			$wgAllowHTMLEmail,
 			$wgEchoCrossWikiNotifications, $wgEchoPerUserBlacklist;
 
 		$attributeManager = EchoAttributeManager::newFromGlobalVars();
@@ -464,7 +434,7 @@ class EchoHooks {
 			'tooltips' => $tooltips,
 		];
 
-		if ( !$wgEchoUseCrossWikiBetaFeature && $wgEchoCrossWikiNotifications ) {
+		if ( $wgEchoCrossWikiNotifications ) {
 			$preferences['echo-cross-wiki-notifications'] = [
 				'type' => 'toggle',
 				'label-message' => 'echo-pref-cross-wiki-notifications',

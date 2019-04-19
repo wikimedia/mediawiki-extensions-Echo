@@ -430,7 +430,6 @@
 		"SendWatchlistEmailNotification": "EchoHooks::onSendWatchlistEmailNotification",
 		"GetNewMessagesAlert": "EchoHooks::abortNewMessagesAlert",
 		"LinksUpdateAfterInsert": "EchoHooks::onLinksUpdateAfterInsert",
-		"GetBetaFeaturePreferences": "EchoHooks::getBetaFeaturePreferences",
 		"ResourceLoaderGetConfigVars": "EchoHooks::onResourceLoaderGetConfigVars"
 	},
 	"config": {
@@ -522,9 +521,6 @@
 			"value": "%s/Echo-whitelist"
 		},
 		"EchoCrossWikiNotifications": {
-			"value": false
-		},
-		"EchoUseCrossWikiBetaFeature": {
 			"value": false
 		},
 		"EchoNotificationCategories": {
