@@ -441,12 +441,11 @@ abstract class EchoDiscussionParser {
 	 * Given a Revision object, returns a talk-page-centric interpretation
 	 * of the changes made in it.
 	 *
-	 * @param RevisionRecord|Revision $revision Keeping Revision for back-compat with other extension that
-	 *   may need Revision before the full migration.
+	 * @param RevisionRecord $revision
 	 * @see EchoDiscussionParser::interpretDiff
 	 * @return array[] See {@see interpretDiff} for details.
 	 */
-	private static function getChangeInterpretationForRevision( $revision ) {
+	private static function getChangeInterpretationForRevision( RevisionRecord $revision ) {
 		if ( $revision->getId() && isset( self::$revisionInterpretationCache[$revision->getId()] ) ) {
 			return self::$revisionInterpretationCache[$revision->getId()];
 		}
@@ -1213,13 +1212,12 @@ abstract class EchoDiscussionParser {
 	/**
 	 * Extract an edit excerpt from a revision
 	 *
-	 * @param Revision|RevisionRecord $revision Keeping Revision for back-compat with other extension that
-	 *   may need Revision before the full migration.
+	 * @param RevisionRecord $revision
 	 * @param Language $lang
 	 * @param int $length Length in characters (not bytes); default 150
 	 * @return string
 	 */
-	public static function getEditExcerpt( $revision, Language $lang, $length = 150 ) {
+	public static function getEditExcerpt( RevisionRecord $revision, Language $lang, $length = 150 ) {
 		$interpretation = self::getChangeInterpretationForRevision( $revision );
 		$section = self::detectSectionTitleAndText( $interpretation );
 		return $lang->truncateForVisual( $section['section-title'] . ' ' . $section['section-text'], $length );
