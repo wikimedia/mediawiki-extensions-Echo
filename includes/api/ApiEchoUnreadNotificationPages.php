@@ -30,7 +30,7 @@ class ApiEchoUnreadNotificationPages extends ApiQueryBase {
 		$params = $this->extractRequestParams();
 
 		$result = [];
-		if ( in_array( wfWikiId(), $this->getRequestedWikis() ) ) {
+		if ( in_array( wfWikiID(), $this->getRequestedWikis() ) ) {
 			$result[wfWikiID()] = $this->getFromLocal( $params['limit'], $params['grouppages'] );
 		}
 

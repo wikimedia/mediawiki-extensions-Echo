@@ -91,11 +91,11 @@
 					foreignSources = {};
 
 				for ( source in data ) {
-					if ( source !== mw.config.get( 'wgDBname' ) ) {
+					if ( source !== mw.config.get( 'wgWikiId' ) ) {
 						// Collect sources for API
 						foreignSources[ source ] = data[ source ].source;
 					}
-					result[ source === mw.config.get( 'wgDBname' ) ? 'local' : source ] = data[ source ];
+					result[ source === mw.config.get( 'wgWikiId' ) ? 'local' : source ] = data[ source ];
 				}
 
 				// Register the foreign sources in the API
