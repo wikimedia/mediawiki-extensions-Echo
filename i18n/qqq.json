@@ -64,6 +64,7 @@
 	"echo-category-title-mention-success": "{{doc-echo-category-title|tooltip=Echo-pref-tooltip-mention-success}}",
 	"echo-category-title-other": "{{doc-echo-category-title}}\n{{Identical|Other}}",
 	"echo-category-title-system": "{{doc-echo-category-title}}\n{{Identical|System}}",
+	"echo-category-title-system-noemail": "{{doc-echo-category-title}}\n{{Identical|System}}",
 	"echo-category-title-user-rights": "{{doc-echo-category-title|tooltip=Echo-pref-tooltip-user-rights}}",
 	"echo-category-title-emailuser": "{{doc-echo-category-title|tooltip=Echo-pref-tooltip-emailuser}}",
 	"echo-category-title-article-reminder": "{{doc-echo-category-title|tooltip=Echo-pref-tooltip-article-reminder}}",

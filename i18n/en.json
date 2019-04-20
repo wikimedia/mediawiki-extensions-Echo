@@ -65,6 +65,7 @@
 	"echo-category-title-mention-success": "Successful {{PLURAL:$1|mention|mentions}}",
 	"echo-category-title-other": "{{PLURAL:$1|Other}}",
 	"echo-category-title-system": "{{PLURAL:$1|System}}",
+	"echo-category-title-system-noemail": "{{PLURAL:$1|System}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|User rights change|User rights changes}}",
 	"echo-category-title-emailuser": "{{PLURAL:$1|Email from other user|Emails from other users}}",
 	"echo-category-title-article-reminder": "Page {{PLURAL:$1|reminder|reminders}}",

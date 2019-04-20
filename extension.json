@@ -477,6 +477,10 @@
 		},
 		"NotifyTypeAvailabilityByCategory": {
 			"value": {
+				"system-noemail": {
+					"web": true,
+					"email": false
+				},
 				"emailuser": {
 					"web": true,
 					"email": false
@@ -533,6 +537,12 @@
 					"priority": 9,
 					"no-dismiss": [
 						"all"
+					]
+				},
+				"system-noemail": {
+					"priority": 9,
+					"no-dismiss": [
+						"web"
 					]
 				},
 				"user-rights": {
@@ -675,12 +685,9 @@
 						"EchoUserLocator::locateEventAgent"
 					],
 					"canNotifyAgent": true,
-					"category": "system",
+					"category": "system-noemail",
 					"group": "positive",
 					"section": "message",
-					"notify-type-availability": {
-						"email": false
-					},
 					"presentation-model": "EchoWelcomePresentationModel"
 				},
 				"edit-user-talk": {
