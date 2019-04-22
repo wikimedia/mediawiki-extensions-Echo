@@ -25,8 +25,6 @@
 	"echo-pref-email-format-plain-text": "سادا اکر",
 	"echo-pref-cross-wiki-notifications": "ٻين وڪيز جا اطلاع ڏيکاريو",
 	"echo-pref-notifications-blacklist": "هنن واپرائيندڙ جا اطلاع نه ڏيو. ([[mw:Special:MyLanguage/Help:Notifications#mute|وڌيڪ معلومات]])",
-	"echo-pref-beta-feature-cross-wiki-message": "وسيع اطلاع",
-	"echo-pref-beta-feature-cross-wiki-description": "اطلاع ڏسو ۽ ترتيب ڏيو آساني سان، جنهن جي مدد سان اوهان ٻين وڪيز جا اطلاع ڏسي سگھو ٿا. (ٻين وڪيز جا ميسج ڏسڻ لاءِ، ان وڪي تي آزمائشي خصوصيتن کي ڪارگر ڪيو.)",
 	"echo-learn-more": "وڌيڪ ڄاڻو",
 	"echo-new-messages": "توھان لاءِ نوان نياپا آھن",
 	"echo-category-title-edit-user-talk": "بحث صفحي {{PLURAL:$1|جو پيغام|جا پيغام}}",

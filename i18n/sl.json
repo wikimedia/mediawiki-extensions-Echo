@@ -29,8 +29,6 @@
 	"echo-pref-email-format-plain-text": "Neoblikovano besedilo",
 	"echo-pref-cross-wiki-notifications": "Prikaži obvestila iz drugih wikijev",
 	"echo-pref-notifications-blacklist": "Ne prikazuj obvestil naslednjih uporabnikov. ([[mw:Special:MyLanguage/Help:Notifications#mute|več]])",
-	"echo-pref-beta-feature-cross-wiki-message": "Napredna obvestila",
-	"echo-pref-beta-feature-cross-wiki-description": "Poglej in razporedi obvestila bolj pregledno. Vključuje obveščanje med wikiji. (Za prejemanj obvestil na poljubnem wikiju, moraš na njem vklopiti beta funkcijo.)",
 	"echo-learn-more": "Več o tem",
 	"echo-log": "Dnevnik",
 	"echo-new-messages": "Prejel si nova sporočila",

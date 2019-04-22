@@ -63,8 +63,6 @@
 	"echo-pref-email-format-plain-text": "Texte brut",
 	"echo-pref-cross-wiki-notifications": "Afficher les notifications d’autres wikis",
 	"echo-pref-notifications-blacklist": "Ne pas afficher les notifications de ces utilisateurs. ([[mw:Special:MyLanguage/Help:Notifications#mute|en savoir plus]])",
-	"echo-pref-beta-feature-cross-wiki-message": "Notifications améliorées",
-	"echo-pref-beta-feature-cross-wiki-description": "Afficher et organiser plus facilement les notifications. Inclut les notifications inter-wikis, qui permettent de voir les messages des autres wikis (pour recevoir des notifications inter-wikis sur un wiki donné, vous devez activer la fonctionnalité bêta depuis celui-ci).",
 	"echo-learn-more": "En savoir plus",
 	"echo-log": "Journal public",
 	"echo-new-messages": "Vous avez de nouveaux messages",

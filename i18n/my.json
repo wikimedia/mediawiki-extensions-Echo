@@ -24,7 +24,6 @@
 	"echo-pref-email-format-plain-text": "စာသား သက်သက်",
 	"echo-pref-cross-wiki-notifications": "အခြားဝီကီများမှ အသိပေးချက်များကို ပြရန်",
 	"echo-pref-notifications-blacklist": "ဤအသုံးပြုသူများထံမှ အသိပေးချက်များကို မပြပါနှင့် ([[mw:Special:MyLanguage/Help:Notifications#mute|ပိုမိုလေ့လာရန်]])",
-	"echo-pref-beta-feature-cross-wiki-message": "အားသွေးလောင်းထားသော အသိပေးချက်များ",
 	"echo-learn-more": "ပို၍ လေ့လာရန်",
 	"echo-log": "အများကြည့် မှတ်တမ်း",
 	"echo-new-messages": "မက်ဆေ့အသစ်များ ရောက်နေသည်",

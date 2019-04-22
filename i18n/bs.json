@@ -30,8 +30,6 @@
 	"echo-pref-email-format-plain-text": "Obični tekst",
 	"echo-pref-cross-wiki-notifications": "Prikaži obavještenja s drugih wikija",
 	"echo-pref-notifications-blacklist": "Spisak korisnika koji Vam, u većini slučajeva, neće moći slati obavještenja koristeći Echo (ne utiče na izmjene na Vašoj stranici za razgovor; [[mw:Special:MyLanguage/Help:Notifications#mute|detaljnije]])",
-	"echo-pref-beta-feature-cross-wiki-message": "Poboljšana obavještenja",
-	"echo-pref-beta-feature-cross-wiki-description": "Omogućava lakši pregled i organizaciju obavještenja. Također omogućava obavještenja kad dobijete poruku na drugim wikijima. (Da biste vidjeli obavještenja s nekog wikija, na tom wikiju morate aktivirati ovu beta mogućnost.)",
 	"echo-learn-more": "Saznajte više",
 	"echo-log": "Javni zapisnik",
 	"echo-new-messages": "Imate nove poruke",

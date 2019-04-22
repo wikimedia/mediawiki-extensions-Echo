@@ -32,8 +32,6 @@
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Text net",
 	"echo-pref-cross-wiki-notifications": "Mostra les notificacions d'altres wikis",
-	"echo-pref-beta-feature-cross-wiki-message": "Notificacions millorades",
-	"echo-pref-beta-feature-cross-wiki-description": "Mostra i organitza les notificacions més fàcilment. Inclou les notificacions multi-wiki que permet veure els missatges d'altres wikis. (Per rebre notificacions d'altres wikis en un wiki determinat, heu d'activar la funcionalitat beta en aquest wiki.)",
 	"echo-learn-more": "Més informació",
 	"echo-log": "Registre públic",
 	"echo-new-messages": "Teniu nous missatges",

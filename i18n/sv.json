@@ -40,8 +40,6 @@
 	"echo-pref-email-format-plain-text": "Oformaterad text",
 	"echo-pref-cross-wiki-notifications": "Visa aviseringar från andra wikis",
 	"echo-pref-notifications-blacklist": "Visa inte aviseringar från dessa användare. ([[mw:Special:MyLanguage/Help:Notifications#mute|läs mer]])",
-	"echo-pref-beta-feature-cross-wiki-message": "Förbättrade aviseringar",
-	"echo-pref-beta-feature-cross-wiki-description": "Visa och organisera aviseringar mer lättare. Innehåller aviseringar som låter dig se meddelanden från andra wikis. (För att få interwikiaviseringar på en wiki måste du aktivera betafunktionen på wikin.)",
 	"echo-learn-more": "Läs mer",
 	"echo-log": "Offentlig logg",
 	"echo-new-messages": "Du har nya meddelanden",

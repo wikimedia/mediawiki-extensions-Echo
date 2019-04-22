@@ -29,8 +29,6 @@
 	"echo-pref-email-format-plain-text": "ข้อความล้วน",
 	"echo-pref-cross-wiki-notifications": "แสดงการแจ้งเตือนจากวิกิอื่น",
 	"echo-pref-notifications-blacklist": "ไม่ต้องแสดงการแจ้งเตือนจากผู้ใช้เหล่านี้\n([[mw:Special:MyLanguage/Help:Notifications#mute|เรียนรู้เพิ่มเติม]])",
-	"echo-pref-beta-feature-cross-wiki-message": "การแจ้งเตือนที่ได้รับการปรับปรุงแล้ว",
-	"echo-pref-beta-feature-cross-wiki-description": "ดูและจัดระเบียบการแจ้งเตือนได้อย่างง่ายขึ้น รวมการแจ้งเตือนข้ามวิกิ ซึ่งอนุญาตให้คุณเห็นข้อความจากวิกิอื่นได้ (คุณต้องเปิดใช้งานคุณลักษณะเบต้าในวิกินั้นก่อนเพื่อรับการแจ้งเตือนข้ามวิกิในวิกินั้นๆ)",
 	"echo-learn-more": "เรียนรู้เพิ่มเติม",
 	"echo-log": "ปูมสาธารณะ",
 	"echo-new-messages": "คุณมีข้อความใหม่",

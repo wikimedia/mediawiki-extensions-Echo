@@ -26,8 +26,6 @@
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Testo nurmale",
 	"echo-pref-cross-wiki-notifications": "Fà veré 'e nnutifiche 'e ll'ati wiki",
-	"echo-pref-beta-feature-cross-wiki-message": "Notifiche migliurate",
-	"echo-pref-beta-feature-cross-wiki-description": "Vide e sistema notifiche cchiù sempricemente. Chesto ncludesse notifiche cross-wiki, ca ve premmettessero 'e vedé mmasciate 'a n'ati wiki. (Pe' puté ricevere notifiche 'e na wiki data, avite appiccià attive 'e funziune beta ncopp'a chillu wiki.)",
 	"echo-learn-more": "Mpara 'e cchiù",
 	"echo-log": "Riggistro pubbreco",
 	"echo-new-messages": "Avite mmasciate nove",

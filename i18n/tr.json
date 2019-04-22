@@ -43,8 +43,6 @@
 	"echo-pref-email-format-plain-text": "Düz metin",
 	"echo-pref-cross-wiki-notifications": "Diğer vikilerden bildirimleri göster",
 	"echo-pref-notifications-blacklist": "Bu kullanıcılardan gelen bildirimleri gösterme. ([[mw:Special:MyLanguage/Help:Notifications#mute|daha fazla bilgi edin]])",
-	"echo-pref-beta-feature-cross-wiki-message": "Gelişmiş bildirimler",
-	"echo-pref-beta-feature-cross-wiki-description": "Bildirimleri daha kolay görüntüleyin ve düzenleyin. Diğer vikilerdeki mesajlarınızı görmenize imkan veren vikilerarası bildirimleri destekler. (Vikilerarası bildirimleri almak için, bulunduğunuz vikide beta özelliği etkinleştirmeniz gerekir.)",
 	"echo-learn-more": "Daha fazla bilgi",
 	"echo-log": "Genel günlük",
 	"echo-new-messages": "Yeni mesajınız var",

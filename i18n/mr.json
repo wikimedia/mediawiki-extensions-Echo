@@ -31,8 +31,6 @@
 	"echo-pref-email-format-plain-text": "साधा मजकूर",
 	"echo-pref-cross-wiki-notifications": "ईतर विकिंवरील अधिसूचना दाखवा",
 	"echo-pref-notifications-blacklist": "या सदस्यांनी पाठविलेल्या अधिसूचना दर्शवू नका.([[mw:Special:MyLanguage/Help:Notifications#mute|याबाबत अधिक जाणा]])",
-	"echo-pref-beta-feature-cross-wiki-message": "वर्धित अधिसूचना",
-	"echo-pref-beta-feature-cross-wiki-description": "सोप्या रितीने अधिसूचना बघा व त्यांना व्यवस्थित लावा.यात आंतरविकि अधिसूचना अंतर्भूत आहेत ज्या, आपणास, इतर विकिंतील अधिसूचना बघणे शक्य करतात.( आंतर विकि अधिसूचना दिलेल्या विकिवर प्राप्त करण्यास, आपण त्या विकिवर बीटा फिचर सक्शम करावयास हवा.)",
 	"echo-learn-more": "अधिक जाणून घ्या",
 	"echo-log": "सार्वजनिक नोंदी",
 	"echo-new-messages": "तुमच्यासाठी नवीन संदेश आहेत",

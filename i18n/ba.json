@@ -31,8 +31,6 @@
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "ғәҙәти яҙма",
 	"echo-pref-cross-wiki-notifications": "Башҡа викилар белдереүҙәрен күрһәтергә",
-	"echo-pref-beta-feature-cross-wiki-message": "Киңәйтелгән белдереүҙәр",
-	"echo-pref-beta-feature-cross-wiki-description": "Белдереүҙәрҙе ябайыраҡ ҡарарға һәм ойошторорға ярҙам итә. Башҡа викилар хәбәрҙәрен күреү мөмкинлеген биргән кросс-вики белдереүҙәрҙе үҙ эсенә ала. (Был вики-проектта шундай хәбәрҙәр алыр өсөн, тейешле бета-функцияны ҡабыҙыр кәрәк.)",
 	"echo-learn-more": "Күберәк белергә",
 	"echo-log": "һәр кем аңларлыҡ журнал",
 	"echo-new-messages": "Һеҙгә яңы хәбәрҙәр бар",

@@ -34,8 +34,6 @@
 	"echo-pref-email-format-plain-text": "чист текст",
 	"echo-pref-cross-wiki-notifications": "Приказуј обавештења са других викија",
 	"echo-pref-notifications-blacklist": "Не приказуј обавештења од следећих корисника. ([[mw:Special:MyLanguage/Help:Notifications#mute|сазнајте више]])",
-	"echo-pref-beta-feature-cross-wiki-message": "Побољшана обавештења",
-	"echo-pref-beta-feature-cross-wiki-description": "Лакши преглед и организација обавештења. Укључује међувики обавештења, што вам омогућава да видите поруке са других викија. (Да бисте примали међувики обавештења на датом викију, морате да активирате ову бета могућност.)",
 	"echo-learn-more": "Сазнајте више",
 	"echo-log": "Јаван дневник",
 	"echo-new-messages": "Имате нове поруке",

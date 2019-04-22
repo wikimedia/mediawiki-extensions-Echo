@@ -25,7 +25,6 @@
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Testenn blaen",
 	"echo-pref-cross-wiki-notifications": "Diskouez kemennoù eus wikioù all",
-	"echo-pref-beta-feature-cross-wiki-message": "Kemennoù gwellaet",
 	"echo-learn-more": "Gouzout hiroc'h",
 	"echo-new-messages": "Kemennadennoù nevez hoc'h eus",
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Ur gemennadenn|Kemennadennoù}} er bajenn gaozeal",

@@ -28,8 +28,6 @@
 	"echo-pref-email-format-plain-text": "Obyčajný text",
 	"echo-pref-cross-wiki-notifications": "Zobrazovať upozornenia z iných wiki",
 	"echo-pref-notifications-blacklist": "Nezobrazovať notifikácie od týchto používateľov. ([[mw:Special:MyLanguage/Help:Notifications#mute|podrobnosti]])",
-	"echo-pref-beta-feature-cross-wiki-message": "Vylepšené upozornenia",
-	"echo-pref-beta-feature-cross-wiki-description": "Prezerajte si a organizujte upozornenia jednoduchšie. Zahŕňa upozornenia naprieč wikiprojektami, čo vám umožní vidieť správy z iných wiki.",
 	"echo-learn-more": "Ďalšie informácie",
 	"echo-log": "Verejný záznam",
 	"echo-new-messages": "Máte nové správy",

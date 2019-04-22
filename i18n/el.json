@@ -34,8 +34,6 @@
 	"echo-pref-email-format-plain-text": "Απλό κείμενο",
 	"echo-pref-cross-wiki-notifications": "Εμφάνιση ενημερώσεων από άλλα wiki",
 	"echo-pref-notifications-blacklist": "Να μην εμφανίζονται ειδοποιήσεις από αυτούς τους χρήστες.([[mw:Special:MyLanguage/Help:Notifications#mute|μάθετε περισσότερα]])",
-	"echo-pref-beta-feature-cross-wiki-message": "Ενισχυμένες ενημερώσεις",
-	"echo-pref-beta-feature-cross-wiki-description": "Προβάλετε και οργανώσετε τις ενημερώσεις πιο εύκολα. Περιλαμβάνει cross-wiki ενημερώσεις, οι οποίες σας επιτρέπουν να δείτε μηνύματα από άλλα wiki. (Για να λάβετε cross-wiki ενημερώσεις σχετικά με ένα συγκεκριμένο wiki, θα πρέπει να ενεργοποιήσετε το εργαλείο beta στο συγκεκριμένο wiki.)",
 	"echo-learn-more": "Μάθετε περισσότερα",
 	"echo-log": "Δημόσια καταγραφή",
 	"echo-new-messages": "Έχετε νέα μηνύματα",

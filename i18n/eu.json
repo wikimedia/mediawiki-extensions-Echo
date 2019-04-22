@@ -23,7 +23,6 @@
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Testu laua",
 	"echo-pref-cross-wiki-notifications": "Erakutsi beste wikietako jakinarazpenak",
-	"echo-pref-beta-feature-cross-wiki-message": "Jakinarazpen hobetuak",
 	"echo-learn-more": "Gehiago ikasi",
 	"echo-new-messages": "Mezu berriak dituzu",
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1|mezu}} eztabaida orrian",

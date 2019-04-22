@@ -28,8 +28,6 @@
 	"echo-pref-email-format-plain-text": "Văn bản thuần",
 	"echo-pref-cross-wiki-notifications": "Hiển thị thông báo từ wiki khác",
 	"echo-pref-notifications-blacklist": "Ẩn thông báo từ những người dùng này. ([[mw:Special:MyLanguage/Help:Notifications#mute|Tìm hiểu thêm]])",
-	"echo-pref-beta-feature-cross-wiki-message": "Thông báo được cải tiến",
-	"echo-pref-beta-feature-cross-wiki-description": "Xem và quản lý các thông báo dễ dàng hơn. Bao gồm các thông báo liên wiki, cho phép bạn xem tin nhắn từ các wiki khác. (Để nhận thông báo liên wiki trên một wiki nào đó, bạn phải kích hoạt tính năng beta trên wiki đó.)",
 	"echo-learn-more": "Tìm hiểu thêm",
 	"echo-log": "Nhật trình công khai",
 	"echo-new-messages": "Bạn có tin nhắn mới",

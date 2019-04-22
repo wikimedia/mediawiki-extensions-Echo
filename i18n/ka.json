@@ -31,8 +31,6 @@
 	"echo-pref-email-format-plain-text": "ჩვეულებრივი ტექსტი",
 	"echo-pref-cross-wiki-notifications": "შეტყობინების ჩვენება სხვა ვიკიდან",
 	"echo-pref-notifications-blacklist": "არ აჩვენო ამ მომხმარებლების შეტყობინება. ([[mw:Special:MyLanguage/Help:Notifications#mute|მეტის გაგება]])",
-	"echo-pref-beta-feature-cross-wiki-message": "გაზრდილი შეტყობინებები",
-	"echo-pref-beta-feature-cross-wiki-description": "იხილეთ და მოაწესრიგეთ შეტყობინებები უფრო მარტივად. შეგეძლებათ იხილოთ შეტყობინებები, რომლებსაც დაგიტოვებენ სხვა პროექტებში.",
 	"echo-learn-more": "გაიგეთ მეტი",
 	"echo-new-messages": "თქვენ გაქვთ ახალი შეტყობინება",
 	"echo-category-title-edit-user-talk": "განხილვის გვერდის {{PLURAL:$1|შეტყობინება}}",

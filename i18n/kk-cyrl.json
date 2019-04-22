@@ -22,8 +22,6 @@
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Қалыпты мәтін",
 	"echo-pref-cross-wiki-notifications": "Басқа уикилерден ескертпелерді көрсету",
-	"echo-pref-beta-feature-cross-wiki-message": "Кеңейтілген хабарландырулар",
-	"echo-pref-beta-feature-cross-wiki-description": "Ескетпелерді қарау және басқару бұрыңғыдан да жеңілірек. Сіз басқа уикилерден хабарламалар көруге мүмкіндік береді, ол уикиаралық хабарландыруларын қамтиды.",
 	"echo-learn-more": "Көбірек білу",
 	"echo-log": "Барлығы көре алатын журнал",
 	"echo-new-messages": "Сізге жаңа хабарламалар келді",

@@ -46,8 +46,6 @@
 	"echo-pref-email-format-plain-text": "純文字",
 	"echo-pref-cross-wiki-notifications": "顯示來自其他 wiki 的通知",
 	"echo-pref-notifications-blacklist": "不顯示來自這些使用者的通知（[[mw:Special:MyLanguage/Help:Notifications#mute|了解更多]]）",
-	"echo-pref-beta-feature-cross-wiki-message": "增強通知功能",
-	"echo-pref-beta-feature-cross-wiki-description": "更容易地檢視與組織通知。此功能包含跨維基通知功能，令使用者可以檢視來自其他維基的訊息。（要在某維基上接收跨維基通知，須在該維基上啟用測試功能。）",
 	"echo-learn-more": "瞭解更多",
 	"echo-log": "公共日誌",
 	"echo-new-messages": "您有新訊息",
