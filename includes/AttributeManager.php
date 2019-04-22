@@ -303,6 +303,22 @@ class EchoAttributeManager {
 	}
 
 	/**
+	 * Get notify type availability for all notify types for a given category.
+	 *
+	 * This means whether users *can* turn notifications for this category and format
+	 * on, regardless of the default or a particular user's preferences.
+	 *
+	 * @param string $category Category name
+	 * @return array [ 'web' => bool, 'email' => bool ]
+	 */
+	public function getNotifyTypeAvailabilityForCategory( $category ) {
+		return array_merge(
+			$this->defaultNotifyTypeAvailability,
+			$this->notifyTypeAvailabilityByCategory[$category] ?? []
+		);
+	}
+
+	/**
 	 * Checks whether the specified notify type is available for the specified
 	 * category.
 	 *
@@ -314,11 +330,7 @@ class EchoAttributeManager {
 	 * @return bool
 	 */
 	public function isNotifyTypeAvailableForCategory( $category, $notifyType ) {
-		if ( isset( $this->notifyTypeAvailabilityByCategory[$category][$notifyType] ) ) {
-			return $this->notifyTypeAvailabilityByCategory[$category][$notifyType];
-		}
-
-		return $this->defaultNotifyTypeAvailability[$notifyType];
+		return $this->getNotifyTypeAvailabilityForCategory( $category )[$notifyType];
 	}
 
 	/**

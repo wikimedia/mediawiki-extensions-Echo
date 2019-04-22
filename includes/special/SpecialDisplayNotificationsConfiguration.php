@@ -218,8 +218,6 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 	 * Output which notify types are available for each category
 	 */
 	protected function outputAvailability() {
-		global $wgEchoNotifications;
-
 		$this->getOutput()->addHTML( Html::element(
 			'h2',
 			[ 'id' => 'mw-echo-displaynotificationsconfiguration-available-notification-methods' ],
@@ -242,27 +240,6 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 			$this->flippedCategoryNames,
 			$this->flippedNotifyTypes,
 			$byCategoryValue
-		);
-
-		$byTypeValue = [];
-
-		$specialNotificationTypes = array_keys( array_filter( $wgEchoNotifications, function ( $val ) {
-			return isset( $val['notify-type-availability'] );
-		} ) );
-		foreach ( $specialNotificationTypes as $notificationType ) {
-			$allowedNotifyTypes = $this->notificationController->getEventNotifyTypes( $notificationType );
-			foreach ( $allowedNotifyTypes as $notifyType ) {
-				$byTypeValue[] = "$notifyType-$notificationType";
-			}
-		}
-
-		// No user-friendly label for rows yet
-		$this->outputCheckMatrix(
-			'availability-by-type',
-			'echo-displaynotificationsconfiguration-available-notification-methods-by-type-legend',
-			array_combine( $specialNotificationTypes, $specialNotificationTypes ),
-			$this->flippedNotifyTypes,
-			$byTypeValue
 		);
 	}
 
