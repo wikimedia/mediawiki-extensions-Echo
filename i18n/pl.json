@@ -19,7 +19,8 @@
 			"Rzuwig",
 			"Sethakill",
 			"PiotrekD",
-			"InternerowyGołąb"
+			"InternerowyGołąb",
+			"Railfail536"
 		]
 	},
 	"echo-desc": "System powiadomień użytkowników o zdarzeniach i komunikatach",
@@ -52,9 +53,11 @@
 	"echo-category-title-mention-success": "{{PLURAL:$1|Udana wzmianka|Udane wzmianki}}",
 	"echo-category-title-other": "{{PLURAL:$1|Inne zdarzenie|Inne zdarzenia}}",
 	"echo-category-title-system": "{{PLURAL:$1|Zdarzenie systemowe|Zdarzenia systemowe}}",
+	"echo-category-title-system-noemail": "{{PLURAL:$1|System}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|Zmiana uprawnień|Zmiany uprawnień}}",
 	"echo-category-title-emailuser": "{{PLURAL:$1|E-mail od innego użytkownika|E-maile od innych użytkowników}}",
 	"echo-category-title-article-reminder": "{{PLURAL:$1|Przypomnienie|Przypomnienia}} o stronach",
+	"echo-category-title-thank-you-edit": "Edytuj {{PLURAL:$1|kamień milowy|kamienie milowe}} edycji",
 	"echo-pref-tooltip-edit-user-talk": "Powiadom mnie, kiedy ktoś napisze nową wiadomość albo odpowie na mojej stronie dyskusji.",
 	"echo-pref-tooltip-article-linked": "Powiadom mnie, kiedy ktoś umieści na innej stronie link do strony utworzonej przeze mnie.",
 	"echo-pref-tooltip-reverted": "Powiadom mnie, kiedy ktoś wycofa moją edycję korzystając z narzędzia „anuluj” albo „cofnij”.",
@@ -64,6 +67,7 @@
 	"echo-pref-tooltip-user-rights": "Powiadamiaj mnie, gdy ktoś zmieni moje uprawnienia.",
 	"echo-pref-tooltip-emailuser": "Powiadom mnie, gdy ktoś wyśle mi e-mail.",
 	"echo-pref-tooltip-article-reminder": "Powiadom mnie o tej stronie, gdy zapytam.",
+	"echo-pref-tooltip-thank-you-edit": "Powiadom mnie, gdy osiągnę 1, 10, 100… edycji.",
 	"notifications": "Powiadomienia",
 	"tooltip-pt-notifications-alert": "Moje powiadomienia",
 	"tooltip-pt-notifications-notice": "Moje komunikaty",

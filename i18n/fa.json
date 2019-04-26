@@ -24,7 +24,8 @@
 			"Mahdy Saffar",
 			"4nn1l2",
 			"Baloch Khan",
-			"Amjad Khan"
+			"Amjad Khan",
+			"Amirsara"
 		]
 	},
 	"echo-desc": "سامانهٔ آگاه‌سازی کاربران از رویدادها و پیام‌ها",
@@ -57,6 +58,7 @@
 	"echo-category-title-mention-success": "{{PLURAL:$1|اشاره|اشاره‌های}} موفق",
 	"echo-category-title-other": "{{PLURAL:$1|سایر}}",
 	"echo-category-title-system": "{{PLURAL:$1|سامانه}}",
+	"echo-category-title-system-noemail": "{{PLURAL:$1|سامانه}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|تغییر دسترسی‌های کاربری|تغییرات دسترسی‌های کاربری}}",
 	"echo-category-title-emailuser": "{{PLURAL:$1|ایمیل از کاربری دیگر|ایمیل‌هایی از دیگر کاربران}}",
 	"echo-category-title-article-reminder": "صفحهٔ {{PLURAL:$1|یادآوری|یادآوری}}",
