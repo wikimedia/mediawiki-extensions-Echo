@@ -187,30 +187,13 @@ class EchoNotificationController {
 	 *  this event type
 	 */
 	public static function getEventNotifyTypes( $eventType ) {
-		global $wgDefaultNotifyTypeAvailability,
-			$wgEchoNotifications;
-
 		$attributeManager = EchoAttributeManager::newFromGlobalVars();
 
 		$category = $attributeManager->getNotificationCategory( $eventType );
 
-		// If the category is displayed in preferences, we should go by that, rather
-		// than overrides that are inconsistent with what the user saw in preferences.
-		$isTypeSpecificConsidered = !$attributeManager->isCategoryDisplayedInPreferences(
-			$category
-		);
-
-		$notifyTypes = $wgDefaultNotifyTypeAvailability;
-
-		if ( $isTypeSpecificConsidered && isset( $wgEchoNotifications[$eventType]['notify-type-availability'] ) ) {
-			$notifyTypes = array_merge(
-				$notifyTypes,
-				$wgEchoNotifications[$eventType]['notify-type-availability']
-			);
-		}
-
-		// Category settings for availability are considered in EchoNotifier
-		return array_keys( array_filter( $notifyTypes ) );
+		return array_keys( array_filter(
+			$attributeManager->getNotifyTypeAvailabilityForCategory( $category )
+		) );
 	}
 
 	/**
