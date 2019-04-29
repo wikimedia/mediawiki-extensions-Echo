@@ -62,7 +62,6 @@
 	"echo-displaynotificationsconfiguration-sorting-by-section-legend": "v kateri del je uvrščena vrsta obvestila",
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Ustrezni načini obveščanja",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Kateri načini obveščanja so podprti za posamezno kategorijo",
-	"echo-displaynotificationsconfiguration-available-notification-methods-by-type-legend": "Kateri načini obveščanja so podprti za katero vrsto; nanaša se samo na vrste v kategorijah, ki so skrite v nastavitvah",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Vključeno v prednastavitvah",
 	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Obstoječi uporabniki",
 	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Novi uporabniki",

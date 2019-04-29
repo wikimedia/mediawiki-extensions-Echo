@@ -68,7 +68,6 @@
 	"echo-displaynotificationsconfiguration-sorting-by-section-legend": "যে অনুচ্ছেদে প্রতিটি বিজ্ঞপ্তির ধরন বাছাই করা হবে",
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "মঞ্জুরিপ্রাপ্ত বিজ্ঞপ্তির পদ্ধতি",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "প্রতিটি বিষয়শ্রেণীর জন্য যে বিজ্ঞপ্তির পদ্ধতি সমর্থিত",
-	"echo-displaynotificationsconfiguration-available-notification-methods-by-type-legend": "প্রতিটি ধরনের জন্য যে বিজ্ঞপ্তির পদ্ধতি সমর্থিত; শুধুমাত্র বিষয়শ্রেণীর ধরনের ক্ষেত্রে প্রযোজ্য যা পছন্দসমূহ থেকে লুকায়িত",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "পূর্বনির্ধারিত রুপে সক্রিয়",
 	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "বিদ্যমান ব্যবহারকারী",
 	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "নতুন ব্যবহারকারী",

@@ -78,7 +78,6 @@
 	"echo-displaynotificationsconfiguration-sorting-by-section-legend": "In welke sectie elk type geplaatst wordt",
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Toegestane meldingsmethoden",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Welke meldingsmethoden ondersteund worden per categorie",
-	"echo-displaynotificationsconfiguration-available-notification-methods-by-type-legend": "Welke meldingsmethoden ondersteund worden per type; alleen van toepassing op meldingstypes in categorieën die niet zichtbaar zijn in het voorkeurenscherm.",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Standaard ingeschakeld",
 	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Bestaande gebruikers",
 	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Nieuwe gebruikers",

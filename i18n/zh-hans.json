@@ -87,7 +87,6 @@
 	"echo-displaynotificationsconfiguration-sorting-by-section-legend": "每种通知类型分为哪几部分",
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "允许的通知方法",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "每种分类支持的通知方法",
-	"echo-displaynotificationsconfiguration-available-notification-methods-by-type-legend": "每种类型支持的通知方法；只应用于参数设置中隐藏的分类中的类型",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "默认启用",
 	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "现有用户",
 	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "新用户",

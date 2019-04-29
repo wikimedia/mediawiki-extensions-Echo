@@ -67,7 +67,6 @@
 	"echo-displaynotificationsconfiguration-sorting-by-section-legend": "לאיזה אזור בתצוגה ממוינת כל הודעה",
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "שיטות הודעה מותרות",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "אילו שיטות הודעה נתמכות לכל קטגוריה",
-	"echo-displaynotificationsconfiguration-available-notification-methods-by-type-legend": "אילו שיטות הודעה נתמכות לכל סוג; זה חל רק על סוגים בתוך קטגוריות שמוסתרות מהעדפות",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "מופעל כברירת מחדל",
 	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "משתמשים קיימים",
 	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "משתמשים חדשים",

@@ -53,7 +53,6 @@
 	"echo-displaynotificationsconfiguration-sorting-by-section-legend": "Inte quæ seçion l'è amerçou ogni tipo de notiffica",
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Mettodi de notifica consentii",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Quæ mettodi de notiffica son supportæ pe ogni categoria",
-	"echo-displaynotificationsconfiguration-available-notification-methods-by-type-legend": "Quæ mettodi de notiffica son supportæ pe ogni tipo; a s'apprica solo a-i tipi che, inte categorie, son nascosti da-e preferençe",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Abilitou pe impostaçion predefinia",
 	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Utenti existenti",
 	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Noeuvi utenti",

@@ -58,7 +58,6 @@
 	"echo-displaynotificationsconfiguration-sorting-by-section-legend": "د خبرتیا لپاره کوم ډول ترتیب شوی دی",
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "د خبرتیا میتودونو ته اجازه ورکړي",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "د کومې وېشنيزې لپاره د خبرتیا میتودونه چمتو شوي دي",
-	"echo-displaynotificationsconfiguration-available-notification-methods-by-type-legend": "د کوم ډول میتودونو ملاتړ پر هر ډول کیږي; یوازې د وېشنيزو دننه ډولونه پلي کیږي چې د غوره توب څخه پټ دي",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "په خواني ډول فعال شوي",
 	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "موجود کارنان",
 	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "نوي کارنان",

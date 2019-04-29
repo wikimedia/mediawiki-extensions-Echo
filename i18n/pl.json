@@ -78,7 +78,6 @@
 	"echo-displaynotificationsconfiguration-sorting-by-section-legend": "Do której sekcji każdy rodzaj powiadomienia jest przydzielany",
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Akceptowane sposoby powiadamiania",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Jakie metody powiadamiania są obsługiwane dla każdej z kategorii",
-	"echo-displaynotificationsconfiguration-available-notification-methods-by-type-legend": "Jakie metody powiadamiania są obsługiwane dla każdego z rodzajów; ma tylko zastosowanie do rodzajów zawartych w kategoriach, które są ukryte z preferencji.",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Domyślnie włączone",
 	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Istniejący użytkownicy",
 	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Nowi użytkownicy",

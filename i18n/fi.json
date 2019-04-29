@@ -67,7 +67,6 @@
 	"echo-displaynotificationsconfiguration-sorting-by-section-legend": "Mihin osioon mikäkin ilmoitustyyppi kuuluu",
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Sallitut ilmoitusmenetelmät",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Sallitut ilmoitusmenetelmät luokittain",
-	"echo-displaynotificationsconfiguration-available-notification-methods-by-type-legend": "Sallitut ilmoitusmenetelmät luokittain. Koskee vain luokkia, jotka on piilotettu asetuksista",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Käytössä oletuksena",
 	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Nykyiset käyttäjät",
 	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Uudet käyttäjät",

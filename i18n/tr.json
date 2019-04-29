@@ -74,7 +74,6 @@
 	"echo-displaynotificationsconfiguration-sorting-by-section-legend": "Hangi bildirim türü hangi bölümde listelenecek",
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "İzin verilen bildirim yöntemleri",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Her kategori için hangi bilidirim yöntemleri desteklenecek",
-	"echo-displaynotificationsconfiguration-available-notification-methods-by-type-legend": "Hangi bildirim yöntemleri her tür için desteklenecek; sadece tercihlerde gizlenmiş kategorilerdeki türlere uygulanır.",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Varsayılan olarak etkin",
 	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Mevcut kullanıcılar",
 	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Yeni kullanıcılar",

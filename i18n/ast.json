@@ -57,7 +57,6 @@
 	"echo-displaynotificationsconfiguration-sorting-by-section-legend": "En que sección s'ordena cada tipu de notificación",
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Métodos de notificación permitíos",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Cuálos métodos de notificación s'almiten pa cada categoría",
-	"echo-displaynotificationsconfiguration-available-notification-methods-by-type-legend": "Cuálos métodos de notificación s'almiten pa cada tipu; namái s'aplica a los tipos dientro de les categoríes que tán tapecíes nes preferencies",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Activaes de mou predetermináu",
 	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Usuarios esistentes",
 	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Usuarios nuevos",

@@ -83,7 +83,6 @@
 	"echo-displaynotificationsconfiguration-sorting-by-section-legend": "في المقطع ما يصنف كل نوع من الإخطار",
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "وسائل التنبيه المسموح بها",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "ما هي وسائل التنبيه التي تدعم كل فئة",
-	"echo-displaynotificationsconfiguration-available-notification-methods-by-type-legend": "ما هي وسائل التنبيه المستخدمة لكل نوع؛ لا ينطبق إلا على أنواع داخل الفئات التي تكون مخفية من التفضيلات",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "مفعلة افتراضيا",
 	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "المستخدمون الحاليون",
 	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "المستخدمون الجدد",

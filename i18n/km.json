@@ -56,7 +56,6 @@
 	"echo-displaynotificationsconfiguration-sorting-by-section-legend": "ផ្នែកដែលប្រភេទសារជូនដំណឹងនីមួយៗត្រូវបានចែកចូល",
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "វិធីផ្ញើសារជូនដំណឹងដែលអនុញ្ញាតអោយប្រើ",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "វិធីផ្ញើសារជូនដំណឹងដែលចំណាត់ថ្នាក់ក្រុមនីមួួយៗអាចប្រើបាន",
-	"echo-displaynotificationsconfiguration-available-notification-methods-by-type-legend": "វិធីផ្ញើសារជូនដំណឹងដែលប្រភេទនីមួួយៗអាចប្រើបាន។ អនុវត្តបានសម្រាប់តែប្រភេទក្នុងចំណាត់ថ្នាក់ក្រុមដែលបានលាក់ពីចំណង់ចំណូលចិត្ត។",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "បើកប្រើតាមលំនាំដើម",
 	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "អ្នកប្រើប្រាស់ចាស់",
 	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "អ្នកប្រើប្រាស់ថ្មី",

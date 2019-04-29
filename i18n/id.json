@@ -66,7 +66,6 @@
 	"echo-displaynotificationsconfiguration-sorting-by-section-legend": "Bagian manakah masing-masing jenis pemberitahuan diurutkan ke dalamnya",
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Cara pemberitahuan yang diizinkan",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Metode pemberitahuan manakah yang didukung untuk masing-masing kategori",
-	"echo-displaynotificationsconfiguration-available-notification-methods-by-type-legend": "Metode pemberitahuan apa saja yang didukung untuk setiap jenis; hanya berlaku ke jenis yang masuk dalam kategori yang disembunyikan dari preferensi",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Diaktifkan secara baku",
 	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Pengguna yang sudah ada",
 	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Pengguna baru",

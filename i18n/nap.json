@@ -57,7 +57,6 @@
 	"echo-displaynotificationsconfiguration-sorting-by-section-legend": "Int'a quale seziona ogne tipo 'e cagnamiento fosse sistimato",
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Metode 'e notifica cunzentute",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Qualu metodo 'e notifica se suppurtasse p'ogne categurìa",
-	"echo-displaynotificationsconfiguration-available-notification-methods-by-type-legend": "Quali metodi 'e cagnamiento songo suppurtate p'ogne tipo; s'apprecasse surtanto a 'e tipe 'e ll'interno d' 'e categurìe ca songo annascunnute 'a 'e preferenze",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Appicciato predefinito",
 	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Utente esistente",
 	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Utente nuove",

@@ -73,7 +73,6 @@
 	"echo-displaynotificationsconfiguration-sorting-by-section-legend": "Vilket avsnitt varje aviseringstyp sorteras i",
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Tillåtna aviseringsmetoder",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Vilka aviseringsmetoder som stöds för varje kategori",
-	"echo-displaynotificationsconfiguration-available-notification-methods-by-type-legend": "Vilka aviseringsmetoder som varje typ stöder; gäller endast typer inom kategorier som döljs i inställningarna",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Aktiverad som standard",
 	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Befintliga användare",
 	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Nya användare",

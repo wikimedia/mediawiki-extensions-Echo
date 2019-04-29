@@ -65,7 +65,6 @@
 	"echo-displaynotificationsconfiguration-sorting-by-section-legend": "En quina secció es classifica cada tipus de notificació",
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Mètodes de notificació permesos",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Quins mètodes de notificació s'usen per a cada categoria",
-	"echo-displaynotificationsconfiguration-available-notification-methods-by-type-legend": "Quins mètodes de notificació s'usen per a cada tipus; només s'aplica als tipus en categories que estan ocultes en les preferències",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Habilitat per defecte",
 	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Usuaris existents",
 	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Usuaris nous",

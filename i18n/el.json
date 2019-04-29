@@ -67,7 +67,6 @@
 	"echo-displaynotificationsconfiguration-sorting-by-section-legend": "Τμήμα στο οποίο ειναι ταξινομημένος κάθε τύπος ενημέρωσης",
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Επιτρεπτές μεθόδοι ενημέρωσης",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Ποιές μέθοδοι κοινοποίησης υποστηρίζονται για κάθε κατηγορία",
-	"echo-displaynotificationsconfiguration-available-notification-methods-by-type-legend": "Ποιές μέθοδοι κοινοποίησης υποστηρίζονται για κάθε τύπο* ισχύει μόνο για τους τύπους εντώς ειδών κατηγορίας που είναι κρυμμένα από τις προτιμήσεις",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Ενεργοποιημένη από προεπιλογή",
 	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Υπάρχοντες χρήστες",
 	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Νέοι χρήστες",

@@ -64,7 +64,6 @@
 	"echo-displaynotificationsconfiguration-sorting-by-section-legend": "Hvilken seksjon hver beskjedtype er sortert i",
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Tillatte beskjedmetoder",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Hvilke beskjedmetoder er støttet for hver kategori",
-	"echo-displaynotificationsconfiguration-available-notification-methods-by-type-legend": "Hvilke beskjedmetoder er støttet for hver type; gjelder bare typer innen kategorier som er skjult fra innstillinger",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Aktivert som standard",
 	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Eksisterende brukere",
 	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Nye brukere",

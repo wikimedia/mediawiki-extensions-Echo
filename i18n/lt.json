@@ -62,7 +62,6 @@
 	"echo-displaynotificationsconfiguration-sorting-by-section-legend": "Į kurį skyrių kiekvienas pranešimų tipas yra rūšiuojamas",
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Leidžiami pranešimo metodai",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Kokie pranešimų metodai yra palaikomi kiekvienai kategorijai",
-	"echo-displaynotificationsconfiguration-available-notification-methods-by-type-legend": "Kokie pranešimų metodai yra palaikomi kiekvienam tipui; taikoma tik tipams, kurie yra kategorijose, bet paslėpti nuo pasirinkčių",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Įjungta pagal nutylėjimą",
 	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Esami naudotojai",
 	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Nauji naudotojai",

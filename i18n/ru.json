@@ -96,7 +96,6 @@
 	"echo-displaynotificationsconfiguration-sorting-by-section-legend": "В какие секции отсортирован каждый тип уведомлений",
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Разрешенные способы уведомления",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Какие способы уведомления поддерживаются в каждой категории",
-	"echo-displaynotificationsconfiguration-available-notification-methods-by-type-legend": "Какие методы уведомления поддерживаются для каждого типа; применяется только к типам в категориях, скрытых из настроек",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Включено по умолчанию",
 	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Существующие участники",
 	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Новые участники",

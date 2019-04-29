@@ -59,7 +59,6 @@
 	"echo-displaynotificationsconfiguration-sorting-by-section-legend": "Alaosad, millesse teavitused jagatakse tüübi järgi",
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Lubatud teavitusviisid",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Teavitusviisid, mida kategooriate lõikes võimaldatakse",
-	"echo-displaynotificationsconfiguration-available-notification-methods-by-type-legend": "Teavitusviisid, mida tüüpide lõikes võimaldatakse (rakendatakse ainult tüüpidele kategooriates, mis on eelistustes peidetud)",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Vaikimisi lubatud",
 	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Olemasolevad kasutajad",
 	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Uued kasutajad",

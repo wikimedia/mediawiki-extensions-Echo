@@ -82,7 +82,6 @@
 	"echo-displaynotificationsconfiguration-sorting-by-section-legend": "每種通知所歸入的類別",
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "允許的通知方式",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "每種通知可用的通知方式",
-	"echo-displaynotificationsconfiguration-available-notification-methods-by-type-legend": "每種通知可用的通知方式；只適用於設定中隱藏的通知類別",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "預設開啟",
 	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "現有使用者",
 	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "新使用者",

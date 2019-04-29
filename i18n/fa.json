@@ -81,7 +81,6 @@
 	"echo-displaynotificationsconfiguration-sorting-by-section-legend": "در هر بخش هر دسته آگاه‌سازی مرتب شده‌است",
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "روش‌های آگاه‌سازی مجاز",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "روش‌های آگاه‌سازی پشتیبانی شده برای هر رده",
-	"echo-displaynotificationsconfiguration-available-notification-methods-by-type-legend": "روش آگاه‌سازیی که توسط افزونه آگاه‌سازی پشتیبانی می‌شود؛ فقط قابل تنظیم برای رده‌های پنهانی‌ست که در ترجیحات تنظیم شده‌اند",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "فعال شده به صورت پیش‌فرض",
 	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "کاربرهای موجود",
 	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "کاربران جدید",

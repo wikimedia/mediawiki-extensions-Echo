@@ -67,7 +67,6 @@
 	"echo-displaynotificationsconfiguration-sorting-by-section-legend": "Подреждане на видовете известия по секции",
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Позволени начини за известяване",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Кои начините за уведомяване се поддържат във всяка категория",
-	"echo-displaynotificationsconfiguration-available-notification-methods-by-type-legend": "Кои са начините за уведомяване се поддържат за всеки вид – прилага се само за видове в рамките на категории, които са скрити от настройките.",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Включени по подразбиране",
 	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Съществуващи потребители",
 	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Нови потребители",
