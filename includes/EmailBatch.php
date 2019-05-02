@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
 use Wikimedia\Rdbms\IResultWrapper;
 
 /**
@@ -237,19 +238,38 @@ class MWEchoEmailBatch {
 	 * Clear "processed" events in the queue, processed could be: email sent, invalid, users do not want to receive emails
 	 */
 	public function clearProcessedEvent() {
-		$conds = [ 'eeb_user_id' => $this->mUser->getId() ];
+		global $wgUpdateRowsPerQuery;
+		$eventMapper = new EchoEventMapper();
+		$dbFactory = MWEchoDbFactory::newFromDefault();
+		$dbw = $dbFactory->getEchoDb( DB_MASTER );
+		$dbr = $dbFactory->getEchoDb( DB_REPLICA );
+		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
+		$ticket = $lbFactory->getEmptyTransactionTicket( __METHOD__ );
+		$domainId = $dbw->getDomainId();
 
-		// there is a processed cutoff point
+		$iterator = new BatchRowIterator( $dbr, 'echo_email_batch', 'eeb_event_id', $wgUpdateRowsPerQuery );
+		$iterator->addConditions( [ 'eeb_user_id' => $this->mUser->getId() ] );
 		if ( $this->lastEvent ) {
-			$conds[] = 'eeb_event_id <= ' . (int)$this->lastEvent;
+			// There is a processed cutoff point
+			$iterator->addConditions( [ 'eeb_event_id <= ' . (int)$this->lastEvent ] );
 		}
+		foreach ( $iterator as $batch ) {
+			$eventIds = [];
+			foreach ( $batch as $row ) {
+				$eventIds[] = $row->eeb_event_id;
+			}
+			$dbw->delete( 'echo_email_batch', [
+				'eeb_user_id' => $this->mUser->getId(),
+				'eeb_event_id' => $eventIds
+			] );
 
-		$dbw = MWEchoDbFactory::newFromDefault()->getEchoDb( DB_MASTER );
-		$dbw->delete(
-			'echo_email_batch',
-			$conds,
-			__METHOD__
-		);
+			// Find out which events are now orphaned, i.e. no longer referenced in echo_email_batch
+			// (besides the rows we just deleted) or in echo_notification, and delete them
+			$eventMapper->deleteOrphanedEvents( $eventIds, $this->mUser->getId(), 'echo_email_batch' );
+
+			$lbFactory->commitAndWaitForReplication(
+				__METHOD__, $ticket, [ 'domain' => $domainId ] );
+		}
 	}
 
 	/**

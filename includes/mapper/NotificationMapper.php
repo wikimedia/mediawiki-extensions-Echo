@@ -334,33 +334,43 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	 */
 	public function deleteByUserEventOffset( User $user, $eventId ) {
 		global $wgUpdateRowsPerQuery;
+		$eventMapper = new EchoEventMapper( $this->dbFactory );
 		$userId = $user->getId();
 		$dbw = $this->dbFactory->getEchoDb( DB_MASTER );
+		$dbr = $this->dbFactory->getEchoDb( DB_REPLICA );
 		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
 		$ticket = $lbFactory->getEmptyTransactionTicket( __METHOD__ );
 		$domainId = $dbw->getDomainId();
 
-		$idsToDelete = $dbw->selectFieldValues(
+		$iterator = new BatchRowIterator(
+			$dbr,
 			'echo_notification',
 			'notification_event',
-			[
-				'notification_user' => $userId,
-				'notification_event < ' . (int)$eventId
-			],
-			__METHOD__
+			$wgUpdateRowsPerQuery
 		);
-		if ( !$idsToDelete ) {
-			return true;
-		}
-		foreach ( array_chunk( $idsToDelete, $wgUpdateRowsPerQuery ) as $batch ) {
+		$iterator->addConditions( [
+			'notification_user' => $userId,
+			'notification_event < ' . (int)$eventId
+		] );
+
+		foreach ( $iterator as $batch ) {
+			$eventIds = [];
+			foreach ( $batch as $row ) {
+				$eventIds[] = $row->notification_event;
+			}
 			$dbw->delete(
 				'echo_notification',
 				[
 					'notification_user' => $userId,
-					'notification_event' => $batch,
+					'notification_event' => $eventIds,
 				],
 				__METHOD__
 			);
+
+			// Find out which events are now orphaned, i.e. no longer referenced in echo_notifications
+			// (besides the rows we just deleted) or in echo_email_batch, and delete them
+			$eventMapper->deleteOrphanedEvents( $eventIds, $userId, 'echo_notification' );
+
 			$lbFactory->commitAndWaitForReplication(
 				__METHOD__, $ticket, [ 'domain' => $domainId ] );
 		}

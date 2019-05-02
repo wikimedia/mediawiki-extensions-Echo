@@ -181,4 +181,59 @@ class EchoEventMapper extends EchoAbstractMapper {
 		return $data;
 	}
 
+	/**
+	 * Find out which of the given event IDs are orphaned, and delete them.
+	 *
+	 * An event is orphaned if it is not referred to by any rows in the echo_notification or
+	 * echo_email_batch tables. If $ignoreUserId is set, rows for that user are not considered when
+	 * determining orphanhood; if $ignoreUserTable is set, this only applies to that table.
+	 * Use this when you've just recently deleted rows related to this user on the master, so that
+	 * this function won't refuse to delete recently-orphaned events because it still sees the
+	 * recently-deleted rows on the replica.
+	 *
+	 * @param array $eventIds Event IDs to check to see if they have become orphaned
+	 * @param int|null $ignoreUserId Allow events to be deleted if the only referring rows
+	 *  have this user ID
+	 * @param string|null $ignoreUserTable Restrict $ignoreUserId to this table only
+	 *  ('echo_notification' or 'echo_email_batch')
+	 */
+	public function deleteOrphanedEvents( array $eventIds, $ignoreUserId = null, $ignoreUserTable = null ) {
+		$dbw = $this->dbFactory->getEchoDb( DB_MASTER );
+		$dbr = $this->dbFactory->getEchoDb( DB_REPLICA );
+
+		$notifJoinConds = [];
+		$emailJoinConds = [];
+		if ( $ignoreUserId !== null ) {
+			if ( $ignoreUserTable === null || $ignoreUserTable === 'echo_notification' ) {
+				$notifJoinConds[] = 'notification_user != ' . $dbr->addQuotes( $ignoreUserId );
+			}
+			if ( $ignoreUserTable === null || $ignoreUserTable === 'echo_email_batch' ) {
+				$emailJoinConds[] = 'eeb_user_id != ' . $dbr->addQuotes( $ignoreUserId );
+			}
+		}
+		$orphanedEventIds = $dbr->selectFieldValues(
+			[ 'echo_event', 'echo_notification', 'echo_email_batch' ],
+			'event_id',
+			[
+				'event_id' => $eventIds,
+				'notification_timestamp' => null,
+				'eeb_user_id' => null
+			],
+			__METHOD__,
+			[],
+			[
+				'echo_notification' => [ 'LEFT JOIN', array_merge( [
+					'notification_event=event_id'
+				], $notifJoinConds ) ],
+				'echo_email_batch' => [ 'LEFT JOIN', array_merge( [
+					'eeb_event_id=event_id'
+				], $emailJoinConds ) ]
+			]
+		);
+		if ( $orphanedEventIds ) {
+			$dbw->delete( 'echo_event', [ 'event_id' => $orphanedEventIds ] );
+			$dbw->delete( 'echo_target_page', [ 'etp_event' => $orphanedEventIds ] );
+		}
+	}
+
 }
