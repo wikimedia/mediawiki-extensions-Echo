@@ -12,7 +12,8 @@
 			"Prevodim",
 			"Acamicamacaraca",
 			"BadDog",
-			"Matěj Suchánek"
+			"Matěj Suchánek",
+			"Zoranzoki21"
 		]
 	},
 	"echo-desc": "Систем за обавештавање корисника о догађајима и порукама",
@@ -153,11 +154,11 @@
 	"notification-link-article-reminder": "Погледај страницу",
 	"notification-header-reverted": "{{PLURAL:$4|Ваша измена на страници <strong>$3</strong> је враћена|Ваше измене на {{GENDER:$2|страници}} <strong>$3</strong> су враћене}}.",
 	"notification-header-emailuser": "$1 вам је {{GENDER:$2|послао|послала}} имејл.",
-	"notification-edit-talk-page-email-subject2": "$1 вам је {{GENDER:$2|оставио|оставила}} поруку на пројекту {{SITENAME}}",
-	"notification-page-linked-email-subject": "Страница коју сте направили је повезана на пројекту {{SITENAME}}",
-	"notification-reverted-email-subject2": "{{PLURAL:$4|Ваша измена је {{GENDER:$2|враћена}}|Ваше измене су {{GENDER:$2|враћене}}}} на пројекту {{SITENAME}}.",
+	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$3|вам}} је {{GENDER:$2|оставио|оставила}} поруку на пројекту {{SITENAME}}",
+	"notification-page-linked-email-subject": "Страница коју {{GENDER:$3|сте}} направили је повезана на пројекту {{SITENAME}}",
+	"notification-reverted-email-subject2": "{{GENDER:$3|Ваша|Ваше}} {{PLURAL:$4|измена је|измене су}} {{GENDER:$2|враћена|враћене}} на пројекту {{SITENAME}}.",
 	"notification-mention-email-subject": "$1 {{GENDER:$3|вас}} је {{GENDER:$2|поменуо|поменула}} на пројекту {{SITENAME}}",
-	"notification-user-rights-email-subject": "Ваша корисничка права су промењена на пројекту {{SITENAME}}.",
+	"notification-user-rights-email-subject": "{{GENDER:$3|Ваша}} корисничка права су промењена на пројекту {{SITENAME}}.",
 	"notification-timestamp-ago-seconds": "{{PLURAL:$1|$1 сек.}}",
 	"notification-timestamp-ago-minutes": "{{PLURAL:$1|$1 мин.}}",
 	"notification-timestamp-ago-hours": "{{PLURAL:$1|$1 ч.}}",
