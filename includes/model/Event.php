@@ -644,11 +644,7 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 	public function getLinkMessage( $rank ) {
 		global $wgEchoNotifications;
 		$type = $this->getType();
-		if ( isset( $wgEchoNotifications[$type][$rank . '-link']['message'] ) ) {
-			return $wgEchoNotifications[$type][$rank . '-link']['message'];
-		}
-
-		return '';
+		return $wgEchoNotifications[$type][$rank . '-link']['message'] ?? '';
 	}
 
 	/**
@@ -660,11 +656,7 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 	public function getLinkDestination( $rank ) {
 		global $wgEchoNotifications;
 		$type = $this->getType();
-		if ( isset( $wgEchoNotifications[$type][$rank . '-link']['destination'] ) ) {
-			return $wgEchoNotifications[$type][$rank . '-link']['destination'];
-		}
-
-		return '';
+		return $wgEchoNotifications[$type][$rank . '-link']['destination'] ?? '';
 	}
 
 	/**

@@ -69,11 +69,8 @@ abstract class EchoAbstractMapper {
 		if ( !method_exists( $this, $method ) ) {
 			throw new MWException( $method . ' does not exist in ' . get_class( $this ) );
 		}
-		if ( isset( $this->listeners[$method] ) ) {
-			return $this->listeners[$method];
-		} else {
-			return [];
-		}
+
+		return $this->listeners[$method] ?? [];
 	}
 
 }

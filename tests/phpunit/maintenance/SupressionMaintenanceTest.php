@@ -110,11 +110,7 @@ class SuppressionMaintenanceTest extends MediaWikiTestCase {
 			$titles = [ $providedNamespace => [ $providedText => $title ] ];
 
 			$gen->setNewTitleFromNsAndText( function ( $namespace, $text ) use ( $titles ) {
-				if ( isset( $titles[$namespace][$text] ) ) {
-					return $titles[$namespace][$text];
-				}
-
-				return Title::makeTitleSafe( $namespace, $text );
+				return $titles[$namespace][$text] ?? Title::makeTitleSafe( $namespace, $text );
 			} );
 		};
 	}

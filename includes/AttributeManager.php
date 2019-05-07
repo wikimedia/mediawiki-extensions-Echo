@@ -374,11 +374,7 @@ class EchoAttributeManager {
 	 * @return string
 	 */
 	public function getNotificationSection( $notificationType ) {
-		if ( isset( $this->notifications[$notificationType]['section'] ) ) {
-			return $this->notifications[$notificationType]['section'];
-		}
-
-		return 'alert';
+		return $this->notifications[$notificationType]['section'] ?? 'alert';
 	}
 
 	/**
