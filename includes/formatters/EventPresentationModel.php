@@ -6,6 +6,7 @@ use Wikimedia\Timestamp\TimestampException;
  * Class that returns structured data based
  * on the provided event.
  */
+// @phan-suppress-next-line PhanRedefinedInheritedInterface
 abstract class EchoEventPresentationModel implements JsonSerializable {
 
 	/**
