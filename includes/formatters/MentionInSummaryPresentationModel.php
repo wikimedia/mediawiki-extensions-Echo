@@ -23,7 +23,7 @@ class EchoMentionInSummaryPresentationModel extends EchoEventPresentationModel {
 	public function getBodyMessage() {
 		$revision = $this->event->getRevision();
 		if ( $revision && $this->userCan( RevisionRecord::DELETED_COMMENT ) ) {
-			$summary = $revision->getComment();
+			$summary = $revision->getComment()->text;
 			$summary = Linker::formatComment( $summary );
 			$summary = Sanitizer::stripAllTags( $summary );
 
