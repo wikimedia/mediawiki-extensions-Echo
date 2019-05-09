@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\Revision\RevisionRecord;
+
 /**
  * Utility class that formats a notification in the format specified
  */
@@ -115,7 +117,7 @@ class EchoDataOutputFormatter {
 
 		$agent = $event->getAgent();
 		if ( $agent ) {
-			if ( $event->userCan( Revision::DELETED_USER, $user ) ) {
+			if ( $event->userCan( RevisionRecord::DELETED_USER, $user ) ) {
 				$output['agent'] = [
 					'id' => $agent->getId(),
 					'name' => $agent->getName(),

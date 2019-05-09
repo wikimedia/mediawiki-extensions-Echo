@@ -1,4 +1,7 @@
 <?php
+
+use MediaWiki\Revision\RevisionRecord;
+
 /**
  * Component that represents a section of a page to be used from EchoEventPresentationModel subclass.
  */
@@ -56,7 +59,7 @@ class EchoPresentationModelSection {
 			return false;
 		}
 		// Check permissions
-		if ( !$this->event->userCan( Revision::DELETED_TEXT, $this->user ) ) {
+		if ( !$this->event->userCan( RevisionRecord::DELETED_TEXT, $this->user ) ) {
 			$this->rawSectionTitle = false;
 			return false;
 		}
