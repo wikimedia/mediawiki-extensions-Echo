@@ -2,8 +2,9 @@
 	"@metadata": {
 		"authors": [
 			"Lancine.kounfantoh.fofana",
-			"Amire80"
+			"Amire80",
+			"Youssoufkadialy"
 		]
 	},
-	"tooltip-pt-notifications-alert": "{{GENDER:|ߌ ߟߊ߫}} ߟߊ߬ߛߏ߬ߓߌ߬ߟߌ"
+	"tooltip-pt-notifications-alert": "ߟߊ߬ߛߏ߬ߓߌ߬ߟߌ ߟߎ߬ {{GENDER:|ߌ ߟߊ߫}}"
 }
