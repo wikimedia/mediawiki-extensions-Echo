@@ -6,6 +6,7 @@
 			"Robin van der Vliet"
 		]
 	},
+	"prefs-echo": "Meldingen",
 	"prefs-emailsettings": "E-mailynstellingen",
 	"echo-pref-email": "E-mail",
 	"echo-pref-email-format-html": "HTML",
