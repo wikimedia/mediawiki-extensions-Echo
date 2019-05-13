@@ -66,6 +66,6 @@
 	"echo-email-batch-subject-daily": "మీకు {{SITENAME}} వద్ద {{PLURAL:$2|కొత్త సూచన ఉంది|కొత్త సందేశాలు ఉన్నాయి}}",
 	"echo-email-batch-subject-weekly": "మీకు ఈ వారం {{SITENAME}} లో {{PLURAL:$2|కొత్త సూచన ఉంది|కొత్త సూచనలుఉన్నాయి}}",
 	"echo-email-batch-body-intro-daily": "నమస్కారం $1 గారూ,\nమీ కోసం {{SITENAME}}లో ఈ రోజు జరిగిన సంగతుల యొక్క సారాంశం ఇక్కడ సమకూరుస్తున్నాం.",
-	"echo-email-batch-body-intro-weekly": "నమస్కారం $1 గారూ,\nమీ కోసం {{SITENAME}}లో ఈ వారం జరిగిన సంగతుల యొక్క సారాంశం ఇక్కడ సమకూరుస్తున్నాం.",
+	"echo-email-batch-body-intro-weekly": "నమస్కారం $1 గారూ,\n{{SITENAME}}లో ఈ వారం జరిగిన కార్యకలాపాల సారాశం మీకోసం.",
 	"echo-email-batch-link-text-view-all-notifications": "అన్ని సూచనలు చూడు"
 }
