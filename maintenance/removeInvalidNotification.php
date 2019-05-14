@@ -20,6 +20,8 @@ class RemoveInvalidNotification extends Maintenance {
 	protected $invalidEventType = [ 'article-linked' ];
 
 	public function __construct() {
+		parent::__construct();
+
 		$this->addDescription( "Removes invalid notifications from the database." );
 		$this->requireExtension( 'Echo' );
 	}
