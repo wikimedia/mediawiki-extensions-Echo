@@ -33,7 +33,8 @@
 			"LNDDYL",
 			"飞舞回堂前",
 			"WhitePhosphorus",
-			"佛壁灯"
+			"佛壁灯",
+			"科劳"
 		]
 	},
 	"echo-desc": "用于通知用户有关活动和消息的系统",
@@ -70,7 +71,7 @@
 	"echo-category-title-user-rights": "{{PLURAL:$1|用户权限更改}}",
 	"echo-category-title-emailuser": "{{PLURAL:$1|来自其他用户的电子邮件}}",
 	"echo-category-title-article-reminder": "页面{{PLURAL:$1|提示}}",
-	"echo-category-title-thank-you-edit": "编辑里程碑",
+	"echo-category-title-thank-you-edit": "编辑$1个里程碑",
 	"echo-pref-tooltip-edit-user-talk": "当有人在我的讨论页上留言或回复时通知我。",
 	"echo-pref-tooltip-article-linked": "当有人链接到我从另一页面创建的页面时通知我。",
 	"echo-pref-tooltip-reverted": "当有人用撤销或回退工具来还原我的编辑时通知我。",
