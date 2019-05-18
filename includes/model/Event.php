@@ -408,28 +408,6 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 	}
 
 	/**
-	 * Check if the event is dismissable for the given distribution type
-	 *
-	 * @param string $distribution notification distribution web/email
-	 * @return bool
-	 */
-	public function isDismissable( $distribution ) {
-		global $wgEchoNotificationCategories;
-
-		$category = $this->getCategory();
-		if ( isset( $wgEchoNotificationCategories[$category]['no-dismiss'] ) ) {
-			$noDismiss = $wgEchoNotificationCategories[$category]['no-dismiss'];
-		} else {
-			$noDismiss = [];
-		}
-		if ( !in_array( $distribution, $noDismiss ) && !in_array( 'all', $noDismiss ) ) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	/**
 	 * Determine if the current user is allowed to view a particular
 	 * field of this revision, if it's marked as deleted.  When no
 	 * revision is attached always returns true.
