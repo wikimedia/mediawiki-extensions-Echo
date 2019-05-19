@@ -32,7 +32,7 @@ trait ApiCrossWiki {
 		$foreignReq = new EchoForeignWikiRequest(
 			$this->getUser(),
 			$paramOverrides + $this->getForeignQueryParams(),
-			$wikis !== null ? $wikis : $this->getRequestedForeignWikis(),
+			$wikis,
 			$this->getModulePrefix() . 'wikis',
 			$tokenType !== false ? $tokenType : null
 		);
