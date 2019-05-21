@@ -82,7 +82,10 @@ abstract class EchoDiscussionParser {
 				if ( !$revision->isMinor() || !$user->isAllowed( 'nominornewtalk' ) ) {
 					$section = self::detectSectionTitleAndText( $interpretation, $title );
 					if ( $section['section-text'] === '' ) {
-						$section['section-text'] = $revision->getComment();
+						$comment = $revision->getComment( RevisionRecord::FOR_PUBLIC, $notifyUser );
+						if ( $comment ) {
+							$section['section-text'] = $comment->text;
+						}
 					}
 					EchoEvent::create( [
 						'type' => 'edit-user-talk',
