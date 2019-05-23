@@ -38,7 +38,7 @@
 	"echo-category-title-system-noemail": "{{PLURAL:$1|Sistem}}",
 	"notifications": "Tebliği",
 	"tooltip-pt-notifications-alert": "Hayê {{GENDER:|şıma}}",
-	"tooltip-pt-notifications-notice": "Pêhesnayışé {{GENDER:|şıma}}",
+	"tooltip-pt-notifications-notice": "Pêhesnayışê {{GENDER:|şıma}}",
 	"echo-displaynotificationsconfiguration": "Eyaranê pêhesnayışa bıasne",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Hesıbyaye deyne aktiv",
 	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Karberê mewcudi",
