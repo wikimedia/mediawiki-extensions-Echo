@@ -29,6 +29,8 @@
 	"echo-category-title-mention": "{{PLURAL:$1|Neamd wurde}}",
 	"echo-category-title-mention-failure": "{{PLURAL:$1|Neamen}} mislearre",
 	"echo-category-title-mention-success": "{{PLURAL:$1|Neamen}} slagge",
+	"echo-category-title-system": "{{PLURAL:$1|Systeem}}",
+	"echo-category-title-system-noemail": "{{PLURAL:$1|Systeem}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|Wiziging|Wizigings}} yn meidoggerrjochten",
 	"echo-category-title-emailuser": "{{PLURAL:$1|E-mail fan oare meidogger|E-mails fan oare meidoggers}}",
 	"echo-category-title-thank-you-edit": "Bewurkings{{PLURAL:$1|mylpeal|mylpeallen}}",
