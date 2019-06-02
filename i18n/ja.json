@@ -14,7 +14,8 @@
 			"Marine-Blue",
 			"Translatealcd",
 			"Omotecho",
-			"Yusuke1109"
+			"Yusuke1109",
+			"Ochaochaocha3"
 		]
 	},
 	"echo-desc": "イベントおよびメッセージについて、利用者に通知するシステム",
@@ -47,6 +48,7 @@
 	"echo-category-title-mention-success": "{{PLURAL:$1|言及}}の成功",
 	"echo-category-title-other": "{{PLURAL:$1|その他}}",
 	"echo-category-title-system": "{{PLURAL:$1|システム}}",
+	"echo-category-title-system-noemail": "{{PLURAL:$1|システム}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|利用者権限の変更}}",
 	"echo-category-title-emailuser": "{{PLURAL:$1|他の利用者からのメール}}",
 	"echo-category-title-article-reminder": "ページ{{PLURAL:$1|リマインダー}}",
@@ -59,7 +61,7 @@
 	"echo-pref-tooltip-user-rights": "誰かが私の利用者権限を変更したときに通知する。",
 	"echo-pref-tooltip-emailuser": "誰かが私にメールを送ったときに通知する。",
 	"notifications": "通知",
-	"tooltip-pt-notifications-alert": "{{GENDER:|あなた}}への通知",
+	"tooltip-pt-notifications-alert": "{{GENDER:|あなた}}へのアラート",
 	"tooltip-pt-notifications-notice": "{{GENDER:|あなた}}への通知",
 	"echo-displaynotificationsconfiguration": "通知の構成状況の表示",
 	"echo-displaynotificationsconfiguration-summary": "こちらは通知機能がこのウィキでどのように構成されているかの概観です。",
@@ -165,9 +167,9 @@
 	"echo-email-plain-footer": "{{GENDER:$1|ご自分が}}受け取るメールの設定を変更するには、{{GENDER:$1|各人の}}個人設定をご確認ください:",
 	"echo-email-html-footer-preference-link-text": "個人設定をご確認ください",
 	"echo-email-html-footer-with-link": "受け取るメールの設定を変更するには、$1。",
-	"echo-notification-alert": "{{PLURAL:$1|アラート ($1)|100=アラート (99+)}}",
+	"echo-notification-alert": "{{PLURAL:$1|アラート ($1)|100=アラート (99件以上)}}",
 	"echo-notification-notice": "{{PLURAL:$1|通知 ($1件)|100=通知 (99件以上)}}",
-	"echo-notification-alert-text-only": "通知",
+	"echo-notification-alert-text-only": "アラート",
 	"echo-notification-notice-text-only": "通知",
 	"echo-overlay-link": "すべての通知",
 	"echo-overlay-title": "<b>通知</b>",
@@ -182,7 +184,7 @@
 	"echo-email-batch-body-intro-daily": "こんにちは、$1 さん。\nこれが {{SITENAME}} での今日の出来事をあなたのために要約したものです。",
 	"echo-email-batch-body-intro-weekly": "こんにちは、$1 さん。\nこれが {{SITENAME}} での今週の出来事をあなたのために要約したものです。",
 	"echo-email-batch-link-text-view-all-notifications": "すべての通知を閲覧",
-	"notification-header-foreign-alert": "{{PLURAL:$5|他のウィキ|$5件のウィキ}}からの通知があります",
-	"notification-header-foreign-notice": "{{PLURAL:$5|他のウィキ|$5件の他のウィキ}}からの通知があります",
-	"notification-header-foreign-all": "{{PLURAL:$5|他のウィキ|$5件の他のウィキ}}からの通知があります"
+	"notification-header-foreign-alert": "{{PLURAL:$5|他のウィキ|他の$5個のウィキ}}からのアラートがあります",
+	"notification-header-foreign-notice": "{{PLURAL:$5|他のウィキ|他の$5個のウィキ}}からの通知があります",
+	"notification-header-foreign-all": "{{PLURAL:$5|他のウィキ|他の$5個のウィキ}}からの通知があります"
 }

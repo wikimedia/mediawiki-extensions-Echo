@@ -9,7 +9,8 @@
 			"Macofe",
 			"Gamliel Fishkin",
 			"NMaia",
-			"Joao Xavier"
+			"Joao Xavier",
+			"Mirin"
 		]
 	},
 	"echo-desc": "Sistemo por sciigado uzantojn pri okazaĵoj kaj mesaĝoj",
@@ -56,6 +57,8 @@
 	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Estantaj uzantoj",
 	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Novaj uzantoj",
 	"echo-specialpage": "Sciigoj",
+	"echo-specialpage-section-markread": "Marki grupon kiel legitan",
+	"echo-specialpage-markasread-invalid-id": "Ne valida identigilo de evento",
 	"echo-specialpage-pagination-numnotifications": "$1 {{PLURAL:$1|sciigo|sciigoj}}",
 	"echo-specialpage-pagefilters-title": "Antaŭnelongaj aktivaĵoj",
 	"echo-specialpage-pagefilters-subtitle": "Paĝoj kun nelegitaj sciigoj",
@@ -109,6 +112,7 @@
 	"notification-header-thank-you-1000000-edit": "{{GENDER:$2|Vi}} ĵus faris {{GENDER:$2|vian}} milionan redakton. Dankegon al {{GENDER:$2|vi}} por mire multaj kontribuoj!",
 	"notification-link-thank-you-edit": "{{GENDER:$1|Via}} redakto",
 	"notification-link-text-view-edit": "Montri redakton",
+	"notification-link-article-reminder": "Vidi paĝon",
 	"notification-header-reverted": "{{PLURAL:$4|Via redakto sur $3 estis {{GENDER:$2|malfarita}}|Viaj redaktoj sur $3 estis {{GENDER:$2|malfaritaj}}}}.",
 	"notification-header-emailuser": "$1 {{GENDER:$2|sendis}} al vi retpoŝtan mesaĝon.",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$2|lasis}} al vi mesaĝon sur {{SITENAME}}",
