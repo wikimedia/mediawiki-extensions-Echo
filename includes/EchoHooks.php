@@ -839,7 +839,7 @@ class EchoHooks {
 			// Load the styles for the Notifications badge
 			$out->addModuleStyles( [
 				'ext.echo.styles.badge',
-				'ext.echo.badgeicons'
+				'oojs-ui.styles.icons-alerts'
 			] );
 		}
 
@@ -975,8 +975,8 @@ class EchoHooks {
 		$sk->getOutput()->setupOOUI(
 			strtolower( $sk->getSkinName() ), $sk->getOutput()->getLanguage()->getDir() );
 
-		$msgLinkClasses = [ "mw-echo-notifications-badge", "mw-echo-notification-badge-nojs" ];
-		$alertLinkClasses = [ "mw-echo-notifications-badge", "mw-echo-notification-badge-nojs" ];
+		$msgLinkClasses = [ "mw-echo-notifications-badge", "mw-echo-notification-badge-nojs","oo-ui-icon-tray" ];
+		$alertLinkClasses = [ "mw-echo-notifications-badge", "mw-echo-notification-badge-nojs", "oo-ui-icon-bell" ];
 
 		$hasUnseen = false;
 		if (

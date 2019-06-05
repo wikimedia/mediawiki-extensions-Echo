@@ -12,12 +12,14 @@
 		height: 20px;
 		margin: 0 2px;
 		// Hide the text, but keep accessible for screen-readers
-		// Later we put the icons back onscreen with an opposite offset
-		top: -@badge-offscreen-offset - 5px;
+		// Later we put the counter back onscreen with a zero text-indent
+		top: -5px;
+		text-indent: -9999px;
 		cursor: pointer;
 		text-decoration: none;
 		line-height: normal;
 		.box-sizing( border-box );
+		opacity: 0.87;
 
 		&:hover,
 		&:active,
@@ -30,28 +32,14 @@
 			opacity: 0.4;
 		}
 
-		// Background icon
-		&:before {
-			position: absolute;
-			display: inline-block;
-			cursor: pointer;
-			opacity: 0.87;
-			content: '';
-			background-repeat: no-repeat;
-			// Bring it back onscreen
-			top: @badge-offscreen-offset;
-			left: 0;
-			width: 100%;
-			height: 100%;
-		}
-
 		// Counter
 		&:after {
 			position: absolute;
 			display: inline-block;
 			cursor: pointer;
 			// Bring it back onscreen
-			top: @badge-offscreen-offset + 9px;
+			top: 9px;
+			text-indent: 0;
 			left: 55%;
 			font-size: 0.9em;
 			font-weight: bold;
@@ -72,27 +60,11 @@
 		}
 
 		&.mw-echo-notifications-badge-all-read {
-			&:before {
-				opacity: 0.51;
-			}
+			opacity: 0.51;
 
 			&:after {
 				visibility: hidden;
 			}
-		}
-	}
-
-	#pt-notifications-alert & {
-		&:before {
-			/* @embed */
-			background-image: url( ../icons/bell.svg );
-		}
-	}
-
-	#pt-notifications-notice & {
-		&:before {
-			/* @embed */
-			background-image: url( ../icons/tray.svg );
 		}
 	}
 
