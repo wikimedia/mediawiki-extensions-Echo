@@ -14,18 +14,11 @@
 class EchoNotificationDeleteJob extends Job {
 
 	/**
-	 * UserIds to be processed
-	 * @var int[]
-	 */
-	protected $userIds = [];
-
-	/**
 	 * @param Title $title
 	 * @param array $params
 	 */
 	public function __construct( Title $title, array $params ) {
 		parent::__construct( __CLASS__, $title, $params );
-		$this->userIds = $params['userIds'];
 	}
 
 	/**
@@ -34,10 +27,10 @@ class EchoNotificationDeleteJob extends Job {
 	 */
 	public function run() {
 		global $wgEchoMaxUpdateCount;
-		if ( count( $this->userIds ) > 1 ) {
+		if ( count( $this->params['userIds'] ) > 1 ) {
 			// If there are multiple users, queue a single job for each one
 			$jobs = [];
-			foreach ( $this->userIds as $userId ) {
+			foreach ( $this->params['userIds'] as $userId ) {
 				$jobs[] = new EchoNotificationDeleteJob( $this->title, [ 'userIds' => [ $userId ] ] );
 			}
 			JobQueueGroup::singleton()->push( $jobs );
@@ -48,7 +41,7 @@ class EchoNotificationDeleteJob extends Job {
 		$notifMapper = new EchoNotificationMapper();
 
 		// Back-compat for older jobs which used array( $userId => $userId );
-		$userIds = array_values( $this->userIds );
+		$userIds = array_values( $this->params['userIds'] );
 		$userId = $userIds[0];
 		$user = User::newFromId( $userId );
 		$notif = $notifMapper->fetchByUserOffset( $user, $wgEchoMaxUpdateCount );
