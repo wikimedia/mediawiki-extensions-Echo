@@ -15,7 +15,8 @@
 			"Translatealcd",
 			"Omotecho",
 			"Yusuke1109",
-			"Ochaochaocha3"
+			"Ochaochaocha3",
+			"Suchichi02"
 		]
 	},
 	"echo-desc": "イベントおよびメッセージについて、利用者に通知するシステム",
@@ -52,6 +53,7 @@
 	"echo-category-title-user-rights": "{{PLURAL:$1|利用者権限の変更}}",
 	"echo-category-title-emailuser": "{{PLURAL:$1|他の利用者からのメール}}",
 	"echo-category-title-article-reminder": "ページ{{PLURAL:$1|リマインダー}}",
+	"echo-category-title-thank-you-edit": "編集{{PLURAL:$1|マイルストーン}}",
 	"echo-pref-tooltip-edit-user-talk": "誰かが私のトークページでメッセージの投稿または返信をしたときに通知する。",
 	"echo-pref-tooltip-article-linked": "誰かが自分の作成したページに記事からリンクしたときに通知する。",
 	"echo-pref-tooltip-reverted": "誰かが取り消しや巻き戻しの機能で私の編集を差し戻したときに通知する。",
@@ -60,6 +62,7 @@
 	"echo-pref-tooltip-mention-success": "利用者へ言及したときに通知する。",
 	"echo-pref-tooltip-user-rights": "誰かが私の利用者権限を変更したときに通知する。",
 	"echo-pref-tooltip-emailuser": "誰かが私にメールを送ったときに通知する。",
+	"echo-pref-tooltip-thank-you-edit": "編集回数が1回、10回、100回などに到達したときに通知する。",
 	"notifications": "通知",
 	"tooltip-pt-notifications-alert": "{{GENDER:|あなた}}へのアラート",
 	"tooltip-pt-notifications-notice": "{{GENDER:|あなた}}への通知",
