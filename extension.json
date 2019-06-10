@@ -892,6 +892,10 @@
 		"EchoMaxMentionsInEditSummary": {
 			"value": 0,
 			"description": "Maximum nubmer of users that will be notified that they were linked from an edit summary or 0 for no notifications"
+		},
+		"EchoPollForUpdates": {
+			"value": 0,
+			"description": "This is the polling rate i.e. the time after which we check for notifications count on the client side. If polling rate is 0 this means polling is disabled "
 		}
 	},
 	"attributes": {
