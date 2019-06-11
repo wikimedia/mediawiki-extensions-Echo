@@ -293,7 +293,7 @@ class EchoNotificationController {
 			return false;
 		}
 
-		$userId = $user->getID();
+		$userId = $user->getId();
 		if ( $userId === 0 ) {
 			return false; // anonymous user
 		}

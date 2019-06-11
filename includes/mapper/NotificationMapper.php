@@ -200,7 +200,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 		// the notification volume is in a reasonable amount for such case.  The other option
 		// is to denormalize notification table with event_type and lookup index.
 		$conds = [
-			'notification_user' => $user->getID(),
+			'notification_user' => $user->getId(),
 			'event_type' => $eventTypes,
 			'event_deleted' => 0,
 		] + $conds;
@@ -340,7 +340,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 		$dbr = $this->dbFactory->getEchoDb( DB_REPLICA );
 		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
 		$ticket = $lbFactory->getEmptyTransactionTicket( __METHOD__ );
-		$domainId = $dbw->getDomainId();
+		$domainId = $dbw->getDomainID();
 
 		$iterator = new BatchRowIterator(
 			$dbr,

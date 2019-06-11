@@ -329,7 +329,7 @@ class GenerateSampleNotifications extends Maintenance {
 			[
 				'type' => 'user-rights',
 				'extra' => [
-					'user' => $user->getID(),
+					'user' => $user->getId(),
 					'add' => $add,
 					'remove' => $remove,
 					'reason' => 'This is the [[reason]] for changing your user rights.',

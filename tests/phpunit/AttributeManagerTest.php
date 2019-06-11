@@ -324,19 +324,19 @@ class EchoAttributeManagerTest extends MediaWikiTestCase {
 		];
 		$manager = new EchoAttributeManager( $notif, $category, $defaultNotifyTypeAvailability, $notifyTypeAvailabilityByCategory );
 		$expected = [ 'event_one', 'event_three', 'event_four' ];
-		$actual = $manager->getUserEnabledEventsBySections( $this->mockUser(), 'web', [ 'alert' ] );
+		$actual = $manager->getUserEnabledEventsbySections( $this->mockUser(), 'web', [ 'alert' ] );
 		sort( $expected );
 		sort( $actual );
 		$this->assertEquals( $expected, $actual );
 
 		$expected = [ 'event_two' ];
-		$actual = $manager->getUserEnabledEventsBySections( $this->mockUser(), 'web', [ 'message' ] );
+		$actual = $manager->getUserEnabledEventsbySections( $this->mockUser(), 'web', [ 'message' ] );
 		sort( $expected );
 		sort( $actual );
 		$this->assertEquals( $expected, $actual );
 
 		$expected = [ 'event_one', 'event_two', 'event_three', 'event_four' ];
-		$actual = $manager->getUserEnabledEventsBySections( $this->mockUser(), 'web',
+		$actual = $manager->getUserEnabledEventsbySections( $this->mockUser(), 'web',
 			[ 'message', 'alert' ] );
 		sort( $expected );
 		sort( $actual );

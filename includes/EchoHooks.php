@@ -730,7 +730,7 @@ class EchoHooks {
 				[
 					'type' => 'user-rights',
 					'extra' => [
-						'user' => $user->getID(),
+						'user' => $user->getId(),
 						'expiry-changed' => $expiryChanged,
 						'reason' => $reason,
 					],
@@ -744,7 +744,7 @@ class EchoHooks {
 				[
 					'type' => 'user-rights',
 					'extra' => [
-						'user' => $user->getID(),
+						'user' => $user->getId(),
 						'add' => $reallyAdded,
 						'remove' => $remove,
 						'reason' => $reason,
@@ -804,7 +804,7 @@ class EchoHooks {
 					continue;
 				}
 
-				$linkFromPageId = $linksUpdate->mTitle->getArticleId();
+				$linkFromPageId = $linksUpdate->mTitle->getArticleID();
 				EchoEvent::create( [
 					'type' => 'page-linked',
 					'title' => $title,
@@ -1016,7 +1016,7 @@ class EchoHooks {
 		$alertLink = [
 			'href' => $url,
 			'text' => $alertText,
-			'active' => ( $url == $title->getLocalUrl() ),
+			'active' => ( $url == $title->getLocalURL() ),
 			'class' => $alertLinkClasses,
 			'data' => [
 				'counter-num' => $alertCount,
@@ -1031,7 +1031,7 @@ class EchoHooks {
 		$msgLink = [
 			'href' => $url,
 			'text' => $msgText,
-			'active' => ( $url == $title->getLocalUrl() ),
+			'active' => ( $url == $title->getLocalURL() ),
 			'class' => $msgLinkClasses,
 			'data' => [
 				'counter-num' => $msgCount,

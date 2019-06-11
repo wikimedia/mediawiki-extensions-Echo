@@ -101,7 +101,7 @@ class ApiEchoUnreadNotificationPages extends ApiQueryBase {
 				$pageName = $title->getPrefixedText();
 			}
 
-			$count = $pageCounts[$title->getArticleId()];
+			$count = $pageCounts[$title->getArticleID()];
 			if ( isset( $groupCounts[$pageName] ) ) {
 				$groupCounts[$pageName] += $count;
 			} else {

@@ -28,7 +28,7 @@ class EchoTitleLocalCache extends EchoLocalCache {
 		if ( $lookups ) {
 			$titles = Title::newFromIDs( $lookups );
 			foreach ( $titles as $title ) {
-				yield $title->getArticleId() => $title;
+				yield $title->getArticleID() => $title;
 			}
 		}
 	}

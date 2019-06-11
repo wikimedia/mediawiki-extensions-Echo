@@ -148,6 +148,6 @@ class SpecialNotificationsMarkRead extends FormSpecialPage {
 
 	public function onSuccess() {
 		$page = SpecialPage::getTitleFor( 'Notifications' );
-		$this->getOutput()->redirect( $page->getFullUrl() );
+		$this->getOutput()->redirect( $page->getFullURL() );
 	}
 }

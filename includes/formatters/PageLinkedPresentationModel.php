@@ -95,7 +95,7 @@ class EchoPageLinkedPresentationModel extends EchoEventPresentationModel {
 		if ( isset( $extra['link-from-namespace'] ) && isset( $extra['link-from-title'] ) ) {
 			$title = Title::makeTitleSafe( $extra['link-from-namespace'], $extra['link-from-title'] );
 			if ( $title ) {
-				return $title->getArticleId();
+				return $title->getArticleID();
 			}
 		}
 		return 0;
@@ -103,7 +103,7 @@ class EchoPageLinkedPresentationModel extends EchoEventPresentationModel {
 
 	private function getPageFrom() {
 		if ( !$this->pageFrom ) {
-			$this->pageFrom = Title::newFromId( $this->getLinkedPageId( $this->event ) );
+			$this->pageFrom = Title::newFromID( $this->getLinkedPageId( $this->event ) );
 		}
 		return $this->pageFrom;
 	}

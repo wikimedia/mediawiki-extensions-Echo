@@ -92,7 +92,7 @@ class EchoTargetPage extends EchoAbstractEntity {
 	 */
 	public function getTitle() {
 		if ( $this->title === false ) {
-			$this->title = Title::newFromId( $this->pageId );
+			$this->title = Title::newFromID( $this->pageId );
 		}
 
 		return $this->title;

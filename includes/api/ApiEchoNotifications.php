@@ -236,7 +236,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 					/** @var EchoNotification $first */
 					$first = reset( $notifs );
 					$continueId = intval( trim( strrchr( $continue, '|' ), '|' ) );
-					if ( $first->getEvent()->getID() !== $continueId ) {
+					if ( $first->getEvent()->getId() !== $continueId ) {
 						// notification doesn't match continue id, it must've been
 						// about read notifications: discard all unread ones
 						$notifs = [];
@@ -388,7 +388,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 			return $timestampsByWiki[$b]->getTimestamp( TS_UNIX ) - $timestampsByWiki[$a]->getTimestamp( TS_UNIX );
 		} );
 
-		$row = new StdClass;
+		$row = new stdClass;
 		$row->event_id = -1;
 		$row->event_type = 'foreign';
 		$row->event_variant = null;

@@ -245,7 +245,7 @@ class MWEchoEmailBatch {
 		$dbr = $dbFactory->getEchoDb( DB_REPLICA );
 		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
 		$ticket = $lbFactory->getEmptyTransactionTicket( __METHOD__ );
-		$domainId = $dbw->getDomainId();
+		$domainId = $dbw->getDomainID();
 
 		$iterator = new BatchRowIterator( $dbr, 'echo_email_batch', 'eeb_event_id', $wgUpdateRowsPerQuery );
 		$iterator->addConditions( [ 'eeb_user_id' => $this->mUser->getId() ] );
