@@ -65,11 +65,4 @@ class ContainmentSetTest extends MediaWikiTestCase {
 		$list = new EchoOnWikiList( NS_USER, "Some_Non_Existant_Page" );
 		$this->assertEquals( [], $list->getValues() );
 	}
-
-	protected function editPage( $pageName, $text, $summary = '', $defaultNs = NS_MAIN ) {
-		$title = Title::newFromText( $pageName, $defaultNs );
-		$page = WikiPage::factory( $title );
-
-		return $page->doEditContent( ContentHandler::makeContent( $text, $title ), $summary );
-	}
 }
