@@ -1148,7 +1148,9 @@ class EchoHooks {
 		$personal_urls = wfArrayInsertAfter( $personal_urls, $insertUrls, 'userpage' );
 
 		if ( $hasUnseen ) {
-			// Record that the user is going to see an indicator that they have unread notifications
+			// Record that the user is going to see an indicator that they have unseen notifications
+			// This is part of tracking how likely users are to click a badge with unseen notifications.
+			// The other part is the 'echo.unseen.click' counter, see ext.echo.init.js.
 			MediaWikiServices::getInstance()->getStatsdDataFactory()->increment( 'echo.unseen' );
 		}
 
