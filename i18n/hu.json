@@ -57,6 +57,7 @@
 	"echo-pref-tooltip-user-rights": "Értesítést kérek, ha valaki megváltoztatja a felhasználói jogaimat.",
 	"echo-pref-tooltip-emailuser": "Értesítést kérek, ha valaki küld nekem egy e-mailt.",
 	"echo-pref-tooltip-article-reminder": "Értesítést kérek erről a lapról, amikor kérdezek.",
+	"echo-pref-tooltip-thank-you-edit": "Értesítést kérek, ha elértem az első, tizedik, századik... szerkesztésemet.",
 	"notifications": "Értesítések",
 	"tooltip-pt-notifications-alert": "Értesítéseid",
 	"tooltip-pt-notifications-notice": "Értesítéseid",

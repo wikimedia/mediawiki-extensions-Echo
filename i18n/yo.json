@@ -13,6 +13,7 @@
 	"notification-link-text-view-mention": "Ìgbéwò ìdárúkọ",
 	"notification-link-text-view-changes": "Ìgbéwò àwọn àtúnṣe tuntun",
 	"notification-link-text-view-page": "Ìgbéwò ojúewé",
+	"notification-welcome-linktext": "Kú àbò",
 	"notification-link-text-view-edit": "Ìgbéwò àtúnṣe",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$2|fi}} ìránṣẹ́ fún yín lórí {{SITENAME}}",
 	"notification-mention-email-subject": "$1 {{GENDER:$2|dárúkọ}} yín lórí {{SITENAME}}",
