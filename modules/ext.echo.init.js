@@ -17,7 +17,16 @@
 
 	// Activate ooui
 	$( function () {
-		var myWidget, echoApi,
+		var selectedWidget,
+			echoApi,
+			messageController,
+			alertController,
+			messageModelManager,
+			alertModelManager,
+			unreadMessageCounter,
+			unreadAlertCounter,
+			maxNotificationCount = mw.config.get( 'wgEchoMaxNotificationCount' ),
+			pollingRate = mw.config.get( 'wgEchoPollForUpdates' ),
 			$existingAlertLink = $( '#pt-notifications-alert a' ),
 			$existingMessageLink = $( '#pt-notifications-notice a' ),
 			numAlerts = $existingAlertLink.attr( 'data-counter-num' ),
@@ -26,47 +35,54 @@
 			badgeLabelMessages = $existingMessageLink.attr( 'data-counter-text' ),
 			hasUnseenAlerts = $existingAlertLink.hasClass( 'mw-echo-unseen-notifications' ),
 			hasUnseenMessages = $existingMessageLink.hasClass( 'mw-echo-unseen-notifications' ),
+			loadingPromise = null,
 			// Store links
 			links = {
-				notifications: $( '#pt-notifications-alert a' ).attr( 'href' ) || mw.util.getUrl( 'Special:Notifications' ),
+				notifications: $existingAlertLink.attr( 'href' ) || mw.util.getUrl( 'Special:Notifications' ),
 				preferences: ( $( '#pt-preferences a' ).attr( 'href' ) || mw.util.getUrl( 'Special:Preferences' ) ) +
 					'#mw-prefsection-echo'
 			};
 
-		// Respond to click on the notification button and load the UI on demand
-		$( '.mw-echo-notification-badge-nojs' ).on( 'click', function ( e ) {
-			var time = mw.now(),
-				myType = $( this ).parent().prop( 'id' ) === 'pt-notifications-alert' ? 'alert' : 'message';
-
-			if ( e.which !== 1 || $( this ).data( 'clicked' ) ) {
-				return false;
+		function loadEcho() {
+			if ( loadingPromise !== null ) {
+				return loadingPromise;
 			}
-
-			$( this ).data( 'clicked', true );
-
-			// Dim the button while we load
-			$( this ).addClass( 'mw-echo-notifications-badge-dimmed' );
-
-			// Fire the notification API requests
+			// This part executes only once, either when header icons are clicked or after completion of 60secs whichever occur first.
 			echoApi = new mw.echo.api.EchoApi();
-			echoApi.fetchNotifications( myType )
-				.then( function ( data ) {
-					mw.track( 'timing.MediaWiki.echo.overlay.api', mw.now() - time );
-					return data;
-				} );
 
-			// Load the ui
-			mw.loader.using( 'ext.echo.ui.desktop', function () {
-				var messageController,
-					alertController,
-					messageModelManager,
-					alertModelManager,
-					unreadMessageCounter,
-					unreadAlertCounter,
-					maxNotificationCount = mw.config.get( 'wgEchoMaxNotificationCount' );
+			loadingPromise = mw.loader.using( 'ext.echo.ui.desktop' ).then( function () {
 
 				// Overlay
 				$( 'body' ).append( mw.echo.ui.$overlay );
+
+				unreadAlertCounter = new mw.echo.dm.UnreadNotificationCounter( echoApi, 'alert', maxNotificationCount );
+				alertModelManager = new mw.echo.dm.ModelManager( unreadAlertCounter, { type: 'alert' } );
+				alertController = new mw.echo.Controller( echoApi, alertModelManager );
+
+				mw.echo.ui.alertWidget = new mw.echo.ui.NotificationBadgeWidget(
+					alertController,
+					alertModelManager,
+					links,
+					{
+						numItems: Number( numAlerts ),
+						convertedNumber: badgeLabelAlerts,
+						hasUnseen: hasUnseenAlerts,
+						badgeIcon: 'bell',
+						$overlay: mw.echo.ui.$overlay,
+						href: $existingAlertLink.attr( 'href' )
+					}
+				);
+
+				// Replace the link button with the ooui button
+				$existingAlertLink.parent().replaceWith( mw.echo.ui.alertWidget.$element );
+
+				alertModelManager.on( 'allTalkRead', function () {
+					// If there was a talk page notification, get rid of it
+					$( '#pt-mytalk a' )
+						.removeClass( 'mw-echo-alert' )
+						.text( mw.msg( 'mytalk' ) );
+				} );
+
 				// Load message button and popup if messages exist
 				if ( $existingMessageLink.length ) {
 					unreadMessageCounter = new mw.echo.dm.UnreadNotificationCounter( echoApi, 'message', maxNotificationCount );
@@ -86,55 +102,71 @@
 							href: $existingMessageLink.attr( 'href' )
 						}
 					);
+
 					// Replace the link button with the ooui button
 					$existingMessageLink.parent().replaceWith( mw.echo.ui.messageWidget.$element );
 				}
-				unreadAlertCounter = new mw.echo.dm.UnreadNotificationCounter( echoApi, 'alert', maxNotificationCount );
-				alertModelManager = new mw.echo.dm.ModelManager( unreadAlertCounter, { type: 'alert' } );
-				alertController = new mw.echo.Controller( echoApi, alertModelManager );
-
-				mw.echo.ui.alertWidget = new mw.echo.ui.NotificationBadgeWidget(
-					alertController,
-					alertModelManager,
-					links,
-					{
-						numItems: Number( numAlerts ),
-						convertedNumber: badgeLabelAlerts,
-						hasUnseen: hasUnseenAlerts,
-						badgeIcon: 'bell',
-						$overlay: mw.echo.ui.$overlay,
-						href: $existingAlertLink.attr( 'href' )
-					}
-				);
-
-				alertModelManager.on( 'allTalkRead', function () {
-					// If there was a talk page notification, get rid of it
-					$( '#pt-mytalk a' )
-						.removeClass( 'mw-echo-alert' )
-						.text( mw.msg( 'mytalk' ) );
-				} );
-
-				// Replace the link button with the ooui button
-				$existingAlertLink.parent().replaceWith( mw.echo.ui.alertWidget.$element );
-
-				// HACK: Now that the module loaded, show the popup
-				myWidget = myType === 'alert' ? mw.echo.ui.alertWidget : mw.echo.ui.messageWidget;
-				myWidget.once( 'finishLoading', function () {
-					// Log timing after notifications are shown
-					mw.track( 'timing.MediaWiki.echo.overlay', mw.now() - time );
-				} );
-				myWidget.popup.toggle( true );
-				mw.track( 'timing.MediaWiki.echo.overlay.ooui', mw.now() - time );
 			} );
+			return loadingPromise;
 
-			if ( hasUnseenAlerts || hasUnseenMessages ) {
-				// Clicked on the flyout due to having unread notifications
-				mw.track( 'counter.MediaWiki.echo.unseen.click' );
+		}
+
+		// Respond to click on the notification button and load the UI on demand
+		$( '.mw-echo-notification-badge-nojs' ).on( 'click', function ( e ) {
+			var timeOfClick = mw.now(),
+				clickedSection = $( this ).parent().prop( 'id' ) === 'pt-notifications-alert' ? 'alert' : 'message';
+			if ( e.which !== 1 || $( this ).data( 'clicked' ) ) {
+				return false;
 			}
 
+			$( this ).data( 'clicked', true );
+
+			// Dim the button while we load
+			$( this ).addClass( 'mw-echo-notifications-badge-dimmed' );
+
+			// Fire the notification API requests
+			echoApi = new mw.echo.api.EchoApi();
+			echoApi.fetchNotifications( clickedSection )
+				.then( function ( data ) {
+					mw.track( 'timing.MediaWiki.echo.overlay.api', mw.now() - timeOfClick );
+					return data;
+				} );
+
+			loadEcho().then( function () {
+				// Now that the module loaded, show the popup
+				selectedWidget = clickedSection === 'alert' ? mw.echo.ui.alertWidget : mw.echo.ui.messageWidget;
+				selectedWidget.once( 'finishLoading', function () {
+					// Log timing after notifications are shown
+					mw.track( 'timing.MediaWiki.echo.overlay', mw.now() - timeOfClick );
+				} );
+				selectedWidget.popup.toggle( true );
+				mw.track( 'timing.MediaWiki.echo.overlay.ooui', mw.now() - timeOfClick );
+
+				if ( hasUnseenAlerts || hasUnseenMessages ) {
+					// Clicked on the flyout due to having unread notifications
+					mw.track( 'counter.MediaWiki.echo.unseen.click' );
+				}
+			} );
 			// Prevent default
 			return false;
 		} );
+
+		function pollForNotificationCountUpdates() {
+			alertController.refreshUnreadCount();
+			messageController.refreshUnreadCount();
+			// Make notification update after pollingRate(time in secs)
+			setTimeout( pollForNotificationCountUpdates, pollingRate * 1000 );
+		}
+
+		function pollStart() {
+			if ( mw.config.get( 'skin' ) !== 'minerva' && pollingRate !== 0 ) {
+				// load widgets if not loaded already then start polling
+				loadEcho().then( pollForNotificationCountUpdates );
+			}
+		}
+
+		setTimeout( pollStart, 60 * 1000 );
+
 	} );
 
 }() );
