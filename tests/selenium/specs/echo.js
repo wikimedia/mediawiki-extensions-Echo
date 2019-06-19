@@ -48,9 +48,9 @@ describe( 'Echo', function () {
 
 		EchoPage.notices.click();
 
-		EchoPage.welcomeNotice.waitForVisible();
+		EchoPage.alertMessage.waitForVisible();
 		let regexp = /Welcome to .*, .*‬! We're glad you're here./;
-		assert( regexp.test( EchoPage.welcomeNotice.getText() ) );
+		assert( regexp.test( EchoPage.alertMessage.getText() ) );
 
 	} );
 
