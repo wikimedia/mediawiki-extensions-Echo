@@ -7,14 +7,16 @@
 		display: inline-block;
 		width: 16px;
 		height: 16px;
-		top: -@badge-offscreen-offset - 1px;
-
-		&:before {
-			background-size: 16px 16px;
-		}
+		background-size: 16px 16px;
+		top: -1px;
+		// HACK: text-indent: -9999px doesn't work with display: inline-block, so hide the text
+		// using a positive text-indent instead (T226503). Also make the text transparent so that
+		// it doesn't show up even if someone does somehow have a 10k-pixel-wide monitor.
+		text-indent: 9999px;
+		color: transparent;
 
 		&:after {
-			top: @badge-offscreen-offset + 3px;
+			top: 3px;
 		}
 	}
 }
