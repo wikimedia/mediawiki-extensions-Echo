@@ -240,7 +240,6 @@
 
 		unreadCount = this.manager.getUnreadCounter().getCount();
 		cappedUnreadCount = this.manager.getUnreadCounter().getCappedNotificationCount( unreadCount );
-		cappedUnreadCount = mw.language.convertNumber( cappedUnreadCount );
 		badgeLabel = mw.message( 'echo-badge-count', mw.language.convertNumber( cappedUnreadCount ) ).text();
 
 		this.badgeButton.setLabel( badgeLabel );
