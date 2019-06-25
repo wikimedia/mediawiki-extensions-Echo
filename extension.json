@@ -274,6 +274,10 @@
 				"ext.echo.api",
 				"mediawiki.Uri"
 			],
+			"messages": [
+				"echo-badge-count",
+				"parentheses"
+			],
 			"targets": [
 				"desktop",
 				"mobile"
@@ -889,7 +893,7 @@
 		},
 		"EchoPollForUpdates": {
 			"value": 0,
-			"description": "This is the polling rate i.e. the time after which we check for notifications count on the client side. If polling rate is 0 this means polling is disabled "
+			"description": "This is the polling rate i.e. the time after which we check for notifications count on the client side. It also controls whether notification count will be displayed in browser title. If polling rate is 0 this means polling is disabled and notification count is also not shown in browser title"
 		}
 	},
 	"attributes": {
