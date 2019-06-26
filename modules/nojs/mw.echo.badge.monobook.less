@@ -9,10 +9,9 @@
 		height: 16px;
 		background-size: 16px 16px;
 		top: -1px;
-		// HACK: text-indent: -9999px doesn't work with display: inline-block, so hide the text
-		// using a positive text-indent instead (T226503). Also make the text transparent so that
-		// it doesn't show up even if someone does somehow have a 10k-pixel-wide monitor.
-		text-indent: 9999px;
+		// HACK: text-indent: -9999px doesn't work with display: inline-block, and using a
+		// positive text-indent causes scrollbars (T226594). Hide the text by making it
+		// transparent, and accept that this will cause some tooltip weirdness (T161302).
 		color: transparent;
 
 		&:after {
