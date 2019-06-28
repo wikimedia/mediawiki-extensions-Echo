@@ -120,6 +120,9 @@
 				"styles/mw.echo.ui.ConfirmationPopupWidget.less"
 			],
 			"skinStyles": {
+				"modern": [
+					"styles/mw.echo.ui.overlay.monobook.less"
+				],
 				"monobook": [
 					"styles/mw.echo.ui.NotificationsListWidget.monobook.less",
 					"styles/mw.echo.ui.overlay.monobook.less"
