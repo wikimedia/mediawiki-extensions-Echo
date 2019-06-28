@@ -74,9 +74,6 @@
 			"skinStyles": {
 				"monobook": [
 					"styles/mw.echo.ui.NotificationBadgeWidget.monobook.less"
-				],
-				"modern": [
-					"styles/mw.echo.ui.NotificationBadgeWidget.modern.less"
 				]
 			},
 			"dependencies": [
@@ -126,9 +123,6 @@
 				"monobook": [
 					"styles/mw.echo.ui.NotificationsListWidget.monobook.less",
 					"styles/mw.echo.ui.overlay.monobook.less"
-				],
-				"modern": [
-					"styles/mw.echo.ui.NotificationItemWidget.modern.less"
 				],
 				"vector": [
 					"styles/mw.echo.ui.overlay.vector.less"
@@ -289,9 +283,6 @@
 				],
 				"vector": [
 					"nojs/mw.echo.badge.vector.less"
-				],
-				"modern": [
-					"nojs/mw.echo.badge.modern.less"
 				]
 			},
 			"targets": [
@@ -316,9 +307,6 @@
 			"skinStyles": {
 				"monobook": [
 					"nojs/mw.echo.alert.monobook.less"
-				],
-				"modern": [
-					"nojs/mw.echo.alert.modern.less"
 				]
 			},
 			"targets": [
