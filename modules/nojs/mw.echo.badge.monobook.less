@@ -1,26 +1,14 @@
 @import '../echo.variables';
 
-/* We have to include the #pt-notifications selector due to monobook */
-.mw-echo-notifications-badge {
-	#pt-notifications-notice &,
-	#pt-notifications-alert & {
-		display: inline-block;
-		width: 16px;
-		height: 16px;
-		background-size: 16px 16px;
-		top: -1px;
-		// HACK: text-indent: -9999px doesn't work with display: inline-block, and using a
-		// positive text-indent causes scrollbars (T226594). Hide the text by making it
-		// transparent, and accept that this will cause some tooltip weirdness (T161302).
-		color: transparent;
+#pt-notifications-notice .mw-echo-notifications-badge,
+#pt-notifications-alert .mw-echo-notifications-badge {
+	display: inline-block;
+	background-size: 16px 16px;
+	background-repeat: no-repeat;
+	top: -1px;
 
-		&:after {
-			top: 3px;
-		}
+	&:after {
+		top: 6px;
+		left: 45%;
 	}
-}
-
-#p-personal #pt-notifications-alert,
-#p-personal #pt-notifications-notice {
-	margin-right: 0.2em;
 }

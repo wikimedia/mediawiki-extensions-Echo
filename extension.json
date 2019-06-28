@@ -71,11 +71,6 @@
 			"styles": [
 				"styles/mw.echo.ui.NotificationBadgeWidget.less"
 			],
-			"skinStyles": {
-				"monobook": [
-					"styles/mw.echo.ui.NotificationBadgeWidget.monobook.less"
-				]
-			},
 			"dependencies": [
 				"ext.echo.ui",
 				"ext.echo.styles.badge",
@@ -124,7 +119,6 @@
 					"styles/mw.echo.ui.overlay.monobook.less"
 				],
 				"monobook": [
-					"styles/mw.echo.ui.NotificationsListWidget.monobook.less",
 					"styles/mw.echo.ui.overlay.monobook.less"
 				],
 				"vector": [
@@ -340,11 +334,6 @@
 				"styles/mw.echo.ui.CrossWikiUnreadFilterWidget.less",
 				"styles/mw.echo.ui.SpecialHelpMenuWidget.less"
 			],
-			"skinStyles": {
-				"monobook": [
-					"styles/mw.echo.ui.CrossWikiUnreadFilterWidget.monobook.less"
-				]
-			},
 			"dependencies": [
 				"ext.echo.ui",
 				"mediawiki.Uri",
