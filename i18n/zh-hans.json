@@ -35,7 +35,8 @@
 			"WhitePhosphorus",
 			"佛壁灯",
 			"科劳",
-			"Suchichi02"
+			"Suchichi02",
+			"神樂坂秀吉"
 		]
 	},
 	"echo-desc": "用于通知用户有关活动和消息的系统",
@@ -183,10 +184,10 @@
 	"notification-body-reverted": "$1",
 	"notification-header-emailuser": "$1向您{{GENDER:$2|发送}}了电子邮件。",
 	"notification-edit-talk-page-email-subject2": "$1在{{SITENAME}}给您{{GENDER:$2|留言}}了",
-	"notification-page-linked-email-subject": "您创建的一个页面在 {{SITENAME}} 上被链接",
+	"notification-page-linked-email-subject": "{{GENDER:$3|您}}创建的一个页面在{{SITENAME}}上被链接",
 	"notification-reverted-email-subject2": "有人{{GENDER:$2|还原了}}您在{{SITENAME}}上的{{PLURAL:$4|编辑}}",
 	"notification-mention-email-subject": "$1在 {{SITENAME}} 上{{GENDER:$2|提到了}}{{GENDER:$3|您}}",
-	"notification-user-rights-email-subject": "您在 {{SITENAME}} 上的用户权限已被更改",
+	"notification-user-rights-email-subject": "{{GENDER:$3|您}}在{{SITENAME}}上的用户权限已被更改",
 	"notification-timestamp-ago-seconds": "{{PLURAL:$1|$1秒}}",
 	"notification-timestamp-ago-minutes": "{{PLURAL:$1|$1分钟}}",
 	"notification-timestamp-ago-hours": "{{PLURAL:$1|$1小时}}",

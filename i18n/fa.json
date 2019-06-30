@@ -62,6 +62,7 @@
 	"echo-category-title-user-rights": "{{PLURAL:$1|تغییر دسترسی‌های کاربری|تغییرات دسترسی‌های کاربری}}",
 	"echo-category-title-emailuser": "{{PLURAL:$1|ایمیل از کاربری دیگر|ایمیل‌هایی از دیگر کاربران}}",
 	"echo-category-title-article-reminder": "صفحهٔ {{PLURAL:$1|یادآوری|یادآوری}}",
+	"echo-category-title-thank-you-edit": "ویرایش {{PLURAL:$1|رویداد مهم|رویدادهای مهم}}",
 	"echo-pref-tooltip-edit-user-talk": "وقتی کسی برایم پیام فرستاد یا جواب پیام مرا در صفحهٔ بحثم داد، مرا آگاه کن.",
 	"echo-pref-tooltip-article-linked": "وقتی کسی به صفحه‌ای که ایجاد کرده‌ام پیوند داد، مرا آگاه کن.",
 	"echo-pref-tooltip-reverted": "وقتی کسی ویرایش مرا با ابزار خثنی‌سازی یا واگردانی، خثنی کرد، مرا آگاه کن.",
