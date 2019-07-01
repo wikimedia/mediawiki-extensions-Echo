@@ -37,7 +37,7 @@ describe( 'Echo', function () {
 
 	} );
 
-	it( 'checks for welcome message after signup', function () {
+	it.skip( 'checks for welcome message after signup', function () {
 
 		var username = Util.getTestString( 'NewUser-' );
 		var password = Util.getTestString();
