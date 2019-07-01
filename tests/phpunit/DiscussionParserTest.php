@@ -1494,9 +1494,9 @@ TEXT
 
 		$options = new ParserOptions;
 
-		global $wgParser;
+		$parser = MediaWikiServices::getInstance()->getParser();
 		$exemplarTimestamp =
-			$wgParser->preSaveTransform( '~~~~~', $title, $user, $options );
+			$parser->preSaveTransform( '~~~~~', $title, $user, $options );
 
 		return $exemplarTimestamp;
 	}

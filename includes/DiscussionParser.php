@@ -431,10 +431,11 @@ abstract class EchoDiscussionParser {
 			return $cache[$cacheKey];
 		}
 
-		global $wgParser;
+		$parser = MediaWikiServices::getInstance()->getParser();
+
 		$options = new ParserOptions;
 		$options->setTidy( true );
-		$output = $wgParser->parse( $wikitext, $article->getTitle(), $options );
+		$output = $parser->parse( $wikitext, $article->getTitle(), $options );
 		$cache[$cacheKey] = $output;
 
 		return $output;
@@ -1023,7 +1024,7 @@ abstract class EchoDiscussionParser {
 	 * - Second element is the normalised user name.
 	 */
 	public static function getUserFromLine( $line, Title $title = null ) {
-		global $wgParser;
+		$parser = MediaWikiServices::getInstance()->getParser();
 
 		/*
 		 * First we call extractUsersFromLine to get all the potential usernames
@@ -1038,7 +1039,7 @@ abstract class EchoDiscussionParser {
 			// discovered the signature from
 			// don't validate the username - anon (IP) is fine!
 			$user = User::newFromName( $username, false );
-			$sig = $wgParser->preSaveTransform(
+			$sig = $parser->preSaveTransform(
 				'~~~',
 				$title ?: Title::newMainPage(),
 				$user,
@@ -1152,9 +1153,9 @@ abstract class EchoDiscussionParser {
 		$user = User::newFromName( 'Test' );
 		$options = new ParserOptions;
 
-		global $wgParser;
+		$parser = MediaWikiServices::getInstance()->getParser();
 		$exemplarTimestamp =
-			$wgParser->preSaveTransform( '~~~~~', $title, $user, $options );
+			$parser->preSaveTransform( '~~~~~', $title, $user, $options );
 
 		// Step 2: Generalise it
 		// Trim off the timezone to replace at the end

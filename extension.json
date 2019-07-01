@@ -15,7 +15,7 @@
 	"license-name": "MIT",
 	"type": "specialpage",
 	"requires": {
-		"MediaWiki": ">= 1.32.0"
+		"MediaWiki": ">= 1.34.0"
 	},
 	"APIMetaModules": {
 		"notifications": "ApiEchoNotifications",
@@ -409,7 +409,8 @@
 		"SendWatchlistEmailNotification": "EchoHooks::onSendWatchlistEmailNotification",
 		"GetNewMessagesAlert": "EchoHooks::abortNewMessagesAlert",
 		"LinksUpdateAfterInsert": "EchoHooks::onLinksUpdateAfterInsert",
-		"ResourceLoaderGetConfigVars": "EchoHooks::onResourceLoaderGetConfigVars"
+		"ResourceLoaderGetConfigVars": "EchoHooks::onResourceLoaderGetConfigVars",
+		"SpecialMuteModifyFormFields": "EchoHooks::onSpecialMuteModifyFormFields"
 	},
 	"config": {
 		"EchoEnableEmailBatch": {
