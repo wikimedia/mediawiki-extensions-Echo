@@ -27,6 +27,7 @@
 			unreadAlertCounter,
 			maxNotificationCount = mw.config.get( 'wgEchoMaxNotificationCount' ),
 			pollingRate = mw.config.get( 'wgEchoPollForUpdates' ),
+			documentTitle = document.title,
 			$existingAlertLink = $( '#pt-notifications-alert a' ),
 			$existingMessageLink = $( '#pt-notifications-notice a' ),
 			numAlerts = $existingAlertLink.attr( 'data-counter-num' ),
@@ -35,6 +36,8 @@
 			badgeLabelMessages = $existingMessageLink.attr( 'data-counter-text' ),
 			hasUnseenAlerts = $existingAlertLink.hasClass( 'mw-echo-unseen-notifications' ),
 			hasUnseenMessages = $existingMessageLink.hasClass( 'mw-echo-unseen-notifications' ),
+			alertCount = parseInt( numAlerts ),
+			messageCount = parseInt( numMessages ),
 			loadingPromise = null,
 			// Store links
 			links = {
@@ -42,6 +45,24 @@
 				preferences: ( $( '#pt-preferences a' ).attr( 'href' ) || mw.util.getUrl( 'Special:Preferences' ) ) +
 					'#mw-prefsection-echo'
 			};
+
+		function updateDocumentTitleWithNotificationCount( totalAlertCount, totalMessageCount ) {
+			var totalCount = totalAlertCount + totalMessageCount,
+				convertedTotalCount,
+				newTitle = documentTitle;
+
+			if ( totalCount > 0 ) {
+				convertedTotalCount = totalCount <= maxNotificationCount ? totalCount : maxNotificationCount + 1;
+				convertedTotalCount = mw.msg( 'echo-badge-count', mw.language.convertNumber( convertedTotalCount ) );
+				newTitle = mw.msg( 'parentheses', convertedTotalCount ) + ' ' + documentTitle;
+			}
+			document.title = newTitle;
+		}
+
+		// change document title on initialization only when polling rate(feature flag) is non-zero.
+		if ( pollingRate !== 0 ) {
+			updateDocumentTitleWithNotificationCount( alertCount, messageCount );
+		}
 
 		function loadEcho() {
 			if ( loadingPromise !== null ) {
@@ -83,6 +104,14 @@
 						.text( mw.msg( 'mytalk' ) );
 				} );
 
+				// listen to event countChange and change title only if polling rate is non-zero
+				if ( pollingRate !== 0 ) {
+					alertModelManager.getUnreadCounter().on( 'countChange', function ( count ) {
+						alertCount = count;
+						updateDocumentTitleWithNotificationCount( count, messageCount );
+					} );
+				}
+
 				// Load message button and popup if messages exist
 				if ( $existingMessageLink.length ) {
 					unreadMessageCounter = new mw.echo.dm.UnreadNotificationCounter( echoApi, 'message', maxNotificationCount );
@@ -105,6 +134,14 @@
 
 					// Replace the link button with the ooui button
 					$existingMessageLink.parent().replaceWith( mw.echo.ui.messageWidget.$element );
+
+					// listen to event countChange and change title only if polling rate is non-zero
+					if ( pollingRate !== 0 ) {
+						messageModelManager.getUnreadCounter().on( 'countChange', function ( count ) {
+							messageCount = count;
+							updateDocumentTitleWithNotificationCount( alertCount, count );
+						} );
+					}
 				}
 			} );
 			return loadingPromise;
