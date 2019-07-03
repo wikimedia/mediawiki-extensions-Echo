@@ -258,8 +258,12 @@
 			]
 		},
 		"ext.echo.init": {
-			"scripts": [
-				"ext.echo.init.js"
+			"packageFiles": [
+				"ext.echo.init.js",
+				{
+					"name": "config.json",
+					"callback": "EchoHooks::getConfigVars"
+				}
 			],
 			"dependencies": [
 				"ext.echo.api",
@@ -409,7 +413,6 @@
 		"SendWatchlistEmailNotification": "EchoHooks::onSendWatchlistEmailNotification",
 		"GetNewMessagesAlert": "EchoHooks::abortNewMessagesAlert",
 		"LinksUpdateAfterInsert": "EchoHooks::onLinksUpdateAfterInsert",
-		"ResourceLoaderGetConfigVars": "EchoHooks::onResourceLoaderGetConfigVars",
 		"SpecialMuteModifyFormFields": "EchoHooks::onSpecialMuteModifyFormFields"
 	},
 	"config": {

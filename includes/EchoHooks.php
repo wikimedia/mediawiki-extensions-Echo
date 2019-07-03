@@ -1477,13 +1477,11 @@ class EchoHooks {
 		return true;
 	}
 
-	public static function onResourceLoaderGetConfigVars( &$vars ) {
-		global $wgEchoPollForUpdates;
-
-		$vars['wgEchoMaxNotificationCount'] = MWEchoNotifUser::MAX_BADGE_COUNT;
-		$vars['wgEchoPollForUpdates'] = $wgEchoPollForUpdates;
-
-		return true;
+	public static function getConfigVars( ResourceLoaderContext $context ) {
+		return [
+			'EchoMaxNotificationCount' => MWEchoNotifUser::MAX_BADGE_COUNT,
+			'EchoPollForUpdates' => $context->getConfig()->get( 'EchoPollForUpdates' )
+		];
 	}
 
 	/**
