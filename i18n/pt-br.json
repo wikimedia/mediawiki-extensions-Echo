@@ -209,5 +209,5 @@
 	"notification-header-foreign-notice": "Mais notificações de {{PLURAL:$5|outra wiki|$5 outras wikis}}",
 	"notification-header-foreign-all": "Mais notificações de {{PLURAL:$5|outra wiki|$5 outras wikis}}",
 	"echo-foreign-wiki-lang": "$1 - $2",
-	"echo-badge-count": "{{PLURAL:$1|$1|100=99+}}"
+	"echo-badge-count": "{{PLURAL:$1|$1|100={{formatnum:99}}+}}"
 }
