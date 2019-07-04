@@ -5,7 +5,7 @@ var assert = require( 'assert' ),
 	Api = require( 'wdio-mediawiki/Api' );
 
 describe( 'Mention test for Echo', function () {
-	it.skip( 'checks if admin gets alert when mentioned', function () {
+	it( 'checks if admin gets alert when mentioned', function () {
 
 		var username = Util.getTestString( 'NewUser-' );
 		var password = Util.getTestString();

@@ -8,7 +8,7 @@ var assert = require( 'assert' ),
 
 describe( 'Echo', function () {
 
-	it( 'alerts and notices are visible after logging in', function () {
+	it( 'alerts and notices are visible after logging in @daily', function () {
 
 		UserLoginPage.login( browser.options.username, browser.options.password );
 
@@ -17,7 +17,7 @@ describe( 'Echo', function () {
 
 	} );
 
-	it( 'flyout for alert appears when clicked', function () {
+	it( 'flyout for alert appears when clicked @daily', function () {
 
 		UserLoginPage.login( browser.options.username, browser.options.password );
 		EchoPage.alerts.click();
@@ -27,7 +27,7 @@ describe( 'Echo', function () {
 
 	} );
 
-	it( 'flyout for notices appears when clicked', function () {
+	it( 'flyout for notices appears when clicked @daily', function () {
 
 		UserLoginPage.login( browser.options.username, browser.options.password );
 		EchoPage.notices.click();
@@ -37,7 +37,7 @@ describe( 'Echo', function () {
 
 	} );
 
-	it.skip( 'checks for welcome message after signup', function () {
+	it( 'checks for welcome message after signup', function () {
 
 		var username = Util.getTestString( 'NewUser-' );
 		var password = Util.getTestString();

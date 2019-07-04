@@ -4,7 +4,7 @@ var assert = require( 'assert' ),
 
 describe( 'Notifications', function () {
 
-	it( 'checks for Notifications Page', function () {
+	it( 'checks for Notifications Page @daily', function () {
 
 		UserLoginPage.login( browser.options.username, browser.options.password );
 		NotificationsPage.open();
