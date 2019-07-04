@@ -104,7 +104,7 @@
 			myEvt.mobile = mobile || mw.config.get( 'skin' ) === 'minerva';
 		}
 
-		if ( notifWiki && notifWiki !== mw.config.get( 'wgWikiId' ) && notifWiki !== 'local' ) {
+		if ( notifWiki && notifWiki !== mw.config.get( 'wgWikiID' ) && notifWiki !== 'local' ) {
 			myEvt.notifWiki = notifWiki;
 		}
 
@@ -124,7 +124,7 @@
 		var i, len, key;
 
 		for ( i = 0, len = notificationIds.length; i < len; i++ ) {
-			key = notifWiki && notifWiki !== mw.config.get( 'wgWikiId' ) && notifWiki !== 'local' ?
+			key = notifWiki && notifWiki !== mw.config.get( 'wgWikiID' ) && notifWiki !== 'local' ?
 				notificationIds[ i ] + '-' + notifWiki :
 				notificationIds[ i ];
 

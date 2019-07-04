@@ -107,11 +107,11 @@
 		return Array.isArray( sources ) ?
 			(
 				sources.indexOf( 'local' ) !== -1 ||
-				sources.indexOf( mw.config.get( 'wgWikiId' ) ) !== -1
+				sources.indexOf( mw.config.get( 'wgWikiID' ) ) !== -1
 			) :
 			(
 				sources === 'local' ||
-				sources === mw.config.get( 'wgWikiId' )
+				sources === mw.config.get( 'wgWikiID' )
 			);
 	};
 

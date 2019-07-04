@@ -969,8 +969,6 @@ class EchoHooks {
 			'notice' => $seenMsgTime,
 		] );
 
-		$sk->getOutput()->addJsConfigVars( 'wgWikiId', wfWikiID() );
-
 		$msgFormattedCount = EchoNotificationController::formatNotificationCount( $msgCount );
 		$alertFormattedCount = EchoNotificationController::formatNotificationCount( $alertCount );
 
