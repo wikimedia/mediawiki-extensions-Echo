@@ -39,6 +39,7 @@
 	"echo-category-title-mention-success": "{{PLURAL:$1|Edukas mainimine|Edukad mainimised}}",
 	"echo-category-title-other": "{{PLURAL:$1|Muu}}",
 	"echo-category-title-system": "{{PLURAL:$1|Süsteem}}",
+	"echo-category-title-system-noemail": "{{PLURAL:$1|Süsteem}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|Kasutajaõiguste muutmine|Kasutajaõiguste muutmised}}",
 	"echo-category-title-emailuser": "{{PLURAL:$1|E-kiri teiselt kasutajalt|E-kiri teistelt kasutajatelt}}",
 	"echo-category-title-thank-you-edit": "Kaastöö {{PLURAL:$1|verstapost|verstapostid}}",
