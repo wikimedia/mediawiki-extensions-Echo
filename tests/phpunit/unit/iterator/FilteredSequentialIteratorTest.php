@@ -4,7 +4,7 @@
  * @covers EchoCallbackIterator
  * @covers EchoFilteredSequentialIterator
  */
-class FilteredSequentialIteratorTest extends MediaWikiTestCase {
+class FilteredSequentialIteratorTest extends MediaWikiUnitTestCase {
 
 	public function testEchoCallbackIteratorDoesntBlowUp() {
 		$it = new EchoCallbackIterator(

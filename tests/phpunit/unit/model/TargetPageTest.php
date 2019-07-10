@@ -3,7 +3,7 @@
 /**
  * @covers EchoTargetPage
  */
-class EchoTargetPageTest extends MediaWikiTestCase {
+class EchoTargetPageTest extends MediaWikiUnitTestCase {
 
 	public function testCreate() {
 		$this->assertNull(

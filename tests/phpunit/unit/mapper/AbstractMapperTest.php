@@ -3,7 +3,7 @@
 /**
  * @covers EchoAbstractMapper
  */
-class EchoAbstractMapperTest extends MediaWikiTestCase {
+class EchoAbstractMapperTest extends MediaWikiUnitTestCase {
 
 	/**
 	 * @return array [ 'mapper' => EchoAbstractMapper, 'property' => ReflectionProperty ]

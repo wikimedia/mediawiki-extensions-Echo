@@ -3,7 +3,7 @@
 /**
  * @covers Bundler
  */
-class BundlerTest extends MediaWikiTestCase {
+class BundlerTest extends MediaWikiUnitTestCase {
 
 	public function testBundle() {
 		$read = true;

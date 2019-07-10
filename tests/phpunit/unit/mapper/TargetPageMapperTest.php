@@ -3,7 +3,7 @@
 /**
  * @covers EchoTargetPageMapper
  */
-class EchoTargetPageMapperTest extends MediaWikiTestCase {
+class EchoTargetPageMapperTest extends MediaWikiUnitTestCase {
 
 	public function provideDataTestInsert() {
 		return [

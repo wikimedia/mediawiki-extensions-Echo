@@ -4,7 +4,7 @@
  * @covers EchoDiffParser
  * @group Echo
  */
-class EchoDiffParserTest extends MediaWikiTestCase {
+class EchoDiffParserTest extends MediaWikiUnitTestCase {
 
 	/**
 	 * @dataProvider provider_getChangeSet
