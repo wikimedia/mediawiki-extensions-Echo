@@ -263,6 +263,7 @@
 			],
 			"dependencies": [
 				"ext.echo.api",
+				"mediawiki.jqueryMsg",
 				"mediawiki.Uri"
 			],
 			"messages": [
