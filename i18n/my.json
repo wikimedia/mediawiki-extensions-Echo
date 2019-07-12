@@ -59,6 +59,7 @@
 	"notificationsmarkread-legend": "အသိပေးချက်ကို ဖတ်ရှုပြီးဖြစ်ကြောင်း မှတ်သားရန်",
 	"echo-none": "အသိပေးချက်များ မရှိပါ။",
 	"echo-notification-placeholder": "အသိပေးချက်များ မရှိပါ။",
+	"echo-notification-placeholder-filters": "ဤသတ်မှတ်ချက်နှင့်ကိုက်ညီသော အသိပေးချက်များ မရှိပါ။",
 	"echo-notification-loginrequired": "သင်၏အသိပေးချက်များကို ကြည့်ရန် အကောင့်ထဲသို့ဝင်ရပါမည်။",
 	"echo-notification-popup-loginrequired": "သင်၏အသိပေးချက်များကို ကြည့်ရှုရန် အကောင့်ထဲသို့ဝင်ပါ။",
 	"echo-notification-markasread": "ဖတ်ပြီးကြောင်း မှတ်သားရန်",
