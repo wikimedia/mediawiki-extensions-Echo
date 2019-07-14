@@ -448,6 +448,7 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 	}
 
 	## Accessors
+
 	/**
 	 * @return int
 	 */

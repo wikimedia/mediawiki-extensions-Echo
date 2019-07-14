@@ -9,6 +9,7 @@ class EchoSummaryParserTest extends MediaWikiTestCase {
 		'Jorm',
 		'Jim Carter',
 	];
+
 	/**
 	 * @covers EchoSummaryParser::parse
 	 * @dataProvider provideParse

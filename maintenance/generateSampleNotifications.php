@@ -451,6 +451,7 @@ class GenerateSampleNotifications extends Maintenance {
 		$output = $this->addTimestampToOutput( "{$agent->getName()} is thanking {$user->getName()} for edit {$revision->getId()} on {$title->getPrefixedText()}" );
 		$this->output( "$output\n" );
 	}
+
 	private function generateMultipleEditThanks( User $user, User $agent, User $otherUser ) {
 		if ( !ExtensionRegistry::getInstance()->isLoaded( 'Thanks' ) ) {
 			return;
