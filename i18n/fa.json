@@ -167,7 +167,7 @@
 	"notification-link-thank-you-edit": "{{GENDER:$1|ویرایش}} شما",
 	"notification-link-text-view-edit": "نمایش ویرایش",
 	"notification-link-article-reminder": "مشاهدهٔ صفحه",
-	"notification-header-reverted": "{{PLURAL:$4|ویرایش شما بر روی <strong>$3</strong>|ویرایش‌های شما بر روی <strong>$3</strong>}}  {{GENDER:$2|برگردانده شده‌است.}}",
+	"notification-header-reverted": "{{PLURAL:$4|ویرایش|ویرایش‌های}}تان بر روی <strong>$3</strong> {{GENDER:$2|برگردانده شده‌است.}}",
 	"notification-header-emailuser": "$1 به شما ایمیل {{GENDER:$2|زد}}.",
 	"notification-edit-talk-page-email-subject2": "{{GENDER:$3|شما}} یک پیام تازه از طرف $1 در صفحهٔ بحث {{SITENAME}} {{GENDER:$2|دارید}}",
 	"notification-page-linked-email-subject": "صفحه‌ای که {{GENDER:$3|شما}} آغازگر آن بودید در {{SITENAME}} پیوند شد.",
