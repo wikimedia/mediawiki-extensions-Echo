@@ -191,8 +191,8 @@
 		function pollForNotificationCountUpdates() {
 			alertController.refreshUnreadCount();
 			messageController.refreshUnreadCount();
-			// Make notification update after pollingRate(time in secs)
-			setTimeout( pollForNotificationCountUpdates, pollingRate * 1000 );
+			// Make notification update after n*pollingRate(time in secs) where n depends on document.hidden
+			setTimeout( pollForNotificationCountUpdates, ( document.hidden ? 5 : 1 ) * pollingRate * 1000 );
 		}
 
 		function pollStart() {
