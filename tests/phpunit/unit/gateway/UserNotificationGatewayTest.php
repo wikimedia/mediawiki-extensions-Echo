@@ -3,7 +3,7 @@
 /**
  * @covers EchoUserNotificationGateway
  */
-class EchoUserNotificationGatewayTest extends MediaWikiTestCase {
+class EchoUserNotificationGatewayTest extends MediaWikiUnitTestCase {
 
 	public function testMarkRead() {
 		// no event ids to mark
