@@ -58,7 +58,7 @@
 	"echo-category-title-user-rights": "{{PLURAL:$1|Alteração de permissões de usuário|Alterações de permissões de usuário}}",
 	"echo-category-title-emailuser": "{{PLURAL:$1|E-mail de outro usuário|E-mails de outros usuários}}",
 	"echo-category-title-article-reminder": "{{PLURAL:$1|Lembrete|Lembretes}} de página",
-	"echo-category-title-thank-you-edit": "Editar {{PLURAL:$1|marco|marcos}}",
+	"echo-category-title-thank-you-edit": "{{PLURAL:$1|marco|marcos}} de edição",
 	"echo-pref-tooltip-edit-user-talk": "Notifique-me quando alguém publicar uma mensagem ou respostas na minha página de discussão.",
 	"echo-pref-tooltip-article-linked": "Notifique-me quando alguém criar um link para uma página que criei a partir de uma página de artigo.",
 	"echo-pref-tooltip-reverted": "Notifique-me quando alguém reverter uma edição que fiz usando desfazer ou a ferramenta de reversão.",
