@@ -1477,10 +1477,10 @@ class EchoHooks {
 		return true;
 	}
 
-	public static function getConfigVars( ResourceLoaderContext $context ) {
+	public static function getConfigVars( ResourceLoaderContext $context, Config $config ) {
 		return [
 			'EchoMaxNotificationCount' => MWEchoNotifUser::MAX_BADGE_COUNT,
-			'EchoPollForUpdates' => $context->getConfig()->get( 'EchoPollForUpdates' )
+			'EchoPollForUpdates' => $config->get( 'EchoPollForUpdates' )
 		];
 	}
 
