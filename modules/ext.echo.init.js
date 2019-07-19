@@ -36,6 +36,10 @@
 			badgeLabelMessages = $existingMessageLink.attr( 'data-counter-text' ),
 			hasUnseenAlerts = $existingAlertLink.hasClass( 'mw-echo-unseen-notifications' ),
 			hasUnseenMessages = $existingMessageLink.hasClass( 'mw-echo-unseen-notifications' ),
+			// latestMessageNotifTime is the time of most recent notification that came when we called showNotificationSnippet last
+			// the function showNotificationSnippet returns the time of the latest notification and latestMessageNotifTime is updated
+			latestMessageNotifTime = new Date(),
+			latestAlertNotifTime = new Date(),
 			alertCount = parseInt( numAlerts ),
 			messageCount = parseInt( numMessages ),
 			loadingPromise = null,
@@ -57,6 +61,32 @@
 				newTitle = mw.msg( 'parentheses', convertedTotalCount ) + ' ' + documentTitle;
 			}
 			document.title = newTitle;
+		}
+
+		/**
+		 * Show notification snippet via mw.notify of notifications which came after highestNotifTime.
+		 *
+		 * @param {mw.echo.dm.ModelManager} modelManager
+		 * @param {Date} highestNotifTime Timestamp of latest notification the last time function was called
+		 * @return {Date} Timestamp of latest notification
+		 */
+		function showNotificationSnippet( modelManager, highestNotifTime ) {
+			var timestampAsDate,
+				highestTime = new Date();
+			highestTime = highestNotifTime;
+			modelManager.getLocalNotifications().forEach( function ( notificationItem ) {
+				timestampAsDate = new Date( notificationItem.timestamp );
+				if ( timestampAsDate > highestNotifTime ) {
+					if ( timestampAsDate > highestTime ) {
+						highestTime = timestampAsDate;
+					}
+					if ( !notificationItem.seen ) {
+						mw.notify( notificationItem.content.header, { title: mw.msg( 'echo-displaysnippet-title' ) } );
+					}
+				}
+			}
+			);
+			return highestTime;
 		}
 
 		// change document title on initialization only when polling rate(feature flag) is non-zero.
@@ -107,6 +137,10 @@
 				// listen to event countChange and change title only if polling rate is non-zero
 				if ( pollingRate !== 0 ) {
 					alertModelManager.getUnreadCounter().on( 'countChange', function ( count ) {
+						alertController.fetchLocalNotifications()
+							.then( function () {
+								latestAlertNotifTime = showNotificationSnippet( alertModelManager, latestAlertNotifTime );
+							} );
 						alertCount = count;
 						updateDocumentTitleWithNotificationCount( count, messageCount );
 					} );
@@ -138,6 +172,10 @@
 					// listen to event countChange and change title only if polling rate is non-zero
 					if ( pollingRate !== 0 ) {
 						messageModelManager.getUnreadCounter().on( 'countChange', function ( count ) {
+							messageController.fetchLocalNotifications()
+								.then( function () {
+									latestMessageNotifTime = showNotificationSnippet( messageModelManager, latestMessageNotifTime );
+								} );
 							messageCount = count;
 							updateDocumentTitleWithNotificationCount( alertCount, count );
 						} );

@@ -211,6 +211,7 @@
 	"echo-mark-all-as-read": "Text for button that marks all unread notifications as read. Keep this as short as possible.\n{{Identical|Mark all as read}}",
 	"echo-mark-all-as-read-confirmation": "Text for the confirmation message that appers after the user marks all unread notifications as read, as used on mobile. Keep this as short as possible\n\nParameters:\n* $1 - The number of notifications that were marked as read",
 	"echo-mark-wiki-as-read": "Text for button that marks all unread notifications as read in a specific wiki. Keep this as short as possible.\n\nParameters:\n* $1 - The human readable name of the selected wiki",
+	"echo-displaysnippet-title": "The header text for notification snippets displayed in a corner of the screen when the user receives a new notification",
 	"echo-date-today": "The header text for today's notification section.\n{{Identical|Today}}",
 	"echo-date-yesterday": "The header text for yesterday's notification section.\n{{Identical|Yesterday}}",
 	"notification-bundle-header-edit-user-talk-v2": "Bundled header message for edit-user-talk notification. Parameters:\n* $1 - the number of new messages, except that if the count is greater than 99, this value will be 100; uses standard number formatting and used for PLURAL\n* $2 - Unused\n* $3 - the name of the user being addressed, can be used for GENDER\n{{Related|Notification-bundle}}",

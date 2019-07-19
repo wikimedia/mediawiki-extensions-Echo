@@ -211,6 +211,7 @@
 	"echo-mark-all-as-read": "Mark all as read",
 	"echo-mark-all-as-read-confirmation": "$1 {{PLURAL:$1|notification|notifications}} marked as read",
 	"echo-mark-wiki-as-read": "Mark all as read in selected wiki: $1",
+	"echo-displaysnippet-title": "New notification",
 	"echo-date-today": "Today",
 	"echo-date-yesterday": "Yesterday",
 	"notification-bundle-header-edit-user-talk-v2": "{{PLURAL:$1|One new message|$1 new messages|100=99+ new messages}} on <strong>{{GENDER:$3|your}} talk page</strong>.",

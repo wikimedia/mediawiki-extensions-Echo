@@ -277,6 +277,7 @@
 			],
 			"messages": [
 				"echo-badge-count",
+				"echo-displaysnippet-title",
 				"parentheses"
 			],
 			"targets": [
