@@ -248,15 +248,6 @@
 				"mobile"
 			]
 		},
-		"ext.echo.base": {
-			"targets": [
-				"desktop",
-				"mobile"
-			],
-			"dependencies": [
-				"ext.echo.logger"
-			]
-		},
 		"ext.echo.init": {
 			"packageFiles": [
 				"ext.echo.init.js",
