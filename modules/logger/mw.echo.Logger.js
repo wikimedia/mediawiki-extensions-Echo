@@ -1,4 +1,5 @@
 ( function () {
+	var configVars = require( './config.json' );
 	mw.echo = mw.echo || {};
 
 	/**
@@ -28,7 +29,7 @@
 	 * @static
 	 * @property {boolean}
 	 */
-	mw.echo.Logger.static.clickThroughEnabled = !!mw.config.get( 'wgEchoInteractionLogging' );
+	mw.echo.Logger.static.clickThroughEnabled = !!configVars.EchoInteractionLogging && !mw.user.isAnon();
 
 	/**
 	 * Context definitions.
@@ -84,7 +85,7 @@
 
 		myEvt = {
 			action: action,
-			version: mw.config.get( 'wgEchoEventLoggingVersion' ),
+			version: configVars.EchoEventLoggingVersion,
 			userId: +mw.config.get( 'wgUserId' ),
 			editCount: +mw.config.get( 'wgUserEditCount' )
 		};

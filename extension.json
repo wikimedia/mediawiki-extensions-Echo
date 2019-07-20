@@ -52,11 +52,16 @@
 	},
 	"ResourceModules": {
 		"ext.echo.logger": {
-			"scripts": [
-				"logger/mw.echo.Logger.js"
+			"packageFiles": [
+				"logger/mw.echo.Logger.js",
+				{
+					"name": "logger/config.json",
+					"callback": "EchoHooks::getLoggerConfigVars"
+				}
 			],
 			"dependencies": [
-				"oojs"
+				"oojs",
+				"mediawiki.user"
 			],
 			"targets": [
 				"desktop",
@@ -386,7 +391,6 @@
 		"GetPreferences": "EchoHooks::getPreferences",
 		"PersonalUrls": "EchoHooks::onPersonalUrls",
 		"BeforePageDisplay": "EchoHooks::beforePageDisplay",
-		"MakeGlobalVariablesScript": "EchoHooks::makeGlobalVariablesScript",
 		"ResourceLoaderRegisterModules": "EchoHooks::onResourceLoaderRegisterModules",
 		"ResourceLoaderTestModules": "EchoHooks::onResourceLoaderTestModules",
 		"UserGroupsChanged": "EchoHooks::onUserGroupsChanged",

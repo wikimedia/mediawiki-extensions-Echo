@@ -1110,27 +1110,6 @@ class EchoHooks {
 		return true;
 	}
 
-	/**
-	 * Handler for MakeGlobalVariablesScript hook.
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/MakeGlobalVariablesScript
-	 * @param array &$vars Variables to be added into the output
-	 * @param OutputPage $outputPage OutputPage instance calling the hook
-	 * @return bool true in all cases
-	 */
-	public static function makeGlobalVariablesScript( &$vars, OutputPage $outputPage ) {
-		global $wgEchoEventLoggingSchemas, $wgEchoEventLoggingVersion;
-		$user = $outputPage->getUser();
-
-		// Provide info for ext.echo.logger
-		if ( $user->isLoggedIn() ) {
-			$vars['wgEchoInteractionLogging'] = $wgEchoEventLoggingSchemas['EchoInteraction']['enabled']
-				&& ExtensionRegistry::getInstance()->isLoaded( 'EventLogging' );
-			$vars['wgEchoEventLoggingVersion'] = $wgEchoEventLoggingVersion;
-		}
-
-		return true;
-	}
-
 	public static function onOutputPageCheckLastModified( array &$modifiedTimes, OutputPage $out ) {
 		$user = $out->getUser();
 		if ( $user->isLoggedIn() ) {
@@ -1481,6 +1460,15 @@ class EchoHooks {
 		return [
 			'EchoMaxNotificationCount' => MWEchoNotifUser::MAX_BADGE_COUNT,
 			'EchoPollForUpdates' => $config->get( 'EchoPollForUpdates' )
+		];
+	}
+
+	public static function getLoggerConfigVars( ResourceLoaderContext $context, Config $config ) {
+		$schemas = $config->get( 'EchoEventLoggingSchemas' );
+		return [
+			'EchoInteractionLogging' => $schemas['EchoInteraction']['enabled'] &&
+				ExtensionRegistry::getInstance()->isLoaded( 'EventLogging' ),
+			'EchoEventLoggingVersion' => $config->get( 'EchoEventLoggingVersion' )
 		];
 	}
 
