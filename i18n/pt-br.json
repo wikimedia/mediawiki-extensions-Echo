@@ -184,6 +184,7 @@
 	"notification-inbox-filter-read": "Ler",
 	"notification-inbox-filter-unread": "Não lidas",
 	"notification-inbox-filter-all": "Todas",
+	"echo-specialmute-label-mute-notifications": "Silenciar notificações deste usuário",
 	"echo-email-plain-footer": "Para controlar quais e-mails enviamos para {{GENDER:$1|você}}, verifique {{GENDER:$1|suas}} preferências:",
 	"echo-email-html-footer-preference-link-text": "verifique {{GENDER:$1|suas}} preferências",
 	"echo-email-html-footer-with-link": "Para controlar quais e-mails enviamos {{GENDER:$2|você}}, $1.",

@@ -5,7 +5,8 @@
 			"Fulup",
 			"Y-M D",
 			"Gwenn-Ael",
-			"Pymouss"
+			"Pymouss",
+			"Huñvreüs"
 		]
 	},
 	"echo-desc": "Reizhiad da gas keloù d'an implijerien diwar-benn darvoudoù ha kemennadennoù",
@@ -65,7 +66,14 @@
 	"notification-link-text-view-changes": "Diskouez ar c'hemmoù",
 	"notification-link-text-view-page": "Gwelet ar bajenn",
 	"notification-header-edit-user-talk-with-section": "$1 {{GENDER:$2|en deus|he deus}} skrivet ur c'hemennad war <strong>{{GENDER:$3|ho}} pajenn gaozeal</strong> e kevrenn \"<strong>$4</strong>\".",
+	"notification-header-mention-other": "Meneget oc’h bet gant $1 war bajenn <strong>$4</strong> e \"<strong>$5</strong>\".",
+	"notification-header-mention-user-talkpage-v2": "Meneget oc’h bet gant $1 war <strong>bajenn gaozeal $4</strong> e \"<strong>$6</strong>\".",
+	"notification-header-mention-agent-talkpage": "Meneget oc’h bet gant $1 war <strong>{{GENDER:$2|e bajenn|he fajenn|ar bajenn}} kaozeal e rannbennad \"<strong>$4</strong>\".",
+	"notification-header-mention-article-talkpage": "Meneget oc’h bet gant $1 war ar bajenn gaozeaz <strong>$4</strong> e \"<strong>$5</strong>\".",
+	"notification-compact-header-mention-failure-user-anonymous": "<strong>IPoù ne c’hell ket bezañ meneget:</strong> $1",
+	"notification-compact-header-mention-success": "<strong>Meneget ho peus:</strong> $3",
 	"notification-header-mention-status-bundle": "{{PLURAL:$3|Ur c'hemenn|$3 kemen}} diwar-benn menegoù {{GENDER:$2|graet ganeoc'h}} e bajenn gaozeal <strong>$4</strong> : $5 {{PLURAL:$5|n'eo ket bet kaset|n'int ket bet kaset}}, ha {{PLURAL:$6|$6 zo bet kaset}}.",
+	"notification-header-mention-summary": "Meneget oc’h bet gant $1 e diverradenn ur c’hemm war bajenn <strong>$4</strong>.",
 	"notification-header-thank-you-1-edit": "{{GENDER:$2|Da}} gemmadenn gentañ o paouez bezañ graet ganit; trugarez ha degemer mat!",
 	"notification-header-thank-you-10-edit": "{{GENDER:$2|Da}} dekvet gemmadenn o paouez bezañ graet ganit; trugarez ha bec'h dezhi!",
 	"notification-header-thank-you-100-edit": "{{GENDER:$2|Da}} kantvet gemmadenn o paouez bezañ graet ganit; mersi bras!",
@@ -73,7 +81,7 @@
 	"notification-link-text-view-edit": "Gwelet ar c'hemm",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$2|en|he}} deus laosket deoc'h ur gemennadenn\nwar {{SITENAME}}",
 	"notification-page-linked-email-subject": "Liammet eo bet ho pajenn ouzh {{SITENAME}}",
-	"notification-mention-email-subject": "$1 {{GENDER:$2|en deus|he deus}} ho meneget war {{SITENAME}}",
+	"notification-mention-email-subject": "Meneget oc’h bet gant $1 war {{SITENAME}}",
 	"notification-user-rights-email-subject": "Cheñchet eo ho kwirioù implijer war {{SITENAME}}",
 	"notification-inbox-filter-read": "Lennet",
 	"notification-inbox-filter-unread": "Anlennet",

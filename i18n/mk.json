@@ -164,6 +164,7 @@
 	"notification-inbox-filter-read": "Прочитани",
 	"notification-inbox-filter-unread": "Непрочитани",
 	"notification-inbox-filter-all": "Сите",
+	"echo-specialmute-label-mute-notifications": "Исклучи известувања од корисников",
 	"echo-email-plain-footer": "За да одберете каква е-пошта да {{GENDER:$1|ви}} праќаме, проверете {{GENDER:$1|си}} ги поставките:",
 	"echo-email-html-footer-preference-link-text": "проверете {{GENDER:$1|си}} ги поставките",
 	"echo-email-html-footer-with-link": "За да одберете каква е-пошта да {{GENDER:$2|ви}} праќаме, $1.",
