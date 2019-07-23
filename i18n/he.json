@@ -172,6 +172,7 @@
 	"notification-inbox-filter-read": "הודעות שנקראו",
 	"notification-inbox-filter-unread": "הודעות שלא נקראו",
 	"notification-inbox-filter-all": "הכול",
+	"echo-specialmute-label-mute-notifications": "להשתיק התראות מהמשתמש הזה",
 	"echo-email-plain-footer": "כדי לבחור אילו מכתבים נשלח {{GENDER:$1|אליך|אלייך|אליכם}}, אנא {{GENDER:$1|בדוק|בִדקי|בִדקו}} את ההעדפות {{GENDER:$1|שלך|שלך|שלכם}}:",
 	"echo-email-html-footer-preference-link-text": "{{GENDER:$1|בדוק|בִדקי|בִדקו}} את ההעדפות {{GENDER:$1|שלך|שלך|שלכם}}",
 	"echo-email-html-footer-with-link": "כדי לבחור אילו מכתבים נשלח {{GENDER:$2|אליך|אלייך|אליכם}}, אנא $1.",
