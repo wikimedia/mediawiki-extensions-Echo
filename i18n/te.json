@@ -134,7 +134,7 @@
 	"notification-header-mention-status-bundle": "<strong>$4</strong> చర్చా పేజీలో {{GENDER:$2|మీరు చేసిన}} ప్రస్తావనల గురించిన {{PLURAL:$3|ఒక గమనింపు|$3 గమనింపులు}}: {{PLURAL:$5|$5 పంపించ లేదు}}, {{PLURAL:$6|$6 పంపించాం}}.",
 	"notification-header-user-rights-add-only": "{{GENDER:$4|మీ}} వాడుకరి హక్కులను {{GENDER:$1|మార్చారు}}. మిమ్మల్ని ఇందులోకి చేర్చారు: $2.",
 	"notification-header-user-rights-remove-only": "{{GENDER:$4|మీ}} వాడుకరి హక్కులను {{GENDER:$1|మార్చారు}}. మీరిక ఇందులో సభ్యులు కాదు:$2",
-	"notification-header-user-rights-add-and-remove": "{{GENDER:$4|మీ}} వాడుకరి హక్కులను {{GENDER:$1|మార్చారు}}. మిమ్మల్ని ఇందులోకి చేర్చారు: $2. మీరిక ఇందులో సభ్యులు కాదు: $4",
+	"notification-header-user-rights-add-and-remove": "{{GENDER:$6|మీ}} వాడుకరి హక్కులను {{GENDER:$1|మార్చారు}}. మిమ్మల్ని ఇందులోకి చేర్చారు: $2. మీరిక ఇందులో సభ్యులు కాదు: $4",
 	"notification-header-user-rights-expiry-change": "కింది {{PLURAL:$3|సమూహంలో|సమూహాల్లో}} {{GENDER:$4|మీ}} సభ్యత్వం ముగిసే గడువును {{GENDER:$1|మార్చారు}}: $2.",
 	"notification-header-welcome": "$1 గారూ, {{SITENAME}} కు {{GENDER:$2|స్వాగతం}}! {{GENDER:$2|మీరు}} ఇక్కడ చేరినందుకు సంతోషం.",
 	"notification-header-mention-summary": "$1 <strong>$4</strong> లోని దిద్దుబాటు సారాంశంలో {{GENDER:$3|మిమ్మల్ని}} {{GENDER:$2|ప్రస్తావించారు}}.",
