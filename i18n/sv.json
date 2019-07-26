@@ -178,6 +178,7 @@
 	"notification-inbox-filter-read": "Lästa",
 	"notification-inbox-filter-unread": "Olästa",
 	"notification-inbox-filter-all": "Alla",
+	"echo-specialmute-label-mute-notifications": "Tysta aviseringar från denna användare",
 	"echo-email-plain-footer": "För att kontrollera vilka e-postmeddelanden vi skickar till {{GENDER:$1|dig}}, gå till {{GENDER:$1|dina}} inställningar:",
 	"echo-email-html-footer-preference-link-text": "kontrollera {{GENDER:$1|dina}} inställningar",
 	"echo-email-html-footer-with-link": "För att hantera vilken e-post vi skickar till {{GENDER:$2|dig}}, $1.",
