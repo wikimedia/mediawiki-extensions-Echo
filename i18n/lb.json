@@ -160,6 +160,7 @@
 	"notification-inbox-filter-read": "Gelies",
 	"notification-inbox-filter-unread": "Net gelies",
 	"notification-inbox-filter-all": "All",
+	"echo-specialmute-label-mute-notifications": "Notifikatioune vun dësem Benotzer net méi weisen",
 	"echo-email-plain-footer": "Fir ze kontrolléiere wat fir eng E-Mailen mir  {{GENDER:$1|Iech}} schécken, kuckt an {{GENDER:$1|Ären}} Astellungen:",
 	"echo-email-html-footer-preference-link-text": "kuckt {{GENDER:$1|Är}} Astellungen no",
 	"echo-email-html-footer-with-link": "Fir ze kontrolléiere wat fir eng E-Mailen mir {{GENDER:$2|Iech}} schécken, $1.",
