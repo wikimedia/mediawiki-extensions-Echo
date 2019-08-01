@@ -198,6 +198,7 @@
 	"echo-mark-all-as-read": "اعتبرها كلها مقروءة",
 	"echo-mark-all-as-read-confirmation": "$1 {{PLURAL:$1|إخطار|إخطارات}} تم التعليم عليها كمقروءة",
 	"echo-mark-wiki-as-read": "علّم الكل كمقروء في الويكي المحددة: $1",
+	"echo-displaysnippet-title": "إشعار جديد",
 	"echo-date-today": "اليوم",
 	"echo-date-yesterday": "أمس",
 	"notification-bundle-header-edit-user-talk-v2": "{{PLURAL:$1|لا رسائل|رسالة جديدة|رسالتان جديدتان|$1 رسائل جديدة|$1 رسالة جديدة}} على </strong>صفحة {{GENDER:$3|نقاشك|نقاشكِ}}.<strong>",

@@ -177,6 +177,7 @@
 	"echo-mark-all-as-read": "Означи ги сите како прочитани",
 	"echo-mark-all-as-read-confirmation": "{{PLURAL:$1|Означено $1 известување|Означени $1 известувања}} како прочитани",
 	"echo-mark-wiki-as-read": "Означи ги сите како прочитани на избраното вики: $1",
+	"echo-displaysnippet-title": "Ново известување",
 	"echo-date-today": "Денес",
 	"echo-date-yesterday": "Вчера",
 	"notification-bundle-header-edit-user-talk-v2": "{{PLURAL:$1|Една нова порака|$1 нови пораки|100=преку 99 нови пораки}} на <strong>{{GENDER:$3|вашата}} разговорна страница</strong>.",
