@@ -189,15 +189,16 @@
 		// Respond to click on the notification button and load the UI on demand
 		$( '.mw-echo-notification-badge-nojs' ).on( 'click', function ( e ) {
 			var timeOfClick = mw.now(),
-				clickedSection = $( this ).parent().prop( 'id' ) === 'pt-notifications-alert' ? 'alert' : 'message';
-			if ( e.which !== 1 || $( this ).data( 'clicked' ) ) {
+				$badge = $( this ),
+				clickedSection = $badge.parent().prop( 'id' ) === 'pt-notifications-alert' ? 'alert' : 'message';
+			if ( e.which !== 1 || $badge.data( 'clicked' ) ) {
 				return false;
 			}
 
-			$( this ).data( 'clicked', true );
+			$badge.data( 'clicked', true );
 
-			// Dim the button while we load
-			$( this ).addClass( 'mw-echo-notifications-badge-dimmed' );
+			// Dim the badge while we load
+			$badge.addClass( 'mw-echo-notifications-badge-dimmed' );
 
 			// Fire the notification API requests
 			echoApi = new mw.echo.api.EchoApi();
@@ -221,6 +222,9 @@
 					// Clicked on the flyout due to having unread notifications
 					mw.track( 'counter.MediaWiki.echo.unseen.click' );
 				}
+			}, function () {
+				// Un-dim badge if loading failed
+				$badge.removeClass( 'mw-echo-notifications-badge-dimmed' );
 			} );
 			// Prevent default
 			return false;
