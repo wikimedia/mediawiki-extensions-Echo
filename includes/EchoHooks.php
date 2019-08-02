@@ -296,7 +296,7 @@ class EchoHooks {
 	public static function getPreferences( $user, &$preferences ) {
 		global $wgEchoEnableEmailBatch,
 			$wgEchoNotifiers, $wgEchoNotificationCategories, $wgEchoNotifications,
-			$wgAllowHTMLEmail,
+			$wgAllowHTMLEmail, $wgEchoPollForUpdates,
 			$wgEchoCrossWikiNotifications, $wgEchoPerUserBlacklist;
 
 		$attributeManager = EchoAttributeManager::newFromGlobalVars();
@@ -440,6 +440,15 @@ class EchoHooks {
 				'type' => 'toggle',
 				'label-message' => 'echo-pref-cross-wiki-notifications',
 				'section' => 'echo/echocrosswiki'
+			];
+		}
+
+		if ( $wgEchoPollForUpdates ) {
+			$preferences['echo-show-poll-updates'] = [
+				'type' => 'toggle',
+				'label-message' => 'echo-pref-show-poll-updates',
+				'help-message' => 'echo-pref-show-poll-updates-help',
+				'section' => 'echo/echopollupdates'
 			];
 		}
 
