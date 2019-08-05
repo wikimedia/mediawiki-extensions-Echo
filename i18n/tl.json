@@ -6,7 +6,8 @@
 			"TheSleepyhollow02",
 			"Jojit fb",
 			"Leeheonjin",
-			"Emem.calist"
+			"Emem.calist",
+			"Brazal.dang"
 		]
 	},
 	"echo-desc": "Sistema ng pagpapabatid",
@@ -57,6 +58,7 @@
 	"echo-overlay-link": "Lahat ng mga pabatid",
 	"echo-overlay-title": "<b>Mga pabatid</b>",
 	"echo-mark-all-as-read": "Tatakan ang lahat bilang nabasa na",
+	"echo-displaysnippet-title": "Bagong pabatid",
 	"echo-date-today": "Ngayon",
 	"echo-date-yesterday": "Kahapon",
 	"echo-email-batch-subject-daily": "May {{PLURAL:$2|bago kang pabatid|mga bago kang pabatid}} sa {{SITENAME}}",

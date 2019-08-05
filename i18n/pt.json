@@ -191,6 +191,7 @@
 	"echo-mark-all-as-read": "Marcar todas como lidas",
 	"echo-mark-all-as-read-confirmation": "$1 {{PLURAL:$1|notificação marcada como lida|notificações marcadas como lidas}}",
 	"echo-mark-wiki-as-read": "Marcar tudo como lido na wiki selecionada: $1",
+	"echo-displaysnippet-title": "Notificação nova",
 	"echo-date-today": "Hoje",
 	"echo-date-yesterday": "Ontem",
 	"notification-bundle-header-edit-user-talk-v2": "{{PLURAL:$1|Uma nova mensagem|$1 novas mensagens|100=Mais de 99 novas mensagens}} na <strong>{{GENDER:$3|sua}} página de discussão</strong>.",

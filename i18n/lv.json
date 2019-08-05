@@ -147,6 +147,7 @@
 	"echo-mark-all-as-read": "Atzīmēt visus kā izlasītus",
 	"echo-mark-all-as-read-confirmation": "$1 {{PLURAL:$1|paziņojumi|paziņojums|paziņojumi}} atzīmēti kā izlasīti",
 	"echo-mark-wiki-as-read": "Atzīmēt visus kā izlasītus izvēlētajā vikivietnē: $1",
+	"echo-displaysnippet-title": "Jauns paziņojums",
 	"echo-date-today": "Šodien",
 	"echo-date-yesterday": "Vakar",
 	"echo-email-batch-subject-daily": "Jums ir {{PLURAL:$2|jauni paziņojumi|jauns paziņojums|jauni paziņojumi}} par {{SITENAME}}",

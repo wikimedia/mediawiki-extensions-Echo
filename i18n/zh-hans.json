@@ -36,7 +36,8 @@
 			"佛壁灯",
 			"科劳",
 			"Suchichi02",
-			"神樂坂秀吉"
+			"神樂坂秀吉",
+			"Viztor"
 		]
 	},
 	"echo-desc": "用于通知用户有关活动和消息的系统",
@@ -211,6 +212,7 @@
 	"echo-mark-all-as-read": "标记所有为已读",
 	"echo-mark-all-as-read-confirmation": "已标记$1条{{PLURAL:$1|通知}}为已读",
 	"echo-mark-wiki-as-read": "在选定的wiki上标记所有为已读：$1",
+	"echo-displaysnippet-title": "新提醒",
 	"echo-date-today": "今天",
 	"echo-date-yesterday": "昨天",
 	"notification-bundle-header-edit-user-talk-v2": "<strong>{{GENDER:$3|您}}的讨论页</strong>上有{{PLURAL:$1|$1条|100=超过99条}}新消息。",

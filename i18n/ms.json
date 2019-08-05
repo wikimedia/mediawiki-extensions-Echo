@@ -5,7 +5,8 @@
 			"Pizza1016",
 			"Aviator",
 			"Kurniasan",
-			"Jeluang Terluang"
+			"Jeluang Terluang",
+			"Tofeiku"
 		]
 	},
 	"echo-desc": "Sistem pemberitahuan",
@@ -57,6 +58,7 @@
 	"echo-overlay-link": "Semua pemberitahuan",
 	"echo-overlay-title": "<b>Pemberitahuan</b>",
 	"echo-mark-all-as-read": "Tanda semua sebagai dibaca",
+	"echo-displaysnippet-title": "Pemberitahuan baru",
 	"echo-date-today": "Hari ini",
 	"echo-date-yesterday": "Semalam",
 	"echo-email-batch-subject-daily": "Anda ada {{PLURAL:$2|satu|beberapa}} pemberitahuan baru di {{SITENAME}}",

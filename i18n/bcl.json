@@ -2,8 +2,10 @@
 	"@metadata": {
 		"authors": [
 			"Geopoet",
-			"ShimunUfesoj"
+			"ShimunUfesoj",
+			"Brazal.dang"
 		]
 	},
-	"tooltip-pt-notifications-alert": "{{GENDER:|Saimong}} mga alerto"
+	"tooltip-pt-notifications-alert": "{{GENDER:|Saimong}} mga alerto",
+	"echo-displaysnippet-title": "Bagong notipikasyon"
 }

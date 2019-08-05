@@ -185,6 +185,7 @@
 	"echo-mark-all-as-read": "לסמן שהכול נקרא",
 	"echo-mark-all-as-read-confirmation": "{{PLURAL:$1|הודעה אחת סומנה כהודעה שנקראה|$1 הודעות סומנו כהודעות שנקראו}}",
 	"echo-mark-wiki-as-read": "סימון כל ההודעות מאתר הוויקי שנבחר כנקראות: $1",
+	"echo-displaysnippet-title": "התראה חדשה",
 	"echo-date-today": "היום",
 	"echo-date-yesterday": "אתמול",
 	"notification-bundle-header-edit-user-talk-v2": "{{PLURAL:$1|הודעה חדשה|$1 הודעות חדשות|100=99+ הודעות חדשות}} ב<strong>דף השיחה {{GENDER:$3|שלך}}</strong>.",

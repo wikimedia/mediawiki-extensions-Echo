@@ -197,6 +197,7 @@
 	"echo-mark-all-as-read": "標記所有為已讀",
 	"echo-mark-all-as-read-confirmation": "已標記$1則{{PLURAL:$1|通知}}為已讀",
 	"echo-mark-wiki-as-read": "在選定的wiki上標記所有為已讀：$1",
+	"echo-displaysnippet-title": "新通知",
 	"echo-date-today": "今日",
 	"echo-date-yesterday": "昨日",
 	"notification-bundle-header-edit-user-talk-v2": "<strong>{{GENDER:$3|您}}的對話頁面</strong>裡有 {{PLURAL:$1|1 則|$1 則|100=99 則以上}}新訊息。",

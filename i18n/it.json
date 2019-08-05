@@ -184,6 +184,7 @@
 	"echo-mark-all-as-read": "Segna tutte come lette",
 	"echo-mark-all-as-read-confirmation": "$1 {{PLURAL:$1|notifica contrassegnata come letta|notifiche contrassegnate come lette}}",
 	"echo-mark-wiki-as-read": "Contrassegna tutte come lette nel wiki selezionato: $1",
+	"echo-displaysnippet-title": "Nuova notifica",
 	"echo-date-today": "Oggi",
 	"echo-date-yesterday": "Ieri",
 	"notification-bundle-header-edit-user-talk-v2": "{{PLURAL:$1|Un nuovo messaggio|$1 nuovi messaggi|100=Più di 99 nuovi messaggi}} sulla <strong>{{GENDER:$3|tua}} pagina di discussione</strong>.",

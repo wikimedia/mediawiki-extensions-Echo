@@ -41,7 +41,8 @@
 			"Trial",
 			"Tuxxic",
 			"Nemo bis",
-			"The RedBurn"
+			"The RedBurn",
+			"Huñvreüs"
 		]
 	},
 	"echo-desc": "Système pour avertir les utilisateurs des événements et messages",
@@ -215,6 +216,7 @@
 	"echo-mark-all-as-read": "Tout marquer comme lu",
 	"echo-mark-all-as-read-confirmation": "$1 {{PLURAL:$1|notification marquée comme lue|notifications marquées comme lues}}",
 	"echo-mark-wiki-as-read": "Marquer le tout comme étant lu pour les wiki sélectionnés : $1",
+	"echo-displaysnippet-title": "Nouvelle notification",
 	"echo-date-today": "Aujourd’hui",
 	"echo-date-yesterday": "Hier",
 	"notification-bundle-header-edit-user-talk-v2": "{{PLURAL:$1|Un nouveau message|$1 nouveaux messages|100=plus de 100 nouveaux messages}} sur <strong>{{GENDER:$3|votre}} page de discussion</strong> .",
