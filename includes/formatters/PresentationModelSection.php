@@ -8,12 +8,12 @@ use MediaWiki\Revision\RevisionRecord;
 class EchoPresentationModelSection {
 
 	/**
-	 * @var string
+	 * @var string|false|null
 	 */
 	private $rawSectionTitle = null;
 
 	/**
-	 * @var string
+	 * @var string|false|null
 	 */
 	private $parsedSectionTitle = null;
 
@@ -47,7 +47,7 @@ class EchoPresentationModelSection {
 
 	/**
 	 * Get the raw (unparsed) section title
-	 * @return string Section title
+	 * @return string|false Section title
 	 */
 	private function getRawSectionTitle() {
 		if ( $this->rawSectionTitle !== null ) {
@@ -70,7 +70,7 @@ class EchoPresentationModelSection {
 
 	/**
 	 * Get the section title parsed to plain text
-	 * @return string Section title (plain text)
+	 * @return string|false Section title (plain text)
 	 */
 	private function getParsedSectionTitle() {
 		if ( $this->parsedSectionTitle !== null ) {
@@ -109,17 +109,18 @@ class EchoPresentationModelSection {
 	public function getTitleWithSection() {
 		$title = $this->event->getTitle();
 		$section = $this->getParsedSectionTitle();
-		$fragment = substr( Parser::guessSectionNameFromStrippedText( $section ), 1 );
 		if ( $section ) {
-			$title = Title::makeTitle(
-				$title->getNamespace(),
-				$title->getDBkey(),
-				$fragment
-			);
+			$fragment = substr( Parser::guessSectionNameFromStrippedText( $section ), 1 );
+			$title = $title->createFragmentTarget( $fragment );
 		}
 		return $title;
 	}
 
+	/**
+	 * Get truncated section title, according to user's language.
+	 * You should only call this if EchoPresentationModelSection::exists returns true.
+	 * @return string
+	 */
 	public function getTruncatedSectionTitle() {
 		return $this->language->embedBidi( $this->language->truncateForVisual(
 			$this->getParsedSectionTitle(),
