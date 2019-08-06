@@ -90,7 +90,7 @@
 		}
 
 		// change document title on initialization only when polling rate(feature flag) is non-zero.
-		if ( pollingRate !== 0 ) {
+		if ( pollingRate !== 0 && mw.user.options.get( 'echo-show-poll-updates' ) === '1' ) {
 			updateDocumentTitleWithNotificationCount( alertCount, messageCount );
 		}
 
@@ -135,7 +135,7 @@
 				} );
 
 				// listen to event countChange and change title only if polling rate is non-zero
-				if ( pollingRate !== 0 ) {
+				if ( pollingRate !== 0 && mw.user.options.get( 'echo-show-poll-updates' ) === '1' ) {
 					alertModelManager.getUnreadCounter().on( 'countChange', function ( count ) {
 						alertController.fetchLocalNotifications()
 							.then( function () {
@@ -170,7 +170,7 @@
 					$existingMessageLink.parent().replaceWith( mw.echo.ui.messageWidget.$element );
 
 					// listen to event countChange and change title only if polling rate is non-zero
-					if ( pollingRate !== 0 ) {
+					if ( pollingRate !== 0 && mw.user.options.get( 'echo-show-poll-updates' ) === '1' ) {
 						messageModelManager.getUnreadCounter().on( 'countChange', function ( count ) {
 							messageController.fetchLocalNotifications()
 								.then( function () {
