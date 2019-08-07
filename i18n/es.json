@@ -197,6 +197,7 @@
 	"echo-mark-all-as-read": "Marcar todo como leído",
 	"echo-mark-all-as-read-confirmation": "$1 {{PLURAL:$1|notificación marcada como leída|notificaciones marcadas como leídas}}",
 	"echo-mark-wiki-as-read": "Marcar como leídas todas las notificaciones del wiki seleccionado: $1",
+	"echo-displaysnippet-title": "Notificación nueva",
 	"echo-date-today": "Hoy",
 	"echo-date-yesterday": "Ayer",
 	"notification-bundle-header-edit-user-talk-v2": "{{PLURAL:$1|Un mensaje nuevo|$1 mensajes nuevos|100=99+ mensajes nuevos}} en <strong>{{GENDER:$3|tu}} página de discusión</strong>.",
