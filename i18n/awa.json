@@ -1,10 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"1AnuraagPandey"
+			"1AnuraagPandey",
+			"Ajeetsinghawadh"
 		]
 	},
 	"notifications": "अधिसूचना",
+	"tooltip-pt-notifications-alert": "{{GENDER:|आपका}} जागरूकता संदेश",
 	"echo-notification-alert-text-only": "एलर्ट",
 	"echo-overlay-link": "कुल अधिसूचना",
 	"echo-overlay-title": "<b>अधिसूचना</b>",
