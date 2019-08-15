@@ -37,7 +37,8 @@
 			"科劳",
 			"Suchichi02",
 			"神樂坂秀吉",
-			"Viztor"
+			"Viztor",
+			"Looong"
 		]
 	},
 	"echo-desc": "用于通知用户有关活动和消息的系统",
@@ -46,6 +47,9 @@
 	"prefs-echosubscriptions": "通知我这些事件",
 	"prefs-echocrosswiki": "跨wiki通知",
 	"prefs-blocknotificationslist": "禁言用户",
+	"prefs-echopollupdates": "实时通知",
+	"echo-pref-show-poll-updates": "当他们达到是显示新通知",
+	"echo-pref-show-poll-updates-help": "在标题栏显示未读通知的数量，当通知到达时立即显示每一条通知的片段。",
 	"echo-pref-send-me": "给我发送：",
 	"echo-pref-send-to": "发送至：",
 	"echo-pref-email-format": "电子邮件格式：",
