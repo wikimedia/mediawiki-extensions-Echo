@@ -102,10 +102,6 @@
 				}
 			} );
 		}
-		// change document title on initialization only when polling rate(feature flag) is non-zero.
-		if ( pollingRate !== 0 && mw.user.options.get( 'echo-show-poll-updates' ) === '1' ) {
-			updateDocumentTitleWithNotificationCount( alertCount, messageCount );
-		}
 
 		function isLivePollingFeatureEnabledOnWiki() {
 			return pollingRate !== 0;
@@ -120,6 +116,11 @@
 		 */
 		function userHasOptedInToLiveNotifications() {
 			return mw.user.options.get( 'echo-show-poll-updates' ) === '1';
+		}
+
+		// Change document title on initialization only when polling rate feature flag is non-zero.
+		if ( isLivePollingFeatureEnabledOnWiki() && userHasOptedInToLiveNotifications() ) {
+			updateDocumentTitleWithNotificationCount( alertCount, messageCount );
 		}
 
 		function loadEcho() {
@@ -270,7 +271,7 @@
 		}
 
 		function pollStart() {
-			if ( mw.config.get( 'skin' ) !== 'minerva' && pollingRate !== 0 ) {
+			if ( mw.config.get( 'skin' ) !== 'minerva' && isLivePollingFeatureEnabledOnWiki() ) {
 				// load widgets if not loaded already then start polling
 				loadEcho().then( pollForNotificationCountUpdates );
 			}
