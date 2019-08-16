@@ -89,9 +89,37 @@
 			return highestTime;
 		}
 
+		/**
+		 * Change the seen state of badges if there are any unseen notifications.
+		 *
+		 * @param {mw.echo.dm.ModelManager} modelManager
+		 * @param {mw.echo.ui.NotificationBadgeWidget} badgeWidget
+		 */
+		function updateBadgeState( modelManager, badgeWidget ) {
+			modelManager.getLocalNotifications().forEach( function ( notificationItem ) {
+				if ( !notificationItem.isSeen() ) {
+					badgeWidget.updateBadgeSeenState( true );
+				}
+			} );
+		}
 		// change document title on initialization only when polling rate(feature flag) is non-zero.
 		if ( pollingRate !== 0 && mw.user.options.get( 'echo-show-poll-updates' ) === '1' ) {
 			updateDocumentTitleWithNotificationCount( alertCount, messageCount );
+		}
+
+		function isLivePollingFeatureEnabledOnWiki() {
+			return pollingRate !== 0;
+		}
+
+		/**
+		 * User has opted in to preference to show notification snippets and update document title with unread count.
+		 *
+		 * Only useful when isLivePollingFeatureEnabledOnWiki() returns true.
+		 *
+		 * @return {boolean} User preference
+		 */
+		function userHasOptedInToLiveNotifications() {
+			return mw.user.options.get( 'echo-show-poll-updates' ) === '1';
 		}
 
 		function loadEcho() {
@@ -135,14 +163,16 @@
 				} );
 
 				// listen to event countChange and change title only if polling rate is non-zero
-				if ( pollingRate !== 0 && mw.user.options.get( 'echo-show-poll-updates' ) === '1' ) {
+				if ( isLivePollingFeatureEnabledOnWiki() ) {
 					alertModelManager.getUnreadCounter().on( 'countChange', function ( count ) {
-						alertController.fetchLocalNotifications()
-							.then( function () {
+						alertController.fetchLocalNotifications().then( function () {
+							updateBadgeState( alertModelManager, mw.echo.ui.alertWidget );
+							if ( userHasOptedInToLiveNotifications() ) {
 								latestAlertNotifTime = showNotificationSnippet( alertModelManager, latestAlertNotifTime );
-							} );
-						alertCount = count;
-						updateDocumentTitleWithNotificationCount( count, messageCount );
+								alertCount = count;
+								updateDocumentTitleWithNotificationCount( count, messageCount );
+							}
+						} );
 					} );
 				}
 
@@ -170,14 +200,16 @@
 					$existingMessageLink.parent().replaceWith( mw.echo.ui.messageWidget.$element );
 
 					// listen to event countChange and change title only if polling rate is non-zero
-					if ( pollingRate !== 0 && mw.user.options.get( 'echo-show-poll-updates' ) === '1' ) {
+					if ( isLivePollingFeatureEnabledOnWiki() ) {
 						messageModelManager.getUnreadCounter().on( 'countChange', function ( count ) {
-							messageController.fetchLocalNotifications()
-								.then( function () {
+							messageController.fetchLocalNotifications().then( function () {
+								updateBadgeState( messageModelManager, mw.echo.ui.messageWidget );
+								if ( userHasOptedInToLiveNotifications() ) {
 									latestMessageNotifTime = showNotificationSnippet( messageModelManager, latestMessageNotifTime );
-								} );
-							messageCount = count;
-							updateDocumentTitleWithNotificationCount( alertCount, count );
+									messageCount = count;
+									updateDocumentTitleWithNotificationCount( alertCount, count );
+								}
+							} );
 						} );
 					}
 				}
