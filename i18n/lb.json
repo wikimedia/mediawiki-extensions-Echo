@@ -173,6 +173,7 @@
 	"echo-mark-all-as-read": "All als gelies markéieren",
 	"echo-mark-all-as-read-confirmation": "{{PLURAL:$1|Eng Notifikatioun|$1 Notifikatiounen}} als gelies markéiert",
 	"echo-mark-wiki-as-read": "An der erausgesichter Wiki all als gelies markéieren: $1",
+	"echo-displaysnippet-title": "Nei Notifikatioun",
 	"echo-date-today": "Haut",
 	"echo-date-yesterday": "Gëschter",
 	"notification-bundle-header-edit-user-talk-v2": "{{PLURAL:$1|Een neie Message|$1 nei Messagen|100=méi wéi 99 Messagen}} op <strong>{{GENDER:$3|Ärer}} Diskussiounssäit</strong>.",
