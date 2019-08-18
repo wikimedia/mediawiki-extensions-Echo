@@ -22,7 +22,7 @@
 	"echo-learn-more": "Күбрәк белү",
 	"echo-log": "Гомуми көндәлек",
 	"echo-new-messages": "Сезнең яңа хатларыгыз бар",
-	"echo-category-title-edit-user-talk": "Бәхәс битендә {{PLURAL:$1|хат}}",
+	"echo-category-title-edit-user-talk": "Бәхәс битендә {{PLURAL:$1|хәбәр}}",
 	"echo-category-title-article-linked": "Битләргә {{PLURAL:$1|сылтама}}",
 	"echo-category-title-reverted": "Үзгәртүләрне {{PLURAL:$1|кире кагу}}",
 	"echo-category-title-mention": "{{PLURAL:$1|1=Искәртмә|Искәртмәләр}}",
@@ -56,8 +56,8 @@
 	"notification-link-text-view-mention": "Искәртүне карау",
 	"notification-link-text-view-changes": "Үзгәртүләрне {{GENDER:$1|карау}}",
 	"notification-link-text-view-page": "Битне карау",
-	"notification-header-edit-user-talk": "$1 <strong>{{GENDER:$3|сезнең}} бәхәс битегездә</strong> хат {{GENDER:$2|калдырды}}.",
-	"notification-header-edit-user-talk-with-section": "$1 <strong>{{GENDER:$3|сезнең}} бәхәс битегездә</strong> «<strong>$4</strong>» хат {{GENDER:$2|калдырды}}.",
+	"notification-header-edit-user-talk": "$1 <strong>{{GENDER:$3|сезнең}} бәхәс битегездә</strong> бер хәбәр {{GENDER:$2|калдырды}}.",
+	"notification-header-edit-user-talk-with-section": "$1 <strong>{{GENDER:$3|сезнең}} бәхәс битегездә</strong> «<strong>$4</strong>» бүлегендә бер хәбәр {{GENDER:$2|калдырды}}.",
 	"notification-header-mention-other": "$1 {{GENDER:$3|сезне}} <strong>$4</strong> битендәге «<strong>$5</strong>» бүлегендә {{GENDER:$2|телгә}} алды.",
 	"notification-header-mention-other-nosection": "$1 {{GENDER:$3|сезне}} <strong>$4</strong> битендә {{GENDER:$2||телгә}} алды.",
 	"notification-header-mention-user-talkpage-nosection": "$1 {{GENDER:$3|сезне}} <strong>{{GENDER:$5|$4}} бәхәс битендә</strong> {{GENDER:$2|телгә}} алды.",
@@ -88,6 +88,6 @@
 	"echo-mark-all-as-read": "Барсын да укылган итеп билгеләү",
 	"echo-date-today": "Бүген",
 	"echo-date-yesterday": "Кичә",
-	"notification-bundle-header-edit-user-talk-v2": "<strong>{{GENDER:$3|Сезнең}} бәхәс битегездә</strong> {{PLURAL:$1|яңа хат|$1 яңа хат|100=99+ яңа хат}}.",
+	"notification-bundle-header-edit-user-talk-v2": "<strong>{{GENDER:$3|Сезнең}} бәхәс битегездә</strong> {{PLURAL:$1|яңа хәбәр|$1 яңа хәбәр|100=99+ яңа хәбәр}}.",
 	"echo-email-batch-link-text-view-all-notifications": "Барлык белдерүләрне карау"
 }
