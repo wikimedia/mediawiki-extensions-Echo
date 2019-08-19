@@ -934,7 +934,8 @@ TEXT
 			// this one allows Mediawiki:xyz pages to be set as messages
 			'wgUseDatabaseMessages' => true
 		] );
-		$this->overrideMwServices();
+
+		$this->resetServices();
 
 		// pages to be created: templates may be used to ping users (e.g.
 		// {{u|...}}) but if we don't have that template, it just won't work!
@@ -946,7 +947,11 @@ TEXT
 
 		// force i18n messages to be reloaded (from DB, where a new message
 		// might have been created as page)
-		MessageCache::destroyInstance();
+		if ( method_exists( 'MessageCache', 'destroyInstance' ) ) {
+			MessageCache::destroyInstance();
+		} else {
+			$this->resetServices();
+		}
 
 		// grab revision excerpts (didn't include them in this src file because
 		// they can be pretty long)
