@@ -132,7 +132,7 @@
 	"notification-link-text-view-message": "Label for button that links to a message on your talk page.\n{{Identical|View message}}",
 	"notification-link-text-view-mention": "Label for button that links to a discussion where you were mentioned.",
 	"notification-link-text-view-mention-failure": "Label for button that links to a discussion where your mentions failed.\n* $1 - The number of failed mentions; uses standard number formatting and used for PLURAL",
-	"notification-link-text-view-changes": "Label for button that links to a \"diff\" view showing changes made to a page. Paramters:\n* $1 - name of the user viewing the notification, can be used for GENDER.\n{{Identical|View changes}}",
+	"notification-link-text-view-changes": "Label for button that links to a \"diff\" view showing changes made to a page. Parameters:\n* $1 - name of the user viewing the notification, can be used for GENDER.\n{{Identical|View changes}}",
 	"notification-link-text-view-page": "Label for button that links to a page.\n{{Identical|View page}}",
 	"notification-header-edit-user-talk": "Flyout-specific format for displaying notification header of a user talk page being edited.\n\nParameters:\n* $1 - the formatted username of the person who edited.\n* $2 - the username for GENDER\n* $3 - username of the current user, can be used for GENDER",
 	"notification-header-edit-user-talk-with-section": "Flyout-specific format for displaying notification header of a user talk page being edited with a new section or new comment.\n\nParameters:\n* $1 - the formatted username of the person who edited.\n* $2 - the username for GENDER\n* $3 - username of the current user, can be used for GENDER\n* $4 - the raw section title text",
