@@ -24,7 +24,8 @@
 			"逆襲的天邪鬼",
 			"Wehwei",
 			"A2093064",
-			"Kly"
+			"Kly",
+			"Adsa562"
 		]
 	},
 	"echo-desc": "用來通知使用者事件及訊息的系統",
@@ -33,6 +34,8 @@
 	"prefs-echosubscriptions": "通知我這些事件",
 	"prefs-echocrosswiki": "跨 wiki 通知",
 	"prefs-blocknotificationslist": "禁言使用者",
+	"prefs-echopollupdates": "通知清單",
+	"echo-pref-show-poll-updates": "即時顯示新通知",
 	"echo-pref-send-me": "傳送給我：",
 	"echo-pref-send-to": "傳送至：",
 	"echo-pref-email-format": "電子郵件格式：",
