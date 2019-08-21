@@ -1,7 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Krol111"
+			"Krol111",
+			"Uostofchuodnego"
 		]
-	}
+	},
+	"tooltip-pt-notifications-alert": "{{GENDER:|Moje}} powiadōmiynia"
 }
