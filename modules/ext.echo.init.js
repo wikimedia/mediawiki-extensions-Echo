@@ -81,7 +81,7 @@
 						highestTime = timestampAsDate;
 					}
 					if ( !notificationItem.seen ) {
-						mw.notify( notificationItem.content.header, { title: mw.msg( 'echo-displaysnippet-title' ) } );
+						mw.notify( $.parseHTML( notificationItem.content.header ), { title: mw.msg( 'echo-displaysnippet-title' ) } );
 					}
 				}
 			}
