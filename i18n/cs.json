@@ -175,6 +175,7 @@
 	"notification-inbox-filter-read": "Přečtená",
 	"notification-inbox-filter-unread": "Nepřečtená",
 	"notification-inbox-filter-all": "Všechna",
+	"echo-specialmute-label-mute-notifications": "Ignorovat upozornění od tohoto uživatele",
 	"echo-email-plain-footer": "Posílání e-mailů si {{GENDER:$1|můžete}} přizpůsobit v nastavení:",
 	"echo-email-html-footer-preference-link-text": "{{GENDER:$1|nastavení}}",
 	"echo-email-html-footer-with-link": "Posílání e-mailů si {{GENDER:$2|můžete}} přizpůsobit v $1.",
