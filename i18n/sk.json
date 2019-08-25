@@ -6,7 +6,8 @@
 			"Macofe",
 			"Urbanecm",
 			"Martin Urbanec",
-			"TomášPolonec"
+			"TomášPolonec",
+			"Luky001"
 		]
 	},
 	"echo-desc": "Notifikačný systém",
@@ -62,6 +63,7 @@
 	"echo-none": "Nemáte žiadne upozornenia.",
 	"echo-api-failure": "Nepodarilo sa načítať upozornenia. Skúste to prosím znovu. (Chyba $1)",
 	"echo-notification-placeholder": "Nemáte žiadne upozornenia.",
+	"echo-notification-placeholder-filters": "Nemáte žiadne upozornenia zodpovedajúce týmto kritériám.",
 	"echo-notification-markasread": "Označiť ako prečítané",
 	"echo-notification-markasunread": "Označiť ako neprečítané",
 	"echo-notification-markasread-tooltip": "Označiť ako prečítané",

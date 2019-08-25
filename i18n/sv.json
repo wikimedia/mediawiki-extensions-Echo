@@ -58,7 +58,7 @@
 	"echo-category-title-user-rights": "{{PLURAL:$1|Användarrättighetsförändring|Användarrättighetsförändringar}}",
 	"echo-category-title-emailuser": "{{PLURAL:$1|E-post från annan användare|E-post från andra användare}}",
 	"echo-category-title-article-reminder": "{{PLURAL:$1|Sidpåminnelse|Sidpåminnelser}}",
-	"echo-category-title-thank-you-edit": "Redigera {{PLURAL:$1|milsten|milstenar}}",
+	"echo-category-title-thank-you-edit": "Redigerings{{PLURAL:$1|milsten|milstenar}}",
 	"echo-pref-tooltip-edit-user-talk": "Meddela mig när någon lämnar ett meddelande eller svarar på min diskussionssida.",
 	"echo-pref-tooltip-article-linked": "Meddela mig när någon länkar till en sida som jag skapat från en annan sida.",
 	"echo-pref-tooltip-reverted": "Meddela mig när någon återställer en ändring som jag gjort, med hjälp av verktygen \"gör ogjord\" eller \"rulla tillbaka\".",
