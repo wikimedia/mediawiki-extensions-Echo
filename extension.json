@@ -137,7 +137,6 @@
 				"ext.echo.api",
 				"ext.echo.dm",
 				"ext.echo.logger",
-				"ext.echo.styles.notifications",
 				"ext.echo.secondaryicons",
 				"oojs",
 				"oojs-ui-core",
