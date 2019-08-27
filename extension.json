@@ -509,6 +509,10 @@
 					"web": true,
 					"email": false
 				},
+				"system-emailonly": {
+					"web": false,
+					"email": true
+				},
 				"emailuser": {
 					"web": true,
 					"email": false
@@ -571,6 +575,12 @@
 					"priority": 9,
 					"no-dismiss": [
 						"web"
+					]
+				},
+				"system-emailonly": {
+					"priority": 9,
+					"no-dismiss": [
+						"email"
 					]
 				},
 				"user-rights": {
