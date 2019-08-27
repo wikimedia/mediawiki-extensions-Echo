@@ -620,6 +620,6 @@ class ApiEchoNotifications extends ApiQueryBase {
 	}
 
 	public function getHelpUrls() {
-		return 'https://www.mediawiki.org/wiki/Echo_(Notifications)/API';
+		return 'https://www.mediawiki.org/wiki/Special:MyLanguage/Echo_(Notifications)/API';
 	}
 }
