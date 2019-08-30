@@ -30,14 +30,20 @@ class EchoUserNotificationGateway {
 	 * @var string
 	 */
 	protected static $notificationTable = 'echo_notification';
+	/**
+	 * @var Config
+	 */
+	private $config;
 
 	/**
 	 * @param User $user
 	 * @param MWEchoDbFactory $dbFactory
+	 * @param Config $config
 	 */
-	public function __construct( User $user, MWEchoDbFactory $dbFactory ) {
+	public function __construct( User $user, MWEchoDbFactory $dbFactory, Config $config ) {
 		$this->user = $user;
 		$this->dbFactory = $dbFactory;
+		$this->config = $config;
 	}
 
 	public function getDB( $dbSource ) {
@@ -51,7 +57,6 @@ class EchoUserNotificationGateway {
 	 *   failure, or when there was nothing to update
 	 */
 	public function markRead( array $eventIDs ) {
-		global $wgUpdateRowsPerQuery;
 		if ( !$eventIDs ) {
 			return false;
 		}
@@ -62,7 +67,9 @@ class EchoUserNotificationGateway {
 		}
 
 		$success = true;
-		foreach ( array_chunk( $eventIDs, $wgUpdateRowsPerQuery ) as $batch ) {
+		foreach (
+			array_chunk( $eventIDs, $this->config->get( 'UpdateRowsPerQuery' ) ) as $batch
+		) {
 			$success = $dbw->update(
 				self::$notificationTable,
 				[ 'notification_read_timestamp' => $dbw->timestamp( wfTimestampNow() ) ],
@@ -85,7 +92,6 @@ class EchoUserNotificationGateway {
 	 *   failure, or when there was nothing to update
 	 */
 	public function markUnRead( array $eventIDs ) {
-		global $wgUpdateRowsPerQuery;
 		if ( !$eventIDs ) {
 			return false;
 		}
@@ -96,7 +102,9 @@ class EchoUserNotificationGateway {
 		}
 
 		$success = true;
-		foreach ( array_chunk( $eventIDs, $wgUpdateRowsPerQuery ) as $batch ) {
+		foreach (
+			array_chunk( $eventIDs, $this->config->get( 'UpdateRowsPerQuery' ) ) as $batch
+		) {
 			$success = $dbw->update(
 				self::$notificationTable,
 				[ 'notification_read_timestamp' => null ],

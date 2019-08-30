@@ -108,7 +108,11 @@ class MWEchoNotifUser {
 		return new MWEchoNotifUser(
 			$user,
 			MediaWikiServices::getInstance()->getMainWANObjectCache(),
-			new EchoUserNotificationGateway( $user, MWEchoDbFactory::newFromDefault() ),
+			new EchoUserNotificationGateway(
+				$user,
+				MWEchoDbFactory::newFromDefault(),
+				MediaWikiServices::getInstance()->getMainConfig()
+			),
 			new EchoNotificationMapper(),
 			new EchoTargetPageMapper()
 		);
