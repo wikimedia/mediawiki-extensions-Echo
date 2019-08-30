@@ -128,6 +128,7 @@
 	"notification-inbox-filter-read": "Prečítané",
 	"notification-inbox-filter-unread": "Neprečítané",
 	"notification-inbox-filter-all": "Všetky",
+	"echo-email-plain-footer": "Posielanie e-mailov si {{GENDER:$1|môžete}} prispôsobiť v nastaveniach:",
 	"echo-notification-alert": "{{PLURAL:$1|Upozornenie ($1)|Upozornenia ($1)|100=Upozornenia (99+)}}",
 	"echo-notification-notice": "{{PLURAL:$1|Oznámenie ($1)|Oznámenia ($1)|100=Oznámení (99+)}}",
 	"echo-notification-alert-text-only": "Upozornenia",
