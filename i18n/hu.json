@@ -21,6 +21,8 @@
 	"prefs-echosubscriptions": "Értesítést kérek ezekről az eseményekről",
 	"prefs-echocrosswiki": "Wikiközi értesítések",
 	"prefs-blocknotificationslist": "Lenémított felhasználók",
+	"prefs-echopollupdates": "Élő értesítések",
+	"echo-pref-show-poll-updates": "Új értesítések azonnali megjelenítése",
 	"echo-pref-send-me": "Gyakoriság:",
 	"echo-pref-send-to": "Erre a címre:",
 	"echo-pref-email-format": "A levél formátuma:",
