@@ -6,6 +6,7 @@
 			"Vaishali Parab"
 		]
 	},
+	"tooltip-pt-notifications-alert": "{{GENDER:|तुज्यो}} चत्रायो",
 	"notification-timestamp-today": "आयज",
 	"notification-timestamp-yesterday": "काल",
 	"notification-inbox-filter-read": "वाचचें",
