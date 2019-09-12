@@ -46,6 +46,7 @@
 	"notifications": "Notificaziune",
 	"tooltip-pt-notifications-alert": "Avvise {{GENDER:|tune}}",
 	"tooltip-pt-notifications-notice": "Le notizie {{GENDER:|tune}}",
+	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Utinde esistende",
 	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Utinde nuève",
 	"echo-specialpage": "Notificaziune",
 	"echo-specialpage-section-markread": "Signe 'u gruppe cumme lette",
