@@ -43,6 +43,7 @@
 	"notification-link-text-view-page": "Montrez pagino",
 	"notification-header-edit-user-talk": "$1 {{GENDER:$2|lasis}} mesajo en <strong>{{GENDER:$3|vua}} debato-pagino</strong>.",
 	"notification-header-edit-user-talk-with-section": "$1 {{GENDER:$2|lasis}} mesajo en <strong>{{GENDER:$3|vua}} debato-pagino</strong> en \"<strong>$4</strong>\".",
+	"notification-bundle-header-page-linked": "Ligili kreesis de {{PLURAL:$5||$5 pagini|100=plu kam 99 pagini}} a <strong>$3</strong>.",
 	"notification-link-text-what-links-here": "Omna ligili a ca pagino",
 	"notification-header-mention-agent-talkpage": "$1 {{GENDER:$2|mencionis}} {{GENDER:$3|vu}} che <strong>{{GENDER:$2|ilua|elua|lia}} diskuto-pagino</strong> en \"<strong>$4</strong>\".",
 	"notification-header-mention-success": "{{GENDER:$2|Vua}} menciono pri <strong>$3</strong> sendesis.",
@@ -73,6 +74,7 @@
 	"echo-overlay-link": "Omna avizi",
 	"echo-overlay-title": "<b>Avizi</b>",
 	"echo-mark-all-as-read": "Indikez omna mesaji quale \"lektita\"",
+	"notification-bundle-header-edit-user-talk-v2": "Existas {{PLURAL:$1|1 nova mesajo|$1 nova mesaji|100=plu kam 99 nova mesaji}} en <strong>{{GENDER:$3|vua}} diskuto-pagino</strong>.",
 	"notification-header-foreign-alert": "Plusa avizi de {{PLURAL:$5|altra Wiki|$5 altra Wiki}}",
 	"notification-header-foreign-notice": "Altra avizi de {{PLURAL:$5|altra Wiki|$5 altra Wiki}}"
 }

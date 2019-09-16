@@ -46,6 +46,8 @@
 	"notifications": "Notificaziune",
 	"tooltip-pt-notifications-alert": "Avvise {{GENDER:|tune}}",
 	"tooltip-pt-notifications-notice": "Le notizie {{GENDER:|tune}}",
+	"echo-displaynotificationsconfiguration-notifications-by-category-header": "Notifeche pe categorije",
+	"echo-displaynotificationsconfiguration-sorting-by-section-header": "Ordinamende de le tipe",
 	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Utinde esistende",
 	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Utinde nuève",
 	"echo-specialpage": "Notificaziune",

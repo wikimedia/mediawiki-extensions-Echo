@@ -14,6 +14,8 @@
 	"prefs-echosubscriptions": "Paziņot man par šiem notikumiem",
 	"prefs-echocrosswiki": "Starpprojektu paziņojumi",
 	"prefs-blocknotificationslist": "Apklusinātie dalībnieki",
+	"prefs-echopollupdates": "Tūlītēji paziņojumi",
+	"echo-pref-show-poll-updates": "Rādīt jaunus paziņojumus tūlīt pēc to saņemšanas",
 	"echo-pref-send-me": "Nosūtīt man:",
 	"echo-pref-send-to": "Nosūtīt uz:",
 	"echo-pref-email-format": "E-pasta formāts:",
