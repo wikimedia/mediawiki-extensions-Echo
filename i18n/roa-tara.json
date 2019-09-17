@@ -65,6 +65,8 @@
 	"echo-notification-markasunread": "Signe cumme non lette",
 	"echo-notification-markasread-tooltip": "Signe cumme lette",
 	"echo-notification-more-options-tooltip": "Cchiù opziune",
+	"notification-dynamic-actions-unwatch": "{{GENDER:$3|Live}} le attività nove sus a \"$1\" da le osservate speciale",
+	"notification-dynamic-actions-unwatch-confirmation": "{{GENDER:$3|Tu}} non g3e ste cchiù condrolle 'a pàgene \"$1\"",
 	"notification-link-text-expand-all": "Spanne",
 	"notification-link-text-expand-alert-count": "'Ndruche le {{PLURAL:$1|$1 avvise}}",
 	"notification-link-text-expand-notice-count": "'Ndruche {{PLURAL:$1|'a $1|le $1}} notizie",
