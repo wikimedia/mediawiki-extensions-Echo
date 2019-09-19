@@ -96,6 +96,7 @@
 	"notification-header-mention-failure-user-unknown": "{{GENDER:$2|Vaša}} zmienka používateľa <strong>$3</strong> nebola odoslaná, pretože daný používateľ nebol nájdený.",
 	"notification-header-mention-failure-user-anonymous": "{{GENDER:$2|Vaša}} zmienka používateľa <strong>$3</strong> nebola odoslaná, pretože daný používateľ je anonymný.",
 	"notification-header-mention-success": "{{GENDER:$2|Vaša}} zmienka {{GENDER:$3|redaktora|redaktorky}} <strong>$3</strong> sa odoslala.",
+	"notification-compact-header-mention-success": "<strong>{{GENDER:$2|Spomenul|Spomenula|Spomenul(a)}} ste:</strong> $3",
 	"notification-header-user-rights-add-only": "Vaše používateľské práva boli {{GENDER:$1|zmenené}}: Stali ste sa {{GENDER:$4|členom|členkou}} {{PLURAL:$3|skupiny|skupín}} $2.",
 	"notification-header-user-rights-remove-only": "Vaše používateľské práva boli {{GENDER:$1|zmenené}}: Už nie ste {{GENDER:$4|členom|členkou}} {{PLURAL:$3|skupiny|skupín}} $2.",
 	"notification-header-user-rights-add-and-remove": "{{GENDER:$6|Vaše}} používateľské práva boli {{GENDER:$1|zmenené}}: Stali ste sa {{GENDER:$6|členom|členkou}} {{PLURAL:$3|skupiny|skupín}} $2 a už nie ste {{GENDER:$6|členom|členkou}} {{PLURAL:$5|skupiny|skupín}} $4.",
