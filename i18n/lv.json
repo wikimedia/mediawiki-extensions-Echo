@@ -141,6 +141,7 @@
 	"notification-inbox-filter-read": "Izlasītie",
 	"notification-inbox-filter-unread": "Nelasītie",
 	"notification-inbox-filter-all": "Visi",
+	"echo-specialmute-label-mute-notifications": "Apklusināt paziņojumus no šī dalībnieka",
 	"echo-email-html-footer-preference-link-text": "pārbaudi {{GENDER:$1|savas}} izvēles",
 	"echo-notification-alert-text-only": "Brīdinājumi",
 	"echo-notification-notice-text-only": "Paziņojumi",
