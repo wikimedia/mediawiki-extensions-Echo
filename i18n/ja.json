@@ -170,7 +170,7 @@
 	"notification-inbox-filter-all": "すべて",
 	"echo-email-plain-footer": "{{GENDER:$1|あなた}}が受け取るメールの設定を変更するには、個人設定をご確認ください:",
 	"echo-email-html-footer-preference-link-text": "{{GENDER:$1|個人設定}}をご確認ください",
-	"echo-email-html-footer-with-link": "受け取るメールの設定を変更するには、$1。",
+	"echo-email-html-footer-with-link": "{{{{GENDER:$2|皆さん}}}}にお届けするメールを変更するには、$1。",
 	"echo-notification-alert": "{{PLURAL:$1|アラート ($1)|100=アラート (99件以上)}}",
 	"echo-notification-notice": "{{PLURAL:$1|通知 ($1件)|100=通知 (99件以上)}}",
 	"echo-notification-alert-text-only": "アラート",
