@@ -181,6 +181,7 @@
 	"echo-mark-all-as-read": "Merk alle som leste",
 	"echo-mark-all-as-read-confirmation": "$1 {{PLURAL:$1|varsel|varsler}} markert som lest",
 	"echo-mark-wiki-as-read": "Merk alle som lest på den valgte wikien: $1",
+	"echo-displaysnippet-title": "Nytt varsel",
 	"echo-date-today": "I dag",
 	"echo-date-yesterday": "I går",
 	"notification-bundle-header-edit-user-talk-v2": "{{PLURAL:$1|Én ny melding|$1 nye meldinger|100=99+ nye meldinger}} på <strong>diskusjonssiden {{GENDER:$3|din}}</strong>.",

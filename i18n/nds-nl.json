@@ -35,7 +35,7 @@
 	"echo-pref-tooltip-reverted": "Stuur m'n n melding as der ene n bewarking die'k an-ebröcht hebbe weerummedreit mit de funksie ongedaonmaken of weerummedreien.",
 	"echo-pref-tooltip-mention": "Stuur m'n n melding as der ene n verwiezing maakt naor mien gebrukerszied vanaof n overlegzied.",
 	"notifications": "Meldingen",
-	"tooltip-pt-notifications-alert": "{{GENDER:|Oew}} meldingen",
+	"tooltip-pt-notifications-alert": "{{GENDER:|Juw}} meldingen",
 	"tooltip-pt-notifications-notice": "{{GENDER:|Joew}} mededelingen",
 	"echo-specialpage": "Meldingen",
 	"echo-specialpage-pagefilters-title": "Leste aktiviteit",
