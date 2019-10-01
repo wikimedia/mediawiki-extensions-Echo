@@ -42,6 +42,7 @@
 	"prefs-echocrosswiki": "Cross-wiki notifications",
 	"prefs-blocknotificationslist": "Muted users",
 	"prefs-echopollupdates": "Live notifications",
+	"echo-mobile-notifications-filter-title": "Filter notifications",
 	"echo-pref-show-poll-updates": "Display new notifications as they arrive",
 	"echo-pref-show-poll-updates-help": "Show the number of unread notifications in the title bar, and show a snippet of each notification immediately when it arrives.",
 	"echo-pref-send-me": "Send me:",
