@@ -120,9 +120,9 @@ class EchoSeenTime {
 		// the real cache
 		$key = $this->getMemcKey( $type );
 		$cache = self::cache();
-		$cache->set( $key, $time, 0, BagOStuff::WRITE_CACHE_ONLY );
+		$cache->set( $key, $time, $cache::TTL_YEAR, BagOStuff::WRITE_CACHE_ONLY );
 		DeferredUpdates::addCallableUpdate( function () use ( $key, $time, $cache ) {
-			$cache->set( $key, $time );
+			$cache->set( $key, $time, $cache::TTL_YEAR );
 		} );
 	}
 
