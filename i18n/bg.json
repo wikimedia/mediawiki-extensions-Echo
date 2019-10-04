@@ -158,7 +158,7 @@
 	"notification-header-emailuser": "$1 {{GENDER:$2|Ви изпрати}} имейл.",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$3|Ви}} {{GENDER:$2|остави}} съобщение на {{SITENAME}}",
 	"notification-page-linked-email-subject": "Страницата, създадена от {{GENDER:$3|вас}}, бе свързана с {{SITENAME}}",
-	"notification-reverted-email-subject2": "{{PLURAL:$4|Вашата редакция|Вашите редакции}} на {{SITENAME}} {{PLURAL:$4|бе върната|бяха върнати}}",
+	"notification-reverted-email-subject2": "{{PLURAL:$3|Вашата редакция|Вашите редакции}} {{PLURAL:$4}} на {{SITENAME}} {{PLURAL:$2|бе върната|бяха върнати}}",
 	"notification-mention-email-subject": "$1 {{GENDER:$3|Ви}} {{GENDER:$2|спомена}} в {{SITENAME}}",
 	"notification-user-rights-email-subject": "Потребителските {{GENDER:$3|Ви}} права в {{SITENAME}} бяха променени",
 	"notification-timestamp-ago-seconds": "{{PLURAL:$1|$1 сек}}",
