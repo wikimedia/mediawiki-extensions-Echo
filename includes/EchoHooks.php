@@ -67,7 +67,8 @@ class EchoHooks {
 	 */
 	public static function initEchoExtension() {
 		global $wgEchoNotifications, $wgEchoNotificationCategories, $wgEchoNotificationIcons,
-			$wgEchoMentionStatusNotifications, $wgAllowArticleReminderNotification, $wgAPIModules;
+			$wgEchoMentionStatusNotifications, $wgAllowArticleReminderNotification, $wgAPIModules,
+			$wgEchoSeenTimeCacheType, $wgMainStash;
 
 		// allow extensions to define their own event
 		Hooks::run( 'BeforeCreateEchoEvent',
@@ -83,6 +84,11 @@ class EchoHooks {
 		if ( !$wgAllowArticleReminderNotification ) {
 			unset( $wgEchoNotificationCategories['article-reminder'] );
 			unset( $wgAPIModules['echoarticlereminder'] );
+		}
+
+		// Default $wgEchoSeenTimeCacheType to $wgMainStash
+		if ( $wgEchoSeenTimeCacheType === null ) {
+			$wgEchoSeenTimeCacheType = $wgMainStash;
 		}
 	}
 

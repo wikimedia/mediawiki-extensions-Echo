@@ -41,18 +41,23 @@ class EchoSeenTime {
 	 * @return BagOStuff
 	 */
 	private static function cache() {
-		static $c = null;
+		static $wrappedCache = null;
 
-		// Use main stash for persistent storage, and
-		// wrap it with CachedBagOStuff for an in-process
-		// cache. (T144534)
-		if ( $c === null ) {
-			$c = new CachedBagOStuff(
-				MediaWikiServices::getInstance()->getMainObjectStash()
-			);
+		// Use a configurable cache backend (T222851) and wrap it with CachedBagOStuff
+		// for an in-process cache (T144534)
+		if ( $wrappedCache === null ) {
+			$cacheConfig = MediaWikiServices::getInstance()->getMainConfig()->get( 'EchoSeenTimeCacheType' );
+			if ( $cacheConfig === null ) {
+				// EchoHooks::initEchoExtension sets EchoSeenTimeCacheType to $wgMainStash if it's
+				// null, so this can only happen if $wgMainStash is also null
+				throw new UnexpectedValueException(
+					'Either $wgEchoSeenTimeCacheType or $wgMainStash must be set'
+				);
+			}
+			return new CachedBagOStuff( ObjectCache::getInstance( $cacheConfig ) );
 		}
 
-		return $c;
+		return $wrappedCache;
 	}
 
 	/**

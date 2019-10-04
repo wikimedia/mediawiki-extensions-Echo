@@ -476,6 +476,9 @@
 		"EchoSharedTrackingCluster": {
 			"value": false
 		},
+		"EchoSeenTimeCacheType": {
+			"value": null
+		},
 		"EchoMaxUpdateCount": {
 			"value": 2000
 		},
