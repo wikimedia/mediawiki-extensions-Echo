@@ -1,5 +1,7 @@
 <?php
 
+use Wikimedia\Rdbms\IDatabase;
+
 /**
  * @covers EchoNotificationMapper
  */
@@ -128,7 +130,7 @@ class EchoNotificationMapperTest extends MediaWikiTestCase {
 
 	public function testDeleteByUserEventOffset() {
 		$this->setMwGlobals( [ 'wgUpdateRowsPerQuery' => 4 ] );
-		$mockDb = $this->getMock( IDatabase::class );
+		$mockDb = $this->createMock( IDatabase::class );
 		$makeResultRows = function ( $eventIds ) {
 			return new ArrayIterator( array_map( function ( $eventId ) {
 				return (object)[ 'notification_event' => $eventId ];
@@ -256,7 +258,7 @@ class EchoNotificationMapperTest extends MediaWikiTestCase {
 			'delete' => ''
 		];
 
-		$db = $this->getMock( IDatabase::class );
+		$db = $this->createMock( IDatabase::class );
 		$db->expects( $this->any() )
 			->method( 'insert' )
 			->will( $this->returnValue( $dbResult['insert'] ) );

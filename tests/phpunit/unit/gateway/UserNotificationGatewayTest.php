@@ -1,5 +1,7 @@
 <?php
 
+use Wikimedia\Rdbms\IDatabase;
+
 /**
  * @covers EchoUserNotificationGateway
  */
@@ -156,7 +158,7 @@ class EchoUserNotificationGatewayTest extends MediaWikiUnitTestCase {
 			'selectRow' => '',
 			'selectRowCount' => '',
 		];
-		$db = $this->getMock( IDatabase::class );
+		$db = $this->createMock( IDatabase::class );
 		$db->expects( $this->any() )
 			->method( 'update' )
 			->will( $this->returnValue( $dbResult['update'] ) );

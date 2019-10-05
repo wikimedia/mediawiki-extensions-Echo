@@ -1,5 +1,7 @@
 <?php
 
+use Wikimedia\Rdbms\IDatabase;
+
 /**
  * @covers EchoTargetPageMapper
  */
@@ -74,7 +76,7 @@ class EchoTargetPageMapperTest extends MediaWikiUnitTestCase {
 			'select' => '',
 			'delete' => ''
 		];
-		$db = $this->getMock( IDatabase::class );
+		$db = $this->createMock( IDatabase::class );
 		$db->expects( $this->any() )
 			->method( 'insert' )
 			->will( $this->returnValue( $dbResult['insert'] ) );

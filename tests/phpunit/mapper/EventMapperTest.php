@@ -1,5 +1,7 @@
 <?php
 
+use Wikimedia\Rdbms\IDatabase;
+
 /**
  * @group Database
  * @covers EchoEventMapper
@@ -102,7 +104,7 @@ class EchoEventMapperTest extends MediaWikiTestCase {
 	}
 
 	/**
-	 * @return \Wikimedia\Rdbms\IDatabase
+	 * @return IDatabase
 	 */
 	protected function mockDb( array $dbResult ) {
 		$dbResult += [
@@ -111,7 +113,7 @@ class EchoEventMapperTest extends MediaWikiTestCase {
 			'select' => '',
 			'selectRow' => ''
 		];
-		$db = $this->getMock( IDatabase::class );
+		$db = $this->createMock( IDatabase::class );
 		$db->expects( $this->any() )
 			->method( 'insert' )
 			->will( $this->returnValue( $dbResult['insert'] ) );
