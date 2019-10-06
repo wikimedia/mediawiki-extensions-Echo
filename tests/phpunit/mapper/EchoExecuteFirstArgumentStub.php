@@ -1,12 +1,16 @@
 <?php
 
-class EchoExecuteFirstArgumentStub implements PHPUnit_Framework_MockObject_Stub {
-	public function invoke( PHPUnit_Framework_MockObject_Invocation $invocation ) {
-		if ( !$invocation instanceof PHPUnit_Framework_MockObject_Invocation_Static ) {
-			throw new PHPUnit_Framework_Exception( 'wrong invocation type' );
+use PHPUnit\Framework\MockObject\Invocation;
+use PHPUnit\Framework\MockObject\Invocation\StaticInvocation;
+use PHPUnit\Framework\MockObject\Stub;
+
+class EchoExecuteFirstArgumentStub implements Stub {
+	public function invoke( Invocation $invocation ) {
+		if ( !$invocation instanceof StaticInvocation ) {
+			throw new PHPUnit\Framework\Exception( 'wrong invocation type' );
 		}
 		if ( !$invocation->arguments ) {
-			throw new PHPUnit_Framework_Exception( 'Method call must have an argument' );
+			throw new PHPUnit\Framework\Exception( 'Method call must have an argument' );
 		}
 
 		return call_user_func( reset( $invocation->arguments ) );
