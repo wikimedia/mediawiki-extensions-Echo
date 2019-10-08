@@ -94,7 +94,7 @@
 	"echo-pref-tooltip-article-reminder": "Me prévenir de cette page quand je le demande.",
 	"echo-pref-tooltip-thank-you-edit": "M’informer quand j’atteins ma première, dixième, centième… modification.",
 	"notifications": "Notifications",
-	"tooltip-pt-notifications-alert": "Vos alertes",
+	"tooltip-pt-notifications-alert": "{{GENDER:|}}Vos alertes",
 	"tooltip-pt-notifications-notice": "{{GENDER:|Vos}} notifications",
 	"echo-displaynotificationsconfiguration": "Configuration d’affichage des notifications",
 	"echo-displaynotificationsconfiguration-summary": "Ceci est un aperçu de comment les notifications sont configurées sur ce wiki.",

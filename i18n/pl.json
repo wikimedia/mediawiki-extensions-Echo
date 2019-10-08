@@ -21,7 +21,8 @@
 			"PiotrekD",
 			"InternerowyGołąb",
 			"Railfail536",
-			"Rail"
+			"Rail",
+			"FunPL"
 		]
 	},
 	"echo-desc": "System powiadomień użytkowników o zdarzeniach i komunikatach",
@@ -64,7 +65,7 @@
 	"echo-category-title-thank-you-edit": "Edytuj {{PLURAL:$1|kamień milowy|kamienie milowe}} edycji",
 	"echo-pref-tooltip-edit-user-talk": "Powiadom mnie, kiedy ktoś napisze nową wiadomość albo odpowie na mojej stronie dyskusji.",
 	"echo-pref-tooltip-article-linked": "Powiadom mnie, kiedy ktoś umieści na innej stronie link do strony utworzonej przeze mnie.",
-	"echo-pref-tooltip-reverted": "Powiadom mnie, kiedy ktoś wycofa moją edycję korzystając z narzędzia „anuluj” albo „cofnij”.",
+	"echo-pref-tooltip-reverted": "Powiadom mnie, kiedy ktoś cofnie moją edycję korzystając z narzędzia „cofnij” albo „wycofaj”.",
 	"echo-pref-tooltip-mention": "Powiadom mnie, kiedy ktoś umieści link do mojej strony użytkownika.",
 	"echo-pref-tooltip-mention-failure": "Powiadom mnie, kiedy nie udało się wysłać do kogoś informacji o wzmiance.",
 	"echo-pref-tooltip-mention-success": "Powiadom mnie, kiedy wyślę do kogoś informacje o wzmiance.",

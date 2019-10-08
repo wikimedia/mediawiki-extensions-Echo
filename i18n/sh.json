@@ -14,6 +14,7 @@
 	"prefs-blocknotificationslist": "Ignorisani korisnici",
 	"prefs-echopollupdates": "Obavještenja uživo",
 	"echo-pref-show-poll-updates": "Prikazuje nova obavještenja čim stignu",
+	"echo-pref-show-poll-updates-help": "Prikaži broj nepročitanih obavijesti u naslovnoj traci, kao i izvadak svake obavijesti čim stigne.",
 	"echo-pref-send-me": "Pošalji mi:",
 	"echo-pref-send-to": "Pošalji:",
 	"echo-pref-email-format": "Format e-pošte:",

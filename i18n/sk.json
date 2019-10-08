@@ -7,7 +7,8 @@
 			"Urbanecm",
 			"Martin Urbanec",
 			"TomášPolonec",
-			"Luky001"
+			"Luky001",
+			"Vlad5250"
 		]
 	},
 	"echo-desc": "Notifikačný systém",
@@ -40,6 +41,7 @@
 	"echo-category-title-mention-success": "{{PLURAL:$1|úspešnú zmienku|úspešné zmienky}}",
 	"echo-category-title-other": "{{PLURAL:$1|inú udalosť|iné udalosti}}",
 	"echo-category-title-system": "{{PLURAL:$1|systémovú udalosť|systémové udalosti}}",
+	"echo-category-title-system-noemail": "{{PLURAL:$1|systémovú udalosť|systémové udalosti}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|zmenu|zmeny}} používateľských práv",
 	"echo-category-title-emailuser": "{{PLURAL:$1|e-mail od iného používateľa|e-maily od ostatných používateľov}}",
 	"echo-pref-tooltip-edit-user-talk": "Upozornite ma, keď mi niekto na mojej diskusnej stránke napíše správu alebo odpovie.",
@@ -53,6 +55,7 @@
 	"notifications": "Upozornenia",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Vaše}} upozornenia",
 	"tooltip-pt-notifications-notice": "{{GENDER:|Vaše}} oznámenia",
+	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Noví používatelia",
 	"echo-specialpage": "Upozornenia",
 	"echo-specialpage-section-markread": "Označiť skupinu ako prečítanú",
 	"echo-specialpage-markasread": "Oznámenie: Označiť ako prečítané",
@@ -61,7 +64,7 @@
 	"echo-specialpage-pagefilters-subtitle": "Stránky s neprečítanými upozorneniami",
 	"notificationsmarkread-legend": "Označiť oznámenie ako prečítané",
 	"echo-none": "Nemáte žiadne upozornenia.",
-	"echo-api-failure": "Nepodarilo sa načítať upozornenia. Skúste to prosím znovu. (Chyba $1)",
+	"echo-api-failure": "Nepodarilo sa načítať upozornenia.",
 	"echo-notification-placeholder": "Nemáte žiadne upozornenia.",
 	"echo-notification-placeholder-filters": "Nemáte žiadne upozornenia zodpovedajúce týmto kritériám.",
 	"echo-notification-markasread": "Označiť ako prečítané",
@@ -111,6 +114,7 @@
 	"notification-header-thank-you-1000000-edit": "Práve ste {{GENDER:$2|vykonal|vykonala}} svoju milióntu úpravu. Vďaka za váš ohromujúci príspevok!",
 	"notification-link-thank-you-edit": "{{GENDER:$1|Vaša}} úprava",
 	"notification-link-text-view-edit": "Zobraziť úpravu",
+	"notification-link-article-reminder": "Zobraziť stránku",
 	"notification-header-reverted": "$1 {{GENDER:$2|vrátil|vrátila}} {{PLURAL:$4|vašu úpravu|vaše úpravy}} stránky $3",
 	"notification-header-emailuser": "$1 vám {{GENDER:$2|poslal|poslala}} e-mail.",
 	"notification-edit-talk-page-email-subject2": "$1 vám na {{grammar:6sg|{{SITENAME}}}} {{GENDER:$2|napísal|napísla}} správu.",
