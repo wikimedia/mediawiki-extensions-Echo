@@ -293,14 +293,8 @@ function initMobile() {
 	if ( !mw.user.isAnon() ) {
 		// FIXME: skins.minerva.scripts can be removed from list of dependencies when T221007
 		// has been resolved.
-		mw.loader.using( [ 'ext.echo.mobile', 'mobile.startup', 'skins.minerva.scripts' ] ).then( function ( require ) {
-			var minerva = require( 'skins.minerva.scripts' );
-			// This avoids enabling the Echo feature twice.
-			// If the Echo code has been removed from Minerva a VERSION number will have been defined.
-			// See _____.
-			if ( minerva && minerva.VERSION ) {
-				require( 'ext.echo.mobile' )();
-			}
+		mw.loader.using( [ 'ext.echo.mobile', 'mobile.startup' ] ).then( function ( require ) {
+			require( 'ext.echo.mobile' )();
 		} );
 	}
 }
