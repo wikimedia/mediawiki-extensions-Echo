@@ -7,7 +7,7 @@
  */
 class EchoTalkPageFunctionalTest extends ApiTestCase {
 
-	protected function setUp() {
+	protected function setUp() : void {
 		parent::setUp();
 		$this->db->delete( 'echo_event', '*' );
 	}

@@ -1553,14 +1553,13 @@ class EchoHooks {
 	 * @param int $articleId
 	 * @param Content|null $content
 	 * @param LogEntry $logEntry
-	 * @suppress PhanParamReqAfterOpt
 	 */
 	public static function onArticleDeleteComplete(
 		WikiPage &$article,
 		User &$user,
 		$reason,
 		$articleId,
-		Content $content = null,
+		?Content $content,
 		LogEntry $logEntry
 	) {
 		\DeferredUpdates::addCallableUpdate( function () use ( $articleId ) {

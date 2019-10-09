@@ -8,7 +8,7 @@ use Wikimedia\Rdbms\IDatabase;
  */
 class EchoEventMapperTest extends MediaWikiTestCase {
 
-	protected function setUp() {
+	protected function setUp() : void {
 		parent::setUp();
 		$this->tablesUsed[] = 'echo_event';
 		$this->tablesUsed[] = 'echo_notification';
