@@ -42,6 +42,7 @@
 	"prefs-echocrosswiki": "Header for the section of preferences that deals with notifications from other wikis",
 	"prefs-blocknotificationslist": "Header for the section of preferences that deals with blocking notifications from certain users",
 	"prefs-echopollupdates": "Header for the section of preferences that deals with displaying visual cue and snippet of live notifications",
+	"echo-mobile-notifications-filter-title": "Title shown in the notifications filter page on click of the Filter button. It is also used for the filter button itself that opens it.",
 	"echo-pref-show-poll-updates": "Label for displaying visual cue and snippet of live notification",
 	"echo-pref-show-poll-updates-help": "Help message for detailed explanation of live notification preference",
 	"echo-pref-send-me": "Label for the following email delivery options:\n* {{msg-mw|Echo-pref-email-frequency-never}}\n* {{msg-mw|Echo-pref-email-frequency-immediately}} (default)\n* {{msg-mw|Echo-pref-email-frequency-daily}}\n* {{msg-mw|Echo-pref-email-frequency-weekly}}",

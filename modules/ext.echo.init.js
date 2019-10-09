@@ -1,5 +1,13 @@
 /* eslint-disable no-jquery/no-global-selector */
-( function () {
+mw.echo = mw.echo || {};
+mw.echo.config = mw.echo.config || {};
+// Set default max prioritized action links per item
+mw.echo.config.maxPrioritizedActions = 2;
+
+/**
+ * Initialise desktop Echo experience
+ */
+function initDesktop() {
 	'use strict';
 
 	// Remove ?markasread=XYZ from the URL
@@ -9,11 +17,6 @@
 		delete uri.query.markasreadwiki;
 		window.history.replaceState( null, document.title, uri );
 	}
-
-	mw.echo = mw.echo || {};
-	mw.echo.config = mw.echo.config || {};
-	// Set default max prioritized action links per item
-	mw.echo.config.maxPrioritizedActions = 2;
 
 	// Activate ooui
 	$( function () {
@@ -281,4 +284,31 @@
 
 	} );
 
-}() );
+}
+
+/**
+ * Initialise a mobile experience instead
+ */
+function initMobile() {
+	if ( !mw.user.isAnon() ) {
+		// FIXME: skins.minerva.scripts can be removed from list of dependencies when T221007
+		// has been resolved.
+		mw.loader.using( [ 'ext.echo.mobile', 'mobile.startup', 'skins.minerva.scripts' ] ).then( function ( require ) {
+			var minerva = require( 'skins.minerva.scripts' );
+			// This avoids enabling the Echo feature twice.
+			// If the Echo code has been removed from Minerva a VERSION number will have been defined.
+			// See _____.
+			if ( minerva && minerva.VERSION ) {
+				require( 'ext.echo.mobile' )();
+			}
+		} );
+	}
+}
+
+$( function () {
+	if ( mw.config.get( 'wgMFMode' ) ) {
+		initMobile();
+	} else {
+		initDesktop();
+	}
+} );

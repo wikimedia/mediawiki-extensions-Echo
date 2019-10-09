@@ -842,7 +842,7 @@ class EchoHooks {
 	 * @return bool true in all cases
 	 */
 	public static function beforePageDisplay( $out, $skin ) {
-		if ( $out->getUser()->isLoggedIn() && $skin->getSkinName() !== 'minerva' ) {
+		if ( $out->getUser()->isLoggedIn() ) {
 			// Load the module for the Notifications flyout
 			$out->addModules( [ 'ext.echo.init' ] );
 			// Load the styles for the Notifications badge
@@ -926,6 +926,73 @@ class EchoHooks {
 		}
 
 		return $subtractions;
+	}
+
+	/**
+	 * Handler for SkinMinervaReplaceNotificationsBadge hook.
+	 * @param User $user who needs notifications
+	 * @param Title $title of current page
+	 * @param string &$badge to replace
+	 */
+	public static function onSkinMinervaReplaceNotificationsBadge( $user, $title, &$badge ) {
+		$notificationsTitle = SpecialPage::getTitleFor( 'Notifications' );
+		$count = 0;
+		$countLabel = '';
+		$isZero = true;
+		$hasUnseen = false;
+
+		if ( $title->equals( $notificationsTitle ) ) {
+			// On Special:Notifications show no icon
+			$badge = '';
+			return;
+		}
+
+		// Note: `mw-ui-icon-wikimedia-bellOutline-base20` class is provided by Minerva.
+		// In future we'll likely want to rethink how this works and possibly consolidate this with the desktop badge.
+		// For now, we avoid loading two bells in the same place by reusing the class already defined in Minerva.
+		$notificationIconClass = 'mw-ui-icon mw-ui-icon-wikimedia-bellOutline-base20 mw-ui-icon-element user-button';
+		$url = $notificationsTitle->getLocalURL(
+			[ 'returnto' => $title->getPrefixedText() ] );
+
+		$notifUser = MWEchoNotifUser::newFromUser( $user );
+		$count = $notifUser->getNotificationCount();
+
+		$echoSeenTime = EchoSeenTime::newFromUser( $user );
+		$seenAlertTime = $echoSeenTime->getTime( 'alert', TS_ISO_8601 );
+		$seenMsgTime = $echoSeenTime->getTime( 'message', TS_ISO_8601 );
+
+		$alertNotificationTimestamp = $notifUser->getLastUnreadAlertTime();
+		$msgNotificationTimestamp = $notifUser->getLastUnreadMessageTime();
+
+		$isZero = $count === 0;
+		$hasUnseen = $count > 0 &&
+			(
+				$seenMsgTime !== false && $msgNotificationTimestamp !== false &&
+				$seenMsgTime < $msgNotificationTimestamp->getTimestamp( TS_ISO_8601 )
+			) ||
+			(
+				$seenAlertTime !== false && $alertNotificationTimestamp !== false &&
+				$seenAlertTime < $alertNotificationTimestamp->getTimestamp( TS_ISO_8601 )
+			);
+
+		$countLabel = EchoNotificationController::formatNotificationCount( $count );
+		$data = [
+			'notificationIconClass' => $notificationIconClass,
+			'title' => $hasUnseen ?
+				wfMessage( 'echo-overlay-link' ) :
+				wfMessage( 'echo-none' ),
+			'url' => $url,
+			'notificationCountRaw' => $count,
+			'notificationCountString' => $countLabel,
+			'isNotificationCountZero' => $isZero,
+			'hasNotifications' => $hasUnseen,
+			// this variable is used inside the client side which has different handling
+			// for when notifications have been dismissed. Instead of a bell it shows `(0)`.
+			'hasUnseenNotifications' => $hasUnseen,
+		];
+		$parser = new TemplateParser( __DIR__ . '/../modules/mobile' );
+		// substitute the badge
+		$badge = $parser->processTemplate( 'NotificationBadge', $data );
 	}
 
 	/**

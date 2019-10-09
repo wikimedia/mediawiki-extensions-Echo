@@ -50,6 +50,18 @@
 	"ExtensionMessagesFiles": {
 		"EchoAliases": "Echo.alias.php"
 	},
+	"QUnitTestModule": {
+		"localBasePath": "",
+		"remoteExtPath": "Echo",
+		"templates": {
+			"NotificationBadge.mustache": "modules/mobile/NotificationBadge.mustache"
+		},
+		"packageFiles": [
+			"tests/qunit/mobile/index.js",
+			"tests/qunit/mobile/test_NotificationBadge.js",
+			"modules/mobile/NotificationBadge.js"
+		]
+	},
 	"ResourceModules": {
 		"ext.echo.logger": {
 			"packageFiles": [
@@ -252,6 +264,37 @@
 				"mobile"
 			]
 		},
+		"ext.echo.mobile": {
+			"templates": {
+				"NotificationBadge.mustache": "mobile/NotificationBadge.mustache"
+			},
+			"styles": [
+				"mobile/overlay.less",
+				"mobile/notificationsFilterOverlay.less"
+			],
+			"messages": [
+				"notifications",
+				"echo-mobile-notifications-filter-title",
+				"echo-mark-all-as-read-confirmation"
+			],
+			"dependencies": [
+				"mediawiki.util",
+				"mediawiki.router",
+				"ext.echo.ui",
+				"oojs-ui.styles.icons-interactions"
+			],
+			"packageFiles": [
+				"mobile/notifications.js",
+				"mobile/list.js",
+				"mobile/overlay.js",
+				"mobile/NotificationBadge.js",
+				"mobile/notificationsFilterOverlay.js"
+			],
+			"targets": [
+				"desktop",
+				"mobile"
+			]
+		},
 		"ext.echo.init": {
 			"packageFiles": [
 				"ext.echo.init.js",
@@ -280,6 +323,9 @@
 				"nojs/mw.echo.badge.less"
 			],
 			"skinStyles": {
+				"minerva": [
+					"nojs/mw.echo.badge.minerva.less"
+				],
 				"monobook": [
 					"nojs/mw.echo.badge.monobook.less"
 				],
@@ -378,6 +424,7 @@
 		"remoteExtPath": "Echo/modules"
 	},
 	"Hooks": {
+		"SkinMinervaReplaceNotificationsBadge": "EchoHooks::onSkinMinervaReplaceNotificationsBadge",
 		"LoadExtensionSchemaUpdates": "EchoHooks::onLoadExtensionSchemaUpdates",
 		"GetPreferences": "EchoHooks::getPreferences",
 		"PersonalUrls": "EchoHooks::onPersonalUrls",
