@@ -130,12 +130,12 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 		],
 	];
 
-	protected function setUp() {
+	protected function setUp() : void {
 		parent::setUp();
 		$this->setMwGlobals( [ 'wgDiff' => false ] );
 	}
 
-	protected function tearDown() {
+	protected function tearDown() : void {
 		parent::tearDown();
 
 		global $wgHooks;
