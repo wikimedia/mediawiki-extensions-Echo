@@ -52,6 +52,7 @@
 	"prefs-echocrosswiki": "Notifications inter-wikis",
 	"prefs-blocknotificationslist": "Utilisateurs occultés",
 	"prefs-echopollupdates": "Notifications au fil de l’eau",
+	"echo-mobile-notifications-filter-title": "Filtrer les notifications",
 	"echo-pref-show-poll-updates": "Afficher les nouvelles notifications quand elles arrivent",
 	"echo-pref-show-poll-updates-help": "Afficher le nombre de notifications non lues dans la barre de titre, et afficher un extrait de chacune immédiatement quand elle arrive.",
 	"echo-pref-send-me": "M’envoyer :",

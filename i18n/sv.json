@@ -28,6 +28,7 @@
 	"prefs-echocrosswiki": "Interwikiaviseringar",
 	"prefs-blocknotificationslist": "Ignorerade användare",
 	"prefs-echopollupdates": "Direktaviseringar",
+	"echo-mobile-notifications-filter-title": "Filtrera aviseringar",
 	"echo-pref-show-poll-updates": "Visa nya aviseringar när de tas emot",
 	"echo-pref-show-poll-updates-help": "Visa antalet olästa aviseringar i namnlisten och lite av början på varje avisering direkt när det tas emot.",
 	"echo-pref-send-me": "Skicka mig:",

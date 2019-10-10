@@ -35,6 +35,7 @@
 	"prefs-echocrosswiki": "إشعارات عابرة للويكي",
 	"prefs-blocknotificationslist": "المستخدمون الممنوعون",
 	"prefs-echopollupdates": "الإخطارات الحية",
+	"echo-mobile-notifications-filter-title": "إخطارات المرشح",
 	"echo-pref-show-poll-updates": "عرض الإخطارات الجديدة فور وصولها",
 	"echo-pref-show-poll-updates-help": "عرض عدد الإشعارات غير المقروءة في شريط العنوان، وعرض مقتطف من كل إخطار فور وصوله.",
 	"echo-pref-send-me": "أرسل لي:",
