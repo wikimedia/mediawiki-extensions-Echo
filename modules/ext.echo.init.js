@@ -291,8 +291,6 @@ function initDesktop() {
  */
 function initMobile() {
 	if ( !mw.user.isAnon() ) {
-		// FIXME: skins.minerva.scripts can be removed from list of dependencies when T221007
-		// has been resolved.
 		mw.loader.using( [ 'ext.echo.mobile', 'mobile.startup' ] ).then( function ( require ) {
 			require( 'ext.echo.mobile' )();
 		} );
