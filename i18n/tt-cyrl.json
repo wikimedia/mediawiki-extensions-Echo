@@ -67,7 +67,7 @@
 	"notification-link-text-view-edit": "Үзгәртүне карау",
 	"notification-link-article-reminder": "Битне карау",
 	"notification-header-reverted": "Сезнең <strong>$3</strong> битендә ясалган {{PLURAL:$4|1=төзәтмәләгез|төзәтмәләрегез}} {{GENDER:$2|{{PLURAL:$4|кире кагылды}}}}.",
-	"notification-mention-email-subject": "$1 {{GENDER:$3|сезне}} на сайте «{{SITENAME}}» сәхтфәсендә {{GENDER:$2|искә алды}}",
+	"notification-mention-email-subject": "$1 {{GENDER:$3|сезне}} «{{SITENAME}}» сәхифәсендә {{GENDER:$2|искә алды}}",
 	"notification-timestamp-ago-seconds": "{{PLURAL:$1|$1 с}}",
 	"notification-timestamp-ago-minutes": "{{PLURAL:$1|$1 мин}}",
 	"notification-timestamp-ago-hours": "{{PLURAL:$1|$1 сәг}}",

@@ -22,6 +22,7 @@
 	"prefs-echocrosswiki": "הודעות מאתרי ויקי אחרים",
 	"prefs-blocknotificationslist": "משתמשים מושתקים",
 	"prefs-echopollupdates": "התראות חיות",
+	"echo-mobile-notifications-filter-title": "סינון התראות",
 	"echo-pref-show-poll-updates": "הצגת התראות חדשות כשהן מגיעות",
 	"echo-pref-show-poll-updates-help": "הצגת מספר ההתראות שלא נקראו בסרגל הכותרת, והצגת קטע קצר מתוך כל התראה מייד כשהיא מגיעה.",
 	"echo-pref-send-me": "מה לשלוח לי:",

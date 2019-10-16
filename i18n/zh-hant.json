@@ -36,6 +36,7 @@
 	"prefs-echocrosswiki": "跨 wiki 通知",
 	"prefs-blocknotificationslist": "禁言使用者",
 	"prefs-echopollupdates": "通知清單",
+	"echo-mobile-notifications-filter-title": "篩選通知",
 	"echo-pref-show-poll-updates": "即時顯示新通知",
 	"echo-pref-show-poll-updates-help": "在標題欄顯示未讀取通知的數量，並且在送來時顯示各通知的片段。",
 	"echo-pref-send-me": "傳送給我：",

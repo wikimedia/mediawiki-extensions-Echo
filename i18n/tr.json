@@ -21,7 +21,8 @@
 			"Ece Alpdeniz",
 			"Kumkumuk",
 			"AliceJ",
-			"Diyapazon"
+			"Diyapazon",
+			"BaRaN6161 TURK"
 		]
 	},
 	"echo-desc": "Kullanıcıları olaylar ve mesajlar hakkında bilgilendiren sistem",
@@ -56,6 +57,7 @@
 	"echo-category-title-system": "{{PLURAL:$1|Sistem}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|Kullanıcı hakları değişikliği|Kullanıcı hakları değişiklikleri}}",
 	"echo-category-title-emailuser": "{{PLURAL:$1|Diğer kullanıcıdan gelen e-posta|Diğer kullanıcılardan gelen e-postalar}}",
+	"echo-category-title-thank-you-edit": "Kilometre taşlarını düzenle",
 	"echo-pref-tooltip-edit-user-talk": "Bir kullanıcı mesaj sayfamı değiştirdiğinde bana bildirim gönder.",
 	"echo-pref-tooltip-article-linked": "Bir kullanıcı, bir sayfadan benim oluşturduğum bir sayfaya bağlantı verdiğinde bana bildirim gönder.",
 	"echo-pref-tooltip-reverted": "Yaptığım bir değişiklik geri alındığı takdirde bana bildirim gönder.",

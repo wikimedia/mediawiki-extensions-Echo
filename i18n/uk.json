@@ -17,7 +17,8 @@
 			"Green Zero",
 			"Amire80",
 			"SimondR",
-			"Vlad5250"
+			"Vlad5250",
+			"Movses"
 		]
 	},
 	"echo-desc": "Система сповіщення користувачів про події і повідомлення",
@@ -27,6 +28,7 @@
 	"prefs-echocrosswiki": "Крос-вікі сповіщення",
 	"prefs-blocknotificationslist": "Ігноровані користувачі",
 	"prefs-echopollupdates": "Сповіщення наживо",
+	"echo-mobile-notifications-filter-title": "Фільтр сповіщень",
 	"echo-pref-show-poll-updates": "Показувати нові сповіщення як тільки вони приходять",
 	"echo-pref-show-poll-updates-help": "Показувати число непрочитаних сповіщень у заголовку та показувати витяг з кожного зі сповіщень одразу коли воно приходить.",
 	"echo-pref-send-me": "Надіслати мені:",
@@ -45,7 +47,7 @@
 	"echo-learn-more": "Дізнатися більше",
 	"echo-log": "Публічний журнал",
 	"echo-new-messages": "У Вас є нові повідомлення",
-	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Повідомлення|Повідомлення|Повідомлень}} на сторінці обговорення",
+	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Повідомлення}} на сторінці обговорення",
 	"echo-category-title-article-linked": "{{PLURAL:$1|Посилання}} на сторінку",
 	"echo-category-title-reverted": "Скасування {{PLURAL:$1|редагування|редагувань}}",
 	"echo-category-title-mention": "{{PLURAL:$1|Згадування}}",
@@ -59,7 +61,7 @@
 	"echo-category-title-article-reminder": "{{PLURAL:$1|Нагадування}} про сторінки",
 	"echo-category-title-thank-you-edit": "Редагувати {{PLURAL:$1|віху|віхи}}",
 	"echo-pref-tooltip-edit-user-talk": "Повідомляти мене, коли хтось надсилає повідомлення або відповідає на моїй сторінці обговорення.",
-	"echo-pref-tooltip-article-linked": "Повідомляти мене, коли хтось додає на іншу сторінку посилання на створену мною сторінку.",
+	"echo-pref-tooltip-article-linked": "Повідомляти мене, коли хтось додає посилання на створену мною сторінку.",
 	"echo-pref-tooltip-reverted": "Повідомляти мене, коли хтось відхиляє моє редагування за допомогою скасування чи відкату.",
 	"echo-pref-tooltip-mention": "Повідомляти мене, коли хтось посилається на мою сторінку користувача.",
 	"echo-pref-tooltip-mention-failure": "Повідомити мене, коли мені не вдалося відправити згадку кого-небудь.",
@@ -75,7 +77,7 @@
 	"echo-displaynotificationsconfiguration-summary": "Це огляд налаштувань сповіщень у цій вікі.",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "Сповіщення за категоріями",
 	"echo-displaynotificationsconfiguration-sorting-by-section-header": "Сортування типів",
-	"echo-displaynotificationsconfiguration-sorting-by-section-legend": "Куди стортується кожен тип сповіщень",
+	"echo-displaynotificationsconfiguration-sorting-by-section-legend": "Якого розділу стосується кожен тип сповіщень",
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Дозволені способи сповіщення",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Які способи сповіщення підтримуються для кожної категорії",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Увімкнено за замовчуванням",
@@ -96,7 +98,7 @@
 	"echo-api-failure-cross-wiki": "Відмовлено в доступі до віддаленого домену.",
 	"echo-notification-placeholder": "Сповіщень немає.",
 	"echo-notification-placeholder-filters": "Немає сповіщень, що відповідають цим критеріям.",
-	"echo-notification-loginrequired": "Ви повинні увійти, щоб подивитися повідомлення.",
+	"echo-notification-loginrequired": "Ви повинні увійти, щоб подивитися сповіщення.",
 	"echo-notification-popup-loginrequired": "Будь ласка, увійдіть в систему, щоб переглянути свої сповіщення.",
 	"echo-notification-markasread": "Позначити як прочитане",
 	"echo-notification-markasunread": "Позначити як непрочитане",
@@ -143,7 +145,7 @@
 	"notification-compact-header-mention-failure-user-unknown": "<strong>Ім'я користувача не існує:</strong> $1",
 	"notification-compact-header-mention-failure-user-anonymous": "<strong>Не можна зробити згадку IP:</strong> $1",
 	"notification-header-mention-success": "{{GENDER:$2|Вашу}} згадку <strong>$3</strong> надіслано.",
-	"notification-header-mention-success-bundle": "{{PLURAL:$3|згадка, здійснена|$3 згадки, здійснені|$3 згадок, здійснених}} {{GENDER:$2|Вами}} на сторінці обговорення <strong>$4</strong>, {{PLURAL:$3|було надіслано}}.",
+	"notification-header-mention-success-bundle": "{{PLURAL:$3|Згадка, здійснена|$3 згадки, здійснені|$3 згадок, здійснених}} {{GENDER:$2|Вами}} на сторінці обговорення <strong>$4</strong>, {{PLURAL:$3|було надіслано}}.",
 	"notification-compact-header-mention-success": "<strong>{{GENDER:$2|Ви згадали}}:</strong> $3",
 	"notification-header-mention-status-bundle": "{{PLURAL:$3|Сповіщення|$3 сповіщення|$3 сповіщень}} про згадки, здійснені {{GENDER:$2|Вами}} на сторінці обговорення <strong>$4</strong>: {{PLURAL:$5|$5 не відправлено}}, {{PLURAL:$6|$6 відправлено}}.",
 	"notification-header-user-rights-add-only": "{{GENDER:$4|Ваші}} права користувача {{GENDER:$1|змінилися}}. Вас будо додано до: $2.",
@@ -197,7 +199,7 @@
 	"echo-displaysnippet-title": "Нове сповіщення",
 	"echo-date-today": "Сьогодні",
 	"echo-date-yesterday": "Вчора",
-	"notification-bundle-header-edit-user-talk-v2": "{{PLURAL:$1|$1 нове повідомлення|$1 нові повідомлення|$1 нових повідомлень|1=Одне нове повідомлення|100=99+ нових повідомлень}} на <strong>{{GENDER:$3|Вашій}} сторінці обговорення</strong>.",
+	"notification-bundle-header-edit-user-talk-v2": "{{PLURAL:$1|Одне нове повідомлення|$1 нові повідомлення|$1 нових повідомлень|100=99+ нових повідомлень}} на <strong>{{GENDER:$3|Вашій}} сторінці обговорення</strong>.",
 	"echo-email-batch-subject-daily": "У Вас {{PLURAL:$2|нове сповіщення|нові сповіщення|нових сповіщень}} на сайті {{SITENAME}}",
 	"echo-email-batch-subject-weekly": "У Вас {{PLURAL:$2|нове сповіщення|нові сповіщення|нових сповіщень}} на сайті {{SITENAME}} цього тижня",
 	"echo-email-batch-body-intro-daily": "Привіт $1!\nОсь підсумок денної активності на сайті {{SITENAME}} для вас.",
@@ -205,5 +207,5 @@
 	"echo-email-batch-link-text-view-all-notifications": "Переглянути усі сповіщення",
 	"notification-header-foreign-alert": "Більше звісток з {{PLURAL:$5|$5 іншої вікі|$5 інших вікі}}",
 	"notification-header-foreign-notice": "Більше сповіщень з {{PLURAL:$5|іншої вікі|$5 інших вікі}}",
-	"notification-header-foreign-all": "Більше сповіщень з {{PLURAL:$5|$5 іншої вікі|$5 інших вікі}}"
+	"notification-header-foreign-all": "Більше сповіщень з {{PLURAL:$5|іншої вікі|$5 інших вікі}}"
 }

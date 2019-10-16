@@ -104,6 +104,7 @@
 	"notification-header-user-rights-remove-only": "Vaše používateľské práva boli {{GENDER:$1|zmenené}}: Už nie ste {{GENDER:$4|členom|členkou}} {{PLURAL:$3|skupiny|skupín}} $2.",
 	"notification-header-user-rights-add-and-remove": "{{GENDER:$6|Vaše}} používateľské práva boli {{GENDER:$1|zmenené}}: Stali ste sa {{GENDER:$6|členom|členkou}} {{PLURAL:$3|skupiny|skupín}} $2 a už nie ste {{GENDER:$6|členom|členkou}} {{PLURAL:$5|skupiny|skupín}} $4.",
 	"notification-header-welcome": "Vitajte na {{GRAMMAR:6sg|{{SITENAME}}}}, {{GENDER:$2|$1}}! Teší nás, že ste tu.",
+	"notification-header-mention-summary": "$1 {{GENDER:$3|vás}} {{GENDER:$2|spomenul|spomenula}} v zhrnutí úpravy stránky <strong>$4</strong>.",
 	"notification-welcome-linktext": "Vitajte",
 	"notification-header-thank-you-1-edit": "Práve ste {{GENDER:$2|vykonal|vykonala}} svoju prvú úpravu. Vďaka a vitajte!",
 	"notification-header-thank-you-10-edit": "Práve ste vykonali svoju desiatu úpravu. Vďaka a len tak ďalej!",

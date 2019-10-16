@@ -69,6 +69,7 @@
 	"notification-timestamp-ago-months": "{{PLURAL:$1|1 monato|$1 monati}}",
 	"notification-inbox-filter-all": "Omna",
 	"echo-notification-alert": "{{PLURAL:$1|($1) avizo|($1) avizi|100=(99+) avizi}}",
+	"echo-notification-notice": "{{PLURAL:$1|($1) avizo|($1) avizi|100= Avizi (99+)}}",
 	"echo-notification-alert-text-only": "Avizi",
 	"echo-notification-notice-text-only": "Avizi",
 	"echo-overlay-link": "Omna avizi",
