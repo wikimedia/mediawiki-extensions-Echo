@@ -196,7 +196,6 @@ class SpecialNotifications extends SpecialPage {
 			// is an array
 			$notices
 				->appendContent( $heading )
-				// @phan-suppress-next-line PhanTypeMismatchArgument Phan troubles with variadic args
 				->appendContent( $data[ 'notices' ] );
 		}
 
