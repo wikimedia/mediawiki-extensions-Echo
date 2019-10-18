@@ -89,11 +89,9 @@ class EchoSeenTime {
 		}
 
 		if ( $data === false ) {
-			// There is still no time set, so set time to the UNIX epoch.
 			// We can't remember their real seen time, so reset everything to
 			// unseen.
 			$data = wfTimestamp( TS_MW, 1 );
-			$this->setTime( $data, $type );
 		}
 		return wfTimestamp( $format, $data );
 	}
