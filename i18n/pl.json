@@ -32,6 +32,7 @@
 	"prefs-echocrosswiki": "Powiadomienia z innych projektów",
 	"prefs-blocknotificationslist": "Ignorowanie użytkowników",
 	"prefs-echopollupdates": "Powiadomienia na żywo",
+	"echo-mobile-notifications-filter-title": "Filtruj powiadomienia",
 	"echo-pref-show-poll-updates": "Wyświetlaj nowe powiadomienia, gdy się pojawią",
 	"echo-pref-show-poll-updates-help": "Pokazuj liczbę nieprzeczytanych powiadomień w pasku tytułu i wyświetlaj fragment każdego powiadomienia, gdy tylko się pojawi.",
 	"echo-pref-send-me": "Wysyłaj mi:",
