@@ -1,5 +1,7 @@
 <?php
 
+use PHPUnit\Framework\TestCase;
+
 /**
  * @group Echo
  * @covers EchoSuppressionRowUpdateGenerator
@@ -101,8 +103,11 @@ class SuppressionMaintenanceTest extends MediaWikiTestCase {
 	}
 
 	protected static function attachTitleFor( $id, $providedText, $providedNamespace ) {
-		return function ( $test, $gen ) use ( $id, $providedText, $providedNamespace ) {
-			$title = $test->getMock( Title::class );
+		return function (
+			TestCase $test,
+			EchoSuppressionRowUpdateGenerator $gen
+		) use ( $id, $providedText, $providedNamespace ) {
+			$title = $test->createMock( Title::class );
 			$title->expects( $test->any() )
 				->method( 'getArticleId' )
 				->will( $test->returnValue( $id ) );
@@ -118,7 +123,7 @@ class SuppressionMaintenanceTest extends MediaWikiTestCase {
 	/**
 	 * @dataProvider provider_updateRow
 	 */
-	public function testUpdateRow( $message, $expected, $input, $callable = null ) {
+	public function testUpdateRow( $message, array $expected, array $input, callable $callable = null ) {
 		$gen = new EchoSuppressionRowUpdateGenerator;
 		if ( $callable ) {
 			call_user_func( $callable, $this, $gen );
