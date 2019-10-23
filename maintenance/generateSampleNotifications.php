@@ -211,7 +211,7 @@ class GenerateSampleNotifications extends Maintenance {
 	private function addToPageContent( Title $title, User $agent, $contentText ) {
 		$page = WikiPage::factory( $title );
 		$previousContent = "";
-		$page->loadPageData( 'fromdbmaster' );
+		$page->loadPageData( WikiPage::READ_LATEST );
 		$revision = $page->getRevision();
 		if ( $revision ) {
 			$content = $revision->getContent( RevisionRecord::FOR_PUBLIC );
