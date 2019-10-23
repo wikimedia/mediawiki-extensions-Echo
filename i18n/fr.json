@@ -83,7 +83,7 @@
 	"echo-category-title-user-rights": "Modification{{PLURAL:$1||s}} des droits utilisateur",
 	"echo-category-title-emailuser": "{{PLURAL:$1|Courriel d’un autre utilisateur|Courriels d’autres utilisateurs}}",
 	"echo-category-title-article-reminder": "{{PLURAL:$1|Rappel de page|Rappels de pages}}",
-	"echo-category-title-thank-you-edit": "{{PLURAL:$1|Jalon franchi|Jalons franchis}}",
+	"echo-category-title-thank-you-edit": "Jalon{{PLURAL:$1||s}} de modifications",
 	"echo-pref-tooltip-edit-user-talk": "Me prévenir quand quelqu’un publie un message ou répond sur ma page de discussion.",
 	"echo-pref-tooltip-article-linked": "Me prévenir quand quelqu’un depuis une autre page fait référence à une page que j’ai créée.",
 	"echo-pref-tooltip-reverted": "Me prévenir quand quelqu’un annule une modification que j’ai faite, en utilisant l’outil d’annulation ou de révocation.",
