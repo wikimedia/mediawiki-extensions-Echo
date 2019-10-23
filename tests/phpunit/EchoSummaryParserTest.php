@@ -11,7 +11,7 @@ class EchoSummaryParserTest extends MediaWikiTestCase {
 	];
 
 	/**
-	 * @covers EchoSummaryParser::parse
+	 * @covers \EchoSummaryParser::parse
 	 * @dataProvider provideParse
 	 *
 	 * @param string $summary

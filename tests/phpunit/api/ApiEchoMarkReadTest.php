@@ -4,7 +4,7 @@
  * @group medium
  * @group API
  * @group Database
- * @covers ApiEchoMarkRead
+ * @covers \ApiEchoMarkRead
  */
 class ApiEchoMarkReadTest extends ApiTestCase {
 

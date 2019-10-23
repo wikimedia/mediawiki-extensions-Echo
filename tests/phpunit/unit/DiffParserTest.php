@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @covers EchoDiffParser
+ * @covers \EchoDiffParser
  * @group Echo
  */
 class EchoDiffParserTest extends MediaWikiUnitTestCase {

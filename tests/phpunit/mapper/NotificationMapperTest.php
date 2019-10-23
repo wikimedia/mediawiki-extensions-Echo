@@ -3,7 +3,7 @@
 use Wikimedia\Rdbms\IDatabase;
 
 /**
- * @covers EchoNotificationMapper
+ * @covers \EchoNotificationMapper
  */
 class EchoNotificationMapperTest extends MediaWikiTestCase {
 

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @covers Bundler
+ * @covers \Bundler
  */
 class BundlerTest extends MediaWikiUnitTestCase {
 

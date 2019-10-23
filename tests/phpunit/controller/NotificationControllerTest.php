@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @covers EchoNotificationController
+ * @covers \EchoNotificationController
  */
 class NotificationControllerTest extends MediaWikiTestCase {
 

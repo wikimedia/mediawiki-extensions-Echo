@@ -1,8 +1,8 @@
 <?php
 
 /**
- * @covers EchoCallbackIterator
- * @covers EchoFilteredSequentialIterator
+ * @covers \EchoCallbackIterator
+ * @covers \EchoFilteredSequentialIterator
  */
 class FilteredSequentialIteratorTest extends MediaWikiUnitTestCase {
 

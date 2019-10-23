@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @covers EchoAbstractMapper
+ * @covers \EchoAbstractMapper
  */
 class EchoAbstractMapperTest extends MediaWikiUnitTestCase {
 

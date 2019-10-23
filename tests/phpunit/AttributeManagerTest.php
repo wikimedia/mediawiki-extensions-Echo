@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @covers EchoAttributeManager
+ * @covers \EchoAttributeManager
  */
 class EchoAttributeManagerTest extends MediaWikiTestCase {
 
