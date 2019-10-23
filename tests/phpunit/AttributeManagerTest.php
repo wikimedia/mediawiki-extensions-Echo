@@ -139,10 +139,10 @@ class EchoAttributeManagerTest extends MediaWikiTestCase {
 			'category_four' => []
 		];
 		$manager = new EchoAttributeManager( $notif, $category, [], [] );
-		$this->assertEquals( 6, $manager->getCategoryPriority( 'category_one' ) );
-		$this->assertEquals( 10, $manager->getCategoryPriority( 'category_two' ) );
-		$this->assertEquals( 10, $manager->getCategoryPriority( 'category_three' ) );
-		$this->assertEquals( 10, $manager->getCategoryPriority( 'category_four' ) );
+		$this->assertSame( 6, $manager->getCategoryPriority( 'category_one' ) );
+		$this->assertSame( 10, $manager->getCategoryPriority( 'category_two' ) );
+		$this->assertSame( 10, $manager->getCategoryPriority( 'category_three' ) );
+		$this->assertSame( 10, $manager->getCategoryPriority( 'category_four' ) );
 	}
 
 	public function testGetNotificationPriority() {
@@ -173,10 +173,10 @@ class EchoAttributeManagerTest extends MediaWikiTestCase {
 			'category_four' => []
 		];
 		$manager = new EchoAttributeManager( $notif, $category, [], [] );
-		$this->assertEquals( 6, $manager->getNotificationPriority( 'event_one' ) );
-		$this->assertEquals( 10, $manager->getNotificationPriority( 'event_two' ) );
-		$this->assertEquals( 10, $manager->getNotificationPriority( 'event_three' ) );
-		$this->assertEquals( 10, $manager->getNotificationPriority( 'event_four' ) );
+		$this->assertSame( 6, $manager->getNotificationPriority( 'event_one' ) );
+		$this->assertSame( 10, $manager->getNotificationPriority( 'event_two' ) );
+		$this->assertSame( 10, $manager->getNotificationPriority( 'event_three' ) );
+		$this->assertSame( 10, $manager->getNotificationPriority( 'event_four' ) );
 	}
 
 	public static function getEventsForSectionProvider() {

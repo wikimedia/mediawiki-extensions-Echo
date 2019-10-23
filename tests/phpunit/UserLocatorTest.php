@@ -29,11 +29,7 @@ class EchoUserLocatorTest extends MediaWikiTestCase {
 			->will( $this->returnValue( $title ) );
 
 		$it = EchoUserLocator::locateUsersWatchingTitle( $event, 10 );
-		$count = 0;
-		foreach ( $it as $user ) {
-			++$count;
-		}
-		$this->assertEquals( 50, $count );
+		$this->assertCount( 50, $it );
 		// @todo assert more than one query was issued
 	}
 

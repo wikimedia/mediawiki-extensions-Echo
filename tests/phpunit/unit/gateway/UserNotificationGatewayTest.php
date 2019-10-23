@@ -58,7 +58,7 @@ class EchoUserNotificationGatewayTest extends MediaWikiUnitTestCase {
 			$this->mockMWEchoDbFactory( [ 'selectRowCount' => 0 ] ),
 			$this->mockConfig()
 		);
-		$this->assertEquals( 0, $gateway->getCappedNotificationCount( DB_REPLICA, [ 'event_one' ] ) );
+		$this->assertSame( 0, $gateway->getCappedNotificationCount( DB_REPLICA, [ 'event_one' ] ) );
 
 		// successful select of alert
 		$gateway = new EchoUserNotificationGateway(
@@ -66,7 +66,7 @@ class EchoUserNotificationGatewayTest extends MediaWikiUnitTestCase {
 			$this->mockMWEchoDbFactory( [ 'selectRowCount' => 2 ] ),
 			$this->mockConfig()
 		);
-		$this->assertEquals( 2, $gateway->getCappedNotificationCount( DB_REPLICA, [ 'event_one', 'event_two' ] ) );
+		$this->assertSame( 2, $gateway->getCappedNotificationCount( DB_REPLICA, [ 'event_one', 'event_two' ] ) );
 
 		// there is event, should return 0
 		$gateway = new EchoUserNotificationGateway(
@@ -74,7 +74,7 @@ class EchoUserNotificationGatewayTest extends MediaWikiUnitTestCase {
 			$this->mockMWEchoDbFactory( [ 'selectRowCount' => 2 ] ),
 			$this->mockConfig()
 		);
-		$this->assertEquals( 0, $gateway->getCappedNotificationCount( DB_REPLICA, [] ) );
+		$this->assertSame( 0, $gateway->getCappedNotificationCount( DB_REPLICA, [] ) );
 
 		// successful select
 		$gateway = new EchoUserNotificationGateway(
@@ -82,7 +82,7 @@ class EchoUserNotificationGatewayTest extends MediaWikiUnitTestCase {
 			$this->mockMWEchoDbFactory( [ 'selectRowCount' => 3 ] ),
 			$this->mockConfig()
 		);
-		$this->assertEquals( 3, $gateway->getCappedNotificationCount( DB_REPLICA, [ 'event_one' ] ) );
+		$this->assertSame( 3, $gateway->getCappedNotificationCount( DB_REPLICA, [ 'event_one' ] ) );
 	}
 
 	public function testGetUnreadNotifications() {

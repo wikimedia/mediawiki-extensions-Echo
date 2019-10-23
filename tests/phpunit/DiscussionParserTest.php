@@ -1014,13 +1014,13 @@ TEXT
 		$timestampRegex = EchoDiscussionParser::getTimestampRegex();
 
 		$match = preg_match( '/' . $timestampRegex . '/u', $exemplarTimestamp );
-		$this->assertEquals( 1, $match );
+		$this->assertSame( 1, $match );
 	}
 
 	public function testGetTimestampPosition() {
 		$line = 'Hello World. ' . self::getExemplarTimestamp();
 		$pos = EchoDiscussionParser::getTimestampPosition( $line );
-		$this->assertEquals( 13, $pos );
+		$this->assertSame( 13, $pos );
 	}
 
 	/**
@@ -1041,7 +1041,7 @@ TEXT
 		$output = EchoDiscussionParser::getUserFromLine( $line );
 
 		if ( $output === false ) {
-			$this->assertEquals( false, $expectedUser );
+			$this->assertFalse( $expectedUser );
 		} elseif ( is_array( $expectedUser ) ) {
 			// Sometimes testing for correct user detection,
 			// sometimes testing for offset detection
@@ -1690,11 +1690,11 @@ TEXT
 		$two = "===SubZomg===\nHi there\n";
 		$three = "==Header==\nOh Hai!\n";
 
-		$this->assertEquals( 1, EchoDiscussionParser::getSectionCount( $one ) );
-		$this->assertEquals( 2, EchoDiscussionParser::getSectionCount( $one . $two ) );
-		$this->assertEquals( 2, EchoDiscussionParser::getSectionCount( $one . $three ) );
-		$this->assertEquals( 3, EchoDiscussionParser::getSectionCount( $one . $two . $three ) );
-		$this->assertEquals( 30, EchoDiscussionParser::getSectionCount(
+		$this->assertSame( 1, EchoDiscussionParser::getSectionCount( $one ) );
+		$this->assertSame( 2, EchoDiscussionParser::getSectionCount( $one . $two ) );
+		$this->assertSame( 2, EchoDiscussionParser::getSectionCount( $one . $three ) );
+		$this->assertSame( 3, EchoDiscussionParser::getSectionCount( $one . $two . $three ) );
+		$this->assertSame( 30, EchoDiscussionParser::getSectionCount(
 			file_get_contents( __DIR__ . '/revision_txt/637638133.txt' )
 		) );
 	}
@@ -1707,7 +1707,7 @@ TEXT
 		];
 
 		$discussionParser = TestingAccessWrapper::newFromClass( EchoDiscussionParser::class );
-		$this->assertEquals( 4, $discussionParser->getOverallUserMentionsCount( $userMentions ) );
+		$this->assertSame( 4, $discussionParser->getOverallUserMentionsCount( $userMentions ) );
 	}
 
 	public function provider_getUserMentions() {
@@ -1784,7 +1784,7 @@ TEXT
 
 		$title = Title::newFromText( 'Test' );
 		$discussionParser = TestingAccessWrapper::newFromClass( EchoDiscussionParser::class );
-		$this->assertEquals( 4, $discussionParser->getOverallUserMentionsCount( $discussionParser->getUserMentions( $title, 1, $userLinks ) ) );
+		$this->assertSame( 4, $discussionParser->getOverallUserMentionsCount( $discussionParser->getUserMentions( $title, 1, $userLinks ) ) );
 	}
 
 	protected function isParserFunctionsInstalled() {

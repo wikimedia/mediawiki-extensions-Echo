@@ -37,7 +37,7 @@ class MWEchoThankYouEditTest extends MediaWikiTestCase {
 
 		/** @var EchoNotification $notification */
 		$notification = reset( $notifications );
-		$this->assertEquals( 1, $notification->getEvent()->getExtraParam( 'editCount', 'not found' ) );
+		$this->assertSame( 1, $notification->getEvent()->getExtraParam( 'editCount', 'not found' ) );
 	}
 
 	/**
@@ -66,7 +66,7 @@ class MWEchoThankYouEditTest extends MediaWikiTestCase {
 
 		/** @var EchoNotification $notification */
 		$notification = reset( $notifications );
-		$this->assertEquals( 10, $notification->getEvent()->getExtraParam( 'editCount', 'not found' ) );
+		$this->assertSame( 10, $notification->getEvent()->getExtraParam( 'editCount', 'not found' ) );
 	}
 
 	private function edit( Title $title, User $user, $text ) {
