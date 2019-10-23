@@ -667,7 +667,7 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 		return $this->deleted === 1;
 	}
 
-	public function setBundledEvents( $events ) {
+	public function setBundledEvents( array $events ) {
 		$this->bundledEvents = $events;
 	}
 
@@ -692,7 +692,7 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 	/**
 	 * @inheritDoc
 	 */
-	public function setBundledElements( $bundleables ) {
+	public function setBundledElements( array $bundleables ) {
 		$this->setBundledEvents( $bundleables );
 	}
 

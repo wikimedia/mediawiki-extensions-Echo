@@ -14,7 +14,7 @@ class EchoModerationController {
 	 * @param bool $moderate Whether to moderate or unmoderate the events
 	 * @throws MWException
 	 */
-	public static function moderate( $eventIds, $moderate ) {
+	public static function moderate( array $eventIds, $moderate ) {
 		if ( !$eventIds ) {
 			return;
 		}

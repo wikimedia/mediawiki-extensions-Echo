@@ -23,7 +23,7 @@ class EchoNotificationDeleteJob extends Job {
 	 * @param Title $title
 	 * @param array $params
 	 */
-	public function __construct( $title, $params ) {
+	public function __construct( Title $title, array $params ) {
 		parent::__construct( __CLASS__, $title, $params );
 		$this->userIds = $params['userIds'];
 	}

@@ -264,7 +264,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	 * @param int[] $eventIds
 	 * @return EchoNotification[]|false
 	 */
-	public function fetchByUserEvents( User $user, $eventIds ) {
+	public function fetchByUserEvents( User $user, array $eventIds ) {
 		$dbr = $this->dbFactory->getEchoDb( DB_REPLICA );
 
 		$result = $dbr->select(
@@ -383,7 +383,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	 * @param int[] $eventIds
 	 * @return int[]|false
 	 */
-	public function fetchUsersWithNotificationsForEvents( $eventIds ) {
+	public function fetchUsersWithNotificationsForEvents( array $eventIds ) {
 		$dbr = $this->dbFactory->getEchoDb( DB_REPLICA );
 
 		$res = $dbr->select(

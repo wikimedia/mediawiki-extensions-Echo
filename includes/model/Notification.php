@@ -131,7 +131,7 @@ class EchoNotification extends EchoAbstractEntity implements Bundleable {
 	 * @param EchoTargetPage[]|null $targetPages An array of EchoTargetPage instances, or null if not loaded.
 	 * @return EchoNotification|false False if failed to load/unserialize
 	 */
-	public static function newFromRow( $row, $targetPages = null ) {
+	public static function newFromRow( $row, array $targetPages = null ) {
 		$notification = new EchoNotification();
 
 		if ( property_exists( $row, 'event_type' ) ) {
@@ -226,7 +226,7 @@ class EchoNotification extends EchoAbstractEntity implements Bundleable {
 		return $this->targetPages;
 	}
 
-	public function setBundledNotifications( $notifications ) {
+	public function setBundledNotifications( array $notifications ) {
 		$this->bundledNotifications = $notifications;
 	}
 
@@ -251,7 +251,7 @@ class EchoNotification extends EchoAbstractEntity implements Bundleable {
 	/**
 	 * @inheritDoc
 	 */
-	public function setBundledElements( $bundleables ) {
+	public function setBundledElements( array $bundleables ) {
 		$this->setBundledNotifications( $bundleables );
 	}
 

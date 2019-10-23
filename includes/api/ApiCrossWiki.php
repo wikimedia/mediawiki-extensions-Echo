@@ -23,7 +23,7 @@ trait ApiCrossWiki {
 	 * @return array[]
 	 * @throws Exception
 	 */
-	protected function getFromForeign( $wikis = null, array $paramOverrides = [] ) {
+	protected function getFromForeign( array $wikis = null, array $paramOverrides = [] ) {
 		$wikis = $wikis ?? $this->getRequestedForeignWikis();
 		if ( $wikis === [] ) {
 			return [];

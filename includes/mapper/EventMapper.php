@@ -59,7 +59,7 @@ class EchoEventMapper extends EchoAbstractMapper {
 	 * @param bool $deleted
 	 * @return bool|IResultWrapper
 	 */
-	public function toggleDeleted( $eventIds, $deleted ) {
+	public function toggleDeleted( array $eventIds, $deleted ) {
 		$dbw = $this->dbFactory->getEchoDb( DB_MASTER );
 
 		$selectDeleted = $deleted ? 0 : 1;

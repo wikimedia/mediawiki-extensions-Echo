@@ -18,7 +18,7 @@ interface Bundleable {
 	/**
 	 * @param Bundleable[] $bundleables other object that have been bundled with this one
 	 */
-	public function setBundledElements( $bundleables );
+	public function setBundledElements( array $bundleables );
 
 	/**
 	 * @return mixed the key by which this object should be sorted during the bundling process

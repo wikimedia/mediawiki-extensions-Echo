@@ -81,19 +81,19 @@ class MWEchoDbFactory {
 	/**
 	 * Get the database connection for Echo
 	 * @param int $db Index of the connection to get
-	 * @param mixed $groups Query groups.
+	 * @param string[] $groups Query groups.
 	 * @return \Wikimedia\Rdbms\IDatabase
 	 */
-	public function getEchoDb( $db, $groups = [] ) {
+	public function getEchoDb( $db, array $groups = [] ) {
 		return $this->getLB()->getConnection( $db, $groups );
 	}
 
 	/**
 	 * @param int $db Index of the connection to get
-	 * @param array $groups Query groups
+	 * @param string[] $groups Query groups
 	 * @return bool|\Wikimedia\Rdbms\IDatabase false if no shared db is configured
 	 */
-	public function getSharedDb( $db, $groups = [] ) {
+	public function getSharedDb( $db, array $groups = [] ) {
 		if ( !$this->shared ) {
 			return false;
 		}
@@ -109,11 +109,11 @@ class MWEchoDbFactory {
 	 *
 	 * @deprecated Use newFromDefault() instead to create a db factory
 	 * @param int $db Index of the connection to get
-	 * @param mixed $groups Query groups.
+	 * @param string[] $groups Query groups.
 	 * @param string|bool $wiki The wiki ID, or false for the current wiki
 	 * @return \Wikimedia\Rdbms\IDatabase
 	 */
-	public static function getDB( $db, $groups = [], $wiki = false ) {
+	public static function getDB( $db, array $groups = [], $wiki = false ) {
 		global $wgEchoCluster;
 
 		$services = MediaWikiServices::getInstance();

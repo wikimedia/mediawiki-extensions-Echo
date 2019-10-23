@@ -146,7 +146,7 @@ EOF;
 	 * @param EchoEventPresentationModel[] $models
 	 * @return array [ 'category name' => EchoEventPresentationModel[] ]
 	 */
-	private function groupByCategory( $models ) {
+	private function groupByCategory( array $models ) {
 		$eventsByCategory = [];
 		foreach ( $models as $model ) {
 			$eventsByCategory[$model->getCategory()][] = $model;

@@ -200,7 +200,7 @@ abstract class EchoDiscussionParser {
 	 */
 	public static function generateMentionEvents(
 		$header,
-		$userLinks,
+		array $userLinks,
 		$content,
 		RevisionRecord $revision,
 		User $agent
@@ -308,7 +308,7 @@ abstract class EchoDiscussionParser {
 		}
 	}
 
-	private static function getOverallUserMentionsCount( $userMentions ) {
+	private static function getOverallUserMentionsCount( array $userMentions ) {
 		return count( $userMentions, COUNT_RECURSIVE ) - count( $userMentions );
 	}
 
@@ -524,7 +524,7 @@ abstract class EchoDiscussionParser {
 	 *    but it contains multiple signatures.
 	 * - unknown: Unrecognised change type.
 	 */
-	public static function interpretDiff( $changes, $username, Title $title = null ) {
+	public static function interpretDiff( array $changes, $username, Title $title = null ) {
 		// One extra item in $changes for _info
 		$actions = [];
 		$signedSections = [];
@@ -708,7 +708,7 @@ abstract class EchoDiscussionParser {
 	 * @param string[] $lines
 	 * @return int[] Tuple [$firstLine, $lastLine]
 	 */
-	private static function getSectionSpan( $offset, $lines ) {
+	private static function getSectionSpan( $offset, array $lines ) {
 		return [
 			self::getSectionStartIndex( $offset, $lines ),
 			self::getSectionEndIndex( $offset, $lines )
