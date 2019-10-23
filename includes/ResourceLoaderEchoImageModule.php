@@ -56,7 +56,7 @@ class ResourceLoaderEchoImageModule extends ResourceLoaderImageModule {
 
 		$this->definition[ 'images' ] = $images;
 		$this->definition[ 'selector' ] = '.oo-ui-icon-{name}';
-		// Parent
+
 		parent::loadFromDefinition();
 	}
 }

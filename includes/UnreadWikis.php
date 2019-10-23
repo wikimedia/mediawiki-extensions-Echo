@@ -4,9 +4,7 @@
  * Manages what wikis a user has unread notifications on
  */
 class EchoUnreadWikis {
-	/**
-	 * @var string
-	 */
+
 	const DEFAULT_TS = '00000000000000';
 
 	/**

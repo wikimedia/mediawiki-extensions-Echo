@@ -33,8 +33,6 @@ class EchoPresentationModelSection {
 	private $language;
 
 	/**
-	 * EchoPresentationModelSection constructor.
-	 *
 	 * @param EchoEvent $event
 	 * @param User $user
 	 * @param Language $language

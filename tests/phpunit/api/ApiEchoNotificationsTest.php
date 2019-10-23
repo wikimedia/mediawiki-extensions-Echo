@@ -26,7 +26,6 @@ class ApiEchoNotificationsTest extends ApiTestCase {
 		$this->assertArrayHasKey( 'count', $result );
 		$this->assertArrayHasKey( 'rawcount', $result );
 
-		// Alert
 		$this->assertArrayHasKey( 'alert', $result );
 		$alert = $result['alert'];
 		$this->assertArrayHasKey( 'list', $alert );
@@ -34,7 +33,6 @@ class ApiEchoNotificationsTest extends ApiTestCase {
 		$this->assertArrayHasKey( 'rawcount', $alert );
 		$this->assertArrayHasKey( 'count', $alert );
 
-		// Message
 		$this->assertArrayHasKey( 'message', $result );
 		$message = $result['message'];
 		$this->assertArrayHasKey( 'list', $message );

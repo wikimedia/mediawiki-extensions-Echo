@@ -153,7 +153,6 @@ class SpecialNotifications extends SpecialPage {
 		$markReadSpecialPage = new SpecialNotificationsMarkRead();
 		$markReadSpecialPage->setContext( $this->getContext() );
 		foreach ( $notifArray as $section => $data ) {
-			// Heading
 			$heading = ( new OOUI\Tag( 'li' ) )->addClasses( [ 'mw-echo-date-section' ] );
 
 			$dateTitle = new OOUI\LabelWidget( [
