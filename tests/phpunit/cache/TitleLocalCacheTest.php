@@ -65,7 +65,7 @@ class EchoTitleLocalCacheTest extends MediaWikiTestCase {
 		$cache->add( 3 );
 		$cache->clearAll();
 
-		$this->assertSame( null, $cache->get( 1 ), 'Cache was cleared' );
+		$this->assertNull( $cache->get( 1 ), 'Cache was cleared' );
 
 		// Lookups batch was cleared
 		$cache->expects( $this->exactly( 1 ) )->method( 'resolve' )
