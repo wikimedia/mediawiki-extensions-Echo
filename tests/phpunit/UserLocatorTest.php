@@ -2,7 +2,7 @@
 
 /**
  * @group Database
- * @covers EchoUserLocator
+ * @covers \EchoUserLocator
  */
 class EchoUserLocatorTest extends MediaWikiTestCase {
 

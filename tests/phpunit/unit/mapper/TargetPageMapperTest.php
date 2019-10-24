@@ -3,7 +3,7 @@
 use Wikimedia\Rdbms\IDatabase;
 
 /**
- * @covers EchoTargetPageMapper
+ * @covers \EchoTargetPageMapper
  */
 class EchoTargetPageMapperTest extends MediaWikiUnitTestCase {
 

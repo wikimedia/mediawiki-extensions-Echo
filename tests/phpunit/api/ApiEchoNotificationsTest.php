@@ -3,7 +3,7 @@
 /**
  * @group medium
  * @group API
- * @covers ApiEchoNotifications
+ * @covers \ApiEchoNotifications
  */
 class ApiEchoNotificationsTest extends ApiTestCase {
 

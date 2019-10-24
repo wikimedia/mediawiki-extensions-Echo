@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @covers EchoTargetPage
+ * @covers \EchoTargetPage
  */
 class EchoTargetPageTest extends MediaWikiUnitTestCase {
 

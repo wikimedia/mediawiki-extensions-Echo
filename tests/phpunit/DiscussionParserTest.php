@@ -6,7 +6,7 @@ use MediaWiki\MediaWikiServices;
 use Wikimedia\TestingAccessWrapper;
 
 /**
- * @covers EchoDiscussionParser
+ * @covers \EchoDiscussionParser
  * @group Echo
  * @group Database
  */

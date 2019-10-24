@@ -4,7 +4,7 @@ use Wikimedia\Rdbms\IDatabase;
 
 /**
  * @group Database
- * @covers EchoEventMapper
+ * @covers \EchoEventMapper
  */
 class EchoEventMapperTest extends MediaWikiTestCase {
 
@@ -131,7 +131,7 @@ class EchoEventMapperTest extends MediaWikiTestCase {
 	}
 
 	/**
-	 * @covers EchoEventMapper::fetchIdsByPage
+	 * @covers \EchoEventMapper::fetchIdsByPage
 	 */
 	public function testFetchByPage() {
 		$user = $this->getTestUser()->getUser();

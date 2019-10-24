@@ -3,7 +3,7 @@
 use MediaWiki\MediaWikiServices;
 
 /**
- * @covers MWEchoNotifUser
+ * @covers \MWEchoNotifUser
  * @group Echo
  */
 class MWEchoNotifUserTest extends MediaWikiTestCase {

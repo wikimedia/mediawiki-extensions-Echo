@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @covers EchoContainmentSet
+ * @covers \EchoContainmentSet
  * @group Echo
  * @group Database
  */

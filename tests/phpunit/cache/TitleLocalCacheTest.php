@@ -3,7 +3,7 @@
 use Wikimedia\TestingAccessWrapper;
 
 /**
- * @covers EchoTitleLocalCache
+ * @covers \EchoTitleLocalCache
  * @group Database
  */
 class EchoTitleLocalCacheTest extends MediaWikiTestCase {

@@ -6,7 +6,7 @@
 class EchoPresentationModelSectionTest extends MediaWikiTestCase {
 
 	/**
-	 * @covers EchoPresentationModelSection::getTruncatedSectionTitle
+	 * @covers \EchoPresentationModelSection::getTruncatedSectionTitle
 	 */
 	public function testGetTruncatedSectionTitle_short() {
 		$lang = Language::factory( 'en' );
@@ -20,7 +20,7 @@ class EchoPresentationModelSectionTest extends MediaWikiTestCase {
 	}
 
 	/**
-	 * @covers EchoPresentationModelSection::getTruncatedSectionTitle
+	 * @covers \EchoPresentationModelSection::getTruncatedSectionTitle
 	 */
 	public function testGetTruncatedSectionTitle_long() {
 		$lang = Language::factory( 'en' );
@@ -37,7 +37,7 @@ class EchoPresentationModelSectionTest extends MediaWikiTestCase {
 	}
 
 	/**
-	 * @covers EchoPresentationModelSection::getTitleWithSection
+	 * @covers \EchoPresentationModelSection::getTitleWithSection
 	 */
 	public function testGetTitleWithSection() {
 		$page = $this->getExistingTestPage();
@@ -57,7 +57,7 @@ class EchoPresentationModelSectionTest extends MediaWikiTestCase {
 	}
 
 	/**
-	 * @covers EchoPresentationModelSection::exists
+	 * @covers \EchoPresentationModelSection::exists
 	 */
 	public function testExists_no() {
 		$section = new EchoPresentationModelSection(
@@ -70,7 +70,7 @@ class EchoPresentationModelSectionTest extends MediaWikiTestCase {
 	}
 
 	/**
-	 * @covers EchoPresentationModelSection::exists
+	 * @covers \EchoPresentationModelSection::exists
 	 */
 	public function testExists_yes() {
 		$section = new EchoPresentationModelSection(

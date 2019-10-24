@@ -3,7 +3,7 @@
 use Wikimedia\Rdbms\IDatabase;
 
 /**
- * @covers EchoUserNotificationGateway
+ * @covers \EchoUserNotificationGateway
  */
 class EchoUserNotificationGatewayTest extends MediaWikiUnitTestCase {
 
