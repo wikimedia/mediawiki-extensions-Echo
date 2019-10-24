@@ -55,6 +55,7 @@
 	"echo-category-title-mention-success": "Başarılı {{PLURAL:$1|bahsetme|bahsetmeler}}",
 	"echo-category-title-other": "{{PLURAL:$1|Diğer}}",
 	"echo-category-title-system": "{{PLURAL:$1|Sistem}}",
+	"echo-category-title-system-noemail": "Sistem",
 	"echo-category-title-user-rights": "{{PLURAL:$1|Kullanıcı hakları değişikliği|Kullanıcı hakları değişiklikleri}}",
 	"echo-category-title-emailuser": "{{PLURAL:$1|Diğer kullanıcıdan gelen e-posta|Diğer kullanıcılardan gelen e-postalar}}",
 	"echo-category-title-thank-you-edit": "Kilometre taşlarını düzenle",

@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Reda Benkhadra"
+			"Reda Benkhadra",
+			"SADIQUI"
 		]
 	},
+	"tooltip-pt-notifications-alert": "{{GENDER:|تنبيهاتك}}",
 	"notification-inbox-filter-all": "كلشي"
 }

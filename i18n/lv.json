@@ -41,6 +41,7 @@
 	"echo-category-title-mention-success": "Veiksmīgas {{PLURAL:$1|pieminēšanas|pieminēšana|pieminēšanas}}",
 	"echo-category-title-other": "{{PLURAL:$1|Citi|Cits|Citi}}",
 	"echo-category-title-system": "{{PLURAL:$1|Sistēmas paziņojumi|Sistēmas paziņojums|Sistēmas paziņojumi}}",
+	"echo-category-title-system-noemail": "{{PLURAL:$1|Sistēmas|Sistēma|Sistēmas}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|Dalībnieka tiesību izmaiņas|Dalībnieka tiesības izmaiņas|Dalībnieka tiesību izmaiņas}}",
 	"echo-category-title-emailuser": "{{PLURAL:$1|E-pasti no citiem dalībniekiem|E-pasts no citiem dalībniekiem|E-pasti no citiem dalībniekiem}}",
 	"echo-category-title-article-reminder": "{{PLURAL:$1|Lapu atgādinājumi|Lapas atgādinājums|Lapu atgādinājumi}}",
