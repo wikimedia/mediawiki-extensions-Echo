@@ -421,7 +421,7 @@ class GenerateSampleNotifications extends Maintenance {
 		] );
 	}
 
-	private function shouldGenerate( $type, $types ) {
+	private function shouldGenerate( $type, array $types ) {
 		return array_search( $type, $types ) !== false;
 	}
 
