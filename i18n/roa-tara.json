@@ -167,7 +167,11 @@
 	"notification-inbox-filter-unread": "None lette",
 	"notification-inbox-filter-all": "Tutte",
 	"echo-specialmute-label-mute-notifications": "Silenzie le notifeche da stu utende",
+	"echo-email-plain-footer": "Pe condrollà ce email {{GENDER:$1|t'}}avènene mannate, condrolle le preferenze {{GENDER:$1|tune}}:",
 	"echo-email-html-footer-preference-link-text": "condrolle le preferenze {{GENDER:$1|tune}}",
+	"echo-email-html-footer-with-link": "Pe condrollà ce email {{GENDER:$2|t'}}avènene mannate, $1.",
+	"echo-notification-alert": "{{PLURAL:$1|Avvise ($1)|100=Avvise (99+)}}",
+	"echo-notification-notice": "{{PLURAL:$1|Notizie ($1)|100=Notizie (99+)}}",
 	"echo-notification-alert-text-only": "Avvise",
 	"echo-notification-notice-text-only": "Nuvetà",
 	"echo-overlay-link": "Tutte le notificaziune",
@@ -178,9 +182,13 @@
 	"echo-displaysnippet-title": "Notifeca nove",
 	"echo-date-today": "Osce",
 	"echo-date-yesterday": "Ajere",
+	"notification-bundle-header-edit-user-talk-v2": "{{PLURAL:$1|'Nu messàgge nuève|$1 messàgge nuève|100=Cchiù de 99 messàgge nuève}} sus a <strong>pàgene de le 'ngazzaminde {{GENDER:$3|toje}}</strong>.",
 	"echo-email-batch-subject-daily": "Tu è {{PLURAL:$2|'na notifica|notifiche}} nove sus a {{SITENAME}}",
 	"echo-email-batch-subject-weekly": "Tu è {{PLURAL:$2|'na notifica|notifiche}} nove STA SUMàNE sus a {{SITENAME}}",
 	"echo-email-batch-body-intro-daily": "Cià $1,\nAqquà ste 'u rieploghe de l'attività de osce sus a {{SITENAME}} pe te.",
 	"echo-email-batch-body-intro-weekly": "Cià $1,\nAqquà ste 'u rieploghe de l'attività d'a sumàne sus a {{SITENAME}} pe te.",
-	"echo-email-batch-link-text-view-all-notifications": "'Ndruche tutte le notifiche"
+	"echo-email-batch-link-text-view-all-notifications": "'Ndruche tutte le notifiche",
+	"notification-header-foreign-alert": "Otre avvise da {{PLURAL:$5|'n'otra uicchi|otre $5 uicchi}}",
+	"notification-header-foreign-notice": "Otre notizie da {{PLURAL:$5|'n'otra uicchi|otre $5 uicchi}}",
+	"notification-header-foreign-all": "Otre notifeche da {{PLURAL:$5|'n'otra uicchi|otre $5 uicchi}}"
 }
