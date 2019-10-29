@@ -53,5 +53,9 @@
 	"apihelp-echoarticlereminder-param-timestamp": "Jndr'à ce ore a arrecurdà l'utende",
 	"apihelp-echoarticlereminder-param-comment": "Commende utende facoltative da 'ngludere jndr'à 'u promemorie",
 	"apihelp-echoarticlereminder-example-1": "Ccreje 'nu promemorie d'a vôsce pe ccreje cu 'u commende",
-	"apihelp-echoarticlereminder-example-2": "Ccreje 'nu promemorie d'a vôsce pe ccreje senze 'nu commende"
+	"apihelp-echoarticlereminder-example-2": "Ccreje 'nu promemorie d'a vôsce pe ccreje senze 'nu commende",
+	"apiwarn-echo-deprecation-timestampformat": "'U formate d'u resultate de l'orarie MW jè sconzigliate aqquà. Jndr'à 'u future, ISO 8601 avène ausate cumme formate d'u resultate. Regole 'u client tune e 'mboste <var>timestampFormat</var> a <kbd>ISO_8601</kbd>.",
+	"apiwarn-echo-deprecation-flyout": "<kbd>notformat=flyout</kbd> ha state sconzigliate e adda essere luate preste. Ause <kbd>notformat=model</kbd> pe pigghià le date grezze o <kbd>notformat=special</kbd> pe l'HTML pre renderizzate.",
+	"apiwarn-echo-deprecation-html": "<kbd>notformat=html</kbd> ha state sconzigliate e adda essere luate preste. Invece ause <kbd>notformat=special</kbd>.",
+	"apierror-echo-event-creation-failed": "Non ge pozze ccrejà l'avvenimende Echo"
 }
