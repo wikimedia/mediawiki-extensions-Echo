@@ -63,6 +63,7 @@
 	"echo-category-title-other": "{{PLURAL:$1|أخرى}}",
 	"echo-category-title-system": "{{PLURAL:$1|النظام}}",
 	"echo-category-title-system-noemail": "{{PLURAL:$1|نظام|أنظمة}}",
+	"echo-category-title-system-emailonly": "{{PLURAL:$1|نظام|أنظمة}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|تغيير صلاحيات المستخدم|تغييرات صلاحيات المستخدم}}",
 	"echo-category-title-emailuser": "{{PLURAL:$1|بريد إلكتروني من مسخدم آخر|بريد إلكتروني من مستخدمين آخرين}}",
 	"echo-category-title-article-reminder": "{{PLURAL:$1|تذكير|تذكيرات}} الصفحة",

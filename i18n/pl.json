@@ -60,6 +60,7 @@
 	"echo-category-title-other": "{{PLURAL:$1|Inne zdarzenie|Inne zdarzenia}}",
 	"echo-category-title-system": "{{PLURAL:$1|Zdarzenie systemowe|Zdarzenia systemowe}}",
 	"echo-category-title-system-noemail": "{{PLURAL:$1|System}}",
+	"echo-category-title-system-emailonly": "{{PLURAL:$1|System}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|Zmiana uprawnień|Zmiany uprawnień}}",
 	"echo-category-title-emailuser": "{{PLURAL:$1|E-mail od innego użytkownika|E-maile od innych użytkowników}}",
 	"echo-category-title-article-reminder": "{{PLURAL:$1|Przypomnienie|Przypomnienia}} o stronach",

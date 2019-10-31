@@ -22,7 +22,7 @@
 	"echo-learn-more": "Күбрәк белү",
 	"echo-log": "Гомуми көндәлек",
 	"echo-new-messages": "Сезнең яңа хатларыгыз бар",
-	"echo-category-title-edit-user-talk": "Бәхәс битендә {{PLURAL:$1|хәбәр}}",
+	"echo-category-title-edit-user-talk": "Бәхәс битендәге {{PLURAL:$1|хәбәр|хәбәрләр}}",
 	"echo-category-title-article-linked": "Битләргә {{PLURAL:$1|сылтама}}",
 	"echo-category-title-reverted": "Төзәтмә {{PLURAL:$1|кире кагуы|кире кагулары}}",
 	"echo-category-title-mention": "{{PLURAL:$1|1=Искәртмә|Искәртмәләр}}",

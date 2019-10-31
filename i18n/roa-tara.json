@@ -40,6 +40,7 @@
 	"echo-category-title-other": "{{PLURAL:$1|Otre}}",
 	"echo-category-title-system": "{{PLURAL:$1|Sisteme}}",
 	"echo-category-title-system-noemail": "{{PLURAL:$1|Sisteme}}",
+	"echo-category-title-system-emailonly": "{{PLURAL:$1|Sisteme}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|Cangiamende|Cangiaminde}} de le deritte de l'utende",
 	"echo-category-title-emailuser": "Email {{PLURAL:$1|da 'n'otre utende|da otre utinde}}",
 	"echo-category-title-article-reminder": "{{PLURAL:$1|Pàgene|Pàggene}} de promemorie",

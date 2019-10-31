@@ -48,6 +48,7 @@
 	"echo-category-title-other": "{{PLURAL:$1|অন্য}}",
 	"echo-category-title-system": "{{PLURAL:$1|সিস্টেম}}",
 	"echo-category-title-system-noemail": "{{PLURAL:$1|সিস্টেম}}",
+	"echo-category-title-system-emailonly": "{{PLURAL:$1|সিস্টেম}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|ব্যবহারকারীর অধিকার পরিবর্তন}}",
 	"echo-category-title-emailuser": "{{PLURAL:$1|অন্য ব্যবহারকারীর কাছ থেকে ইমেইল|অন্যান্য ব্যবহারকারীর কাছ থেকে ইমেইলসমূহ}}",
 	"echo-category-title-article-reminder": "পাতা {{PLURAL:$1|স্মরণ}}",

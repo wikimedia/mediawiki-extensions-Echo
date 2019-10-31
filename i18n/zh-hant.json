@@ -64,6 +64,7 @@
 	"echo-category-title-other": "{{PLURAL:$1|其他}}",
 	"echo-category-title-system": "{{PLURAL:$1|系統}}",
 	"echo-category-title-system-noemail": "{{PLURAL:$1|系統}}",
+	"echo-category-title-system-emailonly": "{{PLURAL:$1|系統}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|使用者權限變更}}",
 	"echo-category-title-emailuser": "{{PLURAL:$1|來自其他使用者的郵件}}",
 	"echo-category-title-article-reminder": "頁面{{PLURAL:$1|提示}}",
