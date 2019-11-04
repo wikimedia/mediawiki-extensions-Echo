@@ -4,5 +4,17 @@
 			"Pyscowicz"
 		]
 	},
-	"notificationsmarkread-legend": "Markeeraa ilmotus luetuksi"
+	"prefs-echo": "Ilmotukset",
+	"prefs-emailsettings": "E-posti inställninkit",
+	"echo-pref-email": "E-posti",
+	"notifications": "Ilmotukset",
+	"echo-specialpage": "Ilmotukset",
+	"notificationsmarkread-legend": "Markeeraa ilmotus luetuksi",
+	"echo-notification-markasread": "Markeeraa luetuksi",
+	"echo-notification-markasunread": "Markeeraa lukemattomaksi",
+	"echo-notification-markasread-tooltip": "Markeeraa luetuksi",
+	"notification-link-thank-you-edit": "{{GENDER:$1|Sinun}} mookkaus",
+	"notification-link-text-view-edit": "Näytä mookkaus",
+	"echo-overlay-link": "Kaikki ilmotukset",
+	"echo-overlay-title": "<b>Ilmotukset</b>"
 }

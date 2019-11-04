@@ -42,7 +42,8 @@
 			"Happy13241",
 			"Movses",
 			"Stjn",
-			"1233qwer1234qwer4"
+			"1233qwer1234qwer4",
+			"Kareyac"
 		]
 	},
 	"echo-desc": "Система уведомления участников о событиях и сообщениях",
@@ -75,6 +76,7 @@
 	"echo-category-title-mention-success": "{{PLURAL:$1|Успешное упоминание|Успешные упоминания}}",
 	"echo-category-title-other": "{{PLURAL:$1|1=Прочее|Прочие}}",
 	"echo-category-title-system": "{{PLURAL:$1|1=Системное|Системные}}",
+	"echo-category-title-system-emailonly": "{{PLURAL:$1|Система}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|Изменение|Изменения}} прав участника",
 	"echo-category-title-emailuser": "Электронная почта от {{PLURAL:$1|другого участника|других участников}}",
 	"echo-category-title-article-reminder": "Страница {{PLURAL:$1|напоминание|напоминания}}",

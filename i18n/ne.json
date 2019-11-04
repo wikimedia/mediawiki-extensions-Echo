@@ -6,7 +6,8 @@
 			"NehalDaveND",
 			"राम प्रसाद जोशी",
 			"बिप्लब आनन्द",
-			"जनक राज भट्ट"
+			"जनक राज भट्ट",
+			"पर्वत सुबेदी"
 		]
 	},
 	"echo-desc": "प्रयोगकर्तालाई सम्मेलन तथा सन्देश सूचना दिने जानकारी प्रणाली",
@@ -43,6 +44,7 @@
 	"echo-specialpage": "जानकारीहरू",
 	"echo-none": "तपाईंको लागि कुनै नयाँ जानकारी छैन ।",
 	"echo-notification-placeholder": "तपाईंको लागि कुनै सूचना छैन ।",
+	"echo-notification-placeholder-filters": "यी मापदण्डसँग मेल खाने यहाँ कुनै सूचनाहरू छैनन्।",
 	"echo-notification-markasread": "पढेकोमा चिह्नित गर्ने",
 	"notification-link-text-view-message": "सन्देश हेर्ने",
 	"notification-link-text-view-mention": "नाम लिइएको हेर्ने",

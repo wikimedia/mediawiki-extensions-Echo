@@ -50,6 +50,7 @@
 	"echo-category-title-other": "{{PLURAL:$1|אחר}}",
 	"echo-category-title-system": "{{PLURAL:$1|מערכת}}",
 	"echo-category-title-system-noemail": "{{PLURAL:$1|מערכת}}",
+	"echo-category-title-system-emailonly": "{{PLURAL:$1|מערכת}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|שינוי|שינויים}} בהרשאות שלי",
 	"echo-category-title-emailuser": "{{PLURAL:$1|דוא\"ל ממשתמש אחר|דוא\"ל ממשתמשים אחרים}}",
 	"echo-category-title-article-reminder": "{{PLURAL:$1|תזכורת על דף|תזכורות על דפים}}",

@@ -48,6 +48,7 @@
 	"echo-category-title-other": "{{PLURAL:$1|jinou událost|jiné události}}",
 	"echo-category-title-system": "{{PLURAL:$1|systémovou událost|systémové události}}",
 	"echo-category-title-system-noemail": "{{PLURAL:$1|systémovou událost|systémové události}}",
+	"echo-category-title-system-emailonly": "{{PLURAL:$1|systémovou událost|systémové události}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|změnu|změny}} uživatelských práv",
 	"echo-category-title-emailuser": "{{PLURAL:$1|e-mail od jiného uživatele|e-maily od jiných uživatelů}}",
 	"echo-category-title-article-reminder": "{{PLURAL:$1|upomínku|upomínky}} ke stránkám",

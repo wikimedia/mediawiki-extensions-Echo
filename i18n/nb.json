@@ -47,6 +47,7 @@
 	"echo-category-title-other": "{{PLURAL:$1|Annet}}",
 	"echo-category-title-system": "{{PLURAL:$1|System}}",
 	"echo-category-title-system-noemail": "{{PLURAL:$1|System}}",
+	"echo-category-title-system-emailonly": "{{PLURAL:$1|System}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|Endring|Endringer}} i brukerrettigheter",
 	"echo-category-title-emailuser": "Epost fra {{PLURAL:$1|annen bruker|andre brukere}}",
 	"echo-category-title-article-reminder": "{{PLURAL:$1|Sidepåminnelse|Sidepåminnelser}}",

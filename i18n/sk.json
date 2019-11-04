@@ -152,5 +152,6 @@
 	"echo-email-batch-body-intro-daily": "Ahoj $1,\n\npripájame zhrnutie dnešnej aktivity na {{grammar:6sg|{{SITENAME}}}}.",
 	"echo-email-batch-body-intro-weekly": "Ahoj $1,\n\npripájame zhrnutie aktivity na {{grammar:6sg|{{SITENAME}}}} za posledný týždeň.",
 	"echo-email-batch-link-text-view-all-notifications": "Zobraziť všetky upozornenia",
+	"notification-header-foreign-alert": "Viac upozornení z {{PLURAL:$5|ďalšej wiki|$5 ďalších wiki}}",
 	"notification-header-foreign-notice": "Viac oznámení z {{PLURAL:$5|dalšej wiki|$5 dalších wiki}}"
 }

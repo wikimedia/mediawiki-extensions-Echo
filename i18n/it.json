@@ -50,6 +50,7 @@
 	"echo-category-title-mention-success": "{{PLURAL:$1|Menzione corretta|Menzioni corrette}}",
 	"echo-category-title-other": "{{PLURAL:$1|Altro}}",
 	"echo-category-title-system": "{{PLURAL:$1|Sistema}}",
+	"echo-category-title-system-emailonly": "{{PLURAL:$1|Sistema}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|Modifica diritto|Modifiche diritti}} utente",
 	"echo-category-title-emailuser": "{{PLURAL:$1|Email da un altro utente|Email da altri utenti}}",
 	"echo-pref-tooltip-edit-user-talk": "Avvisami quando qualcuno mi scrive un messaggio o risponde nella mia pagina di discussione.",

@@ -59,6 +59,7 @@
 	"echo-category-title-other": "{{PLURAL:$1|Outro|Outros}}",
 	"echo-category-title-system": "{{PLURAL:$1|Sistema|Sistemas}}",
 	"echo-category-title-system-noemail": "{{PLURAL:$1|Sistema|Sistemas}}",
+	"echo-category-title-system-emailonly": "{{PLURAL:$1|Sistema|Sistemas}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|Alteração de permissões de usuário|Alterações de permissões de usuário}}",
 	"echo-category-title-emailuser": "{{PLURAL:$1|E-mail de outro usuário|E-mails de outros usuários}}",
 	"echo-category-title-article-reminder": "{{PLURAL:$1|Lembrete|Lembretes}} de página",
