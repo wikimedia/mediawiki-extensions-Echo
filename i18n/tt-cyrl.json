@@ -20,7 +20,7 @@
 	"echo-pref-email-format-plain-text": "Гади текст",
 	"echo-pref-cross-wiki-notifications": "Бүтән викилардагы белдерүләрне күрсәтергә",
 	"echo-learn-more": "Күбрәк белү",
-	"echo-log": "Гомуми көндәлек",
+	"echo-log": "Һәркемгә ачык көндәлек",
 	"echo-new-messages": "Сезнең яңа хатларыгыз бар",
 	"echo-category-title-edit-user-talk": "Бәхәс битендәге {{PLURAL:$1|хәбәр|хәбәрләр}}",
 	"echo-category-title-article-linked": "Битләргә {{PLURAL:$1|сылтама}}",
