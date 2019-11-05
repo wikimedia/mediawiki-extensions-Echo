@@ -37,6 +37,7 @@
 	"echo-category-title-other": "{{PLURAL:$1|Sewbi}}",
 	"echo-category-title-system": "{{PLURAL:$1|sistem}}",
 	"echo-category-title-system-noemail": "{{PLURAL:$1|Sistem}}",
+	"echo-category-title-system-emailonly": "{{PLURAL:$1|Sistem}}",
 	"notifications": "Tebliği",
 	"tooltip-pt-notifications-alert": "Hayê {{GENDER:|şıma}}",
 	"tooltip-pt-notifications-notice": "Pêhesnayışê {{GENDER:|şıma}}",

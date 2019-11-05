@@ -38,6 +38,7 @@
 	"echo-category-title-other": "{{PLURAL:$1|Aneren|Anerer}}",
 	"echo-category-title-system": "{{PLURAL:$1|System}}",
 	"echo-category-title-system-noemail": "{{PLURAL:$1|System}}",
+	"echo-category-title-system-emailonly": "{{PLURAL:$1|System}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|Ännerung vu Benotzerrechter|Ännerunge vu Benotzerrechter}}",
 	"echo-category-title-emailuser": "{{PLURAL:$1|E-Mail vun engem anere Benotzer|E-Maile vun anere Benotzer}}",
 	"echo-category-title-article-reminder": "Säit {{PLURAL:$1|Erënnerung|Erënnerungen}}",

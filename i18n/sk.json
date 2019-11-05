@@ -98,7 +98,9 @@
 	"notification-header-mention-article-talkpage-nosection": "$1 {{GENDER:$3|vás}} {{GENDER:$2|spomenul|spomenula}} v diskusii k článku <strong>$4</strong>.",
 	"notification-header-mention-failure-user-unknown": "{{GENDER:$2|Vaša}} zmienka používateľa <strong>$3</strong> nebola odoslaná, pretože daný používateľ nebol nájdený.",
 	"notification-header-mention-failure-user-anonymous": "{{GENDER:$2|Vaša}} zmienka používateľa <strong>$3</strong> nebola odoslaná, pretože daný používateľ je anonymný.",
+	"notification-header-mention-failure-bundle": "{{PLURAL:$3|Vašu zmienku|$3 vaše zmienky|$3 vašich zmienok}} na diskusnej stránke <strong>$4</strong> {{GENDER:$2|nebolo}} možné odoslať.",
 	"notification-header-mention-success": "{{GENDER:$2|Vaša}} zmienka {{GENDER:$3|redaktora|redaktorky}} <strong>$3</strong> sa odoslala.",
+	"notification-header-mention-success-bundle": "{{PLURAL:$3|{{GENDER:$2|Vaša}} zmienka|$3 vaše zmienky|$3 vašich zmienok}} na diskusnej stránke <strong>$4</strong> {{PLURAL:$3|bola odoslaná|boli odoslané|bolo odoslaných}}.",
 	"notification-compact-header-mention-success": "<strong>{{GENDER:$2|Spomenul|Spomenula|Spomenul(a)}} ste:</strong> $3",
 	"notification-header-user-rights-add-only": "Vaše používateľské práva boli {{GENDER:$1|zmenené}}: Stali ste sa {{GENDER:$4|členom|členkou}} {{PLURAL:$3|skupiny|skupín}} $2.",
 	"notification-header-user-rights-remove-only": "Vaše používateľské práva boli {{GENDER:$1|zmenené}}: Už nie ste {{GENDER:$4|členom|členkou}} {{PLURAL:$3|skupiny|skupín}} $2.",
@@ -153,5 +155,5 @@
 	"echo-email-batch-body-intro-weekly": "Ahoj $1,\n\npripájame zhrnutie aktivity na {{grammar:6sg|{{SITENAME}}}} za posledný týždeň.",
 	"echo-email-batch-link-text-view-all-notifications": "Zobraziť všetky upozornenia",
 	"notification-header-foreign-alert": "Viac upozornení z {{PLURAL:$5|ďalšej wiki|$5 ďalších wiki}}",
-	"notification-header-foreign-notice": "Viac oznámení z {{PLURAL:$5|dalšej wiki|$5 dalších wiki}}"
+	"notification-header-foreign-notice": "Viac oznámení z {{PLURAL:$5|ďalšej wiki|$5 ďalších wiki}}"
 }
