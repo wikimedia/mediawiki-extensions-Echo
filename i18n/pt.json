@@ -18,7 +18,8 @@
 			"Mansil",
 			"Hamilton Abreu",
 			"Athena in Wonderland",
-			"Opraco"
+			"Opraco",
+			"Mansil alfalb"
 		]
 	},
 	"echo-desc": "Sistema de notificações a utilizadores sobre eventos e mensagens",
@@ -56,6 +57,7 @@
 	"echo-category-title-other": "{{PLURAL:$1|Outro|Outros}}",
 	"echo-category-title-system": "{{PLURAL:$1|Sistema|Sistemas}}",
 	"echo-category-title-system-noemail": "{{PLURAL:$1|Sistema|Sistemas}}",
+	"echo-category-title-system-emailonly": "{{PLURAL:$1|Sistema}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|Alteração de privilégios de utilizador|Alterações de privilégios de utilizador}}",
 	"echo-category-title-emailuser": "{{PLURAL:$1|Correio eletrónico de outro utilizador|Correio eletrónico de outros utilizadores}}",
 	"echo-category-title-article-reminder": "{{PLURAL:$1|Notificação|Notificações}} de páginas",
