@@ -120,6 +120,7 @@ class EchoForeignWikiRequest {
 	 */
 	protected function getCsrfToken( $wiki ) {
 		if ( $this->csrfTokens === null ) {
+			$this->csrfTokens = [];
 			$reqs = $this->getRequestParams( 'GET', [
 				'action' => 'query',
 				'meta' => 'tokens',

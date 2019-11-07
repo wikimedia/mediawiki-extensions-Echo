@@ -470,7 +470,7 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 	 * Array of secondary link details, including possibly-relative URLs, label,
 	 * description & icon name.
 	 *
-	 * @return array Array of links in the format of:
+	 * @return array[] Array of links in the format of:
 	 *               [['url' => (string) url,
 	 *                 'label' => (string) link text (non-escaped),
 	 *                 'description' => (string) descriptive text (optional, non-escaped),

@@ -102,6 +102,7 @@ class EchoNotification extends EchoAbstractEntity implements Bundleable {
 			Hooks::run( 'EchoGetBundleRules', [ $this->event, &$bundleKey ] );
 		}
 
+		// @phan-suppress-next-line PhanImpossibleCondition May be set by hook
 		if ( $bundleKey ) {
 			$hash = md5( $bundleKey );
 			$this->bundleHash = $hash;
