@@ -56,6 +56,7 @@
 	"echo-category-title-other": "{{PLURAL:$1|інше}}",
 	"echo-category-title-system": "{{PLURAL:$1|системне}}",
 	"echo-category-title-system-noemail": "{{PLURAL:$1|Система}}",
+	"echo-category-title-system-emailonly": "{{PLURAL:$1|Системне|Системні}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|Зміна прав користувача|Зміни прав користувача}}",
 	"echo-category-title-emailuser": "{{PLURAL:$1|Електронний лист від іншого користувача|Електронні листи від інших користувачів}}",
 	"echo-category-title-article-reminder": "{{PLURAL:$1|Нагадування}} про сторінки",

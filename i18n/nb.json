@@ -82,6 +82,7 @@
 	"echo-specialpage-markasread": "Beskjed: Merk som lest",
 	"echo-specialpage-markasread-invalid-id": "Ugyldig hendelses-ID",
 	"echo-specialpage-pagination-numnotifications": "$1 {{PLURAL:$1|beskjed|beskjeder}}",
+	"echo-specialpage-pagination-range": "$1–$2",
 	"echo-specialpage-pagefilters-title": "Nylig aktivitet",
 	"echo-specialpage-pagefilters-subtitle": "Sider med uleste beskjeder",
 	"notificationsmarkread-legend": "Merk beskjed som lest",
@@ -198,5 +199,6 @@
 	"echo-email-batch-link-text-view-all-notifications": "Vis alle beskjeder",
 	"notification-header-foreign-alert": "Flere varsler fra {{PLURAL:$5|én annen wiki|$5 andre wikier}}",
 	"notification-header-foreign-notice": "Flere notiser fra {{PLURAL:$5|en annen wiki|$5 andre wikier}}",
-	"notification-header-foreign-all": "Flere beskjeder fra {{PLURAL:$5|én annen wiki|$5 andre wikier}}"
+	"notification-header-foreign-all": "Flere beskjeder fra {{PLURAL:$5|én annen wiki|$5 andre wikier}}",
+	"echo-foreign-wiki-lang": "$1 – $2"
 }

@@ -6,6 +6,7 @@
 		]
 	},
 	"echo-new-messages": "Шумо паёми нав доред.",
+	"echo-category-title-system-emailonly": "{{PLURAL:$1|Система|Системаҳо}}",
 	"tooltip-pt-notifications-alert": "Огоҳии шумо",
 	"notification-timestamp-today": "Имрӯз",
 	"notification-timestamp-yesterday": "Дирӯз",

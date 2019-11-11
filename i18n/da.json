@@ -47,6 +47,7 @@
 	"echo-category-title-other": "{{PLURAL:$1|Anden|Andre}}",
 	"echo-category-title-system": "{{PLURAL:$1|System}}",
 	"echo-category-title-system-noemail": "{{PLURAL:$1|System}}",
+	"echo-category-title-system-emailonly": "{{PLURAL:$1|System}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|Ændring af brugerrettighed|Ændring af brugerrettigheder}}",
 	"echo-category-title-emailuser": "{{PLURAL:$1|E-mail fra anden bruger|E-mails fra andre brugere}}",
 	"echo-pref-tooltip-edit-user-talk": "Giv mig besked, når nogen skriver en besked eller et svar på min diskussionsside.",
