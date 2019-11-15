@@ -49,7 +49,7 @@ describe( 'Echo', function () {
 		EchoPage.notices.click();
 
 		EchoPage.alertMessage.waitForVisible();
-		let regexp = /Welcome to .*, .*‬! We're glad you're here./;
+		const regexp = /Welcome to .*, .*‬! We're glad you're here./;
 		assert( regexp.test( EchoPage.alertMessage.getText() ) );
 
 	} );

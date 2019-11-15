@@ -37,7 +37,9 @@ function initDesktop() {
 			numMessages = $existingMessageLink.attr( 'data-counter-num' ),
 			badgeLabelAlerts = $existingAlertLink.attr( 'data-counter-text' ),
 			badgeLabelMessages = $existingMessageLink.attr( 'data-counter-text' ),
+			// eslint-disable-next-line no-jquery/no-class-state
 			hasUnseenAlerts = $existingAlertLink.hasClass( 'mw-echo-unseen-notifications' ),
+			// eslint-disable-next-line no-jquery/no-class-state
 			hasUnseenMessages = $existingMessageLink.hasClass( 'mw-echo-unseen-notifications' ),
 			// latestMessageNotifTime is the time of most recent notification that came when we called showNotificationSnippet last
 			// the function showNotificationSnippet returns the time of the latest notification and latestMessageNotifTime is updated
