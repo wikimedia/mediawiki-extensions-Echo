@@ -981,6 +981,7 @@
 		"EchoEventMapper": "includes/mapper/EventMapper.php",
 		"EchoEventPresentationModel": "includes/formatters/EventPresentationModel.php",
 		"EchoExecuteFirstArgumentStub": "tests/phpunit/mapper/EchoExecuteFirstArgumentStub.php",
+		"StubCompatTemp": "tests/phpunit/mapper/EchoExecuteFirstArgumentStub.php",
 		"EchoFilteredSequentialIterator": "includes/iterator/FilteredSequentialIterator.php",
 		"EchoFlyoutFormatter": "includes/formatters/EchoFlyoutFormatter.php",
 		"EchoForeignNotifications": "includes/ForeignNotifications.php",
