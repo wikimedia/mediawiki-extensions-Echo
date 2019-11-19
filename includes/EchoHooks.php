@@ -137,9 +137,9 @@ class EchoHooks {
 
 	/**
 	 * Handler for ResourceLoaderRegisterModules hook
-	 * @param ResourceLoader &$resourceLoader
+	 * @param ResourceLoader $resourceLoader
 	 */
-	public static function onResourceLoaderRegisterModules( ResourceLoader &$resourceLoader ) {
+	public static function onResourceLoaderRegisterModules( ResourceLoader $resourceLoader ) {
 		global $wgExtensionDirectory, $wgEchoNotificationIcons, $wgEchoSecondaryIcons;
 		$resourceLoader->register( 'ext.echo.emailicons', [
 			'class' => 'ResourceLoaderEchoImageModule',
@@ -495,7 +495,7 @@ class EchoHooks {
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/PageContentSaveComplete
 	 *
 	 * @param WikiPage $wikiPage modified WikiPage
-	 * @param User &$user User who edited
+	 * @param User $user User who edited
 	 * @param Content $content New article text
 	 * @param string $summary Edit summary
 	 * @param bool $minoredit Minor edit or not
@@ -503,7 +503,7 @@ class EchoHooks {
 	 * @param string $sectionanchor Section that was edited
 	 * @param int &$flags Edit flags
 	 * @param Revision $revision Revision that was created
-	 * @param Status &$status
+	 * @param Status $status
 	 * @param int $baseRevId
 	 * @param int $undidRevId
 	 *
@@ -511,7 +511,7 @@ class EchoHooks {
 	 */
 	public static function onPageContentSaveComplete(
 		WikiPage $wikiPage,
-		&$user,
+		$user,
 		$content,
 		$summary,
 		$minoredit,
@@ -519,7 +519,7 @@ class EchoHooks {
 		$sectionanchor,
 		&$flags,
 		$revision,
-		&$status,
+		Status $status,
 		$baseRevId,
 		$undidRevId = 0
 	) {
