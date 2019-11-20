@@ -21,7 +21,8 @@
 			"Felipe L. Ewald",
 			"Chicocvenancio",
 			"Eduardo Addad de Oliveira",
-			"Opraco"
+			"Opraco",
+			"McDutchie"
 		]
 	},
 	"echo-desc": "Sistema para notificar usuários sobre eventos e mensagens",
@@ -186,7 +187,7 @@
 	"notification-timestamp-ago-years": "$1&nbsp;{{PLURAL:$1|ano|anos}}",
 	"notification-timestamp-today": "Hoje",
 	"notification-timestamp-yesterday": "Ontem",
-	"notification-inbox-filter-read": "Ler",
+	"notification-inbox-filter-read": "Lidas",
 	"notification-inbox-filter-unread": "Não lidas",
 	"notification-inbox-filter-all": "Todas",
 	"echo-specialmute-label-mute-notifications": "Silenciar notificações deste usuário",
