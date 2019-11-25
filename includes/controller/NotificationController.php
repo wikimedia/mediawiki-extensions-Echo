@@ -392,6 +392,7 @@ class EchoNotificationController {
 		// @deprecated
 		$users = [];
 		Hooks::run( 'EchoGetDefaultNotifiedUsers', [ $event, &$users ] );
+		// @phan-suppress-next-line PhanImpossibleCondition May be set by hook
 		if ( $users ) {
 			$notify->add( $users );
 		}

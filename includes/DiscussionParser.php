@@ -454,15 +454,10 @@ abstract class EchoDiscussionParser {
 			return self::$revisionInterpretationCache[$revision->getId()];
 		}
 
-		if ( $revision instanceof RevisionRecord ) {
-			$userIdentity = $revision->getUser();
-			if ( $userIdentity !== null ) {
-				$userID = $userIdentity->getId();
-				$userName = $userIdentity->getName();
-			}
-		} else {
-			$userID = $revision->getUser();
-			$userName = $revision->getUserText();
+		$userIdentity = $revision->getUser();
+		if ( $userIdentity !== null ) {
+			$userID = $userIdentity->getId();
+			$userName = $userIdentity->getName();
 		}
 		$user = $userID != 0 ? User::newFromId( $userID ) : User::newFromName( $userName, false );
 
@@ -496,7 +491,7 @@ abstract class EchoDiscussionParser {
 	 *
 	 * @todo Expand recognisable actions.
 	 *
-	 * @param array $changes Output of EchoEvent::getMachineReadableDiff
+	 * @param array[] $changes Output of EchoEvent::getMachineReadableDiff
 	 * @param string $username
 	 * @param Title|null $title
 	 * @return array[] Array of associative arrays.
@@ -676,6 +671,11 @@ abstract class EchoDiscussionParser {
 		}, $actions );
 	}
 
+	/**
+	 * @param int $line
+	 * @param array[] $signedSections
+	 * @return bool
+	 */
 	private static function isInSignedSection( $line, array $signedSections ) {
 		foreach ( $signedSections as $section ) {
 			if ( $line > $section[0] && $line <= $section[1] ) {

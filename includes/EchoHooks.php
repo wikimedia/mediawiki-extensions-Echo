@@ -777,7 +777,7 @@ class EchoHooks {
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/LinksUpdateAfterInsert
 	 * @param LinksUpdate $linksUpdate
 	 * @param string $table
-	 * @param array $insertions
+	 * @param array[] $insertions
 	 * @return bool
 	 */
 	public static function onLinksUpdateAfterInsert( $linksUpdate, $table, $insertions ) {

@@ -69,6 +69,7 @@ class EchoNotifier {
 			) {
 				Hooks::run( 'EchoGetBundleRules', [ $event, &$bundleString ] );
 			}
+			// @phan-suppress-next-line PhanImpossibleCondition May be set by hook
 			if ( $bundleString ) {
 				$bundleHash = md5( $bundleString );
 			}

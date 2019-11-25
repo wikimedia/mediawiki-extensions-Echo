@@ -51,6 +51,7 @@ class ApiEchoUnreadNotificationPages extends ApiQueryBase {
 	 * @param int $limit
 	 * @param bool $groupPages
 	 * @return array
+	 * @phan-return array{pages:array[],totalCount:int}
 	 */
 	protected function getFromLocal( $limit, $groupPages ) {
 		$attributeManager = EchoAttributeManager::newFromGlobalVars();
@@ -77,7 +78,10 @@ class ApiEchoUnreadNotificationPages extends ApiQueryBase {
 		);
 
 		if ( $rows === false ) {
-			return [];
+			return [
+				'pages' => [],
+				'totalCount' => 0,
+			];
 		}
 
 		$nullCount = 0;
@@ -162,7 +166,7 @@ class ApiEchoUnreadNotificationPages extends ApiQueryBase {
 	}
 
 	/**
-	 * @return array
+	 * @return array[]
 	 */
 	protected function getUnreadNotificationPagesFromForeign() {
 		$result = [];
