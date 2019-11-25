@@ -19,7 +19,8 @@
 			"Hamilton Abreu",
 			"Athena in Wonderland",
 			"Opraco",
-			"Mansil alfalb"
+			"Mansil alfalb",
+			"Malafaya"
 		]
 	},
 	"echo-desc": "Sistema de notificações a utilizadores sobre eventos e mensagens",
@@ -61,7 +62,7 @@
 	"echo-category-title-user-rights": "{{PLURAL:$1|Alteração de privilégios de utilizador|Alterações de privilégios de utilizador}}",
 	"echo-category-title-emailuser": "{{PLURAL:$1|Correio eletrónico de outro utilizador|Correio eletrónico de outros utilizadores}}",
 	"echo-category-title-article-reminder": "{{PLURAL:$1|Notificação|Notificações}} de páginas",
-	"echo-category-title-thank-you-edit": "Editar {{PLURAL:$1|marco|marcos}}",
+	"echo-category-title-thank-you-edit": "{{PLURAL:$1|Marco|Marcos}} de edição",
 	"echo-pref-tooltip-edit-user-talk": "Notificar-me quando alguém publicar na minha página de discussão.",
 	"echo-pref-tooltip-article-linked": "Notificar-me quando alguém criar uma hiperligação para uma página criada por mim, a partir de outra página.",
 	"echo-pref-tooltip-reverted": "Notificar-me quando alguém reverter uma edição minha, ao utilizar a função desfazer ou a ferramenta de reversão.",

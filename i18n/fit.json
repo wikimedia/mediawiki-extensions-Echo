@@ -1,13 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
-			"Pyscowicz"
+			"Pyscowicz",
+			"Palmtree222"
 		]
 	},
 	"prefs-echo": "Ilmotukset",
 	"prefs-emailsettings": "E-posti inställninkit",
 	"echo-pref-email": "E-posti",
 	"notifications": "Ilmotukset",
+	"tooltip-pt-notifications-alert": "{{GENDER:|Hälytyksesi}}",
 	"echo-specialpage": "Ilmotukset",
 	"notificationsmarkread-legend": "Markeeraa ilmotus luetuksi",
 	"echo-notification-markasread": "Markeeraa luetuksi",

@@ -4,5 +4,5 @@
 			"LeGuyanaisPure"
 		]
 	},
-	"tooltip-pt-notifications-alert": "Zòt alèrt"
+	"tooltip-pt-notifications-alert": "{{GENDER:|}}Ou alèrt"
 }
