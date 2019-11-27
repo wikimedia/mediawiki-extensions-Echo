@@ -61,8 +61,8 @@ abstract class EchoDiscussionParser {
 				self::generateMentionEvents( $action['header'], $userLinks, $content, $revision, $user );
 			} elseif ( $action['type'] === 'unknown-signed-change' ) {
 				$userLinks = array_diff_key(
-					self::getUserLinks( $action['new_content'], $title ) ?: [],
-					self::getUserLinks( $action['old_content'], $title ) ?: []
+					self::getUserLinks( $action['new_content'], $title ),
+					self::getUserLinks( $action['old_content'], $title )
 				);
 				$header = self::extractHeader( $action['full-section'] );
 
@@ -394,7 +394,7 @@ abstract class EchoDiscussionParser {
 	/**
 	 * @param string $content
 	 * @param Title $title
-	 * @return int[]|false
+	 * @return int[]
 	 * Array of links in the user namespace with DBKey => ID.
 	 */
 	private static function getUserLinks( $content, Title $title ) {
@@ -402,7 +402,7 @@ abstract class EchoDiscussionParser {
 		$links = $output->getLinks();
 
 		if ( !isset( $links[NS_USER] ) || !is_array( $links[NS_USER] ) ) {
-			return false;
+			return [];
 		}
 
 		return $links[NS_USER];
