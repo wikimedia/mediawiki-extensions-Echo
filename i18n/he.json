@@ -90,7 +90,7 @@
 	"notificationsmarkread-legend": "סימון כהודעה שנקראה",
 	"echo-none": "אין לך הודעות.",
 	"echo-api-failure": "לא ניתן היה לאחזר הודעות.",
-	"echo-api-failure-cross-wiki": "לא ניתנה גישה למתחם המרוחק.",
+	"echo-api-failure-cross-wiki": "לא ניתנה גישה לתחום המרוחק.",
 	"echo-notification-placeholder": "אין הודעות.",
 	"echo-notification-placeholder-filters": "אין הודעות שמתאימות לסינון הזה.",
 	"echo-notification-loginrequired": "יש להיכנס לחשבון כדי לצפות בהודעות.",

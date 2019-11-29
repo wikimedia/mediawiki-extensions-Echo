@@ -31,7 +31,7 @@
 	"apihelp-query+notifications-paramvalue-format-flyout": "<span class=\"apihelp-deprecated\">מיושן</span>. נא להשתמש ב־<kbd dir=\"ltr\">$1format=model</kbd> לנתונים גולמיים",
 	"apihelp-query+notifications-paramvalue-format-html": "<span class=\"apihelp-deprecated\">מיושן</span>. נא להשתמש ב־<kbd dir=\"ltr\">$1format=model</kbd> לנתונים גולמיים",
 	"apihelp-query+notifications-param-limit": "המספר המרבי של ההודעות להחזיר.",
-	"apihelp-query+notifications-param-wikis": "רשימת אתרי הוויקי שמהם תאוחזרנה הודעות (בררת המחדל היא אתר הוויקי הנוכחי).",
+	"apihelp-query+notifications-param-wikis": "רשימת אתרי הוויקי שהודעות תאוחזרנה מהם (ברירת המחדל היא אתר הוויקי הנוכחי).",
 	"apihelp-query+notifications-param-crosswikisummary": "הערך true יפעיל הודעה מסוכמת על הודעות מאתרי ויקי אחרים.",
 	"apihelp-query+notifications-param-alertcontinue": "כשזמינות עוד תוצאות התראה, יש להשתמש בזה כדי להמשיך.",
 	"apihelp-query+notifications-param-unreadfirst": "האם להציג הודעות שלא נקראו קודם (משמש רק אם groupbysection לא הוגדר).",
@@ -55,7 +55,7 @@
 	"apihelp-echoarticlereminder-param-comment": "הערת משתמש אופציונלית שתיכלל בתזכור",
 	"apihelp-echoarticlereminder-example-1": "יצירת הודעת תזכור לגבי ערך למחר עם הערה",
 	"apihelp-echoarticlereminder-example-2": "יצירת הודעת תזכור לגבי ערך למחר ללא הערה",
-	"apiwarn-echo-deprecation-timestampformat": "תסדיר חותם הזמן של מדיה־ויקי הוגדר כאן בתור מיושן. בעתיד, ISO 8601 תמיד ישמש לפלט של חותם הזמן. נא לתקן את הלקוח שלך ולהגדיר את <var>timestampFormat</var> לערך <kbd>ISO_8601</kbd>.",
+	"apiwarn-echo-deprecation-timestampformat": "תסדיר חותם־הזמן של מדיה־ויקי הוגדר כאן בתור מיושן. בעתיד, ISO 8601 תמיד ישמש לפלט של חותם־הזמן. נא לתקן את הלקוח שלך ולהגדיר את <var>timestampFormat</var> לערך <kbd>ISO_8601</kbd>.",
 	"apiwarn-echo-deprecation-flyout": "<kbd>notformat=flyout</kbd> הוכרז בתור מיושן ויוסר כליל בקרוב. נא להשתמש ב־<kbd>notformat=model</kbd> כדי לקבל את הנתונים הגולמיים או ב־<kbd>notformat=special</kbd> בשביל HTML שכבר הוכן לתצוגה.",
 	"apiwarn-echo-deprecation-html": "<kbd>notformat=html</kbd> הוכרז בתור מיושן ויוסר כליל בקרוב. נא להשתמש ב־<kbd>notformat=special</kbd> במקומו.",
 	"apierror-echo-event-creation-failed": "לא ניתן היה ליצור את פעולת ה־Echo"
