@@ -499,13 +499,11 @@
 	 */
 	mw.echo.Controller.prototype.markLocalNotificationsRead = function () {
 		var modelName, model,
-			itemIds = [],
 			readState = this.manager.getFiltersModel().getReadState(),
 			modelItems = {};
 
 		this.manager.getLocalNotifications().forEach( function ( notification ) {
 			if ( !notification.isRead() ) {
-				itemIds = itemIds.concat( notification.getAllIds() );
 				notification.toggleRead( true );
 
 				modelName = notification.getModelName();
@@ -525,9 +523,8 @@
 		// Update pagination count
 		this.manager.updateCurrentPageItemCount();
 
-		this.manager.getUnreadCounter().estimateChange( -itemIds.length );
-		this.manager.getLocalCounter().estimateChange( -itemIds.length );
-		return this.api.markItemsRead( itemIds, 'local', true ).then( this.refreshUnreadCount.bind( this ) );
+		this.manager.getLocalCounter().setCount( 0, false );
+		return this.api.markAllRead( 'local', this.getTypeString() ).then( this.refreshUnreadCount.bind( this ) );
 	};
 
 	/**
