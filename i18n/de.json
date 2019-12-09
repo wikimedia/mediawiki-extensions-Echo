@@ -13,7 +13,8 @@
 			"FriedhelmW",
 			"MGChecker",
 			"Vogone",
-			"DerHexer"
+			"DerHexer",
+			"Tobi 406"
 		]
 	},
 	"echo-desc": "Stellt ein System zur Benachrichtigung von Benutzern über Ereignisse und Nachrichten bereit",
@@ -186,6 +187,7 @@
 	"echo-mark-all-as-read": "Alle als gelesen markieren",
 	"echo-mark-all-as-read-confirmation": "{{PLURAL:$1|Eine Benachrichtigung|$1 Benachrichtigungen}} als gelesen markiert",
 	"echo-mark-wiki-as-read": "Alle als gelesen markieren in dem ausgewählten Wiki: $1",
+	"echo-displaysnippet-title": "Neue Benachrichtigung",
 	"echo-date-today": "Heute",
 	"echo-date-yesterday": "Gestern",
 	"notification-bundle-header-edit-user-talk-v2": "{{PLURAL:$1|Eine neue Nachricht|$1 neue Nachrichten|100=Mehr als 99 neue Nachrichten}} auf <strong>{{GENDER:$3|deiner}} Diskussionsseite</strong>.",

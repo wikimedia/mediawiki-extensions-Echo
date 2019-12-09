@@ -33,6 +33,8 @@
 	"prefs-echosubscriptions": "Informeer mij over deze gebeurtenissen",
 	"prefs-echocrosswiki": "Meldingen van andere wiki's",
 	"prefs-blocknotificationslist": "Genegeerde gebruikers",
+	"echo-mobile-notifications-filter-title": "Meldingen filteren",
+	"echo-pref-show-poll-updates": "Nieuwe meldingen weergeven op het moment dat ze binnen komen",
 	"echo-pref-send-me": "Stuur mij:",
 	"echo-pref-send-to": "Verzenden naar:",
 	"echo-pref-email-format": "E-mailopmaak:",
