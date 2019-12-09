@@ -1,20 +1,10 @@
 <?php
-// @codingStandardsIgnoreStart
 
 use PHPUnit\Framework\MockObject\Invocation;
 use PHPUnit\Framework\MockObject\Invocation\StaticInvocation;
+use PHPUnit\Framework\MockObject\Stub\Stub;
 
-if ( !interface_exists( PHPUnit\Framework\MockObject\Stub\Stub::class ) ) {
-	// PHPUnit < 8
-	interface StubCompatTemp extends PHPUnit\Framework\MockObject\Stub {
-	}
-} else {
-	// PHPUnit 8+
-	interface StubCompatTemp extends PHPUnit\Framework\MockObject\Stub\Stub {
-	}
-}
-
-class EchoExecuteFirstArgumentStub implements StubCompatTemp {
+class EchoExecuteFirstArgumentStub implements Stub {
 	public function invoke( Invocation $invocation ) {
 		if ( !$invocation instanceof StaticInvocation ) {
 			throw new PHPUnit\Framework\Exception( 'wrong invocation type' );
@@ -30,4 +20,3 @@ class EchoExecuteFirstArgumentStub implements StubCompatTemp {
 		return 'return result of call_user_func on first invocation argument';
 	}
 }
-// @codingStandardsIgnoreEnd
