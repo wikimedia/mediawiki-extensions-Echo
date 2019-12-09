@@ -455,7 +455,8 @@
 		"SendWatchlistEmailNotification": "EchoHooks::onSendWatchlistEmailNotification",
 		"GetNewMessagesAlert": "EchoHooks::abortNewMessagesAlert",
 		"LinksUpdateAfterInsert": "EchoHooks::onLinksUpdateAfterInsert",
-		"SpecialMuteModifyFormFields": "EchoHooks::onSpecialMuteModifyFormFields"
+		"SpecialMuteModifyFormFields": "EchoHooks::onSpecialMuteModifyFormFields",
+		"RecentChange_save": "EchoHooks::onRecentChangeSave"
 	},
 	"config": {
 		"EchoEnableEmailBatch": {
@@ -630,6 +631,14 @@
 				"thank-you-edit": {
 					"priority": 9,
 					"tooltip": "echo-pref-tooltip-thank-you-edit"
+				},
+				"watchlist": {
+					"priority": 5,
+					"tooltip": "echo-pref-tooltip-watchlist"
+				},
+				"minor-watchlist": {
+					"priority": 6,
+					"tooltip": "echo-pref-tooltip-minor-watchlist"
 				}
 			},
 			"merge_strategy": "array_plus_2d"
@@ -765,6 +774,32 @@
 					"category": "article-linked",
 					"group": "neutral",
 					"section": "message",
+					"bundle": {
+						"web": true,
+						"email": true,
+						"expandable": true
+					}
+				},
+				"minor-watchlist-change": {
+					"user-locators": [
+						"EchoUserLocator::locateUsersWatchingTitle"
+					],
+					"category": "minor-watchlist",
+					"group": "interactive",
+					"presentation-model": "EchoWatchlistChangePresentationModel",
+					"bundle": {
+						"web": true,
+						"email": true,
+						"expandable": true
+					}
+				},
+				"watchlist-change": {
+					"user-locators": [
+						"EchoUserLocator::locateUsersWatchingTitle"
+					],
+					"category": "watchlist",
+					"group": "interactive",
+					"presentation-model": "EchoWatchlistChangePresentationModel",
 					"bundle": {
 						"web": true,
 						"email": true,
@@ -934,6 +969,14 @@
 		"EchoPollForUpdates": {
 			"value": 0,
 			"description": "This is the polling rate i.e. the time after which we check for notifications count on the client side. It also controls whether notification count will be displayed in browser title. If polling rate is 0 this means polling is disabled and notification count is also not shown in browser title"
+		},
+		"EchoWatchlistNotifications": {
+			"value": false,
+			"description": "Feature flag to enable Echo notifications whenever a page on a user's watchlist is changed, replacing the built-in preference to send emails in that circumstance."
+		},
+		"EchoWatchlistEmailOncePerPage": {
+			"value": true,
+			"description": "Whether to send email notifications each time a watched page is edited (if false) or only the first time the page is changed before being visited again by the user (if true)"
 		}
 	},
 	"attributes": {
@@ -1025,6 +1068,7 @@
 		"EchoUserNotificationGateway": "includes/gateway/UserNotificationGateway.php",
 		"EchoUserRightsPresentationModel": "includes/formatters/UserRightsPresentationModel.php",
 		"EchoWelcomePresentationModel": "includes/formatters/WelcomePresentationModel.php",
+		"EchoWatchlistChangePresentationModel": "includes/formatters/WatchlistChangePresentationModel.php",
 		"GenerateSampleNotifications": "maintenance/generateSampleNotifications.php",
 		"MWEchoDbFactory": "includes/EchoDbFactory.php",
 		"MWEchoEmailBatch": "includes/EmailBatch.php",
