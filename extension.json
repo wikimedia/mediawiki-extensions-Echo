@@ -27,7 +27,8 @@
 		"echoarticlereminder": "ApiEchoArticleReminder"
 	},
 	"DefaultUserOptions": {
-		"echo-email-frequency": 0
+		"echo-email-frequency": 0,
+		"echo-dont-email-read-notifications": false
 	},
 	"ExtensionFunctions": [
 		"EchoHooks::initEchoExtension"
