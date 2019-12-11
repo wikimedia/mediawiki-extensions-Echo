@@ -47,6 +47,12 @@ class EchoHooks {
 			'mention-success' => [
 				'web' => false,
 			],
+			'watchlist' => [
+				'web' => false,
+			],
+			'minor-watchlist' => [
+				'web' => false,
+			],
 		];
 
 		foreach ( $wgEchoNotificationCategories as $category => $categoryData ) {
@@ -68,7 +74,7 @@ class EchoHooks {
 	public static function initEchoExtension() {
 		global $wgEchoNotifications, $wgEchoNotificationCategories, $wgEchoNotificationIcons,
 			$wgEchoMentionStatusNotifications, $wgAllowArticleReminderNotification, $wgAPIModules,
-			$wgEchoSeenTimeCacheType, $wgMainStash;
+			$wgEchoWatchlistNotifications, $wgEchoSeenTimeCacheType, $wgMainStash;
 
 		// allow extensions to define their own event
 		Hooks::run( 'BeforeCreateEchoEvent',
@@ -84,6 +90,12 @@ class EchoHooks {
 		if ( !$wgAllowArticleReminderNotification ) {
 			unset( $wgEchoNotificationCategories['article-reminder'] );
 			unset( $wgAPIModules['echoarticlereminder'] );
+		}
+
+		// Only allow watchlist notifications when enabled
+		if ( !$wgEchoWatchlistNotifications ) {
+			unset( $wgEchoNotificationCategories['watchlist'] );
+			unset( $wgEchoNotificationCategories['minor-watchlist'] );
 		}
 
 		// Default $wgEchoSeenTimeCacheType to $wgMainStash
@@ -284,6 +296,14 @@ class EchoHooks {
 			case 'mention-failure':
 				$bundleString = 'mention-status-' . $event->getExtraParam( 'revid' );
 				break;
+			case 'watchlist-change':
+			case 'minor-watchlist-change':
+				$bundleString = 'watchlist-change';
+				if ( $event->getTitle() ) {
+					$bundleString .= '-' . $event->getTitle()->getNamespace()
+						. '-' . $event->getTitle()->getDBkey();
+				}
+				break;
 		}
 
 		return true;
@@ -303,7 +323,8 @@ class EchoHooks {
 		global $wgEchoEnableEmailBatch,
 			$wgEchoNotifiers, $wgEchoNotificationCategories, $wgEchoNotifications,
 			$wgAllowHTMLEmail, $wgEchoPollForUpdates,
-			$wgEchoCrossWikiNotifications, $wgEchoPerUserBlacklist;
+			$wgEchoCrossWikiNotifications, $wgEchoPerUserBlacklist,
+			$wgEchoWatchlistNotifications;
 
 		$attributeManager = EchoAttributeManager::newFromGlobalVars();
 
@@ -382,10 +403,11 @@ class EchoHooks {
 		asort( $categoriesAndPriorities );
 		$validSortedCategories = array_keys( $categoriesAndPriorities );
 
-		// Show subscription options.  IMPORTANT: 'echo-subscriptions-email-edit-user-talk' is a
-		// virtual option, its value is saved to existing talk page notification option
-		// 'enotifusertalkpages', see onUserLoadOptions() and onUserSaveOptions() for more
-		// information on how it is handled. Doing it in this way, we can avoid keeping running
+		// Show subscription options.  IMPORTANT: 'echo-subscriptions-email-edit-user-talk',
+		// 'echo-subscriptions-email-watchlist', and 'echo-subscriptions-email-minor-watchlist' are
+		// virtual options, their values are saved to existing notification options 'enotifusertalkpages',
+		// 'enotifwatchlistpages', and 'enotifminoredits', see onUserLoadOptions() and onUserSaveOptions()
+		// for more information on how it is handled. Doing it in this way, we can avoid keeping running
 		// massive data migration script to keep these two options synced when echo is enabled on
 		// new wikis or Echo is disabled and re-enabled for some reason.  We can update the name
 		// if Echo is ever merged to core
@@ -458,16 +480,22 @@ class EchoHooks {
 			];
 		}
 
-		// If we're using Echo to handle user talk page post notifications,
-		// hide the old (non-Echo) preference for this. If Echo is moved to core
-		// we'll want to remove this old user option entirely. For now, though,
+		// If we're using Echo to handle user talk page post or watchlist notifications,
+		// hide the old (non-Echo) preferences for them. If Echo is moved to core
+		// we'll want to remove the old user options entirely. For now, though,
 		// we need to keep it defined in case Echo is ever uninstalled.
 		// Otherwise, that preference could be lost entirely. This hiding logic
-		// is not abstracted since there is only a single preference in core
-		// that is potentially made obsolete by Echo.
+		// is not abstracted since there are only three preferences in core
+		// that are potentially made obsolete by Echo.
 		if ( isset( $wgEchoNotifications['edit-user-talk'] ) ) {
 			$preferences['enotifusertalkpages']['type'] = 'hidden';
 			unset( $preferences['enotifusertalkpages']['section'] );
+		}
+		if ( $wgEchoWatchlistNotifications && isset( $wgEchoNotifications['watchlist-change'] ) ) {
+			$preferences['enotifwatchlistpages']['type'] = 'hidden';
+			unset( $preferences['enotifusertalkpages']['section'] );
+			$preferences['enotifminoredits']['type'] = 'hidden';
+			unset( $preferences['enotifminoredits']['section'] );
 		}
 
 		if ( $wgEchoPerUserBlacklist ) {
@@ -636,7 +664,9 @@ class EchoHooks {
 	 * @return bool true - send email, false - do not send email
 	 */
 	public static function onEchoAbortEmailNotification( $user, $event ) {
-		if ( $event->getType() === 'edit-user-talk' ) {
+		global $wgEchoWatchlistEmailOncePerPage;
+		$type = $event->getType();
+		if ( $type === 'edit-user-talk' ) {
 			$extra = $event->getExtra();
 			if ( !empty( $extra['minoredit'] ) ) {
 				global $wgEnotifMinorEdits;
@@ -645,9 +675,23 @@ class EchoHooks {
 					return false;
 				}
 			}
+		// Mimic core code of only sending watchlist notification emails once per page
+		} elseif ( $type === "watchlist-change" || $type === "minor-watchlist-change" ) {
+			if ( !$wgEchoWatchlistEmailOncePerPage ) {
+				// Don't care about rate limiting
+				return true;
+			}
+			$store = MediaWikiServices::getInstance()->getWatchedItemStore();
+			$ts = $store->getWatchedItem( $user, $event->getTitle() )->getNotificationTimestamp();
+			// if (ts != null) is not sufficient because, if $wgEchoUseJobQueue is set,
+			// wl_notificationtimestamp will have already been set for the new edit
+			// by the time this code runs.
+			if ( $ts !== null && $ts !== $event->getExtraParam( "timestamp" ) ) {
+				// User has already seen an email for this page before
+				return false;
+			}
 		}
-
-		// Proceed to send talk page notification email
+		// Proceed to send notification email
 		return true;
 	}
 
@@ -1175,6 +1219,11 @@ class EchoHooks {
 	 * @return bool
 	 */
 	public static function onSendWatchlistEmailNotification( $targetUser, $title, $emailNotification ) {
+		global $wgEchoNotifications, $wgEchoWatchlistNotifications;
+		if ( $wgEchoWatchlistNotifications && isset( $wgEchoNotifications["watchlist-change"] ) ) {
+			// Let echo handle watchlist notifications entirely
+			return false;
+		}
 		// If a user is watching his/her own talk page, do not send talk page watchlist
 		// email notification if the user is receiving Echo talk page notification
 		if ( $title->isTalkPage() && $targetUser->getTalkPage()->equals( $title ) ) {
@@ -1300,9 +1349,22 @@ class EchoHooks {
 	 * @return bool true in all cases
 	 */
 	public static function onUserLoadOptions( $user, &$options ) {
+		global $wgEchoWatchlistNotifications;
 		// Use existing enotifusertalkpages option for echo-subscriptions-email-edit-user-talk
 		if ( isset( $options['enotifusertalkpages'] ) ) {
 			$options['echo-subscriptions-email-edit-user-talk'] = $options['enotifusertalkpages'];
+		}
+
+		if ( $wgEchoWatchlistNotifications ) {
+			// Use existing enotifwatchlistpages option for echo-subscriptions-email-watchlist
+			if ( isset( $options['enotifwatchlistpages'] ) ) {
+				$options['echo-subscriptions-email-watchlist'] = $options['enotifwatchlistpages'];
+			}
+
+			// Use existing enotifminoredits option for echo-subscriptions-email-minor-watchlist
+			if ( isset( $options['enotifminoredits'] ) ) {
+				$options['echo-subscriptions-email-minor-watchlist'] = $options['enotifminoredits'];
+			}
 		}
 
 		return true;
@@ -1316,11 +1378,21 @@ class EchoHooks {
 	 * @return bool true in all cases
 	 */
 	public static function onUserSaveOptions( $user, &$options ) {
-		// echo-subscriptions-email-edit-user-talk is just a virtual option,
-		// save the value in the real option enotifusertalkpages
+		global $wgEchoWatchlistNotifications;
+		// save virtual option values in corresponding real option values
 		if ( isset( $options['echo-subscriptions-email-edit-user-talk'] ) ) {
 			$options['enotifusertalkpages'] = $options['echo-subscriptions-email-edit-user-talk'];
 			unset( $options['echo-subscriptions-email-edit-user-talk'] );
+		}
+		if ( $wgEchoWatchlistNotifications ) {
+			if ( isset( $options['echo-subscriptions-email-watchlist'] ) ) {
+				$options['enotifwatchlistpages'] = $options['echo-subscriptions-email-watchlist'];
+				unset( $options['echo-subscriptions-email-watchlist'] );
+			}
+			if ( isset( $options['echo-subscriptions-email-minor-watchlist'] ) ) {
+				$options['enotifminoredits'] = $options['echo-subscriptions-email-minor-watchlist'];
+				unset( $options['echo-subscriptions-email-minor-watchlist'] );
+			}
 		}
 
 		return true;
@@ -1601,5 +1673,33 @@ class EchoHooks {
 				'default' => $specialMute->isTargetBlacklisted( 'echo-notifications-blacklist' ),
 			];
 		}
+	}
+
+	/**
+	 * Handler for RecentChange_save hook
+	 *
+	 * @param RecentChange $change The change that has just been made to the wiki
+	 */
+	public static function onRecentChangeSave( RecentChange $change ) {
+		global $wgEchoWatchlistNotifications;
+		if ( !$wgEchoWatchlistNotifications ) {
+			return;
+		}
+		if ( $change->getAttribute( 'rc_minor' ) ) {
+			$type = 'minor-watchlist-change';
+		} else {
+			$type = 'watchlist-change';
+		}
+		EchoEvent::create( [
+			'type' => $type,
+			'title' => $change->getTitle(),
+			'extra' => [
+				'revid' => $change->getAttribute( "rc_this_oldid" ),
+				'logid' => $change->getAttribute( "rc_logid" ),
+				'status' => $change->mExtra["pageStatus"],
+				'timestamp' => $change->getAttribute( "rc_timestamp" )
+			],
+			'agent' => $change->getPerformer()
+		] );
 	}
 }
