@@ -57,6 +57,7 @@
 	"echo-pref-email-format-html": "Option for users who want to receive HTML email notification.\n\nSee also:\n* {{msg-mw|Echo-pref-email-format}}\n{{Identical|HTML}}",
 	"echo-pref-email-format-plain-text": "Option for users who want to receive plain text email notification.\n\nSee also:\n* {{msg-mw|Echo-pref-email-format}}\n{{Identical|Plain text}}",
 	"echo-pref-cross-wiki-notifications": "Label for a preference which enables notifications from other wikis. Only used if {{msg-mw|echo-pref-beta-feature-cross-wiki-message}} is not used.",
+	"echo-pref-dont-email-read-notifications": "Label for a preference which hides notifications from daily or weekly digests if they have already been marked as read by the user.",
 	"echo-pref-notifications-blacklist": "Label for a preference which allows a user to block notifications from certain users.\n\nNote that the translatewiki.net tool may warn, if you alter the link to use an existing translated version linked from the English page at [[mw:Help:Notifications#mute]], such as [[mw:Help:Notifications/fr#mute]] for the French version.",
 	"echo-learn-more": "Text for link to more information about a topic.\n{{Identical|Learn more}}",
 	"echo-log": "Text for link to go to Special:Log",

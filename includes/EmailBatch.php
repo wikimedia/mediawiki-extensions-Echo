@@ -199,6 +199,16 @@ class MWEchoEmailBatch {
 				'event_type' => $validEvents
 			];
 
+			$tables = [ 'echo_email_batch', 'echo_event' ];
+
+			if ( $this->mUser->getOption( 'echo-dont-email-read-notifications' ) ) {
+				$conds += [
+					'notification_event = event_id',
+					'notification_read_timestamp' => null
+				];
+				array_push( $tables, 'echo_notification' );
+			}
+
 			// See setLastEvent() for more detail for this variable
 			if ( $this->lastEvent ) {
 				$conds[] = 'eeb_event_id <= ' . (int)$this->lastEvent;
@@ -212,7 +222,7 @@ class MWEchoEmailBatch {
 			] );
 
 			$res = $dbr->select(
-				[ 'echo_email_batch', 'echo_event' ],
+				$tables,
 				$fields,
 				$conds,
 				__METHOD__,

@@ -58,6 +58,7 @@
 	"echo-pref-email-format-plain-text": "Plain text",
 	"echo-pref-cross-wiki-notifications": "Show notifications from other wikis",
 	"echo-pref-notifications-blacklist": "Do not display notifications from these users. ([[mw:Special:MyLanguage/Help:Notifications#mute|learn more]])",
+	"echo-pref-dont-email-read-notifications": "Don't include read notifications in summary emails",
 	"echo-learn-more": "Learn more",
 	"echo-log": "Public log",
 	"echo-new-messages": "You have new messages",

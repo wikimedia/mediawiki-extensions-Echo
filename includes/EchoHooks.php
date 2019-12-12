@@ -347,6 +347,13 @@ class EchoHooks {
 			'options-messages' => $freqOptions
 		];
 
+		$preferences['echo-dont-email-read-notifications'] = [
+			'type' => 'toggle',
+			'label-message' => 'echo-pref-dont-email-read-notifications',
+			'section' => 'echo/emailsettings',
+			'hide-if' => [ 'OR', [ '===', 'echo-email-frequency', '-1' ], [ '===', 'echo-email-frequency', '0' ] ]
+		];
+
 		// Display information about the user's currently set email address
 		$prefsTitle = SpecialPage::getTitleFor( 'Preferences', false, 'mw-prefsection-echo' );
 		$link = MediaWikiServices::getInstance()->getLinkRenderer()->makeLink(
