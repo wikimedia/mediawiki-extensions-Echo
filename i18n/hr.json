@@ -16,6 +16,7 @@
 	"prefs-echocrosswiki": "Obavijesti s drugih wikija",
 	"prefs-blocknotificationslist": "Suradnici čije obavijesti i vijestice ne želite primati",
 	"prefs-echopollupdates": "Obavijesti uživo",
+	"echo-mobile-notifications-filter-title": "Filtriraj obavijesti",
 	"echo-pref-show-poll-updates": "Pokaži nove obavijesti čim stignu",
 	"echo-pref-show-poll-updates-help": "Prikaži broj nepročitanih obavijesti u naslovnoj traci, kao i izvadak svake obavijesti čim stigne.",
 	"echo-pref-send-me": "Pošalji mi:",
