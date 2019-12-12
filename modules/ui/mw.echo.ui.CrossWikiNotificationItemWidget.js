@@ -330,8 +330,8 @@
 			this.expanded ?
 				mw.msg( 'notification-link-text-collapse-all' ) :
 				// Messages that appear here are:
-				// notification-link-text-expand-alert-count
-				// notification-link-text-expand-notice-count
+				// * notification-link-text-expand-alert-count
+				// * notification-link-text-expand-notice-count
 				mw.msg(
 					'notification-link-text-expand-' +
 						( type === 'message' ? 'notice' : type ) +

@@ -11,12 +11,11 @@ module.exports = function ( grunt ) {
 	grunt.initConfig( {
 		eslint: {
 			options: {
-				reportUnusedDisableDirectives: true,
 				extensions: [ '.js', '.json' ],
 				cache: true
 			},
 			all: [
-				'**/*.js{,on}',
+				'**/*.{js,json}',
 				'!{tests/externals,docs}/**',
 				'!{vendor,node_modules}/**'
 			]
@@ -27,8 +26,7 @@ module.exports = function ( grunt ) {
 				syntax: 'less'
 			},
 			all: [
-				'modules/**/*.css',
-				'modules/**/*.less'
+				'modules/**/*.{css,less}'
 			]
 		},
 		// SVG Optimization
@@ -67,7 +65,10 @@ module.exports = function ( grunt ) {
 				} ]
 			}
 		},
-		banana: conf.MessagesDirs,
+		// eslint-disable-next-line no-restricted-properties
+		banana: Object.assign( {
+			options: { requireLowerCase: false }
+		}, conf.MessagesDirs ),
 		watch: {
 			files: [
 				'.{stylelintrc,eslintrc}.json',

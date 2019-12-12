@@ -65,8 +65,8 @@
 			numItems: this.numItems,
 			flags: buttonFlags,
 			// The following messages can be used here:
-			// tooltip-pt-notifications-alert
-			// tooltip-pt-notifications-notice
+			// * tooltip-pt-notifications-alert
+			// * tooltip-pt-notifications-notice
 			title: mw.msg( 'tooltip-pt-notifications-' + adjustedTypeString ),
 			href: config.href
 		} );
@@ -119,8 +119,8 @@
 			$autoCloseIgnore: this.$element.add( this.$menuOverlay ),
 			head: true,
 			// The following messages can be used here:
-			// echo-notification-alert-text-only
-			// echo-notification-notice-text-only
+			// * echo-notification-alert-text-only
+			// * echo-notification-notice-text-only
 			label: mw.msg(
 				'echo-notification-' + adjustedTypeString +
 				'-text-only'

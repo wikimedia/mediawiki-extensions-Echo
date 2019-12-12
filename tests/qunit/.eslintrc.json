@@ -4,7 +4,9 @@
 		"../../.eslintrc.json"
 	],
 	"rules": {
+		"no-jquery/no-class-state": "off",
 		"no-jquery/no-parse-html-literal": "off",
-		"no-jquery/no-global-selector": "off"
+		"no-jquery/no-global-selector": "off",
+		"no-jquery/no-sizzle": "off"
 	}
 }

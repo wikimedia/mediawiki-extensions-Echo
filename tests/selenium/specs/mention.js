@@ -20,7 +20,7 @@ describe( 'Mention test for Echo', function () {
 		EchoPage.alerts.click();
 
 		EchoPage.alertMessage.waitForVisible();
-		let regexp = /‪.*‬ mentioned you on ‪User:.*./;
+		const regexp = /‪.*‬ mentioned you on ‪User:.*./;
 		assert( regexp.test( EchoPage.alertMessage.getText() ) );
 	} );
 
