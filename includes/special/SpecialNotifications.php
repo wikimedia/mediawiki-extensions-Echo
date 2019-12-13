@@ -40,7 +40,7 @@ class SpecialNotifications extends SpecialPage {
 
 		$pager = new NotificationPager( $this->getContext() );
 		$pager->setOffset( $this->getRequest()->getVal( 'offset' ) );
-		$pager->setLimit( $this->getRequest()->getVal( 'limit', self::DISPLAY_NUM ) );
+		$pager->setLimit( $this->getRequest()->getInt( 'limit', self::DISPLAY_NUM ) );
 		$notifications = $pager->getNotifications();
 
 		$noJSDiv = new OOUI\Tag();
