@@ -65,6 +65,8 @@
 	"echo-category-title-emailuser": "{{PLURAL:$1|E-mail od innego użytkownika|E-maile od innych użytkowników}}",
 	"echo-category-title-article-reminder": "{{PLURAL:$1|Przypomnienie|Przypomnienia}} o stronach",
 	"echo-category-title-thank-you-edit": "Edytuj {{PLURAL:$1|kamień milowy|kamienie milowe}} edycji",
+	"echo-category-title-watchlist": "Edycja w obserwowanej stronie",
+	"echo-category-title-minor-watchlist": "Drobna zmiana w obserwowanej stronie",
 	"echo-pref-tooltip-edit-user-talk": "Powiadom mnie, kiedy ktoś napisze nową wiadomość albo odpowie na mojej stronie dyskusji.",
 	"echo-pref-tooltip-article-linked": "Powiadom mnie, kiedy ktoś umieści na innej stronie link do strony utworzonej przeze mnie.",
 	"echo-pref-tooltip-reverted": "Powiadom mnie, kiedy ktoś cofnie moją edycję korzystając z narzędzia „cofnij” albo „wycofaj”.",
