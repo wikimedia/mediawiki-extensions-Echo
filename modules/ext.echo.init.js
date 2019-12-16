@@ -74,7 +74,7 @@
 			loadingPromise = mw.loader.using( 'ext.echo.ui.desktop' ).then( function () {
 
 				// Overlay
-				$( 'body' ).append( mw.echo.ui.$overlay );
+				mw.echo.ui.$overlay.appendTo( document.body );
 
 				unreadAlertCounter = new mw.echo.dm.UnreadNotificationCounter( echoApi, 'alert', maxNotificationCount );
 				alertModelManager = new mw.echo.dm.ModelManager( unreadAlertCounter, { type: 'alert' } );
