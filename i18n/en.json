@@ -246,5 +246,6 @@
 	"notification-header-foreign-all": "More notifications from {{PLURAL:$5|another wiki|$5 other wikis}}",
 	"notification-body-foreign": "$1",
 	"echo-foreign-wiki-lang": "$1 - $2",
-	"echo-badge-count": "{{PLURAL:$1|$1|100={{formatnum:99}}+}}"
+	"echo-badge-count": "{{PLURAL:$1|$1|100={{formatnum:99}}+}}",
+	"echo-blacklist": ""
 }
