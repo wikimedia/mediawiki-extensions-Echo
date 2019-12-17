@@ -146,7 +146,7 @@
 	"notification-header-thank-you-10000-edit": "Pravkar si {{GENDER:$2|naredil|naredila}} {{GENDER:$2|svoje}} desettisoče urejanje. Hvala ti za {{GENDER:$2|tvojo}} veliko prostovoljsko vnemo!",
 	"notification-header-thank-you-100000-edit": "Pravkar si {{GENDER:$2|naredil|naredila}} {{GENDER:$2|svoje}} stotisoče urejanje. Hvala ti za {{GENDER:$2|tvoj}} neverjetni doprinos!",
 	"notification-header-thank-you-1000000-edit": "Pravkar si {{GENDER:$2|naredil|naredila}} {{GENDER:$2|svoje}} milijonto urejanje. Hvala ti za {{GENDER:$2|tvoj}} naravnost osupljiv doprinos!",
-	"notification-link-thank-you-edit": "{{GENDER:$1|Tvoje}} urejanje",
+	"notification-link-thank-you-edit": "{{GENDER:$1|Vaše}} urejanje",
 	"notification-link-text-view-edit": "Ogled urejanja",
 	"notification-link-article-reminder": "Ogled strani",
 	"notification-header-reverted": "{{PLURAL:$4|Tvoje urejanje strani <strong>$3</strong> je bilo {{GENDER:$2|vrnjeno}}|Tvoji urejanji strani <strong>$3</strong> sta bili vrnjeni|Tvoja urejanja strani <strong>$3</strong> so bila vrnjena}}.",
