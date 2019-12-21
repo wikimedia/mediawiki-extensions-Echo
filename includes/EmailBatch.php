@@ -97,7 +97,7 @@ class MWEchoEmailBatch {
 		// 3. user has switched from batch to instant email, send events left in the queue
 		if ( $userLastBatch ) {
 			// use 20 as hours per day to get estimate
-			$nextBatch = wfTimestamp( TS_UNIX, $userLastBatch ) + $userEmailSetting * 20 * 60 * 60;
+			$nextBatch = (int)wfTimestamp( TS_UNIX, $userLastBatch ) + $userEmailSetting * 20 * 60 * 60;
 			if ( $enforceFrequency && wfTimestamp( TS_MW, $nextBatch ) > wfTimestampNow() ) {
 				return false;
 			}

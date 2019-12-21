@@ -54,7 +54,7 @@ class EchoRevertedPresentationModel extends EchoEventPresentationModel {
 		$title = $this->event->getTitle();
 		if ( $title->canHaveTalkPage() ) {
 			$links[] = $this->getPageLink(
-				$title->getTalkPage(), null, true
+				$title->getTalkPage(), '', true
 			);
 		}
 

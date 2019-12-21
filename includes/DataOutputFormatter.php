@@ -40,7 +40,7 @@ class EchoDataOutputFormatter {
 		$event = $notification->getEvent();
 		$timestamp = $notification->getTimestamp();
 		$utcTimestampIso8601 = wfTimestamp( TS_ISO_8601, $timestamp );
-		$utcTimestampUnix = wfTimestamp( TS_UNIX, $timestamp );
+		$utcTimestampUnix = (int)wfTimestamp( TS_UNIX, $timestamp );
 		$utcTimestampMW = wfTimestamp( TS_MW, $timestamp );
 		$bundledIds = null;
 
@@ -59,7 +59,7 @@ class EchoDataOutputFormatter {
 		$timestampMw = self::getUserLocalTime( $user, $timestamp );
 
 		// Start creating date section header
-		$now = wfTimestamp();
+		$now = (int)wfTimestamp();
 		$dateFormat = substr( $timestampMw, 0, 8 );
 		$timeDiff = $now - $utcTimestampUnix;
 		// Most notifications would be more than two days ago, check this
@@ -210,7 +210,7 @@ class EchoDataOutputFormatter {
 	 * Helper function for converting UTC timezone to a user's timezone
 	 *
 	 * @param User $user
-	 * @param string $ts
+	 * @param string|int $ts
 	 * @param int $format output format
 	 *
 	 * @return string

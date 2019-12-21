@@ -21,7 +21,7 @@ abstract class EchoLocalCache {
 
 	/**
 	 * Lookup ids that have not been resolved for a target
-	 * @var int[]
+	 * @var bool[]
 	 */
 	private $lookups = [];
 
@@ -50,7 +50,7 @@ abstract class EchoLocalCache {
 	public function add( $key ) {
 		if (
 			count( $this->lookups ) < self::TARGET_MAX_NUM
-			&& !$this->targets->get( $key )
+			&& !$this->targets->get( (string)$key )
 		) {
 			$this->lookups[$key] = true;
 		}
@@ -63,7 +63,7 @@ abstract class EchoLocalCache {
 	 * @return mixed|null
 	 */
 	public function get( $key ) {
-		$target = $this->targets->get( $key );
+		$target = $this->targets->get( (string)$key );
 		if ( $target ) {
 			return $target;
 		}
@@ -75,7 +75,7 @@ abstract class EchoLocalCache {
 				$this->targets->set( $id, $val );
 			}
 			$this->lookups = [];
-			$target = $this->targets->get( $key );
+			$target = $this->targets->get( (string)$key );
 			if ( $target ) {
 				return $target;
 			}

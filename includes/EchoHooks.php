@@ -959,6 +959,7 @@ class EchoHooks {
 					}
 				}
 			} else {
+				$markAsReadIds = array_map( 'intval', $markAsReadIds );
 				// Look up the notifications on the foreign wiki
 				$notifUser = MWEchoNotifUser::newFromUser( $user );
 				$notifInfo = $notifUser->getForeignNotificationInfo( $markAsReadIds, $markAsReadWiki );
