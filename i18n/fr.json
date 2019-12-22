@@ -189,7 +189,7 @@
 	"notification-header-watchlist-deleted": "$1{{GENDER:$2|}} a modifié <strong>$3</strong>, une page sur votre{{GENDER:$4|}} liste de suivi{{PLURAL:$5||, $5 fois}}.",
 	"notification-header-watchlist-moved": "$1{{GENDER:$2|}} a renommé <strong>$3</strong>, une page sur votre{{GENDER:$4|}} liste de suivi{{PLURAL:$5||, $5 fois}}.",
 	"notification-header-watchlist-restored": "$1{{GENDER:$2|}} a restauré <strong>$3</strong>, une page sur votre{{GENDER:$4|}} liste de suivi{{PLURAL:$5||, $5 fois}}.",
-	"notification-header-watchlist-multiuser-changed": "<strong>$1</strong>, une page sur {{GENDER:$2|}}votre liste de suivi, a été modifiée $3 fois{{PLURAL:$3|}}.",
+	"notification-header-watchlist-multiuser-changed": "<strong>$1</strong>, une page sur {{GENDER:$2|}}votre liste de suivi, a été modifiée $3 fois{{PLURAL:$3|}}.",
 	"notification-header-watchlist-multiuser-created": "<strong>$1</strong>, une page sur {{GENDER:$2|}}votre liste de suivi, a été créée $3 fois{{PLURAL:$3|}}.",
 	"notification-header-watchlist-multiuser-deleted": "<strong>$1</strong>, une page sur {{GENDER:$2|}}votre liste de suivi, a été supprimée $3 fois{{PLURAL:$3|}}.",
 	"notification-header-watchlist-multiuser-moved": "<strong>$1</strong>, une page sur {{GENDER:$2|}}votre liste de suivi, a été renommée $3 fois{{PLURAL:$3|}}.",
