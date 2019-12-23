@@ -422,7 +422,7 @@ abstract class EchoDiscussionParser {
 	 *
 	 * @return ParserOutput
 	 */
-	private static function parseNonEditWikitext( $wikitext, Article $article ) {
+	public static function parseNonEditWikitext( $wikitext, Article $article ) {
 		static $cache = [];
 
 		$cacheKey = md5( $wikitext ) . ':' . $article->getTitle()->getPrefixedText();
