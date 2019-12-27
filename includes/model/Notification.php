@@ -109,11 +109,10 @@ class EchoNotification extends EchoAbstractEntity implements Bundleable {
 		}
 
 		$notifUser = MWEchoNotifUser::newFromUser( $this->user );
-		$section = $this->event->getSection();
 
 		// Add listener to refresh notification count upon insert
 		$notifMapper->attachListener( 'insert', 'refresh-notif-count',
-			function () use ( $notifUser, $section ) {
+			function () use ( $notifUser ) {
 				$notifUser->resetNotificationCount();
 			}
 		);
