@@ -110,7 +110,6 @@ class EchoHooks {
 	 *
 	 * @param array &$testModules
 	 * @param ResourceLoader $resourceLoader
-	 * @return bool
 	 */
 	public static function onResourceLoaderTestModules( array &$testModules,
 		ResourceLoader $resourceLoader
@@ -143,8 +142,6 @@ class EchoHooks {
 				}
 			}
 		}
-
-		return true;
 	}
 
 	/**
@@ -273,8 +270,6 @@ class EchoHooks {
 	 * 'edit-user-talk-' + namespace + title, email digest/email bundling would use this hash as
 	 * a key to identify bundle-able event.  For web bundling, we bundle further based on user's
 	 * visit to the overlay, we would generate a display hash based on the hash of $bundleString
-	 *
-	 * @return bool
 	 */
 	public static function onEchoGetBundleRules( $event, &$bundleString ) {
 		switch ( $event->getType() ) {
@@ -305,8 +300,6 @@ class EchoHooks {
 				}
 				break;
 		}
-
-		return true;
 	}
 
 	/**
@@ -317,7 +310,6 @@ class EchoHooks {
 	 * @param array &$preferences Preferences array
 	 *
 	 * @throws MWException
-	 * @return bool true in all cases
 	 */
 	public static function getPreferences( $user, &$preferences ) {
 		global $wgEchoEnableEmailBatch,
@@ -513,8 +505,6 @@ class EchoHooks {
 				'filter' => MultiUsernameFilter::class,
 			];
 		}
-
-		return true;
 	}
 
 	/**
@@ -541,8 +531,6 @@ class EchoHooks {
 	 * @param Status $status
 	 * @param int $baseRevId
 	 * @param int $undidRevId
-	 *
-	 * @return bool true in all cases
 	 */
 	public static function onPageContentSaveComplete(
 		WikiPage $wikiPage,
@@ -561,13 +549,13 @@ class EchoHooks {
 		global $wgEchoNotifications;
 
 		if ( !$revision ) {
-			return true;
+			return;
 		}
 
 		// unless status is "good" (not only ok, also no warnings or errors), we
 		// probably shouldn't process it at all (e.g. null edits)
 		if ( !$status->isGood() ) {
-			return true;
+			return;
 		}
 
 		$title = $wikiPage->getTitle();
@@ -646,8 +634,6 @@ class EchoHooks {
 				}
 			}
 		}
-
-		return true;
 	}
 
 	/**
@@ -723,7 +709,6 @@ class EchoHooks {
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/LocalUserCreated
 	 * @param User $user User object that was created.
 	 * @param bool $autocreated True when account was auto-created
-	 * @return bool
 	 */
 	public static function onLocalUserCreated( $user, $autocreated ) {
 		if ( !$autocreated ) {
@@ -742,8 +727,6 @@ class EchoHooks {
 
 		// Set seen time to UNIX epoch, so initially all notifications are unseen.
 		$seenTime->setTime( wfTimestamp( TS_MW, 1 ), 'all' );
-
-		return true;
 	}
 
 	/**
@@ -757,24 +740,22 @@ class EchoHooks {
 	 * @param string|bool $reason Reason given by the user changing the rights
 	 * @param array $oldUGMs
 	 * @param array $newUGMs
-	 *
-	 * @return bool
 	 */
 	public static function onUserGroupsChanged( $user, $add, $remove, $performer,
 		$reason = false, array $oldUGMs = [], array $newUGMs = [] ) {
 		if ( !$performer ) {
 			// TODO: Implement support for autopromotion
-			return true;
+			return;
 		}
 
 		if ( !$user instanceof User ) {
 			// TODO: Support UserRightsProxy
-			return true;
+			return;
 		}
 
 		if ( $user->equals( $performer ) ) {
 			// Don't notify for self changes
-			return true;
+			return;
 		}
 
 		// If any old groups are in $add, those groups are having their expiry
@@ -819,8 +800,6 @@ class EchoHooks {
 				]
 			);
 		}
-
-		return true;
 	}
 
 	/**
@@ -829,7 +808,6 @@ class EchoHooks {
 	 * @param LinksUpdate $linksUpdate
 	 * @param string $table
 	 * @param array[] $insertions
-	 * @return bool
 	 */
 	public static function onLinksUpdateAfterInsert( $linksUpdate, $table, $insertions ) {
 		global $wgRequest;
@@ -839,7 +817,7 @@ class EchoHooks {
 		// @Todo Implement a better solution so it doesn't depend on the checking of
 		// a specific set of request variables
 		if ( $wgRequest->getVal( 'wpUndidRevision' ) || $wgRequest->getVal( 'action' ) == 'rollback' ) {
-			return true;
+			return;
 		}
 
 		// Handle only
@@ -850,7 +828,7 @@ class EchoHooks {
 		if ( $table !== 'pagelinks' || !MWNamespace::isContent( $linksUpdate->mTitle->getNamespace() )
 			|| !$linksUpdate->mRecursive || $linksUpdate->mTitle->isRedirect()
 		) {
-			return true;
+			return;
 		}
 
 		$revision = $linksUpdate->getRevision();
@@ -887,8 +865,6 @@ class EchoHooks {
 				break;
 			}
 		}
-
-		return true;
 	}
 
 	/**
@@ -896,7 +872,6 @@ class EchoHooks {
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/BeforePageDisplay
 	 * @param OutputPage $out
 	 * @param Skin $skin Skin being used.
-	 * @return bool true in all cases
 	 */
 	public static function beforePageDisplay( $out, $skin ) {
 		if ( $out->getUser()->isLoggedIn() ) {
@@ -908,8 +883,6 @@ class EchoHooks {
 				'oojs-ui.styles.icons-alerts'
 			] );
 		}
-
-		return true;
 	}
 
 	private static function processMarkAsRead( User $user, WebRequest $request, Title $title ) {
@@ -1060,12 +1033,11 @@ class EchoHooks {
 	 * @param array &$personal_urls Array of URLs to append to.
 	 * @param Title &$title Title of page being visited.
 	 * @param SkinTemplate $sk
-	 * @return bool true in all cases
 	 */
 	public static function onPersonalUrls( &$personal_urls, &$title, $sk ) {
 		$user = $sk->getUser();
 		if ( $user->isAnon() ) {
-			return true;
+			return;
 		}
 
 		$subtractions = self::processMarkAsRead( $user, $sk->getOutput()->getRequest(), $title );
@@ -1192,8 +1164,6 @@ class EchoHooks {
 				$sk->getOutput()->addModuleStyles( 'ext.echo.styles.alert' );
 			}
 		}
-
-		return true;
 	}
 
 	/**
@@ -1300,8 +1270,6 @@ class EchoHooks {
 	 * @param User $agent The user who did the rollback
 	 * @param Revision $newRevision The revision the page was reverted back to
 	 * @param Revision $oldRevision The revision of the top edit that was reverted
-	 *
-	 * @return bool true in all cases
 	 */
 	public static function onRollbackComplete( WikiPage $wikiPage, $agent, $newRevision, $oldRevision ) {
 		$victimId = $oldRevision->getUser();
@@ -1324,15 +1292,12 @@ class EchoHooks {
 				'agent' => $agent,
 			] );
 		}
-
-		return true;
 	}
 
 	/**
 	 * Handler for UserSaveSettings hook.
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/UserSaveSettings
 	 * @param User $user whose settings were saved
-	 * @return bool true in all cases
 	 */
 	public static function onUserSaveSettings( $user ) {
 		// Extensions like AbuseFilter might create an account, but
@@ -1345,8 +1310,6 @@ class EchoHooks {
 				MWEchoNotifUser::newFromUser( $user )->resetNotificationCount();
 			} );
 		}
-
-		return true;
 	}
 
 	/**
@@ -1354,7 +1317,6 @@ class EchoHooks {
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/UserLoadOptions
 	 * @param User $user User whose options were loaded
 	 * @param array &$options Options can be modified
-	 * @return bool true in all cases
 	 */
 	public static function onUserLoadOptions( $user, &$options ) {
 		global $wgEchoWatchlistNotifications;
@@ -1374,8 +1336,6 @@ class EchoHooks {
 				$options['echo-subscriptions-email-minor-watchlist'] = $options['enotifminoredits'];
 			}
 		}
-
-		return true;
 	}
 
 	/**
@@ -1383,7 +1343,6 @@ class EchoHooks {
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/UserSaveOptions
 	 * @param User $user User whose options are being saved
 	 * @param array &$options Options can be modified
-	 * @return bool true in all cases
 	 */
 	public static function onUserSaveOptions( $user, &$options ) {
 		global $wgEchoWatchlistNotifications;
@@ -1402,8 +1361,6 @@ class EchoHooks {
 				unset( $options['echo-subscriptions-email-minor-watchlist'] );
 			}
 		}
-
-		return true;
 	}
 
 	/**
@@ -1431,7 +1388,6 @@ class EchoHooks {
 	 * Handler for UserClearNewTalkNotification hook.
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/UserClearNewTalkNotification
 	 * @param User $user User whose talk page notification should be marked as read
-	 * @return bool true in all cases
 	 */
 	public static function onUserClearNewTalkNotification( User $user ) {
 		if ( !$user->isAnon() ) {
@@ -1439,22 +1395,17 @@ class EchoHooks {
 				MWEchoNotifUser::newFromUser( $user )->clearUserTalkNotifications();
 			} );
 		}
-
-		return true;
 	}
 
 	/**
 	 * Handler for ParserTestTables hook, makes sure that Echo's tables are present during tests
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ParserTestTables
 	 * @param array &$tables List of DB tables to be used for parser tests
-	 * @return bool true in all cases
 	 */
 	public static function onParserTestTables( &$tables ) {
 		$tables[] = 'echo_event';
 		$tables[] = 'echo_notification';
 		$tables[] = 'echo_email_batch';
-
-		return true;
 	}
 
 	/**
@@ -1464,12 +1415,11 @@ class EchoHooks {
 	 * @param MailAddress $from Adress of sending user
 	 * @param string $subject Subject of the mail
 	 * @param string $text Text of the mail
-	 * @return bool true in all cases
 	 */
 	public static function onEmailUserComplete( $address, $from, $subject, $text ) {
 		if ( $from->name === $address->name ) {
 			// nothing to notify
-			return true;
+			return;
 		}
 		$userTo = User::newFromName( $address->name );
 		$userFrom = User::newFromName( $from->name );
@@ -1493,15 +1443,12 @@ class EchoHooks {
 			],
 			'agent' => $userFrom,
 		] );
-
-		return true;
 	}
 
 	/**
 	 * For integration with the UserMerge extension.
 	 *
 	 * @param array &$updateFields
-	 * @return bool
 	 */
 	public static function onUserMergeAccountFields( &$updateFields ) {
 		// array( tableName, idField, textField )
@@ -1509,8 +1456,6 @@ class EchoHooks {
 		$updateFields[] = [ 'echo_event', 'event_agent_id', 'db' => $dbw ];
 		$updateFields[] = [ 'echo_notification', 'notification_user', 'db' => $dbw, 'options' => [ 'IGNORE' ] ];
 		$updateFields[] = [ 'echo_email_batch', 'eeb_user_id', 'db' => $dbw, 'options' => [ 'IGNORE' ] ];
-
-		return true;
 	}
 
 	public static function onMergeAccountFromTo( User &$oldUser, User &$newUser ) {
@@ -1593,27 +1538,21 @@ class EchoHooks {
 				MWEchoNotifUser::newFromUser( $newUser )->resetNotificationCount();
 			}
 		} );
-
-		return true;
 	}
 
 	public static function onUserMergeAccountDeleteTables( &$tables ) {
 		$dbw = MWEchoDbFactory::newFromDefault()->getEchoDb( DB_MASTER );
 		$tables['echo_notification'] = [ 'notification_user', 'db' => $dbw ];
 		$tables['echo_email_batch'] = [ 'eeb_user_id', 'db' => $dbw ];
-
-		return true;
 	}
 
 	/**
 	 * Sets custom login message for redirect from notification page
 	 *
 	 * @param array &$messages
-	 * @return bool
 	 */
 	public static function onLoginFormValidErrorMessages( &$messages ) {
 		$messages[] = 'echo-notification-loginrequired';
-		return true;
 	}
 
 	public static function getConfigVars( ResourceLoaderContext $context, Config $config ) {
@@ -1663,7 +1602,6 @@ class EchoHooks {
 				EchoModerationController::moderate( $eventIds, false );
 			} );
 		}
-		return true;
 	}
 
 	/**
