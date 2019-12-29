@@ -946,10 +946,7 @@ abstract class EchoDiscussionParser {
 			// Look for the last user link on the line.
 			$userData = self::getUserFromLine( $line, $title );
 			if ( $userData === false ) {
-				// print "F\t$lineNumber\t$line\n";
 				continue;
-			} else {
-				// print "S\t$lineNumber\n";
 			}
 
 			list( $signaturePos, $user ) = $userData;
@@ -1084,14 +1081,12 @@ abstract class EchoDiscussionParser {
 		$linkPos = strripos( $line, $linkPrefix, $offset );
 
 		if ( $linkPos === false ) {
-			// print "I\tNo match for $linkPrefix\n";
 			return false;
 		}
 
 		$linkUser = self::extractUserFromLink( $line, $linkPrefix, $linkPos );
 
 		if ( $linkUser === false ) {
-			// print "E\tExtraction failed\t$linkPrefix\n";
 			// Look for another place.
 			return self::getLinkFromLine( $line, $linkPrefix, $linkPos );
 		} else {
@@ -1117,8 +1112,6 @@ abstract class EchoDiscussionParser {
 			$userMatches
 		) ) {
 			// user link is invalid
-			// print "I\tUser link invalid\t$userPart\n";
-			// print "E\tCannot find user info to extract\n";
 			return false;
 		}
 
@@ -1129,7 +1122,6 @@ abstract class EchoDiscussionParser {
 			User::getCanonicalName( $user ) === false
 		) {
 			// Not a real username
-			// print "E\tInvalid username\n";
 			return false;
 		}
 
