@@ -44,6 +44,7 @@
 	"echo-category-title-other": "{{PLURAL:$1|Ostalo}}",
 	"echo-category-title-system": "{{PLURAL:$1|Sustav}}",
 	"echo-category-title-system-noemail": "{{PLURAL:$1|Sustav}}",
+	"echo-category-title-system-emailonly": "{{PLURAL:$1|Sustavska poruka|Sustavske poruke}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|Promjena suradničkih prava}}",
 	"echo-category-title-emailuser": "{{PLURAL:$1|E-poruka od drugog suradnika|E-poruke od drugih suradnika}}",
 	"echo-category-title-article-reminder": "{{PLURAL:$1|podsjetnik|podsjetnika}} o stranicama",
