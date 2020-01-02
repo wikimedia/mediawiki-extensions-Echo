@@ -35,5 +35,6 @@
 	"apihelp-query+notifications-param-wikis": "Lista wiki, z których pobrać powiadomienia (domyślnie tylko bieżąca wiki).",
 	"apihelp-query+notifications-example-1": "Spis powiadomień",
 	"apihelp-query+notifications-example-2": "Wypisz powiadomienia pogrupowane według sekcji z ich liczbą",
-	"apihelp-query+unreadnotificationpages-param-limit": "Maksymalna liczba zwracanych stron."
+	"apihelp-query+unreadnotificationpages-param-limit": "Maksymalna liczba zwracanych stron.",
+	"apierror-echo-event-creation-failed": "Nie można utworzyć wydarzenia Echo"
 }
