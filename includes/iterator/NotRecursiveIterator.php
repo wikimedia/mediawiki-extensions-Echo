@@ -13,6 +13,7 @@ class EchoNotRecursiveIterator extends EchoIteratorDecorator implements Recursiv
 	}
 
 	public function getChildren() {
+		// @phan-suppress-next-line PhanTypeMismatchReturn Never called
 		return null;
 	}
 }

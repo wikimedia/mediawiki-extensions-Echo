@@ -170,7 +170,7 @@ class EchoDiffParser {
 	 * @param EchoDiffGroup|null $change Changes the immediately previous lines
 	 *
 	 * @throws MWException
-	 * @return EchoDiffGroup Changes to this line and any changed lines immediately previous
+	 * @return EchoDiffGroup|null Changes to this line and any changed lines immediately previous
 	 */
 	protected function parseLine( $line, EchoDiffGroup $change = null ) {
 		if ( $line ) {
@@ -194,6 +194,8 @@ class EchoDiffParser {
 				list( , $left, $right ) = explode( ' ', $line, 3 );
 				list( $this->leftPos ) = explode( ',', substr( $left, 1 ), 2 );
 				list( $this->rightPos ) = explode( ',', substr( $right, 1 ), 2 );
+				$this->leftPos = (int)$this->leftPos;
+				$this->rightPos = (int)$this->rightPos;
 
 				// -1 because diff is 1 indexed and we are 0 indexed
 				$this->leftPos--;
@@ -214,6 +216,7 @@ class EchoDiffParser {
 					throw new MWException( 'Positional error: left' );
 				}
 				if ( $change === null ) {
+					// @phan-suppress-next-line PhanTypeMismatchArgument
 					$change = new EchoDiffGroup( $this->leftPos, $this->rightPos );
 				}
 				$change->subtract( $line );
@@ -225,6 +228,7 @@ class EchoDiffParser {
 					throw new MWException( 'Positional error: right' );
 				}
 				if ( $change === null ) {
+					// @phan-suppress-next-line PhanTypeMismatchArgument
 					$change = new EchoDiffGroup( $this->leftPos, $this->rightPos );
 				}
 				$change->add( $line );

@@ -470,7 +470,7 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 	 * Array of secondary link details, including possibly-relative URLs, label,
 	 * description & icon name.
 	 *
-	 * @return array[] Array of links in the format of:
+	 * @return (null|array)[] Array of links in the format of:
 	 *               [['url' => (string) url,
 	 *                 'label' => (string) link text (non-escaped),
 	 *                 'description' => (string) descriptive text (optional, non-escaped),
@@ -623,7 +623,7 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 	 * Get a dynamic action link
 	 *
 	 * @param Title $title Title relating to this action
-	 * @param bool $icon Optional. Symbolic name of the OOUI icon to use
+	 * @param string|false $icon Optional. Symbolic name of the OOUI icon to use
 	 * @param string $label link text (non-escaped)
 	 * @param string|null $description descriptive text (optional, non-escaped)
 	 * @param array $data Action data

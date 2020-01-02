@@ -153,7 +153,7 @@ class GenerateSampleNotifications extends Maintenance {
 		// Incrementally decrease X minutes from start time
 		$timestamp = strtotime( '-' . $this->timestampCounter++ . ' minute', $startTime );
 
-		return $getEpoch ? $timestamp : wfTimestamp( TS_MW, $timestamp );
+		return $getEpoch ? $timestamp : (int)wfTimestamp( TS_UNIX, $timestamp );
 	}
 
 	/**

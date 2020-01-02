@@ -35,7 +35,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 
 	/**
 	 * Extract the offset used for notification list
-	 * @param string $continue String Used for offset
+	 * @param string|null $continue String Used for offset
 	 * @throws MWException
 	 * @return int[]
 	 */
@@ -64,7 +64,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	 * which is done via a deleteJob
 	 * @param User $user
 	 * @param int $limit
-	 * @param string $continue Used for offset
+	 * @param string|null $continue Used for offset
 	 * @param string[] $eventTypes
 	 * @param Title[]|null $titles If set, only return notifications for these pages.
 	 *  To find notifications not associated with any page, add null as an element to this array.
@@ -97,7 +97,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	 * which is done via a deleteJob
 	 * @param User $user
 	 * @param int $limit
-	 * @param string $continue Used for offset
+	 * @param string|null $continue Used for offset
 	 * @param string[] $eventTypes
 	 * @param Title[]|null $titles If set, only return notifications for these pages.
 	 *  To find notifications not associated with any page, add null as an element to this array.
@@ -127,7 +127,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	 *
 	 * @param User $user the user to get notifications for
 	 * @param int $limit The maximum number of notifications to return
-	 * @param string $continue Used for offset
+	 * @param string|null $continue Used for offset
 	 * @param array $eventTypes Event types to load
 	 * @param array $excludeEventIds Event id's to exclude.
 	 * @param Title[]|null $titles If set, only return notifications for these pages.
@@ -173,7 +173,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	/**
 	 * @param User $user the user to get notifications for
 	 * @param int $limit The maximum number of notifications to return
-	 * @param string $continue Used for offset
+	 * @param string|null $continue Used for offset
 	 * @param array $eventTypes Event types to load
 	 * @param array $conds Additional query conditions.
 	 * @param int $dbSource Use master or slave database

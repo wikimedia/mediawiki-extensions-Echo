@@ -166,7 +166,7 @@ class EchoEventMapper extends EchoAbstractMapper {
 				'etp_page' => $pageId,
 			],
 			__METHOD__,
-			null,
+			[],
 			[
 				'echo_target_page' => [ 'INNER JOIN', 'etp_event=event_id' ],
 				'echo_notification' => [ 'INNER JOIN', [ 'notification_event=event_id' ] ],

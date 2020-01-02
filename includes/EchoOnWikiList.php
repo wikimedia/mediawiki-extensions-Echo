@@ -49,6 +49,6 @@ class EchoOnWikiList implements EchoContainmentList {
 			return '';
 		}
 
-		return $this->title->getLatestRevID();
+		return (string)$this->title->getLatestRevID();
 	}
 }

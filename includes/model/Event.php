@@ -12,7 +12,7 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 
 	/** @var string|null */
 	protected $type = null;
-	/** @var string|null|false */
+	/** @var int|null|false */
 	protected $id = null;
 	/** @var string|null */
 	protected $variant = null;
@@ -49,7 +49,7 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 	/**
 	 * A hash used to bundle a set of events, events that can be
 	 * grouped for a user has the same bundle hash
-	 * @var string
+	 * @var string|null
 	 */
 	protected $bundleHash;
 
@@ -310,6 +310,7 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 		if ( $row->event_agent_id ) {
 			$this->agent = User::newFromId( $row->event_agent_id );
 		} elseif ( $row->event_agent_ip ) {
+			// @phan-suppress-next-line PhanTypeMismatchArgument Not null here
 			$this->agent = User::newFromName( $row->event_agent_ip, false );
 		}
 
@@ -325,6 +326,7 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 		}
 		if ( $row->event_page_id ) {
 			$titleCache = EchoTitleLocalCache::create();
+			// @phan-suppress-next-line PhanTypeMismatchArgument Not null here
 			$titleCache->add( $row->event_page_id );
 		}
 		if ( isset( $this->extra['revid'] ) && $this->extra['revid'] ) {
@@ -393,7 +395,7 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 
 	/**
 	 * Serialize the extra data for event
-	 * @return string
+	 * @return string|null
 	 */
 	public function serializeExtra() {
 		if ( is_array( $this->extra ) || is_object( $this->extra ) ) {
@@ -647,14 +649,14 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 	}
 
 	/**
-	 * @return string
+	 * @return string|null
 	 */
 	public function getBundleHash() {
 		return $this->bundleHash;
 	}
 
 	/**
-	 * @param string $hash
+	 * @param string|null $hash
 	 */
 	public function setBundleHash( $hash ) {
 		$this->bundleHash = $hash;

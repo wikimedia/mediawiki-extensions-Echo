@@ -233,7 +233,7 @@ class EchoNotificationController {
 		}
 
 		// Ensure we have a blacklist for the user
-		if ( !self::$blacklistByUser->has( $user->getId() ) ) {
+		if ( !self::$blacklistByUser->has( (string)$user->getId() ) ) {
 			$blacklist = new EchoContainmentSet( $user );
 
 			// Add the config setting
@@ -251,10 +251,10 @@ class EchoNotificationController {
 			}
 
 			// Add user's blacklist to dictionary if user wasn't already there
-			self::$blacklistByUser->set( $user->getId(), $blacklist );
+			self::$blacklistByUser->set( (string)$user->getId(), $blacklist );
 		} else {
 			// Just get the user's blacklist if it's already there
-			$blacklist = self::$blacklistByUser->get( $user->getId() );
+			$blacklist = self::$blacklistByUser->get( (string)$user->getId() );
 		}
 		return $blacklist->contains( $event->getAgent()->getName() );
 	}
@@ -305,9 +305,9 @@ class EchoNotificationController {
 		}
 
 		// Ensure we have a whitelist for the user
-		if ( !self::$whitelistByUser->has( $userId ) ) {
+		if ( !self::$whitelistByUser->has( (string)$userId ) ) {
 			$whitelist = new EchoContainmentSet( $user );
-			self::$whitelistByUser->set( $userId, $whitelist );
+			self::$whitelistByUser->set( (string)$userId, $whitelist );
 			$whitelist->addOnWiki(
 				NS_USER,
 				sprintf( $wgEchoPerUserWhitelistFormat, $user->getName() ),
@@ -316,7 +316,7 @@ class EchoNotificationController {
 			);
 		} else {
 			// Just get the user's whitelist
-			$whitelist = self::$whitelistByUser->get( $userId );
+			$whitelist = self::$whitelistByUser->get( (string)$userId );
 		}
 		return $whitelist->contains( $event->getAgent()->getName() );
 	}

@@ -466,7 +466,7 @@ abstract class EchoDiscussionParser {
 			$store = MediaWikiServices::getInstance()->getRevisionStore();
 			$prevRevision = $store->getRevisionById( $revision->getParentId() );
 			if ( $prevRevision ) {
-				$prevText = ContentHandler::getContentText( $prevRevision->getContent( SlotRecord::MAIN ) );
+				$prevText = ContentHandler::getContentText( $prevRevision->getContent( SlotRecord::MAIN ) ) ?: '';
 			}
 		}
 
@@ -1060,7 +1060,7 @@ abstract class EchoDiscussionParser {
 	 *
 	 * @param string $line The line to search.
 	 * @param string $linkPrefix The prefix to search for.
-	 * @param bool $failureOffset
+	 * @param int|false $failureOffset
 	 * @return array|false False for failure, array for success.
 	 * - First element is the string offset of the link.
 	 * - Second element is the user the link refers to.

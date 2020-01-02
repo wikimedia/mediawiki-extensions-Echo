@@ -106,6 +106,9 @@ class EchoPresentationModelSection {
 	 */
 	public function getTitleWithSection() {
 		$title = $this->event->getTitle();
+		if ( $title === null ) {
+			throw new MWException( 'Event #' . $this->event->getId() . ' with no title' );
+		}
 		$section = $this->getParsedSectionTitle();
 		if ( $section ) {
 			$fragment = substr( Parser::guessSectionNameFromStrippedText( $section ), 1 );
