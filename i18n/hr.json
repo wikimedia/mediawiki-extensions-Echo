@@ -49,6 +49,8 @@
 	"echo-category-title-emailuser": "{{PLURAL:$1|E-poruka od drugog suradnika|E-poruke od drugih suradnika}}",
 	"echo-category-title-article-reminder": "{{PLURAL:$1|podsjetnik|podsjetnika}} o stranicama",
 	"echo-category-title-thank-you-edit": "{{PLURAL:$1|Miljokaz|Miljokazi}} uređivanja",
+	"echo-category-title-watchlist": "Uređivanje praćene stranice",
+	"echo-category-title-minor-watchlist": "Manje uređivanje praćene stranice",
 	"echo-pref-tooltip-edit-user-talk": "Obavijesti me kad netko snimi poruku ili odgovori na mojoj stranici za razgovor.",
 	"echo-pref-tooltip-article-linked": "Obavijesti me kad netko doda poveznicu na stranicu koju sam započeo s druge stranice.",
 	"echo-pref-tooltip-reverted": "Obavijesti me kad netko ukloni moje uređivanje.",
@@ -59,6 +61,8 @@
 	"echo-pref-tooltip-emailuser": "Obavijesti me kada mi netko pošalje e-poštu.",
 	"echo-pref-tooltip-article-reminder": "Obavijesti me o ovoj stranici kad to zatražim.",
 	"echo-pref-tooltip-thank-you-edit": "Obavijesti me kad ostvarim moje 1., 10., 100... uređivanje.",
+	"echo-pref-tooltip-watchlist": "Obavijesti me kad netko napravi uređivanje stranice s mog popisa praćenja.",
+	"echo-pref-tooltip-minor-watchlist": "Obavijesti me kad netko napravi manje uređivanje stranice s mog popisa praćenja.",
 	"notifications": "Obavijesti",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Vaše}} obavijesti",
 	"tooltip-pt-notifications-notice": "{{GENDER:|Vaše}} vijestice",
@@ -198,5 +202,5 @@
 	"notification-header-foreign-notice": "Više obavijesti na {{PLURAL:$5|drugom wikiju|$5 druga wikija|$5 drugih wikija}}",
 	"notification-header-foreign-all": "Više obavijesti na {{PLURAL:$5|drugom wikiju|$5 druga wikija|$5 drugih wikija}}",
 	"echo-foreign-wiki-lang": "$1 - $2",
-	"echo-badge-count": "{{PLURAL:$1|$1|100=99+}}"
+	"echo-badge-count": "{{PLURAL:$1|$1|100={{formatnum:99}}+}}"
 }
