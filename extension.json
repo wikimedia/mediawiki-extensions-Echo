@@ -577,13 +577,13 @@
 				"system-noemail": {
 					"priority": 9,
 					"no-dismiss": [
-						"web"
+						"all"
 					]
 				},
 				"system-emailonly": {
 					"priority": 9,
 					"no-dismiss": [
-						"email"
+						"all"
 					]
 				},
 				"user-rights": {
