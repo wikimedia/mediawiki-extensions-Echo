@@ -15,6 +15,7 @@
 	"apihelp-echomarkread-param-unreadlist": "A list of notification IDs to mark as unread.",
 	"apihelp-echomarkread-param-all": "If set, marks all of a user's notifications as read.",
 	"apihelp-echomarkread-param-sections": "A list of sections to mark as read.",
+	"apihelp-echomarkread-param-wikis": "List of wikis to mark notification as read (defaults to only current wiki).",
 	"apihelp-echomarkread-example-1": "Mark notification 8 as read",
 	"apihelp-echomarkread-example-2": "Mark all notifications as read",
 	"apihelp-echomarkread-example-3": "Mark notification 1 as unread",

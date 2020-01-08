@@ -17,6 +17,7 @@
 	"apihelp-echomarkread-param-unreadlist": "{{doc-apihelp-param|echomarkread|unreadlist}}",
 	"apihelp-echomarkread-param-all": "{{doc-apihelp-param|echomarkread|all}}",
 	"apihelp-echomarkread-param-sections": "{{doc-apihelp-param|echomarkread|sections}}",
+	"apihelp-echomarkread-param-wikis": "{{doc-apihelp-param|echomarkread|wikis}}",
 	"apihelp-echomarkread-example-1": "{{doc-apihelp-example|echomarkread}}",
 	"apihelp-echomarkread-example-2": "{{doc-apihelp-example|echomarkread}}",
 	"apihelp-echomarkread-example-3": "{{doc-apihelp-example|echomarkread}}",
