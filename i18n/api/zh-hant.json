@@ -12,6 +12,7 @@
 	"apihelp-echomarkread-param-unreadlist": "要標記為未讀的通知 ID 清單。",
 	"apihelp-echomarkread-param-all": "一旦設定，將會把某個使用者的所有通知標記為已讀。",
 	"apihelp-echomarkread-param-sections": "要標記為已讀的章節清單。",
+	"apihelp-echomarkread-param-wikis": "要標記為已讀取的 wiki 清單（預設為目前的 wiki）。",
 	"apihelp-echomarkread-example-1": "把通知 8 標記為已讀",
 	"apihelp-echomarkread-example-2": "把所有通知標記為已讀",
 	"apihelp-echomarkread-example-3": "把通知 1 標記為未讀",

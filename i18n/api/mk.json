@@ -10,6 +10,7 @@
 	"apihelp-echomarkread-param-unreadlist": "Список на назнаки на известувањата што треба да се означат како непрочитани.",
 	"apihelp-echomarkread-param-all": "Ако е зададено, ги означува сите известувања на еден корисник како прочитани.",
 	"apihelp-echomarkread-param-sections": "Список на поднаслови што треба да се означат како прочитани.",
+	"apihelp-echomarkread-param-wikis": "Список на викија чии известувања треба да се означат како причитани (по основно: само тековното вики).",
 	"apihelp-echomarkread-example-1": "Означи го известувањето 8 како прочитано",
 	"apihelp-echomarkread-example-2": "Означиу ги сите известувања како прочитани",
 	"apihelp-echomarkread-example-3": "Означи го известувањето 1 како прочитано",

@@ -14,6 +14,7 @@
 	"apihelp-echomarkread-param-unreadlist": "Okunmamış olarak işaretlenecek bildirim kimlikleri listesi.",
 	"apihelp-echomarkread-param-all": "Set, okumak gibi bir kullanıcı Bildirimleri tüm işaretler.",
 	"apihelp-echomarkread-param-sections": "Okundu olarak işaretlemek için bölümler bir listesini.",
+	"apihelp-echomarkread-param-wikis": "Bildirimi okundu olarak işaretlemek için vikilerin listesi (varsayılan olarak yalnızca geçerli vikidir).",
 	"apihelp-echomarkread-example-1": "Mark bildirim 8 gibi okumak",
 	"apihelp-echomarkread-example-2": "Tüm bildirimleri okunmuş olarak işaretle",
 	"apihelp-echomarkread-example-3": "Bildirim 1'i okunmadı olarak işaretle",

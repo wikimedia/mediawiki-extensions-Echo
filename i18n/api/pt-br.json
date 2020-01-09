@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"TheEduGobi",
-			"Felipe L. Ewald"
+			"Felipe L. Ewald",
+			"Eduardo Addad de Oliveira"
 		]
 	},
 	"apihelp-echomarkread-description": "Marcar notificações como lidas para o usuário atual.",
@@ -11,6 +12,7 @@
 	"apihelp-echomarkread-param-unreadlist": "Uma lista de IDs de notificação para marcar como não lido.",
 	"apihelp-echomarkread-param-all": "Se habilitado, marca todas as notificações de um usuário como lidas.",
 	"apihelp-echomarkread-param-sections": "Uma lista de seções para marcar como lidas.",
+	"apihelp-echomarkread-param-wikis": "Lista de wikis para marcar a notificação como lida (o padrão é apenas a wiki atual).",
 	"apihelp-echomarkread-example-1": "Marcar a notificação 8 como lida",
 	"apihelp-echomarkread-example-2": "Marcar todas as notificações como lidas",
 	"apihelp-echomarkread-example-3": "Marcar a notificação 1 como não lida",

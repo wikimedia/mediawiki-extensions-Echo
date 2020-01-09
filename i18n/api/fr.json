@@ -19,6 +19,7 @@
 	"apihelp-echomarkread-param-unreadlist": "Une liste des IDs de notification à marquer comme non lue.",
 	"apihelp-echomarkread-param-all": "Si défini, marque toutes les notifications de l’utilisateur comme lues.",
 	"apihelp-echomarkread-param-sections": "Une liste des sections à marquer comme lues.",
+	"apihelp-echomarkread-param-wikis": "Liste des wikis sur lesquels marquer la notification comme lue (par défaut, uniquement le wiki actuel).",
 	"apihelp-echomarkread-example-1": "Marquer la notification 8 comme lue",
 	"apihelp-echomarkread-example-2": "Marquer toutes les notifications comme lues",
 	"apihelp-echomarkread-example-3": "Marquer la notification 1 comme non lue",
