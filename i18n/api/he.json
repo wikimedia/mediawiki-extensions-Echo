@@ -11,6 +11,7 @@
 	"apihelp-echomarkread-param-unreadlist": "רשימת מזהי הודעה לסימון כהודעות שלא נקראו.",
 	"apihelp-echomarkread-param-all": "אם זה מוגדר, כל ההודעות של המשתמש תסומנה בתור הודעות שנקראו.",
 	"apihelp-echomarkread-param-sections": "רשימת פסקאות שיש לסמן שהן נקראו.",
+	"apihelp-echomarkread-param-wikis": "רשימת אתרי ויקי שבהם יסומן שההתראה נקראה (ברירת המחדל היא הוויקי הנוכחי).",
 	"apihelp-echomarkread-example-1": "לסמן שהודעה 8 נקראה",
 	"apihelp-echomarkread-example-2": "לסמן שכל ההתראות נקראו",
 	"apihelp-echomarkread-example-3": "סימון הודעה 1 כהודעה שלא נקראה",
