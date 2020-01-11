@@ -1,5 +1,7 @@
 <?php
 
+// This is a GET module, not a POST module, for multi-DC support. See T222851.
+// Note that this module doesn't write to the database, only to the seentime cache.
 class ApiEchoMarkSeen extends ApiBase {
 
 	public function execute() {
@@ -33,9 +35,6 @@ class ApiEchoMarkSeen extends ApiBase {
 
 	public function getAllowedParams() {
 		return [
-			'token' => [
-				ApiBase::PARAM_REQUIRED => true,
-			],
 			'type' => [
 				ApiBase::PARAM_REQUIRED => true,
 				ApiBase::PARAM_TYPE => [ 'alert', 'message', 'all' ],
@@ -46,22 +45,6 @@ class ApiEchoMarkSeen extends ApiBase {
 				ApiBase::PARAM_TYPE => [ 'ISO_8601', 'MW' ],
 			],
 		];
-	}
-
-	public function needsToken() {
-		return 'csrf';
-	}
-
-	public function getTokenSalt() {
-		return '';
-	}
-
-	public function mustBePosted() {
-		return true;
-	}
-
-	public function isWriteMode() {
-		return true;
 	}
 
 	/**
