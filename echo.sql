@@ -49,8 +49,6 @@ CREATE TABLE /*_*/echo_notification (
 
 -- Index to get a user's notifications in chronological order
 CREATE INDEX /*i*/echo_user_timestamp ON /*_*/echo_notification (notification_user,notification_timestamp);
--- Used by NotificationMapper::fetchNewestByUserBundleHash()
-CREATE INDEX /*i*/echo_notification_user_hash_timestamp ON /*_*/echo_notification (notification_user, notification_bundle_hash, notification_timestamp);
 -- Used to get all notifications for a given event
 CREATE INDEX /*i*/echo_notification_event ON /*_*/echo_notification (notification_event);
 -- Used to get read/unread notifications for a user
