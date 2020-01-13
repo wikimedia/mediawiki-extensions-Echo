@@ -17,6 +17,7 @@
 	"apihelp-echomarkread-param-unreadlist": "قائمة بأرقام الإخطارات للتعليم كغير مقروءة.",
 	"apihelp-echomarkread-param-all": "لو مضبوطة؛ تعلم على كل إخطارات المستخدم كمقروءة.",
 	"apihelp-echomarkread-param-sections": "قائمة الأقسام للتعليم كمقروءة.",
+	"apihelp-echomarkread-param-wikis": "قائمة الويكيات لتعليم الإشعار كمقروء (الإعدادات الافتراضية للويكي الحالي فقط).",
 	"apihelp-echomarkread-example-1": "علم على الإخطار 8 كمقروء",
 	"apihelp-echomarkread-example-2": "تعليم جميع الإشعارات كمقروءة",
 	"apihelp-echomarkread-example-3": "علم على الإخطار 1 كمقروء",

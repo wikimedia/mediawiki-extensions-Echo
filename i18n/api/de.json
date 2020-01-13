@@ -14,6 +14,7 @@
 	"apihelp-echomarkread-param-unreadlist": "Eine Liste mit Benachrichtigungskennungen, die als ungelesen markiert werden sollen.",
 	"apihelp-echomarkread-param-all": "Falls festgelegt, markiert alle Benutzerbenachrichtigungen als gelesen.",
 	"apihelp-echomarkread-param-sections": "Eine Liste der Abschnitte, die als gelesen markiert werden sollen.",
+	"apihelp-echomarkread-param-wikis": "Liste der Wikis, um die Benachrichtigung als gelesen zu markieren (standardmäßig nur das aktuelle Wiki).",
 	"apihelp-echomarkread-example-1": "Benachrichtigung 8 als gelesen markieren",
 	"apihelp-echomarkread-example-2": "Alle Benachrichtigungen als gelesen markieren",
 	"apihelp-echomarkread-example-3": "Markiert die Benachrichtigung 1 als ungelesen",

@@ -13,7 +13,7 @@
 	"apihelp-echomarkread-param-unreadlist": "Uma lista de identificadores de notificações a marcar como não lidas.",
 	"apihelp-echomarkread-param-all": "Se definido, marca todas as notificações de um utilizador como lidas.",
 	"apihelp-echomarkread-param-sections": "Uma lista de secções a marcar como lidas.",
-	"apihelp-echomarkread-param-wikis": "Lista das wikis nas quais marcar a notificação como lida (por omissão, apenas a wiki atual).",
+	"apihelp-echomarkread-param-wikis": "Lista das wikis nas quais marcar a notificação como lida (por omissão, só na wiki atual).",
 	"apihelp-echomarkread-example-1": "Marcar a notificação 8 como lida",
 	"apihelp-echomarkread-example-2": "Marcar todas as notificações como lidas",
 	"apihelp-echomarkread-example-3": "Marcar a notificação 1 como não lida",
