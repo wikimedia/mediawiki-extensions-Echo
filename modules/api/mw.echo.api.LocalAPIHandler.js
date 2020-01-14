@@ -40,7 +40,8 @@
 	mw.echo.api.LocalAPIHandler.prototype.updateSeenTime = function ( type ) {
 		type = Array.isArray( type ) ? type : [ type ];
 
-		return this.api.postWithToken( 'csrf', {
+		// This is a GET request, not a POST request, for multi-DC support (see T222851)
+		return this.api.get( {
 			action: 'echomarkseen',
 			type: type.length === 1 ? type[ 0 ] : 'all',
 			timestampFormat: 'ISO_8601'
