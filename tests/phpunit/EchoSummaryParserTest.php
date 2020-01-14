@@ -27,7 +27,7 @@ class EchoSummaryParserTest extends MediaWikiTestCase {
 
 		$users = $parser->parse( $summary );
 		foreach ( $users as $name => $user ) {
-			$this->assertType( User::class, $user );
+			$this->assertInstanceof( User::class, $user );
 			$this->assertEquals( $name, $user->getName() );
 		}
 

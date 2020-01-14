@@ -9,7 +9,6 @@
 		<exclude name="MediaWiki.Commenting.FunctionComment.MissingReturn" />
 		<exclude name="MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName" />
 		<exclude name="MediaWiki.Usage.ForbiddenFunctions.isset" />
-		<exclude name="MediaWiki.Usage.PHPUnitDeprecatedMethods.AssertInternalTypeGeneric" />
 		<exclude name="MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment" />
 		<exclude name="PSR12.Properties.ConstantVisibility.NotFound" />
 	</rule>
