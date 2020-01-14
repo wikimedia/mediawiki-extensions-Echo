@@ -42,7 +42,7 @@ class EchoNotificationMapperTest extends MediaWikiTestCase {
 
 		$notifMapper = new EchoNotificationMapper( $this->mockMWEchoDbFactory( [ 'select' => $dbResult ] ) );
 		$res = $notifMapper->fetchUnreadByUser( $this->mockUser(), 10, null, '', [ 'test_event' ] );
-		$this->assertInternalType( 'array', $res );
+		$this->assertIsArray( $res );
 		$this->assertNotEmpty( $res );
 		foreach ( $res as $row ) {
 			$this->assertInstanceOf( EchoNotification::class, $row );
@@ -91,7 +91,7 @@ class EchoNotificationMapperTest extends MediaWikiTestCase {
 			)
 		);
 		$res = $notifMapper->fetchByUser( $this->mockUser(), 10, '', [ 'test_event' ] );
-		$this->assertInternalType( 'array', $res );
+		$this->assertIsArray( $res );
 		$this->assertNotEmpty( $res );
 		foreach ( $res as $row ) {
 			$this->assertInstanceOf( EchoNotification::class, $row );
