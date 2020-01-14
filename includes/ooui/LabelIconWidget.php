@@ -4,8 +4,8 @@ namespace EchoOOUI;
 
 use OOUI\IconElement;
 use OOUI\LabelElement;
-use OOUI\TitledElement;
 use OOUI\Tag;
+use OOUI\TitledElement;
 use OOUI\Widget;
 
 /**

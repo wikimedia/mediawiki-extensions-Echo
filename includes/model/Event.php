@@ -1,8 +1,8 @@
 <?php
 
 use MediaWiki\Logger\LoggerFactory;
-use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Revision\RevisionRecord;
 
 /**
  * Immutable class to represent an event.
@@ -400,7 +400,7 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 	public function serializeExtra() {
 		if ( is_array( $this->extra ) || is_object( $this->extra ) ) {
 			$extra = serialize( $this->extra );
-		} elseif ( is_null( $this->extra ) ) {
+		} elseif ( $this->extra === null ) {
 			$extra = null;
 		} else {
 			$extra = serialize( [ $this->extra ] );

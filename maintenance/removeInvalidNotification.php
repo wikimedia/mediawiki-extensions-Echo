@@ -57,7 +57,7 @@ class RemoveInvalidNotification extends Maintenance {
 					$event[] = $row->event_id;
 				}
 				$count++;
-			};
+			}
 
 			if ( $event ) {
 				$this->beginTransaction( $dbw, __METHOD__ );

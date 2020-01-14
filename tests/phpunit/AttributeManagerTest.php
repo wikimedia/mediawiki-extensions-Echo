@@ -437,8 +437,8 @@ class EchoAttributeManagerTest extends MediaWikiTestCase {
 	}
 
 	/**
-	   @dataProvider isNotifyTypeAvailableForCategoryProvider
-	*/
+	 * @dataProvider isNotifyTypeAvailableForCategoryProvider
+	 */
 	public function testIsNotifyTypeAvailableForCategory(
 		$message,
 		$expected,
