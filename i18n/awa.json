@@ -2,9 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"1AnuraagPandey",
-			"Ajeetsinghawadh"
+			"Ajeetsinghawadh",
+			"Ajeetsinghawadhi"
 		]
 	},
+	"echo-new-messages": "आप कय खातिर नवाँ सन्देश अहै",
 	"notifications": "अधिसूचना",
 	"tooltip-pt-notifications-alert": "{{GENDER:|आपका}} जागरूकता संदेश",
 	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "वर्तमान सदस्य",
