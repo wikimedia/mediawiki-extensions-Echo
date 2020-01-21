@@ -66,6 +66,7 @@
 	"echo-category-title-article-reminder": "{{PLURAL:$1|Notificação|Notificações}} de páginas",
 	"echo-category-title-thank-you-edit": "{{PLURAL:$1|Marco|Marcos}} de edição",
 	"echo-category-title-watchlist": "Edição de página vigiada",
+	"echo-category-title-minor-watchlist": "Edição menor na página vigiada",
 	"echo-pref-tooltip-edit-user-talk": "Notificar-me quando alguém publicar na minha página de discussão.",
 	"echo-pref-tooltip-article-linked": "Notificar-me quando alguém criar uma hiperligação para uma página criada por mim, a partir de outra página.",
 	"echo-pref-tooltip-reverted": "Notificar-me quando alguém reverter uma edição minha, ao utilizar a função desfazer ou a ferramenta de reversão.",
