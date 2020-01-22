@@ -12,6 +12,7 @@
 	"apihelp-echomarkread-param-unreadlist": "En liste av beskjed-IDer som merkes som ulest.",
 	"apihelp-echomarkread-param-all": "Merk alle brukerens beskjeder som lest.",
 	"apihelp-echomarkread-param-sections": "En liste over seksjoner som skal markeres som leste.",
+	"apihelp-echomarkread-param-wikis": "Liste over wikier der varsel skal merkes som lest (standard er kun den gjeldende wikien).",
 	"apihelp-echomarkread-example-1": "Merk beskjed 8 som lest",
 	"apihelp-echomarkread-example-2": "Merk alle beskjeder som leste",
 	"apihelp-echomarkread-example-3": "Merk beskjed 1 som ulest",
