@@ -455,10 +455,8 @@ abstract class EchoDiscussionParser {
 		}
 
 		$userIdentity = $revision->getUser();
-		if ( $userIdentity !== null ) {
-			$userID = $userIdentity->getId();
-			$userName = $userIdentity->getName();
-		}
+		$userID = $userIdentity ? $userIdentity->getId() : 0;
+		$userName = $userIdentity ? $userIdentity->getName() : '';
 		$user = $userID != 0 ? User::newFromId( $userID ) : User::newFromName( $userName, false );
 
 		$prevText = '';

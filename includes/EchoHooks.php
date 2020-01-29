@@ -1523,7 +1523,8 @@ class EchoHooks {
 
 				// Delete notifications
 				$ids = array_merge( $selfIds, $welcomeIds, $thankYouIds );
-				if ( $ids ) {
+				// @phan-suppress-next-line PhanImpossibleTypeComparison Each array in the merge may be empty
+				if ( $ids !== [] ) {
 					$dbw->delete(
 						'echo_notification',
 						[
