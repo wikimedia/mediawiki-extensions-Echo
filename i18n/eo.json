@@ -112,7 +112,7 @@
 	"notification-header-mention-agent-talkpage-nosection": "$1 {{GENDER:$2|menciis}} {{GENDER:$3|vin}} sur <strong>{{GENDER:$2|sia}} diskutopaĝo</strong>.",
 	"notification-header-mention-article-talkpage": "$1 {{GENDER:$2|menciis}} {{GENDER:$3|vin}} sur la diskutopaĝo de <strong>$4</strong> en \"<strong>$5</strong>\".",
 	"notification-header-mention-article-talkpage-nosection": "$1 {{GENDER:$2|menciis}} {{GENDER:$3|vin}} sur la diskutopaĝo de <strong>$4</strong>.",
-	"notification-compact-header-mention-failure-user-unknown": "<strong>Salutnomo ne ekzistas:</strong> $1",
+	"notification-compact-header-mention-failure-user-unknown": "<strong>Uzantnomo ne ekzistas:</strong> $1",
 	"notification-compact-header-mention-failure-user-anonymous": "<strong>Oni ne povas mencii IP-adreson:</strong> $1",
 	"notification-header-mention-success": "{{GENDER:$2|Via}} mencio de <strong>$3</strong> estis sendita.",
 	"notification-header-mention-success-bundle": "{{PLURAL:$3|Mencio, kiu|$3 mencioj, kiuj}}n {{GENDER:$2|vi faris}} en la diskutpaĝo <strong>$4</strong>, estis sendita{{PLURAL:$3||j}}.",
