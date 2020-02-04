@@ -30,7 +30,8 @@
 			"Matiia",
 			"Javiersanp",
 			"MarcoAurelio",
-			"Savh"
+			"Savh",
+			"DannyS712"
 		]
 	},
 	"echo-desc": "Sistema para notificar a los usuarios sobre eventos y mensajes",
@@ -64,6 +65,7 @@
 	"echo-category-title-other": "{{PLURAL:$1|Otro|Otros}}",
 	"echo-category-title-system": "{{PLURAL:$1|Sistema}}",
 	"echo-category-title-system-noemail": "{{PLURAL:$1|Sistema}}",
+	"echo-category-title-system-emailonly": "{{PLURAL:$1|Sistema}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|Cambio de permisos de usuario|Cambios de permisos de usuarios}}",
 	"echo-category-title-emailuser": "{{PLURAL:$1|Correo electrónico de otro usuario|Correos electrónicos de otros usuarios}}",
 	"echo-category-title-article-reminder": "{{PLURAL:$1|Recordatorio de páginas|Recordatorios de páginas}}",
@@ -153,7 +155,7 @@
 	"notification-header-user-rights-add-only": "{{GENDER:$4|Tus}} permisos de usuario han sido {{GENDER:$1|modificados}}. Ahora perteneces a: $2.",
 	"notification-header-user-rights-remove-only": "{{GENDER:$4|Tus}} permisos de usuario han sido {{GENDER:$1|modificados}}. Ya no eres miembro de: $2.",
 	"notification-header-user-rights-add-and-remove": "{{GENDER:$6|Tus}} permisos de usuario han sido {{GENDER:$1|modificados}}. Ahora perteneces a: $2. Ya no eres miembro de: $4.",
-	"notification-header-user-rights-expiry-change": "Se ha modificado la duración de tu pertenencia en {{PLURAL:$3|el siguiente grupo|los siguientes grupos}} de usuario: $2.",
+	"notification-header-user-rights-expiry-change": "Se ha {{GENDER:$1|modificado}} la duración de {{GENDER:$4|tu}} pertenencia en {{PLURAL:$3|el siguiente grupo|los siguientes grupos}} de usuario: $2.",
 	"notification-header-welcome": "¡{{GENDER:$2|Bienvenido|Bienvenida}} a {{SITENAME}}, $1! Nos alegra que estés aquí.",
 	"notification-header-mention-summary": "$1 {{GENDER:$3|te}} {{GENDER:$2|mencionó}} en un resumen de edición en <strong>$4</strong>.",
 	"notification-welcome-linktext": "Te damos la bienvenida",
@@ -171,9 +173,9 @@
 	"notification-header-emailuser": "$1 te ha {{GENDER:$2|enviado}} un correo electrónico.",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$3|te}} ha {{GENDER:$2|dejado}} un mensaje en {{SITENAME}}",
 	"notification-page-linked-email-subject": "Se ha enlazado una página creada por {{GENDER:$3|ti}} en {{SITENAME}}",
-	"notification-reverted-email-subject2": "{{PLURAL:$4|Tu edición fue {{GENDER:$2|revertida}}|Tus ediciones fueron {{GENDER:$2|revertidas}}}} en {{SITENAME}}",
+	"notification-reverted-email-subject2": "{{PLURAL:$4|{{GENDER:$3|Tu}} edición fue {{GENDER:$2|revertida}}|{{GENDER:$3|Tus}} ediciones fueron {{GENDER:$2|revertidas}}}} en {{SITENAME}}",
 	"notification-mention-email-subject": "$1 {{GENDER:$3|te}} ha {{GENDER:$2|mencionado}} en {{SITENAME}}",
-	"notification-user-rights-email-subject": "Tus permisos de usuario en {{SITENAME}} han sido modificados.",
+	"notification-user-rights-email-subject": "{{GENDER:$3|Tus}} permisos de usuario en {{SITENAME}} han sido modificados.",
 	"notification-timestamp-ago-seconds": "{{PLURAL:$1|$1 s}}",
 	"notification-timestamp-ago-minutes": "{{PLURAL:$1|$1 m}}",
 	"notification-timestamp-ago-hours": "{{PLURAL:$1|$1 h}}",

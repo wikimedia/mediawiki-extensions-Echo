@@ -33,7 +33,8 @@
 			"Matma Rex",
 			"Tweety",
 			"Tacsipacsi",
-			"Pols12"
+			"Pols12",
+			"PiefPafPier"
 		]
 	},
 	"echo-desc": "{{desc|name=Echo|url=https://www.mediawiki.org/wiki/Extension:Echo}} The [https://www.mediawiki.org/wiki/Help:Notifications Mediawiki help] page gives notes on the terminology in this extension.",
@@ -184,7 +185,7 @@
 	"notification-header-watchlist-restored": "Text of a notification when another user restores a page on your watchlist.\n* $1 - user's name (not suitable for GENDER).\n* $2 - user's name for use in GENDER.\n* $3 - name of the page that was restored (with namespace) \n* $4 - name of the user viewing the notification, can be used for GENDER \n* $5 - Number of times the page has been restored.",
 	"notification-header-watchlist-multiuser-changed": "Text of a notification when multiple different users change pages on your watchlist.\n* $1 - name of the page that was changed (with namespace) \n* $2 - name of the user viewing the notification, can be used for GENDER \n* $3 - Number of times the page has been changed. (Always greater than one).",
 	"notification-header-watchlist-multiuser-created": "Text of a notification when multiple different users create pages on your watchlist.\n* $1 - name of the page that was created (with namespace) \n* $2 - name of the user viewing the notification, can be used for GENDER \n* $3 - Number of times the page has been created. (Always greater than one)",
-	"notification-header-watchlist-multiuser-deleted": "Text of a notification when multiple different users move pages on your watchlist.\n* $1 - name of the page that was deleted (with namespace) \n* $2 - name of the user viewing the notification, can be used for GENDER \n* $3 - Number of times the page has been deleted. (Always greater than one)",
+	"notification-header-watchlist-multiuser-deleted": "Text of a notification when multiple different users delete pages on your watchlist.\n* $1 - name of the page that was deleted (with namespace) \n* $2 - name of the user viewing the notification, can be used for GENDER \n* $3 - Number of times the page has been deleted. (Always greater than one)",
 	"notification-header-watchlist-multiuser-moved": "Text of a notification when multiple different users move pages on your watchlist.\n* $1 - name of the page that was moved (with namespace) \n* $2 - name of the user viewing the notification, can be used for GENDER \n* $3 - Number of times the page has been moved. (Always greater than one)",
 	"notification-header-watchlist-multiuser-restored": "Text of a notification when multiple different users restore pages on your watchlist.\n* $1 - name of the page that was restored (with namespace) \n* $2 - name of the user viewing the notification, can be used for GENDER \n* $3 - Number of times the page has been restored. (Always greater than one)",
 	"notification-welcome-link": "{{notranslate}}",
