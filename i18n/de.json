@@ -14,7 +14,8 @@
 			"MGChecker",
 			"Vogone",
 			"DerHexer",
-			"Tobi 406"
+			"Tobi 406",
+			"PiefPafPier"
 		]
 	},
 	"echo-desc": "Stellt ein System zur Benachrichtigung von Benutzern über Ereignisse und Nachrichten bereit",
@@ -136,8 +137,8 @@
 	"notification-header-mention-other-nosection": "$1 {{GENDER:$2|erwähnte}} {{GENDER:$3|dich}} auf <strong>$4</strong>.",
 	"notification-header-mention-user-talkpage-v2": "$1 {{GENDER:$2|erwähnte}} {{GENDER:$3|dich}} auf der <strong>Benutzerdiskussionsseite {{GENDER:$5|von}} $4</strong> in „<strong>$6</strong>“.",
 	"notification-header-mention-user-talkpage-nosection": "$1 {{GENDER:$2|erwähnte}} {{GENDER:$3|dich}} auf der <strong>Benutzerdiskussionsseite {{GENDER:$5|von}} $4</strong>.",
-	"notification-header-mention-agent-talkpage": "$1 {{GENDER:$2|erwähnte}} {{GENDER:$3|dich}} auf <strong>{{GENDER:$2|seiner|ihrer}} Diskussionsseite</strong> in „<strong>$4</strong>“.",
-	"notification-header-mention-agent-talkpage-nosection": "$1 {{GENDER:$2|erwähnte}} {{GENDER:$3|dich}} auf <strong>{{GENDER:$2|seiner|ihrer}} Diskussionsseite</strong>.",
+	"notification-header-mention-agent-talkpage": "$1 {{GENDER:$2|erwähnte}} {{GENDER:$3|dich}} auf <strong>{{GENDER:$2|seiner|ihrer|Benutzers}} Diskussionsseite</strong> in „<strong>$4</strong>“.",
+	"notification-header-mention-agent-talkpage-nosection": "$1 {{GENDER:$2|erwähnte}} {{GENDER:$3|dich}} auf <strong>{{GENDER:$2|seiner|ihrer|Benutzers}} Diskussionsseite</strong>.",
 	"notification-header-mention-article-talkpage": "$1 {{GENDER:$2|erwähnte}} {{GENDER:$3|dich}} auf der Diskussionsseite von <strong>$4</strong> in „<strong>$5</strong>“.",
 	"notification-header-mention-article-talkpage-nosection": "$1 {{GENDER:$2|erwähnte}} {{GENDER:$3|dich}} auf der Diskussionsseite von <strong>$4</strong>.",
 	"notification-header-mention-failure-user-unknown": "{{GENDER:$2|Deine}} Erwähnung von <strong>$3</strong> wurde nicht gesendet, da der Benutzer nicht gefunden wurde.",

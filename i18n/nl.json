@@ -24,7 +24,8 @@
 			"Catrope",
 			"MrLeopold",
 			"Mainframe98",
-			"McDutchie"
+			"McDutchie",
+			"PiefPafPier"
 		]
 	},
 	"echo-desc": "Systeem voor het informeren van gebruikers over evenementen en berichten",
@@ -136,8 +137,8 @@
 	"notification-header-mention-other-nosection": "$1 heeft {{GENDER:$3|u}} {{GENDER:$2|genoemd}} op <strong>$4</strong>.",
 	"notification-header-mention-user-talkpage-v2": "$1 heeft {{GENDER:$3|u}} {{GENDER:$2|genoemd}} op de <strong>overlegpagina {{GENDER:$5|van}} $4</strong> onder \"<strong>$6</strong>\".",
 	"notification-header-mention-user-talkpage-nosection": "$1 heeft {{GENDER:$3|u}} {{GENDER:$2|genoemd}} op de <strong>overlegpagina {{GENDER:$5|van}} $4</strong>.",
-	"notification-header-mention-agent-talkpage": "$1 heeft {{GENDER:$3|u}} {{GENDER:$2|genoemd}} op <strong>{{GENDER:$2|zijn|haar|zijn/haar}} overlegpagina</strong> onder \"<strong>$4</strong>\".",
-	"notification-header-mention-agent-talkpage-nosection": "$1 heeft {{GENDER:$3|u}} {{GENDER:$2|genoemd}} op <strong>{{GENDER:$2|zijn|haar|zijn/haar}} overlegpagina</strong>.",
+	"notification-header-mention-agent-talkpage": "$1 heeft {{GENDER:$3|u}} {{GENDER:$2|genoemd}} op <strong>{{GENDER:$2|zijn|haar|gebruikers}} overlegpagina</strong> onder \"<strong>$4</strong>\".",
+	"notification-header-mention-agent-talkpage-nosection": "$1 heeft {{GENDER:$3|u}} {{GENDER:$2|genoemd}} op <strong>{{GENDER:$2|zijn|haar|gebruikers}} overlegpagina</strong>.",
 	"notification-header-mention-article-talkpage": "$1 heeft {{GENDER:$3|u}} {{GENDER:$2|genoemd}} op de overlegpagina van <strong>$4</strong> onder \"<strong>$5</strong>\".",
 	"notification-header-mention-article-talkpage-nosection": "$1 heeft {{GENDER:$3|u}} {{GENDER:$2|genoemd}} op de overlegpagina van <strong>$4</strong>.",
 	"notification-header-mention-failure-user-unknown": "{{GENDER:$2|Uw}} vermelding van <strong>$3</strong> werd niet verzonden, omdat de gebruiker niet gevonden werd.",
