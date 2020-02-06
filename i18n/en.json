@@ -109,6 +109,7 @@
 	"echo-specialpage-section-markread": "Mark group as read",
 	"echo-specialpage-markasread": "Notification: Mark as read",
 	"echo-specialpage-markasread-invalid-id": "Invalid event ID",
+	"echo-specialpage-pagefilterwidget-aria-label": "Filter by wiki and page title",
 	"echo-specialpage-pagination-numnotifications": "$1 {{PLURAL:$1|notification|notifications}}",
 	"echo-specialpage-pagination-range": "$1 - $2",
 	"echo-specialpage-pagefilters-title": "Recent activity",
