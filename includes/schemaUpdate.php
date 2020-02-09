@@ -85,7 +85,7 @@ class EchoSuppressionRowUpdateGenerator implements RowUpdateGenerator {
 	protected function updatePageLinkedExtraData( $row, array $update ) {
 		$extra = $this->extra( $row, $update );
 
-		if ( isset( $extra['link-from-title'], $extra['link-from-namespace'] ) ) {
+		if ( isset( $extra['link-from-title'] ) && isset( $extra['link-from-namespace'] ) ) {
 			$title = $this->newTitleFromNsAndText( $extra['link-from-namespace'], $extra['link-from-title'] );
 			unset( $extra['link-from-title'], $extra['link-from-namespace'] );
 			// Link from page is always from a content page, if null or no article id it was
