@@ -54,6 +54,7 @@
 	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "အသုံးပြုသူ အသစ်များ",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "လိုအပ်သော အသိပေးချက်နည်းလမ်းများ",
 	"echo-specialpage": "အသိပေးချက်များ",
+	"echo-specialpage-section-markread": "အုပ်စုကို ဖတ်ရှုပြီးကြောင်း မှတ်သားရန်",
 	"echo-specialpage-markasread": "အသိပေးချက်- ဖတ်ပြီးကြောင်းမှတ်သားရန်",
 	"echo-specialpage-markasread-invalid-id": "အကျုံးမဝင်သော ဖြစ်ရပ်အိုင်ဒီ",
 	"echo-specialpage-pagination-numnotifications": "$1 {{PLURAL:$1|အသိပေးချက်|အသိပေးချက်များ}}",
