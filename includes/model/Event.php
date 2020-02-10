@@ -316,7 +316,7 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 
 		// Lazy load the title from getTitle() so that we can do a batch-load
 		if (
-			isset( $this->extra['page_title'], $this->extra['page_namespace'] )
+			isset( $this->extra['page_title'] ) && isset( $this->extra['page_namespace'] )
 			&& !$row->event_page_id
 		) {
 			$this->title = Title::makeTitleSafe(
@@ -529,7 +529,7 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 
 			$this->title = Title::newFromID( $this->pageId, $fromMaster ? Title::GAID_FOR_UPDATE : 0 );
 			return $this->title;
-		} elseif ( isset( $this->extra['page_title'], $this->extra['page_namespace'] ) ) {
+		} elseif ( isset( $this->extra['page_title'] ) && isset( $this->extra['page_namespace'] ) ) {
 			$this->title = Title::makeTitleSafe(
 				$this->extra['page_namespace'],
 				$this->extra['page_title']
