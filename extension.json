@@ -120,7 +120,6 @@
 				"ext.echo.moment-hack.js"
 			],
 			"styles": [
-				"styles/mw.echo.ui.mobile.less",
 				"styles/mw.echo.ui.overlay.less",
 				"styles/mw.echo.ui.NotificationItemWidget.less",
 				"styles/mw.echo.ui.ToggleReadCircleButtonWidget.less",
