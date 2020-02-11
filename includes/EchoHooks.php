@@ -171,7 +171,7 @@ class EchoHooks {
 	 */
 	public static function onLoadExtensionSchemaUpdates( DatabaseUpdater $updater ) {
 		global $wgEchoCluster;
-		if ( $wgEchoCluster !== false ) {
+		if ( $wgEchoCluster ) {
 			// DatabaseUpdater does not support other databases, so skip
 			return;
 		}
