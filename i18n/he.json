@@ -12,7 +12,8 @@
 			"ערן",
 			"Ijon",
 			"IKhitron",
-			"Macofe"
+			"Macofe",
+			"דגש חזק"
 		]
 	},
 	"echo-desc": "מערכת לשליחת התראות למשתמשים על אירועים והודעות",
@@ -174,11 +175,11 @@
 	"notification-link-thank-you-edit": "עריכה {{GENDER:$1|שלך}}",
 	"notification-link-text-view-edit": "הצגת העריכה",
 	"notification-link-article-reminder": "הצגת הדף",
-	"notification-header-reverted": "{{PLURAL:$4|העריכה {{GENDER:$2|שלך}} בדף <strong>$3</strong> שוחזרה|העריכות שלך בדף <strong>$3</strong> שוחזרו}}.",
+	"notification-header-reverted": "{{PLURAL:$4|העריכה {{GENDER:$2|שלך}} בדף <strong>$3</strong> בוטלה|העריכות שלך בדף <strong>$3</strong> בוטלו}}.",
 	"notification-header-emailuser": "$1 {{GENDER:$2|שלח|שלחה}} לך דוא\"ל.",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$2|כתב|כתבה}} {{GENDER:$3|לך}} הודעה באתר {{SITENAME}}",
 	"notification-page-linked-email-subject": "נוצר קישור לדף {{GENDER:$3|שיצרת}} באתר {{SITENAME}}",
-	"notification-reverted-email-subject2": "{{PLURAL:$4|עריכה {{GENDER:$3|שלך}}|עריכות שלך}} באתר {{SITENAME}} {{PLURAL:$4|{{GENDER:$2|שוחזרה}}|שוחזרו}}",
+	"notification-reverted-email-subject2": "{{PLURAL:$4|עריכה {{GENDER:$3|שלך}}|עריכות שלך}} באתר {{SITENAME}} {{PLURAL:$4|{{GENDER:$2|בוטלה}}|בוטלו}}",
 	"notification-mention-email-subject": "$1 {{GENDER:$2|הזכיר|הזכירה}} {{GENDER:$3|אותך}} באתר {{SITENAME}}",
 	"notification-user-rights-email-subject": "ההרשאות {{GENDER:$3|שלך}} באתר {{SITENAME}} שונו",
 	"notification-timestamp-ago-seconds": "{{PLURAL:$1|שנייה|$1 שניות}}",

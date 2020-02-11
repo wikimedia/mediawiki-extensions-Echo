@@ -15,6 +15,7 @@
 	"apihelp-echomarkread-param-unreadlist": "Lijst van meldings-ID's om die als ongelezen gemarkeerd moeten worden.",
 	"apihelp-echomarkread-param-all": "Indien ingesteld, worden alle meldingen van de gebruiker gemarkeerd als gelezen.",
 	"apihelp-echomarkread-param-sections": "Een lijst van secties om te markeren als gelezen.",
+	"apihelp-echomarkread-param-wikis": "Lijst van wiki's om meldingen als gelezen te markeren (standaard alleen de huidige wiki).",
 	"apihelp-echomarkread-example-1": "Melding 8 als gelezen markeren",
 	"apihelp-echomarkread-example-2": "Alle meldingen als gelezen markeren",
 	"apihelp-echomarkread-example-3": "Markeer melding 1 als ongelezen.",
