@@ -158,6 +158,7 @@
 	"notification-inbox-filter-read": "Pročitano",
 	"notification-inbox-filter-unread": "Nepročitano",
 	"notification-inbox-filter-all": "Sve",
+	"echo-specialmute-label-mute-notifications": "Utišaj obavještenja od korisnika",
 	"echo-email-plain-footer": "Da biste promijenili koje {{GENDER:$1|Vam}} e-poruke šaljemo, provjerite {{GENDER:$1|svoje}} postavke:",
 	"echo-email-html-footer-preference-link-text": "provjerite {{GENDER:$1|svoje}} postavke",
 	"echo-email-html-footer-with-link": "Da biste promijenili koje {{GENDER:$2|Vam}} e-poruke šaljemo, $1.",

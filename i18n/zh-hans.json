@@ -42,7 +42,8 @@
 			"予弦",
 			"A Retired User",
 			"Xiplus",
-			"AnnAngela"
+			"AnnAngela",
+			"Tiger"
 		]
 	},
 	"echo-desc": "用于通知用户有关活动和消息的系统",
@@ -50,7 +51,7 @@
 	"prefs-emailsettings": "电子邮件选项",
 	"prefs-echosubscriptions": "通知我这些事件",
 	"prefs-echocrosswiki": "跨wiki通知",
-	"prefs-blocknotificationslist": "禁言用户",
+	"prefs-blocknotificationslist": "屏蔽用户",
 	"prefs-echopollupdates": "实时通知",
 	"echo-mobile-notifications-filter-title": "过滤通知",
 	"echo-pref-show-poll-updates": "当他们达到是显示新通知",

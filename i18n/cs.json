@@ -36,6 +36,7 @@
 	"echo-pref-email-format-plain-text": "Prostý text",
 	"echo-pref-cross-wiki-notifications": "Zobrazovat upozornění z jiných wiki",
 	"echo-pref-notifications-blacklist": "Nezobrazovat notifikace od těchto uživatelů. ([[mw:Special:MyLanguage/Help:Notifications#mute|dozvědět se více]])",
+	"echo-pref-dont-email-read-notifications": "V souhrnech neposílat přečtená upozornění",
 	"echo-learn-more": "Další informace",
 	"echo-log": "Veřejný záznam",
 	"echo-new-messages": "Máte nové zprávy",

@@ -12,6 +12,7 @@
 	"apihelp-echomarkread-param-unreadlist": "Список ідентифікаторів сповіщень, які треба позначити як непрочитані",
 	"apihelp-echomarkread-param-all": "Якщо встановлено, позначає всі сповіщення користувача прочитаними.",
 	"apihelp-echomarkread-param-sections": "Список розділів, які позначити як прочитані.",
+	"apihelp-echomarkread-param-wikis": "Список вікі, на яких слід позначити сповіщення як прочитане (стандартно — лише поточна вікі)",
 	"apihelp-echomarkread-example-1": "Позначити сповіщення 8 як прочитане.",
 	"apihelp-echomarkread-example-2": "Позначити всі сповіщення як прочитані",
 	"apihelp-echomarkread-example-3": "Позначити сповіщення 1 як непрочитане",

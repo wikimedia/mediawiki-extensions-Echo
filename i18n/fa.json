@@ -25,7 +25,8 @@
 			"4nn1l2",
 			"Baloch Khan",
 			"Amjad Khan",
-			"Amirsara"
+			"Amirsara",
+			"Ahmad252"
 		]
 	},
 	"echo-desc": "سامانهٔ آگاه‌سازی کاربران از رویدادها و پیام‌ها",
@@ -185,6 +186,7 @@
 	"notification-inbox-filter-read": "خوانده‌شده",
 	"notification-inbox-filter-unread": "خوانده‌نشده",
 	"notification-inbox-filter-all": "همه",
+	"echo-specialmute-label-mute-notifications": "بی‌صدا کردن آگاه‌سازی‌های از سوی این کاربر",
 	"echo-email-plain-footer": "برای تنظیم ایمیل‌هایی که دریافت {{GENDER:$1|می‌کنید}}، تنظیماتتان را بررسی {{GENDER:$1|کنید}}:",
 	"echo-email-html-footer-preference-link-text": "ترجیحاتتان را بررسی {{GENDER:$1|کنید}}",
 	"echo-email-html-footer-with-link": "برای بررسی ایمیل‌هایی که برای شما ارسال {{GENDER:$2|کردیم}}، $1.",
