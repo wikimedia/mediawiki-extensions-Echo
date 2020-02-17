@@ -14,7 +14,8 @@
 			"McSalama",
 			"Mikahama",
 			"01miki10",
-			"Pyscowicz"
+			"Pyscowicz",
+			"Kyykaarme"
 		]
 	},
 	"echo-desc": "Järjestelmä jonka avulla käyttäjille voi lähettää ilmoituksia tapahtumista ja viesteistä",
@@ -157,6 +158,7 @@
 	"notification-inbox-filter-read": "Luetut",
 	"notification-inbox-filter-unread": "Lukemattomat",
 	"notification-inbox-filter-all": "Kaikki",
+	"echo-specialmute-label-mute-notifications": "Vaimenna ilmoitukset tältä käyttäjältä",
 	"echo-email-html-footer-preference-link-text": "tarkista {{GENDER:$1|asetuksesi}}",
 	"echo-notification-alert": "{{PLURAL:$1|Hälytysilmoitukset ($1)|100=Hälytysilmoitukset (yli 99)}}",
 	"echo-notification-notice": "{{PLURAL:$1|Ilmoitus ($1)|Ilmoitukset ($1)|100=Ilmoitukset (99+)}}",
