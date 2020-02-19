@@ -126,7 +126,7 @@ class EchoUnreadWikis {
 			$dbw->upsert(
 				'echo_unread_wikis',
 				$conditions + $values,
-				[ 'euw_user', 'euw_wiki' ],
+				[ [ 'euw_user', 'euw_wiki' ] ],
 				$values,
 				__METHOD__
 			);
