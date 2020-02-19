@@ -278,6 +278,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 		/** @var EchoNotification $overfetchedItem */
 		$overfetchedItem = count( $notifs ) > $limit ? array_pop( $notifs ) : null;
 
+		$bundler = null;
 		if ( $bundle ) {
 			$bundler = new Bundler();
 			$notifs = $bundler->bundle( $notifs );
@@ -289,7 +290,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 			$output = EchoDataOutputFormatter::formatOutput( $notif, $format, $user, $this->getLanguage() );
 			if ( $output !== false ) {
 				$result['list'][] = $output;
-			} elseif ( $bundle && $notif->getBundledNotifications() ) {
+			} elseif ( $bundler && $notif->getBundledNotifications() ) {
 				// when the bundle_base gets filtered out, bundled notifications
 				// have to be re-bundled and formatted
 				$notifs = array_merge( $bundler->bundle( $notif->getBundledNotifications() ), $notifs );
