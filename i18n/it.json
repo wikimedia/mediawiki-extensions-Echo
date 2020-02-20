@@ -17,7 +17,8 @@
 			"Matteocng",
 			"Anto",
 			"Pequod76",
-			"Sakretsu"
+			"Sakretsu",
+			"Daimona Eaytoy"
 		]
 	},
 	"echo-desc": "Sistema per notificare agli utenti messaggi ed eventi",
@@ -62,7 +63,7 @@
 	"echo-pref-tooltip-mention-success": "Avvisami quando invio una menzione a qualcuno.",
 	"echo-pref-tooltip-user-rights": "Avvisami quando qualcuno modifica i miei diritti di utente.",
 	"echo-pref-tooltip-emailuser": "Avvisami quando qualcuno mi invia una email.",
-	"echo-pref-tooltip-thank-you-edit": "Avvisami quando raggiungo la 1^, 10^, 100^... modifica.",
+	"echo-pref-tooltip-thank-you-edit": "Avvisami quando raggiungo la 1ª, 10ª, 100ª... modifica.",
 	"notifications": "Notifiche",
 	"tooltip-pt-notifications-alert": "{{GENDER:|I tuoi}} avvisi",
 	"tooltip-pt-notifications-notice": "{{GENDER:|Le tue}} notizie",

@@ -1,0 +1,17 @@
+{
+	"@metadata": {
+		"authors": [
+			"Joanmp17"
+		]
+	},
+	"prefs-echo": "መፍለጢታት",
+	"echo-pref-email": "ኢመይል",
+	"notifications": "መፍለጢታት",
+	"echo-specialpage": "መፍለጢታት",
+	"notification-welcome-linktext": "እንኳዕ ብደሓን መጻኻ",
+	"notification-timestamp-today": "ሎሚ",
+	"notification-timestamp-yesterday": "ትማሊ",
+	"notification-inbox-filter-all": "ምሉእ",
+	"echo-date-today": "ሎሚ",
+	"echo-date-yesterday": "ትማሊ"
+}
