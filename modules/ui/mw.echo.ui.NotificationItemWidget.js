@@ -47,7 +47,11 @@
 		if ( this.model.getIconURL() ) {
 			$icon = $( '<div>' )
 				.addClass( 'mw-echo-ui-notificationItemWidget-icon' )
-				.append( $( '<img>' ).attr( 'src', this.model.getIconURL() ) );
+				.append( $( '<img>' ).attr( {
+					src: this.model.getIconURL(),
+					role: 'presentation',
+					alt: ' '
+				} ) );
 		}
 
 		// Content
