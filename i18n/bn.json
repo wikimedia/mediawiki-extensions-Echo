@@ -175,6 +175,7 @@
 	"notification-inbox-filter-read": "পঠিত",
 	"notification-inbox-filter-unread": "অপঠিত",
 	"notification-inbox-filter-all": "সব",
+	"echo-specialmute-label-mute-notifications": "এই ব্যবহারকারীর বিজ্ঞপ্তিগুলি নিঃশব্দ করুন",
 	"echo-email-plain-footer": "আমরা {{GENDER:$1|আপনাকে}} কোন ইমেইল পাঠাই তা নিয়ন্ত্রণ করতে, {{GENDER:$1|আপনার}} পছন্দসমূহ পরীক্ষা করুন:",
 	"echo-email-html-footer-preference-link-text": "{{GENDER:$1|আপনার}} পছন্দসমূহ পরীক্ষা করুন",
 	"echo-email-html-footer-with-link": "আমরা {{GENDER:$2|আপনাকে}} যে ইমেইল পাঠাই তা নিয়ন্ত্রণ করতে, $1।",
