@@ -161,6 +161,7 @@ class GenerateSampleNotifications extends Maintenance {
 	 * to note the time of the new generated event.
 	 *
 	 * @param string $output New output message with timestamp
+	 * @return string
 	 */
 	private function addTimestampToOutput( $output ) {
 		if ( $this->getOption( 'timestamp' ) ) {
