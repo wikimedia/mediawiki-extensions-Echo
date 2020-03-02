@@ -202,7 +202,7 @@
 	"notification-inbox-filter-read": "Прочитанные",
 	"notification-inbox-filter-unread": "Непрочитанные",
 	"notification-inbox-filter-all": "Все",
-	"echo-specialmute-label-mute-notifications": "Выключить уведомления от этого участника",
+	"echo-specialmute-label-mute-notifications": "Не показывать уведомления от этого участника",
 	"echo-email-plain-footer": "Чтобы контролировать, какие сообщения мы отправляем {{GENDER:$1|вам}}, проверьте {{GENDER:$1|свои}} настройки:",
 	"echo-email-html-footer-preference-link-text": "проверьте {{GENDER:$1|свои}} настройки",
 	"echo-email-html-footer-with-link": "Чтобы контролировать, какие письма мы посылаем {{GENDER:$2|вам}}, $1.",
