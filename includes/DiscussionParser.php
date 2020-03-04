@@ -433,7 +433,7 @@ abstract class EchoDiscussionParser {
 
 		$parser = MediaWikiServices::getInstance()->getParser();
 
-		$options = new ParserOptions;
+		$options = new ParserOptions( $article->getContext()->getUser() );
 		$options->setTidy( true );
 		$output = $parser->parse( $wikitext, $article->getTitle(), $options );
 		$cache[$cacheKey] = $output;
@@ -1038,7 +1038,7 @@ abstract class EchoDiscussionParser {
 				'~~~',
 				$title ?: Title::newMainPage(),
 				$user,
-				new ParserOptions()
+				new ParserOptions( $user )
 			);
 
 			// see if we can find this user's generated signature in the content
@@ -1141,7 +1141,7 @@ abstract class EchoDiscussionParser {
 		// Step 1: Get an exemplar timestamp
 		$title = Title::newMainPage();
 		$user = User::newFromName( 'Test' );
-		$options = new ParserOptions;
+		$options = new ParserOptions( $user );
 
 		$parser = MediaWikiServices::getInstance()->getParser();
 		$exemplarTimestamp =

@@ -1497,7 +1497,7 @@ TEXT
 		$user = $this->getMockBuilder( User::class )
 			->getMock();
 
-		$options = new ParserOptions;
+		$options = ParserOptions::newFromAnon();
 
 		$parser = MediaWikiServices::getInstance()->getParser();
 		$exemplarTimestamp =
