@@ -438,7 +438,8 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 				return $revision->audienceCan( $field, RevisionRecord::FOR_THIS_USER, $user );
 			} else {
 				// Use User::isHidden()
-				return $user->isAllowedAny( 'viewsuppressed', 'hideuser' ) || !$agent->isHidden();
+				$permManager = MediaWikiServices::getInstance()->getPermissionManager();
+				return $permManager->userHasAnyRight( $user, 'viewsuppressed', 'hideuser' ) || !$agent->isHidden();
 			}
 		} elseif ( $revision ) {
 			// A revision is set, use rev_deleted

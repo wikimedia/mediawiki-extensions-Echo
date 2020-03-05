@@ -354,9 +354,10 @@ class EchoHooks {
 			[],
 			[ 'returnto' => $prefsTitle->getFullText() ]
 		);
-		$emailAddress = $user->getEmail() && $user->isAllowed( 'viewmyprivateinfo' )
+		$permManager = MediaWikiServices::getInstance()->getPermissionManager();
+		$emailAddress = $user->getEmail() && $permManager->userHasRight( $user, 'viewmyprivateinfo' )
 			? htmlspecialchars( $user->getEmail() ) : '';
-		if ( $user->isAllowed( 'editmyprivateinfo' ) && self::isEmailChangeAllowed() ) {
+		if ( $permManager->userHasRight( $user, 'editmyprivateinfo' ) && self::isEmailChangeAllowed() ) {
 			if ( $emailAddress === '' ) {
 				$emailAddress .= $link;
 			} else {
