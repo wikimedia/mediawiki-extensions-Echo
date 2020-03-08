@@ -263,12 +263,12 @@ class EchoNotificationController {
 	 * @return EchoContainmentList|null
 	 */
 	protected static function getWikiBlacklist() {
-		$clusterCache = MediaWikiServices::getInstance()->getMainWANObjectCache();
 		global $wgEchoOnWikiBlacklist;
 		if ( !$wgEchoOnWikiBlacklist ) {
 			return null;
 		}
 		if ( self::$wikiBlacklist === null ) {
+			$clusterCache = MediaWikiServices::getInstance()->getMainWANObjectCache();
 			self::$wikiBlacklist = new EchoCachedList(
 				$clusterCache,
 				$clusterCache->makeKey( "echo_on_wiki_blacklist" ),
