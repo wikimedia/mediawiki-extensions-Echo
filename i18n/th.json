@@ -7,7 +7,8 @@
 			"Bluegram",
 			"Ans",
 			"Aefgh39622",
-			"Octahedron80"
+			"Octahedron80",
+			"Patsagorn Y."
 		]
 	},
 	"echo-desc": "ระบบสำหรับแจ้งเตือนผู้ใช้เกี่ยวกับเหตุการณ์และข้อความ",
@@ -184,7 +185,7 @@
 	"echo-displaysnippet-title": "การแจ้งเตือนใหม่",
 	"echo-date-today": "วันนี้",
 	"echo-date-yesterday": "เมื่อวานนี้",
-	"notification-bundle-header-edit-user-talk-v2": "มี{{PLURAL:$1|หนึ่งข้อความใหม่|$1 ข้อความใหม่|100=99+ ข้อความใหม่}}บน<strong>หน้าคุยของคุณ</strong>",
+	"notification-bundle-header-edit-user-talk-v2": "มี{{PLURAL:$1|หนึ่งข้อความใหม่|&nbsp;$1 ข้อความใหม่|100=&nbsp;99+ ข้อความใหม่}}บน<strong>หน้าคุย{{GENDER:$3|ของคุณ}}</strong>",
 	"echo-email-batch-subject-daily": "คุณมี{{PLURAL:$2|}}การแจ้งเตือนใหม่ที่ {{SITENAME}}",
 	"echo-email-batch-subject-weekly": "คุณมี{{PLURAL:$2|}}การแจ้งเตือนใหม่ที่ {{SITENAME}} สัปดาห์นี้",
 	"echo-email-batch-body-intro-daily": "สวัสดี $1\nนี่คือสรุปกิจกรรมของวันนี้ใน {{SITENAME}} สำหรับคุณ",
