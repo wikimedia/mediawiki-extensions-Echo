@@ -1487,11 +1487,9 @@ TEXT
 	}
 
 	public function getExemplarTimestamp() {
-		$title = $this->getMockBuilder( Title::class )
-			->getMock();
+		$title = $this->createMock( Title::class );
 
-		$user = $this->getMockBuilder( User::class )
-			->getMock();
+		$user = $this->createMock( User::class );
 
 		$options = ParserOptions::newFromAnon();
 
