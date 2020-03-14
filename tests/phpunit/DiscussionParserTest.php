@@ -945,13 +945,9 @@ TEXT
 			$template->doEditContent( new WikitextContent( $pageText ), '' );
 		}
 
-		// force i18n messages to be reloaded (from DB, where a new message
+		// force i18n messages to be reloaded from MessageCache (from DB, where a new message
 		// might have been created as page)
-		if ( method_exists( 'MessageCache', 'destroyInstance' ) ) {
-			MessageCache::destroyInstance();
-		} else {
-			$this->resetServices();
-		}
+		$this->resetServices();
 
 		// grab revision excerpts (didn't include them in this src file because
 		// they can be pretty long)

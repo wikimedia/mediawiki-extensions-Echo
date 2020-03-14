@@ -1182,7 +1182,7 @@ abstract class EchoDiscussionParser {
 	 */
 	public static function getTextSnippet( $text, Language $lang, $length = 150, $title = null ) {
 		// Parse wikitext
-		$html = MessageCache::singleton()->parse( $text, $title )->getText( [
+		$html = MediaWikiServices::getInstance()->getMessageCache()->parse( $text, $title )->getText( [
 			'enableSectionEditLinks' => false
 		] );
 		$plaintext = trim( Sanitizer::stripAllTags( $html ) );
