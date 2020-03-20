@@ -627,8 +627,8 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 	/**
 	 * Get the message key of the primary or secondary link for a notification type.
 	 *
-	 * @param String $rank 'primary' or 'secondary'
-	 * @return String i18n message key
+	 * @param string $rank 'primary' or 'secondary'
+	 * @return string i18n message key
 	 */
 	public function getLinkMessage( $rank ) {
 		global $wgEchoNotifications;
@@ -639,8 +639,8 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 	/**
 	 * Get the link destination of the primary or secondary link for a notification type.
 	 *
-	 * @param String $rank 'primary' or 'secondary'
-	 * @return String The link destination, e.g. 'agent'
+	 * @param string $rank 'primary' or 'secondary'
+	 * @return string The link destination, e.g. 'agent'
 	 */
 	public function getLinkDestination( $rank ) {
 		global $wgEchoNotifications;
