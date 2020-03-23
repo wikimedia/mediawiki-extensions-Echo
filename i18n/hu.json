@@ -36,6 +36,7 @@
 	"echo-pref-email-format-plain-text": "Sima szöveg",
 	"echo-pref-cross-wiki-notifications": "Értesítések megjelenítése más wikikről",
 	"echo-pref-notifications-blacklist": "Értesítések megjelenítésének letiltása ezektől a felhasználóktól. ([[mw:Help:Notifications/hu#mute|további információk]])",
+	"echo-pref-dont-email-read-notifications": "Az összefoglaló e-mailek ne tartalmazzák a már olvasott értesítéseket",
 	"echo-learn-more": "Tudj meg többet",
 	"echo-log": "Nyilvános napló",
 	"echo-new-messages": "Új üzeneted van",
