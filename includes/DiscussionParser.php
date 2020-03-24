@@ -77,9 +77,10 @@ abstract class EchoDiscussionParser {
 			// If the recipient is a valid non-anonymous user and hasn't turned
 			// off their notifications, generate a talk page post Echo notification.
 			if ( $notifyUser && $notifyUser->getId() ) {
+				$permManager = MediaWikiServices::getInstance()->getPermissionManager();
 				// If this is a minor edit, only notify if the agent doesn't have talk page minor
 				// edit notification blocked
-				if ( !$revision->isMinor() || !$user->isAllowed( 'nominornewtalk' ) ) {
+				if ( !$revision->isMinor() || !$permManager->userHasRight( $user, 'nominornewtalk' ) ) {
 					$section = self::detectSectionTitleAndText( $interpretation, $title );
 					if ( $section['section-text'] === '' ) {
 						$comment = $revision->getComment( RevisionRecord::FOR_PUBLIC, $notifyUser );
