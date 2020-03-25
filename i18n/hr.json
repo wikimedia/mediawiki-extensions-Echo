@@ -92,7 +92,7 @@
 	"echo-api-failure-cross-wiki": "Pristup vanjskoj domeni je odbijen.",
 	"echo-notification-placeholder": "Nema obavijesti.",
 	"echo-notification-placeholder-filters": "Nema obavijesti prema zadanim kriterijima.",
-	"echo-notification-loginrequired": "Morate biti prijavljeni da biste vidjeli vaše obavijesti.",
+	"echo-notification-loginrequired": "Morate biti prijavljeni da biste vidjeli Vaše obavijesti.",
 	"echo-notification-popup-loginrequired": "Da biste vidjeli vaše obavijesti, molimo prijavite se.",
 	"echo-notification-markasread": "Označi kao pročitano",
 	"echo-notification-markasunread": "Označi kao nepročitano",
