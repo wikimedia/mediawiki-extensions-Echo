@@ -41,7 +41,7 @@
 	"notification-header-thank-you-1-edit": "{{GENDER:$2|Teit}} juuri ensimmäisen mookkauksesi. Kiitos ja tervetuloa!",
 	"notification-header-thank-you-10-edit": "{{GENDER:$2|Teit}} juuri kymmenennen mookkauksesi. Kiitos ja jatka mookkaamista!",
 	"notification-header-thank-you-100-edit": "{{GENDER:$2|Teit}} juuri sadannen mookkauksesi. Lämpimät onnittelut!",
-	"notification-header-thank-you-1000-edit": "{{GENDER:$2|Teit}} juuri tuhannennen mookkauksesi. Kiitos siitä, että olet tarmokas mookkaaja!",
+	"notification-header-thank-you-1000-edit": "{{GENDER:$2|Teit}} juuri tuhannennen mookkauksesi. Kiitos siitä, ette olet tarmokas mookkaaja!",
 	"notification-header-thank-you-10000-edit": "{{GENDER:$2|Teit}} juuri kymmenennentuhannennen mookkauksesi. Kiitos erittäin paljon!",
 	"notification-header-thank-you-100000-edit": "{{GENDER:$2|Teit}} juuri sadannentuhannennen mookkauksesi. Kiitos\nuskomattomasta työstä!",
 	"notification-header-thank-you-1000000-edit": "{{GENDER:$2|Teit}} juuri miljoonannen mookkauksesi. Kiitos hämmästyttävästä työstä!",

@@ -227,5 +227,5 @@
 	"echo-email-batch-link-text-view-all-notifications": "Tüm bildirimleri göster",
 	"notification-header-foreign-alert": "{{PLURAL:$5|$5 diğer Viki projesinden}} uyarınız var",
 	"notification-header-foreign-notice": "{{PLURAL:$5|Diğer viki|$5 diğer viki}}den daha fazla bildirim",
-	"notification-header-foreign-all": "{{PLURAL:$5|Başka bir wiki|$5 diğer wikiler}} tarafından gönderilen diğer bildirimler"
+	"notification-header-foreign-all": "{{PLURAL:$5|Başka bir viki|$5 diğer vikiler}} tarafından gönderilen diğer bildirimler"
 }
