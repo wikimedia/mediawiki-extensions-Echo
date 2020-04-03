@@ -404,7 +404,8 @@
 				"echo-mark-all-as-read",
 				"echo-learn-more",
 				"mypreferences",
-				"echo-specialpage-section-markread"
+				"echo-specialpage-section-markread",
+				"echo-specialpage-pagefilterwidget-aria-label"
 			],
 			"targets": [
 				"desktop",
