@@ -95,6 +95,7 @@
 	"echo-specialpage-section-markread": "Markera grupp som läst",
 	"echo-specialpage-markasread": "Avisering: Markera som läst",
 	"echo-specialpage-markasread-invalid-id": "Ogiltigt händelse-ID",
+	"echo-specialpage-pagefilterwidget-aria-label": "Filtrera efter wiki och sidtitel",
 	"echo-specialpage-pagination-numnotifications": "$1 {{PLURAL:$1|avisering|aviseringar}}",
 	"echo-specialpage-pagefilters-title": "Senaste aktivitet",
 	"echo-specialpage-pagefilters-subtitle": "Sidor med olästa aviseringar",

@@ -95,6 +95,7 @@
 	"echo-specialpage-section-markread": "Позначити групу прочитаною",
 	"echo-specialpage-markasread": "Сповіщення: позначити прочитаним",
 	"echo-specialpage-markasread-invalid-id": "Неправильний ідентифікатор події",
+	"echo-specialpage-pagefilterwidget-aria-label": "Фільтрувати за вікі та заголовком сторінки",
 	"echo-specialpage-pagination-numnotifications": "$1 {{PLURAL:$1|сповіщення|сповіщення|сповіщень}}",
 	"echo-specialpage-pagefilters-title": "Нещодавня активність",
 	"echo-specialpage-pagefilters-subtitle": "Сторінки з непрочитаними сповіщеннями",

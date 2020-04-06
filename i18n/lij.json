@@ -79,6 +79,7 @@
 	"echo-specialpage-section-markread": "Marca groppo comme lezuo",
 	"echo-specialpage-markasread": "Notiffica: marca comme lezua",
 	"echo-specialpage-markasread-invalid-id": "ID evento non vallido",
+	"echo-specialpage-pagefilterwidget-aria-label": "Filtro da wiki e tittolo da paggina",
 	"echo-specialpage-pagination-numnotifications": "$1 {{PLURAL:$1|notiffica|notiffiche}}",
 	"echo-specialpage-pagefilters-title": "Attivitæ reçente",
 	"echo-specialpage-pagefilters-subtitle": "Paggine con notiffiche non lezue",

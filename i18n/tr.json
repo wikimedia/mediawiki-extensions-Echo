@@ -100,6 +100,7 @@
 	"echo-specialpage-section-markread": "Grubu okunmuş olarak işaretle",
 	"echo-specialpage-markasread": "Bildirim: Okundu olarak İşaretle",
 	"echo-specialpage-markasread-invalid-id": "Geçersiz olay kimliği",
+	"echo-specialpage-pagefilterwidget-aria-label": "Viki ve sayfa başlığına göre filtrele",
 	"echo-specialpage-pagination-numnotifications": "$1 {{PLURAL:$1|bildirim|bildirim}}",
 	"echo-specialpage-pagefilters-title": "Son hareketler",
 	"echo-specialpage-pagefilters-subtitle": "Okunmamış bildirim bulunan sayfalar",

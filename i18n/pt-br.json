@@ -99,6 +99,7 @@
 	"echo-specialpage-section-markread": "Marcar como grupo como lido",
 	"echo-specialpage-markasread": "Notificação: Marcar como lida",
 	"echo-specialpage-markasread-invalid-id": "ID do evento inválido",
+	"echo-specialpage-pagefilterwidget-aria-label": "Filtrar por wiki e título da página",
 	"echo-specialpage-pagination-numnotifications": "$1 {{PLURAL:$1|notificação|notificações}}",
 	"echo-specialpage-pagination-range": "$1 - $2",
 	"echo-specialpage-pagefilters-title": "Atividades recentes",

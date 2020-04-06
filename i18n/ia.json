@@ -74,6 +74,7 @@
 	"echo-specialpage-section-markread": "Marcar gruppo como legite",
 	"echo-specialpage-markasread": "Notification: Marcar como legite",
 	"echo-specialpage-markasread-invalid-id": "ID de evento non valide",
+	"echo-specialpage-pagefilterwidget-aria-label": "Filtrar per wiki e titulo de pagina",
 	"echo-specialpage-pagination-numnotifications": "$1 {{PLURAL:$1|notification|notificationes}}",
 	"echo-specialpage-pagefilters-title": "Activitate recente",
 	"echo-specialpage-pagefilters-subtitle": "Paginas con notificationes non legite",
