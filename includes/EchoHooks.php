@@ -1,6 +1,5 @@
 <?php
 
-use MediaWiki\Auth\AuthManager;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Preferences\MultiUsernameFilter;
@@ -513,7 +512,8 @@ class EchoHooks {
 	 * @return bool
 	 */
 	private static function isEmailChangeAllowed() {
-		return AuthManager::singleton()->allowsPropertyChange( 'emailaddress' );
+		return MediaWikiServices::getInstance()->getAuthManager()
+			->allowsPropertyChange( 'emailaddress' );
 	}
 
 	/**
