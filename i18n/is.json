@@ -1,12 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Snævar",
-			"පසිඳු කාවින්ද",
-			"Sveinki",
-			"Macofe",
 			"Hjalmtyr",
-			"Sveinn í Felli"
+			"Macofe",
+			"Snævar",
+			"Sveinki",
+			"Sveinn í Felli",
+			"පසිඳු කාවින්ද"
 		]
 	},
 	"echo-desc": "Kerfi til að tilkynna notendum um viðburði og skilaboð",

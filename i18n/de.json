@@ -1,21 +1,21 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kghbln",
-			"Metalhead64",
-			"Se4598",
-			"TMg",
 			"ChrisiPK",
-			"Suriyaa Kudo",
-			"Purodha",
-			"Tiin",
-			"Predatorix",
-			"FriedhelmW",
-			"MGChecker",
-			"Vogone",
 			"DerHexer",
+			"FriedhelmW",
+			"Kghbln",
+			"MGChecker",
+			"Metalhead64",
+			"PiefPafPier",
+			"Predatorix",
+			"Purodha",
+			"Se4598",
+			"Suriyaa Kudo",
+			"TMg",
+			"Tiin",
 			"Tobi 406",
-			"PiefPafPier"
+			"Vogone"
 		]
 	},
 	"echo-desc": "Stellt ein System zur Benachrichtigung von Benutzern über Ereignisse und Nachrichten bereit",

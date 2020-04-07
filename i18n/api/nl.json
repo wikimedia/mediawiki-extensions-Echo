@@ -2,11 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Catrope",
+			"Mainframe98",
 			"MrLeopold",
 			"Romaine",
 			"Siebrand",
-			"Sjoerddebruin",
-			"Mainframe98"
+			"Sjoerddebruin"
 		]
 	},
 	"apihelp-echomarkread-description": "Meldingen van de huidige gebruiker markeren als gelezen.",

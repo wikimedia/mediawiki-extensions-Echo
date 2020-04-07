@@ -1,14 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Eitvys200",
-			"Hugo.arg",
-			"Mantak111",
 			"Albertas",
-			"Zygimantus",
-			"Macofe",
+			"Eitvys200",
 			"Homo",
-			"Manvydasz"
+			"Hugo.arg",
+			"Macofe",
+			"Mantak111",
+			"Manvydasz",
+			"Zygimantus"
 		]
 	},
 	"echo-desc": "Sistema, skirta naudotojų informavimui apie įvykius ir žinutes",

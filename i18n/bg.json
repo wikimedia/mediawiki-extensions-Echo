@@ -2,18 +2,18 @@
 	"@metadata": {
 		"authors": [
 			"Aceofhearts1968",
-			"DCLXVI",
-			"Termininja",
 			"Borislav",
-			"Лорд Бъмбъри",
-			"Vodnokon4e",
-			"V111P",
-			"Spiritia",
-			"Ket",
-			"StanProg",
-			"ShockD",
+			"DCLXVI",
 			"Iliev",
-			"Ted Masters"
+			"Ket",
+			"ShockD",
+			"Spiritia",
+			"StanProg",
+			"Ted Masters",
+			"Termininja",
+			"V111P",
+			"Vodnokon4e",
+			"Лорд Бъмбъри"
 		]
 	},
 	"echo-desc": "Система за уведомяване на потребителите за събития и съобщения",

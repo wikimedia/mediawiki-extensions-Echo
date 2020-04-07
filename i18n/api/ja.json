@@ -2,8 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"2nd-player",
-			"Otokoume",
-			"Ochaochaocha3"
+			"Ochaochaocha3",
+			"Otokoume"
 		]
 	},
 	"apihelp-echomarkread-description": "現在の利用者への通知を既読にする。",

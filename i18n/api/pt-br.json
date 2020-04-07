@@ -1,9 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"TheEduGobi",
+			"Eduardo Addad de Oliveira",
 			"Felipe L. Ewald",
-			"Eduardo Addad de Oliveira"
+			"TheEduGobi"
 		]
 	},
 	"apihelp-echomarkread-description": "Marcar notificações como lidas para o usuário atual.",

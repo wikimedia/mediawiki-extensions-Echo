@@ -1,15 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
+			"Chameleon222",
 			"Danmichaelo",
 			"Jeblad",
+			"Jon Harald Søby",
 			"Laaknor",
-			"Njardarlogar",
-			"Chameleon222",
-			"SuperPotato",
 			"Macofe",
 			"Nemo bis",
-			"Jon Harald Søby"
+			"Njardarlogar",
+			"SuperPotato"
 		]
 	},
 	"echo-desc": "System for å gi brukere beskjed om hendelser og meldinger",

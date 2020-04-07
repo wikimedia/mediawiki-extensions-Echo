@@ -1,21 +1,21 @@
 {
 	"@metadata": {
 		"authors": [
+			"01miki10",
 			"Crt",
+			"Kyykaarme",
+			"McSalama",
+			"Mikahama",
 			"Nedergard",
 			"Nike",
 			"Olli",
+			"Pitke",
 			"Pxos",
+			"Pyscowicz",
 			"Samoasambia",
 			"Silvonen",
 			"Stryn",
-			"VezonThunder",
-			"Pitke",
-			"McSalama",
-			"Mikahama",
-			"01miki10",
-			"Pyscowicz",
-			"Kyykaarme"
+			"VezonThunder"
 		]
 	},
 	"echo-desc": "Järjestelmä jonka avulla käyttäjille voi lähettää ilmoituksia tapahtumista ja viesteistä",

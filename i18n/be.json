@@ -1,12 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Дзяніс Тутэйшы",
-			"Чаховіч Уладзіслаў",
-			"Mikalai Udodau",
-			"Macofe",
 			"Artsiom91",
-			"Matěj Suchánek"
+			"Macofe",
+			"Matěj Suchánek",
+			"Mikalai Udodau",
+			"Дзяніс Тутэйшы",
+			"Чаховіч Уладзіслаў"
 		]
 	},
 	"echo-desc": "Сістэма апавяшчэння ўдзельнікаў пра падзеі і паведамленні",

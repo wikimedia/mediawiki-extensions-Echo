@@ -2,8 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Cwlin0416",
-			"Winstonyin",
-			"Kly"
+			"Kly",
+			"Winstonyin"
 		]
 	},
 	"apihelp-echomarkread-description": "把目前使用者的通知標記為已讀。",

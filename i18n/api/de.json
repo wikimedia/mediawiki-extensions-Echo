@@ -1,11 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"Hwboehm",
 			"MGChecker",
 			"Metalhead64",
 			"Purodha",
-			"Tiin",
-			"Hwboehm"
+			"Tiin"
 		]
 	},
 	"apihelp-echomarkread-description": "Benachrichtigungen für den aktuellen Benutzer als gelesen markieren.",

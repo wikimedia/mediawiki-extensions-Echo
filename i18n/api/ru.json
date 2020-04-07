@@ -1,13 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
+			"Diralik",
 			"Mailman",
 			"Marina Melik-Adamyan",
+			"Mouse21",
 			"Okras",
 			"Putnik",
-			"Sunpriat",
-			"Mouse21",
-			"Diralik"
+			"Sunpriat"
 		]
 	},
 	"apihelp-echomarkread-description": "Отметить уведомления как прочитанные для текущего пользователя.",

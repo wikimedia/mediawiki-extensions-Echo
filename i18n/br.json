@@ -3,10 +3,10 @@
 		"authors": [
 			"Fohanno",
 			"Fulup",
-			"Y-M D",
 			"Gwenn-Ael",
+			"Huñvreüs",
 			"Pymouss",
-			"Huñvreüs"
+			"Y-M D"
 		]
 	},
 	"echo-desc": "Reizhiad da gas keloù d'an implijerien diwar-benn darvoudoù ha kemennadennoù",
@@ -56,6 +56,7 @@
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "Rekis eo kaout hentennoù kemenn",
 	"echo-specialpage": "Kemennoù",
 	"echo-specialpage-markasread": "Kemenn : merket evel lennet",
+	"echo-specialpage-pagefilterwidget-aria-label": "Silañ dre wiki ha titloù pajennoù",
 	"echo-specialpage-pagination-numnotifications": "$1 {{PLURAL:$1|c'hemenn|kemenn}}",
 	"echo-specialpage-pagefilters-subtitle": "Pajennoù enno kemennoù n'int ket bet lennet",
 	"echo-none": "N'ho peus resevet kemenn ebet.",

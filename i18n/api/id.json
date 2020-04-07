@@ -1,10 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Rachmat.Wahidi",
-			"William Surya Permana",
 			"Kenrick95",
-			"Rachmat04"
+			"Rachmat.Wahidi",
+			"Rachmat04",
+			"William Surya Permana"
 		]
 	},
 	"apihelp-echomarkread-description": "Tandai pemberitahuan dari pengguna ini sebagai telah dibaca.",

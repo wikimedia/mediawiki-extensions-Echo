@@ -2,13 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Brad Jorsch",
+			"Liuxinyu970226",
 			"Matthew Flaschen",
 			"Matthias Mullie",
 			"Moriel Schottlender",
 			"Roan Kattouw",
 			"Stephane Bisson",
-			"Umherirrender",
-			"Liuxinyu970226"
+			"Umherirrender"
 		]
 	},
 	"apihelp-echomarkread-description": "{{doc-apihelp-description|echomarkread}}",

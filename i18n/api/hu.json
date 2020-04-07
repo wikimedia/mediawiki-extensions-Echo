@@ -1,9 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
+			"Bencemac",
 			"Tacsipacsi",
-			"Tgr",
-			"Bencemac"
+			"Tgr"
 		]
 	},
 	"apihelp-echomarkread-description": "Értesítések olvasottnak jelölése az aktuális felhasználó számára.",

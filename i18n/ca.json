@@ -2,16 +2,16 @@
 	"@metadata": {
 		"authors": [
 			"Arnaugir",
+			"Fitoschido",
+			"Lluis tgn",
+			"Nemo bis",
 			"Papapep",
 			"Pitort",
 			"QuimGil",
-			"Vriullop",
-			"පසිඳු කාවින්ද",
-			"Fitoschido",
 			"Ssola",
-			"Nemo bis",
 			"Toniher",
-			"Lluis tgn"
+			"Vriullop",
+			"පසිඳු කාවින්ද"
 		]
 	},
 	"echo-desc": "Sistema per notificar als usuaris sobre esdeveniments i missatges",

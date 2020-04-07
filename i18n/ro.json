@@ -1,15 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
+			"Andrei Stroe",
 			"Firilacroco",
+			"ImGelu",
+			"Macofe",
 			"Minisarm",
 			"Reception123",
 			"Stelistcristi",
-			"ImGelu",
-			"Wintereu",
-			"Macofe",
 			"Strainu",
-			"Andrei Stroe"
+			"Wintereu"
 		]
 	},
 	"echo-desc": "Sistem de notificare a utilizatorilor cu privire la evenimente și mesaje",

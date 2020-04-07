@@ -1,12 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Milicevic01",
-			"Srdjan m",
 			"Macofe",
-			"Сербијана",
+			"Milicevic01",
 			"Obsuser",
-			"Prevodim"
+			"Prevodim",
+			"Srdjan m",
+			"Сербијана"
 		]
 	},
 	"echo-desc": "Sistem za obaveštavanje korisnika o dešavanjima i porukama",

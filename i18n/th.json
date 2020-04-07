@@ -1,14 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Nullzero",
-			"Supasate",
-			"Horus",
-			"Bluegram",
-			"Ans",
 			"Aefgh39622",
+			"Ans",
+			"Bluegram",
+			"Horus",
+			"Nullzero",
 			"Octahedron80",
-			"Patsagorn Y."
+			"Patsagorn Y.",
+			"Supasate"
 		]
 	},
 	"echo-desc": "ระบบสำหรับแจ้งเตือนผู้ใช้เกี่ยวกับเหตุการณ์และข้อความ",

@@ -2,19 +2,19 @@
 	"@metadata": {
 		"authors": [
 			"Chmee2",
-			"Jkjk",
-			"Mormegil",
-			"Vks",
-			"Matěj Suchánek",
 			"Cvanca",
-			"Teslaton",
-			"Kvetoslav47",
-			"Dvorapa",
 			"Danny B.",
-			"Meliganai",
-			"Martin Urbanec",
+			"Dvorapa",
 			"Ilimanaq29",
-			"Patriccck"
+			"Jkjk",
+			"Kvetoslav47",
+			"Martin Urbanec",
+			"Matěj Suchánek",
+			"Meliganai",
+			"Mormegil",
+			"Patriccck",
+			"Teslaton",
+			"Vks"
 		]
 	},
 	"echo-desc": "Systém pro upozorňování uživatelů na události a zprávy",

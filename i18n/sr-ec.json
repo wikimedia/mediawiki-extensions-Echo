@@ -1,19 +1,19 @@
 {
 	"@metadata": {
 		"authors": [
-			"Milicevic01",
-			"Rancher",
-			"Михајло Анђелковић",
-			"Сербијана",
-			"Macofe",
-			"Srdjan m",
-			"Dungodung",
-			"Obsuser",
-			"Prevodim",
 			"Acamicamacaraca",
 			"BadDog",
+			"Dungodung",
+			"Macofe",
 			"Matěj Suchánek",
-			"Zoranzoki21"
+			"Milicevic01",
+			"Obsuser",
+			"Prevodim",
+			"Rancher",
+			"Srdjan m",
+			"Zoranzoki21",
+			"Михајло Анђелковић",
+			"Сербијана"
 		]
 	},
 	"echo-desc": "Систем за обавештавање корисника о догађајима и порукама",

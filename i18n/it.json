@@ -1,24 +1,24 @@
 {
 	"@metadata": {
 		"authors": [
+			"Alexmar983",
+			"Anto",
 			"Beta16",
+			"Catrope",
+			"Daimona Eaytoy",
 			"Darth Kule",
 			"Eleonora negri",
 			"Elitre",
-			"Nemo bis",
-			"Pietrodn",
-			"Raoli",
-			"Vituzzu",
-			"Horcrux92",
-			"Alexmar983",
 			"Fringio",
-			"Catrope",
+			"Horcrux92",
 			"Macofe",
 			"Matteocng",
-			"Anto",
+			"Nemo bis",
 			"Pequod76",
+			"Pietrodn",
+			"Raoli",
 			"Sakretsu",
-			"Daimona Eaytoy"
+			"Vituzzu"
 		]
 	},
 	"echo-desc": "Sistema per notificare agli utenti messaggi ed eventi",

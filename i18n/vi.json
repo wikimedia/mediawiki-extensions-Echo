@@ -2,12 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Baonguyen21022003",
-			"Minh Nguyen",
-			"Trần Nguyễn Minh Huy",
 			"Max20091",
+			"Minh Nguyen",
 			"Nguyên Lê",
 			"Quenhitran",
-			"Thienhau2003"
+			"Thienhau2003",
+			"Trần Nguyễn Minh Huy"
 		]
 	},
 	"echo-desc": "Hệ thống thông báo cho người dùng về các sự kiện và thay đổi quan trọng",

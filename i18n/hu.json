@@ -1,18 +1,18 @@
 {
 	"@metadata": {
 		"authors": [
+			"BanKris",
+			"Bencemac",
+			"Bináris",
 			"BáthoryPéter",
 			"Dj",
-			"Misibacsi",
-			"TK-999",
-			"Tgr",
-			"Tacsipacsi",
-			"Samat",
-			"Bináris",
 			"Macofe",
+			"Misibacsi",
 			"R-Joe",
-			"BanKris",
-			"Bencemac"
+			"Samat",
+			"TK-999",
+			"Tacsipacsi",
+			"Tgr"
 		]
 	},
 	"echo-desc": "Értesíti a felhasználókat az eseményekről és üzenetekről",
