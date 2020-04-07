@@ -16,13 +16,13 @@ class NotificationStructureTest extends MediaWikiTestCase {
 		}
 
 		if ( isset( $info['user-locators'] ) ) {
-			$locators = $info['user-locators'];
-			$locator = reset( $locators );
-			if ( is_array( $locator ) ) {
-				$locator = reset( $locator );
+			$locators = (array)$info['user-locators'];
+			$callable = reset( $locators );
+			if ( is_array( $callable ) ) {
+				$callable = reset( $callable );
 			}
-			self::assertTrue( is_callable( $locator ),
-				'User locator ' . print_r( $locator, true ) . " for {$type} must be callable"
+			self::assertTrue( is_callable( $callable ),
+				'User locator ' . print_r( $callable, true ) . " for {$type} must be callable"
 			);
 		}
 	}
