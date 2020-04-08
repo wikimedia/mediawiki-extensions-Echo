@@ -832,9 +832,9 @@ class EchoHooks {
 			return;
 		}
 
-		$revision = $linksUpdate->getRevision();
-		$revid = $revision ? $revision->getId() : null;
-		$user = $revision ? $revision->getRevisionRecord()->getUser() : null;
+		$revRecord = $linksUpdate->getRevisionRecord();
+		$revid = $revRecord ? $revRecord->getId() : null;
+		$user = $revRecord ? $revRecord->getUser() : null;
 
 		// link notification is boundless as you can include infinite number of links in a page
 		// db insert is expensive, limit it to a reasonable amount, we can increase this limit
