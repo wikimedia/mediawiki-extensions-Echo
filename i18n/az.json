@@ -111,7 +111,7 @@
 	"echo-overlay-link": "Bütün bildirişlər",
 	"echo-overlay-title": "<b>Bildirişlər</b>",
 	"echo-mark-all-as-read": "Hamısını oxunmuş kimi qeyd et",
-	"echo-mark-all-as-read-confirmation": "$1 {{PLURAL:$1|bildiriç|bildiriç}} oxumuş olaraq işarələndi",
+	"echo-mark-all-as-read-confirmation": "$1 {{PLURAL:$1|bildiriş|bildiriş}} oxunmuş kimi işarələndi",
 	"echo-mark-wiki-as-read": "$1da hamısını oxunmuş kimi qeyd et",
 	"echo-date-today": "Bu gün",
 	"echo-date-yesterday": "Dünən",
