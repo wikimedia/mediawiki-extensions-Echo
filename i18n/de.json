@@ -18,7 +18,7 @@
 			"Vogone"
 		]
 	},
-	"echo-desc": "Stellt ein System zur Benachrichtigung von Benutzern über Ereignisse und Nachrichten bereit",
+	"echo-desc": "Erweitert das Wiki um ein System zur Benachrichtigung von Benutzern zu Ereignissen und Nachrichten",
 	"prefs-echo": "Benachrichtigungen",
 	"prefs-emailsettings": "E-Mail-Optionen",
 	"prefs-echosubscriptions": "Bei diesen Ereignissen benachrichtigen",
