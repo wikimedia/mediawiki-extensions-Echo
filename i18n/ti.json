@@ -6,12 +6,20 @@
 	},
 	"prefs-echo": "መፍለጢታት",
 	"echo-pref-email": "ኢመይል",
+	"echo-learn-more": "ተወሳኺ ፍለጥ",
 	"notifications": "መፍለጢታት",
 	"echo-specialpage": "መፍለጢታት",
+	"echo-specialpage-pagination-numnotifications": "$1 {{PLURAL:$1|መፍለጢ|መፍለጢታት}}",
+	"notification-link-text-expand-all": "ዘርግሕ",
+	"notification-link-text-collapse-all": "ኣክብ",
 	"notification-welcome-linktext": "እንኳዕ ብደሓን መጻኻ",
 	"notification-timestamp-today": "ሎሚ",
 	"notification-timestamp-yesterday": "ትማሊ",
-	"notification-inbox-filter-all": "ምሉእ",
+	"notification-inbox-filter-all": "ኩሉ",
+	"echo-overlay-link": "ኩሉ መፍለጢታት",
+	"echo-overlay-title": "<b>መፍለጢታት</b>",
+	"echo-displaysnippet-title": "ሓድሽ መፍለጢ",
 	"echo-date-today": "ሎሚ",
-	"echo-date-yesterday": "ትማሊ"
+	"echo-date-yesterday": "ትማሊ",
+	"echo-email-batch-link-text-view-all-notifications": "ኩሉ መፍለጢታት ርኣይ"
 }
