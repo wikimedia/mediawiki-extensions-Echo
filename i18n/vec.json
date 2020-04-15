@@ -39,7 +39,7 @@
 	"echo-pref-tooltip-reverted": "Dime co che qualchedun el desfa un canbiamento che go fato mi, strucando \"anula\" o \"torna indrio\".",
 	"echo-pref-tooltip-mention": "Dime co che qualchidun el taca un ligame verso la me pagina utente",
 	"notifications": "Avisi",
-	"tooltip-pt-notifications-alert": "{{GENDER:|I to}} avisi",
+	"tooltip-pt-notifications-alert": "{{GENDER:|I to}} avixi",
 	"tooltip-pt-notifications-notice": "{{GENDER:|I to}} avisi",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "Avisi par categoria",
 	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Utenti che gh'è za",
