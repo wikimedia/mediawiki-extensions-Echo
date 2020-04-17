@@ -2,7 +2,9 @@
 // phpcs:disable Generic.Files.LineLength -- Long html test examples
 // @phan-file-suppress PhanUndeclaredClassMethod, PhanUndeclaredClassConstant Other extensions used for testing purposes
 
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionRecord;
+use MediaWiki\Revision\SlotRecord;
 use Wikibase\Client\Hooks\EchoNotificationsHandlers;
 
 $IP = getenv( 'MW_INSTALL_PATH' );
@@ -273,8 +275,29 @@ class GenerateSampleNotifications extends Maintenance {
 		$this->output( "{$agent->getName()} is reverting {$user->getName()}'s edit on {$moai->getPrefixedText()}\n" );
 		$this->addToPageContent( $moai, $agent, "\ncreating a good revision here\n" );
 		$this->addToPageContent( $moai, $user, "\nadding a line here\n" );
-		$content = $page->getUndoContent( $page->getRevision(), $page->getRevision()->getPrevious() );
-		$status = $page->doEditContent( $content, 'undo', 0, false, $agent, null, [], $page->getRevision()->getId() );
+
+		$undoRev = $page->getRevisionRecord();
+		$previous = MediaWikiServices::getInstance()
+			->getRevisionLookup()
+			->getPreviousRevision( $undoRev );
+
+		$handler = MediaWikiServices::getInstance()
+			->getContentHandlerFactory()
+			->getContentHandler(
+				$undoRev->getSlot( SlotRecord::MAIN, RevisionRecord::RAW )
+					->getModel()
+			);
+		$undoContent = $undoRev->getContent( SlotRecord::MAIN );
+		$previousContent = $previous->getContent( SlotRecord::MAIN );
+
+		$content = $handler->getUndoContent(
+			$undoContent,
+			$undoContent,
+			$previousContent,
+			true // undoIsLatest
+		);
+
+		$status = $page->doEditContent( $content, 'undo', 0, false, $agent, null, [], $undoRev->getId() );
 		if ( !$status->isGood() ) {
 			$this->error( "Failed to undo {$moai->getPrefixedText()}: {$status->getMessage()}" );
 		}
