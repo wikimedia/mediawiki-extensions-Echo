@@ -54,9 +54,9 @@
 		}
 
 		.mw-echo-payload {
-			.mw-echo-ui-mixin-one-line-truncated;
 			color: @notification-body-color;
 			margin-top: 4px;
+			.text-overflow( @visible: false );
 		}
 
 		.mw-echo-title,
@@ -65,11 +65,9 @@
 			line-height: 1.4em;
 
 			.plainlinks {
-				white-space: nowrap;
-				overflow: hidden;
-				text-overflow: ellipsis;
 				max-width: 100%;
 				display: inline-block;
+				.text-overflow( @visible: false );
 				vertical-align: top;
 			}
 		}
@@ -81,11 +79,9 @@
 
 			.mw-echo-notification-footer-element {
 				display: inline-block;
-				overflow: hidden;
-				white-space: nowrap;
-				text-overflow: ellipsis;
 				max-width: 15em;
 				margin-right: 0.5em;
+				.text-overflow( @visible: false );
 			}
 		}
 	}

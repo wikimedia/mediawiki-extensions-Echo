@@ -55,11 +55,10 @@
 
 		&-label {
 			display: inline-block;
-			white-space: nowrap;
-			overflow: hidden;
-			text-overflow: ellipsis;
 			// Sidebar width - icon width - twice padding - counter average width
 			max-width: calc( @specialpage-sidebar-width - 1.865em - 2 * @specialpage-separation-unit - 2em );
+			// Truncate text with ellipsis.
+			.text-overflow( @visible: false );
 		}
 	}
 
