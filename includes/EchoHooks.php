@@ -2,6 +2,7 @@
 
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Preferences\MultiTitleFilter;
 use MediaWiki\Preferences\MultiUsernameFilter;
 use MediaWiki\Revision\RevisionRecord;
 
@@ -503,6 +504,12 @@ class EchoHooks {
 				'label-message' => 'echo-pref-notifications-blacklist',
 				'section' => 'echo/blocknotificationslist',
 				'filter' => MultiUsernameFilter::class,
+			];
+			$preferences['echo-notifications-page-linked-title-muted-list'] = [
+				'type' => 'titlesmultiselect',
+				'label-message' => 'echo-pref-notifications-page-linked-title-muted-list',
+				'section' => 'echo/mutedpageslist',
+				'filter' => ( new MultiTitleFilter( new TitleFactory() ) )
 			];
 		}
 	}
