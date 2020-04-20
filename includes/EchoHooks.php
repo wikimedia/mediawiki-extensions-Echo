@@ -4,6 +4,7 @@ use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Preferences\MultiUsernameFilter;
 use MediaWiki\Revision\RevisionRecord;
+use MediaWiki\User\UserIdentity;
 
 class EchoHooks {
 	/**
@@ -1267,22 +1268,27 @@ class EchoHooks {
 	}
 
 	/**
-	 * Handler for ArticleRollbackComplete hook.
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ArticleRollbackComplete
+	 * Handler for RollbackComplete hook.
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/RollbackComplete
 	 *
 	 * @param WikiPage $wikiPage The article that was edited
-	 * @param User $agent The user who did the rollback
-	 * @param Revision $newRevision The revision the page was reverted back to
-	 * @param Revision $oldRevision The revision of the top edit that was reverted
+	 * @param UserIdentity $agent The user who did the rollback
+	 * @param RevisionRecord $newRevision The revision the page was reverted back to
+	 * @param RevisionRecord $oldRevision The revision of the top edit that was reverted
 	 */
-	public static function onRollbackComplete( WikiPage $wikiPage, $agent, $newRevision, $oldRevision ) {
+	public static function onRollbackComplete(
+		WikiPage $wikiPage,
+		UserIdentity $agent,
+		RevisionRecord $newRevision,
+		RevisionRecord $oldRevision
+	) {
 		$victimId = $oldRevision->getUser();
 		$latestRevision = $wikiPage->getRevisionRecord();
 		self::$lastRevertedRevision = $latestRevision;
 
 		if (
 			$victimId && // No notifications for anonymous users
-			!$oldRevision->getContent()->equals( $newRevision->getContent() ) // No notifications for null rollbacks
+			!$oldRevision->hasSameContent( $newRevision ) // No notifications for null rollbacks
 		) {
 			EchoEvent::create( [
 				'type' => 'reverted',
