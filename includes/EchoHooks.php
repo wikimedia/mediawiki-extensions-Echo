@@ -1256,6 +1256,7 @@ class EchoHooks {
 		// notifications for talk page messages, disable the new messages alert.
 		if ( $user->isLoggedIn()
 			&& isset( $wgEchoNotifications['edit-user-talk'] )
+			&& Hooks::run( 'EchoCanAbortNewMessagesAlert' )
 		) {
 			// hide new messages alert
 			return false;
