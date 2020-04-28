@@ -10,34 +10,34 @@ class NotificationControllerUnitTest extends MediaWikiUnitTestCase {
 	/**
 	 * @dataProvider PageLinkedTitleMutedByUserDataProvider
 	 * @covers ::isPageLinkedTitleMutedByUser
-	 * @param EchoEvent $echoEvent
+	 * @param Title $title
 	 * @param User $user
 	 * @param bool $expected
 	 */
 	public function testIsPageLinkedTitleMutedByUser(
-		EchoEvent $echoEvent, User $user, bool $expected ): void {
+		Title $title, User $user, bool $expected ): void {
 		$wrapper = TestingAccessWrapper::newFromClass( EchoNotificationController::class );
 		$wrapper->mutedPageLinkedTitlesCache = $this->getMapCacheLruMock();
 		$this->assertSame(
 			$expected,
-			$wrapper->isPageLinkedTitleMutedByUser( $echoEvent, $user )
+			$wrapper->isPageLinkedTitleMutedByUser( $title, $user )
 		);
 	}
 
 	public function PageLinkedTitleMutedByUserDataProvider() :array {
 		return [
 			[
-				$this->getMockEvent( 123 ),
+				$this->getMockTitle( 123 ),
 				$this->getMockUser( [] ),
 				false
 			],
 			[
-				$this->getMockEvent( 123 ),
+				$this->getMockTitle( 123 ),
 				$this->getMockUser( [ 123, 456, 789 ] ),
 				true
 			],
 			[
-				$this->getMockEvent( 456 ),
+				$this->getMockTitle( 456 ),
 				$this->getMockUser( [ 489 ] ),
 				false
 			]
@@ -45,20 +45,13 @@ class NotificationControllerUnitTest extends MediaWikiUnitTestCase {
 		];
 	}
 
-	private function getMockEvent( int $articleID ) {
-		$event = $this->getMockBuilder( EchoEvent::class )
-			->disableOriginalConstructor()
-			->getMock();
-		$event->method( 'getAgent' )
-			->willReturn( $this->getMockUser() );
+	private function getMockTitle( int $articleID ) {
 		$title = $this->getMockBuilder( Title::class )
 			->disableOriginalConstructor()
 			->getMock();
 		$title->method( 'getArticleID' )
 			->willReturn( $articleID );
-		$event->method( 'getTitle' )
-			->willReturn( $title );
-		return $event;
+		return $title;
 	}
 
 	private function getMockUser( $mutedTitlePreferences = [] ) {
