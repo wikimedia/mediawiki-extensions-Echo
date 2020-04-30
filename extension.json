@@ -1048,7 +1048,6 @@
 		"EchoNotificationJob": "includes/jobs/NotificationJob.php",
 		"EchoNotificationMapper": "includes/mapper/NotificationMapper.php",
 		"EchoNotifier": "includes/Notifier.php",
-		"EchoOOUI\\LabelIconWidget": "includes/ooui/LabelIconWidget.php",
 		"EchoOnWikiList": "includes/EchoOnWikiList.php",
 		"EchoPageLinkedPresentationModel": "includes/formatters/PageLinkedPresentationModel.php",
 		"EchoPlainTextDigestEmailFormatter": "includes/formatters/EchoPlainTextDigestEmailFormatter.php",
@@ -1085,6 +1084,9 @@
 		"SpecialNotificationsMarkRead": "includes/special/SpecialNotificationsMarkRead.php",
 		"UpdateEchoSchemaForSuppression": "maintenance/updateEchoSchemaForSuppression.php",
 		"EchoUpdatePerUserBlacklist": "maintenance/updatePerUserBlacklist.php"
+	},
+	"AutoloadNamespaces": {
+		"EchoOOUI\\": "includes/ooui/"
 	},
 	"TestAutoloadClasses": {
 		"EchoAbstractMapperStub": "tests/phpunit/mapper/EchoAbstractMapperStub.php",
