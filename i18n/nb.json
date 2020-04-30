@@ -86,6 +86,7 @@
 	"echo-specialpage-section-markread": "Merk gruppen som lest",
 	"echo-specialpage-markasread": "Beskjed: Merk som lest",
 	"echo-specialpage-markasread-invalid-id": "Ugyldig hendelses-ID",
+	"echo-specialpage-pagefilterwidget-aria-label": "Filtrer etter wiki og sidetittel",
 	"echo-specialpage-pagination-numnotifications": "$1 {{PLURAL:$1|beskjed|beskjeder}}",
 	"echo-specialpage-pagination-range": "$1–$2",
 	"echo-specialpage-pagefilters-title": "Nylig aktivitet",
