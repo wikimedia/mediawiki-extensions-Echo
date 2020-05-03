@@ -1618,7 +1618,10 @@ class EchoHooks {
 		if ( $echoPerUserBlacklist ) {
 			$fields[ 'echo-notifications-blacklist'] = [
 				'type' => 'check',
-				'label-message' => 'echo-specialmute-label-mute-notifications',
+				'label-message' => [
+					'echo-specialmute-label-mute-notifications',
+					$specialMute->getTarget()->getName()
+				],
 				'default' => $specialMute->isTargetBlacklisted( 'echo-notifications-blacklist' ),
 			];
 		}
