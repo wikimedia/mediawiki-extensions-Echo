@@ -124,7 +124,7 @@ abstract class EchoDiscussionParser {
 				if ( $count >= $wgEchoMaxMentionsInEditSummary ) {
 					break;
 				}
-				$mentionedUsers[] = $summaryUser;
+				$mentionedUsers[$summaryUser->getId()] = $summaryUser->getId();
 				$count++;
 			}
 
