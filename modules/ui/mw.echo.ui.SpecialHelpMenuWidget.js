@@ -55,7 +55,7 @@
 
 	/* Initialization */
 
-	OO.inheritClass( mw.echo.ui.SpecialHelpMenuWidget, OO.ui.DropdownWidget );
+	OO.inheritClass( mw.echo.ui.SpecialHelpMenuWidget, OO.ui.ButtonMenuSelectWidget );
 
 	/* Events */
 
@@ -72,7 +72,6 @@
 	 */
 	mw.echo.ui.SpecialHelpMenuWidget.prototype.onSourcePageUpdate = function () {
 		this.markAllReadOption.setLabel( this.getMarkAllReadOptionLabel() );
-
 	};
 
 	/**
@@ -85,7 +84,7 @@
 	};
 
 	/**
-	 * Handle dropdown menu choose events
+	 * Handle menu choose events
 	 *
 	 * @param {OO.ui.MenuOptionWidget} item Chosen item
 	 */
@@ -105,8 +104,6 @@
 			);
 			this.emit( 'markAllRead' );
 		}
-		// Clear selection so handle doesn't change
-		this.menu.selectItem();
 	};
 
 	/**
