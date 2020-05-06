@@ -1299,7 +1299,7 @@ class EchoHooks {
 					'reverted-revision-id' => $oldRevision->getId(),
 					'method' => 'rollback',
 				],
-				'agent' => $agent,
+				'agent' => User::newFromIdentity( $agent ),
 			] );
 		}
 	}
