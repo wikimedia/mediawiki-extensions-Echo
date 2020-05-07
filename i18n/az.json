@@ -65,6 +65,7 @@
 	"echo-notification-markasread-tooltip": "Oxunulmuş kimi işarələ",
 	"echo-notification-more-options-tooltip": "Digər parametrlər",
 	"notification-link-text-expand-all": "Aç",
+	"notification-link-text-expand-all-count": "$1 bildirişi göstər",
 	"notification-link-text-collapse-all": "Bağla",
 	"notification-link-text-view-message": "Məktuba bax",
 	"notification-link-text-view-mention": "Qeydə bax",
@@ -117,5 +118,6 @@
 	"echo-date-yesterday": "Dünən",
 	"echo-email-batch-subject-daily": "Sizin {{SITENAME}}-da {{PLURAL:$2|yeni bildiriş|yeni bildirişləriniz|}} var",
 	"echo-email-batch-subject-weekly": "Sizin bu həftə {{SITENAME}}-da {{PLURAL:$2|yeni bildiriş|yeni bildirişləriniz|}} var",
-	"echo-email-batch-link-text-view-all-notifications": "Bütün bildirişlərə bax"
+	"echo-email-batch-link-text-view-all-notifications": "Bütün bildirişlərə bax",
+	"notification-header-foreign-all": "Digər {{PLURAL:$5|vikidən|$5 vikidən}} bildirişlər"
 }
