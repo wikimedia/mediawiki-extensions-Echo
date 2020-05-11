@@ -45,6 +45,7 @@
 	"echo-category-title-emailuser": "Email {{PLURAL:$1|da 'n'otre utende|da otre utinde}}",
 	"echo-category-title-article-reminder": "{{PLURAL:$1|Pàgene|Pàggene}} de promemorie",
 	"echo-category-title-thank-you-edit": "Cange {{PLURAL:$1|'a petra miliare|le petre miliare}}",
+	"echo-category-title-watchlist": "Cange 'a pàgene condrollate",
 	"echo-pref-tooltip-edit-user-talk": "Avvisame quacche quacchedune manne 'nu messàgge o responne sus 'a pàgene de le 'ngazzaminde meje.",
 	"echo-pref-tooltip-article-linked": "Avvisame quacche quacchedune se colleghe a 'na pàgene ca ije agghie ccrejate da 'n'otra vôsce.",
 	"echo-pref-tooltip-reverted": "Avvisame quanne quacchedune annulle 'nu cangiamende ca agghie fatte ije, ausanne 'u strumende de annullamende.",
