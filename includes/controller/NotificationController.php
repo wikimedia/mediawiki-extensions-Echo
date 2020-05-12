@@ -17,11 +17,25 @@ class EchoNotificationController {
 	protected static $maxRecipientCacheSize = 200;
 
 	/**
+	 * Max number of users for which we in-process cache titles.
+	 *
+	 * @var int
+	 */
+	protected static $maxUsersTitleCacheSize = 200;
+
+	/**
 	 * Echo event agent per user blacklist
 	 *
 	 * @var MapCacheLRU
 	 */
 	protected static $blacklistByUser;
+
+	/**
+	 * Echo event agent per page linked event title mute list.
+	 *
+	 * @var MapCacheLRU
+	 */
+	protected static $mutedPageLinkedTitlesCache;
 
 	/**
 	 * Echo event agent per wiki blacklist
@@ -232,6 +246,10 @@ class EchoNotificationController {
 			self::$blacklistByUser = new MapCacheLRU( self::$maxRecipientCacheSize );
 		}
 
+		if ( self::$mutedPageLinkedTitlesCache === null ) {
+			self::$mutedPageLinkedTitlesCache = new MapCacheLRU( self::$maxUsersTitleCacheSize );
+		}
+
 		// Ensure we have a blacklist for the user
 		if ( !self::$blacklistByUser->has( (string)$user->getId() ) ) {
 			$blacklist = new EchoContainmentSet( $user );
@@ -256,7 +274,30 @@ class EchoNotificationController {
 			// Just get the user's blacklist if it's already there
 			$blacklist = self::$blacklistByUser->get( (string)$user->getId() );
 		}
-		return $blacklist->contains( $event->getAgent()->getName() );
+		return $blacklist->contains( $event->getAgent()->getName() ) ||
+			( $wgEchoPerUserBlacklist &&
+				$event->getType() === 'page-linked' &&
+				self::isPageLinkedTitleMutedByUser( $event, $user ) );
+	}
+
+	/**
+	 * Check if the event title is in the users page-linked event muted list.
+	 *
+	 * @param EchoEvent $event
+	 * @param User $user
+	 * @return bool
+	 */
+	private static function isPageLinkedTitleMutedByUser( EchoEvent $event, User $user ) {
+		if ( !self::$mutedPageLinkedTitlesCache->has( (string)$user->getId() ) ) {
+			$pageLinkedTitleMutedList = new EchoContainmentSet( $user );
+			$pageLinkedTitleMutedList->addTitleIDsFromUserOption(
+				'echo-notifications-page-linked-title-muted-list'
+			);
+			self::$mutedPageLinkedTitlesCache->set( (string)$user->getId(), $pageLinkedTitleMutedList );
+		} else {
+			$pageLinkedTitleMutedList = self::$mutedPageLinkedTitlesCache->get( (string)$user->getId() );
+		}
+		return $pageLinkedTitleMutedList->contains( (string)$event->getTitle()->getArticleID() );
 	}
 
 	/**

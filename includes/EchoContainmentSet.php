@@ -67,6 +67,24 @@ class EchoContainmentSet {
 	}
 
 	/**
+	 * Add a list of title IDs from a user preference to the set of lists
+	 * checked by self::contains().
+	 *
+	 * @param string $preferenceName
+	 */
+	public function addTitleIDsFromUserOption( string $preferenceName ) :void {
+		$preference = $this->recipient->getOption( $preferenceName, [] );
+		if ( !is_string( $preference ) ) {
+			// We expect the preference data to be saved as a string via the
+			// preferences form; if the user modified their data so it's no
+			// longer a string, ignore it.
+			return;
+		}
+		$titleIDs = preg_split( '/\n/', $preference, -1, PREG_SPLIT_NO_EMPTY );
+		$this->addArray( $titleIDs );
+	}
+
+	/**
 	 * Add a list from a wiki page to the set of lists checked by self::contains().  Data
 	 * from wiki pages is cached via the BagOStuff.  Caching is disabled when passing a null
 	 * $cache object.
