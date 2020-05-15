@@ -254,13 +254,15 @@ class MWEchoNotifUser {
 
 			// After this 'mark read', is there any unread edit-user-talk
 			// remaining?  If not, we should clear the newtalk flag.
-			if ( $this->mUser->getNewtalk() ) {
+			$talkPageNotificationManager = MediaWikiServices::getInstance()
+				->getTalkPageNotificationManager();
+			if ( $talkPageNotificationManager->userHasNewMessages( $this->mUser ) ) {
 				$attributeManager = EchoAttributeManager::newFromGlobalVars();
 				$categoryMap = $attributeManager->getEventsByCategory();
 				$usertalkTypes = $categoryMap['edit-user-talk'];
 				$unreadEditUserTalk = $this->notifMapper->fetchUnreadByUser( $this->mUser, 1, null, $usertalkTypes, null, DB_MASTER );
 				if ( $unreadEditUserTalk === [] ) {
-					$this->mUser->setNewtalk( false );
+					$talkPageNotificationManager->removeUserHasNewMessages( $this->mUser );
 				}
 			}
 		}
@@ -287,13 +289,15 @@ class MWEchoNotifUser {
 
 			// After this 'mark unread', is there any unread edit-user-talk?
 			// If so, we should add the edit-user-talk flag
-			if ( !$this->mUser->getNewtalk() ) {
+			$talkPageNotificationManager = MediaWikiServices::getInstance()
+				->getTalkPageNotificationManager();
+			if ( !$talkPageNotificationManager->userHasNewMessages( $this->mUser ) ) {
 				$attributeManager = EchoAttributeManager::newFromGlobalVars();
 				$categoryMap = $attributeManager->getEventsByCategory();
 				$usertalkTypes = $categoryMap['edit-user-talk'];
 				$unreadEditUserTalk = $this->notifMapper->fetchUnreadByUser( $this->mUser, 1, null, $usertalkTypes, null, DB_MASTER );
 				if ( $unreadEditUserTalk !== [] ) {
-					$this->mUser->setNewtalk( true );
+					$talkPageNotificationManager->setUserHasNewMessages( $this->mUser );
 				}
 			}
 		}

@@ -1168,7 +1168,9 @@ class EchoHooks {
 		// * User actually has new messages
 		// * User is not viewing their user talk page, as user_newtalk
 		// will not have been cleared yet. (bug T107655).
-		if ( $user->getNewtalk() && !$user->getTalkPage()->equals( $title ) ) {
+		$userHasNewMessages = MediaWikiServices::getInstance()
+			->getTalkPageNotificationManager()->userHasNewMessages( $user );
+		if ( $userHasNewMessages && !$user->getTalkPage()->equals( $title ) ) {
 			if ( Hooks::run( 'BeforeDisplayOrangeAlert', [ $user, $title ] ) ) {
 				$personal_urls['mytalk']['text'] = $sk->msg( 'echo-new-messages' )->text();
 				$personal_urls['mytalk']['class'] = [ 'mw-echo-alert' ];

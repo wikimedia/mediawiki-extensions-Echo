@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 class EchoNotification extends EchoAbstractEntity implements Bundleable {
 
 	/**
@@ -120,7 +122,9 @@ class EchoNotification extends EchoAbstractEntity implements Bundleable {
 		$notifMapper->insert( $this );
 
 		if ( $this->event->getCategory() === 'edit-user-talk' ) {
-			$this->user->setNewtalk( true );
+			MediaWikiServices::getInstance()
+				->getTalkPageNotificationManager()
+				->setUserHasNewMessages( $this->user );
 		}
 		Hooks::run( 'EchoCreateNotificationComplete', [ $this ] );
 	}
