@@ -112,6 +112,7 @@
 	"echo-specialpage-markasread": "Notification: Mark as read",
 	"echo-specialpage-markasread-invalid-id": "Invalid event ID",
 	"echo-specialpage-pagefilterwidget-aria-label": "Filter by wiki and page title",
+	"echo-specialpage-special-help-menu-widget-aria-label": "Additional options and Notifications preferences.",
 	"echo-specialpage-pagination-numnotifications": "$1 {{PLURAL:$1|notification|notifications}}",
 	"echo-specialpage-pagination-range": "$1 - $2",
 	"echo-specialpage-pagefilters-title": "Recent activity",
