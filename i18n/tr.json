@@ -188,7 +188,7 @@
 	"notification-link-thank-you-edit": "{{GENDER:$1|Sizin}} düzenleme",
 	"notification-link-text-view-edit": "Değişikliği görüntüle",
 	"notification-link-article-reminder": "Sayfayı görüntüle",
-	"notification-header-reverted": "{{PLURAL:$4|$3 sayfasındaki değişikliğiniz|$3 sayfasındaki değişiklikleriniz}}, $1 tarafından {{GENDER:$2|geri alındı}}.",
+	"notification-header-reverted": "{{PLURAL:$4|$3 sayfasındaki değişikliğiniz|$3 sayfasındaki değişiklikleriniz}} {{GENDER:$2|geri alındı}}.",
 	"notification-header-emailuser": "$1 size bir e-posta {{GENDER:$2|gönderdi}}.",
 	"notification-edit-talk-page-email-subject2": "$1, {{SITENAME}} sayfasında {{GENDER:$3|size}} bir mesaj {{GENDER:$2|bıraktı}}",
 	"notification-page-linked-email-subject": "{{SITENAME}} {{GENDER:$3|siz}} sayfasında oluşturulan bir sayfası bağlandı",
