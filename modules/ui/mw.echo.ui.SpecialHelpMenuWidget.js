@@ -12,7 +12,9 @@
 		// Parent constructor
 		mw.echo.ui.SpecialHelpMenuWidget.super.call( this, $.extend( {
 			icon: 'settings',
+			label: mw.msg( 'echo-specialpage-special-help-menu-widget-aria-label' ),
 			indicator: 'down',
+			invisibleLabel: true,
 			menu: {
 				classes: [ 'mw-echo-ui-specialHelpMenuWidget-menu' ],
 				horizontalPosition: 'end',
