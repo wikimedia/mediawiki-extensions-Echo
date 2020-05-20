@@ -95,6 +95,7 @@
 	"echo-specialpage-markasread": "Benachrichtigung: Als gelesen markieren",
 	"echo-specialpage-markasread-invalid-id": "Ungültige Ereigniskennung",
 	"echo-specialpage-pagefilterwidget-aria-label": "Nach Wiki und Seitentitel filtern",
+	"echo-specialpage-special-help-menu-widget-aria-label": "Zusätzliche Optionen und Benachrichtigungseinstellungen.",
 	"echo-specialpage-pagination-numnotifications": "{{PLURAL:$1|Eine Benachrichtigung|$1 Benachrichtigungen}}",
 	"echo-specialpage-pagefilters-title": "Letzte Aktivität",
 	"echo-specialpage-pagefilters-subtitle": "Seiten mit ungelesenen Benachrichtigungen",

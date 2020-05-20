@@ -106,6 +106,7 @@
 	"echo-specialpage-markasread": "通知：標記為已讀",
 	"echo-specialpage-markasread-invalid-id": "事件ID無效",
 	"echo-specialpage-pagefilterwidget-aria-label": "透過 wiki 與頁面標題篩選",
+	"echo-specialpage-special-help-menu-widget-aria-label": "額外選項與通知偏好設定。",
 	"echo-specialpage-pagination-numnotifications": "$1 則{{PLURAL:$1|通知}}",
 	"echo-specialpage-pagefilters-title": "最近活動",
 	"echo-specialpage-pagefilters-subtitle": "含未讀取通知的頁面",
