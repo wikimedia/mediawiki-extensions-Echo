@@ -82,6 +82,7 @@
 	"echo-specialpage-markasread": "Известување: Означување како прочитано",
 	"echo-specialpage-markasread-invalid-id": "Неважечка назнака на настанот",
 	"echo-specialpage-pagefilterwidget-aria-label": "Филтрирај по вики или наслов на страница",
+	"echo-specialpage-special-help-menu-widget-aria-label": "Дополнителни можности и Нагодувања на известувањата.",
 	"echo-specialpage-pagination-numnotifications": "$1 {{PLURAL:$1|известување|известувања}}",
 	"echo-specialpage-pagination-range": "$1 - $2",
 	"echo-specialpage-pagefilters-title": "Скорешни активности",

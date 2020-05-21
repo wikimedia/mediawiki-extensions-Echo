@@ -102,6 +102,7 @@
 	"echo-specialpage-markasread": "Powiadomienie: Oznacz jako przeczytane",
 	"echo-specialpage-markasread-invalid-id": "Nieprawidłowy identyfikator zdarzenia",
 	"echo-specialpage-pagefilterwidget-aria-label": "Filtruj wiki i tytuły stron",
+	"echo-specialpage-special-help-menu-widget-aria-label": "Dodatkowe opcje i preferencje powiadomień.",
 	"echo-specialpage-pagination-numnotifications": "{{PLURAL:$1|$1 powiadomienie|$1 powiadomienia|$1 powiadomień}}",
 	"echo-specialpage-pagefilters-title": "Ostatnia aktywność",
 	"echo-specialpage-pagefilters-subtitle": "Strony z nieodczytanymi powiadomieniami",

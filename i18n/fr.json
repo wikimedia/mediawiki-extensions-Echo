@@ -122,6 +122,7 @@
 	"echo-specialpage-markasread": "Notification : marquer comme lue",
 	"echo-specialpage-markasread-invalid-id": "ID d’événement non valide",
 	"echo-specialpage-pagefilterwidget-aria-label": "Filtrer par wiki et par titre de page",
+	"echo-specialpage-special-help-menu-widget-aria-label": "Options supplémentaires et préférences de notification.",
 	"echo-specialpage-pagination-numnotifications": "$1 notification{{PLURAL:$1||s}}",
 	"echo-specialpage-pagefilters-title": "Activité récente",
 	"echo-specialpage-pagefilters-subtitle": "Pages avec des notifications non lues",
