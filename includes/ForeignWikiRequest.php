@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\Logger\LoggerFactory;
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Session\SessionManager;
 
 class EchoForeignWikiRequest {
@@ -193,7 +194,7 @@ class EchoForeignWikiRequest {
 	 * @throws Exception
 	 */
 	protected function doRequests( array $reqs ) {
-		$http = new MultiHttpClient( [] );
+		$http = MediaWikiServices::getInstance()->getHttpRequestFactory()->createMultiClient();
 		$responses = $http->runMulti( $reqs );
 
 		$results = [];
