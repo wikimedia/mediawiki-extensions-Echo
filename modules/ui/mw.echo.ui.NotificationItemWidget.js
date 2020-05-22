@@ -77,7 +77,8 @@
 
 		// Actions menu
 		this.actionsButtonSelectWidget = new OO.ui.ButtonSelectWidget( {
-			classes: [ 'mw-echo-ui-notificationItemWidget-content-actions-buttons' ]
+			classes: [ 'mw-echo-ui-notificationItemWidget-content-actions-buttons' ],
+			tabIndex: -1
 		} );
 
 		// Popup menu
@@ -161,6 +162,7 @@
 			// Limit to 2 items outside the menu
 			if ( isOutsideMenu ) {
 				this.actionsButtonSelectWidget.addItems( [ linkButton ] );
+				this.actionsButtonSelectWidget.setTabIndex( 0 );
 				outsideMenuItemCounter++;
 			} else {
 				this.menuPopupButtonWidget.getMenu().addItems( [ linkButton ] );
