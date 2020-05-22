@@ -63,15 +63,15 @@ class SubscriptionManager extends EchoAbstractMapper {
 	}
 
 	/**
-	 * Get all registered subscriptions for a user.
-	 * @param User $user
+	 * Get all registered subscriptions for a user (by central ID).
+	 * @param int $centralId
 	 * @return array array of Subscription objects
 	 */
-	public function getSubscriptionsForUser( User $user ) {
+	public function getSubscriptionsForUser( int $centralId ) {
 		$res = $this->dbr->select(
 			'echo_push_subscription',
 			'*',
-			[ 'eps_user' => $this->getCentralId( $user ) ]
+			[ 'eps_user' => $centralId ]
 		);
 		$result = [];
 		foreach ( $res as $row ) {
