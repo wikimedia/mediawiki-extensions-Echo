@@ -110,6 +110,7 @@
 	"notification-inbox-filter-read": "კითხვა",
 	"notification-inbox-filter-unread": "წაუკითხავი",
 	"notification-inbox-filter-all": "ყველა",
+	"echo-specialmute-label-mute-notifications": "არ აჩვენო შეტყობინება ამ მომხმარებლისგან",
 	"echo-notification-alert-text-only": "მოხსენება",
 	"echo-notification-notice-text-only": "შეტყობინებები",
 	"echo-overlay-link": "შეტყობინება",

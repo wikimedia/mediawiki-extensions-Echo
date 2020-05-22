@@ -2,10 +2,17 @@
 	"@metadata": {
 		"authors": [
 			"1AnuraagPandey",
+			"1PandeyAnurag",
 			"Ajeetsinghawadh",
 			"Ajeetsinghawadhi"
 		]
 	},
+	"prefs-echo": "सूचना",
+	"echo-pref-send-me": "हम्मै भेजो:",
+	"echo-pref-email-frequency-never": "कवनो अधिसूचना ना पठओ",
+	"echo-pref-email-frequency-immediately": "सूचना अवतै",
+	"echo-pref-email-frequency-daily": "अधिसूचना कय दैनिक सारांश",
+	"echo-pref-email-frequency-weekly": "अधिसूचना कय साप्ताहिक सारांश",
 	"echo-new-messages": "आप कय खातिर नवाँ सन्देश अहै",
 	"notifications": "अधिसूचना",
 	"tooltip-pt-notifications-alert": "{{GENDER:|आपका}} जागरूकता संदेश",
@@ -19,6 +26,7 @@
 	"notification-link-text-view-message": "संदेश देखैं",
 	"notification-link-text-view-mention": "उल्लेख देखैं",
 	"notification-link-text-view-page": "पृष्ठ देखा जाय",
+	"notification-header-thank-you-1-edit": "{{GENDER:$2|आप}} अबहिनै {{GENDER:$2|आपन}} पहिला सम्पादन करा गै; {{GENDER:$2|आप कै}} धन्यवाद, औ स्वागत है !",
 	"notification-link-text-view-edit": "सम्पादन देखैं",
 	"notification-link-article-reminder": "पृष्ठ देखा जाय",
 	"notification-timestamp-today": "आज",
@@ -29,7 +37,7 @@
 	"echo-notification-alert-text-only": "एलर्ट",
 	"echo-overlay-link": "कुल अधिसूचना",
 	"echo-overlay-title": "<b>अधिसूचना</b>",
-	"echo-mark-all-as-read": "सभी पढ़ी गयी चिन्हित करें",
+	"echo-mark-all-as-read": "कुल पढ़ल चिन्हित कीन जाय",
 	"echo-date-today": "आज",
 	"echo-date-yesterday": "कल्हिँया"
 }
