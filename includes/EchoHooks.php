@@ -1406,12 +1406,13 @@ class EchoHooks {
 	/**
 	 * Handler for UserClearNewTalkNotification hook.
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/UserClearNewTalkNotification
-	 * @param User $user User whose talk page notification should be marked as read
+	 * @param UserIdentity $user User whose talk page notification should be marked as read
 	 */
-	public static function onUserClearNewTalkNotification( User $user ) {
-		if ( !$user->isAnon() ) {
-			DeferredUpdates::addCallableUpdate( function () use ( $user ) {
-				MWEchoNotifUser::newFromUser( $user )->clearUserTalkNotifications();
+	public static function onUserClearNewTalkNotification( UserIdentity $user ) {
+		if ( $user->isRegistered() ) {
+			$userObj = User::newFromIdentity( $user );
+			DeferredUpdates::addCallableUpdate( function () use ( $userObj ) {
+				MWEchoNotifUser::newFromUser( $userObj )->clearUserTalkNotifications();
 			} );
 		}
 	}
