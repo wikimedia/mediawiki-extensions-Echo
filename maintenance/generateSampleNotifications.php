@@ -231,7 +231,7 @@ class GenerateSampleNotifications extends Maintenance {
 		);
 
 		if ( !$status->isGood() ) {
-			$this->error( "Failed to edit {$title->getPrefixedText()}: {$status->getMessage()}" );
+			$this->error( "Failed to edit {$title->getPrefixedText()}: {$status->getMessage()->text()}" );
 		}
 
 		return $status->getValue()['revision'];
@@ -299,7 +299,7 @@ class GenerateSampleNotifications extends Maintenance {
 
 		$status = $page->doEditContent( $content, 'undo', 0, false, $agent, null, [], $undoRev->getId() );
 		if ( !$status->isGood() ) {
-			$this->error( "Failed to undo {$moai->getPrefixedText()}: {$status->getMessage()}" );
+			$this->error( "Failed to undo {$moai->getPrefixedText()}: {$status->getMessage()->text()}" );
 		}
 	}
 
