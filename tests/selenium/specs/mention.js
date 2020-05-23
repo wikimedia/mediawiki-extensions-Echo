@@ -7,21 +7,24 @@ const assert = require( 'assert' ),
 	Api = require( 'wdio-mediawiki/Api' );
 
 describe( 'Mention test for Echo', function () {
+	let bot;
+
+	before( async () => {
+		bot = await Api.bot();
+	} );
 	it.skip( 'checks if admin gets alert when mentioned', function () {
 
 		const username = Util.getTestString( 'NewUser-' );
 		const password = Util.getTestString();
-		browser.call( function () {
-			return Api.createAccount( username, password
-			).then( function () {
-				return Api.edit( `User:${username}`, `Hello [[User:${browser.options.username}]] ~~~~`, username, password );
-			} );
+		browser.call( async () => {
+			await Api.createAccount( bot, username, password );
+			await bot.edit( `User:${username}`, `Hello [[User:${browser.config.mwUser}]] ~~~~`, username, password );
 		} );
-		UserLoginPage.login( browser.options.username, browser.options.password );
+		UserLoginPage.login( browser.config.mwUser, browser.config.mwPwd );
 
 		EchoPage.alerts.click();
 
-		EchoPage.alertMessage.waitForVisible();
+		EchoPage.alertMessage.waitForDisplayed();
 		const regexp = /‪.*‬ mentioned you on ‪User:.*./;
 		assert( regexp.test( EchoPage.alertMessage.getText() ) );
 	} );
