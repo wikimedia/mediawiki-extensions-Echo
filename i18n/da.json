@@ -138,7 +138,7 @@
 	"notification-inbox-filter-read": "Læste",
 	"notification-inbox-filter-unread": "Ulæste",
 	"notification-inbox-filter-all": "Alle",
-	"echo-specialmute-label-mute-notifications": "Tillad ikke denne bruger at sende dig beskeder (notifikationer)",
+	"echo-specialmute-label-mute-notifications": "Tillad ikke denne bruger at sende mig beskeder (notifikationer)",
 	"echo-notification-alert": "{{PLURAL:$1|Meddelelse ($1)|Meddelelser ($1)|100=Meddelelser (99+)}}",
 	"echo-notification-alert-text-only": "Alarmer",
 	"echo-notification-notice-text-only": "Meddelelser",
