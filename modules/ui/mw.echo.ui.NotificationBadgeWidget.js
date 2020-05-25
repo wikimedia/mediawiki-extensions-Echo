@@ -89,6 +89,7 @@
 			href: links.notifications,
 			classes: [ 'mw-echo-ui-notificationBadgeButtonPopupWidget-footer-allnotifs' ]
 		} );
+		allNotificationsButton.$element.children().first().removeAttr( 'role' );
 
 		preferencesButton = new OO.ui.ButtonWidget( {
 			icon: 'settings',
@@ -96,6 +97,7 @@
 			href: links.preferences,
 			classes: [ 'mw-echo-ui-notificationBadgeButtonPopupWidget-footer-preferences' ]
 		} );
+		preferencesButton.$element.children().first().removeAttr( 'role' );
 
 		footerButtonGroupWidget = new OO.ui.ButtonGroupWidget( {
 			items: [ allNotificationsButton, preferencesButton ],
