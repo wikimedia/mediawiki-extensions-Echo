@@ -41,7 +41,7 @@
 	"prefs-echosubscriptions": "Notify me about these events",
 	"prefs-echocrosswiki": "Cross-wiki notifications",
 	"prefs-blocknotificationslist": "Muted users",
-	"prefs-mutedpageslist": "Muted pages",
+	"prefs-mutedpageslist": "Muted pages for page link notifications",
 	"prefs-echopollupdates": "Live notifications",
 	"echo-mobile-notifications-filter-title": "Filter notifications",
 	"echo-pref-show-poll-updates": "Display new notifications as they arrive",

@@ -43,7 +43,7 @@
 	"prefs-echosubscriptions": "Header for the section of preferences that deals with which notifications the user receives",
 	"prefs-echocrosswiki": "Header for the section of preferences that deals with notifications from other wikis",
 	"prefs-blocknotificationslist": "Header for the section of preferences that deals with blocking notifications from certain users",
-	"prefs-mutedpageslist": "Header for the section of preferences that allows muting notifications for selected pages.",
+	"prefs-mutedpageslist": "Header for the section of preferences that allows muting notifications for selected pages, currently only for page linked notification types.",
 	"prefs-echopollupdates": "Header for the section of preferences that deals with displaying visual cue and snippet of live notifications",
 	"echo-mobile-notifications-filter-title": "Title shown in the notifications filter page on click of the Filter button. It is also used for the filter button itself that opens it.",
 	"echo-pref-show-poll-updates": "Label for displaying visual cue and snippet of live notification",
