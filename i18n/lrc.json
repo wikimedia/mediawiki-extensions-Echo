@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"BaRaN6161 TURK",
 			"Bonevarluri",
 			"Lorestani",
 			"Mogoeilor"
@@ -42,10 +43,10 @@
 	"notification-link-text-view-changes": "دیئن آلشتیا",
 	"notification-link-text-view-page": "بلگه بوینیت",
 	"notification-link-text-view-edit": "ویرایشت نه بوینیت",
-	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$2|یه گل پیغوم}} د {{نوم دیارگه}} نیائه.",
+	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$2|یه گل پیغوم}} د {{SITENAME}} نیائه.",
 	"notification-page-linked-email-subject": "بلگه شما د {{نوم مالگه}} هوم پیوند بیه",
 	"notification-mention-email-subject": "$1 {{GENDER:$2|گوته}} د {{SITENAME}} شما",
-	"notification-user-rights-email-subject": "حقوق کاریاری شما د {{نوم دیارگه}} آلشت دئیه بیه",
+	"notification-user-rights-email-subject": "حقوق کاریاری شما د {{SITENAME}} آلشت دئیه بیه",
 	"echo-notification-alert-text-only": "زئناریا",
 	"echo-overlay-link": "همه وارسیاریا",
 	"echo-overlay-title": "<b>وارسیاریا</b>",
