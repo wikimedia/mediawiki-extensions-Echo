@@ -51,7 +51,7 @@
 	"prefs-echosubscriptions": "Me prévenir de ces événements",
 	"prefs-echocrosswiki": "Notifications inter-wikis",
 	"prefs-blocknotificationslist": "Utilisateurs que vous avez bloqués",
-	"prefs-mutedpageslist": "Pages muettes",
+	"prefs-mutedpageslist": "Pages muettes pour les notifications de lien de page",
 	"prefs-echopollupdates": "Notifications en direct",
 	"echo-mobile-notifications-filter-title": "Filtrer les notifications",
 	"echo-pref-show-poll-updates": "Afficher les nouvelles notifications quand elles arrivent",
