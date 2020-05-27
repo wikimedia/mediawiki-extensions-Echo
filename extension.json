@@ -24,7 +24,8 @@
 	"APIModules": {
 		"echomarkread": "ApiEchoMarkRead",
 		"echomarkseen": "ApiEchoMarkSeen",
-		"echoarticlereminder": "ApiEchoArticleReminder"
+		"echoarticlereminder": "ApiEchoArticleReminder",
+		"echomute": "ApiEchoMute"
 	},
 	"DefaultUserOptions": {
 		"echo-email-frequency": 0,
@@ -721,6 +722,9 @@
 						"rtl": "Echo/modules/icons/userTalk-rtl.svg"
 					}
 				},
+				"unbell": {
+					"path": "Echo/modules/icons/unbell.svg"
+				},
 				"userSpeechBubble": {
 					"path": "Echo/modules/icons/user-speech-bubble.svg"
 				}
@@ -994,6 +998,7 @@
 		"ApiEchoArticleReminder": "includes/api/ApiEchoArticleReminder.php",
 		"ApiEchoMarkRead": "includes/api/ApiEchoMarkRead.php",
 		"ApiEchoMarkSeen": "includes/api/ApiEchoMarkSeen.php",
+		"ApiEchoMute": "includes/api/ApiEchoMute.php",
 		"ApiEchoNotifications": "includes/api/ApiEchoNotifications.php",
 		"ApiEchoUnreadNotificationPages": "includes/api/ApiEchoUnreadNotificationPages.php",
 		"BackfillUnreadWikis": "maintenance/backfillUnreadWikis.php",

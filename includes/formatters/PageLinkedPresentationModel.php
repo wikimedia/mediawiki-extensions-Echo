@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 class EchoPageLinkedPresentationModel extends EchoEventPresentationModel {
 
 	private $pageFrom;
@@ -53,7 +55,60 @@ class EchoPageLinkedPresentationModel extends EchoEventPresentationModel {
 			];
 		}
 
-		return [ $whatLinksHereLink, $diffLink ];
+		return [ $whatLinksHereLink, $diffLink, $this->getMuteLink() ];
+	}
+
+	protected function getMuteLink() {
+		if ( !MediaWikiServices::getInstance()->getMainConfig()->get( 'EchoPerUserBlacklist' ) ) {
+			return null;
+		}
+		$title = $this->event->getTitle();
+		$isPageMuted = EchoNotificationController::isPageLinkedTitleMutedByUser( $title, $this->getUser() );
+		$action = $isPageMuted ? 'unmute' : 'mute';
+		$prefTitle = SpecialPage::getTitleFor( 'Preferences', false, 'mw-prefsection-echo-mutedpageslist' );
+		$data = [
+			'tokenType' => 'csrf',
+			'params' => [
+				'action' => 'echomute',
+				'type' => 'page-linked-title',
+			],
+			'messages' => [
+				'confirmation' => [
+					// notification-dynamic-actions-mute-page-linked-confirmation
+					// notification-dynamic-actions-unmute-page-linked-confirmation
+					'title' => $this
+						->msg( 'notification-dynamic-actions-' . $action . '-page-linked-confirmation' )
+						->params(
+							$this->getTruncatedTitleText( $title ),
+							$this->getViewingUserForGender()
+						),
+					// notification-dynamic-actions-mute-page-linked-confirmation-description
+					// notification-dynamic-actions-unmute-page-linked-confirmation-description
+					'description' => $this
+						->msg( 'notification-dynamic-actions-' . $action . '-page-linked-confirmation-description' )
+						->params(
+							$prefTitle->getFullURL(),
+							$this->getViewingUserForGender()
+						)
+				]
+			]
+		];
+		$data['params'][$isPageMuted ? 'unmute' : 'mute'] = $title->getPrefixedText();
+
+		return $this->getDynamicActionLink(
+			$prefTitle,
+			$isPageMuted ? 'bell' : 'unbell',
+			// notification-dynamic-actions-mute-page-linked
+			// notification-dynamic-actions-unmute-page-linked
+			$this->msg( 'notification-dynamic-actions-' . $action . '-page-linked' )
+				->params(
+					$this->getTruncatedTitleText( $title ),
+					$this->getViewingUserForGender()
+				),
+			null,
+			$data,
+			[]
+		);
 	}
 
 	protected function getHeaderMessageKey() {
