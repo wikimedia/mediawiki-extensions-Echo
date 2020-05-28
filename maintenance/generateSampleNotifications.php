@@ -215,9 +215,9 @@ class GenerateSampleNotifications extends Maintenance {
 		$page = WikiPage::factory( $title );
 		$previousContent = "";
 		$page->loadPageData( WikiPage::READ_LATEST );
-		$revision = $page->getRevision();
+		$revision = $page->getRevisionRecord();
 		if ( $revision ) {
-			$content = $revision->getContent( RevisionRecord::FOR_PUBLIC );
+			$content = $revision->getContent( SlotRecord::MAIN, RevisionRecord::FOR_PUBLIC );
 			if ( $content instanceof WikitextContent ) {
 				$previousContent = $content->getText();
 			}
