@@ -122,6 +122,7 @@
 	"notification-inbox-filter-read": "Чытаныя",
 	"notification-inbox-filter-unread": "Непрачытаныя",
 	"notification-inbox-filter-all": "Усе",
+	"echo-specialmute-label-mute-notifications": "Не паказваць апавяшчэнні ад гэтага ўдзельніка",
 	"echo-notification-alert": "{{PLURAL:$1|Абвестка ($1)|Абвесткі ($1)|100=Абвесткі (99+)}}",
 	"echo-notification-alert-text-only": "Паведамленні",
 	"echo-notification-notice-text-only": "Абвесткі",

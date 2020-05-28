@@ -24,7 +24,7 @@
 	"prefs-echosubscriptions": "Bei diesen Ereignissen benachrichtigen",
 	"prefs-echocrosswiki": "Wikiübergreifende Benachrichtigungen",
 	"prefs-blocknotificationslist": "Ignorierte Benutzer",
-	"prefs-mutedpageslist": "Stummgeschaltete Seiten",
+	"prefs-mutedpageslist": "Stummgeschaltete Seiten für Seitenverlinkungs-Benachrichtigungen",
 	"prefs-echopollupdates": "Live-Benachrichtigungen",
 	"echo-mobile-notifications-filter-title": "Benachrichtigungen filtern",
 	"echo-pref-show-poll-updates": "Anzeigen neuer Benachrichtigungen sofort nach Eingang",
