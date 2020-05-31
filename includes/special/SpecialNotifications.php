@@ -13,7 +13,6 @@ class SpecialNotifications extends SpecialPage {
 
 	/**
 	 * @param string|null $par
-	 * @suppress SecurityCheck-DoubleEscaped Different members of $notifArray being conflated
 	 */
 	public function execute( $par ) {
 		$this->setHeaders();
