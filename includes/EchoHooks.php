@@ -1643,7 +1643,8 @@ class EchoHooks implements RecentChange_saveHook {
 				'revid' => $change->getAttribute( "rc_this_oldid" ),
 				'logid' => $change->getAttribute( "rc_logid" ),
 				'status' => $change->mExtra["pageStatus"],
-				'timestamp' => $change->getAttribute( "rc_timestamp" )
+				'timestamp' => $change->getAttribute( "rc_timestamp" ),
+				'emailonce' => $this->config->get( 'EchoWatchlistEmailOncePerPage' )
 			],
 			'agent' => $user
 		] );

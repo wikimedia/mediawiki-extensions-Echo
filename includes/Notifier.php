@@ -118,14 +118,14 @@ class EchoNotifier {
 		$emailFormat = MWEchoNotifUser::newFromUser( $user )->getEmailFormat();
 		$lang = Language::factory( $user->getOption( 'language' ) );
 		$formatter = new EchoPlainTextEmailFormatter( $user, $lang );
-		$content = $formatter->format( $event );
+		$content = $formatter->format( $event, 'email' );
 		if ( !$content ) {
 			return false;
 		}
 
 		if ( $emailFormat === EchoEmailFormat::HTML ) {
 			$htmlEmailFormatter = new EchoHtmlEmailFormatter( $user, $lang );
-			$htmlContent = $htmlEmailFormatter->format( $event );
+			$htmlContent = $htmlEmailFormatter->format( $event, 'email' );
 			$multipartBody = [
 				'text' => $content['body'],
 				'html' => $htmlContent['body']

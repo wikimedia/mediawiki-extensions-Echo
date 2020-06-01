@@ -68,6 +68,13 @@ class EchoWatchlistChangePresentationModel extends EchoEventPresentationModel {
 		}
 	}
 
+	public function getBodyMessage() {
+		if ( $this->event->getExtraParam( 'emailonce' ) && $this->getDistributionType() == 'email' ) {
+			return $this->msg( 'notification-body-watchlist-once', $this->getViewingUserForGender() );
+		}
+		return false;
+	}
+
 	private function isMultiUserBundle() {
 		foreach ( $this->getBundledEvents() as $bundled ) {
 			if ( !$bundled->getAgent()->equals( $this->event->getAgent() ) ) {
