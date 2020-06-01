@@ -18,6 +18,7 @@
 			"Ykhwong",
 			"관인생략",
 			"렌즈",
+			"밝은소년",
 			"아라"
 		]
 	},
@@ -42,6 +43,7 @@
 	"echo-pref-email-format-plain-text": "일반 텍스트",
 	"echo-pref-cross-wiki-notifications": "다른 위키의 알림을 보기",
 	"echo-pref-notifications-blacklist": "이 사용자의 알림을 표시하지 않습니다. ([[mw:Special:MyLanguage/Help:Notifications#mute|더 알아보기]])",
+	"echo-pref-notifications-page-linked-title-muted-list": "이 문서에 대한 '문서 링크' 알림을 표시하지 않습니다. ([[mw:Special:MyLanguage/Help:Notifications#mute|더 알아보기]])",
 	"echo-learn-more": "더 알아보기",
 	"echo-log": "공개 기록",
 	"echo-new-messages": "새 메시지가 있습니다",
@@ -106,6 +108,7 @@
 	"echo-notification-more-options-tooltip": "옵션 더 보기",
 	"notification-dynamic-actions-mute-page-linked": "\"$1의 링크 알림 {{GENDER:$2|미표시}}",
 	"notification-dynamic-actions-unmute-page-linked": "\"$1의 링크 알림 {{GENDER:$2|표시}}",
+	"notification-dynamic-actions-unmute-page-linked-confirmation": "이제 \"$1\" 문서에 대한 문서 링크 알림이 표시됩니다.",
 	"notification-dynamic-actions-unwatch": "\"$1\"의 새로운 활동 주시를 {{GENDER:$3|해제}}",
 	"notification-dynamic-actions-unwatch-confirmation": "{{GENDER:$3|당신은}} 더 이상 \"$1\" 문서를 주시하지 않습니다",
 	"notification-dynamic-actions-unwatch-confirmation-description": "{{GENDER:$3|당신은}} 언제든지 [$2 이 문서]를 주시할 수 있습니다.",

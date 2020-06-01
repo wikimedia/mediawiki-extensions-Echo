@@ -31,7 +31,7 @@
 	"prefs-echosubscriptions": "Powiadom mnie o tych zdarzeniach",
 	"prefs-echocrosswiki": "Powiadomienia z innych projektów",
 	"prefs-blocknotificationslist": "Ignorowanie użytkowników",
-	"prefs-mutedpageslist": "Wyciszone strony",
+	"prefs-mutedpageslist": "Strony z wyciszonymi powiadomieniami dotyczącymi linków",
 	"prefs-echopollupdates": "Powiadomienia na żywo",
 	"echo-mobile-notifications-filter-title": "Filtruj powiadomienia",
 	"echo-pref-show-poll-updates": "Wyświetlaj nowe powiadomienia, gdy się pojawią",
