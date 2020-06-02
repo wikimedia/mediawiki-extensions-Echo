@@ -301,20 +301,6 @@ class GenerateSampleNotifications extends Maintenance {
 		if ( !$status->isGood() ) {
 			$this->error( "Failed to undo {$moai->getPrefixedText()}: {$status->getMessage()}" );
 		}
-
-		// rollback
-		$moai2 = Title::newFromText( 'Moai2' );
-		$page = WikiPage::factory( $moai2 );
-		$this->output( "{$agent->getName()} is rolling back {$user->getName()}'s edits on {$moai2->getPrefixedText()}\n" );
-		$this->addToPageContent( $moai2, $agent, "\ncreating a good revision here\n" );
-		$this->addToPageContent( $moai2, $user, "\nadding a line here\n" );
-		$this->addToPageContent( $moai2, $user, "\nadding a line here\n" );
-		$details = [];
-		$token = $agent->getEditToken( 'rollback', null );
-		$errors = $page->doRollback( $user->getName(), 'generating reverted notification', $token, false, $details, $agent );
-		if ( $errors ) {
-			$this->error( serialize( $errors ) );
-		}
 	}
 
 	private function generateWelcome( User $user ) {
