@@ -36,7 +36,8 @@
 	],
 	"JobClasses": {
 		"EchoNotificationJob": "EchoNotificationJob",
-		"EchoNotificationDeleteJob": "EchoNotificationDeleteJob"
+		"EchoNotificationDeleteJob": "EchoNotificationDeleteJob",
+		"EchoPushNotificationRequest": "EchoPush\\NotificationRequestJob"
 	},
 	"SpecialPages": {
 		"Notifications": "SpecialNotifications",
@@ -988,6 +989,10 @@
 		"EchoEnablePush": {
 			"value": false,
 			"description": "Whether to enable push notifications"
+		},
+		"EchoPushServiceUrl": {
+			"value": false,
+			"description": "Request endpoint URL for the push notification service"
 		}
 	},
 	"attributes": {

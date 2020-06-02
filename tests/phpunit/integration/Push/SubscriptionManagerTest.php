@@ -4,7 +4,7 @@
  * @group Database
  * @covers \EchoPush\SubscriptionManager
  */
-class PushSubscriptionManagerTest extends MediaWikiIntegrationTestCase {
+class SubscriptionManagerTest extends MediaWikiIntegrationTestCase {
 
 	public function setUp(): void {
 		parent::setUp();
@@ -15,11 +15,12 @@ class PushSubscriptionManagerTest extends MediaWikiIntegrationTestCase {
 	public function testManagePushSubscriptions(): void {
 		$subscriptionManager = EchoServices::getInstance()->getPushSubscriptionManager();
 		$user = $this->getTestUser()->getUser();
+		$centralId = CentralIdLookup::factory()->centralIdFromLocalUser( $user );
 		$subscriptionManager->create( $user, 'test', 'ABC123' );
-		$subscriptions = $subscriptionManager->getSubscriptionsForUser( $user );
+		$subscriptions = $subscriptionManager->getSubscriptionsForUser( $centralId );
 		$this->assertCount( 1, $subscriptions );
 		$subscriptionManager->delete( $user, 'ABC123' );
-		$subscriptions = $subscriptionManager->getSubscriptionsForUser( $user );
+		$subscriptions = $subscriptionManager->getSubscriptionsForUser( $centralId );
 		$this->assertCount( 0, $subscriptions );
 	}
 

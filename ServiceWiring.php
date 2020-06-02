@@ -1,11 +1,22 @@
 <?php
 
+use EchoPush\NotificationServiceClient;
 use EchoPush\SubscriptionManager;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Storage\NameTableStore;
 
 return [
+
+	'EchoPushNotificationServiceClient' => function ( MediaWikiServices $services ):
+	NotificationServiceClient {
+		$echoConfig = $services->getConfigFactory()->makeConfig( 'Echo' );
+		$httpRequestFactory = $services->getHttpRequestFactory();
+		$url = $echoConfig->get( 'EchoPushServiceUrl' );
+		$client = new NotificationServiceClient( $httpRequestFactory, $url );
+		$client->setLogger( LoggerFactory::getInstance( 'Echo' ) );
+		return $client;
+	},
 
 	'EchoPushSubscriptionManager' => function ( MediaWikiServices $services ): SubscriptionManager {
 		$echoConfig = $services->getConfigFactory()->makeConfig( 'Echo' );

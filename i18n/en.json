@@ -51,6 +51,7 @@
 	"echo-pref-email-format": "Email format:",
 	"echo-pref-web": "Web",
 	"echo-pref-email": "Email",
+	"echo-pref-push": "Push (apps only)",
 	"echo-pref-email-frequency-never": "Do not send me any email notifications",
 	"echo-pref-email-frequency-immediately": "Individual notifications as they come in",
 	"echo-pref-email-frequency-daily": "A daily summary of notifications",
