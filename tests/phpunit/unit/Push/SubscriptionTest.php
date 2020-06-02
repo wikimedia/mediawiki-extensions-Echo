@@ -9,7 +9,7 @@ class SubscriptionTest extends MediaWikiUnitTestCase {
 	public function testNewFromRow(): void {
 		$row = new stdClass();
 		$row->eps_token = 'ABC123';
-		$row->eps_provider = 'fcm';
+		$row->epp_name = 'fcm';
 		$row->eps_updated = '2020-01-01 10:10:10';
 
 		$subscription = Subscription::newFromRow( $row );

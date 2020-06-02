@@ -22,7 +22,7 @@ class Subscription {
 	 */
 	public static function newFromRow( object $row ) {
 		return new self(
-			$row->eps_provider,
+			$row->epp_name,
 			$row->eps_token,
 			new ConvertibleTimestamp( $row->eps_updated )
 		);

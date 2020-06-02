@@ -70,10 +70,12 @@ class SubscriptionManager extends EchoAbstractMapper {
 	 */
 	public function getSubscriptionsForUser( int $centralId ) {
 		$res = $this->dbr->select(
-			'echo_push_subscription',
+			[ 'echo_push_subscription', 'echo_push_provider' ],
 			'*',
 			[ 'eps_user' => $centralId ],
-			__METHOD__
+			__METHOD__,
+			[],
+			[ 'echo_push_provider' => [ 'INNER JOIN', [ 'eps_provider = epp_id' ] ] ]
 		);
 		$result = [];
 		foreach ( $res as $row ) {
