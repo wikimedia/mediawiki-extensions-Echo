@@ -9,6 +9,7 @@
 	},
 	"prefs-echo": "सूचना",
 	"echo-pref-send-me": "हम्मै भेजो:",
+	"echo-pref-send-to": "हिँया भेजव:",
 	"echo-pref-email-frequency-never": "कवनो अधिसूचना ना पठओ",
 	"echo-pref-email-frequency-immediately": "सूचना अवतै",
 	"echo-pref-email-frequency-daily": "अधिसूचना कय दिन भरे कै सारांश",

@@ -72,6 +72,7 @@
 	"notification-timestamp-ago-hours": "{{PLURAL:$1|horo|$1 hori}}",
 	"notification-timestamp-ago-days": "{{PLURAL:$1|$1d}}",
 	"notification-timestamp-ago-months": "{{PLURAL:$1|1 monato|$1 monati}}",
+	"notification-timestamp-today": "Hodie",
 	"notification-inbox-filter-all": "Omna",
 	"echo-notification-alert": "{{PLURAL:$1|($1) avizo|($1) avizi|100=(99+) avizi}}",
 	"echo-notification-notice": "{{PLURAL:$1|($1) avizo|($1) avizi|100= Avizi (99+)}}",
@@ -80,6 +81,7 @@
 	"echo-overlay-link": "Omna avizi",
 	"echo-overlay-title": "<b>Avizi</b>",
 	"echo-mark-all-as-read": "Indikez omna mesaji quale \"lektita\"",
+	"echo-date-today": "Hodie",
 	"notification-bundle-header-edit-user-talk-v2": "Existas {{PLURAL:$1|1 nova mesajo|$1 nova mesaji|100=plu kam 99 nova mesaji}} en <strong>{{GENDER:$3|vua}} diskuto-pagino</strong>.",
 	"notification-header-foreign-alert": "Plusa avizi de {{PLURAL:$5|altra Wiki|$5 altra Wiki}}",
 	"notification-header-foreign-notice": "Altra avizi de {{PLURAL:$5|altra Wiki|$5 altra Wiki}}"
