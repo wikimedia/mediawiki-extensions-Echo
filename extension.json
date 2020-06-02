@@ -990,7 +990,7 @@
 			"value": false,
 			"description": "Whether to enable push notifications"
 		},
-		"EchoPushServiceUrl": {
+		"EchoPushServiceBaseUrl": {
 			"value": false,
 			"description": "Request endpoint URL for the push notification service"
 		}
