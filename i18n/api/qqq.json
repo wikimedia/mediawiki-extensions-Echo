@@ -31,6 +31,15 @@
 	"apihelp-echomute-param-type": "{{doc-apihelp-param|echomute|type}}",
 	"apihelp-echomute-param-mute": "{{doc-apihelp-param|echomute|mute}}",
 	"apihelp-echomute-param-unmute": "{{doc-apihelp-param|echomute|unmute}}",
+	"apihelp-echopushsubscriptions-summary": "{{doc-apihelp-summary|echopushsubscriptions}}",
+	"apihelp-echopushsubscriptions-param-command": "{{doc-apihelp-param|echopushsubscriptions|command}}",
+	"apihelp-echopushsubscriptions+create-summary": "{{doc-apihelp-summary|echopushsubscriptions+create}}",
+	"apihelp-echopushsubscriptions+create-param-provider": "{{doc-apihelp-param|echopushsubscriptions+create|provider}}",
+	"apihelp-echopushsubscriptions+create-param-providertoken": "{{doc-apihelp-param|echopushsubscriptions+create|providertoken}}",
+	"apihelp-echopushsubscriptions+create-example": "{{doc-apihelp-example|echopushsubscriptions+create}}",
+	"apihelp-echopushsubscriptions+delete-summary": "{{doc-apihelp-summary|echopushsubscriptions+delete}}",
+	"apihelp-echopushsubscriptions+delete-param-providertoken": "{{doc-apihelp-param|echopushsubscriptions+delete|providertoken}}",
+	"apihelp-echopushsubscriptions+delete-example": "{{doc-apihelp-example|echopushsubscriptions+delete}}",
 	"apihelp-query+notifications-description": "{{doc-apihelp-description|query+notifications}}",
 	"apihelp-query+notifications-summary": "{{doc-apihelp-summary|query+notifications}}",
 	"apihelp-query+notifications-param-prop": "{{doc-apihelp-param|query+notifications|prop}}",
@@ -70,5 +79,7 @@
 	"apiwarn-echo-deprecation-timestampformat": "{{doc-apierror}}",
 	"apiwarn-echo-deprecation-flyout": "{{doc-apierror}}",
 	"apiwarn-echo-deprecation-html": "{{doc-apierror}}",
-	"apierror-echo-event-creation-failed": "{{doc-apierror}}"
+	"apierror-echo-event-creation-failed": "{{doc-apierror}}",
+	"apierror-echo-push-token-exists": "{{doc-apierror}}",
+	"apierror-echo-push-token-not-found": "{{doc-apierror}}"
 }

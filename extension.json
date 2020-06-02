@@ -459,7 +459,8 @@
 		"GetNewMessagesAlert": "EchoHooks::abortNewMessagesAlert",
 		"LinksUpdateAfterInsert": "EchoHooks::onLinksUpdateAfterInsert",
 		"SpecialMuteModifyFormFields": "EchoHooks::onSpecialMuteModifyFormFields",
-		"RecentChange_save": "EchoHooks::onRecentChangeSave"
+		"RecentChange_save": "EchoHooks::onRecentChangeSave",
+		"ApiMain::moduleManager": "EchoHooks::onApiMainModuleManager"
 	},
 	"config": {
 		"EchoEnableEmailBatch": {
@@ -983,6 +984,10 @@
 		"EchoWatchlistEmailOncePerPage": {
 			"value": true,
 			"description": "Whether to send email notifications each time a watched page is edited (if false) or only the first time the page is changed before being visited again by the user (if true)"
+		},
+		"EchoEnablePush": {
+			"value": false,
+			"description": "Whether to enable push notifications"
 		}
 	},
 	"attributes": {
@@ -1061,6 +1066,7 @@
 		"EchoRevertedPresentationModel": "includes/formatters/RevertedPresentationModel.php",
 		"EchoRevisionLocalCache": "includes/cache/RevisionLocalCache.php",
 		"EchoSeenTime": "includes/SeenTime.php",
+		"EchoServices": "includes/EchoServices.php",
 		"EchoSummaryParser": "includes/EchoSummaryParser.php",
 		"EchoSuppressionRowUpdateGenerator": "includes/schemaUpdate.php",
 		"EchoTargetPage": "includes/model/TargetPage.php",
@@ -1091,10 +1097,18 @@
 		"EchoUpdatePerUserBlacklist": "maintenance/updatePerUserBlacklist.php"
 	},
 	"AutoloadNamespaces": {
-		"EchoOOUI\\": "includes/ooui/"
+		"EchoOOUI\\": "includes/ooui/",
+		"EchoPush\\": "includes/Push/",
+		"EchoPush\\Api\\": "includes/api/Push/"
 	},
 	"TestAutoloadClasses": {
 		"EchoAbstractMapperStub": "tests/phpunit/mapper/EchoAbstractMapperStub.php",
 		"EchoExecuteFirstArgumentStub": "tests/phpunit/mapper/EchoExecuteFirstArgumentStub.php"
+	},
+	"ServiceWiringFiles": [
+		"ServiceWiring.php"
+	],
+	"ConfigRegistry": {
+		"Echo": "GlobalVarConfig::newInstance"
 	}
 }

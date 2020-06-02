@@ -29,6 +29,15 @@
 	"apihelp-echomute-param-type": "Which mute list to add to or remove from",
 	"apihelp-echomute-param-mute": "Pages or users to add to the mute list",
 	"apihelp-echomute-param-unmute": "Pages or users to remove from the mute list",
+	"apihelp-echopushsubscriptions-summary": "Manage push subscriptions for the current user.",
+	"apihelp-echopushsubscriptions-param-command": "Action to perform.",
+	"apihelp-echopushsubscriptions+create-summary": "Register push subscriptions for the current user.",
+	"apihelp-echopushsubscriptions+create-param-provider": "The push service provider for which to register a token.",
+	"apihelp-echopushsubscriptions+create-param-providertoken": "The token to register.",
+	"apihelp-echopushsubscriptions+create-example": "Register a push subscription for the current user.",
+	"apihelp-echopushsubscriptions+delete-summary": "Unegister push subscriptions for the current user.",
+	"apihelp-echopushsubscriptions+delete-param-providertoken": "The token associated with the push subscription to unregister.",
+	"apihelp-echopushsubscriptions+delete-example": "Unregister a push subscription for the current user.",
 	"apihelp-query+notifications-description": "Get notifications waiting for the current user.",
 	"apihelp-query+notifications-summary": "Get notifications waiting for the current user.",
 	"apihelp-query+notifications-param-prop": "Details to request.",
@@ -68,5 +77,7 @@
 	"apiwarn-echo-deprecation-timestampformat": "The MW timestamp output format is deprecated here. In the future, ISO 8601 will always be used for the output timestamp format.  Adjust your client and set <var>timestampFormat</var> to <kbd>ISO_8601</kbd>.",
 	"apiwarn-echo-deprecation-flyout": "<kbd>notformat=flyout</kbd> has been deprecated and will be removed soon. Use <kbd>notformat=model</kbd> to get the raw data or <kbd>notformat=special</kbd> for pre-rendered HTML.",
 	"apiwarn-echo-deprecation-html": "<kbd>notformat=html</kbd> has been deprecated and will be removed soon. Use <kbd>notformat=special</kbd> instead.",
-	"apierror-echo-event-creation-failed": "Could not create Echo event"
+	"apierror-echo-event-creation-failed": "Could not create Echo event",
+	"apierror-echo-push-token-exists": "The provided token already exists in the database.",
+	"apierror-echo-push-token-not-found": "The provided token was not found in the database."
 }

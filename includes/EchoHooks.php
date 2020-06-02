@@ -260,6 +260,9 @@ class EchoHooks {
 		}
 		$updater->dropExtensionIndex( 'echo_notification', 'echo_notification_user_hash_timestamp',
 			"$dir/db_patches/patch-drop-user-hash-timestamp-index.sql" );
+
+		$updater->addExtensionTable( 'echo_push_provider', "$dir/db_patches/echo_push_provider.sql" );
+		$updater->addExtensionTable( 'echo_push_subscription', "$dir/db_patches/echo_push_subscription.sql" );
 	}
 
 	/**
@@ -1669,5 +1672,25 @@ class EchoHooks {
 			],
 			'agent' => $change->getPerformer()
 		] );
+	}
+
+	/**
+	 * Hook handler for ApiMain::moduleManager.
+	 * Used here to put the echopushsubscriptions API module behind our push feature flag.
+	 * TODO: Register this the usual way in extension.json when we don't need the feature flag
+	 *  anymore.
+	 * @param ApiModuleManager $moduleManager
+	 */
+	public static function onApiMainModuleManager( ApiModuleManager $moduleManager ) {
+		$services = MediaWikiServices::getInstance();
+		$echoConfig = $services->getConfigFactory()->makeConfig( 'Echo' );
+		$pushEnabled = $echoConfig->get( 'EchoEnablePush' );
+		if ( $pushEnabled ) {
+			$moduleManager->addModule(
+				'echopushsubscriptions',
+				'action',
+				'EchoPush\\Api\\ApiEchoPushSubscriptions'
+			);
+		}
 	}
 }
