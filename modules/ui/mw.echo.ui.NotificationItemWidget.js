@@ -85,7 +85,7 @@
 			framed: false,
 			icon: 'ellipsis',
 			$overlay: this.$overlay,
-			menuWidth: 200,
+			horizontalPosition: this.bundle ? 'end' : 'auto',
 			title: mw.msg( 'echo-notification-more-options-tooltip' ),
 			classes: [ 'mw-echo-ui-notificationItemWidget-content-actions-menu' ]
 		} );

@@ -18,7 +18,8 @@
 	 * @param {Object} [config] Configuration object
 	 * @cfg {jQuery} [$overlay] A jQuery element functioning as an overlay
 	 *  for popups.
-	 * @cfg {number} [menuWidth=300] The width of the popup menu
+	 * @cfg {Object} [horizontalPosition='auto'] How to position the menu, see OO.ui.FloatableElement.
+	 *  By default, 'start' will be tried first, and if that doesn't fit, 'end' will be used.
 	 */
 	mw.echo.ui.ActionMenuPopupWidget = function MwEchoUiActionMenuPopupWidget( config ) {
 		config = config || {};
@@ -28,14 +29,14 @@
 
 		this.$overlay = config.$overlay || this.$element;
 
-		this.menuWidth = config.menuWidth || 300;
-
 		// Menu
-		this.menu = new OO.ui.MenuSelectWidget( {
+		this.customMenuPosition = ( config.horizontalPosition || 'auto' ) !== 'auto';
+		this.menu = new OO.ui.MenuSelectWidget( $.extend( {
 			$floatableContainer: this.$element,
+			horizontalPosition: this.customMenuPosition ? config.horizontalPosition : 'start',
 			classes: [ 'mw-echo-ui-actionMenuPopupWidget-menu' ],
 			widget: this
-		} );
+		} ) );
 		this.$overlay.append( this.menu.$element );
 
 		// Events
@@ -60,14 +61,14 @@
 	 * @private
 	 */
 	mw.echo.ui.ActionMenuPopupWidget.prototype.onAction = function () {
+		// HACK: If config.horizontalPosition isn't set, first try 'start', then 'end'
+		if ( !this.customMenuPosition ) {
+			this.menu.setHorizontalPosition( 'start' );
+		}
 		this.menu.toggle();
-		// HACK: The menu is attempting to be the same size as the container,
-		// which in our case is not the point at all. We need the menu
-		// to be larger, so force this setting:
-		this.menu.$element.css( 'width', this.menuWidth );
-		// HACK: Prevent ClippableElement from overwriting this width value on scroll
-		// or window resize
-		this.menu.toggleClipping( false );
+		if ( !this.customMenuPosition && this.menu.isClipped() ) {
+			this.menu.setHorizontalPosition( 'end' );
+		}
 	};
 
 	/**
