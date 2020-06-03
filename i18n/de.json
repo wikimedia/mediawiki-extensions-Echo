@@ -34,6 +34,7 @@
 	"echo-pref-email-format": "E-Mail-Format:",
 	"echo-pref-web": "Wiki",
 	"echo-pref-email": "E-Mail",
+	"echo-pref-push": "Push (nur Apps)",
 	"echo-pref-email-frequency-never": "Keine Benachrichtigungen",
 	"echo-pref-email-frequency-immediately": "Individuelle Benachrichtigung zu jedem Ereignis",
 	"echo-pref-email-frequency-daily": "Tägliche Zusammenfassung der Benachrichtigungen",

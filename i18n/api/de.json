@@ -28,6 +28,7 @@
 	"apihelp-echomute-param-type": "Welche Stummschaltliste soll hinzugefügt oder entfernt werden?",
 	"apihelp-echomute-param-mute": "Seiten oder Benutzer, die zur Stummschaltliste hinzugefügt werden",
 	"apihelp-echomute-param-unmute": "Aus der Stummschaltungsliste zu entfernende Seiten oder Benutzer",
+	"apihelp-echopushsubscriptions-summary": "Verwaltung der Push-Abonnements für den aktuellen Benutzer.",
 	"apihelp-query+notifications-description": "Benachrichtigungen abrufen, die auf den aktuellen Benutzer warten.",
 	"apihelp-query+notifications-summary": "Ruft wartende Benachrichtigungen für den aktuellen Benutzer ab.",
 	"apihelp-query+notifications-param-prop": "Einzelheiten der Anfrage.",
