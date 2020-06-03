@@ -460,8 +460,14 @@
 		"GetNewMessagesAlert": "EchoHooks::abortNewMessagesAlert",
 		"LinksUpdateAfterInsert": "EchoHooks::onLinksUpdateAfterInsert",
 		"SpecialMuteModifyFormFields": "EchoHooks::onSpecialMuteModifyFormFields",
-		"RecentChange_save": "EchoHooks::onRecentChangeSave",
+		"RecentChange_save": "main",
 		"ApiMain::moduleManager": "EchoHooks::onApiMainModuleManager"
+	},
+	"HookHandlers": {
+		"main": {
+			"class": "\\EchoHooks",
+			"services": [ "MainConfig" ]
+		}
 	},
 	"config": {
 		"EchoEnableEmailBatch": {

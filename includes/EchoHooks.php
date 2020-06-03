@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Hook\RecentChange_saveHook;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Preferences\MultiTitleFilter;
@@ -8,11 +9,19 @@ use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Storage\EditResult;
 use MediaWiki\User\UserIdentity;
 
-class EchoHooks {
+class EchoHooks implements RecentChange_saveHook {
 	/**
 	 * @var RevisionRecord
 	 */
 	private static $lastRevertedRevision = null;
+	/**
+	 * @var Config
+	 */
+	private $config;
+
+	public function __construct( Config $config ) {
+		$this->config = $config;
+	}
 
 	/**
 	 * @param array &$defaults
@@ -1639,13 +1648,12 @@ class EchoHooks {
 	}
 
 	/**
-	 * Handler for RecentChange_save hook
-	 *
-	 * @param RecentChange $change The change that has just been made to the wiki
+	 * @param RecentChange $change
+	 * @return bool|void
+	 * @throws MWException
 	 */
-	public static function onRecentChangeSave( RecentChange $change ) {
-		global $wgEchoWatchlistNotifications;
-		if ( !$wgEchoWatchlistNotifications ) {
+	public function onRecentChange_save( $change ) {
+		if ( !$this->config->get( 'EchoWatchlistNotifications' ) ) {
 			return;
 		}
 		if ( $change->getAttribute( 'rc_minor' ) ) {
@@ -1685,4 +1693,5 @@ class EchoHooks {
 			);
 		}
 	}
+
 }
