@@ -513,6 +513,7 @@ class EchoHooks {
 				'type' => 'titlesmultiselect',
 				'label-message' => 'echo-pref-notifications-page-linked-title-muted-list',
 				'section' => 'echo/mutedpageslist',
+				'showMissing' => false,
 				'filter' => ( new MultiTitleFilter( new TitleFactory() ) )
 			];
 		}
