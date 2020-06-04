@@ -33,6 +33,15 @@
 	"apihelp-echomute-param-type": "Quelle liste de mise en silence à laquelle ajouter ou de laquelle supprimer",
 	"apihelp-echomute-param-mute": "Pages ou utilisateurs à ajouter à la liste de mise en silence",
 	"apihelp-echomute-param-unmute": "Pages ou utilisateurs à supprimer de la liste de mise en silence",
+	"apihelp-echopushsubscriptions-summary": "Garer les abonnements de poussée d’information pour l’utilisateur actuel.",
+	"apihelp-echopushsubscriptions-param-command": "Action à effectuer.",
+	"apihelp-echopushsubscriptions+create-summary": "Enregistrer les inscriptions de poussée d’information pour l’utilisateur actuel.",
+	"apihelp-echopushsubscriptions+create-param-provider": "Le fournisseur de service de poussée pour lequel enregistrer un jeton.",
+	"apihelp-echopushsubscriptions+create-param-providertoken": "Le jeton à enregistrer.",
+	"apihelp-echopushsubscriptions+create-example": "Enregistrer une inscription de poussée d’information pour l’utilisateur actuel.",
+	"apihelp-echopushsubscriptions+delete-summary": "Désinscrire les inscriptions de poussée d’information pour l’utilisateur actuel.",
+	"apihelp-echopushsubscriptions+delete-param-providertoken": "Le jeton associé avec l’inscription de poussée d’information à désinscrire.",
+	"apihelp-echopushsubscriptions+delete-example": "Désinscrire une inscription de poussée d’information pour l’utilisateur actuel.",
 	"apihelp-query+notifications-description": "Obtenir les notifications en attente pour l’utilisateur courant.",
 	"apihelp-query+notifications-summary": "Obtenir les notifications en attente pour l’utilisateur actuel.",
 	"apihelp-query+notifications-param-prop": "Détails à demander.",
@@ -72,5 +81,7 @@
 	"apiwarn-echo-deprecation-timestampformat": "Le format de sortie utilisant l’horodatage MW est désuet ici. À l’avenir, la norme ISO 8601 sera toujours utilisée pour le format d’horodatage en sortie. Ajustez votre client et mettez <var>timestampFormat</var> à <kbd>ISO_8601</kbd>.",
 	"apiwarn-echo-deprecation-flyout": "<kbd>notformat=flyout</kbd> est devenu désuet et va être supprimé bientôt. Utiliser <kbd>notformat=model</kbd> pour avoir le format brut ou <kbd>notformat=special</kbd> pour le html préformaté.",
 	"apiwarn-echo-deprecation-html": "<kbd>notformat=html</kbd> est désuet et sera bientôt supprimé. Utilisez <kbd>notformat=special</kbd> à la place.",
-	"apierror-echo-event-creation-failed": "Impossible de créer l’évènement Echo"
+	"apierror-echo-event-creation-failed": "Impossible de créer l’évènement Echo",
+	"apierror-echo-push-token-exists": "Le jeton fourni existe déjà dans la base de données.",
+	"apierror-echo-push-token-not-found": "Le jeton fourni n’a pas été trouvé dans la base de données."
 }

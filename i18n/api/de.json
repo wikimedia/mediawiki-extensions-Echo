@@ -29,6 +29,14 @@
 	"apihelp-echomute-param-mute": "Seiten oder Benutzer, die zur Stummschaltliste hinzugefügt werden",
 	"apihelp-echomute-param-unmute": "Aus der Stummschaltungsliste zu entfernende Seiten oder Benutzer",
 	"apihelp-echopushsubscriptions-summary": "Verwaltung der Push-Abonnements für den aktuellen Benutzer.",
+	"apihelp-echopushsubscriptions-param-command": "Die auszuführende Aktion.",
+	"apihelp-echopushsubscriptions+create-summary": "Registrieren eines Push-Abonnements für den aktuellen Benutzer.",
+	"apihelp-echopushsubscriptions+create-param-provider": "Der Push-Dienstleister, für den ein Token registriert werden soll.",
+	"apihelp-echopushsubscriptions+create-param-providertoken": "Das Token zur Registrierung.",
+	"apihelp-echopushsubscriptions+create-example": "Registrieren eines Push-Abonnements für den aktuellen Benutzer.",
+	"apihelp-echopushsubscriptions+delete-summary": "Aufheben der Registrierung von Push-Abonnements für den aktuellen Benutzer auf.",
+	"apihelp-echopushsubscriptions+delete-param-providertoken": "Das mit dem Push-Abonnement zur Abmeldung verbundene Token.",
+	"apihelp-echopushsubscriptions+delete-example": "Aufheben der Registrierung eines Push-Abonnements für den aktuellen Benutzer auf.",
 	"apihelp-query+notifications-description": "Benachrichtigungen abrufen, die auf den aktuellen Benutzer warten.",
 	"apihelp-query+notifications-summary": "Ruft wartende Benachrichtigungen für den aktuellen Benutzer ab.",
 	"apihelp-query+notifications-param-prop": "Einzelheiten der Anfrage.",
@@ -68,5 +76,7 @@
 	"apiwarn-echo-deprecation-timestampformat": "Das MW-Zeitstempel-Ausgabeformat ist hier veraltet. In Zukunft wird immer ISO 8601 für das Ausgabezeitstempelformat verwendet. Passe deinen Client an und lege <var>timestampFormat</var> auf <kbd>ISO_8601</kbd> fest.",
 	"apiwarn-echo-deprecation-flyout": "<kbd>notformat=flyout</kbd> ist veraltet und wird bald entfernt. Verwende <kbd>notformat=model</kbd>, um die Rohdaten zu erhalten oder <kbd>notformat=special</kbd> für vorgerendertes HTML.",
 	"apiwarn-echo-deprecation-html": "<kbd>notformat=html</kbd> ist veraltet und wird bald entfernt. Verwende stattdessen <kbd>notformat=special</kbd>.",
-	"apierror-echo-event-creation-failed": "Es konnte kein Echo-Ereignis erstellt werden"
+	"apierror-echo-event-creation-failed": "Es konnte kein Echo-Ereignis erstellt werden",
+	"apierror-echo-push-token-exists": "Das angegebene Token ist bereits in der Datenbank vorhanden.",
+	"apierror-echo-push-token-not-found": "Das angegebene Token wurde in der Datenbank nicht gefunden."
 }

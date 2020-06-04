@@ -62,6 +62,7 @@
 	"echo-pref-email-format": "Format des courriels :",
 	"echo-pref-web": "Web",
 	"echo-pref-email": "Courriel",
+	"echo-pref-push": "Pousser (applications seulement)",
 	"echo-pref-email-frequency-never": "Ne pas m’envoyer de notification par courriel",
 	"echo-pref-email-frequency-immediately": "Les notifications individuelles sans délai",
 	"echo-pref-email-frequency-daily": "Un résumé quotidien des notifications",
