@@ -26,6 +26,15 @@
 	"apihelp-echomute-param-type": "Qual lista muda para adicionar ou remover de",
 	"apihelp-echomute-param-mute": "Páginas ou usuários a serem adicionados à lista silenciosa",
 	"apihelp-echomute-param-unmute": "Páginas ou usuários a serem removidos da lista sem áudio",
+	"apihelp-echopushsubscriptions-summary": "Gerenciar assinaturas push para o usuário atual.",
+	"apihelp-echopushsubscriptions-param-command": "Ação a realizar.",
+	"apihelp-echopushsubscriptions+create-summary": "Registre assinaturas push para o usuário atual.",
+	"apihelp-echopushsubscriptions+create-param-provider": "O provedor de serviços push para o qual registrar um token.",
+	"apihelp-echopushsubscriptions+create-param-providertoken": "O token para registrar.",
+	"apihelp-echopushsubscriptions+create-example": "Registre uma assinatura push para o usuário atual.",
+	"apihelp-echopushsubscriptions+delete-summary": "Cancele o registro de assinaturas push para o usuário atual.",
+	"apihelp-echopushsubscriptions+delete-param-providertoken": "O token associado à assinatura push para cancelar o registro.",
+	"apihelp-echopushsubscriptions+delete-example": "Cancele o registro de uma assinatura push para o usuário atual.",
 	"apihelp-query+notifications-description": "Receber notificações aguardando pelo usuário atual.",
 	"apihelp-query+notifications-summary": "Receber notificações aguardando pelo usuário atual.",
 	"apihelp-query+notifications-param-prop": "Detalhes para solicitar.",
@@ -65,5 +74,7 @@
 	"apiwarn-echo-deprecation-timestampformat": "O formato de saída do timestamp do MW está obsoleto aqui. No futuro, o ISO 8601 sempre será usado para o formato do timestamp de saída. Ajuste seu cliente e defina <var>timestampFormat</var> para <kbd>ISO_8601</kbd>.",
 	"apiwarn-echo-deprecation-flyout": "<kbd>notformat=flyout</kbd> foi depreciado e será removido em breve. Use <kbd>notformat=model</kbd> para obter os dados brutos ou <kbd>notformat=special</kbd> para o HTML pré-renderizado.",
 	"apiwarn-echo-deprecation-html": "<kbd>notformat=html</kbd> foi depreciado e será removido em breve. Use <kbd>notformat=special</kbd> em vez disso.",
-	"apierror-echo-event-creation-failed": "Não foi possível criar evento Echo"
+	"apierror-echo-event-creation-failed": "Não foi possível criar evento Echo",
+	"apierror-echo-push-token-exists": "O token fornecido já existe no banco de dados.",
+	"apierror-echo-push-token-not-found": "O token fornecido não foi encontrado no banco de dados."
 }

@@ -24,6 +24,15 @@
 	"apihelp-echomute-param-type": "Во кој список на занемени да се стави или отстрани",
 	"apihelp-echomute-param-mute": "Страници или корисници за ставање на списокот на занемени",
 	"apihelp-echomute-param-unmute": "Страници или корисници за отстранување од списокот на занемени",
+	"apihelp-echopushsubscriptions-summary": "Раководење со претплати на наметнувања за тековниот корисник.",
+	"apihelp-echopushsubscriptions-param-command": "Дејство за вршење.",
+	"apihelp-echopushsubscriptions+create-summary": "Пријави претплати на наметнувања за тековниот корисник.",
+	"apihelp-echopushsubscriptions+create-param-provider": "Наметнувачкиот услужник за кој се пријавува шифра.",
+	"apihelp-echopushsubscriptions+create-param-providertoken": "Шифрата која се пријавува.",
+	"apihelp-echopushsubscriptions+create-example": "Пријави претплата на наметнувања за тековниот корисник.",
+	"apihelp-echopushsubscriptions+delete-summary": "Отпријави претплати на наметнувања за тековниот корисник.",
+	"apihelp-echopushsubscriptions+delete-param-providertoken": "Шифрата поврзана со претплатеното наметнување кое треба да се отстрани од пријавени.",
+	"apihelp-echopushsubscriptions+delete-example": "Отпријави претплата на наметнувања за тековниот корисинк.",
 	"apihelp-query+notifications-description": "Дај ги известувањата што го исчекуваат тековниот корисник.",
 	"apihelp-query+notifications-summary": "Дај ги известувањата што го исчекуваат тековниот корисник.",
 	"apihelp-query+notifications-param-prop": "Подробности што треба да се побараат.",
@@ -63,5 +72,7 @@
 	"apiwarn-echo-deprecation-timestampformat": "Изводниот формат MW за датуми и време тука е застарен. Во иднина, за таа намена ќе се користи исклучиво ISO 8601. Прилагодете го клиентот и наместете го <var>timestampFormat</var> на <kbd>ISO_8601</kbd>.",
 	"apiwarn-echo-deprecation-flyout": "<kbd>notformat=flyout</kbd> е застаре и наскоро ќе биде отстранет. Сировите податоци ќе ги добиете со <kbd>notformat=model</kbd>, а <kbd>notformat=special</kbd> служи за предиспишан HTML.",
 	"apiwarn-echo-deprecation-html": "<kbd>notformat=html</kbd> е застарен и наскоро ќе биде отстранет. Наместо него, користете го <kbd>notformat=special</kbd>.",
-	"apierror-echo-event-creation-failed": "Не можев да направам настан за Ехо"
+	"apierror-echo-event-creation-failed": "Не можев да направам настан за Ехо",
+	"apierror-echo-push-token-exists": "Укажаната шифра веќе постои во базата.",
+	"apierror-echo-push-token-not-found": "Укажаната шифра не е пронајдена во базата."
 }
