@@ -104,7 +104,7 @@ class EchoPageLinkedPresentationModel extends EchoEventPresentationModel {
 				->params(
 					$this->getTruncatedTitleText( $title ),
 					$this->getViewingUserForGender()
-				),
+				)->text(),
 			null,
 			$data,
 			[]
