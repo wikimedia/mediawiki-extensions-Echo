@@ -263,6 +263,9 @@ class EchoHooks {
 
 		$updater->addExtensionTable( 'echo_push_provider', "$dir/db_patches/echo_push_provider.sql" );
 		$updater->addExtensionTable( 'echo_push_subscription', "$dir/db_patches/echo_push_subscription.sql" );
+
+		$updater->modifyExtensionField( 'echo_unread_wikis', 'euw_wiki',
+			"$dir/db_patches/patch-increase-varchar-echo_unread_wikis-euw_wiki.sql" );
 	}
 
 	/**
