@@ -43,7 +43,7 @@ class UpdateEchoSchemaForSuppression extends LoggedUpdateMaintenance {
 		$dbr = $lbFactory->getEchoDb( DB_REPLICA );
 		$dbw = $lbFactory->getEchoDb( DB_MASTER );
 
-		if ( !$dbw->fieldExists( 'echo_event', 'event_page_title' ) ) {
+		if ( !$dbw->fieldExists( 'echo_event', 'event_page_title', __METHOD__ ) ) {
 			$this->output( "No event_page_title field, skipping migration from event_page_title to event_page_id\n" );
 			return true;
 		}

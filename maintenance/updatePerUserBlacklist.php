@@ -80,7 +80,8 @@ class EchoUpdatePerUserBlacklist extends LoggedUpdateMaintenance {
 					[
 						'up_user' => $row->up_user,
 						'up_property' => 'echo-notifications-blacklist',
-					]
+					],
+					__METHOD__
 				);
 				$processed += $dbw->affectedRows();
 				$lbFactory->waitForReplication();

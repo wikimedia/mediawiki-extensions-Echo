@@ -58,7 +58,8 @@ class SubscriptionManager extends EchoAbstractMapper {
 				'eps_token' => $token,
 				'eps_token_sha256' => hash( 'sha256', $token ),
 				'eps_updated' => $this->dbw->timestamp()
-			]
+			],
+			__METHOD__
 		);
 	}
 
@@ -71,7 +72,8 @@ class SubscriptionManager extends EchoAbstractMapper {
 		$res = $this->dbr->select(
 			'echo_push_subscription',
 			'*',
-			[ 'eps_user' => $centralId ]
+			[ 'eps_user' => $centralId ],
+			__METHOD__
 		);
 		$result = [];
 		foreach ( $res as $row ) {
@@ -96,7 +98,8 @@ class SubscriptionManager extends EchoAbstractMapper {
 			[
 				'eps_user' => $this->getCentralId( $user ),
 				'eps_token' => $token,
-			]
+			],
+			__METHOD__
 		);
 		return $this->dbw->affectedRows();
 	}

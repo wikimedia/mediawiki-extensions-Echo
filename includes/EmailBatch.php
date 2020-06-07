@@ -271,7 +271,7 @@ class MWEchoEmailBatch {
 			$dbw->delete( 'echo_email_batch', [
 				'eeb_user_id' => $this->mUser->getId(),
 				'eeb_event_id' => $eventIds
-			] );
+			], __METHOD__ );
 
 			// Find out which events are now orphaned, i.e. no longer referenced in echo_email_batch
 			// (besides the rows we just deleted) or in echo_notification, and delete them

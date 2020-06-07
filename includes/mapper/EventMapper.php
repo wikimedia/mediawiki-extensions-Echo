@@ -25,7 +25,7 @@ class EchoEventMapper extends EchoAbstractMapper {
 
 		$listeners = $this->getMethodListeners( __FUNCTION__ );
 		foreach ( $listeners as $listener ) {
-			$dbw->onTransactionCommitOrIdle( $listener );
+			$dbw->onTransactionCommitOrIdle( $listener, __METHOD__ );
 		}
 
 		return $id;
@@ -94,7 +94,8 @@ class EchoEventMapper extends EchoAbstractMapper {
 		$res = $dbr->select(
 			[ 'echo_event' ],
 			EchoEvent::selectFields(),
-			[ 'event_page_id' => $pageId ]
+			[ 'event_page_id' => $pageId ],
+			__METHOD__
 		);
 		if ( $res ) {
 			foreach ( $res as $row ) {
@@ -231,8 +232,8 @@ class EchoEventMapper extends EchoAbstractMapper {
 			]
 		);
 		if ( $orphanedEventIds ) {
-			$dbw->delete( 'echo_event', [ 'event_id' => $orphanedEventIds ] );
-			$dbw->delete( 'echo_target_page', [ 'etp_event' => $orphanedEventIds ] );
+			$dbw->delete( 'echo_event', [ 'event_id' => $orphanedEventIds ], __METHOD__ );
+			$dbw->delete( 'echo_target_page', [ 'etp_event' => $orphanedEventIds ], __METHOD__ );
 		}
 	}
 

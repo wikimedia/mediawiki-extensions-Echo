@@ -58,9 +58,9 @@ class RemoveOrphanedEvents extends LoggedUpdateMaintenance {
 			foreach ( $batch as $row ) {
 				$ids[] = $row->event_id;
 			}
-			$dbw->delete( 'echo_event', [ 'event_id' => $ids ] );
+			$dbw->delete( 'echo_event', [ 'event_id' => $ids ], __METHOD__ );
 			$eventsProcessed += $dbw->affectedRows();
-			$dbw->delete( 'echo_target_page', [ 'etp_event' => $ids ] );
+			$dbw->delete( 'echo_target_page', [ 'etp_event' => $ids ], __METHOD__ );
 			$targetsProcessed += $dbw->affectedRows();
 			$this->output( "Deleted $eventsProcessed orphaned events and $targetsProcessed target_page rows.\n" );
 			$dbFactory->waitForSlaves();
@@ -83,7 +83,7 @@ class RemoveOrphanedEvents extends LoggedUpdateMaintenance {
 			foreach ( $batch as $row ) {
 				$ids[] = $row->etp_event;
 			}
-			$dbw->delete( 'echo_target_page', [ 'etp_event' => $ids ] );
+			$dbw->delete( 'echo_target_page', [ 'etp_event' => $ids ], __METHOD__ );
 			$processed += $dbw->affectedRows();
 			$this->output( "Deleted $processed orphaned target_page rows.\n" );
 			$dbFactory->waitForSlaves();

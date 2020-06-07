@@ -27,7 +27,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 					$dbw->timestamp( $row['notification_timestamp'] );
 				$dbw->insert( 'echo_notification', $row, $fname );
 				foreach ( $listeners as $listener ) {
-					$dbw->onTransactionCommitOrIdle( $listener );
+					$dbw->onTransactionCommitOrIdle( $listener, $fname );
 				}
 			}
 		) );
