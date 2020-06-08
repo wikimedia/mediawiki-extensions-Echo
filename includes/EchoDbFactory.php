@@ -141,7 +141,7 @@ class MWEchoDbFactory {
 
 	/**
 	 * Get the current master position for the wiki and echo
-	 * db when they have at least one slave in their cluster.
+	 * db when they have at least one replica in their cluster.
 	 *
 	 * @return array
 	 */

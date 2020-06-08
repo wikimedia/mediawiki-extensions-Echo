@@ -145,7 +145,7 @@ class EchoUserNotificationGateway {
 
 	/**
 	 * Get notification count for the types specified
-	 * @param int $dbSource use master or slave storage to pull count
+	 * @param int $dbSource use master or replica storage to pull count
 	 * @param array $eventTypesToLoad event types to retrieve
 	 * @param int $cap Max count
 	 * @return int

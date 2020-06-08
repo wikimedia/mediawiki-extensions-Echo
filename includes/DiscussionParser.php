@@ -24,7 +24,7 @@ abstract class EchoDiscussionParser {
 		global $wgEchoMentionOnChanges;
 		$store = MediaWikiServices::getInstance()->getRevisionStore();
 
-		// use slave database if there is a previous revision
+		// use replica database if there is a previous revision
 		if ( $store->getPreviousRevision( $revision ) ) {
 			$title = Title::newFromID( $revision->getPageId() );
 			// use master database for new page
