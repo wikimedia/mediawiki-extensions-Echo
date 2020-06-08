@@ -43,6 +43,7 @@
 	"echo-pref-email-format": "E-posta biçimi:",
 	"echo-pref-web": "Web",
 	"echo-pref-email": "E-posta",
+	"echo-pref-push": "Push (yalnızca uygulamalar)",
 	"echo-pref-email-frequency-never": "Bana e-posta bildirimi gönderme",
 	"echo-pref-email-frequency-immediately": "Her yeni bildirimi tek tek gönder",
 	"echo-pref-email-frequency-daily": "Bildirimlerin günlük özetini gönder",

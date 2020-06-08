@@ -14,6 +14,7 @@
 	"echo-pref-email-format": "Formato di e-posto:",
 	"echo-pref-web": "Per reto",
 	"echo-pref-email": "Per e-posto",
+	"echo-pref-push": "Push (nur ''app''-i)",
 	"echo-pref-email-frequency-never": "Sendez nula avizo a me per e-posto",
 	"echo-pref-email-frequency-immediately": "Individual avizi kande li arivos",
 	"echo-pref-email-frequency-daily": "Diala rezumo pri avizi",

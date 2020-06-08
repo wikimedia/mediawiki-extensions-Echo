@@ -25,6 +25,15 @@
 	"apihelp-echomute-param-type": "רשימת השתקה להוסיף אליה או להסיר ממנה",
 	"apihelp-echomute-param-mute": "דפים או משתמשים להוספה לרשימת ההשתקה",
 	"apihelp-echomute-param-unmute": "דפים או משתמשים להסרה מרשימת ההשתקה",
+	"apihelp-echopushsubscriptions-summary": "ניהול מינויי דחיפה עבור המשתמש הנוכחי.",
+	"apihelp-echopushsubscriptions-param-command": "איזו פעולה לבצע.",
+	"apihelp-echopushsubscriptions+create-summary": "רישום מינויים בדחיפה עבור המשתמש הנוכחי.",
+	"apihelp-echopushsubscriptions+create-param-provider": "ספק שירותי הדחיפה שצריך לרשום אסימון עבורו.",
+	"apihelp-echopushsubscriptions+create-param-providertoken": "האסימון שצריך לרשום.",
+	"apihelp-echopushsubscriptions+create-example": "רישום מינוי בדחיפה עבור המשתמש הנוכחי.",
+	"apihelp-echopushsubscriptions+delete-summary": "ביטול רישום מינויים בדחיפה עבור המשתמש הנוכחי.",
+	"apihelp-echopushsubscriptions+delete-param-providertoken": "האסימון המשויך עם המינוי בדחיפה שצריך לבטל את הרישום שלו.",
+	"apihelp-echopushsubscriptions+delete-example": "ביטול רישום מינוי בדחיפה עבור המשתמש הנוכחי.",
 	"apihelp-query+notifications-description": "קבלת התראות שממתינות למשתמש הנוכחי.",
 	"apihelp-query+notifications-summary": "קבלת התראות שממתינות למשתמש הנוכחי.",
 	"apihelp-query+notifications-param-prop": "אילו פרטים לבקש.",
@@ -64,5 +73,7 @@
 	"apiwarn-echo-deprecation-timestampformat": "תסדיר חותם־הזמן של מדיה־ויקי הוגדר כאן בתור מיושן. בעתיד, ISO 8601 תמיד ישמש לפלט של חותם־הזמן. נא לתקן את הלקוח שלך ולהגדיר את <var>timestampFormat</var> לערך <kbd>ISO_8601</kbd>.",
 	"apiwarn-echo-deprecation-flyout": "<kbd>notformat=flyout</kbd> הוכרז בתור מיושן ויוסר כליל בקרוב. נא להשתמש ב־<kbd>notformat=model</kbd> כדי לקבל את הנתונים הגולמיים או ב־<kbd>notformat=special</kbd> בשביל HTML שכבר הוכן לתצוגה.",
 	"apiwarn-echo-deprecation-html": "<kbd>notformat=html</kbd> הוכרז בתור מיושן ויוסר כליל בקרוב. נא להשתמש ב־<kbd>notformat=special</kbd> במקומו.",
-	"apierror-echo-event-creation-failed": "לא ניתן היה ליצור את פעולת ה־Echo"
+	"apierror-echo-event-creation-failed": "לא ניתן היה ליצור את פעולת ה־Echo",
+	"apierror-echo-push-token-exists": "האסימון שסופק כבר קיים במסד הנתונים.",
+	"apierror-echo-push-token-not-found": "האסימון שסופק לא נמצא במסד הנתונים."
 }

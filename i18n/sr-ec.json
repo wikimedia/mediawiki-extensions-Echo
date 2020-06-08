@@ -99,7 +99,7 @@
 	"echo-api-failure": "Добављање обавештења није успело.",
 	"echo-api-failure-cross-wiki": "Приступ удаљеном домену је одбијен.",
 	"echo-notification-placeholder": "Нема обавештења.",
-	"echo-notification-placeholder-filters": "Нема обавештења која одговарају овим критеријумима.",
+	"echo-notification-placeholder-filters": "Нема обавештења која испуњавају наведене критеријуме.",
 	"echo-notification-loginrequired": "Морате се пријавити да бисте видели обавештења.",
 	"echo-notification-popup-loginrequired": "Пријавите се да бисте видите обавештења.",
 	"echo-notification-markasread": "Означи прочитаним",
