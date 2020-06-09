@@ -47,9 +47,9 @@ class SubscriptionManager extends EchoAbstractMapper {
 	 * @param User $user
 	 * @param string $provider Provider name string (validated by presence in the PARAM_TYPE array)
 	 * @param string $token Subscriber token provided by the push provider
-	 * @throws DBError if the subscription ID already exists in the DB
+	 * @return bool true if the subscription was created; false if the token already exists
 	 */
-	public function create( User $user, string $provider, string $token ): void {
+	public function create( User $user, string $provider, string $token ): bool {
 		$this->dbw->insert(
 			'echo_push_subscription',
 			[
@@ -59,8 +59,10 @@ class SubscriptionManager extends EchoAbstractMapper {
 				'eps_token_sha256' => hash( 'sha256', $token ),
 				'eps_updated' => $this->dbw->timestamp()
 			],
-			__METHOD__
+			__METHOD__,
+			[ 'IGNORE' ]
 		);
+		return (bool)$this->dbw->affectedRows();
 	}
 
 	/**

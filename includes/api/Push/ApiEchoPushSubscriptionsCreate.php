@@ -4,7 +4,6 @@ namespace EchoPush\Api;
 
 use ApiBase;
 use ApiMain;
-use DBError;
 use EchoPush\SubscriptionManager;
 use EchoServices;
 use Wikimedia\ParamValidator\ParamValidator;
@@ -59,9 +58,8 @@ class ApiEchoPushSubscriptionsCreate extends ApiBase {
 	public function execute(): void {
 		$provider = $this->getParameter( 'provider' );
 		$token = $this->getParameter( 'providertoken' );
-		try {
-			$this->subscriptionManager->create( $this->getUser(), $provider, $token );
-		} catch ( DBError $e ) {
+		$success = $this->subscriptionManager->create( $this->getUser(), $provider, $token );
+		if ( !$success ) {
 			$this->dieWithError( 'apierror-echo-push-token-exists' );
 		}
 	}
