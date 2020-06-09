@@ -234,7 +234,7 @@ class GenerateSampleNotifications extends Maintenance {
 			$this->error( "Failed to edit {$title->getPrefixedText()}: {$status->getMessage()->text()}" );
 		}
 
-		return $status->getValue()['revision'];
+		return $status->getValue()['revision-record'];
 	}
 
 	private function generateMention( User $user, User $agent, User $otherUser, Title $title ) {
@@ -446,19 +446,19 @@ class GenerateSampleNotifications extends Maintenance {
 		}
 		// make an edit, thank it once
 		$title = $this->generateNewPageTitle();
-		$revision = $this->addToPageContent( $title, $user, "an awesome edit! ~~~~" );
+		$revisionRecord = $this->addToPageContent( $title, $user, "an awesome edit! ~~~~" );
 		EchoEvent::create( [
 			'type' => 'edit-thank',
 			'title' => $title,
 			'extra' => [
-				'revid' => $revision->getId(),
+				'revid' => $revisionRecord->getId(),
 				'thanked-user-id' => $user->getId(),
 				'source' => 'generateSampleNotifications.php',
 			],
 			'agent' => $agent,
 			'timestamp' => $this->getTimestamp(),
 		] );
-		$output = $this->addTimestampToOutput( "{$agent->getName()} is thanking {$user->getName()} for edit {$revision->getId()} on {$title->getPrefixedText()}" );
+		$output = $this->addTimestampToOutput( "{$agent->getName()} is thanking {$user->getName()} for edit {$revisionRecord->getId()} on {$title->getPrefixedText()}" );
 		$this->output( "$output\n" );
 	}
 
@@ -468,12 +468,12 @@ class GenerateSampleNotifications extends Maintenance {
 		}
 		// make an edit, thank it twice
 		$title = $this->generateNewPageTitle();
-		$revision = $this->addToPageContent( $title, $user, "an even better edit! ~~~~" );
+		$revisionRecord = $this->addToPageContent( $title, $user, "an even better edit! ~~~~" );
 		EchoEvent::create( [
 			'type' => 'edit-thank',
 			'title' => $title,
 			'extra' => [
-				'revid' => $revision->getId(),
+				'revid' => $revisionRecord->getId(),
 				'thanked-user-id' => $user->getId(),
 				'source' => 'generateSampleNotifications.php',
 			],
@@ -484,14 +484,14 @@ class GenerateSampleNotifications extends Maintenance {
 			'type' => 'edit-thank',
 			'title' => $title,
 			'extra' => [
-				'revid' => $revision->getId(),
+				'revid' => $revisionRecord->getId(),
 				'thanked-user-id' => $user->getId(),
 				'source' => 'generateSampleNotifications.php',
 			],
 			'agent' => $otherUser,
 			'timestamp' => $this->getTimestamp(),
 		] );
-		$output = $this->addTimestampToOutput( "{$agent->getName()} and {$otherUser->getName()} are thanking {$user->getName()} for edit {$revision->getId()} on {$title->getPrefixedText()}" );
+		$output = $this->addTimestampToOutput( "{$agent->getName()} and {$otherUser->getName()} are thanking {$user->getName()} for edit {$revisionRecord->getId()} on {$title->getPrefixedText()}" );
 		$this->output( "$output\n" );
 	}
 
