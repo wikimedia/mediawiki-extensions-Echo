@@ -12,7 +12,7 @@ return [
 	NotificationServiceClient {
 		$echoConfig = $services->getConfigFactory()->makeConfig( 'Echo' );
 		$httpRequestFactory = $services->getHttpRequestFactory();
-		$url = $echoConfig->get( 'EchoPushServiceUrl' );
+		$url = $echoConfig->get( 'EchoPushServiceBaseUrl' );
 		$client = new NotificationServiceClient( $httpRequestFactory, $url );
 		$client->setLogger( LoggerFactory::getInstance( 'Echo' ) );
 		return $client;
