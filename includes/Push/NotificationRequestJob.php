@@ -15,6 +15,9 @@ class NotificationRequestJob extends Job {
 		$echoServices = EchoServices::getInstance();
 		$subscriptionManager = $echoServices->getPushSubscriptionManager();
 		$subscriptions = $subscriptionManager->getSubscriptionsForUser( $centralId );
+		if ( count( $subscriptions ) === 0 ) {
+			return true;
+		}
 		$serviceClient = $echoServices->getPushNotificationServiceClient();
 		$serviceClient->sendCheckEchoRequests( $subscriptions );
 		return true;
