@@ -32,16 +32,18 @@ class ApiEchoMute extends ApiBase {
 		$mutelistInfo = self::$muteLists[ $params['type'] ];
 		$prefValue = $user->getOption( $mutelistInfo['pref'] );
 		$ids = $this->parsePref( $prefValue, $mutelistInfo['type'] );
+		$targetsToMute = $params['mute'] ?? [];
+		$targetsToUnmute = $params['unmute'] ?? [];
 
 		$changed = false;
-		$addIds = $this->lookupIds( $params['mute'], $mutelistInfo['type'] );
+		$addIds = $this->lookupIds( $targetsToMute, $mutelistInfo['type'] );
 		foreach ( $addIds as $id ) {
 			if ( !in_array( $id, $ids ) ) {
 				$ids[] = $id;
 				$changed = true;
 			}
 		}
-		$removeIds = $this->lookupIds( $params['unmute'], $mutelistInfo['type'] );
+		$removeIds = $this->lookupIds( $targetsToUnmute, $mutelistInfo['type'] );
 		foreach ( $removeIds as $id ) {
 			$index = array_search( $id, $ids );
 			if ( $index !== false ) {
