@@ -4,7 +4,7 @@ CREATE TABLE /*_*/echo_unread_wikis (
 	# Global user id
 	euw_user INT UNSIGNED NOT NULL,
 	# Name of wiki
-	euw_wiki VARCHAR(30) NOT NULL,
+	euw_wiki VARCHAR(64) NOT NULL,
 	# unread alerts count on that wiki
 	euw_alerts INT UNSIGNED NOT NULL,
 	# Timestamp of the most recent unread alert
