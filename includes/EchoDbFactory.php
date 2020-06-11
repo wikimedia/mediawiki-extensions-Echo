@@ -133,9 +133,9 @@ class MWEchoDbFactory {
 	}
 
 	/**
-	 * Wait for the slaves of the database
+	 * Wait for the replicas of the database
 	 */
-	public function waitForSlaves() {
+	public function waitForReplicas() {
 		$this->waitFor( $this->getMasterPosition() );
 	}
 
@@ -167,7 +167,7 @@ class MWEchoDbFactory {
 
 	/**
 	 * Receives the output of self::getMasterPosition. Waits
-	 * for slaves to catch up to the master position at that
+	 * for replicas to catch up to the master position at that
 	 * point.
 	 *
 	 * @param array $position
