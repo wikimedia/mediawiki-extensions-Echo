@@ -1,4 +1,6 @@
-var assert = require( 'assert' ),
+'use strict';
+
+const assert = require( 'assert' ),
 	EchoPage = require( '../pageobjects/echo.page' ),
 	UserLoginPage = require( 'wdio-mediawiki/LoginPage' ),
 	Util = require( 'wdio-mediawiki/Util' ),
@@ -7,8 +9,8 @@ var assert = require( 'assert' ),
 describe( 'Mention test for Echo', function () {
 	it.skip( 'checks if admin gets alert when mentioned', function () {
 
-		var username = Util.getTestString( 'NewUser-' );
-		var password = Util.getTestString();
+		const username = Util.getTestString( 'NewUser-' );
+		const password = Util.getTestString();
 		browser.call( function () {
 			return Api.createAccount( username, password
 			).then( function () {

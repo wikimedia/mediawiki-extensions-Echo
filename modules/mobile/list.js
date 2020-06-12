@@ -5,6 +5,7 @@ var mobile = mw.mobileFrontend.require( 'mobile.startup' ),
 
 /**
  * This callback is displayed as a global member.
+ *
  * @callback FunctionCountChangeCallback
  * @param {number} count a capped (0-99 or 99+) count
  */

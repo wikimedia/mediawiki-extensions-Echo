@@ -127,7 +127,6 @@
 		this.labelWidget.toggle( !this.isDisabled() );
 	};
 
-	// eslint-disable-next-line valid-jsdoc
 	/**
 	 * Set the 'disabled' state of the widget.
 	 *

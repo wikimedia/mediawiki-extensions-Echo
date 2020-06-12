@@ -24,6 +24,7 @@ function onBeforeExitAnimation( overlay, exit ) {
 
 /**
  * This callback is displayed as a global member.
+ *
  * @callback FunctionCountChangeCallback
  * @param {number} count a capped (0-99 or 99+) count
  */

@@ -1,6 +1,6 @@
 'use strict';
 
-var assert = require( 'assert' ),
+const assert = require( 'assert' ),
 	EchoPage = require( '../pageobjects/echo.page' ),
 	UserLoginPage = require( 'wdio-mediawiki/LoginPage' ),
 	Util = require( 'wdio-mediawiki/Util' ),
@@ -39,8 +39,8 @@ describe( 'Echo', function () {
 
 	it( 'checks for welcome message after signup', function () {
 
-		var username = Util.getTestString( 'NewUser-' );
-		var password = Util.getTestString();
+		const username = Util.getTestString( 'NewUser-' );
+		const password = Util.getTestString();
 		browser.call( function () {
 			return Api.createAccount( username, password );
 		} );

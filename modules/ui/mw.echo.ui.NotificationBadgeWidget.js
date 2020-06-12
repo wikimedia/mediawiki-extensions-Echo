@@ -165,8 +165,8 @@
 		this.$element
 			.prop( 'id', 'pt-notifications-' + adjustedTypeString )
 			// The following classes can be used here:
-			// mw-echo-ui-notificationBadgeButtonPopupWidget-alert
-			// mw-echo-ui-notificationBadgeButtonPopupWidget-message
+			// * mw-echo-ui-notificationBadgeButtonPopupWidget-alert
+			// * mw-echo-ui-notificationBadgeButtonPopupWidget-message
 			.addClass(
 				'mw-echo-ui-notificationBadgeButtonPopupWidget ' +
 				'mw-echo-ui-notificationBadgeButtonPopupWidget-' + adjustedTypeString

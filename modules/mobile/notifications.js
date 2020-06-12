@@ -1,14 +1,14 @@
 var NOTIFICATIONS_PATH = '/notifications';
 
 /**
- * @fire echo.mobile every time the notifications overlay is opened
+ * @fires echo.mobile every time the notifications overlay is opened
  */
 function onOpenNotificationsOverlay() {
 	mw.hook( 'echo.mobile' ).fire( true );
 }
 
 /**
- * @fire echo.mobile every time the notifications overlay is closed
+ * @fires echo.mobile every time the notifications overlay is closed
  */
 function onCloseNotificationsOverlay() {
 	mw.hook( 'echo.mobile' ).fire( false );
@@ -55,6 +55,7 @@ module.exports = function () {
 
 		/**
 		 * Adds a filter button to the UI inside notificationsInboxWidget
+		 *
 		 * @method
 		 * @ignore
 		 */

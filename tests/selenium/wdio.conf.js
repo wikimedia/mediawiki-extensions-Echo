@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * See also: http://webdriver.io/guide/testrunner/configurationfile.html
  */
@@ -79,9 +81,8 @@ exports.config = {
 	 * @param {Object} test Mocha Test object
 	 */
 	afterTest: function ( test ) {
-		var filePath;
 		if ( !test.passed ) {
-			filePath = saveScreenshot( test.title );
+			const filePath = saveScreenshot( test.title );
 			console.log( '\n\tScreenshot: ' + filePath + '\n' );
 		}
 	}

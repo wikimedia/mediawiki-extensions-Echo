@@ -292,10 +292,10 @@
 	};
 
 	/**
-	* Get the all ids contained in this notification
-	*
-	* @return {number[]}
-	*/
+	 * Get the all ids contained in this notification
+	 *
+	 * @return {number[]}
+	 */
 	mw.echo.dm.NotificationItem.prototype.getAllIds = function () {
 		return [ this.getId() ].concat( this.bundledIds || [] );
 	};
