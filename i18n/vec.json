@@ -152,7 +152,7 @@
 	"notification-header-watchlist-multiuser-moved": "<strong>$1</strong>, na pàjina in te ła {{GENDER:$2|to}} łista de pàjine tegnue d'òcio, ła xé sta spostada $3 {{PLURAL:$3|òlta|òlte}}.",
 	"notification-header-watchlist-multiuser-restored": "<strong>$1</strong>, na pàjina in te ła {{GENDER:$2|to}} łista de pàjine tegnue d'òcio, ła xé sta reciapada fora $3 {{PLURAL:$3|òlta|òlte}}.",
 	"notification-welcome-linktext": "Benvegnù!",
-	"notification-header-thank-you-1-edit": "Te gh'è 'pena fato el to primo canbiamento; grasie e {{GENDER:$2|benvegnùo|benvegnùa|benvegnùo/a}}!",
+	"notification-header-thank-you-1-edit": "A te ghè pena faxesto el to primo cànbio! Gràsie e {{GENDER:$2|benvegnesto|benvegnesta|benvegnest@}}!",
 	"notification-header-thank-you-10-edit": "Te si pena rivà a diexe canbiamenti; gràsie de core e {{GENDER:$2|va vanti cusì}}!",
 	"notification-header-thank-you-100-edit": "Te si pena rivà a çento canbiamenti;  {{GENDER:$2|tante grasie}}!",
 	"notification-header-thank-you-1000-edit": "Te si pena rivà a miłe canbiamenti; {{GENDER:$2|gràsie de sto gran laoro}}!",

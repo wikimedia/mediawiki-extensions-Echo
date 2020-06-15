@@ -167,7 +167,7 @@
 	"notification-compact-header-mention-failure-user-unknown": "<strong>Kullanıcı adı mevcut değil:</strong> $1",
 	"notification-compact-header-mention-failure-user-anonymous": "<strong>IP'lerden bahsedilemez:</strong> $1",
 	"notification-header-mention-success": "<strong>$3</strong> kullanıcısına başarılı bir şekilde {{GENDER:$2|seslendiniz}}.",
-	"notification-header-mention-success-bundle": "<strong>$4</strong> {{GENDER:$2|yaptığınız}} tartışma sayfasında {{PLURAL:$3|bir bahsetme|$3 bahsetme}} gönderildi.",
+	"notification-header-mention-success-bundle": "<strong>$4</strong> sayfasında $3 kullanıcıya seslendiniz.",
 	"notification-compact-header-mention-success": "<strong>{{GENDER:$2|Şununla bahsettiniz}}:</strong> $3",
 	"notification-header-mention-status-bundle": "<strong>$4</strong> tartışma sayfasında {{GENDER:$2|yaptınız}} ile ilgili {{PLURAL:$3|bir bildirim|$3 bildirim}}: {{PLURAL:$5|$5 gönderilmedi}}, {{PLURAL:$6|$6 gönderildi}}.",
 	"notification-header-user-rights-add-only": "{{GENDER:$4|Kullanıcı}} haklarınız {{GENDER:$1|değiştirildi}}. Eklendiğiniz yer: $2.",
