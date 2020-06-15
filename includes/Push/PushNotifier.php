@@ -3,6 +3,7 @@
 namespace EchoPush;
 
 use CentralIdLookup;
+use EchoAttributeManager;
 use EchoEvent;
 use JobQueueGroup;
 use User;
@@ -16,7 +17,11 @@ class PushNotifier {
 	 * @param EchoEvent $event
 	 */
 	public static function notifyWithPush( User $user, EchoEvent $event ): void {
-		JobQueueGroup::singleton()->push( self::createJobForUser( $user ) );
+		$attributeManager = EchoAttributeManager::newFromGlobalVars();
+		$userEnabledEvents = $attributeManager->getUserEnabledEvents( $user, 'push' );
+		if ( in_array( $event->getType(), $userEnabledEvents ) ) {
+			JobQueueGroup::singleton()->push( self::createJobForUser( $user ) );
+		}
 	}
 
 	/**
