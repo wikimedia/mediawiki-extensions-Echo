@@ -19,7 +19,7 @@ class MWEchoThankYouEditTest extends MediaWikiTestCase {
 	}
 
 	/**
-	 * @covers \EchoHooks::onPageContentSaveComplete
+	 * @covers \EchoHooks::onPageSaveComplete
 	 */
 	public function testFirstEdit() {
 		// setup
@@ -41,7 +41,7 @@ class MWEchoThankYouEditTest extends MediaWikiTestCase {
 	}
 
 	/**
-	 * @covers \EchoHooks::onPageContentSaveComplete
+	 * @covers \EchoHooks::onPageSaveComplete
 	 */
 	public function testTenthEdit() {
 		// setup

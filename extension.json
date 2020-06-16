@@ -451,7 +451,7 @@
 		"UserMergeAccountDeleteTables": "EchoHooks::onUserMergeAccountDeleteTables",
 		"EchoGetBundleRules": "EchoHooks::onEchoGetBundleRules",
 		"EchoAbortEmailNotification": "EchoHooks::onEchoAbortEmailNotification",
-		"PageContentSaveComplete": "EchoHooks::onPageContentSaveComplete",
+		"PageSaveComplete": "EchoHooks::onPageSaveComplete",
 		"LocalUserCreated": "EchoHooks::onLocalUserCreated",
 		"RollbackComplete": "EchoHooks::onRollbackComplete",
 		"UserSaveSettings": "EchoHooks::onUserSaveSettings",
