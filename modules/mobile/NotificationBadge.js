@@ -9,6 +9,7 @@ var
 
 /**
  * A notification button for displaying a notifications overlay
+ *
  * @class NotificationButton
  * @extends View
  * @param {Object} options Configuration options
@@ -60,6 +61,7 @@ NotificationBadge.prototype.template = mw.template.get( 'ext.echo.mobile', 'Noti
 
 /**
  * Update the notification count
+ *
  * @memberof NotificationBadge
  * @instance
  * @param {number} count

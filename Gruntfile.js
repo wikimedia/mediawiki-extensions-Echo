@@ -1,4 +1,4 @@
-/* eslint-env node */
+/* eslint-env node, es6 */
 module.exports = function ( grunt ) {
 	var conf = grunt.file.readJSON( 'extension.json' );
 
@@ -11,8 +11,8 @@ module.exports = function ( grunt ) {
 	grunt.initConfig( {
 		eslint: {
 			options: {
-				extensions: [ '.js', '.json' ],
-				cache: true
+				cache: true,
+				fix: grunt.option( 'fix' )
 			},
 			all: [
 				'**/*.{js,json}',
@@ -65,7 +65,7 @@ module.exports = function ( grunt ) {
 				} ]
 			}
 		},
-		// eslint-disable-next-line no-restricted-properties
+		// eslint-disable-next-line es/no-object-assign
 		banana: Object.assign( {
 			options: { requireLowerCase: false }
 		}, conf.MessagesDirs ),
