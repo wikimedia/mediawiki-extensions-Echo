@@ -206,6 +206,7 @@
 	"notification-header-thank-you-10000-edit": "{{GENDER:$2|You}} just made {{GENDER:$2|your}} ten thousandth edit; thank {{GENDER:$2|you}} so very much!",
 	"notification-header-thank-you-100000-edit": "{{GENDER:$2|You}} just made {{GENDER:$2|your}} hundred thousandth edit; thank {{GENDER:$2|you}} for an amazing contribution!",
 	"notification-header-thank-you-1000000-edit": "{{GENDER:$2|You}} just made {{GENDER:$2|your}} millionth edit; thank {{GENDER:$2|you}} for an astonishing contribution!",
+	"notification-header-thank-you-10000000-edit": "{{GENDER:$2|You}} just made {{GENDER:$2|your}} ten millionth edit; thank {{GENDER:$2|you}} for your brilliant dedication!",
 	"notification-link-thank-you-edit": "{{GENDER:$1|Your}} edit",
 	"notification-link-text-view-edit": "View edit",
 	"notification-link-article-reminder": "View page",
