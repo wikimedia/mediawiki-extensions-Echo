@@ -11,14 +11,14 @@ var Overlay = mw.mobileFrontend.require( 'mobile.startup' ).Overlay;
  *
  */
 function notificationsFilterOverlay( options ) {
-	var $content;
+	var $content, overlay;
 	// Initialize
 	options.$crossWikiUnreadFilter.on( 'click', function () {
-		self.hide();
+		overlay.hide();
 	} );
 
 	options.$notifReadState.find( '.oo-ui-buttonElement' ).on( 'click', function () {
-		self.hide();
+		overlay.hide();
 	} );
 
 	$content = $( '<div>' ).append(
@@ -28,11 +28,12 @@ function notificationsFilterOverlay( options ) {
 		options.$crossWikiUnreadFilter
 	);
 
-	return Overlay.make( {
+	overlay = Overlay.make( {
 		onBeforeExit: options.onBeforeExit,
 		heading: '<strong>' + mw.message( 'echo-mobile-notifications-filter-title' ).escaped() + '</strong>',
 		className: 'overlay notifications-filter-overlay notifications-overlay navigation-drawer'
 	}, { $el: $content } );
+	return overlay;
 }
 
 module.exports = notificationsFilterOverlay;
