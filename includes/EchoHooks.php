@@ -588,7 +588,7 @@ class EchoHooks {
 
 		// If the user is not an IP and this is not a null edit,
 		// test for them reaching a congratulatory threshold
-		$thresholds = [ 1, 10, 100, 1000, 10000, 100000, 1000000 ];
+		$thresholds = [ 1, 10, 100, 1000, 10000, 100000, 1000000, 10000000 ];
 		// @phan-suppress-next-line PhanTypeArraySuspiciousNullable
 		if ( $user->isLoggedIn() && $status->value['revision'] ) {
 			$thresholdCount = self::getEditCount( $user );
