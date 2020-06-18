@@ -7,11 +7,11 @@ use Wikimedia\TestingAccessWrapper;
 /** @covers \EchoPush\PushNotifier */
 class PushNotifierTest extends MediaWikiIntegrationTestCase {
 
-	public function testCreateJobForUser(): void {
+	public function testCreateJob(): void {
 		$notifier = TestingAccessWrapper::newFromClass( PushNotifier::class );
 		$user = $this->getTestUser()->getUser();
 		$centralId = CentralIdLookup::factory()->centralIdFromLocalUser( $user );
-		$job = $notifier->createJobForUser( $user );
+		$job = $notifier->createJob( $user );
 		$this->assertInstanceOf( NotificationRequestJob::class, $job );
 		$this->assertSame( 'EchoPushNotificationRequest', $job->getType() );
 		$this->assertSame( $centralId, $job->getParams()['centralId'] );
