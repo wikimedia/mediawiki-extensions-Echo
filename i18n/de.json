@@ -186,6 +186,7 @@
 	"notification-header-thank-you-10000-edit": "{{GENDER:$2|Du}} hast gerade {{GENDER:$2|deine}} zehntausendste Bearbeitung durchgeführt. {{GENDER:$2|Vielen}} herzlichen Dank!",
 	"notification-header-thank-you-100000-edit": "{{GENDER:$2|Du}} hast gerade {{GENDER:$2|deine}} hunderttausendste Bearbeitung durchgeführt. {{GENDER:$2|Vielen}} Dank für einen hervorragenden Beitrag!",
 	"notification-header-thank-you-1000000-edit": "{{GENDER:$2|Du}} hast gerade {{GENDER:$2|deine}} millionste Bearbeitung durchgeführt. {{GENDER:$2|Vielen}} Dank für einen erstaunlichen Beitrag!",
+	"notification-header-thank-you-10000000-edit": "{{GENDER:$2|Du}} hast gerade {{GENDER:$2|deine}} zehnmillionste Bearbeitung durchgeführt. {{GENDER:$2|Vielen}} Dank für einen brillanten Beitrag!",
 	"notification-link-thank-you-edit": "{{GENDER:$1|Deine}} Bearbeitung",
 	"notification-link-text-view-edit": "Bearbeitung ansehen",
 	"notification-link-article-reminder": "Seite ansehen",

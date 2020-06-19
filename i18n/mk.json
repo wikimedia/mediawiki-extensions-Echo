@@ -174,6 +174,7 @@
 	"notification-header-thank-you-10000-edit": "Штотуку го {{GENDER:$2|направивте}} {{GENDER:$2|вашето}} десетилјадито уредување. Ја {{GENDER:$2|имате}} нашата огромна благодарност!",
 	"notification-header-thank-you-100000-edit": "Штотуку го {{GENDER:$2|направивте}} {{GENDER:$2|вашето}} стоилјадито уредување. {{GENDER:$2|Ви}} благодариме за феноменалниот придонес!",
 	"notification-header-thank-you-1000000-edit": "Штотуку го {{GENDER:$2|направивте}} {{GENDER:$2|вашето}} милионито уредување. {{GENDER:$2|Ви}} благодариме за запрепастувачкиот придонес!",
+	"notification-header-thank-you-10000000-edit": "Штотуку го {{GENDER:$2|направивте}} {{GENDER:$2|вашето}} десетмилионито уредување. {{GENDER:$2|Ви}} благодариме за чудесниот придонес!",
 	"notification-link-thank-you-edit": "{{GENDER:$1|Вашето}} уредување",
 	"notification-link-text-view-edit": "Погл. уредување",
 	"notification-link-article-reminder": "Погл. страница",
