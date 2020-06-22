@@ -191,6 +191,7 @@
 	"echo-mark-all-as-read": "すべて既読にする",
 	"echo-mark-all-as-read-confirmation": "$1件の{{PLURAL:$1|通知}}を既読にしました",
 	"echo-mark-wiki-as-read": "選択したウィキですべて既読にする: $1",
+	"echo-displaysnippet-title": "新規通知",
 	"echo-date-today": "今日",
 	"echo-date-yesterday": "昨日",
 	"notification-bundle-header-edit-user-talk-v2": "{{PLURAL:$1|1件の新しいメッセージ|$1件の新しいメッセージ|100=99件以上の新しいメッセージ}}が<strong>{{GENDER:$3|あなた}}のトークページ</strong>にあります。",
