@@ -214,7 +214,7 @@
 	"notification-header-thank-you-10000-edit": "{{GENDER:$2|Вы}} только что сделали {{GENDER:$2|свою}} десятитысячную правку; огромное {{GENDER:$2|вам}} спасибо!",
 	"notification-header-thank-you-100000-edit": "{{GENDER:$2|Вы}} только что сделали {{GENDER:$2|свою}} стотысячную правку; спасибо {{GENDER:$2|вам}} за удивительный вклад!",
 	"notification-header-thank-you-1000000-edit": "{{GENDER:$2|Вы}} только что сделали {{GENDER:$2|свою}} миллионную правку; спасибо {{GENDER:$2|вам}} за умопомрачительный вклад!",
-	"notification-header-thank-you-10000000-edit": "{{GENDER:$2|Вы}} только что следали {{GENDER:$2|вашу}} десяти миллионную правку; спасибо {{GENDER:$2|вам}} за ваш блестящий вклад!",
+	"notification-header-thank-you-10000000-edit": "{{GENDER:$2|Вы}} только что следали {{GENDER:$2|вашу}} десятимиллионную правку; спасибо {{GENDER:$2|вам}} за ваш блестящий вклад!",
 	"notification-link-thank-you-edit": "{{GENDER:$1|Ваша}} правка",
 	"notification-link-text-view-edit": "Просмотр правки",
 	"notification-link-article-reminder": "Просмотр страницы",
