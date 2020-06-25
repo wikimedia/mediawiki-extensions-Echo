@@ -232,7 +232,7 @@
 	"notification-inbox-filter-read": "Label for the button that shows only read notification.\n{{Identical|Read}}",
 	"notification-inbox-filter-unread": "Label for the button that shows only unread notification.\n{{Identical|Unread}}",
 	"notification-inbox-filter-all": "Label for the button that shows all notification.\n{{Identical|All}}",
-	"echo-specialmute-label-mute-notifications": "Label for the checkbox that mutes/unmutes notifications on [[Special:Mute]] from the specified user.",
+	"echo-specialmute-label-mute-notifications": "Label for the checkbox that mutes/unmutes notifications on [[Special:Mute]] from the specified user. Parameters:\n* $1 - the name of the user being addressed, used for GENDER",
 	"echo-email-plain-footer": "Footer content for Echo text e-mail notifications. Parameters:\n* $1 - the name of the user being addressed, used for GENDER\n\nFor HTML version, see {{msg-mw|echo-email-html-footer-with-link}}.",
 	"echo-email-html-footer-preference-link-text": "Text of link to the preference page in the footer of HTML emails. Parameters:\n* $1 - the name of the user being addressed, used for GENDER",
 	"echo-email-html-footer-with-link": "Footer content of the HTML email. Parameters:\n* $1 - complete HTML link to the preference page. $2 - the name of the user being addressed, used for GENDER\n\nSee {{msg-mw|echo-email-html-footer-preference-link-text}} for the text of the link.",

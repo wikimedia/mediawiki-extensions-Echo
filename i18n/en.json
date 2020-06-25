@@ -230,7 +230,7 @@
 	"notification-inbox-filter-read": "Read",
 	"notification-inbox-filter-unread": "Unread",
 	"notification-inbox-filter-all": "All",
-	"echo-specialmute-label-mute-notifications": "Mute notifications from this user",
+	"echo-specialmute-label-mute-notifications": "Mute notifications from this {{GENDER:$1|user}}",
 	"echo-email-plain-footer": "To control which emails we send {{GENDER:$1|you}}, check {{GENDER:$1|your}} preferences:",
 	"echo-email-html-footer-preference-link-text": "check {{GENDER:$1|your}} preferences",
 	"echo-email-html-footer-with-link": "To control which emails we send {{GENDER:$2|you}}, $1.",
