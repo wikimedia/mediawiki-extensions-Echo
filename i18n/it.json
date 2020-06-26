@@ -178,7 +178,7 @@
 	"notification-inbox-filter-read": "Lette",
 	"notification-inbox-filter-unread": "Non lette",
 	"notification-inbox-filter-all": "Tutte",
-	"echo-specialmute-label-mute-notifications": "Silenzia le notifiche da questo utente",
+	"echo-specialmute-label-mute-notifications": "Silenzia le notifiche da {{GENDER:$1|questo|questa}} utente",
 	"echo-email-plain-footer": "Per controllare quali email {{GENDER:$1|ti}} vengono inviate, verifica le {{GENDER:$1|tue}} preferenze:",
 	"echo-email-html-footer-preference-link-text": "verifica le {{GENDER:$1|tue}} preferenze",
 	"echo-email-html-footer-with-link": "Per controllare quali email {{GENDER:$2|ti}} vengono inviate, $1.",

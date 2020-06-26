@@ -3,7 +3,8 @@
 		"authors": [
 			"9.sinistra",
 			"Dr Lotus Black",
-			"Ninjastrikers"
+			"Ninjastrikers",
+			"Teitei Para"
 		]
 	},
 	"prefs-echo": "အသိပေးချက်များ",
@@ -18,6 +19,7 @@
 	"echo-pref-email-format": "အီးမေးလ်ပုံစံ:",
 	"echo-pref-web": "ဝဘ်",
 	"echo-pref-email": "အီးမေးလ်",
+	"echo-pref-push": "အပ်များ",
 	"echo-pref-email-frequency-never": "မည်သည့်အီးမေးလ် အသိပေးချက်မျှ မပို့ပါနှင့်",
 	"echo-pref-email-frequency-immediately": "ဝင်လာသော သီးသန့်အသိပေးချက်များ",
 	"echo-pref-email-frequency-daily": "နေ့စဉ်အကျဉ်းချုပ် အသိပေးချက်များ",
@@ -121,6 +123,7 @@
 	"notification-inbox-filter-read": "ဖတ်ပြီး",
 	"notification-inbox-filter-unread": "မဖတ်ရသေး",
 	"notification-inbox-filter-all": "အားလုံး",
+	"echo-specialmute-label-mute-notifications": "ဤ {{GENDER:$1|user}}မှ သတိပေးချက်ကို ရပ်ဆိုင်းပါ",
 	"echo-email-plain-footer": "{{GENDER:$1|သင့်အား}} ကျွန်ုပ်တို့ မည်သည့်အီးမေးလ်များပို့ပေးသည်ကို ထိန်းချုပ်ရန်အတွက် {{GENDER:$1|သင်၏}} အပြင်အဆင်များကို စစ်ဆေးပါ။",
 	"echo-email-html-footer-preference-link-text": "{{GENDER:$1|သင်၏}} ရွေးချယ်စရာများကို စစ်ဆေးရန်",
 	"echo-email-html-footer-with-link": "ကျွန်ုပ်တို့ {{GENDER:$2|သင့်ကို}} အီးမေးလ်ပို့ပေးခြင်းအား ထိန်းချုပ်ရန်အတွက် $1။",
