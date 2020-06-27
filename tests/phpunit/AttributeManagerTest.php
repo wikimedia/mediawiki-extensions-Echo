@@ -274,8 +274,16 @@ class EchoAttributeManagerTest extends MediaWikiTestCase {
 				'email' => true,
 			]
 		];
-		$manager = new EchoAttributeManager( $notif, $category, $defaultNotifyTypeAvailability, $notifyTypeAvailabilityByCategory );
-		$this->assertEquals( [ 'event_two', 'event_four' ], $manager->getUserEnabledEvents( $this->mockUser(), 'web' ) );
+		$manager = new EchoAttributeManager(
+			$notif,
+			$category,
+			$defaultNotifyTypeAvailability,
+			$notifyTypeAvailabilityByCategory
+		);
+		$this->assertEquals(
+			[ 'event_two', 'event_four' ],
+			$manager->getUserEnabledEvents( $this->mockUser(), 'web' )
+		);
 	}
 
 	public function testGetUserEnabledEventsbySections() {
@@ -322,7 +330,12 @@ class EchoAttributeManagerTest extends MediaWikiTestCase {
 				'email' => true,
 			]
 		];
-		$manager = new EchoAttributeManager( $notif, $category, $defaultNotifyTypeAvailability, $notifyTypeAvailabilityByCategory );
+		$manager = new EchoAttributeManager(
+			$notif,
+			$category,
+			$defaultNotifyTypeAvailability,
+			$notifyTypeAvailabilityByCategory
+		);
 		$expected = [ 'event_one', 'event_three', 'event_four' ];
 		$actual = $manager->getUserEnabledEventsbySections( $this->mockUser(), 'web', [ 'alert' ] );
 		sort( $expected );

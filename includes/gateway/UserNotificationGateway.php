@@ -150,7 +150,11 @@ class EchoUserNotificationGateway {
 	 * @param int $cap Max count
 	 * @return int
 	 */
-	public function getCappedNotificationCount( $dbSource, array $eventTypesToLoad = [], $cap = MWEchoNotifUser::MAX_BADGE_COUNT ) {
+	public function getCappedNotificationCount(
+		$dbSource,
+		array $eventTypesToLoad = [],
+		$cap = MWEchoNotifUser::MAX_BADGE_COUNT
+	) {
 		// double check
 		if ( !in_array( $dbSource, [ DB_REPLICA, DB_MASTER ] ) ) {
 			$dbSource = DB_REPLICA;

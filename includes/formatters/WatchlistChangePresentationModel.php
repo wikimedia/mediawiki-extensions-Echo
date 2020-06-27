@@ -43,7 +43,8 @@ class EchoWatchlistChangePresentationModel extends EchoEventPresentationModel {
 		}
 		return [
 			'url' => $this->getViewChangesUrl(),
-			'label' => $this->msg( 'notification-link-text-view-changes', $this->getViewingUserForGender() )->text(),
+			'label' => $this->msg( 'notification-link-text-view-changes', $this->getViewingUserForGender() )
+				->text(),
 		];
 	}
 
@@ -57,7 +58,8 @@ class EchoWatchlistChangePresentationModel extends EchoEventPresentationModel {
 		} else {
 			$viewChangesLink = [
 				'url' => $this->getViewChangesUrl(),
-				'label' => $this->msg( 'notification-link-text-view-changes', $this->getViewingUserForGender() )->text(),
+				'label' => $this->msg( 'notification-link-text-view-changes', $this->getViewingUserForGender() )
+					->text(),
 				'description' => '',
 				'icon' => 'changes',
 				'prioritized' => true,

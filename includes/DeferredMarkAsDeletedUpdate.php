@@ -40,7 +40,8 @@ class EchoDeferredMarkAsDeletedUpdate implements DeferrableUpdate {
 					// unreaderable because of replica lag.
 					// Do not moderate it at this time.
 					LoggerFactory::getInstance( 'Echo' )->debug(
-						'EchoDeferredMarkAsDeletedUpdate: Event {eventId} was found unrenderable but its associated title exists on Master. Skipping.',
+						'EchoDeferredMarkAsDeletedUpdate: Event {eventId} was found unrenderable ' .
+							' but its associated title exists on Master. Skipping.',
 						[
 							'eventId' => $event->getId(),
 							'title' => $event->getTitle()->getPrefixedText(),

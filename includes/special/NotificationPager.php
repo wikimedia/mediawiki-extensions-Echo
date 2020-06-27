@@ -17,8 +17,8 @@ class NotificationPager extends ReverseChronologicalPager {
 	}
 
 	public function formatRow( $row ) {
-		$msg = "This pager does not support row formatting. Use 'getNotifications()' to get a list of EchoNotification objects.";
-		throw new Exception( $msg );
+		throw new Exception( "This pager does not support row formatting. " .
+			"Use 'getNotifications()' to get a list of EchoNotification objects." );
 	}
 
 	public function getQueryInfo() {

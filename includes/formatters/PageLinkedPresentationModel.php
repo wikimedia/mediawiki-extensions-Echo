@@ -36,7 +36,8 @@ class EchoPageLinkedPresentationModel extends EchoEventPresentationModel {
 
 	public function getSecondaryLinks() {
 		$whatLinksHereLink = [
-			'url' => SpecialPage::getTitleFor( 'Whatlinkshere', $this->event->getTitle()->getPrefixedText() )->getFullURL(),
+			'url' => SpecialPage::getTitleFor( 'Whatlinkshere', $this->event->getTitle()->getPrefixedText() )
+				->getFullURL(),
 			'label' => $this->msg( 'notification-link-text-what-links-here' )->text(),
 			'description' => '',
 			'icon' => 'linked',
@@ -48,7 +49,8 @@ class EchoPageLinkedPresentationModel extends EchoEventPresentationModel {
 		if ( $revid !== null ) {
 			$diffLink = [
 				'url' => $this->getPageFrom()->getFullURL( [ 'diff' => $revid, 'oldid' => 'prev' ] ),
-				'label' => $this->msg( 'notification-link-text-view-changes', $this->getViewingUserForGender() )->text(),
+				'label' => $this->msg( 'notification-link-text-view-changes', $this->getViewingUserForGender() )
+					->text(),
 				'description' => '',
 				'icon' => 'changes',
 				'prioritized' => true

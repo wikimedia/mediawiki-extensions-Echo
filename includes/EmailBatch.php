@@ -245,7 +245,8 @@ class MWEchoEmailBatch {
 	}
 
 	/**
-	 * Clear "processed" events in the queue, processed could be: email sent, invalid, users do not want to receive emails
+	 * Clear "processed" events in the queue,
+	 * processed could be: email sent, invalid, users do not want to receive emails
 	 */
 	public function clearProcessedEvent() {
 		global $wgUpdateRowsPerQuery;

@@ -242,13 +242,21 @@ class NotificationControllerTest extends MediaWikiTestCase {
 	 * @dataProvider getEventNotifyTypesProvider
 	 */
 	public function testGetEventNotifyTypes(
-		$message, $expect, $type, array $defaultNotifyTypeAvailability, array $notifyTypeAvailabilityByCategory, array $notifications
+		$message,
+		$expect,
+		$type,
+		array $defaultNotifyTypeAvailability,
+		array $notifyTypeAvailabilityByCategory,
+		array $notifications
 	) {
 		$this->setMwGlobals( [
 			'wgDefaultNotifyTypeAvailability' => $defaultNotifyTypeAvailability,
 			'wgNotifyTypeAvailabilityByCategory' => $notifyTypeAvailabilityByCategory,
 			'wgEchoNotifications' => $notifications,
-			'wgEchoNotificationCategories' => array_fill_keys( array_keys( $notifyTypeAvailabilityByCategory ), [ 'priority' => 4 ] ),
+			'wgEchoNotificationCategories' => array_fill_keys(
+				array_keys( $notifyTypeAvailabilityByCategory ),
+				[ 'priority' => 4 ]
+			),
 		] );
 		$result = EchoNotificationController::getEventNotifyTypes( $type );
 		$this->assertEquals( $expect, $result, $message );

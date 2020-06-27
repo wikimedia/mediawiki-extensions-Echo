@@ -29,7 +29,8 @@ class EchoTalkPageFunctionalTest extends ApiTestCase {
 
 		// Ensure the proper event was created
 		$events = $this->fetchAllEvents();
-		$this->assertCount( 1 + $messageCount, $events, 'After initial edit a single event must exist.' ); // +1 is due to 0 index
+		// +1 is due to 0 index
+		$this->assertCount( 1 + $messageCount, $events, 'After initial edit a single event must exist.' );
 		$row = array_shift( $events );
 		$this->assertEquals( 'edit-user-talk', $row->event_type );
 		$this->assertEventSectionTitle( 'Section 8', $row );

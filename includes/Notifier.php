@@ -90,7 +90,10 @@ class EchoNotifier {
 
 			// instant email notification
 			$toAddress = MailAddress::newFromUser( $user );
-			$fromAddress = new MailAddress( $wgPasswordSender, wfMessage( 'emailsender' )->inContentLanguage()->text() );
+			$fromAddress = new MailAddress(
+				$wgPasswordSender,
+				wfMessage( 'emailsender' )->inContentLanguage()->text()
+			);
 			$replyAddress = new MailAddress( $wgNoReplyAddress );
 			// Since we are sending a single email, should set the bundle hash to null
 			// if it is set with a value from somewhere else

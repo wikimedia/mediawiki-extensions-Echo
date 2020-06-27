@@ -90,7 +90,10 @@ class SpecialNotificationsFormatter extends EchoEventFormatter {
 		$html .= Xml::tags(
 			'div',
 			[ 'class' => 'mw-echo-notification-footer' ],
-			implode( Html::element( 'span', [ 'class' => 'mw-echo-notification-footer-element' ], $pipe ), $footerItems )
+			implode(
+				Html::element( 'span', [ 'class' => 'mw-echo-notification-footer-element' ], $pipe ),
+				$footerItems
+			)
 		) . "\n";
 
 		// Wrap everything in mw-echo-content class

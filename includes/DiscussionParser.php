@@ -570,7 +570,10 @@ abstract class EchoDiscussionParser {
 							if ( !empty( $sectionSignedUsers ) ) {
 								$signedSections[] = $sectionSpan;
 								if ( !$section['header'] ) {
-									$fullSection = self::getFullSection( $changes['_info']['rhs'], $change['right-pos'] );
+									$fullSection = self::getFullSection(
+										$changes['_info']['rhs'],
+										$change['right-pos']
+									);
 									$section['header'] = self::extractHeader( $fullSection );
 								}
 								$actions[] = [

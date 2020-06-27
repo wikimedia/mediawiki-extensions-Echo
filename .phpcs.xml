@@ -2,7 +2,6 @@
 <ruleset name="MediaWiki">
 	<file>.</file>
 	<rule ref="./vendor/mediawiki/mediawiki-codesniffer/MediaWiki">
-		<exclude name="Generic.Files.LineLength.TooLong" />
 		<exclude name="MediaWiki.Commenting.FunctionComment.MissingDocumentationPrivate" />
 		<exclude name="MediaWiki.Files.ClassMatchesFilename.NotMatch" />
 		<exclude name="MediaWiki.Commenting.FunctionComment.MissingDocumentationProtected" />
@@ -11,13 +10,7 @@
 		<exclude name="MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment" />
 		<exclude name="PSR12.Properties.ConstantVisibility.NotFound" />
 	</rule>
-	<rule ref="Generic.Files.LineLength">
-		<properties>
-			<property name="lineLimit" value="140" />
-		</properties>
-	</rule>
 	<arg name="encoding" value="UTF-8" />
 	<arg name="extensions" value="php,php5,inc" />
 	<arg name="colors" />
-	<exclude-pattern>vendor</exclude-pattern>
 </ruleset>

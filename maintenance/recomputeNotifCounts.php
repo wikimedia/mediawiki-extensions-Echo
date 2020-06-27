@@ -19,8 +19,10 @@ class RecomputeNotifCounts extends Maintenance {
 		parent::__construct();
 
 		$this->addDescription( 'Recompute notification counts for all users.' );
-		$this->addOption( 'user-ids', 'Comma-separated list of users to recompute notification counts for', false, true );
-		$this->addOption( 'notif-types', 'Recompute counts for all users who have unread notifications of one of these types (comma-separated)',
+		$this->addOption( 'user-ids',
+			'Comma-separated list of users to recompute notification counts for', false, true );
+		$this->addOption( 'notif-types',
+			'Recompute counts for all users who have unread notifications of one of these types (comma-separated)',
 			false, true );
 
 		$this->setBatchSize( 500 );

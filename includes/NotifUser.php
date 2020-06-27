@@ -165,7 +165,8 @@ class MWEchoNotifUser {
 	 * If $wgEchoCrossWikiNotifications is disabled, the $global parameter is ignored.
 	 *
 	 * @param string $section Notification section
-	 * @param bool|string $global Whether to include foreign notifications. If set to 'preference', uses the user's preference.
+	 * @param bool|string $global Whether to include foreign notifications.
+	 *   If set to 'preference', uses the user's preference.
 	 * @return int
 	 */
 	public function getNotificationCount( $section = EchoAttributeManager::ALL, $global = 'preference' ) {
@@ -212,7 +213,8 @@ class MWEchoNotifUser {
 	 * If $wgEchoCrossWikiNotifications is disabled, the $global parameter is ignored.
 	 *
 	 * @param string $section Notification section
-	 * @param bool|string $global Whether to include foreign notifications. If set to 'preference', uses the user's preference.
+	 * @param bool|string $global Whether to include foreign notifications.
+	 *   If set to 'preference', uses the user's preference.
 	 * @return bool|MWTimestamp Timestamp of latest unread message, or false if there are no unread messages.
 	 */
 	public function getLastUnreadNotificationTime( $section = EchoAttributeManager::ALL, $global = 'preference' ) {
@@ -260,7 +262,14 @@ class MWEchoNotifUser {
 				$attributeManager = EchoAttributeManager::newFromGlobalVars();
 				$categoryMap = $attributeManager->getEventsByCategory();
 				$usertalkTypes = $categoryMap['edit-user-talk'];
-				$unreadEditUserTalk = $this->notifMapper->fetchUnreadByUser( $this->mUser, 1, null, $usertalkTypes, null, DB_MASTER );
+				$unreadEditUserTalk = $this->notifMapper->fetchUnreadByUser(
+					$this->mUser,
+					1,
+					null,
+					$usertalkTypes,
+					null,
+					DB_MASTER
+				);
 				if ( $unreadEditUserTalk === [] ) {
 					$talkPageNotificationManager->removeUserHasNewMessages( $this->mUser );
 				}
@@ -295,7 +304,14 @@ class MWEchoNotifUser {
 				$attributeManager = EchoAttributeManager::newFromGlobalVars();
 				$categoryMap = $attributeManager->getEventsByCategory();
 				$usertalkTypes = $categoryMap['edit-user-talk'];
-				$unreadEditUserTalk = $this->notifMapper->fetchUnreadByUser( $this->mUser, 1, null, $usertalkTypes, null, DB_MASTER );
+				$unreadEditUserTalk = $this->notifMapper->fetchUnreadByUser(
+					$this->mUser,
+					1,
+					null,
+					$usertalkTypes,
+					null,
+					DB_MASTER
+				);
 				if ( $unreadEditUserTalk !== [] ) {
 					$talkPageNotificationManager->setUserHasNewMessages( $this->mUser );
 				}
@@ -546,13 +562,28 @@ class MWEchoNotifUser {
 		$totals = [ 'count' => 0, 'timestamp' => -1 ];
 
 		foreach ( EchoAttributeManager::$sections as $section ) {
-			$eventTypesToLoad = $attributeManager->getUserEnabledEventsbySections( $this->mUser, 'web', [ $section ] );
+			$eventTypesToLoad = $attributeManager->getUserEnabledEventsbySections(
+				$this->mUser,
+				'web',
+				[ $section ]
+			);
 
-			$count = (int)$this->userNotifGateway->getCappedNotificationCount( $dbSource, $eventTypesToLoad, self::MAX_BADGE_COUNT + 1 );
+			$count = (int)$this->userNotifGateway->getCappedNotificationCount(
+				$dbSource,
+				$eventTypesToLoad,
+				self::MAX_BADGE_COUNT + 1
+			);
 			$result[$section]['count'] = $count;
 			$totals['count'] += $count;
 
-			$notifications = $this->notifMapper->fetchUnreadByUser( $this->mUser, 1, null, $eventTypesToLoad, null, $dbSource );
+			$notifications = $this->notifMapper->fetchUnreadByUser(
+				$this->mUser,
+				1,
+				null,
+				$eventTypesToLoad,
+				null,
+				$dbSource
+			);
 			if ( $notifications ) {
 				$notification = reset( $notifications );
 				$timestamp = $notification->getTimestamp();
@@ -586,7 +617,10 @@ class MWEchoNotifUser {
 
 			$localTimestamp = $localData[$section]['timestamp'];
 			$foreignTimestamp = $this->getForeignTimestamp( $section );
-			$globalTimestamp = max( $localTimestamp, $foreignTimestamp ? $foreignTimestamp->getTimestamp( TS_MW ) : -1 );
+			$globalTimestamp = max(
+				$localTimestamp,
+				$foreignTimestamp ? $foreignTimestamp->getTimestamp( TS_MW ) : -1
+			);
 			$result[$section]['timestamp'] = $globalTimestamp;
 			$totals['timestamp'] = max( $totals['timestamp'], $globalTimestamp );
 		}

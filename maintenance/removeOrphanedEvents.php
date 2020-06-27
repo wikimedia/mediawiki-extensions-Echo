@@ -18,8 +18,8 @@ class RemoveOrphanedEvents extends LoggedUpdateMaintenance {
 	public function __construct() {
 		parent::__construct();
 
-		$this->addDescription( "Remove rows from echo_event and echo_target_page that don't have corresponding rows in " .
-			"echo_notification or echo_email_batch" );
+		$this->addDescription( "Remove rows from echo_event and echo_target_page that don't have corresponding " .
+			"rows in echo_notification or echo_email_batch" );
 
 		$this->setBatchSize( 500 );
 

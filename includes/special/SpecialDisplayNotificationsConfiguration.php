@@ -84,7 +84,8 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 				)
 			)->parse();
 
-			$this->categoryNames[$internalCategoryName] = $formattedFriendlyCategoryName . ' ' . $formattedInternalCategoryName;
+			$this->categoryNames[$internalCategoryName] = $formattedFriendlyCategoryName . ' '
+				. $formattedInternalCategoryName;
 		}
 
 		$this->flippedCategoryNames = array_flip( $this->categoryNames );
@@ -128,7 +129,13 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 	 * @param array $columnLabelMapping Associative array mapping label to tag
 	 * @param array $value Array consisting of strings in the format '$columnTag-$rowTag'
 	 */
-	protected function outputCheckMatrix( $id, $legendMsgKey, array $rowLabelMapping, array $columnLabelMapping, array $value ) {
+	protected function outputCheckMatrix(
+		$id,
+		$legendMsgKey,
+		array $rowLabelMapping,
+		array $columnLabelMapping,
+		array $value
+	) {
 		$form = new HTMLForm(
 			[
 				$id => [
@@ -174,7 +181,8 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 				Html::rawElement(
 					'li',
 					[],
-					$this->categoryNames[$categoryName] . $this->msg( 'colon-separator' )->escaped() . ' ' . $implodedTypes
+					$this->categoryNames[$categoryName] . $this->msg( 'colon-separator' )->escaped() . ' '
+						. $implodedTypes
 				)
 			);
 		}
@@ -199,7 +207,8 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 			$types = $this->attributeManager->getEventsForSection( $section );
 			// echo-notification-alert-text-only, echo-notification-notice-text-only
 			$msgSection = $section == 'message' ? 'notice' : $section;
-			$flippedSectionNames[$this->msg( 'echo-notification-' . $msgSection . '-text-only' )->escaped()] = $section;
+			$flippedSectionNames[$this->msg( 'echo-notification-' . $msgSection . '-text-only' )->escaped()]
+				= $section;
 			foreach ( $types as $type ) {
 				$bySectionValue[] = "$section-$type";
 			}

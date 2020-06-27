@@ -22,7 +22,12 @@ class BackfillUnreadWikis extends Maintenance {
 
 		$rebuild = $this->hasOption( 'rebuild' );
 		if ( $rebuild ) {
-			$iterator = new BatchRowIterator( $dbFactory->getSharedDb( DB_REPLICA ), 'echo_unread_wikis', 'euw_user', $this->mBatchSize );
+			$iterator = new BatchRowIterator(
+				$dbFactory->getSharedDb( DB_REPLICA ),
+				'echo_unread_wikis',
+				'euw_user',
+				$this->mBatchSize
+			);
 			$iterator->addConditions( [ 'euw_wiki' => wfWikiID() ] );
 		} else {
 			$userQuery = User::getQueryInfo();
@@ -54,7 +59,9 @@ class BackfillUnreadWikis extends Maintenance {
 					$msgCount = $notifUser->getNotificationCount( EchoAttributeManager::MESSAGE, false );
 					$msgUnread = $notifUser->getLastUnreadNotificationTime( EchoAttributeManager::MESSAGE, false );
 
-					if ( ( $alertCount !== 0 && $alertUnread === false ) || ( $msgCount !== 0 && $msgUnread === false ) ) {
+					if ( ( $alertCount !== 0 && $alertUnread === false ) ||
+						( $msgCount !== 0 && $msgUnread === false )
+					) {
 						// If there are alerts, there should be an alert timestamp (same for messages).
 
 						// Otherwise, there is a race condition between the two values, indicating there's already

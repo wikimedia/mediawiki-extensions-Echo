@@ -110,7 +110,9 @@ class ApiEchoNotifications extends ApiQueryBase {
 
 				// if exactly 1 section is specified, we consider only that section, otherwise
 				// we pass ALL to consider all foreign notifications
-				$section = count( $params['sections'] ) === 1 ? reset( $params['sections'] ) : EchoAttributeManager::ALL;
+				$section = count( $params['sections'] ) === 1
+					? reset( $params['sections'] )
+					: EchoAttributeManager::ALL;
 				if ( $this->crossWikiSummary ) {
 					$foreignNotification = $this->makeForeignNotification( $user, $params['format'], $section );
 					if ( $foreignNotification ) {
@@ -386,7 +388,8 @@ class ApiEchoNotifications extends ApiQueryBase {
 
 		// Sort wikis by timestamp, in descending order (newest first)
 		usort( $wikis, function ( $a, $b ) use ( $section, $timestampsByWiki ) {
-			return (int)$timestampsByWiki[$b]->getTimestamp( TS_UNIX ) - (int)$timestampsByWiki[$a]->getTimestamp( TS_UNIX );
+			return (int)$timestampsByWiki[$b]->getTimestamp( TS_UNIX )
+				- (int)$timestampsByWiki[$a]->getTimestamp( TS_UNIX );
 		} );
 
 		$row = new stdClass;
