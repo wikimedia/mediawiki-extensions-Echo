@@ -26,6 +26,7 @@
 			"Wong128hk",
 			"Xiplus",
 			"一個正常人",
+			"沈澄心",
 			"逆襲的天邪鬼"
 		]
 	},
@@ -45,7 +46,7 @@
 	"echo-pref-email-format": "電子郵件格式：",
 	"echo-pref-web": "網頁",
 	"echo-pref-email": "電子郵件",
-	"echo-pref-push": "發送（僅適用移動版應用程式）",
+	"echo-pref-push": "應用程式",
 	"echo-pref-email-frequency-never": "不要傳送任何信件通知",
 	"echo-pref-email-frequency-immediately": "個別通知發生事件時的訊息",
 	"echo-pref-email-frequency-daily": "每日通知摘要",
@@ -218,7 +219,7 @@
 	"notification-inbox-filter-read": "已讀取",
 	"notification-inbox-filter-unread": "未讀取",
 	"notification-inbox-filter-all": "所有",
-	"echo-specialmute-label-mute-notifications": "不顯示來自此使用者的通知",
+	"echo-specialmute-label-mute-notifications": "不顯示來自此{{GENDER:$1|使用者}}的通知",
 	"echo-email-plain-footer": "如要調整我們寄給您的電子郵件，請檢查{{GENDER:$1|您}}的偏好設定：",
 	"echo-email-html-footer-preference-link-text": "檢查{{GENDER:$1|您}}的偏好設定",
 	"echo-email-html-footer-with-link": "如要調整我們寄給{{GENDER:$2|您}}的電子郵件，$1：",

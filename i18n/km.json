@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Pichnat Thong",
 			"គីមស៊្រុន"
 		]
 	},
@@ -15,6 +16,7 @@
 	"echo-pref-email-format": "ទម្រង់អ៊ីមែល៖",
 	"echo-pref-web": "វិបសាយ",
 	"echo-pref-email": "អ៊ីមែល",
+	"echo-pref-push": "កម្មវិធី",
 	"echo-pref-email-frequency-never": "កុំផ្ញើសារជូនដំណឹងមកខ្ញុំអោយសោះ",
 	"echo-pref-email-frequency-immediately": "សារជូនដំណឹងមួយៗពេលដែលគេផ្ញើចូលមក",
 	"echo-pref-email-frequency-daily": "សារជូនដំណឹងសង្ខេបសរុបប្រចាំថ្ងៃ",

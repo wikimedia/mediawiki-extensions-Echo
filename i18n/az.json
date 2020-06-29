@@ -6,6 +6,7 @@
 			"Khan27",
 			"Serkanland",
 			"Toghrul Rahimli",
+			"Vesely35",
 			"Wertuose",
 			"Zoranzoki21"
 		]
@@ -22,6 +23,7 @@
 	"echo-pref-email-format": "Elektron məktub formatı",
 	"echo-pref-web": "Veb",
 	"echo-pref-email": "Elektron məktub",
+	"echo-pref-push": "Tətbiqlər",
 	"echo-pref-email-frequency-never": "Bildirişlər mənə elektron məktubla göndərilməsin",
 	"echo-pref-email-frequency-immediately": "Ayrı-ayrılıqda bildirişlər",
 	"echo-pref-email-frequency-daily": "Gündəlik bildirişlər",
@@ -103,6 +105,7 @@
 	"notification-inbox-filter-read": "Oxunmuş",
 	"notification-inbox-filter-unread": "Oxunmamış",
 	"notification-inbox-filter-all": "Hamısı",
+	"echo-specialmute-label-mute-notifications": "Bundan gələn bildirişləri səssizləşdirin {{GENDER:$1|istifadəçi}}",
 	"echo-email-html-footer-preference-link-text": "nizamlamalarınızı nəzərdən keçirin.",
 	"echo-email-html-footer-with-link": "{{GENDER:$2|Sizə}} hansı e-meylləri göndərdiyimizə nəzarət etmək üçün $1.",
 	"echo-notification-alert": "{{PLURAL:$1|Xəbərdarlıq ($1)|Xəbərdarlıqlar ($1)|100=Xəbərdarlıqlar (99+)}}",
