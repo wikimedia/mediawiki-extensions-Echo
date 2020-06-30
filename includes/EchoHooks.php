@@ -5,6 +5,7 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Preferences\MultiTitleFilter;
 use MediaWiki\Preferences\MultiUsernameFilter;
 use MediaWiki\Revision\RevisionRecord;
+use MediaWiki\Storage\EditResult;
 use MediaWiki\User\UserIdentity;
 
 class EchoHooks {
@@ -532,65 +533,48 @@ class EchoHooks {
 	}
 
 	/**
-	 * Handler for PageContentSaveComplete hook
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/PageContentSaveComplete
+	 * Handler for PageSaveComplete hook
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/PageSaveComplete
 	 *
 	 * @param WikiPage $wikiPage modified WikiPage
-	 * @param User $user User who edited
-	 * @param Content $content New article text
+	 * @param UserIdentity $userIdentity User who edited
 	 * @param string $summary Edit summary
-	 * @param bool $minoredit Minor edit or not
-	 * @param bool $watchthis Watch this article?
-	 * @param string $sectionanchor Section that was edited
-	 * @param int &$flags Edit flags
-	 * @param Revision $revision Revision that was created
-	 * @param Status $status
-	 * @param int $baseRevId
-	 * @param int $undidRevId
+	 * @param int $flags Edit flags
+	 * @param RevisionRecord $revisionRecord RevisionRecord for the revision that was created
+	 * @param EditResult $editResult
 	 */
-	public static function onPageContentSaveComplete(
+	public static function onPageSaveComplete(
 		WikiPage $wikiPage,
-		$user,
-		$content,
-		$summary,
-		$minoredit,
-		$watchthis,
-		$sectionanchor,
-		&$flags,
-		$revision,
-		Status $status,
-		$baseRevId,
-		$undidRevId = 0
+		UserIdentity $userIdentity,
+		string $summary,
+		int $flags,
+		RevisionRecord $revisionRecord,
+		EditResult $editResult
 	) {
 		global $wgEchoNotifications;
 
-		if ( !$revision ) {
-			return;
-		}
-
-		// unless status is "good" (not only ok, also no warnings or errors), we
-		// probably shouldn't process it at all (e.g. null edits)
-		if ( !$status->isGood() ) {
+		if ( $editResult->isNullEdit() ) {
 			return;
 		}
 
 		$title = $wikiPage->getTitle();
+		$undidRevId = $editResult->getUndidRevId();
 
 		// Try to do this after the HTTP response
-		DeferredUpdates::addCallableUpdate( function () use ( $revision, $undidRevId ) {
+		DeferredUpdates::addCallableUpdate( function () use ( $revisionRecord, $undidRevId ) {
 			// This check has to happen during deferred processing, otherwise $lastRevertedRevision
 			// will not be initialized.
 			$isRevert = $undidRevId > 0 ||
 				( self::$lastRevertedRevision &&
-				self::$lastRevertedRevision->getId() === $revision->getId() );
-			EchoDiscussionParser::generateEventsForRevision( $revision->getRevisionRecord(), $isRevert );
+				self::$lastRevertedRevision->getId() === $revisionRecord->getId() );
+			EchoDiscussionParser::generateEventsForRevision( $revisionRecord, $isRevert );
 		} );
 
+		$user = User::newFromIdentity( $userIdentity );
 		// If the user is not an IP and this is not a null edit,
 		// test for them reaching a congratulatory threshold
 		$thresholds = [ 1, 10, 100, 1000, 10000, 100000, 1000000, 10000000 ];
-		// @phan-suppress-next-line PhanTypeArraySuspiciousNullable
-		if ( $user->isLoggedIn() && $status->value['revision'] ) {
+		if ( $user->isLoggedIn() ) {
 			$thresholdCount = self::getEditCount( $user );
 			if ( in_array( $thresholdCount, $thresholds ) ) {
 				DeferredUpdates::addCallableUpdate( function () use ( $user, $title, $thresholdCount ) {
@@ -640,7 +624,7 @@ class EchoHooks {
 						'type' => 'reverted',
 						'title' => $title,
 						'extra' => [
-							'revid' => $revision->getId(),
+							'revid' => $revisionRecord->getId(),
 							'reverted-user-id' => $victimId,
 							'reverted-revision-id' => $undidRevId,
 							'method' => 'undo',
