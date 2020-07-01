@@ -1626,11 +1626,12 @@ class EchoHooks {
 	public static function onSpecialMuteModifyFormFields( SpecialMute $specialMute, &$fields ) {
 		$echoPerUserBlacklist = MediaWikiServices::getInstance()->getMainConfig()->get( 'EchoPerUserBlacklist' );
 		if ( $echoPerUserBlacklist ) {
+			$target = $specialMute->getTarget();
 			$fields[ 'echo-notifications-blacklist'] = [
 				'type' => 'check',
 				'label-message' => [
 					'echo-specialmute-label-mute-notifications',
-					$specialMute->getTarget()->getName()
+					$target ? $target->getName() : ''
 				],
 				'default' => $specialMute->isTargetBlacklisted( 'echo-notifications-blacklist' ),
 			];
