@@ -45,6 +45,7 @@
 	"echo-pref-email-format": "Formato del correo electrónico:",
 	"echo-pref-web": "Web",
 	"echo-pref-email": "Correo electrónico",
+	"echo-pref-push": "Aplicaciones",
 	"echo-pref-email-frequency-never": "No enviarme notificaciones por correo electrónico",
 	"echo-pref-email-frequency-immediately": "Enviarme las notificaciones individuales en cuanto lleguen",
 	"echo-pref-email-frequency-daily": "Resumen diario de notificaciones",

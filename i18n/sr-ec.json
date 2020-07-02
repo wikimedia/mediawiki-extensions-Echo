@@ -194,7 +194,7 @@
 	"notification-inbox-filter-read": "Прочитана",
 	"notification-inbox-filter-unread": "Непрочитана",
 	"notification-inbox-filter-all": "Сва",
-	"echo-specialmute-label-mute-notifications": "Пригуши обавештења од овог корисника",
+	"echo-specialmute-label-mute-notifications": "Пригуши обавештења од {{GENDER:$1|овог корисника|ове кориснице}}",
 	"echo-email-plain-footer": "Да бисте контролисали које е-поруке {{GENDER:$1|вам}} шаљемо, проверите подешавања.",
 	"echo-email-html-footer-preference-link-text": "{{GENDER:$1|проверите}} подешавања",
 	"echo-email-html-footer-with-link": "Да бисте контролисали које е-поруке {{GENDER:$2|вам}} шаљемо, $1.",
