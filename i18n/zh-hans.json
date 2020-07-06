@@ -235,7 +235,7 @@
 	"notification-inbox-filter-read": "已读",
 	"notification-inbox-filter-unread": "未读",
 	"notification-inbox-filter-all": "全部",
-	"echo-specialmute-label-mute-notifications": "屏蔽该用户的通知",
+	"echo-specialmute-label-mute-notifications": "屏蔽该{{GENDER:$1|用户}}的通知",
 	"echo-email-plain-footer": "要控制我们向{{GENDER:$1|您}}发送的电子邮件，请检查{{GENDER:$1|您}}的参数设置：",
 	"echo-email-html-footer-preference-link-text": "检查{{GENDER:$1|您}}的参数设置",
 	"echo-email-html-footer-with-link": "要控制我们给{{GENDER:$2|您}}发送的电子邮件，请$1。",

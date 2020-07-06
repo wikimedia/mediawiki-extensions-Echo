@@ -215,7 +215,7 @@
 	"notification-header-thank-you-10000-edit": "{{GENDER:$2|Vous}} venez de faire {{GENDER:$2|votre}} dix-millième modification, un très grand merci à {{GENDER:$2|vous}} !",
 	"notification-header-thank-you-100000-edit": "{{GENDER:$2|Vous}} venez de faire {{GENDER:$2|votre}} cent-millième modification, merci à {{GENDER:$2|vous}} pour votre participation incroyable !",
 	"notification-header-thank-you-1000000-edit": "{{GENDER:$2|Vous}} venez de faire {{GENDER:$2|votre}} millionième modification, merci à {{GENDER:$2|vous}} pour votre participation exceptionnelle !",
-	"notification-header-thank-you-10000000-edit": "{{GENDER:$2|vous}} venez de faire {{GENDER:$2|votre}} dix millionième modification ; merci à {{GENDER:$2|vous}} pour votre engagement brillant !",
+	"notification-header-thank-you-10000000-edit": "{{GENDER:$2|Vous}} venez de faire {{GENDER:$2|votre}} dix millionième modification ; merci à {{GENDER:$2|vous}} pour votre engagement brillant !",
 	"notification-link-thank-you-edit": "{{GENDER:$1|}}Votre modification",
 	"notification-link-text-view-edit": "Afficher la modification",
 	"notification-link-article-reminder": "Afficher la page",
