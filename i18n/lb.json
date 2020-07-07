@@ -18,6 +18,7 @@
 	"echo-pref-email-format": "E-Mail-Format:",
 	"echo-pref-web": "Web",
 	"echo-pref-email": "E-Mail",
+	"echo-pref-push": "Appen",
 	"echo-pref-email-frequency-never": "Schéckt mir keng E-Mail-Notifikatiounen",
 	"echo-pref-email-frequency-immediately": "Individuell Notifikatiounen sou wéi s'erakommen",
 	"echo-pref-email-frequency-daily": "All Dag e Resumé vun den Notifikatiounen",
