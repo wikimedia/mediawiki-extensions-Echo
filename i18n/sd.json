@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Aursani",
+			"Kaleem Bhatti",
 			"Mehtab ahmed",
 			"Tweety"
 		]
@@ -85,6 +86,7 @@
 	"notification-compact-header-mention-failure-user-unknown": "<strong>واپرائيندڙ نانءُ نه لڌو:</strong> $1",
 	"notification-compact-header-mention-failure-user-anonymous": "<strong>آئي پي پتا ڄاڻيل ناهن:</strong> $1",
 	"notification-welcome-linktext": "ڀليڪار",
+	"notification-header-thank-you-10000-edit": "{{GENDER:$2|توھان}} {{GENDER:$2|پنهنجون}} ڏھ هزار تبديليون مڪمل ڪري ڇڏيون آھن. هن تعاون جي تمام گهڻي مهرباني!",
 	"notification-link-thank-you-edit": "{{GENDER:$1|توهان جي}} سنوار",
 	"notification-link-text-view-edit": "سنوار ڏسو",
 	"notification-link-article-reminder": "صفحو ڏسو",
