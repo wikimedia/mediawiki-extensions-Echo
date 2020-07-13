@@ -3,7 +3,6 @@
 		"authors": [
 			"Catrope",
 			"Dinosaur918",
-			"Dutchy45",
 			"Edokter",
 			"Encycloon",
 			"Esketti",
@@ -46,7 +45,6 @@
 	"echo-pref-email-format": "E-mailopmaak:",
 	"echo-pref-web": "Web",
 	"echo-pref-email": "E-mail",
-	"echo-pref-push": "Apps",
 	"echo-pref-email-frequency-never": "Stuur mij geen meldingen per e-mail",
 	"echo-pref-email-frequency-immediately": "Individuele meldingen wanneer ze binnenkomen",
 	"echo-pref-email-frequency-daily": "Een dagelijkse samenvatting van meldingen",
