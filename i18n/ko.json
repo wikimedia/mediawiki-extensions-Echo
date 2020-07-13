@@ -176,7 +176,7 @@
 	"notification-page-linked-email-subject": "{{SITENAME}}에서 {{GENDER:$3|당신}}이 만든 문서가 링크되었습니다",
 	"notification-reverted-email-subject2": "{{SITENAME}}의 {{GENDER:$3|당신}}의 {{PLURAL:$4|편집}}이 {{GENDER:$2|되돌려졌습니다}}",
 	"notification-mention-email-subject": "$1님이 {{SITENAME}}에서 {{GENDER:$3|나를}} {{GENDER:$2|언급했습니다}}",
-	"notification-user-rights-email-subject": "{{SITENAME}}에서 당신의 사용자 권한이 바뀌었습니다",
+	"notification-user-rights-email-subject": "{{SITENAME}}에서 {{GENDER:$3|당신}}의 사용자 권한이 바뀌었습니다",
 	"notification-timestamp-ago-seconds": "$1초 전",
 	"notification-timestamp-ago-minutes": "$1분 전",
 	"notification-timestamp-ago-hours": "$1시간 전",
