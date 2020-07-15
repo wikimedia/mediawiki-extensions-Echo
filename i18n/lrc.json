@@ -44,7 +44,7 @@
 	"notification-link-text-view-page": "بلگه بوینیت",
 	"notification-link-text-view-edit": "ویرایشت نه بوینیت",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$2|یه گل پیغوم}} د {{SITENAME}} نیائه.",
-	"notification-page-linked-email-subject": "بلگه شما د {{نوم مالگه}} هوم پیوند بیه",
+	"notification-page-linked-email-subject": "بلگه شما د {{SITENAME}} هوم پیوند بیه",
 	"notification-mention-email-subject": "$1 {{GENDER:$2|گوته}} د {{SITENAME}} شما",
 	"notification-user-rights-email-subject": "هوقۊق کاریاری شاٛما د {{SITENAME}} آلشت دٱئٱ بیٱ",
 	"echo-notification-alert-text-only": "زئناریا",
