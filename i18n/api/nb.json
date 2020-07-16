@@ -21,6 +21,13 @@
 	"apihelp-echomarkseen-example-1": "Merk beskjeder av alle typer som sett",
 	"apihelp-echomarkseen-param-type": "Type beskjeder som skal merkes som sett: 'alert', 'message' eller 'all'.",
 	"apihelp-echomarkseen-param-timestampFormat": "Tidsstempelformat for resultatet, «ISO_8601» eller «MW». «MW» er foreldet her, så alle klienter bør bytte til «ISO_8601». Denne parameteren vil fjernes, og «ISO_8601» vil bli det eneste mulige formatet.",
+	"apihelp-echomute-description": "Slå av eller på varsler fra visse brukere eller sider.",
+	"apihelp-echomute-summary": "Slå av eller på varsler fra visse brukere eller sider.",
+	"apihelp-echomute-param-type": "Hvilken liste det skal legges til eller fjernes fra",
+	"apihelp-echomute-param-mute": "Sider eller brukere som skal legges til i dempingslista",
+	"apihelp-echomute-param-unmute": "Sider eller brukere som skal fjernes fra dempingslista",
+	"apihelp-echopushsubscriptions-param-command": "Handling som skal utføres.",
+	"apihelp-echopushsubscriptions+create-param-providertoken": "Nøkkelen som skal registreres.",
 	"apihelp-query+notifications-description": "Hent ventende beskjeder for den aktuelle brukeren.",
 	"apihelp-query+notifications-summary": "Hent varsler som venter for den gjeldende brukeren.",
 	"apihelp-query+notifications-param-prop": "Detaljer som skal forespørres.",
@@ -60,5 +67,7 @@
 	"apiwarn-echo-deprecation-timestampformat": "MW-tidsstempelformatet er utdatert her. I fermtiden vil alltid ISO 8601 brukes for resultatet av tidsstempelformatet. Endre innstillingene i klienten din og sett <var>timestampFormat</var> til <kbd>ISO_8601</kbd>.",
 	"apiwarn-echo-deprecation-flyout": "<kbd>notformat=flyout</kbd> er utdatert og vil fjernes snart. Bruk <kbd>notformat=model</kbd> for å få rådata eller <kbd>notformat=special</kbd> for forhåndsrendret HTML.",
 	"apiwarn-echo-deprecation-html": "<kbd>notformat=html</kbd> er utdatert og vil fjernes snart. Bruk <kbd>notformat=special</kbd> i stedet.",
-	"apierror-echo-event-creation-failed": "Kunne ikke opprette Echo-hendelse"
+	"apierror-echo-event-creation-failed": "Kunne ikke opprette Echo-hendelse",
+	"apierror-echo-push-token-exists": "Den gitte nøkkelen finnes allerede i databasen.",
+	"apierror-echo-push-token-not-found": "Den gitte nøkkelen ble ikke funnet i databasen."
 }
