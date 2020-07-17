@@ -168,7 +168,7 @@
 	"notification-inbox-filter-read": "Lette",
 	"notification-inbox-filter-unread": "None lette",
 	"notification-inbox-filter-all": "Tutte",
-	"echo-specialmute-label-mute-notifications": "Silenzie le notifeche da stu utende",
+	"echo-specialmute-label-mute-notifications": "Silenzie le notifeche da stu {{GENDER:$1|utende}}",
 	"echo-email-plain-footer": "Pe condrollà ce email {{GENDER:$1|t'}}avènene mannate, condrolle le preferenze {{GENDER:$1|tune}}:",
 	"echo-email-html-footer-preference-link-text": "condrolle le preferenze {{GENDER:$1|tune}}",
 	"echo-email-html-footer-with-link": "Pe condrollà ce email {{GENDER:$2|t'}}avènene mannate, $1.",

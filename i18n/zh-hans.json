@@ -127,6 +127,7 @@
 	"echo-specialpage-section-markread": "将组标记为已读",
 	"echo-specialpage-markasread": "通知：标记为已读",
 	"echo-specialpage-markasread-invalid-id": "无效的活动ID",
+	"echo-specialpage-pagefilterwidget-aria-label": "按wiki和页面标题筛选",
 	"echo-specialpage-special-help-menu-widget-aria-label": "附加设置和消息通知偏好",
 	"echo-specialpage-pagination-numnotifications": "$1条{{PLURAL:$1|通知}}",
 	"echo-specialpage-pagination-range": "$1 - $2",
@@ -144,6 +145,12 @@
 	"echo-notification-markasunread": "标记为未读",
 	"echo-notification-markasread-tooltip": "标记为已读",
 	"echo-notification-more-options-tooltip": "更多选项",
+	"notification-dynamic-actions-mute-page-linked": "{{GENDER:$2|停止}}在“$1”的链接通知",
+	"notification-dynamic-actions-mute-page-linked-confirmation": "现在页面“$1”的链接通知已停用",
+	"notification-dynamic-actions-mute-page-linked-confirmation-description": "{{GENDER:$2|您}}可以随时在[$1 您的参数设置]里管理停用通知的页面。",
+	"notification-dynamic-actions-unmute-page-linked": "{{GENDER:$2|启用}}在“$1”的链接通知",
+	"notification-dynamic-actions-unmute-page-linked-confirmation": "现在页面“$1”的链接通知已启用",
+	"notification-dynamic-actions-unmute-page-linked-confirmation-description": "{{GENDER:$2|您}}可以随时在[$1 您的参数设置]里管理停用通知的页面。",
 	"notification-dynamic-actions-unwatch": "{{GENDER:$3|停止}}关注“$1”上的新活动",
 	"notification-dynamic-actions-unwatch-confirmation": "{{GENDER:$3|您}}已不再监视页面“$1”",
 	"notification-dynamic-actions-unwatch-confirmation-description": "{{GENDER:$3|您}}可以随时监视[$2 此页面]。",
@@ -174,8 +181,8 @@
 	"notification-header-mention-other-nosection": "$1在<strong>$4</strong>{{GENDER:$2|提到}}了{{GENDER:$3|您}}。",
 	"notification-header-mention-user-talkpage-v2": "$1在<strong>$4{{GENDER:$5|的}}用户讨论页</strong>的“<strong>$6</strong>”中{{GENDER:$2|提到}}了{{GENDER:$3|您}}。",
 	"notification-header-mention-user-talkpage-nosection": "$1在<strong>$4{{GENDER:$5|的}}用户讨论页</strong>{{GENDER:$2|提到}}了{{GENDER:$3|您}}。",
-	"notification-header-mention-agent-talkpage": "$1在<strong>{{GENDER:$2|他|她|他}}的讨论页</strong>的“<strong>$4</strong>”里{{GENDER:$2|提到}}了{{GENDER:$3|您}}。",
-	"notification-header-mention-agent-talkpage-nosection": "$1在<strong>{{GENDER:$2|他|她|他}}的讨论页</strong>{{GENDER:$2|提到}}了{{GENDER:$3|您}}。",
+	"notification-header-mention-agent-talkpage": "$1在<strong>{{GENDER:$2|其}}讨论页</strong>的“<strong>$4</strong>”里{{GENDER:$2|提到}}了{{GENDER:$3|您}}。",
+	"notification-header-mention-agent-talkpage-nosection": "$1在<strong>{{GENDER:$2|其}}讨论页</strong>{{GENDER:$2|提到}}了{{GENDER:$3|您}}。",
 	"notification-header-mention-article-talkpage": "$1在<strong>$4</strong>的讨论页的“<strong>$5</strong>”段落{{GENDER:$2|提到}}了{{GENDER:$3|您}}。",
 	"notification-header-mention-article-talkpage-nosection": "$1在<strong>$4</strong>的讨论页{{GENDER:$2|提到}}了{{GENDER:$3|您}}。",
 	"notification-header-mention-failure-user-unknown": "{{GENDER:$2|您}}对<strong>$3</strong>的提及未被发送，因为找不到用户。",
@@ -262,5 +269,5 @@
 	"notification-header-foreign-notice": "来自{{PLURAL:$5|另一个wiki|另外$5个wiki}}上的更多一般通知",
 	"notification-header-foreign-all": "来自{{PLURAL:$5|其他wiki|$5个其他wiki}}的更多通知",
 	"echo-foreign-wiki-lang": "$1 - $2",
-	"echo-badge-count": "{{PLURAL:$1|$1|100=99+}}"
+	"echo-badge-count": "{{PLURAL:$1|$1|100={{formatnum:99}}+}}"
 }
