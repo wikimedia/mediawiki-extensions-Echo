@@ -79,7 +79,7 @@ class EchoMentionPresentationModel extends EchoEventPresentationModel {
 				EchoDiscussionParser::getTextSnippet(
 					$content,
 					$this->language,
-					150,
+					EchoDiscussionParser::DEFAULT_SNIPPET_LENGTH,
 					$this->event->getTitle()
 				)
 			);
