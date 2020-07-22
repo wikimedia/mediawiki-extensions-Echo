@@ -627,14 +627,14 @@ class EchoHooks implements RecentChange_saveHook {
 				$undidRevision &&
 				Title::newFromLinkTarget( $undidRevision->getPageAsLinkTarget() )->equals( $title )
 			) {
-				$victimId = $undidRevision->getUser();
-				if ( $victimId ) { // No notifications for anonymous users
+				$revertedUser = $undidRevision->getUser();
+				if ( $revertedUser ) { // No notifications for anonymous users
 					EchoEvent::create( [
 						'type' => 'reverted',
 						'title' => $title,
 						'extra' => [
 							'revid' => $revisionRecord->getId(),
-							'reverted-user-id' => $victimId,
+							'reverted-user-id' => $revertedUser,
 							'reverted-revision-id' => $undidRevId,
 							'method' => 'undo',
 							'summary' => $summary,
@@ -1292,12 +1292,12 @@ class EchoHooks implements RecentChange_saveHook {
 		RevisionRecord $newRevision,
 		RevisionRecord $oldRevision
 	) {
-		$victimId = $oldRevision->getUser();
+		$revertedUser = $oldRevision->getUser();
 		$latestRevision = $wikiPage->getRevisionRecord();
 		self::$lastRevertedRevision = $latestRevision;
 
 		if (
-			$victimId && // No notifications for anonymous users
+			$revertedUser && // No notifications for anonymous users
 			!$oldRevision->hasSameContent( $newRevision ) // No notifications for null rollbacks
 		) {
 			EchoEvent::create( [
@@ -1305,7 +1305,7 @@ class EchoHooks implements RecentChange_saveHook {
 				'title' => $wikiPage->getTitle(),
 				'extra' => [
 					'revid' => $latestRevision->getId(),
-					'reverted-user-id' => $victimId,
+					'reverted-user-id' => $revertedUser,
 					'reverted-revision-id' => $oldRevision->getId(),
 					'method' => 'rollback',
 				],
