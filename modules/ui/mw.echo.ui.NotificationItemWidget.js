@@ -200,24 +200,17 @@
 			.toggleClass( 'mw-echo-ui-notificationItemWidget-initiallyUnseen', !this.model.isSeen() && !this.bundle )
 			.toggleClass( 'mw-echo-ui-notificationItemWidget-bundled', this.bundle );
 
-		// Wrap the entire item with primary url
 		if ( this.model.getPrimaryUrl() ) {
-			this.$element.contents()
-				.wrapAll(
-					// HACK: Wrap the entire item with a link that takes
-					// the user to the primary url. This is not perfect,
-					// but it makes the behavior native to the browser rather
-					// than us listening to click events and opening new
-					// windows.
-					$( '<a>' )
-						.addClass( 'mw-echo-ui-notificationItemWidget-linkWrapper' )
-						.attr( 'href', this.model.getPrimaryUrl() )
-						.on( 'click', this.onPrimaryLinkClick.bind( this ) )
-				);
+			this.$element
+				.attr( 'href', this.model.getPrimaryUrl() )
+				.on( 'click', this.onPrimaryLinkClick.bind( this ) );
 		}
 	};
 
 	OO.inheritClass( mw.echo.ui.NotificationItemWidget, OO.ui.Widget );
+
+	// Make the whole item a link to get native link behaviour
+	mw.echo.ui.NotificationItemWidget.static.tagName = 'a';
 
 	/**
 	 * Respond to primary link click.

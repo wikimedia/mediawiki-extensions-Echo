@@ -3,6 +3,7 @@
 @import '../echo.mixins.less';
 
 .mw-echo-ui-notificationItemWidget {
+	display: block;
 	background-color: @notification-item-background-read;
 	position: relative;
 	white-space: normal;
@@ -11,8 +12,23 @@
 	border: 1px solid #c8ccd1;
 	border-bottom: 0;
 
+	&:not( [ href ] ) {
+		// Items without a primary URL are not clickable
+		cursor: default;
+	}
+
+	label {
+		// Reset browser default of cursor:default;
+		cursor: inherit;
+	}
+
 	&:hover {
 		background-color: #ececec;
+	}
+
+	&:focus {
+		box-shadow: inset 0 0 0 2px @color-primary;
+		outline: 0;
 	}
 
 	&:last-child {
