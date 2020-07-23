@@ -41,20 +41,20 @@ abstract class EchoDiscussionParser {
 
 		$userID = $revision->getUser()->getId();
 		$userName = $revision->getUser()->getName();
-		$user = $userID != 0 ? User::newFromId( $userID ) : User::newFromName( $userName, false );
+		$user = $userID !== 0 ? User::newFromId( $userID ) : User::newFromName( $userName, false );
 
 		foreach ( $interpretation as $action ) {
-			if ( $action['type'] == 'add-comment' ) {
+			if ( $action['type'] === 'add-comment' ) {
 				$fullSection = $action['full-section'];
 				$header = self::extractHeader( $fullSection );
 				$userLinks = self::getUserLinks( $action['content'], $title );
 				self::generateMentionEvents( $header, $userLinks, $action['content'], $revision, $user );
-			} elseif ( $action['type'] == 'new-section-with-comment' ) {
+			} elseif ( $action['type'] === 'new-section-with-comment' ) {
 				$content = $action['content'];
 				$header = self::extractHeader( $content );
 				$userLinks = self::getUserLinks( $content, $title );
 				self::generateMentionEvents( $header, $userLinks, $content, $revision, $user );
-			} elseif ( $action['type'] == 'add-section-multiple' && $wgEchoMentionsOnMultipleSectionEdits ) {
+			} elseif ( $action['type'] === 'add-section-multiple' && $wgEchoMentionsOnMultipleSectionEdits ) {
 				$content = self::stripHeader( $action['content'] );
 				$content = self::stripSignature( $content );
 				$userLinks = self::getUserLinks( $content, $title );
@@ -72,7 +72,7 @@ abstract class EchoDiscussionParser {
 			}
 		}
 
-		if ( $title->getNamespace() == NS_USER_TALK ) {
+		if ( $title->getNamespace() === NS_USER_TALK ) {
 			$notifyUser = User::newFromName( $title->getText() );
 			// If the recipient is a valid non-anonymous user and hasn't turned
 			// off their notifications, generate a talk page post Echo notification.
@@ -458,7 +458,7 @@ abstract class EchoDiscussionParser {
 		$userIdentity = $revision->getUser();
 		$userID = $userIdentity ? $userIdentity->getId() : 0;
 		$userName = $userIdentity ? $userIdentity->getName() : '';
-		$user = $userID != 0 ? User::newFromId( $userID ) : User::newFromName( $userName, false );
+		$user = $userID !== 0 ? User::newFromId( $userID ) : User::newFromName( $userName, false );
 
 		$prevText = '';
 		if ( $revision->getParentId() ) {
@@ -533,7 +533,7 @@ abstract class EchoDiscussionParser {
 				continue;
 			}
 
-			if ( $change['action'] == 'add' ) {
+			if ( $change['action'] === 'add' ) {
 				$content = trim( $change['content'] );
 				// The \A means the regex must match at the beginning of the string.
 				// This is slightly different than ^ which matches beginning of each
@@ -600,12 +600,12 @@ abstract class EchoDiscussionParser {
 						'content' => $content,
 					];
 				}
-			} elseif ( $change['action'] == 'subtract' ) {
+			} elseif ( $change['action'] === 'subtract' ) {
 				$actions[] = [
 					'type' => 'unknown-subtraction',
 					'content' => $change['content'],
 				];
-			} elseif ( $change['action'] == 'change' ) {
+			} elseif ( $change['action'] === 'change' ) {
 				$actions[] = [
 					'type' => 'unknown-change',
 					'old_content' => $change['old_content'],
