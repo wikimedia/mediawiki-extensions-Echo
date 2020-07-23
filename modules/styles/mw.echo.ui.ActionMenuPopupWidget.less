@@ -3,4 +3,10 @@
 		// Override width: 100%; rule from OOUI
 		width: auto;
 	}
+
+	// We put MenutItemWidgets in the popup menu, as we reuse the same widgets when they appear outside the popup.
+	// Re-style them to look more like DecoratedOptionWidgets instead of ButtonOptionWidgets
+	.mw-echo-ui-menuItemWidget.oo-ui-labelElement:first-child {
+		margin-left: 0;
+	}
 }

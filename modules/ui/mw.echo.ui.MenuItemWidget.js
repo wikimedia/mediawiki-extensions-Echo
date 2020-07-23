@@ -3,7 +3,7 @@
 	 * Secondary menu item
 	 *
 	 * @class
-	 * @extends OO.ui.DecoratedOptionWidget
+	 * @extends OO.ui.ButtonOptionWidget
 	 * @mixins OO.ui.mixin.PendingElement
 	 *
 	 * @constructor
@@ -25,7 +25,7 @@
 		this.isLink = config.url && !this.isDynamicAction();
 
 		// Parent constructor
-		mw.echo.ui.MenuItemWidget.super.call( this, config );
+		mw.echo.ui.MenuItemWidget.super.call( this, $.extend( { framed: false }, config ) );
 
 		// Mixin constructors
 		OO.ui.mixin.PendingElement.call( this, config );
@@ -62,7 +62,7 @@
 
 	/* Initialization */
 
-	OO.inheritClass( mw.echo.ui.MenuItemWidget, OO.ui.DecoratedOptionWidget );
+	OO.inheritClass( mw.echo.ui.MenuItemWidget, OO.ui.ButtonOptionWidget );
 	OO.mixinClass( mw.echo.ui.MenuItemWidget, OO.ui.mixin.PendingElement );
 
 	/* Static Properties */

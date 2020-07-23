@@ -7,27 +7,26 @@
 		text-decoration: none;
 	}
 
-	> .oo-ui-labelElement-label {
+	> .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
 		// Override link colour
 		color: @color-base;
 		// Set max-width so buttons are truncated
 		max-width: 25em;
+		font-weight: normal;
 	}
 
 	&-prioritized {
 		.mw-echo-ui-mixin-hover-opacity();
 		display: inline-block;
-		// Remove left padding up to icon, 11/14
-		margin-left: -0.78571429em;
 	}
 
 	&-dynamic-action {
-		> .oo-ui-labelElement-label {
+		> .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
 			white-space: normal;
 			overflow: visible;
 		}
 
-		&.oo-ui-iconElement > .oo-ui-iconElement-icon {
+		&.oo-ui-iconElement > .oo-ui-buttonElement-button > .oo-ui-iconElement-icon {
 			// Limit to single line height, 32/14
 			height: 2.28571em;
 		}
