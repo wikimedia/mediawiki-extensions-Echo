@@ -212,6 +212,8 @@
 				'collapse' :
 				'expand'
 		);
+		// T258706
+		this.toggleExpandButton.setActive( false );
 	};
 
 	/**
