@@ -38,7 +38,6 @@
 		// Mark as read
 		this.markAsReadButton = new mw.echo.ui.ToggleReadCircleButtonWidget( {
 			framed: false,
-			title: mw.msg( 'echo-notification-markasread-tooltip' ),
 			classes: [ 'mw-echo-ui-notificationItemWidget-markAsReadButton' ],
 			markAsRead: !this.model.isRead()
 		} );

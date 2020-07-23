@@ -14,7 +14,11 @@
 		config = config || {};
 
 		// Parent constructor
-		mw.echo.ui.ToggleReadCircleButtonWidget.super.call( this, config );
+		mw.echo.ui.ToggleReadCircleButtonWidget.super.call( this, $.extend( {
+			invisibleLabel: true,
+			// Set a dummy icon so we get focus styles
+			icon: '_'
+		}, config ) );
 
 		this.$circle = $( '<div>' )
 			.addClass( 'mw-echo-ui-toggleReadCircleButtonWidget-circle' );
@@ -39,15 +43,16 @@
 	 * @param {boolean} [isMarkAsRead] The state is mark as read
 	 */
 	mw.echo.ui.ToggleReadCircleButtonWidget.prototype.toggleState = function ( isMarkAsRead ) {
+		var label;
 		isMarkAsRead = isMarkAsRead === undefined ? !this.markAsRead : !!isMarkAsRead;
 
 		this.markAsRead = isMarkAsRead;
 
 		this.$circle.toggleClass( 'mw-echo-ui-toggleReadCircleButtonWidget-circle-unread', !this.markAsRead );
-		this.setTitle(
-			this.markAsRead ?
-				mw.msg( 'echo-notification-markasread' ) :
-				mw.msg( 'echo-notification-markasunread' )
-		);
+		label = this.markAsRead ?
+			mw.msg( 'echo-notification-markasread' ) :
+			mw.msg( 'echo-notification-markasunread' );
+		this.setLabel( label );
+		this.setTitle( label );
 	};
 }() );
