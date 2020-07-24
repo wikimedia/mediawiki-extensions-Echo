@@ -82,7 +82,7 @@ class EchoPresentationModelSection {
 		$this->parsedSectionTitle = EchoDiscussionParser::getTextSnippet(
 			$rawSectionTitle,
 			$this->language,
-			150,
+			EchoDiscussionParser::DEFAULT_SNIPPET_LENGTH,
 			$this->event->getTitle()
 		);
 		return $this->parsedSectionTitle;

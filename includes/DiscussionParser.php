@@ -7,6 +7,8 @@ use MediaWiki\Revision\SlotRecord;
 abstract class EchoDiscussionParser {
 	const HEADER_REGEX = '^(==+)\h*([^=].*)\h*\1$';
 
+	const DEFAULT_SNIPPET_LENGTH = 150;
+
 	protected static $timestampRegex;
 	protected static $revisionInterpretationCache = [];
 	protected static $diffParser;
@@ -161,7 +163,7 @@ abstract class EchoDiscussionParser {
 					$snippet = self::getTextSnippet(
 						self::stripSignature( self::stripHeader( $action['content'] ), $title ),
 						RequestContext::getMain()->getLanguage(),
-						150,
+						self::DEFAULT_SNIPPET_LENGTH,
 						$title );
 					break;
 				case 'new-section-with-comment':
@@ -169,7 +171,7 @@ abstract class EchoDiscussionParser {
 					$snippet = self::getTextSnippet(
 						self::stripSignature( self::stripHeader( $action['content'] ), $title ),
 						RequestContext::getMain()->getLanguage(),
-						150,
+						self::DEFAULT_SNIPPET_LENGTH,
 						$title );
 					break;
 			}
@@ -1180,11 +1182,13 @@ abstract class EchoDiscussionParser {
 	 * Parse wikitext into truncated plain text.
 	 * @param string $text
 	 * @param Language $lang
-	 * @param int $length Length in characters (not bytes); default 150
+	 * @param int $length Length in characters (not bytes); default DEFAULT_SNIPPET_LENGTH
 	 * @param Title|null $title Page from which the text snippet is being extracted
 	 * @return string
 	 */
-	public static function getTextSnippet( $text, Language $lang, $length = 150, $title = null ) {
+	public static function getTextSnippet(
+		$text, Language $lang, $length = self::DEFAULT_SNIPPET_LENGTH, $title = null
+	) {
 		// Parse wikitext
 		$html = MediaWikiServices::getInstance()->getMessageCache()->parse( $text, $title )->getText( [
 			'enableSectionEditLinks' => false
@@ -1197,10 +1201,10 @@ abstract class EchoDiscussionParser {
 	 * Parse an edit summary into truncated plain text.
 	 * @param string $text
 	 * @param Language $lang
-	 * @param int $length Length in characters (not bytes); default 150
+	 * @param int $length Length in characters (not bytes); default DEFAULT_SNIPPET_LENGTH
 	 * @return string
 	 */
-	public static function getTextSnippetFromSummary( $text, Language $lang, $length = 150 ) {
+	public static function getTextSnippetFromSummary( $text, Language $lang, $length = self::DEFAULT_SNIPPET_LENGTH ) {
 		// Parse wikitext with summary parser
 		$html = Linker::formatLinksInComment( Sanitizer::escapeHtmlAllowEntities( $text ) );
 		$plaintext = trim( Sanitizer::stripAllTags( $html ) );
@@ -1212,10 +1216,12 @@ abstract class EchoDiscussionParser {
 	 *
 	 * @param RevisionRecord $revision
 	 * @param Language $lang
-	 * @param int $length Length in characters (not bytes); default 150
+	 * @param int $length Length in characters (not bytes); default DEFAULT_SNIPPET_LENGTH
 	 * @return string
 	 */
-	public static function getEditExcerpt( RevisionRecord $revision, Language $lang, $length = 150 ) {
+	public static function getEditExcerpt(
+		RevisionRecord $revision, Language $lang, $length = self::DEFAULT_SNIPPET_LENGTH
+	) {
 		$interpretation = self::getChangeInterpretationForRevision( $revision );
 		$section = self::detectSectionTitleAndText( $interpretation );
 		return $lang->truncateForVisual( $section['section-title'] . ' ' . $section['section-text'], $length );

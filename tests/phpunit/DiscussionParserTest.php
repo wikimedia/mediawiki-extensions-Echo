@@ -1795,7 +1795,7 @@ TEXT
 			EchoDiscussionParser::getTextSnippet(
 				'[[:{{BASEPAGENAME}}]]',
 				Language::factory( 'en' ),
-				150,
+				EchoDiscussionParser::DEFAULT_SNIPPET_LENGTH,
 				Title::newFromText( 'Page001' )
 			)
 		);
