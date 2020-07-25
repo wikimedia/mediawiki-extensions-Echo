@@ -125,34 +125,28 @@ class EchoHooks implements RecentChange_saveHook {
 	public static function onResourceLoaderTestModules( array &$testModules,
 		ResourceLoader $resourceLoader
 	) {
-		global $wgResourceModules;
-
 		$testModuleBoilerplate = [
 			'localBasePath' => dirname( __DIR__ ),
 			'remoteExtPath' => 'Echo',
 		];
 
-		// find test files for every RL module
-		$prefix = 'ext.echo';
-		foreach ( $wgResourceModules as $key => $module ) {
-			if ( substr( $key, 0, strlen( $prefix ) ) === $prefix && isset( $module['scripts'] ) ) {
-				$testFiles = [];
-				foreach ( $module['scripts'] as $script ) {
-					$testFile = 'tests/qunit/' . dirname( $script ) . '/test_' . basename( $script );
-					// if a test file exists for a given JS file, add it
-					if ( file_exists( $testModuleBoilerplate['localBasePath'] . '/' . $testFile ) ) {
-						$testFiles[] = $testFile;
-					}
-				}
-				// if test files exist for given module, create a corresponding test module
-				if ( $testFiles !== [] ) {
-					$testModules['qunit']["$key.tests"] = $testModuleBoilerplate + [
-						'dependencies' => [ $key ],
-						'scripts' => $testFiles,
-					];
-				}
-			}
-		}
+		$testModules['qunit'] += [
+			'ext.echo.dm.tests' => $testModuleBoilerplate + [
+				'scripts' => [
+					'tests/qunit/model/test_mw.echo.dm.BundleNotificationItem.js',
+					'tests/qunit/model/test_mw.echo.dm.CrossWikiNotificationItem.js',
+					'tests/qunit/model/test_mw.echo.dm.FiltersModel.js',
+					'tests/qunit/model/test_mw.echo.dm.NotificationGroupsList.js',
+					'tests/qunit/model/test_mw.echo.dm.NotificationItem.js',
+					'tests/qunit/model/test_mw.echo.dm.NotificationsList.js',
+					'tests/qunit/model/test_mw.echo.dm.PaginationModel.js',
+					'tests/qunit/model/test_mw.echo.dm.SeenTimeModel.js',
+					'tests/qunit/model/test_mw.echo.dm.SourcePagesModel.js',
+					'tests/qunit/model/test_mw.echo.dm.UnreadNotificationCounter.js',
+				],
+				'dependencies' => 'ext.echo.dm',
+			],
+		];
 	}
 
 	/**
