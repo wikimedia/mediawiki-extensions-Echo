@@ -190,7 +190,7 @@
 	"notification-inbox-filter-read": "既読",
 	"notification-inbox-filter-unread": "未読",
 	"notification-inbox-filter-all": "すべて",
-	"echo-specialmute-label-mute-notifications": "この利用者からの通知をミュートする",
+	"echo-specialmute-label-mute-notifications": "この{{GENDER:$1|利用者}}からの通知をミュートする",
 	"echo-email-plain-footer": "{{GENDER:$1|あなた}}が受け取るメールの設定を変更するには、個人設定をご確認ください:",
 	"echo-email-html-footer-preference-link-text": "{{GENDER:$1|個人設定}}をご確認ください",
 	"echo-email-html-footer-with-link": "{{{{GENDER:$2|皆さん}}}}にお届けするメールを変更するには、$1。",

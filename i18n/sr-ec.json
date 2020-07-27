@@ -77,7 +77,7 @@
 	"echo-displaynotificationsconfiguration": "Конфигурација приказа обавештења",
 	"echo-displaynotificationsconfiguration-summary": "Ово је преглед о томе како су обавештења конфигурисана на овом викију.",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "Обавештења по категоријама",
-	"echo-displaynotificationsconfiguration-sorting-by-section-header": "Сортирање по типовима",
+	"echo-displaynotificationsconfiguration-sorting-by-section-header": "Ређање по типовима",
 	"echo-displaynotificationsconfiguration-sorting-by-section-legend": "У којем ће се одељку сваки тип обавештења сортирати",
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Дозвољени начини за обавештавање",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Који начини за обавештавање су подржани за сваку категорију",

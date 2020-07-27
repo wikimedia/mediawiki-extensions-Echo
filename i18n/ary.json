@@ -8,5 +8,6 @@
 	"echo-new-messages": "عندك ميساجات جداد",
 	"tooltip-pt-notifications-alert": "{{GENDER:|تنبيهاتك}}",
 	"notification-link-text-collapse-all": "طوي",
+	"notification-welcome-linktext": "مرحبا بيك",
 	"notification-inbox-filter-all": "كلشي"
 }
