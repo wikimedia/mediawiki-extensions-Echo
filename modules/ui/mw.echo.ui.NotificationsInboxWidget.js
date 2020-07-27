@@ -105,11 +105,13 @@
 						.addClass( 'mw-echo-ui-notificationsInboxWidget-row' )
 						.append(
 							$( '<div>' )
-								.addClass( 'mw-echo-ui-notificationsInboxWidget-main-toolbar-readState' )
-								.addClass( 'mw-echo-ui-notificationsInboxWidget-cell' )
-								.append( this.readStateSelectWidget.$element ),
-							$( '<div>' )
-								.addClass( 'mw-echo-ui-notificationsInboxWidget-cell-placeholder' ),
+								.addClass( 'mw-echo-ui-notificationsInboxWidget-cell-placeholder' )
+								.append(
+									$( '<div>' )
+										.addClass( 'mw-echo-ui-notificationsInboxWidget-main-toolbar-readState' )
+										.addClass( 'mw-echo-ui-notificationsInboxWidget-cell' )
+										.append( this.readStateSelectWidget.$element )
+								),
 							$( '<div>' )
 								.addClass( 'mw-echo-ui-notificationsInboxWidget-main-toolbar-pagination' )
 								.addClass( 'mw-echo-ui-notificationsInboxWidget-cell' )
