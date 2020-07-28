@@ -4,7 +4,8 @@
 			"Amire80",
 			"Chrisportelli",
 			"Leli Forte",
-			"MTSap"
+			"MTSap",
+			"ToniSant"
 		]
 	},
 	"echo-desc": "Sistema ta' notifika",
@@ -38,6 +39,7 @@
 	"tooltip-pt-notifications-alert": "L-avviżi tiegħek",
 	"echo-specialpage": "Notifiki",
 	"echo-none": "M'għandek l-ebda notifika",
+	"notification-link-text-expand-alert-count": "Ara {{PLURAL:$1|$1 avviż|$1 avviżi}}",
 	"notification-link-text-view-message": "Ara l-messaġġ",
 	"notification-link-text-view-mention": "Ara fejn issemmejt",
 	"notification-link-text-view-changes": "Ara l-bidliet",
@@ -49,6 +51,8 @@
 	"notification-reverted-email-subject2": "Il-{{PLURAL:$4|modifika tiegħek ġiet annullata|modifiki tiegħek ġew annullati}} {{GENDER:$2|fuq}} {{SITENAME}}",
 	"notification-mention-email-subject": "$1 {{GENDER:$2|semmiek|semmietek}} fuq {{SITENAME}}$1",
 	"notification-user-rights-email-subject": "Id-drittijiet tiegħek ta' utent fuq {{SITENAME}} inbidlu.",
+	"echo-notification-alert": "{{PLURAL:$1|Avviż ($1)|Avviżi ($1)|100=Avviżi (99+)}}",
+	"echo-notification-alert-text-only": "Avviżi",
 	"echo-overlay-link": "In-notifiki kollha",
 	"echo-overlay-title": "<b>Notifiki</b>",
 	"echo-mark-all-as-read": "Immarkahom kollha bħala li nqraw",
@@ -58,5 +62,6 @@
 	"echo-email-batch-subject-weekly": "Għandek {{PLURAL:$2|notifika ġdida|notifiki ġodda}} fuq {{SITENAME}} dil-Ġimgħa",
 	"echo-email-batch-body-intro-daily": "X'hemm $1,\nDan hu s-sommarju tal-attività tal-lum fuq {{SITENAME}} biex tista' tarah.",
 	"echo-email-batch-body-intro-weekly": "X'hemm $1,\nDan hu s-sommarju tal-attività ta' din il-ġimgħa fuq {{SITENAME}} biex tista' tarah.",
-	"echo-email-batch-link-text-view-all-notifications": "Ara n-notifiki kollha"
+	"echo-email-batch-link-text-view-all-notifications": "Ara n-notifiki kollha",
+	"notification-header-foreign-alert": "Aktar avviżi minn {{PLURAL:$5|wiki ieħor$5 wikis oħra}}"
 }
