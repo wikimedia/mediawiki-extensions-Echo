@@ -2,6 +2,8 @@
 @import 'mediawiki.ui/variables.less';
 @import 'mediawiki.mixins.less';
 
+@overlayHeaderHeight: 3em;
+
 .notifications-overlay {
 	// position: fixed + sliding drawer causes weird rendering bugs in Android
 	// Browser (tested on 4.0.4 and 4.2.1)
@@ -13,7 +15,7 @@
 
 	&-overlay {
 		position: absolute;
-		bottom: 3em;
+		bottom: @overlayHeaderHeight;
 		right: 0;
 		left: 0;
 		z-index: 1;
@@ -44,9 +46,17 @@
 		padding-top: 0;
 		padding-bottom: 0;
 		max-width: none; // T219320
+		top: @overlayHeaderHeight;
+		bottom: @overlayHeaderHeight;
 
 		.mw-echo-ui-notificationsWidget {
+			top: @overlayHeaderHeight;
 			height: 100%;
+		}
+
+		.mw-echo-ui-notificationItemWidget {
+			border-left: 0;
+			border-right: 0;
 		}
 	}
 

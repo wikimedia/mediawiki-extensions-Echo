@@ -388,6 +388,11 @@
 				"styles/mw.echo.ui.CrossWikiUnreadFilterWidget.less",
 				"styles/mw.echo.ui.SpecialHelpMenuWidget.less"
 			],
+			"skinStyles": {
+				"minerva": [
+					"styles/mw.echo.ui.NotificationsInboxWidget.minerva.less"
+				]
+			},
 			"dependencies": [
 				"ext.echo.ui",
 				"mediawiki.Uri",
