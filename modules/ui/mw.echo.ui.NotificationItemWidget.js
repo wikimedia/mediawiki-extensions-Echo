@@ -135,17 +135,17 @@
 			// (where all actions are inside the menu) or there are more than
 			// two prioritized actions (all others go into the menu)
 			isOutsideMenu = !this.bundle &&
+				(
 					(
-						(
-							// Make sure we don't have too many prioritized items
-							urlObj.prioritized &&
-							outsideMenuItemCounter < mw.echo.config.maxPrioritizedActions
-						) ||
-						// If the number of total items are equal to or less than the
-						// maximum allowed, they all go outside the menu
-						// mw.echo.config.maxPrioritizedActions is 2 on desktop and 1 on mobile.
-						secondaryUrls.length <= mw.echo.config.maxPrioritizedActions
-					);
+						// Make sure we don't have too many prioritized items
+						urlObj.prioritized &&
+						outsideMenuItemCounter < mw.echo.config.maxPrioritizedActions
+					) ||
+					// If the number of total items are equal to or less than the
+					// maximum allowed, they all go outside the menu
+					// mw.echo.config.maxPrioritizedActions is 2 on desktop and 1 on mobile.
+					secondaryUrls.length <= mw.echo.config.maxPrioritizedActions
+				);
 
 			linkButton = new mw.echo.ui.MenuItemWidget( {
 				type: urlObj.type,
@@ -183,9 +183,7 @@
 			this.$content.append(
 				this.markAsReadButton.$element,
 				$message,
-				$( '<div>' )
-					.addClass( 'mw-echo-ui-notificationItemWidget-content-table' )
-					.append( this.$actions )
+				this.$actions
 			);
 			this.$element.append( $icon, this.$content );
 		}

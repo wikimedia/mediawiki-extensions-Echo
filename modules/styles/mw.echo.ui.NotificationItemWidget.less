@@ -108,23 +108,20 @@
 			}
 		}
 
-		&-table {
-			display: table;
-			width: 100%;
-			margin-top: 0.8em;
-		}
-
 		&-actions {
-			display: table-row;
+			display: flex;
+			align-items: flex-end;
 			font-size: 0.9em;
+			margin-top: 0.8em;
 
 			& > &-buttons.oo-ui-buttonSelectWidget {
-				display: table-cell;
-				white-space: nowrap;
-				vertical-align: bottom;
+				display: flex;
+				overflow: hidden;
 
-				.mw-echo-ui-menuItemWidget {
+				> .oo-ui-buttonOptionWidget {
 					min-width: 7em;
+					max-width: 14em;
+					overflow: hidden;
 				}
 			}
 
@@ -139,19 +136,17 @@
 
 			&-menu {
 				.mw-echo-ui-mixin-hover-opacity();
-				display: table-cell;
 				vertical-align: bottom;
 				padding: 0;
 			}
 
 			&-timestamp {
-				display: table-cell;
-				vertical-align: bottom;
+				flex-grow: 1;
 				text-align: right;
+				vertical-align: bottom;
 				color: @color-base--emphasized;
 				opacity: @opacity-low;
 				white-space: nowrap;
-				width: 100%;
 			}
 		}
 	}
