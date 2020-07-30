@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Patriot Kur"
+			"Patriot Kur",
+			"Гусейн"
 		]
 	},
 	"echo-pref-email": "Enomə",
+	"tooltip-pt-notifications-alert": "{{GENDER:|Şımə}} xəbədon",
 	"notification-inbox-filter-read": "Bahand"
 }
