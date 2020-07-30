@@ -12,14 +12,16 @@ var Overlay = mw.mobileFrontend.require( 'mobile.startup' ).Overlay;
  */
 function notificationsFilterOverlay( options ) {
 	var $content, overlay;
-	// Initialize
-	options.$crossWikiUnreadFilter.on( 'click', function () {
-		overlay.hide();
-	} );
 
-	options.$notifReadState.find( '.oo-ui-buttonElement' ).on( 'click', function () {
-		overlay.hide();
-	} );
+	// Don't call overlay.hide(), because that doesn't invoke the onBeforeExit callback (T258954)
+	// Instead, change the hash, so that the OverlayManager hides the overlay for us
+	function hideOverlay() {
+		location.hash = '#';
+	}
+
+	// Close overlay when a selection is made
+	options.$crossWikiUnreadFilter.on( 'click', hideOverlay );
+	options.$notifReadState.find( '.oo-ui-buttonElement' ).on( 'click', hideOverlay );
 
 	$content = $( '<div>' ).append(
 		$( '<div>' )
