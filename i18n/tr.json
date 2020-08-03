@@ -24,6 +24,7 @@
 			"Stultiwikia",
 			"Superyetkin",
 			"ToprakM",
+			"Uncitoyen",
 			"Violetanka"
 		]
 	},
@@ -204,7 +205,7 @@
 	"notification-page-linked-email-subject": "{{SITENAME}} {{GENDER:$3|siz}} sayfasında oluşturulan bir sayfası bağlandı",
 	"notification-reverted-email-subject2": "{{GENDER:$3|Sizin}} {{GENDER:$4|düzenlemeniz|düzenlememiz}} \n{{SITENAME}} üzerinde {{GENDER:$2|geri alındı}}",
 	"notification-mention-email-subject": "$1, {{SITENAME}} sitesinde {{GENDER:$3|sizden}} {{GENDER:$2|bahsetti}}",
-	"notification-user-rights-email-subject": "{{SITENAME}} adresinimzde kullanıcı {{GENDER:$3|haklarınız}} değişti",
+	"notification-user-rights-email-subject": "{{SITENAME}} üzerinde kullanıcı {{GENDER:$3|haklarınız}} değişti",
 	"notification-timestamp-ago-seconds": "{{PLURAL:$1|$1 s}}",
 	"notification-timestamp-ago-minutes": "{{PLURAL:$1|$1d}}",
 	"notification-timestamp-ago-hours": "{{PLURAL:$1|$1sa}}",
