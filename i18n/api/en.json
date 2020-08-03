@@ -80,5 +80,6 @@
 	"apierror-echo-event-creation-failed": "Could not create Echo event",
 	"apierror-echo-push-token-exists": "The provided token already exists in the database.",
 	"apierror-echo-push-token-not-found": "The provided token was not found in the database.",
-	"apierror-echo-push-too-many-subscriptions": "The current user has already registered the maximum allowed number of push subscriptions ($1)."
+	"apierror-echo-push-too-many-subscriptions": "The current user has already registered the maximum allowed number of push subscriptions ($1).",
+	"apierror-echo-push-topic-required": "The topic field is required for this provider."
 }

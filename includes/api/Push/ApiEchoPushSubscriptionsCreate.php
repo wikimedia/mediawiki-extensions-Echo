@@ -59,13 +59,22 @@ class ApiEchoPushSubscriptionsCreate extends ApiBase {
 	public function execute(): void {
 		$provider = $this->getParameter( 'provider' );
 		$token = $this->getParameter( 'providertoken' );
+		$topic = null;
+		// check if metadata is a JSON string correctly encoded
+		if ( $provider === 'apns' ) {
+			$topic = $this->getParameter( 'topic' );
+			if ( !$topic ) {
+				$this->dieWithError( 'apierror-echo-push-topic-required' );
+			}
+		}
 		try {
-			$success = $this->subscriptionManager->create( $this->getUser(), $provider, $token );
+			$success = $this->subscriptionManager->create( $this->getUser(), $provider, $token, $topic );
 		} catch ( OverflowException $e ) {
 			$maxSubscriptionsPerUser = $this->subscriptionManager->getMaxSubscriptionsPerUser();
 			$this->dieWithError( [ 'apierror-echo-push-too-many-subscriptions',
 				$maxSubscriptionsPerUser ] );
 		}
+
 		if ( !$success ) {
 			$this->dieWithError( 'apierror-echo-push-token-exists' );
 		}
@@ -89,6 +98,10 @@ class ApiEchoPushSubscriptionsCreate extends ApiBase {
 			'providertoken' => [
 				ParamValidator::PARAM_TYPE => 'string',
 				ParamValidator::PARAM_REQUIRED => true,
+			],
+			'topic' => [
+				ParamValidator::PARAM_TYPE => 'string',
+				ParamValidator::PARAM_REQUIRED => false,
 			],
 		];
 	}

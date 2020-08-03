@@ -14,6 +14,8 @@ CREATE TABLE /*_*/echo_push_subscription (
 	eps_updated TIMESTAMP NOT NULL,
 	-- push subscription metadata (e.g APNS notification topic)
 	eps_data BLOB,
+	-- APNS topic data
+	eps_topic TEXT,
 	FOREIGN KEY (eps_provider) REFERENCES /*_*/echo_push_provider(epp_id)
 ) /*$wgDBTableOptions*/;
 

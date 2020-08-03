@@ -62,10 +62,11 @@ class SubscriptionManager extends EchoAbstractMapper {
 	 * @param User $user
 	 * @param string $provider Provider name string (validated by presence in the PARAM_TYPE array)
 	 * @param string $token Subscriber token provided by the push provider
+	 * @param string|null $topic APNS topic string
 	 * @return bool true if the subscription was created; false if the token already exists
 	 * @throws OverflowException if the user already has >= the configured max subscriptions
 	 */
-	public function create( User $user, string $provider, string $token ): bool {
+	public function create( User $user, string $provider, string $token, ?string $topic = null ): bool {
 		$centralId = $this->getCentralId( $user );
 		if ( $this->userHasMaxAllowedSubscriptions( $centralId ) ) {
 			throw new OverflowException( 'Max subscriptions exceeded' );
@@ -77,6 +78,8 @@ class SubscriptionManager extends EchoAbstractMapper {
 				'eps_provider' => $this->pushProviderStore->acquireId( $provider ),
 				'eps_token' => $token,
 				'eps_token_sha256' => hash( 'sha256', $token ),
+				'eps_data' => null,
+				'eps_topic' => $topic,
 				'eps_updated' => $this->dbw->timestamp()
 			],
 			__METHOD__,

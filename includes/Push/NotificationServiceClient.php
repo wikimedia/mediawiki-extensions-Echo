@@ -33,18 +33,28 @@ class NotificationServiceClient implements LoggerAwareInterface {
 	 * @param array $subscriptions Subscriptions for which to send the message
 	 */
 	public function sendCheckEchoRequests( array $subscriptions ): void {
-		$tokensByProvider = [];
+		$tokenMap = [];
 		foreach ( $subscriptions as $subscription ) {
 			$provider = $subscription->getProvider();
-			if ( !isset( $tokensByProvider[$provider] ) ) {
-				$tokensByProvider[$provider] = [];
+			$topic = $subscription->getTopic() ?? 0;
+			if ( !isset( $tokenMap[$topic][$provider] ) ) {
+				$tokenMap[$topic][$provider] = [];
 			}
-			$tokensByProvider[$provider][] = $subscription->getToken();
+
+			$tokenMap[$topic][$provider][] = $subscription->getToken();
 		}
-		foreach ( array_keys( $tokensByProvider ) as $provider ) {
-			$tokens = $tokensByProvider[$provider];
-			$payload = [ 'deviceTokens' => $tokens, 'messageType' => 'checkEchoV1' ];
-			$this->sendRequest( $provider, $payload );
+		foreach ( array_keys( $tokenMap ) as $topic ) {
+			foreach ( array_keys( $tokenMap[$topic] ) as $provider ) {
+				$tokens = $tokenMap[$topic][$provider];
+				$payload = [
+					'deviceTokens' => $tokens,
+					'messageType' => 'checkEchoV1'
+				];
+				if ( $topic !== 0 ) {
+					$payload['topic'] = $topic;
+				}
+				$this->sendRequest( $provider, $payload );
+			}
 		}
 	}
 
@@ -53,7 +63,7 @@ class NotificationServiceClient implements LoggerAwareInterface {
 	 * @param string $provider Provider endpoint to which to send the message
 	 * @param array $payload message payload
 	 */
-	private function sendRequest( string $provider, array $payload ): void {
+	protected function sendRequest( string $provider, array $payload ): void {
 		$request = $this->constructRequest( $provider, $payload );
 		$status = $request->execute();
 		if ( !$status->isOK() ) {

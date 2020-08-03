@@ -51,6 +51,29 @@ class ApiEchoPushSubscriptionsCreateTest extends ApiTestCase {
 		$this->doApiRequestWithToken( $params, null, $this->user );
 	}
 
+	public function testApiCreateApnsSubscriptionWithTopic(): void {
+		$params = [
+			'action' => 'echopushsubscriptions',
+			'command' => 'create',
+			'provider' => 'apns',
+			'providertoken' => 'ABC123',
+			'topic' => 'test',
+		];
+		$result = $this->doApiRequestWithToken( $params, null, $this->user );
+		$this->assertEquals( 'Success', $result[0]['create']['result'] );
+	}
+
+	public function testApiCreateApnsSubscriptionWithoutTopic(): void {
+		$params = [
+			'action' => 'echopushsubscriptions',
+			'command' => 'create',
+			'provider' => 'apns',
+			'providertoken' => 'DEF456',
+		];
+		$this->expectException( ApiUsageException::class );
+		$this->doApiRequestWithToken( $params, null, $this->user );
+	}
+
 	private function createTestData(): void {
 		$subscriptionManager = EchoServices::getInstance()->getPushSubscriptionManager();
 		$subscriptionManager->create( $this->user, 'fcm', 'XYZ789' );
