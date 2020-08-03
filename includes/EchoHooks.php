@@ -116,40 +116,6 @@ class EchoHooks implements RecentChange_saveHook {
 	}
 
 	/**
-	 * ResourceLoaderTestModules hook handler
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ResourceLoaderTestModules
-	 *
-	 * @param array &$testModules
-	 * @param ResourceLoader $resourceLoader
-	 */
-	public static function onResourceLoaderTestModules( array &$testModules,
-		ResourceLoader $resourceLoader
-	) {
-		$testModuleBoilerplate = [
-			'localBasePath' => dirname( __DIR__ ),
-			'remoteExtPath' => 'Echo',
-		];
-
-		$testModules['qunit'] += [
-			'ext.echo.dm.tests' => $testModuleBoilerplate + [
-				'scripts' => [
-					'tests/qunit/model/test_mw.echo.dm.BundleNotificationItem.js',
-					'tests/qunit/model/test_mw.echo.dm.CrossWikiNotificationItem.js',
-					'tests/qunit/model/test_mw.echo.dm.FiltersModel.js',
-					'tests/qunit/model/test_mw.echo.dm.NotificationGroupsList.js',
-					'tests/qunit/model/test_mw.echo.dm.NotificationItem.js',
-					'tests/qunit/model/test_mw.echo.dm.NotificationsList.js',
-					'tests/qunit/model/test_mw.echo.dm.PaginationModel.js',
-					'tests/qunit/model/test_mw.echo.dm.SeenTimeModel.js',
-					'tests/qunit/model/test_mw.echo.dm.SourcePagesModel.js',
-					'tests/qunit/model/test_mw.echo.dm.UnreadNotificationCounter.js',
-				],
-				'dependencies' => 'ext.echo.dm',
-			],
-		];
-	}
-
-	/**
 	 * Handler for ResourceLoaderRegisterModules hook
 	 * @param ResourceLoader $resourceLoader
 	 */

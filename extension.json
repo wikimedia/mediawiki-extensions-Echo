@@ -60,9 +60,19 @@
 			"NotificationBadge.mustache": "modules/mobile/NotificationBadge.mustache"
 		},
 		"packageFiles": [
-			"tests/qunit/mobile/index.js",
+			"tests/qunit/index.js",
 			"tests/qunit/mobile/test_NotificationBadge.js",
-			"modules/mobile/NotificationBadge.js"
+			"modules/mobile/NotificationBadge.js",
+			"tests/qunit/model/test_mw.echo.dm.BundleNotificationItem.js",
+			"tests/qunit/model/test_mw.echo.dm.CrossWikiNotificationItem.js",
+			"tests/qunit/model/test_mw.echo.dm.FiltersModel.js",
+			"tests/qunit/model/test_mw.echo.dm.NotificationGroupsList.js",
+			"tests/qunit/model/test_mw.echo.dm.NotificationItem.js",
+			"tests/qunit/model/test_mw.echo.dm.NotificationsList.js",
+			"tests/qunit/model/test_mw.echo.dm.PaginationModel.js",
+			"tests/qunit/model/test_mw.echo.dm.SeenTimeModel.js",
+			"tests/qunit/model/test_mw.echo.dm.SourcePagesModel.js",
+			"tests/qunit/model/test_mw.echo.dm.UnreadNotificationCounter.js"
 		]
 	},
 	"ResourceModules": {
@@ -439,7 +449,6 @@
 		"PersonalUrls": "EchoHooks::onPersonalUrls",
 		"BeforePageDisplay": "EchoHooks::beforePageDisplay",
 		"ResourceLoaderRegisterModules": "EchoHooks::onResourceLoaderRegisterModules",
-		"ResourceLoaderTestModules": "EchoHooks::onResourceLoaderTestModules",
 		"UserGroupsChanged": "EchoHooks::onUserGroupsChanged",
 		"UserLoadOptions": "EchoHooks::onUserLoadOptions",
 		"UserSaveOptions": "EchoHooks::onUserSaveOptions",
