@@ -161,6 +161,7 @@
 	"notification-header-user-rights-add-and-remove": "{{GENDER:$6|あなたの}}利用者権限が{{GENDER:$1|変更されました}}: $2へ追加され、$4から除外されました。",
 	"notification-header-welcome": "$1 さん、{{SITENAME}} へ{{GENDER:$2|ようこそ}}！{{GENDER:$2|あなた}}の参加を歓迎します。",
 	"notification-header-mention-summary": "$1 が <strong>$4</strong> の「編集の要約欄」で{{GENDER:$3|あなた}}に{{GENDER:$2|言及しました}} 。",
+	"notification-header-watchlist-multiuser-restored": "<strong>$1</strong>、{{GENDER:$2|あなた}}のウォッチリストを$3{{PLURAL:$3|time|times}}のものに復元しました。",
 	"notification-welcome-linktext": "ようこそ",
 	"notification-header-thank-you-1-edit": "{{GENDER:$2|あなた}}は初めて編集を行いました。寄稿をありがとうございます。そして、ようこそ！",
 	"notification-header-thank-you-10-edit": "{{GENDER:$2|あなた}}は10回の編集を行いました。これからも頑張りましょう！",
