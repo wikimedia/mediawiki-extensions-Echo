@@ -9,5 +9,9 @@
 	"tooltip-pt-notifications-alert": "{{GENDER:|تنبيهاتك}}",
 	"notification-link-text-collapse-all": "طوي",
 	"notification-welcome-linktext": "مرحبا بيك",
+	"notification-header-thank-you-1-edit": "درتي عاد دابا تبديل ديالك لول؛ شكرا بزاف ؤ مرحبا بيك!",
+	"notification-header-thank-you-10-edit": "درتي عاد دابا تبديل ديالك لعاشر؛ شكرا ليك، {{GENDER:$2|راك غادي|راكي غادية}} مزيان!",
+	"notification-header-thank-you-100-edit": "درتي عاد دابا تبديل ديالك لمية؛ شكرا ليك بزاف!",
+	"notification-header-thank-you-10000-edit": "درتي عاد دابا تبديل ديالك لعشرالاف؛ شكرا ليك بزاف!",
 	"notification-inbox-filter-all": "كلشي"
 }
