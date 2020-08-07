@@ -845,15 +845,24 @@ class EchoHooks implements RecentChange_saveHook {
 	 * @param Skin $skin Skin being used.
 	 */
 	public static function beforePageDisplay( $out, $skin ) {
-		if ( $out->getUser()->isLoggedIn() ) {
-			// Load the module for the Notifications flyout
-			$out->addModules( [ 'ext.echo.init' ] );
-			// Load the styles for the Notifications badge
-			$out->addModuleStyles( [
-				'ext.echo.styles.badge',
-				'oojs-ui.styles.icons-alerts'
-			] );
+		$user = $out->getUser();
+
+		if ( !$user->isLoggedIn() ) {
+			return;
 		}
+
+		if ( self::shouldDisplayTalkAlert( $user, $out->getTitle() ) ) {
+			// Load the module for the Orange alert
+			$out->addModuleStyles( 'ext.echo.styles.alert' );
+		}
+
+		// Load the module for the Notifications flyout
+		$out->addModules( [ 'ext.echo.init' ] );
+		// Load the styles for the Notifications badge
+		$out->addModuleStyles( [
+			'ext.echo.styles.badge',
+			'oojs-ui.styles.icons-alerts'
+		] );
 	}
 
 	private static function processMarkAsRead( User $user, WebRequest $request, Title $title ) {
@@ -1130,15 +1139,20 @@ class EchoHooks implements RecentChange_saveHook {
 		// * User actually has new messages
 		// * User is not viewing their user talk page, as user_newtalk
 		// will not have been cleared yet. (bug T107655).
-		$userHasNewMessages = MediaWikiServices::getInstance()
-			->getTalkPageNotificationManager()->userHasNewMessages( $user );
-		if ( $userHasNewMessages && !$user->getTalkPage()->equals( $title ) ) {
-			if ( Hooks::run( 'BeforeDisplayOrangeAlert', [ $user, $title ] ) ) {
-				$personal_urls['mytalk']['text'] = $sk->msg( 'echo-new-messages' )->text();
-				$personal_urls['mytalk']['class'] = [ 'mw-echo-alert' ];
-				$sk->getOutput()->addModuleStyles( 'ext.echo.styles.alert' );
-			}
+		if ( self::shouldDisplayTalkAlert( $user, $title )
+			&& Hooks::run( 'BeforeDisplayOrangeAlert', [ $user, $title ] )
+		) {
+			$personal_urls['mytalk']['text'] = $sk->msg( 'echo-new-messages' )->text();
+			$personal_urls['mytalk']['class'] = [ 'mw-echo-alert' ];
 		}
+	}
+
+	private static function shouldDisplayTalkAlert( $user, $title ) {
+		$userHasNewMessages = MediaWikiServices::getInstance()
+			->getTalkPageNotificationManager()
+			->userHasNewMessages( $user );
+
+		return $userHasNewMessages && !$user->getTalkPage()->equals( $title );
 	}
 
 	/**
