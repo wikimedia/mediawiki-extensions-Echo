@@ -20,7 +20,7 @@ class EchoAbstractMapperTest extends MediaWikiUnitTestCase {
 
 		$this->assertArrayHasKey( 'testMethod', $listeners );
 		$this->assertArrayHasKey( 'key_a', $listeners['testMethod'] );
-		$this->assertTrue( is_callable( $listeners['testMethod']['key_a'] ) );
+		$this->assertIsCallable( $listeners['testMethod']['key_a'] );
 
 		return [ 'mapper' => $mapper, 'property' => $property ];
 	}
@@ -41,7 +41,7 @@ class EchoAbstractMapperTest extends MediaWikiUnitTestCase {
 
 		$listeners = $mapper->getMethodListeners( 'testMethod' );
 		$this->assertArrayHasKey( 'key_a', $listeners );
-		$this->assertTrue( is_callable( $listeners['key_a'] ) );
+		$this->assertIsCallable( $listeners['key_a'] );
 	}
 
 	/**

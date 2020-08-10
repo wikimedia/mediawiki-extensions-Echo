@@ -1029,8 +1029,7 @@ TEXT
 		}
 
 		if ( !EchoDiscussionParser::isSignedComment( $line ) ) {
-			$this->assertEquals( $expectedUser, false );
-
+			$this->assertFalse( $expectedUser );
 			return;
 		}
 
