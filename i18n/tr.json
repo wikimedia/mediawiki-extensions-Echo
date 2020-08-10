@@ -25,7 +25,8 @@
 			"Superyetkin",
 			"ToprakM",
 			"Uncitoyen",
-			"Violetanka"
+			"Violetanka",
+			"Vito Genovese"
 		]
 	},
 	"echo-desc": "Kullanıcıları olaylar ve mesajlar hakkında bilgilendiren sistem",
@@ -206,8 +207,8 @@
 	"notification-reverted-email-subject2": "{{GENDER:$3|Sizin}} {{GENDER:$4|düzenlemeniz|düzenlememiz}} \n{{SITENAME}} üzerinde {{GENDER:$2|geri alındı}}",
 	"notification-mention-email-subject": "$1, {{SITENAME}} sitesinde {{GENDER:$3|sizden}} {{GENDER:$2|bahsetti}}",
 	"notification-user-rights-email-subject": "{{SITENAME}} üzerinde kullanıcı {{GENDER:$3|haklarınız}} değişti",
-	"notification-timestamp-ago-seconds": "{{PLURAL:$1|$1 s}}",
-	"notification-timestamp-ago-minutes": "{{PLURAL:$1|$1d}}",
+	"notification-timestamp-ago-seconds": "{{PLURAL:$1|$1sn}}",
+	"notification-timestamp-ago-minutes": "{{PLURAL:$1|$1dk}}",
 	"notification-timestamp-ago-hours": "{{PLURAL:$1|$1sa}}",
 	"notification-timestamp-ago-days": "{{PLURAL:$1|$1g}}",
 	"notification-timestamp-ago-months": "{{PLURAL:$1|$1ay}}",
