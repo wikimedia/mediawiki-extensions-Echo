@@ -134,7 +134,7 @@ class NotificationControllerTest extends MediaWikiTestCase {
 				// expected result
 				[ 123 ],
 				// users returned from locator
-				[ null, 'foo', User::newFromId( 123 ), new stdClass, 456 ],
+				[ null, 'foo', User::newFromId( 123 ), (object)[], 456 ],
 			],
 		];
 	}

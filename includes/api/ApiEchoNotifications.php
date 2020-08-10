@@ -392,24 +392,25 @@ class ApiEchoNotifications extends ApiQueryBase {
 				- (int)$timestampsByWiki[$a]->getTimestamp( TS_UNIX );
 		} );
 
-		$row = new stdClass;
-		$row->event_id = -1;
-		$row->event_type = 'foreign';
-		$row->event_variant = null;
-		$row->event_agent_id = $user->getId();
-		$row->event_agent_ip = null;
-		$row->event_page_id = null;
-		$row->event_extra = serialize( [
-			'section' => $section ?: 'all',
-			'wikis' => $wikis,
-			'count' => $count
-		] );
-		$row->event_deleted = 0;
+		$row = (object)[
+			'event_id' => -1,
+			'event_type' => 'foreign',
+			'event_variant' => null,
+			'event_agent_id' => $user->getId(),
+			'event_agent_ip' => null,
+			'event_page_id' => null,
+			'event_extra' => serialize( [
+				'section' => $section ?: 'all',
+				'wikis' => $wikis,
+				'count' => $count
+			] ),
+			'event_deleted' => 0,
 
-		$row->notification_user = $user->getId();
-		$row->notification_timestamp = $maxTimestamp;
-		$row->notification_read_timestamp = null;
-		$row->notification_bundle_hash = md5( 'bogus' );
+			'notification_user' => $user->getId(),
+			'notification_timestamp' => $maxTimestamp,
+			'notification_read_timestamp' => null,
+			'notification_bundle_hash' => md5( 'bogus' ),
+		];
 
 		// Format output like any other notification
 		$notif = EchoNotification::newFromRow( $row );
