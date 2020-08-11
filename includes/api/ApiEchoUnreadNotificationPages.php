@@ -88,14 +88,12 @@ class ApiEchoUnreadNotificationPages extends ApiQueryBase {
 		$pageCounts = [];
 		foreach ( $rows as $row ) {
 			if ( $row->event_page_id !== null ) {
-				// @phan-suppress-next-line PhanTypeMismatchDimAssignment
-				$pageCounts[$row->event_page_id] = intval( $row->count );
+				$pageCounts[(int)$row->event_page_id] = intval( $row->count );
 			} else {
 				$nullCount = intval( $row->count );
 			}
 		}
 
-		// @phan-suppress-next-line PhanTypeMismatchArgument
 		$titles = Title::newFromIDs( array_keys( $pageCounts ) );
 
 		$groupCounts = [];
@@ -107,8 +105,7 @@ class ApiEchoUnreadNotificationPages extends ApiQueryBase {
 				$pageName = $title->getPrefixedText();
 			}
 
-			// @phan-suppress-next-line PhanTypeMismatchDimFetch
-			$count = $pageCounts[$title->getArticleID()];
+			$count = $pageCounts[$title->getArticleID()] ?? 0;
 			if ( isset( $groupCounts[$pageName] ) ) {
 				$groupCounts[$pageName] += $count;
 			} else {

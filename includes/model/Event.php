@@ -308,10 +308,9 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 		$this->deleted = $row->event_deleted;
 
 		if ( $row->event_agent_id ) {
-			$this->agent = User::newFromId( $row->event_agent_id );
+			$this->agent = User::newFromId( (int)$row->event_agent_id );
 		} elseif ( $row->event_agent_ip ) {
-			// @phan-suppress-next-line PhanTypeMismatchArgument Not null here
-			$this->agent = User::newFromName( $row->event_agent_ip, false );
+			$this->agent = User::newFromName( (string)$row->event_agent_ip, false );
 		}
 
 		// Lazy load the title from getTitle() so that we can do a batch-load
@@ -326,8 +325,7 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 		}
 		if ( $row->event_page_id ) {
 			$titleCache = EchoTitleLocalCache::create();
-			// @phan-suppress-next-line PhanTypeMismatchArgument Not null here
-			$titleCache->add( $row->event_page_id );
+			$titleCache->add( (int)$row->event_page_id );
 		}
 		if ( isset( $this->extra['revid'] ) && $this->extra['revid'] ) {
 			$revisionCache = EchoRevisionLocalCache::create();
