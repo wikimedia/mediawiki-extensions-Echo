@@ -261,5 +261,10 @@
 	"notification-body-foreign": "{{notranslate}}",
 	"echo-foreign-wiki-lang": "{{optional}}\nTitle of the wiki for which you're seeing foreign notifications:\n\nParameters:\n* $1 - the name of the site (e.g. 'Wikipedia', 'Wikiversity', ...)\n* $2 - the language of the website (e.g. 'English', 'Deutsch', ...)",
 	"echo-badge-count": "{{optional}}\nUsed only for the two Echo badges shown on the personal toolbar.\nParameters:\n* $1 - Formatted notification count.  However, for 100 or greater, 100 will be passed.",
-	"echo-blacklist": "{{ignored}} Site-wide list of accounts that cannot trigger notifications. Can be overridden by users at [[Special:MyPage/Echo-whitelist]]."
+	"echo-blacklist": "{{ignored}} Site-wide list of accounts that cannot trigger notifications. Can be overridden by users at [[Special:MyPage/Echo-whitelist]].",
+	"right-manage-all-push-subscriptions": "{{doc-right|manage-all-push-subscriptions}}",
+	"action-manage-all-push-subscriptions": "{{doc-action|manage-all-push-subscriptions}}",
+	"group-push-subscription-manager": "{{doc-group|push-subscription-manager}}",
+	"group-push-subscription-manager-member": "{{doc-group|push-subscription-manager|member}}",
+	"grouppage-push-subscription-manager": "{{doc-group|push-subscription-manager|page}}"
 }

@@ -1,5 +1,7 @@
 <?php
 
+use EchoPush\Utils;
+
 /**
  * @group medium
  * @group API
@@ -76,7 +78,8 @@ class ApiEchoPushSubscriptionsCreateTest extends ApiTestCase {
 
 	private function createTestData(): void {
 		$subscriptionManager = EchoServices::getInstance()->getPushSubscriptionManager();
-		$subscriptionManager->create( $this->user, 'fcm', 'XYZ789' );
+		$userId = Utils::getPushUserId( $this->user );
+		$subscriptionManager->create( 'fcm', 'XYZ789', $userId );
 	}
 
 }

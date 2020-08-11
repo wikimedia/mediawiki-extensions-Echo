@@ -20,3 +20,4 @@ CREATE TABLE /*_*/echo_push_subscription (
 ) /*$wgDBTableOptions*/;
 
 CREATE INDEX /*i*/echo_push_subscription_user_id ON /*_*/echo_push_subscription (eps_user);
+CREATE INDEX /*i*/echo_push_subscription_token ON /*_*/echo_push_subscription (eps_token(10));

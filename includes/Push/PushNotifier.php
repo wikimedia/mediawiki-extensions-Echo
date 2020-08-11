@@ -2,7 +2,6 @@
 
 namespace EchoPush;
 
-use CentralIdLookup;
 use EchoAttributeManager;
 use EchoEvent;
 use JobQueueGroup;
@@ -31,7 +30,7 @@ class PushNotifier {
 	 */
 	private static function createJob( User $user, EchoEvent $event = null ):
 	NotificationRequestJob {
-		$centralId = CentralIdLookup::factory()->centralIdFromLocalUser( $user );
+		$centralId = Utils::getPushUserId( $user );
 		$params = [ 'centralId' => $centralId ];
 		// below params are only needed for debug logging (T255068)
 		if ( $event !== null ) {
