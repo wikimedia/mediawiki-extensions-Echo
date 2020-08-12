@@ -13,7 +13,10 @@ class ApiEchoPushSubscriptionsCreateTest extends ApiTestCase {
 
 	public function setUp(): void {
 		parent::setUp();
-		$this->setMwGlobals( 'wgEchoEnablePush', true );
+		$this->setMwGlobals( [
+			'wgEchoEnablePush' => true,
+			'wgEchoPushMaxSubscriptionsPerUser' => 2
+		] );
 		$this->tablesUsed[] = 'echo_push_subscription';
 		$this->tablesUsed[] = 'echo_push_provider';
 		$this->user = $this->getTestUser()->getUser();
@@ -21,6 +24,7 @@ class ApiEchoPushSubscriptionsCreateTest extends ApiTestCase {
 	}
 
 	public function testApiCreateSubscription(): void {
+		// Before max subscriptions reached
 		$params = [
 			'action' => 'echopushsubscriptions',
 			'command' => 'create',
@@ -29,6 +33,11 @@ class ApiEchoPushSubscriptionsCreateTest extends ApiTestCase {
 		];
 		$result = $this->doApiRequestWithToken( $params, null, $this->user );
 		$this->assertEquals( 'Success', $result[0]['create']['result'] );
+
+		// After max subscriptions reached
+		$params['providertoken'] = 'DEF456';
+		$this->expectException( ApiUsageException::class );
+		$this->doApiRequestWithToken( $params, null, $this->user );
 	}
 
 	public function testApiCreateSubscriptionTokenExists(): void {
