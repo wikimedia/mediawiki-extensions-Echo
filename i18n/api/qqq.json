@@ -81,5 +81,6 @@
 	"apiwarn-echo-deprecation-html": "{{doc-apierror}}",
 	"apierror-echo-event-creation-failed": "{{doc-apierror}}",
 	"apierror-echo-push-token-exists": "{{doc-apierror}}",
-	"apierror-echo-push-token-not-found": "{{doc-apierror}}"
+	"apierror-echo-push-token-not-found": "{{doc-apierror}}",
+	"apierror-echo-push-too-many-subscriptions": "{{doc-apierror}}"
 }

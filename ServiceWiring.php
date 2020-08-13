@@ -43,7 +43,10 @@ return [
 			$database
 		);
 
-		return new SubscriptionManager( $dbw, $dbr, $centralIdLookup, $pushProviderStore );
+		$maxSubscriptionsPerUser = $echoConfig->get( 'EchoPushMaxSubscriptionsPerUser' );
+
+		return new SubscriptionManager( $dbw, $dbr, $centralIdLookup, $pushProviderStore,
+			$maxSubscriptionsPerUser );
 	}
 
 ];

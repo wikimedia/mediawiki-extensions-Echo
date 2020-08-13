@@ -6,6 +6,7 @@ use ApiBase;
 use ApiMain;
 use EchoPush\SubscriptionManager;
 use EchoServices;
+use OverflowException;
 use Wikimedia\ParamValidator\ParamValidator;
 
 class ApiEchoPushSubscriptionsCreate extends ApiBase {
@@ -58,7 +59,13 @@ class ApiEchoPushSubscriptionsCreate extends ApiBase {
 	public function execute(): void {
 		$provider = $this->getParameter( 'provider' );
 		$token = $this->getParameter( 'providertoken' );
-		$success = $this->subscriptionManager->create( $this->getUser(), $provider, $token );
+		try {
+			$success = $this->subscriptionManager->create( $this->getUser(), $provider, $token );
+		} catch ( OverflowException $e ) {
+			$maxSubscriptionsPerUser = $this->subscriptionManager->getMaxSubscriptionsPerUser();
+			$this->dieWithError( [ 'apierror-echo-push-too-many-subscriptions',
+				$maxSubscriptionsPerUser ] );
+		}
 		if ( !$success ) {
 			$this->dieWithError( 'apierror-echo-push-token-exists' );
 		}

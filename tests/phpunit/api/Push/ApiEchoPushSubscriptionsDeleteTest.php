@@ -13,7 +13,10 @@ class ApiEchoPushSubscriptionsDeleteTest extends ApiTestCase {
 
 	public function setUp(): void {
 		parent::setUp();
-		$this->setMwGlobals( 'wgEchoEnablePush', true );
+		$this->setMwGlobals( [
+			'wgEchoEnablePush' => true,
+			'wgEchoPushMaxSubscriptionsPerUser' => 1
+		] );
 		$this->tablesUsed[] = 'echo_push_subscription';
 		$this->tablesUsed[] = 'echo_push_provider';
 		$this->user = $this->getTestUser()->getUser();

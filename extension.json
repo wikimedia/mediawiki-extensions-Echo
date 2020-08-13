@@ -1013,6 +1013,10 @@
 		"EchoPushServiceBaseUrl": {
 			"value": false,
 			"description": "Request endpoint URL for the push notification service"
+		},
+		"EchoPushMaxSubscriptionsPerUser": {
+			"value": 0,
+			"description": "Maximum number of push subscriptions that may be stored in the DB at any given time for a single central user ID."
 		}
 	},
 	"attributes": {
