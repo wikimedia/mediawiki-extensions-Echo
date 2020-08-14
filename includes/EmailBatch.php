@@ -202,11 +202,14 @@ class MWEchoEmailBatch {
 			$tables = [ 'echo_email_batch', 'echo_event' ];
 
 			if ( $this->mUser->getOption( 'echo-dont-email-read-notifications' ) ) {
-				$conds += [
-					'notification_event = event_id',
-					'notification_read_timestamp' => null
-				];
-				array_push( $tables, 'echo_notification' );
+				$conds = array_merge(
+					$conds,
+					[
+						'notification_event = event_id',
+						'notification_read_timestamp IS NULL',
+					]
+				);
+				$tables[] = 'echo_notification';
 			}
 
 			// See setLastEvent() for more detail for this variable
