@@ -107,7 +107,6 @@
 	"notification-link-text-view-edit": "सम्पादन हेर्ने",
 	"notification-link-article-reminder": "पृष्ठ हेर्नुहाेस्",
 	"notification-header-reverted": "तपाईंको {{PLURAL:$4|सम्पादन $3 मा |सम्पादनहरू $3}} द्वारा {{GENDER:$2|उल्ट्याइएको छ}}।",
-	"notification-body-reverted": "$1",
 	"notification-header-emailuser": "$1 {{GENDER:$2|ले}} डाँक पठाउनुभएको छ",
 	"notification-edit-talk-page-email-subject2": "$1 ले {{GENDER:$3|तपाईलाई}} {{SITENAME}}मा एउटा सन्देश {{GENDER:$2|छोड्नुभएको छ}}",
 	"notification-page-linked-email-subject": "{{GENDER:$3|तपाईद्वारा}} निर्माण गरिएको पृष्ठ {{SITENAME}}मा जोडियो",

@@ -90,7 +90,6 @@
 	"notification-link-thank-you-edit": "{{GENDER:$1|توهان جي}} سنوار",
 	"notification-link-text-view-edit": "سنوار ڏسو",
 	"notification-link-article-reminder": "صفحو ڏسو",
-	"notification-body-reverted": "$1",
 	"notification-header-emailuser": "$1 توھان ڏانھن ھڪ برقٽپال {{GENDER:$2|موڪلي}}.",
 	"notification-timestamp-today": "اڄ",
 	"notification-timestamp-yesterday": "ڪلھ",

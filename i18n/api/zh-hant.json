@@ -76,5 +76,6 @@
 	"apiwarn-echo-deprecation-html": "<kbd>notformat=html</kbd>已棄用，並將很快被移除。請改用<kbd>notformat=special</kbd>。",
 	"apierror-echo-event-creation-failed": "無法建立 Echo 事件",
 	"apierror-echo-push-token-exists": "提供的權杖已存在於資料庫。",
-	"apierror-echo-push-token-not-found": "在資料庫裡找不到提供的權杖。"
+	"apierror-echo-push-token-not-found": "在資料庫裡找不到提供的權杖。",
+	"apierror-echo-push-too-many-subscriptions": "目前使用者已註冊所允許的最大推送訂閱數目（$1）。"
 }

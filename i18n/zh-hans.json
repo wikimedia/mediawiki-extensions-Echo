@@ -225,7 +225,6 @@
 	"notification-link-text-view-edit": "查看编辑",
 	"notification-link-article-reminder": "查看页面",
 	"notification-header-reverted": "有人{{GENDER:$2|回退}}了您{{PLURAL:$4|对<strong>$3</strong>所作出的编辑}}。",
-	"notification-body-reverted": "$1",
 	"notification-header-emailuser": "$1向您{{GENDER:$2|发送}}了电子邮件。",
 	"notification-edit-talk-page-email-subject2": "$1在{{SITENAME}}给您{{GENDER:$2|留言}}了",
 	"notification-page-linked-email-subject": "{{GENDER:$3|您}}创建的一个页面在{{SITENAME}}上被链接",

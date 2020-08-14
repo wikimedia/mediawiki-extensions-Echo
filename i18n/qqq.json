@@ -117,7 +117,7 @@
 	"echo-specialpage-pagefilterwidget-aria-label": "Screen readers use this name to identify the recent activities (pages with unread notifications) wiki and pages grouped lists.",
 	"echo-specialpage-special-help-menu-widget-aria-label": "Screen readers use this label to identify the special help menu widget including the Notifications preferences.",
 	"echo-specialpage-pagination-numnotifications": "Label noting the number of notifications displayed in the page. This only appears if there is a single page of results.\n\nParameters:\n* $1 - Number of notifications in the page.\n{{Identical|Notification}}",
-	"echo-specialpage-pagination-range": "Label noting the range of the notifications displayed in the page. This only appears if there are multiple pages of results available.\n\nParameters:\n* $1 - Number of the first item.\n* $2 - Number of the last item.",
+	"echo-specialpage-pagination-range": "{{optional}}\nLabel noting the range of the notifications displayed in the page. This only appears if there are multiple pages of results available.\n\nParameters:\n* $1 - Number of the first item.\n* $2 - Number of the last item.",
 	"echo-specialpage-pagefilters-title": "Title of the page filter box in Special:Notifications page.",
 	"echo-specialpage-pagefilters-subtitle": "Subtitle of the page filter box in Special:Notifications page.",
 	"notificationsmarkread-legend": "Title for the form that marks a notification as read in [[Special:NotificationsMarkRead]]",
@@ -259,7 +259,7 @@
 	"notification-header-foreign-notice": "Flyout-specific format for displaying notification header of having notice notifications on foreign wikis.\n\nParameters:\n* $1 - the formatted username of the current user.\n* $2 - the username for GENDER\n* $3 (deprecated) - 1 of the foreign wikis you have notifications on\n* $4 (deprecated) - the number of remaining other wikis you have notifications on\n*$5 - the number of other wikis you have notifications on",
 	"notification-header-foreign-all": "Flyout-specific format for displaying notification header of having notifications (combined alerts and messages) on foreign wikis.\n\nParameters:\n* $1 - the formatted username of the current user.\n* $2 - the username for GENDER\n* $3 (deprecated) - 1 of the foreign wikis you have notifications on\n* $4 (deprecated) - the number of remaining other wikis you have notifications on\n*$5 - the number of other wikis you have notifications on",
 	"notification-body-foreign": "{{notranslate}}",
-	"echo-foreign-wiki-lang": "Title of the wiki for which you're seeing foreign notifications:\n\nParameters:\n* $1 - the name of the site (e.g. 'Wikipedia', 'Wikiversity', ...)\n* $2 - the language of the website (e.g. 'English', 'Deutsch', ...)",
-	"echo-badge-count": "Used only for the two Echo badges shown on the personal toolbar.\nParameters:\n* $1 - Formatted notification count.  However, for 100 or greater, 100 will be passed.",
+	"echo-foreign-wiki-lang": "{{optional}}\nTitle of the wiki for which you're seeing foreign notifications:\n\nParameters:\n* $1 - the name of the site (e.g. 'Wikipedia', 'Wikiversity', ...)\n* $2 - the language of the website (e.g. 'English', 'Deutsch', ...)",
+	"echo-badge-count": "{{optional}}\nUsed only for the two Echo badges shown on the personal toolbar.\nParameters:\n* $1 - Formatted notification count.  However, for 100 or greater, 100 will be passed.",
 	"echo-blacklist": "{{ignored}} Site-wide list of accounts that cannot trigger notifications. Can be overridden by users at [[Special:MyPage/Echo-whitelist]]."
 }

@@ -110,7 +110,6 @@
 	"notification-link-text-view-edit": "באקוקן רעדאקטירונג",
 	"notification-link-article-reminder": "באַקוקן בלאַט",
 	"notification-header-reverted": " {{PLURAL:$4|אייער רעדאקטירונג אויף <strong>$3</strong> איז|אייערע רעדאקטירונגען אויף <strong>$3</strong> זענען}} געווארן {{GENDER:$2|צוריקגעשטעלט}}.",
-	"notification-body-reverted": "$1",
 	"notification-header-emailuser": "$1 {{GENDER:$2|האט אייך געשיקט}} א בליצבריוו.",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$2|האט}} {{GENDER:$3|אייך}} געשריבן א נייע מעלדונג אינעם {{SITENAME}} וועבזייטל",
 	"notification-page-linked-email-subject": "א בלאט {{GENDER:$3|איר}} האט געשאפן איז געווארן פֿאַרלינקט אויף {{SITENAME}}",

@@ -78,5 +78,6 @@
 	"apiwarn-echo-deprecation-html": "<kbd>notformat=html</kbd> ist veraltet und wird bald entfernt. Verwende stattdessen <kbd>notformat=special</kbd>.",
 	"apierror-echo-event-creation-failed": "Es konnte kein Echo-Ereignis erstellt werden",
 	"apierror-echo-push-token-exists": "Das angegebene Token ist bereits in der Datenbank vorhanden.",
-	"apierror-echo-push-token-not-found": "Das angegebene Token wurde in der Datenbank nicht gefunden."
+	"apierror-echo-push-token-not-found": "Das angegebene Token wurde in der Datenbank nicht gefunden.",
+	"apierror-echo-push-too-many-subscriptions": "Der aktuelle Benutzer hat bereits die maximal zulässige Anzahl von Push-Abonnements ($1) registriert."
 }

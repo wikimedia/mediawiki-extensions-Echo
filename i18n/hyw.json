@@ -75,7 +75,6 @@
 	"notification-link-thank-you-edit": "{{GENDER:$1|Ձեր}} խմբագրումը",
 	"notification-link-text-view-edit": "Խմբագրումը կարդալ",
 	"notification-link-article-reminder": "Էջը ցոյց տալ",
-	"notification-body-reverted": "$1",
 	"notification-timestamp-ago-seconds": "{{PLURAL:$1|$1 երկվյրկ․}}",
 	"notification-timestamp-ago-minutes": "{{PLURAL:$1|$1 վյրկ․}}",
 	"notification-timestamp-ago-hours": "{{PLURAL:$1|$1 ժամ}}",

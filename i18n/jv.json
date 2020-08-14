@@ -138,7 +138,6 @@
 	"notification-link-text-view-edit": "Tuduhaké besutan",
 	"notification-link-article-reminder": "Deleng kaca",
 	"notification-header-reverted": "{{PLURAL:$4|Besutané panjenengan ing <strong>$3</strong>}} {{GENDER:$2|dibalèkaké}}.",
-	"notification-body-reverted": "$1",
 	"notification-header-emailuser": "$1 {{GENDER:$2|ngirimi}} panjenengan layang.",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$2|ngirimi}} panjenengan layang ing {{SITENAME}}",
 	"notification-page-linked-email-subject": "Kaca kang {{GENDER:$3|ko}}gawé kagayut marang {{SITENAME}}",

@@ -150,7 +150,6 @@
 	"notification-link-text-view-edit": "మార్పును చూడు",
 	"notification-link-article-reminder": "పేజీని చూడు",
 	"notification-header-reverted": "మీరు {{PLURAL:$4|<strong>$3</strong> లో చేసిన దిద్దుబాటును|<strong>$3</strong> లో చేసిన దిద్దుబాట్లను}} {{GENDER:$2|వెనక్కి తిప్పారు}}.",
-	"notification-body-reverted": "$1",
 	"notification-header-emailuser": "$1 మీకో ఈమెయిలు {{GENDER:$2|పంపించారు}}.",
 	"notification-edit-talk-page-email-subject2": "{{SITENAME}}లో $1 {{GENDER:$3|మీ}}కొక సందేశం {{GENDER:$2|పెట్టారు}}.",
 	"notification-page-linked-email-subject": "{{SITENAME}}లో {{GENDER:$3|మీరు}} సృష్టించిన ఒక పేజీకి లింకు చేసారు",

@@ -165,7 +165,6 @@
 	"notification-link-text-view-edit": "Преглед на редакцията",
 	"notification-link-article-reminder": "Преглед на страницата",
 	"notification-header-reverted": "{{PLURAL:$4|Ваша редакция|Ваши редакции}} на страницата <strong>$3</strong> {{GENDER:$2|{{PLURAL:$4|е върната|са върнати}}}}.",
-	"notification-body-reverted": "$1",
 	"notification-header-emailuser": "$1 {{GENDER:$2|Ви изпрати}} имейл.",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$3|Ви}} {{GENDER:$2|остави}} съобщение на {{SITENAME}}",
 	"notification-page-linked-email-subject": "Страницата, създадена от {{GENDER:$3|вас}}, бе свързана с {{SITENAME}}",
