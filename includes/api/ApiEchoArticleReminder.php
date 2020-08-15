@@ -76,10 +76,6 @@ class ApiEchoArticleReminder extends ApiBase {
 		return 'csrf';
 	}
 
-	public function getTokenSalt() {
-		return '';
-	}
-
 	public function mustBePosted() {
 		return true;
 	}
