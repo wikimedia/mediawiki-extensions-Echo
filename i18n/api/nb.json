@@ -76,5 +76,6 @@
 	"apiwarn-echo-deprecation-html": "<kbd>notformat=html</kbd> er utdatert og vil fjernes snart. Bruk <kbd>notformat=special</kbd> i stedet.",
 	"apierror-echo-event-creation-failed": "Kunne ikke opprette Echo-hendelse",
 	"apierror-echo-push-token-exists": "Den gitte nøkkelen finnes allerede i databasen.",
-	"apierror-echo-push-token-not-found": "Den gitte nøkkelen ble ikke funnet i databasen."
+	"apierror-echo-push-token-not-found": "Den gitte nøkkelen ble ikke funnet i databasen.",
+	"apierror-echo-push-too-many-subscriptions": "Den gjeldende brukeren har allerede registrert maksimalt antall pushabonnementer ($1)."
 }

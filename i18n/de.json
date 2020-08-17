@@ -17,6 +17,7 @@
 			"TMg",
 			"Tiin",
 			"Tobi 406",
+			"Umherirrender",
 			"Vogone"
 		]
 	},
@@ -75,7 +76,7 @@
 	"echo-pref-tooltip-user-rights": "Benachrichtige mich, wenn jemand meine Benutzerrechte ändert.",
 	"echo-pref-tooltip-emailuser": "Benachrichtige mich, wenn mir jemand eine E-Mail sendet.",
 	"echo-pref-tooltip-article-reminder": "Benachrichtige mich über diese Seite, wenn ich dies verlange.",
-	"echo-pref-tooltip-thank-you-edit": "Benachrichtige mich, wenn ich meine 1., 10., 100., …  Bearbeitung erreiche.",
+	"echo-pref-tooltip-thank-you-edit": "Benachrichtige mich, wenn ich meine 1., 10., 100., … Bearbeitung erreiche.",
 	"echo-pref-tooltip-watchlist": "Benachrichtige mich, wenn jemand eine (nicht-kleine) Bearbeitung an einer Seite auf meiner Beobachtungsliste macht.",
 	"echo-pref-tooltip-minor-watchlist": "Benachrichtige mich, wenn jemand eine kleine Bearbeitung an einer Seite auf meiner Beobachtungsliste macht.",
 	"notifications": "Benachrichtigungen",

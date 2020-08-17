@@ -74,5 +74,6 @@
 	"apiwarn-echo-deprecation-html": "<kbd>notformat=html</kbd> е застарен и наскоро ќе биде отстранет. Наместо него, користете го <kbd>notformat=special</kbd>.",
 	"apierror-echo-event-creation-failed": "Не можев да направам настан за Ехо",
 	"apierror-echo-push-token-exists": "Укажаната шифра веќе постои во базата.",
-	"apierror-echo-push-token-not-found": "Укажаната шифра не е пронајдена во базата."
+	"apierror-echo-push-token-not-found": "Укажаната шифра не е пронајдена во базата.",
+	"apierror-echo-push-too-many-subscriptions": "Тековниот корисник веќе го направил дозволениот број на претплати за наметнувања ($1)."
 }

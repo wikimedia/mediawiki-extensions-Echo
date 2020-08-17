@@ -75,5 +75,6 @@
 	"apiwarn-echo-deprecation-html": "<kbd>notformat=html</kbd> הוכרז בתור מיושן ויוסר כליל בקרוב. נא להשתמש ב־<kbd>notformat=special</kbd> במקומו.",
 	"apierror-echo-event-creation-failed": "לא ניתן היה ליצור את פעולת ה־Echo",
 	"apierror-echo-push-token-exists": "האסימון שסופק כבר קיים במסד הנתונים.",
-	"apierror-echo-push-token-not-found": "האסימון שסופק לא נמצא במסד הנתונים."
+	"apierror-echo-push-token-not-found": "האסימון שסופק לא נמצא במסד הנתונים.",
+	"apierror-echo-push-too-many-subscriptions": "המשתמש הנוכחי כבר רשם את המספר המרבי של מינויי דחיפה ($1)"
 }

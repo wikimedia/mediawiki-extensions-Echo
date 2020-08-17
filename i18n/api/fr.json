@@ -83,5 +83,6 @@
 	"apiwarn-echo-deprecation-html": "<kbd>notformat=html</kbd> est désuet et sera bientôt supprimé. Utilisez <kbd>notformat=special</kbd> à la place.",
 	"apierror-echo-event-creation-failed": "Impossible de créer l’évènement Echo",
 	"apierror-echo-push-token-exists": "Le jeton fourni existe déjà dans la base de données.",
-	"apierror-echo-push-token-not-found": "Le jeton fourni n’a pas été trouvé dans la base de données."
+	"apierror-echo-push-token-not-found": "Le jeton fourni n’a pas été trouvé dans la base de données.",
+	"apierror-echo-push-too-many-subscriptions": "L'utilisateur actuel a déjà enregistré le nombre maximal autorisé de demandes d'abonnement ($1)."
 }

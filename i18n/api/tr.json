@@ -5,6 +5,7 @@
 			"BaRaN6161 TURK",
 			"KorkmazO",
 			"McAang",
+			"MuratTheTurkish",
 			"Sayginer"
 		]
 	},
@@ -78,5 +79,6 @@
 	"apiwarn-echo-deprecation-html": "<kbd>notformat=html</kbd> kullanımdan kaldırıldı ve yakında kaldırılacak. Bunun yerine <kbd>notformat=special</kbd> kullanın.",
 	"apierror-echo-event-creation-failed": "Echo etkinliği oluşturulamadı",
 	"apierror-echo-push-token-exists": "Sağlanan simge veritabanında zaten var.",
-	"apierror-echo-push-token-not-found": "Sağlanan anahtar veritabanında bulunamadı."
+	"apierror-echo-push-token-not-found": "Sağlanan anahtar veritabanında bulunamadı.",
+	"apierror-echo-push-too-many-subscriptions": "Mevcut kullanıcı, izin verilen maksimum push abonelik sayısını ($1) zaten kaydetti."
 }
