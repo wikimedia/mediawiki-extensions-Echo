@@ -421,7 +421,8 @@
 				"echo-learn-more",
 				"mypreferences",
 				"echo-specialpage-section-markread",
-				"echo-specialpage-pagefilterwidget-aria-label"
+				"echo-specialpage-pagefilterwidget-aria-label",
+				"echo-specialpage-special-help-menu-widget-aria-label"
 			],
 			"targets": [
 				"desktop",
