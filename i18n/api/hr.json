@@ -5,5 +5,6 @@
 		]
 	},
 	"apihelp-echopushsubscriptions+delete-summary": "Otkaži nametnute (''push'') pretplate za suradnika koji je trenutačno prijavljen.",
-	"apihelp-query+notifications-example-1": "Ispis obavijesti"
+	"apihelp-query+notifications-example-1": "Ispis obavijesti",
+	"apierror-echo-push-topic-required": "Polje za predmet obvezno je popuniti za ovoga davatelja."
 }
