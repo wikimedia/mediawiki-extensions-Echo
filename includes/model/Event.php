@@ -174,6 +174,11 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 
 		EchoNotificationController::notify( $obj, $wgEchoUseJobQueue );
 
+		$stats = MediaWikiServices::getInstance()->getStatsdDataFactory();
+		$type = $info['type'];
+		$stats->increment( 'echo.event.all' );
+		$stats->increment( "echo.event.$type" );
+
 		return $obj;
 	}
 

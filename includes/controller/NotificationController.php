@@ -136,6 +136,10 @@ class EchoNotificationController {
 				$userIds = [];
 				$userIdsCount = 0;
 			}
+
+			$stats = MediaWikiServices::getInstance()->getStatsdDataFactory();
+			$stats->increment( 'echo.notification.all' );
+			$stats->increment( "echo.notification.$type" );
 		}
 
 		// process the userIds left in the array
