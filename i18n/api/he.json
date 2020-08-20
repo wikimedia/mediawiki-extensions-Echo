@@ -76,5 +76,6 @@
 	"apierror-echo-event-creation-failed": "לא ניתן היה ליצור את פעולת ה־Echo",
 	"apierror-echo-push-token-exists": "האסימון שסופק כבר קיים במסד הנתונים.",
 	"apierror-echo-push-token-not-found": "האסימון שסופק לא נמצא במסד הנתונים.",
-	"apierror-echo-push-too-many-subscriptions": "המשתמש הנוכחי כבר רשם את המספר המרבי של מינויי דחיפה ($1)"
+	"apierror-echo-push-too-many-subscriptions": "המשתמש הנוכחי כבר רשם את המספר המרבי של מינויי דחיפה ($1)",
+	"apierror-echo-push-topic-required": "שדה הנושא נדרש על־ידי הספק הזה."
 }
