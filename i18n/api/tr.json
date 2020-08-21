@@ -80,5 +80,6 @@
 	"apierror-echo-event-creation-failed": "Echo etkinliği oluşturulamadı",
 	"apierror-echo-push-token-exists": "Sağlanan simge veritabanında zaten var.",
 	"apierror-echo-push-token-not-found": "Sağlanan anahtar veritabanında bulunamadı.",
-	"apierror-echo-push-too-many-subscriptions": "Mevcut kullanıcı, izin verilen maksimum push abonelik sayısını ($1) zaten kaydetti."
+	"apierror-echo-push-too-many-subscriptions": "Mevcut kullanıcı, izin verilen maksimum push abonelik sayısını ($1) zaten kaydetti.",
+	"apierror-echo-push-topic-required": "Bu sağlayıcı için konu alanı gereklidir."
 }
