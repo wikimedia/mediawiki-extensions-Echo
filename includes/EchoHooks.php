@@ -152,37 +152,42 @@ class EchoHooks implements RecentChange_saveHook {
 			// DatabaseUpdater does not support other databases, so skip
 			return;
 		}
+
+		$dbType = $updater->getDB()->getType();
+
 		$dir = dirname( __DIR__ );
 		$baseSQLFile = "$dir/echo.sql";
+
 		$updater->addExtensionTable( 'echo_event', $baseSQLFile );
+
 		$updater->addExtensionTable( 'echo_email_batch', "$dir/db_patches/echo_email_batch.sql" );
 		$updater->addExtensionTable( 'echo_target_page', "$dir/db_patches/echo_target_page.sql" );
 
-		if ( $updater->getDB()->getType() === 'sqlite' ) {
+		if ( $dbType === 'sqlite' ) {
 			$updater->modifyExtensionField( 'echo_event', 'event_agent',
-				"$dir/db_patches/patch-event_agent-split.sqlite.sql" );
+				"$dir/db_patches/sqlite/patch-event_agent-split.sql" );
 			$updater->modifyExtensionField( 'echo_event', 'event_variant',
-				"$dir/db_patches/patch-event_variant_nullability.sqlite.sql" );
+				"$dir/db_patches/sqlite/patch-event_variant_nullability.sql" );
 			$updater->addExtensionField( 'echo_target_page', 'etp_id',
-				"$dir/db_patches/patch-multiple_target_pages.sqlite.sql" );
+				"$dir/db_patches/sqlite/patch-multiple_target_pages.sql" );
 			$updater->dropExtensionField( 'echo_target_page', 'etp_user',
-				"$dir/db_patches/patch-drop-echo_target_page-etp_user.sqlite.sql" );
+				"$dir/db_patches/sqlite/patch-drop-echo_target_page-etp_user.sql" );
 			// There is no need to run the patch-event_extra-size or patch-event_agent_ip-size because
 			// sqlite ignores numeric arguments in parentheses that follow the type name (ex: VARCHAR(255))
 			// see http://www.sqlite.org/datatype3.html Section 2.2 for more info
 		} else {
 			$updater->modifyExtensionField( 'echo_event', 'event_agent',
-				"$dir/db_patches/patch-event_agent-split.sql" );
+				"$dir/db_patches/mysql/patch-event_agent-split.sql" );
 			$updater->modifyExtensionField( 'echo_event', 'event_variant',
-				"$dir/db_patches/patch-event_variant_nullability.sql" );
+				"$dir/db_patches/mysql/patch-event_variant_nullability.sql" );
 			$updater->modifyExtensionField( 'echo_event', 'event_extra',
-				"$dir/db_patches/patch-event_extra-size.sql" );
+				"$dir/db_patches/mysql/patch-event_extra-size.sql" );
 			$updater->modifyExtensionField( 'echo_event', 'event_agent_ip',
-				"$dir/db_patches/patch-event_agent_ip-size.sql" );
+				"$dir/db_patches/mysql/patch-event_agent_ip-size.sql" );
 			$updater->addExtensionField( 'echo_target_page', 'etp_id',
-				"$dir/db_patches/patch-multiple_target_pages.sql" );
+				"$dir/db_patches/mysql/patch-multiple_target_pages.sql" );
 			$updater->dropExtensionField( 'echo_target_page', 'etp_user',
-				"$dir/db_patches/patch-drop-echo_target_page-etp_user.sql" );
+				"$dir/db_patches/mysql/patch-drop-echo_target_page-etp_user.sql" );
 		}
 
 		$updater->addExtensionField( 'echo_notification', 'notification_bundle_hash',
@@ -195,9 +200,9 @@ class EchoHooks implements RecentChange_saveHook {
 		}
 		$updater->dropExtensionTable( 'echo_subscription',
 			"$dir/db_patches/patch-drop-echo_subscription.sql" );
-		if ( $updater->getDB()->getType() !== 'sqlite' ) {
+		if ( $dbType === 'mysql' ) {
 			$updater->dropExtensionField( 'echo_event', 'event_timestamp',
-				"$dir/db_patches/patch-drop-echo_event-event_timestamp.sql" );
+				"$dir/db_patches/mysql/patch-drop-echo_event-event_timestamp.sql" );
 		}
 		$updater->addExtensionField( 'echo_email_batch', 'eeb_event_hash',
 			"$dir/db_patches/patch-email_batch-new-field.sql" );
@@ -228,11 +233,11 @@ class EchoHooks implements RecentChange_saveHook {
 			"$dir/db_patches/patch-drop-echo_event-event_page_namespace.sql" );
 		$updater->dropExtensionField( 'echo_event', 'event_page_title',
 			"$dir/db_patches/patch-drop-echo_event-event_page_title.sql" );
-		if ( $updater->getDB()->getType() !== 'sqlite' ) {
+		if ( $dbType === 'mysql' ) {
 			$updater->dropExtensionField( 'echo_notification', 'notification_bundle_base',
-				"$dir/db_patches/patch-drop-notification_bundle_base.sql" );
+				"$dir/db_patches/mysql/patch-drop-notification_bundle_base.sql" );
 			$updater->dropExtensionField( 'echo_notification', 'notification_bundle_display_hash',
-				"$dir/db_patches/patch-drop-notification_bundle_display_hash.sql" );
+				"$dir/db_patches/mysql/patch-drop-notification_bundle_display_hash.sql" );
 		}
 		$updater->dropExtensionIndex( 'echo_notification', 'echo_notification_user_hash_timestamp',
 			"$dir/db_patches/patch-drop-user-hash-timestamp-index.sql" );
