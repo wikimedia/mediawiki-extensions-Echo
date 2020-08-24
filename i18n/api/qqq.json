@@ -39,6 +39,7 @@
 	"apihelp-echopushsubscriptions+create-example": "{{doc-apihelp-example|echopushsubscriptions+create}}",
 	"apihelp-echopushsubscriptions+delete-summary": "{{doc-apihelp-summary|echopushsubscriptions+delete}}",
 	"apihelp-echopushsubscriptions+delete-param-providertoken": "{{doc-apihelp-param|echopushsubscriptions+delete|providertoken}}",
+	"apihelp-echopushsubscriptions+delete-param-centraluserid": "{{doc-apihelp-param|echopushsubscriptions+delete|centraluserid}}",
 	"apihelp-echopushsubscriptions+delete-example": "{{doc-apihelp-example|echopushsubscriptions+delete}}",
 	"apihelp-query+notifications-description": "{{doc-apihelp-description|query+notifications}}",
 	"apihelp-query+notifications-summary": "{{doc-apihelp-summary|query+notifications}}",

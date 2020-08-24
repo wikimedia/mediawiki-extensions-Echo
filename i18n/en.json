@@ -259,5 +259,10 @@
 	"notification-body-foreign": "$1",
 	"echo-foreign-wiki-lang": "$1 - $2",
 	"echo-badge-count": "{{PLURAL:$1|$1|100={{formatnum:99}}+}}",
-	"echo-blacklist": ""
+	"echo-blacklist": "",
+	"right-manage-all-push-subscriptions": "Manage all push subscriptions",
+	"action-manage-all-push-subscriptions": "manage all push subscriptions",
+	"group-push-subscription-manager": "Push subscription managers",
+	"group-push-subscription-manager-member": "{{GENDER:$1|push subscription manager}}",
+	"grouppage-push-subscription-manager": "{{ns:project}}:Push subscription managers"
 }

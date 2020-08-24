@@ -44,6 +44,14 @@
 		"DisplayNotificationsConfiguration": "SpecialDisplayNotificationsConfiguration",
 		"NotificationsMarkRead": "SpecialNotificationsMarkRead"
 	},
+	"AvailableRights": [
+		"manage-all-push-subscriptions"
+	],
+	"GroupPermissions": {
+		"push-subscription-manager": {
+			"manage-all-push-subscriptions": true
+		}
+	},
 	"MessagesDirs": {
 		"Echo": [
 			"i18n",

@@ -1,5 +1,6 @@
 <?php
 
+use EchoPush\Utils;
 use Wikimedia\TestingAccessWrapper;
 
 /**
@@ -20,14 +21,24 @@ class SubscriptionManagerTest extends MediaWikiIntegrationTestCase {
 		$subscriptionManager = TestingAccessWrapper::newFromObject( $subscriptionManagerBase );
 
 		$user = $this->getTestUser()->getUser();
-		$centralId = CentralIdLookup::factory()->centralIdFromLocalUser( $user );
+		$centralId = Utils::getPushUserId( $user );
 
-		$subscriptionManager->create( $user, 'test', 'ABC123' );
+		$subscriptionManager->create( 'test', 'ABC123', $centralId );
 		$subscriptions = $subscriptionManager->getSubscriptionsForUser( $centralId );
 		$this->assertCount( 1, $subscriptions );
 		$this->assertTrue( $subscriptionManager->userHasMaxAllowedSubscriptions( $centralId ) );
 
-		$subscriptionManager->delete( $user, 'ABC123' );
+		$subscriptionManager->delete( [ 'ABC123' ], $centralId );
+		$subscriptions = $subscriptionManager->getSubscriptionsForUser( $centralId );
+		$this->assertCount( 0, $subscriptions );
+		$this->assertFalse( $subscriptionManager->userHasMaxAllowedSubscriptions( $centralId ) );
+
+		$subscriptionManager->create( 'test', 'ABC123', $centralId );
+		$subscriptions = $subscriptionManager->getSubscriptionsForUser( $centralId );
+		$this->assertCount( 1, $subscriptions );
+		$this->assertTrue( $subscriptionManager->userHasMaxAllowedSubscriptions( $centralId ) );
+
+		$subscriptionManager->delete( [ 'ABC123' ] );
 		$subscriptions = $subscriptionManager->getSubscriptionsForUser( $centralId );
 		$this->assertCount( 0, $subscriptions );
 		$this->assertFalse( $subscriptionManager->userHasMaxAllowedSubscriptions( $centralId ) );

@@ -30,8 +30,6 @@ return [
 		$dbw = $loadBalancer->getLazyConnectionRef( DB_MASTER, [], $database );
 		$dbr = $loadBalancer->getLazyConnectionRef( DB_REPLICA, [], $database );
 
-		$centralIdLookup = CentralIdLookup::factory();
-
 		$pushProviderStore = new NameTableStore(
 			$loadBalancer,
 			$services->getMainWANObjectCache(),
@@ -45,8 +43,7 @@ return [
 
 		$maxSubscriptionsPerUser = $echoConfig->get( 'EchoPushMaxSubscriptionsPerUser' );
 
-		return new SubscriptionManager( $dbw, $dbr, $centralIdLookup, $pushProviderStore,
-			$maxSubscriptionsPerUser );
+		return new SubscriptionManager( $dbw, $dbr, $pushProviderStore, $maxSubscriptionsPerUser );
 	}
 
 ];

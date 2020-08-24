@@ -5,6 +5,7 @@ namespace EchoPush\Api;
 use ApiBase;
 use ApiMain;
 use EchoPush\SubscriptionManager;
+use EchoPush\Utils;
 use EchoServices;
 use OverflowException;
 use Wikimedia\ParamValidator\ParamValidator;
@@ -67,8 +68,9 @@ class ApiEchoPushSubscriptionsCreate extends ApiBase {
 				$this->dieWithError( 'apierror-echo-push-topic-required' );
 			}
 		}
+		$userId = Utils::getPushUserId( $this->getUser() );
 		try {
-			$success = $this->subscriptionManager->create( $this->getUser(), $provider, $token, $topic );
+			$success = $this->subscriptionManager->create( $provider, $token, $userId, $topic );
 		} catch ( OverflowException $e ) {
 			$maxSubscriptionsPerUser = $this->subscriptionManager->getMaxSubscriptionsPerUser();
 			$this->dieWithError( [ 'apierror-echo-push-too-many-subscriptions',
