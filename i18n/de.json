@@ -236,5 +236,10 @@
 	"notification-header-foreign-alert": "Weitere Meldungen von {{PLURAL:$5|einem anderen Wiki|$5 anderen Wikis}}",
 	"notification-header-foreign-notice": "Weitere Mitteilungen von {{PLURAL:$5|einem anderen Wiki|$5 anderen Wikis}}",
 	"notification-header-foreign-all": "Weitere Benachrichtigungen von {{PLURAL:$5|einem weiteren Wiki|$5 weiteren Wikis}}",
-	"echo-foreign-wiki-lang": "$1 – $2"
+	"echo-foreign-wiki-lang": "$1 – $2",
+	"right-manage-all-push-subscriptions": "Verwalten aller Push-Abonnements",
+	"action-manage-all-push-subscriptions": "verwalten aller Push-Abonnements",
+	"group-push-subscription-manager": "Push-Abonnementverwalter",
+	"group-push-subscription-manager-member": "{{GENDER:$1|Push-Abonnementverwalter|Push-Abonnementverwalterin}}",
+	"grouppage-push-subscription-manager": "{{ns:project}}:Push-Abonnementverwalter"
 }
