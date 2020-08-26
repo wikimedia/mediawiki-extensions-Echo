@@ -261,5 +261,10 @@
 	"echo-email-batch-link-text-view-all-notifications": "Voir toutes les notifications",
 	"notification-header-foreign-alert": "Davantage d’alertes {{PLURAL:$5|d’un autre wiki|de $5 autres wikis}}",
 	"notification-header-foreign-notice": "Davantage de notifications {{PLURAL:$5|d’un autre wiki|de $5 autres wikis}}",
-	"notification-header-foreign-all": "Davantage de notifications {{PLURAL:$5|d’un autre wiki|de $5 autres wikis}}"
+	"notification-header-foreign-all": "Davantage de notifications {{PLURAL:$5|d’un autre wiki|de $5 autres wikis}}",
+	"right-manage-all-push-subscriptions": "Gérer toutes les demandes de poussée",
+	"action-manage-all-push-subscriptions": "gérer toutes les demandes de poussée",
+	"group-push-subscription-manager": "Gestionnaires de demande de poussée",
+	"group-push-subscription-manager-member": "{{GENDER:$1|gestionnaire de demande de poussée}}",
+	"grouppage-push-subscription-manager": "{{ns:project}}:Push subscription managers"
 }

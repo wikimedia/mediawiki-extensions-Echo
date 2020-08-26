@@ -243,5 +243,10 @@
 	"echo-email-batch-link-text-view-all-notifications": "Tüm bildirimleri göster",
 	"notification-header-foreign-alert": "{{PLURAL:$5|$5 diğer Viki projesinden}} uyarınız var",
 	"notification-header-foreign-notice": "{{PLURAL:$5|Diğer viki|$5 diğer viki}}den daha fazla bildirim",
-	"notification-header-foreign-all": "{{PLURAL:$5|Başka bir viki|$5 diğer vikiler}} tarafından gönderilen diğer bildirimler"
+	"notification-header-foreign-all": "{{PLURAL:$5|Başka bir viki|$5 diğer vikiler}} tarafından gönderilen diğer bildirimler",
+	"right-manage-all-push-subscriptions": "Tüm push aboneliklerini yönet",
+	"action-manage-all-push-subscriptions": "tüm push aboneliklerini yönet",
+	"group-push-subscription-manager": "Abonelik yöneticilerini push yap",
+	"group-push-subscription-manager-member": "{{GENDER:$1|push abonelik yöneticisi}}",
+	"grouppage-push-subscription-manager": "{{ns:project}}:Push abonelik yöneticileri"
 }

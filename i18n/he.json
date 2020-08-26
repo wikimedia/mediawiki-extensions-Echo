@@ -230,5 +230,10 @@
 	"notification-header-foreign-alert": "עוד התראות {{PLURAL:$5|מאתר ויקי אחר|מ־$5 אתרי ויקי אחרים}}",
 	"notification-header-foreign-notice": "עוד הודעות {{PLURAL:$5|מאתר ויקי אחר|מ־$5 אתרי ויקי אחרים}}",
 	"notification-header-foreign-all": "עוד הודעות {{PLURAL:$5|מאתר ויקי אחר|מ־$5 אתרי ויקי אחרים}}",
-	"echo-foreign-wiki-lang": "$1 – $2"
+	"echo-foreign-wiki-lang": "$1 – $2",
+	"right-manage-all-push-subscriptions": "ניהול כל מינויי הדחיפה",
+	"action-manage-all-push-subscriptions": "לנהל את כל מינויי הדחיפה",
+	"group-push-subscription-manager": "מנהלי מינויי דחיפה",
+	"group-push-subscription-manager-member": "{{GENDER:$1|מנהל|מנהלת}} מינויי דחיפה",
+	"grouppage-push-subscription-manager": "{{ns:project}}:מנהל מינויי דחיפה"
 }
