@@ -221,5 +221,10 @@
 	"notification-header-foreign-alert": "Повеќе напомени од {{PLURAL:$5|друго вики|$5 други викија}}",
 	"notification-header-foreign-notice": "Уште напомени од {{PLURAL:$5|друго вики|$5 други викија}}",
 	"notification-header-foreign-all": "Уште известувања од {{PLURAL:$5|друго вики|$5 други викија}}",
-	"echo-foreign-wiki-lang": "$1 — $2"
+	"echo-foreign-wiki-lang": "$1 — $2",
+	"right-manage-all-push-subscriptions": "Раководење со сите претплати на наметнувања",
+	"action-manage-all-push-subscriptions": "раководење со сите претлати на наметнувања",
+	"group-push-subscription-manager": "Ракводители на претплати на наметнувања",
+	"group-push-subscription-manager-member": "{{GENDER:$1|раководител на претплати на наметнувања}}",
+	"grouppage-push-subscription-manager": "{{ns:project}}:Раководители на претплати на наметнувања"
 }

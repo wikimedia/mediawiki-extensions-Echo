@@ -32,8 +32,9 @@
 	"apihelp-echopushsubscriptions+create-param-provider": "Push-tjenestetilbyderen det skal registreres en nøkkel for.",
 	"apihelp-echopushsubscriptions+create-param-providertoken": "Nøkkelen som skal registreres.",
 	"apihelp-echopushsubscriptions+create-example": "Registrer et push-abonnement for den gjeldende brukeren.",
-	"apihelp-echopushsubscriptions+delete-summary": "Avregistrer push-abonnementer for den gjeldende brukeren.",
+	"apihelp-echopushsubscriptions+delete-summary": "Avregistrer push-abonnementer for den gjeldende brukeren eller en annen angitt bruker.",
 	"apihelp-echopushsubscriptions+delete-param-providertoken": "Nøkkelen tilknyttet push-abonnementet som skal avregistreres.",
+	"apihelp-echopushsubscriptions+delete-param-centraluserid": "Sentral bruker-ID tilknyttet abonnementet som skal avregistreres.",
 	"apihelp-echopushsubscriptions+delete-example": "Avregistrer et push-abonnement for den gjeldende brukeren.",
 	"apihelp-query+notifications-description": "Hent ventende beskjeder for den aktuelle brukeren.",
 	"apihelp-query+notifications-summary": "Hent varsler som venter for den gjeldende brukeren.",
@@ -77,5 +78,6 @@
 	"apierror-echo-event-creation-failed": "Kunne ikke opprette Echo-hendelse",
 	"apierror-echo-push-token-exists": "Den gitte nøkkelen finnes allerede i databasen.",
 	"apierror-echo-push-token-not-found": "Den gitte nøkkelen ble ikke funnet i databasen.",
-	"apierror-echo-push-too-many-subscriptions": "Den gjeldende brukeren har allerede registrert maksimalt antall pushabonnementer ($1)."
+	"apierror-echo-push-too-many-subscriptions": "Den gjeldende brukeren har allerede registrert maksimalt antall pushabonnementer ($1).",
+	"apierror-echo-push-topic-required": "Emnefeltet er påkrevd for denne tilbyderen."
 }
