@@ -245,5 +245,10 @@
 	"notification-header-foreign-notice": "Mais notificações de {{PLURAL:$5|outra wiki|$5 outras wikis}}",
 	"notification-header-foreign-all": "Mais notificações de {{PLURAL:$5|outra wiki|$5 outras wikis}}",
 	"echo-foreign-wiki-lang": "$1 - $2",
-	"echo-badge-count": "{{PLURAL:$1|$1|100={{formatnum:99}}+}}"
+	"echo-badge-count": "{{PLURAL:$1|$1|100={{formatnum:99}}+}}",
+	"right-manage-all-push-subscriptions": "Gerenciar todas as inscrições push",
+	"action-manage-all-push-subscriptions": "gerenciar todas as inscrições push",
+	"group-push-subscription-manager": "Gerenciar inscrições push",
+	"group-push-subscription-manager-member": "{{GENDER:$1|gerente de inscrições push}}",
+	"grouppage-push-subscription-manager": "{{ns:project}}:Gerenciar inscrições push"
 }

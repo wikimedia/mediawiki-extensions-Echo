@@ -32,7 +32,7 @@
 	"apihelp-echopushsubscriptions+create-param-provider": "註冊權杖的推送服務提供者。",
 	"apihelp-echopushsubscriptions+create-param-providertoken": "註冊的權杖。",
 	"apihelp-echopushsubscriptions+create-example": "為目前使用者註冊推送訂閱。",
-	"apihelp-echopushsubscriptions+delete-summary": "註銷目前使用者的推送訂閱。",
+	"apihelp-echopushsubscriptions+delete-summary": "註銷目前使用者或是其他指定使用者的推送訂閱。",
 	"apihelp-echopushsubscriptions+delete-param-providertoken": "關聯註銷推送訂閱的權杖。",
 	"apihelp-echopushsubscriptions+delete-example": "註銷目前使用者的推送訂閱。",
 	"apihelp-query+notifications-description": "取得目前使用者等待的通知。",
