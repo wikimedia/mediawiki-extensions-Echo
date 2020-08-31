@@ -165,6 +165,9 @@
 				],
 				"minerva": [
 					"styles/mw.echo.ui.overlay.minerva.less"
+				],
+				"wikimediaapiportal": [
+					"styles/mw.echo.ui.overlay.wikimediaapiportal.less"
 				]
 			},
 			"dependencies": [
