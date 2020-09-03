@@ -71,6 +71,8 @@
 	"echo-category-title-emailuser": "{{PLURAL:$1|Correo electrónico de otro usuario|Correos electrónicos de otros usuarios}}",
 	"echo-category-title-article-reminder": "{{PLURAL:$1|Recordatorio de páginas|Recordatorios de páginas}}",
 	"echo-category-title-thank-you-edit": "{{PLURAL:$1|Hito|Hitos}} de edición",
+	"echo-category-title-watchlist": "Edición en página vigilada",
+	"echo-category-title-minor-watchlist": "Edición menor en página vigilada",
 	"echo-pref-tooltip-edit-user-talk": "Notificarme cuando alguien publique un mensaje o responda en mi página de discusión.",
 	"echo-pref-tooltip-article-linked": "Notificarme cuando alguien enlace a una página creada a partir de otra página.",
 	"echo-pref-tooltip-reverted": "Notificarme cuando alguien revierta una edición mía mediante las herramientas de deshacer o revertir.",
@@ -189,7 +191,7 @@
 	"notification-inbox-filter-read": "Leídas",
 	"notification-inbox-filter-unread": "No leídas",
 	"notification-inbox-filter-all": "Todas",
-	"echo-specialmute-label-mute-notifications": "Silenciar notificaciones de este usuario",
+	"echo-specialmute-label-mute-notifications": "Silenciar notificaciones de {{GENDER:$1|este usuario|esta usuaria}}",
 	"echo-email-plain-footer": "Para controlar cuáles correos electrónicos {{GENDER:$1|te}} enviamos, revisa {{GENDER:$1|tus}} preferencias:",
 	"echo-email-html-footer-preference-link-text": "revisa {{GENDER:$1|tus}} preferencias",
 	"echo-email-html-footer-with-link": "Para controlar qué correos electrónicos {{GENDER:$2|te}} enviamos, $1.",
@@ -213,5 +215,10 @@
 	"echo-email-batch-link-text-view-all-notifications": "Ver todas las notificaciones",
 	"notification-header-foreign-alert": "Más alertas de {{PLURAL:$5|otra wiki|otras $5 wikis}}",
 	"notification-header-foreign-notice": "Más avisos de {{PLURAL:$5|otra wiki|otras $5 wikis}}",
-	"notification-header-foreign-all": "Más notificaciones de {{PLURAL:$5|otra wiki|otras $5 wikis}}"
+	"notification-header-foreign-all": "Más notificaciones de {{PLURAL:$5|otra wiki|otras $5 wikis}}",
+	"right-manage-all-push-subscriptions": "Gestionar todas las suscripciones push",
+	"action-manage-all-push-subscriptions": "gestionar todas las suscripciones push",
+	"group-push-subscription-manager": "Gestores de notificaciones push",
+	"group-push-subscription-manager-member": "{{GENDER:$1|gestor|gestora}} de notificaciones push",
+	"grouppage-push-subscription-manager": "{{ns:project}}:Gestores de notificaciones push"
 }
