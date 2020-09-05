@@ -66,6 +66,7 @@ class EchoForeignWikiRequest {
 	}
 
 	protected function canUseCentralAuth() {
+		// phpcs:ignore MediaWiki.Usage.DeprecatedGlobalVariables.Deprecated$wgUser
 		global $wgFullyInitialised, $wgUser;
 
 		return $wgFullyInitialised &&
