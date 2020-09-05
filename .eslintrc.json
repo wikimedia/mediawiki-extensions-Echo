@@ -10,6 +10,7 @@
 	},
 	"rules": {
 		"max-len": "off",
-		"mediawiki/class-doc": "warn"
+		"mediawiki/class-doc": "warn",
+		"no-shadow": "warn"
 	}
 }
