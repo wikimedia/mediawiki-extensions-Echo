@@ -352,6 +352,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 			'notification_user' => $userId,
 			'notification_event < ' . (int)$eventId
 		] );
+		$iterator->setCaller( __METHOD__ );
 
 		foreach ( $iterator as $batch ) {
 			$eventIds = [];

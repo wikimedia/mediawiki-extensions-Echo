@@ -267,6 +267,8 @@ class MWEchoEmailBatch {
 			// There is a processed cutoff point
 			$iterator->addConditions( [ 'eeb_event_id <= ' . (int)$this->lastEvent ] );
 		}
+		$iterator->setCaller( __METHOD__ );
+
 		foreach ( $iterator as $batch ) {
 			$eventIds = [];
 			foreach ( $batch as $row ) {

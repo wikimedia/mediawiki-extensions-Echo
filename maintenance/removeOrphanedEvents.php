@@ -48,6 +48,7 @@ class RemoveOrphanedEvents extends LoggedUpdateMaintenance {
 			'notification_user' => null,
 			'eeb_user_id' => null,
 		] );
+		$iterator->setCaller( __METHOD__ );
 
 		$this->output( "Removing orphaned echo_event rows...\n" );
 
@@ -76,6 +77,7 @@ class RemoveOrphanedEvents extends LoggedUpdateMaintenance {
 		$iterator->addJoinConditions( [ 'echo_event' => [ 'LEFT JOIN', 'event_id=etp_event' ] ] );
 		$iterator->addConditions( [ 'event_type' => null ] );
 		$iterator->addOptions( [ 'DISTINCT' ] );
+		$iterator->setCaller( __METHOD__ );
 
 		$processed = 0;
 		foreach ( $iterator as $batch ) {

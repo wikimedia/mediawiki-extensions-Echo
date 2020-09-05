@@ -38,6 +38,8 @@ class BackfillUnreadWikis extends Maintenance {
 			$iterator->addJoinConditions( $userQuery['joins'] );
 		}
 
+		$iterator->setCaller( __METHOD__ );
+
 		$processed = 0;
 		foreach ( $iterator as $batch ) {
 			foreach ( $batch as $row ) {

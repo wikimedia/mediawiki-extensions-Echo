@@ -54,10 +54,14 @@ class UpdateEchoSchemaForSuppression extends LoggedUpdateMaintenance {
 			"event_page_id" => null,
 		] );
 		$reader->setFetchColumns( [ 'event_page_namespace', 'event_page_title', 'event_extra', 'event_type' ] );
+		$reader->setCaller( __METHOD__ );
+
+		$writer = new BatchRowWriter( $dbw, $this->table, $wgEchoCluster );
+		$writer->setCaller( __METHOD__ );
 
 		$updater = new BatchRowUpdate(
 			$reader,
-			new BatchRowWriter( $dbw, $this->table, $wgEchoCluster ),
+			$writer,
 			new EchoSuppressionRowUpdateGenerator
 		);
 		$updater->setOutput( function ( $text ) {

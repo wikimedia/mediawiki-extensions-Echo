@@ -60,11 +60,13 @@ class RecomputeNotifCounts extends Maintenance {
 			$userIterator->addOptions( [
 				'GROUP BY' => 'notification_user'
 			] );
+			$userIterator->setCaller( __METHOD__ );
 		} else {
 			$userQuery = User::getQueryInfo();
 			$userIterator = new BatchRowIterator( $dbr, $userQuery['tables'], 'user_id', $this->getBatchSize() );
 			$userIterator->setFetchColumns( $userQuery['fields'] );
 			$userIterator->addJoinConditions( $userQuery['joins'] );
+			$userIterator->setCaller( __METHOD__ );
 		}
 
 		$count = 0;

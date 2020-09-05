@@ -29,6 +29,7 @@ class EchoUserLocator {
 			'wl_namespace' => $title->getNamespace(),
 			'wl_title' => $title->getDBkey(),
 		] );
+		$it->setCaller( __METHOD__ );
 
 		// flatten the result into a stream of rows
 		$it = new RecursiveIteratorIterator( $it );

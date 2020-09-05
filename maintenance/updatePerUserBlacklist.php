@@ -48,6 +48,8 @@ class EchoUpdatePerUserBlacklist extends LoggedUpdateMaintenance {
 			'up_property' => 'echo-notifications-blacklist'
 		] );
 
+		$iterator->setCaller( __METHOD__ );
+
 		$this->output( "Updating Echo Notification Blacklist...\n" );
 
 		$lookup = CentralIdLookup::factory();
