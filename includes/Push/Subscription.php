@@ -27,7 +27,7 @@ class Subscription {
 		return new self(
 			$row->epp_name,
 			$row->eps_token,
-			$row->eps_topic,
+			$row->ept_text,
 			new ConvertibleTimestamp( $row->eps_updated )
 		);
 	}

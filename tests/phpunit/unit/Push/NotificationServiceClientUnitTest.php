@@ -27,21 +27,21 @@ class NotificationServiceClientUnitTest extends MediaWikiUnitTestCase {
 		$row->eps_token = 'JKL123';
 		$row->epp_name = 'fcm';
 		$row->eps_data = null;
-		$row->eps_topic = null;
+		$row->ept_text = null;
 		$row->eps_updated = '2020-01-01 10:10:10';
 		$subscriptions[] = Subscription::newFromRow( $row );
 
 		$row->eps_token = 'DEF456';
 		$row->epp_name = 'fcm';
 		$row->eps_data = null;
-		$row->eps_topic = null;
+		$row->ept_text = null;
 		$row->eps_updated = '2020-01-01 10:10:10';
 		$subscriptions[] = Subscription::newFromRow( $row );
 
 		$row->eps_token = 'GHI789';
 		$row->epp_name = 'apns';
 		$row->eps_data = null;
-		$row->eps_topic = 'test';
+		$row->ept_text = 'test';
 		$row->eps_updated = '2020-01-01 10:10:10';
 		$subscriptions[] = Subscription::newFromRow( $row );
 

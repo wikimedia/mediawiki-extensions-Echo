@@ -15,8 +15,10 @@ CREATE TABLE /*_*/echo_push_subscription (
 	-- push subscription metadata (e.g APNS notification topic)
 	eps_data BLOB,
 	-- APNS topic data
-	eps_topic TEXT,
-	FOREIGN KEY (eps_provider) REFERENCES /*_*/echo_push_provider(epp_id)
+	eps_topic TINYINT UNSIGNED,
+
+	FOREIGN KEY (eps_provider) REFERENCES /*_*/echo_push_provider(epp_id),
+	FOREIGN KEY (eps_topic) REFERENCES /*_*/echo_push_topic(ept_id)
 ) /*$wgDBTableOptions*/;
 
 CREATE INDEX /*i*/echo_push_subscription_user_id ON /*_*/echo_push_subscription (eps_user);

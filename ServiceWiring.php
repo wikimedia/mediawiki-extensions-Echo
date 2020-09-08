@@ -41,9 +41,26 @@ return [
 			$database
 		);
 
+		$pushTopicStore = new NameTableStore(
+			$loadBalancer,
+			$services->getMainWANObjectCache(),
+			LoggerFactory::getInstance( 'Echo' ),
+			'echo_push_topic',
+			'ept_id',
+			'ept_text',
+			null,
+			$database
+		);
+
 		$maxSubscriptionsPerUser = $echoConfig->get( 'EchoPushMaxSubscriptionsPerUser' );
 
-		return new SubscriptionManager( $dbw, $dbr, $pushProviderStore, $maxSubscriptionsPerUser );
+		return new SubscriptionManager(
+			$dbw,
+			$dbr,
+			$pushProviderStore,
+			$pushTopicStore,
+			$maxSubscriptionsPerUser
+		);
 	}
 
 ];

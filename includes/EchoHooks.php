@@ -232,6 +232,7 @@ class EchoHooks implements RecentChange_saveHook {
 			"$dir/db_patches/patch-drop-user-hash-timestamp-index.sql" );
 
 		$updater->addExtensionTable( 'echo_push_provider', "$dir/db_patches/echo_push_provider.sql" );
+		$updater->addExtensionTable( 'echo_push_topic', "$dir/db_patches/echo_push_topic.sql" );
 		$updater->addExtensionTable( 'echo_push_subscription', "$dir/db_patches/echo_push_subscription.sql" );
 
 		$updater->modifyExtensionField( 'echo_unread_wikis', 'euw_wiki',

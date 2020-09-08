@@ -19,6 +19,9 @@ class SubscriptionManager extends EchoAbstractMapper {
 	/** @var NameTableStore */
 	private $pushProviderStore;
 
+	/** @var NameTableStore */
+	private $pushTopicStore;
+
 	/** @var int */
 	private $maxSubscriptionsPerUser;
 
@@ -26,18 +29,21 @@ class SubscriptionManager extends EchoAbstractMapper {
 	 * @param IDatabase $dbw primary DB connection (for writes)
 	 * @param IDatabase $dbr replica DB connection (for reads)
 	 * @param NameTableStore $pushProviderStore
+	 * @param NameTableStore $pushTopicStore
 	 * @param int $maxSubscriptionsPerUser
 	 */
 	public function __construct(
 		IDatabase $dbw,
 		IDatabase $dbr,
 		NameTableStore $pushProviderStore,
+		NameTableStore $pushTopicStore,
 		int $maxSubscriptionsPerUser
 	) {
 		parent::__construct();
 		$this->dbw = $dbw;
 		$this->dbr = $dbr;
 		$this->pushProviderStore = $pushProviderStore;
+		$this->pushTopicStore = $pushTopicStore;
 		$this->maxSubscriptionsPerUser = $maxSubscriptionsPerUser;
 	}
 
@@ -62,6 +68,7 @@ class SubscriptionManager extends EchoAbstractMapper {
 		if ( $this->userHasMaxAllowedSubscriptions( $centralId ) ) {
 			throw new OverflowException( 'Max subscriptions exceeded' );
 		}
+		$topicId = $topic ? $this->pushTopicStore->acquireId( $topic ) : null;
 		$this->dbw->insert(
 			'echo_push_subscription',
 			[
@@ -70,7 +77,7 @@ class SubscriptionManager extends EchoAbstractMapper {
 				'eps_token' => $token,
 				'eps_token_sha256' => hash( 'sha256', $token ),
 				'eps_data' => null,
-				'eps_topic' => $topic,
+				'eps_topic' => $topicId,
 				'eps_updated' => $this->dbw->timestamp()
 			],
 			__METHOD__,
@@ -86,12 +93,15 @@ class SubscriptionManager extends EchoAbstractMapper {
 	 */
 	public function getSubscriptionsForUser( int $centralId ) {
 		$res = $this->dbr->select(
-			[ 'echo_push_subscription', 'echo_push_provider' ],
+			[ 'echo_push_subscription', 'echo_push_provider', 'echo_push_topic' ],
 			'*',
 			[ 'eps_user' => $centralId ],
 			__METHOD__,
 			[],
-			[ 'echo_push_provider' => [ 'INNER JOIN', [ 'eps_provider = epp_id' ] ] ]
+			[
+				'echo_push_provider' => [ 'INNER JOIN', [ 'eps_provider = epp_id' ] ],
+				'echo_push_topic' => [ 'LEFT JOIN', [ 'eps_topic = ept_id' ] ],
+			]
 		);
 		$result = [];
 		foreach ( $res as $row ) {

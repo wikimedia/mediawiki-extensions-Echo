@@ -11,12 +11,13 @@ class SubscriptionTest extends MediaWikiUnitTestCase {
 		$row->eps_token = 'AABC123';
 		$row->epp_name = 'fcm';
 		$row->eps_data = null;
-		$row->eps_topic = null;
+		$row->ept_text = null;
 		$row->eps_updated = '2020-01-01 10:10:10';
 
 		$subscription = Subscription::newFromRow( $row );
 		$this->assertSame( 'AABC123', $subscription->getToken() );
 		$this->assertSame( 'fcm', $subscription->getProvider() );
+		$this->assertNull( $subscription->getTopic() );
 		$this->assertInstanceOf( ConvertibleTimestamp::class, $subscription->getUpdated() );
 		$this->assertSame( '1577873410', $subscription->getUpdated()->getTimestamp() );
 	}
@@ -26,7 +27,7 @@ class SubscriptionTest extends MediaWikiUnitTestCase {
 		$row->eps_token = 'DEF456';
 		$row->epp_name = 'apns';
 		$row->eps_data = null;
-		$row->eps_topic = 'test';
+		$row->ept_text = 'test';
 		$row->eps_updated = '2020-01-01 10:10:10';
 
 		$subscription = Subscription::newFromRow( $row );
