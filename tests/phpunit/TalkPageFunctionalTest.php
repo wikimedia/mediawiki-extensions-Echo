@@ -25,7 +25,13 @@ class EchoTalkPageFunctionalTest extends ApiTestCase {
 
 		// Start a talkpage
 		$content = "== Section 8 ==\n\nblah blah ~~~~\n";
-		$this->editPage( $talkPage, $content, '', NS_USER_TALK );
+		$this->editPage(
+			$talkPage,
+			$content,
+			'',
+			NS_USER_TALK,
+			self::$users['sysop']->getUser()
+		);
 
 		// Ensure the proper event was created
 		$events = $this->fetchAllEvents();
@@ -38,7 +44,13 @@ class EchoTalkPageFunctionalTest extends ApiTestCase {
 		// Add another message to the talk page
 		$messageCount++;
 		$content .= "More content ~~~~\n";
-		$this->editPage( $talkPage, $content, '', NS_USER_TALK );
+		$this->editPage(
+			$talkPage,
+			$content,
+			'',
+			NS_USER_TALK,
+			self::$users['sysop']->getUser()
+		);
 
 		// Ensure another event was created
 		$events = $this->fetchAllEvents();
@@ -50,7 +62,13 @@ class EchoTalkPageFunctionalTest extends ApiTestCase {
 		// Add a new section and a message within it
 		$messageCount++;
 		$content .= "\n\n== EE ==\n\nhere we go with a new section ~~~~\n";
-		$this->editPage( $talkPage, $content, '', NS_USER_TALK );
+		$this->editPage(
+			$talkPage,
+			$content,
+			'',
+			NS_USER_TALK,
+			self::$users['sysop']->getUser()
+		);
 
 		// Ensure this event has the new section title
 		$events = $this->fetchAllEvents();
