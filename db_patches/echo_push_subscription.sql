@@ -4,7 +4,7 @@ CREATE TABLE /*_*/echo_push_subscription (
 	-- central user ID
 	eps_user INT UNSIGNED NOT NULL,
 	-- platform-provided push subscription token
-	eps_token TEXT NOT NULL,
+	eps_token BLOB NOT NULL,
 	-- SHA256 digest of the push subscription token (to be used as a uniqueness constraint, since
 	-- the tokens themselves may be large)
 	eps_token_sha256 CHAR(64) NOT NULL UNIQUE,
