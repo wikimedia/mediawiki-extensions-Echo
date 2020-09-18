@@ -244,5 +244,10 @@
 	"echo-email-batch-link-text-view-all-notifications": "檢視所有通知",
 	"notification-header-foreign-alert": "來自{{PLURAL:$5|另一個 wiki|其他 $5 個 wiki}} 的更多通知",
 	"notification-header-foreign-notice": "來自{{PLURAL:$5|另一個 wiki|其他 $5 個 wiki}} 的更多一般通知",
-	"notification-header-foreign-all": "來自 {{PLURAL:$5|其他 wiki| $5 個其他 wiki}} 的更多通知"
+	"notification-header-foreign-all": "來自 {{PLURAL:$5|其他 wiki| $5 個其他 wiki}} 的更多通知",
+	"right-manage-all-push-subscriptions": "管理所有推送訂閱",
+	"action-manage-all-push-subscriptions": "管理所有推送訂閱",
+	"group-push-subscription-manager": "推送訂閱管理",
+	"group-push-subscription-manager-member": "{{GENDER:$1|推送訂閱管理員}}",
+	"grouppage-push-subscription-manager": "{{ns:project}}:推送訂閱管理員"
 }
