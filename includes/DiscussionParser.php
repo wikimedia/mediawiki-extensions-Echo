@@ -5,9 +5,9 @@ use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
 
 abstract class EchoDiscussionParser {
-	const HEADER_REGEX = '^(==+)\h*([^=].*)\h*\1$';
+	private const HEADER_REGEX = '^(==+)\h*([^=].*)\h*\1$';
 
-	const DEFAULT_SNIPPET_LENGTH = 150;
+	public const DEFAULT_SNIPPET_LENGTH = 150;
 
 	protected static $timestampRegex;
 	protected static $revisionInterpretationCache = [];

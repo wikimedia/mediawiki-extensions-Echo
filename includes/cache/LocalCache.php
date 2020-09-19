@@ -11,7 +11,7 @@ abstract class EchoLocalCache {
 	 * put cap so it doesn't reach memory limit when running email
 	 * digest against large amount of notications
 	 */
-	const TARGET_MAX_NUM = 1000;
+	private const TARGET_MAX_NUM = 1000;
 
 	/**
 	 * Target object cache

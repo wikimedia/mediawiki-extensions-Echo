@@ -65,11 +65,11 @@ class MWEchoNotifUser {
 
 	// WARNING: If you change this, you should also change all references in the
 	// i18n messages (100 and 99) in all repositories using Echo.
-	const MAX_BADGE_COUNT = 99;
+	public const MAX_BADGE_COUNT = 99;
 
-	const CACHE_TTL = 86400;
-	const CACHE_KEY = 'echo-notification-counts';
-	const CHECK_KEY = 'echo-notification-updated';
+	private const CACHE_TTL = 86400;
+	private const CACHE_KEY = 'echo-notification-counts';
+	private const CHECK_KEY = 'echo-notification-updated';
 
 	/**
 	 * Usually client code doesn't need to initialize the object directly

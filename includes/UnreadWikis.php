@@ -5,7 +5,7 @@
  */
 class EchoUnreadWikis {
 
-	const DEFAULT_TS = '00000000000000';
+	private const DEFAULT_TS = '00000000000000';
 
 	/**
 	 * @var int

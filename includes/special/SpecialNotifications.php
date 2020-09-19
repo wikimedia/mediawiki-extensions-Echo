@@ -5,7 +5,7 @@ class SpecialNotifications extends SpecialPage {
 	/**
 	 * Number of notification records to display per page/load
 	 */
-	const DISPLAY_NUM = 20;
+	private const DISPLAY_NUM = 20;
 
 	public function __construct() {
 		parent::__construct( 'Notifications' );

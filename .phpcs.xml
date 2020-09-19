@@ -8,7 +8,6 @@
 		<exclude name="MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic" />
 		<exclude name="MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName" />
 		<exclude name="MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment" />
-		<exclude name="PSR12.Properties.ConstantVisibility.NotFound" />
 	</rule>
 	<arg name="encoding" value="UTF-8" />
 	<arg name="extensions" value="php,php5,inc" />

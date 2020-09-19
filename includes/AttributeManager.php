@@ -29,9 +29,9 @@ class EchoAttributeManager {
 	/**
 	 * Notification section constant
 	 */
-	const ALERT = 'alert';
-	const MESSAGE = 'message';
-	const ALL = 'all';
+	public const ALERT = 'alert';
+	public const MESSAGE = 'message';
+	public const ALL = 'all';
 
 	protected static $DEFAULT_SECTION = self::ALERT;
 
@@ -47,8 +47,8 @@ class EchoAttributeManager {
 	/**
 	 * Names for keys in $wgEchoNotifications notification config
 	 */
-	const ATTR_LOCATORS = 'user-locators';
-	const ATTR_FILTERS = 'user-filters';
+	public const ATTR_LOCATORS = 'user-locators';
+	public const ATTR_FILTERS = 'user-filters';
 
 	/**
 	 * An EchoAttributeManager instance created from global variables
