@@ -6,7 +6,6 @@
  */
 class EchoCachedList implements EchoContainmentList {
 	private const ONE_WEEK = 4233600;
-	private const ONE_DAY = 86400;
 
 	/** @var WANObjectCache */
 	protected $cache;
