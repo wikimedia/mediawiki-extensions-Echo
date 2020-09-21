@@ -170,7 +170,7 @@
 	"echo-email-batch-body-intro-daily": "Bună ziua $1,\nAveți aici un rezumat al activității de astăzi la {{SITENAME}}.",
 	"echo-email-batch-body-intro-weekly": "Bună ziua $1,\nAveți aici un rezumat al activității din această săptămână la {{SITENAME}}.",
 	"echo-email-batch-link-text-view-all-notifications": "Vezi toate notificările",
-	"notification-header-foreign-alert": "Mai multe alerte de pe {{PLURAL:$5|alt wiki|$5 alte wikiuri|$5 de alte wikiuri}}",
+	"notification-header-foreign-alert": "Mai multe alerte {{PLURAL:$5|de pe  alt wiki|$5 alte wikiuri|$5 de alte wikiuri}}",
 	"notification-header-foreign-notice": "Mai multe înștiințări de pe {{PLURAL:$5|alt wiki|$5 alte wikiuri|$5 de alte wikiuri}}",
 	"notification-header-foreign-all": "Mai multe notificări de pe {{PLURAL:$5|alt wiki|$5 alte wikiuri|$5 de alte wikiuri}}"
 }
