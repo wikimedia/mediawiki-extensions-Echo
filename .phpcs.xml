@@ -10,6 +10,6 @@
 		<exclude name="MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment" />
 	</rule>
 	<arg name="encoding" value="UTF-8" />
-	<arg name="extensions" value="php,php5,inc" />
+	<arg name="extensions" value="php,inc" />
 	<arg name="colors" />
 </ruleset>
