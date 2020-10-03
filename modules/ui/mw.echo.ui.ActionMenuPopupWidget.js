@@ -31,12 +31,12 @@
 
 		// Menu
 		this.customMenuPosition = ( config.horizontalPosition || 'auto' ) !== 'auto';
-		this.menu = new OO.ui.MenuSelectWidget( $.extend( {
+		this.menu = new OO.ui.MenuSelectWidget( {
 			$floatableContainer: this.$element,
 			horizontalPosition: this.customMenuPosition ? config.horizontalPosition : 'start',
 			classes: [ 'mw-echo-ui-actionMenuPopupWidget-menu' ],
 			widget: this
-		} ) );
+		} );
 		this.$overlay.append( this.menu.$element );
 
 		// Events
