@@ -24,7 +24,7 @@
 	"notification-link-text-view-message": "መልእኽቲ ርኣይ",
 	"notification-link-text-view-changes": "ለውጥታት {{GENDER:$1|ርኣይ}}",
 	"notification-link-text-view-page": "ገጽ ርኣይ",
-	"notification-welcome-linktext": "እንኳዕ ብደሓን መጻኻ",
+	"notification-welcome-linktext": "እንቋዕ ብደሓን መጻኻ",
 	"notification-link-text-view-edit": "ምምዕርራይ ርኣይ",
 	"notification-link-article-reminder": "ገጽ ርኣይ",
 	"notification-timestamp-today": "ሎሚ",
