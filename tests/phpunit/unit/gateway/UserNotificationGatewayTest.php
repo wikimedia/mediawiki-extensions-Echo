@@ -10,7 +10,7 @@ class EchoUserNotificationGatewayTest extends MediaWikiUnitTestCase {
 	public function testMarkRead() {
 		// no event ids to mark
 		$gateway = new EchoUserNotificationGateway(
-			User::newFromId( 1 ),
+			$this->mockUser(),
 			$this->mockMWEchoDbFactory(),
 			$this->mockConfig()
 		);
@@ -18,7 +18,7 @@ class EchoUserNotificationGatewayTest extends MediaWikiUnitTestCase {
 
 		// successful update
 		$gateway = new EchoUserNotificationGateway(
-			User::newFromId( 1 ),
+			$this->mockUser(),
 			$this->mockMWEchoDbFactory( [ 'update' => true ] ),
 			$this->mockConfig()
 		);
@@ -26,7 +26,7 @@ class EchoUserNotificationGatewayTest extends MediaWikiUnitTestCase {
 
 		// unsuccessful update
 		$gateway = new EchoUserNotificationGateway(
-			User::newFromId( 1 ),
+			$this->mockUser(),
 			$this->mockMWEchoDbFactory( [ 'update' => false ] ),
 			$this->mockConfig()
 		);
@@ -36,7 +36,7 @@ class EchoUserNotificationGatewayTest extends MediaWikiUnitTestCase {
 	public function testMarkAllRead() {
 		// successful update
 		$gateway = new EchoUserNotificationGateway(
-			User::newFromId( 1 ),
+			$this->mockUser(),
 			$this->mockMWEchoDbFactory( [ 'update' => true ] ),
 			$this->mockConfig()
 		);
@@ -44,7 +44,7 @@ class EchoUserNotificationGatewayTest extends MediaWikiUnitTestCase {
 
 		// null update
 		$gateway = new EchoUserNotificationGateway(
-			User::newFromId( 1 ),
+			$this->mockUser(),
 			$this->mockMWEchoDbFactory( [ 'update' => false ] ),
 			$this->mockConfig()
 		);
