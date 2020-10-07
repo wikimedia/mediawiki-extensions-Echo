@@ -24,7 +24,11 @@
 	"apihelp-echomute-description": "Tysta eller sluta tysta aviseringar från vissa användare eller sidor.",
 	"apihelp-echomute-summary": "Tysta eller sluta tysta aviseringar från vissa användare eller sidor.",
 	"apihelp-echomute-param-type": "Vilken tystningslista att lägga till eller ta bort från",
+	"apihelp-echopushsubscriptions-summary": "Hantera push-prenumerationer för nuvarande användare.",
 	"apihelp-echopushsubscriptions-param-command": "Åtgärd att utföra.",
+	"apihelp-echopushsubscriptions+create-summary": "Registrera push-prenumerationer för nuvarande användare.",
+	"apihelp-echopushsubscriptions+create-example": "Registrera en push-prenumeration för nuvarande användare.",
+	"apihelp-echopushsubscriptions+delete-summary": "Avregistrera push-prenumerationer för nuvarande användare eller annan vald användare.",
 	"apihelp-query+notifications-description": "Hämta aviseringar som väntar på aktuell användare.",
 	"apihelp-query+notifications-summary": "Hämta aviseringar som väntar på aktuell användare.",
 	"apihelp-query+notifications-param-prop": "Detaljer som ska begäras.",
@@ -64,5 +68,7 @@
 	"apiwarn-echo-deprecation-timestampformat": "MW-tidsstämpelns utmatningsformat är föråldrat här. I framtiden kommer ISO 8601 alltid att användas för utmatningens tidstämpelsformat.  Justera din klient och ändra <var>timestampFormat</var> till <kbd>ISO_8601</kbd>.",
 	"apiwarn-echo-deprecation-flyout": "<kbd>notformat=flyout</kbd> har blivit föråldrat och kommer att tas bort snart. Använd <kbd>notformat=model</kbd> för att få rå data eller <kbd>notformat=special</kbd> för förrenderad HTML.",
 	"apiwarn-echo-deprecation-html": "<kbd>notformat=html</kbd> har blivit föråldrat och kommer snart att tas bort. Använd <kbd>notformat=special</kbd> istället.",
-	"apierror-echo-event-creation-failed": "Kunde inte skapa Echo-händelse"
+	"apierror-echo-event-creation-failed": "Kunde inte skapa Echo-händelse",
+	"apierror-echo-push-too-many-subscriptions": "Den nuvarande användaren har redan registrerat det maximalt tillåtna antalet push-prenumerationer ($1).",
+	"apierror-echo-push-topic-required": "Ämnesfältet krävs för denna tillhandahållare."
 }
