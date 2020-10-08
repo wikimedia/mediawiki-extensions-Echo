@@ -137,6 +137,11 @@ $specialPageAliases['ko'] = [
 	'Notifications' => [ '알림' ],
 ];
 
+/** Kurdish (Latin script) (Kurdî (latînî)) */
+$specialPageAliases['ku-latn'] = [
+	'Notifications' => [ 'Agahdarî' ],
+];
+
 /** Cornish (kernowek) */
 $specialPageAliases['kw'] = [
 	'Notifications' => [ 'Argemynow' ],
