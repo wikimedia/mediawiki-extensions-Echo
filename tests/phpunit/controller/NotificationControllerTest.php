@@ -261,4 +261,56 @@ class NotificationControllerTest extends MediaWikiTestCase {
 		$result = EchoNotificationController::getEventNotifyTypes( $type );
 		$this->assertEquals( $expect, $result, $message );
 	}
+
+	public function testEnqueueEvent() {
+		$event = $this->getMockBuilder( EchoEvent::class )
+			->disableOriginalConstructor()
+			->getMock();
+		$event->expects( $this->any() )
+			->method( 'getExtraParam' )
+			->will( $this->returnValue( null ) );
+		$event->expects( $this->exactly( 1 ) )
+			->method( 'getTitle' )
+			->will( $this->returnValue( Title::newFromText( 'test-title' ) ) );
+		$event->expects( $this->exactly( 1 ) )
+			->method( 'getId' )
+			->will( $this->returnValue( 42 ) );
+		EchoNotificationController::enqueueEvent( $event );
+		$queues = JobQueueGroup::singleton()->getQueuesWithJobs();
+		$this->assertCount( 1, $queues );
+		$this->assertEquals( 'EchoNotificationJob', $queues[0] );
+		$job = JobQueueGroup::singleton()->pop( 'EchoNotificationJob' );
+		$this->assertEquals( 'Test-title', $job->params[ 'title' ] );
+		$this->assertEquals( 42, $job->params[ 'eventId' ] );
+	}
+
+	public function testEventParams() {
+		$rootJobTimestamp = wfTimestamp();
+		MWTimestamp::setFakeTime( 0 );
+
+		$event = $this->getMockBuilder( EchoEvent::class )
+			->disableOriginalConstructor()
+			->getMock();
+		$event->expects( $this->any() )
+			->method( 'getExtraParam' )
+			->will( $this->returnValueMap(
+				[
+					[ 'delay', null, 10 ],
+					[ 'rootJobSignature', null, 'test-signature' ],
+					[ 'rootJobTimestamp', null,  $rootJobTimestamp ]
+				]
+			) );
+		$event->expects( $this->exactly( 1 ) )
+			->method( 'getId' )
+			->will( $this->returnValue( 42 ) );
+
+		$params = EchoNotificationController::getEventParams( $event );
+		$expectedParams = [
+			'eventId' => 42,
+			'rootJobSignature' => 'test-signature',
+			'rootJobTimestamp' => $rootJobTimestamp,
+			'jobReleaseTimestamp' => 10
+		];
+		$this->assertArrayEquals( $expectedParams, $params );
+	}
 }
