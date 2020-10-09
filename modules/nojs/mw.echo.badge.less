@@ -11,10 +11,9 @@
 		width: 20px;
 		height: 20px;
 		margin: 0 2px;
-		// Hide the text, but keep accessible for screen-readers
-		// Later we put the counter back onscreen with a zero text-indent
+		background-repeat: no-repeat;
+		background-position: center center;
 		top: -5px;
-		text-indent: -9999px;
 		border-radius: @border-radius-base;
 		cursor: pointer;
 		text-decoration: none;
@@ -88,5 +87,15 @@
 			background-color: @badge-counter-background-unseen-message;
 		}
 	}
+}
+
+/* monobook (will be unnecessary when T248751 is resolved) */
+.skin-monobook #pt-notifications-alert .mw-echo-notifications-badge,
+.skin-monobook #pt-notifications-notice .mw-echo-notifications-badge,
+/* vector */
+.skin-vector-legacy .mw-echo-notifications-badge {
+	// Hide the text, but keep accessible for screen-readers
+	// Later we put the counter back onscreen with a zero text-indent
+	text-indent: -9999px;
 }
 /* stylelint-enable no-descending-specificity */
