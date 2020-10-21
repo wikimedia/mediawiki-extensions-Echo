@@ -347,7 +347,7 @@
 				"nojs/mw.echo.badge.less"
 			],
 			"skinStyles": {
-				"timeless": [
+				"+timeless": [
 					"nojs/mw.echo.badge.timeless.less"
 				],
 				"minerva": [
