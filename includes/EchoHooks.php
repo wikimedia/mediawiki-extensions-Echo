@@ -1103,6 +1103,7 @@ class EchoHooks implements RecentChange_saveHook {
 			'text' => $alertText,
 			'active' => ( $url == $title->getLocalURL() ),
 			'class' => $alertLinkClasses,
+			'text-wrapper' => 'span',
 			'data' => [
 				'counter-num' => $alertCount,
 				'counter-text' => $alertFormattedCount,
@@ -1118,6 +1119,7 @@ class EchoHooks implements RecentChange_saveHook {
 			'text' => $msgText,
 			'active' => ( $url == $title->getLocalURL() ),
 			'class' => $msgLinkClasses,
+			'text-wrapper' => 'span',
 			'data' => [
 				'counter-num' => $msgCount,
 				'counter-text' => $msgFormattedCount,
