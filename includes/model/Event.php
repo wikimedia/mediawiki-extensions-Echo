@@ -101,7 +101,19 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 	 * variant: A variant of the type;
 	 * agent: The user who caused the event;
 	 * title: The page on which the event was triggered;
-	 * extra: Event-specific extra information (e.g. post content)
+	 * extra: Event-specific extra information (e.g. post content, delay time, root job params).
+	 *
+	 * Delayed jobs extra params:
+	 * delay: Amount of time in seconds for the notification to be delayed
+	 *
+	 * Job deduplication extra params:
+	 * rootJobSignature: The sha1 signature of the job
+	 * rootJobTimestamp: The timestamp when the job gets submitted
+	 *
+	 * For example to enqueue a new `example` root job or make a parent job
+	 * no-op when submitting a new notification you need to pass this extra params:
+	 *
+	 * [ 'extra' => Job::newRootJobParams('example') ]
 	 *
 	 * @throws MWException
 	 * @return EchoEvent|false False if aborted via hook or Echo DB is read-only

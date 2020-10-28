@@ -216,18 +216,38 @@ class EchoNotificationController {
 	}
 
 	/**
+	 * Helper function to extract event task params
+	 * @param EchoEvent $event
+	 * @return array Event params
+	 */
+	public static function getEventParams( EchoEvent $event ) {
+		$delay = $event->getExtraParam( 'delay' );
+		$rootJobSignature = $event->getExtraParam( 'rootJobSignature' );
+		$rootJobTimestamp = $event->getExtraParam( 'rootJobTimestamp' );
+
+		return [ 'eventId' => $event->getId() ]
+			+ ( $delay ? [ 'jobReleaseTimestamp' => (int)wfTimestamp() + $delay ] : [] )
+			+ ( $rootJobSignature ? [ 'rootJobSignature' => $rootJobSignature ] : [] )
+			+ ( $rootJobTimestamp ? [ 'rootJobTimestamp' => $rootJobTimestamp ] : [] );
+	}
+
+	/**
 	 * Push $event onto the mediawiki job queue
 	 *
 	 * @param EchoEvent $event
 	 */
 	public static function enqueueEvent( EchoEvent $event ) {
+		$queue = JobQueueGroup::singleton();
+
 		$job = new EchoNotificationJob(
-			$event->getTitle() ?: Title::newMainPage(),
-			[
-				'eventId' => $event->getId(),
-			]
+			$event->getTitle() ?: Title::newMainPage(), self::getEventParams( $event )
 		);
-		JobQueueGroup::singleton()->push( $job );
+
+		$queue->push( $job );
+
+		if ( $job->hasRootJobParams() ) {
+			$queue->deduplicateRootJob( $job );
+		}
 	}
 
 	/**

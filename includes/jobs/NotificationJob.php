@@ -3,7 +3,8 @@
 class EchoNotificationJob extends Job {
 
 	public function __construct( Title $title, array $params ) {
-		parent::__construct( 'EchoNotificationJob', $title, $params );
+		$command = isset( $params['jobReleaseTimestamp'] ) ? 'DelayedEchoNotificationJob' : 'EchoNotificationJob';
+		parent::__construct( $command, $title, $params );
 	}
 
 	public function run() {
