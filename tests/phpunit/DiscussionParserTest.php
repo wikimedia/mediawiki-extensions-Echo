@@ -1013,6 +1013,11 @@ TEXT
 		$this->assertSame( 1, $match );
 	}
 
+	public function testTimestampRegex_T264922() {
+		$this->setMwGlobals( 'wgLanguageCode', 'skr' );
+		$this->assertIsString( EchoDiscussionParser::getTimestampRegex(), 'does not fail' );
+	}
+
 	public function testGetTimestampPosition() {
 		$line = 'Hello World. ' . self::getExemplarTimestamp();
 		$pos = EchoDiscussionParser::getTimestampPosition( $line );

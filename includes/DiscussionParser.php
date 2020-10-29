@@ -1155,7 +1155,7 @@ abstract class EchoDiscussionParser {
 		// Step 2: Generalise it
 		// Trim off the timezone to replace at the end
 		$output = $exemplarTimestamp;
-		$tzRegex = '/\h*\(\w+\)\h*$/';
+		$tzRegex = '/\h*\(\w+\)\h*$/u';
 		$tzMatches = [];
 		if ( preg_match( $tzRegex, $output, $tzMatches, PREG_OFFSET_CAPTURE ) ) {
 			$output = substr( $output, 0, $tzMatches[0][1] );
