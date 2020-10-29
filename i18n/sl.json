@@ -82,7 +82,7 @@
 	"echo-api-failure": "Pri izpisu obvestil je prišlo do napake.",
 	"echo-api-failure-cross-wiki": "Dostop do oddaljene domene je bil zavrnjen.",
 	"echo-notification-placeholder": "Ni obvestil.",
-	"echo-notification-placeholder-filters": "Ni obvestil, ki bi se ujemale s temi kriteriji.",
+	"echo-notification-placeholder-filters": "Ni obvestil, ki bi se ujemala s temi merili.",
 	"echo-notification-loginrequired": "Za pregled sporočil se moraš prijaviti.",
 	"echo-notification-popup-loginrequired": "Za ogled svojih obvestil se prosim prijavi.",
 	"echo-notification-markasread": "Označi kot prebrano",
