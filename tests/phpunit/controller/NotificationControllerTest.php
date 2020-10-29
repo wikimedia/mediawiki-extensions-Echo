@@ -284,6 +284,33 @@ class NotificationControllerTest extends MediaWikiTestCase {
 		$this->assertEquals( 42, $job->params[ 'eventId' ] );
 	}
 
+	public function testNotSupportedDelay() {
+		$queueGroup = JobQueueGroup::singleton();
+		$this->assertCount( 0, $queueGroup->getQueuesWithJobs() );
+
+		$event = $this->getMockBuilder( EchoEvent::class )
+			->disableOriginalConstructor()
+			->getMock();
+		$event->expects( $this->any() )
+			->method( 'getExtraParam' )
+			->will( $this->returnValueMap(
+				[
+					[ 'delay', null, 120 ],
+					[ 'rootJobSignature', null, 'test-signature' ],
+					[ 'rootJobTimestamp', null,  wfTimestamp() ]
+				]
+			) );
+		$event->expects( $this->exactly( 1 ) )
+			->method( 'getTitle' )
+			->will( $this->returnValue( Title::newFromText( 'test-title' ) ) );
+		$event->expects( $this->any() )
+			->method( 'getId' )
+			->will( $this->returnValue( 42 ) );
+		EchoNotificationController::enqueueEvent( $event );
+
+		$this->assertCount( 0, $queueGroup->getQueuesWithJobs() );
+	}
+
 	public function testEventParams() {
 		$rootJobTimestamp = wfTimestamp();
 		MWTimestamp::setFakeTime( 0 );

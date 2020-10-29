@@ -238,10 +238,23 @@ class EchoNotificationController {
 	 */
 	public static function enqueueEvent( EchoEvent $event ) {
 		$queue = JobQueueGroup::singleton();
+		$params = self::getEventParams( $event );
 
 		$job = new EchoNotificationJob(
-			$event->getTitle() ?: Title::newMainPage(), self::getEventParams( $event )
+			$event->getTitle() ?: Title::newMainPage(), $params
 		);
+
+		if ( isset( $params[ 'jobReleaseTimestamp' ] ) && !$queue->get( $job->getType() )->delayedJobsEnabled() ) {
+			$logger = LoggerFactory::getInstance( 'Echo' );
+			$logger->warning(
+				'Delayed jobs are not enabled. Skipping enqueuing event {id} of type {type}.',
+				[
+					'id' => $event->getId(),
+					'type' => $event->getType()
+				]
+			);
+			return;
+		}
 
 		$queue->push( $job );
 
