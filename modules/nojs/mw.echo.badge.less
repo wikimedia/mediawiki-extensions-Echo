@@ -11,9 +11,10 @@
 		width: 20px;
 		height: 20px;
 		margin: 0 2px;
-		background-repeat: no-repeat;
-		background-position: center center;
+		// Hide the text, but keep accessible for screen-readers
+		// Later we put the counter back onscreen with a zero text-indent
 		top: -5px;
+		text-indent: -9999px;
 		border-radius: @border-radius-base;
 		cursor: pointer;
 		text-decoration: none;
@@ -75,12 +76,6 @@
 				visibility: hidden;
 			}
 		}
-
-		span {
-			overflow: hidden;
-			width: 100%;
-			display: inline-block;
-		}
 	}
 
 	&.oo-ui-flaggedElement-unseen,
@@ -93,12 +88,5 @@
 			background-color: @badge-counter-background-unseen-message;
 		}
 	}
-}
-
-/* vector */
-.skin-vector-legacy .mw-echo-notifications-badge {
-	// Hide the text, but keep accessible for screen-readers
-	// Later we put the counter back onscreen with a zero text-indent
-	text-indent: -9999px;
 }
 /* stylelint-enable no-descending-specificity */
