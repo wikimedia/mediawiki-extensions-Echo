@@ -31,32 +31,32 @@
 class EchoDiffParser {
 
 	/**
-	 * @var int $prefixLength The number of characters the diff prefixes a line with
+	 * @var int The number of characters the diff prefixes a line with
 	 */
 	protected $prefixLength = 1;
 
 	/**
-	 * @var string[] $left The text of the left side of the diff operation
+	 * @var string[] The text of the left side of the diff operation
 	 */
 	protected $left;
 
 	/**
-	 * @var int $leftPos The current position within the left text
+	 * @var int The current position within the left text
 	 */
 	protected $leftPos;
 
 	/**
-	 * @var string[] $right The text of the right side of the diff operation
+	 * @var string[] The text of the right side of the diff operation
 	 */
 	protected $right;
 
 	/**
-	 * @var int $rightPos The current position within the right text
+	 * @var int The current position within the right text
 	 */
 	protected $rightPos;
 
 	/**
-	 * @var array[] $changeSet Set of add, subtract, or change operations within the diff
+	 * @var array[] Set of add, subtract, or change operations within the diff
 	 */
 	protected $changeSet;
 

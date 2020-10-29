@@ -9,7 +9,7 @@ use MediaWiki\MediaWikiServices;
  */
 class NotificationsTest extends MediaWikiTestCase {
 
-	/** @var User $sysop */
+	/** @var User */
 	// @codingStandardsIgnoreStart
 	var $sysop;
 	// @codingStandardsIgnoreEnd

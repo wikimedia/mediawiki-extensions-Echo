@@ -4,14 +4,14 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 	/**
 	 * EchoAttributeManager to access notification configuration
 	 *
-	 * @var EchoAttributeManager $attributeManager;
+	 * @var EchoAttributeManager
 	 */
 	protected $attributeManager;
 
 	/**
 	 * Notification controller
 	 *
-	 * @var EchoNotificationController $notificationController;
+	 * @var EchoNotificationController
 	 */
 	protected $notificationController;
 
