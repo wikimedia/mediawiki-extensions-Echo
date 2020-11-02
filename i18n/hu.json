@@ -87,6 +87,7 @@
 	"echo-specialpage-section-markread": "Csoport megjelölése olvasottként",
 	"echo-specialpage-markasread": "Értesítés: Megjelölés olvasottként",
 	"echo-specialpage-markasread-invalid-id": "Érvénytelen eseményazonosító",
+	"echo-specialpage-pagefilterwidget-aria-label": "Wiki és lapcím szerinti szűrés",
 	"echo-specialpage-pagination-numnotifications": "$1 értesítés",
 	"echo-specialpage-pagefilters-title": "Friss tevékenység",
 	"echo-specialpage-pagefilters-subtitle": "Lapok olvasatlan értesítésekkel",
