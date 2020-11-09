@@ -24,6 +24,7 @@
 	"echo-pref-email-format": "Formo de retpoŝto:",
 	"echo-pref-web": "Reteje",
 	"echo-pref-email": "Retpoŝte",
+	"echo-pref-push": "Aplikaĵoj",
 	"echo-pref-email-frequency-never": "Ne sendadi al mi retpoŝtajn sciigojn",
 	"echo-pref-email-frequency-immediately": "Unuopajn sciigojn tuj kiam ili alvenos",
 	"echo-pref-email-frequency-daily": "Tagan resumon de sciigoj",
