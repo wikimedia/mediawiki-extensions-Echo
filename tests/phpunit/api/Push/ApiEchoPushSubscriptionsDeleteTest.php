@@ -88,6 +88,16 @@ class ApiEchoPushSubscriptionsDeleteTest extends ApiTestCase {
 		$this->assertEquals( 'Success', $result[0]['delete']['result'] );
 	}
 
+	public function testApiDeleteSubscriptionProviderTokenEmpty(): void {
+		$params = [
+			'action' => 'echopushsubscriptions',
+			'command' => 'delete',
+			'providertoken' => ''
+		];
+		$this->expectException( ApiUsageException::class );
+		$result = $this->doApiRequestWithToken( $params, null, $this->user );
+	}
+
 	private function createTestData(): void {
 		$subscriptionManager = EchoServices::getInstance()->getPushSubscriptionManager();
 		$userId = Utils::getPushUserId( $this->user );

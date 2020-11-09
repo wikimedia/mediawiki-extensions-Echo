@@ -54,6 +54,9 @@ class ApiEchoPushSubscriptionsDelete extends ApiBase {
 		$tokens = $this->getParameter( 'providertoken' );
 		$userId = null;
 
+		if ( !$tokens ) {
+			$this->dieWithError( [ 'apierror-paramempty', 'providertoken' ], 'paramempty_providertoken' );
+		}
 		// Restrict deletion to the user's own token(s) if not a push subscription manager
 		try {
 			$this->checkUserRightsAny( 'manage-all-push-subscriptions' );
