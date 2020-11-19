@@ -175,6 +175,7 @@
 	"notification-header-thank-you-10000-edit": "Acabas de hacer {{GENDER:$2|tu}} edición número diez mil. ¡Muchas gracias!",
 	"notification-header-thank-you-100000-edit": "Acabas de hacer {{GENDER:$2|tu}} edición número cien mil. ¡Muchas gracias por tu increíble contribución!",
 	"notification-header-thank-you-1000000-edit": "Acabas de hacer {{GENDER:$2|tu}} millonésima edición. ¡Gracias por tu asombrosa contribución!",
+	"notification-header-thank-you-10000000-edit": "Acabas de hacer tu diezmillonésima edición. ¡Gracias por tu brillante dedicación!",
 	"notification-link-thank-you-edit": "{{GENDER:$1|Tu}} edición",
 	"notification-link-text-view-edit": "Ver edición",
 	"notification-link-article-reminder": "Ver página",
