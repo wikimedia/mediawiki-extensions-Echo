@@ -533,6 +533,7 @@ class GenerateSampleNotifications extends Maintenance {
 	}
 
 	private function generateWikibase( User $user, User $agent ) {
+		// @phan-suppress-next-line PhanUndeclaredClassReference
 		if ( !class_exists( EchoNotificationsHandlers::class ) ) {
 			// should use !ExtensionRegistry::getInstance()->isLoaded( 'Wikibase' ) when possible
 			$this->output( "Skipping Wikibase. Extension not installed.\n" );
