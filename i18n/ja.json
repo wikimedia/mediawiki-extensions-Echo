@@ -19,7 +19,8 @@
 			"Translatealcd",
 			"Vigorous action",
 			"Whym",
-			"Yusuke1109"
+			"Yusuke1109",
+			"おはぐろ蜻蛉"
 		]
 	},
 	"echo-desc": "イベントおよびメッセージについて、利用者に通知するシステム",
@@ -215,5 +216,6 @@
 	"echo-email-batch-link-text-view-all-notifications": "すべての通知を閲覧",
 	"notification-header-foreign-alert": "{{PLURAL:$5|他のウィキ|他の$5個のウィキ}}からのアラートがあります",
 	"notification-header-foreign-notice": "{{PLURAL:$5|他のウィキ|他の$5個のウィキ}}からの通知があります",
-	"notification-header-foreign-all": "{{PLURAL:$5|他のウィキ|他の$5個のウィキ}}からの通知があります"
+	"notification-header-foreign-all": "{{PLURAL:$5|他のウィキ|他の$5個のウィキ}}からの通知があります",
+	"group-push-subscription-manager": "プッシュサブスクリプションマネージャ"
 }
