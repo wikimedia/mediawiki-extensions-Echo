@@ -168,7 +168,7 @@
 	"notification-inbox-filter-read": "Legite",
 	"notification-inbox-filter-unread": "Non legite",
 	"notification-inbox-filter-all": "Totes",
-	"echo-specialmute-label-mute-notifications": "Silentiar le notificationes de iste usator",
+	"echo-specialmute-label-mute-notifications": "Silentiar le notificationes de iste {{GENDER:$1|usator}}",
 	"echo-email-plain-footer": "Pro eliger qual messages nos {{GENDER:$1|te}} invia, revide {{GENDER:$1|tu}} preferentias:",
 	"echo-email-html-footer-preference-link-text": "revide {{GENDER:$1|tu}} preferentias",
 	"echo-email-html-footer-with-link": "Pro eliger qual messages nos {{GENDER:$2|te}} invia, $1.",

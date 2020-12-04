@@ -9,5 +9,16 @@
 	"echo-new-messages": "আপোনালৈ নতুন বাৰ্তা আহিছে",
 	"notifications": "জাননী",
 	"tooltip-pt-notifications-alert": "{{GENDER:|আপোনাৰ}} জাননী",
-	"echo-specialpage": "জাননী"
+	"tooltip-pt-notifications-notice": "{{GENDER:|আপোনাৰ}} জাননী",
+	"echo-specialpage": "জাননী",
+	"echo-specialpage-pagefilters-title": "শেহতীয়া কাৰ্যকলাপ",
+	"echo-specialpage-pagefilters-subtitle": "নপঢ়া জাননী থকা পৃষ্ঠাসমূহ",
+	"notification-timestamp-today": "আজি",
+	"notification-timestamp-yesterday": "কালি",
+	"echo-notification-alert-text-only": "বাৰ্তা",
+	"echo-notification-notice-text-only": "জাননী",
+	"echo-overlay-link": "সকলো জাননী",
+	"echo-date-today": "আজি",
+	"echo-date-yesterday": "কালি",
+	"echo-email-batch-link-text-view-all-notifications": "সকলো জাননী চাওক"
 }
