@@ -8,5 +8,6 @@
 		]
 	},
 	"notifications": "اطلاعات",
-	"tooltip-pt-notifications-alert": "{{GENDER:|Your}} الرٹس"
+	"tooltip-pt-notifications-alert": "{{GENDER:|تواڈے}} الرٹس",
+	"notification-link-text-view-changes": "{{GENDER:$1|دیکھو}} تبدیلیاں"
 }
