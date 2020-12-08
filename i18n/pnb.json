@@ -7,7 +7,9 @@
 			"Saanvel"
 		]
 	},
+	"echo-learn-more": "ہور سکھو",
 	"notifications": "اطلاعات",
 	"tooltip-pt-notifications-alert": "{{GENDER:|تواڈے}} الرٹس",
+	"echo-notification-more-options-tooltip": "ہور اختیار",
 	"notification-link-text-view-changes": "{{GENDER:$1|دیکھو}} تبدیلیاں"
 }
