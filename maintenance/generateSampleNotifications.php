@@ -397,7 +397,9 @@ class GenerateSampleNotifications extends Maintenance {
 		$content = "checkout [[{$pageBeingLinked->getPrefixedText()}]]!";
 		$this->output( "{$agent->getName()} is linking to {$pageBeingLinked->getPrefixedText()} from multiple pages\n" );
 		$this->addToPageContent( $this->generateNewPageTitle(), $agent, $content );
+		// @phan-suppress-next-line PhanPluginDuplicateAdjacentStatement
 		$this->addToPageContent( $this->generateNewPageTitle(), $agent, $content );
+		// @phan-suppress-next-line PhanPluginDuplicateAdjacentStatement
 		$this->addToPageContent( $this->generateNewPageTitle(), $agent, $content );
 	}
 
