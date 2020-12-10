@@ -40,6 +40,7 @@
 	"echo-pref-tooltip-user-rights": "Beritahu saya apabila seseorang mengubah hak-hak pengguna saya.",
 	"notifications": "Pemberitahuan",
 	"tooltip-pt-notifications-alert": "Notis {{GENDER:|anda}}",
+	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Pengguna baru",
 	"echo-specialpage": "Pemberitahuan",
 	"echo-none": "Tiada pemberitahuan untuk anda.",
 	"notification-link-text-view-message": "Lihat pesanan",
