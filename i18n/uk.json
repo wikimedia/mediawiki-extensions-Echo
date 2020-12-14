@@ -235,5 +235,10 @@
 	"echo-email-batch-link-text-view-all-notifications": "Переглянути усі сповіщення",
 	"notification-header-foreign-alert": "Більше звісток з {{PLURAL:$5|$5 іншої вікі|$5 інших вікі}}",
 	"notification-header-foreign-notice": "Більше сповіщень з {{PLURAL:$5|іншої вікі|$5 інших вікі}}",
-	"notification-header-foreign-all": "Більше сповіщень з {{PLURAL:$5|іншої вікі|$5 інших вікі}}"
+	"notification-header-foreign-all": "Більше сповіщень з {{PLURAL:$5|іншої вікі|$5 інших вікі}}",
+	"right-manage-all-push-subscriptions": "Керувати всіма push-підписками",
+	"action-manage-all-push-subscriptions": "керувати всіма push-підписками",
+	"group-push-subscription-manager": "Керівники push-підписками",
+	"group-push-subscription-manager-member": "{{GENDER:$1|керівник|керівниця}} push-підписками",
+	"grouppage-push-subscription-manager": "{{ns:project}}:Керівники push-підписками"
 }
