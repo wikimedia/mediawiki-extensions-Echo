@@ -9,8 +9,11 @@ abstract class EchoDiscussionParser {
 
 	public const DEFAULT_SNIPPET_LENGTH = 150;
 
+	/** @var string|null */
 	protected static $timestampRegex;
+	/** @var array[][] */
 	protected static $revisionInterpretationCache = [];
+	/** @var EchoDiffParser|null */
 	protected static $diffParser;
 
 	/**

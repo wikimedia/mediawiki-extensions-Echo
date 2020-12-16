@@ -16,7 +16,9 @@ require_once getenv( 'MW_INSTALL_PATH' ) !== false
  */
 class RemoveInvalidNotification extends Maintenance {
 
+	/** @var int */
 	protected $batchSize = 500;
+	/** @var string[] */
 	protected $invalidEventType = [ 'article-linked' ];
 
 	public function __construct() {

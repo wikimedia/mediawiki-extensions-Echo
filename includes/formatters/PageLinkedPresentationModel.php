@@ -4,6 +4,7 @@ use MediaWiki\MediaWikiServices;
 
 class EchoPageLinkedPresentationModel extends EchoEventPresentationModel {
 
+	/** @var Title|null */
 	private $pageFrom;
 
 	public function getIconType() {

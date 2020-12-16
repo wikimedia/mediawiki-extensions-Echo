@@ -15,7 +15,7 @@ class EchoForeignWikiRequest {
 	/** @var array */
 	protected $wikis;
 
-	/** @varstring|null */
+	/** @var string|null */
 	protected $wikiParam;
 
 	/** @var string */

@@ -18,6 +18,7 @@ require_once "$IP/maintenance/Maintenance.php";
  */
 class GenerateSampleNotifications extends Maintenance {
 
+	/** @var string[] */
 	private $supportedNotificationTypes = [
 		'welcome',
 		'edit-user-talk',
@@ -33,6 +34,7 @@ class GenerateSampleNotifications extends Maintenance {
 		'page-connection',
 	];
 
+	/** @var int */
 	private $timestampCounter = 5;
 
 	public function __construct() {

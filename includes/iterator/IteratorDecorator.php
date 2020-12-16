@@ -5,6 +5,7 @@
  * reduced boilerplate.
  */
 abstract class EchoIteratorDecorator implements Iterator {
+	/** @var Iterator */
 	protected $iterator;
 
 	public function __construct( Iterator $iterator ) {

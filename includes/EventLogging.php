@@ -5,6 +5,7 @@
  */
 class MWEchoEventLogging {
 
+	/** @var int[] */
 	private static $revisionIds = [
 		'Echo' => 7731316,
 		'EchoMail' => 5467650,

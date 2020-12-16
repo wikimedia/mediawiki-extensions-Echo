@@ -33,6 +33,7 @@ class EchoAttributeManager {
 	public const MESSAGE = 'message';
 	public const ALL = 'all';
 
+	/** @var string */
 	protected static $DEFAULT_SECTION = self::ALERT;
 
 	/**

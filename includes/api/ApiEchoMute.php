@@ -4,8 +4,10 @@ use MediaWiki\MediaWikiServices;
 
 class ApiEchoMute extends ApiBase {
 
+	/** @var CentralIdLookup|null */
 	private $centralIdLookup = null;
 
+	/** @var string[][] */
 	private static $muteLists = [
 		'user' => [
 			'pref' => 'echo-notifications-blacklist',

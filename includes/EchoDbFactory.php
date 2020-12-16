@@ -15,8 +15,10 @@ class MWEchoDbFactory {
 	 */
 	private $cluster;
 
+	/** @var string|false */
 	private $shared;
 
+	/** @var string|false */
 	private $sharedCluster;
 
 	/**

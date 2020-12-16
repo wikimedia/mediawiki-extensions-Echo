@@ -20,7 +20,7 @@ class Subscription {
 
 	/**
 	 * Construct a subscription from a DB result row.
-	 * @param object $row echo_push_subscription row from IResultWrapper::fetchRow
+	 * @param \stdClass $row echo_push_subscription row from IResultWrapper::fetchRow
 	 * @return Subscription
 	 */
 	public static function newFromRow( object $row ) {

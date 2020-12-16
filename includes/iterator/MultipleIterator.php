@@ -10,8 +10,11 @@
  * * Lots less features(e.g. simple!)
  */
 class EchoMultipleIterator implements RecursiveIterator {
+	/** @var Iterator[] */
 	protected $active = [];
+	/** @var array */
 	protected $children;
+	/** @var int */
 	protected $key = 0;
 
 	public function __construct( array $children ) {
