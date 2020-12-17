@@ -48,7 +48,7 @@ class UpdateEchoSchemaForSuppression extends LoggedUpdateMaintenance {
 			return true;
 		}
 
-		$reader = new BatchRowIterator( $dbr, $this->table, $this->idField, $this->mBatchSize );
+		$reader = new BatchRowIterator( $dbr, $this->table, $this->idField, $this->getBatchSize() );
 		$reader->addConditions( [
 			"event_page_title IS NOT NULL",
 			"event_page_id" => null,

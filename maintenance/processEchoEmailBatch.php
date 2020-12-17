@@ -11,12 +11,6 @@ require_once "$IP/maintenance/Maintenance.php";
  */
 class ProcessEchoEmailBatch extends Maintenance {
 
-	/**
-	 * Max number of records to process at a time
-	 * @var int
-	 */
-	protected $batchSize = 300;
-
 	public function __construct() {
 		parent::__construct();
 		$this->addDescription( "Process email digest" );
@@ -26,6 +20,7 @@ class ProcessEchoEmailBatch extends Maintenance {
 			"Send all pending notifications immediately even if configured to be weekly or daily.",
 			false, false, "i" );
 
+		$this->setBatchSize( 300 );
 		$this->requireExtension( 'Echo' );
 	}
 
@@ -36,12 +31,13 @@ class ProcessEchoEmailBatch extends Maintenance {
 		$this->output( "Started processing... \n" );
 
 		$startUserId = 0;
-		$count = $this->batchSize;
+		$batchSize = $this->getBatchSize();
+		$count = $batchSize;
 
-		while ( $count === $this->batchSize ) {
+		while ( $count === $batchSize ) {
 			$count = 0;
 
-			$res = MWEchoEmailBatch::getUsersToNotify( $startUserId, $this->batchSize );
+			$res = MWEchoEmailBatch::getUsersToNotify( $startUserId, $batchSize );
 
 			$updated = false;
 			foreach ( $res as $row ) {
