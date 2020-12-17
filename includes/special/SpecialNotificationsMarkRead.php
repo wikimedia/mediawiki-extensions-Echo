@@ -9,8 +9,6 @@
  * page should normally not need to be visited directly.
  */
 class SpecialNotificationsMarkRead extends FormSpecialPage {
-	protected $eventId;
-
 	public function __construct() {
 		parent::__construct( 'NotificationsMarkRead' );
 	}
