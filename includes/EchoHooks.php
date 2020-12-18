@@ -544,7 +544,7 @@ class EchoHooks implements RecentChange_saveHook {
 		// If the user is not an IP and this is not a null edit,
 		// test for them reaching a congratulatory threshold
 		$thresholds = [ 1, 10, 100, 1000, 10000, 100000, 1000000, 10000000 ];
-		if ( $user->isLoggedIn() ) {
+		if ( $user->isRegistered() ) {
 			$thresholdCount = self::getEditCount( $user );
 			if ( in_array( $thresholdCount, $thresholds ) ) {
 				DeferredUpdates::addCallableUpdate( function () use ( $user, $title, $thresholdCount ) {
@@ -848,7 +848,7 @@ class EchoHooks implements RecentChange_saveHook {
 	public static function beforePageDisplay( $out, $skin ) {
 		$user = $out->getUser();
 
-		if ( !$user->isLoggedIn() ) {
+		if ( !$user->isRegistered() ) {
 			return;
 		}
 
@@ -1209,7 +1209,7 @@ class EchoHooks implements RecentChange_saveHook {
 
 	public static function onOutputPageCheckLastModified( array &$modifiedTimes, OutputPage $out ) {
 		$user = $out->getUser();
-		if ( $user->isLoggedIn() ) {
+		if ( $user->isRegistered() ) {
 			$notifUser = MWEchoNotifUser::newFromUser( $user );
 			$lastUpdate = $notifUser->getGlobalUpdateTime();
 			if ( $lastUpdate !== false ) {
@@ -1241,7 +1241,7 @@ class EchoHooks implements RecentChange_saveHook {
 
 		// If the user has the notifications flyout turned on and is receiving
 		// notifications for talk page messages, disable the new messages alert.
-		if ( $user->isLoggedIn()
+		if ( $user->isRegistered()
 			&& isset( $wgEchoNotifications['edit-user-talk'] )
 			&& Hooks::run( 'EchoCanAbortNewMessagesAlert' )
 		) {
