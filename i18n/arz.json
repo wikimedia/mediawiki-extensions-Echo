@@ -3,5 +3,6 @@
 		"authors": [
 			"Ghaly"
 		]
-	}
+	},
+	"tooltip-pt-notifications-alert": "{{GENDER:|تنبيهاتك}}"
 }
