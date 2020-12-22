@@ -7,7 +7,9 @@
 			"Saanvel"
 		]
 	},
+	"echo-pref-email-format": "ای میل ارمیٹ:",
 	"echo-learn-more": "ہور سکھو",
+	"echo-category-title-user-rights": "{{PLURAL:$1|اختیارات ورتنوالے دی تبدیلی|اختیارات ورتنوالے دیاں تبدیلیاں}}",
 	"notifications": "اطلاعات",
 	"tooltip-pt-notifications-alert": "{{GENDER:|تواڈے}} الرٹس",
 	"echo-notification-more-options-tooltip": "ہور اختیار",
