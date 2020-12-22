@@ -27,7 +27,7 @@ class SpecialNotifications extends SpecialPage {
 		] );
 
 		$user = $this->getUser();
-		if ( $user->isAnon() ) {
+		if ( !$user->isRegistered() ) {
 			// Redirect to login page and inform user of the need to login
 			$this->requireLogin( 'echo-notification-loginrequired' );
 			return;

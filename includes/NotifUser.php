@@ -101,7 +101,7 @@ class MWEchoNotifUser {
 	 * @return MWEchoNotifUser
 	 */
 	public static function newFromUser( User $user ) {
-		if ( $user->isAnon() ) {
+		if ( !$user->isRegistered() ) {
 			throw new MWException( 'User must be logged in to view notification!' );
 		}
 
@@ -170,7 +170,7 @@ class MWEchoNotifUser {
 	 * @return int
 	 */
 	public function getNotificationCount( $section = EchoAttributeManager::ALL, $global = 'preference' ) {
-		if ( $this->mUser->isAnon() ) {
+		if ( !$this->mUser->isRegistered() ) {
 			return 0;
 		}
 
@@ -218,7 +218,7 @@ class MWEchoNotifUser {
 	 * @return bool|MWTimestamp Timestamp of latest unread message, or false if there are no unread messages.
 	 */
 	public function getLastUnreadNotificationTime( $section = EchoAttributeManager::ALL, $global = 'preference' ) {
-		if ( $this->mUser->isAnon() ) {
+		if ( !$this->mUser->isRegistered() ) {
 			return false;
 		}
 

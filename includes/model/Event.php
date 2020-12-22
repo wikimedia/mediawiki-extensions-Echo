@@ -197,7 +197,7 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 			$data['event_id'] = $this->id;
 		}
 		if ( $this->agent ) {
-			if ( $this->agent->isAnon() ) {
+			if ( !$this->agent->isRegistered() ) {
 				$data['event_agent_ip'] = $this->agent->getName();
 			} else {
 				$data['event_agent_id'] = $this->agent->getId();

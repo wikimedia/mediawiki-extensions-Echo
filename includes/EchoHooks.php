@@ -1017,7 +1017,7 @@ class EchoHooks implements RecentChange_saveHook {
 	 */
 	public static function onPersonalUrls( &$personal_urls, &$title, $sk ) {
 		$user = $sk->getUser();
-		if ( $user->isAnon() ) {
+		if ( !$user->isRegistered() ) {
 			return;
 		}
 
@@ -1461,7 +1461,7 @@ class EchoHooks implements RecentChange_saveHook {
 	public static function onMergeAccountFromTo( User &$oldUser, User &$newUser ) {
 		$method = __METHOD__;
 		DeferredUpdates::addCallableUpdate( function () use ( $oldUser, $newUser, $method ) {
-			if ( !$newUser->isAnon() ) {
+			if ( $newUser->isRegistered() ) {
 				// Select notifications that are now sent to the same user
 				$dbw = MWEchoDbFactory::newFromDefault()->getEchoDb( DB_MASTER );
 				$attributeManager = EchoAttributeManager::newFromGlobalVars();
@@ -1535,7 +1535,7 @@ class EchoHooks implements RecentChange_saveHook {
 			}
 
 			MWEchoNotifUser::newFromUser( $oldUser )->resetNotificationCount();
-			if ( !$newUser->isAnon() ) {
+			if ( $newUser->isRegistered() ) {
 				MWEchoNotifUser::newFromUser( $newUser )->resetNotificationCount();
 			}
 		} );

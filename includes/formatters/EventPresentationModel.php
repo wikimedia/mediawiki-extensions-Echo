@@ -580,7 +580,7 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 			return null;
 		}
 
-		$url = $user->isAnon()
+		$url = !$user->isRegistered()
 			? SpecialPage::getTitleFor( 'Contributions', $user->getName() )->getFullURL()
 			: $user->getUserPage()->getFullURL();
 

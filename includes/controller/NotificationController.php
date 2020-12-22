@@ -3,6 +3,7 @@
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionStore;
+use MediaWiki\User\UserIdentity;
 
 /**
  * This class represents the controller for notifications
@@ -381,7 +382,7 @@ class EchoNotificationController {
 		}
 
 		// Don't send any notifications to anonymous users
-		if ( $user->isAnon() ) {
+		if ( !$user->isRegistered() ) {
 			throw new MWException( "Cannot notify anonymous user: {$user->getName()}" );
 		}
 
@@ -445,11 +446,11 @@ class EchoNotificationController {
 		foreach ( self::evaluateUserCallable( $event, EchoAttributeManager::ATTR_FILTERS ) as $users ) {
 			// the result of the callback can be both an iterator or array
 			$users = is_array( $users ) ? $users : iterator_to_array( $users );
-			$notify->addFilter( function ( User $user ) use ( $users ) {
+			$notify->addFilter( function ( UserIdentity $user ) use ( $users ) {
 				// we need to check if $user is in $users, but they're not
 				// guaranteed to be the same object, so I'll compare ids.
 				$userId = $user->getId();
-				$userIds = array_map( function ( User $user ) {
+				$userIds = array_map( function ( UserIdentity $user ) {
 					return $user->getId();
 				}, $users );
 				return !in_array( $userId, $userIds );
@@ -467,7 +468,7 @@ class EchoNotificationController {
 
 				return false;
 			}
-			if ( $user->isAnon() || isset( $seen[$user->getId()] ) ) {
+			if ( !$user->isRegistered() || isset( $seen[$user->getId()] ) ) {
 				return false;
 			}
 			$seen[$user->getId()] = true;

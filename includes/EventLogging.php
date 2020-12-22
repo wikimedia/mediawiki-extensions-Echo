@@ -53,7 +53,7 @@ class MWEchoEventLogging {
 		} else {
 			$agent = $event->getAgent();
 			if ( $agent ) {
-				$sender = $agent->isAnon() ? $agent->getName() : $agent->getId();
+				$sender = $agent->getId() ?: $agent->getName();
 			} else {
 				$sender = -1;
 			}

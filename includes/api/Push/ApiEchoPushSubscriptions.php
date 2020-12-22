@@ -71,7 +71,7 @@ class ApiEchoPushSubscriptions extends ApiBase {
 	 * @throws ApiUsageException
 	 */
 	private function checkLoginState(): void {
-		if ( $this->getUser()->isAnon() ) {
+		if ( !$this->getUser()->isRegistered() ) {
 			$this->dieWithError(
 				[ 'apierror-mustbeloggedin', $this->msg( 'action-editmyprivateinfo' ) ],
 				'notloggedin'
