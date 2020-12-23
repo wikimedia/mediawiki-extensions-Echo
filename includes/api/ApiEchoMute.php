@@ -21,7 +21,7 @@ class ApiEchoMute extends ApiBase {
 
 	public function execute() {
 		$user = $this->getUser()->getInstanceForUpdate();
-		if ( !$user || $user->isAnon() ) {
+		if ( !$user || !$user->isRegistered() ) {
 			$this->dieWithError(
 				[ 'apierror-mustbeloggedin', $this->msg( 'action-editmyoptions' ) ],
 				'notloggedin'

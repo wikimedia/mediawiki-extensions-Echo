@@ -184,7 +184,7 @@ class GenerateSampleNotifications extends Maintenance {
 	private function getOptionUser( $optionName ) {
 		$username = $this->getOption( $optionName );
 		$user = User::newFromName( $username );
-		if ( $user->isAnon() ) {
+		if ( !$user->isRegistered() ) {
 			$this->error( "User $username does not seem to exist in this wiki", 1 );
 		}
 		return $user;

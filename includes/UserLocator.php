@@ -56,7 +56,7 @@ class EchoUserLocator {
 		}
 
 		$user = User::newFromName( $title->getDBkey() );
-		if ( $user && !$user->isAnon() ) {
+		if ( $user && $user->isRegistered() ) {
 			return [ $user->getId() => $user ];
 		}
 
@@ -71,7 +71,7 @@ class EchoUserLocator {
 	 */
 	public static function locateEventAgent( EchoEvent $event ) {
 		$agent = $event->getAgent();
-		if ( $agent && !$agent->isAnon() ) {
+		if ( $agent && $agent->isRegistered() ) {
 			return [ $agent->getId() => $agent ];
 		}
 
@@ -142,7 +142,7 @@ class EchoUserLocator {
 				// we shouldn't receive User instances, but allow
 				// it for backward compatability
 				if ( $userId instanceof User ) {
-					if ( $userId->isAnon() ) {
+					if ( !$userId->isRegistered() ) {
 						continue;
 					}
 					$user = $userId;

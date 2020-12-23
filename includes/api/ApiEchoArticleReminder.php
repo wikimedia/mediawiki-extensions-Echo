@@ -5,7 +5,7 @@ class ApiEchoArticleReminder extends ApiBase {
 	public function execute() {
 		$this->getMain()->setCacheMode( 'private' );
 		$user = $this->getUser();
-		if ( $user->isAnon() ) {
+		if ( !$user->isRegistered() ) {
 			$this->dieWithError( 'apierror-mustbeloggedin-generic', 'login-required' );
 		}
 

@@ -16,7 +16,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 		// To avoid API warning, register the parameter used to bust browser cache
 		$this->getMain()->getVal( '_' );
 
-		if ( $this->getUser()->isAnon() ) {
+		if ( !$this->getUser()->isRegistered() ) {
 			$this->dieWithError( 'apierror-mustbeloggedin-generic', 'login-required' );
 		}
 
