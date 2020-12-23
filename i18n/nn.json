@@ -117,6 +117,7 @@
 	"notification-inbox-filter-read": "Lesne",
 	"notification-inbox-filter-unread": "Ulesne",
 	"notification-inbox-filter-all": "Alle",
+	"echo-specialmute-label-mute-notifications": "Demp varsel frå denne brukaren {{GENDER:$1|user}}",
 	"echo-email-plain-footer": "For å styra kva e-postar me sender {{GENDER:$2|deg}}, sjekk innstillingane dine:",
 	"echo-email-html-footer-preference-link-text": "sjekk innstillingane {{GENDER:$1|dine}}",
 	"echo-email-html-footer-with-link": "For å styra kva e-postar me sender {{GENDER:$2|deg}}, $1.",
