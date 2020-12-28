@@ -1,8 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Kambai Akau"
 		]
 	},
-	"tooltip-pt-notifications-alert": "A̠yaalama {{GENDER:|ang ba}}"
+	"tooltip-pt-notifications-alert": "A̱yaalama {{GENDER:|ang ba}}"
 }
