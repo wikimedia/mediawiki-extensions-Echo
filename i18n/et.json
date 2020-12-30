@@ -17,6 +17,7 @@
 	"prefs-blocknotificationslist": "Vaigistatud kasutajad",
 	"prefs-mutedpageslist": "Vaigistatud linkimisteavitusega leheküljed",
 	"prefs-echopollupdates": "Reaalajas teavitused",
+	"echo-mobile-notifications-filter-title": "Teavituste filtreerimine",
 	"echo-pref-show-poll-updates": "Kuva teavitused nende saabumisel",
 	"echo-pref-show-poll-updates-help": "Näita tiitliribal lugemata teavituste arvu ja näita lõigendit igast teavitusest kohe, kui see saabub.",
 	"echo-pref-send-me": "Saada mulle:",
