@@ -16,8 +16,6 @@ require_once getenv( 'MW_INSTALL_PATH' ) !== false
  */
 class RemoveInvalidNotification extends Maintenance {
 
-	/** @var int */
-	protected $batchSize = 500;
 	/** @var string[] */
 	protected $invalidEventType = [ 'article-linked' ];
 
@@ -25,6 +23,7 @@ class RemoveInvalidNotification extends Maintenance {
 		parent::__construct();
 
 		$this->addDescription( "Removes invalid notifications from the database." );
+		$this->setBatchSize( 500 );
 		$this->requireExtension( 'Echo' );
 	}
 
@@ -39,9 +38,10 @@ class RemoveInvalidNotification extends Maintenance {
 		$dbw = $lbFactory->getEchoDb( DB_MASTER );
 		$dbr = $lbFactory->getEchoDb( DB_REPLICA );
 
-		$count = $this->batchSize;
+		$batchSize = $this->getBatchSize();
+		$count = $batchSize;
 
-		while ( $count == $this->batchSize ) {
+		while ( $count == $batchSize ) {
 			$res = $dbr->select(
 				[ 'echo_event' ],
 				[ 'event_id' ],
@@ -49,7 +49,7 @@ class RemoveInvalidNotification extends Maintenance {
 					'event_type' => $this->invalidEventType,
 				],
 				__METHOD__,
-				[ 'LIMIT' => $this->batchSize ]
+				[ 'LIMIT' => $batchSize ]
 			);
 
 			$event = [];

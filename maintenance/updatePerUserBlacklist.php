@@ -38,7 +38,7 @@ class EchoUpdatePerUserBlacklist extends LoggedUpdateMaintenance {
 			$dbr,
 			'user_properties',
 			[ 'up_user', 'up_property' ],
-			$this->mBatchSize
+			$this->getBatchSize()
 		);
 		$iterator->setFetchColumns( [
 			'up_user',

@@ -38,7 +38,7 @@ class RemoveOrphanedEvents extends LoggedUpdateMaintenance {
 			$dbr,
 			[ 'echo_event', 'echo_notification', 'echo_email_batch' ],
 			'event_id',
-			$this->mBatchSize
+			$this->getBatchSize()
 		);
 		$iterator->addJoinConditions( [
 			'echo_notification' => [ 'LEFT JOIN', 'notification_event=event_id' ],
@@ -72,7 +72,7 @@ class RemoveOrphanedEvents extends LoggedUpdateMaintenance {
 			$dbr,
 			[ 'echo_target_page', 'echo_event' ],
 			'etp_event',
-			$this->mBatchSize
+			$this->getBatchSize()
 		);
 		$iterator->addJoinConditions( [ 'echo_event' => [ 'LEFT JOIN', 'event_id=etp_event' ] ] );
 		$iterator->addConditions( [ 'event_type' => null ] );
