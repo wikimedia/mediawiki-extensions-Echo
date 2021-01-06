@@ -1009,7 +1009,7 @@ class EchoHooks implements RecentChange_saveHook {
 
 	/**
 	 * Handler for PersonalUrls hook.
-	 * Add a "Notifications" item to the user toolbar ('personal URLs').
+	 * Marks the talk page link when the user has a new message.
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/PersonalUrls
 	 * @param array &$personal_urls Array of URLs to append to.
 	 * @param Title &$title Title of page being visited.
@@ -1021,7 +1021,52 @@ class EchoHooks implements RecentChange_saveHook {
 			return;
 		}
 
-		$subtractions = self::processMarkAsRead( $user, $sk->getOutput()->getRequest(), $title );
+		// If the user has new messages, display a talk page alert
+		if ( self::shouldDisplayTalkAlert( $user, $title )
+			&& Hooks::run( 'BeforeDisplayOrangeAlert', [ $user, $title ] )
+		) {
+			$personal_urls['mytalk']['text'] = $sk->msg( 'echo-new-messages' )->text();
+			$personal_urls['mytalk']['class'] = [ 'mw-echo-alert' ];
+		}
+	}
+
+	/**
+	 * Determine if a talk page alert should be displayed.
+	 * We need to check:
+	 * - User actually has new messages
+	 * - User is not viewing their user talk page, as user_newtalk will not have been cleared yet.
+	 *   (bug T107655).
+	 *
+	 * @param User $user
+	 * @param Title $title
+	 * @return bool
+	 */
+	private static function shouldDisplayTalkAlert( $user, $title ) {
+		$userHasNewMessages = MediaWikiServices::getInstance()
+			->getTalkPageNotificationManager()
+			->userHasNewMessages( $user );
+
+		return $userHasNewMessages && !$user->getTalkPage()->equals( $title );
+	}
+
+	/**
+	 * Handler for SkinTemplateNavigation::Universal hook.
+	 * Adds "Notifications" items to the notifications content navigation.
+	 * SkinTemplate automatically merges these into the personal tools for older skins.
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/SkinTemplateNavigation::Universal
+	 * @param SkinTemplate $skinTemplate
+	 * @param array &$links Array of URLs to append to.
+	 */
+	public static function onSkinTemplateNavigationUniversal( $skinTemplate, &$links ) {
+		$user = $skinTemplate->getUser();
+		if ( !$user->isRegistered() ) {
+			return;
+		}
+
+		$title = $skinTemplate->getTitle();
+		$out = $skinTemplate->getOutput();
+
+		$subtractions = self::processMarkAsRead( $user, $out->getRequest(), $title );
 
 		// Add a "My notifications" item to personal URLs
 		$notifUser = MWEchoNotifUser::newFromUser( $user );
@@ -1042,7 +1087,7 @@ class EchoHooks implements RecentChange_saveHook {
 		$seenAlertTime = $seenTime->getTime( 'alert', TS_ISO_8601 );
 		$seenMsgTime = $seenTime->getTime( 'message', TS_ISO_8601 );
 
-		$sk->getOutput()->addJsConfigVars( 'wgEchoSeenTime', [
+		$out->addJsConfigVars( 'wgEchoSeenTime', [
 			'alert' => $seenAlertTime,
 			'notice' => $seenMsgTime,
 		] );
@@ -1057,8 +1102,7 @@ class EchoHooks implements RecentChange_saveHook {
 
 		// HACK: inverted icons only work in the "MediaWiki" OOUI theme
 		// Avoid flashes in skins that don't use it (T111821)
-		$sk->getOutput()->setupOOUI(
-			strtolower( $sk->getSkinName() ), $sk->getOutput()->getLanguage()->getDir() );
+		$out::setupOOUI( strtolower( $skinTemplate->getSkinName() ), $out->getLanguage()->getDir() );
 
 		$msgLinkClasses = [ "mw-echo-notifications-badge", "mw-echo-notification-badge-nojs","oo-ui-icon-tray" ];
 		$alertLinkClasses = [ "mw-echo-notifications-badge", "mw-echo-notification-badge-nojs", "oo-ui-icon-bell" ];
@@ -1098,35 +1142,31 @@ class EchoHooks implements RecentChange_saveHook {
 			$alertLinkClasses[] = 'mw-echo-notifications-badge-long-label';
 		}
 
-		$alertLink = [
+		$links['notifications']['notifications-alert'] = [
 			'href' => $url,
 			'text' => $alertText,
 			'active' => ( $url == $title->getLocalURL() ),
-			'class' => $alertLinkClasses,
+			'link-class' => $alertLinkClasses,
 			'data' => [
 				'counter-num' => $alertCount,
 				'counter-text' => $alertFormattedCount,
 			],
+			// This item used to be part of personal tools, and much CSS relies on it using this id.
+			'id' => 'pt-notifications-alert',
 		];
 
-		$insertUrls = [
-			'notifications-alert' => $alertLink,
-		];
-
-		$msgLink = [
+		$links['notifications']['notifications-notice'] = [
 			'href' => $url,
 			'text' => $msgText,
 			'active' => ( $url == $title->getLocalURL() ),
-			'class' => $msgLinkClasses,
+			'link-class' => $msgLinkClasses,
 			'data' => [
 				'counter-num' => $msgCount,
 				'counter-text' => $msgFormattedCount,
 			],
+			// This item used to be part of personal tools, and much CSS relies on it using this id.
+			'id' => 'pt-notifications-notice',
 		];
-
-		$insertUrls['notifications-notice'] = $msgLink;
-
-		$personal_urls = wfArrayInsertAfter( $personal_urls, $insertUrls, 'userpage' );
 
 		if ( $hasUnseen ) {
 			// Record that the user is going to see an indicator that they have unseen notifications
@@ -1134,26 +1174,6 @@ class EchoHooks implements RecentChange_saveHook {
 			// The other part is the 'echo.unseen.click' counter, see ext.echo.init.js.
 			MediaWikiServices::getInstance()->getStatsdDataFactory()->increment( 'echo.unseen' );
 		}
-
-		// If the user has new messages, display a talk page alert
-		// We need to check:
-		// * User actually has new messages
-		// * User is not viewing their user talk page, as user_newtalk
-		// will not have been cleared yet. (bug T107655).
-		if ( self::shouldDisplayTalkAlert( $user, $title )
-			&& Hooks::run( 'BeforeDisplayOrangeAlert', [ $user, $title ] )
-		) {
-			$personal_urls['mytalk']['text'] = $sk->msg( 'echo-new-messages' )->text();
-			$personal_urls['mytalk']['class'] = [ 'mw-echo-alert' ];
-		}
-	}
-
-	private static function shouldDisplayTalkAlert( $user, $title ) {
-		$userHasNewMessages = MediaWikiServices::getInstance()
-			->getTalkPageNotificationManager()
-			->userHasNewMessages( $user );
-
-		return $userHasNewMessages && !$user->getTalkPage()->equals( $title );
 	}
 
 	/**

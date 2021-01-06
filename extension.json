@@ -487,7 +487,8 @@
 		"LinksUpdateAfterInsert": "EchoHooks::onLinksUpdateAfterInsert",
 		"SpecialMuteModifyFormFields": "EchoHooks::onSpecialMuteModifyFormFields",
 		"RecentChange_save": "main",
-		"ApiMain::moduleManager": "EchoHooks::onApiMainModuleManager"
+		"ApiMain::moduleManager": "EchoHooks::onApiMainModuleManager",
+		"SkinTemplateNavigation::Universal": "EchoHooks::onSkinTemplateNavigationUniversal"
 	},
 	"HookHandlers": {
 		"main": {
