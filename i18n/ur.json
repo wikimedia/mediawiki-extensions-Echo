@@ -14,7 +14,7 @@
 			"පසිඳු කාවින්ද"
 		]
 	},
-	"echo-desc": "نظام برائے اطلاع صارفین دربارہ تقریبات و پیغامات",
+	"echo-desc": "صارفین کو پیغام اور دیگر احوال و وقائع کی اطلاع رسانی کا نظام",
 	"prefs-echo": "اطلاعات",
 	"prefs-emailsettings": "برقی خط کے اختیارات",
 	"prefs-echosubscriptions": "ان احوال کے متعلق مجھے آگاہ کریں",
@@ -37,8 +37,8 @@
 	"echo-pref-notifications-blacklist": "ان صارفین کے اطلاع نامے نہ دکھائیں۔ [[mw:Special:MyLanguage/Help:Notifications#mute|مزید تفصیلات]]",
 	"echo-learn-more": "مزید معلومات حاصل کریں",
 	"echo-log": "عوامی نوشتہ",
-	"echo-new-messages": "آپ کے لیے نئے پیغامات",
-	"echo-category-title-edit-user-talk": "تبادلۂ خیال صفحہ {{PLURAL:$1|کا پیغام|کے پیغامات}}",
+	"echo-new-messages": "آپ کے لیے نئے پیغام",
+	"echo-category-title-edit-user-talk": "تبادلۂ خیال صفحہ {{PLURAL:$1|کا پیغام|کے پیغام}}",
 	"echo-category-title-article-linked": "صفحہ {{PLURAL:$1|کا ربط|کے روابط}}",
 	"echo-category-title-reverted": "رد {{PLURAL:$1|ترمیم|ترامیم}}",
 	"echo-category-title-mention": "{{PLURAL:$1|تذکرہ|تذکرے}}",
@@ -175,7 +175,7 @@
 	"echo-displaysnippet-title": "نیا اطلاع نامہ",
 	"echo-date-today": "آج",
 	"echo-date-yesterday": "گذشتہ کل",
-	"notification-bundle-header-edit-user-talk-v2": "<strong>{{GENDER:$3|آپ کے}} تبادلہ خیال صفحہ</strong> پر\n{{PLURAL:$1|ایک نیا پیغام|$1 نئے پیغامات|100=99+ نئے پیغامات}}۔",
+	"notification-bundle-header-edit-user-talk-v2": "<strong>{{GENDER:$3|آپ کے}} تبادلہ خیال صفحہ</strong> پر\n{{PLURAL:$1|ایک نیا پیغام|$1 نئے پیغام|100=99+ نئے پیغام}}۔",
 	"echo-email-batch-subject-daily": "{{SITENAME}} پر آپ کے لیے {{PLURAL:$2|ایک نیا اطلاع نامہ|نئے اطلاع نامے}}",
 	"echo-email-batch-subject-weekly": "اس ہفتہ {{SITENAME}} پر آپ کے لیے {{PLURAL:$2|ایک نیا اطلاع نامہ|نئے اطلاع نامے}}",
 	"echo-email-batch-body-intro-daily": "سلام $1،\n{{SITENAME}} پر آپ کی آج کی سرگرمیوں کی کارگزاری پیش خدمت ہے۔",
