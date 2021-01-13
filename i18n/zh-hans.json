@@ -135,7 +135,7 @@
 	"echo-specialpage-pagefilters-title": "最近活动",
 	"echo-specialpage-pagefilters-subtitle": "有未读通知的页面",
 	"notificationsmarkread-legend": "标记通知为已读",
-	"echo-none": "您没有通知。",
+	"echo-none": "您目前没有通知。",
 	"echo-api-failure": "检索通知失败。",
 	"echo-api-failure-cross-wiki": "对远程域名的访问已拒绝。",
 	"echo-notification-placeholder": "这里没有通知。",
