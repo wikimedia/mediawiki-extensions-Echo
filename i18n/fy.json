@@ -219,5 +219,10 @@
 	"echo-email-batch-link-text-view-all-notifications": "Alle meldingen besjen",
 	"notification-header-foreign-alert": "Mear seintsjes fan {{PLURAL:$5|in oare wiki|$5 oare wiki's}}",
 	"notification-header-foreign-notice": "Mear meidielings fan {{PLURAL:$5|in oare wiki|$5 oare wiki's}}",
-	"notification-header-foreign-all": "Mear meldingen fan {{PLURAL:$5|in oare wiki|$5 oare wiki's}}"
+	"notification-header-foreign-all": "Mear meldingen fan {{PLURAL:$5|in oare wiki|$5 oare wiki's}}",
+	"right-manage-all-push-subscriptions": "Behearen fan 'e trochsetabonneminten",
+	"action-manage-all-push-subscriptions": "de trochsetabonneminten te behearen",
+	"group-push-subscription-manager": "Behearders fan trochsetabonneminten",
+	"group-push-subscription-manager-member": "{{GENDER:$1|behearder trochsetabonneminten|behearster trochsetabonneminten}}",
+	"grouppage-push-subscription-manager": "{{ns:project}}:Behearders fan trochsetabonneminten"
 }

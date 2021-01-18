@@ -138,7 +138,7 @@
 	"notification-header-user-rights-expiry-change": "Čas poteka {{GENDER:$4|tvojega}} tvojega članstva v naslednjih {{PLURAL:$3|skupini|skupinama|skupinah}} je bil {{GENDER:$1|spremenjen}}: $2.",
 	"notification-header-welcome": "{{GENDER:$2|Dobrodošel|Dobrodošla}} na {{SITENAME}}, $1! Veseli smo, da si se {{GENDER:$2|oglasil|oglasila}}.",
 	"notification-header-mention-summary": "$1 {{GENDER:$3|te}} {{GENDER:$2|je omenil}} v povzetku urejanja strani <strong>$4</strong>.",
-	"notification-welcome-linktext": "{{GENDER:|Dobrodošel|Dobrodošla}}",
+	"notification-welcome-linktext": "{{GENDER: Pozdravljen|Pozdravljena|Pozdravljeni}}",
 	"notification-header-thank-you-1-edit": "Pravkar si {{GENDER:$2|naredil|naredila}} svoje prvo urejanje. Hvala {{GENDER:$2|ti}} in {{GENDER:$2|dobrodošel|dobrodošla}} še naprej!",
 	"notification-header-thank-you-10-edit": "Pravkar si {{GENDER:$2|naredil|naredila}} {{GENDER:$2|svoje}} deseto urejanje. Hvala {{GENDER:$2|ti}} in le tako naprej!",
 	"notification-header-thank-you-100-edit": "Pravkar si {{GENDER:$2|naredil|naredila}} {{GENDER:$2|svoje}} stoto urejanje. Hvala ti za {{GENDER:$2|tvoj}} doprinos!",

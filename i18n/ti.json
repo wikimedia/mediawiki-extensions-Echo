@@ -25,6 +25,7 @@
 	"echo-specialpage-pagefilters-title": "ናይ ቀረባ ግዜ ንጥፈት",
 	"notificationsmarkread-legend": "መፍለጢ ከም እተነበበ ኣመልክት",
 	"echo-none": "ምንም መፍለጢታት የብልካን።",
+	"echo-notification-placeholder": "መፍለጢታት የለዉን።",
 	"echo-notification-markasread": "ከም እተነበበ ኣመልክት",
 	"echo-notification-markasunread": "ከም ዘይተነበበ ኣመልክት",
 	"echo-notification-markasread-tooltip": "ከም እተነበበ ኣመልክት",
