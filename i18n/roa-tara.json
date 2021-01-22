@@ -194,5 +194,10 @@
 	"echo-email-batch-link-text-view-all-notifications": "'Ndruche tutte le notifiche",
 	"notification-header-foreign-alert": "Otre avvise da {{PLURAL:$5|'n'otra uicchi|otre $5 uicchi}}",
 	"notification-header-foreign-notice": "Otre notizie da {{PLURAL:$5|'n'otra uicchi|otre $5 uicchi}}",
-	"notification-header-foreign-all": "Otre notifeche da {{PLURAL:$5|'n'otra uicchi|otre $5 uicchi}}"
+	"notification-header-foreign-all": "Otre notifeche da {{PLURAL:$5|'n'otra uicchi|otre $5 uicchi}}",
+	"right-manage-all-push-subscriptions": "Gestisce tutte le sottoscreziune push",
+	"action-manage-all-push-subscriptions": "gestisce tutte le sottoscreziune push",
+	"group-push-subscription-manager": "Gestore de le sottoscreziune push",
+	"group-push-subscription-manager-member": "{{GENDER:$1|gestore de le sottoscreziune push}}",
+	"grouppage-push-subscription-manager": "{{ns:project}}:Gestore de le sottoscreziune push"
 }
