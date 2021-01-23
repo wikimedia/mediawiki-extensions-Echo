@@ -521,6 +521,7 @@ class EchoAttributeManagerTest extends MediaWikiTestCase {
 
 	/**
 	 * Mock object of User
+	 * @return User
 	 */
 	protected function mockUser() {
 		$user = $this->getMockBuilder( User::class )

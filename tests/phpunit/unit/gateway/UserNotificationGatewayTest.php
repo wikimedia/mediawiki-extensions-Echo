@@ -109,6 +109,8 @@ class EchoUserNotificationGatewayTest extends MediaWikiUnitTestCase {
 
 	/**
 	 * Mock object of User
+	 * @param string $group
+	 * @return User
 	 */
 	protected function mockUser( $group = 'echo_group' ) {
 		$user = $this->getMockBuilder( User::class )
@@ -129,6 +131,8 @@ class EchoUserNotificationGatewayTest extends MediaWikiUnitTestCase {
 
 	/**
 	 * Mock object of MWEchoDbFactory
+	 * @param array $dbResult
+	 * @return MWEchoDbFactory
 	 */
 	protected function mockMWEchoDbFactory( array $dbResult = [] ) {
 		$dbFactory = $this->getMockBuilder( MWEchoDbFactory::class )
@@ -149,6 +153,7 @@ class EchoUserNotificationGatewayTest extends MediaWikiUnitTestCase {
 
 	/**
 	 * Returns a mock database object
+	 * @param array $dbResult
 	 * @return \Wikimedia\Rdbms\IDatabase
 	 */
 	protected function mockDb( array $dbResult = [] ) {

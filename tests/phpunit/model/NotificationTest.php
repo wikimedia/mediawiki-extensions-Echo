@@ -47,6 +47,7 @@ class EchoNotificationTest extends MediaWikiTestCase {
 
 	/**
 	 * Mock a notification row from database
+	 * @return array
 	 */
 	protected function mockNotificationRow() {
 		return [
@@ -60,6 +61,7 @@ class EchoNotificationTest extends MediaWikiTestCase {
 
 	/**
 	 * Mock an event row from database
+	 * @return array
 	 */
 	protected function mockEventRow() {
 		return [
@@ -76,6 +78,7 @@ class EchoNotificationTest extends MediaWikiTestCase {
 
 	/**
 	 * Mock a target page row
+	 * @return array
 	 */
 	protected function mockTargetPageRow() {
 		return [

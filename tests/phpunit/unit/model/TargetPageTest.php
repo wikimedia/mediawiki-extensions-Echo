@@ -60,6 +60,7 @@ class EchoTargetPageTest extends MediaWikiUnitTestCase {
 	}
 
 	/**
+	 * @param int $pageId
 	 * @return Title
 	 */
 	protected function mockTitle( $pageId ) {
@@ -74,6 +75,7 @@ class EchoTargetPageTest extends MediaWikiUnitTestCase {
 	}
 
 	/**
+	 * @param int $eventId
 	 * @return EchoEvent
 	 */
 	protected function mockEchoEvent( $eventId = 1 ) {
