@@ -198,6 +198,7 @@ class EchoNotificationMapperTest extends MediaWikiTestCase {
 
 	/**
 	 * Mock object of User
+	 * @return User
 	 */
 	protected function mockUser() {
 		$user = $this->getMockBuilder( User::class )
@@ -218,6 +219,7 @@ class EchoNotificationMapperTest extends MediaWikiTestCase {
 
 	/**
 	 * Mock object of EchoNotification
+	 * @return EchoNotification
 	 */
 	protected function mockEchoNotification() {
 		$event = $this->getMockBuilder( EchoNotification::class )
@@ -233,6 +235,7 @@ class EchoNotificationMapperTest extends MediaWikiTestCase {
 	/**
 	 * Mock object of MWEchoDbFactory
 	 * @param array|\Wikimedia\Rdbms\IDatabase $dbResultOrMockDb
+	 * @return MWEchoDbFactory
 	 */
 	protected function mockMWEchoDbFactory( $dbResultOrMockDb ) {
 		$mockDb = is_array( $dbResultOrMockDb ) ? $this->mockDb( $dbResultOrMockDb ) : $dbResultOrMockDb;
@@ -248,6 +251,7 @@ class EchoNotificationMapperTest extends MediaWikiTestCase {
 
 	/**
 	 * Returns a mock database object
+	 * @param array $dbResult
 	 * @return \Wikimedia\Rdbms\IDatabase
 	 */
 	protected function mockDb( array $dbResult ) {

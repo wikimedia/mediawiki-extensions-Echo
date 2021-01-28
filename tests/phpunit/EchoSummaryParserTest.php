@@ -4,6 +4,7 @@
  * @group Echo
  */
 class EchoSummaryParserTest extends MediaWikiTestCase {
+	/** @var string[] */
 	private $existingUsers = [
 		'Werdna',
 		'Jorm',

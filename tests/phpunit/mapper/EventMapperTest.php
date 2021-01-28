@@ -90,6 +90,7 @@ class EchoEventMapperTest extends MediaWikiTestCase {
 	}
 
 	/**
+	 * @param array $dbResult
 	 * @return MWEchoDbFactory
 	 */
 	protected function mockMWEchoDbFactory( $dbResult ) {
@@ -104,6 +105,7 @@ class EchoEventMapperTest extends MediaWikiTestCase {
 	}
 
 	/**
+	 * @param array $dbResult
 	 * @return IDatabase
 	 */
 	protected function mockDb( array $dbResult ) {

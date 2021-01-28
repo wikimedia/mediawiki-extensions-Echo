@@ -6,6 +6,7 @@
  */
 class EchoUserLocatorTest extends MediaWikiTestCase {
 
+	/** @inheritDoc */
 	protected $tablesUsed = [ 'user', 'watchlist' ];
 
 	public function testLocateUsersWatchingTitle() {

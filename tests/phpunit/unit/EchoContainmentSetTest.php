@@ -8,7 +8,6 @@ class EchoContainmentSetTest extends \MediaWikiUnitTestCase {
 	/**
 	 * @covers ::addTitleIDsFromUserOption
 	 * @dataProvider addTitlesFromUserOptionProvider
-	 * @param User $user
 	 * @param string $prefData
 	 * @param string $contains
 	 * @param bool $expected

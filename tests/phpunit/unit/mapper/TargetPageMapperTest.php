@@ -33,6 +33,7 @@ class EchoTargetPageMapperTest extends MediaWikiUnitTestCase {
 
 	/**
 	 * Mock object of EchoTargetPage
+	 * @return EchoTargetPage
 	 */
 	protected function mockEchoTargetPage() {
 		$target = $this->getMockBuilder( EchoTargetPage::class )
@@ -53,6 +54,8 @@ class EchoTargetPageMapperTest extends MediaWikiUnitTestCase {
 
 	/**
 	 * Mock object of MWEchoDbFactory
+	 * @param array $dbResult
+	 * @return MWEchoDbFactory
 	 */
 	protected function mockMWEchoDbFactory( $dbResult ) {
 		$dbFactory = $this->getMockBuilder( MWEchoDbFactory::class )
@@ -67,6 +70,7 @@ class EchoTargetPageMapperTest extends MediaWikiUnitTestCase {
 
 	/**
 	 * Returns a mock database object
+	 * @param array $dbResult
 	 * @return \Wikimedia\Rdbms\IDatabase
 	 */
 	protected function mockDb( array $dbResult ) {
