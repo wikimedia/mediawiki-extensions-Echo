@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Amire80",
+			"BadDog",
 			"Bugoslav",
 			"Ex13",
 			"MaGa",
@@ -168,7 +169,7 @@
 	"notification-link-thank-you-edit": "{{GENDER:$1|Vaše}} uređivanje",
 	"notification-link-text-view-edit": "Prikaži promjene",
 	"notification-link-article-reminder": "Vidi stranicu",
-	"notification-header-reverted": "{{PLURAL:$4|Vaše uređivanje na stranici $3|Vaša uređivanja na stranici $3}} {{GENDER:$2|uklonio je suradnik|uklonila je suradnica}} $2.",
+	"notification-header-reverted": "$2 je {{GENDER:$2|uklonio|uklonila}} {{PLURAL:$4|Vaše uređivanje na stranici <strong>$3</strong>|Vaša uređivanja na stranici <strong>$3</strong>}}.",
 	"notification-header-emailuser": "$1 Vam je {{GENDER:$2|poslao|poslala}} e-poštu.",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$3|Vam}} je {{GENDER:$2|ostavio|ostavila}} poruku na projektu {{SITENAME}}",
 	"notification-page-linked-email-subject": "Na projektu {{SITENAME}} dodana je poveznica na stranicu koju {{GENDER:$3|ste}} stvorili",

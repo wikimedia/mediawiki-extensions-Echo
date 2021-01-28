@@ -34,6 +34,7 @@
 	"apihelp-echopushsubscriptions+create-example": "Зареєструвати push-підписку для поточного користувача.",
 	"apihelp-echopushsubscriptions+delete-summary": "Скасувати реєстрацію push-підписок для поточного чи іншого вказаного користувача.",
 	"apihelp-echopushsubscriptions+delete-param-providertoken": "Токен пов'язаний з push-підпискою, реєстрацію якої необхідно скасувати.",
+	"apihelp-echopushsubscriptions+delete-param-centraluserid": "Центральний ідентифікатор користувача асоційований з підпискою для скасування реєстрації.",
 	"apihelp-echopushsubscriptions+delete-example": "Скасувати реєстрацію push-підписки для поточного користувача.",
 	"apihelp-query+notifications-description": "Отримати сповіщення, які чекають поточного користувача.",
 	"apihelp-query+notifications-summary": "Отримувати сповіщення, що очікують на дію поточного користувача.",
@@ -76,5 +77,7 @@
 	"apiwarn-echo-deprecation-html": "Параметр <kbd>notformat=html</kbd> є застарілим, і невдовзі його буде усунуто. Натомість використовуйте <kbd>notformat=special</kbd>.",
 	"apierror-echo-event-creation-failed": "Не вдалося створити Echo-подію",
 	"apierror-echo-push-token-exists": "Наданий токен вже є в базі даних.",
-	"apierror-echo-push-token-not-found": "Наданий токен не знайдено в базі даних."
+	"apierror-echo-push-token-not-found": "Наданий токен не знайдено в базі даних.",
+	"apierror-echo-push-too-many-subscriptions": "Поточний користувач вже зареєстрував максимально дозволене число push-підписок ($1).",
+	"apierror-echo-push-topic-required": "Поле теми є обов'язковим для цього провайдера."
 }
