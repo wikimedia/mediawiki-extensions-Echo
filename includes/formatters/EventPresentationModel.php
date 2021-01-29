@@ -144,8 +144,6 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 	}
 
 	/**
-	 * Get the distribution type
-	 *
 	 * @return string 'web' or 'email'
 	 */
 	final public function getDistributionType() {

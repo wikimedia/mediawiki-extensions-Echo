@@ -112,6 +112,7 @@ class EchoNotificationController {
 		$notifyTypes = self::getEventNotifyTypes( $type );
 		$userIds = [];
 		$userIdsCount = 0;
+		/** @var User $user */
 		foreach ( self::getUsersToNotifyForEvent( $event ) as $user ) {
 			$userIds[$user->getId()] = $user->getId();
 			$userNotifyTypes = $notifyTypes;

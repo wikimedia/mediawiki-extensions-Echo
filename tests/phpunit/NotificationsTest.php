@@ -10,9 +10,7 @@ use MediaWiki\MediaWikiServices;
 class NotificationsTest extends MediaWikiTestCase {
 
 	/** @var User */
-	// @codingStandardsIgnoreStart
-	var $sysop;
-	// @codingStandardsIgnoreEnd
+	private $sysop;
 
 	protected function setUp() : void {
 		parent::setUp();

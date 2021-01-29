@@ -757,7 +757,7 @@ abstract class EchoDiscussionParser {
 	/**
 	 * Gets the number of section headers in a string.
 	 *
-	 * @param string $text The text.
+	 * @param string $text
 	 * @return int Number of section headers found.
 	 */
 	public static function getSectionCount( $text ) {
@@ -1020,7 +1020,7 @@ abstract class EchoDiscussionParser {
 	 * From a line in a wiki page, determine which user, if any,
 	 *  has signed it.
 	 *
-	 * @param string $line The line.
+	 * @param string $line
 	 * @param Title|null $title
 	 * @return array|false False for none, array for success.
 	 * - First element is the position of the signature.
