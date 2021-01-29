@@ -36,7 +36,7 @@
 	"echo-new-messages": "Te gh'heet di messagg noeuv",
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Messagg}} in de la pagina de ciciarada",
 	"echo-category-title-article-linked": "{{PLURAL:$1|Conligament}} a 'na pagina",
-	"echo-category-title-reverted": "{{PLURAL:$1|Modifega anualda|Modifeghe annulade}}",
+	"echo-category-title-reverted": "{{PLURAL:$1|Modifega anulada|Modifeghe annulade}}",
 	"echo-category-title-mention": "{{PLURAL:$1|Menzion}}",
 	"echo-category-title-mention-failure": "{{PLURAL:$1|Menzion}} in eror",
 	"echo-category-title-mention-success": "{{PLURAL:$1|Menzion riessida|Menzion riesside}}",
