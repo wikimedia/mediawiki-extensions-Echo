@@ -65,7 +65,7 @@ module.exports = function ( grunt ) {
 				} ]
 			}
 		},
-		// eslint-disable-next-line es/no-object-assign
+		// eslint-disable-next-line es/no-object-assign, compat/compat
 		banana: Object.assign( {
 			options: { requireLowerCase: false }
 		}, conf.MessagesDirs ),

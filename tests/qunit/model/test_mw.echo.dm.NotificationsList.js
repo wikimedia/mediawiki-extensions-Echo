@@ -159,8 +159,8 @@
 
 		// Listen to events
 		model
-			.on( 'update', function ( items ) {
-				result.push( 'update:' + items.length );
+			.on( 'update', function ( itms ) {
+				result.push( 'update:' + itms.length );
 			} )
 			.on( 'discard', function ( item ) {
 				result.push( 'discard:' + item.getId() );
