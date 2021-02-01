@@ -103,7 +103,7 @@
 	"notification-dynamic-actions-mute-page-linked-confirmation-description": "{{GENDER:$2|Te}} manesget i pagine che te voeret che i faghen citto in di [$1 to preferenze] quand che te voeuret.",
 	"notification-dynamic-actions-unmute-page-linked": "{{GENDER:$2|Fagh desmet de fà citto}} ai notifiche de conligament a la pagina \"$1\"",
 	"notification-dynamic-actions-unmute-page-linked-confirmation": "I notifiche sora el \"conligament a la pagina\" adess a inn ativade per la pagina \"$1\"",
-	"notification-dynamic-actions-unmute-page-linked-confirmation-description": "{{GENDER:$2|Te}} podet gestì i pagine mute ind [$1 to preferenze] quand che te voeuret.",
+	"notification-dynamic-actions-unmute-page-linked-confirmation-description": "{{GENDER:$2|Te}} podet gestì i pagine mute in di [$1 to preferenze] quand che te voeuret.",
 	"notification-dynamic-actions-unwatch": "{{GENDER:$3|Desmet}} de tegnì d'oeugg i atività noeuve \"$1\"",
 	"notification-dynamic-actions-unwatch-confirmation": "{{GENDER:$3|Te}} seet pu adree a tegnì d'oeugg la pagina \"$1\"",
 	"notification-dynamic-actions-unwatch-confirmation-description": "{{GENDER:$3|Te podet}} tacà a tegnì d'oeugg [$2 questa pagina chì] quand che te voeuret.",
