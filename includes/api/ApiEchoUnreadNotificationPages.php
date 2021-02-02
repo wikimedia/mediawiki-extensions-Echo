@@ -171,7 +171,9 @@ class ApiEchoUnreadNotificationPages extends ApiQueryBase {
 	protected function getUnreadNotificationPagesFromForeign() {
 		$result = [];
 		foreach ( $this->getFromForeign() as $wiki => $data ) {
-			$result[$wiki] = $data['query'][$this->getModuleName()][$wiki];
+			if ( isset( $data['query'][$this->getModuleName()][$wiki] ) ) {
+				$result[$wiki] = $data['query'][$this->getModuleName()][$wiki];
+			}
 		}
 
 		return $result;
