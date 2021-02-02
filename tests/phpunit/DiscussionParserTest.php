@@ -3,6 +3,8 @@
 // phpcs:disable Generic.Files.LineLength -- Long html test examples
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Revision\MutableRevisionRecord;
+use MediaWiki\Revision\SlotRecord;
 use Wikimedia\TestingAccessWrapper;
 
 /**
@@ -964,16 +966,21 @@ TEXT
 		$property->setValue( $title, $lang );
 
 		// create stub MutableRevisionRecord object
-		$row = [
-			'id' => $newId,
-			'user_text' => $username,
-			'user' => User::newFromName( $username )->getId(),
-			'parent_id' => $oldId,
-			'text' => $newText,
-			'title' => $title,
-			'comment' => $summary,
-		];
-		$revision = $store->newMutableRevisionFromArray( $row );
+		$revision = new MutableRevisionRecord( $title );
+
+		$content = new WikitextContent( $newText );
+
+		$revision->setId( $newId );
+		$revision->setUser( User::newFromName( $username ) );
+
+		$revision->setParentId( $oldId );
+		$comment = CommentStoreComment::newUnsavedComment(
+			$summary,
+			null
+		);
+		$revision->setComment( $comment );
+		$revision->setContent( SlotRecord::MAIN, $content );
+
 		$userName = $revision->getUser()->getName();
 
 		// generate diff between 2 revisions
