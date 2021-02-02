@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\Logger\LoggerFactory;
+
 class ApiEchoUnreadNotificationPages extends ApiQueryBase {
 	use ApiCrossWiki;
 
@@ -173,6 +175,16 @@ class ApiEchoUnreadNotificationPages extends ApiQueryBase {
 		foreach ( $this->getFromForeign() as $wiki => $data ) {
 			if ( isset( $data['query'][$this->getModuleName()][$wiki] ) ) {
 				$result[$wiki] = $data['query'][$this->getModuleName()][$wiki];
+			} else {
+				# Usually an error or it is some malformed response
+				# T273479
+				LoggerFactory::getInstance( 'Echo' )->warning(
+					__METHOD__ . ': Unexpected API response from {wiki}',
+					[
+						'wiki' => $wiki,
+						'data' => $data,
+					]
+				);
 			}
 		}
 
