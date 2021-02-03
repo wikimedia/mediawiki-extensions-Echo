@@ -3,15 +3,13 @@
 	"extends": [
 		"wikimedia/client",
 		"wikimedia/jquery",
-		"wikimedia/mediawiki"
+		"wikimedia/mediawiki",
+		"wikimedia/jsduck"
 	],
 	"env": {
 		"commonjs": true
 	},
 	"rules": {
-		"max-len": "off",
-		"mediawiki/class-doc": "warn",
-		"no-shadow": "warn",
-		"compat/compat": "warn"
+		"max-len": "off"
 	}
 }

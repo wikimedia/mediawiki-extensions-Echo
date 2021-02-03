@@ -124,8 +124,8 @@
 
 		// Listen to the event
 		model
-			.on( 'discard', function ( group ) {
-				results.push( group.getName() );
+			.on( 'discard', function ( g ) {
+				results.push( g.getName() );
 			} );
 
 		// Fill the list
