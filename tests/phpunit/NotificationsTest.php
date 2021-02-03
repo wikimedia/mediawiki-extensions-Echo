@@ -14,7 +14,7 @@ class NotificationsTest extends MediaWikiTestCase {
 
 	protected function setUp() : void {
 		parent::setUp();
-		$this->sysop = User::newFromName( 'UTSysop' );
+		$this->sysop = $this->getTestSysop()->getUser();
 	}
 
 	/**

@@ -57,7 +57,7 @@ class EchoUserLocatorTest extends MediaWikiTestCase {
 				// callback returning expected user ids and event title.
 				// required because database insert must be inside test.
 				function () {
-					$user = User::newFromName( 'UTUser' );
+					$user = $this->getTestUser()->getUser();
 					$user->addToDatabase();
 
 					return [
@@ -90,7 +90,7 @@ class EchoUserLocatorTest extends MediaWikiTestCase {
 			[
 				'Something',
 				function () {
-					$user = User::newFromName( 'UTUser' );
+					$user = $this->getTestUser()->getUser();
 					$user->addToDatabase();
 
 					return [
