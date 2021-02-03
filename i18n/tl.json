@@ -7,7 +7,8 @@
 			"Jojit fb",
 			"Leeheonjin",
 			"Sky Harbor",
-			"TheSleepyhollow02"
+			"TheSleepyhollow02",
+			"Yivan000"
 		]
 	},
 	"echo-desc": "Sistema ng pagpapabatid",
@@ -18,7 +19,7 @@
 	"echo-pref-send-to": "Ipadala kay:",
 	"echo-pref-email-format": "Kaanyuan ng e-liham:",
 	"echo-pref-web": "Web",
-	"echo-pref-email": "E-liham",
+	"echo-pref-email": "Email",
 	"echo-pref-email-frequency-never": "Huwag magpadala sa akin ng anumang pabatid sa e-liham",
 	"echo-pref-email-frequency-immediately": "Mga indibiduwal na pabatid nang papasok ito",
 	"echo-pref-email-frequency-daily": "Isang arawang buod ng mga pabatid",

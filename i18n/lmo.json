@@ -50,7 +50,7 @@
 	"echo-category-title-thank-you-edit": "{{PLURAL:$1|mreja milIara|preje miliare}} de modifeghe",
 	"echo-category-title-watchlist": "Modifega a la pagina vardada",
 	"echo-category-title-minor-watchlist": "Modifega piscinina a la pagina vardada",
-	"echo-pref-tooltip-edit-user-talk": "Avisom quand che 'n quaivun el me scriv un messagg o 'l me respond ind la mia pagina de discussion.",
+	"echo-pref-tooltip-edit-user-talk": "Avisom quand che 'n quaivun el me scriv un messagg o 'l me respond in la mia pagina de discussion.",
 	"echo-pref-tooltip-article-linked": "Avisom quand che un quaivun el conliga una pagina che hoo cread a un'altra pagina.",
 	"echo-pref-tooltip-reverted": "Avisom quand che un quaivun l'inversa una modifega che hoo fad, cont el drovà i istrument  \"anula\" o \" torna indree\".",
 	"echo-pref-tooltip-mention": "Avisom quand che un quaivun el conliga la pagina de la mia utenza.",
