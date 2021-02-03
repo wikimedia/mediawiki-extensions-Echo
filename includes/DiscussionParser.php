@@ -22,7 +22,6 @@ abstract class EchoDiscussionParser {
 	 *
 	 * @param RevisionRecord $revision
 	 * @param bool $isRevert
-	 * @return null
 	 */
 	public static function generateEventsForRevision( RevisionRecord $revision, $isRevert ) {
 		global $wgEchoMentionsOnMultipleSectionEdits;
