@@ -17,6 +17,7 @@
 	"prefs-echocrosswiki": "Obveščanje med wikiji",
 	"prefs-blocknotificationslist": "Utišani uporabniki",
 	"prefs-mutedpageslist": "Strani z utišanim obveščanjem o povezavah na stran",
+	"echo-mobile-notifications-filter-title": "Filtriraj obvestila",
 	"echo-pref-send-me": "Pošiljaj mi:",
 	"echo-pref-send-to": "Pošiljaj na:",
 	"echo-pref-email-format": "Oblika e-pošte:",
