@@ -11,7 +11,6 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	/**
 	 * Insert a notification record
 	 * @param EchoNotification $notification
-	 * @return null
 	 */
 	public function insert( EchoNotification $notification ) {
 		$dbw = $this->dbFactory->getEchoDb( DB_MASTER );
