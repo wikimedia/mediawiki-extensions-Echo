@@ -48,6 +48,7 @@
 	"echo-category-title-system": "{{PLURAL:$1|Sistem}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|Schimbare a drepturilor de utilizator|Schimbări ale drepturilor de utilizator}}",
 	"echo-category-title-emailuser": "{{PLURAL:$1|E-mail de la un alt utilizator|E-mailuri de la alți utilizatori}}",
+	"echo-category-title-thank-you-edit": "Atingere {{PLURAL:$1|număr fix|număr fix}} de editări",
 	"echo-pref-tooltip-edit-user-talk": "Notifică-mă când cineva publică un mesaj sau răspunde pe pagina mea de discuții.",
 	"echo-pref-tooltip-article-linked": "Notifică-mă atunci când cineva introduce într-un articol o legătură către una din paginile pe care le-am creat.",
 	"echo-pref-tooltip-reverted": "Notifică-mă atunci când cineva, folosind uneltele de anulare sau revenire, revine asupra unei modificări făcută de mine.",
