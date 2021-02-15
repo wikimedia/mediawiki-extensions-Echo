@@ -15,7 +15,7 @@
 	"echo-learn-more": "Bêhtir hîn bibe",
 	"echo-new-messages": "Peyamên nû ji te re hene",
 	"echo-category-title-system": "{{PLURAL:$1|Pergal}}",
-	"echo-category-title-user-rights": "{{PLURAL:$1|Guherandina mafên bikarhêran|Guherandinan mafên bikarhêneran}}",
+	"echo-category-title-user-rights": "{{PLURAL:$1|Guhartina mafên bikarhêran|Guhartinên mafên bikarhêneran}}",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Agahdariyên}} te",
 	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Bikarhênerên hene",
 	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Bikarhênerên nû",

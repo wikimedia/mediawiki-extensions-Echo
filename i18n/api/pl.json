@@ -4,6 +4,7 @@
 			"Chrumps",
 			"Rail",
 			"Railfail536",
+			"SemanticPioneer",
 			"Woytecr"
 		]
 	},
@@ -20,6 +21,7 @@
 	"apihelp-echomarkseen-summary": "Oznacz powiadomienia jako przeczytane dla bieżącego użytkownika.",
 	"apihelp-echomarkseen-example-1": "Oznacz powiadomienia wszystkich typów jako przeczytane",
 	"apihelp-echomarkseen-param-type": "Typ powiadomień do oznaczenia jako przeczytane: 'alert', 'message' lub 'all'.",
+	"apihelp-echopushsubscriptions-param-command": "Akcja do wykonania.",
 	"apihelp-query+notifications-description": "Pobierz powiadomienia oczekujące dla bieżącego użytkownika.",
 	"apihelp-query+notifications-summary": "Pobierz powiadomienia oczekujące dla bieżącego użytkownika.",
 	"apihelp-query+notifications-param-prop": "Szczegóły żądania.",

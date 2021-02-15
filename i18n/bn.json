@@ -100,6 +100,7 @@
 	"echo-notification-markasunread": "অপঠিত হিসেবে চিহ্নিত করুন",
 	"echo-notification-markasread-tooltip": "পঠিত হিসেবে চিহ্নিত করুন",
 	"echo-notification-more-options-tooltip": "আরো বিকল্প",
+	"notification-dynamic-actions-mute-page-linked-confirmation": "\"পাতা সংযোগ\" বিজ্ঞপ্তি এখন \"$1\" পাতার জন্য নিষ্ক্রিয় করা হয়েছে",
 	"notification-dynamic-actions-unwatch": "\"$1\"-এ নতুন কার্যকলাপ নজর রাখা {{GENDER:$3|বন্ধ করুন}}",
 	"notification-dynamic-actions-unwatch-confirmation": "{{GENDER:$3|আপনি}} আর \"$1\" পাতাটি নজরে রাখছেন না",
 	"notification-dynamic-actions-unwatch-confirmation-description": "{{GENDER:$3|আপনি}} যেকোন সময় [$2 এই পাতায়] নজরে রাখতে পারেন।",
@@ -156,12 +157,13 @@
 	"notification-header-thank-you-10000-edit": "{{GENDER:$2|আপনি}} এইমাত্র {{GENDER:$2|আপনার}} দশ হাজারতম সম্পাদনা করেছেন; {{GENDER:$2|আপনাকে}} অনেক ধন্যবাদ!",
 	"notification-header-thank-you-100000-edit": "{{GENDER:$2|আপনি}} এইমাত্র {{GENDER:$2|আপনার}} এক লক্ষতম সম্পাদনা করেছেন; একজন অসাধারণ অবদানকারী হওয়ার জন্য {{GENDER:$2|আপনাকে}} ধন্যবাদ!",
 	"notification-header-thank-you-1000000-edit": "{{GENDER:$2|আপনি}} এইমাত্র {{GENDER:$2|আপনার}} এক লক্ষতম সম্পাদনা করেছেন; একজন অসাধারণ অবদানকারী হওয়ার জন্য {{GENDER:$2|আপনাকে}} ধন্যবাদ!",
+	"notification-header-thank-you-10000000-edit": "{{GENDER:$2|আপনি}} এইমাত্র {{GENDER:$2|আপনার}} এক কোটিতম সম্পাদনা করেছেন; একজন অসাধারণ অবদানকারী হওয়ার জন্য {{GENDER:$2|আপনাকে}} ধন্যবাদ!",
 	"notification-link-thank-you-edit": "{{GENDER:$1|আপনার}} সম্পাদনা",
 	"notification-link-text-view-edit": "সম্পাদনা দেখুন",
 	"notification-link-article-reminder": "পাতা দেখুন",
 	"notification-header-reverted": "<strong>$3</strong>-এ আপনার করা {{PLURAL:$4|সম্পাদনা|সম্পাদনাগুলো}} {{GENDER:$2|পূর্বাবস্থায় নেয়া হয়েছে}}।",
 	"notification-header-emailuser": "$1 আপনাকে একটি ইমেইল {{GENDER:$2|পাঠিয়েছেন}}।",
-	"notification-edit-talk-page-email-subject2": "$1 {{SITENAME}}-এ {{GENDER:$3|আপনাকে}} একটি বার্তা {{GENDER:$2|দিয়েছেন}}",
+	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$3|আপনাকে}} {{SITENAME}}-এ একটি বার্তা {{GENDER:$2|দিয়েছেন}}",
 	"notification-page-linked-email-subject": "{{GENDER:$3|আপনার}} তৈরিকৃত একটি পাতা {{SITENAME}} সাইটে সংযুক্ত হয়েছে।",
 	"notification-reverted-email-subject2": "{{SITENAME}}-এ {{GENDER:$3|আপনার}} করা {{PLURAL:$4|সম্পাদনা|সম্পাদনাগুলি}} {{GENDER:$2|পূর্বাবস্থায়}} নেয়া হয়েছে",
 	"notification-mention-email-subject": "$1 {{GENDER:$2|আপনাকে}} {{SITENAME}} সাইটে {{GENDER:$3|উল্লেখ করেছেন}}",
@@ -202,5 +204,5 @@
 	"notification-header-foreign-alert": "{{PLURAL:$5|আরেকটি উইকি থেকে|$5টি উইকি থেকে}} আরো অবহিতি",
 	"notification-header-foreign-notice": "{{PLURAL:$5|আরেকটি উইকি|$5টি উইকি}} থেকে আরো বিজ্ঞপ্তি",
 	"notification-header-foreign-all": "{{PLURAL:$5|আরেকটি উইকি|$5টি উইকি}} থেকে আরো বিজ্ঞপ্তি",
-	"echo-badge-count": "{{PLURAL:$1|$1|100=৯৯+}}"
+	"echo-badge-count": "{{PLURAL:$1|$1|100={{formatnum:99}}+}}"
 }

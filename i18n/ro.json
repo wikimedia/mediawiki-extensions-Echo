@@ -20,6 +20,7 @@
 	"prefs-echocrosswiki": "Notificări inter-wiki",
 	"prefs-blocknotificationslist": "Utilizatori ignorați de notificări",
 	"prefs-mutedpageslist": "Pagini ignorate de notificările de legare ale paginilor",
+	"prefs-echopollupdates": "Notificări în timp real",
 	"echo-mobile-notifications-filter-title": "Filtrează notificările",
 	"echo-pref-show-poll-updates": "Afișează notificări noi pe măsură ce sosesc",
 	"echo-pref-send-me": "Trimite-mi:",
