@@ -118,7 +118,7 @@ class EchoForeignWikiRequest {
 	 *
 	 * @param string $wiki Name of the wiki to get a token for
 	 * @suppress PhanTypeInvalidCallableArraySize getRequestParams can take an array, too (phan bug)
-	 * @return string Token
+	 * @return string Token, or empty string if an unable to retrieve the token.
 	 */
 	protected function getCsrfToken( $wiki ) {
 		if ( $this->csrfTokens === null ) {
@@ -132,10 +132,20 @@ class EchoForeignWikiRequest {
 			] );
 			$responses = $this->doRequests( $reqs );
 			foreach ( $responses as $w => $response ) {
-				$this->csrfTokens[$w] = $response['query']['tokens']['csrftoken'];
+				if ( isset( $response['query']['tokens']['csrftoken'] ) ) {
+					$this->csrfTokens[$w] = $response['query']['tokens']['csrftoken'];
+				} else {
+					LoggerFactory::getInstance( 'Echo' )->warning(
+						__METHOD__ . ': Unexpected CSRF token API response from {wiki}',
+						[
+							'wiki' => $wiki,
+							'response' => $response,
+						]
+					);
+				}
 			}
 		}
-		return $this->csrfTokens[$wiki];
+		return $this->csrfTokens[$wiki] ?? '';
 	}
 
 	/**
