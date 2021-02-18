@@ -3,6 +3,7 @@
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionRecord;
+use MediaWiki\User\UserIdentity;
 
 /**
  * Immutable class to represent an event.
@@ -169,8 +170,15 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 			$obj->setTitle( $obj->title );
 		}
 
-		if ( $obj->agent && !$obj->agent instanceof User ) {
-			throw new InvalidArgumentException( "Invalid user parameter" );
+		if ( $obj->agent ) {
+			if ( !$obj->agent instanceof UserIdentity ) {
+				throw new InvalidArgumentException( "Invalid user parameter" );
+			}
+
+			// RevisionStore returns UserIdentityValue now, convert to User for passing to hooks.
+			if ( !$obj->agent instanceof User ) {
+				$obj->agent = MediaWikiServices::getInstance()->getUserFactory()->newFromUserIdentity( $obj->agent );
+			}
 		}
 
 		if ( !Hooks::run( 'BeforeEchoEventInsert', [ $obj ] ) ) {
