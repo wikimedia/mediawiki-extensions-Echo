@@ -3,6 +3,7 @@
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
+use MediaWiki\User\UserNameUtils;
 
 abstract class EchoDiscussionParser {
 	private const HEADER_REGEX = '^(==+)\h*([^=].*)\h*\1$';
@@ -881,8 +882,10 @@ abstract class EchoDiscussionParser {
 		}
 
 		list( , $foundUser ) = $userData;
+		$userNameUtils = MediaWikiServices::getInstance()->getUserNameUtils();
 
-		return User::getCanonicalName( $foundUser, false ) === User::getCanonicalName( $user, false );
+		return $userNameUtils->getCanonical( $foundUser, UserNameUtils::RIGOR_NONE ) ===
+			$userNameUtils->getCanonical( $user, UserNameUtils::RIGOR_NONE );
 	}
 
 	/**
@@ -1122,17 +1125,16 @@ abstract class EchoDiscussionParser {
 		}
 
 		$user = $userMatches[0];
-
 		$userNameUtils = MediaWikiServices::getInstance()->getUserNameUtils();
 		if (
 			!$userNameUtils->isIP( $user ) &&
-			User::getCanonicalName( $user ) === false
+			$userNameUtils->getCanonical( $user ) === false
 		) {
 			// Not a real username
 			return false;
 		}
 
-		return User::getCanonicalName( $userMatches[0], false );
+		return $userNameUtils->getCanonical( $userMatches[0], UserNameUtils::RIGOR_NONE );
 	}
 
 	/**
