@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Macofe",
+			"Tokvo",
 			"Xuacu"
 		]
 	},
@@ -167,7 +168,7 @@
 	"notification-inbox-filter-read": "Lleer",
 	"notification-inbox-filter-unread": "Non lleíes",
 	"notification-inbox-filter-all": "Toes",
-	"echo-specialmute-label-mute-notifications": "Silenciar los avisos d'esti usuariu",
+	"echo-specialmute-label-mute-notifications": "Silenciar los avisos d'{{GENDER:$1|esti usuariu|esta usuaria}}",
 	"echo-email-plain-footer": "Para controlar qué correos electrónicos {{GENDER:$1|t}}'unviamos, revisa les {{GENDER:$1|tos}} preferencies:",
 	"echo-email-html-footer-preference-link-text": "comprueba les {{GENDER:$1|tos}} preferencies",
 	"echo-email-html-footer-with-link": "Pa controlar qué mensaxes de corréu electrónicu {{GENDER:$2|t'unviamos}}, $1.",

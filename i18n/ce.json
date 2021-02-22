@@ -151,5 +151,6 @@
 	"echo-email-batch-link-text-view-all-notifications": "Массо хаамашка хьажар",
 	"notification-header-foreign-alert": "Дукха дӀахьедарш {{PLURAL:$5|кхечу вики чура|$5 кхечу викеш чура}}",
 	"notification-header-foreign-notice": "Дукха хаамаш {{PLURAL:$5|кхечу вики чура|$5 кхечу викеш чура}}",
-	"notification-header-foreign-all": "Дукха дӀахьедарш {{PLURAL:$5|кхечу вики чура|$5 кхечу викеш чура}}"
+	"notification-header-foreign-all": "Дукха дӀахьедарш {{PLURAL:$5|кхечу вики чура|$5 кхечу викеш чура}}",
+	"echo-foreign-wiki-lang": "$1 - $2"
 }

@@ -262,5 +262,10 @@
 	"echo-email-batch-link-text-view-all-notifications": "Посмотреть все уведомления",
 	"notification-header-foreign-alert": "Больше уведомлений из {{PLURAL:$5|другой вики|$5 других вики}}",
 	"notification-header-foreign-notice": "Больше уведомлений из {{PLURAL:$5|другой вики|$5 других вики}}",
-	"notification-header-foreign-all": "Больше уведомлений из {{PLURAL:$5|другой вики|$5 других вики}}"
+	"notification-header-foreign-all": "Больше уведомлений из {{PLURAL:$5|другой вики|$5 других вики}}",
+	"right-manage-all-push-subscriptions": "Управление всеми подписками push-уведомлений",
+	"action-manage-all-push-subscriptions": "управление всеми подписками push-уведомлений",
+	"group-push-subscription-manager": "Управляющие подписками push-уведомлений",
+	"group-push-subscription-manager-member": "{{GENDER:$1|управляющий подписками push-уведомлений}}",
+	"grouppage-push-subscription-manager": "{{ns:project}}:Управляющие подписками push-уведомлений"
 }

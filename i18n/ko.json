@@ -212,5 +212,6 @@
 	"echo-email-batch-link-text-view-all-notifications": "모든 알림 보기",
 	"notification-header-foreign-alert": "{{PLURAL:$5|다른 위키|$5개의 다른 위키}}의 중요 알림 더 보기",
 	"notification-header-foreign-notice": "{{PLURAL:$5|다른 위키|$5개의 다른 위키}}의 더 많은 알림",
-	"notification-header-foreign-all": "$5개의 다른 위키로부터 알림 더 보기"
+	"notification-header-foreign-all": "$5개의 다른 위키로부터 알림 더 보기",
+	"group-push-subscription-manager": "푸시 구독 관리자"
 }
