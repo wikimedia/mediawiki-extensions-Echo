@@ -19,27 +19,27 @@ class EchoUserLocator {
 			return [];
 		}
 
-		$it = new BatchRowIterator(
+		$batchRowIt = new BatchRowIterator(
 			wfGetDB( DB_REPLICA, 'watchlist' ),
 			/* $table = */ 'watchlist',
 			/* $primaryKeys = */ [ 'wl_user' ],
 			$batchSize
 		);
-		$it->addConditions( [
+		$batchRowIt->addConditions( [
 			'wl_namespace' => $title->getNamespace(),
 			'wl_title' => $title->getDBkey(),
 		] );
-		$it->setCaller( __METHOD__ );
+		$batchRowIt->setCaller( __METHOD__ );
 
 		// flatten the result into a stream of rows
-		$it = new RecursiveIteratorIterator( $it );
+		$recursiveIt = new RecursiveIteratorIterator( $batchRowIt );
 
 		// add callback to convert user id to user objects
-		$it = new EchoCallbackIterator( $it, function ( $row ) {
+		$echoCallbackIt = new EchoCallbackIterator( $recursiveIt, function ( $row ) {
 			return User::newFromId( $row->wl_user );
 		} );
 
-		return $it;
+		return $echoCallbackIt;
 	}
 
 	/**
