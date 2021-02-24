@@ -352,8 +352,9 @@ abstract class EchoDiscussionParser {
 				continue;
 			}
 
+			$userNameUtils = MediaWikiServices::getInstance()->getUserNameUtils();
 			// 2. user is an anonymous IP
-			if ( User::isIP( $dbk ) ) {
+			if ( $userNameUtils->isIP( $dbk ) ) {
 				$userMentions['anonymousUsers'][] = $dbk;
 				$count++;
 				$stats->increment( 'echo.event.mention.error.anonUser' );
@@ -1122,8 +1123,9 @@ abstract class EchoDiscussionParser {
 
 		$user = $userMatches[0];
 
+		$userNameUtils = MediaWikiServices::getInstance()->getUserNameUtils();
 		if (
-			!User::isIP( $user ) &&
+			!$userNameUtils->isIP( $user ) &&
 			User::getCanonicalName( $user ) === false
 		) {
 			// Not a real username
