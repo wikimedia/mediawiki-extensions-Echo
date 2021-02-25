@@ -56,7 +56,7 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 	public function __construct() {
 		parent::__construct( 'DisplayNotificationsConfiguration' );
 
-		$this->attributeManager = EchoAttributeManager::newFromGlobalVars();
+		$this->attributeManager = EchoServices::getInstance()->getAttributeManager();
 		$this->notificationController = new EchoNotificationController();
 	}
 

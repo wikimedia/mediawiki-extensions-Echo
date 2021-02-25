@@ -30,4 +30,9 @@ class EchoServicesTest extends MediaWikiIntegrationTestCase {
 		$this->assertInstanceOf( SubscriptionManager::class, $subscriptionManager );
 	}
 
+	public function testGetAttributeManager(): void {
+		$attributeManager = $this->echoServices->getAttributeManager();
+		$this->assertInstanceOf( EchoAttributeManager::class, $attributeManager );
+	}
+
 }

@@ -22,7 +22,7 @@ class NotificationPager extends ReverseChronologicalPager {
 	}
 
 	public function getQueryInfo() {
-		$attributeManager = EchoAttributeManager::newFromGlobalVars();
+		$attributeManager = EchoServices::getInstance()->getAttributeManager();
 		$eventTypes = $attributeManager->getUserEnabledEvents( $this->getUser(), 'web' );
 
 		return [

@@ -3,11 +3,7 @@
 /**
  * @covers \EchoAttributeManager
  */
-class EchoAttributeManagerTest extends MediaWikiTestCase {
-
-	public function testNewFromGlobalVars() {
-		$this->assertInstanceOf( EchoAttributeManager::class, EchoAttributeManager::newFromGlobalVars() );
-	}
+class EchoAttributeManagerTest extends MediaWikiUnitTestCase {
 
 	public static function getUserLocatorsProvider() {
 		return [

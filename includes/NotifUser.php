@@ -259,7 +259,7 @@ class MWEchoNotifUser {
 			$talkPageNotificationManager = MediaWikiServices::getInstance()
 				->getTalkPageNotificationManager();
 			if ( $talkPageNotificationManager->userHasNewMessages( $this->mUser ) ) {
-				$attributeManager = EchoAttributeManager::newFromGlobalVars();
+				$attributeManager = EchoServices::getInstance()->getAttributeManager();
 				$categoryMap = $attributeManager->getEventsByCategory();
 				$usertalkTypes = $categoryMap['edit-user-talk'];
 				$unreadEditUserTalk = $this->notifMapper->fetchUnreadByUser(
@@ -301,7 +301,7 @@ class MWEchoNotifUser {
 			$talkPageNotificationManager = MediaWikiServices::getInstance()
 				->getTalkPageNotificationManager();
 			if ( !$talkPageNotificationManager->userHasNewMessages( $this->mUser ) ) {
-				$attributeManager = EchoAttributeManager::newFromGlobalVars();
+				$attributeManager = EchoServices::getInstance()->getAttributeManager();
 				$categoryMap = $attributeManager->getEventsByCategory();
 				$usertalkTypes = $categoryMap['edit-user-talk'];
 				$unreadEditUserTalk = $this->notifMapper->fetchUnreadByUser(
@@ -343,7 +343,7 @@ class MWEchoNotifUser {
 			$sections = EchoAttributeManager::$sections;
 		}
 
-		$attributeManager = EchoAttributeManager::newFromGlobalVars();
+		$attributeManager = EchoServices::getInstance()->getAttributeManager();
 		$eventTypes = $attributeManager->getUserEnabledEventsbySections( $this->mUser, 'web', $sections );
 
 		$notifs = $this->notifMapper->fetchUnreadByUser( $this->mUser, $wgEchoMaxUpdateCount, null, $eventTypes );
@@ -557,7 +557,7 @@ class MWEchoNotifUser {
 	 * @return array[] [ 'alert' => [ 'count' => N, 'timestamp' => TS ], ... ]
 	 */
 	protected function computeLocalCountsAndTimestamps( $dbSource = DB_REPLICA ) {
-		$attributeManager = EchoAttributeManager::newFromGlobalVars();
+		$attributeManager = EchoServices::getInstance()->getAttributeManager();
 		$result = [];
 		$totals = [ 'count' => 0, 'timestamp' => -1 ];
 

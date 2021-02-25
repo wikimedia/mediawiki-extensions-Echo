@@ -12,7 +12,7 @@ class EchoNotifier {
 	public static function notifyWithNotification( $user, $event ) {
 		// Only create the notification if the user wants to receive that type
 		// of notification and they are eligible to receive it. See bug 47664.
-		$attributeManager = EchoAttributeManager::newFromGlobalVars();
+		$attributeManager = EchoServices::getInstance()->getAttributeManager();
 		$userWebNotifications = $attributeManager->getUserEnabledEvents( $user, 'web' );
 		if ( !in_array( $event->getType(), $userWebNotifications ) ) {
 			return;
@@ -51,7 +51,7 @@ class EchoNotifier {
 			return false;
 		}
 
-		$attributeManager = EchoAttributeManager::newFromGlobalVars();
+		$attributeManager = EchoServices::getInstance()->getAttributeManager();
 		$userEmailNotifications = $attributeManager->getUserEnabledEvents( $user, 'email' );
 		// See if the user wants to receive emails for this category or the user is eligible to receive this email
 		if ( in_array( $event->getType(), $userEmailNotifications ) ) {

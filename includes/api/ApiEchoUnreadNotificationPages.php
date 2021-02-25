@@ -56,7 +56,7 @@ class ApiEchoUnreadNotificationPages extends ApiQueryBase {
 	 * @phan-return array{pages:array[],totalCount:int}
 	 */
 	protected function getFromLocal( $limit, $groupPages ) {
-		$attributeManager = EchoAttributeManager::newFromGlobalVars();
+		$attributeManager = EchoServices::getInstance()->getAttributeManager();
 		$enabledTypes = $attributeManager->getUserEnabledEvents( $this->getUser(), 'web' );
 
 		$dbr = MWEchoDbFactory::newFromDefault()->getEchoDb( DB_REPLICA );
