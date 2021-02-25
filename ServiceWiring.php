@@ -9,12 +9,20 @@ use MediaWiki\Storage\NameTableStore;
 return [
 
 	'EchoAttributeManager' => function ( MediaWikiServices $services ): EchoAttributeManager {
+		$userGroupManager = $services->getUserGroupManager();
 		$echoConfig = $services->getConfigFactory()->makeConfig( 'Echo' );
 		$notifications = $echoConfig->get( 'EchoNotifications' );
 		$categories = $echoConfig->get( 'EchoNotificationCategories' );
 		$typeAvailability = $echoConfig->get( 'DefaultNotifyTypeAvailability' );
 		$typeAvailabilityByCategory = $echoConfig->get( 'NotifyTypeAvailabilityByCategory' );
-		return new EchoAttributeManager( $notifications, $categories, $typeAvailability, $typeAvailabilityByCategory );
+
+		return new EchoAttributeManager(
+			$notifications,
+			$categories,
+			$typeAvailability,
+			$typeAvailabilityByCategory,
+			$userGroupManager
+		);
 	},
 
 	'EchoPushNotificationServiceClient' => function ( MediaWikiServices $services ):

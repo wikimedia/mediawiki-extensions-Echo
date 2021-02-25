@@ -1,10 +1,17 @@
 <?php
 
+use MediaWiki\User\UserGroupManager;
+use MediaWiki\User\UserIdentity;
+
 /**
  * An object that manages attributes of echo notifications: category, elegibility,
  * group, section etc.
  */
 class EchoAttributeManager {
+	/**
+	 * @var UserGroupManager
+	 */
+	private $userGroupManager;
 
 	/**
 	 * @var array[]
@@ -59,12 +66,14 @@ class EchoAttributeManager {
 	 * @param array[] $notifyTypeAvailabilityByCategory Associative array with
 	 *   categories as keys and value an associative array as with
 	 *   $defaultNotifyTypeAvailability.
+	 * @param UserGroupManager $userGroupManager
 	 */
 	public function __construct(
 		array $notifications,
 		array $categories,
 		array $defaultNotifyTypeAvailability,
-		array $notifyTypeAvailabilityByCategory
+		array $notifyTypeAvailabilityByCategory,
+		UserGroupManager $userGroupManager
 	) {
 		// Extensions can define their own notifications and categories
 		$this->notifications = $notifications;
@@ -72,6 +81,7 @@ class EchoAttributeManager {
 
 		$this->defaultNotifyTypeAvailability = $defaultNotifyTypeAvailability;
 		$this->notifyTypeAvailabilityByCategory = $notifyTypeAvailabilityByCategory;
+		$this->userGroupManager = $userGroupManager;
 	}
 
 	/**
@@ -179,12 +189,12 @@ class EchoAttributeManager {
 	 * See if a user is eligible to receive a certain type of notification
 	 * (based on user groups, not user preferences)
 	 *
-	 * @param User $user
+	 * @param UserIdentity $user
 	 * @param string $category A notification category defined in $wgEchoNotificationCategories
 	 * @return bool
 	 */
 	public function getCategoryEligibility( $user, $category ) {
-		$usersGroups = $user->getGroups();
+		$usersGroups = $this->userGroupManager->getUserGroups( $user );
 		if ( isset( $this->categories[$category]['usergroups'] ) ) {
 			$allowedGroups = $this->categories[$category]['usergroups'];
 			if ( !array_intersect( $usersGroups, $allowedGroups ) ) {

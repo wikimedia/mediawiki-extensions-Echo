@@ -210,9 +210,6 @@ class EchoNotificationMapperTest extends MediaWikiTestCase {
 		$user->expects( $this->any() )
 			->method( 'getOption' )
 			->will( $this->returnValue( true ) );
-		$user->expects( $this->any() )
-			->method( 'getGroups' )
-			->will( $this->returnValue( [ 'echo_group' ] ) );
 
 		return $user;
 	}
