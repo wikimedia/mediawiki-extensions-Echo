@@ -20,5 +20,6 @@
 	"notification-link-text-collapse-all": "ꯁꯨꯞꯆꯤꯟꯕꯥ",
 	"notification-link-text-view-message": "ꯄꯥꯎꯖꯦꯜ ꯎꯠꯂꯨ",
 	"notification-link-text-view-mention": "ꯃꯤꯡ ꯄꯟꯕꯗꯨ ꯎꯠꯂꯨ",
-	"notification-header-thank-you-1-edit": "{{GENDER:$2|ꯅꯪꯅ}} ꯍꯧꯖꯤꯛꯇ {{GENDER:$2|ꯅꯍꯥꯛꯀꯤ}} ꯑꯍꯥꯟꯕ ꯏꯗꯤꯠ ꯁꯦꯝꯒꯠꯈꯔꯦ; ꯊꯥꯒꯠꯆꯔꯤ {{GENDER:$2|ꯑꯗꯣꯝꯕꯨ}}, ꯑꯃꯁꯨꯡ ꯂꯦꯡꯁꯤꯟꯕꯤꯔꯛꯁꯤ!"
+	"notification-header-thank-you-1-edit": "{{GENDER:$2|ꯅꯪꯅ}} ꯍꯧꯖꯤꯛꯇ {{GENDER:$2|ꯅꯍꯥꯛꯀꯤ}} ꯑꯍꯥꯟꯕ ꯏꯗꯤꯠ ꯁꯦꯝꯒꯠꯈꯔꯦ; ꯊꯥꯒꯠꯆꯔꯤ {{GENDER:$2|ꯑꯗꯣꯝꯕꯨ}}, ꯑꯃꯁꯨꯡ ꯂꯦꯡꯁꯤꯟꯕꯤꯔꯛꯁꯤ!",
+	"notification-header-thank-you-10-edit": "{{GENDER:$2|ꯅꯪꯅ}} ꯍꯧꯖꯤꯛꯇ {{GENDER:$2|ꯅꯍꯥꯛꯀꯤ}} ꯱꯰ꯁꯨꯕ ꯁꯦꯝꯒꯠꯄ ꯃꯁꯤꯡ ꯁꯨꯔꯦ; ꯊꯥꯒꯠꯆꯔꯤ {{GENDER:$2|ꯑꯗꯣꯝꯕꯨ}}, ꯑꯃꯁꯨꯡ ꯆꯥꯟꯕꯤꯗꯨꯅ ꯃꯈꯥ ꯆꯠꯊꯕꯤꯌꯨ!"
 }
