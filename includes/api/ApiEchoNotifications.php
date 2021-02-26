@@ -100,7 +100,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 					}
 				}
 			} else {
-				$attributeManager = EchoAttributeManager::newFromGlobalVars();
+				$attributeManager = EchoServices::getInstance()->getAttributeManager();
 				$result = $this->getPropList(
 					$user,
 					$attributeManager->getUserEnabledEventsbySections( $user, 'web', $params['sections'] ),
@@ -163,7 +163,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 		$unreadFirst = false,
 		$bundle = false
 	) {
-		$attributeManager = EchoAttributeManager::newFromGlobalVars();
+		$attributeManager = EchoServices::getInstance()->getAttributeManager();
 		$sectionEvents = $attributeManager->getUserEnabledEventsbySections( $user, 'web', [ $section ] );
 
 		if ( !$sectionEvents ) {

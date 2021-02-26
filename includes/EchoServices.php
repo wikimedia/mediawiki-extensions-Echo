@@ -37,4 +37,9 @@ class EchoServices {
 		return $this->services->getService( 'EchoPushSubscriptionManager' );
 	}
 
+	/** @return EchoAttributeManager */
+	public function getAttributeManager(): EchoAttributeManager {
+		return $this->services->getService( 'EchoAttributeManager' );
+	}
+
 }

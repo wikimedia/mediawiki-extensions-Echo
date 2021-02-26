@@ -296,7 +296,7 @@ class EchoHooks implements RecentChange_saveHook {
 			$wgEchoCrossWikiNotifications, $wgEchoPerUserBlacklist,
 			$wgEchoWatchlistNotifications;
 
-		$attributeManager = EchoAttributeManager::newFromGlobalVars();
+		$attributeManager = EchoServices::getInstance()->getAttributeManager();
 
 		// Show email frequency options
 		$freqOptions = [
@@ -1215,7 +1215,7 @@ class EchoHooks implements RecentChange_saveHook {
 		// If a user is watching his/her own talk page, do not send talk page watchlist
 		// email notification if the user is receiving Echo talk page notification
 		if ( $title->isTalkPage() && $targetUser->getTalkPage()->equals( $title ) ) {
-			$attributeManager = EchoAttributeManager::newFromGlobalVars();
+			$attributeManager = EchoServices::getInstance()->getAttributeManager();
 			$events = $attributeManager->getUserEnabledEvents( $targetUser, 'email' );
 			if ( in_array( 'edit-user-talk', $events ) ) {
 				// Do not send watchlist email notification, the user will receive an Echo notification
@@ -1482,7 +1482,7 @@ class EchoHooks implements RecentChange_saveHook {
 			if ( $newUser->isRegistered() ) {
 				// Select notifications that are now sent to the same user
 				$dbw = MWEchoDbFactory::newFromDefault()->getEchoDb( DB_MASTER );
-				$attributeManager = EchoAttributeManager::newFromGlobalVars();
+				$attributeManager = EchoServices::getInstance()->getAttributeManager();
 				$selfIds = $dbw->selectFieldValues(
 					[ 'echo_notification', 'echo_event' ],
 					'event_id',

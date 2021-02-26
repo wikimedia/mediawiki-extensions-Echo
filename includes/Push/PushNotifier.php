@@ -2,8 +2,8 @@
 
 namespace EchoPush;
 
-use EchoAttributeManager;
 use EchoEvent;
+use EchoServices;
 use JobQueueGroup;
 use User;
 
@@ -16,7 +16,7 @@ class PushNotifier {
 	 * @param EchoEvent $event
 	 */
 	public static function notifyWithPush( User $user, EchoEvent $event ): void {
-		$attributeManager = EchoAttributeManager::newFromGlobalVars();
+		$attributeManager = EchoServices::getInstance()->getAttributeManager();
 		$userEnabledEvents = $attributeManager->getUserEnabledEvents( $user, 'push' );
 		if ( in_array( $event->getType(), $userEnabledEvents ) ) {
 			JobQueueGroup::singleton()->push( self::createJob( $user, $event ) );

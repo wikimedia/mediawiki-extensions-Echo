@@ -52,12 +52,6 @@ class EchoAttributeManager {
 	public const ATTR_FILTERS = 'user-filters';
 
 	/**
-	 * An EchoAttributeManager instance created from global variables
-	 * @var self
-	 */
-	protected static $globalVarInstance;
-
-	/**
 	 * @param array[] $notifications Notification attributes
 	 * @param array[] $categories Notification categories
 	 * @param bool[] $defaultNotifyTypeAvailability Associative array with output
@@ -78,36 +72,6 @@ class EchoAttributeManager {
 
 		$this->defaultNotifyTypeAvailability = $defaultNotifyTypeAvailability;
 		$this->notifyTypeAvailabilityByCategory = $notifyTypeAvailabilityByCategory;
-	}
-
-	/**
-	 * Create an instance from global variables
-	 * @return EchoAttributeManager
-	 */
-	public static function newFromGlobalVars() {
-		global $wgEchoNotifications, $wgEchoNotificationCategories,
-			$wgDefaultNotifyTypeAvailability, $wgNotifyTypeAvailabilityByCategory;
-
-		// Unit test may alter the global data for test purpose
-		if ( defined( 'MW_PHPUNIT_TEST' ) ) {
-			return new self(
-				$wgEchoNotifications,
-				$wgEchoNotificationCategories,
-				$wgDefaultNotifyTypeAvailability,
-				$wgNotifyTypeAvailabilityByCategory
-			);
-		}
-
-		if ( self::$globalVarInstance === null ) {
-			self::$globalVarInstance = new self(
-				$wgEchoNotifications,
-				$wgEchoNotificationCategories,
-				$wgDefaultNotifyTypeAvailability,
-				$wgNotifyTypeAvailabilityByCategory
-			);
-		}
-
-		return self::$globalVarInstance;
 	}
 
 	/**

@@ -593,7 +593,7 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 	 * @return string
 	 */
 	public function getCategory() {
-		$attributeManager = EchoAttributeManager::newFromGlobalVars();
+		$attributeManager = EchoServices::getInstance()->getAttributeManager();
 
 		return $attributeManager->getNotificationCategory( $this->type );
 	}
@@ -603,7 +603,7 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 	 * @return string
 	 */
 	public function getSection() {
-		$attributeManager = EchoAttributeManager::newFromGlobalVars();
+		$attributeManager = EchoServices::getInstance()->getAttributeManager();
 
 		return $attributeManager->getNotificationSection( $this->type );
 	}
