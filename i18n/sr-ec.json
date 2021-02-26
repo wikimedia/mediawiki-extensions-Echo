@@ -177,7 +177,7 @@
 	"notification-link-thank-you-edit": "{{GENDER:$1|Ваша}} измена",
 	"notification-link-text-view-edit": "Прикажи измену",
 	"notification-link-article-reminder": "Прикажи страницу",
-	"notification-header-reverted": "{{PLURAL:$4|Ваша измена на страници <strong>$3</strong> је враћена|Ваше измене на {{GENDER:$2|страници}} <strong>$3</strong> су враћене}}.",
+	"notification-header-reverted": "$2 je {{GENDER:$2|опозвао|опозвала|опозвао/-ла}} {{PLURAL:$4|Вашу измену странице <strong>$3</strong>|Ваше измене странице <strong>$3</strong>}}.",
 	"notification-header-emailuser": "$1 Вам {{GENDER:$2|шаље}} имејл.",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$3|вам}} је {{GENDER:$2|оставио|оставила}} поруку на пројекту {{SITENAME}}",
 	"notification-page-linked-email-subject": "Страница коју {{GENDER:$3|сте}} направили је повезана на пројекту {{SITENAME}}",
