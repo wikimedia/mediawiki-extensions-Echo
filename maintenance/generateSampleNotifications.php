@@ -269,7 +269,8 @@ class GenerateSampleNotifications extends Maintenance {
 	}
 
 	private function generateReverted( User $user, User $agent ) {
-		$agent->addGroup( 'sysop' );
+		$services = MediaWikiServices::getInstance();
+		$services->getUserGroupManager()->addUserToGroup( $agent, 'sysop' );
 
 		// revert (undo)
 		$moai = Title::newFromText( 'Moai' );
@@ -279,12 +280,10 @@ class GenerateSampleNotifications extends Maintenance {
 		$this->addToPageContent( $moai, $user, "\nadding a line here\n" );
 
 		$undoRev = $page->getRevisionRecord();
-		$previous = MediaWikiServices::getInstance()
-			->getRevisionLookup()
+		$previous = $services->getRevisionLookup()
 			->getPreviousRevision( $undoRev );
 
-		$handler = MediaWikiServices::getInstance()
-			->getContentHandlerFactory()
+		$handler = $services->getContentHandlerFactory()
 			->getContentHandler(
 				$undoRev->getSlot( SlotRecord::MAIN, RevisionRecord::RAW )
 					->getModel()
