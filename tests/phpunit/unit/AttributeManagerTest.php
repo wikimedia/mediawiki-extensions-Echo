@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\User\UserGroupManager;
+
 /**
  * @covers \EchoAttributeManager
  */
@@ -54,7 +56,7 @@ class EchoAttributeManagerTest extends MediaWikiUnitTestCase {
 	 * @dataProvider getUserLocatorsProvider
 	 */
 	public function testGetUserLocators( $message, $expect, $type, $notifications ) {
-		$manager = new EchoAttributeManager( $notifications, [], [], [] );
+		$manager = new EchoAttributeManager( $notifications, [], [], [], $this->mockUserGroupManager() );
 
 		$result = $manager->getUserCallable( $type, EchoAttributeManager::ATTR_LOCATORS );
 		$this->assertEquals( $expect, $result, $message );
@@ -71,7 +73,7 @@ class EchoAttributeManagerTest extends MediaWikiUnitTestCase {
 				'priority' => 10
 			]
 		];
-		$manager = new EchoAttributeManager( $notif, $category, [], [] );
+		$manager = new EchoAttributeManager( $notif, $category, [], [], $this->mockUserGroupManager() );
 		$this->assertTrue( $manager->getCategoryEligibility( $this->mockUser(), 'category_one' ) );
 		$category = [
 			'category_one' => [
@@ -81,7 +83,7 @@ class EchoAttributeManagerTest extends MediaWikiUnitTestCase {
 				]
 			]
 		];
-		$manager = new EchoAttributeManager( $notif, $category, [], [] );
+		$manager = new EchoAttributeManager( $notif, $category, [], [], $this->mockUserGroupManager() );
 		$this->assertFalse( $manager->getCategoryEligibility( $this->mockUser(), 'category_one' ) );
 	}
 
@@ -96,10 +98,10 @@ class EchoAttributeManagerTest extends MediaWikiUnitTestCase {
 				'priority' => 10
 			]
 		];
-		$manager = new EchoAttributeManager( $notif, $category, [], [] );
+		$manager = new EchoAttributeManager( $notif, $category, [], [], $this->mockUserGroupManager() );
 		$this->assertEquals( $manager->getNotificationCategory( 'event_one' ), 'category_one' );
 
-		$manager = new EchoAttributeManager( $notif, [], [], [] );
+		$manager = new EchoAttributeManager( $notif, [], [], [], $this->mockUserGroupManager() );
 		$this->assertEquals( $manager->getNotificationCategory( 'event_one' ), 'other' );
 
 		$notif = [
@@ -112,7 +114,7 @@ class EchoAttributeManagerTest extends MediaWikiUnitTestCase {
 				'priority' => 10
 			]
 		];
-		$manager = new EchoAttributeManager( $notif, $category, [], [] );
+		$manager = new EchoAttributeManager( $notif, $category, [], [], $this->mockUserGroupManager() );
 		$this->assertEquals( $manager->getNotificationCategory( 'event_one' ), 'other' );
 	}
 
@@ -134,7 +136,7 @@ class EchoAttributeManagerTest extends MediaWikiUnitTestCase {
 			],
 			'category_four' => []
 		];
-		$manager = new EchoAttributeManager( $notif, $category, [], [] );
+		$manager = new EchoAttributeManager( $notif, $category, [], [], $this->mockUserGroupManager() );
 		$this->assertSame( 6, $manager->getCategoryPriority( 'category_one' ) );
 		$this->assertSame( 10, $manager->getCategoryPriority( 'category_two' ) );
 		$this->assertSame( 10, $manager->getCategoryPriority( 'category_three' ) );
@@ -168,7 +170,7 @@ class EchoAttributeManagerTest extends MediaWikiUnitTestCase {
 			],
 			'category_four' => []
 		];
-		$manager = new EchoAttributeManager( $notif, $category, [], [] );
+		$manager = new EchoAttributeManager( $notif, $category, [], [], $this->mockUserGroupManager() );
 		$this->assertSame( 6, $manager->getNotificationPriority( 'event_one' ) );
 		$this->assertSame( 10, $manager->getNotificationPriority( 'event_two' ) );
 		$this->assertSame( 10, $manager->getNotificationPriority( 'event_three' ) );
@@ -220,7 +222,7 @@ class EchoAttributeManagerTest extends MediaWikiUnitTestCase {
 	 * @dataProvider getEventsForSectionProvider
 	 */
 	public function testGetEventsForSection( $expected, $notificationTypes, $section, $message ) {
-		$am = new EchoAttributeManager( $notificationTypes, [], [], [] );
+		$am = new EchoAttributeManager( $notificationTypes, [], [], [], $this->mockUserGroupManager() );
 		$actual = $am->getEventsForSection( $section );
 		$this->assertEquals( $expected, $actual, $message );
 	}
@@ -274,7 +276,8 @@ class EchoAttributeManagerTest extends MediaWikiUnitTestCase {
 			$notif,
 			$category,
 			$defaultNotifyTypeAvailability,
-			$notifyTypeAvailabilityByCategory
+			$notifyTypeAvailabilityByCategory,
+			$this->mockUserGroupManager()
 		);
 		$this->assertEquals(
 			[ 'event_two', 'event_four' ],
@@ -330,7 +333,8 @@ class EchoAttributeManagerTest extends MediaWikiUnitTestCase {
 			$notif,
 			$category,
 			$defaultNotifyTypeAvailability,
-			$notifyTypeAvailabilityByCategory
+			$notifyTypeAvailabilityByCategory,
+			$this->mockUserGroupManager()
 		);
 		$expected = [ 'event_one', 'event_three', 'event_four' ];
 		$actual = $manager->getUserEnabledEventsbySections( $this->mockUser(), 'web', [ 'alert' ] );
@@ -403,7 +407,7 @@ class EchoAttributeManagerTest extends MediaWikiUnitTestCase {
 		$categories,
 		$notifications
 	) {
-		$am = new EchoAttributeManager( $notifications, $categories, [], [] );
+		$am = new EchoAttributeManager( $notifications, $categories, [], [], $this->mockUserGroupManager() );
 		$actualMapping = $am->getEventsByCategory();
 		$this->assertEquals( $expectedMapping, $actualMapping, $message );
 	}
@@ -457,7 +461,7 @@ class EchoAttributeManagerTest extends MediaWikiUnitTestCase {
 		$notifyTypeAvailabilityByCategory
 	) {
 		$am = new EchoAttributeManager( [], [], $defaultNotifyTypeAvailability,
-			$notifyTypeAvailabilityByCategory );
+			$notifyTypeAvailabilityByCategory, $this->mockUserGroupManager() );
 		$actual = $am->isNotifyTypeAvailableForCategory( $categoryName, $notifyType );
 		$this->assertEquals( $expected, $actual, $message );
 	}
@@ -510,7 +514,7 @@ class EchoAttributeManagerTest extends MediaWikiUnitTestCase {
 		$categoryName,
 		$notifyType
 	) {
-		$am = new EchoAttributeManager( [], $categories, [], [] );
+		$am = new EchoAttributeManager( [], $categories, [], [], $this->mockUserGroupManager() );
 		$actual = $am->isNotifyTypeDismissableForCategory( $categoryName, $notifyType );
 		$this->assertEquals( $expected, $actual, $message );
 	}
@@ -529,10 +533,19 @@ class EchoAttributeManagerTest extends MediaWikiUnitTestCase {
 		$user->expects( $this->any() )
 			->method( 'getOption' )
 			->will( $this->returnValue( true ) );
-		$user->expects( $this->any() )
-			->method( 'getGroups' )
-			->will( $this->returnValue( [ 'echo_group' ] ) );
 
 		return $user;
+	}
+
+	/**
+	 * Mock object of UserGroupManager
+	 * @return UserGroupManager
+	 */
+	protected function mockUserGroupManager() {
+		$userGroupManager = $this->createNoOpMock( UserGroupManager::class, [ 'getUserGroups' ] );
+		$userGroupManager->method( 'getUserGroups' )
+			->willReturn( [ 'echo_group' ] );
+
+		return $userGroupManager;
 	}
 }

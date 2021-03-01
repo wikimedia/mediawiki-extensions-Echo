@@ -109,10 +109,9 @@ class EchoUserNotificationGatewayTest extends MediaWikiUnitTestCase {
 
 	/**
 	 * Mock object of User
-	 * @param string $group
 	 * @return User
 	 */
-	protected function mockUser( $group = 'echo_group' ) {
+	protected function mockUser() {
 		$user = $this->getMockBuilder( User::class )
 			->disableOriginalConstructor()
 			->getMock();
@@ -122,9 +121,6 @@ class EchoUserNotificationGatewayTest extends MediaWikiUnitTestCase {
 		$user->expects( $this->any() )
 			->method( 'getOption' )
 			->will( $this->returnValue( true ) );
-		$user->expects( $this->any() )
-			->method( 'getGroups' )
-			->will( $this->returnValue( [ $group ] ) );
 
 		return $user;
 	}
