@@ -86,11 +86,11 @@ class EchoTalkPageFunctionalTest extends ApiTestCase {
 	}
 
 	/**
-	 * @return \stdClass[] All non-watchlist events in db sorted from oldest to newest
+	 * @return \stdClass[] All talk page edit events in db sorted from oldest to newest
 	 */
 	protected function fetchAllEvents() {
 		$res = $this->db->select( 'echo_event', EchoEvent::selectFields(), [
-				'event_type != "watchlist-change"'
+				'event_type' => 'edit-user-talk',
 			], __METHOD__, [ 'ORDER BY' => 'event_id ASC' ] );
 
 		return iterator_to_array( $res );
