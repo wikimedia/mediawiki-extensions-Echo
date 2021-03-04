@@ -41,7 +41,7 @@ class EchoNotifier {
 			// User has disabled Echo emails
 			$user->getOption( 'echo-email-frequency' ) < 0 ||
 			// User is blocked and cannot log in (T199993)
-			( $wgBlockDisablesLogin && $user->isBlocked() )
+			( $wgBlockDisablesLogin && $user->getBlock() )
 		) {
 			return false;
 		}
