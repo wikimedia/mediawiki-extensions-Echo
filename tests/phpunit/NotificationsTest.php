@@ -1,7 +1,5 @@
 <?php
 
-use MediaWiki\MediaWikiServices;
-
 /**
  * Tests for the built in notification types
  *
@@ -40,9 +38,9 @@ class NotificationsTest extends MediaWikiTestCase {
 
 		$context = new DerivativeContext( RequestContext::getMain() );
 		$context->setUser( $this->sysop );
-		$ur = new UserrightsPage(
-			MediaWikiServices::getInstance()->getPermissionManager()
-		);
+		$ur = $this->getServiceContainer()
+			->getSpecialPageFactory()
+			->getPage( 'Userrights' );
 		$ur->setContext( $context );
 		$ur->doSaveUserGroups( $user, [ 'sysop' ], [], 'reason' );
 		$event = self::getLatestNotification( $user );
