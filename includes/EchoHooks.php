@@ -85,7 +85,8 @@ class EchoHooks implements RecentChange_saveHook {
 	public static function initEchoExtension() {
 		global $wgEchoNotifications, $wgEchoNotificationCategories, $wgEchoNotificationIcons,
 			$wgEchoMentionStatusNotifications, $wgAllowArticleReminderNotification, $wgAPIModules,
-			$wgEchoWatchlistNotifications, $wgEchoSeenTimeCacheType, $wgMainStash;
+			$wgEchoWatchlistNotifications, $wgEchoSeenTimeCacheType, $wgMainStash, $wgEnableEmail,
+			$wgEnableUserEmail;
 
 		// allow extensions to define their own event
 		Hooks::run( 'BeforeCreateEchoEvent',
@@ -107,6 +108,11 @@ class EchoHooks implements RecentChange_saveHook {
 		if ( !$wgEchoWatchlistNotifications ) {
 			unset( $wgEchoNotificationCategories['watchlist'] );
 			unset( $wgEchoNotificationCategories['minor-watchlist'] );
+		}
+
+		// Only allow user email notifications when enabled
+		if ( !$wgEnableEmail || !$wgEnableUserEmail ) {
+			unset( $wgEchoNotificationCategories['emailuser'] );
 		}
 
 		// Default $wgEchoSeenTimeCacheType to $wgMainStash
