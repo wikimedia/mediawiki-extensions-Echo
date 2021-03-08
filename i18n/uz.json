@@ -69,6 +69,7 @@
 	"notification-dynamic-actions-mute-page-linked": "{{GENDER:$2|Ovozsiz}} havola bildirishnomalari „$1“.",
 	"notification-dynamic-actions-mute-page-linked-confirmation": "\"Page link\" bildirishnomalari hozirda \"$1\" sahifasi uchun yoqilmagan",
 	"notification-link-text-expand-all": "Yoyish",
+	"notification-link-text-expand-all-count": "{{PLURAL:$1|$1 ta xabar}}ga razm solish",
 	"notification-link-text-collapse-all": "Yigʻish",
 	"notification-link-text-view-message": "Xabarni koʻrib chiqish",
 	"notification-link-text-view-mention": "Eslatib oʻtishni koʻrib chiqish",
