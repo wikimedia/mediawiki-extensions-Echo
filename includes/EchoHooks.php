@@ -1673,6 +1673,7 @@ class EchoHooks implements RecentChange_saveHook {
 		} else {
 			$type = 'watchlist-change';
 		}
+		$user = User::newFromIdentity( $change->getPerformerIdentity() );
 		EchoEvent::create( [
 			'type' => $type,
 			'title' => $change->getTitle(),
@@ -1682,7 +1683,7 @@ class EchoHooks implements RecentChange_saveHook {
 				'status' => $change->mExtra["pageStatus"],
 				'timestamp' => $change->getAttribute( "rc_timestamp" )
 			],
-			'agent' => $change->getPerformer()
+			'agent' => $user
 		] );
 	}
 
