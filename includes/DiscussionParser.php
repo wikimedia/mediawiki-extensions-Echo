@@ -42,6 +42,8 @@ abstract class EchoDiscussionParser {
 			return;
 		}
 
+		$events = [];
+
 		$interpretation = self::getChangeInterpretationForRevision( $revision );
 
 		$userID = $revision->getUser()->getId();
@@ -53,17 +55,26 @@ abstract class EchoDiscussionParser {
 				$fullSection = $action['full-section'];
 				$header = self::extractHeader( $fullSection );
 				$userLinks = self::getUserLinks( $action['content'], $title );
-				self::generateMentionEvents( $header, $userLinks, $action['content'], $revision, $user );
+				$events = array_merge(
+					$events,
+					self::collectMentionEvents( $header, $userLinks, $action['content'], $revision, $user )
+				);
 			} elseif ( $action['type'] === 'new-section-with-comment' ) {
 				$content = $action['content'];
 				$header = self::extractHeader( $content );
 				$userLinks = self::getUserLinks( $content, $title );
-				self::generateMentionEvents( $header, $userLinks, $content, $revision, $user );
+				$events = array_merge(
+					$events,
+					self::collectMentionEvents( $header, $userLinks, $content, $revision, $user )
+				);
 			} elseif ( $action['type'] === 'add-section-multiple' && $wgEchoMentionsOnMultipleSectionEdits ) {
 				$content = self::stripHeader( $action['content'] );
 				$content = self::stripSignature( $content );
 				$userLinks = self::getUserLinks( $content, $title );
-				self::generateMentionEvents( $action['header'], $userLinks, $content, $revision, $user );
+				$events = array_merge(
+					$events,
+					self::collectMentionEvents( $action['header'], $userLinks, $content, $revision, $user )
+				);
 			} elseif ( $action['type'] === 'unknown-signed-change' ) {
 				$userLinks = array_diff_key(
 					self::getUserLinks( $action['new_content'], $title ),
@@ -72,7 +83,10 @@ abstract class EchoDiscussionParser {
 				$header = self::extractHeader( $action['full-section'] );
 
 				if ( $wgEchoMentionOnChanges ) {
-					self::generateMentionEvents( $header, $userLinks, $action['new_content'], $revision, $user );
+					$events = array_merge(
+						$events,
+						self::collectMentionEvents( $header, $userLinks, $action['new_content'], $revision, $user )
+					);
 				}
 			}
 		}
@@ -93,7 +107,7 @@ abstract class EchoDiscussionParser {
 							$section['section-text'] = $comment->text;
 						}
 					}
-					EchoEvent::create( [
+					$events[] = [
 						'type' => 'edit-user-talk',
 						'title' => $title,
 						'extra' => [
@@ -104,7 +118,7 @@ abstract class EchoDiscussionParser {
 							'target-page' => $title->getArticleID(),
 						],
 						'agent' => $user,
-					] );
+					];
 				}
 			}
 		}
@@ -134,7 +148,7 @@ abstract class EchoDiscussionParser {
 			}
 
 			if ( $mentionedUsers ) {
-				$info = [
+				$events[] = [
 					'type' => 'mention-summary',
 					'title' => $title,
 					'extra' => [
@@ -143,8 +157,16 @@ abstract class EchoDiscussionParser {
 					],
 					'agent' => $user,
 				];
-				EchoEvent::create( $info );
 			}
+		}
+
+		// Allow extensions to generate more events for a revision, and de-duplicate
+		// against the standard events created above.
+		Hooks::run( 'EchoGetEventsForRevision', [ &$events, $revision, $isRevert ] );
+
+		// Create events
+		foreach ( $events as $event ) {
+			EchoEvent::create( $event );
 		}
 	}
 
@@ -211,17 +233,39 @@ abstract class EchoDiscussionParser {
 		RevisionRecord $revision,
 		User $agent
 	) {
+		$events = self::collectMentionEvents( $header, $userLinks, $content, $revision, $agent );
+		foreach ( $events as $event ) {
+			EchoEvent::create( $event );
+		}
+	}
+
+	/**
+	 * Generate mention event data for a talk page action
+	 * @param string $header The subject line for the discussion.
+	 * @param int[] $userLinks
+	 * @param string $content The content of the post, as a wikitext string.
+	 * @param RevisionRecord $revision
+	 * @param User $agent The user who made the comment.
+	 * @return array List of event info arrays
+	 */
+	protected static function collectMentionEvents(
+		$header,
+		array $userLinks,
+		$content,
+		RevisionRecord $revision,
+		User $agent
+	) {
 		global $wgEchoMaxMentionsCount, $wgEchoMentionStatusNotifications;
 
 		$title = Title::newFromLinkTarget( $revision->getPageAsLinkTarget() );
 		if ( !$title ) {
-			return;
+			return [];
 		}
 		$content = self::stripHeader( $content );
 		$content = self::stripSignature( $content, $title );
 
 		if ( !$userLinks ) {
-			return;
+			return [];
 		}
 
 		$userMentions = self::getUserMentions(
@@ -229,14 +273,15 @@ abstract class EchoDiscussionParser {
 		);
 		$overallMentionsCount = self::getOverallUserMentionsCount( $userMentions );
 		if ( $overallMentionsCount === 0 ) {
-			return;
+			return [];
 		}
 
+		$events = [];
 		$stats = MediaWikiServices::getInstance()->getStatsdDataFactory();
 
 		if ( $overallMentionsCount > $wgEchoMaxMentionsCount ) {
 			if ( $wgEchoMentionStatusNotifications ) {
-				EchoEvent::create( [
+				$events[] = [
 					'type' => 'mention-failure-too-many',
 					'title' => $title,
 					'extra' => [
@@ -244,14 +289,14 @@ abstract class EchoDiscussionParser {
 						'section-title' => $header,
 					],
 					'agent' => $agent,
-				] );
+				];
 				$stats->increment( 'echo.event.mention.notification.failure-too-many' );
 			}
-			return;
+			return $events;
 		}
 
 		if ( $userMentions['validMentions'] ) {
-			EchoEvent::create( [
+			$events[] = [
 				'type' => 'mention',
 				'title' => $title,
 				'extra' => [
@@ -261,13 +306,13 @@ abstract class EchoDiscussionParser {
 					'mentioned-users' => $userMentions['validMentions'],
 				],
 				'agent' => $agent,
-			] );
+			];
 		}
 
 		if ( $wgEchoMentionStatusNotifications ) {
 			// TODO batch?
 			foreach ( $userMentions['validMentions'] as $mentionedUserId ) {
-				EchoEvent::create( [
+				$events[] = [
 					'type' => 'mention-success',
 					'title' => $title,
 					'extra' => [
@@ -276,13 +321,13 @@ abstract class EchoDiscussionParser {
 						'revid' => $revision->getId(),
 					],
 					'agent' => $agent,
-				] );
+				];
 				$stats->increment( 'echo.event.mention.notification.success' );
 			}
 
 			// TODO batch?
 			foreach ( $userMentions['anonymousUsers'] as $anonymousUser ) {
-				EchoEvent::create( [
+				$events[] = [
 					'type' => 'mention-failure',
 					'title' => $title,
 					'extra' => [
@@ -292,13 +337,13 @@ abstract class EchoDiscussionParser {
 						'revid' => $revision->getId(),
 					],
 					'agent' => $agent,
-				] );
+				];
 				$stats->increment( 'echo.event.mention.notification.failure-user-anonymous' );
 			}
 
 			// TODO batch?
 			foreach ( $userMentions['unknownUsers'] as $unknownUser ) {
-				EchoEvent::create( [
+				$events[] = [
 					'type' => 'mention-failure',
 					'title' => $title,
 					'extra' => [
@@ -308,10 +353,12 @@ abstract class EchoDiscussionParser {
 						'revid' => $revision->getId(),
 					],
 					'agent' => $agent,
-				] );
+				];
 				$stats->increment( 'echo.event.mention.notification.failure-user-unknown' );
 			}
 		}
+
+		return $events;
 	}
 
 	private static function getOverallUserMentionsCount( array $userMentions ) {
