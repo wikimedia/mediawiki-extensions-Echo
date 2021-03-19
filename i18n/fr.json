@@ -148,7 +148,7 @@
 	"notification-dynamic-actions-unmute-page-linked": "{{GENDER:$2|Rétablir}} les notifications de lien sur « $1 ».",
 	"notification-dynamic-actions-unmute-page-linked-confirmation": "Les notifications « Lien de page » sont désormais activées pour la page « $1 »",
 	"notification-dynamic-actions-unmute-page-linked-confirmation-description": "{{GENDER:$2|Vous}} pouvez gérer vos pages mises en sourdine dans [$1 vos préférences] à tout moment.",
-	"notification-dynamic-actions-unwatch": "Arrêter{{GENDER:$3|}} de suivre les nouvelles activités sur « $1 »",
+	"notification-dynamic-actions-unwatch": "{{GENDER:$3|}}Arrêter de suivre les nouvelles activités sur « $1 »",
 	"notification-dynamic-actions-unwatch-confirmation": "Vous{{GENDER:$3|}} ne suivez plus la page « $1 »",
 	"notification-dynamic-actions-unwatch-confirmation-description": "{{GENDER:$3|Vous}} pouvez suivre [$2 cette page] à nouveau à tout moment.",
 	"notification-dynamic-actions-watch": "Suivre{{GENDER:$3|}} l’évolution de « $1 »",
