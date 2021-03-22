@@ -489,12 +489,14 @@ class EchoHooks implements RecentChange_saveHook {
 				'section' => 'echo/blocknotificationslist',
 				'filter' => MultiUsernameFilter::class,
 			];
+			// TODO inject
+			$titleFactory = MediaWikiServices::getInstance()->getTitleFactory();
 			$preferences['echo-notifications-page-linked-title-muted-list'] = [
 				'type' => 'titlesmultiselect',
 				'label-message' => 'echo-pref-notifications-page-linked-title-muted-list',
 				'section' => 'echo/mutedpageslist',
 				'showMissing' => false,
-				'filter' => ( new MultiTitleFilter( new TitleFactory() ) )
+				'filter' => ( new MultiTitleFilter( $titleFactory ) )
 			];
 		}
 	}
