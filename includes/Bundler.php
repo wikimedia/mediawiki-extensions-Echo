@@ -7,11 +7,10 @@ class Bundler {
 		// otherwise this code fails when executed by unit tests
 		// See: https://bugs.php.net/bug.php?id=50688
 
-		// @codingStandardsIgnoreStart
-		@usort( $array, function( Bundleable $a, Bundleable $b ) {
+		// phpcs:ignore Generic.PHP.NoSilencedErrors
+		@usort( $array, function ( Bundleable $a, Bundleable $b ) {
 			return strcmp( $b->getSortingKey(), $a->getSortingKey() );
 		} );
-		// @codingStandardsIgnoreEnd
 	}
 
 	/**
