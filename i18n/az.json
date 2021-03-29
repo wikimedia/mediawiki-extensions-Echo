@@ -94,6 +94,8 @@
 	"notification-header-mention-success": "{{GENDER:$2|Siz}} <strong>$3</strong> adlı istifadəçini qeyd etdiniz.",
 	"notification-header-welcome": "{{SITENAME}} saytına {{GENDER:$2|xoş gəldiniz}}, $1! Sizi burada görməyimizə çox şadıq!",
 	"notification-header-mention-summary": "$1 {{GENDER:$3|sizi}} <strong>$4</strong> səhifəsinin qısa məzmununda {{GENDER:$2|qeyd etdi}}.",
+	"notification-header-thank-you-1-edit": "İlk {{GENDER:$2|redaktənizi}} {{GENDER:$2|etdiniz}}; təşəkkürlər və xoş gəlmişsiniz!",
+	"notification-header-thank-you-100-edit": "Yüzüncü {{GENDER:$2|redaktənizi}} {{GENDER:$2|etdiniz}}; {{GENDER:$2|təşəkkürlər}}!",
 	"notification-link-text-view-edit": "Redaktəyə bax",
 	"notification-edit-talk-page-email-subject2": "İstifadəçi $1 \"{{SITENAME}}\" saytındakı müzakirə səhifənizdə sizə mesaj yazıb",
 	"notification-mention-email-subject": "{{GENDER:$2|İstifadəçi}} sizi «{{SITENAME}}» səhifəsində $1 {{GENDER:$2|qeyd etdi}}",

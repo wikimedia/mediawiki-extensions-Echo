@@ -56,6 +56,7 @@
 	"echo-pref-tooltip-mention": "Хаийта соьга, цхьам сан долара агӀона тӀе хьажорг цхьан дийцаре агӀорахь йитича.",
 	"echo-pref-tooltip-user-rights": "Сан бакъонаш цхьаммо хийцича хаам бе соьга.",
 	"echo-pref-tooltip-emailuser": "Хаийта соьга, цхьам сан электронан поште яздича.",
+	"echo-pref-tooltip-thank-you-edit": "Соьга хаам бе аса 1, 10, 100... нисдар дича.",
 	"notifications": "ДӀахаийтарш",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Хьан}} дӀахаийтарш",
 	"tooltip-pt-notifications-notice": "{{GENDER:|Хьан}} хаамаш",
@@ -175,6 +176,7 @@
 	"echo-foreign-wiki-lang": "$1 - $2",
 	"right-manage-all-push-subscriptions": "Массо push-хаамийн урхалла",
 	"action-manage-all-push-subscriptions": "массо push-хаамийн урхалла",
+	"group-push-subscription-manager": "Push-хаамийн урхалча",
 	"group-push-subscription-manager-member": "{{GENDER:$1|push-хаамийн урхалча}}",
 	"grouppage-push-subscription-manager": "{{ns:project}}:push-хаамийн урхалча"
 }
