@@ -696,8 +696,9 @@ class EchoHooks implements RecentChange_saveHook {
 	public static function onLocalUserCreated( $user, $autocreated ) {
 		if ( !$autocreated ) {
 			$overrides = self::getNewUserPreferenceOverrides();
+			$userOptionsManager = MediaWikiServices::getInstance()->getUserOptionsManager();
 			foreach ( $overrides as $prefKey => $value ) {
-				$user->setOption( $prefKey, $value );
+				$userOptionsManager->setOption( $user, $prefKey, $value );
 			}
 			$user->saveSettings();
 			EchoEvent::create( [

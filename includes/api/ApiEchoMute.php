@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\User\UserOptionsManager;
 
 class ApiEchoMute extends ApiBase {
 
@@ -18,6 +19,24 @@ class ApiEchoMute extends ApiBase {
 			'type' => 'title'
 		],
 	];
+
+	/** @var UserOptionsManager */
+	private $userOptionsManager;
+
+	/**
+	 * @param ApiMain $main
+	 * @param string $action
+	 * @param UserOptionsManager $userOptionsManager
+	 */
+	public function __construct(
+		ApiMain $main,
+		$action,
+		UserOptionsManager $userOptionsManager
+	) {
+		parent::__construct( $main, $action );
+
+		$this->userOptionsManager = $userOptionsManager;
+	}
 
 	public function execute() {
 		$user = $this->getUser()->getInstanceForUpdate();
@@ -55,7 +74,13 @@ class ApiEchoMute extends ApiBase {
 		}
 
 		if ( $changed ) {
-			$user->setOption( $mutelistInfo['pref'], $this->serializePref( $ids, $mutelistInfo['type'] ) );
+			$this->userOptionsManager->setOption(
+				// Phan does not understand dieWithError() - T240141
+				// @phan-suppress-next-line PhanTypeMismatchArgumentNullable
+				$user,
+				$mutelistInfo['pref'],
+				$this->serializePref( $ids, $mutelistInfo['type'] )
+			);
 			$user->saveSettings();
 		}
 
