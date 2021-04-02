@@ -1208,6 +1208,12 @@ class EchoHooks implements RecentChange_saveHook {
 	}
 
 	public static function onOutputPageCheckLastModified( array &$modifiedTimes, OutputPage $out ) {
+		$req = $out->getRequest();
+		if ( $req->getRawVal( 'action' ) === 'raw' || $req->getRawVal( 'action' ) === 'render' ) {
+			// Optimisation: Avoid expensive EchoSeenTime compute on non-skin responses (T279213)
+			return;
+		}
+
 		$user = $out->getUser();
 		if ( $user->isLoggedIn() ) {
 			$notifUser = MWEchoNotifUser::newFromUser( $user );
