@@ -3,7 +3,8 @@
 		"authors": [
 			"Pavanaja",
 			"Shubha",
-			"Vikashegde"
+			"Vikashegde",
+			"ಮಲ್ನಾಡಾಚ್ ಕೊಂಕ್ಣೊ"
 		]
 	},
 	"echo-desc": "ಸೂಚನಾ ವ್ಯವಸ್ಥೆ",
@@ -29,8 +30,8 @@
 	"echo-category-title-mention": "{{PLURAL:$1|Mention|Mentions}}",
 	"echo-category-title-other": "{{PLURAL:$1|Other}}",
 	"echo-category-title-system": "{{PLURAL:$1|System}}",
-	"echo-pref-tooltip-edit-user-talk": "ಯಾರಾದರೂ ನನಗೆ ಸಂದೇಶ ಪೋಸ್ಟ್ ಮಾಡಿದರೆ ಅಥವಾ ನನ್ನ ಚರ್ಚಾಪುಟದಲ್ಲಿ ಉತ್ತರಿಸಿದರೆ ತಿಳಿಸಿ",
-	"echo-pref-tooltip-article-linked": "ನಾನು ತಯಾರಿಸಿದ ಲೇಖನಪುಟಕ್ಕೆ ಯಾರಾದರೂ ಕೊಂಡಿ ನೀಡಿದರೆ ನನಗೆ ತಿಳಿಸಿ",
+	"echo-pref-tooltip-edit-user-talk": "ಯಾರಾದರೂ ನನಗೆ ಸಂದೇಶ ಪೋಸ್ಟ್ ಮಾಡಿದರೆ ಅಥವಾ ನನ್ನ ಚರ್ಚಾಪುಟದಲ್ಲಿ ಉತ್ತರಿಸಿದರೆ ತಿಳಿಸಿ.",
+	"echo-pref-tooltip-article-linked": "ನಾನು ತಯಾರಿಸಿದ ಪುಟಕ್ಕೆ ಯಾರಾದರೂ ಬೇರೆ ಪುಟದಿಂದ ಕೊಂಡಿ ನೀಡಿದರೆ ನನಗೆ ತಿಳಿಸಿ.",
 	"echo-pref-tooltip-reverted": "ನಾನು ಮಾಡಿದ ಸಂಪಾದನೆಯನ್ನು ಯಾರಾದರು ಹಿಂದಿನಂತೆ ಮಾಡಿದರೆ ನನಗೆ ತಿಳಿಸಿ",
 	"echo-pref-tooltip-mention": "ನನ್ನ ಸದಸ್ಯ ಪುಟಕ್ಕೆ ಯಾರಾದರು ಯಾವುದಾದರು ಚರ್ಚಾಪುಟದಿಂದ ಕೊಂಡಿ ನೀಡಿದರೆ ನನಗೆ ತಿಳಿಸಿ",
 	"notifications": "ಸೂಚನೆಗಳು",
