@@ -280,7 +280,6 @@ function initDesktop() {
 			alertController.refreshUnreadCount();
 			messageController.refreshUnreadCount();
 			// Make notification update after n*pollingRate(time in secs) where n depends on document.hidden
-			// eslint-disable-next-line compat/compat
 			setTimeout( pollForNotificationCountUpdates, ( document.hidden ? 5 : 1 ) * pollingRate * 1000 );
 		}
 
