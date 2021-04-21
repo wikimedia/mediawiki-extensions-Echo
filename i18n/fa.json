@@ -197,7 +197,7 @@
 	"notification-inbox-filter-read": "خوانده‌شده",
 	"notification-inbox-filter-unread": "خوانده‌نشده",
 	"notification-inbox-filter-all": "همه",
-	"echo-specialmute-label-mute-notifications": "بی‌صدا کردن آگاه‌سازی‌های از سوی این کاربر",
+	"echo-specialmute-label-mute-notifications": "بی‌صدا کردن آگاه‌سازی‌های از سوی این {{GENDER:$1|کاربر}}",
 	"echo-email-plain-footer": "برای تنظیم ایمیل‌هایی که دریافت {{GENDER:$1|می‌کنید}}، تنظیماتتان را بررسی {{GENDER:$1|کنید}}:",
 	"echo-email-html-footer-preference-link-text": "ترجیحاتتان را بررسی {{GENDER:$1|کنید}}",
 	"echo-email-html-footer-with-link": "برای بررسی ایمیل‌هایی که برای شما ارسال {{GENDER:$2|کردیم}}، $1.",
@@ -221,5 +221,10 @@
 	"echo-email-batch-link-text-view-all-notifications": "دیدن همهٔ آگاه‌سازی‌ها",
 	"notification-header-foreign-alert": "هشدارهای بیشتر از {{PLURAL:$5|و ویکی دیگر|و $5 ویکی دیگر}}",
 	"notification-header-foreign-notice": "آگاهی‌های بیشتر از {{PLURAL:$5|ویکی دیگر|$5 ویکی دیگر}}",
-	"notification-header-foreign-all": "آگاه‌سازی‌های بیشتر از $5 ویکی دیگر"
+	"notification-header-foreign-all": "آگاه‌سازی‌های بیشتر از $5 ویکی دیگر",
+	"right-manage-all-push-subscriptions": "مدیریت تمام اشتراکات فشاری",
+	"action-manage-all-push-subscriptions": "مدیریت تمام اشتراکات فشاری",
+	"group-push-subscription-manager": "مدیران اشتراک فشاری",
+	"group-push-subscription-manager-member": "مدیر اشتراک فشاری",
+	"grouppage-push-subscription-manager": "{{ns:project}}:مدیران اشتراک فشاری"
 }
