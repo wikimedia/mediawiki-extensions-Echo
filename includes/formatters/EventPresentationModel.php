@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionRecord;
 use Wikimedia\Timestamp\TimestampException;
 
@@ -671,7 +672,8 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 	 * @return array Array compatible with dynamic action link
 	 */
 	final protected function getWatchActionLink( Title $title ) {
-		$isTitleWatched = $this->getUser()->isWatched( $title );
+		$isTitleWatched = MediaWikiServices::getInstance()->getWatchlistManager()
+			->isWatched( $this->getUser(), $title );
 		$availableAction = $isTitleWatched ? 'unwatch' : 'watch';
 
 		$data = [
