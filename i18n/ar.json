@@ -234,5 +234,8 @@
 	"notification-header-foreign-alert": "إخطارات أكثر من {{PLURAL:$5|لا موقع ويكي|موقع ويكي آخر|موقعين ويكي آخرين|$5 مواقع ويكي أخرى}}",
 	"notification-header-foreign-notice": "مزيد من الإشعارات من {{PLURAL:$5|ويكي أخر|$5 ويكيات أخرى}}",
 	"notification-header-foreign-all": "المزيد من الإخطارات من {{PLURAL:$5|ويكي أخرى|$5 ويكيات أخرى}}",
-	"echo-badge-count": "{{PLURAL:$1|$1|100={{formatnum:99}}+}}"
+	"echo-badge-count": "{{PLURAL:$1|$1|100={{formatnum:99}}+}}",
+	"group-push-subscription-manager": "إداريو تسيير الاشتراك",
+	"group-push-subscription-manager-member": "{{GENDER:$1|إداري تسيير الاشتراك}}",
+	"grouppage-push-subscription-manager": "{{ns:project}}:إداريو تسيير الاشتراك"
 }
