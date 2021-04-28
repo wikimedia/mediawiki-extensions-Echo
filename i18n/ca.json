@@ -131,7 +131,7 @@
 	"notification-header-user-rights-add-only": "Els vostres drets d'usuari han estat {{GENDER:$1|modificats}}. Heu estat {{GENDER:$4|afegit|afegida}} a: $2.",
 	"notification-header-user-rights-remove-only": "{{GENDER:$4|Els vostres}} drets d'usuari han estat {{GENDER:$1|modificats}}. Ja no sou membre de: $2.",
 	"notification-header-user-rights-add-and-remove": "Els vostres drets d'usuari han estat {{GENDER:$1|modificats}}. Heu estat {{GENDER:$6|afegit|afegida}} a: $2. Ja no sou membre de: $4.",
-	"notification-header-welcome": "{{GENDER:$2|Benvingut|Benvinguda}} al projecte {{SITENAME}}, $1! Ens alegrem que {{GENDER:$2|estigueu}} aquí.",
+	"notification-header-welcome": "{{GENDER:$2|Benvingut|Benvinguda}} al projecte {{SITENAME}}, $1! Ens alegrem que {{GENDER:$2|sigueu}} aquí.",
 	"notification-welcome-linktext": "Benvinguts",
 	"notification-header-thank-you-1-edit": "{{GENDER:$2|Acabeu}} de fer {{GENDER:$2|la vostra}} primera modificació; {{GENDER:$2|us}} ho agraïm i us donem la benvinguda!",
 	"notification-header-thank-you-10-edit": "{{GENDER:$2|Acabeu}} de fer {{GENDER:$2|la vostra}} desena modificació; gràcies i endavant!",
