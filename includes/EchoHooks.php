@@ -529,8 +529,6 @@ class EchoHooks implements RecentChange_saveHook {
 		RevisionRecord $revisionRecord,
 		EditResult $editResult
 	) {
-		global $wgEchoNotifications;
-
 		if ( $editResult->isNullEdit() ) {
 			return;
 		}
@@ -589,7 +587,7 @@ class EchoHooks implements RecentChange_saveHook {
 
 		// Handle the case of someone undoing an edit, either through the
 		// 'undo' link in the article history or via the API.
-		if ( isset( $wgEchoNotifications['reverted'] ) && $undidRevId ) {
+		if ( $undidRevId ) {
 			$store = MediaWikiServices::getInstance()->getRevisionStore();
 			$undidRevision = $store->getRevisionById( $undidRevId );
 			if (
