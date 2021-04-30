@@ -117,7 +117,7 @@ class EchoEventMapper extends EchoAbstractMapper {
 			EchoEvent::selectFields(),
 			$conds,
 			__METHOD__,
-			[ 'GROUP BY' => 'etp_event' ],
+			[ 'DISTINCT' ],
 			[ 'echo_target_page' => [ 'INNER JOIN', 'event_id=etp_event' ] ]
 		);
 		if ( $res ) {
