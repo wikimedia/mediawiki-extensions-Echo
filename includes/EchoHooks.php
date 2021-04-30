@@ -1140,6 +1140,18 @@ class EchoHooks implements RecentChange_saveHook {
 					'link-class' => [ 'mw-echo-alert' ],
 				]
 			);
+
+			// If there's exactly one new user talk message, then link directly to it from the alert.
+			$notificationMapper = new EchoNotificationMapper();
+			$notifications = $notificationMapper->fetchUnreadByUser( $user, 2, null, [ 'edit-user-talk' ] );
+			if ( count( $notifications ) === 1 ) {
+				$presModel = EchoEventPresentationModel::factory(
+					current( $notifications )->getEvent(),
+					$out->getLanguage(),
+					$user
+				);
+				$links['notifications']['talk-alert']['href'] = $presModel->getPrimaryLink()['url'];
+			}
 		}
 
 		$links['notifications']['notifications-alert'] = [
