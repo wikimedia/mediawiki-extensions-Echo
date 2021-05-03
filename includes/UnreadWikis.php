@@ -100,7 +100,7 @@ class EchoUnreadWikis {
 	 *   false meaning no timestamp because there are no unread messages.
 	 */
 	public function updateCount( $wiki, $alertCount, $alertTime, $msgCount, $msgTime ) {
-		$dbw = $this->getDB( DB_MASTER );
+		$dbw = $this->getDB( DB_PRIMARY );
 		if ( $dbw === false || $dbw->isReadOnly() ) {
 			return;
 		}

@@ -13,7 +13,7 @@ class MWEchoThankYouEditTest extends MediaWikiTestCase {
 	}
 
 	private function deleteEchoData() {
-		$db = MWEchoDbFactory::newFromDefault()->getEchoDb( DB_MASTER );
+		$db = MWEchoDbFactory::newFromDefault()->getEchoDb( DB_PRIMARY );
 		$db->delete( 'echo_event', '*', __METHOD__ );
 		$db->delete( 'echo_notification', '*', __METHOD__ );
 	}

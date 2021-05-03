@@ -255,7 +255,7 @@ class MWEchoEmailBatch {
 		global $wgUpdateRowsPerQuery;
 		$eventMapper = new EchoEventMapper();
 		$dbFactory = MWEchoDbFactory::newFromDefault();
-		$dbw = $dbFactory->getEchoDb( DB_MASTER );
+		$dbw = $dbFactory->getEchoDb( DB_PRIMARY );
 		$dbr = $dbFactory->getEchoDb( DB_REPLICA );
 		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
 		$ticket = $lbFactory->getEmptyTransactionTicket( __METHOD__ );
@@ -346,7 +346,7 @@ class MWEchoEmailBatch {
 			return;
 		}
 
-		$dbw = MWEchoDbFactory::newFromDefault()->getEchoDb( DB_MASTER );
+		$dbw = MWEchoDbFactory::newFromDefault()->getEchoDb( DB_PRIMARY );
 
 		$row = [
 			'eeb_user_id' => $userId,

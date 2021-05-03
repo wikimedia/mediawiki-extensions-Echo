@@ -32,7 +32,7 @@ class EchoUpdatePerUserBlacklist extends LoggedUpdateMaintenance {
 
 	public function doDBUpdates() {
 		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
-		$dbw = $this->getDB( DB_MASTER );
+		$dbw = $this->getDB( DB_PRIMARY );
 		$dbr = $this->getDB( DB_REPLICA );
 		$iterator = new BatchRowIterator(
 			$dbr,

@@ -30,7 +30,7 @@ class BundlerTest extends MediaWikiUnitTestCase {
 	private function createNotificationForBundling( $bundleHash, $timestamp, $readStatus ) {
 		$mock = $this->getMockBuilder( EchoNotification::class )
 			->disableOriginalConstructor()
-			->setMethods( [
+			->onlyMethods( [
 				'getBundlingKey',
 				'getSortingKey',
 				'canBeBundled',

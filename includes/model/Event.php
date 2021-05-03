@@ -124,7 +124,7 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 
 		// Do not create event and notifications if write access is locked
 		if ( wfReadOnly()
-			|| MWEchoDbFactory::newFromDefault()->getEchoDb( DB_MASTER )->isReadOnly()
+			|| MWEchoDbFactory::newFromDefault()->getEchoDb( DB_PRIMARY )->isReadOnly()
 		) {
 			return false;
 		}

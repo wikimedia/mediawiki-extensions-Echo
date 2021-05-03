@@ -35,7 +35,7 @@ class RemoveInvalidNotification extends Maintenance {
 			return;
 		}
 
-		$dbw = $lbFactory->getEchoDb( DB_MASTER );
+		$dbw = $lbFactory->getEchoDb( DB_PRIMARY );
 		$dbr = $lbFactory->getEchoDb( DB_REPLICA );
 
 		$batchSize = $this->getBatchSize();

@@ -15,7 +15,7 @@ class EchoEventMapper extends EchoAbstractMapper {
 	 * @return int|false
 	 */
 	public function insert( EchoEvent $event ) {
-		$dbw = $this->dbFactory->getEchoDb( DB_MASTER );
+		$dbw = $this->dbFactory->getEchoDb( DB_PRIMARY );
 
 		$row = $event->toDbArray();
 
@@ -40,7 +40,7 @@ class EchoEventMapper extends EchoAbstractMapper {
 	 * @throws MWException
 	 */
 	public function fetchById( $id, $fromMaster = false ) {
-		$db = $fromMaster ? $this->dbFactory->getEchoDb( DB_MASTER ) : $this->dbFactory->getEchoDb( DB_REPLICA );
+		$db = $fromMaster ? $this->dbFactory->getEchoDb( DB_PRIMARY ) : $this->dbFactory->getEchoDb( DB_REPLICA );
 
 		$row = $db->selectRow( 'echo_event', EchoEvent::selectFields(), [ 'event_id' => $id ], __METHOD__ );
 
@@ -60,7 +60,7 @@ class EchoEventMapper extends EchoAbstractMapper {
 	 * @return bool|IResultWrapper
 	 */
 	public function toggleDeleted( array $eventIds, $deleted ) {
-		$dbw = $this->dbFactory->getEchoDb( DB_MASTER );
+		$dbw = $this->dbFactory->getEchoDb( DB_PRIMARY );
 
 		$selectDeleted = $deleted ? 0 : 1;
 		$setDeleted = $deleted ? 1 : 0;
@@ -199,7 +199,7 @@ class EchoEventMapper extends EchoAbstractMapper {
 	 *  ('echo_notification' or 'echo_email_batch')
 	 */
 	public function deleteOrphanedEvents( array $eventIds, $ignoreUserId = null, $ignoreUserTable = null ) {
-		$dbw = $this->dbFactory->getEchoDb( DB_MASTER );
+		$dbw = $this->dbFactory->getEchoDb( DB_PRIMARY );
 		$dbr = $this->dbFactory->getEchoDb( DB_REPLICA );
 
 		$notifJoinConds = [];

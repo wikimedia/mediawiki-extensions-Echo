@@ -32,7 +32,7 @@ class RecomputeNotifCounts extends Maintenance {
 
 	public function execute() {
 		$dbFactory = MWEchoDbFactory::newFromDefault();
-		$dbwEcho = $dbFactory->getEchoDb( DB_MASTER );
+		$dbwEcho = $dbFactory->getEchoDb( DB_PRIMARY );
 		$dbrEcho = $dbFactory->getEchoDb( DB_REPLICA );
 		$dbr = wfGetDB( DB_REPLICA );
 

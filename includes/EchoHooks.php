@@ -1482,7 +1482,7 @@ class EchoHooks implements RecentChange_saveHook {
 	 */
 	public static function onUserMergeAccountFields( &$updateFields ) {
 		// array( tableName, idField, textField )
-		$dbw = MWEchoDbFactory::newFromDefault()->getEchoDb( DB_MASTER );
+		$dbw = MWEchoDbFactory::newFromDefault()->getEchoDb( DB_PRIMARY );
 		$updateFields[] = [ 'echo_event', 'event_agent_id', 'db' => $dbw ];
 		$updateFields[] = [ 'echo_notification', 'notification_user', 'db' => $dbw, 'options' => [ 'IGNORE' ] ];
 		$updateFields[] = [ 'echo_email_batch', 'eeb_user_id', 'db' => $dbw, 'options' => [ 'IGNORE' ] ];
@@ -1493,7 +1493,7 @@ class EchoHooks implements RecentChange_saveHook {
 		DeferredUpdates::addCallableUpdate( function () use ( $oldUser, $newUser, $method ) {
 			if ( $newUser->isRegistered() ) {
 				// Select notifications that are now sent to the same user
-				$dbw = MWEchoDbFactory::newFromDefault()->getEchoDb( DB_MASTER );
+				$dbw = MWEchoDbFactory::newFromDefault()->getEchoDb( DB_PRIMARY );
 				$attributeManager = EchoServices::getInstance()->getAttributeManager();
 				$selfIds = $dbw->selectFieldValues(
 					[ 'echo_notification', 'echo_event' ],
@@ -1571,7 +1571,7 @@ class EchoHooks implements RecentChange_saveHook {
 	}
 
 	public static function onUserMergeAccountDeleteTables( &$tables ) {
-		$dbw = MWEchoDbFactory::newFromDefault()->getEchoDb( DB_MASTER );
+		$dbw = MWEchoDbFactory::newFromDefault()->getEchoDb( DB_PRIMARY );
 		$tables['echo_notification'] = [ 'notification_user', 'db' => $dbw ];
 		$tables['echo_email_batch'] = [ 'eeb_user_id', 'db' => $dbw ];
 	}

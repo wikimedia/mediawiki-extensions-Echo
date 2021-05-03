@@ -41,7 +41,7 @@ class UpdateEchoSchemaForSuppression extends LoggedUpdateMaintenance {
 		$lbFactory = MWEchoDbFactory::newFromDefault();
 
 		$dbr = $lbFactory->getEchoDb( DB_REPLICA );
-		$dbw = $lbFactory->getEchoDb( DB_MASTER );
+		$dbw = $lbFactory->getEchoDb( DB_PRIMARY );
 
 		if ( !$dbw->fieldExists( 'echo_event', 'event_page_title', __METHOD__ ) ) {
 			$this->output( "No event_page_title field, skipping migration from event_page_title to event_page_id\n" );

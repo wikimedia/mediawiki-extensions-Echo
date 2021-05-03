@@ -21,7 +21,7 @@ class EchoTargetPageMapper extends EchoAbstractMapper {
 	 * @return bool
 	 */
 	public function insert( EchoTargetPage $targetPage ) {
-		$dbw = $this->dbFactory->getEchoDb( DB_MASTER );
+		$dbw = $this->dbFactory->getEchoDb( DB_PRIMARY );
 
 		$row = $targetPage->toDbArray();
 

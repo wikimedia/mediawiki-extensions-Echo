@@ -61,7 +61,7 @@ class EchoUserNotificationGateway {
 			return false;
 		}
 
-		$dbw = $this->getDB( DB_MASTER );
+		$dbw = $this->getDB( DB_PRIMARY );
 		if ( $dbw->isReadOnly() ) {
 			return false;
 		}
@@ -96,7 +96,7 @@ class EchoUserNotificationGateway {
 			return false;
 		}
 
-		$dbw = $this->getDB( DB_MASTER );
+		$dbw = $this->getDB( DB_PRIMARY );
 		if ( $dbw->isReadOnly() ) {
 			return false;
 		}
@@ -125,7 +125,7 @@ class EchoUserNotificationGateway {
 	 * have updateJoin()
 	 */
 	public function markAllRead() {
-		$dbw = $this->getDB( DB_MASTER );
+		$dbw = $this->getDB( DB_PRIMARY );
 		if ( $dbw->isReadOnly() ) {
 			return false;
 		}
@@ -156,7 +156,7 @@ class EchoUserNotificationGateway {
 		$cap = MWEchoNotifUser::MAX_BADGE_COUNT
 	) {
 		// double check
-		if ( !in_array( $dbSource, [ DB_REPLICA, DB_MASTER ] ) ) {
+		if ( !in_array( $dbSource, [ DB_REPLICA, DB_PRIMARY ] ) ) {
 			$dbSource = DB_REPLICA;
 		}
 

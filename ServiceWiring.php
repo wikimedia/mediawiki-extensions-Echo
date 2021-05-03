@@ -44,7 +44,7 @@ return [
 		$loadBalancer = $cluster
 			? $loadBalancerFactory->getExternalLB( $cluster )
 			: $loadBalancerFactory->getMainLB( $database );
-		$dbw = $loadBalancer->getLazyConnectionRef( DB_MASTER, [], $database );
+		$dbw = $loadBalancer->getLazyConnectionRef( DB_PRIMARY, [], $database );
 		$dbr = $loadBalancer->getLazyConnectionRef( DB_REPLICA, [], $database );
 
 		$pushProviderStore = new NameTableStore(

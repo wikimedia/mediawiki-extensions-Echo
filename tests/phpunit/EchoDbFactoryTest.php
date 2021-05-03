@@ -19,7 +19,7 @@ class MWEchoDbFactoryTest extends MediaWikiTestCase {
 	 * @depends testNewFromDefault
 	 */
 	public function testGetEchoDb( MWEchoDbFactory $db ) {
-		$this->assertInstanceOf( IDatabase::class, $db->getEchoDb( DB_MASTER ) );
+		$this->assertInstanceOf( IDatabase::class, $db->getEchoDb( DB_PRIMARY ) );
 		$this->assertInstanceOf( IDatabase::class, $db->getEchoDb( DB_REPLICA ) );
 	}
 

@@ -15,7 +15,7 @@ class EchoTitleLocalCacheTest extends MediaWikiTestCase {
 
 	public function testAdd() {
 		$cache = $this->getMockBuilder( EchoTitleLocalCache::class )
-			->setMethods( [ 'resolve' ] )->getMock();
+			->onlyMethods( [ 'resolve' ] )->getMock();
 
 		$cache->add( 1 );
 		$cache->add( 9 );
@@ -30,7 +30,7 @@ class EchoTitleLocalCacheTest extends MediaWikiTestCase {
 
 	public function testGet() {
 		$cache = $this->getMockBuilder( EchoTitleLocalCache::class )
-			->setMethods( [ 'resolve' ] )->getMock();
+			->onlyMethods( [ 'resolve' ] )->getMock();
 		$cachePriv = TestingAccessWrapper::newFromObject( $cache );
 
 		// First title included in cache
@@ -55,7 +55,7 @@ class EchoTitleLocalCacheTest extends MediaWikiTestCase {
 
 	public function testClearAll() {
 		$cache = $this->getMockBuilder( EchoTitleLocalCache::class )
-			->setMethods( [ 'resolve' ] )->getMock();
+			->onlyMethods( [ 'resolve' ] )->getMock();
 
 		// Add 1 to cache
 		$cachePriv = TestingAccessWrapper::newFromObject( $cache );

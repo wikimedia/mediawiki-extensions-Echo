@@ -268,7 +268,7 @@ class MWEchoNotifUser {
 					null,
 					$usertalkTypes,
 					null,
-					DB_MASTER
+					DB_PRIMARY
 				);
 				if ( $unreadEditUserTalk === [] ) {
 					$talkPageNotificationManager->removeUserHasNewMessages( $this->mUser );
@@ -310,7 +310,7 @@ class MWEchoNotifUser {
 					null,
 					$usertalkTypes,
 					null,
-					DB_MASTER
+					DB_PRIMARY
 				);
 				if ( $unreadEditUserTalk !== [] ) {
 					$talkPageNotificationManager->setUserHasNewMessages( $this->mUser );
@@ -451,7 +451,7 @@ class MWEchoNotifUser {
 			$uw = EchoUnreadWikis::newFromUser( $this->mUser );
 			if ( $uw ) {
 				// Immediately compute new local counts and timestamps
-				$newLocalData = $this->computeLocalCountsAndTimestamps( DB_MASTER );
+				$newLocalData = $this->computeLocalCountsAndTimestamps( DB_PRIMARY );
 				// Write the new values to the echo_unread_wikis table
 				$alertTs = $newLocalData[EchoAttributeManager::ALERT]['timestamp'];
 				$messageTs = $newLocalData[EchoAttributeManager::MESSAGE]['timestamp'];

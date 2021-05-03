@@ -20,7 +20,7 @@ class EchoUserLocatorTest extends MediaWikiTestCase {
 				'wl_title' => $key
 			];
 		}
-		wfGetDB( DB_MASTER )->insert( 'watchlist', $rows, __METHOD__ );
+		wfGetDB( DB_PRIMARY )->insert( 'watchlist', $rows, __METHOD__ );
 
 		$event = $this->getMockBuilder( EchoEvent::class )
 			->disableOriginalConstructor()

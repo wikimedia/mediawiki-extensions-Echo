@@ -12,7 +12,7 @@ class NotificationServiceClientUnitTest extends MediaWikiUnitTestCase {
 	public function testSendCheckEchoRequests( $numOfCalls, $subscriptions, $expected ): void {
 		$mock = $this->getMockBuilder( NotificationServiceClient::class )
 			->disableOriginalConstructor()
-			->setMethods( [ 'sendRequest' ] )
+			->onlyMethods( [ 'sendRequest' ] )
 			->getMock();
 
 		$mock->expects( $this->exactly( $numOfCalls ) )

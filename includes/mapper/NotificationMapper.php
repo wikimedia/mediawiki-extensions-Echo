@@ -13,7 +13,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	 * @param EchoNotification $notification
 	 */
 	public function insert( EchoNotification $notification ) {
-		$dbw = $this->dbFactory->getEchoDb( DB_MASTER );
+		$dbw = $this->dbFactory->getEchoDb( DB_PRIMARY );
 
 		$listeners = $this->getMethodListeners( __FUNCTION__ );
 
@@ -335,7 +335,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 		global $wgUpdateRowsPerQuery;
 		$eventMapper = new EchoEventMapper( $this->dbFactory );
 		$userId = $user->getId();
-		$dbw = $this->dbFactory->getEchoDb( DB_MASTER );
+		$dbw = $this->dbFactory->getEchoDb( DB_PRIMARY );
 		$dbr = $this->dbFactory->getEchoDb( DB_REPLICA );
 		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
 		$ticket = $lbFactory->getEmptyTransactionTicket( __METHOD__ );
