@@ -8,7 +8,7 @@ use MediaWiki\Storage\NameTableStore;
 
 return [
 
-	'EchoAttributeManager' => function ( MediaWikiServices $services ): EchoAttributeManager {
+	'EchoAttributeManager' => static function ( MediaWikiServices $services ): EchoAttributeManager {
 		$userGroupManager = $services->getUserGroupManager();
 		$echoConfig = $services->getConfigFactory()->makeConfig( 'Echo' );
 		$notifications = $echoConfig->get( 'EchoNotifications' );
@@ -25,7 +25,7 @@ return [
 		);
 	},
 
-	'EchoPushNotificationServiceClient' => function ( MediaWikiServices $services ):
+	'EchoPushNotificationServiceClient' => static function ( MediaWikiServices $services ):
 	NotificationServiceClient {
 		$echoConfig = $services->getConfigFactory()->makeConfig( 'Echo' );
 		$httpRequestFactory = $services->getHttpRequestFactory();
@@ -35,7 +35,7 @@ return [
 		return $client;
 	},
 
-	'EchoPushSubscriptionManager' => function ( MediaWikiServices $services ): SubscriptionManager {
+	'EchoPushSubscriptionManager' => static function ( MediaWikiServices $services ): SubscriptionManager {
 		$echoConfig = $services->getConfigFactory()->makeConfig( 'Echo' );
 		// Use shared DB/cluster for push subscriptions
 		$cluster = $echoConfig->get( 'EchoSharedTrackingCluster' );

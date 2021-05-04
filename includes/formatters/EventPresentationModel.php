@@ -186,7 +186,7 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 	 */
 	public function getBundledIds() {
 		if ( $this->isBundled() ) {
-			return array_map( function ( EchoEvent $event ) {
+			return array_map( static function ( EchoEvent $event ) {
 				return $event->getId();
 			}, $this->getBundledEvents() );
 		}

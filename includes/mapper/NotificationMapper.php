@@ -21,7 +21,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 		DeferredUpdates::addUpdate( new AtomicSectionUpdate(
 			$dbw,
 			__METHOD__,
-			function ( IDatabase $dbw, $fname ) use ( $row, $listeners ) {
+			static function ( IDatabase $dbw, $fname ) use ( $row, $listeners ) {
 				$row['notification_timestamp'] =
 					$dbw->timestamp( $row['notification_timestamp'] );
 				$dbw->insert( 'echo_notification', $row, $fname );

@@ -480,11 +480,11 @@ class EchoNotificationController {
 		foreach ( self::evaluateUserCallable( $event, EchoAttributeManager::ATTR_FILTERS ) as $users ) {
 			// the result of the callback can be both an iterator or array
 			$users = is_array( $users ) ? $users : iterator_to_array( $users );
-			$notify->addFilter( function ( UserIdentity $user ) use ( $users ) {
+			$notify->addFilter( static function ( UserIdentity $user ) use ( $users ) {
 				// we need to check if $user is in $users, but they're not
 				// guaranteed to be the same object, so I'll compare ids.
 				$userId = $user->getId();
-				$userIds = array_map( function ( UserIdentity $user ) {
+				$userIds = array_map( static function ( UserIdentity $user ) {
 					return $user->getId();
 				}, $users );
 				return !in_array( $userId, $userIds );
@@ -494,7 +494,7 @@ class EchoNotificationController {
 		// Filter non-User, anon and duplicate users
 		$seen = [];
 		$fname = __METHOD__;
-		$notify->addFilter( function ( $user ) use ( &$seen, $fname ) {
+		$notify->addFilter( static function ( $user ) use ( &$seen, $fname ) {
 			if ( !$user instanceof User ) {
 				wfDebugLog( $fname, 'Expected all User instances, received:' .
 					( is_object( $user ) ? get_class( $user ) : gettype( $user ) )
@@ -513,7 +513,7 @@ class EchoNotificationController {
 		// Don't notify the person who initiated the event unless the event allows it
 		if ( !$event->canNotifyAgent() && $event->getAgent() ) {
 			$agentId = $event->getAgent()->getId();
-			$notify->addFilter( function ( $user ) use ( $agentId ) {
+			$notify->addFilter( static function ( $user ) use ( $agentId ) {
 				return $user->getId() != $agentId;
 			} );
 		}

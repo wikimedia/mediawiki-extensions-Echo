@@ -45,7 +45,7 @@ class SpecialNotificationsMarkRead extends FormSpecialPage {
 				'type' => 'hidden',
 				'required' => true,
 				'default' => $this->par,
-				'filter-callback' => function ( $value, $alldata ) {
+				'filter-callback' => static function ( $value, $alldata ) {
 					// Allow for a single value or a set of values
 					$result = explode( ',', $value );
 					return $result;

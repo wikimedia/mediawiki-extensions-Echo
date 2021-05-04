@@ -8,7 +8,7 @@ class Bundler {
 		// See: https://bugs.php.net/bug.php?id=50688
 
 		// phpcs:ignore Generic.PHP.NoSilencedErrors
-		@usort( $array, function ( Bundleable $a, Bundleable $b ) {
+		@usort( $array, static function ( Bundleable $a, Bundleable $b ) {
 			return strcmp( $b->getSortingKey(), $a->getSortingKey() );
 		} );
 	}

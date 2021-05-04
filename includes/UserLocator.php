@@ -35,7 +35,7 @@ class EchoUserLocator {
 		$recursiveIt = new RecursiveIteratorIterator( $batchRowIt );
 
 		// add callback to convert user id to user objects
-		$echoCallbackIt = new EchoCallbackIterator( $recursiveIt, function ( $row ) {
+		$echoCallbackIt = new EchoCallbackIterator( $recursiveIt, static function ( $row ) {
 			return User::newFromId( $row->wl_user );
 		} );
 

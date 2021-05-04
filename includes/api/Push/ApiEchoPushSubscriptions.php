@@ -41,7 +41,7 @@ class ApiEchoPushSubscriptions extends ApiBase {
 	/** @inheritDoc */
 	public function getModuleManager(): ApiModuleManager {
 		if ( !$this->moduleManager ) {
-			$submodules = array_map( function ( $class ) {
+			$submodules = array_map( static function ( $class ) {
 				return [
 					'class' => $class,
 					'factory' => "$class::factory",

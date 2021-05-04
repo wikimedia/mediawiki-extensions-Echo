@@ -106,7 +106,7 @@ class EchoFilteredSequentialIterator implements IteratorAggregate {
 	protected function createFilter() {
 		switch ( count( $this->filters ) ) {
 			case 0:
-				return function () {
+				return static function () {
 					return true;
 				};
 
@@ -116,7 +116,7 @@ class EchoFilteredSequentialIterator implements IteratorAggregate {
 			default:
 				$filters = $this->filters;
 
-				return function ( $user ) use ( $filters ) {
+				return static function ( $user ) use ( $filters ) {
 					foreach ( $filters as $filter ) {
 						if ( !call_user_func( $filter, $user ) ) {
 							return false;

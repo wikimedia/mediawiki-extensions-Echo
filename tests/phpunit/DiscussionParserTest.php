@@ -385,7 +385,7 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 		);
 		$events = [];
 		$this->setupEventCallbackForEventGeneration(
-			function ( EchoEvent $event ) use ( &$events ) {
+			static function ( EchoEvent $event ) use ( &$events ) {
 				$events[] = [
 					'type' => $event->getType(),
 					'agent' => $event->getAgent()->getName(),
@@ -702,7 +702,7 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 		);
 		$events = [];
 		$this->setupEventCallbackForEventGeneration(
-			function ( EchoEvent $event ) use ( &$events ) {
+			static function ( EchoEvent $event ) use ( &$events ) {
 				$events[] = [
 					'type' => $event->getType(),
 					'agent' => $event->getAgent()->getName(),
@@ -902,7 +902,7 @@ TEXT
 
 		$events = [];
 		$this->setupEventCallbackForEventGeneration(
-			function ( EchoEvent $event ) use ( &$events ) {
+			static function ( EchoEvent $event ) use ( &$events ) {
 				$events[] = [
 					'type' => $event->getType(),
 					'agent' => $event->getAgent()->getName(),

@@ -61,7 +61,7 @@ class EchoUpdatePerUserBlacklist extends LoggedUpdateMaintenance {
 				}
 
 				$value = explode( "\n", $row->up_value );
-				$names = array_filter( $value, function ( $item ) {
+				$names = array_filter( $value, static function ( $item ) {
 					return !is_numeric( $item );
 				} );
 

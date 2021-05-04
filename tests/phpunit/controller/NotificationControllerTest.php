@@ -28,7 +28,7 @@ class NotificationControllerTest extends MediaWikiTestCase {
 				// expected result
 				[ [ 123 ] ],
 				// event user locator config
-				function () {
+				static function () {
 					return [ 123 => 123 ];
 				}
 			],
@@ -39,10 +39,10 @@ class NotificationControllerTest extends MediaWikiTestCase {
 				[ [ 123 ], [ 456 ] ],
 				// event user locator config
 				[
-					function () {
+					static function () {
 						return [ 123 => 123 ];
 					},
-					function () {
+					static function () {
 						return [ 456 => 456 ];
 					},
 				],
@@ -57,7 +57,7 @@ class NotificationControllerTest extends MediaWikiTestCase {
 					[ [ EchoUserLocator::class, 'locateFromEventExtra' ], [ 'other-user' ] ],
 				],
 				// additional setup
-				function ( $test, $event ) {
+				static function ( $test, $event ) {
 					$event->expects( $test->any() )
 						->method( 'getExtraParam' )
 						->with( 'other-user' )
@@ -96,7 +96,7 @@ class NotificationControllerTest extends MediaWikiTestCase {
 
 	public function testEvaluateUserLocatorPassesParameters() {
 		$test = $this;
-		$callback = function ( $event, $firstOption, $secondOption ) use ( $test ) {
+		$callback = static function ( $event, $firstOption, $secondOption ) use ( $test ) {
 			$test->assertInstanceOf( EchoEvent::class, $event );
 			$test->assertEquals( 'first', $firstOption );
 			$test->assertEquals( 'second', $secondOption );
@@ -150,7 +150,7 @@ class NotificationControllerTest extends MediaWikiTestCase {
 		$this->setMwGlobals( [
 			'wgEchoNotifications' => [
 				'unit-test' => [
-					EchoAttributeManager::ATTR_LOCATORS => function () use ( $users ) {
+					EchoAttributeManager::ATTR_LOCATORS => static function () use ( $users ) {
 						return $users;
 					},
 				],

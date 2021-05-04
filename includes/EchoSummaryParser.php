@@ -12,7 +12,7 @@ class EchoSummaryParser {
 	public function __construct( callable $userLookup = null ) {
 		$this->userLookup = $userLookup;
 		if ( !$this->userLookup ) {
-			$this->userLookup = function ( User $user ) {
+			$this->userLookup = static function ( User $user ) {
 				return $user->getId();
 			};
 		}

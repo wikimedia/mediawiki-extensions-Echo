@@ -537,7 +537,7 @@ class EchoHooks implements RecentChange_saveHook {
 		$undidRevId = $editResult->getUndidRevId();
 
 		// Try to do this after the HTTP response
-		DeferredUpdates::addCallableUpdate( function () use ( $revisionRecord, $undidRevId ) {
+		DeferredUpdates::addCallableUpdate( static function () use ( $revisionRecord, $undidRevId ) {
 			// This check has to happen during deferred processing, otherwise $lastRevertedRevision
 			// will not be initialized.
 			$isRevert = $undidRevId > 0 ||
@@ -553,7 +553,7 @@ class EchoHooks implements RecentChange_saveHook {
 		if ( $user->isRegistered() ) {
 			$thresholdCount = self::getEditCount( $user );
 			if ( in_array( $thresholdCount, $thresholds ) ) {
-				DeferredUpdates::addCallableUpdate( function () use ( $user, $title, $thresholdCount ) {
+				DeferredUpdates::addCallableUpdate( static function () use ( $user, $title, $thresholdCount ) {
 					$notificationMapper = new EchoNotificationMapper();
 					$notifications = $notificationMapper->fetchByUser( $user, 10, null, [ 'thank-you-edit' ] );
 					/** @var EchoNotification $notification */
@@ -928,7 +928,7 @@ class EchoHooks implements RecentChange_saveHook {
 				}
 
 				// Schedule a deferred update to mark these notifications as read on the foreign wiki
-				DeferredUpdates::addCallableUpdate( function () use ( $user, $markAsReadIds, $markAsReadWiki ) {
+				DeferredUpdates::addCallableUpdate( static function () use ( $user, $markAsReadIds, $markAsReadWiki ) {
 					$notifUser = MWEchoNotifUser::newFromUser( $user );
 					$notifUser->markReadForeign( $markAsReadIds, $markAsReadWiki );
 				} );
@@ -937,7 +937,7 @@ class EchoHooks implements RecentChange_saveHook {
 
 		// Schedule a deferred update to mark local target_page and ?markasread= notifications as read
 		if ( $eventIds ) {
-			DeferredUpdates::addCallableUpdate( function () use ( $user, $eventIds ) {
+			DeferredUpdates::addCallableUpdate( static function () use ( $user, $eventIds ) {
 				$notifUser = MWEchoNotifUser::newFromUser( $user );
 				$notifUser->markRead( $eventIds );
 			} );
@@ -1335,7 +1335,7 @@ class EchoHooks implements RecentChange_saveHook {
 			// Reset the notification count since it may have changed due to user
 			// option changes. This covers both explicit changes in the preferences
 			// and changes made through the options API (since both call this hook).
-			DeferredUpdates::addCallableUpdate( function () use ( $user ) {
+			DeferredUpdates::addCallableUpdate( static function () use ( $user ) {
 				MWEchoNotifUser::newFromUser( $user )->resetNotificationCount();
 			} );
 		}
@@ -1421,7 +1421,7 @@ class EchoHooks implements RecentChange_saveHook {
 	public static function onUserClearNewTalkNotification( UserIdentity $user ) {
 		if ( $user->isRegistered() ) {
 			$userObj = User::newFromIdentity( $user );
-			DeferredUpdates::addCallableUpdate( function () use ( $userObj ) {
+			DeferredUpdates::addCallableUpdate( static function () use ( $userObj ) {
 				MWEchoNotifUser::newFromUser( $userObj )->clearUserTalkNotifications();
 			} );
 		}
@@ -1490,7 +1490,7 @@ class EchoHooks implements RecentChange_saveHook {
 
 	public static function onMergeAccountFromTo( User &$oldUser, User &$newUser ) {
 		$method = __METHOD__;
-		DeferredUpdates::addCallableUpdate( function () use ( $oldUser, $newUser, $method ) {
+		DeferredUpdates::addCallableUpdate( static function () use ( $oldUser, $newUser, $method ) {
 			if ( $newUser->isRegistered() ) {
 				// Select notifications that are now sent to the same user
 				$dbw = MWEchoDbFactory::newFromDefault()->getEchoDb( DB_PRIMARY );
@@ -1617,7 +1617,7 @@ class EchoHooks implements RecentChange_saveHook {
 		?Content $content,
 		LogEntry $logEntry
 	) {
-		\DeferredUpdates::addCallableUpdate( function () use ( $articleId ) {
+		\DeferredUpdates::addCallableUpdate( static function () use ( $articleId ) {
 			$eventMapper = new EchoEventMapper();
 			$eventIds = $eventMapper->fetchIdsByPage( $articleId );
 			EchoModerationController::moderate( $eventIds, true );
@@ -1626,7 +1626,7 @@ class EchoHooks implements RecentChange_saveHook {
 
 	public static function onArticleUndelete( Title $title, $create, $comment, $oldPageId ) {
 		if ( $create ) {
-			\DeferredUpdates::addCallableUpdate( function () use ( $oldPageId ) {
+			\DeferredUpdates::addCallableUpdate( static function () use ( $oldPageId ) {
 				$eventMapper = new EchoEventMapper();
 				$eventIds = $eventMapper->fetchIdsByPage( $oldPageId );
 				EchoModerationController::moderate( $eventIds, false );

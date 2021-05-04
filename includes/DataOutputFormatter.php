@@ -46,12 +46,12 @@ class EchoDataOutputFormatter {
 
 		$bundledNotifs = $notification->getBundledNotifications();
 		if ( $bundledNotifs ) {
-			$bundledEvents = array_map( function ( EchoNotification $notif ) {
+			$bundledEvents = array_map( static function ( EchoNotification $notif ) {
 				return $notif->getEvent();
 			}, $bundledNotifs );
 			$event->setBundledEvents( $bundledEvents );
 
-			$bundledIds = array_map( function ( $event ) {
+			$bundledIds = array_map( static function ( $event ) {
 				return (int)$event->getId();
 			}, $bundledEvents );
 		}

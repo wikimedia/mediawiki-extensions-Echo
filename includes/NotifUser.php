@@ -349,7 +349,7 @@ class MWEchoNotifUser {
 		$notifs = $this->notifMapper->fetchUnreadByUser( $this->mUser, $wgEchoMaxUpdateCount, null, $eventTypes );
 
 		$eventIds = array_filter(
-			array_map( function ( EchoNotification $notif ) {
+			array_map( static function ( EchoNotification $notif ) {
 				// This should not happen at all, but use 0 in
 				// such case so to keep the code running
 				if ( $notif->getEvent() ) {

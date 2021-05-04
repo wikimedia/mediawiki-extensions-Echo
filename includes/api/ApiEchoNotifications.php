@@ -387,7 +387,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 		}
 
 		// Sort wikis by timestamp, in descending order (newest first)
-		usort( $wikis, function ( $a, $b ) use ( $section, $timestampsByWiki ) {
+		usort( $wikis, static function ( $a, $b ) use ( $section, $timestampsByWiki ) {
 			return (int)$timestampsByWiki[$b]->getTimestamp( TS_UNIX )
 				- (int)$timestampsByWiki[$a]->getTimestamp( TS_UNIX );
 		} );
@@ -469,7 +469,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 	 */
 	protected function mergeList( array $master, array $results, $groupBySection ) {
 		// sort all notifications by timestamp: most recent first
-		$sort = function ( $a, $b ) {
+		$sort = static function ( $a, $b ) {
 			return $a['timestamp']['utcunix'] - $b['timestamp']['utcunix'];
 		};
 

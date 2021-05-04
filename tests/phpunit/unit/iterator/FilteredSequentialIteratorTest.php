@@ -9,7 +9,7 @@ class FilteredSequentialIteratorTest extends MediaWikiUnitTestCase {
 	public function testEchoCallbackIteratorDoesntBlowUp() {
 		$it = new EchoCallbackIterator(
 			new ArrayIterator( [ 1, 2, 3 ] ),
-			function ( $num ) {
+			static function ( $num ) {
 				return "There were $num items";
 			}
 		);
@@ -23,10 +23,10 @@ class FilteredSequentialIteratorTest extends MediaWikiUnitTestCase {
 	}
 
 	public static function echoFilteredSequentialIteratorProvider() {
-		$odd = function ( $v ) {
+		$odd = static function ( $v ) {
 			return $v & 1;
 		};
-		$greaterThanFour = function ( $v ) {
+		$greaterThanFour = static function ( $v ) {
 			return $v > 4;
 		};
 

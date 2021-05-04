@@ -131,8 +131,8 @@ class EchoNotificationMapperTest extends MediaWikiTestCase {
 	public function testDeleteByUserEventOffset() {
 		$this->setMwGlobals( [ 'wgUpdateRowsPerQuery' => 4 ] );
 		$mockDb = $this->createMock( IDatabase::class );
-		$makeResultRows = function ( $eventIds ) {
-			return new ArrayIterator( array_map( function ( $eventId ) {
+		$makeResultRows = static function ( $eventIds ) {
+			return new ArrayIterator( array_map( static function ( $eventId ) {
 				return (object)[ 'notification_event' => $eventId ];
 			}, $eventIds ) );
 		};

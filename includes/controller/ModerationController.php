@@ -27,7 +27,7 @@ class EchoModerationController {
 
 		$fname = __METHOD__;
 
-		DeferredUpdates::addCallableUpdate( function () use ( $affectedUserIds, $fname ) {
+		DeferredUpdates::addCallableUpdate( static function () use ( $affectedUserIds, $fname ) {
 			// This update runs after the main transaction round commits.
 			// Wait for the event deletions to be propagated to replica DBs
 			$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();

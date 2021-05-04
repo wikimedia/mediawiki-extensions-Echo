@@ -138,7 +138,7 @@ class EchoEventMapper extends EchoAbstractMapper {
 	public function fetchIdsByPage( $pageId ) {
 		$events = $this->fetchByPage( $pageId );
 		$eventIds = array_map(
-			function ( EchoEvent $event ) {
+			static function ( EchoEvent $event ) {
 				return $event->getId();
 			},
 			$events
