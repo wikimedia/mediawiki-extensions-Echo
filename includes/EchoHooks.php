@@ -128,14 +128,14 @@ class EchoHooks implements RecentChange_saveHook {
 	public static function onResourceLoaderRegisterModules( ResourceLoader $resourceLoader ) {
 		global $wgExtensionDirectory, $wgEchoNotificationIcons, $wgEchoSecondaryIcons;
 		$resourceLoader->register( 'ext.echo.emailicons', [
-			'class' => 'ResourceLoaderEchoImageModule',
+			'class' => ResourceLoaderEchoImageModule::class,
 			'icons' => $wgEchoNotificationIcons,
 			'selector' => '.mw-echo-icon-{name}',
 			'localBasePath' => $wgExtensionDirectory,
 			'remoteExtPath' => 'Echo/modules'
 		] );
 		$resourceLoader->register( 'ext.echo.secondaryicons', [
-			'class' => 'ResourceLoaderEchoImageModule',
+			'class' => ResourceLoaderEchoImageModule::class,
 			'icons' => $wgEchoSecondaryIcons,
 			'selector' => '.mw-echo-icon-{name}',
 			'localBasePath' => $wgExtensionDirectory,
@@ -437,7 +437,7 @@ class EchoHooks implements RecentChange_saveHook {
 			) );
 		}
 		$preferences['echo-subscriptions'] = [
-			'class' => 'HTMLCheckMatrix',
+			'class' => HTMLCheckMatrix::class,
 			'section' => 'echo/echosubscriptions',
 			'rows' => $rows,
 			'columns' => $columns,
