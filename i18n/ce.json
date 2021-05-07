@@ -118,7 +118,7 @@
 	"notification-header-mention-agent-talkpage-nosection": "$1 {{GENDER:$2|хьахийна}} {{GENDER:$3|хьо}} {{GENDER:$2|шен}} дийцарийн агӀонгахь.",
 	"notification-header-mention-article-talkpage": "$1 {{GENDER:$2|хьахийна}} {{GENDER:$3|хьо}} «$4» дийцарийн агӀона «$5» дакъа тӀехь.",
 	"notification-header-mention-article-talkpage-nosection": "$1 {{GENDER:$2|хьахийна}} {{GENDER:$3|хьо}} «$4» дийцаре агӀонгахь.",
-	"notification-compact-header-mention-failure-user-unknown": "<strong>Декъашхочун цӀе яц:</strong> $1",
+	"notification-compact-header-mention-failure-user-unknown": "<strong>Декъашхочун цӀе йан а йац:</strong> $1",
 	"notification-compact-header-mention-failure-user-anonymous": "<strong>IP-адресаш хьахо аьтту бац:</strong> $1",
 	"notification-header-mention-success": "{{GENDER:$2|Ахьа}} {{GENDER:$3|декъашхо}} хьахор <strong>$3</strong> дӀадахьийтина.",
 	"notification-header-mention-success-bundle": "Кху <strong>$4</strong> дийцарийн агӀонгахь {{GENDER:$2|ахьа}} {{PLURAL:$3|хьахор}}, {{PLURAL:$3|дӀадахьийтина}}.",
