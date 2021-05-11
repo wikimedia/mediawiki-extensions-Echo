@@ -145,7 +145,7 @@
 	"notification-timestamp-ago-years": "{{PLURAL:$1|$1 ш.}}",
 	"notification-timestamp-today": "Тахана",
 	"notification-timestamp-yesterday": "Селхана",
-	"notification-inbox-filter-read": "Ешар",
+	"notification-inbox-filter-read": "Йешнарш",
 	"notification-inbox-filter-unread": "Ца ешнарш",
 	"notification-inbox-filter-all": "Массо",
 	"echo-specialmute-label-mute-notifications": "ХӀокху декъашхочунгара хаамаш дӀабайа",
