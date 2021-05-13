@@ -35,17 +35,17 @@ class EchoEventMapper extends EchoAbstractMapper {
 	 * Create an EchoEvent by id
 	 *
 	 * @param int $id
-	 * @param bool $fromMaster
+	 * @param bool $fromPrimary
 	 * @return EchoEvent|false False if it wouldn't load/unserialize
 	 * @throws MWException
 	 */
-	public function fetchById( $id, $fromMaster = false ) {
-		$db = $fromMaster ? $this->dbFactory->getEchoDb( DB_PRIMARY ) : $this->dbFactory->getEchoDb( DB_REPLICA );
+	public function fetchById( $id, $fromPrimary = false ) {
+		$db = $fromPrimary ? $this->dbFactory->getEchoDb( DB_PRIMARY ) : $this->dbFactory->getEchoDb( DB_REPLICA );
 
 		$row = $db->selectRow( 'echo_event', EchoEvent::selectFields(), [ 'event_id' => $id ], __METHOD__ );
 
-		// If the row was not found, fall back on the master if it makes sense to do so
-		if ( !$row && !$fromMaster && $this->dbFactory->canRetryMaster() ) {
+		// If the row was not found, fall back on the primary database if it makes sense to do so
+		if ( !$row && !$fromPrimary && $this->dbFactory->canRetryMaster() ) {
 			return $this->fetchById( $id, true );
 		} elseif ( !$row ) {
 			throw new MWException( "No EchoEvent found with ID: $id" );
@@ -188,7 +188,7 @@ class EchoEventMapper extends EchoAbstractMapper {
 	 * An event is orphaned if it is not referred to by any rows in the echo_notification or
 	 * echo_email_batch tables. If $ignoreUserId is set, rows for that user are not considered when
 	 * determining orphanhood; if $ignoreUserTable is set, this only applies to that table.
-	 * Use this when you've just recently deleted rows related to this user on the master, so that
+	 * Use this when you've just recently deleted rows related to this user on the primary database, so that
 	 * this function won't refuse to delete recently-orphaned events because it still sees the
 	 * recently-deleted rows on the replica.
 	 *

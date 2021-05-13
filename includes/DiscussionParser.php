@@ -32,7 +32,7 @@ abstract class EchoDiscussionParser {
 		// use replica database if there is a previous revision
 		if ( $store->getPreviousRevision( $revision ) ) {
 			$title = Title::newFromID( $revision->getPageId() );
-			// use master database for new page
+			// use primary database for new page
 		} else {
 			$title = Title::newFromID( $revision->getPageId(), Title::GAID_FOR_UPDATE );
 		}

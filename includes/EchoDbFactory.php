@@ -142,7 +142,7 @@ class MWEchoDbFactory {
 	}
 
 	/**
-	 * Get the current master position for the wiki and echo
+	 * Get the current primary database position for the wiki and echo
 	 * db when they have at least one replica in their cluster.
 	 *
 	 * @return array
@@ -169,7 +169,7 @@ class MWEchoDbFactory {
 
 	/**
 	 * Receives the output of self::getMasterPosition. Waits
-	 * for replicas to catch up to the master position at that
+	 * for replicas to catch up to the primary database position at that
 	 * point.
 	 *
 	 * @param array $position
@@ -184,7 +184,7 @@ class MWEchoDbFactory {
 	}
 
 	/**
-	 * Check whether it makes sense to retry a failed lookup on the master.
+	 * Check whether it makes sense to retry a failed lookup on the primary database.
 	 * @return bool True if there are multiple servers and changes were made in this request; false otherwise
 	 */
 	public function canRetryMaster() {

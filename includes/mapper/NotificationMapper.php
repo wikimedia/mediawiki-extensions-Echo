@@ -67,7 +67,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	 * @param string[] $eventTypes
 	 * @param Title[]|null $titles If set, only return notifications for these pages.
 	 *  To find notifications not associated with any page, add null as an element to this array.
-	 * @param int $dbSource Use master or replica database
+	 * @param int $dbSource Use primary database or replica database
 	 * @return EchoNotification[]
 	 */
 	public function fetchUnreadByUser(
@@ -100,7 +100,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	 * @param string[] $eventTypes
 	 * @param Title[]|null $titles If set, only return notifications for these pages.
 	 *  To find notifications not associated with any page, add null as an element to this array.
-	 * @param int $dbSource Use master or replica database
+	 * @param int $dbSource Use primary database or replica database
 	 * @return EchoNotification[]
 	 */
 	public function fetchReadByUser(
@@ -175,7 +175,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	 * @param string|null $continue Used for offset
 	 * @param array $eventTypes Event types to load
 	 * @param array $conds Additional query conditions.
-	 * @param int $dbSource Use master or replica database
+	 * @param int $dbSource Use primary database or replica database
 	 * @return EchoNotification[]
 	 */
 	protected function fetchByUserInternal(

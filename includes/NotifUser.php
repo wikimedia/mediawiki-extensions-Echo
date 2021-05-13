@@ -429,7 +429,7 @@ class MWEchoNotifUser {
 	 * This updates the user's touched timestamp, as well as the value returned by getGlobalUpdateTime().
 	 *
 	 * NOTE: Consider calling this function from a deferred update, since it will read from and write to
-	 * the master DB if cross-wiki notifications are enabled.
+	 * the primary DB if cross-wiki notifications are enabled.
 	 */
 	public function resetNotificationCount() {
 		global $wgEchoCrossWikiNotifications;
@@ -553,7 +553,7 @@ class MWEchoNotifUser {
 
 	/**
 	 * Compute the counts and timestamps for the local notifications in each section.
-	 * @param int $dbSource DB_REPLICA or DB_MASTER
+	 * @param int $dbSource DB_REPLICA or DB_PRIMARY
 	 * @return array[] [ 'alert' => [ 'count' => N, 'timestamp' => TS ], ... ]
 	 */
 	protected function computeLocalCountsAndTimestamps( $dbSource = DB_REPLICA ) {
