@@ -1014,29 +1014,6 @@ class EchoHooks implements RecentChange_saveHook {
 	}
 
 	/**
-	 * Handler for PersonalUrls hook.
-	 * Marks the talk page link when the user has a new message.
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/PersonalUrls
-	 * @param array &$personal_urls Array of URLs to append to.
-	 * @param Title &$title Title of page being visited.
-	 * @param SkinTemplate $sk
-	 */
-	public static function onPersonalUrls( &$personal_urls, &$title, $sk ) {
-		$user = $sk->getUser();
-		if ( !$user->isRegistered() ) {
-			return;
-		}
-
-		// If the user has new messages, display a talk page alert
-		if ( self::shouldDisplayTalkAlert( $user, $title )
-			&& Hooks::run( 'BeforeDisplayOrangeAlert', [ $user, $title ] )
-		) {
-			$personal_urls['mytalk']['text'] = $sk->msg( 'echo-new-messages' )->text();
-			$personal_urls['mytalk']['class'] = [ 'mw-echo-alert' ];
-		}
-	}
-
-	/**
 	 * Determine if a talk page alert should be displayed.
 	 * We need to check:
 	 * - User actually has new messages
@@ -1146,6 +1123,22 @@ class EchoHooks implements RecentChange_saveHook {
 
 		if ( $alertCount > MWEchoNotifUser::MAX_BADGE_COUNT ) {
 			$alertLinkClasses[] = 'mw-echo-notifications-badge-long-label';
+		}
+
+		if (
+			self::shouldDisplayTalkAlert( $user, $title ) &&
+			MediaWikiServices::getInstance()
+				->getHookContainer()->run( 'BeforeDisplayOrangeAlert', [ $user, $title ] )
+		) {
+			// Move `mytalk` from `user-menu` to `notifications`.
+			$links['notifications']['mytalk'] = array_merge(
+				$links['user-menu']['mytalk'],
+				[
+					'text' => $skinTemplate->msg( 'echo-new-messages' )->text(),
+					'class' => [ 'mw-echo-alert' ]
+				]
+			);
+			unset( $links['user-menu']['mytalk'] );
 		}
 
 		$links['notifications']['notifications-alert'] = [

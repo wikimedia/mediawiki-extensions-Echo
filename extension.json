@@ -458,7 +458,6 @@
 		"SkinMinervaReplaceNotificationsBadge": "EchoHooks::onSkinMinervaReplaceNotificationsBadge",
 		"LoadExtensionSchemaUpdates": "EchoHooks::onLoadExtensionSchemaUpdates",
 		"GetPreferences": "EchoHooks::getPreferences",
-		"PersonalUrls": "EchoHooks::onPersonalUrls",
 		"BeforePageDisplay": "EchoHooks::beforePageDisplay",
 		"ResourceLoaderRegisterModules": "EchoHooks::onResourceLoaderRegisterModules",
 		"UserGroupsChanged": "EchoHooks::onUserGroupsChanged",

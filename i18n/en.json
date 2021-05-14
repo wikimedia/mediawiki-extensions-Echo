@@ -64,7 +64,7 @@
 	"echo-pref-dont-email-read-notifications": "Don't include read notifications in summary emails",
 	"echo-learn-more": "Learn more",
 	"echo-log": "Public log",
-	"echo-new-messages": "You have new messages",
+	"echo-new-messages": "You have a new Talk page message",
 	"echo-category-title-edit-user-talk": "Talk page {{PLURAL:$1|message|messages}}",
 	"echo-category-title-article-linked": "Page {{PLURAL:$1|link|links}}",
 	"echo-category-title-reverted": "Edit {{PLURAL:$1|revert|reverts}}",
