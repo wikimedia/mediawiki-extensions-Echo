@@ -159,7 +159,7 @@
 	"echo-overlay-title": "<b>Хаамаш</b>",
 	"echo-mark-all-as-read": "Массо билгалъе ешна сана",
 	"echo-mark-all-as-read-confirmation": "$1 {{PLURAL:$1|хаам бешна санна билгалбина}}",
-	"echo-mark-wiki-as-read": "Хаьржинчу вики чура ерриге ешна санна билгалъе: $1",
+	"echo-mark-wiki-as-read": "Хаьржинчу вики чуьра йерриге йешна санна билгалйе: $1",
 	"echo-displaysnippet-title": "Керла хаам",
 	"echo-date-today": "Тахана",
 	"echo-date-yesterday": "Селхана",

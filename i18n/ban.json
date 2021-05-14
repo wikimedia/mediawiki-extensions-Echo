@@ -35,7 +35,9 @@
 	"echo-notification-markasread": "Cihna dados kawacén",
 	"echo-notification-markasunread": "Cihna dados durung kawacén",
 	"echo-notification-markasread-tooltip": "Cihna dados kawacén",
+	"notification-timestamp-yesterday": "Dibi",
 	"notification-inbox-filter-read": "Wacén",
 	"echo-mark-all-as-read": "Cihna makasami dados kawacén",
-	"echo-mark-all-as-read-confirmation": "$1 {{PLURAL:$1|pambiwara}} sampun kacihna dados kawacén"
+	"echo-mark-all-as-read-confirmation": "$1 {{PLURAL:$1|pambiwara}} sampun kacihna dados kawacén",
+	"echo-date-yesterday": "Dibi"
 }
