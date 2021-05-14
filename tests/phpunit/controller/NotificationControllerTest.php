@@ -95,11 +95,10 @@ class NotificationControllerTest extends MediaWikiTestCase {
 	}
 
 	public function testEvaluateUserLocatorPassesParameters() {
-		$test = $this;
-		$callback = static function ( $event, $firstOption, $secondOption ) use ( $test ) {
-			$test->assertInstanceOf( EchoEvent::class, $event );
-			$test->assertEquals( 'first', $firstOption );
-			$test->assertEquals( 'second', $secondOption );
+		$callback = function ( $event, $firstOption, $secondOption ) {
+			$this->assertInstanceOf( EchoEvent::class, $event );
+			$this->assertEquals( 'first', $firstOption );
+			$this->assertEquals( 'second', $secondOption );
 
 			return [];
 		};
