@@ -110,7 +110,7 @@
 	"notification-inbox-filter-read": "Oxunmuş",
 	"notification-inbox-filter-unread": "Oxunmamış",
 	"notification-inbox-filter-all": "Hamısı",
-	"echo-specialmute-label-mute-notifications": "Bundan gələn bildirişləri səssizləşdirin {{GENDER:$1|istifadəçi}}",
+	"echo-specialmute-label-mute-notifications": "Bu {{GENDER:$1|istifadəçidən}} gələn bildirişləri səssizləşdirin",
 	"echo-email-html-footer-preference-link-text": "nizamlamalarınızı nəzərdən keçirin.",
 	"echo-email-html-footer-with-link": "{{GENDER:$2|Sizə}} hansı e-meylləri göndərdiyimizə nəzarət etmək üçün $1.",
 	"echo-notification-alert": "{{PLURAL:$1|Xəbərdarlıq ($1)|Xəbərdarlıqlar ($1)|100=Xəbərdarlıqlar (99+)}}",
