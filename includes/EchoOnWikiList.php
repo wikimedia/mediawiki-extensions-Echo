@@ -34,7 +34,9 @@ class EchoOnWikiList implements EchoContainmentList {
 		if ( $article === null || !$article->exists() ) {
 			return [];
 		}
-		$text = ContentHandler::getContentText( $article->getContent() );
+
+		$content = $article->getContent();
+		$text = ( $content instanceof TextContent ) ? $content->getText() : null;
 		if ( $text === null ) {
 			return [];
 		}

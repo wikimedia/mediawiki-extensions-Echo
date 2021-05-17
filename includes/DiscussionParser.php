@@ -517,13 +517,15 @@ abstract class EchoDiscussionParser {
 			$store = MediaWikiServices::getInstance()->getRevisionStore();
 			$prevRevision = $store->getRevisionById( $revision->getParentId() );
 			if ( $prevRevision ) {
-				$prevText = ContentHandler::getContentText( $prevRevision->getContent( SlotRecord::MAIN ) ) ?: '';
+				$prevContent = $prevRevision->getContent( SlotRecord::MAIN );
+				$prevText = ( $prevContent instanceof TextContent ) ? $prevContent->getText() : '';
 			}
 		}
 
+		$content = $revision->getContent( SlotRecord::MAIN );
 		$changes = self::getMachineReadableDiff(
 			$prevText,
-			ContentHandler::getContentText( $revision->getContent( SlotRecord::MAIN ) )
+			( $content instanceof TextContent ) ? $content->getText() : null
 		);
 		$output = self::interpretDiff(
 			$changes,
