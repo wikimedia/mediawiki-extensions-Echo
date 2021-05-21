@@ -160,7 +160,7 @@
 	"notification-header-mention-other-nosection": "$1在「<strong>$4</strong>」中{{GENDER:$2|提到}}了{{GENDER:$3|您}}。",
 	"notification-header-mention-user-talkpage-v2": "$1在<strong>$4{{GENDER:$5|的}}使用者對話頁</strong>上的「<strong>$6</strong>」{{GENDER:$2|提到}}了{{GENDER:$3|您}}。",
 	"notification-header-mention-user-talkpage-nosection": "$1在<strong>$4{{GENDER:$5|的}}使用者對話頁</strong>上{{GENDER:$2|提到}}了{{GENDER:$3|您}}。",
-	"notification-header-mention-agent-talkpage": "$1在<strong>{{GENDER:$2|他|她|他}}對話頁</strong>上的「<strong>$4</strong>」{{GENDER:$2|提到}}了{{GENDER:$3|您}}。",
+	"notification-header-mention-agent-talkpage": "$1在<strong>{{GENDER:$2|他|她|他}}的對話頁</strong>上的「<strong>$4</strong>」{{GENDER:$2|提到}}了{{GENDER:$3|您}}。",
 	"notification-header-mention-agent-talkpage-nosection": "$1在<strong>{{GENDER:$2|他|她|他}}的對話頁</strong>上{{GENDER:$2|提到}}了{{GENDER:$3|您}}。",
 	"notification-header-mention-article-talkpage": "$1在<strong>$4</strong>討論頁上的「<strong>$5</strong>」{{GENDER:$2|提到}}了{{GENDER:$3|您}}。",
 	"notification-header-mention-article-talkpage-nosection": "$1在<strong>$4</strong>的討論頁上{{GENDER:$2|提到}}了{{GENDER:$3|您}}。",
