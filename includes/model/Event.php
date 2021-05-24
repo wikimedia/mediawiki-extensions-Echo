@@ -462,7 +462,8 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 			} else {
 				// Use User::isHidden()
 				$permManager = MediaWikiServices::getInstance()->getPermissionManager();
-				return $permManager->userHasAnyRight( $user, 'viewsuppressed', 'hideuser' ) || !$agent->isHidden();
+				return $permManager->userHasAnyRight( $user, 'viewsuppressed', 'hideuser' )
+					|| !$agent->isHidden();
 			}
 		} elseif ( $revision ) {
 			// A revision is set, use rev_deleted

@@ -246,7 +246,7 @@ class GenerateSampleNotifications extends Maintenance {
 		$this->output( "{$agent->getName()} is mentioning {$user->getName()} on {$title->getTalkPage()->getPrefixedText()}\n" );
 		$this->addToPageContent( $title->getTalkPage(), $agent, $mention );
 
-		// agent tak
+		// agent talk
 		$this->output( "{$agent->getName()} is mentioning {$user->getName()} on {$agent->getTalkPage()->getPrefixedText()}\n" );
 		$this->addToPageContent( $agent->getTalkPage(), $agent, $mention );
 
@@ -299,6 +299,7 @@ class GenerateSampleNotifications extends Maintenance {
 		);
 
 		$status = $page->doEditContent( $content, 'undo', 0, false, $agent, null, [], $undoRev->getId() );
+
 		if ( !$status->isGood() ) {
 			$this->error( "Failed to undo {$moai->getPrefixedText()}: {$status->getMessage()->text()}" );
 		}
