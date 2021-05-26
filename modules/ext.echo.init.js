@@ -265,7 +265,7 @@ function initDesktop() {
 				if ( hasUnseenAlerts || hasUnseenMessages ) {
 					// Clicked on the flyout due to having unread notifications
 					// This is part of tracking how likely users are to click a badge with unseen notifications.
-					// The other part is the 'echo.unseen' counter, see EchoHooks::onPersonalUrls().
+					// The other part is the 'echo.unseen' counter, see EchoHooks::onSkinTemplateNavigationUniversal().
 					mw.track( 'counter.MediaWiki.echo.unseen.click' );
 				}
 			}, function () {
