@@ -20,5 +20,6 @@
 	"echo-overlay-link": "সকলো জাননী",
 	"echo-date-today": "আজি",
 	"echo-date-yesterday": "কালি",
+	"notification-bundle-header-edit-user-talk-v2": "<strong>{{GENDER:$3|আপোনা}}ৰ আলোচনা পৃষ্ঠাত</strong> {{PLURAL:$1|এটা নতুন বাৰ্তা|$1টা নতুন বাৰ্তা|100=৯৯টাতকৈ অধিক নতুন বাৰ্তা}} আহিছে।",
 	"echo-email-batch-link-text-view-all-notifications": "সকলো জাননী চাওক"
 }
