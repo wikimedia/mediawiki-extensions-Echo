@@ -21,7 +21,8 @@
 			"Vigorous action",
 			"Whym",
 			"Yusuke1109",
-			"おはぐろ蜻蛉"
+			"おはぐろ蜻蛉",
+			"ネイ"
 		]
 	},
 	"echo-desc": "イベントおよびメッセージについて、利用者に通知するシステム",
@@ -39,6 +40,7 @@
 	"echo-pref-email-format": "メールの形式:",
 	"echo-pref-web": "ウェブ",
 	"echo-pref-email": "メール",
+	"echo-pref-push": "アプリ",
 	"echo-pref-email-frequency-never": "通知メールを何も受け取らない",
 	"echo-pref-email-frequency-immediately": "個別の通知が来るたび",
 	"echo-pref-email-frequency-daily": "通知を1日ごとに要約",

@@ -146,7 +146,7 @@
 	"notification-timestamp-today": "Тахана",
 	"notification-timestamp-yesterday": "Селхана",
 	"notification-inbox-filter-read": "Йешнарш",
-	"notification-inbox-filter-unread": "Ца ешнарш",
+	"notification-inbox-filter-unread": "Йешазайерш",
 	"notification-inbox-filter-all": "Массо",
 	"echo-specialmute-label-mute-notifications": "ХӀокху декъашхочунгара хаамаш дӀабайа",
 	"echo-email-html-footer-preference-link-text": "хьажа {{GENDER:$1|хьайн}} нисдаран гӀирсе",
