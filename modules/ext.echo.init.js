@@ -169,9 +169,7 @@ function initDesktop() {
 
 				alertModelManager.on( 'allTalkRead', function () {
 					// If there was a talk page notification, get rid of it
-					$( '#pt-mytalk a' )
-						.removeClass( 'mw-echo-alert' )
-						.text( mw.msg( 'mytalk' ) );
+					$( '#pt-talk-alert' ).remove();
 				} );
 
 				// listen to event countChange and change title only if polling rate is non-zero

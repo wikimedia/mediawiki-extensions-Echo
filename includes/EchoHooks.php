@@ -1132,19 +1132,14 @@ class EchoHooks implements RecentChange_saveHook {
 			MediaWikiServices::getInstance()
 				->getHookContainer()->run( 'BeforeDisplayOrangeAlert', [ $user, $title ] )
 		) {
-			// Move `mytalk` from `user-menu` to `notifications`.
-			$links['notifications']['mytalk'] = [
-				'href' => $mytalk['href'],
-				'text' => $skinTemplate->msg( 'echo-new-messages' )->text(),
-
-				'active' => $mytalk['active'],
-				'exists' => $mytalk['exists'],
-				'link-class' => [ 'mw-echo-alert' ],
-				// Id of `pt-mytalk` is important for Linker to set the `title` and
-				// `accesskey` attributes.
-				'id' => 'pt-mytalk',
-			];
-			unset( $links['user-menu']['mytalk'] );
+			// Create new talk alert inheriting from the talk link data.
+			$links['notifications']['talk-alert'] = array_merge(
+				$links['user-menu']['mytalk'],
+				[
+					'text' => $skinTemplate->msg( 'echo-new-messages' )->text(),
+					'link-class' => [ 'mw-echo-alert' ],
+				]
+			);
 		}
 
 		$links['notifications']['notifications-alert'] = [
