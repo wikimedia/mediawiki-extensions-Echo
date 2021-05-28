@@ -1131,13 +1131,17 @@ class EchoHooks implements RecentChange_saveHook {
 				->getHookContainer()->run( 'BeforeDisplayOrangeAlert', [ $user, $title ] )
 		) {
 			// Move `mytalk` from `user-menu` to `notifications`.
-			$links['notifications']['mytalk'] = array_merge(
-				$links['user-menu']['mytalk'],
-				[
-					'text' => $skinTemplate->msg( 'echo-new-messages' )->text(),
-					'class' => [ 'mw-echo-alert' ]
-				]
-			);
+			$links['notifications']['mytalk'] = [
+				'href' => $links['user-menu']['mytalk']['href'],
+				'text' => $skinTemplate->msg( 'echo-new-messages' ),
+
+				'active' => $links['user-menu']['mytalk']['active'],
+				'exists' => $links['user-menu']['mytalk']['exists'],
+				'link-class' => [ 'mw-echo-alert' ],
+				// Id of `pt-mytalk` is important for Linker to set the `title` and
+				// `accesskey` attributes.
+				'id' => 'pt-mytalk',
+			];
 			unset( $links['user-menu']['mytalk'] );
 		}
 
