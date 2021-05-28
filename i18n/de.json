@@ -50,7 +50,7 @@
 	"echo-pref-dont-email-read-notifications": "Gelesene Benachrichtigungen nicht in den Zusammenfassungmails einschließen",
 	"echo-learn-more": "Mehr erfahren",
 	"echo-log": "Öffentliches Logbuch",
-	"echo-new-messages": "Du hast neue Nachrichten",
+	"echo-new-messages": "Du hast eine neue Nachricht auf deiner Diskussionsseite",
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Diskussionsseitennachricht|Diskussionsseitennachrichten}}",
 	"echo-category-title-article-linked": "{{PLURAL:$1|Seitenverlinkung|Seitenverlinkungen}}",
 	"echo-category-title-reverted": "{{PLURAL:$1|Rückgängigmachung einer Bearbeitung|Rückgängigmachungen von Bearbeitungen}}",

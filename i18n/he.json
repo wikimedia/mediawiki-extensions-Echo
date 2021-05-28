@@ -46,7 +46,7 @@
 	"echo-pref-dont-email-read-notifications": "לא לכלול הודעות שנקראו במכתבים עם סיכומים",
 	"echo-learn-more": "מידע נוסף",
 	"echo-log": "יומן ציבורי",
-	"echo-new-messages": "יש לך הודעות חדשות",
+	"echo-new-messages": "יש לך הודעה חדשה בדף השיחה",
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1|הודעה|הודעות}} בדף השיחה",
 	"echo-category-title-article-linked": "{{PLURAL:$1|קישור לדף|קישורים לדפים}}",
 	"echo-category-title-reverted": "{{PLURAL:$1|שחזור עריכה|שחזורי עריכות}}",

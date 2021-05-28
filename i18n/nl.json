@@ -213,7 +213,7 @@
 	"notification-inbox-filter-read": "Gelezen",
 	"notification-inbox-filter-unread": "Ongelezen",
 	"notification-inbox-filter-all": "Alle",
-	"echo-specialmute-label-mute-notifications": "Verberg meldingen van deze gebruiker",
+	"echo-specialmute-label-mute-notifications": "Verberg meldingen van deze {{GENDER:$1|gebruiker}}",
 	"echo-email-plain-footer": "Controleer {{GENDER:$1|uw}} voorkeuren om te bepalen welke e-mails wij {{GENDER:$1|u}} sturen:",
 	"echo-email-html-footer-preference-link-text": "controleer {{GENDER:$1|uw}} voorkeuren",
 	"echo-email-html-footer-with-link": "Om te bepalen welke e-mails wij {{GENDER:$2|u}} sturen, $1.",
