@@ -30,7 +30,7 @@
 	"echo-pref-notifications-blacklist": "Non monstrar notificationes ab iste usatores. ([[mw:Special:MyLanguage/Help:Notifications#mute|leger plus]])",
 	"echo-learn-more": "Leger plus",
 	"echo-log": "Registro public",
-	"echo-new-messages": "Tu ha nove messages",
+	"echo-new-messages": "Il ha un nove message sur tu pagina de discussion",
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Message|Messages}} del pagina de discussion",
 	"echo-category-title-article-linked": "{{PLURAL:$1|Ligamine|Ligamines}} a un pagina",
 	"echo-category-title-reverted": "{{PLURAL:$1|Modification|Modificationes}} revertite",

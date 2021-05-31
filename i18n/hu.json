@@ -44,7 +44,7 @@
 	"echo-pref-dont-email-read-notifications": "Az összefoglaló e-mailek ne tartalmazzák a már olvasott értesítéseket",
 	"echo-learn-more": "Tudj meg többet",
 	"echo-log": "Nyilvános napló",
-	"echo-new-messages": "Új üzeneted van",
+	"echo-new-messages": "Új vitalapi üzeneted van",
 	"echo-category-title-edit-user-talk": "vitalapi {{PLURAL:$1|üzenet|üzenetek}}",
 	"echo-category-title-article-linked": "hivatkozott {{PLURAL:$1|lap|lapok}}",
 	"echo-category-title-reverted": "visszaállított {{PLURAL:$1|szerkesztés|szerkesztések}}",

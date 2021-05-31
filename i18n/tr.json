@@ -61,7 +61,7 @@
 	"echo-pref-dont-email-read-notifications": "Özet e-postalara okundu bildirimleri eklemeyin",
 	"echo-learn-more": "Daha fazla bilgi",
 	"echo-log": "Genel günlük",
-	"echo-new-messages": "Yeni mesajınız var",
+	"echo-new-messages": "Yeni bir mesajınız var",
 	"echo-category-title-edit-user-talk": "Tartışma sayfası {{PLURAL:$1|mesajı|mesajları}}",
 	"echo-category-title-article-linked": "Sayfa {{PLURAL:$1|bağlantısı|bağlantıları}}",
 	"echo-category-title-reverted": "Değişiklik {{PLURAL:$1|iptali|iptalleri}}",
