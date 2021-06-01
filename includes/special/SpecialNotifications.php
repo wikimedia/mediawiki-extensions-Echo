@@ -231,8 +231,8 @@ class SpecialNotifications extends SpecialPage {
 		$out->addModuleStyles( [
 			'ext.echo.styles.notifications',
 			'ext.echo.styles.special',
-			// We already load OOUI icons in the BeforePageDisplay hook, but not for minerva
-			'oojs-ui.styles.icons-alerts'
+			'oojs-ui.styles.icons-alerts',
+			'oojs-ui.styles.icons-interactions',
 		] );
 
 		// Log visit
