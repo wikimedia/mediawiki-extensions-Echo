@@ -37,7 +37,7 @@
 	"echo-pref-notifications-page-linked-title-muted-list": "Ära kuva tüübi \"Leheküljelink\" teavitusi nende lehekülgede kohta. ([[mw:Special:MyLanguage/Help:Notifications#mute|lisateave]])",
 	"echo-learn-more": "Lisateave",
 	"echo-log": "Avalik logi",
-	"echo-new-messages": "Sulle on uusi sõnumeid",
+	"echo-new-messages": "Sulle on aruteluleheküljel uusi sõnumeid",
 	"echo-category-title-edit-user-talk": "Arutelulehekülje {{PLURAL:$1|sõnum|sõnumid}}",
 	"echo-category-title-article-linked": "{{PLURAL:$1|Leheküljelink|Leheküljelingid}}",
 	"echo-category-title-reverted": "Tühistatud {{PLURAL:$1|muudatus|muudatused}}",
