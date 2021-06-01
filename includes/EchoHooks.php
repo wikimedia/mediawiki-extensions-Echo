@@ -1125,18 +1125,20 @@ class EchoHooks implements RecentChange_saveHook {
 			$alertLinkClasses[] = 'mw-echo-notifications-badge-long-label';
 		}
 
+		$mytalk = $links['user-menu']['mytalk'] ?? false;
 		if (
+			$mytalk &&
 			self::shouldDisplayTalkAlert( $user, $title ) &&
 			MediaWikiServices::getInstance()
 				->getHookContainer()->run( 'BeforeDisplayOrangeAlert', [ $user, $title ] )
 		) {
 			// Move `mytalk` from `user-menu` to `notifications`.
 			$links['notifications']['mytalk'] = [
-				'href' => $links['user-menu']['mytalk']['href'],
-				'text' => $skinTemplate->msg( 'echo-new-messages' ),
+				'href' => $mytalk['href'],
+				'text' => $skinTemplate->msg( 'echo-new-messages' )->text(),
 
-				'active' => $links['user-menu']['mytalk']['active'],
-				'exists' => $links['user-menu']['mytalk']['exists'],
+				'active' => $mytalk['active'],
+				'exists' => $mytalk['exists'],
 				'link-class' => [ 'mw-echo-alert' ],
 				// Id of `pt-mytalk` is important for Linker to set the `title` and
 				// `accesskey` attributes.
