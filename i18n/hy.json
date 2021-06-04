@@ -32,7 +32,7 @@
 	"echo-pref-notifications-blacklist": "Հետևյալ մասնակիցներից ծանուցումներ ցույց չտալ․\n([[mw:Special:MyLanguage/Help:Notifications#mute|իմանալ ավելին]])",
 	"echo-learn-more": "Իմանալ ավելին",
 	"echo-log": "Հանրամատչելի գրանցամատյան",
-	"echo-new-messages": "Դուք նոր ուղերձներ ունեք",
+	"echo-new-messages": "Դուք նոր ուղերձներ ունեք քննարկման էջում",
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Ուղերձ|ուղերձներ}} քննարկման էջում",
 	"echo-category-title-article-linked": "Էջի {{PLURAL:$1|հղում|հղումներ}}",
 	"echo-category-title-reverted": "{{PLURAL:$1|1=Խմբագրման|Խմբագրումների}} հետ շրջում",

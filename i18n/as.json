@@ -194,7 +194,7 @@
 	"notification-inbox-filter-read": "পঠিত",
 	"notification-inbox-filter-unread": "অপঠিত",
 	"notification-inbox-filter-all": "সকলো",
-	"echo-specialmute-label-mute-notifications": "এই {{GENDER:$1|সদস্যৰ}} জাননীসমূহ নিঃশব্দ কৰক",
+	"echo-specialmute-label-mute-notifications": "এই {{GENDER:$1|সদস্যৰ}} জাননীসমূহ বন্ধ কৰক",
 	"echo-email-plain-footer": "আমি {{GENDER:$1|আপোনাক}} কোনবোৰ ই-মেইল প্ৰেৰণ কৰোঁ তাক নিয়ন্ত্ৰণ কৰিবলৈ {{GENDER:$1|আপোনাৰ}} পছন্দসমূহ চাওক:",
 	"echo-email-html-footer-preference-link-text": "{{GENDER:$1|আপোনাৰ}} পছন্দসমূহ চাওক",
 	"echo-email-html-footer-with-link": "আমি {{GENDER:$2|আপোনালৈ}} কোনবোৰ ই-মেইল প্ৰেৰণ কৰিম তাক নিয়ন্ত্ৰণ কৰিবলৈ, $1।",
