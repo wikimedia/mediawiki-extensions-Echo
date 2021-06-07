@@ -48,7 +48,7 @@
 	"echo-pref-dont-email-read-notifications": "V souhrnech neposílat přečtená upozornění",
 	"echo-learn-more": "Další informace",
 	"echo-log": "Veřejný záznam",
-	"echo-new-messages": "Máte nové zprávy",
+	"echo-new-messages": "Máte novou zprávu na diskusní stránce",
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1|příspěvek|příspěvky}} na diskusní stránce",
 	"echo-category-title-article-linked": "{{PLURAL:$1|odkaz|odkazy}} na vytvořenou stránku",
 	"echo-category-title-reverted": "{{PLURAL:$1|vrácenou úpravu|vrácené úpravy}}",

@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"CptViraj",
 			"Drashti4",
 			"Dsvyas",
 			"KartikMistry",
@@ -27,7 +28,7 @@
 	"echo-pref-cross-wiki-notifications": "અન્ય વિકિ પરની સૂચનાઓ દર્શાવો",
 	"echo-learn-more": "વધુ જાણો",
 	"echo-log": "જાહેર નોંધ",
-	"echo-new-messages": "તમારા માટે નવા સંદેશાઓ છે",
+	"echo-new-messages": "તમારા માટે નવો સંદેશો છે",
 	"echo-category-title-edit-user-talk": "ચર્ચા પાનું {{PLURAL:$1|સંદેશ|સંદેશાઓ}}",
 	"echo-category-title-article-linked": "પાનું {{PLURAL:$1|કડી|કડીઓ}}",
 	"echo-category-title-reverted": "{{PLURAL:$1|ઉલટાવેલ|ઉલટાવેલા}} ફેરફાર",

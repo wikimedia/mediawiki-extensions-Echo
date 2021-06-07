@@ -34,7 +34,7 @@
 	"echo-pref-cross-wiki-notifications": "Montri sciigojn el aliaj vikioj",
 	"echo-learn-more": "Lerni plu",
 	"echo-log": "Publika protokolo",
-	"echo-new-messages": "Vi havas novajn mesaĝojn",
+	"echo-new-messages": "Vi havas novan diskutpaĝan mesaĝon",
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Mesaĝo|Mesaĝoj}} en diskutpaĝo",
 	"echo-category-title-article-linked": "{{PLURAL:$1|Ligilo|Ligiloj}} al paĝo",
 	"echo-category-title-reverted": "{{PLURAL:$1|Malfaro|Malfaroj}} de redakto",
