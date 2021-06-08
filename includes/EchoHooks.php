@@ -1137,7 +1137,7 @@ class EchoHooks implements RecentChange_saveHook {
 				$links['user-menu']['mytalk'],
 				[
 					'text' => $skinTemplate->msg( 'echo-new-messages' )->text(),
-					'link-class' => [ 'mw-echo-alert' ],
+					'class' => [ 'mw-echo-alert' ],
 				]
 			);
 		}
