@@ -211,7 +211,7 @@
 	"notification-inbox-filter-read": "Gelesen",
 	"notification-inbox-filter-unread": "Ungelesen",
 	"notification-inbox-filter-all": "Alle",
-	"echo-specialmute-label-mute-notifications": "Benachrichtigungen {{GENDER:$1|dieses Benutzers|dieser Benutzerin}} stumm schalten",
+	"echo-specialmute-label-mute-notifications": "Benachrichtigungen {{GENDER:$1|dieses Benutzers|dieser Benutzerin}} stummschalten",
 	"echo-email-plain-footer": "Um zu steuern, welche E-Mails wir {{GENDER:$1|dir}} senden, überprüfe {{GENDER:$1|deine}} Einstellungen:",
 	"echo-email-html-footer-preference-link-text": "überprüfe {{GENDER:$1|deine}} Einstellungen",
 	"echo-email-html-footer-with-link": "Um zu steuern, welche E-Mails wir {{GENDER:$2|dir}} senden, $1.",
