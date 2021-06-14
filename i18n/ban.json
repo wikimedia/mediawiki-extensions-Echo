@@ -28,6 +28,7 @@
 	"echo-category-title-article-reminder": "Kaca {{PLURAL:$1|pikelingan}}",
 	"notifications": "Pambiwara",
 	"tooltip-pt-notifications-alert": "Atur piuning {{GENDER:|ragané}}",
+	"echo-displaynotificationsconfiguration-notifications-by-category-header": "Pakelingan olih kategori",
 	"echo-specialpage-section-markread": "Cihna seka dados kawacén",
 	"echo-specialpage-markasread": "Pambiwara: Cihna dados kawacén",
 	"echo-specialpage-pagination-range": "$1 - $2",
