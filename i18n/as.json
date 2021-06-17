@@ -29,7 +29,7 @@
 	"echo-pref-email-format-html": "এইচটিএমএল",
 	"echo-pref-email-format-plain-text": "সাধাৰণ পাঠ্য",
 	"echo-pref-cross-wiki-notifications": "আন ৱিকিৰ জাননীসমূহ দেখুৱাওক",
-	"echo-pref-notifications-blacklist": "এই সদদ্যসকলৰ পৰা অহা জাননী প্ৰদৰ্শন নকৰিব।\n([[mw:Special:MyLanguage/Help:Notifications#mute|অধিক শিকক]])",
+	"echo-pref-notifications-blacklist": "এই সদস্যসকলৰ পৰা অহা জাননী প্ৰদৰ্শন নকৰিব।\n([[mw:Special:MyLanguage/Help:Notifications#mute|অধিক শিকক]])",
 	"echo-pref-notifications-page-linked-title-muted-list": "এই পৃষ্ঠাবোৰৰ বাবে \"পৃষ্ঠা লিংক\" জাননী প্ৰদৰ্শন নকৰিব।\n([[mw:Special:MyLanguage/Help:Notifications#mute|অধিক শিকক]])",
 	"echo-pref-dont-email-read-notifications": "সাৰাংশ ই-মেইলত পঠিত জাননীসমূহ অন্তৰ্ভুক্ত নকৰিব",
 	"echo-learn-more": "অধিক শিকক",
