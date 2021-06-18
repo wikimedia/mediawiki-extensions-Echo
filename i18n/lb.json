@@ -32,7 +32,7 @@
 	"echo-pref-notifications-blacklist": "Notifikatioune vun dëse Benotzer net weisen.\n([[mw:Special:MyLanguage/Help:Notifications#mute|méi gewuer ginn]])",
 	"echo-learn-more": "Fir méi ze wëssen",
 	"echo-log": "Ëffentlecht Logbuch",
-	"echo-new-messages": "Dir hutt nei Messagen",
+	"echo-new-messages": "Dir hutt en neie Message op Ärer Diskussiounssäit",
 	"echo-category-title-edit-user-talk": "Diskussiounssäit {{PLURAL:$1|Message|Messagen}}",
 	"echo-category-title-article-linked": "{{PLURAL:$1|Säitelink|Säitelinken}}",
 	"echo-category-title-reverted": "{{PLURAL:$1|Zrécksetzung|Zrécksetzungen}} änneren",
