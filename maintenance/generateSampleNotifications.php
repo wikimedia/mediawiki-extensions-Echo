@@ -5,7 +5,6 @@
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
-use Wikibase\Client\Hooks\EchoNotificationsHandlers;
 
 $IP = getenv( 'MW_INSTALL_PATH' );
 if ( $IP === false ) {
@@ -537,9 +536,7 @@ class GenerateSampleNotifications extends Maintenance {
 	}
 
 	private function generateWikibase( User $user, User $agent ) {
-		// @phan-suppress-next-line PhanUndeclaredClassReference
-		if ( !class_exists( EchoNotificationsHandlers::class ) ) {
-			// should use !ExtensionRegistry::getInstance()->isLoaded( 'Wikibase' ) when possible
+		if ( !ExtensionRegistry::getInstance()->isLoaded( 'WikibaseClient' ) ) {
 			$this->output( "Skipping Wikibase. Extension not installed.\n" );
 			return;
 		}
