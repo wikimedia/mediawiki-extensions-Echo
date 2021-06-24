@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 $IP = getenv( 'MW_INSTALL_PATH' );
 if ( $IP === false ) {
 	$IP = __DIR__ . '/../../..';
@@ -18,7 +20,7 @@ class BackfillUnreadWikis extends Maintenance {
 
 	public function execute() {
 		$dbFactory = MWEchoDbFactory::newFromDefault();
-		$lookup = CentralIdLookup::factory();
+		$lookup = MediaWikiServices::getInstance()->getCentralIdLookup();
 
 		$rebuild = $this->hasOption( 'rebuild' );
 		if ( $rebuild ) {
@@ -41,10 +43,13 @@ class BackfillUnreadWikis extends Maintenance {
 		$iterator->setCaller( __METHOD__ );
 
 		$processed = 0;
+		$userFactory = MediaWikiServices::getInstance()->getUserFactory();
 		foreach ( $iterator as $batch ) {
 			foreach ( $batch as $row ) {
 				if ( $rebuild ) {
-					$user = $lookup->localUserFromCentralId( $row->euw_user, CentralIdLookup::AUDIENCE_RAW );
+					$user = $userFactory->newFromUserIdentity(
+						$lookup->localUserFromCentralId( $row->euw_user, CentralIdLookup::AUDIENCE_RAW )
+					);
 				} else {
 					$user = User::newFromRow( $row );
 				}
