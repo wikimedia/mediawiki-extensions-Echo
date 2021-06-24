@@ -72,6 +72,6 @@ class MWEchoThankYouEditTest extends MediaWikiTestCase {
 	private function edit( Title $title, User $user, $text ) {
 		$page = WikiPage::factory( $title );
 		$content = ContentHandler::makeContent( $text, $title );
-		$page->doEditContent( $content, 'test', 0, false, $user );
+		$page->doUserEditContent( $content, $user, 'test' );
 	}
 }

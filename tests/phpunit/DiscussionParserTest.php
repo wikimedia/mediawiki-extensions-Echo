@@ -942,9 +942,11 @@ TEXT
 		// pages to be created: templates may be used to ping users (e.g.
 		// {{u|...}}) but if we don't have that template, it just won't work!
 		$pages += [ $title => '' ];
+
+		$user = $this->getTestUser()->getUser();
 		foreach ( $pages as $pageTitle => $pageText ) {
 			$template = WikiPage::factory( Title::newFromText( $pageTitle ) );
-			$template->doEditContent( new WikitextContent( $pageText ), '' );
+			$template->doUserEditContent( new WikitextContent( $pageText ), $user, '' );
 		}
 
 		// force i18n messages to be reloaded from MessageCache (from DB, where a new message

@@ -108,12 +108,10 @@ class EchoUserLocatorTest extends MediaWikiTestCase {
 	 */
 	public function testLocateArticleCreator( $message, $initialize ) {
 		list( $expect, $title, $user ) = $initialize();
-		WikiPage::factory( $title )->doEditContent(
+		WikiPage::factory( $title )->doUserEditContent(
 			/* $content = */ ContentHandler::makeContent( 'content', $title ),
-			/* $summary = */ 'summary',
-			/* $flags = */ 0,
-			/* $baseRevId = */ false,
-			/* $user = */ $user
+			/* $user = */ $user,
+			/* $summary = */ 'summary'
 		);
 
 		$event = $this->mockEchoEvent();
