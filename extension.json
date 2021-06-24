@@ -28,6 +28,7 @@
 		"echomute": {
 			"class": "ApiEchoMute",
 			"services": [
+				"CentralIdLookup",
 				"UserOptionsManager"
 			]
 		}

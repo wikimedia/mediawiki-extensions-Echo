@@ -5,8 +5,11 @@ use MediaWiki\User\UserOptionsManager;
 
 class ApiEchoMute extends ApiBase {
 
-	/** @var CentralIdLookup|null */
-	private $centralIdLookup = null;
+	/** @var CentralIdLookup */
+	private $centralIdLookup;
+
+	/** @var UserOptionsManager */
+	private $userOptionsManager;
 
 	/** @var string[][] */
 	private static $muteLists = [
@@ -20,21 +23,21 @@ class ApiEchoMute extends ApiBase {
 		],
 	];
 
-	/** @var UserOptionsManager */
-	private $userOptionsManager;
-
 	/**
 	 * @param ApiMain $main
 	 * @param string $action
+	 * @param CentralIdLookup $centralIdLookup
 	 * @param UserOptionsManager $userOptionsManager
 	 */
 	public function __construct(
 		ApiMain $main,
 		$action,
+		CentralIdLookup $centralIdLookup,
 		UserOptionsManager $userOptionsManager
 	) {
 		parent::__construct( $main, $action );
 
+		$this->centralIdLookup = $centralIdLookup;
 		$this->userOptionsManager = $userOptionsManager;
 	}
 
@@ -87,13 +90,6 @@ class ApiEchoMute extends ApiBase {
 		$this->getResult()->addValue( null, $this->getModuleName(), 'success' );
 	}
 
-	private function getCentralIdLookup() {
-		if ( $this->centralIdLookup === null ) {
-			$this->centralIdLookup = CentralIdLookup::factory();
-		}
-		return $this->centralIdLookup;
-	}
-
 	private function lookupIds( $names, $type ) {
 		if ( $type === 'title' ) {
 			$linkBatch = MediaWikiServices::getInstance()->getLinkBatchFactory()->newLinkBatch();
@@ -111,7 +107,7 @@ class ApiEchoMute extends ApiBase {
 			}
 			return $ids;
 		} elseif ( $type === 'user' ) {
-			return $this->getCentralIdLookup()->centralIdsFromNames( $names, CentralIdLookup::AUDIENCE_PUBLIC );
+			return $this->centralIdLookup->centralIdsFromNames( $names, CentralIdLookup::AUDIENCE_PUBLIC );
 		}
 	}
 

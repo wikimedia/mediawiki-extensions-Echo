@@ -3,7 +3,8 @@
 namespace EchoPush;
 
 use CentralIdLookup;
-use User;
+use MediaWiki\MediaWikiServices;
+use MediaWiki\User\UserIdentity;
 
 class Utils {
 
@@ -12,14 +13,16 @@ class Utils {
 	 * and without CentralAuth: Return the user's central ID, if available. If there is no central
 	 * user associated with the local user (i.e., centralIdFromLocalUser returns 0), fall back to
 	 * returning the local user ID.
-	 * @param User $user
+	 * @param UserIdentity $user
 	 * @return int
 	 */
-	public static function getPushUserId( User $user ): int {
-		return CentralIdLookup::factory()->centralIdFromLocalUser(
-			$user,
-			CentralIdLookup::AUDIENCE_RAW
-		) ?: $user->getId();
+	public static function getPushUserId( UserIdentity $user ): int {
+		return MediaWikiServices::getInstance()
+			->getCentralIdLookup()
+			->centralIdFromLocalUser(
+				$user,
+				CentralIdLookup::AUDIENCE_RAW
+			) ?: $user->getId();
 	}
 
 }

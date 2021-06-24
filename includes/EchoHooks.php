@@ -1590,14 +1590,16 @@ class EchoHooks implements RecentChange_saveHook {
 	/**
 	 * Handler for SpecialMuteModifyFormFields hook
 	 *
-	 * @param User|null $target
+	 * @param UserIdentity|null $target
 	 * @param User $user
 	 * @param array &$fields
 	 */
 	public static function onSpecialMuteModifyFormFields( $target, $user, &$fields ) {
 		$echoPerUserBlacklist = MediaWikiServices::getInstance()->getMainConfig()->get( 'EchoPerUserBlacklist' );
 		if ( $echoPerUserBlacklist ) {
-			$id = $target ? CentralIdLookup::factory()->centralIdFromLocalUser( $target ) : 0;
+			$id = $target ? MediaWikiServices::getInstance()
+				->getCentralIdLookup()
+				->centralIdFromLocalUser( $target ) : 0;
 			$list = MultiUsernameFilter::splitIds( $user->getOption( 'echo-notifications-blacklist' ) );
 			$fields[ 'echo-notifications-blacklist'] = [
 				'type' => 'check',

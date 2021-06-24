@@ -662,8 +662,9 @@ class MWEchoNotifUser {
 	 */
 	protected function getGlobalMemcKey( $key ) {
 		global $wgEchoCacheVersion;
-		$lookup = CentralIdLookup::factory();
-		$globalId = $lookup->centralIdFromLocalUser( $this->mUser, CentralIdLookup::AUDIENCE_RAW );
+		$globalId = MediaWikiServices::getInstance()
+			->getCentralIdLookup()
+			->centralIdFromLocalUser( $this->mUser, CentralIdLookup::AUDIENCE_RAW );
 		if ( !$globalId ) {
 			return false;
 		}

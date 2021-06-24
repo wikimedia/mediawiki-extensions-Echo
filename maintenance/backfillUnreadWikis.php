@@ -47,11 +47,14 @@ class BackfillUnreadWikis extends Maintenance {
 		foreach ( $iterator as $batch ) {
 			foreach ( $batch as $row ) {
 				if ( $rebuild ) {
-					$userIdent = $lookup->localUserFromCentralId( $row->euw_user, CentralIdLookup::AUDIENCE_RAW );
-					if ( !$userIdent ) {
+					$userIdentity = $lookup->localUserFromCentralId(
+						$row->euw_user,
+						CentralIdLookup::AUDIENCE_RAW
+					);
+					if ( !$userIdentity ) {
 						continue;
 					}
-					$user = $userFactory->newFromUserIdentity( $userIdent );
+					$user = $userFactory->newFromUserIdentity( $userIdentity );
 				} else {
 					$user = User::newFromRow( $row );
 				}

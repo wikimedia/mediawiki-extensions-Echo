@@ -149,8 +149,9 @@ class EchoSeenTime {
 			return $localKey;
 		}
 
-		$lookup = CentralIdLookup::factory();
-		$globalId = $lookup->centralIdFromLocalUser( $this->user, CentralIdLookup::AUDIENCE_RAW );
+		$globalId = MediaWikiServices::getInstance()
+			->getCentralIdLookup()
+			->centralIdFromLocalUser( $this->user, CentralIdLookup::AUDIENCE_RAW );
 
 		if ( !$globalId ) {
 			return $localKey;
