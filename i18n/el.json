@@ -45,7 +45,7 @@
 	"echo-pref-notifications-page-linked-title-muted-list": "Να μην εμφανίζονται ειδοποιήσεις «σύνδεσης σελίδας» για αυτές τις σελίδες.([[mw:Special:MyLanguage/Help:Notifications#mute|μάθετε περισσότερα]])",
 	"echo-learn-more": "Μάθετε περισσότερα",
 	"echo-log": "Δημόσια καταγραφή",
-	"echo-new-messages": "Έχετε ένα νέο μήνυμα από τη Σελίδας Συνομιλίας",
+	"echo-new-messages": "Έχετε ένα νέο μήνυμα στη σελίδα συζήτησης",
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Μήνυμα|Μηνύματα}} στη σελίδα συζήτησης",
 	"echo-category-title-article-linked": "{{PLURAL:$1|Σύνδεσμος|Σύνδεσμοι}} σελίδας",
 	"echo-category-title-reverted": "{{PLURAL:$1|Επαναφορά|Επαναφορές}} επεξεργασίας",
