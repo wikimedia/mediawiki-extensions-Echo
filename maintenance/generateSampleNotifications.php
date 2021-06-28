@@ -223,12 +223,10 @@ class GenerateSampleNotifications extends Maintenance {
 				$previousContent = $content->getText();
 			}
 		}
-		$status = $page->doEditContent(
+		$status = $page->doUserEditContent(
 			new WikitextContent( $contentText . $previousContent ),
-			'generating sample notifications',
-			0,
-			false,
-			$agent
+			$agent,
+			'generating sample notifications'
 		);
 
 		if ( !$status->isGood() ) {
@@ -297,7 +295,15 @@ class GenerateSampleNotifications extends Maintenance {
 			true // undoIsLatest
 		);
 
-		$status = $page->doEditContent( $content, 'undo', 0, false, $agent, null, [], $undoRev->getId() );
+		$status = $page->doUserEditContent(
+			$content,
+			$agent,
+			'undo',
+			0, // $flags
+			false, // $originalRevId
+			[], // $tags
+			$undoRev->getId()
+		);
 
 		if ( !$status->isGood() ) {
 			$this->error( "Failed to undo {$moai->getPrefixedText()}: {$status->getMessage()->text()}" );
