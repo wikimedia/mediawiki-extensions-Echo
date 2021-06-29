@@ -2,6 +2,7 @@
 
 use MediaWiki\User\UserGroupManager;
 use MediaWiki\User\UserIdentity;
+use MediaWiki\User\UserOptionsLookup;
 
 /**
  * An object that manages attributes of echo notifications: category, elegibility,
@@ -12,6 +13,9 @@ class EchoAttributeManager {
 	 * @var UserGroupManager
 	 */
 	private $userGroupManager;
+
+	/** @var UserOptionsLookup */
+	private $userOptionsLookup;
 
 	/**
 	 * @var array[]
@@ -67,13 +71,15 @@ class EchoAttributeManager {
 	 *   categories as keys and value an associative array as with
 	 *   $defaultNotifyTypeAvailability.
 	 * @param UserGroupManager $userGroupManager
+	 * @param UserOptionsLookup $userOptionsLookup
 	 */
 	public function __construct(
 		array $notifications,
 		array $categories,
 		array $defaultNotifyTypeAvailability,
 		array $notifyTypeAvailabilityByCategory,
-		UserGroupManager $userGroupManager
+		UserGroupManager $userGroupManager,
+		UserOptionsLookup $userOptionsLookup
 	) {
 		// Extensions can define their own notifications and categories
 		$this->notifications = $notifications;
@@ -82,6 +88,7 @@ class EchoAttributeManager {
 		$this->defaultNotifyTypeAvailability = $defaultNotifyTypeAvailability;
 		$this->notifyTypeAvailabilityByCategory = $notifyTypeAvailabilityByCategory;
 		$this->userGroupManager = $userGroupManager;
+		$this->userOptionsLookup = $userOptionsLookup;
 	}
 
 	/**
@@ -102,30 +109,37 @@ class EchoAttributeManager {
 	/**
 	 * Get the enabled events for a user, which excludes user-dismissed events
 	 * from the general enabled events
-	 * @param User $user
+	 * @param UserIdentity $userIdentity
 	 * @param string $notifyType Either "web" or "email".
 	 * @return string[]
 	 */
-	public function getUserEnabledEvents( User $user, $notifyType ) {
+	public function getUserEnabledEvents( UserIdentity $userIdentity, $notifyType ) {
 		return array_values( array_filter(
 			array_keys( $this->notifications ),
-			function ( $eventType ) use ( $user, $notifyType ) {
+			function ( $eventType ) use ( $userIdentity, $notifyType ) {
 				$category = $this->getNotificationCategory( $eventType );
 				return $this->isNotifyTypeAvailableForCategory( $category, $notifyType ) &&
-					$this->getCategoryEligibility( $user, $category ) &&
-					$user->getOption( "echo-subscriptions-$notifyType-$category" );
+					$this->getCategoryEligibility( $userIdentity, $category ) &&
+					$this->userOptionsLookup->getOption(
+						$userIdentity,
+						"echo-subscriptions-$notifyType-$category"
+					);
 			}
 		) );
 	}
 
 	/**
 	 * Get the user enabled events for the specified sections
-	 * @param User $user
+	 * @param UserIdentity $userIdentity
 	 * @param string $notifyType Either "web" or "email".
 	 * @param string[] $sections
 	 * @return string[]
 	 */
-	public function getUserEnabledEventsbySections( User $user, $notifyType, array $sections ) {
+	public function getUserEnabledEventsbySections(
+		UserIdentity $userIdentity,
+		$notifyType,
+		array $sections
+	) {
 		$events = [];
 		foreach ( $sections as $section ) {
 			$events = array_merge(
@@ -135,7 +149,7 @@ class EchoAttributeManager {
 		}
 
 		return array_intersect(
-			$this->getUserEnabledEvents( $user, $notifyType ),
+			$this->getUserEnabledEvents( $userIdentity, $notifyType ),
 			$events
 		);
 	}
@@ -189,12 +203,12 @@ class EchoAttributeManager {
 	 * See if a user is eligible to receive a certain type of notification
 	 * (based on user groups, not user preferences)
 	 *
-	 * @param UserIdentity $user
+	 * @param UserIdentity $userIdentity
 	 * @param string $category A notification category defined in $wgEchoNotificationCategories
 	 * @return bool
 	 */
-	public function getCategoryEligibility( $user, $category ) {
-		$usersGroups = $this->userGroupManager->getUserGroups( $user );
+	public function getCategoryEligibility( UserIdentity $userIdentity, $category ) {
+		$usersGroups = $this->userGroupManager->getUserGroups( $userIdentity );
 		if ( isset( $this->categories[$category]['usergroups'] ) ) {
 			$allowedGroups = $this->categories[$category]['usergroups'];
 			if ( !array_intersect( $usersGroups, $allowedGroups ) ) {

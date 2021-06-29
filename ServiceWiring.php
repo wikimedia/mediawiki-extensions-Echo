@@ -21,7 +21,8 @@ return [
 			$categories,
 			$typeAvailability,
 			$typeAvailabilityByCategory,
-			$userGroupManager
+			$userGroupManager,
+			$services->getUserOptionsLookup()
 		);
 	},
 
