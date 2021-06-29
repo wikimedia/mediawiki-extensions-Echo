@@ -49,6 +49,7 @@
 		"DisplayNotificationsConfiguration": {
 			"class": "SpecialDisplayNotificationsConfiguration",
 			"services": [
+				"EchoAttributeManager",
 				"UserOptionsManager"
 			]
 		},

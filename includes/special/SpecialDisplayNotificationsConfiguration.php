@@ -11,13 +11,6 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 	protected $attributeManager;
 
 	/**
-	 * Notification controller
-	 *
-	 * @var EchoNotificationController
-	 */
-	protected $notificationController;
-
-	/**
 	 * Category names, mapping internal name to HTML-formatted name
 	 *
 	 * @var string[]
@@ -61,13 +54,16 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 	private $userOptionsManager;
 
 	/**
+	 * @param EchoAttributeManager $attributeManager
 	 * @param UserOptionsManager $userOptionsManager
 	 */
-	public function __construct( UserOptionsManager $userOptionsManager ) {
+	public function __construct(
+		EchoAttributeManager $attributeManager,
+		UserOptionsManager $userOptionsManager
+	) {
 		parent::__construct( 'DisplayNotificationsConfiguration' );
 
-		$this->attributeManager = EchoServices::getInstance()->getAttributeManager();
-		$this->notificationController = new EchoNotificationController();
+		$this->attributeManager = $attributeManager;
 		$this->userOptionsManager = $userOptionsManager;
 	}
 
