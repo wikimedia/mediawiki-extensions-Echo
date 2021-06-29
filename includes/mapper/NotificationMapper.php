@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\User\UserIdentity;
 use Wikimedia\Rdbms\IDatabase;
 
 /**
@@ -61,7 +62,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	 * unread notifications but it's not optimized for ordering by timestamp.  The
 	 * descending order is only allowed if we keep the notification in low volume,
 	 * which is done via a deleteJob
-	 * @param User $user
+	 * @param UserIdentity $userIdentity
 	 * @param int $limit
 	 * @param string|null $continue Used for offset
 	 * @param string[] $eventTypes
@@ -71,7 +72,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	 * @return EchoNotification[]
 	 */
 	public function fetchUnreadByUser(
-		User $user,
+		UserIdentity $userIdentity,
 		$limit,
 		$continue,
 		array $eventTypes = [],
@@ -85,7 +86,14 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 				return [];
 			}
 		}
-		return $this->fetchByUserInternal( $user, $limit, $continue, $eventTypes, $conds, $dbSource );
+		return $this->fetchByUserInternal(
+			$userIdentity,
+			$limit,
+			$continue,
+			$eventTypes,
+			$conds,
+			$dbSource
+		);
 	}
 
 	/**
@@ -94,7 +102,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	 * unread notifications but it's not optimized for ordering by timestamp.  The
 	 * descending order is only allowed if we keep the notification in low volume,
 	 * which is done via a deleteJob
-	 * @param User $user
+	 * @param UserIdentity $userIdentity
 	 * @param int $limit
 	 * @param string|null $continue Used for offset
 	 * @param string[] $eventTypes
@@ -104,7 +112,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	 * @return EchoNotification[]
 	 */
 	public function fetchReadByUser(
-		User $user,
+		UserIdentity $userIdentity,
 		$limit,
 		$continue,
 		array $eventTypes = [],
@@ -118,13 +126,20 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 				return [];
 			}
 		}
-		return $this->fetchByUserInternal( $user, $limit, $continue, $eventTypes, $conds, $dbSource );
+		return $this->fetchByUserInternal(
+			$userIdentity,
+			$limit,
+			$continue,
+			$eventTypes,
+			$conds,
+			$dbSource
+		);
 	}
 
 	/**
 	 * Get Notification by user in batch along with limit, offset etc
 	 *
-	 * @param User $user the user to get notifications for
+	 * @param UserIdentity $userIdentity the user to get notifications for
 	 * @param int $limit The maximum number of notifications to return
 	 * @param string|null $continue Used for offset
 	 * @param array $eventTypes Event types to load
@@ -134,7 +149,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	 * @return EchoNotification[]
 	 */
 	public function fetchByUser(
-		User $user,
+		UserIdentity $userIdentity,
 		$limit,
 		$continue,
 		array $eventTypes = [],
@@ -154,7 +169,13 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 			}
 		}
 
-		return $this->fetchByUserInternal( $user, $limit, $continue, $eventTypes, $conds );
+		return $this->fetchByUserInternal(
+			$userIdentity,
+			$limit,
+			$continue,
+			$eventTypes,
+			$conds
+		);
 	}
 
 	protected function getIdsForTitles( array $titles ) {
@@ -170,7 +191,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	}
 
 	/**
-	 * @param User $user the user to get notifications for
+	 * @param UserIdentity $userIdentity the user to get notifications for
 	 * @param int $limit The maximum number of notifications to return
 	 * @param string|null $continue Used for offset
 	 * @param array $eventTypes Event types to load
@@ -179,7 +200,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	 * @return EchoNotification[]
 	 */
 	protected function fetchByUserInternal(
-		User $user,
+		UserIdentity $userIdentity,
 		$limit,
 		$continue,
 		array $eventTypes = [],
@@ -199,7 +220,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 		// the notification volume is in a reasonable amount for such case.  The other option
 		// is to denormalize notification table with event_type and lookup index.
 		$conds = [
-			'notification_user' => $user->getId(),
+			'notification_user' => $userIdentity->getId(),
 			'event_type' => $eventTypes,
 			'event_deleted' => 0,
 		] + $conds;
@@ -259,18 +280,18 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	/**
 	 * Fetch EchoNotifications by user and event IDs.
 	 *
-	 * @param User $user
+	 * @param UserIdentity $userIdentity
 	 * @param int[] $eventIds
 	 * @return EchoNotification[]|false
 	 */
-	public function fetchByUserEvents( User $user, array $eventIds ) {
+	public function fetchByUserEvents( UserIdentity $userIdentity, array $eventIds ) {
 		$dbr = $this->dbFactory->getEchoDb( DB_REPLICA );
 
 		$result = $dbr->select(
 			[ 'echo_notification', 'echo_event' ],
 			EchoNotification::selectFields(),
 			[
-				'notification_user' => $user->getId(),
+				'notification_user' => $userIdentity->getId(),
 				'notification_event' => $eventIds
 			],
 			 __METHOD__,
@@ -294,17 +315,17 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	/**
 	 * Fetch a notification by user in the specified offset.  The caller should
 	 * know that passing a big number for offset is NOT going to work
-	 * @param User $user
+	 * @param UserIdentity $userIdentity
 	 * @param int $offset
 	 * @return EchoNotification|false
 	 */
-	public function fetchByUserOffset( User $user, $offset ) {
+	public function fetchByUserOffset( UserIdentity $userIdentity, $offset ) {
 		$dbr = $this->dbFactory->getEchoDb( DB_REPLICA );
 		$row = $dbr->selectRow(
 			[ 'echo_notification', 'echo_event' ],
 			EchoNotification::selectFields(),
 			[
-				'notification_user' => $user->getId(),
+				'notification_user' => $userIdentity->getId(),
 				'event_deleted' => 0,
 			],
 			__METHOD__,
@@ -327,14 +348,14 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 
 	/**
 	 * Batch delete notifications by user and eventId offset
-	 * @param User $user
+	 * @param UserIdentity $userIdentity
 	 * @param int $eventId
 	 * @return bool
 	 */
-	public function deleteByUserEventOffset( User $user, $eventId ) {
+	public function deleteByUserEventOffset( UserIdentity $userIdentity, $eventId ) {
 		global $wgUpdateRowsPerQuery;
 		$eventMapper = new EchoEventMapper( $this->dbFactory );
-		$userId = $user->getId();
+		$userId = $userIdentity->getId();
 		$dbw = $this->dbFactory->getEchoDb( DB_PRIMARY );
 		$dbr = $this->dbFactory->getEchoDb( DB_REPLICA );
 		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
