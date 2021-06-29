@@ -1,7 +1,12 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+use MediaWiki\User\UserIdentity;
+
 /**
  * Static class for handling all kinds of event logging
+ *
+ * TODO: consider making this a service with dependencies injected
  */
 class MWEchoEventLogging {
 
@@ -41,11 +46,15 @@ class MWEchoEventLogging {
 
 	/**
 	 * Function for logging the event for Schema:Echo
-	 * @param User $user User being notified.
+	 * @param UserIdentity $userIdentity User being notified.
 	 * @param EchoEvent $event Event to log detail about.
 	 * @param string $deliveryMethod 'web' or 'email'
 	 */
-	public static function logSchemaEcho( User $user, EchoEvent $event, $deliveryMethod ) {
+	public static function logSchemaEcho(
+		UserIdentity $userIdentity,
+		EchoEvent $event,
+		$deliveryMethod
+	) {
 		global $wgEchoNotifications;
 
 		// Notifications under system category should have -1 as sender id
@@ -65,13 +74,16 @@ class MWEchoEventLogging {
 		} else {
 			$group = 'neutral';
 		}
+		$userEditCount = (int)MediaWikiServices::getInstance()
+			->getUserEditTracker()
+			->getUserEditCount( $userIdentity );
 		$data = [
 			'eventId' => (int)$event->getId(),
 			'notificationType' => $event->getType(),
 			'notificationGroup' => $group,
 			'sender' => (string)$sender,
-			'recipientUserId' => $user->getId(),
-			'recipientEditCount' => (int)$user->getEditCount()
+			'recipientUserId' => $userIdentity->getId(),
+			'recipientEditCount' => $userEditCount,
 		];
 		// Add the source if it exists. (This is mostly for the Thanks extension.)
 		$extra = $event->getExtra();
@@ -95,12 +107,12 @@ class MWEchoEventLogging {
 
 	/**
 	 * Function for logging the event for Schema:EchoEmail
-	 * @param User $user
+	 * @param UserIdentity $userIdentity
 	 * @param string $emailDeliveryMode 'single' (default), 'daily_digest', or 'weekly_digest'
 	 */
-	public static function logSchemaEchoMail( User $user, $emailDeliveryMode = 'single' ) {
+	public static function logSchemaEchoMail( UserIdentity $userIdentity, $emailDeliveryMode = 'single' ) {
 		$data = [
-			'recipientUserId' => $user->getId(),
+			'recipientUserId' => $userIdentity->getId(),
 			'emailDeliveryMode' => $emailDeliveryMode
 		];
 
@@ -108,17 +120,20 @@ class MWEchoEventLogging {
 	}
 
 	/**
-	 * @param User $user
+	 * @param UserIdentity $userIdentity
 	 * @param string $skinName
 	 */
-	public static function logSpecialPageVisit( User $user, $skinName ) {
+	public static function logSpecialPageVisit( UserIdentity $userIdentity, $skinName ) {
+		$userEditCount = (int)MediaWikiServices::getInstance()
+			->getUserEditTracker()
+			->getUserEditCount( $userIdentity );
 		self::logEvent(
 			'EchoInteraction',
 			[
 				'context' => 'archive',
 				'action' => 'special-page-visit',
-				'userId' => $user->getId(),
-				'editCount' => (int)$user->getEditCount(),
+				'userId' => $userIdentity->getId(),
+				'editCount' => $userEditCount,
 				'notifWiki' => wfWikiID(),
 				// Hack: Figure out if we are in the mobile skin
 				'mobile' => $skinName === 'minerva',
