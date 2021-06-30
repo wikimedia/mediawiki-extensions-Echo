@@ -6,7 +6,7 @@
 		]
 	},
 	"echo-desc": "Sistem pambiwara majeng sang anganggé indik séwala miwah paristiwa",
-	"prefs-echo": "Pambiwara",
+	"prefs-echo": "Pakélingan",
 	"prefs-emailsettings": "Opsi rerepél",
 	"prefs-echosubscriptions": "Biwara titiang indik paristiwa puniki",
 	"prefs-echocrosswiki": "Pambiwara antarwiki",
@@ -26,7 +26,7 @@
 	"echo-category-title-system-noemail": "{{PLURAL:$1|Sistem}}",
 	"echo-category-title-system-emailonly": "{{PLURAL:$1|Sistem}}",
 	"echo-category-title-article-reminder": "Kaca {{PLURAL:$1|pikelingan}}",
-	"notifications": "Pambiwara",
+	"notifications": "Pakélingan",
 	"tooltip-pt-notifications-alert": "Atur piuning {{GENDER:|ragané}}",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "Pakelingan olih kategori",
 	"echo-specialpage-section-markread": "Cihna seka dados kawacén",
