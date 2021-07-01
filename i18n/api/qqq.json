@@ -36,6 +36,7 @@
 	"apihelp-echopushsubscriptions+create-summary": "{{doc-apihelp-summary|echopushsubscriptions+create}}",
 	"apihelp-echopushsubscriptions+create-param-provider": "{{doc-apihelp-param|echopushsubscriptions+create|provider}}",
 	"apihelp-echopushsubscriptions+create-param-providertoken": "{{doc-apihelp-param|echopushsubscriptions+create|providertoken}}",
+	"apihelp-echopushsubscriptions+create-param-topic": "{{doc-apihelp-param|echopushsubscriptions+create|topic}}",
 	"apihelp-echopushsubscriptions+create-example": "{{doc-apihelp-example|echopushsubscriptions+create}}",
 	"apihelp-echopushsubscriptions+delete-summary": "{{doc-apihelp-summary|echopushsubscriptions+delete}}",
 	"apihelp-echopushsubscriptions+delete-param-providertoken": "{{doc-apihelp-param|echopushsubscriptions+delete|providertoken}}",
