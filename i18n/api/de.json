@@ -33,6 +33,7 @@
 	"apihelp-echopushsubscriptions+create-summary": "Registrieren eines Push-Abonnements für den aktuellen Benutzer.",
 	"apihelp-echopushsubscriptions+create-param-provider": "Der Push-Dienstleister, für den ein Token registriert werden soll.",
 	"apihelp-echopushsubscriptions+create-param-providertoken": "Das Token zur Registrierung.",
+	"apihelp-echopushsubscriptions+create-param-topic": "Das APNS-Thema ''(app bundle ID)'', an das die Benachrichtigung gesendet werden soll.",
 	"apihelp-echopushsubscriptions+create-example": "Registrieren eines Push-Abonnements für den aktuellen Benutzer.",
 	"apihelp-echopushsubscriptions+delete-summary": "Aufheben der Registrierung von Push-Abonnements für den aktuellen Benutzer oder einen anderen angegebenen Benutzer.",
 	"apihelp-echopushsubscriptions+delete-param-providertoken": "Das mit dem Push-Abonnement zur Abmeldung verbundene Token.",
