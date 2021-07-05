@@ -43,7 +43,7 @@
 	"notification-link-thank-you-edit": "{{GENDER:$1|ናትካ|ናትኪ}} ምምዕርራይ",
 	"notification-link-text-view-edit": "ምምዕርራይ ርኣይ",
 	"notification-link-article-reminder": "ገጽ ርኣይ",
-	"notification-timestamp-ago-seconds": "{{PLURAL:$1|$1 ሰከንድ|$1 ሰከንድታት}}",
+	"notification-timestamp-ago-seconds": "{{PLURAL:$1|$1ካ}}",
 	"notification-timestamp-ago-minutes": "{{PLURAL:$1|$1 ደቒቓ|$1 ደቓይቕ}}",
 	"notification-timestamp-ago-hours": "{{PLURAL:$1|$1 ሰዓት|$1 ሰዓታት}}",
 	"notification-timestamp-ago-days": "{{PLURAL:$1|$1 መዓልቲ|$1 መዓልታት}}",

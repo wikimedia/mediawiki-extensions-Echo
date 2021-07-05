@@ -52,7 +52,7 @@
 	"echo-pref-tooltip-mention-failure": "Notificar me quando io non ha potite inviar un mention a un persona.",
 	"echo-pref-tooltip-mention-success": "Notificar me quando io invia un mention a un persona.",
 	"echo-pref-tooltip-user-rights": "Notificar me quando alcuno modifica mi derectos de usator.",
-	"echo-pref-tooltip-emailuser": "Notificar me quando alcuno invia me un message de e-mail.",
+	"echo-pref-tooltip-emailuser": "Notificar me quando alcuno me invia un message de e-mail.",
 	"echo-pref-tooltip-article-reminder": "Notificar me sur iste pagina quando io lo demanda.",
 	"echo-pref-tooltip-thank-you-edit": "Notificar me quando io attinge mi 1me, 10me, 100me... modification.",
 	"notifications": "Notificationes",

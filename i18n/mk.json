@@ -34,7 +34,7 @@
 	"echo-pref-dont-email-read-notifications": "Не вклучувај прочитани известувања во резимираната е-пошта",
 	"echo-learn-more": "Дознајте повеќе",
 	"echo-log": "Јавен дневник",
-	"echo-new-messages": "Имате нови пораки",
+	"echo-new-messages": "Имате нова порака во разговорната страница",
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Порака|Пораки}} во разговорот",
 	"echo-category-title-article-linked": "{{PLURAL:$1|Врска|Врски}} до стран.",
 	"echo-category-title-reverted": "{{PLURAL:$1|Вратено уредување|Вратени уредувања}}",

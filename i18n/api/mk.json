@@ -29,6 +29,7 @@
 	"apihelp-echopushsubscriptions+create-summary": "Пријави претплати на наметнувања за тековниот корисник.",
 	"apihelp-echopushsubscriptions+create-param-provider": "Наметнувачкиот услужник за кој се пријавува шифра.",
 	"apihelp-echopushsubscriptions+create-param-providertoken": "Шифрата која се пријавува.",
+	"apihelp-echopushsubscriptions+create-param-topic": "APNS-темата (назнака на приложен збир) на која ќе се испрати известувањето.",
 	"apihelp-echopushsubscriptions+create-example": "Пријави претплата на наметнувања за тековниот корисник.",
 	"apihelp-echopushsubscriptions+delete-summary": "Отпријави претплати на наметнувања за тековниот корисник или друг укажан корисник.",
 	"apihelp-echopushsubscriptions+delete-param-providertoken": "Шифрата поврзана со претплатеното наметнување кое треба да се отстрани од пријавени.",

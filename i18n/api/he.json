@@ -30,6 +30,7 @@
 	"apihelp-echopushsubscriptions+create-summary": "רישום מינויים בדחיפה עבור המשתמש הנוכחי.",
 	"apihelp-echopushsubscriptions+create-param-provider": "ספק שירותי הדחיפה שצריך לרשום אסימון עבורו.",
 	"apihelp-echopushsubscriptions+create-param-providertoken": "האסימון שצריך לרשום.",
+	"apihelp-echopushsubscriptions+create-param-topic": "נושא ה־APNS (מזהה חבילת יישומים) שצריך לשלוח אליו את ההתראה.",
 	"apihelp-echopushsubscriptions+create-example": "רישום מינוי בדחיפה עבור המשתמש הנוכחי.",
 	"apihelp-echopushsubscriptions+delete-summary": "ביטול רישום מינויי דחיפה עבור המשתמש הנוכחי או משתמש אחר שיצוין.",
 	"apihelp-echopushsubscriptions+delete-param-providertoken": "האסימון המשויך עם המינוי בדחיפה שצריך לבטל את הרישום שלו.",

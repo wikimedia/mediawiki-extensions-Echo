@@ -38,6 +38,7 @@
 	"apihelp-echopushsubscriptions+create-summary": "Enregistrer les inscriptions de poussée d’information pour l’utilisateur actuel.",
 	"apihelp-echopushsubscriptions+create-param-provider": "Le fournisseur de service de poussée pour lequel enregistrer un jeton.",
 	"apihelp-echopushsubscriptions+create-param-providertoken": "Le jeton à enregistrer.",
+	"apihelp-echopushsubscriptions+create-param-topic": "Le sujet APNS (ID du paquet d’application) vers lequel envoyer la notification.",
 	"apihelp-echopushsubscriptions+create-example": "Enregistrer une inscription de poussée d’information pour l’utilisateur actuel.",
 	"apihelp-echopushsubscriptions+delete-summary": "Supprimer les demandes d’inscription de l’utilisateur actuel ou d’un autre utilisateur spécifié.",
 	"apihelp-echopushsubscriptions+delete-param-providertoken": "Le jeton associé avec l’inscription de poussée d’information à désinscrire.",
