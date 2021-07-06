@@ -29,6 +29,7 @@
 	"apihelp-echopushsubscriptions+create-summary": "Reggìstre le abbonamende push pe l'utende de mò.",
 	"apihelp-echopushsubscriptions+create-param-provider": "'U fornitore de servizie push pu quale reggistrà 'u gettone.",
 	"apihelp-echopushsubscriptions+create-param-providertoken": "'U gettore da reggistrà.",
+	"apihelp-echopushsubscriptions+create-param-topic": "L'argomende APNS (ID d'u bundle de l'app) pe mannà 'a notifeche.",
 	"apihelp-echopushsubscriptions+create-example": "Reggìstre le abbonamende push pe l'utende de mò.",
 	"apihelp-echopushsubscriptions+delete-summary": "Live 'a reggistrazione de le abbonamende push pe l'utende de mò o 'n'otre utende specificate.",
 	"apihelp-echopushsubscriptions+delete-param-providertoken": "'U gettone associate cu l'abbonamende push da luà.",

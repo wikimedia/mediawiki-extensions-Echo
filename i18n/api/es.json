@@ -4,6 +4,7 @@
 			"Allan Aguilar",
 			"Dgstranz",
 			"Fitoschido",
+			"Jackiezelaya",
 			"Jduranboger",
 			"Macofe",
 			"Tiberius1701"
@@ -24,6 +25,7 @@
 	"apihelp-echomarkseen-param-type": "Tipo de notificaciones para marcar como leídas: 'alert' (alerta), 'message' (mensaje) o 'all' (todas).",
 	"apihelp-echomarkseen-param-timestampFormat": "Formato de fecha y hora que utilizar para la salida, «ISO_8601» o «MW». «MW» aquí está desusado, por lo que todos los clientes deben cambiar a «ISO_8601». Este parámetro desaparecerá y el único formato de salida será «ISO_8601».",
 	"apihelp-echopushsubscriptions-param-command": "La acción que debe realizarse.",
+	"apihelp-echopushsubscriptions+create-param-topic": "El APNS tema (fardo de aplicación ID) para enviar la notificación a.",
 	"apihelp-query+notifications-description": "Recibe notificaciones en espera para el usuario actual.",
 	"apihelp-query+notifications-summary": "Recibir notificaciones pendientes del usuario actual.",
 	"apihelp-query+notifications-param-prop": "Detalles que solicitar.",
