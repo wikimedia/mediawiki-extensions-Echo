@@ -11,10 +11,6 @@ use MediaWiki\User\UserIdentity;
 
 class EchoHooks implements RecentChange_saveHook {
 	/**
-	 * @var RevisionRecord
-	 */
-	private static $lastRevertedRevision = null;
-	/**
 	 * @var Config
 	 */
 	private $config;
@@ -539,15 +535,11 @@ class EchoHooks implements RecentChange_saveHook {
 		}
 
 		$title = $wikiPage->getTitle();
-		$undidRevId = $editResult->getUndidRevId();
+		$isRevert = $editResult->getRevertMethod() === EditResult::REVERT_UNDO ||
+			$editResult->getRevertMethod() === EditResult::REVERT_ROLLBACK;
 
 		// Try to do this after the HTTP response
-		DeferredUpdates::addCallableUpdate( static function () use ( $revisionRecord, $undidRevId ) {
-			// This check has to happen during deferred processing, otherwise $lastRevertedRevision
-			// will not be initialized.
-			$isRevert = $undidRevId > 0 ||
-				( self::$lastRevertedRevision &&
-				self::$lastRevertedRevision->getId() === $revisionRecord->getId() );
+		DeferredUpdates::addCallableUpdate( static function () use ( $revisionRecord, $isRevert ) {
 			EchoDiscussionParser::generateEventsForRevision( $revisionRecord, $isRevert );
 		} );
 
@@ -592,8 +584,11 @@ class EchoHooks implements RecentChange_saveHook {
 
 		// Handle the case of someone undoing an edit, either through the
 		// 'undo' link in the article history or via the API.
-		if ( $undidRevId ) {
+		// Reverts through the 'rollback' link (EditResult::REVERT_ROLLBACK)
+		// are handled in ::onRollbackComplete().
+		if ( $editResult->getRevertMethod() === EditResult::REVERT_UNDO ) {
 			$store = MediaWikiServices::getInstance()->getRevisionStore();
+			$undidRevId = $editResult->getUndidRevId();
 			$undidRevision = $store->getRevisionById( $undidRevId );
 			if (
 				$undidRevision &&
@@ -1301,7 +1296,6 @@ class EchoHooks implements RecentChange_saveHook {
 	) {
 		$revertedUser = $oldRevision->getUser();
 		$latestRevision = $wikiPage->getRevisionRecord();
-		self::$lastRevertedRevision = $latestRevision;
 
 		if (
 			$revertedUser &&
