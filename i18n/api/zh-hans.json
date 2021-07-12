@@ -3,7 +3,8 @@
 		"authors": [
 			"Liuxinyu970226",
 			"Shizhao",
-			"Yfdyh000"
+			"Yfdyh000",
+			"忒有钱"
 		]
 	},
 	"apihelp-echomarkread-description": "对当前用户标记通知为已读。",
@@ -24,7 +25,7 @@
 	"apihelp-echomute-description": "将来自某些用户或页面的通知静音或取消静音。",
 	"apihelp-echomute-summary": "将来自某些用户或页面的通知静音或取消静音。",
 	"apihelp-echomute-param-type": "要添加或移除的静音列表",
-	"apihelp-echomute-param-mute": "要添加到静音列表的页面或用户",
+	"apihelp-echomute-param-mute": "要添加到屏蔽列表的页面或用户",
 	"apihelp-echomute-param-unmute": "要从静音列表中移除的页面或用户",
 	"apihelp-echopushsubscriptions-summary": "管理当前用户的推送订阅。",
 	"apihelp-echopushsubscriptions-param-command": "要执行的操作。",
