@@ -1141,6 +1141,8 @@ class EchoHooks implements RecentChange_saveHook {
 			$links['notifications']['talk-alert'] = array_merge(
 				$links['user-menu']['mytalk'],
 				[
+					// Hardcode id, which is needed to dismiss the talk alert notification
+					'id' => 'pt-talk-alert',
 					'text' => $skinTemplate->msg( 'echo-new-messages' )->text(),
 					'class' => [ 'mw-echo-alert' ],
 				]
