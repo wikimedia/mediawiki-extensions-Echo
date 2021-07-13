@@ -1,8 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
+			"Seipinne",
 			"Trondtr"
 		]
 	},
-	"tooltip-pt-notifications-alert": "{{GENDER:|Tuu larmâdâsah}}"
+	"prefs-echo": "Almottâsah",
+	"notifications": "Almottâsah",
+	"tooltip-pt-notifications-alert": "{{GENDER:|Tuu larmâdâsah}}",
+	"echo-specialpage": "Almottâsah",
+	"echo-overlay-link": "Puoh almottâsah",
+	"echo-overlay-title": "<b>Almottâsah</b>",
+	"echo-email-batch-link-text-view-all-notifications": "Čääiti puoh almottâsâid"
 }
