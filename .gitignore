@@ -6,6 +6,7 @@ scripts/remotes/
 composer.lock
 .eslintcache
 /tests/selenium/log
+.DS_STORE
 
 # Editors
 *.kate-swp
