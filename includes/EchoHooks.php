@@ -1089,6 +1089,8 @@ class EchoHooks implements RecentChange_saveHook {
 				[
 					// Hardcode id, which is needed to dismiss the talk alert notification
 					'id' => 'pt-talk-alert',
+					// unset the icon
+					'icon' => null,
 					'text' => $skinTemplate->msg( 'echo-new-messages' )->text(),
 					'class' => [ 'mw-echo-alert' ],
 				]
@@ -1106,6 +1108,8 @@ class EchoHooks implements RecentChange_saveHook {
 			],
 			// This item used to be part of personal tools, and much CSS relies on it using this id.
 			'id' => 'pt-notifications-alert',
+			// This property is used by modern Vector to add mw-icon classes
+			'icon' => 'bell',
 		];
 
 		$links['notifications']['notifications-notice'] = [
@@ -1119,6 +1123,8 @@ class EchoHooks implements RecentChange_saveHook {
 			],
 			// This item used to be part of personal tools, and much CSS relies on it using this id.
 			'id' => 'pt-notifications-notice',
+			// This property is used by modern Vector to add mw-icon classes
+			'icon' => 'tray',
 		];
 
 		if ( $hasUnseen ) {
