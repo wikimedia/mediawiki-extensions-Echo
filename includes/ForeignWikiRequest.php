@@ -66,11 +66,10 @@ class EchoForeignWikiRequest {
 	}
 
 	protected function canUseCentralAuth() {
-		// phpcs:ignore MediaWiki.Usage.DeprecatedGlobalVariables.Deprecated$wgUser
-		global $wgFullyInitialised, $wgUser;
+		global $wgFullyInitialised;
 
 		return $wgFullyInitialised &&
-			$wgUser->isSafeToLoad() &&
+			RequestContext::getMain()->getUser()->isSafeToLoad() &&
 			$this->user->isSafeToLoad() &&
 			SessionManager::getGlobalSession()->getProvider() instanceof CentralAuthSessionProvider &&
 			$this->getCentralId( $this->user ) !== 0;
