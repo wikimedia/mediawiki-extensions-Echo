@@ -25,7 +25,12 @@
 		"echomarkread": "ApiEchoMarkRead",
 		"echomarkseen": "ApiEchoMarkSeen",
 		"echoarticlereminder": "ApiEchoArticleReminder",
-		"echomute": "ApiEchoMute"
+		"echomute": {
+			"class": "ApiEchoMute",
+			"services": [
+				"UserOptionsManager"
+			]
+		}
 	},
 	"DefaultUserOptions": {
 		"echo-email-frequency": 0,
@@ -41,7 +46,12 @@
 	},
 	"SpecialPages": {
 		"Notifications": "SpecialNotifications",
-		"DisplayNotificationsConfiguration": "SpecialDisplayNotificationsConfiguration",
+		"DisplayNotificationsConfiguration": {
+			"class": "SpecialDisplayNotificationsConfiguration",
+			"services": [
+				"UserOptionsManager"
+			]
+		},
 		"NotificationsMarkRead": "SpecialNotificationsMarkRead"
 	},
 	"AvailableRights": [

@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\User\UserOptionsManager;
 use Wikimedia\Rdbms\IResultWrapper;
 
 /**
@@ -17,6 +18,11 @@ class MWEchoEmailBatch {
 	 * @var Language
 	 */
 	protected $language;
+
+	/**
+	 * @var UserOptionsManager
+	 */
+	protected $userOptionsManager;
 
 	/**
 	 * @var EchoEvent[] events included in this email
@@ -41,10 +47,12 @@ class MWEchoEmailBatch {
 
 	/**
 	 * @param User $user
+	 * @param UserOptionsManager $userOptionsManager
 	 */
-	public function __construct( User $user ) {
+	public function __construct( User $user, UserOptionsManager $userOptionsManager ) {
 		$this->mUser = $user;
 		$this->language = Language::factory( $this->mUser->getOption( 'language' ) );
+		$this->userOptionsManager = $userOptionsManager;
 	}
 
 	/**
@@ -67,12 +75,13 @@ class MWEchoEmailBatch {
 	 */
 	public static function newFromUserId( $userId, $enforceFrequency = true ) {
 		$user = User::newFromId( (int)$userId );
+		$userOptionsManager = MediaWikiServices::getInstance()->getUserOptionsManager();
 
 		$userEmailSetting = (int)$user->getOption( 'echo-email-frequency' );
 
 		// clear all existing events if user decides not to receive emails
 		if ( $userEmailSetting == -1 ) {
-			$emailBatch = new self( $user );
+			$emailBatch = new self( $user, $userOptionsManager );
 			$emailBatch->clearProcessedEvent();
 
 			return false;
@@ -103,7 +112,7 @@ class MWEchoEmailBatch {
 			}
 		}
 
-		return new self( $user );
+		return new self( $user, $userOptionsManager );
 	}
 
 	/**
@@ -170,7 +179,11 @@ class MWEchoEmailBatch {
 	 * Update the user's last batch timestamp after a successful batch
 	 */
 	protected function updateUserLastBatchTimestamp() {
-		$this->mUser->setOption( 'echo-email-last-batch', wfTimestampNow() );
+		$this->userOptionsManager->setOption(
+			$this->mUser,
+			'echo-email-last-batch',
+			wfTimestampNow()
+		);
 		$this->mUser->saveSettings();
 		$this->mUser->invalidateCache();
 	}

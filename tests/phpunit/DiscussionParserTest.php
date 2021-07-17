@@ -161,8 +161,9 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 
 		// Set preferences
 		if ( $user ) {
+			$userOptionsManager = $this->getServiceContainer()->getUserOptionsManager();
 			foreach ( $preferences as $option => $value ) {
-				$user->setOption( $option, $value );
+				$userOptionsManager->setOption( $user, $option, $value );
 			}
 			$user->saveSettings();
 		}

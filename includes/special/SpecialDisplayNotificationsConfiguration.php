@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\User\UserOptionsManager;
+
 class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 	/**
 	 * EchoAttributeManager to access notification configuration
@@ -53,11 +55,20 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 	 */
 	protected $flippedNotifyTypes;
 
-	public function __construct() {
+	/**
+	 * @var UserOptionsManager
+	 */
+	private $userOptionsManager;
+
+	/**
+	 * @param UserOptionsManager $userOptionsManager
+	 */
+	public function __construct( UserOptionsManager $userOptionsManager ) {
 		parent::__construct( 'DisplayNotificationsConfiguration' );
 
 		$this->attributeManager = EchoServices::getInstance()->getAttributeManager();
 		$this->notificationController = new EchoNotificationController();
+		$this->userOptionsManager = $userOptionsManager;
 	}
 
 	public function execute( $subPage ) {
@@ -288,7 +299,7 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 		// We can't run the actual hook, to avoid side effects.
 		$overrides = EchoHooks::getNewUserPreferenceOverrides();
 		foreach ( $overrides as $prefKey => $value ) {
-			$loggedInUser->setOption( $prefKey, $value );
+			$this->userOptionsManager->setOption( $loggedInUser, $prefKey, $value );
 		}
 
 		$byCategoryValueNew = [];
