@@ -48,7 +48,7 @@
 	"echo-pref-notifications-page-linked-title-muted-list": "이 문서에 대한 '문서 링크' 알림을 표시하지 않습니다. ([[mw:Special:MyLanguage/Help:Notifications#mute|더 알아보기]])",
 	"echo-learn-more": "더 알아보기",
 	"echo-log": "공개 기록",
-	"echo-new-messages": "새 메시지가 있습니다",
+	"echo-new-messages": "새 토론 문서 메시지가 있습니다",
 	"echo-category-title-edit-user-talk": "토론 문서 {{PLURAL:$1|메시지}}",
 	"echo-category-title-article-linked": "문서 {{PLURAL:$1|링크}}",
 	"echo-category-title-reverted": "편집이 {{PLURAL:$1|되돌려짐}}",
