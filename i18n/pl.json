@@ -133,7 +133,7 @@
 	"notification-dynamic-actions-watch-confirmation-description": "{{GENDER:$3|Możesz}} przestać obserwować [$2 tę stronę] w dowolnym momencie.",
 	"notification-link-text-expand-all": "Rozwiń",
 	"notification-link-text-expand-alert-count": "Pokaż {{PLURAL:$1|$1 powiadomienie|$1 powiadomienia|$1 powiadomień}}",
-	"notification-link-text-expand-notice-count": "Zobacz {{PLURAL:$1|$1 powiadomienie|$1 powiadomień}}",
+	"notification-link-text-expand-notice-count": "Zobacz {{PLURAL:$1|$1 powiadomienie|$1 powiadomienia|$1 powiadomień}}",
 	"notification-link-text-expand-all-count": "Pokaż {{PLURAL:$1|$1 powiadomienie|$1 powiadomienia|$1 powiadomień}}",
 	"notification-link-text-collapse-all": "Zwiń",
 	"notification-link-text-view-message": "Zobacz wiadomość",
