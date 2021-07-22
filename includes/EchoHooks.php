@@ -1090,6 +1090,9 @@ class EchoHooks implements RecentChange_saveHook {
 				[
 					// Hardcode id, which is needed to dismiss the talk alert notification
 					'id' => 'pt-talk-alert',
+					// If Vector hook ran anicon will have  been copied to the link class.
+					// We must reset it.
+					'link-class' => [],
 					'text' => $skinTemplate->msg( 'echo-new-messages' )->text(),
 					'class' => [ 'mw-echo-alert' ],
 				]
