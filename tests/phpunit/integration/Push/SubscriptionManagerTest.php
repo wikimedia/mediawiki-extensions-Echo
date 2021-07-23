@@ -26,22 +26,19 @@ class SubscriptionManagerTest extends MediaWikiIntegrationTestCase {
 		$subscriptionManager->create( 'test', 'ABC123', $centralId );
 		$subscriptions = $subscriptionManager->getSubscriptionsForUser( $centralId );
 		$this->assertCount( 1, $subscriptions );
-		$this->assertTrue( $subscriptionManager->userHasMaxAllowedSubscriptions( $centralId ) );
 
 		$subscriptionManager->delete( [ 'ABC123' ], $centralId );
 		$subscriptions = $subscriptionManager->getSubscriptionsForUser( $centralId );
 		$this->assertCount( 0, $subscriptions );
-		$this->assertFalse( $subscriptionManager->userHasMaxAllowedSubscriptions( $centralId ) );
 
 		$subscriptionManager->create( 'test', 'ABC123', $centralId );
 		$subscriptions = $subscriptionManager->getSubscriptionsForUser( $centralId );
 		$this->assertCount( 1, $subscriptions );
-		$this->assertTrue( $subscriptionManager->userHasMaxAllowedSubscriptions( $centralId ) );
 
-		$subscriptionManager->delete( [ 'ABC123' ] );
+		$subscriptionManager->create( 'test', 'DEF456', $centralId );
 		$subscriptions = $subscriptionManager->getSubscriptionsForUser( $centralId );
-		$this->assertCount( 0, $subscriptions );
-		$this->assertFalse( $subscriptionManager->userHasMaxAllowedSubscriptions( $centralId ) );
+		$this->assertCount( 1, $subscriptions );
+		$this->assertEquals( 'DEF456', $subscriptions[0]->getToken() );
 	}
 
 }
