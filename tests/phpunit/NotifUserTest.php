@@ -13,7 +13,7 @@ class MWEchoNotifUserTest extends MediaWikiTestCase {
 	 */
 	private $cache;
 
-	protected function setUp() : void {
+	protected function setUp(): void {
 		parent::setUp();
 		$this->cache = new WANObjectCache( [
 			'cache' => MediaWikiServices::getInstance()->getMainObjectStash(),

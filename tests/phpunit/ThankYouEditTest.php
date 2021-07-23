@@ -6,7 +6,7 @@
  */
 class MWEchoThankYouEditTest extends MediaWikiTestCase {
 
-	protected function setUp() : void {
+	protected function setUp(): void {
 		parent::setUp();
 		$this->tablesUsed[] = 'echo_event';
 		$this->tablesUsed[] = 'echo_notification';

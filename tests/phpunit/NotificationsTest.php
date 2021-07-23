@@ -10,7 +10,7 @@ class NotificationsTest extends MediaWikiTestCase {
 	/** @var User */
 	private $sysop;
 
-	protected function setUp() : void {
+	protected function setUp(): void {
 		parent::setUp();
 		$this->sysop = $this->getTestSysop()->getUser();
 	}

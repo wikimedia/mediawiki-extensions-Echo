@@ -24,7 +24,7 @@ class NotificationControllerUnitTest extends MediaWikiUnitTestCase {
 		);
 	}
 
-	public function PageLinkedTitleMutedByUserDataProvider() :array {
+	public function PageLinkedTitleMutedByUserDataProvider(): array {
 		return [
 			[
 				$this->getMockTitle( 123 ),

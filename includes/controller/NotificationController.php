@@ -13,7 +13,7 @@ class EchoNotificationController {
 	/**
 	 * Echo maximum number of users to cache
 	 *
-	 * @var int $maxRecipientCacheSize
+	 * @var int
 	 */
 	protected static $maxRecipientCacheSize = 200;
 

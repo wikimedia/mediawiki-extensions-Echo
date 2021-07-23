@@ -16,7 +16,7 @@ class EchoExecuteFirstArgumentStub implements Stub {
 		return call_user_func( reset( $invocation->arguments ) );
 	}
 
-	public function toString() : string {
+	public function toString(): string {
 		return 'return result of call_user_func on first invocation argument';
 	}
 }

@@ -15,7 +15,7 @@ class EchoAttributeManagerTest extends MediaWikiUnitTestCase {
 		array $categories = [],
 		array $defaultNotifyTypeAvailability = [],
 		array $notifyTypeAvailabilityByCategory = []
-	) : EchoAttributeManager {
+	): EchoAttributeManager {
 		$userGroupManager = $this->createNoOpMock( UserGroupManager::class, [ 'getUserGroups' ] );
 		$userGroupManager->method( 'getUserGroups' )->willReturn( [ 'echo_group' ] );
 

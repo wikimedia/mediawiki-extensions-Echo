@@ -74,7 +74,7 @@ class EchoContainmentSet {
 	 *
 	 * @param string $preferenceName
 	 */
-	public function addTitleIDsFromUserOption( string $preferenceName ) :void {
+	public function addTitleIDsFromUserOption( string $preferenceName ): void {
 		$preference = $this->recipient->getOption( $preferenceName, [] );
 		if ( !is_string( $preference ) ) {
 			// We expect the preference data to be saved as a string via the

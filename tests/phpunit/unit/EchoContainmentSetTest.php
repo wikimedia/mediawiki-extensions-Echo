@@ -23,7 +23,7 @@ class EchoContainmentSetTest extends \MediaWikiUnitTestCase {
 		$this->assertSame( $expected, $containmentSet->contains( $contains ) );
 	}
 
-	public function addTitlesFromUserOptionProvider() :array {
+	public function addTitlesFromUserOptionProvider(): array {
 		return [
 			[
 				'foo',

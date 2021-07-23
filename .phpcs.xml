@@ -10,6 +10,7 @@
 		<exclude name="MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName" />
 		<exclude name="MediaWiki.Usage.ExtendClassUsage.FunctionConfigUsage" />
 		<exclude name="MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment" />
+		<exclude name="PSR12.Functions.ReturnTypeDeclaration.SpaceBeforeReturnType" />
 	</rule>
 	<arg name="encoding" value="UTF-8" />
 	<arg name="extensions" value="php" />
