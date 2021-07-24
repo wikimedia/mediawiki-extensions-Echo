@@ -26,8 +26,9 @@ return [
 		);
 	},
 
-	'EchoPushNotificationServiceClient' => static function ( MediaWikiServices $services ):
-	NotificationServiceClient {
+	'EchoPushNotificationServiceClient' => static function (
+		MediaWikiServices $services
+	): NotificationServiceClient {
 		$echoConfig = $services->getConfigFactory()->makeConfig( 'Echo' );
 		$httpRequestFactory = $services->getHttpRequestFactory();
 		$url = $echoConfig->get( 'EchoPushServiceBaseUrl' );

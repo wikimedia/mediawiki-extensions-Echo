@@ -31,8 +31,7 @@ class ApiEchoPushSubscriptionsCreate extends ApiBase {
 	 * @param string $name Module name
 	 * @return ApiEchoPushSubscriptionsCreate
 	 */
-	public static function factory( ApiBase $parent, string $name ):
-	ApiEchoPushSubscriptionsCreate {
+	public static function factory( ApiBase $parent, string $name ): ApiEchoPushSubscriptionsCreate {
 		$subscriptionManger = EchoServices::getInstance()->getPushSubscriptionManager();
 		$module = new self( $parent->getMain(), $name, $subscriptionManger );
 		$module->parent = $parent;

@@ -24,8 +24,7 @@ class ApiEchoPushSubscriptionsDelete extends ApiBase {
 	 * @param string $name Module name
 	 * @return ApiEchoPushSubscriptionsDelete
 	 */
-	public static function factory( ApiBase $parent, string $name ):
-	ApiEchoPushSubscriptionsDelete {
+	public static function factory( ApiBase $parent, string $name ): ApiEchoPushSubscriptionsDelete {
 		$subscriptionManager = EchoServices::getInstance()->getPushSubscriptionManager();
 		$module = new self( $parent->getMain(), $name, $subscriptionManager );
 		$module->parent = $parent;
