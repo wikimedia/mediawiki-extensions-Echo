@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Ajeje Brazorf",
 			"Gmelfi",
 			"Pippinu",
 			"Sarvaturi"
@@ -48,6 +49,7 @@
 	"notification-reverted-email-subject2": "{{PLURAL:$4|Lu tò canciamentu fu annullatu|Li tò canciamenti foru annullati}} {{GENDER:$2|supra}} {{SITENAME}}",
 	"notification-mention-email-subject": "$1 ti {{GENDER:$2|mintuviau}} supra {{SITENAME}}",
 	"notification-user-rights-email-subject": "Li tò diritti utenti foru canciati supra {{SITENAME}}",
+	"notification-timestamp-today": "Oi",
 	"echo-overlay-link": "Tutti li nutìfichi",
 	"echo-overlay-title": "<b>Nutìfichi</b>",
 	"echo-mark-all-as-read": "Sinna tutti comu ligghiuti",

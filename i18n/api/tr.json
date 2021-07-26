@@ -3,6 +3,7 @@
 		"authors": [
 			"Arystanbek",
 			"BaRaN6161 TURK",
+			"Hedda",
 			"KorkmazO",
 			"McAang",
 			"MuratTheTurkish",
@@ -34,6 +35,7 @@
 	"apihelp-echopushsubscriptions+create-summary": "Geçerli kullanıcı için push abonelikleri kaydedin.",
 	"apihelp-echopushsubscriptions+create-param-provider": "Anahtar kaydedilecek push servis sağlayıcısı.",
 	"apihelp-echopushsubscriptions+create-param-providertoken": "Kaydedilecek anahtar.",
+	"apihelp-echopushsubscriptions+create-param-topic": "Bildirimin gönderileceği APNS konusu (uygulama paketi kimliği).",
 	"apihelp-echopushsubscriptions+create-example": "Geçerli kullanıcı için push aboneliği kaydedin.",
 	"apihelp-echopushsubscriptions+delete-summary": "Geçerli kullanıcı veya başka bir belirtilen kullanıcı için push aboneliklerinin kaydını kaldırın.",
 	"apihelp-echopushsubscriptions+delete-param-providertoken": "Kaydı silmek için push aboneliği ile ilişkili anahtar.",
