@@ -1311,10 +1311,10 @@ class EchoHooks implements RecentChange_saveHook {
 	/**
 	 * Handler for UserLoadOptions hook.
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/UserLoadOptions
-	 * @param User $user User whose options were loaded
+	 * @param UserIdentity $user User whose options were loaded
 	 * @param array &$options Options can be modified
 	 */
-	public static function onUserLoadOptions( $user, &$options ) {
+	public static function onLoadUserOptions( UserIdentity $user, &$options ) {
 		foreach ( self::getVirtualUserOptions() as $echoPref => $mwPref ) {
 			// Use the existing core option's value for the Echo option
 			if ( isset( $options[ $mwPref ] ) ) {

@@ -473,7 +473,7 @@
 		"BeforePageDisplay": "EchoHooks::beforePageDisplay",
 		"ResourceLoaderRegisterModules": "EchoHooks::onResourceLoaderRegisterModules",
 		"UserGroupsChanged": "EchoHooks::onUserGroupsChanged",
-		"UserLoadOptions": "EchoHooks::onUserLoadOptions",
+		"LoadUserOptions": "EchoHooks::onLoadUserOptions",
 		"SaveUserOptions": "EchoHooks::onSaveUserOptions",
 		"UserGetDefaultOptions": "EchoHooks::onUserGetDefaultOptions",
 		"UserClearNewTalkNotification": "EchoHooks::onUserClearNewTalkNotification",
