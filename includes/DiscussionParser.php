@@ -385,6 +385,7 @@ abstract class EchoDiscussionParser {
 
 		$count = 0;
 		$stats = MediaWikiServices::getInstance()->getStatsdDataFactory();
+		$userNameUtils = MediaWikiServices::getInstance()->getUserNameUtils();
 
 		foreach ( $userLinks as $dbk => $page_id ) {
 			// If more users are being pinged this is likely a spam/attack vector
@@ -400,7 +401,6 @@ abstract class EchoDiscussionParser {
 				continue;
 			}
 
-			$userNameUtils = MediaWikiServices::getInstance()->getUserNameUtils();
 			// 2. user is an anonymous IP
 			if ( $userNameUtils->isIP( $dbk ) ) {
 				$userMentions['anonymousUsers'][] = $dbk;
