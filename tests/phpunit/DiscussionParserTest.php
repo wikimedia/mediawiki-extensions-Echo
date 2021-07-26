@@ -402,6 +402,7 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 			// enable pings from summary
 			'wgEchoMaxMentionsInEditSummary' => 5,
 		] );
+		$this->clearHook( 'EchoGetEventsForRevision' );
 
 		EchoDiscussionParser::generateEventsForRevision( $revision, false );
 
@@ -718,6 +719,7 @@ class EchoDiscussionParserTest extends MediaWikiTestCase {
 		$this->setMwGlobals( 'wgEchoMentionStatusNotifications', true );
 		// enable multiple sections mentions
 		$this->setMwGlobals( 'wgEchoMentionsOnMultipleSectionEdits', true );
+		$this->clearHook( 'EchoGetEventsForRevision' );
 
 		EchoDiscussionParser::generateEventsForRevision( $revision, false );
 
@@ -920,6 +922,7 @@ TEXT
 			// lower limit for the mention-failure-too-many notification
 			'wgEchoMaxMentionsCount' => 5
 		] );
+		$this->clearHook( 'EchoGetEventsForRevision' );
 
 		EchoDiscussionParser::generateEventsForRevision( $revision, false );
 
