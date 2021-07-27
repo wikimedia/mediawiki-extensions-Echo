@@ -1292,27 +1292,33 @@ class EchoHooks implements RecentChange_saveHook {
 	}
 
 	/**
+	 * Some of Echo's subscription user preferences are mapped to existing user preferences defined in
+	 * core MediaWiki. This returns the map of Echo preference names to core preference names.
+	 *
+	 * @return array
+	 */
+	public static function getVirtualUserOptions() {
+		global $wgEchoWatchlistNotifications;
+		$options = [];
+		$options['echo-subscriptions-email-edit-user-talk'] = 'enotifusertalkpages';
+		if ( $wgEchoWatchlistNotifications ) {
+			$options['echo-subscriptions-email-watchlist'] = 'enotifwatchlistpages';
+			$options['echo-subscriptions-email-minor-watchlist'] = 'enotifminoredits';
+		}
+		return $options;
+	}
+
+	/**
 	 * Handler for UserLoadOptions hook.
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/UserLoadOptions
 	 * @param User $user User whose options were loaded
 	 * @param array &$options Options can be modified
 	 */
 	public static function onUserLoadOptions( $user, &$options ) {
-		global $wgEchoWatchlistNotifications;
-		// Use existing enotifusertalkpages option for echo-subscriptions-email-edit-user-talk
-		if ( isset( $options['enotifusertalkpages'] ) ) {
-			$options['echo-subscriptions-email-edit-user-talk'] = $options['enotifusertalkpages'];
-		}
-
-		if ( $wgEchoWatchlistNotifications ) {
-			// Use existing enotifwatchlistpages option for echo-subscriptions-email-watchlist
-			if ( isset( $options['enotifwatchlistpages'] ) ) {
-				$options['echo-subscriptions-email-watchlist'] = $options['enotifwatchlistpages'];
-			}
-
-			// Use existing enotifminoredits option for echo-subscriptions-email-minor-watchlist
-			if ( isset( $options['enotifminoredits'] ) ) {
-				$options['echo-subscriptions-email-minor-watchlist'] = $options['enotifminoredits'];
+		foreach ( self::getVirtualUserOptions() as $echoPref => $mwPref ) {
+			// Use the existing core option's value for the Echo option
+			if ( isset( $options[ $mwPref ] ) ) {
+				$options[ $echoPref ] = $options[ $mwPref ];
 			}
 		}
 	}
@@ -1324,20 +1330,11 @@ class EchoHooks implements RecentChange_saveHook {
 	 * @param array &$options Options can be modified
 	 */
 	public static function onUserSaveOptions( $user, &$options ) {
-		global $wgEchoWatchlistNotifications;
-		// save virtual option values in corresponding real option values
-		if ( isset( $options['echo-subscriptions-email-edit-user-talk'] ) ) {
-			$options['enotifusertalkpages'] = $options['echo-subscriptions-email-edit-user-talk'];
-			unset( $options['echo-subscriptions-email-edit-user-talk'] );
-		}
-		if ( $wgEchoWatchlistNotifications ) {
-			if ( isset( $options['echo-subscriptions-email-watchlist'] ) ) {
-				$options['enotifwatchlistpages'] = $options['echo-subscriptions-email-watchlist'];
-				unset( $options['echo-subscriptions-email-watchlist'] );
-			}
-			if ( isset( $options['echo-subscriptions-email-minor-watchlist'] ) ) {
-				$options['enotifminoredits'] = $options['echo-subscriptions-email-minor-watchlist'];
-				unset( $options['echo-subscriptions-email-minor-watchlist'] );
+		foreach ( self::getVirtualUserOptions() as $echoPref => $mwPref ) {
+			// Save virtual option values in corresponding real option values
+			if ( isset( $options[ $echoPref ] ) ) {
+				$options[ $mwPref ] = $options[ $echoPref ];
+				unset( $options[ $echoPref ] );
 			}
 		}
 	}
