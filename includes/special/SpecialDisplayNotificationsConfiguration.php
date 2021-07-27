@@ -143,7 +143,7 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 		array $columnLabelMapping,
 		array $value
 	) {
-		$form = new HTMLForm(
+		$form = new OOUIHTMLForm(
 			[
 				$id => [
 					'type' => 'checkmatrix',
