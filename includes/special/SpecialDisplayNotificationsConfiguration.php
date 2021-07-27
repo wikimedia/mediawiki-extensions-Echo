@@ -269,14 +269,20 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 			$this->msg( 'echo-displaynotificationsconfiguration-enabled-default-header' )->text()
 		) );
 
+		// Some of the preferences are mapped to existing ones defined in core MediaWiki
+		$virtualOptions = EchoHooks::getVirtualUserOptions();
+
 		// In reality, anon users are not relevant to Echo, but this lets us easily query default options.
 		$anonUser = new User;
 
 		$byCategoryValueExisting = [];
 		foreach ( $this->notifyTypes as $notifyType => $displayNotifyType ) {
 			foreach ( $this->categoryNames as $category => $displayCategory ) {
-				$tag = "$notifyType-$category";
-				if ( $anonUser->getOption( "echo-subscriptions-$tag" ) ) {
+				$prefKey = "echo-subscriptions-$notifyType-$category";
+				if ( isset( $virtualOptions[ $prefKey ] ) ) {
+					$prefKey = $virtualOptions[ $prefKey ];
+				}
+				if ( $anonUser->getOption( $prefKey ) ) {
 					$byCategoryValueExisting[] = "$notifyType-$category";
 				}
 			}
@@ -301,8 +307,11 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 		$byCategoryValueNew = [];
 		foreach ( $this->notifyTypes as $notifyType => $displayNotifyType ) {
 			foreach ( $this->categoryNames as $category => $displayCategory ) {
-				$tag = "$notifyType-$category";
-				if ( $loggedInUser->getOption( "echo-subscriptions-$tag" ) ) {
+				$prefKey = "echo-subscriptions-$notifyType-$category";
+				if ( isset( $virtualOptions[ $prefKey ] ) ) {
+					$prefKey = $virtualOptions[ $prefKey ];
+				}
+				if ( $loggedInUser->getOption( $prefKey ) ) {
 					$byCategoryValueNew[] = "$notifyType-$category";
 				}
 			}
