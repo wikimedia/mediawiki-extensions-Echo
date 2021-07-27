@@ -19,8 +19,6 @@ class EchoNotifier {
 		}
 
 		EchoNotification::create( [ 'user' => $user, 'event' => $event ] );
-
-		MWEchoEventLogging::logSchemaEcho( $user, $event, 'web' );
 	}
 
 	/**
@@ -73,8 +71,6 @@ class EchoNotifier {
 			if ( $bundleString ) {
 				$bundleHash = md5( $bundleString );
 			}
-
-			MWEchoEventLogging::logSchemaEcho( $user, $event, 'email' );
 
 			// email digest notification ( weekly or daily )
 			if ( $wgEchoEnableEmailBatch && $user->getOption( 'echo-email-frequency' ) > 0 ) {

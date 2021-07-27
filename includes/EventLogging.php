@@ -10,13 +10,11 @@ use MediaWiki\User\UserIdentity;
  */
 class MWEchoEventLogging {
 
-	/** @var int[] */
+	/** @var array */
 	private static $revisionIds = [
-		'Echo' => 7731316,
-		'EchoMail' => 5467650,
-		// Keep in sync with client-side revision
-		// in extension.json
-		'EchoInteraction' => 15823738
+		// Keep in sync with extension.json
+		'EchoMail' => '/analytics/legacy/echomail/1.0.0',
+		'EchoInteraction' => '/analytics/legacy/echointeraction/1.0.0'
 	];
 
 	/**
@@ -42,67 +40,6 @@ class MWEchoEventLogging {
 		$data['version'] = $wgEchoEventLoggingVersion;
 
 		EventLogging::logEvent( $schema, $revision, $data );
-	}
-
-	/**
-	 * Function for logging the event for Schema:Echo
-	 * @param UserIdentity $userIdentity User being notified.
-	 * @param EchoEvent $event Event to log detail about.
-	 * @param string $deliveryMethod 'web' or 'email'
-	 */
-	public static function logSchemaEcho(
-		UserIdentity $userIdentity,
-		EchoEvent $event,
-		$deliveryMethod
-	) {
-		global $wgEchoNotifications;
-
-		// Notifications under system category should have -1 as sender id
-		if ( $event->getCategory() === 'system' ) {
-			$sender = -1;
-		} else {
-			$agent = $event->getAgent();
-			if ( $agent ) {
-				$sender = $agent->getId() ?: $agent->getName();
-			} else {
-				$sender = -1;
-			}
-		}
-
-		if ( isset( $wgEchoNotifications[$event->getType()]['group'] ) ) {
-			$group = $wgEchoNotifications[$event->getType()]['group'];
-		} else {
-			$group = 'neutral';
-		}
-		$userEditCount = (int)MediaWikiServices::getInstance()
-			->getUserEditTracker()
-			->getUserEditCount( $userIdentity );
-		$data = [
-			'eventId' => (int)$event->getId(),
-			'notificationType' => $event->getType(),
-			'notificationGroup' => $group,
-			'sender' => (string)$sender,
-			'recipientUserId' => $userIdentity->getId(),
-			'recipientEditCount' => $userEditCount,
-		];
-		// Add the source if it exists. (This is mostly for the Thanks extension.)
-		$extra = $event->getExtra();
-		if ( isset( $extra['source'] ) ) {
-			$data['eventSource'] = (string)$extra['source'];
-		}
-		if ( $deliveryMethod === 'email' ) {
-			$data['deliveryMethod'] = 'email';
-		} else {
-			// whitelist valid delivery methods so it is always valid
-			$data['deliveryMethod'] = 'web';
-		}
-		// Add revision ID if it exists
-		$rev = $event->getRevision();
-		if ( $rev ) {
-			$data['revisionId'] = $rev->getId();
-		}
-
-		self::logEvent( 'Echo', $data );
 	}
 
 	/**

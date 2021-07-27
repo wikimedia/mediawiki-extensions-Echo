@@ -1046,7 +1046,8 @@
 	"attributes": {
 		"EventLogging": {
 			"Schemas": {
-				"EchoInteraction": 15823738
+				"EchoInteraction": "/analytics/legacy/echointeraction/1.0.0",
+				"EchoMail": "/analytics/legacy/echomail/1.0.0"
 			}
 		}
 	},
