@@ -76,7 +76,7 @@
 	"echo-pref-dont-email-read-notifications": "Не включать чтение уведомлений в сводки по эл. почте",
 	"echo-learn-more": "Узнать больше",
 	"echo-log": "Общедоступный журнал",
-	"echo-new-messages": "У вас есть новые сообщения",
+	"echo-new-messages": "Новые сообщения",
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1|1=Сообщение|Сообщения}} на странице обсуждения",
 	"echo-category-title-article-linked": "{{PLURAL:$1|1=Ссылка на странице|Ссылки на страницах}}",
 	"echo-category-title-reverted": "{{PLURAL:$1|1=Отмена|Отмены}} правок",
