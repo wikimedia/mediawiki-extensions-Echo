@@ -36,10 +36,17 @@ class ApiEchoPushSubscriptionsCreateTest extends ApiTestCase {
 		$result = $this->doApiRequestWithToken( $params, null, $this->user );
 		$this->assertEquals( 'Success', $result[0]['create']['result'] );
 
-		// After max subscriptions reached
+		// Make sure it's possible to register a new token even when limit is reached
 		$params['providertoken'] = 'DEF456';
-		$this->expectException( ApiUsageException::class );
-		$this->doApiRequestWithToken( $params, null, $this->user );
+		$result = $this->doApiRequestWithToken( $params, null, $this->user );
+		$this->assertEquals( 'Success', $result[0]['create']['result'] );
+
+		// Explicitly verify that the oldest token was removed
+		$subscriptionManager = EchoServices::getInstance()->getPushSubscriptionManager();
+		$subscriptions = $subscriptionManager->getSubscriptionsForUser( Utils::getPushUserId( $this->user ) );
+		foreach ( $subscriptions as $subscription ) {
+			$this->assertNotEquals( 'XYZ789', $subscription->getToken() );
+		}
 	}
 
 	public function testApiCreateSubscriptionTokenExists(): void {

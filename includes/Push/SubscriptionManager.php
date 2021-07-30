@@ -5,7 +5,6 @@ namespace EchoPush;
 use EchoAbstractMapper;
 use IDatabase;
 use MediaWiki\Storage\NameTableStore;
-use OverflowException;
 use Wikimedia\Rdbms\DBError;
 
 class SubscriptionManager extends EchoAbstractMapper {
@@ -48,25 +47,26 @@ class SubscriptionManager extends EchoAbstractMapper {
 	}
 
 	/**
-	 * Get the configured maximum number of stored subscriptions per user.
-	 * @return int
-	 */
-	public function getMaxSubscriptionsPerUser(): int {
-		return $this->maxSubscriptionsPerUser;
-	}
-
-	/**
 	 * Store push subscription information for a central user ID.
 	 * @param string $provider Provider name string (validated by presence in the PARAM_TYPE array)
 	 * @param string $token Subscriber token provided by the push provider
 	 * @param int $centralId
 	 * @param string|null $topic APNS topic string
 	 * @return bool true if the subscription was created; false if the token already exists
-	 * @throws OverflowException if the user already has >= the configured max subscriptions
 	 */
 	public function create( string $provider, string $token, int $centralId, ?string $topic = null ): bool {
-		if ( $this->userHasMaxAllowedSubscriptions( $centralId ) ) {
-			throw new OverflowException( 'Max subscriptions exceeded' );
+		$subscriptions = $this->getSubscriptionsForUser( $centralId );
+		if ( count( $subscriptions ) >= $this->maxSubscriptionsPerUser ) {
+			// If we exceed the number of subscriptions for this user, then delete the oldest subscription
+			// before inserting the new one, making it behave like a circular buffer.
+			// (Find the oldest subscription by iterating, since their order in the DB is not guaranteed.)
+			$oldest = $subscriptions[0];
+			foreach ( $subscriptions as $subscription ) {
+				if ( $subscription->getUpdated() < $oldest->getUpdated() ) {
+					$oldest = $subscription;
+				}
+			}
+			$this->delete( [ $oldest->getToken() ], $centralId );
 		}
 		$topicId = $topic ? $this->pushTopicStore->acquireId( $topic ) : null;
 		$this->dbw->insert(
@@ -129,29 +129,6 @@ class SubscriptionManager extends EchoAbstractMapper {
 			__METHOD__
 		);
 		return $this->dbw->affectedRows();
-	}
-
-	/**
-	 * Get count of all registered subscriptions for a user (by central ID).
-	 * @param int $centralId
-	 * @return int
-	 */
-	private function getSubscriptionCountForUser( int $centralId ) {
-		return $this->dbr->selectRowCount(
-			'echo_push_subscription',
-			'eps_id',
-			[ 'eps_user' => $centralId ],
-			__METHOD__
-		);
-	}
-
-	/**
-	 * Returns true if the central user has >= the configured maximum push subscriptions in the DB
-	 * @param int $centralId
-	 * @return bool
-	 */
-	private function userHasMaxAllowedSubscriptions( int $centralId ): bool {
-		return $this->getSubscriptionCountForUser( $centralId ) >= $this->maxSubscriptionsPerUser;
 	}
 
 }
