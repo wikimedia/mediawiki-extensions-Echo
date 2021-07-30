@@ -169,7 +169,7 @@
 	"notification-header-user-rights-remove-only": "{{GENDER:$4|Deine}} Benutzerrechte wurden {{GENDER:$1|geändert}}. Du bist kein Mitglied mehr von: $2.",
 	"notification-header-user-rights-add-and-remove": "{{GENDER:$6|Deine}} Benutzerrechte wurden {{GENDER:$1|geändert}}. Du wurdest hinzugefügt zu: $2. Du bist kein Mitglied mehr von: $4.",
 	"notification-header-user-rights-expiry-change": "Der Ablauf {{GENDER:$4|deiner}} Mitgliedschaft in {{PLURAL:$3|der folgenden Gruppe|den folgenden Gruppen}} wurde {{GENDER:$1|geändert}}: $2.",
-	"notification-header-welcome": "{{GENDER:$2|Willkommen}} bei {{SITENAME}}, $1! Wir sind froh, dass {{GENDER:$2|du}} da bist.",
+	"notification-header-welcome": "{{GENDER:$2|Willkommen}} bei {{SITENAME}}, $1! Wir freuen uns, dass {{GENDER:$2|du}} da bist.",
 	"notification-header-mention-summary": "$1 {{GENDER:$2|erwähnte}} {{GENDER:$3|dich}} in einer Bearbeitungszusammenfassung auf <strong>$4</strong>.",
 	"notification-header-watchlist-changed": "$1 {{GENDER:$2|änderte}} <strong>$3</strong>, eine Seite auf {{GENDER:$4|deiner}} Beobachtungsliste {{PLURAL:$5||, $5x}}.",
 	"notification-header-watchlist-created": "$1 {{GENDER:$2|erstellte}} <strong>$3</strong>, eine Seite auf {{GENDER:$4|deiner}} Beobachtungsliste {{PLURAL:$5||, $5x}}.",
