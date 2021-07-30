@@ -477,7 +477,6 @@
 		"UserSaveOptions": "EchoHooks::onUserSaveOptions",
 		"UserGetDefaultOptions": "EchoHooks::onUserGetDefaultOptions",
 		"UserClearNewTalkNotification": "EchoHooks::onUserClearNewTalkNotification",
-		"ParserTestTables": "EchoHooks::onParserTestTables",
 		"EmailUserComplete": "EchoHooks::onEmailUserComplete",
 		"LoginFormValidErrorMessages": "EchoHooks::onLoginFormValidErrorMessages",
 		"OutputPageCheckLastModified": "EchoHooks::onOutputPageCheckLastModified",

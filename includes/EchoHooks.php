@@ -1375,17 +1375,6 @@ class EchoHooks implements RecentChange_saveHook {
 	}
 
 	/**
-	 * Handler for ParserTestTables hook, makes sure that Echo's tables are present during tests
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ParserTestTables
-	 * @param array &$tables List of DB tables to be used for parser tests
-	 */
-	public static function onParserTestTables( &$tables ) {
-		$tables[] = 'echo_event';
-		$tables[] = 'echo_notification';
-		$tables[] = 'echo_email_batch';
-	}
-
-	/**
 	 * Handler for EmailUserComplete hook.
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/EmailUserComplete
 	 * @param MailAddress $address Adress of receiving user
