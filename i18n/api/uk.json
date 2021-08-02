@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Base",
+			"DDPAT",
 			"Piramidion",
 			"Ата"
 		]
@@ -31,6 +32,7 @@
 	"apihelp-echopushsubscriptions+create-summary": "Реєструвати пуш-підписки для поточного користувача.",
 	"apihelp-echopushsubscriptions+create-param-provider": "Провайдер push-сервісу для якого зареєструвати токен.",
 	"apihelp-echopushsubscriptions+create-param-providertoken": "Токен для реєстрації.",
+	"apihelp-echopushsubscriptions+create-param-topic": "Тема APNS (ідентифікатор пакета додатків) для надсилання сповіщення.",
 	"apihelp-echopushsubscriptions+create-example": "Зареєструвати push-підписку для поточного користувача.",
 	"apihelp-echopushsubscriptions+delete-summary": "Скасувати реєстрацію push-підписок для поточного чи іншого вказаного користувача.",
 	"apihelp-echopushsubscriptions+delete-param-providertoken": "Токен пов'язаний з push-підпискою, реєстрацію якої необхідно скасувати.",
