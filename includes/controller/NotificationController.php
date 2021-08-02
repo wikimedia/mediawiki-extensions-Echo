@@ -122,7 +122,7 @@ class EchoNotificationController {
 				!$user->getOption( 'enotifminoredits' ) &&
 				self::hasMinorRevision( $event )
 			) {
-				$notifyTypes = array_diff( $notifyTypes, [ 'email' ] );
+				$userNotifyTypes = array_diff( $userNotifyTypes, [ 'email' ] );
 			}
 			Hooks::run( 'EchoGetNotificationTypes', [ $user, $event, &$userNotifyTypes ] );
 
