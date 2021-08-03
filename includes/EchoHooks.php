@@ -342,7 +342,7 @@ class EchoHooks implements RecentChange_saveHook {
 		// Show subscription options.  IMPORTANT: 'echo-subscriptions-email-edit-user-talk',
 		// 'echo-subscriptions-email-watchlist', and 'echo-subscriptions-email-minor-watchlist' are
 		// virtual options, their values are saved to existing notification options 'enotifusertalkpages',
-		// 'enotifwatchlistpages', and 'enotifminoredits', see onUserLoadOptions() and onUserSaveOptions()
+		// 'enotifwatchlistpages', and 'enotifminoredits', see onUserLoadOptions() and onSaveUserOptions()
 		// for more information on how it is handled. Doing it in this way, we can avoid keeping running
 		// massive data migration script to keep these two options synced when echo is enabled on
 		// new wikis or Echo is disabled and re-enabled for some reason.  We can update the name
@@ -1324,17 +1324,17 @@ class EchoHooks implements RecentChange_saveHook {
 	}
 
 	/**
-	 * Handler for UserSaveOptions hook.
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/UserSaveOptions
-	 * @param User $user User whose options are being saved
-	 * @param array &$options Options can be modified
+	 * Handler for SaveUserOptions hook.
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/SaveUserOptions
+	 * @param UserIdentity $user User whose options are being saved
+	 * @param array &$modifiedOptions Options can be modified
 	 */
-	public static function onUserSaveOptions( $user, &$options ) {
+	public static function onSaveUserOptions( UserIdentity $user, array &$modifiedOptions ) {
 		foreach ( self::getVirtualUserOptions() as $echoPref => $mwPref ) {
 			// Save virtual option values in corresponding real option values
-			if ( isset( $options[ $echoPref ] ) ) {
-				$options[ $mwPref ] = $options[ $echoPref ];
-				unset( $options[ $echoPref ] );
+			if ( isset( $modifiedOptions[ $echoPref ] ) ) {
+				$modifiedOptions[ $mwPref ] = $modifiedOptions[ $echoPref ];
+				unset( $modifiedOptions[ $echoPref ] );
 			}
 		}
 	}

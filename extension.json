@@ -474,7 +474,7 @@
 		"ResourceLoaderRegisterModules": "EchoHooks::onResourceLoaderRegisterModules",
 		"UserGroupsChanged": "EchoHooks::onUserGroupsChanged",
 		"UserLoadOptions": "EchoHooks::onUserLoadOptions",
-		"UserSaveOptions": "EchoHooks::onUserSaveOptions",
+		"SaveUserOptions": "EchoHooks::onSaveUserOptions",
 		"UserGetDefaultOptions": "EchoHooks::onUserGetDefaultOptions",
 		"UserClearNewTalkNotification": "EchoHooks::onUserClearNewTalkNotification",
 		"EmailUserComplete": "EchoHooks::onEmailUserComplete",
