@@ -20,10 +20,11 @@ class EchoTalkPageFunctionalTest extends ApiTestCase {
 	public function testAddCommentsToTalkPage() {
 		$talkPage = self::$users['uploader']->getUser()->getName();
 
-		$messageCount = 0;
-		$this->assertCount( $messageCount, $this->fetchAllEvents() );
+		$expectedMessageCount = 0;
+		$this->assertCount( $expectedMessageCount, $this->fetchAllEvents() );
 
 		// Start a talkpage
+		$expectedMessageCount++;
 		$content = "== Section 8 ==\n\nblah blah ~~~~\n";
 		$this->editPage(
 			$talkPage,
@@ -35,14 +36,13 @@ class EchoTalkPageFunctionalTest extends ApiTestCase {
 
 		// Ensure the proper event was created
 		$events = $this->fetchAllEvents();
-		// +1 is due to 0 index
-		$this->assertCount( 1 + $messageCount, $events, 'After initial edit a single event must exist.' );
-		$row = array_shift( $events );
+		$this->assertCount( $expectedMessageCount, $events, 'After initial edit a single event must exist.' );
+		$row = array_pop( $events );
 		$this->assertEquals( 'edit-user-talk', $row->event_type );
 		$this->assertEventSectionTitle( 'Section 8', $row );
 
 		// Add another message to the talk page
-		$messageCount++;
+		$expectedMessageCount++;
 		$content .= "More content ~~~~\n";
 		$this->editPage(
 			$talkPage,
@@ -54,13 +54,13 @@ class EchoTalkPageFunctionalTest extends ApiTestCase {
 
 		// Ensure another event was created
 		$events = $this->fetchAllEvents();
-		$this->assertCount( 1 + $messageCount, $events );
-		$row = array_shift( $events );
+		$this->assertCount( $expectedMessageCount, $events );
+		$row = array_pop( $events );
 		$this->assertEquals( 'edit-user-talk', $row->event_type );
 		$this->assertEventSectionTitle( 'Section 8', $row );
 
 		// Add a new section and a message within it
-		$messageCount++;
+		$expectedMessageCount++;
 		$content .= "\n\n== EE ==\n\nhere we go with a new section ~~~~\n";
 		$this->editPage(
 			$talkPage,
@@ -72,7 +72,7 @@ class EchoTalkPageFunctionalTest extends ApiTestCase {
 
 		// Ensure this event has the new section title
 		$events = $this->fetchAllEvents();
-		$this->assertCount( 1 + $messageCount, $events );
+		$this->assertCount( $expectedMessageCount, $events );
 		$row = array_pop( $events );
 		$this->assertEquals( 'edit-user-talk', $row->event_type );
 		$this->assertEventSectionTitle( 'EE', $row );
