@@ -526,9 +526,9 @@ class EchoNotificationController {
 				(
 					$title === null ||
 					!(
-						// Still notify for posts anywhere in
-						// user's talk space
-						$title->getRootText() === $user->getName() &&
+						// Still notify for posts on the user's talk page
+						// (but not subpages, T288112)
+						$title->getText() === $user->getName() &&
 						$title->getNamespace() === NS_USER_TALK
 					)
 				)
