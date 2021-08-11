@@ -577,4 +577,42 @@ class EchoAttributeManagerTest extends MediaWikiUnitTestCase {
 		$this->assertSame( $expected, $actual );
 	}
 
+	public function isBundleExpandableProvider() {
+		yield [ 'event_one', false ];
+		yield [ 'event_two', false ];
+		yield [ 'event_three', false ];
+		yield [ 'event_four', true ];
+		yield [ 'event_undefined', false ];
+	}
+
+	/**
+	 * @dataProvider isBundleExpandableProvider
+	 */
+	public function testIsBundleExpandable( $type, $expected ) {
+		$am = $this->getAttributeManager( [
+			'event_one' => [],
+			'event_two' => [
+				'bundle' => [
+					'web' => true
+				]
+			],
+			'event_three' => [
+				'bundle' => [
+					'web' => true,
+					'email' => false,
+					'expandable' => false
+				]
+			],
+			'event_four' => [
+				'bundle' => [
+					'web' => true,
+					'email' => true,
+					'expandable' => true
+				]
+			],
+		] );
+		$actual = $am->isBundleExpandable( $type );
+		$this->assertSame( $expected, $actual );
+	}
+
 }
