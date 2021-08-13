@@ -1,5 +1,7 @@
 <?php
 
+use Wikimedia\ParamValidator\ParamValidator;
+
 class ApiEchoNotifications extends ApiQueryBase {
 	use ApiCrossWiki;
 
@@ -8,8 +10,12 @@ class ApiEchoNotifications extends ApiQueryBase {
 	 */
 	protected $crossWikiSummary = false;
 
-	public function __construct( $query, $moduleName ) {
+	/** @var string[] */
+	private $allowedNotifierTypes;
+
+	public function __construct( ApiQuery $query, string $moduleName, Config $mainConfig ) {
 		parent::__construct( $query, $moduleName, 'not' );
+		$this->allowedNotifierTypes = array_keys( $mainConfig->get( 'EchoNotifiers' ) );
 	}
 
 	public function execute() {
@@ -88,7 +94,8 @@ class ApiEchoNotifications extends ApiQueryBase {
 					$result[$section] = $this->getSectionPropList(
 						$user, $section, $params['filter'], $params['limit'],
 						$params[$section . 'continue'], $params['format'],
-						$titles, $params[$section . 'unreadfirst'], $params['bundle']
+						$titles, $params[$section . 'unreadfirst'], $params['bundle'],
+						$params['notifiertypes']
 					);
 
 					if ( $this->crossWikiSummary ) {
@@ -103,7 +110,8 @@ class ApiEchoNotifications extends ApiQueryBase {
 				$attributeManager = EchoServices::getInstance()->getAttributeManager();
 				$result = $this->getPropList(
 					$user,
-					$attributeManager->getUserEnabledEventsbySections( $user, 'web', $params['sections'] ),
+					$attributeManager->getUserEnabledEventsbySections( $user, $params['notifiertypes'],
+						$params['sections'] ),
 					$params['filter'], $params['limit'], $params['continue'], $params['format'],
 					$titles, $params['unreadfirst'], $params['bundle']
 				);
@@ -150,6 +158,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 	 * @param Title[]|null $titles
 	 * @param bool $unreadFirst
 	 * @param bool $bundle
+	 * @param string[] $notifierTypes
 	 * @return array
 	 */
 	protected function getSectionPropList(
@@ -161,10 +170,11 @@ class ApiEchoNotifications extends ApiQueryBase {
 		$format,
 		array $titles = null,
 		$unreadFirst = false,
-		$bundle = false
+		$bundle = false,
+		array $notifierTypes = [ 'web' ]
 	) {
 		$attributeManager = EchoServices::getInstance()->getAttributeManager();
-		$sectionEvents = $attributeManager->getUserEnabledEventsbySections( $user, 'web', [ $section ] );
+		$sectionEvents = $attributeManager->getUserEnabledEventsbySections( $user, $notifierTypes, [ $section ] );
 
 		if ( !$sectionEvents ) {
 			$result = [
@@ -588,6 +598,11 @@ class ApiEchoNotifications extends ApiQueryBase {
 				ApiBase::PARAM_TYPE => 'boolean',
 				ApiBase::PARAM_DFLT => false,
 			],
+			'notifiertypes' => [
+				ParamValidator::PARAM_TYPE => $this->allowedNotifierTypes,
+				ParamValidator::PARAM_ISMULTI => true,
+				ParamValidator::PARAM_DEFAULT => 'web',
+			],
 		];
 		foreach ( $sections as $section ) {
 			$params[$section . 'continue'] = null;
@@ -621,6 +636,8 @@ class ApiEchoNotifications extends ApiQueryBase {
 				=> 'apihelp-query+notifications-example-1',
 			'action=query&meta=notifications&notprop=count&notsections=alert|message&notgroupbysection=1'
 				=> 'apihelp-query+notifications-example-2',
+			'action=query&meta=notifications&notnotifiertypes=email'
+				=> 'apihelp-query+notifications-example-3',
 		];
 	}
 

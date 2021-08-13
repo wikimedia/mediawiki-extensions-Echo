@@ -110,20 +110,29 @@ class EchoAttributeManager {
 	 * Get the enabled events for a user, which excludes user-dismissed events
 	 * from the general enabled events
 	 * @param UserIdentity $userIdentity
-	 * @param string $notifyType Either "web" or "email".
+	 * @param string|string[] $notifierTypes a defined notifier type, or an array containing one
+	 *   or more defined notifier types
 	 * @return string[]
 	 */
-	public function getUserEnabledEvents( UserIdentity $userIdentity, $notifyType ) {
+	public function getUserEnabledEvents( UserIdentity $userIdentity, $notifierTypes ) {
+		if ( is_string( $notifierTypes ) ) {
+			$notifierTypes = [ $notifierTypes ];
+		}
 		return array_values( array_filter(
 			array_keys( $this->notifications ),
-			function ( $eventType ) use ( $userIdentity, $notifyType ) {
+			function ( $eventType ) use ( $userIdentity, $notifierTypes ) {
 				$category = $this->getNotificationCategory( $eventType );
-				return $this->isNotifyTypeAvailableForCategory( $category, $notifyType ) &&
-					$this->getCategoryEligibility( $userIdentity, $category ) &&
-					$this->userOptionsLookup->getOption(
-						$userIdentity,
-						"echo-subscriptions-$notifyType-$category"
-					);
+				return $this->getCategoryEligibility( $userIdentity, $category ) &&
+					array_reduce( $notifierTypes, function ( $prev, $type ) use ( $userIdentity, $category ) {
+						return $prev ||
+							(
+								$this->isNotifyTypeAvailableForCategory( $category, $type ) &&
+								$this->userOptionsLookup->getOption(
+									$userIdentity,
+									"echo-subscriptions-$type-$category"
+								)
+							);
+					}, false );
 			}
 		) );
 	}
@@ -131,13 +140,14 @@ class EchoAttributeManager {
 	/**
 	 * Get the user enabled events for the specified sections
 	 * @param UserIdentity $userIdentity
-	 * @param string $notifyType Either "web" or "email".
+	 * @param string|string[] $notifierTypes a defined notifier type, or an array containing one
+	 *   or more defined notifier types
 	 * @param string[] $sections
 	 * @return string[]
 	 */
 	public function getUserEnabledEventsbySections(
 		UserIdentity $userIdentity,
-		$notifyType,
+		$notifierTypes,
 		array $sections
 	) {
 		$events = [];
@@ -149,7 +159,7 @@ class EchoAttributeManager {
 		}
 
 		return array_intersect(
-			$this->getUserEnabledEvents( $userIdentity, $notifyType ),
+			$this->getUserEnabledEvents( $userIdentity, $notifierTypes ),
 			$events
 		);
 	}
