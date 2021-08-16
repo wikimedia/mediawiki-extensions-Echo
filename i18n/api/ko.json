@@ -25,6 +25,7 @@
 	"apihelp-echomarkseen-param-timestampFormat": "출력을 위해 사용할 타임스탬프 포맷 'ISO_8601' 또는 'MW'입니다. 'MW'는 구식이므로 모든 클라이언트는 'ISO_8601'로 전환하는 것이 좋습니다. 이 변수는 제거될 것이며 'ISO_8601'이 유일한 출력 포맷이 될 것입니다.",
 	"apihelp-echomute-description": "특정 사용자나 문서로부터 오는 알림을 끄거나 다시 켭니다.",
 	"apihelp-echomute-summary": "특정 사용자나 문서로부터 오는 알림을 끄거나 다시 켭니다.",
+	"apihelp-echopushsubscriptions-summary": "현재 사용자의 푸시 구독을 관리합니다.",
 	"apihelp-echopushsubscriptions+create-param-providertoken": "등록할 토큰입니다.",
 	"apihelp-query+notifications-description": "현재 사용자를 기다리고 있는 알림을 얻어옵니다.",
 	"apihelp-query+notifications-summary": "현재 사용자를 기다리고 있는 알림을 가져옵니다.",
