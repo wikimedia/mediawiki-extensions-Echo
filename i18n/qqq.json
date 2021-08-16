@@ -68,7 +68,7 @@
 	"echo-learn-more": "Text for link to more information about a topic.\n{{Identical|Learn more}}",
 	"echo-log": "Text for link to go to Special:Log",
 	"echo-new-messages": "Message to let the user know that they have new talk page messages, displayed in the personal menu (top-right corner on Vector and Monobook).\n\nKeep this message short. It '''should not''' end in a full stop.",
-	"echo-category-title-edit-user-talk": "{{doc-echo-category-title|tooltip=Echo-pref-tooltip-edit-user-talk}}",
+	"echo-category-title-edit-user-talk": "'''When translating, please emphasize the distinction between “my user talk page” and “other talk pages”, to avoid confusion with {{msg-mw|echo-category-title-dt-subscription}}.'''\n\n{{doc-echo-category-title|tooltip=Echo-pref-tooltip-edit-user-talk}}",
 	"echo-category-title-article-linked": "{{doc-echo-category-title|tooltip=Echo-pref-tooltip-article-linked}}",
 	"echo-category-title-reverted": "{{doc-echo-category-title|tooltip=Echo-pref-tooltip-reverted}}",
 	"echo-category-title-mention": "{{doc-echo-category-title|tooltip=Echo-pref-tooltip-mention}}\n{{Identical|Mention}}",
