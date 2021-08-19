@@ -76,7 +76,7 @@ class EchoRevertedPresentationModel extends EchoEventPresentationModel {
 	}
 
 	private function isAutomaticSummary( $summary ) {
-		$autoSummaryMsg = wfMessage( 'undo-summary' )->inContentLanguage();
+		$autoSummaryMsg = $this->msg( 'undo-summary' )->inContentLanguage();
 		$autoSummaryMsg->params( $this->event->getExtraParam( 'reverted-revision-id' ) );
 		$autoSummaryMsg->params( $this->getViewingUserForGender() );
 		$autoSummary = $autoSummaryMsg->text();
