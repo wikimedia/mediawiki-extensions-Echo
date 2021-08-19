@@ -358,12 +358,11 @@ class EchoAttributeManager {
 
 	/**
 	 * Get notification section for a notification type
-	 * @todo add a unit test case
 	 * @param string $notificationType
 	 * @return string
 	 */
 	public function getNotificationSection( $notificationType ) {
-		return $this->notifications[$notificationType]['section'] ?? 'alert';
+		return $this->notifications[$notificationType]['section'] ?? self::$DEFAULT_SECTION;
 	}
 
 	/**

@@ -32,6 +32,13 @@ class EchoAttributeManagerTest extends MediaWikiUnitTestCase {
 		);
 	}
 
+	/**
+	 * @return UserIdentity
+	 */
+	protected function getUser(): UserIdentity {
+		return new UserIdentityValue( 1, 'ExampleUserName' );
+	}
+
 	public static function getUserLocatorsProvider() {
 		return [
 			[
@@ -546,10 +553,28 @@ class EchoAttributeManagerTest extends MediaWikiUnitTestCase {
 		$this->assertEquals( $expected, $actual, $message );
 	}
 
-	/**
-	 * @return UserIdentity
-	 */
-	protected function getUser() {
-		return new UserIdentityValue( 1, 'ExampleUserName' );
+	public function getNotificationSectionProvider() {
+		yield [ 'event_one', 'alert' ];
+		yield [ 'event_two', 'message' ];
+		yield [ 'event_three', 'alert' ];
+		yield [ 'event_undefined', 'alert' ];
 	}
+
+	/**
+	 * @dataProvider getNotificationSectionProvider
+	 */
+	public function testGetNotificationSection( $type, $expected ) {
+		$am = $this->getAttributeManager( [
+			'event_one' => [
+				'section' => 'alert',
+			],
+			'event_two' => [
+				'section' => 'message',
+			],
+			'event_three' => [],
+		] );
+		$actual = $am->getNotificationSection( $type );
+		$this->assertSame( $expected, $actual );
+	}
+
 }
