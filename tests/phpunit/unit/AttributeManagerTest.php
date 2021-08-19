@@ -314,6 +314,10 @@ class EchoAttributeManagerTest extends MediaWikiUnitTestCase {
 			[ 'event_two', 'event_four' ],
 			$manager->getUserEnabledEvents( $this->getUser(), 'web' )
 		);
+		$this->assertEquals(
+			[ 'event_two', 'event_three', 'event_four' ],
+			$manager->getUserEnabledEvents( $this->getUser(), [ 'web', 'email' ] )
+		);
 	}
 
 	public function testGetUserEnabledEventsbySections() {
@@ -368,6 +372,12 @@ class EchoAttributeManagerTest extends MediaWikiUnitTestCase {
 		);
 		$expected = [ 'event_one', 'event_three', 'event_four' ];
 		$actual = $manager->getUserEnabledEventsbySections( $this->getUser(), 'web', [ 'alert' ] );
+		sort( $expected );
+		sort( $actual );
+		$this->assertEquals( $expected, $actual );
+
+		$expected = [ 'event_one', 'event_three', 'event_four', 'event_five' ];
+		$actual = $manager->getUserEnabledEventsbySections( $this->getUser(), [ 'web', 'email' ], [ 'alert' ] );
 		sort( $expected );
 		sort( $actual );
 		$this->assertEquals( $expected, $actual );
