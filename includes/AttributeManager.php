@@ -380,4 +380,12 @@ class EchoAttributeManager {
 		return $events;
 	}
 
+	/**
+	 * @param string $type
+	 * @return bool Whether a notification type can be an expandable bundle
+	 */
+	public function isBundleExpandable( $type ) {
+		return $this->notifications[$type]['bundle']['expandable'] ?? false;
+	}
+
 }
