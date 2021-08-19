@@ -61,7 +61,7 @@
 	"echo-learn-more": "اطلاعات بیشتر",
 	"echo-log": "سیاهه عمومی",
 	"echo-new-messages": "در صفحهٔ بحث‌تان پیام جدیدی دارید",
-	"echo-category-title-edit-user-talk": "{{PLURAL:$1|پیام|پیام‌های}} صفحهٔ بحث",
+	"echo-category-title-edit-user-talk": "{{PLURAL:$1|پیام|پیام‌های}} صفحهٔ بحث من",
 	"echo-category-title-article-linked": "{{PLURAL:$1|پیوند|پیوندهای}} صفحه",
 	"echo-category-title-reverted": "{{PLURAL:$1|واگردانی|واگردانی‌های}} ویرایش",
 	"echo-category-title-mention": "{{PLURAL:$1|اشاره|اشاره‌ها}}",
