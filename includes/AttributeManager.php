@@ -45,7 +45,7 @@ class EchoAttributeManager {
 	public const ALL = 'all';
 
 	/** @var string */
-	protected static $DEFAULT_SECTION = self::ALERT;
+	protected const DEFAULT_SECTION = self::ALERT;
 
 	/**
 	 * Notifications are broken down to two sections, default is alert
@@ -174,7 +174,7 @@ class EchoAttributeManager {
 	public function getEventsForSection( $section ) {
 		$events = [];
 
-		$isDefault = ( $section === self::$DEFAULT_SECTION );
+		$isDefault = ( $section === self::DEFAULT_SECTION );
 
 		foreach ( $this->notifications as $event => $attribs ) {
 			if (
@@ -372,7 +372,7 @@ class EchoAttributeManager {
 	 * @return string
 	 */
 	public function getNotificationSection( $notificationType ) {
-		return $this->notifications[$notificationType]['section'] ?? self::$DEFAULT_SECTION;
+		return $this->notifications[$notificationType]['section'] ?? self::DEFAULT_SECTION;
 	}
 
 	/**
