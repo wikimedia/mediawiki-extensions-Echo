@@ -3,6 +3,7 @@
 		"authors": [
 			"Liuxinyu970226",
 			"Shizhao",
+			"SkyEye FAST",
 			"Yfdyh000",
 			"忒有钱"
 		]
@@ -58,8 +59,9 @@
 	"apihelp-query+notifications-param-messageunreadfirst": "是否首先显示未读的提醒通知（只当groupbysection已设置时使用）。",
 	"apihelp-query+notifications-param-titles": "只返回这些页面的通知。要获取未分配给任何页面的通知，使用[]作为标题。",
 	"apihelp-query+notifications-param-bundle": "是否根据通知类型捆绑规则，显示兼容捆绑的未读通知。",
-	"apihelp-query+notifications-example-1": "列举通知",
-	"apihelp-query+notifications-example-2": "列出通知，按节分组，带有数量",
+	"apihelp-query+notifications-example-1": "列举网络通知",
+	"apihelp-query+notifications-example-2": "列出网络通知，按节分组，带有数量",
+	"apihelp-query+notifications-example-3": "列举电子邮件通知",
 	"apihelp-query+unreadnotificationpages-description": "获取当前用户未读通知的相关页面。",
 	"apihelp-query+unreadnotificationpages-summary": "获取当前用户未读通知的相关页面。",
 	"apihelp-query+unreadnotificationpages-param-grouppages": "将讨论页与它们的主题页面一起分组，并将未分配给某一页面的通知与当前用户的用户页一起分组。",
