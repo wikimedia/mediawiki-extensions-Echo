@@ -320,7 +320,7 @@ class EchoAttributeManagerTest extends MediaWikiUnitTestCase {
 		);
 	}
 
-	public function testGetUserEnabledEventsbySections() {
+	public function testGetUserEnabledEventsBySections() {
 		$notif = [
 			'event_one' => [
 				'category' => 'category_one'
@@ -371,25 +371,25 @@ class EchoAttributeManagerTest extends MediaWikiUnitTestCase {
 			$notifyTypeAvailabilityByCategory
 		);
 		$expected = [ 'event_one', 'event_three', 'event_four' ];
-		$actual = $manager->getUserEnabledEventsbySections( $this->getUser(), 'web', [ 'alert' ] );
+		$actual = $manager->getUserEnabledEventsBySections( $this->getUser(), 'web', [ 'alert' ] );
 		sort( $expected );
 		sort( $actual );
 		$this->assertEquals( $expected, $actual );
 
 		$expected = [ 'event_one', 'event_three', 'event_four', 'event_five' ];
-		$actual = $manager->getUserEnabledEventsbySections( $this->getUser(), [ 'web', 'email' ], [ 'alert' ] );
+		$actual = $manager->getUserEnabledEventsBySections( $this->getUser(), [ 'web', 'email' ], [ 'alert' ] );
 		sort( $expected );
 		sort( $actual );
 		$this->assertEquals( $expected, $actual );
 
 		$expected = [ 'event_two' ];
-		$actual = $manager->getUserEnabledEventsbySections( $this->getUser(), 'web', [ 'message' ] );
+		$actual = $manager->getUserEnabledEventsBySections( $this->getUser(), 'web', [ 'message' ] );
 		sort( $expected );
 		sort( $actual );
 		$this->assertEquals( $expected, $actual );
 
 		$expected = [ 'event_one', 'event_two', 'event_three', 'event_four' ];
-		$actual = $manager->getUserEnabledEventsbySections( $this->getUser(), 'web',
+		$actual = $manager->getUserEnabledEventsBySections( $this->getUser(), 'web',
 			[ 'message', 'alert' ] );
 		sort( $expected );
 		sort( $actual );

@@ -344,7 +344,7 @@ class MWEchoNotifUser {
 		}
 
 		$attributeManager = EchoServices::getInstance()->getAttributeManager();
-		$eventTypes = $attributeManager->getUserEnabledEventsbySections( $this->mUser, 'web', $sections );
+		$eventTypes = $attributeManager->getUserEnabledEventsBySections( $this->mUser, 'web', $sections );
 
 		$notifs = $this->notifMapper->fetchUnreadByUser( $this->mUser, $wgEchoMaxUpdateCount, null, $eventTypes );
 
@@ -562,7 +562,7 @@ class MWEchoNotifUser {
 		$totals = [ 'count' => 0, 'timestamp' => -1 ];
 
 		foreach ( EchoAttributeManager::$sections as $section ) {
-			$eventTypesToLoad = $attributeManager->getUserEnabledEventsbySections(
+			$eventTypesToLoad = $attributeManager->getUserEnabledEventsBySections(
 				$this->mUser,
 				'web',
 				[ $section ]
