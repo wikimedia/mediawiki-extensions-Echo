@@ -34,7 +34,7 @@ class EchoForeignPresentationModel extends EchoEventPresentationModel {
 
 	public function getBodyMessage() {
 		$data = $this->event->getExtra();
-		$msg = wfMessage( 'notification-body-foreign' );
+		$msg = $this->msg( 'notification-body-foreign' );
 		$msg->params( $this->language->listToText( $this->getWikiNames( $data['wikis'] ) ) );
 		return $msg;
 	}
