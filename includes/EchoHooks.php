@@ -1030,9 +1030,6 @@ class EchoHooks implements RecentChange_saveHook {
 		$msgFormattedCount = EchoNotificationController::formatNotificationCount( $msgCount );
 		$alertFormattedCount = EchoNotificationController::formatNotificationCount( $alertCount );
 
-		$msgText = wfMessage( 'echo-notification-notice', $msgCount );
-		$alertText = wfMessage( 'echo-notification-alert', $alertCount );
-
 		$url = SpecialPage::getTitleFor( 'Notifications' )->getLocalURL();
 
 		// HACK: inverted icons only work in the "MediaWiki" OOUI theme
@@ -1113,7 +1110,7 @@ class EchoHooks implements RecentChange_saveHook {
 
 		$links['notifications']['notifications-alert'] = [
 			'href' => $url,
-			'text' => $alertText,
+			'text' => $skinTemplate->msg( 'echo-notification-alert', $alertCount )->text(),
 			'active' => ( $url == $title->getLocalURL() ),
 			'link-class' => $alertLinkClasses,
 			'data' => [
@@ -1126,7 +1123,7 @@ class EchoHooks implements RecentChange_saveHook {
 
 		$links['notifications']['notifications-notice'] = [
 			'href' => $url,
-			'text' => $msgText,
+			'text' => $skinTemplate->msg( 'echo-notification-notice', $msgCount )->text(),
 			'active' => ( $url == $title->getLocalURL() ),
 			'link-class' => $msgLinkClasses,
 			'data' => [
