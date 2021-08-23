@@ -3,6 +3,7 @@
 		"authors": [
 			"Catrope",
 			"Mainframe98",
+			"McDutchie",
 			"MrLeopold",
 			"Romaine",
 			"Siebrand",
@@ -41,8 +42,8 @@
 	"apihelp-query+notifications-param-alertunreadfirst": "Of ongelezen meldingen over berichten als eerste moeten worden weergeven (wordt genegeerd als groupbysection niet gebruikt is).",
 	"apihelp-query+notifications-param-messagecontinue": "Gebruik dit voor continueren als er meer berichten beschikbaar zijn.",
 	"apihelp-query+notifications-param-messageunreadfirst": "Of ongelezen meldingen als eerste moeten worden weergeven (wordt genegeerd als groupbysection niet gebruikt is).",
-	"apihelp-query+notifications-example-1": "Meldingen opvragen",
-	"apihelp-query+notifications-example-2": "Meldingen, gesorteerd op sectie en met aantal meldingen, opvragen",
+	"apihelp-query+notifications-example-1": "Webmeldingen weergeven",
+	"apihelp-query+notifications-example-2": "Webmeldingen weergeven, gegroepeerd op sectie, met aantallen",
 	"apihelp-query+unreadnotificationpages-param-grouppages": "Groepeer overlegpagina's samen met hun onderwerpspagina en groepsmeldingen die niet verbonden zijn aan een pagina samen met de gebruikerspagina van de huidige gebruiker.",
 	"apihelp-query+unreadnotificationpages-param-limit": "Het maximale aantal weer te geven pagina's."
 }

@@ -45,7 +45,7 @@
 	"echo-learn-more": "Lue lisää aiheesta",
 	"echo-log": "Julkinen loki",
 	"echo-new-messages": "Sinulle on uusia viestejä",
-	"echo-category-title-edit-user-talk": "Keskustelusivun {{PLURAL:$1|viesti|viestit}}",
+	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Kommentti|Kommenttia}} keskustelusivulla",
 	"echo-category-title-article-linked": "{{PLURAL:$1|Sivun linkki|Sivujen linkit}}",
 	"echo-category-title-reverted": "{{PLURAL:$1|Muokkauksen kumoaminen|Muokkausten kumoamiset}}",
 	"echo-category-title-mention": "{{PLURAL:$1|Maininta|Maininnat}}",
