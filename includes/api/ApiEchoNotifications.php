@@ -110,7 +110,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 				$attributeManager = EchoServices::getInstance()->getAttributeManager();
 				$result = $this->getPropList(
 					$user,
-					$attributeManager->getUserEnabledEventsbySections( $user, $params['notifiertypes'],
+					$attributeManager->getUserEnabledEventsBySections( $user, $params['notifiertypes'],
 						$params['sections'] ),
 					$params['filter'], $params['limit'], $params['continue'], $params['format'],
 					$titles, $params['unreadfirst'], $params['bundle']
@@ -174,7 +174,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 		array $notifierTypes = [ 'web' ]
 	) {
 		$attributeManager = EchoServices::getInstance()->getAttributeManager();
-		$sectionEvents = $attributeManager->getUserEnabledEventsbySections( $user, $notifierTypes, [ $section ] );
+		$sectionEvents = $attributeManager->getUserEnabledEventsBySections( $user, $notifierTypes, [ $section ] );
 
 		if ( !$sectionEvents ) {
 			$result = [

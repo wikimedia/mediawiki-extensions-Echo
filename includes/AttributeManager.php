@@ -145,7 +145,7 @@ class EchoAttributeManager {
 	 * @param string[] $sections
 	 * @return string[]
 	 */
-	public function getUserEnabledEventsbySections(
+	public function getUserEnabledEventsBySections(
 		UserIdentity $userIdentity,
 		$notifierTypes,
 		array $sections
