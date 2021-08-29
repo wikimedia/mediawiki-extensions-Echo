@@ -23,7 +23,7 @@ class EchoHooks implements RecentChange_saveHook {
 	 * @param array &$defaults
 	 */
 	public static function onUserGetDefaultOptions( array &$defaults ) {
-		global $wgAllowHTMLEmail, $wgEchoNotificationCategories;
+		global $wgAllowHTMLEmail, $wgEchoNotificationCategories, $wgEchoEnablePush;
 
 		if ( $wgAllowHTMLEmail ) {
 			$defaults['echo-email-format'] = 'html'; /*EchoHooks::EMAIL_FORMAT_HTML*/
@@ -61,6 +61,14 @@ class EchoHooks implements RecentChange_saveHook {
 				'web' => false,
 			],
 		];
+		if ( $wgEchoEnablePush ) {
+			$presets['default']['push'] = true;
+			$presets['article-linked']['push'] = false;
+			$presets['mention-failure']['push'] = false;
+			$presets['mention-success']['push'] = false;
+			$presets['watchlist']['push'] = false;
+			$presets['minor-watchlist']['push'] = false;
+		}
 
 		foreach ( $wgEchoNotificationCategories as $category => $categoryData ) {
 			if ( !isset( $defaults["echo-subscriptions-email-{$category}"] ) ) {
@@ -70,6 +78,11 @@ class EchoHooks implements RecentChange_saveHook {
 			if ( !isset( $defaults["echo-subscriptions-web-{$category}"] ) ) {
 				$defaults["echo-subscriptions-web-{$category}"] = $presets[$category]['web']
 					?? $presets['default']['web'];
+			}
+			if ( $wgEchoEnablePush && !isset( $defaults["echo-subscriptions-push-{$category}"] ) ) {
+				$defaults["echo-subscriptions-push-{$category}"] = $presets[$category]['push']
+					// @phan-suppress-next-line PhanTypePossiblyInvalidDimOffset
+					?? $presets['default']['push'];
 			}
 		}
 	}
