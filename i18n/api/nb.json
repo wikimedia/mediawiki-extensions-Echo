@@ -31,6 +31,7 @@
 	"apihelp-echopushsubscriptions+create-summary": "Registrer push-abonnement for den gjeldende brukeren.",
 	"apihelp-echopushsubscriptions+create-param-provider": "Push-tjenestetilbyderen det skal registreres en nøkkel for.",
 	"apihelp-echopushsubscriptions+create-param-providertoken": "Nøkkelen som skal registreres.",
+	"apihelp-echopushsubscriptions+create-param-topic": "APNS-emnet (app bundle ID) varselet skal sendes til.",
 	"apihelp-echopushsubscriptions+create-example": "Registrer et push-abonnement for den gjeldende brukeren.",
 	"apihelp-echopushsubscriptions+delete-summary": "Avregistrer push-abonnementer for den gjeldende brukeren eller en annen angitt bruker.",
 	"apihelp-echopushsubscriptions+delete-param-providertoken": "Nøkkelen tilknyttet push-abonnementet som skal avregistreres.",

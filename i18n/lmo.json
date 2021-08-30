@@ -216,7 +216,7 @@
 	"echo-email-batch-body-intro-weekly": "Ciao $1,\nL'è scià un risassont di atività d'incoeu in su {{SITENAME}}.",
 	"echo-email-batch-link-text-view-all-notifications": "Varda tute i notifiche",
 	"notification-header-foreign-alert": "Alter avis de {{PLURAL:$5|un alter wiki|alter $5 wiki}}",
-	"notification-header-foreign-notice": "Alter notizzi de {{PLURAL:$5|un alterwiki|$5 wiki anmò}}",
+	"notification-header-foreign-notice": "Alter notizzi de {{PLURAL:$5|un alterwiki|alter $5 wiki}}",
 	"notification-header-foreign-all": "Alter notifiche de {{PLURAL:$5|un alter wiki|$5 wiki anmò}}",
 	"right-manage-all-push-subscriptions": "Manesgia tucc i abonament push",
 	"action-manage-all-push-subscriptions": "el manesgia tut i abonament push",
