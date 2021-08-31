@@ -24,6 +24,6 @@
 	"apihelp-query+notifications-param-alertunreadfirst": "Kas näidata kõigepealt lugemata sõnumeid (kasutuses ainult siis, kui \"groupbysection\" on määratud).",
 	"apihelp-query+notifications-param-messagecontinue": "Kui tulemustes on saadaval rohkem sõnumeid, kasutada seda jätkamiseks.",
 	"apihelp-query+notifications-param-messageunreadfirst": "Kas näidata kõigepealt lugemata teavitusi (kasutuses ainult siis, kui \"groupbysection\" on määratud).",
-	"apihelp-query+notifications-example-1": "Loetle teavitused",
-	"apihelp-query+notifications-example-2": "Loetle teavitused jaotiste kaupa üldarvudega"
+	"apihelp-query+notifications-example-1": "Loetle veebiteavitused",
+	"apihelp-query+notifications-example-2": "Loetle veebiteavitused jaotiste kaupa üldarvudega"
 }
