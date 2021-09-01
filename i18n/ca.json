@@ -3,6 +3,7 @@
 		"authors": [
 			"Arnaugir",
 			"Fitoschido",
+			"Galactic Thrasher",
 			"Lluis tgn",
 			"Mguix",
 			"Nemo bis",
@@ -48,7 +49,7 @@
 	"echo-category-title-user-rights": "{{PLURAL:$1|Canvi de drets d'usuari|Canvis de drets d'usuari}}",
 	"echo-category-title-emailuser": "{{PLURAL:$1|Correu electrònic d'un altre usuari|Correus electrònics d'altres usuaris}}",
 	"echo-category-title-article-reminder": "{{PLURAL:$1|Recordatori|Recordatoris}} de pàgina",
-	"echo-pref-tooltip-edit-user-talk": "Avisa'm quan algú envia un missatge o respon a la meva pàgina de discussió d'usuari.",
+	"echo-pref-tooltip-edit-user-talk": "Notifica'm quan algú publiqui un missatge o respongui a la meva pàgina de discussió d'usuari.",
 	"echo-pref-tooltip-article-linked": "Avisa'm quan algú enllaça des d'un article a una pàgina que he creat.",
 	"echo-pref-tooltip-reverted": "Avisa'm quan algú reverteix una modificació que he fet, emprant l'eina per a desfer o revocar.",
 	"echo-pref-tooltip-mention": "Notifica'm quan algú enllaci a la meva pàgina d'usuari.",

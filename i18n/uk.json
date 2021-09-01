@@ -52,7 +52,7 @@
 	"echo-learn-more": "Дізнатися більше",
 	"echo-log": "Публічний журнал",
 	"echo-new-messages": "У Вас є нові повідомлення",
-	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Повідомлення}} на сторінці обговорення",
+	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Повідомлення}} на сторінці обговорення користувача",
 	"echo-category-title-article-linked": "{{PLURAL:$1|Посилання}} на сторінку",
 	"echo-category-title-reverted": "Скасування {{PLURAL:$1|редагування|редагувань}}",
 	"echo-category-title-mention": "{{PLURAL:$1|Згадування}}",
