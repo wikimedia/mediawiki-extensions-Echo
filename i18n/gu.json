@@ -29,7 +29,7 @@
 	"echo-learn-more": "વધુ જાણો",
 	"echo-log": "જાહેર નોંધ",
 	"echo-new-messages": "તમારા માટે નવો સંદેશો છે",
-	"echo-category-title-edit-user-talk": "ચર્ચા પાનું {{PLURAL:$1|સંદેશ|સંદેશાઓ}}",
+	"echo-category-title-edit-user-talk": "{{PLURAL:$1|ટીપ્પણી|ટીપ્પણીઓ}} મારા ચર્ચા પાના પર",
 	"echo-category-title-article-linked": "પાનું {{PLURAL:$1|કડી|કડીઓ}}",
 	"echo-category-title-reverted": "{{PLURAL:$1|ઉલટાવેલ|ઉલટાવેલા}} ફેરફાર",
 	"echo-category-title-mention": "{{PLURAL:$1|ઉલ્લેખ|ઉલ્લેખો}}",
