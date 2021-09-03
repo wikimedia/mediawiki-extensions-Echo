@@ -288,6 +288,16 @@ class GenerateSampleNotifications extends Maintenance {
 		$undoContent = $undoRev->getContent( SlotRecord::MAIN );
 		$previousContent = $previous->getContent( SlotRecord::MAIN );
 
+		if ( !$undoContent ) {
+			$this->error( "Failed to undo {$moai->getPrefixedText()}: undoContent is null." );
+			return;
+		}
+
+		if ( !$previousContent ) {
+			$this->error( "Failed to undo {$moai->getPrefixedText()}: previousContent is null." );
+			return;
+		}
+
 		$content = $handler->getUndoContent(
 			$undoContent,
 			$undoContent,
