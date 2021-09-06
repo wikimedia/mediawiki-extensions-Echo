@@ -56,7 +56,7 @@
 	"echo-pref-notifications-page-linked-title-muted-list": "Não exibir notificações \"Link da página\" para essas páginas. ([[mw:Special:MyLanguage/Help:Notifications#mute|Saber mais]])",
 	"echo-pref-dont-email-read-notifications": "Não inclua notificações de leitura em emails de resumo",
 	"echo-learn-more": "Saiba mais",
-	"echo-log": "Registro Público",
+	"echo-log": "Registo público",
 	"echo-new-messages": "Você tem novas mensagens",
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Comentário|Comentários}} na minha página de discussão do usuário",
 	"echo-category-title-article-linked": "{{PLURAL:$1|Ligação|Ligações}} para a página",

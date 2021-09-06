@@ -65,7 +65,7 @@
 	"echo-category-title-thank-you-edit": "editační {{PLURAL:$1|milník|milníky}}",
 	"echo-category-title-watchlist": "editaci sledované stránky",
 	"echo-category-title-minor-watchlist": "malou editaci sledované stránky",
-	"echo-pref-tooltip-edit-user-talk": "Upozorněte mě, když mi někdo na mé diskusní stránce napíše zprávu nebo odpoví.",
+	"echo-pref-tooltip-edit-user-talk": "Upozorněte mě, když mi někdo na mé uživatelské diskusní stránce napíše zprávu nebo odpoví.",
 	"echo-pref-tooltip-article-linked": "Upozorněte mě, když někdo na stránku, kterou jsem {{GENDER:|založil|založila}}, odkáže z jiné stránky.",
 	"echo-pref-tooltip-reverted": "Upozorněte mě, když někdo úpravu, kterou jsem {{GENDER:|provedl|provedla}}, vrátí pomocí nástrojů pro zrušení editace nebo vrácení zpět.",
 	"echo-pref-tooltip-mention": "Upozorněte mě, když někdo odkáže na mou uživatelskou stránku.",
