@@ -452,32 +452,32 @@ class ApiEchoNotifications extends ApiQueryBase {
 	 * @return array
 	 */
 	protected function mergeResults( array $results, array $params ) {
-		$master = array_shift( $results );
-		if ( !$master ) {
-			$master = [];
+		$primary = array_shift( $results );
+		if ( !$primary ) {
+			$primary = [];
 		}
 
 		if ( in_array( 'list', $params['prop'] ) ) {
-			$master = $this->mergeList( $master, $results, $params['groupbysection'] );
+			$primary = $this->mergeList( $primary, $results, $params['groupbysection'] );
 		}
 
 		if ( in_array( 'count', $params['prop'] ) && !$this->crossWikiSummary ) {
-			// if crosswiki data was requested, the count in $master
+			// if crosswiki data was requested, the count in $primary
 			// is accurate already
 			// otherwise, we'll want to combine counts for all wikis
-			$master = $this->mergeCount( $master, $results, $params['groupbysection'] );
+			$primary = $this->mergeCount( $primary, $results, $params['groupbysection'] );
 		}
 
-		return $master;
+		return $primary;
 	}
 
 	/**
-	 * @param array $master
+	 * @param array $primary
 	 * @param array[] $results
 	 * @param bool $groupBySection
 	 * @return array
 	 */
-	protected function mergeList( array $master, array $results, $groupBySection ) {
+	protected function mergeList( array $primary, array $results, $groupBySection ) {
 		// sort all notifications by timestamp: most recent first
 		$sort = static function ( $a, $b ) {
 			return $a['timestamp']['utcunix'] - $b['timestamp']['utcunix'];
@@ -485,57 +485,57 @@ class ApiEchoNotifications extends ApiQueryBase {
 
 		if ( $groupBySection ) {
 			foreach ( EchoAttributeManager::$sections as $section ) {
-				if ( !isset( $master[$section]['list'] ) ) {
-					$master[$section]['list'] = [];
+				if ( !isset( $primary[$section]['list'] ) ) {
+					$primary[$section]['list'] = [];
 				}
 				foreach ( $results as $result ) {
-					$master[$section]['list'] = array_merge( $master[$section]['list'], $result[$section]['list'] );
+					$primary[$section]['list'] = array_merge( $primary[$section]['list'], $result[$section]['list'] );
 				}
-				usort( $master[$section]['list'], $sort );
+				usort( $primary[$section]['list'], $sort );
 			}
 		} else {
-			if ( !isset( $master['list'] ) || !is_array( $master['list'] ) ) {
-				$master['list'] = [];
+			if ( !isset( $primary['list'] ) || !is_array( $primary['list'] ) ) {
+				$primary['list'] = [];
 			}
 			foreach ( $results as $result ) {
-				$master['list'] = array_merge( $master['list'], $result['list'] );
+				$primary['list'] = array_merge( $primary['list'], $result['list'] );
 			}
-			usort( $master['list'], $sort );
+			usort( $primary['list'], $sort );
 		}
 
-		return $master;
+		return $primary;
 	}
 
 	/**
-	 * @param array $master
+	 * @param array $primary
 	 * @param array[] $results
 	 * @param bool $groupBySection
 	 * @return array
 	 */
-	protected function mergeCount( array $master, array $results, $groupBySection ) {
+	protected function mergeCount( array $primary, array $results, $groupBySection ) {
 		if ( $groupBySection ) {
 			foreach ( EchoAttributeManager::$sections as $section ) {
-				if ( !isset( $master[$section]['rawcount'] ) ) {
-					$master[$section]['rawcount'] = 0;
+				if ( !isset( $primary[$section]['rawcount'] ) ) {
+					$primary[$section]['rawcount'] = 0;
 				}
 				foreach ( $results as $result ) {
-					$master[$section]['rawcount'] += $result[$section]['rawcount'];
+					$primary[$section]['rawcount'] += $result[$section]['rawcount'];
 				}
-				$master[$section]['count'] = EchoNotificationController::formatNotificationCount(
-					$master[$section]['rawcount'] );
+				$primary[$section]['count'] = EchoNotificationController::formatNotificationCount(
+					$primary[$section]['rawcount'] );
 			}
 		}
 
-		if ( !isset( $master['rawcount'] ) ) {
-			$master['rawcount'] = 0;
+		if ( !isset( $primary['rawcount'] ) ) {
+			$primary['rawcount'] = 0;
 		}
 		foreach ( $results as $result ) {
 			// regardless of groupbysection, totals are always included
-			$master['rawcount'] += $result['rawcount'];
+			$primary['rawcount'] += $result['rawcount'];
 		}
-		$master['count'] = EchoNotificationController::formatNotificationCount( $master['rawcount'] );
+		$primary['count'] = EchoNotificationController::formatNotificationCount( $primary['rawcount'] );
 
-		return $master;
+		return $primary;
 	}
 
 	public function getAllowedParams() {
