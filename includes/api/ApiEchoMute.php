@@ -78,8 +78,6 @@ class ApiEchoMute extends ApiBase {
 
 		if ( $changed ) {
 			$this->userOptionsManager->setOption(
-				// Phan does not understand dieWithError() - T240141
-				// @phan-suppress-next-line PhanTypeMismatchArgumentNullable
 				$user,
 				$mutelistInfo['pref'],
 				$this->serializePref( $ids, $mutelistInfo['type'] )

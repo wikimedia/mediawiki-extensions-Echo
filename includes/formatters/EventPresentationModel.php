@@ -113,6 +113,7 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 		global $wgEchoNotifications;
 		// @todo don't depend upon globals
 
+		// @phan-suppress-next-line PhanTypeArraySuspiciousNullable
 		$class = $wgEchoNotifications[$event->getType()]['presentation-model'];
 		return new $class( $event, $language, $user, $distributionType );
 	}

@@ -17,6 +17,7 @@ class NotificationPager extends ReverseChronologicalPager {
 	}
 
 	public function formatRow( $row ) {
+		// @phan-suppress-previous-line PhanPluginNeverReturnMethod LSP violation
 		throw new Exception( "This pager does not support row formatting. " .
 			"Use 'getNotifications()' to get a list of EchoNotification objects." );
 	}

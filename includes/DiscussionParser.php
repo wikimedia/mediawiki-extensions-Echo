@@ -210,7 +210,7 @@ abstract class EchoDiscussionParser {
 				$found = true;
 			}
 		}
-		if ( $found === false ) {
+		if ( !$found ) {
 			return [ 'section-title' => '', 'section-text' => '' ];
 		}
 

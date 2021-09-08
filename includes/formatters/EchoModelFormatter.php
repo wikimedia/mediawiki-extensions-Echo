@@ -8,7 +8,6 @@ class EchoModelFormatter extends EchoEventFormatter {
 	/**
 	 * @param EchoEventPresentationModel $model
 	 * @return array
-	 * @suppress SecurityCheck-DoubleEscaped
 	 */
 	protected function formatModel( EchoEventPresentationModel $model ) {
 		$data = $model->jsonSerialize();

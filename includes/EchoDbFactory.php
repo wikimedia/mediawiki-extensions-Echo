@@ -1,7 +1,7 @@
 <?php
 
 use MediaWiki\MediaWikiServices;
-use Wikimedia\Rdbms\LoadBalancer;
+use Wikimedia\Rdbms\ILoadBalancer;
 
 /**
  * Database factory class, this will determine whether to use the main database
@@ -54,7 +54,7 @@ class MWEchoDbFactory {
 
 	/**
 	 * Get the database load balancer
-	 * @return LoadBalancer
+	 * @return ILoadBalancer
 	 */
 	protected function getLB() {
 		// Use the external db defined for Echo
@@ -68,7 +68,7 @@ class MWEchoDbFactory {
 	}
 
 	/**
-	 * @return LoadBalancer
+	 * @return ILoadBalancer
 	 */
 	protected function getSharedLB() {
 		if ( $this->sharedCluster ) {
