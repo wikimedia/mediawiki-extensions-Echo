@@ -32,7 +32,7 @@
 	"apihelp-echopushsubscriptions+create-summary": "Registrera push-prenumerationer för nuvarande användare.",
 	"apihelp-echopushsubscriptions+create-param-provider": "Push-tjänstleverantör som en nyckel ska registreras till.",
 	"apihelp-echopushsubscriptions+create-param-providertoken": "Nyckeln att registrera.",
-	"apihelp-echopushsubscriptions+create-param-topic": "APNS-ämnet (apppakets-ID) att skicka aviseringen till.",
+	"apihelp-echopushsubscriptions+create-param-topic": "APNS-ämnet (appakets-ID) att skicka aviseringen till.",
 	"apihelp-echopushsubscriptions+create-example": "Registrera en push-prenumeration för nuvarande användare.",
 	"apihelp-echopushsubscriptions+delete-summary": "Avregistrera push-prenumerationer för nuvarande användare eller annan vald användare.",
 	"apihelp-echopushsubscriptions+delete-param-providertoken": "Nyckeln som associeras med den utgivarinitierade prenumerationen att avregistrera.",
