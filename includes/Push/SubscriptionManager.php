@@ -3,9 +3,9 @@
 namespace EchoPush;
 
 use EchoAbstractMapper;
-use IDatabase;
 use MediaWiki\Storage\NameTableStore;
 use Wikimedia\Rdbms\DBError;
+use Wikimedia\Rdbms\IDatabase;
 
 class SubscriptionManager extends EchoAbstractMapper {
 
