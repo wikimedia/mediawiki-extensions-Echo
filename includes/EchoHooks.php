@@ -857,7 +857,7 @@ class EchoHooks implements RecentChange_saveHook {
 		}
 
 		// Attempt to mark as read the event IDs in the ?markasread= parameter, if present
-		$markAsReadIds = explode( '|', $request->getText( 'markasread' ) );
+		$markAsReadIds = array_filter( explode( '|', $request->getText( 'markasread' ) ) );
 		$markAsReadWiki = $request->getText( 'markasreadwiki', wfWikiID() );
 		$markAsReadLocal = !$wgEchoCrossWikiNotifications || $markAsReadWiki === wfWikiID();
 		if ( $markAsReadIds ) {
