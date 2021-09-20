@@ -11,6 +11,7 @@
 			"Reception123",
 			"Stelistcristi",
 			"Strainu",
+			"WebSourceContentRO",
 			"Wintereu"
 		]
 	},
@@ -42,7 +43,7 @@
 	"echo-learn-more": "Aflați mai multe",
 	"echo-log": "Jurnal public",
 	"echo-new-messages": "Aveți mesaje noi",
-	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Mesaj|Mesaje}} în pagina de discuții",
+	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Modificare|Modificări}} pe pagina mea de discuții",
 	"echo-category-title-article-linked": "{{PLURAL:$1|Legătură|Legături}} către pagină",
 	"echo-category-title-reverted": "{{PLURAL:$1|Revenire|Reveniri}} asupra modificărilor",
 	"echo-category-title-mention": "{{PLURAL:$1|Menționare|Menționări}}",
