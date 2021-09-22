@@ -50,6 +50,7 @@
 	"notification-mention-email-subject": "$1 ti {{GENDER:$2|mintuviau}} supra {{SITENAME}}",
 	"notification-user-rights-email-subject": "Li tò diritti utenti foru canciati supra {{SITENAME}}",
 	"notification-timestamp-today": "Oi",
+	"notification-timestamp-yesterday": "Aieri",
 	"echo-overlay-link": "Tutti li nutìfichi",
 	"echo-overlay-title": "<b>Nutìfichi</b>",
 	"echo-mark-all-as-read": "Sinna tutti comu ligghiuti",
