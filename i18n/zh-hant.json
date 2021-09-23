@@ -27,6 +27,7 @@
 			"Wong128hk",
 			"Xiplus",
 			"一個正常人",
+			"列维劳德",
 			"沈澄心",
 			"逆襲的天邪鬼"
 		]
@@ -61,7 +62,7 @@
 	"echo-learn-more": "瞭解更多",
 	"echo-log": "日誌",
 	"echo-new-messages": "您有新訊息",
-	"echo-category-title-edit-user-talk": "對話頁面{{PLURAL:$1|訊息}}",
+	"echo-category-title-edit-user-talk": "{{PLURAL:$1|編輯}}我的使用者討論頁",
 	"echo-category-title-article-linked": "頁面{{PLURAL:$1|連結}}",
 	"echo-category-title-reverted": "編輯{{PLURAL:$1|還原}}",
 	"echo-category-title-mention": "{{PLURAL:$1|提及}}",
@@ -77,7 +78,7 @@
 	"echo-category-title-thank-you-edit": "編輯{{PLURAL:$1|里程碑}}",
 	"echo-category-title-watchlist": "監視頁面的編輯",
 	"echo-category-title-minor-watchlist": "監視頁面的小修改",
-	"echo-pref-tooltip-edit-user-talk": "當有人在我的對話頁面上留下訊息或是回覆留言時通知我。",
+	"echo-pref-tooltip-edit-user-talk": "當有人編輯我的使用者討論頁時通知我。",
 	"echo-pref-tooltip-article-linked": "當有人從另一頁面連結到我建立的頁面時通知我。",
 	"echo-pref-tooltip-reverted": "當有人使用還原或取消功能來還原我的編輯時通知我。",
 	"echo-pref-tooltip-mention": "當有人連結我的使用者頁面時通知我。",

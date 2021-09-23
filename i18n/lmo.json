@@ -34,7 +34,7 @@
 	"echo-learn-more": "Per savenn pussee",
 	"echo-log": "Register publich",
 	"echo-new-messages": "Te gh'hee di messagg noeuv in la pagina de ciciarada.",
-	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Coment|Coment}} in de la mia pagina de ciciarada",
+	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Coment}} in de la mia pagina de ciciarada",
 	"echo-category-title-article-linked": "{{PLURAL:$1|Conligament}} a 'na pagina",
 	"echo-category-title-reverted": "{{PLURAL:$1|Modifega anulada|Modifeghe annulade}}",
 	"echo-category-title-mention": "{{PLURAL:$1|Menzion}}",
