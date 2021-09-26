@@ -763,12 +763,14 @@ class EchoHooks implements RecentChange_saveHook {
 			return;
 		}
 
+		$namespaceInfo = MediaWikiServices::getInstance()->getNamespaceInfo();
+
 		// Handle only
 		// 1. inserts to pagelinks table &&
 		// 2. content namespace pages &&
 		// 3. non-transcluding pages &&
 		// 4. non-redirect pages
-		if ( $table !== 'pagelinks' || !MWNamespace::isContent( $linksUpdate->mTitle->getNamespace() )
+		if ( $table !== 'pagelinks' || !$namespaceInfo->isContent( $linksUpdate->mTitle->getNamespace() )
 			|| !$linksUpdate->mRecursive || $linksUpdate->mTitle->isRedirect()
 		) {
 			return;
@@ -785,7 +787,7 @@ class EchoHooks implements RecentChange_saveHook {
 		// Only create notifications for links to content namespace pages
 		// @Todo - use one big insert instead of individual insert inside foreach loop
 		foreach ( $insertions as $page ) {
-			if ( MWNamespace::isContent( $page['pl_namespace'] ) ) {
+			if ( $namespaceInfo->isContent( $page['pl_namespace'] ) ) {
 				$title = Title::makeTitle( $page['pl_namespace'], $page['pl_title'] );
 				if ( $title->isRedirect() ) {
 					continue;
