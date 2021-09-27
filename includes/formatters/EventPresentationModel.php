@@ -8,7 +8,7 @@ use Wikimedia\Timestamp\TimestampException;
  * Class that returns structured data based
  * on the provided event.
  */
-abstract class EchoEventPresentationModel implements JsonSerializable {
+abstract class EchoEventPresentationModel implements JsonSerializable, MessageLocalizer {
 
 	/**
 	 * Recommended length of usernames included in messages, in
@@ -156,14 +156,16 @@ abstract class EchoEventPresentationModel implements JsonSerializable {
 	 * Equivalent to IContextSource::msg for the current
 	 * language
 	 *
-	 * @param string ...$args
+	 * @param string|string[]|MessageSpecifier $key Message key, or array of keys,
+	 *   or a MessageSpecifier.
+	 * @param mixed ...$params Normal message parameters
 	 * @return Message
 	 */
-	protected function msg( ...$args ) {
+	public function msg( $key, ...$params ) {
 		/**
 		 * @var Message $msg
 		 */
-		$msg = wfMessage( ...$args );
+		$msg = wfMessage( $key, ...$params );
 		$msg->inLanguage( $this->language );
 
 		// Notifications are considered UI (and should be in UI language, not
