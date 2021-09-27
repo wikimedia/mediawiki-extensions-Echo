@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Algentem",
+			"JSantos",
 			"Joao Xavier"
 		]
 	},
@@ -79,6 +80,7 @@
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$2|skriptis}} mesajo a vu en {{SITENAME}}",
 	"notification-reverted-email-subject2": "Vua {{PLURAL:$4|redakto|redakti}} {{GENDER:$2|desfacesis}} en {{SITENAME}}",
 	"notification-mention-email-subject": "$1 {{GENDER:$2|mencionis}} {{GENDER:$3|vu}} en {{SITENAME}}",
+	"notification-user-rights-email-subject": "{{GENDER:$3|Vua}} uzero-yuri chanjesis che {{SITENAME}}",
 	"notification-timestamp-ago-hours": "{{PLURAL:$1|horo|$1 hori}}",
 	"notification-timestamp-ago-days": "{{PLURAL:$1|$1d}}",
 	"notification-timestamp-ago-months": "{{PLURAL:$1|1 monato|$1 monati}}",

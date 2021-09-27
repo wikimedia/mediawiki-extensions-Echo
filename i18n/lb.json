@@ -49,7 +49,7 @@
 	"echo-category-title-thank-you-edit": "{{PLURAL:$1|Kilometersteen|Kilometersteng}} vun den Ännerungen",
 	"echo-category-title-watchlist": "Ännerung op enger iwwerwaachter Säit",
 	"echo-category-title-minor-watchlist": "Kleng Ännerung op enger iwwerwaachter Säit",
-	"echo-pref-tooltip-edit-user-talk": "Mech informéiere wann een eppes op meng Diskussiounssäit schreift oder do äntwert.",
+	"echo-pref-tooltip-edit-user-talk": "Mech informéiere wann een eppes op meng Benotzer-Diskussiounssäit setzt.",
 	"echo-pref-tooltip-article-linked": "Mech informéiere wann een an engem Artikel op eng aner Säit verlinkt, déi ech kreéiert hunn.",
 	"echo-pref-tooltip-reverted": "Mech informéiere wann ee meng Ännerung zerécksetzt oder wann de 'Rollback'-Tool benotzt gëtt.",
 	"echo-pref-tooltip-mention": "Mech informéiere wann een e Link op meng Benotzersäit setzt.",
