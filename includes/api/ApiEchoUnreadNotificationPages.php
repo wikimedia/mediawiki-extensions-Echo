@@ -1,6 +1,8 @@
 <?php
 
 use MediaWiki\Logger\LoggerFactory;
+use MediaWiki\Page\PageRecord;
+use MediaWiki\Page\PageStore;
 
 class ApiEchoUnreadNotificationPages extends ApiQueryBase {
 	use ApiCrossWiki;
@@ -11,11 +13,25 @@ class ApiEchoUnreadNotificationPages extends ApiQueryBase {
 	protected $crossWikiSummary = false;
 
 	/**
+	 * @var PageStore
+	 */
+	private $pageStore;
+
+	/**
+	 * @var TitleFactory
+	 */
+	private $titleFactory;
+
+	/**
 	 * @param ApiQuery $query
 	 * @param string $moduleName
+	 * @param PageStore $pageStore
+	 * @param TitleFactory $titleFactory
 	 */
-	public function __construct( $query, $moduleName ) {
+	public function __construct( $query, $moduleName, PageStore $pageStore, TitleFactory $titleFactory ) {
 		parent::__construct( $query, $moduleName, 'unp' );
+		$this->pageStore = $pageStore;
+		$this->titleFactory = $titleFactory;
 	}
 
 	/**
@@ -96,10 +112,16 @@ class ApiEchoUnreadNotificationPages extends ApiQueryBase {
 			}
 		}
 
-		$titles = Title::newFromIDs( array_keys( $pageCounts ) );
+		$titles = $this->pageStore
+			->newSelectQueryBuilder()
+			->wherePageIds( array_keys( $pageCounts ) )
+			->caller( __METHOD__ )
+			->fetchPageRecords();
 
 		$groupCounts = [];
+		/** @var PageRecord $title */
 		foreach ( $titles as $title ) {
+			$title = $this->titleFactory->castFromPageIdentity( $title );
 			if ( $groupPages ) {
 				// If $title is a talk page, add its count to its subject page's count
 				$pageName = $title->getSubjectPage()->getPrefixedText();

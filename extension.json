@@ -22,7 +22,10 @@
 			"class": "ApiEchoNotifications",
 			"services": [ "MainConfig" ]
 		},
-		"unreadnotificationpages": "ApiEchoUnreadNotificationPages"
+		"unreadnotificationpages": {
+			"class": "ApiEchoUnreadNotificationPages",
+			"services": [ "PageStore", "TitleFactory" ]
+		}
 	},
 	"APIModules": {
 		"echomarkread": "ApiEchoMarkRead",
