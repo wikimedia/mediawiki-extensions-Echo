@@ -54,7 +54,7 @@
 	"echo-pref-cross-wiki-notifications": "Mostrar notificações de outras wikis",
 	"echo-pref-notifications-blacklist": "Não apresentar notificações destes usuários. ([[mw:Special:MyLanguage/Help:Notifications#mute|mais informações]])",
 	"echo-pref-notifications-page-linked-title-muted-list": "Não exibir notificações \"Link da página\" para essas páginas. ([[mw:Special:MyLanguage/Help:Notifications#mute|Saber mais]])",
-	"echo-pref-dont-email-read-notifications": "Não inclua notificações de leitura em emails de resumo",
+	"echo-pref-dont-email-read-notifications": "Não inclua notificações já lidas em emails de resumo",
 	"echo-learn-more": "Saiba mais",
 	"echo-log": "Registo público",
 	"echo-new-messages": "Você tem novas mensagens",

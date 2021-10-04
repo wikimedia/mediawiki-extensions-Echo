@@ -26,7 +26,7 @@
 	"apihelp-echomarkseen-param-type": "Soorten meldingen om te markeren als gezien: 'alert', 'message' of 'all'.",
 	"apihelp-query+notifications-description": "Wachtende meldingen voor de huidige gebruiker opvragen.",
 	"apihelp-query+notifications-param-prop": "Details voor verzoek.",
-	"apihelp-query+notifications-param-sections": "De notificatieonderdelen in de zoekopdracht, bijvoorbeeld een combinatie van \"alert\" en \"message\".",
+	"apihelp-query+notifications-param-sections": "De notificatieonderdelen in de zoekopdracht, d.w.z. een combinatie van \"alert\" en \"message\".",
 	"apihelp-query+notifications-param-groupbysection": "Of resultaat op onderdeel gegroepeerd moeten worden. Elk onderdeel wordt separaat opgehaald als dit is ingesteld.",
 	"apihelp-query+notifications-param-filter": "De opgevraagde meldingen filteren.",
 	"apihelp-query+notifications-param-format": "Indien opgegeven, worden meldingen teruggegeven met deze opmaak.",
