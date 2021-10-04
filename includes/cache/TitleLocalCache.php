@@ -1,5 +1,8 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+use MediaWiki\Page\PageRecord;
+
 /**
  * Cache class that maps article id to Title object
  */
@@ -26,8 +29,16 @@ class EchoTitleLocalCache extends EchoLocalCache {
 	 */
 	protected function resolve( array $lookups ) {
 		if ( $lookups ) {
-			$titles = Title::newFromIDs( $lookups );
+			$titles = MediaWikiServices::getInstance()
+				->getPageStore()
+				->newSelectQueryBuilder()
+				->wherePageIds( $lookups )
+				->caller( __METHOD__ )
+				->fetchPageRecords();
+
+			/** @var PageRecord $title */
 			foreach ( $titles as $title ) {
+				$title = MediaWikiServices::getInstance()->getTitleFactory()->castFromPageIdentity( $title );
 				yield $title->getArticleID() => $title;
 			}
 		}
