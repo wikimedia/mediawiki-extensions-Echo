@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Abuluntu",
 			"Chameleon222",
 			"Danmichaelo",
 			"Jeblad",
@@ -42,7 +43,7 @@
 	"echo-learn-more": "Lær mer",
 	"echo-log": "Offentlig logg",
 	"echo-new-messages": "Du har en ny melding på diskusjonssiden",
-	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Kommentar|Kommentarer}} på min brukerdiskusjon",
+	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Redigering|Redigeringer}} på min brukerdiskusjonsside",
 	"echo-category-title-article-linked": "{{PLURAL:$1|Sidelenke|Sidelenker}}",
 	"echo-category-title-reverted": "Tilbakestilling av {{PLURAL:$1|redigering|redigeringer}}",
 	"echo-category-title-mention": "{{PLURAL:$1|Nevning|Nevninger}}",
@@ -58,7 +59,7 @@
 	"echo-category-title-thank-you-edit": "Rediger {{PLURAL:$1|milepæl|milepæler}}",
 	"echo-category-title-watchlist": "Redigering av overvåket side",
 	"echo-category-title-minor-watchlist": "Mindre redigering av overvåket side",
-	"echo-pref-tooltip-edit-user-talk": "Gi meg beskjed når noen skriver en melding eller svarer på brukerdiskusjonen min.",
+	"echo-pref-tooltip-edit-user-talk": "Varsle meg når noen redigerer brukerdiskusjonssiden min.",
 	"echo-pref-tooltip-article-linked": "Gi meg beskjed når noen lenker til en side jeg har opprettet fra en annen side.",
 	"echo-pref-tooltip-reverted": "Gi meg beskjed når noen tilbakestiller en av redigeringene mine.",
 	"echo-pref-tooltip-mention": "Gi meg beskjed når noen lenker til brukersiden min.",

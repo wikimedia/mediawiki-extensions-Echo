@@ -4,6 +4,7 @@
 			"4nn1l2",
 			"Dalba",
 			"Huji",
+			"Jeeputer",
 			"Mjbmr",
 			"Reza1615",
 			"فلورانس"
@@ -44,8 +45,8 @@
 	"apihelp-query+notifications-param-messageunreadfirst": "برای نمایش آگاه‌سازی‌های خوانده‌نشده در ابتدای کار (فقط اگر گروه بندی بر پایهٔ بخش تنظیم نشده‌باشد، استفاده می‌شود).",
 	"apihelp-query+notifications-param-titles": "Only return notifications for these pages. To get notifications not associated with any page, use [] as a title.",
 	"apihelp-query+notifications-param-bundle": "\nWhether to show bundle compatible unread notifications according to notification types bundling rules.",
-	"apihelp-query+notifications-example-1": "اعلان‌ها را فهرست کن",
-	"apihelp-query+notifications-example-2": "فهرست اعلان‌ها، بخش بندیش شده، همراه با شمار آن‌ها.",
+	"apihelp-query+notifications-example-1": "اعلان‌های وب را فهرست کن",
+	"apihelp-query+notifications-example-2": "اعلان‌های وب را به‌صورت گروه‌بندی‌شده بر پایه بخش به همراه شمار آن‌ها فهرست کن",
 	"apihelp-query+unreadnotificationpages-description": "دریافت صفحه‌هایی که برایش آگاه‌سازی‌های خوانده‌نشده‌ای برای کاربر فعلی وجود دارد.",
 	"apihelp-query+unreadnotificationpages-summary": "دریافت صفحه‌هایی که برایش آگاه‌سازی‌های خوانده‌نشده‌ای برای کاربر فعلی وجود دارد.",
 	"apihelp-query+unreadnotificationpages-param-grouppages": "گروه صفحهٔ بحث‌ها همراه با صفحهٔ موضوعشان و آگاه‌سازی گروهی ارتباطی به صفحهٔ کاربری این کاربر ندارد.",
