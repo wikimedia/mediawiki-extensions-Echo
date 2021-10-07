@@ -78,7 +78,7 @@
 	"echo-category-title-thank-you-edit": "ویرایش {{PLURAL:$1|رویداد مهم|رویدادهای مهم}}",
 	"echo-category-title-watchlist": "ویرایش در صفحهٔ محافظت‌شده",
 	"echo-category-title-minor-watchlist": "ویرایش جزئی در صفحهٔ محافظت‌شده",
-	"echo-pref-tooltip-edit-user-talk": "وقتی کسی صفحهٔ بحث مرا ویرایش کرد، مرا آگاه کن.",
+	"echo-pref-tooltip-edit-user-talk": "وقتی کسی صفحهٔ بحثم را ویرایش کرد، مرا آگاه کن.",
 	"echo-pref-tooltip-article-linked": "وقتی کسی به صفحه‌ای که ایجاد کرده‌ام پیوند داد، مرا آگاه کن.",
 	"echo-pref-tooltip-reverted": "وقتی کسی ویرایش مرا با ابزار خثنی‌سازی یا واگردانی، خثنی کرد، مرا آگاه کن.",
 	"echo-pref-tooltip-mention": "وقتی کسی به صفحهٔ کاربری‌ام پیوند داد، مرا آگاه کن.",
