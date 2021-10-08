@@ -38,7 +38,7 @@
 	"echo-learn-more": "Lisateave",
 	"echo-log": "Avalik logi",
 	"echo-new-messages": "Sulle on aruteluleheküljel uusi sõnumeid",
-	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Kommentaar|Kommentaarid}} minu aruteluleheküljel",
+	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Muudatus|Muudatused}} minu aruteluleheküljel",
 	"echo-category-title-article-linked": "{{PLURAL:$1|Leheküljelink|Leheküljelingid}}",
 	"echo-category-title-reverted": "Tühistatud {{PLURAL:$1|muudatus|muudatused}}",
 	"echo-category-title-mention": "{{PLURAL:$1|Mainimine|Mainimised}}",
@@ -50,7 +50,7 @@
 	"echo-category-title-user-rights": "{{PLURAL:$1|Kasutajaõiguste muutmine|Kasutajaõiguste muutmised}}",
 	"echo-category-title-emailuser": "{{PLURAL:$1|E-kiri teiselt kasutajalt|E-kiri teistelt kasutajatelt}}",
 	"echo-category-title-thank-you-edit": "Kaastöö {{PLURAL:$1|verstapost|verstapostid}}",
-	"echo-pref-tooltip-edit-user-talk": "Teavita mind, kui keegi postitab või vastab minu kasutaja aruteluleheküljel.",
+	"echo-pref-tooltip-edit-user-talk": "Teavita mind, kui keegi muudab minu kasutaja arutelulehekülge.",
 	"echo-pref-tooltip-article-linked": "Teavita mind, kui keegi lingib teiselt leheküljelt minu alustatud leheküljele.",
 	"echo-pref-tooltip-reverted": "Teavita mind, kui keegi tühistab minu muudatuse, kasutades eemaldus- või tühistusfunktsiooni.",
 	"echo-pref-tooltip-mention": "Teavita mind, kui keegi lingib minu kasutajaleheküljele.",
@@ -135,9 +135,9 @@
 	"notification-header-mention-success-bundle": "{{PLURAL:$3|Mainimine|$3 mainimist}}, mille {{GENDER:$2|lisasid}} aruteluleheküljele \"<strong>$4</strong>\", on saadetud.",
 	"notification-compact-header-mention-success": "<strong>{{GENDER:$2|Mainisid}}:</strong> $3",
 	"notification-header-mention-status-bundle": "{{PLURAL:$3|Teavitus|$3 teavitust}} mainimistest, mille {{GENDER:$2|lisasid}} aruteluleheküljele \"<strong>$4</strong>\": {{PLURAL:$5|$5 saatmata}}, {{PLURAL:$6|$6 saadetud}}.",
-	"notification-header-user-rights-add-only": "{{GENDER:$4|Sinu}} kasutajaõigusi {{GENDER:$1|muudeti}}. Sind lisati rühma: $2.",
-	"notification-header-user-rights-remove-only": "{{GENDER:$4|Sinu}} kasutajaõigusi {{GENDER:$1|muudeti}}. Sa ei kuulu enam rühma: $2.",
-	"notification-header-user-rights-add-and-remove": "{{GENDER:$6|Sinu}} kasutajaõigused {{GENDER:$1|muudeti}}. Kuulud nüüd järgmistesse rühmadesse: $2. Sa ei kuulu enam järgmistesse rühmadesse: $4.",
+	"notification-header-user-rights-add-only": "{{GENDER:$4|Sinu}} kasutajaõigusi {{GENDER:$1|muudeti}}. Sind lisati {{PLURAL:$3|järgmisesse rühma|järgmistesse rühmadesse}}: $2.",
+	"notification-header-user-rights-remove-only": "{{GENDER:$4|Sinu}} kasutajaõigusi {{GENDER:$1|muudeti}}. Sa ei kuulu enam {{PLURAL:$3|järgmisesse rühma|järgmistesse rühmadesse}}: $2.",
+	"notification-header-user-rights-add-and-remove": "{{GENDER:$6|Sinu}} kasutajaõigused {{GENDER:$1|muudeti}}. Kuulud nüüd {{PLURAL:$3|järgmisesse rühma|järgmistesse rühmadesse}}: $2. Sa ei kuulu enam {{PLURAL:$5|järgmisesse rühma|järgmistesse rühmadesse}}: $4.",
 	"notification-header-user-rights-expiry-change": "{{GENDER:$4|Sinu}} liikmesuse aegumistähtaeg {{PLURAL:$3|järgmises rühmas|järgmistes rühmades}} on {{GENDER:$1|muudetud}}: $2.",
 	"notification-header-welcome": "{{GENDER:$2|Tere}} tulemast saidile {{SITENAME}}, $1! Meil on hea meel, et siin oled.",
 	"notification-header-mention-summary": "$1 {{GENDER:$2|mainis}} {{GENDER:$3|sind}} lehekülje \"<strong>$4</strong>\" muudatuse resümees.",
@@ -195,5 +195,6 @@
 	"echo-email-batch-link-text-view-all-notifications": "Vaata kõiki teavitusi",
 	"notification-header-foreign-alert": "Veel märguandeid {{PLURAL:$5|teisest|$5 teisest}} vikist",
 	"notification-header-foreign-notice": "Veel märkusi {{PLURAL:$5|teisest|$5 teisest}} vikist",
-	"notification-header-foreign-all": "Veel teavitusi {{PLURAL:$5|teisest|$5 teisest}} vikist"
+	"notification-header-foreign-all": "Veel teavitusi {{PLURAL:$5|teisest|$5 teisest}} vikist",
+	"echo-foreign-wiki-lang": "$1 – $2"
 }
