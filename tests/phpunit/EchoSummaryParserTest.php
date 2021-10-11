@@ -3,7 +3,7 @@
 /**
  * @group Echo
  */
-class EchoSummaryParserTest extends MediaWikiTestCase {
+class EchoSummaryParserTest extends MediaWikiIntegrationTestCase {
 	/** @var string[] */
 	private $existingUsers = [
 		'Werdna',

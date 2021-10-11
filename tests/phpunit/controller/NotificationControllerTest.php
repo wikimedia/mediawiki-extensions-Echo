@@ -3,7 +3,7 @@
 /**
  * @covers \EchoNotificationController
  */
-class NotificationControllerTest extends MediaWikiTestCase {
+class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 
 	public function evaluateUserLocatorsProvider() {
 		return [

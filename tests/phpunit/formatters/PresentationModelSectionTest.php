@@ -3,7 +3,7 @@
 /**
  * @group Database
  */
-class EchoPresentationModelSectionTest extends MediaWikiTestCase {
+class EchoPresentationModelSectionTest extends MediaWikiIntegrationTestCase {
 
 	/**
 	 * @covers \EchoPresentationModelSection::getTruncatedSectionTitle

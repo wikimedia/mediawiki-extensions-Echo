@@ -4,7 +4,7 @@
  * @group Echo
  * @group Database
  */
-class MWEchoThankYouEditTest extends MediaWikiTestCase {
+class MWEchoThankYouEditTest extends MediaWikiIntegrationTestCase {
 
 	protected function setUp(): void {
 		parent::setUp();

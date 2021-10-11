@@ -4,7 +4,7 @@
  * @group Database
  * @covers \EchoUserLocator
  */
-class EchoUserLocatorTest extends MediaWikiTestCase {
+class EchoUserLocatorTest extends MediaWikiIntegrationTestCase {
 
 	/** @inheritDoc */
 	protected $tablesUsed = [ 'user', 'watchlist' ];

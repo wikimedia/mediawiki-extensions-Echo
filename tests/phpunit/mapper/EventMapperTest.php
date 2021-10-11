@@ -6,7 +6,7 @@ use Wikimedia\Rdbms\IDatabase;
  * @group Database
  * @covers \EchoEventMapper
  */
-class EchoEventMapperTest extends MediaWikiTestCase {
+class EchoEventMapperTest extends MediaWikiIntegrationTestCase {
 
 	protected function setUp(): void {
 		parent::setUp();

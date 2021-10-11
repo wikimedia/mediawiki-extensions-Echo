@@ -5,7 +5,7 @@ use Wikimedia\Rdbms\IDatabase;
 /**
  * @covers \EchoNotificationMapper
  */
-class EchoNotificationMapperTest extends MediaWikiTestCase {
+class EchoNotificationMapperTest extends MediaWikiIntegrationTestCase {
 
 	/**
 	 * @todo write this test

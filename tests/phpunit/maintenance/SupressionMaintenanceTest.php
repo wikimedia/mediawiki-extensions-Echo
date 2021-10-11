@@ -6,7 +6,7 @@ use PHPUnit\Framework\TestCase;
  * @group Echo
  * @covers \EchoSuppressionRowUpdateGenerator
  */
-class SuppressionMaintenanceTest extends MediaWikiTestCase {
+class SuppressionMaintenanceTest extends MediaWikiIntegrationTestCase {
 
 	public static function provider_updateRow() {
 		$input = [

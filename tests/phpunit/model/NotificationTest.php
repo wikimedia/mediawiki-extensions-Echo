@@ -3,7 +3,7 @@
 /**
  * @covers \EchoNotification
  */
-class EchoNotificationTest extends MediaWikiTestCase {
+class EchoNotificationTest extends MediaWikiIntegrationTestCase {
 
 	public function testNewFromRow() {
 		$row = $this->mockNotificationRow() + $this->mockEventRow();

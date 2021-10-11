@@ -6,7 +6,7 @@ use Wikimedia\TestingAccessWrapper;
  * @covers \EchoTitleLocalCache
  * @group Database
  */
-class EchoTitleLocalCacheTest extends MediaWikiTestCase {
+class EchoTitleLocalCacheTest extends MediaWikiIntegrationTestCase {
 
 	public function testCreate() {
 		$cache = EchoTitleLocalCache::create();

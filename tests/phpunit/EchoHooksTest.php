@@ -1,6 +1,6 @@
 <?php
 
-class EchoHooksTest extends MediaWikiTestCase {
+class EchoHooksTest extends MediaWikiIntegrationTestCase {
 	/**
 	 * @covers \EchoHooks::onUserGetDefaultOptions()
 	 */

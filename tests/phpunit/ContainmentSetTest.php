@@ -5,7 +5,7 @@
  * @group Echo
  * @group Database
  */
-class ContainmentSetTest extends MediaWikiTestCase {
+class ContainmentSetTest extends MediaWikiIntegrationTestCase {
 
 	public function testGenericContains() {
 		$list = new EchoContainmentSet( self::getTestUser()->getUser() );

@@ -12,7 +12,7 @@ use Wikimedia\TestingAccessWrapper;
  * @group Echo
  * @group Database
  */
-class EchoDiscussionParserTest extends MediaWikiTestCase {
+class EchoDiscussionParserTest extends MediaWikiIntegrationTestCase {
 	/**
 	 * @var string[]
 	 */

@@ -6,7 +6,7 @@ use MediaWiki\MediaWikiServices;
  * @covers \MWEchoNotifUser
  * @group Echo
  */
-class MWEchoNotifUserTest extends MediaWikiTestCase {
+class MWEchoNotifUserTest extends MediaWikiIntegrationTestCase {
 
 	/**
 	 * @var WANObjectCache

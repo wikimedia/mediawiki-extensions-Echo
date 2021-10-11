@@ -1,6 +1,6 @@
 <?php
 
-class NotificationStructureTest extends MediaWikiTestCase {
+class NotificationStructureTest extends MediaWikiIntegrationTestCase {
 	/**
 	 * @coversNothing
 	 * @dataProvider provideNotificationTypes

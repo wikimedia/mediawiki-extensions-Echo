@@ -6,7 +6,7 @@ use Wikimedia\Rdbms\ILoadBalancer;
 /**
  * @covers \MWEchoDbFactory
  */
-class MWEchoDbFactoryTest extends MediaWikiTestCase {
+class MWEchoDbFactoryTest extends MediaWikiIntegrationTestCase {
 
 	public function testNewFromDefault() {
 		$db = MWEchoDbFactory::newFromDefault();

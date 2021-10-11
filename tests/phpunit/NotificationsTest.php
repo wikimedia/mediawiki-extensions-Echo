@@ -5,7 +5,7 @@
  *
  * @group Database
  */
-class NotificationsTest extends MediaWikiTestCase {
+class NotificationsTest extends MediaWikiIntegrationTestCase {
 
 	/** @var User */
 	private $sysop;
