@@ -469,7 +469,7 @@ abstract class EchoDiscussionParser {
 	/**
 	 * It's like Article::prepareTextForEdit,
 	 *  but not for editing (old wikitext usually)
-	 * Stolen from AbuseFilterVariableHolder
+	 * Stolen from AbuseFilter's VariableHolder
 	 *
 	 * @param string $wikitext
 	 * @param Article $article
