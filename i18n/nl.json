@@ -60,7 +60,7 @@
 	"echo-pref-dont-email-read-notifications": "Gelezen meldingen niet opnemen in overzichtsmails",
 	"echo-learn-more": "Meer lezen",
 	"echo-log": "Openbaar logboek",
-	"echo-new-messages": "U heeft een nieuw bericht op uw overlegpagina",
+	"echo-new-messages": "Nieuw bericht op uw overlegpagina",
 	"echo-category-title-edit-user-talk": "Bewerking{{PLURAL:$1||en}} op mijn eigen overlegpagina",
 	"echo-category-title-article-linked": "Paginakoppeling{{PLURAL:$1||en}}",
 	"echo-category-title-reverted": "Teruggedraaide {{PLURAL:$1|bewerking|bewerkingen}}",

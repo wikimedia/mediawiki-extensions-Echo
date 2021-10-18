@@ -18,7 +18,8 @@
 			"Samoasambia",
 			"Silvonen",
 			"Stryn",
-			"VezonThunder"
+			"VezonThunder",
+			"Zzko"
 		]
 	},
 	"echo-desc": "Järjestelmä jonka avulla käyttäjille voi lähettää ilmoituksia tapahtumista ja viesteistä",
@@ -45,7 +46,7 @@
 	"echo-pref-notifications-page-linked-title-muted-list": "Älä näytä Sivun linkki -ilmoituksia näiltä sivuilta. ([[mw:Special:MyLanguage/Help:Notifications#mute|lisätietoja]])",
 	"echo-learn-more": "Lue lisää aiheesta",
 	"echo-log": "Julkinen loki",
-	"echo-new-messages": "Sinulle on uusi viesti Keskustelu-sivulla",
+	"echo-new-messages": "Sinulle on uusi viesti keskustelusivulla",
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Kommentti|Kommenttia}} keskustelusivulla",
 	"echo-category-title-article-linked": "{{PLURAL:$1|Sivun linkki|Sivujen linkit}}",
 	"echo-category-title-reverted": "{{PLURAL:$1|Muokkauksen kumoaminen|Muokkausten kumoamiset}}",
