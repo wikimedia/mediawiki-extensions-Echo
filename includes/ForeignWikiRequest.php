@@ -49,14 +49,21 @@ class EchoForeignWikiRequest {
 
 	/**
 	 * Execute the request
+	 * @param WebRequest|null $originalRequest Original request data to be sent with these requests
 	 * @return array[] [ wiki => result ]
 	 */
-	public function execute() {
+	public function execute( ?WebRequest $originalRequest = null ) {
 		if ( !$this->canUseCentralAuth() ) {
 			return [];
 		}
 
-		$reqs = $this->getRequestParams( $this->method, [ $this, 'getQueryParams' ] );
+		$reqs = $this->getRequestParams(
+			$this->method,
+			function ( string $wiki ) use ( $originalRequest ) {
+				return $this->getQueryParams( $wiki, $originalRequest );
+			},
+			$originalRequest
+		);
 		return $this->doRequests( $reqs );
 	}
 
@@ -121,10 +128,11 @@ class EchoForeignWikiRequest {
 	 * This method fetches the tokens for all requested wikis at once and caches the result.
 	 *
 	 * @param string $wiki Name of the wiki to get a token for
+	 * @param WebRequest|null $originalRequest Original request data to be sent with these requests
 	 * @suppress PhanTypeInvalidCallableArraySize getRequestParams can take an array, too (phan bug)
 	 * @return string Token, or empty string if an unable to retrieve the token.
 	 */
-	protected function getCsrfToken( $wiki ) {
+	protected function getCsrfToken( $wiki, ?WebRequest $originalRequest ) {
 		if ( $this->csrfTokens === null ) {
 			$this->csrfTokens = [];
 			$reqs = $this->getRequestParams( 'GET', [
@@ -133,7 +141,7 @@ class EchoForeignWikiRequest {
 				'type' => $this->tokenType,
 				'format' => 'json',
 				'centralauthtoken' => $this->getCentralAuthToken( $this->user ),
-			] );
+			], $originalRequest );
 			$responses = $this->doRequests( $reqs );
 			foreach ( $responses as $w => $response ) {
 				if ( isset( $response['query']['tokens']['csrftoken'] ) ) {
@@ -156,9 +164,10 @@ class EchoForeignWikiRequest {
 	 * @param string $method 'GET' or 'POST'
 	 * @param array|callable $params Associative array of query string / POST parameters,
 	 *  or a callback that takes a wiki name and returns such an array
+	 * @param WebRequest|null $originalRequest Original request data to be sent with these requests
 	 * @return array[] Array of request parameters to pass to doRequests(), keyed by wiki name
 	 */
-	protected function getRequestParams( $method, $params ) {
+	protected function getRequestParams( $method, $params, ?WebRequest $originalRequest ) {
 		$apis = EchoForeignNotifications::getApiEndpoints( $this->wikis );
 		if ( !$apis ) {
 			return [];
@@ -172,6 +181,16 @@ class EchoForeignWikiRequest {
 				'url' => $api['url'],
 				$queryKey => is_callable( $params ) ? $params( $wiki ) : $params
 			];
+
+			if ( $originalRequest ) {
+				$reqs[$wiki]['headers'] = [
+					'X-Forwarded-For' => $originalRequest->getIP(),
+					'User-Agent' => (
+						$originalRequest->getHeader( 'User-Agent' )
+						. ' (via EchoForeignWikiRequest MediaWiki/' . MW_VERSION . ')'
+					),
+				];
+			}
 		}
 
 		return $reqs;
@@ -179,9 +198,10 @@ class EchoForeignWikiRequest {
 
 	/**
 	 * @param string $wiki Wiki name
+	 * @param WebRequest|null $originalRequest Original request data to be sent with these requests
 	 * @return array
 	 */
-	protected function getQueryParams( $wiki ) {
+	protected function getQueryParams( $wiki, ?WebRequest $originalRequest ) {
 		$extraParams = [];
 		if ( $this->wikiParam ) {
 			// Only request data from that specific wiki, or they'd all spawn
@@ -189,7 +209,7 @@ class EchoForeignWikiRequest {
 			$extraParams[$this->wikiParam] = $wiki;
 		}
 		if ( $this->method === 'POST' ) {
-			$extraParams['token'] = $this->getCsrfToken( $wiki );
+			$extraParams['token'] = $this->getCsrfToken( $wiki, $originalRequest );
 		}
 
 		return [

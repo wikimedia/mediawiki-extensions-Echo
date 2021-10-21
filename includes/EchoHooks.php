@@ -892,16 +892,18 @@ class EchoHooks implements RecentChange_saveHook {
 				$markAsReadIds = array_map( 'intval', $markAsReadIds );
 				// Look up the notifications on the foreign wiki
 				$notifUser = MWEchoNotifUser::newFromUser( $user );
-				$notifInfo = $notifUser->getForeignNotificationInfo( $markAsReadIds, $markAsReadWiki );
+				$notifInfo = $notifUser->getForeignNotificationInfo( $markAsReadIds, $markAsReadWiki, $request );
 				foreach ( $notifInfo as $id => $info ) {
 					$subtractions[$info['section']]++;
 				}
 
 				// Schedule a deferred update to mark these notifications as read on the foreign wiki
-				DeferredUpdates::addCallableUpdate( static function () use ( $user, $markAsReadIds, $markAsReadWiki ) {
-					$notifUser = MWEchoNotifUser::newFromUser( $user );
-					$notifUser->markReadForeign( $markAsReadIds, $markAsReadWiki );
-				} );
+				DeferredUpdates::addCallableUpdate(
+					static function () use ( $user, $markAsReadIds, $markAsReadWiki, $request ) {
+						$notifUser = MWEchoNotifUser::newFromUser( $user );
+						$notifUser->markReadForeign( $markAsReadIds, $markAsReadWiki, $request );
+					}
+				);
 			}
 		}
 
