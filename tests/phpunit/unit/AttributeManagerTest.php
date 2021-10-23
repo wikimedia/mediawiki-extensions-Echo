@@ -131,10 +131,10 @@ class EchoAttributeManagerTest extends MediaWikiUnitTestCase {
 			]
 		];
 		$manager = $this->getAttributeManager( $notif, $category );
-		$this->assertEquals( $manager->getNotificationCategory( 'event_one' ), 'category_one' );
+		$this->assertEquals( 'category_one', $manager->getNotificationCategory( 'event_one' ) );
 
 		$manager = $this->getAttributeManager( $notif );
-		$this->assertEquals( $manager->getNotificationCategory( 'event_one' ), 'other' );
+		$this->assertEquals( 'other', $manager->getNotificationCategory( 'event_one' ) );
 
 		$notif = [
 			'event_one' => [
@@ -147,7 +147,7 @@ class EchoAttributeManagerTest extends MediaWikiUnitTestCase {
 			]
 		];
 		$manager = $this->getAttributeManager( $notif, $category );
-		$this->assertEquals( $manager->getNotificationCategory( 'event_one' ), 'other' );
+		$this->assertEquals( 'other', $manager->getNotificationCategory( 'event_one' ) );
 	}
 
 	public function testGetCategoryPriority() {

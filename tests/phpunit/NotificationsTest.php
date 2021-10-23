@@ -44,7 +44,7 @@ class NotificationsTest extends MediaWikiIntegrationTestCase {
 		$ur->setContext( $context );
 		$ur->doSaveUserGroups( $user, [ 'sysop' ], [], 'reason' );
 		$event = self::getLatestNotification( $user );
-		$this->assertEquals( $event->getType(), 'user-rights' );
+		$this->assertEquals( 'user-rights', $event->getType() );
 		$this->assertEquals( $this->sysop->getName(), $event->getAgent()->getName() );
 		$extra = $event->getExtra();
 		$this->assertArrayHasKey( 'add', $extra );
