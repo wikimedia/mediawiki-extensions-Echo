@@ -84,7 +84,7 @@
 	"echo-notification-loginrequired": "پنھنجا اطلاع ڏسڻ لاءِ توھان کي لازماً داخل ٿيڻو پوندو.",
 	"echo-notification-popup-loginrequired": "پنھنجي اطلاعن کي ڏسڻ لاءِ داخل ٿيو.",
 	"echo-notification-markasread": "پڙھيل طور نشان لڳايو",
-	"echo-notification-markasunread": "نه-پڙھيل طور نشان لڳايو",
+	"echo-notification-markasunread": "نہ-پڙھيل طور نشان لڳايو",
 	"echo-notification-markasread-tooltip": "پڙھيل طور نشان لڳايو",
 	"echo-notification-more-options-tooltip": "وڌيڪ چارا",
 	"notification-dynamic-actions-unwatch": "\"$1\" تي نين سرگرميءَ کي نظر۾رکڻ {{GENDER:$3|بند ڪريو}}",
