@@ -68,7 +68,7 @@
 	"echo-pref-tooltip-mention-success": "Ilmoita minulle, kun maininnan lähettäminen toiselle käyttäjälle onnistui.",
 	"echo-pref-tooltip-user-rights": "Ilmoita, kun joku muuttaa käyttöoikeuksiani.",
 	"echo-pref-tooltip-emailuser": "Ilmoita, kun joku lähettää minulle sähköpostia.",
-	"echo-pref-tooltip-thank-you-edit": "Ilmoita, kun teen ensimmäisen, 10:nnen, 100:nnen jne muokkaukseni.",
+	"echo-pref-tooltip-thank-you-edit": "Ilmoita, kun teen ensimmäisen, 10:nnen, 100:nnen jne. muokkaukseni.",
 	"notifications": "Ilmoitukset",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Hälytyksesi}}",
 	"tooltip-pt-notifications-notice": "{{GENDER:|Ilmoituksesi}}",
