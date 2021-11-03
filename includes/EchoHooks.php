@@ -1640,6 +1640,8 @@ class EchoHooks implements RecentChange_saveHook {
 			'type' => $type,
 			'title' => $change->getTitle(),
 			'extra' => [
+				'page_title' => $change->getPage()->getDBkey(),
+				'page_namespace' => $change->getPage()->getNamespace(),
 				'revid' => $change->getAttribute( "rc_this_oldid" ),
 				'logid' => $change->getAttribute( "rc_logid" ),
 				'status' => $change->mExtra["pageStatus"],

@@ -544,24 +544,26 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 	public function getTitle( $fromPrimary = false ) {
 		if ( $this->title ) {
 			return $this->title;
-		} elseif ( $this->pageId ) {
+		}
+		if ( $this->pageId ) {
 			$titleCache = EchoTitleLocalCache::create();
 			$title = $titleCache->get( $this->pageId );
 			if ( $title ) {
 				$this->title = $title;
 				return $this->title;
 			}
-
 			$this->title = Title::newFromID( $this->pageId, $fromPrimary ? Title::GAID_FOR_UPDATE : 0 );
-			return $this->title;
-		} elseif ( isset( $this->extra['page_title'] ) && isset( $this->extra['page_namespace'] ) ) {
+			if ( $this->title ) {
+				return $this->title;
+			}
+		}
+		if ( isset( $this->extra['page_title'] ) && isset( $this->extra['page_namespace'] ) ) {
 			$this->title = Title::makeTitleSafe(
 				$this->extra['page_namespace'],
 				$this->extra['page_title']
 			);
 			return $this->title;
 		}
-
 		return null;
 	}
 
