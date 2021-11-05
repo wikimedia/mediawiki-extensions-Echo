@@ -23,12 +23,16 @@ class EchoHooks implements RecentChange_saveHook {
 	 * @param array &$defaults
 	 */
 	public static function onUserGetDefaultOptions( array &$defaults ) {
-		global $wgAllowHTMLEmail, $wgEchoNotificationCategories, $wgEchoEnablePush;
+		global $wgAllowHTMLEmail, $wgEchoNotificationCategories, $wgEchoEnablePush, $wgEchoCrossWikiNotifications;
 
 		if ( $wgAllowHTMLEmail ) {
 			$defaults['echo-email-format'] = 'html'; /*EchoHooks::EMAIL_FORMAT_HTML*/
 		} else {
 			$defaults['echo-email-format'] = 'plain-text'; /*EchoHooks::EMAIL_FORMAT_PLAIN_TEXT*/
+		}
+
+		if ( $wgEchoCrossWikiNotifications ) {
+			$defaults['echo-cross-wiki-notifications'] = false;
 		}
 
 		$presets = [
@@ -83,6 +87,13 @@ class EchoHooks implements RecentChange_saveHook {
 				$defaults["echo-subscriptions-push-{$category}"] = $presets[$category]['push']
 					// @phan-suppress-next-line PhanTypePossiblyInvalidDimOffset
 					?? $presets['default']['push'];
+			}
+		}
+
+		foreach ( self::getVirtualUserOptions() as $echoPref => $mwPref ) {
+			// Use the existing core option's default for the Echo option's default
+			if ( isset( $defaults[ $mwPref ] ) ) {
+				$defaults[ $echoPref ] = $defaults[ $mwPref ];
 			}
 		}
 	}
