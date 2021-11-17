@@ -27,6 +27,7 @@
 			"Marina Melik-Adamyan",
 			"MaxBioHazard",
 			"Megakott",
+			"MirandaBlack",
 			"Mouse21",
 			"Movses",
 			"Okras",
@@ -113,7 +114,7 @@
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "Уведомления по категориям",
 	"echo-displaynotificationsconfiguration-sorting-by-section-header": "Сортировка по типам",
 	"echo-displaynotificationsconfiguration-sorting-by-section-legend": "В какие секции отсортирован каждый тип уведомлений",
-	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Разрешенные способы уведомления",
+	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Разрешённые способы уведомления",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Какие способы уведомления поддерживаются в каждой категории",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Включено по умолчанию",
 	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Существующие участники",
@@ -132,7 +133,7 @@
 	"notificationsmarkread-legend": "Пометить уведомление как прочитанное",
 	"echo-none": "Вы не получали уведомлений.",
 	"echo-api-failure": "Не удалось получить уведомления.",
-	"echo-api-failure-cross-wiki": "В доступе к удаленному домену было отказано.",
+	"echo-api-failure-cross-wiki": "В доступе к удалённому домену было отказано.",
 	"echo-notification-placeholder": "Уведомлений нет.",
 	"echo-notification-placeholder-filters": "Нет уведомлений, соответствующих заданным критериям.",
 	"echo-notification-loginrequired": "Вы должны войти, чтобы посмотреть уведомления.",
@@ -266,6 +267,6 @@
 	"right-manage-all-push-subscriptions": "Управление всеми подписками push-уведомлений",
 	"action-manage-all-push-subscriptions": "управление всеми подписками push-уведомлений",
 	"group-push-subscription-manager": "Управляющие подписками push-уведомлений",
-	"group-push-subscription-manager-member": "{{GENDER:$1|управляющий подписками push-уведомлений}}",
+	"group-push-subscription-manager-member": "{{GENDER:$1|управляющий подписками push-уведомлений|управляющая подписками push-уведомлений}}",
 	"grouppage-push-subscription-manager": "{{ns:project}}:Управляющие подписками push-уведомлений"
 }
