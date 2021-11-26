@@ -216,7 +216,7 @@
 	"echo-overlay-title": "<b>Notificaciones</b>",
 	"echo-mark-all-as-read": "Marcar todo como leído",
 	"echo-mark-all-as-read-confirmation": "$1 {{PLURAL:$1|notificación marcada como leída|notificaciones marcadas como leídas}}",
-	"echo-mark-wiki-as-read": "Marcar como leídas todas las notificaciones del wiki seleccionado: $1",
+	"echo-mark-wiki-as-read": "Marcar como leídas todas las notificaciones de la wiki seleccionada: $1",
 	"echo-displaysnippet-title": "Notificación nueva",
 	"echo-date-today": "Hoy",
 	"echo-date-yesterday": "Ayer",
