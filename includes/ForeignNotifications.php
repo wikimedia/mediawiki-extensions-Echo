@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 /**
  * Caches the result of EchoUnreadWikis::getUnreadCounts() and interprets the results in various useful ways.
  *
@@ -59,7 +61,8 @@ class EchoForeignNotifications {
 	 * @return bool
 	 */
 	public function isEnabledByUser() {
-		return (bool)$this->user->getOption( 'echo-cross-wiki-notifications' );
+		$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
+		return (bool)$userOptionsLookup->getOption( $this->user, 'echo-cross-wiki-notifications' );
 	}
 
 	/**

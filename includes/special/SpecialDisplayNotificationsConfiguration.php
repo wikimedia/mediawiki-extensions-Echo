@@ -282,7 +282,7 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 				if ( isset( $virtualOptions[ $prefKey ] ) ) {
 					$prefKey = $virtualOptions[ $prefKey ];
 				}
-				if ( $anonUser->getOption( $prefKey ) ) {
+				if ( $this->userOptionsManager->getOption( $anonUser, $prefKey ) ) {
 					$byCategoryValueExisting[] = "$notifyType-$category";
 				}
 			}
@@ -311,7 +311,7 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 				if ( isset( $virtualOptions[ $prefKey ] ) ) {
 					$prefKey = $virtualOptions[ $prefKey ];
 				}
-				if ( $loggedInUser->getOption( $prefKey ) ) {
+				if ( $this->userOptionsManager->getOption( $loggedInUser, $prefKey ) ) {
 					$byCategoryValueNew[] = "$notifyType-$category";
 				}
 			}

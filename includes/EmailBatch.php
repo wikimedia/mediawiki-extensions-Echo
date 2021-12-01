@@ -51,7 +51,9 @@ class MWEchoEmailBatch {
 	 */
 	public function __construct( User $user, UserOptionsManager $userOptionsManager ) {
 		$this->mUser = $user;
-		$this->language = Language::factory( $this->mUser->getOption( 'language' ) );
+		$this->language = Language::factory(
+			$userOptionsManager->getOption( $user, 'language' )
+		);
 		$this->userOptionsManager = $userOptionsManager;
 	}
 
@@ -77,7 +79,7 @@ class MWEchoEmailBatch {
 		$user = User::newFromId( (int)$userId );
 		$userOptionsManager = MediaWikiServices::getInstance()->getUserOptionsManager();
 
-		$userEmailSetting = (int)$user->getOption( 'echo-email-frequency' );
+		$userEmailSetting = (int)$userOptionsManager->getOption( $user, 'echo-email-frequency' );
 
 		// clear all existing events if user decides not to receive emails
 		if ( $userEmailSetting == -1 ) {
@@ -98,7 +100,7 @@ class MWEchoEmailBatch {
 			return false;
 		}
 
-		$userLastBatch = $user->getOption( 'echo-email-last-batch' );
+		$userLastBatch = $userOptionsManager->getOption( $user, 'echo-email-last-batch' );
 
 		// send email batch, if
 		// 1. it has been long enough since last email batch based on frequency
@@ -213,8 +215,9 @@ class MWEchoEmailBatch {
 			];
 
 			$tables = [ 'echo_email_batch', 'echo_event' ];
-
-			if ( $this->mUser->getOption( 'echo-dont-email-read-notifications' ) ) {
+			if ( $this->userOptionsManager->getOption(
+				$this->mUser, 'echo-dont-email-read-notifications'
+			) ) {
 				$conds = array_merge(
 					$conds,
 					[
@@ -307,7 +310,9 @@ class MWEchoEmailBatch {
 	public function sendEmail() {
 		global $wgPasswordSender, $wgNoReplyAddress;
 
-		if ( $this->mUser->getOption( 'echo-email-frequency' ) == EchoEmailFrequency::WEEKLY_DIGEST ) {
+		if ( $this->userOptionsManager->getOption( $this->mUser, 'echo-email-frequency' )
+			== EchoEmailFrequency::WEEKLY_DIGEST
+		) {
 			$frequency = 'weekly';
 			$emailDeliveryMode = 'weekly_digest';
 		} else {

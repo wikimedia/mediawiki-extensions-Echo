@@ -84,8 +84,9 @@ class EchoSeenTime {
 		$data = self::cache()->get( $this->getMemcKey( $type ) );
 
 		if ( $data === false ) {
+			$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
 			// Check if the user still has it set in their preferences
-			$data = $this->user->getOption( 'echo-seen-time', false );
+			$data = $userOptionsLookup->getOption( $this->user, 'echo-seen-time', false );
 		}
 
 		if ( $data === false ) {
@@ -144,8 +145,9 @@ class EchoSeenTime {
 		$localKey = self::cache()->makeKey(
 			'echo', 'seen', $type, 'time', $this->user->getId()
 		);
+		$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
 
-		if ( !$this->user->getOption( 'echo-cross-wiki-notifications' ) ) {
+		if ( !$userOptionsLookup->getOption( $this->user, 'echo-cross-wiki-notifications' ) ) {
 			return $localKey;
 		}
 

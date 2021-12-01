@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 // @todo Fill in
 class EchoNotifier {
 	/**
@@ -30,6 +32,7 @@ class EchoNotifier {
 	 */
 	public static function notifyWithEmail( $user, $event ) {
 		global $wgEnableEmail, $wgBlockDisablesLogin;
+		$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
 
 		if (
 			// Email is globally disabled
@@ -37,7 +40,7 @@ class EchoNotifier {
 			// User does not have a valid and confirmed email address
 			!$user->isEmailConfirmed() ||
 			// User has disabled Echo emails
-			$user->getOption( 'echo-email-frequency' ) < 0 ||
+			$userOptionsLookup->getOption( $user, 'echo-email-frequency' ) < 0 ||
 			// User is blocked and cannot log in (T199993)
 			( $wgBlockDisablesLogin && $user->getBlock() )
 		) {
@@ -73,7 +76,7 @@ class EchoNotifier {
 			}
 
 			// email digest notification ( weekly or daily )
-			if ( $wgEchoEnableEmailBatch && $user->getOption( 'echo-email-frequency' ) > 0 ) {
+			if ( $wgEchoEnableEmailBatch && $userOptionsLookup->getOption( $user, 'echo-email-frequency' ) > 0 ) {
 				// always create a unique event hash for those events don't support bundling
 				// this is mainly for group by
 				if ( !$bundleHash ) {
@@ -116,7 +119,8 @@ class EchoNotifier {
 	 */
 	private static function generateEmail( EchoEvent $event, User $user ) {
 		$emailFormat = MWEchoNotifUser::newFromUser( $user )->getEmailFormat();
-		$lang = Language::factory( $user->getOption( 'language' ) );
+		$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
+		$lang = Language::factory( $userOptionsLookup->getOption( $user, 'language' ) );
 		$formatter = new EchoPlainTextEmailFormatter( $user, $lang );
 		$content = $formatter->format( $event );
 		if ( !$content ) {

@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\User\UserOptionsLookup;
 use Wikimedia\Rdbms\Database;
 
 /**
@@ -58,6 +59,11 @@ class MWEchoNotifUser {
 	 */
 	private $mForeignData;
 
+	/**
+	 * @var UserOptionsLookup
+	 */
+	private $userOptionsLookup;
+
 	// The max notification count shown in badge
 
 	// The max number shown in bundled message, eg, <user> and 99+ others <action>.
@@ -79,19 +85,22 @@ class MWEchoNotifUser {
 	 * @param EchoUserNotificationGateway $userNotifGateway
 	 * @param EchoNotificationMapper $notifMapper
 	 * @param EchoTargetPageMapper $targetPageMapper
+	 * @param UserOptionsLookup $userOptionsLookup
 	 */
 	public function __construct(
 		User $user,
 		WANObjectCache $cache,
 		EchoUserNotificationGateway $userNotifGateway,
 		EchoNotificationMapper $notifMapper,
-		EchoTargetPageMapper $targetPageMapper
+		EchoTargetPageMapper $targetPageMapper,
+		UserOptionsLookup $userOptionsLookup
 	) {
 		$this->mUser = $user;
 		$this->userNotifGateway = $userNotifGateway;
 		$this->cache = $cache;
 		$this->notifMapper = $notifMapper;
 		$this->targetPageMapper = $targetPageMapper;
+		$this->userOptionsLookup = $userOptionsLookup;
 	}
 
 	/**
@@ -104,17 +113,18 @@ class MWEchoNotifUser {
 		if ( !$user->isRegistered() ) {
 			throw new MWException( 'User must be logged in to view notification!' );
 		}
-
+		$services = MediaWikiServices::getInstance();
 		return new MWEchoNotifUser(
 			$user,
-			MediaWikiServices::getInstance()->getMainWANObjectCache(),
+			$services->getMainWANObjectCache(),
 			new EchoUserNotificationGateway(
 				$user,
 				MWEchoDbFactory::newFromDefault(),
-				MediaWikiServices::getInstance()->getMainConfig()
+				$services->getMainConfig()
 			),
 			new EchoNotificationMapper(),
-			new EchoTargetPageMapper()
+			new EchoTargetPageMapper(),
+			$services->getUserOptionsLookup()
 		);
 	}
 
@@ -637,7 +647,7 @@ class MWEchoNotifUser {
 		global $wgAllowHTMLEmail;
 
 		if ( $wgAllowHTMLEmail ) {
-			return $this->mUser->getOption( 'echo-email-format' );
+			return $this->userOptionsLookup->getOption( $this->mUser, 'echo-email-format' );
 		}
 
 		return EchoEmailFormat::PLAIN_TEXT;

@@ -605,7 +605,8 @@ class EchoHooks implements RecentChange_saveHook {
 			$extra = $event->getExtra();
 			if ( !empty( $extra['minoredit'] ) ) {
 				global $wgEnotifMinorEdits;
-				if ( !$wgEnotifMinorEdits || !$user->getOption( 'enotifminoredits' ) ) {
+				$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
+				if ( !$wgEnotifMinorEdits || !$userOptionsLookup->getOption( $user, 'enotifminoredits' ) ) {
 					// Do not send talk page notification email
 					return false;
 				}
@@ -1604,12 +1605,13 @@ class EchoHooks implements RecentChange_saveHook {
 	 * @param array &$fields
 	 */
 	public static function onSpecialMuteModifyFormFields( $target, $user, &$fields ) {
-		$echoPerUserBlacklist = MediaWikiServices::getInstance()->getMainConfig()->get( 'EchoPerUserBlacklist' );
+		$services = MediaWikiServices::getInstance();
+		$echoPerUserBlacklist = $services->getMainConfig()->get( 'EchoPerUserBlacklist' );
 		if ( $echoPerUserBlacklist ) {
-			$id = $target ? MediaWikiServices::getInstance()
-				->getCentralIdLookup()
-				->centralIdFromLocalUser( $target ) : 0;
-			$list = MultiUsernameFilter::splitIds( $user->getOption( 'echo-notifications-blacklist' ) );
+			$id = $target ? $services->getCentralIdLookup()->centralIdFromLocalUser( $target ) : 0;
+			$list = MultiUsernameFilter::splitIds(
+				$services->getUserOptionsLookup()->getOption( $user, 'echo-notifications-blacklist' )
+			);
 			$fields[ 'echo-notifications-blacklist'] = [
 				'type' => 'check',
 				'label-message' => [

@@ -1,9 +1,11 @@
 <?php
 
+use MediaWiki\User\UserOptionsLookup;
+
 /**
  * @coversDefaultClass EchoContainmentSet
  */
-class EchoContainmentSetTest extends \MediaWikiUnitTestCase {
+class EchoContainmentSetTest extends MediaWikiIntegrationTestCase {
 
 	/**
 	 * @covers ::addTitleIDsFromUserOption
@@ -16,8 +18,9 @@ class EchoContainmentSetTest extends \MediaWikiUnitTestCase {
 		$prefData, string $contains, bool $expected
 	) {
 		$user = $this->getDefaultUserMock();
-		$user->method( 'getOption' )
-			->willReturn( $prefData );
+		$userOptionsLookupMock = $this->createMock( UserOptionsLookup::class );
+		$userOptionsLookupMock->method( 'getOption' )->willReturn( $prefData );
+		$this->setService( 'UserOptionsLookup', $userOptionsLookupMock );
 		$containmentSet = new EchoContainmentSet( $user );
 		$containmentSet->addTitleIDsFromUserOption( 'preference-name' );
 		$this->assertSame( $expected, $containmentSet->contains( $contains ) );

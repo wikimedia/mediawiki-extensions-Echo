@@ -1,5 +1,8 @@
 <?php
 
+use MediaWiki\User\UserOptionsLookup;
+use Wikimedia\TestingAccessWrapper;
+
 /**
  * @covers \EchoNotificationController
  */
@@ -338,5 +341,79 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 			'jobReleaseTimestamp' => 10
 		];
 		$this->assertArrayEquals( $expectedParams, $params );
+	}
+
+	/**
+	 * @dataProvider PageLinkedTitleMutedByUserDataProvider
+	 * @covers EchoNotificationController::isPageLinkedTitleMutedByUser
+	 * @param Title $title
+	 * @param User $user
+	 * @param UserOptionsLookup $userOptionsLookup
+	 * @param bool $expected
+	 */
+	public function testIsPageLinkedTitleMutedByUser(
+		Title $title, User $user, UserOptionsLookup $userOptionsLookup, $expected ): void {
+		$wrapper = TestingAccessWrapper::newFromClass( EchoNotificationController::class );
+		$wrapper->mutedPageLinkedTitlesCache = $this->getMapCacheLruMock();
+		$this->setService( 'UserOptionsLookup', $userOptionsLookup );
+		$this->assertSame(
+			$expected,
+			$wrapper->isPageLinkedTitleMutedByUser( $title, $user )
+		);
+	}
+
+	public function PageLinkedTitleMutedByUserDataProvider(): array {
+		return [
+			[
+				$this->getMockTitle( 123 ),
+				$this->getMockUser(),
+				$this->getUserOptionsLookupMock( [] ),
+				false
+			],
+			[
+				$this->getMockTitle( 123 ),
+				$this->getMockUser(),
+				$this->getUserOptionsLookupMock( [ 123, 456, 789 ] ),
+				true
+			],
+			[
+				$this->getMockTitle( 456 ),
+				$this->getMockUser(),
+				$this->getUserOptionsLookupMock( [ 489 ] ),
+				false
+			]
+
+		];
+	}
+
+	private function getMockTitle( int $articleID ) {
+		$title = $this->getMockBuilder( Title::class )
+			->disableOriginalConstructor()
+			->getMock();
+		$title->method( 'getArticleID' )
+			->willReturn( $articleID );
+		return $title;
+	}
+
+	private function getMockUser() {
+		$user = $this->getMockBuilder( User::class )
+			->disableOriginalConstructor()
+			->getMock();
+		$user->method( 'getId' )
+			->willReturn( 456 );
+		return $user;
+	}
+
+	private function getMapCacheLruMock() {
+		return $this->getMockBuilder( MapCacheLRU::class )
+			->disableOriginalConstructor()
+			->getMock();
+	}
+
+	private function getUserOptionsLookupMock( $mutedTitlePreferences = [] ) {
+		$userOptionsLookupMock = $this->createMock( UserOptionsLookup::class );
+		$userOptionsLookupMock->method( 'getOption' )
+			->willReturn( implode( "\n", $mutedTitlePreferences ) );
+		return $userOptionsLookupMock;
 	}
 }
