@@ -228,8 +228,7 @@ class EchoForeignWikiRequest {
 					'Failed to fetch API response from {wiki}. Error code {code}',
 					[
 						'wiki' => $wiki,
-						'code' => $response['response']['code'],
-						'response' => $response['response']['body'],
+						'response' => $response['response'],
 						'request' => $reqs[$wiki],
 					]
 				);
