@@ -37,7 +37,7 @@
 	"echo-pref-email-frequency-weekly": "Un rezumat săptămânal al notificărilor",
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Text brut",
-	"echo-pref-cross-wiki-notifications": "Arată notificări de la alte wikiuri",
+	"echo-pref-cross-wiki-notifications": "Arată notificări de la alte wiki-uri",
 	"echo-pref-notifications-blacklist": "Nu arăta notificări de la acești utilizatori. ([[mw:Special:MyLanguage/Help:Notifications#mute|află mai multe]])",
 	"echo-pref-notifications-page-linked-title-muted-list": "Nu arăta notificări de „legare ale paginilor” pentru aceste pagini. ([[mw:Special:MyLanguage/Help:Notifications#mute|află mai multe]])",
 	"echo-learn-more": "Aflați mai multe",
