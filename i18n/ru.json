@@ -92,7 +92,7 @@
 	"echo-category-title-user-rights": "{{PLURAL:$1|Изменение|Изменения}} прав участника",
 	"echo-category-title-emailuser": "Электронная почта от {{PLURAL:$1|другого участника|других участников}}",
 	"echo-category-title-article-reminder": "Страница {{PLURAL:$1|напоминание|напоминания}}",
-	"echo-category-title-thank-you-edit": "{{PLURAL:$1|Достигнутая правка|достигнутые правки}}",
+	"echo-category-title-thank-you-edit": "{{PLURAL:$1|Достижение|Достижение}} круглого числа правок",
 	"echo-category-title-watchlist": "Правка в наблюдаемой странице",
 	"echo-category-title-minor-watchlist": "Малая правка в наблюдаемой странице",
 	"echo-pref-tooltip-edit-user-talk": "Сообщать мне, когда кто-то редактирует мою страницу обсуждения.",
