@@ -770,8 +770,8 @@ class EchoHooks implements RecentChange_saveHook {
 		// 2. content namespace pages &&
 		// 3. non-transcluding pages &&
 		// 4. non-redirect pages
-		if ( $table !== 'pagelinks' || !$namespaceInfo->isContent( $linksUpdate->mTitle->getNamespace() )
-			|| !$linksUpdate->mRecursive || $linksUpdate->mTitle->isRedirect()
+		if ( $table !== 'pagelinks' || !$namespaceInfo->isContent( $linksUpdate->getTitle()->getNamespace() )
+			|| !$linksUpdate->isRecursive() || $linksUpdate->getTitle()->isRedirect()
 		) {
 			return;
 		}
@@ -793,7 +793,7 @@ class EchoHooks implements RecentChange_saveHook {
 					continue;
 				}
 
-				$linkFromPageId = $linksUpdate->mTitle->getArticleID();
+				$linkFromPageId = $linksUpdate->getTitle()->getArticleID();
 				EchoEvent::create( [
 					'type' => 'page-linked',
 					'title' => $title,
