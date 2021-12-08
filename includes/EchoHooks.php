@@ -15,6 +15,9 @@ class EchoHooks implements RecentChange_saveHook {
 	 */
 	private $config;
 
+	/** @var array */
+	private static $revertedRevIds = [];
+
 	public function __construct( Config $config ) {
 		$this->config = $config;
 	}
@@ -502,6 +505,11 @@ class EchoHooks implements RecentChange_saveHook {
 		$isRevert = $editResult->getRevertMethod() === EditResult::REVERT_UNDO ||
 			$editResult->getRevertMethod() === EditResult::REVERT_ROLLBACK;
 
+		// Save the revert status for the LinksUpdateComplete hook
+		if ( $isRevert ) {
+			self::$revertedRevIds[$revisionRecord->getId()] = true;
+		}
+
 		// Try to do this after the HTTP response
 		DeferredUpdates::addCallableUpdate( static function () use ( $revisionRecord, $isRevert ) {
 			EchoDiscussionParser::generateEventsForRevision( $revisionRecord, $isRevert );
@@ -746,31 +754,27 @@ class EchoHooks implements RecentChange_saveHook {
 	}
 
 	/**
-	 * Handler for LinksUpdateAfterInsert hook.
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/LinksUpdateAfterInsert
+	 * Handler for LinksUpdateComplete hook.
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/LinksUpdateComplete
 	 * @param LinksUpdate $linksUpdate
-	 * @param string $table
-	 * @param array[] $insertions
+	 * @param mixed $ticket
 	 */
-	public static function onLinksUpdateAfterInsert( $linksUpdate, $table, $insertions ) {
-		global $wgRequest;
-
-		// FIXME: This doesn't work in 1.27+
+	public static function onLinksUpdateComplete( $linksUpdate, $ticket ) {
 		// Rollback or undo should not trigger link notification
-		// @Todo Implement a better solution so it doesn't depend on the checking of
-		// a specific set of request variables
-		if ( $wgRequest->getVal( 'wpUndidRevision' ) || $wgRequest->getVal( 'action' ) == 'rollback' ) {
-			return;
+		if ( $linksUpdate->getRevisionRecord() ) {
+			$revId = $linksUpdate->getRevisionRecord()->getId();
+			if ( isset( self::$revertedRevIds[$revId] ) ) {
+				return;
+			}
 		}
 
 		$namespaceInfo = MediaWikiServices::getInstance()->getNamespaceInfo();
 
 		// Handle only
-		// 1. inserts to pagelinks table &&
-		// 2. content namespace pages &&
-		// 3. non-transcluding pages &&
-		// 4. non-redirect pages
-		if ( $table !== 'pagelinks' || !$namespaceInfo->isContent( $linksUpdate->getTitle()->getNamespace() )
+		// 1. content namespace pages &&
+		// 2. non-transcluding pages &&
+		// 3. non-redirect pages
+		if ( !$namespaceInfo->isContent( $linksUpdate->getTitle()->getNamespace() )
 			|| !$linksUpdate->isRecursive() || $linksUpdate->getTitle()->isRedirect()
 		) {
 			return;
@@ -786,9 +790,8 @@ class EchoHooks implements RecentChange_saveHook {
 		$max = 10;
 		// Only create notifications for links to content namespace pages
 		// @Todo - use one big insert instead of individual insert inside foreach loop
-		foreach ( $insertions as $page ) {
-			if ( $namespaceInfo->isContent( $page['pl_namespace'] ) ) {
-				$title = Title::makeTitle( $page['pl_namespace'], $page['pl_title'] );
+		foreach ( $linksUpdate->getAddedLinks() as $title ) {
+			if ( $namespaceInfo->isContent( $title->getNamespace() ) ) {
 				if ( $title->isRedirect() ) {
 					continue;
 				}

@@ -500,7 +500,7 @@
 		"AbortTalkPageEmailNotification": "EchoHooks::onAbortTalkPageEmailNotification",
 		"SendWatchlistEmailNotification": "EchoHooks::onSendWatchlistEmailNotification",
 		"GetNewMessagesAlert": "EchoHooks::abortNewMessagesAlert",
-		"LinksUpdateAfterInsert": "EchoHooks::onLinksUpdateAfterInsert",
+		"LinksUpdateComplete": "EchoHooks::onLinksUpdateComplete",
 		"SpecialMuteModifyFormFields": "EchoHooks::onSpecialMuteModifyFormFields",
 		"RecentChange_save": "main",
 		"ApiMain::moduleManager": "EchoHooks::onApiMainModuleManager",
