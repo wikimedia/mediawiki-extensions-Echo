@@ -73,6 +73,7 @@
 	"echo-notification-markasread": "Адзначыць як прачытанае",
 	"echo-notification-markasunread": "Адзначыць як нечытанае",
 	"echo-notification-markasread-tooltip": "Адзначыць як прачытанае",
+	"echo-notification-more-options-tooltip": "Больш магчымасцей",
 	"notification-link-text-expand-all": "Разгарнуць",
 	"notification-link-text-expand-alert-count": "Паказаць {{PLURAL:$1|$1 папярэджанне|$1 папярэджанні|$1 папярэджанняў}}",
 	"notification-link-text-expand-notice-count": "Паказаць {{PLURAL:$1|$1 паведамленне|$1 паведамленні|$1 паведамленняў}}",
