@@ -112,6 +112,7 @@ class EchoNotificationController {
 		$notifyTypes = self::getEventNotifyTypes( $type );
 		$userIds = [];
 		$userIdsCount = 0;
+		$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
 		/** @var User $user */
 		foreach ( self::getUsersToNotifyForEvent( $event ) as $user ) {
 			$userIds[$user->getId()] = $user->getId();
@@ -119,7 +120,7 @@ class EchoNotificationController {
 			// Respect the enotifminoredits preference
 			// @todo should this be checked somewhere else?
 			if (
-				!$user->getOption( 'enotifminoredits' ) &&
+				!$userOptionsLookup->getOption( $user, 'enotifminoredits' ) &&
 				self::hasMinorRevision( $event )
 			) {
 				$userNotifyTypes = array_diff( $userNotifyTypes, [ 'email' ] );

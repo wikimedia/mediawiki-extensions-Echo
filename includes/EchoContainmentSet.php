@@ -29,6 +29,9 @@ class EchoContainmentSet {
 	 */
 	protected $recipient;
 
+	/**
+	 * @param User $recipient
+	 */
 	public function __construct( User $recipient ) {
 		$this->recipient = $recipient;
 	}
@@ -56,9 +59,9 @@ class EchoContainmentSet {
 	 *
 	 * @param string $preferenceName
 	 */
-	public function addFromUserOption( $preferenceName ) {
-		$preference = $this->recipient->getOption( $preferenceName, [] );
-
+	public function addFromUserOption( string $preferenceName ) {
+		$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
+		$preference = $userOptionsLookup->getOption( $this->recipient, $preferenceName, [] );
 		if ( $preference ) {
 			$ids = MultiUsernameFilter::splitIds( $preference );
 			$names = MediaWikiServices::getInstance()
@@ -75,7 +78,8 @@ class EchoContainmentSet {
 	 * @param string $preferenceName
 	 */
 	public function addTitleIDsFromUserOption( string $preferenceName ): void {
-		$preference = $this->recipient->getOption( $preferenceName, [] );
+		$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
+		$preference = $userOptionsLookup->getOption( $this->recipient, $preferenceName, [] );
 		if ( !is_string( $preference ) ) {
 			// We expect the preference data to be saved as a string via the
 			// preferences form; if the user modified their data so it's no

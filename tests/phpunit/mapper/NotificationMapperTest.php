@@ -207,9 +207,6 @@ class EchoNotificationMapperTest extends MediaWikiIntegrationTestCase {
 		$user->expects( $this->any() )
 			->method( 'getID' )
 			->will( $this->returnValue( 1 ) );
-		$user->expects( $this->any() )
-			->method( 'getOption' )
-			->will( $this->returnValue( true ) );
 
 		return $user;
 	}

@@ -54,7 +54,7 @@ class ApiEchoMute extends ApiBase {
 
 		$params = $this->extractRequestParams();
 		$mutelistInfo = self::$muteLists[ $params['type'] ];
-		$prefValue = $user->getOption( $mutelistInfo['pref'] );
+		$prefValue = $this->userOptionsManager->getOption( $user, $mutelistInfo['pref'] );
 		$ids = $this->parsePref( $prefValue, $mutelistInfo['type'] );
 		$targetsToMute = $params['mute'] ?? [];
 		$targetsToUnmute = $params['unmute'] ?? [];
