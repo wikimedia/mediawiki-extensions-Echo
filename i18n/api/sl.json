@@ -8,7 +8,7 @@
 	"apihelp-echomarkread-description": "Označi obvestila kot prebrana za trenutnega uporabnika.",
 	"apihelp-echomarkread-summary": "Označi obvestila kot prebrana za trenutnega uporabnika.",
 	"apihelp-echomarkread-param-list": "Seznam ID-jev obvestil za označitev kot prebranih.",
-	"apihelp-echomarkread-param-unreadlist": "Seznam ID-jev obvestil za označitev za neprebrano.",
+	"apihelp-echomarkread-param-unreadlist": "Seznam ID-jev obvestil, ki bodo označena kot neprebrana.",
 	"apihelp-echomarkread-param-all": "Ob nastavitvi označi vsa uporabnikova obvestila kot prebrana.",
 	"apihelp-echomarkread-param-sections": "Seznam razdelkov za označitev kot prebranih.",
 	"apihelp-echomarkread-example-1": "Označi obvestilo 8 kot prebrano",
