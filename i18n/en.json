@@ -197,6 +197,7 @@
 	"notification-header-watchlist-multiuser-deleted": "<strong>$1</strong>, a page on {{GENDER:$2|your}} watchlist, was deleted $3 {{PLURAL:$3|time|times}}.",
 	"notification-header-watchlist-multiuser-moved": "<strong>$1</strong>, a page on {{GENDER:$2|your}} watchlist, was moved $3 {{PLURAL:$3|time|times}}.",
 	"notification-header-watchlist-multiuser-restored": "<strong>$1</strong>, a page on {{GENDER:$2|your}} watchlist, was restored $3 {{PLURAL:$3|time|times}}.",
+	"notification-body-watchlist-once": "There will be no other email notifications in case of further activity unless {{GENDER:$1|you visit}} this page while logged in.",
 	"notification-welcome-link": "",
 	"notification-welcome-linktext": "Welcome",
 	"notification-header-thank-you-1-edit": "{{GENDER:$2|You}} just made {{GENDER:$2|your}} first edit; thank {{GENDER:$2|you}}, and welcome!",

@@ -45,9 +45,10 @@ abstract class EchoEventFormatter {
 
 	/**
 	 * @param EchoEvent $event
+	 * @param string $distributionType 'web' or 'email'
 	 * @return string[]|string|false Output format depends on implementation, false if it cannot be formatted
 	 */
-	final public function format( EchoEvent $event ) {
+	final public function format( EchoEvent $event, string $distributionType = "web" ) {
 		// Deleted events should have been filtered out before getting there.
 		// This is just to be sure.
 		if ( $event->isDeleted() ) {
@@ -64,7 +65,7 @@ abstract class EchoEventFormatter {
 			return false;
 		}
 
-		$model = EchoEventPresentationModel::factory( $event, $this->language, $this->user );
+		$model = EchoEventPresentationModel::factory( $event, $this->language, $this->user, $distributionType );
 		if ( !$model->canRender() ) {
 			return false;
 		}
