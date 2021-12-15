@@ -163,6 +163,7 @@
 	"notification-header-watchlist-multiuser-deleted": "<strong>$1</strong>, voeuna di pagine che {{GENDER:$2|te}} tegned d'oeugg, l'è stada scancelada $3 {{PLURAL:$3|volta|volte}}.",
 	"notification-header-watchlist-multiuser-moved": "<strong>$1</strong>, voeuna di pagine che {{GENDER:$2|te}} tegned d'oeugg, l'è stada spostada $3 {{PLURAL:$3|volta|volte}}.",
 	"notification-header-watchlist-multiuser-restored": "<strong>$1</strong>, voeuna di pagine che {{GENDER:$2|te}} tegned d'oeugg, l'è stada metuda a post 'me che l'era $3 {{PLURAL:$3|volta|volte}}.",
+	"notification-body-watchlist-once": "A ghe sarànn minga di alter messagg de notifega in cas de altra atività condamanch che {{GENDER:$1|te passaet dent}} in questa pagina chì intanta che te see coness.",
 	"notification-welcome-linktext": "Benvegnud",
 	"notification-header-thank-you-1-edit": "T'hee apena fad la toa prima modifega; grazie e {{GENDER:$2|benvenud|benvenuda|benvenud/da}}!",
 	"notification-header-thank-you-10-edit": "T'hee apena fad la toa decima modifega; grazzie e {{GENDER:$2|và adree}} inscì!",
