@@ -176,6 +176,7 @@
 	"notification-header-watchlist-multiuser-deleted": "<strong>$1</strong>, דף ברשימת המעקב {{GENDER:$2|שלך}}, נמחק {{PLURAL:$3|פעם אחת|פעמיים|$3 פעמים}}.",
 	"notification-header-watchlist-multiuser-moved": "<strong>$1</strong>, דף ברשימת המעקב {{GENDER:$2|שלך}}, הועבר {{PLURAL:$3|פעם אחת|פעמיים|$3 פעמים}}.",
 	"notification-header-watchlist-multiuser-restored": "<strong>$1</strong>, דף ברשימת המעקב {{GENDER:$2|שלך}}, שוחזר ממחיקה {{PLURAL:$3|פעם אחת|פעמיים|$3 פעמים}}.",
+	"notification-body-watchlist-once": "לא יהיו הודעות דוא\"ל אחרות במקרה של פעילות נוספת אלא אם {{GENDER:$1|תבקר בדף בזמן שתהיה מחובר|תבקרי בדף בזמן שתהיי מחוברת}} לחשבון.",
 	"notification-welcome-linktext": "ברוך בואך",
 	"notification-header-thank-you-1-edit": "זה עתה {{GENDER:$2|עשית}} את העריכה הראשונה שלך; תודה ו{{GENDER:$2|ברוך הבא|ברוכה הבאה|ברוך בואך}}!",
 	"notification-header-thank-you-10-edit": "זה עתה {{GENDER:$2|עשית}} את העריכה העשירית שלך; תודה, {{GENDER:$2|המשך|המשיכי}} כך!",
