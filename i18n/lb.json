@@ -143,6 +143,7 @@
 	"notification-header-user-rights-add-and-remove": "{{GENDER:$6|Är}} Benotzerrechter goufe {{GENDER:$1|geännert}}. Dir sidd elo Member vun: $2. Dir sidd net méi Member vun: $4.",
 	"notification-header-welcome": "{{GENDER:$2|Wëllkomm}} op {{SITENAME}}, $1! Mir si frou, datt {{GENDER:$2|Dir}} do sidd.",
 	"notification-header-watchlist-multiuser-changed": "<strong>$1</strong>, eng Säit vun {{GENDER:$2|Ärer}} Iwwerwaachungslëscht, gouf $3 {{PLURAL:$3|eemol|$3 mol}} geännert.",
+	"notification-body-watchlist-once": "Et gëtt keng weider e-mail-Notifikatiounen am Fall vu spéiderer Aktivitéit et sief {{GENDER:$1|Dir besicht}} dës Säit wärend deem Dir ageloggt sidd.",
 	"notification-welcome-linktext": "Wëllkomm",
 	"notification-header-thank-you-1-edit": "{{GENDER:$2|Dir}} hutt elo grad {{GENDER:$2|Är}} éischt Ännerung op {{SITENAME}} gemaach; Villmools {{GENDER:$2|Merci}}, a wëllkomm!",
 	"notification-header-thank-you-10-edit": "{{GENDER:$2|Dir}} hutt elo grad {{GENDER:$2|Är}} zéngt Ännerung gemaach; Villmools {{GENDER:$2|Merci}}, a maacht esou weider!",
