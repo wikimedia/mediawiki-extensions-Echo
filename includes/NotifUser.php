@@ -1,6 +1,8 @@
 <?php
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\User\UserFactory;
+use MediaWiki\User\UserIdentity;
 use MediaWiki\User\UserOptionsLookup;
 use Wikimedia\Rdbms\Database;
 
@@ -11,7 +13,7 @@ class MWEchoNotifUser {
 
 	/**
 	 * Notification target user
-	 * @var User
+	 * @var UserIdentity
 	 */
 	private $mUser;
 
@@ -64,6 +66,11 @@ class MWEchoNotifUser {
 	 */
 	private $userOptionsLookup;
 
+	/**
+	 * @var UserFactory
+	 */
+	private $userFactory;
+
 	// The max notification count shown in badge
 
 	// The max number shown in bundled message, eg, <user> and 99+ others <action>.
@@ -80,20 +87,22 @@ class MWEchoNotifUser {
 	/**
 	 * Usually client code doesn't need to initialize the object directly
 	 * because it could be obtained from factory method newFromUser()
-	 * @param User $user
+	 * @param UserIdentity $user
 	 * @param WANObjectCache $cache
 	 * @param EchoUserNotificationGateway $userNotifGateway
 	 * @param EchoNotificationMapper $notifMapper
 	 * @param EchoTargetPageMapper $targetPageMapper
 	 * @param UserOptionsLookup $userOptionsLookup
+	 * @param UserFactory $userFactory
 	 */
 	public function __construct(
-		User $user,
+		UserIdentity $user,
 		WANObjectCache $cache,
 		EchoUserNotificationGateway $userNotifGateway,
 		EchoNotificationMapper $notifMapper,
 		EchoTargetPageMapper $targetPageMapper,
-		UserOptionsLookup $userOptionsLookup
+		UserOptionsLookup $userOptionsLookup,
+		UserFactory $userFactory
 	) {
 		$this->mUser = $user;
 		$this->userNotifGateway = $userNotifGateway;
@@ -101,15 +110,16 @@ class MWEchoNotifUser {
 		$this->notifMapper = $notifMapper;
 		$this->targetPageMapper = $targetPageMapper;
 		$this->userOptionsLookup = $userOptionsLookup;
+		$this->userFactory = $userFactory;
 	}
 
 	/**
 	 * Factory method
-	 * @param User $user
+	 * @param UserIdentity $user
 	 * @throws MWException
 	 * @return MWEchoNotifUser
 	 */
-	public static function newFromUser( User $user ) {
+	public static function newFromUser( UserIdentity $user ) {
 		if ( !$user->isRegistered() ) {
 			throw new MWException( 'User must be logged in to view notification!' );
 		}
@@ -124,7 +134,8 @@ class MWEchoNotifUser {
 			),
 			new EchoNotificationMapper(),
 			new EchoTargetPageMapper(),
-			$services->getUserOptionsLookup()
+			$services->getUserOptionsLookup(),
+			$services->getUserFactory()
 		);
 	}
 
@@ -389,7 +400,7 @@ class MWEchoNotifUser {
 	 */
 	public function markReadForeign( array $eventIds, $wiki ) {
 		$foreignReq = new EchoForeignWikiRequest(
-			$this->mUser,
+			$this->userFactory->newFromUserIdentity( $this->mUser ),
 			[
 				'action' => 'echomarkread',
 				'list' => implode( '|', $eventIds ),
@@ -410,7 +421,7 @@ class MWEchoNotifUser {
 	 */
 	public function getForeignNotificationInfo( array $eventIds, $wiki ) {
 		$foreignReq = new EchoForeignWikiRequest(
-			$this->mUser,
+			$this->userFactory->newFromUserIdentity( $this->mUser ),
 			[
 				'action' => 'query',
 				'meta' => 'notifications',
@@ -449,7 +460,7 @@ class MWEchoNotifUser {
 		$this->cache->delete( $localMemcKey );
 
 		// Update the user touched timestamp for the local user
-		$this->mUser->invalidateCache();
+		$this->userFactory->newFromUserIdentity( $this->mUser )->invalidateCache();
 
 		if ( $wgEchoCrossWikiNotifications ) {
 			// Delete cached global counts and timestamps

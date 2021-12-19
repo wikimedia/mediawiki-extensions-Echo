@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\User\UserIdentity;
+
 /**
  * Database gateway which handles direct database interaction with the
  * echo_notification & echo_event for a user, that wouldn't require
@@ -13,7 +15,7 @@ class EchoUserNotificationGateway {
 	protected $dbFactory;
 
 	/**
-	 * @var User
+	 * @var UserIdentity
 	 */
 	protected $user;
 
@@ -36,11 +38,11 @@ class EchoUserNotificationGateway {
 	private $config;
 
 	/**
-	 * @param User $user
+	 * @param UserIdentity $user
 	 * @param MWEchoDbFactory $dbFactory
 	 * @param Config $config
 	 */
-	public function __construct( User $user, MWEchoDbFactory $dbFactory, Config $config ) {
+	public function __construct( UserIdentity $user, MWEchoDbFactory $dbFactory, Config $config ) {
 		$this->user = $user;
 		$this->dbFactory = $dbFactory;
 		$this->config = $config;

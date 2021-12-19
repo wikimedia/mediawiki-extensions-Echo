@@ -55,7 +55,8 @@ class MWEchoNotifUserTest extends MediaWikiIntegrationTestCase {
 			$this->mockEchoUserNotificationGateway( [ 'markRead' => true ] ),
 			$this->mockEchoNotificationMapper(),
 			$this->mockEchoTargetPageMapper(),
-			$this->createNoOpMock( UserOptionsLookup::class )
+			$this->createNoOpMock( UserOptionsLookup::class ),
+			$this->getServiceContainer()->getUserFactory()
 		);
 		$this->assertFalse( $notifUser->markRead( [] ) );
 		$this->assertTrue( $notifUser->markRead( [ 1 ] ) );
@@ -66,7 +67,8 @@ class MWEchoNotifUserTest extends MediaWikiIntegrationTestCase {
 			$this->mockEchoUserNotificationGateway( [ 'markRead' => false ] ),
 			$this->mockEchoNotificationMapper(),
 			$this->mockEchoTargetPageMapper(),
-			$this->createNoOpMock( UserOptionsLookup::class )
+			$this->createNoOpMock( UserOptionsLookup::class ),
+			$this->getServiceContainer()->getUserFactory()
 		);
 		$this->assertFalse( $notifUser->markRead( [] ) );
 		$this->assertFalse( $notifUser->markRead( [ 1 ] ) );
@@ -80,7 +82,8 @@ class MWEchoNotifUserTest extends MediaWikiIntegrationTestCase {
 			$this->mockEchoUserNotificationGateway( [ 'markRead' => true ] ),
 			$this->mockEchoNotificationMapper( [ $this->mockEchoNotification() ] ),
 			$this->mockEchoTargetPageMapper(),
-			$this->createNoOpMock( UserOptionsLookup::class )
+			$this->createNoOpMock( UserOptionsLookup::class ),
+			$this->getServiceContainer()->getUserFactory()
 		);
 		$this->assertTrue( $notifUser->markAllRead() );
 
@@ -91,7 +94,8 @@ class MWEchoNotifUserTest extends MediaWikiIntegrationTestCase {
 			$this->mockEchoUserNotificationGateway( [ 'markRead' => false ] ),
 			$this->mockEchoNotificationMapper( [ $this->mockEchoNotification() ] ),
 			$this->mockEchoTargetPageMapper(),
-			$this->createNoOpMock( UserOptionsLookup::class )
+			$this->createNoOpMock( UserOptionsLookup::class ),
+			$this->getServiceContainer()->getUserFactory()
 		);
 		$this->assertFalse( $notifUser->markAllRead() );
 
@@ -102,7 +106,8 @@ class MWEchoNotifUserTest extends MediaWikiIntegrationTestCase {
 			$this->mockEchoUserNotificationGateway( [ 'markRead' => true ] ),
 			$this->mockEchoNotificationMapper(),
 			$this->mockEchoTargetPageMapper(),
-			$this->createNoOpMock( UserOptionsLookup::class )
+			$this->createNoOpMock( UserOptionsLookup::class ),
+			$this->getServiceContainer()->getUserFactory()
 		);
 		$this->assertFalse( $notifUser->markAllRead() );
 
@@ -113,7 +118,8 @@ class MWEchoNotifUserTest extends MediaWikiIntegrationTestCase {
 			$this->mockEchoUserNotificationGateway( [ 'markRead' => false ] ),
 			$this->mockEchoNotificationMapper(),
 			$this->mockEchoTargetPageMapper(),
-			$this->createNoOpMock( UserOptionsLookup::class )
+			$this->createNoOpMock( UserOptionsLookup::class ),
+			$this->getServiceContainer()->getUserFactory()
 		);
 		$this->assertFalse( $notifUser->markAllRead() );
 	}
@@ -184,7 +190,8 @@ class MWEchoNotifUserTest extends MediaWikiIntegrationTestCase {
 			$this->mockEchoUserNotificationGateway(),
 			$this->mockEchoNotificationMapper(),
 			$this->mockEchoTargetPageMapper(),
-			$this->createNoOpMock( UserOptionsLookup::class )
+			$this->createNoOpMock( UserOptionsLookup::class ),
+			$this->getServiceContainer()->getUserFactory()
 		);
 	}
 }

@@ -514,24 +514,23 @@ class EchoHooks implements RecentChange_saveHook {
 			EchoDiscussionParser::generateEventsForRevision( $revisionRecord, $isRevert );
 		} );
 
-		$user = User::newFromIdentity( $userIdentity );
 		// If the user is not an IP and this is not a null edit,
 		// test for them reaching a congratulatory threshold
 		$thresholds = [ 1, 10, 100, 1000, 10000, 100000, 1000000, 10000000 ];
-		if ( $user->isRegistered() ) {
-			$thresholdCount = self::getEditCount( $user );
+		if ( $userIdentity->isRegistered() ) {
+			$thresholdCount = self::getEditCount( $userIdentity );
 			if ( in_array( $thresholdCount, $thresholds ) ) {
-				DeferredUpdates::addCallableUpdate( static function () use ( $user, $title, $thresholdCount ) {
+				DeferredUpdates::addCallableUpdate( static function () use ( $userIdentity, $title, $thresholdCount ) {
 					$notificationMapper = new EchoNotificationMapper();
-					$notifications = $notificationMapper->fetchByUser( $user, 10, null, [ 'thank-you-edit' ] );
+					$notifications = $notificationMapper->fetchByUser( $userIdentity, 10, null, [ 'thank-you-edit' ] );
 					/** @var EchoNotification $notification */
 					foreach ( $notifications as $notification ) {
 						if ( $notification->getEvent()->getExtraParam( 'editCount' ) === $thresholdCount ) {
 							LoggerFactory::getInstance( 'Echo' )->debug(
 								'{user} (id: {id}) has already been thanked for their {count} edit',
 								[
-									'user' => $user->getName(),
-									'id' => $user->getId(),
+									'user' => $userIdentity->getName(),
+									'id' => $userIdentity->getId(),
 									'count' => $thresholdCount,
 								]
 							);
@@ -542,7 +541,7 @@ class EchoHooks implements RecentChange_saveHook {
 					EchoEvent::create( [
 							'type' => 'thank-you-edit',
 							'title' => $title,
-							'agent' => $user,
+							'agent' => $userIdentity,
 							// Edit threshold notifications are sent to the agent
 							'extra' => [
 								'editCount' => $thresholdCount,
@@ -578,7 +577,7 @@ class EchoHooks implements RecentChange_saveHook {
 							'method' => 'undo',
 							'summary' => $summary,
 						],
-						'agent' => $user,
+						'agent' => $userIdentity,
 					] );
 				}
 			}
@@ -586,17 +585,19 @@ class EchoHooks implements RecentChange_saveHook {
 	}
 
 	/**
-	 * @param User $user
+	 * @param UserIdentity $user
 	 * @return int
 	 */
-	private static function getEditCount( User $user ) {
+	private static function getEditCount( UserIdentity $user ) {
+		$editCount = MediaWikiServices::getInstance()->getUserEditTracker()
+			->getUserEditCount( $user ) ?: 0;
 		// When this code runs from a maintenance script or unit tests
 		// the deferred update incrementing edit count runs right away
 		// so the edit count is right. Otherwise it lags by one.
 		if ( wfIsCLI() ) {
-			return $user->getEditCount();
+			return $editCount;
 		}
-		return $user->getEditCount() + 1;
+		return $editCount + 1;
 	}
 
 	/**
@@ -1296,7 +1297,7 @@ class EchoHooks implements RecentChange_saveHook {
 					'reverted-revision-id' => $oldRevision->getId(),
 					'method' => 'rollback',
 				],
-				'agent' => User::newFromIdentity( $agent ),
+				'agent' => $agent,
 			] );
 		}
 	}
@@ -1395,9 +1396,8 @@ class EchoHooks implements RecentChange_saveHook {
 	 */
 	public static function onUserClearNewTalkNotification( UserIdentity $user ) {
 		if ( $user->isRegistered() ) {
-			$userObj = User::newFromIdentity( $user );
-			DeferredUpdates::addCallableUpdate( static function () use ( $userObj ) {
-				MWEchoNotifUser::newFromUser( $userObj )->clearUserTalkNotifications();
+			DeferredUpdates::addCallableUpdate( static function () use ( $user ) {
+				MWEchoNotifUser::newFromUser( $user )->clearUserTalkNotifications();
 			} );
 		}
 	}
@@ -1638,7 +1638,6 @@ class EchoHooks implements RecentChange_saveHook {
 		} else {
 			$type = 'watchlist-change';
 		}
-		$user = User::newFromIdentity( $change->getPerformerIdentity() );
 		EchoEvent::create( [
 			'type' => $type,
 			'title' => $change->getTitle(),
@@ -1651,7 +1650,7 @@ class EchoHooks implements RecentChange_saveHook {
 				'timestamp' => $change->getAttribute( "rc_timestamp" ),
 				'emailonce' => $this->config->get( 'EchoWatchlistEmailOncePerPage' )
 			],
-			'agent' => $user
+			'agent' => $change->getPerformerIdentity(),
 		] );
 	}
 

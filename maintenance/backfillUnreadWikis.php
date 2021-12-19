@@ -43,18 +43,16 @@ class BackfillUnreadWikis extends Maintenance {
 		$iterator->setCaller( __METHOD__ );
 
 		$processed = 0;
-		$userFactory = MediaWikiServices::getInstance()->getUserFactory();
 		foreach ( $iterator as $batch ) {
 			foreach ( $batch as $row ) {
 				if ( $rebuild ) {
-					$userIdentity = $lookup->localUserFromCentralId(
+					$user = $lookup->localUserFromCentralId(
 						$row->euw_user,
 						CentralIdLookup::AUDIENCE_RAW
 					);
-					if ( !$userIdentity ) {
+					if ( !$user ) {
 						continue;
 					}
-					$user = $userFactory->newFromUserIdentity( $userIdentity );
 				} else {
 					$user = User::newFromRow( $row );
 				}
