@@ -166,6 +166,7 @@
 	"notification-header-watchlist-multiuser-deleted": "<strong>$1</strong>, страница од {{GENDER:$2|вашите}} набљудувања, е избришана {{PLURAL:$3|еднаш|$3 пати}}.",
 	"notification-header-watchlist-multiuser-moved": "<strong>$1</strong>, страница од {{GENDER:$2|вашите}} набљудувања, е преместена {{PLURAL:$3|еднаш|$3 пати}}.",
 	"notification-header-watchlist-multiuser-restored": "<strong>$1</strong>, страница од {{GENDER:$2|вашите}} набљудувања, е повратена {{PLURAL:$3|еднаш|$3 пати}}.",
+	"notification-body-watchlist-once": "Повеќе нема да има известувања по е-пошта во случај на понатамошни активности освен {{GENDER:$1|ако не ја посетите}} страницава додека сте најавени.",
 	"notification-welcome-linktext": "Добре дојдовте",
 	"notification-header-thank-you-1-edit": "Штотуку го {{GENDER:$2|направивте}} {{GENDER:$2|вашето}} прво уредување. {{GENDER:$2|Ви}} благодариме, и добре дојдовте!",
 	"notification-header-thank-you-10-edit": "Штотуку го {{GENDER:$2|направивте}} {{GENDER:$2|вашето}} десетто уредување. {{GENDER:$2|Ви}} благодариме, и продолжете така!",

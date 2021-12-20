@@ -47,6 +47,7 @@
 	"notification-link-text-view-mention": "去睇下講啲咩",
 	"notification-link-text-view-changes": "去睇改咗啲乜",
 	"notification-link-text-view-page": "去睇嗰頁",
+	"notification-header-mention-success": "發出咗{{GENDER:$2|你}}對<strong>$3</strong>嘅提及。",
 	"notification-link-text-view-edit": "去睇改咗啲乜",
 	"echo-notification-alert-text-only": "提示",
 	"echo-notification-notice-text-only": "通知",
