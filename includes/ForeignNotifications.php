@@ -163,7 +163,7 @@ class EchoForeignNotifications {
 
 		foreach ( $unreadCounts as $wiki => $sections ) {
 			// exclude current wiki
-			if ( $wiki === wfWikiID() ) {
+			if ( $wiki === WikiMap::getCurrentWikiId() ) {
 				continue;
 			}
 

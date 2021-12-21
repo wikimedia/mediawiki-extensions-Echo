@@ -30,7 +30,7 @@ class BackfillUnreadWikis extends Maintenance {
 				'euw_user',
 				$this->getBatchSize()
 			);
-			$iterator->addConditions( [ 'euw_wiki' => wfWikiID() ] );
+			$iterator->addConditions( [ 'euw_wiki' => WikiMap::getCurrentWikiId() ] );
 		} else {
 			$userQuery = User::getQueryInfo();
 			$iterator = new BatchRowIterator(
@@ -78,7 +78,7 @@ class BackfillUnreadWikis extends Maintenance {
 						continue;
 					}
 
-					$uw->updateCount( wfWikiID(), $alertCount, $alertUnread, $msgCount, $msgUnread );
+					$uw->updateCount( WikiMap::getCurrentWikiId(), $alertCount, $alertUnread, $msgCount, $msgUnread );
 				}
 			}
 

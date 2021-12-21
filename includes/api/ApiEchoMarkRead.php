@@ -19,7 +19,7 @@ class ApiEchoMarkRead extends ApiBase {
 		$params = $this->extractRequestParams();
 
 		// Mark as read/unread locally, if requested
-		if ( in_array( wfWikiID(), $this->getRequestedWikis() ) ) {
+		if ( in_array( WikiMap::getCurrentWikiId(), $this->getRequestedWikis() ) ) {
 			// There is no need to trigger markRead if all notifications are read
 			if ( $notifUser->getLocalNotificationCount() > 0 ) {
 				if ( $params['list'] ) {

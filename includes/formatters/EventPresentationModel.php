@@ -469,7 +469,7 @@ abstract class EchoEventPresentationModel implements JsonSerializable, MessageLo
 
 			$queryParams = [ 'markasread' => implode( '|', $eventIds ) ];
 			if ( $wgEchoCrossWikiNotifications ) {
-				$queryParams['markasreadwiki'] = wfWikiID();
+				$queryParams['markasreadwiki'] = WikiMap::getCurrentWikiId();
 			}
 
 			$primaryLink['url'] = wfAppendQuery( $primaryLink['url'], $queryParams );
