@@ -33,7 +33,7 @@
 	"echo-pref-dont-email-read-notifications": "Neiekļaut izlasītos paziņojumus kopsavilkuma e-pastos",
 	"echo-learn-more": "Uzzināt vairāk",
 	"echo-log": "Publiskais žurnāls",
-	"echo-new-messages": "tev ir jauni paziņojumi",
+	"echo-new-messages": "Tev ir jauns diskusiju lapas paziņojums",
 	"echo-category-title-edit-user-talk": "Diskusiju lapas {{PLURAL:$1|paziņojumi|paziņojums|paziņojumi}}",
 	"echo-category-title-article-linked": "Lapas {{PLURAL:$1|saites|saite|saites}}",
 	"echo-category-title-reverted": "{{PLURAL:$1|Atcelti labojumi|Atcelts labojums|Atcelti labojumi}}",
