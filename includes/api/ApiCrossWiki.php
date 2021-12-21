@@ -69,19 +69,19 @@ trait ApiCrossWiki {
 
 		// if wiki is omitted from params, that's because crosswiki is/was not
 		// available, and it'll default to current wiki
-		$wikis = $params['wikis'] ?? [ wfWikiID() ];
+		$wikis = $params['wikis'] ?? [ WikiMap::getCurrentWikiId() ];
 
 		if ( array_search( '*', $wikis ) !== false ) {
 			// expand `*` to all foreign wikis with unread notifications + local
 			$wikis = array_merge(
-				[ wfWikiID() ],
+				[ WikiMap::getCurrentWikiId() ],
 				$this->getForeignWikisWithUnreadNotifications()
 			);
 		}
 
 		if ( !$this->allowCrossWikiNotifications() ) {
 			// exclude foreign wikis if x-wiki is not enabled
-			$wikis = array_intersect_key( [ wfWikiID() ], $wikis );
+			$wikis = array_intersect_key( [ WikiMap::getCurrentWikiId() ], $wikis );
 		}
 
 		return $wikis;
@@ -91,7 +91,7 @@ trait ApiCrossWiki {
 	 * @return string[] Wiki names
 	 */
 	protected function getRequestedForeignWikis() {
-		return array_diff( $this->getRequestedWikis(), [ wfWikiID() ] );
+		return array_diff( $this->getRequestedWikis(), [ WikiMap::getCurrentWikiId() ] );
 	}
 
 	/**
@@ -124,10 +124,15 @@ trait ApiCrossWiki {
 				// fetch notifications from multiple wikis
 				'wikis' => [
 					ApiBase::PARAM_ISMULTI => true,
-					ApiBase::PARAM_DFLT => wfWikiID(),
+					ApiBase::PARAM_DFLT => WikiMap::getCurrentWikiId(),
 					// `*` will let you immediately fetch from all wikis that have
 					// unread notifications, without having to look them up first
-					ApiBase::PARAM_TYPE => array_unique( array_merge( $wgConf->wikis, [ wfWikiID(), '*' ] ) ),
+					ApiBase::PARAM_TYPE => array_unique(
+						array_merge(
+							$wgConf->wikis,
+							[ WikiMap::getCurrentWikiId(), '*' ]
+						)
+					),
 				],
 			];
 		}

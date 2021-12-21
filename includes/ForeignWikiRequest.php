@@ -102,7 +102,7 @@ class EchoForeignWikiRequest {
 				'Exception when fetching CentralAuth token: wiki: {wiki}, userName: {userName}, ' .
 					'userId: {userId}, centralId: {centralId}, exception: {exception}',
 				[
-					'wiki' => wfWikiID(),
+					'wiki' => WikiMap::getCurrentWikiId(),
 					'userName' => $user->getName(),
 					'userId' => $user->getId(),
 					'centralId' => $this->getCentralId( $user ),

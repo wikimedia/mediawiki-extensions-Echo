@@ -79,7 +79,7 @@ class EchoDataOutputFormatter {
 		// End creating date section header
 
 		$output = [
-			'wiki' => wfWikiID(),
+			'wiki' => WikiMap::getCurrentWikiId(),
 			'id' => $event->getId(),
 			'type' => $event->getType(),
 			'category' => $event->getCategory(),

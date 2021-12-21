@@ -466,7 +466,7 @@ class MWEchoNotifUser {
 				$alertTs = $newLocalData[EchoAttributeManager::ALERT]['timestamp'];
 				$messageTs = $newLocalData[EchoAttributeManager::MESSAGE]['timestamp'];
 				$uw->updateCount(
-					wfWikiID(),
+					WikiMap::getCurrentWikiId(),
 					$newLocalData[EchoAttributeManager::ALERT]['count'],
 					$alertTs === -1 ? false : new MWTimestamp( $alertTs ),
 					$newLocalData[EchoAttributeManager::MESSAGE]['count'],

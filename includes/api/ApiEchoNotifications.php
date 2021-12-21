@@ -42,8 +42,8 @@ class ApiEchoNotifications extends ApiQueryBase {
 		}
 
 		$results = [];
-		if ( in_array( wfWikiID(), $this->getRequestedWikis() ) ) {
-			$results[wfWikiID()] = $this->getLocalNotifications( $params );
+		if ( in_array( WikiMap::getCurrentWikiId(), $this->getRequestedWikis() ) ) {
+			$results[WikiMap::getCurrentWikiId()] = $this->getLocalNotifications( $params );
 		}
 
 		if ( $this->getRequestedForeignWikis() ) {

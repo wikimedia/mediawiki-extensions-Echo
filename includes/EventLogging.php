@@ -71,7 +71,7 @@ class MWEchoEventLogging {
 				'action' => 'special-page-visit',
 				'userId' => $userIdentity->getId(),
 				'editCount' => $userEditCount,
-				'notifWiki' => wfWikiID(),
+				'notifWiki' => WikiMap::getCurrentWikiId(),
 				// Hack: Figure out if we are in the mobile skin
 				'mobile' => $skinName === 'minerva',
 			]
