@@ -30,6 +30,8 @@
 	"echo-category-title-mention": "{{PLURAL:$1|Minzioni}}",
 	"echo-category-title-other": "{{PLURAL:$1|Àutru}}",
 	"echo-category-title-system": "{{PLURAL:$1|Sistema}}",
+	"echo-category-title-system-noemail": "{{PLURAL:$1|Sistema}}",
+	"echo-category-title-system-emailonly": "{{PLURAL:$1|Sistema}}",
 	"echo-category-title-watchlist": "Canciamentu a na pàggina taliata",
 	"echo-category-title-minor-watchlist": "Canciamentu nicu a na pàggina taliata",
 	"echo-pref-tooltip-edit-user-talk": "Abbìsami quannu quarcunu cancia la mè pàggina di discussioni.",
