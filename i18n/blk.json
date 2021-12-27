@@ -1,10 +1,20 @@
 {
 	"@metadata": {
 		"authors": [
+			"Khun Kt",
 			"咽頭べさ"
 		]
 	},
+	"prefs-echo": "ဖေႏသေချက်ဖိုင်ႏ",
 	"prefs-emailsettings": "အီးမေးတာႏ လွိုက်ရွေꩻခရာႏ",
+	"prefs-echocrosswiki": "ဝီခီ-စွောစ်ꩻစဲစ်ꩻ ဖေႏသေချက်ဖိုင်ႏ",
+	"echo-pref-send-me": "ပသာလွဉ်သွော့သြ-",
+	"echo-pref-send-to": "ပသာသာလွေꩻ-",
+	"echo-pref-email-format": "အီးမေးပုင်ႏစံႏ-",
+	"echo-pref-web": "ဝဲက်",
+	"echo-pref-email": "အီးမေး",
+	"echo-pref-push": "အဲပ်ဖိုင်ႏ",
+	"echo-pref-email-frequency-never": "ပသာမွုန်းတဝ်းဒုမ် အီးမေးဖေႏသေချက်ဖိုင်ႏမုဲင်ꩻမုဲင်ꩻ",
 	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "ကေားသုင်ꩻသား လိုꩻတသာဖိုင်ႏ",
 	"echo-specialpage-markasread": "ဖေႏသေချက်: ဟော်ꩻထွူလဲဥ်းအကျောင်ꩻ ဒင်ႏမုဲင်တာႏ",
 	"notification-link-text-what-links-here": "ကဆွိုက်ခါꩻဒါႏ လိတ်မဲ့ငါယို လိဥ့်ဖုံႏကားကအဝ်ႏ",

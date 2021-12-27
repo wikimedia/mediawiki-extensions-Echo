@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Daud I.F. Argana",
 			"Kenrick95",
 			"Rachmat.Wahidi",
 			"Rachmat04",
@@ -37,8 +38,8 @@
 	"apihelp-query+notifications-param-alertunreadfirst": "Menentukan apakah harus menampilkan pemberitahuan pesan yang belum dibaca terlebih dahulu.",
 	"apihelp-query+notifications-param-messagecontinue": "Saat ada lebih banyak hasil pesan yang tersedia, gunakan ini untuk melanjutkan.",
 	"apihelp-query+notifications-param-messageunreadfirst": "Menentukan apakah harus menampilkan pemberitahuan peringatan terlebih dahulu (hanya digunakan jika groupbysection ditetapkan).",
-	"apihelp-query+notifications-example-1": "Daftar pemberitahuan",
-	"apihelp-query+notifications-example-2": "Daftar pemberitahuan, dikelompokkan berdasarkan bagian, dengan jumlah",
+	"apihelp-query+notifications-example-1": "Daftar pemberitahuan web",
+	"apihelp-query+notifications-example-2": "Daftar pemberitahuan web, dikelompokkan berdasarkan bagian, dengan jumlah",
 	"apihelp-query+unreadnotificationpages-param-limit": "Jumlah halaman maksimum yang ditampilkan.",
 	"apihelp-query+unreadnotificationpages-param-wikis": "Daftar wiki untuk mengambil halaman dengan pemberitahuan belum dibaca (baku hanya pada wiki ini).",
 	"apihelp-query+unreadnotificationpages-example-1": "Daftarkan halaman dengan (jumlah) pemberitahuan belum dibaca"

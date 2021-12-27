@@ -238,9 +238,9 @@
 	"notification-header-foreign-alert": "Więcej powiadomień z {{PLURAL:$5|innej wiki|$5 innych wiki}}",
 	"notification-header-foreign-notice": "Więcej powiadomień z {{PLURAL:$5|innej wiki|$5 innych wiki}}",
 	"notification-header-foreign-all": "Więcej powiadomień z {{PLURAL:$5|innej wiki|$5 innych wiki}}",
-	"right-manage-all-push-subscriptions": "Zarządzanie subskrybcjami push",
-	"action-manage-all-push-subscriptions": "zarządzania subskrybcjami push",
-	"group-push-subscription-manager": "Menedżerowie subskrybcji push",
-	"group-push-subscription-manager-member": "{{GENDER:$1|menedżer|menedżerka}} subskrybcji push",
-	"grouppage-push-subscription-manager": "{{ns:project}}:Menedżerowie subskrybcji push"
+	"right-manage-all-push-subscriptions": "Zarządzanie subskrypcjami push",
+	"action-manage-all-push-subscriptions": "zarządzania subskrypcjami push",
+	"group-push-subscription-manager": "Menedżerowie subskrypcji push",
+	"group-push-subscription-manager-member": "{{GENDER:$1|menedżer|menedżerka}} subskrypcji push",
+	"grouppage-push-subscription-manager": "{{ns:project}}:Menedżerowie subskrypcji push"
 }
