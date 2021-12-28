@@ -25,7 +25,8 @@
 			"Raylton P. Sousa",
 			"Rodrigo codignoli",
 			"TheEduGobi",
-			"TheGabrielZaum"
+			"TheGabrielZaum",
+			"Vonil55"
 		]
 	},
 	"echo-desc": "Sistema para notificar usuários sobre eventos e mensagens",
@@ -191,11 +192,11 @@
 	"notification-header-watchlist-multiuser-restored": "<strong>$1</strong>, uma página na {{GENDER:$2|sua}} lista de páginas vigiadas, foi restaurada em $3 {{PLURAL:$3|veze|vezes}}.",
 	"notification-welcome-linktext": "Bem-vindo(a)",
 	"notification-header-thank-you-1-edit": "Você acaba de fazer sua primeira edição. Muito obrigado, e seja {{GENDER:$2|bem-vindo|bem-vinda}}!",
-	"notification-header-thank-you-10-edit": "Você acaba de fazer sua décima milésima edição. Obrigado e continue por aí!",
+	"notification-header-thank-you-10-edit": "{{GENDER:$2|Você}} acaba de fazer sua décima edição; obrigado e continue por aí!",
 	"notification-header-thank-you-100-edit": "{{GENDER:$2|Você}} acabou de fazer {{GENDER:$2|sua}} centésima edição. {{GENDER:$2|Muito obrigado!}}",
 	"notification-header-thank-you-1000-edit": "Você acaba de fazer sua milésima edição. Muito obrigado por ser {{GENDER:$2|um colaborador|uma colaboradora}} tão especial!",
-	"notification-header-thank-you-10000-edit": "Você acaba de fazer sua décima milésima edição. Muito obrigado!",
-	"notification-header-thank-you-100000-edit": "Você acaba de fazer sua centésima milésima edição. Muito obrigado por suas incríveis contribuições!",
+	"notification-header-thank-you-10000-edit": "{{GENDER:$2|Você}} acaba de fazer sua décima milésima edição; Muito obrigado!",
+	"notification-header-thank-you-100000-edit": "{{GENDER:$2|Você}} acaba de fazer sua centésima milésima edição; muito obrigado por suas incríveis contribuições!",
 	"notification-header-thank-you-1000000-edit": "Você acaba de fazer sua milionésima edição. Muito obrigado por continuar a ser {{GENDER:$2|um|uma}} excelente {{GENDER:$2|colaborador|colaboradora}}!",
 	"notification-header-thank-you-10000000-edit": "{{GENDER:$2|Você}} acabou de fazer {{GENDER:$2|sua}} décima milionésima edição; {{GENDER:$2|Muito obrigado|Muito}} por sua dedicação brilhante!",
 	"notification-link-thank-you-edit": "{{GENDER:$1|Sua}} edição",
