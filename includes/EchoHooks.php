@@ -171,23 +171,11 @@ class EchoHooks implements RecentChange_saveHook {
 
 		$updater->addExtensionTable( 'echo_event', "$dir/echo.sql" );
 
-		// Added in REL1_28
-		$updater->dropExtensionField( 'echo_target_page', 'etp_user',
-			"$dir/db_patches/{$dbType}/patch-drop-echo_target_page-etp_user.sql" );
-
-		$updater->addExtensionIndex( 'echo_notification', 'echo_notification_event',
-			"$dir/db_patches/patch-add-notification_event-index.sql" );
-		$updater->addPostDatabaseUpdateMaintenance( RemoveOrphanedEvents::class );
-		$updater->addExtensionField( 'echo_event', 'event_deleted',
-			"$dir/db_patches/patch-add-echo_event-event_deleted.sql" );
-		$updater->addExtensionIndex( 'echo_notification', 'echo_notification_user_read_timestamp',
-			"$dir/db_patches/patch-add-user_read_timestamp-index.sql" );
-		$updater->addExtensionIndex( 'echo_target_page', 'echo_target_page_page_event',
-			"$dir/db_patches/patch-add-page_event-index.sql" );
-		$updater->addExtensionIndex( 'echo_event', 'echo_event_page_id',
-			"$dir/db_patches/patch-add-event_page_id-index.sql" );
+		// 1.29
 		$updater->dropExtensionIndex( 'echo_notification', 'user_event',
 			"$dir/db_patches/patch-notification-pk.sql" );
+
+		// 1.33
 		// Can't use addPostDatabaseUpdateMaintenance() here because that would
 		// run the migration script after dropping the fields
 		$updater->addExtensionUpdate( [ 'runMaintenance', UpdateEchoSchemaForSuppression::class,
@@ -205,17 +193,24 @@ class EchoHooks implements RecentChange_saveHook {
 		$updater->dropExtensionIndex( 'echo_notification', 'echo_notification_user_hash_timestamp',
 			"$dir/db_patches/patch-drop-user-hash-timestamp-index.sql" );
 
-		$updater->addExtensionTable( 'echo_push_provider', "$dir/db_patches/echo_push_provider.sql" );
-		$updater->addExtensionTable( 'echo_push_topic', "$dir/db_patches/echo_push_topic.sql" );
-		$updater->addExtensionTable( 'echo_push_subscription', "$dir/db_patches/echo_push_subscription.sql" );
-
-		$updater->modifyExtensionField( 'echo_unread_wikis', 'euw_wiki',
-			"$dir/db_patches/patch-increase-varchar-echo_unread_wikis-euw_wiki.sql" );
-
+		// XXX: When is this table from? Gerrit claims b85f978 in 1.27 but this is new?
 		global $wgWikimediaJenkinsCI;
 		if ( !empty( $wgWikimediaJenkinsCI ) ) {
 			$updater->addExtensionTable( 'echo_unread_wikis', "$dir/db_patches/echo_unread_wikis.sql" );
 		}
+
+		// 1.34 (backported)
+		$updater->modifyExtensionField( 'echo_unread_wikis', 'euw_wiki',
+			"$dir/db_patches/patch-increase-varchar-echo_unread_wikis-euw_wiki.sql" );
+
+		// 1.35
+		$updater->addExtensionTable( 'echo_push_provider', "$dir/db_patches/echo_push_provider.sql" );
+
+		// 1.36
+		$updater->addExtensionTable( 'echo_push_topic', "$dir/db_patches/echo_push_topic.sql" );
+
+		// 1.35 - order of tables needed for declaring references
+		$updater->addExtensionTable( 'echo_push_subscription', "$dir/db_patches/echo_push_subscription.sql" );
 	}
 
 	/**
