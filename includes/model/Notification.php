@@ -28,7 +28,7 @@ class EchoNotification extends EchoAbstractEntity implements Bundleable {
 	protected $timestamp;
 
 	/**
-	 * @var string
+	 * @var string|null
 	 */
 	protected $readTimestamp;
 
@@ -152,11 +152,7 @@ class EchoNotification extends EchoAbstractEntity implements Bundleable {
 		$notification->user = User::newFromId( $row->notification_user );
 		// Notification timestamp should never be empty
 		$notification->timestamp = wfTimestamp( TS_MW, $row->notification_timestamp );
-		// Only convert to MW format if it is not empty, otherwise
-		// wfTimestamp would use current timestamp for empty cases
-		if ( $row->notification_read_timestamp ) {
-			$notification->readTimestamp = wfTimestamp( TS_MW, $row->notification_read_timestamp );
-		}
+		$notification->readTimestamp = wfTimestampOrNull( TS_MW, $row->notification_read_timestamp );
 		$notification->bundleHash = $row->notification_bundle_hash;
 
 		return $notification;
