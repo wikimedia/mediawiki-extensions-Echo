@@ -358,7 +358,7 @@ class EchoHooks implements RecentChange_saveHook {
 		// Show subscription options.  IMPORTANT: 'echo-subscriptions-email-edit-user-talk',
 		// 'echo-subscriptions-email-watchlist', and 'echo-subscriptions-email-minor-watchlist' are
 		// virtual options, their values are saved to existing notification options 'enotifusertalkpages',
-		// 'enotifwatchlistpages', and 'enotifminoredits', see onUserLoadOptions() and onSaveUserOptions()
+		// 'enotifwatchlistpages', and 'enotifminoredits', see onLoadUserOptions() and onSaveUserOptions()
 		// for more information on how it is handled. Doing it in this way, we can avoid keeping running
 		// massive data migration script to keep these two options synced when echo is enabled on
 		// new wikis or Echo is disabled and re-enabled for some reason.  We can update the name
@@ -457,14 +457,13 @@ class EchoHooks implements RecentChange_saveHook {
 				'section' => 'echo/blocknotificationslist',
 				'filter' => MultiUsernameFilter::class,
 			];
-			// TODO inject
-			$titleFactory = MediaWikiServices::getInstance()->getTitleFactory();
 			$preferences['echo-notifications-page-linked-title-muted-list'] = [
 				'type' => 'titlesmultiselect',
 				'label-message' => 'echo-pref-notifications-page-linked-title-muted-list',
 				'section' => 'echo/mutedpageslist',
 				'showMissing' => false,
-				'filter' => ( new MultiTitleFilter( $titleFactory ) )
+				'excludeDynamicNamespaces' => true,
+				'filter' => new MultiTitleFilter()
 			];
 		}
 	}
@@ -1338,8 +1337,8 @@ class EchoHooks implements RecentChange_saveHook {
 	}
 
 	/**
-	 * Handler for UserLoadOptions hook.
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/UserLoadOptions
+	 * Handler for LoadUserOptions hook.
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/LoadUserOptions
 	 * @param UserIdentity $user User whose options were loaded
 	 * @param array &$options Options can be modified
 	 */
