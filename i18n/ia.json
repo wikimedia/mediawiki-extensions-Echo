@@ -121,7 +121,7 @@
 	"notification-link-text-view-mention-failure": "Vider {{PLURAL:$1|mention|mentiones}}",
 	"notification-link-text-view-changes": "{{GENDER:$1|Vider}} modificationes",
 	"notification-link-text-view-page": "Vider pagina",
-	"notification-header-edit-user-talk": "$1 {{GENDER:$2|ha lassate}} un message osurn <strong>{{GENDER:$3|tu}} pagina de discussion</strong>.",
+	"notification-header-edit-user-talk": "$1 {{GENDER:$2|ha lassate}} un message sur <strong>{{GENDER:$3|tu}} pagina de discussion</strong>.",
 	"notification-header-edit-user-talk-with-section": "$1 {{GENDER:$2|ha lassate}} un message sur <strong>{{GENDER:$3|tu}} pagina de discussion</strong> in le section \"<strong>$4</strong>\".",
 	"notification-compact-header-edit-user-talk": "$1 {{GENDER:$3|te}} {{GENDER:$2|ha lassate}} un message.",
 	"notification-compact-header-edit-user-talk-with-section": "$1 {{GENDER:$3|te}} {{GENDER:$2|ha lassate}} un message in le section \"<strong>$4</strong>\".",

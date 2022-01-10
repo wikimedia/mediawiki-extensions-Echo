@@ -219,7 +219,7 @@
 	"notification-timestamp-ago-years": "{{PLURAL:$1|$1yıl}}",
 	"notification-timestamp-today": "Bugün",
 	"notification-timestamp-yesterday": "Dün",
-	"notification-inbox-filter-read": "Oku",
+	"notification-inbox-filter-read": "Okunmuş",
 	"notification-inbox-filter-unread": "Okunmamış",
 	"notification-inbox-filter-all": "Hepsi",
 	"echo-specialmute-label-mute-notifications": "Bu {{GENDER:$1|kullanıcıdan}} gelen bildirimleri yoksay",
