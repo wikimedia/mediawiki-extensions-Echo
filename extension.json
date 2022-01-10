@@ -181,6 +181,9 @@
 				"vector": [
 					"styles/mw.echo.ui.overlay.vector.less"
 				],
+				"vector-2022": [
+					"styles/mw.echo.ui.overlay.vector.less"
+				],
 				"minerva": [
 					"styles/mw.echo.ui.overlay.minerva.less"
 				],
@@ -372,6 +375,9 @@
 					"nojs/mw.echo.badge.monobook.less"
 				],
 				"vector": [
+					"nojs/mw.echo.badge.vector.less"
+				],
+				"vector-2022": [
 					"nojs/mw.echo.badge.vector.less"
 				]
 			},
