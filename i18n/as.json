@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Gitartha.bordoloi",
+			"Paradox",
 			"Simbu123"
 		]
 	},
@@ -166,7 +167,7 @@
 	"notification-header-watchlist-multiuser-restored": "{{GENDER:$2|আপোনাৰ}} লক্ষ্য-তালিকাৰ <strong>$1</strong> নামৰ পৃষ্ঠাক $3 {{PLURAL:$3|বাৰ}} পুনৰুদ্ধাৰ কৰা হৈছে।",
 	"notification-welcome-linktext": "আদৰিছোঁ!",
 	"notification-header-thank-you-1-edit": "{{GENDER:$2|আপুনি}} এইমাত্ৰ {{GENDER:$2|আপোনাৰ}} প্ৰথমটো সম্পাদনা কৰিলে; {{GENDER:$2|আপোনাক}} ধন্যবাদ আৰু আদৰিছোঁ!",
-	"notification-header-thank-you-10-edit": "{{GENDER:$2|আপুনি}} এইমাত্ৰ {{GENDER:$2|আপোনাৰ}} দশমটো সম্পাদনা কৰিলে; {{GENDER:$2|আপোনাক}} ধন্যবাদ, আৰু এয়া অব্যাহতি ৰাখক!",
+	"notification-header-thank-you-10-edit": "{{GENDER:$2|আপুনি}} এইমাত্ৰ {{GENDER:$2|আপোনাৰ}} দশমটো সম্পাদনা কৰিলে; {{GENDER:$2|আপোনাক}} ধন্যবাদ, আৰু এয়া অব্যাহত ৰাখক!",
 	"notification-header-thank-you-100-edit": "{{GENDER:$2|আপুনি}} এইমাত্ৰ {{GENDER:$2|আপোনাৰ}} এশটা সম্পাদনা সম্পন্ন কৰিলে; {{GENDER:$2|আপোনাক}} অশেষ ধন্যবাদ!",
 	"notification-header-thank-you-1000-edit": "{{GENDER:$2|আপুনি}} এইমাত্ৰ {{GENDER:$2|আপোনাৰ}} এহেজাৰটা সম্পাদনা সম্পন্ন কৰিলে; এজন দুৰ্দান্ত বৰঙণিদাতা হোৱাৰ বাবে {{GENDER:$2|আপোনাক}} ধন্যবাদ!",
 	"notification-header-thank-you-10000-edit": "{{GENDER:$2|আপুনি}} এইমাত্ৰ {{GENDER:$2|আপোনাৰ}} দহ হেজাৰটা সম্পাদনা সম্পন্ন কৰিলে; {{GENDER:$2|আপোনাক}} অশেষ ধন্যবাদ!",
