@@ -13,49 +13,49 @@ describe( 'Echo', function () {
 		bot = await Api.bot();
 	} );
 
-	it( 'alerts and notices are visible after logging in @daily', function () {
+	it( 'alerts and notices are visible after logging in @daily', async function () {
 
-		UserLoginPage.login( browser.config.mwUser, browser.config.mwPwd );
+		await UserLoginPage.login( browser.config.mwUser, browser.config.mwPwd );
 
 		assert( EchoPage.alerts.isExisting() );
 		assert( EchoPage.notices.isExisting() );
 
 	} );
 
-	it( 'flyout for alert appears when clicked @daily', function () {
+	it( 'flyout for alert appears when clicked @daily', async function () {
 
-		UserLoginPage.login( browser.config.mwUser, browser.config.mwPwd );
-		EchoPage.alerts.click();
+		await UserLoginPage.login( browser.config.mwUser, browser.config.mwPwd );
+		await EchoPage.alerts.click();
 		EchoPage.alertsFlyout.waitForDisplayed();
 
 		assert( EchoPage.alertsFlyout.isExisting() );
 
 	} );
 
-	it( 'flyout for notices appears when clicked @daily', function () {
+	it( 'flyout for notices appears when clicked @daily', async function () {
 
-		UserLoginPage.login( browser.config.mwUser, browser.config.mwPwd );
-		EchoPage.notices.click();
+		await UserLoginPage.login( browser.config.mwUser, browser.config.mwPwd );
+		await EchoPage.notices.click();
 		EchoPage.noticesFlyout.waitForDisplayed();
 
 		assert( EchoPage.noticesFlyout.isExisting() );
 
 	} );
 
-	it( 'checks for welcome message after signup', function () {
+	it( 'checks for welcome message after signup', async function () {
 
 		const username = Util.getTestString( 'NewUser-' );
 		const password = Util.getTestString();
 		browser.call( async () => {
 			await Api.createAccount( bot, username, password );
 		} );
-		UserLoginPage.login( username, password );
+		await UserLoginPage.login( username, password );
 
-		EchoPage.notices.click();
+		await EchoPage.notices.click();
 
-		EchoPage.alertMessage.waitForDisplayed();
+		await EchoPage.alertMessage.waitForDisplayed();
 		const regexp = /Welcome to .*, .*‬! We're glad you're here./;
-		assert( regexp.test( EchoPage.alertMessage.getText() ) );
+		assert( regexp.test( await EchoPage.alertMessage.getText() ) );
 
 	} );
 
