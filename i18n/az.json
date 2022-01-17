@@ -37,6 +37,7 @@
 	"echo-pref-notifications-blacklist": "Bu istifadəçilərdən gələn bildirişləri göstərmə. ([[mw:Special:MyLanguage/Help:Notifications#mute|daha ətraflı]])",
 	"echo-pref-notifications-page-linked-title-muted-list": "Bu səhifələrdə \"Səhifə keçidləri\" bildirişlərini göstərmə. ([[mw:Special:MyLanguage/Help:Notifications#mute|daha ətraflı]])",
 	"echo-learn-more": "Daha ətraflı",
+	"echo-log": "Public log\nBütün qeydlər",
 	"echo-new-messages": "Müzakirə səhifənizdə yeni mesajınız var",
 	"echo-category-title-edit-user-talk": "Müzakirə səhifəsi {{PLURAL:$1|mesajı|mesajları}}",
 	"echo-category-title-article-linked": "Səhifəyə {{PLURAL:$1|keçid|keçidlər}}",
