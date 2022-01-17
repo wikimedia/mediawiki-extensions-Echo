@@ -42,7 +42,7 @@ describe( 'Echo', function () {
 
 	} );
 
-	it( 'checks for welcome message after signup', async function () {
+	it.skip( 'checks for welcome message after signup', async function () {
 
 		const username = Util.getTestString( 'NewUser-' );
 		const password = Util.getTestString();
