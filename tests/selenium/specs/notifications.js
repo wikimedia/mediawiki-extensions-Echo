@@ -6,12 +6,12 @@ const assert = require( 'assert' ),
 
 describe( 'Notifications', function () {
 
-	it( 'checks for Notifications Page @daily', function () {
+	it( 'checks for Notifications Page @daily', async function () {
 
-		UserLoginPage.login( browser.config.mwUser, browser.config.mwPwd );
-		NotificationsPage.open();
+		await UserLoginPage.login( browser.config.mwUser, browser.config.mwPwd );
+		await NotificationsPage.open();
 
-		assert.strictEqual( NotificationsPage.notificationHeading.getText(), 'Notifications' );
+		assert.strictEqual( await NotificationsPage.notificationHeading.getText(), 'Notifications' );
 
 	} );
 
