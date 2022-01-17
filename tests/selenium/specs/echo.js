@@ -42,13 +42,13 @@ describe( 'Echo', function () {
 
 	} );
 
-	it.skip( 'checks for welcome message after signup', async function () {
+	it( 'checks for welcome message after signup', async function () {
 
 		const username = Util.getTestString( 'NewUser-' );
 		const password = Util.getTestString();
-		browser.call( async () => {
-			await Api.createAccount( bot, username, password );
-		} );
+
+		await Api.createAccount( bot, username, password );
+
 		await UserLoginPage.login( username, password );
 
 		await EchoPage.notices.click();
