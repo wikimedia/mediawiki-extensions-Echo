@@ -1816,5 +1816,25 @@ TEXT
 				Title::newFromText( 'Page001' )
 			)
 		);
+		$this->assertEquals(
+			'Hello',
+			EchoDiscussionParser::getTextSnippet(
+				'* Hello',
+				Language::factory( 'en' ),
+				EchoDiscussionParser::DEFAULT_SNIPPET_LENGTH,
+				null,
+				true
+			)
+		);
+		$this->assertEquals(
+			'* Hello',
+			EchoDiscussionParser::getTextSnippet(
+				'* Hello',
+				Language::factory( 'en' ),
+				EchoDiscussionParser::DEFAULT_SNIPPET_LENGTH,
+				null,
+				false
+			)
+		);
 	}
 }

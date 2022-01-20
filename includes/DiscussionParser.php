@@ -1239,13 +1239,14 @@ abstract class EchoDiscussionParser {
 	 * @param Language $lang
 	 * @param int $length Length in characters (not bytes); default DEFAULT_SNIPPET_LENGTH
 	 * @param Title|null $title Page from which the text snippet is being extracted
+	 * @param bool $linestart Whether or not this is at the start of a line
 	 * @return string
 	 */
 	public static function getTextSnippet(
-		$text, Language $lang, $length = self::DEFAULT_SNIPPET_LENGTH, $title = null
+		$text, Language $lang, $length = self::DEFAULT_SNIPPET_LENGTH, $title = null, $linestart = true
 	) {
 		// Parse wikitext
-		$html = MediaWikiServices::getInstance()->getMessageCache()->parse( $text, $title )->getText( [
+		$html = MediaWikiServices::getInstance()->getMessageCache()->parse( $text, $title, $linestart )->getText( [
 			'enableSectionEditLinks' => false
 		] );
 		$plaintext = trim( Sanitizer::stripAllTags( $html ) );
