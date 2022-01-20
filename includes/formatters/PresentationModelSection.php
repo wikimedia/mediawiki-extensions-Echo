@@ -20,17 +20,17 @@ class EchoPresentationModelSection {
 	/**
 	 * @var EchoEvent
 	 */
-	private $event;
+	protected $event;
 
 	/**
 	 * @var User
 	 */
-	private $user;
+	protected $user;
 
 	/**
 	 * @var Language
 	 */
-	private $language;
+	protected $language;
 
 	/**
 	 * @param EchoEvent $event
@@ -47,7 +47,7 @@ class EchoPresentationModelSection {
 	 * Get the raw (unparsed) section title
 	 * @return string|false Section title
 	 */
-	private function getRawSectionTitle() {
+	protected function getRawSectionTitle() {
 		if ( $this->rawSectionTitle !== null ) {
 			return $this->rawSectionTitle;
 		}
@@ -70,7 +70,7 @@ class EchoPresentationModelSection {
 	 * Get the section title parsed to plain text
 	 * @return string|false Section title (plain text)
 	 */
-	private function getParsedSectionTitle() {
+	protected function getParsedSectionTitle() {
 		if ( $this->parsedSectionTitle !== null ) {
 			return $this->parsedSectionTitle;
 		}
