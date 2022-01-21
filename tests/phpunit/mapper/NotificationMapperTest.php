@@ -32,7 +32,7 @@ class EchoNotificationMapperTest extends MediaWikiIntegrationTestCase {
 				'event_agent_ip' => '',
 				'notification_user' => 1,
 				'notification_timestamp' => '20140615101010',
-				'notification_read_timestamp' => '',
+				'notification_read_timestamp' => null,
 				'notification_bundle_hash' => 'testhash',
 			]
 		];
