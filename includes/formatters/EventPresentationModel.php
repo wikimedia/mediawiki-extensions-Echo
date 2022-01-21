@@ -729,7 +729,7 @@ abstract class EchoEventPresentationModel implements JsonSerializable, MessageLo
 					$this->getTruncatedTitleText( $title ),
 					$title->getFullURL( [ 'action' => $availableAction ] ),
 					$this->getUser()->getName()
-				)->escaped(),
+				)->text(),
 			null,
 			$data,
 			[ 'action' => $availableAction ]
