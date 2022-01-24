@@ -83,7 +83,10 @@ class EchoPresentationModelSection {
 			$rawSectionTitle,
 			$this->language,
 			EchoDiscussionParser::DEFAULT_SNIPPET_LENGTH,
-			$this->event->getTitle()
+			$this->event->getTitle(),
+			// linestart=false, because this wikitext was inside a heading like `== … ==`,
+			// so start-of-line markup like `*` should not be parsed (T299572)
+			false
 		);
 		return $this->parsedSectionTitle;
 	}
