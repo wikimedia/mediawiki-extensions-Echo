@@ -12,7 +12,7 @@ class EchoMentionStatusPresentationModel extends EchoEventPresentationModel {
 	/**
 	 * @var EchoPresentationModelSection
 	 */
-	private $section;
+	protected $section;
 
 	/**
 	 * @inheritDoc

@@ -7,7 +7,7 @@ class EchoEditUserTalkPresentationModel extends EchoEventPresentationModel {
 	/**
 	 * @var EchoPresentationModelSection
 	 */
-	private $section;
+	protected $section;
 
 	/**
 	 * @inheritDoc
