@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 /**
  * This job is created when sending notifications to the target users.  The purpose
  * of this job is to delete older notifications when the number of notifications a
@@ -33,7 +35,7 @@ class EchoNotificationDeleteJob extends Job {
 			foreach ( $this->params['userIds'] as $userId ) {
 				$jobs[] = new EchoNotificationDeleteJob( $this->title, [ 'userIds' => [ $userId ] ] );
 			}
-			JobQueueGroup::singleton()->push( $jobs );
+			MediaWikiServices::getInstance()->getJobQueueGroup()->push( $jobs );
 
 			return true;
 		}

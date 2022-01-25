@@ -4,7 +4,7 @@ namespace EchoPush;
 
 use EchoEvent;
 use EchoServices;
-use JobQueueGroup;
+use MediaWiki\MediaWikiServices;
 use User;
 
 class PushNotifier {
@@ -19,7 +19,7 @@ class PushNotifier {
 		$attributeManager = EchoServices::getInstance()->getAttributeManager();
 		$userEnabledEvents = $attributeManager->getUserEnabledEvents( $user, 'push' );
 		if ( in_array( $event->getType(), $userEnabledEvents ) ) {
-			JobQueueGroup::singleton()->push( self::createJob( $user, $event ) );
+			MediaWikiServices::getInstance()->getJobQueueGroup()->push( self::createJob( $user, $event ) );
 		}
 	}
 

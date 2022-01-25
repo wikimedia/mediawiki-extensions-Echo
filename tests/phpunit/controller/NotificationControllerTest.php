@@ -278,16 +278,17 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 			->method( 'getId' )
 			->will( $this->returnValue( 42 ) );
 		EchoNotificationController::enqueueEvent( $event );
-		$queues = JobQueueGroup::singleton()->getQueuesWithJobs();
+		$jobQueueGroup = $this->getServiceContainer()->getJobQueueGroup();
+		$queues = $jobQueueGroup->getQueuesWithJobs();
 		$this->assertCount( 1, $queues );
 		$this->assertEquals( 'EchoNotificationJob', $queues[0] );
-		$job = JobQueueGroup::singleton()->pop( 'EchoNotificationJob' );
+		$job = $jobQueueGroup->pop( 'EchoNotificationJob' );
 		$this->assertEquals( 'Test-title', $job->params[ 'title' ] );
 		$this->assertEquals( 42, $job->params[ 'eventId' ] );
 	}
 
 	public function testNotSupportedDelay() {
-		$queueGroup = JobQueueGroup::singleton();
+		$queueGroup = $this->getServiceContainer()->getJobQueueGroup();
 		$this->assertCount( 0, $queueGroup->getQueuesWithJobs() );
 
 		$event = $this->getMockBuilder( EchoEvent::class )

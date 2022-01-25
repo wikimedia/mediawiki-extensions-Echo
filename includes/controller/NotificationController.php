@@ -198,7 +198,7 @@ class EchoNotificationController {
 				'userIds' => $userIds
 			]
 		);
-		JobQueueGroup::singleton()->push( $job );
+		MediaWikiServices::getInstance()->getJobQueueGroup()->push( $job );
 	}
 
 	/**
@@ -240,7 +240,7 @@ class EchoNotificationController {
 	 * @param EchoEvent $event
 	 */
 	public static function enqueueEvent( EchoEvent $event ) {
-		$queue = JobQueueGroup::singleton();
+		$queue = MediaWikiServices::getInstance()->getJobQueueGroup();
 		$params = self::getEventParams( $event );
 
 		$job = new EchoNotificationJob(
