@@ -23,6 +23,8 @@
 	"echo-pref-email": "ߢߎߡߍߙߋ߲ߞߏ߲ߘߏ",
 	"echo-pref-push": "ߟߥߊ߬ߟߌ߬ߟߊ߲",
 	"echo-pref-email-frequency-never": "ߢߎߡߍߙߋ߲ߞߏ߲ߘߏ ߟߊ߬ߛߙߋ߬ߦߊ߬ߟߌ ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ߫ ߝߏߦߌ߬ ߞߊ߫ ߗߋ߫ ߒ ߡߊ߬",
+	"echo-pref-email-format-html": "HTML",
+	"echo-pref-email-format-plain-text": "ߛߓߍߟߌ߫ ߘߝߊߣߍ߲",
 	"echo-pref-cross-wiki-notifications": "ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ ߟߎ߬ ߦߌ߬ߘߊ߬ ߞߊ߬ ߝߘߊ߫ ߥߞߌ߫ ߜߘߍ ߟߎ߬ ߟߊ߫",
 	"echo-pref-notifications-blacklist": "ߟߊ߬ߓߊ߰ߙߊ߬ߟߊ ߣߌ߲߬ ߕߊ߫ ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ ߟߎ߬ ߞߊߣߊ߬ ߟߊߓߊ߯ߙߊ߫ ߘߋ߬. ([[mw:Special:MyLanguage/Help:Notifications#mute|learn more]])",
 	"echo-learn-more": "ߘߏߜߘߍ߫ ߟߎ߫ ߘߐߞߊ߬ߙߊ߲߬",
