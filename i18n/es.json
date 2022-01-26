@@ -131,6 +131,7 @@
 	"echo-notification-markasread-tooltip": "Marcar como leí­da",
 	"echo-notification-more-options-tooltip": "Más opciones",
 	"notification-dynamic-actions-mute-page-linked": "{{GENDER:$2|Silenciar}} notificaciones de enlace en \"$1\"",
+	"notification-dynamic-actions-mute-page-linked-confirmation-description": "{{GENDER:$2|Puedes}} gestionar tus páginas silenciadas en [$1 tus preferencias] en cualquier momento.",
 	"notification-dynamic-actions-watch-confirmation": "Ahora {{GENDER:$3|estás}} observando la página «$1»",
 	"notification-dynamic-actions-watch-confirmation-description": "{{GENDER:$3|Puedes}} dejar de observar [$2 esta página] en cualquier momento.",
 	"notification-link-text-expand-all": "Expandir",
