@@ -44,7 +44,7 @@ class ApiEchoArticleReminder extends ApiBase {
 			[ 'removeDuplicates' => true ],
 			Title::newFromID( $params['pageid'] )
 		);
-		JobQueueGroup::singleton()->push( $job );*/
+		MediaWikiServices::getInstance()->getJobQueueGroup()->push( $job );*/
 		$result += [
 			'result' => 'success'
 		];
