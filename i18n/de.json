@@ -68,7 +68,7 @@
 	"echo-category-title-thank-you-edit": "{{PLURAL:$1|Bearbeitungsmeilenstein|Bearbeitungsmeilensteine}}",
 	"echo-category-title-watchlist": "Bearbeitung an beobachteter Seite",
 	"echo-category-title-minor-watchlist": "Kleine Bearbeitung an beobachteter Seite",
-	"echo-pref-tooltip-edit-user-talk": "Benachrichtige mich, wenn jemand meiner Diskussionsseite bearbeitet.",
+	"echo-pref-tooltip-edit-user-talk": "Benachrichtige mich, wenn jemand meine Diskussionsseite bearbeitet.",
 	"echo-pref-tooltip-article-linked": "Benachrichtige mich, wenn jemand auf einer Seite auf eine andere von mir erstellte Seite verlinkt.",
 	"echo-pref-tooltip-reverted": "Benachrichtige mich, wenn jemand eine von mir gemachte Bearbeitung rückgängig macht oder zurücksetzt.",
 	"echo-pref-tooltip-mention": "Benachrichtige mich, wenn jemand auf meine Benutzerseite verlinkt.",
