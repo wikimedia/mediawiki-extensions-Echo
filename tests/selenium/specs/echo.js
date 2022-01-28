@@ -54,7 +54,7 @@ describe( 'Echo', function () {
 		await EchoPage.notices.click();
 
 		await EchoPage.alertMessage.waitForDisplayed();
-		const regexp = /Welcome to .*, .*‬! We're glad you're here./;
+		const regexp = /Welcome to .*, .*! We're glad you're here./;
 		assert( regexp.test( await EchoPage.alertMessage.getText() ) );
 
 	} );
