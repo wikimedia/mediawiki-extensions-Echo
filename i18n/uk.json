@@ -183,6 +183,7 @@
 	"notification-header-watchlist-multiuser-deleted": "<strong>$1</strong>, сторінку з {{GENDER:$2|Вашого}} списку спостереження, вилучено $3 {{PLURAL:$3|раз|рази|раз}}.",
 	"notification-header-watchlist-multiuser-moved": "<strong>$1</strong>, сторінку з {{GENDER:$2|Вашого}} списку спостереження, перейменовано $3 {{PLURAL:$3|раз|рази|раз}}.",
 	"notification-header-watchlist-multiuser-restored": "<strong>$1</strong>, сторінку з {{GENDER:$2|Вашого}} списку спостереження, відновлено $3 {{PLURAL:$3|раз|рази|раз}}.",
+	"notification-body-watchlist-once": "Інших сповіщень електронною поштою за майбутньої активності не буде, якщо тільки ви не {{GENDER:$1|не відвідаєте}} цю сторінку, увійшовши в систему.",
 	"notification-welcome-linktext": "Ласкаво просимо!",
 	"notification-header-thank-you-1-edit": "{{GENDER:$2|Ви}} щойно зробили {{GENDER:$2|своє}} перше редагування; дякуємо {{GENDER:$2|Вам}} і ласкаво просимо!",
 	"notification-header-thank-you-10-edit": "{{GENDER:$2|Ви}} щойно зробили {{GENDER:$2|своє}} десяте редагування; дякуємо {{GENDER:$2|Вам}}, продовжуйте!",
