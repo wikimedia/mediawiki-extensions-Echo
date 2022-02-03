@@ -123,7 +123,7 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 		global $wgEchoNotifications;
 
 		// Do not create event and notifications if write access is locked
-		if ( wfReadOnly()
+		if ( MediaWikiServices::getInstance()->getReadOnlyMode()->isReadOnly()
 			|| MWEchoDbFactory::newFromDefault()->getEchoDb( DB_PRIMARY )->isReadOnly()
 		) {
 			return false;

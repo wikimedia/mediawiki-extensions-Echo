@@ -71,6 +71,11 @@ class MWEchoNotifUser {
 	 */
 	private $userFactory;
 
+	/**
+	 * @var ReadOnlyMode
+	 */
+	private $readOnlyMode;
+
 	// The max notification count shown in badge
 
 	// The max number shown in bundled message, eg, <user> and 99+ others <action>.
@@ -94,6 +99,7 @@ class MWEchoNotifUser {
 	 * @param EchoTargetPageMapper $targetPageMapper
 	 * @param UserOptionsLookup $userOptionsLookup
 	 * @param UserFactory $userFactory
+	 * @param ReadOnlyMode $readOnlyMode
 	 */
 	public function __construct(
 		UserIdentity $user,
@@ -102,7 +108,8 @@ class MWEchoNotifUser {
 		EchoNotificationMapper $notifMapper,
 		EchoTargetPageMapper $targetPageMapper,
 		UserOptionsLookup $userOptionsLookup,
-		UserFactory $userFactory
+		UserFactory $userFactory,
+		ReadOnlyMode $readOnlyMode
 	) {
 		$this->mUser = $user;
 		$this->userNotifGateway = $userNotifGateway;
@@ -111,6 +118,7 @@ class MWEchoNotifUser {
 		$this->targetPageMapper = $targetPageMapper;
 		$this->userOptionsLookup = $userOptionsLookup;
 		$this->userFactory = $userFactory;
+		$this->readOnlyMode = $readOnlyMode;
 	}
 
 	/**
@@ -135,7 +143,8 @@ class MWEchoNotifUser {
 			new EchoNotificationMapper(),
 			new EchoTargetPageMapper(),
 			$services->getUserOptionsLookup(),
-			$services->getUserFactory()
+			$services->getUserFactory(),
+			$services->getReadOnlyMode()
 		);
 	}
 
@@ -266,7 +275,7 @@ class MWEchoNotifUser {
 	 */
 	public function markRead( $eventIds ) {
 		$eventIds = array_filter( (array)$eventIds, 'is_numeric' );
-		if ( !$eventIds || wfReadOnly() ) {
+		if ( !$eventIds || $this->readOnlyMode->isReadOnly() ) {
 			return false;
 		}
 
@@ -308,7 +317,7 @@ class MWEchoNotifUser {
 	 */
 	public function markUnRead( $eventIds ) {
 		$eventIds = array_filter( (array)$eventIds, 'is_numeric' );
-		if ( !$eventIds || wfReadOnly() ) {
+		if ( !$eventIds || $this->readOnlyMode->isReadOnly() ) {
 			return false;
 		}
 
@@ -353,7 +362,7 @@ class MWEchoNotifUser {
 	 * @return bool
 	 */
 	public function markAllRead( array $sections = [ EchoAttributeManager::ALL ] ) {
-		if ( wfReadOnly() ) {
+		if ( $this->readOnlyMode->isReadOnly() ) {
 			return false;
 		}
 
