@@ -5,5 +5,13 @@
 			"Shahwaqar"
 		]
 	},
+	"prefs-echo": "اِطلا",
+	"echo-pref-web": "ویب",
+	"echo-pref-email": "برقی خط",
+	"echo-pref-push": "ایپلِیکیشَن",
+	"echo-pref-email-format-html": "ایچ ٹی ایم ایل",
+	"echo-pref-email-format-plain-text": "سادٕ مَتَن",
+	"echo-log": "عَوٲمی لاگ",
+	"echo-new-messages": "تُہی چھُ اَکھ نٔو پٲغام بَحَث صَفَس پیٹھ",
 	"echo-displaynotificationsconfiguration-sorting-by-section-header": "اَلَگ اَلَگ قٕسٕمن چھانٛٹ دِنؠ"
 }
