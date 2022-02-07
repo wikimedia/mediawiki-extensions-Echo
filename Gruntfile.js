@@ -1,6 +1,7 @@
-/* eslint-env node, es6 */
+'use strict';
+
 module.exports = function ( grunt ) {
-	var conf = grunt.file.readJSON( 'extension.json' );
+	const conf = grunt.file.readJSON( 'extension.json' );
 
 	grunt.loadNpmTasks( 'grunt-banana-checker' );
 	grunt.loadNpmTasks( 'grunt-contrib-watch' );
@@ -28,7 +29,6 @@ module.exports = function ( grunt ) {
 				'modules/**/*.{css,less}'
 			]
 		},
-		// eslint-disable-next-line es/no-object-assign, compat/compat
 		banana: Object.assign( {
 			options: { requireLowerCase: false }
 		}, conf.MessagesDirs ),

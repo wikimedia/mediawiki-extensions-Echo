@@ -2,19 +2,19 @@
 	/**
 	 * A container that manages all models that are involved in creating
 	 * the notification list. There are currently two types of models:
-	 * * mw.echo.dm.SortedList - This currently includes the local model
+	 * - mw.echo.dm.SortedList - This currently includes the local model
 	 *   or any model that has individual messages.
-	 * * mw.echo.dm.CrossWikiNotificationItem - This is a model for the
+	 * - mw.echo.dm.CrossWikiNotificationItem - This is a model for the
 	 *   cross wiki notification, which acts as an item but itself contains
 	 *   a list.
 	 *
 	 * All notification models that are managed by the manager must implement the
 	 * following methods:
-	 * * getName - This should retrieve the model's name for the manager to fetch
-	 * * isGroup - This should be true for xwiki model and local bundles
-	 * * hasUnseen - This should iterate in the model's items and check whether
+	 * - getName - This should retrieve the model's name for the manager to fetch
+	 * - isGroup - This should be true for xwiki model and local bundles
+	 * - hasUnseen - This should iterate in the model's items and check whether
 	 *   there are any unseen notifications within them.
-	 * * getCount - Get a total count of available notifications currently in the model
+	 * - getCount - Get a total count of available notifications currently in the model
 	 *
 	 * @class
 	 * @mixins OO.EventEmitter
