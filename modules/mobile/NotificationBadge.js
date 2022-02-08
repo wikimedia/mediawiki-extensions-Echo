@@ -36,8 +36,9 @@ function NotificationBadge( options ) {
 		$notificationAnchor = $el.find( 'a' );
 		options.title = $notificationAnchor.attr( 'title' );
 		options.url = $notificationAnchor.attr( 'href' );
-		count = Number( $el.find( 'span' ).data( 'notification-count' ) );
+		count = Number( $el.find( '[data-notification-count]' ).data( 'notification-count' ) );
 	}
+
 	View.call( this,
 		$.extend( {
 			notificationIconClass: notificationIcon.getClassName(),

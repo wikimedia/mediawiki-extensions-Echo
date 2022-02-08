@@ -979,7 +979,6 @@ class Hooks implements RecentChange_saveHook {
 	 */
 	public static function onSkinMinervaReplaceNotificationsBadge( $user, $title, &$badge ) {
 		$notificationsTitle = SpecialPage::getTitleFor( 'Notifications' );
-		$count = 0;
 		$countLabel = '';
 		$hasUnseen = false;
 
@@ -995,10 +994,8 @@ class Hooks implements RecentChange_saveHook {
 		$notificationIconClass = 'mw-ui-icon mw-ui-icon-wikimedia-bellOutline-base20 mw-ui-icon-element user-button';
 		$url = $notificationsTitle->getLocalURL(
 			[ 'returnto' => $title->getPrefixedText() ] );
-
 		$notifUser = MWEchoNotifUser::newFromUser( $user );
 		$count = $notifUser->getNotificationCount();
-
 		$echoSeenTime = EchoSeenTime::newFromUser( $user );
 		$seenAlertTime = $echoSeenTime->getTime( 'alert', TS_ISO_8601 );
 		$seenMsgTime = $echoSeenTime->getTime( 'message', TS_ISO_8601 );
@@ -1102,12 +1099,15 @@ class Hooks implements RecentChange_saveHook {
 
 		$url = SpecialPage::getTitleFor( 'Notifications' )->getLocalURL();
 
+		$skinName = strtolower( $skinTemplate->getSkinName() );
+		$isMinervaSkin = $skinName === 'minerva';
 		// HACK: inverted icons only work in the "MediaWiki" OOUI theme
 		// Avoid flashes in skins that don't use it (T111821)
-		$out::setupOOUI( strtolower( $skinTemplate->getSkinName() ), $out->getLanguage()->getDir() );
+		$out::setupOOUI( $skinName, $out->getLanguage()->getDir() );
+		$bellIconClass = $isMinervaSkin ? 'oo-ui-icon-bellOutline' : 'oo-ui-icon-bell';
 
 		$msgLinkClasses = [ "mw-echo-notifications-badge", "mw-echo-notification-badge-nojs","oo-ui-icon-tray" ];
-		$alertLinkClasses = [ "mw-echo-notifications-badge", "mw-echo-notification-badge-nojs", "oo-ui-icon-bell" ];
+		$alertLinkClasses = [ "mw-echo-notifications-badge", "mw-echo-notification-badge-nojs", $bellIconClass ];
 
 		$hasUnseen = false;
 		if (
@@ -1186,6 +1186,7 @@ class Hooks implements RecentChange_saveHook {
 			'active' => ( $url == $title->getLocalURL() ),
 			'link-class' => $alertLinkClasses,
 			'data' => [
+				'event-name' => 'ui.notifications',
 				'counter-num' => $alertCount,
 				'counter-text' => $alertFormattedCount,
 			],

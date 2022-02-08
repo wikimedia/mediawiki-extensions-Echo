@@ -49,8 +49,10 @@ function init() {
 				// DO NOT USE stopPropagation or you'll break click tracking in WikimediaEvents
 				ev.preventDefault();
 			},
+			// First selector = Minerva using the SkinMinervaReplaceNotificationsBadge
+			// Second selector = Minerva NOT using the SkinMinervaReplaceNotificationsBadge.
 			// eslint-disable-next-line no-jquery/no-global-selector
-			el: $( '#user-notifications.user-button' ).parent()
+			el: $( '#user-notifications.user-button, .minerva-user-notifications ul' ).parent()
 		} );
 		overlayManager.add( /^\/notifications$/, showNotificationOverlay );
 
