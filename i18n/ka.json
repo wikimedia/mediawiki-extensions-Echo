@@ -9,7 +9,8 @@
 			"Nodar Kherkheulidze",
 			"Otogi",
 			"Sopopruidze",
-			"Tokoko"
+			"Tokoko",
+			"Გიო ოქრო"
 		]
 	},
 	"echo-desc": "შეტყობინებებისა და მოვლენების სისტემა",
@@ -45,7 +46,7 @@
 	"echo-category-title-system": "{{PLURAL:$1|სისტემა}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|მომხმარებლის უფლებების ცვლილება|მომხმარებლის უფლებების ცვლილებები}}",
 	"echo-category-title-emailuser": "{{PLURAL:$1|იმეილი სხვა მომხმარებლისაგან|იმეილი სხვა მომხმარებლებისაგან}}",
-	"echo-category-title-thank-you-edit": "{{PLURAL:$1|საფეხურის|საფეხურის}} რედაქტირება",
+	"echo-category-title-thank-you-edit": "რედაქტირებების მრგვალი რიცხვი",
 	"echo-pref-tooltip-edit-user-talk": "შემატყობინე, როდესაც ვინმე დაარედაქტირებს ჩემს განხილვის გვერდს.",
 	"echo-pref-tooltip-article-linked": "შემატყობინე, როდესაც ვინმე უკავშირდება სტატიებს ჩემ მიერ შექმნილ გვერდზე",
 	"echo-pref-tooltip-reverted": "შემატყობინე, როდესაც ვინმე ჩემს რედაქტირებას გააუქმებს.",
@@ -54,6 +55,7 @@
 	"echo-pref-tooltip-mention-success": "შემატყობინე, როდესაც მე ვუგზავნი ვინმეს მოხსენებას",
 	"echo-pref-tooltip-user-rights": "შემატყობინე, როდესაც ვინმე შეცვლის ჩემს მომხმარებლის უფლებებს.",
 	"echo-pref-tooltip-emailuser": "შემატყობინე, როდესაც ვინმე მომწერს ელექტრონულ მეილს.",
+	"echo-pref-tooltip-thank-you-edit": "შემატყობინე, როდესაც მივაღწევ ჩემ 1-ელ, მე-10, მე-100... რედაქტირებას.",
 	"notifications": "შეტყობინებები",
 	"tooltip-pt-notifications-alert": "{{GENDER:|თქვენი}} მოხსენებები",
 	"tooltip-pt-notifications-notice": "თქვენი შეტყობინებები",

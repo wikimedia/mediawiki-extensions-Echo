@@ -195,7 +195,7 @@
 	"notification-link-thank-you-edit": "{{GENDER:$1|Twoja}} edycja",
 	"notification-link-text-view-edit": "Zobacz edycję",
 	"notification-link-article-reminder": "Zobacz stronę",
-	"notification-header-reverted": "{{GENDER:$2|Wycofano}} {{PLURAL:$4|twoją edycję|twoje edycje}} na stronie <strong>$3</strong>.",
+	"notification-header-reverted": "{{GENDER:$2|Wycofano}} {{PLURAL:$4|Twoją edycję|Twoje edycje}} na stronie <strong>$3</strong>.",
 	"notification-header-emailuser": "$1 {{GENDER:$2|wysłał|wysłała|wysłał(a)}} Ci e-mail.",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$2|napisał|napisała}} do {{GENDER:$3|Ciebie}} w projekcie {{SITENAME}}",
 	"notification-page-linked-email-subject": "Na stronie {{SITENAME}} pojawił się link do utworzonej przez {{GENDER:$3|Ciebie}} strony",
