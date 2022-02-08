@@ -482,7 +482,6 @@
 		"remoteExtPath": "Echo/modules"
 	},
 	"Hooks": {
-		"SkinMinervaReplaceNotificationsBadge": "MediaWiki\\Extension\\Notifications\\Hooks::onSkinMinervaReplaceNotificationsBadge",
 		"LoadExtensionSchemaUpdates": "MediaWiki\\Extension\\Notifications\\Hooks::onLoadExtensionSchemaUpdates",
 		"GetPreferences": "MediaWiki\\Extension\\Notifications\\Hooks::getPreferences",
 		"BeforePageDisplay": "MediaWiki\\Extension\\Notifications\\Hooks::beforePageDisplay",
