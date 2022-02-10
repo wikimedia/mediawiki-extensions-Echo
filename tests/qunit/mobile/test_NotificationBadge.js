@@ -20,7 +20,7 @@
 			badge.$el.find( '.zero' ).length === 0;
 
 		badge.setCount( 0 );
-		assert.ok( initialClassExpectationsMet, 'No icon and no zero class' );
+		assert.true( initialClassExpectationsMet, 'No icon and no zero class' );
 		assert.strictEqual( badge.$el.find( '.zero' ).length, 1, 'A zero class is present on the badge' );
 		badge.setCount( 105 );
 		assert.strictEqual( badge.options.notificationCountRaw, 100, 'Number is capped to 100.' );
