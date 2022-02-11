@@ -176,7 +176,6 @@ abstract class EchoDiscussionParser {
 	 * @param array[] $interpretation Results of {@see getChangeInterpretationForRevision}
 	 * @param Title|null $title
 	 * @return string[] Array containing section title and text
-	 * @suppress SecurityCheck-DoubleEscaped
 	 */
 	public static function detectSectionTitleAndText( array $interpretation, Title $title = null ) {
 		$header = $snippet = '';
