@@ -48,7 +48,7 @@
 	"echo-category-title-other": "{{PLURAL:$1|Digər}}",
 	"echo-category-title-system": "{{PLURAL:$1|Sistem}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|İstifadəçi hüquqları dəyişikliyi|İstifadəçi hüquqları dəyişiklikləri}}",
-	"echo-category-title-emailuser": "{{PLURAL:$1|Başqa istifadəçidən gələn elektron məktub|Başqa istifadəçilərdən gələn elektron məktublar}}",
+	"echo-category-title-emailuser": "{{PLURAL:$1|Başqa istifadəçidən gələn e-məktub|Başqa istifadəçilərdən gələn e-məktublar}}",
 	"echo-category-title-thank-you-edit": "Əlamətdar {{PLURAL:$1|redaktə|redaktələr}}",
 	"echo-pref-tooltip-edit-user-talk": "Müzakirəmə səhifəm redaktə olunduğunda mənə bildiriş göndər.",
 	"echo-pref-tooltip-article-linked": "Başqa səhifədən yaratdığım səhifəyə keçid verildikdə mənə bildiriş göndər.",
