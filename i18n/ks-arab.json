@@ -13,5 +13,11 @@
 	"echo-pref-email-format-plain-text": "سادٕ مَتَن",
 	"echo-log": "عَوٲمی لاگ",
 	"echo-new-messages": "تُہی چھُ اَکھ نٔو پٲغام بَحَث صَفَس پیٹھ",
-	"echo-displaynotificationsconfiguration-sorting-by-section-header": "اَلَگ اَلَگ قٕسٕمن چھانٛٹ دِنؠ"
+	"echo-displaynotificationsconfiguration-sorting-by-section-header": "اَلَگ اَلَگ قٕسٕمن چھانٛٹ دِنؠ",
+	"notification-timestamp-today": "اَز",
+	"notification-timestamp-yesterday": "راتھ",
+	"notification-inbox-filter-read": "پَرُن",
+	"notification-inbox-filter-all": "سٲری",
+	"echo-date-today": "اَز",
+	"echo-date-yesterday": "راتھ"
 }
