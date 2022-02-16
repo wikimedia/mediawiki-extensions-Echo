@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kaszeba"
+			"Kaszeba",
+			"Kirsan"
 		]
 	},
 	"tooltip-pt-notifications-alert": "Mòjé alarmë",
+	"tooltip-pt-notifications-notice": "Mòje kòmùnikatë",
 	"notification-link-article-reminder": "Òbôczë starnã"
 }
