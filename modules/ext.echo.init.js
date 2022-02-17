@@ -234,7 +234,9 @@ function initDesktop() {
 				$badge = $( this ),
 				clickedSection = $badge.parent().prop( 'id' ) === 'pt-notifications-alert' ? 'alert' : 'message';
 			if ( e.which !== 1 || $badge.data( 'clicked' ) ) {
-				return false;
+				// Do not return false (as that calls stopPropagation)
+				e.preventDefault();
+				return;
 			}
 
 			$badge.data( 'clicked', true );
@@ -270,8 +272,8 @@ function initDesktop() {
 				// Un-dim badge if loading failed
 				$badge.removeClass( 'mw-echo-notifications-badge-dimmed' );
 			} );
-			// Prevent default
-			return false;
+			// Prevent default. Do not return false (as that calls stopPropagation)
+			e.preventDefault();
 		} );
 
 		function pollForNotificationCountUpdates() {

@@ -53,6 +53,18 @@
 	mw.echo.ui.BadgeLinkWidget.static.tagName = 'a';
 
 	/**
+	 * Overrides ButtonElement.prototype.onClick so that it doesn't call ev.stopPropagation.
+	 * This ensures the dialog dismisses other open overlays e.g. ULS (See T295796 for more
+	 * information).
+	 *
+	 * @inheritDoc
+	 */
+	mw.echo.ui.BadgeLinkWidget.prototype.onClick = function ( ev ) {
+		ev.preventDefault();
+		this.emit( 'click' );
+	};
+
+	/**
 	 * Set the count labels for this button.
 	 *
 	 * @param {number} numItems Number of items
