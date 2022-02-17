@@ -375,8 +375,9 @@ abstract class EchoDiscussionParser {
 	 * - [unknownUsers]: An array of DBKey strings representing unknown users.
 	 * - [anonymousUsers]: An array of DBKey strings representing anonymous IP users.
 	 */
-	private static function getUserMentions( Title $title, $revisionUserId, array $userLinks ) {
+	public static function getUserMentions( Title $title, $revisionUserId, array $userLinks ) {
 		global $wgEchoMaxMentionsCount;
+
 		$userMentions = [
 			'validMentions' => [],
 			'unknownUsers' => [],
@@ -451,7 +452,7 @@ abstract class EchoDiscussionParser {
 	 * @return int[]
 	 * Array of links in the user namespace with DBKey => ID.
 	 */
-	private static function getUserLinks( $content, Title $title ) {
+	public static function getUserLinks( $content, Title $title ) {
 		$output = self::parseNonEditWikitext( $content, new Article( $title ) );
 		$links = $output->getLinks();
 
@@ -476,7 +477,7 @@ abstract class EchoDiscussionParser {
 	 *
 	 * @return ParserOutput
 	 */
-	private static function parseNonEditWikitext( $wikitext, Article $article ) {
+	public static function parseNonEditWikitext( $wikitext, Article $article ) {
 		static $cache = [];
 
 		$cacheKey = md5( $wikitext ) . ':' . $article->getTitle()->getPrefixedText();
