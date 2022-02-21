@@ -85,7 +85,7 @@
 	"echo-specialpage-pagination-numnotifications": "$1 {{PLURAL:$1|Notifikatioun|Notifikatiounen}}",
 	"echo-specialpage-pagination-range": "$1 bis $2",
 	"echo-specialpage-pagefilters-title": "Rezent Aktivitéit",
-	"echo-specialpage-pagefilters-subtitle": "Säite mat net geliesten Notifikatiounen",
+	"echo-specialpage-pagefilters-subtitle": "Säite mat net geliesen Notifikatiounen",
 	"notificationsmarkread-legend": "Notifikatioun als gelies markéieren",
 	"echo-none": "Dir hutt keng Notifikatiounen.",
 	"echo-api-failure": "D'Notifikatioune konnten net ofgeruff ginn.",
