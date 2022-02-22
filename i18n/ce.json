@@ -40,7 +40,7 @@
 	"echo-category-title-mention": "{{PLURAL:$1|хаам|хаамаш}}",
 	"echo-category-title-mention-failure": "{{PLURAL:$1|Нисцадела хьахор|Нисцадела хьахорш}}",
 	"echo-category-title-mention-success": "{{PLURAL:$1|Кхиамца хьахор|Кхиамца хьахорш}}",
-	"echo-category-title-other": "{{PLURAL:$1|кхин долу|кхин дерш}}",
+	"echo-category-title-other": "{{PLURAL:$1|кхидерг|кхидерш}}",
 	"echo-category-title-system": "{{PLURAL:$1|Системин}}",
 	"echo-category-title-system-noemail": "{{PLURAL:$1|1=Системин}}",
 	"echo-category-title-system-emailonly": "{{PLURAL:$1|Система}}",
