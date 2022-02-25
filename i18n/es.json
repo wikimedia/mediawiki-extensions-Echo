@@ -67,7 +67,7 @@
 	"echo-learn-more": "Más información",
 	"echo-log": "Registro público",
 	"echo-new-messages": "Tienes un nuevo mensaje de discusión",
-	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Edita|Edita}} a mi página de discusión",
+	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Edición|Ediciones}} en mi página de discusión",
 	"echo-category-title-article-linked": "{{PLURAL:$1|Enlace|Enlaces}} de página",
 	"echo-category-title-reverted": "{{PLURAL:$1|Reversión|Reversiones}} de edición",
 	"echo-category-title-mention": "{{PLURAL:$1|Mención|Menciones}}",
