@@ -6,7 +6,7 @@
 	"scripts": {
 		"test": "grunt test",
 		"doc": "jsduck",
-		"minify-svg": "svgo --config=.svgo.config.js -q -r -f modules/icons/",
+		"minify-svg": "svgo --config=.svgo.config.js --quiet --recursive --folder modules/icons/",
 		"selenium-test": "wdio tests/selenium/wdio.conf.js",
 		"selenium-daily": "npm run selenium-test -- --mochaOpts.grep @daily"
 	},
@@ -23,7 +23,7 @@
 		"grunt-eslint": "23.0.0",
 		"grunt-stylelint": "0.16.0",
 		"stylelint-config-wikimedia": "0.11.1",
-		"svgo": "2.3.1",
+		"svgo": "2.8.0",
 		"wdio-mediawiki": "2.0.0",
 		"webdriverio": "7.16.13"
 	}
