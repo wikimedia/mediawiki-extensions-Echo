@@ -1,6 +1,6 @@
 ( function ( M ) {
 	var OverlayManager = M.require( 'mobile.startup' ).OverlayManager,
-		NotificationBadge = require( '../../../modules/mobile/NotificationBadge.js' );
+		NotificationBadge = require( 'ext.echo.mobile' ).NotificationBadge;
 
 	QUnit.module( 'ext.echo.mobile - NotificationBadge', {
 		beforeEach: function () {

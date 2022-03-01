@@ -1,3 +1,5 @@
+var NotificationBadge = require( './NotificationBadge.js' );
+
 var NOTIFICATIONS_PATH = '/notifications';
 
 /**
@@ -24,7 +26,6 @@ function init() {
 		notificationsOverlay = require( './overlay.js' ),
 		router = require( 'mediawiki.router' ),
 		overlayManager = mw.mobileFrontend.require( 'mobile.startup' ).OverlayManager.getSingleton(),
-		NotificationBadge = require( './NotificationBadge.js' ),
 		initialized = false;
 
 	function showNotificationOverlay() {
@@ -117,3 +118,4 @@ function init() {
 }
 
 module.exports.init = init;
+module.exports.NotificationBadge = NotificationBadge;

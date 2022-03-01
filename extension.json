@@ -82,13 +82,13 @@
 	"QUnitTestModule": {
 		"localBasePath": "",
 		"remoteExtPath": "Echo",
-		"templates": {
-			"NotificationBadge.mustache": "modules/mobile/NotificationBadge.mustache"
-		},
-		"packageFiles": [
-			"tests/qunit/index.js",
+		"dependencies": [
+			"mobile.startup",
+			"ext.echo.dm",
+			"ext.echo.mobile"
+		],
+		"scripts": [
 			"tests/qunit/mobile/test_NotificationBadge.js",
-			"modules/mobile/NotificationBadge.js",
 			"tests/qunit/model/test_mw.echo.dm.BundleNotificationItem.js",
 			"tests/qunit/model/test_mw.echo.dm.CrossWikiNotificationItem.js",
 			"tests/qunit/model/test_mw.echo.dm.FiltersModel.js",
