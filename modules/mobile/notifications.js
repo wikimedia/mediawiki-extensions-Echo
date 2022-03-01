@@ -14,11 +14,11 @@ function onCloseNotificationsOverlay() {
 	mw.hook( 'echo.mobile' ).fire( false );
 }
 
-/*
+/**
  * This code loads the necessary modules for the notifications overlay, not to be confused
  * with the Toast notifications defined by common/toast.js.
  */
-module.exports = function () {
+function init() {
 	var badge,
 		notificationsFilterOverlay = require( './notificationsFilterOverlay.js' ),
 		notificationsOverlay = require( './overlay.js' ),
@@ -114,4 +114,6 @@ module.exports = function () {
 		} );
 	} );
 
-};
+}
+
+module.exports.init = init;

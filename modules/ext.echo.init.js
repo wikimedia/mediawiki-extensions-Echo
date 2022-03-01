@@ -300,7 +300,7 @@ function initDesktop() {
 function initMobile() {
 	if ( !mw.user.isAnon() ) {
 		mw.loader.using( [ 'ext.echo.mobile', 'mobile.startup' ] ).then( function ( require ) {
-			require( 'ext.echo.mobile' )();
+			require( 'ext.echo.mobile' ).init();
 		} );
 	}
 }
