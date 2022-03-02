@@ -1,17 +1,11 @@
-( function ( M ) {
-	var OverlayManager = M.require( 'mobile.startup' ).OverlayManager,
-		NotificationBadge = require( 'ext.echo.mobile' ).NotificationBadge;
+( function () {
+	var NotificationBadge = require( 'ext.echo.mobile' ).NotificationBadge;
 
-	QUnit.module( 'ext.echo.mobile - NotificationBadge', {
-		beforeEach: function () {
-			this.OverlayManager = OverlayManager.getSingleton();
-		}
-	} );
+	QUnit.module( 'ext.echo.mobile - NotificationBadge', {} );
 
 	QUnit.test( '#setCount', function ( assert ) {
 		var initialClassExpectationsMet,
 			badge = new NotificationBadge( {
-				overlayManager: this.OverlayManager,
 				hasNotifications: true,
 				hasUnseenNotifications: true,
 				notificationCountRaw: 5
@@ -37,7 +31,6 @@
 			.withArgs( 'echo-badge-count', '۲' ).returns( { text: function () { return '۲'; } } );
 
 		badge = new NotificationBadge( {
-			overlayManager: this.OverlayManager,
 			el: $( '<div><a title="n" href="/" class="notification-unseen"><div class="circle" ><span data-notification-count="2">۲</span></div></a></div>' )
 		} );
 		assert.strictEqual( badge.options.notificationCountRaw, 2,
@@ -52,7 +45,6 @@
 	QUnit.test( '#render [hasUnseenNotifications]', function ( assert ) {
 		var badge = new NotificationBadge( {
 			notificationCountRaw: 0,
-			overlayManager: this.OverlayManager,
 			hasNotifications: false,
 			hasUnseenNotifications: false
 		} );
@@ -62,7 +54,6 @@
 	QUnit.test( '#markAsSeen', function ( assert ) {
 		var badge = new NotificationBadge( {
 			notificationCountRaw: 2,
-			overlayManager: this.OverlayManager,
 			hasNotifications: true,
 			hasUnseenNotifications: true
 		} );
@@ -73,4 +64,4 @@
 		assert.strictEqual( badge.$el.find( '.notification-unseen' ).length, 0,
 			'Unseen class disappears after markAsSeen called.' );
 	} );
-}( mw.mobileFrontend ) );
+}() );

@@ -83,7 +83,6 @@
 		"localBasePath": "",
 		"remoteExtPath": "Echo",
 		"dependencies": [
-			"mobile.startup",
 			"ext.echo.dm",
 			"ext.echo.mobile"
 		],
