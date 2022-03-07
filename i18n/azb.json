@@ -34,6 +34,7 @@
 	"tooltip-pt-notifications-notice": "بیلدیریلرینیز",
 	"echo-specialpage": "بیلدیری‌لر",
 	"echo-specialpage-pagefilters-title": "سوْن چالیشمالار",
+	"echo-specialpage-pagefilters-subtitle": "اوْخونمامیش بیلدیریلری اوْلان صفحه‌لر",
 	"echo-none": "سیزین بیلدیرینیز یوخدور.",
 	"notification-link-text-view-changes": "دییشیکلره {{GENDER:$1|باخ}}",
 	"notification-header-edit-user-talk-with-section": "$1 <strong>{{GENDER:$3|سیزین}} دانیشیق صفحه‌نیزین \"</strong>$4\"<strong>-ده </strong> بیر مساژ {{GENDER:$2|یازیبدیر}}.",
