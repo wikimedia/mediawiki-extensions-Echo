@@ -59,6 +59,7 @@
 	"apihelp-query+notifications-param-bundle": "是否根據通知類型捆綁規則，顯示兼容捆綁的未讀通知。",
 	"apihelp-query+notifications-example-1": "通知清單",
 	"apihelp-query+notifications-example-2": "依章節分類通知清單並顯示總數",
+	"apihelp-query+notifications-example-3": "列出電子郵件通知",
 	"apihelp-query+unreadnotificationpages-description": "獲取目前使用者有未讀通知的頁面。",
 	"apihelp-query+unreadnotificationpages-summary": "取得目前使用者有未讀通知的頁面。",
 	"apihelp-query+unreadnotificationpages-param-grouppages": "將討論頁與對應的主題頁面歸在一起，並將未分配給某一頁面的通知與目前使用者的使用者頁面歸在一起。",
