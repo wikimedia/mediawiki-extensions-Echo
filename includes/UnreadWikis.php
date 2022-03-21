@@ -117,17 +117,13 @@ class EchoUnreadWikis {
 		if ( $alertCount || $msgCount ) {
 			$values = [
 				'euw_alerts' => $alertCount,
-				'euw_alerts_ts' => $dbw->timestamp(
-					$alertTime
-						? $alertTime->getTimestamp( TS_MW )
-						: static::DEFAULT_TS
-				),
+				'euw_alerts_ts' => $alertTime
+					? $alertTime->getTimestamp( TS_MW )
+					: static::DEFAULT_TS,
 				'euw_messages' => $msgCount,
-				'euw_messages_ts' => $dbw->timestamp(
-					$msgTime
-						? $msgTime->getTimestamp( TS_MW )
-						: static::DEFAULT_TS
-				),
+				'euw_messages_ts' => $msgTime
+					? $msgTime->getTimestamp( TS_MW )
+					: static::DEFAULT_TS,
 			];
 
 			// when there is unread alert(s) and/or message(s), upsert the row

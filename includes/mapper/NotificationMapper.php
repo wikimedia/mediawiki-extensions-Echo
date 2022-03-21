@@ -25,8 +25,6 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 			static function ( IDatabase $dbw, $fname ) use ( $row, $listeners ) {
 				$row['notification_timestamp'] =
 					$dbw->timestamp( $row['notification_timestamp'] );
-				$row['notification_read_timestamp'] =
-					$dbw->timestampOrNull( $row['notification_read_timestamp'] );
 				$dbw->insert( 'echo_notification', $row, $fname );
 				foreach ( $listeners as $listener ) {
 					$dbw->onTransactionCommitOrIdle( $listener, $fname );
