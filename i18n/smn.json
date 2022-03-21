@@ -10,6 +10,7 @@
 	"prefs-emailsettings": "Šleđgâpostâasâttâsah",
 	"notifications": "Almottâsah",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Tuu larmâdâsah}}",
+	"tooltip-pt-notifications-notice": "{{GENDER:|Tuu almottâsah}}",
 	"echo-specialpage": "Almottâsah",
 	"notification-link-text-expand-all": "Čääiti",
 	"notification-link-text-view-changes": "{{GENDER:$1|Čääiti}} nubástusâid",
@@ -17,6 +18,7 @@
 	"notification-inbox-filter-all": "Puoh",
 	"echo-specialmute-label-mute-notifications": "Jávuttut almottâsâid taan {{GENDER:$1|kevttest}}",
 	"echo-email-html-footer-preference-link-text": "täärhist {{GENDER:$1|asâttâsâidâd}}",
+	"echo-notification-alert-text-only": "Larmâdâsah",
 	"echo-overlay-link": "Puoh almottâsah",
 	"echo-overlay-title": "<b>Almottâsah</b>",
 	"echo-email-batch-link-text-view-all-notifications": "Čääiti puoh almottâsâid"
