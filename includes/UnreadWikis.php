@@ -9,6 +9,7 @@ use MediaWiki\User\UserIdentity;
 class EchoUnreadWikis {
 
 	private const DEFAULT_TS = '00000000000000';
+	private const DEFAULT_TS_DB = '00010101010101';
 
 	/**
 	 * @var int
@@ -82,11 +83,13 @@ class EchoUnreadWikis {
 			$wikis[$row->euw_wiki] = [
 				EchoAttributeManager::ALERT => [
 					'count' => $row->euw_alerts,
-					'ts' => $row->euw_alerts_ts,
+					'ts' => $row->euw_alerts_ts === static::DEFAULT_TS_DB ?
+						static::DEFAULT_TS : wfTimestamp( TS_MW, $row->euw_alerts_ts ),
 				],
 				EchoAttributeManager::MESSAGE => [
 					'count' => $row->euw_messages,
-					'ts' => $row->euw_messages_ts,
+					'ts' => $row->euw_messages_ts === static::DEFAULT_TS_DB ?
+						static::DEFAULT_TS : wfTimestamp( TS_MW, $row->euw_messages_ts ),
 				],
 			];
 		}
@@ -117,13 +120,17 @@ class EchoUnreadWikis {
 		if ( $alertCount || $msgCount ) {
 			$values = [
 				'euw_alerts' => $alertCount,
-				'euw_alerts_ts' => $alertTime
-					? $alertTime->getTimestamp( TS_MW )
-					: static::DEFAULT_TS,
+				'euw_alerts_ts' => $dbw->timestamp(
+					$alertTime
+						? $alertTime->getTimestamp( TS_MW )
+						: static::DEFAULT_TS_DB
+				),
 				'euw_messages' => $msgCount,
-				'euw_messages_ts' => $msgTime
-					? $msgTime->getTimestamp( TS_MW )
-					: static::DEFAULT_TS,
+				'euw_messages_ts' => $dbw->timestamp(
+					$msgTime
+						? $msgTime->getTimestamp( TS_MW )
+						: static::DEFAULT_TS_DB
+				),
 			];
 
 			// when there is unread alert(s) and/or message(s), upsert the row
