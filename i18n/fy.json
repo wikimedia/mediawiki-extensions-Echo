@@ -144,7 +144,7 @@
 	"notification-header-mention-failure-too-many": "{{GENDER:$2|Jo}} hawwe besocht mear as $3 {{PLURAL:$3|meidogger|meidoggers}} te neamen. Al it neamen boppe dy limyt is net ferstjoerd.",
 	"notification-header-mention-failure-bundle": "{{PLURAL:$3|It neamen|$3 kear neamen}} troch {{GENDER:$2|jo}} op de oerlisside fan <strong>$4</strong> {{PLURAL:$3|koe}} net ferstjoerd wurde.",
 	"notification-compact-header-mention-failure-user-unknown": "<strong>Meidochnamme bestiet net:</strong> $1",
-	"notification-compact-header-mention-failure-user-anonymous": "<strong>IP's kinne net neamd wurde:</strong> $1",
+	"notification-compact-header-mention-failure-user-anonymous": "<strong>YP's kinne net neamd wurde:</strong> $1",
 	"notification-header-mention-success": "{{GENDER:$2|Jo}} neamen fan <strong>$3</strong> is ferstjoerd.",
 	"notification-header-mention-success-bundle": "{{PLURAL:$3|It neamen|$3 kear neamen}} troch {{GENDER:$2|jo}} op de oerlisside fan <strong>$4</strong> {{PLURAL:$3|is}} ferstjoerd.",
 	"notification-compact-header-mention-success": "<strong>{{GENDER:$2|Jo hawwe}} neamd:</strong> $3",
