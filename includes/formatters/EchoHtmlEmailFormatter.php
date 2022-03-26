@@ -6,10 +6,12 @@ class EchoHtmlEmailFormatter extends EchoEventFormatter {
 		'cursor: pointer;' .
 		'text-align: center;' .
 		'text-decoration: none;' .
-		'padding: .45em 0.6em .45em;' .
+		'padding: 6px 10px;' .
+		'border-radius: 2px;' .
 		'color: #FFF;' .
 		'background: #36C;' .
 		'font-family: Arial, Helvetica, sans-serif;' .
+		'font-weight: bold;' .
 		'font-size: 13px;';
 
 	public const SECONDARY_LINK_STYLE =
