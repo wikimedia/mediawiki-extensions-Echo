@@ -185,7 +185,7 @@
 	"notification-header-watchlist-multiuser-deleted": "<strong>$1</strong>, uma das {{GENDER:$2|suas}} páginas vigiadas, foi eliminada $3 {{PLURAL:$3|vez|vezes}}.",
 	"notification-header-watchlist-multiuser-moved": "<strong>$1</strong>, uma das {{GENDER:$2|suas}} páginas vigiadas, foi movida $3 {{PLURAL:$3|vez|vezes}}.",
 	"notification-header-watchlist-multiuser-restored": "<strong>$1</strong>, uma das {{GENDER:$2|suas}} páginas vigiadas, foi restaurada $3 {{PLURAL:$3|vez|vezes}}.",
-	"notification-body-watchlist-once": "Não será feita mais nenhuma notificação por correio eletrónico no caso de atividade futura, a menos que visite esta página com uma sessão iniciada.",
+	"notification-body-watchlist-once": "Não será feita mais nenhuma notificação por correio eletrónico no caso de atividade futura, a menos que visite esta página com uma sessão iniciada.{{GENDER:$1|}}",
 	"notification-welcome-linktext": "Bem-vindo(a)!",
 	"notification-header-thank-you-1-edit": "{{GENDER:$2|Acabou}} de fazer a {{GENDER:$2|sua}} primeira edição; obrigado, e seja {{GENDER:$2|bem-vindo|bem-vinda|bem-vindo(a)}}!",
 	"notification-header-thank-you-10-edit": "{{GENDER:$2|Acabou}} de fazer a {{GENDER:$2|sua}} décima edição; obrigado e, por favor, continue!",
