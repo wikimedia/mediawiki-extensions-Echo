@@ -26,7 +26,8 @@
 			"Rodrigo codignoli",
 			"TheEduGobi",
 			"TheGabrielZaum",
-			"Vonil55"
+			"Vonil55",
+			"YuriNikolai"
 		]
 	},
 	"echo-desc": "Sistema para notificar usuários sobre eventos e mensagens",
@@ -75,7 +76,7 @@
 	"echo-category-title-thank-you-edit": "{{PLURAL:$1|marco|marcos}} de edição",
 	"echo-category-title-watchlist": "Editar na página vigiadas",
 	"echo-category-title-minor-watchlist": "Edição menores na página vigiadas",
-	"echo-pref-tooltip-edit-user-talk": "Notifique-me quando alguém postar uma mensagem ou responder na minha página de discussão do usuário.",
+	"echo-pref-tooltip-edit-user-talk": "Notifique-me quando alguém editar a minha página de discussão de usuário.",
 	"echo-pref-tooltip-article-linked": "Notifique-me quando alguém criar um link para uma página que criei a partir de uma página de artigo.",
 	"echo-pref-tooltip-reverted": "Notifique-me quando alguém reverter uma edição que fiz usando desfazer ou a ferramenta de reversão.",
 	"echo-pref-tooltip-mention": "Notificar-me quando alguém criar links para a minha página de usuário.",
