@@ -100,10 +100,7 @@ class SpecialNotificationsMarkRead extends FormSpecialPage {
 		// places on the page, it has to be neutral, so we make the button
 		// manually.
 		$form->suppressDefaultSubmit();
-
-		$pageTitle = $this->getPageTitle();
-		$form->setTitle( $pageTitle );
-		$form->setAction( $pageTitle->getLocalURL() );
+		$form->setTitle( $this->getPageTitle() );
 
 		$form->addButton( [
 			'name' => 'submit',
