@@ -15,11 +15,13 @@
 	"notification-link-text-expand-all": "Čääiti",
 	"notification-link-text-view-changes": "{{GENDER:$1|Čääiti}} nubástusâid",
 	"notification-welcome-linktext": "Tiervâpuáttim",
+	"notification-timestamp-today": "Onne",
 	"notification-inbox-filter-all": "Puoh",
 	"echo-specialmute-label-mute-notifications": "Jávuttut almottâsâid taan {{GENDER:$1|kevttest}}",
 	"echo-email-html-footer-preference-link-text": "täärhist {{GENDER:$1|asâttâsâidâd}}",
 	"echo-notification-alert-text-only": "Larmâdâsah",
 	"echo-overlay-link": "Puoh almottâsah",
 	"echo-overlay-title": "<b>Almottâsah</b>",
+	"echo-date-today": "Onne",
 	"echo-email-batch-link-text-view-all-notifications": "Čääiti puoh almottâsâid"
 }
