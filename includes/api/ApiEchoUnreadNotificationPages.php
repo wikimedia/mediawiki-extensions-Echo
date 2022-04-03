@@ -3,6 +3,7 @@
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\Page\PageRecord;
 use MediaWiki\Page\PageStore;
+use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 
 class ApiEchoUnreadNotificationPages extends ApiQueryBase {
@@ -222,12 +223,12 @@ class ApiEchoUnreadNotificationPages extends ApiQueryBase {
 
 		return $this->getCrossWikiParams() + [
 			'grouppages' => [
-				ApiBase::PARAM_TYPE => 'boolean',
-				ApiBase::PARAM_DFLT => false,
+				ParamValidator::PARAM_TYPE => 'boolean',
+				ParamValidator::PARAM_DEFAULT => false,
 			],
 			'limit' => [
-				ApiBase::PARAM_TYPE => 'limit',
-				ApiBase::PARAM_DFLT => 10,
+				ParamValidator::PARAM_TYPE => 'limit',
+				ParamValidator::PARAM_DEFAULT => 10,
 				IntegerDef::PARAM_MIN => 1,
 				IntegerDef::PARAM_MAX => $wgEchoMaxUpdateCount,
 				IntegerDef::PARAM_MAX2 => $wgEchoMaxUpdateCount,

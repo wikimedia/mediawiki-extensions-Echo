@@ -2,6 +2,7 @@
 
 use MediaWiki\MediaWikiServices;
 use MediaWiki\User\UserOptionsManager;
+use Wikimedia\ParamValidator\ParamValidator;
 
 class ApiEchoMute extends ApiBase {
 
@@ -120,14 +121,14 @@ class ApiEchoMute extends ApiBase {
 	public function getAllowedParams( $flags = 0 ) {
 		return [
 			'type' => [
-				ApiBase::PARAM_REQUIRED => true,
-				ApiBase::PARAM_TYPE => array_keys( self::$muteLists ),
+				ParamValidator::PARAM_REQUIRED => true,
+				ParamValidator::PARAM_TYPE => array_keys( self::$muteLists ),
 			],
 			'mute' => [
-				ApiBase::PARAM_ISMULTI => true,
+				ParamValidator::PARAM_ISMULTI => true,
 			],
 			'unmute' => [
-				ApiBase::PARAM_ISMULTI => true,
+				ParamValidator::PARAM_ISMULTI => true,
 			]
 		];
 	}

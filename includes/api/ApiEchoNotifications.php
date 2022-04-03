@@ -544,33 +544,33 @@ class ApiEchoNotifications extends ApiQueryBase {
 
 		$params = $this->getCrossWikiParams() + [
 			'filter' => [
-				ApiBase::PARAM_ISMULTI => true,
-				ApiBase::PARAM_DFLT => 'read|!read',
-				ApiBase::PARAM_TYPE => [
+				ParamValidator::PARAM_ISMULTI => true,
+				ParamValidator::PARAM_DEFAULT => 'read|!read',
+				ParamValidator::PARAM_TYPE => [
 					'read',
 					'!read',
 				],
 			],
 			'prop' => [
-				ApiBase::PARAM_ISMULTI => true,
-				ApiBase::PARAM_TYPE => [
+				ParamValidator::PARAM_ISMULTI => true,
+				ParamValidator::PARAM_TYPE => [
 					'list',
 					'count',
 					'seenTime',
 				],
-				ApiBase::PARAM_DFLT => 'list',
+				ParamValidator::PARAM_DEFAULT => 'list',
 			],
 			'sections' => [
-				ApiBase::PARAM_DFLT => implode( '|', $sections ),
-				ApiBase::PARAM_TYPE => $sections,
-				ApiBase::PARAM_ISMULTI => true,
+				ParamValidator::PARAM_DEFAULT => implode( '|', $sections ),
+				ParamValidator::PARAM_TYPE => $sections,
+				ParamValidator::PARAM_ISMULTI => true,
 			],
 			'groupbysection' => [
-				ApiBase::PARAM_TYPE => 'boolean',
-				ApiBase::PARAM_DFLT => false,
+				ParamValidator::PARAM_TYPE => 'boolean',
+				ParamValidator::PARAM_DEFAULT => false,
 			],
 			'format' => [
-				ApiBase::PARAM_TYPE => [
+				ParamValidator::PARAM_TYPE => [
 					'model',
 					'special',
 					'flyout', /* @deprecated */
@@ -579,8 +579,8 @@ class ApiEchoNotifications extends ApiQueryBase {
 				ApiBase::PARAM_HELP_MSG_PER_VALUE => [],
 			],
 			'limit' => [
-				ApiBase::PARAM_TYPE => 'limit',
-				ApiBase::PARAM_DFLT => 20,
+				ParamValidator::PARAM_TYPE => 'limit',
+				ParamValidator::PARAM_DEFAULT => 20,
 				IntegerDef::PARAM_MIN => 1,
 				IntegerDef::PARAM_MAX => ApiBase::LIMIT_SML1,
 				IntegerDef::PARAM_MAX2 => ApiBase::LIMIT_SML2,
@@ -589,15 +589,15 @@ class ApiEchoNotifications extends ApiQueryBase {
 				ApiBase::PARAM_HELP_MSG => 'api-help-param-continue',
 			],
 			'unreadfirst' => [
-				ApiBase::PARAM_TYPE => 'boolean',
-				ApiBase::PARAM_DFLT => false,
+				ParamValidator::PARAM_TYPE => 'boolean',
+				ParamValidator::PARAM_DEFAULT => false,
 			],
 			'titles' => [
-				ApiBase::PARAM_ISMULTI => true,
+				ParamValidator::PARAM_ISMULTI => true,
 			],
 			'bundle' => [
-				ApiBase::PARAM_TYPE => 'boolean',
-				ApiBase::PARAM_DFLT => false,
+				ParamValidator::PARAM_TYPE => 'boolean',
+				ParamValidator::PARAM_DEFAULT => false,
 			],
 			'notifiertypes' => [
 				ParamValidator::PARAM_TYPE => $this->allowedNotifierTypes,
@@ -608,8 +608,8 @@ class ApiEchoNotifications extends ApiQueryBase {
 		foreach ( $sections as $section ) {
 			$params[$section . 'continue'] = null;
 			$params[$section . 'unreadfirst'] = [
-				ApiBase::PARAM_TYPE => 'boolean',
-				ApiBase::PARAM_DFLT => false,
+				ParamValidator::PARAM_TYPE => 'boolean',
+				ParamValidator::PARAM_DEFAULT => false,
 			];
 		}
 
@@ -618,8 +618,8 @@ class ApiEchoNotifications extends ApiQueryBase {
 				// create "x notifications from y wikis" notification bundle &
 				// include unread counts from other wikis in prop=count results
 				'crosswikisummary' => [
-					ApiBase::PARAM_TYPE => 'boolean',
-					ApiBase::PARAM_DFLT => false,
+					ParamValidator::PARAM_TYPE => 'boolean',
+					ParamValidator::PARAM_DEFAULT => false,
 				],
 			];
 		}
