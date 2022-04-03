@@ -3,6 +3,7 @@
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\Page\PageRecord;
 use MediaWiki\Page\PageStore;
+use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 
 class ApiEchoUnreadNotificationPages extends ApiQueryBase {
 	use ApiCrossWiki;
@@ -227,9 +228,9 @@ class ApiEchoUnreadNotificationPages extends ApiQueryBase {
 			'limit' => [
 				ApiBase::PARAM_TYPE => 'limit',
 				ApiBase::PARAM_DFLT => 10,
-				ApiBase::PARAM_MIN => 1,
-				ApiBase::PARAM_MAX => $wgEchoMaxUpdateCount,
-				ApiBase::PARAM_MAX2 => $wgEchoMaxUpdateCount,
+				IntegerDef::PARAM_MIN => 1,
+				IntegerDef::PARAM_MAX => $wgEchoMaxUpdateCount,
+				IntegerDef::PARAM_MAX2 => $wgEchoMaxUpdateCount,
 			],
 			// there is no `offset` or `continue` value: the set of possible
 			// notifications is small enough to allow fetching all of them at

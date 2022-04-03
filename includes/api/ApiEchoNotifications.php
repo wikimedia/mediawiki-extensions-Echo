@@ -1,6 +1,7 @@
 <?php
 
 use Wikimedia\ParamValidator\ParamValidator;
+use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 
 class ApiEchoNotifications extends ApiQueryBase {
 	use ApiCrossWiki;
@@ -580,9 +581,9 @@ class ApiEchoNotifications extends ApiQueryBase {
 			'limit' => [
 				ApiBase::PARAM_TYPE => 'limit',
 				ApiBase::PARAM_DFLT => 20,
-				ApiBase::PARAM_MIN => 1,
-				ApiBase::PARAM_MAX => ApiBase::LIMIT_SML1,
-				ApiBase::PARAM_MAX2 => ApiBase::LIMIT_SML2,
+				IntegerDef::PARAM_MIN => 1,
+				IntegerDef::PARAM_MAX => ApiBase::LIMIT_SML1,
+				IntegerDef::PARAM_MAX2 => ApiBase::LIMIT_SML2,
 			],
 			'continue' => [
 				ApiBase::PARAM_HELP_MSG => 'api-help-param-continue',
