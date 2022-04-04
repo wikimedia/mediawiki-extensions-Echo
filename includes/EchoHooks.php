@@ -926,7 +926,6 @@ class EchoHooks implements RecentChange_saveHook {
 		$notificationsTitle = SpecialPage::getTitleFor( 'Notifications' );
 		$count = 0;
 		$countLabel = '';
-		$isZero = true;
 		$hasUnseen = false;
 
 		if ( $title->equals( $notificationsTitle ) ) {
@@ -952,7 +951,6 @@ class EchoHooks implements RecentChange_saveHook {
 		$alertNotificationTimestamp = $notifUser->getLastUnreadAlertTime();
 		$msgNotificationTimestamp = $notifUser->getLastUnreadMessageTime();
 
-		$isZero = $count === 0;
 		$hasUnseen = $count > 0 &&
 			(
 				$seenMsgTime !== false && $msgNotificationTimestamp !== false &&
@@ -972,7 +970,6 @@ class EchoHooks implements RecentChange_saveHook {
 			'url' => $url,
 			'notificationCountRaw' => $count,
 			'notificationCountString' => $countLabel,
-			'isNotificationCountZero' => $isZero,
 			'hasNotifications' => $hasUnseen,
 			// this variable is used inside the client side which has different handling
 			// for when notifications have been dismissed. Instead of a bell it shows `(0)`.
