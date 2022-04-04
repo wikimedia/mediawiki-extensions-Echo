@@ -128,7 +128,7 @@
 	"notification-link-text-view-edit": "Դիտել խմբագրումը",
 	"notification-link-article-reminder": "Դիտել էջը",
 	"notification-header-reverted": "Քո {{PLURAL:$4|խմբագրումը <strong>$3</strong> էջում|խմբագրումները <strong>$3</strong> էջում}} {{PLURAL:$2|հետ է շրջվել|հետ են շրջվել}}:",
-	"notification-header-emailuser": "$1-ը քեզ {{GENDER:$2|ուղարկել է}} էլ. փոստ:",
+	"notification-header-emailuser": "$1-ը քեզ էլփոստով նամակ {{GENDER:$2|է ուղարկել}}:",
 	"notification-edit-talk-page-email-subject2": "$1-ը հաղորդագրություն է {{GENDER:$2|թողել}} {{SITENAME}}-ում:",
 	"notification-page-linked-email-subject": "Ձեր ստեղծած էջը հղվում է դեպի {{SITENAME}} կայքը",
 	"notification-mention-email-subject": "$1 մասնակիցը հիշատակել է {{GENDER:$3|Ձեզ}} {{SITENAME}} էջում",

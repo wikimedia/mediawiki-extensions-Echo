@@ -19,7 +19,8 @@
 			"Tiin",
 			"Tobi 406",
 			"Umherirrender",
-			"Vogone"
+			"Vogone",
+			"Wnme"
 		]
 	},
 	"echo-desc": "Erweitert das Wiki um ein System zur Benachrichtigung von Benutzern zu Ereignissen und Nachrichten",
@@ -156,13 +157,13 @@
 	"notification-header-mention-agent-talkpage-nosection": "$1 {{GENDER:$2|erwähnte}} {{GENDER:$3|dich}} auf <strong>{{GENDER:$2|seiner|ihrer|der eigenen}} Diskussionsseite</strong>.",
 	"notification-header-mention-article-talkpage": "$1 {{GENDER:$2|erwähnte}} {{GENDER:$3|dich}} auf der Diskussionsseite von <strong>$4</strong> in „<strong>$5</strong>“.",
 	"notification-header-mention-article-talkpage-nosection": "$1 {{GENDER:$2|erwähnte}} {{GENDER:$3|dich}} auf der Diskussionsseite von <strong>$4</strong>.",
-	"notification-header-mention-failure-user-unknown": "{{GENDER:$2|Deine}} Erwähnung von <strong>$3</strong> wurde nicht gesendet, da der Benutzer nicht gefunden wurde.",
-	"notification-header-mention-failure-user-anonymous": "{{GENDER:$2|Deine}} Erwähnung von <strong>$3</strong> wurde nicht gesendet, da der Benutzer anonym ist.",
+	"notification-header-mention-failure-user-unknown": "{{GENDER:$2|Deine}} Erwähnung an <strong>$3</strong> wurde nicht gesendet, da der Benutzer nicht gefunden wurde.",
+	"notification-header-mention-failure-user-anonymous": "{{GENDER:$2|Deine}} Erwähnung an <strong>$3</strong> wurde nicht gesendet, da der Benutzer anonym ist.",
 	"notification-header-mention-failure-too-many": "{{GENDER:$2|Du}} hast versucht, mehr als {{PLURAL:$3|einen|$3}} Benutzer zu erwähnen. Alle Erwähnungen oberhalb dieser Grenze werden nicht versandt.",
 	"notification-header-mention-failure-bundle": "{{PLURAL:$3|Eine {{GENDER:$2|durchgeführte}} Erwähnung|$3 {{GENDER:$2|durchgeführte}} Erwähnungen}} auf der Diskussionsseite <strong>$4</strong> {{PLURAL:$3|konnte|konnten}} nicht gesendet werden.",
 	"notification-compact-header-mention-failure-user-unknown": "<strong>Benutzername ist nicht vorhanden:</strong> $1",
 	"notification-compact-header-mention-failure-user-anonymous": "<strong>IP-Adressen können nicht erwähnt werden:</strong> $1",
-	"notification-header-mention-success": "{{GENDER:$2|Deine}} Erwähnung von <strong>$3</strong> wurde gesendet.",
+	"notification-header-mention-success": "{{GENDER:$2|Deine}} Erwähnung an <strong>$3</strong> wurde gesendet.",
 	"notification-header-mention-success-bundle": "{{PLURAL:$3|Eine {{GENDER:$2|durchgeführte}} Erwähnung|$3 {{GENDER:$2|durchgeführte}} Erwähnungen}} auf der Diskussionsseite <strong>$4</strong> {{PLURAL:$3|wurde|wurden}} gesendet.",
 	"notification-compact-header-mention-success": "<strong>{{GENDER:$2|Du}} hast erwähnt:</strong> $3",
 	"notification-header-mention-status-bundle": "{{PLURAL:$3|Eine {{GENDER:$2|durchgeführte}} Benachrichtigung|$3 {{GENDER:$2|durchgeführte}} Benachrichtigungen}} über Erwähnungen auf der Diskussionsseite <strong>$4</strong>: {{PLURAL:$5|Eine|$5}} nicht gesendet, {{PLURAL:$6|eine|$6}} gesendet.",
