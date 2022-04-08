@@ -5,9 +5,9 @@ namespace EchoPush\Api;
 use ApiBase;
 use ApiMain;
 use ApiUsageException;
-use EchoPush\SubscriptionManager;
-use EchoPush\Utils;
 use EchoServices;
+use MediaWiki\Extension\Notifications\Push\SubscriptionManager;
+use MediaWiki\Extension\Notifications\Push\Utils;
 use Wikimedia\ParamValidator\ParamValidator;
 
 class ApiEchoPushSubscriptionsDelete extends ApiBase {

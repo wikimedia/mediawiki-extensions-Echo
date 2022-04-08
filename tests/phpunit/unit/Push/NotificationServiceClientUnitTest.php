@@ -1,9 +1,9 @@
 <?php
 
-use EchoPush\NotificationServiceClient;
-use EchoPush\Subscription;
+use MediaWiki\Extension\Notifications\Push\NotificationServiceClient;
+use MediaWiki\Extension\Notifications\Push\Subscription;
 
-/** @covers \EchoPush\NotificationServiceClient */
+/** @covers \MediaWiki\Extension\Notifications\Push\NotificationServiceClient */
 class NotificationServiceClientUnitTest extends MediaWikiUnitTestCase {
 
 	/**

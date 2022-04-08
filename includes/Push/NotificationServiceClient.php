@@ -1,6 +1,6 @@
 <?php
 
-namespace EchoPush;
+namespace MediaWiki\Extension\Notifications\Push;
 
 use MediaWiki\Http\HttpRequestFactory;
 use MWHttpRequest;

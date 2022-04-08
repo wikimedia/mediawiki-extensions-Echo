@@ -1,8 +1,8 @@
 <?php
 
-use EchoPush\Utils;
+use MediaWiki\Extension\Notifications\Push\Utils;
 
-/** @covers EchoPush\Utils */
+/** @covers \MediaWiki\Extension\Notifications\Push\Utils */
 class UtilsTest extends MediaWikiIntegrationTestCase {
 
 	public function testGetLoggedInPushId(): void {

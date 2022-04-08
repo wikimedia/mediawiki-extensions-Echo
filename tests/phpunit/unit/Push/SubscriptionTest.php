@@ -1,9 +1,9 @@
 <?php
 
-use EchoPush\Subscription;
+use MediaWiki\Extension\Notifications\Push\Subscription;
 use Wikimedia\Timestamp\ConvertibleTimestamp;
 
-/** @covers \EchoPush\Subscription */
+/** @covers \MediaWiki\Extension\Notifications\Push\Subscription */
 class SubscriptionTest extends MediaWikiUnitTestCase {
 
 	public function testNewFromRow(): void {

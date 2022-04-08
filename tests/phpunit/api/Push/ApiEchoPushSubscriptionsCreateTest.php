@@ -1,6 +1,6 @@
 <?php
 
-use EchoPush\Utils;
+use MediaWiki\Extension\Notifications\Push\Utils;
 
 /**
  * @group medium
