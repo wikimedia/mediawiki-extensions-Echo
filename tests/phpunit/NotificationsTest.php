@@ -29,7 +29,7 @@ class NotificationsTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers \EchoHooks::onUserGroupsChanged
+	 * @covers \MediaWiki\Extension\Notifications\Hooks::onUserGroupsChanged
 	 */
 	public function testUserRightsNotif() {
 		$user = new User();

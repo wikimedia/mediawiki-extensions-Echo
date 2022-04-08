@@ -44,7 +44,7 @@
 		"echo-dont-email-read-notifications": false
 	},
 	"ExtensionFunctions": [
-		"EchoHooks::initEchoExtension"
+		"MediaWiki\\Extension\\Notifications\\Hooks::initEchoExtension"
 	],
 	"JobClasses": {
 		"EchoNotificationJob": "EchoNotificationJob",
@@ -106,7 +106,7 @@
 				"logger/mw.echo.Logger.js",
 				{
 					"name": "logger/config.json",
-					"callback": "EchoHooks::getLoggerConfigVars"
+					"callback": "MediaWiki\\Extension\\Notifications\\Hooks::getLoggerConfigVars"
 				}
 			],
 			"dependencies": [
@@ -344,7 +344,7 @@
 				"ext.echo.init.js",
 				{
 					"name": "config.json",
-					"callback": "EchoHooks::getConfigVars"
+					"callback": "MediaWiki\\Extension\\Notifications\\Hooks::getConfigVars"
 				}
 			],
 			"dependencies": [
@@ -478,42 +478,42 @@
 		"remoteExtPath": "Echo/modules"
 	},
 	"Hooks": {
-		"SkinMinervaReplaceNotificationsBadge": "EchoHooks::onSkinMinervaReplaceNotificationsBadge",
-		"LoadExtensionSchemaUpdates": "EchoHooks::onLoadExtensionSchemaUpdates",
-		"GetPreferences": "EchoHooks::getPreferences",
-		"BeforePageDisplay": "EchoHooks::beforePageDisplay",
-		"ResourceLoaderRegisterModules": "EchoHooks::onResourceLoaderRegisterModules",
-		"UserGroupsChanged": "EchoHooks::onUserGroupsChanged",
-		"LoadUserOptions": "EchoHooks::onLoadUserOptions",
-		"SaveUserOptions": "EchoHooks::onSaveUserOptions",
-		"UserGetDefaultOptions": "EchoHooks::onUserGetDefaultOptions",
-		"UserClearNewTalkNotification": "EchoHooks::onUserClearNewTalkNotification",
-		"EmailUserComplete": "EchoHooks::onEmailUserComplete",
-		"LoginFormValidErrorMessages": "EchoHooks::onLoginFormValidErrorMessages",
-		"OutputPageCheckLastModified": "EchoHooks::onOutputPageCheckLastModified",
-		"ArticleDeleteComplete": "EchoHooks::onArticleDeleteComplete",
-		"ArticleUndelete": "EchoHooks::onArticleUndelete",
-		"UserMergeAccountFields": "EchoHooks::onUserMergeAccountFields",
-		"MergeAccountFromTo": "EchoHooks::onMergeAccountFromTo",
-		"UserMergeAccountDeleteTables": "EchoHooks::onUserMergeAccountDeleteTables",
-		"EchoGetBundleRules": "EchoHooks::onEchoGetBundleRules",
-		"EchoAbortEmailNotification": "EchoHooks::onEchoAbortEmailNotification",
-		"PageSaveComplete": "EchoHooks::onPageSaveComplete",
-		"LocalUserCreated": "EchoHooks::onLocalUserCreated",
-		"RollbackComplete": "EchoHooks::onRollbackComplete",
-		"UserSaveSettings": "EchoHooks::onUserSaveSettings",
-		"AbortTalkPageEmailNotification": "EchoHooks::onAbortTalkPageEmailNotification",
-		"SendWatchlistEmailNotification": "EchoHooks::onSendWatchlistEmailNotification",
-		"GetNewMessagesAlert": "EchoHooks::abortNewMessagesAlert",
-		"LinksUpdateComplete": "EchoHooks::onLinksUpdateComplete",
-		"SpecialMuteModifyFormFields": "EchoHooks::onSpecialMuteModifyFormFields",
+		"SkinMinervaReplaceNotificationsBadge": "MediaWiki\\Extension\\Notifications\\Hooks::onSkinMinervaReplaceNotificationsBadge",
+		"LoadExtensionSchemaUpdates": "MediaWiki\\Extension\\Notifications\\Hooks::onLoadExtensionSchemaUpdates",
+		"GetPreferences": "MediaWiki\\Extension\\Notifications\\Hooks::getPreferences",
+		"BeforePageDisplay": "MediaWiki\\Extension\\Notifications\\Hooks::beforePageDisplay",
+		"ResourceLoaderRegisterModules": "MediaWiki\\Extension\\Notifications\\Hooks::onResourceLoaderRegisterModules",
+		"UserGroupsChanged": "MediaWiki\\Extension\\Notifications\\Hooks::onUserGroupsChanged",
+		"LoadUserOptions": "MediaWiki\\Extension\\Notifications\\Hooks::onLoadUserOptions",
+		"SaveUserOptions": "MediaWiki\\Extension\\Notifications\\Hooks::onSaveUserOptions",
+		"UserGetDefaultOptions": "MediaWiki\\Extension\\Notifications\\Hooks::onUserGetDefaultOptions",
+		"UserClearNewTalkNotification": "MediaWiki\\Extension\\Notifications\\Hooks::onUserClearNewTalkNotification",
+		"EmailUserComplete": "MediaWiki\\Extension\\Notifications\\Hooks::onEmailUserComplete",
+		"LoginFormValidErrorMessages": "MediaWiki\\Extension\\Notifications\\Hooks::onLoginFormValidErrorMessages",
+		"OutputPageCheckLastModified": "MediaWiki\\Extension\\Notifications\\Hooks::onOutputPageCheckLastModified",
+		"ArticleDeleteComplete": "MediaWiki\\Extension\\Notifications\\Hooks::onArticleDeleteComplete",
+		"ArticleUndelete": "MediaWiki\\Extension\\Notifications\\Hooks::onArticleUndelete",
+		"UserMergeAccountFields": "MediaWiki\\Extension\\Notifications\\Hooks::onUserMergeAccountFields",
+		"MergeAccountFromTo": "MediaWiki\\Extension\\Notifications\\Hooks::onMergeAccountFromTo",
+		"UserMergeAccountDeleteTables": "MediaWiki\\Extension\\Notifications\\Hooks::onUserMergeAccountDeleteTables",
+		"EchoGetBundleRules": "MediaWiki\\Extension\\Notifications\\Hooks::onEchoGetBundleRules",
+		"EchoAbortEmailNotification": "MediaWiki\\Extension\\Notifications\\Hooks::onEchoAbortEmailNotification",
+		"PageSaveComplete": "MediaWiki\\Extension\\Notifications\\Hooks::onPageSaveComplete",
+		"LocalUserCreated": "MediaWiki\\Extension\\Notifications\\Hooks::onLocalUserCreated",
+		"RollbackComplete": "MediaWiki\\Extension\\Notifications\\Hooks::onRollbackComplete",
+		"UserSaveSettings": "MediaWiki\\Extension\\Notifications\\Hooks::onUserSaveSettings",
+		"AbortTalkPageEmailNotification": "MediaWiki\\Extension\\Notifications\\Hooks::onAbortTalkPageEmailNotification",
+		"SendWatchlistEmailNotification": "MediaWiki\\Extension\\Notifications\\Hooks::onSendWatchlistEmailNotification",
+		"GetNewMessagesAlert": "MediaWiki\\Extension\\Notifications\\Hooks::abortNewMessagesAlert",
+		"LinksUpdateComplete": "MediaWiki\\Extension\\Notifications\\Hooks::onLinksUpdateComplete",
+		"SpecialMuteModifyFormFields": "MediaWiki\\Extension\\Notifications\\Hooks::onSpecialMuteModifyFormFields",
 		"RecentChange_save": "main",
-		"ApiMain::moduleManager": "EchoHooks::onApiMainModuleManager",
-		"SkinTemplateNavigation::Universal": "EchoHooks::onSkinTemplateNavigationUniversal"
+		"ApiMain::moduleManager": "MediaWiki\\Extension\\Notifications\\Hooks::onApiMainModuleManager",
+		"SkinTemplateNavigation::Universal": "MediaWiki\\Extension\\Notifications\\Hooks::onSkinTemplateNavigationUniversal"
 	},
 	"HookHandlers": {
 		"main": {
-			"class": "\\EchoHooks",
+			"class": "MediaWiki\\Extension\\Notifications\\Hooks",
 			"services": [ "MainConfig" ]
 		}
 	},
@@ -1103,7 +1103,6 @@
 		"EchoForeignNotifications": "includes/ForeignNotifications.php",
 		"EchoForeignPresentationModel": "includes/formatters/EchoForeignPresentationModel.php",
 		"EchoForeignWikiRequest": "includes/ForeignWikiRequest.php",
-		"EchoHooks": "includes/EchoHooks.php",
 		"EchoHtmlDigestEmailFormatter": "includes/formatters/EchoHtmlDigestEmailFormatter.php",
 		"EchoHtmlEmailFormatter": "includes/formatters/EchoHtmlEmailFormatter.php",
 		"EchoIcon": "includes/formatters/EchoIcon.php",
@@ -1163,7 +1162,8 @@
 	"AutoloadNamespaces": {
 		"EchoOOUI\\": "includes/ooui/",
 		"EchoPush\\": "includes/Push/",
-		"EchoPush\\Api\\": "includes/api/Push/"
+		"EchoPush\\Api\\": "includes/api/Push/",
+		"MediaWiki\\Extension\\Notifications\\": "includes/"
 	},
 	"TestAutoloadClasses": {
 		"EchoAbstractMapperStub": "tests/phpunit/mapper/EchoAbstractMapperStub.php",

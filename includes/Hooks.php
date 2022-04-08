@@ -1,5 +1,33 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications;
+
+use ApiModuleManager;
+use Config;
+use Content;
+use DatabaseUpdater;
+use DeferredUpdates;
+use EchoAttributeManager;
+use EchoDiscussionParser;
+use EchoEmailFormat;
+use EchoEmailFrequency;
+use EchoEvent;
+use EchoEventMapper;
+use EchoEventPresentationModel;
+use EchoModerationController;
+use EchoNotification;
+use EchoNotificationController;
+use EchoNotificationMapper;
+use EchoPush\Api\ApiEchoPushSubscriptions;
+use EchoSeenTime;
+use EchoServices;
+use EmailNotification;
+use ExtensionRegistry;
+use Hooks as MWHooks;
+use HTMLCheckMatrix;
+use LinksUpdate;
+use LogEntry;
+use MailAddress;
 use MediaWiki\Hook\RecentChange_saveHook;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
@@ -8,8 +36,26 @@ use MediaWiki\Preferences\MultiUsernameFilter;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Storage\EditResult;
 use MediaWiki\User\UserIdentity;
+use MWEchoDbFactory;
+use MWEchoNotifUser;
+use MWException;
+use OutputPage;
+use RecentChange;
+use ResourceLoader;
+use ResourceLoaderContext;
+use ResourceLoaderEchoImageModule;
+use Skin;
+use SkinTemplate;
+use SpecialPage;
+use TemplateParser;
+use Title;
+use UpdateEchoSchemaForSuppression;
+use User;
+use WebRequest;
+use WikiMap;
+use WikiPage;
 
-class EchoHooks implements RecentChange_saveHook {
+class Hooks implements RecentChange_saveHook {
 	/**
 	 * @var Config
 	 */
@@ -101,7 +147,7 @@ class EchoHooks implements RecentChange_saveHook {
 			$wgEnableUserEmail;
 
 		// allow extensions to define their own event
-		Hooks::run( 'BeforeCreateEchoEvent',
+		MWHooks::run( 'BeforeCreateEchoEvent',
 			[ &$wgEchoNotifications, &$wgEchoNotificationCategories, &$wgEchoNotificationIcons ] );
 
 		// Only allow mention status notifications when enabled
@@ -1258,7 +1304,7 @@ class EchoHooks implements RecentChange_saveHook {
 		// notifications for talk page messages, disable the new messages alert.
 		if ( $user->isRegistered()
 			&& isset( $wgEchoNotifications['edit-user-talk'] )
-			&& Hooks::run( 'EchoCanAbortNewMessagesAlert' )
+			&& MWHooks::run( 'EchoCanAbortNewMessagesAlert' )
 		) {
 			// hide new messages alert
 			return false;
@@ -1584,7 +1630,7 @@ class EchoHooks implements RecentChange_saveHook {
 		?Content $content,
 		LogEntry $logEntry
 	) {
-		\DeferredUpdates::addCallableUpdate( static function () use ( $articleId ) {
+		DeferredUpdates::addCallableUpdate( static function () use ( $articleId ) {
 			$eventMapper = new EchoEventMapper();
 			$eventIds = $eventMapper->fetchIdsByPage( $articleId );
 			EchoModerationController::moderate( $eventIds, true );
@@ -1593,7 +1639,7 @@ class EchoHooks implements RecentChange_saveHook {
 
 	public static function onArticleUndelete( Title $title, $create, $comment, $oldPageId ) {
 		if ( $create ) {
-			\DeferredUpdates::addCallableUpdate( static function () use ( $oldPageId ) {
+			DeferredUpdates::addCallableUpdate( static function () use ( $oldPageId ) {
 				$eventMapper = new EchoEventMapper();
 				$eventIds = $eventMapper->fetchIdsByPage( $oldPageId );
 				EchoModerationController::moderate( $eventIds, false );
@@ -1672,7 +1718,7 @@ class EchoHooks implements RecentChange_saveHook {
 			$moduleManager->addModule(
 				'echopushsubscriptions',
 				'action',
-				'EchoPush\\Api\\ApiEchoPushSubscriptions'
+				ApiEchoPushSubscriptions::class
 			);
 		}
 	}

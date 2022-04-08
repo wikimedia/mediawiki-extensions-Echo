@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Extension\Notifications\Hooks as EchoHooks;
 use MediaWiki\User\UserOptionsManager;
 
 class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
