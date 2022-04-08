@@ -1160,7 +1160,6 @@
 		"EchoUpdatePerUserBlacklist": "maintenance/updatePerUserBlacklist.php"
 	},
 	"AutoloadNamespaces": {
-		"EchoOOUI\\": "includes/ooui/",
 		"EchoPush\\": "includes/Push/",
 		"EchoPush\\Api\\": "includes/api/Push/",
 		"MediaWiki\\Extension\\Notifications\\": "includes/"
