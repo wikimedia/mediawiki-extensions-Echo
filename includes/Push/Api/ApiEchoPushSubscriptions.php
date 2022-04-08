@@ -1,6 +1,6 @@
 <?php
 
-namespace EchoPush\Api;
+namespace MediaWiki\Extension\Notifications\Push\Api;
 
 use ApiBase;
 use ApiModuleManager;

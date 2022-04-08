@@ -6,7 +6,7 @@ use MediaWiki\Extension\Notifications\Push\Utils;
  * @group medium
  * @group API
  * @group Database
- * @covers \EchoPush\Api\ApiEchoPushSubscriptionsDelete
+ * @covers \MediaWiki\Extension\Notifications\Push\Api\ApiEchoPushSubscriptionsDelete
  */
 class ApiEchoPushSubscriptionsDeleteTest extends ApiTestCase {
 

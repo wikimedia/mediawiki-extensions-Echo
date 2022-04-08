@@ -1162,7 +1162,6 @@
 		"MediaWiki\\Extension\\Notifications\\Push\\PushNotifier": "includes/Push/PushNotifier.php"
 	},
 	"AutoloadNamespaces": {
-		"EchoPush\\Api\\": "includes/api/Push/",
 		"MediaWiki\\Extension\\Notifications\\": "includes/"
 	},
 	"TestAutoloadClasses": {
