@@ -211,6 +211,11 @@ class EchoHooks implements RecentChange_saveHook {
 
 		$updater->modifyExtensionField( 'echo_unread_wikis', 'euw_wiki',
 			"$dir/db_patches/patch-increase-varchar-echo_unread_wikis-euw_wiki.sql" );
+
+		global $wgWikimediaJenkinsCI;
+		if ( !empty( $wgWikimediaJenkinsCI ) ) {
+			$updater->addExtensionTable( 'echo_unread_wikis', "$dir/db_patches/echo_unread_wikis.sql" );
+		}
 	}
 
 	/**
