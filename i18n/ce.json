@@ -130,7 +130,7 @@
 	"notification-link-thank-you-edit": "{{GENDER:$1|Хьан}} нисдар",
 	"notification-link-text-view-edit": "Нисдаре хьажар",
 	"notification-link-article-reminder": "АгӀоне хьажар",
-	"notification-header-reverted": "{{PLURAL:$4|АгӀонехь $3 хьан нисдар}} {{GENDER:$2|юхадаькхина}}.",
+	"notification-header-reverted": "{{PLURAL:$4|АгӀонехь $3 хьан нисдар}} {{GENDER:$2|йухадаькхина}}.",
 	"notification-header-emailuser": "$1 {{GENDER:$2|баийтина}} хьога хаам.",
 	"notification-edit-talk-page-email-subject2": "{{GENDER:$2|Декъашхочо}} $1 «{{SITENAME}}» сайтехь хьуна хаам {{GENDER:$2|биттина}}",
 	"notification-page-linked-email-subject": "«{{SITENAME}}» сайтехь ахьа кхоьллина агӀона тӀе хьажорг хӀоттина",
