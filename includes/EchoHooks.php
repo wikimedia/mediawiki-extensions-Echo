@@ -193,16 +193,6 @@ class EchoHooks implements RecentChange_saveHook {
 		$updater->dropExtensionIndex( 'echo_notification', 'echo_notification_user_hash_timestamp',
 			"$dir/db_patches/patch-drop-user-hash-timestamp-index.sql" );
 
-		// XXX: When is this table from? Gerrit claims b85f978 in 1.27 but this is new?
-		global $wgWikimediaJenkinsCI;
-		if ( !empty( $wgWikimediaJenkinsCI ) ) {
-			$updater->addExtensionTable( 'echo_unread_wikis', "$dir/db_patches/echo_unread_wikis.sql" );
-		}
-
-		// 1.34 (backported)
-		$updater->modifyExtensionField( 'echo_unread_wikis', 'euw_wiki',
-			"$dir/db_patches/patch-increase-varchar-echo_unread_wikis-euw_wiki.sql" );
-
 		// 1.35
 		$updater->addExtensionTable( 'echo_push_provider', "$dir/db_patches/echo_push_provider.sql" );
 
@@ -211,6 +201,20 @@ class EchoHooks implements RecentChange_saveHook {
 
 		// 1.35 - order of tables needed for declaring references
 		$updater->addExtensionTable( 'echo_push_subscription', "$dir/db_patches/echo_push_subscription.sql" );
+
+		global $wgEchoSharedTrackingCluster, $wgEchoSharedTrackingDB;
+		// Following tables should only be created if both cluster and database are false.
+		// Otherwise they are not created in the place they are accesses, because
+		// DatabaseUpdater does not support other databases other than main wiki schema.
+		if ( $wgEchoSharedTrackingCluster === false && $wgEchoSharedTrackingDB === false ) {
+			$updater->addExtensionTable( 'echo_unread_wikis', "$dir/db_patches/echo_unread_wikis.sql" );
+
+			// 1.34 (backported) - not for sqlite, the used data type supports the new length
+			if ( $updater->getDB()->getType() === 'mysql' ) {
+				$updater->modifyExtensionField( 'echo_unread_wikis', 'euw_wiki',
+					"$dir/db_patches/patch-increase-varchar-echo_unread_wikis-euw_wiki.sql" );
+			}
+		}
 	}
 
 	/**
