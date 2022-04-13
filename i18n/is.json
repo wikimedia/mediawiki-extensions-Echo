@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Hjalmtyr",
+			"LoveIceLang",
 			"Macofe",
 			"Snævar",
 			"Sveinki",
@@ -39,7 +40,7 @@
 	"echo-pref-tooltip-edit-user-talk": "Tilkynntu mér um þegar einhver breytir spjallsíðunni minni.",
 	"echo-pref-tooltip-article-linked": "Gefðu mér tilkynningu þegar einhver tengir í síðu sem ég bjó til úr annari síðu.",
 	"echo-pref-tooltip-reverted": "Gefðu mér tilkynningu þegar einhver tekur aftur breytingu sem ég gerði.",
-	"echo-pref-tooltip-mention": "Tilkynntu mér þegar einhver tengir í notendasíðuna mína.",
+	"echo-pref-tooltip-mention": "Tilkynntu mér þegar einhver tengir í notandasíðuna mína.",
 	"echo-pref-tooltip-user-rights": "Tilkynntu mér þegar einhver breytir notendaréttendum mínum.",
 	"echo-pref-tooltip-emailuser": "Tilkynntu mér um þegar einhver sendir mér tölvupóst.",
 	"notifications": "Tilkynningar",
