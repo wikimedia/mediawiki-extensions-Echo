@@ -31,7 +31,7 @@
 	"apihelp-query+notifications-param-prop": "جزئیات به درخواست.",
 	"apihelp-query+notifications-param-sections": "بخش آگاه‌سازی پرسمان (مانند هشدار و پیام بعضی از مشارکت‌ها)",
 	"apihelp-query+notifications-param-groupbysection": "برای گروه‌بندی نتایج توسط بخش، در صورت تنظیم هر بخش به صورت جداگانه دریافت می‌شود.",
-	"apihelp-query+notifications-param-filter": "پالایش اعلان‌های دریافتی",
+	"apihelp-query+notifications-param-filter": "پالایش آگاهی‌سازی‌های برگردانده شده.",
 	"apihelp-query+notifications-param-format": "در صورت تخصیص داده شدن، آگاه‌سازی‌ها به صورت این فرمت بازگردانده می‌شوند.",
 	"apihelp-query+notifications-paramvalue-format-model": "اطلاعات خام آگاه‌سازی",
 	"apihelp-query+notifications-paramvalue-format-special": "ساختار یافته برای صفحهٔ Special:Notifications (فقط برای آن!) به HTML توجه نکنید که هر زمان ممکن است عوض شود.",
