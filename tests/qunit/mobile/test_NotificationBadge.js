@@ -4,18 +4,16 @@
 	QUnit.module( 'ext.echo.mobile - NotificationBadge', {} );
 
 	QUnit.test( '#setCount', function ( assert ) {
-		var initialClassExpectationsMet,
+		var initialExpectationsMet,
 			badge = new NotificationBadge( {
 				hasNotifications: true,
 				hasUnseenNotifications: true,
 				notificationCountRaw: 5
 			} );
-		initialClassExpectationsMet = badge.$el.find( '.mw-ui-icon' ).length === 0 &&
-			badge.$el.find( '.zero' ).length === 0;
+		initialExpectationsMet = badge.$el.find( '.mw-ui-icon' ).length === 0;
 
 		badge.setCount( 0 );
-		assert.true( initialClassExpectationsMet, 'No icon and no zero class' );
-		assert.strictEqual( badge.$el.find( '.zero' ).length, 1, 'A zero class is present on the badge' );
+		assert.true( initialExpectationsMet, 'No icon.' );
 		badge.setCount( 105 );
 		assert.strictEqual( badge.options.notificationCountRaw, 100, 'Number is capped to 100.' );
 	} );

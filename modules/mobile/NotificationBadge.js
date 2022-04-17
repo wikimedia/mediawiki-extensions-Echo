@@ -74,7 +74,6 @@ NotificationBadge.prototype.setCount = function ( count ) {
 	this.options.notificationCountString = mw.message( 'echo-badge-count',
 		mw.language.convertNumber( count )
 	).text();
-	this.options.isNotificationCountZero = count === 0;
 	this.render();
 };
 
