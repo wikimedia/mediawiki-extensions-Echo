@@ -3,6 +3,7 @@
 		"authors": [
 			"Allan Aguilar",
 			"Dgstranz",
+			"DiegoAmbrocio",
 			"Fitoschido",
 			"Jackiezelaya",
 			"Jakeukalane",
@@ -25,6 +26,10 @@
 	"apihelp-echomarkseen-example-1": "Marca las notificaciones de todos los tipos como vistas",
 	"apihelp-echomarkseen-param-type": "Tipo de notificaciones para marcar como leídas: 'alert' (alerta), 'message' (mensaje) o 'all' (todas).",
 	"apihelp-echomarkseen-param-timestampFormat": "Formato de fecha y hora que utilizar para la salida, «ISO_8601» o «MW». «MW» aquí está desusado, por lo que todos los clientes deben cambiar a «ISO_8601». Este parámetro desaparecerá y el único formato de salida será «ISO_8601».",
+	"apihelp-echomute-description": "Silenciar o anular el silencio de las notificaciones de determinados usuarios o páginas.",
+	"apihelp-echomute-summary": "Silenciar o anular el silencio de las notificaciones de determinados usuarios o páginas.",
+	"apihelp-echomute-param-mute": "Páginas o usuarios a añadir a la lista de silenciados",
+	"apihelp-echomute-param-unmute": "Páginas o usuarios que hay que eliminar de la lista de silenciados",
 	"apihelp-echopushsubscriptions-param-command": "La acción que debe realizarse.",
 	"apihelp-echopushsubscriptions+create-param-topic": "El APNS tema (fardo de aplicación ID) para enviar la notificación a.",
 	"apihelp-query+notifications-description": "Recibe notificaciones en espera para el usuario actual.",

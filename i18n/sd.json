@@ -143,6 +143,7 @@
 	"notification-inbox-filter-read": "پڙھيل",
 	"notification-inbox-filter-unread": "اڻپڙھيل",
 	"notification-inbox-filter-all": "سڀ",
+	"echo-specialmute-label-mute-notifications": "ھن {{GENDER:$1|واپرائيندڙ}} پاران اطلاع مِيُوٽِ ڪريو",
 	"echo-email-html-footer-preference-link-text": "{{GENDER:$1|پنھنجون}} ترجيحون چڪاسيو",
 	"echo-notification-alert-text-only": "پيغام",
 	"echo-notification-notice-text-only": "اطلاع",
