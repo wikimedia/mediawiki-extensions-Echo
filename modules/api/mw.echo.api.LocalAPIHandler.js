@@ -55,12 +55,18 @@
 	 * @inheritdoc
 	 */
 	mw.echo.api.LocalAPIHandler.prototype.markAllRead = function ( source, type ) {
-		var data;
-		type = Array.isArray( type ) ? type : [ type ];
-		data = {
-			action: 'echomarkread',
-			sections: type.join( '|' )
+		var data = {
+			action: 'echomarkread'
 		};
+		type = Array.isArray( type ) ? type : [ type ];
+		if ( type.indexOf( 'all' ) !== -1 ) {
+			// As specified in the documentation of the parent function, the type parameter can be
+			// 'all'. We especially handle that case here to match the PHP API. Note: Other values
+			// of the array will be ignored.
+			data.all = true;
+		} else {
+			data.sections = type.join( '|' );
+		}
 		if ( !this.isSourceLocal( source ) ) {
 			data.wikis = source;
 		}
