@@ -1,5 +1,4 @@
 @import '../echo.variables.less';
-@import 'mediawiki.mixins.less';
 
 /* stylelint-disable no-descending-specificity */
 /* We have to include the #pt-notifications selector due to monobook */
@@ -8,6 +7,7 @@
 	#pt-notifications-notice & {
 		position: relative;
 		display: block;
+		box-sizing: border-box;
 		width: 20px;
 		height: 20px;
 		margin: 0 2px;
@@ -19,7 +19,6 @@
 		cursor: pointer;
 		text-decoration: none;
 		line-height: normal;
-		.box-sizing( border-box );
 		opacity: 0.87;
 		color: transparent;
 

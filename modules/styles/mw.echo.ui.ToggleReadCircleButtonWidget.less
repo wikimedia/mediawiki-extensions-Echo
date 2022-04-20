@@ -1,15 +1,14 @@
-@import 'mediawiki.mixins.less';
 @import '../echo.variables.less';
 
 .mw-echo-ui-toggleReadCircleButtonWidget {
 	&-circle {
 		border-radius: 50%;
+		box-sizing: border-box;
 		min-width: 10px;
 		width: @bundle-group-padding;
 		min-height: 10px;
 		height: @bundle-group-padding;
 		margin: @bundle-group-padding;
-		.box-sizing( border-box );
 
 		// Mark as read
 		background-color: #36c;
