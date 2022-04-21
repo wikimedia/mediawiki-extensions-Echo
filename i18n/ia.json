@@ -164,6 +164,7 @@
 	"notification-header-watchlist-multiuser-deleted": "<strong>$1</strong>, un pagina sur {{GENDER:$2|tu}} observatorio, ha essite delite $3 vice{{PLURAL:$3||s}}.",
 	"notification-header-watchlist-multiuser-moved": "<strong>$1</strong>, un pagina sur {{GENDER:$2|tu}} observatorio, ha essite renominate $3 vice{{PLURAL:$3||s}}.",
 	"notification-header-watchlist-multiuser-restored": "<strong>$1</strong>, un pagina sur {{GENDER:$2|tu}} observatorio, ha essite restaurate $3 vice{{PLURAL:$3||s}}.",
+	"notification-body-watchlist-once": "Il non habera altere notification de e-mail in caso de ulterior activitate, a minus que tu {{GENDER:$1|visita}} iste pagina con session aperte.",
 	"notification-welcome-linktext": "Benvenite",
 	"notification-header-thank-you-1-edit": "{{GENDER:$2|Tu}} ha justo ora facite tu prime modification; gratias, e benvenite!",
 	"notification-header-thank-you-10-edit": "{{GENDER:$2|Tu}} ha justo ora facite tu decime modification; gratias, e per favor continua!",

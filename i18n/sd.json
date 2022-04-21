@@ -156,6 +156,7 @@
 	"echo-date-yesterday": "ڪالھ",
 	"echo-email-batch-bullet": "•",
 	"echo-email-batch-link-text-view-all-notifications": "سڀ اطلاعَ ڏسو",
+	"notification-header-foreign-notice": "وڌيڪ {{PLURAL:$5|ھڪ وکي|$5 ٻين کان}} اطلاع",
 	"echo-foreign-wiki-lang": "$1 - $2",
-	"echo-badge-count": "{{PLURAL:$1|$1|100=99+}}"
+	"echo-badge-count": "{{PLURAL:$1|$1|100={{formatnum:99}}+}}"
 }
