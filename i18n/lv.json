@@ -22,6 +22,7 @@
 	"echo-pref-email-format": "E-pasta formāts:",
 	"echo-pref-web": "Vietnē",
 	"echo-pref-email": "E-pastā",
+	"echo-pref-push": "Lietotnes",
 	"echo-pref-email-frequency-never": "Nesūtīt man e-pasta paziņojumus",
 	"echo-pref-email-frequency-immediately": "Individuāli paziņojumi, tiklīdz tie ienāk",
 	"echo-pref-email-frequency-daily": "Ikdienas paziņojumu kopsavilkums",
