@@ -1,7 +1,7 @@
 <?php
 
-use EchoPush\NotificationServiceClient;
-use EchoPush\SubscriptionManager;
+use MediaWiki\Extension\Notifications\Push\NotificationServiceClient;
+use MediaWiki\Extension\Notifications\Push\SubscriptionManager;
 use MediaWiki\MediaWikiServices;
 
 class EchoServices {

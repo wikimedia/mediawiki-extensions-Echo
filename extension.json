@@ -49,7 +49,7 @@
 	"JobClasses": {
 		"EchoNotificationJob": "EchoNotificationJob",
 		"EchoNotificationDeleteJob": "EchoNotificationDeleteJob",
-		"EchoPushNotificationRequest": "EchoPush\\NotificationRequestJob"
+		"EchoPushNotificationRequest": "MediaWiki\\Extension\\Notifications\\Push\\NotificationRequestJob"
 	},
 	"SpecialPages": {
 		"Notifications": "SpecialNotifications",
@@ -1157,10 +1157,11 @@
 		"SpecialNotificationsFormatter": "includes/formatters/SpecialNotificationsFormatter.php",
 		"SpecialNotificationsMarkRead": "includes/special/SpecialNotificationsMarkRead.php",
 		"UpdateEchoSchemaForSuppression": "maintenance/updateEchoSchemaForSuppression.php",
-		"EchoUpdatePerUserBlacklist": "maintenance/updatePerUserBlacklist.php"
+		"EchoUpdatePerUserBlacklist": "maintenance/updatePerUserBlacklist.php",
+		"EchoPush\\PushNotifier": "includes/Push/PushNotifier.php",
+		"MediaWiki\\Extension\\Notifications\\Push\\PushNotifier": "includes/Push/PushNotifier.php"
 	},
 	"AutoloadNamespaces": {
-		"EchoPush\\": "includes/Push/",
 		"EchoPush\\Api\\": "includes/api/Push/",
 		"MediaWiki\\Extension\\Notifications\\": "includes/"
 	},

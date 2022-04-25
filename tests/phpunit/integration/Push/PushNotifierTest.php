@@ -1,11 +1,11 @@
 <?php
 
-use EchoPush\NotificationRequestJob;
-use EchoPush\PushNotifier;
-use EchoPush\Utils;
+use MediaWiki\Extension\Notifications\Push\NotificationRequestJob;
+use MediaWiki\Extension\Notifications\Push\PushNotifier;
+use MediaWiki\Extension\Notifications\Push\Utils;
 use Wikimedia\TestingAccessWrapper;
 
-/** @covers \EchoPush\PushNotifier */
+/** @covers \MediaWiki\Extension\Notifications\Push\PushNotifier */
 class PushNotifierTest extends MediaWikiIntegrationTestCase {
 
 	public function testCreateJob(): void {

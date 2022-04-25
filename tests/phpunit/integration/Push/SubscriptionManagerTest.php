@@ -1,11 +1,11 @@
 <?php
 
-use EchoPush\Utils;
+use MediaWiki\Extension\Notifications\Push\Utils;
 use Wikimedia\TestingAccessWrapper;
 
 /**
  * @group Database
- * @covers \EchoPush\SubscriptionManager
+ * @covers \MediaWiki\Extension\Notifications\Push\SubscriptionManager
  */
 class SubscriptionManagerTest extends MediaWikiIntegrationTestCase {
 

@@ -2,7 +2,7 @@
 
 use Wikimedia\TestingAccessWrapper;
 
-/** @covers \EchoPush\NotificationServiceClient */
+/** @covers \MediaWiki\Extension\Notifications\Push\NotificationServiceClient */
 class NotificationServiceClientTest extends MediaWikiIntegrationTestCase {
 	use MockHttpTrait;
 

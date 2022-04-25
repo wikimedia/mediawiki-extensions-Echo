@@ -1,6 +1,6 @@
 <?php
 
-namespace EchoPush;
+namespace MediaWiki\Extension\Notifications\Push;
 
 use EchoEvent;
 use EchoServices;
@@ -43,3 +43,5 @@ class PushNotifier {
 	}
 
 }
+
+class_alias( PushNotifier::class, 'EchoPush\\PushNotifier' );
