@@ -75,7 +75,7 @@
 	"echo-pref-cross-wiki-notifications": "Показывать уведомления с других вики",
 	"echo-pref-notifications-blacklist": "Не показывать уведомления от этих участников ([[mw:Special:MyLanguage/Help:Notifications#mute|узнать больше]]):",
 	"echo-pref-notifications-page-linked-title-muted-list": "Не показывать уведомления «Ссылка на странице» для следующих страниц. ([[mw:Special:MyLanguage/Help:Notifications#mute|узнать больше]])",
-	"echo-pref-dont-email-read-notifications": "Не включать чтение уведомлений в сводки по эл. почте",
+	"echo-pref-dont-email-read-notifications": "Не включать в рассылку сводок уведомления, отмеченные как прочитанные",
 	"echo-learn-more": "Узнать больше",
 	"echo-log": "Общедоступный журнал",
 	"echo-new-messages": "Новые сообщения",

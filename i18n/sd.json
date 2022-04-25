@@ -119,7 +119,7 @@
 	"notification-header-mention-other": "$1 {{GENDER:$3|توھان کي}} <strong>$4</strong> تي \"<strong>$5</strong>\" ۾ {{GENDER:$2|مينشن ڪيو}}.",
 	"notification-header-mention-other-nosection": "$1 {{GENDER:$3|توھان کي}} <strong>$4</strong> تي {{GENDER:$2|مينشن ڪيو}}.",
 	"notification-header-mention-article-talkpage-nosection": "$1 {{GENDER:$3|توھان کي}} <strong>$4</strong> بحث صفحي تي {{GENDER:$2|بيان ڪيو}}.",
-	"notification-compact-header-mention-failure-user-unknown": "<strong>واپرائيندڙ-نانءُ وجود نٿو رکي:</strong> $1",
+	"notification-compact-header-mention-failure-user-unknown": "<strong>واپرائيندڙنانءُ وجود نٿو رکي:</strong> $1",
 	"notification-compact-header-mention-failure-user-anonymous": "<strong>آئپي پتن جو ذڪر نٿو ڪري سگهجي:</strong> $1",
 	"notification-header-mention-success": "<strong>$3</strong> وارو {{GENDER:$2|توھان جو}} موڪليو ويو.",
 	"notification-compact-header-mention-success": "<strong>{{GENDER:$2|توھان مينشن ڪيو}}:</strong> $3",
