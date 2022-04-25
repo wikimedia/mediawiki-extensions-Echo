@@ -3,7 +3,7 @@
 /**
  * @group medium
  * @group API
- * @covers \EchoPush\Api\ApiEchoPushSubscriptions
+ * @covers \MediaWiki\Extension\Notifications\Push\Api\ApiEchoPushSubscriptions
  */
 class ApiEchoPushSubscriptionsTest extends ApiTestCase {
 

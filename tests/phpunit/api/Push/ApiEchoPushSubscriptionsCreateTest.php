@@ -6,7 +6,7 @@ use MediaWiki\Extension\Notifications\Push\Utils;
  * @group medium
  * @group API
  * @group Database
- * @covers \EchoPush\Api\ApiEchoPushSubscriptionsCreate
+ * @covers \MediaWiki\Extension\Notifications\Push\Api\ApiEchoPushSubscriptionsCreate
  */
 class ApiEchoPushSubscriptionsCreateTest extends ApiTestCase {
 
