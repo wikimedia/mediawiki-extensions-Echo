@@ -1,6 +1,6 @@
 <?php
 
-namespace EchoOOUI;
+namespace MediaWiki\Extension\Notifications\OOUI;
 
 use OOUI\IconElement;
 use OOUI\LabelElement;

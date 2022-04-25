@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\Extension\Notifications\OOUI\LabelIconWidget;
+
 class SpecialNotifications extends SpecialPage {
 
 	/**
@@ -125,7 +127,7 @@ class SpecialNotifications extends SpecialPage {
 			$markReadSpecialPage->setContext( $this->getContext() );
 
 			$markAllAsReadText = $this->msg( 'echo-mark-all-as-read' )->text();
-			$markAllAsReadLabelIcon = new EchoOOUI\LabelIconWidget( [
+			$markAllAsReadLabelIcon = new LabelIconWidget( [
 				'label' => $markAllAsReadText,
 				'icon' => 'checkAll',
 			] );
@@ -167,7 +169,7 @@ class SpecialNotifications extends SpecialPage {
 				$out->addJsConfigVars( 'wgEchoReadState', 'unread' );
 
 				$markReadSectionText = $this->msg( 'echo-specialpage-section-markread' )->text();
-				$markAsReadLabelIcon = new EchoOOUI\LabelIconWidget( [
+				$markAsReadLabelIcon = new LabelIconWidget( [
 					'label' => $markReadSectionText,
 					'icon' => 'checkAll',
 				] );
