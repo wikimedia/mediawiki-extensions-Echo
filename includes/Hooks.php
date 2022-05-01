@@ -27,6 +27,7 @@ use HTMLCheckMatrix;
 use LinksUpdate;
 use LogEntry;
 use MailAddress;
+use MediaWiki\DAO\WikiAwareEntity;
 use MediaWiki\Extension\Notifications\Push\Api\ApiEchoPushSubscriptions;
 use MediaWiki\Hook\RecentChange_saveHook;
 use MediaWiki\Logger\LoggerFactory;
@@ -734,7 +735,7 @@ class Hooks implements RecentChange_saveHook {
 	 * Handler for UserGroupsChanged hook.
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/UserGroupsChanged
 	 *
-	 * @param User $user user that was changed
+	 * @param UserIdentity $userId user that was changed
 	 * @param string[] $add strings corresponding to groups added
 	 * @param string[] $remove strings corresponding to groups removed
 	 * @param User|bool $performer
@@ -742,17 +743,19 @@ class Hooks implements RecentChange_saveHook {
 	 * @param array $oldUGMs
 	 * @param array $newUGMs
 	 */
-	public static function onUserGroupsChanged( $user, $add, $remove, $performer,
+	public static function onUserGroupsChanged( $userId, $add, $remove, $performer,
 		$reason = false, array $oldUGMs = [], array $newUGMs = [] ) {
 		if ( !$performer ) {
 			// TODO: Implement support for autopromotion
 			return;
 		}
 
-		if ( !$user instanceof User ) {
-			// TODO: Support UserRightsProxy
+		if ( $userId->getWikiId() !== WikiAwareEntity::LOCAL ) {
+			// TODO: Support external users
 			return;
 		}
+
+		$user = MediaWikiServices::getInstance()->getUserFactory()->newFromUserIdentity( $userId );
 
 		if ( $user->equals( $performer ) ) {
 			// Don't notify for self changes
