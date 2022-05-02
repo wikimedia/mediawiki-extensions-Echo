@@ -3,7 +3,7 @@
 /**
  * Applies a callback to all values returned from the iterator
  */
-class EchoCallbackIterator extends EchoIteratorDecorator {
+class EchoCallbackIterator extends IteratorDecorator {
 	/** @var callable */
 	protected $callable;
 

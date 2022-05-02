@@ -1106,7 +1106,6 @@
 		"EchoHtmlDigestEmailFormatter": "includes/formatters/EchoHtmlDigestEmailFormatter.php",
 		"EchoHtmlEmailFormatter": "includes/formatters/EchoHtmlEmailFormatter.php",
 		"EchoIcon": "includes/formatters/EchoIcon.php",
-		"EchoIteratorDecorator": "includes/iterator/IteratorDecorator.php",
 		"EchoLocalCache": "includes/cache/LocalCache.php",
 		"EchoMentionInSummaryPresentationModel": "includes/formatters/MentionInSummaryPresentationModel.php",
 		"EchoMentionPresentationModel": "includes/formatters/MentionPresentationModel.php",

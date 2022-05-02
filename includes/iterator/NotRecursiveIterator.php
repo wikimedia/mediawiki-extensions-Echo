@@ -7,7 +7,7 @@
  * Alternatively wraps a recursive iterator to prevent recursing deeper
  * than the wrapped iterator.
  */
-class EchoNotRecursiveIterator extends EchoIteratorDecorator implements RecursiveIterator {
+class EchoNotRecursiveIterator extends IteratorDecorator implements RecursiveIterator {
 	public function hasChildren() {
 		return false;
 	}
