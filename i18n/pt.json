@@ -54,7 +54,7 @@
 	"echo-pref-dont-email-read-notifications": "Não incluir as notificações já lidas nas mensagens de resumo",
 	"echo-learn-more": "Saber mais",
 	"echo-log": "Registo público",
-	"echo-new-messages": "Tem uma mensagem nova na página de discussão",
+	"echo-new-messages": "Tem novas mensagens",
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Edição|Edições}} da minha página de discussão do utilizador",
 	"echo-category-title-article-linked": "{{PLURAL:$1|Hiperligação|Hiperligações}} para uma página",
 	"echo-category-title-reverted": "Reversão de {{PLURAL:$1|edição|edições}}",
