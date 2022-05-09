@@ -15,9 +15,7 @@ module.exports = function ( grunt ) {
 				fix: grunt.option( 'fix' )
 			},
 			all: [
-				'**/*.{js,json}',
-				'!{tests/externals,docs}/**',
-				'!{vendor,node_modules}/**'
+				'.'
 			]
 		},
 		// Lint – Styling
