@@ -704,6 +704,12 @@
 		},
 		"EchoNotificationIcons": {
 			"value": {
+				"watchlist-progressive": {
+					"path": {
+						"ltr": "Echo/modules/icons/watchlist-ltr-progressive.svg",
+						"rtl": "Echo/modules/icons/watchlist-rtl-progressive.svg"
+					}
+				},
 				"placeholder": {
 					"path": "Echo/modules/icons/notice.svg"
 				},

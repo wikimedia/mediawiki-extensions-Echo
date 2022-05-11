@@ -3,8 +3,7 @@
 class EchoWatchlistChangePresentationModel extends EchoEventPresentationModel {
 
 	public function getIconType() {
-		// @todo create an icon to use here
-		return 'placeholder';
+		return 'watchlist-progressive';
 	}
 
 	public function getHeaderMessage() {
