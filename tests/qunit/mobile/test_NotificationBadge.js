@@ -1,7 +1,7 @@
 ( function () {
 	var NotificationBadge = require( 'ext.echo.mobile' ).NotificationBadge;
 
-	QUnit.module( 'ext.echo.mobile - NotificationBadge', {} );
+	QUnit.module( 'ext.echo.mobile - NotificationBadge' );
 
 	QUnit.test( '#setCount', function ( assert ) {
 		var initialExpectationsMet,

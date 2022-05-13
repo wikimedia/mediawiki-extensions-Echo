@@ -29,7 +29,7 @@
 		nowFormatted = '2009-02-13T23:31:30Z';
 
 	QUnit.module( 'ext.echo.dm - mw.echo.dm.NotificationItem', QUnit.newMwEnvironment( {
-		setup: function () {
+		beforeEach: function () {
 			this.sandbox.useFakeTimers( now );
 		}
 	} ) );
