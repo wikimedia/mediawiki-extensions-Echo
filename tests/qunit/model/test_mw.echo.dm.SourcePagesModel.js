@@ -1,4 +1,4 @@
-( function () {
+QUnit.module( 'ext.echo.dm - SourcePagesModel', function () {
 	// Mock partial API response we feed into the model
 	var sources = {
 		local: {
@@ -74,8 +74,6 @@
 			}
 		}
 	};
-
-	QUnit.module( 'ext.echo.dm - mw.echo.dm.SourcePagesModel' );
 
 	QUnit.test( 'Creating source-page map', function ( assert ) {
 		var model = new mw.echo.dm.SourcePagesModel();
@@ -169,4 +167,4 @@
 		);
 
 	} );
-}() );
+} );

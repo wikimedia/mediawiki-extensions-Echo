@@ -1,9 +1,7 @@
-( function () {
+QUnit.module( 'ext.echo.mobile - NotificationBadge', function () {
 	var NotificationBadge = require( 'ext.echo.mobile' ).NotificationBadge;
 
-	QUnit.module( 'ext.echo.mobile - NotificationBadge' );
-
-	QUnit.test( '#setCount', function ( assert ) {
+	QUnit.test( '.setCount()', function ( assert ) {
 		var initialExpectationsMet,
 			badge = new NotificationBadge( {
 				hasNotifications: true,
@@ -18,7 +16,7 @@
 		assert.strictEqual( badge.options.notificationCountRaw, 100, 'Number is capped to 100.' );
 	} );
 
-	QUnit.test( '#setCount (Eastern Arabic numerals)', function ( assert ) {
+	QUnit.test( '.setCount() Eastern Arabic numerals', function ( assert ) {
 		var badge;
 
 		this.sandbox.stub( mw.language, 'convertNumber' )
@@ -40,7 +38,7 @@
 			'Number will be rendered in Eastern Arabic numerals' );
 	} );
 
-	QUnit.test( '#render [hasUnseenNotifications]', function ( assert ) {
+	QUnit.test( '.render() [hasUnseenNotifications]', function ( assert ) {
 		var badge = new NotificationBadge( {
 			notificationCountRaw: 0,
 			hasNotifications: false,
@@ -49,7 +47,7 @@
 		assert.strictEqual( badge.$el.find( '.mw-ui-icon' ).length, 1, 'A bell icon is visible' );
 	} );
 
-	QUnit.test( '#markAsSeen', function ( assert ) {
+	QUnit.test( '.markAsSeen()', function ( assert ) {
 		var badge = new NotificationBadge( {
 			notificationCountRaw: 2,
 			hasNotifications: true,
@@ -62,4 +60,4 @@
 		assert.strictEqual( badge.$el.find( '.notification-unseen' ).length, 0,
 			'Unseen class disappears after markAsSeen called.' );
 	} );
-}() );
+} );
