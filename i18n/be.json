@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Artsiom91",
+			"Chadyka",
 			"Macofe",
 			"Matěj Suchánek",
 			"Mikalai Udodau",
@@ -95,7 +96,7 @@
 	"echo-specialpage-pagefilters-subtitle": "Старонкі з непрагледжанымі апавяшчэннямі",
 	"notificationsmarkread-legend": "Пазначыць апавяшчэнні як прачытаныя",
 	"echo-none": "Вы не атрымлівалі паведамленняў.",
-	"echo-api-failure": "Немагчыма атрымаць апавяшчэнні. Калі ласка, паспрабуйце яшчэ раз. (Памылка $1)",
+	"echo-api-failure": "Немагчыма атрымаць апавяшчэнні.",
 	"echo-api-failure-cross-wiki": "Доступ к аддаленаму дамену забаронены.",
 	"echo-notification-placeholder": "Няма апавяшчэнняў.",
 	"echo-notification-placeholder-filters": "Няма апавяшчэнняў, якія адпавядаюць уведзеным крытэрыям.",
@@ -120,7 +121,7 @@
 	"notification-link-text-expand-all": "Разгарнуць",
 	"notification-link-text-expand-alert-count": "Паказаць {{PLURAL:$1|$1 папярэджанне|$1 папярэджанні|$1 папярэджанняў}}",
 	"notification-link-text-expand-notice-count": "Паказаць {{PLURAL:$1|$1 паведамленне|$1 паведамленні|$1 паведамленняў}}",
-	"notification-link-text-expand-all-count": "Разгарнуць {{PLURAL:$1|$1 апавяшчэнне|$1 апавяшчэнні|$1 апавяшчэнняў}}",
+	"notification-link-text-expand-all-count": "Паказаць {{PLURAL:$1|$1 апавяшчэнне|$1 апавяшчэнні|$1 апавяшчэнняў}}",
 	"notification-link-text-collapse-all": "Згарнуць",
 	"notification-link-text-view-message": "Прагляд паведамленняў",
 	"notification-link-text-view-mention": "Прагляд згадкі",
