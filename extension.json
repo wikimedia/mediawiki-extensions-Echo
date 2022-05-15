@@ -854,6 +854,7 @@
 					],
 					"category": "minor-watchlist",
 					"group": "interactive",
+					"section": "message",
 					"presentation-model": "EchoWatchlistChangePresentationModel",
 					"bundle": {
 						"web": true,
@@ -865,6 +866,7 @@
 					"user-locators": [
 						"EchoUserLocator::locateUsersWatchingTitle"
 					],
+					"section": "message",
 					"category": "watchlist",
 					"group": "interactive",
 					"presentation-model": "EchoWatchlistChangePresentationModel",
