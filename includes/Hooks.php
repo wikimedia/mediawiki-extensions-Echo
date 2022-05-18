@@ -991,7 +991,9 @@ class Hooks implements RecentChange_saveHook {
 		// Note: `mw-ui-icon-wikimedia-bellOutline-base20` class is provided by Minerva.
 		// In future we'll likely want to rethink how this works and possibly consolidate this with the desktop badge.
 		// For now, we avoid loading two bells in the same place by reusing the class already defined in Minerva.
-		$notificationIconClass = 'mw-ui-icon mw-ui-icon-wikimedia-bellOutline-base20 mw-ui-icon-element user-button';
+		$notificationIconClass =
+			// phpcs:ignore Generic.Files.LineLength.TooLong
+			'mw-ui-icon mw-ui-icon-wikimedia-bellOutline-base20 mw-ui-icon-element mw-ui-button mw-ui-quiet user-button';
 		$url = $notificationsTitle->getLocalURL(
 			[ 'returnto' => $title->getPrefixedText() ] );
 		$notifUser = MWEchoNotifUser::newFromUser( $user );
