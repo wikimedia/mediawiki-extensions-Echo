@@ -43,7 +43,7 @@
 	"echo-learn-more": "Даведацца больш",
 	"echo-log": "Агульнадаступны журнал",
 	"echo-new-messages": "У вас ёсць новае паведамленне на старонцы размовы",
-	"echo-category-title-edit-user-talk": "{{PLURAL:$1|паведамленне|паведамленні}} на старонцы размоў",
+	"echo-category-title-edit-user-talk": "{{PLURAL:$1|1=Змена|Змены}} на маёй старонцы размоў",
 	"echo-category-title-article-linked": "{{PLURAL:$1|спасылка|спасылкі}} на старонкі",
 	"echo-category-title-reverted": "{{PLURAL:$1|адмена|адмены}} правак",
 	"echo-category-title-mention": "{{PLURAL:$1|Згадванне|Згадванні}}",
