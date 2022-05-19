@@ -260,10 +260,6 @@ class EchoNotificationController {
 		}
 
 		$queue->push( $job );
-
-		if ( $job->hasRootJobParams() ) {
-			$queue->deduplicateRootJob( $job );
-		}
 	}
 
 	/**
