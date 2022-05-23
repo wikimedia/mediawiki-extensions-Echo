@@ -183,6 +183,7 @@
 	"notification-header-watchlist-multiuser-deleted": "<strong>$1</strong>, en sida i {{GENDER:$2|din}} bevakningslista, raderades $3 {{PLURAL:$3|gång|gånger}}.",
 	"notification-header-watchlist-multiuser-moved": "<strong>$1</strong>, en sida i {{GENDER:$2|din}} bevakningslista, flyttades $3 {{PLURAL:$3|gång|gånger}}.",
 	"notification-header-watchlist-multiuser-restored": "<strong>$1</strong>, en sida i {{GENDER:$2|din}} bevakningslista, återställdes $3 {{PLURAL:$3|gång|gånger}}.",
+	"notification-body-watchlist-once": "Inga e-postaviseringar kommer att skickas vid aktivitet såvida {{GENDER:$1|du inte besöker}} denna sida när du är inloggad.",
 	"notification-welcome-linktext": "Välkommen",
 	"notification-header-thank-you-1-edit": "{{GENDER:$2|Du}} gjorde precis {{GENDER:$2|din}} första redigering; {{GENDER:$2|tack}} och välkommen!",
 	"notification-header-thank-you-10-edit": "{{GENDER:$2|Du}} gjorde precis {{GENDER:$2|din}} tionde redigering; {{GENDER:$2|tack}} och fortsätt i samma takt!",

@@ -85,6 +85,8 @@
 	"notification-link-text-view-page": "ߞߐߜߍ ߘߐߜߍ߫",
 	"notification-header-edit-user-talk": "$1 {{GENDER:$2|ߓߘߊ߫}} ߗߋߛߓߍ ߘߏ߫ ߓߌ߬ߟߊ߬ <strong>{{GENDER:$3|ߌ ߟߊ߫}} ߞߎߡߊ߫ ߞߐߜߍ ߟߊ߫</strong>",
 	"notification-link-text-what-links-here": "ߛߘߌ߬ߜߋ߲ ߡߍ߲ ߓߍ߯ ߦߋ߫ ߞߐߜߍ ߣߌ߲߬ ߘߐ߫",
+	"notification-compact-header-mention-failure-user-unknown": "<strong>ߟߊ߬ߓߊ߰ߙߊ߬ߟߊ: $1 ߕߍ߫ ߦߋ߲߬</strong>",
+	"notification-compact-header-mention-failure-user-anonymous": "<strong>IP $1 ߕߍ߫ ߣߊ߬ ߛߐ߲߬ ߠߊ߫ ߞߏߝߐ߫ ߟߊ߫</strong>",
 	"notification-welcome-linktext": "ߊߟߎ߫ ߣߌ߫ ߛߣߍ߫",
 	"notification-link-thank-you-edit": "{{GENDER:$1|ߌ ߟߊ߫}} ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲",
 	"notification-link-text-view-edit": "ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߦߋ߫",
