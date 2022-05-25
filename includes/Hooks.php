@@ -34,6 +34,8 @@ use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Preferences\MultiTitleFilter;
 use MediaWiki\Preferences\MultiUsernameFilter;
+use MediaWiki\ResourceLoader as RL;
+use MediaWiki\ResourceLoader\ResourceLoader;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Storage\EditResult;
 use MediaWiki\User\UserIdentity;
@@ -42,8 +44,6 @@ use MWEchoNotifUser;
 use MWException;
 use OutputPage;
 use RecentChange;
-use ResourceLoader;
-use ResourceLoaderContext;
 use ResourceLoaderEchoImageModule;
 use Skin;
 use SkinTemplate;
@@ -1604,14 +1604,14 @@ class Hooks implements RecentChange_saveHook {
 		$messages[] = 'echo-notification-loginrequired';
 	}
 
-	public static function getConfigVars( ResourceLoaderContext $context, Config $config ) {
+	public static function getConfigVars( RL\Context $context, Config $config ) {
 		return [
 			'EchoMaxNotificationCount' => MWEchoNotifUser::MAX_BADGE_COUNT,
 			'EchoPollForUpdates' => $config->get( 'EchoPollForUpdates' )
 		];
 	}
 
-	public static function getLoggerConfigVars( ResourceLoaderContext $context, Config $config ) {
+	public static function getLoggerConfigVars( RL\Context $context, Config $config ) {
 		$schemas = $config->get( 'EchoEventLoggingSchemas' );
 		return [
 			'EchoInteractionLogging' => $schemas['EchoInteraction']['enabled'] &&

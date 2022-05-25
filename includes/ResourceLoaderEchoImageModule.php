@@ -18,11 +18,13 @@
  * @file
  */
 
+use MediaWiki\ResourceLoader as RL;
+
 /**
  * A sibling of secret special sauce.
- * @see ResourceLoaderOOUIImageModule for familial resemblence
+ * @see RL\OOUIImageModule for familial resemblence
  */
-class ResourceLoaderEchoImageModule extends ResourceLoaderImageModule {
+class ResourceLoaderEchoImageModule extends RL\ImageModule {
 	protected function loadFromDefinition() {
 		if ( $this->definition === null ) {
 			return;
