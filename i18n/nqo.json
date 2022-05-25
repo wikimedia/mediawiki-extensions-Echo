@@ -81,6 +81,7 @@
 	"notification-link-text-expand-all": "ߊ߬ ߘߐߥߛߊ߬",
 	"notification-link-text-collapse-all": "ߊ߬ ߘߐߘߏ߲߬",
 	"notification-link-text-view-message": "ߗߋߛߓߍ ߦߋ߫",
+	"notification-link-text-view-mention": "ߞߏߝߐߟߌ ߦߋ߫",
 	"notification-link-text-view-changes": "{{GENDER:$1|ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߠߎ߬}} ߦߋ߫",
 	"notification-link-text-view-page": "ߞߐߜߍ ߘߐߜߍ߫",
 	"notification-header-edit-user-talk": "$1 {{GENDER:$2|ߓߘߊ߫}} ߗߋߛߓߍ ߘߏ߫ ߓߌ߬ߟߊ߬ <strong>{{GENDER:$3|ߌ ߟߊ߫}} ߞߎߡߊ߫ ߞߐߜߍ ߟߊ߫</strong>",
