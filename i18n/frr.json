@@ -21,7 +21,7 @@
 	"echo-pref-email-format-plain-text": "Normool tekst",
 	"echo-learn-more": "Ik wal muar wed",
 	"echo-new-messages": "Dü heest nei bööd",
-	"echo-category-title-edit-user-talk": "{{PLURAL:$1|bööd|bööden}} üüb min diskuschuunssidj",
+	"echo-category-title-edit-user-talk": "{{PLURAL:$1|bööd|bööden}} üüb min diskusioonsidj",
 	"echo-category-title-article-linked": "$1 {{PLURAL:$1|ferwisang|ferwisangen}}",
 	"echo-category-title-reverted": "{{PLURAL:$1|turagsaatang|turagsaatangen}} bewerke",
 	"echo-category-title-mention": "{{PLURAL:$1|henwis|henwiser}}",
