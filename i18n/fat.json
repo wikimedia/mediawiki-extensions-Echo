@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Ebenoffen1",
-			"Georgecoleman"
+			"Georgecoleman",
+			"Suzieturkson"
 		]
 	},
 	"echo-desc": "Dza yɛdze bɔ dwumadzifo nkae fa dwumadzi na nkrato ho",
@@ -42,7 +43,14 @@
 	"echo-category-title-mention-failure": "Annyɛ yie {{PLURAL:$1|Dza wɔabɔ dzin|Dza wɔabobɔ edzin}}",
 	"echo-category-title-mention-success": "Ɔayɛ yie {{PLURAL:$1|dza wɔabɔ dzin|dza wɔabobɔ edzin}}",
 	"echo-category-title-other": "{{PLURAL:$1|Afofor}}",
+	"echo-category-title-system": "{{PLURAL:$1|System}}",
+	"echo-category-title-system-noemail": "{{PLURAL:$1|System}}",
+	"echo-category-title-system-emailonly": "{{PLURAL:$1|System}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|Dwumadzinyi no tumdze nsesaa}}",
 	"echo-category-title-emailuser": "{{PLURAL:$1|Email a ofi dwumadzinyi fofor hɔ|Email a ofi dwumadzifo afofor hɔ}}",
-	"echo-category-title-article-reminder": "Page {{PLURAL:$1|nkaakaadze}}"
+	"echo-category-title-article-reminder": "Page {{PLURAL:$1|nkaakaadze}}",
+	"echo-category-title-thank-you-edit": "Nsesa {{PLURAL:$1|milestone|milestones}}",
+	"echo-category-title-watchlist": "Yɛ nsesa kɔ kratafa a wɔahwɛ do",
+	"echo-category-title-minor-watchlist": "Yɛ nsesa kumaa kɔ kratafa a wɔahwɛ do",
+	"echo-pref-tooltip-edit-user-talk": "Bɔ me nkaa sɛ obi yɛ nsesa wɔ me mkɔmbɔdzibea hɔ"
 }
