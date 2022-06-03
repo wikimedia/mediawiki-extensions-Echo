@@ -27,7 +27,7 @@ class EchoWatchlistChangePresentationModel extends EchoEventPresentationModel {
 			// notification-header-watchlist-restored
 			$msg = $this->getMessageWithAgent( "notification-header-watchlist-" . $status );
 		}
-		$msg->params( $this->getTruncatedTitleText( $this->event->getTitle() ) );
+		$msg->params( $this->getTruncatedTitleText( $this->event->getTitle(), true ) );
 		$msg->params( $this->getViewingUserForGender() );
 		$msg->numParams( $this->getBundleCount() );
 		return $msg;
