@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 /**
  * Implements EchoContainmentList interface for sourcing a list of items from a wiki
  * page. Uses the pages latest revision ID as cache key.
@@ -30,8 +32,8 @@ class EchoOnWikiList implements EchoContainmentList {
 			return [];
 		}
 
-		$article = WikiPage::newFromID( $this->title->getArticleID() );
-		if ( $article === null || !$article->exists() ) {
+		$article = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $this->title );
+		if ( !$article->exists() ) {
 			return [];
 		}
 

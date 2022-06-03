@@ -948,8 +948,9 @@ TEXT
 		$pages += [ $title => '' ];
 
 		$user = $this->getTestUser()->getUser();
+		$wikiPageFactory = MediaWikiServices::getInstance()->getWikiPageFactory();
 		foreach ( $pages as $pageTitle => $pageText ) {
-			$template = WikiPage::factory( Title::newFromText( $pageTitle ) );
+			$template = $wikiPageFactory->newFromTitle( Title::newFromText( $pageTitle ) );
 			$template->doUserEditContent( new WikitextContent( $pageText ), $user, '' );
 		}
 

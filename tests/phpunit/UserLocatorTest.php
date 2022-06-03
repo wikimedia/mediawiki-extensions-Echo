@@ -108,7 +108,7 @@ class EchoUserLocatorTest extends MediaWikiIntegrationTestCase {
 	 */
 	public function testLocateArticleCreator( $message, $initialize ) {
 		list( $expect, $title, $user ) = $initialize();
-		WikiPage::factory( $title )->doUserEditContent(
+		$this->getServiceContainer()->getWikiPageFactory()->newFromTitle( $title )->doUserEditContent(
 			/* $content = */ ContentHandler::makeContent( 'content', $title ),
 			/* $user = */ $user,
 			/* $summary = */ 'summary'

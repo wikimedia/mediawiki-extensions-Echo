@@ -213,7 +213,7 @@ class GenerateSampleNotifications extends Maintenance {
 	}
 
 	private function addToPageContent( Title $title, User $agent, $contentText ) {
-		$page = WikiPage::factory( $title );
+		$page = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $title );
 		$previousContent = "";
 		$page->loadPageData( WikiPage::READ_LATEST );
 		$revision = $page->getRevisionRecord();
@@ -271,7 +271,7 @@ class GenerateSampleNotifications extends Maintenance {
 
 		// revert (undo)
 		$moai = Title::newFromText( 'Moai' );
-		$page = WikiPage::factory( $moai );
+		$page = $services->getWikiPageFactory()->newFromTitle( $moai );
 		$this->output( "{$agent->getName()} is reverting {$user->getName()}'s edit on {$moai->getPrefixedText()}\n" );
 		$this->addToPageContent( $moai, $agent, "\ncreating a good revision here\n" );
 		$this->addToPageContent( $moai, $user, "\nadding a line here\n" );

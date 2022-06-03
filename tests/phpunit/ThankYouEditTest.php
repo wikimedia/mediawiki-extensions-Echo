@@ -70,7 +70,7 @@ class MWEchoThankYouEditTest extends MediaWikiIntegrationTestCase {
 	}
 
 	private function edit( Title $title, User $user, $text ) {
-		$page = WikiPage::factory( $title );
+		$page = $this->getServiceContainer()->getWikiPageFactory()->newFromTitle( $title );
 		$content = ContentHandler::makeContent( $text, $title );
 		$page->doUserEditContent( $content, $user, 'test' );
 	}
