@@ -76,6 +76,7 @@
 	"notification-header-user-rights-remove-only": "{{GENDER:$4|Vua}} uzero-yuri {{GENDER:$1|modifikesis}}. Vu ne pluse esas membro de: $2.",
 	"notification-header-user-rights-add-and-remove": "{{GENDER:$6|Vua}} uzero-yuri {{GENDER:$1|modifikesis}}. Vu nun esas $2. Vu ne pluse esas membro de $4.",
 	"notification-header-welcome": "{{GENDER:$2|Bonveno}} a {{SITENAME}}, $1! Ni prizas havar {{GENDER:$2|vu}} hike!",
+	"notification-welcome-linktext": "Bonveno",
 	"notification-header-thank-you-1-edit": "{{GENDER:$2|Vu}} jus facis {{GENDER:$2|vua}} unesma redakto; ni dankas {{GENDER:$2|vu}}, e bonveno!",
 	"notification-header-thank-you-10-edit": "{{GENDER:$2|Vu}} jus facis {{GENDER:$2|vua}} dekesma redakto; ni dankas {{GENDER:$2|vu}}, e voluntez durar!",
 	"notification-header-thank-you-100-edit": "{{GENDER:$2|Vu}} jus facis {{GENDER:$2|vua}} centesma redakto; ni dankas {{GENDER:$2|vu}} tre multe!",
