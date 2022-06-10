@@ -330,6 +330,10 @@
 			"packageFiles": [
 				"mobile/notifications.js",
 				"mobile/list.js",
+				{
+					"name": "mobile/config.json",
+					"callback": "MediaWiki\\Extension\\Notifications\\Hooks::getConfigVars"
+				},
 				"mobile/overlay.js",
 				"mobile/NotificationBadge.js",
 				"mobile/notificationsFilterOverlay.js"
