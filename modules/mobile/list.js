@@ -23,7 +23,7 @@ var mobile = mw.mobileFrontend.require( 'mobile.startup' ),
  */
 function notificationsList( echo, markAllReadButton, onCountChange, onNotificationListRendered ) {
 	var wrapperWidget,
-		maxNotificationCount = mw.config.get( 'wgEchoMaxNotificationCount' ),
+		maxNotificationCount = require( './config.json' ).EchoMaxNotificationCount,
 		echoApi = new echo.api.EchoApi(),
 		unreadCounter = new echo.dm.UnreadNotificationCounter( echoApi, 'all', maxNotificationCount ),
 		modelManager = new echo.dm.ModelManager( unreadCounter, { type: [ 'message', 'alert' ] } ),
