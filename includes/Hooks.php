@@ -216,7 +216,7 @@ class Hooks implements RecentChange_saveHook {
 
 		$dir = dirname( __DIR__ ) . '/sql';
 
-		$updater->addExtensionTable( 'echo_event', "$dir/echo.sql" );
+		$updater->addExtensionTable( 'echo_event', "$dir/$dbType/tables-generated.sql" );
 
 		// 1.33
 		// Can't use addPostDatabaseUpdateMaintenance() here because that would
@@ -254,7 +254,7 @@ class Hooks implements RecentChange_saveHook {
 		// Otherwise they are not created in the place they are accesses, because
 		// DatabaseUpdater does not support other databases other than main wiki schema.
 		if ( $wgEchoSharedTrackingCluster === false && $wgEchoSharedTrackingDB === false ) {
-			$updater->addExtensionTable( 'echo_unread_wikis', "$dir/echo_unread_wikis.sql" );
+			$updater->addExtensionTable( 'echo_unread_wikis', "$dir/$dbType/tables-sharedtracking-generated.sql" );
 
 			// 1.34 (backported) - not for sqlite, the used data type supports the new length
 			if ( $updater->getDB()->getType() === 'mysql' ) {
