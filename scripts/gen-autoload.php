@@ -42,5 +42,5 @@ class GenerateEchoAutoload extends Maintenance {
 	}
 }
 
-$maintClass = "GenerateEchoAutoload";
+$maintClass = GenerateEchoAutoload::class;
 require_once RUN_MAINTENANCE_IF_MAIN;
