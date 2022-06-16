@@ -39,7 +39,7 @@
 			"రహ్మానుద్దీన్"
 		]
 	},
-	"echo-desc": "{{desc|name=Echo|url=https://www.mediawiki.org/wiki/Extension:Echo}} The [https://www.mediawiki.org/wiki/Help:Notifications Mediawiki help] page gives notes on the terminology in this extension.",
+	"echo-desc": "{{desc|name=Echo|url=https://www.mediawiki.org/wiki/Extension:Echo}} The [https://www.mediawiki.org/wiki/Help:Notifications MediaWiki help] page gives notes on the terminology in this extension.",
 	"prefs-echo": "Name of preferences section for Echo notifications.\n{{Identical|Notification}}",
 	"prefs-emailsettings": "Header for the section of preferences that deals with how often notification emails are sent out and what address they are sent to.\n{{Identical|E-mail option}}",
 	"prefs-echosubscriptions": "Header for the section of preferences that deals with which notifications the user receives",
