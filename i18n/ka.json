@@ -75,7 +75,7 @@
 	"echo-notification-markasread": "მონიშნეთ როგორც წაკითხული",
 	"echo-notification-markasunread": "მონიშნეთ როგორც წაუკითხავი",
 	"echo-notification-markasread-tooltip": "მონიშნეთ როგორც წაკითხული",
-	"echo-notification-more-options-tooltip": "მეტი პარამეტრები",
+	"echo-notification-more-options-tooltip": "მეტი შესაძლებლობა",
 	"notification-link-text-expand-all": "განვრცობა",
 	"notification-link-text-expand-all-count": "იხილე {{PLURAL:$1|$1 შეტყობინება|$1 შეტყობინებები}}",
 	"notification-link-text-collapse-all": "ჩაკეცვა",

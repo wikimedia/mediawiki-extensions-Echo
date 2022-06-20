@@ -74,7 +74,7 @@
 	"echo-category-title-system": "{{PLURAL:$1|سامانه}}",
 	"echo-category-title-system-noemail": "{{PLURAL:$1|سامانه}}",
 	"echo-category-title-system-emailonly": "{{PLURAL:$1|سامانه}}",
-	"echo-category-title-user-rights": "{{PLURAL:$1|تغییر امتیازات کاربری|تغییرات امتیازات کاربری}}",
+	"echo-category-title-user-rights": "{{PLURAL:$1|تغییر اختیارات کاربر|تغییرات اختیارات کاربر}}",
 	"echo-category-title-emailuser": "{{PLURAL:$1|ایمیل از کاربری دیگر|ایمیل‌هایی از دیگر کاربران}}",
 	"echo-category-title-article-reminder": "صفحهٔ {{PLURAL:$1|یادآوری|یادآوری}}",
 	"echo-category-title-thank-you-edit": "ویرایش {{PLURAL:$1|رویداد مهم|رویدادهای مهم}}",
