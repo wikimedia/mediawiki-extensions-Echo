@@ -158,7 +158,7 @@
 	"notification-link-text-view-edit": "Ogled urejanja",
 	"notification-link-article-reminder": "Ogled strani",
 	"notification-header-reverted": "{{PLURAL:$4|Vaše urejanje strani <strong>$3</strong> je bilo {{GENDER:$2|vrnjeno}}|Vaši urejanji strani <strong>$3</strong> sta bili vrnjeni|Vaša urejanja strani <strong>$3</strong> so bila vrnjena}}.",
-	"notification-header-emailuser": "$1 ti {{GENDER:$2|je poslal|je poslala}} e-pošto.",
+	"notification-header-emailuser": "$1 vam {{GENDER:$2|je poslal|je poslala}} e-pošto.",
 	"notification-edit-talk-page-email-subject2": "V projektu {{SITENAME}} {{GENDER:$3|vam}} je {{GENDER:$1|uporabnik|uporabnica}} {{GENDER:$2|pustil|pustila}} sporočilo.",
 	"notification-page-linked-email-subject": "Za stran, ki ste jo {{GENDER:$3|ustvarili}}, je bila dodana povezava v projektu {{SITENAME}}",
 	"notification-reverted-email-subject2": "V {{GRAMMAR:dajalnik|{{SITENAME}}}} {{PLURAL:$4|je bilo|sta bili|so bila}} {{PLURAL:$4|vaše urejanje|vaši urejanji|vaša urejanja}} {{GENDER:$2|{{PLURAL:$4|vrnjeno|vrnjeni|vrnjena}}}}.",
