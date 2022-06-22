@@ -4,5 +4,6 @@
 			"Ezagren"
 		]
 	},
-	"tooltip-pt-notifications-alert": "Pamadahan {{GENDER:|Pian}}"
+	"tooltip-pt-notifications-alert": "Pamadahan {{GENDER:|Pian}}",
+	"group-push-subscription-manager": "Pangalula langganan tunjul"
 }
