@@ -1085,7 +1085,7 @@ abstract class EchoDiscussionParser {
 		/*
 		 * First we call extractUsersFromLine to get all the potential usernames
 		 * from the line.  Then, we loop backwards through them, figure out which
-		 * match to a user, regenera the signature based on that user, and
+		 * match to a user, regenerate the signature based on that user, and
 		 * see if it matches!
 		 */
 		$usernames = self::extractUsersFromLine( $line );

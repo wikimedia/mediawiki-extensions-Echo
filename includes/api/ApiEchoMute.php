@@ -56,7 +56,7 @@ class ApiEchoMute extends ApiBase {
 		$params = $this->extractRequestParams();
 		$mutelistInfo = self::$muteLists[ $params['type'] ];
 		$prefValue = $this->userOptionsManager->getOption( $user, $mutelistInfo['pref'] );
-		$ids = $this->parsePref( $prefValue, $mutelistInfo['type'] );
+		$ids = $this->parsePref( $prefValue );
 		$targetsToMute = $params['mute'] ?? [];
 		$targetsToUnmute = $params['unmute'] ?? [];
 
@@ -81,7 +81,7 @@ class ApiEchoMute extends ApiBase {
 			$this->userOptionsManager->setOption(
 				$user,
 				$mutelistInfo['pref'],
-				$this->serializePref( $ids, $mutelistInfo['type'] )
+				$this->serializePref( $ids )
 			);
 			$user->saveSettings();
 		}
@@ -110,11 +110,11 @@ class ApiEchoMute extends ApiBase {
 		}
 	}
 
-	private function parsePref( $prefValue, $type ) {
+	private function parsePref( $prefValue ) {
 		return preg_split( '/\n/', $prefValue, -1, PREG_SPLIT_NO_EMPTY );
 	}
 
-	private function serializePref( $ids, $type ) {
+	private function serializePref( $ids ) {
 		return implode( "\n", $ids );
 	}
 

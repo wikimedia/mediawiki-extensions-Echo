@@ -5,7 +5,7 @@ use MediaWiki\User\UserIdentity;
 use MediaWiki\User\UserOptionsLookup;
 
 /**
- * An object that manages attributes of echo notifications: category, elegibility,
+ * An object that manages attributes of echo notifications: category, eligibility,
  * group, section etc.
  */
 class EchoAttributeManager {

@@ -102,7 +102,7 @@ class EchoSuppressionRowUpdateGenerator implements RowUpdateGenerator {
 
 	/**
 	 * Return the extra data for a row, if an update wants to change the
-	 * extra data returns that updated data rather than the origional. If
+	 * extra data returns that updated data rather than the original. If
 	 * no extra data exists returns array()
 	 *
 	 * @param stdClass $row The database row being updated

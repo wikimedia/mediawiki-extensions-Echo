@@ -45,7 +45,7 @@ class EchoDiffGroup {
 	 * @param int $rightPos The starting line number in the right text
 	 */
 	public function __construct( $leftPos, $rightPos ) {
-		// +1 due to the origional code use 1 indexing for this result
+		// +1 due to the original code use 1 indexing for this result
 		$this->position = [
 			'right-pos' => $rightPos + 1,
 			'left-pos' => $leftPos + 1,

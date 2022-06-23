@@ -9,7 +9,7 @@ abstract class EchoLocalCache {
 	 * Max number of objects to hold in $targets.  In theory, 1000
 	 * is very hard to reach in a normal web request. We need to
 	 * put cap so it doesn't reach memory limit when running email
-	 * digest against large amount of notications
+	 * digest against large amount of notifications
 	 */
 	private const TARGET_MAX_NUM = 1000;
 

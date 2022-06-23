@@ -57,11 +57,6 @@ class MWEchoNotifUser {
 	private $globalCountsAndTimestamps;
 
 	/**
-	 * @var array[]|null
-	 */
-	private $mForeignData;
-
-	/**
 	 * @var UserOptionsLookup
 	 */
 	private $userOptionsLookup;
@@ -600,7 +595,7 @@ class MWEchoNotifUser {
 				[ $section ]
 			);
 
-			$count = (int)$this->userNotifGateway->getCappedNotificationCount(
+			$count = $this->userNotifGateway->getCappedNotificationCount(
 				$dbSource,
 				$eventTypesToLoad,
 				self::MAX_BADGE_COUNT + 1
