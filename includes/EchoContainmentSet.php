@@ -8,7 +8,7 @@ use MediaWiki\Preferences\MultiUsernameFilter;
  * from multiple sources like global variables, wiki pages, etc.
  *
  * Initialize:
- *   $cache = ObjectCache::getLocalClusterIntance();
+ *   $cache = ObjectCache::getLocalClusterInstance();
  *   $set = new EchoContainmentSet;
  *   $set->addArray( $wgSomeGlobalParameter );
  *   $set->addOnWiki( NS_USER, 'Foo/bar-baz', $cache, 'some_user_specific_cache_key' );
@@ -124,7 +124,7 @@ class EchoContainmentSet {
 	public function contains( $value ) {
 		foreach ( $this->lists as $list ) {
 			// Use strict comparison to prevent the number 0 from matching all strings (T177825)
-			if ( array_search( $value, $list->getValues(), true ) !== false ) {
+			if ( in_array( $value, $list->getValues(), true ) ) {
 				return true;
 			}
 		}

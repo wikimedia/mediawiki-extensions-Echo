@@ -141,12 +141,7 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 		}
 
 		$obj->id = false;
-		if ( isset( $info['timestamp'] ) && $info[ 'timestamp' ] !== null ) {
-			$obj->timestamp = $info['timestamp'];
-		} else {
-			$obj->timestamp = wfTimestampNow();
-		}
-
+		$obj->timestamp = $info['timestamp'] ?? wfTimestampNow();
 		foreach ( $validFields as $field ) {
 			if ( isset( $info[$field] ) ) {
 				$obj->$field = $info[$field];
@@ -242,13 +237,9 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 	 * Check whether the echo event is an enabled event
 	 * @return bool
 	 */
-	public function isEnabledEvent() {
+	public function isEnabledEvent(): bool {
 		global $wgEchoNotifications;
-		if ( isset( $wgEchoNotifications[$this->getType()] ) ) {
-			return true;
-		} else {
-			return false;
-		}
+		return isset( $wgEchoNotifications[$this->getType()] );
 	}
 
 	/**
@@ -511,6 +502,11 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 		return $this->extra;
 	}
 
+	/**
+	 * @param string $key
+	 * @param mixed|null $default
+	 * @return mixed|null
+	 */
 	public function getExtraParam( $key, $default = null ) {
 		return $this->extra[$key] ?? $default;
 	}
@@ -526,7 +522,7 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 	 * Check whether this event allows its agent to be notified.
 	 *
 	 * Notifying the agent is only allowed if the event's type allows it, or if the event extra
-	 * explicity specifies 'notifyAgent' => true.
+	 * explicitly specifies 'notifyAgent' => true.
 	 *
 	 * @return bool
 	 */

@@ -68,7 +68,6 @@ class SpecialNotifications extends SpecialPage {
 
 		// Add the notifications to the page (interspersed with date headers)
 		$dateHeader = '';
-		$unread = [];
 		$anyUnread = false;
 		$echoSeenTime = EchoSeenTime::newFromUser( $user );
 		$seenTime = $echoSeenTime->getTime();
@@ -79,13 +78,6 @@ class SpecialNotifications extends SpecialPage {
 			}
 
 			$classes = [ 'mw-echo-notification' ];
-
-			if ( !isset( $row['read'] ) ) {
-				$classes[] = 'mw-echo-notification-unread';
-				if ( !$row['targetpages'] ) {
-					$unread[] = $row['id'];
-				}
-			}
 
 			if ( $seenTime !== null && $row['timestamp']['mw'] > $seenTime ) {
 				$classes[] = 'mw-echo-notification-unseen';
@@ -102,6 +94,7 @@ class SpecialNotifications extends SpecialPage {
 
 			// Collect unread IDs
 			if ( !isset( $row['read'] ) ) {
+				$classes[] = 'mw-echo-notification-unread';
 				$anyUnread = true;
 				$notifArray[ $dateHeader ][ 'unread' ][] = $row['id'];
 			}

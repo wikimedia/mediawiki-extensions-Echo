@@ -73,7 +73,7 @@ trait ApiCrossWiki {
 		// available, and it'll default to current wiki
 		$wikis = $params['wikis'] ?? [ WikiMap::getCurrentWikiId() ];
 
-		if ( array_search( '*', $wikis ) !== false ) {
+		if ( in_array( '*', $wikis ) ) {
 			// expand `*` to all foreign wikis with unread notifications + local
 			$wikis = array_merge(
 				[ WikiMap::getCurrentWikiId() ],

@@ -59,12 +59,8 @@ class EchoNotificationController {
 	 * @param int $count
 	 * @return int Notification count, with ceiling applied
 	 */
-	public static function getCappedNotificationCount( $count ) {
-		if ( $count <= MWEchoNotifUser::MAX_BADGE_COUNT ) {
-			return $count;
-		} else {
-			return MWEchoNotifUser::MAX_BADGE_COUNT + 1;
-		}
+	public static function getCappedNotificationCount( int $count ): int {
+		return min( $count, MWEchoNotifUser::MAX_BADGE_COUNT + 1 );
 	}
 
 	/**
@@ -498,7 +494,7 @@ class EchoNotificationController {
 		$fname = __METHOD__;
 		$notify->addFilter( static function ( $user ) use ( &$seen, $fname ) {
 			if ( !$user instanceof User ) {
-				wfDebugLog( $fname, 'Expected all User instances, received:' .
+				wfDebugLog( $fname, 'Expected all User instances, received: ' .
 					( is_object( $user ) ? get_class( $user ) : gettype( $user ) )
 				);
 

@@ -451,7 +451,7 @@ class GenerateSampleNotifications extends Maintenance {
 	}
 
 	private function shouldGenerate( $type, array $types ) {
-		return array_search( $type, $types ) !== false;
+		return in_array( $type, $types );
 	}
 
 	private function generateEditThanks( User $user, User $agent, User $otherUser ) {

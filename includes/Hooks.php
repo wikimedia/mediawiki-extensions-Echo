@@ -589,15 +589,14 @@ class Hooks implements RecentChange_saveHook {
 					}
 
 					EchoEvent::create( [
-							'type' => 'thank-you-edit',
-							'title' => $title,
-							'agent' => $userIdentity,
-							// Edit threshold notifications are sent to the agent
-							'extra' => [
-								'editCount' => $thresholdCount,
-							]
+						'type' => 'thank-you-edit',
+						'title' => $title,
+						'agent' => $userIdentity,
+						// Edit threshold notifications are sent to the agent
+						'extra' => [
+							'editCount' => $thresholdCount,
 						]
-					);
+					] );
 				} );
 			}
 		}
