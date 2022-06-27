@@ -1,16 +1,17 @@
 {
 	"@metadata": {
 		"authors": [
+			"Languaeditor",
 			"Lorenzoitza"
 		]
 	},
 	"echo-category-title-mention-failure": "K'aschaji {{PLURAL:$1|mention|mentions}}",
-	"echo-pref-tooltip-mention-failure": "A'aten le ken k'exa'ak a'alakten men maax ma' patal tin k'exi'",
+	"echo-pref-tooltip-mention-failure": "Aꞌaten le ken kꞌexaꞌak aꞌalakten men maax maꞌ patal tin kꞌexiꞌ",
 	"notification-link-text-view-mention-failure": "{{PLURAL:$1|Il maax ku t'aan yóolal|Il maax t'anik}}",
-	"notification-header-mention-failure-user-unknown": "{{GENDER:$2|Your}} a tuxt'aan \"$3\" ma' ta tuuxtabi' tumene le maaxo' ma' kaxta'abi'.",
-	"notification-header-mention-failure-user-anonymous": "{{GENDER:$2|Your}} t'aana'ab tumen \"$3\" ma' tuuxta'ab tumen ma' oojletan máax tuuxtik.",
-	"notification-header-mention-failure-too-many": "{{GENDER:$2|Your}} a tuuxt'an ma'tuuxtabi' tumen maan u $3.",
-	"notification-header-mention-failure-bundle": "$3 t'aano'ob {{GENDER:$2|you made}} ichil <strong>$4</strong> u waalil t'aan tu'ux ma' tuuxtabi'.",
-	"notification-compact-header-mention-failure-user-unknown": "<strong>Ma' ojeeltáan maaxi':</strong> \"$1\"",
-	"notification-compact-header-mention-failure-user-anonymous": "<strong>Ma' ojeelta'an maaxi':</strong> \"$1\""
+	"notification-header-mention-failure-user-unknown": "{{GENDER:$2|Your}} a tuxtꞌaan \"$3\" maꞌ ta tuuxtabiꞌ tumene le maaxoꞌ maꞌ kaxtaꞌabiꞌ.",
+	"notification-header-mention-failure-user-anonymous": "{{GENDER:$2|Your}} tꞌaanaꞌab tumen \"$3\" maꞌ tuuxtaꞌab tumen maꞌ oojletan máax tuuxtik.",
+	"notification-header-mention-failure-too-many": "A tuuxtꞌan maꞌtuuxtabiꞌ tumen maan u $3.",
+	"notification-header-mention-failure-bundle": "Tꞌaanoꞌob ichil <strong>$4</strong> u waalil tꞌaan tuꞌux maꞌ tuuxtabiꞌ.",
+	"notification-compact-header-mention-failure-user-unknown": "<strong>Maꞌ ojeeltáan maaxiꞌ:</strong> \"$1\"",
+	"notification-compact-header-mention-failure-user-anonymous": "<strong>Maꞌ ojeeltaꞌan maaxiꞌ:</strong> \"$1\""
 }

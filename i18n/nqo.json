@@ -133,6 +133,7 @@
 	"notification-link-text-what-links-here": "ߛߘߌ߬ߜߋ߲ ߡߍ߲ ߓߍ߯ ߦߋ߫ ߞߐߜߍ ߣߌ߲߬ ߘߐ߫",
 	"notification-header-mention-other": "$1 ߓߘߊ߫ {{GENDER:$2|ߌ}} {{GENDER:$3|ߕߐ߯ߘߐߕߍ߰}} <strong>$4</strong> ߘߐ߫ <strong>$5</strong> ߞߊ߲߬",
 	"notification-header-mention-other-nosection": "$1 ߓߘߊ߫ {{GENDER:$2|ߌ}} {{GENDER:$3|ߕߐ߯ߘߐߕߍ߰}} <strong>$4</strong> ߘߐ߫.",
+	"notification-header-mention-user-talkpage-v2": "{{GENDER:$2|}} ߓߘߴߌ {{GENDER:$3|}} ߞߏߝߐ߫ <strong>{{GENDER:$5|ߟߊ߫}} ߞߎߡߊ߫ ߞߐߜߍ $4 ߘߐ߫</strong> <strong>$6</strong> ߘߐ߫",
 	"notification-compact-header-mention-failure-user-unknown": "<strong>ߟߊ߬ߓߊ߰ߙߊ߬ߟߊ: $1 ߕߍ߫ ߦߋ߲߬</strong>",
 	"notification-compact-header-mention-failure-user-anonymous": "<strong>IP $1 ߕߍ߫ ߣߊ߬ ߛߐ߲߬ ߠߊ߫ ߞߏߝߐ߫ ߟߊ߫</strong>",
 	"notification-compact-header-mention-success": "<strong>{{GENDER:$2|ߌ ߓߘߊ߫}}$3 ߞߏߝߐ߫</strong>",
