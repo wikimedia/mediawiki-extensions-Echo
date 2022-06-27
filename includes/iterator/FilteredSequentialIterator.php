@@ -75,7 +75,7 @@ class EchoFilteredSequentialIterator implements IteratorAggregate {
 	 *
 	 * @return Iterator
 	 */
-	public function getIterator() {
+	public function getIterator(): Iterator {
 		$it = $this->createIterator();
 		if ( $this->filters ) {
 			$it = new CallbackFilterIterator( $it, $this->createFilter() );
