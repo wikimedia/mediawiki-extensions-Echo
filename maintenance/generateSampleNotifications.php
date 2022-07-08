@@ -184,7 +184,7 @@ class GenerateSampleNotifications extends Maintenance {
 		$username = $this->getOption( $optionName );
 		$user = User::newFromName( $username );
 		if ( !$user->isRegistered() ) {
-			$this->error( "User $username does not seem to exist in this wiki", 1 );
+			$this->fatalError( "User $username does not seem to exist in this wiki" );
 		}
 		return $user;
 	}
@@ -204,7 +204,7 @@ class GenerateSampleNotifications extends Maintenance {
 		$this->output( "Enter 'yes' if you wish to continue or any other key to exit\n" );
 		$confirm = $this->readconsole();
 		if ( $confirm !== 'yes' ) {
-			$this->error( 'Safe decision', 1 );
+			$this->fatalError( 'Safe decision' );
 		}
 	}
 
