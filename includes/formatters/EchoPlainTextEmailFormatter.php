@@ -14,10 +14,12 @@ class EchoPlainTextEmailFormatter extends EchoEventFormatter {
 		}
 
 		$primaryLink = $model->getPrimaryLinkWithMarkAsRead();
-
-		$primaryUrl = wfExpandUrl( $primaryLink['url'], PROTO_CANONICAL );
 		$colon = $this->msg( 'colon-separator' )->text();
-		$text .= "\n\n{$primaryLink['label']}$colon <$primaryUrl>";
+
+		if ( $primaryLink ) {
+			$primaryUrl = wfExpandUrl( $primaryLink['url'], PROTO_CANONICAL );
+			$text .= "\n\n{$primaryLink['label']}$colon <$primaryUrl>";
+		}
 
 		foreach ( array_filter( $model->getSecondaryLinks() ) as $secondaryLink ) {
 			$url = wfExpandUrl( $secondaryLink['url'], PROTO_CANONICAL );
