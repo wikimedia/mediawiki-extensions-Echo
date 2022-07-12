@@ -100,7 +100,7 @@
 	"echo-notification-placeholder": "Nema obavijesti.",
 	"echo-notification-placeholder-filters": "Nema obavijesti prema zadanim kriterijima.",
 	"echo-notification-loginrequired": "Morate biti prijavljeni da biste vidjeli Vaše obavijesti.",
-	"echo-notification-popup-loginrequired": "Da biste vidjeli vaše obavijesti, molimo prijavite se.",
+	"echo-notification-popup-loginrequired": "Prijavite se da biste vidjeli svoje obavijesti.",
 	"echo-notification-markasread": "Označi kao pročitano",
 	"echo-notification-markasunread": "Označi kao nepročitano",
 	"echo-notification-markasread-tooltip": "Označi kao pročitano",
