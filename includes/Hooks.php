@@ -213,7 +213,7 @@ class Hooks implements RecentChange_saveHook {
 
 		$dbType = $updater->getDB()->getType();
 
-		$dir = dirname( __DIR__ );
+		$dir = dirname( __DIR__ ) . '/sql';
 
 		$updater->addExtensionTable( 'echo_event', "$dir/echo.sql" );
 
@@ -223,38 +223,38 @@ class Hooks implements RecentChange_saveHook {
 		$updater->addExtensionUpdate( [ 'runMaintenance', UpdateEchoSchemaForSuppression::class,
 			'extensions/Echo/maintenance/updateEchoSchemaForSuppression.php' ] );
 		$updater->dropExtensionField( 'echo_event', 'event_page_namespace',
-			"$dir/db_patches/patch-drop-echo_event-event_page_namespace.sql" );
+			"$dir/patch-drop-echo_event-event_page_namespace.sql" );
 		$updater->dropExtensionField( 'echo_event', 'event_page_title',
-			"$dir/db_patches/patch-drop-echo_event-event_page_title.sql" );
+			"$dir/patch-drop-echo_event-event_page_title.sql" );
 		if ( $dbType === 'mysql' ) {
 			$updater->dropExtensionField( 'echo_notification', 'notification_bundle_base',
-				"$dir/db_patches/mysql/patch-drop-notification_bundle_base.sql" );
+				"$dir/mysql/patch-drop-notification_bundle_base.sql" );
 			$updater->dropExtensionField( 'echo_notification', 'notification_bundle_display_hash',
-				"$dir/db_patches/mysql/patch-drop-notification_bundle_display_hash.sql" );
+				"$dir/mysql/patch-drop-notification_bundle_display_hash.sql" );
 		}
 		$updater->dropExtensionIndex( 'echo_notification', 'echo_notification_user_hash_timestamp',
-			"$dir/db_patches/patch-drop-user-hash-timestamp-index.sql" );
+			"$dir/patch-drop-user-hash-timestamp-index.sql" );
 
 		// 1.35
-		$updater->addExtensionTable( 'echo_push_provider', "$dir/db_patches/echo_push_provider.sql" );
+		$updater->addExtensionTable( 'echo_push_provider', "$dir/echo_push_provider.sql" );
 
 		// 1.36
-		$updater->addExtensionTable( 'echo_push_topic', "$dir/db_patches/echo_push_topic.sql" );
+		$updater->addExtensionTable( 'echo_push_topic', "$dir/echo_push_topic.sql" );
 
 		// 1.35 - order of tables needed for declaring references
-		$updater->addExtensionTable( 'echo_push_subscription', "$dir/db_patches/echo_push_subscription.sql" );
+		$updater->addExtensionTable( 'echo_push_subscription', "$dir/echo_push_subscription.sql" );
 
 		global $wgEchoSharedTrackingCluster, $wgEchoSharedTrackingDB;
 		// Following tables should only be created if both cluster and database are false.
 		// Otherwise they are not created in the place they are accesses, because
 		// DatabaseUpdater does not support other databases other than main wiki schema.
 		if ( $wgEchoSharedTrackingCluster === false && $wgEchoSharedTrackingDB === false ) {
-			$updater->addExtensionTable( 'echo_unread_wikis', "$dir/db_patches/echo_unread_wikis.sql" );
+			$updater->addExtensionTable( 'echo_unread_wikis', "$dir/echo_unread_wikis.sql" );
 
 			// 1.34 (backported) - not for sqlite, the used data type supports the new length
 			if ( $updater->getDB()->getType() === 'mysql' ) {
 				$updater->modifyExtensionField( 'echo_unread_wikis', 'euw_wiki',
-					"$dir/db_patches/patch-increase-varchar-echo_unread_wikis-euw_wiki.sql" );
+					"$dir/mysql/patch-increase-varchar-echo_unread_wikis-euw_wiki.sql" );
 			}
 		}
 	}
