@@ -237,12 +237,16 @@ class Hooks implements RecentChange_saveHook {
 
 		// 1.35
 		$updater->addExtensionTable( 'echo_push_provider', "$dir/echo_push_provider.sql" );
+		$updater->addExtensionTable( 'echo_push_subscription', "$dir/echo_push_subscription.sql" );
 
 		// 1.36
 		$updater->addExtensionTable( 'echo_push_topic', "$dir/echo_push_topic.sql" );
 
-		// 1.35 - order of tables needed for declaring references
-		$updater->addExtensionTable( 'echo_push_subscription', "$dir/echo_push_subscription.sql" );
+		// 1.39
+		if ( $dbType === 'mysql' || $dbType === 'sqlite' ) {
+			$updater->modifyExtensionTable( 'echo_push_subscription',
+				"$dir/$dbType/patch-cleanup-push_subscription-foreign-keys-indexes.sql" );
+		}
 
 		global $wgEchoSharedTrackingCluster, $wgEchoSharedTrackingDB;
 		// Following tables should only be created if both cluster and database are false.
