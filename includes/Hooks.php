@@ -217,10 +217,6 @@ class Hooks implements RecentChange_saveHook {
 
 		$updater->addExtensionTable( 'echo_event', "$dir/echo.sql" );
 
-		// 1.29
-		$updater->dropExtensionIndex( 'echo_notification', 'user_event',
-			"$dir/db_patches/patch-notification-pk.sql" );
-
 		// 1.33
 		// Can't use addPostDatabaseUpdateMaintenance() here because that would
 		// run the migration script after dropping the fields
