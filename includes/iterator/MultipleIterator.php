@@ -21,7 +21,7 @@ class EchoMultipleIterator implements RecursiveIterator {
 		$this->children = $children;
 	}
 
-	public function rewind() {
+	public function rewind(): void {
 		$this->active = $this->children;
 		$this->key = 0;
 		foreach ( $this->active as $key => $it ) {
@@ -32,11 +32,11 @@ class EchoMultipleIterator implements RecursiveIterator {
 		}
 	}
 
-	public function valid() {
+	public function valid(): bool {
 		return (bool)$this->active;
 	}
 
-	public function next() {
+	public function next(): void {
 		$this->key++;
 		foreach ( $this->active as $key => $it ) {
 			$it->next();
@@ -46,6 +46,7 @@ class EchoMultipleIterator implements RecursiveIterator {
 		}
 	}
 
+	#[\ReturnTypeWillChange]
 	public function current() {
 		$result = [];
 		foreach ( $this->active as $it ) {
@@ -55,15 +56,15 @@ class EchoMultipleIterator implements RecursiveIterator {
 		return $result;
 	}
 
-	public function key() {
+	public function key(): int {
 		return $this->key;
 	}
 
-	public function hasChildren() {
+	public function hasChildren(): bool {
 		return (bool)$this->active;
 	}
 
-	public function getChildren() {
+	public function getChildren(): ?RecursiveIterator {
 		// The NotRecursiveIterator is used rather than a RecursiveArrayIterator
 		// so that nested arrays dont get recursed.
 		return new EchoNotRecursiveIterator( new ArrayIterator( $this->current() ) );

@@ -8,11 +8,11 @@
  * than the wrapped iterator.
  */
 class EchoNotRecursiveIterator extends IteratorDecorator implements RecursiveIterator {
-	public function hasChildren() {
+	public function hasChildren(): bool {
 		return false;
 	}
 
-	public function getChildren() {
+	public function getChildren(): ?RecursiveIterator {
 		// @phan-suppress-next-line PhanTypeMismatchReturnProbablyReal Never called
 		return null;
 	}
