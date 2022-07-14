@@ -276,14 +276,8 @@ class Hooks implements RecentChange_saveHook {
 	public static function onEchoGetBundleRules( $event, &$bundleString ) {
 		switch ( $event->getType() ) {
 			case 'edit-user-talk':
-				$bundleString = 'edit-user-talk';
-				if ( $event->getTitle() ) {
-					$bundleString .= '-' . $event->getTitle()->getNamespace()
-						. '-' . $event->getTitle()->getDBkey();
-				}
-				break;
 			case 'page-linked':
-				$bundleString = 'page-linked';
+				$bundleString = $event->getType();
 				if ( $event->getTitle() ) {
 					$bundleString .= '-' . $event->getTitle()->getNamespace()
 						. '-' . $event->getTitle()->getDBkey();
