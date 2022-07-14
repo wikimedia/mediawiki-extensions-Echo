@@ -126,7 +126,7 @@
 	"notification-header-mention-other-nosection": "$1 {{GENDER:$3|vas}} je {{GENDER:$2|omenil|omenila}} na strani <strong>$4</strong>.",
 	"notification-header-mention-user-talkpage-v2": "$1 {{GENDER:$3|vas}} je {{GENDER:$2|omenil|omenila}} na <strong>pogovorni strani {{GENDER:$5|uporabnika|uporabnice}} $4</strong> v razdelku »<strong>$6</strong>«.",
 	"notification-header-mention-user-talkpage-nosection": "$1 {{GENDER:$3|vas}} je {{GENDER:$2|omenil|omenila}} na <strong>pogovorni strani {{GENDER:$5|uporabnika|uporabnice}} $4</strong>.",
-	"notification-header-mention-agent-talkpage": "$1 {{GENDER:$3|vas}} {{GENDER:$2|je omenil}} na <strong>{{GENDER:$2|svoji}} pogovorni strani</strong> v razdelku \"<strong>$4</strong>\".",
+	"notification-header-mention-agent-talkpage": "$1 {{GENDER:$3|vas}} {{GENDER:$2|je omenil|je omenila|je omenil}} na <strong>{{GENDER:$2|svoji}} pogovorni strani</strong> v razdelku \"<strong>$4</strong>\".",
 	"notification-header-mention-agent-talkpage-nosection": "$1 {{GENDER:$3|vas}} je {{GENDER:$2|omenil|omenila}} na <strong>{{GENDER:$2|svoji}} pogovorni strani</strong>.",
 	"notification-header-mention-article-talkpage": "$1 {{GENDER:$3|vas}} je {{GENDER:$2|omenil|omenila}} na pogovorni strani članka <strong>$4</strong> v  razdelku »<strong>$5</strong>«.",
 	"notification-header-mention-article-talkpage-nosection": "$1 {{GENDER:$3|vas}} je {{GENDER:$2|omenil|omenila}} na pogovorni strani članka <strong>$4</strong>.",

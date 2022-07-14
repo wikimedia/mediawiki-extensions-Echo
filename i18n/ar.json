@@ -14,6 +14,7 @@
 			"Maroen1990",
 			"Meno25",
 			"Mido",
+			"Mohanad Kh",
 			"Moud hosny",
 			"Omar Ghrida",
 			"Omda4wady",
@@ -235,7 +236,7 @@
 	"notification-header-foreign-notice": "مزيد من الإشعارات من {{PLURAL:$5|ويكي أخر|$5 ويكيات أخرى}}",
 	"notification-header-foreign-all": "المزيد من الإخطارات من {{PLURAL:$5|ويكي أخرى|$5 ويكيات أخرى}}",
 	"echo-badge-count": "{{PLURAL:$1|$1|100={{formatnum:99}}+}}",
-	"group-push-subscription-manager": "إداريو تسيير الاشتراك",
-	"group-push-subscription-manager-member": "{{GENDER:$1|إداري تسيير الاشتراك}}",
-	"grouppage-push-subscription-manager": "{{ns:project}}:إداريو تسيير الاشتراك"
+	"group-push-subscription-manager": "إداريو مصادقات التسليم",
+	"group-push-subscription-manager-member": "{{GENDER:$1|إداري مصادقات التسليم}}",
+	"grouppage-push-subscription-manager": "{{ns:project}}:إداريو مصادقات التسليم"
 }
