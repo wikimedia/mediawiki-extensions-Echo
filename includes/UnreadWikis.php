@@ -83,12 +83,12 @@ class EchoUnreadWikis {
 			$wikis[$row->euw_wiki] = [
 				EchoAttributeManager::ALERT => [
 					'count' => $row->euw_alerts,
-					'ts' => $row->euw_alerts_ts === static::DEFAULT_TS_DB ?
+					'ts' => wfTimestamp( TS_MW, $row->euw_alerts_ts ) === static::DEFAULT_TS_DB ?
 						static::DEFAULT_TS : wfTimestamp( TS_MW, $row->euw_alerts_ts ),
 				],
 				EchoAttributeManager::MESSAGE => [
 					'count' => $row->euw_messages,
-					'ts' => $row->euw_messages_ts === static::DEFAULT_TS_DB ?
+					'ts' => wfTimestamp( TS_MW, $row->euw_messages_ts ) === static::DEFAULT_TS_DB ?
 						static::DEFAULT_TS : wfTimestamp( TS_MW, $row->euw_messages_ts ),
 				],
 			];
