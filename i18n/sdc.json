@@ -1,8 +1,22 @@
 {
 	"@metadata": {
 		"authors": [
+			"F Samaritani",
 			"Jun Misugi"
 		]
 	},
-	"tooltip-pt-notifications-alert": "{{GENDER:|Li tó}} avvisi"
+	"prefs-emailsettings": "Isciùbari e-postha",
+	"echo-mobile-notifications-filter-title": "Modìfica di filthru",
+	"echo-pref-web": "Web",
+	"echo-pref-email": "Indirizzu di postha erettrònica",
+	"echo-pref-push": "App",
+	"echo-pref-email-format-html": "HTML",
+	"echo-pref-email-format-plain-text": "Testhu noimmali",
+	"tooltip-pt-notifications-alert": "{{GENDER:|Li tó}} avvisi",
+	"notification-link-text-expand-all": "Ammusthrà",
+	"notification-link-text-collapse-all": "Cuà",
+	"notification-timestamp-today": "Oggi",
+	"notification-inbox-filter-read": "Liggì",
+	"notification-inbox-filter-all": "Tutti",
+	"echo-date-today": "Oggi"
 }

@@ -52,5 +52,6 @@
 	"echo-pref-tooltip-emailuser": "Padahi ulun amun sasaurang mangirim ulun surél.",
 	"echo-pref-tooltip-article-reminder": "Padahi ulun pasal laman ngini amun ulun minta.",
 	"tooltip-pt-notifications-alert": "Pamadahan {{GENDER:|Pian}}",
+	"tooltip-pt-notifications-notice": "Pamadahan {{GENDER:|Pian}}",
 	"group-push-subscription-manager": "Pangalula langganan tunjul"
 }
