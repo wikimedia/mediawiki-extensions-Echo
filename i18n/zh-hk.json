@@ -2,8 +2,9 @@
 	"@metadata": {
 		"authors": [
 			"A2093064",
+			"LuciferianThomas",
 			"Xiplus"
 		]
 	},
-	"prefs-blocknotificationslist": "禁言用戶"
+	"prefs-blocknotificationslist": "黑名單"
 }

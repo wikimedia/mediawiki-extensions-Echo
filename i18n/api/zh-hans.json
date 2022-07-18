@@ -4,6 +4,7 @@
 			"Liuxinyu970226",
 			"Shizhao",
 			"SkyEye FAST",
+			"Tr jason",
 			"Yfdyh000",
 			"忒有钱"
 		]
@@ -33,6 +34,7 @@
 	"apihelp-echopushsubscriptions+create-summary": "为当前用户注册推送订阅。",
 	"apihelp-echopushsubscriptions+create-param-provider": "为其注册令牌的推送服务提供者。",
 	"apihelp-echopushsubscriptions+create-param-providertoken": "要注册的令牌。",
+	"apihelp-echopushsubscriptions+create-param-topic": "要发送通知的 APNS 主题（应用程序包 ID）。",
 	"apihelp-echopushsubscriptions+create-example": "为当前用户注册推送订阅。",
 	"apihelp-echopushsubscriptions+delete-summary": "取消注册当前用户或其他指定用户的推送订阅。",
 	"apihelp-echopushsubscriptions+delete-param-providertoken": "与取消注册的推送订阅关联的令牌。",
@@ -59,6 +61,7 @@
 	"apihelp-query+notifications-param-messageunreadfirst": "是否首先显示未读的提醒通知（只当groupbysection已设置时使用）。",
 	"apihelp-query+notifications-param-titles": "只返回这些页面的通知。要获取未分配给任何页面的通知，使用[]作为标题。",
 	"apihelp-query+notifications-param-bundle": "是否根据通知类型捆绑规则，显示兼容捆绑的未读通知。",
+	"apihelp-query+notifications-param-notifiertypes": "要返回通知的类型。",
 	"apihelp-query+notifications-example-1": "列举网络通知",
 	"apihelp-query+notifications-example-2": "列出网络通知，按节分组，带有数量",
 	"apihelp-query+notifications-example-3": "列举电子邮件通知",
