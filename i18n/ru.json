@@ -210,6 +210,7 @@
 	"notification-header-watchlist-multiuser-deleted": "<strong>$1</strong>, страница из {{GENDER:$2|вашего}} списка наблюдения, была удалена {{PLURAL:$3|$3 раз|$3 раза|$3 раз}}.",
 	"notification-header-watchlist-multiuser-moved": "<strong>$1</strong>, страница из {{GENDER:$2|вашего}} списка наблюдения, была переименована {{PLURAL:$3|$3 раз|$3 раза|$3 раз}}.",
 	"notification-header-watchlist-multiuser-restored": "<strong>$1</strong>, страница из {{GENDER:$2|вашего}} списка наблюдения, была восстановлена {{PLURAL:$3|$3 раз|$3 раза|$3 раз}}.",
+	"notification-body-watchlist-once": "Уведомлений по электронной почте по поводу дальнейшей активности больше не будет, если только вы не {{GENDER:$1|посетите}} эту страницу, будучи авторизованным на сайте.",
 	"notification-welcome-linktext": "Добро пожаловать!",
 	"notification-header-thank-you-1-edit": "{{GENDER:$2|Вы}} только что сделали {{GENDER:$2|вашу}} первую правку. Благодарим {{GENDER:$2|вас}} за это, и добро пожаловать!",
 	"notification-header-thank-you-10-edit": "{{GENDER:$2|Вы}} только что сделали {{GENDER:$2|вашу}} десятую правку. Благодарим {{GENDER:$2|вас}} за это, продолжайте в том же духе!",
