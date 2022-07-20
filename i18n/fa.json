@@ -193,6 +193,7 @@
 	"notification-header-watchlist-multiuser-deleted": "صفحهٔ <strong>$1</strong> که در فهرست پیگیری {{GENDER:$2|شما}} موجود است، $3 {{PLURAL:$3|دفعه}} حذف شد.",
 	"notification-header-watchlist-multiuser-moved": "صفحهٔ <strong>$1</strong> که در فهرست پیگیری‌ {{GENDER:$2|شما}} قرار دارد، $3 {{PLURAL:$3|بار}} منتقل شده است.",
 	"notification-header-watchlist-multiuser-restored": "صفحهٔ <strong>$1</strong> که در فهرست پیگیری {{GENDER:$2|شما}} حضور دارد، $3 {{PLURAL:$3|بار}} احیا شده است.",
+	"notification-body-watchlist-once": "در صورت فعالیت‌های بیشتر، هیچ اعلانی از طریق ایمیل ارسال نخواهد شد؛ مگر آن که {{GENDER:$1|شما}} در حالی که به سامانه وارد شده‌اید، از این صفحه بازدید کنید.",
 	"notification-welcome-linktext": "خوش آمدید",
 	"notification-header-thank-you-1-edit": "{{GENDER:$2|شما}} اولین ویرایش‌تان را {{GENDER:$2|انجام دادید}}. سپاس از {{GENDER:$2|شما}}، و خوش آمدید!",
 	"notification-header-thank-you-10-edit": "{{GENDER:$2|شما}} دهمین ویرایشتان را {{GENDER:$2|انجام دادید}}؛ {{GENDER:$2|ممنون}}، لطفاً ادامه دهید!",
