@@ -21,6 +21,7 @@
 			"Tmv",
 			"Translatealcd",
 			"Vigorous action",
+			"W.CC",
 			"Whym",
 			"Yusuke1109",
 			"おはぐろ蜻蛉",
@@ -222,5 +223,9 @@
 	"notification-header-foreign-alert": "{{PLURAL:$5|他のウィキ|他の$5個のウィキ}}からのアラートがあります",
 	"notification-header-foreign-notice": "{{PLURAL:$5|他のウィキ|他の$5個のウィキ}}からの通知があります",
 	"notification-header-foreign-all": "{{PLURAL:$5|他のウィキ|他の$5個のウィキ}}からの通知があります",
-	"group-push-subscription-manager": "プッシュサブスクリプションマネージャ"
+	"right-manage-all-push-subscriptions": "すべてのプッシュ・サブスクリプションを操作する",
+	"action-manage-all-push-subscriptions": "すべてのプッシュ・サブスクリプションを操作する",
+	"group-push-subscription-manager": "プッシュ・サブスクリプション取扱者",
+	"group-push-subscription-manager-member": "{{GENDER:$1|プッシュ・サブスクリプション取扱者}}",
+	"grouppage-push-subscription-manager": "{{ns:project}}:プッシュ・サブスクリプション取扱者"
 }
