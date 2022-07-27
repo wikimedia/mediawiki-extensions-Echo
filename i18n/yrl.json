@@ -43,5 +43,12 @@
 	"echo-category-title-other": "{{PLURAL:$1|Amũ yepé}}",
 	"echo-category-title-system": "{{PLURAL:$1|Yũrepawa}}",
 	"echo-category-title-system-noemail": "{{PLURAL:$1|Yũrepawa}}",
-	"echo-category-title-system-emailonly": "{{PLURAL:$1|Yũrepawa}}"
+	"echo-category-title-system-emailonly": "{{PLURAL:$1|Yũrepawa}}",
+	"echo-category-title-user-rights": "{{PLURAL:$1|Puruçara sinimuka çatãbika|Puruçara sinimuka çatãbika’etá}}",
+	"echo-category-title-emailuser": "{{PLURAL:$1|Emayu amũ puruçara çuí|Emayu amũ puruçara’etá çuí}}",
+	"echo-category-title-article-reminder": "Sowa {{PLURAL:$1|mumãduariçara|mumãduariçara’etá}}",
+	"echo-category-title-thank-you-edit": "Murupiawa {{PLURAL:$1|sikaçawa|sikaçawa’etá}}",
+	"echo-category-title-watchlist": "Umurupiawa sowa’etá xipiana",
+	"echo-category-title-minor-watchlist": "Murupiawa’i sowa’etá xipiana rupí",
+	"echo-pref-tooltip-edit-user-talk": "E-mukameẽ xe arã yepé mira umurupiawa ramẽ çe puruçara mainãgawa murũgetaçawa sowa."
 }
