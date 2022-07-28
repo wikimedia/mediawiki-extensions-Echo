@@ -16,5 +16,9 @@
 	"notification-link-text-view-message": "Čuäʹjet saaǥǥ",
 	"notification-link-text-view-page": "Čuäʹjet seeid",
 	"notification-link-article-reminder": "Čuäʹjet seeid",
-	"notification-inbox-filter-all": "Puk"
+	"notification-timestamp-today": "Täʹbbe",
+	"notification-timestamp-yesterday": "Jåhtta",
+	"notification-inbox-filter-all": "Puk",
+	"echo-date-today": "Täʹbbe",
+	"echo-date-yesterday": "Jåhtta"
 }

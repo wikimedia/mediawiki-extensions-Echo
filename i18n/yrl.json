@@ -50,5 +50,8 @@
 	"echo-category-title-thank-you-edit": "Murupiawa {{PLURAL:$1|sikaçawa|sikaçawa’etá}}",
 	"echo-category-title-watchlist": "Umurupiawa sowa’etá xipiana",
 	"echo-category-title-minor-watchlist": "Murupiawa’i sowa’etá xipiana rupí",
-	"echo-pref-tooltip-edit-user-talk": "E-mukameẽ xe arã yepé mira umurupiawa ramẽ çe puruçara mainãgawa murũgetaçawa sowa."
+	"echo-pref-tooltip-edit-user-talk": "E-mukameẽ xe arã yepé mira umurupiawa ramẽ çe puruçara mainãgawa murũgetaçawa sowa.",
+	"echo-pref-tooltip-article-linked": "E-nheẽ xe arã yepé mira umunhã ramẽ yepé tupaçá yepé sowa kití xe amunhã ã waá yepé kuatiara sowa rupí.",
+	"echo-pref-tooltip-reverted": "Erembeu xe arã yepé mira wamũmunhã ramẽ yepé murupiawa xe amunhã ã waá upurú rupí amũmunhãgawa murakimaé yara.",
+	"notification-link-text-what-links-here": "Pãnhé tupaçá kuá sowa kití"
 }
