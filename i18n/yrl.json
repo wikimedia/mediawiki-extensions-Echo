@@ -53,5 +53,8 @@
 	"echo-pref-tooltip-edit-user-talk": "E-mukameẽ xe arã yepé mira umurupiawa ramẽ çe puruçara mainãgawa murũgetaçawa sowa.",
 	"echo-pref-tooltip-article-linked": "E-nheẽ xe arã yepé mira umunhã ramẽ yepé tupaçá yepé sowa kití xe amunhã ã waá yepé kuatiara sowa rupí.",
 	"echo-pref-tooltip-reverted": "Erembeu xe arã yepé mira wamũmunhã ramẽ yepé murupiawa xe amunhã ã waá upurú rupí amũmunhãgawa murakimaé yara.",
+	"echo-pref-tooltip-mention": "Erembeu xe arã yepé mira umunhã ramẽ tupaçá çe puruçara mainãgawa sowa kití.",
+	"echo-pref-tooltip-mention-failure": "Erembeu xe arã xe ti amurú amumĩduari yepé mira ramẽ.",
+	"echo-pref-tooltip-mention-success": "Erembeu xe arã xe ameẽ ramẽ yepé mĩduariçawa yepé mira çupé.",
 	"notification-link-text-what-links-here": "Pãnhé tupaçá kuá sowa kití"
 }

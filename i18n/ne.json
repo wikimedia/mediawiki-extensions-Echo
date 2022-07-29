@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Bada Kaji",
 			"NehalDaveND",
 			"Nirajan pant",
 			"Nirjal stha",
@@ -49,7 +50,7 @@
 	"echo-category-title-system": "{{PLURAL:$1|प्रणाली}}",
 	"echo-category-title-system-noemail": "{{PLURAL:$1|प्रणाली}}",
 	"echo-category-title-system-emailonly": "{{PLURAL:$1|प्रणाली}}",
-	"echo-category-title-user-rights": "{{PLURAL:$1|प्रयोगकर्ता अधिकार परिवर्तन|प्रयोगकर्ता अधिकारहरू परिवर्तन}}",
+	"echo-category-title-user-rights": "{{PLURAL:$1|प्रयोगकर्ताको अधिकार परिवर्तन|प्रयोगकर्ताको अधिकारहरू परिवर्तन}}",
 	"echo-category-title-emailuser": "{{PLURAL:$1|अन्य प्रयोगकर्ताबाट इमेल|अन्य प्रयोगकर्ताहरूबाट इमेल}}",
 	"echo-category-title-article-reminder": "{{PLURAL:$1|अनुस्मारक|अनुस्मारकहरू}} पृष्ठ",
 	"echo-category-title-thank-you-edit": "{{PLURAL:$1|काेशेढुङ्गा|काेशेढुङ्गाहरू}} सम्पादन",

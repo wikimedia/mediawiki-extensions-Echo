@@ -161,12 +161,16 @@
 	"echo-displaysnippet-title": "Yangi bildirishnoma",
 	"echo-date-today": "Bugun",
 	"echo-date-yesterday": "Kecha",
+	"notification-bundle-header-edit-user-talk-v2": "Munozara {{GENDER:$3|sahifangizda}} {{PLURAL:$1|bitta yangi xabar|$1 ta yangi xabar|100=99 tadan ortiq yangi xabar}} bor.",
 	"echo-email-batch-bullet": "•",
 	"echo-email-batch-subject-daily": "{{SITENAME}} saytida sizda {{PLURAL:$2|yangi xabar}} bor.",
 	"echo-email-batch-subject-weekly": "Bu hafta {{SITENAME}} saytida sizda {{PLURAL:$2|yangi xabar}} bor.",
 	"echo-email-batch-body-intro-daily": "Salom $1,\nMana siz uchun {{SITENAME}} saytidagi bugungi faoliyat haʻqida qisqa maʼlumot.",
 	"echo-email-batch-body-intro-weekly": "Salom $1,\nMana siz uchun {{SITENAME}} saytidagi bir haftalik faoliyat haʻqida qisqa maʼlumot.",
 	"echo-email-batch-link-text-view-all-notifications": "Barcha xabarlarni koʻrib chiqish",
+	"notification-header-foreign-alert": "{{PLURAL:$5|Boshqa viki|$5 ta boshqa viki}}dan xabarlar",
+	"notification-header-foreign-notice": "{{PLURAL:$5|Boshqa viki|$5 ta boshqa viki}}dan bildirishnomalar",
+	"notification-header-foreign-all": "{{PLURAL:$5|Boshqa viki|$5 ta boshqa viki}}dan bildirishnomalar",
 	"echo-foreign-wiki-lang": "$1 - $2",
 	"echo-badge-count": "{{PLURAL:$1|$1|100={{formatnum:99}}+}}"
 }

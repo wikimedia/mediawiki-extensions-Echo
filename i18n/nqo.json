@@ -214,7 +214,7 @@
 	"echo-email-batch-subject-daily": "ߌ ߓߘߊ߫ {{PLURAL:|ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ߫ ߞߎߘߊ ߘߏ߫|ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ߫ ߞߎߘߊ߫ $2 ߟߎ߫}} ߛߐ߬ߘߐ߲߬ {{SITENAME}} ߛߌߟߊ ߝߍ߬",
 	"echo-email-batch-subject-weekly": "ߌ ߓߘߊ߫ {{PLURAL:|ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ߫ ߞߎߘߊ ߘߏ߫|ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ߫ ߞߎߘߊ $2 ߟߎ߫}} ߛߐ߬ߘߐ߲߬ {{SITENAME}} ߛߌߟߊ ߝߍ߬ ߞߎ߲߬ߢߐ߮ ߣߌ߲߬ ߞߘߐ߫",
 	"echo-email-batch-body-intro-daily": "ߌ ߣߌ߫ ߕߎ߬ߡߊ߫ $1߸\nߓߌ߬ ߓߊ߯ߙߊ߫ ߣߐ ߟߎ߬ ߟߊߘߛߏߣߍ߲ ߠߋ߬ ߦߋ߫ ߌߟߋ ߢߍ߫ ߣߌ߲߬ {{SITENAME}} ߞߊ߲߬",
-	"echo-email-batch-body-intro-weekly": "ߌ ߣߌ߫ ߕߎ߬ߡߊ߬߸ \nߞߎ߲߬ߢߐ߮ ߣߌ߲߬ ߓߊ߯ߙߊߣߐ ߟߎ߬ ߟߊߘߛߏߣߍ߲ ߠߎ߬ ߟߋ߬ ߦߋ߫ ߌߟߋ ߢߍ߫ ߣߌ߲߬ ߘߌ߫ {{SITENAME}} ߞߊ߲߬.",
+	"echo-email-batch-body-intro-weekly": "ߌ ߣߌ߫ ߕߎ߬ߡߊ߬ $1߸ \nߣߌ߲߬ ߦߴߌ ߟߊ߫ ߞߎ߲߬ߢߐ߮ ߣߌ߲߬ ߓߊ߯ߙߊߣߐ ߟߎ߬ ߟߊߘߛߏߣߍ߲ ߠߎ߬ ߟߋ߬ ߘߌ߫ {{SITENAME}} ߞߊ߲߬.",
 	"echo-email-batch-link-text-view-all-notifications": "ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ ߟߎ߬ ߓߍ߯ ߦߋ߫",
 	"notification-header-foreign-alert": "ߟߊ߬ߛߏ߬ߓߌ߬ߟߌ߫ ߜߘߍ ߟߎ߬ ߟߎ߫ ߞߊ߬ ߝߘߊ߫ {{PLURAL:|ߥߞߌ߫ ߜߘߍ߫ $5|ߜߘߍ߫ ߟߎ߫ $5}} ߟߊ߫",
 	"notification-header-foreign-notice": "ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ߫ ߜߘߍ߫ ߟߎ߫ ߞߊ߬ ߝߘߊ߫ {{PLURAL:|ߥߞߌ߫ ߜߘߍ߫ $5|ߥߞߌ߫ ߜߘߍ ߟߎ߬ $5}} ߟߊ߫",
