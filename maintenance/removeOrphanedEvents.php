@@ -31,6 +31,28 @@ class RemoveOrphanedEvents extends LoggedUpdateMaintenance {
 	}
 
 	public function doDBUpdates() {
+		$startId = 0;
+		$dbFactory = MWEchoDbFactory::newFromDefault();
+		$dbr = $dbFactory->getEchoDb( DB_REPLICA );
+		$maxId = (int)$dbr->newSelectQueryBuilder()
+			->select( 'MAX(event_id)' )
+			->from( 'echo_event' )
+			->fetchField();
+		$eventsProcessedTotal = 0;
+		$targetsProcessedTotal = 0;
+		while ( $startId < $maxId ) {
+			$startId += $this->getBatchSize() * 1000;
+			list( $eventsProcessed, $targetsProcessed ) = $this->doMajorBatch( $startId );
+			$eventsProcessedTotal += $eventsProcessed;
+			$targetsProcessedTotal += $targetsProcessed;
+		}
+		$this->output( "In total, deleted $eventsProcessedTotal orphaned events and " .
+			"$targetsProcessedTotal target_page rows.\n" );
+
+		return true;
+	}
+
+	private function doMajorBatch( $maxId ) {
 		$dbFactory = MWEchoDbFactory::newFromDefault();
 		$dbw = $dbFactory->getEchoDb( DB_PRIMARY );
 		$dbr = $dbFactory->getEchoDb( DB_REPLICA );
@@ -47,10 +69,11 @@ class RemoveOrphanedEvents extends LoggedUpdateMaintenance {
 		$iterator->addConditions( [
 			'notification_user' => null,
 			'eeb_user_id' => null,
+			'event_id < ' . $maxId
 		] );
 		$iterator->setCaller( __METHOD__ );
 
-		$this->output( "Removing orphaned echo_event rows...\n" );
+		$this->output( "Removing orphaned echo_event rows with max event_id of $maxId...\n" );
 
 		$eventsProcessed = 0;
 		$targetsProcessed = 0;
@@ -67,7 +90,7 @@ class RemoveOrphanedEvents extends LoggedUpdateMaintenance {
 			$dbFactory->waitForReplicas();
 		}
 
-		$this->output( "Removing any remaining orphaned echo_target_page rows...\n" );
+		$this->output( "Removing any remaining orphaned echo_target_page rows with max etp_event of $maxId...\n" );
 		$iterator = new BatchRowIterator(
 			$dbr,
 			[ 'echo_target_page', 'echo_event' ],
@@ -75,7 +98,12 @@ class RemoveOrphanedEvents extends LoggedUpdateMaintenance {
 			$this->getBatchSize()
 		);
 		$iterator->addJoinConditions( [ 'echo_event' => [ 'LEFT JOIN', 'event_id=etp_event' ] ] );
-		$iterator->addConditions( [ 'event_type' => null ] );
+		$iterator->addConditions(
+			[
+				'event_type' => null,
+				'etp_event < ' . $maxId
+			]
+		);
 		$iterator->addOptions( [ 'DISTINCT' ] );
 		$iterator->setCaller( __METHOD__ );
 
@@ -91,7 +119,7 @@ class RemoveOrphanedEvents extends LoggedUpdateMaintenance {
 			$dbFactory->waitForReplicas();
 		}
 
-		return true;
+		return [ $eventsProcessed, $targetsProcessed + $processed ];
 	}
 }
 
