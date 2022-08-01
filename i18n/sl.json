@@ -197,6 +197,6 @@
 	"echo-email-batch-body-intro-weekly": "{{GENDER:|Pozdravljen|Pozdravljena}}, $1.\n\nTu je povzetek tvojih dejavnosti v preteklem tednu v {{GRAMMAR:dajalnik|{{SITENAME}}}}.",
 	"echo-email-batch-link-text-view-all-notifications": "Ogled vseh obvestil",
 	"notification-header-foreign-alert": "Novi opomniki iz {{PLURAL:$5|drugega wikija|$5 drugih wikijev}}",
-	"notification-header-foreign-notice": "Več obvestil iz {{PLURAL:$5|drugega wikija|$5 drugih wikijev}}",
-	"notification-header-foreign-all": "Več obvestil iz {{PLURAL:$5|drugega wikija|$5 drugih wikijev}}"
+	"notification-header-foreign-notice": "Več obvestil iz {{PLURAL:$5|drugega vikija|$5 drugih vikijev}}",
+	"notification-header-foreign-all": "Več obvestil iz {{PLURAL:$5|drugega vikija|$5 drugih vikijev}}"
 }
