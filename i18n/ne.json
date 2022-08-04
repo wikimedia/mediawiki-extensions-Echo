@@ -88,7 +88,7 @@
 	"echo-notification-markasunread": "नपढिएको रूपमा चिनो लगाउनुहोस्",
 	"echo-notification-markasread-tooltip": "पढिएको रूपमा चिनो लगाउनुहोस्",
 	"echo-notification-more-options-tooltip": "थप विकल्पहरू",
-	"notification-link-text-expand-all": "फैलाउनुहोस्",
+	"notification-link-text-expand-all": "देखाउनुहोस्",
 	"notification-link-text-expand-alert-count": "{{PLURAL:$1|$1 सूचना|$1 सूचनाहरू}} हेर्नुहाेस्",
 	"notification-link-text-expand-notice-count": "{{PLURAL:$1|$1 सूचना|$1 सूचनाहरू}} हेर्नुहाेस्",
 	"notification-link-text-expand-all-count": "{{PLURAL:$1|$1 जानकारी|$1 जानकारीहरू}} हेर्नुहाेस्",
