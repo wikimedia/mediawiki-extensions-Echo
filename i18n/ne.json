@@ -64,6 +64,7 @@
 	"echo-pref-tooltip-mention-success": "जब मैले कसैलाई उल्लेख पढाएँ भने मलाई सूचित गर्नुहोस्",
 	"echo-pref-tooltip-user-rights": "जब कसैले मेरो प्रयोगकर्ता अधिकार परिवर्तन गर्दछ भने मलाई सूचित गर्नुहोस्।",
 	"echo-pref-tooltip-emailuser": "जब कसैले मलाई डाँक पठाउँदछ भने मलाई सूचित गर्नुहोस्",
+	"echo-pref-tooltip-article-reminder": "मैले सोध्दा यो पृष्ठको बारेमा मलाई सूचित गर्नुहोस्।",
 	"notifications": "जानकारीहरू",
 	"tooltip-pt-notifications-alert": "{{GENDER:|तपाईंको}} जानकारीहरू",
 	"tooltip-pt-notifications-notice": "{{GENDER:|तपाईको}} जानकारीहरू",
