@@ -144,7 +144,7 @@
 	"notification-header-user-rights-remove-only": "{{GENDER:$4|Tvoje}} Uporabniške pravice {{GENDER:$1|so bile spremenjene}}. Odslej nisi več v skupini: $2.",
 	"notification-header-user-rights-add-and-remove": "{{GENDER:$6|Tvoje}} uporabniške pravice {{GENDER:$1|so bile spremenjene}}. Postal si del skupine: $2. Nisi več v skupini: $4.",
 	"notification-header-user-rights-expiry-change": "Čas poteka {{GENDER:$4|tvojega}} tvojega članstva v naslednjih {{PLURAL:$3|skupini|skupinama|skupinah}} je bil {{GENDER:$1|spremenjen}}: $2.",
-	"notification-header-welcome": "{{GENDER:$2|Pozdravljeni}} na {{SITENAME}}, $1! Veseli smo, da ste se {{GENDER:$2|oglasili}}.",
+	"notification-header-welcome": "{{GENDER:$2|Pozdravljeni}} v projektu {{SITENAME}}, $1! Veseli nas, da {{GENDER:$2|ste}} tu.",
 	"notification-header-mention-summary": "$1 {{GENDER:$3|vas}} {{GENDER:$2|je omenil}} v povzetku urejanja strani <strong>$4</strong>.",
 	"notification-welcome-linktext": "{{GENDER: Pozdravljen|Pozdravljena|Pozdravljeni}}",
 	"notification-header-thank-you-1-edit": "Pravkar ste {{GENDER:$2|opravili}} svoje prvo urejanje. Hvala{{GENDER:$2|}} in dobrodošli!",
