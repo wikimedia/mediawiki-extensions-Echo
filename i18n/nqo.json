@@ -200,7 +200,7 @@
 	"echo-email-plain-footer": "ߖߐ߲߬ߛߊ߫ ߞߵߊ߬ ߛߎߥߊ߲ߘߌ߫ ߊ߲ ߞߊ߬ ߢߎߡߍߙߋ߲ ߡߍ߲ ߗߋ߫ {{GENDER:$1|ߌ}}ߡߊ߬߸ {{GENDER:$1|ߌ ߟߊ߫}} ߦߟߌߡߊߛߙߋ ߟߎ߬ ߝߛߍ߬ߝߛߍ߫:",
 	"echo-email-html-footer-preference-link-text": "{{GENDER:$1|ߌ ߟߊ߫}} ߤߣߍߕߊ ߟߎ߬ ߝߛߍ߬ߝߛߍ߫",
 	"echo-email-html-footer-with-link": "ߖߐ߲߬ߛߊ߫ ߞߊ߬ ߊ߬ ߡߊߝߟߍ߫ ߊ߲ ߞߊ߬ ߢߎߡߍߙߋ߲߫ ߗߋߛߓߍ ߡߍ߲ ߗߋ߫ {{GENDER:$2|ߌ}} ߡߊ߬߸ $1",
-	"echo-notification-alert": "{{PLURAL:|ߟߊ߬ߛߏ߬ߓߌ߬ߟߌ߫ ($1)|ߟߊ߬ߛߏ߬ߓߌ߬ߟߌ߫ ($1) ߟߎ߬|ߟߊ߬ߛߏ߬ߓߌ߬ߟߌ߫100= (99+)}}",
+	"echo-notification-alert": "{{PLURAL:|ߟߊ߬ߛߏ߬ߓߌ߬ߟߌ߫ ($1)|ߟߊ߬ߛߏ߬ߓߌ߬ߟߌ߫ ($1) ߟߎ߬|ߟߊ߬ߛߏ߬ߓߌ߬ߟߌ߫ 100= (99+)}}",
 	"echo-notification-alert-text-only": "ߟߊ߬ߛߏ߬ߓߌ߬ߟߌ ߟߎ߬",
 	"echo-notification-notice-text-only": "ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ ߟߎ߬",
 	"echo-overlay-link": "ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ ߟߎ߬ ߓߍ߯",
