@@ -244,7 +244,7 @@ class Hooks implements RecentChange_saveHook {
 
 		// 1.39
 		if ( $dbType === 'mysql' || $dbType === 'sqlite' ) {
-			$updater->modifyExtensionTable( 'echo_push_subscription',
+			$updater->addExtensionIndex( 'echo_push_subscription', 'eps_user',
 				"$dir/$dbType/patch-cleanup-push_subscription-foreign-keys-indexes.sql" );
 		}
 
