@@ -4,11 +4,23 @@
 			"The Discoverer"
 		]
 	},
+	"prefs-echo": "Kollovnnio",
 	"echo-learn-more": "Odik xikun ghe",
+	"notifications": "Kollovnnio",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Tujeo}} chotraio",
+	"tooltip-pt-notifications-notice": "Tujeo kollovnnio",
+	"echo-specialpage": "Kollovnnio",
+	"echo-notification-placeholder": "Kaich kollovnnio nan",
+	"notification-link-text-expand-notice-count": "{{PLURAL:$1|$1 kollovnni|$1 kollovnnio}} polloi",
 	"notification-timestamp-today": "Aiz",
 	"notification-timestamp-yesterday": "Kal",
 	"notification-inbox-filter-read": "Vach",
 	"notification-inbox-filter-unread": "Vachunk naslele",
-	"notification-inbox-filter-all": "Sogllem"
+	"notification-inbox-filter-all": "Sogllem",
+	"echo-notification-notice": "{{PLURAL:$1|Kollovnni ($1)|Kollovnnio ($1)|100=Kollovnnio (99+)}}",
+	"echo-notification-alert-text-only": "Chotraio",
+	"echo-notification-notice-text-only": "Kollovnnio",
+	"echo-overlay-link": "Soglleo kollovnnio",
+	"echo-displaysnippet-title": "Novi kollovnni",
+	"echo-email-batch-link-text-view-all-notifications": "Soglleo kollovnnio polloi"
 }

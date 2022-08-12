@@ -138,7 +138,7 @@
 	"echo-notification-notice": "{{PLURAL:$1|सूचना ($1)|सूचनाहरू ($1)|100=सूचनाहरू (९९+)}}",
 	"echo-notification-alert-text-only": "सुचनाहरू",
 	"echo-notification-notice-text-only": "सूचनाहरू",
-	"echo-overlay-link": "सबै जानकारीहरू",
+	"echo-overlay-link": "सबै सूचनाहरू",
 	"echo-overlay-title": "<b>जानकारीहरू</b>",
 	"echo-mark-all-as-read": "सबै पढिएको भनि चिनो लगाउने",
 	"echo-displaysnippet-title": "नयाँ जानकारी",
