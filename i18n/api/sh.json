@@ -25,5 +25,5 @@
 	"apihelp-query+notifications-param-filter": "Filtriraj obavještenja u ishodu.",
 	"apihelp-query+notifications-param-format": "Ako je zadano, obavještenja će se dati kao formatirana ovim načinom.",
 	"apihelp-query+notifications-paramvalue-format-model": "Sirovo obavještenje",
-	"apihelp-query+notifications-example-1": "Ispiši obavještenja"
+	"apihelp-query+notifications-example-1": "Ispiši web obavještenja"
 }
