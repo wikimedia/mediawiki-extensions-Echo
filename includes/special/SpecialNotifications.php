@@ -25,7 +25,7 @@ class SpecialNotifications extends SpecialPage {
 		$this->addHelpLink( 'Help:Notifications/Special:Notifications' );
 
 		$out->addJsConfigVars( 'wgNotificationsSpecialPageLinks', [
-			'preferences' => SpecialPage::getTitleFor( 'Preferences' )->getLinkURL() . '#mw-prefsection-echo',
+			'preferences' => SpecialPage::getTitleFor( 'Preferences', false, 'mw-prefsection-echo' )->getLinkURL(),
 		] );
 
 		$user = $this->getUser();
@@ -245,7 +245,7 @@ class SpecialNotifications extends SpecialPage {
 		$subtitleLinks[] = Html::element(
 			'a',
 			[
-				'href' => SpecialPage::getTitleFor( 'Preferences' )->getLinkURL() . '#mw-prefsection-echo',
+				'href' => SpecialPage::getTitleFor( 'Preferences', false, 'mw-prefsection-echo' )->getLinkURL(),
 				'id' => 'mw-echo-pref-link',
 				'class' => 'mw-echo-special-header-link',
 				'title' => $this->msg( 'preferences' )->text()
