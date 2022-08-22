@@ -27,18 +27,26 @@ use HTMLCheckMatrix;
 use LinksUpdate;
 use LogEntry;
 use MailAddress;
+use MediaWiki\Api\Hook\ApiMain__moduleManagerHook;
+use MediaWiki\Auth\Hook\LocalUserCreatedHook;
 use MediaWiki\DAO\WikiAwareEntity;
 use MediaWiki\Extension\Notifications\Push\Api\ApiEchoPushSubscriptions;
+use MediaWiki\Hook\AbortTalkPageEmailNotificationHook;
 use MediaWiki\Hook\BeforePageDisplayHook;
 use MediaWiki\Hook\EmailUserCompleteHook;
+use MediaWiki\Hook\GetNewMessagesAlertHook;
+use MediaWiki\Hook\LinksUpdateCompleteHook;
 use MediaWiki\Hook\LoginFormValidErrorMessagesHook;
 use MediaWiki\Hook\OutputPageCheckLastModifiedHook;
 use MediaWiki\Hook\PreferencesGetIconHook;
 use MediaWiki\Hook\RecentChange_saveHook;
+use MediaWiki\Hook\SendWatchlistEmailNotificationHook;
+use MediaWiki\Hook\SkinTemplateNavigation__UniversalHook;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\Hook\ArticleDeleteCompleteHook;
 use MediaWiki\Page\Hook\ArticleUndeleteHook;
+use MediaWiki\Page\Hook\RollbackCompleteHook;
 use MediaWiki\Preferences\Hook\GetPreferencesHook;
 use MediaWiki\Preferences\MultiTitleFilter;
 use MediaWiki\Preferences\MultiUsernameFilter;
@@ -51,6 +59,7 @@ use MediaWiki\Storage\Hook\PageSaveCompleteHook;
 use MediaWiki\User\Hook\UserClearNewTalkNotificationHook;
 use MediaWiki\User\Hook\UserGetDefaultOptionsHook;
 use MediaWiki\User\Hook\UserGroupsChangedHook;
+use MediaWiki\User\Hook\UserSaveSettingsHook;
 use MediaWiki\User\Options\Hook\LoadUserOptionsHook;
 use MediaWiki\User\Options\Hook\SaveUserOptionsHook;
 use MediaWiki\User\UserIdentity;
@@ -71,22 +80,31 @@ use WikiMap;
 use WikiPage;
 
 class Hooks implements
+	AbortTalkPageEmailNotificationHook,
+	ApiMain__moduleManagerHook,
 	ArticleDeleteCompleteHook,
 	ArticleUndeleteHook,
 	BeforePageDisplayHook,
 	EmailUserCompleteHook,
+	GetNewMessagesAlertHook,
 	GetPreferencesHook,
+	LinksUpdateCompleteHook,
 	LoadUserOptionsHook,
+	LocalUserCreatedHook,
 	LoginFormValidErrorMessagesHook,
 	OutputPageCheckLastModifiedHook,
 	PageSaveCompleteHook,
 	PreferencesGetIconHook,
 	RecentChange_saveHook,
 	ResourceLoaderRegisterModulesHook,
+	RollbackCompleteHook,
 	SaveUserOptionsHook,
+	SendWatchlistEmailNotificationHook,
+	SkinTemplateNavigation__UniversalHook,
 	UserClearNewTalkNotificationHook,
 	UserGetDefaultOptionsHook,
-	UserGroupsChangedHook
+	UserGroupsChangedHook,
+	UserSaveSettingsHook
 {
 	/**
 	 * @var Config
@@ -745,7 +763,7 @@ class Hooks implements
 	 * @param User $user User object that was created.
 	 * @param bool $autocreated True when account was auto-created
 	 */
-	public static function onLocalUserCreated( $user, $autocreated ) {
+	public function onLocalUserCreated( $user, $autocreated ) {
 		if ( !$autocreated ) {
 			$overrides = self::getNewUserPreferenceOverrides();
 			$userOptionsManager = MediaWikiServices::getInstance()->getUserOptionsManager();
@@ -845,7 +863,7 @@ class Hooks implements
 	 * @param LinksUpdate $linksUpdate
 	 * @param mixed $ticket
 	 */
-	public static function onLinksUpdateComplete( $linksUpdate, $ticket ) {
+	public function onLinksUpdateComplete( $linksUpdate, $ticket ) {
 		// Rollback or undo should not trigger link notification
 		if ( $linksUpdate->getRevisionRecord() ) {
 			$revId = $linksUpdate->getRevisionRecord()->getId();
@@ -1031,7 +1049,7 @@ class Hooks implements
 	 * @param SkinTemplate $skinTemplate
 	 * @param array &$links Array of URLs to append to.
 	 */
-	public static function onSkinTemplateNavigationUniversal( $skinTemplate, &$links ) {
+	public function onSkinTemplateNavigation__Universal( $skinTemplate, &$links ): void {
 		$user = $skinTemplate->getUser();
 		if ( !$user->isRegistered() ) {
 			return;
@@ -1196,7 +1214,7 @@ class Hooks implements
 	 * @param Title $title
 	 * @return bool
 	 */
-	public static function onAbortTalkPageEmailNotification( $targetUser, $title ) {
+	public function onAbortTalkPageEmailNotification( $targetUser, $title ) {
 		global $wgEchoNotifications;
 
 		// Send legacy talk page email notification if
@@ -1219,7 +1237,7 @@ class Hooks implements
 	 * @param EmailNotification $emailNotification The email notification object that sends non-echo notifications
 	 * @return bool
 	 */
-	public static function onSendWatchlistEmailNotification( $targetUser, $title, $emailNotification ) {
+	public function onSendWatchlistEmailNotification( $targetUser, $title, $emailNotification ) {
 		global $wgEchoNotifications, $wgEchoWatchlistNotifications;
 		if ( $wgEchoWatchlistNotifications && isset( $wgEchoNotifications["watchlist-change"] ) ) {
 			// Let echo handle watchlist notifications entirely
@@ -1279,7 +1297,7 @@ class Hooks implements
 	 * @return bool Should return false to prevent the new messages alert (OBOD)
 	 *     or true to allow the new messages alert
 	 */
-	public static function abortNewMessagesAlert( &$newMessagesAlert, $newtalks, $user, $out ) {
+	public function onGetNewMessagesAlert( &$newMessagesAlert, $newtalks, $user, $out ) {
 		global $wgEchoNotifications;
 
 		// If the user has the notifications flyout turned on and is receiving
@@ -1305,11 +1323,11 @@ class Hooks implements
 	 * @param RevisionRecord $newRevision The revision the page was reverted back to
 	 * @param RevisionRecord $oldRevision The revision of the top edit that was reverted
 	 */
-	public static function onRollbackComplete(
-		WikiPage $wikiPage,
-		UserIdentity $agent,
-		RevisionRecord $newRevision,
-		RevisionRecord $oldRevision
+	public function onRollbackComplete(
+		$wikiPage,
+		$agent,
+		$newRevision,
+		$oldRevision
 	) {
 		$revertedUser = $oldRevision->getUser();
 		$latestRevision = $wikiPage->getRevisionRecord();
@@ -1338,7 +1356,7 @@ class Hooks implements
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/UserSaveSettings
 	 * @param User $user whose settings were saved
 	 */
-	public static function onUserSaveSettings( $user ) {
+	public function onUserSaveSettings( $user ) {
 		// Extensions like AbuseFilter might create an account, but
 		// the tables we need might not exist. Bug 57335
 		if ( !defined( 'MW_UPDATER' ) ) {
@@ -1703,7 +1721,7 @@ class Hooks implements
 	 *  anymore.
 	 * @param ApiModuleManager $moduleManager
 	 */
-	public static function onApiMainModuleManager( ApiModuleManager $moduleManager ) {
+	public function onApiMain__ModuleManager( $moduleManager ) {
 		$services = MediaWikiServices::getInstance();
 		$echoConfig = $services->getConfigFactory()->makeConfig( 'Echo' );
 		$pushEnabled = $echoConfig->get( 'EchoEnablePush' );
