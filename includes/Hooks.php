@@ -29,16 +29,25 @@ use LogEntry;
 use MailAddress;
 use MediaWiki\DAO\WikiAwareEntity;
 use MediaWiki\Extension\Notifications\Push\Api\ApiEchoPushSubscriptions;
+use MediaWiki\Hook\BeforePageDisplayHook;
+use MediaWiki\Hook\EmailUserCompleteHook;
 use MediaWiki\Hook\PreferencesGetIconHook;
 use MediaWiki\Hook\RecentChange_saveHook;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Preferences\Hook\GetPreferencesHook;
 use MediaWiki\Preferences\MultiTitleFilter;
 use MediaWiki\Preferences\MultiUsernameFilter;
 use MediaWiki\ResourceLoader as RL;
+use MediaWiki\ResourceLoader\Hook\ResourceLoaderRegisterModulesHook;
 use MediaWiki\ResourceLoader\ResourceLoader;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Storage\EditResult;
+use MediaWiki\User\Hook\UserClearNewTalkNotificationHook;
+use MediaWiki\User\Hook\UserGetDefaultOptionsHook;
+use MediaWiki\User\Hook\UserGroupsChangedHook;
+use MediaWiki\User\Options\Hook\LoadUserOptionsHook;
+use MediaWiki\User\Options\Hook\SaveUserOptionsHook;
 use MediaWiki\User\UserIdentity;
 use MWEchoDbFactory;
 use MWEchoNotifUser;
@@ -56,7 +65,19 @@ use WebRequest;
 use WikiMap;
 use WikiPage;
 
-class Hooks implements RecentChange_saveHook, PreferencesGetIconHook {
+class Hooks implements
+	BeforePageDisplayHook,
+	EmailUserCompleteHook,
+	GetPreferencesHook,
+	LoadUserOptionsHook,
+	PreferencesGetIconHook,
+	RecentChange_saveHook,
+	ResourceLoaderRegisterModulesHook,
+	SaveUserOptionsHook,
+	UserClearNewTalkNotificationHook,
+	UserGetDefaultOptionsHook,
+	UserGroupsChangedHook
+{
 	/**
 	 * @var Config
 	 */
@@ -72,7 +93,7 @@ class Hooks implements RecentChange_saveHook, PreferencesGetIconHook {
 	/**
 	 * @param array &$defaults
 	 */
-	public static function onUserGetDefaultOptions( array &$defaults ) {
+	public function onUserGetDefaultOptions( &$defaults ) {
 		global $wgAllowHTMLEmail, $wgEchoNotificationCategories, $wgEchoEnablePush;
 
 		if ( $wgAllowHTMLEmail ) {
@@ -184,7 +205,7 @@ class Hooks implements RecentChange_saveHook, PreferencesGetIconHook {
 	 * Handler for ResourceLoaderRegisterModules hook
 	 * @param ResourceLoader $resourceLoader
 	 */
-	public static function onResourceLoaderRegisterModules( ResourceLoader $resourceLoader ) {
+	public function onResourceLoaderRegisterModules( ResourceLoader $resourceLoader ): void {
 		global $wgExtensionDirectory, $wgEchoNotificationIcons, $wgEchoSecondaryIcons;
 		$resourceLoader->register( 'ext.echo.emailicons', [
 			'class' => ResourceLoaderEchoImageModule::class,
@@ -205,7 +226,7 @@ class Hooks implements RecentChange_saveHook, PreferencesGetIconHook {
 	/**
 	 * @param DatabaseUpdater $updater
 	 */
-	public static function onLoadExtensionSchemaUpdates( DatabaseUpdater $updater ) {
+	public static function onLoadExtensionSchemaUpdates( $updater ) {
 		global $wgEchoCluster;
 		if ( $wgEchoCluster ) {
 			// DatabaseUpdater does not support other databases, so skip
@@ -308,7 +329,7 @@ class Hooks implements RecentChange_saveHook, PreferencesGetIconHook {
 	 *
 	 * @throws MWException
 	 */
-	public static function getPreferences( $user, &$preferences ) {
+	public function onGetPreferences( $user, &$preferences ) {
 		global $wgEchoEnableEmailBatch,
 			$wgEchoNotifiers, $wgEchoNotificationCategories, $wgEchoNotifications,
 			$wgAllowHTMLEmail, $wgEchoPollForUpdates,
@@ -745,8 +766,8 @@ class Hooks implements RecentChange_saveHook, PreferencesGetIconHook {
 	 * @param array $oldUGMs
 	 * @param array $newUGMs
 	 */
-	public static function onUserGroupsChanged( $userId, $add, $remove, $performer,
-		$reason = false, array $oldUGMs = [], array $newUGMs = [] ) {
+	public function onUserGroupsChanged( $userId, $add, $remove, $performer,
+		$reason, $oldUGMs, $newUGMs ) {
 		if ( !$performer ) {
 			// TODO: Implement support for autopromotion
 			return;
@@ -876,7 +897,7 @@ class Hooks implements RecentChange_saveHook, PreferencesGetIconHook {
 	 * @param OutputPage $out
 	 * @param Skin $skin Skin being used.
 	 */
-	public static function beforePageDisplay( $out, $skin ) {
+	public function onBeforePageDisplay( $out, $skin ): void {
 		$user = $out->getUser();
 
 		if ( !$user->isRegistered() ) {
@@ -1339,7 +1360,7 @@ class Hooks implements RecentChange_saveHook, PreferencesGetIconHook {
 	 * @param UserIdentity $user User whose options were loaded
 	 * @param array &$options Options can be modified
 	 */
-	public static function onLoadUserOptions( UserIdentity $user, &$options ) {
+	public function onLoadUserOptions( UserIdentity $user, &$options ): void {
 		foreach ( self::getVirtualUserOptions() as $echoPref => $mwPref ) {
 			// Use the existing core option's value for the Echo option
 			if ( isset( $options[ $mwPref ] ) ) {
@@ -1353,8 +1374,9 @@ class Hooks implements RecentChange_saveHook, PreferencesGetIconHook {
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/SaveUserOptions
 	 * @param UserIdentity $user User whose options are being saved
 	 * @param array &$modifiedOptions Options can be modified
+	 * @param array $originalOptions
 	 */
-	public static function onSaveUserOptions( UserIdentity $user, array &$modifiedOptions ) {
+	public function onSaveUserOptions( UserIdentity $user, array &$modifiedOptions, array $originalOptions ) {
 		foreach ( self::getVirtualUserOptions() as $echoPref => $mwPref ) {
 			// Save virtual option values in corresponding real option values
 			if ( isset( $modifiedOptions[ $echoPref ] ) ) {
@@ -1389,8 +1411,9 @@ class Hooks implements RecentChange_saveHook, PreferencesGetIconHook {
 	 * Handler for UserClearNewTalkNotification hook.
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/UserClearNewTalkNotification
 	 * @param UserIdentity $user User whose talk page notification should be marked as read
+	 * @param int $oldid
 	 */
-	public static function onUserClearNewTalkNotification( UserIdentity $user ) {
+	public function onUserClearNewTalkNotification( $user, $oldid ) {
 		if ( $user->isRegistered() ) {
 			DeferredUpdates::addCallableUpdate( static function () use ( $user ) {
 				MWEchoNotifUser::newFromUser( $user )->clearUserTalkNotifications();
@@ -1406,7 +1429,7 @@ class Hooks implements RecentChange_saveHook, PreferencesGetIconHook {
 	 * @param string $subject Subject of the mail
 	 * @param string $text Text of the mail
 	 */
-	public static function onEmailUserComplete( $address, $from, $subject, $text ) {
+	public function onEmailUserComplete( $address, $from, $subject, $text ) {
 		if ( $from->name === $address->name ) {
 			// nothing to notify
 			return;

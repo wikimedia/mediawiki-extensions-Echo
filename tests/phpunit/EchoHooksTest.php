@@ -35,7 +35,7 @@ class EchoHooksTest extends MediaWikiIntegrationTestCase {
 			// T174220: don't overwrite defaults set elsewhere
 			'echo-subscriptions-web-mention' => false,
 		];
-		EchoHooks::onUserGetDefaultOptions( $defaults );
+		( new EchoHooks( new HashConfig ) )->onUserGetDefaultOptions( $defaults );
 		self::assertEquals(
 			[
 				'something' => 'unrelated',
