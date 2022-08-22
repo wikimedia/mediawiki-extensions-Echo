@@ -250,7 +250,7 @@
 	"notification-header-foreign-all": "{{PLURAL:$5|Başka bir viki|$5 diğer vikiler}} tarafından gönderilen diğer bildirimler",
 	"right-manage-all-push-subscriptions": "Tüm push aboneliklerini yönet",
 	"action-manage-all-push-subscriptions": "tüm push aboneliklerini yönet",
-	"group-push-subscription-manager": "Abonelik yöneticilerini push yap",
+	"group-push-subscription-manager": "Push abonelik yöneticileri",
 	"group-push-subscription-manager-member": "{{GENDER:$1|push abonelik yöneticisi}}",
 	"grouppage-push-subscription-manager": "{{ns:project}}:Push abonelik yöneticileri"
 }

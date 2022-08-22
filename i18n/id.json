@@ -12,6 +12,7 @@
 			"Mbrt",
 			"Rachmat.Wahidi",
 			"Rachmat04",
+			"Veracious",
 			"William Surya Permana",
 			"WongKentir",
 			"පසිඳු කාවින්ද"
@@ -58,7 +59,7 @@
 	"echo-category-title-system-noemail": "{{PLURAL:$1|Sistem}}",
 	"echo-category-title-system-emailonly": "{{PLURAL:$1|Sistem}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|Perubahan hak pengguna}}",
-	"echo-category-title-emailuser": "{{PLURAL:$1|Surel dari pengguna lain|Surel dari pengguna lain}}",
+	"echo-category-title-emailuser": "{{PLURAL:$1|Surel dari pengguna lain|Surel dari para pengguna lain}}",
 	"echo-category-title-article-reminder": "Halaman {{PLURAL:$1|pengingat}}",
 	"echo-category-title-thank-you-edit": "{{PLURAL:$1|sejarah}} suntingan",
 	"echo-category-title-watchlist": "Suntingan pada halaman pantauan",
