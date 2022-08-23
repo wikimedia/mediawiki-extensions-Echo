@@ -76,6 +76,21 @@
 		return this.isLink ? 'a' : 'div';
 	};
 
+	mw.echo.ui.MenuItemWidget.prototype.onClick = function ( e ) {
+		// Stop propagation, so that the default dynamic action of the notification isn't triggered
+		// (e.g. expanding a bundled notification).
+		e.stopPropagation();
+
+		// If this is a dynamic action, also prevent default to disable the native browser behavior,
+		// the default link of the notification won't be followed.
+		// (If this is a link, default link of the notification is ignored as native browser behavior.)
+		if ( !this.isLink ) {
+			e.preventDefault();
+		}
+
+		return mw.echo.ui.MenuItemWidget.super.prototype.onClick.apply( this, arguments );
+	};
+
 	mw.echo.ui.MenuItemWidget.prototype.isSelectable = function () {
 		// If we have a link force selectability to false, otherwise defer to parent method
 		// Without a link (for dynamic actions or specific internal actions) we need this widget

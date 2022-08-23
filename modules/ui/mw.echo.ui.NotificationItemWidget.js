@@ -189,6 +189,7 @@
 		}
 
 		// Events
+		this.actionsButtonSelectWidget.connect( this, { choose: 'onPopupButtonWidgetChoose' } );
 		this.menuPopupButtonWidget.getMenu().connect( this, { choose: 'onPopupButtonWidgetChoose' } );
 		this.markAsReadButton.connect( this, { click: 'onMarkAsReadButtonClick' } );
 
@@ -228,10 +229,14 @@
 	 * NOTE: The messages are parsed as HTML. If user-input is expected
 	 * please make sure to properly escape it.
 	 *
-	 * @param {mw.echo.ui.MenuItemWidget} item The selected item
-	 * @return {boolean} False to prevent the native event
+	 * @param {OO.ui.ButtonOptionWidget} item The selected item
 	 */
 	mw.echo.ui.NotificationItemWidget.prototype.onPopupButtonWidgetChoose = function ( item ) {
+		if ( !( item instanceof mw.echo.ui.MenuItemWidget ) ) {
+			// Other kinds of items may be added by subclasses
+			return;
+		}
+
 		var actionData = item && item.getActionData(),
 			messages = item && item.getConfirmationMessages(),
 			widget = this;
@@ -268,24 +273,16 @@
 				// Send to mw.notify
 				mw.notify( $confirmation );
 			} );
-
-		// Prevent the click propagation
-		return false;
 	};
 
 	/**
 	 * Respond to mark as read button click
-	 *
-	 * @return {boolean} False to prevent the native event
 	 */
 	mw.echo.ui.NotificationItemWidget.prototype.onMarkAsReadButtonClick = function () {
 		// If we're marking read or unread, the notification was already seen.
 		// Remove the animation class
 		this.$element.removeClass( 'mw-echo-ui-notificationItemWidget-initiallyUnseen' );
 		this.markRead( !this.model.isRead() );
-		// Prevent propogation in case there's a link wrapping the content
-		// and the mark as read/unread button
-		return false;
 	};
 
 	/**
