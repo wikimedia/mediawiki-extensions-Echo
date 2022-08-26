@@ -248,7 +248,7 @@
 	"echo-notification-alert": "{{PLURAL:$1|Оповещение ($1)|Оповещения ($1)|100=Оповещения (99+)}}",
 	"echo-notification-notice": "{{PLURAL:$1|Уведомление ($1)|Уведомления ($1)|100=Уведомления (99+)}}",
 	"echo-notification-alert-text-only": "Оповещения",
-	"echo-notification-notice-text-only": "Предуведомления",
+	"echo-notification-notice-text-only": "Уведомления",
 	"echo-overlay-link": "Все уведомления",
 	"echo-overlay-title": "<b>Уведомления</b>",
 	"echo-mark-all-as-read": "Отметить все как прочитанные",
