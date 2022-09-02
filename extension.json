@@ -948,7 +948,7 @@
 						"expandable": true
 					},
 					"group": "positive",
-					"section": "alert",
+					"section": "message",
 					"presentation-model": "EchoMentionStatusPresentationModel"
 				},
 				"user-rights": {
