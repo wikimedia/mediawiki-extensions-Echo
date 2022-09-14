@@ -1116,6 +1116,7 @@ class Hooks implements RecentChange_saveHook {
 			'text' => $skinTemplate->msg( 'echo-notification-alert', $alertCount )->text(),
 			'active' => ( $url == $title->getLocalURL() ),
 			'link-class' => $alertLinkClasses,
+			'icon' => 'bell',
 			'data' => [
 				'event-name' => 'ui.notifications',
 				'counter-num' => $alertCount,
@@ -1130,6 +1131,7 @@ class Hooks implements RecentChange_saveHook {
 			'text' => $skinTemplate->msg( 'echo-notification-notice', $msgCount )->text(),
 			'active' => ( $url == $title->getLocalURL() ),
 			'link-class' => $msgLinkClasses,
+			'icon' => 'tray',
 			'data' => [
 				'counter-num' => $msgCount,
 				'counter-text' => $msgFormattedCount,
