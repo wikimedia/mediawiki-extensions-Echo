@@ -174,6 +174,7 @@
 				'mw-echo-ui-notificationBadgeButtonPopupWidget-' + adjustedTypeString
 			)
 			.append( this.badgeButton.$element );
+		mw.hook( 'ext.echo.NotificationBadgeWidget.onInitialize' ).fire( this );
 	};
 
 	/* Initialization */
