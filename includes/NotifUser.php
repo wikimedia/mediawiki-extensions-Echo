@@ -210,6 +210,10 @@ class MWEchoNotifUser {
 		}
 
 		$data = $this->getCountsAndTimestamps( $global );
+		if ( $global && $data['global'] === null ) {
+			// No global user exists, no data. Use only local count
+			$global = false;
+		}
 		$count = $data[$global ? 'global' : 'local'][$section]['count'];
 		return (int)$count;
 	}
@@ -258,6 +262,10 @@ class MWEchoNotifUser {
 		}
 
 		$data = $this->getCountsAndTimestamps( $global );
+		if ( $global && $data['global'] === null ) {
+			// No global user exists, no data. Use only local count
+			$global = false;
+		}
 		$timestamp = $data[$global ? 'global' : 'local'][$section]['timestamp'];
 		return $timestamp === -1 ? false : new MWTimestamp( $timestamp );
 	}
@@ -537,10 +545,10 @@ class MWEchoNotifUser {
 	 *   ],
 	 * ]
 	 * Where N is a number and TS is a timestamp in TS_MW format or -1. If $includeGlobal is false,
-	 * the 'global' key will not be present.
+	 * the 'global' key will not be present. It could be null, if no global user exists.
 	 *
 	 * @param bool $includeGlobal Whether to include cross-wiki notifications as well
-	 * @return array[]
+	 * @return array
 	 */
 	public function getCountsAndTimestamps( $includeGlobal = false ) {
 		if ( $this->localCountsAndTimestamps === null ) {
