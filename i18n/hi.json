@@ -49,7 +49,7 @@
 	"echo-pref-dont-email-read-notifications": "सारांश ईमेलों में पठित सूचनाएँ शामिल न करें",
 	"echo-learn-more": "अधिक जानें",
 	"echo-log": "सार्वजनिक लॉग",
-	"echo-new-messages": "आपके वार्ता पृृष्ठ पर एक नया संदेश है",
+	"echo-new-messages": "आपके वार्ता पृष्ठ पर एक नया संदेश है",
 	"echo-category-title-edit-user-talk": "मेरे वार्ता पृष्ठ पर {{PLURAL:$1|संपादन}}",
 	"echo-category-title-article-linked": "पृष्ठ {{PLURAL:$1|कड़ी|कड़ियाँ}}",
 	"echo-category-title-reverted": "{{PLURAL:$1|संपादन|संपादनों}} पर पूर्ववत क्रिया",

@@ -93,7 +93,7 @@
 	"echo-notification-placeholder": "A gh'è minga de notifiche",
 	"echo-notification-placeholder-filters": "A ghe 'n è minga de notifiche che corisponden a 'sti criteri chì.",
 	"echo-notification-loginrequired": "Te gh'hee de andà dent per vedè i to notifiche.",
-	"echo-notification-popup-loginrequired": "Per piesè va dent per vardà i to notifiche.",
+	"echo-notification-popup-loginrequired": "Và dent per vardà i to notifiche.",
 	"echo-notification-markasread": "Marca come sgiamò lesgiud",
 	"echo-notification-markasunread": "Marca come nananmò lesgiud",
 	"echo-notification-markasread-tooltip": "Marca come sgiamò lesgiud",
@@ -221,7 +221,7 @@
 	"notification-header-foreign-all": "Alter notifiche de {{PLURAL:$5|un alter wiki|$5 wiki anmò}}",
 	"right-manage-all-push-subscriptions": "Manesgia tucc i abonament push",
 	"action-manage-all-push-subscriptions": "el manesgia tut i abonament push",
-	"group-push-subscription-manager": "Manesgion de abonament push",
+	"group-push-subscription-manager": "Manesgioni de abonament push",
 	"group-push-subscription-manager-member": "{{GENDER:$1|i manesgion de abonament push}}",
-	"grouppage-push-subscription-manager": "{{ns:project}}:Manesgion di abonament push"
+	"grouppage-push-subscription-manager": "{{ns:project}}:Manesgioni di abonament push"
 }
