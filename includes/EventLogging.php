@@ -11,13 +11,6 @@ use MediaWiki\User\UserIdentity;
  */
 class MWEchoEventLogging {
 
-	/** @var array */
-	private static $revisionIds = [
-		// Keep in sync with extension.json
-		'EchoMail' => '/analytics/legacy/echomail/1.0.0',
-		'EchoInteraction' => '/analytics/legacy/echointeraction/1.0.0'
-	];
-
 	/**
 	 * This is the only function that interacts with EventLogging
 	 *
@@ -37,10 +30,12 @@ class MWEchoEventLogging {
 			return;
 		}
 
-		$revision = self::$revisionIds[$schema];
 		$data['version'] = $wgEchoEventLoggingVersion;
 
-		EventLogging::logEvent( $schema, $revision, $data );
+		// NOTE: The 'EchoMail' and 'EchoInteraction' events were migrated to the Event Platform
+		//  and are no longer using the legacy EventLogging schema from metawiki. $revId is actually
+		//  overridden by the EventLoggingSchemas extension attribute in extension.json.
+		EventLogging::logEvent( $schema, -1, $data );
 	}
 
 	/**
