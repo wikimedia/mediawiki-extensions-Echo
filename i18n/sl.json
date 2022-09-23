@@ -199,5 +199,5 @@
 	"notification-header-foreign-alert": "Novi opomniki iz {{PLURAL:$5|drugega wikija|$5 drugih wikijev}}",
 	"notification-header-foreign-notice": "Več obvestil iz {{PLURAL:$5|drugega vikija|$5 drugih vikijev}}",
 	"notification-header-foreign-all": "Več obvestil iz {{PLURAL:$5|drugega vikija|$5 drugih vikijev}}",
-	"group-push-subscription-manager": "Upravljalci potisnih naročnin"
+	"group-push-subscription-manager": "Upravljalci potisnih naročil"
 }
