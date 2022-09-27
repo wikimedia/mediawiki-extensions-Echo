@@ -37,6 +37,7 @@
 	},
 	"echo-desc": "System for notifying users about events and messages",
 	"prefs-echo": "Notifications",
+	"prefs-description-echo": "Select which notifications {{GENDER:|you}} get and how to receive them.",
 	"prefs-emailsettings": "Email options",
 	"prefs-echosubscriptions": "Notify me about these events",
 	"prefs-echocrosswiki": "Cross-wiki notifications",
