@@ -21,7 +21,7 @@
 	"echo-category-title-user-rights": "{{PLURAL:$1|اختیارات ورتنوالے دی تبدیلی|اختیارات ورتنوالے دیاں تبدیلیاں}}",
 	"notifications": "اطلاعات",
 	"tooltip-pt-notifications-alert": "{{GENDER:|تواڈے}} الرٹس",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "نویَں ورتونکار",
+	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "نویَں ورتنوالے",
 	"echo-specialpage": "سوچناواں",
 	"echo-none": "تہاڈے کئی کوئی سوچنا نہیں ہے۔",
 	"echo-notification-more-options-tooltip": "ہور اختیار",
