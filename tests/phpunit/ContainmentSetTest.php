@@ -29,12 +29,10 @@ class ContainmentSetTest extends MediaWikiIntegrationTestCase {
 		$inner = [ 'bing', 'bang' ];
 		// We use a mock instead of the real thing for the $this->once() assertion
 		// verifying that the cache doesn't just keep asking the inner object
-		$list = $this->getMockBuilder( EchoArrayList::class )
-			->disableOriginalConstructor()
-			->getMock();
+		$list = $this->createMock( EchoArrayList::class );
 		$list->expects( $this->once() )
 			->method( 'getValues' )
-			->will( $this->returnValue( $inner ) );
+			->willReturn( $inner );
 		$list->method( 'getCacheKey' )->willReturn( '' );
 
 		$cached = new EchoCachedList( $wanCache, 'test_key', $list );

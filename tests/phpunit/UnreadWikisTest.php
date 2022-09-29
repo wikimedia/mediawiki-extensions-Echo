@@ -58,9 +58,7 @@ class UnreadWikisTest extends MediaWikiIntegrationTestCase {
 	 * @return MWEchoDbFactory
 	 */
 	protected function mockMWEchoDbFactory( $db ) {
-		$dbFactory = $this->getMockBuilder( MWEchoDbFactory::class )
-			->disableOriginalConstructor()
-			->getMock();
+		$dbFactory = $this->createMock( MWEchoDbFactory::class );
 		$dbFactory->expects( $this->any() )
 			->method( 'getSharedDb' )
 			->will( $this->returnValue( $db ) );

@@ -155,38 +155,38 @@ class EchoNotificationMapperTest extends MediaWikiIntegrationTestCase {
 			->method( 'delete' )
 			->withConsecutive(
 				[
-					$this->equalTo( 'echo_notification' ),
-					$this->equalTo( [ 'notification_user' => 1, 'notification_event' => [ 1, 2, 3, 5 ] ] ),
+					'echo_notification',
+					[ 'notification_user' => 1, 'notification_event' => [ 1, 2, 3, 5 ] ],
 					$this->anything()
 				],
 				[
-					$this->equalTo( 'echo_notification' ),
-					$this->equalTo( [ 'notification_user' => 1, 'notification_event' => [ 8, 13, 21, 34 ] ] ),
+					'echo_notification',
+					[ 'notification_user' => 1, 'notification_event' => [ 8, 13, 21, 34 ] ],
 					$this->anything()
 				],
 				[
-					$this->equalTo( 'echo_event' ),
-					$this->equalTo( [ 'event_id' => [ 13, 21 ] ] ),
+					'echo_event',
+					[ 'event_id' => [ 13, 21 ] ],
 					$this->anything()
 				],
 				[
-					$this->equalTo( 'echo_target_page' ),
-					$this->equalTo( [ 'etp_event' => [ 13, 21 ] ] ),
+					'echo_target_page',
+					[ 'etp_event' => [ 13, 21 ] ],
 					$this->anything()
 				],
 				[
-					$this->equalTo( 'echo_notification' ),
-					$this->equalTo( [ 'notification_user' => 1, 'notification_event' => [ 55, 89 ] ] ),
+					'echo_notification',
+					[ 'notification_user' => 1, 'notification_event' => [ 55, 89 ] ],
 					$this->anything()
 				],
 				[
-					$this->equalTo( 'echo_event' ),
-					$this->equalTo( [ 'event_id' => [ 55 ] ] ),
+					'echo_event',
+					[ 'event_id' => [ 55 ] ],
 					$this->anything()
 				],
 				[
-					$this->equalTo( 'echo_target_page' ),
-					$this->equalTo( [ 'etp_event' => [ 55 ] ] ),
+					'echo_target_page',
+					[ 'etp_event' => [ 55 ] ],
 					$this->anything()
 				]
 			)
@@ -201,12 +201,9 @@ class EchoNotificationMapperTest extends MediaWikiIntegrationTestCase {
 	 * @return User
 	 */
 	protected function mockUser() {
-		$user = $this->getMockBuilder( User::class )
-			->disableOriginalConstructor()
-			->getMock();
-		$user->expects( $this->any() )
-			->method( 'getID' )
-			->will( $this->returnValue( 1 ) );
+		$user = $this->createMock( User::class );
+		$user->method( 'getID' )
+			->willReturn( 1 );
 
 		return $user;
 	}
@@ -216,12 +213,9 @@ class EchoNotificationMapperTest extends MediaWikiIntegrationTestCase {
 	 * @return EchoNotification
 	 */
 	protected function mockEchoNotification() {
-		$event = $this->getMockBuilder( EchoNotification::class )
-			->disableOriginalConstructor()
-			->getMock();
-		$event->expects( $this->any() )
-			->method( 'toDbArray' )
-			->will( $this->returnValue( [] ) );
+		$event = $this->createMock( EchoNotification::class );
+		$event->method( 'toDbArray' )
+			->willReturn( [] );
 
 		return $event;
 	}
@@ -233,12 +227,9 @@ class EchoNotificationMapperTest extends MediaWikiIntegrationTestCase {
 	 */
 	protected function mockMWEchoDbFactory( $dbResultOrMockDb ) {
 		$mockDb = is_array( $dbResultOrMockDb ) ? $this->mockDb( $dbResultOrMockDb ) : $dbResultOrMockDb;
-		$dbFactory = $this->getMockBuilder( MWEchoDbFactory::class )
-			->disableOriginalConstructor()
-			->getMock();
-		$dbFactory->expects( $this->any() )
-			->method( 'getEchoDb' )
-			->will( $this->returnValue( $mockDb ) );
+		$dbFactory = $this->createMock( MWEchoDbFactory::class );
+		$dbFactory->method( 'getEchoDb' )
+			->willReturn( $mockDb );
 
 		return $dbFactory;
 	}
@@ -257,20 +248,15 @@ class EchoNotificationMapperTest extends MediaWikiIntegrationTestCase {
 		];
 
 		$db = $this->createMock( IDatabase::class );
-		$db->expects( $this->any() )
-			->method( 'insert' )
-			->will( $this->returnValue( $dbResult['insert'] ) );
-		$db->expects( $this->any() )
-			->method( 'select' )
-			->will( $this->returnValue( $dbResult['select'] ) );
-		$db->expects( $this->any() )
-			->method( 'delete' )
-			->will( $this->returnValue( $dbResult['delete'] ) );
-		$db->expects( $this->any() )
-			->method( 'selectRow' )
-			->will( $this->returnValue( $dbResult['selectRow'] ) );
-		$db->expects( $this->any() )
-			->method( 'onTransactionCommitOrIdle' )
+		$db->method( 'insert' )
+			->willReturn( $dbResult['insert'] );
+		$db->method( 'select' )
+			->willReturn( $dbResult['select'] );
+		$db->method( 'delete' )
+			->willReturn( $dbResult['delete'] );
+		$db->method( 'selectRow' )
+			->willReturn( $dbResult['selectRow'] );
+		$db->method( 'onTransactionCommitOrIdle' )
 			->will( new EchoExecuteFirstArgumentStub );
 
 		return $db;

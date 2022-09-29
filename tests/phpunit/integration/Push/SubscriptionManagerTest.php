@@ -9,7 +9,7 @@ use Wikimedia\TestingAccessWrapper;
  */
 class SubscriptionManagerTest extends MediaWikiIntegrationTestCase {
 
-	public function setUp(): void {
+	protected function setUp(): void {
 		parent::setUp();
 		$this->tablesUsed[] = 'echo_push_subscription';
 		$this->tablesUsed[] = 'echo_push_provider';

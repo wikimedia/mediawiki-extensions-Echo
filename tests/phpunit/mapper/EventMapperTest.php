@@ -79,12 +79,9 @@ class EchoEventMapperTest extends MediaWikiIntegrationTestCase {
 	 * @return EchoEvent
 	 */
 	protected function mockEchoEvent() {
-		$event = $this->getMockBuilder( EchoEvent::class )
-			->disableOriginalConstructor()
-			->getMock();
-		$event->expects( $this->any() )
-			->method( 'toDbArray' )
-			->will( $this->returnValue( [] ) );
+		$event = $this->createMock( EchoEvent::class );
+		$event->method( 'toDbArray' )
+			->willReturn( [] );
 
 		return $event;
 	}
@@ -94,12 +91,9 @@ class EchoEventMapperTest extends MediaWikiIntegrationTestCase {
 	 * @return MWEchoDbFactory
 	 */
 	protected function mockMWEchoDbFactory( $dbResult ) {
-		$dbFactory = $this->getMockBuilder( MWEchoDbFactory::class )
-			->disableOriginalConstructor()
-			->getMock();
-		$dbFactory->expects( $this->any() )
-			->method( 'getEchoDb' )
-			->will( $this->returnValue( $this->mockDb( $dbResult ) ) );
+		$dbFactory = $this->createMock( MWEchoDbFactory::class );
+		$dbFactory->method( 'getEchoDb' )
+			->willReturn( $this->mockDb( $dbResult ) );
 
 		return $dbFactory;
 	}
@@ -116,18 +110,14 @@ class EchoEventMapperTest extends MediaWikiIntegrationTestCase {
 			'selectRow' => ''
 		];
 		$db = $this->createMock( IDatabase::class );
-		$db->expects( $this->any() )
-			->method( 'insert' )
-			->will( $this->returnValue( $dbResult['insert'] ) );
-		$db->expects( $this->any() )
-			->method( 'insertId' )
-			->will( $this->returnValue( $dbResult['insertId'] ) );
-		$db->expects( $this->any() )
-			->method( 'select' )
-			->will( $this->returnValue( $dbResult['select'] ) );
-		$db->expects( $this->any() )
-			->method( 'selectRow' )
-			->will( $this->returnValue( $dbResult['selectRow'] ) );
+		$db->method( 'insert' )
+			->willReturn( $dbResult['insert'] );
+		$db->method( 'insertId' )
+			->willReturn( $dbResult['insertId'] );
+		$db->method( 'select' )
+			->willReturn( $dbResult['select'] );
+		$db->method( 'selectRow' )
+			->willReturn( $dbResult['selectRow'] );
 
 		return $db;
 	}

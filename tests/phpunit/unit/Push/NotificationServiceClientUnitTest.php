@@ -23,26 +23,28 @@ class NotificationServiceClientUnitTest extends MediaWikiUnitTestCase {
 	}
 
 	public function sendCheckEchoRequestsProvider(): array {
-		$row = new stdClass();
-		$row->eps_token = 'JKL123';
-		$row->epp_name = 'fcm';
-		$row->eps_data = null;
-		$row->ept_text = null;
-		$row->eps_updated = '2020-01-01 10:10:10';
+		$row = (object)[
+			'eps_token' => 'JKL123',
+			'epp_name' => 'fcm',
+			'ept_text' => null,
+			'eps_updated' => '2020-01-01 10:10:10',
+		];
 		$subscriptions[] = Subscription::newFromRow( $row );
 
-		$row->eps_token = 'DEF456';
-		$row->epp_name = 'fcm';
-		$row->eps_data = null;
-		$row->ept_text = null;
-		$row->eps_updated = '2020-01-01 10:10:10';
+		$row = (object)[
+			'eps_token' => 'DEF456',
+			'epp_name' => 'fcm',
+			'ept_text' => null,
+			'eps_updated' => '2020-01-01 10:10:10',
+		];
 		$subscriptions[] = Subscription::newFromRow( $row );
 
-		$row->eps_token = 'GHI789';
-		$row->epp_name = 'apns';
-		$row->eps_data = null;
-		$row->ept_text = 'test';
-		$row->eps_updated = '2020-01-01 10:10:10';
+		$row = (object)[
+			'eps_token' => 'GHI789',
+			'epp_name' => 'apns',
+			'ept_text' => 'test',
+			'eps_updated' => '2020-01-01 10:10:10',
+		];
 		$subscriptions[] = Subscription::newFromRow( $row );
 
 		return [

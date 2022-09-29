@@ -19,7 +19,7 @@ class ApiEchoPushSubscriptionsDeleteTest extends ApiTestCase {
 	/** @var User */
 	private $otherUser;
 
-	public function setUp(): void {
+	protected function setUp(): void {
 		parent::setUp();
 		$this->setMwGlobals( [
 			'wgEchoEnablePush' => true,
