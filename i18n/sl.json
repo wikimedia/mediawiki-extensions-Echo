@@ -107,7 +107,7 @@
 	"notification-link-text-expand-alert-count": "Prikaži {{PLURAL:$1|$1 opomnik|$1 opomnika|$1 opomnike|$1 opomnikov}}",
 	"notification-link-text-expand-notice-count": "Prikaži {{PLURAL:$1|$1 obvestilo|$1 obvestili|$1 obvestila|$1 obvestil}}",
 	"notification-link-text-expand-all-count": "Prikaži {{PLURAL:$1|$1 obvestilo|$1 obvestili|$1 obvestila|$1 obvestil}}",
-	"notification-link-text-collapse-all": "Zapri",
+	"notification-link-text-collapse-all": "Strni",
 	"notification-link-text-view-message": "Ogled sporočila",
 	"notification-link-text-view-mention": "Ogled omembe",
 	"notification-link-text-view-mention-failure": "{{PLURAL:$1|Prikaz obvestila|Prikaz obvestil}}",
