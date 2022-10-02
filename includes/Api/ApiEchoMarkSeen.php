@@ -6,6 +6,7 @@ namespace MediaWiki\Extension\Notifications\Api;
 // Note that this module doesn't write to the database, only to the seentime cache.
 use ApiBase;
 use EchoSeenTime;
+use Wikimedia\ParamValidator\ParamValidator;
 
 class ApiEchoMarkSeen extends ApiBase {
 
@@ -44,13 +45,13 @@ class ApiEchoMarkSeen extends ApiBase {
 	public function getAllowedParams() {
 		return [
 			'type' => [
-				ApiBase::PARAM_REQUIRED => true,
-				ApiBase::PARAM_TYPE => [ 'alert', 'message', 'all' ],
+				ParamValidator::PARAM_REQUIRED => true,
+				ParamValidator::PARAM_TYPE => [ 'alert', 'message', 'all' ],
 			],
 			'timestampFormat' => [
 				// Not using the TS constants, since clients can't.
-				ApiBase::PARAM_DFLT => 'MW',
-				ApiBase::PARAM_TYPE => [ 'ISO_8601', 'MW' ],
+				ParamValidator::PARAM_DEFAULT => 'MW',
+				ParamValidator::PARAM_TYPE => [ 'ISO_8601', 'MW' ],
 			],
 		];
 	}
