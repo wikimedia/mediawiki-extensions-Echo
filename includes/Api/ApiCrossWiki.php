@@ -1,5 +1,12 @@
 <?php
+
+namespace MediaWiki\Extension\Notifications\Api;
+
 // @phan-file-suppress PhanUndeclaredMethod This is a trait, and phan is confused by $this
+use EchoForeignNotifications;
+use EchoForeignWikiRequest;
+use Exception;
+use WikiMap;
 use Wikimedia\ParamValidator\ParamValidator;
 
 /**

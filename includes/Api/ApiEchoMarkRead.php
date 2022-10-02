@@ -1,5 +1,14 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Api;
+
+use ApiBase;
+use EchoAttributeManager;
+use EchoNotificationController;
+use MWEchoDbFactory;
+use MWEchoNotifUser;
+use WikiMap;
+
 class ApiEchoMarkRead extends ApiBase {
 	use ApiCrossWiki;
 

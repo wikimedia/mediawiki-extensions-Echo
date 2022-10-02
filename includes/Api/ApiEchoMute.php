@@ -1,7 +1,13 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Api;
+
+use ApiBase;
+use ApiMain;
+use CentralIdLookup;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\User\UserOptionsManager;
+use Title;
 use Wikimedia\ParamValidator\ParamValidator;
 
 class ApiEchoMute extends ApiBase {
