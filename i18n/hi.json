@@ -184,7 +184,7 @@
 	"notification-header-thank-you-1-edit": "{{GENDER:$2|आपने}} अभी-अभी {{GENDER:$2|अपना}} पहला संपादन किया है; {{GENDER:$2|आपका}} धन्यवाद, और स्वागत है!",
 	"notification-header-thank-you-10-edit": "{{GENDER:$2|आपने}} अभी-अभी {{GENDER:$2|अपना}} दसवाँ संपादन किया है; {{GENDER:$2|आपका}} धन्यवाद, और कृपया आगे बढ़ते जाएँ!",
 	"notification-header-thank-you-100-edit": "{{GENDER:$2|आपने}} अभी-अभी {{GENDER:$2|अपना}} सौवाँ संपादन किया है; {{GENDER:$2|आपका}} दिल से धन्यवाद!",
-	"notification-header-thank-you-1000-edit": "{{GENDER:$2|आपने}} अभी-अभी {{GENDER:$2|अपना}} सौवाँ संपादन किया है; एक श्रेष्ठ योगदानकर्ता होने कि लिए {{GENDER:$2|आपका}} धन्यवाद!",
+	"notification-header-thank-you-1000-edit": "{{GENDER:$2|आपने}} अभी-अभी {{GENDER:$2|अपना}} सौवाँ संपादन किया है; एक श्रेष्ठ योगदानकर्ता होने के लिए {{GENDER:$2|आपका}} धन्यवाद!",
 	"notification-header-thank-you-10000-edit": "{{GENDER:$2|आपने}} अभी-अभी {{GENDER:$2|अपना}} हज़ारवाँ संपादन किया है; {{GENDER:$2|आपका}} बहुत-बहुत धन्यवाद!",
 	"notification-header-thank-you-100000-edit": "{{GENDER:$2|आपने}} अभी-अभी {{GENDER:$2|अपना}} एक लाखवाँ संपादन किया है; इस खूबसूरत योगदान के लिए {{GENDER:$2|आपका}} धन्यवाद!",
 	"notification-header-thank-you-1000000-edit": "{{GENDER:$2|आपने}} अभी-अभी {{GENDER:$2|अपना}} दस लाखवाँ संपादन किया है; इस चमकते योगदान के लिए {{GENDER:$2|आपका}} धन्यवाद!",
