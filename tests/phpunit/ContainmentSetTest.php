@@ -35,6 +35,7 @@ class ContainmentSetTest extends MediaWikiIntegrationTestCase {
 		$list->expects( $this->once() )
 			->method( 'getValues' )
 			->will( $this->returnValue( $inner ) );
+		$list->method( 'getCacheKey' )->willReturn( '' );
 
 		$cached = new EchoCachedList( $wanCache, 'test_key', $list );
 
