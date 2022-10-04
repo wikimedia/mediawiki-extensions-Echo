@@ -26,6 +26,7 @@
 	},
 	"echo-desc": "Erweitert das Wiki um ein System zur Benachrichtigung von Benutzern zu Ereignissen und Nachrichten",
 	"prefs-echo": "Benachrichtigungen",
+	"prefs-description-echo": "Wähle aus, welche Benachrichtigungen {{GENDER:|du}} erhältst und wie du sie erhältst.",
 	"prefs-emailsettings": "E-Mail-Optionen",
 	"prefs-echosubscriptions": "Bei diesen Ereignissen benachrichtigen",
 	"prefs-echocrosswiki": "Wikiübergreifende Benachrichtigungen",
