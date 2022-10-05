@@ -12,6 +12,7 @@
 	},
 	"echo-desc": "Sistem za obveščanje uporabnikov o dogodkih in sporočilih",
 	"prefs-echo": "Obveščanje",
+	"prefs-description-echo": "Izberite, katera obvestila {{GENDER:|želite}} prejemati in kako jih prejemati.",
 	"prefs-emailsettings": "Možnosti e-pošte",
 	"prefs-echosubscriptions": "Obvesti me ob naslednjih dogodkih",
 	"prefs-echocrosswiki": "Obveščanje med vikiji",

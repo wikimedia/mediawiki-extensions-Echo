@@ -20,6 +20,7 @@
 	},
 	"echo-desc": "מערכת לשליחת התראות למשתמשים על אירועים והודעות",
 	"prefs-echo": "הודעות",
+	"prefs-description-echo": "{{GENDER:|בחר|בחרי}} אילו התראות {{GENDER:|תקבל|תקבלי}}, ואיך לקבל אותן.",
 	"prefs-emailsettings": "אפשרויות דוא\"ל",
 	"prefs-echosubscriptions": "להודיע לי על האירועים הבאים",
 	"prefs-echocrosswiki": "הודעות מאתרי ויקי אחרים",

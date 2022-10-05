@@ -7,6 +7,7 @@
 	},
 	"echo-desc": "Systema pro notificar usatores super eventos e messages",
 	"prefs-echo": "Notificationes",
+	"prefs-description-echo": "Selige le notificationes que tu vole reciper e como reciper los.",
 	"prefs-emailsettings": "Optiones de e-mail",
 	"prefs-echosubscriptions": "Notificar me de iste eventos",
 	"prefs-echocrosswiki": "Notificationes inter wikis",
