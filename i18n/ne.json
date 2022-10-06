@@ -95,6 +95,7 @@
 	"echo-notification-placeholder": "तपाईंको लागि कुनै सूचना छैन ।",
 	"echo-notification-placeholder-filters": "यी मापदण्डसँग मेल खाने यहाँ कुनै सूचनाहरू छैनन्।",
 	"echo-notification-loginrequired": "तपाईंले आफ्नो सूचनाहरू हेर्न प्रवेश गर्नुपर्छ।",
+	"echo-notification-popup-loginrequired": "कृपया आफ्नो सूचनाहरू हेर्न प्रवेश गर्नुहोस्।",
 	"echo-notification-markasread": "पढेकोमा चिह्नित गर्ने",
 	"echo-notification-markasunread": "नपढिएको रूपमा चिनो लगाउनुहोस्",
 	"echo-notification-markasread-tooltip": "पढिएको रूपमा चिनो लगाउनुहोस्",

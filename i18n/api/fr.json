@@ -88,6 +88,6 @@
 	"apierror-echo-event-creation-failed": "Impossible de créer l’évènement Echo",
 	"apierror-echo-push-token-exists": "Le jeton fourni existe déjà dans la base de données.",
 	"apierror-echo-push-token-not-found": "Le jeton fourni n’a pas été trouvé dans la base de données.",
-	"apierror-echo-push-too-many-subscriptions": "L'utilisateur actuel a déjà enregistré le nombre maximal autorisé de demandes d'abonnement ($1).",
+	"apierror-echo-push-too-many-subscriptions": "L’utilisateur actuel a déjà inscrit le nombre maximal autorisé de demandes d’abonnement ($1).",
 	"apierror-echo-push-topic-required": "Le champ sujet est obligatoire pour ce fournisseur."
 }
