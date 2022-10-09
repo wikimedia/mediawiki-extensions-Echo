@@ -86,11 +86,11 @@ class SpecialNotifications extends SpecialPage {
 			// Output the date header if it has not been displayed
 			if ( $dateHeader !== $row['timestamp']['date'] ) {
 				$dateHeader = $row['timestamp']['date'];
-				$notifArray[ $dateHeader ] = [
-					'unread' => [],
-					'notices' => []
-				];
 			}
+			$notifArray[ $dateHeader ] = [
+				'unread' => [],
+				'notices' => []
+			];
 
 			// Collect unread IDs
 			if ( !isset( $row['read'] ) ) {
@@ -189,6 +189,7 @@ class SpecialNotifications extends SpecialPage {
 			// is an array
 			$notices
 				->appendContent( $heading )
+				// @phan-suppress-next-line PhanTypePossiblyInvalidDimOffset https://github.com/phan/phan/issues/4735
 				->appendContent( $data[ 'notices' ] );
 		}
 
