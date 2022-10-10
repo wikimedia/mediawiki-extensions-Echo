@@ -8,6 +8,7 @@
 	},
 	"echo-desc": "Systeem om meidoggers barrens en berjochten te melden",
 	"prefs-echo": "Meldingen",
+	"prefs-description-echo": "Selektearje hokker meldingen, en hoe't {{GENDER:|jo}} dy ûntfange sille.",
 	"prefs-emailsettings": "E-mailopsjes",
 	"prefs-echosubscriptions": "Meld oan my dizze barrens",
 	"prefs-echocrosswiki": "Meldingen tusken wiki's",

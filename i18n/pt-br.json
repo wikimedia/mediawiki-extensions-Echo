@@ -32,6 +32,7 @@
 	},
 	"echo-desc": "Sistema para notificar usuários sobre eventos e mensagens",
 	"prefs-echo": "Notificações",
+	"prefs-description-echo": "Selecione as notificações que recebe e como recebê-las.",
 	"prefs-emailsettings": "Opções de e-mail",
 	"prefs-echosubscriptions": "Notificar-me sobre estes eventos",
 	"prefs-echocrosswiki": "Notificações entre-wikis",

@@ -15,6 +15,7 @@
 	},
 	"echo-desc": "System for å gi brukere beskjed om hendelser og meldinger",
 	"prefs-echo": "Beskjeder",
+	"prefs-description-echo": "Velg hvilke varsler {{GENDER:|du}} får og hvordan du får dem.",
 	"prefs-emailsettings": "E-postinnstillinger",
 	"prefs-echosubscriptions": "Gi meg beskjed om disse hendelsene",
 	"prefs-echocrosswiki": "Interwikivarsler",
