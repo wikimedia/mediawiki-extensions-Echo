@@ -29,6 +29,7 @@ use LogEntry;
 use MailAddress;
 use MediaWiki\DAO\WikiAwareEntity;
 use MediaWiki\Extension\Notifications\Push\Api\ApiEchoPushSubscriptions;
+use MediaWiki\Hook\PreferencesGetIconHook;
 use MediaWiki\Hook\RecentChange_saveHook;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
@@ -55,7 +56,7 @@ use WebRequest;
 use WikiMap;
 use WikiPage;
 
-class Hooks implements RecentChange_saveHook {
+class Hooks implements RecentChange_saveHook, PreferencesGetIconHook {
 	/**
 	 * @var Config
 	 */
@@ -510,6 +511,15 @@ class Hooks implements RecentChange_saveHook {
 				'filter' => new MultiTitleFilter()
 			];
 		}
+	}
+
+	/**
+	 * Add icon for Special:Preferences mobile layout
+	 *
+	 * @param array &$iconNames Array of icon names for their respective sections.
+	 */
+	public function onPreferencesGetIcon( &$iconNames ) {
+		$iconNames[ 'echo' ] = 'bell';
 	}
 
 	/**
