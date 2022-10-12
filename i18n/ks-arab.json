@@ -3,10 +3,12 @@
 		"authors": [
 			"Iflaq",
 			"Rishabhbhat",
-			"Shahwaqar"
+			"Shahwaqar",
+			"Tajamul9"
 		]
 	},
 	"prefs-echo": "اِطلا",
+	"prefs-description-echo": "اطلاع کَمہٕ چُنِیوٚ {{GENDER:|تُہہ}} حأصل کرنہٕ کھٲترٕ تہٕ تِمہٕ رٹنہٕ کھأترٕ.",
 	"echo-pref-web": "ویب",
 	"echo-pref-email": "برقی خط",
 	"echo-pref-push": "ایپلِیکیشَن",
