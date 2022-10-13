@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
+			"Ajiniyaz Nurniyazov",
 			"Nurlan"
 		]
 	},
+	"prefs-description-echo": "Qaysı bildiriw xatlardı {{GENDER:| siz}} alıwdı hám olardı qalay qabıllawdı saylań.",
 	"notification-welcome-linktext": "Xosh keldińiz"
 }
