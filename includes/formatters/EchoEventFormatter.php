@@ -30,14 +30,12 @@ abstract class EchoEventFormatter {
 	 * Equivalent to IContextSource::msg for the current
 	 * language
 	 *
-	 * @param string ...$args
+	 * @param string $key
+	 * @param mixed ...$params
 	 * @return Message
 	 */
-	protected function msg( ...$args ) {
-		/**
-		 * @var Message $msg
-		 */
-		$msg = wfMessage( ...$args );
+	protected function msg( string $key, ...$params ) {
+		$msg = wfMessage( $key, ...$params );
 		$msg->inLanguage( $this->language );
 
 		return $msg;
