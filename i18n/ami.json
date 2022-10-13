@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Vickylin77s"
+			"Vickylin77s",
+			"Amire80"
 		]
 	},
 	"tooltip-pt-notifications-alert": "{{GENDER:|no miso}} mipalal",
-	"notification-link-text-expand-all": " misatapang",
-	"notification-inbox-filter-all": "　Maemin/po:long"
+	"notification-link-text-expand-all": "misatapang",
+	"notification-inbox-filter-all": "Maemin/po:long"
 }
