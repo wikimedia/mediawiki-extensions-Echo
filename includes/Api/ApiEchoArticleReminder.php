@@ -7,6 +7,7 @@ use DateInterval;
 use DateTime;
 use EchoEvent;
 use MWTimestamp;
+use Wikimedia\ParamValidator\ParamValidator;
 
 class ApiEchoArticleReminder extends ApiBase {
 
@@ -62,20 +63,20 @@ class ApiEchoArticleReminder extends ApiBase {
 	public function getAllowedParams() {
 		return [
 			'pageid' => [
-				ApiBase::PARAM_TYPE => 'integer',
+				ParamValidator::PARAM_TYPE => 'integer',
 			],
 			'title' => [
-				ApiBase::PARAM_TYPE => 'string',
+				ParamValidator::PARAM_TYPE => 'string',
 			],
 			'comment' => [
-				ApiBase::PARAM_TYPE => 'string',
+				ParamValidator::PARAM_TYPE => 'string',
 			],
 			'timestamp' => [
-				ApiBase::PARAM_REQUIRED => true,
-				ApiBase::PARAM_TYPE => 'timestamp',
+				ParamValidator::PARAM_REQUIRED => true,
+				ParamValidator::PARAM_TYPE => 'timestamp',
 			],
 			'token' => [
-				ApiBase::PARAM_REQUIRED => true,
+				ParamValidator::PARAM_REQUIRED => true,
 			],
 		];
 	}

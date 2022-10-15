@@ -8,6 +8,7 @@ use EchoNotificationController;
 use MWEchoDbFactory;
 use MWEchoNotifUser;
 use WikiMap;
+use Wikimedia\ParamValidator\ParamValidator;
 
 class ApiEchoMarkRead extends ApiBase {
 	use ApiCrossWiki;
@@ -81,21 +82,21 @@ class ApiEchoMarkRead extends ApiBase {
 	public function getAllowedParams() {
 		return $this->getCrossWikiParams() + [
 			'list' => [
-				ApiBase::PARAM_ISMULTI => true,
+				ParamValidator::PARAM_ISMULTI => true,
 			],
 			'unreadlist' => [
-				ApiBase::PARAM_ISMULTI => true,
+				ParamValidator::PARAM_ISMULTI => true,
 			],
 			'all' => [
-				ApiBase::PARAM_REQUIRED => false,
-				ApiBase::PARAM_TYPE => 'boolean'
+				ParamValidator::PARAM_REQUIRED => false,
+				ParamValidator::PARAM_TYPE => 'boolean'
 			],
 			'sections' => [
-				ApiBase::PARAM_TYPE => EchoAttributeManager::$sections,
-				ApiBase::PARAM_ISMULTI => true,
+				ParamValidator::PARAM_TYPE => EchoAttributeManager::$sections,
+				ParamValidator::PARAM_ISMULTI => true,
 			],
 			'token' => [
-				ApiBase::PARAM_REQUIRED => true,
+				ParamValidator::PARAM_REQUIRED => true,
 			]
 		];
 	}

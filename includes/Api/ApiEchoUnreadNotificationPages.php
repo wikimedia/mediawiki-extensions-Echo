@@ -230,7 +230,7 @@ class ApiEchoUnreadNotificationPages extends ApiQueryBase {
 	 * @return array[]
 	 */
 	public function getAllowedParams() {
-		global $wgEchoMaxUpdateCount;
+		$maxUpdateCount = $this->getConfig()->get( 'EchoMaxUpdateCount' );
 
 		return $this->getCrossWikiParams() + [
 			'grouppages' => [
@@ -241,8 +241,8 @@ class ApiEchoUnreadNotificationPages extends ApiQueryBase {
 				ParamValidator::PARAM_TYPE => 'limit',
 				ParamValidator::PARAM_DEFAULT => 10,
 				IntegerDef::PARAM_MIN => 1,
-				IntegerDef::PARAM_MAX => $wgEchoMaxUpdateCount,
-				IntegerDef::PARAM_MAX2 => $wgEchoMaxUpdateCount,
+				IntegerDef::PARAM_MAX => $maxUpdateCount,
+				IntegerDef::PARAM_MAX2 => $maxUpdateCount,
 			],
 			// there is no `offset` or `continue` value: the set of possible
 			// notifications is small enough to allow fetching all of them at
