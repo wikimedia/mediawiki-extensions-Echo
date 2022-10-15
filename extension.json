@@ -19,20 +19,20 @@
 	},
 	"APIMetaModules": {
 		"notifications": {
-			"class": "ApiEchoNotifications",
+			"class": "MediaWiki\\Extension\\Notifications\\Api\\ApiEchoNotifications",
 			"services": [ "MainConfig" ]
 		},
 		"unreadnotificationpages": {
-			"class": "ApiEchoUnreadNotificationPages",
+			"class": "MediaWiki\\Extension\\Notifications\\Api\\ApiEchoUnreadNotificationPages",
 			"services": [ "PageStore", "TitleFactory" ]
 		}
 	},
 	"APIModules": {
-		"echomarkread": "ApiEchoMarkRead",
-		"echomarkseen": "ApiEchoMarkSeen",
-		"echoarticlereminder": "ApiEchoArticleReminder",
+		"echomarkread": "MediaWiki\\Extension\\Notifications\\Api\\ApiEchoMarkRead",
+		"echomarkseen": "MediaWiki\\Extension\\Notifications\\Api\\ApiEchoMarkSeen",
+		"echoarticlereminder": "MediaWiki\\Extension\\Notifications\\Api\\ApiEchoArticleReminder",
 		"echomute": {
-			"class": "ApiEchoMute",
+			"class": "MediaWiki\\Extension\\Notifications\\Api\\ApiEchoMute",
 			"services": [
 				"CentralIdLookup",
 				"UserOptionsManager"
@@ -1068,13 +1068,6 @@
 	},
 	"manifest_version": 2,
 	"AutoloadClasses": {
-		"ApiCrossWiki": "includes/api/ApiCrossWiki.php",
-		"ApiEchoArticleReminder": "includes/api/ApiEchoArticleReminder.php",
-		"ApiEchoMarkRead": "includes/api/ApiEchoMarkRead.php",
-		"ApiEchoMarkSeen": "includes/api/ApiEchoMarkSeen.php",
-		"ApiEchoMute": "includes/api/ApiEchoMute.php",
-		"ApiEchoNotifications": "includes/api/ApiEchoNotifications.php",
-		"ApiEchoUnreadNotificationPages": "includes/api/ApiEchoUnreadNotificationPages.php",
 		"BackfillUnreadWikis": "maintenance/backfillUnreadWikis.php",
 		"Bundleable": "includes/Bundleable.php",
 		"Bundler": "includes/Bundler.php",

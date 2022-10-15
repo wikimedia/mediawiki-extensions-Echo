@@ -1,5 +1,13 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Api;
+
+use ApiBase;
+use DateInterval;
+use DateTime;
+use EchoEvent;
+use MWTimestamp;
+
 class ApiEchoArticleReminder extends ApiBase {
 
 	public function execute() {

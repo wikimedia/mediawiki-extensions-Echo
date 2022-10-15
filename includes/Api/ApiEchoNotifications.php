@@ -1,5 +1,24 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Api;
+
+use ApiBase;
+use ApiQuery;
+use ApiQueryBase;
+use Bundler;
+use Config;
+use EchoAttributeManager;
+use EchoDataOutputFormatter;
+use EchoForeignNotifications;
+use EchoNotification;
+use EchoNotificationController;
+use EchoNotificationMapper;
+use EchoSeenTime;
+use EchoServices;
+use MWEchoNotifUser;
+use Title;
+use User;
+use WikiMap;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 

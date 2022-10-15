@@ -1,8 +1,19 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Api;
+
+use ApiQuery;
+use ApiQueryBase;
+use ApiUsageException;
+use EchoServices;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\Page\PageRecord;
 use MediaWiki\Page\PageStore;
+use MWEchoDbFactory;
+use MWEchoNotifUser;
+use Title;
+use TitleFactory;
+use WikiMap;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 

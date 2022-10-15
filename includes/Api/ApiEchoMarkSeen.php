@@ -1,7 +1,12 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Api;
+
 // This is a GET module, not a POST module, for multi-DC support. See T222851.
 // Note that this module doesn't write to the database, only to the seentime cache.
+use ApiBase;
+use EchoSeenTime;
+
 class ApiEchoMarkSeen extends ApiBase {
 
 	public function execute() {

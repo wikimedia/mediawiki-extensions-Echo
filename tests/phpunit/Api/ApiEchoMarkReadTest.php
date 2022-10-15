@@ -4,7 +4,7 @@
  * @group medium
  * @group API
  * @group Database
- * @covers \ApiEchoMarkRead
+ * @covers \MediaWiki\Extension\Notifications\Api\ApiEchoMarkRead
  */
 class ApiEchoMarkReadTest extends ApiTestCase {
 
