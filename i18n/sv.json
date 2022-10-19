@@ -26,6 +26,7 @@
 	},
 	"echo-desc": "System för att meddela användare om händelser och meddelanden",
 	"prefs-echo": "Aviseringar",
+	"prefs-description-echo": "Välj vilka aviseringar som {{GENDER:|du}} får och hur du får dem.",
 	"prefs-emailsettings": "E-postinställningar",
 	"prefs-echosubscriptions": "Meddela mig om dessa händelser",
 	"prefs-echocrosswiki": "Interwikiaviseringar",

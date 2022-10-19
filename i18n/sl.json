@@ -73,7 +73,7 @@
 	"tooltip-pt-notifications-alert": "{{GENDER:|Vaša}} obvestila",
 	"tooltip-pt-notifications-notice": "{{GENDER:|Vaša}} obvestila",
 	"echo-displaynotificationsconfiguration": "Prikaži nastavitve za obvestila",
-	"echo-displaynotificationsconfiguration-summary": "To je pregled nastavitev tvojih obvestil na tem wikiju.",
+	"echo-displaynotificationsconfiguration-summary": "To je pregled nastavitev obvestil v tem vikiju.",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "Obvestila po kategoriji",
 	"echo-displaynotificationsconfiguration-sorting-by-section-header": "Sortiranje tipov",
 	"echo-displaynotificationsconfiguration-sorting-by-section-legend": "v kateri del je uvrščena vrsta obvestila",
