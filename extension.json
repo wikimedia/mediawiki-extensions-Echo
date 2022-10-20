@@ -506,7 +506,8 @@
 		"SpecialMuteModifyFormFields": "MediaWiki\\Extension\\Notifications\\Hooks::onSpecialMuteModifyFormFields",
 		"RecentChange_save": "main",
 		"ApiMain::moduleManager": "MediaWiki\\Extension\\Notifications\\Hooks::onApiMainModuleManager",
-		"SkinTemplateNavigation::Universal": "MediaWiki\\Extension\\Notifications\\Hooks::onSkinTemplateNavigationUniversal"
+		"SkinTemplateNavigation::Universal": "MediaWiki\\Extension\\Notifications\\Hooks::onSkinTemplateNavigationUniversal",
+		"PreferencesGetIcon": "main"
 	},
 	"HookHandlers": {
 		"main": {
