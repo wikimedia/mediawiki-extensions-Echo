@@ -64,12 +64,9 @@ class EchoTargetPageTest extends MediaWikiUnitTestCase {
 	 * @return Title
 	 */
 	protected function mockTitle( $pageId ) {
-		$event = $this->getMockBuilder( Title::class )
-			->disableOriginalConstructor()
-			->getMock();
-		$event->expects( $this->any() )
-			->method( 'getArticleID' )
-			->will( $this->returnValue( $pageId ) );
+		$event = $this->createMock( Title::class );
+		$event->method( 'getArticleID' )
+			->willReturn( $pageId );
 
 		return $event;
 	}
@@ -79,12 +76,9 @@ class EchoTargetPageTest extends MediaWikiUnitTestCase {
 	 * @return EchoEvent
 	 */
 	protected function mockEchoEvent( $eventId = 1 ) {
-		$event = $this->getMockBuilder( EchoEvent::class )
-			->disableOriginalConstructor()
-			->getMock();
-		$event->expects( $this->any() )
-			->method( 'getId' )
-			->will( $this->returnValue( $eventId ) );
+		$event = $this->createMock( EchoEvent::class );
+		$event->method( 'getId' )
+			->willReturn( $eventId );
 
 		return $event;
 	}

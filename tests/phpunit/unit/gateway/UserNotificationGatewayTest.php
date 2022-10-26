@@ -112,12 +112,9 @@ class EchoUserNotificationGatewayTest extends MediaWikiUnitTestCase {
 	 * @return User
 	 */
 	protected function mockUser() {
-		$user = $this->getMockBuilder( User::class )
-			->disableOriginalConstructor()
-			->getMock();
-		$user->expects( $this->any() )
-			->method( 'getID' )
-			->will( $this->returnValue( 1 ) );
+		$user = $this->createMock( User::class );
+		$user->method( 'getID' )
+			->willReturn( 1 );
 
 		return $user;
 	}
@@ -128,12 +125,9 @@ class EchoUserNotificationGatewayTest extends MediaWikiUnitTestCase {
 	 * @return MWEchoDbFactory
 	 */
 	protected function mockMWEchoDbFactory( array $dbResult = [] ) {
-		$dbFactory = $this->getMockBuilder( MWEchoDbFactory::class )
-			->disableOriginalConstructor()
-			->getMock();
-		$dbFactory->expects( $this->any() )
-			->method( 'getEchoDb' )
-			->will( $this->returnValue( $this->mockDb( $dbResult ) ) );
+		$dbFactory = $this->createMock( MWEchoDbFactory::class );
+		$dbFactory->method( 'getEchoDb' )
+			->willReturn( $this->mockDb( $dbResult ) );
 
 		return $dbFactory;
 	}
@@ -157,18 +151,14 @@ class EchoUserNotificationGatewayTest extends MediaWikiUnitTestCase {
 			'selectRowCount' => '',
 		];
 		$db = $this->createMock( IDatabase::class );
-		$db->expects( $this->any() )
-			->method( 'update' )
-			->will( $this->returnValue( $dbResult['update'] ) );
-		$db->expects( $this->any() )
-			->method( 'select' )
-			->will( $this->returnValue( $dbResult['select'] ) );
-		$db->expects( $this->any() )
-			->method( 'selectRow' )
-			->will( $this->returnValue( $dbResult['selectRow'] ) );
-		$db->expects( $this->any() )
-			->method( 'selectRowCount' )
-			->will( $this->returnValue( $dbResult['selectRowCount'] ) );
+		$db->method( 'update' )
+			->willReturn( $dbResult['update'] );
+		$db->method( 'select' )
+			->willReturn( $dbResult['select'] );
+		$db->method( 'selectRow' )
+			->willReturn( $dbResult['selectRow'] );
+		$db->method( 'selectRowCount' )
+			->willReturn( $dbResult['selectRowCount'] );
 
 		return $db;
 	}

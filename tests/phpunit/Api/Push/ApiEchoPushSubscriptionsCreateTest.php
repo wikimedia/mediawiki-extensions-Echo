@@ -13,7 +13,7 @@ class ApiEchoPushSubscriptionsCreateTest extends ApiTestCase {
 	/** @var User */
 	private $user;
 
-	public function setUp(): void {
+	protected function setUp(): void {
 		parent::setUp();
 		$this->setMwGlobals( [
 			'wgEchoEnablePush' => true,

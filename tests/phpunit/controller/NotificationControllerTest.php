@@ -82,12 +82,9 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 			],
 		] );
 
-		$event = $this->getMockBuilder( EchoEvent::class )
-			->disableOriginalConstructor()
-			->getMock();
-		$event->expects( $this->any() )
-			->method( 'getType' )
-			->will( $this->returnValue( 'unit-test' ) );
+		$event = $this->createMock( EchoEvent::class );
+		$event->method( 'getType' )
+			->willReturn( 'unit-test' );
 
 		if ( $setup !== null ) {
 			$setup( $this, $event );
@@ -159,12 +156,9 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 			],
 		] );
 
-		$event = $this->getMockBuilder( EchoEvent::class )
-			->disableOriginalConstructor()
-			->getMock();
-		$event->expects( $this->any() )
-			->method( 'getType' )
-			->will( $this->returnValue( 'unit-test' ) );
+		$event = $this->createMock( EchoEvent::class );
+		$event->method( 'getType' )
+			->willReturn( 'unit-test' );
 
 		$result = EchoNotificationController::getUsersToNotifyForEvent( $event );
 		$ids = [];
@@ -175,12 +169,9 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 	}
 
 	public function testDoesNotDeliverDisabledEvent() {
-		$event = $this->getMockBuilder( EchoEvent::class )
-			->disableOriginalConstructor()
-			->getMock();
-		$event->expects( $this->any() )
-			->method( 'isEnabledEvent' )
-			->will( $this->returnValue( false ) );
+		$event = $this->createMock( EchoEvent::class );
+		$event->method( 'isEnabledEvent' )
+			->willReturn( false );
 		// Assume it would have to check the event type to
 		// determine how to deliver
 		$event->expects( $this->never() )
@@ -265,18 +256,15 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 	}
 
 	public function testEnqueueEvent() {
-		$event = $this->getMockBuilder( EchoEvent::class )
-			->disableOriginalConstructor()
-			->getMock();
-		$event->expects( $this->any() )
-			->method( 'getExtraParam' )
-			->will( $this->returnValue( null ) );
-		$event->expects( $this->exactly( 1 ) )
+		$event = $this->createMock( EchoEvent::class );
+		$event->method( 'getExtraParam' )
+			->willReturn( null );
+		$event->expects( $this->once() )
 			->method( 'getTitle' )
-			->will( $this->returnValue( Title::newFromText( 'test-title' ) ) );
-		$event->expects( $this->exactly( 1 ) )
+			->willReturn( Title::newFromText( 'test-title' ) );
+		$event->expects( $this->once() )
 			->method( 'getId' )
-			->will( $this->returnValue( 42 ) );
+			->willReturn( 42 );
 		EchoNotificationController::enqueueEvent( $event );
 		$jobQueueGroup = $this->getServiceContainer()->getJobQueueGroup();
 		$queues = $jobQueueGroup->getQueuesWithJobs();
@@ -291,11 +279,8 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 		$queueGroup = $this->getServiceContainer()->getJobQueueGroup();
 		$this->assertCount( 0, $queueGroup->getQueuesWithJobs() );
 
-		$event = $this->getMockBuilder( EchoEvent::class )
-			->disableOriginalConstructor()
-			->getMock();
-		$event->expects( $this->any() )
-			->method( 'getExtraParam' )
+		$event = $this->createMock( EchoEvent::class );
+		$event->method( 'getExtraParam' )
 			->will( $this->returnValueMap(
 				[
 					[ 'delay', null, 120 ],
@@ -303,12 +288,11 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 					[ 'rootJobTimestamp', null,  wfTimestamp() ]
 				]
 			) );
-		$event->expects( $this->exactly( 1 ) )
+		$event->expects( $this->once() )
 			->method( 'getTitle' )
-			->will( $this->returnValue( Title::newFromText( 'test-title' ) ) );
-		$event->expects( $this->any() )
-			->method( 'getId' )
-			->will( $this->returnValue( 42 ) );
+			->willReturn( Title::newFromText( 'test-title' ) );
+		$event->method( 'getId' )
+			->willReturn( 42 );
 		EchoNotificationController::enqueueEvent( $event );
 
 		$this->assertCount( 0, $queueGroup->getQueuesWithJobs() );
@@ -318,11 +302,8 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 		$rootJobTimestamp = wfTimestamp();
 		MWTimestamp::setFakeTime( 0 );
 
-		$event = $this->getMockBuilder( EchoEvent::class )
-			->disableOriginalConstructor()
-			->getMock();
-		$event->expects( $this->any() )
-			->method( 'getExtraParam' )
+		$event = $this->createMock( EchoEvent::class );
+		$event->method( 'getExtraParam' )
 			->will( $this->returnValueMap(
 				[
 					[ 'delay', null, 10 ],
@@ -330,9 +311,9 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 					[ 'rootJobTimestamp', null,  $rootJobTimestamp ]
 				]
 			) );
-		$event->expects( $this->exactly( 1 ) )
+		$event->expects( $this->once() )
 			->method( 'getId' )
-			->will( $this->returnValue( 42 ) );
+			->willReturn( 42 );
 
 		$params = EchoNotificationController::getEventParams( $event );
 		$expectedParams = [
@@ -355,7 +336,7 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 	public function testIsPageLinkedTitleMutedByUser(
 		Title $title, User $user, UserOptionsLookup $userOptionsLookup, $expected ): void {
 		$wrapper = TestingAccessWrapper::newFromClass( EchoNotificationController::class );
-		$wrapper->mutedPageLinkedTitlesCache = $this->getMapCacheLruMock();
+		$wrapper->mutedPageLinkedTitlesCache = $this->createMock( MapCacheLRU::class );
 		$this->setService( 'UserOptionsLookup', $userOptionsLookup );
 		$this->assertSame(
 			$expected,
@@ -388,27 +369,17 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 	}
 
 	private function getMockTitle( int $articleID ) {
-		$title = $this->getMockBuilder( Title::class )
-			->disableOriginalConstructor()
-			->getMock();
+		$title = $this->createMock( Title::class );
 		$title->method( 'getArticleID' )
 			->willReturn( $articleID );
 		return $title;
 	}
 
 	private function getMockUser() {
-		$user = $this->getMockBuilder( User::class )
-			->disableOriginalConstructor()
-			->getMock();
+		$user = $this->createMock( User::class );
 		$user->method( 'getId' )
 			->willReturn( 456 );
 		return $user;
-	}
-
-	private function getMapCacheLruMock() {
-		return $this->getMockBuilder( MapCacheLRU::class )
-			->disableOriginalConstructor()
-			->getMock();
 	}
 
 	private function getUserOptionsLookupMock( $mutedTitlePreferences = [] ) {

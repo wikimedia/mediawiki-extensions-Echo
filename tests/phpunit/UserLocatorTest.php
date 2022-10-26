@@ -22,12 +22,9 @@ class EchoUserLocatorTest extends MediaWikiIntegrationTestCase {
 		}
 		wfGetDB( DB_PRIMARY )->insert( 'watchlist', $rows, __METHOD__ );
 
-		$event = $this->getMockBuilder( EchoEvent::class )
-			->disableOriginalConstructor()
-			->getMock();
-		$event->expects( $this->any() )
-			->method( 'getTitle' )
-			->will( $this->returnValue( $title ) );
+		$event = $this->createMock( EchoEvent::class );
+		$event->method( 'getTitle' )
+			->willReturn( $title );
 
 		$it = EchoUserLocator::locateUsersWatchingTitle( $event, 10 );
 		$this->assertCount( 50, $it );
@@ -76,10 +73,9 @@ class EchoUserLocatorTest extends MediaWikiIntegrationTestCase {
 		if ( $expect instanceof Closure ) {
 			list( $expect, $title ) = $expect();
 		}
-		$event = $this->mockEchoEvent();
-		$event->expects( $this->any() )
-			->method( 'getTitle' )
-			->will( $this->returnValue( $title ) );
+		$event = $this->createMock( EchoEvent::class );
+		$event->method( 'getTitle' )
+			->willReturn( $title );
 
 		$users = EchoUserLocator::locateTalkPageOwner( $event );
 		$this->assertEquals( $expect, array_keys( $users ), $message );
@@ -114,13 +110,11 @@ class EchoUserLocatorTest extends MediaWikiIntegrationTestCase {
 			/* $summary = */ 'summary'
 		);
 
-		$event = $this->mockEchoEvent();
-		$event->expects( $this->any() )
-			->method( 'getTitle' )
-			->will( $this->returnValue( $title ) );
-		$event->expects( $this->any() )
-			->method( 'getAgent' )
-			->will( $this->returnValue( User::newFromId( 123 ) ) );
+		$event = $this->createMock( EchoEvent::class );
+		$event->method( 'getTitle' )
+			->willReturn( $title );
+		$event->method( 'getAgent' )
+			->willReturn( User::newFromId( 123 ) );
 
 		$users = EchoUserLocator::locateArticleCreator( $event );
 		$this->assertEquals( $expect, array_keys( $users ), $message );
@@ -158,10 +152,9 @@ class EchoUserLocatorTest extends MediaWikiIntegrationTestCase {
 	 * @dataProvider locateEventAgentProvider
 	 */
 	public function testLocateEventAgent( $message, $expect, User $agent = null ) {
-		$event = $this->mockEchoEvent();
-		$event->expects( $this->any() )
-			->method( 'getAgent' )
-			->will( $this->returnValue( $agent ) );
+		$event = $this->createMock( EchoEvent::class );
+		$event->method( 'getAgent' )
+			->willReturn( $agent );
 
 		$users = EchoUserLocator::locateEventAgent( $event );
 		$this->assertEquals( $expect, array_keys( $users ), $message );
@@ -236,12 +229,10 @@ class EchoUserLocatorTest extends MediaWikiIntegrationTestCase {
 	 * @dataProvider locateFromEventExtraProvider
 	 */
 	public function testLocateFromEventExtra( $message, $expect, array $extra, array $keys ) {
-		$event = $this->mockEchoEvent();
-		$event->expects( $this->any() )
-			->method( 'getExtra' )
-			->will( $this->returnValue( $extra ) );
-		$event->expects( $this->any() )
-			->method( 'getExtraParam' )
+		$event = $this->createMock( EchoEvent::class );
+		$event->method( 'getExtra' )
+			->willReturn( $extra );
+		$event->method( 'getExtraParam' )
 			->will( $this->returnValueMap( self::arrayToValueMap( $extra ) ) );
 
 		$users = EchoUserLocator::locateFromEventExtra( $event, $keys );
@@ -258,9 +249,4 @@ class EchoUserLocatorTest extends MediaWikiIntegrationTestCase {
 		return $result;
 	}
 
-	protected function mockEchoEvent() {
-		return $this->getMockBuilder( EchoEvent::class )
-			->disableOriginalConstructor()
-			->getMock();
-	}
 }

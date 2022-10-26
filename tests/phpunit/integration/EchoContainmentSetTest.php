@@ -17,11 +17,10 @@ class EchoContainmentSetTest extends MediaWikiIntegrationTestCase {
 	public function testAddTitlesFromUserOption(
 		$prefData, string $contains, bool $expected
 	) {
-		$user = $this->getDefaultUserMock();
 		$userOptionsLookupMock = $this->createMock( UserOptionsLookup::class );
 		$userOptionsLookupMock->method( 'getOption' )->willReturn( $prefData );
 		$this->setService( 'UserOptionsLookup', $userOptionsLookupMock );
-		$containmentSet = new EchoContainmentSet( $user );
+		$containmentSet = new EchoContainmentSet( $this->createMock( User::class ) );
 		$containmentSet->addTitleIDsFromUserOption( 'preference-name' );
 		$this->assertSame( $expected, $containmentSet->contains( $contains ) );
 	}
@@ -50,12 +49,6 @@ class EchoContainmentSetTest extends MediaWikiIntegrationTestCase {
 			]
 
 		];
-	}
-
-	private function getDefaultUserMock() {
-		return $this->getMockBuilder( User::class )
-			->disableOriginalConstructor()
-			->getMock();
 	}
 
 }

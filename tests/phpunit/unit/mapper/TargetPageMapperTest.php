@@ -36,18 +36,13 @@ class EchoTargetPageMapperTest extends MediaWikiUnitTestCase {
 	 * @return EchoTargetPage
 	 */
 	protected function mockEchoTargetPage() {
-		$target = $this->getMockBuilder( EchoTargetPage::class )
-			->disableOriginalConstructor()
-			->getMock();
-		$target->expects( $this->any() )
-			->method( 'toDbArray' )
-			->will( $this->returnValue( [] ) );
-		$target->expects( $this->any() )
-			->method( 'getPageId' )
-			->will( $this->returnValue( 2 ) );
-		$target->expects( $this->any() )
-			->method( 'getEventId' )
-			->will( $this->returnValue( 3 ) );
+		$target = $this->createMock( EchoTargetPage::class );
+		$target->method( 'toDbArray' )
+			->willReturn( [] );
+		$target->method( 'getPageId' )
+			->willReturn( 2 );
+		$target->method( 'getEventId' )
+			->willReturn( 3 );
 
 		return $target;
 	}
@@ -58,12 +53,9 @@ class EchoTargetPageMapperTest extends MediaWikiUnitTestCase {
 	 * @return MWEchoDbFactory
 	 */
 	protected function mockMWEchoDbFactory( $dbResult ) {
-		$dbFactory = $this->getMockBuilder( MWEchoDbFactory::class )
-			->disableOriginalConstructor()
-			->getMock();
-		$dbFactory->expects( $this->any() )
-			->method( 'getEchoDb' )
-			->will( $this->returnValue( $this->mockDb( $dbResult ) ) );
+		$dbFactory = $this->createMock( MWEchoDbFactory::class );
+		$dbFactory->method( 'getEchoDb' )
+			->willReturn( $this->mockDb( $dbResult ) );
 
 		return $dbFactory;
 	}
@@ -81,18 +73,14 @@ class EchoTargetPageMapperTest extends MediaWikiUnitTestCase {
 			'delete' => ''
 		];
 		$db = $this->createMock( IDatabase::class );
-		$db->expects( $this->any() )
-			->method( 'insert' )
-			->will( $this->returnValue( $dbResult['insert'] ) );
-		$db->expects( $this->any() )
-			->method( 'insertId' )
-			->will( $this->returnValue( $dbResult['insertId'] ) );
-		$db->expects( $this->any() )
-			->method( 'select' )
-			->will( $this->returnValue( $dbResult['select'] ) );
-		$db->expects( $this->any() )
-			->method( 'delete' )
-			->will( $this->returnValue( $dbResult['delete'] ) );
+		$db->method( 'insert' )
+			->willReturn( $dbResult['insert'] );
+		$db->method( 'insertId' )
+			->willReturn( $dbResult['insertId'] );
+		$db->method( 'select' )
+			->willReturn( $dbResult['select'] );
+		$db->method( 'delete' )
+			->willReturn( $dbResult['delete'] );
 
 		return $db;
 	}

@@ -21,7 +21,7 @@ class EchoTitleLocalCacheTest extends MediaWikiIntegrationTestCase {
 		$cache->add( 9 );
 
 		// Resolutions should be batched
-		$cache->expects( $this->exactly( 1 ) )->method( 'resolve' )
+		$cache->expects( $this->once() )->method( 'resolve' )
 			->with( [ 1, 9 ] )->willReturn( [] );
 
 		// Trigger
@@ -38,7 +38,7 @@ class EchoTitleLocalCacheTest extends MediaWikiIntegrationTestCase {
 		$cachePriv->targets->set( $res1['id'], $res1['title'] );
 		// Second title not in internal cache, resolves from db.
 		$res2 = $this->insertPage( 'EchoTitleLocalCacheTest_testGet2' );
-		$cache->expects( $this->exactly( 1 ) )->method( 'resolve' )
+		$cache->expects( $this->once() )->method( 'resolve' )
 			->with( [ $res2['id'] ] )
 			->willReturn( [ $res2['id'] => $res2['title'] ] );
 
@@ -68,7 +68,7 @@ class EchoTitleLocalCacheTest extends MediaWikiIntegrationTestCase {
 		$this->assertNull( $cache->get( 1 ), 'Cache was cleared' );
 
 		// Lookups batch was cleared
-		$cache->expects( $this->exactly( 1 ) )->method( 'resolve' )
+		$cache->expects( $this->once() )->method( 'resolve' )
 			->with( [ 4 ] )
 			->willReturn( [] );
 		$cache->add( 4 );
@@ -79,9 +79,7 @@ class EchoTitleLocalCacheTest extends MediaWikiIntegrationTestCase {
 	 * @return Title
 	 */
 	protected function mockTitle() {
-		$title = $this->getMockBuilder( Title::class )
-			->disableOriginalConstructor()
-			->getMock();
+		$title = $this->createMock( Title::class );
 
 		return $title;
 	}

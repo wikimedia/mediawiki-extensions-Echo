@@ -54,7 +54,7 @@ class MWEchoNotifUserTest extends MediaWikiIntegrationTestCase {
 			$this->cache,
 			$this->mockEchoUserNotificationGateway( [ 'markRead' => true ] ),
 			$this->mockEchoNotificationMapper(),
-			$this->mockEchoTargetPageMapper(),
+			$this->createMock( EchoTargetPageMapper::class ),
 			$this->createNoOpMock( UserOptionsLookup::class ),
 			$this->getServiceContainer()->getUserFactory(),
 			$this->getServiceContainer()->getReadOnlyMode()
@@ -67,7 +67,7 @@ class MWEchoNotifUserTest extends MediaWikiIntegrationTestCase {
 			$this->cache,
 			$this->mockEchoUserNotificationGateway( [ 'markRead' => false ] ),
 			$this->mockEchoNotificationMapper(),
-			$this->mockEchoTargetPageMapper(),
+			$this->createMock( EchoTargetPageMapper::class ),
 			$this->createNoOpMock( UserOptionsLookup::class ),
 			$this->getServiceContainer()->getUserFactory(),
 			$this->getServiceContainer()->getReadOnlyMode()
@@ -83,7 +83,7 @@ class MWEchoNotifUserTest extends MediaWikiIntegrationTestCase {
 			$this->cache,
 			$this->mockEchoUserNotificationGateway( [ 'markRead' => true ] ),
 			$this->mockEchoNotificationMapper( [ $this->mockEchoNotification() ] ),
-			$this->mockEchoTargetPageMapper(),
+			$this->createMock( EchoTargetPageMapper::class ),
 			$this->createNoOpMock( UserOptionsLookup::class ),
 			$this->getServiceContainer()->getUserFactory(),
 			$this->getServiceContainer()->getReadOnlyMode()
@@ -96,7 +96,7 @@ class MWEchoNotifUserTest extends MediaWikiIntegrationTestCase {
 			$this->cache,
 			$this->mockEchoUserNotificationGateway( [ 'markRead' => false ] ),
 			$this->mockEchoNotificationMapper( [ $this->mockEchoNotification() ] ),
-			$this->mockEchoTargetPageMapper(),
+			$this->createMock( EchoTargetPageMapper::class ),
 			$this->createNoOpMock( UserOptionsLookup::class ),
 			$this->getServiceContainer()->getUserFactory(),
 			$this->getServiceContainer()->getReadOnlyMode()
@@ -109,7 +109,7 @@ class MWEchoNotifUserTest extends MediaWikiIntegrationTestCase {
 			$this->cache,
 			$this->mockEchoUserNotificationGateway( [ 'markRead' => true ] ),
 			$this->mockEchoNotificationMapper(),
-			$this->mockEchoTargetPageMapper(),
+			$this->createMock( EchoTargetPageMapper::class ),
 			$this->createNoOpMock( UserOptionsLookup::class ),
 			$this->getServiceContainer()->getUserFactory(),
 			$this->getServiceContainer()->getReadOnlyMode()
@@ -122,7 +122,7 @@ class MWEchoNotifUserTest extends MediaWikiIntegrationTestCase {
 			$this->cache,
 			$this->mockEchoUserNotificationGateway( [ 'markRead' => false ] ),
 			$this->mockEchoNotificationMapper(),
-			$this->mockEchoTargetPageMapper(),
+			$this->createMock( EchoTargetPageMapper::class ),
 			$this->createNoOpMock( UserOptionsLookup::class ),
 			$this->getServiceContainer()->getUserFactory(),
 			$this->getServiceContainer()->getReadOnlyMode()
@@ -134,57 +134,35 @@ class MWEchoNotifUserTest extends MediaWikiIntegrationTestCase {
 		$dbResult += [
 			'markRead' => true
 		];
-		$gateway = $this->getMockBuilder( EchoUserNotificationGateway::class )
-			->disableOriginalConstructor()
-			->getMock();
-		$gateway->expects( $this->any() )
-			->method( 'markRead' )
-			->will( $this->returnValue( $dbResult['markRead'] ) );
-		$gateway->expects( $this->any() )
-			->method( 'getDB' )
-			->will( $this->returnValue(
-				$this->getMockBuilder( IDatabase::class )
-					->disableOriginalConstructor()->getMock()
-			) );
+		$gateway = $this->createMock( EchoUserNotificationGateway::class );
+		$gateway->method( 'markRead' )
+			->willReturn( $dbResult['markRead'] );
+		$gateway->method( 'getDB' )
+			->willReturn( $this->createMock( IDatabase::class ) );
 
 		return $gateway;
 	}
 
 	public function mockEchoNotificationMapper( array $result = [] ) {
-		$mapper = $this->getMockBuilder( EchoNotificationMapper::class )
-			->disableOriginalConstructor()
-			->getMock();
-		$mapper->expects( $this->any() )
-			->method( 'fetchUnreadByUser' )
-			->will( $this->returnValue( $result ) );
+		$mapper = $this->createMock( EchoNotificationMapper::class );
+		$mapper->method( 'fetchUnreadByUser' )
+			->willReturn( $result );
 
 		return $mapper;
 	}
 
-	public function mockEchoTargetPageMapper() {
-		return $this->getMockBuilder( EchoTargetPageMapper::class )
-			->disableOriginalConstructor()
-			->getMock();
-	}
-
 	protected function mockEchoNotification() {
-		$notification = $this->getMockBuilder( EchoNotification::class )
-			->disableOriginalConstructor()
-			->getMock();
-		$notification->expects( $this->any() )
-			->method( 'getEvent' )
-			->will( $this->returnValue( $this->mockEchoEvent() ) );
+		$notification = $this->createMock( EchoNotification::class );
+		$notification->method( 'getEvent' )
+			->willReturn( $this->mockEchoEvent() );
 
 		return $notification;
 	}
 
 	protected function mockEchoEvent() {
-		$event = $this->getMockBuilder( EchoEvent::class )
-			->disableOriginalConstructor()
-			->getMock();
-		$event->expects( $this->any() )
-			->method( 'getId' )
-			->will( $this->returnValue( 1 ) );
+		$event = $this->createMock( EchoEvent::class );
+		$event->method( 'getId' )
+			->willReturn( 1 );
 
 		return $event;
 	}
@@ -195,7 +173,7 @@ class MWEchoNotifUserTest extends MediaWikiIntegrationTestCase {
 			$this->cache,
 			$this->mockEchoUserNotificationGateway(),
 			$this->mockEchoNotificationMapper(),
-			$this->mockEchoTargetPageMapper(),
+			$this->createMock( EchoTargetPageMapper::class ),
 			$this->createNoOpMock( UserOptionsLookup::class ),
 			$this->getServiceContainer()->getUserFactory(),
 			$this->getServiceContainer()->getReadOnlyMode()
