@@ -8,7 +8,7 @@
 			"Bgo eiu"
 		]
 	},
-	"prefs-echo": "سوچناواں",
+	"prefs-echo": "اطلاعواں",
 	"prefs-echosubscriptions": "مینوں اِس ترھاں دے سبباں بارے نوٹیفائی کرو",
 	"echo-pref-email-format": "ای میل ارمیٹ:",
 	"echo-pref-web": "ویب",
@@ -19,15 +19,18 @@
 	"echo-category-title-reverted": "سودھ {{PLURAL:$1|رد کیتا|رد کیتے}}",
 	"echo-category-title-mention": "{{PLURAL:$1|زکر}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|اختیارات ورتنوالے دی تبدیلی|اختیارات ورتنوالے دیاں تبدیلیاں}}",
-	"notifications": "اطلاعات",
-	"tooltip-pt-notifications-alert": "{{GENDER:|تواڈے}} الرٹس",
+	"notifications": "اطلاعواں",
+	"tooltip-pt-notifications-alert": "{{GENDER:|تواڈیاں}} اطلاعواں",
 	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "نویَں ورتنوالے",
-	"echo-specialpage": "سوچناواں",
+	"echo-specialpage": "اطلاعواں",
 	"echo-none": "تہاڈے کئی کوئی سوچنا نہیں ہے۔",
 	"echo-notification-more-options-tooltip": "ہور اختیار",
+	"notification-link-text-expand-notice-count": "{{PLURAL:$1|$1 اطلاع|$1 اطلاعواں}} دیکھو",
 	"notification-link-text-view-changes": "{{GENDER:$1|دیکھو}} تبدیلیاں",
 	"notification-link-text-view-page": "صفحہ دیکھو",
 	"notification-welcome-linktext": "جی آیاں نوں",
 	"notification-link-text-view-edit": "سودھ دیکھو",
-	"notification-link-article-reminder": "صفحہ دیکھو"
+	"notification-link-article-reminder": "صفحہ دیکھو",
+	"echo-notification-notice-text-only": "اطلاعواں",
+	"echo-overlay-link": "ساریاں اطلاعواں"
 }
