@@ -11,6 +11,7 @@
 	},
 	"echo-desc": "Süsteem, millega teavitatakse kasutajaid sündmustest ja sõnumitest",
 	"prefs-echo": "Teavitused",
+	"prefs-description-echo": "Vali, milliseid teavitusi saad ja kuidas need sulle saadetakse.",
 	"prefs-emailsettings": "E-posti suvandid",
 	"prefs-echosubscriptions": "Teavita mind neist sündmustest",
 	"prefs-echocrosswiki": "Vikideülesed teavitused",
