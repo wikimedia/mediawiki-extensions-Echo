@@ -31,10 +31,14 @@ use MediaWiki\DAO\WikiAwareEntity;
 use MediaWiki\Extension\Notifications\Push\Api\ApiEchoPushSubscriptions;
 use MediaWiki\Hook\BeforePageDisplayHook;
 use MediaWiki\Hook\EmailUserCompleteHook;
+use MediaWiki\Hook\LoginFormValidErrorMessagesHook;
+use MediaWiki\Hook\OutputPageCheckLastModifiedHook;
 use MediaWiki\Hook\PreferencesGetIconHook;
 use MediaWiki\Hook\RecentChange_saveHook;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Page\Hook\ArticleDeleteCompleteHook;
+use MediaWiki\Page\Hook\ArticleUndeleteHook;
 use MediaWiki\Preferences\Hook\GetPreferencesHook;
 use MediaWiki\Preferences\MultiTitleFilter;
 use MediaWiki\Preferences\MultiUsernameFilter;
@@ -43,6 +47,7 @@ use MediaWiki\ResourceLoader\Hook\ResourceLoaderRegisterModulesHook;
 use MediaWiki\ResourceLoader\ResourceLoader;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Storage\EditResult;
+use MediaWiki\Storage\Hook\PageSaveCompleteHook;
 use MediaWiki\User\Hook\UserClearNewTalkNotificationHook;
 use MediaWiki\User\Hook\UserGetDefaultOptionsHook;
 use MediaWiki\User\Hook\UserGroupsChangedHook;
@@ -66,10 +71,15 @@ use WikiMap;
 use WikiPage;
 
 class Hooks implements
+	ArticleDeleteCompleteHook,
+	ArticleUndeleteHook,
 	BeforePageDisplayHook,
 	EmailUserCompleteHook,
 	GetPreferencesHook,
 	LoadUserOptionsHook,
+	LoginFormValidErrorMessagesHook,
+	OutputPageCheckLastModifiedHook,
+	PageSaveCompleteHook,
 	PreferencesGetIconHook,
 	RecentChange_saveHook,
 	ResourceLoaderRegisterModulesHook,
@@ -563,13 +573,13 @@ class Hooks implements
 	 * @param RevisionRecord $revisionRecord RevisionRecord for the revision that was created
 	 * @param EditResult $editResult
 	 */
-	public static function onPageSaveComplete(
-		WikiPage $wikiPage,
-		UserIdentity $userIdentity,
-		string $summary,
-		int $flags,
-		RevisionRecord $revisionRecord,
-		EditResult $editResult
+	public function onPageSaveComplete(
+		$wikiPage,
+		$userIdentity,
+		$summary,
+		$flags,
+		$revisionRecord,
+		$editResult
 	) {
 		if ( $editResult->isNullEdit() ) {
 			return;
@@ -1230,7 +1240,11 @@ class Hooks implements
 		return true;
 	}
 
-	public static function onOutputPageCheckLastModified( array &$modifiedTimes, OutputPage $out ) {
+	/**
+	 * @param array &$modifiedTimes
+	 * @param OutputPage $out
+	 */
+	public function onOutputPageCheckLastModified( &$modifiedTimes, $out ) {
 		$req = $out->getRequest();
 		if ( $req->getRawVal( 'action' ) === 'raw' || $req->getRawVal( 'action' ) === 'render' ) {
 			// Optimisation: Avoid expensive EchoSeenTime compute on non-skin responses (T279213)
@@ -1564,7 +1578,7 @@ class Hooks implements
 	 *
 	 * @param array &$messages
 	 */
-	public static function onLoginFormValidErrorMessages( &$messages ) {
+	public function onLoginFormValidErrorMessages( array &$messages ) {
 		$messages[] = 'echo-notification-loginrequired';
 	}
 
@@ -1585,20 +1599,22 @@ class Hooks implements
 	}
 
 	/**
-	 * @param WikiPage &$article
-	 * @param User &$user
+	 * @param WikiPage $article
+	 * @param User $user
 	 * @param string $reason
 	 * @param int $articleId
 	 * @param Content|null $content
 	 * @param LogEntry $logEntry
+	 * @param int $archivedRevisionCount
 	 */
-	public static function onArticleDeleteComplete(
-		WikiPage &$article,
-		User &$user,
+	public function onArticleDeleteComplete(
+		$article,
+		$user,
 		$reason,
 		$articleId,
-		?Content $content,
-		LogEntry $logEntry
+		$content,
+		$logEntry,
+		$archivedRevisionCount
 	) {
 		DeferredUpdates::addCallableUpdate( static function () use ( $articleId ) {
 			$eventMapper = new EchoEventMapper();
@@ -1607,7 +1623,14 @@ class Hooks implements
 		} );
 	}
 
-	public static function onArticleUndelete( Title $title, $create, $comment, $oldPageId ) {
+	/**
+	 * @param Title $title
+	 * @param bool $create
+	 * @param string $comment
+	 * @param int $oldPageId
+	 * @param array $restoredPages
+	 */
+	public function onArticleUndelete( $title, $create, $comment, $oldPageId, $restoredPages ) {
 		if ( $create ) {
 			DeferredUpdates::addCallableUpdate( static function () use ( $oldPageId ) {
 				$eventMapper = new EchoEventMapper();
