@@ -18,18 +18,18 @@ class EchoFlyoutFormatter extends EchoEventFormatter {
 		);
 
 		$html = Xml::tags(
-				'div',
-				[ 'class' => 'mw-echo-title' ],
-				$model->getHeaderMessage()->parse()
-			) . "\n";
+			'div',
+			[ 'class' => 'mw-echo-title' ],
+			$model->getHeaderMessage()->parse()
+		) . "\n";
 
 		$body = $model->getBodyMessage();
 		if ( $body ) {
 			$html .= Xml::tags(
-					'div',
-					[ 'class' => 'mw-echo-payload' ],
-					$body->parse()
-				) . "\n";
+				'div',
+				[ 'class' => 'mw-echo-payload' ],
+				$body->parse()
+			) . "\n";
 		}
 
 		$ts = $this->language->getHumanTimestamp(
@@ -63,15 +63,13 @@ class EchoFlyoutFormatter extends EchoEventFormatter {
 		$html = Xml::tags( 'div', [ 'class' => 'mw-echo-content' ], $html );
 
 		// And then add the icon in front and wrap with mw-echo-state class.
-		$html = Xml::tags( 'div', [ 'class' => 'mw-echo-state' ], $icon . $html );
-
-		return $html;
+		return Xml::tags( 'div', [ 'class' => 'mw-echo-state' ], $icon . $html );
 	}
 
 	private function getIconURL( EchoEventPresentationModel $model ) {
 		return EchoIcon::getUrl(
-				$model->getIconType(),
-				$this->language->getDir()
+			$model->getIconType(),
+			$this->language->getDir()
 		);
 	}
 

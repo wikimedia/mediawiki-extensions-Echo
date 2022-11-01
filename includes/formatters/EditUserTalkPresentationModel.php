@@ -111,9 +111,7 @@ class EchoEditUserTalkPresentationModel extends EchoEventPresentationModel {
 		$revisionLookup = MediaWikiServices::getInstance()->getRevisionLookup();
 		$revisionRecord = $revisionLookup->getRevisionById( $firstNotificationRevId );
 		$previousRevision = $revisionRecord ? $revisionLookup->getPreviousRevision( $revisionRecord ) : null;
-		$oldRevisionID = $previousRevision ? $previousRevision->getId() : 0;
-
-		return $oldRevisionID;
+		return $previousRevision ? $previousRevision->getId() : 0;
 	}
 
 	protected function getSubjectMessageKey() {

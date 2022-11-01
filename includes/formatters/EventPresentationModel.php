@@ -251,8 +251,7 @@ abstract class EchoEventPresentationModel implements JsonSerializable, MessageLo
 	 */
 	final protected function getNotificationCountForOutput( $includeCurrent = true, $groupCallback = null ) {
 		$count = $this->getBundleCount( $includeCurrent, $groupCallback );
-		$cappedCount = EchoNotificationController::getCappedNotificationCount( $count );
-		return $cappedCount;
+		return EchoNotificationController::getCappedNotificationCount( $count );
 	}
 
 	/**
