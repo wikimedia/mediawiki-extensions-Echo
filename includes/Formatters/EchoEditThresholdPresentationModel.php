@@ -1,5 +1,7 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Formatters;
+
 class EchoEditThresholdPresentationModel extends EchoEventPresentationModel {
 
 	public function getIconType() {

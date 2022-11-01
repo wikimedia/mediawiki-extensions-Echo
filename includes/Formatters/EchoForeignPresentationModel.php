@@ -1,5 +1,9 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Formatters;
+
+use EchoForeignNotifications;
+
 class EchoForeignPresentationModel extends EchoEventPresentationModel {
 	public function getIconType() {
 		return 'global';

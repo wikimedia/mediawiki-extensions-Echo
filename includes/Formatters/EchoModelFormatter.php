@@ -1,5 +1,7 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Formatters;
+
 /**
  * A formatter for the notification flyout popup. Just the bare data needed to
  * render everything client-side.

@@ -1,5 +1,12 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Formatters;
+
+use Html;
+use Language;
+use Sanitizer;
+use SpecialPage;
+
 class EchoHtmlEmailFormatter extends EchoEventFormatter {
 
 	public const PRIMARY_LINK_STYLE =
@@ -71,7 +78,7 @@ class EchoHtmlEmailFormatter extends EchoEventFormatter {
 		return <<< EOF
 <html><head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<style>
 		@media only screen and (max-width: 480px){
 			table[id="email-container"]{max-width:600px !important; width:100% !important;}

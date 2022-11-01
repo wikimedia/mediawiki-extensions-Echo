@@ -1,6 +1,12 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Formatters;
+
+use EchoEvent;
+use Language;
 use MediaWiki\Logger\LoggerFactory;
+use Message;
+use User;
 
 /**
  * Abstract class that each "formatter" should implement.

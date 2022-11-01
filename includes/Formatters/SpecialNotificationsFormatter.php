@@ -1,5 +1,14 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Formatters;
+
+use Html;
+use MWTimestamp;
+use OOUI\IconWidget;
+use OutputPage;
+use SpecialNotificationsMarkRead;
+use Xml;
+
 /**
  * A formatter for Special:Notifications
  *
@@ -21,7 +30,7 @@ class SpecialNotificationsFormatter extends EchoEventFormatter {
 
 		OutputPage::setupOOUI();
 
-		$markAsReadIcon = new OOUI\IconWidget( [
+		$markAsReadIcon = new IconWidget( [
 			'icon' => 'close',
 			'title' => wfMessage( 'echo-notification-markasread' )->text(),
 		] );

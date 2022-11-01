@@ -1,5 +1,10 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Formatters;
+
+use Sanitizer;
+use SpecialPage;
+
 class EchoPlainTextEmailFormatter extends EchoEventFormatter {
 	protected function formatModel( EchoEventPresentationModel $model ) {
 		$subject = Sanitizer::stripAllTags( $model->getSubjectMessage()->parse() );

@@ -1,5 +1,12 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Formatters;
+
+use Language;
+use Sanitizer;
+use SpecialPage;
+use User;
+
 class EchoPlainTextDigestEmailFormatter extends EchoEventDigestFormatter {
 
 	/**

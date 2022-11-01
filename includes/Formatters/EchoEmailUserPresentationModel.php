@@ -1,5 +1,7 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Formatters;
+
 class EchoEmailUserPresentationModel extends EchoEventPresentationModel {
 
 	public function getIconType() {

@@ -1,6 +1,15 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Formatters;
+
+use EchoDiscussionParser;
+use EchoEvent;
+use Language;
 use MediaWiki\Revision\RevisionRecord;
+use MWException;
+use Parser;
+use Title;
+use User;
 
 /**
  * Component that represents a section of a page to be used from EchoEventPresentationModel subclass.
@@ -134,3 +143,5 @@ class EchoPresentationModelSection {
 		) );
 	}
 }
+
+class_alias( EchoPresentationModelSection::class, 'EchoPresentationModelSection' );

@@ -1,5 +1,9 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Formatters;
+
+use SpecialPage;
+
 class EchoWatchlistChangePresentationModel extends EchoEventPresentationModel {
 
 	public function getIconType() {

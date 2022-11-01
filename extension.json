@@ -801,10 +801,10 @@
 					"category": "system-noemail",
 					"group": "positive",
 					"section": "message",
-					"presentation-model": "EchoWelcomePresentationModel"
+					"presentation-model": "MediaWiki\\Extension\\Notifications\\Formatters\\EchoWelcomePresentationModel"
 				},
 				"edit-user-talk": {
-					"presentation-model": "EchoEditUserTalkPresentationModel",
+					"presentation-model": "MediaWiki\\Extension\\Notifications\\Formatters\\EchoEditUserTalkPresentationModel",
 					"user-locators": [
 						"EchoUserLocator::locateTalkPageOwner"
 					],
@@ -819,7 +819,7 @@
 					"immediate": true
 				},
 				"reverted": {
-					"presentation-model": "EchoRevertedPresentationModel",
+					"presentation-model": "MediaWiki\\Extension\\Notifications\\Formatters\\EchoRevertedPresentationModel",
 					"user-locators": [
 						[
 							"EchoUserLocator::locateFromEventExtra",
@@ -833,7 +833,7 @@
 					"section": "alert"
 				},
 				"page-linked": {
-					"presentation-model": "EchoPageLinkedPresentationModel",
+					"presentation-model": "MediaWiki\\Extension\\Notifications\\Formatters\\EchoPageLinkedPresentationModel",
 					"user-locators": [
 						"EchoUserLocator::locateArticleCreator"
 					],
@@ -853,7 +853,7 @@
 					"category": "minor-watchlist",
 					"group": "interactive",
 					"section": "message",
-					"presentation-model": "EchoWatchlistChangePresentationModel",
+					"presentation-model": "MediaWiki\\Extension\\Notifications\\Formatters\\EchoWatchlistChangePresentationModel",
 					"bundle": {
 						"web": true,
 						"email": true,
@@ -867,7 +867,7 @@
 					"section": "message",
 					"category": "watchlist",
 					"group": "interactive",
-					"presentation-model": "EchoWatchlistChangePresentationModel",
+					"presentation-model": "MediaWiki\\Extension\\Notifications\\Formatters\\EchoWatchlistChangePresentationModel",
 					"bundle": {
 						"web": true,
 						"email": true,
@@ -886,7 +886,7 @@
 					"category": "mention",
 					"group": "interactive",
 					"section": "alert",
-					"presentation-model": "EchoMentionPresentationModel"
+					"presentation-model": "MediaWiki\\Extension\\Notifications\\Formatters\\EchoMentionPresentationModel"
 				},
 				"mention-summary": {
 					"user-locators": [
@@ -900,7 +900,7 @@
 					"category": "mention",
 					"group": "interactive",
 					"section": "alert",
-					"presentation-model": "EchoMentionInSummaryPresentationModel"
+					"presentation-model": "MediaWiki\\Extension\\Notifications\\Formatters\\EchoMentionInSummaryPresentationModel"
 				},
 				"mention-failure": {
 					"user-locators": [
@@ -916,7 +916,7 @@
 					},
 					"group": "negative",
 					"section": "alert",
-					"presentation-model": "EchoMentionStatusPresentationModel"
+					"presentation-model": "MediaWiki\\Extension\\Notifications\\Formatters\\EchoMentionStatusPresentationModel"
 				},
 				"mention-failure-too-many": {
 					"user-locators": [
@@ -928,7 +928,7 @@
 					"category": "mention-failure",
 					"group": "negative",
 					"section": "alert",
-					"presentation-model": "EchoMentionStatusPresentationModel"
+					"presentation-model": "MediaWiki\\Extension\\Notifications\\Formatters\\EchoMentionStatusPresentationModel"
 				},
 				"mention-success": {
 					"user-locators": [
@@ -944,7 +944,7 @@
 					},
 					"group": "positive",
 					"section": "message",
-					"presentation-model": "EchoMentionStatusPresentationModel"
+					"presentation-model": "MediaWiki\\Extension\\Notifications\\Formatters\\EchoMentionStatusPresentationModel"
 				},
 				"user-rights": {
 					"user-locators": [
@@ -958,10 +958,10 @@
 					"category": "user-rights",
 					"group": "neutral",
 					"section": "alert",
-					"presentation-model": "EchoUserRightsPresentationModel"
+					"presentation-model": "MediaWiki\\Extension\\Notifications\\Formatters\\EchoUserRightsPresentationModel"
 				},
 				"emailuser": {
-					"presentation-model": "EchoEmailUserPresentationModel",
+					"presentation-model": "MediaWiki\\Extension\\Notifications\\Formatters\\EchoEmailUserPresentationModel",
 					"user-locators": [
 						[
 							"EchoUserLocator::locateFromEventExtra",
@@ -975,7 +975,7 @@
 					"section": "alert"
 				},
 				"foreign": {
-					"presentation-model": "EchoForeignPresentationModel",
+					"presentation-model": "MediaWiki\\Extension\\Notifications\\Formatters\\EchoForeignPresentationModel",
 					"user-locators": [
 						"EchoUserLocator::locateEventAgent"
 					],
@@ -990,7 +990,7 @@
 					"canNotifyAgent": true,
 					"category": "thank-you-edit",
 					"group": "positive",
-					"presentation-model": "EchoEditThresholdPresentationModel",
+					"presentation-model": "MediaWiki\\Extension\\Notifications\\Formatters\\EchoEditThresholdPresentationModel",
 					"section": "message"
 				},
 				"article-reminder": {
@@ -1000,7 +1000,7 @@
 					"canNotifyAgent": true,
 					"category": "article-reminder",
 					"group": "positive",
-					"presentation-model": "EchoArticleReminderPresentationModel",
+					"presentation-model": "MediaWiki\\Extension\\Notifications\\Formatters\\EchoArticleReminderPresentationModel",
 					"section": "message"
 				}
 			},
@@ -1086,30 +1086,22 @@
 		"EchoDiffGroup": "includes/EchoDiffGroup.php",
 		"EchoDiffParser": "includes/EchoDiffParser.php",
 		"EchoDiscussionParser": "includes/DiscussionParser.php",
-		"EchoEditThresholdPresentationModel": "includes/formatters/EditThresholdPresentationModel.php",
-		"EchoEditUserTalkPresentationModel": "includes/formatters/EditUserTalkPresentationModel.php",
-		"EchoArticleReminderPresentationModel": "includes/formatters/ArticleReminderPresentationModel.php",
+		"EchoEditUserTalkPresentationModel": "includes/Formatters/EchoEditUserTalkPresentationModel.php",
+		"MediaWiki\\Extension\\Notifications\\Formatters\\EchoEditUserTalkPresentationModel": "includes/Formatters/EchoEditUserTalkPresentationModel.php",
 		"EchoEmailFormat": "includes/EmailFormat.php",
 		"EchoEmailFrequency": "includes/EmailFrequency.php",
-		"EchoEmailUserPresentationModel": "includes/formatters/EmailUserPresentationModel.php",
 		"EchoEvent": "includes/model/Event.php",
-		"EchoEventDigestFormatter": "includes/formatters/EchoEventDigestFormatter.php",
-		"EchoEventFormatter": "includes/formatters/EchoEventFormatter.php",
 		"EchoEventMapper": "includes/mapper/EventMapper.php",
-		"EchoEventPresentationModel": "includes/formatters/EventPresentationModel.php",
+		"EchoEventPresentationModel": "includes/Formatters/EchoEventPresentationModel.php",
+		"MediaWiki\\Extension\\Notifications\\Formatters\\EchoEventPresentationModel": "includes/Formatters/EchoEventPresentationModel.php",
 		"EchoFilteredSequentialIterator": "includes/iterator/FilteredSequentialIterator.php",
-		"EchoFlyoutFormatter": "includes/formatters/EchoFlyoutFormatter.php",
 		"EchoForeignNotifications": "includes/ForeignNotifications.php",
-		"EchoForeignPresentationModel": "includes/formatters/EchoForeignPresentationModel.php",
 		"EchoForeignWikiRequest": "includes/ForeignWikiRequest.php",
-		"EchoHtmlDigestEmailFormatter": "includes/formatters/EchoHtmlDigestEmailFormatter.php",
-		"EchoHtmlEmailFormatter": "includes/formatters/EchoHtmlEmailFormatter.php",
-		"EchoIcon": "includes/formatters/EchoIcon.php",
 		"EchoLocalCache": "includes/cache/LocalCache.php",
-		"EchoMentionInSummaryPresentationModel": "includes/formatters/MentionInSummaryPresentationModel.php",
-		"EchoMentionPresentationModel": "includes/formatters/MentionPresentationModel.php",
-		"EchoMentionStatusPresentationModel": "includes/formatters/MentionStatusPresentationModel.php",
-		"EchoModelFormatter": "includes/formatters/EchoModelFormatter.php",
+		"EchoMentionPresentationModel": "includes/Formatters/EchoMentionPresentationModel.php",
+		"MediaWiki\\Extension\\Notifications\\Formatters\\EchoMentionPresentationModel": "includes/Formatters/EchoMentionPresentationModel.php",
+		"EchoMentionStatusPresentationModel": "includes/Formatters/EchoMentionStatusPresentationModel.php",
+		"MediaWiki\\Extension\\Notifications\\Formatters\\EchoMentionStatusPresentationModel": "includes/Formatters/EchoMentionStatusPresentationModel.php",
 		"EchoModerationController": "includes/controller/ModerationController.php",
 		"EchoMultipleIterator": "includes/iterator/MultipleIterator.php",
 		"EchoNotRecursiveIterator": "includes/iterator/NotRecursiveIterator.php",
@@ -1120,11 +1112,8 @@
 		"EchoNotificationMapper": "includes/mapper/NotificationMapper.php",
 		"EchoNotifier": "includes/Notifier.php",
 		"EchoOnWikiList": "includes/EchoOnWikiList.php",
-		"EchoPageLinkedPresentationModel": "includes/formatters/PageLinkedPresentationModel.php",
-		"EchoPlainTextDigestEmailFormatter": "includes/formatters/EchoPlainTextDigestEmailFormatter.php",
-		"EchoPlainTextEmailFormatter": "includes/formatters/EchoPlainTextEmailFormatter.php",
-		"EchoPresentationModelSection": "includes/formatters/PresentationModelSection.php",
-		"EchoRevertedPresentationModel": "includes/formatters/RevertedPresentationModel.php",
+		"EchoPresentationModelSection": "includes/Formatters/EchoPresentationModelSection.php",
+		"MediaWiki\\Extension\\Notifications\\Formatters\\EchoPresentationModelSection": "includes/Formatters/EchoPresentationModelSection.php",
 		"EchoRevisionLocalCache": "includes/cache/RevisionLocalCache.php",
 		"EchoSeenTime": "includes/SeenTime.php",
 		"EchoServices": "includes/EchoServices.php",
@@ -1136,9 +1125,6 @@
 		"EchoUnreadWikis": "includes/UnreadWikis.php",
 		"EchoUserLocator": "includes/UserLocator.php",
 		"EchoUserNotificationGateway": "includes/gateway/UserNotificationGateway.php",
-		"EchoUserRightsPresentationModel": "includes/formatters/UserRightsPresentationModel.php",
-		"EchoWelcomePresentationModel": "includes/formatters/WelcomePresentationModel.php",
-		"EchoWatchlistChangePresentationModel": "includes/formatters/WatchlistChangePresentationModel.php",
 		"GenerateSampleNotifications": "maintenance/generateSampleNotifications.php",
 		"MWEchoDbFactory": "includes/EchoDbFactory.php",
 		"MWEchoEmailBatch": "includes/EmailBatch.php",
@@ -1152,7 +1138,6 @@
 		"ResourceLoaderEchoImageModule": "includes/ResourceLoaderEchoImageModule.php",
 		"SpecialDisplayNotificationsConfiguration": "includes/special/SpecialDisplayNotificationsConfiguration.php",
 		"SpecialNotifications": "includes/special/SpecialNotifications.php",
-		"SpecialNotificationsFormatter": "includes/formatters/SpecialNotificationsFormatter.php",
 		"SpecialNotificationsMarkRead": "includes/special/SpecialNotificationsMarkRead.php",
 		"UpdateEchoSchemaForSuppression": "maintenance/updateEchoSchemaForSuppression.php",
 		"EchoUpdatePerUserBlacklist": "maintenance/updatePerUserBlacklist.php",

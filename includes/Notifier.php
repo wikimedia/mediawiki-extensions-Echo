@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\Extension\Notifications\Formatters\EchoHtmlEmailFormatter;
+use MediaWiki\Extension\Notifications\Formatters\EchoPlainTextEmailFormatter;
 use MediaWiki\MediaWikiServices;
 
 // @todo Fill in
