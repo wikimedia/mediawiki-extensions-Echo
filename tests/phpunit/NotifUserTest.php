@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Extension\Notifications\Gateway\UserNotificationGateway;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\User\UserOptionsLookup;
 
@@ -52,7 +53,7 @@ class MWEchoNotifUserTest extends MediaWikiIntegrationTestCase {
 		$notifUser = new MWEchoNotifUser(
 			User::newFromId( 2 ),
 			$this->cache,
-			$this->mockEchoUserNotificationGateway( [ 'markRead' => true ] ),
+			$this->mockUserNotificationGateway( [ 'markRead' => true ] ),
 			$this->mockEchoNotificationMapper(),
 			$this->createMock( EchoTargetPageMapper::class ),
 			$this->createNoOpMock( UserOptionsLookup::class ),
@@ -65,7 +66,7 @@ class MWEchoNotifUserTest extends MediaWikiIntegrationTestCase {
 		$notifUser = new MWEchoNotifUser(
 			User::newFromId( 2 ),
 			$this->cache,
-			$this->mockEchoUserNotificationGateway( [ 'markRead' => false ] ),
+			$this->mockUserNotificationGateway( [ 'markRead' => false ] ),
 			$this->mockEchoNotificationMapper(),
 			$this->createMock( EchoTargetPageMapper::class ),
 			$this->createNoOpMock( UserOptionsLookup::class ),
@@ -81,7 +82,7 @@ class MWEchoNotifUserTest extends MediaWikiIntegrationTestCase {
 		$notifUser = new MWEchoNotifUser(
 			User::newFromId( 2 ),
 			$this->cache,
-			$this->mockEchoUserNotificationGateway( [ 'markRead' => true ] ),
+			$this->mockUserNotificationGateway( [ 'markRead' => true ] ),
 			$this->mockEchoNotificationMapper( [ $this->mockEchoNotification() ] ),
 			$this->createMock( EchoTargetPageMapper::class ),
 			$this->createNoOpMock( UserOptionsLookup::class ),
@@ -94,7 +95,7 @@ class MWEchoNotifUserTest extends MediaWikiIntegrationTestCase {
 		$notifUser = new MWEchoNotifUser(
 			User::newFromId( 2 ),
 			$this->cache,
-			$this->mockEchoUserNotificationGateway( [ 'markRead' => false ] ),
+			$this->mockUserNotificationGateway( [ 'markRead' => false ] ),
 			$this->mockEchoNotificationMapper( [ $this->mockEchoNotification() ] ),
 			$this->createMock( EchoTargetPageMapper::class ),
 			$this->createNoOpMock( UserOptionsLookup::class ),
@@ -107,7 +108,7 @@ class MWEchoNotifUserTest extends MediaWikiIntegrationTestCase {
 		$notifUser = new MWEchoNotifUser(
 			User::newFromId( 2 ),
 			$this->cache,
-			$this->mockEchoUserNotificationGateway( [ 'markRead' => true ] ),
+			$this->mockUserNotificationGateway( [ 'markRead' => true ] ),
 			$this->mockEchoNotificationMapper(),
 			$this->createMock( EchoTargetPageMapper::class ),
 			$this->createNoOpMock( UserOptionsLookup::class ),
@@ -120,7 +121,7 @@ class MWEchoNotifUserTest extends MediaWikiIntegrationTestCase {
 		$notifUser = new MWEchoNotifUser(
 			User::newFromId( 2 ),
 			$this->cache,
-			$this->mockEchoUserNotificationGateway( [ 'markRead' => false ] ),
+			$this->mockUserNotificationGateway( [ 'markRead' => false ] ),
 			$this->mockEchoNotificationMapper(),
 			$this->createMock( EchoTargetPageMapper::class ),
 			$this->createNoOpMock( UserOptionsLookup::class ),
@@ -130,11 +131,11 @@ class MWEchoNotifUserTest extends MediaWikiIntegrationTestCase {
 		$this->assertFalse( $notifUser->markAllRead() );
 	}
 
-	public function mockEchoUserNotificationGateway( array $dbResult = [] ) {
+	public function mockUserNotificationGateway( array $dbResult = [] ) {
 		$dbResult += [
 			'markRead' => true
 		];
-		$gateway = $this->createMock( EchoUserNotificationGateway::class );
+		$gateway = $this->createMock( UserNotificationGateway::class );
 		$gateway->method( 'markRead' )
 			->willReturn( $dbResult['markRead'] );
 		$gateway->method( 'getDB' )
@@ -171,7 +172,7 @@ class MWEchoNotifUserTest extends MediaWikiIntegrationTestCase {
 		return new MWEchoNotifUser(
 			User::newFromId( 2 ),
 			$this->cache,
-			$this->mockEchoUserNotificationGateway(),
+			$this->mockUserNotificationGateway(),
 			$this->mockEchoNotificationMapper(),
 			$this->createMock( EchoTargetPageMapper::class ),
 			$this->createNoOpMock( UserOptionsLookup::class ),

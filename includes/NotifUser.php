@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Extension\Notifications\Gateway\UserNotificationGateway;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\User\UserFactory;
 use MediaWiki\User\UserIdentity;
@@ -25,7 +26,7 @@ class MWEchoNotifUser {
 
 	/**
 	 * Database access gateway
-	 * @var EchoUserNotificationGateway
+	 * @var UserNotificationGateway
 	 */
 	private $userNotifGateway;
 
@@ -89,7 +90,7 @@ class MWEchoNotifUser {
 	 * because it could be obtained from factory method newFromUser()
 	 * @param UserIdentity $user
 	 * @param WANObjectCache $cache
-	 * @param EchoUserNotificationGateway $userNotifGateway
+	 * @param UserNotificationGateway $userNotifGateway
 	 * @param EchoNotificationMapper $notifMapper
 	 * @param EchoTargetPageMapper $targetPageMapper
 	 * @param UserOptionsLookup $userOptionsLookup
@@ -99,7 +100,7 @@ class MWEchoNotifUser {
 	public function __construct(
 		UserIdentity $user,
 		WANObjectCache $cache,
-		EchoUserNotificationGateway $userNotifGateway,
+		UserNotificationGateway $userNotifGateway,
 		EchoNotificationMapper $notifMapper,
 		EchoTargetPageMapper $targetPageMapper,
 		UserOptionsLookup $userOptionsLookup,
@@ -130,7 +131,7 @@ class MWEchoNotifUser {
 		return new MWEchoNotifUser(
 			$user,
 			$services->getMainWANObjectCache(),
-			new EchoUserNotificationGateway(
+			new UserNotificationGateway(
 				$user,
 				MWEchoDbFactory::newFromDefault(),
 				$services->getMainConfig()

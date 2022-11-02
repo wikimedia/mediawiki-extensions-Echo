@@ -1,13 +1,18 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Gateway;
+
+use Config;
 use MediaWiki\User\UserIdentity;
+use MWEchoDbFactory;
+use MWEchoNotifUser;
 
 /**
  * Database gateway which handles direct database interaction with the
  * echo_notification & echo_event for a user, that wouldn't require
  * loading data into models
  */
-class EchoUserNotificationGateway {
+class UserNotificationGateway {
 
 	/**
 	 * @var MWEchoDbFactory
@@ -32,6 +37,7 @@ class EchoUserNotificationGateway {
 	 * @var string
 	 */
 	protected static $notificationTable = 'echo_notification';
+
 	/**
 	 * @var Config
 	 */

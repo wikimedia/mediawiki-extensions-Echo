@@ -1123,7 +1123,6 @@
 		"EchoTitleLocalCache": "includes/cache/TitleLocalCache.php",
 		"EchoUnreadWikis": "includes/UnreadWikis.php",
 		"EchoUserLocator": "includes/UserLocator.php",
-		"EchoUserNotificationGateway": "includes/gateway/UserNotificationGateway.php",
 		"GenerateSampleNotifications": "maintenance/generateSampleNotifications.php",
 		"MWEchoDbFactory": "includes/EchoDbFactory.php",
 		"MWEchoEmailBatch": "includes/EmailBatch.php",
