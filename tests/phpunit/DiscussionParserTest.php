@@ -13,6 +13,12 @@ use Wikimedia\TestingAccessWrapper;
  * @group Database
  */
 class EchoDiscussionParserTest extends MediaWikiIntegrationTestCase {
+
+	/**
+	 * @var string
+	 */
+	private const EXEMPLAR_TIMESTAMP = '20:47, 2 November 2022 (UTC)';
+
 	/**
 	 * @var string[]
 	 */
@@ -134,14 +140,11 @@ class EchoDiscussionParserTest extends MediaWikiIntegrationTestCase {
 
 	protected function setUp(): void {
 		parent::setUp();
-		$this->setMwGlobals( [ 'wgDiff' => false ] );
+		$this->overrideConfigValue( 'Diff', false );
 	}
 
 	protected function tearDown(): void {
 		parent::tearDown();
-
-		global $wgHooks;
-		unset( $wgHooks['BeforeEchoEventInsert'][999] );
 	}
 
 	private function setupAllTestUsers() {
@@ -396,11 +399,11 @@ class EchoDiscussionParserTest extends MediaWikiIntegrationTestCase {
 			}
 		);
 
-		$this->setMwGlobals( [
+		$this->overrideConfigValues( [
 			// disable mention failure and success notifications
-			'wgEchoMentionStatusNotifications' => false,
+			'EchoMentionStatusNotifications' => false,
 			// enable pings from summary
-			'wgEchoMaxMentionsInEditSummary' => 5,
+			'EchoMaxMentionsInEditSummary' => 5,
 		] );
 		$this->clearHook( 'EchoGetEventsForRevision' );
 
@@ -716,9 +719,9 @@ class EchoDiscussionParserTest extends MediaWikiIntegrationTestCase {
 		);
 
 		// enable mention failure and success notifications
-		$this->setMwGlobals( 'wgEchoMentionStatusNotifications', true );
+		$this->overrideConfigValue( 'EchoMentionStatusNotifications', true );
 		// enable multiple sections mentions
-		$this->setMwGlobals( 'wgEchoMentionsOnMultipleSectionEdits', true );
+		$this->overrideConfigValue( 'EchoMentionsOnMultipleSectionEdits', true );
 		$this->clearHook( 'EchoGetEventsForRevision' );
 
 		EchoDiscussionParser::generateEventsForRevision( $revision, false );
@@ -916,11 +919,11 @@ TEXT
 			}
 		);
 
-		$this->setMwGlobals( [
+		$this->overrideConfigValues( [
 			// enable mention failure and success notifications
-			'wgEchoMentionStatusNotifications' => true,
+			'EchoMentionStatusNotifications' => true,
 			// lower limit for the mention-failure-too-many notification
-			'wgEchoMaxMentionsCount' => 5
+			'EchoMaxMentionsCount' => 5
 		] );
 		$this->clearHook( 'EchoGetEventsForRevision' );
 
@@ -936,9 +939,9 @@ TEXT
 		// Content language is used by the code that interprets the namespace part of titles
 		// (Title::getTitleParser), so should be the fake language ;)
 		$this->setContentLang( $lang );
-		$this->setMwGlobals( [
+		$this->overrideConfigValues( [
 			// this one allows Mediawiki:xyz pages to be set as messages
-			'wgUseDatabaseMessages' => true
+			'UseDatabaseMessages' => true
 		] );
 
 		$this->resetServices();
@@ -1005,14 +1008,7 @@ TEXT
 	}
 
 	private function setupEventCallbackForEventGeneration( callable $callback ) {
-		// to catch the generated event, I'm going to attach a callback to the
-		// hook that's being run just prior to sending the notifications out
-		// can't use setMwGlobals here, so I'll just re-attach to the same key
-		// for every dataProvider value (and don't worry, I'm removing it on
-		// tearDown too - I just felt the attaching should be happening here
-		// instead of on setUp, or code would get too messy)
-		global $wgHooks;
-		$wgHooks['BeforeEchoEventInsert'][999] = $callback;
+		$this->setTemporaryHook( 'BeforeEchoEventInsert', $callback );
 	}
 
 	// TODO test cases for:
@@ -1020,7 +1016,7 @@ TEXT
 	// - stripSignature
 
 	public function testTimestampRegex() {
-		$exemplarTimestamp = self::getExemplarTimestamp();
+		$exemplarTimestamp = self::EXEMPLAR_TIMESTAMP;
 		$timestampRegex = EchoDiscussionParser::getTimestampRegex();
 
 		$match = preg_match( '/' . $timestampRegex . '/u', $exemplarTimestamp );
@@ -1028,12 +1024,12 @@ TEXT
 	}
 
 	public function testTimestampRegex_T264922() {
-		$this->setMwGlobals( 'wgLanguageCode', 'skr' );
+		$this->overrideConfigValue( 'LanguageCode', 'skr' );
 		$this->assertIsString( EchoDiscussionParser::getTimestampRegex(), 'does not fail' );
 	}
 
 	public function testGetTimestampPosition() {
-		$line = 'Hello World. ' . self::getExemplarTimestamp();
+		$line = 'Hello World. ' . self::EXEMPLAR_TIMESTAMP;
 		$pos = EchoDiscussionParser::getTimestampPosition( $line );
 		$this->assertSame( 13, $pos );
 	}
@@ -1066,7 +1062,7 @@ TEXT
 	}
 
 	public function signingDetectionData() {
-		$ts = self::getExemplarTimestamp();
+		$ts = self::EXEMPLAR_TIMESTAMP;
 
 		return [
 			// Basic
@@ -1280,7 +1276,7 @@ line d',
 	}
 
 	public function annotationData() {
-		$ts = self::getExemplarTimestamp();
+		$ts = self::EXEMPLAR_TIMESTAMP;
 
 		return [
 
@@ -1502,20 +1498,6 @@ TEXT
 			// needs the users to exist, because it'll generate a comparison
 			// signature, which is different when the user is considered anon
 		];
-	}
-
-	public function getExemplarTimestamp() {
-		$title = $this->createMock( Title::class );
-
-		$user = $this->createMock( User::class );
-
-		$options = ParserOptions::newFromAnon();
-
-		$parser = MediaWikiServices::getInstance()->getParser();
-		$exemplarTimestamp =
-			$parser->preSaveTransform( '~~~~~', $title, $user, $options );
-
-		return $exemplarTimestamp;
 	}
 
 	public static function provider_detectSectionTitleAndText() {
@@ -1789,9 +1771,9 @@ TEXT
 			'127.0.0.2' => 0,
 		];
 
-		$this->setMwGlobals( [
+		$this->overrideConfigValues( [
 			// lower limit for the mention-too-many notification
-			'wgEchoMaxMentionsCount' => 3
+			'EchoMaxMentionsCount' => 3
 		] );
 
 		$title = Title::newFromText( 'Test' );
