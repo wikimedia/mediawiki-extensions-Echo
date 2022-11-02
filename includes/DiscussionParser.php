@@ -526,7 +526,7 @@ abstract class EchoDiscussionParser {
 		$content = $revision->getContent( SlotRecord::MAIN );
 		$changes = self::getMachineReadableDiff(
 			$prevText,
-			( $content instanceof TextContent ) ? $content->getText() : null
+			( $content instanceof TextContent ) ? $content->getText() : ''
 		);
 		$output = self::interpretDiff(
 			$changes,
