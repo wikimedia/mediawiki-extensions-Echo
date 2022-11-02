@@ -1090,6 +1090,7 @@
 		"EchoEmailFormat": "includes/EmailFormat.php",
 		"EchoEmailFrequency": "includes/EmailFrequency.php",
 		"EchoEvent": "includes/model/Event.php",
+		"MediaWiki\\Extension\\Notifications\\Model\\Event": "includes/model/Event.php",
 		"EchoEventPresentationModel": "includes/Formatters/EchoEventPresentationModel.php",
 		"MediaWiki\\Extension\\Notifications\\Formatters\\EchoEventPresentationModel": "includes/Formatters/EchoEventPresentationModel.php",
 		"EchoForeignNotifications": "includes/ForeignNotifications.php",

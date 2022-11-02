@@ -752,3 +752,6 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 	}
 
 }
+
+// Needed to help migrate AbuseFilter
+class_alias( EchoEvent::class, 'MediaWiki\\Extension\\Notifications\\Model\\Event' );
