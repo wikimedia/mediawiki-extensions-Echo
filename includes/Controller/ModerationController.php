@@ -3,8 +3,8 @@
 namespace MediaWiki\Extension\Notifications\Controller;
 
 use DeferredUpdates;
-use EchoEventMapper;
-use EchoNotificationMapper;
+use MediaWiki\Extension\Notifications\Mapper\EventMapper;
+use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
 use MediaWiki\MediaWikiServices;
 use MWEchoNotifUser;
 use MWException;
@@ -27,8 +27,8 @@ class ModerationController {
 			return;
 		}
 
-		$eventMapper = new EchoEventMapper();
-		$notificationMapper = new EchoNotificationMapper();
+		$eventMapper = new EventMapper();
+		$notificationMapper = new NotificationMapper();
 
 		$affectedUserIds = $notificationMapper->fetchUsersWithNotificationsForEvents( $eventIds );
 		$eventMapper->toggleDeleted( $eventIds, $moderate );

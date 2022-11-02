@@ -1073,7 +1073,6 @@
 		"Bundleable": "includes/Bundleable.php",
 		"Bundler": "includes/Bundler.php",
 		"EchoAbstractEntity": "includes/model/AbstractEntity.php",
-		"EchoAbstractMapper": "includes/mapper/AbstractMapper.php",
 		"EchoArrayList": "includes/EchoArrayList.php",
 		"EchoAttributeManager": "includes/AttributeManager.php",
 		"EchoCachedList": "includes/EchoCachedList.php",
@@ -1091,7 +1090,6 @@
 		"EchoEmailFormat": "includes/EmailFormat.php",
 		"EchoEmailFrequency": "includes/EmailFrequency.php",
 		"EchoEvent": "includes/model/Event.php",
-		"EchoEventMapper": "includes/mapper/EventMapper.php",
 		"EchoEventPresentationModel": "includes/Formatters/EchoEventPresentationModel.php",
 		"MediaWiki\\Extension\\Notifications\\Formatters\\EchoEventPresentationModel": "includes/Formatters/EchoEventPresentationModel.php",
 		"EchoForeignNotifications": "includes/ForeignNotifications.php",
@@ -1101,7 +1099,8 @@
 		"EchoMentionStatusPresentationModel": "includes/Formatters/EchoMentionStatusPresentationModel.php",
 		"MediaWiki\\Extension\\Notifications\\Formatters\\EchoMentionStatusPresentationModel": "includes/Formatters/EchoMentionStatusPresentationModel.php",
 		"EchoNotification": "includes/model/Notification.php",
-		"EchoNotificationMapper": "includes/mapper/NotificationMapper.php",
+		"EchoNotificationMapper": "includes/Mapper/NotificationMapper.php",
+		"MediaWiki\\Extension\\Notifications\\Mapper\\NotificationMapper": "includes/Mapper/NotificationMapper.php",
 		"EchoNotifier": "includes/Notifier.php",
 		"EchoOnWikiList": "includes/EchoOnWikiList.php",
 		"EchoPresentationModelSection": "includes/Formatters/EchoPresentationModelSection.php",
@@ -1111,7 +1110,6 @@
 		"EchoSummaryParser": "includes/EchoSummaryParser.php",
 		"EchoSuppressionRowUpdateGenerator": "includes/schemaUpdate.php",
 		"EchoTargetPage": "includes/model/TargetPage.php",
-		"EchoTargetPageMapper": "includes/mapper/TargetPageMapper.php",
 		"EchoUnreadWikis": "includes/UnreadWikis.php",
 		"EchoUserLocator": "includes/UserLocator.php",
 		"GenerateSampleNotifications": "maintenance/generateSampleNotifications.php",
@@ -1137,8 +1135,8 @@
 		"MediaWiki\\Extension\\Notifications\\": "includes/"
 	},
 	"TestAutoloadClasses": {
-		"EchoAbstractMapperStub": "tests/phpunit/mapper/EchoAbstractMapperStub.php",
-		"EchoExecuteFirstArgumentStub": "tests/phpunit/mapper/EchoExecuteFirstArgumentStub.php"
+		"EchoAbstractMapperStub": "tests/phpunit/Mapper/EchoAbstractMapperStub.php",
+		"EchoExecuteFirstArgumentStub": "tests/phpunit/Mapper/EchoExecuteFirstArgumentStub.php"
 	},
 	"ServiceWiringFiles": [
 		"ServiceWiring.php"

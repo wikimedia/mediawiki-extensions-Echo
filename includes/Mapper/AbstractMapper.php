@@ -1,9 +1,14 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Mapper;
+
+use MWEchoDbFactory;
+use MWException;
+
 /**
  * Abstract mapper for model
  */
-abstract class EchoAbstractMapper {
+abstract class AbstractMapper {
 
 	/**
 	 * Echo database factory

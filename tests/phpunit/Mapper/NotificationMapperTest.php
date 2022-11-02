@@ -1,11 +1,12 @@
 <?php
 
+use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
 use Wikimedia\Rdbms\IDatabase;
 
 /**
- * @covers \EchoNotificationMapper
+ * @covers \MediaWiki\Extension\Notifications\Mapper\NotificationMapper
  */
-class EchoNotificationMapperTest extends MediaWikiIntegrationTestCase {
+class NotificationMapperTest extends MediaWikiIntegrationTestCase {
 
 	/**
 	 * @todo write this test
@@ -16,7 +17,7 @@ class EchoNotificationMapperTest extends MediaWikiIntegrationTestCase {
 
 	public function fetchUnreadByUser( User $user, $limit, array $eventTypes = [] ) {
 		// Unsuccessful select
-		$notifMapper = new EchoNotificationMapper( $this->mockMWEchoDbFactory( [ 'select' => false ] ) );
+		$notifMapper = new NotificationMapper( $this->mockMWEchoDbFactory( [ 'select' => false ] ) );
 		$res = $notifMapper->fetchUnreadByUser( $this->mockUser(), 10, null, '' );
 		$this->assertEmpty( $res );
 
@@ -36,11 +37,11 @@ class EchoNotificationMapperTest extends MediaWikiIntegrationTestCase {
 				'notification_bundle_hash' => 'testhash',
 			]
 		];
-		$notifMapper = new EchoNotificationMapper( $this->mockMWEchoDbFactory( [ 'select' => $dbResult ] ) );
+		$notifMapper = new NotificationMapper( $this->mockMWEchoDbFactory( [ 'select' => $dbResult ] ) );
 		$res = $notifMapper->fetchUnreadByUser( $this->mockUser(), 10, null, '', [] );
 		$this->assertEmpty( $res );
 
-		$notifMapper = new EchoNotificationMapper( $this->mockMWEchoDbFactory( [ 'select' => $dbResult ] ) );
+		$notifMapper = new NotificationMapper( $this->mockMWEchoDbFactory( [ 'select' => $dbResult ] ) );
 		$res = $notifMapper->fetchUnreadByUser( $this->mockUser(), 10, null, '', [ 'test_event' ] );
 		$this->assertIsArray( $res );
 		$this->assertNotEmpty( $res );
@@ -51,7 +52,7 @@ class EchoNotificationMapperTest extends MediaWikiIntegrationTestCase {
 
 	public function testFetchByUser() {
 		// Unsuccessful select
-		$notifMapper = new EchoNotificationMapper( $this->mockMWEchoDbFactory( [ 'select' => false ] ) );
+		$notifMapper = new NotificationMapper( $this->mockMWEchoDbFactory( [ 'select' => false ] ) );
 		$res = $notifMapper->fetchByUser( $this->mockUser(), 10, '' );
 		$this->assertEmpty( $res );
 
@@ -80,15 +81,12 @@ class EchoNotificationMapperTest extends MediaWikiIntegrationTestCase {
 			],
 		];
 
-		$notifMapper = new EchoNotificationMapper( $this->mockMWEchoDbFactory( [ 'select' => $notifDbResult ] ) );
+		$notifMapper = new NotificationMapper( $this->mockMWEchoDbFactory( [ 'select' => $notifDbResult ] ) );
 		$res = $notifMapper->fetchByUser( $this->mockUser(), 10, '', [] );
 		$this->assertEmpty( $res );
 
-		$notifMapper = new EchoNotificationMapper(
-			$this->mockMWEchoDbFactory( [ 'select' => $notifDbResult ] ),
-			new EchoTargetPageMapper(
-				$this->mockMWEchoDbFactory( [ 'select' => $tpDbResult ] )
-			)
+		$notifMapper = new NotificationMapper(
+			$this->mockMWEchoDbFactory( [ 'select' => $notifDbResult ] )
 		);
 		$res = $notifMapper->fetchByUser( $this->mockUser(), 10, '', [ 'test_event' ] );
 		$this->assertIsArray( $res );
@@ -97,14 +95,14 @@ class EchoNotificationMapperTest extends MediaWikiIntegrationTestCase {
 			$this->assertInstanceOf( EchoNotification::class, $row );
 		}
 
-		$notifMapper = new EchoNotificationMapper( $this->mockMWEchoDbFactory( [] ) );
+		$notifMapper = new NotificationMapper( $this->mockMWEchoDbFactory( [] ) );
 		$res = $notifMapper->fetchByUser( $this->mockUser(), 10, '' );
 		$this->assertEmpty( $res );
 	}
 
 	public function testFetchByUserOffset() {
 		// Unsuccessful select
-		$notifMapper = new EchoNotificationMapper( $this->mockMWEchoDbFactory( [ 'selectRow' => false ] ) );
+		$notifMapper = new NotificationMapper( $this->mockMWEchoDbFactory( [ 'selectRow' => false ] ) );
 		$res = $notifMapper->fetchByUserOffset( User::newFromId( 1 ), 500 );
 		$this->assertFalse( $res );
 
@@ -123,7 +121,7 @@ class EchoNotificationMapperTest extends MediaWikiIntegrationTestCase {
 			'notification_read_timestamp' => '20140616101010',
 			'notification_bundle_hash' => 'testhash',
 		];
-		$notifMapper = new EchoNotificationMapper( $this->mockMWEchoDbFactory( [ 'selectRow' => $dbResult ] ) );
+		$notifMapper = new NotificationMapper( $this->mockMWEchoDbFactory( [ 'selectRow' => $dbResult ] ) );
 		$row = $notifMapper->fetchByUserOffset( User::newFromId( 1 ), 500 );
 		$this->assertInstanceOf( EchoNotification::class, $row );
 	}
@@ -192,7 +190,7 @@ class EchoNotificationMapperTest extends MediaWikiIntegrationTestCase {
 			)
 			->willReturn( true );
 
-		$notifMapper = new EchoNotificationMapper( $this->mockMWEchoDbFactory( $mockDb ) );
+		$notifMapper = new NotificationMapper( $this->mockMWEchoDbFactory( $mockDb ) );
 		$this->assertTrue( $notifMapper->deleteByUserEventOffset( User::newFromId( 1 ), 500 ) );
 	}
 

@@ -1,13 +1,23 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Mapper;
+
+use AtomicSectionUpdate;
+use BatchRowIterator;
+use DeferredUpdates;
+use EchoNotification;
+use Exception;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\User\UserIdentity;
+use MWException;
+use MWExceptionHandler;
+use Title;
 use Wikimedia\Rdbms\IDatabase;
 
 /**
  * Database mapper for EchoNotification model
  */
-class EchoNotificationMapper extends EchoAbstractMapper {
+class NotificationMapper extends AbstractMapper {
 
 	/**
 	 * Insert a notification record
@@ -61,7 +71,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	/**
 	 * Get unread notifications by user in the amount specified by limit order by
 	 * notification timestamp in descending order.  We have an index to retrieve
-	 * unread notifications but it's not optimized for ordering by timestamp.  The
+	 * unread notifications, but it's not optimized for ordering by timestamp.  The
 	 * descending order is only allowed if we keep the notification in low volume,
 	 * which is done via a deleteJob
 	 * @param UserIdentity $userIdentity
@@ -356,7 +366,7 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	 */
 	public function deleteByUserEventOffset( UserIdentity $userIdentity, $eventId ) {
 		global $wgUpdateRowsPerQuery;
-		$eventMapper = new EchoEventMapper( $this->dbFactory );
+		$eventMapper = new EventMapper( $this->dbFactory );
 		$userId = $userIdentity->getId();
 		$dbw = $this->dbFactory->getEchoDb( DB_PRIMARY );
 		$dbr = $this->dbFactory->getEchoDb( DB_REPLICA );
@@ -430,3 +440,5 @@ class EchoNotificationMapper extends EchoAbstractMapper {
 	}
 
 }
+
+class_alias( NotificationMapper::class, 'EchoNotificationMapper' );

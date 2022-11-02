@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
 use MediaWiki\MediaWikiServices;
 
 class EchoNotification extends EchoAbstractEntity implements Bundleable {
@@ -96,7 +97,7 @@ class EchoNotification extends EchoAbstractEntity implements Bundleable {
 	protected function insert() {
 		global $wgEchoNotifications;
 
-		$notifMapper = new EchoNotificationMapper();
+		$notifMapper = new NotificationMapper();
 
 		// Get the bundle key for this event if web bundling is enabled
 		$bundleKey = '';

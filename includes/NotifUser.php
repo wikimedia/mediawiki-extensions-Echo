@@ -1,6 +1,8 @@
 <?php
 
 use MediaWiki\Extension\Notifications\Gateway\UserNotificationGateway;
+use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
+use MediaWiki\Extension\Notifications\Mapper\TargetPageMapper;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\User\UserFactory;
 use MediaWiki\User\UserIdentity;
@@ -32,13 +34,13 @@ class MWEchoNotifUser {
 
 	/**
 	 * Notification mapper
-	 * @var EchoNotificationMapper
+	 * @var NotificationMapper
 	 */
 	private $notifMapper;
 
 	/**
 	 * Target page mapper
-	 * @var EchoTargetPageMapper
+	 * @var TargetPageMapper
 	 */
 	private $targetPageMapper;
 
@@ -91,8 +93,8 @@ class MWEchoNotifUser {
 	 * @param UserIdentity $user
 	 * @param WANObjectCache $cache
 	 * @param UserNotificationGateway $userNotifGateway
-	 * @param EchoNotificationMapper $notifMapper
-	 * @param EchoTargetPageMapper $targetPageMapper
+	 * @param NotificationMapper $notifMapper
+	 * @param TargetPageMapper $targetPageMapper
 	 * @param UserOptionsLookup $userOptionsLookup
 	 * @param UserFactory $userFactory
 	 * @param ReadOnlyMode $readOnlyMode
@@ -101,8 +103,8 @@ class MWEchoNotifUser {
 		UserIdentity $user,
 		WANObjectCache $cache,
 		UserNotificationGateway $userNotifGateway,
-		EchoNotificationMapper $notifMapper,
-		EchoTargetPageMapper $targetPageMapper,
+		NotificationMapper $notifMapper,
+		TargetPageMapper $targetPageMapper,
 		UserOptionsLookup $userOptionsLookup,
 		UserFactory $userFactory,
 		ReadOnlyMode $readOnlyMode
@@ -136,8 +138,8 @@ class MWEchoNotifUser {
 				MWEchoDbFactory::newFromDefault(),
 				$services->getMainConfig()
 			),
-			new EchoNotificationMapper(),
-			new EchoTargetPageMapper(),
+			new NotificationMapper(),
+			new TargetPageMapper(),
 			$services->getUserOptionsLookup(),
 			$services->getUserFactory(),
 			$services->getReadOnlyMode()

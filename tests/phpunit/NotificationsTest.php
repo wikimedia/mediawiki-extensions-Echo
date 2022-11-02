@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
+
 /**
  * Tests for the built in notification types
  *
@@ -21,7 +23,7 @@ class NotificationsTest extends MediaWikiIntegrationTestCase {
 	 * @return EchoEvent
 	 */
 	public static function getLatestNotification( $user ) {
-		$notifMapper = new EchoNotificationMapper();
+		$notifMapper = new NotificationMapper();
 		$notifs = $notifMapper->fetchUnreadByUser( $user, 1, '', [ 'user-rights' ] );
 		$notif = array_pop( $notifs );
 

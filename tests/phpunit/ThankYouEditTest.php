@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
+
 /**
  * @group Echo
  * @group Database
@@ -31,7 +33,7 @@ class MWEchoThankYouEditTest extends MediaWikiIntegrationTestCase {
 		$this->edit( $title, $user, 'this is my first edit' );
 
 		// assertions
-		$notificationMapper = new EchoNotificationMapper();
+		$notificationMapper = new NotificationMapper();
 		$notifications = $notificationMapper->fetchByUser( $user, 10, null, [ 'thank-you-edit' ] );
 		$this->assertCount( 1, $notifications );
 
@@ -60,7 +62,7 @@ class MWEchoThankYouEditTest extends MediaWikiIntegrationTestCase {
 		}
 
 		// assertions
-		$notificationMapper = new EchoNotificationMapper();
+		$notificationMapper = new NotificationMapper();
 		$notifications = $notificationMapper->fetchByUser( $user, 10, null, [ 'thank-you-edit' ] );
 		$this->assertCount( 2, $notifications );
 

@@ -2,9 +2,9 @@
 
 namespace MediaWiki\Extension\Notifications\Jobs;
 
-use EchoEventMapper;
 use Job;
 use MediaWiki\Extension\Notifications\Controller\NotificationController;
+use MediaWiki\Extension\Notifications\Mapper\EventMapper;
 use Title;
 
 class NotificationJob extends Job {
@@ -15,7 +15,7 @@ class NotificationJob extends Job {
 	}
 
 	public function run() {
-		$eventMapper = new EchoEventMapper();
+		$eventMapper = new EventMapper();
 		$event = $eventMapper->fetchById( $this->params['eventId'], true );
 		NotificationController::notify( $event, false );
 

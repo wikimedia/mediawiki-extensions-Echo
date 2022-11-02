@@ -1,12 +1,13 @@
 <?php
 
+use MediaWiki\Extension\Notifications\Mapper\EventMapper;
 use Wikimedia\Rdbms\IDatabase;
 
 /**
  * @group Database
- * @covers \EchoEventMapper
+ * @covers \MediaWiki\Extension\Notifications\Mapper\EventMapper
  */
-class EchoEventMapperTest extends MediaWikiIntegrationTestCase {
+class EventMapperTest extends MediaWikiIntegrationTestCase {
 
 	protected function setUp(): void {
 		parent::setUp();
@@ -35,7 +36,7 @@ class EchoEventMapperTest extends MediaWikiIntegrationTestCase {
 	 */
 	public function testInsert( $message, $dbResult, $result ) {
 		$event = $this->mockEchoEvent();
-		$eventMapper = new EchoEventMapper( $this->mockMWEchoDbFactory( $dbResult ) );
+		$eventMapper = new EventMapper( $this->mockMWEchoDbFactory( $dbResult ) );
 		$this->assertEquals( $result, $eventMapper->insert( $event ), $message );
 	}
 
@@ -43,7 +44,7 @@ class EchoEventMapperTest extends MediaWikiIntegrationTestCase {
 	 * Successful fetchById()
 	 */
 	public function testSuccessfulFetchById() {
-		$eventMapper = new EchoEventMapper(
+		$eventMapper = new EventMapper(
 			$this->mockMWEchoDbFactory(
 				[
 					'selectRow' => (object)[
@@ -64,7 +65,7 @@ class EchoEventMapperTest extends MediaWikiIntegrationTestCase {
 	}
 
 	public function testUnsuccessfulFetchById() {
-		$eventMapper = new EchoEventMapper(
+		$eventMapper = new EventMapper(
 			$this->mockMWEchoDbFactory(
 				[
 					'selectRow' => false
@@ -122,9 +123,6 @@ class EchoEventMapperTest extends MediaWikiIntegrationTestCase {
 		return $db;
 	}
 
-	/**
-	 * @covers \EchoEventMapper::fetchIdsByPage
-	 */
 	public function testFetchByPage() {
 		$user = $this->getTestUser()->getUser();
 		$page = $this->getExistingTestPage();
@@ -149,7 +147,7 @@ class EchoEventMapperTest extends MediaWikiIntegrationTestCase {
 			'extra' => [ 'target-page' => $page->getId() ]
 		] );
 
-		$eventMapper = new EchoEventMapper();
+		$eventMapper = new EventMapper();
 
 		$this->assertArrayEquals(
 			[ $eventWithTitle->getId(), $eventWithTargetPage->getId() ],

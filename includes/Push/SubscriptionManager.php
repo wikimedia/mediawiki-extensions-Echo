@@ -2,12 +2,12 @@
 
 namespace MediaWiki\Extension\Notifications\Push;
 
-use EchoAbstractMapper;
+use MediaWiki\Extension\Notifications\Mapper\AbstractMapper;
 use MediaWiki\Storage\NameTableStore;
 use Wikimedia\Rdbms\DBError;
 use Wikimedia\Rdbms\IDatabase;
 
-class SubscriptionManager extends EchoAbstractMapper {
+class SubscriptionManager extends AbstractMapper {
 
 	/** @var IDatabase */
 	private $dbw;

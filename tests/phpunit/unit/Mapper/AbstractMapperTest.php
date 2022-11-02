@@ -1,12 +1,14 @@
 <?php
 
+use MediaWiki\Extension\Notifications\Mapper\AbstractMapper;
+
 /**
- * @covers \EchoAbstractMapper
+ * @covers \MediaWiki\Extension\Notifications\Mapper\AbstractMapper
  */
-class EchoAbstractMapperTest extends MediaWikiUnitTestCase {
+class AbstractMapperTest extends MediaWikiUnitTestCase {
 
 	/**
-	 * @return array [ 'mapper' => EchoAbstractMapper, 'property' => ReflectionProperty ]
+	 * @return array [ 'mapper' => AbstractMapper, 'property' => ReflectionProperty ]
 	 */
 	public function testAttachListener() {
 		$mapper = new EchoAbstractMapperStub();
@@ -36,7 +38,7 @@ class EchoAbstractMapperTest extends MediaWikiUnitTestCase {
 	 * @depends testAttachListener
 	 */
 	public function testGetMethodListeners( $data ) {
-		/** @var EchoAbstractMapper $mapper */
+		/** @var AbstractMapper $mapper */
 		$mapper = $data['mapper'];
 
 		$listeners = $mapper->getMethodListeners( 'testMethod' );
@@ -48,7 +50,7 @@ class EchoAbstractMapperTest extends MediaWikiUnitTestCase {
 	 * @depends testAttachListener
 	 */
 	public function testGetMethodListenersWithException( $data ) {
-		/** @var EchoAbstractMapper $mapper */
+		/** @var AbstractMapper $mapper */
 		$mapper = $data['mapper'];
 
 		$this->expectException( MWException::class );
@@ -59,7 +61,7 @@ class EchoAbstractMapperTest extends MediaWikiUnitTestCase {
 	 * @depends testAttachListener
 	 */
 	public function testDetachListener( $data ) {
-		/** @var EchoAbstractMapper $mapper */
+		/** @var AbstractMapper $mapper */
 		$mapper = $data['mapper'];
 		/** @var ReflectionProperty $property */
 		$property = $data['property'];

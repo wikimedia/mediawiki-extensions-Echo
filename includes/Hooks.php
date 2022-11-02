@@ -12,9 +12,7 @@ use EchoDiscussionParser;
 use EchoEmailFormat;
 use EchoEmailFrequency;
 use EchoEvent;
-use EchoEventMapper;
 use EchoNotification;
-use EchoNotificationMapper;
 use EchoSeenTime;
 use EchoServices;
 use EmailNotification;
@@ -30,6 +28,8 @@ use MediaWiki\DAO\WikiAwareEntity;
 use MediaWiki\Extension\Notifications\Controller\ModerationController;
 use MediaWiki\Extension\Notifications\Controller\NotificationController;
 use MediaWiki\Extension\Notifications\Formatters\EchoEventPresentationModel;
+use MediaWiki\Extension\Notifications\Mapper\EventMapper;
+use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
 use MediaWiki\Extension\Notifications\Push\Api\ApiEchoPushSubscriptions;
 use MediaWiki\Hook\AbortTalkPageEmailNotificationHook;
 use MediaWiki\Hook\BeforePageDisplayHook;
@@ -624,7 +624,7 @@ class Hooks implements
 			$thresholdCount = self::getEditCount( $userIdentity );
 			if ( in_array( $thresholdCount, $thresholds ) ) {
 				DeferredUpdates::addCallableUpdate( static function () use ( $userIdentity, $title, $thresholdCount ) {
-					$notificationMapper = new EchoNotificationMapper();
+					$notificationMapper = new NotificationMapper();
 					$notifications = $notificationMapper->fetchByUser( $userIdentity, 10, null, [ 'thank-you-edit' ] );
 					/** @var EchoNotification $notification */
 					foreach ( $notifications as $notification ) {
@@ -956,7 +956,7 @@ class Hooks implements
 		// Attempt to mark a notification as read when visiting a page
 		$eventIds = [];
 		if ( $title->getArticleID() ) {
-			$eventMapper = new EchoEventMapper();
+			$eventMapper = new EventMapper();
 			$events = $eventMapper->fetchUnreadByUserAndPage( $user, $title->getArticleID() );
 
 			foreach ( $events as $event ) {
@@ -982,7 +982,7 @@ class Hooks implements
 
 				if ( $eventsToMarkAsRead ) {
 					// fetch the notifications to adjust the counters
-					$notifMapper = new EchoNotificationMapper();
+					$notifMapper = new NotificationMapper();
 					$notifs = $notifMapper->fetchByUserEvents( $user, $eventsToMarkAsRead );
 
 					foreach ( $notifs as $notif ) {
@@ -1158,7 +1158,7 @@ class Hooks implements
 			);
 
 			// If there's exactly one new user talk message, then link directly to it from the alert.
-			$notificationMapper = new EchoNotificationMapper();
+			$notificationMapper = new NotificationMapper();
 			$notifications = $notificationMapper->fetchUnreadByUser( $user, 2, null, [ 'edit-user-talk' ] );
 			if ( count( $notifications ) === 1 ) {
 				$presModel = EchoEventPresentationModel::factory(
@@ -1635,7 +1635,7 @@ class Hooks implements
 		$archivedRevisionCount
 	) {
 		DeferredUpdates::addCallableUpdate( static function () use ( $articleId ) {
-			$eventMapper = new EchoEventMapper();
+			$eventMapper = new EventMapper();
 			$eventIds = $eventMapper->fetchIdsByPage( $articleId );
 			ModerationController::moderate( $eventIds, true );
 		} );
@@ -1651,7 +1651,7 @@ class Hooks implements
 	public function onArticleUndelete( $title, $create, $comment, $oldPageId, $restoredPages ) {
 		if ( $create ) {
 			DeferredUpdates::addCallableUpdate( static function () use ( $oldPageId ) {
-				$eventMapper = new EchoEventMapper();
+				$eventMapper = new EventMapper();
 				$eventIds = $eventMapper->fetchIdsByPage( $oldPageId );
 				ModerationController::moderate( $eventIds, false );
 			} );

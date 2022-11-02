@@ -3,6 +3,8 @@
 use MediaWiki\Extension\Notifications\Cache\RevisionLocalCache;
 use MediaWiki\Extension\Notifications\Cache\TitleLocalCache;
 use MediaWiki\Extension\Notifications\Controller\NotificationController;
+use MediaWiki\Extension\Notifications\Mapper\EventMapper;
+use MediaWiki\Extension\Notifications\Mapper\TargetPageMapper;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionRecord;
@@ -249,12 +251,12 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 	 * Inserts the object into the database.
 	 */
 	protected function insert() {
-		$eventMapper = new EchoEventMapper();
+		$eventMapper = new EventMapper();
 		$this->id = $eventMapper->insert( $this );
 
 		$targetPages = self::resolveTargetPages( $this->getExtraParam( 'target-page' ) );
 		if ( $targetPages ) {
-			$targetMapper = new EchoTargetPageMapper();
+			$targetMapper = new TargetPageMapper();
 			foreach ( $targetPages as $title ) {
 				$targetPage = EchoTargetPage::create( $title, $this );
 				if ( $targetPage ) {
@@ -361,7 +363,7 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 	 * @return bool Whether it loaded successfully
 	 */
 	public function loadFromID( $id, $fromPrimary = false ) {
-		$eventMapper = new EchoEventMapper();
+		$eventMapper = new EventMapper();
 		$event = $eventMapper->fetchById( $id, $fromPrimary );
 		if ( !$event ) {
 			return false;

@@ -1,9 +1,13 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Mapper;
+
+use EchoTargetPage;
+
 /**
  * Database mapper for EchoTargetPage model
  */
-class EchoTargetPageMapper extends EchoAbstractMapper {
+class TargetPageMapper extends AbstractMapper {
 
 	/**
 	 * List of db fields used to construct an EchoTargetPage model

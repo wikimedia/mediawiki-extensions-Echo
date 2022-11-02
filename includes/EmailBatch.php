@@ -2,6 +2,7 @@
 
 use MediaWiki\Extension\Notifications\Formatters\EchoHtmlDigestEmailFormatter;
 use MediaWiki\Extension\Notifications\Formatters\EchoPlainTextDigestEmailFormatter;
+use MediaWiki\Extension\Notifications\Mapper\EventMapper;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\User\UserOptionsManager;
 use Wikimedia\Rdbms\IResultWrapper;
@@ -271,7 +272,7 @@ class MWEchoEmailBatch {
 	 */
 	public function clearProcessedEvent() {
 		global $wgUpdateRowsPerQuery;
-		$eventMapper = new EchoEventMapper();
+		$eventMapper = new EventMapper();
 		$dbFactory = MWEchoDbFactory::newFromDefault();
 		$dbw = $dbFactory->getEchoDb( DB_PRIMARY );
 		$dbr = $dbFactory->getEchoDb( DB_REPLICA );

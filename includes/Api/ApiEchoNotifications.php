@@ -11,10 +11,10 @@ use EchoAttributeManager;
 use EchoDataOutputFormatter;
 use EchoForeignNotifications;
 use EchoNotification;
-use EchoNotificationMapper;
 use EchoSeenTime;
 use EchoServices;
 use MediaWiki\Extension\Notifications\Controller\NotificationController;
+use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
 use MWEchoNotifUser;
 use Title;
 use User;
@@ -241,7 +241,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 			'continue' => null
 		];
 
-		$notifMapper = new EchoNotificationMapper();
+		$notifMapper = new NotificationMapper();
 
 		// check if we want both read & unread...
 		if ( in_array( 'read', $filter ) && in_array( '!read', $filter ) ) {

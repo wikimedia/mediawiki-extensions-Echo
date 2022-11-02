@@ -1,10 +1,16 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Mapper;
+
+use EchoEvent;
+use MWException;
+use User;
+
 /**
  * Database mapper for EchoEvent model, which is an immutable class, there should
  * not be any update to it
  */
-class EchoEventMapper extends EchoAbstractMapper {
+class EventMapper extends AbstractMapper {
 
 	/**
 	 * Insert an event record

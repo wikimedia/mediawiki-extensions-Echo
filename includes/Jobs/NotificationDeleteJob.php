@@ -2,8 +2,8 @@
 
 namespace MediaWiki\Extension\Notifications\Jobs;
 
-use EchoNotificationMapper;
 use Job;
+use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
 use MediaWiki\MediaWikiServices;
 use MWEchoNotifUser;
 use Title;
@@ -47,7 +47,7 @@ class NotificationDeleteJob extends Job {
 			return true;
 		}
 
-		$notifMapper = new EchoNotificationMapper();
+		$notifMapper = new NotificationMapper();
 
 		// Back-compat for older jobs which used array( $userId => $userId );
 		$userIds = array_values( $this->params['userIds'] );

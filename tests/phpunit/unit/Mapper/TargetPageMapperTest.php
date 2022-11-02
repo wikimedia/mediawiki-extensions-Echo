@@ -1,11 +1,12 @@
 <?php
 
+use MediaWiki\Extension\Notifications\Mapper\TargetPageMapper;
 use Wikimedia\Rdbms\IDatabase;
 
 /**
- * @covers \EchoTargetPageMapper
+ * @covers \MediaWiki\Extension\Notifications\Mapper\TargetPageMapper
  */
-class EchoTargetPageMapperTest extends MediaWikiUnitTestCase {
+class TargetPageMapperTest extends MediaWikiUnitTestCase {
 
 	public function provideDataTestInsert() {
 		return [
@@ -27,7 +28,7 @@ class EchoTargetPageMapperTest extends MediaWikiUnitTestCase {
 	 */
 	public function testInsert( $message, $dbResult, $result ) {
 		$target = $this->mockEchoTargetPage();
-		$targetMapper = new EchoTargetPageMapper( $this->mockMWEchoDbFactory( $dbResult ) );
+		$targetMapper = new TargetPageMapper( $this->mockMWEchoDbFactory( $dbResult ) );
 		$this->assertEquals( $result, $targetMapper->insert( $target ), $message );
 	}
 
@@ -63,7 +64,7 @@ class EchoTargetPageMapperTest extends MediaWikiUnitTestCase {
 	/**
 	 * Returns a mock database object
 	 * @param array $dbResult
-	 * @return \Wikimedia\Rdbms\IDatabase
+	 * @return IDatabase
 	 */
 	protected function mockDb( array $dbResult ) {
 		$dbResult += [
