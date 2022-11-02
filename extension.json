@@ -1078,7 +1078,6 @@
 		"EchoAttributeManager": "includes/AttributeManager.php",
 		"EchoCachedList": "includes/EchoCachedList.php",
 		"EchoCallbackIterator": "includes/iterator/CallbackIterator.php",
-		"EchoCatchableFatalErrorException": "includes/exception/CatchableFatalErrorException.php",
 		"EchoContainmentList": "includes/EchoContainmentList.php",
 		"EchoContainmentSet": "includes/EchoContainmentSet.php",
 		"EchoDataOutputFormatter": "includes/DataOutputFormatter.php",

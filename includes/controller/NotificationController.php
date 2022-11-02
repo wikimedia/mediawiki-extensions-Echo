@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Extension\Notifications\Exception\CatchableFatalErrorException;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionStore;
@@ -550,13 +551,13 @@ class EchoNotificationController {
 	 * @param string $errfile
 	 * @param int $errline
 	 * @return bool
-	 * @throws EchoCatchableFatalErrorException
+	 * @throws CatchableFatalErrorException
 	 */
 	public static function formatterErrorHandler( $errno, $errstr, $errfile, $errline ) {
 		if ( $errno !== E_RECOVERABLE_ERROR ) {
 			return false;
 		}
 
-		throw new EchoCatchableFatalErrorException( $errno, $errstr, $errfile, $errline );
+		throw new CatchableFatalErrorException( $errno, $errstr, $errfile, $errline );
 	}
 }
