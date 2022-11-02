@@ -1,14 +1,19 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Cache;
+
+use Iterator;
+use MapCacheLRU;
+
 /**
  * Base Local cache object, which borrows the concept from Flow user listener
  */
-abstract class EchoLocalCache {
+abstract class LocalCache {
 
 	/**
 	 * Max number of objects to hold in $targets.  In theory, 1000
 	 * is very hard to reach in a normal web request. We need to
-	 * put cap so it doesn't reach memory limit when running email
+	 * put cap, so it doesn't reach memory limit when running email
 	 * digest against large amount of notifications
 	 */
 	private const TARGET_MAX_NUM = 1000;
@@ -34,7 +39,7 @@ abstract class EchoLocalCache {
 	abstract protected function resolve( array $lookups );
 
 	/**
-	 * Use a factory method, such as EchoTitleLocalCache::create().
+	 * Use a factory method, such as TitleLocalCache::create().
 	 *
 	 * @private
 	 */

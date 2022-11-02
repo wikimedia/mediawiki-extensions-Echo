@@ -1,20 +1,21 @@
 <?php
 
+use MediaWiki\Extension\Notifications\Cache\TitleLocalCache;
 use Wikimedia\TestingAccessWrapper;
 
 /**
- * @covers \EchoTitleLocalCache
+ * @covers MediaWiki\Extension\Notifications\Cache\TitleLocalCache
  * @group Database
  */
-class EchoTitleLocalCacheTest extends MediaWikiIntegrationTestCase {
+class TitleLocalCacheTest extends MediaWikiIntegrationTestCase {
 
 	public function testCreate() {
-		$cache = EchoTitleLocalCache::create();
-		$this->assertInstanceOf( EchoTitleLocalCache::class, $cache );
+		$cache = TitleLocalCache::create();
+		$this->assertInstanceOf( TitleLocalCache::class, $cache );
 	}
 
 	public function testAdd() {
-		$cache = $this->getMockBuilder( EchoTitleLocalCache::class )
+		$cache = $this->getMockBuilder( TitleLocalCache::class )
 			->onlyMethods( [ 'resolve' ] )->getMock();
 
 		$cache->add( 1 );
@@ -29,15 +30,15 @@ class EchoTitleLocalCacheTest extends MediaWikiIntegrationTestCase {
 	}
 
 	public function testGet() {
-		$cache = $this->getMockBuilder( EchoTitleLocalCache::class )
+		$cache = $this->getMockBuilder( TitleLocalCache::class )
 			->onlyMethods( [ 'resolve' ] )->getMock();
 		$cachePriv = TestingAccessWrapper::newFromObject( $cache );
 
 		// First title included in cache
-		$res1 = $this->insertPage( 'EchoTitleLocalCacheTest_testGet1' );
+		$res1 = $this->insertPage( 'TitleLocalCacheTest_testGet1' );
 		$cachePriv->targets->set( $res1['id'], $res1['title'] );
 		// Second title not in internal cache, resolves from db.
-		$res2 = $this->insertPage( 'EchoTitleLocalCacheTest_testGet2' );
+		$res2 = $this->insertPage( 'TitleLocalCacheTest_testGet2' );
 		$cache->expects( $this->once() )->method( 'resolve' )
 			->with( [ $res2['id'] ] )
 			->willReturn( [ $res2['id'] => $res2['title'] ] );
@@ -54,7 +55,7 @@ class EchoTitleLocalCacheTest extends MediaWikiIntegrationTestCase {
 	}
 
 	public function testClearAll() {
-		$cache = $this->getMockBuilder( EchoTitleLocalCache::class )
+		$cache = $this->getMockBuilder( TitleLocalCache::class )
 			->onlyMethods( [ 'resolve' ] )->getMock();
 
 		// Add 1 to cache

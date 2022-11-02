@@ -1,24 +1,26 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Cache;
+
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\PageRecord;
 
 /**
  * Cache class that maps article id to Title object
  */
-class EchoTitleLocalCache extends EchoLocalCache {
+class TitleLocalCache extends LocalCache {
 
 	/**
-	 * @var EchoTitleLocalCache
+	 * @var TitleLocalCache
 	 */
 	private static $instance;
 
 	/**
-	 * @return EchoTitleLocalCache
+	 * @return TitleLocalCache
 	 */
 	public static function create() {
 		if ( !self::$instance ) {
-			self::$instance = new EchoTitleLocalCache();
+			self::$instance = new TitleLocalCache();
 		}
 
 		return self::$instance;

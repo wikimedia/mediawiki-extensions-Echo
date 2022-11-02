@@ -1,23 +1,25 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Cache;
+
 use MediaWiki\MediaWikiServices;
 
 /**
  * Cache class that maps revision id to RevisionStore object
  */
-class EchoRevisionLocalCache extends EchoLocalCache {
+class RevisionLocalCache extends LocalCache {
 
 	/**
-	 * @var EchoRevisionLocalCache
+	 * @var RevisionLocalCache
 	 */
 	private static $instance;
 
 	/**
-	 * @return EchoRevisionLocalCache
+	 * @return RevisionLocalCache
 	 */
 	public static function create() {
 		if ( !self::$instance ) {
-			self::$instance = new EchoRevisionLocalCache();
+			self::$instance = new RevisionLocalCache();
 		}
 
 		return self::$instance;

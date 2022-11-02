@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\Extension\Notifications\Cache\RevisionLocalCache;
+use MediaWiki\Extension\Notifications\Cache\TitleLocalCache;
 use MediaWiki\Extension\Notifications\Controller\NotificationController;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
@@ -341,11 +343,11 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 			);
 		}
 		if ( $row->event_page_id ) {
-			$titleCache = EchoTitleLocalCache::create();
+			$titleCache = TitleLocalCache::create();
 			$titleCache->add( (int)$row->event_page_id );
 		}
 		if ( isset( $this->extra['revid'] ) && $this->extra['revid'] ) {
-			$revisionCache = EchoRevisionLocalCache::create();
+			$revisionCache = RevisionLocalCache::create();
 			$revisionCache->add( $this->extra['revid'] );
 		}
 
@@ -543,7 +545,7 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 			return $this->title;
 		}
 		if ( $this->pageId ) {
-			$titleCache = EchoTitleLocalCache::create();
+			$titleCache = TitleLocalCache::create();
 			$title = $titleCache->get( $this->pageId );
 			if ( $title ) {
 				$this->title = $title;
@@ -573,7 +575,7 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 		}
 
 		if ( isset( $this->extra['revid'] ) ) {
-			$revisionCache = EchoRevisionLocalCache::create();
+			$revisionCache = RevisionLocalCache::create();
 			$revision = $revisionCache->get( $this->extra['revid'] );
 			if ( $revision ) {
 				$this->revision = $revision;
