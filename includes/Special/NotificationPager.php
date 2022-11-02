@@ -1,5 +1,14 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Special;
+
+use EchoNotification;
+use EchoServices;
+use Exception;
+use IContextSource;
+use MWEchoDbFactory;
+use ReverseChronologicalPager;
+
 /**
  * This pager is used by Special:Notifications (NO-JS).
  * The heavy-lifting is done by IndexPager (grand-parent to this class).

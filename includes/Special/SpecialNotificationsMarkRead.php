@@ -1,5 +1,12 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Special;
+
+use FormSpecialPage;
+use HTMLForm;
+use MWEchoNotifUser;
+use SpecialPage;
+
 /**
  * Form for marking notifications as read by ID.
  *
@@ -47,8 +54,7 @@ class SpecialNotificationsMarkRead extends FormSpecialPage {
 				'default' => $this->par,
 				'filter-callback' => static function ( $value, $alldata ) {
 					// Allow for a single value or a set of values
-					$result = explode( ',', $value );
-					return $result;
+					return explode( ',', $value );
 				},
 				'validation-callback' => function ( $value, $alldata ) {
 					if ( $value === [ 'ALL' ] ) {
