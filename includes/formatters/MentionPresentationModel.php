@@ -98,9 +98,7 @@ class EchoMentionPresentationModel extends EchoEventPresentationModel {
 	}
 
 	public function getSecondaryLinks() {
-		$title = $this->event->getTitle();
-
-		$url = $title->getLocalURL( [
+		$url = $this->event->getTitle()->getLocalURL( [
 			'oldid' => 'prev',
 			'diff' => $this->event->getExtraParam( 'revid' )
 		] );

@@ -70,11 +70,11 @@ class EchoIcon {
 		// rasterizing module
 		if ( $url === false || $url === null ) {
 			$iconUrl = wfScript( 'load' ) . '?' . wfArrayToCgi( [
-					'modules' => 'ext.echo.emailicons',
-					'image' => $icon,
-					'lang' => $lang,
-					'format' => 'rasterized'
-				] );
+				'modules' => 'ext.echo.emailicons',
+				'image' => $icon,
+				'lang' => $lang,
+				'format' => 'rasterized'
+			] );
 		} else {
 			// For icons that are defined by URL
 			$iconUrl = $wgEchoNotificationIcons[ $icon ][ 'url' ];

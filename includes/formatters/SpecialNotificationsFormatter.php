@@ -40,18 +40,18 @@ class SpecialNotificationsFormatter extends EchoEventFormatter {
 		);
 
 		$html = Xml::tags(
-				'div',
-				[ 'class' => 'mw-echo-title' ],
-				$model->getHeaderMessage()->parse()
-			) . "\n";
+			'div',
+			[ 'class' => 'mw-echo-title' ],
+			$model->getHeaderMessage()->parse()
+		) . "\n";
 
 		$body = $model->getBodyMessage();
 		if ( $body ) {
 			$html .= Xml::tags(
-					'div',
-					[ 'class' => 'mw-echo-payload' ],
-					$body->escaped()
-				) . "\n";
+				'div',
+				[ 'class' => 'mw-echo-payload' ],
+				$body->escaped()
+			) . "\n";
 		}
 
 		$ts = $this->language->getHumanTimestamp(
@@ -102,15 +102,13 @@ class SpecialNotificationsFormatter extends EchoEventFormatter {
 		// And then add the mark as read button
 		// and the icon in front and wrap with
 		// mw-echo-state class.
-		$html = Xml::tags( 'div', [ 'class' => 'mw-echo-state' ], $markAsReadButton . $icon . $html );
-
-		return $html;
+		return Xml::tags( 'div', [ 'class' => 'mw-echo-state' ], $markAsReadButton . $icon . $html );
 	}
 
 	private function getIconURL( EchoEventPresentationModel $model ) {
 		return EchoIcon::getUrl(
-				$model->getIconType(),
-				$this->language->getDir()
+			$model->getIconType(),
+			$this->language->getDir()
 		);
 	}
 }

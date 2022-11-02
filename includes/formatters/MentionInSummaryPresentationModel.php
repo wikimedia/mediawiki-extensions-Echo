@@ -27,9 +27,8 @@ class EchoMentionInSummaryPresentationModel extends EchoEventPresentationModel {
 			$summary = Linker::formatComment( $summary );
 			$summary = Sanitizer::stripAllTags( $summary );
 
-			$msg = $this->msg( 'notification-body-mention' )
+			return $this->msg( 'notification-body-mention' )
 				->plaintextParams( $summary );
-			return $msg;
 		} else {
 			return false;
 		}
@@ -51,9 +50,7 @@ class EchoMentionInSummaryPresentationModel extends EchoEventPresentationModel {
 	}
 
 	private function getDiffURL() {
-		$title = $this->event->getTitle();
-
-		return $title->getLocalURL( [
+		return $this->event->getTitle()->getLocalURL( [
 			'oldid' => 'prev',
 			'diff' => $this->event->getExtraParam( 'revid' )
 		] );
