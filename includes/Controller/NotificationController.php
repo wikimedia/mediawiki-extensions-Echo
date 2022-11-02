@@ -9,14 +9,14 @@ use EchoContainmentList;
 use EchoContainmentSet;
 use EchoEvent;
 use EchoFilteredSequentialIterator;
-use EchoNotificationDeleteJob;
-use EchoNotificationJob;
 use EchoOnWikiList;
 use EchoServices;
 use Hooks;
 use Iterator;
 use MapCacheLRU;
 use MediaWiki\Extension\Notifications\Exception\CatchableFatalErrorException;
+use MediaWiki\Extension\Notifications\Jobs\NotificationDeleteJob;
+use MediaWiki\Extension\Notifications\Jobs\NotificationJob;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionStore;
@@ -214,7 +214,7 @@ class NotificationController {
 			return;
 		}
 
-		$job = new EchoNotificationDeleteJob(
+		$job = new NotificationDeleteJob(
 			$event->getTitle() ?: Title::newMainPage(),
 			[
 				'userIds' => $userIds
@@ -265,7 +265,7 @@ class NotificationController {
 		$queue = MediaWikiServices::getInstance()->getJobQueueGroup();
 		$params = self::getEventParams( $event );
 
-		$job = new EchoNotificationJob(
+		$job = new NotificationJob(
 			$event->getTitle() ?: Title::newMainPage(), $params
 		);
 

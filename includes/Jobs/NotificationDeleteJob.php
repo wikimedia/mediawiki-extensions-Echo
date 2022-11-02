@@ -1,6 +1,13 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Jobs;
+
+use EchoNotificationMapper;
+use Job;
 use MediaWiki\MediaWikiServices;
+use MWEchoNotifUser;
+use Title;
+use User;
 
 /**
  * This job is created when sending notifications to the target users.  The purpose
@@ -13,7 +20,7 @@ use MediaWiki\MediaWikiServices;
  * The initial job contains multiple users, which will in turn have individual jobs
  * queued for them.
  */
-class EchoNotificationDeleteJob extends Job {
+class NotificationDeleteJob extends Job {
 
 	/**
 	 * @param Title $title
@@ -33,7 +40,7 @@ class EchoNotificationDeleteJob extends Job {
 			// If there are multiple users, queue a single job for each one
 			$jobs = [];
 			foreach ( $this->params['userIds'] as $userId ) {
-				$jobs[] = new EchoNotificationDeleteJob( $this->title, [ 'userIds' => [ $userId ] ] );
+				$jobs[] = new NotificationDeleteJob( $this->title, [ 'userIds' => [ $userId ] ] );
 			}
 			MediaWikiServices::getInstance()->getJobQueueGroup()->push( $jobs );
 

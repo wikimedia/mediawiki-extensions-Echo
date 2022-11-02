@@ -1,8 +1,13 @@
 <?php
 
-use MediaWiki\Extension\Notifications\Controller\NotificationController;
+namespace MediaWiki\Extension\Notifications\Jobs;
 
-class EchoNotificationJob extends Job {
+use EchoEventMapper;
+use Job;
+use MediaWiki\Extension\Notifications\Controller\NotificationController;
+use Title;
+
+class NotificationJob extends Job {
 
 	public function __construct( Title $title, array $params ) {
 		$command = isset( $params['jobReleaseTimestamp'] ) ? 'DelayedEchoNotificationJob' : 'EchoNotificationJob';

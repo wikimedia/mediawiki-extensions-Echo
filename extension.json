@@ -47,8 +47,8 @@
 		"MediaWiki\\Extension\\Notifications\\Hooks::initEchoExtension"
 	],
 	"JobClasses": {
-		"EchoNotificationJob": "EchoNotificationJob",
-		"EchoNotificationDeleteJob": "EchoNotificationDeleteJob",
+		"EchoNotificationJob": "MediaWiki\\Extension\\Notifications\\Jobs\\NotificationJob",
+		"EchoNotificationDeleteJob": "MediaWiki\\Extension\\Notifications\\Jobs\\EchoNotificationDeleteJob",
 		"EchoPushNotificationRequest": "MediaWiki\\Extension\\Notifications\\Push\\NotificationRequestJob"
 	},
 	"SpecialPages": {
@@ -1104,8 +1104,6 @@
 		"EchoMultipleIterator": "includes/iterator/MultipleIterator.php",
 		"EchoNotRecursiveIterator": "includes/iterator/NotRecursiveIterator.php",
 		"EchoNotification": "includes/model/Notification.php",
-		"EchoNotificationDeleteJob": "includes/jobs/NotificationDeleteJob.php",
-		"EchoNotificationJob": "includes/jobs/NotificationJob.php",
 		"EchoNotificationMapper": "includes/mapper/NotificationMapper.php",
 		"EchoNotifier": "includes/Notifier.php",
 		"EchoOnWikiList": "includes/EchoOnWikiList.php",
