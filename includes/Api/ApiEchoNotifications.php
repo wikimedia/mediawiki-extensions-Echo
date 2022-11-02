@@ -11,10 +11,10 @@ use EchoAttributeManager;
 use EchoDataOutputFormatter;
 use EchoForeignNotifications;
 use EchoNotification;
-use EchoNotificationController;
 use EchoNotificationMapper;
 use EchoSeenTime;
 use EchoServices;
+use MediaWiki\Extension\Notifications\Controller\NotificationController;
 use MWEchoNotifUser;
 use Title;
 use User;
@@ -357,12 +357,12 @@ class ApiEchoNotifications extends ApiQueryBase {
 			$rawCount = $notifUser->getNotificationCount( $section, $global );
 			if ( $groupBySection ) {
 				$result[$section]['rawcount'] = $rawCount;
-				$result[$section]['count'] = EchoNotificationController::formatNotificationCount( $rawCount );
+				$result[$section]['count'] = NotificationController::formatNotificationCount( $rawCount );
 			}
 			$totalRawCount += $rawCount;
 		}
 		$result['rawcount'] = $totalRawCount;
-		$result['count'] = EchoNotificationController::formatNotificationCount( $totalRawCount );
+		$result['count'] = NotificationController::formatNotificationCount( $totalRawCount );
 
 		return $result;
 	}
@@ -541,7 +541,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 				foreach ( $results as $result ) {
 					$primary[$section]['rawcount'] += $result[$section]['rawcount'];
 				}
-				$primary[$section]['count'] = EchoNotificationController::formatNotificationCount(
+				$primary[$section]['count'] = NotificationController::formatNotificationCount(
 					$primary[$section]['rawcount'] );
 			}
 		}
@@ -553,7 +553,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 			// regardless of groupbysection, totals are always included
 			$primary['rawcount'] += $result['rawcount'];
 		}
-		$primary['count'] = EchoNotificationController::formatNotificationCount( $primary['rawcount'] );
+		$primary['count'] = NotificationController::formatNotificationCount( $primary['rawcount'] );
 
 		return $primary;
 	}

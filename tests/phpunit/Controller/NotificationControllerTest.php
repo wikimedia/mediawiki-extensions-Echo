@@ -1,10 +1,11 @@
 <?php
 
+use MediaWiki\Extension\Notifications\Controller\NotificationController;
 use MediaWiki\User\UserOptionsLookup;
 use Wikimedia\TestingAccessWrapper;
 
 /**
- * @covers \EchoNotificationController
+ * @covers \MediaWiki\Extension\Notifications\Controller\NotificationController
  */
 class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 
@@ -90,7 +91,7 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 			$setup( $this, $event );
 		}
 
-		$result = EchoNotificationController::evaluateUserCallable( $event, EchoAttributeManager::ATTR_LOCATORS );
+		$result = NotificationController::evaluateUserCallable( $event, EchoAttributeManager::ATTR_LOCATORS );
 		$this->assertEquals( $expect, array_map( 'array_keys', $result ), $message );
 	}
 
@@ -160,7 +161,7 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 		$event->method( 'getType' )
 			->willReturn( 'unit-test' );
 
-		$result = EchoNotificationController::getUsersToNotifyForEvent( $event );
+		$result = NotificationController::getUsersToNotifyForEvent( $event );
 		$ids = [];
 		foreach ( $result as $user ) {
 			$ids[] = $user->getId();
@@ -177,7 +178,7 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 		$event->expects( $this->never() )
 			->method( 'getType' );
 
-		EchoNotificationController::notify( $event, false );
+		NotificationController::notify( $event, false );
 	}
 
 	public static function getEventNotifyTypesProvider() {
@@ -251,7 +252,7 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 				[ 'priority' => 4 ]
 			),
 		] );
-		$result = EchoNotificationController::getEventNotifyTypes( $type );
+		$result = NotificationController::getEventNotifyTypes( $type );
 		$this->assertEquals( $expect, $result, $message );
 	}
 
@@ -265,7 +266,7 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 		$event->expects( $this->once() )
 			->method( 'getId' )
 			->willReturn( 42 );
-		EchoNotificationController::enqueueEvent( $event );
+		NotificationController::enqueueEvent( $event );
 		$jobQueueGroup = $this->getServiceContainer()->getJobQueueGroup();
 		$queues = $jobQueueGroup->getQueuesWithJobs();
 		$this->assertCount( 1, $queues );
@@ -293,7 +294,7 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 			->willReturn( Title::newFromText( 'test-title' ) );
 		$event->method( 'getId' )
 			->willReturn( 42 );
-		EchoNotificationController::enqueueEvent( $event );
+		NotificationController::enqueueEvent( $event );
 
 		$this->assertCount( 0, $queueGroup->getQueuesWithJobs() );
 	}
@@ -315,7 +316,7 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 			->method( 'getId' )
 			->willReturn( 42 );
 
-		$params = EchoNotificationController::getEventParams( $event );
+		$params = NotificationController::getEventParams( $event );
 		$expectedParams = [
 			'eventId' => 42,
 			'rootJobSignature' => 'test-signature',
@@ -327,7 +328,6 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 
 	/**
 	 * @dataProvider PageLinkedTitleMutedByUserDataProvider
-	 * @covers EchoNotificationController::isPageLinkedTitleMutedByUser
 	 * @param Title $title
 	 * @param User $user
 	 * @param UserOptionsLookup $userOptionsLookup
@@ -335,7 +335,7 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 	 */
 	public function testIsPageLinkedTitleMutedByUser(
 		Title $title, User $user, UserOptionsLookup $userOptionsLookup, $expected ): void {
-		$wrapper = TestingAccessWrapper::newFromClass( EchoNotificationController::class );
+		$wrapper = TestingAccessWrapper::newFromClass( NotificationController::class );
 		$wrapper->mutedPageLinkedTitlesCache = $this->createMock( MapCacheLRU::class );
 		$this->setService( 'UserOptionsLookup', $userOptionsLookup );
 		$this->assertSame(

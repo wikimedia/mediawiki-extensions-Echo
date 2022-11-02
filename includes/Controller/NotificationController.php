@@ -1,15 +1,35 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Controller;
+
+use DeferredUpdates;
+use EchoAttributeManager;
+use EchoCachedList;
+use EchoContainmentList;
+use EchoContainmentSet;
+use EchoEvent;
+use EchoFilteredSequentialIterator;
+use EchoNotificationDeleteJob;
+use EchoNotificationJob;
+use EchoOnWikiList;
+use EchoServices;
+use Hooks;
+use Iterator;
+use MapCacheLRU;
 use MediaWiki\Extension\Notifications\Exception\CatchableFatalErrorException;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionStore;
 use MediaWiki\User\UserIdentity;
+use MWEchoNotifUser;
+use MWException;
+use Title;
+use User;
 
 /**
  * This class represents the controller for notifications
  */
-class EchoNotificationController {
+class NotificationController {
 
 	/**
 	 * Echo maximum number of users to cache

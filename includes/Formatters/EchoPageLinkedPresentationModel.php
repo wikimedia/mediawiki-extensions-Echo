@@ -3,7 +3,7 @@
 namespace MediaWiki\Extension\Notifications\Formatters;
 
 use EchoEvent;
-use EchoNotificationController;
+use MediaWiki\Extension\Notifications\Controller\NotificationController;
 use MediaWiki\MediaWikiServices;
 use SpecialPage;
 use Title;
@@ -72,7 +72,7 @@ class EchoPageLinkedPresentationModel extends EchoEventPresentationModel {
 			return null;
 		}
 		$title = $this->event->getTitle();
-		$isPageMuted = EchoNotificationController::isPageLinkedTitleMutedByUser( $title, $this->getUser() );
+		$isPageMuted = NotificationController::isPageLinkedTitleMutedByUser( $title, $this->getUser() );
 		$action = $isPageMuted ? 'unmute' : 'mute';
 		$prefTitle = SpecialPage::getTitleFor( 'Preferences', false, 'mw-prefsection-echo-mutedpageslist' );
 		$data = [
