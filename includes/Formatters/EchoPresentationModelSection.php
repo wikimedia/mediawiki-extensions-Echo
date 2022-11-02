@@ -3,8 +3,8 @@
 namespace MediaWiki\Extension\Notifications\Formatters;
 
 use EchoDiscussionParser;
-use EchoEvent;
 use Language;
+use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\Revision\RevisionRecord;
 use MWException;
 use Parser;
@@ -27,7 +27,7 @@ class EchoPresentationModelSection {
 	private $parsedSectionTitle = null;
 
 	/**
-	 * @var EchoEvent
+	 * @var Event
 	 */
 	protected $event;
 
@@ -42,11 +42,11 @@ class EchoPresentationModelSection {
 	protected $language;
 
 	/**
-	 * @param EchoEvent $event
+	 * @param Event $event
 	 * @param User $user
 	 * @param Language $language
 	 */
-	public function __construct( EchoEvent $event, User $user, Language $language ) {
+	public function __construct( Event $event, User $user, Language $language ) {
 		$this->event = $event;
 		$this->user = $user;
 		$this->language = $language;

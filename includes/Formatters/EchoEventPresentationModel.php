@@ -2,11 +2,11 @@
 
 namespace MediaWiki\Extension\Notifications\Formatters;
 
-use EchoEvent;
 use InvalidArgumentException;
 use JsonSerializable;
 use Language;
 use MediaWiki\Extension\Notifications\Controller\NotificationController;
+use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionRecord;
 use Message;
@@ -55,7 +55,7 @@ abstract class EchoEventPresentationModel implements JsonSerializable, MessageLo
 	public const SECTION_TITLE_RECOMMENDED_LENGTH = 50;
 
 	/**
-	 * @var EchoEvent
+	 * @var Event
 	 */
 	protected $event;
 
@@ -80,13 +80,13 @@ abstract class EchoEventPresentationModel implements JsonSerializable, MessageLo
 	private $distributionType;
 
 	/**
-	 * @param EchoEvent $event
+	 * @param Event $event
 	 * @param Language $language
 	 * @param User $user Only used for permissions checking and GENDER
 	 * @param string $distributionType
 	 */
 	protected function __construct(
-		EchoEvent $event,
+		Event $event,
 		Language $language,
 		User $user,
 		$distributionType
@@ -112,14 +112,14 @@ abstract class EchoEventPresentationModel implements JsonSerializable, MessageLo
 	}
 
 	/**
-	 * @param EchoEvent $event
+	 * @param Event $event
 	 * @param Language $language
 	 * @param User $user
 	 * @param string $distributionType 'web' or 'email'
 	 * @return EchoEventPresentationModel
 	 */
 	public static function factory(
-		EchoEvent $event,
+		Event $event,
 		Language $language,
 		User $user,
 		$distributionType = 'web'
@@ -189,7 +189,7 @@ abstract class EchoEventPresentationModel implements JsonSerializable, MessageLo
 	}
 
 	/**
-	 * @return EchoEvent[]
+	 * @return Event[]
 	 */
 	final protected function getBundledEvents() {
 		return $this->event->getBundledEvents() ?: [];
@@ -202,7 +202,7 @@ abstract class EchoEventPresentationModel implements JsonSerializable, MessageLo
 	 */
 	public function getBundledIds() {
 		if ( $this->isBundled() ) {
-			return array_map( static function ( EchoEvent $event ) {
+			return array_map( static function ( Event $event ) {
 				return $event->getId();
 			}, $this->getBundledEvents() );
 		}
@@ -230,7 +230,7 @@ abstract class EchoEventPresentationModel implements JsonSerializable, MessageLo
 	 * If $includeCurrent is false, all events in the same group as the current one will be ignored.
 	 *
 	 * @param bool $includeCurrent Include the current event (and its group)
-	 * @param callable|null $groupCallback Callback that takes an EchoEvent and returns a grouping value
+	 * @param callable|null $groupCallback Callback that takes an Event and returns a grouping value
 	 * @return int Number of bundled events or groups
 	 * @throws InvalidArgumentException
 	 */
@@ -280,7 +280,7 @@ abstract class EchoEventPresentationModel implements JsonSerializable, MessageLo
 	}
 
 	/**
-	 * Helper for EchoEvent::userCan
+	 * Helper for Event::userCan
 	 *
 	 * @param int $type RevisionRecord::DELETED_* constant
 	 * @return bool

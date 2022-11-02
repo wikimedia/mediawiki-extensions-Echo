@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\Extension\Notifications\Model\Notification;
+
 /**
  * @covers \Bundler
  */
@@ -28,7 +30,7 @@ class BundlerTest extends MediaWikiUnitTestCase {
 	}
 
 	private function createNotificationForBundling( $bundleHash, $timestamp, $readStatus ) {
-		$mock = $this->getMockBuilder( EchoNotification::class )
+		$mock = $this->getMockBuilder( Notification::class )
 			->disableOriginalConstructor()
 			->onlyMethods( [
 				'getBundlingKey',

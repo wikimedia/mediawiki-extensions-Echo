@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
+use MediaWiki\Extension\Notifications\Model\Notification;
 use Wikimedia\Rdbms\IDatabase;
 
 /**
@@ -46,7 +47,7 @@ class NotificationMapperTest extends MediaWikiIntegrationTestCase {
 		$this->assertIsArray( $res );
 		$this->assertNotEmpty( $res );
 		foreach ( $res as $row ) {
-			$this->assertInstanceOf( EchoNotification::class, $row );
+			$this->assertInstanceOf( Notification::class, $row );
 		}
 	}
 
@@ -92,7 +93,7 @@ class NotificationMapperTest extends MediaWikiIntegrationTestCase {
 		$this->assertIsArray( $res );
 		$this->assertNotEmpty( $res );
 		foreach ( $res as $row ) {
-			$this->assertInstanceOf( EchoNotification::class, $row );
+			$this->assertInstanceOf( Notification::class, $row );
 		}
 
 		$notifMapper = new NotificationMapper( $this->mockMWEchoDbFactory( [] ) );
@@ -123,7 +124,7 @@ class NotificationMapperTest extends MediaWikiIntegrationTestCase {
 		];
 		$notifMapper = new NotificationMapper( $this->mockMWEchoDbFactory( [ 'selectRow' => $dbResult ] ) );
 		$row = $notifMapper->fetchByUserOffset( User::newFromId( 1 ), 500 );
-		$this->assertInstanceOf( EchoNotification::class, $row );
+		$this->assertInstanceOf( Notification::class, $row );
 	}
 
 	public function testDeleteByUserEventOffset() {
@@ -207,11 +208,11 @@ class NotificationMapperTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * Mock object of EchoNotification
-	 * @return EchoNotification
+	 * Mock object of Notification
+	 * @return Notification
 	 */
-	protected function mockEchoNotification() {
-		$event = $this->createMock( EchoNotification::class );
+	protected function mockNotification() {
+		$event = $this->createMock( Notification::class );
 		$event->method( 'toDbArray' )
 			->willReturn( [] );
 

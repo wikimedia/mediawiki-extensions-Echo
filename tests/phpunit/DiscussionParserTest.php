@@ -2,6 +2,7 @@
 
 // phpcs:disable Generic.Files.LineLength -- Long html test examples
 
+use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\MutableRevisionRecord;
 use MediaWiki\Revision\SlotRecord;
@@ -208,7 +209,7 @@ class EchoDiscussionParserTest extends MediaWikiIntegrationTestCase {
 						'agent' => 'Cwobeel',
 						'section-title' => 'Grand jury no bill reception',
 						/*
-						 * I wish I could also compare EchoEvent::$extra data to
+						 * I wish I could also compare Event::$extra data to
 						 * compare user ids of mentioned users. However, due to
 						 * How PHPUnit works, setUp won't be run by the time
 						 * this dataset is generated, so we don't yet know the
@@ -389,7 +390,7 @@ class EchoDiscussionParserTest extends MediaWikiIntegrationTestCase {
 		);
 		$events = [];
 		$this->setupEventCallbackForEventGeneration(
-			static function ( EchoEvent $event ) use ( &$events ) {
+			static function ( Event $event ) use ( &$events ) {
 				$events[] = [
 					'type' => $event->getType(),
 					'agent' => $event->getAgent()->getName(),
@@ -707,7 +708,7 @@ class EchoDiscussionParserTest extends MediaWikiIntegrationTestCase {
 		);
 		$events = [];
 		$this->setupEventCallbackForEventGeneration(
-			static function ( EchoEvent $event ) use ( &$events ) {
+			static function ( Event $event ) use ( &$events ) {
 				$events[] = [
 					'type' => $event->getType(),
 					'agent' => $event->getAgent()->getName(),
@@ -908,7 +909,7 @@ TEXT
 
 		$events = [];
 		$this->setupEventCallbackForEventGeneration(
-			static function ( EchoEvent $event ) use ( &$events ) {
+			static function ( Event $event ) use ( &$events ) {
 				$events[] = [
 					'type' => $event->getType(),
 					'agent' => $event->getAgent()->getName(),

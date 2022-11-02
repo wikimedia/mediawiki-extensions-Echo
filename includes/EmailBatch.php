@@ -3,6 +3,7 @@
 use MediaWiki\Extension\Notifications\Formatters\EchoHtmlDigestEmailFormatter;
 use MediaWiki\Extension\Notifications\Formatters\EchoPlainTextDigestEmailFormatter;
 use MediaWiki\Extension\Notifications\Mapper\EventMapper;
+use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\User\UserOptionsManager;
 use Wikimedia\Rdbms\IResultWrapper;
@@ -28,12 +29,12 @@ class MWEchoEmailBatch {
 	protected $userOptionsManager;
 
 	/**
-	 * @var EchoEvent[] events included in this email
+	 * @var Event[] events included in this email
 	 */
 	protected $events = [];
 
 	/**
-	 * @var EchoEvent the last notification event of this batch
+	 * @var Event the last notification event of this batch
 	 */
 	protected $lastEvent;
 
@@ -138,7 +139,7 @@ class MWEchoEmailBatch {
 				if ( $this->count > self::$displaySize ) {
 					break;
 				}
-				$event = EchoEvent::newFromRow( $row );
+				$event = Event::newFromRow( $row );
 				if ( !$event ) {
 					continue;
 				}
@@ -235,7 +236,7 @@ class MWEchoEmailBatch {
 			if ( $this->lastEvent ) {
 				$conds[] = 'eeb_event_id <= ' . (int)$this->lastEvent;
 			}
-			$fields = array_merge( EchoEvent::selectFields(), [
+			$fields = array_merge( Event::selectFields(), [
 				'eeb_id',
 				'eeb_user_id',
 				'eeb_event_priority',

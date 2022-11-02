@@ -5,8 +5,8 @@ namespace MediaWiki\Extension\Notifications\Mapper;
 use AtomicSectionUpdate;
 use BatchRowIterator;
 use DeferredUpdates;
-use EchoNotification;
 use Exception;
+use MediaWiki\Extension\Notifications\Model\Notification;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\User\UserIdentity;
 use MWException;
@@ -15,15 +15,15 @@ use Title;
 use Wikimedia\Rdbms\IDatabase;
 
 /**
- * Database mapper for EchoNotification model
+ * Database mapper for Notification model
  */
 class NotificationMapper extends AbstractMapper {
 
 	/**
 	 * Insert a notification record
-	 * @param EchoNotification $notification
+	 * @param Notification $notification
 	 */
-	public function insert( EchoNotification $notification ) {
+	public function insert( Notification $notification ) {
 		$dbw = $this->dbFactory->getEchoDb( DB_PRIMARY );
 
 		$listeners = $this->getMethodListeners( __FUNCTION__ );
@@ -81,7 +81,7 @@ class NotificationMapper extends AbstractMapper {
 	 * @param Title[]|null $titles If set, only return notifications for these pages.
 	 *  To find notifications not associated with any page, add null as an element to this array.
 	 * @param int $dbSource Use primary database or replica database
-	 * @return EchoNotification[]
+	 * @return Notification[]
 	 */
 	public function fetchUnreadByUser(
 		UserIdentity $userIdentity,
@@ -121,7 +121,7 @@ class NotificationMapper extends AbstractMapper {
 	 * @param Title[]|null $titles If set, only return notifications for these pages.
 	 *  To find notifications not associated with any page, add null as an element to this array.
 	 * @param int $dbSource Use primary database or replica database
-	 * @return EchoNotification[]
+	 * @return Notification[]
 	 */
 	public function fetchReadByUser(
 		UserIdentity $userIdentity,
@@ -158,7 +158,7 @@ class NotificationMapper extends AbstractMapper {
 	 * @param array $excludeEventIds Event id's to exclude.
 	 * @param Title[]|null $titles If set, only return notifications for these pages.
 	 *  To find notifications not associated with any page, add null as an element to this array.
-	 * @return EchoNotification[]
+	 * @return Notification[]
 	 */
 	public function fetchByUser(
 		UserIdentity $userIdentity,
@@ -209,7 +209,7 @@ class NotificationMapper extends AbstractMapper {
 	 * @param array $eventTypes Event types to load
 	 * @param array $conds Additional query conditions.
 	 * @param int $dbSource Use primary database or replica database
-	 * @return EchoNotification[]
+	 * @return Notification[]
 	 */
 	protected function fetchByUserInternal(
 		UserIdentity $userIdentity,
@@ -249,7 +249,7 @@ class NotificationMapper extends AbstractMapper {
 
 		$res = $dbr->select(
 			[ 'echo_notification', 'echo_event' ],
-			EchoNotification::selectFields(),
+			Notification::selectFields(),
 			$conds,
 			__METHOD__,
 			[
@@ -266,11 +266,11 @@ class NotificationMapper extends AbstractMapper {
 			return [];
 		}
 
-		/** @var EchoNotification[] $allNotifications */
+		/** @var Notification[] $allNotifications */
 		$allNotifications = [];
 		foreach ( $res as $row ) {
 			try {
-				$notification = EchoNotification::newFromRow( $row );
+				$notification = Notification::newFromRow( $row );
 				if ( $notification ) {
 					$allNotifications[] = $notification;
 				}
@@ -290,18 +290,18 @@ class NotificationMapper extends AbstractMapper {
 	}
 
 	/**
-	 * Fetch EchoNotifications by user and event IDs.
+	 * Fetch Notifications by user and event IDs.
 	 *
 	 * @param UserIdentity $userIdentity
 	 * @param int[] $eventIds
-	 * @return EchoNotification[]|false
+	 * @return Notification[]|false
 	 */
 	public function fetchByUserEvents( UserIdentity $userIdentity, array $eventIds ) {
 		$dbr = $this->dbFactory->getEchoDb( DB_REPLICA );
 
 		$result = $dbr->select(
 			[ 'echo_notification', 'echo_event' ],
-			EchoNotification::selectFields(),
+			Notification::selectFields(),
 			[
 				'notification_user' => $userIdentity->getId(),
 				'notification_event' => $eventIds
@@ -316,7 +316,7 @@ class NotificationMapper extends AbstractMapper {
 		if ( $result ) {
 			$notifications = [];
 			foreach ( $result as $row ) {
-				$notifications[] = EchoNotification::newFromRow( $row );
+				$notifications[] = Notification::newFromRow( $row );
 			}
 			return $notifications;
 		} else {
@@ -329,13 +329,13 @@ class NotificationMapper extends AbstractMapper {
 	 * know that passing a big number for offset is NOT going to work
 	 * @param UserIdentity $userIdentity
 	 * @param int $offset
-	 * @return EchoNotification|false
+	 * @return Notification|false
 	 */
 	public function fetchByUserOffset( UserIdentity $userIdentity, $offset ) {
 		$dbr = $this->dbFactory->getEchoDb( DB_REPLICA );
 		$row = $dbr->selectRow(
 			[ 'echo_notification', 'echo_event' ],
-			EchoNotification::selectFields(),
+			Notification::selectFields(),
 			[
 				'notification_user' => $userIdentity->getId(),
 				'event_deleted' => 0,
@@ -352,7 +352,7 @@ class NotificationMapper extends AbstractMapper {
 		);
 
 		if ( $row ) {
-			return EchoNotification::newFromRow( $row );
+			return Notification::newFromRow( $row );
 		} else {
 			return false;
 		}

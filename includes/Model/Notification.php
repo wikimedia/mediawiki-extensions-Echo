@@ -1,9 +1,18 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Model;
+
+use Bundleable;
+use Hooks;
+use InvalidArgumentException;
 use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
 use MediaWiki\MediaWikiServices;
+use MWEchoNotifUser;
+use MWException;
+use stdClass;
+use User;
 
-class EchoNotification extends EchoAbstractEntity implements Bundleable {
+class Notification extends AbstractEntity implements Bundleable {
 
 	/**
 	 * @var User
@@ -11,7 +20,7 @@ class EchoNotification extends EchoAbstractEntity implements Bundleable {
 	protected $user;
 
 	/**
-	 * @var EchoEvent
+	 * @var Event
 	 */
 	protected $event;
 
@@ -19,7 +28,7 @@ class EchoNotification extends EchoAbstractEntity implements Bundleable {
 	 * The target page object for the notification if there is one. Null means
 	 * the information has not been loaded.
 	 *
-	 * @var EchoTargetPage[]|null
+	 * @var TargetPage[]|null
 	 */
 	protected $targetPages;
 
@@ -40,7 +49,7 @@ class EchoNotification extends EchoAbstractEntity implements Bundleable {
 	protected $bundleHash = '';
 
 	/**
-	 * @var EchoNotification[]
+	 * @var Notification[]
 	 */
 	protected $bundledNotifications;
 
@@ -51,15 +60,15 @@ class EchoNotification extends EchoAbstractEntity implements Bundleable {
 	}
 
 	/**
-	 * Creates an EchoNotification object based on event and user
+	 * Creates an Notification object based on event and user
 	 * @param array $info The following keys are required:
-	 * - 'event' The EchoEvent being notified about.
+	 * - 'event' The Event being notified about.
 	 * - 'user' The User being notified.
 	 * @throws MWException
-	 * @return EchoNotification
+	 * @return Notification
 	 */
 	public static function create( array $info ) {
-		$obj = new EchoNotification();
+		$obj = new Notification();
 		static $validFields = [ 'event', 'user' ];
 
 		foreach ( $validFields as $field ) {
@@ -74,8 +83,8 @@ class EchoNotification extends EchoAbstractEntity implements Bundleable {
 			throw new InvalidArgumentException( 'Invalid user parameter, expected: User object' );
 		}
 
-		if ( !$obj->event instanceof EchoEvent ) {
-			throw new InvalidArgumentException( 'Invalid event parameter, expected: EchoEvent object' );
+		if ( !$obj->event instanceof Event ) {
+			throw new InvalidArgumentException( 'Invalid event parameter, expected: Event object' );
 		}
 
 		// Notification timestamp should be the same as event timestamp
@@ -133,16 +142,16 @@ class EchoNotification extends EchoAbstractEntity implements Bundleable {
 	/**
 	 * Load a notification record from std class
 	 * @param stdClass $row
-	 * @param EchoTargetPage[]|null $targetPages An array of EchoTargetPage instances, or null if not loaded.
-	 * @return EchoNotification|false False if failed to load/unserialize
+	 * @param TargetPage[]|null $targetPages An array of TargetPage instances, or null if not loaded.
+	 * @return Notification|false False if failed to load/unserialize
 	 */
 	public static function newFromRow( $row, array $targetPages = null ) {
-		$notification = new EchoNotification();
+		$notification = new Notification();
 
 		if ( property_exists( $row, 'event_type' ) ) {
-			$notification->event = EchoEvent::newFromRow( $row );
+			$notification->event = Event::newFromRow( $row );
 		} else {
-			$notification->event = EchoEvent::newFromID( $row->notification_event );
+			$notification->event = Event::newFromID( $row->notification_event );
 		}
 
 		if ( $notification->event === false ) {
@@ -175,7 +184,7 @@ class EchoNotification extends EchoAbstractEntity implements Bundleable {
 
 	/**
 	 * Getter method
-	 * @return EchoEvent The event for this notification
+	 * @return Event The event for this notification
 	 */
 	public function getEvent() {
 		return $this->event;
@@ -218,10 +227,10 @@ class EchoNotification extends EchoAbstractEntity implements Bundleable {
 	}
 
 	/**
-	 * Getter method.  Returns an array of EchoTargetPages, or null if they have
+	 * Getter method. Returns an array of TargetPage's, or null if they have
 	 * not been loaded.
 	 *
-	 * @return EchoTargetPage[]|null
+	 * @return TargetPage[]|null
 	 */
 	public function getTargetPages() {
 		return $this->targetPages;
@@ -265,11 +274,11 @@ class EchoNotification extends EchoAbstractEntity implements Bundleable {
 
 	/**
 	 * Return the list of fields that should be selected to create
-	 * a new event with EchoNotification::newFromRow
+	 * a new event with Notification::newFromRow
 	 * @return string[]
 	 */
 	public static function selectFields() {
-		return array_merge( EchoEvent::selectFields(), [
+		return array_merge( Event::selectFields(), [
 			'notification_event',
 			'notification_user',
 			'notification_timestamp',
@@ -278,3 +287,5 @@ class EchoNotification extends EchoAbstractEntity implements Bundleable {
 		] );
 	}
 }
+
+class_alias( Notification::class, 'EchoNotification' );

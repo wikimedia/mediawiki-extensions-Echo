@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\Extension\Notifications\Iterator\CallbackIterator;
+use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\MediaWikiServices;
 
 class EchoUserLocator {
@@ -10,11 +11,11 @@ class EchoUserLocator {
 	 * The echo job queue must be enabled to prevent timeouts submitting to
 	 * heavily watched pages when this is used.
 	 *
-	 * @param EchoEvent $event
+	 * @param Event $event
 	 * @param int $batchSize
 	 * @return User[]|Iterator<User>
 	 */
-	public static function locateUsersWatchingTitle( EchoEvent $event, $batchSize = 500 ) {
+	public static function locateUsersWatchingTitle( Event $event, $batchSize = 500 ) {
 		$title = $event->getTitle();
 		if ( !$title ) {
 			return [];
@@ -47,10 +48,10 @@ class EchoUserLocator {
 	 * If the event occurred on the talk page of a registered
 	 * user return that user.
 	 *
-	 * @param EchoEvent $event
+	 * @param Event $event
 	 * @return User[]
 	 */
-	public static function locateTalkPageOwner( EchoEvent $event ) {
+	public static function locateTalkPageOwner( Event $event ) {
 		$title = $event->getTitle();
 		if ( !$title || $title->getNamespace() !== NS_USER_TALK ) {
 			return [];
@@ -67,10 +68,10 @@ class EchoUserLocator {
 	/**
 	 * Return the event agent
 	 *
-	 * @param EchoEvent $event
+	 * @param Event $event
 	 * @return User[]
 	 */
-	public static function locateEventAgent( EchoEvent $event ) {
+	public static function locateEventAgent( Event $event ) {
 		$agent = $event->getAgent();
 		if ( $agent && $agent->isRegistered() ) {
 			return [ $agent->getId() => $agent ];
@@ -83,10 +84,10 @@ class EchoUserLocator {
 	 * Return the user that created the first revision of the
 	 * associated title.
 	 *
-	 * @param EchoEvent $event
+	 * @param Event $event
 	 * @return User[]
 	 */
-	public static function locateArticleCreator( EchoEvent $event ) {
+	public static function locateArticleCreator( Event $event ) {
 		$title = $event->getTitle();
 
 		if ( !$title || $title->getArticleID() <= 0 ) {
@@ -125,11 +126,11 @@ class EchoUserLocator {
 	 * array of user ids.  It will return all these users as notification
 	 * targets.
 	 *
-	 * @param EchoEvent $event
+	 * @param Event $event
 	 * @param string[] $keys one or more keys to check for user ids
 	 * @return User[]
 	 */
-	public static function locateFromEventExtra( EchoEvent $event, array $keys ) {
+	public static function locateFromEventExtra( Event $event, array $keys ) {
 		$users = [];
 		foreach ( $keys as $key ) {
 			$userIds = $event->getExtraParam( $key );

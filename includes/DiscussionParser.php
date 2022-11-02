@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
@@ -18,7 +19,7 @@ abstract class EchoDiscussionParser {
 	protected static $diffParser;
 
 	/**
-	 * Given a RevisionRecord object, generates EchoEvent objects for
+	 * Given a RevisionRecord object, generates Event objects for
 	 * the discussion-related actions that occurred in that Revision.
 	 *
 	 * @param RevisionRecord $revision
@@ -166,7 +167,7 @@ abstract class EchoDiscussionParser {
 
 		// Create events
 		foreach ( $events as $event ) {
-			EchoEvent::create( $event );
+			Event::create( $event );
 		}
 	}
 
@@ -235,7 +236,7 @@ abstract class EchoDiscussionParser {
 	) {
 		$events = self::collectMentionEvents( $header, $userLinks, $content, $revision, $agent );
 		foreach ( $events as $event ) {
-			EchoEvent::create( $event );
+			Event::create( $event );
 		}
 	}
 
@@ -545,7 +546,7 @@ abstract class EchoDiscussionParser {
 	 *
 	 * @todo Expand recognisable actions.
 	 *
-	 * @param array[] $changes Output of EchoEvent::getMachineReadableDiff
+	 * @param array[] $changes Output of Event::getMachineReadableDiff
 	 * @param string $username
 	 * @param Title|null $title
 	 * @return array[] Array of associative arrays.

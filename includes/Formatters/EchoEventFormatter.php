@@ -2,8 +2,8 @@
 
 namespace MediaWiki\Extension\Notifications\Formatters;
 
-use EchoEvent;
 use Language;
+use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\Logger\LoggerFactory;
 use Message;
 use User;
@@ -48,11 +48,11 @@ abstract class EchoEventFormatter {
 	}
 
 	/**
-	 * @param EchoEvent $event
+	 * @param Event $event
 	 * @param string $distributionType 'web' or 'email'
 	 * @return string[]|string|false Output format depends on implementation, false if it cannot be formatted
 	 */
-	final public function format( EchoEvent $event, string $distributionType = "web" ) {
+	final public function format( Event $event, string $distributionType = "web" ) {
 		// Deleted events should have been filtered out before getting there.
 		// This is just to be sure.
 		if ( $event->isDeleted() ) {

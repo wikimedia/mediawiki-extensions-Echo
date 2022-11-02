@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\Extension\Notifications\Formatters\EchoPresentationModelSection;
+use MediaWiki\Extension\Notifications\Model\Event;
 
 /**
  * @covers \MediaWiki\Extension\Notifications\Formatters\EchoPresentationModelSection
@@ -72,7 +73,7 @@ class EchoPresentationModelSectionTest extends MediaWikiIntegrationTestCase {
 
 	private function makeEvent( $config = [] ) {
 		$agent = $this->getTestSysop()->getUser();
-		return EchoEvent::newFromRow( (object)array_merge( [
+		return Event::newFromRow( (object)array_merge( [
 			'event_id' => 12,
 			'event_type' => 'welcome',
 			'event_variant' => '1',

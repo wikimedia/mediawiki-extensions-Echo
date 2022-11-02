@@ -2,8 +2,8 @@
 
 namespace MediaWiki\Extension\Notifications\Push;
 
-use EchoEvent;
 use EchoServices;
+use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\MediaWikiServices;
 use User;
 
@@ -13,9 +13,9 @@ class PushNotifier {
 	 * Submits a notification derived from an Echo event to each push notifications service
 	 * subscription found for a user, via a configured service handler implementation
 	 * @param User $user
-	 * @param EchoEvent $event
+	 * @param Event $event
 	 */
-	public static function notifyWithPush( User $user, EchoEvent $event ): void {
+	public static function notifyWithPush( User $user, Event $event ): void {
 		$attributeManager = EchoServices::getInstance()->getAttributeManager();
 		$userEnabledEvents = $attributeManager->getUserEnabledEvents( $user, 'push' );
 		if ( in_array( $event->getType(), $userEnabledEvents ) ) {
@@ -25,10 +25,10 @@ class PushNotifier {
 
 	/**
 	 * @param User $user
-	 * @param EchoEvent|null $event
+	 * @param Event|null $event
 	 * @return NotificationRequestJob
 	 */
-	private static function createJob( User $user, EchoEvent $event = null ): NotificationRequestJob {
+	private static function createJob( User $user, Event $event = null ): NotificationRequestJob {
 		$centralId = Utils::getPushUserId( $user );
 		$params = [ 'centralId' => $centralId ];
 		// below params are only needed for debug logging (T255068)

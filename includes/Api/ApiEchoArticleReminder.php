@@ -5,7 +5,7 @@ namespace MediaWiki\Extension\Notifications\Api;
 use ApiBase;
 use DateInterval;
 use DateTime;
-use EchoEvent;
+use MediaWiki\Extension\Notifications\Model\Event;
 use MWTimestamp;
 use Wikimedia\ParamValidator\ParamValidator;
 
@@ -29,7 +29,7 @@ class ApiEchoArticleReminder extends ApiBase {
 			$this->dieWithError( [ 'apierror-badparameter', 'timestamp' ], 'timestamp-not-in-future', null, 400 );
 		}
 
-		$eventCreation = EchoEvent::create( [
+		$eventCreation = Event::create( [
 			'type' => 'article-reminder',
 			'agent' => $user,
 			'title' => $this->getTitleFromTitleOrPageId( $params ),

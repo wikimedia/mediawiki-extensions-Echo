@@ -11,8 +11,6 @@ use EchoAttributeManager;
 use EchoDiscussionParser;
 use EchoEmailFormat;
 use EchoEmailFrequency;
-use EchoEvent;
-use EchoNotification;
 use EchoSeenTime;
 use EchoServices;
 use EmailNotification;
@@ -30,6 +28,8 @@ use MediaWiki\Extension\Notifications\Controller\NotificationController;
 use MediaWiki\Extension\Notifications\Formatters\EchoEventPresentationModel;
 use MediaWiki\Extension\Notifications\Mapper\EventMapper;
 use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
+use MediaWiki\Extension\Notifications\Model\Event;
+use MediaWiki\Extension\Notifications\Model\Notification;
 use MediaWiki\Extension\Notifications\Push\Api\ApiEchoPushSubscriptions;
 use MediaWiki\Hook\AbortTalkPageEmailNotificationHook;
 use MediaWiki\Hook\BeforePageDisplayHook;
@@ -316,7 +316,7 @@ class Hooks implements
 	/**
 	 * Handler for EchoGetBundleRule hook, which defines the bundle rule for each notification
 	 *
-	 * @param EchoEvent $event
+	 * @param Event $event
 	 * @param string &$bundleString Determines how the notification should be bundled, for example,
 	 * talk page notification is bundled based on namespace and title, the bundle string would be
 	 * 'edit-user-talk-' + namespace + title, email digest/email bundling would use this hash as
@@ -626,7 +626,7 @@ class Hooks implements
 				DeferredUpdates::addCallableUpdate( static function () use ( $userIdentity, $title, $thresholdCount ) {
 					$notificationMapper = new NotificationMapper();
 					$notifications = $notificationMapper->fetchByUser( $userIdentity, 10, null, [ 'thank-you-edit' ] );
-					/** @var EchoNotification $notification */
+					/** @var Notification $notification */
 					foreach ( $notifications as $notification ) {
 						if ( $notification->getEvent()->getExtraParam( 'editCount' ) === $thresholdCount ) {
 							LoggerFactory::getInstance( 'Echo' )->debug(
@@ -641,7 +641,7 @@ class Hooks implements
 						}
 					}
 
-					EchoEvent::create( [
+					Event::create( [
 						'type' => 'thank-you-edit',
 						'title' => $title,
 						'agent' => $userIdentity,
@@ -669,7 +669,7 @@ class Hooks implements
 				$revertedUser = $undidRevision->getUser();
 				// No notifications for anonymous users
 				if ( $revertedUser && $revertedUser->getId() ) {
-					EchoEvent::create( [
+					Event::create( [
 						'type' => 'reverted',
 						'title' => $title,
 						'extra' => [
@@ -705,7 +705,7 @@ class Hooks implements
 	/**
 	 * Handler for EchoAbortEmailNotification hook
 	 * @param User $user
-	 * @param EchoEvent $event
+	 * @param Event $event
 	 * @return bool true - send email, false - do not send email
 	 */
 	public static function onEchoAbortEmailNotification( $user, $event ) {
@@ -770,7 +770,7 @@ class Hooks implements
 			foreach ( $overrides as $prefKey => $value ) {
 				$userOptionsManager->setOption( $user, $prefKey, $value );
 			}
-			EchoEvent::create( [
+			Event::create( [
 				'type' => 'welcome',
 				'agent' => $user,
 			] );
@@ -828,7 +828,7 @@ class Hooks implements
 		if ( $expiryChanged ) {
 			// use a separate notification for these, so the notification text doesn't
 			// get too long
-			EchoEvent::create(
+			Event::create(
 				[
 					'type' => 'user-rights',
 					'extra' => [
@@ -842,7 +842,7 @@ class Hooks implements
 		}
 
 		if ( $reallyAdded || $remove ) {
-			EchoEvent::create(
+			Event::create(
 				[
 					'type' => 'user-rights',
 					'extra' => [
@@ -901,7 +901,7 @@ class Hooks implements
 				}
 
 				$linkFromPageId = $linksUpdate->getTitle()->getArticleID();
-				EchoEvent::create( [
+				Event::create( [
 					'type' => 'page-linked',
 					'title' => $title,
 					'agent' => $user,
@@ -1337,7 +1337,7 @@ class Hooks implements
 			$revertedUser->getId() && // No notifications for anonymous users
 			!$oldRevision->hasSameContent( $newRevision ) // No notifications for null rollbacks
 		) {
-			EchoEvent::create( [
+			Event::create( [
 				'type' => 'reverted',
 				'title' => $wikiPage->getTitle(),
 				'extra' => [
@@ -1480,7 +1480,7 @@ class Hooks implements
 			$preview = $subject;
 		}
 
-		EchoEvent::create( [
+		Event::create( [
 			'type' => 'emailuser',
 			'extra' => [
 				'to-user-id' => $userTo->getId(),
@@ -1543,7 +1543,7 @@ class Hooks implements
 				$thankYouIds = [];
 				$thankYouRows = $dbw->select(
 					[ 'echo_notification', 'echo_event' ],
-					EchoEvent::selectFields(),
+					Event::selectFields(),
 					[
 						'notification_user' => $newUser->getId(),
 						'notification_event = event_id',
@@ -1553,7 +1553,7 @@ class Hooks implements
 					[ 'ORDER BY' => 'notification_timestamp ASC' ]
 				) ?: [];
 				foreach ( $thankYouRows as $row ) {
-					$event = EchoEvent::newFromRow( $row );
+					$event = Event::newFromRow( $row );
 					$editCount = $event ? $event->getExtraParam( 'editCount' ) : null;
 					if ( $editCount ) {
 						if ( isset( $counts[$editCount] ) ) {
@@ -1698,7 +1698,7 @@ class Hooks implements
 		} else {
 			$type = 'watchlist-change';
 		}
-		EchoEvent::create( [
+		Event::create( [
 			'type' => $type,
 			'title' => $change->getTitle(),
 			'extra' => [
