@@ -8,13 +8,13 @@ use EchoCachedList;
 use EchoContainmentList;
 use EchoContainmentSet;
 use EchoEvent;
-use EchoFilteredSequentialIterator;
 use EchoOnWikiList;
 use EchoServices;
 use Hooks;
 use Iterator;
 use MapCacheLRU;
 use MediaWiki\Extension\Notifications\Exception\CatchableFatalErrorException;
+use MediaWiki\Extension\Notifications\Iterator\FilteredSequentialIterator;
 use MediaWiki\Extension\Notifications\Jobs\NotificationDeleteJob;
 use MediaWiki\Extension\Notifications\Jobs\NotificationJob;
 use MediaWiki\Logger\LoggerFactory;
@@ -481,7 +481,7 @@ class NotificationController {
 	 * @return Iterator values are User objects
 	 */
 	public static function getUsersToNotifyForEvent( EchoEvent $event ) {
-		$notify = new EchoFilteredSequentialIterator;
+		$notify = new FilteredSequentialIterator;
 		foreach ( self::evaluateUserCallable( $event, EchoAttributeManager::ATTR_LOCATORS ) as $users ) {
 			$notify->add( $users );
 		}

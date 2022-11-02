@@ -1,5 +1,15 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Iterator;
+
+use ArrayIterator;
+use CallbackFilterIterator;
+use EmptyIterator;
+use Iterator;
+use IteratorAggregate;
+use MWException;
+use RecursiveIteratorIterator;
+
 /**
  * Allows building a single iterator out of multiple iterators
  * and filtering the results.  Accepts plain arrays for the simple
@@ -10,13 +20,13 @@
  * them all in one giant query.
  *
  * Usage:
- *   $users = new EchoFilteredSequentialIterator;
+ *   $users = new FilteredSequentialIterator;
  *   $users->add( array( $userA, $userB, $userC ) );
  *
  *   $it = new BatchRowIterator( ... );
  *   ...
  *   $it = new RecursiveIteratorIterator( $it );
- *   $users->add( new EchoCallbackIterator( $it, function( $row ) {
+ *   $users->add( new CallbackIterator( $it, function( $row ) {
  *    ...
  *    return $user;
  *   } ) );
@@ -27,12 +37,12 @@
  *
  * By default the BatchRowIterator returns an array of rows, this class
  * expects a stream of user objects.  To bridge that gap the
- * RecursiveIteratorIterator is used to flatten and the EchoCallbackIterator
+ * RecursiveIteratorIterator is used to flatten and the CallbackIterator
  * is used to transform each database $row into a User object.
  *
  * @todo name?
  */
-class EchoFilteredSequentialIterator implements IteratorAggregate {
+class FilteredSequentialIterator implements IteratorAggregate {
 	/**
 	 * @var Iterator[]
 	 */
@@ -96,7 +106,7 @@ class EchoFilteredSequentialIterator implements IteratorAggregate {
 				return reset( $this->iterators );
 
 			default:
-				return new RecursiveIteratorIterator( new EchoMultipleIterator( $this->iterators ) );
+				return new RecursiveIteratorIterator( new MultipleIterator( $this->iterators ) );
 		}
 	}
 

@@ -1,5 +1,10 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Iterator;
+
+use IteratorDecorator;
+use RecursiveIterator;
+
 /**
  * Wraps a non-recursive iterator with methods to be recursive
  * without children.
@@ -7,7 +12,7 @@
  * Alternatively wraps a recursive iterator to prevent recursing deeper
  * than the wrapped iterator.
  */
-class EchoNotRecursiveIterator extends IteratorDecorator implements RecursiveIterator {
+class NotRecursiveIterator extends IteratorDecorator implements RecursiveIterator {
 	public function hasChildren(): bool {
 		return false;
 	}

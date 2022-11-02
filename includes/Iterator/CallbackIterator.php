@@ -1,9 +1,14 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Iterator;
+
+use Iterator;
+use IteratorDecorator;
+
 /**
  * Applies a callback to all values returned from the iterator
  */
-class EchoCallbackIterator extends IteratorDecorator {
+class CallbackIterator extends IteratorDecorator {
 	/** @var callable */
 	protected $callable;
 
@@ -16,3 +21,5 @@ class EchoCallbackIterator extends IteratorDecorator {
 		return call_user_func( $this->callable, $this->iterator->current() );
 	}
 }
+
+class_alias( CallbackIterator::class, 'EchoCallbackIterator' );

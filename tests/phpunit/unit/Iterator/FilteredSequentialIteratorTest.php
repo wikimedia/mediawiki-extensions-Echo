@@ -1,13 +1,16 @@
 <?php
 
+use MediaWiki\Extension\Notifications\Iterator\CallbackIterator;
+use MediaWiki\Extension\Notifications\Iterator\FilteredSequentialIterator;
+
 /**
- * @covers \EchoCallbackIterator
- * @covers \EchoFilteredSequentialIterator
+ * @covers \MediaWiki\Extension\Notifications\Iterator\CallbackIterator
+ * @covers \MediaWiki\Extension\Notifications\Iterator\FilteredSequentialIterator
  */
 class FilteredSequentialIteratorTest extends MediaWikiUnitTestCase {
 
-	public function testEchoCallbackIteratorDoesntBlowUp() {
-		$it = new EchoCallbackIterator(
+	public function testCallbackIteratorDoesntBlowUp() {
+		$it = new CallbackIterator(
 			new ArrayIterator( [ 1, 2, 3 ] ),
 			static function ( $num ) {
 				return "There were $num items";
@@ -22,7 +25,7 @@ class FilteredSequentialIteratorTest extends MediaWikiUnitTestCase {
 		$this->assertEquals( $expected, $res, 'Basic iteration with callback applied' );
 	}
 
-	public static function echoFilteredSequentialIteratorProvider() {
+	public static function filteredSequentialIteratorProvider() {
 		$odd = static function ( $v ) {
 			return $v & 1;
 		};
@@ -89,10 +92,10 @@ class FilteredSequentialIteratorTest extends MediaWikiUnitTestCase {
 	}
 
 	/**
-	 * @dataProvider echoFilteredSequentialIteratorProvider
+	 * @dataProvider filteredSequentialIteratorProvider
 	 */
-	public function testEchoFilteredSequentialIterator( $message, $expect, $userLists, $filters ) {
-		$notify = new EchoFilteredSequentialIterator;
+	public function testFilteredSequentialIterator( $message, $expect, $userLists, $filters ) {
+		$notify = new FilteredSequentialIterator;
 
 		foreach ( $userLists as $userList ) {
 			$notify->add( $userList );
