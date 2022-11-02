@@ -1,4 +1,7 @@
 <?php
+
+namespace MediaWiki\Extension\Notifications\Formatters;
+
 /**
  * Presenter for 'article-reminder' notification
  *

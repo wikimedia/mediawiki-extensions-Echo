@@ -1,6 +1,11 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Formatters;
+
+use EchoEvent;
+use Language;
 use MediaWiki\MediaWikiServices;
+use User;
 
 class EchoEditUserTalkPresentationModel extends EchoEventPresentationModel {
 
@@ -118,3 +123,5 @@ class EchoEditUserTalkPresentationModel extends EchoEventPresentationModel {
 		return 'notification-edit-talk-page-email-subject2';
 	}
 }
+
+class_alias( EchoEditUserTalkPresentationModel::class, 'EchoEditUserTalkPresentationModel' );

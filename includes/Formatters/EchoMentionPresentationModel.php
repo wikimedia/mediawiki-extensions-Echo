@@ -1,6 +1,12 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Formatters;
+
+use EchoDiscussionParser;
+use EchoEvent;
+use Language;
 use MediaWiki\Revision\RevisionRecord;
+use User;
 
 class EchoMentionPresentationModel extends EchoEventPresentationModel {
 
@@ -130,3 +136,5 @@ class EchoMentionPresentationModel extends EchoEventPresentationModel {
 		return 'notification-mention-email-subject';
 	}
 }
+
+class_alias( EchoMentionPresentationModel::class, 'EchoMentionPresentationModel' );

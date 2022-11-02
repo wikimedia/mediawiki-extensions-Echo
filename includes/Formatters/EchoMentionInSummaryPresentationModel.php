@@ -1,6 +1,10 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Formatters;
+
+use Linker;
 use MediaWiki\Revision\RevisionRecord;
+use Sanitizer;
 
 class EchoMentionInSummaryPresentationModel extends EchoEventPresentationModel {
 

@@ -1,13 +1,13 @@
 <?php
 
+use MediaWiki\Extension\Notifications\Formatters\EchoPresentationModelSection;
+
 /**
+ * @covers \MediaWiki\Extension\Notifications\Formatters\EchoPresentationModelSection
  * @group Database
  */
 class EchoPresentationModelSectionTest extends MediaWikiIntegrationTestCase {
 
-	/**
-	 * @covers \EchoPresentationModelSection::getTruncatedSectionTitle
-	 */
 	public function testGetTruncatedSectionTitle_short() {
 		$lang = Language::factory( 'en' );
 		$section = new EchoPresentationModelSection(
@@ -19,9 +19,6 @@ class EchoPresentationModelSectionTest extends MediaWikiIntegrationTestCase {
 		$this->assertEquals( $lang->embedBidi( 'asdf' ), $section->getTruncatedSectionTitle() );
 	}
 
-	/**
-	 * @covers \EchoPresentationModelSection::getTruncatedSectionTitle
-	 */
 	public function testGetTruncatedSectionTitle_long() {
 		$lang = Language::factory( 'en' );
 		$section = new EchoPresentationModelSection(
@@ -36,9 +33,6 @@ class EchoPresentationModelSectionTest extends MediaWikiIntegrationTestCase {
 		);
 	}
 
-	/**
-	 * @covers \EchoPresentationModelSection::getTitleWithSection
-	 */
 	public function testGetTitleWithSection() {
 		$page = $this->getExistingTestPage();
 		$section = new EchoPresentationModelSection(
@@ -56,9 +50,6 @@ class EchoPresentationModelSectionTest extends MediaWikiIntegrationTestCase {
 		$this->assertEquals( $page->getTitle()->getPrefixedText(), $titleWithSection->getPrefixedText() );
 	}
 
-	/**
-	 * @covers \EchoPresentationModelSection::exists
-	 */
 	public function testExists_no() {
 		$section = new EchoPresentationModelSection(
 			$this->makeEvent(),
@@ -69,9 +60,6 @@ class EchoPresentationModelSectionTest extends MediaWikiIntegrationTestCase {
 		$this->assertFalse( $section->exists() );
 	}
 
-	/**
-	 * @covers \EchoPresentationModelSection::exists
-	 */
 	public function testExists_yes() {
 		$section = new EchoPresentationModelSection(
 			$this->makeEvent( [ 'event_extra' => serialize( [ 'section-title' => 'asdf' ] ) ] ),

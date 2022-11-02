@@ -1,5 +1,12 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Formatters;
+
+use EchoEvent;
+use Language;
+use Message;
+use User;
+
 /**
  * Abstract class for formatters that process multiple events.
  *

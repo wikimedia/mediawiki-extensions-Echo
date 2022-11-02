@@ -1,5 +1,10 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Formatters;
+
+use InvalidArgumentException;
+use UnexpectedValueException;
+
 class EchoIcon {
 
 	/**

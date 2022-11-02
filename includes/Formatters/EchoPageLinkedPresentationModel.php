@@ -1,6 +1,12 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Formatters;
+
+use EchoEvent;
+use EchoNotificationController;
 use MediaWiki\MediaWikiServices;
+use SpecialPage;
+use Title;
 
 class EchoPageLinkedPresentationModel extends EchoEventPresentationModel {
 

@@ -1,9 +1,15 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Formatters;
+
+use Html;
+use MWTimestamp;
+use Xml;
+
 /**
  * A formatter for the notification flyout popup
  *
- * Ideally we wouldn't need this and we'd just pass the
+ * Ideally we wouldn't need this, and we'd just pass the
  * presentation model to the client, but we need to continue
  * sending HTML for backwards compatibility.
  */

@@ -1,5 +1,8 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Formatters;
+
+use EchoDiscussionParser;
 use MediaWiki\Revision\RevisionRecord;
 
 class EchoRevertedPresentationModel extends EchoEventPresentationModel {

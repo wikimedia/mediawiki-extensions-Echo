@@ -1,7 +1,21 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Formatters;
+
+use EchoEvent;
+use EchoNotificationController;
+use InvalidArgumentException;
+use JsonSerializable;
+use Language;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionRecord;
+use Message;
+use MessageLocalizer;
+use MessageSpecifier;
+use SpecialPage;
+use Title;
+use User;
+use WikiMap;
 use Wikimedia\Timestamp\TimestampException;
 
 /**
@@ -113,7 +127,6 @@ abstract class EchoEventPresentationModel implements JsonSerializable, MessageLo
 		global $wgEchoNotifications;
 		// @todo don't depend upon globals
 
-		// @phan-suppress-next-line PhanTypeArraySuspiciousNullable
 		$class = $wgEchoNotifications[$event->getType()]['presentation-model'];
 		return new $class( $event, $language, $user, $distributionType );
 	}
@@ -735,3 +748,5 @@ abstract class EchoEventPresentationModel implements JsonSerializable, MessageLo
 		);
 	}
 }
+
+class_alias( EchoEventPresentationModel::class, 'EchoEventPresentationModel' );

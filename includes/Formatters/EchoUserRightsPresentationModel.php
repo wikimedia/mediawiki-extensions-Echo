@@ -1,5 +1,12 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Formatters;
+
+use EchoDiscussionParser;
+use RawMessage;
+use SpecialPage;
+use User;
+
 /**
  * Formatter for 'user-rights' notifications
  */

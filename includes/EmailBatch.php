@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\Extension\Notifications\Formatters\EchoHtmlDigestEmailFormatter;
+use MediaWiki\Extension\Notifications\Formatters\EchoPlainTextDigestEmailFormatter;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\User\UserOptionsManager;
 use Wikimedia\Rdbms\IResultWrapper;

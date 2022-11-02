@@ -1,5 +1,8 @@
 <?php
 
+use MediaWiki\Extension\Notifications\Formatters\EchoFlyoutFormatter;
+use MediaWiki\Extension\Notifications\Formatters\EchoModelFormatter;
+use MediaWiki\Extension\Notifications\Formatters\SpecialNotificationsFormatter;
 use MediaWiki\Revision\RevisionRecord;
 
 /**
