@@ -3,10 +3,10 @@
 namespace MediaWiki\Extension\Notifications\Formatters;
 
 use EchoEvent;
-use EchoNotificationController;
 use InvalidArgumentException;
 use JsonSerializable;
 use Language;
+use MediaWiki\Extension\Notifications\Controller\NotificationController;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionRecord;
 use Message;
@@ -264,7 +264,7 @@ abstract class EchoEventPresentationModel implements JsonSerializable, MessageLo
 	 */
 	final protected function getNotificationCountForOutput( $includeCurrent = true, $groupCallback = null ) {
 		$count = $this->getBundleCount( $includeCurrent, $groupCallback );
-		return EchoNotificationController::getCappedNotificationCount( $count );
+		return NotificationController::getCappedNotificationCount( $count );
 	}
 
 	/**

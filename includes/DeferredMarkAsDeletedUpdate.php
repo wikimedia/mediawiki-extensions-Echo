@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Extension\Notifications\Controller\ModerationController;
 use MediaWiki\Logger\LoggerFactory;
 
 /**
@@ -68,7 +69,7 @@ class EchoDeferredMarkAsDeletedUpdate implements DeferrableUpdate {
 			$events
 		);
 
-		EchoModerationController::moderate( $eventIds, true );
+		ModerationController::moderate( $eventIds, true );
 		$this->events = [];
 	}
 }

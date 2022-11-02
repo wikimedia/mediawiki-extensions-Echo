@@ -1,11 +1,19 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Controller;
+
+use DeferredUpdates;
+use EchoEventMapper;
+use EchoNotificationMapper;
 use MediaWiki\MediaWikiServices;
+use MWEchoNotifUser;
+use MWException;
+use User;
 
 /**
  * This class represents the controller for moderating notifications
  */
-class EchoModerationController {
+class ModerationController {
 
 	/**
 	 * Moderate or unmoderate events

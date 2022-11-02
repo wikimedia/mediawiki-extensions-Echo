@@ -4,7 +4,7 @@ namespace MediaWiki\Extension\Notifications\Api;
 
 use ApiBase;
 use EchoAttributeManager;
-use EchoNotificationController;
+use MediaWiki\Extension\Notifications\Controller\NotificationController;
 use MWEchoDbFactory;
 use MWEchoNotifUser;
 use WikiMap;
@@ -67,13 +67,13 @@ class ApiEchoMarkRead extends ApiBase {
 		foreach ( EchoAttributeManager::$sections as $section ) {
 			$rawSectionCount = $notifUser->getNotificationCount( $section );
 			$result[$section]['rawcount'] = $rawSectionCount;
-			$result[$section]['count'] = EchoNotificationController::formatNotificationCount( $rawSectionCount );
+			$result[$section]['count'] = NotificationController::formatNotificationCount( $rawSectionCount );
 			$rawCount += $rawSectionCount;
 		}
 
 		$result += [
 			'rawcount' => $rawCount,
-			'count' => EchoNotificationController::formatNotificationCount( $rawCount ),
+			'count' => NotificationController::formatNotificationCount( $rawCount ),
 		];
 
 		$this->getResult()->addValue( 'query', $this->getModuleName(), $result );

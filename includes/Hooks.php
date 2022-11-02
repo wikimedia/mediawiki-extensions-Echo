@@ -13,9 +13,7 @@ use EchoEmailFormat;
 use EchoEmailFrequency;
 use EchoEvent;
 use EchoEventMapper;
-use EchoModerationController;
 use EchoNotification;
-use EchoNotificationController;
 use EchoNotificationMapper;
 use EchoSeenTime;
 use EchoServices;
@@ -29,6 +27,8 @@ use MailAddress;
 use MediaWiki\Api\Hook\ApiMain__moduleManagerHook;
 use MediaWiki\Auth\Hook\LocalUserCreatedHook;
 use MediaWiki\DAO\WikiAwareEntity;
+use MediaWiki\Extension\Notifications\Controller\ModerationController;
+use MediaWiki\Extension\Notifications\Controller\NotificationController;
 use MediaWiki\Extension\Notifications\Formatters\EchoEventPresentationModel;
 use MediaWiki\Extension\Notifications\Push\Api\ApiEchoPushSubscriptions;
 use MediaWiki\Hook\AbortTalkPageEmailNotificationHook;
@@ -1084,8 +1084,8 @@ class Hooks implements
 			'notice' => $seenMsgTime,
 		] );
 
-		$msgFormattedCount = EchoNotificationController::formatNotificationCount( $msgCount );
-		$alertFormattedCount = EchoNotificationController::formatNotificationCount( $alertCount );
+		$msgFormattedCount = NotificationController::formatNotificationCount( $msgCount );
+		$alertFormattedCount = NotificationController::formatNotificationCount( $alertCount );
 
 		$url = SpecialPage::getTitleFor( 'Notifications' )->getLocalURL();
 
@@ -1637,7 +1637,7 @@ class Hooks implements
 		DeferredUpdates::addCallableUpdate( static function () use ( $articleId ) {
 			$eventMapper = new EchoEventMapper();
 			$eventIds = $eventMapper->fetchIdsByPage( $articleId );
-			EchoModerationController::moderate( $eventIds, true );
+			ModerationController::moderate( $eventIds, true );
 		} );
 	}
 
@@ -1653,7 +1653,7 @@ class Hooks implements
 			DeferredUpdates::addCallableUpdate( static function () use ( $oldPageId ) {
 				$eventMapper = new EchoEventMapper();
 				$eventIds = $eventMapper->fetchIdsByPage( $oldPageId );
-				EchoModerationController::moderate( $eventIds, false );
+				ModerationController::moderate( $eventIds, false );
 			} );
 		}
 	}

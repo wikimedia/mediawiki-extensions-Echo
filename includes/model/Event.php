@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Extension\Notifications\Controller\NotificationController;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionRecord;
@@ -187,7 +188,7 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 
 		global $wgEchoUseJobQueue;
 
-		EchoNotificationController::notify( $obj, $wgEchoUseJobQueue );
+		NotificationController::notify( $obj, $wgEchoUseJobQueue );
 
 		$stats = MediaWikiServices::getInstance()->getStatsdDataFactory();
 		$type = $info['type'];
