@@ -27,7 +27,8 @@
 			"زكريا",
 			"علاء",
 			"محمد أحمد عبد الفتاح",
-			"مشعل الحربي"
+			"مشعل الحربي",
+			"FShbib"
 		]
 	},
 	"echo-desc": "نظام لإخطار المستخدمين عن الأحداث والرسائل",
@@ -210,7 +211,7 @@
 	"notification-inbox-filter-read": "المقروءة",
 	"notification-inbox-filter-unread": "غير المقروءة",
 	"notification-inbox-filter-all": "الكل",
-	"echo-specialmute-label-mute-notifications": "تجاهل الإشعارات من هذا المستخدم",
+	"echo-specialmute-label-mute-notifications": "تجاهل الإشعارات من {{GENDER:$1|هذا المستخدم|هذه المستخدمة}}",
 	"echo-email-plain-footer": "للتحكم في ما هي رسائل البريد الإلكتروني التي نرسلها {{GENDER:$1|إليك}}، تحقق من {{GENDER:$1|تفضيلاتك}}:",
 	"echo-email-html-footer-preference-link-text": "تحقق من {{GENDER:$1|تفضيلاتك}}",
 	"echo-email-html-footer-with-link": "للتحكم في ما هي رسائل البريد الإلكتروني التي نرسلها {{GENDER:$2|إليك}}، $1.",

@@ -128,7 +128,7 @@
 	"notification-compact-header-page-linked": "Coligada de <strong>$1</strong>.",
 	"notification-bundle-header-page-linked": "A in stad cread i conligament de {{PLURAL:$5||$5 pagine|100=pussee de 99 pagine}} a <strong>$3</strong>.",
 	"notification-header-article-reminder": "Una pagina che {{GENDER:$2|}} t'hee domandad che la te vegna ricordada a l'è in <strong>$3</strong>",
-	"notification-link-text-what-links-here": "Tucc i conligament a quella pagina chì",
+	"notification-link-text-what-links-here": "Tucc i conligament a questa pagina chì",
 	"notification-header-mention-other": "{{GENDER:$2|El $1 el|La $1 la|$1 el/la}} t'ha {{GENDER:$3|menzionad|menzionada|menzionad/da}} in su <strong>$4</strong> in \"<strong>$5</strong>\".",
 	"notification-header-mention-other-nosection": "{{GENDER:$2|El $1 el|La $1 la|$1 el/la}} t'ha {{GENDER:$3|menzionad|menzionada|menzionad/da}} in su <strong>$4</strong>",
 	"notification-header-mention-user-talkpage-v2": "{{GENDER:$2|El $1 el|La $1 la|$1 el/la}} t'ha {{GENDER:$3|menzionad|menzionada|menzionad/da}} in la <strong>pagina de discussion de l'utenza {{GENDER:$5|del|de la}} $4</strong> in \"<strong>$6</strong>\".",

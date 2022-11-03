@@ -173,7 +173,7 @@
 	"notification-header-watchlist-multiuser-restored": "<strong>$1</strong>, stran na {{GENDER:$2|vašem}} spisku nadzorov, je bila obnovljena $3-{{PLURAL:$3|krat}}.",
 	"notification-body-watchlist-once": "V primeru nadaljnje dejavnosti ne bo drugih e-poštnih obvestil, razen če {{GENDER:$1|boste to stran obiskali}}, medtem ko ste prijavljeni.",
 	"notification-welcome-linktext": "{{GENDER: Pozdravljen|Pozdravljena|Pozdravljeni}}",
-	"notification-header-thank-you-1-edit": "Pravkar ste {{GENDER:$2|opravili}} svoje prvo urejanje. Hvala{{GENDER:$2|}} in dobrodošli!",
+	"notification-header-thank-you-1-edit": "Pravkar ste {{GENDER:$2|opravili}} svoje prvo urejanje. Hvala{{GENDER:$2|}} in kar tako naprej!",
 	"notification-header-thank-you-10-edit": "Pravkar si {{GENDER:$2|naredil|naredila}} {{GENDER:$2|svoje}} deseto urejanje. Hvala {{GENDER:$2|ti}} in le tako naprej!",
 	"notification-header-thank-you-100-edit": "Pravkar si {{GENDER:$2|naredil|naredila}} {{GENDER:$2|svoje}} stoto urejanje. Hvala ti za {{GENDER:$2|tvoj}} doprinos!",
 	"notification-header-thank-you-1000-edit": "Pravkar si {{GENDER:$2|naredil|naredila}} {{GENDER:$2|svoje}} tisoče urejanje. Hvala ti za {{GENDER:$2|tvojo}} vztrajnost pri tem velikem delu!",
