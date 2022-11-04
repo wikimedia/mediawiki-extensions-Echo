@@ -1,5 +1,11 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Iterator;
+
+use ArrayIterator;
+use Iterator;
+use RecursiveIterator;
+
 /**
  * Presents a list of iterators as a single stream of results
  * when wrapped with the RecursiveIteratorIterator.
@@ -9,7 +15,7 @@
  * * implements RecursiveIterator
  * * Lots less features(e.g. simple!)
  */
-class EchoMultipleIterator implements RecursiveIterator {
+class MultipleIterator implements RecursiveIterator {
 	/** @var Iterator[] */
 	protected $active = [];
 	/** @var array */
@@ -66,7 +72,7 @@ class EchoMultipleIterator implements RecursiveIterator {
 
 	public function getChildren(): ?RecursiveIterator {
 		// The NotRecursiveIterator is used rather than a RecursiveArrayIterator
-		// so that nested arrays dont get recursed.
-		return new EchoNotRecursiveIterator( new ArrayIterator( $this->current() ) );
+		// so that nested arrays don't get recursed.
+		return new NotRecursiveIterator( new ArrayIterator( $this->current() ) );
 	}
 }

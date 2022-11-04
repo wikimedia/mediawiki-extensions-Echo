@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Extension\Notifications\Iterator\CallbackIterator;
 use MediaWiki\MediaWikiServices;
 
 class EchoUserLocator {
@@ -35,7 +36,7 @@ class EchoUserLocator {
 		$recursiveIt = new RecursiveIteratorIterator( $batchRowIt );
 
 		// add callback to convert user id to user objects
-		$echoCallbackIt = new EchoCallbackIterator( $recursiveIt, static function ( $row ) {
+		$echoCallbackIt = new CallbackIterator( $recursiveIt, static function ( $row ) {
 			return User::newFromId( $row->wl_user );
 		} );
 
