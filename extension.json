@@ -48,7 +48,7 @@
 	],
 	"JobClasses": {
 		"EchoNotificationJob": "MediaWiki\\Extension\\Notifications\\Jobs\\NotificationJob",
-		"EchoNotificationDeleteJob": "MediaWiki\\Extension\\Notifications\\Jobs\\EchoNotificationDeleteJob",
+		"EchoNotificationDeleteJob": "MediaWiki\\Extension\\Notifications\\Jobs\\NotificationDeleteJob",
 		"EchoPushNotificationRequest": "MediaWiki\\Extension\\Notifications\\Push\\NotificationRequestJob"
 	},
 	"SpecialPages": {
