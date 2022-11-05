@@ -44,7 +44,7 @@
 		this.populateDataFromModel();
 		this.$element
 			.addClass( 'mw-echo-ui-pageFilterWidget' )
-			.attr( 'aria-label', mw.message( 'echo-specialpage-pagefilterwidget-aria-label' ).text() );
+			.attr( 'aria-label', mw.msg( 'echo-specialpage-pagefilterwidget-aria-label' ) );
 	};
 
 	/* Initialization */
