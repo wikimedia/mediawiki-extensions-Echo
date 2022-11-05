@@ -27,7 +27,7 @@ class NotificationDeleteJob extends Job {
 	 * @param array $params
 	 */
 	public function __construct( Title $title, array $params ) {
-		parent::__construct( __CLASS__, $title, $params );
+		parent::__construct( 'EchoNotificationDeleteJob', $title, $params );
 	}
 
 	/**
