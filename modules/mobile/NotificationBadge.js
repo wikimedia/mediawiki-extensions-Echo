@@ -72,9 +72,9 @@ NotificationBadge.prototype.setCount = function ( count ) {
 		count = 100;
 	}
 	this.options.notificationCountRaw = count;
-	this.options.notificationCountString = mw.message( 'echo-badge-count',
+	this.options.notificationCountString = mw.msg( 'echo-badge-count',
 		mw.language.convertNumber( count )
-	).text();
+	);
 	this.render();
 };
 
