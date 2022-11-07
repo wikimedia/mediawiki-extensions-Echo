@@ -1,7 +1,14 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Special;
+
+use EchoAttributeManager;
+use Html;
 use MediaWiki\Extension\Notifications\Hooks as EchoHooks;
 use MediaWiki\User\UserOptionsManager;
+use OOUIHTMLForm;
+use UnlistedSpecialPage;
+use User;
 
 class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 	/**

@@ -1,6 +1,14 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Special;
+
+use EchoDataOutputFormatter;
+use EchoSeenTime;
+use Html;
 use MediaWiki\Extension\Notifications\OOUI\LabelIconWidget;
+use MWEchoEventLogging;
+use OOUI;
+use SpecialPage;
 
 class SpecialNotifications extends SpecialPage {
 

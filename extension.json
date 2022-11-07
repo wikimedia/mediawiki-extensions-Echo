@@ -52,15 +52,15 @@
 		"EchoPushNotificationRequest": "MediaWiki\\Extension\\Notifications\\Push\\NotificationRequestJob"
 	},
 	"SpecialPages": {
-		"Notifications": "SpecialNotifications",
+		"Notifications": "MediaWiki\\Extension\\Notifications\\Special\\SpecialNotifications",
 		"DisplayNotificationsConfiguration": {
-			"class": "SpecialDisplayNotificationsConfiguration",
+			"class": "MediaWiki\\Extension\\Notifications\\Special\\SpecialDisplayNotificationsConfiguration",
 			"services": [
 				"EchoAttributeManager",
 				"UserOptionsManager"
 			]
 		},
-		"NotificationsMarkRead": "SpecialNotificationsMarkRead"
+		"NotificationsMarkRead": "MediaWiki\\Extension\\Notifications\\Special\\SpecialNotificationsMarkRead"
 	},
 	"AvailableRights": [
 		"manage-all-push-subscriptions"
@@ -1117,15 +1117,11 @@
 		"MWEchoEmailBatch": "includes/EmailBatch.php",
 		"MWEchoEventLogging": "includes/EventLogging.php",
 		"MWEchoNotifUser": "includes/NotifUser.php",
-		"NotificationPager": "includes/special/NotificationPager.php",
 		"ProcessEchoEmailBatch": "maintenance/processEchoEmailBatch.php",
 		"RecomputeNotifCounts": "maintenance/recomputeNotifCounts.php",
 		"RemoveInvalidNotification": "maintenance/removeInvalidNotification.php",
 		"RemoveOrphanedEvents": "maintenance/removeOrphanedEvents.php",
 		"ResourceLoaderEchoImageModule": "includes/ResourceLoaderEchoImageModule.php",
-		"SpecialDisplayNotificationsConfiguration": "includes/special/SpecialDisplayNotificationsConfiguration.php",
-		"SpecialNotifications": "includes/special/SpecialNotifications.php",
-		"SpecialNotificationsMarkRead": "includes/special/SpecialNotificationsMarkRead.php",
 		"UpdateEchoSchemaForSuppression": "maintenance/updateEchoSchemaForSuppression.php",
 		"EchoUpdatePerUserBlacklist": "maintenance/updatePerUserBlacklist.php",
 		"EchoPush\\PushNotifier": "includes/Push/PushNotifier.php",
