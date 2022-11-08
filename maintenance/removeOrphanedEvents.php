@@ -42,7 +42,7 @@ class RemoveOrphanedEvents extends LoggedUpdateMaintenance {
 		$targetsProcessedTotal = 0;
 		while ( $startId < $maxId ) {
 			$startId += $this->getBatchSize() * 1000;
-			list( $eventsProcessed, $targetsProcessed ) = $this->doMajorBatch( $startId );
+			[ $eventsProcessed, $targetsProcessed ] = $this->doMajorBatch( $startId );
 			$eventsProcessedTotal += $eventsProcessed;
 			$targetsProcessedTotal += $targetsProcessed;
 		}

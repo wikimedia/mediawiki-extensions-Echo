@@ -191,9 +191,9 @@ class EchoDiffParser {
 					$change = null;
 				}
 				// @@ -start,numLines +start,numLines @@
-				list( , $left, $right ) = explode( ' ', $line, 3 );
-				list( $this->leftPos ) = explode( ',', substr( $left, 1 ), 2 );
-				list( $this->rightPos ) = explode( ',', substr( $right, 1 ), 2 );
+				[ , $left, $right ] = explode( ' ', $line, 3 );
+				[ $this->leftPos ] = explode( ',', substr( $left, 1 ), 2 );
+				[ $this->rightPos ] = explode( ',', substr( $right, 1 ), 2 );
 				$this->leftPos = (int)$this->leftPos;
 				$this->rightPos = (int)$this->rightPos;
 

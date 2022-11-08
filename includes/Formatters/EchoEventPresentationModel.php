@@ -297,7 +297,7 @@ abstract class EchoEventPresentationModel implements JsonSerializable, MessageLo
 	 * the user is visible or not.
 	 * @par Example:
 	 * @code
-	 * list( $formattedName, $genderName ) = $this->getAgentForOutput();
+	 * [ $formattedName, $genderName ] = $this->getAgentForOutput();
 	 * $msg->params( $formattedName, $genderName );
 	 * @endcode
 	 */
@@ -330,7 +330,7 @@ abstract class EchoEventPresentationModel implements JsonSerializable, MessageLo
 	 */
 	final protected function getMessageWithAgent( $key ) {
 		$msg = $this->msg( $key );
-		list( $formattedName, $genderName ) = $this->getAgentForOutput();
+		[ $formattedName, $genderName ] = $this->getAgentForOutput();
 		$msg->params( $formattedName, $genderName );
 		return $msg;
 	}

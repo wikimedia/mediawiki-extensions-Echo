@@ -205,7 +205,7 @@ class EchoForeignNotifications {
 		$data = [];
 		foreach ( $wikis as $wiki ) {
 			$siteFromDB = $wgConf->siteFromDB( $wiki );
-			list( $major, $minor ) = $siteFromDB;
+			[ $major, $minor ] = $siteFromDB;
 			$server = $wgConf->get( 'wgServer', $wiki, $major, [ 'lang' => $minor, 'site' => $major ] );
 			$scriptPath = $wgConf->get( 'wgScriptPath', $wiki, $major, [ 'lang' => $minor, 'site' => $major ] );
 			$articlePath = $wgConf->get( 'wgArticlePath', $wiki, $major, [ 'lang' => $minor, 'site' => $major ] );
@@ -238,7 +238,7 @@ class EchoForeignNotifications {
 			if ( $siteFromDB === null ) {
 				$siteFromDB = $wgConf->siteFromDB( $wikiId );
 			}
-			list( $site, $langCode ) = $siteFromDB;
+			[ $site, $langCode ] = $siteFromDB;
 
 			// try to fetch site name for this specific wiki, or fallback to the
 			// general project's sitename if there is no override

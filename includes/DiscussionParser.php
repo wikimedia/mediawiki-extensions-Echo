@@ -931,7 +931,7 @@ abstract class EchoDiscussionParser {
 			return true;
 		}
 
-		list( , $foundUser ) = $userData;
+		[ , $foundUser ] = $userData;
 		$userNameUtils = MediaWikiServices::getInstance()->getUserNameUtils();
 
 		return $userNameUtils->getCanonical( $foundUser, UserNameUtils::RIGOR_NONE ) ===
@@ -1008,7 +1008,7 @@ abstract class EchoDiscussionParser {
 				continue;
 			}
 
-			list( $signaturePos, $user ) = $userData;
+			[ $signaturePos, $user ] = $userData;
 
 			$signature = substr( $line, $signaturePos );
 			$output[$user] = $signature;
