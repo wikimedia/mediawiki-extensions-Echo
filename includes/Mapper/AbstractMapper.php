@@ -26,10 +26,7 @@ abstract class AbstractMapper {
 	 * @param MWEchoDbFactory|null $dbFactory
 	 */
 	public function __construct( MWEchoDbFactory $dbFactory = null ) {
-		if ( $dbFactory === null ) {
-			$dbFactory = MWEchoDbFactory::newFromDefault();
-		}
-		$this->dbFactory = $dbFactory;
+		$this->dbFactory = $dbFactory ?? MWEchoDbFactory::newFromDefault();
 	}
 
 	/**

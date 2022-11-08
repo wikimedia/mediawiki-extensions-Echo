@@ -175,29 +175,21 @@ class EchoDiffParserTest extends MediaWikiUnitTestCase {
 	}
 
 	protected static function mockAction( $action, $content, $left, $right = null ) {
-		if ( $right === null ) {
-			$right = $left;
-		}
-
 		return [
 			'action' => $action,
 			'content' => $content,
 			'left-pos' => $left,
-			'right-pos' => $right,
+			'right-pos' => $right ?? $left,
 		];
 	}
 
 	public static function mockChange( $oldContent, $newContent, $left, $right = null ) {
-		if ( $right === null ) {
-			$right = $left;
-		}
-
 		return [
 			'action' => 'change',
 			'old_content' => $oldContent,
 			'new_content' => $newContent,
 			'left-pos' => $left,
-			'right-pos' => $right,
+			'right-pos' => $right ?? $left,
 		];
 	}
 }

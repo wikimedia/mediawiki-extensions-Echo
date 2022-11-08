@@ -234,11 +234,8 @@ class EchoForeignNotifications {
 		if ( $msg->exists() ) {
 			return $msg->text();
 		} else {
-			// don't fetch $site, $langCode if known already
-			if ( $siteFromDB === null ) {
-				$siteFromDB = $wgConf->siteFromDB( $wikiId );
-			}
-			[ $site, $langCode ] = $siteFromDB;
+			// Don't fetch [ $site, $langCode ] if known already
+			[ $site, $langCode ] = $siteFromDB ?? $wgConf->siteFromDB( $wikiId );
 
 			// try to fetch site name for this specific wiki, or fallback to the
 			// general project's sitename if there is no override
