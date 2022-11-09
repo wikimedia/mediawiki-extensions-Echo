@@ -71,7 +71,7 @@ class EchoUserLocatorTest extends MediaWikiIntegrationTestCase {
 	 */
 	public function testLocateTalkPageOwner( $message, $expect, Title $title = null ) {
 		if ( $expect instanceof Closure ) {
-			list( $expect, $title ) = $expect();
+			[ $expect, $title ] = $expect();
 		}
 		$event = $this->createMock( EchoEvent::class );
 		$event->method( 'getTitle' )
@@ -103,7 +103,7 @@ class EchoUserLocatorTest extends MediaWikiIntegrationTestCase {
 	 * @dataProvider locateArticleCreatorProvider
 	 */
 	public function testLocateArticleCreator( $message, $initialize ) {
-		list( $expect, $title, $user ) = $initialize();
+		[ $expect, $title, $user ] = $initialize();
 		$this->getServiceContainer()->getWikiPageFactory()->newFromTitle( $title )->doUserEditContent(
 			/* $content = */ ContentHandler::makeContent( 'content', $title ),
 			/* $user = */ $user,

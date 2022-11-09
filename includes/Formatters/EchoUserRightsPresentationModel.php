@@ -17,7 +17,7 @@ class EchoUserRightsPresentationModel extends EchoEventPresentationModel {
 	}
 
 	public function getHeaderMessage() {
-		list( $formattedName, $genderName ) = $this->getAgentForOutput();
+		[ $formattedName, $genderName ] = $this->getAgentForOutput();
 		$add = array_map(
 			[ $this->language, 'embedBidi' ],
 			$this->getLocalizedGroupNames( array_values( $this->event->getExtraParam( 'add', [] ) ) )
