@@ -119,6 +119,7 @@
 	"notification-header-user-rights-add-only": "{{GENDER:$4|Tavas}} lietotāja tiesības tika {{GENDER:$1|mainītas}}. Tu tiki {{GENDER:$4|pievienots|pievienota}} grupai: $2.",
 	"notification-header-user-rights-remove-only": "{{GENDER:$4|Tavas}} lietotāja tiesības tika {{GENDER:$1|mainītas}}. Tu vairs neesi grupā: $2.",
 	"notification-header-user-rights-add-and-remove": "{{GENDER:$4|Tavas}} lietotāja tiesības tika {{GENDER:$1|mainītas}}. Tu tiki {{GENDER:$6|pievienots|pievienota}} grupai: $2. Tu vairs neesi grupā: $4.",
+	"notification-header-welcome": "{{GENDER:$2|Laipni lūdzam}} vietnē \"{{SITENAME}}\", $1! Mēs priecājamies, ka {{GENDER:$2|tu}} esi šeit.",
 	"notification-header-mention-summary": "$1 {{GENDER:$2|pieminēja}} {{GENDER:$3|tevi}} <strong>$4</strong> labojuma kopsavilkumā.",
 	"notification-welcome-linktext": "Laipni lūdzam!",
 	"notification-header-thank-you-1-edit": "Tu nupat veici savu pirmo labojumu; paldies tev un laipni {{GENDER:$2|lūgts|lūgta}}!",
