@@ -69,7 +69,7 @@ class NotificationServiceClient implements LoggerAwareInterface {
 		if ( !$status->isOK() ) {
 			$errors = $status->getErrorsByType( 'error' );
 			$this->logger->warning(
-				Status::wrap( $status )->getMessage( false, false, 'en' )->serialize(),
+				serialize( Status::wrap( $status )->getMessage( false, false, 'en' ) ),
 				[
 					'error' => $errors,
 					'caller' => __METHOD__,
