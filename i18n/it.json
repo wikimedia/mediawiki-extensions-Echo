@@ -20,7 +20,8 @@
 			"Pietrodn",
 			"Raoli",
 			"Sakretsu",
-			"Vituzzu"
+			"Vituzzu",
+			"Pierpao"
 		]
 	},
 	"echo-desc": "Sistema per notificare agli utenti messaggi ed eventi",
@@ -63,7 +64,7 @@
 	"echo-category-title-system": "{{PLURAL:$1|Sistema}}",
 	"echo-category-title-system-noemail": "{{PLURAL:$1|Sistema}}",
 	"echo-category-title-system-emailonly": "{{PLURAL:$1|Sistema}}",
-	"echo-category-title-user-rights": "{{PLURAL:$1|Modifica diritto|Modifiche diritti}} utente",
+	"echo-category-title-user-rights": "{{PLURAL:$1|Modifica|Modifiche}} ai diritti utente",
 	"echo-category-title-emailuser": "{{PLURAL:$1|Email da un altro utente|Email da altri utenti}}",
 	"echo-category-title-thank-you-edit": "{{PLURAL:$1|Traguardo|Traguardi}} modifiche",
 	"echo-pref-tooltip-edit-user-talk": "Avvisami quando qualcuno modifica la mia pagina di discussione utente.",
@@ -72,7 +73,7 @@
 	"echo-pref-tooltip-mention": "Avvisami quando qualcuno collega la mia pagina utente.",
 	"echo-pref-tooltip-mention-failure": "Avvisami quando non ho potuto inviare una menzione a qualcuno.",
 	"echo-pref-tooltip-mention-success": "Avvisami quando invio una menzione a qualcuno.",
-	"echo-pref-tooltip-user-rights": "Avvisami quando qualcuno modifica i miei diritti di utente.",
+	"echo-pref-tooltip-user-rights": "Avvisami quando qualcuno modifica i miei diritti utente.",
 	"echo-pref-tooltip-emailuser": "Avvisami quando qualcuno mi invia una email.",
 	"echo-pref-tooltip-thank-you-edit": "Avvisami quando raggiungo la 1ª, 10ª, 100ª... modifica.",
 	"notifications": "Notifiche",
