@@ -185,7 +185,8 @@ class EchoDiffParser {
 		}
 
 		switch ( $op ) {
-			case '@': // metadata
+			case '@':
+				// metadata
 				if ( $change !== null ) {
 					$this->changeSet = array_merge( $this->changeSet, $change->getChangeSet() );
 					$change = null;
@@ -197,12 +198,13 @@ class EchoDiffParser {
 				$this->leftPos = (int)$this->leftPos;
 				$this->rightPos = (int)$this->rightPos;
 
-				// -1 because diff is 1 indexed and we are 0 indexed
+				// -1 because diff is 1 indexed, and we are 0 indexed
 				$this->leftPos--;
 				$this->rightPos--;
 				break;
 
-			case ' ': // No changes
+			case ' ':
+				// No changes
 				if ( $change !== null ) {
 					$this->changeSet = array_merge( $this->changeSet, $change->getChangeSet() );
 					$change = null;
@@ -211,7 +213,8 @@ class EchoDiffParser {
 				$this->rightPos++;
 				break;
 
-			case '-': // subtract
+			case '-':
+				// subtract
 				if ( $this->left[$this->leftPos] !== $line ) {
 					throw new MWException( 'Positional error: left' );
 				}
@@ -223,7 +226,8 @@ class EchoDiffParser {
 				$this->leftPos++;
 				break;
 
-			case '+': // add
+			case '+':
+				// add
 				if ( $this->right[$this->rightPos] !== $line ) {
 					throw new MWException( 'Positional error: right' );
 				}

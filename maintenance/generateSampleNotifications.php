@@ -303,16 +303,20 @@ class GenerateSampleNotifications extends Maintenance {
 			$undoContent,
 			$undoContent,
 			$previousContent,
-			true // undoIsLatest
+			// undoIsLatest
+			true
 		);
 
 		$status = $page->doUserEditContent(
 			$content,
 			$agent,
 			'undo',
-			0, // $flags
-			false, // $originalRevId
-			[], // $tags
+			// $flags
+			0,
+			// $originalRevId
+			false,
+			// $tags
+			[],
 			$undoRev->getId()
 		);
 

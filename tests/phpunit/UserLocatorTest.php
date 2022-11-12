@@ -137,7 +137,7 @@ class EchoUserLocatorTest extends MediaWikiIntegrationTestCase {
 				// expected result user id's
 				[],
 				// event agent
-				User::newFromName( '4.5.6.7', /* $validate = */ false ),
+				User::newFromName( '4.5.6.7', false ),
 			],
 
 			[
@@ -235,7 +235,7 @@ class EchoUserLocatorTest extends MediaWikiIntegrationTestCase {
 		$event->method( 'getExtra' )
 			->willReturn( $extra );
 		$event->method( 'getExtraParam' )
-			->will( $this->returnValueMap( self::arrayToValueMap( $extra ) ) );
+			->willReturnMap( self::arrayToValueMap( $extra ) );
 
 		$users = EchoUserLocator::locateFromEventExtra( $event, $keys );
 		$this->assertEquals( $expect, array_keys( $users ), $message );

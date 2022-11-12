@@ -125,9 +125,9 @@ class Hooks implements
 		global $wgAllowHTMLEmail, $wgEchoNotificationCategories, $wgEchoEnablePush;
 
 		if ( $wgAllowHTMLEmail ) {
-			$defaults['echo-email-format'] = 'html'; /*EchoHooks::EMAIL_FORMAT_HTML*/
+			$defaults['echo-email-format'] = 'html';
 		} else {
-			$defaults['echo-email-format'] = 'plain-text'; /*EchoHooks::EMAIL_FORMAT_PLAIN_TEXT*/
+			$defaults['echo-email-format'] = 'plain-text';
 		}
 
 		$presets = [
@@ -1101,8 +1101,10 @@ class Hooks implements
 
 		$hasUnseen = false;
 		if (
-			$msgCount != 0 && // no unread notifications
-			$msgNotificationTimestamp !== false && // should already always be false if count === 0
+			// no unread notifications
+			$msgCount !== 0 &&
+			// should already always be false if count === 0
+			$msgNotificationTimestamp !== false &&
 			// there are no unseen notifications
 			( $seenMsgTime === null ||
 				$seenMsgTime < $msgNotificationTimestamp->getTimestamp( TS_ISO_8601 ) )
@@ -1118,8 +1120,10 @@ class Hooks implements
 		}
 
 		if (
-			$alertCount != 0 && // no unread notifications
-			$alertNotificationTimestamp !== false && // should already always be false if count === 0
+			// no unread notifications
+			$alertCount !== 0 &&
+			// should already always be false if count === 0
+			$alertNotificationTimestamp !== false &&
 			// all notifications have already been seen
 			( $seenAlertTime === null ||
 				$seenAlertTime < $alertNotificationTimestamp->getTimestamp( TS_ISO_8601 ) )
@@ -1334,8 +1338,10 @@ class Hooks implements
 
 		if (
 			$revertedUser &&
-			$revertedUser->getId() && // No notifications for anonymous users
-			!$oldRevision->hasSameContent( $newRevision ) // No notifications for null rollbacks
+			// No notifications for anonymous users
+			$revertedUser->isRegistered() &&
+			// No notifications for null rollbacks
+			!$oldRevision->hasSameContent( $newRevision )
 		) {
 			Event::create( [
 				'type' => 'reverted',

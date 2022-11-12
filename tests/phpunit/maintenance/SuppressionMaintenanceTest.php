@@ -27,13 +27,15 @@ class SuppressionMaintenanceTest extends MediaWikiIntegrationTestCase {
 
 			[
 				'Page title and namespace for non-existant page must move into event_extra',
-				[ // expected update
+				[
+					// expected update
 					'event_extra' => serialize( [
 						'page_title' => 'Yabba Dabba Do',
 						'page_namespace' => NS_MAIN
 					] ),
 				],
-				[ // input row
+				[
+					// input row
 					'event_page_title' => 'Yabba Dabba Do',
 					'event_page_namespace' => NS_MAIN,
 				] + $input,
@@ -41,10 +43,12 @@ class SuppressionMaintenanceTest extends MediaWikiIntegrationTestCase {
 
 			[
 				'Page title and namespace for existing page must be result in update to event_page_id',
-				[ // expected update
+				[
+					// expected update
 					'event_page_id' => 42,
 				],
-				[ // input row
+				[
+					// input row
 					'event_page_title' => 'Mount Rushmore',
 					'event_page_namespace' => NS_MAIN,
 				] + $input,
@@ -52,15 +56,17 @@ class SuppressionMaintenanceTest extends MediaWikiIntegrationTestCase {
 			],
 
 			[
-				'When updating non-existant page must keep old extra data',
-				[ // expected update
+				'When updating non-existent page must keep old extra data',
+				[
+					// expected update
 					'event_extra' => serialize( [
 						'foo' => 'bar',
 						'page_title' => 'Yabba Dabba Do',
 						'page_namespace' => NS_MAIN
 					] ),
 				],
-				[ // input row
+				[
+					// input row
 					'event_page_title' => 'Yabba Dabba Do',
 					'event_page_namespace' => NS_MAIN,
 					'event_extra' => serialize( [ 'foo' => 'bar' ] ),
@@ -69,10 +75,12 @@ class SuppressionMaintenanceTest extends MediaWikiIntegrationTestCase {
 
 			[
 				'Must update link-from-title/namespace to link-from-page-id for page-linked events',
-				[ // expected update
+				[
+					// expected update
 					'event_extra' => serialize( [ 'link-from-page-id' => 99 ] ),
 				],
-				[ // input row
+				[
+					// input row
 					'event_type' => 'page-linked',
 					'event_extra' => serialize( [
 						'link-from-title' => 'Horse',
@@ -84,11 +92,13 @@ class SuppressionMaintenanceTest extends MediaWikiIntegrationTestCase {
 
 			[
 				'Must perform both generic update and page-linked update at same time',
-				[ // expected update
+				[
+					// expected update
 					'event_extra' => serialize( [ 'link-from-page-id' => 8675309 ] ),
 					'event_page_id' => 8675309,
 				],
-				[ // input row
+				[
+					// input row
 					'event_type' => 'page-linked',
 					'event_extra' => serialize( [
 						'link-from-title' => 'Jenny',
@@ -110,7 +120,7 @@ class SuppressionMaintenanceTest extends MediaWikiIntegrationTestCase {
 			$title = $test->createMock( Title::class );
 			$title->expects( $test->any() )
 				->method( 'getArticleId' )
-				->will( $test->returnValue( $id ) );
+				->willReturn( $id );
 
 			$titles = [ $providedNamespace => [ $providedText => $title ] ];
 

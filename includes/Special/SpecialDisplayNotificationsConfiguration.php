@@ -76,10 +76,10 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 	}
 
 	public function execute( $subPage ) {
-		global $wgEchoNotifiers, $wgEchoNotifications;
-
 		$this->setHeaders();
 		$this->checkPermissions();
+
+		$config = $this->getConfig();
 
 		$internalCategoryNames = $this->attributeManager->getInternalCategoryNames();
 		$this->categoryNames = [];
@@ -106,13 +106,13 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 		$this->flippedCategoryNames = array_flip( $this->categoryNames );
 
 		$this->notifyTypes = [];
-		foreach ( $wgEchoNotifiers as $notifyType => $notifier ) {
+		foreach ( $config->get( 'EchoNotifiers' ) as $notifyType => $notifier ) {
 			$this->notifyTypes[$notifyType] = $this->msg( 'echo-pref-' . $notifyType )->escaped();
 		}
 
 		$this->flippedNotifyTypes = array_flip( $this->notifyTypes );
 
-		$notificationTypes = array_keys( $wgEchoNotifications );
+		$notificationTypes = array_keys( $config->get( 'EchoNotifications' ) );
 		$this->notificationTypeNames = array_combine(
 			array_map( 'htmlspecialchars', $notificationTypes ),
 			$notificationTypes

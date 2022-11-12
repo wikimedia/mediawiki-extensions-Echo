@@ -302,7 +302,8 @@ class ApiEchoNotifications extends ApiQueryBase {
 			}
 		} elseif ( in_array( 'read', $filter ) ) {
 			$notifs = $notifMapper->fetchReadByUser( $user, $limit + 1, $continue, $eventTypes, $titles );
-		} else { // = if ( in_array( '!read', $filter ) ) {
+		} else {
+			// = if ( in_array( '!read', $filter ) ) {
 			$notifs = $notifMapper->fetchUnreadByUser( $user, $limit + 1, $continue, $eventTypes, $titles );
 		}
 
@@ -592,8 +593,10 @@ class ApiEchoNotifications extends ApiQueryBase {
 				ParamValidator::PARAM_TYPE => [
 					'model',
 					'special',
-					'flyout', /* @deprecated */
-					'html', /* @deprecated */
+					// @deprecated
+					'flyout',
+					// @deprecated
+					'html',
 				],
 				ApiBase::PARAM_HELP_MSG_PER_VALUE => [],
 			],
